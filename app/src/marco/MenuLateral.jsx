@@ -207,11 +207,11 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   return (
     <aside className={`menu${plegado ? ' menu--plegado' : ''}`} aria-label="Menú principal">
       <div className="menu__cabecera">
-        <a href={enlace.tablero()} className="menu__marca" aria-label="anuncios-IA by Kalethabh, ir a Mis anuncios">
+        <a href={enlace.tablero()} className="menu__marca" aria-label="Kads Studio by Kalethabh, ir a Mis anuncios">
           <Logo tamano={30} />
           <span className="menu__marca-textos">
             <span className="menu__nombre">
-              anuncios<span className="menu__nombre-ia">-IA</span>
+              Kads<span className="menu__nombre-ia"> Studio</span>
             </span>
             <span className="menu__lema">
               by <strong>Kalethabh</strong>

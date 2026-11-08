@@ -34,7 +34,7 @@ criterio. Escribe una regla por viñeta, en español sencillo. También se edita
 - Cuando hablan varios personajes, cada uno con una voz distinta.
 `;
 
-const EMPIEZA = `# Empieza aquí · anuncios-IA
+const EMPIEZA = `# Empieza aquí · Kads Studio by Kalethabh
 
 De tu producto a un anuncio listo para Meta y TikTok, en tu propio computador (Mac o Windows).
 
