@@ -5,7 +5,7 @@
 // En los anuncios de la app, el informe sale de su informe.json (ver normalizarInforme en ./Informe.jsx) y,
 // si se hizo en modo prueba, arriba va la banda "Modo prueba: no se gasta nada".
 import { useMemo, useRef, useState } from 'react';
-import { ArrowRight, Clapperboard, Download, FileText, FolderOpen, Images, LayoutGrid, Scissors, SearchX } from 'lucide-react';
+import { ArrowRight, Clapperboard, Download, FileText, FolderOpen, Images, LayoutGrid, Scissors, SearchX, Users } from 'lucide-react';
 import {
   Boton,
   CabeceraPagina,
@@ -216,6 +216,11 @@ export default function Entrega({ params }) {
               cargando={abriendo === 'piezas'}
             >
               Carpeta de las imágenes y los clips
+            </Boton>
+          ) : null}
+          {version ? (
+            <Boton variante="fantasma" tamano="chico" icono={Users} className="ent__piezas" href={enlace.biblioteca({ desde: a.slug, ...(a.estilo ? { estilo: a.estilo } : {}) })}>
+              Guardar sus personajes como avatar
             </Boton>
           ) : null}
           <EnLaNube slug={a.slug} alTraer={recargar} />

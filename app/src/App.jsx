@@ -23,6 +23,7 @@ const Produccion = lazy(() => import('./pantallas/produccion/index.jsx'));
 const Editor = lazy(() => import('./pantallas/editor/index.jsx'));
 const Estilos = lazy(() => import('./pantallas/estilos/index.jsx'));
 const Ajustes = lazy(() => import('./pantallas/ajustes/index.jsx'));
+const Biblioteca = lazy(() => import('./pantallas/biblioteca/index.jsx'));
 const Componentes = lazy(() => import('./pantallas/componentes/index.jsx'));
 // La bienvenida de 3 pasos: se abre sola la primera vez (hasta que se cierra o se termina).
 const BienvenidaPrimeraVez = lazy(() => import('./pantallas/ajustes/Bienvenida.jsx'));
@@ -54,6 +55,7 @@ export const RUTAS = [
   },
   { patron: '/anuncio/:slug/editor', Pantalla: Editor, menu: 'tablero', titulo: 'Editor', completa: true },
   { patron: '/estilos', Pantalla: Estilos, menu: 'estilos', titulo: 'Estilos', migas: () => [{ texto: 'Estilos' }] },
+  { patron: '/biblioteca', Pantalla: Biblioteca, menu: 'biblioteca', titulo: 'Biblioteca', migas: () => [{ texto: 'Biblioteca' }] },
   { patron: '/ajustes', Pantalla: Ajustes, menu: 'ajustes', titulo: 'Ajustes', migas: () => [{ texto: 'Ajustes' }] },
   { patron: '/componentes', Pantalla: Componentes, menu: null, titulo: 'Guía de diseño', migas: () => [{ texto: 'Guía de diseño' }] },
 ];

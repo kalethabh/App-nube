@@ -1,0 +1,276 @@
+/* Biblioteca (#/biblioteca): avatares y música para reutilizar. */
+
+.bib-nota {
+  font-size: var(--t-chico);
+  color: var(--texto-3);
+  line-height: 1.45;
+}
+
+.bib-sync {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  flex-wrap: wrap;
+  font-size: var(--t-chico);
+  color: var(--texto-2);
+}
+.bib-sync__ok {
+  color: var(--ok);
+}
+.bib-sync__aviso {
+  color: var(--aviso);
+}
+.bib-sync__texto {
+  max-width: 520px;
+}
+.bib-sync__enlace {
+  color: var(--acento);
+}
+
+.bib-barra {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--e-4);
+  flex-wrap: wrap;
+}
+.bib-filtro {
+  min-width: 220px;
+}
+
+.bib-rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--e-5);
+}
+.bib-avatar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+.bib-avatar__caras {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--e-2);
+}
+.bib-avatar__cara {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  min-width: 0;
+}
+.bib-avatar__cara img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--r-m);
+  background: var(--superficie-2);
+}
+.bib-avatar__cara figcaption {
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bib-avatar__pie {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--e-2);
+}
+.bib-avatar__pie > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--e-1);
+  min-width: 0;
+}
+.bib-avatar__nombre {
+  font-size: var(--t-ui);
+  overflow-wrap: anywhere;
+}
+.bib-avatar__acciones {
+  display: flex;
+  gap: var(--e-1);
+  flex-shrink: 0;
+}
+
+.bib-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+.bib-pista {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  flex-wrap: wrap;
+}
+.bib-pista__textos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.bib-audio {
+  height: 36px;
+  max-width: 100%;
+  flex: 0 1 320px;
+}
+
+/* ---- el modal de nuevo avatar */
+.bib-modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-5);
+}
+.bib-modal__fila {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--e-4);
+}
+.bib-persona {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--e-4);
+  padding: var(--e-4);
+  border: 1px solid var(--borde-1);
+  border-radius: var(--r-l);
+  background: var(--superficie-1);
+}
+.bib-persona__imagen {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--r-m);
+  background: var(--superficie-2);
+  display: grid;
+  place-items: center;
+  color: var(--texto-3);
+  overflow: hidden;
+}
+.bib-persona__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bib-persona__datos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  min-width: 0;
+}
+.bib-persona__cabecera {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.bib-persona__acciones {
+  display: flex;
+  gap: var(--e-2);
+  flex-wrap: wrap;
+}
+@media (max-width: 560px) {
+  .bib-persona {
+    grid-template-columns: 1fr;
+  }
+  .bib-persona__imagen {
+    max-width: 160px;
+  }
+}
+
+.bib-ref {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  padding: var(--e-4);
+  border: 1px dashed var(--borde-2);
+  border-radius: var(--r-l);
+}
+.bib-ref__titulo {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  flex-wrap: wrap;
+  color: var(--texto-1);
+}
+.bib-ref__titulo svg {
+  color: var(--acento);
+}
+.bib-ref__tira {
+  display: flex;
+  gap: var(--e-3);
+  overflow-x: auto;
+  padding-bottom: var(--e-1);
+}
+.bib-ref__item {
+  flex: 0 0 96px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--r-m);
+  background: none;
+  color: var(--texto-2);
+  font: inherit;
+  font-size: var(--t-mini);
+  text-align: left;
+  cursor: pointer;
+}
+.bib-ref__item--fijo {
+  flex-basis: 120px;
+  cursor: default;
+}
+.bib-ref__item img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--r-m);
+  background: var(--superficie-2);
+}
+.bib-ref__item--activo img {
+  outline: 2px solid var(--acento);
+  outline-offset: 1px;
+}
+.bib-ref__usar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.bib-ref__detalle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+.bib-ref__como {
+  margin: 0;
+  padding-left: var(--e-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  font-size: var(--t-chico);
+  color: var(--texto-2);
+}
+.bib-ref__prompt pre {
+  margin: var(--e-1) 0 0;
+  padding: var(--e-3);
+  max-height: 140px;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-family: var(--fuente-mono);
+  font-size: var(--t-mini);
+  color: var(--texto-2);
+  background: var(--superficie-2);
+  border-radius: var(--r-m);
+}
+
+.bib-error {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  color: var(--error);
+  font-size: var(--t-chico);
+}

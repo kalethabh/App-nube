@@ -265,7 +265,7 @@ export function pedirSincronizacion(enMs = 15000) {
   temporizador.unref?.();
 }
 
-export const estadoBiblioteca = () => estado;
+export const estadoBiblioteca = () => (sinGit() ? { estado: 'sin-git', repo: null, ultima: null, error: null } : estado);
 
 /** Arranca el ciclo: al abrir la app y cada 10 minutos (no en las apps de prueba). */
 export function iniciarBiblioteca() {
@@ -562,10 +562,10 @@ export function prepararAvatar(slug, sel) {
     '',
     `- En el manifiesto, cada una va en "referencias" como referencia aportada: con su "id" (el rol de arriba, o el id que pida la skill) y su "archivo" (la ruta de arriba dentro de la carpeta del anuncio, por ejemplo \`"archivo": "${personas[0].archivo}"\`), sin "prompt": así no se genera ni se cobra. Si la skill genera primero la imagen base del personaje (la hoja, la persona sola, o el host B a partir del A), esa referencia aportada la reemplaza.`,
     '- Pásala en "referencias" de cada toma o B-roll donde aparece, y en cada prompt descríbela tal como se ve en su imagen: misma cara, pelo, edad, cuerpo y estilo de ropa en todo el anuncio. La ropa, el lugar y la luz de cada toma sí cambian según el guion.',
-    a.personas.length && (ROLES_AVATAR[a.estilo]?.extras || 0) > 0 ? '- Si el guion necesita otros personajes además de estos, créalos tú como siempre.' : '',
+    (ROLES_AVATAR[a.estilo]?.extras || 0) > 0 ? '- Si el guion necesita otros personajes además de estos, créalos tú como siempre.' : null,
     `- Cuéntalo en "decisiones" ("las personas son las del avatar «${a.nombre}»: su imagen no se paga").`,
   ]
-    .filter((l) => l !== '')
+    .filter((l) => l !== null)
     .join('\n');
 }
 

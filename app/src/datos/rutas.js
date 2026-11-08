@@ -65,6 +65,7 @@ export const rutas = {
   produccion: (slug) => `/anuncio/${s(slug)}/produccion`,
   editor: (slug) => `/anuncio/${s(slug)}/editor`,
   estilos: (consulta) => `/estilos${consulta ? `?${new URLSearchParams(consulta)}` : ''}`,
+  biblioteca: (consulta) => `/biblioteca${consulta ? `?${new URLSearchParams(consulta)}` : ''}`,
   ajustes: () => '/ajustes',
   componentes: () => '/componentes',
 };

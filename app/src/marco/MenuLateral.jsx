@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, LayoutGrid, Palette, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
+import { CirclePause, LayoutGrid, Library, Palette, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -15,6 +15,7 @@ const ITEMS = [
   { id: 'tablero', texto: 'Mis anuncios', icono: LayoutGrid, href: enlace.tablero() },
   { id: 'nuevo', texto: 'Nuevo anuncio', icono: Plus, href: enlace.nuevo(), especial: true },
   { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
+  { id: 'biblioteca', texto: 'Biblioteca', icono: Library, href: enlace.biblioteca() },
   { id: 'ajustes', texto: 'Ajustes', icono: Settings, href: enlace.ajustes() },
 ];
 
