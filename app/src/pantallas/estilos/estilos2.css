@@ -1,0 +1,132 @@
+/* Estilos (#/estilos): cuadrícula limpia, filtros y el detalle en una ventana. */
+.es2-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  margin-top: calc(-1 * var(--e-4));
+}
+.es2-rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--e-5);
+}
+.es2-tarjeta {
+  animation: subir var(--dur-escena) var(--curva-salida) backwards;
+}
+.es2-insignia {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-s);
+  background: var(--vidrio-oscuro);
+  backdrop-filter: blur(8px);
+  color: var(--acento);
+}
+.es2-vacio {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  color: var(--texto-3);
+}
+
+/* ---- el detalle */
+.es2-detalle {
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) 1fr;
+  gap: var(--e-8);
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .es2-detalle {
+    grid-template-columns: 1fr;
+  }
+}
+.es2-detalle__video {
+  aspect-ratio: 9 / 16;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: var(--superficie-2);
+  box-shadow: var(--sombra-3), 0 0 60px -24px rgba(var(--acento-rgb), 0.5);
+  animation: subir var(--dur-lento) var(--curva-salida) backwards;
+}
+.es2-detalle__video video,
+.es2-detalle__video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.es2-detalle__texto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-5);
+  animation: subir var(--dur-lento) var(--curva-salida) 60ms backwards;
+}
+.es2-detalle__descripcion {
+  margin: 0;
+  font-size: var(--t-destacado);
+  line-height: 1.5;
+  color: var(--texto-1);
+}
+.es2-datos {
+  margin: 0;
+  display: grid;
+  gap: var(--e-3);
+}
+.es2-dato {
+  padding: var(--e-3) var(--e-4);
+  border-radius: var(--r-l);
+  background: var(--superficie-2);
+  border: 1px solid var(--borde-1);
+}
+.es2-dato dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  color: var(--acento);
+}
+.es2-dato dd {
+  margin: 4px 0 0;
+  font-size: var(--t-ui);
+  color: var(--texto-1);
+}
+.es2-subs__titulo {
+  display: block;
+  margin-bottom: var(--e-2);
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  color: var(--texto-3);
+}
+.es2-subs__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+}
+.es2-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px 4px 4px;
+  border-radius: var(--r-pill);
+  background: var(--superficie-3);
+  font-size: var(--t-chico);
+  color: var(--texto-2);
+}
+.es2-sub img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.es2-nota {
+  margin: 0;
+  font-size: var(--t-chico);
+  color: var(--texto-3);
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, LayoutGrid, Library, Palette, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
+import { CirclePause, Clapperboard, GraduationCap, LayoutGrid, Library, Palette, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -30,7 +30,13 @@ const GRUPOS = [
       { id: 'saldo', texto: 'Saldo y costos', icono: Wallet, href: enlace.saldo() },
     ],
   },
-  { titulo: 'Ajustes', items: [{ id: 'ajustes', texto: 'Ajustes', icono: Settings, href: enlace.ajustes() }] },
+  {
+    titulo: 'Ajustes',
+    items: [
+      { id: 'aprendizajes', texto: 'Aprendizajes', icono: GraduationCap, href: enlace.aprendizajes() },
+      { id: 'ajustes', texto: 'Ajustes', icono: Settings, href: enlace.ajustes() },
+    ],
+  },
 ];
 
 const ETAPAS = { guion: 'Guion listo', voz: 'Voz', imagenes: 'Imágenes', videos: 'Videos', revision: 'Revisión', montaje: 'Montaje' };

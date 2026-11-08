@@ -54,3 +54,7 @@ output-alumnos/
 # "biblioteca-anuncios", el mismo de IA-VID-AUTOMATIC: la sincroniza app/server/lib/biblioteca.js, no el guardado.
 mis_archivos/biblioteca/
 temp/_biblioteca-subidas/
+# Los anuncios terminados de GitHub (repositorio anuncios-ia-videos): la copia sin archivos y lo que ya se bajó
+# para mirarlo (app/server/lib/anuncios-github.js). No se suben al repositorio de la app.
+mis_archivos/.anuncios-github/
+mis_archivos/.anuncios-github-cache/

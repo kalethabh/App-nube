@@ -41,6 +41,11 @@ export const biblioteca = {
   crearAvatar: (d) => pedir('/api/biblioteca/avatares', { metodo: 'POST', cuerpo: d }).then(listo),
   editarAvatar: (estilo, id, d) => pedir(`/api/biblioteca/avatares/${encodeURIComponent(estilo)}/${encodeURIComponent(id)}`, { metodo: 'PATCH', cuerpo: d }).then(listo),
   borrarAvatar: (estilo, id) => pedir(`/api/biblioteca/avatares/${encodeURIComponent(estilo)}/${encodeURIComponent(id)}`, { metodo: 'DELETE' }).then(listo),
+  imagenes: () => pedir('/api/biblioteca/imagenes'),
+  clips: () => pedir('/api/biblioteca/clips'),
+  borrarDe: (clase, estilo, id) => pedir(`/api/biblioteca/${clase}/${encodeURIComponent(estilo)}/${encodeURIComponent(id)}`, { metodo: 'DELETE' }).then(listo),
+  aprendizajes: () => pedir('/api/aprendizajes'),
+  guardarAprendizaje: (nombre, texto) => pedir('/api/aprendizajes', { metodo: 'POST', cuerpo: { nombre, texto } }),
   guardarAudio: (d) => pedir('/api/biblioteca/audios', { metodo: 'POST', cuerpo: d }).then(listo),
   borrarAudio: (estilo, id) => pedir(`/api/biblioteca/audios/${encodeURIComponent(estilo)}/${encodeURIComponent(id)}`, { metodo: 'DELETE' }).then(listo),
 };

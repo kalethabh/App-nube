@@ -106,15 +106,6 @@ export function Portada({ anuncios: todos, cargando, enProduccion, aMedioCamino,
             cargando ? 'Buscando tus anuncios…' : `${numero(listos)} ${listos === 1 ? 'anuncio listo' : 'anuncios listos'} para publicar.${teNecesitan ? ' Lo que te necesita va primero.' : ''}`
           }
         />
-        <div className="tb-portada__accion">
-          <Boton variante="primario" tamano="grande" icono={Plus} href={enlace.nuevo()}>
-            Nuevo anuncio
-          </Boton>
-          <p className="tb-portada__ayuda">
-            Cuéntale tu producto una vez
-            <br />y elige uno o varios estilos.
-          </p>
-        </div>
       </div>
 
       {!cargando ? <Collage anuncios={anuncios} /> : null}

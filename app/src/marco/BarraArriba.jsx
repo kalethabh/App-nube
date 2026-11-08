@@ -62,11 +62,7 @@ export function BarraArriba({ migas = [], ocultarNuevo = false }) {
           pildora
         )}
         <BotonActualizar />
-        {!ocultarNuevo ? (
-          <Boton variante="primario" tamano="chico" icono={Plus} href={enlace.nuevo()}>
-            Nuevo anuncio
-          </Boton>
-        ) : null}
+        {/* «Nuevo anuncio» vive una sola vez: en el menú (el botón lima de arriba) */}
       </div>
     </header>
   );
