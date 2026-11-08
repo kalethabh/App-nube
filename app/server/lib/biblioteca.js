@@ -620,3 +620,95 @@ export function personajesDelAnuncio(slug) {
   }
   return out;
 }
+
+// ---------------------------------------------------------------- imágenes y clips (los llena IA-VID-AUTOMATIC y el motor)
+
+const leerCarpetaJson = (base, carpeta, alArmar) => {
+  const dir = path.join(base, carpeta);
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => {
+      const j = leerJSON(path.join(dir, f)) || {};
+      return alArmar(dir, f.replace(/\.json$/, ''), j);
+    })
+    .filter(Boolean);
+};
+
+/** Las imágenes reutilizables (imagenes/<estilo>/<id>.png + .json), las más nuevas primero. */
+export function listarImagenes() {
+  const base = path.join(DIR_BIBLIOTECA, 'imagenes');
+  if (!fs.existsSync(base)) return [];
+  const out = [];
+  for (const c of fs.readdirSync(base).filter((e) => ID.test(e))) {
+    out.push(
+      ...leerCarpetaJson(base, c, (dir, id, j) => {
+        const img = fs.readdirSync(dir).find((x) => x.startsWith(`${id}.`) && IMAGEN.test(x));
+        if (!img) return null;
+        return { id, estilo: c, nombre: String(j.nombre || id), tipo: String(j.tipo || 'otro'), producto: j.producto ? String(j.producto) : '', prompt: j.prompt ? String(j.prompt) : '', creado: Number(j.creado) || 0, ruta: rel(path.join(dir, img)) };
+      })
+    );
+  }
+  return out.sort((a, b) => b.creado - a.creado);
+}
+
+/** Los clips guardados (clips/<estilo>/<id>.json + su primer fotograma .png; el .mp4 solo en este computador). */
+export function listarClips() {
+  const base = path.join(DIR_BIBLIOTECA, 'clips');
+  if (!fs.existsSync(base)) return [];
+  const out = [];
+  for (const c of fs.readdirSync(base).filter((e) => ID.test(e))) {
+    out.push(
+      ...leerCarpetaJson(base, c, (dir, id, j) => {
+        const png = fs.existsSync(path.join(dir, `${id}.png`)) ? rel(path.join(dir, `${id}.png`)) : null;
+        const mp4 = fs.existsSync(path.join(dir, `${id}.mp4`)) ? rel(path.join(dir, `${id}.mp4`)) : null;
+        if (!png && !mp4) return null;
+        return { id, estilo: c, nombre: String(j.nombre || id), tipo: String(j.tipo || 'clip'), producto: j.producto ? String(j.producto) : '', duracion: Number(j.duracion) || null, creado: Number(j.creado) || 0, imagen: png, video: mp4 };
+      })
+    );
+  }
+  return out.sort((a, b) => b.creado - a.creado);
+}
+
+/** Borra una imagen o un clip de la biblioteca (todos sus archivos con ese id). */
+export function borrarDeCarpeta(clase, estilo, id) {
+  if (!['imagenes', 'clips'].includes(clase) || !ID.test(String(estilo || '')) || !ID.test(String(id || ''))) throw Object.assign(new Error('Inválido.'), { status: 400 });
+  const dir = path.join(DIR_BIBLIOTECA, clase, estilo);
+  for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) if (f.startsWith(`${id}.`)) fs.rmSync(path.join(dir, f), { force: true });
+  pedirSincronizacion();
+}
+
+// ---------------------------------------------------------------- aprendizajes y preferencias (para verlos y editarlos)
+
+const DIR_APR = path.join(DIR_BIBLIOTECA, 'aprendizajes');
+const ARCHIVO_PREFERENCIAS = path.join(RAIZ, 'mis_archivos', 'preferencias.md');
+
+/** Tus preferencias, general.md, uno por estilo y la bitácora, en ese orden. */
+export function listarAprendizajes() {
+  const lista = [];
+  const agregar = (nombre, abs, clase) => {
+    try {
+      const st = fs.statSync(abs);
+      lista.push({ nombre, clase, texto: fs.readFileSync(abs, 'utf8').replace(/^﻿/, ''), fecha: st.mtime.toISOString() });
+    } catch {
+      /* no existe todavía */
+    }
+  };
+  agregar('preferencias.md', ARCHIVO_PREFERENCIAS, 'preferencias');
+  agregar('general.md', path.join(DIR_APR, 'general.md'), 'general');
+  const otros = fs.existsSync(DIR_APR) ? fs.readdirSync(DIR_APR).filter((f) => /^[a-z0-9-]+\.md$/.test(f) && !['general.md', 'generaciones.md'].includes(f)).sort() : [];
+  for (const f of otros) agregar(f, path.join(DIR_APR, f), 'estilo');
+  agregar('generaciones.md', path.join(DIR_APR, 'generaciones.md'), 'bitacora');
+  return lista;
+}
+
+/** Guarda uno (lo escribe el usuario desde la app). */
+export function guardarAprendizaje(nombre, texto) {
+  if (!/^[a-z0-9-]+\.md$/.test(String(nombre || ''))) throw Object.assign(new Error('Nombre inválido.'), { status: 400 });
+  if (typeof texto !== 'string' || texto.length > 400000) throw Object.assign(new Error('Ese texto no se puede guardar.'), { status: 400 });
+  const abs = nombre === 'preferencias.md' ? ARCHIVO_PREFERENCIAS : path.join(DIR_APR, nombre);
+  fs.mkdirSync(path.dirname(abs), { recursive: true });
+  fs.writeFileSync(abs, texto.endsWith('\n') ? texto : `${texto}\n`, 'utf8');
+  if (nombre !== 'preferencias.md') pedirSincronizacion();
+}

@@ -7,9 +7,9 @@
 // GitHub, el mismo de IA-VID-AUTOMATIC (server/lib/biblioteca.js). #/biblioteca?desde=<slug> abre "Nuevo avatar"
 // con los personajes de ese anuncio.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, CircleCheck, Copy, Film, ImagePlus, Library, Music, Pencil, Plus, RefreshCw, Trash2, Upload, Users } from 'lucide-react';
+import { CircleAlert, CircleCheck, Copy, Film, Image as ImageIcon, ImagePlus, Library, Music, Pencil, Plus, RefreshCw, Trash2, Upload, Users } from 'lucide-react';
 import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Insignia, Modal, Pestanas, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
-import { miniatura } from '../../datos/api.js';
+import { miniatura, useDatos } from '../../datos/api.js';
 import { partirRuta, useHash } from '../../datos/rutas.js';
 import { ESTILOS_BIBLIOTECA, biblioteca, claveDeCarpeta, nombreDeCarpeta, useBiblioteca } from './datos.js';
 import './biblioteca.css';
@@ -466,6 +466,34 @@ function ModalSubirMusica({ abierto, onCerrar }) {
   );
 }
 
+// ---------------------------------------------------------------- agrupado por estilo
+
+const TIPOS = { producto: 'Producto', lugar: 'Lugar', broll: 'B-roll', personaje: 'Personaje', otro: 'Otro', ingrediente: 'Ingrediente', mecanismo: 'Mecanismo', escena: 'Escena', clip: 'Clip' };
+const ORDEN_ESTILOS = ['general', ...ESTILOS_BIBLIOTECA.map((e) => e.carpeta)];
+
+/** La lista partida en una sección por estilo (en el orden de los estilos; "Para todos" primero). */
+function PorEstilo({ lista, clase, children }) {
+  const grupos = new Map();
+  for (const x of lista) {
+    if (!grupos.has(x.estilo)) grupos.set(x.estilo, []);
+    grupos.get(x.estilo).push(x);
+  }
+  const orden = [...grupos.keys()].sort((a, b) => (ORDEN_ESTILOS.indexOf(a) + 1 || 99) - (ORDEN_ESTILOS.indexOf(b) + 1 || 99) || a.localeCompare(b));
+  return (
+    <div className="bib-grupos">
+      {orden.map((estilo, i) => (
+        <section key={estilo} className="bib-grupo" style={{ animationDelay: `${Math.min(i, 8) * 50}ms` }}>
+          <h2 className="bib-grupo__titulo">
+            {nombreDeCarpeta(estilo)}
+            <span className="bib-grupo__cuenta t-num">{grupos.get(estilo).length}</span>
+          </h2>
+          <div className={clase}>{grupos.get(estilo).map(children)}</div>
+        </section>
+      ))}
+    </div>
+  );
+}
+
 // ---------------------------------------------------------------- la pantalla
 
 export default function Biblioteca() {
@@ -487,8 +515,13 @@ export default function Biblioteca() {
     if (desde) setNuevo(true);
   }, [desde]);
 
-  const avatares = (datos?.avatares || []).filter((a) => !filtro || claveDeCarpeta(a.estilo) === filtro);
-  const audios = (datos?.audios || []).filter((a) => !filtro || claveDeCarpeta(a.estilo) === filtro || a.estilo === 'general');
+  const { datos: datosImagenes, recargar: recargarImagenes } = useDatos('biblioteca:imagenes', biblioteca.imagenes, { cadaMs: 30000 });
+  const { datos: datosClips, recargar: recargarClips } = useDatos('biblioteca:clips', biblioteca.clips, { cadaMs: 30000 });
+  const delFiltro = (x) => !filtro || claveDeCarpeta(x.estilo) === filtro || x.estilo === 'general';
+  const avatares = (datos?.avatares || []).filter(delFiltro);
+  const audios = (datos?.audios || []).filter(delFiltro);
+  const imagenes = (datosImagenes?.imagenes || []).filter(delFiltro);
+  const clips = (datosClips?.clips || []).filter(delFiltro);
   const sincronizar = async () => {
     setSincronizando(true);
     try {
@@ -504,9 +537,10 @@ export default function Biblioteca() {
     setBorrando(true);
     try {
       if (aBorrar.tipo === 'avatar') await biblioteca.borrarAvatar(aBorrar.x.estilo, aBorrar.x.id);
-      else await biblioteca.borrarAudio(aBorrar.x.estilo, aBorrar.x.id);
+      else if (aBorrar.tipo === 'audio') await biblioteca.borrarAudio(aBorrar.x.estilo, aBorrar.x.id);
+      else await biblioteca.borrarDe(aBorrar.tipo, aBorrar.x.estilo, aBorrar.x.id);
       setABorrar(null);
-      await recargar?.();
+      await Promise.all([recargar?.(), recargarImagenes?.(), recargarClips?.()]);
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No se pudo borrar', texto: e.message });
     } finally {
@@ -518,17 +552,17 @@ export default function Biblioteca() {
     <div className="pagina bib">
       <CabeceraPagina
         titulo="Biblioteca"
-        descripcion="Las personas, personajes y música que reutilizas de un anuncio a otro, sin volver a pagarlas. Es la misma biblioteca de tu otra app (IA-VID-AUTOMATIC): se guarda sola en tu GitHub."
+        descripcion="Las personas, la música, las imágenes y los clips que reutilizas de un anuncio a otro, sin volver a pagarlos, ordenados por estilo. Es la misma biblioteca de tu otra app (IA-VID-AUTOMATIC): se guarda sola en tu GitHub."
         acciones={
           pestana === 'avatares' ? (
             <Boton variante="primario" icono={Plus} onClick={() => setNuevo(true)}>
               Nuevo avatar
             </Boton>
-          ) : (
+          ) : pestana === 'musica' ? (
             <Boton variante="primario" icono={Upload} onClick={() => setSubirMusica(true)}>
               Subir música
             </Boton>
-          )
+          ) : null
         }
         extra={<EstadoSync estado={datos?.estado} onSincronizar={sincronizar} sincronizando={sincronizando} />}
       />
@@ -537,6 +571,8 @@ export default function Biblioteca() {
           items={[
             { id: 'avatares', etiqueta: 'Avatares', icono: Users, contador: datos?.avatares?.length },
             { id: 'musica', etiqueta: 'Música', icono: Music, contador: datos?.audios?.length },
+            { id: 'imagenes', etiqueta: 'Imágenes', icono: ImageIcon, contador: datosImagenes?.imagenes?.length },
+            { id: 'clips', etiqueta: 'Clips', icono: Film, contador: datosClips?.clips?.length },
           ]}
           activa={pestana}
           onCambio={setPestana}
@@ -552,11 +588,9 @@ export default function Biblioteca() {
 
       {cargando && !datos ? null : pestana === 'avatares' ? (
         avatares.length ? (
-          <div className="bib-rejilla">
-            {avatares.map((a) => (
-              <TarjetaAvatar key={`${a.estilo}/${a.id}`} a={a} onBorrar={(x) => setABorrar({ tipo: 'avatar', x })} onRenombrar={setRenombrar} />
-            ))}
-          </div>
+          <PorEstilo lista={avatares} clase="bib-rejilla">
+            {(a) => <TarjetaAvatar key={`${a.estilo}/${a.id}`} a={a} onBorrar={(x) => setABorrar({ tipo: 'avatar', x })} onRenombrar={setRenombrar} />}
+          </PorEstilo>
         ) : (
           <EstadoVacio
             icono={Library}
@@ -569,24 +603,66 @@ export default function Biblioteca() {
             }
           />
         )
-      ) : audios.length ? (
-        <div className="bib-lista">
-          {audios.map((a) => (
-            <Tarjeta key={`${a.estilo}/${a.id}`} className="bib-pista" relleno="chico">
-              <div className="bib-pista__textos">
-                <strong>{a.nombre}</strong>
-                <span className="bib-nota">
-                  {nombreDeCarpeta(a.estilo)}
-                  {a.notas ? ` · ${a.notas}` : ''}
+      ) : pestana === 'musica' ? (
+        audios.length ? (
+          <PorEstilo lista={audios} clase="bib-lista">
+            {(a) => (
+              <Tarjeta key={`${a.estilo}/${a.id}`} className="bib-pista" relleno="chico">
+                <span className="bib-pista__icono" aria-hidden="true">
+                  <Music size={16} strokeWidth={2} />
                 </span>
+                <div className="bib-pista__textos">
+                  <strong>{a.nombre}</strong>
+                  {a.notas ? <span className="bib-nota">{a.notas}</span> : null}
+                </div>
+                <audio controls preload="none" src={a.url} className="bib-audio" />
+                <Boton variante="fantasma" tamano="chico" soloIcono icono={Trash2} etiqueta="Borrar" onClick={() => setABorrar({ tipo: 'audio', x: a })} />
+              </Tarjeta>
+            )}
+          </PorEstilo>
+        ) : (
+          <EstadoVacio icono={Music} titulo="Todavía no hay música" descripcion="La música de cada anuncio que termines se guarda aquí sola. También puedes subir la tuya." />
+        )
+      ) : pestana === 'imagenes' ? (
+        imagenes.length ? (
+          <PorEstilo lista={imagenes} clase="bib-rejilla bib-rejilla--chica">
+            {(x) => (
+              <Tarjeta key={`${x.estilo}/${x.id}`} className="bib-avatar" relleno="chico">
+                <img className="bib-miniatura" src={miniatura(x.url, 320)} alt={x.nombre} loading="lazy" />
+                <div className="bib-avatar__pie">
+                  <div>
+                    <strong className="bib-avatar__nombre">{x.nombre}</strong>
+                    <span className="bib-nota">{[TIPOS[x.tipo] || x.tipo, x.producto].filter(Boolean).join(' · ')}</span>
+                  </div>
+                  <Boton variante="fantasma" tamano="chico" soloIcono icono={Trash2} etiqueta="Borrar" onClick={() => setABorrar({ tipo: 'imagenes', x })} />
+                </div>
+              </Tarjeta>
+            )}
+          </PorEstilo>
+        ) : (
+          <EstadoVacio icono={ImageIcon} titulo="Todavía no hay imágenes" descripcion="El producto, los lugares y los B-roll que se repiten de un anuncio a otro se guardan aquí y no se vuelven a pagar." />
+        )
+      ) : clips.length ? (
+        <PorEstilo lista={clips} clase="bib-rejilla bib-rejilla--chica">
+          {(x) => (
+            <Tarjeta key={`${x.estilo}/${x.id}`} className="bib-avatar" relleno="chico">
+              {x.urlVideo ? (
+                <video className="bib-miniatura" src={x.urlVideo} poster={x.url || undefined} muted loop playsInline preload="none" onMouseEnter={(e) => e.currentTarget.play().catch(() => {})} onMouseLeave={(e) => e.currentTarget.pause()} />
+              ) : (
+                <img className="bib-miniatura" src={miniatura(x.url, 320)} alt={x.nombre} loading="lazy" />
+              )}
+              <div className="bib-avatar__pie">
+                <div>
+                  <strong className="bib-avatar__nombre">{x.nombre}</strong>
+                  <span className="bib-nota">{[TIPOS[x.tipo] || x.tipo, x.duracion ? `${x.duracion.toFixed(1)} s` : null, x.urlVideo ? null : 'el video está en el otro computador'].filter(Boolean).join(' · ')}</span>
+                </div>
+                <Boton variante="fantasma" tamano="chico" soloIcono icono={Trash2} etiqueta="Borrar" onClick={() => setABorrar({ tipo: 'clips', x })} />
               </div>
-              <audio controls preload="none" src={a.url} className="bib-audio" />
-              <Boton variante="fantasma" tamano="chico" soloIcono icono={Trash2} etiqueta="Borrar" onClick={() => setABorrar({ tipo: 'audio', x: a })} />
             </Tarjeta>
-          ))}
-        </div>
+          )}
+        </PorEstilo>
       ) : (
-        <EstadoVacio icono={Music} titulo="Todavía no hay música" descripcion="La música de cada anuncio que termines se guarda aquí sola. También puedes subir la tuya." />
+        <EstadoVacio icono={Film} titulo="Todavía no hay clips" descripcion="Los clips que otro anuncio del mismo producto puede usar tal cual (el producto en mano, un ingrediente, el mecanismo) se guardan aquí." />
       )}
 
       <ModalNuevoAvatar
@@ -613,7 +689,7 @@ export default function Biblioteca() {
       />
       <Confirmar
         abierto={Boolean(aBorrar)}
-        titulo={aBorrar?.tipo === 'avatar' ? '¿Borrar este avatar?' : '¿Borrar esta música?'}
+        titulo={{ avatar: '¿Borrar este avatar?', audio: '¿Borrar esta música?', imagenes: '¿Borrar esta imagen?', clips: '¿Borrar este clip?' }[aBorrar?.tipo] || '¿Borrarlo?'}
         texto={`«${aBorrar?.x?.nombre || ''}» se borra de la biblioteca de las dos apps. Los anuncios que ya lo usaron no cambian.`}
         onSi={borrar}
         onNo={() => setABorrar(null)}

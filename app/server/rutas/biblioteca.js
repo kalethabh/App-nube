@@ -26,6 +26,11 @@ import {
   ROLES_AVATAR,
   avataresDeReferencia,
   borrarAudio,
+  borrarDeCarpeta,
+  guardarAprendizaje,
+  listarAprendizajes,
+  listarClips,
+  listarImagenes,
   borrarAvatar,
   carpetaDeEstilo,
   crearAvatar,
@@ -101,6 +106,32 @@ export default function rutasBiblioteca(app) {
       audios: listarAudios(estilo || undefined).map(conUrls.audio),
       roles: estilo ? ROLES_AVATAR[carpetaDeEstilo(estilo)] || null : ROLES_AVATAR,
     });
+  });
+
+  app.get('/api/biblioteca/imagenes', (req, res) => {
+    res.set('Cache-Control', 'no-store').json({ imagenes: listarImagenes().map((x) => ({ ...x, url: urlDeArchivo(x.ruta) })) });
+  });
+  app.get('/api/biblioteca/clips', (req, res) => {
+    res.set('Cache-Control', 'no-store').json({ clips: listarClips().map((x) => ({ ...x, url: urlDeArchivo(x.imagen), urlVideo: urlDeArchivo(x.video) })) });
+  });
+  for (const clase of ['imagenes', 'clips']) {
+    app.delete(`/api/biblioteca/${clase}/:estilo/:id`, soloDesdeLaApp, (req, res) => {
+      try {
+        borrarDeCarpeta(clase, req.params.estilo, req.params.id);
+        res.json({ ok: true });
+      } catch (e) {
+        fallar(res, e);
+      }
+    });
+  }
+  app.get('/api/aprendizajes', (req, res) => res.set('Cache-Control', 'no-store').json({ archivos: listarAprendizajes() }));
+  app.post('/api/aprendizajes', soloDesdeLaApp, express.json({ limit: '1mb' }), (req, res) => {
+    try {
+      guardarAprendizaje(req.body?.nombre, req.body?.texto);
+      res.json({ ok: true });
+    } catch (e) {
+      fallar(res, e);
+    }
   });
 
   app.post('/api/biblioteca/sincronizar', soloDesdeLaApp, async (req, res) => res.json({ estado: await sincronizar() }));
