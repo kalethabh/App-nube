@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "bloqueo.json (temp/<slug>/app/bloqueo.json): Claude no puede seguir sin un dato que la skill prohibe inventar",
+  "type": "object",
+  "required": ["motivo", "faltan"],
+  "properties": {
+    "motivo": { "type": "string", "minLength": 3, "maxLength": 600 },
+    "faltan": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1, "maxLength": 200 } }
+  }
+}

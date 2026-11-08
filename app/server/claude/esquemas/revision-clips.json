@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "app/revision-clips.json (temp/<slug>/app/revision-clips.json, lo escribe Claude en la tarea \"revisar-clips\"). Compartida: objeto parlante, UGC, podcast, entrevista. Un B-roll va con \"broll\": true y su numero de B-roll en \"toma\" (con \"rehacer\": \"toma\", tambien \"prompt_imagen\"); sin frase. \"bien_broll\": los B-roll que estan bien; \"mal_broll\": los que ya no se rehacen y siguen mal (sin prompts). Cada familia agrega sus chequeos (que \"rehacer\" acepta, que la frase siga tal cual en el prompt_video de una toma, que esten los clips que no dijeron su frase limpia; un B-roll, con validarPedidoDeBroll y cuentasDeBroll de lib/rehacer-broll.js).",
+  "type": "object",
+  "required": ["clips"],
+  "properties": {
+    "clips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["toma", "rehacer", "motivo", "prompt_video"],
+        "properties": {
+          "toma": { "type": "integer", "minimum": 1 },
+          "broll": { "type": "boolean" },
+          "rehacer": { "enum": ["clip", "toma"] },
+          "motivo": { "type": "string", "minLength": 3, "maxLength": 300 },
+          "prompt_video": { "type": "string", "minLength": 20 },
+          "prompt_imagen_inicial": { "type": ["string", "null"] },
+          "prompt_imagen_final": { "type": ["string", "null"] },
+          "prompt_imagen": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "bien": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+    "bien_broll": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+    "mal_broll": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["toma", "motivo"],
+        "properties": {
+          "toma": { "type": "integer", "minimum": 1 },
+          "motivo": { "type": "string", "minLength": 3, "maxLength": 300 }
+        }
+      }
+    }
+  }
+}

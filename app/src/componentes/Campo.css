@@ -1,0 +1,119 @@
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+.campo__etiqueta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: var(--t-chico);
+  font-weight: var(--peso-semi);
+  color: var(--texto-1);
+}
+.campo__opcional {
+  font-size: var(--t-mini);
+  font-weight: var(--peso-normal);
+  color: var(--texto-3);
+}
+.campo__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  background: var(--superficie-2);
+  border: 1px solid var(--borde-2);
+  border-radius: var(--r-m);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.28);
+  transition:
+    border-color var(--dur-rapido) var(--curva-suave),
+    box-shadow var(--dur-medio) var(--curva-suave),
+    background var(--dur-rapido) var(--curva-suave);
+}
+.campo__control:hover {
+  border-color: var(--borde-3);
+}
+.campo__control:focus-within {
+  border-color: var(--acento-borde);
+  background: #1c1c26;
+  box-shadow: 0 0 0 3px var(--acento-suave), inset 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+.campo__entrada {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 var(--e-3);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--texto-1);
+  font-size: var(--t-ui);
+  border-radius: inherit;
+}
+.campo__entrada:focus-visible {
+  outline: none;
+}
+.campo__entrada::placeholder {
+  color: var(--texto-4);
+}
+.campo__control--area {
+  align-items: stretch;
+}
+textarea.campo__entrada {
+  height: auto;
+  min-height: 92px;
+  padding: 11px var(--e-3);
+  line-height: 1.6;
+  resize: vertical;
+}
+.campo__icono {
+  margin-left: 12px;
+  color: var(--texto-3);
+  flex: none;
+}
+.campo__icono + .campo__entrada {
+  padding-left: 9px;
+}
+.campo__control:focus-within .campo__icono {
+  color: var(--acento);
+}
+.campo__sufijo {
+  padding: 0 12px;
+  color: var(--texto-3);
+  font-size: var(--t-chico);
+  font-weight: var(--peso-medio);
+}
+.campo__control--selector select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 38px;
+  cursor: pointer;
+}
+.campo__control--selector option {
+  background: var(--superficie-2);
+  color: var(--texto-1);
+}
+.campo__flecha {
+  position: absolute;
+  right: 12px;
+  color: var(--texto-3);
+  pointer-events: none;
+}
+.campo__ayuda {
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+  line-height: 1.45;
+}
+.campo__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-mini);
+  font-weight: var(--peso-medio);
+  color: var(--error);
+}
+.campo--error .campo__control {
+  border-color: var(--error-borde);
+  box-shadow: 0 0 0 3px var(--error-suave);
+}

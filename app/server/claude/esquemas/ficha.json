@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ficha.json (temp/_productos/<id>/ficha.json, la escribe Claude en la sesion \"ficha\")",
+  "type": "object",
+  "required": ["nombre", "queEs", "tipo", "beneficios", "publico", "dolor", "oferta", "comoCompra", "idioma", "mercado", "deducido", "falta"],
+  "properties": {
+    "nombre": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "queEs": { "type": "string", "maxLength": 600 },
+    "tipo": { "enum": ["fisico", "digital", "servicio"] },
+    "beneficios": { "type": "array", "maxItems": 12, "items": { "type": "string", "maxLength": 400 } },
+    "publico": { "type": "string", "maxLength": 800 },
+    "dolor": { "type": "string", "maxLength": 800 },
+    "oferta": { "type": "string", "maxLength": 800 },
+    "comoCompra": { "type": "string", "maxLength": 600 },
+    "idioma": { "enum": ["es", "en", "pt"] },
+    "mercado": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "pais": { "type": "string", "maxLength": 80 },
+    "probo": { "type": "string", "maxLength": 800 },
+    "prueba": { "type": "string", "maxLength": 3000 },
+    "ingredientes": { "type": "string", "maxLength": 2000 },
+    "comoSeUsa": { "type": "string", "maxLength": 800 },
+    "fotos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["archivo"],
+        "properties": {
+          "archivo": { "type": "string" },
+          "sirve": { "type": "boolean" },
+          "nota": { "type": "string", "maxLength": 400 }
+        }
+      }
+    },
+    "deducido": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 60 } },
+    "falta": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["campo", "pregunta"],
+        "properties": {
+          "campo": { "type": "string", "minLength": 1, "maxLength": 60 },
+          "pregunta": { "type": "string", "minLength": 3, "maxLength": 300 }
+        }
+      }
+    },
+    "respuestas": { "type": "object" },
+    "correcciones": { "type": "object" },
+    "revisada": { "type": "string" }
+  }
+}

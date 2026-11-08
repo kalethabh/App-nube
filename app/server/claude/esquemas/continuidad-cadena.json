@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "temp/<slug>/app/continuidad/cadena.json (lo escribe Claude en la tarea continuidad-cadena, con los videos ya hechos): los clips de la cadena a rehacer, con su prompt nuevo. [] si todo esta bien.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["clip", "motivo", "prompt_video"],
+    "additionalProperties": false,
+    "properties": {
+      "clip": { "type": "string", "pattern": "^(paso|toma)-[0-9]+$" },
+      "motivo": { "type": "string", "minLength": 3, "maxLength": 400 },
+      "forma": { "type": "string", "enum": ["entrar", "salir", "recorrer", "transformar", "entorno", "rodear"] },
+      "prompt_video": { "type": "string", "minLength": 40, "maxLength": 6000 }
+    }
+  }
+}

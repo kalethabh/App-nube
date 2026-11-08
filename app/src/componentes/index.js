@@ -1,0 +1,20 @@
+// Todas las piezas compartidas en un solo import:
+//   import { Boton, Tarjeta, Insignia, MiniaturaVideo } from '../../componentes';
+export { Boton } from './Boton.jsx';
+export { Tarjeta, TarjetaCabecera } from './Tarjeta.jsx';
+export { Insignia, PuntoEstado, Chip, ESTADOS } from './Insignia.jsx';
+export { BarraDeProgreso } from './BarraDeProgreso.jsx';
+export { Pestanas } from './Pestanas.jsx';
+export { Modal } from './Modal.jsx';
+export { Interruptor } from './Interruptor.jsx';
+export { Campo, CampoTexto, AreaTexto, Selector } from './Campo.jsx';
+export { Tooltip } from './Tooltip.jsx';
+export { EstadoVacio } from './EstadoVacio.jsx';
+export { MiniaturaVideo } from './MiniaturaVideo.jsx';
+export { Esqueleto, EsqueletoMiniaturas } from './Esqueleto.jsx';
+export { ProveedorAvisos, useAvisos } from './Avisos.jsx';
+export { VistaPrevia } from './VistaPrevia.jsx';
+export { CabeceraPagina, Seccion } from './Pagina.jsx';
+export { Logo } from './Logo.jsx';
+export { useBarraSuperior } from './BarraSuperior.jsx';
+export { Estimado } from './Estimado.jsx';

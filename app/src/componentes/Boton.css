@@ -1,0 +1,174 @@
+.boton {
+  --alto: 40px;
+  --px: 16px;
+  --hueco-boton: 8px;
+  --radio: var(--r-m);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hueco-boton);
+  height: var(--alto);
+  padding: 0 var(--px);
+  border-radius: var(--radio);
+  border: 1px solid transparent;
+  font-size: var(--t-ui);
+  font-weight: var(--peso-semi);
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  text-decoration: none;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background var(--dur-rapido) var(--curva-suave),
+    border-color var(--dur-rapido) var(--curva-suave),
+    color var(--dur-rapido) var(--curva-suave),
+    box-shadow var(--dur-medio) var(--curva-suave),
+    transform var(--dur-rapido) var(--curva-suave),
+    opacity var(--dur-rapido);
+}
+.boton:active:not(:disabled) {
+  transform: translateY(1px) scale(0.985);
+}
+.boton:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+.boton:disabled {
+  opacity: 0.45;
+}
+.boton svg {
+  flex: none;
+}
+.boton__texto {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.boton__der {
+  margin-right: -3px;
+  opacity: 0.85;
+  transition: transform var(--dur-medio) var(--curva-salida);
+}
+.boton:hover .boton__der {
+  transform: translateX(2px);
+}
+
+/* tamaños */
+.boton--chico {
+  --alto: 32px;
+  --px: 12px;
+  --hueco-boton: 6px;
+  --radio: var(--r-s);
+  font-size: var(--t-chico);
+}
+.boton--grande {
+  --alto: 48px;
+  --px: 22px;
+  --hueco-boton: 10px;
+  --radio: var(--r-l);
+  font-size: var(--t-cuerpo);
+}
+.boton--bloque {
+  width: 100%;
+}
+.boton--solo-icono {
+  width: var(--alto);
+  padding: 0;
+}
+
+/* primario: azul Toma, con su degradado */
+.boton--primario {
+  background: var(--acento-boton);
+  color: var(--texto-sobre-acento);
+  text-shadow: 0 1px 1px rgba(8, 18, 70, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    var(--brillo-acento);
+}
+.boton--primario:hover:not(:disabled) {
+  background: var(--acento-boton-hover);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    var(--brillo-acento-fuerte);
+}
+.boton--primario:focus-visible {
+  box-shadow: var(--anillo-foco), var(--brillo-acento);
+}
+
+/* secundario: superficie con filo de luz */
+.boton--secundario {
+  background: var(--superficie-3);
+  border-color: var(--borde-2);
+  color: var(--texto-1);
+  box-shadow: var(--resalte-superior), var(--sombra-1);
+}
+.boton--secundario:hover:not(:disabled) {
+  background: var(--superficie-4);
+  border-color: var(--borde-3);
+}
+
+/* fantasma: solo texto, para acciones de menor peso */
+.boton--fantasma {
+  background: transparent;
+  color: var(--texto-2);
+}
+.boton--fantasma:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--texto-1);
+}
+
+/* peligro: borrar, descartar */
+.boton--peligro {
+  background: var(--error-suave);
+  border-color: var(--error-borde);
+  color: var(--error);
+}
+.boton--peligro:hover:not(:disabled) {
+  background: rgba(255, 93, 93, 0.2);
+  border-color: rgba(255, 93, 93, 0.6);
+  color: #ff7a7a;
+}
+
+/* marca: el degradado de la app, para el gran "Producir N anuncios" (uno por pantalla como mucho).
+   Un poco más hondo que --marca-degradado para que el texto blanco se lea en todo el botón. */
+.boton--marca {
+  background: linear-gradient(135deg, #3f8dff 0%, #3a62f2 52%, #5240dc 100%);
+  color: #fff;
+  font-weight: var(--peso-fuerte);
+  text-shadow: 0 1px 2px rgba(8, 18, 70, 0.4);
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 12px 34px -10px rgba(var(--marca-2-rgb), 0.8);
+}
+.boton--marca::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+  transform: translateX(-110%);
+  transition: transform 0.75s var(--curva-salida);
+}
+.boton--marca:hover:not(:disabled)::after {
+  transform: translateX(110%);
+}
+.boton--marca:hover:not(:disabled) {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 16px 44px -10px rgba(var(--marca-2-rgb), 0.95);
+}
+
+.boton--cargando {
+  cursor: progress;
+}
+.boton--cargando:disabled {
+  opacity: 0.8;
+}

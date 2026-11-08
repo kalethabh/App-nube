@@ -1,0 +1,385 @@
+# Prueba de Anuncios con IA en Mac y en Windows, sin gastar nada (sin Claude, kie.ai, ElevenLabs ni Suno de verdad).
+# Este repositorio recibe el CONTENIDO DEL PAQUETE para alumnos (lo que arma "npm run alumnos:app -- --carpeta
+# --sin-muestras"): todo corre desde la raíz del paquete.
+#
+#   prueba      con Node.js de setup-node y Python de setup-python; ffmpeg y los paquetes de Python los instalan los
+#               scripts del lanzador. Corre app/herramientas/prueba-humo.mjs: la app en modo prueba con un Claude falso,
+#               la interfaz, las rutas /api, Tu PC y un anuncio claymation simulado de punta a punta hasta el MP4.
+#   lanzadores  una computadora "vacía" (AIA_IGNORAR_SISTEMA=1: no cuenta lo que ya trae la máquina de GitHub): el
+#               lanzador tiene que instalar solo Node.js, ffmpeg (con VP9) y Python (con rembg), dejar la app lista y
+#               abrirla; la segunda vez no baja nada; y después la prueba de humo con esos mismos programas.
+#   alumno      la app en un zip armado con el mismo escritor del paquete (app/herramientas/zip.mjs), descomprimido como
+#               lo hace el alumno (ditto en Mac, Expand-Archive en Windows) en una carpeta con espacios y tildes; en Mac
+#               el .command se ejecuta directo (comprueba que quedó ejecutable). Después, la prueba de humo desde ahí.
+# Si algo falla, el informe (informe.json, app.log, lo que recibió el Claude falso y lo que dijo el lanzador) queda
+# como artefacto del run.
+name: Prueba Mac y Windows
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prueba:
+    name: Prueba de humo (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    env:
+      AIA_PROGRAMAS_DIR: ${{ github.workspace }}/../programas-ci
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sintaxis de los lanzadores de Mac
+        if: runner.os == 'macOS'
+        shell: bash
+        run: bash -n "Abrir Anuncios con IA.command" && bash -n app/inicio/programas-mac.sh
+
+      - name: Sintaxis del instalador de Windows
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $errores = $null
+          [void][System.Management.Automation.Language.Parser]::ParseFile("$PWD\app\inicio\programas-windows.ps1", [ref]$null, [ref]$errores)
+          if ($errores.Count) { $errores | ForEach-Object { Write-Host $_ }; exit 1 }
+          $b = [IO.File]::ReadAllBytes("$PWD\app\inicio\programas-windows.ps1")
+          if (-not ($b[0] -eq 0xEF -and $b[1] -eq 0xBB -and $b[2] -eq 0xBF)) { Write-Host 'programas-windows.ps1 debe ser UTF-8 con BOM (PowerShell 5 lee mal los acentos sin él)'; exit 1 }
+
+      - name: ffmpeg y los paquetes de Python, con los scripts del lanzador (Mac)
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          mkdir -p "$AIA_PROGRAMAS_DIR"
+          . app/inicio/programas-mac.sh
+          aia_preparar_ffmpeg || exit 1
+          aia_preparar_python || exit 1
+          aia_preparar_paquetes_python || exit 1
+          dirname "$(command -v ffmpeg)" >> "$GITHUB_PATH"
+
+      - name: ffmpeg y los paquetes de Python, con los scripts del lanzador (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force $env:AIA_PROGRAMAS_DIR | Out-Null
+          $rutas = Join-Path $env:RUNNER_TEMP 'rutas.txt'
+          $salida = & powershell -NoProfile -ExecutionPolicy Bypass -File app\inicio\programas-windows.ps1 -Rutas $rutas | Out-String
+          $codigo = $LASTEXITCODE
+          Write-Host $salida
+          if ($codigo -ne 0 -or $salida -match 'Aviso:') { exit 1 }
+          (Get-Content $rutas -Raw) -split ';' | Where-Object { $_ } | ForEach-Object { Add-Content -Path $env:GITHUB_PATH -Value $_ }
+
+      - name: Instalar la app (npm ci de remotion y de app, y la interfaz)
+        shell: bash
+        run: node app/inicio/preparar-app.mjs
+
+      - name: Prueba de humo
+        shell: bash
+        env:
+          PUERTO: "47455"
+          HUMO_INFORME: ${{ github.workspace }}/prueba-humo-informe
+        run: node app/herramientas/prueba-humo.mjs
+
+      - name: Guardar el informe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-${{ matrix.os }}
+          path: prueba-humo-informe/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  lanzadores:
+    name: Lanzador sin nada instalado (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, macos-15-intel, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 75
+    env:
+      AIA_IGNORAR_SISTEMA: "1"
+      AIA_PROGRAMAS_DIR: ${{ github.workspace }}/../programas-prueba
+      AIA_NO_ABRIR: "1"
+      PUERTO: "47455"   # un puerto propio: en las máquinas de GitHub el 4455 podría estar ocupado
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sintaxis de los lanzadores de Mac
+        if: runner.os == 'macOS'
+        shell: bash
+        run: bash -n "Abrir Anuncios con IA.command" && bash -n app/inicio/programas-mac.sh
+
+      - name: Sintaxis del instalador de Windows
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $errores = $null
+          [void][System.Management.Automation.Language.Parser]::ParseFile("$PWD\app\inicio\programas-windows.ps1", [ref]$null, [ref]$errores)
+          if ($errores.Count) { $errores | ForEach-Object { Write-Host $_ }; exit 1 }
+
+      # Claude Code falso que dice que la sesión está iniciada (el de verdad pide entrar con el navegador). Queda donde
+      # lo deja el instalador oficial, así el lanzador no intenta instalarlo.
+      - name: Claude Code falso (Mac)
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          printf '%s\n' '#!/bin/sh' \
+            'if [ "$1" = auth ] && [ "$2" = status ]; then echo "{\"loggedIn\":true,\"authMethod\":\"claude.ai\"}"; exit 0; fi' \
+            'if [ "$1" = --version ]; then echo "9.9.9 (Claude Code)"; fi' \
+            'exit 0' > "$HOME/.local/bin/claude"
+          chmod +x "$HOME/.local/bin/claude"
+          "$HOME/.local/bin/claude" auth status
+
+      - name: Claude Code falso (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $dir = Join-Path $env:USERPROFILE '.local\bin'
+          New-Item -ItemType Directory -Force $dir | Out-Null
+          $codigo = 'public static class Programa { public static int Main(string[] a) { if (a.Length >= 2 && a[0] == "auth" && a[1] == "status") System.Console.WriteLine("{\"loggedIn\":true,\"authMethod\":\"claude.ai\"}"); else if (a.Length >= 1 && a[0] == "--version") System.Console.WriteLine("9.9.9 (Claude Code)"); return 0; } }'
+          Add-Type -OutputType ConsoleApplication -OutputAssembly (Join-Path $dir 'claude.exe') -TypeDefinition $codigo
+          & (Join-Path $dir 'claude.exe') auth status
+
+      - name: Abrir con el lanzador de Mac (instala todo la primera vez)
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          mkdir -p "$AIA_PROGRAMAS_DIR"
+          bash "Abrir Anuncios con IA.command" > "$RUNNER_TEMP/lanzador.log" 2>&1 < /dev/null &
+          for i in $(seq 1 600); do curl -fsS -o /dev/null http://127.0.0.1:$PUERTO/ && break; sleep 5; done
+          cat "$RUNNER_TEMP/lanzador.log"
+          echo
+          curl -fsS -o /dev/null http://127.0.0.1:$PUERTO/ || { echo "La app no abrió"; exit 1; }
+          pid="$(lsof -ti tcp:$PUERTO -sTCP:LISTEN | head -n 1 || true)"
+          exe="$(lsof -a -p "$pid" -d txt -Fn | sed -n 's/^n//p' | grep -m 1 '/bin/node$' || true)"
+          echo "La app corre con: $exe"
+          case "$exe" in "$(cd "$AIA_PROGRAMAS_DIR" && pwd -P)"/node-v*) ;; *) echo "No usa el Node.js que instaló el lanzador"; exit 1 ;; esac
+          for t in "Node.js listo" "ffmpeg listo" "Python listo" "Paquetes de Python listos" "El armado de los videos: listo" "Navegador del armado de los videos: listo" "La app: listo"; do
+            grep -q "$t" "$RUNNER_TEMP/lanzador.log" || { echo "Falta: $t"; exit 1; }
+          done
+          if grep -q "Aviso:" "$RUNNER_TEMP/lanzador.log"; then echo "El lanzador dejó avisos"; exit 1; fi
+          kill "$pid"
+
+      - name: Abrir con el lanzador de Windows (instala todo la primera vez)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force $env:AIA_PROGRAMAS_DIR | Out-Null
+          $log = Join-Path $env:RUNNER_TEMP 'lanzador.log'
+          $bat = Join-Path $PWD 'Abrir Anuncios con IA.bat'
+          $p = Start-Process -FilePath cmd.exe -ArgumentList '/d', '/c', "call `"$bat`" > `"$log`" 2>&1" -NoNewWindow -PassThru
+          $ok = $false
+          for ($i = 0; $i -lt 600 -and -not $ok; $i++) {
+            try { Invoke-WebRequest "http://127.0.0.1:$($env:PUERTO)/" -UseBasicParsing -TimeoutSec 5 | Out-Null; $ok = $true } catch { Start-Sleep -Seconds 5 }
+          }
+          Get-Content $log -Encoding UTF8
+          if (-not $ok) { Write-Host 'La app no abrió'; exit 1 }
+          $pidApp = (Get-NetTCPConnection -LocalPort ([int]$env:PUERTO) -State Listen | Select-Object -First 1).OwningProcess
+          $exe = (Get-Process -Id $pidApp).Path
+          Write-Host "La app corre con: $exe"
+          $base = [IO.Path]::GetFullPath($env:AIA_PROGRAMAS_DIR)
+          if (-not [IO.Path]::GetFullPath($exe).StartsWith((Join-Path $base 'node-v'), [StringComparison]::OrdinalIgnoreCase)) { Write-Host 'No usa el Node.js que instaló el lanzador'; exit 1 }
+          $texto = Get-Content $log -Raw -Encoding UTF8
+          foreach ($t in 'Node.js listo', 'ffmpeg listo', 'Python listo', 'Paquetes de Python listos', 'El armado de los videos: listo', 'Navegador del armado de los videos: listo', 'La app: listo') { if ($texto -notmatch [regex]::Escape($t)) { Write-Host "Falta: $t"; exit 1 } }
+          if ($texto -match 'Aviso:') { Write-Host 'El lanzador dejó avisos'; exit 1 }
+          Stop-Process -Id $pidApp -Force
+
+      - name: La segunda vez no baja nada (Mac)
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          inicio=$(date +%s)
+          bash app/inicio/programas-mac.sh --prueba | tee "$RUNNER_TEMP/segunda.log"
+          if grep -q "Descargando\|Instalando" "$RUNNER_TEMP/segunda.log"; then echo "Volvió a descargar"; exit 1; fi
+          . app/inicio/programas-mac.sh && aia_preparar_node
+          node app/inicio/preparar-app.mjs --sin-armar | tee "$RUNNER_TEMP/segunda-app.log"
+          if grep -q "Instalando" "$RUNNER_TEMP/segunda-app.log"; then echo "Volvió a instalar la app"; exit 1; fi
+          echo "Tardó $(( $(date +%s) - inicio )) s"
+
+      - name: La segunda vez no baja nada (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $rutas = Join-Path $env:RUNNER_TEMP 'rutas.txt'
+          $salida = & powershell -NoProfile -ExecutionPolicy Bypass -File app\inicio\programas-windows.ps1 -Rutas $rutas | Out-String
+          $codigo = $LASTEXITCODE
+          Write-Host $salida
+          if ($codigo -ne 0) { exit 1 }
+          if ($salida -match 'Descargando|Instalando') { Write-Host 'Volvió a descargar'; exit 1 }
+          Get-Content $rutas
+          $env:PATH = (Get-Content $rutas -Raw) + ';' + $env:PATH
+          $app = & node app\inicio\preparar-app.mjs --sin-armar | Out-String
+          Write-Host $app
+          if ($LASTEXITCODE -ne 0 -or $app -match 'Instalando') { Write-Host 'Volvió a instalar la app'; exit 1 }
+
+      - name: Prueba de humo con los programas que instaló el lanzador
+        shell: bash
+        env:
+          HUMO_INFORME: ${{ github.workspace }}/prueba-humo-informe
+        run: |
+          if [ "$RUNNER_OS" = macOS ]; then
+            . app/inicio/programas-mac.sh
+            aia_preparar_node && aia_preparar_ffmpeg && aia_preparar_python || { echo "No se pudieron preparar los programas"; exit 1; }
+            PY="$AIA_PY"
+          else
+            export PATH="$(cygpath -p "$(cat "$RUNNER_TEMP/rutas.txt")"):$PATH"
+            PY=python
+          fi
+          echo "node: $(command -v node) $(node --version)"
+          echo "python: $(command -v "$PY") $("$PY" --version)"
+          echo "ffmpeg: $(command -v ffmpeg)"
+          case "$(command -v node)" in *programas-prueba*) ;; *) echo "No es el Node.js del lanzador"; exit 1 ;; esac
+          case "$(command -v "$PY")" in *programas-prueba*) ;; *) echo "No es el Python del lanzador"; exit 1 ;; esac
+          case "$(command -v ffmpeg)" in *programas-prueba*) ;; *) echo "No es el ffmpeg del lanzador"; exit 1 ;; esac
+          ffmpeg -hide_banner -encoders | grep libvpx-vp9 || { echo "El ffmpeg del lanzador no trae VP9"; exit 1; }
+          "$PY" -c "import rembg, onnxruntime, PIL, numpy; print('rembg', rembg.__version__ if hasattr(rembg, '__version__') else 'ok', 'onnxruntime', onnxruntime.__version__)"
+          node app/herramientas/prueba-humo.mjs
+
+      - name: Guardar el informe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lanzador-${{ matrix.os }}
+          path: |
+            prueba-humo-informe/
+            ${{ runner.temp }}/lanzador.log
+          if-no-files-found: ignore
+          retention-days: 14
+
+  # Como lo hace el alumno: la app en un zip (armado con el mismo escritor que el paquete), descomprimido con lo que
+  # trae el sistema (ditto en Mac, Expand-Archive en Windows) en una carpeta con espacios y tildes, y abierta con
+  # doble clic al lanzador (en Mac se ejecuta el .command directo: tiene que quedar ejecutable al descomprimir).
+  alumno:
+    name: Como el alumno, desde el zip (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    env:
+      AIA_PROGRAMAS_DIR: ${{ github.workspace }}/../programas-alumno
+      AIA_NO_ABRIR: "1"
+      PUERTO: "47455"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Claude Code falso (Mac)
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          printf '%s\n' '#!/bin/sh' \
+            'if [ "$1" = auth ] && [ "$2" = status ]; then echo "{\"loggedIn\":true,\"authMethod\":\"claude.ai\"}"; exit 0; fi' \
+            'if [ "$1" = --version ]; then echo "9.9.9 (Claude Code)"; fi' \
+            'exit 0' > "$HOME/.local/bin/claude"
+          chmod +x "$HOME/.local/bin/claude"
+
+      - name: Claude Code falso (Windows)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $dir = Join-Path $env:USERPROFILE '.local\bin'
+          New-Item -ItemType Directory -Force $dir | Out-Null
+          $codigo = 'public static class Programa { public static int Main(string[] a) { if (a.Length >= 2 && a[0] == "auth" && a[1] == "status") System.Console.WriteLine("{\"loggedIn\":true,\"authMethod\":\"claude.ai\"}"); else if (a.Length >= 1 && a[0] == "--version") System.Console.WriteLine("9.9.9 (Claude Code)"); return 0; } }'
+          Add-Type -OutputType ConsoleApplication -OutputAssembly (Join-Path $dir 'claude.exe') -TypeDefinition $codigo
+
+      - name: Armar el zip con el escritor del paquete
+        shell: bash
+        run: node app/herramientas/zip.mjs "$RUNNER_TEMP/anuncios-con-ia-app.zip"
+
+      - name: Descomprimir con ditto y abrir el .command directo (Mac)
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          mkdir -p "$AIA_PROGRAMAS_DIR" "$RUNNER_TEMP/José Ñandú"
+          ditto -x -k "$RUNNER_TEMP/anuncios-con-ia-app.zip" "$RUNNER_TEMP/José Ñandú"
+          cd "$RUNNER_TEMP/José Ñandú/Anuncios con IA"
+          ls -l "Abrir Anuncios con IA.command" app/inicio/programas-mac.sh
+          [ -x "Abrir Anuncios con IA.command" ] || { echo "El .command no quedó ejecutable al descomprimir"; exit 1; }
+          [ -x app/inicio/programas-mac.sh ] || { echo "programas-mac.sh no quedó ejecutable al descomprimir"; exit 1; }
+          "./Abrir Anuncios con IA.command" > "$RUNNER_TEMP/lanzador.log" 2>&1 < /dev/null &
+          for i in $(seq 1 600); do curl -fsS -o /dev/null http://127.0.0.1:$PUERTO/ && break; sleep 5; done
+          cat "$RUNNER_TEMP/lanzador.log"
+          curl -fsS http://127.0.0.1:$PUERTO/api/estado | grep -q '"app":"anuncios-con-ia"' || { echo "La app no abrió"; exit 1; }
+          grep -q "La app: listo" "$RUNNER_TEMP/lanzador.log" || { echo "Falta: La app: listo"; exit 1; }
+          if grep -q "Aviso:" "$RUNNER_TEMP/lanzador.log"; then echo "El lanzador dejó avisos"; exit 1; fi
+          # con la app abierta, el lanzador solo la reconoce y sale
+          "./Abrir Anuncios con IA.command" < /dev/null || { echo "La segunda ventana no reconoció la app abierta"; exit 1; }
+          kill "$(lsof -ti tcp:$PUERTO -sTCP:LISTEN | head -n 1)"
+
+      - name: Descomprimir con Expand-Archive y abrir el .bat (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force $env:AIA_PROGRAMAS_DIR | Out-Null
+          $dest = Join-Path $env:RUNNER_TEMP 'José Ñandú'
+          Expand-Archive -LiteralPath (Join-Path $env:RUNNER_TEMP 'anuncios-con-ia-app.zip') -DestinationPath $dest
+          $raiz = Join-Path $dest 'Anuncios con IA'
+          $log = Join-Path $env:RUNNER_TEMP 'lanzador.log'
+          $bat = Join-Path $raiz 'Abrir Anuncios con IA.bat'
+          Start-Process -FilePath cmd.exe -ArgumentList '/d', '/c', "call `"$bat`" > `"$log`" 2>&1" -NoNewWindow | Out-Null
+          $ok = $false
+          for ($i = 0; $i -lt 600 -and -not $ok; $i++) {
+            try { Invoke-WebRequest "http://127.0.0.1:$($env:PUERTO)/" -UseBasicParsing -TimeoutSec 5 | Out-Null; $ok = $true } catch { Start-Sleep -Seconds 5 }
+          }
+          Get-Content $log -Encoding UTF8
+          if (-not $ok) { Write-Host 'La app no abrió'; exit 1 }
+          if ((Invoke-RestMethod "http://127.0.0.1:$($env:PUERTO)/api/estado").app -ne 'anuncios-con-ia') { Write-Host 'Lo que responde no es la app'; exit 1 }
+          if ((Get-Content $log -Raw -Encoding UTF8) -notmatch 'La app: listo') { Write-Host 'Falta: La app: listo'; exit 1 }
+          if ((Get-Content $log -Raw -Encoding UTF8) -match 'Aviso:') { Write-Host 'El lanzador dejó avisos'; exit 1 }
+          $pidApp = (Get-NetTCPConnection -LocalPort ([int]$env:PUERTO) -State Listen | Select-Object -First 1).OwningProcess
+          Stop-Process -Id $pidApp -Force
+
+      - name: Prueba de humo desde la carpeta descomprimida
+        shell: bash
+        env:
+          HUMO_INFORME: ${{ github.workspace }}/prueba-humo-informe
+        run: |
+          # con los mismos programas que eligió el lanzador al abrir la app (y el mismo PATH que arma)
+          base="$RUNNER_TEMP"
+          if [ "$RUNNER_OS" = macOS ]; then
+            export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+            . app/inicio/programas-mac.sh
+            aia_preparar_ffmpeg && aia_preparar_python || { echo "No se pudieron preparar los programas"; exit 1; }
+          else
+            base="$(cygpath -u "$RUNNER_TEMP")"
+            rutas="$RUNNER_TEMP/rutas-alumno.txt"
+            powershell -NoProfile -ExecutionPolicy Bypass -File app/inicio/programas-windows.ps1 -Rutas "$rutas" || { echo "No se pudieron preparar los programas"; exit 1; }
+            [ -f "$rutas" ] && export PATH="$(cygpath -p "$(cat "$rutas")"):$PATH"
+            export PATH="$HOME/.local/bin:$PATH"
+          fi
+          echo "ffmpeg: $(command -v ffmpeg)"
+          cd "$base/José Ñandú/Anuncios con IA"
+          node app/herramientas/prueba-humo.mjs
+
+      - name: Guardar el informe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: alumno-${{ matrix.os }}
+          path: |
+            prueba-humo-informe/
+            ${{ runner.temp }}/lanzador.log
+          if-no-files-found: ignore
+          retention-days: 14

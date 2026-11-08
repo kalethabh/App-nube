@@ -1,0 +1,27 @@
+# Claves — NUNCA se comparten
+.env
+
+# Artefactos generados
+temp/
+output/
+node_modules/
+remotion/node_modules/
+remotion/out/
+
+# Sistema
+.DS_Store
+Thumbs.db
+npm-debug.log*
+
+# Respaldos de skills (no se distribuyen)
+*.skill.bak
+
+# Carpeta que crea Codex sola al abrir el proyecto; no es de este sistema
+.agents/
+
+# Cache de Python (recortar-host.py, tapar-huecos.py)
+__pycache__/
+
+# El paquete de la app para los alumnos (npm run alumnos:app) y sus muestras: se arman, no se suben
+output-alumnos/
+app/muestras/

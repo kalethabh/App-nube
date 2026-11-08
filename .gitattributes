@@ -1,0 +1,7 @@
+# Lanzadores: bash (Mac) necesita LF; cmd.exe (Windows), CRLF.
+*.command text eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+# PowerShell 5 lee el .ps1 como UTF-8 solo si trae BOM (git lo deja tal cual); los finales, CRLF como en Windows.
+*.ps1 text eol=crlf

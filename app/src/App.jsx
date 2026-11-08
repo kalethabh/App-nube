@@ -1,0 +1,250 @@
+// La app: menú lateral + barra superior + la pantalla de la ruta actual.
+//
+// LAS RUTAS (hash): cada pantalla vive en src/pantallas/<carpeta>/index.jsx con `export default`,
+// se carga recién cuando se abre (lazy) y recibe { params, consulta }:
+//   params   -> lo que va en la ruta, p. ej. { slug: 'befen-regulador-apetito' }
+//   consulta -> URLSearchParams de lo que va después de "?", p. ej. #/nuevo?estilo=crochet
+import { Component, Suspense, lazy, useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 'react';
+import { RefreshCw, SearchX, TriangleAlert } from 'lucide-react';
+import { MenuLateral } from './marco/MenuLateral.jsx';
+import { BarraArriba } from './marco/BarraArriba.jsx';
+import { ContextoBarra } from './componentes/BarraSuperior.jsx';
+import { Boton } from './componentes/Boton.jsx';
+import { EstadoVacio } from './componentes/EstadoVacio.jsx';
+import { Esqueleto, EsqueletoMiniaturas } from './componentes/Esqueleto.jsx';
+import { useHash, partirRuta, emparejar, ir, enlace } from './datos/rutas.js';
+import { BandaGlobalModoPrueba } from './pantallas/produccion/ModoPrueba.jsx';
+import './marco/marco.css';
+
+const Tablero = lazy(() => import('./pantallas/tablero/index.jsx'));
+const Nuevo = lazy(() => import('./pantallas/nuevo/index.jsx'));
+const Entrega = lazy(() => import('./pantallas/entrega/index.jsx'));
+const Produccion = lazy(() => import('./pantallas/produccion/index.jsx'));
+const Editor = lazy(() => import('./pantallas/editor/index.jsx'));
+const Estilos = lazy(() => import('./pantallas/estilos/index.jsx'));
+const Ajustes = lazy(() => import('./pantallas/ajustes/index.jsx'));
+const Componentes = lazy(() => import('./pantallas/componentes/index.jsx'));
+// La bienvenida de 3 pasos: se abre sola la primera vez (hasta que se cierra o se termina).
+const BienvenidaPrimeraVez = lazy(() => import('./pantallas/ajustes/Bienvenida.jsx'));
+
+// Título provisorio a partir del slug (la pantalla lo cambia por el real con useBarraSuperior).
+const nombreDeSlug = (slug) => slug.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase());
+const MIS_ANUNCIOS = { texto: 'Mis anuncios', href: enlace.tablero() };
+
+/**
+ * menu     -> qué item del menú se ilumina
+ * completa -> la pantalla usa toda la ventana (sin menú ni barra): el editor
+ */
+export const RUTAS = [
+  { patron: '/tablero', Pantalla: Tablero, menu: 'tablero', titulo: 'Mis anuncios', migas: () => [{ texto: 'Mis anuncios' }] },
+  { patron: '/nuevo', Pantalla: Nuevo, menu: 'nuevo', titulo: 'Nuevo anuncio', migas: () => [MIS_ANUNCIOS, { texto: 'Nuevo anuncio' }] },
+  {
+    patron: '/anuncio/:slug',
+    Pantalla: Entrega,
+    menu: 'tablero',
+    titulo: 'Tu anuncio',
+    migas: ({ slug }) => [MIS_ANUNCIOS, { texto: nombreDeSlug(slug) }],
+  },
+  {
+    patron: '/anuncio/:slug/produccion',
+    Pantalla: Produccion,
+    menu: 'tablero',
+    titulo: 'Producción',
+    migas: ({ slug }) => [MIS_ANUNCIOS, { texto: nombreDeSlug(slug), href: enlace.anuncio(slug) }, { texto: 'Producción' }],
+  },
+  { patron: '/anuncio/:slug/editor', Pantalla: Editor, menu: 'tablero', titulo: 'Editor', completa: true },
+  { patron: '/estilos', Pantalla: Estilos, menu: 'estilos', titulo: 'Estilos', migas: () => [{ texto: 'Estilos' }] },
+  { patron: '/ajustes', Pantalla: Ajustes, menu: 'ajustes', titulo: 'Ajustes', migas: () => [{ texto: 'Ajustes' }] },
+  { patron: '/componentes', Pantalla: Componentes, menu: null, titulo: 'Guía de diseño', migas: () => [{ texto: 'Guía de diseño' }] },
+];
+
+// ---------------------------------------------------------------- preferencias de este equipo
+function leerPreferencia(clave, porDefecto) {
+  try {
+    const v = window.localStorage.getItem(`anuncios-ia:${clave}`);
+    return v === null ? porDefecto : JSON.parse(v);
+  } catch {
+    return porDefecto;
+  }
+}
+function guardarPreferencia(clave, valor) {
+  try {
+    window.localStorage.setItem(`anuncios-ia:${clave}`, JSON.stringify(valor));
+  } catch {
+    /* sin almacenamiento: no pasa nada */
+  }
+}
+
+const consultaAngosta = '(max-width: 1000px)';
+function usePantallaAngosta() {
+  return useSyncExternalStore(
+    (avisar) => {
+      const mq = window.matchMedia(consultaAngosta);
+      mq.addEventListener('change', avisar);
+      return () => mq.removeEventListener('change', avisar);
+    },
+    () => window.matchMedia(consultaAngosta).matches,
+    () => false
+  );
+}
+
+// ---------------------------------------------------------------- si una pantalla falla, no se cae la app
+class AtajaErrores extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  componentDidCatch(error, info) {
+    console.error('[pantalla]', error, info?.componentStack);
+    // La app se actualizo con la pestaña abierta: sus archivos viejos ya no existen. Se recarga sola una vez.
+    const viejos = /dynamically imported module|Importing a module script failed|error loading dynamically/i.test(String(error?.message || error));
+    if (!viejos) return;
+    try {
+      // a lo sumo una vez cada 30 s: si la recarga no lo arregla, queda esta pantalla (nunca un bucle)
+      const ultima = Number(sessionStorage.getItem('recargo-por-version') || 0);
+      if (Date.now() - ultima < 30000) return;
+      sessionStorage.setItem('recargo-por-version', String(Date.now()));
+    } catch {
+      return; // sin sessionStorage no se arriesga a recargar en bucle
+    }
+    window.location.reload();
+  }
+  render() {
+    if (!this.state.error) return this.props.children;
+    return (
+      <div className="pagina pagina--angosta">
+        <EstadoVacio
+          icono={TriangleAlert}
+          tono="error"
+          titulo="Esta pantalla tuvo un problema"
+          descripcion="No se perdió nada de tus anuncios. Vuelve a cargarla; si sigue pasando, vuelve a Mis anuncios."
+          acciones={
+            <>
+              <Boton variante="primario" icono={RefreshCw} onClick={() => window.location.reload()}>
+                Volver a cargar
+              </Boton>
+              <Boton variante="secundario" href={enlace.tablero()} onClick={() => this.setState({ error: null })}>
+                Ir a Mis anuncios
+              </Boton>
+            </>
+          }
+        />
+      </div>
+    );
+  }
+}
+
+function PantallaCargando({ completa }) {
+  if (completa) return <div className="pantalla-cargando" />;
+  return (
+    <div className="pagina" aria-busy="true">
+      <div className="pila" style={{ '--hueco': '12px', maxWidth: 520 }}>
+        <Esqueleto forma="texto" ancho={90} alto={10} />
+        <Esqueleto ancho="70%" alto={34} />
+        <Esqueleto forma="texto" ancho="90%" />
+      </div>
+      <EsqueletoMiniaturas cantidad={6} />
+    </div>
+  );
+}
+
+function NoEncontrada() {
+  return (
+    <div className="pagina pagina--angosta">
+      <EstadoVacio
+        icono={SearchX}
+        titulo="No encuentro esta pantalla"
+        descripcion="Puede que el enlace esté incompleto. Tus anuncios están todos en Mis anuncios."
+        acciones={
+          <Boton variante="primario" href={enlace.tablero()}>
+            Ir a Mis anuncios
+          </Boton>
+        }
+      />
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------- la app
+export default function App() {
+  const hash = useHash();
+  const { camino, consulta } = partirRuta(hash);
+  const [migasPagina, setMigasPagina] = useState(null);
+  const [plegadoElegido, setPlegadoElegido] = useState(() => leerPreferencia('menu-plegado', false));
+  const angosta = usePantallaAngosta();
+  const plegado = plegadoElegido || angosta;
+
+  // "#/" o sin hash -> el tablero
+  useEffect(() => {
+    if (camino === '/' || camino === '') ir('/tablero', { reemplazar: true });
+  }, [camino]);
+
+  const actual = useMemo(() => {
+    for (const ruta of RUTAS) {
+      const params = emparejar(ruta.patron, camino);
+      if (params) return { ruta, params };
+    }
+    return null;
+  }, [camino]);
+
+  // cada pantalla nueva arranca arriba y con sus migas por defecto
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [camino]);
+  useEffect(() => {
+    document.title = actual ? `${actual.ruta.titulo} · Anuncios con IA` : 'Anuncios con IA';
+  }, [actual]);
+
+  const fijarMigas = useCallback((m) => setMigasPagina(m), []);
+  const plegar = () => {
+    const nuevo = !plegadoElegido;
+    setPlegadoElegido(nuevo);
+    guardarPreferencia('menu-plegado', nuevo);
+  };
+
+  const Pantalla = actual?.ruta.Pantalla;
+  const pantalla = Pantalla ? (
+    <AtajaErrores key={camino}>
+      <Suspense fallback={<PantallaCargando completa={actual.ruta.completa} />}>
+        <Pantalla key={camino} params={actual.params} consulta={consulta} />
+      </Suspense>
+    </AtajaErrores>
+  ) : camino === '/' ? null : (
+    <NoEncontrada />
+  );
+
+  if (actual?.ruta.completa) {
+    return (
+      <ContextoBarra.Provider value={fijarMigas}>
+        <div className="app app--completa">{pantalla}</div>
+      </ContextoBarra.Provider>
+    );
+  }
+
+  const migas = migasPagina || actual?.ruta.migas?.(actual.params) || [{ texto: 'Anuncios con IA' }];
+
+  return (
+    <ContextoBarra.Provider value={fijarMigas}>
+      <div className={`app${plegado ? ' app--plegada' : ''}`}>
+        <MenuLateral activo={actual?.ruta.menu} plegado={plegado} onPlegar={plegar} />
+        <div className="principal">
+          {/* en el tablero el gran "Nuevo anuncio" ya está en la portada: no se repite arriba */}
+          <BarraArriba migas={migas} ocultarNuevo={actual?.ruta.menu === 'nuevo' || actual?.ruta.patron === '/tablero'} />
+          <main className="principal__contenido" id="contenido">
+            <BandaGlobalModoPrueba />
+            {pantalla}
+          </main>
+          {/* en Ajustes la bienvenida se abre con su botón; en las demás pantallas, sola la primera vez */}
+          {actual?.ruta.menu !== 'ajustes' ? (
+            <Suspense fallback={null}>
+              <BienvenidaPrimeraVez />
+            </Suspense>
+          ) : null}
+        </div>
+      </div>
+    </ContextoBarra.Provider>
+  );
+}

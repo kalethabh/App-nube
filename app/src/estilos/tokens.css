@@ -1,0 +1,211 @@
+/* =============================================================================
+   Anuncios con IA — tokens de diseño
+   Identidad "Sala de montaje": un estudio de video de noche. Grafito neutro que
+   deja brillar las miniaturas, un azul "Toma" con degradado para la acción y un
+   cian "Cabezal" para lo que se está moviendo (generando, progreso, cabezal del editor).
+   TODAS las pantallas usan estas variables: nunca un color, radio o sombra a mano.
+   Ver DISENO.md.
+   ============================================================================= */
+
+:root {
+  color-scheme: dark;
+
+  /* ---------------------------------------------------------------- fondos y superficies
+     Del más hondo al más alto. Cada capa se separa por luz (más clara), no por sombra sola. */
+  --fondo-0: #070709;            /* lienzo del editor, detrás del video */
+  --fondo-1: #0b0b0f;            /* fondo de la app */
+  --fondo-2: #0f0f14;            /* menú lateral */
+  --superficie-1: #14141b;       /* tarjetas */
+  --superficie-2: #1a1a23;       /* tarjeta elevada, campos, hover de fila */
+  --superficie-3: #22222d;       /* chips, botón secundario, pistas del editor */
+  --superficie-4: #2c2c39;       /* presionado, hover sobre superficie-3 */
+  --vidrio: rgba(20, 20, 27, 0.72);          /* barras flotantes con blur */
+  --vidrio-oscuro: rgba(7, 7, 9, 0.55);      /* chips sobre miniaturas */
+  --velo: rgba(4, 4, 6, 0.72);               /* detrás de un modal */
+
+  /* ---------------------------------------------------------------- bordes (luz, no gris) */
+  --borde-1: rgba(255, 255, 255, 0.06);      /* separadores, borde de tarjeta */
+  --borde-2: rgba(255, 255, 255, 0.1);       /* campos, botones secundarios */
+  --borde-3: rgba(255, 255, 255, 0.16);      /* hover */
+  --borde-4: rgba(255, 255, 255, 0.24);      /* foco suave, seleccionado neutro */
+  --resalte-superior: inset 0 1px 0 rgba(255, 255, 255, 0.05); /* filo de luz arriba de cada superficie */
+
+  /* ---------------------------------------------------------------- texto */
+  --texto-1: #f4f4f7;            /* títulos y texto principal */
+  --texto-2: #b7b7c4;            /* texto secundario (contraste 9:1 sobre superficie-1) */
+  --texto-3: #83839a;            /* ayudas, metadatos (4.7:1, AA) */
+  --texto-4: #5d5d70;            /* deshabilitado, marcadores; nunca para texto que haya que leer */
+  --texto-sobre-acento: #ffffff;
+
+  /* ---------------------------------------------------------------- marca: azul "Toma"
+     Azul con degradado (celeste -> azul rey -> índigo). Se separa del cian "Cabezal" por tono
+     (más índigo, 225°+ contra 192°) y por luz (más hondo): el cian es lo que se mueve, el azul es acción.
+     Para luces y sombras en otros archivos: rgba(var(--acento-rgb), 0.08), nunca un rgba escrito a mano. */
+  --acento: #5c84ff;             /* iconos, enlaces, indicador activo, foco (5,8:1 sobre el fondo) */
+  --acento-hover: #7b9cff;
+  --acento-fuerte: #3460f0;      /* fondo sólido con texto blanco (5,1:1) */
+  --acento-rgb: 92, 132, 255;
+  --acento-suave: rgba(92, 132, 255, 0.13);
+  --acento-suave-2: rgba(92, 132, 255, 0.22);
+  --acento-borde: rgba(92, 132, 255, 0.45);
+  --acento-boton: linear-gradient(135deg, #3d84ff 0%, #3462f2 52%, #4a46e0 100%);
+  --acento-boton-hover: linear-gradient(135deg, #4a8fff 0%, #3d6dfa 52%, #5552ea 100%);
+
+  /* degradado de la marca (logo, momentos especiales: "Producir N anuncios", portada vacía) */
+  --marca-degradado: linear-gradient(135deg, #4b9dff 0%, #3d6af7 50%, #5848e6 100%);
+  --marca-1: #4b9dff;            /* celeste */
+  --marca-2: #3d6af7;            /* azul rey */
+  --marca-3: #5848e6;            /* índigo */
+  --marca-1-rgb: 75, 157, 255;
+  --marca-2-rgb: 61, 106, 247;
+  --marca-3-rgb: 88, 72, 230;
+
+  /* ---------------------------------------------------------------- secundario: cian "Cabezal" */
+  --cian: #3ccff3;               /* generando, progreso, cabezal y selección del editor */
+  --cian-rgb: 60, 207, 243;
+  --cian-suave: rgba(60, 207, 243, 0.12);
+  --cian-borde: rgba(60, 207, 243, 0.4);
+
+  /* ---------------------------------------------------------------- estados
+     verde = listo · cian = generando · ámbar = se arregló sola · rojo = te necesita / falló
+     Siempre con icono y texto: el color nunca va solo. */
+  --ok: #34d39a;
+  --ok-suave: rgba(52, 211, 154, 0.12);
+  --ok-borde: rgba(52, 211, 154, 0.38);
+  --generando: var(--cian);
+  --generando-suave: var(--cian-suave);
+  --generando-borde: var(--cian-borde);
+  --aviso: #f7b84b;
+  --aviso-suave: rgba(247, 184, 75, 0.12);
+  --aviso-borde: rgba(247, 184, 75, 0.38);
+  --error: #ff5d5d;
+  --error-suave: rgba(255, 93, 93, 0.12);
+  --error-borde: rgba(255, 93, 93, 0.4);
+  --necesita: var(--error);
+  --necesita-suave: var(--error-suave);
+  --necesita-borde: var(--error-borde);
+  --neutro: #8a8a9c;
+  --neutro-suave: rgba(138, 138, 156, 0.12);
+  --neutro-borde: rgba(138, 138, 156, 0.3);
+
+  /* colores de pistas del editor (línea de tiempo) */
+  --pista-video: #3a7bfd;
+  --pista-broll: #8b5cf6;
+  --pista-voz: #34d39a;
+  --pista-musica: #f7b84b;
+  --pista-subtitulos: #b5e655;   /* lima: distinto del azul (video), el violeta (B-roll) y el ámbar (música) */
+  --pista-textos: #3ccff3;
+
+  /* ---------------------------------------------------------------- tipografía */
+  --fuente-titulo: 'Bricolage Grotesque Variable', 'Segoe UI', system-ui, sans-serif;
+  --fuente-ui: 'Inter Variable', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --fuente-mono: 'Geist Mono Variable', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  /* escala (px): 11 · 12 · 13 · 14 · 15 · 17 · 20 · 24 · 30 · 38 · 52 */
+  --t-micro: 11px;     /* etiquetas en mayúsculas, contadores */
+  --t-mini: 12px;      /* metadatos, insignias */
+  --t-chico: 13px;     /* ayudas, texto de tabla */
+  --t-ui: 14px;        /* botones, menú, campos (base de la interfaz) */
+  --t-cuerpo: 15px;    /* párrafos */
+  --t-destacado: 17px; /* entradilla, títulos de tarjeta grandes */
+  --t-h4: 20px;
+  --t-h3: 24px;
+  --t-h2: 30px;
+  --t-h1: 38px;
+  --t-portada: 52px;
+
+  --peso-normal: 420;
+  --peso-medio: 520;
+  --peso-semi: 600;
+  --peso-fuerte: 700;
+  --peso-titulo: 680;  /* Bricolage en títulos */
+
+  --interlineado-titulo: 1.12;
+  --interlineado-ui: 1.4;
+  --interlineado-cuerpo: 1.6;
+  --tracking-titulo: -0.022em;
+  --tracking-etiqueta: 0.08em;
+
+  /* ---------------------------------------------------------------- espacios (rejilla de 4 px) */
+  --e-1: 4px;
+  --e-2: 8px;
+  --e-3: 12px;
+  --e-4: 16px;
+  --e-5: 20px;
+  --e-6: 24px;
+  --e-7: 28px;
+  --e-8: 32px;
+  --e-10: 40px;
+  --e-12: 48px;
+  --e-16: 64px;
+  --e-20: 80px;
+
+  /* ---------------------------------------------------------------- radios */
+  --r-xs: 6px;    /* insignias chicas, kbd */
+  --r-s: 8px;     /* botones chicos, chips */
+  --r-m: 10px;    /* botones, campos */
+  --r-l: 14px;    /* tarjetas, miniaturas */
+  --r-xl: 20px;   /* paneles grandes, modales */
+  --r-2xl: 28px;  /* portada, estado vacío grande */
+  --r-pill: 999px;
+
+  /* ---------------------------------------------------------------- sombras y brillos
+     En oscuro la profundidad sale de 3 cosas juntas: superficie más clara + filo de luz
+     arriba + sombra larga y suave. */
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --sombra-2: 0 2px 6px rgba(0, 0, 0, 0.35), 0 12px 28px -10px rgba(0, 0, 0, 0.6);
+  --sombra-3: 0 8px 20px -6px rgba(0, 0, 0, 0.55), 0 28px 60px -18px rgba(0, 0, 0, 0.75);
+  --sombra-flotante: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 24px 70px -12px rgba(0, 0, 0, 0.85);
+  --brillo-acento: 0 8px 26px -8px rgba(61, 106, 247, 0.7);
+  --brillo-acento-fuerte: 0 0 0 1px rgba(92, 132, 255, 0.5), 0 10px 34px -6px rgba(61, 106, 247, 0.75);
+  --brillo-cian: 0 0 0 1px rgba(60, 207, 243, 0.45), 0 8px 26px -8px rgba(60, 207, 243, 0.55);
+  --anillo-foco: 0 0 0 2px var(--fondo-1), 0 0 0 4px var(--acento);
+
+  /* ---------------------------------------------------------------- movimiento */
+  --curva-salida: cubic-bezier(0.22, 1, 0.36, 1);   /* lo que entra: rápido y frena suave */
+  --curva-entrada: cubic-bezier(0.55, 0, 1, 0.45);  /* lo que sale */
+  --curva-suave: cubic-bezier(0.4, 0, 0.2, 1);      /* cambios de estado */
+  --curva-resorte: cubic-bezier(0.34, 1.56, 0.64, 1); /* toques con rebote (interruptor, pop) */
+  --dur-instante: 90ms;
+  --dur-rapido: 140ms;   /* hover, presionar */
+  --dur-medio: 220ms;    /* abrir menús, pestañas */
+  --dur-lento: 340ms;    /* modales, paneles */
+  --dur-escena: 520ms;   /* entrada de pantalla, miniaturas que aparecen */
+
+  /* ---------------------------------------------------------------- medidas de la app */
+  --ancho-menu: 252px;
+  --ancho-menu-plegado: 72px;
+  --alto-barra: 60px;
+  --ancho-contenido: 1440px;
+  --gutter: 40px;
+
+  --z-barra: 20;
+  --z-menu: 30;
+  --z-flotante: 60;
+  --z-modal: 80;
+  --z-aviso: 90;
+  --z-tooltip: 100;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --gutter: 28px;
+  }
+}
+@media (max-width: 720px) {
+  :root {
+    --gutter: 16px;
+    --t-h1: 30px;
+    --t-portada: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instante: 1ms;
+    --dur-rapido: 1ms;
+    --dur-medio: 1ms;
+    --dur-lento: 1ms;
+    --dur-escena: 1ms;
+  }
+}

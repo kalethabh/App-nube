@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "app/rechazo.json (temp/<slug>/app/rechazo.json, lo escribe Claude en la tarea \"rechazo\"). Compartida: objeto parlante, UGC, podcast, entrevista. La familia comprueba lo demas: que cada \"antes\" este tal cual en la frase, el largo, que no repita una frase ya probada (validarRechazo).",
+  "type": "object",
+  "required": ["clips"],
+  "properties": {
+    "clips": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["toma", "cambios", "motivo"],
+        "properties": {
+          "toma": { "type": "integer", "minimum": 1 },
+          "cambios": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "required": ["antes", "nueva"],
+              "properties": {
+                "antes": { "type": "string", "minLength": 1, "maxLength": 400 },
+                "nueva": { "type": "string", "minLength": 1, "maxLength": 400 }
+              }
+            }
+          },
+          "motivo": { "type": "string", "minLength": 3, "maxLength": 300 }
+        }
+      }
+    }
+  }
+}

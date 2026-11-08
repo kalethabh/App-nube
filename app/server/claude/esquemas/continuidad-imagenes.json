@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "temp/<slug>/app/revision.json en un anuncio con continuidad (lo escribe Claude en la tarea continuidad-imagenes, antes de los videos). [] si todo esta bien.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["toma", "motivo", "promptsNuevos"],
+    "additionalProperties": false,
+    "properties": {
+      "toma": { "type": "integer", "minimum": 1 },
+      "motivo": { "type": "string", "minLength": 3, "maxLength": 400 },
+      "promptsNuevos": {
+        "type": "object",
+        "required": ["prompt_imagen_inicial", "prompt_video"],
+        "additionalProperties": false,
+        "properties": {
+          "prompt_imagen_inicial": { "type": "string", "minLength": 40 },
+          "prompt_imagen_final": { "type": ["string", "null"] },
+          "prompt_video": { "type": "string", "minLength": 20 }
+        }
+      }
+    }
+  }
+}

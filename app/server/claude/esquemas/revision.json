@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "app/revision.json (temp/<slug>/app/revision.json, lo escribe Claude en la sesion \"revision\" de las imagenes). PROPUESTA para el conductor: puede cambiarse.",
+  "type": "object",
+  "required": ["ok", "rehacer"],
+  "properties": {
+    "ok": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+    "rehacer": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["toma", "motivo", "prompt_imagen_inicial", "prompt_video"],
+        "properties": {
+          "toma": { "type": "integer", "minimum": 1 },
+          "motivo": { "type": "string", "minLength": 3, "maxLength": 400 },
+          "prompt_imagen_inicial": { "type": "string", "minLength": 20 },
+          "prompt_imagen_final": { "type": ["string", "null"] },
+          "prompt_video": { "type": "string", "minLength": 20 }
+        }
+      }
+    }
+  }
+}

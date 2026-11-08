@@ -1,0 +1,25 @@
+.estimado {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--borde-2);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--texto-3);
+  font-family: var(--fuente-ui);
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: help;
+  flex: none;
+}
+.estimado:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}

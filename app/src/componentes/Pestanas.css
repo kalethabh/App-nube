@@ -1,0 +1,113 @@
+.pestanas {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.pestana {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 0;
+  color: var(--texto-3);
+  font-size: var(--t-ui);
+  font-weight: var(--peso-medio);
+  white-space: nowrap;
+  transition: color var(--dur-rapido) var(--curva-suave);
+}
+.pestana:hover:not(:disabled) {
+  color: var(--texto-1);
+}
+.pestana[aria-selected='true'] {
+  color: var(--texto-1);
+}
+.pestana[aria-selected='true'] svg {
+  color: var(--acento);
+}
+.pestana:disabled {
+  opacity: 0.4;
+}
+.pestana:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+  border-radius: var(--r-s);
+}
+.pestana__contador {
+  min-width: 20px;
+  height: 18px;
+  padding: 0 6px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--r-pill);
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  color: var(--texto-2);
+  background: rgba(255, 255, 255, 0.07);
+}
+.pestana[aria-selected='true'] .pestana__contador {
+  color: var(--acento);
+  background: var(--acento-suave);
+}
+.pestanas__indicador {
+  position: absolute;
+  transition:
+    left var(--dur-medio) var(--curva-salida),
+    width var(--dur-medio) var(--curva-salida);
+}
+
+/* subrayado: secciones de una pantalla */
+.pestanas--subrayado {
+  gap: var(--e-6);
+  border-bottom: 1px solid var(--borde-1);
+}
+.pestanas--subrayado .pestana {
+  height: 44px;
+  padding: 0 2px;
+}
+.pestanas--subrayado .pestanas__indicador {
+  bottom: -1px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--acento);
+  box-shadow: 0 0 12px var(--acento);
+}
+
+/* segmentado: cambiar de vista (como un interruptor de varias opciones) */
+.pestanas--segmentado {
+  display: inline-flex;
+  align-self: flex-start; /* nunca se estira a todo el ancho */
+  width: max-content;
+  max-width: 100%;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--r-m);
+  background: var(--fondo-2);
+  border: 1px solid var(--borde-1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.pestanas--segmentado .pestana {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 7px;
+  font-size: var(--t-chico);
+}
+.pestanas--segmentado .pestanas__indicador {
+  top: 3px;
+  bottom: 3px;
+  border-radius: 7px;
+  background: var(--superficie-3);
+  box-shadow: var(--resalte-superior), 0 1px 3px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--borde-2);
+}
+.pestanas--chico.pestanas--segmentado .pestana {
+  height: 26px;
+  padding: 0 10px;
+  font-size: var(--t-mini);
+}
+.pestanas--chico.pestanas--subrayado .pestana {
+  height: 36px;
+  font-size: var(--t-chico);
+}

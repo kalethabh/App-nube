@@ -1,0 +1,107 @@
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--e-3);
+  padding: var(--e-12) var(--e-6);
+  border-radius: var(--r-2xl);
+  border: 1px dashed var(--borde-2);
+  background:
+    radial-gradient(520px 220px at 50% -10%, rgba(var(--acento-rgb), 0.08), transparent 70%),
+    rgba(255, 255, 255, 0.012);
+}
+.vacio--compacto {
+  padding: var(--e-8) var(--e-5);
+  border-radius: var(--r-l);
+  gap: var(--e-2);
+}
+.vacio--sin-borde {
+  border: 0;
+  background: none;
+}
+
+.vacio__arte {
+  --c: var(--acento);
+  position: relative;
+  width: 112px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--e-2);
+}
+.vacio__arte--cian { --c: var(--cian); }
+.vacio__arte--ok { --c: var(--ok); }
+.vacio__arte--aviso { --c: var(--aviso); }
+.vacio__arte--error { --c: var(--error); }
+.vacio--compacto .vacio__arte {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0;
+}
+.vacio__aro {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.vacio__aro--1 {
+  inset: 14px;
+  border-color: rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle, color-mix(in srgb, var(--c) 16%, transparent), transparent 70%);
+}
+.vacio__aro--2 {
+  animation: vacio-respira 4.5s var(--curva-suave) infinite;
+}
+@keyframes vacio-respira {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+.vacio__icono {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: var(--c);
+  background: linear-gradient(180deg, var(--superficie-3), var(--superficie-2));
+  box-shadow:
+    var(--resalte-superior),
+    0 0 0 1px var(--borde-2),
+    0 14px 30px -10px rgba(0, 0, 0, 0.7),
+    0 0 30px -8px color-mix(in srgb, var(--c) 55%, transparent);
+}
+.vacio--compacto .vacio__icono {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+}
+.vacio__titulo {
+  font-size: var(--t-h4);
+  font-weight: 650;
+}
+.vacio--compacto .vacio__titulo {
+  font-size: var(--t-destacado);
+}
+.vacio__texto {
+  max-width: 440px;
+  color: var(--texto-2);
+  font-size: var(--t-ui);
+  line-height: 1.6;
+}
+.vacio__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--e-2);
+  margin-top: var(--e-3);
+}

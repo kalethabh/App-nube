@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "app/guion.json (temp/<slug>/app/guion.json, lo escribe Claude en las sesiones \"guion\" y \"cambios\"; la app copia lo que se dice del manifiesto, o de la letra en la historia musical)",
+  "type": "object",
+  "required": ["titulo", "idioma", "duracionEstimada", "partes", "decisiones"],
+  "properties": {
+    "titulo": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "idioma": { "enum": ["es", "en", "pt"] },
+    "mercado": { "type": "string", "maxLength": 60 },
+    "duracionEstimada": { "type": "number", "minimum": 1, "maximum": 1200 },
+    "de_que_va": { "type": "string", "maxLength": 600 },
+    "variante": { "enum": ["A", "B"] },
+    "personajes": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": ["nombre"],
+        "properties": {
+          "id": { "type": "string", "maxLength": 40 },
+          "nombre": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "como_es": { "type": "string", "maxLength": 300 }
+        }
+      }
+    },
+    "partes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["n", "dice"],
+        "properties": {
+          "n": { "type": "integer", "minimum": 1 },
+          "dice": { "type": "string", "minLength": 1 },
+          "se_ve": { "type": "string", "maxLength": 600 },
+          "momento": { "type": "string", "maxLength": 60 },
+          "quien": { "type": "string", "maxLength": 80 },
+          "segundos": { "type": "number" },
+          "dialogo": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["quien", "dice"],
+              "properties": {
+                "quien": { "type": "string", "minLength": 1, "maxLength": 80 },
+                "dice": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extras": {
+      "type": "object",
+      "properties": {
+        "ganchos": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["id", "dice"],
+            "properties": {
+              "id": { "type": "string", "maxLength": 10 },
+              "idea": { "type": "string", "maxLength": 200 },
+              "dice": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "cta": { "type": "string", "maxLength": 200 }
+      }
+    },
+    "decisiones": { "type": "array", "maxItems": 10, "items": { "type": "string", "minLength": 1, "maxLength": 500 } },
+    "cambios_hechos": { "type": "array", "items": { "type": "string", "maxLength": 500 } }
+  }
+}
