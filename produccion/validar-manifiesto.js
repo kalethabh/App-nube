@@ -46,6 +46,7 @@ import {
 // cuenta en el resumen (voz en off y musica). La regla es la del montaje.
 import { brollQueEntranEnCarpeta } from './planear-montaje.js';
 import { problemaConFotograma } from './fotogramas.js';
+import { repetidas } from './imagenes-repetidas.js';
 import { MOVIMIENTOS_QUIETO, clipDeBiblioteca, duracionDe, modoSinCobro, movimientoQuieto, problemaConClipDeBiblioteca } from './clips-sin-cobro.js';
 
 const MODOS_AUDIO = ['voz_en_off', 'dialogo_nativo', 'musica'];
@@ -2104,7 +2105,14 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false } = {}) {
     // Las de un clip de la biblioteca salen de ese clip: no se generan.
     [...m.tomas.filter((t) => t.tipo === 'A' || t.tipo === 'B'), ...(m.broll || [])].reduce((n, x) => n + (clipDeBiblioteca(x) ? (x.tipo === 'B' ? 2 : 1) : 0), 0) +
     hojasAGenerar +
-    (esHablado ? iconosDe(m).length : 0);
+    (esHablado ? iconosDe(m).length : 0) -
+    // La misma imagen pedida dos veces se paga una (imagenes-repetidas.js).
+    repetidas([
+      ...m.tomas
+        .filter((t) => t.tipo !== 'R' && t.frame_inicial !== 'heredado' && !(t.tipo === 'H' && typeof t.frame_inicial === 'string' && t.frame_inicial.trim()) && !clipDeBiblioteca(t))
+        .map((t) => ({ clase: 'toma', prompt: t.prompt_imagen_inicial, referencias: t.referencias || [], fotograma: t.fotograma || null })),
+      ...(Array.isArray(m.broll) ? m.broll : []).filter((b) => !clipDeBiblioteca(b)).map((b) => ({ clase: 'broll', prompt: b.prompt_imagen, referencias: b.referencias || [], fotograma: b.fotograma || null })),
+    ]).size;
   const heredadas = m.tomas.filter((t) => t.frame_inicial === 'heredado').length;
   const sinCobroSC = [...m.tomas.filter((t) => t.tipo !== 'R' && t.tipo !== 'H'), ...(m.broll || [])].filter((x) => modoSinCobro(x));
   const videos = m.tomas.length + (Array.isArray(m.broll) ? m.broll.length : 0) - sinCobroSC.length;
