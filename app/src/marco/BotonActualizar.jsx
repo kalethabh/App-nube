@@ -18,6 +18,8 @@ export function BotonActualizar() {
   const [trabajando, setTrabajando] = useState(false);
   const [resultado, setResultado] = useState(null);
   const nuevos = datos?.atrasados || 0;
+  // la app llegó en un zip (sin repositorio): se actualiza con el zip nuevo, en Ajustes → Acerca de
+  if (datos?.repositorio === false) return null;
 
   const abrir = async () => {
     setResultado(null);

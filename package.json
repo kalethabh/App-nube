@@ -42,6 +42,7 @@
     "voz": "node produccion/recortar-voz.js",
     "recortar": "node produccion/recortar-host.js",
     "referencias:bajar": "node produccion/bajar-referencias.js",
-    "referencias:instalar": "node produccion/instalar-yt-dlp.js"
+    "referencias:instalar": "node produccion/instalar-yt-dlp.js",
+    "paquete": "node app/herramientas/paquete-compartir.mjs"
   }
 }
