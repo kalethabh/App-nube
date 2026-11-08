@@ -1,9 +1,9 @@
 // ANUNCIOS (#/anuncios): todos tus anuncios, en cualquier etapa, como en IA-VID-AUTOMATIC: pestañas (Todos,
 // Terminados, En producción, Con clips, Solo guion), buscador y orden. Cada uno abre su entrega (o su producción).
 import { useMemo, useState } from 'react';
-import { Clapperboard, Plus, Search, SearchX, X } from 'lucide-react';
-import { Boton, CabeceraPagina, Chip, EsqueletoMiniaturas, EstadoVacio, MiniaturaVideo, Selector } from '../../componentes/index.js';
-import { useAnuncios } from '../../datos/api.js';
+import { Clapperboard, Cloud, Download, Package, Plus, Search, SearchX, X } from 'lucide-react';
+import { Boton, CabeceraPagina, Chip, EsqueletoMiniaturas, EstadoVacio, MiniaturaVideo, Modal, Selector } from '../../componentes/index.js';
+import { useAnuncios, useDatos, miniatura } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
 import { normalizar } from '../tablero/datos.js';
 import { MarcaModoPrueba } from '../produccion/ModoPrueba.jsx';
@@ -35,12 +35,87 @@ function ordenar(lista, orden) {
   return copia;
 }
 
+// ---------------------------------------------------------------- los guardados en GitHub, por producto
+
+async function leerGithub() {
+  const r = await fetch('/api/anuncios-github', { headers: { Accept: 'application/json' } });
+  if (!r.ok) throw new Error('No pude leer tus anuncios de GitHub.');
+  return r.json();
+}
+
+/** Un anuncio de GitHub abierto: su video y sus versiones para descargar. */
+function VerAnuncio({ a, onCerrar }) {
+  const [v, setV] = useState(0);
+  if (!a) return null;
+  const version = a.versiones[v] || a.versiones[0];
+  return (
+    <Modal abierto={Boolean(a)} onCerrar={onCerrar} titulo={a.titulo} descripcion={[a.estiloNombre, a.productoNombre].filter(Boolean).join(' · ')} icono={Clapperboard} tamano="normal">
+      <div className="an-ver">
+        <video key={version.url} className="an-ver__video" src={version.url} poster={miniatura(a.portada, 480)} controls autoPlay playsInline />
+        <div className="an-ver__versiones">
+          {a.versiones.map((x, i) => (
+            <Chip key={x.tipo} activo={i === v} onClick={() => setV(i)}>
+              {x.nombre}
+            </Chip>
+          ))}
+        </div>
+        <Boton variante="secundario" icono={Download} href={version.url} download={version.ruta.split('/').pop()}>
+          Descargar esta versión
+        </Boton>
+      </div>
+    </Modal>
+  );
+}
+
+function PorProducto({ productos, q }) {
+  const [abierto, setAbierto] = useState(null);
+  const filtrados = productos
+    .map((p) => ({ ...p, anuncios: p.anuncios.filter((a) => !q || [a.titulo, a.id, a.estiloNombre, p.nombre].some((t) => normalizar(t).includes(q))) }))
+    .filter((p) => p.anuncios.length);
+  if (!filtrados.length) return null;
+  return (
+    <>
+      {filtrados.map((p, i) => (
+        <section key={p.producto} className="an-producto" style={{ animationDelay: `${Math.min(i, 6) * 60}ms` }}>
+          <h2 className="an-producto__titulo">
+            <span className="an-producto__icono" aria-hidden="true">
+              <Package size={16} strokeWidth={2} />
+            </span>
+            {p.nombre}
+            <span className="an-producto__cuenta t-num">{p.anuncios.length}</span>
+          </h2>
+          <div className="rejilla-videos tb-rejilla" style={{ '--min': '180px' }}>
+            {p.anuncios.map((a, k) => (
+              <MiniaturaVideo
+                key={a.id}
+                className="tb-listo"
+                style={{ animationDelay: `${Math.min(k, 12) * 35}ms` }}
+                imagen={miniatura(a.portada, 480)}
+                video={a.versiones[0]?.url}
+                estilo={a.estiloNombre}
+                etiqueta={a.versiones.length === 1 ? '1 versión' : `${a.versiones.length} versiones`}
+                titulo={a.titulo}
+                aria-label={`Ver ${a.titulo}`}
+                onClick={() => setAbierto({ ...a, productoNombre: p.nombre })}
+              />
+            ))}
+          </div>
+        </section>
+      ))}
+      <VerAnuncio a={abierto} onCerrar={() => setAbierto(null)} />
+    </>
+  );
+}
+
 export default function Anuncios() {
   const { datos, cargando } = useAnuncios({ cadaMs: 10000 });
   const [pestana, setPestana] = useState('todos');
   const [busqueda, setBusqueda] = useState('');
   const [orden, setOrden] = useState('recientes');
   const todos = datos?.anuncios || [];
+  const { datos: gh } = useDatos('anuncios-github', leerGithub, { cadaMs: 120000 });
+  const productosGh = gh?.productos || [];
+  const totalGh = productosGh.reduce((n, p) => n + p.anuncios.length, 0);
   const q = normalizar(busqueda.trim());
   const visibles = useMemo(() => {
     const ver = PESTANAS.find((p) => p.id === pestana)?.ver || (() => true);
@@ -54,7 +129,7 @@ export default function Anuncios() {
     <div className="pagina an">
       <CabeceraPagina
         titulo="Tus anuncios"
-        descripcion={cargando && !datos ? 'Cargando…' : `${todos.length} ${todos.length === 1 ? 'anuncio' : 'anuncios'}, en cualquier etapa.`}
+        descripcion={cargando && !datos ? 'Cargando…' : `${todos.length} en esta app · ${totalGh} guardados en GitHub, por producto.`}
         acciones={
           <div className="tb-herramientas">
             <label className="tb-buscador">
@@ -78,9 +153,24 @@ export default function Anuncios() {
         ))}
       </div>
 
+      {totalGh && pestana !== 'produccion' && pestana !== 'guion' && pestana !== 'clips' ? (
+        <div className="an-bloque">
+          <h2 className="an-bloque__titulo">
+            <Cloud size={18} strokeWidth={2} aria-hidden="true" /> Guardados en GitHub
+          </h2>
+          <PorProducto productos={productosGh} q={q} />
+        </div>
+      ) : null}
+
+      {todos.length || !totalGh ? (
+        <h2 className="an-bloque__titulo">
+          <Clapperboard size={18} strokeWidth={2} aria-hidden="true" /> En esta app
+        </h2>
+      ) : null}
       {cargando && !datos ? (
         <EsqueletoMiniaturas cantidad={8} />
       ) : !todos.length ? (
+        totalGh ? null : (
         <EstadoVacio
           icono={Clapperboard}
           titulo="Todavía no hay anuncios"
@@ -91,6 +181,7 @@ export default function Anuncios() {
             </Boton>
           }
         />
+        )
       ) : visibles.length ? (
         <div className="rejilla-videos tb-rejilla" style={{ '--min': '196px' }} key={`${pestana}-${orden}`}>
           {visibles.map((a, i) => (
