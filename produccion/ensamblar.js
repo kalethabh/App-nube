@@ -14,7 +14,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { RAIZ, DIR_OUTPUT, ESTILOS_HABLADOS, ESTILOS_SIN_MUSICA } from './config.js';
+import { RAIZ, DIR_OUTPUT, ESTILOS_HABLADOS, ESTILOS_SIN_MUSICA, ESCALA_RENDER } from './config.js';
 import { escribirPlanLegible } from './plan-para-humanos.js';
 import { PISTA_FIJA_POR_ESTILO } from './pista-fija.js';
 import { tieneContinuidad, cadenaDeClips, medirClip } from './continuidad.js';
@@ -681,7 +681,7 @@ if (process.argv[1] && process.argv[1].endsWith('ensamblar.js')) {
   const pedida = Number.isInteger(concurrencia) && concurrencia > 0 ? concurrencia : null;
   let concurrenciaRender = pedida ?? concurrenciaSegunMemoria();
 
-  console.log(`  Formato:    9:16 vertical, h264, CRF ${CRF}`);
+  console.log(`  Formato:    9:16 vertical, ${ESCALA_RENDER === 1 ? '720x1280' : `${Math.round(720 * ESCALA_RENDER)}x${Math.round(1280 * ESCALA_RENDER)}`}, h264, CRF ${CRF}`);
   // Las etiquetas ya dicen que es cada version; enumerarlas a mano aqui hacia
   // que en modo musica —donde salen dos— el texto siguiera nombrando tres.
   console.log(`  Versiones:  ${versiones.length} (${versiones.map((v) => v.etiqueta).join(' / ')})`);
@@ -763,6 +763,7 @@ if (process.argv[1] && process.argv[1].endsWith('ensamblar.js')) {
         `--crf=${CRF}`,
         '--log=info',
         `--concurrency=${conc}`,
+        ...(ESCALA_RENDER !== 1 ? [`--scale=${ESCALA_RENDER}`] : []),
       ],
       { cwd: DIR_REMOTION, stdio: ['inherit', 'inherit', 'pipe'], encoding: 'utf8', shell: true, maxBuffer: 64 * 1024 * 1024 }
     );
