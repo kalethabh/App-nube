@@ -203,7 +203,7 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [camino]);
   useEffect(() => {
-    document.title = actual ? `${actual.ruta.titulo} · anuncios-IA` : 'anuncios-IA by Kalethabh';
+    document.title = actual ? `${actual.ruta.titulo} · Kads Studio` : 'Kads Studio by Kalethabh';
   }, [actual]);
 
   const fijarMigas = useCallback((m) => setMigasPagina(m), []);
@@ -232,7 +232,7 @@ export default function App() {
     );
   }
 
-  const migas = migasPagina || actual?.ruta.migas?.(actual.params) || [{ texto: 'anuncios-IA' }];
+  const migas = migasPagina || actual?.ruta.migas?.(actual.params) || [{ texto: 'Kads Studio' }];
 
   return (
     <ContextoBarra.Provider value={fijarMigas}>

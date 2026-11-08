@@ -246,7 +246,7 @@ export default function rutasAjustes(app) {
       preferencias: preferencias(config),
       bienvenidaVista: config.bienvenidaVista === true,
       app: {
-        nombre: 'anuncios-IA',
+        nombre: 'Kads Studio',
         autor: 'Kalethabh',
         version: versionVisible(),
       },

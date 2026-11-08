@@ -163,7 +163,8 @@ function juntarLineas(repo, local) {
 
 async function sincronizarAhora() {
   const repo = await repoBiblioteca();
-  if (!repo) return { estado: 'error', repo: null, error: 'No encontré de qué cuenta de GitHub es esta app (clónala desde GitHub), así que la biblioteca se guarda solo en este computador.' };
+  // sin repositorio (la app llegó en un zip): la biblioteca vive solo en este computador, y está bien así
+  if (!repo) return { estado: 'local', repo: null, error: null };
   fs.mkdirSync(DIR_BIBLIOTECA, { recursive: true });
 
   // Si el guardado de la app ya la había subido al repositorio de la app, se saca de ahí (los archivos quedan).

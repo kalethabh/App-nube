@@ -71,7 +71,7 @@ export async function actualizar() {
     // lo tuyo primero (guiones, ajustes, aprendizajes…): así no choca con lo que baja
     await guardarAhora();
     const viejo = (await git(['rev-parse', 'HEAD'])).salida;
-    const identidad = (await git(['config', 'user.email'])).ok ? [] : ['-c', 'user.name=anuncios-IA', '-c', 'user.email=anuncios-ia@localhost'];
+    const identidad = (await git(['config', 'user.email'])).ok ? [] : ['-c', 'user.name=Kads Studio', '-c', 'user.email=anuncios-ia@localhost'];
     const p = await git([...identidad, 'pull', '--no-rebase', '--no-edit', 'origin', antes.rama], 300000);
     if (!p.ok) {
       await git(['merge', '--abort']);

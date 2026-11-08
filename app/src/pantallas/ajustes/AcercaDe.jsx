@@ -247,7 +247,7 @@ export function AcercaDe({ ajustes, alVerBienvenida }) {
           </span>
           <div className="acerca__textos">
             <h3 className="acerca__nombre">
-              {a?.nombre || 'anuncios-IA'}
+              {a?.nombre || 'Kads Studio'}
               <span className="acerca__punto" aria-hidden="true">
                 ·
               </span>

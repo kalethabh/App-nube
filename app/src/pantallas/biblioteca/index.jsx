@@ -26,6 +26,8 @@ function EstadoSync({ estado, onSincronizar, sincronizando }) {
         ? 'Sincronizando con tu GitHub…'
         : e === 'sin-git'
           ? 'Modo prueba: se guarda solo en este computador'
+          : e === 'local'
+            ? 'Se guarda en este computador'
           : e === 'sin-empezar'
             ? 'Se sincroniza al abrir la app'
             : estado?.error || 'Se guarda solo en este computador';

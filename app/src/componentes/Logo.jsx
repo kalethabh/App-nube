@@ -1,26 +1,21 @@
 import { useId } from 'react';
 
-/** El símbolo de anuncios-IA (by Kalethabh): un cuadro verde lima con un play y un destello, en negro. */
+/** El símbolo de Kads Studio (by Kalethabh): una K verde lima sobre negro, con el punto de la IA. Igual a public/icono.svg. */
 export function Logo({ tamano = 32, className = '' }) {
   const id = useId().replace(/:/g, '');
   return (
-    <svg width={tamano} height={tamano} viewBox="0 0 32 32" className={className} aria-hidden="true">
+    <svg width={tamano} height={tamano} viewBox="0 0 64 64" className={className} aria-hidden="true">
       <defs>
-        <linearGradient id={`${id}-f`} x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+        <linearGradient id={`${id}-g`} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="#C8FC80" />
           <stop offset=".55" stopColor="#9DF626" />
-          <stop offset="1" stopColor="#86E012" />
-        </linearGradient>
-        <linearGradient id={`${id}-b`} x1="16" y1="1" x2="16" y2="18" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#fff" stopOpacity=".32" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+          <stop offset="1" stopColor="#7AD10E" />
         </linearGradient>
       </defs>
-      <rect x="1.5" y="1.5" width="29" height="29" rx="8.5" fill={`url(#${id}-f)`} />
-      <rect x="1.5" y="1.5" width="29" height="29" rx="8.5" fill={`url(#${id}-b)`} />
-      <rect x="2" y="2" width="28" height="28" rx="8" fill="none" stroke="#0a0a0a" strokeOpacity=".12" />
-      <path d="M12.6 10.4c0-1 1.1-1.6 1.9-1.1l8.4 5.3c.8.5.8 1.7 0 2.2l-8.4 5.3c-.8.5-1.9-.1-1.9-1.1z" fill="#0a0a0a" />
-      <path d="M23.6 4.6l.75 1.9 1.9.75-1.9.75-.75 1.9-.75-1.9-1.9-.75 1.9-.75z" fill="#0a0a0a" />
+      <rect x="2" y="2" width="60" height="60" rx="16" fill="#0A0A0A" />
+      <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="15.25" fill="none" stroke="#9DF626" strokeOpacity=".3" strokeWidth="1.5" />
+      <path d="M21 14v36M42 15L26.5 32 42 49" fill="none" stroke={`url(#${id}-g)`} strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="50.5" cy="12.5" r="3.4" fill={`url(#${id}-g)`} />
     </svg>
   );
 }
