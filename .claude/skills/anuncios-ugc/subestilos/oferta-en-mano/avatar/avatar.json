@@ -1,0 +1,21 @@
+{
+  "subestilo": "oferta-en-mano",
+  "skill": "anuncios-ugc",
+  "avatares": [
+    {
+      "rol": "creadora",
+      "nombre": "La mano con la oferta",
+      "adjuntar": false,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-ugc/subestilos/oferta-en-mano/avatar/creadora.jpg",
+      "como": [
+        "No se ve la cara: todo el anuncio es una mano real que sostiene el producto en primer plano, en la vista de quien graba.",
+        "Mano de piel morena, sin esmalte o con las uñas cortas y naturales, sin anillos.",
+        "Al fondo, desenfocada, una mesa de madera con sol de tarde que entra por la ventana, rayas de luz y sombra y un sofá gris.",
+        "La mano gira el frasco despacio para mostrar la etiqueta y después lo deja sobre la mesa."
+      ],
+      "prompt": "Point-of-view smartphone photo of a real hand with medium-dark brown skin and short natural unpolished nails, no rings, holding the product bottle close to the camera with the label facing the lens, warm late-afternoon sunlight with stripes of light and shadow across a wooden coffee table, a grey sofa softly blurred behind, shallow depth of field, photorealistic, shot on a smartphone, natural skin texture with visible pores, fine lines and slight under-eye shadows, real flyaway hair strands, no beauty filter, no retouching. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-02.jpg"
+    }
+  ]
+}

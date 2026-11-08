@@ -1402,3 +1402,22 @@
   box-shadow: inset 0 0 0 1px var(--neutro-borde);
   white-space: nowrap;
 }
+
+/* Inversión por producto */
+.inversion__lista { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 6px; }
+.inversion__fila { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border: 1px solid var(--borde, rgba(127,127,127,.25)); border-radius: 10px; background: transparent; color: inherit; font: inherit; cursor: pointer; text-align: left; }
+.inversion__fila:hover { background: var(--superficie-2, rgba(127,127,127,.08)); }
+.inversion__foto { width: 32px; height: 32px; object-fit: cover; border-radius: 6px; }
+.inversion__nombre { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.inversion__cuantos { opacity: .7; font-size: .9em; }
+.inversion__monto { font-variant-numeric: tabular-nums; }
+.inversion__anuncios { list-style: none; margin: 6px 0 4px 42px; padding: 0; display: grid; gap: 4px; }
+.inversion__anuncios li { display: flex; gap: 10px; align-items: baseline; font-size: .95em; }
+.inversion__anuncios a { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: inherit; }
+.inversion__estilo, .inversion__tope { opacity: .7; font-size: .9em; }
+
+/* Guardado en la nube */
+.guardado__linea { display: flex; gap: 10px; align-items: flex-start; margin: 10px 0; }
+.guardado__linea p { margin: 2px 0 0; }
+.guardado__ok { color: var(--exito, #34d399); margin-top: 2px; }
+.guardado__aviso { color: var(--aviso, #fbbf24); margin-top: 2px; }

@@ -1,0 +1,35 @@
+{
+  "subestilo": "cuerpo-de-lodo-con-doctor",
+  "skill": "anuncios-skeleton-ads",
+  "avatares": [
+    {
+      "rol": "esqueleto",
+      "nombre": "El cuerpo de lodo",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-skeleton-ads/subestilos/cuerpo-de-lodo-con-doctor/avatar/esqueleto.jpg",
+      "como": [
+        "Una figura de hombre adulto pesado, cubierta entera por un lodo amarillo-mostaza espeso, brillante y chorreante.",
+        "Debajo se adivina la calavera, con ojos saltones de caricatura de esclerótica blanca.",
+        "Banda de toalla blanca con rayas rojas en la frente y boxers azul marino: nunca cambian.",
+        "En las tomas del mecanismo, la panza se abre como una ventana de rayos X con los órganos dentro."
+      ],
+      "prompt": "Hyper-detailed cinematic 3D render of a heavyset adult humanoid figure completely covered in thick glossy mustard-yellow sludge that drips and oozes, a skull face faintly visible beneath with big bulging cartoon eyes with white sclera, wearing a white terry-cloth headband with red stripes and navy blue boxer shorts, worried expression, vivid royal-blue gradient studio background with vignette, glossy specular sludge with real drips, rim light, saturated colors, full body front view. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-05.jpg"
+    },
+    {
+      "rol": "doctor",
+      "nombre": "El doctorcito guía",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-skeleton-ads/subestilos/cuerpo-de-lodo-con-doctor/avatar/doctor.jpg",
+      "como": [
+        "Un muñeco 3D Pixar pequeño, delgado y alargado, de piel clara: la cara larga y amable, el pelo castaño corto peinado al costado.",
+        "Bata blanca hasta las rodillas, camisa celeste, corbata roja, pantalón y zapatos cafés.",
+        "Siempre de cuerpo entero en la esquina inferior, mirando a cámara con una sonrisa leve y los brazos sueltos."
+      ],
+      "prompt": "Small Pixar-style 3D cartoon doctor figure, slim and elongated, light skin, long friendly face, short brown side-parted hair, knee-length white lab coat, light blue shirt, red tie, brown trousers and brown shoes, standing full body with relaxed arms and a gentle smile, looking at the camera, plain light background, high-end animated film quality, full body. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-05.jpg (recortado)"
+    }
+  ]
+}

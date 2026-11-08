@@ -29,7 +29,7 @@ import { armarInforme } from '../informe.js';
 import { brollDe, ventanasDeLaVoz } from '../broll.js';
 
 export const FAMILIA = 'voz-en-off';
-export const ESTILOS = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'skeleton', 'estilo-lego'];
+export const ESTILOS = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'realista-narrado', 'skeleton', 'estilo-lego'];
 
 // ---------------------------------------------------------------- lo propio de cada estilo
 
@@ -117,6 +117,22 @@ export const DEL_ESTILO = {
       DEFECTO.linea,
     ],
     simulada: { imagen: 'Warm Pixar-style 3D animation with soft global illumination.', video: 'Slow, steady camera push-in.' },
+  },
+  'realista-narrado': {
+    skill: 'anuncios-realista-narrado',
+    que: 'un anuncio realista con narrador (personas fotorrealistas grabadas como con un celular, el mecanismo en anatomía médica 3D)',
+    musica: 'suno',
+    defectos: [
+      DEFECTO.productoEtiqueta,
+      DEFECTO.textosAgregados,
+      DEFECTO.cuerpos,
+      'la persona no es la misma de su hoja (otra cara, otro pelo, otra edad), o el después no es la misma persona del antes;',
+      'una toma de persona o de producto que no parece real: dibujo, 3D, Pixar, plastilina, piel de plástico o con filtro de belleza, o luz de estudio;',
+      'una toma de mecanismo que no es anatomía médica 3D sobre fondo azul marino oscuro, o que trae rótulos o flechas;',
+      DEFECTO.marco,
+      DEFECTO.linea,
+    ],
+    simulada: { imagen: 'Photorealistic smartphone look, real skin texture, natural light of the place.', video: 'Slight handheld movement, one simple action.' },
   },
   skeleton: {
     skill: 'anuncios-skeleton-ads',

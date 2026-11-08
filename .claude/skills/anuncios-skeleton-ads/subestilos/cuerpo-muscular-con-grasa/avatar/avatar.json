@@ -1,0 +1,22 @@
+{
+  "subestilo": "cuerpo-muscular-con-grasa",
+  "skill": "anuncios-skeleton-ads",
+  "avatares": [
+    {
+      "rol": "esqueleto",
+      "nombre": "El músculo con grasa",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-skeleton-ads/subestilos/cuerpo-muscular-con-grasa/avatar/esqueleto.jpg",
+      "como": [
+        "Cuerpo de anatomía muscular roja a la vista, con depósitos de grasa amarilla globosa en las mejillas, la panza, los brazos y el pecho.",
+        "Calavera marfil limpia con ojos grandes de caricatura, café y muy expresivos.",
+        "Durag negro con las tiras atrás y boxers negros; al final, ya marcado, pantalón negro.",
+        "Comedia física: se aprieta la grasa, flexiona el bíceps frente al espejo, se agarra la cara.",
+        "En casa o en el baño, con luz cálida de ventana y render suave tipo Pixar realista."
+      ],
+      "prompt": "Hyper-detailed 3D render of a humanoid figure with exposed red anatomical muscles and lumpy glossy yellow fat deposits on the cheeks, belly, arms and chest, a clean ivory skull head with big expressive brown cartoon eyes, wearing a black durag with tails and black boxer briefs, comically squeezing the fat on his belly, bright home bathroom with warm window light, soft cinematic render, medium-full shot. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-12.jpg"
+    }
+  ]
+}

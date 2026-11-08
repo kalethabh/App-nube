@@ -15,9 +15,9 @@
 # como artefacto del run.
 name: Prueba Mac y Windows
 
+# Solo a mano (pestaña Actions → Run workflow): en un repositorio privado, cada corrida en Mac gasta minutos de GitHub,
+# y el guardado automático hace un push cada 2 minutos.
 on:
-  push:
-  pull_request:
   workflow_dispatch:
 
 permissions:

@@ -28,6 +28,7 @@ import { tieneConductor, useConductor } from '../../datos/produccion.js';
 import { BandaModoPrueba } from '../produccion/ModoPrueba.jsx';
 import { Reproductor } from './Reproductor.jsx';
 import { Versiones } from './Versiones.jsx';
+import { MasGanchos } from './MasGanchos.jsx';
 import { Informe, normalizarInforme } from './Informe.jsx';
 import { NOMBRE_CORTO, abrirCarpeta, useEntrega } from './datos.js';
 import './entrega.css';
@@ -216,6 +217,7 @@ export default function Entrega({ params }) {
               Carpeta de las imágenes y los clips
             </Boton>
           ) : null}
+          {version ? <MasGanchos slug={a.slug} /> : null}
         </div>
 
         {/* ------------------------------------------------ derecha: el anuncio */}

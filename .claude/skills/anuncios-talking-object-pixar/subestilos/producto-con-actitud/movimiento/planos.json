@@ -1,0 +1,156 @@
+{
+  "ref-01": {
+    "inicio": 0.0,
+    "fin": 5.04,
+    "duracion": 5.04,
+    "fotograma_en": 0.6
+  },
+  "ref-02": {
+    "inicio": 5.04,
+    "fin": 9.88,
+    "duracion": 4.83,
+    "fotograma_en": 5.64
+  },
+  "ref-03": {
+    "inicio": 9.88,
+    "fin": 15.33,
+    "duracion": 5.46,
+    "fotograma_en": 10.47
+  },
+  "ref-04": {
+    "inicio": 15.33,
+    "fin": 20.0,
+    "duracion": 4.67,
+    "fotograma_en": 15.93
+  },
+  "ref-05": {
+    "inicio": 20.0,
+    "fin": 25.04,
+    "duracion": 5.04,
+    "fotograma_en": 20.6
+  },
+  "ref-06": {
+    "inicio": 25.04,
+    "fin": 28.64,
+    "duracion": 3.6,
+    "fotograma_en": 25.64
+  },
+  "ref-07": {
+    "inicio": 34.0,
+    "fin": 36.88,
+    "duracion": 2.88,
+    "fotograma_en": 34.6
+  },
+  "ref-08": {
+    "inicio": 36.88,
+    "fin": 44.12,
+    "duracion": 7.25,
+    "fotograma_en": 37.48
+  },
+  "ref-09": {
+    "inicio": 44.12,
+    "fin": 51.92,
+    "duracion": 7.79,
+    "fotograma_en": 44.73
+  },
+  "ref-10": {
+    "inicio": 51.92,
+    "fin": 55.33,
+    "duracion": 3.42,
+    "fotograma_en": 52.52
+  },
+  "ref-11": {
+    "inicio": 55.33,
+    "fin": 63.17,
+    "duracion": 7.83,
+    "fotograma_en": 55.93
+  },
+  "ref-12": {
+    "inicio": 63.17,
+    "fin": 66.71,
+    "duracion": 3.54,
+    "fotograma_en": 63.77
+  },
+  "ritmo-ref": {
+    "planos": 12,
+    "duracion_media": 5.49,
+    "duracion_video": 66.71
+  },
+  "es-01": {
+    "inicio": 0.0,
+    "fin": 6.67,
+    "duracion": 6.67,
+    "fotograma_en": 0.6
+  },
+  "es-02": {
+    "inicio": 6.67,
+    "fin": 11.93,
+    "duracion": 5.27,
+    "fotograma_en": 7.27
+  },
+  "es-03": {
+    "inicio": 11.93,
+    "fin": 17.1,
+    "duracion": 5.17,
+    "fotograma_en": 12.53
+  },
+  "es-04": {
+    "inicio": 17.1,
+    "fin": 22.5,
+    "duracion": 5.4,
+    "fotograma_en": 17.7
+  },
+  "es-05": {
+    "inicio": 22.5,
+    "fin": 27.93,
+    "duracion": 5.43,
+    "fotograma_en": 23.1
+  },
+  "es-06": {
+    "inicio": 27.93,
+    "fin": 31.53,
+    "duracion": 3.6,
+    "fotograma_en": 28.53
+  },
+  "es-07": {
+    "inicio": 39.67,
+    "fin": 43.03,
+    "duracion": 3.37,
+    "fotograma_en": 40.27
+  },
+  "es-08": {
+    "inicio": 43.03,
+    "fin": 45.67,
+    "duracion": 2.63,
+    "fotograma_en": 43.63
+  },
+  "es-09": {
+    "inicio": 45.67,
+    "fin": 51.83,
+    "duracion": 6.17,
+    "fotograma_en": 46.27
+  },
+  "es-10": {
+    "inicio": 51.83,
+    "fin": 57.27,
+    "duracion": 5.43,
+    "fotograma_en": 52.43
+  },
+  "es-11": {
+    "inicio": 57.27,
+    "fin": 59.13,
+    "duracion": 1.87,
+    "fotograma_en": 57.87
+  },
+  "es-12": {
+    "inicio": 59.13,
+    "fin": 64.78,
+    "duracion": 5.65,
+    "fotograma_en": 59.73
+  },
+  "ritmo-es": {
+    "planos": 12,
+    "duracion_media": 5.4,
+    "duracion_video": 64.78
+  }
+}

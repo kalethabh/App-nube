@@ -1,0 +1,185 @@
+{
+ "_ayuda": "Las claves que empiezan con _ son comentarios. Ejemplo completo y aprobado: assets/ejemplo/proyecto.json. Prompts en inglés; las líneas, en el idioma del anuncio. Escribe los encuadres con el 'nombre' de cada personaje. 'dur' = segundos que se GENERAN (Omni redondea a 4/6/8/10 y cobra eso); el montaje recorta a la línea. Campos: references/prompts.md y references/montaje.md",
+ "nombre": "<Título del sketch> · <Marca Producto> (<país>, variante A|B)",
+ "idioma_dialogo": "Spanish",
+ "idioma_whisper": "es",
+ "palabras_permitidas": [],
+ "formato": {
+  "aspecto": "9:16",
+  "resolucion_imagen": "2K",
+  "resolucion_video": "720p"
+ },
+ "modelos": {
+  "proveedor": "kie",
+  "imagen": "gpt-image-2",
+  "video": "omni-flash"
+ },
+ "genero": "comedic <Colombian|Mexican|...> telenovela-style sketch",
+ "estilo": "Cinematic film still, shot on 35mm film with an 85mm lens, Kodak Portra 400 look, golden hour warm backlight, shallow depth of field, creamy bokeh, natural realistic skin texture with pores, premium Latin telenovela aesthetic, photorealistic, no text, no captions, no watermark",
+ "variables": {
+  "PRODUCTO": "the product from the product reference image: <forma, material, color, tapa/gotero, tamaño relativo a la mano, colores de la etiqueta>",
+  "FONDO_VICTIMA": "behind them: <lo que se ve detrás de la víctima>, softly out of focus",
+  "FONDO_FRENTE": "behind them: <lo que se ve en el contraplano>, softly out of focus"
+ },
+ "locaciones": {
+  "principal": "<Lugar aspiracional y reconocible a la hora dorada, con 4–6 elementos fijos que se repiten>"
+ },
+ "producto": {
+  "imagen": "producto/<foto>.png",
+  "descripcion": "<igual que {PRODUCTO} + el texto principal de la etiqueta>"
+ },
+ "personajes": {
+  "victima": {
+   "nombre": "<Nombre víctima>",
+   "descripcion": "<NOMBRE>: <nacionalidad>, <edad> years old, <piel, pelo, cara>, <el problema VISIBLE>, wearing <vestuario fijo en neutros claros>, <accesorios>",
+   "aspecto": "the woman in the <color> <prenda> with <rasgo>",
+   "voz": "<timbre> <edad> female voice, <acento>",
+   "genero": "f",
+   "_nota": "genero f/m; si es hombre, usa he/his en encuadres y miradas"
+  },
+  "verdugo": {
+   "nombre": "<Nombre verdugo>",
+   "descripcion": "<NOMBRE>: ..., wearing <un color saturado>",
+   "aspecto": "the <older woman> with <rasgo> and the <color> <prenda>",
+   "voz": "loud, effusive mature female voice, <acento>",
+   "genero": "f"
+  },
+  "mensajero": {
+   "nombre": "<Nombre mensajero>",
+   "descripcion": "<NOMBRE>: ..., <ya sin el problema>, wearing <blanco o crema, impecable>",
+   "aspecto": "the woman in the white <prenda> with <rasgo>",
+   "voz": "smooth, calm, confident voice, <acento>",
+   "genero": "f"
+  }
+ },
+ "video": {
+  "aviso_edades": "All people in this scene are adults aged <min> to <max>, at <el lugar>.",
+  "genero": "Cinematic comedic telenovela sketch",
+  "camara": "Static camera on a tripod with a very subtle slow push-in, shallow depth of field, golden hour light",
+  "reemplazos": {
+   "label": "front"
+  }
+ },
+ "musica": {
+  "archivo": null,
+  "inicio": 4.0,
+  "bajo_dialogo_lu": 15.0
+ },
+ "ambiente": null,
+ "tomas": [
+  {
+   "id": "s01",
+   "personajes": [
+    "victima",
+    "verdugo"
+   ],
+   "dur": 6,
+   "mira": "se miran",
+   "encuadre": "Medium-wide two-shot in profile at <lugar>: <NOMBRE VÍCTIMA> on the LEFT side of the frame facing right; <NOMBRE VERDUGO> on the RIGHT facing left, <gesto>. They look at each other, not at the camera",
+   "habla": "verdugo",
+   "linea": "<gancho-insulto que expone el problema>",
+   "entrega": "<etiqueta de actuacion.md>",
+   "accion": "<qué hacen mientras habla>",
+   "miradas": "<NOMBRE VERDUGO> looks at <NOMBRE VÍCTIMA> (to the LEFT); <NOMBRE VÍCTIMA> looks at <NOMBRE VERDUGO> (to the RIGHT); nobody looks at the camera",
+   "extra": 0.2
+  },
+  {
+   "id": "s02",
+   "personajes": [
+    "victima",
+    "verdugo"
+   ],
+   "dur": 6,
+   "mira": "Víctima → der",
+   "encuadre": "Over-the-shoulder shot: <NOMBRE VERDUGO>'s hair and shoulder blurred in the foreground on the RIGHT edge of the frame. <NOMBRE VÍCTIMA> in a medium close-up, face in three-quarter view turned to the right, looking at <NOMBRE VERDUGO> just off-frame right, <expresión>; {FONDO_VICTIMA}",
+   "habla": "victima",
+   "linea": "<excusa absurda>",
+   "entrega": "nervous forced smile, slow flat delivery, unconvincing",
+   "accion": "<gesto>",
+   "miradas": "<NOMBRE VÍCTIMA> looks at <NOMBRE VERDUGO>, just off-frame to the RIGHT; she never looks into the camera lens"
+  },
+  {
+   "id": "s06",
+   "personajes": [
+    "victima"
+   ],
+   "dur": 4,
+   "mira": "Víctima → der",
+   "encuadre": "Tight close-up of <NOMBRE VÍCTIMA>'s face, eyes open, turned to the right toward <quien la humilló>, her smile fading into a deadpan hurt expression; {FONDO_VICTIMA}",
+   "accion": "Silent reaction: she keeps looking to the right, her smile slowly fades, she blinks once. No one speaks",
+   "miradas": "<NOMBRE VÍCTIMA> looks to the RIGHT, off-frame; she never looks into the camera lens",
+   "corte": {
+    "inicio": 0.6,
+    "dur": 1.3
+   },
+   "audio": "ambiente"
+  },
+  {
+   "id": "s15",
+   "personajes": [
+    "mensajero",
+    "victima"
+   ],
+   "producto": true,
+   "dur": 8,
+   "mira": "Mensajero ← izq",
+   "encuadre": "Reverse over-the-shoulder shot: <NOMBRE VÍCTIMA>'s hair and shoulder blurred in the foreground on the LEFT edge of the frame. <NOMBRE MENSAJERO> in a medium shot from the waist up, face turned to the LEFT, talking to her with a warm smile, holding {PRODUCTO} still at chest height, its front facing the camera; {FONDO_FRENTE}",
+   "habla": "mensajero",
+   "linea": "<Esto> ayuda a <mecanismo de calle>… y lo pagas cuando te llega a la casa.",
+   "entrega": "warm enthusiastic friend recommendation, natural melodic intonation, not salesy; lowers her voice confidentially on the offer",
+   "accion": "<NOMBRE MENSAJERO> explains, keeping the product still at chest height",
+   "miradas": "<NOMBRE MENSAJERO> talks to <NOMBRE VÍCTIMA>, who is in the foreground on the LEFT; she never looks into the camera lens"
+  },
+  {
+   "id": "s18",
+   "personajes": [
+    "mensajero"
+   ],
+   "dur": 4,
+   "mira": "a cámara (CTA)",
+   "a_camara": true,
+   "encuadre": "Medium close-up of <NOMBRE MENSAJERO> looking straight into the camera lens with a complicit half-smile, as if sharing a secret with the viewer; {FONDO_FRENTE}",
+   "habla": "mensajero",
+   "linea": "<A ti sí te cuento… el link está abajo.>",
+   "entrega": "looks into the camera, intimate casual tone, like sharing a secret",
+   "accion": "<NOMBRE MENSAJERO> leans slightly toward the camera and winks",
+   "miradas": "<NOMBRE MENSAJERO> looks straight into the camera lens (breaking the fourth wall on purpose)",
+   "_nota": "Solo variante B o cierre V4. En la variante A, borra esta toma."
+  },
+  {
+   "id": "s19",
+   "personajes": [],
+   "producto": true,
+   "dur": 4,
+   "mira": "packshot",
+   "encuadre": "Close-up product packshot: {PRODUCTO} fills about 45% of the frame height, standing on <superficie del set>, realistic scale and contact shadow, <elementos del set> in heavy bokeh behind, golden hour rim light, empty soft background in the upper third of the frame",
+   "accion": "Very slow push-in on the product, no people, no dialogue",
+   "imagen_fija": true,
+   "corte": {
+    "inicio": 0,
+    "dur": 3.6
+   },
+   "zoom": 0.07,
+   "banda": {
+    "y": 150,
+    "alto": 290,
+    "opacidad": 0.38
+   },
+   "textos": [
+    {
+     "texto": "<¿Gancho como pregunta?>",
+     "tam": 80,
+     "y": 200,
+     "fuente": "negrita"
+    },
+    {
+     "texto": "<Oferta · Link abajo>",
+     "tam": 58,
+     "y": 315,
+     "fuente": "normal"
+    }
+   ]
+  }
+ ],
+ "_idioma": "es/Spanish · pt/Brazilian Portuguese · en/English: cambia idioma_dialogo, idioma_whisper y el acento de cada voz"
+}

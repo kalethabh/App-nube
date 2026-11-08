@@ -85,6 +85,8 @@ import {
   archivoDeReferencia,
   tomaDelBroll,
 } from './referencias.js';
+import { problemaConFotograma, promptConFotograma, rutaLimpia } from './fotogramas.js';
+import { clipDeBiblioteca, fotogramaDe, itemDeTrabajo, modoSinCobro } from './clips-sin-cobro.js';
 import { anotarHojaDeReferencia } from './estado.js';
 import { archivarSiExiste } from './historial.js';
 import { tieneContinuidad, referenciasSoloDelBrollDescartado } from './continuidad.js';
@@ -176,6 +178,7 @@ export function construirPlan(m, { soloTomas, soloBroll = null } = {}) {
       clase: 'referencia',
       archivo: archivoDeHoja(r),
       prompt: r.prompt,
+      fotograma: r.fotograma || null,
       referencias: [...(desdeArchivo ? [r.id] : []), ...otrasHojas],
       descripcion:
         `hoja de referencia "${r.id}"${r.tipo ? ` (${r.tipo})` : ''}` +
@@ -275,6 +278,7 @@ export function construirPlan(m, { soloTomas, soloBroll = null } = {}) {
         n: t.n,
         archivo: `toma-${t.n}-inicial.png`,
         prompt: t.prompt_imagen_inicial,
+        fotograma: t.fotograma || null,
         referencias: t.referencias || [],
         descripcion: `toma ${t.n} (${t.tipo}) frame inicial`,
         ...delEstilo,
@@ -307,6 +311,7 @@ export function construirPlan(m, { soloTomas, soloBroll = null } = {}) {
         n: t.n,
         archivo: `toma-${t.n}-final.png`,
         prompt: t.prompt_imagen_final,
+        fotograma: t.fotograma_final || null,
         referencias: [...heredadas, 'frame_inicial_de_esta_toma'],
         descripcion: `toma ${t.n} (B) frame final`,
         ...delEstilo,
@@ -326,6 +331,7 @@ export function construirPlan(m, { soloTomas, soloBroll = null } = {}) {
       n: b.n,
       archivo: `broll-${b.n}.png`,
       prompt: b.prompt_imagen,
+      fotograma: b.fotograma || null,
       referencias: b.referencias || [],
       // La toma junto a la que va (despues o encima): de ella sale su "frame_anterior".
       deToma: tomaDelBroll(b),
@@ -704,6 +710,16 @@ async function resolverReferencias(trabajo, ctx) {
     }
   }
 
+  // El fotograma del subestilo, sin texto, va ULTIMO (ver fotogramas.js).
+  if (trabajo.fotograma) {
+    const problema = problemaConFotograma(trabajo.fotograma);
+    if (problema) throw new Error(`${trabajo.id}: "fotograma" ${problema}`);
+    const limpia = rutaLimpia(trabajo.fotograma);
+    urls.push(await subirArchivo(limpia));
+    usadas.push(`fotograma ${path.basename(trabajo.fotograma)}`);
+    archivos.push(limpia);
+  }
+
   return { urls, usadas, archivos };
 }
 
@@ -829,7 +845,7 @@ async function generarConCascada(trabajo, ctx, log) {
   const resolucionDe = (modelo) => trabajo.resoluciones?.[modelo] || RESOLUCION;
   const huellaDe = (modelo) =>
     huellaDeImagen(
-      { modelo, prompt: trabajo.prompt, aspecto, resolucion: resolucionDe(modelo), fondo: trabajo.fondo || null, archivos },
+      { modelo, prompt: promptConFotograma(trabajo.prompt, trabajo.fotograma), aspecto, resolucion: resolucionDe(modelo), fondo: trabajo.fondo || null, archivos },
       ctx.sha1s
     );
 
@@ -870,7 +886,7 @@ async function generarConCascada(trabajo, ctx, log) {
       try {
         const r = await generarImagen({
           modelo,
-          prompt: trabajo.prompt,
+          prompt: promptConFotograma(trabajo.prompt, trabajo.fotograma),
           imagenesReferencia: referencias,
           aspectRatio: aspecto,
           resolucion: resolucionDe(modelo),
@@ -1365,6 +1381,26 @@ async function cli() {
   let plan = construirPlan(manifiesto, { soloTomas, soloBroll });
   // --broll: las hojas que ya estan no se tocan (tampoco con --rehacer): solo se rehace la imagen del B-roll.
   if (soloBroll) plan = plan.filter((t) => t.clase !== 'referencia' || !fs.existsSync(path.join(dirImg, t.archivo)));
+
+  // Tomas y B-roll que usan un clip de la biblioteca (clips-sin-cobro.js): sus
+  // imagenes son el primer (y en las B el ultimo) fotograma de ese clip. No se
+  // generan ni se pagan.
+  const deBiblioteca = plan.filter((t) => (t.clase === 'toma' || t.clase === 'broll') && modoSinCobro(itemDeTrabajo(manifiesto, t)) === 'biblioteca');
+  if (deBiblioteca.length) {
+    plan = plan.filter((t) => !deBiblioteca.includes(t));
+    console.log(`\n  De la biblioteca de clips (no se generan, no se pagan): ${deBiblioteca.map((t) => t.archivo).join(', ')}`);
+    if (!args.includes('--solo-plan')) {
+      fs.mkdirSync(dirImg, { recursive: true });
+      for (const t of deBiblioteca) {
+        if (fs.existsSync(path.join(dirImg, t.archivo)) && !args.includes('--rehacer')) continue;
+        try {
+          fotogramaDe(clipDeBiblioteca(itemDeTrabajo(manifiesto, t)), path.join(dirImg, t.archivo), t.archivo.endsWith('-final.png') ? 'ultimo' : 'primero');
+        } catch (e) {
+          console.log(`  !!  no pude sacar ${t.archivo} del clip de la biblioteca (${e.message.slice(0, 120)})`);
+        }
+      }
+    }
+  }
 
   // B-ROLL QUE NO ENTRA (2026-10-26). En voz en off y musica, con la voz ya
   // hecha (audio/tiempos.json), la imagen de un B-roll cuya frase es corta no

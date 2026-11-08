@@ -1,0 +1,38 @@
+{
+  "subestilo": "transformacion-familiar",
+  "skill": "anuncios-realista-narrado",
+  "avatares": [
+    {
+      "rol": "protagonista",
+      "nombre": "El papá, después",
+      "adjuntar": false,
+      "persona": "man",
+      "imagen": ".claude/skills/anuncios-realista-narrado/subestilos/transformacion-familiar/avatar/protagonista.jpg",
+      "como": [
+        "Un hombre de 50 a 58 años, afrodescendiente, de piel morena: el papá que se puso en forma, real y creíble, sin ser modelo de gimnasio.",
+        "Pelo corto con canas y barba corta de candado, gris y blanca.",
+        "Camiseta negra ajustada de cuello redondo, una cadena fina dorada, jeans oscuros.",
+        "Cuerpo atlético y marcado: brazos firmes, panza plana. En el 'después' se levanta la camiseta y muestra el abdomen.",
+        "Lugares de su casa real: la cocina con gabinetes de roble y granito, el baño con espejo, el pasillo. Luz cálida de interior y video de celular en mano.",
+        "Habla a cámara con energía y orgullo, y le muestra el cuerpo al hijo que lo graba."
+      ],
+      "prompt": "Smartphone video still of an original, non-famous {persona} in his mid 50s with brown skin, short dark hair with grey, a short salt-and-pepper goatee beard, athletic toned build with firm arms and a flat stomach, fitted black crew-neck t-shirt, a thin gold chain, dark blue jeans, standing in a real home kitchen with oak cabinets and granite counters, talking proudly to the camera held by his son, warm indoor light, medium shot, photorealistic, shot on a smartphone, natural skin texture with visible pores, fine lines and slight under-eye shadows, real flyaway hair strands, no beauty filter, no retouching. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-02.jpg"
+    },
+    {
+      "rol": "antes",
+      "nombre": "El papá, antes",
+      "adjuntar": false,
+      "persona": "man",
+      "imagen": ".claude/skills/anuncios-realista-narrado/subestilos/transformacion-familiar/avatar/antes.jpg",
+      "como": [
+        "El mismo hombre antes del cambio: más pesado, con la panza grande y la postura vencida.",
+        "Polo azul marino holgado y jeans.",
+        "Baja la escalera de madera agarrándose la rodilla, cansado y con dolor.",
+        "Se genera con la hoja del 'después' adjunta: misma cara, mismo pelo y misma barba, con el cuerpo de antes."
+      ],
+      "prompt": "Smartphone video still of the SAME man from the attached image but before his transformation: heavier, a large round belly, tired slumped posture, loose navy polo shirt and blue jeans, walking down wooden stairs holding his knee in pain, warm indoor light, full body, photorealistic, shot on a smartphone, natural skin texture with visible pores, fine lines and slight under-eye shadows, real flyaway hair strands, no beauty filter, no retouching. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-08.jpg"
+    }
+  ]
+}

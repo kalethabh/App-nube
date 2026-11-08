@@ -1,0 +1,24 @@
+{
+  "video": "anuncio.mp4",
+  "duracionSeg": 62,
+  "textos": [
+    {
+      "texto": "¿Hinchada todo el día?",
+      "desde": 57.5,
+      "dur": 4.5,
+      "y": 230,
+      "tam": 76,
+      "color": "#ffffff",
+      "fondo": "rgba(0,0,0,0.45)"
+    },
+    {
+      "texto": "Pagas al recibir · Link abajo",
+      "desde": 58.3,
+      "dur": 3.7,
+      "y": 430,
+      "tam": 56,
+      "color": "#ffe8b0",
+      "fondo": "rgba(0,0,0,0.45)"
+    }
+  ]
+}

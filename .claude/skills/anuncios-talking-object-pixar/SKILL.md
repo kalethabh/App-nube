@@ -53,6 +53,28 @@ Cuando lo hagas:
 
 ---
 
+## Subestilos de referencia (sacados de anuncios reales que venden)
+
+Cada subestilo es una forma probada de hacer este mismo estilo. Su ficha está en `subestilos/<id>.md` y sus fotogramas de referencia en `subestilos/<id>/ref-01.jpg` a `ref-12.jpg`, dentro de la carpeta de esta skill.
+
+| Subestilo | Cuándo |
+|---|---|
+| `producto-con-actitud` — El producto con actitud | el envase como una diva Pixar (bandana, cadena, zapatillas) que defiende el original frente a las copias y celebra la oferta. Trae una segunda referencia en español, con un frasco gotero (`subestilos/producto-con-actitud/es/`) |
+| `frasco-narrador` — El frasco que cuenta la historia de ella | figura, curvas o autoestima: el frasco, pequeño y pícaro, cuenta en primera persona cómo cambió su clienta (el ex, la amiga, el espejo), en su cuarto acogedor |
+
+- **Si el mensaje dice "Subestilo: <nombre>"** (la app lo pone cuando el usuario lo elige), es ese y no se pregunta.
+- **Si no dice ninguno**, elige tú el que mejor calce con el producto y el ángulo, o ninguno si ninguno calza, y dilo en una línea del resumen. Elegir no es preguntar.
+- **Con un subestilo, antes de escribir el personaje y los prompts**:
+  - lee su ficha;
+  - **mira sus doce fotogramas con Read** (uno por plano): son la vara de calidad de la luz, la piel o el material, el diseño del personaje y el encuadre;
+  - escribe los prompts para llegar a ese nivel;
+  - **en el manifiesto, adjunta el fotograma de cada imagen**: `"fotograma"` en cada toma, B-roll y hoja, con la ruta del `ref-NN.jpg` que le toca según la tabla de la ficha, y `"fotograma_final"` en el frame final de una toma B. El motor lo manda al generador sin subtítulos (versión `limpio/`), junto con el prompt. No cuesta más ni tarda más.
+  - **cada prompt de video, desde el movimiento del original**: antes de escribirlo, mira `subestilos/<id>/movimiento/<nombre del fotograma>.jpg` (seis cuadros del plano original) y su duración en `movimiento/planos.json`, y describe ese mismo movimiento de cámara y del personaje, con el ritmo de cortes del original (`ritmo-ref`).
+  - **los avatares, como en la ficha**: la hoja de cada personaje sigue la sección «Los avatares» de la ficha, al detalle (la cara, el pelo, la piel, el cuerpo, la ropa, el material, la luz y el encuadre), con su prompt de hoja como base. Solo cambia lo que el usuario pidió. Si la ficha dice que va adjunto, la referencia del personaje lleva `"fotograma": ".claude/skills/<skill>/subestilos/<id>/avatar/<rol>.jpg"`. Si dice que es una persona real filmada, su foto nunca se adjunta: se crea una persona nueva del mismo tipo.
+- **La ficha fija dos cosas**: el ADN visual (el personaje, el lugar, la luz, los recursos) y el orden de los beats del guion. **Todo lo demás de esta skill sigue igual**: las reglas, el briefing, las duraciones, el manifiesto, el costo antes de generar y el Paso final. Cada ficha trae, además, la tabla de qué fotograma usar en cada toma, los movimientos y gestos para los prompts de video, y el tono y la intención de cada beat del guion.
+- **Lo que manda la skill**: si la ficha y una regla de la skill chocan, gana la regla. Por ejemplo, los textos en pantalla nunca van en los prompts: se anotan para el montaje.
+- **De las referencias nunca se copian** las caras, las marcas, los productos, las frases ni las cifras. Se copia cómo se ve y cómo está armado.
+
 ## Paso 1 — Brief del producto
 
 Si el usuario no lo dio todo, pregunta solo lo esencial en una sola tanda, siempre como texto abierto (no uses botones ni formularios, mantén la misma forma de preguntar para todos los campos) — no bloquees si ya es inferible del mensaje o de una imagen/link que compartió:

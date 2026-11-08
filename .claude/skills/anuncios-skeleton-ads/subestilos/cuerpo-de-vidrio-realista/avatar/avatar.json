@@ -1,0 +1,21 @@
+{
+  "subestilo": "cuerpo-de-vidrio-realista",
+  "skill": "anuncios-skeleton-ads",
+  "avatares": [
+    {
+      "rol": "esqueleto",
+      "nombre": "La mujer de vidrio",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-skeleton-ads/subestilos/cuerpo-de-vidrio-realista/avatar/esqueleto.jpg",
+      "como": [
+        "Una mujer delgada con el cuerpo de vidrio o acrílico transparente: se ve la silueta con reflejos y, dentro, el esqueleto marfil con órganos realistas (pulmones rosados, hígado café, intestinos).",
+        "Cabeza de calavera marfil con ojos grandes de caricatura (esclerótica blanca, iris café) y pelo largo castaño oscuro, lacio, con raya al medio a la altura del hombro.",
+        "El problema se ve como un residuo amarillo-verdoso viscoso en la panza, que va bajando día a día.",
+        "En su casa luminosa: el baño blanco, el cuarto con sábanas claras. Luz de día suave, colores cálidos y apagados."
+      ],
+      "prompt": "Hyper-detailed realistic 3D render of a slim woman with a fully transparent glass body silhouette with subtle refractions, inside it an ivory skeleton with realistic organs (pink lungs, brown liver, coiled intestines), an ivory skull head with big expressive cartoon eyes with white sclera and brown irises, long straight dark-brown hair with a center part at shoulder length, a mass of olive-yellow viscous residue in her belly, one hand resting on it, standing in a bright cozy bathroom with soft daylight, muted warm tones, full body front view. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-01.jpg"
+    }
+  ]
+}

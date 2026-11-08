@@ -1,0 +1,23 @@
+{
+  "subestilo": "diario-estudio-azul",
+  "skill": "anuncios-zack-d-films",
+  "avatares": [
+    {
+      "rol": "protagonista",
+      "nombre": "La mujer del diario",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-zack-d-films/subestilos/diario-estudio-azul/avatar/protagonista.jpg",
+      "como": [
+        "Una mujer de 32 a 40 años, entre Pixar y realista (menos caricatura que el glow-up), de piel clara o trigueña.",
+        "Melena castaña ondulada a la altura de los hombros, con raya al costado.",
+        "Facciones suaves, cara amable y expresiones contenidas: incomodidad, alivio, una sonrisa tranquila.",
+        "Ropa simple de casa: camiseta gris o rosada lisa, leggings negros o pantalón beige, y descalza.",
+        "Cuerpo normal. En el 'antes', la panza muy hinchada.",
+        "Siempre en el estudio infinito azul celeste en degradado, con luz suave y pareja, sin sombras duras."
+      ],
+      "prompt": "Stylized-realistic 3D animated {persona} in her mid 30s, light-olive skin, shoulder-length wavy brown hair with a side part, soft kind face, gentle relieved smile, plain light-grey t-shirt and black leggings, barefoot, standing in a seamless light-blue gradient infinity studio with soft even light and no hard shadows, full body front view, high-end animated film quality, subtle subsurface skin. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-07.jpg"
+    }
+  ]
+}

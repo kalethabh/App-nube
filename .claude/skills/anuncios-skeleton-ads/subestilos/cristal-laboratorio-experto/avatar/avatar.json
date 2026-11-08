@@ -1,0 +1,21 @@
+{
+  "subestilo": "cristal-laboratorio-experto",
+  "skill": "anuncios-skeleton-ads",
+  "avatares": [
+    {
+      "rol": "esqueleto",
+      "nombre": "El esqueleto de cristal",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-skeleton-ads/subestilos/cristal-laboratorio-experto/avatar/esqueleto.jpg",
+      "como": [
+        "Un esqueleto hombre marfil dentro de un cuerpo de cristal transparente de silueta masculina, con reflejos limpios.",
+        "Cabeza de calavera con pelo castaño real despeinado, una banda roja de toalla en la frente y ojos de caricatura cansados (párpados caídos, iris gris, ojeras).",
+        "Venas rojas y azules y el corazón visibles cuando el guion lo pide.",
+        "En un laboratorio médico futurista blanco y azul, o sobre un fondo azul rey liso. Luz limpia de estudio."
+      ],
+      "prompt": "Hyper-detailed 3D render of an adult male ivory skeleton inside a fully transparent clear glass body shell with a male silhouette and clean refractions, the skull head topped with real messy brown hair and a red terry-cloth headband, big tired cartoon eyes with droopy lids, grey irises and under-eye bags, standing in a futuristic white-and-blue medical laboratory with holographic screens, clean bright studio light, medium-full shot. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-04.jpg"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "subestilo": "efectos-secundarios-cantados",
+  "skill": "anuncios-musicales",
+  "avatares": [
+    {
+      "rol": "protagonista",
+      "nombre": "La baddie",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-musicales/subestilos/efectos-secundarios-cantados/avatar/protagonista.jpg",
+      "como": [
+        "Una mujer joven de 22 a 28 años en Pixar glossy, de piel morena clara a media, con estética 'baddie' urbana.",
+        "Pelo negro larguísimo y liso en una cola alta muy tirante con baby hairs marcados.",
+        "Delineado de gato, pestañas largas y labios con gloss. Piercing en la nariz y tatuajes finos en los brazos, el cuello y los muslos.",
+        "Uñas largas, aros y figura muy curvilínea.",
+        "Camiseta gráfica corta con un auto estampado y short negro de licra, jeans rotos, o musculosa blanca con jeans altos.",
+        "En su cocina con luz de ventana, en su clóset o en un lounge con luces cálidas. Mirada segura y desafiante."
+      ],
+      "prompt": "Glossy Pixar-style 3D animated young woman in her mid 20s with light-medium brown skin, urban 'baddie' aesthetic, very long sleek black hair in a tight high ponytail with sculpted baby hairs, winged eyeliner, long lashes, glossy lips, a small nose piercing, fine-line tattoos on her arms, neck and thighs, long nails and hoops, very curvy figure, cropped grey graphic t-shirt with a car print (no real brand) and black biker shorts, holding a small product bottle, confident challenging look, warm sunlit kitchen behind, full body. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-01.jpg"
+    }
+  ]
+}

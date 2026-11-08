@@ -568,7 +568,7 @@ export function estimadoAntesDeProducir(piezas, familia = 'voz-en-off') {
 
 /** Con qué familia se produce un estilo (la misma cuenta que el servidor; continuidad solo en los de narrador). */
 const FAMILIA_DE_ESTILO = {
-  claymation: 'voz-en-off', crochet: 'voz-en-off', 'zack-d-films': 'voz-en-off', 'estilo-pixar': 'voz-en-off', skeleton: 'voz-en-off', 'estilo-lego': 'voz-en-off',
+  claymation: 'voz-en-off', crochet: 'voz-en-off', 'zack-d-films': 'voz-en-off', 'estilo-pixar': 'voz-en-off', 'realista-narrado': 'voz-en-off', skeleton: 'voz-en-off', 'estilo-lego': 'voz-en-off',
   'talking-object-pixar': 'objeto-parlante', ugc: 'ugc', podcast: 'hablado', entrevista: 'hablado', musical: 'musical', 'historias-musicales': 'historia-musical',
 };
 export const familiaDeEstilo = (clave, continuidad = false) => (continuidad && FAMILIA_DE_ESTILO[clave] === 'voz-en-off' ? 'continuidad' : FAMILIA_DE_ESTILO[clave] || 'voz-en-off');

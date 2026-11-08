@@ -1,0 +1,418 @@
+{
+ "nombre": "Ejemplo aprobado: El baby shower · Nature's Sunshine Lymphatic Drainage (Colombia, variante A)",
+ "idioma_dialogo": "Spanish",
+ "idioma_whisper": "es",
+ "palabras_permitidas": [
+  "baby",
+  "shower"
+ ],
+ "formato": {
+  "aspecto": "9:16",
+  "resolucion_imagen": "2K",
+  "resolucion_video": "720p"
+ },
+ "modelos": {
+  "proveedor": "kie",
+  "imagen": "gpt-image-2",
+  "video": "omni-flash"
+ },
+ "genero": "comedic Colombian telenovela-style sketch",
+ "estilo": "Cinematic film still, shot on 35mm film with an 85mm lens, Kodak Portra 400 look, golden hour warm backlight, shallow depth of field, creamy bokeh, natural realistic skin texture with pores, premium Colombian telenovela aesthetic, photorealistic, no text, no captions, no watermark",
+ "locaciones": {
+  "principal": "Baby shower party on the garden terrace of a luxury Colombian country house (finca) near Medellin at golden hour: a balloon arch in pastel pink, cream and sage green, a long dessert table with white linen tablecloth, flowers and a teapot, a separate gift table with wrapped boxes and ribbons, warm string lights under a wooden pergola, terracotta floor tiles, lush tropical plants, green Andean mountains in the background"
+ },
+ "producto": {
+  "imagen": "producto.png",
+  "descripcion": "a 2 fl oz amber glass medicine bottle with a tall black ribbed dropper cap and a glossy black rubber bulb, cream label 'NATURES SUNSHINE Lymphatic Drainage' with a dark-green band"
+ },
+ "personajes": {
+  "caro": {
+   "descripcion": "CARO: Colombian woman, 32 years old, medium-brown skin, long dark wavy hair in a low ponytail, round and slightly puffy face, noticeably bloated belly (she is NOT pregnant, just bloated from fluid retention), wearing a fitted powder-blue satin sleeveless midi dress, small gold hoop earrings, friendly likable face",
+   "aspecto": "the woman in the powder-blue satin dress with a dark low ponytail",
+   "voz": "warm medium-pitched female voice, early 30s, Colombian paisa accent",
+   "genero": "f",
+   "nombre": "Caro"
+  },
+  "tia": {
+   "descripcion": "TIA GLORIA: Colombian woman, 60 years old, light-tan skin, short voluminous blow-dried copper-auburn bob haircut, red lipstick, emerald green silk blouse, black trousers, chunky gold necklace, expressive and theatrical",
+   "aspecto": "the older woman with the short copper-auburn bob and the emerald green blouse",
+   "voz": "loud, slightly raspy, effusive mature female voice, 60s, Colombian paisa accent",
+   "genero": "f",
+   "nombre": "Tia"
+  },
+  "abuela": {
+   "descripcion": "ABUELA: Colombian grandmother, 82 years old, white hair in a neat bun, small gold-rimmed glasses, pearl necklace, beige knit cardigan over a soft floral dress, sweet wrinkled smiling face",
+   "aspecto": "the white-haired grandmother with glasses and a beige cardigan",
+   "voz": "soft, thin, slow elderly female voice, 80s, Colombian paisa accent",
+   "genero": "f",
+   "nombre": "Abuela"
+  },
+  "laura": {
+   "descripcion": "LAURA: Colombian woman, 34 years old, adult mature face, in her ninth month with a big round belly, light skin, shoulder-length light-brown hair, pastel pink flowy maxi dress, radiant cheerful mother-to-be",
+   "aspecto": "the woman in the pastel pink maxi dress with a big round belly",
+   "voz": "bright, cheerful, high-pitched female voice, 30s, Colombian paisa accent",
+   "genero": "f",
+   "nombre": "Laura"
+  },
+  "vale": {
+   "descripcion": "VALE: Colombian woman, 33 years old, olive skin, long sleek straight dark hair, glowing skin, slim defined waist and flat belly, white linen midi sundress cinched at the waist, small tan leather crossbody bag, confident relaxed elegant",
+   "aspecto": "the woman in the white linen dress with long sleek dark hair",
+   "voz": "smooth, calm, confident low-medium female voice, early 30s, Colombian paisa accent",
+   "genero": "f",
+   "nombre": "Vale"
+  }
+ },
+ "video": {
+  "aviso_edades": "All people in this scene are adult women aged 30 to 82, at a family garden party.",
+  "genero": "Cinematic comedic telenovela sketch"
+ },
+ "musica": {
+  "archivo": null,
+  "inicio": 4.0,
+  "bajo_dialogo_lu": 15.0
+ },
+ "ambiente": "s10",
+ "tomas": [
+  {
+   "id": "s01",
+   "personajes": [
+    "caro",
+    "tia"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Medium-wide two-shot in profile at the balloon arch. CARO stands on the LEFT side of the frame, body turned to the right, holding a floral gift bag. TIA GLORIA has just arrived from the RIGHT side of the frame, facing left toward Caro, arms wide open, ecstatic face, one step away from her. They look at each other, not at the camera. Tia does not touch Caro",
+   "habla": "tia",
+   "linea": "¡Ay, mija, felicitaciones! ¿Y para cuándo es?",
+   "entrega": "effusive, loud, thrilled, sing-song",
+   "accion": "Tia clasps her hands with joy and points excitedly at Caro's stomach without touching it; Caro freezes with an awkward smile",
+   "miradas": "TIA looks at CARO (to the left of the frame) the whole time; CARO looks at TIA (to the right). Nobody looks at the camera",
+   "mira": "se miran",
+   "extra": 0.2
+  },
+  {
+   "id": "s02",
+   "personajes": [
+    "caro",
+    "tia"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Over-the-shoulder shot: the back of TIA GLORIA's copper-auburn bob and her emerald shoulder are blurred in the foreground on the RIGHT edge of the frame. CARO in a medium close-up, slightly left of center, face in three-quarter view turned to the right, looking at Tia just off-frame right, forced polite smile; behind her: the pastel balloon arch and the green mountains, softly out of focus",
+   "habla": "caro",
+   "linea": "Tía… el baby shower es de Laura.",
+   "entrega": "forced smile, slow, flat, embarrassed, with a small pause after 'Tía'",
+   "accion": "Caro keeps a tight forced smile while talking to her aunt",
+   "miradas": "CARO keeps her eyes on TIA, who is just off-frame to the RIGHT; she never looks into the camera lens",
+   "mira": "Caro → der"
+  },
+  {
+   "id": "s03",
+   "personajes": [
+    "tia",
+    "caro"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Reverse over-the-shoulder shot: CARO's dark low ponytail and powder-blue satin shoulder are blurred in the foreground on the LEFT edge of the frame. TIA GLORIA in a medium close-up, slightly right of center, face in three-quarter view turned to the left, confused frown, pointing down-left at Caro's belly; behind her: the wooden pergola with warm string lights and the dessert table, softly out of focus",
+   "habla": "tia",
+   "linea": "¡Ay! ¿Y entonces eso qué es?",
+   "entrega": "confused, fast, blunt, raising eyebrows",
+   "accion": "Tia points down-left at Caro's belly",
+   "miradas": "TIA looks at CARO, who is just off-frame to the LEFT, then glances down at her belly; she never looks into the camera lens",
+   "mira": "Tía ← izq"
+  },
+  {
+   "id": "s04",
+   "personajes": [
+    "caro",
+    "tia"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Medium close-up of CARO, face in three-quarter view turned to the right, looking at Tia just off-frame right, nervous smile, one hand smoothing the side of her dress at the waist; a sliver of TIA's emerald green blouse blurred on the RIGHT edge of the frame; behind her: the pastel balloon arch and the green mountains, softly out of focus",
+   "habla": "caro",
+   "linea": "Es que almorcé bastante.",
+   "entrega": "nervous unconvincing excuse, slow and flat, awkward little laugh",
+   "accion": "Caro shrugs nervously",
+   "miradas": "CARO looks at TIA, just off-frame to the RIGHT; she never looks into the camera lens",
+   "mira": "Caro → der"
+  },
+  {
+   "id": "s05",
+   "personajes": [
+    "abuela",
+    "caro"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Over-the-shoulder shot: CARO's powder-blue satin dress and arm are blurred in the foreground on the LEFT edge of the frame. ABUELA in a medium shot, seated at the white tablecloth dessert table on the RIGHT half of the frame, holding a teacup, her body and face turned toward the LEFT edge of the frame, chin up, looking up and to the left at Caro, very sweet tender smile; behind her: the wooden pergola with warm string lights and the dessert table, softly out of focus",
+   "habla": "abuela",
+   "linea": "Mija, usted almuerza así desde diciembre.",
+   "entrega": "sweet, tender, slow, soft voice, innocently cruel, smiling lovingly",
+   "accion": "Abuela smiles sweetly at Caro and then sips her tea",
+   "miradas": "ABUELA looks up at CARO, who stands off-frame to the LEFT; she never looks into the camera lens",
+   "mira": "Abuela ← izq"
+  },
+  {
+   "id": "s06",
+   "personajes": [
+    "caro",
+    "abuela"
+   ],
+   "producto": false,
+   "dur": 4,
+   "encuadre": "Tight close-up of CARO's face, framed from the chin to just above the forehead, eyes open, face in three-quarter view turned to the right, looking slightly down and to the right at her seated grandmother off-frame right, her smile fading into a deadpan hurt expression; a blur of white hair on the RIGHT edge of the frame; behind her: the pastel balloon arch and the green mountains, softly out of focus",
+   "accion": "Silent reaction: Caro keeps looking to the right at her grandmother, her smile slowly fades, she blinks once, deadpan. No one speaks. Only ambient party sounds",
+   "miradas": "CARO looks to the RIGHT, off-frame, at her grandmother; eyes open; she never looks into the camera lens",
+   "mira": "Caro → der",
+   "corte": {
+    "inicio": 0.6,
+    "dur": 1.3
+   }
+  },
+  {
+   "id": "s07",
+   "personajes": [
+    "laura"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Medium shot of LAURA on the RIGHT half of the frame, body and face in profile turned toward the LEFT edge of the frame, both arms raised high, mouth open calling the guests who stand off-frame to the left, joyful; the blurred backs of two guests in the foreground on the LEFT edge; behind her: the wooden pergola with warm string lights and the dessert table, softly out of focus",
+   "habla": "laura",
+   "linea": "¡La foto de las embarazadas!",
+   "entrega": "joyful, loud, sing-song, calling to the group",
+   "accion": "Laura waves both arms calling everyone toward her",
+   "miradas": "LAURA calls toward the guests off-frame to the LEFT; she never looks into the camera lens",
+   "mira": "Laura ← izq"
+  },
+  {
+   "id": "s08",
+   "personajes": [
+    "tia",
+    "caro"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Medium two-shot in profile: CARO in the center facing RIGHT, reluctant grimace; TIA GLORIA right behind her on the LEFT side of the frame, both hands on Caro's shoulders, pushing her forward to the right toward the balloon arch",
+   "habla": "tia",
+   "linea": "¡Caro, tú también, mija!",
+   "entrega": "effusive, fast, insisting",
+   "accion": "Tia pushes Caro forward to the right; Caro stumbles a step to the right",
+   "miradas": "TIA looks at CARO in front of her; CARO looks ahead to the right; nobody looks at the camera",
+   "mira": "ambas → der"
+  },
+  {
+   "id": "s09",
+   "personajes": [
+    "caro",
+    "tia"
+   ],
+   "producto": false,
+   "dur": 4,
+   "encuadre": "Medium close-up of CARO looking back over her shoulder to the LEFT at Tia (off-frame left), exasperated frustrated face; a sliver of TIA's emerald green blouse blurred on the LEFT edge of the frame; behind her: the pastel balloon arch, softly out of focus",
+   "habla": "caro",
+   "linea": "¡Que no estoy embarazada!",
+   "entrega": "exasperated shout, loud, frustrated",
+   "accion": "Caro shouts at her aunt with exasperation and throws her hands up",
+   "miradas": "CARO shouts at TIA, who is just off-frame to the LEFT; she never looks into the camera lens",
+   "mira": "Caro ← izq",
+   "extra": 0.2
+  },
+  {
+   "id": "s10",
+   "personajes": [
+    "caro",
+    "laura"
+   ],
+   "producto": false,
+   "dur": 4,
+   "encuadre": "Frontal wide shot of a group photo under the balloon arch, three adult women aged 30 to 35 posing toward the camera as if for a photographer: CARO in the middle between LAURA and an adult friend in a lilac dress; Laura and the friend beam and hold their round bellies, Caro stands with her arms down at her sides and a deadpan face",
+   "accion": "Laura and the friend smile and pose, Caro stays deadpan. Nobody speaks",
+   "miradas": "All three look at the photographer, who stands exactly where the camera is (this is the only shot where people look at the lens)",
+   "mira": "a cámara (foto)",
+   "corte": {
+    "inicio": 2.12,
+    "dur": 1.85
+   },
+   "audio": "ambiente",
+   "efectos": [
+    {
+     "tipo": "flash",
+     "t": 0.17
+    },
+    {
+     "tipo": "obturador",
+     "t": 0.17
+    }
+   ],
+   "a_camara": true
+  },
+  {
+   "id": "s11",
+   "personajes": [
+    "caro",
+    "vale"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Medium two-shot in profile next to the gift table: CARO stands on the LEFT side of the frame facing right, deflated; VALE walks in from the RIGHT side of the frame facing left toward Caro, holding a glass of lemonade, warm sympathetic smile. They look at each other",
+   "habla": "vale",
+   "linea": "Tranquila, prima, a mí me pasaba igualito.",
+   "entrega": "warm, relaxed, sympathetic",
+   "accion": "Vale touches Caro's arm kindly",
+   "miradas": "VALE looks at CARO (to the LEFT); CARO looks at VALE (to the RIGHT); nobody looks at the camera",
+   "mira": "se miran"
+  },
+  {
+   "id": "s12",
+   "personajes": [
+    "caro",
+    "vale"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Over-the-shoulder shot: VALE's long dark hair and white linen shoulder are blurred in the foreground on the RIGHT edge of the frame. CARO in a medium close-up, slightly left of center, face in three-quarter view turned to the right, eyebrows raised in disbelief, looking at Vale's waist; behind her: the gift table with wrapped pastel boxes and ribbons, softly out of focus",
+   "habla": "caro",
+   "linea": "¿A ti? ¿Con esa cintura?",
+   "entrega": "incredulous, drags out '¿A ti?' slowly, then fast",
+   "accion": "Caro looks Vale up and down",
+   "miradas": "CARO looks at VALE, just off-frame to the RIGHT, eyes going down to her waist and back up; she never looks into the camera lens",
+   "mira": "Caro → der"
+  },
+  {
+   "id": "s13",
+   "personajes": [
+    "vale",
+    "caro"
+   ],
+   "producto": true,
+   "dur": 6,
+   "encuadre": "Close two-shot from the waist up: CARO on the LEFT side of the frame, VALE on the RIGHT leaning in toward Caro with a complicit look. Vale has just taken the product out of her open tan leather bag and holds it up between them at chest height, upright and still, in clear view: the product from the product reference image: a 2 fl oz amber glass medicine bottle about the length of a hand, with a tall black ribbed dropper cap and a glossy black rubber dropper bulb on top, and a cream and dark-green front sticker, its front facing the camera",
+   "habla": "vale",
+   "linea": "Yo vivía hinchada hasta que empecé con estas gotitas.",
+   "entrega": "confidential, lowers her voice, almost whispering, like sharing a secret",
+   "accion": "Vale glances around and shows Caro the bottle discreetly",
+   "miradas": "VALE whispers to CARO (to the LEFT); CARO looks at the bottle; nobody looks at the camera",
+   "mira": "Vale ← izq"
+  },
+  {
+   "id": "s14",
+   "personajes": [
+    "caro",
+    "vale"
+   ],
+   "producto": true,
+   "dur": 4,
+   "encuadre": "Medium close-up of CARO with empty hands, leaning slightly forward, her head and face turned toward the RIGHT edge of the frame and her eyes looking down-right, directly at the product in Vale's hand, genuine curiosity. On the RIGHT edge of the frame, slightly out of focus in the foreground, VALE's hand holds the product from the product reference image: a 2 fl oz amber glass medicine bottle about the length of a hand, with a tall black ribbed dropper cap and a glossy black rubber dropper bulb on top, and a cream and dark-green front sticker, partly cut by the frame edge; a sliver of VALE's white linen dress blurred on the RIGHT edge; behind her: the gift table with wrapped pastel boxes and ribbons, softly out of focus",
+   "habla": "caro",
+   "linea": "¿Y eso qué hace?",
+   "entrega": "genuine curiosity, normal volume",
+   "accion": "Caro leans in, curious",
+   "miradas": "CARO looks at VALE and her bottle, just off-frame to the RIGHT; she never looks into the camera lens",
+   "mira": "Caro → der"
+  },
+  {
+   "id": "s15",
+   "personajes": [
+    "vale",
+    "caro"
+   ],
+   "producto": true,
+   "dur": 8,
+   "encuadre": "Reverse over-the-shoulder shot: CARO's dark low ponytail and powder-blue satin shoulder are blurred in the foreground on the LEFT edge of the frame. VALE in a medium shot from the waist up, slightly right of center, face in three-quarter view turned to the LEFT, talking to Caro with a warm smile. She holds the small amber dropper bottle still at chest height in her right hand, its front turned toward the camera, the bottle about one sixth of the frame height; behind her: tropical plants, string lights and the green mountains, softly out of focus",
+   "habla": "vale",
+   "linea": "Ayudan a tu sistema linfático a drenar el líquido que te tiene hinchada… y lo pagas cuando te llega a la casa.",
+   "entrega": "warm enthusiastic friend recommendation, natural melodic intonation, not salesy; lowers her voice confidentially on 'y lo pagas cuando te llega a la casa'",
+   "accion": "Vale explains to Caro, keeping the small bottle still at chest height",
+   "miradas": "VALE talks to CARO, who is in the foreground on the LEFT; Vale's eyes stay on Caro the whole time; she never looks into the camera lens",
+   "mira": "Vale ← izq"
+  },
+  {
+   "id": "s16",
+   "personajes": [
+    "caro",
+    "vale"
+   ],
+   "producto": false,
+   "dur": 4,
+   "encuadre": "Medium close-up of CARO, face in three-quarter view turned to the right, looking at Vale off-frame right, hopeful eyes widening; a sliver of VALE's long dark hair blurred on the RIGHT edge of the frame; behind her: the gift table with wrapped pastel boxes and ribbons, softly out of focus",
+   "habla": "caro",
+   "linea": "¿Y en serio funciona?",
+   "entrega": "hopeful, pitch rises, slightly louder",
+   "accion": "Caro brightens with hope",
+   "miradas": "CARO's eyes stay fixed on VALE, at the RIGHT edge of the frame, for the whole shot: her head and eyes remain turned to the right and she never turns toward the camera or looks into the lens",
+   "mira": "Caro → der"
+  },
+  {
+   "id": "s17",
+   "personajes": [
+    "vale",
+    "caro"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Over-the-shoulder shot: CARO's dark low ponytail and powder-blue satin shoulder are blurred in the foreground on the LEFT edge of the frame. VALE in a medium shot on the RIGHT half of the frame, body and face turned toward the LEFT edge, eyes on Caro, smug playful half-smile, about to do a little twirl; behind her: tropical plants, string lights and the green mountains, softly out of focus",
+   "habla": "vale",
+   "linea": "¿Tú qué crees?",
+   "entrega": "smug, relaxed, playful",
+   "accion": "Vale says the line to Caro, then does a slow twirl showing off her slim waist, her dress flowing",
+   "miradas": "VALE looks at CARO, off-frame to the LEFT, while she speaks; she never looks into the camera lens",
+   "mira": "Vale ← izq",
+   "extra": 1.9
+  },
+  {
+   "id": "s18",
+   "personajes": [
+    "abuela",
+    "caro",
+    "vale"
+   ],
+   "producto": false,
+   "dur": 6,
+   "encuadre": "Medium-wide three-shot by the gift table: CARO on the LEFT, VALE on the RIGHT, and ABUELA has sneaked in between them from behind, looking up at Vale (to the right) with a mischievous face, lifting the hem of her floral dress slightly to show her swollen ankles",
+   "habla": "abuela",
+   "linea": "Mija… ¿y eso sirve pa' los tobillos?",
+   "entrega": "mischievous, slow, hopeful, sweet old lady",
+   "accion": "Abuela lifts her dress hem to show her ankles to Vale; Caro and Vale look down at them, surprised",
+   "miradas": "ABUELA talks to VALE (to the RIGHT); CARO and VALE look down at the ankles; nobody looks at the camera",
+   "mira": "Abuela → der",
+   "extra": 0.5
+  },
+  {
+   "id": "s19",
+   "personajes": [],
+   "producto": true,
+   "dur": 4,
+   "encuadre": "Close-up product packshot: the amber glass dropper bottle fills about 45% of the frame height, standing on the white tablecloth of the gift table with two small pastel wrapped gift boxes beside it, realistic scale and contact shadow, balloon arch and string lights in heavy bokeh behind, golden hour rim light on the glass, empty soft background in the upper third of the frame",
+   "accion": "Very slow push-in on the bottle, no people, no dialogue",
+   "mira": "packshot",
+   "imagen_fija": true,
+   "corte": {
+    "inicio": 0,
+    "dur": 3.6
+   },
+   "zoom": 0.07,
+   "banda": {
+    "y": 150,
+    "alto": 290,
+    "opacidad": 0.38
+   },
+   "textos": [
+    {
+     "texto": "¿Hinchada todo el día?",
+     "tam": 80,
+     "y": 200,
+     "fuente": "negrita"
+    },
+    {
+     "texto": "Pagas al recibir · Link abajo",
+     "tam": 58,
+     "y": 315,
+     "fuente": "normal"
+    }
+   ]
+  }
+ ],
+ "_ayuda": "Ejemplo aprobado. Para probarlo: copia esta carpeta (proyecto.json + producto.png) a una carpeta de proyecto nueva."
+}

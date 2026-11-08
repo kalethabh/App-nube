@@ -125,6 +125,7 @@ import {
 } from './referencias.js';
 import { archivarSiExiste } from './historial.js';
 import { tieneContinuidad, cadenaDeClips, filtrarCadena, textoCuenta, avisosDeLargo } from './continuidad.js';
+import { armarClipQuieto, clipDeBiblioteca, guardarEnBiblioteca, itemDeTrabajo, modoSinCobro, movimientoQuieto } from './clips-sin-cobro.js';
 import { brollQueEntranEnCarpeta, lineasBrollQueNoEntra } from './planear-montaje.js';
 
 const REINTENTOS = 3;
@@ -1592,6 +1593,32 @@ async function ejecutar(trabajos, ctx, log) {
  * Se quedan las entradas anteriores de clips de la cadena que siguen en
  * video/ y que esta corrida no rehizo; van en el orden de la cadena.
  */
+/**
+ * Arma los clips sin cobro: el quieto, desde su imagen con un movimiento suave;
+ * el de la biblioteca, copiado tal cual. Cero creditos. Un fallo aqui no frena
+ * a los demas: se avisa y ese clip queda por hacer.
+ */
+export function armarSinCobro(trabajos, manifiesto, { dirImg, dirVideo }) {
+  fs.mkdirSync(dirVideo, { recursive: true });
+  for (const t of trabajos) {
+    const item = itemDeTrabajo(manifiesto, t);
+    const destino = path.join(dirVideo, t.archivo);
+    try {
+      if (modoSinCobro(item) === 'biblioteca') {
+        fs.copyFileSync(clipDeBiblioteca(item), destino);
+        console.log(`  ==  ${t.descripcion} — de la biblioteca (${item.desde_biblioteca}) — 0 cr`);
+      } else {
+        const imagen = path.join(dirImg, t.imagenInicial);
+        if (!fs.existsSync(imagen)) throw new Error(`falta su imagen img/${t.imagenInicial}`);
+        armarClipQuieto(imagen, destino, t.segundos, movimientoQuieto(item), manifiesto.aspect_ratio || '9:16');
+        console.log(`  ==  ${t.descripcion} — quieto (${movimientoQuieto(item)}) armado desde su imagen — 0 cr`);
+      }
+    } catch (e) {
+      console.log(`  !!  ${t.descripcion}: no pude armarlo sin cobro (${e.message.slice(0, 160)}). Queda por hacer.`);
+    }
+  }
+}
+
 export function fusionarLogContinuidad(rutaLog, log, cadena, dirVideo) {
   let previos = [];
   try {
@@ -1794,6 +1821,13 @@ async function cli() {
   }
   if (duracionForzada) for (const t of plan) t.segundos = duracionForzada;
 
+  // Clips sin cobro (clips-sin-cobro.js): los quietos se arman aqui con ffmpeg
+  // desde su imagen, y los de la biblioteca se copian. Ninguno va al generador
+  // ni entra en el costo. Fuera de continuidad y de los bloques hablados.
+  const esSinCobro = (t) => !conContinuidad && (t.clase === 'toma' || t.clase === 'broll') && t.tipo !== 'R' && t.tipo !== 'H' && !t.porIngredientes && modoSinCobro(itemDeTrabajo(manifiesto, t));
+  const sinCobro = plan.filter((t) => esSinCobro(t) && (rehacer || !fs.existsSync(path.join(dirVideo, t.archivo))));
+  plan = plan.filter((t) => !esSinCobro(t));
+
   // Sin imagenes no hay video: se avisa antes de cobrar nada.
   const faltantes = [];
   const faltanReferencias = [];
@@ -1948,7 +1982,36 @@ async function cli() {
     if (avisos.length) console.log(avisos.join('\n'));
   }
 
+  // Los sin cobro: se dicen siempre y se arman ya (los quietos cuya imagen todavia
+  // no esta, con --esperar-imagenes, se arman al final, cuando ya esta).
+  let sinCobroAlFinal = [];
+  if (sinCobro.length) {
+    const q = sinCobro.filter((t) => modoSinCobro(itemDeTrabajo(manifiesto, t)) === 'quieto');
+    const b = sinCobro.filter((t) => modoSinCobro(itemDeTrabajo(manifiesto, t)) === 'biblioteca');
+    console.log(`  Sin cobro: ${sinCobro.length} clip(s)`);
+    if (q.length) console.log(`      ${q.length} quieto(s), con movimiento suave desde su imagen: ${q.map((t) => t.archivo).join(', ')}`);
+    if (b.length) console.log(`      ${b.length} de la biblioteca de clips: ${b.map((t) => t.archivo).join(', ')}`);
+    console.log('');
+    if (!soloPlan) {
+      const listos = sinCobro.filter((t) => modoSinCobro(itemDeTrabajo(manifiesto, t)) === 'biblioteca' || fs.existsSync(path.join(dirImg, t.imagenInicial)));
+      sinCobroAlFinal = sinCobro.filter((t) => !listos.includes(t));
+      armarSinCobro(listos, manifiesto, { dirImg, dirVideo });
+      if (sinCobroAlFinal.length && !esperarImagenes) {
+        for (const t of sinCobroAlFinal) console.log(`  !!  ${t.descripcion}: falta su imagen img/${t.imagenInicial}; se arma cuando este (corre de nuevo "videos").`);
+        sinCobroAlFinal = [];
+      }
+    }
+  }
+  const armarSinCobroPendientes = async () => {
+    if (!sinCobroAlFinal.length) return;
+    const limite = Date.now() + 30 * 60 * 1000;
+    while (Date.now() < limite && sinCobroAlFinal.some((t) => !fs.existsSync(path.join(dirImg, t.imagenInicial)))) await new Promise((ok) => setTimeout(ok, 3000));
+    armarSinCobro(sinCobroAlFinal, manifiesto, { dirImg, dirVideo });
+    sinCobroAlFinal = [];
+  };
+
   if (plan.length === 0) {
+    await armarSinCobroPendientes();
     console.log('  No hay nada que generar. Todo listo.\n');
     avisoGanchos();
     process.exit(0);
@@ -2222,10 +2285,22 @@ async function cli() {
       await ejecutar(plan, ctx, log);
     }
 
+    await armarSinCobroPendientes();
     const creditosReales = log.reduce((s, x) => s + (x.creditos || 0), 0);
     const conRespaldo = log.filter((x) => x.respaldo);
     const seg = ((Date.now() - t0) / 1000).toFixed(0);
     guardarLog(false);
+
+    // Los que piden quedar en la biblioteca de clips, para otros anuncios.
+    for (const x of log) {
+      const t = construirPlan(manifiesto, {}).find((p) => p.archivo === x.archivo);
+      const item = t && itemDeTrabajo(manifiesto, t);
+      if (!item?.guardar_en_biblioteca) continue;
+      const r = guardarEnBiblioteca({ manifiesto, carpeta, item, archivoClip: x.archivo, clase: t.clase });
+      if (r?.guardado) console.log(`  Biblioteca de clips: ${x.archivo} -> ${r.guardado}`);
+      else if (r?.yaEstaba) console.log(`  Biblioteca de clips: ${x.archivo} ya estaba (${r.yaEstaba})`);
+      else if (r?.error) console.log(`  Biblioteca de clips: no pude guardar ${x.archivo} (${r.error})`);
+    }
 
     console.log(`\n  Listo en ${seg}s. ${log.length} clips en ${dirVideo}`);
     console.log(`  Gasto real: ${creditosReales} creditos = US$${creditosAUsd(creditosReales).toFixed(2)}`);

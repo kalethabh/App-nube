@@ -1,0 +1,36 @@
+{
+  "subestilo": "curvas-anatomicas-con-doctor",
+  "skill": "anuncios-skeleton-ads",
+  "avatares": [
+    {
+      "rol": "esqueleto",
+      "nombre": "La de las curvas anatómicas",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-skeleton-ads/subestilos/curvas-anatomicas-con-doctor/avatar/esqueleto.jpg",
+      "como": [
+        "Una mujer adulta de piel morena con cabeza de calavera marfil, ojos saltones de esclerótica blanca y la mandíbula con dientes.",
+        "Pelo afro natural recogido en un moño alto (puff) sobre la calavera.",
+        "Cuerpo realista: piel morena en el torso y la cintura; músculo rojo con tendones a la vista en los hombros, los brazos y el cuello; manos de hueso.",
+        "Crop top blanco de tirantes, leggings gris claro y zapatillas blancas, y en la vida real, jeans o vestido negro ajustado.",
+        "Racimos de grasa naranja-dorada brillante en la cadera, o venas verdes de luz en las piernas. Fondo azul rey."
+      ],
+      "prompt": "Hyper-realistic cinematic 3D render of an adult woman with warm brown skin and an ivory bone skull for a head (big bulging cartoon eyes with white sclera, visible teeth), natural afro hair in a high puff bun on top of the skull, realistic body with smooth brown skin on the torso and waist and exposed red muscle and tendons on the shoulders, arms and neck, bony skeletal hands, white ribbed tank crop top, light grey leggings and white sneakers, glowing orange-gold fat clusters on her hips, standing on a vivid royal-blue gradient studio background with vignette, full body front view. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-01.jpg"
+    },
+    {
+      "rol": "doctor",
+      "nombre": "El doctorcito guía (moreno)",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-skeleton-ads/subestilos/curvas-anatomicas-con-doctor/avatar/doctor.jpg",
+      "como": [
+        "El mismo tipo de muñeco 3D Pixar pequeño del 'cuerpo de lodo', pero de piel morena y pelo negro corto.",
+        "Bata blanca, camisa celeste y corbata roja.",
+        "Siempre en la esquina inferior izquierda, de cuerpo entero, mirando a cámara."
+      ],
+      "prompt": "Small Pixar-style 3D cartoon doctor figure with brown skin, short black hair, friendly face, white lab coat, light blue shirt and red tie, dark trousers, standing full body with relaxed arms looking at the camera, plain light background, high-end animated film quality. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-01.jpg (recortado)"
+    }
+  ]
+}

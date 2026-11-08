@@ -1,0 +1,23 @@
+{
+  "subestilo": "curvas-grid-azul",
+  "skill": "anuncios-zack-d-films",
+  "avatares": [
+    {
+      "rol": "protagonista",
+      "nombre": "La de las curvas en el grid",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-zack-d-films/subestilos/curvas-grid-azul/avatar/protagonista.jpg",
+      "como": [
+        "Una mujer joven de 24 a 30 años en Pixar, latina o mestiza, de piel canela media con un rubor marcado en las mejillas.",
+        "Pelo negro rizado corto y voluminoso, a la altura del mentón, con rizos sueltos que caen sobre la frente.",
+        "Ojos enormes café con pestañas, cejas expresivas y labios llenos. Expresiones pícaras o de sorpresa con la boca abierta.",
+        "Collar fino dorado con dije y argollas pequeñas.",
+        "Curvas muy exageradas y caricaturescas. Ropa de casa: top de tiras con moño, short de pijama de cerezas, short deportivo rojo con ribete blanco o camiseta gris con short a rayas.",
+        "Siempre sobre el grid azul eléctrico, con luz cenital fría que contrasta con su piel cálida."
+      ],
+      "prompt": "Pixar-style 3D animated {persona} in her late 20s, warm caramel skin with rosy cheeks, short voluminous black curly hair at chin length with loose curls on the forehead, huge brown eyes with long lashes, expressive brows, full lips, playful surprised expression, thin gold necklace and small hoops, exaggerated curvy figure, grey ribbed cami top with a small bow and grey drawstring shorts with white trim, standing on a glowing electric-blue technical grid floor with a grid wall behind, cool overhead light contrasting with her warm skin, full body, high-end 3D animated feature film render (Pixar / Disney 2020s look), soft subsurface skin, glossy expressive eyes with catchlights, detailed hair strands, warm cinematic light. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-01.jpg"
+    }
+  ]
+}

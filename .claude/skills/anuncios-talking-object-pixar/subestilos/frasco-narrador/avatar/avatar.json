@@ -1,0 +1,35 @@
+{
+  "subestilo": "frasco-narrador",
+  "skill": "anuncios-talking-object-pixar",
+  "avatares": [
+    {
+      "rol": "personaje",
+      "nombre": "El frasco narrador",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-talking-object-pixar/subestilos/frasco-narrador/avatar/personaje.jpg",
+      "como": [
+        "El frasco real con una cara caricaturesca grande sobre la etiqueta: ojos redondos con párpados pesados y pícaros, cejas gruesas y una sonrisa traviesa de oreja a oreja.",
+        "Bracitos y piernas de palito del color del líquido.",
+        "Pequeño: un tercio de la altura de la clienta o menos. Se sienta, se asoma o flota cerca de ella."
+      ],
+      "prompt": "Pixar-style 3D character: the exact product bottle from the attached photo brought to life, label fully readable, a big cartoon face on the label (round eyes with heavy playful eyelids, thick brows, a wide mischievous grin), thin stick arms and legs the color of the liquid, small, sitting on a wooden table next to an open jar of seeds, cozy sunlit bedroom behind, soft film grain, shallow depth of field. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-07.jpg"
+    },
+    {
+      "rol": "clienta",
+      "nombre": "La clienta",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-talking-object-pixar/subestilos/frasco-narrador/avatar/clienta.jpg",
+      "como": [
+        "Una mujer joven de 25 a 30 años en Pixar, de piel clara bronceada, rubia con el pelo en moño desordenado y mechones sueltos.",
+        "Cara dulce con ojos café grandes y pecas suaves.",
+        "Ropa de casa: buzo gris de hombros caídos con short de algodón rosado con encaje, o camiseta estampada con short de jean.",
+        "En su cuarto acogedor con luz de mañana."
+      ],
+      "prompt": "Pixar-style 3D animated young woman in her late 20s, light tanned skin, messy blonde bun with loose strands, sweet face with big brown eyes and soft freckles, slouchy off-shoulder grey sweatshirt and pink cotton shorts with lace trim, curvy figure, sitting on the edge of a bed in a cozy sunlit bedroom with knit blankets, warm morning window light, soft film grain, full body. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-10.jpg"
+    }
+  ]
+}

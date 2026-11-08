@@ -67,6 +67,30 @@ En este estilo la persona habla a cámara y nunca hay voz en off. Si el guion es
 
 ---
 
+## Subestilos de referencia (sacados de anuncios reales que venden)
+
+Cada subestilo es una forma probada de hacer este mismo estilo. Su ficha está en `subestilos/<id>.md` y sus fotogramas de referencia en `subestilos/<id>/ref-01.jpg` a `ref-12.jpg`, dentro de la carpeta de esta skill.
+
+| Subestilo | Cuándo |
+|---|---|
+| `experta-con-utileria` — Experta con utilería | salud o suplementos con un mecanismo que se muestra con un objeto sobre la mesa (una arteria, un órgano); una especialista arreglada en su oficina con biblioteca |
+| `alerta-imitaciones` — Alerta de imitaciones | un producto con copias baratas: alguien de la marca, en su cocina de noche, enseña a reconocer el original, con la prueba del vaso de agua, y empuja la oferta de 24 h |
+| `oferta-en-mano` — Oferta en mano | un cierre corto de urgencia (15 a 20 s): el producto en una mano bajo el sol de la tarde y dos voces fuera de cámara |
+| `sabia-con-paciente` — La sabia con su paciente | suplementos naturales: una herbolaria mayor en su consultorio explica día a día, con escenas de demostración junto a su paciente |
+
+- **Si el mensaje dice "Subestilo: <nombre>"** (la app lo pone cuando el usuario lo elige), es ese y no se pregunta.
+- **Si no dice ninguno**, elige tú el que mejor calce con el producto y el ángulo, o ninguno si ninguno calza, y dilo en una línea del resumen. Elegir no es preguntar.
+- **Con un subestilo, antes de escribir el personaje y los prompts**:
+  - lee su ficha;
+  - **mira sus doce fotogramas con Read** (uno por plano): son la vara de calidad de la luz, la piel o el material, el diseño del personaje y el encuadre;
+  - escribe los prompts para llegar a ese nivel;
+  - **en el manifiesto, adjunta el fotograma de cada imagen**: `"fotograma"` en cada toma, B-roll y hoja, con la ruta del `ref-NN.jpg` que le toca según la tabla de la ficha, y `"fotograma_final"` en el frame final de una toma B. El motor lo manda al generador sin subtítulos (versión `limpio/`), junto con el prompt. No cuesta más ni tarda más.
+  - **cada prompt de video, desde el movimiento del original**: antes de escribirlo, mira `subestilos/<id>/movimiento/<nombre del fotograma>.jpg` (seis cuadros del plano original) y su duración en `movimiento/planos.json`, y describe ese mismo movimiento de cámara y del personaje, con el ritmo de cortes del original (`ritmo-ref`). En UGC los bloques no tienen frames: el fotograma va en la hoja del personaje (en `referencias`), el que mejor muestra a la persona, su lugar y su luz.
+  - **los avatares, como en la ficha**: la hoja de cada personaje sigue la sección «Los avatares» de la ficha, al detalle (la cara, el pelo, la piel, el cuerpo, la ropa, el material, la luz y el encuadre), con su prompt de hoja como base. Solo cambia lo que el usuario pidió. Si la ficha dice que va adjunto, la referencia del personaje lleva `"fotograma": ".claude/skills/<skill>/subestilos/<id>/avatar/<rol>.jpg"`. Si dice que es una persona real filmada, su foto nunca se adjunta: se crea una persona nueva del mismo tipo.
+- **La ficha fija dos cosas**: el ADN visual (el personaje, el lugar, la luz, los recursos) y el orden de los beats del guion. **Todo lo demás de esta skill sigue igual**: las reglas, el briefing, las duraciones, el manifiesto, el costo antes de generar y el Paso final. Cada ficha trae, además, la tabla de qué fotograma usar en cada toma, los movimientos y gestos para los prompts de video, y el tono y la intención de cada beat del guion.
+- **Lo que manda la skill**: si la ficha y una regla de la skill chocan, gana la regla. Por ejemplo, los textos en pantalla nunca van en los prompts: se anotan para el montaje.
+- **De las referencias nunca se copian** las caras, las marcas, los productos, las frases ni las cifras. Se copia cómo se ve y cómo está armado.
+
 ## Paso 1 — Briefing (la única pausa)
 
 Cuando el usuario pida un anuncio, no escribas nada todavía. Pregunta en **un solo mensaje**, como texto abierto (sin botones ni formularios), solo lo que no te haya dicho ya:

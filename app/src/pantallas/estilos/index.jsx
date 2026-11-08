@@ -12,7 +12,7 @@ import { Boton, CabeceraPagina, Esqueleto, EsqueletoMiniaturas, EstadoVacio, Min
 import { miniatura, useAnuncio, useEstilos } from '../../datos/api.js';
 import { duracion as formatoDuracion } from '../../datos/formato.js';
 import { enlace } from '../../datos/rutas.js';
-import { CONTINUIDAD_DISPONIBLE, DETALLES, ICONO_FAMILIA, disponible } from './catalogo.js';
+import { CONTINUIDAD_DISPONIBLE, CON_CONTINUIDAD, DETALLES, ICONO_FAMILIA, disponible } from './catalogo.js';
 import './estilos.css';
 
 /** La marca "Muy pronto" de los estilos que la app todavía no produce sola. */
@@ -234,8 +234,8 @@ export default function Estilos({ consulta }) {
     <div className="pagina es">
       <CabeceraPagina
         sobretitulo="Estilos"
-        titulo="12 estilos y un efecto"
-        descripcion="Doce maneras de contar tu producto, más la continuidad, que encadena las escenas sin cortes. Cada una con un anuncio real hecho con el sistema: toca un estilo para verlo en grande y úsalo con tu producto."
+        titulo="13 estilos, un efecto y 3 especiales"
+        descripcion="Trece maneras de contar tu producto, más la continuidad, que encadena las escenas sin cortes, y tres especiales: clonar un video, sacar más ganchos y el sketch de comedia. Toca un estilo para verlo en grande y úsalo con tu producto."
       />
 
       {error ? (
@@ -272,6 +272,7 @@ export default function Estilos({ consulta }) {
             <Familia id="cantado" estilos={estilos} familias={datos.familias} actual={actual} onElegir={elegir} />
           </div>
           <Efecto estilo={estilos.find((e) => e.familia === 'efecto')} estilos={estilos} actual={actual} onElegir={elegir} />
+          <Especiales />
         </>
       ) : null}
     </div>
@@ -320,7 +321,7 @@ function Familia({ id, estilos, familias, actual, onElegir }) {
 
 function Efecto({ estilo, estilos, actual, onElegir }) {
   if (!estilo) return null;
-  const conNarrador = estilos.filter((e) => e.familia === 'voz-en-off');
+  const conNarrador = estilos.filter((e) => e.familia === 'voz-en-off' && CON_CONTINUIDAD.includes(e.clave));
   return (
     <Seccion titulo="Efecto" icono={ICONO_FAMILIA.efecto} contador={1} descripcion={ELIGELO.efecto}>
       <div className={`es-efecto${actual?.clave === estilo.clave ? ' es-efecto--viendo' : ''}`}>
@@ -374,6 +375,55 @@ function Efecto({ estilo, estilos, actual, onElegir }) {
             </Boton>
           </div>
         </div>
+      </div>
+    </Seccion>
+  );
+}
+
+// ---------------------------------------------------------------- los especiales (no son un estilo: se usan con uno)
+
+const ESPECIALES = [
+  {
+    id: 'clonacion',
+    nombre: 'Clonar un video',
+    lema: 'La estructura de un anuncio que ya vende',
+    texto: 'Sube el video de un anuncio que funciona (o pega su link de la Biblioteca de anuncios de Meta, TikTok, Instagram o YouTube) en «Clonar un video», dentro de los ajustes de cualquier estilo. Se copian sus tomas, sus tiempos y lo que hace cada frase, con tu producto.',
+    href: () => enlace.nuevo(),
+    accion: 'Nuevo anuncio',
+  },
+  {
+    id: 'replicador-ganchos',
+    nombre: 'Más ganchos',
+    lema: 'El mismo anuncio con otros inicios',
+    texto: 'Abre un anuncio con narrador ya terminado y toca «Más ganchos»: salen de 2 a 5 versiones que solo cambian los primeros segundos. Solo se hace el gancho nuevo; lo demás se reutiliza.',
+    href: () => enlace.tablero(),
+    accion: 'Ir a mis anuncios',
+  },
+  {
+    id: 'sketch',
+    nombre: 'Sketch de comedia',
+    lema: 'Telenovela que no parece anuncio',
+    texto: 'Se burlan del problema del protagonista y un mensajero le pasa el producto como un secreto. Por ahora se hace desde Claude Code en esta carpeta: pídele «un anuncio sketch» de tu producto.',
+    href: null,
+    accion: null,
+  },
+];
+
+function Especiales() {
+  return (
+    <Seccion titulo="Especiales" icono={Sparkles} contador={ESPECIALES.length} descripcion="No son un estilo: se usan con uno, o con un anuncio que ya hiciste." className="es-familia-seccion" style={{ '--columnas': ESPECIALES.length }}>
+      <div className="es-especiales">
+        {ESPECIALES.map((e) => (
+          <div key={e.id} className="es-especial">
+            <MiniaturaVideo imagen={`/especiales/${e.id}.webp`} titulo={e.nombre} subtitulo={e.lema} relacion="16 / 9" reproducirAlPasar={false} />
+            <p className="es-especial__texto">{e.texto}</p>
+            {e.href ? (
+              <Boton variante="secundario" tamano="chico" iconoDerecha={ArrowRight} href={e.href()}>
+                {e.accion}
+              </Boton>
+            ) : null}
+          </div>
+        ))}
       </div>
     </Seccion>
   );

@@ -40,6 +40,8 @@
     "continuidad": "node produccion/continuidad.js",
     "lineas": "node produccion/lineas-habladas.js",
     "voz": "node produccion/recortar-voz.js",
-    "recortar": "node produccion/recortar-host.js"
+    "recortar": "node produccion/recortar-host.js",
+    "referencias:bajar": "node produccion/bajar-referencias.js",
+    "referencias:instalar": "node produccion/instalar-yt-dlp.js"
   }
 }

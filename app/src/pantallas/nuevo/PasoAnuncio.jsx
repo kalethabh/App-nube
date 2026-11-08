@@ -275,7 +275,64 @@ function Voz({ estilo, ajuste, onCambio, bloqueado }) {
 }
 
 /** Una pregunta del estilo: chips, un cuadro para escribir, o los dos ("Lo describo yo"). */
+/** Un video para clonar: se sube (POST /api/referencias) o se pega su link. Valor: "subido:<id>|<nombre>" o el link. */
+function CampoVideo({ valor, onCambio, bloqueado }) {
+  const [subiendo, setSubiendo] = useState(false);
+  const [error, setError] = useState(null);
+  const texto = typeof valor === 'string' ? valor : '';
+  const subido = texto.match(/^subido:[a-z0-9]+\|(.*)$/);
+  const subir = async (archivo) => {
+    if (!archivo) return;
+    setSubiendo(true);
+    setError(null);
+    try {
+      const r = await fetch('/api/referencias', { method: 'POST', headers: { 'Content-Type': archivo.type || 'video/mp4', 'X-Nombre': encodeURIComponent(archivo.name).slice(0, 80), Accept: 'application/json' }, body: archivo });
+      const d = await r.json().catch(() => null);
+      if (!r.ok || !d?.id) throw new Error(d?.error || 'No pude subir ese video.');
+      onCambio(`subido:${d.id}|${archivo.name.slice(0, 80)}`);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setSubiendo(false);
+    }
+  };
+  if (subido) {
+    return (
+      <div className="fila" style={{ '--hueco': '8px', alignItems: 'center' }}>
+        <Chip tamano="chico" activo>
+          {subido[1] || 'Video subido'}
+        </Chip>
+        <Boton variante="fantasma" tamano="chico" icono={X} onClick={() => onCambio(null)} disabled={bloqueado}>
+          Quitar
+        </Boton>
+      </div>
+    );
+  }
+  return (
+    <div className="pila" style={{ '--hueco': '6px' }}>
+      <label className={`nv-video-subir${bloqueado || subiendo ? ' nv-video-subir--off' : ''}`}>
+        <input type="file" accept="video/*" hidden disabled={bloqueado || subiendo} onChange={(e) => subir(e.target.files?.[0])} />
+        {subiendo ? 'Subiendo el video…' : 'Subir el video'}
+      </label>
+      <CampoTexto aria-label="O pega el link del video" placeholder="O pega el link: facebook.com/ads/library/?id=…, TikTok, Instagram, YouTube" value={texto} disabled={bloqueado || subiendo} maxLength={600} onChange={(e) => onCambio(e.target.value.trim() ? e.target.value : null)} error={error} />
+    </div>
+  );
+}
+
 function Pregunta({ p, valor, onCambio, bloqueado }) {
+  if (p.tipo === 'video') {
+    return (
+      <div className="nv-preg-estilo__item nv-preg-estilo__item--ancho">
+        <div className="nv-preg-estilo__cabecera">
+          <span className="nv-preg-estilo__texto">
+            {p.texto}
+          </span>
+        </div>
+        {p.ayuda ? <p className="nv-preg-estilo__ayuda">{p.ayuda}</p> : null}
+        <CampoVideo valor={valor} onCambio={onCambio} bloqueado={bloqueado} />
+      </div>
+    );
+  }
   const conIA = p.ia !== false;
   const decideIA = conIA && (valor === null || valor === undefined);
   const texto = typeof valor === 'string' ? valor : '';
@@ -315,7 +372,22 @@ function Pregunta({ p, valor, onCambio, bloqueado }) {
           {p.escrita ? (
             <CampoTexto aria-label={p.texto} placeholder={p.placeholder} value={texto} disabled={bloqueado} maxLength={300} onChange={(e) => onCambio(e.target.value)} />
           ) : null}
-          {p.opciones?.length ? (
+          {p.opciones?.length && p.vistas ? (
+            <div className="nv-subestilos">
+              {p.opciones.map((o) => (
+                <MiniaturaVideo
+                  key={o}
+                  className="nv-subestilos__item"
+                  imagen={p.vistas[o]?.imagen}
+                  video={p.vistas[o]?.video}
+                  titulo={o}
+                  seleccionada={opcion === o}
+                  onClick={bloqueado ? undefined : () => elegir(o)}
+                  anchoImagen={240}
+                />
+              ))}
+            </div>
+          ) : p.opciones?.length ? (
             <div className="fila fila--envolver" style={{ '--hueco': '6px' }}>
               {p.opciones.map((o) => (
                 <Chip key={o} tamano="chico" activo={p.escrita ? texto.trim() === o : opcion === o} onClick={bloqueado ? undefined : () => elegir(o)}>
@@ -346,9 +418,11 @@ function PreguntasEstilo({ clave, valores, onCambio, bloqueado }) {
   if (!preguntas.length) return null;
   return (
     <div className="nv-preg-estilo">
-      {preguntas.map((p) => (
-        <Pregunta key={p.id} p={p} valor={valores[p.id] ?? null} onCambio={(v) => onCambio({ [p.id]: v })} bloqueado={bloqueado} />
-      ))}
+      {preguntas
+        .filter((p) => !p.soloSi || (typeof valores[p.soloSi] === 'string' && valores[p.soloSi].trim()))
+        .map((p) => (
+          <Pregunta key={p.id} p={p} valor={valores[p.id] ?? null} onCambio={(v) => onCambio({ [p.id]: v })} bloqueado={bloqueado} />
+        ))}
     </div>
   );
 }

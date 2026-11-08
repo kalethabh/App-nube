@@ -51,6 +51,18 @@ Las tres primeras son para escribir la canción; las dos últimas son de producc
 
 ---
 
+## Subestilos de referencia (sacados de anuncios reales que venden)
+
+Cada subestilo es una forma probada de hacer este estilo. Su ficha está en `subestilos/<id>.md` y sus fotogramas de referencia en `subestilos/<id>/ref-01.jpg` a `ref-12.jpg`, dentro de la carpeta de esta skill.
+
+| Subestilo | Cuándo |
+|---|---|
+| `efectos-secundarios-cantados` — Los "efectos secundarios", cantados | figura, curvas o autoestima para mujeres jóvenes urbanas: un trap o R&B con psicología inversa ("efecto número uno… si no estás lista, no lo compres"), sobre escenas de vida en 3D Pixar glossy con una protagonista "baddie". La parte visual va con Zack D Films, sin grid ni estudio |
+
+- **Si el mensaje dice "Subestilo: <nombre>"** (la app lo pone cuando el usuario lo elige), es ese y no se pregunta. En ese caso el género y el estilo visual del Paso 2 ya vienen dados por la ficha: solo se pregunta la voz si la ficha no la fija.
+- **Si no dice ninguno**, sigue el proceso de siempre. Si el producto y el público calzan con un subestilo, propónlo en el Paso 2, en una línea.
+- **Con un subestilo**: lee su ficha y **mira sus doce fotogramas con Read** antes de escribir las opciones del Paso 4. En el Paso 6 le pasas a la skill visual la ficha y la lista de fotogramas, para que describa cada plano a partir de ellos y ponga en cada toma del manifiesto su `"fotograma"` (la ruta del `ref-NN.jpg` de la tabla): el motor lo adjunta al generador sin subtítulos, junto con el prompt. Y cada prompt de video se escribe mirando `subestilos/<id>/movimiento/<nombre del fotograma>.jpg` (seis cuadros del plano original), para copiar su movimiento y su ritmo. Los personajes se hacen como dice la sección «Los avatares» de la ficha: su retrato (`avatar/<rol>.jpg`, que va adjunto a la hoja como `"fotograma"`) y su prompt de hoja.
+
 ## Paso 1 — Recolectar inputs y brief
 
 Pide al usuario:

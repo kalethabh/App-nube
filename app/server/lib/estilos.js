@@ -93,6 +93,14 @@ const BASE = [
     familia: 'voz-en-off',
   },
   {
+    skill: 'anuncios-realista-narrado',
+    clave: 'realista-narrado',
+    nombre: 'Realista con narrador',
+    lema: 'Un antes y después real',
+    descripcion: 'Personas que parecen reales, grabadas como con un celular en su vida, y la voz de alguien cercano que cuenta su transformación.',
+    familia: 'voz-en-off',
+  },
+  {
     skill: 'anuncios-skeleton-ads',
     clave: 'skeleton',
     nombre: 'Esqueleto',

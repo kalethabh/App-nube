@@ -1,0 +1,36 @@
+{
+  "subestilo": "ingredientes-personaje",
+  "skill": "anuncios-estilo-pixar",
+  "avatares": [
+    {
+      "rol": "protagonista",
+      "nombre": "La protagonista",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-estilo-pixar/subestilos/ingredientes-personaje/avatar/protagonista.jpg",
+      "como": [
+        "Una chica joven de 20 a 26 años en Pixar, latina o mestiza, de piel canela clara.",
+        "Pelo castaño oscuro en rizos, recogido en una cola alta con mechones sueltos. Ojos enormes café, pestañas y argollas doradas.",
+        "Top blanco corto de tiras y jeans anchos claros; al final, jeans ajustados.",
+        "Expresiones muy exageradas y alegres: boca abierta de emoción, señala con el dedo."
+      ],
+      "prompt": "Pixar-style 3D animated {persona} in her early 20s, light caramel skin, dark-brown curly hair in a high ponytail with loose strands, huge brown eyes with lashes, gold hoop earrings, white cropped tank top and baggy light-wash jeans, white sneakers, excited open-mouth smile pointing at the camera, bright warm kitchen behind, full body, high-end 3D animated feature film render (Pixar / Disney 2020s look), soft subsurface skin, glossy expressive eyes with catchlights, detailed hair strands, warm cinematic light. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-12.jpg"
+    },
+    {
+      "rol": "ingrediente",
+      "nombre": "El ingrediente personaje",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-estilo-pixar/subestilos/ingredientes-personaje/avatar/ingrediente.jpg",
+      "como": [
+        "Cada ingrediente es un personaje con cuerpo humano curvilíneo de mujer y cabeza del ingrediente: la raíz de maca redonda con hojas de pelo, una semilla o una piña de fenogreco.",
+        "Cara tierna con ojos enormes, mejillas rosadas y una sonrisa pícara.",
+        "Ropa de conjunto deportivo del color del ingrediente: amarillo, café o verde, con zapatillas.",
+        "Posa como una estrella: entra caminando por una pasarela de luz dorada o posa en su paisaje de origen, la montaña andina al amanecer."
+      ],
+      "prompt": "Pixar-style 3D animated character: a living [ingredient, e.g. maca root] with a round root head topped with leafy green hair, a cute face with huge eyes, rosy cheeks and a playful smile, on a curvy feminine humanoid body wearing a matching [ingredient color] tracksuit and sneakers, posing confidently with a hand on the hip, Andean mountains at golden sunrise behind with mist and floating golden particles, full body, high-end 3D animated feature film render (Pixar / Disney 2020s look), soft subsurface skin, glossy expressive eyes with catchlights, detailed hair strands, warm cinematic light. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-05.jpg"
+    }
+  ]
+}

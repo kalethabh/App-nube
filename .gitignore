@@ -1,27 +1,44 @@
 # Claves — NUNCA se comparten
 .env
 
-# Artefactos generados
-temp/
-output/
+# Lo instalado (cada computador lo instala solo)
 node_modules/
 remotion/node_modules/
 remotion/out/
+.cache/
+
+# Guardado automático (app/server/lib/guardado.js): todo lo de temp/ y output/ se sube a GitHub,
+# MENOS los videos y audios, que van a Google Drive.
+*.mp4
+*.mov
+*.webm
+*.m4v
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.ogg
+# …salvo los de la app misma (muestras de los estilos, vistas de los subestilos y la música de cada estilo)
+!app/muestras/**/video.mp4
+!.claude/skills/**/vista.mp4
+!recursos/**/*.mp3
+!.claude/skills/anuncios-sketch/assets/musica/*.mp3
+
+# Lo que no sirve guardar
+temp/_modo-prueba-*/
+temp/_referencias/
+temp/*/historial/
+temp/*/app/registro/
+temp/.conductor-mando*
+app/.guardado.json
+*.kie-pendiente.json
+*.tmp.mp4
 
 # Sistema
 .DS_Store
 Thumbs.db
 npm-debug.log*
-
-# Respaldos de skills (no se distribuyen)
-*.skill.bak
-
-# Carpeta que crea Codex sola al abrir el proyecto; no es de este sistema
-.agents/
-
-# Cache de Python (recortar-host.py, tapar-huecos.py)
 __pycache__/
-
-# El paquete de la app para los alumnos (npm run alumnos:app) y sus muestras: se arman, no se suben
+*.skill.bak
+.agents/
 output-alumnos/
-app/muestras/

@@ -1,0 +1,37 @@
+{
+  "subestilo": "producto-con-actitud",
+  "skill": "anuncios-talking-object-pixar",
+  "avatares": [
+    {
+      "rol": "personaje",
+      "nombre": "El envase diva",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-talking-object-pixar/subestilos/producto-con-actitud/avatar/personaje.jpg",
+      "como": [
+        "El envase real del producto, sea bolsa, frasco o caja, convertido en personaje. La cara ocupa la parte de arriba y no tapa el nombre de la marca.",
+        "Ojos almendrados grandes con iris de color (en la referencia, verde oliva), sombra dorada metálica y delineado, y cejas negras gruesas muy arqueadas.",
+        "Labios con brillo dorado y un lunar de diva. Expresión de 'sé lo que valgo', con una ceja arriba.",
+        "Pañoleta-bandana con estampado paisley atada arriba con un moño, del color de la marca. Cadena dorada gruesa con un dije de moneda.",
+        "Brazos delgados del color del acento de la etiqueta, guantes blancos de caricatura y zapatillas a juego.",
+        "Material plástico satinado y etiqueta nítida. Render Pixar con contraluz cálido."
+      ],
+      "prompt": "Pixar-style 3D character: the exact product packaging from the attached product photo brought to life, label fully readable and faithful, a large expressive face on the upper front (big almond eyes with colored irises, metallic gold eyeshadow and liner, thick dramatically arched black brows, glossy gold-tinted lips and a small beauty mark), one eyebrow raised with a sassy 'I know my worth' look, a paisley bandana in the brand color tied on top with a bow, a chunky gold chain with a coin pendant, thin arms in the brand accent color, white cartoon gloves, matching sneakers, standing on a clean white background, satin plastic material, warm rim light, full body. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-02.jpg"
+    },
+    {
+      "rol": "personaje-es",
+      "nombre": "El frasco gotero diva",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-talking-object-pixar/subestilos/producto-con-actitud/avatar/personaje-es.jpg",
+      "como": [
+        "Frasco gotero de vidrio ámbar con tapa negra. La cara va en el vidrio, encima de la etiqueta, con la piel del color del vidrio.",
+        "Cejas gruesas arqueadas, ojos grandes con delineado y labios marcados. Actitud de diva desconfiada.",
+        "Guantes blancos y zapatillas negras con amarillo. Sin bandana ni cadena: el gotero es su peinado."
+      ],
+      "prompt": "Pixar-style 3D character: the exact dropper bottle from the attached product photo brought to life, amber glass with a black dropper cap as its hairdo, label fully readable, a big expressive face on the glass above the label with glass-colored skin, thick arched brows, big lined eyes and defined lips, a suspicious diva attitude, thin arms, white cartoon gloves, black-and-yellow sneakers, standing on a warm wooden surface with soft spotlight, full body. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "es/es-02.jpg"
+    }
+  ]
+}

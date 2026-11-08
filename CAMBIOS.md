@@ -2,6 +2,20 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-08 · App-nube
+
+Lo de IA-VID-AUTOMATIC que le faltaba a esta app, sin cambiar cómo genera (igual de rápido, sin presupuestos ni costos estimados nuevos).
+
+- **Estilo nuevo: Realista con narrador** (personas que parecen reales, grabadas como con un celular, y la voz de alguien cercano).
+- **Subestilos**: formas probadas de 7 estilos, sacadas de anuncios reales que venden. Se eligen en el formulario del estilo; al pasar el mouse se ve su referencia. El motor manda el fotograma de cada imagen junto con el prompt.
+- **Clonar un video**: en los ajustes de cualquier estilo (menos los cantados), sube el video de un anuncio que funciona o pega su link. Se copia cómo está armado, con tu producto.
+- **Más ganchos**: en la entrega de un anuncio con narrador terminado, de 2 a 5 versiones con otro inicio. Solo se hace el gancho nuevo.
+- **Especiales** en Estilos (Clonar, Más ganchos y Sketch de comedia; el Sketch, por ahora, desde Claude Code).
+- **Clips sin cobro**: el B-roll que no necesita acción se arma desde su imagen ("quieto") y los clips guardados se reutilizan (biblioteca de clips).
+- **Aprendizajes**: lo que hubo que rehacer se anota solo y se le pasa a Claude en el siguiente guion.
+- **Guardado en la nube** (Ajustes): todo a GitHub cada 2 minutos; los videos y audios, a Google Drive.
+- **Inversión** (Ajustes): lo que ya gastaste de verdad en cada producto.
+
 ## 2026-11-06
 
 La primera versión de la app para alumnos.

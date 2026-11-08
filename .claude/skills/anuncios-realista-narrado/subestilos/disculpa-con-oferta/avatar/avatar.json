@@ -1,0 +1,23 @@
+{
+  "subestilo": "disculpa-con-oferta",
+  "skill": "anuncios-realista-narrado",
+  "avatares": [
+    {
+      "rol": "protagonista",
+      "nombre": "Clienta en el espejo",
+      "adjuntar": false,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-realista-narrado/subestilos/disculpa-con-oferta/avatar/protagonista.jpg",
+      "como": [
+        "Muchas mujeres distintas, una por toma, de 25 a 40 años, afrodescendientes y latinas, con curvas. Parecen clientas de verdad que se graban solas.",
+        "Mucho pelo trabajado: trenzas knotless hasta la cintura, peluca body wave larga, rubio platino, una cola rizada alta, o una vincha con lentes de pasta.",
+        "Uñas acrílicas largas en tonos nude o rosados, y aros dorados.",
+        "Ropa ajustada lisa en colores neutros: vestido largo de punto gris o negro, leggings con crop top, conjunto deportivo, short de ciclista beige.",
+        "Selfie en el espejo con el iPhone, de perfil o mirando por encima del hombro, en su cuarto, su pasillo o su cocina con luz de casa.",
+        "Encuadres imperfectos, como un video de celular que mandó la clienta."
+      ],
+      "prompt": "Vertical smartphone mirror-selfie photo of an original, non-famous curvy {persona} in her early 30s, long knotless braids or a long body-wave wig, long nude acrylic nails, small gold hoops, wearing a fitted plain ribbed bodycon outfit in a neutral color, holding an iPhone in front of her face in a bedroom or hallway mirror, turning slightly to the side, warm indoor home light, slightly imperfect casual framing, light grain, authentic customer video look, photorealistic, shot on a smartphone, natural skin texture with visible pores, fine lines and slight under-eye shadows, real flyaway hair strands, no beauty filter, no retouching. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-04.jpg"
+    }
+  ]
+}

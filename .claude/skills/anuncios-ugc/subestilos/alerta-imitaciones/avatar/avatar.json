@@ -1,0 +1,24 @@
+{
+  "subestilo": "alerta-imitaciones",
+  "skill": "anuncios-ugc",
+  "avatares": [
+    {
+      "rol": "creadora",
+      "nombre": "La que avisa de las imitaciones",
+      "adjuntar": false,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-ugc/subestilos/alerta-imitaciones/avatar/creadora.jpg",
+      "como": [
+        "Una mujer real de 45 a 55 años, de piel morena oscura, con aspecto de clienta que sabe del tema, no de modelo.",
+        "Pelo natural rizado apretado (3C-4A), a la altura del hombro, con volumen y sin peinar de peluquería.",
+        "Cara sin maquillaje o casi, con la piel real: poros, líneas de expresión y ojeras suaves.",
+        "Camiseta negra lisa de manga corta, sin joyas ni accesorios.",
+        "Sentada detrás de la mesada de su cocina. Delante, un vaso de agua y el producto en la mano.",
+        "Cámara frontal del celular apoyada en la mesada, un poco por debajo de los ojos, en plano de pecho para arriba. Luz cálida de los focos del techo de la cocina.",
+        "Gesticula mucho con las manos abiertas hacia la cámara. Habla con energía de 'escúchame bien'."
+      ],
+      "prompt": "Smartphone front-camera video still of an original, non-famous {persona} in her late 40s with deep brown skin, natural tightly coiled shoulder-length curly hair with volume, no makeup, wearing a plain black short-sleeve t-shirt and no jewelry, sitting behind a light stone kitchen counter, a glass of water in front of her, talking to the camera with an open hand gesture, phone resting on the counter slightly below eye level, chest-up framing, warm overhead kitchen spotlights, modern kitchen with dark cabinets softly blurred behind, photorealistic, shot on a smartphone, natural skin texture with visible pores, fine lines and slight under-eye shadows, real flyaway hair strands, no beauty filter, no retouching. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-02.jpg"
+    }
+  ]
+}

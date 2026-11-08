@@ -1,0 +1,23 @@
+{
+  "subestilo": "confesion-halloween",
+  "skill": "anuncios-skeleton-ads",
+  "avatares": [
+    {
+      "rol": "esqueleto",
+      "nombre": "El esqueleto pelirrojo",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-skeleton-ads/subestilos/confesion-halloween/avatar/esqueleto.jpg",
+      "como": [
+        "Un esqueleto hombre de huesos marfil envejecidos, con grietas y manchas: realista, no de dibujo animado.",
+        "Mechones de pelo pelirrojo naranja de verdad sobre el cráneo y ojos de luz ámbar-naranja encendidos en las cuencas.",
+        "Chaleco de cuero café gastado sobre una camisa azul marino de manga corta, pantalón cargo verde oliva y cinturón.",
+        "La ropa es semitransparente en el torso y deja ver los órganos oscuros.",
+        "En su casa de noche: cocina de madera, sofá de cuero, calabazas de Halloween encendidas y telarañas, con luz cálida y bordes violeta.",
+        "Los otros esqueletos tienen ojos de otro color: azul eléctrico con pelo castaño y suéter verde, o violeta con pelo lila."
+      ],
+      "prompt": "Hyper-detailed cinematic 3D render of an adult male skeleton with aged ivory bones showing cracks and stains, tufts of real ginger-orange hair on the skull, glowing amber-orange lights in the eye sockets, wearing a worn brown leather vest over a navy short-sleeve shirt, olive cargo pants with a belt, holding a small dropper bottle, standing in a dim cozy home kitchen at night with lit jack-o'-lanterns and cobwebs, warm practical light with violet rim light, medium-full shot. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-01.jpg"
+    }
+  ]
+}

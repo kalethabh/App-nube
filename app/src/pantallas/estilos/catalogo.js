@@ -6,6 +6,7 @@
 import {
   Atom,
   Bone,
+  Camera,
   BookAudio,
   Infinity as Infinito,
   LampDesk,
@@ -35,6 +36,7 @@ export const ICONO_ESTILO = {
   crochet: Spool,
   'zack-d-films': Atom,
   'estilo-pixar': LampDesk,
+  'realista-narrado': Camera,
   skeleton: Bone,
   'estilo-lego': ToyBrick,
   ugc: Smartphone,
@@ -52,7 +54,7 @@ export const iconoDe = (clave, familia) => ICONO_ESTILO[clave] || ICONO_FAMILIA[
 export const CON_CONTINUIDAD = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'estilo-lego', 'skeleton'];
 
 /** Los estilos que la app produce de punta a punta (del producto a los MP4, sin terminal): los 12. */
-export const DISPONIBLES = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'skeleton', 'estilo-lego', 'ugc', 'talking-object-pixar', 'podcast', 'entrevista', 'musical', 'historias-musicales'];
+export const DISPONIBLES = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'realista-narrado', 'skeleton', 'estilo-lego', 'ugc', 'talking-object-pixar', 'podcast', 'entrevista', 'musical', 'historias-musicales'];
 export const disponible = (clave) => DISPONIBLES.includes(clave);
 
 /** El efecto continuidad se pide en los 6 estilos con narrador. */
@@ -94,6 +96,10 @@ const PREGUNTAS = {
     { id: 'angulo', texto: 'Ángulo del anuncio', opciones: ANGULOS_MECANISMO },
   ],
   'estilo-pixar': [{ id: 'angulo', texto: 'Ángulo del anuncio', opciones: ANGULOS_MECANISMO }],
+  'realista-narrado': [
+    { id: 'narra', texto: 'Quién cuenta la historia', ayudaIA: 'Con «Que decida la IA», un hijo o una hija que cuenta lo de su papá o su mamá.', escrita: true, opciones: ['Un hijo que cuenta lo de su papá', 'Una hija que cuenta lo de su mamá', 'La esposa', 'La misma persona, en primera persona'], placeholder: 'Ej.: la hija de 30 que cuenta lo de su mamá' },
+    { id: 'angulo', texto: 'Ángulo del anuncio', opciones: ANGULOS_MECANISMO },
+  ],
   skeleton: [{ id: 'formato', texto: 'Formato', ayudaIA: 'Con «Que decida la IA», va la escalada día a día.', opciones: ['Día a día (la escalada)', 'Reseña con humor'] }],
   'estilo-lego': [{ id: 'estructura', texto: 'Estructura del guion', ayudaIA: 'Con «Que decida la IA», la del estilo: abre con el resultado y cuenta cómo funciona.', opciones: ANGULOS_MECANISMO }],
   'talking-object-pixar': [
@@ -139,8 +145,43 @@ const PREGUNTAS = {
   ],
 };
 
+// Los subestilos (formas probadas de cada estilo, sacadas de anuncios reales que venden). Los mismos nombres que las
+// fichas de .claude/skills/<skill>/subestilos/ (server/lib/subestilos.js): el servidor los traduce a su id.
+export const SUBESTILOS = {
+  "zack-d-films": [{"id": "curvas-grid-azul", "nombre": "Curvas en grid azul"}, {"id": "diario-estudio-azul", "nombre": "Diario de 14 días en estudio azul"}],
+  "estilo-pixar": [{"id": "glow-up-senal-dorada", "nombre": "Glow-up con la señal dorada"}, {"id": "ingredientes-personaje", "nombre": "Los ingredientes son personajes"}],
+  "realista-narrado": [{"id": "disculpa-con-oferta", "nombre": "Les debemos una disculpa: la oferta en montaje"}, {"id": "transformacion-familiar", "nombre": "La transformación del papá"}],
+  "skeleton": [{"id": "confesion-halloween", "nombre": "La confesión en noche de Halloween"}, {"id": "cristal-laboratorio-experto", "nombre": "Cristal en laboratorio, con voz de experto"}, {"id": "cuerpo-de-lodo-con-doctor", "nombre": "Cuerpo de lodo con doctor guía"}, {"id": "cuerpo-de-vidrio-realista", "nombre": "Cuerpo de vidrio con órganos realistas"}, {"id": "cuerpo-muscular-con-grasa", "nombre": "Cuerpo de músculo con grasa"}, {"id": "curvas-anatomicas-con-doctor", "nombre": "Curvas anatómicas con doctor guía"}],
+  "ugc": [{"id": "alerta-imitaciones", "nombre": "Alerta de imitaciones"}, {"id": "experta-con-utileria", "nombre": "Experta con utilería"}, {"id": "oferta-en-mano", "nombre": "Oferta en mano (cierre de urgencia)"}, {"id": "sabia-con-paciente", "nombre": "La sabia con su paciente"}],
+  "talking-object-pixar": [{"id": "frasco-narrador", "nombre": "El frasco que cuenta la historia de ella"}, {"id": "producto-con-actitud", "nombre": "El producto con actitud"}],
+  "musical": [{"id": "efectos-secundarios-cantados", "nombre": "Los efectos secundarios, cantados"}],
+};
+
+const preguntaSubestilo = (clave) => ({
+  id: 'subestilo',
+  texto: 'Subestilo (sacado de anuncios reales que venden)',
+  ayudaIA: 'Con «Que decida la IA», elige el que mejor calce con tu producto, o ninguno.',
+  ayuda: 'Pasa el mouse por cada uno para ver su referencia.',
+  opciones: SUBESTILOS[clave].map((s) => s.nombre),
+  vistas: Object.fromEntries(SUBESTILOS[clave].map((s) => [s.nombre, { imagen: `/subestilos/${clave}/${s.id}/vista.jpg`, video: `/subestilos/${clave}/${s.id}/vista.mp4` }])),
+});
+
+// Clonar un video (server/lib/clonar.js): en todos los estilos menos los cantados.
+const PREGUNTAS_CLONAR = [
+  {
+    id: 'clonar',
+    tipo: 'video',
+    texto: 'Clonar un video (opcional)',
+    ayuda: 'Sube el video de un anuncio que funciona, o pega su link (Biblioteca de anuncios de Meta, TikTok, Instagram, YouTube). Se copia cómo está armado: no sus caras, su marca ni su música.',
+    ia: false,
+  },
+  { id: 'clonar_gancho', texto: '¿Adapto el gancho y el ángulo a tu producto?', opciones: ['Sí, adáptalo a mi producto', 'No, conserva el del original'], ia: false, porDefecto: 'Sí, adáptalo a mi producto', soloSi: 'clonar' },
+];
+
 export function preguntasDe(clave) {
-  return PREGUNTAS[clave] || [];
+  const base = PREGUNTAS[clave] || [];
+  const conSub = SUBESTILOS[clave]?.length ? [...base, preguntaSubestilo(clave)] : base;
+  return PREGUNTAS[clave] && !esCantado(clave) ? [...conSub, ...PREGUNTAS_CLONAR] : conSub;
 }
 
 const IDIOMAS = { es: 'Español', en: 'Inglés', pt: 'Portugués' };
@@ -198,6 +239,7 @@ export const DETALLES = {
   crochet: { quienHabla: 'Un narrador en voz en off', idealPara: 'Belleza, cuidado personal, bebés y productos que se sienten cálidos', tono: 'Tierno, artesanal y muy llamativo', paradas: SOLO, voz: 'narrador' },
   'zack-d-films': { quienHabla: 'Un narrador en voz en off', idealPara: 'Productos con un mecanismo que se puede mostrar por dentro', tono: 'Curioso, de documental, con giro final', paradas: SOLO, voz: 'narrador' },
   'estilo-pixar': { quienHabla: 'Un narrador en voz en off', idealPara: 'Historias de clientes, cursos y productos con un antes y un después', tono: 'Emotivo, de película familiar', paradas: SOLO, voz: 'narrador' },
+  'realista-narrado': { quienHabla: 'Alguien cercano en voz en off (un hijo, la esposa…)', idealPara: 'Suplementos y productos con una transformación real: antes y después', tono: 'Real, de video de celular, emotivo', paradas: SOLO, voz: 'narrador' },
   skeleton: { quienHabla: 'Un narrador en voz en off', idealPara: 'Salud, sueño y hábitos: "¿qué le pasa a tu cuerpo si…?"', tono: 'Directo, viral, de TikTok', paradas: SOLO, voz: 'narrador' },
   'estilo-lego': { quienHabla: 'Un narrador en voz en off', idealPara: 'Productos con un mecanismo y un resultado que se puede contar con piezas', tono: 'Divertido, ordenado y muy visual', paradas: SOLO, voz: 'narrador' },
   ugc: { quienHabla: 'Una persona a cámara, con su propia voz', idealPara: 'Cualquier producto: testimonio, reseña, rutina o demo', tono: 'Cercano y creíble, como un video de celular', paradas: HABLADO, voz: 'video' },

@@ -6,6 +6,7 @@ import path from 'node:path';
 import { SKILLS } from '../lib/rutas.js';
 import { ESTILOS, FAMILIAS } from '../lib/estilos.js';
 import { muestraDeEstilo } from '../lib/muestras.js';
+import { subestilosDe } from '../lib/subestilos.js';
 
 // Solo el "name" del encabezado de la skill, para confirmar que esta instalada.
 function nombreDeSkill(skill) {
@@ -34,6 +35,7 @@ export default function rutasEstilos(app) {
         familiaNombre: FAMILIAS[e.familia]?.nombre || null,
         instalado,
         muestra,
+        subestilos: subestilosDe(e.skill),
       };
     });
     res.json({

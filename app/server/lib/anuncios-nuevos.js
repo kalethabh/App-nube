@@ -42,6 +42,9 @@ import { lanzarSesion } from './colas.js';
 import { ErrorApp, escribirJSON, aKebab, idValido as productoValido, leerProducto, leerFicha, fotoPrincipal, relProducto, detalleDelProducto, errorPublico, urlFoto } from './productos.js';
 import { ESTILOS as PRESENTACION } from './estilos.js';
 import { brollDe } from './broll.js';
+import { subestilosDe, idDeSubestilo } from './subestilos.js';
+import { textoParaClaude as textoAprendizajes, textoAhorro } from './aprendizajes.js';
+import { prepararReferencia, referenciaPedida, textoClonar } from './clonar.js';
 import { conDuracion, entenderDuracion, leerDuracion, duracionAprox, segundosPedidos } from './duracion.js';
 
 // ---------------------------------------------------------------- los estilos
@@ -58,6 +61,7 @@ export const ESTILOS = {
   crochet: { skill: 'anuncios-crochet', nombre: 'Crochet', familia: 'voz-en-off', faseGuion: 'guion', transiciones: true, narrador: true },
   'zack-d-films': { skill: 'anuncios-zack-d-films', nombre: 'Zack D Films', familia: 'voz-en-off', faseGuion: 'guion', transiciones: true, narrador: true },
   'estilo-pixar': { skill: 'anuncios-estilo-pixar', nombre: 'Estilo Pixar', familia: 'voz-en-off', faseGuion: 'guion', transiciones: true, narrador: true },
+  'realista-narrado': { skill: 'anuncios-realista-narrado', nombre: 'Realista con narrador', familia: 'voz-en-off', faseGuion: 'guion', transiciones: true, narrador: true, sinContinuidad: true },
   skeleton: { skill: 'anuncios-skeleton-ads', nombre: 'Esqueleto', familia: 'voz-en-off', faseGuion: 'guion', transiciones: true, narrador: true },
   'estilo-lego': { skill: 'anuncios-estilo-lego', nombre: 'Estilo Lego', familia: 'voz-en-off', faseGuion: 'guion', transiciones: true, narrador: true },
   'talking-object-pixar': { skill: 'anuncios-talking-object-pixar', nombre: 'Objeto parlante', familia: 'objeto-parlante', faseGuion: 'guion', transiciones: true },
@@ -70,13 +74,13 @@ export const ESTILOS = {
 /** El nombre de la etapa 1 (cuando solo estaba claymation). */
 export const ESTILOS_ACTIVOS = ESTILOS;
 /** Los 6 de voz en off: los unicos donde se puede pedir continuidad. */
-export const CON_CONTINUIDAD = Object.keys(ESTILOS).filter((k) => ESTILOS[k].narrador);
+export const CON_CONTINUIDAD = Object.keys(ESTILOS).filter((k) => ESTILOS[k].narrador && !ESTILOS[k].sinContinuidad);
 
 /** La familia que produce este anuncio: la del estilo, o "continuidad" si la pidio en uno de voz en off. */
 export function familiaDe(brief) {
   const def = ESTILOS[brief?.estilo];
   if (!def) return null;
-  return brief.continuidad && def.narrador ? 'continuidad' : def.familia;
+  return brief.continuidad && def.narrador && !def.sinContinuidad ? 'continuidad' : def.familia;
 }
 
 /**
@@ -117,6 +121,7 @@ const AJUSTES = {
     angulo: {},
   },
   'estilo-pixar': { angulo: {} },
+  'realista-narrado': { narra: {}, angulo: {} },
   skeleton: { formato: {} },
   'estilo-lego': { estructura: {} },
   'talking-object-pixar': { quien_habla: {} },
@@ -146,6 +151,21 @@ const AJUSTES = {
     canta: { valor: VOZ_CANTADA, porDefecto: null },
   },
 };
+// El subestilo (sacado de anuncios reales que venden) en cada estilo que tiene: va en ajustes y en brief.opciones con su id.
+for (const [clave, def] of Object.entries(ESTILOS)) {
+  if (!AJUSTES[clave] || !subestilosDe(def.skill).length) continue;
+  AJUSTES[clave].subestilo = { valor: (t) => idDeSubestilo(def.skill, t), porDefecto: null };
+}
+// Clonar un video (lib/clonar.js): en todos los estilos menos los cantados. Se responde con un archivo subido o un link.
+for (const [clave, def] of Object.entries(ESTILOS)) {
+  if (!AJUSTES[clave] || def.faseGuion === 'letras') continue;
+  AJUSTES[clave].clonar = { dice: 'sin video de referencia' };
+  AJUSTES[clave].clonar_gancho = { dice: 'Sí, adáptalo a mi producto' };
+}
+
+const GUIA_SUBESTILO =
+  '`subestilo`: si trae uno, es como si el mensaje dijera "Subestilo: <ese>" (búscalo por su id o su nombre en la tabla de subestilos de la skill) y sigues su ficha, sus fotogramas y su tabla de "fotograma" por toma; con "que decida la IA", eliges tú con la regla de la skill (o ninguno) y lo anotas en "decisiones".';
+
 // como se llama cada cosa en brief.opciones (si no, la misma id)
 const NOMBRE_OPCION = { modo: 'modoBroll', canta: 'vocalGender' };
 
@@ -400,6 +420,8 @@ const GUIA_AJUSTES = {
   'zack-d-films':
     '`fondo` es la respuesta a la pregunta del fondo de las tomas de mecanismo del Paso 1 ("Grilla técnica azul" = A, grid técnico azul; "Estudio limpio" = B): úsala en todas las tomas que correspondan. `angulo`: con "que decida la IA", el PRINCIPAL.',
   'estilo-pixar': '`angulo`: con "que decida la IA", el PRINCIPAL de la skill; si no, el que eligió.',
+  'realista-narrado':
+    '`narra` es quién cuenta la historia (con "que decida la IA", un hijo o una hija adultos que cuentan lo de su papá o su mamá, como dice la skill). `angulo`: con "que decida la IA", el PRINCIPAL de la skill de Pixar que esta skill sigue; si no, el que eligió. Todo es fotorrealista menos el mecanismo, en anatomía médica 3D.',
   skeleton: '`formato`: con "que decida la IA", el formato principal (salvo que el producto pida el alterno, regla del 2.0). La variante del esqueleto la decides tú (3.1) y la anotas en decisiones.',
   'estilo-lego':
     '`estructura`: con "que decida la IA", la plantilla del estilo (2.1); si eligió otra, es un ángulo del 2.2. La voz ya la eligió el usuario en la app. Los plazos de la línea de tiempo los decides tú y los anotas en "decisiones", para que el usuario los vea y los corrija si no son los suyos.',
@@ -605,7 +627,7 @@ function textoDelEstilo(brief) {
 
 const lista = (pasos) => pasos.map((p, i) => `${i + 1}. ${p}`).join('\n');
 
-function promptGuion(slug, brief, foto) {
+function promptGuion(slug, brief, foto, prepClonar = null) {
   const def = ESTILOS[brief.estilo];
   const t = piezasDeLaTarea(slug, brief, def);
   return textoClaude('tarea-guion', {
@@ -614,7 +636,7 @@ function promptGuion(slug, brief, foto) {
     skill: def.skill,
     intro: t.intro,
     brief: JSON.stringify(briefParaClaude(brief), null, 2),
-    ajustes: GUIA_AJUSTES[brief.estilo] ? `- ${GUIA_AJUSTES[brief.estilo]}` : '',
+    ajustes: [GUIA_AJUSTES[brief.estilo], AJUSTES[brief.estilo]?.subestilo ? GUIA_SUBESTILO : null].filter(Boolean).map((g) => `- ${g}`).join('\n'),
     duracion: tareaDuracion(brief),
     guionDelUsuario: esLetras(brief)
       ? '- `guion_del_usuario`: si viene, es material de trabajo para la canción o la historia (este estilo no tiene Paso 0). Si es null, escribes desde cero.'
@@ -623,7 +645,7 @@ function promptGuion(slug, brief, foto) {
     detalleProducto: detalleDelProducto(brief.productoId, { vineta: true }),
     foto: textoFoto(slug, brief, foto),
     pasos: lista(t.pasos),
-    delEstilo: t.delEstilo,
+    delEstilo: [textoClonar(slug, brief, prepClonar), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(brief.estilo)].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
   });
@@ -688,6 +710,10 @@ function permisosGuion(slug, brief) {
       `Read(./.claude/skills/${ESTILOS[brief.estilo].skill}/**)`,
       // el esqueleto: la skill sugiere elegir la variante mirando el catalogo (solo lectura)
       ...(brief.estilo === 'skeleton' ? ['Read(./recursos/esqueletos/**)'] : []),
+      // realista con narrador sigue la skill de Pixar entera (su "proceso"): la lee tambien
+      ...(brief.estilo === 'realista-narrado' ? ['Read(./.claude/skills/anuncios-estilo-pixar/**)'] : []),
+      // clonar un video: la skill de la clonacion (sus Pasos 3 y 5)
+      ...(referenciaPedida(brief) ? ['Read(./.claude/skills/anuncios-clonacion/**)'] : []),
       `Read(${c}/**)`,
       `Read(./${relProducto(brief.productoId)}/**)`,
       `Write(${c}/**)`,
@@ -1011,7 +1037,8 @@ async function trabajar(slug, { tipo, pedido = null, retomar = false, reintento 
   } else {
     avanzar('Preparando la foto de tu producto');
     const foto = await prepararFoto(slug, brief);
-    prompt = promptGuion(slug, brief, foto);
+    const prepClonar = referenciaPedida(brief) ? await prepararReferencia(slug, brief, avanzar) : null;
+    prompt = promptGuion(slug, brief, foto, prepClonar);
     if (retomar || reintento) prompt = `(El intento anterior no terminó: revisa lo que ya está escrito en temp/${slug}/ y sigue desde ahí; lo que ya está bien no lo rehagas.)\n\n${prompt}`;
     fs.rmSync(path.join(appDe(slug), 'bloqueo.json'), { force: true });
   }

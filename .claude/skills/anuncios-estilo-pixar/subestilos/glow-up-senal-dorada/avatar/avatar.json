@@ -1,0 +1,37 @@
+{
+  "subestilo": "glow-up-senal-dorada",
+  "skill": "anuncios-estilo-pixar",
+  "avatares": [
+    {
+      "rol": "protagonista",
+      "nombre": "La del glow-up",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-estilo-pixar/subestilos/glow-up-senal-dorada/avatar/protagonista.jpg",
+      "como": [
+        "Una mujer joven de 25 a 30 años, afrodescendiente, en Pixar, de piel morena oscura cálida y brillante.",
+        "Pelo negro larguísimo en rizos espirales definidos, con un volumen enorme que le pasa los hombros.",
+        "Cara redonda y dulce: ojos grandes café con pestañas largas y brillo, cejas suaves, nariz pequeña, labios llenos y una sonrisa amplia.",
+        "Cuerpo de reloj de arena exagerado y caricaturesco: cintura muy fina, cadera y glúteos grandes.",
+        "Ropa ajustada y lisa: camiseta blanca, bordó o negra corta, con jeans altos claros o leggings, y zapatillas blancas.",
+        "Render Pixar cálido y luminoso, con luz de hora dorada o de tienda. La expresión va de la sorpresa al orgullo."
+      ],
+      "prompt": "Pixar-style 3D animated {persona} in her late 20s, warm glowing deep-brown skin, very long voluminous black spiral curls past the shoulders, round sweet face with big brown eyes and long lashes, small nose, full lips, wide confident smile, exaggerated cartoon hourglass figure with a tiny waist and full hips, fitted plain white crop t-shirt, high-waisted light-wash jeans and white sneakers, standing in a bright modern apartment with a window, full body front view, high-end 3D animated feature film render (Pixar / Disney 2020s look), soft subsurface skin, glossy expressive eyes with catchlights, detailed hair strands, warm cinematic light. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-12.jpg"
+    },
+    {
+      "rol": "protagonista-es",
+      "nombre": "La del glow-up (versión en español)",
+      "adjuntar": true,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-estilo-pixar/subestilos/glow-up-senal-dorada/avatar/protagonista-es.jpg",
+      "como": [
+        "La misma familia de personaje que la primera referencia: mujer joven afrodescendiente en Pixar, de piel morena oscura.",
+        "Pelo enorme en rizos espirales castaño oscuro con reflejos, y en la cocina lentes y tatuajes finos en el brazo.",
+        "La ropa cambia en cada lugar: top negro con short gris, camiseta blanca con jeans, top bordó, camiseta azul con pantalón crema y tacones."
+      ],
+      "prompt": "Pixar-style 3D animated {persona} in her late 20s, deep-brown skin, huge voluminous dark-brown spiral curls with lighter highlights, big expressive eyes, friendly confident smile, curvy hourglass figure, fitted white t-shirt and light-wash high-waisted jeans, holding a small dropper bottle and pointing at it, bright apartment with a window, full body, high-end 3D animated feature film render (Pixar / Disney 2020s look), soft subsurface skin, glossy expressive eyes with catchlights, detailed hair strands, warm cinematic light. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "es/es-12.jpg"
+    }
+  ]
+}

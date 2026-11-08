@@ -1,0 +1,39 @@
+{
+  "subestilo": "sabia-con-paciente",
+  "skill": "anuncios-ugc",
+  "avatares": [
+    {
+      "rol": "creadora",
+      "nombre": "La herbolaria",
+      "adjuntar": false,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-ugc/subestilos/sabia-con-paciente/avatar/creadora.jpg",
+      "como": [
+        "Una mujer de 68 a 75 años, afrodescendiente, de piel morena oscura: la sabia que sabe de plantas, de mirada tranquila y segura.",
+        "Turbante alto de tela azul marino con estampado dorado, que tapa todo el pelo.",
+        "Lentes finos de marco metálico, redondos o cuadrados suaves, y argollas doradas medianas.",
+        "Túnica tipo dashiki azul marino, con bordado dorado y cuello color crema. Pulseras finas doradas y un anillo.",
+        "Sentada en su consultorio, con las manos juntas o abiertas sobre una mesa de madera.",
+        "Detrás, estantes con frascos de hierbas en fila, cajoneras de botica y una lámina de acupuntura. Luz de ventana.",
+        "Plano medio fijo. Habla despacio y con autoridad cariñosa."
+      ],
+      "prompt": "Smartphone video still of an original, non-famous {persona} around 70 years old with deep brown skin and gentle wise eyes, a tall navy-blue head wrap with gold pattern covering her hair, thin metal-frame glasses, medium gold hoop earrings, a navy dashiki tunic with gold embroidery and a cream collar, thin gold bracelets, sitting at a wooden table with her hands resting on it, herbal practitioner office behind with shelves of glass herb jars, apothecary drawers and an acupuncture chart, soft window daylight, medium shot at eye level, photorealistic, shot on a smartphone, natural skin texture with visible pores, fine lines and slight under-eye shadows, real flyaway hair strands, no beauty filter, no retouching. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-11.jpg"
+    },
+    {
+      "rol": "paciente",
+      "nombre": "La paciente",
+      "adjuntar": false,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-ugc/subestilos/sabia-con-paciente/avatar/paciente.jpg",
+      "como": [
+        "Una mujer de 30 a 40 años, afrodescendiente, de piel morena y cuerpo de talla grande con la panza visible: la que tiene el problema.",
+        "Trenzas finas recogidas hacia atrás, sin maquillaje y con expresión cansada o tímida.",
+        "Camiseta gris ajustada o musculosa negra, con leggings negros.",
+        "Siempre al lado de la herbolaria, que la toca o la señala: le revisa el cuello, le muestra el brazo."
+      ],
+      "prompt": "Smartphone photo of an original, non-famous {persona} in her mid 30s with brown skin, plus-size body with a visibly bloated belly, fine braids pulled back, no makeup, tired shy expression, fitted grey t-shirt and black leggings, standing in a real home kitchen with wooden cabinets and window light, full body visible, photorealistic, shot on a smartphone, natural skin texture with visible pores, fine lines and slight under-eye shadows, real flyaway hair strands, no beauty filter, no retouching. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-06.jpg (recortado)"
+    }
+  ]
+}

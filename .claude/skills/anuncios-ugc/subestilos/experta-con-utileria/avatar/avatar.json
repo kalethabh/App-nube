@@ -1,0 +1,24 @@
+{
+  "subestilo": "experta-con-utileria",
+  "skill": "anuncios-ugc",
+  "avatares": [
+    {
+      "rol": "creadora",
+      "nombre": "La experta con utilería",
+      "adjuntar": false,
+      "persona": "woman",
+      "imagen": ".claude/skills/anuncios-ugc/subestilos/experta-con-utileria/avatar/creadora.jpg",
+      "como": [
+        "Una mujer de 30 a 38 años, mediterránea o latina, de piel trigueña bronceada: la 'doctora influencer', segura y glamorosa.",
+        "Melena larga castaña oscura, ondas grandes de brushing con volumen desde la raíz y raya al medio.",
+        "Maquillaje completo pero de día: piel con acabado satinado, contorno suave, pestañas postizas, cejas definidas y labios nude con delineador café.",
+        "Blusa blanca ajustada de manga larga con escote en V profundo. Varias cadenitas doradas finas en capas y argollas pequeñas.",
+        "Sentada detrás de una mesa de granito claro con pintas. Las manos apoyadas en la mesa o señalando un objeto grande, como el modelo de una arteria o el producto.",
+        "Detrás, su oficina en casa: estantes con libros, diplomas enmarcados, una banderita y plantas. Mucha luz de día, blanca y suave.",
+        "Plano medio a la altura de los ojos, cámara fija. Habla mirando a cámara con gestos medidos de las manos y la cabeza un poco ladeada."
+      ],
+      "prompt": "Smartphone video still of an original, non-famous {persona} in her early 30s, Mediterranean-Latina features with warm tan skin, long dark-brown hair in big glossy blowout waves with a center part, polished daytime glam makeup (satin skin, soft contour, defined brows, wispy lashes, nude lips with brown liner), fitted white long-sleeve deep V-neck top, layered thin gold necklaces and small gold hoops, sitting behind a light speckled granite table with her hands resting on it, talking to the camera with a confident warm expression, home office behind with bookshelves, framed diplomas and a small plant, bright soft daylight, medium shot at eye level, photorealistic, shot on a smartphone, natural skin texture with visible pores, fine lines and slight under-eye shadows, real flyaway hair strands, no beauty filter, no retouching. Vertical 9:16, one single character, full face clearly visible, plain background or the location described, no text, no logos, no watermark.",
+      "de": "ref-07.jpg"
+    }
+  ]
+}

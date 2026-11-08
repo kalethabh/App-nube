@@ -45,6 +45,8 @@ import {
 // El B-roll que no entra en el video con la voz ya hecha no se genera: no se
 // cuenta en el resumen (voz en off y musica). La regla es la del montaje.
 import { brollQueEntranEnCarpeta } from './planear-montaje.js';
+import { problemaConFotograma } from './fotogramas.js';
+import { MOVIMIENTOS_QUIETO, clipDeBiblioteca, duracionDe, modoSinCobro, movimientoQuieto, problemaConClipDeBiblioteca } from './clips-sin-cobro.js';
 
 const MODOS_AUDIO = ['voz_en_off', 'dialogo_nativo', 'musica'];
 // R = bloque UGC "solo referencias, cero frames" (ver validarBloqueR, abajo).
@@ -1655,6 +1657,21 @@ function costoHablado(m, lista, { carpeta } = {}) {
  * @param exigirPasos  solo con continuidad (lo pasa generar-videos.js): los
  *                     pasos, sus prompts y el cierre tienen que estar escritos.
  */
+/** Los "fotograma" / "fotograma_final" de tomas, B-roll y hojas (ver fotogramas.js). */
+function validarFotogramas(m, E) {
+  const revisar = (valor, donde) => {
+    const p = problemaConFotograma(valor);
+    if (p) E(`${donde}: ${p}`);
+  };
+  for (const t of Array.isArray(m.tomas) ? m.tomas : []) {
+    revisar(t.fotograma, `toma ${t.n} "fotograma"`);
+    revisar(t.fotograma_final, `toma ${t.n} "fotograma_final"`);
+    if (t.fotograma_final != null && t.tipo !== 'B') E(`toma ${t.n}: "fotograma_final" es solo para tomas B (las que tienen frame final)`);
+  }
+  for (const b of Array.isArray(m.broll) ? m.broll : []) revisar(b.fotograma, `B-roll ${b.n} "fotograma"`);
+  for (const r of Array.isArray(m.referencias) ? m.referencias : []) revisar(r.fotograma, `referencia "${r.id}" "fotograma"`);
+}
+
 export function validarManifiesto(m, { carpeta, exigirPasos = false } = {}) {
   const errores = [];
   const avisos = [];
@@ -2033,6 +2050,34 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false } = {}) {
     else if (m.estilo === 'entrevista') validarEntrevista(m, lista, { tomasH, E, A });
   }
 
+  // --- fotogramas de los subestilos (ver fotogramas.js) ---
+  validarFotogramas(m, E);
+
+  // --- clips sin cobro: quietos y de la biblioteca de clips (clips-sin-cobro.js) ---
+  {
+    const esTexto = (v) => typeof v === 'string' && v.trim().length > 0;
+    const conContinuidadSC = tieneContinuidad(m);
+    const items = [...m.tomas.map((t) => ({ x: t, id: `toma ${t.n}`, toma: true })), ...(m.broll || []).map((b) => ({ x: b, id: `broll ${b.n}`, toma: false }))];
+    for (const { x, id, toma } of items) {
+      const pideQuieto = x.quieto !== undefined && x.quieto !== false && x.quieto !== null;
+      if (pideQuieto && !movimientoQuieto(x)) E(`${id}: "quieto" es true o uno de ${MOVIMIENTOS_QUIETO.join(', ')} (dice ${JSON.stringify(x.quieto)})`);
+      if ((pideQuieto || x.desde_biblioteca) && conContinuidadSC) E(`${id}: con continuidad cada video va de una toma a la siguiente: no puede ser "quieto" ni venir "desde_biblioteca".`);
+      if ((pideQuieto || x.desde_biblioteca) && toma && (x.tipo === 'R' || x.tipo === 'H')) E(`${id}: una toma ${x.tipo} habla dentro del clip: no puede ser "quieto" ni venir "desde_biblioteca".`);
+      if ((pideQuieto || x.desde_biblioteca) && toma && m.modo_audio === 'dialogo_nativo') E(`${id}: en un anuncio con diálogo la toma habla dentro del clip: solo el B-roll puede ser "quieto" o venir "desde_biblioteca".`);
+      if (pideQuieto && toma && x.tipo === 'B') E(`${id}: una toma B se mueve de su frame inicial al final; "quieto" va solo en tomas A y en el B-roll.`);
+      if (pideQuieto && x.desde_biblioteca) A(`${id}: trae "quieto" y "desde_biblioteca"; se usa el de la biblioteca.`);
+      const prob = problemaConClipDeBiblioteca(x);
+      if (prob) E(`${id}: ${prob}`);
+      if (x.desde_biblioteca && !prob) {
+        const d = duracionDe(clipDeBiblioteca(x));
+        if (d && typeof x.duracion === 'number' && d + 0.05 < x.duracion) A(`${id}: el clip de la biblioteca dura ${d.toFixed(1)}s y la toma pide ${x.duracion}s; el montaje lo estira o se queda corto.`);
+      }
+      const g = x.guardar_en_biblioteca;
+      if (g !== undefined && (typeof g !== 'object' || g === null || !esTexto(g.nombre))) E(`${id}: "guardar_en_biblioteca" es { "tipo": "...", "nombre": "...", "producto": "..." } y necesita "nombre".`);
+      if (g && (pideQuieto || x.desde_biblioteca)) A(`${id}: "guardar_en_biblioteca" en un clip que no se genera: no hay nada nuevo que guardar.`);
+    }
+  }
+
   // --- resumen de trabajo (insumo del control de costo de la seccion 6) ---
   // Cada referencia GENERADA es una imagen mas; las aportadas por el usuario no.
   const hojasAGenerar = lista.filter((r) => typeof r.prompt === 'string' && r.prompt.trim()).length;
@@ -2055,11 +2100,14 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false } = {}) {
             : (t.frame_inicial === 'heredado' ? 0 : 1) + (t.tipo === 'B' ? 1 : 0)),
       0
     ) +
-    (Array.isArray(m.broll) ? m.broll.length : 0) +
+    (Array.isArray(m.broll) ? m.broll.length : 0) -
+    // Las de un clip de la biblioteca salen de ese clip: no se generan.
+    [...m.tomas.filter((t) => t.tipo === 'A' || t.tipo === 'B'), ...(m.broll || [])].reduce((n, x) => n + (clipDeBiblioteca(x) ? (x.tipo === 'B' ? 2 : 1) : 0), 0) +
     hojasAGenerar +
     (esHablado ? iconosDe(m).length : 0);
   const heredadas = m.tomas.filter((t) => t.frame_inicial === 'heredado').length;
-  const videos = m.tomas.length + (Array.isArray(m.broll) ? m.broll.length : 0);
+  const sinCobroSC = [...m.tomas.filter((t) => t.tipo !== 'R' && t.tipo !== 'H'), ...(m.broll || [])].filter((x) => modoSinCobro(x));
+  const videos = m.tomas.length + (Array.isArray(m.broll) ? m.broll.length : 0) - sinCobroSC.length;
   const duracion = [...m.tomas, ...(m.broll || [])].reduce((s, x) => s + (x.duracion || 0), 0);
 
   const resumen = {

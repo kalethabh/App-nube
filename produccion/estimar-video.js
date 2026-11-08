@@ -5,6 +5,7 @@
 //   node produccion/estimar-video.js temp/mi-anuncio --resolucion 1080p
 //   node produccion/estimar-video.js temp/mi-anuncio --comparar
 
+import { modoSinCobro } from './clips-sin-cobro.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -59,11 +60,15 @@ export function clipsDe(manifiesto, { tiempos = null, reglaBroll = null } = {}) 
   const regla = reglaBroll ?? (tiempos ? brollQueEntran(manifiesto, tiempos) : { aplica: false });
   const fuera = new Set(regla.aplica ? regla.fuera.map((f) => f.n) : []);
   const clips = [];
+  // Los quietos y los de la biblioteca de clips no se le pagan al generador
+  // (clips-sin-cobro.js): no entran en la estimacion.
   for (const t of manifiesto.tomas || []) {
+    if (t.tipo !== 'R' && t.tipo !== 'H' && modoSinCobro(t)) continue;
     clips.push({ id: `toma-${t.n}`, segundos: t.duracion, tipo: t.tipo });
   }
   for (const b of manifiesto.broll || []) {
     if (fuera.has(b.n)) continue;
+    if (modoSinCobro(b)) continue;
     clips.push({ id: `broll-${b.n}`, segundos: b.duracion, tipo: 'broll', ...(modeloBroll ? { modelo: modeloBroll } : {}) });
   }
   return clips;

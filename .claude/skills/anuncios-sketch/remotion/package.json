@@ -1,0 +1,26 @@
+{
+  "name": "anuncios-sketch-motion",
+  "private": true,
+  "description": "Motion graphics encima del anuncio terminado (opcional). Ver references/remotion.md",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render AnuncioConGraficos out/anuncio.mp4 --props=props.json"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/media": "4.0.539",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "typescript": "5.9.3"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}
