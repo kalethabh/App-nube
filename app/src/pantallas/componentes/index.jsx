@@ -119,7 +119,7 @@ export default function Componentes() {
         </div>
       </Seccion>
 
-      <Seccion titulo="Tipografía" descripcion="Bricolage Grotesque en títulos, Inter en la interfaz, Geist Mono en tiempos y números.">
+      <Seccion titulo="Tipografía" descripcion="Inter en títulos y en la interfaz, Geist Mono en tiempos y números.">
         <Tarjeta>
           <div className="guia__tipos">
             {TIPOS.map(([nombre, clase, texto]) => (

@@ -137,8 +137,8 @@
 /* marca: el degradado de la app, para el gran "Producir N anuncios" (uno por pantalla como mucho).
    Un poco más hondo que --marca-degradado para que el texto blanco se lea en todo el botón. */
 .boton--marca {
-  background: linear-gradient(135deg, #3f8dff 0%, #3a62f2 52%, #5240dc 100%);
-  color: #fff;
+  background: var(--marca-degradado);
+  color: var(--texto-sobre-acento);
   font-weight: var(--peso-fuerte);
   text-shadow: 0 1px 2px rgba(8, 18, 70, 0.4);
   overflow: hidden;

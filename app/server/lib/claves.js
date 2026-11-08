@@ -280,6 +280,34 @@ const PLANES_ELEVENLABS = {
   enterprise: 'Enterprise',
 };
 
+/**
+ * Lo que queda del plan de ElevenLabs (gratis: solo se lee): { ok, plan, usados, limite, renueva } o
+ * { ok: false, motivo, mensaje }. Se guarda 60 s.
+ */
+let saldoVoz = null;
+export async function saldoElevenLabs({ fresco = false, base = null, clave: claveDada = null } = {}) {
+  if (!fresco && !base && saldoVoz && Date.now() - saldoVoz.t < 60000) return saldoVoz.r;
+  const clave = claveDada || leerClave(CLAVES.elevenlabs.variable);
+  if (!clave) return { ok: false, motivo: 'sin-clave', mensaje: 'Todavía no guardaste tu clave de ElevenLabs.' };
+  const r = await consultar(`${base || bases.elevenlabs}/v1/user/subscription`, { 'xi-api-key': clave });
+  let res;
+  if (r.red) res = sinConexion('ElevenLabs', r.plazo);
+  else if (r.estado >= 200 && r.estado < 300 && r.json) {
+    const tier = String(r.json.tier || '').toLowerCase();
+    res = {
+      ok: true,
+      plan: PLANES_ELEVENLABS[tier] || (tier ? tier.replace(/(^|_)(\w)/g, (_, x, c) => (x ? ' ' : '') + c.toUpperCase()) : null),
+      usados: Number(r.json.character_count) || 0,
+      limite: Number(r.json.character_limit) || 0,
+      renueva: Number(r.json.next_character_count_reset_unix) ? new Date(Number(r.json.next_character_count_reset_unix) * 1000).toISOString() : null,
+    };
+  } else if (r.estado === 401 || r.estado === 403) {
+    res = { ok: false, motivo: 'sin-permisos', mensaje: 'Tu clave de ElevenLabs no deja ver el plan. En ElevenLabs, edita la clave y activa "User" para ver lo que te queda.' };
+  } else res = { ok: false, motivo: 'servicio', mensaje: 'No pude leer tu plan de ElevenLabs. Vuelve a probar en unos minutos.' };
+  if (!base) saldoVoz = { t: Date.now(), r: res };
+  return res;
+}
+
 /** La clave de ElevenLabs: el usuario (gratis); si la clave no deja leerlo, la lista de voces (gratis). */
 async function usuarioElevenLabs(clave) {
   if (!clave) return { ok: false, motivo: 'sin-clave', mensaje: 'Todavía no guardaste tu clave de ElevenLabs.' };

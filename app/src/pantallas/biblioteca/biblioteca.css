@@ -274,3 +274,29 @@
   color: var(--error);
   font-size: var(--t-chico);
 }
+
+/* entrada escalonada y un leve alzado al pasar, como el resto de la app */
+.bib-rejilla > *,
+.bib-lista > * {
+  animation: subir var(--dur-escena) var(--curva-salida) backwards;
+}
+.bib-rejilla > *:nth-child(2) { animation-delay: 30ms; }
+.bib-rejilla > *:nth-child(3) { animation-delay: 60ms; }
+.bib-rejilla > *:nth-child(4) { animation-delay: 90ms; }
+.bib-rejilla > *:nth-child(5) { animation-delay: 120ms; }
+.bib-rejilla > *:nth-child(n + 6) { animation-delay: 150ms; }
+.bib-avatar {
+  transition:
+    transform var(--dur-medio) var(--curva-salida),
+    border-color var(--dur-rapido) var(--curva-suave);
+}
+.bib-avatar:hover {
+  transform: translateY(-2px);
+  border-color: var(--borde-2);
+}
+.bib-ref__item img {
+  transition: transform var(--dur-medio) var(--curva-salida);
+}
+.bib-ref__item:hover img {
+  transform: scale(1.03);
+}

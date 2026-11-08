@@ -246,8 +246,8 @@ export default function rutasAjustes(app) {
       preferencias: preferencias(config),
       bienvenidaVista: config.bienvenidaVista === true,
       app: {
-        nombre: 'Anuncios con IA',
-        autor: 'Diego Dávila',
+        nombre: 'anuncios-IA',
+        autor: 'Kalethabh',
         version: versionVisible(),
       },
       equipo: await equipo(),

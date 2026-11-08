@@ -550,7 +550,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   window.remotion_staticBase = a.base;
 
   useEffect(() => {
-    document.title = `${a.titulo} · Editor · Anuncios con IA`;
+    document.title = `${a.titulo} · Editor · anuncios-IA`;
     setPlayerListo((n) => n + 1);
   }, [a.titulo]);
 

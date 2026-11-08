@@ -470,7 +470,7 @@ async function prueba() {
       // ---------------------------------------------------------- interfaz y rutas
       let r = await pedir('/');
       const html = String(r.datos || '');
-      check('La interfaz (/) se sirve', r.st === 200 && /<title>Anuncios con IA<\/title>/.test(html), html.slice(0, 200));
+      check('La interfaz (/) se sirve', r.st === 200 && /<title>anuncios-IA by Kalethabh<\/title>/.test(html), html.slice(0, 200));
       const assets = [...html.matchAll(/(?:src|href)="(\/assets\/[^"]+)"/g)].map((m) => m[1]);
       for (const a of assets.slice(0, 4)) {
         const x = await pedir(a);
@@ -478,7 +478,7 @@ async function prueba() {
       }
       check('La interfaz trae su código (assets/*.js)', assets.some((a) => a.endsWith('.js')), assets);
       r = await pedir('/#/ajustes');
-      check('Una pantalla interna (#/ajustes) da la interfaz', r.st === 200 && /<title>Anuncios con IA<\/title>/.test(String(r.datos)));
+      check('Una pantalla interna (#/ajustes) da la interfaz', r.st === 200 && /<title>anuncios-IA by Kalethabh<\/title>/.test(String(r.datos)));
       const rutas = {};
       for (const ruta of ['/api/estado', '/api/ajustes', '/api/estilos', '/api/anuncios', '/api/productos', '/api/claves', '/api/tablero', '/api/produccion/fila', '/api/claude/estado', '/api/voces/por-estilo']) {
         try {

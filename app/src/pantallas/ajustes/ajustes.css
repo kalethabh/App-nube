@@ -235,7 +235,7 @@
   display: grid;
   place-items: center;
   border-radius: 20px;
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 55%),
     var(--acento-boton);
@@ -1307,7 +1307,7 @@
   display: grid;
   place-items: center;
   border-radius: 6px;
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background: var(--acento-boton);
 }
 .arte-guion__vivo {

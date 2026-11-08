@@ -4,6 +4,7 @@ import { PuntoEstado } from '../componentes/Insignia.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { useEnProduccion } from '../datos/produccion.js';
 import { enlace } from '../datos/rutas.js';
+import { BotonActualizar } from './BotonActualizar.jsx';
 
 /**
  * Barra de arriba: migas a la izquierda; a la derecha lo que está en producción y "Nuevo anuncio".
@@ -60,6 +61,7 @@ export function BarraArriba({ migas = [], ocultarNuevo = false }) {
         ) : (
           pildora
         )}
+        <BotonActualizar />
         {!ocultarNuevo ? (
           <Boton variante="primario" tamano="chico" icono={Plus} href={enlace.nuevo()}>
             Nuevo anuncio
