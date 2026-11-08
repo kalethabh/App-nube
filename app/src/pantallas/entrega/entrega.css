@@ -945,3 +945,8 @@
 .ent-ganchos__error { margin: 0; color: var(--peligro, #f87171); font-size: .9em; }
 .ent-ganchos__lista { margin: 0; padding-left: 18px; display: grid; gap: 2px; }
 .ent-ganchos__lista a { color: inherit; }
+
+/* En la nube */
+.ent-nube { margin-top: 14px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(var(--acento-rgb, 99,102,241), .35); display: grid; gap: 8px; justify-items: start; }
+.ent-nube__texto { margin: 0; font-size: .9em; line-height: 1.45; }
+.ent-nube__error { margin: 0; color: var(--peligro, #f87171); font-size: .9em; }

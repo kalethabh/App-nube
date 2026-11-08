@@ -26,7 +26,7 @@ Las claves se pegan dentro de la app (Ajustes, Conexiones). Nunca se las pases a
    (te pide iniciar sesión en GitHub la primera vez, porque el repositorio es privado).
 3. Abre la carpeta «Anuncios con IA» y sigue desde el paso 2 de abajo (doble clic en el lanzador).
 
-Con la app abierta, cada 2 minutos todo lo que crea, cambia o borra se sube solo a tu GitHub. Los videos y audios se copian a tu Google Drive (si tienes Google Drive para escritorio), en la carpeta «Anuncios con IA». Lo ves en **Ajustes, Guardado**.
+Con la app abierta, cada 2 minutos lo liviano (guiones, ajustes, aprendizajes) se sube solo a tu GitHub, y los videos, audios e imágenes van a tu Google Drive, en la carpeta «Anuncios con IA». **Apenas un anuncio termina, lo pesado se borra de tu computador** (queda en Drive); si lo abres para editarlo, vuelve solo. Necesitas Google Drive para escritorio, con **«Transmitir archivos»** activado (Preferencias de Google Drive → Google Drive → Transmitir archivos), así lo de Drive tampoco ocupa espacio. Lo ves en **Ajustes, Guardado**.
 
 ### Desde el zip
 

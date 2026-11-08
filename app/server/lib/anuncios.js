@@ -186,6 +186,8 @@ function miniaturaDe(slug, m, c) {
   const cualquiera = c.img.filter((n) => !n.startsWith('icono-')).sort((a, b) => a.localeCompare(b, 'es', { numeric: true }))[0];
   const elegida = porToma || hoja || cualquiera;
   if (elegida) return urlAnuncio(slug, `img/${elegida}`);
+  // Lo pesado ya esta en Google Drive (lib/guardado.js): la portada chica que quedo.
+  if (c.raiz.includes('portada.jpg')) return urlAnuncio(slug, 'portada.jpg');
   // Sin imagenes generadas todavia: la foto del producto (o cualquier foto de la carpeta).
   const producto = c.raiz.find((n) => /^producto\.(png|jpe?g|webp)$/i.test(n)) || c.raiz.find((n) => esImagen(n));
   return producto ? urlAnuncio(slug, producto) : null;

@@ -17,7 +17,7 @@ La app "Anuncios con IA" (se abre con «Abrir Anuncios con IA.command» en Mac o
 1. **Nunca generes nada que cobre** (imágenes, videos, música, canciones) sin mostrar antes el costo (`--solo-plan`) y esperar un sí.
 2. **Nunca inventes un prompt nuevo** si una toma sale mal: pregunta, muéstralo y rehaz con `npm run rehacer`.
 3. Cada anuncio vive en `temp/<slug>/`; los MP4 terminados salen a `output/`.
-4. **El guardado es automático**: la app sube a GitHub cada 2 minutos todo lo que cambia (menos videos y audios, que copia a Google Drive). No hagas commits ni push por tu cuenta salvo que el usuario lo pida.
+4. **El guardado es automático**: la app sube a GitHub cada 2 minutos lo liviano; los videos, audios e imágenes van a Google Drive y, de los anuncios terminados, se borran de la Mac (`temp/<slug>/app/en-la-nube.json` dice qué). Antes de tocar uno de esos anuncios desde Claude Code, tráelo de vuelta (en la app, «Traer de vuelta»). No hagas commits ni push por tu cuenta salvo que el usuario lo pida.
 5. Lo propio del usuario (notas, fotos, scripts) va en `mis_archivos/`; las reglas aprendidas en `mis_archivos/biblioteca/aprendizajes/` (`general.md` y una por estilo): léelas antes de empezar un anuncio.
 
 ## Lo que se sumó desde IA-VID-AUTOMATIC (2026-11-08)

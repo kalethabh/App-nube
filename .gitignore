@@ -7,8 +7,8 @@ remotion/node_modules/
 remotion/out/
 .cache/
 
-# Guardado automático (app/server/lib/guardado.js): todo lo de temp/ y output/ se sube a GitHub,
-# MENOS los videos y audios, que van a Google Drive.
+# Guardado automático (app/server/lib/guardado.js): lo liviano de temp/ (guiones, manifiestos, ajustes) se sube a
+# GitHub; los videos, audios e imágenes de cada anuncio van a Google Drive y se borran de la Mac al terminar.
 *.mp4
 *.mov
 *.webm
@@ -23,6 +23,13 @@ remotion/out/
 !.claude/skills/**/vista.mp4
 !recursos/**/*.mp3
 !.claude/skills/anuncios-sketch/assets/musica/*.mp3
+
+# Las imágenes de cada anuncio también van a Drive (no a GitHub), menos su portada chica
+temp/[!_]*/**/*.png
+temp/[!_]*/**/*.jpg
+temp/[!_]*/**/*.jpeg
+temp/[!_]*/**/*.webp
+!temp/*/portada.jpg
 
 # Lo que no sirve guardar
 temp/_modo-prueba-*/

@@ -12,7 +12,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { RAIZ, TEMP, OUTPUT, PUERTO_DE_PRUEBA } from './rutas.js';
 
 const CADA_MS = 2 * 60 * 1000;
@@ -139,48 +139,199 @@ async function empujar(msj = null) {
   });
 }
 
-/** Copia lo pesado (videos y audios) a Google Drive, si no está o cambió. */
-function copiarADrive() {
-  const raiz = carpetasDrive()[0];
-  if (!raiz) return anotar({ drive: { ok: false, mensaje: 'No encontré Google Drive para escritorio en este computador: los videos quedan solo aquí.' } });
-  const destinoBase = path.join(raiz, CARPETA_DRIVE);
-  let copiados = 0;
-  const copiar = (origen, destino) => {
+// Lo que va a Drive (y se borra de la Mac cuando el anuncio ya terminó): videos, audios e imágenes.
+const A_DRIVE = /\.(mp4|mov|webm|m4v|mp3|wav|m4a|aac|ogg|png|jpe?g|webp)$/i;
+const SUBCARPETAS = ['video', 'audio', 'musica', 'img', 'referencia', 'qa', 'historial'];
+const MARCA_NUBE = 'en-la-nube.json';
+
+/** Todos los archivos pesados de un anuncio: [{ rel (dentro de temp/<slug>), abs }]. */
+function pesadosDe(slug) {
+  const base = path.join(TEMP, slug);
+  const out = [];
+  const visitar = (dir, prof) => {
+    let es = [];
     try {
-      const a = fs.statSync(origen);
-      const b = fs.existsSync(destino) ? fs.statSync(destino) : null;
-      if (b && b.size === a.size) return;
-      fs.mkdirSync(path.dirname(destino), { recursive: true });
-      fs.copyFileSync(origen, destino);
-      copiados++;
+      es = fs.readdirSync(dir, { withFileTypes: true });
     } catch {
-      /* el siguiente */
+      return;
+    }
+    for (const e of es) {
+      const abs = path.join(dir, e.name);
+      if (e.isDirectory() && prof < 4) visitar(abs, prof + 1);
+      else if (e.isFile() && A_DRIVE.test(e.name)) out.push({ rel: path.relative(base, abs).split(path.sep).join('/'), abs });
     }
   };
-  let slugs = [];
+  for (const sub of SUBCARPETAS) visitar(path.join(base, sub), 0);
+  return out;
+}
+
+const tamano = (f) => {
   try {
-    slugs = fs.readdirSync(TEMP, { withFileTypes: true }).filter((d) => d.isDirectory() && !d.name.startsWith('_') && !d.name.startsWith('.')).map((d) => d.name);
+    return fs.statSync(f).size;
   } catch {
-    slugs = [];
+    return -1;
   }
-  for (const slug of slugs) {
-    for (const sub of ['video', 'audio', 'musica']) {
-      const dir = path.join(TEMP, slug, sub);
-      let archivos = [];
+};
+
+function copiar(origen, destino) {
+  const a = tamano(origen);
+  if (a < 0) return false;
+  if (tamano(destino) === a) return true;
+  fs.mkdirSync(path.dirname(destino), { recursive: true });
+  fs.copyFileSync(origen, destino);
+  return tamano(destino) === a;
+}
+
+const slugsDeTemp = () => {
+  try {
+    return fs.readdirSync(TEMP, { withFileTypes: true }).filter((d) => d.isDirectory() && !d.name.startsWith('_') && !d.name.startsWith('.')).map((d) => d.name);
+  } catch {
+    return [];
+  }
+};
+const leerJSON = (f) => {
+  try {
+    return JSON.parse(fs.readFileSync(f, 'utf8'));
+  } catch {
+    return null;
+  }
+};
+const terminado = (slug) => leerJSON(path.join(TEMP, slug, 'app', 'conductor.json'))?.estado === 'listo';
+export const marcaNube = (slug) => leerJSON(path.join(TEMP, slug, 'app', MARCA_NUBE));
+
+/**
+ * Copia a Google Drive todo lo pesado y, de los anuncios TERMINADOS, lo borra de la Mac apenas la copia está
+ * completa (mismo tamaño). Lo que se movió queda anotado en temp/<slug>/app/en-la-nube.json (eso sí va a GitHub).
+ * Los MP4 finales de output/ también se mueven. Un anuncio que se está produciendo o editando no se toca.
+ */
+function moverADrive() {
+  const raiz = carpetasDrive()[0];
+  if (!raiz) return anotar({ drive: { ok: false, mensaje: 'No encontré Google Drive para escritorio en este computador: los videos y las imágenes quedan solo aquí, sin borrar nada.' } });
+  const base = path.join(raiz, CARPETA_DRIVE);
+  let copiados = 0;
+  let liberados = 0;
+  let bytes = 0;
+  for (const slug of slugsDeTemp()) {
+    const archivos = pesadosDe(slug);
+    const listo = terminado(slug) && !estaOcupado(slug);
+    const movidos = [];
+    if (listo && archivos.length) hacerPortada(slug, archivos);
+    for (const f of archivos) {
+      const destino = path.join(base, slug, ...f.rel.split('/'));
+      const yaEstaba = tamano(destino) === tamano(f.abs);
+      let ok = false;
       try {
-        archivos = fs.readdirSync(dir);
+        ok = copiar(f.abs, destino);
       } catch {
-        continue;
+        ok = false;
       }
-      for (const f of archivos) if (PESADO.test(f)) copiar(path.join(dir, f), path.join(destinoBase, slug, sub, f));
+      if (ok && !yaEstaba) copiados++;
+      if (ok && listo) {
+        const t = tamano(f.abs);
+        try {
+          fs.rmSync(f.abs);
+          movidos.push(f.rel);
+          liberados++;
+          bytes += t;
+        } catch {
+          /* el siguiente */
+        }
+      }
+    }
+    if (movidos.length) {
+      const antes = marcaNube(slug)?.archivos || [];
+      const marca = { carpeta: path.join(base, slug), archivos: [...new Set([...antes, ...movidos])], fecha: new Date().toISOString() };
+      fs.writeFileSync(path.join(TEMP, slug, 'app', MARCA_NUBE), JSON.stringify(marca, null, 2));
     }
   }
+  // los MP4 finales
   try {
-    for (const f of fs.readdirSync(OUTPUT)) if (PESADO.test(f)) copiar(path.join(OUTPUT, f), path.join(destinoBase, 'videos-finales', f));
+    for (const f of fs.readdirSync(OUTPUT)) {
+      if (!PESADO.test(f)) continue;
+      const origen = path.join(OUTPUT, f);
+      const destino = path.join(base, 'videos-finales', f);
+      const slug = slugsDeTemp().find((s) => f.startsWith(`${s}_`));
+      if (!copiar(origen, destino)) continue;
+      copiados++;
+      if (slug && terminado(slug) && !estaOcupado(slug)) {
+        const t = tamano(origen);
+        fs.rmSync(origen);
+        liberados++;
+        bytes += t;
+        const marca = marcaNube(slug) || { carpeta: path.join(base, slug), archivos: [] };
+        marca.finales = [...new Set([...(marca.finales || []), f])];
+        fs.writeFileSync(path.join(TEMP, slug, 'app', MARCA_NUBE), JSON.stringify(marca, null, 2));
+      }
+    }
   } catch {
     /* sin output todavía */
   }
-  anotar({ drive: { ok: true, mensaje: copiados ? `${copiados} video(s) o audio(s) copiados a Google Drive.` : 'Google Drive al día.', carpeta: destinoBase } });
+  const mb = Math.round(bytes / 1048576);
+  anotar({
+    drive: {
+      ok: true,
+      carpeta: base,
+      mensaje: liberados ? `${liberados} archivo(s) pasaron a Google Drive y se borraron de este computador (${mb} MB liberados).` : copiados ? `${copiados} archivo(s) copiados a Google Drive.` : 'Google Drive al día.',
+      liberadoTotalMB: (ultimo.drive?.liberadoTotalMB || 0) + mb,
+    },
+  });
+}
+
+/**
+ * Los anuncios que no se mueven ahora: los que trajiste de vuelta o estás editando. Cada pedido del editor, de rehacer
+ * o de los ganchos los marca (marcarOcupado); 30 minutos sin tocarlos y vuelven a subirse y a borrarse de la Mac.
+ */
+const ocupado = new Map();
+const QUIETO_MS = 30 * 60 * 1000;
+export function marcarOcupado(slug) {
+  ocupado.set(slug, Date.now());
+}
+function estaOcupado(slug) {
+  const t = ocupado.get(slug);
+  if (!t) return false;
+  if (Date.now() - t < QUIETO_MS) return true;
+  ocupado.delete(slug);
+  return false;
+}
+
+/** Una portada chica (portada.jpg, en la raíz del anuncio) para que Mis anuncios siga mostrando su imagen. */
+function hacerPortada(slug, archivos) {
+  const destino = path.join(TEMP, slug, 'portada.jpg');
+  if (tamano(destino) > 0) return;
+  const f = archivos.find((x) => /^img\/toma-1-inicial\./.test(x.rel)) || archivos.find((x) => /^img\/.+\.(png|jpe?g|webp)$/i.test(x.rel));
+  if (!f) return;
+  spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', f.abs, '-vf', 'scale=480:-2', '-q:v', '4', destino], { windowsHide: true, timeout: 30000 });
+}
+
+/** Trae de vuelta desde Drive lo que se movió de un anuncio (para editarlo, rehacer algo o sacar más ganchos). */
+export function traerDeVuelta(slug) {
+  const marca = marcaNube(slug);
+  if (!marca) return { ok: true, nada: true };
+  marcarOcupado(slug);
+  const faltan = [];
+  for (const rel of marca.archivos || []) {
+    const desde = path.join(marca.carpeta, ...rel.split('/'));
+    const a = path.join(TEMP, slug, ...rel.split('/'));
+    try {
+      if (tamano(a) < 0) {
+        fs.mkdirSync(path.dirname(a), { recursive: true });
+        fs.copyFileSync(desde, a);
+      }
+    } catch {
+      faltan.push(rel);
+    }
+  }
+  for (const f of marca.finales || []) {
+    try {
+      const a = path.join(OUTPUT, f);
+      if (tamano(a) < 0) fs.copyFileSync(path.join(path.dirname(marca.carpeta), 'videos-finales', f), a);
+    } catch {
+      faltan.push(f);
+    }
+  }
+  if (faltan.length) return { ok: false, faltan, mensaje: `No pude traer ${faltan.length} archivo(s) de Google Drive. Revisa que Drive esté abierto y con internet, y vuelve a intentarlo.` };
+  fs.rmSync(path.join(TEMP, slug, 'app', MARCA_NUBE), { force: true });
+  return { ok: true };
 }
 
 export async function guardarAhora() {
@@ -189,7 +340,7 @@ export async function guardarAhora() {
   try {
     if (esRepositorio()) await guardarEnGitHub();
     else anotar({ github: { ok: false, mensaje: 'Esta carpeta no es un repositorio de GitHub: clónala desde GitHub para que se guarde sola.' } });
-    copiarADrive();
+    moverADrive();
   } catch (e) {
     anotar({ error: String(e?.message || e).slice(0, 300) });
   } finally {

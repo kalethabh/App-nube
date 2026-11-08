@@ -41,7 +41,7 @@ export function Guardado() {
     <Seccion id="guardado" className="ajustes__seccion" titulo="Guardado en la nube">
       <Tarjeta>
         <p className="ajustes__nota">
-          Cada 2 minutos, todo lo que la app crea, cambia o borra se sube solo a tu GitHub (guiones, imágenes, ajustes y aprendizajes). Los videos y audios, que pesan mucho, se copian a tu Google Drive, en la carpeta «Anuncios con IA».
+          Cada 2 minutos, lo liviano (guiones, ajustes y aprendizajes) se sube solo a tu GitHub. Los videos, audios e imágenes van a tu Google Drive, en la carpeta «Anuncios con IA», y apenas un anuncio termina se borran de este computador para liberar espacio. Si lo abres para editarlo, se trae solo de vuelta. En Google Drive para escritorio, activa «Transmitir archivos» para que lo de Drive tampoco ocupe espacio aquí.
         </p>
         <Linea titulo="GitHub" e={datos?.github} />
         <Linea titulo="Google Drive" e={datos?.drive} />

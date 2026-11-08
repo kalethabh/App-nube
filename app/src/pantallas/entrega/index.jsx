@@ -29,6 +29,7 @@ import { BandaModoPrueba } from '../produccion/ModoPrueba.jsx';
 import { Reproductor } from './Reproductor.jsx';
 import { Versiones } from './Versiones.jsx';
 import { MasGanchos } from './MasGanchos.jsx';
+import { EnLaNube } from './EnLaNube.jsx';
 import { Informe, normalizarInforme } from './Informe.jsx';
 import { NOMBRE_CORTO, abrirCarpeta, useEntrega } from './datos.js';
 import './entrega.css';
@@ -217,6 +218,7 @@ export default function Entrega({ params }) {
               Carpeta de las imágenes y los clips
             </Boton>
           ) : null}
+          <EnLaNube slug={a.slug} alTraer={recargar} />
           {version ? <MasGanchos slug={a.slug} /> : null}
         </div>
 
