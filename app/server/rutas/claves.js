@@ -16,7 +16,7 @@
 // en ningun registro. Las respuestas de error dicen que paso en palabras simples.
 import { spawn } from 'node:child_process';
 import path from 'node:path';
-import { clavesGuardadas, guardarClaves, limpiarClave, probarClave, saldoKie, repararEnv, CLAVES } from '../lib/claves.js';
+import { clavesGuardadas, guardarClaves, limpiarClave, probarClave, saldoKie, saldoElevenLabs, repararEnv, CLAVES } from '../lib/claves.js';
 import { DOLARES_POR_CREDITO, PUERTO, RAIZ, TEMP } from '../lib/rutas.js';
 import { stat, listar } from '../lib/archivos.js';
 import { entornoDelMotor, modoPrueba } from '../lib/procesos.js';
@@ -34,6 +34,19 @@ function desdeLaApp(req, res, next) {
 }
 
 const nombreDe = (cual) => CLAVES[cual]?.nombre || cual;
+
+/** El plan de ElevenLabs: el real, o en modo prueba el del ElevenLabs simulado. */
+async function saldoVozActual({ fresco }) {
+  if (!modoPrueba()) return saldoElevenLabs({ fresco });
+  try {
+    const { iniciarModoPrueba } = await import('../lib/modo-prueba.js');
+    const s = await iniciarModoPrueba();
+    if (s?.elevenlabs?.url) return saldoElevenLabs({ base: s.elevenlabs.url, clave: 'simulada' });
+  } catch {
+    /* los simuladores no arrancaron */
+  }
+  return { ok: false, motivo: 'servicio', mensaje: 'El modo prueba no está listo todavía.' };
+}
 
 /** El saldo que ve el motor: el real de kie, o en modo prueba el de la cuenta simulada. Mismo formato que saldoKie(). */
 async function saldoActual({ fresco }) {
@@ -160,13 +173,15 @@ export default function rutasClaves(app) {
       if (!s.ok) return res.json({ kie: { motivo: s.motivo, error: s.mensaje } });
       return res.json({ kie: necesita === null ? {} : { alcanza: s.creditos >= necesita } });
     }
-    const s = await saldoActual({ fresco: req.query.fresco === '1' });
-    if (!s.ok) return res.json({ kie: { creditos: null, motivo: s.motivo, error: s.mensaje } });
+    const [s, v] = await Promise.all([saldoActual({ fresco: req.query.fresco === '1' }), saldoVozActual({ fresco: req.query.fresco === '1' })]);
+    // lo que queda del plan de ElevenLabs (caracteres de voz)
+    const elevenlabs = v.ok ? { plan: v.plan, usados: v.usados, limite: v.limite, renueva: v.renueva } : { error: v.mensaje, motivo: v.motivo };
+    if (!s.ok) return res.json({ kie: { creditos: null, motivo: s.motivo, error: s.mensaje }, elevenlabs });
     // los dolares son orientativos (el mismo precio por credito que usa el motor): solo para Ajustes
     const kie = { creditos: s.creditos, dolares: Math.round(s.creditos * DOLARES_POR_CREDITO * 100) / 100, consultado: s.consultado };
     const necesita = Number(req.query.necesita);
     if (req.query.necesita !== undefined && Number.isFinite(necesita) && necesita >= 0) kie.alcanza = s.creditos >= necesita;
     if (modoPrueba()) kie.simulado = true;
-    res.json({ kie });
+    res.json({ kie, elevenlabs });
   });
 }

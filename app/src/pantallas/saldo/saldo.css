@@ -1,0 +1,141 @@
+/* Saldo y costos (#/saldo), como en IA-VID-AUTOMATIC. */
+.sd-nota {
+  font-size: var(--t-chico);
+  color: var(--aviso);
+  margin-top: calc(-1 * var(--e-6));
+}
+.sd-rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--e-5);
+}
+.sd-tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  padding: var(--e-6);
+  border-radius: var(--r-2xl);
+  background: var(--superficie-1);
+  border: 1px solid var(--borde-1);
+  min-height: 230px;
+}
+.sd-tarjeta--marca {
+  background: var(--marca-degradado);
+  border-color: transparent;
+  color: var(--texto-sobre-acento);
+  box-shadow: var(--brillo-acento);
+}
+.sd-tarjeta__titulo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+  font-size: var(--t-ui);
+  font-weight: var(--peso-semi);
+  color: var(--texto-2);
+}
+.sd-tarjeta--marca .sd-tarjeta__titulo,
+.sd-tarjeta--marca .sd-tarjeta__sub {
+  color: rgba(10, 10, 10, 0.72);
+}
+.sd-tarjeta__cifra {
+  font-family: var(--fuente-titulo);
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.sd-tarjeta__cifra--lima {
+  color: var(--acento);
+}
+.sd-tarjeta__sub {
+  font-size: var(--t-chico);
+  color: var(--texto-3);
+}
+.sd-tarjeta__enlace {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--t-chico);
+  font-weight: var(--peso-semi);
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sd-tarjeta:not(.sd-tarjeta--marca) .sd-tarjeta__enlace {
+  color: var(--acento);
+}
+.sd-aviso {
+  display: flex;
+  gap: var(--e-2);
+  align-items: flex-start;
+  padding: var(--e-3);
+  border-radius: var(--r-m);
+  font-size: var(--t-chico);
+  background: var(--aviso-suave);
+  border: 1px solid var(--aviso-borde);
+  color: var(--aviso);
+}
+.sd-tarjeta--marca .sd-aviso {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #0a0a0a;
+}
+.sd-voz {
+  display: flex;
+  align-items: center;
+  gap: var(--e-5);
+  flex-wrap: wrap;
+}
+.sd-voz__datos {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sd-voz__datos strong {
+  font-family: var(--fuente-titulo);
+  font-size: 26px;
+}
+.sd-anillo__fondo {
+  fill: none;
+  stroke: var(--superficie-3);
+  stroke-width: 12;
+}
+.sd-anillo__lleno {
+  fill: none;
+  stroke: var(--acento);
+  stroke-width: 12;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 64px 64px;
+  transition: stroke-dashoffset var(--dur-lento) var(--curva-salida);
+}
+.sd-anillo__cifra {
+  fill: var(--texto-1);
+  font-family: var(--fuente-titulo);
+  font-size: 22px;
+  font-weight: 700;
+}
+.sd-anillo__texto {
+  fill: var(--texto-3);
+  font-size: 11px;
+}
+
+/* entrada escalonada, como el resto de la app */
+.sd-rejilla > .sd-tarjeta {
+  animation: subir var(--dur-escena) var(--curva-salida) backwards;
+  transition:
+    transform var(--dur-medio) var(--curva-salida),
+    border-color var(--dur-rapido) var(--curva-suave);
+}
+.sd-rejilla > .sd-tarjeta:nth-child(2) {
+  animation-delay: 60ms;
+}
+.sd-rejilla > .sd-tarjeta:nth-child(3) {
+  animation-delay: 120ms;
+}
+.sd-rejilla > .sd-tarjeta:hover {
+  transform: translateY(-2px);
+}
+.sd-rejilla > .sd-tarjeta:not(.sd-tarjeta--marca):hover {
+  border-color: var(--borde-2);
+}

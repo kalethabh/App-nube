@@ -89,6 +89,7 @@ import { problemaConFotograma, promptConFotograma, rutaLimpia } from './fotogram
 import { clipDeBiblioteca, fotogramaDe, itemDeTrabajo, modoSinCobro } from './clips-sin-cobro.js';
 import { anotarHojaDeReferencia } from './estado.js';
 import { archivarSiExiste } from './historial.js';
+import { repetidas } from './imagenes-repetidas.js';
 import { tieneContinuidad, referenciasSoloDelBrollDescartado } from './continuidad.js';
 import { brollQueEntranEnCarpeta, lineasBrollQueNoEntra } from './planear-montaje.js';
 import { buscarPython, comandoPython, comandoInstalar, paquetesQueFaltan, PAQUETES_PYTHON, CANDIDATOS_PYTHON } from './recortar-host.js';
@@ -1417,6 +1418,22 @@ async function cli() {
     const fueraPorN = new Map(reglaBroll.fuera.map((f) => [f.n, f]));
     brollNoEntra = brollEnPlan.filter((t) => fueraPorN.has(t.n)).map((t) => fueraPorN.get(t.n));
     if (!todoElBroll) plan = plan.filter((t) => !(t.clase === 'broll' && fueraPorN.has(t.n)));
+  }
+
+  // La misma imagen pedida dos veces (mismo prompt, referencias y fotograma) se
+  // genera una sola: la otra se copia como un heredado, 0 cr. Ver
+  // imagenes-repetidas.js. Va despues de sacar las de la biblioteca y el B-roll
+  // que no entra, para no copiar de una imagen que no se va a pedir.
+  for (const [t, de] of repetidas(plan)) {
+    Object.assign(t, {
+      clase: 'heredado',
+      copiarDe: de.archivo,
+      copiarDeId: de.id,
+      prompt: null,
+      referencias: [],
+      fotograma: null,
+      descripcion: `${t.descripcion} — igual a ${de.archivo} (no se genera, no se paga)`,
+    });
   }
 
   // Lo ya generado no se vuelve a pagar.

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, LayoutGrid, Palette, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
+import { CirclePause, Clapperboard, LayoutGrid, Library, Palette, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -8,14 +8,29 @@ import { PuntoEstado } from '../componentes/Insignia.jsx';
 import { miniatura, useEstado } from '../datos/api.js';
 import { useEnProduccion } from '../datos/produccion.js';
 import { enlace } from '../datos/rutas.js';
+import { dolares, useSaldo, vozLibre } from '../datos/saldo.js';
 import { porcentaje } from '../datos/formato.js';
 import { estadoClaude, useAlCambiarConexiones, useClaude } from '../pantallas/ajustes/datos.js';
 
-const ITEMS = [
-  { id: 'tablero', texto: 'Mis anuncios', icono: LayoutGrid, href: enlace.tablero() },
-  { id: 'nuevo', texto: 'Nuevo anuncio', icono: Plus, href: enlace.nuevo(), especial: true },
-  { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
-  { id: 'ajustes', texto: 'Ajustes', icono: Settings, href: enlace.ajustes() },
+// El menú, en grupos como en IA-VID-AUTOMATIC: "Nuevo anuncio" arriba, en grande; después lo que se hace primero.
+const GRUPOS = [
+  { titulo: null, items: [{ id: 'nuevo', texto: 'Nuevo anuncio', icono: Plus, href: enlace.nuevo(), especial: true }] },
+  { titulo: 'Crear', items: [{ id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() }] },
+  {
+    titulo: 'Tu contenido',
+    items: [
+      { id: 'anuncios', texto: 'Anuncios', icono: Clapperboard, href: enlace.anuncios() },
+      { id: 'biblioteca', texto: 'Biblioteca', icono: Library, href: enlace.biblioteca() },
+    ],
+  },
+  {
+    titulo: 'Seguimiento',
+    items: [
+      { id: 'tablero', texto: 'Progreso', icono: LayoutGrid, href: enlace.tablero() },
+      { id: 'saldo', texto: 'Saldo y costos', icono: Wallet, href: enlace.saldo() },
+    ],
+  },
+  { titulo: 'Ajustes', items: [{ id: 'ajustes', texto: 'Ajustes', icono: Settings, href: enlace.ajustes() }] },
 ];
 
 const ETAPAS = { guion: 'Guion listo', voz: 'Voz', imagenes: 'Imágenes', videos: 'Videos', revision: 'Revisión', montaje: 'Montaje' };
@@ -172,6 +187,8 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   const { datos: estado, recargar: recargarEstado } = useEstado();
   useAlCambiarConexiones(recargarEstado); // guardaste una clave o entraste a Claude: el pie se pone al día
   const { datos: claudeReal } = useClaude();
+  // el saldo de las APIs (kie.ai en dólares, ElevenLabs en caracteres libres), cada minuto
+  const { datos: saldo } = useSaldo();
   const totalAnuncios = p.cargando ? null : p.anuncios.length;
   // las claves y el saldo de kie viven en Ajustes > Conexiones; aca solo si estan o faltan
   const claveKie = estado ? Boolean(estado.claves?.kie) : null;
@@ -184,11 +201,15 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   return (
     <aside className={`menu${plegado ? ' menu--plegado' : ''}`} aria-label="Menú principal">
       <div className="menu__cabecera">
-        <a href={enlace.tablero()} className="menu__marca" aria-label="Anuncios con IA, ir a Mis anuncios">
+        <a href={enlace.tablero()} className="menu__marca" aria-label="anuncios-IA by Kalethabh, ir a Mis anuncios">
           <Logo tamano={30} />
           <span className="menu__marca-textos">
-            <span className="menu__nombre">Anuncios con IA</span>
-            <span className="menu__lema">Estudio</span>
+            <span className="menu__nombre">
+              anuncios<span className="menu__nombre-ia">-IA</span>
+            </span>
+            <span className="menu__lema">
+              by <strong>Kalethabh</strong>
+            </span>
           </span>
         </a>
         <button type="button" className="menu__plegar" onClick={onPlegar} aria-label={plegado ? 'Abrir el menú' : 'Achicar el menú'} title={plegado ? 'Abrir el menú' : 'Achicar el menú'}>
@@ -197,20 +218,25 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
       </div>
 
       <nav className="nav">
-        {ITEMS.map((item) => (
-          <ItemMenu
-            key={item.id}
-            item={item}
-            activo={activo === item.id}
-            plegado={plegado}
-            extra={
-              item.id === 'tablero' && totalAnuncios !== null ? (
-                <span className="nav__contador t-num">{totalAnuncios}</span>
-              ) : item.id === 'ajustes' && falta ? (
-                <PuntoEstado tono="error" etiqueta="Falta configurar algo" />
-              ) : null
-            }
-          />
+        {GRUPOS.map((g) => (
+          <div key={g.titulo || 'arriba'} className="nav__grupo">
+            {g.titulo && !plegado ? <span className="nav__grupo-titulo">{g.titulo}</span> : null}
+            {g.items.map((item) => (
+              <ItemMenu
+                key={item.id}
+                item={item}
+                activo={activo === item.id}
+                plegado={plegado}
+                extra={
+                  item.id === 'anuncios' && totalAnuncios !== null ? (
+                    <span className="nav__contador t-num">{totalAnuncios}</span>
+                  ) : item.id === 'ajustes' && falta ? (
+                    <PuntoEstado tono="error" etiqueta="Falta configurar algo" />
+                  ) : null
+                }
+              />
+            ))}
+          </div>
         ))}
       </nav>
 
@@ -262,10 +288,10 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
         <MedioCaminoMini lista={p.pausados} plegado={plegado} />
       ) : null}
 
-      <a href={enlace.ajustes()} className="menu__pie" aria-label="Conexiones, ir a Ajustes">
+      <a href={enlace.saldo()} className="menu__pie" aria-label="Saldo y conexiones, ir a Saldo y costos">
         <div className="menu__conexiones">
-          <Conexion ok={claveKie} nombre="kie.ai" para="Imágenes y videos" plegado={plegado} />
-          <Conexion ok={claveVoz} nombre="ElevenLabs" para="Voz" plegado={plegado} />
+          <Conexion ok={claveKie} nombre="kie.ai" para={dolares(saldo?.kie) || 'Imágenes y videos'} plegado={plegado} />
+          <Conexion ok={claveVoz} nombre="ElevenLabs" para={vozLibre(saldo?.elevenlabs) || 'Voz'} plegado={plegado} />
           <Conexion ok={claudeOk} nombre="Claude" para="Guiones" falta={claude.instalado ? 'Inicia sesión' : 'Falta'} plegado={plegado} />
         </div>
       </a>

@@ -74,8 +74,33 @@ export const MODELOS = {
   },
 };
 
-/** Resolucion de video por defecto para TODO el pipeline, respaldos incluidos. */
-export const RESOLUCION_VIDEO = '720p';
+/**
+ * Resolucion de video por defecto para TODO el pipeline, respaldos incluidos.
+ *
+ * 1080p desde el 2026-11-08 (traido de IA-VID-AUTOMATIC, a pedido del usuario,
+ * para que los anuncios se vean tan nitidos como los de referencia): el modelo
+ * principal (gemini-omni-flash-1-1) cobra IGUAL en 720p y en 1080p; Kling, el
+ * respaldo, cobra por segundo un poco mas (ver MODELOS_VIDEO). El MP4 final
+ * sale tambien en 1080x1920 (ensamblar.js le pasa a Remotion --scale=1.5;
+ * ESCALA_RENDER) y los clips quietos (clips-sin-cobro.js) se arman del mismo
+ * tamano. Para volver a 720p: RESOLUCION_VIDEO=720p en el .env.
+ */
+function textoDelEnv(nombre, porDefecto, permitidos) {
+  let v = process.env[nombre];
+  if (v === undefined) {
+    try {
+      const m = fs.readFileSync(path.join(RAIZ, '.env'), 'utf8').match(new RegExp(`^\\s*${nombre}\\s*=\\s*([^\\s#]+)`, 'm'));
+      v = m?.[1];
+    } catch {
+      v = undefined;
+    }
+  }
+  v = String(v || '').trim().toLowerCase();
+  return permitidos.includes(v) ? v : porDefecto;
+}
+export const RESOLUCION_VIDEO = textoDelEnv('RESOLUCION_VIDEO', '1080p', ['720p', '1080p']);
+/** Cuanto se agranda el render de Remotion (compuesto a 720x1280): 1.5 = 1080x1920. */
+export const ESCALA_RENDER = RESOLUCION_VIDEO === '1080p' ? 1.5 : 1;
 
 /**
  * UGC POR BLOQUES (tomas tipo "R" = solo referencias, cero frames).

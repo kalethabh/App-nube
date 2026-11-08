@@ -89,7 +89,7 @@ servidor.on('error', (err) => {
 });
 
 servidor.listen(PUERTO, HOST, () => {
-  console.log(`\n  Anuncios con IA ${DEV ? '(desarrollo)' : ''}`);
+  console.log(`\n  anuncios-IA by Kalethabh ${DEV ? '(desarrollo)' : ''}`);
   console.log(`  Abre http://${HOST}:${PUERTO}`);
   console.log(`  Rutas cargadas: ${cargadas.join(', ')}\n`);
 });

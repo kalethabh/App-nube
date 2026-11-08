@@ -145,7 +145,7 @@
   display: grid;
   place-items: center;
   border-radius: 8px;
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background: var(--acento-boton);
   box-shadow: 0 6px 16px -6px rgba(var(--acento-rgb), 0.8);
 }
@@ -529,7 +529,7 @@
     box-shadow var(--dur-medio) var(--curva-suave);
 }
 .pasos__paso--actual .pasos__numero {
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background: var(--acento-fuerte);
   box-shadow: 0 0 0 4px var(--acento-suave), 0 6px 16px -6px var(--acento);
 }
@@ -853,7 +853,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background: var(--acento-fuerte);
 }
 .bv-ejemplo__textos {

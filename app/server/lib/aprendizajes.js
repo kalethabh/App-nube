@@ -1,6 +1,7 @@
 // Aprendizajes: lo que salió de los anuncios anteriores, para que el siguiente salga mejor a la primera.
 //
-// Viven en mis_archivos/biblioteca/aprendizajes/ (se guardan en GitHub con el resto de la biblioteca):
+// Viven en mis_archivos/biblioteca/aprendizajes/ (se guardan en GitHub con el resto de la biblioteca, en el repositorio
+// biblioteca-anuncios que comparte con IA-VID-AUTOMATIC: los aprendizajes de las dos apps son los mismos):
 //   general.md        reglas para todos los estilos (las escribe el usuario, o Claude desde Claude Code)
 //   <estilo>.md       reglas de un estilo (claymation.md, ugc.md…)
 //   generaciones.md   la bitácora: cada toma o clip que hubo que rehacer y por qué, cada rechazo por contenido y
@@ -12,12 +13,38 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { RAIZ } from './rutas.js';
+import { carpetaDeEstilo, pedirSincronizacion } from './biblioteca.js';
 
 export const DIR_APRENDIZAJES = path.join(RAIZ, 'mis_archivos', 'biblioteca', 'aprendizajes');
 const BITACORA = path.join(DIR_APRENDIZAJES, 'generaciones.md');
 const MARCAS = path.join(DIR_APRENDIZAJES, '.barrido.json');
 const DIR_TEMP = path.join(RAIZ, 'temp');
-const TOPE_TEXTO = 7000;
+// Topes (en caracteres): el total y cada parte, para que una parte larga no deje fuera a las demás.
+const TOPE_TEXTO = 34000;
+const TOPE = { general: 14000, estilo: 4000, supervisor: 9000 };
+const recortar = (t, n) => (t.length > n ? `${t.slice(0, n).replace(/\n[^\n]*$/, '')}\n…` : t);
+// Las preferencias del usuario para todos los anuncios (las de IA-VID-AUTOMATIC, traídas el 2026-11-08). Viven fuera de
+// la biblioteca (son de esta app) y el guardado las sube al GitHub de la app.
+export const PREFERENCIAS = path.join(RAIZ, 'mis_archivos', 'preferencias.md');
+// Las secciones de la bitácora que lleva el supervisor de IA-VID-AUTOMATIC (generaciones.md, compartida por la
+// biblioteca): lo que se repite vale siempre; las de fotogramas, solo en los estilos con subestilos.
+const SECCIONES_SIEMPRE = ['Lo que se repite'];
+const SECCIONES_FOTOGRAMAS = ['Fotogramas que funcionan', 'Con cuidado', 'No adjuntar'];
+
+/** Las viñetas de las secciones "## <título…>" de un .md (solo las que empiezan con alguno de esos títulos). */
+function seccionesDe(md, titulos) {
+  const out = [];
+  let dentro = false;
+  for (const l of md.split(/\r?\n/)) {
+    if (l.startsWith('## ')) {
+      dentro = titulos.some((t) => l.slice(3).trim().startsWith(t));
+      if (dentro) out.push(`#### ${l.slice(3).trim()}`);
+      continue;
+    }
+    if (dentro && l.trim()) out.push(l);
+  }
+  return out.join('\n').trim();
+}
 
 const leer = (f) => {
   try {
@@ -97,7 +124,9 @@ export function barrer() {
       const dirApp = path.join(DIR_TEMP, slug, 'app');
       if (!fs.existsSync(dirApp)) continue;
       const brief = leerJSON(path.join(dirApp, 'brief.json')) || {};
-      const estilo = brief.estilo || leerJSON(path.join(DIR_TEMP, slug, 'manifiesto.json'))?.estilo || 'general';
+      // por el nombre de su skill (skeleton-ads, musicales…), como los archivos de la biblioteca y IA-VID-AUTOMATIC
+      const crudo = brief.estilo || leerJSON(path.join(DIR_TEMP, slug, 'manifiesto.json'))?.estilo;
+      const estilo = (crudo && carpetaDeEstilo(crudo)) || 'general';
       for (const f of archivosDeRevision(dirApp)) {
         const st = fs.statSync(f);
         const clave = path.relative(DIR_TEMP, f);
@@ -114,17 +143,31 @@ export function barrer() {
         nuevas.push(`- ${hoy()} · ${estilo} · el usuario pidió cambiar el guion: ${limpio(c.pedido)}`);
       }
     }
-    if (nuevas.length) fs.appendFileSync(BITACORA, `${nuevas.join('\n')}\n`, 'utf8');
+    if (nuevas.length) {
+      fs.appendFileSync(BITACORA, `${nuevas.join('\n')}\n`, 'utf8');
+      pedirSincronizacion();
+    }
     fs.writeFileSync(MARCAS, JSON.stringify(marcas), 'utf8');
   } catch (e) {
     console.warn(`[aprendizajes] no pude barrer las revisiones (${e.message})`);
   }
 }
 
-/** Lo que va dentro de la tarea del guion: las reglas generales, las del estilo y lo último de su bitácora. */
-export function textoParaClaude(estilo) {
+/**
+ * Lo que va dentro de la tarea del guion: las preferencias del usuario, las reglas generales, las del estilo, lo que
+ * anotó el supervisor de las generaciones y lo último de la bitácora del estilo. conSubestilo: el estilo trae
+ * subestilos (entonces también van los fotogramas que funcionan, los de cuidado y los que no se adjuntan).
+ */
+export function textoParaClaude(estilo, { conSubestilo = false } = {}) {
   barrer();
   const partes = [];
+  const preferencias = leer(PREFERENCIAS)
+    .split('\n')
+    .filter((l) => !l.startsWith('# ') && !/^(Valen para|Claude las lee|Para cambiarlas)/.test(l))
+    .join('\n')
+    .replace(/^## /gm, '#### ')
+    .trim();
+  if (preferencias) partes.push(`### Las preferencias del usuario (para todos los anuncios)\n${preferencias}`);
   const general = leer(path.join(DIR_APRENDIZAJES, 'general.md')).replace(/^#.*\n+/, '').trim();
   const delEstilo = estilo ? leer(path.join(DIR_APRENDIZAJES, `${estilo}.md`)).replace(/^#.*\n+/, '').trim() : '';
   const bitacora = leer(BITACORA)
@@ -132,11 +175,13 @@ export function textoParaClaude(estilo) {
     .filter((l) => l.startsWith('- ') && (!estilo || l.includes(` · ${estilo} · `)))
     .slice(-15);
   const reglas = (t) => t.split('\n').filter((l) => l.trim() && !/^Reglas que valen|^Se leen al/i.test(l)).join('\n');
-  if (reglas(general)) partes.push(`### Reglas generales\n${reglas(general)}`);
-  if (reglas(delEstilo)) partes.push(`### Reglas de este estilo\n${reglas(delEstilo)}`);
+  if (reglas(general)) partes.push(`### Reglas generales\n${recortar(reglas(general), TOPE.general)}`);
+  if (reglas(delEstilo)) partes.push(`### Reglas de este estilo\n${recortar(reglas(delEstilo), TOPE.estilo)}`);
+  const supervisor = seccionesDe(leer(BITACORA), conSubestilo ? [...SECCIONES_FOTOGRAMAS, ...SECCIONES_SIEMPRE] : SECCIONES_SIEMPRE);
+  if (supervisor) partes.push(`### Lo que anotó el supervisor de las generaciones (imágenes, fotogramas y clips de anuncios anteriores)\n${recortar(supervisor, TOPE.supervisor)}`);
   if (bitacora.length) partes.push(`### Lo que hubo que rehacer en los últimos anuncios de este estilo (evítalo desde el prompt)\n${bitacora.join('\n')}`);
   if (!partes.length) return '';
-  let texto = `## Aprendizajes de los anuncios anteriores\n\nSalieron de anuncios ya hechos. Van por encima de tu criterio (no de las reglas del modo app ni de la skill). Son generales: nunca copies de ahí un producto, una marca ni una frase.\n\n${partes.join('\n\n')}`;
+  let texto = `## Preferencias y aprendizajes de los anuncios anteriores\n\nLas preferencias son del usuario; lo demás salió de anuncios ya hechos (en esta app y en IA-VID-AUTOMATIC). Van por encima de tu criterio (no de las reglas del modo app ni de la skill). Son generales: nunca copies de ahí un producto, una marca ni una frase.\n\n${partes.join('\n\n')}`;
   if (texto.length > TOPE_TEXTO) texto = `${texto.slice(0, TOPE_TEXTO)}\n…`;
   return texto;
 }

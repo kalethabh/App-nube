@@ -34,6 +34,15 @@
     - Al editar, exportar, rehacer o pedir ganchos, se traen solos de vuelta; también hay un botón «Traer de vuelta» en la entrega.
     - Hace falta Google Drive para escritorio con «Transmitir archivos» activado.
 
+11. **Clips y video final en 1080p** (`produccion/config.js`, `RESOLUCION_VIDEO`; Remotion con `--scale=1.5`). Omni cobra igual que en 720p.
+12. **No pagar dos veces la misma imagen** (`produccion/imagenes-repetidas.js`).
+13. **Biblioteca** (menú Biblioteca; `lib/biblioteca.js`, `rutas/biblioteca.js`, `pantallas/biblioteca/`):
+    - `mis_archivos/biblioteca/` es una copia del repositorio privado `biblioteca-anuncios`, el MISMO de IA-VID-AUTOMATIC: avatares, audios, clips, imágenes y aprendizajes de las dos apps. Se sincroniza al abrir la app y cada 10 minutos; no la sube el guardado de la app.
+    - Avatares: subiendo fotos, desde un anuncio terminado (botón en la entrega) o «como en un anuncio de referencia» (retratos y prompts de los subestilos).
+    - En «Nuevo anuncio», «De tu biblioteca» elige las personas y la música; la música generada se guarda sola al terminar.
+14. **Movimiento del original**: la tarea del guion pide escribir cada prompt de video desde `subestilos/<id>/movimiento/`.
+15. **Preferencias** (`mis_archivos/preferencias.md`, traídas de IA-VID-AUTOMATIC) y los aprendizajes de las dos apps, con la bitácora del supervisor, van en cada guion.
+
 ## Decisiones que tomé
 
 - **No quiero nada de costos estimados, presupuesto ni aprobación automática por costo** (de IA-VID-AUTOMATIC). Se agregó un «tope de gasto» y se quitó.

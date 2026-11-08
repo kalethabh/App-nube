@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { CircleAlert, CircleCheck, RefreshCw, Sparkles } from 'lucide-react';
 import { BarraDeProgreso, Boton, Esqueleto, Logo, Modal, Seccion, Tarjeta } from '../../componentes/index.js';
 
-const AUTOR = 'Diego Dávila';
+const AUTOR = 'by Kalethabh';
 
 /** Sube el zip tal cual, con su avance (fetch no lo da). Devuelve la respuesta de la app o tira un Error con su mensaje. */
 function subirPaquete(archivo, alAvanzar) {
@@ -247,7 +247,7 @@ export function AcercaDe({ ajustes, alVerBienvenida }) {
           </span>
           <div className="acerca__textos">
             <h3 className="acerca__nombre">
-              {a?.nombre || 'Anuncios con IA'}
+              {a?.nombre || 'anuncios-IA'}
               <span className="acerca__punto" aria-hidden="true">
                 ·
               </span>

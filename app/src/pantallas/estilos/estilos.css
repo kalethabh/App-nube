@@ -394,7 +394,7 @@
   border-radius: var(--r-pill);
   font-size: var(--t-micro);
   font-weight: var(--peso-semi);
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background: var(--acento-fuerte);
   box-shadow: 0 4px 14px -4px rgba(var(--acento-rgb), 0.8);
 }

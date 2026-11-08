@@ -403,7 +403,7 @@ export function Bienvenida({ abierto, onCerrar, pasoInicial = 0 }) {
           <header className="bienvenida__cabecera">
             <span className="bienvenida__marca">
               <Logo tamano={22} />
-              Bienvenido a <strong>Anuncios con IA</strong>
+              Bienvenido a <strong>anuncios-IA</strong> by Kalethabh
             </span>
             <ol className="pasos" aria-label="Pasos">
               {PASOS.map((p, i) => (

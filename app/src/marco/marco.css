@@ -82,12 +82,22 @@
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
+.menu__nombre-ia {
+  background-image: linear-gradient(135deg, #c8fc80 0%, var(--acento) 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* "by Kalethabh", como en IA-VID-AUTOMATIC */
 .menu__lema {
+  margin-top: 3px;
   font-size: var(--t-micro);
-  font-weight: var(--peso-semi);
-  letter-spacing: var(--tracking-etiqueta);
-  text-transform: uppercase;
+  font-weight: var(--peso-medio);
   color: var(--texto-3);
+}
+.menu__lema strong {
+  font-weight: var(--peso-semi);
+  color: var(--texto-1);
 }
 .menu__plegar {
   width: 32px;
@@ -189,13 +199,53 @@
 /* "Nuevo anuncio": el icono va en un cuadrito con el degradado */
 .nav__item--especial .nav__icono {
   border-radius: 7px;
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background: var(--marca-degradado);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 12px -3px rgba(var(--marca-2-rgb), 0.7);
 }
 .nav__item--especial:hover .nav__icono,
 .nav__item--especial.nav__item--activo .nav__icono {
-  color: #fff;
+  color: var(--texto-sobre-acento);
+}
+/* "Nuevo anuncio" en grande, como en IA-VID-AUTOMATIC: el botón lima de arriba del menú */
+.menu:not(.menu--plegado) .nav__item--especial {
+  justify-content: center;
+  height: 44px;
+  margin-bottom: 6px;
+  border-radius: var(--r-l);
+  background: var(--marca-degradado);
+  color: var(--texto-sobre-acento);
+  font-weight: var(--peso-semi);
+  box-shadow: var(--brillo-acento);
+}
+.menu:not(.menu--plegado) .nav__item--especial:hover,
+.menu:not(.menu--plegado) .nav__item--especial.nav__item--activo {
+  background: var(--acento-boton-hover);
+  color: var(--texto-sobre-acento);
+}
+.menu:not(.menu--plegado) .nav__item--especial::before {
+  display: none;
+}
+.menu:not(.menu--plegado) .nav__item--especial .nav__icono {
+  background: none;
+  box-shadow: none;
+  width: auto;
+}
+.nav__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav__grupo + .nav__grupo {
+  margin-top: 10px;
+}
+.nav__grupo-titulo {
+  padding: 0 10px 4px;
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  color: var(--texto-3);
 }
 
 .menu__bloque {
@@ -627,4 +677,39 @@
   .barra__produccion-ejemplo {
     display: none;
   }
+}
+
+/* ---- Actualizar desde GitHub (barra de arriba) */
+.barra__actualizar {
+  position: relative;
+  display: inline-flex;
+}
+.barra__actualizar-punto {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--acento);
+  box-shadow: 0 0 0 2px var(--fondo-1), 0 0 10px rgba(var(--acento-rgb), 0.8);
+  animation: latido 1.8s var(--curva-suave) infinite;
+}
+.actualizar-gh__linea {
+  display: flex;
+  gap: var(--e-2);
+  align-items: flex-start;
+  font-size: var(--t-cuerpo);
+  line-height: var(--interlineado-cuerpo);
+  color: var(--texto-2);
+}
+.actualizar-gh__linea svg {
+  flex: none;
+  margin-top: 4px;
+}
+.actualizar-gh__linea--ok svg {
+  color: var(--ok);
+}
+.actualizar-gh__linea--error svg {
+  color: var(--error);
 }

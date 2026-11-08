@@ -42,6 +42,8 @@ export function ajustesIniciales(clave, { idioma, ...extra } = {}) {
     voz: '', // id de la voz de ElevenLabs (la lista sale de /api/voces)
     vozNombre: '',
     continuidad: false,
+    avatar: '', // "<carpeta>/<id>" de un avatar de la biblioteca, o vacío (personas nuevas)
+    musica: '', // "<carpeta>/<id>" de una música de la biblioteca, o vacío (la del estilo)
     preguntas: preguntasIniciales(clave, { idioma }),
     ...extra,
   };
@@ -459,6 +461,9 @@ export default function Nuevo({ consulta }) {
           voz: a.voz ? { id: a.voz, nombre: a.vozNombre || '' } : null,
           continuidad: CON_CONTINUIDAD.includes(clave) && Boolean(a.continuidad),
           respuestas: respuestasDe(clave, a.preguntas),
+          // de la biblioteca: "<carpeta>/<id>" (vacío = nuevas)
+          ...(a.avatar ? { avatar: { estilo: a.avatar.split('/')[0], id: a.avatar.split('/')[1] } } : {}),
+          ...(a.musica ? { musica: { estilo: a.musica.split('/')[0], id: a.musica.split('/')[1] } } : {}),
         });
         if (!r?.slug) throw new Error('La app no devolvió el anuncio. Vuelve a intentarlo.');
         mapa[clave] = r.slug;

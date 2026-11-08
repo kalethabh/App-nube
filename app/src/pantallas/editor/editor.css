@@ -1649,7 +1649,7 @@
   box-shadow: 0 6px 14px -6px var(--cian);
 }
 .ed-muestra__uso {
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background: var(--acento-fuerte);
   box-shadow: 0 6px 14px -6px var(--acento);
 }
@@ -1974,7 +1974,7 @@
     border-color var(--dur-rapido) var(--curva-suave);
 }
 .ed-opcion.es-sel .ed-opcion__marca {
-  color: #fff;
+  color: var(--texto-sobre-acento);
   background: var(--acento-fuerte);
   border-color: transparent;
 }

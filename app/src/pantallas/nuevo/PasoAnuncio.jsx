@@ -9,9 +9,10 @@
 // decidir sola, y obligatorias donde la skill prohíbe inventarlo (el fondo de Zack D Films, a quién paran en la
 // entrevista…).
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowDown, ArrowLeft, Check, CircleHelp, Hourglass, Lock, Package, Pause, PenLine, Play, RotateCcw, Sparkles, X } from 'lucide-react';
+import { ArrowDown, ArrowLeft, Check, CircleHelp, Hourglass, Library, Lock, Package, Pause, PenLine, Play, RotateCcw, Sparkles, X } from 'lucide-react';
 import { Boton, CampoTexto, Chip, EsqueletoMiniaturas, EstadoVacio, Interruptor, MiniaturaVideo, Seccion, Selector, Tarjeta, Tooltip } from '../../componentes/index.js';
-import { useEstilos, useVoces } from '../../datos/api.js';
+import { miniatura, useEstilos, useVoces } from '../../datos/api.js';
+import { useBiblioteca } from '../biblioteca/datos.js';
 import { enlace } from '../../datos/rutas.js';
 import { CONTINUIDAD_DISPONIBLE, CON_CONTINUIDAD, DETALLES, ICONO_FAMILIA, disponible, partirEscrito, preguntasDe } from '../estilos/catalogo.js';
 import { conDuracion, duracionCorta, duracionDeAjuste, leerDuracion } from '../../datos/duracion.js';
@@ -427,6 +428,67 @@ function PreguntasEstilo({ clave, valores, onCambio, bloqueado }) {
   );
 }
 
+// ---------------------------------------------------------------- de la biblioteca: avatar y música
+
+/** Los estilos sin música de fondo: la canción es el audio (cantados), o se oye solo la conversación. */
+const SIN_MUSICA = new Set(['musical', 'historias-musicales', 'podcast', 'entrevista']);
+
+/**
+ * "De tu biblioteca": las personas de un avatar guardado (no se paga su imagen) y una música ya pagada (no se genera
+ * otra). Solo aparece si hay algo guardado para este estilo (#/biblioteca).
+ */
+function DeLaBiblioteca({ estilo, ajuste, onCambio, bloqueado }) {
+  const { datos } = useBiblioteca(estilo.clave);
+  const avatares = datos?.avatares || [];
+  const audios = SIN_MUSICA.has(estilo.clave) ? [] : (datos?.audios || []).filter((a) => a.tipo === 'musica');
+  if (!avatares.length && !audios.length) return null;
+  const clave = (x) => (x ? `${x.estilo}/${x.id}` : '');
+  const elegido = avatares.find((a) => clave(a) === ajuste.avatar);
+  const musica = audios.find((a) => clave(a) === ajuste.musica);
+  return (
+    <div className="nv-biblioteca">
+      <span className="nv-ajuste__etiqueta">
+        <Library size={13} strokeWidth={2.2} aria-hidden="true" /> De tu biblioteca
+        <Tooltip texto="Lo que ya pagaste en otros anuncios: esas personas y esa música salen igual y no se vuelven a pagar.">
+          <CircleHelp size={13} strokeWidth={2} className="nv-ayuda" aria-label="Qué es esto" />
+        </Tooltip>
+      </span>
+      <div className="nv-biblioteca__fila">
+        {avatares.length ? (
+          <div className="nv-biblioteca__campo">
+            <Selector
+              etiqueta="Las personas"
+              value={ajuste.avatar || ''}
+              disabled={bloqueado}
+              onChange={(e) => onCambio({ avatar: e.target.value })}
+              opciones={[{ valor: '', etiqueta: 'Nuevas (las crea la IA)' }, ...avatares.map((a) => ({ valor: clave(a), etiqueta: a.nombre }))]}
+            />
+            {elegido ? (
+              <div className="nv-biblioteca__caras">
+                {elegido.personas.map((p) => (
+                  <img key={p.rol} src={miniatura(p.url, 160)} alt={p.nombre} title={p.nombre} />
+                ))}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+        {audios.length ? (
+          <div className="nv-biblioteca__campo">
+            <Selector
+              etiqueta="La música"
+              value={ajuste.musica || ''}
+              disabled={bloqueado}
+              onChange={(e) => onCambio({ musica: e.target.value })}
+              opciones={[{ valor: '', etiqueta: 'Nueva (la del estilo)' }, ...audios.map((a) => ({ valor: clave(a), etiqueta: a.estilo === 'general' ? `${a.nombre} · para todos` : a.nombre }))]}
+            />
+            {musica ? <audio controls preload="none" src={musica.url} className="nv-biblioteca__audio" /> : null}
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
 function AjustesEstilo({ estilo, ajuste, onCambio, onQuitar, bloqueado, puedeQuitar }) {
   const d = DETALLES[estilo.clave] || {};
   const IconoFamilia = ICONO_FAMILIA[estilo.familia] || Sparkles;
@@ -497,6 +559,8 @@ function AjustesEstilo({ estilo, ajuste, onCambio, onQuitar, bloqueado, puedeQui
         </div>
       ) : null}
 
+      <DeLaBiblioteca estilo={estilo} ajuste={ajuste} onCambio={onCambio} bloqueado={bloqueado} />
+
       <PreguntasEstilo clave={estilo.clave} valores={ajuste.preguntas || {}} onCambio={(p) => onCambio({ preguntas: { ...ajuste.preguntas, ...p } })} bloqueado={bloqueado} />
     </Tarjeta>
   );
@@ -535,6 +599,8 @@ export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambi
     if (b?.voz?.id) Object.assign(c, { voz: b.voz.id, vozNombre: b.voz.nombre || '' });
     if (typeof b?.continuidad === 'boolean') c.continuidad = b.continuidad;
     if (b?.respuestas && typeof b.respuestas === 'object') c.preguntas = { ...b.respuestas };
+    if (b?.avatar?.id) c.avatar = `${b.avatar.estilo}/${b.avatar.id}`;
+    if (b?.musicaBiblioteca?.id) c.musica = `${b.musicaBiblioteca.estilo}/${b.musicaBiblioteca.id}`;
     if (Object.keys(c).length) cambiarAjuste(clave, c);
     if (b?.productoId) onProductoDelAnuncio?.(b.productoId);
   };

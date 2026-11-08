@@ -44,6 +44,7 @@ import { ESTILOS as PRESENTACION } from './estilos.js';
 import { brollDe } from './broll.js';
 import { subestilosDe, idDeSubestilo } from './subestilos.js';
 import { textoParaClaude as textoAprendizajes, textoAhorro } from './aprendizajes.js';
+import { audioPorId, avatarPorId, carpetaDeEstilo, prepararAvatar, prepararMusica } from './biblioteca.js';
 import { prepararReferencia, referenciaPedida, textoClonar } from './clonar.js';
 import { conDuracion, entenderDuracion, leerDuracion, duracionAprox, segundosPedidos } from './duracion.js';
 
@@ -164,7 +165,7 @@ for (const [clave, def] of Object.entries(ESTILOS)) {
 }
 
 const GUIA_SUBESTILO =
-  '`subestilo`: si trae uno, es como si el mensaje dijera "Subestilo: <ese>" (búscalo por su id o su nombre en la tabla de subestilos de la skill) y sigues su ficha, sus fotogramas y su tabla de "fotograma" por toma; con "que decida la IA", eliges tú con la regla de la skill (o ninguno) y lo anotas en "decisiones".';
+  '`subestilo`: si trae uno, es como si el mensaje dijera "Subestilo: <ese>" (búscalo por su id o su nombre en la tabla de subestilos de la skill) y sigues su ficha, sus fotogramas y su tabla de "fotograma" por toma. Cada `prompt_video` se escribe desde el movimiento del original: antes, mira con Read `subestilos/<id>/movimiento/<nombre del fotograma>.jpg` (seis cuadros de ese plano) y su duración en `movimiento/planos.json`, y describe ese mismo movimiento de cámara y del personaje, con el ritmo de cortes del original. Los personajes salen como en la sección «Los avatares» de la ficha (su retrato `avatar/<rol>.jpg` va como `"fotograma"` de su hoja, salvo las personas reales filmadas: de esas se describe el tipo y nunca se adjunta su foto); con "que decida la IA", eliges tú con la regla de la skill (o ninguno) y lo anotas en "decisiones".';
 
 // como se llama cada cosa en brief.opciones (si no, la misma id)
 const NOMBRE_OPCION = { modo: 'modoBroll', canta: 'vocalGender' };
@@ -252,10 +253,18 @@ export function crearAnuncio(datos = {}) {
     if (p.falta && !(typeof respuestas[id] === 'string' && respuestas[id].trim())) throw new ErrorApp(400, p.falta, { tipo: 'falta-ajuste', campo: id });
   }
 
+  // De la biblioteca (lib/biblioteca.js): las personas de un avatar guardado y una música ya pagada.
+  const sel = (x) => (x && typeof x === 'object' && typeof x.id === 'string' && typeof x.estilo === 'string' ? { estilo: x.estilo, id: x.id } : null);
+  const avatar = sel(datos.avatar);
+  if (avatar && !avatarPorId(avatar.estilo, avatar.id)) throw new ErrorApp(404, 'No encuentro ese avatar en tu biblioteca. Elige otro o ninguno.');
+  // sin música de fondo: los cantados (la canción es el audio), podcast y entrevista
+  const musicaBiblioteca = ['musical', 'historia-musical', 'hablado'].includes(def.familia) ? null : sel(datos.musica);
+  if (musicaBiblioteca && !audioPorId(musicaBiblioteca.estilo, musicaBiblioteca.id)) throw new ErrorApp(404, 'No encuentro esa música en tu biblioteca. Elige otra o ninguna.');
+
   const producto = leerProducto(productoId);
   const slug = slugNuevo(ficha.nombre || producto.nombre || productoId.replace(/-[a-z0-9]{4}$/, ''), estilo);
   fs.mkdirSync(appDe(slug), { recursive: true });
-  const brief = { slug, productoId, estilo, familia: null, faseGuion: def.faseGuion, duracion, voz, continuidad, respuestas, opciones: opcionesDe(estilo, respuestas), creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
+  const brief = { slug, productoId, estilo, familia: null, faseGuion: def.faseGuion, duracion, voz, continuidad, respuestas, opciones: opcionesDe(estilo, respuestas), ...(avatar ? { avatar } : {}), ...(musicaBiblioteca ? { musicaBiblioteca } : {}), creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
   brief.familia = familiaDe(brief);
   escribirJSON(path.join(appDe(slug), 'brief.json'), brief);
   // la proxima vez, este estilo sugiere la misma voz
@@ -627,6 +636,20 @@ function textoDelEstilo(brief) {
 
 const lista = (pasos) => pasos.map((p, i) => `${i + 1}. ${p}`).join('\n');
 
+/** Lo de la biblioteca para la tarea del guion: el avatar (sus imágenes ya copiadas a ref/) y la música elegida. */
+function textoBiblioteca(slug, brief) {
+  const partes = [];
+  try {
+    const avatar = brief.avatar ? prepararAvatar(slug, brief.avatar) : null;
+    if (avatar) partes.push(avatar);
+    const musica = brief.musicaBiblioteca ? prepararMusica(slug, brief.musicaBiblioteca) : null;
+    if (musica) partes.push(`## La música de fondo\n\nYa está puesta: «${musica.nombre}», de la biblioteca del usuario (\`temp/${slug}/musica/\`). No se genera otra: no la cambies ni la pidas, y cuéntalo en "decisiones" en una línea.`);
+  } catch (e) {
+    console.warn(`[guion] ${slug}: no pude preparar lo de la biblioteca (${e.message})`);
+  }
+  return partes.join('\n\n');
+}
+
 function promptGuion(slug, brief, foto, prepClonar = null) {
   const def = ESTILOS[brief.estilo];
   const t = piezasDeLaTarea(slug, brief, def);
@@ -645,7 +668,7 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
     detalleProducto: detalleDelProducto(brief.productoId, { vineta: true }),
     foto: textoFoto(slug, brief, foto),
     pasos: lista(t.pasos),
-    delEstilo: [textoClonar(slug, brief, prepClonar), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(brief.estilo)].filter(Boolean).join('\n\n'),
+    delEstilo: [textoClonar(slug, brief, prepClonar), textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
   });

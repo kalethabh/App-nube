@@ -301,7 +301,7 @@ function HojaLetras({ estilo, letras, encima, cambiando = false, elegida, onEleg
                 etiqueta="Las letras"
                 activa={o.n}
                 onCambio={setActiva}
-                items={opciones.map((x) => ({ id: x.n, etiqueta: `${elegida === x.n ? '✓ ' : ''}Opción ${x.n}${x.titulo ? ` · ${x.titulo}` : ''}` }))}
+                items={opciones.map((x) => ({ id: x.n, icono: elegida === x.n ? Check : undefined, etiqueta: `Opción ${x.n}${x.titulo ? ` · ${x.titulo}` : ''}` }))}
               />
             </div>
           ) : null}

@@ -1,0 +1,4 @@
+/* Anuncios (#/anuncios): reusa las piezas del tablero (buscador, filtros y rejilla). */
+.an .tb-filtros {
+  margin-top: calc(-1 * var(--e-4));
+}
