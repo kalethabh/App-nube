@@ -164,7 +164,7 @@ for (const [clave, def] of Object.entries(ESTILOS)) {
 }
 
 const GUIA_SUBESTILO =
-  '`subestilo`: si trae uno, es como si el mensaje dijera "Subestilo: <ese>" (búscalo por su id o su nombre en la tabla de subestilos de la skill) y sigues su ficha, sus fotogramas y su tabla de "fotograma" por toma; con "que decida la IA", eliges tú con la regla de la skill (o ninguno) y lo anotas en "decisiones".';
+  '`subestilo`: si trae uno, es como si el mensaje dijera "Subestilo: <ese>" (búscalo por su id o su nombre en la tabla de subestilos de la skill) y sigues su ficha, sus fotogramas y su tabla de "fotograma" por toma. Cada `prompt_video` se escribe desde el movimiento del original: antes, mira con Read `subestilos/<id>/movimiento/<nombre del fotograma>.jpg` (seis cuadros de ese plano) y su duración en `movimiento/planos.json`, y describe ese mismo movimiento de cámara y del personaje, con el ritmo de cortes del original. Los personajes salen como en la sección «Los avatares» de la ficha (su retrato `avatar/<rol>.jpg` va como `"fotograma"` de su hoja, salvo las personas reales filmadas: de esas se describe el tipo y nunca se adjunta su foto); con "que decida la IA", eliges tú con la regla de la skill (o ninguno) y lo anotas en "decisiones".';
 
 // como se llama cada cosa en brief.opciones (si no, la misma id)
 const NOMBRE_OPCION = { modo: 'modoBroll', canta: 'vocalGender' };
