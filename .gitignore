@@ -49,3 +49,8 @@ __pycache__/
 *.skill.bak
 .agents/
 output-alumnos/
+
+# La biblioteca (avatares, audios, clips, imágenes y aprendizajes) es su propio repositorio privado de GitHub,
+# "biblioteca-anuncios", el mismo de IA-VID-AUTOMATIC: la sincroniza app/server/lib/biblioteca.js, no el guardado.
+mis_archivos/biblioteca/
+temp/_biblioteca-subidas/

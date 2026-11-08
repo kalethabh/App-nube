@@ -1,6 +1,7 @@
 // Aprendizajes: lo que salió de los anuncios anteriores, para que el siguiente salga mejor a la primera.
 //
-// Viven en mis_archivos/biblioteca/aprendizajes/ (se guardan en GitHub con el resto de la biblioteca):
+// Viven en mis_archivos/biblioteca/aprendizajes/ (se guardan en GitHub con el resto de la biblioteca, en el repositorio
+// biblioteca-anuncios que comparte con IA-VID-AUTOMATIC: los aprendizajes de las dos apps son los mismos):
 //   general.md        reglas para todos los estilos (las escribe el usuario, o Claude desde Claude Code)
 //   <estilo>.md       reglas de un estilo (claymation.md, ugc.md…)
 //   generaciones.md   la bitácora: cada toma o clip que hubo que rehacer y por qué, cada rechazo por contenido y
@@ -12,6 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { RAIZ } from './rutas.js';
+import { pedirSincronizacion } from './biblioteca.js';
 
 export const DIR_APRENDIZAJES = path.join(RAIZ, 'mis_archivos', 'biblioteca', 'aprendizajes');
 const BITACORA = path.join(DIR_APRENDIZAJES, 'generaciones.md');
@@ -114,7 +116,10 @@ export function barrer() {
         nuevas.push(`- ${hoy()} · ${estilo} · el usuario pidió cambiar el guion: ${limpio(c.pedido)}`);
       }
     }
-    if (nuevas.length) fs.appendFileSync(BITACORA, `${nuevas.join('\n')}\n`, 'utf8');
+    if (nuevas.length) {
+      fs.appendFileSync(BITACORA, `${nuevas.join('\n')}\n`, 'utf8');
+      pedirSincronizacion();
+    }
     fs.writeFileSync(MARCAS, JSON.stringify(marcas), 'utf8');
   } catch (e) {
     console.warn(`[aprendizajes] no pude barrer las revisiones (${e.message})`);
