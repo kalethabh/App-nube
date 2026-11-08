@@ -18,7 +18,8 @@ La app "Anuncios con IA" (se abre con «Abrir Anuncios con IA.command» en Mac o
 2. **Nunca inventes un prompt nuevo** si una toma sale mal: pregunta, muéstralo y rehaz con `npm run rehacer`.
 3. Cada anuncio vive en `temp/<slug>/`; los MP4 terminados salen a `output/`.
 4. **El guardado es automático**: la app sube a GitHub cada 2 minutos lo liviano; los videos, audios e imágenes van a Google Drive y, de los anuncios terminados, se borran de la Mac (`temp/<slug>/app/en-la-nube.json` dice qué). Antes de tocar uno de esos anuncios desde Claude Code, tráelo de vuelta (en la app, «Traer de vuelta»). No hagas commits ni push por tu cuenta salvo que el usuario lo pida.
-5. Lo propio del usuario (notas, fotos, scripts) va en `mis_archivos/`; las reglas aprendidas en `mis_archivos/biblioteca/aprendizajes/` (`general.md` y una por estilo): léelas antes de empezar un anuncio.
+5. Lo propio del usuario (notas, fotos, scripts) va en `mis_archivos/`. Antes de empezar un anuncio lee `mis_archivos/preferencias.md` (sus preferencias para todos los anuncios) y las reglas aprendidas en `mis_archivos/biblioteca/aprendizajes/` (`general.md`, una por estilo con el nombre de la skill sin "anuncios-", y la bitácora `generaciones.md`).
+6. **`mis_archivos/biblioteca/` es su propio repositorio** (`biblioteca-anuncios`, privado, el mismo de IA-VID-AUTOMATIC): avatares, audios, clips, imágenes y aprendizajes de las dos apps. La app lo sincroniza sola; no corras git ahí.
 
 ## Lo que se sumó desde IA-VID-AUTOMATIC (2026-11-08)
 
@@ -27,3 +28,7 @@ La app "Anuncios con IA" (se abre con «Abrir Anuncios con IA.command» en Mac o
 - **Aprendizajes** automáticos: la app anota en `generaciones.md` lo que hubo que rehacer y por qué, y se los pasa a Claude al escribir cada guion.
 - **Clonar un video**, **Más ganchos**, **Inversión por producto** (Ajustes) y **Guardado en la nube** (Ajustes).
 - Agentes `director-creativo` y `supervisor-generaciones` (`.claude/agents/`), para usar desde Claude Code.
+- **Clips en 1080p** (`RESOLUCION_VIDEO` en `produccion/config.js`; `RESOLUCION_VIDEO=720p` en el `.env` vuelve a 720p) y el MP4 final en 1080x1920 (`ESCALA_RENDER`).
+- **No pagar dos veces la misma imagen** (`produccion/imagenes-repetidas.js`): el mismo prompt, referencias y fotograma se generan una vez.
+- **Biblioteca** (menú Biblioteca, `app/server/lib/biblioteca.js`): avatares y música para reutilizar, compartidos con IA-VID-AUTOMATIC. Al crear un anuncio se eligen en «De tu biblioteca»; un avatar se hace subiendo fotos, desde un anuncio terminado o como en un anuncio de referencia (los retratos y prompts de `subestilos/<id>/avatar/`). La música generada se guarda sola al terminar cada anuncio.
+- **Preferencias** (`mis_archivos/preferencias.md`) y los aprendizajes de las dos apps (incluida la bitácora del supervisor) van en la tarea de cada guion (`app/server/lib/aprendizajes.js`).
