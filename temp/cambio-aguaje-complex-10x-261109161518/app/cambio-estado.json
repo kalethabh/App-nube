@@ -7,16 +7,16 @@
   "progreso": [
     "Borrando los subtítulos del original..."
   ],
-  "actualizado": "2026-11-09T18:27:17.522Z",
+  "actualizado": "2026-11-09T18:28:21.305Z",
   "aviso": null,
   "error": null,
   "paso": {
     "id": "subtitulos",
-    "desde": "2026-11-09T18:27:16.521Z",
+    "desde": "2026-11-09T18:28:21.304Z",
     "pct": null,
     "detalle": "Los textos ya estaban encontrados"
   },
-  "inicioProduccion": "2026-11-09T18:27:14.279Z",
+  "inicioProduccion": "2026-11-09T18:28:16.050Z",
   "hechos": [],
-  "pidMotor": 4683
+  "pidMotor": 5140
 }
