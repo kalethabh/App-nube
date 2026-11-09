@@ -30,6 +30,8 @@ if curl -sS -o /dev/null --max-time 3 "$URL/" 2>/dev/null; then
     fi
     echo " Hay una versión nueva de la app: cierro la anterior y abro la nueva..."
     lsof -ti "tcp:${PUERTO:-4455}" -sTCP:LISTEN 2>/dev/null | xargs kill 2>/dev/null
+    sleep 2
+    lsof -ti "tcp:${PUERTO:-4455}" -sTCP:LISTEN 2>/dev/null | xargs kill -9 2>/dev/null
     for _ in 1 2 3 4 5 6 7 8 9 10; do curl -sS -o /dev/null --max-time 1 "$URL/" 2>/dev/null || break; sleep 1; done
   else
     falta "La dirección que usa Anuncios con IA ($URL) ya la está usando otro programa. Cierra ese programa (o reinicia la Mac) y vuelve a abrir este archivo."

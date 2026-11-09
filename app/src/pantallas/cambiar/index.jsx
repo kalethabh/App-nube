@@ -11,6 +11,7 @@ import './cambiar.css';
 async function pedir(url, { metodo = 'GET', cuerpo } = {}) {
   const r = await fetch(url, { method: metodo, headers: { Accept: 'application/json', ...(cuerpo ? { 'Content-Type': 'application/json' } : {}) }, body: cuerpo ? JSON.stringify(cuerpo) : undefined });
   const d = await r.json().catch(() => null);
+  if (r.status === 404 && d?.error === 'No existe esa ruta.') throw new Error('La app que está corriendo es una versión vieja: reinicia la Mac y ábrela con doble clic en «Abrir Anuncios con IA».');
   if (!r.ok) throw new Error(d?.error || 'Algo salió mal. Vuelve a intentarlo.');
   return d;
 }

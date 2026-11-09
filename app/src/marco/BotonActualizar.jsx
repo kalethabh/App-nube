@@ -37,8 +37,8 @@ export function BotonActualizar() {
       if (d?.reinicia) {
         await new Promise((r) => setTimeout(r, 4000));
         for (let i = 0; i < 60; i++) {
-          const ok = await fetch('/api/estado', { cache: 'no-store' }).then((x) => x.ok, () => false);
-          if (ok) return window.location.reload();
+          const e = await fetch('/api/estado', { cache: 'no-store' }).then((x) => (x.ok ? x.json() : null), () => null);
+          if (e?.servidor && !e.servidor.desactualizado) return window.location.reload();
           await new Promise((r) => setTimeout(r, 1500));
         }
       }
