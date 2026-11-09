@@ -174,7 +174,7 @@ function Lista() {
       <div className="cb-lista">
         {lista.map((t) => (
           <a key={t.slug} className="cb-item" href={`#${rutas.cambiar(t.slug)}`}>
-            <span className="cb-item__img">{t.miniatura ? <img src={miniatura(t.miniatura, 240)} alt="" loading="lazy" /> : <Film size={22} aria-hidden="true" />}</span>
+            <span className="cb-item__img">{t.miniatura ? <img src={t.miniatura} alt="" loading="lazy" /> : <Film size={22} aria-hidden="true" />}</span>
             <span className="cb-item__texto">
               <strong>{t.producto}</strong>
               <span className={`cb-etapa cb-etapa--${t.etapa}`}>{ETAPAS[t.etapa] || t.etapa}</span>
