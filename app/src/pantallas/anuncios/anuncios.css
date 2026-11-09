@@ -84,3 +84,10 @@
 .an-gh svg {
   color: var(--acento);
 }
+.an-ver__nota {
+  margin: 0;
+  max-width: 340px;
+  text-align: center;
+  font-size: var(--t-chico);
+  color: var(--texto-3);
+}

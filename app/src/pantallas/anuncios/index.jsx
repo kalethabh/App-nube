@@ -1,7 +1,7 @@
 // ANUNCIOS (#/anuncios): todos tus anuncios, en cualquier etapa, como en IA-VID-AUTOMATIC: pestañas (Todos,
 // Terminados, En producción, Con clips, Solo guion), buscador y orden. Cada uno abre su entrega (o su producción).
-import { useMemo, useState } from 'react';
-import { Clapperboard, Cloud, Download, Package, Plus, Search, SearchX, X } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { Clapperboard, Cloud, Copy, Download, Package, Plus, Search, SearchX, X } from 'lucide-react';
 import { Boton, CabeceraPagina, Chip, EsqueletoMiniaturas, EstadoVacio, MiniaturaVideo, Modal, Selector } from '../../componentes/index.js';
 import { useAnuncios, useDatos, miniatura } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
@@ -43,25 +43,31 @@ async function leerGithub() {
   return r.json();
 }
 
-/** Un anuncio de GitHub abierto: su video y sus versiones para descargar. */
+/** Un anuncio de GitHub abierto: su video, sus versiones para descargar y, si es un clon, el anuncio de referencia. */
 function VerAnuncio({ a, onCerrar }) {
   const [v, setV] = useState(0);
+  useEffect(() => setV(0), [a?.id]);
   if (!a) return null;
-  const version = a.versiones[v] || a.versiones[0];
+  const opciones = [...a.versiones.map((x) => ({ ...x, clase: 'version' })), ...(a.referencias || []).map((r) => ({ ...r, tipo: r.id, clase: 'referencia' }))];
+  const actual = opciones[v] || opciones[0];
+  const esReferencia = actual.clase === 'referencia';
   return (
     <Modal abierto={Boolean(a)} onCerrar={onCerrar} titulo={a.titulo} descripcion={[a.estiloNombre, a.productoNombre].filter(Boolean).join(' · ')} icono={Clapperboard} tamano="normal">
       <div className="an-ver">
-        <video key={version.url} className="an-ver__video" src={version.url} poster={miniatura(a.portada, 480)} controls autoPlay playsInline />
+        <video key={actual.url} className="an-ver__video" src={actual.url} poster={esReferencia ? undefined : miniatura(a.portada, 480)} controls autoPlay playsInline />
+        {esReferencia ? <p className="an-ver__nota">El anuncio original que se clonó, armado con sus tomas y su audio. La primera vez tarda unos segundos en aparecer.</p> : null}
         <div className="an-ver__versiones">
-          {a.versiones.map((x, i) => (
-            <Chip key={x.tipo} activo={i === v} onClick={() => setV(i)}>
+          {opciones.map((x, i) => (
+            <Chip key={`${x.clase}-${x.tipo}`} activo={i === v} onClick={() => setV(i)} icono={x.clase === 'referencia' ? Copy : undefined}>
               {x.nombre}
             </Chip>
           ))}
         </div>
-        <Boton variante="secundario" icono={Download} href={version.url} download={version.ruta.split('/').pop()}>
-          Descargar esta versión
-        </Boton>
+        {!esReferencia ? (
+          <Boton variante="secundario" icono={Download} href={actual.url} download={actual.ruta.split('/').pop()}>
+            Descargar esta versión
+          </Boton>
+        ) : null}
       </div>
     </Modal>
   );
@@ -93,7 +99,7 @@ function PorProducto({ productos, q }) {
                 imagen={miniatura(a.portada, 480)}
                 video={a.versiones[0]?.url}
                 estilo={a.estiloNombre}
-                etiqueta={a.versiones.length === 1 ? '1 versión' : `${a.versiones.length} versiones`}
+                etiqueta={a.referencias?.length ? 'Clonado · con su referencia' : a.versiones.length === 1 ? '1 versión' : `${a.versiones.length} versiones`}
                 titulo={a.titulo}
                 aria-label={`Ver ${a.titulo}`}
                 onClick={() => setAbierto({ ...a, productoNombre: p.nombre })}
