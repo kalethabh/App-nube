@@ -2,6 +2,7 @@
 // «Actualizar», lo nuevo del servidor y del motor se usa sin cerrar la ventana. Lo usan los lanzadores
 // («Abrir Anuncios con IA.command» y «.bat»). Cualquier otro final (cerrar la ventana, un error) termina aquí.
 import { spawn } from 'node:child_process';
+import net from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -22,5 +23,15 @@ function arrancar() {
     }
     process.exit(senal ? 1 : codigo ?? 1);
   });
+}
+// AIA_ESPERAR_PUERTO=1: lo lanzó el servidor anterior al reiniciarse; se espera a que suelte el puerto
+const PUERTO = Number(process.env.PUERTO) || 4455;
+const libre = () => new Promise((ok) => {
+  const s = net.createServer().once('error', () => ok(false)).once('listening', () => s.close(() => ok(true)));
+  s.listen(PUERTO, '127.0.0.1');
+});
+if (process.env.AIA_ESPERAR_PUERTO === '1') {
+  delete process.env.AIA_ESPERAR_PUERTO;
+  for (let i = 0; i < 40 && !(await libre()); i++) await new Promise((r) => setTimeout(r, 500));
 }
 arrancar();
