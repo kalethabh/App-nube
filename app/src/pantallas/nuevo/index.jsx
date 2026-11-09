@@ -28,6 +28,7 @@ import { CON_CONTINUIDAD, DISPONIBLES, ICONO_ESTILO, disponible, preguntasDe, pr
 import { conDuracion } from '../../datos/duracion.js';
 import { BORRADOR_VACIO, PasoProducto, firmaDe } from './PasoProducto.jsx';
 import { PasoAnuncio } from './PasoAnuncio.jsx';
+import { Elegir } from './Elegir.jsx';
 import { estiloDeSlug, leerProducto, recordado, recordar } from './datos.js';
 import { useSesionClaude } from './piezas.jsx';
 import { useCallarAlSalir } from './reproductor.js';
@@ -208,7 +209,17 @@ function anunciosDeConsulta(consulta) {
   return mapa;
 }
 
+/**
+ * #/nuevo sin nada más: primero «¿Qué quieres hacer?» (Elegir.jsx). Con un estilo elegido (?estilo=), con ?inicio=1
+ * («Elegir el estilo después») o retomando algo (?producto=, ?anuncios=), el flujo de dos pasos.
+ */
 export default function Nuevo({ consulta }) {
+  const vacia = !consulta || ![...consulta.keys()].length;
+  if (vacia) return <Elegir />;
+  return <Flujo key={consulta.get('estilo') || ''} consulta={consulta} />;
+}
+
+function Flujo({ consulta }) {
   useCallarAlSalir();
   const { aviso } = useAvisos();
   const claude = useSesionClaude();
