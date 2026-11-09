@@ -113,7 +113,18 @@ export default function Anuncios() {
   const [busqueda, setBusqueda] = useState('');
   const [orden, setOrden] = useState('recientes');
   const todos = datos?.anuncios || [];
-  const { datos: gh } = useDatos('anuncios-github', leerGithub, { cadaMs: 120000 });
+  const { datos: gh, recargar: recargarGh } = useDatos('anuncios-github', leerGithub, { cadaMs: 120000 });
+  const [trayendo, setTrayendo] = useState(false);
+  const traer = async () => {
+    setTrayendo(true);
+    try {
+      await fetch('/api/anuncios-github/traer', { method: 'POST', headers: { Accept: 'application/json' } });
+      await recargarGh?.();
+    } finally {
+      setTrayendo(false);
+    }
+  };
+  const estadoGh = gh?.estado?.estado;
   const productosGh = gh?.productos || [];
   const totalGh = productosGh.reduce((n, p) => n + p.anuncios.length, 0);
   const q = normalizar(busqueda.trim());
@@ -151,6 +162,22 @@ export default function Anuncios() {
             {p.nombre}
           </Chip>
         ))}
+      </div>
+
+      <div className="an-gh">
+        <Cloud size={15} strokeWidth={2} aria-hidden="true" />
+        <span>
+          {trayendo || estadoGh === 'sin-empezar'
+            ? 'Trayendo tus anuncios de GitHub… la primera vez tarda un poco.'
+            : gh?.estado?.error
+              ? gh.estado.error
+              : totalGh
+                ? `${totalGh} anuncios de tu GitHub (repositorio anuncios-ia-videos)${gh?.estado?.ultima ? ` · al día ${new Date(gh.estado.ultima).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}` : ''}`
+                : 'Todavía no hay anuncios en tu GitHub.'}
+        </span>
+        <Boton variante="fantasma" tamano="chico" onClick={traer} cargando={trayendo}>
+          Traer de GitHub
+        </Boton>
       </div>
 
       {totalGh && pestana !== 'produccion' && pestana !== 'guion' && pestana !== 'clips' ? (
