@@ -262,7 +262,11 @@ async function producir(c, { si }) {
     if (!existe(limpio)) {
       if (!entornoListo()) throw new Error('Para borrar los subtítulos falta: npm run subtitulos:instalar (o pon "borrar_subtitulos": false).');
       decir('1/5 Borrando los subtítulos del original...');
-      borrarSubtitulos(original, limpio);
+      // a un archivo aparte y se renombra al final: si se corta a la mitad, no queda un limpio.mp4 incompleto
+      const parcial = path.join(trabajo, 'limpio-parcial.mp4');
+      borrarSubtitulos(original, parcial);
+      fs.renameSync(parcial, limpio);
+      if (existe(parcial.replace(/\.mp4$/, '.texto.json'))) fs.renameSync(parcial.replace(/\.mp4$/, '.texto.json'), limpio.replace(/\.mp4$/, '.texto.json'));
     }
     base = limpio;
   }
