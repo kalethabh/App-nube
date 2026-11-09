@@ -1,0 +1,19 @@
+/* «Editar esta imagen» (EditarImagen.jsx) */
+.ei { display: flex; flex-direction: column; gap: var(--e-2); padding: var(--e-4); border-radius: var(--r-l); background: var(--superficie-2); border: 1px solid var(--borde-1); }
+.ei .t-etiqueta { display: inline-flex; align-items: center; gap: 6px; }
+.ei__campo { position: relative; }
+.ei__texto {
+  width: 100%; resize: vertical; min-height: 76px; padding: var(--e-3) 44px var(--e-3) var(--e-3); border-radius: var(--r-m);
+  border: 1px solid var(--borde-2); background: var(--superficie-1); color: var(--texto-1); font: inherit; font-size: var(--t-ui); line-height: 1.45;
+  transition: border-color 0.2s var(--curva-suave), box-shadow 0.2s var(--curva-suave);
+}
+.ei__texto:focus { outline: none; border-color: var(--acento); box-shadow: 0 0 0 3px var(--acento-suave); }
+.ei__ia {
+  position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: var(--r-s); display: grid; place-items: center;
+  border: 1px solid var(--acento-suave-2); background: var(--acento-suave); color: var(--acento); cursor: pointer;
+  transition: transform 0.2s var(--curva-resorte), background 0.2s var(--curva-suave);
+}
+.ei__ia:hover:not(:disabled) { transform: scale(1.08); background: var(--acento-suave-2); }
+.ei__ia:disabled { opacity: 0.7; cursor: default; }
+.ei__pie { display: flex; align-items: center; gap: var(--e-3); flex-wrap: wrap; }
+.ei__error { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-chico); color: var(--error); }

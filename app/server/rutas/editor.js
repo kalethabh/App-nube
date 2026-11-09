@@ -595,7 +595,7 @@ function piezasDe(manifiesto, slug) {
 }
 
 /** ¿Se puede rehacer con IA en este anuncio? { disponible, motivo, c, brief, manifiesto, fam } */
-async function disponibilidad(slug) {
+export async function disponibilidad(slug) {
   const no = (motivo) => ({ disponible: false, motivo });
   if (!conductor.slugDeLaApp(slug)) return no('Rehacer con IA funciona en los anuncios que produce la app.');
   await conductor.esperarFamilias?.();
@@ -778,7 +778,7 @@ function pasoDeGeneracion(fam, brief) {
 }
 
 /** Vuelve a poner en marcha el conductor del anuncio desde el paso de generacion (lo de antes queda hecho). */
-async function reabrirConductor(slug, t) {
+export async function reabrirConductor(slug, t) {
   const d = await disponibilidad(slug);
   if (!d.disponible) throw new Error(d.motivo);
   if (!conductor.tomarElMando()) throw new Error(SIN_MANDO);
