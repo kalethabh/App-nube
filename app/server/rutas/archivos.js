@@ -12,7 +12,7 @@ import { dentroDe, segmentoValido, stat, TIPOS_MEDIO } from '../lib/archivos.js'
 import { slugValido } from '../lib/anuncios.js';
 import { rutaDeArchivoDeMuestra } from '../lib/muestras.js';
 
-function enviar(res, abs) {
+export function enviar(res, abs) {
   const tipo = TIPOS_MEDIO[path.extname(abs).toLowerCase()];
   if (!tipo) return res.status(404).json({ error: 'Ese archivo no se puede abrir desde la app.' });
   const st = stat(abs);

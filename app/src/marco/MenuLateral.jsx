@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, GraduationCap, LayoutGrid, Library, Palette, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
+import { CirclePause, Clapperboard, GraduationCap, LayoutGrid, Library, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -15,7 +15,13 @@ import { estadoClaude, useAlCambiarConexiones, useClaude } from '../pantallas/aj
 // El menú, en grupos como en IA-VID-AUTOMATIC: "Nuevo anuncio" arriba, en grande; después lo que se hace primero.
 const GRUPOS = [
   { titulo: null, items: [{ id: 'nuevo', texto: 'Nuevo anuncio', icono: Plus, href: enlace.nuevo(), especial: true }] },
-  { titulo: 'Crear', items: [{ id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() }] },
+  {
+    titulo: 'Crear',
+    items: [
+      { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
+      { id: 'cambiar', texto: 'Cambiar el producto', icono: Repeat, href: enlace.cambiar() },
+    ],
+  },
   {
     titulo: 'Tu contenido',
     items: [

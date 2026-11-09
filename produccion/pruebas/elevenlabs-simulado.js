@@ -668,6 +668,23 @@ export async function iniciar({ puerto = 0, host = '127.0.0.1', semilla = 1, fal
     m = ruta.match(/^\/v1\/text-to-speech\/([^/]+?)(\/with-timestamps)?$/);
     if (req.method === 'POST' && m) return tts(req, res, decodeURIComponent(m[1]), Boolean(m[2]));
     if (req.method === 'POST' && ruta === '/v1/speech-to-text') return scribe(req, res);
+    // «Cambiar el producto»: aislar la voz del original y clonarla (IVC); se borra al terminar
+    if (req.method === 'POST' && ruta === '/v1/audio-isolation') {
+      await leerCuerpo(req);
+      const { mp3 } = await sintetizar('aislada', 'voz aislada del original para clonar');
+      res.writeHead(200, { 'Content-Type': 'audio/mpeg' });
+      return res.end(mp3);
+    }
+    if (req.method === 'POST' && ruta === '/v1/voices/add') {
+      await leerCuerpo(req);
+      const v = agregarVoz({ id: `clon${crypto.randomBytes(5).toString('hex')}`, nombre: 'Voz clonada (simulada)', categoria: 'cloned' });
+      return json(res, 200, { voice_id: v.voice_id, requires_verification: false });
+    }
+    m = ruta.match(/^\/v1\/voices\/([^/]+)$/);
+    if (req.method === 'DELETE' && m) {
+      cuenta.delete(decodeURIComponent(m[1]));
+      return json(res, 200, { status: 'ok' });
+    }
     if (req.method === 'GET' && ruta === '/v1/user/subscription') return json(res, 200, suscripcion());
     if (req.method === 'GET' && ruta === '/v1/user') {
       return json(res, 200, { user_id: 'simulado', first_name: 'Prueba', is_new_user: false, subscription: suscripcion() });
