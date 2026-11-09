@@ -112,6 +112,8 @@ export function crearProducto(datos = {}) {
   const nombre = recortar(datos.nombre, 120);
   const descripcion = recortar(datos.descripcion, 8000);
   const guionPropio = recortar(datos.guionPropio, 20000);
+  // el video de referencia del paso 1 ("subido:<id>|<nombre>" o un link): va como «Clonar un video» en cada estilo
+  const referencia = recortar(datos.referencia, 700) || null;
   let base = aKebab(nombre, 32);
   if (!base && url) base = aKebab(new URL(url).hostname.replace(/^www\./, '').split('.')[0], 32);
   if (!base) base = 'producto';
@@ -119,7 +121,7 @@ export function crearProducto(datos = {}) {
   let id;
   do id = `${base}-${crypto.randomBytes(3).toString('hex').slice(0, 4)}`;
   while (existe(path.join(PRODUCTOS, id)));
-  const producto = { id, nombre, tipo, url, descripcion, guionPropio, fotos: [], creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
+  const producto = { id, nombre, tipo, url, descripcion, guionPropio, referencia, fotos: [], creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
   fs.mkdirSync(path.join(PRODUCTOS, id, 'fotos'), { recursive: true });
   escribirJSON(path.join(PRODUCTOS, id, 'producto.json'), producto);
   return producto;
@@ -137,6 +139,7 @@ export function actualizarProducto(id, datos = {}) {
   if ('nombre' in datos) p.nombre = recortar(datos.nombre, 120);
   if ('descripcion' in datos) p.descripcion = recortar(datos.descripcion, 8000);
   if ('guionPropio' in datos) p.guionPropio = recortar(datos.guionPropio, 20000);
+  if ('referencia' in datos) p.referencia = recortar(datos.referencia, 700) || null;
   return escribirJSON(path.join(PRODUCTOS, id, 'producto.json'), p);
 }
 

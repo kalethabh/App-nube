@@ -228,6 +228,8 @@ export const apiNuevo = {
   /** n empieza en 1 (la 1 es la foto principal). `archivo` es un File o un Blob. */
   subirFoto: (id, n, archivo) => pedirNuevo(`/api/productos/${enc(id)}/fotos/${n}`, { metodo: 'PUT', binario: archivo }),
   /** Lanza la sesión "ficha" de Claude -> { tarea } */
+  /** Cambia lo escrito del producto (p. ej. { referencia }). */
+  actualizarProducto: (id, datos) => pedirNuevo(`/api/productos/${enc(id)}`, { metodo: 'PUT', cuerpo: datos }),
   analizarProducto: (id) => pedirNuevo(`/api/productos/${enc(id)}/analizar`, { metodo: 'POST' }),
   /** producto + ficha + estado de la tarea */
   producto: (id) => pedirNuevo(`/api/productos/${enc(id)}`),
