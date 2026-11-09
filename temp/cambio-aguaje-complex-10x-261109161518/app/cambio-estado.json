@@ -2,14 +2,21 @@
   "producto": "Aguaje Complex 10X",
   "productoId": "aguaje-8ea7",
   "link": null,
-  "etapa": "revisar",
+  "etapa": "error",
   "creado": "2026-11-09T16:15:06.486Z",
-  "progreso": [],
-  "actualizado": "2026-11-09T18:12:06.784Z",
+  "progreso": [
+    "Escenas: 0 de 8 listas"
+  ],
+  "actualizado": "2026-11-09T18:12:57.136Z",
   "aviso": null,
-  "error": null,
-  "paso": null,
-  "inicioProduccion": "2026-11-09T17:56:21.956Z",
+  "error": "Error opening input files: Invalid data found when processing input",
+  "paso": {
+    "id": "escenas",
+    "desde": "2026-11-09T18:12:57.019Z",
+    "pct": 0,
+    "detalle": "0 de 8 listas (se hacen de a 4 a la vez)"
+  },
+  "inicioProduccion": "2026-11-09T18:12:52.747Z",
   "hechos": [],
-  "pidMotor": 2478
+  "pidMotor": 3673
 }
