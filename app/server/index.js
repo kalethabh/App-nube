@@ -20,6 +20,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import express from 'express';
 import { APP, DIST, RUTAS_API, HOST, PUERTO } from './lib/rutas.js';
+import { hostsPermitidos } from './lib/servidor.js';
 
 const DEV = process.argv.includes('--dev');
 
@@ -28,7 +29,7 @@ app.disable('x-powered-by');
 
 // Solo se atiende a este equipo: nada de otros nombres de host (evita que una pagina web
 // cualquiera le hable a la app haciendose pasar por localhost).
-const HOSTS = new Set([`127.0.0.1:${PUERTO}`, `localhost:${PUERTO}`, `[::1]:${PUERTO}`]);
+const HOSTS = hostsPermitidos(PUERTO); // + el dominio del servidor, si la app corre en uno (lib/servidor.js)
 app.use((req, res, next) => {
   if (!HOSTS.has(String(req.headers.host || '').toLowerCase())) return res.status(403).send('Solo desde este equipo.');
   next();

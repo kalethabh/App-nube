@@ -131,7 +131,14 @@ async function guardarEnGitHub() {
 }
 
 async function empujar(msj = null) {
-  const p = await git(['push', '-q'], 10 * 60000);
+  let p = await git(['push', '-q'], 10 * 60000);
+  // otra máquina (la Mac o el servidor) subió algo antes: se junta con lo de aquí y se vuelve a subir
+  if (!p.ok && /rejected|non-fast-forward|fetch first/i.test(p.salida)) {
+    const conIdentidad = (await git(['config', 'user.email'])).ok ? [] : ['-c', 'user.name=Kads Studio', '-c', 'user.email=kads-studio@localhost'];
+    const j = await git([...conIdentidad, 'pull', '-q', '--no-rebase', '--no-edit'], 10 * 60000);
+    if (j.ok) p = await git(['push', '-q'], 10 * 60000);
+    else await git(['merge', '--abort']);
+  }
   anotar({
     github: p.ok
       ? { ok: true, mensaje: msj ? `Subido a GitHub: ${msj.replace('Guardado automático: ', '')}.` : 'Al día en GitHub.', fecha: new Date().toISOString() }

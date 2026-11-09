@@ -13,6 +13,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { RAIZ, APP } from './rutas.js';
 import { guardarAhora } from './guardado.js';
+import { EN_SERVIDOR } from './servidor.js';
 
 function correr(cmd, args, { cwd = RAIZ, ms = 180000 } = {}) {
   return new Promise((ok) => {
@@ -89,6 +90,11 @@ export async function actualizar() {
     // el servidor que corre es el de antes: lo nuevo del servidor o del motor se usa al volver a abrir la app
     const reabrir = cambiados.some((f) => f.startsWith('app/server/') || f.startsWith('produccion/') || f.startsWith('app/inicio/') || /^app\/package/.test(f));
     const n = antes.atrasados;
+    // en el servidor no hay ventana que cerrar: la app se reinicia sola (el servicio la vuelve a levantar)
+    if (reabrir && EN_SERVIDOR) {
+      setTimeout(() => process.exit(0), 1500).unref?.();
+      return { ok: true, cambios: n, reabrir: false, reinicia: true, mensaje: `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. La app se reinicia sola: recarga la página en unos 20 segundos.` };
+    }
     return {
       ok: true,
       cambios: n,

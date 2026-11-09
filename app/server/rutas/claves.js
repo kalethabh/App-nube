@@ -18,6 +18,7 @@ import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { clavesGuardadas, guardarClaves, limpiarClave, probarClave, saldoKie, saldoElevenLabs, repararEnv, CLAVES } from '../lib/claves.js';
 import { DOLARES_POR_CREDITO, PUERTO, RAIZ, TEMP } from '../lib/rutas.js';
+import { origenesPermitidos } from '../lib/servidor.js';
 import { stat, listar } from '../lib/archivos.js';
 import { entornoDelMotor, modoPrueba } from '../lib/procesos.js';
 import { slugDeLaApp, leerConductor } from '../lib/conductor.js';
@@ -26,7 +27,7 @@ import { CREDITOS_SUNO } from '../lib/gasto.js';
 
 // Lo que escribe o consulta afuera solo se acepta desde la propia app (una pagina de otro sitio
 // no puede guardar claves ni gastar consultas en nombre del usuario).
-const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+const ORIGENES = origenesPermitidos(PUERTO);
 function desdeLaApp(req, res, next) {
   const origen = req.headers.origin;
   if (origen && !ORIGENES.has(String(origen).toLowerCase())) return res.status(403).json({ error: 'Solo desde la app.' });

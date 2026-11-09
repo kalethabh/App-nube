@@ -15,6 +15,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { TEMP, PUERTO, PUERTO_DE_PRUEBA, esDeEstaApp } from './rutas.js';
+import { origenesPermitidos } from './servidor.js';
 import { leerJSON, existe, listar, escribirJSONSeguro } from './archivos.js';
 import { sesionActiva, prohibidasComunes, textoClaude, leerYValidar, validarEsquema, cargarEsquema } from './claude.js';
 // con la pausa compartida: si el plan de Claude se acabo, no se abre otra sesion hasta que se renueve
@@ -27,7 +28,7 @@ const ID = /^[a-z0-9][a-z0-9-]{1,79}$/;
 
 // Lo que cambia algo (crear, subir, lanzar a Claude) solo desde la propia app: una pagina web cualquiera podria
 // mandarle un POST a 127.0.0.1 y aca eso es gastar el plan de Claude del usuario.
-const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+const ORIGENES = origenesPermitidos(PUERTO);
 export function soloDesdeLaApp(req, res, next) {
   const origen = req.headers.origin;
   if ((origen && !ORIGENES.has(String(origen).toLowerCase())) || String(req.headers['sec-fetch-site'] || '') === 'cross-site') {
