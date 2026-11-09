@@ -1,11 +1,11 @@
 // Lo primero de «Nuevo anuncio» (#/nuevo sin nada más): qué quieres hacer.
-//   - Solo cambiar el producto de un video (con subtítulos y traducción) -> #/cambiar
+//   - «Cambiar el producto» (una tarjeta más entre los estilos: con subtítulos y traducción) -> #/cambiar
 //   - Un anuncio nuevo: se elige el estilo primero -> #/nuevo?estilo=<clave> (el estilo queda marcado en el paso 2)
 //   - «Elegir el estilo después» -> #/nuevo?inicio=1 (el flujo de siempre)
-import { ArrowRight, Languages, Repeat, Subtitles } from 'lucide-react';
+import { Languages, Repeat, Subtitles } from 'lucide-react';
 import { CabeceraPagina, EsqueletoMiniaturas, MiniaturaVideo } from '../../componentes/index.js';
 import { miniatura, useEstilos } from '../../datos/api.js';
-import { enlace, ir, rutas } from '../../datos/rutas.js';
+import { ir, rutas } from '../../datos/rutas.js';
 import { disponible, iconoDe } from '../estilos/catalogo.js';
 import '../estilos/estilos2.css';
 
@@ -15,32 +15,30 @@ export function Elegir() {
   const usar = (clave) => ir(clave === 'continuidad' ? rutas.nuevo({ estilo: 'estilo-pixar', continuidad: '1' }) : rutas.nuevo({ estilo: clave }));
   return (
     <div className="pagina nv">
-      <CabeceraPagina sobretitulo="Nuevo anuncio" titulo="¿Qué quieres hacer?" descripcion="Elige el estilo de tu anuncio, o cambia solo el producto de un video que ya existe." />
-
-      <a className="nv-solo-cambiar" href={enlace.cambiar()}>
-        <span className="nv-solo-cambiar__icono" aria-hidden="true">
-          <Repeat size={24} strokeWidth={2} />
-        </span>
-        <span className="nv-solo-cambiar__texto">
-          <strong>Solo cambiar el producto de un video</strong>
-          <span>Subes el video y queda igual, pero con tu producto, la voz en español y subtítulos nuevos.</span>
-          <span className="nv-solo-cambiar__chips">
-            <span><Repeat size={13} aria-hidden="true" /> Tu producto</span>
-            <span><Subtitles size={13} aria-hidden="true" /> Subtítulos</span>
-            <span><Languages size={13} aria-hidden="true" /> Traducción</span>
-          </span>
-        </span>
-        <ArrowRight className="nv-solo-cambiar__flecha" size={20} aria-hidden="true" />
-      </a>
+      <CabeceraPagina titulo="Elige el tipo de anuncio" />
 
       <div className="nv-elegir__titulo">
-        <h2>O elige el estilo de un anuncio nuevo</h2>
-        <a href={`#${rutas.nuevo({ inicio: '1' })}`}>Elegir el estilo después</a>
+        <span className="nv-elegir__paso">Paso 1 de 2 · tipo de anuncio</span>
+        <a href={`#${rutas.nuevo({ inicio: '1' })}`}>Elegir después</a>
       </div>
       {cargando && !datos ? (
         <EsqueletoMiniaturas cantidad={10} min={200} />
       ) : (
         <div className="es2-rejilla">
+          <button type="button" className="miniatura miniatura--interactiva es2-tarjeta nv-tarjeta-cambiar" onClick={() => ir(rutas.cambiar())} aria-label="Usar Cambiar el producto">
+            <div className="miniatura__marco nv-tarjeta-cambiar__marco" style={{ aspectRatio: '9 / 16' }}>
+              <Repeat className="nv-tarjeta-cambiar__icono" size={42} strokeWidth={1.6} aria-hidden="true" />
+              <span className="nv-tarjeta-cambiar__chips" aria-hidden="true">
+                <span><Repeat size={12} /> Tu producto</span>
+                <span><Subtitles size={12} /> Subtítulos</span>
+                <span><Languages size={12} /> Traducción</span>
+              </span>
+            </div>
+            <div className="miniatura__pie">
+              <span className="miniatura__titulo">Cambiar el producto</span>
+              <span className="miniatura__subtitulo">Un video que ya existe, con tu producto</span>
+            </div>
+          </button>
           {estilos.map((e, i) => {
             const Icono = iconoDe(e.clave, e.familia);
             return (
