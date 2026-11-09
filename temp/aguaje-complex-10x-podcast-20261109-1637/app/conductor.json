@@ -1,7 +1,7 @@
 {
   "slug": "aguaje-complex-10x-podcast-20261109-1637",
   "familia": "hablado",
-  "estado": "esperando",
+  "estado": "corriendo",
   "paso": "videos",
   "pasos": [
     {
@@ -41,16 +41,11 @@
       "id": "videos",
       "nombre": "Crear los clips",
       "estado": "corriendo",
-      "intentos": 2,
+      "intentos": 3,
       "inicio": "2026-11-09T22:08:09.012Z",
       "reintentos": 5,
       "retomado": true,
-      "detalle": "Generando los clips",
-      "error": {
-        "mensaje": "kie sigue sin responder bien con los clips (es una caída de su lado, no de tu anuncio): lo intento de nuevo a las 18:23.",
-        "motivo": "servidor",
-        "reintentoEn": "2026-11-09T23:23:23.754Z"
-      }
+      "detalle": "Generando los clips"
     },
     {
       "id": "revision-habla",
@@ -91,7 +86,7 @@
   "modoPrueba": false,
   "creado": "2026-11-09T21:59:09.596Z",
   "aprobado": "2026-11-09T21:59:09.596Z",
-  "actualizado": "2026-11-09T23:08:23.754Z",
+  "actualizado": "2026-11-09T23:21:28.176Z",
   "saldoInicial": {
     "creditos": 2751.8,
     "fecha": "2026-11-09T21:59:10.552Z"
