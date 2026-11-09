@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-podcast-20261109-1637",
   "familia": "hablado",
   "estado": "corriendo",
-  "paso": "imagenes",
+  "paso": "revision-imagenes",
   "pasos": [
     {
       "id": "validar",
@@ -23,15 +23,18 @@
     {
       "id": "imagenes",
       "nombre": "Crear las imágenes",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-09T21:59:10.552Z"
+      "inicio": "2026-11-09T21:59:10.552Z",
+      "fin": "2026-11-09T22:04:48.220Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-09T22:04:48.221Z",
+      "detalle": "Rehaciendo las imágenes que no pasaron la revisión"
     },
     {
       "id": "videos",
@@ -70,11 +73,15 @@
       "intentos": 0
     }
   ],
-  "rehechos": {},
+  "rehechos": {
+    "imagen-host-a": 1,
+    "imagen-host-b": 1,
+    "broll-4": 1
+  },
   "modoPrueba": false,
   "creado": "2026-11-09T21:59:09.596Z",
   "aprobado": "2026-11-09T21:59:09.596Z",
-  "actualizado": "2026-11-09T21:59:10.552Z",
+  "actualizado": "2026-11-09T22:05:39.337Z",
   "saldoInicial": {
     "creditos": 2751.8,
     "fecha": "2026-11-09T21:59:10.552Z"

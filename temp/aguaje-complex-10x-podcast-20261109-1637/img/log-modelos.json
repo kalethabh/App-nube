@@ -1,0 +1,148 @@
+{
+  "generado": "2026-11-09T22:04:48.196Z",
+  "segundos": 337,
+  "imagenes": [
+    {
+      "id": "host-a",
+      "archivo": "host-a.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "3cb6907f62dd21cec8fc543a9d53177a"
+    },
+    {
+      "id": "host-b",
+      "archivo": "host-b.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-a"
+      ],
+      "creditos": 10,
+      "taskId": "2fe90823b6c8b2a82a0bb0da120a296c"
+    },
+    {
+      "id": "toma-1-inicial",
+      "archivo": "toma-1-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-a.png",
+      "referencia": "host-a",
+      "creditos": 0
+    },
+    {
+      "id": "toma-2-inicial",
+      "archivo": "toma-2-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-a.png",
+      "referencia": "host-a",
+      "creditos": 0
+    },
+    {
+      "id": "toma-3-inicial",
+      "archivo": "toma-3-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-a.png",
+      "referencia": "host-a",
+      "creditos": 0
+    },
+    {
+      "id": "toma-4-inicial",
+      "archivo": "toma-4-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-5-inicial",
+      "archivo": "toma-5-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-6-inicial",
+      "archivo": "toma-6-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-7-inicial",
+      "archivo": "toma-7-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-8-inicial",
+      "archivo": "toma-8-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-a.png",
+      "referencia": "host-a",
+      "creditos": 0
+    },
+    {
+      "id": "toma-9-inicial",
+      "archivo": "toma-9-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "broll-1",
+      "archivo": "broll-1.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-a"
+      ],
+      "creditos": 10,
+      "taskId": "9a6a3c5d91a8399b1cd222240e102d39"
+    },
+    {
+      "id": "broll-2",
+      "archivo": "broll-2.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-b"
+      ],
+      "creditos": 10,
+      "taskId": "65e87e916a1d5c90af6f399b33d1497d"
+    },
+    {
+      "id": "broll-3",
+      "archivo": "broll-3.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-b"
+      ],
+      "creditos": 10,
+      "taskId": "71f696354bf301335fe8461b911eee9d"
+    },
+    {
+      "id": "broll-4",
+      "archivo": "broll-4.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-b"
+      ],
+      "creditos": 10,
+      "taskId": "cc6eae1e4e38d0eda565f9b0a9ee6661"
+    }
+  ]
+}
