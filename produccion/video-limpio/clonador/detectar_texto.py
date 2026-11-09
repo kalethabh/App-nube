@@ -29,6 +29,7 @@ Uso: python -m clonador.detectar_texto "<video>" trabajos/<trabajo>/analisis/tex
 import difflib
 import json
 import math
+import os
 import subprocess
 import sys
 import time
@@ -510,6 +511,17 @@ def _cartas(pistas, muestras, info):
             grupos.append([p])
     subs = max(grupos, key=len) if grupos else []
     subs = subs if len(subs) >= 3 else []
+    # Kads Studio (2026-11-09): subtítulos animados (entran creciendo o con rebote, palabra por palabra con la
+    # palabra resaltada). Se "mueven", pero están a la misma altura y del mismo tamaño que los demás subtítulos:
+    # no son un letrero de la escena. Con CLONADOR_ANIMADOS=0 se deja como antes.
+    if subs and os.environ.get("CLONADOR_ANIMADOS", "1") != "0":
+        ref = subs[0]
+        en_subs = {id(x) for x in subs}
+        for p in pistas:
+            if id(p) in en_subs or p["torcido"] or p["mov"] <= 0.12:
+                continue
+            if 0.6 <= p["alto"] / ref["alto"] <= 1.6 and abs(p["cy"] - ref["cy"]) <= 1.2 * ref["alto"]:
+                subs.append(p)
     ids = {id(p) for p in subs}
     cartas, escena = [], []
 
