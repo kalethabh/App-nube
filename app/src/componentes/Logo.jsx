@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-/** El símbolo de Kads Studio (by Kalethabh): una K verde lima sobre negro, con el punto de la IA. Igual a public/icono.svg. */
+/** El símbolo de Kads Studio (by Kalethabh): una K verde lima sobre negro, con el punto de la IA. Igual a public/kads-icono.svg (y sus PNG). */
 export function Logo({ tamano = 32, className = '' }) {
   const id = useId().replace(/:/g, '');
   return (
