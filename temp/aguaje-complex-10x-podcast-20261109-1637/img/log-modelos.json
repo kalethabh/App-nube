@@ -1,6 +1,6 @@
 {
-  "generado": "2026-11-09T22:04:48.196Z",
-  "segundos": 337,
+  "generado": "2026-11-09T22:08:08.982Z",
+  "segundos": 149,
   "imagenes": [
     {
       "id": "host-a",
@@ -10,7 +10,7 @@
       "intentos": 1,
       "referencias": [],
       "creditos": 10,
-      "taskId": "3cb6907f62dd21cec8fc543a9d53177a"
+      "taskId": "07bb89358cda26b038cdea18efecdb5a"
     },
     {
       "id": "host-b",
@@ -22,7 +22,7 @@
         "host-a"
       ],
       "creditos": 10,
-      "taskId": "2fe90823b6c8b2a82a0bb0da120a296c"
+      "taskId": "6a47622e595c8069889e2e589f92d704"
     },
     {
       "id": "toma-1-inicial",
@@ -106,7 +106,7 @@
         "host-a"
       ],
       "creditos": 10,
-      "taskId": "9a6a3c5d91a8399b1cd222240e102d39"
+      "taskId": "4cc212122b9670b6b9f2251bd40a51a2"
     },
     {
       "id": "broll-2",
@@ -118,7 +118,7 @@
         "host-b"
       ],
       "creditos": 10,
-      "taskId": "65e87e916a1d5c90af6f399b33d1497d"
+      "taskId": "cf8579e2e20a892b743050a14766881f"
     },
     {
       "id": "broll-3",
@@ -130,7 +130,7 @@
         "host-b"
       ],
       "creditos": 10,
-      "taskId": "71f696354bf301335fe8461b911eee9d"
+      "taskId": "6a8c1dcade9fdfe88c571dca082c32c6"
     },
     {
       "id": "broll-4",
@@ -142,7 +142,7 @@
         "host-b"
       ],
       "creditos": 10,
-      "taskId": "cc6eae1e4e38d0eda565f9b0a9ee6661"
+      "taskId": "2e1e5f46f7f52a3e25bcd44b71236ff9"
     }
   ]
 }
