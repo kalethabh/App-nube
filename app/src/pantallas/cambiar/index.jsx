@@ -475,6 +475,19 @@ function Detalle({ slug }) {
           <Seccion titulo="Opciones">
             <div className="pila" style={{ '--hueco': '12px' }}>
               <Interruptor activado={cambio.borrar_subtitulos !== false} onCambio={(v) => editar({ borrar_subtitulos: v })} deshabilitado={bloqueado} etiqueta="Borrar los subtítulos del original" descripcion="Se hace en tu Mac, gratis." />
+              {cambio.borrar_subtitulos !== false ? (
+                <div className="cb-borrado" role="radiogroup" aria-label="Cómo borrar los subtítulos">
+                  {[
+                    { v: 'calidad', t: 'Mejor calidad', d: 'Reconstruye el fondo cuadro por cuadro. Lento: puede tardar mucho en un video largo.' },
+                    { v: 'rapido', t: 'Rápido', d: 'Unos minutos. Puede dejar una mancha suave donde estaban las letras.' },
+                  ].map((o) => (
+                    <button key={o.v} type="button" role="radio" aria-checked={(cambio.borrado || 'calidad') === o.v} className={`cb-borrado__op${(cambio.borrado || 'calidad') === o.v ? ' cb-borrado__op--sel' : ''}`} onClick={() => editar({ borrado: o.v })} disabled={bloqueado}>
+                      <strong>{o.t}</strong>
+                      <span>{o.d}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : null}
               <Interruptor activado={cambio.subtitulos !== false} onCambio={(v) => editar({ subtitulos: v ? 'es' : false })} deshabilitado={bloqueado} etiqueta="Subtítulos nuevos en español" />
             </div>
           </Seccion>

@@ -49,6 +49,8 @@ function duracionDe(f) {
   const r = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], { encoding: 'utf8' });
   return Number(r.stdout.trim()) || 0;
 }
+/** Un video que se puede abrir y dura algo (uno cortado a la mitad no tiene duración). */
+const videoCompleto = (f, minimo = 0.3) => existe(f) && duracionDe(f) >= minimo;
 function medidasDe(f) {
   const r = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height,r_frame_rate', '-of', 'json', f], { encoding: 'utf8' });
   const s = JSON.parse(r.stdout).streams[0];
@@ -259,12 +261,17 @@ async function producir(c, { si }) {
   let base = original;
   if (m.borrar_subtitulos !== false) {
     const limpio = path.join(trabajo, 'limpio.mp4');
+    // uno de una vez anterior que quedó cortado (p. ej. se apagó la Mac): se rehace
+    if (existe(limpio) && !videoCompleto(limpio, duracionDe(original) * 0.9)) fs.rmSync(limpio, { force: true });
     if (!existe(limpio)) {
       if (!entornoListo()) throw new Error('Para borrar los subtítulos falta: npm run subtitulos:instalar (o pon "borrar_subtitulos": false).');
       decir('1/5 Borrando los subtítulos del original...');
       // a un archivo aparte y se renombra al final: si se corta a la mitad, no queda un limpio.mp4 incompleto
       const parcial = path.join(trabajo, 'limpio-parcial.mp4');
-      borrarSubtitulos(original, parcial);
+      // los textos ya encontrados en una vez anterior no se vuelven a buscar
+      const textoPrevio = limpio.replace(/\.mp4$/, '.texto.json');
+      if (existe(textoPrevio)) fs.copyFileSync(textoPrevio, parcial.replace(/\.mp4$/, '.texto.json'));
+      borrarSubtitulos(original, parcial, { rapido: m.borrado === 'rapido' });
       fs.renameSync(parcial, limpio);
       if (existe(parcial.replace(/\.mp4$/, '.texto.json'))) fs.renameSync(parcial.replace(/\.mp4$/, '.texto.json'), limpio.replace(/\.mp4$/, '.texto.json'));
     }
@@ -275,14 +282,14 @@ async function producir(c, { si }) {
   const foto = fotoProducto(c);
   const urlFoto = m.escenas.length ? await subirArchivo(foto) : null;
   // de a 4 a la vez (kie.ai las hace en paralelo): 8 escenas tardan lo que 2
-  let listas = m.escenas.filter((_, i) => existe(path.join(trabajo, `escena-${i + 1}.mp4`))).length;
+  let listas = m.escenas.filter((_, i) => videoCompleto(path.join(trabajo, `escena-${i + 1}.mp4`))).length;
   if (m.escenas.length) decir(`2/5 Escenas: ${listas} de ${m.escenas.length} listas`);
   const unaEscena = async (e, i) => {
     const n = i + 1;
     const cuadro = path.join(trabajo, `escena-${n}-original.png`);
     const imagen = path.join(trabajo, `escena-${n}.png`);
     const clip = path.join(trabajo, `escena-${n}.mp4`);
-    if (existe(clip)) return;
+    if (videoCompleto(clip)) return;
     decir(`   escena ${n}: ${Number(e.desde).toFixed(1)}–${Number(e.hasta).toFixed(1)} s`);
     if (!existe(cuadro)) ffmpeg(['-ss', String(Number(e.desde) + 0.05), '-i', base, '-frames:v', '1', cuadro], 'cuadro de la escena');
     if (!existe(imagen)) {
