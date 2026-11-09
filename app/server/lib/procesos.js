@@ -175,6 +175,48 @@ export function clasificarFallo(texto) {
   return 'otro';
 }
 
+/**
+ * Por qué falló un comando del motor, en palabras, con lo que dijo kie (o ElevenLabs) tal cual y lo que se puede
+ * hacer. Lo guarda el conductor en paso.error.causa y la producción lo muestra.
+ *   -> { porque, dijo, hacer: [frases] } o null si la salida no dice nada útil
+ */
+export function causaDeFallo(texto) {
+  // sin las frases fijas del motor (el resumen y el "Decide tu: a) b) c)"): hablan de rechazos aunque no los haya
+  const t = String(texto || '')
+    .split(/\r?\n/)
+    .filter((l) => !/Si el motivo es un rechazo|ese mensaje dice que hacer|No voy a inventar un prompt|Decide tu:|^\s*(\[\w+\]\s+)?[abc]\) |Para retomar|Lo ya hecho no se paga|Algo no salio\. El detalle/i.test(l))
+    .join('\n');
+  if (!t.trim()) return null;
+  // lo que respondió el servicio: el "Ultimo motivo" del motor, el "msg" de kie, su failMsg, o el código HTTP
+  const motivos = [...t.matchAll(/Ultimo motivo:\s*(?:La tarea \S+ fallo\.\s*)?(.+)/gi)].map((m) => m[1].trim());
+  const msgs = [...t.matchAll(/"(?:msg|failMsg|message|errorMessage)"\s*:\s*"([^"]{3,240})"/gi)].map((m) => m[1]).filter((m) => !/^success$/i.test(m));
+  const http = t.match(/(?:HTTP|code[=:]\s*|devolvio HTTP |\()\s*(4\d\d|5\d\d)\b/i)?.[1] || t.match(/\b(5\d\d) Internal/i)?.[1] || null;
+  const dijo = (motivos.length ? motivos[motivos.length - 1] : msgs.length ? msgs[msgs.length - 1] : http ? `Error ${http}` : null)?.slice(0, 240) || null;
+  const quedan = t.match(/Quedan en kie[^\d]*(\d+)/i)?.[1];
+  // las tomas que no salieron con ninguno de los modelos de video
+  const tomas = [...new Set([...t.matchAll(/toma (\d+)[^\n]*fallo con los dos modelos/gi)].map((m) => m[1]))];
+  const cuales = tomas.length ? `${tomas.length === 1 ? 'La toma' : 'Las tomas'} ${tomas.length === 1 ? tomas[0] : `${tomas.slice(0, -1).join(', ')} y ${tomas[tomas.length - 1]}`} no ${tomas.length === 1 ? 'salió' : 'salieron'} con ninguno de los dos modelos de video. ` : '';
+  const c = (porque, hacer) => ({ porque: `${cuales}${porque}`, dijo, hacer });
+  if (/IP whitelist/i.test(t)) return c('Tu clave de kie.ai tiene una lista blanca de IP y la de este computador no está.', ['En kie.ai → API Key, desactiva la lista blanca de IP (o agrega tu IP actual) y toca «Continuar». No se cobró nada.']);
+  if (/rechaz\w* por contenido|content policy|violat\w* (our )?(content|polic)|sensitive|nsfw|prohibited/i.test(t))
+    return c('El modelo de video rechazó una escena por su contenido (algo que su filtro considera sensible).', ['Abre el anuncio en el editor y rehaz esa toma con otra descripción.', 'O toca «Continuar»: a veces la misma escena pasa en otro intento.']);
+  if (quedan || /siguen? (generando|en kie)|sin bajar/i.test(t))
+    return c(`kie.ai todavía está generando ${quedan ? `${quedan} clip${quedan === '1' ? '' : 's'}` : 'algunos clips'}: hoy van más lentos de lo normal.`, ['No hagas nada: la app los recoge apenas estén y no se vuelven a pagar.', 'Si tienes prisa, toca «Continuar» para mirar de nuevo ahora.']);
+  if (/\b429\b|Too Many Requests|demasiadas solicitudes|rate.?limit/i.test(t))
+    return c('kie.ai está frenando pedidos porque llegaron muchos a la vez (límite de velocidad).', ['Espera unos minutos: si se detuvo, toca «Continuar».', 'Evita producir varios anuncios al mismo tiempo.']);
+  if (/insufficient|not enough (credits?|balance)|saldo insuficiente|no te alcanza|\b402\b/i.test(t))
+    return c('No te alcanza el saldo de kie.ai.', ['Recarga en kie.ai/billing y toca «Continuar»: lo ya hecho no se vuelve a pagar.']);
+  if (/rechazo la clave|invalid[_ ]api[_ ]key|You do not have access|\(401\)|\b401\b/i.test(t)) return c('kie.ai no aceptó tu clave.', ['Revisa tu clave de kie.ai en Ajustes → Conexiones y toca «Continuar».']);
+  if (/fetch failed|ECONNRESET|ENOTFOUND|ETIMEDOUT|EAI_AGAIN|ECONNREFUSED|socket hang up|network ?error/i.test(t))
+    return c('Se cortó la conexión con kie.ai (tu internet o la de ellos).', ['Revisa tu internet; la app sigue sola apenas vuelva.']);
+  if (/overload|saturad|busy|capacity/i.test(t))
+    return c('El modelo de video de kie.ai está saturado ahora mismo.', ['Espera unos minutos: si se detuvo, toca «Continuar».', 'Si sigue así un buen rato, vuelve a producir más tarde: lo ya hecho no se vuelve a pagar.']);
+  if (/\b5\d\d\b|Internal (Server )?Error|Bad Gateway|Service Unavailable|Gateway Time-?out|error del servidor|try again later/i.test(t))
+    return c(`El servidor de kie.ai está fallando${http ? ` (error ${http})` : ''}: es un problema de ellos, no de tu anuncio.`, ['Si arriba dice que lo reintenta sola, no hagas nada.', 'Si se detuvo, toca «Continuar» en unos minutos: lo ya hecho no se vuelve a pagar.', 'Si sigue fallando un buen rato, kie.ai tiene una caída: vuelve a producir más tarde.']);
+  if (dijo) return c('kie.ai devolvió un error.', ['Toca «Continuar» para reintentar. Si se repite, rehaz esa toma en el editor con otra descripción.']);
+  return null;
+}
+
 /** Las que se reintentan solas. */
 export const SE_REINTENTA = new Set(['red', 'servidor']);
 
@@ -666,7 +708,7 @@ export async function correrConReintentos(opciones, { antesDeCorrer = null, desp
     if (!SE_REINTENTA.has(clase)) return { ...r, clase, reintentos };
 
     if (!(await hayConexion())) {
-      await alEsperar?.({ motivo: 'conexion', hasta: null, numero: reintentos, mensaje: 'Se cortó internet: sigo apenas vuelva.' });
+      await alEsperar?.({ motivo: 'conexion', hasta: null, numero: reintentos, texto: r.texto, mensaje: 'Se cortó internet: sigo apenas vuelva.' });
       if (!(await esperarConexion(senal, slug))) return { ...r, codigo: null, cancelado: true, clase: 'cancelado', reintentos };
       await alReintentar?.({ numero: reintentos });
       continue; // sin conexion no cuenta como intento
@@ -680,6 +722,7 @@ export async function correrConReintentos(opciones, { antesDeCorrer = null, desp
       motivo: clase,
       hasta: hasta.toISOString(),
       numero: reintentos,
+      texto: r.texto,
       mensaje: clase === 'red' ? `Falló la conexión con kie: lo intento de nuevo a las ${hora}.` : `kie no respondió bien: lo intento de nuevo a las ${hora}.`,
     });
     if (!(await dormir(ms, senal, slug))) return { ...r, codigo: null, cancelado: true, clase: 'cancelado', reintentos };

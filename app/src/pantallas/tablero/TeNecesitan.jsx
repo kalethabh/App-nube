@@ -25,6 +25,8 @@ function textos({ alto }) {
   if (alto.tipo === 'saldo' || alto.tipo === 'cancion') return { titulo: t.titulo, texto: t.texto };
   const que = alto.paso ? enMinuscula(textoDePaso(alto.paso).haciendo) : null;
   if (alto.tipo === 'pausa') return { titulo: t.titulo, texto: `${que ? `Quedó en: ${que}. ` : ''}${t.texto}` };
+  const causa = alto.paso?.error?.causa;
+  if (causa) return { titulo: que ? `Se trabó: ${que}` : t.titulo, texto: `${causa.porque}${causa.dijo ? ` (kie.ai: «${causa.dijo}»)` : ''} ${causa.hacer?.join(' ') || t.texto}` };
   return { titulo: que ? `Se trabó: ${que}` : t.titulo, texto: `${alto.mensaje ? `${conPunto(alto.mensaje)} ` : ''}${t.texto}` };
 }
 

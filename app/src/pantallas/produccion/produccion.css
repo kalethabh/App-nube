@@ -2016,3 +2016,12 @@ button.prod-registro__boton:hover {
 .prod-registro__item--saldo-sobra .prod-registro__texto { color: #7bdc3a; }
 .prod-registro__item--saldo-justo .prod-registro__texto { color: #ffa53a; }
 .prod-registro__item--saldo-corto .prod-registro__texto { color: var(--error); }
+
+/* el porqué de un error y qué hacer (Lateral.jsx, Causa) */
+.prod-causa { display: flex; flex-direction: column; gap: 6px; margin-top: var(--e-2); padding: var(--e-3); border-radius: var(--r-m); background: rgba(0, 0, 0, 0.25); font-size: var(--t-chico); color: var(--texto-2); }
+.prod-causa p { margin: 0; }
+.prod-causa strong { color: var(--texto-1); }
+.prod-causa__dijo { color: var(--texto-3); font-size: var(--t-mini); }
+.prod-causa__dijo q { font-family: var(--fuente-mono, ui-monospace, monospace); color: var(--texto-2); }
+.prod-causa__titulo { margin-top: 4px; font-size: var(--t-mini); text-transform: uppercase; letter-spacing: 0.04em; }
+.prod-causa__hacer { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
