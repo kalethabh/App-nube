@@ -3,7 +3,7 @@
 // El servidor es lib/cambiar.js; el motor, produccion/cambiar-producto.js.
 import { useEffect, useMemo, useState } from 'react';
 import { Check, CircleAlert, CircleStop, Download, Film, ImagePlus, LoaderCircle, Mic, Play, Plus, RefreshCw, Repeat, Sparkles, X } from 'lucide-react';
-import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Seccion, SubirVideo, useAvisos } from '../../componentes/index.js';
+import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Modal, Seccion, SubirVideo, useAvisos } from '../../componentes/index.js';
 import { useDatos, invalidar, miniatura } from '../../datos/api.js';
 import { enlace, ir, rutas } from '../../datos/rutas.js';
 import './cambiar.css';
@@ -15,6 +15,8 @@ async function pedir(url, { metodo = 'GET', cuerpo } = {}) {
   if (!r.ok) throw new Error(d?.error || 'Algo salió mal. Vuelve a intentarlo.');
   return d;
 }
+const dolares = (n) => `US$${(Number(n) || 0).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const miles = (n) => (Number(n) || 0).toLocaleString('es-ES');
 const seg = (n) => `${(Number(n) || 0).toFixed(1).replace('.', ',')} s`;
 const ETAPAS = {
   analizando: 'Analizando el video',
@@ -321,6 +323,25 @@ function Detalle({ slug }) {
   useEffect(() => {
     if (t?.cambio && !sucio) setCambio(t.cambio);
   }, [t, sucio]);
+  // lo que cambias se guarda solo y el costo se recalcula (lo que falta pagar: lo hecho no se cobra de nuevo)
+  const [costo, setCosto] = useState(null);
+  const [confirmar, setConfirmar] = useState(false);
+  const etapa = t?.etapa;
+  useEffect(() => {
+    if (!cambio) return undefined;
+    const id = setTimeout(async () => {
+      try {
+        if (sucio) {
+          await pedir(`/api/cambiar/${encodeURIComponent(slug)}/cambio`, { metodo: 'PUT', cuerpo: { cambio } });
+          setSucio(false);
+        }
+        setCosto(await pedir(`/api/cambiar/${encodeURIComponent(slug)}/costo`));
+      } catch (e) {
+        setCosto({ error: e.message });
+      }
+    }, sucio ? 800 : 0);
+    return () => clearTimeout(id);
+  }, [cambio, sucio, etapa]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (error) return <EstadoVacio icono={CircleAlert} tono="peligro" titulo="No encuentro este video" descripcion={error.message} acciones={<Boton href={enlace.cambiar()}>Volver</Boton>} />;
   if (!t) return <p className="cb-nota">Cargando…</p>;
@@ -459,23 +480,72 @@ function Detalle({ slug }) {
           </Seccion>
 
           <div className="cb-acciones">
-            <Boton variante="primario" tamano="grande" icono={Sparkles} disabled={bloqueado || !(cambio.voz || []).some((v) => v.texto.trim())} cargando={t.etapa === 'produciendo'} onClick={() => accion('producir')}>
+            <Boton variante="primario" tamano="grande" icono={Sparkles} disabled={bloqueado || !costo || costo.error || !(cambio.voz || []).some((v) => v.texto.trim())} cargando={t.etapa === 'produciendo'} onClick={() => setConfirmar(true)}>
               {t.salidas?.length ? 'Volver a producir' : 'Producir el video'}
             </Boton>
-            {sucio ? (
-              <Boton onClick={() => guardar().then(() => aviso({ tipo: 'ok', titulo: 'Guardado' }))} disabled={bloqueado}>
-                Guardar cambios
-              </Boton>
-            ) : null}
             <Boton variante="fantasma" icono={RefreshCw} onClick={() => accion('proponer')} disabled={bloqueado}>
               Que Claude proponga de nuevo
             </Boton>
-            <span className="cb-nota">
-              {escenas} {escenas === 1 ? 'escena' : 'escenas'} con tu producto · {frases} frases de voz
+            <span className="cb-costo">
+              {costo?.error ? (
+                <span className="cb-error">{costo.error}</span>
+              ) : costo ? (
+                <>
+                  <strong>Costo: ~{dolares(costo.kie.dolares)}</strong> · {miles(costo.kie.creditos)} créditos de kie.ai ({escenas} {escenas === 1 ? 'escena' : 'escenas'}
+                  {costo.escenasHechas ? `, ${costo.escenasHechas} ya hechas` : ''}) · ~{miles(costo.elevenlabs.caracteres)} caracteres de ElevenLabs · borrar subtítulos: gratis
+                </>
+              ) : (
+                'Calculando el costo…'
+              )}
             </span>
           </div>
         </>
       ) : null}
+      <Modal
+        abierto={confirmar}
+        onCerrar={() => setConfirmar(false)}
+        titulo="¿Producir el video?"
+        descripcion="Esto es lo que se va a cobrar. Lo que ya está hecho no se vuelve a pagar."
+        icono={Sparkles}
+        pie={
+          <>
+            <Boton variante="fantasma" onClick={() => setConfirmar(false)}>
+              Cancelar
+            </Boton>
+            <Boton
+              variante="primario"
+              icono={Sparkles}
+              onClick={() => {
+                setConfirmar(false);
+                accion('producir');
+              }}
+            >
+              Sí, producir
+            </Boton>
+          </>
+        }
+      >
+        {costo && !costo.error ? (
+          <ul className="cb-detalle-costo">
+            <li>
+              <span>
+                kie.ai · {escenas} {escenas === 1 ? 'escena' : 'escenas'} con tu producto ({costo.porEscena} créditos cada una){costo.escenasHechas ? ` · ${costo.escenasHechas} ya hechas` : ''}
+              </span>
+              <strong>
+                {miles(costo.kie.creditos)} créditos · ~{dolares(costo.kie.dolares)}
+              </strong>
+            </li>
+            <li>
+              <span>ElevenLabs · la voz en español ({frases} {frases === 1 ? 'frase' : 'frases'}) y aislar la voz del original</span>
+              <strong>~{miles(costo.elevenlabs.caracteres)} caracteres de tu plan</strong>
+            </li>
+            <li>
+              <span>Borrar los subtítulos y armar el video, en tu Mac</span>
+              <strong>Gratis</strong>
+            </li>
+          </ul>
+        ) : null}
+      </Modal>
     </div>
   );
 }

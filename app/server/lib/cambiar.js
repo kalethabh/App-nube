@@ -490,6 +490,26 @@ export function detenerCambio(slug) {
   return true;
 }
 
+/**
+ * Lo que va a costar producir el trabajo tal como está guardado (el plan del motor): kie.ai en créditos y dólares,
+ * y ElevenLabs en caracteres del plan. Borrar los subtítulos es gratis. Nada de esto cobra.
+ */
+export async function costoCambio(slug) {
+  if (!slugValido(slug) || !existe(path.join(dirDe(slug), 'cambio.json'))) return null;
+  const { plan } = await import(pathToFileURL(MOTOR).href);
+  const { PRECIOS } = await import(pathToFileURL(path.join(RAIZ, 'produccion', 'config.js')).href);
+  const p = plan(dirDe(slug));
+  const hechas = p.escenas.filter((e) => existe(path.join(dirDe(slug), 'trabajo', `escena-${e.i}.mp4`)));
+  const kiePendiente = p.escenas.filter((e) => !hechas.includes(e)).reduce((t, e) => t + e.imagen + (e.video || 0), 0);
+  return {
+    escenas: p.escenas.length,
+    escenasHechas: hechas.length,
+    porEscena: p.escenas[0] ? p.escenas[0].imagen + (p.escenas[0].video || 0) : 0,
+    kie: { creditos: kiePendiente, dolares: Math.round(kiePendiente * PRECIOS.usdPorCredito * 100) / 100, total: p.kie },
+    elevenlabs: { caracteres: p.caracteres + p.aislar, voz: p.caracteres, aislar: p.aislar },
+  };
+}
+
 /** Al abrir la app: lo que quedó a medias se marca para retomarlo con un clic. */
 export function revisarAlAbrir() {
   for (const t of listarCambios()) {
