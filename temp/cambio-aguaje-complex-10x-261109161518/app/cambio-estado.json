@@ -7,14 +7,14 @@
   "progreso": [
     "Borrando los subtítulos del original..."
   ],
-  "actualizado": "2026-11-09T18:28:21.305Z",
+  "actualizado": "2026-11-09T18:42:40.967Z",
   "aviso": null,
   "error": null,
   "paso": {
     "id": "subtitulos",
     "desde": "2026-11-09T18:28:21.304Z",
-    "pct": null,
-    "detalle": "Los textos ya estaban encontrados"
+    "pct": 0.023474178403755867,
+    "detalle": "Cuadro 60 de 2556"
   },
   "inicioProduccion": "2026-11-09T18:28:16.050Z",
   "hechos": [],
