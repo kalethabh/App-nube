@@ -10,7 +10,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { RAIZ, PUERTO_DE_PRUEBA } from './rutas.js';
+import { execFile } from 'node:child_process';
 import { ESTILOS } from './estilos.js';
+import { rutaFfmpeg } from './miniaturas.js';
 
 const DIR = path.join(RAIZ, 'mis_archivos', '.anuncios-github');
 const CACHE = path.join(RAIZ, 'mis_archivos', '.anuncios-github-cache');
@@ -152,8 +154,10 @@ export async function listarAnunciosGithub() {
     const p = f.split('/');
     if (p.length < 4) continue;
     const clave = `${p[1]}/${p[2]}`;
-    if (!anuncios.has(clave)) anuncios.set(clave, { producto: p[1], id: p[2], mp4s: [], imagenes: [], manifiesto: null });
+    if (!anuncios.has(clave)) anuncios.set(clave, { producto: p[1], id: p[2], mp4s: [], imagenes: [], manifiesto: null, referencias: [] });
     const a = anuncios.get(clave);
+    // los videos de referencia de una clonación: material/referencia/<ref>/adn-base.json (tomas, tiempos y audio)
+    if (p.length === 7 && p[3] === 'material' && p[4] === 'referencia' && p[6] === 'adn-base.json' && /^ref\d+$/.test(p[5])) a.referencias.push(p[5]);
     if (p.length === 4 && p[3].endsWith('.mp4')) a.mp4s.push(f);
     // el sketch deja sus finales en material/: FINAL_con_musica.mp4 y FINAL_sin_musica.mp4
     else if (p.length === 5 && p[3] === 'material' && /^FINAL_.*\.mp4$/i.test(p[4])) a.mp4s.push(f);
@@ -195,6 +199,7 @@ export async function listarAnunciosGithub() {
       estiloNombre: def?.nombre || (estilo ? nombreBonito(estilo) : null),
       versiones,
       portada,
+      referencias: a.referencias.sort(),
     };
     if (!porProducto.has(a.producto)) porProducto.set(a.producto, []);
     porProducto.get(a.producto).push(item);
@@ -219,4 +224,77 @@ export async function videoQueDiga(texto) {
   const todos = (await listarAnunciosGithub()).flatMap((p) => p.anuncios);
   const a = todos.find((x) => x.id.includes(texto));
   return a ? { video: a.versiones[0]?.ruta || null, portada: a.portada } : null;
+}
+
+// ---------------------------------------------------------------- el video de referencia de una clonación
+
+const armando = new Map();
+const ID = /^[a-z0-9][a-z0-9._-]{0,120}$/i;
+
+/** De a `n` a la vez. */
+async function enTandas(lista, n, fn) {
+  const out = new Array(lista.length);
+  let i = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(n, lista.length) }, async () => {
+      while (i < lista.length) {
+        const k = i++;
+        out[k] = await fn(lista[k]);
+      }
+    })
+  );
+  return out;
+}
+
+/**
+ * El anuncio original que se clonó, rearmado: cada fotograma de sus tomas (material/referencia/<ref>/tomas/) por lo
+ * que duró esa toma, con su audio original. Se arma una sola vez (ffmpeg, local, gratis) y queda en la caché.
+ * Devuelve la ruta del MP4, o null si ese anuncio no guardó su referencia.
+ */
+export function videoDeReferencia(producto, anuncio, ref) {
+  if (![producto, anuncio].every((x) => ID.test(String(x || ''))) || !/^ref\d+$/.test(String(ref || ''))) return Promise.resolve(null);
+  const destino = path.join(CACHE, 'productos', producto, anuncio, `referencia-${ref}.mp4`);
+  if (fs.existsSync(destino)) return Promise.resolve(destino);
+  const clave = destino;
+  if (armando.has(clave)) return armando.get(clave);
+  const tarea = (async () => {
+    const base = `productos/${producto}/${anuncio}/material/referencia/${ref}`;
+    let adn;
+    try {
+      adn = JSON.parse((await textoDe(`${base}/adn-base.json`)) || 'null');
+    } catch {
+      adn = null;
+    }
+    const tomas = (Array.isArray(adn?.tomas) ? adn.tomas : []).filter((t) => t && typeof t.fotograma === 'string' && Number(t.duracion) > 0);
+    if (!tomas.length) return null;
+    const cuadros = await enTandas(tomas, 6, (t) => archivoLocal(`${base}/${t.fotograma.replace(/^\.?\//, '')}`));
+    const audio = await archivoLocal(`${base}/audio-referencia.mp3`);
+    const validos = tomas.map((t, k) => ({ t, f: cuadros[k] })).filter((x) => x.f);
+    if (!validos.length) return null;
+    fs.mkdirSync(path.dirname(destino), { recursive: true });
+    const lista = path.join(path.dirname(destino), `referencia-${ref}.txt`);
+    const q = (f) => `file '${f.replace(/'/g, "'\\''")}'`;
+    fs.writeFileSync(lista, [...validos.flatMap(({ t, f }) => [q(f), `duration ${Number(t.duracion).toFixed(3)}`]), q(validos[validos.length - 1].f)].join('\n'));
+    const tmp = `${destino}.parcial.mp4`;
+    const args = [
+      '-y', '-hide_banner', '-loglevel', 'error',
+      '-f', 'concat', '-safe', '0', '-i', lista,
+      ...(audio ? ['-i', audio] : []),
+      '-vf', 'scale=720:1280,format=yuv420p',
+      '-r', '25', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '26',
+      ...(audio ? ['-c:a', 'aac', '-b:a', '128k', '-shortest'] : []),
+      '-movflags', '+faststart', tmp,
+    ];
+    await new Promise((ok, mal) => execFile(rutaFfmpeg(), args, { timeout: 300000, windowsHide: true }, (e) => (e ? mal(e) : ok())));
+    fs.renameSync(tmp, destino);
+    fs.rmSync(lista, { force: true });
+    return destino;
+  })()
+    .catch((e) => {
+      console.warn(`[anuncios-github] no pude armar la referencia de ${anuncio}/${ref} (${String(e.message || e).slice(0, 160)})`);
+      return null;
+    })
+    .finally(() => armando.delete(clave));
+  armando.set(clave, tarea);
+  return tarea;
 }

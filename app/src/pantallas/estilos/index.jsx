@@ -19,7 +19,7 @@ const FILTROS = [
 ];
 
 const ESPECIALES = [
-  { clave: 'clonacion', nombre: 'Clonar un video', lema: 'La estructura de un anuncio que ya vende', icono: Copy, buscar: (a) => a.estilo === 'entrevista', como: 'En los ajustes de cualquier estilo: «Clonar un video».', href: () => enlace.nuevo() },
+  { clave: 'clonacion', nombre: 'Clonar un video', lema: 'La estructura de un anuncio que ya vende', icono: Copy, buscar: (a) => a.estilo === 'entrevista' && a.referencias?.length, comparar: true, como: 'En los ajustes de cualquier estilo: «Clonar un video».', href: () => enlace.nuevo() },
   { clave: 'ganchos', nombre: 'Más ganchos', lema: 'El mismo anuncio con otros inicios', icono: Repeat2, buscar: (a) => a.estilo === 'zack-d-films', como: 'En la entrega de un anuncio con narrador: «Más ganchos».', href: () => enlace.anuncios() },
   { clave: 'sketch', nombre: 'Sketch de comedia', lema: 'Telenovela que no parece anuncio', icono: Laugh, buscar: (a) => a.estilo === 'sketch', como: 'Desde Claude Code: pide «un anuncio sketch».', href: null },
 ];
@@ -39,6 +39,18 @@ function Detalle({ e, onCerrar }) {
   return (
     <Modal abierto={Boolean(e)} onCerrar={onCerrar} titulo={e.nombre} descripcion={e.lema} icono={Icono} tamano="grande">
       <div className="es2-detalle">
+        {e.comparar && e.referencia ? (
+          <div className="es2-comparar">
+            <figure>
+              <video src={e.referencia} autoPlay muted loop playsInline controls />
+              <figcaption>El original</figcaption>
+            </figure>
+            <figure>
+              <video src={e.video} poster={e.imagen ? miniatura(e.imagen, 480) : undefined} autoPlay muted loop playsInline controls />
+              <figcaption>Tu clon</figcaption>
+            </figure>
+          </div>
+        ) : (
         <div className="es2-detalle__video">
           {e.video ? (
             <video key={e.video} src={e.video} poster={e.imagen ? miniatura(e.imagen, 480) : undefined} autoPlay muted loop playsInline controls />
@@ -46,6 +58,7 @@ function Detalle({ e, onCerrar }) {
             <img src={miniatura(e.imagen, 480)} alt="" />
           ) : null}
         </div>
+        )}
         <div className="es2-detalle__texto">
           {e.descripcion ? <p className="es2-detalle__descripcion">{e.descripcion}</p> : null}
           <dl className="es2-datos">
@@ -98,7 +111,7 @@ export default function Estilos() {
   const [abierto, setAbierto] = useState(null);
 
   const deGithub = useMemo(() => (gh?.productos || []).flatMap((p) => p.anuncios), [gh]);
-  const videoDe = (a) => (a ? { video: a.versiones?.[0]?.url || null, imagen: a.portada || null } : {});
+  const videoDe = (a) => (a ? { video: a.versiones?.[0]?.url || null, imagen: a.portada || null, referencia: a.referencias?.[0]?.url || null } : {});
 
   const tarjetas = useMemo(() => {
     const estilos = (datos?.estilos || []).map((e) => {

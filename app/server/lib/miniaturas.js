@@ -23,6 +23,8 @@ function buscarFfmpeg() {
   return 'ffmpeg';
 }
 const FFMPEG = buscarFfmpeg();
+/** El ffmpeg que usa la app (el de Remotion, o el del PATH). */
+export const rutaFfmpeg = () => FFMPEG;
 
 export const ANCHOS = [160, 240, 320, 480, 640, 720, 960];
 export const anchoPermitido = (n) => ANCHOS.find((a) => a >= Number(n)) || ANCHOS[ANCHOS.length - 1];
