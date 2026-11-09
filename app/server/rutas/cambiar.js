@@ -11,7 +11,7 @@ import path from 'node:path';
 import { TEMP } from '../lib/rutas.js';
 import { dentroDe } from '../lib/archivos.js';
 import { enviar } from './archivos.js';
-import { crearCambio, detenerCambio, slugValido, guardarCambio, listarCambios, producirCambio, reintentar, revisarAlAbrir, verCambio, volverAProponer } from '../lib/cambiar.js';
+import { costoCambio, crearCambio, detenerCambio, slugValido, guardarCambio, listarCambios, producirCambio, reintentar, revisarAlAbrir, verCambio, volverAProponer } from '../lib/cambiar.js';
 
 const fallar = (res, e) => res.status(e?.status || 500).json({ error: e?.status ? e.message : 'Algo salió mal. Vuelve a intentarlo.' });
 
@@ -52,6 +52,15 @@ export default function rutasCambiar(app) {
       res.json({ ok: true });
     } catch (e) {
       fallar(res, e);
+    }
+  });
+  app.get('/api/cambiar/:slug/costo', async (req, res) => {
+    try {
+      const c = await costoCambio(req.params.slug);
+      if (!c) return res.status(404).json({ error: 'No encuentro ese trabajo.' });
+      res.set('Cache-Control', 'no-store').json(c);
+    } catch (e) {
+      res.status(400).json({ error: String(e.message || e).replace(/^cambio\.json tiene errores:\s*/, '').slice(0, 300) });
     }
   });
   app.post('/api/cambiar/:slug/detener', soloDesdeLaApp, (req, res) => res.json({ ok: detenerCambio(req.params.slug) }));
