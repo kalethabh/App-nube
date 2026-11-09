@@ -1,0 +1,167 @@
+{
+  "estilo": "podcast",
+  "modo_audio": "dialogo_nativo",
+  "mercado": "LatAm",
+  "idioma": "es",
+  "aspect_ratio": "9:16",
+  "podcast": {
+    "hosts": { "A": "host-a", "B": "host-b" },
+    "lados": { "A": "izquierda", "B": "derecha" },
+    "broll": { "modo": "pantalla-dividida" }
+  },
+  "referencias": [
+    {
+      "id": "host-a",
+      "tipo": "personaje",
+      "prompt": "Foto realista de una mujer colombiana de 27 años, de la costa Caribe, sentada en un podcast, vista desde el pecho hacia arriba, un poco descentrada. Los dos hombros y los brazos quedan dentro del cuadro, con aire a los dos lados del cuerpo: ningún brazo toca el borde de la imagen. Delante hay un micrófono de podcast negro, de los grandes, montado en un brazo articulado que entra por un lado de la imagen. El micrófono queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla. Está en medio de una conversación: mira hacia el lado derecho de la imagen, a la persona con la que habla, que no se ve. Nunca mira a la cámara. Expresión natural, a punto de contar algo que le da un poco de pena. Cara ovalada y delgada, piel trigueña clara con unas pecas suaves en la nariz, cejas finas y arqueadas, nariz pequeña y recta, labios delgados. Pelo castaño oscuro, largo y liso, suelto, con mechones sueltos sobre la cara. Lleva una camisa de lino blanca, holgada, arremangada, con arrugas de uso, y unas argollas doradas pequeñas. Cara real: piel con poros, tono desparejo, sin maquillaje pesado, sin retoque; proporciones de persona común, no de modelo. El lugar no es un estudio: es la sala de un apartamento, con pared color terracota, luz de día que entra por una ventana con cortina de lino beige y una lámpara de pie encendida. Detrás de ella, arriba y a un costado, sin quedar detrás de su cabeza, hay un letrero de neón con letras cursivas rosadas que dice exactamente \"Tus Mejores Secretos\", y una tira de luces LED rosadas y moradas a lo largo de una repisa con una planta colgante y un jarrón de cerámica. Fondo un poco desenfocado, como grabado con una cámara real. Fuera del letrero de neón, sin texto ni logos. Aspect 9:16."
+    },
+    {
+      "id": "host-b",
+      "tipo": "personaje",
+      "prompt": "Usa la imagen adjunta como referencia del lugar, la luz y el encuadre. Mantén la misma sala de apartamento, la misma pared color terracota, la misma luz de día de la ventana, el mismo letrero de neón con letras cursivas rosadas que dice exactamente \"Tus Mejores Secretos\" y el mismo tipo de micrófono de podcast negro en su brazo articulado. Cambia a la persona: ahora es una mujer colombiana de 32 años, de Antioquia, con la cara más redonda y pómulos marcados, piel morena canela un tono más oscura que la de la imagen adjunta, cejas gruesas y rectas, nariz más ancha, labios gruesos, y pelo negro rizado recogido en un moño alto con rizos sueltos alrededor de la cara. Lleva un suéter tejido color vino tinto, de cuello redondo, con algunas bolitas de uso, y un collar dorado fino, sin aretes grandes. Está sentada frente al mismo micrófono, que queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla, vista desde el pecho hacia arriba, un poco descentrada, con el mismo encuadre: los dos hombros y los brazos dentro del cuadro, con aire a los dos lados del cuerpo, sin que ningún brazo toque el borde de la imagen. Mira hacia el lado izquierdo de la imagen, a la persona con la que habla, que no se ve. Nunca mira a la cámara. Expresión tranquila y segura, con media sonrisa. Cara real: piel con poros, tono desparejo, sin retoque, proporciones de persona común. Cambia la posición de los adornos del fondo, todos sin letras: el letrero de neón ahora queda del otro lado, arriba, sin quedar detrás de su cabeza; la tira de luces LED rosadas y moradas sigue en la repisa; se ve una monstera grande en una matera de barro en vez de la planta colgante, y la lámpara de pie ya no está en cuadro. Es el mismo ambiente, pero desde otro lugar. Fuera del letrero de neón, sin texto ni logos. Aspect 9:16.",
+      "referencias": ["host-a"]
+    },
+    {
+      "id": "producto",
+      "tipo": "producto",
+      "archivo": "producto.png",
+      "nota": "conservar forma, colores y etiqueta exactos; siempre cerrado, sin cápsulas a la vista"
+    }
+  ],
+  "guion": [
+    { "orden": 1, "habla": "A", "texto": "Te lo juro, yo me medía un jean y atrás me sobraba tela. Nada, plana.", "beat": "entrada en frío" },
+    { "orden": 2, "habla": "A", "texto": "Y sin tiempo pa' gimnasio, ya estaba ahorrando pa' operarme.", "beat": "el problema",
+      "cutaway": { "host": "B", "reaccion": 1, "tras": "Y sin tiempo pa' gimnasio" } },
+    { "orden": 3, "habla": "B", "texto": "Ay, no me digas, yo estaba igualita.", "beat": "reconocimiento" },
+    { "orden": 4, "habla": "B", "texto": "Hasta que mi tía me dijo: mija, primero pruebe lo natural.", "beat": "revelación" },
+    { "orden": 5, "habla": "B", "texto": "Me pasó el Aguaje Complex 10X.", "beat": "producto" },
+    { "orden": 6, "habla": "B", "texto": "Tres meses de tratamiento, sin dietas y sin gimnasio.", "beat": "producto" },
+    { "orden": 7, "habla": "A", "texto": "Yo probé unas pastillas y cuando las dejé, rebote total.", "beat": "objeción" },
+    { "orden": 8, "habla": "B", "texto": "A mí no, y eso era justo lo que más miedo me daba.", "beat": "objeción",
+      "cutaway": { "host": "A", "reaccion": 1, "tras": "lo que más miedo me daba" } },
+    { "orden": 9, "habla": "B", "texto": "Cada frasco trae sesenta cápsulas de aguaje y fenogreco.", "beat": "prueba" },
+    { "orden": 10, "habla": "B", "texto": "Y ahora me pongo el jean y me miro de lado, ¿sí me entiendes?", "beat": "cierre" },
+    { "orden": 11, "habla": "A", "texto": "¿Y eso dónde lo consigo?", "beat": "cta" },
+    { "orden": 12, "habla": "B", "texto": "Tranquila, ahorita te paso el contacto de donde yo lo pedí.", "beat": "cta" },
+    { "orden": 13, "habla": "A", "texto": "Ay no, yo lo pido hoy mismo.", "beat": "cta" }
+  ],
+  "tomas": [
+    {
+      "n": 1, "tipo": "H", "habla": "A", "duracion": 10, "frame_inicial": "host-a",
+      "lineas": [
+        { "orden": 1, "texto": "Te lo juro, yo me medía un jean y atrás me sobraba tela. Nada, plana." },
+        { "orden": 2, "texto": "Y sin tiempo pa' gimnasio, ya estaba ahorrando pa' operarme." }
+      ],
+      "linea": "Te lo juro, yo me medía un jean y atrás me sobraba tela. Nada, plana. Y sin tiempo pa' gimnasio, ya estaba ahorrando pa' operarme.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Te lo juro, yo me medía un jean y atrás me sobraba tela. Nada, plana.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she starts mid-conversation, half laughing at herself, one hand gesturing behind her as if pointing at her own back, then a flat, deadpan ending with a small shrug.\n\nLínea 2: \"Y sin tiempo pa' gimnasio, ya estaba ahorrando pa' operarme.\"\nDelivery: lower and more confessional, eyebrows up and head tilted, a little embarrassed, both hands open in front of her.\n\nAudio: she speaks in a natural Colombian Spanish accent from the Caribbean coast (costeño: sing-song and quick, she softens the final s, open vowels; nothing paisa, not neutral, not Mexican, not Spain) at a quick, animated conversational speed, with the bright, slightly high-pitched voice of a woman in her late twenties, confessional and self-deprecating, laughing at herself. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 2, "tipo": "H", "habla": "A", "duracion": 10, "frame_inicial": "host-a",
+      "lineas": [
+        { "orden": 7, "texto": "Yo probé unas pastillas y cuando las dejé, rebote total." },
+        { "orden": 11, "texto": "¿Y eso dónde lo consigo?" },
+        { "orden": 13, "texto": "Ay no, yo lo pido hoy mismo." }
+      ],
+      "linea": "Yo probé unas pastillas y cuando las dejé, rebote total. ¿Y eso dónde lo consigo? Ay no, yo lo pido hoy mismo.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Yo probé unas pastillas y cuando las dejé, rebote total.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; skeptical, leaning back a little, one hand waving downward at the end with a wry smile.\n\nLínea 2: \"¿Y eso dónde lo consigo?\"\nDelivery: curious, leaning toward the mic, eyebrows up, quick and genuine.\n\nLínea 3: \"Ay no, yo lo pido hoy mismo.\"\nDelivery: decided and excited, a small laugh in her voice, a hand on her chest, nodding once.\n\nAudio: she speaks in a natural Colombian Spanish accent from the Caribbean coast (costeño: sing-song and quick, she softens the final s, open vowels; nothing paisa, not neutral, not Mexican, not Spain) at a quick, animated conversational speed, with the bright, slightly high-pitched voice of a woman in her late twenties, confessional and self-deprecating, laughing at herself. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 3, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
+      "lineas": [
+        { "orden": 3, "texto": "Ay, no me digas, yo estaba igualita." },
+        { "orden": 4, "texto": "Hasta que mi tía me dijo: mija, primero pruebe lo natural." }
+      ],
+      "linea": "Ay, no me digas, yo estaba igualita. Hasta que mi tía me dijo: mija, primero pruebe lo natural.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Ay, no me digas, yo estaba igualita.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; instant recognition, a soft laugh, eyes wide, pointing at herself with one hand.\n\nLínea 2: \"Hasta que mi tía me dijo: mija, primero pruebe lo natural.\"\nDelivery: storytelling, warm; she imitates her aunt's caring, firm tone on the advice, raising one finger like a wise aunt.\n\nAudio: she speaks in a natural Colombian Spanish paisa accent from Antioquia (melodic, sing-song intonation that rises and falls at the end of each phrase, soft clear consonants, she pronounces every s; nothing costeño, not neutral, not Mexican, not Spain) at a relaxed but natural conversational speed, a touch slower than her friend and never dragging, with the warm, slightly lower and fuller voice of a woman in her early thirties, warm and confident, like someone who's been through it. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 4, "tipo": "H", "habla": "B", "duracion": 6, "frame_inicial": "host-b",
+      "lineas": [
+        { "orden": 5, "texto": "Me pasó el Aguaje Complex 10X." },
+        { "orden": 6, "texto": "Tres meses de tratamiento, sin dietas y sin gimnasio." }
+      ],
+      "linea": "Me pasó el Aguaje Complex 10X. Tres meses de tratamiento, sin dietas y sin gimnasio.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Me pasó el Aguaje Complex 10X.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; casual, just telling her friend; she says the brand name as \"a-GUA-je CÓM-plex diez equis\", with the stress on GUA and on CÓM.\n\nLínea 2: \"Tres meses de tratamiento, sin dietas y sin gimnasio.\"\nDelivery: matter-of-fact, lightly counting on her fingers, a small shrug at the end.\n\nAudio: she speaks in a natural Colombian Spanish paisa accent from Antioquia (melodic, sing-song intonation that rises and falls at the end of each phrase, soft clear consonants, she pronounces every s; nothing costeño, not neutral, not Mexican, not Spain) at a relaxed but natural conversational speed, a touch slower than her friend and never dragging, with the warm, slightly lower and fuller voice of a woman in her early thirties, warm and confident, like someone who's been through it. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 5, "tipo": "H", "habla": "B", "duracion": 10, "frame_inicial": "host-b",
+      "lineas": [
+        { "orden": 8, "texto": "A mí no, y eso era justo lo que más miedo me daba." },
+        { "orden": 9, "texto": "Cada frasco trae sesenta cápsulas de aguaje y fenogreco." }
+      ],
+      "linea": "A mí no, y eso era justo lo que más miedo me daba. Cada frasco trae sesenta cápsulas de aguaje y fenogreco.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"A mí no, y eso era justo lo que más miedo me daba.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; calm and reassuring, gently shaking her head, a hand on her chest at the end.\n\nLínea 2: \"Cada frasco trae sesenta cápsulas de aguaje y fenogreco.\"\nDelivery: said like a small detail without importance, relaxed, one open hand moving lightly.\n\nAudio: she speaks in a natural Colombian Spanish paisa accent from Antioquia (melodic, sing-song intonation that rises and falls at the end of each phrase, soft clear consonants, she pronounces every s; nothing costeño, not neutral, not Mexican, not Spain) at a relaxed but natural conversational speed, a touch slower than her friend and never dragging, with the warm, slightly lower and fuller voice of a woman in her early thirties, warm and confident, like someone who's been through it. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 6, "tipo": "H", "habla": "B", "duracion": 10, "frame_inicial": "host-b",
+      "lineas": [
+        { "orden": 10, "texto": "Y ahora me pongo el jean y me miro de lado, ¿sí me entiendes?" },
+        { "orden": 12, "texto": "Tranquila, ahorita te paso el contacto de donde yo lo pedí." }
+      ],
+      "linea": "Y ahora me pongo el jean y me miro de lado, ¿sí me entiendes? Tranquila, ahorita te paso el contacto de donde yo lo pedí.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Y ahora me pongo el jean y me miro de lado, ¿sí me entiendes?\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; playful and proud, a slight turn of her shoulders as if checking herself in a mirror, a knowing smile and raised eyebrows at the end.\n\nLínea 2: \"Tranquila, ahorita te paso el contacto de donde yo lo pedí.\"\nDelivery: casual, talking to her friend and not to the camera, waving it off with one hand, easy and warm.\n\nAudio: she speaks in a natural Colombian Spanish paisa accent from Antioquia (melodic, sing-song intonation that rises and falls at the end of each phrase, soft clear consonants, she pronounces every s; nothing costeño, not neutral, not Mexican, not Spain) at a relaxed but natural conversational speed, a touch slower than her friend and never dragging, with the warm, slightly lower and fuller voice of a woman in her early thirties, warm and confident, like someone who's been through it. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 7, "tipo": "H", "habla": "A", "clase": "reacciones", "duracion": 8, "frame_inicial": "host-a",
+      "reacciones": [
+        { "n": 1, "descripcion": "suelta el aire despacio por la nariz, con los labios cerrados y los hombros bajando, aliviada" },
+        { "n": 2, "descripcion": "sube las cejas y echa la barbilla un poco hacia atrás, sorprendida, con un murmullo corto con la boca cerrada" },
+        { "n": 3, "descripcion": "aprieta los labios en media sonrisa y ladea la cabeza, con un soplido suave por la nariz" }
+      ],
+      "linea": "", "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip. No dialogue at any point.\n\nNo captions. No background music. No camera movement or angle changes.\n\nREACTIONS, in this order, with a clear pause between each one:\n\nReacción 1: she lets out a slow, relieved breath through her nose, lips sealed, her shoulders dropping as if a worry just left her\nReacción 2: she raises her eyebrows and pulls her chin back slightly in surprise, with a short closed-mouth hum\nReacción 3: she presses her lips together into a half smile and tilts her head to one side, with a soft puff of air through her nose\n\nAudio: only soft nonverbal sounds made with the lips sealed (a slow sigh through the nose, a short closed-mouth hum, a soft puff of air through the nose) and the room tone of a small podcast studio. No words in any language, no music.",
+      "referencias": []
+    },
+    {
+      "n": 8, "tipo": "H", "habla": "B", "clase": "reacciones", "duracion": 8, "frame_inicial": "host-b",
+      "reacciones": [
+        { "n": 1, "descripcion": "niega despacio con una sonrisa de labios cerrados y un suspiro por la nariz, como quien ya pasó por eso" },
+        { "n": 2, "descripcion": "levanta una ceja y aprieta los labios en una sonrisa cómplice, con un murmullo corto con la boca cerrada" },
+        { "n": 3, "descripcion": "abre los ojos y se echa hacia atrás, soltando el aire largo y despacio por la nariz, con los labios cerrados" }
+      ],
+      "linea": "", "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip. No dialogue at any point.\n\nNo captions. No background music. No camera movement or angle changes.\n\nREACTIONS, in this order, with a clear pause between each one:\n\nReacción 1: she shakes her head slowly with a closed-lip smile and a soft sigh through her nose, as if she has been there too\nReacción 2: she lifts one eyebrow and presses her lips into a knowing smirk, with a short closed-mouth hum\nReacción 3: she widens her eyes and leans back in her chair, letting out a long, slow breath through her nose, lips sealed\n\nAudio: only soft nonverbal sounds made with the lips sealed (a soft sigh through the nose, a short closed-mouth hum, a long slow breath through the nose) and the room tone of a small podcast studio. No words in any language, no music.",
+      "referencias": []
+    }
+  ],
+  "broll": [
+    {
+      "n": 1, "encima_de_toma": 1, "en_linea": 1, "sincroniza_con": "atrás me sobraba tela", "duracion": 5,
+      "prompt_imagen": "Foto realista vertical 9:16, como tomada con un celular, de la misma mujer de la imagen adjunta (usa la imagen adjunta solo para su cara, su pelo y su tono de piel, nunca para su ropa ni para el lugar), de pie frente a un espejo de cuerpo entero en su habitación, casi de perfil, con la cara girada hacia el espejo, mirándose la parte de atrás del jean por encima del hombro, con cara de decepción. Lleva una camiseta gris de algodón metida en un jean azul claro. Su cuerpo es muy plano: el jean le queda una talla grande atrás, con un pliegue flojo de tela sobrante debajo del asiento del jean, los bolsillos de atrás caídos, de la cintura a los muslos una sola línea recta y plana, muslos delgados y rectos. Plano de la cabeza a las rodillas: toda ella, de la cabeza a las rodillas, cabe en la franja del medio de la imagen, con aire alrededor; arriba y abajo solo queda pared blanca y piso de madera. Luz de día suave y difusa de una ventana lateral. En la habitación solo hay: el espejo, una cama tendida al fondo y una planta; no hay nada más. No mira a la cámara. Cara real, piel con poros, pelo suelto con mechones sueltos, ropa con arrugas. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.",
+      "prompt_video": "Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin zoom: se ve de la cabeza a las rodillas hasta el final. Ella gira apenas la cadera para mirarse de lado en el espejo y, con una mano, se jala un poco la tela floja de atrás del jean, con cara de decepción. Su cuerpo no cambia de forma: sigue plano todo el clip. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. No se ven cápsulas sueltas ni el frasco abierto. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.",
+      "referencias": ["host-a"]
+    },
+    {
+      "n": 2, "encima_de_toma": 3, "en_linea": 4, "sincroniza_con": "Hasta que mi tía me dijo", "duracion": 5,
+      "prompt_imagen": "Foto realista vertical 9:16, como tomada con un celular, de la misma mujer de la imagen adjunta (usa la imagen adjunta solo para su cara, su pelo rizado y su tono de piel, nunca para su ropa ni para el lugar) en un almuerzo familiar en el patio de una casa colombiana, sentada a la mesa junto a su tía, una señora de unos 58 años, de pelo corto canoso y gafas, con una blusa estampada de flores. La tía le pone una mano en el brazo y la mira con cara de consejo; ella la escucha atenta. Las dos de perfil, mirándose, con la boca cerrada. Ella lleva una blusa amarilla de algodón con arrugas. Plano medio de la cintura para arriba: las dos, de la cintura a la cabeza, caben en la franja del medio de la imagen, con aire alrededor; arriba y abajo solo quedan matas del patio y el mantel. Luz de día suave y difusa, a la sombra. Sobre la mesa solo hay: un mantel de tela, dos vasos de jugo y un plato con arepas; no hay nada más. Nadie mira a la cámara. Caras reales, piel con poros. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.",
+      "prompt_video": "Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin zoom. La tía le da dos palmaditas suaves en el brazo y ella asiente despacio, con media sonrisa. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. No se ven cápsulas sueltas ni el frasco abierto. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.",
+      "referencias": ["host-b"]
+    },
+    {
+      "n": 3, "encima_de_toma": 4, "en_linea": 6, "sincroniza_con": "Tres meses de tratamiento", "duracion": 5,
+      "prompt_imagen": "Foto realista vertical 9:16, como tomada con una cámara real, de una mano de mujer que sostiene el frasco cerrado de la imagen adjunta, de frente y un poco adelantado, sobre una mesa de madera clara junto a una ventana. Primer plano: el frasco ocupa un tercio del alto de la imagen, entero, con aire alrededor; el frasco y la mano caben en la franja del medio de la imagen; arriba y abajo solo queda pared clara desenfocada y la mesa. Los dedos lo toman por los costados, sin tapar la etiqueta. La otra mano está vacía y fuera de la imagen; solo se sostiene el frasco cerrado; no hay cápsulas ni pastillas. Luz de día suave y difusa que le da de frente, la etiqueta iluminada, mate, sin arcoíris, sin destellos y sin reflejos fuertes, sin contraluz. El producto es exactamente el de la imagen adjunta: un frasco negro, cilíndrico, de lados rectos y hombros cortos y redondeados, unas dos veces más alto que ancho, con una tapa de rosca alta, un poco más angosta que el cuerpo (unos cuatro quintos de su ancho), negra arriba y con una franja rosada ancha abajo; misma etiqueta legible, al derecho, nunca en espejo; mismos colores y proporciones; ni botella delgada ni pote chato; solo hay uno, cerrado. Sobre la mesa no hay nada más. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.",
+      "prompt_video": "Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin zoom. La mano sostiene el frasco quieto, con un leve movimiento natural del pulso; el frasco no gira. El frasco sigue cerrado todo el clip: no se ven cápsulas sueltas ni el frasco abierto. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. El producto no se desliza ni cambia de forma; la etiqueta se mantiene idéntica, legible y al derecho todo el clip; solo hay un frasco. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.",
+      "referencias": ["producto"],
+      "guardar_en_biblioteca": { "tipo": "producto", "nombre": "Frasco cerrado en la mano, junto a una ventana", "producto": "Aguaje Complex 10X" }
+    },
+    {
+      "n": 4, "encima_de_toma": 6, "en_linea": 10, "sincroniza_con": "me pongo el jean", "duracion": 5,
+      "prompt_imagen": "Foto realista vertical 9:16, como tomada con un celular, de la misma mujer de la imagen adjunta (usa la imagen adjunta solo para su cara, su pelo rizado y su tono de piel, nunca para su cuerpo ni para su ropa) en el probador de una tienda de ropa, de pie frente al espejo, de tres cuartos de lado, con la cara girada hacia el espejo por encima del hombro, mirándose con una sonrisa satisfecha. Lleva un jean azul oscuro de tiro alto y una camiseta negra de manga corta, metida. Tiene una figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas, como una vez y media más anchas que su cintura, la curva de atrás sobresale bien por detrás de la espalda baja, y piernas gruesas que llenan el jean y se tocan arriba; el cambio se nota a primera vista, sin exagerar. Plano de la cabeza a las rodillas: toda ella cabe en la franja del medio de la imagen, con aire alrededor; arriba y abajo solo quedan la cortina del probador y el piso. Luz suave y difusa del probador, sin brillos fuertes. En el probador solo hay: el espejo, una cortina gris y un banquito; no hay nada más. No mira a la cámara. Cara real, piel con poros, rizos sueltos, ropa con arrugas. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.",
+      "prompt_video": "Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin zoom: se ve de la cabeza a las rodillas hasta el final. Ella gira apenas la cadera de un lado al otro, mirándose en el espejo, y sonríe. Su figura no cambia: mantiene las mismas curvas todo el clip. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. No se ven cápsulas sueltas ni el frasco abierto. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.",
+      "referencias": ["host-b"]
+    }
+  ],
+  "overlays": []
+}
