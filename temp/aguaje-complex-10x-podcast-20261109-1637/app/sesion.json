@@ -1,14 +1,12 @@
 {
   "uuid": "68b0bd1f-791d-43db-8483-9f5bbdee6b8b",
-  "estado": "listo",
+  "estado": "cambiando",
   "tipo": "cambios",
-  "intentos": 2,
+  "intentos": 3,
   "progreso": [
     "Claude está leyendo tu pedido",
     "Repasando el guion",
-    "Ajustando el guion",
-    "Revisando que el guion esté completo",
-    "Pasando el guion en limpio"
+    "Ajustando el guion"
   ],
   "inicio": "2026-11-09T21:37:55.661Z",
   "cambios": [
@@ -16,11 +14,15 @@
       "pedido": "Los antes y después deben verse muy notoria, cuando hable de planas y cuando ya tienen volumen en piernas y glúteos debe verse visualmente mucho más",
       "fecha": "2026-11-09T21:51:32.902Z",
       "ok": true
+    },
+    {
+      "pedido": "Las imagenes de las personas deben ser lo más realistas posible a detalle, luz natural, detalle en los movimientos, gestos, tonos de voz, el mayor detalle posible",
+      "fecha": "2026-11-09T21:54:17.419Z"
     }
   ],
-  "actualizado": "2026-11-09T21:52:07.423Z",
+  "actualizado": "2026-11-09T21:54:30.557Z",
   "error": null,
-  "inicioIntento": "2026-11-09T21:51:32.903Z",
+  "inicioIntento": "2026-11-09T21:54:17.420Z",
   "fin": "2026-11-09T21:52:07.423Z",
   "limite": false,
   "reinicio": null,
@@ -131,6 +133,6 @@
     }
   ],
   "ajustados": 0,
-  "pedido": "Los antes y después deben verse muy notoria, cuando hable de planas y cuando ya tienen volumen en piernas y glúteos debe verse visualmente mucho más",
-  "respaldo": null
+  "pedido": "Las imagenes de las personas deben ser lo más realistas posible a detalle, luz natural, detalle en los movimientos, gestos, tonos de voz, el mayor detalle posible",
+  "respaldo": "historial-guion/02"
 }
