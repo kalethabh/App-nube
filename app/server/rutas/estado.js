@@ -1,4 +1,4 @@
-import { desactualizado, motivoParaNoReiniciar, reiniciar } from '../lib/version.js';
+import { desactualizado, motivoParaNoReiniciar, pedirReinicio, reinicioPedido } from '../lib/version.js';
 import { soloDesdeLaApp } from '../lib/productos.js';
 // GET /api/estado -> si estan las claves (si/no, NUNCA el valor), si esta Claude Code y los modelos
 //                    que usa el motor:
@@ -79,13 +79,12 @@ export default function rutasEstado(app) {
       modelos: modelosDelMotor(),
       modoPrueba: modoPruebaParaLaPantalla(),
       // lo nuevo del servidor que todavía no se usa (los lanzadores reinician la app si es true o si falta)
-      servidor: { desactualizado: desactualizado() },
+      servidor: { desactualizado: desactualizado(), ocupado: motivoParaNoReiniciar(), reinicioPedido: reinicioPedido() },
     });
   });
   app.post('/api/reiniciar', soloDesdeLaApp, (req, res) => {
-    const motivo = motivoParaNoReiniciar();
-    if (motivo) return res.status(409).json({ ok: false, error: motivo });
+    // con un video produciéndose no se corta: queda pedido y se reinicia sola al terminar
+    if (!pedirReinicio()) return res.status(202).json({ ok: true, pendiente: true, mensaje: motivoParaNoReiniciar() });
     res.json({ ok: true });
-    reiniciar();
   });
 }

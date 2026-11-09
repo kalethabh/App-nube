@@ -62,3 +62,15 @@ export function reiniciar() {
   setTimeout(() => process.exit(process.env.AIA_SUPERVISADO === '1' ? 75 : 0), 800).unref?.();
   return true;
 }
+
+// «Reiniciar la app» con un video produciéndose: queda pedido y se hace solo cuando termina
+let pedido = false;
+export const reinicioPedido = () => pedido;
+export function pedirReinicio() {
+  if (reiniciar()) return true;
+  pedido = true;
+  return false;
+}
+setInterval(() => {
+  if (pedido && !motivoParaNoReiniciar()) reiniciar();
+}, 5000).unref?.();
