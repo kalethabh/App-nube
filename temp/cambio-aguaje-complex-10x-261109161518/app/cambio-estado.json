@@ -2,11 +2,12 @@
   "producto": "Aguaje Complex 10X",
   "productoId": "aguaje-8ea7",
   "link": null,
-  "etapa": "proponiendo",
+  "etapa": "revisar",
   "creado": "2026-11-09T16:15:06.486Z",
   "progreso": [
     "Analizando el video: tomas y lo que se dice",
     "Claude está viendo las tomas y traduciendo la voz"
   ],
-  "actualizado": "2026-11-09T16:15:13.520Z"
+  "actualizado": "2026-11-09T16:16:53.886Z",
+  "aviso": null
 }
