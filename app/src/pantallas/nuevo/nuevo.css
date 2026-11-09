@@ -2866,3 +2866,24 @@
   height: 34px;
   width: 100%;
 }
+
+/* ---------------------------------------------------------------- lo primero: qué quieres hacer (Elegir.jsx) */
+.nv-solo-cambiar {
+  display: flex; align-items: center; gap: var(--e-5); padding: var(--e-6); border-radius: var(--r-xl);
+  background: var(--superficie-1); border: 1px solid var(--borde-1); color: inherit; text-decoration: none;
+  transition: border-color 0.2s var(--curva-suave), transform 0.2s var(--curva-salida), box-shadow 0.2s var(--curva-suave);
+}
+.nv-solo-cambiar:hover { border-color: var(--acento); transform: translateY(-2px); box-shadow: 0 0 0 4px var(--acento-suave); }
+.nv-solo-cambiar__icono { flex: none; width: 52px; height: 52px; border-radius: var(--r-l); display: grid; place-items: center; background: var(--acento-suave); color: var(--acento); }
+.nv-solo-cambiar__texto { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.nv-solo-cambiar__texto strong { font-size: var(--t-destacado); font-weight: var(--peso-semi); color: var(--texto-1); }
+.nv-solo-cambiar__texto > span { font-size: var(--t-chico); color: var(--texto-2); }
+.nv-solo-cambiar__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.nv-solo-cambiar__chips span { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: var(--r-pill); background: var(--superficie-2); color: var(--texto-2); font-size: var(--t-mini); }
+.nv-solo-cambiar__chips svg { color: var(--acento); }
+.nv-solo-cambiar__flecha { flex: none; color: var(--texto-3); transition: transform 0.2s var(--curva-salida), color 0.2s; }
+.nv-solo-cambiar:hover .nv-solo-cambiar__flecha { color: var(--acento); transform: translateX(4px); }
+.nv-elegir__titulo { display: flex; align-items: baseline; justify-content: space-between; gap: var(--e-4); flex-wrap: wrap; margin-top: var(--e-8); margin-bottom: var(--e-4); }
+.nv-elegir__titulo h2 { font-size: var(--t-h4); font-weight: var(--peso-semi); margin: 0; }
+.nv-elegir__titulo a { font-size: var(--t-ui); color: var(--acento); text-decoration: none; }
+.nv-elegir__titulo a:hover { text-decoration: underline; }
