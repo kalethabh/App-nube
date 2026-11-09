@@ -1,0 +1,300 @@
+{
+  "video": "original.mp4",
+  "duracion": 85.33,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 3.83,
+      "duracion": 3.83,
+      "fotograma": "tomas/toma-01.jpg",
+      "dice": "Most people don't realize how fast phytoestrogens work. Here,",
+      "eventos": []
+    },
+    {
+      "n": 2,
+      "desde": 3.83,
+      "hasta": 7.53,
+      "duracion": 3.7,
+      "fotograma": "tomas/toma-02.jpg",
+      "dice": "here's what happens inside your body in the first fourteen days, uh,",
+      "eventos": []
+    },
+    {
+      "n": 3,
+      "desde": 7.53,
+      "hasta": 9.03,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-03.jpg",
+      "dice": "after your first drop.",
+      "eventos": []
+    },
+    {
+      "n": 4,
+      "desde": 9.03,
+      "hasta": 10.53,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-04.jpg",
+      "dice": "Phytoestrogens go to work",
+      "eventos": []
+    },
+    {
+      "n": 5,
+      "desde": 10.53,
+      "hasta": 14.77,
+      "duracion": 4.24,
+      "fotograma": "tomas/toma-05.jpg",
+      "dice": "supporting the signal that tells your body where to store fat. Mm.",
+      "eventos": []
+    },
+    {
+      "n": 6,
+      "desde": 14.77,
+      "hasta": 17.8,
+      "duracion": 3.03,
+      "fotograma": "tomas/toma-06.jpg",
+      "dice": "After just a week, your jeans will be too tight",
+      "eventos": []
+    },
+    {
+      "n": 7,
+      "desde": 17.8,
+      "hasta": 20.8,
+      "duracion": 3,
+      "fotograma": "tomas/toma-07.jpg",
+      "dice": "and you'll realize you need to go shopping for new ones.",
+      "eventos": []
+    },
+    {
+      "n": 8,
+      "desde": 20.8,
+      "hasta": 22.57,
+      "duracion": 1.77,
+      "fotograma": "tomas/toma-08.jpg",
+      "dice": "That's the signal kicking in. Weight that",
+      "eventos": []
+    },
+    {
+      "n": 9,
+      "desde": 22.57,
+      "hasta": 24,
+      "duracion": 1.43,
+      "fotograma": "tomas/toma-09.jpg",
+      "dice": "used to go straight to your belly is",
+      "eventos": []
+    },
+    {
+      "n": 10,
+      "desde": 24,
+      "hasta": 26.8,
+      "duracion": 2.8,
+      "fotograma": "tomas/toma-10.jpg",
+      "dice": "starting to find its way to your booty instead.",
+      "eventos": []
+    },
+    {
+      "n": 11,
+      "desde": 26.8,
+      "hasta": 29.93,
+      "duracion": 3.13,
+      "fotograma": "tomas/toma-11.jpg",
+      "dice": "After two weeks, the change is half compounded.",
+      "eventos": []
+    },
+    {
+      "n": 12,
+      "desde": 29.93,
+      "hasta": 32.77,
+      "duracion": 2.84,
+      "fotograma": "tomas/toma-12.jpg",
+      "dice": "It's not in your belly, it's in your hips, your thighs, your booty,",
+      "eventos": []
+    },
+    {
+      "n": 13,
+      "desde": 32.77,
+      "hasta": 35.9,
+      "duracion": 3.13,
+      "fotograma": "tomas/toma-13.jpg",
+      "dice": "right where you want it. Your belly stay flat",
+      "eventos": []
+    },
+    {
+      "n": 14,
+      "desde": 35.9,
+      "hasta": 39.17,
+      "duracion": 3.27,
+      "fotograma": "tomas/toma-14.jpg",
+      "dice": "because the signal your body's getting now is in the store fat",
+      "eventos": []
+    },
+    {
+      "n": 15,
+      "desde": 39.17,
+      "hasta": 42.07,
+      "duracion": 2.9,
+      "fotograma": "tomas/toma-15.jpg",
+      "dice": "in your stomach signal. It's a curve signal.",
+      "eventos": []
+    },
+    {
+      "n": 16,
+      "desde": 42.07,
+      "hasta": 42.93,
+      "duracion": 0.86,
+      "fotograma": "tomas/toma-16.jpg",
+      "dice": "After three weeks,",
+      "eventos": []
+    },
+    {
+      "n": 17,
+      "desde": 42.93,
+      "hasta": 44.43,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-17.jpg",
+      "dice": "homegirl's already",
+      "eventos": []
+    },
+    {
+      "n": 18,
+      "desde": 44.43,
+      "hasta": 45.5,
+      "duracion": 1.07,
+      "fotograma": "tomas/toma-18.jpg",
+      "dice": "on you.",
+      "eventos": []
+    },
+    {
+      "n": 19,
+      "desde": 45.5,
+      "hasta": 50.4,
+      "duracion": 4.9,
+      "fotograma": "tomas/toma-19.jpg",
+      "dice": "\"Did you get a BBL?\" Nah, you catch yourself in the mirror and it's fucking real.",
+      "eventos": []
+    },
+    {
+      "n": 20,
+      "desde": 50.4,
+      "hasta": 52.97,
+      "duracion": 2.57,
+      "fotograma": "tomas/toma-20.jpg",
+      "dice": "Your confidence shifts right along with it.",
+      "eventos": []
+    },
+    {
+      "n": 21,
+      "desde": 52.97,
+      "hasta": 61.43,
+      "duracion": 8.46,
+      "fotograma": "tomas/toma-21.jpg",
+      "dice": "And after a month, your curves are sustainable. This isn't temporary. When your estrogen stays balanced, all the fat goes in the right places.",
+      "eventos": []
+    },
+    {
+      "n": 22,
+      "desde": 61.43,
+      "hasta": 63.87,
+      "duracion": 2.44,
+      "fotograma": "tomas/toma-22.jpg",
+      "dice": "Men notice you when you walk into a room.",
+      "eventos": []
+    },
+    {
+      "n": 23,
+      "desde": 63.87,
+      "hasta": 65.47,
+      "duracion": 1.6,
+      "fotograma": "tomas/toma-23.jpg",
+      "dice": "Your ex suddenly finds",
+      "eventos": []
+    },
+    {
+      "n": 24,
+      "desde": 65.47,
+      "hasta": 66.3,
+      "duracion": 0.83,
+      "fotograma": "tomas/toma-24.jpg",
+      "dice": "a reason to text.",
+      "eventos": []
+    },
+    {
+      "n": 25,
+      "desde": 66.3,
+      "hasta": 68.8,
+      "duracion": 2.5,
+      "fotograma": "tomas/toma-25.jpg",
+      "dice": "Your homegirls ask what you did differently.",
+      "eventos": []
+    },
+    {
+      "n": 26,
+      "desde": 68.8,
+      "hasta": 72.23,
+      "duracion": 3.43,
+      "fotograma": "tomas/toma-26.jpg",
+      "dice": "You feel like a completely different person",
+      "eventos": []
+    },
+    {
+      "n": 27,
+      "desde": 72.23,
+      "hasta": 75.8,
+      "duracion": 3.57,
+      "fotograma": "tomas/toma-27.jpg",
+      "dice": "right now. You can try it completely risk-free",
+      "eventos": []
+    },
+    {
+      "n": 28,
+      "desde": 75.8,
+      "hasta": 77.1,
+      "duracion": 1.3,
+      "fotograma": "tomas/toma-28.jpg",
+      "dice": "for ninety days,",
+      "eventos": []
+    },
+    {
+      "n": 29,
+      "desde": 77.1,
+      "hasta": 80.4,
+      "duracion": 3.3,
+      "fotograma": "tomas/toma-29.jpg",
+      "dice": "and it's up to seventy-five percent off,",
+      "eventos": []
+    },
+    {
+      "n": 30,
+      "desde": 80.4,
+      "hasta": 82.73,
+      "duracion": 2.33,
+      "fotograma": "tomas/toma-30.jpg",
+      "dice": "so you won't wanna miss out.",
+      "eventos": []
+    },
+    {
+      "n": 31,
+      "desde": 82.73,
+      "hasta": 84,
+      "duracion": 1.27,
+      "fotograma": "tomas/toma-31.jpg",
+      "dice": "It sells out often.",
+      "eventos": []
+    },
+    {
+      "n": 32,
+      "desde": 84,
+      "hasta": 85.33,
+      "duracion": 1.33,
+      "fotograma": "tomas/toma-32.jpg",
+      "dice": "Don't wait.",
+      "eventos": []
+    }
+  ],
+  "texto": "Most people don't realize how fast phytoestrogens work. Here, here's what happens inside your body in the first fourteen days, uh, after your first drop. Phytoestrogens go to work supporting the signal that tells your body where to store fat. Mm. After just a week, your jeans will be too tight and you'll realize you need to go shopping for new ones. That's the signal kicking in. Weight that used to go straight to your belly is starting to find its way to your booty instead. After two weeks, the change is half compounded. It's not in your belly, it's in your hips, your thighs, your booty, right where you want it. Your belly stay flat because the signal your body's getting now is in the store fat in your stomach signal. It's a curve signal. After three weeks, homegirl's already on you. \"Did you get a BBL?\" Nah, you catch yourself in the mirror and it's fucking real. Your confidence shifts right along with it. And after a month, your curves are sustainable. This isn't temporary. When your estrogen stays balanced, all the fat goes in the right places. Men notice you when you walk into a room. Your ex suddenly finds a reason to text. Your homegirls ask what you did differently. You feel like a completely different person right now. You can try it completely risk-free for ninety days, and it's up to seventy-five percent off, so you won't wanna miss out. It sells out often. Don't wait.",
+  "palabras_por_segundo": 2.94,
+  "eventos_de_audio": [],
+  "aviso": null
+}
