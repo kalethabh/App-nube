@@ -43,6 +43,8 @@
     "recortar": "node produccion/recortar-host.js",
     "referencias:bajar": "node produccion/bajar-referencias.js",
     "referencias:instalar": "node produccion/instalar-yt-dlp.js",
-    "paquete": "node app/herramientas/paquete-compartir.mjs"
+    "paquete": "node app/herramientas/paquete-compartir.mjs",
+    "subtitulos:instalar": "node produccion/borrar-subtitulos.js --instalar",
+    "subtitulos:borrar": "node produccion/borrar-subtitulos.js"
   }
 }
