@@ -62,35 +62,105 @@
     }
   ],
   "voz": [
-    { "desde": 0.1, "hasta": 3.08, "texto": "Casi nadie te habla del aguaje y el fenogreco." },
-    { "desde": 3.36, "hasta": 7.44, "texto": "Esto es lo que buscas con Aguaje Complex 10X en tu rutina," },
-    { "desde": 7.62, "hasta": 8.84, "texto": "desde tu primera cápsula." },
-    { "desde": 9.08, "hasta": 13.92, "texto": "Aguaje, fenogreco y magnesio se unen en una sola fórmula, pensada para ti." },
-    { "desde": 14.86, "hasta": 20.68, "texto": "Imagina que esos jeans te queden distintos y tengas una excusa para ir de compras." },
-    { "desde": 20.84, "hasta": 26.4, "texto": "Esa es la meta: sentirte bien con tu cuerpo y con tus curvas, a tu ritmo." },
-    { "desde": 26.86, "hasta": 29.62, "texto": "Semana a semana, lo haces parte de tu rutina." },
-    { "desde": 29.9, "hasta": 34.1, "texto": "Tus caderas, tus piernas, tu figura: tú decides cómo quieres verte." },
-    { "desde": 34.92, "hasta": 41.92, "texto": "Una fórmula con vitamina A, vitamina E y magnesio, en cápsulas fáciles de tomar. Sesenta en cada frasco." },
-    { "desde": 42.12, "hasta": 45.32, "texto": "Y cuando te sientes bien, tu amiga lo nota." },
-    { "desde": 45.52, "hasta": 49.9, "texto": "«¿Qué te hiciste?» Nada, te miras al espejo y te encanta lo que ves." },
-    { "desde": 50.42, "hasta": 52.9, "texto": "Y tu confianza se nota al caminar." },
-    { "desde": 52.96, "hasta": 61.5, "texto": "Con constancia, Aguaje Complex 10X se vuelve parte de tu día. No es algo de una sola vez: es cuidarte cada día." },
-    { "desde": 61.58, "hasta": 63.86, "texto": "Entras a un lugar y te sientes segura." },
-    { "desde": 63.94, "hasta": 66.4, "texto": "Hasta tu ex encuentra una excusa para escribirte." },
-    { "desde": 66.46, "hasta": 68.88, "texto": "Tus amigas preguntan qué hiciste distinto." },
-    { "desde": 68.92, "hasta": 71.9, "texto": "Y te sientes como una persona nueva." },
-    { "desde": 72.32, "hasta": 77.06, "texto": "Hoy mismo puedes pedir tu frasco de Aguaje Complex 10X." },
-    { "desde": 77.12, "hasta": 82.06, "texto": "Aguaje, fenogreco, magnesio y vitaminas, en un solo frasco. No te lo pierdas." },
-    { "desde": 82.86, "hasta": 85.0, "texto": "Pide el tuyo ahora. No esperes." }
-  ],
-  "decisiones": [
-    "Cambié 8 escenas: las tomas 3, 4, 27, 28, 29, 30, 31 y 32, que son las que muestran el otro producto.",
-    "Tu producto viene en cápsulas, así que el gotero y la gota ahora son una cápsula, y la voz dice «cápsula» en vez de «gota».",
-    "Quité la caja de las tomas 29 y 31 porque solo tengo la foto de tu frasco. En la 29 el frasco ocupa su lugar y en la 31 se ve solo.",
-    "Cambié los ingredientes que se ven (raíces y bulbos) por los de tu etiqueta: aguaje, fenogreco y magnesio.",
-    "Quité la prueba de 90 días sin riesgo, el 75 % de descuento y el «se agota seguido», porque no tengo esos datos de tu oferta. Si los tienes, se pueden agregar.",
-    "Quité las promesas con plazo (en una semana, en dos, en un mes) y lo de mover la grasa de la barriga a la cola y equilibrar el estrógeno. No tengo cómo respaldarlas para tu producto. Las imágenes de esas tomas siguen igual, así que algunas todavía sugieren esos cambios en el cuerpo. Revísalas antes de publicar.",
-    "Quité la mala palabra y la mención a la cirugía para que el anuncio tenga menos riesgo de rechazo en las plataformas.",
-    "Dejé en español el botón de la pantalla del celular: ahora dice «PIDE AHORA»."
+    {
+      "desde": 0.1,
+      "hasta": 3.08,
+      "texto": "Lo que nadie te dice del aguaje y el fenogreco."
+    },
+    {
+      "desde": 3.36,
+      "hasta": 7.44,
+      "texto": "Esto es lo que te pasa con Aguaje Complex 10X en tu día a día,"
+    },
+    {
+      "desde": 7.62,
+      "hasta": 8.84,
+      "texto": "desde tus primeras cápsulas."
+    },
+    {
+      "desde": 9.08,
+      "hasta": 13.92,
+      "texto": "Aguaje, fenogreco y magnesio se unen en una sola fórmula, pensada para ti."
+    },
+    {
+      "desde": 14.86,
+      "hasta": 20.68,
+      "texto": "Imagina que esos jeans te queden distintos y tengas una excusa para ir de compras."
+    },
+    {
+      "desde": 20.84,
+      "hasta": 26.4,
+      "texto": "Esa es la meta: sentirte bien con tu cuerpo y con tus curvas, a tu ritmo."
+    },
+    {
+      "desde": 26.86,
+      "hasta": 29.62,
+      "texto": "Semana a semana, lo haces parte de tu rutina."
+    },
+    {
+      "desde": 29.9,
+      "hasta": 34.1,
+      "texto": "Tus caderas, tus piernas, tus glúteos: tú decides cómo quieres verte."
+    },
+    {
+      "desde": 34.92,
+      "hasta": 41.92,
+      "texto": "Una fórmula con vitamina A, vitamina E y magnesio, en cápsulas fáciles de tomar. Sesenta en cada frasco."
+    },
+    {
+      "desde": 42.12,
+      "hasta": 45.32,
+      "texto": "Y cuando te sientes bien, tu amiga lo nota."
+    },
+    {
+      "desde": 45.52,
+      "hasta": 49.9,
+      "texto": "«¿Qué te hiciste?» Nada, te miras al espejo y te encanta lo que ves."
+    },
+    {
+      "desde": 50.42,
+      "hasta": 52.9,
+      "texto": "Y tu confianza se nota al caminar."
+    },
+    {
+      "desde": 52.96,
+      "hasta": 61.5,
+      "texto": "Con constancia, Aguaje Complex 10X se vuelve parte de tu día. No es algo de una sola vez: es cuidarte cada día."
+    },
+    {
+      "desde": 61.58,
+      "hasta": 63.86,
+      "texto": "Entras a un lugar y te sientes segura."
+    },
+    {
+      "desde": 63.94,
+      "hasta": 66.4,
+      "texto": "Hasta tu ex encuentra una excusa para escribirte."
+    },
+    {
+      "desde": 66.46,
+      "hasta": 68.88,
+      "texto": "Tus amigas preguntan qué hiciste distinto."
+    },
+    {
+      "desde": 68.92,
+      "hasta": 71.9,
+      "texto": "Y te sientes como una persona nueva."
+    },
+    {
+      "desde": 72.32,
+      "hasta": 77.06,
+      "texto": "Hoy mismo puedes pedir tu tratamiento completo x3 unidades"
+    },
+    {
+      "desde": 77.12,
+      "hasta": 82.06,
+      "texto": "Aguaje, fenogreco, magnesio y vitaminas, en un solo frasco. No te lo pierdas."
+    },
+    {
+      "desde": 82.86,
+      "hasta": 85,
+      "texto": "Pide el tuyo ahora. No esperes."
+    }
   ]
 }
