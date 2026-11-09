@@ -1,10 +1,10 @@
-// El único "Sí" de cada anuncio: "Me gusta, producir", sin precio, al lado de su guion.
+// El único "Sí" de cada anuncio: "Me gusta, producir", con el costo aproximado y tu saldo de kie (con su color), al lado de su guion.
 // La app siempre produce el anuncio completo (voz, música, subtítulos) y después todo es automático
 // hasta los MP4 (en los cantados, con una sola pausa: elegir la versión de la canción, de oído). El costo real se ve recién en el informe de la Entrega. Si el saldo de kie no
 // alcanza (GET /api/saldo o la respuesta de "producir"), un aviso discreto en vez del botón activo,
 // sin números.
 import { ArrowRight, Clapperboard, Clock, TriangleAlert } from 'lucide-react';
-import { Boton, Tarjeta } from '../../componentes/index.js';
+import { Boton, CostoAnuncio, Tarjeta } from '../../componentes/index.js';
 import { enlace } from '../../datos/rutas.js';
 import { esCantado, minutosDe, queSaleDe } from '../estilos/catalogo.js';
 import { estimadoAntesDeProducir, familiaDeEstilo } from '../../datos/produccion.js';
@@ -96,6 +96,8 @@ export function Producir({ estilo, ajuste, slug, listo, aprobado = false, termin
             </span>
           </p>
         ) : null}
+
+        {listo && slug ? <CostoAnuncio slug={slug} /> : null}
 
         <Boton variante="marca" tamano="grande" bloque disabled={!listo || bloqueado || faltaElegir} cargando={produciendo} onClick={onProducir} className="nv-producir__boton">
           {estilo.clave === 'musical' ? 'Producir esta letra' : 'Me gusta, producir'}

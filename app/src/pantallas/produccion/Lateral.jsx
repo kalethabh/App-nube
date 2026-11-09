@@ -179,7 +179,7 @@ export function Registro({ entradas, simulando, tAhora, onAbrir, ejemplo, enVivo
               </>
             );
             return (
-              <li key={clave} className={`prod-registro__item prod-registro__item--${e.estado}${e.destacado ? ' prod-registro__item--destacado' : ''}`}>
+              <li key={clave} className={`prod-registro__item prod-registro__item--${e.estado}${e.destacado ? ' prod-registro__item--destacado' : ''}${e.semaforo ? ` prod-registro__item--saldo-${e.semaforo}` : ''}`}>
                 {e.pieza && onAbrir ? (
                   <button type="button" className="prod-registro__boton" onClick={() => onAbrir(e.pieza)}>
                     {contenido}

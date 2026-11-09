@@ -1113,6 +1113,8 @@ async function saldo(ctx) {
     ctx.conductor.saldoInicial = { creditos: s, fecha: ahora() };
     ctx.guardar();
   }
+  // lo que se calcula gastar (la pantalla lo muestra junto al saldo)
+  ctx.conductor.costoPlan = { creditos: plan.total || 0, fecha: ahora() };
   if (plan.noAlcanza || s < (plan.total || 0)) return { pausa: { motivo: 'saldo', mensaje: mensajeDeFallo('saldo') } };
   return { ok: true };
 }

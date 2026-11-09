@@ -869,3 +869,7 @@
 .tb-cambio__barra { display: block; height: 5px; border-radius: var(--r-pill); background: var(--superficie-2); overflow: hidden; }
 .tb-cambio__barra span { display: block; height: 100%; background: var(--acento); border-radius: inherit; transition: width 0.6s var(--curva-suave); }
 .tb-cambio__flecha { flex: none; color: var(--texto-3); }
+
+.tb-ficha__gastos { display: flex; flex-direction: column; gap: 3px; font-size: var(--t-chico); color: var(--texto-2); }
+.tb-ficha__gastos > span:first-child { display: inline-flex; align-items: center; gap: 6px; }
+.tb-ficha__gastos svg { color: var(--acento); }

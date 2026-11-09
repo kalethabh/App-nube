@@ -37,7 +37,7 @@ function desdeLaApp(req, res) {
 /** conductor.json para la pantalla: sin los saldos de kie (ningún número a la vista). */
 function paraLaPantalla(c) {
   if (!c || typeof c !== 'object') return c;
-  const { saldoInicial, saldoFinal, ...resto } = c;
+  const { saldoFinal, ...resto } = c; // el saldo inicial se muestra (con su color) en el registro
   return resto;
 }
 

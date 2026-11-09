@@ -46,6 +46,7 @@ import { ElegirCancion, useCancionEnVivo } from './ElegirCancion.jsx';
 import { Etapas, Mando } from './Mando.jsx';
 import { Cuadricula } from './Cuadricula.jsx';
 import { Audio, Registro, TeNecesita } from './Lateral.jsx';
+import { CostoAnuncio } from '../../componentes/index.js';
 import { PanelPieza } from './PanelPieza.jsx';
 import { MiniaturasAlDia } from './Pieza.jsx';
 import { Revision } from './Revision.jsx';
@@ -645,6 +646,7 @@ export default function Produccion({ params, consulta }) {
             <Cuadricula modelo={modelo} estados={v.estados} seleccion={seleccion} onAbrir={abrir} />
           </div>
           <aside className="prod-cuerpo__lateral" aria-label="Lo que pasa en la producción">
+            {!modelo.ejemplo ? <CostoAnuncio slug={slug} enProduccion /> : null}
             <Audio a={a} vozLista={v.vozLista} musicaLista={v.musicaLista} cantado={modelo.cantado} hablado={modelo.hablado} enVivo={enVivo && !terminado ? v : null} />
             <Registro entradas={registro} simulando={simulando} enVivo={enVivo && !terminado} tAhora={t} onAbrir={abrir} />
           </aside>
