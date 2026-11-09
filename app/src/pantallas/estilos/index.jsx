@@ -19,6 +19,7 @@ const FILTROS = [
 ];
 
 const ESPECIALES = [
+  { clave: 'cambiar', nombre: 'Cambiar el producto', lema: 'Un video que ya existe, con tu producto', icono: Repeat2, buscar: () => false, como: 'Subes el video: queda igual, pero con tu producto, la voz en español con la misma voz y subtítulos nuevos.', href: () => enlace.cambiar() },
   { clave: 'clonacion', nombre: 'Clonar un video', lema: 'La estructura de un anuncio que ya vende', icono: Copy, buscar: (a) => a.estilo === 'entrevista' && a.referencias?.length, comparar: true, como: 'En los ajustes de cualquier estilo: «Clonar un video».', href: () => enlace.nuevo() },
   { clave: 'ganchos', nombre: 'Más ganchos', lema: 'El mismo anuncio con otros inicios', icono: Repeat2, buscar: (a) => a.estilo === 'zack-d-films', como: 'En la entrega de un anuncio con narrador: «Más ganchos».', href: () => enlace.anuncios() },
   { clave: 'sketch', nombre: 'Sketch de comedia', lema: 'Telenovela que no parece anuncio', icono: Laugh, buscar: (a) => a.estilo === 'sketch', como: 'Desde Claude Code: pide «un anuncio sketch».', href: null },
