@@ -19,7 +19,8 @@ import { buscarPython, comandoPython } from './recortar-host.js';
 const MOTOR = path.join(RAIZ, 'produccion', 'video-limpio');
 const VENV = path.join(RAIZ, '.venv-limpio');
 const PY_VENV = process.platform === 'win32' ? path.join(VENV, 'Scripts', 'python.exe') : path.join(VENV, 'bin', 'python');
-const PAQUETES = ['torch==2.7.1', 'numpy<2.3', 'opencv-python-headless', 'onnxruntime==1.22.0', 'Pillow', 'pyclipper', 'PyYAML', 'Shapely', 'six'];
+// demucs + torchaudio: separan la música del original de su voz (modo «Cambiar el producto»)
+const PAQUETES = ['torch==2.7.1', 'torchaudio==2.7.1', 'demucs==4.0.1', 'numpy<2.3', 'opencv-python-headless', 'onnxruntime==1.22.0', 'Pillow', 'pyclipper', 'PyYAML', 'Shapely', 'six'];
 
 function correr(cmd, args, opciones = {}) {
   const r = spawnSync(cmd, args, { stdio: 'inherit', windowsHide: true, ...opciones });
