@@ -304,6 +304,8 @@ async function saldo(ctx) {
   ctx.guardar();
   // Suno solo donde la musica se genera y todavia no esta (las pistas fijas no cuestan nada).
   const hace = (plan.total || 0) + (hayMusica(ctx.carpeta) || caminoDeMusica(estiloDe(ctx)) !== 'suno' ? 0 : CREDITOS_SUNO);
+  // lo que se calcula gastar (la pantalla lo muestra junto al saldo)
+  ctx.conductor.costoPlan = { creditos: hace, fecha: ahora() };
   if (plan.noAlcanza || saldoActual < hace) {
     return { pausa: { motivo: 'saldo', mensaje: mensajeDeFallo('saldo') } };
   }

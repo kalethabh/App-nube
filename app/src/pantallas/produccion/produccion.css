@@ -2011,3 +2011,8 @@ button.prod-registro__boton:hover {
 .prod-mando--sin-escenas .prod-etapas {
   grid-column: auto;
 }
+
+/* el saldo de kie en el registro, con su color */
+.prod-registro__item--saldo-sobra .prod-registro__texto { color: #7bdc3a; }
+.prod-registro__item--saldo-justo .prod-registro__texto { color: #ffa53a; }
+.prod-registro__item--saldo-corto .prod-registro__texto { color: var(--error); }

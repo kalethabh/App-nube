@@ -185,6 +185,16 @@ export function registroConductor(c, a, modelo) {
     const t = textoDePaso(p);
     if (p.estado === 'hecho') {
       const otraVez = p.intentos > 1 && !p.retomado;
+      // el saldo, con cuánto había y su color (verde de sobra, naranja justo, rojo no alcanza)
+      if (p.id === 'saldo' && c.saldoInicial?.creditos != null) {
+        const saldo = Number(c.saldoInicial.creditos);
+        const costo = c.costoPlan?.creditos != null ? Number(c.costoPlan.creditos) : null;
+        const sem = costo === null ? null : saldo < costo ? 'corto' : saldo - costo >= Math.max(costo * 0.5, 200) ? 'sobra' : 'justo';
+        const usd = (cr) => `US$${(cr * 0.005).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        const como = sem === 'sobra' ? 'Alcanza de sobra' : sem === 'justo' ? 'Alcanza justo' : sem === 'corto' ? 'No alcanza' : 'Alcanza';
+        r.push({ estado: 'listo', semaforo: sem, texto: `Tu saldo de kie: ${usd(saldo)}. ${como} para este anuncio${costo !== null ? ` (cuesta ~${usd(costo)})` : ''}.`, fecha: p.fin || p.inicio || ahora });
+        continue;
+      }
       r.push({ estado: otraVez ? 'arreglado' : 'listo', texto: otraVez ? `${t.hecho.replace(/\.$/, '')} (falló una vez y la app lo pidió de nuevo).` : t.hecho, fecha: p.fin || p.inicio || ahora });
     } else if (p.estado === 'saltado') {
       r.push({ estado: 'en-cola', texto: `${p.nombre || t.haciendo}: no hizo falta.`, fecha: p.fin || p.inicio || ahora });

@@ -62,7 +62,7 @@ async function aprobarElGuion(slug, { letra } = {}) {
 /** conductor.json para la pantalla: sin los saldos de kie que guarda para el informe (ningun numero a la vista). */
 function paraLaPantalla(c) {
   if (!c || typeof c !== 'object') return c;
-  const { saldoInicial, saldoFinal, ...resto } = c;
+  const { saldoFinal, ...resto } = c; // el saldo inicial se muestra (con su color) en el registro
   return resto;
 }
 

@@ -269,6 +269,8 @@ async function saldo(ctx) {
   ctx.conductor.saldoInicial = { creditos: saldoActual, fecha: ahora() };
   ctx.guardar();
   const hace = (plan.total || 0) + (hayMusica(ctx.carpeta) ? 0 : CREDITOS_SUNO);
+  // lo que se calcula gastar (la pantalla lo muestra junto al saldo)
+  ctx.conductor.costoPlan = { creditos: hace, fecha: ahora() };
   if (plan.noAlcanza || saldoActual < hace) return { pausa: { motivo: 'saldo', mensaje: mensajeDeFallo('saldo') } };
   return { ok: true };
 }

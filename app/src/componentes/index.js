@@ -19,3 +19,4 @@ export { Logo } from './Logo.jsx';
 export { useBarraSuperior } from './BarraSuperior.jsx';
 export { Estimado } from './Estimado.jsx';
 export { SubirVideo } from './SubirVideo.jsx';
+export { CostoAnuncio, SaldoSemaforo, useCostoAnuncio } from './CostoAnuncio.jsx';

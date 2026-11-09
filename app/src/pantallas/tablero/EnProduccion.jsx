@@ -6,8 +6,8 @@
 //   - los que se producen desde la terminal: sin conductor, se cuentan por sus archivos
 // Las carpetas viejas que quedaron sin terminar van aparte, en "Quedaron a medio camino".
 // Sin nada andando, un estado vacío con el botón para hacer uno nuevo.
-import { ArrowRight, CirclePause, Clock, LoaderCircle, WifiOff } from 'lucide-react';
-import { BarraDeProgreso, Boton, Insignia, MiniaturaVideo, Seccion, Tarjeta } from '../../componentes/index.js';
+import { ArrowRight, CirclePause, Clock, LoaderCircle, Wallet, WifiOff } from 'lucide-react';
+import { BarraDeProgreso, Boton, Insignia, MiniaturaVideo, SaldoSemaforo, Seccion, Tarjeta, useCostoAnuncio } from '../../componentes/index.js';
 import { miniatura, useAnuncio } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
 import { fechaRelativa } from '../../datos/formato.js';
@@ -52,6 +52,25 @@ function faltaEnPalabras(a) {
   if (!Number.isFinite(s) || s === null) return null;
   if (s < 50) return 'menos de 1 min';
   return `faltan unos ${Math.max(1, Math.round(s / 60))} min`;
+}
+
+// ---------------------------------------------------------------- gastos
+
+const usd = (n) => `US$${(Number(n) || 0).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+/** «Gastado US$1,20 · falta ~US$2,40» y el saldo de kie con su color. */
+function Gastos({ slug }) {
+  const { datos: c } = useCostoAnuncio(slug, { cadaMs: 30000 });
+  if (!c) return null;
+  return (
+    <div className="tb-ficha__gastos">
+      <span className="t-num">
+        <Wallet size={13} strokeWidth={2.2} aria-hidden="true" /> Gastado {usd(c.gastado?.dolares)}
+        {c.falta?.creditos > 0 ? ` · falta ~${usd(c.falta.dolares)}` : ''}
+      </span>
+      <SaldoSemaforo saldo={c.saldo} semaforo={c.semaforo} />
+    </div>
+  );
 }
 
 // ---------------------------------------------------------------- ficha
@@ -135,6 +154,8 @@ function FichaProduccion({ a }) {
         </div>
 
         <BarraDeProgreso valor={avance * 100} tono={sinConexion ? 'aviso' : 'cian'} animada={!sinConexion} etiqueta="Avance" />
+
+        <Gastos slug={a.slug} />
 
         {/* un cantado antes de sus escenas no tiene tomas todavía (ni detalle que pedir): sin tira */}
         {sinEscenasAun(a, a.conductor) ? null : <TiraDePiezas slug={a.slug} enImagenes={enImagenes} />}
