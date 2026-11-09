@@ -16,7 +16,7 @@
 // en ningun registro. Las respuestas de error dicen que paso en palabras simples.
 import { spawn } from 'node:child_process';
 import path from 'node:path';
-import { clavesGuardadas, guardarClaves, limpiarClave, probarClave, saldoKie, saldoElevenLabs, repararEnv, CLAVES } from '../lib/claves.js';
+import { buscarOtraApp, clavesGuardadas, guardarClaves, limpiarClave, probarClave, saldoKie, saldoElevenLabs, repararEnv, traerClavesDeOtraApp, CLAVES } from '../lib/claves.js';
 import { DOLARES_POR_CREDITO, PUERTO, RAIZ, TEMP } from '../lib/rutas.js';
 import { origenesPermitidos } from '../lib/servidor.js';
 import { stat, listar } from '../lib/archivos.js';
@@ -160,6 +160,16 @@ export default function rutasClaves(app) {
     if (p.motivo) r.motivo = p.motivo;
     if (typeof p.saldoKie === 'number') r.saldoKie = p.saldoKie;
     res.json(r);
+  });
+
+  // IA-VID-AUTOMATIC en este computador: si tiene claves que aquí faltan, se pueden traer con un clic (nunca se
+  // muestran: solo se dice cuáles tiene)
+  app.get('/api/claves/otra-app', (req, res) => {
+    const o = buscarOtraApp();
+    res.set('Cache-Control', 'no-store').json(o ? { encontrada: true, tiene: o.tiene, faltanAqui: Object.fromEntries(Object.entries(clavesGuardadas()).map(([k, v]) => [k, !v])) } : { encontrada: false });
+  });
+  app.post('/api/claves/otra-app', desdeLaApp, async (req, res) => {
+    res.json(await traerClavesDeOtraApp({ todas: Boolean(req.body?.todas) }));
   });
 
   app.get('/api/saldo', desdeLaApp, async (req, res) => {

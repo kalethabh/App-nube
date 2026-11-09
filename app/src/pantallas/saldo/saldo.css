@@ -139,3 +139,25 @@
 .sd-rejilla > .sd-tarjeta:not(.sd-tarjeta--marca):hover {
   border-color: var(--borde-2);
 }
+
+/* traer las claves de IA-VID-AUTOMATIC */
+.sd-traer {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  flex-wrap: wrap;
+  padding: var(--e-4) var(--e-5);
+  border-radius: var(--r-l);
+  background: var(--acento-suave);
+  border: 1px solid var(--acento-borde);
+  color: var(--texto-1);
+  font-size: var(--t-ui);
+  animation: subir var(--dur-escena) var(--curva-salida) backwards;
+}
+.sd-traer > svg {
+  color: var(--acento);
+  flex: none;
+}
+.sd-traer > span {
+  flex: 1 1 260px;
+}
