@@ -11,7 +11,7 @@
     "Solo 2 cápsulas al día con tus comidas"
   ],
   "publico": "Mujeres de 20 a 45 años en Colombia, también delgadas, que quieren más curvas en glúteos y piernas sin cirugía, sin gym y sin dietas costosas.",
-  "dolor": "Quiere glúteos y piernas con más volumen, pero no tiene tiempo ni plata para gym o dietas costosas, y le da miedo engordar o que lo que logre se le pierda con el efecto rebote.",
+  "dolor": "Quiere glúteos y piernas con más volumen o tonificar, pero no tiene tiempo ni plata para gym o dietas costosas, y le da miedo engordar o que lo que logre se le pierda con el efecto rebote.",
   "oferta": "1 mes (1 frasco): $79.900. 2 meses: $119.900 (ahorras $39.900). Tratamiento recomendado de 3 meses (3 frascos): $139.900 (antes $239.700, ahorras $99.800). Envío a toda Colombia con número de guía, llega en 5 a 7 días hábiles. Si no te funciona, te devolvemos tu dinero.",
   "comoCompra": "Pedido en la web con un formulario corto, confirmación por WhatsApp y pago contra entrega en efectivo. Sin tarjeta ni pagos por adelantado.",
   "idioma": "es",
@@ -19,7 +19,7 @@
   "pais": "Colombia",
   "probo": "Dietas y ejercicio que no le dieron las curvas que quería.",
   "prueba": "",
-  "ingredientes": "La etiqueta dice: aguaje 200 mg, fenogreco 400 mg, magnesio 2070 mg, vitamina A y vitamina E; 60 cápsulas de 0,5 g. La página dice: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg; 60 cápsulas de 600 mg. Sin azúcar añadida.",
+  "ingredientes": "La etiqueta dice: aguaje 200 mg, fenogreco 400 mg, magnesio 2070 mg, vitamina A y vitamina E; 60 cápsulas de 0,5 g. La página dice: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg; 60 cápsulas de 600 mg. Sin azúcar añadida. No lo tengo: no lo menciones en el anuncio.",
   "comoSeUsa": "2 cápsulas al día: una con el almuerzo y otra con la cena, con un vaso de agua. Todos los días, sin saltarte tomas. Un frasco rinde 1 mes; se recomienda el tratamiento de 3 meses para resultados rápidos y duraderos.",
   "fotos": [
     {
@@ -29,16 +29,20 @@
     }
   ],
   "deducido": [
-    "publico",
-    "dolor",
     "probo",
     "mercado",
     "idioma"
   ],
-  "falta": [
-    {
-      "campo": "ingredientes",
-      "pregunta": "La etiqueta dice magnesio y vitaminas A y E, y la página dice maca negra. ¿Cuál es la fórmula correcta?"
-    }
-  ]
+  "falta": [],
+  "correcciones": {
+    "dolor": "Quiere glúteos y piernas con más volumen o tonificar, pero no tiene tiempo ni plata para gym o dietas costosas, y le da miedo engordar o que lo que logre se le pierda con el efecto rebote.",
+    "publico": "Mujeres de 20 a 45 años en Colombia, también delgadas, que quieren más curvas en glúteos y piernas sin cirugía, sin gym y sin dietas costosas."
+  },
+  "revisada": "2026-11-09T14:54:34.413Z",
+  "respuestas": {
+    "ingredientes": "No lo tengo: no lo menciones en el anuncio."
+  },
+  "previos": {
+    "ingredientes": "La etiqueta dice: aguaje 200 mg, fenogreco 400 mg, magnesio 2070 mg, vitamina A y vitamina E; 60 cápsulas de 0,5 g. La página dice: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg; 60 cápsulas de 600 mg. Sin azúcar añadida."
+  }
 }
