@@ -20,9 +20,10 @@ set "AIA_PUERTO=4455"
 if defined PUERTO set "AIA_PUERTO=%PUERTO%"
 set "URL=http://127.0.0.1:%AIA_PUERTO%"
 
-rem Si la app ya está abierta en otra ventana, solo se abre el navegador. Si en ese puerto responde OTRO programa, se avisa.
+rem Si la app ya está abierta en otra ventana, solo se abre el navegador; si la que corre es una versión vieja (se
+rem actualizó y no se reinició), se cierra y se abre la nueva. Si en ese puerto responde OTRO programa, se avisa.
 rem (0: es la app; 2: es otro programa; 1: el puerto está libre)
-powershell -NoProfile -Command "try { $c = New-Object Net.Sockets.TcpClient('127.0.0.1', %AIA_PUERTO%); $c.Close() } catch { exit 1 }; try { $r = Invoke-RestMethod -Uri 'http://127.0.0.1:%AIA_PUERTO%/api/estado' -TimeoutSec 20 -UseBasicParsing; if ($r.app -eq 'anuncios-con-ia' -or $null -ne $r.claudeCode) { exit 0 } } catch {}; exit 2" >nul 2>nul
+powershell -NoProfile -Command "try { $c = New-Object Net.Sockets.TcpClient('127.0.0.1', %AIA_PUERTO%); $c.Close() } catch { exit 1 }; try { $r = Invoke-RestMethod -Uri 'http://127.0.0.1:%AIA_PUERTO%/api/estado' -TimeoutSec 20 -UseBasicParsing; if ($r.app -eq 'anuncios-con-ia' -or $null -ne $r.claudeCode) { if ($null -ne $r.servidor -and -not $r.servidor.desactualizado) { exit 0 }; Get-NetTCPConnection -LocalPort %AIA_PUERTO% -State Listen -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }; Start-Sleep -Seconds 2; exit 1 } } catch {}; exit 2" >nul 2>nul
 rem (si PowerShell no está o no se puede usar, da otro número y se sigue como siempre)
 set "AIA_ESTADO=%errorlevel%"
 if "%AIA_ESTADO%"=="0" goto :ya_abierta

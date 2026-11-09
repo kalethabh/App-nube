@@ -1,3 +1,5 @@
+import { desactualizado, reiniciar } from '../lib/version.js';
+import { soloDesdeLaApp } from '../lib/productos.js';
 // GET /api/estado -> si estan las claves (si/no, NUNCA el valor), si esta Claude Code y los modelos
 //                    que usa el motor:
 //   {
@@ -76,6 +78,12 @@ export default function rutasEstado(app) {
       // los nombres de los modelos que usa el motor hoy (leidos de produccion/config.js como texto)
       modelos: modelosDelMotor(),
       modoPrueba: modoPruebaParaLaPantalla(),
+      // lo nuevo del servidor que todavía no se usa (los lanzadores reinician la app si es true o si falta)
+      servidor: { desactualizado: desactualizado() },
     });
+  });
+  app.post('/api/reiniciar', soloDesdeLaApp, (req, res) => {
+    res.json({ ok: true });
+    reiniciar();
   });
 }
