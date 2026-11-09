@@ -1,0 +1,52 @@
+{
+  "nombre": "Aguaje Complex 10X",
+  "queEs": "Suplemento en cápsulas de aguaje, fenogreco y magnesio para aumentar glúteos y piernas de forma natural.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumenta glúteos y piernas de forma natural",
+    "Sin dietas, sin ejercicios y sin cirugías",
+    "Resultados sin efecto rebote",
+    "Resultados rápidos y duraderos",
+    "También ayuda a tonificar"
+  ],
+  "publico": "Mujeres adultas, de 20 a 45 años, que quieren más glúteos y piernas sin cirugía ni rutinas duras.",
+  "dolor": "Se siente sin curvas, con glúteos y piernas planos, y no quiere pasar por dietas, gimnasio ni cirugías para lograr la figura que quiere.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Por porción: aguaje 200 mg, fenogreco 400 mg, magnesio 2070 mg, vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g cada una (50 g en total).",
+  "comoSeUsa": "Tratamiento recomendado de tres meses.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "Frasco negro con banda rosada de Aguaje Complex 10X de Conexion Lab, 60 cápsulas, fondo blanco."
+    }
+  ],
+  "deducido": [
+    "queEs",
+    "publico",
+    "dolor",
+    "mercado",
+    "idioma",
+    "pais"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta y tienes alguna oferta o envío gratis?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo compra el cliente: contra entrega, WhatsApp o en una web?"
+    },
+    {
+      "campo": "comoSeUsa",
+      "pregunta": "¿Cuántas cápsulas se toman al día y en qué momento?"
+    }
+  ]
+}
