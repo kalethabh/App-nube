@@ -7,6 +7,32 @@ import { claveRegistro, haceSim } from './simulacion.js';
 
 // ---------------------------------------------------------------- te necesita
 
+/** El porqué de un error: en palabras, lo que respondió el servicio tal cual y lo que se puede hacer. */
+export function Causa({ causa }) {
+  return (
+    <div className="prod-causa">
+      <p className="prod-causa__porque">
+        <strong>Motivo:</strong> {causa.porque}
+      </p>
+      {causa.dijo ? (
+        <p className="prod-causa__dijo">
+          kie.ai respondió: <q>{causa.dijo}</q>
+        </p>
+      ) : null}
+      {causa.hacer?.length ? (
+        <>
+          <strong className="prod-causa__titulo">Qué podemos hacer</strong>
+          <ul className="prod-causa__hacer">
+            {causa.hacer.map((h) => (
+              <li key={h}>{h}</li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+    </div>
+  );
+}
+
 const ICONOS_NECESITA = { revision: ListChecks, cancion: EighthNotes, imagen: ImageIcon, error: TriangleAlert, saldo: Wallet, pausa: CirclePause, conexion: WifiOff, reintento: RefreshCw };
 
 /**
@@ -32,6 +58,7 @@ export function TeNecesita({ tarjetas }) {
               </span>
               <strong className="prod-necesita__titulo">{t.titulo}</strong>
               <p className="prod-necesita__texto">{t.texto}</p>
+              {t.causa ? <Causa causa={t.causa} /> : null}
             </div>
             <div className="prod-necesita__acciones">
               {t.nota ? <span className="t-mini">{t.nota}</span> : null}

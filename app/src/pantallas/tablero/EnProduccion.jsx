@@ -31,7 +31,10 @@ function enQueVa(a) {
     return { titulo: CORTO[a.etapa] || 'En producción', detalle: piezas || 'Se está produciendo desde la terminal.' };
   }
   if (a.alto?.tipo === 'conexion') return { titulo: TEXTO_ALTO.conexion.titulo, detalle: TEXTO_ALTO.conexion.texto };
-  if (a.alto?.tipo === 'reintento') return { titulo: TEXTO_ALTO.reintento.titulo, detalle: a.alto.mensaje || TEXTO_ALTO.reintento.texto };
+  if (a.alto?.tipo === 'reintento') {
+    const causa = a.alto.paso?.error?.causa;
+    return { titulo: TEXTO_ALTO.reintento.titulo, detalle: causa ? `${causa.porque}${causa.hacer?.[0] ? ` ${causa.hacer[0]}` : ''}` : a.alto.mensaje || TEXTO_ALTO.reintento.texto };
+  }
   const p = pasoActual(c);
   if (c.estado === 'esperando' || !p) return { titulo: 'En la fila', detalle: textoDeFila(c) || 'Arranca en un momento.' };
   const t = textoDePaso(p);

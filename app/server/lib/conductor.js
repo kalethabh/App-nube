@@ -494,7 +494,8 @@ function contexto(c, p, entrada) {
     },
     /** Espera `ms` mostrando `mensaje` ("Continuar" la corta). false si lo detuvieron. */
     async esperar(ms, mensaje) {
-      p.error = { mensaje, motivo: 'servidor', reintentoEn: new Date(Date.now() + ms).toISOString() };
+      const causa = procesos.causaDeFallo(ctx.ultimoFallo);
+      p.error = { mensaje, motivo: 'servidor', reintentoEn: new Date(Date.now() + ms).toISOString(), ...(causa ? { causa } : {}) };
       c.estado = 'esperando';
       guardar(c);
       const ok = await procesos.dormir(ms, senal, slug);
@@ -572,7 +573,7 @@ function contexto(c, p, entrada) {
       // El render dice cuanto le falta ("Rendered 429/1302, time remaining: 2m 3s"): la pantalla lo muestra.
       const alLinea = path.basename(String(script)) === 'ensamblar.js' ? avanceDelRender(c, p) : null;
       try {
-        return await procesos.correrConReintentos(
+        const r = await procesos.correrConReintentos(
           { slug, paso: p.id, script, args: argsProceso, env, pesado: pesadoEnProcesos, senal, alLinea },
           {
             antesDeCorrer: async () => {
@@ -620,8 +621,9 @@ function contexto(c, p, entrada) {
                 console.error(`[conductor] ${slug}: no pude anotar el gasto de ${p.id}:`, e?.message || e);
               }
             },
-            alEsperar: ({ motivo, hasta, mensaje }) => {
-              p.error = { mensaje, motivo: motivo === 'conexion' ? 'conexion' : motivo, ...(hasta ? { reintentoEn: hasta } : {}) };
+            alEsperar: ({ motivo, hasta, mensaje, texto }) => {
+              const causa = procesos.causaDeFallo(texto);
+              p.error = { mensaje, motivo: motivo === 'conexion' ? 'conexion' : motivo, ...(hasta ? { reintentoEn: hasta } : {}), ...(causa ? { causa } : {}) };
               c.estado = 'esperando';
               guardar(c);
             },
@@ -633,6 +635,8 @@ function contexto(c, p, entrada) {
             },
           }
         );
+        if (r && r.codigo !== 0 && !r.cancelado) ctx.ultimoFallo = r.texto;
+        return r;
       } finally {
         soltar(); // tambien si correr() tiro un error (nada queda tomado)
         yaEntro();
@@ -710,8 +714,10 @@ async function correrConductor(slug, entrada) {
     guardar(c);
 
     let r;
+    let ctxPaso = null;
     try {
-      r = await def.correr(contexto(c, p, entrada));
+      ctxPaso = contexto(c, p, entrada);
+      r = await def.correr(ctxPaso);
     } catch (e) {
       r = senal.aborted
         ? { cancelado: true }
@@ -754,6 +760,11 @@ async function correrConductor(slug, entrada) {
       delete p.retomado;
       p.fin = ahora();
       p.error = r?.error || { mensaje: 'No pude terminar este paso.', motivo: 'otro' };
+      // el porqué, con lo que respondió kie (o ElevenLabs) y qué hacer
+      if (!p.error.causa) {
+        const causa = procesos.causaDeFallo(ctxPaso?.ultimoFallo || p.error.detalle);
+        if (causa) p.error.causa = causa;
+      }
       delete p.detalle;
       delete p.turno;
       c.estado = 'error';

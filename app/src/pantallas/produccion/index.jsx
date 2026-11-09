@@ -498,6 +498,8 @@ export default function Produccion({ params, consulta }) {
       alHacer: delGuion ? () => ir(rutas.nuevo({ paso: '2', anuncios: slug, ...(a?.productoId ? { producto: a.productoId } : {}) })) : continuar,
       cargando: continuando,
       secundaria: tipo === 'saldo' ? { texto: 'Ver en Ajustes', href: enlace.ajustes(), icono: Settings } : undefined,
+      // por qué (con lo que respondió kie) y qué se puede hacer
+      causa: v.alto.paso?.error?.causa || null,
     });
   }
   if (esperaCancion) {
