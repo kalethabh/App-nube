@@ -298,3 +298,67 @@ export function videoDeReferencia(producto, anuncio, ref) {
   armando.set(clave, tarea);
   return tarea;
 }
+
+// ---------------------------------------------------------------- traer un anuncio para editarlo
+
+const SEGMENTO = /^[a-z0-9][a-z0-9._-]{0,90}$/i;
+const importando = new Map(); // "producto/anuncio" -> promesa
+
+/**
+ * Trae un anuncio de GitHub a este computador para abrirlo en el editor: su material/ (manifiesto, imágenes, clips,
+ * voz, música, plan de montaje) queda en temp/<anuncio>/ y sus MP4 en output/. Sin el historial (versiones viejas
+ * de las imágenes). Si ya está, no baja nada. -> { slug }
+ */
+export function importarAnuncio(producto, anuncio) {
+  if (!SEGMENTO.test(String(producto || '')) || !SEGMENTO.test(String(anuncio || ''))) throw Object.assign(new Error('Ese anuncio no existe.'), { status: 400 });
+  const clave = `${producto}/${anuncio}`;
+  if (importando.has(clave)) return importando.get(clave);
+  const tarea = (async () => {
+    const TEMP = path.join(RAIZ, 'temp');
+    const OUTPUT = path.join(RAIZ, 'output');
+    const destino = path.join(TEMP, anuncio);
+    const marca = path.join(destino, 'app', 'de-github.json');
+    if (fs.existsSync(path.join(destino, 'manifiesto.json'))) {
+      // ya está (traído antes, o hecho en esta Mac): se abre ese
+      return { slug: anuncio, ya: true };
+    }
+    if (!fs.existsSync(DIR)) throw Object.assign(new Error('Todavía no se conectó con tu GitHub. Espera un momento y vuelve a intentar.'), { status: 409 });
+    const base = `productos/${producto}/${anuncio}`;
+    const ls = await correr(['ls-tree', '-r', '--name-only', await rama(), base]);
+    if (!ls.ok || !ls.salida.includes(`${base}/material/manifiesto.json`)) {
+      throw Object.assign(new Error('Este anuncio no trae su material (manifiesto) en GitHub: no se puede abrir en el editor, solo verlo.'), { status: 409 });
+    }
+    // checkout a una carpeta aparte, con un índice propio (el de la copia no se toca); baja solo lo que hace falta
+    const tmp = path.join(TEMP, `_trayendo-${anuncio}`);
+    fs.rmSync(tmp, { recursive: true, force: true });
+    fs.mkdirSync(tmp, { recursive: true });
+    const env = { GIT_INDEX_FILE: path.join(tmp, '.indice') };
+    const ref = await rama();
+    const co = await new Promise((ok) => {
+      const p = spawn('git', ['--work-tree', tmp, 'checkout', ref, '--', base, `:(exclude)${base}/material/historial`, `:(exclude)${base}/material/qa`], {
+        cwd: DIR,
+        windowsHide: true,
+        env: { ...process.env, ...env, GIT_TERMINAL_PROMPT: '0', GCM_INTERACTIVE: 'never' },
+      });
+      let err = '';
+      p.stderr.on('data', (d) => (err += d));
+      p.on('close', (c) => ok({ ok: c === 0, err }));
+      p.on('error', (e) => ok({ ok: false, err: String(e.message || e) }));
+    });
+    if (!co.ok) {
+      fs.rmSync(tmp, { recursive: true, force: true });
+      throw new Error(`No pude bajar el anuncio de GitHub: ${co.err.trim().split('\n').pop() || 'error desconocido'}`);
+    }
+    const traido = path.join(tmp, ...base.split('/'));
+    fs.mkdirSync(TEMP, { recursive: true });
+    fs.renameSync(path.join(traido, 'material'), destino);
+    fs.mkdirSync(OUTPUT, { recursive: true });
+    for (const f of fs.readdirSync(traido)) if (f.endsWith('.mp4') && !fs.existsSync(path.join(OUTPUT, f))) fs.renameSync(path.join(traido, f), path.join(OUTPUT, f));
+    fs.mkdirSync(path.dirname(marca), { recursive: true });
+    fs.writeFileSync(marca, JSON.stringify({ producto, anuncio, traido: new Date().toISOString() }, null, 2));
+    fs.rmSync(tmp, { recursive: true, force: true });
+    return { slug: anuncio };
+  })().finally(() => importando.delete(clave));
+  importando.set(clave, tarea);
+  return tarea;
+}

@@ -6,7 +6,7 @@ import path from 'node:path';
 import { soloDesdeLaApp } from '../lib/productos.js';
 import { stat, TIPOS_MEDIO } from '../lib/archivos.js';
 import { miniatura, anchoPermitido } from '../lib/miniaturas.js';
-import { archivoLocal, estadoAnunciosGithub, iniciarAnunciosGithub, listarAnunciosGithub, ponerAlDia, videoDeReferencia } from '../lib/anuncios-github.js';
+import { archivoLocal, importarAnuncio, estadoAnunciosGithub, iniciarAnunciosGithub, listarAnunciosGithub, ponerAlDia, videoDeReferencia } from '../lib/anuncios-github.js';
 
 export const urlGithub = (ruta) => (ruta ? `/archivos/github/${ruta.split('/').map(encodeURIComponent).join('/')}` : null);
 
@@ -24,6 +24,15 @@ export default function rutasAnunciosGithub(app) {
       })),
     }));
     res.set('Cache-Control', 'no-store').json({ estado: estadoAnunciosGithub(), productos });
+  });
+
+  // traer un anuncio a este computador para abrirlo en el editor -> { slug }
+  app.post('/api/anuncios-github/editar', soloDesdeLaApp, async (req, res) => {
+    try {
+      res.json(await importarAnuncio(req.body?.producto, req.body?.anuncio));
+    } catch (e) {
+      res.status(e.status || 500).json({ error: e.message || 'No pude traer ese anuncio.' });
+    }
   });
 
   app.post('/api/anuncios-github/traer', soloDesdeLaApp, async (req, res) => {

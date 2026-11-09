@@ -1,10 +1,10 @@
 // ANUNCIOS (#/anuncios): todos tus anuncios, en cualquier etapa, como en IA-VID-AUTOMATIC: pestañas (Todos,
 // Terminados, En producción, Con clips, Solo guion), buscador y orden. Cada uno abre su entrega (o su producción).
 import { useEffect, useMemo, useState } from 'react';
-import { Clapperboard, Cloud, Copy, Download, Package, Plus, Search, SearchX, X } from 'lucide-react';
+import { Clapperboard, Cloud, Copy, Download, Package, Plus, Scissors, Search, SearchX, X } from 'lucide-react';
 import { Boton, CabeceraPagina, Chip, EsqueletoMiniaturas, EstadoVacio, MiniaturaVideo, Modal, Selector } from '../../componentes/index.js';
-import { useAnuncios, useDatos, miniatura } from '../../datos/api.js';
-import { enlace } from '../../datos/rutas.js';
+import { useAnuncios, useDatos, miniatura, invalidar } from '../../datos/api.js';
+import { enlace, ir, rutas } from '../../datos/rutas.js';
 import { normalizar } from '../tablero/datos.js';
 import { MarcaModoPrueba } from '../produccion/ModoPrueba.jsx';
 import '../tablero/tablero.css';
@@ -46,7 +46,27 @@ async function leerGithub() {
 /** Un anuncio de GitHub abierto: su video, sus versiones para descargar y, si es un clon, el anuncio de referencia. */
 function VerAnuncio({ a, onCerrar }) {
   const [v, setV] = useState(0);
-  useEffect(() => setV(0), [a?.id]);
+  const [trayendo, setTrayendo] = useState(false);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    setV(0);
+    setError(null);
+  }, [a?.id]);
+  // lo trae a este computador (su material: escenas, voz, música, plan) y lo abre en el editor
+  const editar = async () => {
+    setTrayendo(true);
+    setError(null);
+    try {
+      const r = await fetch('/api/anuncios-github/editar', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ producto: a.producto, anuncio: a.id }) });
+      const d = await r.json().catch(() => null);
+      if (!r.ok || !d?.slug) throw new Error(d?.error || 'No pude traer ese anuncio.');
+      invalidar('anuncios');
+      ir(rutas.editor(d.slug));
+    } catch (e) {
+      setError(e.message);
+      setTrayendo(false);
+    }
+  };
   if (!a) return null;
   const opciones = [...a.versiones.map((x) => ({ ...x, clase: 'version' })), ...(a.referencias || []).map((r) => ({ ...r, tipo: r.id, clase: 'referencia' }))];
   const actual = opciones[v] || opciones[0];
@@ -63,11 +83,19 @@ function VerAnuncio({ a, onCerrar }) {
             </Chip>
           ))}
         </div>
-        {!esReferencia ? (
-          <Boton variante="secundario" icono={Download} href={actual.url} download={actual.ruta.split('/').pop()}>
-            Descargar esta versión
+        <div className="an-ver__acciones">
+          <Boton variante="primario" icono={Scissors} onClick={editar} cargando={trayendo} disabled={a.estilo === 'sketch'}>
+            {trayendo ? 'Trayendo el anuncio…' : 'Editar'}
           </Boton>
-        ) : null}
+          {!esReferencia ? (
+            <Boton variante="secundario" icono={Download} href={actual.url} download={actual.ruta.split('/').pop()}>
+              Descargar esta versión
+            </Boton>
+          ) : null}
+        </div>
+        {trayendo ? <p className="an-ver__nota">Bajando sus escenas, la voz y la música de GitHub (unos segundos, la primera vez).</p> : null}
+        {error ? <p className="an-ver__nota an-ver__nota--error">{error}</p> : null}
+        {a.estilo === 'sketch' ? <p className="an-ver__nota">El sketch se edita desde Claude Code: este no se abre en el editor.</p> : null}
       </div>
     </Modal>
   );
