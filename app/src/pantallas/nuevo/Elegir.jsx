@@ -2,7 +2,7 @@
 //   - «Cambiar el producto» (una tarjeta más entre los estilos: con subtítulos y traducción) -> #/cambiar
 //   - Un anuncio nuevo: se elige el estilo primero -> #/nuevo?estilo=<clave> (el estilo queda marcado en el paso 2)
 //   - «Elegir el estilo después» -> #/nuevo?inicio=1 (el flujo de siempre)
-import { Languages, Repeat, Subtitles } from 'lucide-react';
+import { Languages, Laugh, Repeat, Subtitles } from 'lucide-react';
 import { CabeceraPagina, EsqueletoMiniaturas, MiniaturaVideo } from '../../componentes/index.js';
 import { miniatura, useEstilos } from '../../datos/api.js';
 import { ir, rutas } from '../../datos/rutas.js';
@@ -37,6 +37,20 @@ export function Elegir() {
             <div className="miniatura__pie">
               <span className="miniatura__titulo">Cambiar el producto</span>
               <span className="miniatura__subtitulo">Un video que ya existe, con tu producto</span>
+            </div>
+          </button>
+          <button type="button" className="miniatura miniatura--interactiva es2-tarjeta nv-tarjeta-cambiar" onClick={() => ir(rutas.sketch())} aria-label="Usar Sketch de comedia">
+            <div className="miniatura__marco nv-tarjeta-cambiar__marco nv-tarjeta-sketch__marco" style={{ aspectRatio: '9 / 16' }}>
+              <Laugh className="nv-tarjeta-cambiar__icono" size={42} strokeWidth={1.6} aria-hidden="true" />
+              <span className="nv-tarjeta-cambiar__chips" aria-hidden="true">
+                <span>Telenovela</span>
+                <span>Con diálogo</span>
+                <span>Sin narrador</span>
+              </span>
+            </div>
+            <div className="miniatura__pie">
+              <span className="miniatura__titulo">Sketch de comedia</span>
+              <span className="miniatura__subtitulo">Telenovela que no parece anuncio</span>
             </div>
           </button>
           {estilos.map((e, i) => {

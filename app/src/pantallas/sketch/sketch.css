@@ -1,0 +1,15 @@
+/* Sketch de comedia (#/sketch). Usa lo de cambiar.css (pasos, productos, tomas, avance) y esto. */
+.sk-dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--e-3); }
+.sk-opcional { font-size: var(--t-mini); font-weight: normal; color: var(--texto-3); margin-left: 6px; }
+.sk-segmentos { display: inline-flex; gap: 4px; padding: 4px; border-radius: var(--r-m); background: var(--superficie-1); border: 1px solid var(--borde-1); align-self: flex-start; }
+.sk-segmento { padding: 8px 14px; border-radius: var(--r-s); border: 0; background: none; color: var(--texto-2); font: inherit; font-size: var(--t-ui); cursor: pointer; }
+.sk-segmento--sel { background: var(--superficie-2); color: var(--texto-1); box-shadow: 0 0 0 1px var(--borde-2); }
+.sk-guion { max-width: 860px; padding: var(--e-5); border-radius: var(--r-l); background: var(--superficie-1); border: 1px solid var(--borde-1); max-height: 70vh; overflow: auto; }
+.sk-acciones { flex-direction: column; align-items: stretch; max-width: 860px; }
+.sk-hacer { margin: 0; padding-left: 18px; font-size: var(--t-chico); color: var(--texto-2); }
+.sk-revision { max-width: 860px; padding: var(--e-4); border-radius: var(--r-l); background: var(--superficie-1); border: 1px solid var(--borde-1); }
+.sk-revision summary { cursor: pointer; font-weight: var(--peso-semi); }
+.cb-toma__img video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.sk-malas { display: flex; flex-direction: column; gap: 6px; }
+.sk-mala { display: flex; align-items: center; justify-content: space-between; gap: var(--e-3); padding: 8px 10px; border-radius: var(--r-m); background: var(--superficie-1); border: 1px solid var(--borde-1); font-size: var(--t-chico); color: var(--texto-2); flex-wrap: wrap; }

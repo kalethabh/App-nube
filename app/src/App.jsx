@@ -28,6 +28,7 @@ const Biblioteca = lazy(() => import('./pantallas/biblioteca/index.jsx'));
 const Anuncios = lazy(() => import('./pantallas/anuncios/index.jsx'));
 const Saldo = lazy(() => import('./pantallas/saldo/index.jsx'));
 const Cambiar = lazy(() => import('./pantallas/cambiar/index.jsx'));
+const Sketch = lazy(() => import('./pantallas/sketch/index.jsx'));
 const Aprendizajes = lazy(() => import('./pantallas/aprendizajes/index.jsx'));
 const Componentes = lazy(() => import('./pantallas/componentes/index.jsx'));
 // La bienvenida de 3 pasos: se abre sola la primera vez (hasta que se cierra o se termina).
@@ -62,6 +63,8 @@ export const RUTAS = [
   { patron: '/estilos', Pantalla: Estilos, menu: 'estilos', titulo: 'Estilos', migas: () => [{ texto: 'Estilos' }] },
   { patron: '/anuncios', Pantalla: Anuncios, menu: 'anuncios', titulo: 'Anuncios', migas: () => [{ texto: 'Anuncios' }] },
   { patron: '/aprendizajes', Pantalla: Aprendizajes, menu: 'aprendizajes', titulo: 'Aprendizajes', migas: () => [{ texto: 'Aprendizajes' }] },
+  { patron: '/sketch', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia' }] },
+  { patron: '/sketch/:slug', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia', href: enlace.sketch() }, { texto: 'Tu sketch' }] },
   { patron: '/cambiar', Pantalla: Cambiar, menu: 'cambiar', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Cambiar el producto' }] },
   { patron: '/cambiar/:slug', Pantalla: Cambiar, menu: 'cambiar', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Cambiar el producto', href: enlace.cambiar() }, { texto: 'Revisar' }] },
   { patron: '/saldo', Pantalla: Saldo, menu: 'saldo', titulo: 'Saldo y costos', migas: () => [{ texto: 'Saldo y costos' }] },

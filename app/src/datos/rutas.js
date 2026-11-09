@@ -68,6 +68,7 @@ export const rutas = {
   anuncios: () => '/anuncios',
   saldo: () => '/saldo',
   cambiar: (slug) => (slug ? `/cambiar/${s(slug)}` : '/cambiar'),
+  sketch: (slug) => (slug ? `/sketch/${s(slug)}` : '/sketch'),
   aprendizajes: () => '/aprendizajes',
   biblioteca: (consulta) => `/biblioteca${consulta ? `?${new URLSearchParams(consulta)}` : ''}`,
   ajustes: () => '/ajustes',
