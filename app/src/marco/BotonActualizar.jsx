@@ -33,6 +33,15 @@ export function BotonActualizar() {
       const r = await fetch('/api/github/actualizar', { method: 'POST', headers: { Accept: 'application/json' } });
       const d = await r.json().catch(() => ({}));
       setResultado(d?.mensaje ? d : { ok: false, mensaje: 'No pude actualizar. Vuelve a intentarlo.' });
+      // la app se reinicia sola: cuando vuelve a contestar, la página se recarga
+      if (d?.reinicia) {
+        await new Promise((r) => setTimeout(r, 4000));
+        for (let i = 0; i < 60; i++) {
+          const ok = await fetch('/api/estado', { cache: 'no-store' }).then((x) => x.ok, () => false);
+          if (ok) return window.location.reload();
+          await new Promise((r) => setTimeout(r, 1500));
+        }
+      }
       invalidar('github-actualizar');
       recargar?.();
     } catch {

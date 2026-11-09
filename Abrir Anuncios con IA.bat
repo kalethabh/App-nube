@@ -71,7 +71,7 @@ rem Todo en un bloque: cmd.exe lo lee entero antes de arrancar la app. Así, si 
 rem mientras la app corre, al cerrarse no se sigue leyendo el archivo nuevo a la mitad. Si hubo un error, la ventana
 rem se queda para poder leerlo.
 (
-  node server\index.js
+  node inicio\arrancar.mjs
   if errorlevel 1 pause
   exit /b
 )

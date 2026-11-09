@@ -82,7 +82,7 @@ echo " Abriendo Anuncios con IA en tu navegador..."
 echo " Deja esta ventana abierta mientras uses la app. Para cerrarla, cierra esta ventana."
 echo
 [ -z "$AIA_NO_ABRIR" ] && ( sleep 3; open "$URL" ) &
-node server/index.js
+node inicio/arrancar.mjs
 codigo=$?
 # si hubo un error, la ventana espera para poder leerlo
 [ $codigo -ne 0 ] && pausar

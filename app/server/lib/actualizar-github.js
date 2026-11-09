@@ -91,6 +91,11 @@ export async function actualizar() {
     const reabrir = cambiados.some((f) => f.startsWith('app/server/') || f.startsWith('produccion/') || f.startsWith('app/inicio/') || /^app\/package/.test(f));
     const n = antes.atrasados;
     // en el servidor no hay ventana que cerrar: la app se reinicia sola (el servicio la vuelve a levantar)
+    // en tu computador, si la app la abrió el lanzador (app/inicio/arrancar.mjs), también se reinicia sola
+    if (reabrir && !EN_SERVIDOR && process.env.AIA_SUPERVISADO === '1') {
+      setTimeout(() => process.exit(75), 1500).unref?.();
+      return { ok: true, cambios: n, reabrir: false, reinicia: true, mensaje: `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. La app se reinicia sola y la página se recarga en unos segundos.` };
+    }
     if (reabrir && EN_SERVIDOR) {
       setTimeout(() => process.exit(0), 1500).unref?.();
       return { ok: true, cambios: n, reabrir: false, reinicia: true, mensaje: `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. La app se reinicia sola: recarga la página en unos 20 segundos.` };
