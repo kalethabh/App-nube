@@ -23,7 +23,7 @@
       "quien": "Valentina",
       "lado": "A",
       "dice": "Yo me medía un jean y eso allá atrás más plana que 10 planas",
-      "se_ve": "Valentina seria en su micrófono. Arriba se ve ella de lado frente al espejo, jalando la tela floja del jean."
+      "se_ve": "Valentina seria en su micrófono. Arriba se ve ella de perfil en el espejo, totalmente plana como una tabla: el jean le sobra atrás, los bolsillos caídos y los muslos delgados."
     },
     {
       "n": 2,
@@ -95,7 +95,7 @@
       "quien": "Marcela",
       "lado": "B",
       "dice": "Ahora me pongo el jean, me miro de lado y digo: ah, ¿sí ves?",
-      "se_ve": "Marcela habla. Arriba se ve a Marcela de lado en el espejo de un probador, con curvas que se notan sin exagerar."
+      "se_ve": "Marcela habla. Arriba se ve a Marcela de lado en el espejo de un probador, con curvas muy marcadas: cadera ancha, mucho volumen atrás y piernas gruesas que llenan el jean."
     },
     {
       "n": 11,
@@ -128,5 +128,11 @@
     "Las escenas van arriba, en pantalla dividida: el espejo con el jean flojo, la tía, la caja en la puerta y el probador con curvas. Salen la misma Valentina y la misma Marcela. El frasco no sale en pantalla porque tu guion no lo pide; el producto entra de pasada cuando Marcela cuenta que su tía se lo pasó.",
     "El fondo lleva luces LED rosadas y violetas y un letrero de neón que dice «Tus mejores secretos». Si las letras salen deformes en los videos, conviene quitarlo.",
     "Lo que dejé fuera: el texto con el precio y «Pagas en casa» no va dentro del video, porque este estilo no lleva textos en pantalla (ponlo en el texto de la publicación). Valentina le sonríe a Marcela y no a la cámara, para que siga pareciendo un podcast real."
+  ],
+  "cambios_hechos": [
+    "La escena del «antes» (cuando Valentina dice que era plana) ahora es mucho más exagerada: de perfil, plana como una tabla, con el jean dos tallas grande atrás, los bolsillos caídos y los muslos delgados.",
+    "La escena del «después» (Marcela en el probador) ahora muestra curvas muy marcadas: cadera casi el doble de ancha que la cintura, mucho volumen atrás y piernas gruesas que llenan el jean.",
+    "En las dos escenas pedí que el cuerpo no cambie durante el video, para que el contraste no se pierda. No cambié ni una palabra de lo que se dice.",
+    "Ojo: el «antes» es Valentina y el «después» es Marcela, como en tu guion. Se ve el contraste, pero no es la misma persona."
   ]
 }
