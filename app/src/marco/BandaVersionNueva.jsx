@@ -9,6 +9,18 @@ import '../pantallas/produccion/modo-prueba.css';
 export function BandaVersionNueva() {
   const { datos } = useEstado({ cadaMs: 30000 });
   const [reiniciando, setReiniciando] = useState(false);
+  // una app de antes de este aviso (no dice nada de su versión): no se puede reiniciar desde aquí
+  if (datos && !datos.servidor && !reiniciando) {
+    return (
+      <div className="modo-prueba modo-prueba--global modo-prueba--error" role="alert">
+        <RefreshCw size={15} strokeWidth={2.2} aria-hidden="true" />
+        <span>
+          <strong>Está corriendo una versión vieja de la app.</strong> Por eso algunas cosas dicen «No existe esa ruta». Reinicia la Mac y abre la app con
+          doble clic en «Abrir Anuncios con IA».
+        </span>
+      </div>
+    );
+  }
   if (!datos?.servidor?.desactualizado && !reiniciando) return null;
   const reiniciar = async () => {
     setReiniciando(true);
