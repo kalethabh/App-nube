@@ -10,7 +10,7 @@ La app "Anuncios con IA" (se abre con «Abrir Anuncios con IA.command» en Mac o
 
 - **Si el usuario pide abrir o instalar la app**: que haga doble clic en el lanzador de su sistema (instala lo que falte solo). Si quiere que lo hagas tú: `node app/inicio/preparar-app.mjs` y después `npm start --prefix app` en segundo plano.
 - **Casi todo se hace desde la app**: los 13 estilos, la continuidad, los subestilos, **Clonar un video** (en los ajustes de cada estilo) y **Más ganchos** (en la entrega de un anuncio con narrador ya hecho).
-- **Desde Claude Code**: el **Sketch de comedia** (`.claude/skills/anuncios-sketch/`), y cualquier estilo si el usuario lo prefiere por chat. Usa SIEMPRE las skills de `.claude/skills/` de esta carpeta (no las de la cuenta con prefijo `anthropic-skills:`). El proceso completo de producción por comandos está en `COMO-PRODUCIR.md`.
+- **Sketch de comedia**: desde la app (Nuevo anuncio → «Sketch de comedia», `app/server/lib/sketch.js`, que corre los scripts de `.claude/skills/anuncios-sketch/` con su propio Python en `.venv-sketch`) o desde Claude Code. Cualquier estilo también se puede hacer por chat si el usuario lo prefiere. Usa SIEMPRE las skills de `.claude/skills/` de esta carpeta (no las de la cuenta con prefijo `anthropic-skills:`). El proceso completo de producción por comandos está en `COMO-PRODUCIR.md`.
 
 ## Reglas que no se rompen
 

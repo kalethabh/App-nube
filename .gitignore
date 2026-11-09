@@ -62,3 +62,4 @@ mis_archivos/.anuncios-github-cache/
 # El entorno de Python del borrador de subtítulos (npm run subtitulos:instalar)
 .venv-limpio/
 produccion/video-limpio/**/__pycache__/
+.venv-sketch/

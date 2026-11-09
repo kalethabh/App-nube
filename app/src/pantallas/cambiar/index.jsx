@@ -29,7 +29,7 @@ const ETAPAS = {
 
 // ---------------------------------------------------------------- empezar uno nuevo
 /** Un producto nuevo con su foto (y su nombre), sin salir de esta pantalla. Queda también para «Nuevo anuncio». */
-function OtroProducto({ alCrear, alCerrar }) {
+export function OtroProducto({ alCrear, alCerrar }) {
   const [foto, setFoto] = useState(null);
   const [nombre, setNombre] = useState('');
   const [encima, setEncima] = useState(false);
