@@ -1,6 +1,6 @@
 {
   "uuid": "68b0bd1f-791d-43db-8483-9f5bbdee6b8b",
-  "estado": "listo",
+  "estado": "aprobado",
   "tipo": "cambios",
   "intentos": 3,
   "progreso": [
@@ -25,7 +25,7 @@
       "ok": true
     }
   ],
-  "actualizado": "2026-11-09T21:55:08.899Z",
+  "actualizado": "2026-11-09T21:59:09.595Z",
   "error": null,
   "inicioIntento": "2026-11-09T21:54:17.420Z",
   "fin": "2026-11-09T21:55:08.899Z",
@@ -191,5 +191,6 @@
   ],
   "ajustados": 0,
   "pedido": "Las imagenes de las personas deben ser lo más realistas posible a detalle, luz natural, detalle en los movimientos, gestos, tonos de voz, el mayor detalle posible",
-  "respaldo": null
+  "respaldo": null,
+  "aprobado": "2026-11-09T21:59:09.595Z"
 }

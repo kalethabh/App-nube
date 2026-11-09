@@ -1,0 +1,12 @@
+{
+  "pid": 13509,
+  "paso": "imagenes",
+  "script": "producir.js",
+  "args": [
+    "temp/aguaje-complex-10x-podcast-20261109-1637",
+    "--si"
+  ],
+  "comando": "node produccion/producir.js temp/aguaje-complex-10x-podcast-20261109-1637 --si",
+  "inicio": "2026-11-09T21:59:10.553Z",
+  "app": 7274
+}
