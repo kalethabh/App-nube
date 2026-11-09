@@ -1,0 +1,67 @@
+{
+  "generado": "2026-11-09T22:13:34.620Z",
+  "parcial": true,
+  "segundos": 325,
+  "clips": [
+    {
+      "id": "broll-1",
+      "archivo": "broll-1.mp4",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "broll",
+      "segundosUtiles": 5,
+      "segundosPedidos": 5,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "creditos": 101,
+      "taskId": "242cf303af0b3845dcf559dd85ed8b8e",
+      "sonido": false
+    },
+    {
+      "id": "broll-2",
+      "archivo": "broll-2.mp4",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "broll",
+      "segundosUtiles": 5,
+      "segundosPedidos": 5,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "creditos": 101,
+      "taskId": "064bba57da585c06d9bc2c5697349f67",
+      "sonido": false
+    },
+    {
+      "id": "broll-3",
+      "archivo": "broll-3.mp4",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "broll",
+      "segundosUtiles": 5,
+      "segundosPedidos": 5,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "creditos": 101,
+      "taskId": "93235f0b5f6bbc3896e90ce77d7dac85",
+      "sonido": false
+    },
+    {
+      "id": "broll-4",
+      "archivo": "broll-4.mp4",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "broll",
+      "segundosUtiles": 5,
+      "segundosPedidos": 5,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "creditos": 101,
+      "taskId": "8546b4397769d839fa9bc81ae5a7aece",
+      "sonido": false
+    }
+  ]
+}

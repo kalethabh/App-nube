@@ -43,7 +43,8 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-09T22:08:09.012Z",
-      "detalle": "Generando los clips"
+      "detalle": "Generando los clips",
+      "reintentos": 1
     },
     {
       "id": "revision-habla",
@@ -84,7 +85,7 @@
   "modoPrueba": false,
   "creado": "2026-11-09T21:59:09.596Z",
   "aprobado": "2026-11-09T21:59:09.596Z",
-  "actualizado": "2026-11-09T22:08:09.013Z",
+  "actualizado": "2026-11-09T22:13:34.822Z",
   "saldoInicial": {
     "creditos": 2751.8,
     "fecha": "2026-11-09T21:59:10.552Z"
