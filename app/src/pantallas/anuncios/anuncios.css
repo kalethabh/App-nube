@@ -91,3 +91,6 @@
   font-size: var(--t-chico);
   color: var(--texto-3);
 }
+
+.an-ver__acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+.an-ver__nota--error { color: var(--error); }
