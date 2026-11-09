@@ -9,6 +9,7 @@ import { miniatura } from '../../datos/api.js';
 import { duracion as fmtDuracion, fechaCompleta } from '../../datos/formato.js';
 import { fraseArreglo, quien } from './modelo.js';
 import { TEXTO_DEFECTO } from './simulacion.js';
+import { EditarImagen } from './EditarImagen.jsx';
 
 const TERMINADA = new Set(['listo', 'arreglado', 'te-necesita']);
 
@@ -38,6 +39,7 @@ function explicacion(p, estado, nota, modelo, revisada, simulando) {
 export function PanelPieza({ pieza: p, estado, nota, modelo, orden, onCerrar, onIr, onDecidir, simulando, problema = TEXTO_DEFECTO, enVivo = false, revisada = true }) {
   const [verAntes, setVerAntes] = useState(false);
   const [confirmar, setConfirmar] = useState(false);
+  const [version, setVersion] = useState(0); // sube al editar la imagen: la de ahora se vuelve a pedir
   const cerrarRef = useRef(onCerrar);
   cerrarRef.current = onCerrar;
   const irRef = useRef(onIr);
@@ -73,7 +75,8 @@ export function PanelPieza({ pieza: p, estado, nota, modelo, orden, onCerrar, on
   const pos = orden.indexOf(p.id);
   // decidir a mano solo en la simulación del diseño: con conductor, la app rehace sola (con su tope) y lo cuenta
   const esDefecto = estado === 'te-necesita' && simulando;
-  const media = mostrarAntes ? antes.antes : p.clase === 'clip' ? p.video : p.imagen;
+  const conVersion = (u) => (u && version ? `${u}${u.includes('?') ? '&' : '?'}e=${version}` : u);
+  const media = mostrarAntes ? antes.antes : p.clase === 'clip' ? p.video : conVersion(p.imagen);
   const poster = p.clase === 'clip' ? miniatura(p.video, 480, { segundo: 0.3 }) : miniatura(p.imagen, 480);
 
   return createPortal(
@@ -139,6 +142,8 @@ export function PanelPieza({ pieza: p, estado, nota, modelo, orden, onCerrar, on
           <Insignia estado={estado} texto={estado === 'listo' ? 'Lista' : undefined} />
           <p>{explicacion(p, estado, nota, modelo, revisada, simulando)}</p>
         </div>
+
+        {p.clase === 'imagen' && terminada && p.imagen && !simulando && !mostrarAntes ? <EditarImagen url={p.imagen} onEditada={() => setVersion(Date.now())} /> : null}
 
         {esDefecto ? (
           <div className="prod-panel__defecto" role="alert">
