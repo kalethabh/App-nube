@@ -14,11 +14,13 @@
     "Leyendo las instrucciones del estilo",
     "Leyendo",
     "Mirando las imágenes del anuncio",
-    "Mirando las fotos de tu producto"
+    "Mirando las fotos de tu producto",
+    "Buscando en los archivos",
+    "Guardando"
   ],
   "inicio": "2026-11-09T19:04:22.742Z",
   "cambios": [],
-  "actualizado": "2026-11-09T19:04:40.230Z",
+  "actualizado": "2026-11-09T19:09:11.702Z",
   "error": null,
   "inicioIntento": "2026-11-09T19:04:22.744Z"
 }
