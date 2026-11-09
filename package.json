@@ -45,6 +45,7 @@
     "referencias:instalar": "node produccion/instalar-yt-dlp.js",
     "paquete": "node app/herramientas/paquete-compartir.mjs",
     "subtitulos:instalar": "node produccion/borrar-subtitulos.js --instalar",
-    "subtitulos:borrar": "node produccion/borrar-subtitulos.js"
+    "subtitulos:borrar": "node produccion/borrar-subtitulos.js",
+    "cambiar-producto": "node produccion/cambiar-producto.js"
   }
 }

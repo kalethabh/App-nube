@@ -75,8 +75,12 @@ acción. Una toma puede tener dos.
 Muéstrale al usuario un resumen corto del ADN (formato, duración, número de tomas,
 ángulo de venta en una frase) y pregúntale todo junto con `AskUserQuestion`:
 
-1. **El modo** — "Clonar para mi producto" (un anuncio nuevo para su producto) o
-   "Traducir este mismo video" (el mismo producto y el mismo mensaje, en otro idioma).
+1. **El modo** — "Clonar para mi producto" (un anuncio nuevo para su producto),
+   "Traducir este mismo video" (el mismo producto y el mismo mensaje, en otro idioma) o
+   **"Cambiar el producto en este mismo video"** (el video queda tal cual: solo se rehacen las escenas donde
+   sale el otro producto, la voz se traduce con la misma voz y van subtítulos nuevos; ver la sección
+   «Modo: cambiar el producto en el mismo video», al final). Si el usuario dice "quiero el video tal cual",
+   "solo cambia la escena del producto", "ponle mi producto y pásalo a español", es este modo.
    Si en su primer mensaje ya quedó claro, no lo preguntes.
 2. **El título y el ángulo** — "¿Adapto el título (el gancho) y el ángulo de venta a
    tu producto?":
@@ -150,3 +154,42 @@ opciones A, B y C, como siempre. En el resumen agrega una línea: **"Clonado de:
 La del estilo, sin cambios (y con lo de `PERSONALIZACION.md`: revisar las imágenes
 antes de los videos, voces distintas por personaje). Al entregar, muestra el original
 y el nuevo uno al lado del otro: las rutas de los dos MP4.
+
+## Modo: cambiar el producto en el mismo video
+
+El video del usuario se queda **tal cual** (tomas, tiempos, personas, música). Cambian tres cosas, y solo se paga
+lo que cambia:
+1. **Las escenas donde sale el otro producto** se rehacen con el del usuario: se edita el primer cuadro de esa
+   escena (nano-banana-2 con la foto del producto) y se anima con el mismo movimiento y la misma duración.
+2. **La voz** se traduce (por defecto al español) con **la misma voz del original** (ElevenLabs la aísla, la clona,
+   dice el texto nuevo y la clonada se borra al terminar), diciendo el producto del usuario en lugar del otro.
+3. **Los subtítulos**: se borran los del original (el borrador de la skill Video Limpio, gratis, en el computador:
+   `npm run subtitulos:instalar` una vez) y se ponen los nuevos, **siempre en español** salvo que pida otra cosa.
+
+Todo lo hace `produccion/cambiar-producto.js`. Los pasos:
+
+1. Carpeta `temp/<slug>/` con `original.mp4` (el video subido o bajado de su link con
+   `npm run referencias:bajar`) y `producto.png` (la foto principal de su producto).
+2. `node produccion/cambiar-producto.js analizar temp/<slug>`: deja `analisis/` con `hoja-tomas.jpg`, cada toma en
+   `tomas/`, `adn-base.json` (tomas con tiempos y lo que se dice) y `transcripcion.json`.
+3. Mira con Read la hoja de tomas y cada toma donde podría salir el producto, y escribe `temp/<slug>/cambio.json`:
+   - `escenas`: SOLO las tomas donde se ve el otro producto (envase, etiqueta, la marca en pantalla). Por cada una:
+     `toma`, `desde`, `hasta` (los de `adn-base.json`), `prompt_imagen` (en inglés: qué es el otro producto en ese
+     cuadro y que se reemplaza por el de la foto, igual de grande, en la misma mano o lugar) y `prompt_video` (en
+     inglés: el mismo movimiento de cámara y de las manos que en la toma original, sin que nadie hable).
+   - `voz`: una entrada por frase del original, con su `desde` y `hasta` (de `transcripcion.json`), y su `texto`
+     traducido al idioma de destino, natural y del mismo largo (si sale más largo, se acelera hasta 1,3x). El
+     nombre, el ingrediente y la oferta del otro producto se cambian por los del usuario; las cifras y promesas que
+     su producto no puede sostener, se quitan (pregunta si dudas).
+   - `idioma_destino` ("es" por defecto), `subtitulos` ("es" por defecto, o `false`), `borrar_subtitulos` (true si el
+     original trae texto quemado) y `producto` (el nombre).
+4. Muéstrale en el chat, corto: qué escenas cambian (con el número de toma y lo que se ve), el texto nuevo de la voz
+   frase por frase, y el costo de `node produccion/cambiar-producto.js plan temp/<slug>`. Espera su sí.
+   - Avísale si alguien **habla a cámara**: con la voz en otro idioma los labios no van a coincidir (para eso habría
+     que rehacer también esas tomas, y cuesta más).
+5. Con el sí: `node produccion/cambiar-producto.js producir temp/<slug> --si`. Retoma lo hecho si se corta.
+   Entrega `output/<slug>_cambiado.mp4` (con subtítulos) y `_sin-subtitulos.mp4`.
+6. Mira el resultado (fotogramas de las escenas cambiadas) antes de entregarlo: si el producto se deformó o la
+   escena no calza, propón rehacer solo esa escena (borra `trabajo/escena-N.*`), con su costo.
+
+Úsalo solo con videos que el usuario tenga derecho a editar.
