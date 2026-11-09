@@ -853,3 +853,19 @@
 .tb-prueba {
   margin-bottom: var(--e-4);
 }
+
+/* Cambiar el producto en Progreso (Cambios.jsx) */
+.tb-cambios { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--e-3); }
+.tb-cambio { display: flex; align-items: center; gap: var(--e-3); padding: var(--e-3); border-radius: var(--r-l); background: var(--superficie-1); border: 1px solid var(--borde-1); color: inherit; text-decoration: none; transition: border-color 0.2s var(--curva-suave), transform 0.2s var(--curva-salida); }
+.tb-cambio:hover { border-color: var(--borde-2); transform: translateY(-2px); }
+.tb-cambio--error { border-color: var(--error-borde); }
+.tb-cambio__img { flex: none; width: 48px; height: 64px; border-radius: var(--r-s); overflow: hidden; background: var(--superficie-2); display: grid; place-items: center; color: var(--acento); }
+.tb-cambio__img img { width: 100%; height: 100%; object-fit: cover; }
+.tb-cambio__cuerpo { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.tb-cambio__cuerpo strong { font-size: var(--t-ui); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tb-cambio__paso { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-chico); color: var(--acento); }
+.tb-cambio--error .tb-cambio__paso { color: var(--error); }
+.tb-cambio__detalle { font-size: var(--t-mini); color: var(--texto-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tb-cambio__barra { display: block; height: 5px; border-radius: var(--r-pill); background: var(--superficie-2); overflow: hidden; }
+.tb-cambio__barra span { display: block; height: 100%; background: var(--acento); border-radius: inherit; transition: width 0.6s var(--curva-suave); }
+.tb-cambio__flecha { flex: none; color: var(--texto-3); }

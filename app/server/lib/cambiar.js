@@ -212,7 +212,7 @@ export function listarCambios() {
   return dirs
     .map((slug) => {
       const e = leerEstado(slug);
-      return { slug, producto: e.producto || '', etapa: e.etapa, creado: e.creado, miniatura: existe(path.join(dirDe(slug), 'analisis', 'tomas', 'toma-01.jpg')) ? `/archivos/cambio/${slug}/analisis/tomas/toma-01.jpg` : null };
+      return { slug, producto: e.producto || '', etapa: e.etapa, creado: e.creado, paso: e.paso || null, inicioProduccion: e.inicioProduccion || null, error: e.error || null, ultimo: (e.progreso || []).at(-1) || null, miniatura: existe(path.join(dirDe(slug), 'analisis', 'tomas', 'toma-01.jpg')) ? `/archivos/cambio/${slug}/analisis/tomas/toma-01.jpg` : null };
     })
     .sort((a, b) => String(b.creado).localeCompare(String(a.creado)));
 }

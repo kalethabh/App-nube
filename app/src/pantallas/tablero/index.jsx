@@ -14,6 +14,7 @@ import { Portada } from './Portada.jsx';
 import { TeNecesitan } from './TeNecesitan.jsx';
 import { EnProduccion } from './EnProduccion.jsx';
 import { Listos } from './Listos.jsx';
+import { Cambios } from './Cambios.jsx';
 import { AvisoClaude, useSesionClaude } from '../nuevo/piezas.jsx';
 import './tablero.css';
 
@@ -45,6 +46,7 @@ export default function Tablero() {
   if (!cargando && !anuncios.length) {
     return (
       <div className="pagina pagina--angosta">
+        <Cambios />
         <EstadoVacio
           icono={Clapperboard}
           titulo="Todavía no tienes anuncios"
@@ -77,6 +79,7 @@ export default function Tablero() {
             <TeNecesitan p={produccion} alSeguir={recargar} />
             <EnProduccion p={produccion} />
           </div>
+          <Cambios />
           <Listos anuncios={anuncios} />
         </>
       )}
