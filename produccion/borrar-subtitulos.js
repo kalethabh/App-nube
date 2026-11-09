@@ -38,7 +38,7 @@ export function instalar() {
   }
   const py = buscarPython();
   if (!py) {
-    console.error('  Falta Python 3.10 o más nuevo. En la Mac: brew install python@3.12 (o el lanzador de la app lo instala).');
+    console.error('  Falta Python 3.10 o más nuevo: cierra la app y ábrela con doble clic en «Abrir Anuncios con IA», que lo instala solo.');
     return 1;
   }
   const [mayor, menor] = py.version.split('.').map(Number);
