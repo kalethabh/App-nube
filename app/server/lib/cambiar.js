@@ -199,6 +199,17 @@ function pasoDe(slug) {
   };
 }
 
+/** Los errores de kie.ai y ElevenLabs que se conocen, en palabras (con qué hacer). El resto, tal cual. */
+function enPalabras(m) {
+  const t = String(m || '');
+  if (/IP whitelist/i.test(t)) return 'Tu clave de kie.ai solo acepta pedidos desde ciertas direcciones de internet (lista blanca de IP) y la de este computador no está. En kie.ai → API Key, desactiva la lista blanca de IP o agrega tu IP actual, y toca «Reintentar». No se cobró nada.';
+  if (/kie[^]*\b401\b|Authentication failed/i.test(t)) return 'kie.ai no aceptó tu clave. Revísala en Ajustes → Conexiones y toca «Reintentar». No se cobró nada.';
+  if (/insufficient|saldo|balance|credits? (is|are) not enough/i.test(t) && /kie/i.test(t)) return 'No te alcanza el saldo de kie.ai. Carga saldo en kie.ai/billing y toca «Reintentar»: lo ya hecho no se vuelve a pagar.';
+  if (/ELEVENLABS_API_KEY|elevenlabs[^]*401|invalid_api_key/i.test(t)) return 'ElevenLabs no aceptó tu clave. Revísala en Ajustes → Conexiones y toca «Reintentar».';
+  if (/quota_exceeded/i.test(t)) return 'Se acabaron los caracteres de tu plan de ElevenLabs. Cuando se renueve (o subas de plan), toca «Reintentar»: lo ya hecho no se vuelve a pagar.';
+  return t;
+}
+
 // ---------------------------------------------------------------- lo que se ve
 
 /** Los trabajos, los más nuevos primero. */
@@ -296,7 +307,7 @@ function analizar(slug) {
       guardarEstado(slug, { etapa: 'proponiendo' });
       await proponer(slug);
     } catch (err) {
-      guardarEstado(slug, { etapa: 'error', error: err.message });
+      guardarEstado(slug, { etapa: 'error', error: enPalabras(err.message) });
     } finally {
       enMarcha.delete(slug);
     }
@@ -376,7 +387,7 @@ export function volverAProponer(slug) {
   if (!slugValido(slug) || enMarcha.has(slug)) return false;
   guardarEstado(slug, { etapa: 'proponiendo', error: null });
   const tarea = proponer(slug)
-    .catch((err) => guardarEstado(slug, { etapa: 'error', error: err.message }))
+    .catch((err) => guardarEstado(slug, { etapa: 'error', error: enPalabras(err.message) }))
     .finally(() => enMarcha.delete(slug));
   enMarcha.set(slug, { tarea });
   return true;
@@ -447,7 +458,7 @@ export function producirCambio(slug) {
       }
       guardarEstado(slug, { etapa: 'listo', terminado: new Date().toISOString(), paso: null });
     } catch (err) {
-      guardarEstado(slug, { etapa: 'error', error: err.message });
+      guardarEstado(slug, { etapa: 'error', error: enPalabras(err.message) });
     } finally {
       enMarcha.delete(slug);
     }
