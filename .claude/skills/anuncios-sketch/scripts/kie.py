@@ -12,12 +12,13 @@ Uso suelto:
 import base64, json, mimetypes, os, sys, time, urllib.error, urllib.request, uuid
 from pathlib import Path
 
-BASE = "https://api.kie.ai"
+# la app (modo prueba) puede apuntar a su kie simulado; si no, el de verdad
+BASE = (os.environ.get("KIE_BASE_URL") or "https://api.kie.ai").rstrip("/")
 
 
 class TareaFallida(RuntimeError):
     """Kie terminó la tarea con estado 'fail' (no se cobra)."""
-UPLOAD_BASE = "https://kieai.redpandaai.co"  # las subidas de archivos viven en otro host
+UPLOAD_BASE = (os.environ.get("KIE_BASE_ARCHIVOS_URL") or "https://kieai.redpandaai.co").rstrip("/")  # las subidas de archivos viven en otro host
 
 
 def api_key():
