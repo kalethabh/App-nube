@@ -1,9 +1,9 @@
 // CAMBIAR EL PRODUCTO (#/cambiar y #/cambiar/<slug>): un video que ya existe queda igual, pero sin sus subtítulos,
 // con tu producto en las escenas donde salía el de otra marca, la voz traducida con la misma voz y subtítulos nuevos.
 // El servidor es lib/cambiar.js; el motor, produccion/cambiar-producto.js.
-import { useEffect, useState } from 'react';
-import { CircleAlert, Download, Film, LoaderCircle, Mic, Play, Plus, RefreshCw, Repeat, Sparkles, X } from 'lucide-react';
-import { AreaTexto, Boton, CabeceraPagina, EstadoVacio, Interruptor, Seccion, SubirVideo, useAvisos } from '../../componentes/index.js';
+import { useEffect, useMemo, useState } from 'react';
+import { CircleAlert, Download, Film, ImagePlus, LoaderCircle, Mic, Play, Plus, RefreshCw, Repeat, Sparkles, X } from 'lucide-react';
+import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Seccion, SubirVideo, useAvisos } from '../../componentes/index.js';
 import { useDatos, invalidar, miniatura } from '../../datos/api.js';
 import { enlace, ir, rutas } from '../../datos/rutas.js';
 import './cambiar.css';
@@ -25,8 +25,72 @@ const ETAPAS = {
 };
 
 // ---------------------------------------------------------------- empezar uno nuevo
+/** Un producto nuevo con su foto (y su nombre), sin salir de esta pantalla. Queda también para «Nuevo anuncio». */
+function OtroProducto({ alCrear, alCerrar }) {
+  const [foto, setFoto] = useState(null);
+  const [nombre, setNombre] = useState('');
+  const [encima, setEncima] = useState(false);
+  const [guardando, setGuardando] = useState(false);
+  const [error, setError] = useState(null);
+  const vista = useMemo(() => (foto ? URL.createObjectURL(foto) : null), [foto]);
+  useEffect(() => () => vista && URL.revokeObjectURL(vista), [vista]);
+  const elegir = (f) => {
+    if (!f) return;
+    if (!/^image\//.test(f.type || '') && !/\.(png|jpe?g|webp|heic)$/i.test(f.name)) return setError('Eso no es una foto.');
+    setError(null);
+    setFoto(f);
+    if (!nombre) setNombre(f.name.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').slice(0, 60));
+  };
+  const guardar = async () => {
+    setGuardando(true);
+    setError(null);
+    try {
+      const { id } = await pedir('/api/productos', { metodo: 'POST', cuerpo: { nombre: nombre.trim(), tipo: 'fisico' } });
+      const r = await fetch(`/api/productos/${encodeURIComponent(id)}/fotos/1`, { method: 'PUT', headers: { 'Content-Type': foto.type || 'application/octet-stream', Accept: 'application/json' }, body: foto });
+      if (!r.ok) throw new Error((await r.json().catch(() => null))?.error || 'No pude subir la foto.');
+      alCrear(id);
+    } catch (e) {
+      setError(e.message);
+      setGuardando(false);
+    }
+  };
+  return (
+    <div className="cb-otro">
+      <label
+        className={`cb-otro__foto${encima ? ' cb-otro__foto--encima' : ''}`}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setEncima(true);
+        }}
+        onDragLeave={() => setEncima(false)}
+        onDrop={(e) => {
+          e.preventDefault();
+          setEncima(false);
+          elegir(e.dataTransfer.files?.[0]);
+        }}
+      >
+        <input type="file" accept="image/*" hidden onChange={(e) => elegir(e.target.files?.[0])} disabled={guardando} />
+        {vista ? <img src={vista} alt="" /> : <><ImagePlus size={22} aria-hidden="true" /><span>Arrastra la foto o toca aquí</span></>}
+      </label>
+      <div className="pila" style={{ '--hueco': '10px', flex: 1, minWidth: 0 }}>
+        <CampoTexto etiqueta="Nombre del producto" value={nombre} onChange={(e) => setNombre(e.target.value)} maxLength={80} disabled={guardando} placeholder="Ej.: Aguaje Complex" />
+        {error ? <p className="cb-error" role="alert"><CircleAlert size={14} aria-hidden="true" /> {error}</p> : null}
+        <div className="fila" style={{ '--hueco': '8px' }}>
+          <Boton variante="primario" tamano="chico" onClick={guardar} disabled={!foto || !nombre.trim()} cargando={guardando}>
+            Usar este producto
+          </Boton>
+          <Boton variante="fantasma" tamano="chico" onClick={alCerrar} disabled={guardando}>
+            Cancelar
+          </Boton>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Nuevo({ alCrear }) {
-  const { datos } = useDatos('productos', () => pedir('/api/productos'));
+  const { datos, recargar } = useDatos('productos', () => pedir('/api/productos'));
+  const [subiendoOtro, setSubiendoOtro] = useState(false);
   const productos = (datos?.productos || []).filter((p) => p.foto);
   const [video, setVideo] = useState(null);
   const [producto, setProducto] = useState(null);
@@ -57,6 +121,16 @@ function Nuevo({ alCrear }) {
         <span className="cb-paso__n">2</span>
         <div className="cb-paso__cuerpo">
           <h3>Tu producto</h3>
+          {subiendoOtro || !productos.length ? (
+            <OtroProducto
+              alCrear={async (id) => {
+                await recargar();
+                setProducto(id);
+                setSubiendoOtro(false);
+              }}
+              alCerrar={() => setSubiendoOtro(false)}
+            />
+          ) : null}
           {productos.length ? (
             <div className="cb-productos">
               {productos.map((p) => (
@@ -65,12 +139,14 @@ function Nuevo({ alCrear }) {
                   <span>{p.nombre}</span>
                 </button>
               ))}
+              {!subiendoOtro ? (
+                <button type="button" className="cb-producto cb-producto--mas" onClick={() => setSubiendoOtro(true)} disabled={creando}>
+                  <span className="cb-producto__mas"><ImagePlus size={24} aria-hidden="true" /></span>
+                  <span>Subir otra foto</span>
+                </button>
+              ) : null}
             </div>
-          ) : (
-            <p className="cb-nota">
-              Todavía no tienes productos con foto. Créalo en <a href={enlace.nuevo()}>Nuevo anuncio</a> y vuelve.
-            </p>
-          )}
+          ) : null}
         </div>
       </div>
       {error ? (

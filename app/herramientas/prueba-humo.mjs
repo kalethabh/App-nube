@@ -344,12 +344,12 @@ async function prueba() {
   if (check('Existe "Abrir Anuncios con IA.bat"', fs.existsSync(BAT), BAT)) {
     const t = fs.readFileSync(BAT, 'latin1');
     check('Lanzador de Windows: finales de línea CRLF', !/(^|[^\r])\n/.test(t), 'cmd.exe necesita CRLF (revisa .gitattributes)');
-    check('Lanzador de Windows: arranca la app (node server\\index.js)', /node server\\index\.js/.test(t));
+    check('Lanzador de Windows: arranca la app (node inicio\\arrancar.mjs)', /node inicio\\arrancar\.mjs/.test(t));
   }
   if (check('Existe "Abrir Anuncios con IA.command"', fs.existsSync(CMD), CMD)) {
     const b = fs.readFileSync(CMD);
     check('Lanzador de Mac: empieza con #!/bin/bash y no tiene CRLF', b.toString('utf8').startsWith('#!/bin/bash\n') && !b.includes(13), 'debe tener finales de línea LF (revisa .gitattributes)');
-    check('Lanzador de Mac: arranca la app (node server/index.js)', /node server\/index\.js/.test(b.toString('utf8')));
+    check('Lanzador de Mac: arranca la app (node inicio/arrancar.mjs)', /node inicio\/arrancar\.mjs/.test(b.toString('utf8')));
     const bash = correr('bash', ['--version']);
     if (bash.status === 0) {
       for (const f of [CMD, path.join(APP, 'inicio', 'programas-mac.sh')]) {
