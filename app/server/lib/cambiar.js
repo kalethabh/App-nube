@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { spawn } from 'node:child_process';
+import { pathToFileURL } from 'node:url';
 import { RAIZ, TEMP, OUTPUT } from './rutas.js';
 import { leerJSON, existe } from './archivos.js';
 import { entornoDelMotor } from './procesos.js';
@@ -21,6 +22,7 @@ const PREFIJO = 'cambio-';
 const SLUG = /^cambio-[a-z0-9-]{3,90}$/;
 const MOTOR = path.join(RAIZ, 'produccion', 'cambiar-producto.js');
 const BAJAR = path.join(RAIZ, 'produccion', 'bajar-referencias.js');
+const BORRADOR = path.join(RAIZ, 'produccion', 'borrar-subtitulos.js');
 const enMarcha = new Map(); // slug -> { proceso?, tarea }
 
 export const slugValido = (s) => SLUG.test(String(s || ''));
@@ -288,6 +290,18 @@ export function producirCambio(slug) {
   const tarea = (async () => {
     try {
       const env = await entornoDelMotor();
+      // la primera vez: el borrador de subtítulos (y el separador de la música) se instala solo, gratis, en este
+      // computador. Baja unos 2 GB: tarda entre 5 y 15 minutos, una sola vez.
+      const { entornoListo } = await import(pathToFileURL(BORRADOR).href);
+      if (!entornoListo()) {
+        avance(slug, 'Instalando el borrador de subtítulos (solo la primera vez: 5 a 15 minutos)');
+        const ins = await correrNode([BORRADOR, '--instalar'], { alLinea: (l) => /Python|Listo|falta|Falta/.test(l) && avance(slug, l.replace(/^\s+/, '')) });
+        const borrar = leerJSON(path.join(dirDe(slug), 'cambio.json'))?.borrar_subtitulos !== false;
+        if (ins.codigo !== 0 && borrar) {
+          const motivo = (ins.texto.trim().split('\n').filter(Boolean).pop() || '').trim().slice(0, 300);
+          throw new Error(`No pude instalar el borrador de subtítulos${motivo ? `: ${motivo}` : ''}. Toca «Reintentar», o apaga «Borrar los subtítulos del original».`);
+        }
+      }
       const r = await correrNode([MOTOR, 'producir', path.join('temp', slug), '--si'], {
         env,
         alLinea: (l) => {
