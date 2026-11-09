@@ -8,7 +8,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { spawn } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
+import { registrarOcupado } from './version.js';
 import { pathToFileURL } from 'node:url';
 import { RAIZ, TEMP, OUTPUT } from './rutas.js';
 import { leerJSON, existe } from './archivos.js';
@@ -24,6 +25,55 @@ const MOTOR = path.join(RAIZ, 'produccion', 'cambiar-producto.js');
 const BAJAR = path.join(RAIZ, 'produccion', 'bajar-referencias.js');
 const BORRADOR = path.join(RAIZ, 'produccion', 'borrar-subtitulos.js');
 const enMarcha = new Map(); // slug -> { proceso?, tarea }
+// mientras se produce un video no se reinicia la app (el motor quedaría suelto y la app perdería su avance)
+registrarOcupado(() => (enMarcha.size ? 'Se está trabajando en un video de «Cambiar el producto»: reinicia cuando termine.' : null));
+
+/**
+ * El pid del motor que está produciendo ese trabajo, si quedó corriendo de una app anterior (p. ej. se reinició a
+ * la mitad). Solo Mac y Linux; en Windows, null.
+ */
+function motorSuelto(slug) {
+  const pid = leerEstado(slug).pidMotor;
+  if (pid) {
+    try {
+      process.kill(pid, 0);
+      if (process.platform === 'win32') return pid;
+    } catch {
+      return null;
+    }
+  }
+  if (process.platform === 'win32') return null;
+  try {
+    const salida = execFileSync('ps', ['-axo', 'pid=,command='], { encoding: 'utf8', timeout: 5000 });
+    const linea = salida.split('\n').find((l) => l.includes('cambiar-producto.js producir') && l.includes(`temp/${slug}`) && !l.includes(` ${process.pid} `));
+    return linea ? Number(linea.trim().split(/\s+/)[0]) || null : null;
+  } catch {
+    return null;
+  }
+}
+/** Sigue de lejos a un motor suelto: cuando termina, el trabajo queda listo o con su error. */
+function vigilar(slug, pid) {
+  const desde = { pos: 0, resto: '' };
+  try {
+    desde.pos = fs.statSync(fLog(slug)).size;
+  } catch {
+    /* sin archivo: se ve igual cuando termina */
+  }
+  const leer = lectorDelMotor(slug, pasoDe(slug));
+  const id = setInterval(() => {
+    leerLog(slug, desde, leer);
+    try {
+      process.kill(pid, 0);
+    } catch {
+      clearInterval(id);
+      leerLog(slug, desde, leer);
+      enMarcha.delete(slug);
+      const listo = existe(path.join(OUTPUT, `${slug}_cambiado.mp4`)) || existe(path.join(OUTPUT, `${slug}_sin-subtitulos.mp4`));
+      guardarEstado(slug, listo ? { etapa: 'listo', paso: null, terminado: new Date().toISOString() } : { etapa: 'error', paso: null, error: 'Se detuvo antes de terminar. Toca «Reintentar»: lo que ya está hecho no se vuelve a pagar.' });
+    }
+  }, 1500);
+  enMarcha.set(slug, { vigilando: pid });
+}
 
 export const slugValido = (s) => SLUG.test(String(s || ''));
 const dirDe = (slug) => path.join(TEMP, slug);
@@ -70,6 +120,82 @@ const slugDe = (nombre) =>
       .replace(/^-+|-+$/g, '')
       .slice(0, 40) || 'video'
   }-${new Date().toISOString().slice(0, 16).replace(/[-T:]/g, '').slice(2)}${crypto.randomBytes(1).toString('hex')}`;
+
+/**
+ * El motor de producir corre APARTE (detached), con su salida en temp/<slug>/app/motor.log: si la app se reinicia
+ * a la mitad, el motor sigue trabajando y la app nueva sigue leyendo el mismo archivo.
+ */
+const fLog = (slug) => path.join(dirDe(slug), 'app', 'motor.log');
+function leerLog(slug, desde, alLinea) {
+  let fd;
+  try {
+    fd = fs.openSync(fLog(slug), 'r');
+    const tam = fs.fstatSync(fd).size;
+    if (tam <= desde.pos) return;
+    const buf = Buffer.alloc(tam - desde.pos);
+    fs.readSync(fd, buf, 0, buf.length, desde.pos);
+    desde.pos = tam;
+    const lineas = (desde.resto + buf.toString('utf8')).split(/\r?\n/);
+    desde.resto = lineas.pop();
+    for (const l of lineas) if (l.trim()) alLinea(l.trim());
+  } catch {
+    /* todavía no existe */
+  } finally {
+    if (fd !== undefined) fs.closeSync(fd);
+  }
+}
+function correrMotorAparte(slug, args, { env, alLinea }) {
+  return new Promise((ok) => {
+    fs.mkdirSync(path.dirname(fLog(slug)), { recursive: true });
+    fs.writeFileSync(fLog(slug), '');
+    const fd = fs.openSync(fLog(slug), 'a');
+    const p = spawn(process.execPath, args, { cwd: RAIZ, env, stdio: ['ignore', fd, fd], detached: true, windowsHide: true });
+    fs.closeSync(fd);
+    guardarEstado(slug, { pidMotor: p.pid });
+    const desde = { pos: 0, resto: '' };
+    const id = setInterval(() => leerLog(slug, desde, alLinea), 1000);
+    p.on('exit', (codigo) => {
+      clearInterval(id);
+      leerLog(slug, desde, alLinea);
+      let texto = '';
+      try {
+        texto = fs.readFileSync(fLog(slug), 'utf8').slice(-4000);
+      } catch {
+        /* nada */
+      }
+      ok({ codigo, texto });
+    });
+    p.on('error', (e) => {
+      clearInterval(id);
+      ok({ codigo: -1, texto: String(e.message || e) });
+    });
+  });
+}
+
+/** Lo que dice el motor, traducido al paso que se ve en la pantalla. */
+function lectorDelMotor(slug, paso) {
+  const nEscenas = (leerJSON(path.join(dirDe(slug), 'cambio.json'))?.escenas || []).length;
+  return (l) => {
+    let x;
+    if (/^1\/5 /.test(l) || /^1\/2 Buscando/.test(l)) paso('subtitulos', 'Buscando los textos del video');
+    else if (/^2\/2 Borrando/.test(l)) paso('subtitulos', 'Borrándolos y reconstruyendo el fondo', 0);
+    else if ((x = /^PROGRESO (\d+)\/(\d+)/.exec(l))) paso('subtitulos', `Cuadro ${x[1]} de ${x[2]}`, Number(x[1]) / Number(x[2]));
+    else if ((x = /^2\/5 Escenas: (\d+) de (\d+)/.exec(l))) paso('escenas', `${x[1]} de ${x[2]} listas (se hacen de a 4 a la vez)`, Number(x[1]) / Number(x[2]));
+    else if (/^3\/5 /.test(l)) paso('voz', 'Aislando la voz del original y clonándola');
+    else if ((x = /^frase (\d+)\/(\d+)/.exec(l))) paso('voz', `Frase ${x[1]} de ${x[2]}`, (Number(x[1]) - 1) / Number(x[2]));
+    else if (/^4\/5 /.test(l)) paso('musica', 'Separando la música de la voz');
+    else if (/^5\/5 /.test(l)) paso('armar', 'Uniendo las escenas, la voz y los subtítulos');
+    if (/^\d\/5 |^frase |Listo:/.test(l)) avance(slug, l.replace(/^\d\/5 /, ''));
+  };
+}
+/** El paso que corre, para la pantalla: { id, desde, pct (0-1 o null), detalle }. */
+function pasoDe(slug) {
+  return (id, detalle = null, pct = null) => {
+    const e = leerEstado(slug);
+    const mismo = e.paso?.id === id;
+    guardarEstado(slug, { paso: { id, desde: mismo ? e.paso.desde : new Date().toISOString(), pct, detalle }, hechos: [...new Set([...(e.hechos || []), ...(mismo || !e.paso ? [] : [e.paso.id])])] });
+  };
+}
 
 // ---------------------------------------------------------------- lo que se ve
 
@@ -286,33 +412,35 @@ export function guardarCambio(slug, cambio) {
 export function producirCambio(slug) {
   if (!slugValido(slug) || !existe(fEstado(slug))) throw Object.assign(new Error('No encuentro ese trabajo.'), { status: 404 });
   if (enMarcha.has(slug)) throw Object.assign(new Error('Ya está trabajando.'), { status: 409 });
-  guardarEstado(slug, { etapa: 'produciendo', error: null, progreso: [] });
+  const suelto = motorSuelto(slug);
+  if (suelto) {
+    vigilar(slug, suelto);
+    throw Object.assign(new Error('Este video ya se está produciendo: espera a que termine.'), { status: 409 });
+  }
+  const ahora = () => new Date().toISOString();
+  guardarEstado(slug, { etapa: 'produciendo', error: null, progreso: [], inicioProduccion: ahora(), paso: null, hechos: [], pidMotor: null });
+  const paso = pasoDe(slug);
   const tarea = (async () => {
     try {
       const env = await entornoDelMotor();
+      const m = leerJSON(path.join(dirDe(slug), 'cambio.json')) || {};
       // la primera vez: el borrador de subtítulos (y el separador de la música) se instala solo, gratis, en este
       // computador. Baja unos 2 GB: tarda entre 5 y 15 minutos, una sola vez.
       const { entornoListo } = await import(pathToFileURL(BORRADOR).href);
-      if (!entornoListo()) {
-        avance(slug, 'Instalando el borrador de subtítulos (solo la primera vez: 5 a 15 minutos)');
-        const ins = await correrNode([BORRADOR, '--instalar'], { alLinea: (l) => /Python|Listo|falta|Falta/.test(l) && avance(slug, l.replace(/^\s+/, '')) });
-        const borrar = leerJSON(path.join(dirDe(slug), 'cambio.json'))?.borrar_subtitulos !== false;
-        if (ins.codigo !== 0 && borrar) {
+      if (m.borrar_subtitulos !== false && !entornoListo()) {
+        paso('preparar', 'Bajando lo necesario (unos 2 GB)');
+        const ins = await correrNode([BORRADOR, '--instalar']);
+        if (ins.codigo !== 0) {
           const motivo = (ins.texto.trim().split('\n').filter(Boolean).pop() || '').trim().slice(0, 300);
           throw new Error(`No pude instalar el borrador de subtítulos${motivo ? `: ${motivo}` : ''}. Toca «Reintentar», o apaga «Borrar los subtítulos del original».`);
         }
       }
-      const r = await correrNode([MOTOR, 'producir', path.join('temp', slug), '--si'], {
-        env,
-        alLinea: (l) => {
-          if (/^\d\/5 |^frase |^Escena |Listo:/.test(l)) avance(slug, l.replace(/^\d\/5 /, ''));
-        },
-      });
+      const r = await correrMotorAparte(slug, [MOTOR, 'producir', path.join('temp', slug), '--si'], { env, alLinea: lectorDelMotor(slug, paso) });
       if (r.codigo !== 0) {
-        const motivo = (r.texto.trim().split('\n').filter(Boolean).pop() || '').slice(0, 300);
+        const motivo = (r.texto.trim().split('\n').filter((x) => x.trim() && !/^PROGRESO /.test(x)).pop() || '').slice(0, 300);
         throw new Error(motivo || 'No pude terminar el video.');
       }
-      guardarEstado(slug, { etapa: 'listo', terminado: new Date().toISOString() });
+      guardarEstado(slug, { etapa: 'listo', terminado: new Date().toISOString(), paso: null });
     } catch (err) {
       guardarEstado(slug, { etapa: 'error', error: err.message });
     } finally {
@@ -325,7 +453,10 @@ export function producirCambio(slug) {
 /** Al abrir la app: lo que quedó a medias se marca para retomarlo con un clic. */
 export function revisarAlAbrir() {
   for (const t of listarCambios()) {
-    if (['analizando', 'proponiendo', 'produciendo'].includes(t.etapa)) guardarEstado(t.slug, { etapa: 'error', error: 'La app se cerró mientras trabajaba. Toca «Reintentar».' });
+    if (!['analizando', 'proponiendo', 'produciendo'].includes(t.etapa)) continue;
+    const suelto = t.etapa === 'produciendo' ? motorSuelto(t.slug) : null;
+    if (suelto) vigilar(t.slug, suelto);
+    else guardarEstado(t.slug, { etapa: 'error', paso: null, error: 'La app se cerró mientras trabajaba. Toca «Reintentar»: lo que ya está hecho no se vuelve a pagar.' });
   }
 }
 

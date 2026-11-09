@@ -8,7 +8,7 @@
 // choca con lo nuevo. Después junta lo del repositorio (git pull, sin reescribir nada), instala lo que haga falta si
 // cambiaron las dependencias y vuelve a armar la interfaz. Si cambió el servidor o el motor, avisa que hay que cerrar
 // la ventana de la app y volver a abrirla. Nunca borra nada tuyo: si algo choca, lo deja como estaba y lo dice.
-import { reiniciar } from './version.js';
+import { motivoParaNoReiniciar, reiniciar } from './version.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
@@ -93,8 +93,7 @@ export async function actualizar() {
     const n = antes.atrasados;
     // en el servidor no hay ventana que cerrar: la app se reinicia sola (el servicio la vuelve a levantar)
     // en tu computador también se reinicia sola, la haya abierto el lanzador o no (lib/version.js)
-    if (reabrir && !EN_SERVIDOR) {
-      reiniciar();
+    if (reabrir && !EN_SERVIDOR && reiniciar()) {
       return { ok: true, cambios: n, reabrir: false, reinicia: true, mensaje: `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. La app se reinicia sola y la página se recarga en unos segundos.` };
     }
     if (reabrir && EN_SERVIDOR) {
@@ -108,7 +107,7 @@ export async function actualizar() {
       mensaje: !interfaz
         ? 'Bajé lo nuevo, pero no pude armar la interfaz. Cierra la ventana de la app y vuelve a abrirla: el lanzador la arma solo.'
         : reabrir
-          ? `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. Para usarlos todos, cierra la ventana de la app (la ventana negra) y vuelve a abrirla.`
+          ? `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. ${motivoParaNoReiniciar() ? 'Hay un video produciéndose: cuando termine, toca «Reiniciar la app» en la franja de arriba.' : 'Para usarlos todos, cierra la ventana de la app (la ventana negra) y vuelve a abrirla.'}`
           : `Listo: ${n} ${n === 1 ? 'cambio nuevo' : 'cambios nuevos'}. Recarga la página para verlos.`,
     };
   } finally {
