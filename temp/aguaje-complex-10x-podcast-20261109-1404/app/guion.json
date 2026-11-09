@@ -1,0 +1,132 @@
+{
+  "titulo": "Aguaje Complex 10X · podcast \"Tus Mejores Secretos\": el jean que me quedaba vacío",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 54,
+  "de_que_va": "Dos amigas en su podcast casero. Valentina cuenta que el jean le quedaba vacío atrás y ya ahorraba para operarse; Marcela le cuenta que estaba igual hasta que probó lo natural, y ahora se mira de lado con el jean.",
+  "personajes": [
+    {
+      "id": "A",
+      "nombre": "Valentina",
+      "como_es": "Costeña de 27 años, delgada, pelo castaño largo y suelto, camisa de lino blanca; habla rápido y se ríe de sí misma. Va a la izquierda."
+    },
+    {
+      "id": "B",
+      "nombre": "Marcela",
+      "como_es": "Paisa de 32 años, morena, cara redonda, pelo rizado en un moño alto, suéter vino tinto; voz más grave y tranquila. Va a la derecha."
+    }
+  ],
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "quien": "Valentina",
+      "lado": "A",
+      "dice": "Te lo juro, yo me medía un jean y atrás me sobraba tela. Nada, plana.",
+      "se_ve": "Valentina en su micrófono; arriba aparece ella misma de lado frente al espejo, con el jean flojo atrás."
+    },
+    {
+      "n": 2,
+      "momento": "problema",
+      "quien": "Valentina",
+      "lado": "A",
+      "dice": "Y sin tiempo pa' gimnasio, ya estaba ahorrando pa' operarme.",
+      "se_ve": "Valentina hablando; un momento se ve a Marcela negando despacio con una sonrisa, como quien ya pasó por eso."
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "quien": "Marcela",
+      "lado": "B",
+      "dice": "Ay, no me digas, yo estaba igualita.",
+      "se_ve": "Marcela en su micrófono, se señala a sí misma."
+    },
+    {
+      "n": 4,
+      "momento": "giro",
+      "quien": "Marcela",
+      "lado": "B",
+      "dice": "Hasta que mi tía me dijo: mija, primero pruebe lo natural.",
+      "se_ve": "Marcela hablando; arriba, ella con su tía en un almuerzo familiar, la tía le toca el brazo."
+    },
+    {
+      "n": 5,
+      "momento": "solución",
+      "quien": "Marcela",
+      "lado": "B",
+      "dice": "Me pasó el Aguaje Complex 10X.",
+      "se_ve": "Marcela en su micrófono, de pasada."
+    },
+    {
+      "n": 6,
+      "momento": "solución",
+      "quien": "Marcela",
+      "lado": "B",
+      "dice": "Tres meses de tratamiento, sin dietas y sin gimnasio.",
+      "se_ve": "Marcela hablando; arriba, una mano sostiene el frasco cerrado junto a una ventana."
+    },
+    {
+      "n": 7,
+      "momento": "problema",
+      "quien": "Valentina",
+      "lado": "A",
+      "dice": "Yo probé unas pastillas y cuando las dejé, rebote total.",
+      "se_ve": "Valentina en su micrófono, desconfiada."
+    },
+    {
+      "n": 8,
+      "momento": "prueba",
+      "quien": "Marcela",
+      "lado": "B",
+      "dice": "A mí no, y eso era justo lo que más miedo me daba.",
+      "se_ve": "Marcela hablando; un momento se ve a Valentina soltando el aire, aliviada."
+    },
+    {
+      "n": 9,
+      "momento": "prueba",
+      "quien": "Marcela",
+      "lado": "B",
+      "dice": "Cada frasco trae sesenta cápsulas de aguaje y fenogreco.",
+      "se_ve": "Marcela en su micrófono, tranquila."
+    },
+    {
+      "n": 10,
+      "momento": "prueba",
+      "quien": "Marcela",
+      "lado": "B",
+      "dice": "Y ahora me pongo el jean y me miro de lado, ¿sí me entiendes?",
+      "se_ve": "Marcela hablando; arriba, ella misma de lado en el espejo de un probador, con curvas que se notan."
+    },
+    {
+      "n": 11,
+      "momento": "cierre",
+      "quien": "Valentina",
+      "lado": "A",
+      "dice": "¿Y eso dónde lo consigo?",
+      "se_ve": "Valentina en su micrófono, curiosa."
+    },
+    {
+      "n": 12,
+      "momento": "cierre",
+      "quien": "Marcela",
+      "lado": "B",
+      "dice": "Tranquila, ahorita te paso el contacto de donde yo lo pedí.",
+      "se_ve": "Marcela en su micrófono, le hace un gesto de tranquila."
+    },
+    {
+      "n": 13,
+      "momento": "cierre",
+      "quien": "Valentina",
+      "lado": "A",
+      "dice": "Ay no, yo lo pido hoy mismo.",
+      "se_ve": "Valentina en su micrófono, decidida."
+    }
+  ],
+  "decisiones": [
+    "Clonado de: AGUAJE 01 - VIDIA.mp4 · 12 tomas · 38,9 s. Mismo orden: el jean plano, la tía que aconseja lo natural, el frasco, el miedo al rebote, el después en el espejo y dónde se consigue.",
+    "Las anfitrionas: Valentina, costeña de 27 años, a la izquierda (la del problema), y Marcela, paisa de 32 años, a la derecha (la que ya lo probó). Tú pediste dos acentos colombianos distintos; elegí costeño y paisa. Si quieres otros, cámbialo antes de hacer los videos.",
+    "El podcast se llama \"Tus Mejores Secretos\": va en un letrero de neón rosado con luces LED detrás de las dos, en una sala con pared terracota, distinta a la del video original. Las imágenes de cuando ellas cuentan algo van arriba, en pantalla dividida.",
+    "El producto entra cuando Marcela cuenta el consejo de su tía. El frasco se ve siempre cerrado, sin cápsulas a la vista. El \"antes\" muestra a Valentina y el \"después\" a Marcela, cada una con su misma cara. El del \"antes\" entra en la primera frase, como en el original.",
+    "Dejé fuera lo que no está en tu ficha: dosis diaria, precio, oferta, envío y forma de pago. Al final, Marcela dice que le pasa el contacto de donde lo pidió, sin nombrar un canal. El dato de prueba son las 60 cápsulas de la etiqueta y los tres meses de tratamiento."
+  ]
+}
