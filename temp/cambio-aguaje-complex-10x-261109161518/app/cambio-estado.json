@@ -7,16 +7,16 @@
   "progreso": [
     "Escenas: 0 de 8 listas"
   ],
-  "actualizado": "2026-11-09T18:12:57.136Z",
+  "actualizado": "2026-11-09T18:18:02.511Z",
   "aviso": null,
   "error": "Error opening input files: Invalid data found when processing input",
   "paso": {
     "id": "escenas",
-    "desde": "2026-11-09T18:12:57.019Z",
+    "desde": "2026-11-09T18:18:02.427Z",
     "pct": 0,
     "detalle": "0 de 8 listas (se hacen de a 4 a la vez)"
   },
-  "inicioProduccion": "2026-11-09T18:12:52.747Z",
+  "inicioProduccion": "2026-11-09T18:17:59.158Z",
   "hechos": [],
-  "pidMotor": 3673
+  "pidMotor": 3846
 }
