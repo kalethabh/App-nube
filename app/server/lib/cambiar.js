@@ -180,6 +180,7 @@ function lectorDelMotor(slug, paso) {
   return (l) => {
     let x;
     if (/^1\/5 /.test(l) || /^1\/2 Buscando/.test(l)) paso('subtitulos', 'Buscando los textos del video');
+    else if (/^1\/2 Los textos/.test(l)) paso('subtitulos', 'Los textos ya estaban encontrados');
     else if (/^2\/2 Borrando/.test(l)) paso('subtitulos', 'Borrándolos y reconstruyendo el fondo', 0);
     else if ((x = /^PROGRESO (\d+)\/(\d+)/.exec(l))) paso('subtitulos', `Cuadro ${x[1]} de ${x[2]}`, Number(x[1]) / Number(x[2]));
     else if ((x = /^2\/5 Escenas: (\d+) de (\d+)/.exec(l))) paso('escenas', `${x[1]} de ${x[2]} listas (se hacen de a 4 a la vez)`, Number(x[1]) / Number(x[2]));
@@ -406,6 +407,7 @@ export function guardarCambio(slug, cambio) {
     idioma_destino: ['es', 'en', 'pt'].includes(c.idioma_destino) ? c.idioma_destino : 'es',
     subtitulos: c.subtitulos === false ? false : ['es', 'en', 'pt'].includes(c.subtitulos) ? c.subtitulos : 'es',
     borrar_subtitulos: c.borrar_subtitulos !== false,
+    borrado: c.borrado === 'rapido' ? 'rapido' : 'calidad',
     escenas: (Array.isArray(c.escenas) ? c.escenas : []).slice(0, 30).map((e) => ({
       toma: Number(e.toma) || null,
       desde: num(e.desde),
