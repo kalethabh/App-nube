@@ -11,7 +11,7 @@ import path from 'node:path';
 import { TEMP } from '../lib/rutas.js';
 import { dentroDe } from '../lib/archivos.js';
 import { enviar } from './archivos.js';
-import { crearCambio, slugValido, guardarCambio, listarCambios, producirCambio, reintentar, revisarAlAbrir, verCambio, volverAProponer } from '../lib/cambiar.js';
+import { crearCambio, detenerCambio, slugValido, guardarCambio, listarCambios, producirCambio, reintentar, revisarAlAbrir, verCambio, volverAProponer } from '../lib/cambiar.js';
 
 const fallar = (res, e) => res.status(e?.status || 500).json({ error: e?.status ? e.message : 'Algo salió mal. Vuelve a intentarlo.' });
 
@@ -54,6 +54,7 @@ export default function rutasCambiar(app) {
       fallar(res, e);
     }
   });
+  app.post('/api/cambiar/:slug/detener', soloDesdeLaApp, (req, res) => res.json({ ok: detenerCambio(req.params.slug) }));
   app.post('/api/cambiar/:slug/reintentar', soloDesdeLaApp, (req, res) => {
     reintentar(req.params.slug);
     res.json({ ok: true });
