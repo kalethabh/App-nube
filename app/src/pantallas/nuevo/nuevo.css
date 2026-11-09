@@ -221,6 +221,9 @@
   gap: var(--e-6);
   align-items: start;
 }
+.nv-paso1--solo {
+  grid-template-columns: minmax(0, 720px);
+}
 .nv-paso1__izq,
 .nv-paso1__der {
   display: flex;

@@ -31,7 +31,7 @@ import {
   Tag,
   X,
 } from 'lucide-react';
-import { AreaTexto, Boton, CampoTexto, Chip, Tarjeta, useAvisos } from '../../componentes/index.js';
+import { AreaTexto, Boton, CampoTexto, Chip, SubirVideo, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, urlFotoProducto, useEstilos } from '../../datos/api.js';
 import { TIPOS_PRODUCTO, faltanDe, filasDeFicha } from './datos.js';
 import { AvisoClaude, Progreso, TarjetaFalla } from './piezas.jsx';
@@ -55,7 +55,7 @@ const MAX_FOTOS = 6;
 const SIN_DATO = 'No lo tengo: no lo menciones en el anuncio.';
 
 /** El formulario vacío (también lo usa index.jsx). */
-export const BORRADOR_VACIO = { tipo: 'fisico', nombre: '', link: '', fotos: [], cuentame: '', tieneGuion: false, guion: '' };
+export const BORRADOR_VACIO = { tipo: 'fisico', nombre: '', link: '', fotos: [], cuentame: '', referencia: null, tieneGuion: false, guion: '' };
 
 /** Lo que define un producto: si cambia, "Volver a analizar" crea otro. */
 export function firmaDe(b) {
@@ -208,7 +208,7 @@ function Grupo({ n, titulo, opcional, children, derecha }) {
 function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaFicha, hayProducto, onAnalizar, onOtro }) {
   const p = borrador;
   const poner = (cambios) => setBorrador((x) => ({ ...x, ...cambios }));
-  const puede = Boolean(p.nombre.trim() || p.link.trim() || p.fotos.length || p.cuentame.trim());
+  const puede = Boolean(p.fotos.length || p.cuentame.trim());
   const cuentameRef = useRef(null);
 
   const empujar = (texto) => {
@@ -228,7 +228,7 @@ function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaF
       <div className="nv-form__cabecera">
         <div>
           <h2 className="nv-form__titulo">Tu producto</h2>
-          <p className="nv-form__subtitulo">Todo en una pasada: lo que no sepas, déjalo vacío.</p>
+          <p className="nv-form__subtitulo">Solo lo necesario: lo demás lo resuelve la IA.</p>
         </div>
         {hayProducto ? (
           <Boton variante="fantasma" tamano="chico" icono={SquarePen} onClick={onOtro} disabled={ocupado}>
@@ -237,77 +237,32 @@ function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaF
         ) : null}
       </div>
 
-      <Grupo n={1} titulo="¿Qué vendes?">
-        <div className="nv-tipos" role="radiogroup" aria-label="Qué vendes">
-          {TIPOS.map((t) => {
-            const sel = p.tipo === t.id;
-            const Icono = t.icono;
-            return (
-              <button key={t.id} type="button" role="radio" aria-checked={sel} className={`nv-tipo${sel ? ' nv-tipo--sel' : ''}`} onClick={() => poner({ tipo: t.id })} disabled={ocupado}>
-                <span className="nv-tipo__icono" aria-hidden="true">
-                  <Icono size={22} strokeWidth={1.8} />
-                </span>
-                <span className="nv-tipo__titulo">{t.titulo}</span>
-                <span className="nv-tipo__texto">{t.texto}</span>
-                <span className="nv-tipo__marca" aria-hidden="true">
-                  <Check size={12} strokeWidth={3} />
-                </span>
-              </button>
-            );
-          })}
-        </div>
-        <CampoTexto
-          icono={Tag}
-          placeholder="El nombre de tu producto o servicio (si quieres)"
-          value={p.nombre}
-          onChange={(e) => poner({ nombre: e.target.value })}
-          disabled={ocupado}
-          aria-label="Nombre del producto"
-        />
+      <Grupo n={1} titulo="La foto de tu producto">
+        <ZonaFotos tipo="fisico" fotos={p.fotos} onCambiar={(fotos) => poner({ fotos })} bloqueada={ocupado} />
       </Grupo>
 
-      <Grupo n={2} titulo="Link de tu página">
-        <CampoTexto
-          icono={Link2}
-          type="url"
-          inputMode="url"
-          placeholder="https://tutienda.com/products/…"
-          value={p.link}
-          onChange={(e) => poner({ link: e.target.value })}
-          disabled={ocupado}
-          ayuda="La app baja el texto de tu página y la IA saca el nombre, el precio, los beneficios, las reseñas reales y cómo te compran."
-          aria-label="Link de tu página"
-        />
-      </Grupo>
-
-      <Grupo n={3} titulo="Tus fotos" opcional={p.tipo === 'servicio'}>
-        <ZonaFotos tipo={p.tipo} fotos={p.fotos} onCambiar={(fotos) => poner({ fotos })} bloqueada={ocupado} />
-      </Grupo>
-
-      <Grupo n={4} titulo="Cuéntame">
+      <Grupo n={2} titulo="Indicaciones a tener en cuenta" opcional>
         <AreaTexto
           ref={cuentameRef}
           filas={4}
-          placeholder="Quién te compra, qué le duele, en qué país vendes y lo que quieres ver en el anuncio."
+          placeholder="Lo que la IA debe saber o respetar: el nombre, para quién es, qué no decir, el tono, el país…"
           value={p.cuentame}
           onChange={(e) => poner({ cuentame: e.target.value })}
           disabled={ocupado}
-          aria-label="Cuéntame sobre tu producto"
+          aria-label="Indicaciones a tener en cuenta"
         />
-        <div className="nv-empujones" aria-label="Ideas para empezar">
-          {EMPUJONES.map((t) => (
-            <Chip key={t} tamano="chico" onClick={() => empujar(t)} disabled={ocupado}>
-              {t}
-            </Chip>
-          ))}
-        </div>
       </Grupo>
 
-      <Grupo n={5} titulo="¿Tienes guion?">
-        <div className="nv-segmentos" role="radiogroup" aria-label="¿Tienes guion?">
+      <Grupo n={3} titulo="Video de referencia" opcional>
+        <SubirVideo valor={p.referencia || null} onCambio={(referencia) => poner({ referencia })} deshabilitado={ocupado} />
+        <p className="nv-form__nota">Se copia cómo está armado: no sus caras, su marca ni su música.</p>
+      </Grupo>
+
+      <Grupo n={4} titulo="¿Quién escribe el guion?">
+        <div className="nv-segmentos" role="radiogroup" aria-label="¿Quién escribe el guion?">
           {[
-            { v: false, t: 'No, que lo escriba la IA', i: Sparkles },
-            { v: true, t: 'Sí, pego el mío', i: FileText },
+            { v: false, t: 'La IA', i: Sparkles },
+            { v: true, t: 'Lo escribo yo', i: FileText },
           ].map((o) => {
             const Icono = o.i;
             return (
@@ -322,7 +277,7 @@ function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaF
           <AreaTexto
             filas={5}
             className="nv-aparece"
-            placeholder="Pega tu guion tal cual. La IA respeta tus palabras y lo convierte en tomas."
+            placeholder="Escribe o pega tu guion. La IA respeta tus palabras y lo convierte en tomas."
             value={p.guion}
             onChange={(e) => poner({ guion: e.target.value })}
             disabled={ocupado}
@@ -333,27 +288,10 @@ function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaF
       </Grupo>
 
       <div className="nv-form__pie">
-        <Boton
-          variante={fichaLista && !cambioDesdeLaFicha ? 'secundario' : 'primario'}
-          tamano="grande"
-          icono={fichaLista ? RotateCcw : ScanSearch}
-          cargando={ocupado}
-          disabled={!puede && !ocupado}
-          onClick={onAnalizar}
-        >
-          {ocupado ? 'Analizando tu producto…' : fichaLista ? 'Volver a analizar' : 'Analizar mi producto'}
+        <Boton variante="primario" tamano="grande" iconoDerecha={ArrowRight} cargando={ocupado} disabled={!puede && !ocupado} onClick={onAnalizar}>
+          {ocupado ? 'Guardando…' : 'Continuar'}
         </Boton>
-        <p className="nv-form__nota">
-          {ocupado
-            ? 'Claude Code lo está leyendo con tu cuenta de Claude.'
-            : fichaLista
-              ? cambioDesdeLaFicha
-                ? 'Cambiaste algo: vuelve a analizar para que la ficha lo tenga en cuenta.'
-                : 'Tu ficha está lista: revísala y contesta lo que falta.'
-              : puede
-                ? 'Tarda uno o dos minutos.'
-                : 'Pon el link, una foto o cuéntame algo para empezar.'}
-        </p>
+        <p className="nv-form__nota">{puede ? 'Después eliges el estilo.' : 'Sube la foto de tu producto para seguir.'}</p>
       </div>
     </Tarjeta>
   );
@@ -734,7 +672,6 @@ export function PasoProducto({
 }) {
   const { aviso } = useAvisos();
   const [fase, setFase] = useState(null); // texto de lo que hace la app antes de Claude (guardar, subir fotos)
-  const [reintentando, setReintentando] = useState(false);
   const tarea = leido.tarea;
   const ficha = leido.ficha;
   const fichaLista = Boolean(ficha) && !analizando;
@@ -742,14 +679,22 @@ export function PasoProducto({
   const cambioDesdeLaFicha = Boolean(productoId && firmaCreada && firmaDe(borrador) !== firmaCreada);
 
   const lanzar = async (id) => {
-    setFase('Despertando a Claude Code');
+    setFase('Preparando');
     await apiNuevo.analizarProducto(id);
     onAnalizado(id);
   };
 
   const analizar = async () => {
     if (claude.estado && !claude.listo) {
-      aviso({ tipo: 'aviso', titulo: 'Falta tu sesión de Claude', texto: 'Inicia sesión con tu cuenta de Claude para que pueda leer tu producto.' });
+      aviso({ tipo: 'aviso', titulo: 'Falta tu sesión de Claude', texto: 'Inicia sesión con tu cuenta de Claude para que pueda escribir tus guiones.' });
+      return;
+    }
+    // ya creado con lo mismo: se sigue directo (la ficha se arma sola, sin preguntar nada)
+    if (productoId && firmaDe(borrador) === firmaCreada && !borrador.fotos.some((f) => f.subidaEn !== productoId)) {
+      if ((borrador.referencia || null) !== (leido.producto?.referencia || null)) await apiNuevo.actualizarProducto(productoId, { referencia: borrador.referencia || '' }).catch(() => {});
+      if (tarea.estado === 'error') await lanzar(productoId).catch(() => {});
+      setFase(null);
+      onSeguir();
       return;
     }
     try {
@@ -764,6 +709,7 @@ export function PasoProducto({
           url: borrador.link.trim() || undefined,
           descripcion: borrador.cuentame.trim() || undefined,
           guionPropio: borrador.tieneGuion && borrador.guion.trim() ? borrador.guion.trim() : undefined,
+          referencia: borrador.referencia || undefined,
         });
         if (!r?.id) throw new Error('La app no devolvió tu producto. Vuelve a intentarlo.');
         id = r.id;
@@ -794,65 +740,37 @@ export function PasoProducto({
         }));
       }
       await lanzar(id);
+      onSeguir();
     } catch (e) {
-      aviso({ tipo: 'error', titulo: 'No pude analizar tu producto', texto: e.message, duracion: 9000 });
+      aviso({ tipo: 'error', titulo: 'No pude guardar tu producto', texto: e.message, duracion: 9000 });
     } finally {
       setFase(null);
     }
   };
 
-  const reintentar = async () => {
-    if (!productoId) return analizar();
-    setReintentando(true);
-    try {
-      await lanzar(productoId);
-    } catch (e) {
-      aviso({ tipo: 'error', titulo: 'No pude volver a intentarlo', texto: e.message });
-    } finally {
-      setReintentando(false);
-      setFase(null);
-    }
-  };
-
-  let derecha;
-  if (fase || analizando) derecha = <FichaAntes activa fase={fase} progreso={tarea.progreso} inicio={tarea.inicio} />;
-  else if (tarea.estado === 'error')
-    derecha = (
+  const derecha =
+    claude.estado && !claude.listo ? (
       <Tarjeta variante="elevada" relleno="amplio" className="nv-aparece">
-        <TarjetaFalla error={tarea.error} limite={tarea.limite} reinicio={tarea.reinicio} que="la ficha" claude={claude} onReintentar={reintentar} reintentando={reintentando} />
+        <AvisoClaude claude={claude} para="escribir tus guiones" />
       </Tarjeta>
-    );
-  else if (fichaLista)
-    derecha = (
-      <>
-        <Ficha ficha={ficha} producto={leido.producto} fotos={borrador.fotos} cambios={cambios} onGuardar={onGuardarFicha} />
-        <Preguntas ficha={ficha} cambios={cambios} onGuardar={onGuardarFicha} onSeguir={onSeguir} />
-      </>
-    );
-  else if (claude.estado && !claude.listo)
-    derecha = (
-      <Tarjeta variante="elevada" relleno="amplio" className="nv-aparece">
-        <AvisoClaude claude={claude} para="leer tu producto y escribir tus guiones" />
-      </Tarjeta>
-    );
-  else derecha = <FichaAntes activa={false} />;
+    ) : null;
 
   return (
-    <div className="nv-paso1">
+    <div className={`nv-paso1${derecha ? '' : ' nv-paso1--solo'}`}>
       <div className="nv-paso1__izq">
         {estiloElegido ? <EstiloElegido clave={estiloElegido} pronto={estiloPronto} continuidad={estiloConContinuidad} /> : null}
         <Formulario
           borrador={borrador}
           setBorrador={setBorrador}
           ocupado={ocupado}
-          fichaLista={fichaLista}
+          fichaLista={false}
           cambioDesdeLaFicha={cambioDesdeLaFicha}
           hayProducto={Boolean(productoId)}
           onAnalizar={analizar}
           onOtro={onOtroProducto}
         />
       </div>
-      <div className={`nv-paso1__der${fichaLista ? '' : ' nv-paso1__der--fija'}`}>{derecha}</div>
+      {derecha ? <div className="nv-paso1__der nv-paso1__der--fija">{derecha}</div> : null}
     </div>
   );
 }

@@ -24,7 +24,7 @@ import { Check, Clapperboard, Package, Scissors, Sparkles } from 'lucide-react';
 import { CabeceraPagina, Tooltip, PuntoEstado, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, urlFotoProducto, useProducto } from '../../datos/api.js';
 import { ir, partirRuta, rutas } from '../../datos/rutas.js';
-import { CON_CONTINUIDAD, DISPONIBLES, ICONO_ESTILO, disponible, preguntasIniciales, respuestasDe } from '../estilos/catalogo.js';
+import { CON_CONTINUIDAD, DISPONIBLES, ICONO_ESTILO, disponible, preguntasDe, preguntasIniciales, respuestasDe } from '../estilos/catalogo.js';
 import { conDuracion } from '../../datos/duracion.js';
 import { BORRADOR_VACIO, PasoProducto, firmaDe } from './PasoProducto.jsx';
 import { PasoAnuncio } from './PasoAnuncio.jsx';
@@ -88,7 +88,7 @@ function actualizarUrl(cambios) {
 }
 
 const PASOS = [
-  { n: 1, icono: Package, titulo: 'Tu producto', texto: 'Link, fotos y lo que quieres contar' },
+  { n: 1, icono: Package, titulo: 'Tu producto', texto: 'Foto, indicaciones y referencia' },
   { n: 2, icono: Sparkles, titulo: 'Tu anuncio', texto: 'Estilo, voz y guion' },
 ];
 
@@ -194,6 +194,7 @@ function borradorDeProducto(id, p) {
     cuentame: p?.descripcion || '',
     tieneGuion: Boolean(p?.guionPropio),
     guion: p?.guionPropio || '',
+    referencia: p?.referencia || null,
     fotos,
   };
 }
@@ -370,6 +371,21 @@ export default function Nuevo({ consulta }) {
     setElegidos((l) => (l.includes(clave) ? l.filter((x) => x !== clave) : [...l, clave]));
     setAjustes((a) => (a[clave] ? a : { ...a, [clave]: ajustesIniciales(clave, { idioma: idiomaFicha }) }));
   };
+  // el video de referencia del paso 1 se ve ya puesto en «Clonar un video» de cada estilo que lo tiene
+  useEffect(() => {
+    const ref = borrador.referencia;
+    if (paso !== 2 || !ref) return;
+    setAjustes((a) => {
+      let cambio = false;
+      const nuevo = { ...a };
+      for (const [c, x] of Object.entries(a)) {
+        if (x?.preguntas?.clonar || !preguntasDe(c).some((p) => p.id === 'clonar')) continue;
+        cambio = true;
+        nuevo[c] = { ...x, preguntas: { ...x.preguntas, clonar: ref } };
+      }
+      return cambio ? nuevo : a;
+    });
+  }, [paso, borrador.referencia]); // eslint-disable-line react-hooks/exhaustive-deps
   // las preguntas que vienen marcadas con lo de la ficha (el idioma de la entrevista) se llenan cuando llega la ficha
   useEffect(() => {
     if (!idiomaFicha) return;
@@ -445,11 +461,31 @@ export default function Nuevo({ consulta }) {
   };
 
   /** "Escribir el guion": crea un anuncio por estilo elegido (POST /api/anuncios) y lanza su sesión "guion". */
+  const esperarFicha = async () => {
+    let relanzada = false;
+    for (let i = 0; i < 240; i++) {
+      const l = leerProducto(await apiNuevo.producto(productoId));
+      if (l.ficha && l.tarea.estado !== 'analizando') return;
+      if (l.tarea.estado === 'error') {
+        const e = l.tarea.error;
+        const texto = typeof e === 'string' ? e : e?.mensaje || 'Claude no pudo preparar tu producto. Vuelve a intentarlo.';
+        // un fallo pasajero: se vuelve a intentar una vez sola, sin preguntar
+        if (relanzada || /sesi[oó]n|l[ií]mite/i.test(texto)) throw new Error(texto);
+        relanzada = true;
+        await apiNuevo.analizarProducto(productoId);
+      }
+      if (i === 0) aviso({ tipo: 'info', titulo: 'Un momento', texto: 'Claude está terminando de mirar tu producto. El guion empieza solo.' });
+      await new Promise((r) => setTimeout(r, 2000));
+    }
+    throw new Error('Tu producto tardó demasiado en prepararse. Vuelve a intentarlo.');
+  };
   const escribir = async (soloClave) => {
     if (!productoId) return;
     setCreando(true);
     const mapa = { ...anuncios };
     try {
+      await esperarFicha();
+      prod.recargar();
       for (const clave of soloClave ? [soloClave] : elegidos) {
         if (mapa[clave] && !soloClave) continue;
         const a = ajustes[clave] || ajustesIniciales(clave, { idioma: idiomaFicha });
@@ -489,16 +525,16 @@ export default function Nuevo({ consulta }) {
     <div className="pagina nv">
       <CabeceraPagina
         sobretitulo="Nuevo anuncio"
-        titulo={paso === 1 ? 'Cuéntame qué vendes' : 'Elige cómo contarlo'}
+        titulo={paso === 1 ? 'Tu producto' : 'Elige cómo contarlo'}
         descripcion={
           paso === 1
-            ? 'Una sola vez por producto. La IA lee tu página, mira tus fotos y te pregunta solo lo que falta.'
+            ? 'La foto, lo que quieras que la IA tenga en cuenta y, si tienes, un video de referencia.'
             : 'Elige el estilo, lee el guion que escribe Claude y das un solo «Sí»: lo demás lo hace la app sola, hasta el video.'
         }
         acciones={<EstadoClaude claude={claude} />}
       />
 
-      <IndicadorPasos paso={paso} fichaLista={fichaLista || hayAnuncios} onIr={irAPaso} />
+      <IndicadorPasos paso={paso} fichaLista={Boolean(productoId) || hayAnuncios} onIr={irAPaso} />
 
       {paso === 1 ? (
         <PasoProducto
