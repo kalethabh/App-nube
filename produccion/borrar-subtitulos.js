@@ -67,11 +67,15 @@ export function borrarSubtitulos(video, salida, { modo = 'auto' } = {}) {
   if (!fs.existsSync(entrada)) throw new Error(`No encuentro el video: ${entrada}`);
   const fin = path.resolve(salida || entrada.replace(/(\.[^.]+)?$/, '_limpio.mp4'));
   const texto = fin.replace(/\.mp4$/, '.texto.json');
-  const env = { ...process.env, CLONADOR_SALIDA: 'original', PYTHONPATH: MOTOR, PYTHONUTF8: '1' };
+  // PYTORCH_ENABLE_MPS_FALLBACK: en la Mac, lo poco que la GPU (MPS) no sabe hacer va al procesador en vez de fallar
+  const env = { ...process.env, CLONADOR_SALIDA: 'original', PYTHONPATH: MOTOR, PYTHONUTF8: '1', PYTORCH_ENABLE_MPS_FALLBACK: '1' };
+  const t0 = Date.now();
   console.log('\n  1/2 Buscando los textos del video (subtítulos, precios, avisos)...');
   if (correr(PY_VENV, ['-m', 'clonador.detectar_texto', entrada, texto], { cwd: MOTOR, env }) !== 0) throw new Error('No pude leer los textos del video.');
   console.log('  2/2 Borrándolos y reconstruyendo el fondo (en un computador sin tarjeta gráfica tarda varios minutos)...');
   if (correr(PY_VENV, ['-m', 'clonador.borrar_texto', entrada, texto, fin, modo], { cwd: MOTOR, env }) !== 0) throw new Error('No pude borrar los textos del video.');
+  const s = Math.round((Date.now() - t0) / 1000);
+  console.log(`  Tardó ${Math.floor(s / 60)} min ${s % 60} s.`);
   return fin;
 }
 
