@@ -25,6 +25,7 @@ const MOTOR = path.join(RAIZ, 'produccion', 'cambiar-producto.js');
 const BAJAR = path.join(RAIZ, 'produccion', 'bajar-referencias.js');
 const BORRADOR = path.join(RAIZ, 'produccion', 'borrar-subtitulos.js');
 const enMarcha = new Map(); // slug -> { proceso?, tarea }
+const detenidos = new Set(); // los que el usuario detuvo: su final no se anota como error
 // mientras se produce un video no se reinicia la app (el motor quedaría suelto y la app perdería su avance)
 registrarOcupado(() => (enMarcha.size ? 'Se está trabajando en un video de «Cambiar el producto»: reinicia cuando termine.' : null));
 
@@ -66,6 +67,7 @@ function vigilar(slug, pid) {
       process.kill(pid, 0);
     } catch {
       clearInterval(id);
+      if (detenidos.delete(slug)) return;
       leerLog(slug, desde, leer);
       enMarcha.delete(slug);
       const listo = existe(path.join(OUTPUT, `${slug}_cambiado.mp4`)) || existe(path.join(OUTPUT, `${slug}_sin-subtitulos.mp4`));
@@ -418,6 +420,7 @@ export function producirCambio(slug) {
     throw Object.assign(new Error('Este video ya se está produciendo: espera a que termine.'), { status: 409 });
   }
   const ahora = () => new Date().toISOString();
+  detenidos.delete(slug);
   guardarEstado(slug, { etapa: 'produciendo', error: null, progreso: [], inicioProduccion: ahora(), paso: null, hechos: [], pidMotor: null });
   const paso = pasoDe(slug);
   const tarea = (async () => {
@@ -435,7 +438,9 @@ export function producirCambio(slug) {
           throw new Error(`No pude instalar el borrador de subtítulos${motivo ? `: ${motivo}` : ''}. Toca «Reintentar», o apaga «Borrar los subtítulos del original».`);
         }
       }
+      if (detenidos.delete(slug)) return; // lo detuvo mientras se instalaba el borrador
       const r = await correrMotorAparte(slug, [MOTOR, 'producir', path.join('temp', slug), '--si'], { env, alLinea: lectorDelMotor(slug, paso) });
+      if (detenidos.delete(slug)) return;
       if (r.codigo !== 0) {
         const motivo = (r.texto.trim().split('\n').filter((x) => x.trim() && !/^PROGRESO /.test(x)).pop() || '').slice(0, 300);
         throw new Error(motivo || 'No pude terminar el video.');
@@ -448,6 +453,41 @@ export function producirCambio(slug) {
     }
   })();
   enMarcha.set(slug, { tarea });
+}
+
+/**
+ * Detiene la producción de ese trabajo: el motor y lo que lanzó (el borrador de subtítulos, ffmpeg). Lo ya hecho
+ * queda: al volver a producir no se paga de nuevo.
+ */
+export function detenerCambio(slug) {
+  if (!slugValido(slug)) return false;
+  const pids = new Set();
+  const pid = leerEstado(slug).pidMotor;
+  if (pid) pids.add(pid);
+  const suelto = motorSuelto(slug);
+  if (suelto) pids.add(suelto);
+  if (process.platform === 'win32') {
+    for (const p of pids) spawn('taskkill', ['/PID', String(p), '/T', '/F'], { windowsHide: true });
+  } else {
+    try {
+      const salida = execFileSync('ps', ['-axo', 'pid=,command='], { encoding: 'utf8', timeout: 5000 });
+      for (const l of salida.split('\n')) if (l.includes(`temp/${slug}/`) || l.includes(`temp/${slug} `) || l.includes(`temp/${slug}\n`)) pids.add(Number(l.trim().split(/\s+/)[0]));
+    } catch {
+      /* sin ps: solo el motor */
+    }
+    for (const p of pids) {
+      if (!p || p === process.pid) continue;
+      try {
+        process.kill(p, 'SIGTERM');
+      } catch {
+        /* ya no estaba */
+      }
+    }
+  }
+  detenidos.add(slug);
+  enMarcha.delete(slug);
+  guardarEstado(slug, { etapa: 'revisar', paso: null, pidMotor: null, error: null, aviso: 'Lo detuviste. Lo que ya estaba hecho queda guardado: al producir de nuevo no se vuelve a pagar.' });
+  return true;
 }
 
 /** Al abrir la app: lo que quedó a medias se marca para retomarlo con un clic. */

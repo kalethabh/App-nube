@@ -2,7 +2,7 @@
 // con tu producto en las escenas donde salía el de otra marca, la voz traducida con la misma voz y subtítulos nuevos.
 // El servidor es lib/cambiar.js; el motor, produccion/cambiar-producto.js.
 import { useEffect, useMemo, useState } from 'react';
-import { Check, CircleAlert, Download, Film, ImagePlus, LoaderCircle, Mic, Play, Plus, RefreshCw, Repeat, Sparkles, X } from 'lucide-react';
+import { Check, CircleAlert, CircleStop, Download, Film, ImagePlus, LoaderCircle, Mic, Play, Plus, RefreshCw, Repeat, Sparkles, X } from 'lucide-react';
 import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Seccion, SubirVideo, useAvisos } from '../../componentes/index.js';
 import { useDatos, invalidar, miniatura } from '../../datos/api.js';
 import { enlace, ir, rutas } from '../../datos/rutas.js';
@@ -380,6 +380,13 @@ function Detalle({ slug }) {
           <h2 className="cb-cabeza__titulo">{t.producto}</h2>
           {t.producto_foto ? <img className="cb-cabeza__producto" src={t.producto_foto} alt="Tu producto" /> : null}
           {trabajando ? <Avance t={t} cambio={cambio} /> : null}
+          {t.etapa === 'produciendo' ? (
+            <div>
+              <Boton variante="fantasma" tamano="chico" icono={CircleStop} onClick={() => window.confirm('¿Detener la producción? Lo que ya está hecho queda guardado y no se vuelve a pagar.') && accion('detener')}>
+                Detener
+              </Boton>
+            </div>
+          ) : null}
           {t.etapa === 'error' ? (
             <>
               <p className="cb-error" role="alert">
