@@ -2,7 +2,7 @@
 // plan de ElevenLabs (la voz) y lo que llevas invertido en tus anuncios, por producto. Solo lee: no cobra nada.
 // Sin costos estimados: solo lo que hay en tus cuentas y lo que ya gastaste de verdad.
 import { useState } from 'react';
-import { ArrowUpRight, CircleAlert, KeyRound, Mic, RefreshCw, Sparkles, Wallet } from 'lucide-react';
+import { ArrowUpRight, CircleAlert, Download, KeyRound, Mic, RefreshCw, Sparkles, Wallet } from 'lucide-react';
 import { Boton, CabeceraPagina, Esqueleto } from '../../componentes/index.js';
 import { useDatos } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
@@ -120,6 +120,46 @@ function TarjetaGastado() {
   );
 }
 
+async function leerOtraApp() {
+  const r = await fetch('/api/claves/otra-app', { headers: { Accept: 'application/json' } });
+  return r.ok ? r.json() : { encontrada: false };
+}
+
+/** Si a esta app le faltan claves que IA-VID-AUTOMATIC sí tiene: traerlas con un clic. */
+function TraerClaves({ alTraer }) {
+  const { datos, recargar } = useDatos('claves-otra-app', leerOtraApp);
+  const [trayendo, setTrayendo] = useState(false);
+  const [mensaje, setMensaje] = useState(null);
+  const faltan = datos?.encontrada ? Object.keys(datos.tiene || {}).filter((k) => datos.tiene[k] && datos.faltanAqui?.[k]) : [];
+  if (!faltan.length && !mensaje) return null;
+  const traer = async () => {
+    setTrayendo(true);
+    try {
+      const r = await fetch('/api/claves/otra-app', { method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/json' }, body: '{}' });
+      const d = await r.json();
+      setMensaje(d.mensaje);
+      await recargar?.();
+      await alTraer?.();
+    } finally {
+      setTrayendo(false);
+    }
+  };
+  const nombres = { kie: 'kie.ai', elevenlabs: 'ElevenLabs' };
+  return (
+    <div className="sd-traer">
+      <KeyRound size={18} strokeWidth={2} aria-hidden="true" />
+      <span>
+        {mensaje || `Tus claves de ${faltan.map((k) => nombres[k] || k).join(' y ')} están en IA-VID-AUTOMATIC, en este computador. Tráelas y aquí sale tu saldo.`}
+      </span>
+      {!mensaje ? (
+        <Boton variante="primario" tamano="chico" icono={Download} onClick={traer} cargando={trayendo}>
+          Traer mis claves
+        </Boton>
+      ) : null}
+    </div>
+  );
+}
+
 export default function Saldo() {
   const { datos, cargando, recargar } = useSaldo();
   const [refrescando, setRefrescando] = useState(false);
@@ -147,6 +187,12 @@ export default function Saldo() {
             </Boton>
           </>
         }
+      />
+      <TraerClaves
+        alTraer={async () => {
+          await leerSaldo({ fresco: true });
+          await recargar?.();
+        }}
       />
       {datos?.kie?.simulado ? <p className="sd-nota">Modo prueba: estos saldos son de los simuladores, no de tus cuentas.</p> : null}
       <div className="sd-rejilla">

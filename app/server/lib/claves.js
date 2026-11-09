@@ -19,6 +19,8 @@
 //   produccion/kie-client.js) y GET /v1/user de ElevenLabs. Siempre van a los servicios reales:
 //   el modo prueba simula solo lo que corre el motor, no esta pantalla.
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import crypto from 'node:crypto';
 import { ENV } from './rutas.js';
 
@@ -354,4 +356,54 @@ export async function probarClave(cual, { valor } = {}) {
   }
   if (cual === 'elevenlabs') return usuarioElevenLabs(valor || leerClave(CLAVES.elevenlabs.variable));
   return { ok: false, motivo: 'desconocida', mensaje: 'Esa conexión no existe.' };
+}
+
+// ---------------------------------------------------------------- traer las claves de IA-VID-AUTOMATIC
+
+/**
+ * La carpeta de IA-VID-AUTOMATIC en este computador (la otra app: tiene app-web/ y su .env), buscada en la carpeta
+ * de usuario hasta 3 niveles (sin Library, node_modules ni carpetas ocultas). Devuelve { ruta, tiene: { kie,
+ * elevenlabs } } o null. Nunca devuelve los valores.
+ */
+export function buscarOtraApp() {
+  const casa = os.homedir();
+  const SALTAR = new Set(['Library', 'node_modules', 'Applications', 'Pictures', 'Music', 'Movies', 'Public']);
+  const propia = path.resolve(path.dirname(archivoEnv));
+  const cola = [[casa, 0]];
+  while (cola.length) {
+    const [dir, prof] = cola.shift();
+    let entradas = [];
+    try {
+      entradas = fs.readdirSync(dir, { withFileTypes: true });
+    } catch {
+      continue;
+    }
+    if (dir !== propia && entradas.some((e) => e.name === 'app-web' && e.isDirectory()) && entradas.some((e) => e.name === '.env')) {
+      const texto = fs.readFileSync(path.join(dir, '.env'), 'utf8');
+      const valores = {};
+      for (const linea of texto.split(/\r?\n/)) {
+        const l = valorDeLinea(linea);
+        if (l) valores[l.nombre] = l.valor;
+      }
+      const tiene = {};
+      for (const [cual, c] of Object.entries(CLAVES)) tiene[cual] = sirve(valores[c.variable]);
+      if (Object.values(tiene).some(Boolean)) return { ruta: dir, tiene, valores: Object.fromEntries(Object.entries(CLAVES).map(([cual, c]) => [cual, sirve(valores[c.variable]) ? valores[c.variable] : null])) };
+    }
+    if (prof >= 3) continue;
+    for (const e of entradas) if (e.isDirectory() && !e.name.startsWith('.') && !SALTAR.has(e.name)) cola.push([path.join(dir, e.name), prof + 1]);
+  }
+  return null;
+}
+
+/** Copia a esta app las claves que tiene IA-VID-AUTOMATIC (solo las que aquí faltan, salvo `todas`). */
+export async function traerClavesDeOtraApp({ todas = false } = {}) {
+  const otra = buscarOtraApp();
+  if (!otra) return { ok: false, mensaje: 'No encontré IA-VID-AUTOMATIC en tu carpeta de usuario.' };
+  const actuales = clavesGuardadas();
+  const nuevas = {};
+  for (const [cual, valor] of Object.entries(otra.valores)) if (valor && (todas || !actuales[cual])) nuevas[cual] = valor;
+  if (!Object.keys(nuevas).length) return { ok: true, traidas: [], mensaje: 'Ya tenías tus claves: no hizo falta traer nada.' };
+  await guardarClaves(nuevas);
+  olvidarSaldo();
+  return { ok: true, traidas: Object.keys(nuevas), mensaje: `Listo: traje ${Object.keys(nuevas).map((c) => CLAVES[c].nombre).join(' y ')} de IA-VID-AUTOMATIC.` };
 }
