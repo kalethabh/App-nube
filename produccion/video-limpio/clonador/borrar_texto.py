@@ -796,6 +796,9 @@ def _sttn(video: Path, text_analysis: Path, salida: Path, modo: str = "auto") ->
                 for f in rgba.permute(0, 2, 3, 1).contiguous().cpu().numpy():
                     cola.put(f.tobytes())
                 emitido = sig
+                # avance para la app: «PROGRESO <hechos>/<total>» cada ~2 %
+                if emitido * 50 // n > (emitido - len(listos)) * 50 // n or emitido == n:
+                    print(f"PROGRESO {emitido}/{n}", file=sys.stderr, flush=True)
     t_red = time.time() - t1
     cola.put(None)
     hilo.join()

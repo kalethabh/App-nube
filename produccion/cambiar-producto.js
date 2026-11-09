@@ -270,13 +270,16 @@ async function producir(c, { si }) {
   // 2. las escenas con tu producto (kie.ai)
   const foto = fotoProducto(c);
   const urlFoto = m.escenas.length ? await subirArchivo(foto) : null;
-  for (const [i, e] of m.escenas.entries()) {
+  // de a 4 a la vez (kie.ai las hace en paralelo): 8 escenas tardan lo que 2
+  let listas = m.escenas.filter((_, i) => existe(path.join(trabajo, `escena-${i + 1}.mp4`))).length;
+  if (m.escenas.length) decir(`2/5 Escenas: ${listas} de ${m.escenas.length} listas`);
+  const unaEscena = async (e, i) => {
     const n = i + 1;
     const cuadro = path.join(trabajo, `escena-${n}-original.png`);
     const imagen = path.join(trabajo, `escena-${n}.png`);
     const clip = path.join(trabajo, `escena-${n}.mp4`);
-    if (existe(clip)) continue;
-    decir(`2/5 Escena ${n}: ${Number(e.desde).toFixed(1)}–${Number(e.hasta).toFixed(1)} s`);
+    if (existe(clip)) return;
+    decir(`   escena ${n}: ${Number(e.desde).toFixed(1)}–${Number(e.hasta).toFixed(1)} s`);
     if (!existe(cuadro)) ffmpeg(['-ss', String(Number(e.desde) + 0.05), '-i', base, '-frames:v', '1', cuadro], 'cuadro de la escena');
     if (!existe(imagen)) {
       const urlCuadro = await subirArchivo(cuadro);
@@ -295,7 +298,13 @@ async function producir(c, { si }) {
       duracion,
       rutaDestino: clip,
     });
-  }
+    listas++;
+    decir(`2/5 Escenas: ${listas} de ${m.escenas.length} listas`);
+  };
+  const cola = [...m.escenas.entries()];
+  await Promise.all(Array.from({ length: Math.min(4, cola.length) }, async () => {
+    for (let x = cola.shift(); x; x = cola.shift()) await unaEscena(x[1], x[0]);
+  }));
 
   // 3. la voz nueva, con la misma voz del original (ElevenLabs)
   const audioOriginal = path.join(trabajo, 'audio-original.mp3');

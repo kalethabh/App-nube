@@ -1,4 +1,4 @@
-import { desactualizado, reiniciar } from '../lib/version.js';
+import { desactualizado, motivoParaNoReiniciar, reiniciar } from '../lib/version.js';
 import { soloDesdeLaApp } from '../lib/productos.js';
 // GET /api/estado -> si estan las claves (si/no, NUNCA el valor), si esta Claude Code y los modelos
 //                    que usa el motor:
@@ -83,6 +83,8 @@ export default function rutasEstado(app) {
     });
   });
   app.post('/api/reiniciar', soloDesdeLaApp, (req, res) => {
+    const motivo = motivoParaNoReiniciar();
+    if (motivo) return res.status(409).json({ ok: false, error: motivo });
     res.json({ ok: true });
     reiniciar();
   });

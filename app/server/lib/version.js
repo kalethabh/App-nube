@@ -45,10 +45,20 @@ export function desactualizado() {
  * Reinicia el servidor con lo nuevo. Con el lanzador (app/inicio/arrancar.mjs) basta con salir con el código 75; si
  * no, se deja lanzado uno nuevo, aparte, que espera a que este suelte el puerto.
  */
+const ocupados = [];
+/** Quien tiene trabajo que no se puede cortar registra aquí cómo saberlo (p. ej. lib/cambiar.js). */
+export function registrarOcupado(fn) {
+  ocupados.push(fn);
+}
+/** El motivo por el que ahora no conviene reiniciar, o null. */
+export const motivoParaNoReiniciar = () => ocupados.map((f) => f()).find(Boolean) || null;
+
 export function reiniciar() {
+  if (motivoParaNoReiniciar()) return false;
   if (process.env.AIA_SUPERVISADO !== '1') {
     const hijo = spawn(process.execPath, [path.join(APP, 'inicio', 'arrancar.mjs')], { cwd: APP, detached: true, stdio: 'ignore', env: { ...process.env, AIA_ESPERAR_PUERTO: '1' }, windowsHide: true });
     hijo.unref();
   }
   setTimeout(() => process.exit(process.env.AIA_SUPERVISADO === '1' ? 75 : 0), 800).unref?.();
+  return true;
 }

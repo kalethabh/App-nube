@@ -2,7 +2,7 @@
 // con tu producto en las escenas donde salía el de otra marca, la voz traducida con la misma voz y subtítulos nuevos.
 // El servidor es lib/cambiar.js; el motor, produccion/cambiar-producto.js.
 import { useEffect, useMemo, useState } from 'react';
-import { CircleAlert, Download, Film, ImagePlus, LoaderCircle, Mic, Play, Plus, RefreshCw, Repeat, Sparkles, X } from 'lucide-react';
+import { Check, CircleAlert, Download, Film, ImagePlus, LoaderCircle, Mic, Play, Plus, RefreshCw, Repeat, Sparkles, X } from 'lucide-react';
 import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Seccion, SubirVideo, useAvisos } from '../../componentes/index.js';
 import { useDatos, invalidar, miniatura } from '../../datos/api.js';
 import { enlace, ir, rutas } from '../../datos/rutas.js';
@@ -186,6 +186,100 @@ function Lista() {
   );
 }
 
+// ---------------------------------------------------------------- el avance (qué hace, cuánto lleva, cuánto falta)
+const PASOS = [
+  { id: 'preparar', texto: 'Preparar el borrador de subtítulos', nota: 'solo la primera vez · 5 a 15 min' },
+  { id: 'subtitulos', texto: 'Borrar los subtítulos del original', nota: 'gratis, en tu Mac' },
+  { id: 'escenas', texto: 'Tu producto en las escenas', nota: 'kie.ai' },
+  { id: 'voz', texto: 'La voz en español, con la misma voz', nota: 'ElevenLabs' },
+  { id: 'musica', texto: 'Separar la música del original' },
+  { id: 'armar', texto: 'Armar el video final' },
+];
+const minutos = (ms) => {
+  const s = Math.max(0, Math.round(ms / 1000));
+  return s < 60 ? `${s} s` : `${Math.floor(s / 60)} min${s % 60 ? ` ${s % 60} s` : ''}`;
+};
+function useAhora(activo) {
+  const [ahora, setAhora] = useState(Date.now());
+  useEffect(() => {
+    if (!activo) return undefined;
+    const id = setInterval(() => setAhora(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, [activo]);
+  return ahora;
+}
+
+function Avance({ t, cambio }) {
+  const ahora = useAhora(true);
+  if (t.etapa === 'analizando' || t.etapa === 'proponiendo') {
+    const desde = Date.parse(t.creado) || ahora;
+    return (
+      <div className="cb-avance">
+        <div className="cb-avance__cabeza">
+          <strong>{t.etapa === 'analizando' ? 'Analizando el video' : 'Claude está armando la propuesta'}</strong>
+          <span>Lleva {minutos(ahora - desde)} · suele tardar de 2 a 6 min</span>
+        </div>
+        {t.progreso?.length ? <p className="cb-avance__detalle">{t.progreso[t.progreso.length - 1]}</p> : null}
+      </div>
+    );
+  }
+  const actual = t.paso;
+  const hechos = new Set(t.hechos || []);
+  const pasos = PASOS.filter((p) => {
+    if (p.id === 'preparar') return actual?.id === 'preparar' || hechos.has('preparar');
+    if (p.id === 'subtitulos') return cambio?.borrar_subtitulos !== false;
+    if (p.id === 'escenas') return (cambio?.escenas || []).length > 0;
+    return true;
+  });
+  const total = Date.parse(t.inicioProduccion) || ahora;
+  const iPaso = pasos.findIndex((p) => p.id === actual?.id);
+  return (
+    <div className="cb-avance">
+      <div className="cb-avance__cabeza">
+        <strong>Produciendo tu video</strong>
+        <span>Lleva {minutos(ahora - total)} · puedes cerrar esta página: sigue solo</span>
+      </div>
+      <ol className="cb-pasos">
+        {pasos.map((p, i) => {
+          const esActual = p.id === actual?.id;
+          const hecho = !esActual && (hechos.has(p.id) || (iPaso >= 0 && i < iPaso));
+          const lleva = esActual ? ahora - (Date.parse(actual.desde) || ahora) : 0;
+          const pct = esActual && typeof actual.pct === 'number' ? actual.pct : null;
+          const falta = pct && pct > 0.03 && pct < 1 ? (lleva / pct) * (1 - pct) : null;
+          return (
+            <li key={p.id} className={`cb-paso-av${esActual ? ' cb-paso-av--actual' : ''}${hecho ? ' cb-paso-av--hecho' : ''}`}>
+              <span className="cb-paso-av__marca" aria-hidden="true">
+                {hecho ? <Check size={13} strokeWidth={3} /> : esActual ? <LoaderCircle size={14} className="girando" /> : i + 1}
+              </span>
+              <div className="cb-paso-av__cuerpo">
+                <span className="cb-paso-av__texto">
+                  {p.texto}
+                  {p.nota ? <em> · {p.nota}</em> : null}
+                </span>
+                {esActual ? (
+                  <>
+                    {pct !== null ? (
+                      <span className="cb-barra" aria-hidden="true">
+                        <span style={{ width: `${Math.round(pct * 100)}%` }} />
+                      </span>
+                    ) : null}
+                    <span className="cb-paso-av__detalle">
+                      {actual.detalle ? `${actual.detalle} · ` : ''}
+                      {pct !== null ? `${Math.round(pct * 100)} % · ` : ''}
+                      lleva {minutos(lleva)}
+                      {falta ? ` · faltan ~${minutos(falta)}` : ''}
+                    </span>
+                  </>
+                ) : null}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
+
 // ---------------------------------------------------------------- un trabajo
 function Escena({ toma, marcada, onMarcar, escena, onEscena, bloqueado }) {
   const [abierta, setAbierta] = useState(false);
@@ -285,7 +379,7 @@ function Detalle({ slug }) {
           </span>
           <h2 className="cb-cabeza__titulo">{t.producto}</h2>
           {t.producto_foto ? <img className="cb-cabeza__producto" src={t.producto_foto} alt="Tu producto" /> : null}
-          {trabajando && t.progreso?.length ? <p className="cb-progreso">{t.progreso[t.progreso.length - 1]}</p> : null}
+          {trabajando ? <Avance t={t} cambio={cambio} /> : null}
           {t.etapa === 'error' ? (
             <>
               <p className="cb-error" role="alert">
