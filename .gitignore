@@ -58,3 +58,7 @@ temp/_biblioteca-subidas/
 # para mirarlo (app/server/lib/anuncios-github.js). No se suben al repositorio de la app.
 mis_archivos/.anuncios-github/
 mis_archivos/.anuncios-github-cache/
+
+# El entorno de Python del borrador de subtítulos (npm run subtitulos:instalar)
+.venv-limpio/
+produccion/video-limpio/**/__pycache__/
