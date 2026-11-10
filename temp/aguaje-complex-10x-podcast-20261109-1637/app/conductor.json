@@ -53,7 +53,8 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-10T01:27:45.716Z",
-      "detalle": "Generando los clips"
+      "detalle": "Generando los clips",
+      "reintentos": 1
     },
     {
       "id": "montaje",
@@ -93,7 +94,7 @@
   "modoPrueba": false,
   "creado": "2026-11-09T21:59:09.596Z",
   "aprobado": "2026-11-09T21:59:09.596Z",
-  "actualizado": "2026-11-10T01:34:22.172Z",
+  "actualizado": "2026-11-10T01:38:44.419Z",
   "saldoInicial": {
     "creditos": 2751.8,
     "fecha": "2026-11-09T21:59:10.552Z"
