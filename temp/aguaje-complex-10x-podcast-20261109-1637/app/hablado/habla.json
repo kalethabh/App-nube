@@ -1,6 +1,6 @@
 {
-  "ronda": 1,
-  "fase": "generar",
+  "ronda": 2,
+  "fase": "revisar",
   "tomas": {
     "1": {
       "veces": 0,
@@ -28,6 +28,15 @@
           "oido": "agregó «Mhm» (segundo 1,5)",
           "transcripcion": "Decorativo Mhm Y sin tiempo pa' gimnasio ni dietas, ya estaba ahorrando pa' operarme y bien caras que están. ¿Y eso dónde lo consigo?",
           "toleradas": []
+        },
+        {
+          "ronda": 2,
+          "tamano": 8983291,
+          "fechaClip": 1794274602766,
+          "limpio": false,
+          "oido": "agregó «Sí» (segundo 1,1)",
+          "transcripcion": "Decorativo Sí Y sin tiempo pa' gimnasio ni dietas. Ya estaba ahorrando pa' operarme y bien caras que están. ¿Y eso dónde lo consigo?",
+          "toleradas": []
         }
       ],
       "limpio": false
@@ -42,6 +51,15 @@
           "limpio": false,
           "oido": "repitió «yo lo,» (segundo 1,3); dijo «Jin» en vez de «jean» (segundo 3,5)",
           "transcripcion": "Ay, no, yo lo, yo lo pido hoy mismo. Mi Jin se merece una segunda oportunidad",
+          "toleradas": []
+        },
+        {
+          "ronda": 2,
+          "tamano": 5234564,
+          "fechaClip": 1794274904789,
+          "limpio": false,
+          "oido": "dijo «Jin» en vez de «jean» (segundo 3)",
+          "transcripcion": "Ay no, yo lo pido hoy mismo. Mi Jin se merece una segunda oportunidad",
           "toleradas": []
         }
       ],
@@ -73,9 +91,18 @@
           "oido": "no dijo «Aguaje»; no dijo «con»; no dijo «fenogreco,»; no dijo «natural.»",
           "transcripcion": "Ay, no, yo estaba igualita. Hasta que mi tía me dijo: \"Mija, primero pruebe lo natural\". Me pasó el Aguaje Complex 10X",
           "toleradas": []
+        },
+        {
+          "ronda": 2,
+          "tamano": 7782588,
+          "fechaClip": 1794274880417,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Ay, no, yo estaba igualita. Hasta que mi tía me dijo: \"Mija, primero pruebe lo natural\". Me pasó el Aguaje Complex 10X, aguaje con fenogreco, natural",
+          "toleradas": []
         }
       ],
-      "limpio": false
+      "limpio": true
     },
     "6": {
       "veces": 1,
@@ -84,6 +111,15 @@
           "ronda": 1,
           "tamano": 7848154,
           "fechaClip": 1794273737730,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Y una no repite tres veces algo que no le sirve. Ahora me pongo el jean, me miro de lado y digo: \"Ah, ¿sí ves?\"",
+          "toleradas": []
+        },
+        {
+          "ronda": 2,
+          "tamano": 7527660,
+          "fechaClip": 1794277861498,
           "limpio": true,
           "oido": "",
           "transcripcion": "Y una no repite tres veces algo que no le sirve. Ahora me pongo el jean, me miro de lado y digo: \"Ah, ¿sí ves?\"",
@@ -117,6 +153,15 @@
           "limpio": false,
           "oido": "dijo «¿Tu solurio?» (una reacción va sin palabras)",
           "transcripcion": "¿Tu solurio?",
+          "toleradas": []
+        },
+        {
+          "ronda": 2,
+          "tamano": 7431342,
+          "fechaClip": 1794274724321,
+          "limpio": false,
+          "oido": "dijo «¿Nueve colido? Estamos a que» (una reacción va sin palabras)",
+          "transcripcion": "¿Nueve colido? Estamos a que",
           "toleradas": []
         }
       ],
@@ -207,7 +252,7 @@
           "motivo": "Metió un «mhm» que no estaba en el guion justo después de «Decorativo».",
           "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout; she keeps the exact face of the start frame. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nRealism: she looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and mouth, small head tilts and nods, hands and shoulders moving with what she feels, lips perfectly in sync with every word; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.\n\nShe says each line exactly as written, only once, word for word, without repeating, adding or changing any word, and without \"mhm\", \"um\", \"uh\" or \"eh\" that are not in the script. No filler sounds of any kind between words. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Decorativo. Y sin tiempo pa’ gimnasio, ni dietas, ya estaba ahorrando pa’ operarme y bien caras que están.\"\nDelivery: She only says her own lines, never the other person's questions or comments, and between lines stays silent, listening. Deadpan on \"Decorativo\", then a short silent beat with her lips closed (no hum, no \"mhm\", no sound at all), then she goes straight on with \"Y sin tiempo...\", exasperated, counting on her fingers, with a small eye roll at the end; she says \"pa’\" as \"pa\".\n\nLínea 2: \"¿Y eso dónde lo consigo?\"\nDelivery: curious, she leans a little toward the microphone with her eyebrows up; she says it only once, word for word.\n\nAudio: she speaks in a natural Colombian Spanish accent from the Caribbean coast (costeño, like a woman from Barranquilla: sing-song, open vowels, she softens and sometimes drops the final s; never paisa, never neutral, never Mexican) at a quick, animated speed, with a bright, slightly high-pitched voice of a Colombian woman in her late 20s, confessional and self-deprecating, funny about her own problem; her pitch jumps up when she exaggerates and drops when she complains, she takes small audible breaths between phrases, like a real friend talking. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
           "porHabla": true,
-          "resultado": "aplicado",
+          "resultado": "regenerado",
           "vez": 1,
           "contado": true
         },
@@ -218,7 +263,7 @@
           "motivo": "Se trabó repitiendo «yo lo» y pronunció «jean» como «jin».",
           "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout; she keeps the exact face of the start frame. She speaks directly to someone off-camera.\n\nNo captions. No background music. No camera movement or angle changes.\n\nRealism: she looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and mouth, small head tilts and nods, hands and shoulders moving with what she feels, lips perfectly in sync with every word; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.\n\nShe says the line exactly as written, only once, word for word, in one smooth fluent flow, without stuttering, without restarting any phrase, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\". After the line she says nothing else: she stays silent, smiling, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Ay no, yo lo pido hoy mismo. Mi jean se merece una segunda oportunidad.\"\nDelivery: She only says her own line, never the other person's comments. Decided and playful, she says \"yo lo pido\" just once, fluently, with no hesitation; she keeps both hands resting on the table and the phone stays face down on the table, untouched; she smiles at her friend, never at the camera. She pronounces \"jean\" the Colombian way, as \"yin\" (like the English word \"jean\"), clearly, never \"jin\".\n\nAudio: she speaks in a natural Colombian Spanish accent from the Caribbean coast (costeño, like a woman from Barranquilla: sing-song, open vowels, she softens and sometimes drops the final s; never paisa, never neutral, never Mexican) at a lively but clear speed, with a bright, slightly high-pitched voice of a Colombian woman in her late 20s, funny and decided; she takes a small audible breath before speaking, like a real friend talking. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
           "porHabla": true,
-          "resultado": "aplicado",
+          "resultado": "regenerado",
           "vez": 1,
           "contado": true
         },
@@ -229,7 +274,7 @@
           "motivo": "Se le quedó por fuera el final: «Aguaje con fenogreco, natural».",
           "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout; she keeps the exact face of the start frame. She speaks directly to someone off-camera, delivering multiple lines with very short natural pauses between them.\n\nNo captions. No background music. No camera movement or angle changes.\n\nRealism: she looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and mouth, small head tilts and nods, hands and shoulders moving with what she feels, lips perfectly in sync with every word; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.\n\nShe says each line exactly as written, only once, word for word, without repeating, adding, skipping or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. She must finish all three lines, including the very last words \"Aguaje con fenogreco, natural.\", before the clip ends; she keeps the pauses short so everything fits. After her last line she says nothing else: she stays silent, smiling, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Ay no, yo estaba igualita!.\"\nDelivery: She only says her own lines, never the other person's questions or comments. Empathetic, she points at herself with one hand on her chest; quick, then straight into the next line.\n\nLínea 2: \"Hasta que mi tía me dijo: mija, primero pruebe lo natural.\"\nDelivery: storytelling, she softly imitates her aunt's advising tone on \"mija, primero pruebe lo natural\", tilting her head; brief pause after it.\n\nLínea 3: \"Me pasó el Aguaje Complex 10X. Aguaje con fenogreco, natural.\"\nDelivery: casual, like telling a friend; she says the brand name as \"a-GUA-je CÓM-plex DIEZ EQUIS\", with the stress on \"GUA\" and on \"CÓM\", and then, without stopping, clearly adds the second sentence \"Aguaje con fenogreco, natural.\" word for word, ending with a small nod on \"natural\". The line is not finished until she says \"natural\".\n\nAudio: she speaks in a natural Colombian Spanish accent from Antioquia (paisa, like a woman from Medellín: melodic rising and falling intonation, clear crisp s, warm drawn vowels at the end of phrases; never costeño, never neutral, never Mexican) at a natural, slightly brisk conversational speed, never slow, with a warm, slightly lower, slightly husky voice of a Colombian woman in her early 30s, warm and confident, like someone who's been through it; she smiles while talking so the smile can be heard, and takes small audible breaths between phrases, like a real friend talking. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
           "porHabla": true,
-          "resultado": "aplicado",
+          "resultado": "regenerado",
           "vez": 1,
           "contado": true
         },
@@ -240,7 +285,7 @@
           "motivo": "Apareció escrito «¿sí ves?» en la pantalla, como un subtítulo.",
           "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout; she keeps the exact face of the start frame. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions, no subtitles, no on-screen text, no words or letters appearing anywhere in the image at any moment; the only lettering in the whole clip is the pink neon sign already on the wall, unchanged. No background music. No camera movement or angle changes.\n\nRealism: she looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and mouth, small head tilts and nods, hands and shoulders moving with what she feels, lips perfectly in sync with every word; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Y una no repite tres veces algo que no le sirve.\"\nDelivery: She only says her own lines, never the other person's questions or comments, and between lines stays silent, listening. Relaxed and sure of herself, with a small shrug.\n\nLínea 2: \"Ahora me pongo el jean, me miro de lado y digo: ah, ¿sí ves?\"\nDelivery: playful and proud, she turns her shoulders slightly as if checking herself in a mirror, raising one eyebrow on \"¿sí ves?\"; the words are only heard, never written on screen.\n\nAudio: she speaks in a natural Colombian Spanish accent from Antioquia (paisa, like a woman from Medellín: melodic rising and falling intonation, clear crisp s, warm drawn vowels at the end of phrases; never costeño, never neutral, never Mexican) at a natural conversational speed, a touch more relaxed than her friend but never slow, with a warm, slightly lower, slightly husky voice of a Colombian woman in her early 30s, warm and confident, like someone who's been through it; she lowers her voice a little on the confidential parts, smiles while talking so the smile can be heard, and takes small audible breaths between phrases, like a real friend talking. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
           "porHabla": false,
-          "resultado": "aplicado",
+          "resultado": "regenerado",
           "vez": 1,
           "contado": true
         },
@@ -265,12 +310,32 @@
             }
           ],
           "porHabla": true,
-          "resultado": "aplicado",
+          "resultado": "regenerado",
           "vez": 1,
           "contado": true
         }
       ],
       "descartados": []
+    },
+    "2": {
+      "revisar": [
+        "toma-2",
+        "toma-3",
+        "toma-5",
+        "toma-6",
+        "toma-8"
+      ],
+      "sucias": [
+        "toma-2",
+        "toma-3",
+        "toma-8"
+      ],
+      "alTope": [],
+      "sesion": {
+        "uuid": "e632c2dc-5223-4a92-a1a0-2447228b15f8",
+        "usada": true,
+        "intentos": 1
+      }
     }
   },
   "sesion": {
