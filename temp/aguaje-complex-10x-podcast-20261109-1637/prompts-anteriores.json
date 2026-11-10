@@ -89,6 +89,52 @@
       "prompt_imagen_inicial": null,
       "prompt_imagen_final": null,
       "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip. No dialogue at any point.\n\nNo captions. No background music. No camera movement or angle changes.\n\nRealism: she keeps the exact face of the start frame and looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and cheeks, small head tilts, hands and shoulders moving with what she feels, lips always closed; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.\n\nREACTIONS, in this order, with a clear pause between each one:\n\nReacción 1: she raises her eyebrows and leans a little toward her friend, interested, with a short rising closed-mouth hum, lips sealed\nReacción 2: she drops her shoulders and lets out a slow relieved breath through her nose, lips sealed, with a small closed-lip smile\nReacción 3: she narrows her eyes and tilts her head, half doubtful, half amused, with a short laugh through her nose, lips sealed\n\nAudio: only soft nonverbal sounds made with the lips sealed (a short hum, a relieved sigh through the nose, a nasal laugh) and the room tone of a small podcast studio. No words in any language, no music."
+    },
+    {
+      "fecha": "2026-11-10T02:32:00.326Z",
+      "toma": 2,
+      "tipo": "H",
+      "motivo": "revision de la app: Metió un «sí» que no está en el guion justo después de «Decorativo».",
+      "linea": "Decorativo. Y sin tiempo pa’ gimnasio, ni dietas, ya estaba ahorrando pa’ operarme y bien caras que están. ¿Y eso dónde lo consigo?",
+      "lineas": [
+        {
+          "orden": 3,
+          "texto": "Decorativo. Y sin tiempo pa’ gimnasio, ni dietas, ya estaba ahorrando pa’ operarme y bien caras que están."
+        },
+        {
+          "orden": 11,
+          "texto": "¿Y eso dónde lo consigo?"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout; she keeps the exact face of the start frame. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nRealism: she looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and mouth, small head tilts and nods, hands and shoulders moving with what she feels, lips perfectly in sync with every word; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.\n\nShe says each line exactly as written, only once, word for word, without repeating, adding or changing any word, and without \"mhm\", \"um\", \"uh\" or \"eh\" that are not in the script. No filler sounds of any kind between words. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Decorativo. Y sin tiempo pa’ gimnasio, ni dietas, ya estaba ahorrando pa’ operarme y bien caras que están.\"\nDelivery: She only says her own lines, never the other person's questions or comments, and between lines stays silent, listening. Deadpan on \"Decorativo\", then a short silent beat with her lips closed (no hum, no \"mhm\", no sound at all), then she goes straight on with \"Y sin tiempo...\", exasperated, counting on her fingers, with a small eye roll at the end; she says \"pa’\" as \"pa\".\n\nLínea 2: \"¿Y eso dónde lo consigo?\"\nDelivery: curious, she leans a little toward the microphone with her eyebrows up; she says it only once, word for word.\n\nAudio: she speaks in a natural Colombian Spanish accent from the Caribbean coast (costeño, like a woman from Barranquilla: sing-song, open vowels, she softens and sometimes drops the final s; never paisa, never neutral, never Mexican) at a quick, animated speed, with a bright, slightly high-pitched voice of a Colombian woman in her late 20s, confessional and self-deprecating, funny about her own problem; her pitch jumps up when she exaggerates and drops when she complains, she takes small audible breaths between phrases, like a real friend talking. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound."
+    },
+    {
+      "fecha": "2026-11-10T02:32:00.488Z",
+      "toma": 3,
+      "tipo": "H",
+      "motivo": "revision de la app: Volvió a decir «jin» en vez de «jean», y por un momento miró hacia la cámara.",
+      "linea": "Ay no, yo lo pido hoy mismo. Mi jean se merece una segunda oportunidad.",
+      "lineas": [
+        {
+          "orden": 13,
+          "texto": "Ay no, yo lo pido hoy mismo. Mi jean se merece una segunda oportunidad."
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout; she keeps the exact face of the start frame. She speaks directly to someone off-camera.\n\nNo captions. No background music. No camera movement or angle changes.\n\nRealism: she looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and mouth, small head tilts and nods, hands and shoulders moving with what she feels, lips perfectly in sync with every word; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.\n\nShe says the line exactly as written, only once, word for word, in one smooth fluent flow, without stuttering, without restarting any phrase, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\". After the line she says nothing else: she stays silent, smiling, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Ay no, yo lo pido hoy mismo. Mi jean se merece una segunda oportunidad.\"\nDelivery: She only says her own line, never the other person's comments. Decided and playful, she says \"yo lo pido\" just once, fluently, with no hesitation; she keeps both hands resting on the table and the phone stays face down on the table, untouched; she smiles at her friend, never at the camera. She pronounces \"jean\" the Colombian way, as \"yin\" (like the English word \"jean\"), clearly, never \"jin\".\n\nAudio: she speaks in a natural Colombian Spanish accent from the Caribbean coast (costeño, like a woman from Barranquilla: sing-song, open vowels, she softens and sometimes drops the final s; never paisa, never neutral, never Mexican) at a lively but clear speed, with a bright, slightly high-pitched voice of a Colombian woman in her late 20s, funny and decided; she takes a small audible breath before speaking, like a real friend talking. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound."
+    },
+    {
+      "fecha": "2026-11-10T02:32:00.646Z",
+      "toma": 8,
+      "tipo": "H",
+      "motivo": "revision de la app: A mitad del clip abrió la boca y dijo palabras, y aquí solo debía reaccionar en silencio.",
+      "linea": "",
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip, up to the very last frame. No dialogue at any point.\n\nNo captions. No background music. No camera movement or angle changes.\n\nRealism: she keeps the exact face of the start frame and looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and cheeks, small head tilts, hands and shoulders moving with what she feels, lips always closed; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.\n\nREACTIONS, in this order, with a clear pause between each one:\n\nReacción 1: she raises her eyebrows and leans a little toward her friend, interested, with a short rising closed-mouth hum, lips sealed\nReacción 2: she drops her shoulders and lets out a slow relieved breath through her nose, lips sealed, with a small closed-lip smile\nReacción 3: she presses her lips together pulled to one side in a cheeky smirk and nods once slowly, with a tiny stifled giggle through her nose, lips pressed shut; then she holds that closed-lip smirk, silent, until the clip ends\n\nAudio: only soft nonverbal sounds made with the lips sealed (a short hum, a relieved sigh through the nose, a stifled nasal giggle) and the room tone of a small podcast studio. No words in any language, no music."
     }
   ]
 }

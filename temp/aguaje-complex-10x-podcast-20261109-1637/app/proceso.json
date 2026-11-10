@@ -1,0 +1,12 @@
+{
+  "pid": 28666,
+  "paso": "revision-habla",
+  "script": "generar-videos.js",
+  "args": [
+    "temp/aguaje-complex-10x-podcast-20261109-1637",
+    "--si"
+  ],
+  "comando": "node produccion/generar-videos.js temp/aguaje-complex-10x-podcast-20261109-1637 --si",
+  "inicio": "2026-11-10T02:32:00.727Z",
+  "app": 19691
+}
