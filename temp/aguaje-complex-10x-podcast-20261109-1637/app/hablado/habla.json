@@ -1,0 +1,174 @@
+{
+  "ronda": 1,
+  "fase": "revisar",
+  "tomas": {
+    "1": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 9218115,
+          "fechaClip": 1794273867277,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Yo me medía un jean y eso allá atrás más plana que diez planas. Yo probé unas pastillas y cuando las dejé engordé bien feo",
+          "toleradas": []
+        }
+      ],
+      "limpio": true
+    },
+    "2": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 9048386,
+          "fechaClip": 1794272691393,
+          "limpio": false,
+          "oido": "agregó «Mhm» (segundo 1,5)",
+          "transcripcion": "Decorativo Mhm Y sin tiempo pa' gimnasio ni dietas, ya estaba ahorrando pa' operarme y bien caras que están. ¿Y eso dónde lo consigo?",
+          "toleradas": []
+        }
+      ],
+      "limpio": false
+    },
+    "3": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 5766890,
+          "fechaClip": 1794272594792,
+          "limpio": false,
+          "oido": "repitió «yo lo,» (segundo 1,3); dijo «Jin» en vez de «jean» (segundo 3,5)",
+          "transcripcion": "Ay, no, yo lo, yo lo pido hoy mismo. Mi Jin se merece una segunda oportunidad",
+          "toleradas": []
+        }
+      ],
+      "limpio": false
+    },
+    "4": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 7775919,
+          "fechaClip": 1794272610380,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "¿Y el bolsillo de atrás? ¿Decorativo? Mira, ya voy por mi tercer pedido. El de la transportadora ya me saluda por el nombre .",
+          "toleradas": []
+        }
+      ],
+      "limpio": true
+    },
+    "5": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 7681468,
+          "fechaClip": 1794274065694,
+          "limpio": false,
+          "oido": "no dijo «Aguaje»; no dijo «con»; no dijo «fenogreco,»; no dijo «natural.»",
+          "transcripcion": "Ay, no, yo estaba igualita. Hasta que mi tía me dijo: \"Mija, primero pruebe lo natural\". Me pasó el Aguaje Complex 10X",
+          "toleradas": []
+        }
+      ],
+      "limpio": false
+    },
+    "6": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 7848154,
+          "fechaClip": 1794273737730,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Y una no repite tres veces algo que no le sirve. Ahora me pongo el jean, me miro de lado y digo: \"Ah, ¿sí ves?\"",
+          "toleradas": []
+        }
+      ],
+      "limpio": true
+    },
+    "7": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 7463305,
+          "fechaClip": 1794273878918,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Lo pides aquí mismo en el cel. Llega gratis y lo pagas cuando te lo entregan. Yo pedí el tratamiento completo de tres",
+          "toleradas": []
+        }
+      ],
+      "limpio": true
+    },
+    "8": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 6972920,
+          "fechaClip": 1794272390441,
+          "limpio": false,
+          "oido": "dijo «¿Tu solurio?» (una reacción va sin palabras)",
+          "transcripcion": "¿Tu solurio?",
+          "toleradas": []
+        }
+      ],
+      "limpio": false
+    },
+    "9": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 6238375,
+          "fechaClip": 1794272393317,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "",
+          "toleradas": []
+        }
+      ],
+      "limpio": true
+    }
+  },
+  "broll": {},
+  "rondas": {
+    "1": {
+      "revisar": [
+        "toma-1",
+        "toma-2",
+        "toma-3",
+        "toma-4",
+        "toma-5",
+        "toma-6",
+        "toma-7",
+        "toma-8",
+        "toma-9",
+        "broll-1",
+        "broll-2",
+        "broll-3",
+        "broll-4"
+      ],
+      "sucias": [
+        "toma-2",
+        "toma-3",
+        "toma-5",
+        "toma-8"
+      ],
+      "alTope": [],
+      "sesion": {
+        "uuid": "e632c2dc-5223-4a92-a1a0-2447228b15f8",
+        "usada": false,
+        "intentos": 1
+      }
+    }
+  },
+  "sesion": {}
+}

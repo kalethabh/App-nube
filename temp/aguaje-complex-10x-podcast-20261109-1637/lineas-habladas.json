@@ -1,0 +1,1076 @@
+{
+  "generado": "2026-11-10T01:28:05.307Z",
+  "tomas": {
+    "1": {
+      "clip": "video/toma-1.mp4",
+      "largo": 9.963,
+      "tamano": 9218115,
+      "calidad": 1,
+      "palabras": [
+        {
+          "text": "Yo",
+          "start": 0.42,
+          "end": 0.5
+        },
+        {
+          "text": "me",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "text": "medía",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "un",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "jean",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "text": "y",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "text": "eso",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "allá",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "atrás",
+          "start": 2.02,
+          "end": 2.26
+        },
+        {
+          "text": "más",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "plana",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "que",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "text": "diez",
+          "start": 3,
+          "end": 3.22
+        },
+        {
+          "text": "planas.",
+          "start": 3.34,
+          "end": 3.8
+        },
+        {
+          "text": "Yo",
+          "start": 4.36,
+          "end": 4.48
+        },
+        {
+          "text": "probé",
+          "start": 4.5,
+          "end": 4.7
+        },
+        {
+          "text": "unas",
+          "start": 4.74,
+          "end": 4.96
+        },
+        {
+          "text": "pastillas",
+          "start": 5,
+          "end": 5.66
+        },
+        {
+          "text": "y",
+          "start": 5.92,
+          "end": 5.94
+        },
+        {
+          "text": "cuando",
+          "start": 6.06,
+          "end": 6.34
+        },
+        {
+          "text": "las",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "text": "dejé",
+          "start": 6.6,
+          "end": 7
+        },
+        {
+          "text": "engordé",
+          "start": 7.74,
+          "end": 8.2
+        },
+        {
+          "text": "bien",
+          "start": 8.24,
+          "end": 8.46
+        },
+        {
+          "text": "feo",
+          "start": 8.6,
+          "end": 8.88
+        }
+      ],
+      "dijo_todo": true,
+      "faltan": [],
+      "sobran_al_final": "",
+      "agregadas": [],
+      "toleradas": [],
+      "omitidas": [],
+      "limpio": true,
+      "lineas": [
+        {
+          "orden": 1,
+          "inicio": 0.42,
+          "fin": 3.8,
+          "calidad": 1
+        },
+        {
+          "orden": 7,
+          "inicio": 4.36,
+          "fin": 8.88,
+          "calidad": 1
+        }
+      ]
+    },
+    "2": {
+      "clip": "video/toma-2.mp4",
+      "largo": 9.963,
+      "tamano": 9048386,
+      "calidad": 1,
+      "palabras": [
+        {
+          "text": "Decorativo",
+          "start": 0.36,
+          "end": 1.14
+        },
+        {
+          "text": "Mhm",
+          "start": 1.5,
+          "end": 1.98
+        },
+        {
+          "text": "Y",
+          "start": 2.22,
+          "end": 2.26
+        },
+        {
+          "text": "sin",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "tiempo",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "text": "pa'",
+          "start": 2.88,
+          "end": 2.94
+        },
+        {
+          "text": "gimnasio",
+          "start": 3.02,
+          "end": 3.72
+        },
+        {
+          "text": "ni",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "text": "dietas,",
+          "start": 3.98,
+          "end": 4.48
+        },
+        {
+          "text": "ya",
+          "start": 4.58,
+          "end": 4.64
+        },
+        {
+          "text": "estaba",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "text": "ahorrando",
+          "start": 4.96,
+          "end": 5.34
+        },
+        {
+          "text": "pa'",
+          "start": 5.42,
+          "end": 5.46
+        },
+        {
+          "text": "operarme",
+          "start": 5.52,
+          "end": 6.16
+        },
+        {
+          "text": "y",
+          "start": 6.38,
+          "end": 6.42
+        },
+        {
+          "text": "bien",
+          "start": 6.52,
+          "end": 6.78
+        },
+        {
+          "text": "caras",
+          "start": 6.9,
+          "end": 7.2
+        },
+        {
+          "text": "que",
+          "start": 7.24,
+          "end": 7.28
+        },
+        {
+          "text": "están.",
+          "start": 7.32,
+          "end": 7.82
+        },
+        {
+          "text": "¿Y",
+          "start": 8.4,
+          "end": 8.46
+        },
+        {
+          "text": "eso",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "text": "dónde",
+          "start": 8.7,
+          "end": 8.88
+        },
+        {
+          "text": "lo",
+          "start": 8.92,
+          "end": 8.98
+        },
+        {
+          "text": "consigo?",
+          "start": 9.02,
+          "end": 9.48
+        }
+      ],
+      "dijo_todo": true,
+      "faltan": [],
+      "sobran_al_final": "",
+      "agregadas": [
+        {
+          "texto": "Mhm",
+          "inicio": 1.5,
+          "fin": 1.98,
+          "tipo": "muletilla"
+        }
+      ],
+      "toleradas": [],
+      "omitidas": [],
+      "limpio": false,
+      "lineas": [
+        {
+          "orden": 3,
+          "inicio": 0.36,
+          "fin": 7.82,
+          "calidad": 1
+        },
+        {
+          "orden": 11,
+          "inicio": 8.4,
+          "fin": 9.48,
+          "calidad": 1
+        }
+      ]
+    },
+    "3": {
+      "clip": "video/toma-3.mp4",
+      "largo": 5.97,
+      "tamano": 5766890,
+      "calidad": 0.929,
+      "palabras": [
+        {
+          "text": "Ay,",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "no,",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "yo",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "lo,",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "text": "yo",
+          "start": 1.76,
+          "end": 1.82
+        },
+        {
+          "text": "lo",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "text": "pido",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "hoy",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "mismo.",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "text": "Mi",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "text": "Jin",
+          "start": 3.54,
+          "end": 3.74
+        },
+        {
+          "text": "se",
+          "start": 3.8,
+          "end": 3.88
+        },
+        {
+          "text": "merece",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "text": "una",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "text": "segunda",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "text": "oportunidad",
+          "start": 4.74,
+          "end": 5.44
+        }
+      ],
+      "dijo_todo": false,
+      "faltan": [
+        "jean"
+      ],
+      "sobran_al_final": "",
+      "agregadas": [
+        {
+          "texto": "yo lo,",
+          "inicio": 1.26,
+          "fin": 1.46,
+          "tipo": "repetida"
+        },
+        {
+          "texto": "Jin",
+          "inicio": 3.54,
+          "fin": 3.74,
+          "tipo": "cambiada",
+          "en_lugar_de": "jean"
+        }
+      ],
+      "toleradas": [],
+      "omitidas": [],
+      "limpio": false,
+      "lineas": [
+        {
+          "orden": 13,
+          "inicio": 0.62,
+          "fin": 5.44,
+          "calidad": 0.929
+        }
+      ]
+    },
+    "4": {
+      "clip": "video/toma-4.mp4",
+      "largo": 9.963,
+      "tamano": 7775919,
+      "calidad": 1,
+      "palabras": [
+        {
+          "text": "¿Y",
+          "start": 0.18,
+          "end": 0.24
+        },
+        {
+          "text": "el",
+          "start": 0.28,
+          "end": 0.34
+        },
+        {
+          "text": "bolsillo",
+          "start": 0.4,
+          "end": 0.76
+        },
+        {
+          "text": "de",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "text": "atrás?",
+          "start": 0.86,
+          "end": 1.26
+        },
+        {
+          "text": "¿Decorativo?",
+          "start": 1.26,
+          "end": 2.9
+        },
+        {
+          "text": "Mira,",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "ya",
+          "start": 3.96,
+          "end": 4.059
+        },
+        {
+          "text": "voy",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "text": "por",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "text": "mi",
+          "start": 4.42,
+          "end": 4.5
+        },
+        {
+          "text": "tercer",
+          "start": 4.58,
+          "end": 4.88
+        },
+        {
+          "text": "pedido.",
+          "start": 5,
+          "end": 5.44
+        },
+        {
+          "text": "El",
+          "start": 6.1,
+          "end": 6.18
+        },
+        {
+          "text": "de",
+          "start": 6.2,
+          "end": 6.26
+        },
+        {
+          "text": "la",
+          "start": 6.3,
+          "end": 6.36
+        },
+        {
+          "text": "transportadora",
+          "start": 6.42,
+          "end": 7.28
+        },
+        {
+          "text": "ya",
+          "start": 7.6,
+          "end": 7.7
+        },
+        {
+          "text": "me",
+          "start": 7.74,
+          "end": 7.82
+        },
+        {
+          "text": "saluda",
+          "start": 7.86,
+          "end": 8.14
+        },
+        {
+          "text": "por",
+          "start": 8.24,
+          "end": 8.34
+        },
+        {
+          "text": "el",
+          "start": 8.38,
+          "end": 8.46
+        },
+        {
+          "text": "nombre",
+          "start": 8.52,
+          "end": 8.92
+        },
+        {
+          "text": ".",
+          "start": 9.32,
+          "end": 9.32
+        }
+      ],
+      "dijo_todo": true,
+      "faltan": [],
+      "sobran_al_final": ".",
+      "agregadas": [],
+      "toleradas": [],
+      "omitidas": [],
+      "limpio": true,
+      "lineas": [
+        {
+          "orden": 2,
+          "inicio": 0.18,
+          "fin": 2.9,
+          "calidad": 1
+        },
+        {
+          "orden": 8,
+          "inicio": 3.7,
+          "fin": 8.92,
+          "calidad": 1
+        }
+      ]
+    },
+    "5": {
+      "clip": "video/toma-5.mp4",
+      "largo": 9.963,
+      "tamano": 7681468,
+      "calidad": 0.846,
+      "palabras": [
+        {
+          "text": "Ay,",
+          "start": 0.28,
+          "end": 0.42
+        },
+        {
+          "text": "no,",
+          "start": 0.5,
+          "end": 0.58
+        },
+        {
+          "text": "yo",
+          "start": 0.66,
+          "end": 0.72
+        },
+        {
+          "text": "estaba",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "igualita.",
+          "start": 1.02,
+          "end": 1.64
+        },
+        {
+          "text": "Hasta",
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "text": "que",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "mi",
+          "start": 3.06,
+          "end": 3.14
+        },
+        {
+          "text": "tía",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "me",
+          "start": 3.46,
+          "end": 3.56
+        },
+        {
+          "text": "dijo:",
+          "start": 3.58,
+          "end": 3.8
+        },
+        {
+          "text": "\"Mija,",
+          "start": 3.88,
+          "end": 4.28
+        },
+        {
+          "text": "primero",
+          "start": 4.62,
+          "end": 4.92
+        },
+        {
+          "text": "pruebe",
+          "start": 5.04,
+          "end": 5.26
+        },
+        {
+          "text": "lo",
+          "start": 5.3,
+          "end": 5.36
+        },
+        {
+          "text": "natural\".",
+          "start": 5.44,
+          "end": 5.94
+        },
+        {
+          "text": "Me",
+          "start": 6.82,
+          "end": 6.9
+        },
+        {
+          "text": "pasó",
+          "start": 6.98,
+          "end": 7.18
+        },
+        {
+          "text": "el",
+          "start": 7.22,
+          "end": 7.28
+        },
+        {
+          "text": "Aguaje",
+          "start": 7.32,
+          "end": 7.64
+        },
+        {
+          "text": "Complex",
+          "start": 7.74,
+          "end": 8.24
+        },
+        {
+          "text": "10X",
+          "start": 8.46,
+          "end": 9.22
+        }
+      ],
+      "dijo_todo": false,
+      "faltan": [
+        "Aguaje",
+        "con",
+        "fenogreco,",
+        "natural."
+      ],
+      "sobran_al_final": "",
+      "agregadas": [],
+      "toleradas": [],
+      "omitidas": [
+        "Aguaje",
+        "con",
+        "fenogreco,",
+        "natural."
+      ],
+      "limpio": false,
+      "lineas": [
+        {
+          "orden": 4,
+          "inicio": 0.28,
+          "fin": 1.64,
+          "calidad": 1
+        },
+        {
+          "orden": 5,
+          "inicio": 2.64,
+          "fin": 5.94,
+          "calidad": 1
+        },
+        {
+          "orden": 6,
+          "inicio": 6.82,
+          "fin": 9.22,
+          "calidad": 0.6
+        }
+      ]
+    },
+    "6": {
+      "clip": "video/toma-6.mp4",
+      "largo": 9.963,
+      "tamano": 7848154,
+      "calidad": 1,
+      "palabras": [
+        {
+          "text": "Y",
+          "start": 0.7,
+          "end": 0.76
+        },
+        {
+          "text": "una",
+          "start": 0.84,
+          "end": 1
+        },
+        {
+          "text": "no",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "repite",
+          "start": 1.26,
+          "end": 1.68
+        },
+        {
+          "text": "tres",
+          "start": 1.76,
+          "end": 2
+        },
+        {
+          "text": "veces",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "text": "algo",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "text": "que",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "no",
+          "start": 3.06,
+          "end": 3.16
+        },
+        {
+          "text": "le",
+          "start": 3.2,
+          "end": 3.28
+        },
+        {
+          "text": "sirve.",
+          "start": 3.34,
+          "end": 3.76
+        },
+        {
+          "text": "Ahora",
+          "start": 5.12,
+          "end": 5.3
+        },
+        {
+          "text": "me",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "text": "pongo",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "text": "el",
+          "start": 5.74,
+          "end": 5.8
+        },
+        {
+          "text": "jean,",
+          "start": 5.9,
+          "end": 6.16
+        },
+        {
+          "text": "me",
+          "start": 6.38,
+          "end": 6.48
+        },
+        {
+          "text": "miro",
+          "start": 6.5,
+          "end": 6.72
+        },
+        {
+          "text": "de",
+          "start": 6.74,
+          "end": 6.84
+        },
+        {
+          "text": "lado",
+          "start": 6.9,
+          "end": 7.06
+        },
+        {
+          "text": "y",
+          "start": 7.1,
+          "end": 7.12
+        },
+        {
+          "text": "digo:",
+          "start": 7.18,
+          "end": 7.36
+        },
+        {
+          "text": "\"Ah,",
+          "start": 7.48,
+          "end": 7.62
+        },
+        {
+          "text": "¿sí",
+          "start": 7.74,
+          "end": 8.54
+        },
+        {
+          "text": "ves?\"",
+          "start": 8.58,
+          "end": 8.84
+        }
+      ],
+      "dijo_todo": true,
+      "faltan": [],
+      "sobran_al_final": "",
+      "agregadas": [],
+      "toleradas": [],
+      "omitidas": [],
+      "limpio": true,
+      "lineas": [
+        {
+          "orden": 9,
+          "inicio": 0.7,
+          "fin": 3.76,
+          "calidad": 1
+        },
+        {
+          "orden": 10,
+          "inicio": 5.12,
+          "fin": 8.84,
+          "calidad": 1
+        }
+      ]
+    },
+    "7": {
+      "clip": "video/toma-7.mp4",
+      "largo": 9.963,
+      "tamano": 7463305,
+      "calidad": 1,
+      "palabras": [
+        {
+          "text": "Lo",
+          "start": 0.68,
+          "end": 0.76
+        },
+        {
+          "text": "pides",
+          "start": 0.84,
+          "end": 1.1
+        },
+        {
+          "text": "aquí",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "mismo",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "en",
+          "start": 1.56,
+          "end": 1.62
+        },
+        {
+          "text": "el",
+          "start": 1.64,
+          "end": 1.72
+        },
+        {
+          "text": "cel.",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "text": "Llega",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "text": "gratis",
+          "start": 3.24,
+          "end": 3.76
+        },
+        {
+          "text": "y",
+          "start": 3.92,
+          "end": 3.96
+        },
+        {
+          "text": "lo",
+          "start": 4.019,
+          "end": 4.08
+        },
+        {
+          "text": "pagas",
+          "start": 4.18,
+          "end": 4.44
+        },
+        {
+          "text": "cuando",
+          "start": 4.48,
+          "end": 4.7
+        },
+        {
+          "text": "te",
+          "start": 4.72,
+          "end": 4.8
+        },
+        {
+          "text": "lo",
+          "start": 4.82,
+          "end": 4.86
+        },
+        {
+          "text": "entregan.",
+          "start": 4.9,
+          "end": 5.38
+        },
+        {
+          "text": "Yo",
+          "start": 6.32,
+          "end": 6.46
+        },
+        {
+          "text": "pedí",
+          "start": 6.5,
+          "end": 6.68
+        },
+        {
+          "text": "el",
+          "start": 6.72,
+          "end": 6.8
+        },
+        {
+          "text": "tratamiento",
+          "start": 6.82,
+          "end": 7.34
+        },
+        {
+          "text": "completo",
+          "start": 7.42,
+          "end": 7.9
+        },
+        {
+          "text": "de",
+          "start": 7.94,
+          "end": 8
+        },
+        {
+          "text": "tres",
+          "start": 8.1,
+          "end": 8.42
+        }
+      ],
+      "dijo_todo": true,
+      "faltan": [],
+      "sobran_al_final": "",
+      "agregadas": [],
+      "toleradas": [],
+      "omitidas": [],
+      "limpio": true,
+      "lineas": [
+        {
+          "orden": 12,
+          "inicio": 0.68,
+          "fin": 8.42,
+          "calidad": 1
+        }
+      ]
+    },
+    "8": {
+      "clip": "video/toma-8.mp4",
+      "largo": 7.93,
+      "tamano": 6972920,
+      "reacciones": true,
+      "palabras": [
+        {
+          "text": "¿Tu",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "solurio?",
+          "start": 1.22,
+          "end": 1.8
+        }
+      ],
+      "eventos": [
+        {
+          "texto": "Mmm.",
+          "start": 2.2,
+          "end": 2.86
+        },
+        {
+          "texto": "[suspiro]",
+          "start": 2.92,
+          "end": 7.04
+        }
+      ],
+      "limpio": false
+    },
+    "9": {
+      "clip": "video/toma-9.mp4",
+      "largo": 7.93,
+      "tamano": 6238375,
+      "reacciones": true,
+      "palabras": [],
+      "eventos": [
+        {
+          "texto": "[笑い]",
+          "start": 1.78,
+          "end": 5.54
+        }
+      ],
+      "limpio": true
+    }
+  }
+}

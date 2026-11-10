@@ -1,0 +1,50 @@
+
+=== Contexto para rehacer la toma 8 (hablada, tipo H) ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:          H
+    duracion:      8s (Omni: 4, 6, 8 o 10)
+    frame inicial: la referencia "host-a" copiada tal cual (no hay imagen que rehacer: solo cambia el video)
+    habla:         A
+    clase:         reacciones
+
+  COMO SE PIDE EL VIDEO: con la imagen del clip como frame inicial (first_frame_url).
+
+  QUE TIENE QUE DECIR ESTA TOMA (el copy solo cambia si Omni la rechazo por contenido):
+    linea:       ""
+    reacciones (un tercio del clip cada una):
+      1)  levanta las cejas y se inclina un poco hacia su amiga, interesada, con un murmullo corto con la boca cerrada
+      2)  baja los hombros y suelta el aire despacio por la nariz, aliviada, con una sonrisa de labios cerrados
+      3)  entrecierra los ojos e inclina la cabeza, entre dudosa y divertida, con una risa corta por la nariz
+    viene de:    "Lo pides aquí mismo en el cel, llega gratis y lo pagas cuando te lo entregan. Yo pedí el tratamiento completo de tres."
+    lleva a:     ""
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- video ---
+Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip. No dialogue at any point.
+
+No captions. No background music. No camera movement or angle changes.
+
+Realism: she keeps the exact face of the start frame and looks and moves like a real woman filmed on a real podcast, never like AI: natural blinking, visible breathing, micro-expressions in her eyes, eyebrows and cheeks, small head tilts, hands and shoulders moving with what she feels, lips always closed; real skin texture with pores, natural daylight from the side window on her face, loose hair strands that move slightly. Nothing stiff, nothing doll-like, nothing exaggerated.
+
+REACTIONS, in this order, with a clear pause between each one:
+
+Reacción 1: she raises her eyebrows and leans a little toward her friend, interested, with a short rising closed-mouth hum, lips sealed
+Reacción 2: she drops her shoulders and lets out a slow relieved breath through her nose, lips sealed, with a small closed-lip smile
+Reacción 3: she narrows her eyes and tilts her head, half doubtful, half amused, with a short laugh through her nose, lips sealed
+
+Audio: only soft nonverbal sounds made with the lips sealed (a short hum, a relieved sigh through the nose, a nasal laugh) and the room tone of a small podcast studio. No words in any language, no music.
+
+  --- referencia "host-a" (personaje) — repetir palabra por palabra ---
+Foto realista, como tomada con la cámara de un celular, de una mujer colombiana de 28 años de la costa Caribe, de piel trigueña con textura real, cara ovalada y alargada, cejas gruesas y oscuras, labios gruesos, nariz recta un poco ancha, complexión delgada, sentada en un podcast, vista desde la cintura hacia arriba, con la cámara un poco más lejos, un poco descentrada. Su cuerpo ocupa solo la parte central del ancho de la imagen: a la izquierda y a la derecha de sus hombros y de sus brazos se ve una franja ancha de pared y de fondo, y ningún hombro, brazo ni codo toca el borde de la imagen. La cabeza queda en la parte de arriba de la imagen. Delante hay un micrófono de podcast negro, de los grandes, montado en un brazo articulado que entra por el lado derecho de la imagen, y queda un poco más abajo de la mitad de la imagen. El micrófono queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla. Está en medio de una conversación: mira hacia el lado derecho de la imagen, a la persona con la que habla, que no se ve. Nunca mira a la cámara. Expresión natural, a punto de hablar, con media sonrisa. Pelo largo, castaño oscuro y ondulado, suelto, con mechones sueltos sobre la cara y los hombros. Lleva una camiseta de algodón amarillo mostaza, holgada y con arrugas, y unas argollas doradas pequeñas. Delante de ella, en la parte de abajo del cuadro, sobre la mesa, hay un celular negro boca abajo. Cara real, ultra realista, como una foto real sin filtro: piel con poros visibles, vellitos finos en la cara, tono desparejo, un par de marquitas y lunares pequeños, leves ojeras, brillo natural en la frente y la nariz, labios con textura, cejas con pelitos sueltos, sin maquillaje pesado, sin retoque, sin piel plástica ni cara de muñeca; ojos húmedos y vivos, con el reflejo de la ventana; proporciones de persona común, no de modelo. Mechones de pelo con frizz y algunos pelitos sueltos a contraluz. El cuello de la camiseta un poco estirado, con la tela arrugada donde se dobla el brazo. La luz principal es luz natural de día, suave, que entra de lado por una ventana y le ilumina la cara con sombras suaves y reales. El lugar no es un estudio: es la sala de un apartamento convertida en rincón de podcast, con la pared pintada de verde petróleo oscuro, la luz de día de la ventana como luz principal y de relleno una lámpara de pie cálida, una tira de luces LED rosadas y violetas que bordea una repisa de madera, una planta de hojas grandes, dos jarrones de cerámica y una canasta tejida, y fondo un poco desenfocado, como grabado con una cámara real. En la pared, detrás y por encima de su hombro, hay un letrero de neón rosado con letra cursiva que dice exactamente "Tus mejores secretos"; no hay ninguna otra letra en la imagen. Sin logos. Aspect 9:16.
+
+  --- referencia "host-b" (personaje) — repetir palabra por palabra ---
+Usa la imagen adjunta como referencia del lugar, la luz y el encuadre. Mantén la misma sala convertida en rincón de podcast, la misma pared verde petróleo oscuro, la misma luz natural de día que entra de lado por la ventana como luz principal, con la lámpara cálida de relleno, las mismas luces LED rosadas y violetas y el mismo tipo de micrófono de podcast negro en su brazo articulado, que ahora entra por el lado izquierdo de la imagen. Cambia a la persona: ahora es una mujer colombiana paisa de 32 años, de piel más clara con un tono cálido y pecas suaves en la nariz, cara más redonda y de pómulos llenos, cejas más delgadas y arqueadas, nariz pequeña y respingada, labios más finos, el pelo castaño claro recogido en un moño alto desordenado con mechones sueltos alrededor de la cara, con ropa de otro color y de otro tipo que la de la imagen: un suéter tejido color vino tinto, ajustado al cuerpo y no holgado, con algo de pelusa y arrugas, y una cadena dorada delgada, sin aretes grandes. Está sentada frente al mismo micrófono, que queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla, y un poco más abajo de la mitad de la imagen. Vista desde la cintura hacia arriba, con la cámara un poco más lejos, un poco descentrada, con la cabeza en la parte de arriba de la imagen. Su cuerpo ocupa solo la parte central del ancho de la imagen: a la izquierda y a la derecha de sus hombros y de sus brazos se ve una franja ancha de pared y de fondo, y ningún hombro, brazo, codo ni parte del suéter toca el borde de la imagen. Mira hacia el lado izquierdo de la imagen, a la persona con la que habla, que no se ve. Nunca mira a la cámara. Expresión tranquila, con una sonrisa cómplice. Cara real, ultra realista, como una foto real sin filtro: piel con poros visibles, vellitos finos en la cara, las pecas desparejas, tono desigual, leves líneas de expresión al sonreír, brillo natural en la frente y la nariz, labios con textura, cejas con pelitos sueltos, sin maquillaje pesado, sin retoque, sin piel plástica ni cara de muñeca; ojos húmedos y vivos, con el reflejo de la ventana; proporciones de persona común. Mechones sueltos del moño con frizz, a contraluz. El tejido del suéter se ve con sus puntos, su pelusa y sus arrugas. La luz natural de la ventana le ilumina la cara de lado, con sombras suaves y reales. Cambia la posición de los adornos del fondo, todos sin letras: la planta ahora queda del otro lado, se ve una lámpara de mesa en vez de los jarrones, y el mismo letrero de neón rosado "Tus mejores secretos" se ve de lado, más pequeño, en la parte de arriba; no hay ninguna otra letra en la imagen. Es el mismo ambiente, pero desde otro lugar. Sin logos. Aspect 9:16.
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion, y aplicala con:
+      node produccion/rehacer-toma.js temp/aguaje-complex-10x-podcast-20261109-1637 --toma 8 --aplicar nuevos.json
+  nuevos.json = { "prompt_video", "motivo" }
+  Solo si Omni la rechazo por contenido, ademas el copy nuevo de ESTA toma, con su misma funcion y largo:
+  "linea" y "lineas" o "dialogo".
+
