@@ -14,7 +14,7 @@
     linea:       ""
     reacciones (un tercio del clip cada una):
       1)  levanta las cejas y se inclina un poco hacia su amiga, interesada, con un murmullo corto con la boca cerrada
-      2)  baja los hombros y suelta el aire despacio por la nariz, aliviada, con una sonrisa de labios cerrados
+      2)  se pone una mano en el pecho, cierra los ojos un segundo y asiente despacio, aliviada, con los labios apretados y un «mm» suave por la nariz
       3)  aprieta los labios hacia un lado en una sonrisa pícara y asiente una vez despacio, con una risita ahogada por la nariz, sin abrir la boca
     viene de:    "Lo pides aquí mismo en el cel, llega gratis y lo pagas cuando te lo entregan. Yo pedí el tratamiento completo de tres."
     lleva a:     ""
@@ -22,7 +22,7 @@
   PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
 
   --- video ---
-Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip, up to the very last frame. No dialogue at any point.
+Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip, from the first frame to the last; her lips never part. No dialogue at any point.
 
 No captions. No background music. No camera movement or angle changes.
 
@@ -31,10 +31,10 @@ Realism: she keeps the exact face of the start frame and looks and moves like a 
 REACTIONS, in this order, with a clear pause between each one:
 
 Reacción 1: she raises her eyebrows and leans a little toward her friend, interested, with a short rising closed-mouth hum, lips sealed
-Reacción 2: she drops her shoulders and lets out a slow relieved breath through her nose, lips sealed, with a small closed-lip smile
+Reacción 2: she places one hand flat on her chest, closes her eyes for a second and nods slowly, relieved, lips pressed tightly together, with a soft short "mm" through her nose
 Reacción 3: she presses her lips together pulled to one side in a cheeky smirk and nods once slowly, with a tiny stifled giggle through her nose, lips pressed shut; then she holds that closed-lip smirk, silent, until the clip ends
 
-Audio: only soft nonverbal sounds made with the lips sealed (a short hum, a relieved sigh through the nose, a stifled nasal giggle) and the room tone of a small podcast studio. No words in any language, no music.
+Audio: only soft nonverbal sounds made with the lips sealed (a short hum, a soft nasal "mm", a stifled nasal giggle) and the room tone of a small podcast studio. No words in any language, no music.
 
   --- referencia "host-a" (personaje) — repetir palabra por palabra ---
 Foto realista, como tomada con la cámara de un celular, de una mujer colombiana de 28 años de la costa Caribe, de piel trigueña con textura real, cara ovalada y alargada, cejas gruesas y oscuras, labios gruesos, nariz recta un poco ancha, complexión delgada, sentada en un podcast, vista desde la cintura hacia arriba, con la cámara un poco más lejos, un poco descentrada. Su cuerpo ocupa solo la parte central del ancho de la imagen: a la izquierda y a la derecha de sus hombros y de sus brazos se ve una franja ancha de pared y de fondo, y ningún hombro, brazo ni codo toca el borde de la imagen. La cabeza queda en la parte de arriba de la imagen. Delante hay un micrófono de podcast negro, de los grandes, montado en un brazo articulado que entra por el lado derecho de la imagen, y queda un poco más abajo de la mitad de la imagen. El micrófono queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla. Está en medio de una conversación: mira hacia el lado derecho de la imagen, a la persona con la que habla, que no se ve. Nunca mira a la cámara. Expresión natural, a punto de hablar, con media sonrisa. Pelo largo, castaño oscuro y ondulado, suelto, con mechones sueltos sobre la cara y los hombros. Lleva una camiseta de algodón amarillo mostaza, holgada y con arrugas, y unas argollas doradas pequeñas. Delante de ella, en la parte de abajo del cuadro, sobre la mesa, hay un celular negro boca abajo. Cara real, ultra realista, como una foto real sin filtro: piel con poros visibles, vellitos finos en la cara, tono desparejo, un par de marquitas y lunares pequeños, leves ojeras, brillo natural en la frente y la nariz, labios con textura, cejas con pelitos sueltos, sin maquillaje pesado, sin retoque, sin piel plástica ni cara de muñeca; ojos húmedos y vivos, con el reflejo de la ventana; proporciones de persona común, no de modelo. Mechones de pelo con frizz y algunos pelitos sueltos a contraluz. El cuello de la camiseta un poco estirado, con la tela arrugada donde se dobla el brazo. La luz principal es luz natural de día, suave, que entra de lado por una ventana y le ilumina la cara con sombras suaves y reales. El lugar no es un estudio: es la sala de un apartamento convertida en rincón de podcast, con la pared pintada de verde petróleo oscuro, la luz de día de la ventana como luz principal y de relleno una lámpara de pie cálida, una tira de luces LED rosadas y violetas que bordea una repisa de madera, una planta de hojas grandes, dos jarrones de cerámica y una canasta tejida, y fondo un poco desenfocado, como grabado con una cámara real. En la pared, detrás y por encima de su hombro, hay un letrero de neón rosado con letra cursiva que dice exactamente "Tus mejores secretos"; no hay ninguna otra letra en la imagen. Sin logos. Aspect 9:16.

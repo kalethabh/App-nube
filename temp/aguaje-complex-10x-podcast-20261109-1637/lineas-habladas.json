@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-10T02:31:19.142Z",
+  "generado": "2026-11-10T02:34:32.885Z",
   "tomas": {
     "1": {
       "clip": "video/toma-1.mp4",
@@ -151,6 +151,99 @@
           "orden": 7,
           "inicio": 4.36,
           "fin": 8.88,
+          "calidad": 1
+        }
+      ]
+    },
+    "3": {
+      "clip": "video/toma-3.mp4",
+      "largo": 5.97,
+      "tamano": 5934555,
+      "calidad": 1,
+      "palabras": [
+        {
+          "text": "¡Ay,",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "no!",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "Yo",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "lo",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "pido",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "hoy",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "mismo.",
+          "start": 2.12,
+          "end": 2.48
+        },
+        {
+          "text": "Mi",
+          "start": 3.14,
+          "end": 3.24
+        },
+        {
+          "text": "jean",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "text": "se",
+          "start": 3.66,
+          "end": 3.74
+        },
+        {
+          "text": "merece",
+          "start": 3.8,
+          "end": 4.1
+        },
+        {
+          "text": "una",
+          "start": 4.14,
+          "end": 4.26
+        },
+        {
+          "text": "segunda",
+          "start": 4.34,
+          "end": 4.66
+        },
+        {
+          "text": "oportunidad",
+          "start": 4.68,
+          "end": 5.34
+        }
+      ],
+      "dijo_todo": true,
+      "faltan": [],
+      "sobran_al_final": "",
+      "agregadas": [],
+      "toleradas": [],
+      "omitidas": [],
+      "limpio": true,
+      "lineas": [
+        {
+          "orden": 13,
+          "inicio": 0.66,
+          "fin": 5.34,
           "calidad": 1
         }
       ]

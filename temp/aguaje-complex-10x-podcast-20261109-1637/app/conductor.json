@@ -85,16 +85,16 @@
     "imagen-host-a": 1,
     "imagen-host-b": 1,
     "broll-4": 1,
-    "toma-2": 2,
+    "toma-2": 3,
     "toma-3": 2,
     "toma-5": 1,
     "toma-6": 1,
-    "toma-8": 2
+    "toma-8": 3
   },
   "modoPrueba": false,
   "creado": "2026-11-09T21:59:09.596Z",
   "aprobado": "2026-11-09T21:59:09.596Z",
-  "actualizado": "2026-11-10T02:32:00.726Z",
+  "actualizado": "2026-11-10T02:35:01.472Z",
   "saldoInicial": {
     "creditos": 2751.8,
     "fecha": "2026-11-09T21:59:10.552Z"

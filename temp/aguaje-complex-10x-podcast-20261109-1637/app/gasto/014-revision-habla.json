@@ -1,0 +1,20 @@
+{
+  "numero": 14,
+  "paso": "revision-habla",
+  "comando": "node produccion/lineas-habladas.js temp/aguaje-complex-10x-podcast-20261109-1637 --tomas 2,3,8",
+  "inicio": "2026-11-10T02:34:29.712Z",
+  "fin": "2026-11-10T02:34:32.891Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 3,
+      "segundos": 23.9
+    }
+  }
+}
