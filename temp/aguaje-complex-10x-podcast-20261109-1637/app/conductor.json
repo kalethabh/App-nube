@@ -1,7 +1,7 @@
 {
   "slug": "aguaje-complex-10x-podcast-20261109-1637",
   "familia": "hablado",
-  "estado": "corriendo",
+  "estado": "esperando",
   "paso": "revision-habla",
   "pasos": [
     {
@@ -54,7 +54,21 @@
       "intentos": 1,
       "inicio": "2026-11-10T01:27:45.716Z",
       "detalle": "Generando los clips",
-      "reintentos": 2
+      "reintentos": 2,
+      "error": {
+        "mensaje": "kie sigue sin responder bien con los clips rehechos (es una caída de su lado, no de tu anuncio): lo intento de nuevo a las 21:17.",
+        "motivo": "servidor",
+        "reintentoEn": "2026-11-10T02:17:29.057Z",
+        "causa": {
+          "porque": "El servidor de kie.ai está fallando (error 500): es un problema de ellos, no de tu anuncio.",
+          "dijo": "Error 500",
+          "hacer": [
+            "Si arriba dice que lo reintenta sola, no hagas nada.",
+            "Si se detuvo, toca «Continuar» en unos minutos: lo ya hecho no se vuelve a pagar.",
+            "Si sigue fallando un buen rato, kie.ai tiene una caída: vuelve a producir más tarde."
+          ]
+        }
+      }
     },
     {
       "id": "montaje",
@@ -94,7 +108,7 @@
   "modoPrueba": false,
   "creado": "2026-11-09T21:59:09.596Z",
   "aprobado": "2026-11-09T21:59:09.596Z",
-  "actualizado": "2026-11-10T01:59:41.700Z",
+  "actualizado": "2026-11-10T02:02:29.057Z",
   "saldoInicial": {
     "creditos": 2751.8,
     "fecha": "2026-11-09T21:59:10.552Z"
