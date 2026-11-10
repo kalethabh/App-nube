@@ -53,7 +53,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-10T01:27:45.716Z",
-      "detalle": "Mirando los cuadros de los clips"
+      "detalle": "Generando los clips"
     },
     {
       "id": "montaje",
@@ -83,12 +83,17 @@
   "rehechos": {
     "imagen-host-a": 1,
     "imagen-host-b": 1,
-    "broll-4": 1
+    "broll-4": 1,
+    "toma-2": 1,
+    "toma-3": 1,
+    "toma-5": 1,
+    "toma-6": 1,
+    "toma-8": 1
   },
   "modoPrueba": false,
   "creado": "2026-11-09T21:59:09.596Z",
   "aprobado": "2026-11-09T21:59:09.596Z",
-  "actualizado": "2026-11-10T01:29:19.815Z",
+  "actualizado": "2026-11-10T01:34:22.172Z",
   "saldoInicial": {
     "creditos": 2751.8,
     "fecha": "2026-11-09T21:59:10.552Z"
