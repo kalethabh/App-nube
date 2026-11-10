@@ -1,7 +1,7 @@
 {
-  "generado": "2026-11-10T02:34:16.921Z",
+  "generado": "2026-11-10T02:37:12.904Z",
   "parcial": false,
-  "segundos": 136,
+  "segundos": 131,
   "clips": [
     {
       "id": "toma-2",
@@ -15,21 +15,7 @@
       "resolucion": "1080p",
       "frameFinal": false,
       "creditos": 126,
-      "taskId": "fe06015903e12b0d04f8c266514258dd"
-    },
-    {
-      "id": "toma-3",
-      "archivo": "toma-3.mp4",
-      "modelo": "google/gemini-omni-flash-1-1",
-      "respaldo": false,
-      "intentos": 1,
-      "tipo": "H",
-      "segundosUtiles": 6,
-      "segundosPedidos": 6,
-      "resolucion": "1080p",
-      "frameFinal": false,
-      "creditos": 84,
-      "taskId": "51750e009b353dfc1245744ddaea3c53"
+      "taskId": "8258d67d608b94788eba3a85334fe47d"
     },
     {
       "id": "toma-8",
@@ -43,7 +29,7 @@
       "resolucion": "1080p",
       "frameFinal": false,
       "creditos": 105,
-      "taskId": "644bf72aaeb39f64a3f619d5ef717d7d"
+      "taskId": "995b59baa71bb352febebd594aba7884"
     }
   ]
 }
