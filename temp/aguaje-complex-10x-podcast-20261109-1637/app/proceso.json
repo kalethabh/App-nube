@@ -1,5 +1,5 @@
 {
-  "pid": 22932,
+  "pid": 23062,
   "paso": "videos",
   "script": "generar-videos.js",
   "args": [
@@ -7,6 +7,6 @@
     "--si"
   ],
   "comando": "node produccion/generar-videos.js temp/aguaje-complex-10x-podcast-20261109-1637 --si",
-  "inicio": "2026-11-10T00:56:39.740Z",
+  "inicio": "2026-11-10T00:59:53.424Z",
   "app": 19691
 }

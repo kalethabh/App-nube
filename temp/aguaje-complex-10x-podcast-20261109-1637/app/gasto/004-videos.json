@@ -1,0 +1,32 @@
+{
+  "numero": 4,
+  "paso": "videos",
+  "comando": "node produccion/generar-videos.js temp/aguaje-complex-10x-podcast-20261109-1637 --si",
+  "inicio": "2026-11-10T00:56:39.736Z",
+  "fin": "2026-11-10T00:59:53.337Z",
+  "codigo": 1,
+  "creditos": 210,
+  "dolares": 1.05,
+  "imagenes": [],
+  "videos": [
+    {
+      "archivo": "toma-8.mp4",
+      "id": "toma-8",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 2,
+      "creditos": 105
+    },
+    {
+      "archivo": "toma-9.mp4",
+      "id": "toma-9",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 2,
+      "creditos": 105
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": null
+}
