@@ -1,13 +1,14 @@
 {
-  "pid": 29505,
-  "paso": "revision-habla",
-  "script": "lineas-habladas.js",
+  "pid": 29752,
+  "paso": "render",
+  "script": "ensamblar.js",
   "args": [
     "temp/aguaje-complex-10x-podcast-20261109-1637",
-    "--tomas",
-    "2,8"
+    "--solo-completa",
+    "--concurrencia",
+    "1"
   ],
-  "comando": "node produccion/lineas-habladas.js temp/aguaje-complex-10x-podcast-20261109-1637 --tomas 2,8",
-  "inicio": "2026-11-10T02:37:25.256Z",
+  "comando": "node produccion/ensamblar.js temp/aguaje-complex-10x-podcast-20261109-1637 --solo-completa --concurrencia 1",
+  "inicio": "2026-11-10T02:37:35.243Z",
   "app": 19691
 }

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-10T02:34:32.885Z",
+  "generado": "2026-11-10T02:37:28.065Z",
   "tomas": {
     "1": {
       "clip": "video/toma-1.mp4",
@@ -151,6 +151,150 @@
           "orden": 7,
           "inicio": 4.36,
           "fin": 8.88,
+          "calidad": 1
+        }
+      ]
+    },
+    "2": {
+      "clip": "video/toma-2.mp4",
+      "largo": 9.963,
+      "tamano": 9028595,
+      "calidad": 1,
+      "palabras": [
+        {
+          "text": "Decorativo",
+          "start": 0.6,
+          "end": 1.28
+        },
+        {
+          "text": "y",
+          "start": 2,
+          "end": 2.04
+        },
+        {
+          "text": "sin",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "tiempo",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "pa'",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "text": "gimnasio",
+          "start": 2.72,
+          "end": 3.32
+        },
+        {
+          "text": "ni",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "dietas.",
+          "start": 3.56,
+          "end": 4
+        },
+        {
+          "text": "Ya",
+          "start": 4.059,
+          "end": 4.12
+        },
+        {
+          "text": "estaba",
+          "start": 4.14,
+          "end": 4.42
+        },
+        {
+          "text": "ahorrando",
+          "start": 4.42,
+          "end": 4.8
+        },
+        {
+          "text": "pa'",
+          "start": 4.84,
+          "end": 4.88
+        },
+        {
+          "text": "operarme",
+          "start": 4.9,
+          "end": 5.36
+        },
+        {
+          "text": "y",
+          "start": 5.4,
+          "end": 5.46
+        },
+        {
+          "text": "bien",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "text": "caras",
+          "start": 5.82,
+          "end": 6.04
+        },
+        {
+          "text": "que",
+          "start": 6.06,
+          "end": 6.12
+        },
+        {
+          "text": "están.",
+          "start": 6.14,
+          "end": 6.54
+        },
+        {
+          "text": "¿Y",
+          "start": 7.06,
+          "end": 7.14
+        },
+        {
+          "text": "eso",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "text": "dónde",
+          "start": 7.38,
+          "end": 7.6
+        },
+        {
+          "text": "lo",
+          "start": 7.62,
+          "end": 7.68
+        },
+        {
+          "text": "consigo?",
+          "start": 7.74,
+          "end": 8.24
+        }
+      ],
+      "dijo_todo": true,
+      "faltan": [],
+      "sobran_al_final": "",
+      "agregadas": [],
+      "toleradas": [],
+      "omitidas": [],
+      "limpio": true,
+      "lineas": [
+        {
+          "orden": 3,
+          "inicio": 0.6,
+          "fin": 6.54,
+          "calidad": 1
+        },
+        {
+          "orden": 11,
+          "inicio": 7.06,
+          "fin": 8.24,
           "calidad": 1
         }
       ]
@@ -853,6 +997,31 @@
           "calidad": 1
         }
       ]
+    },
+    "8": {
+      "clip": "video/toma-8.mp4",
+      "largo": 7.93,
+      "tamano": 7049429,
+      "reacciones": true,
+      "palabras": [],
+      "eventos": [
+        {
+          "texto": "Hmm?",
+          "start": 0.94,
+          "end": 1.24
+        },
+        {
+          "texto": "Hmm.",
+          "start": 3.62,
+          "end": 4.14
+        },
+        {
+          "texto": "[laughs]",
+          "start": 4.32,
+          "end": 6.7
+        }
+      ],
+      "limpio": true
     },
     "9": {
       "clip": "video/toma-9.mp4",

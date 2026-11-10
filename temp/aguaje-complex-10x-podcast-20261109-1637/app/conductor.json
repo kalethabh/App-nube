@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-podcast-20261109-1637",
   "familia": "hablado",
   "estado": "corriendo",
-  "paso": "revision-habla",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -50,23 +50,36 @@
     {
       "id": "revision-habla",
       "nombre": "Revisar cada clip",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-10T01:27:45.716Z",
-      "detalle": "Escuchando lo que dice cada clip",
-      "reintentos": 3
+      "reintentos": 3,
+      "fin": "2026-11-10T02:37:28.071Z",
+      "nota": "5 clips se rehicieron y quedaron limpios."
     },
     {
       "id": "montaje",
       "nombre": "Armar la conversación y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-10T02:37:28.072Z",
+      "fin": "2026-11-10T02:37:35.242Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-10T02:37:35.242Z",
+      "detalle": "Tu PC está armando el video con subtítulos",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 910,
+        "total": 1738,
+        "restante": 109,
+        "en": "2026-11-10T02:39:24.301Z"
+      }
     },
     {
       "id": "control-final",
@@ -94,7 +107,7 @@
   "modoPrueba": false,
   "creado": "2026-11-09T21:59:09.596Z",
   "aprobado": "2026-11-09T21:59:09.596Z",
-  "actualizado": "2026-11-10T02:37:25.255Z",
+  "actualizado": "2026-11-10T02:39:24.301Z",
   "saldoInicial": {
     "creditos": 2751.8,
     "fecha": "2026-11-09T21:59:10.552Z"

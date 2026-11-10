@@ -1,6 +1,6 @@
 {
   "ronda": 4,
-  "fase": "medir",
+  "fase": "fin",
   "tomas": {
     "1": {
       "veces": 0,
@@ -46,9 +46,18 @@
           "oido": "repitió «Decorativo,» (segundo 0,1)",
           "transcripcion": "Decorativo, decorativo y sin tiempo pa' gimnasio ni dietas. Ya estaba ahorrando pa' operarme y bien caras que están. ¿Y eso dónde lo consigo?",
           "toleradas": []
+        },
+        {
+          "ronda": 4,
+          "tamano": 9028595,
+          "fechaClip": 1794278232903,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Decorativo y sin tiempo pa' gimnasio ni dietas. Ya estaba ahorrando pa' operarme y bien caras que están. ¿Y eso dónde lo consigo?",
+          "toleradas": []
         }
       ],
-      "limpio": false
+      "limpio": true
     },
     "3": {
       "veces": 2,
@@ -190,9 +199,18 @@
           "oido": "dijo «eh,» (una reacción va sin palabras)",
           "transcripcion": "eh,",
           "toleradas": []
+        },
+        {
+          "ronda": 4,
+          "tamano": 7049429,
+          "fechaClip": 1794278229002,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "",
+          "toleradas": []
         }
       ],
-      "limpio": false
+      "limpio": true
     },
     "9": {
       "veces": 0,
@@ -473,10 +491,34 @@
         }
       ],
       "descartados": []
+    },
+    "4": {
+      "revisar": [
+        "toma-2",
+        "toma-8"
+      ],
+      "sucias": [],
+      "alTope": [
+        "toma-2",
+        "toma-8"
+      ]
     }
   },
   "sesion": {
     "uuid": "e632c2dc-5223-4a92-a1a0-2447228b15f8",
     "usada": true
+  },
+  "resumen": {
+    "fecha": "2026-11-10T02:37:28.071Z",
+    "sucias": [],
+    "rehechas": [
+      2,
+      3,
+      5,
+      6,
+      8
+    ],
+    "brollRehechos": [],
+    "brollMal": []
   }
 }
