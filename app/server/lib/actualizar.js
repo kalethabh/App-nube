@@ -66,6 +66,7 @@ export function delAlumno(rel) {
   if (/^\.env(\..+)?$/i.test(nombre) && bajo(nombre) !== '.env.example') return true;
   const r2 = bajo(r);
   if (r2 === 'app/config.json' || r2.startsWith('app/.cache/') || r2 === 'app/.cache') return true;
+  if (r2 === 'app/.guardado-config.json' || r2 === 'app/.guardado.json') return true;
   if (r2.startsWith('app/capturas/') || r2 === 'app/capturas') return true;
   if (r2.startsWith('remotion/out/') || r2 === 'remotion/out') return true;
   if (r2 === 'app/server/ocultos.json' || r2 === 'app/server/muestras-estilos.json') return true;

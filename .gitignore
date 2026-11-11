@@ -29,6 +29,11 @@ temp/[!_]*/**/*.png
 temp/[!_]*/**/*.jpg
 temp/[!_]*/**/*.jpeg
 temp/[!_]*/**/*.webp
+# Lotes de imágenes: los medios se copian a la carpeta configurada, no a GitHub.
+temp/_img-*/**/*.png
+temp/_img-*/**/*.jpg
+temp/_img-*/**/*.jpeg
+temp/_img-*/**/*.webp
 !temp/*/portada.jpg
 
 # Lo que no sirve guardar
@@ -38,6 +43,8 @@ temp/*/historial/
 temp/*/app/registro/
 temp/.conductor-mando*
 app/.guardado.json
+app/.guardado-config.json
+app/.guardado-config.json.*.tmp
 *.kie-pendiente.json
 *.tmp.mp4
 
