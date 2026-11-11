@@ -104,6 +104,18 @@ Los siguientes dos pedidos siguen pendientes; esta integración no implementa un
    fallas o caídos, y desde cuándo. Idea: revisar cada minuto mientras la app está abierta y medir también con mis
    propias generaciones (los `log-modelos.json` de cada anuncio y los errores del conductor).
 
+### Carpeta de guardado configurable (2026-11-11b)
+
+**Ajustes → Guardado** permite guardar los medios en este computador, usar la detección de Drive o elegir una
+carpeta sincronizada (Google Drive para escritorio, Dropbox, OneDrive). No es una conexión directa a la API de Drive:
+el cliente de escritorio sincroniza las copias y la app sigue produciendo/editando con archivos temporales locales.
+La selección vive solo en este equipo (`app/.guardado-config.json`, ignorado y protegido de actualizaciones).
+`lib/almacenamiento.js` valida la carpeta y abre el selector nativo; `lib/archivo-nube.js` copia y recupera con
+verificación de contenido y ubicaciones por archivo. Una carpeta nueva conserva copia local por defecto; liberar
+espacio es opcional para videos con restauración integrada. Los lotes de imágenes, Cambiar producto y Sketch se
+copian sin borrar sus originales. Cambiar de carpeta mantiene recuperables las ubicaciones archivadas anteriores.
+Los modelos se eligen en **Ajustes → Modelos** o junto al costo antes de aprobar un anuncio.
+
 ## Pendiente de confirmar en mi Mac
 
 - Que el borrador de subtítulos en «Mejor calidad» no tarde horas (si tarda, usar «Rápido»).

@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-11b · Carpeta de guardado
+
+- En **Ajustes → Guardado** puedes elegir entre este computador, la detección automática de Google Drive o una carpeta sincronizada de Google Drive, Dropbox o OneDrive. Puedes elegirla con una ventana de Mac/Windows o pegar su ruta.
+- La selección es propia de cada computador. La app sigue usando espacio temporal local mientras produce y edita; la aplicación de nube sincroniza las copias.
+- Las nuevas carpetas de nube conservan una copia local por defecto. Puedes liberar espacio de los anuncios de video terminados después de comprobar su copia. Los lotes de imágenes, Cambiar el producto y Sketch también se respaldan, conservando sus archivos locales.
+- Cambiar de destino conserva la ubicación de cada archivo archivado anteriormente. Las copias y recuperaciones se verifican por contenido, y el registro se guarda antes de liberar espacio.
+
 ## 2026-11-11 · Kads Studio
 
 Actualización funcional del paquete 2026-11-10, conservando la marca, los colores, las fuentes y la estructura visual de Kads Studio.
