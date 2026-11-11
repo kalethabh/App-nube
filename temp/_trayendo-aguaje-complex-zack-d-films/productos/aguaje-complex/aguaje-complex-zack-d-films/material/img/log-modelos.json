@@ -1,0 +1,117 @@
+{
+  "generado": "2026-11-05T04:48:30.613Z",
+  "segundos": 194,
+  "imagenes": [
+    {
+      "id": "toma-1-inicial",
+      "archivo": "toma-1-inicial.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 8,
+      "taskId": "ee3adc466f6debbfd4fac41ff6233834"
+    },
+    {
+      "id": "toma-9-inicial",
+      "archivo": "toma-9-inicial.png",
+      "modelo": null,
+      "heredadoDe": "toma-1-inicial.png",
+      "creditos": 0
+    },
+    {
+      "id": "broll-2",
+      "archivo": "broll-2.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 8,
+      "taskId": "0e87c50ea975e1b2846d500105615f99"
+    },
+    {
+      "id": "toma-11-inicial",
+      "archivo": "toma-11-inicial.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista",
+        "producto"
+      ],
+      "creditos": 8,
+      "taskId": "088148423ee451432757bcfd3fa149db"
+    },
+    {
+      "id": "toma-9-final",
+      "archivo": "toma-9-final.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista",
+        "frame inicial"
+      ],
+      "creditos": 8,
+      "taskId": "9c11e68213c9e2684cee4848e66771ba"
+    },
+    {
+      "id": "broll-1",
+      "archivo": "broll-1.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 8,
+      "taskId": "e2e6f9227f245f3f88e3071ea6173f42"
+    },
+    {
+      "id": "broll-3",
+      "archivo": "broll-3.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 8,
+      "taskId": "f510a3d24c55f592f3cbee96126e83ac"
+    },
+    {
+      "id": "broll-12",
+      "archivo": "broll-12.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "producto"
+      ],
+      "creditos": 8,
+      "taskId": "06fb88ef74f1476764c3ae4ce85cecd4"
+    },
+    {
+      "id": "broll-9",
+      "archivo": "broll-9.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 8,
+      "taskId": "217c7e6266c0596115c3aacf5e3ca3cb"
+    },
+    {
+      "id": "broll-10",
+      "archivo": "broll-10.png",
+      "modelo": "nano-banana-2",
+      "respaldo": false,
+      "intentos": 2,
+      "referencias": [],
+      "creditos": 8,
+      "taskId": "9a8ac1a93dad63c8b96f32fcd789d0bb"
+    }
+  ]
+}
