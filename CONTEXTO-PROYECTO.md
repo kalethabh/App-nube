@@ -1,58 +1,93 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-08.
+Última actualización: 2026-11-11.
+
+**Para la conversación nueva:** lee este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
+sencillo: no soy programador.
 
 ## Qué es
 
 - **Repositorio:** https://github.com/kalethabh/App-nube (privado, rama `main`).
-- **Qué hay dentro:** la app local **«Anuncios con IA»** (versión 2026-11-06, de un curso; autor original Diego Dávila), a la que se le sumaron funciones de mi otra herramienta, **IA-VID-AUTOMATIC** (https://github.com/kalethabh/IA-VID-AUTOMATIC, privada; su app web es Next.js en `app-web/`).
-- **En mi Mac** está clonada en `~/Anuncios con IA` (`git clone https://github.com/kalethabh/App-nube.git "Anuncios con IA"`). Se abre con doble clic en «Abrir Anuncios con IA.command»; la app corre en http://127.0.0.1:4455.
-- **Servicios:** Claude Code con mi cuenta escribe los guiones (no usa clave de API); kie.ai hace las imágenes, los videos y la música (Suno); ElevenLabs hace la voz y las transcripciones. Las claves van en `.env`, que nunca se sube.
+- **Qué hay dentro:** la app local **«Kads Studio by Kalethabh»** (antes «Anuncios con IA», versión 2026-11-06 de un
+  curso; autor original Diego Dávila), a la que se le sumaron funciones de mi otra herramienta, **IA-VID-AUTOMATIC**
+  (https://github.com/kalethabh/IA-VID-AUTOMATIC, privada).
+- **En mi Mac** (M4) está clonada en `~/Anuncios con IA`. Se abre con doble clic en «Abrir Anuncios con IA.command»
+  (que arranca `app/inicio/arrancar.mjs`); la app corre en http://127.0.0.1:4455.
+- **Servicios:** Claude Code con mi cuenta escribe los guiones (sin clave de API); kie.ai hace imágenes, videos y
+  música (Suno); ElevenLabs hace la voz y las transcripciones. Las claves van en `.env`, que nunca se sube ni se lee.
+- **Otros repositorios míos que usa:** `biblioteca-anuncios` (en `mis_archivos/biblioteca/`, compartido con
+  IA-VID-AUTOMATIC) y `anuncios-ia-videos` (los anuncios terminados, por producto; la app lo lee en
+  `mis_archivos/.anuncios-github`).
+
+## Cómo trabajar los cambios (lo que ya acordamos)
+
+1. Trabajar en la rama `mejoras-de-ia-vid` (que siga a `main`).
+2. Probar sin gastar: app en **modo prueba** (`PUERTO=4477 ANUNCIOS_MODO_PRUEBA=1 node app/inicio/arrancar.mjs`, con
+   kie.ai y ElevenLabs simulados), capturas con Playwright y la **prueba de humo**
+   (`HUMO_FORZAR=1 node app/herramientas/prueba-humo.mjs`; queda 61/64: lo único que falla es Python con `rembg` del
+   servidor de prueba). Después borrar lo que dejaron las pruebas en `temp/` y `output/` (nunca mis anuncios).
+3. **Autorizado: unir solo.** Abrir el PR y unirlo a `main` sin preguntarme (`gh api ... /merge` con
+   `merge_method=merge`; GraphQL no funciona). Después `git pull origin main` en la rama. No forzar push.
+4. En la Mac, para tener lo nuevo: botón **Actualizar** de la app (se reinicia sola; si hay algo produciéndose,
+   espera a que termine).
+5. La app guarda sola en GitHub cada 2 minutos (commits «Guardado automático»): por eso `temp/` en `main` trae mis
+   anuncios. No los toques ni los subas desde las pruebas.
 
 ## Cómo está armada la app
 
-- `app/server/` (Express): `lib/anuncios-nuevos.js` (estilos, formulario, tarea del guion), `lib/conductor.js` (producción paso a paso), `lib/familias/*.js` (voz-en-off, continuidad, ugc, hablado, objeto-parlante, musical, historia-musical), `lib/claude.js` y `lib/colas.js` (sesiones de Claude Code en «modo app»), `rutas/*.js` (se cargan solas, en orden alfabético).
-- `app/server/claude/`: los textos de cada tarea (`tarea-guion.md`, `modo-app.md`, `estilos/<clave>.md`).
-- `app/src/` (React + Vite; `npm run build` deja `app/dist`): `pantallas/nuevo` (producto, estilos y guion), `estilos`, `entrega`, `editor`, `tablero` y `ajustes`.
-- `produccion/`: el motor (generar-imagenes, generar-videos, producir, validar-manifiesto, ensamblar…). `remotion/` arma el video. `.claude/skills/`: una skill por estilo (17).
-- **Modo prueba sin gastar:** `node app/herramientas/prueba-humo.mjs`. Con `HUMO_SIN_ANUNCIO=1` hace solo las revisiones rápidas; sin esa variable produce un anuncio claymation simulado completo. Última corrida: 61 de 64 OK; lo único que falla es Python con `rembg` en el servidor de prueba.
+- `app/server/` (Express): `lib/anuncios-nuevos.js` (estilos y guion), `lib/conductor.js` (producción paso a paso),
+  `lib/familias/*.js`, `lib/claude.js` y `lib/colas.js` (sesiones de Claude Code), `rutas/*.js` (se cargan solas, en
+  orden alfabético).
+- `app/src/` (React + Vite; `npm run build` deja `app/dist`). Diseño: negro y verde lima, Inter, íconos lucide.
+- `produccion/`: el motor. `remotion/` arma el video. `.claude/skills/`: una skill por estilo.
 
-## Lo que se le agregó (todo probado en modo prueba)
+## Lo que tiene (además de lo del curso)
 
-1. **Estilo Realista con narrador** (`realista-narrado`, familia voz en off; sin continuidad). Tiene su muestra en `app/muestras/realista-narrado/`.
-2. **Subestilos** (19, en 7 estilos: Pixar, Zack D, Realista, Skeleton, UGC, Objeto parlante y Musical). Viven en `.claude/skills/<skill>/subestilos/`. En el formulario se eligen con miniaturas que reproducen su referencia al pasar el mouse (`vista.jpg` y `vista.mp4`, servidos por `/subestilos/...`). El motor adjunta el `"fotograma"` de cada imagen (versión sin texto, en `limpio/`) al generador: `produccion/fotogramas.js`.
-3. **Clonar un video**: un campo en los ajustes de cada estilo (menos los cantados) para subir un archivo (`POST /api/referencias`) o pegar un link (yt-dlp, `produccion/bajar-referencias.js`). Antes del guion, `lib/clonar.js` analiza el video con `.claude/skills/anuncios-clonacion/scripts/analizar-referencia.mjs` y Claude escribe el ADN y el guion clonado.
-4. **Más ganchos**: en la entrega de un anuncio con narrador ya terminado, de 2 a 5 versiones (`lib/ganchos.js`, `rutas/ganchos.js`, `entrega/MasGanchos.jsx`). Crea `temp/<slug>-gancho-N` y solo genera el gancho nuevo.
-5. **Clips sin cobro**: `"quieto"` (B-roll o toma A armados con ffmpeg desde su imagen) y la biblioteca de clips (`"guardar_en_biblioteca"` / `"desde_biblioteca"`, en `mis_archivos/biblioteca/clips/`). Código en `produccion/clips-sin-cobro.js`, más el validador, el estimador y generar-imágenes/videos.
-6. **Aprendizajes**: `lib/aprendizajes.js` anota en `mis_archivos/biblioteca/aprendizajes/generaciones.md` lo que hubo que rehacer y los cambios que pedí, y lo pasa a Claude en cada guion junto con `general.md` y `<estilo>.md`.
-7. **Agentes** `director-creativo` y `supervisor-generaciones` (`.claude/agents/`), para usar desde Claude Code.
-8. **Especiales** en la pantalla Estilos: Clonar, Más ganchos y Sketch, con miniaturas.
-9. **Inversión por producto** (Ajustes): suma lo que ya gasté de verdad (`rutas/inversion.js`).
-10. **Guardado en la nube** (`lib/guardado.js`, `rutas/guardado.js`, `rutas/_nube.js`, Ajustes → Guardado):
-    - Cada 2 minutos hace `git add -A` + commit + push de lo liviano: guiones, manifiestos, ajustes, aprendizajes y lo que se borró.
-    - Los videos, audios e imágenes de cada anuncio se copian a Google Drive, en «Anuncios con IA/<anuncio>/». Cuando el anuncio termina y la copia está verificada, **se borran de la Mac** (queda `temp/<slug>/app/en-la-nube.json` y una `portada.jpg`).
-    - Al editar, exportar, rehacer o pedir ganchos, se traen solos de vuelta; también hay un botón «Traer de vuelta» en la entrega.
-    - Hace falta Google Drive para escritorio con «Transmitir archivos» activado.
+**De IA-VID-AUTOMATIC (hasta el 2026-11-08):** estilo Realista con narrador; subestilos con fotogramas; Clonar un
+video; Más ganchos; clips sin cobro y biblioteca de clips; aprendizajes y preferencias en cada guion; agentes
+director-creativo y supervisor-generaciones; Inversión por producto; Guardado en la nube (GitHub + Google Drive);
+clips y video final en 1080p; no pagar dos veces la misma imagen; Biblioteca (avatares, música, imágenes, clips por
+estilo).
 
-11. **Clips y video final en 1080p** (`produccion/config.js`, `RESOLUCION_VIDEO`; Remotion con `--scale=1.5`). Omni cobra igual que en 720p.
-12. **No pagar dos veces la misma imagen** (`produccion/imagenes-repetidas.js`).
-13. **Biblioteca** (menú Biblioteca; `lib/biblioteca.js`, `rutas/biblioteca.js`, `pantallas/biblioteca/`):
-    - `mis_archivos/biblioteca/` es una copia del repositorio privado `biblioteca-anuncios`, el MISMO de IA-VID-AUTOMATIC: avatares, audios, clips, imágenes y aprendizajes de las dos apps. Se sincroniza al abrir la app y cada 10 minutos; no la sube el guardado de la app.
-    - Avatares: subiendo fotos, desde un anuncio terminado (botón en la entrega) o «como en un anuncio de referencia» (retratos y prompts de los subestilos).
-    - En «Nuevo anuncio», «De tu biblioteca» elige las personas y la música; la música generada se guarda sola al terminar.
-14. **Movimiento del original**: la tarea del guion pide escribir cada prompt de video desde `subestilos/<id>/movimiento/`.
-15. **Preferencias** (`mis_archivos/preferencias.md`, traídas de IA-VID-AUTOMATIC) y los aprendizajes de las dos apps, con la bitácora del supervisor, van en cada guion.
+**Agregado del 2026-11-08 al 11 (PRs #1 a #31):**
+- **Marca y diseño:** nombre Kads Studio by Kalethabh, logo K2 y favicon; menú agrupado; pantalla Estilos renovada
+  con videos de muestra.
+- **Saldo y costos:** saldo de kie.ai y de ElevenLabs (`lib/claves.js`), y traer las claves de IA-VID-AUTOMATIC.
+- **Anuncios:** los míos y los de GitHub por producto; video de referencia de las clonaciones; botón **Editar**, que
+  trae un anuncio de GitHub a la Mac y lo abre en el editor (`lib/anuncios-github.js`).
+- **Nuevo anuncio:** empieza con «Elige el tipo de anuncio» (estilos + Cambiar el producto + Sketch). El paso 1 pide
+  solo foto, indicaciones, video de referencia (arrastrable) y quién escribe el guion; la ficha del producto se arma
+  sola por detrás.
+- **Cambiar el producto** (`lib/cambiar.js`, `produccion/cambiar-producto.js`, pantalla `#/cambiar`): sube un video
+  y queda igual pero con mi producto en las escenas marcadas, sin los subtítulos del original (borrado en la Mac,
+  gratis: `produccion/borrar-subtitulos.js` y `produccion/video-limpio/`, con modo «Mejor calidad» o «Rápido»), la
+  voz traducida al español con la misma voz (ElevenLabs) y subtítulos nuevos. Muestra el costo antes, el avance con
+  el tiempo que falta, Detener, y sigue aunque la app se reinicie.
+- **Sketch de comedia** (`lib/sketch.js`, pantalla `#/sketch`, scripts de `.claude/skills/anuncios-sketch/` con su
+  Python en `.venv-sketch`): brief → Claude escribe la propuesta → costo y aprobación → fotos para revisar → clips,
+  montaje y revisión → dos videos (con y sin música). **Probado solo hasta los clips:** el montaje necesita bajar el
+  transcriptor (~3 GB) y el entorno de prueba no lo deja.
+- **Costos a la vista** (cambié de opinión: ahora SÍ los quiero): costo aproximado antes de «Me gusta, producir»,
+  «Gastos de este anuncio» en la producción y en Progreso, y el saldo de kie con semáforo (verde de sobra, naranja
+  justo, rojo no alcanza) — `lib/costo-anuncio.js`. Todo lo que cobra se confirma con su costo.
+- **Editar una imagen ya generada** en la producción: un pedido puntual, botón de IA que propone el cambio, costo y
+  rehacer su clip (`produccion/editar-imagen.js`, `rutas/editar-imagen.js`).
+- **Errores en palabras:** cuando kie.ai u otro servicio falla, la producción dice el motivo, qué tomas fallaron, lo
+  que respondió kie.ai y qué hacer (`procesos.causaDeFallo`, guardado en `paso.error.causa`).
+- **Actualizar** desde GitHub con reinicio solo; aviso si corre una versión vieja de la app (`lib/version.js`).
+- **Paquete para compartir** (`npm run paquete`) y **despliegue en servidor** (`DESPLEGAR.md`; decidí no desplegar).
 
-## Decisiones que tomé
+## En curso (lo siguiente que pedí)
 
-- **No quiero nada de costos estimados, presupuesto ni aprobación automática por costo** (de IA-VID-AUTOMATIC). Se agregó un «tope de gasto» y se quitó.
-- **No quiero imágenes sueltas.** La generación tiene que seguir siendo tan fácil y rápida como en la app original.
-- El repositorio es **privado** (la app viene de un curso).
-- Las pruebas de GitHub Actions solo corren a mano (`workflow_dispatch`).
+1. **Si un modelo falla seguido porque se cayó, ofrecerme modelos parecidos**, decir si es más caro y cuánto saldría
+   (por ejemplo, para video: Omni Flash 1.1 → Kling 3.0 o Kling 4.0; precios en `produccion/config.js`,
+   `MODELOS_VIDEO`), y dejarme cambiar y seguir con un clic.
+2. **Un apartado «Estado de la IA»** en tiempo real: si kie.ai (y cada modelo), ElevenLabs y Claude están bien, con
+   fallas o caídos, y desde cuándo. Idea: revisar cada minuto mientras la app está abierta y medir también con mis
+   propias generaciones (los `log-modelos.json` de cada anuncio y los errores del conductor).
 
-## Lo que falta o queda pendiente
+## Pendiente de confirmar en mi Mac
 
-- **Sketch de comedia dentro de la app.** Hoy solo se hace desde Claude Code (`.claude/skills/anuncios-sketch/`). Tiene su propio pipeline en Python (`produccion.py`, `montaje.py`, `revision.py`; necesita `faster_whisper`, unos 3 GB) y habría que crearle una familia nueva en el conductor y una tarea de guion propia.
-- Confirmar en mi Mac que Ajustes → Guardado muestre GitHub «al día» y Google Drive «al día».
-- **Opcional:** sacar las muestras de video del repositorio (unos 270 MB) para que clonar pese menos.
-- No se agregaron de IA-VID-AUTOMATIC (no los pedí o los descarté): modo automático con presupuesto, lotes con tope, imágenes sueltas con lápiz, chat dentro de la app, catálogo de creativos para campañas y contraseña de entrada.
+- Que el borrador de subtítulos en «Mejor calidad» no tarde horas (si tarda, usar «Rápido»).
+- El primer sketch completo (montaje y revisión) y la sugerencia de IA al editar imágenes, con Claude de verdad.
+- En kie.ai, la lista blanca de IP de mi clave tiene que estar desactivada (o con mi IP), si no, falla todo.
