@@ -1900,3 +1900,23 @@
   outline: none;
   box-shadow: var(--anillo-foco);
 }
+
+/* Destino de los archivos: controles del guardado con los estilos actuales de Kads. */
+.guardado__formulario,
+.guardado__destino {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+.guardado__formulario { margin-top: var(--e-5); }
+.guardado__ruta { display: flex; align-items: flex-start; gap: var(--e-3); }
+.guardado__ruta > .campo { flex: 1; min-width: 0; }
+.guardado__ruta > .boton { flex: none; margin-top: 26px; }
+.guardado__acciones { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-3); }
+.guardado__estado { margin-top: var(--e-5); padding-top: var(--e-4); border-top: 1px solid var(--borde-1); }
+.guardado__error { display: flex; align-items: flex-start; gap: var(--e-2); margin-top: var(--e-3); color: var(--error); font-size: var(--t-chico); overflow-wrap: anywhere; }
+.guardado__error > svg { flex: none; margin-top: 2px; }
+@media (max-width: 760px) {
+  .guardado__ruta { flex-direction: column; align-items: stretch; }
+  .guardado__ruta > .boton { margin-top: 0; align-self: flex-start; }
+}
