@@ -1,0 +1,325 @@
+{
+  "estilo": "zack-d-films",
+  "modo_audio": "voz_en_off",
+  "mercado": "LatAm",
+  "idioma": "es",
+  "aspect_ratio": "9:16",
+  "referencias": [
+    {
+      "id": "protagonista",
+      "tipo": "personaje",
+      "prompt": "Vertical 9:16. Pixar-Disney style 3D animation character reference sheet of Camila, a friendly Colombian woman about 28 years old: warm tan skin, oval face, big expressive dark brown eyes, thick dark eyebrows, small rounded nose and a soft smile; long wavy dark brown hair worn loose past her shoulders with a thin coral-red headband; small gold hoop earrings. She wears a fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg denim jeans with a brown belt, and white sneakers. Slim build, flat stomach. Full body standing front view with arms relaxed at her sides and five fingers on each hand, plus a close-up of her face beside it. Plain soft warm-cream background with a subtle painted texture and a soft contact shadow under her feet. Warm cinematic lighting, subsurface scattering, octane render, ultra-detailed. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. No additional text, captions, labels or watermarks overlaid on the image.\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, letters, labels, extra fingers, deformed hands"
+    },
+    {
+      "id": "producto",
+      "tipo": "producto",
+      "archivo": "producto.png",
+      "nota": "conservar forma, proporciones y texto real de la etiqueta; frasco siempre cerrado, sin cápsulas a la vista; mate, sin arcoíris"
+    }
+  ],
+  "tomas": [
+    {
+      "n": 1,
+      "tipo": "A",
+      "duracion": 3.8,
+      "linea": "¿Por qué tus glúteos no crecen aunque hagas de todo?",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render. Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), stands in full side profile facing the right of the frame, in front of a tall wooden standing mirror at the right side of the frame, the mirror turned almost edge-on to the camera so its glass shows only a thin, soft, blurred sliver of reflection, in her cozy Colombian bedroom with a made bed with a striped blanket, a potted plant and warm afternoon light from a window. She looks at herself in the mirror with a frustrated, disappointed frown, eyebrows pulled together and lips pressed. Her near hand rests on the side of her waist just above her belt with the elbow bent back, and her other arm hangs relaxed in front of her body, five fingers on each hand, so the outline of her backside stays completely clear against the background. Her jeans are one size too big at the back: seen from the side, her lower back, her seat and the back of her thighs form one straight, flat vertical line with no curve at all, flat like a board. Her thighs are thin and straight, and the jean legs hang loose around them. The seat of the jeans is loose and empty: a soft baggy fold of extra denim hangs below the seat, the back pockets sit low, droop and wrinkle, and there is a visible gap of empty fabric between her body and the jeans at the back. Flat stomach and slim waist. Her full body is visible from head to sneakers, centered, with space above her head and below her feet, nothing cut off. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, round buttocks, curvy hips, lifted buttocks, full thighs, tight jeans at the seat, snug seat, pregnant belly, sexualized pose, duplicate body in the mirror, second person, extra fingers, deformed hands, text, letters, signs, logos, picture frame, border",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: static, locked-off full-body shot; her whole body from head to sneakers stays in frame the entire time\nMotion: with her near hand she pinches and pulls out the loose empty denim at the side of her hip, lets it fall back baggy, and her shoulders drop with a frustrated sigh\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 2,
+      "tipo": "A",
+      "duracion": 4.6,
+      "linea": "Mil sentadillas, cremas, pastillas… y el jean sigue igual de plano.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render. Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), sits facing the camera on the edge of her bed in her cozy Colombian bedroom, surrounded by everything she already tried: a crowded row of plain unlabeled white cream jars and closed plain unlabeled pill bottles on the nightstand, a pair of pink dumbbells and a rolled yoga mat on the floor. She holds an empty cream jar in one hand and rests her chin on the other hand, five fingers on each hand, with an exhausted, fed-up expression. Warm afternoon window light, potted plant, framed pictures on the wall. Her whole body and the objects are visible, nothing cut off. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, extra fingers, missing fingers, deformed hands, text, letters, signs, logos, picture frame, border, open pill bottles, loose pills, capsules",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in toward her\nMotion: she drops the empty cream jar onto the bed beside her and throws both hands up in frustration\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 3,
+      "tipo": "A",
+      "duracion": 3.8,
+      "linea": "Y ya estabas ahorrando para una cirugía de millones.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render. Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), sits facing the camera at a small wooden kitchen table in her Colombian home. With her right hand she drops a single coin into the slot of a big pink ceramic piggy bank standing on the table; her left hand presses against her cheek, five fingers on each hand. She bites her lip with a worried, anxious look, eyebrows raised. A few loose coins on the table, warm kitchen with tiled backsplash, hanging plants and a window with soft daylight. Her upper body, both hands, the piggy bank and the table are fully visible, nothing cut off at the edges. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, extra fingers, missing fingers, deformed hands, text, letters, numbers, signs, logos, picture frame, border, calculator, banknotes, phone screen, paper documents",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in\nMotion: she lets the coin drop into the piggy bank and sighs with worry\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 4,
+      "tipo": "B",
+      "duracion": 5,
+      "linea": "Pero el problema no está afuera, está adentro: tu músculo está dormido.",
+      "prompt_imagen_inicial": "Vertical 9:16. a stylized semi-3D model of a single gluteal muscle, shaped like a soft rounded cushion of smooth matte material with simplified parallel fiber grooves, shown in side view and resting naturally on the floor with a soft contact shadow, never floating. Its color is a soft dull pink and it is only slightly flat, with a faint warm glow at its core. On its front surface there is a small cute cartoon face with tired, half-closed drowsy eyes and a small yawn. The environment is a bright blue grid floor and background in vivid cyan-blue tones (#00BFFF to #87CEEB range), made of thin light cyan grid lines with no thickness and no physical surface, extending evenly with consistent bright saturation, no darkening toward the edges. Flat, soft, clinical lighting from the front with gentle even shadows. Camera at eye level, medium shot, the subject centered in the frame with generous blue space around it. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, labels, UI, props, hands, tools, person, body, gore, pills, capsules, dark gradient background",
+      "prompt_imagen_final": "Vertical 9:16. a stylized semi-3D model of a single gluteal muscle, shaped like a soft rounded cushion of smooth matte material with simplified parallel fiber grooves, shown in side view and resting naturally on the floor with a soft contact shadow, never floating. The muscle has deflated and sagged noticeably flatter and droopier, its fibers loose, and its color has faded to a pale greyish pink; the warm glow at its core has gone out completely. On its front surface there is the same small cute cartoon face, now with its eyes fully closed, sleeping peacefully. Same camera, same framing, same light, same blue grid as the start frame. The environment is a bright blue grid floor and background in vivid cyan-blue tones (#00BFFF to #87CEEB range), made of thin light cyan grid lines with no thickness and no physical surface, extending evenly with consistent bright saturation, no darkening toward the edges. Flat, soft, clinical lighting from the front with gentle even shadows. Camera at eye level, medium shot, the subject centered in the frame with generous blue space around it. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background, photograph, DSLR, stock photo, real human skin, skin pores, person, body, gore, pills, capsules, real photography, live action, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Semi-3D soft plastic animation, transition from the start frame to the end frame, 6s. Vertical 9:16.\nCamera: static, locked-off medium shot\nMotion: the drowsy muscle slowly yawns and its eyes close; it deflates and sags flatter while its color fades to pale greyish pink and its inner glow goes out\nLighting: flat, even clinical light; the bright blue grid stays bright and unchanged\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 5,
+      "tipo": "B",
+      "duracion": 5.8,
+      "linea": "Sin lo que necesita, no crece ni se llena. Y ninguna crema llega hasta allá.",
+      "prompt_imagen_inicial": "Vertical 9:16. a stylized semi-3D cross-section block of layered tissue, cut cleanly like a slice of cake and resting naturally on the floor with a soft contact shadow, never floating. The top layer is a thin smooth warm-tan skin layer, the middle layer is a thick soft pale-yellow cushion layer, and the bottom layer is a soft cushion-shaped pale greyish-pink gluteal muscle with simplified fiber grooves and a small cute cartoon face with its eyes closed, sleeping. A rounded dollop of glossy white cream sits on top of the skin layer, at its center. The muscle at the bottom is flat and pale. The environment is a bright blue grid floor and background in vivid cyan-blue tones (#00BFFF to #87CEEB range), made of thin light cyan grid lines with no thickness and no physical surface, extending evenly with consistent bright saturation, no darkening toward the edges. Flat, soft, clinical lighting from the front with gentle even shadows. Camera slightly above eye level, three-quarter view, medium shot, the block centered in the frame with generous blue space around it. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, labels, UI, props, hands, tools, person, body, gore, pills, capsules, dark gradient background",
+      "prompt_imagen_final": "Vertical 9:16. a stylized semi-3D cross-section block of layered tissue, cut cleanly like a slice of cake and resting naturally on the floor with a soft contact shadow, never floating. The top layer is a thin smooth warm-tan skin layer, the middle layer is a thick soft pale-yellow cushion layer, and the bottom layer is a soft cushion-shaped pale greyish-pink gluteal muscle with simplified fiber grooves and a small cute cartoon face with its eyes closed, sleeping. The white cream has spread into a thin film across the top of the skin layer and stays stuck there on the surface, not one drop passing down into the yellow layer or reaching the muscle. The muscle at the bottom is still flat and pale greyish pink, still sleeping with its eyes closed. Same camera, same framing, same light, same blue grid as the start frame. The environment is a bright blue grid floor and background in vivid cyan-blue tones (#00BFFF to #87CEEB range), made of thin light cyan grid lines with no thickness and no physical surface, extending evenly with consistent bright saturation, no darkening toward the edges. Flat, soft, clinical lighting from the front with gentle even shadows. Camera slightly above eye level, three-quarter view, medium shot, the block centered in the frame with generous blue space around it. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background, photograph, DSLR, stock photo, real human skin, skin pores, person, body, gore, pills, capsules, real photography, live action, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Semi-3D soft plastic animation, transition from the start frame to the end frame, 6s. Vertical 9:16.\nCamera: static, locked-off three-quarter medium shot\nMotion: the cream dollop melts and spreads across the top of the skin layer but stops at the surface, never sinking down; the sleeping muscle at the bottom does not change\nLighting: flat, even clinical light; the bright blue grid stays bright and unchanged\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 6,
+      "tipo": "A",
+      "duracion": 4.6,
+      "linea": "Ahí entra Aguaje Complex: fenogreco, aguaje y maca negra. Triple acción.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, the Aguaje Complex bottle exactly as in the attached product photo, same shape, proportions and label: a black cylindrical bottle with a black shrink-wrap safety seal over the cap, a black dotted upper label with a white circular tree logo, a hot-pink band with AGUAJE COMPLEX 3 EN 1 and the pink TRIPLE ACCIÓN section with three numbered boxes below, the label text sharp and legible exactly as in the photo; the bottle is closed and sealed, no capsules visible anywhere; rendered as a stylized 3D animation prop with a matte finish, no rainbow, no prism light, no lens flare. Only one single bottle in the whole image, standing on its own with no hand touching it. The bottle stands upright in the center of the frame on a light wooden vanity in a warm, sunlit Colombian bedroom, label facing the camera; it fills about the middle half of the frame height, with clear space around it, never touching the edges. Around it, related elements float and fall in slow motion: whole reddish-brown scaly aguaje palm fruits, a shower of small golden-yellow fenugreek seeds and a few small round purple-black maca roots shaped like little turnips, with soft glowing particles; none of them cover the label. Clean product presentation. Warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, open bottle, loose capsules, pills, distorted label, invented text, rainbow, prism light, lens flare, second bottle, two bottles, hand holding the bottle",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in toward the bottle; the camera never moves around it\nMotion: the aguaje fruits, fenugreek seeds and maca roots drift and fall gently around the closed bottle while glowing particles sparkle; the bottle stays perfectly still and unchanged, label facing the camera\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "producto"
+      ]
+    },
+    {
+      "n": 7,
+      "tipo": "B",
+      "duracion": 5.4,
+      "linea": "Le dan a tu músculo lo que le faltaba y lo despiertan desde adentro.",
+      "prompt_imagen_inicial": "Vertical 9:16. a stylized semi-3D model of a single gluteal muscle, shaped like a soft rounded cushion of smooth matte material with simplified parallel fiber grooves, shown in side view and resting naturally on the floor with a soft contact shadow, never floating. The muscle is flat and pale greyish pink, sleeping, with a small cute cartoon face with its eyes closed on its front surface, and no glow at its core. Three thin streams of small round glowing spheres (not pills, not capsules) arrive from the top of the frame and are just touching its top surface: reddish-orange spheres, golden-yellow spheres and deep purple spheres, each with a tiny happy face. The environment is a bright blue grid floor and background in vivid cyan-blue tones (#00BFFF to #87CEEB range), made of thin light cyan grid lines with no thickness and no physical surface, extending evenly with consistent bright saturation, no darkening toward the edges. Flat, soft, clinical lighting from the front with gentle even shadows. Camera at eye level, medium shot, the subject centered in the frame with generous blue space around it. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, labels, UI, props, hands, tools, person, body, gore, pills, capsules, dark gradient background",
+      "prompt_imagen_final": "Vertical 9:16. a stylized semi-3D model of a single gluteal muscle, shaped like a soft rounded cushion of smooth matte material with simplified parallel fiber grooves, shown in side view and resting naturally on the floor with a soft contact shadow, never floating. The glowing spheres have been absorbed and now glow softly inside the muscle. The muscle is now fuller, rounder and plump, a healthy rosy pink with firm, well-defined fiber grooves, with a bright warm glow at its core, and its small cute cartoon face is awake with eyes wide open and a big happy smile. Same camera, same framing, same light, same blue grid as the start frame. The environment is a bright blue grid floor and background in vivid cyan-blue tones (#00BFFF to #87CEEB range), made of thin light cyan grid lines with no thickness and no physical surface, extending evenly with consistent bright saturation, no darkening toward the edges. Flat, soft, clinical lighting from the front with gentle even shadows. Camera at eye level, medium shot, the subject centered in the frame with generous blue space around it. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background, photograph, DSLR, stock photo, real human skin, skin pores, person, body, gore, pills, capsules, real photography, live action, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Semi-3D soft plastic animation, transition from the start frame to the end frame, 6s. Vertical 9:16.\nCamera: static, locked-off medium shot\nMotion: the glowing spheres pour into the muscle and sink inside; the muscle wakes up, opens its eyes, smiles and slowly plumps up fuller and rounder as its color turns rosy pink and its core glows warmly\nLighting: flat, even clinical light; the bright blue grid stays bright and unchanged\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 8,
+      "tipo": "A",
+      "duracion": 3.3,
+      "linea": "Día diez: el jean ya no te queda suelto.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render. Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), stands facing the camera in a slight three-quarter front view in her cozy Colombian bedroom. She runs both palms down the sides of her hips over her jeans, five fingers on each hand, and looks down at them with a pleasantly surprised, happy smile; the jeans now fit smooth and snug at her hips and thighs, with no loose or baggy fabric. Her belt is buckled and her t-shirt stays tucked in. Morning light from the window, the made bed with the striped blanket and the potted plant behind her. Her body is visible from head to knees, centered, nothing cut off. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, extra fingers, missing fingers, deformed hands, text, letters, signs, logos, picture frame, border, unbuttoned jeans, open fly, sexualized pose, pregnant belly",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in, keeping her from head to hips in frame\nMotion: she smooths her palms down the sides of her snug jeans and gives a small happy bounce, smiling\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 9,
+      "tipo": "B",
+      "duracion": 2.9,
+      "linea": "Día veinte: te miras de lado… y hay curva.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render. Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), stands in full side profile facing the right of the frame, in front of a tall wooden standing mirror at the right side of the frame, the mirror turned almost edge-on to the camera so its glass shows only a thin, soft, blurred sliver of reflection, in her cozy Colombian bedroom with a made bed with a striped blanket, a potted plant and warm afternoon light from a window. She looks at herself in the mirror with a frustrated, disappointed frown, eyebrows pulled together and lips pressed. Her near hand rests on the side of her waist just above her belt with the elbow bent back, and her other arm hangs relaxed in front of her body, five fingers on each hand, so the outline of her backside stays completely clear against the background. Her jeans are one size too big at the back: seen from the side, her lower back, her seat and the back of her thighs form one straight, flat vertical line with no curve at all, flat like a board. Her thighs are thin and straight, and the jean legs hang loose around them. The seat of the jeans is loose and empty: a soft baggy fold of extra denim hangs below the seat, the back pockets sit low, droop and wrinkle, and there is a visible gap of empty fabric between her body and the jeans at the back. Flat stomach and slim waist. Her full body is visible from head to sneakers, centered, with space above her head and below her feet, nothing cut off. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, round buttocks, curvy hips, lifted buttocks, full thighs, tight jeans at the seat, snug seat, pregnant belly, sexualized pose, duplicate body in the mirror, second person, extra fingers, deformed hands, text, letters, signs, logos, picture frame, border",
+      "prompt_imagen_final": "Vertical 9:16. Pixar-Disney style 3D animation render. The same scene as the attached image: Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), stands in full side profile facing the right of the frame, in front of the same tall wooden standing mirror at the right side of the frame, turned almost edge-on to the camera so its glass shows only a thin, soft, blurred sliver of reflection, in the same cozy Colombian bedroom with the same bed, plant and window light, same camera angle, same framing. Now she looks at herself in the mirror with a delighted, surprised smile, eyebrows raised and mouth slightly open in a happy gasp. Her near hand rests on the side of her waist just above her belt with the elbow bent back, and her other arm hangs relaxed in front of her body, five fingers on each hand, so the outline of her backside stays completely clear against the background. Do NOT copy her body shape from the attached image: her body has clearly gained volume in her buttocks, hips and legs. Her buttocks are now clearly round, full and lifted, projecting well behind the line of her lower back, about a hand's width further back than her lower back. Her hips are wider and curvier, and her thighs are visibly fuller, thicker and shapelier, rounded and toned, completely filling the legs of her jeans down to the knees, with a smooth curve from her slim waist over her hips into her full thighs. The seat and the legs of the jeans are completely filled out and snug, with no loose fabric and no fold, and the back pockets sit high, smooth and lifted on the curve. The change from the attached image is obvious at first glance: a curvy, voluptuous, healthy silhouette, natural and believable, not cartoonish. Flat stomach and slim waist. Her full body is visible from head to sneakers, centered, with space above her head and below her feet, nothing cut off. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, flat buttocks, thin legs, skinny thighs, baggy sagging jeans, loose fabric at the seat, cartoonish proportions, pregnant belly, sexualized pose, duplicate body in the mirror, second person, extra fingers, deformed hands, text, letters, signs, logos, picture frame, border",
+      "prompt_video": "Pixar-Disney style 3D animation, transition from the start frame to the end frame, 4s. Vertical 9:16.\nCamera: static, locked-off full-body shot, unchanged\nMotion: she stays in side profile facing the mirror and her hands stay where they are; over the whole clip her frown turns into a delighted, surprised smile while her buttocks, hips and thighs smoothly gain volume and fill out the jeans into a round, lifted, curvy silhouette and the loose baggy fold disappears\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 10,
+      "tipo": "A",
+      "duracion": 3.3,
+      "linea": "Día treinta: todos voltean a verte en la calle.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render. Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), walks toward the camera with a confident, radiant smile down a colorful Colombian street with brightly painted colonial facades, balconies with bougainvillea flowers and cobblestones, sunny afternoon. Behind her, two women and a man on the sidewalk turn their heads to look at her with admiring, surprised smiles. She is seen from the front, full body visible, nothing cut off, five fingers on each hand. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, extra fingers, missing fingers, deformed hands, text, letters, signs, logos, picture frame, border, shop signs with text, sexualized pose",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow tracking shot backward in front of her\nMotion: she walks confidently toward the camera with a radiant smile while the passersby behind her keep watching her and smile\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 11,
+      "tipo": "A",
+      "duracion": 6.3,
+      "linea": "Sin bisturí, sin rebote y sin pagar millones. Solo dos cápsulas al día con las comidas.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render. Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), sits facing the camera at her small wooden kitchen table having lunch: a plate with an arepa, rice and a fresh salad. Medium shot from the waist up, the table edge in the lower third of the frame. She raises a tall glass of water in her right hand with a big relaxed smile, and her left hand rests flat on the table, five fingers on each hand. On the table, right next to her left hand, stands the Aguaje Complex bottle exactly as in the attached product photo, same shape, proportions and label: a black cylindrical bottle with a black shrink-wrap safety seal over the cap, a black dotted upper label with a white circular tree logo, a hot-pink band with AGUAJE COMPLEX 3 EN 1 and the pink TRIPLE ACCIÓN section with three numbered boxes below, the label text sharp and legible exactly as in the photo; the bottle is closed and sealed, no capsules visible anywhere; rendered as a stylized 3D animation prop with a matte finish, no rainbow, no prism light, no lens flare. The bottle is real-sized: about as tall as her hand from wrist to fingertips, slightly shorter than her water glass, about half the height of her head. Only one single bottle in the whole image, label facing the camera, no hand touching it. Warm Colombian kitchen with tiled backsplash, hanging plants and soft daylight. Her head, both hands, the plate and the bottle fully visible, nothing cut off at the edges. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, extra fingers, missing fingers, deformed hands, text, letters, signs, logos, picture frame, border, open bottle, loose capsules, pills in her hand, distorted label, giant bottle, oversized bottle, rainbow, prism light, lens flare, second bottle, two bottles",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.\nCamera: slow push-in\nMotion: she takes a sip of water, puts the glass down and smiles happily; the closed bottle stays still on the table\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista",
+        "producto"
+      ]
+    },
+    {
+      "n": 12,
+      "tipo": "A",
+      "duracion": 6.7,
+      "linea": "Pide hoy el tratamiento completo de tres frascos y pagas cuando te llegue a la casa.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render. At the open front door of her colorful Colombian house, Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt, white sneakers), stands in a three-quarter front view with her face toward the camera, smiling happily and reaching out with both hands toward a closed plain cardboard box with no print that a friendly delivery man in a plain red cap and plain red polo shirt with no logos holds out to her with both hands, five fingers on each hand. Potted plants by the door, sunny street behind. Both characters fully visible from head to knees in a medium-wide shot, nothing cut off at the edges. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, extra fingers, missing fingers, deformed hands, text, letters, signs, logos, picture frame, border, company logos, brand names, printed box, money, banknotes",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.\nCamera: gentle push-in\nMotion: she takes the box from the delivery man and hugs it happily against her chest\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    }
+  ],
+  "broll": [
+    {
+      "n": 1,
+      "despues_de_toma": 1,
+      "sincroniza_con": "aunque hagas de todo",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, close-up from the chest up of Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings, fitted lavender short-sleeve crew-neck t-shirt), in three-quarter view looking toward the right of the frame at a mirror that stays outside the shot, with a frustrated, disappointed frown: eyebrows pulled together, lips pressed and cheeks slightly puffed. Her face fills the upper half of the frame, with space above her head, nothing cut off. Her cozy bedroom softly blurred behind her: the bed with the striped blanket, the potted plant and warm afternoon window light. No mirror and no reflection anywhere in the shot. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, mirror, reflection, second person, duplicate face, extra fingers, deformed hands, text, letters, signs, logos",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in toward her face\nMotion: she lets out a sigh, puffs her cheeks and slowly shakes her head\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 2,
+      "despues_de_toma": 2,
+      "sincroniza_con": "cremas, pastillas",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film: a close-up of a crowded row of chunky, rounded, toy-like cartoon cream jars in soft pastel white and pale pink, and closed cartoon bottles with rounded white caps, all plain and unlabeled, on a wooden nightstand with simplified smooth wood. Slightly exaggerated cartoon proportions, smooth simplified surfaces with no fine grain, saturated candy-like colors. One jar at the front is tipping over on its edge. Her cozy bedroom softly blurred behind, with the bed with the striped blanket and the potted plant. All the jars fully inside the frame, nothing cut off at the edges. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, letters, labels, logos, pills, capsules, amber pharmacy bottles, open bottles, dust particles",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow pan along the jars\nMotion: one jar tips over and rolls\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 3,
+      "despues_de_toma": 3,
+      "sincroniza_con": "cirugía de millones",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film: an empty cartoon operating room with rounded, slightly exaggerated shapes. An oversized cartoon surgical lamp with big round lights hangs over a chunky padded operating table, and a small toy-like metal tray with a few simplified, rounded instruments sits beside it. Smooth simplified surfaces with no fine grain, no monitors, no screens, no machines. The room is lit with a cold, slightly ominous bluish light, contrasting with warm golden light spilling in from an open doorway at the back. The table and the lamp fully inside the frame, nothing cut off. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, letters, logos, pills, capsules, monitors, screens, blood, person",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in toward the operating table\nMotion: the cold surgical lamp light flickers slightly\nLighting: cold bluish light in the room with a warm glow from the doorway\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 4,
+      "despues_de_toma": 4,
+      "sincroniza_con": "tu músculo está dormido",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization of soft pink muscle fibers lying limp and relaxed across an organic surface, semi-transparent warm-toned tissue, tiny molecule-like spheres with sleepy faces and closed eyes resting on the fibers, dim warm golden-orange light with soft glow, dramatic macro close-up, ultra-detailed, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, letters, logos, pills, capsules",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow drift along the fibers\nMotion: the sleepy little spheres breathe slowly as the fibers sag\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 5,
+      "despues_de_toma": 5,
+      "sincroniza_con": "ninguna crema llega",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization of droplets of white cream sliding across the surface of semi-transparent warm-toned skin tissue and bouncing off it, unable to sink in, while the pink muscle fibers deep below stay dim, glowing particles, warm golden-orange light with soft glow, dramatic macro close-up, ultra-detailed, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, letters, logos, pills, capsules",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: macro slow push-in\nMotion: the cream droplets slide and bounce off the surface without sinking in\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 6,
+      "despues_de_toma": 6,
+      "sincroniza_con": "fenogreco, aguaje y maca negra",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization of whole reddish-brown scaly aguaje palm fruits, small golden-yellow fenugreek seeds and dark black maca roots tumbling in slow motion and dissolving into glowing reddish-orange, golden-yellow and deep purple particles, warm golden-orange light with soft glow, dramatic macro close-up, ultra-detailed, premium documentary visualization style (not cold medical diagram), no pills, no capsules, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, letters, logos, pills, capsules",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow orbit\nMotion: the ingredients tumble and dissolve into glowing particles\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 7,
+      "despues_de_toma": 7,
+      "sincroniza_con": "lo despiertan desde adentro",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization of glowing reddish-orange, golden-yellow and deep purple molecule-like spheres with happy expressive faces flowing into soft pink muscle fibers on a semi-transparent warm-toned organic surface, the fibers plumping up and glowing, warm golden-orange light with soft glow, dramatic macro close-up, ultra-detailed, premium documentary visualization style (not cold medical diagram), no pills, no capsules, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, letters, logos, pills, capsules",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: macro slow push-in\nMotion: the happy spheres dive into the fibers and the fibers swell and light up\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 8,
+      "despues_de_toma": 8,
+      "sincroniza_con": "el jean ya no te queda suelto",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, close-up from the front of the hip of Camila, the woman from the attached character sheet (her fitted lavender short-sleeve crew-neck t-shirt tucked into medium-blue straight-leg jeans with a brown belt): only her waist, one hip and her upper thigh are in frame, from the belt to mid-thigh, no face in the shot. Her right hand, five fingers, tries to pinch the denim at the side of her hip and there is no loose fabric to grab: the jeans are smooth and snug. Cozy bedroom softly blurred behind, morning light. Warm cinematic lighting, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, extra fingers, deformed hands, text, letters, signs, logos, unbuttoned jeans, open fly",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: static close-up\nMotion: her fingers try to pinch the side of her jeans and slide off the snug denim\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 9,
+      "despues_de_toma": 11,
+      "sincroniza_con": "sin bisturí, sin rebote y sin pagar millones",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render. Camila, the woman from the attached character sheet (same face, long wavy dark brown hair worn loose with a thin coral-red headband, small gold hoop earrings), this time wearing a different outfit: a fitted mustard-yellow cropped sweater that ends exactly at her natural waist, dark-wash high-waist jeans and white sneakers. She stands in full side profile facing the left of the frame in a clothing store fitting room with a beige curtain, looking toward a big wall mirror at the left side of the frame that is turned almost edge-on to the camera, smiling proudly. Her near hand rests on the side of her waist with the elbow bent back, five fingers on each hand, so the outline of her backside stays clear. Do NOT copy her body shape from the attached image: her body has clearly gained volume in her buttocks, hips and legs. Her buttocks are clearly round, full and lifted, projecting well behind the line of her lower back; her hips are wider and curvier, and her thighs are visibly fuller, thicker and shapelier, rounded and toned, completely filling the legs of her jeans, with a smooth curve from her slim waist over her hips into her full thighs. The jeans are filled out and snug at the seat and the legs. A curvy, voluptuous, healthy silhouette, obvious at first glance, natural and believable, not cartoonish. Full body visible from head to sneakers, nothing cut off. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, flat buttocks, thin legs, skinny thighs, long sweater covering the hips, cartoonish proportions, pregnant belly, sexualized pose, duplicate body in the mirror, extra fingers, deformed hands, text, letters, signs, logos",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in\nMotion: she turns a little to see her curve in the mirror and smiles proudly\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "protagonista"
+      ]
+    },
+    {
+      "n": 10,
+      "despues_de_toma": 10,
+      "sincroniza_con": "todos voltean a verte",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, two friendly young women and a smiling man standing still on the sidewalk of a colorful Colombian street with brightly painted colonial facades, wooden balconies with bougainvillea flowers and cobblestones, sunny afternoon. They turn their heads together toward the left of the frame, looking at someone outside the shot with admiring, surprised smiles, eyebrows raised. All three fully visible from head to feet, centered, nothing cut off, five fingers on each hand. The facades are plain painted walls with no signs, no shop signs, no plaques and no writing anywhere. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, vibrant warm color palette, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, text, letters, signs, shop signs, hanging signs, logos, pills, capsules, walking, extra fingers, deformed hands",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: gentle pan\nMotion: the three passersby turn their heads a little further toward the left and their smiles grow\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": []
+    },
+    {
+      "n": 11,
+      "despues_de_toma": 9,
+      "sincroniza_con": "dos cápsulas al día con las comidas",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, the Aguaje Complex bottle exactly as in the attached product photo, same shape, proportions and label: a black cylindrical bottle with a black shrink-wrap safety seal over the cap, a black dotted upper label with a white circular tree logo, a hot-pink band with AGUAJE COMPLEX 3 EN 1 and the pink TRIPLE ACCIÓN section with three numbered boxes below, the label text sharp and legible exactly as in the photo; the bottle is closed and sealed, no capsules visible anywhere; rendered as a stylized 3D animation prop with a matte finish, no rainbow, no prism light, no lens flare. Only one single bottle in the whole image, label facing the camera, no hand touching it. It stands on a small wooden kitchen table next to a lunch plate with an arepa, rice and salad and a glass of water about the same height as the bottle; the bottle is centered and fills about the middle half of the frame height, warm Colombian kitchen softly blurred behind, soft daylight. Warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, open bottle, loose capsules, pills, distorted label, invented text, rainbow, prism light, lens flare, second bottle, two bottles, hand holding the bottle",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in toward the bottle\nMotion: steam rises gently from the plate; the closed bottle stays still\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "producto"
+      ]
+    },
+    {
+      "n": 12,
+      "despues_de_toma": 12,
+      "sincroniza_con": "tres frascos, pagas cuando te llegue",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film: exactly three identical bottles standing upright side by side on a doormat at the blue front door of a colorful Colombian house, grouped tightly in the center of the frame with clear space on both sides, never touching the edges of the frame; together they fill about the middle half of the frame height, all three labels facing the camera and fully visible. A plain open cardboard delivery box with no print sits on the doormat behind them. Each one is the Aguaje Complex bottle exactly as in the attached product photo, same shape, proportions and label: a black cylindrical bottle with a black shrink-wrap safety seal over the cap, a black dotted upper label with a white circular tree logo, a hot-pink band with AGUAJE COMPLEX 3 EN 1 and the pink TRIPLE ACCIÓN section with three numbered boxes below, the label text sharp and legible exactly as in the photo; every cap is covered by its black shrink-wrap seal; the bottles are closed and sealed, no capsules visible anywhere; rendered as stylized 3D animation props with a matte finish, no rainbow, no prism light, no lens flare, no hand touching them. Rounded cartoon potted plants beside the door, simplified smooth surfaces, saturated warm colors, warm sunlight. Warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, open bottle, loose capsules, pills, distorted label, invented text, bare caps without seal, rainbow, prism light, lens flare, bottles inside the box, labels covered, two bottles, four bottles, printed box",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in toward the three bottles\nMotion: sunlight slowly sweeps over the three closed bottles\nLighting: warm cinematic glow\nNo dialogue, no one speaks, no lip-sync. No loose capsules visible and the bottle is never opened. No text on screen.",
+      "referencias": [
+        "producto"
+      ]
+    }
+  ],
+  "voz": { "ajustes": { "speed": 1.12 } },
+  "voz_en_off": "¿Por qué tus glúteos no crecen aunque hagas de todo? Mil sentadillas, cremas, pastillas… y el jean sigue igual de plano. Y ya estabas ahorrando para una cirugía de millones. Pero el problema no está afuera, está adentro: tu músculo está dormido. Sin lo que necesita, no crece ni se llena. Y ninguna crema llega hasta allá. Ahí entra Aguaje Complex: fenogreco, aguaje y maca negra. Triple acción. Le dan a tu músculo lo que le faltaba y lo despiertan desde adentro. Día diez: el jean ya no te queda suelto. Día veinte: te miras de lado… y hay curva. Día treinta: todos voltean a verte en la calle. Sin bisturí, sin rebote y sin pagar millones. Solo dos cápsulas al día con las comidas. Pide hoy el tratamiento completo de tres frascos y pagas cuando te llegue a la casa.",
+  "overlays": [
+    {
+      "texto": "¿POR QUÉ NO CRECEN?",
+      "toma": 1,
+      "momento": "inicio"
+    },
+    {
+      "texto": "MÚSCULO DORMIDO",
+      "toma": 4,
+      "momento": "inicio"
+    },
+    {
+      "texto": "TRIPLE ACCIÓN",
+      "toma": 6,
+      "momento": "inicio"
+    },
+    {
+      "texto": "DÍA 10",
+      "toma": 8,
+      "momento": "inicio"
+    },
+    {
+      "texto": "DÍA 20",
+      "toma": 9,
+      "momento": "inicio"
+    },
+    {
+      "texto": "DÍA 30",
+      "toma": 10,
+      "momento": "inicio"
+    },
+    {
+      "texto": "SIN BISTURÍ",
+      "toma": 11,
+      "momento": "inicio"
+    },
+    {
+      "texto": "PAGO CONTRA ENTREGA",
+      "toma": 12,
+      "momento": "inicio"
+    }
+  ]
+}

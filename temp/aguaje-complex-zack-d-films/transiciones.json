@@ -1,0 +1,12 @@
+{
+  "efectos": {
+    "woosh": "efectos/woosh.mp3",
+    "deep-woosh": "efectos/deep-woosh.mp3"
+  },
+  "puntos": [
+    { "toma": 2,  "animacion": "deslizar-derecha",   "efecto": "woosh",      "porque": "entrada del PROBLEMA: todo lo que ya probó" },
+    { "toma": 6,  "animacion": "zoom",               "efecto": "deep-woosh", "porque": "entrada de la SOLUCION: aparece Aguaje Complex" },
+    { "toma": 8,  "animacion": "deslizar-izquierda", "efecto": "woosh",      "porque": "entrada de la PRUEBA: línea de tiempo día 10/20/30" },
+    { "toma": 12, "animacion": "zoom",               "efecto": "deep-woosh", "porque": "entrada del CTA: tratamiento de 3 frascos y pago contra entrega" }
+  ]
+}

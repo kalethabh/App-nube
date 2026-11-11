@@ -1,0 +1,1609 @@
+{
+  "generado": "2026-11-05T05:25:09.147Z",
+  "aprobado": false,
+  "duracion": 52.384,
+  "reglas": {
+    "umbralBroll": {
+      "B": 3.5,
+      "A": 3,
+      "C": 3
+    },
+    "tomaConBroll": {
+      "preferido": 2.5,
+      "minimo": 2
+    },
+    "brollMinimo": 1.2,
+    "velocidadMaxima": 1.6,
+    "velocidadQueDeformaAudio": null,
+    "fadeAudioMs": 80,
+    "duckingDb": -10,
+    "subtitulos": {
+      "tamano": 0.06137,
+      "interlineado": 1.1,
+      "contornoRespectoTamano": 0.135,
+      "desdeAbajo": 0.26,
+      "coloresResaltado": [
+        "#E8442A",
+        "#F5A524",
+        "#2F7DE1",
+        "#159A5B",
+        "#B5279B",
+        "#E01E5A",
+        "#7B3FE4",
+        "#0FA3B1",
+        "#D64500",
+        "#3B7A2A"
+      ],
+      "cajaPadding": 0.12,
+      "cajaRedondeo": 0.1
+    },
+    "transiciones": {
+      "duracionSeg": 0.45,
+      "duracionZoomSeg": 0.5,
+      "efectoDb": 0,
+      "zoomDesde": 1.35
+    },
+    "musica": {
+      "db": -26,
+      "subeEnPayoffDb": 4,
+      "fadeInSeg": 1.2,
+      "fadeOutSeg": 1.5
+    },
+    "dialogoNativo": {
+      "duckingDb": 0,
+      "broll": {
+        "duracionObjetivo": 2,
+        "margenSegundos": 1,
+        "margenMinimo": 0.5,
+        "duracionMinima": 1.2,
+        "anclaEnFraccion": 0.35,
+        "mudo": true
+      },
+      "musica": {
+        "db": -22,
+        "subeEnPayoffDb": 4,
+        "fadeInSeg": 1.2,
+        "fadeOutSeg": 1.5
+      }
+    }
+  },
+  "audio": {
+    "voz": "audio/voz.mp3",
+    "ducking": -10,
+    "fadeMs": 80
+  },
+  "musica": {
+    "archivo": "musica/fondo.mp3",
+    "db": -16,
+    "subeEnPayoffDb": 4,
+    "payoffDesdeSeg": 21.838,
+    "fadeInSeg": 1.2,
+    "fadeOutSeg": 1.5,
+    "loop": false,
+    "duracionPista": 121.496729
+  },
+  "bloques": [
+    {
+      "linea": 1,
+      "texto": "¿Por qué tus glúteos no crecen aunque hagas de todo?",
+      "inicio": 0.151,
+      "fin": 3.309,
+      "ventana": 3.158,
+      "tipo": "A",
+      "toma": {
+        "archivo": "toma-1.mp4",
+        "largoOriginal": 4.032,
+        "duracion": 3.158,
+        "desde": 0.151,
+        "metodo": "acelerar",
+        "velocidad": 1.277,
+        "recorte": 0,
+        "problema": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "no cabe: quedarian 1.16s de B-roll"
+    },
+    {
+      "linea": 2,
+      "texto": "Mil sentadillas, cremas, pastillas… y el jean sigue igual de plano.",
+      "inicio": 3.309,
+      "fin": 8.882,
+      "ventana": 5.573,
+      "tipo": "A",
+      "toma": {
+        "archivo": "toma-2.mp4",
+        "largoOriginal": 5.042,
+        "duracion": 2.5,
+        "desde": 3.309,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 0.651,
+        "problema": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 5.57s > 3s (tipo A)",
+      "broll": {
+        "n": 2,
+        "archivo": "broll-2.mp4",
+        "sincroniza_con": "cremas, pastillas",
+        "largoOriginal": 4.032,
+        "duracion": 3.073,
+        "desde": 5.809,
+        "metodo": "acelerar",
+        "velocidad": 1.312,
+        "recorte": 0,
+        "problema": false,
+        "audioDeformado": false
+      }
+    },
+    {
+      "linea": 3,
+      "texto": "Y ya estabas ahorrando para una cirugía de millones.",
+      "inicio": 8.882,
+      "fin": 12.109,
+      "ventana": 3.227,
+      "tipo": "A",
+      "toma": {
+        "archivo": "toma-3.mp4",
+        "largoOriginal": 4.032,
+        "duracion": 2,
+        "desde": 8.882,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 0.52,
+        "problema": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 3.23s > 3s (tipo A)",
+      "broll": {
+        "n": 3,
+        "archivo": "broll-3.mp4",
+        "sincroniza_con": "cirugía de millones",
+        "largoOriginal": 4.032,
+        "duracion": 1.227,
+        "desde": 10.882,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 1.293,
+        "problema": false,
+        "audioDeformado": false
+      }
+    },
+    {
+      "linea": 4,
+      "texto": "Pero el problema no está afuera, está adentro: tu músculo está dormido.",
+      "inicio": 12.109,
+      "fin": 16.973,
+      "ventana": 4.864,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-4.mp4",
+        "largoOriginal": 6.037,
+        "duracion": 2.5,
+        "desde": 12.109,
+        "metodo": "acelerar",
+        "velocidad": 2.415,
+        "recorte": 0,
+        "problema": false,
+        "excedeTope": true,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 4.86s > 3.5s (tipo B)",
+      "broll": {
+        "n": 4,
+        "archivo": "broll-4.mp4",
+        "sincroniza_con": "tu músculo está dormido",
+        "largoOriginal": 4.032,
+        "duracion": 2.364,
+        "desde": 14.609,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 0.156,
+        "problema": false,
+        "audioDeformado": false
+      }
+    },
+    {
+      "linea": 5,
+      "texto": "Sin lo que necesita, no crece ni se llena. Y ninguna crema llega hasta allá.",
+      "inicio": 16.973,
+      "fin": 21.838,
+      "ventana": 4.865,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-5.mp4",
+        "largoOriginal": 6.037,
+        "duracion": 2.5,
+        "desde": 16.973,
+        "metodo": "acelerar",
+        "velocidad": 2.415,
+        "recorte": 0,
+        "problema": false,
+        "excedeTope": true,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 4.87s > 3.5s (tipo B)",
+      "broll": {
+        "n": 5,
+        "archivo": "broll-5.mp4",
+        "sincroniza_con": "ninguna crema llega",
+        "largoOriginal": 4.032,
+        "duracion": 2.365,
+        "desde": 19.473,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 0.155,
+        "problema": false,
+        "audioDeformado": false
+      }
+    },
+    {
+      "linea": 6,
+      "texto": "Ahí entra Aguaje Complex: fenogreco, aguaje y maca negra. Triple acción.",
+      "inicio": 21.838,
+      "fin": 28.212,
+      "ventana": 6.374,
+      "tipo": "A",
+      "toma": {
+        "archivo": "toma-6.mp4",
+        "largoOriginal": 6.037,
+        "duracion": 2.5,
+        "desde": 21.838,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 1.273,
+        "problema": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 6.37s > 3s (tipo A)",
+      "broll": {
+        "n": 6,
+        "archivo": "broll-6.mp4",
+        "sincroniza_con": "fenogreco, aguaje y maca negra",
+        "largoOriginal": 4.032,
+        "duracion": 3.874,
+        "desde": 24.338,
+        "metodo": "acelerar",
+        "velocidad": 1.041,
+        "recorte": 0,
+        "problema": false,
+        "audioDeformado": false
+      }
+    },
+    {
+      "linea": 7,
+      "texto": "Le dan a tu músculo lo que le faltaba y lo despiertan desde adentro.",
+      "inicio": 28.212,
+      "fin": 32.078,
+      "ventana": 3.866,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-7.mp4",
+        "largoOriginal": 6.037,
+        "duracion": 2.5,
+        "desde": 28.212,
+        "metodo": "acelerar",
+        "velocidad": 2.415,
+        "recorte": 0,
+        "problema": false,
+        "excedeTope": true,
+        "audioDeformado": true
+      },
+      "motivoBroll": "ventana 3.87s > 3.5s (tipo B)",
+      "broll": {
+        "n": 7,
+        "archivo": "broll-7.mp4",
+        "sincroniza_con": "lo despiertan desde adentro",
+        "largoOriginal": 4.032,
+        "duracion": 1.366,
+        "desde": 30.712,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 1.154,
+        "problema": false,
+        "audioDeformado": false
+      }
+    },
+    {
+      "linea": 8,
+      "texto": "Día diez: el jean ya no te queda suelto.",
+      "inicio": 32.078,
+      "fin": 35.363,
+      "ventana": 3.285,
+      "tipo": "A",
+      "toma": {
+        "archivo": "toma-8.mp4",
+        "largoOriginal": 4.032,
+        "duracion": 2,
+        "desde": 32.078,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 0.52,
+        "problema": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 3.29s > 3s (tipo A)",
+      "broll": {
+        "n": 8,
+        "archivo": "broll-8.mp4",
+        "sincroniza_con": "el jean ya no te queda suelto",
+        "largoOriginal": 4.032,
+        "duracion": 1.285,
+        "desde": 34.078,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 1.235,
+        "problema": false,
+        "audioDeformado": false
+      }
+    },
+    {
+      "linea": 9,
+      "texto": "Día veinte: te miras de lado… y hay curva.",
+      "inicio": 35.363,
+      "fin": 38.777,
+      "ventana": 3.414,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-9.mp4",
+        "largoOriginal": 4.032,
+        "duracion": 3.414,
+        "desde": 35.363,
+        "metodo": "acelerar",
+        "velocidad": 1.181,
+        "recorte": 0,
+        "problema": false,
+        "excedeTope": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 3.41s <= 3.5s (tipo B): la toma aguanta sola"
+    },
+    {
+      "linea": 10,
+      "texto": "Día treinta: todos voltean a verte en la calle.",
+      "inicio": 38.777,
+      "fin": 41.969,
+      "ventana": 3.192,
+      "tipo": "A",
+      "toma": {
+        "archivo": "toma-10.mp4",
+        "largoOriginal": 4.042,
+        "duracion": 3.192,
+        "desde": 38.777,
+        "metodo": "acelerar",
+        "velocidad": 1.266,
+        "recorte": 0,
+        "problema": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "no cabe: quedarian 1.19s de B-roll"
+    },
+    {
+      "linea": 11,
+      "texto": "Sin bisturí, sin rebote y sin pagar millones. Solo dos cápsulas al día con las comidas.",
+      "inicio": 41.969,
+      "fin": 47.902,
+      "ventana": 5.933,
+      "tipo": "A",
+      "toma": {
+        "archivo": "toma-11.mp4",
+        "largoOriginal": 8.043,
+        "duracion": 2.5,
+        "desde": 41.969,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 2.527,
+        "problema": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 5.93s > 3s (tipo A)",
+      "broll": {
+        "n": 9,
+        "archivo": "broll-9.mp4",
+        "sincroniza_con": "sin bisturí, sin rebote y sin pagar millones",
+        "largoOriginal": 4.032,
+        "duracion": 3.433,
+        "desde": 44.469,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.174,
+        "recorte": 0.001,
+        "problema": false,
+        "audioDeformado": false
+      }
+    },
+    {
+      "linea": 12,
+      "texto": "Pide hoy el tratamiento completo de tres frascos y pagas cuando te llegue a la casa.",
+      "inicio": 47.902,
+      "fin": 52.384,
+      "ventana": 4.482,
+      "tipo": "A",
+      "toma": {
+        "archivo": "toma-12.mp4",
+        "largoOriginal": 8.043,
+        "duracion": 2.5,
+        "desde": 47.902,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 2.527,
+        "problema": false,
+        "audioDeformado": false
+      },
+      "motivoBroll": "ventana 4.48s > 3s (tipo A)",
+      "broll": {
+        "n": 12,
+        "archivo": "broll-12.mp4",
+        "sincroniza_con": "tres frascos, pagas cuando te llegue",
+        "largoOriginal": 4.032,
+        "duracion": 1.982,
+        "desde": 50.402,
+        "metodo": "acelerar y cortar desde el final",
+        "velocidad": 1.6,
+        "recorte": 0.538,
+        "problema": false,
+        "audioDeformado": false
+      }
+    }
+  ],
+  "subtitulos": [
+    {
+      "inicio": 0,
+      "fin": 0.7,
+      "texto": "¿Por qué tus",
+      "palabras": [
+        {
+          "texto": "¿Por",
+          "inicio": 0,
+          "fin": 0.302
+        },
+        {
+          "texto": "qué",
+          "inicio": 0.36,
+          "fin": 0.464
+        },
+        {
+          "texto": "tus",
+          "inicio": 0.522,
+          "fin": 0.673
+        }
+      ]
+    },
+    {
+      "inicio": 0.72,
+      "fin": 1.687,
+      "texto": "glúteos no crecen",
+      "palabras": [
+        {
+          "texto": "glúteos",
+          "inicio": 0.72,
+          "fin": 1.103
+        },
+        {
+          "texto": "no",
+          "inicio": 1.149,
+          "fin": 1.231
+        },
+        {
+          "texto": "crecen",
+          "inicio": 1.277,
+          "fin": 1.649
+        }
+      ]
+    },
+    {
+      "inicio": 1.707,
+      "fin": 2.453,
+      "texto": "aunque hagas de",
+      "palabras": [
+        {
+          "texto": "aunque",
+          "inicio": 1.707,
+          "fin": 1.95
+        },
+        {
+          "texto": "hagas",
+          "inicio": 1.997,
+          "fin": 2.276
+        },
+        {
+          "texto": "de",
+          "inicio": 2.322,
+          "fin": 2.403
+        }
+      ]
+    },
+    {
+      "inicio": 2.473,
+      "fin": 3.139,
+      "texto": "todo?",
+      "palabras": [
+        {
+          "texto": "todo?",
+          "inicio": 2.473,
+          "fin": 3.019
+        }
+      ]
+    },
+    {
+      "inicio": 3.309,
+      "fin": 4.403,
+      "texto": "Mil sentadillas,",
+      "palabras": [
+        {
+          "texto": "Mil",
+          "inicio": 3.309,
+          "fin": 3.518
+        },
+        {
+          "texto": "sentadillas,",
+          "inicio": 3.576,
+          "fin": 4.4
+        }
+      ]
+    },
+    {
+      "inicio": 4.423,
+      "fin": 6.32,
+      "texto": "cremas, pastillas…",
+      "palabras": [
+        {
+          "texto": "cremas,",
+          "inicio": 4.423,
+          "fin": 5.074
+        },
+        {
+          "texto": "pastillas…",
+          "inicio": 5.12,
+          "fin": 6.2
+        }
+      ]
+    },
+    {
+      "inicio": 6.653,
+      "fin": 7.155,
+      "texto": "y el jean",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 6.653,
+          "fin": 6.711
+        },
+        {
+          "texto": "el",
+          "inicio": 6.815,
+          "fin": 6.896
+        },
+        {
+          "texto": "jean",
+          "inicio": 6.966,
+          "fin": 7.117
+        }
+      ]
+    },
+    {
+      "inicio": 7.175,
+      "fin": 7.875,
+      "texto": "sigue igual de",
+      "palabras": [
+        {
+          "texto": "sigue",
+          "inicio": 7.175,
+          "fin": 7.419
+        },
+        {
+          "texto": "igual",
+          "inicio": 7.465,
+          "fin": 7.721
+        },
+        {
+          "texto": "de",
+          "inicio": 7.779,
+          "fin": 7.848
+        }
+      ]
+    },
+    {
+      "inicio": 7.895,
+      "fin": 8.607,
+      "texto": "plano.",
+      "palabras": [
+        {
+          "texto": "plano.",
+          "inicio": 7.895,
+          "fin": 8.487
+        }
+      ]
+    },
+    {
+      "inicio": 8.882,
+      "fin": 9.465,
+      "texto": "Y ya estabas",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 8.882,
+          "fin": 8.951
+        },
+        {
+          "texto": "ya",
+          "inicio": 9.021,
+          "fin": 9.102
+        },
+        {
+          "texto": "estabas",
+          "inicio": 9.125,
+          "fin": 9.427
+        }
+      ]
+    },
+    {
+      "inicio": 9.485,
+      "fin": 10.301,
+      "texto": "ahorrando para una",
+      "palabras": [
+        {
+          "texto": "ahorrando",
+          "inicio": 9.485,
+          "fin": 9.892
+        },
+        {
+          "texto": "para",
+          "inicio": 9.938,
+          "fin": 10.101
+        },
+        {
+          "texto": "una",
+          "inicio": 10.147,
+          "fin": 10.286
+        }
+      ]
+    },
+    {
+      "inicio": 10.321,
+      "fin": 11.776,
+      "texto": "cirugía de millones.",
+      "palabras": [
+        {
+          "texto": "cirugía",
+          "inicio": 10.321,
+          "fin": 10.82
+        },
+        {
+          "texto": "de",
+          "inicio": 10.867,
+          "fin": 10.937
+        },
+        {
+          "texto": "millones.",
+          "inicio": 10.995,
+          "fin": 11.656
+        }
+      ]
+    },
+    {
+      "inicio": 12.109,
+      "fin": 12.855,
+      "texto": "Pero el problema",
+      "palabras": [
+        {
+          "texto": "Pero",
+          "inicio": 12.109,
+          "fin": 12.295
+        },
+        {
+          "texto": "el",
+          "inicio": 12.33,
+          "fin": 12.388
+        },
+        {
+          "texto": "problema",
+          "inicio": 12.434,
+          "fin": 12.817
+        }
+      ]
+    },
+    {
+      "inicio": 12.875,
+      "fin": 13.924,
+      "texto": "no está afuera,",
+      "palabras": [
+        {
+          "texto": "no",
+          "inicio": 12.875,
+          "fin": 12.968
+        },
+        {
+          "texto": "está",
+          "inicio": 13.015,
+          "fin": 13.212
+        },
+        {
+          "texto": "afuera,",
+          "inicio": 13.259,
+          "fin": 13.839
+        }
+      ]
+    },
+    {
+      "inicio": 13.944,
+      "fin": 15.374,
+      "texto": "está adentro: tu",
+      "palabras": [
+        {
+          "texto": "está",
+          "inicio": 13.944,
+          "fin": 14.338
+        },
+        {
+          "texto": "adentro:",
+          "inicio": 14.385,
+          "fin": 15.012
+        },
+        {
+          "texto": "tu",
+          "inicio": 15.232,
+          "fin": 15.336
+        }
+      ]
+    },
+    {
+      "inicio": 15.394,
+      "fin": 16.013,
+      "texto": "músculo está",
+      "palabras": [
+        {
+          "texto": "músculo",
+          "inicio": 15.394,
+          "fin": 15.789
+        },
+        {
+          "texto": "está",
+          "inicio": 15.824,
+          "fin": 15.987
+        }
+      ]
+    },
+    {
+      "inicio": 16.033,
+      "fin": 16.757,
+      "texto": "dormido.",
+      "palabras": [
+        {
+          "texto": "dormido.",
+          "inicio": 16.033,
+          "fin": 16.637
+        }
+      ]
+    },
+    {
+      "inicio": 16.973,
+      "fin": 17.429,
+      "texto": "Sin lo que",
+      "palabras": [
+        {
+          "texto": "Sin",
+          "inicio": 16.973,
+          "fin": 17.171
+        },
+        {
+          "texto": "lo",
+          "inicio": 17.217,
+          "fin": 17.287
+        },
+        {
+          "texto": "que",
+          "inicio": 17.333,
+          "fin": 17.403
+        }
+      ]
+    },
+    {
+      "inicio": 17.449,
+      "fin": 18.695,
+      "texto": "necesita, no crece",
+      "palabras": [
+        {
+          "texto": "necesita,",
+          "inicio": 17.449,
+          "fin": 18.053
+        },
+        {
+          "texto": "no",
+          "inicio": 18.123,
+          "fin": 18.239
+        },
+        {
+          "texto": "crece",
+          "inicio": 18.285,
+          "fin": 18.645
+        }
+      ]
+    },
+    {
+      "inicio": 18.715,
+      "fin": 19.613,
+      "texto": "ni se llena.",
+      "palabras": [
+        {
+          "texto": "ni",
+          "inicio": 18.715,
+          "fin": 18.808
+        },
+        {
+          "texto": "se",
+          "inicio": 18.854,
+          "fin": 18.959
+        },
+        {
+          "texto": "llena.",
+          "inicio": 18.982,
+          "fin": 19.493
+        }
+      ]
+    },
+    {
+      "inicio": 19.737,
+      "fin": 20.483,
+      "texto": "Y ninguna crema",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 19.737,
+          "fin": 19.806
+        },
+        {
+          "texto": "ninguna",
+          "inicio": 19.876,
+          "fin": 20.155
+        },
+        {
+          "texto": "crema",
+          "inicio": 20.201,
+          "fin": 20.48
+        }
+      ]
+    },
+    {
+      "inicio": 20.503,
+      "fin": 21.621,
+      "texto": "llega hasta allá.",
+      "palabras": [
+        {
+          "texto": "llega",
+          "inicio": 20.503,
+          "fin": 20.816
+        },
+        {
+          "texto": "hasta",
+          "inicio": 20.84,
+          "fin": 21.049
+        },
+        {
+          "texto": "allá.",
+          "inicio": 21.083,
+          "fin": 21.501
+        }
+      ]
+    },
+    {
+      "inicio": 21.838,
+      "fin": 22.933,
+      "texto": "Ahí entra Aguaje",
+      "palabras": [
+        {
+          "texto": "Ahí",
+          "inicio": 21.838,
+          "fin": 22.093
+        },
+        {
+          "texto": "entra",
+          "inicio": 22.151,
+          "fin": 22.43
+        },
+        {
+          "texto": "Aguaje",
+          "inicio": 22.453,
+          "fin": 22.895
+        }
+      ]
+    },
+    {
+      "inicio": 22.953,
+      "fin": 24.802,
+      "texto": "Complex: fenogreco,",
+      "palabras": [
+        {
+          "texto": "Complex:",
+          "inicio": 22.953,
+          "fin": 23.684
+        },
+        {
+          "texto": "fenogreco,",
+          "inicio": 23.928,
+          "fin": 24.752
+        }
+      ]
+    },
+    {
+      "inicio": 24.822,
+      "fin": 25.94,
+      "texto": "aguaje y maca",
+      "palabras": [
+        {
+          "texto": "aguaje",
+          "inicio": 24.822,
+          "fin": 25.367
+        },
+        {
+          "texto": "y",
+          "inicio": 25.449,
+          "fin": 25.53
+        },
+        {
+          "texto": "maca",
+          "inicio": 25.634,
+          "fin": 25.902
+        }
+      ]
+    },
+    {
+      "inicio": 25.96,
+      "fin": 26.614,
+      "texto": "negra.",
+      "palabras": [
+        {
+          "texto": "negra.",
+          "inicio": 25.96,
+          "fin": 26.494
+        }
+      ]
+    },
+    {
+      "inicio": 26.737,
+      "fin": 27.879,
+      "texto": "Triple acción.",
+      "palabras": [
+        {
+          "texto": "Triple",
+          "inicio": 26.737,
+          "fin": 27.144
+        },
+        {
+          "texto": "acción.",
+          "inicio": 27.167,
+          "fin": 27.759
+        }
+      ]
+    },
+    {
+      "inicio": 28.212,
+      "fin": 28.552,
+      "texto": "Le dan a",
+      "palabras": [
+        {
+          "texto": "Le",
+          "inicio": 28.212,
+          "fin": 28.316
+        },
+        {
+          "texto": "dan",
+          "inicio": 28.363,
+          "fin": 28.456
+        },
+        {
+          "texto": "a",
+          "inicio": 28.502,
+          "fin": 28.525
+        }
+      ]
+    },
+    {
+      "inicio": 28.572,
+      "fin": 29.225,
+      "texto": "tu músculo lo",
+      "palabras": [
+        {
+          "texto": "tu",
+          "inicio": 28.572,
+          "fin": 28.653
+        },
+        {
+          "texto": "músculo",
+          "inicio": 28.7,
+          "fin": 29.083
+        },
+        {
+          "texto": "lo",
+          "inicio": 29.117,
+          "fin": 29.199
+        }
+      ]
+    },
+    {
+      "inicio": 29.245,
+      "fin": 29.968,
+      "texto": "que le faltaba",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 29.245,
+          "fin": 29.326
+        },
+        {
+          "texto": "le",
+          "inicio": 29.361,
+          "fin": 29.431
+        },
+        {
+          "texto": "faltaba",
+          "inicio": 29.477,
+          "fin": 29.942
+        }
+      ]
+    },
+    {
+      "inicio": 29.988,
+      "fin": 30.757,
+      "texto": "y lo despiertan",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 29.988,
+          "fin": 30.011
+        },
+        {
+          "texto": "lo",
+          "inicio": 30.069,
+          "fin": 30.151
+        },
+        {
+          "texto": "despiertan",
+          "inicio": 30.197,
+          "fin": 30.719
+        }
+      ]
+    },
+    {
+      "inicio": 30.777,
+      "fin": 31.803,
+      "texto": "desde adentro.",
+      "palabras": [
+        {
+          "texto": "desde",
+          "inicio": 30.777,
+          "fin": 31.021
+        },
+        {
+          "texto": "adentro.",
+          "inicio": 31.068,
+          "fin": 31.683
+        }
+      ]
+    },
+    {
+      "inicio": 32.078,
+      "fin": 33.173,
+      "texto": "Día diez:",
+      "palabras": [
+        {
+          "texto": "Día",
+          "inicio": 32.078,
+          "fin": 32.345
+        },
+        {
+          "texto": "diez:",
+          "inicio": 32.414,
+          "fin": 33.053
+        }
+      ]
+    },
+    {
+      "inicio": 33.343,
+      "fin": 33.985,
+      "texto": "el jean ya",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 33.343,
+          "fin": 33.494
+        },
+        {
+          "texto": "jean",
+          "inicio": 33.598,
+          "fin": 33.807
+        },
+        {
+          "texto": "ya",
+          "inicio": 33.889,
+          "fin": 33.958
+        }
+      ]
+    },
+    {
+      "inicio": 34.005,
+      "fin": 34.484,
+      "texto": "no te queda",
+      "palabras": [
+        {
+          "texto": "no",
+          "inicio": 34.005,
+          "fin": 34.086
+        },
+        {
+          "texto": "te",
+          "inicio": 34.133,
+          "fin": 34.202
+        },
+        {
+          "texto": "queda",
+          "inicio": 34.249,
+          "fin": 34.458
+        }
+      ]
+    },
+    {
+      "inicio": 34.504,
+      "fin": 35.193,
+      "texto": "suelto.",
+      "palabras": [
+        {
+          "texto": "suelto.",
+          "inicio": 34.504,
+          "fin": 35.073
+        }
+      ]
+    },
+    {
+      "inicio": 35.363,
+      "fin": 36.493,
+      "texto": "Día veinte: te",
+      "palabras": [
+        {
+          "texto": "Día",
+          "inicio": 35.363,
+          "fin": 35.619
+        },
+        {
+          "texto": "veinte:",
+          "inicio": 35.677,
+          "fin": 36.234
+        },
+        {
+          "texto": "te",
+          "inicio": 36.373,
+          "fin": 36.466
+        }
+      ]
+    },
+    {
+      "inicio": 36.513,
+      "fin": 37.55,
+      "texto": "miras de lado…",
+      "palabras": [
+        {
+          "texto": "miras",
+          "inicio": 36.513,
+          "fin": 36.768
+        },
+        {
+          "texto": "de",
+          "inicio": 36.814,
+          "fin": 36.873
+        },
+        {
+          "texto": "lado…",
+          "inicio": 36.919,
+          "fin": 37.43
+        }
+      ]
+    },
+    {
+      "inicio": 37.581,
+      "fin": 38.606,
+      "texto": "y hay curva.",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 37.581,
+          "fin": 37.639
+        },
+        {
+          "texto": "hay",
+          "inicio": 37.685,
+          "fin": 37.79
+        },
+        {
+          "texto": "curva.",
+          "inicio": 37.859,
+          "fin": 38.486
+        }
+      ]
+    },
+    {
+      "inicio": 38.777,
+      "fin": 40.277,
+      "texto": "Día treinta: todos",
+      "palabras": [
+        {
+          "texto": "Día",
+          "inicio": 38.777,
+          "fin": 39.044
+        },
+        {
+          "texto": "treinta:",
+          "inicio": 39.113,
+          "fin": 39.752
+        },
+        {
+          "texto": "todos",
+          "inicio": 39.938,
+          "fin": 40.251
+        }
+      ]
+    },
+    {
+      "inicio": 40.297,
+      "fin": 41.032,
+      "texto": "voltean a verte",
+      "palabras": [
+        {
+          "texto": "voltean",
+          "inicio": 40.297,
+          "fin": 40.588
+        },
+        {
+          "texto": "a",
+          "inicio": 40.634,
+          "fin": 40.657
+        },
+        {
+          "texto": "verte",
+          "inicio": 40.704,
+          "fin": 41.006
+        }
+      ]
+    },
+    {
+      "inicio": 41.052,
+      "fin": 41.904,
+      "texto": "en la calle.",
+      "palabras": [
+        {
+          "texto": "en",
+          "inicio": 41.052,
+          "fin": 41.11
+        },
+        {
+          "texto": "la",
+          "inicio": 41.157,
+          "fin": 41.226
+        },
+        {
+          "texto": "calle.",
+          "inicio": 41.284,
+          "fin": 41.784
+        }
+      ]
+    },
+    {
+      "inicio": 41.969,
+      "fin": 43.238,
+      "texto": "Sin bisturí, sin",
+      "palabras": [
+        {
+          "texto": "Sin",
+          "inicio": 41.969,
+          "fin": 42.155
+        },
+        {
+          "texto": "bisturí,",
+          "inicio": 42.201,
+          "fin": 42.84
+        },
+        {
+          "texto": "sin",
+          "inicio": 42.991,
+          "fin": 43.177
+        }
+      ]
+    },
+    {
+      "inicio": 43.258,
+      "fin": 44.132,
+      "texto": "rebote y sin",
+      "palabras": [
+        {
+          "texto": "rebote",
+          "inicio": 43.258,
+          "fin": 43.769
+        },
+        {
+          "texto": "y",
+          "inicio": 43.838,
+          "fin": 43.908
+        },
+        {
+          "texto": "sin",
+          "inicio": 43.978,
+          "fin": 44.106
+        }
+      ]
+    },
+    {
+      "inicio": 44.152,
+      "fin": 45.317,
+      "texto": "pagar millones.",
+      "palabras": [
+        {
+          "texto": "pagar",
+          "inicio": 44.152,
+          "fin": 44.419
+        },
+        {
+          "texto": "millones.",
+          "inicio": 44.489,
+          "fin": 45.197
+        }
+      ]
+    },
+    {
+      "inicio": 45.487,
+      "fin": 46.373,
+      "texto": "Solo dos cápsulas",
+      "palabras": [
+        {
+          "texto": "Solo",
+          "inicio": 45.487,
+          "fin": 45.731
+        },
+        {
+          "texto": "dos",
+          "inicio": 45.777,
+          "fin": 45.905
+        },
+        {
+          "texto": "cápsulas",
+          "inicio": 45.952,
+          "fin": 46.335
+        }
+      ]
+    },
+    {
+      "inicio": 46.393,
+      "fin": 46.814,
+      "texto": "al día con",
+      "palabras": [
+        {
+          "texto": "al",
+          "inicio": 46.393,
+          "fin": 46.462
+        },
+        {
+          "texto": "día",
+          "inicio": 46.509,
+          "fin": 46.671
+        },
+        {
+          "texto": "con",
+          "inicio": 46.718,
+          "fin": 46.811
+        }
+      ]
+    },
+    {
+      "inicio": 46.834,
+      "fin": 47.732,
+      "texto": "las comidas.",
+      "palabras": [
+        {
+          "texto": "las",
+          "inicio": 46.834,
+          "fin": 46.927
+        },
+        {
+          "texto": "comidas.",
+          "inicio": 46.974,
+          "fin": 47.612
+        }
+      ]
+    },
+    {
+      "inicio": 47.902,
+      "fin": 48.486,
+      "texto": "Pide hoy el",
+      "palabras": [
+        {
+          "texto": "Pide",
+          "inicio": 47.902,
+          "fin": 48.158
+        },
+        {
+          "texto": "hoy",
+          "inicio": 48.204,
+          "fin": 48.367
+        },
+        {
+          "texto": "el",
+          "inicio": 48.413,
+          "fin": 48.471
+        }
+      ]
+    },
+    {
+      "inicio": 48.506,
+      "fin": 49.508,
+      "texto": "tratamiento completo",
+      "palabras": [
+        {
+          "texto": "tratamiento",
+          "inicio": 48.506,
+          "fin": 49.04
+        },
+        {
+          "texto": "completo",
+          "inicio": 49.087,
+          "fin": 49.481
+        }
+      ]
+    },
+    {
+      "inicio": 49.528,
+      "fin": 50.367,
+      "texto": "de tres frascos",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 49.528,
+          "fin": 49.598
+        },
+        {
+          "texto": "tres",
+          "inicio": 49.644,
+          "fin": 49.83
+        },
+        {
+          "texto": "frascos",
+          "inicio": 49.888,
+          "fin": 50.283
+        }
+      ]
+    },
+    {
+      "inicio": 50.387,
+      "fin": 51.145,
+      "texto": "y pagas cuando",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 50.387,
+          "fin": 50.468
+        },
+        {
+          "texto": "pagas",
+          "inicio": 50.55,
+          "fin": 50.828
+        },
+        {
+          "texto": "cuando",
+          "inicio": 50.875,
+          "fin": 51.118
+        }
+      ]
+    },
+    {
+      "inicio": 51.165,
+      "fin": 51.621,
+      "texto": "te llegue a",
+      "palabras": [
+        {
+          "texto": "te",
+          "inicio": 51.165,
+          "fin": 51.246
+        },
+        {
+          "texto": "llegue",
+          "inicio": 51.269,
+          "fin": 51.56
+        },
+        {
+          "texto": "a",
+          "inicio": 51.583,
+          "fin": 51.606
+        }
+      ]
+    },
+    {
+      "inicio": 51.641,
+      "fin": 52.504,
+      "texto": "la casa.",
+      "palabras": [
+        {
+          "texto": "la",
+          "inicio": 51.641,
+          "fin": 51.722
+        },
+        {
+          "texto": "casa.",
+          "inicio": 51.769,
+          "fin": 52.384
+        }
+      ]
+    }
+  ],
+  "estiloSubtitulos": {
+    "tamano": 0.06137,
+    "interlineado": 1.1,
+    "contornoRespectoTamano": 0.135,
+    "desdeAbajo": 0.26,
+    "coloresResaltado": [
+      "#E8442A",
+      "#F5A524",
+      "#2F7DE1",
+      "#159A5B",
+      "#B5279B",
+      "#E01E5A",
+      "#7B3FE4",
+      "#0FA3B1",
+      "#D64500",
+      "#3B7A2A"
+    ],
+    "cajaPadding": 0.12,
+    "cajaRedondeo": 0.1,
+    "colorResaltado": "#F5A524"
+  },
+  "transiciones": [
+    {
+      "toma": 2,
+      "desde": 3.309,
+      "animacion": "deslizar-derecha",
+      "efecto": "woosh",
+      "archivo": "efectos/woosh.mp3",
+      "adelantoSeg": 0.05,
+      "porque": "entrada del PROBLEMA: todo lo que ya probó"
+    },
+    {
+      "toma": 6,
+      "desde": 21.838,
+      "animacion": "zoom",
+      "efecto": "deep-woosh",
+      "archivo": "efectos/deep-woosh.mp3",
+      "adelantoSeg": 0.2,
+      "porque": "entrada de la SOLUCION: aparece Aguaje Complex"
+    },
+    {
+      "toma": 8,
+      "desde": 32.078,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh",
+      "archivo": "efectos/woosh.mp3",
+      "adelantoSeg": 0.05,
+      "porque": "entrada de la PRUEBA: línea de tiempo día 10/20/30"
+    },
+    {
+      "toma": 12,
+      "desde": 47.902,
+      "animacion": "zoom",
+      "efecto": "deep-woosh",
+      "archivo": "efectos/deep-woosh.mp3",
+      "adelantoSeg": 0.2,
+      "porque": "entrada del CTA: tratamiento de 3 frascos y pago contra entrega"
+    }
+  ],
+  "reglasTransiciones": {
+    "duracionSeg": 0.45,
+    "duracionZoomSeg": 0.5,
+    "efectoDb": 0,
+    "zoomDesde": 1.35
+  },
+  "brollFuera": [
+    1,
+    10,
+    11
+  ],
+  "avisos": [
+    "toma 4 (Tipo B): va a 2.42x, por encima de la guia de 1.6x. Clip 6.04s en una ventana de 2.50s. Sigue siendo acelerado, no cortado. Si no te convence: sube --velocidad-max, mete un B-roll, o regenera ese clip mas corto.",
+    "toma 5 (Tipo B): va a 2.42x, por encima de la guia de 1.6x. Clip 6.04s en una ventana de 2.50s. Sigue siendo acelerado, no cortado. Si no te convence: sube --velocidad-max, mete un B-roll, o regenera ese clip mas corto.",
+    "toma 7 (Tipo B): va a 2.42x, por encima de la guia de 1.6x. Clip 6.04s en una ventana de 2.50s. Sigue siendo acelerado, no cortado. Si no te convence: sube --velocidad-max, mete un B-roll, o regenera ese clip mas corto.",
+    "silenciar.json nombra broll-10.mp4, que no estan en el montaje. Revisa los nombres."
+  ]
+}

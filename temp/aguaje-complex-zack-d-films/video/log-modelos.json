@@ -1,0 +1,49 @@
+{
+  "generado": "2026-11-05T05:16:22.038Z",
+  "parcial": false,
+  "segundos": 201,
+  "clips": [
+    {
+      "id": "broll-12",
+      "archivo": "broll-12.mp4",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "broll",
+      "segundosUtiles": 3,
+      "segundosPedidos": 4,
+      "resolucion": "720p",
+      "frameFinal": false,
+      "creditos": 63,
+      "taskId": "97e309b54800cfacbb8681324c860015"
+    },
+    {
+      "id": "broll-11",
+      "archivo": "broll-11.mp4",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "broll",
+      "segundosUtiles": 3,
+      "segundosPedidos": 4,
+      "resolucion": "720p",
+      "frameFinal": false,
+      "creditos": 63,
+      "taskId": "90c721d13928273049a45fa6be9a012d"
+    },
+    {
+      "id": "broll-10",
+      "archivo": "broll-10.mp4",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "tipo": "broll",
+      "segundosUtiles": 3,
+      "segundosPedidos": 3,
+      "resolucion": "720p",
+      "frameFinal": false,
+      "creditos": 60,
+      "taskId": "2642cac0c717d1da97a2d0dc402da4e1"
+    }
+  ]
+}
