@@ -1,7 +1,8 @@
 // Ajustes · Tu PC: cuántos anuncios puede hacer a la vez esta computadora (memoria, núcleos y espacio
 // libre REALES, leídos en el servidor) y el selector para cambiarlo. Las revisiones de los programas que
-// usa la app (programa de video, armado del video, Python, Node, Claude Code) solo aparecen si a alguna
-// le falta algo: lo que falta lo instala el lanzador al abrir la app.
+// usa la app (programa de video, armado del video, Python, Node y el programa de tu IA: Claude Code o Codex) solo
+// aparecen si a alguna le falta algo: lo que falta lo instala el lanzador al abrir la app, y el programa de tu IA, la
+// app (Ajustes › Conexiones, «Instalar»).
 import { useState } from 'react';
 import { Clapperboard, Code, Cpu, Film, Globe, HardDrive, Layers, MemoryStick, RefreshCw, Ruler, Server, TerminalSquare } from 'lucide-react';
 import { Boton, Esqueleto, Seccion, Selector, Tarjeta } from '../../componentes/index.js';
@@ -35,11 +36,14 @@ export const TEXTO_REVISION = {
     mal: 'Solo hace falta para el podcast con el host en la esquina, la entrevista y los iconos. Lo instala el lanzador al abrir la app',
     corto: 'Solo para podcast en esquina, entrevista e iconos',
   },
-  node: { titulo: 'Motor de la app', bien: 'Node.js', mal: 'Hace falta una versión más nueva: la instala el lanzador al abrir la app' },
+  node: { titulo: 'Base de la app', bien: 'Node.js', mal: 'Hace falta una versión más nueva: la instala el lanzador al abrir la app' },
+  // el programa de tu IA (solo el de la elegida): su nombre viene en la revisión (r.programa)
+  motor: { titulo: 'El programa de tu IA', bien: 'Instalado', mal: 'Lo instala la app: Ajustes › Conexiones, «Instalar»' },
+  // (un servidor de antes solo revisaba Claude Code, y lo instalaba el lanzador)
   claude: { titulo: 'Claude Code', bien: 'Instalado', mal: 'Lo instala el lanzador al abrir la app' },
 };
 
-export const ICONO_REVISION = { ffmpeg: Film, ffprobe: Ruler, vp9: Layers, remotion: Clapperboard, navegador: Globe, python: Code, node: Server, claude: TerminalSquare };
+export const ICONO_REVISION = { ffmpeg: Film, ffprobe: Ruler, vp9: Layers, remotion: Clapperboard, navegador: Globe, python: Code, node: Server, motor: TerminalSquare, claude: TerminalSquare };
 
 /** Lo que se hace si falta algo, en una frase. */
 const QUE_HACER = 'Para instalar lo que falta, cierra la ventana negra y vuelve a abrir Anuncios con IA: lo instala solo. Después toca «Volver a revisar».';
@@ -89,7 +93,10 @@ export function TuPC({ ajustes, recargar, alCambiarALaVez }) {
         ? `Lo cómodo para tu PC ${rec.aLaVez === 1 ? 'es uno' : `son ${rec.aLaVez}`}. Con ${elegidos}, el armado final de los videos hace fila y cada anuncio tarda un poco más.`
         : `Tu PC aguantaría ${rec.aLaVez}. Si apruebas más guiones, cada uno empieza apenas se libera un lugar.`;
   // el navegador del render se baja solo con el primer video: no es una falta. Lo obligatorio va primero.
-  const faltan = (eq?.revisiones || []).filter((r) => !r.ok && r.id !== 'navegador').sort((a, b) => Number(Boolean(b.obligatorio)) - Number(Boolean(a.obligatorio)));
+  // (sin IA elegida no hay programa que instalar: se elige en Conexiones)
+  const faltan = (eq?.revisiones || []).filter((r) => !r.ok && r.id !== 'navegador' && !(r.id === 'motor' && !r.motor)).sort((a, b) => Number(Boolean(b.obligatorio)) - Number(Boolean(a.obligatorio)));
+  // el programa de tu IA lo instala la app (su fila ya lo dice): "cierra la ventana negra…" es para lo demás
+  const queHacer = faltan.some((r) => r.id !== 'motor');
 
   // en qué se basa la recomendación, dicho corto
   const base = eq
@@ -162,9 +169,10 @@ export function TuPC({ ajustes, recargar, alCambiarALaVez }) {
             <Tarjeta relleno="compacto" className="pc-revisiones">
               {faltan.map((r) => {
                 const t = TEXTO_REVISION[r.id] || { titulo: r.id, mal: 'Falta algo' };
-                return <FilaRevision key={r.id} icono={ICONO_REVISION[r.id] || Server} ok={false} titulo={t.titulo} detalle={r.aviso ? `${r.aviso}.` : `${t.mal}.`} />;
+                const titulo = r.id === 'motor' && r.programa ? r.programa : t.titulo;
+                return <FilaRevision key={r.id} icono={ICONO_REVISION[r.id] || Server} ok={false} titulo={titulo} detalle={r.aviso ? `${r.aviso}.` : `${t.mal}.`} />;
               })}
-              <p className="pc-revisiones__que-hacer">{QUE_HACER}</p>
+              {queHacer ? <p className="pc-revisiones__que-hacer">{QUE_HACER}</p> : null}
             </Tarjeta>
           ) : null}
         </>

@@ -15,6 +15,7 @@ import { enlace } from '../../datos/rutas.js';
 import { enMinuscula, fechaRelativa } from '../../datos/formato.js';
 import { TEXTO_ALTO, continuarProduccion, textoDePaso } from '../../datos/produccion.js';
 import { BotonDescartar } from '../nuevo/Descartar.jsx';
+import { MOTORES, mayuscula, useMotor } from '../ajustes/datos.js';
 
 const ICONOS = { error: TriangleAlert, saldo: Wallet, pausa: CirclePause, cancion: EighthNotes };
 const conPunto = (s) => (/[.!?…]$/.test(String(s).trim()) ? String(s).trim() : `${String(s).trim()}.`);
@@ -104,15 +105,18 @@ const horaDe = (iso) => {
   return d && !Number.isNaN(d.getTime()) ? `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}` : null;
 };
 
-/** Lo que dice la tarjeta de un guion que no salió, según el tipo de falla. */
-function textoDeFalla(a) {
+/**
+ * Lo que dice la tarjeta de un guion que no salió, según el tipo de falla. `ia`: el nombre de la IA que lo intentó (la
+ * del anuncio, si el servidor la manda; si no, la elegida).
+ */
+function textoDeFalla(a, ia) {
   if (a.errorTipo === 'limite') {
     const h = horaDe(a.reinicio);
-    return `Se acabó por ahora el uso de tu plan de Claude${h ? `: se renueva a las ${h}` : ''}. Después toca «Reintentar»: lo ya hecho no se repite.`;
+    return `Se acabó por ahora el uso de tu plan de ${ia}${h ? `: se renueva a las ${h}` : ''}. Después toca «Reintentar»: lo ya hecho no se repite.`;
   }
-  const paso = loQuePaso(a.error) || 'Claude no terminó el guion.';
+  const paso = loQuePaso(a.error) || `${ia} no terminó el guion.`;
   if (a.errorTipo === 'bloqueo') return `${conPunto(paso)} Ábrelo y contesta lo que falta.`;
-  if (a.errorTipo === 'sin-sesion' || a.errorTipo === 'sin-claude') return `${conPunto(paso)} Arréglalo en Ajustes y después reintenta.`;
+  if (['sin-sesion', 'sin-claude', 'sin-motor'].includes(a.errorTipo)) return `${conPunto(paso)} Arréglalo en Ajustes y después reintenta.`;
   return conPunto(paso);
 }
 
@@ -120,16 +124,19 @@ function textoDeFalla(a) {
 function GuionEspera({ a, alSeguir }) {
   const listo = a.estado !== 'error';
   const { aviso } = useAvisos();
+  const motor = useMotor();
+  const elegida = mayuscula(motor.nombre);
+  const ia = MOTORES[a.motor]?.nombre || elegida;
   const [reintentando, setReintentando] = useState(false);
   const href = enlace.nuevo({ paso: '2', anuncios: a.slug, ...(a.productoId ? { producto: a.productoId } : {}) });
-  const aAjustes = a.errorTipo === 'sin-sesion' || a.errorTipo === 'sin-claude';
+  const aAjustes = ['sin-sesion', 'sin-claude', 'sin-motor'].includes(a.errorTipo);
   const puedeReintentar = !listo && !aAjustes && a.errorTipo !== 'bloqueo';
   const reintentar = async () => {
     setReintentando(true);
     try {
       await apiNuevo.reintentarGuion(a.slug);
       invalidar('anuncios');
-      aviso({ tipo: 'info', titulo: 'Claude vuelve a escribir el guion', texto: `${a.titulo}: sigue desde donde quedó.` });
+      aviso({ tipo: 'info', titulo: `${elegida} vuelve a escribir el guion`, texto: `${a.titulo}: sigue desde donde quedó.` });
       alSeguir?.();
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude reintentar', texto: e.message });
@@ -153,7 +160,7 @@ function GuionEspera({ a, alSeguir }) {
           {a.estiloNombre ? <span> · {a.estiloNombre}</span> : null}
         </p>
         <h3 className="tb-decision__titulo">{listo ? 'Tu guion está listo' : 'El guion no salió'}</h3>
-        <p className="tb-decision__texto">{listo ? 'Léelo y apruébalo, o pide cambios con tus palabras. Después todo sigue solo hasta los videos.' : textoDeFalla(a)}</p>
+        <p className="tb-decision__texto">{listo ? 'Léelo y apruébalo, o pide cambios con tus palabras. Después todo sigue solo hasta los videos.' : textoDeFalla(a, ia)}</p>
         <div className="tb-decision__pie">
           <BotonDescartar slug={a.slug} titulo={a.titulo} alDescartar={alSeguir} soloIcono texto="Descartar este anuncio" />
           {listo ? (

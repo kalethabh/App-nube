@@ -1,0 +1,99 @@
+{
+  "id": "F05",
+  "slug": "problema-primer-plano",
+  "nombre": "Problema en primer plano",
+  "origen": "biblioteca",
+  "descripcion": "Fotografía a sangre, en primer plano y muy cercana, del momento de frustración o de dolor que vive el cliente: la situación, no el producto. Arriba a la izquierda, sobre un degradado oscuro, un titular grande nombra el problema y un subtítulo corto lo agita o abre la salida. Abajo a la derecha, pequeño y dentro de una tarjeta de color de marca, aparece el producto como la salida. Se siente real, cercano y emocional, no de estudio.",
+  "angulos_compatibles": ["dolor", "agitacion", "enemigo-comun", "pregunta-paradojica", "curiosidad", "identidad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Pain-Point Close-Up Ad",
+  "reference_style": "Documentary-style close-up photo of a relatable frustration moment, with a bold overlaid headline and the product as a small branded way-out tile",
+  "art_direction": {
+    "visual_hierarchy": "1) The close-up of the pain moment (instant emotional recognition). 2) The headline naming the problem. 3) The small product tile in the bottom-right corner as the way out. 4) The short subheadline.",
+    "composition_style": "Full-bleed photographic composition. The camera is very close to the action (tight crop, the subject fills the frame); the main point of interest sits in the center to lower-center of the frame (about 35-65% of the width and 45-75% of the height), so the top-left area stays calmer and darker for the text and the bottom-right corner stays free for the product tile. The product tile is anchored in the bottom-right corner as a separate graphic layer on top of the photo and never covers the pain point.",
+    "spacing_and_structure": "Text block in the top-left: starts at the 7% margin, spans max 70% of the canvas width and the top 35-40% of the height. Product tile: bottom-right, inset 6% from the right and bottom edges, about 24-28% of the canvas width and 28-32% of the height. The rest of the canvas is pure photo, with no other graphics.",
+    "lighting_and_depth": "Natural, realistic, slightly cool available light (window, overhead or screen light depending on the scene), mildly desaturated and moody, shallow depth of field with the pain point in sharp focus and a softly blurred background. A dark gradient (black or brand-dark, about 60-70% opacity fading to 0) from the top-left corner gives the text contrast. The product tile is the only warm, saturated, studio-lit element on the canvas."
+  },
+  "layout_summary": "Square canvas filled edge to edge with a realistic, tight close-up photo of the moment the problem hurts most. A dark diagonal gradient in the top-left corner holds a large white headline (2-3 lines) and a short subheadline under it. In the bottom-right corner, a small rounded tile in the brand color contains the user's product, studio-lit, as the way out. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "close-up pain-moment photo",
+      "position": "Full canvas, edge to edge",
+      "visual_function": "Makes the viewer instantly recognize their own frustration",
+      "adaptation_rule": "Depict the specific moment the problem hurts most for this product's buyer, in an extreme close-up of the action, object or context (e.g. a hand pressing a sore spot, a tangled or broken everyday object, a stain, a messy space, a tired face lit by a screen, a failed attempt). Prefer showing the situation over zooming in on body flaws. Realistic, candid, smartphone-photo authenticity with professional composition; relatable mild frustration, never grotesque or exaggerated. Keep the sharp pain point in the center to lower-center, away from the top-left text area and the bottom-right tile. The product must NOT appear in the photo."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "dark gradient overlay",
+      "position": "Top-left corner, covering about the top 45% and left 75% of the canvas, fading diagonally to transparent",
+      "visual_function": "Gives the text maximum contrast without hiding the photo",
+      "adaptation_rule": "Smooth gradient from black or the darkest brand tone at about 60-70% opacity to fully transparent. No hard edges, no box."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "headline",
+      "position": "Top-left, starting at the 7% margin, over the gradient",
+      "visual_function": "Names the problem exactly as the viewer feels it",
+      "adaptation_rule": "Write the pain hook of this variation's angle. Keep it short so it fits in max 3 lines within 70% of the width."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "subheadline",
+      "position": "Directly below the headline, left-aligned with it",
+      "visual_function": "Agitates the problem or hints there is a way out",
+      "adaptation_rule": "One short supporting line that deepens the pain or opens the door to the solution, without naming the product."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product way-out tile",
+      "position": "Bottom-right corner, inset 6% from the right and bottom edges, about 24-28% of the canvas width and 28-32% of the height",
+      "visual_function": "Presents the product as the exit from the pain without breaking the emotional photo",
+      "adaptation_rule": "Rounded rectangle (corner radius about 2.5% of the canvas) filled with the brand primary color or a soft brand gradient, with a soft drop shadow and an optional thin light outline so it separates from the photo."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "product",
+      "position": "Inside the way-out tile, centered, about 20-24% of the canvas height; its top may break slightly out of the tile for a 3D pop",
+      "visual_function": "Shows what solves the problem",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, studio-lit with a subtle glow, the only warm and saturated object on the canvas."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top-left, over the dark gradient",
+      "text_style": "Extra bold sans-serif, each line about 7-8.5% of the canvas height, max 3 lines, left-aligned, white or the lightest palette tone; one key word may use the brand accent",
+      "guia_texto": "Nombra el problema tal como lo vive el cliente, en 4 a 9 palabras: una escena reconocible, una frase que él mismo pensaría o una pregunta incómoda. Sin mencionar el producto y sin señalar atributos personales directos (habla de la situación, no de «¿tienes X?»)."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, left-aligned",
+      "text_style": "Regular weight sans-serif, about 3.2-3.8% of the canvas height, max 2 lines, left-aligned, white at 85-90% opacity",
+      "guia_texto": "Agita el problema o abre la salida en 5 a 10 palabras: la consecuencia de no resolverlo o la pista de que existe una forma más simple."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed, realistic close-up photo of the pain moment",
+    "Dark diagonal gradient in the top-left corner behind the text",
+    "Small brand-colored tile in the bottom-right corner holding the user's product",
+    "Shallow depth of field with the pain point in sharp focus"
+  ],
+  "forbidden_additions": [
+    "Product inside the photo scene",
+    "Large or centered product",
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Trust seals, guarantee or certification badges",
+    "Benefit list or icons",
+    "Rating stars, reviews or testimonials",
+    "Before/after split or a second photo",
+    "Arrows, stickers or emojis",
+    "Bottom bar or banner",
+    "Logos or brand marks",
+    "Glossy studio look on the photo (it must feel real)"
+  ],
+  "notas_paleta": "Colores nativos de la escena para la foto (realistas, algo fríos y desaturados). La paleta de marca aparece solo en la tarjeta del producto y, como máximo, en una palabra clave del titular. El degradado usa negro o el tono más oscuro de la marca."
+}

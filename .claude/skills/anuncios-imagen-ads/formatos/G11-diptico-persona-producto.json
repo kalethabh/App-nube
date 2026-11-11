@@ -1,0 +1,172 @@
+{
+  "id": "G11",
+  "slug": "diptico-persona-producto",
+  "nombre": "Díptico persona-pregunta / producto-respuesta",
+  "origen": "ganador:592521890_1201322985426733_3057837334887531362_n.jpg",
+  "descripcion": "Lienzo dividido en vertical en dos paneles iguales separados por una línea fina clara. Panel izquierdo: foto lifestyle de una persona del público, sonriente y relajada, que sostiene el producto en pequeño; arriba, una pregunta-problema en blanco; flotando junto a su cabeza, ilustraciones brillantes del «enemigo» que el producto combate; abajo, 3 pastillas de color apiladas con una viñeta y un beneficio cada una, y en la esquina inferior derecha del panel, un recuadro rojo con la frase-solución. Panel derecho: fondo claro y desenfocado del lugar de uso, un titular imperativo en mayúsculas oscuras arriba, el producto grande y centrado rodeado por las mismas ilustraciones del enemigo y, abajo a la izquierda, una pila de 3 etiquetas de colores distintos (envío, forma de pago y promoción). Funciona como pregunta → respuesta y persona → producto.",
+  "angulos_compatibles": ["dolor", "beneficio-principal", "oferta", "enemigo-comun", "agitacion"],
+  "tipos_producto": ["cosmetico", "nutraceutico", "hogar", "gadget", "otro"],
+  "ad_format": "Person-Question / Product-Answer Diptych Ad",
+  "reference_style": "Native-looking direct-response diptych: a warm lifestyle photo of a smiling person with a problem question and benefit pills on the left, a bright clean product shot with an imperative headline and stacked offer tags on the right, tied together by floating glowing cartoon illustrations of the problem agent",
+  "art_direction": {
+    "visual_hierarchy": "1) The large product in the right panel. 2) The imperative headline at the top of the right panel. 3) The problem question at the top of the left panel and the smiling person. 4) The floating enemy illustrations. 5) The three benefit pills and the red solution box. 6) The stack of offer tags.",
+    "composition_style": "Vertical 50/50 diptych. Left panel (0-50% of the width) = person and question, read first; right panel (50-100%) = product and answer. Each panel has its own headline at the top and its own module stack at the bottom left. The floating enemy illustrations appear in both panels (upper-right area of the left panel, around the product in the right panel) and visually link the two halves.",
+    "spacing_and_structure": "Divider: thin light vertical line exactly at 50% of the width, full height. LEFT PANEL: question text centered in the panel, about 3-49% of the width and 6-17.5% of the height. Person framed from the head (top of the head at about 18-20% of the height) to the lap, centered at about 22-28% of the width; the small product in their hand at about 31-37.5% of the width and 56-73% of the height (about 17% of the canvas height). Two enemy illustrations at about 38-47% of the width, at about 18-27% and 32-39% of the height. Benefit pills: three, stacked at about 2.5-26% of the width, at about 63-72%, 73.5-83% and 84.5-94% of the height (each about 9-10% tall, gaps of about 1.5%). Solution box: about 23-49.5% of the width and 88-100% of the height, touching the bottom edge and the divider and slightly overlapping the corner of the third pill. RIGHT PANEL: headline centered in the panel, about 54-95% of the width and 6-20% of the height. Product upright, centered at about 74% of the width, from about 23% to 94% of the height (about 70% of the canvas height, about 22% of the width). Four enemy illustrations: two at about 52-61% of the width (about 17-25% and 30-37% of the height) and two at about 87-95% of the width (about 21-30% and 35-42% of the height). Offer tags: three stacked at about 50.5-66% of the width, from about 71% to 98% of the height, each about 8-10% tall with gaps of about 0.5-1%, slightly overlapping the front of the product's lower left.",
+    "lighting_and_depth": "Left panel: warm, soft indoor daylight in a cozy living space, shallow depth of field, the person sharp and the room softly blurred; natural, friendly smartphone-quality look. Right panel: bright, high-key, clean light in a softly blurred white and light-grey room where the product is used, soft contact shadow under the product, crisp highlights on the packaging. Enemy illustrations: semi-3D cartoon style with a neon glow, floating, with no shadow. Pills, solution box and tags are flat graphic shapes without shadows."
+  },
+  "layout_summary": "Square canvas split vertically into two equal panels by a thin light line. Left: a warm lifestyle photo of a smiling, relaxed person from the target audience, seated, holding the user's product small in one hand; a 2-line question in white at the top; two glowing cartoon illustrations of the problem agent floating near their head; three stacked dark-teal rounded pills, each with a small glowing bullet and a 2-line benefit, at the bottom left; and a solid red box with a 2-line solution phrase in the bottom-right corner of the panel. Right: a bright, softly blurred room background; a 2-line dark uppercase imperative headline at the top; the user's product, large, upright and centered, surrounded by four glowing illustrations of the same problem agent; and at the bottom left a stack of three colored tags (dark green, dark grey, yellow) with the shipping, payment and promotion conditions.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "divider line",
+      "position": "Vertical, exactly at 50% of the width, full height",
+      "visual_function": "Splits the canvas into question (person) and answer (product)",
+      "adaptation_rule": "Thin white or very light line, about 0.4-0.6% of the canvas wide, crisp, no shadow."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "left lifestyle photo panel",
+      "position": "Left 50% of the canvas, full height",
+      "visual_function": "Puts a relatable person from the audience in front of the problem, already calm and confident",
+      "adaptation_rule": "Warm, natural photo of a smiling person matching the target audience, seated in a cozy home setting (sofa, living room, bedroom), facing the camera, framed from the head to the lap, wearing casual clothes. They hold the user's product casually in one hand at chest height. The person looks relieved and happy, never suffering. Keep the top 18% of the panel calm (blurred wall) for the question and the lower-left area calm for the pills."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product in hand (small)",
+      "position": "Left panel, about 31-37.5% of the width and 56-73% of the height",
+      "visual_function": "Connects the person with the solution",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), small, held naturally in the person's hand, label facing the camera."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "enemy illustrations",
+      "position": "Two in the left panel next to the person's head (about 38-47% of the width, 18-39% of the height) and four around the top half of the product in the right panel (about 52-61% and 87-95% of the width, 17-42% of the height)",
+      "visual_function": "Visualizes the 'enemy' the product fights and links both panels",
+      "adaptation_rule": "Simple semi-3D cartoon illustrations of the specific agent behind the user's problem (germs, bacteria, fungi, fat cells, dust mites, stains, pests, toxins...), all identical in style and color, each about 6-8% of the canvas, with a neon glow in a color that clearly reads as harmful (for example acid green). Floating and slightly rotated, never over faces, text or the product label."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "benefit pills (3)",
+      "position": "Bottom left of the left panel, about 2.5-26% of the width, stacked at about 63-72%, 73.5-83% and 84.5-94% of the height",
+      "visual_function": "Lists what the product does against the problem in a scannable way",
+      "adaptation_rule": "Three equal rounded rectangles (corner radius about 1.5% of the canvas) in dark teal or the brand's dark color, each with a small glowing round bullet in the enemy-illustration color on its left and a 2-line benefit in white. Same width, left-aligned stack."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "solution box",
+      "position": "Bottom-right corner of the left panel, about 23-49.5% of the width and 88-100% of the height",
+      "visual_function": "Closes the left panel by naming the product as the answer",
+      "adaptation_rule": "Solid red (or the strongest warm accent of the palette) rectangle with square corners, flat, touching the bottom edge and the divider."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "right panel background",
+      "position": "Right 50% of the canvas, full height",
+      "visual_function": "Clean, bright stage that makes the product read as the answer",
+      "adaptation_rule": "Softly blurred, bright white and light-grey interior where the product is used (bathroom, kitchen, vanity, bedroom), high-key, very low detail."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "product",
+      "position": "Right panel, centered at about 74% of the width, from about 23% to 94% of the height (about 70% of the canvas height)",
+      "visual_function": "Main visual anchor; shows exactly what solves the problem",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), large, upright, front view, label fully legible, with a soft contact shadow. Wide or flat products keep the same height zone and scale to fit within about 54-96% of the width."
+    },
+    {
+      "block_id": "block_09",
+      "block_type": "offer tags stack (3)",
+      "position": "Bottom left of the right panel, about 50.5-66% of the width and 71-98% of the height, slightly overlapping the product's lower left",
+      "visual_function": "Removes friction and gives the reason to buy now",
+      "adaptation_rule": "Three stacked rectangles of equal width with a small corner radius (about 0.8% of the canvas), each in a different flat color: dark green for shipping, dark grey for payment, yellow for the promotion. Use only the real shipping, payment and offer conditions the user gave."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "problem question",
+      "reference_position": "Top of the left panel, centered in the panel",
+      "text_style": "Medium-weight sans-serif in sentence case, each line about 5.5% of the canvas height, max 2 lines, centered within the left panel, white with a soft dark shadow for legibility over the photo, between opening and closing question marks",
+      "guia_texto": "La pregunta que nombra el problema tal como el cliente lo vive, directa y un poco atrevida. De 5 a 9 palabras, entre signos de interrogación."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "imperative headline",
+      "reference_position": "Top of the right panel, centered in the panel",
+      "text_style": "Extra bold sans-serif, uppercase, each line about 7.5% of the canvas height, max 2 lines, centered within the right panel, near-black dark teal or the darkest brand color on the light background",
+      "guia_texto": "Una orden que promete acabar con el enemigo o el problema («Elimina…», «Dile adiós a…», «Termina con…»). De 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 1",
+      "reference_position": "Inside the first pill, right of the bullet",
+      "text_style": "Bold sans-serif, sentence case, about 4% of the canvas height, max 2 lines, left-aligned, white on the dark pill",
+      "guia_texto": "El beneficio más fuerte contra el problema, con un verbo de acción (combate, neutraliza, protege...). De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 2",
+      "reference_position": "Inside the second pill, right of the bullet",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Segundo beneficio, con un verbo de acción, idealmente sobre un síntoma molesto distinto. De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 3",
+      "reference_position": "Inside the third pill, right of the bullet",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Tercer beneficio, con un verbo de alivio o mejora (calma, suaviza, renueva...). De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "solution phrase",
+      "reference_position": "Centered inside the red solution box",
+      "text_style": "Extra bold sans-serif, about 5% of the canvas height, max 2 lines, centered, white on red, between opening and closing exclamation marks",
+      "guia_texto": "Presenta el producto, con su nombre, como la respuesta definitiva al problema (por ejemplo «¡[Producto] lo resuelve!»). De 3 a 6 palabras, entre signos de exclamación."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "shipping tag",
+      "reference_position": "Top tag of the stack (dark green)",
+      "text_style": "Extra bold condensed sans-serif, uppercase, about 4% of the canvas height, max 2 lines, left-aligned, white",
+      "guia_texto": "La condición de envío real del usuario (por ejemplo «Envío sin costo»). De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "payment tag",
+      "reference_position": "Middle tag of the stack (dark grey)",
+      "text_style": "Extra bold condensed sans-serif, uppercase: a big first word (about 4.5% of the canvas height) and a small second line (about 2%), left-aligned, white",
+      "guia_texto": "El método de pago que quita el riesgo: palabra grande + aclaración pequeña (por ejemplo «Pagas» / «al recibir»). De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "promotion tag",
+      "reference_position": "Bottom tag of the stack (yellow)",
+      "text_style": "Bold sans-serif, about 3.2-3.5% of the canvas height, max 3 lines, left-aligned, near-black on yellow",
+      "guia_texto": "La promoción real del usuario: precio de la segunda unidad, combo u obsequio incluido. De 4 a 8 palabras, solo con cifras reales."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Vertical 50/50 split with a thin light divider",
+    "Left: warm lifestyle photo of a smiling, relaxed person holding the product small",
+    "Problem question in white at the top of the left panel",
+    "Glowing cartoon illustrations of the problem agent in both panels",
+    "Three stacked dark benefit pills with bullets at the bottom left of the left panel",
+    "Red solution box in the bottom-right corner of the left panel",
+    "Right: bright blurred background, dark imperative headline and the product large and centered",
+    "Stack of three different-colored offer tags at the bottom left of the right panel"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Before/after comparison or a suffering 'before' person",
+    "Struck-through price or discount percentage seal",
+    "Countdown timer",
+    "Horizontal (top/bottom) split or more than two panels",
+    "Arrows or callout lines pointing at the product",
+    "Full-width bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Panel izquierdo con colores naturales y cálidos de hogar; panel derecho claro y casi blanco. Las pastillas de beneficio van en teal oscuro (o el color oscuro de la marca) con texto blanco; las ilustraciones del enemigo y las viñetas, en un verde neón u otro color que se lea como dañino y contraste con la marca. Recuadro de solución en rojo intenso; etiquetas de oferta en verde oscuro, gris oscuro y amarillo. El titular del panel derecho usa el color más oscuro de la paleta.",
+  "posicion_logo": null
+}

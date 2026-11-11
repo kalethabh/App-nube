@@ -1,22 +1,33 @@
-// El único "Sí" de cada anuncio: "Me gusta, producir", con el costo aproximado y tu saldo de kie (con su color), al lado de su guion.
+// El único "Sí" de cada anuncio: "Me gusta, producir", al lado de su guion.
 // La app siempre produce el anuncio completo (voz, música, subtítulos) y después todo es automático
-// hasta los MP4 (en los cantados, con una sola pausa: elegir la versión de la canción, de oído). El costo real se ve recién en el informe de la Entrega. Si el saldo de kie no
-// alcanza (GET /api/saldo o la respuesta de "producir"), un aviso discreto en vez del botón activo,
+// hasta los MP4 (en los cantados, con una sola pausa: elegir la versión de la canción, de oído). Arriba del botón va el
+// COSTO ESTIMADO (excepción a "sin precios" del 2026-11-09): cuánto costaría en kie.ai y con otro modelo, para elegir
+// antes del «Sí» (CostoEstimado.jsx; lo arma el servidor). El costo real se ve en el informe de la Entrega. Si el saldo
+// de kie no alcanza (GET /api/saldo o la respuesta de "producir"), un aviso discreto en vez del botón activo,
 // sin números.
+import { useState } from 'react';
 import { ArrowRight, Clapperboard, Clock, TriangleAlert } from 'lucide-react';
 import { Boton, CostoAnuncio, Tarjeta } from '../../componentes/index.js';
 import { enlace } from '../../datos/rutas.js';
 import { esCantado, minutosDe, queSaleDe } from '../estilos/catalogo.js';
 import { estimadoAntesDeProducir, familiaDeEstilo } from '../../datos/produccion.js';
 import { conDuracion, duracionAprox, duracionDeAjuste } from '../../datos/duracion.js';
+import { CostoDelAnuncio } from './CostoEstimado.jsx';
 
 /**
  * sinSaldo: muestra el aviso · bloqueado: el saldo dice que no alcanza (el botón se apaga hasta que recargues)
  * aprobado: ya se está produciendo (se abrió la pantalla de nuevo): solo lleva a la producción
  * terminado: ya se produjo: lleva a la entrega · piezas: { imagenes, clips } del manifiesto (para el estimado)
  * faltaElegir: el musical tiene varias letras y todavía no eligió una · continuidad: el anuncio va sin cortes
+ * firmaCosto: lo que cambia el costo estimado sin cambiar el anuncio (la letra elegida) · alCambiarModelo: después de
+ * «Usar este» en el costo estimado (volver a mirar el saldo)
  */
-export function Producir({ estilo, ajuste, slug, listo, aprobado = false, terminado = false, piezas = null, produciendo, sinSaldo = false, bloqueado = false, faltaElegir = false, continuidad = false, onProducir }) {
+export function Producir({ estilo, ajuste, slug, listo, aprobado = false, terminado = false, piezas = null, produciendo, sinSaldo = false, bloqueado = false, faltaElegir = false, continuidad = false, firmaCosto = '', alCambiarModelo, onProducir }) {
+  const [revisionCosto, setRevisionCosto] = useState(0);
+  const actualizarCosto = () => {
+    setRevisionCosto((n) => n + 1);
+    alCambiarModelo?.();
+  };
   const cantado = esCantado(estilo.clave);
   // el mismo estimado que muestra la producción al arrancar; sin el manifiesto todavía, el del estilo con la duración
   // que dijo el usuario (o la de siempre, si la decide la IA), y se dice cuál
@@ -97,7 +108,8 @@ export function Producir({ estilo, ajuste, slug, listo, aprobado = false, termin
           </p>
         ) : null}
 
-        {listo && slug ? <CostoAnuncio slug={slug} /> : null}
+        {listo && slug ? <CostoAnuncio slug={slug} firma={`${firmaCosto}:${revisionCosto}`} /> : null}
+        <CostoDelAnuncio slug={slug} activo={listo} firma={firmaCosto} alCambiarModelo={actualizarCosto} soloModelos />
 
         <Boton variante="marca" tamano="grande" bloque disabled={!listo || bloqueado || faltaElegir} cargando={produciendo} onClick={onProducir} className="nv-producir__boton">
           {estilo.clave === 'musical' ? 'Producir esta letra' : 'Me gusta, producir'}

@@ -1,5 +1,8 @@
 // El informe de la entrega en tres apartados: decisiones del montaje, lo que salió mal y el costo real.
-// El costo real es el ÚNICO lugar de la app con precios (decisión de Diego): ninguna otra pantalla los muestra.
+// El costo real solo está aquí (decisión de Diego). Antes de producir hay un costo ESTIMADO (la tarjeta de «Me gusta,
+// producir», la pausa de la canción y el formulario de imagen: excepción del 2026-11-09); Ajustes › Modelos muestra el
+// precio aproximado de cada modelo y el botón Regenerar de una pieza, lo que cuesta regenerarla. Ninguna otra pantalla
+// muestra precios.
 // Todo sale del motor (plan-montaje.json, log-modelos.json, historial/) traducido a palabras simples por
 // GET /api/entrega/:slug. Cada toma con su segundo se puede tocar para verla en el reproductor.
 //
@@ -29,6 +32,7 @@ import {
 import { EstadoVacio, Estimado, Insignia, Seccion, Tarjeta, TarjetaCabecera } from '../../componentes/index.js';
 import { arregladasSolas, creditos, dinero, duracion, numero } from '../../datos/formato.js';
 import { MarcaModoPrueba } from '../produccion/ModoPrueba.jsx';
+import { nombreDeIA } from '../ajustes/datos.js';
 
 // ---------------------------------------------------------------- informe.json de la app + lo calculado
 
@@ -83,11 +87,11 @@ const ICONOS = {
   textos: Type,
 };
 
-const UNIDAD = { toma: 'Toma', paso: 'Paso', 'B-roll': 'B-roll' };
+const UNIDAD = { toma: 'Escena', Toma: 'Escena', paso: 'Paso', 'B-roll': 'Imagen de apoyo', broll: 'Imagen de apoyo' };
 const nombrePieza = (p, unidad) => {
   const u = p.unidad || unidad;
   if (p.n === null || p.n === undefined) return u || 'Pieza';
-  return `${UNIDAD[u] || u || 'Toma'} ${p.n}`;
+  return `${UNIDAD[u] || u || 'Escena'} ${p.n}`;
 };
 
 function Momento({ segundo, onIr, children, etiqueta }) {
@@ -130,15 +134,15 @@ function Decisiones({ informe, onIr }) {
                   {d.id === 'transiciones' && transiciones.length ? (
                     <button type="button" className="ent-ver-mas" aria-expanded={verTransiciones} onClick={() => setVerTransiciones((v) => !v)}>
                       <ChevronDown size={14} strokeWidth={2.2} aria-hidden="true" />
-                      {verTransiciones ? 'Ocultar' : `Ver dónde van las ${transiciones.length}`}
+                      {verTransiciones ? 'Ocultar' : transiciones.length === 1 ? 'Ver dónde va' : `Ver dónde van las ${transiciones.length}`}
                     </button>
                   ) : null}
                   {d.id === 'transiciones' && transiciones.length && verTransiciones ? (
                     <ol className="ent-transiciones">
                       {transiciones.map((t) => (
                         <li key={`${t.toma}-${t.momento}`} className="ent-transicion">
-                          <Momento segundo={t.momento} onIr={onIr} etiqueta={`Transición de la toma ${t.toma}`}>
-                            Toma {t.toma}
+                          <Momento segundo={t.momento} onIr={onIr} etiqueta={`Transición de la escena ${t.toma}`}>
+                            Escena {t.toma}
                           </Momento>
                           <div className="ent-transicion__textos">
                             <span className="ent-transicion__como">
@@ -171,25 +175,34 @@ function Decisiones({ informe, onIr }) {
 
 // ---------------------------------------------------------------- 2. lo que salió mal
 
-function Problemas({ informe, onIr }) {
-  const lista = informe.problemas || [];
+function Problemas({ informe, onIr, avisosAparte = false }) {
+  // lo que notó la revisión va aparte, al final («Lo que notó la revisión», ./Avisos.jsx): aquí solo se cuenta
+  const todos = informe.problemas || [];
+  const deLaRevision = avisosAparte ? todos.find((p) => p.id === 'revision-avisos') : null;
+  const lista = deLaRevision ? todos.filter((p) => p !== deLaRevision) : todos;
   const arreglados = lista.filter((p) => p.tipo === 'arreglado').length;
   const revisar = lista.length - arreglados;
   // contado por toma, como en la producción (la imagen y el clip de una toma son una)
   const partes = new Set(lista.filter((p) => p.tipo === 'arreglado').flatMap((p) => (p.piezas || []).filter((x) => x.n !== null && x.n !== undefined).map((x) => `${x.unidad}-${x.n}`)));
   const soloTomas = [...partes].every((k) => k.startsWith('toma-'));
   const hayMomentos = lista.some((p) => p.piezas?.some((x) => x.momento !== null && x.momento !== undefined));
-  const resumen = [arreglados ? (partes.size ? arregladasSolas(partes.size, soloTomas) : `${arreglados} ${arreglados === 1 ? 'se arregló sola' : 'se arreglaron solas'}`) : null, revisar ? `${revisar} para mirar` : null]
+  const conAviso = deLaRevision?.piezas?.length || 0;
+  const resumen = [
+    arreglados ? (partes.size ? arregladasSolas(partes.size, soloTomas) : `${arreglados} ${arreglados === 1 ? 'se arregló sola' : 'se arreglaron solas'}`) : null,
+    revisar ? `${revisar} para mirar` : null,
+    conAviso ? `${conAviso === 1 ? 'una pieza con aviso' : `${conAviso} piezas con aviso`} de la revisión (abajo)` : null,
+  ]
     .filter(Boolean)
-    .join(' · ');
+    .join(' · ')
+    .replace(/^./, (c) => c.toUpperCase());
 
   return (
     <Tarjeta className="ent-informe__tarjeta">
       <TarjetaCabecera
-        icono={lista.length ? TriangleAlert : CircleCheck}
-        tono={lista.length ? 'aviso' : 'ok'}
+        icono={lista.length || conAviso ? TriangleAlert : CircleCheck}
+        tono={lista.length || conAviso ? 'aviso' : 'ok'}
         titulo="Lo que salió mal"
-        subtitulo={lista.length ? `${resumen}.${hayMomentos ? ' Toca una toma para verla en el video.' : ''}` : 'Nada que contar.'}
+        subtitulo={lista.length || conAviso ? `${resumen}.${hayMomentos ? ' Toca una escena para verla en el video.' : ''}` : 'Nada que contar.'}
       />
       {lista.length ? (
         <ul className="ent-problemas">
@@ -223,7 +236,7 @@ function Problemas({ informe, onIr }) {
             </li>
           ))}
         </ul>
-      ) : (
+      ) : conAviso ? null : (
         <div className="ent-limpio">
           <CircleCheck size={18} strokeWidth={2.2} aria-hidden="true" />
           <p>Todas las piezas pasaron la revisión a la primera y el montaje no dejó avisos.</p>
@@ -282,11 +295,20 @@ function partesDe(c, familia) {
         plan: x.id === 'voz' && !Number.isFinite(Number(x.dolares)) && !enElClip(x),
       }));
   }
-  // el costo calculado con el registro del motor: si no cubre todo, se completa con el promedio por pieza
+  // el costo calculado con el registro del motor: si no cubre todo, se completa con el promedio por pieza.
+  // Sin ningún clip en el registro, los videos son lo que el servidor estimó para el total menos las imágenes
+  // (la pantalla no supone el precio de ningún modelo: los modelos se eligen en Ajustes y cambian el precio).
   const promImg = c.imagenes?.piezas ? c.imagenes.creditos / c.imagenes.piezas : 10;
-  const promClip = c.videos?.piezas ? c.videos.creditos / c.videos.piezas : 84;
   const crImg = c.completo ? c.imagenes?.creditos || 0 : Math.max(c.piezas?.imagenes || 0, c.imagenes?.piezas || 0) * promImg;
-  const crVid = c.completo ? c.videos?.creditos || 0 : Math.max(c.piezas?.clips || 0, c.videos?.piezas || 0) * promClip;
+  const clipsN = Math.max(c.piezas?.clips || 0, c.videos?.piezas || 0);
+  const estimadoCr = Number(c.estimado?.creditos);
+  const crVid = c.completo
+    ? c.videos?.creditos || 0
+    : c.videos?.piezas
+      ? clipsN * (c.videos.creditos / c.videos.piezas)
+      : Number.isFinite(estimadoCr)
+        ? Math.max(0, estimadoCr - crImg)
+        : 0;
   const partes = [
     { id: 'imagenes', nombre: 'Imágenes', detalle: `${numero(c.piezas?.imagenes || 0)} ${c.piezas?.imagenes === 1 ? 'imagen' : 'imágenes'}`, dolares: crImg * dpc },
     { id: 'videos', nombre: 'Videos', detalle: `${numero(c.piezas?.clips || 0)} ${c.piezas?.clips === 1 ? 'clip' : 'clips'} de video`, dolares: crVid * dpc },
@@ -301,6 +323,17 @@ function partesDe(c, familia) {
     plan: Boolean(c.vozCaracteres),
   });
   return partes;
+}
+
+/**
+ * La IA que escribió el guion de este anuncio ('claude' | 'codex'): la de su última medida, o la que mande el servidor.
+ * null si no viene (un anuncio de antes, cuando solo existía Claude).
+ */
+function motorDelGuion(informe) {
+  const medidas = Array.isArray(informe?.medidas) ? informe.medidas : [];
+  const ultima = [...medidas].reverse().find((m) => m?.motor);
+  const m = informe?.motor || informe?.ia?.motor || ultima?.motor || informe?.costo?.motor;
+  return m === 'claude' || m === 'codex' ? m : null;
 }
 
 function Costo({ informe, terminado, familia }) {
@@ -399,7 +432,7 @@ function Costo({ informe, terminado, familia }) {
         ))}
         <li>
           <span className="ent-costo__clave">Guion</span>
-          <span className="t-3">Lo escribió Claude Code con tu cuenta</span>
+          <span className="t-3">Lo escribió {nombreDeIA(motorDelGuion(informe))} con tu cuenta</span>
           <span className="t-num t-3">sin costo extra</span>
         </li>
       </ul>
@@ -413,7 +446,7 @@ function Costo({ informe, terminado, familia }) {
         <p className="ent-costo__nota">Calculado con las piezas que hay en la carpeta y lo que cuesta cada una en kie.ai.</p>
       ) : (
         <p className="ent-costo__nota">
-          1 crédito de kie.ai = {dinero(dpc, { decimales: 3 })}. {c.rehecho ? 'Incluye lo que se rehízo solo. ' : ''}
+          1 crédito de kie.ai = {dinero(dpc, { decimales: 3 })}. {c.rehecho ? 'Incluye lo que se hizo otra vez porque no salió. ' : ''}
           {notaElevenLabs(familia, c)}
         </p>
       )}
@@ -424,11 +457,11 @@ function Costo({ informe, terminado, familia }) {
 // ---------------------------------------------------------------- el informe
 
 /** `familia`: la que produjo el anuncio (la del conductor, o la de la lista), para decir qué se descuenta de ElevenLabs. */
-export function Informe({ informe, onIr, terminado = true, familia = null }) {
+export function Informe({ informe, onIr, terminado = true, familia = null, avisosAparte = false }) {
   return (
     <Seccion titulo="Informe" icono={Sparkles} descripcion="Lo que pasó mientras se hacía tu anuncio, en tres partes." className="ent-informe">
       <Decisiones informe={informe} onIr={onIr} />
-      <Problemas informe={informe} onIr={onIr} />
+      <Problemas informe={informe} onIr={onIr} avisosAparte={avisosAparte} />
       <Costo informe={informe} terminado={terminado} familia={familia} />
     </Seccion>
   );

@@ -25,6 +25,8 @@ import { slugDeLaApp, leerConductor } from '../lib/conductor.js';
 import { leerPlanDeCosto } from '../lib/familias/voz-en-off.js';
 import { CREDITOS_SUNO } from '../lib/gasto.js';
 
+import { copiarModelosAlAnuncio, eleccionDelAnuncio } from '../lib/modelos.js';
+
 // Lo que escribe o consulta afuera solo se acepta desde la propia app (una pagina de otro sitio
 // no puede guardar claves ni gastar consultas en nombre del usuario).
 const ORIGENES = origenesPermitidos(PUERTO);
@@ -63,7 +65,7 @@ async function saldoActual({ fresco }) {
 }
 
 // Lo que falta producir de un anuncio, en creditos (producir --solo-plan: no genera nada y no cobra nada). Se guarda
-// mientras el manifiesto no cambie, y las consultas a la vez comparten la misma corrida.
+// mientras el manifiesto y los modelos del anuncio no cambien, y las consultas a la vez comparten la misma corrida.
 const cacheNecesita = new Map(); // slug -> { firma, valor, promesa }
 
 function correrSoloPlan(slug, env) {
@@ -90,7 +92,9 @@ async function necesitaDe(slug) {
   const st = stat(path.join(TEMP, slug, 'manifiesto.json'));
   if (!st) return null;
   const musica = listar(path.join(TEMP, slug, 'musica')).some((n) => /\.(mp3|wav|m4a|ogg|flac)$/i.test(n));
-  const firma = `${st.mtimeMs}:${st.size}:${musica}:${modoPrueba()}`;
+  // el plan es un paso del motor de este anuncio: con lo elegido en Ajustes › Modelos si todavia no hay nada generado
+  copiarModelosAlAnuncio(slug);
+  const firma = `${st.mtimeMs}:${st.size}:${musica}:${modoPrueba()}:${JSON.stringify(eleccionDelAnuncio(slug))}`;
   const c = cacheNecesita.get(slug);
   if (c?.firma === firma) return c.promesa || c.valor;
   const promesa = (async () => {
@@ -176,7 +180,8 @@ export default function rutasClaves(app) {
     res.set('Cache-Control', 'no-store');
     const slug = typeof req.query.slug === 'string' ? req.query.slug : '';
     if (slug) {
-      // Para un anuncio: solo si alcanza (ningun numero sale para esa pantalla). Ya en produccion, lo dice el
+      // Para un anuncio: solo si alcanza (de aca no sale ningun numero; el costo estimado que ve la tarjeta de
+      // "Me gusta, producir" sale de GET /api/anuncios/:slug/costo, rutas/costo.js). Ya en produccion, lo dice el
       // conductor en su paso "saldo"; sin poder calcularlo, no se frena a nadie (alcanza queda sin decir).
       if (!slugDeLaApp(slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
       if (leerConductor(slug)) return res.json({ kie: {} });

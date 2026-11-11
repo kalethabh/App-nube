@@ -9,6 +9,7 @@ import { leerJSON, existe, stat, listar, segmentoValido, esImagen, esVideo } fro
 import { duracionMp4 } from './mp4.js';
 import { estiloDeManifiesto, FAMILIAS, muestrasDeEstilos } from './estilos.js';
 import { brollDe } from './broll.js';
+import { creditosTipicos } from './modelos.js';
 
 // ---------------------------------------------------------------- que carpetas son anuncios
 
@@ -255,9 +256,8 @@ function versionesDe(slug, archivosOutput) {
 
 const redondear = (n, d = 2) => Math.round(n * 10 ** d) / 10 ** d;
 
-// Creditos que se usan para estimar lo que el registro no cubre (Sunburst 2K y Omni de 6 s).
-const CREDITOS_IMAGEN = 10;
-const CREDITOS_CLIP = 84;
+// Lo que el registro no cubre se estima con una imagen y un clip de 6 s de los modelos del anuncio (con los de
+// siempre, Sunburst 2K y Omni de 6 s: 10 y 84). Ver creditosTipicos (lib/modelos.js).
 
 /**
  * El costo segun log-modelos.json de img/ y video/ (suma de "creditos").
@@ -279,8 +279,9 @@ function costoDe(dir, c) {
   const enDiscoImg = c.img.length;
   const enDiscoClips = c.video.length;
   const completo = imgs.length >= enDiscoImg && clips.length >= enDiscoClips;
-  const promImg = imgs.length ? cImg / imgs.length : CREDITOS_IMAGEN;
-  const promClip = clips.length ? cVid / clips.length : CREDITOS_CLIP;
+  const tipicos = imgs.length && clips.length ? null : creditosTipicos(dir);
+  const promImg = imgs.length ? cImg / imgs.length : tipicos.imagen;
+  const promClip = clips.length ? cVid / clips.length : tipicos.clip;
   const estimadoCreditos = Math.round(Math.max(enDiscoImg, imgs.length) * promImg + Math.max(enDiscoClips, clips.length) * promClip);
   const usd = (cr) => redondear(cr * DOLARES_POR_CREDITO);
   return {
@@ -530,6 +531,34 @@ export function detalleAnuncio(slug) {
     });
   const iconos = c.img.filter((n) => n.startsWith('icono-')).map((n) => ({ id: n.replace(/\.[^.]+$/, ''), imagen: img(n) }));
 
+  // Los ganchos de un UGC (otro comienzo para el bloque que reemplazan): los que ya se hicieron (su clip, o el de antes en
+  // historial/ mientras se regenera). El proceso los muestra como piezas para regenerarlos.
+  const historial = listar(path.join(c.dir, 'historial'));
+  const ganchos = (Array.isArray(m.ganchos_alternativos) ? m.ganchos_alternativos : [])
+    .filter((g) => g && /^[a-z0-9][a-z0-9_-]*$/i.test(String(g.id ?? '')))
+    .map((g) => {
+      const id = String(g.id);
+      const clip = buscarVideo(c.videoSet, `gancho-${id}`);
+      if (!clip && !historial.some((n) => n.startsWith(`gancho-${id}--`))) return null;
+      const letra = id.replace(/^\d+/, '').toUpperCase() || id;
+      const linea = typeof g.linea === 'string' && g.linea.trim() ? g.linea : (Array.isArray(g.tramos) ? g.tramos : []).map((t) => t?.linea).filter(Boolean).join(' ') || null;
+      return { id, letra, nombre: `Gancho ${letra}`, reemplaza: g.reemplaza ?? null, linea, duracion: g.duracion ?? null, clip: vid(clip), duracionClip: durClip(clip), estado: clip ? 'listo' : 'en-cola' };
+    })
+    .filter(Boolean);
+
+  // La version de cada archivo (su fecha): una pieza regenerada se llama igual que la de antes y el navegador mostraria
+  // la vieja. El editor la agrega a sus miniaturas y clips («?v=»). { 'img/toma-3-inicial.png': 1794…, 'video/toma-3.mp4': … }
+  const versionArchivos = {};
+  for (const [carpeta, lista] of [
+    ['img', c.img],
+    ['video', c.video],
+  ]) {
+    for (const n of lista) {
+      const st = stat(path.join(c.dir, carpeta, n));
+      if (st?.isFile()) versionArchivos[`${carpeta}/${n}`] = Math.round(st.mtimeMs);
+    }
+  }
+
   const productoFoto = c.raiz.find((n) => /^producto\.(png|jpe?g|webp)$/i.test(n));
   const audioDir = listar(path.join(c.dir, 'audio'));
   const musicaRel = plan?.musica?.archivo || (listar(path.join(c.dir, 'musica')).includes('fondo.mp3') ? 'musica/fondo.mp3' : null);
@@ -548,6 +577,8 @@ export function detalleAnuncio(slug) {
     pasos,
     hojas,
     iconos,
+    ganchos,
+    versionArchivos,
     productoFoto: productoFoto ? urlAnuncio(slug, productoFoto) : null,
     audio: {
       voz: audioDir.includes('voz.mp3') ? urlAnuncio(slug, 'audio/voz.mp3') : null,

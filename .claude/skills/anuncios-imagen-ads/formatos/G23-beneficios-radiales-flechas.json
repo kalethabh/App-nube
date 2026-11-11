@@ -1,0 +1,144 @@
+{
+  "id": "G23",
+  "slug": "beneficios-radiales-flechas",
+  "nombre": "Beneficios radiales con flechas alrededor del producto",
+  "origen": "ganador:original-3ff0e1209db2ee36a9f21dece8821bd7.webp",
+  "descripcion": "Fondo degradado muy claro y fresco (menta/celeste pálido). Arriba al centro va el logo de la tienda y debajo un titular de 1 línea con una pregunta corta sobre el problema + invitación a probar, con el nombre del producto dentro de una caja resaltada amarilla. El producto va centrado y grande. Alrededor, 4 beneficios en las cuatro esquinas (2 por lado, arriba y abajo), cada uno con un ícono negro sobre su etiqueta en negrita, y una flecha curva negra que sale del producto hacia cada uno. Abajo al centro, una etiqueta apilada de precio por porción (caja blanca con el precio sobre caja negra con la unidad). Limpio, claro y muy reutilizable; cierra con un gancho de objeción de precio.",
+  "angulos_compatibles": ["beneficio-principal", "dolor", "objecion-precio", "caracteristica-estrella", "mecanismo-unico"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "hogar", "gadget", "juguete", "ropa"],
+  "ad_format": "Radial Benefits Ad with Curved Arrows and Price-per-Serving Tag",
+  "reference_style": "Clean, fresh benefits diagram ad: the product centered and large on a pale mint gradient, four black-icon benefits in the corners reached by curved black arrows that spring out of the product, a one-line question headline with the product name in a yellow highlight box, and a stacked white/black price-per-serving tag at the bottom",
+  "art_direction": {
+    "visual_hierarchy": "1) The product, large in the center. 2) The headline with the highlighted product name. 3) The four benefits, read in a Z pattern (upper-left, upper-right, lower-left, lower-right), with their icons as anchors. 4) The curved arrows that tie each benefit to the product. 5) The price-per-serving tag at the bottom. 6) The store logo at the top.",
+    "composition_style": "Symmetrical, centered radial composition. The product sits in the central column (about 34-63% of the canvas width), from just below the headline to near the bottom. Four benefits occupy the four outer quadrants: two on the left and two on the right, at upper and lower heights, each as an icon stacked above a centered label. Four curved arrows spring outward from the product's sides towards them. Logo, headline and price tag sit on the central vertical axis.",
+    "spacing_and_structure": "Logo: top center, about 4.5-10.5% of the canvas height. Headline: one line from about 15% to 22.5% of the height, spanning about 5-95% of the width; the highlight box wraps the product name at the right end of the line. Product: from about 34% to 63% of the width and from about 26% to 90% of the height (about 64% tall). Upper benefits: icons centered at about 18% and 80% of the width, at about 26-34% of the height; labels (1 line) centered under them at about 35-38.5% of the height, within about 8-29% and 68-91% of the width. Lower benefits: icons centered at about 18.5% and 80.5% of the width, at about 59-68% of the height; labels (2 lines) centered under them at about 68.5-77% of the height. Arrows: the upper pair start about 2-3% outside the product's sides at about 49% of the height and end at about 25% and 75% of the width at about 43% of the height (pointing up and outward); the lower pair start at about 61% of the height and end at about 25% and 75% of the width at about 66% of the height (pointing down and outward). Price tag: centered, from about 40% to 60.5% of the width and from about 86.5% to 95% of the height, overlapping the product's base.",
+    "lighting_and_depth": "Bright, soft studio light from the front and upper left on a seamless pale gradient backdrop, lighter in the center behind the product and slightly deeper towards the edges. The product is crisp with clean reflections on its packaging and a very soft contact shadow. Icons, arrows, labels, highlight box and price tag are flat graphics with no shadows."
+  },
+  "layout_summary": "Square canvas with a soft pale mint-to-aqua gradient background. The store logo sits small at the top center. Below it, a one-line extra bold headline: a short question naming the problem plus an invitation verb in black, and the product name in black inside a solid yellow rectangular highlight box. The user's product stands large and centered below. Around it, four benefits in the four corners, each a solid black glyph icon with a bold black label centered beneath it (one line for the upper pair, two lines for the lower pair). Four curved black arrows spring from the sides of the product: the upper two curve up and outward towards the upper labels, the lower two curve down and outward towards the lower icons. At the bottom center, overlapping the product's base, a stacked tag: a white box with a bold black price-per-serving line on top of a black box with a white unit line.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Fresh, clean base that keeps the diagram readable and lets the product pop",
+      "adaptation_rule": "Seamless soft gradient in a very pale, fresh tone (pale mint or aqua in the reference; use the lightest tint of the brand palette or a fresh pastel that contrasts with the product), lighter in the center behind the product. No patterns or props."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline highlight box",
+      "position": "At the right end of the headline line, from about 54% to 95% of the canvas width and from about 15% to 23% of the height",
+      "visual_function": "Spotlights the product name as the answer to the question",
+      "adaptation_rule": "Solid rectangle with square corners in a warm saturated yellow, sized tightly to the product name with a small inner padding. Flat, no shadow."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Center, from about 34% to 63% of the canvas width and from about 26% to 90% of the height (about 64% tall)",
+      "visual_function": "Main visual anchor; the origin of every arrow",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front view, upright, label facing the camera, with a very soft contact shadow."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "benefit icons (4)",
+      "position": "Four corners: upper-left and upper-right centered at about 18% and 80% of the canvas width at about 26-34% of the height; lower-left and lower-right centered at about 18.5% and 80.5% of the width at about 59-68% of the height",
+      "visual_function": "Visual anchors that make each benefit instantly understandable",
+      "adaptation_rule": "Solid black glyph icons about 7-8% of the canvas, no tiles or circles behind them, each literally representing its benefit (e.g. moon with zzz, bed, brain, body with circular arrows). All share one style and visual weight."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "curved arrows (4)",
+      "position": "From about 2-3% outside each side of the product (upper pair at about 49% of the canvas height, lower pair at about 61%) curving outward to about 25% and 75% of the width (upper pair ending at about 43% of the height, lower pair at about 66%)",
+      "visual_function": "Shows each benefit springing out of the product",
+      "adaptation_rule": "Hand-drawn-looking smooth curved black arrows, stroke about 0.5% of the canvas, with small open arrowheads at the benefit end. The upper two curve up and outward, the lower two curve down and outward, mirrored left to right. They never touch the product or the labels."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "price-per-serving tag",
+      "position": "Bottom center, from about 40% to 60.5% of the canvas width and from about 86.5% to 95% of the height, overlapping the product's base",
+      "visual_function": "Reframes the price as tiny per serving and removes the price objection",
+      "adaptation_rule": "Two stacked rectangles of equal width with square corners and no gap: the upper one white (about 4.5% of the canvas tall) and the lower one black (about 4% tall). Flat, no shadow."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline (question + invitation)",
+      "reference_position": "Top center, one line, left part before the highlight box",
+      "text_style": "Extra bold sans-serif, about 6.5% of the canvas height, 1 line shared with the highlighted name, near-black",
+      "guia_texto": "Pregunta de 1 a 2 palabras que nombra el problema seguida de un verbo de invitación a probar, en 2 a 4 palabras en total."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "highlighted product name",
+      "reference_position": "Inside the yellow highlight box, end of the headline line",
+      "text_style": "Extra bold uppercase sans-serif, same size as the headline, 1 line, near-black on yellow",
+      "guia_texto": "El nombre del producto del usuario, de 1 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit label (upper-left)",
+      "reference_position": "Upper-left quadrant, centered under its icon",
+      "text_style": "Bold sans-serif, about 3.5% of the canvas height, max 2 lines (1 line preferred), centered, near-black",
+      "guia_texto": "El beneficio más fuerte para el ángulo, en 2 a 3 palabras. Usa los beneficios guardados en producto.json (Paso 2)."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit label (upper-right)",
+      "reference_position": "Upper-right quadrant, centered under its icon",
+      "text_style": "Same style as the upper-left label",
+      "guia_texto": "Segundo beneficio, en 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit label (lower-left)",
+      "reference_position": "Lower-left quadrant, centered under its icon",
+      "text_style": "Bold sans-serif, about 3.5% of the canvas height, 2 lines, centered, near-black",
+      "guia_texto": "Tercer beneficio, en 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "benefit label (lower-right)",
+      "reference_position": "Lower-right quadrant, centered under its icon",
+      "text_style": "Same style as the lower-left label",
+      "guia_texto": "Cuarto beneficio, en 2 a 4 palabras; puede ser un beneficio extra que sorprenda."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "price per serving",
+      "reference_position": "Inside the upper white box of the price tag, centered",
+      "text_style": "Extra bold uppercase sans-serif, about 3.8% of the canvas height, 1 line, centered, black on white",
+      "guia_texto": "Una palabra como «Solo» seguida del precio por porción, por uso o por día, calculado con el precio real del usuario dividido entre sus porciones, con su moneda. De 2 a 3 palabras o cifras."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "price unit",
+      "reference_position": "Inside the lower black box of the price tag, centered",
+      "text_style": "Bold uppercase sans-serif, about 3% of the canvas height, 1 line, centered, white on black",
+      "guia_texto": "La unidad del precio (por porción, por uso, al día), en 2 a 3 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Pale, fresh gradient background",
+    "One-line question headline with the product name in a solid yellow highlight box",
+    "The user's product, large and centered",
+    "Four benefits in the four corners, each a black glyph icon above a bold label",
+    "Four curved black arrows springing outward from the product towards the benefits",
+    "Stacked white / black price-per-serving tag at the bottom center, overlapping the product's base"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Total price, strikethrough price or discount badge",
+    "Shipping or payment conditions",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Tiles, circles or boxes behind the icons",
+    "Straight leader lines with dots",
+    "People, hands or lifestyle scenes",
+    "Subheadline or paragraph text",
+    "More than 4 benefits",
+    "Bottom bar or banner",
+    "Logos or brand marks as blocks (the store logo goes only where posicion_logo says)"
+  ],
+  "notas_paleta": "Fondo en degradado muy claro y fresco (en la referencia, menta/celeste pálido): usa el tono más claro de la paleta de marca o un pastel fresco que contraste con el producto. Titular, íconos, flechas y etiquetas en negro o en el color más oscuro de la paleta. El resaltado del nombre va en un amarillo cálido y saturado (o en el acento de la marca si es cálido y luminoso) con texto negro. La etiqueta de precio es blanco y negro, sin color. La paleta de marca vive en el producto y en el logo.",
+  "posicion_logo": "Top center, from about 40% to 63% of the canvas width (about 23% wide) and from about 4.5% to 10.5% of the canvas height"
+}

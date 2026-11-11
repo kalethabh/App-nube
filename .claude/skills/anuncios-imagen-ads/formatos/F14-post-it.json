@@ -1,0 +1,84 @@
+{
+  "id": "F14",
+  "slug": "post-it",
+  "nombre": "Post-it",
+  "origen": "biblioteca",
+  "descripcion": "Foto real de un espacio cotidiano (espejo del baño, refrigerador, escritorio) con un solo post-it pegado junto al producto o sobre él, con un mensaje corto escrito a mano con plumón. Íntimo, auténtico y muy efectivo para detener el scroll; el post-it es el único texto de la imagen.",
+  "angulos_compatibles": ["rutina-uso", "regalo", "promesa-emocional", "curiosidad", "identidad", "romper-expectativas"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Sticky Note Lifestyle Photo Ad",
+  "reference_style": "Authentic photographic still life of the product in a real home or work setting with a single handwritten sticky note as the only message, personal and unpolished yet beautifully lit",
+  "art_direction": {
+    "visual_hierarchy": "1) The sticky note with its handwritten message: a bright square that catches the eye first. 2) The product, sharp and right next to the note. 3) The real-life setting that gives context (surface, mirror, fridge, desk).",
+    "composition_style": "Real photograph, eye-level or slightly elevated camera (about 15-20 degrees down), 50mm lens look. Asymmetric two-subject composition: the sticky note in the upper-left area, stuck on a vertical surface (mirror, fridge door, wall, cabinet or monitor), and the product standing on the horizontal surface in the right-center, slightly in front of that vertical surface. Note and product are close enough to read as one scene. Alternative when the product has a large flat front (box, big jar, laptop or phone for digital products): the note is stuck directly on the product, covering at most 30% of its front and never its brand name or main label.",
+    "spacing_and_structure": "Sticky note about 38-40% of the canvas width (square), around x 8-47% and y 8-47%, rotated 3-6 degrees, with about 3% inner padding. Product about 50-56% of the canvas height, around x 52-88% and y 34-90%, its base resting at about y 88%. The line where the vertical and horizontal surfaces meet sits at about y 58-65%. Keep 5-6% margins; the rest of the room is softly blurred background.",
+    "lighting_and_depth": "Soft natural window light from the left, warm daylight color temperature, gentle real shadows: the note casts a faint shadow on its surface and its bottom edge curls slightly away from it; the product has a soft contact shadow. Shallow depth of field: note and product in sharp focus, the rest of the room softly blurred. Realistic, slightly imperfect, editorial photo feel; no studio backdrop."
+  },
+  "layout_summary": "Square real photo of an everyday setting (bathroom vanity with mirror, kitchen counter by the fridge, or home-office desk with a monitor). A single square sticky note is stuck on the vertical surface in the upper-left area, slightly tilted, with a short handwritten marker message, a tiny sign-off and one small doodle. The user's product stands on the counter or desk in the right-center, sharp, label facing the camera, close to the note. The background is softly blurred. No graphic text, frames or overlays.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "photographic setting",
+      "position": "Full canvas",
+      "visual_function": "Real-life context that makes the note feel like a genuine personal moment",
+      "adaptation_rule": "Choose the setting that matches the product's real moment of use: bathroom mirror and vanity for cosmetics and personal care, kitchen counter and fridge door for supplements, food and home products, desk with a monitor for gadgets, digital products and services, bedroom dresser for clothing and accessories, kids' shelf for toys. Use the setting from the batch plan so variations differ. Tidy, a few soft-focus everyday objects, nothing that competes with the product."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "sticky note",
+      "position": "Upper-left area, about x 8-47% and y 8-47%, rotated 3-6 degrees, stuck on the vertical surface",
+      "visual_function": "The ad's only message; reads as a personal reminder, tip or gift note",
+      "adaptation_rule": "Square paper sticky note with matte paper texture, a slightly curled bottom edge and a faint shadow. Color: classic pastel yellow, or a pastel tint from the brand palette if the batch plan says so. Written with a thick felt-tip marker."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "hand-drawn doodle",
+      "position": "Inside the note, under or beside the message",
+      "visual_function": "Adds personal warmth and can point the eye toward the product",
+      "adaptation_rule": "One small doodle drawn with the same marker: an underline, a small heart, a sun, a star, or a short arrow pointing toward the product. Only one."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Right-center, about x 52-88% and y 34-90%, standing on the horizontal surface",
+      "visual_function": "Shows exactly what the note is about; the commercial anchor",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or slight 3/4 view, label facing the camera, sharp, at a realistic scale for the setting, with a soft contact shadow. For digital products or services, show the product's screen on a phone or laptop on the desk and stick the note on the screen's bezel."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "handwritten note message",
+      "reference_position": "On the sticky note, upper and middle area of the note",
+      "text_style": "Handwritten felt-tip marker lettering, casual but clearly legible (print style, not cursive), dark ink (near-black, deep navy or the darkest brand color), letters about 4.5-5.5% of the canvas height, loosely left-aligned or centered on the note, max 4 short lines (about 12-14 characters each) filling about 70% of the note",
+      "guia_texto": "Mensaje corto y personal escrito a mano: recordatorio de rutina ('Tómalo antes del café'), consejo, nota de regalo o advertencia con humor ('No toques mi ___'). 3 a 8 palabras; ideal 4 a 6, para que la letra se lea grande."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "sign-off",
+      "reference_position": "Bottom-right corner of the sticky note",
+      "text_style": "Same marker handwriting, smaller (about 3-3.5% of the canvas height), 1 line, right-aligned",
+      "guia_texto": "Firma breve que da contexto emocional: '— Mamá', '— Yo del futuro', una inicial. 1 a 3 palabras. Omitir si el mensaje ya ocupa las 4 líneas."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One square sticky note with a handwritten marker message, slightly tilted and curled",
+    "One small hand-drawn doodle on the note",
+    "The user's product, sharp, right next to the note (or with the note stuck on it)",
+    "Real everyday setting with natural window light and a softly blurred background"
+  ],
+  "forbidden_additions": [
+    "Graphic headline or typed text overlays",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonial cards",
+    "Benefit list or icons",
+    "Additional sticky notes, paper notes or printed labels",
+    "People or hands",
+    "Studio seamless backdrop or flat brand-colored background",
+    "Bottom bar, banner or graphic frame",
+    "Logos or brand marks",
+    "Cluttered props that compete with the product"
+  ],
+  "notas_paleta": "Colores naturales de la escena, armonizados con la paleta de marca: la marca aparece en detalles del entorno (toalla, taza, pared, objetos) y, si el plan lo indica, en el color del post-it como tinte pastel. La tinta puede ser el color más oscuro de la marca. Nunca fondos planos de color de marca."
+}

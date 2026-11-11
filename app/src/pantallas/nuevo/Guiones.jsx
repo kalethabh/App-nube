@@ -1,8 +1,8 @@
-// El guion de cada anuncio: "Escribir el guion" -> Claude Code lo escribe con la cuenta del usuario
+// El guion de cada anuncio: "Escribir el guion" -> tu IA (Claude o ChatGPT) lo escribe con la cuenta del usuario
 // (POST /api/anuncios lanza la sesión "guion") -> se ve el avance real, frase por frase -> aparece el
 // guion real (GET /api/anuncios/:slug/guion): lo que se dice, parte por parte, y lo que decidió la IA.
 // Dos salidas: "Me gusta, producir" (POST …/producir y a la producción de ese anuncio) o "Pedir cambios"
-// con palabras normales (POST …/guion/cambios: la misma sesión de Claude, y vuelve el avance).
+// con palabras normales (POST …/guion/cambios: la misma sesión de tu IA, y vuelve el avance).
 // Prompts, imágenes y el manifiesto van por dentro: nunca se muestran.
 //
 // Cada estilo se lee a su manera:
@@ -22,7 +22,8 @@ import { ir, rutas } from '../../datos/rutas.js';
 import { DETALLES, faltaDe, queDiceElGuion } from '../estilos/catalogo.js';
 import { conDuracion, duracionAprox, duracionDeAjuste } from '../../datos/duracion.js';
 import { leerGuion, tipoDeFalla } from './datos.js';
-import { AvisoClaude, Progreso, TarjetaFalla } from './piezas.jsx';
+import { AvisoMotor, Progreso, TarjetaFalla } from './piezas.jsx';
+import { useMotor } from '../ajustes/datos.js';
 import { Producir } from './Producir.jsx';
 import { BotonDescartar } from './Descartar.jsx';
 import { SelloEstilo } from './SelloEstilo.jsx';
@@ -38,8 +39,16 @@ const EJEMPLO_CAMBIO = {
   musical: 'Ej.: en la opción 2, que el coro diga que el envío es gratis.',
   historia: 'Ej.: que la suegra sea la que la humilla y que el cierre mencione la garantía.',
 };
-// medido: 2,6 min el guion de un claymation de 30 s (cuenta Max, 2026-10-25). Los demás, a estimar.
-const SUELE = { guion: 'suele tardar de 3 a 10 min', musical: 'suele tardar de 3 a 8 min', historia: 'suele tardar de 5 a 15 min' };
+// Lo que suele tardar, por IA. Claude, medido: 2,6 min el guion de un claymation de 30 s (cuenta Max, 2026-10-25); los
+// demás, a estimar. ChatGPT, medido en las pruebas reales del 2026-11-09 (esfuerzo alto, 2 corridas de los 13 estilos):
+// los guiones con manifiesto, de 4,3 a 11,1 min (Lego, el más largo); las letras del musical, 2,3 y 2,4; la historia
+// musical, 3,5 y 4,0.
+const SUELE = {
+  claude: { guion: 'suele tardar de 3 a 10 min', musical: 'suele tardar de 3 a 8 min', historia: 'suele tardar de 5 a 15 min' },
+  codex: { guion: 'suele tardar de 5 a 12 min', musical: 'suele tardar de 2 a 6 min', historia: 'suele tardar de 4 a 10 min' },
+};
+/** El "suele tardar" de esa IA (sin elegir, el de Claude). */
+const sueleDe = (motor, tipo) => (SUELE[motor] || SUELE.claude)[tipo];
 // Los guiones largos se muestran hasta la parte 14 y el resto con un botón.
 const LARGO_SIN_PLEGAR = 20;
 const VISIBLES = 14;
@@ -425,6 +434,7 @@ function HojaHistoria({ estilo, ajuste, guion, encima, cambiando = false }) {
 // ---------------------------------------------------------------- pedir cambios
 
 function PedirCambios({ estilo, activo, enviando, onPedir, aprobado = false, terminado = false }) {
+  const { nombre } = useMotor();
   const [texto, setTexto] = useState('');
   const tipo = tipoDeHoja(estilo.clave);
   const que = tipo === 'musical' ? 'tus letras estén escritas' : tipo === 'historia' ? 'tu historia esté escrita' : 'tu guion esté escrito';
@@ -449,7 +459,7 @@ function PedirCambios({ estilo, activo, enviando, onPedir, aprobado = false, ter
               ? 'Este anuncio ya se produjo: los cambios se hacen en el editor.'
               : aprobado
                 ? 'Este anuncio ya se está produciendo: cuando termine, los cambios se hacen en el editor.'
-                : `Cuando ${que}, aquí le pides a Claude los cambios con tus palabras.`
+                : `Cuando ${que}, aquí le pides a ${nombre} los cambios con tus palabras.`
         }
         value={texto}
         onChange={(e) => setTexto(e.target.value)}
@@ -474,7 +484,35 @@ function PedirCambios({ estilo, activo, enviando, onPedir, aprobado = false, ter
 
 // ---------------------------------------------------------------- el guion de un anuncio, en vivo
 
-function GuionVivo({ estilo, ajuste, slug, claude, onEscribirDeNuevo, onVolverAlProducto, onBrief }) {
+/**
+ * El lateral (pedir cambios, «Me gusta, producir» con su costo estimado) queda pegado arriba mientras bajas por el
+ * guion. Si es más alto que la ventana (por ejemplo con «Con otro modelo» abierto), se pega por abajo: así el botón
+ * de producir siempre se puede ver sin llegar al final del guion. (En una columna, debajo de 1180 px, no se pega.)
+ */
+function useLateralPegado() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof ResizeObserver === 'undefined') return undefined;
+    const ajustar = () => {
+      const raiz = getComputedStyle(document.documentElement);
+      const arriba = (parseFloat(raiz.getPropertyValue('--alto-barra')) || 60) + (parseFloat(raiz.getPropertyValue('--e-5')) || 20);
+      const top = Math.min(arriba, window.innerHeight - el.offsetHeight - 20);
+      el.style.top = top < arriba ? `${Math.round(top)}px` : '';
+    };
+    const ro = new ResizeObserver(ajustar);
+    ro.observe(el);
+    window.addEventListener('resize', ajustar);
+    ajustar();
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', ajustar);
+    };
+  }, []);
+  return ref;
+}
+
+function GuionVivo({ estilo, ajuste, slug, motor, onEscribirDeNuevo, onVolverAlProducto, onBrief }) {
   const { aviso } = useAvisos();
   const [sondear, setSondear] = useState(true);
   const g = useGuion(slug, { cadaMs: sondear ? 2000 : undefined });
@@ -545,11 +583,19 @@ function GuionVivo({ estilo, ajuste, slug, claude, onEscribirDeNuevo, onVolverAl
       return true;
     } catch (e) {
       const t = tipoDeFalla(e.datos?.error || e.message, { limite: e.datos?.limite });
+      const nombre = mayuscula(motor.nombre);
       aviso({
         tipo: 'error',
-        titulo: t === 'limite' ? 'Tu plan de Claude llegó a su límite de uso' : t === 'sin-sesion' ? 'Falta tu sesión de Claude' : 'No pude pedir el cambio',
+        titulo:
+          t === 'limite'
+            ? `Tu plan de ${nombre} llegó a su límite de uso`
+            : t === 'plan-sin-codex'
+              ? 'Tu plan de ChatGPT no incluye Codex o ya no le queda uso'
+              : t === 'sin-sesion'
+                ? `Falta tu sesión de ${nombre}`
+                : 'No pude pedir el cambio',
         texto: t === 'limite' ? 'Se libera solo en unas horas. Tu pedido no se perdió: vuelve a enviarlo después.' : e.message,
-        accion: t === 'sin-sesion' ? { etiqueta: 'Iniciar sesión', alHacer: claude.iniciar } : undefined,
+        accion: t === 'sin-sesion' && motor.elegido ? { etiqueta: 'Iniciar sesión', alHacer: () => motor.iniciarSesion() } : undefined,
         duracion: 9000,
       });
       return false;
@@ -624,10 +670,10 @@ function GuionVivo({ estilo, ajuste, slug, claude, onEscribirDeNuevo, onVolverAl
     encima = (
       <div className="nv-guion__vivo">
         <Progreso
-          titulo={enCambio ? 'Claude está haciendo tu cambio' : tipo === 'musical' ? 'Claude está escribiendo tus letras' : tipo === 'historia' ? 'Claude está escribiendo tu historia' : 'Claude está escribiendo tu guion'}
+          titulo={`${mayuscula(motor.nombre)} ${enCambio ? 'está haciendo tu cambio' : tipo === 'musical' ? 'está escribiendo tus letras' : tipo === 'historia' ? 'está escribiendo tu historia' : 'está escribiendo tu guion'}`}
           frases={leido.progreso}
           inicio={leido.inicio}
-          suele={enCambio ? 'un cambio tarda unos minutos' : SUELE[tipo]}
+          suele={enCambio ? 'un cambio tarda unos minutos' : sueleDe(motor.id, tipo)}
           nota={
             enCambio && pedido ? (
               <>
@@ -648,7 +694,7 @@ function GuionVivo({ estilo, ajuste, slug, claude, onEscribirDeNuevo, onVolverAl
           limite={leido.limite}
           reinicio={leido.reinicio}
           que={enCambio ? 'el cambio' : queEs}
-          claude={claude}
+          motor={motor}
           onReintentar={reintentar}
           reintentando={reintentando}
           onVolver={onVolverAlProducto}
@@ -659,6 +705,7 @@ function GuionVivo({ estilo, ajuste, slug, claude, onEscribirDeNuevo, onVolverAl
 
   const mostrarHoja = !(escribiendo && !enCambio);
   const continuidad = Boolean(leido.brief?.continuidad ?? ajuste?.continuidad);
+  const lateral = useLateralPegado();
   return (
     <div className="nv-guion nv-aparece">
       {tipo === 'musical' ? (
@@ -676,7 +723,7 @@ function GuionVivo({ estilo, ajuste, slug, claude, onEscribirDeNuevo, onVolverAl
       ) : (
         <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} />
       )}
-      <aside className="nv-guion__lado">
+      <aside className="nv-guion__lado" ref={lateral}>
         {leido.aprobado || cargando ? null : (
           <Tarjeta relleno="compacto">
             <PedirCambios estilo={estilo} activo={listo} enviando={enviando} onPedir={pedirCambio} aprobado={leido.aprobado} terminado={leido.terminado} />
@@ -695,6 +742,8 @@ function GuionVivo({ estilo, ajuste, slug, claude, onEscribirDeNuevo, onVolverAl
           bloqueado={alcanza === false}
           faltaElegir={faltaElegir}
           continuidad={continuidad}
+          firmaCosto={tipo === 'musical' ? elegida || '' : ''}
+          alCambiarModelo={saldo.recargar}
           onProducir={producir}
         />
         {!leido.aprobado && !escribiendo && !sinRuta && (listo || falla) ? (
@@ -709,7 +758,7 @@ function GuionVivo({ estilo, ajuste, slug, claude, onEscribirDeNuevo, onVolverAl
 
 // ---------------------------------------------------------------- antes de escribir
 
-function Escribir({ estilos, ajustes, creando, sinProducto, claude, onEscribir, onVolverAlProducto }) {
+function Escribir({ estilos, ajustes, creando, sinProducto, motor, onEscribir, onVolverAlProducto }) {
   const n = estilos.length;
   const sinVoz = estilos.filter((e) => DETALLES[e.clave]?.voz === 'narrador' && !ajustes[e.clave]?.voz);
   const faltan = estilos.map((e) => ({ e, p: faltaDe(e.clave, ajustes[e.clave]?.preguntas) })).filter((x) => x.p);
@@ -718,12 +767,12 @@ function Escribir({ estilos, ajustes, creando, sinProducto, claude, onEscribir, 
     .filter((e) => conDuracion(e.clave))
     .map((e) => ({ e, d: duracionDeAjuste(ajustes[e.clave]?.duracion) }))
     .filter((x) => x.d.decide === 'usuario' && !x.d.segundos);
-  const puede = !sinProducto && !sinVoz.length && !faltan.length && !largos.length && (!claude.estado || claude.listo);
+  const puede = !sinProducto && !sinVoz.length && !faltan.length && !largos.length && !motor.falta;
 
-  if (claude.estado && !claude.listo) {
+  if (motor.falta) {
     return (
       <Tarjeta variante="contorno" relleno="amplio">
-        <AvisoClaude claude={claude} para="escribir tu guion" />
+        <AvisoMotor motor={motor} para="escribir tu guion" />
       </Tarjeta>
     );
   }
@@ -783,7 +832,7 @@ function LeerBrief({ slug, onBrief }) {
 
 // ---------------------------------------------------------------- la sección
 
-export function Guiones({ id, estilos, ajustes, anuncios, creando, sinProducto, claude, onEscribir, onVolverAlProducto, onBrief, enfoque = null }) {
+export function Guiones({ id, estilos, ajustes, anuncios, creando, sinProducto, motor, onEscribir, onVolverAlProducto, onBrief, enfoque = null }) {
   const [activa, setActiva] = useState(enfoque?.clave && estilos.some((e) => e.clave === enfoque.clave) ? enfoque.clave : estilos[0]?.clave);
   useEffect(() => {
     if (!estilos.some((e) => e.clave === activa)) setActiva(estilos[0]?.clave);
@@ -797,7 +846,7 @@ export function Guiones({ id, estilos, ajustes, anuncios, creando, sinProducto, 
   const sinGuion = estilos.filter((e) => !anuncios[e.clave]);
   const n = estilos.length;
   const soloCantados = estilos.every((e) => tipoDeHoja(e.clave) !== 'guion');
-  const suele = SUELE[n === 1 ? tipoDeHoja(estilos[0].clave) : 'guion'];
+  const suele = sueleDe(motor.id, n === 1 ? tipoDeHoja(estilos[0].clave) : 'guion');
 
   return (
     <Seccion
@@ -810,7 +859,7 @@ export function Guiones({ id, estilos, ajustes, anuncios, creando, sinProducto, 
           ? soloCantados
             ? 'Lees solo lo que se canta: lo demás lo arma la app por dentro. Pide los cambios que quieras y, cuando te guste, se produce solo hasta el video.'
             : 'Lees solo lo que se dice: lo demás lo arma la app por dentro. Pide los cambios que quieras y, cuando te guste, se produce solo hasta el video.'
-          : `Claude Code ${n === 1 ? 'lo escribe' : 'los escribe'} con tu cuenta de Claude y la ficha de tu producto. ${suele.charAt(0).toUpperCase()}${suele.slice(1)}.`
+          : `${mayuscula(motor.nombre)} ${n === 1 ? 'lo escribe' : 'los escribe'} con tu cuenta y la ficha de tu producto. ${suele.charAt(0).toUpperCase()}${suele.slice(1)}.`
       }
       className="nv-guiones"
     >
@@ -820,7 +869,7 @@ export function Guiones({ id, estilos, ajustes, anuncios, creando, sinProducto, 
           ajustes={ajustes}
           creando={creando}
           sinProducto={sinProducto}
-          claude={claude}
+          motor={motor}
           onEscribir={onEscribir}
           onVolverAlProducto={onVolverAlProducto}
         />
@@ -848,7 +897,7 @@ export function Guiones({ id, estilos, ajustes, anuncios, creando, sinProducto, 
                   estilo={e}
                   ajuste={ajustes[e.clave]}
                   slug={anuncios[e.clave]}
-                  claude={claude}
+                  motor={motor}
                   onEscribirDeNuevo={() => onEscribir(e.clave)}
                   onVolverAlProducto={onVolverAlProducto}
                   onBrief={(b) => onBrief?.(e.clave, b)}
@@ -860,7 +909,7 @@ export function Guiones({ id, estilos, ajustes, anuncios, creando, sinProducto, 
                   ajustes={ajustes}
                   creando={creando}
                   sinProducto={sinProducto}
-                  claude={claude}
+                  motor={motor}
                   onEscribir={() => onEscribir(e.clave)}
                   onVolverAlProducto={onVolverAlProducto}
                 />

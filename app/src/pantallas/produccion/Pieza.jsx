@@ -3,8 +3,10 @@
 //   generando   -> destello cian (si es un clip, su imagen de partida atenuada y una línea que la recorre)
 //   lista       -> la miniatura entra con un fogonazo suave; al pasar el mouse, el clip se reproduce
 //   arreglada   -> punto ámbar · te necesita -> anillo rojo que respira
+//   con aviso   -> borde ámbar y un ojo arriba a la izquierda: la revisión notó algo (no se rehízo sola: tú decides)
+//   la pides de nuevo -> un reloj (en la fila) o un círculo que gira (regenerándose) arriba a la izquierda
 import { createContext, memo, useContext, useEffect, useRef, useState } from 'react';
-import { Clock, Film, Hand, LoaderCircle } from 'lucide-react';
+import { Clock, Film, Hand, LoaderCircle, ScanEye } from 'lucide-react';
 import { PuntoEstado } from '../../componentes/index.js';
 import { miniatura } from '../../datos/api.js';
 import { duracion as fmtDuracion } from '../../datos/formato.js';
@@ -64,6 +66,8 @@ export const Pieza = memo(function Pieza({ pieza: p, estado = 'en-cola', nota, s
     setJugando(false);
   };
 
+  const conAviso = terminada && Boolean(p.avisos?.length);
+  const pedida = nota === 'regenerando' || nota === 'en-fila';
   const clases = [
     'prod-pieza',
     `prod-pieza--${estado}`,
@@ -73,9 +77,12 @@ export const Pieza = memo(function Pieza({ pieza: p, estado = 'en-cola', nota, s
     llega && 'prod-pieza--llega',
     seleccionada && 'prod-pieza--seleccionada',
     nota === 'frenada' && 'prod-pieza--frenada',
+    conAviso && 'prod-pieza--con-aviso',
+    pedida && `prod-pieza--${nota}`,
   ]
     .filter(Boolean)
     .join(' ');
+  const textoExtra = pedida ? (nota === 'en-fila' ? ', en la fila para regenerarse' : ', regenerándose') : conAviso ? ', con un aviso de la revisión' : '';
 
   return (
     <button
@@ -87,7 +94,7 @@ export const Pieza = memo(function Pieza({ pieza: p, estado = 'en-cola', nota, s
       onMouseLeave={salir}
       onFocus={entrar}
       onBlur={salir}
-      aria-label={`${p.titulo}: ${TEXTO[estado] || estado}`}
+      aria-label={`${p.titulo}: ${TEXTO[estado] || estado}${textoExtra}`}
       aria-pressed={seleccionada || undefined}
     >
       <span className="prod-pieza__marco" style={p.relacion ? { aspectRatio: p.relacion } : undefined}>
@@ -132,6 +139,15 @@ export const Pieza = memo(function Pieza({ pieza: p, estado = 'en-cola', nota, s
         <span className="prod-pieza__punto" aria-hidden="true">
           <PuntoEstado estado={estado} />
         </span>
+        {pedida ? (
+          <span className={`prod-pieza__marca prod-pieza__marca--${nota}`} aria-hidden="true" title={nota === 'en-fila' ? 'En la fila para regenerarse' : 'Regenerándose'}>
+            {nota === 'en-fila' ? <Clock size={11} strokeWidth={2.4} /> : <LoaderCircle size={11} strokeWidth={2.4} className="girando" />}
+          </span>
+        ) : conAviso ? (
+          <span className="prod-pieza__marca prod-pieza__marca--aviso" aria-hidden="true" title="La revisión notó algo">
+            <ScanEye size={11} strokeWidth={2.4} />
+          </span>
+        ) : null}
         {terminada && p.clase === 'clip' ? (
           <span className="prod-pieza__dur t-mono">
             <Film size={10} strokeWidth={2.4} aria-hidden="true" />

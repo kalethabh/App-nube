@@ -1,20 +1,27 @@
 // Ajustes de la app y la revision de la PC.
 //
 // GET /api/ajustes               -> preferencias, si ya se vio la bienvenida, la marca y la version, y "Tu PC"
-// POST /api/ajustes/revisar       -> "Volver a revisar": la proxima lectura de "Tu PC" mide todo de nuevo
+// POST /api/ajustes/revisar       -> "Volver a revisar": la proxima lectura de "Tu PC" mide todo de nuevo (tambien
+//                                    vuelve a buscar Claude Code y Codex, y a preguntar por la cuenta de ChatGPT)
 // PUT /api/ajustes/preferencias  -> { idioma, mercado, subtitulos, aLaVez } (solo lo que cambia)
 // PUT /api/ajustes/bienvenida    -> { vista: true | false }
+// PUT /api/ajustes/modelos       -> { categoriaId: opcionId } (solo lo que cambia) -> { ok, modelos: { eleccion, categorias } }
+//
+// GET /api/ajustes trae tambien modelos: { eleccion, categorias } (lib/modelos.js, categoriasParaLaPantalla): las
+// opciones del catalogo de modelos (produccion/catalogo-modelos.json) con su costo aproximado en dolares y lo que se
+// usa si fallan. Lo elegido vale para los anuncios nuevos: cada anuncio se lleva su copia (temp/<slug>/modelos.json).
 //
 // Todo se guarda en app/config.json. Las claves NO pasan por aca: van al .env de la raiz con
 // PUT /api/claves (rutas/claves.js), y el saldo de kie sale de GET /api/saldo.
 // "Tu PC" se lee con node:os y fs.statfs, y los programas que usa el motor se buscan en el PATH y en la carpeta
 // donde los instala el lanzador (lib/programas.js): solo se corren "ffmpeg -encoders" y una linea de Python para ver
-// sus paquetes (gratis, local, sin internet). Se guarda 1 minuto.
+// sus paquetes (gratis, local, sin internet). Se guarda 1 minuto. El programa de la IA (fila 'motor') es solo el de la
+// IA elegida: Claude Code o Codex (rutas/estado.js, versionClaude y versionCodex).
 // Nada sensible en la respuesta: ni rutas de carpetas, ni la direccion de la app, ni IPs.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { APP, RAIZ, TEMP } from '../lib/rutas.js';
+import { APP, RAIZ, TEMP, PUERTO } from '../lib/rutas.js';
 import { leerJSON, existe } from '../lib/archivos.js';
 import { leerConfig, guardarConfig } from '../lib/config.js';
 import { slugsDeAnuncios } from '../lib/anuncios.js';
@@ -22,6 +29,21 @@ import { MAX_A_LA_VEZ } from '../lib/conductor.js';
 import { anunciosALaVez } from '../lib/colas.js';
 import { revisarPython, revisarVideo } from '../lib/programas.js';
 import { olvidarClaude, resolverClaude } from '../lib/claude.js';
+import { olvidarCodex } from '../lib/codex-rutas.js';
+import { motorElegido, datosIA } from '../lib/motor-ia.js';
+import { aplicarCambios, modelosParaAjustes, eleccionDeAjustes } from '../lib/modelos.js';
+import { versionClaude, versionCodex, olvidarVersiones, moduloCodex } from './estado.js';
+
+// Lo que decide que se gasta (los modelos) solo se cambia desde la propia app, como las claves (rutas/claves.js):
+// una pagina de otro sitio no puede elegir por el usuario.
+const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+function desdeLaApp(req, res, next) {
+  const origen = req.headers.origin;
+  if ((origen && !ORIGENES.has(String(origen).toLowerCase())) || String(req.headers['sec-fetch-site'] || '') === 'cross-site') {
+    return res.status(403).json({ error: 'Solo desde la app.' });
+  }
+  next();
+}
 
 // ---------------------------------------------------------------- preferencias
 
@@ -91,16 +113,42 @@ function remotionInstalado() {
  */
 let cacheRevisiones = null; // { t, valor, promesa }
 
+/** Que la proxima lectura de "Tu PC" mida todo de nuevo (despues de elegir o instalar la IA: rutas/ia.js). */
+export function olvidarRevisiones() {
+  if (!cacheRevisiones?.promesa) cacheRevisiones = null;
+}
+
+/**
+ * El programa de la IA elegida: { id: 'motor', motor, nombre, programa, ok, obligatorio, version }. Sin IA elegida no
+ * es obligatorio (la elige el alumno en la bienvenida o en Ajustes › Conexiones).
+ */
+async function revisionMotor() {
+  const motor = motorElegido();
+  const { nombre, programa } = datosIA(motor);
+  let ok = false;
+  let version = null;
+  if (motor === 'claude') {
+    ok = Boolean(resolverClaude());
+    const v = ok ? await versionClaude() : null;
+    version = v?.instalado ? v.version : null;
+  } else if (motor === 'codex') {
+    const v = await versionCodex();
+    ok = v.instalado === true;
+    version = v.version;
+  }
+  return { id: 'motor', motor, nombre, programa, ok, obligatorio: Boolean(motor), version };
+}
+
 function revisiones() {
   if (cacheRevisiones?.promesa) return cacheRevisiones.promesa;
   if (cacheRevisiones?.valor && Date.now() - cacheRevisiones.t < 60000) return Promise.resolve(cacheRevisiones.valor);
   const promesa = (async () => {
-    const [video, python] = await Promise.all([revisarVideo(), revisarPython()]);
+    const [video, python, motor] = await Promise.all([revisarVideo(), revisarPython(), revisionMotor()]);
     const nodeVersion = process.versions.node;
     const [ma, mi] = nodeVersion.split('.').map(Number);
     const valor = [
       { id: 'node', ok: ma > 20 || (ma === 20 && mi >= 19), obligatorio: true, version: nodeVersion },
-      { id: 'claude', ok: Boolean(resolverClaude()), obligatorio: true },
+      motor,
       { id: 'ffmpeg', ok: video.ffmpeg, obligatorio: true },
       { id: 'ffprobe', ok: video.ffprobe, obligatorio: true },
       { id: 'remotion', ok: remotionInstalado(), obligatorio: true },
@@ -251,6 +299,8 @@ export default function rutasAjustes(app) {
         version: versionVisible(),
       },
       equipo: await equipo(),
+      // los modelos de IA de los anuncios nuevos: { eleccion, categorias } (Ajustes › Modelos)
+      modelos: modelosParaAjustes(),
       // aLaVez: lo mas que la app hace a la vez (Tu PC elige de 1 a esto); ahora: cuantos van ahora (lo elegido, o lo
       // que aguanta la PC en automatico). Las preferencias todavia no se usan al producir: dicen "Muy pronto"
       produccion: { aLaVez: MAX_A_LA_VEZ, ahora: anunciosALaVez(), preferenciasEnUso: false },
@@ -283,14 +333,31 @@ export default function rutasAjustes(app) {
     res.json({ preferencias: preferencias(config) });
   });
 
-  app.post('/api/ajustes/revisar', (req, res) => {
-    if (!cacheRevisiones?.promesa) cacheRevisiones = null;
+  app.put('/api/ajustes/modelos', desdeLaApp, (req, res) => {
+    const r = aplicarCambios(eleccionDeAjustes(), req.body);
+    if (!r.ok) return res.status(400).json({ error: r.error });
+    guardarConfig({ modelos: r.eleccion });
+    res.json({ ok: true, modelos: modelosParaAjustes() });
+  });
+
+  app.post('/api/ajustes/revisar', async (req, res) => {
+    olvidarRevisiones();
     olvidarClaude();
+    // y lo que se sabia de Codex: donde esta, su version y su cuenta
+    olvidarCodex();
+    olvidarVersiones();
+    try {
+      (await moduloCodex())?.olvidarEstadoCodex?.();
+    } catch {
+      /* no frena: la proxima consulta pregunta igual cuando se venza */
+    }
     res.json({ ok: true });
   });
 
   app.put('/api/ajustes/bienvenida', (req, res) => {
-    const vista = req.body?.vista !== false;
+    // sin IA elegida no cuenta como vista: si no, migrarMotor la tomaria por un alumno de antes (cuando solo existia
+    // Claude) y le pondria Claude. Asi la bienvenida vuelve a mostrar las dos tarjetas hasta que elija (§0.2)
+    const vista = req.body?.vista !== false && Boolean(motorElegido());
     const config = guardarConfig({ bienvenidaVista: vista });
     res.json({ bienvenidaVista: config.bienvenidaVista === true });
   });

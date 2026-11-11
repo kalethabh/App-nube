@@ -1,4 +1,4 @@
-<!-- La revision de la cadena de un anuncio CON CONTINUIDAD, con los videos ya hechos (app/server/lib/familias/continuidad.js, paso "revision-cadena"). Es el Paso 6 de la skill anuncios-continuidad. La app ya saco los cuadros (extraer-frames y --uniones, gratis); despues rehace sola, una vez, cada clip que Claude marque. Claude no corre nada. Las {{marcas}} las llena la app. -->
+<!-- La revision de la cadena de un anuncio CON CONTINUIDAD, con los videos ya hechos (app/server/lib/familias/continuidad.js, paso "revision-cadena"). Es el Paso 6 de la skill anuncios-continuidad. La app ya saco los cuadros (extraer-frames y --uniones, gratis); despues deja un aviso en cada clip que Claude marque, con su prompt nuevo como sugerencia (no rehace nada sola: el usuario decide). Claude no corre nada. Las {{marcas}} las llena la app. -->
 TAREA: continuidad-cadena
 Carpeta del anuncio: {{carpeta}}
 Estilo: {{estiloNombre}}, con el efecto continuidad (sin cortes).
@@ -21,8 +21,8 @@ Los videos de la cadena ya están hechos. Cada uno tenía que arrancar en la ima
    - aparece texto encima de la imagen, o la etiqueta del producto sale en blanco o cambiada;
    - el personaje cambia de cara, de ropa o de peinado en el camino;
    - manos o cuerpos deformes, o el producto cambiado de forma o de color.
-   Una llegada un poco antes o un poco después, o un clip que va rápido, NO es defecto: lo resuelve el montaje. Si dudas, déjalo: rehacer cuesta. Cada clip se rehace una sola vez.
-6. Para cada clip a rehacer escribe un prompt nuevo que corrija lo que viste (casi siempre falló la primera frase, que no partía de la imagen de salida tal como es, o el recorrido no era físico). No repitas el mismo prompt: rehacer con el mismo da lo mismo.
+   Una llegada un poco antes o un poco después, o un clip que va rápido, NO es defecto: lo resuelve el montaje. La app no rehace nada sola: lo que marques le llega al usuario como un aviso en ese clip, y él decide. Si dudas, déjalo: el clip puede estar bien.
+6. Para cada clip que marques escribe un prompt nuevo que corrija lo que viste (queda listo por si el usuario decide regenerarlo) (casi siempre falló la primera frase, que no partía de la imagen de salida tal como es, o el recorrido no era físico). No repitas el mismo prompt: con el mismo sale lo mismo.
    - `paso-K` (va de la toma K a la siguiente): su prompt está en `continuidad.pasos[]` de {{manifiesto}} (el que tiene "de": K). Escríbelo con las reglas de la skill de continuidad, con la misma cabecera y los mismos segundos.
    - `toma-K` (el video propio de una toma con imagen inicial y final, o el de la última toma): su prompt está en `tomas[].prompt_video` de esa toma. Escríbelo con las reglas de {{skillEstilo}}, con la misma cabecera y los mismos segundos.
 7. Escribe {{salida}}, una lista (JSON válido):

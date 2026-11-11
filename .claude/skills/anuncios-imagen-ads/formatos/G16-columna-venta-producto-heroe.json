@@ -1,0 +1,143 @@
+{
+  "id": "G16",
+  "slug": "columna-venta-producto-heroe",
+  "nombre": "Columna de venta + producto héroe lateral",
+  "origen": "ganador:ChatGPT Image 15 may 2026, 05_22_28 p.webp",
+  "descripcion": "Lienzo oscuro (negro cálido) con rayos de luz y espirales de partículas brillantes en el color de acento detrás del producto. La mitad izquierda es una columna de venta alineada a la izquierda y apilada de arriba abajo: un antetítulo pequeño en mayúsculas con una línea fina, un titular gigante de 3 líneas que alterna blanco y degradado de acento, una línea divisoria, un subtítulo de 3 líneas (blanco y acento), dos fotos circulares de antes/después unidas por una flecha pequeña y, abajo, una tarjeta de precio oscura con borde fino (rótulo de exclusividad, precio nuevo gigante, divisor y precio anterior tachado). La mitad derecha la ocupa el producto alto y de frente (~75% de la altura) sobre una superficie reflectante con ondas de luz concéntricas en la base.",
+  "angulos_compatibles": ["oferta", "beneficio-principal", "transformacion", "identidad", "objecion-precio", "promesa-emocional"],
+  "tipos_producto": ["cosmetico", "nutraceutico", "gadget", "hogar", "otro"],
+  "ad_format": "Sales Column with Side Hero Product Ad",
+  "reference_style": "Premium dark luxury e-commerce ad: a left-aligned sales column (eyebrow, giant two-tone headline, subtitle, mini before/after circles and a price card) beside a tall hero product bathed in accent-colored light rays and particle swirls on a reflective rippled surface",
+  "art_direction": {
+    "visual_hierarchy": "1) The giant 3-line headline. 2) The tall hero product with its light effects. 3) The new price in the price card. 4) The mini before/after circles. 5) The subtitle. 6) The eyebrow and the struck-through old price.",
+    "composition_style": "Two-column split: the left ~45% of the canvas is a left-aligned sales column read from top to bottom; the right ~55% is the product stage, with the product centered at about 75% of the width. The light rays and particle swirls wrap the product and spill slightly behind the left column.",
+    "spacing_and_structure": "Left margin of about 4% for the whole column. Eyebrow at about 5-7.5% of the height with a thin line under it at about 8.5% (about 4-25% of the width). Headline: three lines at about 11-19.5%, 21-29% and 30.5-38.5% of the height, about 4-52% of the width. Divider line at about 42% of the height (about 4-39% of the width). Subtitle: three lines from about 44% to 54.5% of the height. Mini before/after: two circles about 18.5% of the canvas in diameter at about 3-22% and 26-44.5% of the width, 56-74.5% of the height, with a small chevron between them at about 23-25% of the width and 65% of the height. Price card: about 3.5-42.5% of the width and 76-98.5% of the height, corner radius about 2%. Product: about 63-87% of the width and 15.5-92% of the height (about 76% of the canvas height). Reflective surface with concentric ripples from about 80% of the height to the bottom edge, centered under the product.",
+    "lighting_and_depth": "Very dark warm-black background. Strong accent-colored light rays burst from behind the top of the product, with glowing particle spirals and sparkles orbiting it, and bright concentric ripples of light on a glossy reflective floor at its base. The product has crisp specular highlights and a reflection on the floor. The text has a subtle glow; the accent lines are metallic gradients. The price card is semi-transparent dark with a thin glowing border."
+  },
+  "layout_summary": "Square, dark warm-black canvas. Left column, left-aligned from top to bottom: a small, widely spaced uppercase eyebrow in the accent color with a thin line under it; a giant 3-line bold uppercase headline (white, accent gradient, white); a thin gradient divider; a 3-line uppercase subtitle (first line white, the next two in the accent); two circular close-up photos of the same zone (before and after) joined by a small white chevron; and a dark rounded price card with a thin accent border holding an exclusivity label, a giant new price, a thin divider and a struck-through old price. Right half: the user's product, tall and upright, front view, in a burst of accent-colored light rays and particle swirls, standing on a glossy surface with concentric light ripples.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Dark luxury stage that makes the light effects and the product glow",
+      "adaptation_rule": "Warm black or the deepest tone of the palette, with a subtle gradient; no texture."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "light FX (rays + particle swirls)",
+      "position": "Behind and around the product, about 45-100% of the width and 0-95% of the height",
+      "visual_function": "Creates the premium, magical glow around the hero product",
+      "adaptation_rule": "Light rays radiating from behind the top of the product, glowing particle spirals and sparkles orbiting it, all in the brand accent color (rose-gold, gold, cyan, violet...). Never over the text."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "eyebrow line",
+      "position": "Under the eyebrow, about 4-25% of the width, at about 8.5% of the height",
+      "visual_function": "Underlines the eyebrow and opens the column",
+      "adaptation_rule": "Thin accent gradient line fading to the right."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "divider line",
+      "position": "About 4-39% of the width, at about 42% of the height",
+      "visual_function": "Separates the headline from the subtitle",
+      "adaptation_rule": "Thin accent gradient line fading at both ends."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "mini before/after circles",
+      "position": "Circles at about 3-22% and 26-44.5% of the width and 56-74.5% of the height; chevron at about 23-25% of the width and 65% of the height",
+      "visual_function": "Proves the result in a compact way",
+      "adaptation_rule": "Two circular photos with a thin accent ring showing the same close-up of the zone the product improves (face, skin, hair, body area, surface...): before on the left (dull, problem visible), after on the right (glowing, solved), same framing and angle. A small white chevron between them points right."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "price card",
+      "position": "Bottom of the left column, about 3.5-42.5% of the width and 76-98.5% of the height",
+      "visual_function": "Anchors the value and closes the sale",
+      "adaptation_rule": "Dark semi-transparent rounded rectangle with a thin accent border and a soft glow; inside, centered from top to bottom: exclusivity label, giant new price, thin accent divider and the old price struck through with a red line. Use the exact prices and currency the user gave; if the user gave no regular price, write a plausible regular price higher than the new price."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "product",
+      "position": "Right half, about 63-87% of the width and 15.5-92% of the height",
+      "visual_function": "Main visual anchor; shows exactly what is sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), upright, front view, tall and dominant, with a reflection on the glossy floor. Wide products keep the same center and scale to fit within about 52-98% of the width."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "reflective base with light ripples",
+      "position": "From about 80% of the height to the bottom edge, centered under the product (about 40-100% of the width)",
+      "visual_function": "Grounds the product on a premium, magical stage",
+      "adaptation_rule": "Glossy dark reflective surface with bright concentric rings of light in the accent color radiating from the product's base."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "eyebrow",
+      "reference_position": "Top-left, about 5-7.5% of the canvas height",
+      "text_style": "Medium sans-serif, uppercase, widely letter-spaced, about 2% of the canvas height, 1 line, left-aligned, accent color",
+      "guia_texto": "Una frase aspiracional corta sobre lo que la persona merece. De 4 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline",
+      "reference_position": "Left column, about 11-38.5% of the canvas height",
+      "text_style": "Ultra bold condensed sans-serif, uppercase, each line about 8-8.5% of the canvas height, exactly 3 lines, left-aligned; lines 1 and 3 in white, line 2 in a metallic accent gradient; never crosses 52% of the width",
+      "guia_texto": "La promesa en 3 líneas cortas: verbo + objeto + calificativo premium. De 3 a 5 palabras en total, 1 o 2 por línea."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "subtitle",
+      "reference_position": "Left column, under the divider, about 44-54.5% of the canvas height",
+      "text_style": "Medium sans-serif, uppercase, about 3-3.5% of the canvas height, 3 lines, left-aligned; first line white, lines 2 and 3 in the accent color and slightly larger",
+      "guia_texto": "La transformación de la rutina o del uso, en clave aspiracional. De 6 a 10 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "exclusivity label",
+      "reference_position": "Top of the price card, centered",
+      "text_style": "Bold sans-serif, uppercase, about 4% of the canvas height, 1 line, centered, accent color, between exclamation marks",
+      "guia_texto": "Una palabra de exclusividad u oportunidad entre signos de exclamación (por ejemplo «¡Precio especial!» o «¡Solo hoy!»). 1 o 2 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "new price",
+      "reference_position": "Center of the price card",
+      "text_style": "Ultra bold sans-serif, about 10-11% of the canvas height for the main digits, currency symbol at about half size on the left and decimals as a smaller superscript, 1 line, centered, metallic accent gradient",
+      "guia_texto": "El precio real de oferta del usuario con su moneda. Solo cifra y moneda."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "old price",
+      "reference_position": "Bottom of the price card, under the thin divider",
+      "text_style": "Bold sans-serif, uppercase, about 3% of the canvas height, 1 line, centered, white, the figure struck through by a red line",
+      "guia_texto": "Rótulo corto de precio anterior (por ejemplo «Precio normal:» o «Regular:») + el precio regular tachado (el que dio el usuario; si no lo dio, uno creíble y mayor que el precio nuevo). Solo rótulo, cifra y moneda."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Dark warm-black background with accent light rays and particle swirls behind the product",
+    "Left-aligned sales column: eyebrow with thin line, giant 3-line two-tone headline, divider and 3-line subtitle",
+    "Two circular before/after photos joined by a small chevron",
+    "Dark price card with a thin accent border, giant new price and struck-through old price",
+    "The user's product, tall and upright, in the right half on a reflective surface with concentric light ripples"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Benefit list or icons",
+    "Free shipping or payment labels",
+    "Discount percentage seal or sticker",
+    "Countdown timer",
+    "People other than the two before/after close-ups",
+    "More than one product unit",
+    "Bottom bar or banner",
+    "Light background",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fondo negro cálido o el tono más profundo de la paleta. El color de acento de la marca (rosa dorado en el original) domina los efectos de luz, las partículas, las líneas finas, la línea 2 del titular, el subtítulo, el borde de la tarjeta y el precio nuevo, siempre en degradado metálico. Blanco para las líneas 1 y 3 del titular y el precio anterior; rojo solo para la línea que lo tacha.",
+  "posicion_logo": null
+}

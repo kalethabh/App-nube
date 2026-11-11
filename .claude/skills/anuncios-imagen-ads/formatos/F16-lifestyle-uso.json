@@ -1,0 +1,91 @@
+{
+  "id": "F16",
+  "slug": "lifestyle-uso",
+  "nombre": "Lifestyle en uso",
+  "origen": "biblioteca",
+  "descripcion": "Fotografía editorial a sangre de una persona del público objetivo usando el producto en su contexto real, con luz natural y fondo desenfocado. El titular y un subtítulo corto viven en una zona limpia de la foto (pared, cielo, fondo desenfocado), sin cajas ni paneles. Aspiracional pero creíble.",
+  "angulos_compatibles": ["promesa-emocional", "identidad", "transformacion", "beneficio-sin-sacrificio", "rutina-uso", "nueva-oportunidad", "beneficio-principal"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Lifestyle In-Use Photo Ad",
+  "reference_style": "Editorial lifestyle photograph of a real person using the product in its natural context, with a clean headline integrated into a calm area of the photo; aspirational yet believable",
+  "art_direction": {
+    "visual_hierarchy": "1) The person using the product (emotion + action). 2) The headline in the clean area of the photo. 3) The product itself, clearly identifiable in the person's hand or on the body. 4) The short subheadline.",
+    "composition_style": "Full-bleed photograph, rule of thirds. The person and the product occupy the right 55-60% of the frame (medium shot from the waist or chest up, or a tighter close-up of hands and face for application products). The left 40% is a clean, low-detail area of the same photo (plain wall, sky, window light, out-of-focus background) that holds the headline. The person's gaze or body direction leads toward the product or the text, never out of the frame.",
+    "spacing_and_structure": "Headline block x 6-46% and y 8-30%, left-aligned; subheadline directly below it (about y 32-40%), never past x 46%. Product visible at about 18-26% of the canvas height, around x 55-82% and y 38-76%, label facing the camera, not cut by the frame. Person's head within y 10-45%. Nothing important in the outer 5% margin. No text over the person's face or the product.",
+    "lighting_and_depth": "Natural directional light (soft window light or golden-hour sun) from the left, so the clean text area is bright and airy and the person is lit with soft wraparound light. Shallow depth of field (f/2-2.8 look, 35-50mm lens): person and product sharp, background softly blurred. Warm, true-to-life color grading with gentle contrast; real skin texture. Optional very soft gradient scrim on the left 45% (max 25% opacity) only if the headline needs it."
+  },
+  "layout_summary": "Square full-bleed lifestyle photograph. On the right side, a person from the target audience is caught mid-action using the product in its real context (applying it, drinking it, wearing it, using it), lit by soft natural light from the left. The product is clearly visible and sharp in their hand or on their body. The left side of the photo is a calm, softly blurred area where a bold left-aligned headline and a short subheadline sit directly on the image. No boxes, panels or other graphics.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "photographic scene",
+      "position": "Full canvas",
+      "visual_function": "The real context where the product is used; sets the mood and the aspiration",
+      "adaptation_rule": "Choose the context where this product is naturally used and that matches the angle: bathroom or vanity for cosmetics, kitchen or breakfast table for supplements, street or home for clothing, desk or sofa for gadgets and digital products, living room or garden for home products and toys. Use the setting from the batch plan so variations differ. Keep the left 40% calm and low-detail for the text."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "person",
+      "position": "Right 55-60% of the canvas, head within y 10-45%",
+      "visual_function": "Embodies the target customer and the desired emotion or result",
+      "adaptation_rule": "Match the target audience (age, gender, style). Expression consistent with the angle: relief, joy, confidence, calm, energy. Natural, candid pose caught mid-action, not posing for the camera; eyes on the product, on the task, or softly toward the camera. One person in focus only."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "In the person's hand or in use on the body, around x 55-82% and y 38-76%",
+      "visual_function": "Shows exactly what is being sold while it delivers the moment",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), sharp, label facing the camera, realistic scale, about 18-26% of the canvas height (held slightly toward the camera if it is small). For clothing or accessories, the person wears it as the hero of the outfit; for digital products, the screen showing the product is clearly visible to the camera."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "headline",
+      "position": "Left clean area, x 6-46% and y 8-30%, left-aligned",
+      "visual_function": "States the emotional hook the photo is showing",
+      "adaptation_rule": "Write the angle's hook as an emotional statement that matches what the scene shows. Placed directly on the photo, no box. Max 3 lines."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "subheadline",
+      "position": "Directly below the headline, left-aligned, within x 6-46%",
+      "visual_function": "Grounds the emotion in what the product is or does",
+      "adaptation_rule": "One short supporting line based on the user's benefits or product data."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Upper left, in the clean area of the photo",
+      "text_style": "Bold sans-serif, large (each line about 6-7% of the canvas height, about 11-13 characters per line), left-aligned, max 3 lines, high contrast against the clean area (white on darker or warm areas, near-black on bright areas); one key word may use the brand accent color",
+      "guia_texto": "La emoción o el resultado que muestra la escena, dicho como gancho (ej. 'Por fin mañanas con energía'). 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, left-aligned",
+      "text_style": "Regular weight sans-serif, about 3-3.4% of the canvas height, left-aligned, max 2 lines, same color as the headline at about 90% opacity",
+      "guia_texto": "Qué es el producto o el beneficio concreto que hace posible la escena. 5 a 8 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One real-looking person from the target audience using the product mid-action",
+    "The user's product, sharp and clearly visible in use",
+    "Clean, calm area on the left of the photo for the text",
+    "Natural directional light and shallow depth of field"
+  ],
+  "forbidden_additions": [
+    "Boxes, panels, cards or solid color blocks behind the text",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonial quotes",
+    "Benefit list, checkmarks or icons",
+    "Split screen, collage or before/after",
+    "Stickers, arrows or doodles",
+    "Additional people as main subjects",
+    "Studio backdrop or isolated product cut-out",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Colores naturales de la foto armonizados con la paleta: la marca se lleva al vestuario, a los props y al tono del entorno (pared, textiles), y el etalonado se inclina hacia sus tonos. El titular va en blanco o en el color más oscuro según la zona limpia; el acento de marca solo en una palabra clave."
+}

@@ -84,7 +84,7 @@ _aia_desempacar() {
 # Versión de macOS como número comparable: 13.4.1 → 1304
 _aia_macos() { sw_vers -productVersion 2>/dev/null | awk -F. '{ printf "%d", $1 * 100 + $2 }'; }
 
-# Claude Code y Node.js 24 piden macOS 13 (Ventura) o más nuevo: en una Mac más vieja la app no puede funcionar
+# Node.js 24 pide macOS 13 (Ventura) o más nuevo: en una Mac más vieja la app no puede funcionar
 aia_revisar_macos() {
   local v
   v="$(_aia_macos)" || true

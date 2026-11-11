@@ -1,0 +1,127 @@
+{
+  "id": "G17",
+  "slug": "lifestyle-columna-beneficios-producto",
+  "nombre": "Lifestyle con columna de beneficios y producto en primer plano",
+  "origen": "ganador:ChatGPT Image 15 may 2026, 06_37_31 p.webp",
+  "descripcion": "Foto lifestyle a sangre en un interior cálido y lujoso con bokeh: una persona del público (de hombros arriba, ojos cerrados, mano en el rostro) ocupa el centro-derecha. Arriba a la izquierda va un titular de 2 líneas (la primera en blanco y la segunda en un acento metálico) y debajo, una columna izquierda con 3 beneficios, cada uno con un ícono lineal dentro de un círculo con aro fino y un texto de 2-3 líneas, separados por líneas horizontales finas. El producto va grande en primer plano abajo a la derecha. Abajo a la izquierda, una banda ancha redondeada en tono metálico con un ícono de camión en un círculo, un divisor vertical y 2 líneas con la condición de envío y el método de pago.",
+  "angulos_compatibles": ["beneficio-principal", "promesa-emocional", "identidad", "oferta", "caracteristica-estrella", "beneficio-sin-sacrificio"],
+  "tipos_producto": ["cosmetico", "nutraceutico", "gadget", "hogar", "ropa", "otro"],
+  "ad_format": "Lifestyle Benefit Column with Foreground Product Ad",
+  "reference_style": "Warm luxury lifestyle ad: a serene model in a glowing bokeh interior, a two-tone headline and a column of ringed line-icon benefits on the left, the product large in the lower-right foreground, and a metallic rounded shipping band at the bottom",
+  "art_direction": {
+    "visual_hierarchy": "1) The two-tone headline. 2) The model's serene expression. 3) The product in the lower-right foreground. 4) The three benefit rows. 5) The shipping band.",
+    "composition_style": "Layered asymmetric composition: text column on the left third, model in the center-right middle ground, product in the right foreground, and the shipping band anchoring the bottom left and running up to the product. The headline sits above everything at the top left.",
+    "spacing_and_structure": "Headline: line 1 at about 4-12% of the height, line 2 at about 14.5-22%, about 3.5-58% of the width, left-aligned. Benefit column: about 3.5-34.5% of the width; rows at about 26-38%, 43-54% and 58-69% of the height, separated by thin horizontal lines at about 40.5% and 56.5% (about 3.5-30% of the width); each row has a ringed icon circle about 11% of the canvas in diameter on the left and its text starting at about 16% of the width. Model: head and shoulders from about 30% to 80% of the width, top of the head at about 15% of the height, cropped by the bottom edge. Product: about 78-98% of the width and 35-96% of the height (about 60% of the canvas height), its base nearly touching the bottom edge. Shipping band: about 3.5-76% of the width and 81-96.5% of the height, corner radius about 3%, its right end next to the product.",
+    "lighting_and_depth": "Warm, glowing and luxurious: amber and rose-gold ambient light, strong bokeh of warm lights and floating bubbles in the background, soft glow on the model's skin, eyes closed. The product has crisp studio highlights and sits on a glossy reflective surface with soft ripples at its base. The icon rings and the dividers are thin metallic accent lines. The shipping band has a satin metallic gradient and a soft shadow."
+  },
+  "layout_summary": "Square canvas filled with a warm, luxurious lifestyle photo: bokeh lights, floating bubbles and flowers at the lower left; a serene person from the target audience, from the shoulders up, eyes closed and one hand touching the face, in the center-right. Top left, a 2-line bold uppercase headline (line 1 white, line 2 in a metallic accent gradient). Below it, a left column of three benefits separated by thin horizontal lines, each with a thin-ringed circle holding a line icon and 2-3 lines of white text. Lower right, the user's product large in the foreground. Bottom left, a wide rounded metallic band with a ringed truck icon, a thin vertical divider and 2 lines of shipping and payment text.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "lifestyle photo",
+      "position": "Full canvas, edge to edge; model in the center-right",
+      "visual_function": "Sets the luxurious, emotional mood and shows the feeling the product gives",
+      "adaptation_rule": "Warm luxurious interior (bedroom, vanity, spa or lounge) heavily blurred with warm bokeh lights, floating bubbles or sparkles and a few flowers at the lower left. A person matching the target audience, shoulders up, in the center-right, eyes closed, serene smile, one hand gently touching the face or neck, wearing an elegant garment in a palette tone. Keep the left third darker and calm for the text."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "benefit icon circles (3)",
+      "position": "Left column, about 3.5-14.5% of the width, one per benefit row (rows at about 26-38%, 43-54% and 58-69% of the height)",
+      "visual_function": "Visual anchors that make each benefit scannable",
+      "adaptation_rule": "Thin metallic accent ring (circle about 11% of the canvas) with a simple line icon in the same accent that literally represents its benefit (sparkle, droplet, stars, shield, leaf, clock). Same style and stroke for all. Three rows; four at most if the angle needs it, redistributed evenly in the same column height."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "benefit dividers",
+      "position": "Between the rows, at about 40.5% and 56.5% of the height, about 3.5-30% of the width",
+      "visual_function": "Separate the benefits cleanly",
+      "adaptation_rule": "Thin metallic accent lines fading toward the right."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Lower-right foreground, about 78-98% of the width and 35-96% of the height",
+      "visual_function": "Main product anchor; shows exactly what is sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), upright, front view, large and studio-sharp, on a glossy surface with soft light ripples, overlapping the edge of the person's shoulder. Wide products keep the same base and grow toward the left up to about 62% of the width without covering the face."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "shipping and payment band",
+      "position": "Bottom left, about 3.5-76% of the width and 81-96.5% of the height",
+      "visual_function": "Removes the last friction (shipping and payment risk)",
+      "adaptation_rule": "Wide rounded rectangle in a satin metallic gradient of the accent (champagne, rose-gold, gold), with a thin lighter border and a soft shadow; on its left, a thin-ringed circle about 11% of the canvas holding a truck line icon, then a thin vertical divider and two lines of text. Use the user's real shipping and payment conditions."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline line 1",
+      "reference_position": "Top left, first line, about 4-12% of the canvas height",
+      "text_style": "Extra bold sans-serif, uppercase, about 8% of the canvas height, 1 line, left-aligned, white",
+      "guia_texto": "El beneficio o resultado principal. De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "headline line 2",
+      "reference_position": "Top left, second line, about 14.5-22% of the canvas height",
+      "text_style": "Extra bold sans-serif, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, metallic accent gradient",
+      "guia_texto": "El complemento aspiracional que eleva la promesa, empezando con «&» o «y». De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 1",
+      "reference_position": "Left column, first row, right of the first icon circle",
+      "text_style": "Regular sans-serif, sentence case, about 2.8% of the canvas height, max 3 lines, left-aligned, white",
+      "guia_texto": "El beneficio más fuerte para el ángulo, como resultado para el cliente. De 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 2",
+      "reference_position": "Left column, second row, right of the second icon circle",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Segundo beneficio, como resultado sensorial o de cuidado. De 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 3",
+      "reference_position": "Left column, third row, right of the third icon circle",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Tercer beneficio, el más aspiracional o emocional. De 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "shipping line",
+      "reference_position": "Inside the band, right of the vertical divider, top line",
+      "text_style": "Extra bold sans-serif, uppercase, about 5% of the canvas height, 1 line, left-aligned, deep brown or near-black on the metallic band",
+      "guia_texto": "La condición de envío real del usuario (por ejemplo «Envío sin costo» o «Envío en 24 h»). De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "payment line",
+      "reference_position": "Inside the band, under the shipping line",
+      "text_style": "Medium sans-serif, uppercase, about 3.5% of the canvas height, 1 line, left-aligned, deep brown",
+      "guia_texto": "El método de pago que quita el riesgo (por ejemplo «pagas al recibir»). De 2 a 3 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed warm luxurious lifestyle photo with bokeh, bubbles and a serene person in the center-right",
+    "Two-line headline at the top left: white line over a metallic accent line",
+    "Left column of three benefits with thin-ringed line-icon circles separated by thin dividers",
+    "The user's product large in the lower-right foreground",
+    "Wide rounded metallic shipping and payment band with a ringed truck icon at the bottom left"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount or urgency badge",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Before/after images",
+    "More than four benefits",
+    "Numbers on the benefit rows",
+    "Boxes or cards behind each benefit",
+    "Cold or blue-toned lighting",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Atmósfera cálida y lujosa: ámbar, rosa dorado y champán en la luz, el bokeh y las flores. El acento metálico de la marca (rosa dorado en el original) se usa en la segunda línea del titular, los aros de los íconos, los divisores y la banda de envío. Textos en blanco sobre la foto; texto de la banda en marrón profundo.",
+  "posicion_logo": null
+}

@@ -1,6 +1,8 @@
 // Rehace una toma que no quedo bien. Dos modos, los dos con el mismo principio:
 // NUNCA se reintenta el mismo prompt. Si una toma salio mal, el problema casi
 // siempre esta en la instruccion, no en la suerte. Repetirla da lo mismo otra vez.
+// (Excepcion: lo que pide el USUARIO desde la app. «Regenerar» tal cual, con el
+// mismo prompt, es su decision: --tal-cual. Ver «lo que pide la app» mas abajo.)
 //
 //   Paso 1 — ver el contexto para escribir prompts nuevos:
 //     node produccion/rehacer-toma.js temp/mi-anuncio --toma 14 --contexto
@@ -482,7 +484,7 @@ export function quitarMedidaDeToma(carpeta, n) {
  * original de la voz en off y el host recortado), y quita su medida de
  * lineas-habladas.json.
  */
-function aplicarEnTomaH(carpeta, ruta, manifiesto, toma, nuevos, motivo) {
+function aplicarEnTomaH(carpeta, ruta, manifiesto, toma, nuevos, motivo, { soloClip = false } = {}) {
   const n = toma.n;
   const conFrame = typeof toma.frame_inicial === 'string' && toma.frame_inicial.trim().length > 0;
   if (!nuevos.prompt_video) throw new Error(`La toma ${n} es hablada (H): el archivo de prompts necesita "prompt_video".`);
@@ -553,7 +555,7 @@ function aplicarEnTomaH(carpeta, ruta, manifiesto, toma, nuevos, motivo) {
   // que salio del clip (el original de la voz en off, el host recortado)
   // tambien va, con su propio nombre.
   const borrados = [];
-  for (const f of [...(conFrame ? [] : [path.join(carpeta, 'img', `toma-${n}-inicial.png`)]), path.join(carpeta, 'video', `toma-${n}.mp4`)]) {
+  for (const f of [...(conFrame || soloClip ? [] : [path.join(carpeta, 'img', `toma-${n}-inicial.png`)]), path.join(carpeta, 'video', `toma-${n}.mp4`)]) {
     if (archivarSiExiste(f, carpeta)) borrados.push(path.basename(f));
   }
   // (sacarDerivadosDeTomaH nombra tambien las entradas que quito de
@@ -581,14 +583,14 @@ function aplicarEnTomaH(carpeta, ruta, manifiesto, toma, nuevos, motivo) {
  * (en un bloque R: { prompt_video } y, tras un rechazo, tambien linea y tramos;
  * en una toma H: ver aplicarEnTomaH)
  */
-export function aplicarPrompts(carpeta, n, nuevos, { motivo = '' } = {}) {
+export function aplicarPrompts(carpeta, n, nuevos, { motivo = '', soloClip = false } = {}) {
   const ruta = path.join(carpeta, 'manifiesto.json');
   const manifiesto = JSON.parse(fs.readFileSync(ruta, 'utf8'));
   const toma = manifiesto.tomas.find((t) => t.n === n);
   if (!toma) throw new Error(`La toma ${n} no existe.`);
 
   if (toma.tipo === 'R') return aplicarEnBloque(carpeta, ruta, manifiesto, toma, nuevos, motivo);
-  if (toma.tipo === 'H') return aplicarEnTomaH(carpeta, ruta, manifiesto, toma, nuevos, motivo);
+  if (toma.tipo === 'H') return aplicarEnTomaH(carpeta, ruta, manifiesto, toma, nuevos, motivo, { soloClip });
 
   if (!nuevos.prompt_imagen_inicial || !nuevos.prompt_video) {
     throw new Error('Faltan prompt_imagen_inicial o prompt_video en el archivo de prompts.');
@@ -616,21 +618,19 @@ export function aplicarPrompts(carpeta, n, nuevos, { motivo = '' } = {}) {
 
   // Continuidad: los pasos que llegan a esta toma y salen de ella se
   // escribieron mirando sus imagenes viejas.
-  const pasosTocados = tieneContinuidad(manifiesto) ? marcarPasosDeToma(manifiesto, n) : null;
+  // (Solo el clip propio de la toma: sus imagenes no cambian y los pasos siguen valiendo.)
+  const pasosTocados = tieneContinuidad(manifiesto) && !soloClip ? marcarPasosDeToma(manifiesto, n) : null;
 
   fs.writeFileSync(ruta, JSON.stringify(manifiesto, null, 2) + '\n', 'utf8');
 
-  // Se borran los archivos viejos de esa toma para que se regeneren.
+  // Los archivos viejos de esa toma salen de la carpeta para que se regeneren: van a historial/ (costaron plata y
+  // la app muestra el «Antes»). Con soloClip (el usuario pidio solo el clip) la imagen se queda donde esta.
   const borrados = [];
   for (const f of [
-    path.join(carpeta, 'img', `toma-${n}-inicial.png`),
-    path.join(carpeta, 'img', `toma-${n}-final.png`),
+    ...(soloClip ? [] : [path.join(carpeta, 'img', `toma-${n}-inicial.png`), path.join(carpeta, 'img', `toma-${n}-final.png`)]),
     path.join(carpeta, 'video', `toma-${n}.mp4`),
   ]) {
-    if (fs.existsSync(f)) {
-      fs.rmSync(f);
-      borrados.push(path.basename(f));
-    }
+    if (archivarSiExiste(f, carpeta)) borrados.push(path.basename(f));
   }
 
   if (pasosTocados) {
@@ -645,6 +645,171 @@ export function aplicarPrompts(carpeta, n, nuevos, { motivo = '' } = {}) {
     };
   }
   return { historial, borrados };
+}
+
+// ---------------------------------------------------------------- lo que pide la app (regenerar, pasos, tu video)
+//
+// Desde 2026-11-09 la app genera todo al primer intento y el USUARIO decide que se regenera (desde el proceso o el
+// editor): «Regenerar» con el mismo prompt, «¿Que salio mal?» con prompts nuevos (--aplicar) o con lo que ya sugirio
+// la revision. Lo viejo va SIEMPRE a historial/ (el proceso muestra el «Antes»). Estas funciones solo sacan lo que hay
+// que volver a generar (o ponen el video que subio el usuario): generar, medir y volver a armar lo hace el conductor.
+
+const leerManifiesto = (carpeta) => JSON.parse(fs.readFileSync(path.join(carpeta, 'manifiesto.json'), 'utf8'));
+const escribirManifiesto = (carpeta, m) => fs.writeFileSync(path.join(carpeta, 'manifiesto.json'), JSON.stringify(m, null, 2) + '\n', 'utf8');
+const conFrameDe = (toma) => typeof toma?.frame_inicial === 'string' && toma.frame_inicial.trim().length > 0;
+
+/** Lo medido sobre el clip de una toma (con uno nuevo ya no vale): H sus derivados; R su recorte de cola. */
+function sacarMedidoDeToma(carpeta, toma) {
+  if (toma.tipo === 'H') {
+    const d = sacarDerivadosDeTomaH(carpeta, toma.n);
+    quitarMedidaDeToma(carpeta, toma.n);
+    return d;
+  }
+  const cola = archivarSiExiste(path.join(carpeta, `toma-${toma.n}.cola.json`), carpeta);
+  return cola ? [path.basename(cola)] : [];
+}
+
+/**
+ * «Regenerar» una toma TAL CUAL (mismo prompt, sin la IA): saca a historial/ su clip y lo que salio de el y, con
+ * conImagen, sus imagenes (las que se generan: no una referencia copiada, no la de un bloque R). Con continuidad y
+ * conImagen, los pasos que llegan y salen de ella quedan con "revisar" y sus clips van a historial/ (se escriben de
+ * nuevo mirando la imagen nueva). Devuelve { borrados, continuidad? }.
+ */
+export function regenerarTomaTalCual(carpeta, n, { conImagen = false } = {}) {
+  const manifiesto = leerManifiesto(carpeta);
+  const toma = manifiesto.tomas.find((t) => t.n === n);
+  if (!toma) throw new Error(`La toma ${n} no existe.`);
+  if (toma.tipo === 'R') {
+    const { sacados, lugares } = rehacerBloque(carpeta, n);
+    return { borrados: sacados, lugares };
+  }
+  const errores = erroresDe(manifiesto, carpeta);
+  if (errores.length) throw new Error('El manifiesto tiene errores; no saco nada hasta que se arreglen:\n' + errores.map((e) => `  ERROR  ${e}`).join('\n'));
+  const imagenes = conImagen && !conFrameDe(toma) ? [`toma-${n}-inicial.png`, ...(toma.tipo === 'B' || tieneContinuidad(manifiesto) ? [`toma-${n}-final.png`] : [])] : [];
+  let continuidad = null;
+  if (imagenes.length && tieneContinuidad(manifiesto)) {
+    const pasos = marcarPasosDeToma(manifiesto, n);
+    escribirManifiesto(carpeta, manifiesto);
+    continuidad = { marcados: pasos.filter((x) => x.paso).map((x) => `${x.de}->${x.a}`), archivados: archivarPasos(carpeta, pasos), pasos: pasos.map((x) => x.de) };
+  }
+  const borrados = [];
+  for (const f of [...imagenes.map((x) => path.join(carpeta, 'img', x)), path.join(carpeta, 'video', `toma-${n}.mp4`)]) {
+    if (archivarSiExiste(f, carpeta)) borrados.push(path.basename(f));
+  }
+  borrados.push(...sacarMedidoDeToma(carpeta, toma));
+  return { borrados, ...(continuidad ? { continuidad } : {}) };
+}
+
+/** «Regenerar» un B-roll tal cual: su clip (y con conImagen su imagen) a historial/. */
+export function regenerarBrollTalCual(carpeta, n, { conImagen = false } = {}) {
+  const manifiesto = leerManifiesto(carpeta);
+  const b = (manifiesto.broll || []).find((x) => x && x.n === n);
+  if (!b) throw new Error(`El B-roll ${n} no existe en el manifiesto.`);
+  const borrados = [];
+  for (const f of [...(conImagen ? [path.join(carpeta, 'img', `broll-${n}.png`)] : []), path.join(carpeta, 'video', `broll-${n}.mp4`)]) {
+    if (archivarSiExiste(f, carpeta)) borrados.push(path.basename(f));
+  }
+  return { borrados };
+}
+
+/**
+ * Continuidad: un paso (el clip que va de la toma `de` a la siguiente, video/paso-<de>.mp4). Con `nuevos` (un
+ * prompt_video nuevo) se escribe en manifiesto.continuidad.pasos (el de antes a prompts-anteriores.json); sin el, se
+ * regenera tal cual. El clip va a historial/. Devuelve { borrados }.
+ */
+export function regenerarPaso(carpeta, de, nuevos = null, { motivo = '' } = {}) {
+  const manifiesto = leerManifiesto(carpeta);
+  if (!tieneContinuidad(manifiesto)) throw new Error('Este anuncio no tiene continuidad: no hay pasos.');
+  const paso = (manifiesto.continuidad?.pasos || []).find((p) => p && typeof p === 'object' && p.de === de);
+  if (!paso) throw new Error(`El paso ${de} no existe (o todavia no se escribio).`);
+  const pv = typeof nuevos?.prompt_video === 'string' ? nuevos.prompt_video.trim() : '';
+  if (nuevos && pv.length < 20) throw new Error(`El paso ${de}: el archivo de prompts necesita "prompt_video".`);
+  if (pv) {
+    const antes = paso.prompt_video;
+    paso.prompt_video = pv;
+    delete paso.revisar;
+    const errores = erroresDe(manifiesto, carpeta);
+    if (errores.length) throw new Error('Con esos cambios el manifiesto queda con errores; no escribi nada:\n' + errores.map((e) => `  ERROR  ${e}`).join('\n'));
+    const historial = path.join(carpeta, 'prompts-anteriores.json');
+    const previo = fs.existsSync(historial) ? JSON.parse(fs.readFileSync(historial, 'utf8')) : { versiones: [] };
+    previo.versiones.push({ fecha: new Date().toISOString(), paso: de, motivo, prompt_video: antes });
+    fs.writeFileSync(historial, JSON.stringify(previo, null, 2) + '\n', 'utf8');
+    escribirManifiesto(carpeta, manifiesto);
+  }
+  const g = archivarSiExiste(path.join(carpeta, 'video', `paso-${de}.mp4`), carpeta);
+  return { borrados: g ? [path.basename(g)] : [] };
+}
+
+/** El archivo de video/ de una pieza que se puede reemplazar con un video propio ('toma-3' -> toma-3.mp4). */
+function archivoDePieza(pieza) {
+  const m = /^(toma|broll|paso)-(\d+)$/.exec(String(pieza || ''));
+  if (!m) throw new Error(`"${pieza}" no es una pieza que se pueda reemplazar (toma-N, broll-N o paso-N).`);
+  return { clase: m[1], n: Number(m[2]), archivo: `${m[1]}-${m[2]}.mp4` };
+}
+
+/**
+ * ¿El clip de video/ de una toma es el que dejo recortar-voz (la voz de la historia de la entrevista A: sin silencios y
+ * acelerado)? Si lo es, su crudo esta en video/originales/toma-N.mp4 (y toma-N.json dice cuanto pesa el recortado).
+ */
+function yaRecortadoPorLaVoz(carpeta, n) {
+  const dirOrig = path.join(carpeta, 'video', 'originales');
+  try {
+    const info = JSON.parse(fs.readFileSync(path.join(dirOrig, `toma-${n}.json`), 'utf8'));
+    return fs.existsSync(path.join(dirOrig, `toma-${n}.mp4`)) && info?.salidaTamano === fs.statSync(path.join(carpeta, 'video', `toma-${n}.mp4`)).size;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Tu propio video en lugar del clip de una pieza, EN EL ANUNCIO (UGC, objeto parlante, podcast, entrevista: el audio
+ * del clip es la voz). El clip de hoy va a historial/ (y lo medido sobre el: H sus derivados, R su cola), y el video
+ * subido (ya normalizado por la app) se copia a video/<pieza>.mp4 con fecha de ahora (la generacion no lo pisa: ya
+ * existe; las revisiones lo ven nuevo). Devuelve { original (nombre en historial/ o null), borrados }.
+ * `original` es el clip que vuelve con «Volver al clip original»: si el de hoy ya paso por recortar-voz (un clip de la
+ * historia de la entrevista A), es su CRUDO (video/originales/toma-N.mp4, que sacarDerivadosDeTomaH guarda en
+ * historial/ como toma-N-original--<fecha>.mp4): al volver se mide y se recorta una sola vez, como la primera.
+ */
+export function ponerVideoPropio(carpeta, pieza, subido) {
+  const { clase, n, archivo } = archivoDePieza(pieza);
+  if (!fs.existsSync(subido)) throw new Error(`No encuentro el video subido: ${subido}`);
+  const manifiesto = leerManifiesto(carpeta);
+  const toma = clase === 'toma' ? manifiesto.tomas.find((t) => t.n === n) : null;
+  if (clase === 'toma' && !toma) throw new Error(`La toma ${n} no existe.`);
+  const destino = path.join(carpeta, 'video', archivo);
+  const recortado = Boolean(toma) && yaRecortadoPorLaVoz(carpeta, n);
+  const guardado = archivarSiExiste(destino, carpeta);
+  const medidos = toma ? sacarMedidoDeToma(carpeta, toma) : [];
+  const borrados = [...(guardado ? [path.basename(guardado)] : []), ...medidos];
+  const crudo = recortado ? medidos.find((b) => b.startsWith(`toma-${n}-original--`) && b.endsWith('.mp4')) || null : null;
+  fs.mkdirSync(path.dirname(destino), { recursive: true });
+  fs.copyFileSync(subido, destino);
+  const ahora = new Date();
+  fs.utimesSync(destino, ahora, ahora);
+  return { original: crudo || (guardado ? path.basename(guardado) : null), borrados };
+}
+
+/**
+ * «Volver al clip original» de una pieza reemplazada en el anuncio: el video propio sale a historial/ (no se pierde:
+ * tambien sigue en video/subidos/) y el original vuelve de historial/<original> (se copia: queda tambien alla). Lo
+ * medido sobre el video propio se saca. Devuelve { borrados }. (En un clip de la historia de la entrevista A,
+ * <original> es el crudo: la revision lo mide y la voz de la historia lo recorta una vez, como la primera.)
+ */
+export function volverAlClipOriginal(carpeta, pieza, original) {
+  const { clase, n, archivo } = archivoDePieza(pieza);
+  const de = path.join(carpeta, 'historial', path.basename(String(original || '')));
+  if (!original || !fs.existsSync(de)) throw new Error(`No encuentro el clip original en historial/: ${original}`);
+  const toma = clase === 'toma' ? leerManifiesto(carpeta).tomas.find((t) => t.n === n) : null;
+  const destino = path.join(carpeta, 'video', archivo);
+  // (el original se copia antes de guardar tu video en historial/: en el mismo segundo los dos tendrian el mismo nombre)
+  const volviendo = `${destino}.volviendo`;
+  fs.copyFileSync(de, volviendo);
+  const guardado = archivarSiExiste(destino, carpeta);
+  const borrados = [...(guardado ? [path.basename(guardado)] : []), ...(toma ? sacarMedidoDeToma(carpeta, toma) : [])];
+  fs.renameSync(volviendo, destino);
+  const ahora = new Date();
+  fs.utimesSync(destino, ahora, ahora);
+  return { borrados };
 }
 
 // ---------------------------------------------------------------- bloques R (salida)
@@ -764,7 +929,9 @@ function imprimirContextoH(c, carpetaArg) {
   console.log(`\n=== Contexto para rehacer la toma ${n} (hablada, tipo H) ===\n`);
   console.log('  NO SE TOCAN (atados al audio y al montaje):');
   console.log('    tipo:          H');
-  console.log(`    duracion:      ${c.fijo.duracion}s (Omni: 4, 6, 8 o 10)`);
+  // Las tomas H se escriben de 4, 6, 8 o 10 s con cualquier modelo (DURACIONES_H):
+  // Omni las pide asi; uno de duracion libre (Grok) pide lo mismo.
+  console.log(`    duracion:      ${c.fijo.duracion}s (siempre 4, 6, 8 o 10)`);
   if (h.frame_inicial) {
     console.log(`    frame inicial: la referencia "${h.frame_inicial}" copiada tal cual (no hay imagen que rehacer: solo cambia el video)`);
   } else {
@@ -912,6 +1079,67 @@ if (process.argv[1] && process.argv[1].endsWith('rehacer-toma.js')) {
     }
   }
 
+  // Lo que pide la app (rutas/editor.js): terminan con una linea "@@resultado {json}" con lo que hicieron.
+  //   rehacer-toma.js <carpeta> --toma N --tal-cual [--con-imagen]      regenerar con el mismo prompt
+  //   rehacer-toma.js <carpeta> --broll N --tal-cual [--con-imagen]
+  //   rehacer-toma.js <carpeta> --paso K --tal-cual | --aplicar f.json  continuidad: el paso de la toma K a la siguiente
+  //   rehacer-toma.js <carpeta> --pieza toma-N --subido <video.mp4>     tu propio video en el anuncio
+  //   rehacer-toma.js <carpeta> --pieza toma-N --restaurar <archivo de historial/>   volver al clip original
+  //   --solo-clip con --toma N --aplicar: la imagen se queda (solo se regenera el clip)
+  const soloClip = args.includes('--solo-clip');
+  const resultado = (r) => {
+    console.log(`@@resultado ${JSON.stringify(r)}`);
+    process.exit(0);
+  };
+  const fallar = (e) => {
+    console.error(`\n  ${e.message}\n`);
+    process.exit(1);
+  };
+  const carpetaApp = carpetaArg ? path.resolve(carpetaArg) : null;
+  const iPaso = args.indexOf('--paso');
+  if (iPaso !== -1) {
+    const k = Number(args[iPaso + 1]);
+    if (!carpetaApp || !Number.isInteger(k) || (!args.includes('--tal-cual') && !archivoPrompts)) {
+      console.error('\n  Uso: node produccion/rehacer-toma.js <carpeta> --paso K --tal-cual | --aplicar prompts.json\n');
+      process.exit(1);
+    }
+    try {
+      const nuevos = archivoPrompts ? JSON.parse(fs.readFileSync(archivoPrompts, 'utf8')) : null;
+      resultado(regenerarPaso(carpetaApp, k, nuevos, { motivo: nuevos?.motivo || '' }));
+    } catch (e) {
+      fallar(e);
+    }
+  }
+  if (args.includes('--tal-cual')) {
+    const iBt = args.indexOf('--broll');
+    const nB = iBt !== -1 ? Number(args[iBt + 1]) : null;
+    if (!carpetaApp || (!Number.isInteger(n) && !Number.isInteger(nB))) {
+      console.error('\n  Uso: node produccion/rehacer-toma.js <carpeta> --toma N | --broll N --tal-cual [--con-imagen]\n');
+      process.exit(1);
+    }
+    try {
+      const conImagen = args.includes('--con-imagen');
+      resultado(Number.isInteger(nB) ? regenerarBrollTalCual(carpetaApp, nB, { conImagen }) : regenerarTomaTalCual(carpetaApp, n, { conImagen }));
+    } catch (e) {
+      fallar(e);
+    }
+  }
+  const iSubido = args.indexOf('--subido');
+  const iRestaurar = args.indexOf('--restaurar');
+  if (iSubido !== -1 || iRestaurar !== -1) {
+    const iP = args.indexOf('--pieza');
+    const pieza = iP !== -1 ? args[iP + 1] : null;
+    if (!carpetaApp || !pieza) {
+      console.error('\n  Uso: node produccion/rehacer-toma.js <carpeta> --pieza toma-N --subido <video.mp4> | --restaurar <archivo>\n');
+      process.exit(1);
+    }
+    try {
+      resultado(iSubido !== -1 ? ponerVideoPropio(carpetaApp, pieza, path.resolve(args[iSubido + 1])) : volverAlClipOriginal(carpetaApp, pieza, args[iRestaurar + 1]));
+    } catch (e) {
+      fallar(e);
+    }
+  }
+
   // Un B-roll:  rehacer-toma.js <carpeta> --broll N --contexto | --aplicar nuevos.json
   const iB = args.indexOf('--broll');
   if (iB !== -1) {
@@ -1015,7 +1243,7 @@ if (process.argv[1] && process.argv[1].endsWith('rehacer-toma.js')) {
     }
     const nuevos = JSON.parse(fs.readFileSync(archivoPrompts, 'utf8'));
     try {
-      const { historial, borrados, hablada } = aplicarPrompts(carpeta, n, nuevos, { motivo: nuevos.motivo || '' });
+      const { historial, borrados, hablada } = aplicarPrompts(carpeta, n, nuevos, { motivo: nuevos.motivo || '', soloClip });
       console.log(`\n  Prompts de la toma ${n} (hablada) actualizados en el manifiesto.`);
       console.log(`  Los anteriores quedaron guardados en ${path.basename(historial)}`);
       if (borrados.length) console.log(`  Sacados de la carpeta (quedan en historial/): ${borrados.join(', ')}`);
@@ -1085,11 +1313,13 @@ if (process.argv[1] && process.argv[1].endsWith('rehacer-toma.js')) {
       process.exit(1);
     }
     const nuevos = JSON.parse(fs.readFileSync(archivoPrompts, 'utf8'));
-    const { historial, borrados, continuidad } = aplicarPrompts(carpeta, n, nuevos, { motivo: nuevos.motivo || '' });
+    const { historial, borrados, continuidad } = aplicarPrompts(carpeta, n, nuevos, { motivo: nuevos.motivo || '', soloClip });
+    // (para la app: lo que hizo, en una linea)
+    console.log(`@@resultado ${JSON.stringify({ borrados, ...(continuidad ? { continuidad } : {}) })}`);
 
     console.log(`\n  Prompts de la toma ${n} actualizados en el manifiesto.`);
     console.log(`  Los anteriores quedaron guardados en ${path.basename(historial)}`);
-    if (borrados.length) console.log(`  Borrados para regenerar: ${borrados.join(', ')}`);
+    if (borrados.length) console.log(`  Sacados de la carpeta para regenerar (quedan en historial/): ${borrados.join(', ')}`);
     if (continuidad) {
       // Continuidad: los pasos que tocan esta toma se miran de nuevo antes de los videos.
       const { marcados, sinEscribir, archivados } = continuidad;

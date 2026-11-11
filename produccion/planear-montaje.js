@@ -56,6 +56,7 @@ import {
   medirCadena,
   planearContinuidad,
   lineasTablaContinuidad,
+  modeloDeCadenaEn,
 } from './continuidad.js';
 
 // --- Reglas de montaje (las decidio Diego, replican lo que hacia en CapCut) ---
@@ -1027,10 +1028,13 @@ export function planearMontajeContinuidad({ manifiesto, tiempos, dirVideo, predi
         'Revisalo con: npm run validar -- <carpeta>/manifiesto.json'
     );
   }
-  const cadena = cadenaDeClips(manifiesto, { estimar: true, tiempos });
+  // Los largos pedidos salen del modelo de la cadena de este anuncio
+  // (temp/<slug>/modelos.json, ver continuidad.js); sin eleccion, Omni.
+  const modelo = modeloDeCadenaEn(dirVideo ? path.dirname(dirVideo) : null);
+  const cadena = cadenaDeClips(manifiesto, { estimar: true, tiempos, modelo });
   const largos = prediccion ? null : fs.existsSync(dirVideo) ? medirCadena(dirVideo, cadena) : new Map();
   const respaldo = prediccion ? [] : clipsDeRespaldo(dirVideo);
-  const cont = planearContinuidad({ manifiesto, tiempos, largos, respaldo });
+  const cont = planearContinuidad({ manifiesto, tiempos, largos, respaldo, modelo });
   return {
     bloques: cont.bloques,
     avisos: [...cont.avisos],

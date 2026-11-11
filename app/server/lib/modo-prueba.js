@@ -207,6 +207,10 @@ function entornoSimulado(s) {
   for (const k of Object.keys(env)) if (HEREDADAS_FUERA.test(k)) delete env[k];
   Object.assign(env, {
     ANUNCIOS_MODO_PRUEBA: '1',
+    // El render usa el Remotion ya instalado: npm/npx tampoco consultan
+    // actualizaciones ni descargan paquetes durante una prueba sin internet.
+    NPM_CONFIG_OFFLINE: 'true',
+    NPM_CONFIG_UPDATE_NOTIFIER: 'false',
     KIE_BASE_URL: s.kie.url,
     KIE_BASE_ARCHIVOS_URL: s.kie.url,
     ELEVENLABS_BASE_URL: s.elevenlabs.url,

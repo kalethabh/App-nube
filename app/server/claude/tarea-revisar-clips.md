@@ -24,7 +24,7 @@ Estilo: {{estilo}}.
 
 Te ejecuta la app "Anuncios con IA", sin chat: nadie te va a contestar. No hagas preguntas, no pidas confirmación, no corras comandos y no toques git. Solo lees archivos y escribes UN archivo: {{archivo}}.
 
-Los clips de este anuncio ya están generados. En cada toma, un personaje dice su frase dentro del clip, y la app ya la escuchó con un transcriptor: abajo dice, toma por toma, qué se oyó y si dijo su frase limpia. <!--si-broll-->En la lista también hay B-roll ("- B-roll N"): son clips de apoyo que van encima de una toma; nadie habla en ellos, no tienen frase y el transcriptor no los escucha, así que se miran solo por cómo se ven. <!--fin-broll-->Tu trabajo es mirar cada clip y, para los que hay que rehacer, escribir los prompts nuevos. La app rehace sola lo que escribas (cada clip tiene un tope de veces), así que no marques nada por gusto.
+Los clips de este anuncio ya están generados. En cada toma, un personaje dice su frase dentro del clip, y la app ya la escuchó con un transcriptor: abajo dice, toma por toma, qué se oyó y si dijo su frase limpia. <!--si-broll-->En la lista también hay B-roll ("- B-roll N"): son clips de apoyo que van encima de una toma; nadie habla en ellos, no tienen frase y el transcriptor no los escucha, así que se miran solo por cómo se ven. <!--fin-broll-->Tu trabajo es mirar cada clip y, para los que están mal, escribir los prompts nuevos. La app no rehace nada sola: lo que escribas le llega al usuario como un aviso en ese clip, con tus prompts listos por si decide regenerarlo. Así que no marques nada por gusto.
 
 ## Los clips
 
@@ -44,9 +44,9 @@ Los clips de este anuncio ya están generados. En cada toma, un personaje dice s
    - hay textos inventados o ilegibles, subtítulos o marcas de agua;
    - hay un corte, un salto o un cambio brusco de escena dentro del clip, o algo aparece o desaparece de golpe.
    De la lista de arriba, en un B-roll no cuenta lo que tiene que ver con hablar o con una frase.
-<!--fin-broll-->   Si dudas, déjalo: rehacer cuesta y el clip puede estar bien. Lo que sea gusto, no lo marques.
+<!--fin-broll-->   Si dudas, déjalo: el clip puede estar bien. Lo que sea gusto, no lo marques.
 4. Los clips que dicen **NO DIJO SU FRASE LIMPIA** van en tu lista sí o sí: el transcriptor ya lo midió y no se discute ("suena natural" no vale). Mira qué pasó (repitió, se trabó, agregó o se comió palabras, siguió hablando después) y escribe un prompt de video que lo evite.
-5. Para cada clip a rehacer<!--si-broll--> (toma o B-roll)<!--fin-broll-->, lee su contexto (la ruta está en su entrada: los prompts de ahora y lo que no se toca) y escribe prompts NUEVOS para la misma intención, que eviten el problema que viste. Rehacer con el mismo prompt da lo mismo, y si ya se rehizo antes, no repitas esa idea.
+5. Para cada clip que marques<!--si-broll--> (toma o B-roll)<!--fin-broll-->, lee su contexto (la ruta está en su entrada: los prompts de ahora y lo que no se toca) y escribe prompts NUEVOS para la misma intención, que eviten el problema que viste. Rehacer con el mismo prompt da lo mismo, y si ya se rehizo antes, no repitas esa idea.
 {{reglas}}
 <!--si-broll-->   En un B-roll:
    - Va con `"broll": true` y, en `toma`, su número de B-roll (el de su entrada). Sin `"broll": true` la app lo toma por la toma con ese número.

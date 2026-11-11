@@ -1,0 +1,93 @@
+{
+  "id": "G15",
+  "slug": "persona-emocional-producto-pedestal",
+  "nombre": "Persona en éxtasis + producto en pedestal + palabra gigante",
+  "origen": "ganador:ChatGPT Image 15 may 2026, 05_04_45 p.webp",
+  "descripcion": "Foto lifestyle a sangre con luz dorada y cálida y un fondo desenfocado de jardín o terraza con flores. Arriba, centrada, una sola palabra gigante en blanco (sans gruesa) y debajo un subtítulo de una línea en cursiva blanca. La persona, de perfil 3/4 con los ojos cerrados y los brazos detrás de la cabeza en un gesto de placer, ocupa los 2/3 izquierdos desde el pecho. A la derecha, el producto alto en primer plano sobre un pedestal de mármol, desde el centro hasta el borde inferior. Gotas, burbujas y pétalos flotan como partículas. Muy limpio y premium, estilo campaña de lujo.",
+  "angulos_compatibles": ["promesa-emocional", "identidad", "beneficio-principal", "transformacion", "curiosidad"],
+  "tipos_producto": ["cosmetico", "nutraceutico", "hogar", "gadget", "otro"],
+  "ad_format": "Emotional Lifestyle with Pedestal Product Ad",
+  "reference_style": "Luxury beauty campaign: a person in a moment of pure pleasure in warm golden light, a single giant word as the headline with an italic tagline, and a tall studio-quality product shot on a marble pedestal composited in the foreground, with floating droplets and petals",
+  "art_direction": {
+    "visual_hierarchy": "1) The giant single word at the top. 2) The person's expression of pleasure. 3) The tall product on its pedestal on the right. 4) The italic tagline. 5) The floating particles.",
+    "composition_style": "Layered depth: giant word at the back top, person in the middle ground in the left two-thirds, product in the foreground on the right. The word and the tagline are centered horizontally; the person's head sits just under the tagline, left of center; the product's top starts just below the tagline level on the right.",
+    "spacing_and_structure": "Giant word: about 24-76% of the width and 3.5-18% of the height, centered. Tagline: about 24-76% of the width (same width as the word) and 20.5-24% of the height. Person: from the left edge to about 65% of the width, from about 22% of the height (raised hands and elbows) to the bottom edge, face centered at about 37% of the width and 45% of the height. Product: about 63-86% of the width and 27-94.5% of the height (about 67% of the canvas height), standing on a marble pedestal whose top is at about 93% of the height and spans from about 60% of the width to the right edge, cut by the bottom edge. The product overlaps the person's raised arm. Particles scattered mainly in the top corners and along the right edge, each 1-4% of the canvas.",
+    "lighting_and_depth": "Warm golden-hour sunlight from the upper left, glowing skin with soft highlights, a satin garment catching the light. The background terrace or garden with flowers is strongly blurred and warm. The product is lit like a studio shot: crisp highlights, clean reflections and a soft shadow on the pedestal, slightly sharper than the scene so it reads as the hero. Droplets and bubbles are glossy and translucent, some sharp and some blurred for depth."
+  },
+  "layout_summary": "Square canvas filled with a warm, golden lifestyle photo on a blurred terrace or garden with flowers. One huge bold white word is centered at the top, with a short white italic uppercase tagline right below. In the left two-thirds, a person from the target audience in a 3/4 profile, eyes closed, smiling, arms raised behind the head in a gesture of pleasure, framed from the raised elbows down to the chest. On the right, the user's product, tall and upright, stands in the foreground on a marble pedestal, from just under the tagline to near the bottom edge. Translucent droplets, bubbles and petals float around the edges.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "lifestyle photo background",
+      "position": "Full canvas, edge to edge",
+      "visual_function": "Sets a warm, aspirational, luxurious mood",
+      "adaptation_rule": "Blurred outdoor terrace, garden or bright luxurious interior with flowers or plants, in warm golden light. Tones aligned with the palette: blush, gold and champagne for a warm palette; adapt the flower and light colors to the brand while keeping the golden warmth."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "person",
+      "position": "Left two-thirds, from the left edge to about 65% of the width, from about 22% of the height to the bottom edge",
+      "visual_function": "Shows the emotion the product promises",
+      "adaptation_rule": "A person matching the target audience in a 3/4 profile, eyes closed, serene smile, arms raised behind the head or another open gesture of pleasure and freedom, wearing an elegant garment in a palette tone. They do NOT hold or use the product. Hair and skin look radiant."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Right foreground, about 63-86% of the width and 27-94.5% of the height",
+      "visual_function": "Main product anchor; signals premium quality",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), upright, front view, studio-sharp, overlapping the person's raised arm. Short or wide products keep the same base and width zone and grow up to about 55-60% of the canvas height."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "pedestal",
+      "position": "Under the product, top at about 93% of the height, from about 60% of the width to the right edge, cut by the bottom edge",
+      "visual_function": "Premium stage that separates the product from the scene",
+      "adaptation_rule": "Polished marble (or stone in a palette tone) pedestal top with a soft reflection; a few petals may rest on it."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "floating particles",
+      "position": "Mainly in the top corners and along the right edge, each 1-4% of the canvas; a few soft flowers peek in at the lower-left edge and a few petals rest on the pedestal",
+      "visual_function": "Adds sensoriality and luxury",
+      "adaptation_rule": "Translucent droplets, bubbles and petals, or elements tied to the product's texture or ingredient (water drops, oil drops, leaves, sparkles), some in focus and some blurred. Never over the face, the text or the product label."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "giant word",
+      "reference_position": "Top center, about 3.5-18% of the canvas height",
+      "text_style": "Ultra bold sans-serif, uppercase, about 15% of the canvas height, a single word, centered, pure white, tight letter spacing, spanning about half the canvas width",
+      "guia_texto": "Una sola palabra, un verbo o estado emocional que resume la promesa (por ejemplo «Vibra», «Respira», «Renace»). Exactamente 1 palabra."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "tagline",
+      "reference_position": "Directly below the giant word, centered, about 20.5-24% of the canvas height",
+      "text_style": "Medium italic sans-serif, uppercase, about 3.5% of the canvas height, 1 line, centered, white, the same width as the giant word",
+      "guia_texto": "Completa la palabra con una metáfora aspiracional o el beneficio en clave de lujo. De 4 a 7 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed warm golden lifestyle photo with a blurred floral background",
+    "One giant white word centered at the top with an italic tagline below",
+    "Person with eyes closed and arms raised in a gesture of pleasure in the left two-thirds",
+    "The user's product, tall, in the right foreground on a marble pedestal",
+    "Floating translucent droplets, bubbles and petals"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Free shipping or payment labels",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Benefit list or icons",
+    "Bands, boxes or cards behind the text",
+    "Person holding or applying the product",
+    "More than one product unit",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta cálida y luminosa: luz dorada, rosa empolvado, champán y crema en la ropa, las flores y las partículas; pedestal de mármol claro. Textos en blanco puro. Los colores de marca guían la ropa, las flores y el tono de las partículas, siempre dentro de una atmósfera cálida.",
+  "posicion_logo": null
+}

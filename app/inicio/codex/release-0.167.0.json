@@ -1,0 +1,32 @@
+{
+  "version": "0.167.0",
+  "tag": "rust-v0.167.0",
+  "release": "https://github.com/openai/codex/releases/tag/rust-v0.167.0",
+  "sumas": {
+    "url": "https://github.com/openai/codex/releases/download/rust-v0.167.0/codex-package_SHA256SUMS",
+    "sha256": "5d8ef91a8b6396158fa135e4e890841535a601c113e087822b228b20166b9a4d"
+  },
+  "paquetes": {
+    "win32-x64": {
+      "archivo": "codex-package-x86_64-pc-windows-msvc.tar.gz",
+      "url": "https://github.com/openai/codex/releases/download/rust-v0.167.0/codex-package-x86_64-pc-windows-msvc.tar.gz",
+      "sha256": "60567ca940bbaf6c10501805d9909d1328179231e2d47a0deec7a1368bb21641",
+      "bytes": 201675464,
+      "binario": "bin/codex.exe"
+    },
+    "darwin-arm64": {
+      "archivo": "codex-package-aarch64-apple-darwin.tar.gz",
+      "url": "https://github.com/openai/codex/releases/download/rust-v0.167.0/codex-package-aarch64-apple-darwin.tar.gz",
+      "sha256": "af45ed45d940d7998809622c1c0296d3098ed7d7fad695284422c228bd454517",
+      "bytes": 166340155,
+      "binario": "bin/codex"
+    },
+    "darwin-x64": {
+      "archivo": "codex-package-x86_64-apple-darwin.tar.gz",
+      "url": "https://github.com/openai/codex/releases/download/rust-v0.167.0/codex-package-x86_64-apple-darwin.tar.gz",
+      "sha256": "3d7c4c83296db63b5108e13612c77f3e5020b6c5f2fc004bee413a5cc92de899",
+      "bytes": 180585939,
+      "binario": "bin/codex"
+    }
+  }
+}

@@ -1,0 +1,1155 @@
+{
+  "descripcion": "Índice de la biblioteca de formatos. F## = formatos estándar; G## = sacados de anuncios ganadores reales (preferirlos cuando encajen). Al agregar un esqueleto nuevo, agrega su entrada aquí y su id en formatos_recomendados de angulos.json.",
+  "formatos": [
+    {
+      "id": "F01",
+      "nombre": "Producto protagonista",
+      "origen": "biblioteca",
+      "descripcion": "El producto ocupa el centro y domina la imagen sobre un fondo de marca con profundidad. Arriba, un titular fuerte y un subtítulo corto. Formato limpio, directo y premium.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "caracteristica-estrella",
+        "nueva-oportunidad",
+        "identidad",
+        "promesa-emocional",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F01-producto-heroe.json"
+    },
+    {
+      "id": "F02",
+      "nombre": "Titular gigante",
+      "origen": "biblioteca",
+      "descripcion": "Un titular enorme, tipográfico y alineado a la izquierda ocupa el 60-70% del lienzo sobre un fondo plano de color de marca, con una sola palabra clave resaltada en el color de acento. El producto aparece pequeño en la esquina inferior derecha y una línea corta de apoyo cierra abajo a la izquierda. Es un freno de scroll puro: la frase hace todo el trabajo y el producto solo firma.",
+      "angulos_compatibles": [
+        "romper-expectativas",
+        "enemigo-comun",
+        "agitacion",
+        "dolor",
+        "curiosidad",
+        "identidad",
+        "beneficio-principal"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F02-titular-gigante.json"
+    },
+    {
+      "id": "F03",
+      "nombre": "Antes / Después",
+      "origen": "biblioteca",
+      "descripcion": "Pantalla dividida en vertical, mitad y mitad. Izquierda: el «antes», el estado del problema con tonos apagados, fríos y desaturados. Derecha: el «después», el mismo sujeto con el mismo encuadre ya resuelto, con luz cálida, colores de marca y el producto presente. Una banda superior lleva el titular, cada mitad tiene una etiqueta pequeña tipo píldora y una flecha circular sobre la línea central une los dos estados.",
+      "angulos_compatibles": [
+        "transformacion",
+        "dolor",
+        "beneficio-principal",
+        "rapido-y-facil",
+        "promesa-emocional",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "nutraceutico",
+        "hogar",
+        "ropa",
+        "gadget",
+        "servicio"
+      ],
+      "archivo": "formatos/F03-antes-despues.json"
+    },
+    {
+      "id": "F04",
+      "nombre": "Nosotros vs. ellos",
+      "origen": "biblioteca",
+      "descripcion": "Tabla comparativa «nosotros vs. los demás». Titular arriba. Debajo, una tabla de 4 filas: a la izquierda el atributo comparado; al centro, una columna alta y elevada en el color de marca, con el producto como encabezado y un check en cada fila; a la derecha, una columna gris con una alternativa genérica sin marca y una cruz en cada fila. Ordenada, lógica y legible en 2 segundos: la columna de la marca gana a simple vista.",
+      "angulos_compatibles": [
+        "comparacion",
+        "enemigo-comun",
+        "mecanismo-unico",
+        "beneficio-sin-sacrificio",
+        "objecion-precio",
+        "caracteristica-estrella"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F04-nosotros-vs-ellos.json"
+    },
+    {
+      "id": "F05",
+      "nombre": "Problema en primer plano",
+      "origen": "biblioteca",
+      "descripcion": "Fotografía a sangre, en primer plano y muy cercana, del momento de frustración o de dolor que vive el cliente: la situación, no el producto. Arriba a la izquierda, sobre un degradado oscuro, un titular grande nombra el problema y un subtítulo corto lo agita o abre la salida. Abajo a la derecha, pequeño y dentro de una tarjeta de color de marca, aparece el producto como la salida. Se siente real, cercano y emocional, no de estudio.",
+      "angulos_compatibles": [
+        "dolor",
+        "agitacion",
+        "enemigo-comun",
+        "pregunta-paradojica",
+        "curiosidad",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F05-problema-primer-plano.json"
+    },
+    {
+      "id": "F06",
+      "nombre": "Problema → Solución",
+      "origen": "biblioteca",
+      "descripcion": "Dos paneles horizontales apilados que se leen de arriba abajo como causa y efecto. Arriba, el problema: una escena desaturada y fría con un rótulo corto marcado con una cruz. Abajo, la solución: la escena resuelta, a todo color y con la paleta de marca, con el producto como protagonista y un rótulo marcado con un check. Una línea de acento y una flecha circular hacia abajo unen los dos paneles.",
+      "angulos_compatibles": [
+        "dolor",
+        "transformacion",
+        "rapido-y-facil",
+        "mecanismo-unico",
+        "beneficio-principal",
+        "nueva-oportunidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F06-problema-solucion.json"
+    },
+    {
+      "id": "F07",
+      "nombre": "Anatomía del producto",
+      "origen": "biblioteca",
+      "descripcion": "El producto, centrado y nítido sobre un fondo técnico limpio (rejilla o puntos muy sutiles), con 4 líneas finas de señalamiento que salen de partes concretas del producto hacia 4 etiquetas cortas, dos a cada lado. Titular compacto arriba. Se siente como una ficha técnica premium: demuestra calidad y explica el mecanismo de un vistazo.",
+      "angulos_compatibles": [
+        "mecanismo-unico",
+        "caracteristica-estrella",
+        "beneficio-principal",
+        "objecion-confianza",
+        "objecion-precio",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "gadget",
+        "cosmetico",
+        "ropa",
+        "hogar",
+        "juguete",
+        "nutraceutico",
+        "digital"
+      ],
+      "archivo": "formatos/F07-anatomia-flechas.json"
+    },
+    {
+      "id": "F08",
+      "nombre": "Beneficios con íconos",
+      "origen": "biblioteca",
+      "descripcion": "Titular centrado arriba. Debajo, a la izquierda, el producto grande de pie delante de un panel alto en forma de arco con el color de marca; a la derecha, una columna de 4 beneficios, cada uno con un ícono simple dentro de una baldosa cuadrada redondeada en el color de acento y un texto corto. Ordenado, escaneable y muy claro: el cliente entiende qué gana en 3 segundos.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "beneficio-sin-sacrificio",
+        "caracteristica-estrella",
+        "rapido-y-facil",
+        "mecanismo-unico",
+        "objecion-confianza"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F08-beneficios-iconos.json"
+    },
+    {
+      "id": "F09",
+      "nombre": "Tarjeta de testimonio",
+      "origen": "biblioteca",
+      "descripcion": "Foto lifestyle a sangre, cálida y real, del producto en su contexto de uso (en manos de alguien o en un rincón de casa, baño, cocina u oficina). Encima, en la parte inferior, una tarjeta blanca de reseña con 5 estrellas, una cita corta entre comillas y una fila con avatar redondo, nombre y «compra verificada». Se siente como una reseña real de un cliente: genera confianza sin parecer anuncio.",
+      "angulos_compatibles": [
+        "testimonio",
+        "prueba-social",
+        "objecion-confianza",
+        "transformacion",
+        "promesa-emocional",
+        "beneficio-principal"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F09-testimonio-tarjeta.json"
+    },
+    {
+      "id": "F10",
+      "nombre": "Muro de reseñas",
+      "origen": "biblioteca",
+      "descripcion": "El producto en el centro, rodeado por 4 tarjetas de reseña flotantes (de 3 a 5 según el plan del lote) (5 estrellas, una frase corta y el nombre del cliente con su foto), escalonadas y levemente inclinadas a ambos lados. Arriba, un titular sobre cuántas personas ya lo aman y una línea de calificación promedio. Comunica volumen de prueba social en un solo vistazo.",
+      "angulos_compatibles": [
+        "prueba-social",
+        "testimonio",
+        "objecion-confianza",
+        "beneficio-principal",
+        "transformacion",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F10-muro-resenas.json"
+    },
+    {
+      "id": "F11",
+      "nombre": "Captura de notas",
+      "origen": "biblioteca",
+      "descripcion": "Captura nativa de una app de notas genérica: título personal, fecha, una lista corta de 4-5 ítems (razones, rutina o cambios notados) con un trazo de resaltador hecho a mano sobre el ítem clave, y una foto casera del producto adjunta abajo. Parece contenido orgánico y no un anuncio; se lee de arriba abajo en segundos.",
+      "angulos_compatibles": [
+        "rutina-uso",
+        "beneficio-principal",
+        "testimonio",
+        "curiosidad",
+        "rapido-y-facil",
+        "transformacion",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F11-captura-notas.json"
+    },
+    {
+      "id": "F12",
+      "nombre": "Conversación de chat",
+      "origen": "biblioteca",
+      "descripcion": "Captura de una conversación de chat genérica entre dos amigos: una cuenta su problema, la otra le recomienda el producto y le manda una foto real de él, comparte su resultado y la amiga reacciona. Prueba social íntima y nativa, sin estética de anuncio y sin marcas de ninguna app.",
+      "angulos_compatibles": [
+        "dolor",
+        "testimonio",
+        "prueba-social",
+        "curiosidad",
+        "objecion-confianza",
+        "rapido-y-facil",
+        "regalo"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F12-chat-mensajes.json"
+    },
+    {
+      "id": "F13",
+      "nombre": "Post de red social",
+      "origen": "biblioteca",
+      "descripcion": "Tarjeta de post de red social genérica flotando sobre un fondo de marca: avatar y nombre de un cliente, un texto corto con una opinión fuerte o una confesión, una foto del producto y contadores de interacción altos. Se siente como un post viral real, sin marcas de ninguna plataforma.",
+      "angulos_compatibles": [
+        "romper-expectativas",
+        "enemigo-comun",
+        "pregunta-paradojica",
+        "curiosidad",
+        "testimonio",
+        "prueba-social",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F13-post-red-social.json"
+    },
+    {
+      "id": "F14",
+      "nombre": "Post-it",
+      "origen": "biblioteca",
+      "descripcion": "Foto real de un espacio cotidiano (espejo del baño, refrigerador, escritorio) con un solo post-it pegado junto al producto o sobre él, con un mensaje corto escrito a mano con plumón. Íntimo, auténtico y muy efectivo para detener el scroll; el post-it es el único texto de la imagen.",
+      "angulos_compatibles": [
+        "rutina-uso",
+        "regalo",
+        "promesa-emocional",
+        "curiosidad",
+        "identidad",
+        "romper-expectativas"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F14-post-it.json"
+    },
+    {
+      "id": "F15",
+      "nombre": "Cifra gigante",
+      "origen": "biblioteca",
+      "descripcion": "Una cifra gigante en primer plano cruza casi todo el ancho de la mitad inferior (ej. '+10.000', '3 en 1', '24h') y el producto, centrado, se eleva detrás de ella con la base oculta por los números. Arriba, una frase corta que abre la idea; abajo, una línea que explica la cifra. Se lee de arriba abajo como una sola frase. Tipográfico, audaz y con profundidad por capas.",
+      "angulos_compatibles": [
+        "prueba-social",
+        "caracteristica-estrella",
+        "rapido-y-facil",
+        "autoridad",
+        "beneficio-principal",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F15-estadistica-grande.json"
+    },
+    {
+      "id": "F16",
+      "nombre": "Lifestyle en uso",
+      "origen": "biblioteca",
+      "descripcion": "Fotografía editorial a sangre de una persona del público objetivo usando el producto en su contexto real, con luz natural y fondo desenfocado. El titular y un subtítulo corto viven en una zona limpia de la foto (pared, cielo, fondo desenfocado), sin cajas ni paneles. Aspiracional pero creíble.",
+      "angulos_compatibles": [
+        "promesa-emocional",
+        "identidad",
+        "transformacion",
+        "beneficio-sin-sacrificio",
+        "rutina-uso",
+        "nueva-oportunidad",
+        "beneficio-principal"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F16-lifestyle-uso.json"
+    },
+    {
+      "id": "F17",
+      "nombre": "Foto estilo cliente (UGC)",
+      "origen": "biblioteca",
+      "descripcion": "Foto casera estilo cliente: selfie o selfie de espejo de una persona real sosteniendo el producto hacia la cámara en su casa, con encuadre imperfecto, luz doméstica y grano de celular. Encima, stickers de texto estilo historia (caja blanca con letra negra) y una flecha dibujada a mano hacia el producto. Auténtico, no de estudio.",
+      "angulos_compatibles": [
+        "testimonio",
+        "transformacion",
+        "identidad",
+        "prueba-social",
+        "romper-expectativas",
+        "rutina-uso",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "ropa",
+        "gadget",
+        "juguete",
+        "hogar",
+        "digital",
+        "otro"
+      ],
+      "archivo": "formatos/F17-ugc-selfie.json"
+    },
+    {
+      "id": "F18",
+      "nombre": "Cómo funciona 1-2-3",
+      "origen": "biblioteca",
+      "descripcion": "Cuadrícula modular de 2x2 que se lee en Z. La celda superior izquierda es un bloque de color de marca con el titular y el producto recortado; las otras tres celdas son fotos cuadradas de los pasos 1, 2 y 3 (tomarlo, usarlo, disfrutar el resultado), cada una con un círculo numerado grande arriba y una etiqueta corta abajo. Elimina la objeción de 'es complicado' y muestra que usarlo es tan simple como 1, 2, 3.",
+      "angulos_compatibles": [
+        "rapido-y-facil",
+        "rutina-uso",
+        "mecanismo-unico",
+        "beneficio-sin-sacrificio",
+        "nueva-oportunidad",
+        "transformacion"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "gadget",
+        "hogar",
+        "juguete",
+        "digital",
+        "servicio"
+      ],
+      "archivo": "formatos/F18-como-funciona.json"
+    },
+    {
+      "id": "F19",
+      "nombre": "Mito vs. realidad",
+      "origen": "biblioteca",
+      "descripcion": "Dos tarjetas superpuestas a la izquierda y el producto alto a la derecha. Atrás, inclinada, una ficha de papel gris con la creencia falsa tachada en rojo y un sello de goma rojo que dice MITO. Encima, cubriéndola en parte, la tarjeta de la REALIDAD en color de marca con un check y la verdad en texto fuerte: la verdad literalmente tapa al mito. El producto se apoya junto a esa tarjeta como prueba. Rompe una creencia del público y posiciona el producto como la respuesta correcta.",
+      "angulos_compatibles": [
+        "romper-expectativas",
+        "enemigo-comun",
+        "mecanismo-unico",
+        "objecion-confianza",
+        "curiosidad",
+        "autoridad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F19-mito-realidad.json"
+    },
+    {
+      "id": "F20",
+      "nombre": "Oferta / combo",
+      "origen": "biblioteca",
+      "descripcion": "Anuncio de oferta directo y premium: titular de oferta grande arriba, varias unidades del producto agrupadas como combo sobre un podio con un resplandor detrás, un sello de descuento inclinado en la esquina del combo, el bloque de precio (precio anterior tachado y precio nuevo grande) a la derecha, y una franja inferior a todo lo ancho con la condición de envío o pago y una flecha de llamado a la acción. Pensado para tráfico caliente y momentos de promoción.",
+      "angulos_compatibles": [
+        "oferta",
+        "regalo",
+        "objecion-precio",
+        "rutina-uso",
+        "beneficio-principal"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "ropa",
+        "gadget",
+        "juguete",
+        "hogar",
+        "digital",
+        "otro"
+      ],
+      "archivo": "formatos/F20-oferta-combo.json"
+    },
+    {
+      "id": "F21",
+      "nombre": "Costo por uso",
+      "origen": "biblioteca",
+      "descripcion": "Una ecuación visual que se entiende en un segundo: el producto con su etiqueta de precio, dividido entre una hoja de calendario con los días o usos que rinde, igual a un círculo grande con el costo por día. Debajo, una tarjeta que lo compara con un gasto cotidiano (un café, un snack, un taxi). Convierte un precio que parece alto en un número pequeño y diario, y desarma la objeción de precio.",
+      "angulos_compatibles": [
+        "objecion-precio",
+        "comparacion",
+        "beneficio-sin-sacrificio",
+        "romper-expectativas",
+        "enemigo-comun",
+        "rutina-uso"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "ropa",
+        "gadget",
+        "hogar",
+        "digital",
+        "servicio"
+      ],
+      "archivo": "formatos/F21-costo-por-uso.json"
+    },
+    {
+      "id": "F22",
+      "nombre": "Flatlay de componentes",
+      "origen": "biblioteca",
+      "descripcion": "Foto cenital (vista desde arriba) abundante y orgánica: el producto acostado en diagonal en el centro y, desde las cuatro esquinas, montones generosos de sus ingredientes, materiales o piezas reales que se salen del borde de la imagen y lo enmarcan. Cada montón lleva una pequeña etiqueta en forma de pastilla mirando hacia el centro. Un titular corto arriba. Se ve natural, editorial y premium; muestra 'de qué está hecho' y por qué funciona.",
+      "angulos_compatibles": [
+        "mecanismo-unico",
+        "caracteristica-estrella",
+        "objecion-confianza",
+        "beneficio-sin-sacrificio",
+        "curiosidad",
+        "regalo"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "ropa",
+        "gadget",
+        "juguete",
+        "hogar",
+        "otro"
+      ],
+      "archivo": "formatos/F22-flatlay-componentes.json"
+    },
+    {
+      "id": "F23",
+      "nombre": "Pregunta y respuesta",
+      "origen": "biblioteca",
+      "descripcion": "Diseño editorial en dos tonos. La mitad superior, en el color de marca más profundo, lleva una pastilla pequeña ('Nos preguntan') y la pregunta u objeción enorme alineada a la izquierda, con un signo de interrogación gigante en el mismo tono del fondo. La mitad inferior, en un tono claro, lleva la respuesta corta y directa a la izquierda, y el producto grande a la derecha montado sobre la línea que divide los dos colores. Responde la duda que frena la compra antes de que el cliente la escriba.",
+      "angulos_compatibles": [
+        "pregunta-paradojica",
+        "objecion-confianza",
+        "objecion-precio",
+        "curiosidad",
+        "mecanismo-unico",
+        "dolor"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F23-pregunta-respuesta.json"
+    },
+    {
+      "id": "F24",
+      "nombre": "Nota del fundador",
+      "origen": "biblioteca",
+      "descripcion": "Una carta real fotografiada: una hoja de papel crema con textura que ocupa casi toda la imagen, apenas inclinada sobre una superficie de color de marca. Escrita con letra a mano prolija (o tipografía editorial): saludo, dos párrafos cortos, firma en cursiva con nombre y cargo, y una posdata con el gancho. Una foto instantánea del producto pegada con cinta en la esquina superior derecha. Se siente íntima y humana, genera confianza y cuenta por qué existe el producto.",
+      "angulos_compatibles": [
+        "dolor",
+        "objecion-confianza",
+        "promesa-emocional",
+        "enemigo-comun",
+        "identidad",
+        "mecanismo-unico"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F24-carta-fundador.json"
+    },
+    {
+      "id": "F25",
+      "nombre": "Meme",
+      "origen": "biblioteca",
+      "descripcion": "Meme clásico de dos líneas: una foto de reacción a toda la imagen, con aspecto de foto de celular casera, donde una persona del público objetivo hace un gesto exagerado y reconocible en una situación cotidiana, con el producto visible en la escena. Texto blanco en mayúsculas con contorno negro arriba (la situación con la que todos se identifican) y abajo (el remate que conecta con el producto). Se siente nativo, no parece anuncio y genera comentarios y compartidos.",
+      "angulos_compatibles": [
+        "dolor",
+        "agitacion",
+        "identidad",
+        "enemigo-comun",
+        "romper-expectativas",
+        "rapido-y-facil"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F25-meme.json"
+    },
+    {
+      "id": "F26",
+      "nombre": "Línea de tiempo",
+      "origen": "biblioteca",
+      "descripcion": "Línea de tiempo de tres etapas (Día 1 / Día 7 / Día 30) dibujada como tres fotos circulares que CRECEN de izquierda a derecha sobre una misma línea horizontal: pequeña, mediana y grande. El mismo sujeto mejora de forma visible y creíble en cada círculo; el último lleva un aro del color de acento. Titular arriba, una etiqueta de tiempo sobre cada círculo, un pie corto debajo y el producto anclado al centro de la franja inferior. El crecimiento de los círculos hace que el progreso se entienda en un segundo.",
+      "angulos_compatibles": [
+        "transformacion",
+        "rutina-uso",
+        "beneficio-principal",
+        "rapido-y-facil",
+        "promesa-emocional"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "gadget",
+        "hogar",
+        "digital",
+        "servicio"
+      ],
+      "archivo": "formatos/F26-linea-tiempo.json"
+    },
+    {
+      "id": "F27",
+      "nombre": "Qué incluye",
+      "origen": "biblioteca",
+      "descripcion": "Revelación del kit: una caja rígida premium abierta, vista de frente desde arriba en ángulo (unos 45°), con la tapa levantada detrás y un inserto con compartimentos a medida donde cada artículo del pedido tiene su lugar: el producto en el hueco central más grande y los demás artículos a los lados. Etiquetas tipo píldora con líneas finas a ambos lados de la caja nombran cada artículo. Titular arriba y, opcionalmente, un sticker circular de valor o precio sobre la esquina de la tapa. Transmite 'recibes todo esto, ordenado y listo' de forma tangible y premium.",
+      "angulos_compatibles": [
+        "oferta",
+        "objecion-precio",
+        "caracteristica-estrella",
+        "regalo",
+        "objecion-confianza",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "gadget",
+        "cosmetico",
+        "nutraceutico",
+        "juguete",
+        "hogar",
+        "ropa"
+      ],
+      "archivo": "formatos/F27-unboxing.json"
+    },
+    {
+      "id": "F28",
+      "nombre": "Ideal para regalar",
+      "origen": "biblioteca",
+      "descripcion": "El producto asoma de una caja de regalo abierta con papel de seda y un lazo de satén suelto, en una escena cálida con luces desenfocadas (bokeh) y uno o dos regalos al fondo. Titular de regalo alineado a la izquierda arriba, subtítulo corto y una pequeña tarjeta colgada del lazo con una dedicatoria. Composición diagonal, emotiva y premium, adaptable a la ocasión (Navidad, Día de la Madre, San Valentín, cumpleaños).",
+      "angulos_compatibles": [
+        "regalo",
+        "promesa-emocional",
+        "identidad",
+        "rapido-y-facil",
+        "beneficio-principal"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "ropa",
+        "gadget",
+        "juguete",
+        "hogar",
+        "nutraceutico",
+        "otro"
+      ],
+      "archivo": "formatos/F28-regalo.json"
+    },
+    {
+      "id": "F29",
+      "nombre": "Portada editorial",
+      "origen": "biblioteca",
+      "descripcion": "Anuncio con estética de portada de revista de moda o estilo de vida: una palabra enorme tipo cabecera (masthead) cruza todo el ancho superior, la persona con el producto (o el producto como estrella) llena el encuadre y su cabeza tapa parte de las letras, y a la izquierda se apilan un titular de portada principal y dos titulares secundarios. Detalles editoriales pequeños: línea de edición y un sello circular. Se siente aspiracional, con autoridad y de alto nivel.",
+      "angulos_compatibles": [
+        "autoridad",
+        "identidad",
+        "curiosidad",
+        "nueva-oportunidad",
+        "romper-expectativas",
+        "promesa-emocional"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F29-portada-revista.json"
+    },
+    {
+      "id": "F30",
+      "nombre": "Mockup en dispositivo",
+      "origen": "biblioteca",
+      "descripcion": "El producto digital o servicio se muestra en pantalla dentro de un grupo de dispositivos: una laptop dominante al centro, un celular delante a la derecha y, opcionalmente, una tablet detrás a la izquierda. Titular y subtítulo centrados arriba y 2 o 3 tarjetas flotantes con rasgos concretos alrededor de los equipos. Estética limpia tipo tecnología/SaaS. Ideal para cursos, apps, ebooks, plantillas, membresías y servicios.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "nueva-oportunidad",
+        "rapido-y-facil",
+        "mecanismo-unico",
+        "caracteristica-estrella",
+        "transformacion"
+      ],
+      "tipos_producto": [
+        "digital",
+        "servicio",
+        "gadget"
+      ],
+      "archivo": "formatos/F30-mockup-dispositivo.json"
+    },
+    {
+      "id": "F31",
+      "nombre": "Lista de razones",
+      "origen": "biblioteca",
+      "descripcion": "Anuncio tipo listicle en dos mitades. Arriba: un número gigante en color de acento (el N de 'N razones') con el resto del titular debajo, a la izquierda, y el producto grande a la derecha. Abajo: de 3 a 5 franjas horizontales a todo el ancho, apiladas como tarjetas, cada una con un círculo numerado y una razón corta. El número gigante detiene el scroll y las franjas se leen de un vistazo en el celular.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "caracteristica-estrella",
+        "mecanismo-unico",
+        "beneficio-sin-sacrificio",
+        "objecion-confianza",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F31-lista-razones.json"
+    },
+    {
+      "id": "F32",
+      "nombre": "Escena conceptual",
+      "origen": "biblioteca",
+      "descripcion": "El producto dentro de una escena exagerada, surrealista o metafórica que hace visible su beneficio principal (por ejemplo, flotando sobre nubes para comodidad, envuelto en una ola congelada para frescura, rodeado de rayos de luz para energía). Imagen cinematográfica a sangre completa, calidad de render fotorrealista y un solo titular corto abajo. La imagen cuenta la historia; el texto apenas la nombra.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "promesa-emocional",
+        "curiosidad",
+        "romper-expectativas",
+        "mecanismo-unico",
+        "caracteristica-estrella"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/F32-escena-conceptual.json"
+    },
+    {
+      "id": "G01",
+      "nombre": "Experto que señala el producto",
+      "origen": "ganador",
+      "descripcion": "Fondo azul en degradado, profundo arriba y más claro en el centro. El producto, alargado y levemente inclinado, ocupa de arriba abajo el tercio izquierdo. Arriba a la derecha, un titular blanco enorme de 2 líneas dice qué es el producto y, debajo, 3 viñetas con check en círculo dan sus características. En la mitad derecha inferior, un presentador con aspecto de experto del rubro (en el original, bata médica y estetoscopio), sonriente y sorprendido, señala el producto con los dos índices. Al pie, una línea pequeña de envío o pago a la izquierda y una banda azul sólida a todo el ancho con una frase-beneficio grande. Lo que frena el scroll es el gesto de señalar y la cara de sorpresa; el experto aporta autoridad visual.",
+      "angulos_compatibles": [
+        "autoridad",
+        "caracteristica-estrella",
+        "rapido-y-facil",
+        "beneficio-principal",
+        "mecanismo-unico",
+        "oferta"
+      ],
+      "tipos_producto": [
+        "gadget",
+        "cosmetico",
+        "nutraceutico",
+        "hogar",
+        "otro"
+      ],
+      "archivo": "formatos/G01-experto-senalando-producto.json"
+    },
+    {
+      "id": "G02",
+      "nombre": "Collage de 3 fotos con checks y precio",
+      "origen": "ganador",
+      "descripcion": "Banda superior oscura a todo el ancho con el nombre o la categoría del producto en blanco, y un sello circular rojo con un reclamo de confianza en la esquina superior derecha. Debajo, un collage de 3 fotos a sangre: una lifestyle a todo el ancho en la mitad superior, con el público disfrutando el producto en uso, y dos en la mitad inferior (a la izquierda, una persona poniéndoselo o usándolo; a la derecha, un macro del producto puesto). Sobre la unión, a la izquierda, 3 checks verdes con píldoras oscuras de texto (palabra clave en negrita) y, en el centro inferior, un precio rojo grande con un «por sólo» encima. Al pie, una banda negra delgada y, montada sobre su borde superior (mitad sobre las fotos), una píldora blanca con ícono de camión y la condición de pago. Las fotos se unen con cortes rectos, sin separadores. El producto nunca aparece recortado: se entiende puesto, en las fotos.",
+      "angulos_compatibles": [
+        "oferta",
+        "caracteristica-estrella",
+        "objecion-confianza",
+        "beneficio-principal",
+        "rapido-y-facil"
+      ],
+      "tipos_producto": [
+        "gadget",
+        "cosmetico",
+        "ropa",
+        "hogar",
+        "juguete",
+        "otro"
+      ],
+      "archivo": "formatos/G02-collage-tres-fotos-precio.json"
+    },
+    {
+      "id": "G03",
+      "nombre": "Capturas de chat junto al producto y su beneficiario",
+      "origen": "ganador",
+      "descripcion": "Fondo verde desenfocado a sangre. Arriba al centro, una píldora blanca con borde verde lleva un titular de 2 líneas. En la mitad izquierda, dos capturas de chat en modo oscuro, apiladas y levemente inclinadas, muestran los mensajes de un cliente con su hora: el relato del resultado contado en ráfagas cortas. En la mitad derecha, grande y recortado, aparece quien se beneficia del producto (en el original, una mascota feliz; puede ser una persona) con el producto delante, en la base. Abajo a la izquierda, sobre una zona más clara del fondo, un llamado a la acción en texto blanco grande, una pestaña verde oscura pegada al borde izquierdo que introduce la lista y 3 beneficios con guion en verde oscuro. Los chats son la prueba social puesta al lado del producto y de quien lo disfruta.",
+      "angulos_compatibles": [
+        "testimonio",
+        "prueba-social",
+        "dolor",
+        "beneficio-principal",
+        "transformacion",
+        "promesa-emocional"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "gadget",
+        "hogar",
+        "juguete",
+        "otro"
+      ],
+      "archivo": "formatos/G03-chats-cliente-beneficiario.json"
+    },
+    {
+      "id": "G04",
+      "nombre": "Producto central con columnas de módulos (todo en uno)",
+      "origen": "ganador",
+      "descripcion": "Fondo blanco y gris con formas diagonales rojas abstractas. Arriba, un sticker rojo inclinado de oferta en la esquina izquierda, el nombre del producto en rojo itálico gigante al centro y un subtítulo de 2 líneas que resume todo lo que hace. En el centro, el producto grande y recortado. La columna izquierda tiene 2 fotos circulares de uso (una persona usándolo en casa y otra con anotaciones de las zonas que trabaja) con una frase roja entre ellas; la columna derecha tiene 5 círculos blancos pequeños con pictogramas de distintos usos. Una banda inferior negra a todo el ancho lleva un camión y la condición de envío y pago. Saturado pero muy común en ventas contraentrega de LATAM: vende un producto «todo en uno» con muchos usos.",
+      "angulos_compatibles": [
+        "caracteristica-estrella",
+        "rapido-y-facil",
+        "beneficio-principal",
+        "oferta",
+        "beneficio-sin-sacrificio",
+        "rutina-uso"
+      ],
+      "tipos_producto": [
+        "gadget",
+        "hogar",
+        "otro"
+      ],
+      "archivo": "formatos/G04-producto-central-modulos-laterales.json"
+    },
+    {
+      "id": "G05",
+      "nombre": "Titular en banda + producto ancho + ficha de íconos con precio",
+      "origen": "ganador",
+      "descripcion": "Fondo gris claro con una foto de contexto de uso muy desenfocada y lavada. Arriba, el nombre del producto en dos niveles, levemente inclinados: una línea negra condensada y, debajo, una banda negra a todo el ancho con la palabra clave gigante en amarillo y un ícono de línea temático al lado. En el centro, dos variantes del producto grandes y superpuestas en diagonal. Abajo a la izquierda, una lista de 5 características con pictograma negro y texto corto; abajo a la derecha, un círculo amarillo grande con el precio y el envío. Se lee de arriba abajo: qué es, cómo se ve, qué tiene y cuánto cuesta.",
+      "angulos_compatibles": [
+        "caracteristica-estrella",
+        "beneficio-principal",
+        "oferta",
+        "mecanismo-unico",
+        "rapido-y-facil"
+      ],
+      "tipos_producto": [
+        "gadget",
+        "ropa",
+        "hogar",
+        "juguete",
+        "otro"
+      ],
+      "archivo": "formatos/G05-titular-banda-producto-ficha-precio.json"
+    },
+    {
+      "id": "G06",
+      "nombre": "Oferta multiunidad con franja de beneficios numerados",
+      "origen": "ganador",
+      "descripcion": "Fondo blanco con una ola azul que cruza el centro detrás del producto. Arriba, una pila tipográfica centrada de 3 niveles: una línea pequeña y espaciada con la garantía y el envío, una línea de urgencia en azul marino y el descuento gigante y condensado. En el centro, 3 envases (uno adelante al centro y dos atrás a los lados) con una explosión de polvo dorado detrás e ingredientes reales en la base. Al pie, una franja de 4 celdas con borde: cada una tiene un ícono que sobresale por arriba, un beneficio corto y un número en un cuadro azul abajo. Premium y ordenado: oferta fuerte arriba, producto rico en el medio y beneficios escaneables abajo.",
+      "angulos_compatibles": [
+        "oferta",
+        "objecion-confianza",
+        "beneficio-principal",
+        "mecanismo-unico",
+        "objecion-precio"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "otro"
+      ],
+      "archivo": "formatos/G06-oferta-multiunidad-beneficios-numerados.json"
+    },
+    {
+      "id": "G07",
+      "nombre": "Retrato sosteniendo el producto + columna con CTA",
+      "origen": "ganador",
+      "descripcion": "Fondo negro o muy oscuro de estudio. En la mitad derecha, el retrato de una persona del público objetivo (en el original, un hombre con el torso desnudo y una toalla al hombro) que sonríe con calma y sostiene el producto hacia cámara, en el centro de la imagen. En la columna izquierda: un titular blanco enorme de 3 líneas, debajo un ícono de escudo con check y una descripción de 3 líneas, y abajo un botón CTA azul redondeado con una línea pequeña sobre la entrega. Un sello circular con la forma de pago ocupa la esquina inferior derecha. Limpio, de jerarquía clara y con tono de confianza: funciona muy bien para temas íntimos o delicados.",
+      "angulos_compatibles": [
+        "promesa-emocional",
+        "identidad",
+        "beneficio-principal",
+        "objecion-confianza",
+        "beneficio-sin-sacrificio"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "nutraceutico",
+        "gadget",
+        "hogar",
+        "otro"
+      ],
+      "archivo": "formatos/G07-retrato-sosteniendo-producto-cta.json"
+    },
+    {
+      "id": "G08",
+      "nombre": "Oferta combo con modelo en escena",
+      "origen": "ganador",
+      "descripcion": "Fondo fotográfico a sangre de una escena real desenfocada donde vive el resultado (en el original, un salón de belleza). Una modelo que muestra el resultado ocupa la mitad derecha de arriba abajo. En la columna izquierda superior: una pastilla roja con la palabra de oferta, debajo «cantidad x precio» en tipografía blanca enorme con sombra y el nombre del producto en blanco más pequeño. Tres unidades del producto se agrupan en primer plano en el centro-derecha inferior (la del medio más grande y adelante) y tapan en parte a la modelo. Abajo a la izquierda, una etiqueta roja de dos líneas con el envío. Es la estructura típica de oferta contraentrega de LATAM, sin podio ni precio tachado: el precio va dentro del titular.",
+      "angulos_compatibles": [
+        "oferta",
+        "beneficio-principal",
+        "identidad",
+        "transformacion",
+        "objecion-precio"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "nutraceutico",
+        "ropa",
+        "otro"
+      ],
+      "archivo": "formatos/G08-oferta-combo-modelo-escena.json"
+    },
+    {
+      "id": "G09",
+      "nombre": "Fórmula dual: dos columnas de beneficios con el producto en el eje",
+      "origen": "ganador",
+      "descripcion": "Lienzo dividido en vertical en dos mitades de color contrastado (izquierda en el color oscuro de la marca, derecha en gris claro). Arriba de cada mitad va el nombre de un ingrediente o componente en mayúsculas grandes, en dos líneas, y debajo una columna de 5 beneficios: cada uno con un ícono de línea simple a la izquierda y un texto corto con la primera palabra en negrita. El producto, centrado y a media altura, se monta sobre la línea divisoria y une las dos mitades. Abajo al centro, un botón pastilla de CTA del canal de compra con su ícono debajo. No es «nosotros contra ellos»: las dos columnas son positivas y se suman. Ideal para productos 2 en 1, fórmulas con 2 ingredientes clave o productos con 2 usos o 2 públicos.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "caracteristica-estrella",
+        "mecanismo-unico",
+        "beneficio-sin-sacrificio",
+        "rutina-uso"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "gadget",
+        "hogar",
+        "otro"
+      ],
+      "archivo": "formatos/G09-formula-dual-producto-eje.json"
+    },
+    {
+      "id": "G10",
+      "nombre": "Producto en diagonal con rating, urgencia y regalo",
+      "origen": "ganador",
+      "descripcion": "Escena oscura y dramática con luces rojas y azules, humo y siluetas desenfocadas de personas del público disfrutando el producto. Arriba, un titular centrado de 2 líneas en mayúsculas gruesas: el nombre del producto en degradado amarillo-naranja y la característica estrella en blanco cromado. El producto, enorme y girado en diagonal, cruza el lienzo desde arriba a la izquierda hasta abajo a la derecha. A su alrededor van los módulos de conversión: a la izquierda, 5 estrellas, la calificación grande y el número de clientes; debajo, una pastilla roja con la urgencia de la oferta y, abajo a la izquierda, una caja oscura con borde luminoso, ícono de camión y 2 líneas con la condición de envío y el método de pago. Abajo a la derecha, el artículo de regalo con un «+» amarillo y la cantidad grande y una etiqueta de 2 líneas que dice que viene gratis. Estética de acción, energética y de alto contraste.",
+      "angulos_compatibles": [
+        "oferta",
+        "prueba-social",
+        "caracteristica-estrella",
+        "objecion-confianza",
+        "beneficio-principal",
+        "identidad"
+      ],
+      "tipos_producto": [
+        "juguete",
+        "gadget",
+        "hogar",
+        "cosmetico",
+        "nutraceutico",
+        "otro"
+      ],
+      "archivo": "formatos/G10-producto-diagonal-modulos-conversion.json"
+    },
+    {
+      "id": "G11",
+      "nombre": "Díptico persona-pregunta / producto-respuesta",
+      "origen": "ganador",
+      "descripcion": "Lienzo dividido en vertical en dos paneles iguales separados por una línea fina clara. Panel izquierdo: foto lifestyle de una persona del público, sonriente y relajada, que sostiene el producto en pequeño; arriba, una pregunta-problema en blanco; flotando junto a su cabeza, ilustraciones brillantes del «enemigo» que el producto combate; abajo, 3 pastillas de color apiladas con una viñeta y un beneficio cada una, y en la esquina inferior derecha del panel, un recuadro rojo con la frase-solución. Panel derecho: fondo claro y desenfocado del lugar de uso, un titular imperativo en mayúsculas oscuras arriba, el producto grande y centrado rodeado por las mismas ilustraciones del enemigo y, abajo a la izquierda, una pila de 3 etiquetas de colores distintos (envío, forma de pago y promoción). Funciona como pregunta → respuesta y persona → producto.",
+      "angulos_compatibles": [
+        "dolor",
+        "beneficio-principal",
+        "oferta",
+        "enemigo-comun",
+        "agitacion"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "nutraceutico",
+        "hogar",
+        "gadget",
+        "otro"
+      ],
+      "archivo": "formatos/G11-diptico-persona-producto.json"
+    },
+    {
+      "id": "G12",
+      "nombre": "Infografía de mecanismo: ingredientes hacia órganos",
+      "origen": "ganador",
+      "descripcion": "Infografía de mecanismo sobre un fondo de naturaleza con bokeh y luz cálida, hojas nítidas que enmarcan las esquinas y una mesa de madera en la mitad inferior. Arriba, un titular centrado de 2 líneas en mayúsculas verde oscuro y un subtítulo de una línea. El producto va centrado sobre la mesa; a su izquierda, un bloque que nombra el mecanismo de doble acción (etiqueta dorada, 2 líneas y un subrayado fino) y a su derecha, 3 insignias apiladas (ícono en un círculo blanco y texto corto). Bajo el producto hay un diagrama: dos zonas del cuerpo ilustradas, cada una con su pastilla de acción, y una fila de 5 círculos de ingredientes cuyas flechas curvas suben hacia ellas. Abajo cierra una banda-pastilla ancha con un check y la garantía.",
+      "angulos_compatibles": [
+        "mecanismo-unico",
+        "beneficio-sin-sacrificio",
+        "objecion-confianza",
+        "enemigo-comun",
+        "autoridad",
+        "caracteristica-estrella"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "hogar",
+        "otro"
+      ],
+      "archivo": "formatos/G12-infografia-mecanismo-ingredientes.json"
+    },
+    {
+      "id": "G13",
+      "nombre": "Antes/después en macro con el producto en repisa",
+      "origen": "ganador",
+      "descripcion": "Antes/después en primer plano macro con estética premium beige y dorada. Una banda superior en degradado champán lleva un titular serif en mayúsculas de 2 líneas y un subtítulo corto. Debajo, dos rótulos finos («antes» a la izquierda y «después» a la derecha) sobre una foto macro de la misma zona dividida en vertical por una línea luminosa: a la izquierda el problema y a la derecha resuelto, con una flecha dorada brillante en el centro. En el tercio inferior, el producto descansa acostado sobre una repisa de mármol, con su aplicador delante, y tapa el borde inferior de la foto. Cierra abajo un claim serif dorado de 2 líneas. El original es vertical 2:3 y aquí se reproporciona a cuadrado manteniendo el mismo orden de bandas.",
+      "angulos_compatibles": [
+        "transformacion",
+        "rapido-y-facil",
+        "beneficio-principal",
+        "dolor",
+        "promesa-emocional"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "gadget",
+        "nutraceutico",
+        "hogar"
+      ],
+      "archivo": "formatos/G13-antes-despues-macro-repisa.json"
+    },
+    {
+      "id": "G14",
+      "nombre": "Modelo con el producto + tarjetas en arco con zoom de detalle",
+      "origen": "ganador",
+      "descripcion": "Foto lifestyle a sangre sobre un interior oscuro y desenfocado: la modelo, de frente y sonriendo, ocupa los 2/3 izquierdos, sostiene el producto junto a su cara y muestra el resultado. Arriba a la derecha, un titular blanco en mayúsculas gruesas de 2 líneas, alineado a la derecha; debajo, una banda horizontal de color nude que llega al borde derecho con un subtítulo en mayúsculas oscuras. En la columna derecha se apilan 2 tarjetas con la parte superior en arco: cada una lleva arriba un zoom fotográfico circular de un detalle del producto o del resultado y abajo una etiqueta corta en blanco sobre fondo de color. Sirve para mostrar dos modos, variantes o resultados de una característica.",
+      "angulos_compatibles": [
+        "caracteristica-estrella",
+        "beneficio-principal",
+        "identidad",
+        "promesa-emocional",
+        "rutina-uso"
+      ],
+      "tipos_producto": [
+        "gadget",
+        "cosmetico",
+        "ropa",
+        "hogar",
+        "otro"
+      ],
+      "archivo": "formatos/G14-modelo-tarjetas-zoom-detalle.json"
+    },
+    {
+      "id": "G15",
+      "nombre": "Persona en éxtasis + producto en pedestal + palabra gigante",
+      "origen": "ganador",
+      "descripcion": "Foto lifestyle a sangre con luz dorada y cálida y un fondo desenfocado de jardín o terraza con flores. Arriba, centrada, una sola palabra gigante en blanco (sans gruesa) y debajo un subtítulo de una línea en cursiva blanca. La persona, de perfil 3/4 con los ojos cerrados y los brazos detrás de la cabeza en un gesto de placer, ocupa los 2/3 izquierdos desde el pecho. A la derecha, el producto alto en primer plano sobre un pedestal de mármol, desde el centro hasta el borde inferior. Gotas, burbujas y pétalos flotan como partículas. Muy limpio y premium, estilo campaña de lujo.",
+      "angulos_compatibles": [
+        "promesa-emocional",
+        "identidad",
+        "beneficio-principal",
+        "transformacion",
+        "curiosidad"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "nutraceutico",
+        "hogar",
+        "gadget",
+        "otro"
+      ],
+      "archivo": "formatos/G15-persona-emocional-producto-pedestal.json"
+    },
+    {
+      "id": "G16",
+      "nombre": "Columna de venta + producto héroe lateral",
+      "origen": "ganador",
+      "descripcion": "Lienzo oscuro (negro cálido) con rayos de luz y espirales de partículas brillantes en el color de acento detrás del producto. La mitad izquierda es una columna de venta alineada a la izquierda y apilada de arriba abajo: un antetítulo pequeño en mayúsculas con una línea fina, un titular gigante de 3 líneas que alterna blanco y degradado de acento, una línea divisoria, un subtítulo de 3 líneas (blanco y acento), dos fotos circulares de antes/después unidas por una flecha pequeña y, abajo, una tarjeta de precio oscura con borde fino (rótulo de exclusividad, precio nuevo gigante, divisor y precio anterior tachado). La mitad derecha la ocupa el producto alto y de frente (~75% de la altura) sobre una superficie reflectante con ondas de luz concéntricas en la base.",
+      "angulos_compatibles": [
+        "oferta",
+        "beneficio-principal",
+        "transformacion",
+        "identidad",
+        "objecion-precio",
+        "promesa-emocional"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "nutraceutico",
+        "gadget",
+        "hogar",
+        "otro"
+      ],
+      "archivo": "formatos/G16-columna-venta-producto-heroe.json"
+    },
+    {
+      "id": "G17",
+      "nombre": "Lifestyle con columna de beneficios y producto en primer plano",
+      "origen": "ganador",
+      "descripcion": "Foto lifestyle a sangre en un interior cálido y lujoso con bokeh: una persona del público (de hombros arriba, ojos cerrados, mano en el rostro) ocupa el centro-derecha. Arriba a la izquierda va un titular de 2 líneas (la primera en blanco y la segunda en un acento metálico) y debajo, una columna izquierda con 3 beneficios, cada uno con un ícono lineal dentro de un círculo con aro fino y un texto de 2-3 líneas, separados por líneas horizontales finas. El producto va grande en primer plano abajo a la derecha. Abajo a la izquierda, una banda ancha redondeada en tono metálico con un ícono de camión en un círculo, un divisor vertical y 2 líneas con la condición de envío y el método de pago.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "promesa-emocional",
+        "identidad",
+        "oferta",
+        "caracteristica-estrella",
+        "beneficio-sin-sacrificio"
+      ],
+      "tipos_producto": [
+        "cosmetico",
+        "nutraceutico",
+        "gadget",
+        "hogar",
+        "ropa",
+        "otro"
+      ],
+      "archivo": "formatos/G17-lifestyle-columna-beneficios-producto.json"
+    },
+    {
+      "id": "G19",
+      "nombre": "Tres columnas: producto, beneficios y persona",
+      "origen": "ganador",
+      "descripcion": "Fondo lifestyle claro y cálido (sala desenfocada con plantas y luz de ventana). Arriba, un titular-pregunta grande de 1 línea que nombra el dolor; debajo, una pincelada amarilla tipo resaltador con la propuesta (verbo de invitación + el concepto de solución en negrita y mayúsculas, por ejemplo el alivio o resultado que promete). El cuerpo va en tres columnas: el producto grande a la izquierda sobre una mesita redonda con hojas frescas; al centro, un subtítulo de 2 líneas con la palabra clave en negrita, un divisor fino y una lista de 4 beneficios con check verde circular; a la derecha, una persona sonriente a cámara, de la cintura arriba, sosteniendo un vaso. Cierra abajo una franja dorada en pincelada a todo el ancho con 5 estrellas y la cifra de clientes satisfechos. Dolor, solución y prueba social en un solo vistazo; muy de nutracéuticos en LATAM.",
+      "angulos_compatibles": [
+        "dolor",
+        "beneficio-principal",
+        "prueba-social",
+        "rapido-y-facil",
+        "beneficio-sin-sacrificio"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "hogar",
+        "gadget"
+      ],
+      "archivo": "formatos/G19-tres-columnas-producto-lista-persona.json"
+    },
+    {
+      "id": "G20",
+      "nombre": "Mapa de causas del problema sobre la persona",
+      "origen": "ganador",
+      "descripcion": "Fondo lifestyle muy claro y lavado (sala blanca con sofá). Arriba, un titular rojo grande de 2 líneas que anuncia los factores del problema. Al centro, una persona sentada en el sofá con gesto de malestar y las manos en la zona afectada. En la columna izquierda se apilan 5 causas, cada una con un ícono blanco dentro de un círculo rojo y una etiqueta en negrita de 2 líneas; de cada una sale una línea punteada roja que termina en la persona. A la derecha, en primer plano, el producto grande con su dosis derramada en la base, como la solución. Cierra abajo una píldora horizontal bicolor (rojo / verde lima) con la condición de envío y la de pago. Es un «diagnóstico» que educa, agita el dolor y presenta el producto en un solo vistazo.",
+      "angulos_compatibles": [
+        "dolor",
+        "enemigo-comun",
+        "agitacion",
+        "curiosidad",
+        "mecanismo-unico",
+        "oferta"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "hogar",
+        "gadget",
+        "otro"
+      ],
+      "archivo": "formatos/G20-mapa-causas-persona.json"
+    },
+    {
+      "id": "G21",
+      "nombre": "Panel de beneficios con producto superpuesto y sello de precio",
+      "origen": "ganador",
+      "descripcion": "Fondo gris muy claro o blanco suave. Arriba, un titular centrado de 2 líneas en mayúsculas: la primera en negro y la segunda en el color de marca. Debajo, un panel rectangular oscuro del color de marca sale desde el borde izquierdo y ocupa la franja media del lienzo, con 4 beneficios en columna (ícono lineal blanco y texto blanco de 2-3 líneas). El producto, enorme, se para a la derecha montado sobre el borde derecho del panel, con su dosis derramada al frente. Un sello circular de precio (título, precio anterior tachado y precio nuevo grande) se superpone a su esquina inferior derecha, con el envío en texto pequeño debajo. Limpio, escaneable y con oferta clara.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "rutina-uso",
+        "rapido-y-facil",
+        "oferta",
+        "objecion-precio",
+        "caracteristica-estrella"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "hogar",
+        "gadget"
+      ],
+      "archivo": "formatos/G21-panel-beneficios-producto-sello-precio.json"
+    },
+    {
+      "id": "G22",
+      "nombre": "Producto protagonista con cita de cliente",
+      "origen": "ganador",
+      "descripcion": "Escena oscura y temática que representa el beneficio (en la referencia, un cielo nocturno estrellado sobre un suelo oscuro difuso). Arriba, un titular blanco gigante de 2 líneas con un superlativo. Debajo, una caja rectangular redondeada en el color de marca con una cita de cliente de 3 líneas (frases clave en negrita) y el nombre del cliente. El producto va centrado, de frente y apoyado en el suelo con luz suave. Una franja inferior negra a todo el ancho lleva 5 estrellas doradas y la cifra de clientes. Simple, directo y fácil de reproducir: producto protagonista + voz del cliente + prueba social.",
+      "angulos_compatibles": [
+        "testimonio",
+        "prueba-social",
+        "autoridad",
+        "beneficio-principal",
+        "promesa-emocional"
+      ],
+      "tipos_producto": [
+        "todos"
+      ],
+      "archivo": "formatos/G22-producto-cita-cliente.json"
+    },
+    {
+      "id": "G23",
+      "nombre": "Beneficios radiales con flechas alrededor del producto",
+      "origen": "ganador",
+      "descripcion": "Fondo degradado muy claro y fresco (menta/celeste pálido). Arriba al centro va el logo de la tienda y debajo un titular de 1 línea con una pregunta corta sobre el problema + invitación a probar, con el nombre del producto dentro de una caja resaltada amarilla. El producto va centrado y grande. Alrededor, 4 beneficios en las cuatro esquinas (2 por lado, arriba y abajo), cada uno con un ícono negro sobre su etiqueta en negrita, y una flecha curva negra que sale del producto hacia cada uno. Abajo al centro, una etiqueta apilada de precio por porción (caja blanca con el precio sobre caja negra con la unidad). Limpio, claro y muy reutilizable; cierra con un gancho de objeción de precio.",
+      "angulos_compatibles": [
+        "beneficio-principal",
+        "dolor",
+        "objecion-precio",
+        "caracteristica-estrella",
+        "mecanismo-unico"
+      ],
+      "tipos_producto": [
+        "nutraceutico",
+        "cosmetico",
+        "hogar",
+        "gadget",
+        "juguete",
+        "ropa"
+      ],
+      "archivo": "formatos/G23-beneficios-radiales-flechas.json"
+    },
+    {
+      "id": "G24",
+      "nombre": "Pantalla dividida Día 1 vs. Día 30",
+      "origen": "ganador",
+      "descripcion": "Pantalla dividida en vertical 50/50 con una línea blanca fina al centro; ambas mitades son fotos reales a sangre de la misma persona con el producto, oscurecidas arriba con un degradado negro. Arriba de cada mitad va un encabezado de tiempo gigante en amarillo («Día 1» / «Día 30») con una línea pequeña debajo y, bajo él, 4 cajas-etiqueta apiladas: a la izquierda blancas con borde amarillo, a la derecha rellenas de amarillo (el estado escalado). A la izquierda, un primer plano de manos sosteniendo el producto frente a la cara; a la derecha, un contrapicado dinámico del producto en acción. Un sello circular blanco de garantía cierra en la esquina inferior derecha. No es problema contra solución: es una escalada (el Día 1 ya es bueno, el Día 30 es épico), aspiracional y con un toque de humor. Detiene muy bien el scroll.",
+      "angulos_compatibles": [
+        "transformacion",
+        "identidad",
+        "promesa-emocional",
+        "romper-expectativas",
+        "objecion-confianza",
+        "beneficio-principal",
+        "comparacion"
+      ],
+      "tipos_producto": [
+        "ropa",
+        "gadget",
+        "juguete",
+        "cosmetico",
+        "nutraceutico"
+      ],
+      "archivo": "formatos/G24-pantalla-dividida-dos-estados.json"
+    },
+    {
+      "id": "G25",
+      "nombre": "Reseña larga sobre foto lifestyle con garantía y regalo",
+      "origen": "ganador",
+      "descripcion": "Foto lifestyle a sangre en exterior (césped, cielo y luz natural) con el usuario del producto sentado en la mitad derecha, usándolo y mostrando otra unidad con las manos. En el cuadrante superior izquierdo, una tarjeta de reseña blanca casi opaca de bordes redondeados: avatar redondo, nombre y check azul de verificado, comillas grandes, un testimonio largo de 8 a 10 líneas con 2 o 3 frases resaltadas en amarillo y comillas de cierre. Abajo, sobre un degradado oscuro: a la izquierda, una calificación de plataforma de reseñas genérica con 5 estrellas y la garantía de devolución; a la derecha, «gratis» + el regalo, con una fila de 4 unidades del regalo en colores. El usuario de la foto puede ser el destinatario (por ejemplo, el hijo) y no quien escribe la reseña (la madre).",
+      "angulos_compatibles": [
+        "testimonio",
+        "prueba-social",
+        "objecion-confianza",
+        "oferta",
+        "promesa-emocional",
+        "identidad",
+        "regalo"
+      ],
+      "tipos_producto": [
+        "ropa",
+        "juguete",
+        "gadget",
+        "cosmetico",
+        "hogar",
+        "nutraceutico"
+      ],
+      "archivo": "formatos/G25-resena-larga-lifestyle-regalo.json"
+    }
+  ]
+}

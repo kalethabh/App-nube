@@ -5,6 +5,9 @@
 // GET  /api/entrega/:slug     -> el informe de la entrega en palabras simples: las decisiones del montaje,
 //                                lo que salio mal (y si se arreglo solo), el costo y otros anuncios del mismo
 //                                producto. Sale de plan-montaje.json, img|video/log-modelos.json e historial/.
+//                                Trae `avisos`: lo que noto la revision, una entrada por pieza ([{ clave, pieza,
+//                                texto, sugerencia: bool, momento }], lib/avisos.js; desde 2026-11-09 la app no
+//                                rehace nada sola por calidad: «Lo que notó la revisión»).
 //                                Nunca devuelve prompts ni rutas del disco.
 // POST /api/abrir-carpeta     -> { slug, donde: "videos" | "piezas", archivo? } abre el explorador de archivos
 //                                en output/ (con el video marcado) o en temp/<slug>/. Nada fuera de ahi.
@@ -14,7 +17,8 @@ import { spawn } from 'node:child_process';
 import { TEMP, OUTPUT, PUERTO } from '../lib/rutas.js';
 import { leerJSON, listar, stat, segmentoValido, dentroDe, esImagen, esVideo, esAudio } from '../lib/archivos.js';
 import { listarAnuncios, resumenAnuncio, slugValido, tituloDeSlug, ultimaActividad, MINUTOS_ACTIVO } from '../lib/anuncios.js';
-import { listarAnunciosNuevos } from '../lib/anuncios-nuevos.js';
+import { listarAnunciosNuevos, motorDeSesion } from '../lib/anuncios-nuevos.js';
+import { listaDeAvisos } from '../lib/avisos.js';
 
 const redondear = (n, d = 2) => Math.round(Number(n) * 10 ** d) / 10 ** d;
 // ---------------------------------------------------------------- actividad (tablero)
@@ -387,8 +391,8 @@ function rehechosDe(dir, momentos) {
     items.push({
       id: 'rehechas',
       tipo: 'arreglado',
-      titulo: resto.length === 1 ? 'Una pieza se rehízo' : `${resto.length} piezas se rehicieron`,
-      detalle: 'No pasaron la revisión (manos, etiqueta del producto, letras inventadas o el personaje cambiado) y se generaron de nuevo. La versión anterior quedó guardada.',
+      titulo: resto.length === 1 ? 'Una pieza se hizo otra vez' : `${resto.length} piezas se hicieron otra vez`,
+      detalle: 'Se generaron de nuevo (no salieron bien la primera vez o se pidió otra versión). La versión anterior quedó guardada.',
       piezas: resto.map((t) => ({
         n: t.n,
         unidad: t.unidad,
@@ -587,6 +591,12 @@ export default function rutasTablero(app) {
     const conductor = leerJSON(path.join(dir, 'app', 'conductor.json'));
     // de la app (tiene conductor), o renderizado solo con la completa (qa/versiones.json, ensamblar --solo-completa)
     const soloCompleta = Boolean(conductor) || leerJSON(path.join(dir, 'qa', 'versiones.json'))?.soloCompleta === true;
+    // lo que noto la revision, una linea por pieza (sin la instruccion sugerida: solo si la hay)
+    const avisos = listaDeAvisos(dir).map((a) => {
+      const r = a.clave.match(/^(?:img|vid):(toma|broll|paso)-(\d+)/);
+      const momento = r ? ((r[1] === 'broll' ? momentos.broll : momentos.tomas).get(Number(r[2])) ?? null) : null;
+      return { clave: a.clave, pieza: a.pieza, texto: a.texto, sugerencia: a.sugerencia, momento };
+    });
     res.json({
       slug,
       hayPlan: Boolean(plan),
@@ -601,6 +611,9 @@ export default function rutasTablero(app) {
       // cuando termino la produccion de verdad (despues del control final; el MP4 puede ser de antes)
       terminado: conductor?.estado === 'listo' ? conductor.terminado || null : null,
       informe: informe || null,
+      avisos,
+      // la IA que escribio el guion (la ultima medida de app/sesion.json): «Lo escribio {IA} con tu cuenta»
+      motor: motorDeSesion(leerJSON(path.join(dir, 'app', 'sesion.json'))),
       modoPrueba: Boolean(informe?.modoPrueba ?? conductor?.modoPrueba),
     });
   });

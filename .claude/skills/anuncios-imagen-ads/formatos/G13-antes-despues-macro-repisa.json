@@ -1,0 +1,143 @@
+{
+  "id": "G13",
+  "slug": "antes-despues-macro-repisa",
+  "nombre": "Antes/después en macro con el producto en repisa",
+  "origen": "ganador:639704483_2093585214740510_7342041245592286986_n.jpg",
+  "descripcion": "Antes/después en primer plano macro con estética premium beige y dorada. Una banda superior en degradado champán lleva un titular serif en mayúsculas de 2 líneas y un subtítulo corto. Debajo, dos rótulos finos («antes» a la izquierda y «después» a la derecha) sobre una foto macro de la misma zona dividida en vertical por una línea luminosa: a la izquierda el problema y a la derecha resuelto, con una flecha dorada brillante en el centro. En el tercio inferior, el producto descansa acostado sobre una repisa de mármol, con su aplicador delante, y tapa el borde inferior de la foto. Cierra abajo un claim serif dorado de 2 líneas. El original es vertical 2:3 y aquí se reproporciona a cuadrado manteniendo el mismo orden de bandas.",
+  "angulos_compatibles": ["transformacion", "rapido-y-facil", "beneficio-principal", "dolor", "promesa-emocional"],
+  "tipos_producto": ["cosmetico", "gadget", "nutraceutico", "hogar"],
+  "ad_format": "Macro Before / After with Shelf Product Ad",
+  "reference_style": "Premium beauty-campaign before/after: a macro close-up of the same zone split by a luminous line with a glowing gold arrow, a champagne gradient header with an elegant serif headline, the product lying on a marble shelf in front, and a gold serif claim at the bottom",
+  "art_direction": {
+    "visual_hierarchy": "1) The macro split: problem on the left, solved on the right. 2) The serif headline at the top. 3) The product lying on the marble shelf. 4) The gold arrow and luminous divider. 5) The bottom claim. 6) The before/after labels and the subtitle.",
+    "composition_style": "Stacked horizontal bands, centered and symmetrical: champagne header → labels → macro split photo → marble shelf with the product overlapping the bottom of the photo → claim. The original is a vertical 2:3 ad; in the square canvas the same top-to-bottom order is kept and each band is compressed proportionally, with the macro split remaining the largest band.",
+    "spacing_and_structure": "Header band: 0-21% of the canvas height, headline lines at about 4-15%, subtitle at about 16.5-20%. Labels at about 22-25.5% of the height: before label at about 10-28% of the width, after label at about 66-86%. Macro photo: full width, from about 20% of the height (soft blend into the header) to about 71%. Luminous divider: vertical at exactly 50% of the width, from about 21% to 70% of the height. Gold arrow: centered on the divider at about 44% of the height, about 8% of the canvas wide. Marble shelf: full width, top edge at about 70% of the height, front edge down to about 85%. Product: lying horizontally at about 18-82% of the width and 60-72% of the height, its upper half overlapping the bottom of the photo. Applicator lying diagonally in front at about 28-80% of the width and 72-82% of the height. Claim: line 1 at about 86-91% of the height, line 2 at about 92-95.5%, centered. Side margins about 6%.",
+    "lighting_and_depth": "Soft, diffused beauty lighting. The header is a champagne or rose-beige gradient with a soft bokeh glow. Macro photo: high-resolution texture with the same light on both halves; the before half slightly flatter and more shadowed, the after half smoother and more luminous. The divider is a thin line of light with a soft glow; the arrow is metallic gold with an inner glow. The product rests on polished white-grey marble with a soft reflection and contact shadow; the bottom area darkens to a deep warm brown vignette so the gold claim pops."
+  },
+  "layout_summary": "Square canvas. Top band in a soft champagne gradient with a 2-line uppercase serif headline in deep charcoal-brown and a short subtitle below. Under it, two thin, widely spaced uppercase labels (before on the left, after on the right) sit on top of a full-width macro close-up of the same zone of the body or surface, split vertically by a glowing thin line: left = problem visible, right = solved. A glowing gold arrow pointing right crosses the center line. In the lower third, the user's product lies horizontally on a white marble shelf that spans the full width, overlapping the bottom of the photo, with its applicator or accessory lying diagonally in front. A 2-line serif claim closes the bottom on a dark warm vignette: line 1 larger in gold, line 2 smaller in cream.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "header band",
+      "position": "Full width, 0-21% of the canvas height, blending softly into the photo",
+      "visual_function": "Elegant frame for the headline",
+      "adaptation_rule": "Champagne, rose-beige or soft gold gradient (or the lightest warm tone of the palette) with a subtle bokeh glow; no hard edge at the bottom."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "state labels (2)",
+      "position": "Top of the photo, at about 22-25.5% of the height: before at about 10-28% of the width, after at about 66-86%",
+      "visual_function": "Names each half of the comparison",
+      "adaptation_rule": "Plain thin text labels with no pill or box behind them."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "macro split photo (before/after)",
+      "position": "Full width, about 20-71% of the canvas height",
+      "visual_function": "Proves the transformation in close-up",
+      "adaptation_rule": "Extreme close-up of the exact zone the user's product improves (under-eye, skin, lips, hair, nails, teeth, or a surface or material for home products), one continuous image of the same subject split at the center: the left half shows the problem clearly but realistically, the right half shows the same zone, same angle and light, visibly improved. Never grotesque or exaggerated."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "luminous divider",
+      "position": "Vertical at exactly 50% of the width, about 21-70% of the height",
+      "visual_function": "Separates the two states with a premium touch",
+      "adaptation_rule": "Thin line of white-gold light with a soft glow."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "gold arrow",
+      "position": "Centered on the divider at about 44% of the height, about 8% of the canvas wide",
+      "visual_function": "Signals the direction of the change",
+      "adaptation_rule": "Glossy metallic gold arrow or chevron pointing right, with an inner glow."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "marble shelf",
+      "position": "Full width, top edge at about 70% of the height, front edge down to about 85%",
+      "visual_function": "Premium stage for the product",
+      "adaptation_rule": "Polished white-grey marble with soft veins and a gentle reflection; it may be another premium surface in the palette (stone, travertine, glossy acrylic)."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "product",
+      "position": "Lying horizontally on the shelf, about 18-82% of the width and 60-72% of the height, overlapping the bottom of the photo",
+      "visual_function": "Credits the transformation to the product",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), lying on its side with the label facing the camera and fully legible. Tall or round products may stand upright as long as they stay in the same band, overlap the bottom of the photo and span at least 35-40% of the width."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "applicator or accessory",
+      "position": "In front of the product, lying diagonally, about 28-80% of the width and 72-82% of the height",
+      "visual_function": "Shows how it is applied and adds a premium still-life detail",
+      "adaptation_rule": "The applicator, brush, tool or accessory that comes with the user's product. If there is none, use a few drops or a swatch of the product's texture on the marble."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Centered in the header band, about 4-15% of the canvas height",
+      "text_style": "Elegant high-contrast serif, uppercase, each line about 5.5% of the canvas height, max 2 lines, centered, deep charcoal-brown on the champagne band, slight letter spacing",
+      "guia_texto": "La transformación prometida y el tiempo en que ocurre (por ejemplo «Despídete de…» + un plazo corto). De 4 a 8 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Centered under the headline, about 16.5-20% of the canvas height",
+      "text_style": "Regular sans-serif, sentence case, about 3% of the canvas height, 1 line, centered, dark grey",
+      "guia_texto": "Una invitación corta a mirar el resultado. De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "before label",
+      "reference_position": "Top of the left half of the photo",
+      "text_style": "Light sans-serif, uppercase, widely letter-spaced, about 2.3% of the canvas height, 1 line, white or light grey with a soft shadow",
+      "guia_texto": "«Antes» o el punto de partida. 1 palabra."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "after label",
+      "reference_position": "Top of the right half of the photo",
+      "text_style": "Same style as the before label",
+      "guia_texto": "«Después» o el momento del resultado, coherente con el antes. 1 o 2 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "claim line 1",
+      "reference_position": "Bottom center, first line, about 86-91% of the canvas height",
+      "text_style": "Bold serif, uppercase, about 5% of the canvas height, 1 line, centered, metallic gold gradient on the dark warm vignette",
+      "guia_texto": "El resultado clave en forma de afirmación (por ejemplo «piel renovada» o «efecto real»). De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "claim line 2",
+      "reference_position": "Bottom center, under claim line 1, about 92-95.5% of the canvas height",
+      "text_style": "Regular serif or sans-serif, uppercase, about 3% of the canvas height, 1 line, centered, cream or white",
+      "guia_texto": "En cuánto tiempo se nota el resultado (por ejemplo «en solo 7 días» o «tras pocas semanas»). De 3 a 5 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Champagne gradient header band with an uppercase serif headline and short subtitle",
+    "Full-width macro photo of the same zone split vertically: problem on the left, solved on the right",
+    "Thin luminous vertical divider with a glowing gold arrow at its center",
+    "Thin before and after text labels on top of the photo",
+    "The user's product lying on a marble shelf that overlaps the bottom of the photo, with its applicator in front",
+    "Two-line gold serif claim at the bottom on a dark warm vignette"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Free shipping or payment labels",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Benefit list or icons",
+    "Pill-shaped or boxed labels",
+    "Full face or full body of a person",
+    "Product inside the before or after half of the photo",
+    "More than two panels or a horizontal split",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Estética premium beige y dorada: banda superior en degradado champán o rosa empolvado; titular en marrón carbón profundo; flecha, línea divisoria y primera línea del claim en dorado metálico; repisa de mármol blanco grisáceo; zona inferior oscurecida en marrón cálido. Los colores de marca se limitan al producto; si la marca tiene un tono cálido suave, puede teñir la banda superior.",
+  "posicion_logo": null
+}

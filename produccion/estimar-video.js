@@ -16,12 +16,15 @@ import {
   KIE,
   ESTILOS_HABLADOS,
   MODELO_VIDEO_BROLL_POR_ESTILO,
+  SONIDO_BROLL_POR_ESTILO,
+  MODELO_VIDEO_UGC,
   creditosAUsd,
   creditosClip,
   resolucionPara,
 } from './config.js';
 import { tieneContinuidad, cadenaDeClips, proponerDuraciones } from './continuidad.js';
 import { brollQueEntran, brollQueEntranEnCarpeta } from './planear-montaje.js';
+import { ELECCION_POR_DEFECTO, leerEleccion, cascadaDelTrabajo, cascadaVideo, modeloDeCadena, modeloParaClip, usaReferencias } from './modelos-elegidos.js';
 
 /**
  * Lista plana de clips: cada toma y cada B-roll es un clip.
@@ -34,8 +37,14 @@ import { brollQueEntran, brollQueEntranEnCarpeta } from './planear-montaje.js';
  * En los estilos hablados (podcast, entrevista; ESTILOS_HABLADOS) el B-roll
  * no se genera con el modelo principal sino con el de
  * MODELO_VIDEO_BROLL_POR_ESTILO (Kling, por segundo, sin audio): ese clip
- * lleva su `modelo`. Los demas estilos no traen ese campo y se estiman como
- * siempre.
+ * lleva su `modelo` y `sonido: false`. Los demas estilos no traen ese campo y
+ * se estiman como siempre.
+ *
+ * Con `eleccion` (los modelos del anuncio, modelos-elegidos.js) TODOS los
+ * clips llevan su `modelo`: el primero de la cascada de su categoria que lo
+ * puede hacer (PixVerse solo si el clip tiene imagen final, Grok v1 solo por
+ * referencias). Con la eleccion de siempre salen los mismos modelos que sin
+ * ella: Omni para las tomas y los bloques R, Kling mudo para el B-roll hablado.
  *
  * `reglaBroll` (opcional): lo que dijo brollQueEntran(EnCarpeta) para este
  * anuncio. Sin ella sale de `tiempos`. Los comandos la pasan con la carpeta
@@ -43,17 +52,32 @@ import { brollQueEntran, brollQueEntranEnCarpeta } from './planear-montaje.js';
  * generar-videos para decidir que piden: asi el estimado y lo que se pide no
  * se separan (por ejemplo con audio/tiempos.json de una voz que ya no esta).
  */
-export function clipsDe(manifiesto, { tiempos = null, reglaBroll = null } = {}) {
+export function clipsDe(manifiesto, { tiempos = null, reglaBroll = null, eleccion = null } = {}) {
   if (tieneContinuidad(manifiesto)) {
-    return cadenaDeClips(manifiesto, { estimar: true, tiempos }).map((c) => ({
+    const cascada = eleccion ? cascadaVideo(eleccion, 'vozEnOff') : null;
+    const deSiempre = cascadaVideo(ELECCION_POR_DEFECTO, 'vozEnOff');
+    return cadenaDeClips(manifiesto, { estimar: true, tiempos, ...(eleccion ? { modelo: modeloDeCadena(eleccion) } : {}) }).map((c) => ({
       id: c.id,
       segundos: c.segundos,
       tipo: c.rol === 'paso' ? 'paso' : c.tipoToma,
       rol: c.rol,
+      ...(cascada ? { modelo: modeloParaClip(cascada, { frameFinal: Boolean(c.imagenFinal) }, c.segundos, { deSiempre }) } : {}),
       ...(c.estimado ? { estimado: true } : {}),
     }));
   }
-  const modeloBroll = ESTILOS_HABLADOS.includes(manifiesto.estilo) ? MODELO_VIDEO_BROLL_POR_ESTILO[manifiesto.estilo] : null;
+  const hablado = ESTILOS_HABLADOS.includes(manifiesto.estilo);
+  const modeloBroll = hablado ? MODELO_VIDEO_BROLL_POR_ESTILO[manifiesto.estilo] : null;
+  const sonidoBroll = hablado && typeof SONIDO_BROLL_POR_ESTILO[manifiesto.estilo] === 'boolean' ? SONIDO_BROLL_POR_ESTILO[manifiesto.estilo] : undefined;
+  // El modelo de un clip con la eleccion del anuncio (ver arriba): el mismo
+  // que elige generar-videos, mirando tambien el tope de duracion de cada
+  // modelo (modeloParaClip).
+  const modeloElegido = (clip) =>
+    modeloParaClip(
+      cascadaDelTrabajo(eleccion, manifiesto, clip),
+      { referencias: usaReferencias(clip), frameFinal: clip.tipo === 'B' },
+      clip.segundos,
+      { deSiempre: cascadaDelTrabajo(ELECCION_POR_DEFECTO, manifiesto, clip) }
+    );
   // Voz en off y musica con los tiempos de la voz: el B-roll que no entra en el
   // video no se pide (brollQueEntran, la regla del montaje), asi que no se
   // cuenta. Sin tiempos, o en otro tipo de anuncio, va todo: es un maximo.
@@ -64,25 +88,49 @@ export function clipsDe(manifiesto, { tiempos = null, reglaBroll = null } = {}) 
   // (clips-sin-cobro.js): no entran en la estimacion.
   for (const t of manifiesto.tomas || []) {
     if (t.tipo !== 'R' && t.tipo !== 'H' && modoSinCobro(t)) continue;
-    clips.push({ id: `toma-${t.n}`, segundos: t.duracion, tipo: t.tipo });
+    const clip = { id: `toma-${t.n}`, segundos: t.duracion, tipo: t.tipo };
+    if (eleccion) clip.modelo = modeloElegido({ ...clip, ...(Array.isArray(t.ingredientes) ? { ingredientes: t.ingredientes } : {}) });
+    clips.push(clip);
   }
   for (const b of manifiesto.broll || []) {
     if (fuera.has(b.n)) continue;
     if (modoSinCobro(b)) continue;
-    clips.push({ id: `broll-${b.n}`, segundos: b.duracion, tipo: 'broll', ...(modeloBroll ? { modelo: modeloBroll } : {}) });
+    const clip = {
+      id: `broll-${b.n}`,
+      segundos: b.duracion,
+      tipo: 'broll',
+      ...(modeloBroll ? { modelo: modeloBroll } : {}),
+      ...(sonidoBroll !== undefined ? { sonido: sonidoBroll } : {}),
+    };
+    if (eleccion) clip.modelo = modeloElegido({ ...clip, clase: 'broll' });
+    clips.push(clip);
   }
   return clips;
 }
 
-export function estimar(manifiesto, { modelo = MODELOS.video.principal, resolucion = RESOLUCION_VIDEO, tiempos = null, reglaBroll: regla = null } = {}) {
+/**
+ * El costo de los videos. `eleccion` (los modelos del anuncio; leerEleccion de
+ * su carpeta) pone el modelo de cada clip; sin ella ni `modelo`, la eleccion
+ * de siempre. Con `modelo` explicito (la comparacion con el respaldo de
+ * --comparar) todos los clips van con ese, salvo el B-roll hablado.
+ */
+export function estimar(manifiesto, { modelo = null, resolucion = RESOLUCION_VIDEO, tiempos = null, reglaBroll: regla = null, eleccion = null } = {}) {
+  const conEleccion = modelo ? null : eleccion ?? ELECCION_POR_DEFECTO;
+  const modeloBase = modelo ?? MODELOS.video.principal;
   // Lo que la regla del B-roll dice para este anuncio: la que se pasa (la de la
   // carpeta) o, sin ella, la de estos tiempos (sin tiempos: no decide).
   const reglaBroll = regla ?? brollQueEntran(manifiesto, tiempos);
-  const clips = clipsDe(manifiesto, { tiempos, reglaBroll });
+  const clips = clipsDe(manifiesto, { tiempos, reglaBroll, eleccion: conEleccion });
   // Lo que costarian los B-roll que no entran, si se pidieran (no estan en `creditos`).
+  const modeloBrollFuera = (segundos) =>
+    conEleccion
+      ? modeloParaClip(cascadaDelTrabajo(conEleccion, manifiesto, { clase: 'broll' }), {}, segundos, {
+          deSiempre: cascadaDelTrabajo(ELECCION_POR_DEFECTO, manifiesto, { clase: 'broll' }),
+        })
+      : modeloBase;
   const brollQueNoEntra = (reglaBroll.aplica ? reglaBroll.fuera : []).map((f) => {
     const b = manifiesto.broll.find((x) => x.n === f.n);
-    return { ...f, segundos: b?.duracion, creditos: creditosClip(modelo, b?.duracion, resolucion).creditos ?? 0 };
+    return { ...f, segundos: b?.duracion, creditos: creditosClip(modeloBrollFuera(b?.duracion), b?.duracion, resolucion).creditos ?? 0 };
   });
   const detalle = [];
   let creditos = 0;
@@ -91,22 +139,27 @@ export function estimar(manifiesto, { modelo = MODELOS.video.principal, resoluci
   const excedidos = [];
 
   for (const c of clips) {
-    // Un clip con modelo propio (el B-roll de los estilos hablados) se cobra
-    // con ese modelo; el resto, con el de la estimacion.
-    const r = creditosClip(c.modelo ?? modelo, c.segundos, resolucion);
+    // Un clip con modelo propio se cobra con ese modelo (y sin audio si va
+    // mudo); el resto, con el de la estimacion.
+    const r = creditosClip(c.modelo ?? modeloBase, c.segundos, resolucion, typeof c.sonido === 'boolean' ? { sonido: c.sonido } : {});
     if (r.excedeTope) {
       excedidos.push(c);
       continue;
     }
-    creditos += r.creditos;
+    creditos = Math.round((creditos + r.creditos) * 100) / 100;
     segundosPedidos += r.duracion;
     segundosUtiles += c.segundos;
     detalle.push({ ...c, ...r });
   }
 
-  const res = resolucionPara(modelo, resolucion);
+  // El modelo "de la estimacion": el de la mayoria de las tomas (el que se
+  // muestra arriba); los demas van en su tabla.
+  const cuenta = new Map();
+  for (const d of detalle) if (!String(d.id).startsWith('broll-') || !ESTILOS_HABLADOS.includes(manifiesto.estilo)) cuenta.set(d.modelo ?? modeloBase, (cuenta.get(d.modelo ?? modeloBase) || 0) + 1);
+  const modeloMostrado = [...cuenta.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? modeloBase;
+  const res = resolucionPara(modeloMostrado, resolucion);
   return {
-    modelo,
+    modelo: modeloMostrado,
     resolucionPedida: resolucion,
     resolucionReal: res.nombre,
     resolucionApi: res.api,
@@ -149,6 +202,8 @@ if (process.argv[1] && process.argv[1].endsWith('estimar-video.js')) {
   // Con continuidad, lo que falta por escribir se estima con los tiempos
   // reales de la voz, si ya estan.
   const conContinuidad = tieneContinuidad(m);
+  // Los modelos de ESTE anuncio (temp/<slug>/modelos.json); sin el, los de siempre.
+  const eleccion = leerEleccion(path.resolve(carpetaArg));
   let tiempos = null;
   if (conContinuidad) {
     try {
@@ -156,7 +211,7 @@ if (process.argv[1] && process.argv[1].endsWith('estimar-video.js')) {
       if (fs.existsSync(rutaTiempos)) tiempos = JSON.parse(fs.readFileSync(rutaTiempos, 'utf8'));
       // Unos tiempos que no van 1 a 1 con las tomas no sirven para estimar:
       // cadenaDeClips estima entonces con la duracion de cada toma.
-      if (tiempos) proponerDuraciones(m, tiempos);
+      if (tiempos) proponerDuraciones(m, tiempos, { modelo: modeloDeCadena(eleccion) });
     } catch {
       tiempos = null;
     }
@@ -167,7 +222,7 @@ if (process.argv[1] && process.argv[1].endsWith('estimar-video.js')) {
   // (falta audio/voz.mp3), no deciden nada y el numero es un maximo.
   const reglaBroll = conContinuidad ? null : brollQueEntranEnCarpeta(m, path.resolve(carpetaArg));
 
-  const e = estimar(m, { resolucion, tiempos, reglaBroll });
+  const e = estimar(m, { resolucion, tiempos, reglaBroll, eleccion });
 
   console.log(`\n=== Costo de los videos — ${path.basename(path.resolve(carpetaArg))} ===\n`);
   console.log(`  Modelo:      ${e.modelo}`);
@@ -204,43 +259,49 @@ if (process.argv[1] && process.argv[1].endsWith('estimar-video.js')) {
   }
 
   const hablado = ESTILOS_HABLADOS.includes(m.estilo);
-  if (hablado) {
-    // Estilo hablado: las tomas H van con el modelo principal (por tramo) y el
-    // B-roll con el suyo (Kling, por segundo, sin audio): una tabla por modelo.
-    const porModelo = new Map();
-    for (const d of e.detalle) {
-      const modelo = d.modelo ?? e.modelo;
-      if (!porModelo.has(modelo)) porModelo.set(modelo, {});
-      const tramos = porModelo.get(modelo);
-      tramos[d.duracion] = (tramos[d.duracion] || 0) + 1;
-    }
-    for (const [modelo, porTramo] of porModelo) {
-      const def = MODELOS_VIDEO[modelo];
+  // Una fila por largo, con lo que cuesta cada clip de verdad (creditosClip:
+  // por tramo en Omni, por segundo en los demas, sin audio si va mudo).
+  const fila = (tramo, n, cu) =>
+    console.log(`   ${String(tramo).padStart(2)}s     ${String(n).padStart(3)}      ${String(cu).padStart(4)}        ${String(Math.round(n * cu * 100) / 100).padStart(5)}`);
+  const porModelo = new Map(); // modelo -> Map(duracion -> { n, cu, broll })
+  for (const d of e.detalle) {
+    const modelo = d.modelo ?? e.modelo;
+    if (!porModelo.has(modelo)) porModelo.set(modelo, new Map());
+    const tramos = porModelo.get(modelo);
+    // "sin audio" solo si el modelo tiene interruptor de audio (Kling): Omni o Grok salen con el suyo.
+    const x = tramos.get(d.duracion) || { n: 0, cu: d.creditos, broll: d.tipo === 'broll', mudo: d.sonido === false && Boolean(MODELOS_VIDEO[modelo]?.audio?.campo) };
+    x.n++;
+    tramos.set(d.duracion, x);
+  }
+  if (hablado || porModelo.size > 1) {
+    // Estilo hablado (las tomas H con su modelo y el B-roll con el suyo), o
+    // modelos elegidos que reparten los clips: una tabla por modelo.
+    for (const [modelo, tramos] of porModelo) {
       const res = resolucionPara(modelo, e.resolucionPedida).nombre;
-      const etiqueta = modelo === e.modelo ? 'tomas habladas (H)' : 'B-roll, sin audio';
+      const xs = [...tramos.values()];
+      const etiqueta = hablado
+        ? xs.every((x) => x.broll)
+          ? `B-roll${xs.some((x) => x.mudo) ? ', sin audio' : ''}`
+          : xs.some((x) => x.broll)
+            ? 'tomas habladas (H) y B-roll'
+            : 'tomas habladas (H)'
+        : conContinuidad
+          ? 'clips de la cadena'
+          : 'clips';
       console.log(`  ${modelo} a ${res} — ${etiqueta}`);
       console.log('  Tramo   clips   creditos c/u   subtotal');
-      for (const tramo of Object.keys(porTramo).sort((a, b) => a - b)) {
-        const n = porTramo[tramo];
-        const cu = def.cobro === 'por-segundo' ? def.precio[res] * tramo : def.precio[res][tramo];
-        console.log(`   ${String(tramo).padStart(2)}s     ${String(n).padStart(3)}      ${String(cu).padStart(4)}        ${String(n * cu).padStart(5)}`);
-      }
+      for (const tramo of [...tramos.keys()].sort((a, b) => a - b)) fila(tramo, tramos.get(tramo).n, tramos.get(tramo).cu);
       console.log('');
     }
   } else {
     // Cuantos clips caen en cada tramo de duracion
-    const porTramo = {};
-    for (const d of e.detalle) porTramo[d.duracion] = (porTramo[d.duracion] || 0) + 1;
-    const def = MODELOS_VIDEO[e.modelo];
     console.log('  Tramo   clips   creditos c/u   subtotal');
-    for (const tramo of Object.keys(porTramo).sort((a, b) => a - b)) {
-      const n = porTramo[tramo];
-      const cu = def.cobro === 'por-segundo' ? def.precio[e.resolucionReal] * tramo : def.precio[e.resolucionReal][tramo];
-      console.log(`   ${String(tramo).padStart(2)}s     ${String(n).padStart(3)}      ${String(cu).padStart(4)}        ${String(n * cu).padStart(5)}`);
+    for (const [, tramos] of porModelo) {
+      for (const tramo of [...tramos.keys()].sort((a, b) => a - b)) fila(tramo, tramos.get(tramo).n, tramos.get(tramo).cu);
     }
   }
 
-  console.log(`${hablado ? '' : '\n'}  TOTAL:  ${e.creditos} creditos = US$${e.usd.toFixed(2)}`);
+  console.log(`${hablado || porModelo.size > 1 ? '' : '\n'}  TOTAL:  ${e.creditos} creditos = US$${e.usd.toFixed(2)}`);
   console.log(`  Metraje: se pagan ${e.segundosPedidos}s para cubrir ${e.segundosUtiles.toFixed(1)}s utiles`);
 
   if (e.excedidos.length) {
@@ -251,7 +312,7 @@ if (process.argv[1] && process.argv[1].endsWith('estimar-video.js')) {
   if (comparar) {
     console.log('\n  --- comparacion de resoluciones ---');
     for (const r of Object.keys(MODELOS_VIDEO[e.modelo].resoluciones)) {
-      const alt = estimar(m, { resolucion: r, tiempos, reglaBroll });
+      const alt = estimar(m, { resolucion: r, tiempos, reglaBroll, eleccion });
       const marca = r.toLowerCase() === e.resolucionReal.toLowerCase() ? '  <- elegida' : '';
       console.log(`    ${r.padEnd(7)} ${String(alt.creditos).padStart(5)} creditos = US$${alt.usd.toFixed(2)}${marca}`);
     }

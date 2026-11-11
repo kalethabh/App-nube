@@ -1,0 +1,109 @@
+{
+  "id": "F03",
+  "slug": "antes-despues",
+  "nombre": "Antes / Después",
+  "origen": "biblioteca",
+  "descripcion": "Pantalla dividida en vertical, mitad y mitad. Izquierda: el «antes», el estado del problema con tonos apagados, fríos y desaturados. Derecha: el «después», el mismo sujeto con el mismo encuadre ya resuelto, con luz cálida, colores de marca y el producto presente. Una banda superior lleva el titular, cada mitad tiene una etiqueta pequeña tipo píldora y una flecha circular sobre la línea central une los dos estados.",
+  "angulos_compatibles": ["transformacion", "dolor", "beneficio-principal", "rapido-y-facil", "promesa-emocional", "identidad"],
+  "tipos_producto": ["cosmetico", "nutraceutico", "hogar", "ropa", "gadget", "servicio"],
+  "ad_format": "Before / After Split Ad",
+  "reference_style": "Side-by-side before/after split-screen ad with a strongly contrasting color grade between the two halves and a compact headline band on top",
+  "art_direction": {
+    "visual_hierarchy": "1) The contrast between the muted left half and the bright right half. 2) The headline in the top band. 3) The product inside the 'after' half. 4) The small 'before' and 'after' labels and the central arrow badge.",
+    "composition_style": "A solid headline band across the full width of the top 16-18% of the canvas. Below it, the remaining 82-84% is split vertically exactly in half by a thin divider: left half = before, right half = after. Both halves use the same camera angle, framing and subject scale so they read as a mirrored pair where only the state changes.",
+    "spacing_and_structure": "Headline band: full width, 16-18% of the canvas height, text centered with 6% side margins. Split area: two equal halves of 50% width each, separated by a light divider line about 0.5-0.7% of the canvas wide. Labels sit about 3% below the band and 4% in from the left edge of each half. The arrow badge is centered on the divider at the vertical middle of the split area (about 58-60% from the top). Keep the bottom 6% free of text.",
+    "lighting_and_depth": "Before half: flat, cool, slightly underexposed light, saturation reduced by about 50%, grey-blue cast, no glow. After half: soft warm key light from the upper right, full saturation, a gentle glow and brand-colored tones in the background or props, crisp product highlights. Same lens and moderate shallow depth of field on both halves."
+  },
+  "layout_summary": "Square canvas. Top band (16-18% of the height) in a solid brand color holding a centered 1-2 line headline. Below, a vertical 50/50 split: the left half shows the subject in its problem state (muted, cool, desaturated) with a small 'before' pill label at its top-left; the right half shows the same subject, same framing, in the solved state (warm, bright, brand colors) with a small 'after' pill label at its top-left and the user's product visible in its lower-right area. A thin light divider separates the halves and a small circular badge with a right-pointing arrow sits on the divider at mid-height.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "headline band",
+      "position": "Full width, top 16-18% of the canvas",
+      "visual_function": "Solid color strip that holds the headline and frames the comparison below",
+      "adaptation_rule": "Fill with the darkest or primary color of the approved palette, flat, no texture or gradient."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "before photo panel",
+      "position": "Left 50% of the split area, from the bottom of the headline band to the bottom of the canvas",
+      "visual_function": "Shows the problem state the viewer instantly recognizes as their own",
+      "adaptation_rule": "Show the subject of the transformation in its problem state, chosen to fit the product: a body area, hair or skin for beauty products; a room, surface or object for home products; an outfit or fit for clothing; a device setup or task for gadgets; a tired or stressed everyday moment for supplements or services. Show the situation, the person or the visible surface. Realistic and relatable, never exaggerated or grotesque. Muted, cool, desaturated grade. The product must NOT appear in this half."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "after photo panel",
+      "position": "Right 50% of the split area, from the bottom of the headline band to the bottom of the canvas",
+      "visual_function": "Shows the solved state and ties it to the product and the brand colors",
+      "adaptation_rule": "Same subject, same camera angle, framing and scale as the before half, now in the solved state with a believable, realistic improvement. Warm, bright grade with brand-colored tones in the background or props."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Inside the after half, lower-right area, about 28-34% of the canvas height and no wider than about 30% of the canvas width, kept clear of the divider, the arrow badge and the label",
+      "visual_function": "Credits the transformation to the product",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), naturally integrated in the scene (held in hand, standing on the surface or being used), front or 3/4 view, sharply in focus."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "divider line with arrow badge",
+      "position": "Vertical divider at exactly 50% of the canvas width across the split area; circular badge centered on it at about 58-60% from the top, diameter about 9-10% of the canvas",
+      "visual_function": "Separates the two states and signals the direction of change",
+      "adaptation_rule": "Thin light line in white or the lightest palette color. Badge filled with the brand accent, holding a simple white right-pointing arrow or chevron, with a soft drop shadow."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "state labels (2 pill tags)",
+      "position": "Top-left corner of each half, about 3% below the headline band and 4% in from that half's left edge",
+      "visual_function": "Names each state at a glance",
+      "adaptation_rule": "Small rounded pills sized to their text: the before pill in neutral dark grey with white text; the after pill in the brand accent with white or dark text, whichever contrasts more."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Centered inside the top headline band",
+      "text_style": "Extra bold sans-serif, each line about 5.5-6.5% of the canvas height, max 2 lines, centered, white or the highest-contrast color on the band; one key word may use the brand accent",
+      "guia_texto": "Nombra la transformación en 4 a 9 palabras según el ángulo: el cambio logrado, el tiempo que tomó o el dolor que desapareció."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "before label",
+      "reference_position": "Inside the pill at the top-left of the left half",
+      "text_style": "Bold uppercase sans-serif, about 2.8-3.2% of the canvas height, 1 line, white on the neutral grey pill",
+      "guia_texto": "1 o 2 palabras que marquen el estado inicial: «Antes» o un punto de partida como «Día 1»."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "after label",
+      "reference_position": "Inside the pill at the top-left of the right half",
+      "text_style": "Bold uppercase sans-serif, about 2.8-3.2% of the canvas height, 1 line, high contrast on the accent pill",
+      "guia_texto": "1 o 2 palabras que marquen el estado final: «Después» o el tiempo del resultado como «Día 30», siempre coherente con la etiqueta del antes."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Vertical 50/50 split with a thin light divider",
+    "Before half muted, cool and desaturated, without the product",
+    "After half warm, bright and in brand colors, with the user's product visible",
+    "Same subject, camera angle and framing in both halves",
+    "Small pill label at the top-left of each half",
+    "Circular arrow badge centered on the divider",
+    "Solid headline band across the top"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Trust seals, guarantee or certification badges",
+    "Benefit list or icons",
+    "Rating stars, reviews or testimonials",
+    "Subheadline or paragraph text",
+    "Extra text inside the photos beyond the two labels",
+    "Product in the before half",
+    "Measurement charts, percentages or graphs",
+    "More than two panels or a horizontal (top/bottom) split",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "La paleta de marca vive solo en la mitad del «después», en la banda del titular y en los acentos (píldora del después y flecha). La mitad del «antes» queda fuera de la paleta a propósito: grises fríos y desaturados, para que el contraste de color cuente la historia."
+}

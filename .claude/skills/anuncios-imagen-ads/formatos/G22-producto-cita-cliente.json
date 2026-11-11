@@ -1,0 +1,114 @@
+{
+  "id": "G22",
+  "slug": "producto-cita-cliente",
+  "nombre": "Producto protagonista con cita de cliente",
+  "origen": "ganador:original-041877fa3bfc0934925334d7f2a58262.webp",
+  "descripcion": "Escena oscura y temática que representa el beneficio (en la referencia, un cielo nocturno estrellado sobre un suelo oscuro difuso). Arriba, un titular blanco gigante de 2 líneas con un superlativo. Debajo, una caja rectangular redondeada en el color de marca con una cita de cliente de 3 líneas (frases clave en negrita) y el nombre del cliente. El producto va centrado, de frente y apoyado en el suelo con luz suave. Una franja inferior negra a todo el ancho lleva 5 estrellas doradas y la cifra de clientes. Simple, directo y fácil de reproducir: producto protagonista + voz del cliente + prueba social.",
+  "angulos_compatibles": ["testimonio", "prueba-social", "autoridad", "beneficio-principal", "promesa-emocional"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Product Hero Ad with Customer Quote Box and Rating Bar",
+  "reference_style": "Dark, atmospheric themed product hero ad: a giant white superlative headline, a brand-colored rounded quote box with a short customer review, the product centered on a dim ground plane and a solid black rating bar with gold stars at the bottom",
+  "art_direction": {
+    "visual_hierarchy": "1) The giant white headline. 2) The product, centered and lit against the dark scene. 3) The customer quote box between them. 4) The bottom bar with the five gold stars and the customer count.",
+    "composition_style": "Centered, symmetrical vertical stack: headline, quote box, product, bottom bar. The product's top sits right under the quote box, so the three upper elements read as one column. The thematic dark scene fills everything above the bottom bar, with a dim ground plane in its lower third where the product stands.",
+    "spacing_and_structure": "Headline: 2 lines from about 5% to 21% of the canvas height, spanning about 6-94% of the width, centered. Quote box: from about 14% to 85% of the width and from about 24% to 41% of the height, corner radius about 1.5% of the canvas, inner padding about 2.5%. Product: centered horizontally (axis at about 49-50% of the width), from about 42% to 89% of the height (about 47% tall), about 24% of the canvas wide; its top leaves a gap of about 1% under the quote box. Ground horizon: a soft hazy line at about 68-72% of the height. Bottom bar: full width, from about 90.5% to 100% of the height; its content is one centered row: the stars from about 23% to 42% of the width and the customer count from about 44% to 77%.",
+    "lighting_and_depth": "Low-key, moody scene: a near-black sky or backdrop with fine scattered points of light (stars in the reference) and a slightly lighter haze along the horizon. The product is lit by a soft frontal key light and a faint cool rim light, with a soft pool of light and a contact shadow on the dark, misty ground. The quote box and the bottom bar are flat graphics; the box has a thin light outline and no shadow."
+  },
+  "layout_summary": "Square canvas with a dark themed scene (a starry night sky over a dark, misty ground in the reference). A giant white extra bold headline in 2 lines is centered at the top. Below it, a wide rounded rectangle in the brand color holds a centered three-line customer quote in white with some key phrases in bold, followed by the customer's name preceded by a dash. Under the box, the user's product stands centered, front view, on the dim ground with a soft pool of light. A solid black bar spans the full width at the bottom, holding a centered row of five gold stars followed by a white line with the customer count.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "dark themed background",
+      "position": "Full canvas above the bottom bar, with a dim ground plane in its lower part (horizon at about 68-72% of the canvas height)",
+      "visual_function": "Sets an atmosphere that instantly evokes the product's main benefit or moment of use and makes the white headline pop",
+      "adaptation_rule": "A dark, atmospheric scene tied to the benefit or moment of use of the user's product: a starry night sky for sleep or relaxation; a dark gym or stadium haze for energy or sport; dark wet stone or a night bathroom for skincare; deep water or mist for hydration; a dim cozy room for home products. Always low-key and nearly black at the top so the white headline has maximum contrast, with a soft hazy horizon and a dark ground where the product stands. No people, no extra objects."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, 2 lines from about 5% to 21% of the canvas height, about 6-94% of the width",
+      "visual_function": "Stops the scroll with a bold superlative claim about the product",
+      "adaptation_rule": "Write a superlative, aspirational claim for this variation's angle. Keep it to 2 lines."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "customer quote box",
+      "position": "Under the headline, from about 14% to 85% of the canvas width and from about 24% to 41% of the height",
+      "visual_function": "Backs the headline with the voice of a real customer",
+      "adaptation_rule": "Rounded rectangle (corner radius about 1.5% of the canvas) filled with a dark, saturated brand color and a thin light outline about 0.2% of the canvas thick. Holds a centered quote of 3 lines and the customer's name on a fourth line. Write a new review adapted to the user's product."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Center, axis at about 49-50% of the canvas width, from about 42% to 89% of the height (about 47% tall), right under the quote box",
+      "visual_function": "Main visual anchor; shows exactly what the customer is praising",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front view, upright, label facing the camera, standing on the dark ground with a soft pool of light and a contact shadow. For digital products, show it on a generic device mockup standing on the ground."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "bottom rating bar",
+      "position": "Full width, from about 90.5% to 100% of the canvas height",
+      "visual_function": "Closes the ad with aggregate social proof",
+      "adaptation_rule": "Solid black flat bar edge to edge, holding one centered row: five stars and the customer count."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "star rating row",
+      "position": "Inside the bottom bar, from about 23% to 42% of the canvas width, vertically centered",
+      "visual_function": "Signals satisfaction at a glance",
+      "adaptation_rule": "Five filled gold stars, each about 3% of the canvas height, evenly spaced."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline (superlative)",
+      "reference_position": "Top center, 2 lines",
+      "text_style": "Extra bold geometric sans-serif, each line about 8% of the canvas height, max 2 lines, centered, pure white on the dark scene",
+      "guia_texto": "Afirmación superlativa y aspiracional sobre el producto para su beneficio principal (el mejor, el favorito, el número uno para...), en 4 a 7 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "customer quote",
+      "reference_position": "Inside the quote box, first 3 lines, centered",
+      "text_style": "Regular sans-serif, about 3.8% of the canvas height per line, max 3 lines, centered, white, wrapped in opening and closing quotation marks; 2-3 key phrases in bold",
+      "guia_texto": "Reseña en primera persona, natural y específica, en 16 a 24 palabras: qué lugar ocupa el producto en su rutina, el resultado que notó y un detalle que le encanta. Marca 2 o 3 frases clave para ir en negrita."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "customer name",
+      "reference_position": "Inside the quote box, fourth line, centered under the quote",
+      "text_style": "Regular sans-serif, about 3.2% of the canvas height, 1 line, centered, white, preceded by a dash",
+      "guia_texto": "Nombre + inicial del apellido (por ejemplo «Laura M.»), acorde al país y al público objetivo."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "customer count",
+      "reference_position": "Inside the bottom bar, right of the stars",
+      "text_style": "Regular sans-serif, about 3.3% of the canvas height, 1 line, left-aligned next to the stars, white",
+      "guia_texto": "La cifra de clientes del producto, redonda y con «+», seguida de 1 palabra (por ejemplo «+X clientes»). De 2 a 4 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Dark, atmospheric themed background tied to the main benefit, with a dim ground plane",
+    "Giant white two-line superlative headline at the top",
+    "Brand-colored rounded quote box with a three-line customer quote and the customer's name",
+    "The user's product centered, front view, standing on the ground under the quote box",
+    "Full-width black bottom bar with five gold stars and the customer count"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or shipping badge",
+    "Trust seals, guarantee or certification badges",
+    "Benefit list or icons",
+    "Customer avatar or photo",
+    "More than one quote box",
+    "Callout lines or arrows",
+    "People or hands",
+    "Subheadline or paragraph text outside the quote box",
+    "Extra props that compete with the product",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Escena oscura y temática (en la referencia, cielo nocturno casi negro con estrellas y suelo gris carbón) para que el blanco del titular y el producto resalten. La caja de la cita va en el color principal de la marca en un tono oscuro y saturado, con texto blanco y un contorno fino claro. La franja inferior es negra con estrellas doradas y texto blanco. La paleta de marca vive en la caja de la cita, en el producto y puede teñir sutilmente la bruma del horizonte.",
+  "posicion_logo": null
+}

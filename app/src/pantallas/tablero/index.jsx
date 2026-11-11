@@ -15,15 +15,16 @@ import { TeNecesitan } from './TeNecesitan.jsx';
 import { EnProduccion } from './EnProduccion.jsx';
 import { Listos } from './Listos.jsx';
 import { Cambios } from './Cambios.jsx';
-import { AvisoClaude, useSesionClaude } from '../nuevo/piezas.jsx';
+import { AvisoMotor } from '../nuevo/piezas.jsx';
+import { useMotor } from '../ajustes/datos.js';
 import './tablero.css';
 
 export default function Tablero() {
   const { datos, cargando, error, recargar } = useAnuncios();
   // lo mismo que leen el menú lateral y la barra de arriba: nunca dicen números distintos (aquí, cada 5 s)
   const produccion = useEnProduccion({ cadaMs: 5000 });
-  // sin la sesion de Claude no se escribe ni se revisa nada: se avisa aca, no solo dentro del guion
-  const claude = useSesionClaude();
+  // sin tu IA lista (elegida, instalada y con la sesion) no se escribe ni se revisa nada: se avisa aca, no solo dentro del guion
+  const motor = useMotor();
   const anuncios = datos?.anuncios || [];
 
   if (error && !anuncios.length) {
@@ -66,7 +67,7 @@ export default function Tablero() {
   return (
     <div className="pagina tb">
       <Portada anuncios={anuncios} cargando={cargando} enProduccion={produccion.cantidad} aMedioCamino={produccion.pausados.length} teNecesitan={produccion.necesitan.length + produccion.guiones.length} />
-      {claude.estado && !claude.listo ? <AvisoClaude claude={claude} para="escribir tus guiones y revisar tus anuncios" /> : null}
+      {motor.falta ? <AvisoMotor motor={motor} para="escribir tus guiones y revisar tus anuncios" /> : null}
 
       {cargando || cargandoProduccion ? (
         <div className="pila" style={{ '--hueco': 'var(--e-5)' }}>

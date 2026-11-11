@@ -1,0 +1,122 @@
+{
+  "id": "F08",
+  "slug": "beneficios-iconos",
+  "nombre": "Beneficios con íconos",
+  "origen": "biblioteca",
+  "descripcion": "Titular centrado arriba. Debajo, a la izquierda, el producto grande de pie delante de un panel alto en forma de arco con el color de marca; a la derecha, una columna de 4 beneficios, cada uno con un ícono simple dentro de una baldosa cuadrada redondeada en el color de acento y un texto corto. Ordenado, escaneable y muy claro: el cliente entiende qué gana en 3 segundos.",
+  "angulos_compatibles": ["beneficio-principal", "beneficio-sin-sacrificio", "caracteristica-estrella", "rapido-y-facil", "mecanismo-unico", "objecion-confianza"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Benefit Icons Ad",
+  "reference_style": "Clean two-column benefits ad: a large product standing in front of a tall brand-colored arch on the left and a vertical stack of icon-tile-plus-text benefits on the right, under a centered headline",
+  "art_direction": {
+    "visual_hierarchy": "1) The headline. 2) The product framed by the arch on the left. 3) The benefit stack on the right, read top to bottom, with the icon tiles as visual anchors.",
+    "composition_style": "Asymmetric two-column grid under a centered, full-width headline. The left column (from 6% to 50% of the canvas width) holds a tall arch-shaped panel with the product standing in front of it; the right column (from 54% to 94% of the width) holds the benefit stack. Both columns share the same vertical band below the headline so the arch and the stack balance each other.",
+    "spacing_and_structure": "Headline zone: 6-21% of the canvas height, centered, up to 88% of the width. Body zone: 26-94% of the height. Arch panel: about 36% of the canvas width (from about 10% to 46%) and from about 28% to 94% of the height, with a fully rounded top. Product: centered on the arch, base at about 90% of the canvas height. Benefit column: four rows evenly spaced between about 28% and 92% of the height, each about 13-14% tall with gaps of about 2.5-3%; the icon tile sits on the left of each row and its text to the right, both vertically centered. About 4% of empty space between the arch and the benefit column.",
+    "lighting_and_depth": "Soft studio light from the upper left; the product casts a soft contact shadow on the floor line at the base of the arch. The arch panel has a very subtle vertical gradient and a faint soft shadow that lifts it off the background. A gentle overall background gradient. Icon tiles and text are flat, with no shadows, for maximum legibility."
+  },
+  "layout_summary": "Square canvas with a soft brand-colored gradient background. A bold centered headline spans the top. Below it, in the left half, a tall arch-shaped panel (rectangle with a fully rounded top) in a deeper or lighter brand tone, with the user's product standing large in front of it, its base near the bottom of the arch. In the right half, four benefit rows are stacked with equal spacing; each row has a solid accent-colored rounded-square tile with a simple white line icon, followed by a short bold benefit text. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Calm brand-colored base that keeps the layout clean and scannable",
+      "adaptation_rule": "Soft gradient within the approved palette (light-to-slightly-darker brand tint, or a dark brand gradient for dark identities). Smooth, no patterns or textures."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, 6-21% of the canvas height, up to 88% of the width",
+      "visual_function": "States the main promise that the benefits below prove",
+      "adaptation_rule": "Write the promise of this variation's angle. Keep it short so it fits in max 2 lines."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "arch backdrop panel",
+      "position": "Left column, from about 10% to 46% of the canvas width and from about 28% to 94% of the canvas height, fully rounded top",
+      "visual_function": "Frames the product like a showcase niche and gives the format its recognizable silhouette",
+      "adaptation_rule": "Solid arch shape in the brand primary color or a tone clearly darker or lighter than the background, with a very subtle vertical gradient and a faint soft shadow. Flat graphic shape, no texture, no text on it."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "In front of the arch, centered on it horizontally, base resting at about 90% of the canvas height; about 50-56% of the canvas height and no wider than the arch",
+      "visual_function": "Main visual anchor; shows what delivers the benefits",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, standing upright in front of the arch with a soft contact shadow, framed inside the arch's silhouette with a visible band of arch color above and around it."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "benefit icon tiles (4)",
+      "position": "Right column, at the left edge of each benefit row (starting at about 54% of the canvas width), four tiles stacked vertically with equal spacing",
+      "visual_function": "Visual anchors that make each benefit scannable at a glance",
+      "adaptation_rule": "Solid rounded-square tiles about 9% of the canvas on each side (corner radius about 30% of the tile), filled with the brand accent, each holding a simple white monoline icon that literally represents its benefit (e.g. leaf, clock, shield, droplet, lightning, heart). All icons share one style, one stroke weight and one size. No numbers, no emojis, no 3D or multicolor icons."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "benefit texts (4)",
+      "position": "Right column, to the right of each icon tile (from about 66% to 94% of the canvas width), vertically centered on it",
+      "visual_function": "Names each benefit in a few words",
+      "adaptation_rule": "One short benefit per row, ordered from strongest to weakest for this angle. If only 3 strong benefits exist, use 3 rows and redistribute the spacing evenly."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, spanning up to 88% of the width",
+      "text_style": "Extra bold sans-serif, each line about 6.5-7.5% of the canvas height, max 2 lines, centered, maximum contrast against the background; one key word may use the brand accent",
+      "guia_texto": "La promesa principal del ángulo en 4 a 8 palabras; los beneficios de abajo deben demostrarla."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "benefit 1",
+      "reference_position": "Right column, first row, right of the first icon tile",
+      "text_style": "Bold sans-serif, about 3.4-4% of the canvas height, max 2 lines, left-aligned, highest contrast against the background",
+      "guia_texto": "El beneficio más fuerte para el ángulo, de 2 a 5 palabras, formulado como resultado para el cliente (no como característica). Toma los 4 beneficios guardados en producto.json (Paso 2)."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 2",
+      "reference_position": "Right column, second row, right of the second icon tile",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Segundo beneficio, de 2 a 5 palabras, como resultado para el cliente."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 3",
+      "reference_position": "Right column, third row, right of the third icon tile",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Tercer beneficio, de 2 a 5 palabras, como resultado para el cliente."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 4",
+      "reference_position": "Right column, fourth row, right of the fourth icon tile",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Cuarto beneficio, de 2 a 5 palabras; si el ángulo es objeción de confianza, aquí puede ir una garantía o un respaldo verificable."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Tall brand-colored arch panel with a fully rounded top in the left half",
+    "The user's product, large, standing in front of the arch with a soft contact shadow",
+    "Four benefit rows stacked in the right half with equal spacing",
+    "Solid accent-colored rounded-square tile with a simple white line icon at the start of each row",
+    "Soft brand-colored gradient background"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Trust seals, guarantee or certification badges",
+    "Callout lines or arrows pointing at the product",
+    "Numbers or numbering on the benefit rows",
+    "Divider lines, boxes or cards behind each benefit",
+    "Round pedestal or circular backdrop shape",
+    "Rating stars, reviews or testimonials",
+    "Subheadline or paragraph text",
+    "People or lifestyle scenes",
+    "More than 4 benefits",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca completa: fondo en degradado suave de la paleta, arco en el color principal (o en un tono claramente más oscuro o más claro que el fondo), baldosas de los íconos en el color de acento con íconos blancos, titular y beneficios en el color de mayor contraste. Una palabra clave del titular puede ir en el color de acento."
+}

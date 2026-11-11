@@ -1,0 +1,23 @@
+{
+  "$comment": "ajustes/A###.json de un lote de anuncios de imagen: lo que preparó la IA para cada pedido del usuario con instrucción.",
+  "type": "object",
+  "required": ["pedidos"],
+  "properties": {
+    "pedidos": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "aplicado"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^U\\d{4}$" },
+          "aplicado": { "type": "boolean" },
+          "cambia_textos": { "type": "boolean" },
+          "instruccion_en": { "type": "string", "maxLength": 1500 },
+          "resumen": { "type": "string", "maxLength": 300 },
+          "motivo": { "type": "string", "maxLength": 600 }
+        }
+      }
+    }
+  }
+}

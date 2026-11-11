@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, GraduationCap, LayoutGrid, Library, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
+import { CirclePause, Clapperboard, GraduationCap, Images, LayoutGrid, Library, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -10,7 +10,7 @@ import { useEnProduccion } from '../datos/produccion.js';
 import { enlace } from '../datos/rutas.js';
 import { dolares, useSaldo, vozLibre } from '../datos/saldo.js';
 import { porcentaje } from '../datos/formato.js';
-import { estadoClaude, useAlCambiarConexiones, useClaude } from '../pantallas/ajustes/datos.js';
+import { mayuscula, useAlCambiarConexiones, useMotor } from '../pantallas/ajustes/datos.js';
 
 // El menú, en grupos como en IA-VID-AUTOMATIC: "Nuevo anuncio" arriba, en grande; después lo que se hace primero.
 const GRUPOS = [
@@ -18,6 +18,7 @@ const GRUPOS = [
   {
     titulo: 'Crear',
     items: [
+      { id: 'imagenes', texto: 'Anuncios de imagen', icono: Images, href: enlace.imagenes() },
       { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
       { id: 'cambiar', texto: 'Cambiar el producto', icono: Repeat, href: enlace.cambiar() },
     ],
@@ -198,7 +199,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   const nombre = nombresVisibles([...necesitan.map((n) => n.a), ...p.activos]);
   const { datos: estado, recargar: recargarEstado } = useEstado();
   useAlCambiarConexiones(recargarEstado); // guardaste una clave o entraste a Claude: el pie se pone al día
-  const { datos: claudeReal } = useClaude();
+  const motor = useMotor();
   // el saldo de las APIs (kie.ai en dólares, ElevenLabs en caracteres libres), cada minuto
   const { datos: saldo } = useSaldo();
   const totalAnuncios = p.cargando ? null : p.anuncios.length;
@@ -206,8 +207,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   const claveKie = estado ? Boolean(estado.claves?.kie) : null;
   const claveVoz = estado ? Boolean(estado.claves?.elevenlabs) : null;
   // Claude: instalado y con la sesion iniciada. Si la sesion no se pudo comprobar, no se marca como falta.
-  const claude = estadoClaude(estado, claudeReal);
-  const claudeOk = claude.revisando ? null : Boolean(claude.instalado) && claude.sesion !== 'sin-sesion';
+  const claudeOk = motor.revisando ? null : motor.listo;
   const falta = estado && (!claveKie || !claveVoz || claudeOk === false);
 
   return (
@@ -304,7 +304,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
         <div className="menu__conexiones">
           <Conexion ok={claveKie} nombre="kie.ai" para={dolares(saldo?.kie) || 'Imágenes y videos'} plegado={plegado} />
           <Conexion ok={claveVoz} nombre="ElevenLabs" para={vozLibre(saldo?.elevenlabs) || 'Voz'} plegado={plegado} />
-          <Conexion ok={claudeOk} nombre="Claude" para="Guiones" falta={claude.instalado ? 'Inicia sesión' : 'Falta'} plegado={plegado} />
+          <Conexion ok={claudeOk} nombre={mayuscula(motor.nombre) || 'Tu IA'} para="Guiones" falta={motor.instalado ? 'Inicia sesión' : 'Falta'} plegado={plegado} />
         </div>
       </a>
     </aside>

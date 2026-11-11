@@ -1,0 +1,86 @@
+{
+  "id": "F32",
+  "slug": "escena-conceptual",
+  "nombre": "Escena conceptual",
+  "origen": "biblioteca",
+  "descripcion": "El producto dentro de una escena exagerada, surrealista o metafórica que hace visible su beneficio principal (por ejemplo, flotando sobre nubes para comodidad, envuelto en una ola congelada para frescura, rodeado de rayos de luz para energía). Imagen cinematográfica a sangre completa, calidad de render fotorrealista y un solo titular corto abajo. La imagen cuenta la historia; el texto apenas la nombra.",
+  "angulos_compatibles": ["beneficio-principal", "promesa-emocional", "curiosidad", "romper-expectativas", "mecanismo-unico", "caracteristica-estrella"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Conceptual Surreal Metaphor Ad",
+  "reference_style": "Cinematic surreal conceptual product ad: the product placed inside an exaggerated, dreamlike scene that literally visualizes its main benefit, hyperreal CGI and photographic quality, minimal text",
+  "art_direction": {
+    "visual_hierarchy": "1) The product at the heart of the surreal scene. 2) The metaphor elements wrapping around and interacting with the product. 3) One short headline in the calmer bottom area.",
+    "composition_style": "Full-bleed immersive scene with no panels, frames or flat color blocks. The product sits at the optical center, slightly above the middle (its center at about 45% of the canvas height), about 35-45% of the canvas height, perfectly sharp. The metaphor elements surround and touch the product in a circular or upward spiral flow that leads the eye to it, filling the canvas edge to edge. Scale is deliberately exaggerated: either the product is monumental inside a landscape, or giant-scale elements surround a normal-size product. The bottom 16-20% of the canvas is a calmer, softer or darker zone of the same scene that hosts the headline.",
+    "spacing_and_structure": "At least 12% of the canvas between the product and any edge. Headline band in the bottom 14-18% of the canvas, centered, within safe side margins of about 7%. The top 10% of the canvas stays low in detail (sky, haze, soft gradient of the scene) to avoid clutter. Only one metaphor per image; every element in the scene belongs to it.",
+    "lighting_and_depth": "Cinematic, dramatic lighting that matches the metaphor (soft heavenly backlight for clouds, cool caustic light for water or ice, warm golden god-rays for energy, silvery moonlight for sleep or calm). A strong key light on the product, volumetric rays and atmospheric haze for depth, a bright rim light outlining the product silhouette, realistic reflections of the scene on the product surface, foreground elements slightly out of focus and a subtle vignette pulling focus to the center. Hyperreal, high-detail finish."
+  },
+  "layout_summary": "Square, full-bleed cinematic scene. The user's product floats or rests at the center, slightly above the middle, inside an exaggerated surreal environment that literally shows its main benefit, with the metaphor elements wrapping around it and atmospheric particles in the air. The bottom of the scene is calmer and darker or softer, holding a single short centered headline.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "surreal environment (background)",
+      "position": "Full canvas, edge to edge",
+      "visual_function": "Builds the dreamlike world that turns the benefit into an image",
+      "adaptation_rule": "Translate the variation's main benefit into ONE visual metaphor and build the environment around it. Examples: comfort or softness → floating among sunlit clouds; freshness or hydration → crystal-clear water splash or frozen wave; energy → bursts of golden light and lightning; calm or sleep → moonlit still sea under stars; natural ingredients → lush oversized botanicals; strength or durability → monumental rock or mountain peak; speed or ease → sleek motion streaks; protection → a glowing shield bubble in a storm. Tint the atmosphere with the brand palette."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "metaphor elements interacting with the product",
+      "position": "Wrapping around the product in a circular or upward spiral flow, from the foreground to the background",
+      "visual_function": "Makes the metaphor physical and connects it directly to the product",
+      "adaptation_rule": "The core elements of the chosen metaphor touch, cradle, orbit or emerge from the product (e.g. clouds cradling it, water swirling around it, light radiating from it). Keep them clearly separated from the product silhouette so its shape and label stay fully readable."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Center, slightly above the middle (center at about 45% of the canvas height), about 35-45% of the canvas height",
+      "visual_function": "Main visual anchor; the hero of the scene",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, floating or resting on an element of the metaphor (a cloud, a wave crest, a rock, a leaf). Never deform, melt or reshape it to fit the metaphor; only the world around it is surreal. For digital products or services, the hero object is a sleek phone, tablet or printed cover showing the attached image unchanged, placed in the scene the same way."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "atmospheric particles",
+      "position": "Scattered in the air around the product, denser near it and sparser at the edges",
+      "visual_function": "Adds motion, depth and magic to the scene",
+      "adaptation_rule": "Small particles that belong to the metaphor (water droplets, ice crystals, glowing sparks, petals, mist wisps, dust in light rays), some in the foreground slightly blurred. Never covering the product label or the headline."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "headline",
+      "position": "Bottom center, within the bottom 14-18% of the canvas",
+      "visual_function": "Names the sensation the scene shows and fixes the message",
+      "adaptation_rule": "Write a very short line that names the feeling or benefit the scene visualizes. Place it over the calmer part of the scene; add a soft gradient from the scene's own tones behind it only if contrast needs it."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Bottom center, over the calmer zone of the scene",
+      "text_style": "Extra bold sans-serif, large (each line about 7-9% of the canvas height), max 2 lines, centered, maximum contrast against the bottom of the scene; one key word may use the brand accent color",
+      "guia_texto": "Frase muy corta que nombra la sensación o el beneficio que muestra la escena, en 2 a 6 palabras (ej. la idea de 'como caminar sobre nubes'). La imagen ya cuenta la historia: no expliques."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed surreal scene built on a single visual metaphor of the main benefit",
+    "Metaphor elements wrapping around and interacting with the product",
+    "The user's product sharp and undistorted at the center, slightly above the middle",
+    "Atmospheric particles that belong to the metaphor",
+    "Cinematic volumetric lighting with a rim light on the product"
+  ],
+  "forbidden_additions": [
+    "Subheadline or any extra copy",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Benefit list or icons",
+    "Rating stars, reviews or testimonials",
+    "People, faces or hands",
+    "Panels, split screens, frames or flat color blocks",
+    "More than one metaphor in the same image",
+    "Cartoon, clipart or flat illustration style",
+    "Deforming, melting or reshaping the product",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca integrada en la atmósfera: el cielo, el agua, la luz o la niebla de la escena se tiñen con el color principal, y el acento aparece en luces, reflejos o partículas. No hay bloques de color plano; la marca se siente en el ambiente. El titular usa el color de mayor contraste con la zona inferior de la escena."
+}

@@ -10,12 +10,17 @@
 //   <CancionEnVivo slug conductor alCambiar/>  lo mismo como bloque suelto (para cuando todavía no hay escenas que
 //                                              mostrar: en los cantados el manifiesto se escribe después de elegir)
 //
-// Sin precios: pedir otras versiones no muestra ningún costo (va en el informe de la entrega, como todo).
+// El costo estimado (excepción a "sin precios" del 2026-11-09): cada versión dice cuánto costaría el video con ella
+// («Video ≈ US$ X a Y», de GET /cancion o de GET /costo) y, debajo de las versiones, «Con otro modelo» para la versión
+// marcada (todavía no hay nada hecho en imágenes ni videos: cambiar el modelo aquí vale para este anuncio). Lo arma el
+// servidor; la pantalla no calcula precios. El costo real va en el informe de la entrega, como todo.
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowRight, Check, EighthNotes, Pause, Play, RefreshCw } from 'lucide-react';
+import { ArrowRight, Check, Coins, EighthNotes, Pause, Play, RefreshCw } from 'lucide-react';
 import { Boton, EstadoVacio, Modal, VistaPrevia, useAvisos } from '../../componentes/index.js';
-import { invalidar } from '../../datos/api.js';
+import { invalidar, useCostoEstimado } from '../../datos/api.js';
 import { duracion as fmtDuracion } from '../../datos/formato.js';
+import { ConOtroModelo, rangoDinero, useUsarModelo } from '../nuevo/CostoEstimado.jsx';
+import '../nuevo/costo-estimado.css';
 import './produccion.css';
 
 function Version({ v, i, elegida, onElegir, sonando, onSonar, enVivo }) {
@@ -53,6 +58,12 @@ function Version({ v, i, elegida, onElegir, sonando, onSonar, enVivo }) {
           ) : null}
         </span>
         {v.detalle ? <span className="prod-cancion__detalle">{v.detalle}</span> : null}
+        {v.costo?.dolares ? (
+          <span className="prod-cancion__costo">
+            <Coins size={12} strokeWidth={2.2} aria-hidden="true" />
+            Video <span className="t-num">{rangoDinero(v.costo.dolares)}</span>
+          </span>
+        ) : null}
         <span className="prod-cancion__onda" aria-hidden="true">
           {Array.from({ length: 48 }, (_, k) => (
             <i key={k} style={{ '--h': `${22 + Math.abs(Math.sin(k * 0.9 + i * 2.1) * Math.cos(k * 0.23)) * 78}%`, '--on': k / 48 < avance ? 1 : 0 }} />
@@ -68,9 +79,37 @@ function Version({ v, i, elegida, onElegir, sonando, onSonar, enVivo }) {
 }
 
 /**
+ * El costo estimado debajo de las versiones: «Con otro modelo» para la versión marcada (o para la canción típica, si
+ * todavía no marcaste ninguna) y su letra chica. `costo` = GET /api/anuncios/:slug/costo en la pausa (fase 'cancion').
+ */
+function CostoDeLaPausa({ costo, versiones, elegida, guardando, onUsar }) {
+  const marcada = elegida !== null && elegida !== undefined ? versiones[elegida] : null;
+  const v = marcada && Array.isArray(costo.porCancion) ? costo.porCancion.find((x) => x.n === marcada.n) : null;
+  const categorias = v?.categorias || costo.categorias;
+  const completar = costo.cancion?.creditos > 0 ? rangoDinero(costo.cancion.dolares) : null;
+  const chica = [
+    costo.conModelos ? `Lo que costaría el video en kie.ai, con ${costo.conModelos}.` : null,
+    'Si después regeneras alguna pieza, se cobra aparte.',
+    completar ? `Completar la canción suma ${completar}.` : null,
+    costo.elevenlabs || null,
+    ...(Array.isArray(costo.notas) ? costo.notas : []),
+    costo.modoPrueba ? 'Modo prueba: no se gasta nada. Es lo que costaría.' : null,
+  ].filter(Boolean);
+  return (
+    <div className={`prod-cancion-costo${guardando ? ' costo--cambiando' : ''}`} aria-busy={guardando ? true : undefined}>
+      {costo.puedeCambiar ? (
+        <ConOtroModelo categorias={categorias} sobre={marcada ? `el video con la versión ${marcada.n}` : 'el video'} guardando={guardando} onUsar={onUsar} />
+      ) : null}
+      <p className="costo-linea__chica">{chica.join(' ')}</p>
+    </div>
+  );
+}
+
+/**
  * El modal. Sin `enVivo` es la vista del diseño (la simulación): elegir llama a onElegir(i) y no cambia nada en disco.
  * Con `enVivo`, elegir marca la versión y "Seguir con la versión N" la confirma (onSeguir(i)): desde ahí no se vuelve
- * atrás, porque las escenas se escriben sobre esa canción.
+ * atrás, porque las escenas se escriben sobre esa canción. `costo` (en vivo): el costo estimado de la pausa, con
+ * `guardandoModelo` y `onUsarModelo` para «Usar este».
  */
 export function ElegirCancion({
   abierto,
@@ -85,6 +124,9 @@ export function ElegirCancion({
   onOtra,
   puedeOtra = false,
   enviando = false,
+  costo = null,
+  guardandoModelo = null,
+  onUsarModelo,
 }) {
   const [sonando, setSonando] = useState(null);
   useEffect(() => {
@@ -102,6 +144,7 @@ export function ElegirCancion({
       titulo="Elige la versión de tu canción"
       descripcion={texto}
       tamano="grande"
+      className="prod-cancion-modal"
       pie={
         enVivo ? (
           <>
@@ -131,6 +174,7 @@ export function ElegirCancion({
         {versiones.map((v, i) => (
           <Version key={v.url} v={v} i={i} elegida={elegida === i} onElegir={onElegir} sonando={sonando === i} onSonar={setSonando} enVivo={enVivo} />
         ))}
+        {enVivo && costo?.disponible ? <CostoDeLaPausa costo={costo} versiones={versiones} elegida={elegida} guardando={guardandoModelo} onUsar={onUsarModelo} /> : null}
       </div>
     </Modal>
   );
@@ -180,7 +224,16 @@ export function useCancionEnVivo(slug, conductor, { aviso, alCambiar } = {}) {
   const [datos, setDatos] = useState(null);
   const [elegida, setElegida] = useState(null);
   const [enviando, setEnviando] = useState(false);
+  const [vuelta, setVuelta] = useState(0); // después de «Usar este»: las versiones se vuelven a pedir (su costo cambió)
   const firma = espera ? `${conductor?.actualizado || ''}` : '';
+  // el costo estimado de la pausa: el video con cada versión y «Con otro modelo» (sin él, todo sigue como siempre)
+  const costo = useCostoEstimado(espera ? slug : null);
+  const recargarCosto = costo.recargar;
+  const alCambiarModelo = useCallback(async () => {
+    await recargarCosto();
+    setVuelta((x) => x + 1);
+  }, [recargarCosto]);
+  const modelo = useUsarModelo({ alCambiar: alCambiarModelo });
 
   useEffect(() => {
     if (!espera) {
@@ -199,7 +252,7 @@ export function useCancionEnVivo(slug, conductor, { aviso, alCambiar } = {}) {
     return () => {
       vivo = false;
     };
-  }, [espera, slug, firma]);
+  }, [espera, slug, firma, vuelta]);
 
   const enviar = useCallback(
     async (cuerpo, avisoOk) => {
@@ -232,6 +285,8 @@ export function useCancionEnVivo(slug, conductor, { aviso, alCambiar } = {}) {
   if (!espera || !opciones.length) return { espera, tarjeta: null, modal: null, abrir };
 
   const textos = textoDe(datos);
+  const delCosto = costo.datos?.disponible ? costo.datos : null;
+  const porCancion = Array.isArray(delCosto?.porCancion) ? delCosto.porCancion : [];
   const tarjeta = {
     id: 'cancion',
     icono: 'cancion',
@@ -247,12 +302,15 @@ export function useCancionEnVivo(slug, conductor, { aviso, alCambiar } = {}) {
       onCerrar={() => setAbierto(false)}
       titulo={datos.titulo}
       descripcion={textos.modal}
-      versiones={opciones.map((o) => ({ url: o.url, detalle: o.detalle, duracion: o.duracion, nombre: `Versión ${o.n}` }))}
+      versiones={opciones.map((o) => ({ url: o.url, detalle: o.detalle, duracion: o.duracion, nombre: `Versión ${o.n}`, n: o.n, costo: porCancion.find((x) => x.n === o.n) || o.costo || null }))}
       elegida={elegida}
       onElegir={setElegida}
       enVivo
       enviando={enviando}
       puedeOtra={Boolean(datos.puedeOtra)}
+      costo={delCosto}
+      guardandoModelo={modelo.guardando}
+      onUsarModelo={modelo.usar}
       onSeguir={(i) =>
         enviar({ n: opciones[i].n }, { tipo: 'ok', titulo: `Elegiste la versión ${opciones[i].n}`, texto: 'Ahora se escriben las escenas sobre esa canción. Desde aquí sigue sola.' })
       }

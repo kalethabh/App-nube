@@ -9,9 +9,11 @@
 //                el montaje funcionando, no defectos. Un B-roll que no entra con la voz final no se genera (el
 //                motor no lo pide): no es una pieza que falte.
 //   problemas    solo defectos medidos o vistos: clips que salieron del modelo de respaldo, voces coladas que
-//                se silenciaron, imagenes que la revision mando rehacer (y si se pudo), negros o congelados del
-//                control final (y si el re-render los arreglo), clips mas cortos que su momento, y lo que no se
-//                pudo revisar. tipo "arreglado" = se resolvio solo; "revisar" = conviene mirarlo.
+//                se silenciaron, «Lo que notó la revisión» (los avisos de cada pieza, lib/avisos.js: desde
+//                2026-11-09 la app genera todo al primer intento y la revision NO rehace nada, solo avisa), negros
+//                o congelados del control final (y si el re-render los arreglo), clips mas cortos que su momento, y
+//                lo que no se pudo revisar. tipo "arreglado" = se resolvio solo (solo lo tecnico); "revisar" =
+//                conviene mirarlo. (Las imagenes que la revision mandaba rehacer son de anuncios de antes.)
 //
 // Mas el costo real (gasto.js): lo unico con precio en toda la app.
 //
@@ -24,6 +26,7 @@ import { leerJSON, listar, escribirJSONSeguro } from './archivos.js';
 import { corridas, resumenDeGasto } from './gasto.js';
 import { tituloDeSlug } from './anuncios.js';
 import { notaPedida, segundosPedidos } from './duracion.js';
+import { listaDeAvisos } from './avisos.js';
 
 const numeroES = (n, d = 1) => Number(n).toLocaleString('es-ES', { maximumFractionDigits: d, minimumFractionDigits: 0 });
 const tiempo = (s) => {
@@ -57,6 +60,13 @@ function brollEnLaCarpeta(carpeta, lista) {
   const img = new Set(listar(path.join(carpeta, 'img')));
   const vid = new Set(listar(path.join(carpeta, 'video')));
   return lista.filter((n) => vid.has(`broll-${n}.mp4`) || ['png', 'jpg', 'jpeg', 'webp'].some((e) => img.has(`broll-${n}.${e}`))).length;
+}
+
+/** El segundo del video donde esta la pieza de un aviso ('vid:toma-5', 'img:broll-2', 'vid:paso-3'), o null. */
+function momentoDeClave(clave, m) {
+  const r = String(clave || '').match(/^(?:img|vid):(toma|broll|paso)-(\d+)/);
+  if (!r) return null;
+  return (r[1] === 'broll' ? m.broll : m.tomas).get(Number(r[2])) ?? null;
 }
 
 /** "toma-7.mp4", "broll-3", "img/toma-2-inicial.png" -> { n, unidad, momento }. "img/mujer.png" -> "Hoja de referencia: Mujer" */
@@ -107,10 +117,10 @@ function decisionesDe({ carpeta, plan, manifiesto, brief, ventanas, conductor })
       d.push({
         id: 'ritmo',
         icono: 'ritmo',
-        titulo: aceleradas.length === conToma.length ? 'Todas las tomas, un poco más rápidas' : `${aceleradas.length} de ${conToma.length} tomas aceleradas`,
+        titulo: aceleradas.length === conToma.length ? 'Todas las escenas, un poco más rápidas' : `${aceleradas.length} de ${conToma.length} escenas, un poco más rápidas`,
         detalle: `Los clips eran más largos que sus frases: en vez de cortarlos se aceleraron para seguir a la voz (la que más, ${masRapido(max)}a).`,
       });
-    } else d.push({ id: 'ritmo', icono: 'ritmo', titulo: 'Todas las tomas a su velocidad', detalle: `Las ${conToma.length} tomas entraron en su momento sin acelerarlas.` });
+    } else d.push({ id: 'ritmo', icono: 'ritmo', titulo: 'Todas las escenas a su velocidad', detalle: conToma.length === 1 ? 'La escena entró en su momento sin acelerarla.' : `Las ${conToma.length} escenas entraron en su momento sin acelerarlas.` });
   }
 
   const usados = bloques.filter((b) => b.broll).length;
@@ -120,7 +130,7 @@ function decisionesDe({ carpeta, plan, manifiesto, brief, ventanas, conductor })
     // Con la voz ya hecha, el que no entra no se genera (no se paga); los que ya estaban hechos siguen en la carpeta.
     const hechos = brollEnLaCarpeta(carpeta, listaFuera);
     const sinHacer = fuera - hechos;
-    const queQuedo = `${fuera === 1 ? 'Quedó uno fuera' : `Quedaron ${fuera} fuera`} porque su frase era corta y la toma aguantaba sola.`;
+    const queQuedo = `${fuera === 1 ? 'Quedó uno fuera' : `Quedaron ${fuera} fuera`} porque su frase era corta y la escena aguantaba sola.`;
     const queSeHizo = !hechos
       ? fuera === 1
         ? ' No se generó, así que no costó nada.'
@@ -131,7 +141,7 @@ function decisionesDe({ carpeta, plan, manifiesto, brief, ventanas, conductor })
     d.push({
       id: 'broll',
       icono: 'broll',
-      titulo: `${plural(usados, 'B-roll', 'B-roll')} en el video`,
+      titulo: usados === 1 ? 'Una imagen de apoyo en el video' : usados ? `${usados} imágenes de apoyo en el video` : 'Ninguna imagen de apoyo en el video',
       detalle: fuera ? queQuedo + queSeHizo : 'Se usaron todos, cada uno junto a la frase que acompaña.',
     });
   }
@@ -142,7 +152,7 @@ function decisionesDe({ carpeta, plan, manifiesto, brief, ventanas, conductor })
     d.push({ id: 'musica', icono: 'musica', titulo: 'Música de fondo', detalle: `Va suave debajo de la voz${sube}${mu.loop ? '; se repite para cubrir todo el video' : ''}.` });
   }
   const trans = Array.isArray(plan?.transiciones) ? plan.transiciones : [];
-  if (trans.length) d.push({ id: 'transiciones', icono: 'transicion', titulo: `${trans.length} transiciones con sonido`, detalle: 'Van solo donde la historia cambia de parte; el resto son cortes limpios.' });
+  if (trans.length) d.push({ id: 'transiciones', icono: 'transicion', titulo: trans.length === 1 ? 'Una transición con sonido' : `${trans.length} transiciones con sonido`, detalle: 'Van solo donde la historia cambia de parte; el resto son cortes limpios.' });
   const subs = Array.isArray(plan?.subtitulos) ? plan.subtitulos.length : 0;
   if (subs) d.push({ id: 'subtitulos', icono: 'subtitulos', titulo: 'Subtítulos palabra por palabra', detalle: `${subs} frases sincronizadas con la voz; la palabra que se dice se resalta.` });
   if (conductor?.modoPrueba) d.push({ id: 'modo-prueba', icono: 'aviso', titulo: 'Hecho en modo prueba', detalle: 'Las imágenes y los videos son de prueba: no se gastó nada.' });
@@ -197,10 +207,31 @@ function problemasDe({ carpeta, plan, manifiesto, conductor, ventanas, revision,
     });
   }
 
-  // 3. la revision de las imagenes (Claude)
+  // 3. lo que noto la revision (los avisos de cada pieza, de todos los pasos: lib/avisos.js). No se rehizo nada: el
+  //    usuario decide (Regenerar, «¿Qué salió mal?», «Corregir esto» con lo que la revision ya sugirio).
+  const avisos = listaDeAvisos(carpeta);
+  if (avisos.length) {
+    const uno = avisos.length === 1;
+    // (una hoja de la que salen los clips, la foto del producto o un icono no se regeneran: no se promete regenerar)
+    const ningunaSeRegenera = avisos.every((a) => /^img:/.test(a.clave) && !/^img:(toma-\d+-(inicial|final)|broll-\d+)$/.test(a.clave));
+    p.push({
+      id: 'revision-avisos',
+      tipo: 'revisar',
+      titulo: 'Lo que notó la revisión',
+      detalle: ningunaSeRegenera
+        ? `La revisión notó algo en ${uno ? 'esta imagen' : `${avisos.length} imágenes`} y no se rehízo nada solo. ${uno ? 'Es la base de los clips donde aparece: no se regenera desde aquí. Mírala' : 'Son la base de los clips donde aparecen: no se regeneran desde aquí. Míralas'} en el video; en el proceso está qué puedes hacer si se nota.`
+        : uno
+          ? 'La revisión notó algo en esta pieza y no se rehízo nada solo: mírala y, si quieres, regenérala desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).'
+          : `La revisión notó algo en ${avisos.length} piezas y no se rehízo nada solo: míralas y, si quieres, regenéralas desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).`,
+      piezas: avisos.map((a) => ({ n: null, unidad: a.pieza, momento: momentoDeClave(a.clave, m), valor: a.texto, clave: a.clave, sugerencia: a.sugerencia })),
+    });
+  }
+
+  // (la revision de las imagenes de antes del 2026-11-09, cuando rehacia sola: rehecha, tope o no-se-pudo; desde
+  // entonces sus pedidos quedan como 'aviso' y van arriba)
   const pedidos = Array.isArray(revision?.pedidos) ? revision.pedidos : [];
   const hechos = pedidos.filter((x) => x.resultado === 'rehecha');
-  const noSe = pedidos.filter((x) => x.resultado && x.resultado !== 'rehecha');
+  const noSe = pedidos.filter((x) => x.resultado && !['rehecha', 'aviso'].includes(x.resultado));
   if (hechos.length) {
     p.push({
       id: 'rehechas',
@@ -359,8 +390,9 @@ export function armarInforme({ carpeta, dirOutput, conductor }) {
 
   const problemas = problemasDe({ carpeta, plan, manifiesto, conductor, ventanas, revision, voces, m });
   const costo = resumenDeGasto(carpeta, conductor);
-  // lo que la app rehizo sola (tomas y B-roll de la revision, la segunda exportacion) ya esta sumado en el costo. Se
-  // dice solo si un paso de revision pago algo: una pieza que volvio a como estaba, sin version nueva, no cuenta.
+  // lo que la app rehizo sola (lo tecnico de la revision: un clip sin su dialogo, y en anuncios de antes del 2026-11-09
+  // tambien lo que la revision mandaba rehacer; la segunda exportacion) ya esta sumado en el costo. Se dice solo si un
+  // paso de revision pago algo: una pieza que volvio a como estaba, sin version nueva, no cuenta.
   const pagoAlRehacer = corridas(carpeta).some((c) => /^revision-/.test(String(c?.paso || '')) && (Number(c.creditos) > 0 || (c.sinRegistro || []).length > 0));
   costo.rehecho = pagoAlRehacer && Object.keys(conductor?.rehechos || {}).some((k) => k.startsWith('toma-') || k.startsWith('broll-'));
   const informe = {

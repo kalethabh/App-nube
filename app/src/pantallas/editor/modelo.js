@@ -6,13 +6,68 @@
 // calcula en remotion/src/edicion/capas.mjs: la misma cuenta que hace el render al exportar, así lo que se
 // ve en el editor es lo que sale en el MP4.
 import { miniatura } from '../../datos/api.js';
-import { familia, modoVoz, numDe, musicaDeEdicion, textosEnPantalla, tomasDeEdicion, brollsDeEdicion, quietoDeToma, cortesPosibles, planAjustado as ajustarPlan, tramosMusica } from '@composicion/edicion/capas.mjs';
+import {
+  familia,
+  modoVoz,
+  numDe,
+  musicaDeEdicion,
+  textosEnPantalla,
+  tomasDeEdicion,
+  brollsDeEdicion,
+  quietoDeToma,
+  cortesPosibles,
+  planAjustado as ajustarPlan,
+  tramosMusica,
+  piezaDeArchivo,
+  queSePuedeConElClip,
+  ajusteDeClip,
+} from '@composicion/edicion/capas.mjs';
 import { urlMusica } from './estado.js';
 
-export { FPS, ANCHO, ALTO, familia, modoVoz, subtitulosEditados, planAjustado, ajustesSubtitulos, ajustesMusica, cortesPosibles, FUENTES_TEXTO, LUGAR_TEXTO, MINIMO } from '@composicion/edicion/capas.mjs';
+export {
+  FPS,
+  ANCHO,
+  ALTO,
+  familia,
+  modoVoz,
+  subtitulosEditados,
+  planAjustado,
+  ajustesSubtitulos,
+  ajustesMusica,
+  cortesPosibles,
+  FUENTES_TEXTO,
+  LUGAR_TEXTO,
+  MINIMO,
+  VELOCIDADES,
+  VELOCIDAD_MIN,
+  VELOCIDAD_MAX,
+  queSePuedeConElClip,
+  ajusteDeClip,
+  completarEdicion,
+} from '@composicion/edicion/capas.mjs';
 
 const codificar = (rel) => String(rel).split('/').map(encodeURIComponent).join('/');
 export const urlDe = (a, rel) => `${a.base}/${codificar(rel)}`;
+
+/**
+ * La url de un archivo del anuncio con su versión («?v=<fecha>», del detalle: a.versionArchivos): una pieza regenerada
+ * se llama igual que la de antes y el navegador seguiría mostrando la vieja (la miniatura, el clip del panel).
+ */
+export function urlConVersion(a, rel) {
+  const v = a?.versionArchivos?.[rel];
+  return v ? `${urlDe(a, rel)}?v=${v}` : urlDe(a, rel);
+}
+
+/** Lo mismo para una url que ya viene en el detalle del anuncio (/archivos/anuncio/<slug>/img/…). */
+function versionarUrl(a, url) {
+  const pre = `${a.base}/`;
+  if (!url || !String(url).startsWith(pre) || String(url).includes('?')) return url;
+  try {
+    return urlConVersion(a, decodeURIComponent(String(url).slice(pre.length)));
+  } catch {
+    return url;
+  }
+}
 
 const capaDe = (p) => p.capa ?? (p.tipo === 'clip' ? 0 : 3);
 const capital = (s) => String(s || '').replace(/^./, (c) => c.toUpperCase());
@@ -63,12 +118,12 @@ function fotos(a) {
   return (archivo, segundo = 0.6) => {
     let img = null;
     const nt = numDe(archivo, 'toma');
-    if (nt !== null && tomas.get(nt)?.imagenInicial) img = tomas.get(nt).imagenInicial;
+    if (nt !== null && tomas.get(nt)?.imagenInicial) img = versionarUrl(a, tomas.get(nt).imagenInicial);
     const nb = numDe(archivo, 'broll');
-    if (!img && nb !== null && broll.get(nb)?.imagen) img = broll.get(nb).imagen;
-    if (!img && /^img\//.test(archivo || '')) img = urlDe(a, archivo);
+    if (!img && nb !== null && broll.get(nb)?.imagen) img = versionarUrl(a, broll.get(nb).imagen);
+    if (!img && /^img\//.test(archivo || '')) img = urlConVersion(a, archivo);
     if (img) return { miniatura: miniatura(img, 160), foto: miniatura(img, 480) };
-    const clip = urlDe(a, `video/${archivo}`);
+    const clip = urlConVersion(a, `video/${archivo}`);
     return { miniatura: miniatura(clip, 160, { segundo }), foto: miniatura(clip, 480, { segundo }) };
   };
 }
@@ -124,21 +179,28 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
     const parteToma = partes(segs);
     segs.forEach((s, i) => {
       const o = plan.bloques[s.b];
-      const n = numDe(s.archivo, 'toma') ?? o.linea;
+      // el número y el nombre salen del clip ORIGINAL del plan: con tu video la pieza sigue llamándose igual
+      const n = numDe(o.toma.archivo, 'toma') ?? o.linea;
       video.push({
         id: s.id,
         inicio: s.inicio,
         fin: s.fin,
-        nombre: parteToma[i] ? `Toma ${n} · ${parteToma[i]}` : `Toma ${n}`,
+        nombre: parteToma[i] ? `Escena ${n} · ${parteToma[i]}` : `Escena ${n}`,
         n,
         archivo: s.archivo,
-        clip: urlDe(a, `video/${s.archivo}`),
+        pieza: s.pieza,
+        reemplazado: s.reemplazado,
+        mudo: s.mudo,
+        clip: urlConVersion(a, `video/${s.archivo}`),
         texto: o.texto,
-        largo: o.toma.largoOriginal || null,
+        largo: s.largo || o.toma.largoOriginal || null,
         entrada: s.entrada,
+        entradaBase: s.entrada,
+        entradaVista: s.entradaVista,
         velocidad: s.velocidad,
+        velocidadApp: s.reemplazado ? 1 : Number(o.toma?.velocidad) || 1,
         cubre: s.cubre,
-        // segundos que se ve quieta al final (su clip no alcanza y ningún B-roll la tapa)
+        // segundos que se ve quieta al final (su clip no alcanza y ninguna imagen de apoyo la tapa)
         quieto: quietoDeToma(s, visibles),
         editable: cortes.tomas,
         ...foto(s.archivo, 0.5),
@@ -160,14 +222,20 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
         tipo: 'broll',
         inicio: x.desde,
         fin: x.fin,
-        nombre: parteBroll[i] ? `B-roll ${x.n} · ${parteBroll[i]}` : `B-roll ${x.n}`,
+        nombre: parteBroll[i] ? `Imagen de apoyo ${x.n} · ${parteBroll[i]}` : `Imagen de apoyo ${x.n}`,
         n: x.n,
         archivo: x.archivo,
-        clip: urlDe(a, `video/${x.archivo}`),
+        pieza: x.pieza,
+        reemplazado: x.reemplazado,
+        mudo: x.mudo,
+        clip: urlConVersion(a, `video/${x.archivo}`),
         texto: o.sincroniza_con || null,
-        largo: o.largoOriginal || null,
+        largo: x.largo || o.largoOriginal || null,
         entrada: x.entrada,
+        entradaBase: x.entrada,
+        entradaVista: x.entradaVista,
         velocidad: x.velocidad,
+        velocidadApp: x.reemplazado ? 1 : Number(o.velocidad) || 1,
         cubre: x.cubre,
         quieto: x.cubre !== null && x.fin - x.desde > x.cubre + 0.1 ? Math.round((x.fin - x.desde - x.cubre) * 10) / 10 : 0,
         quitado,
@@ -178,22 +246,33 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
     });
   } else if (fam === 'continuidad') {
     const clips = plan.continuidad.clips;
+    // con tu video en un paso o una escena: el archivo, su largo y su velocidad salen del plan con los cambios
+    const ajustados = ajustarPlan(plan, ed).continuidad?.clips || clips;
     clips.forEach((c, i) => {
       const np = numDe(c.archivo, 'paso');
       const nt = numDe(c.archivo, 'toma');
       const inicio = i === 0 ? 0 : c.desde;
+      const cj = ajustados[i] || c;
+      const reemplazado = Boolean(cj.reemplazo);
       video.push({
         id: `v${i}`,
         inicio,
         fin: i + 1 < clips.length ? clips[i + 1].desde : dur,
-        nombre: np !== null ? `Paso ${np}` : nt !== null ? `Toma ${nt}` : 'Clip',
+        nombre: np !== null ? `Paso ${np}` : nt !== null ? `Escena ${nt}` : 'Clip',
         n: np ?? nt,
-        archivo: c.archivo,
-        clip: urlDe(a, `video/${c.archivo}`),
+        archivo: cj.archivo,
+        pieza: piezaDeArchivo(c.archivo),
+        reemplazado,
+        mudo: Boolean(cj.mudo),
+        clip: urlConVersion(a, `video/${cj.archivo}`),
         texto: lineaEn(plan, inicio + 0.05)?.texto || null,
-        largo: c.largoOriginal || null,
+        largo: cj.largoOriginal || c.largoOriginal || null,
+        entradaBase: 0,
+        entradaVista: reemplazado ? Number(cj.recorteInicio) || 0 : 0,
+        velocidad: reemplazado ? cj.velocidadFija ?? 1 : null,
+        velocidadApp: 1,
         continuidad: true,
-        ...foto(c.archivo, 0.4),
+        ...foto(cj.archivo, 0.4),
       });
     });
   } else {
@@ -215,37 +294,49 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
         nombre: p.tipo === 'imagen' ? 'Congelado' : linea?.habla ? `${i + 1} · ${nombreDeQuienHabla(linea.habla)}` : `Bloque ${i + 1}`,
         n: nt,
         archivo: p.archivo,
-        clip: p.tipo === 'clip' ? urlDe(a, `video/${p.archivo}`) : null,
+        clip: p.tipo === 'clip' ? urlConVersion(a, `video/${p.archivo}`) : null,
         texto: linea?.texto || null,
         habla: linea?.habla || null,
         largo: (a.tomas || []).find((t) => t.n === nt)?.duracionClip || null,
         oculto: p.marco === 'oculto',
-        ...(p.tipo === 'imagen' ? { miniatura: miniatura(urlDe(a, p.archivo), 160), foto: miniatura(urlDe(a, p.archivo), 480) } : foto(p.archivo, (p.recorteInicio || 0) + 0.4)),
+        ...(p.tipo === 'imagen' ? { miniatura: miniatura(urlConVersion(a, p.archivo), 160), foto: miniatura(urlConVersion(a, p.archivo), 480) } : foto(p.archivo, (p.recorteInicio || 0) + 0.4)),
       });
     });
     const tapaUnaOculta = (p) => base.some(({ p: q }) => q.marco === 'oculto' && p.desde >= q.desde - 0.05 && p.desde < q.desde + (q.duracion || 0));
+    // las imágenes de apoyo con tu video, su velocidad y su deslizar (las piezas quedan en el mismo orden sin quitar nada)
+    const ajustadas = ajustarPlan(plan, { ...ed, quitados: [] }).escena?.piezas || piezas;
     piezas.forEach((p, idx) => {
       const capa = capaDe(p);
       if (p.tipo === 'clip' && capa > 0 && p.marco !== 'mitad-inferior') {
         const nb = numDe(p.archivo, 'broll');
         const id = `e${idx}`;
+        const pj = ajustadas[idx] && ajustadas[idx].desde === p.desde ? ajustadas[idx] : p;
+        const reemplazado = Boolean(pj.reemplazo);
+        const largoOriginal = (a.broll || []).find((b) => b.n === nb)?.duracionClip || null;
         broll.push({
           id,
           tipo: nb !== null ? 'broll' : 'reaccion',
           inicio: p.desde,
           fin: Math.min(dur, p.desde + (p.duracion || 0)),
-          nombre: nb !== null ? `B-roll ${nb}` : 'Reacción',
+          nombre: nb !== null ? `Imagen de apoyo ${nb}` : 'Reacción',
           n: nb,
-          archivo: p.archivo,
-          clip: urlDe(a, `video/${p.archivo}`),
+          archivo: pj.archivo,
+          pieza: nb !== null ? piezaDeArchivo(p.archivo) : null,
+          reemplazado,
+          mudo: Boolean(pj.mudo),
+          clip: urlConVersion(a, `video/${pj.archivo}`),
           texto: nb !== null ? lineaEn(plan, p.desde + 0.05)?.texto || null : describirReaccion(p.porque),
-          largo: (a.broll || []).find((b) => b.n === nb)?.duracionClip || null,
+          largo: reemplazado ? pj.largoOriginal || null : largoOriginal,
+          entradaBase: reemplazado ? 0 : Number(p.recorteInicio) || 0,
+          entradaVista: Number(pj.recorteInicio) || 0,
+          velocidad: pj.velocidad ?? null,
+          velocidadApp: reemplazado ? 1 : Number(p.velocidad) || 1,
           quitado: quitados.has(id),
           removible: !tapaUnaOculta(p),
-          ...foto(p.archivo, (p.recorteInicio || 0) + 0.4),
+          ...foto(pj.archivo, (pj.recorteInicio || 0) + 0.4),
         });
       } else if (p.tipo === 'icono') {
-        textos.push({ id: `e${idx}`, tipo: 'icono', inicio: p.desde, fin: Math.min(dur, p.desde + (p.duracion || 1)), texto: nombreIcono(p.archivo), imagen: miniatura(urlDe(a, p.archivo), 160), fijo: true });
+        textos.push({ id: `e${idx}`, tipo: 'icono', inicio: p.desde, fin: Math.min(dur, p.desde + (p.duracion || 1)), texto: nombreIcono(p.archivo), imagen: miniatura(urlConVersion(a, p.archivo), 160), fijo: true });
       } else if (p.tipo === 'texto') {
         textos.push({ id: `e${idx}`, tipo: 'texto', inicio: p.desde, fin: Math.min(dur, p.desde + (p.duracion || 1)), texto: p.texto, fijo: true });
       } else if (p.tipo === 'sonido') {
@@ -265,11 +356,17 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
   textos.push(...textosEnPantalla(plan, ed, a.overlays, colorAnuncio).map((x) => ({ ...x, editable: true })));
   textos.sort((x, y) => x.inicio - y.inicio);
 
-  // Lo que se puede rehacer con IA: la toma o el B-roll de cada clip ("toma-3", "broll-2").
+  // La pieza de cada clip ("toma-3", "broll-2", "paso-4"): con ella se regenera, se reemplaza con tu video y se le
+  // cambia la velocidad (sale del plan ORIGINAL: con tu video la pieza sigue siendo la misma). Y lo que se puede hacer
+  // con ese clip en el editor (capas.queSePuedeConElClip: velocidad, deslizar, reemplazar y por qué no).
   for (const x of [...video, ...broll]) {
-    const nt = numDe(x.archivo, 'toma');
-    const nb = numDe(x.archivo, 'broll');
-    x.pieza = nt !== null ? `toma-${nt}` : nb !== null ? `broll-${nb}` : null;
+    if (x.pieza === undefined) x.pieza = piezaDeArchivo(x.archivo);
+    x.puede = x.pieza ? queSePuedeConElClip(plan, x.pieza, ed) : { velocidad: false, deslizar: false, reemplazar: null, motivo: null };
+    x.ajuste = x.pieza ? ajusteDeClip(plan, ed, x.pieza) : null;
+    // la velocidad que elegiste tú (null: la que puso la app, o la de tu video tal cual)
+    const propia = Number(ed?.clips?.[x.pieza]?.velocidad);
+    x.velocidadPropia = x.pieza && x.puede.velocidad && Number.isFinite(propia) && propia > 0 ? x.ajuste?.velocidad ?? null : null;
+    if (x.velocidadApp === undefined) x.velocidadApp = 1;
   }
   efectos.sort((x, y) => x.t - y.t);
 

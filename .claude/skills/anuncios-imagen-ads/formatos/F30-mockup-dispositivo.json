@@ -1,0 +1,120 @@
+{
+  "id": "F30",
+  "slug": "mockup-dispositivo",
+  "nombre": "Mockup en dispositivo",
+  "origen": "biblioteca",
+  "descripcion": "El producto digital o servicio se muestra en pantalla dentro de un grupo de dispositivos: una laptop dominante al centro, un celular delante a la derecha y, opcionalmente, una tablet detrás a la izquierda. Titular y subtítulo centrados arriba y 2 o 3 tarjetas flotantes con rasgos concretos alrededor de los equipos. Estética limpia tipo tecnología/SaaS. Ideal para cursos, apps, ebooks, plantillas, membresías y servicios.",
+  "angulos_compatibles": ["beneficio-principal", "nueva-oportunidad", "rapido-y-facil", "mecanismo-unico", "caracteristica-estrella", "transformacion"],
+  "tipos_producto": ["digital", "servicio", "gadget"],
+  "ad_format": "Device Mockup Ad",
+  "reference_style": "Sleek, modern tech-style device mockup ad: the digital product on a laptop screen with a phone (and optionally a tablet) in a layered cluster, floating feature chips and a bold centered headline",
+  "art_direction": {
+    "visual_hierarchy": "1) Bold headline at the top. 2) The device cluster showing the user's product on screen (laptop dominant, phone overlapping in front). 3) Short subheadline under the headline. 4) Two or three floating feature chips around the devices.",
+    "composition_style": "Centered text stack over a bottom-heavy device cluster. The laptop is centered, open at about 110 degrees in a slight 3/4 front view (rotated about 10-15 degrees toward the right), its width about 60-65% of the canvas, its base at about 88% of the canvas height. A smartphone stands upright in front of the laptop at the lower right, overlapping the laptop's right edge, about 30-35% of the canvas height. Optionally, a tablet sits behind the laptop at the lower left, partly hidden. Two or three feature chips float at different heights around the cluster (upper-left of the laptop screen, right side near the phone, lower-left), slightly overlapping device edges for depth.",
+    "spacing_and_structure": "Top 24-28% of the canvas reserved for headline and subheadline, centered. Device cluster from about 30% to 92% of the canvas height, centered horizontally. Safe side margins of about 6%; chips stay inside the margins. Chips never cover the center of the laptop screen or the phone screen. Clear vertical gap of at least 3% of the canvas height between the subheadline and the top of the laptop screen.",
+    "lighting_and_depth": "Clean modern lighting: soft diffused key light from the upper left, screens emitting a gentle glow, subtle reflections on the screen glass and aluminum, soft contact shadows under each device. Background is a smooth brand gradient with a soft radial glow behind the cluster (or a minimal desk surface with shallow depth of field, per batch plan). Feature chips float with soft drop shadows (frosted glass or solid light cards) to create layered depth."
+  },
+  "layout_summary": "Square canvas with a smooth brand-colored gradient background and a soft glow behind the center. Headline and subheadline stacked and centered at the top. Below, a cluster of generic devices: a large open laptop at the center showing the user's digital product, a smartphone in front at the lower right showing the mobile view of the same product, and optionally a tablet behind at the lower left. Two or three small floating chips with a tiny icon and a short feature sit around the devices.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Clean, tech-premium backdrop that makes the screens glow",
+      "adaptation_rule": "Smooth gradient from the approved palette (deeper at the edges, lighter glow behind the cluster) or a minimal desk surface with a blurred background, as the batch plan indicates. Low detail, no clutter."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center",
+      "visual_function": "States the result or promise of the digital product and stops the scroll",
+      "adaptation_rule": "Write the hook of this variation's angle. Keep it short so it fits in max 2 lines."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "subheadline",
+      "position": "Directly below the headline, centered",
+      "visual_function": "Says what the product is and who it is for",
+      "adaptation_rule": "One short supporting line naming the format (course, app, ebook, service) and the audience or main benefit."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "laptop",
+      "position": "Center, about 60-65% of the canvas width (about 18-81%), top of the screen at about 34% and base at about 88% of the canvas height",
+      "visual_function": "Main screen and visual anchor of the cluster",
+      "adaptation_rule": "Generic modern laptop in a neutral finish (space gray, silver or black), thin bezels, with no manufacturer logo visible."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "smartphone",
+      "position": "Lower right, in front of the laptop, overlapping its right edge: about 70-88% of the canvas width and 56-90% of the canvas height (about 30-35% of the canvas height tall)",
+      "visual_function": "Shows mobile access and adds depth to the cluster",
+      "adaptation_rule": "Generic modern smartphone with thin bezels and no manufacturer logo, standing upright or slightly tilted, matching the laptop finish."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "tablet (OPTIONAL)",
+      "position": "Lower left, behind the laptop, partly hidden: about 8-32% of the canvas width and 52-86% of the canvas height, in landscape or portrait",
+      "visual_function": "Suggests access on every device",
+      "adaptation_rule": "Include only if the batch plan asks for a three-device cluster (useful for courses, memberships and platforms used on several devices). Same neutral finish, no manufacturer logo, showing a third view of the same product. When omitted, keep the left side as clean negative space and add 'tablet or third device' to the final exclusions."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "product (screen content)",
+      "position": "On the laptop screen (main view) and the phone screen (mobile view); tablet screen if used",
+      "visual_function": "Shows exactly what is being sold",
+      "adaptation_rule": "Use the attached product image (course cover, app screenshot, ebook cover, dashboard, website or service deliverable) as the exact screen content, without redesigning it. Laptop: the main view (e.g. course player with the cover and a play button, dashboard, ebook cover page). Phone: a complementary mobile view of the same product. Keep screens mostly visual (thumbnails, video player, progress bars, cards, simple charts) with little or no small text. If the attached image is not a screen (e.g. a photo of a service, a person or a deliverable), place it unchanged as the hero image of a clean, generic web page or booking page on the laptop and as a simple mobile card on the phone. For an ebook, a 3D printed-look copy of the cover may also stand beside the laptop. For an app-connected gadget, the phone shows the app and the physical gadget, rendered exactly as in its photo, stands in front of the laptop on the left (about 8-32% of the canvas width, 58-92% of the canvas height), with chip 3 moved just above it."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "floating feature chips (2-3)",
+      "position": "Around the cluster: chip 1 at the upper-left of the laptop screen (about 6-32% of the canvas width, 32-40% of the canvas height); chip 2 at the right, above the phone (about 68-94% of the canvas width, 44-52%); chip 3 at the lower-left near the laptop base (about 6-32% of the canvas width, 78-86%), overlapping the tablet corner when the tablet is used",
+      "visual_function": "Makes the offer concrete with specific features at a glance",
+      "adaptation_rule": "Small rounded cards (about 22-28% of the canvas width each) in frosted glass or a light palette tone, each with a tiny simple icon or check mark in the accent color on the left and one short feature. Slight overlap with device edges, never on the center of a screen."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, first element of the text stack",
+      "text_style": "Extra bold sans-serif, large (each line about 7-8% of the canvas height), max 2 lines, centered, maximum contrast against the background; one key word may use the brand accent color",
+      "guia_texto": "El resultado o la promesa del producto digital o servicio según el ángulo, en 4 a 8 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, centered",
+      "text_style": "Regular weight sans-serif, about 40% of the headline size, 1 line, centered, high contrast",
+      "guia_texto": "Qué es (curso, app, ebook, servicio) y para quién, en 6 a 10 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "feature chips (2-3)",
+      "reference_position": "Inside each floating chip around the device cluster",
+      "text_style": "Semi-bold sans-serif, about 2.6-3% of the canvas height, 1 line per chip, left aligned after a tiny icon, dark text on light chips (or the reverse), all chips identical in style",
+      "guia_texto": "2 a 3 rasgos concretos y reales del producto (ej. cantidad de lecciones, acceso de por vida, plantillas incluidas, soporte), de 2 a 4 palabras cada uno."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Generic laptop at the center showing the user's product on screen",
+    "Smartphone in front at the lower right showing the mobile view of the same product",
+    "Two or three floating feature chips with tiny icons around the devices",
+    "Smooth brand gradient background with a soft glow behind the devices",
+    "Soft contact shadows under the devices and drop shadows under the chips"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Manufacturer logos on the devices",
+    "Real platform logos, app store badges or third-party interfaces",
+    "Paragraphs of small text on the screens",
+    "People or hands",
+    "More than three feature chips",
+    "Benefit list block outside the chips",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca completa en el entorno: el fondo usa un degradado del color principal, las tarjetas flotantes van en blanco translúcido o un tono claro de la paleta con íconos en el color de acento. El contenido de las pantallas respeta los colores reales del producto del usuario. Los dispositivos van en acabado neutro (gris, plata o negro) para no competir."
+}

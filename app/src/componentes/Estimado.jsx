@@ -5,8 +5,9 @@ import './Estimado.css';
 const EXPLICACION = 'Calculado con las piezas de este anuncio y los precios de kie: el registro de gastos no guardó todas las tandas.';
 
 /**
- * La marca "Estimado" junto a un costo que no sale del registro completo. El dinero se ve en UN solo
- * lugar de la app: el informe de costo real de la entrega, cuando el anuncio ya está hecho.
+ * La marca "Estimado" junto a un costo que no sale del registro completo, en el informe de costo real de la entrega
+ * (cuando el anuncio ya está hecho). El costo estimado ANTES de producir es otra cosa (pantallas/nuevo/CostoEstimado.jsx)
+ * y no lleva esta marca.
  *   {dinero(c.dolares)} {c.estimado ? <Estimado /> : null}
  */
 export function Estimado({ texto = 'Estimado', explicacion = EXPLICACION, enfocable = true, className = '' }) {

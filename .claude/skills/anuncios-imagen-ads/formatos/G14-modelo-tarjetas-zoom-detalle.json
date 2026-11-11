@@ -1,0 +1,99 @@
+{
+  "id": "G14",
+  "slug": "modelo-tarjetas-zoom-detalle",
+  "nombre": "Modelo con el producto + tarjetas en arco con zoom de detalle",
+  "origen": "ganador:Captura de pantalla 2026-01-24 184612 (1).png",
+  "descripcion": "Foto lifestyle a sangre sobre un interior oscuro y desenfocado: la modelo, de frente y sonriendo, ocupa los 2/3 izquierdos, sostiene el producto junto a su cara y muestra el resultado. Arriba a la derecha, un titular blanco en mayúsculas gruesas de 2 líneas, alineado a la derecha; debajo, una banda horizontal de color nude que llega al borde derecho con un subtítulo en mayúsculas oscuras. En la columna derecha se apilan 2 tarjetas con la parte superior en arco: cada una lleva arriba un zoom fotográfico circular de un detalle del producto o del resultado y abajo una etiqueta corta en blanco sobre fondo de color. Sirve para mostrar dos modos, variantes o resultados de una característica.",
+  "angulos_compatibles": ["caracteristica-estrella", "beneficio-principal", "identidad", "promesa-emocional", "rutina-uso"],
+  "tipos_producto": ["gadget", "cosmetico", "ropa", "hogar", "otro"],
+  "ad_format": "Model Lifestyle with Arched Detail-Zoom Cards Ad",
+  "reference_style": "Clean beauty-tool lifestyle ad: a smiling model holding the product beside her face on a dark blurred interior, a right-aligned bold white headline over a nude subtitle band, and a right column of two arch-topped cards with circular macro zooms and short labels",
+  "art_direction": {
+    "visual_hierarchy": "1) The smiling model with the product and the visible result. 2) The white headline at the top right. 3) The two arched zoom cards in the right column. 4) The subtitle band.",
+    "composition_style": "Asymmetric: the model fills the left two-thirds, slightly off-center to the left; the right third is a vertical column of text and cards aligned to the right edge. The nude band bridges the two zones horizontally just under the headline.",
+    "spacing_and_structure": "Model: from about 5% to 70% of the width, top of the head at about 15% of the height, cropped at the chest by the bottom edge. Product held vertically beside her face at about 4-14% of the width and 25-88% of the height. Headline: right-aligned, about 43-97% of the width and 2-15% of the height. Nude band: from about 39% of the width to the right edge, about 16-28% of the height, subtitle right-aligned inside it with a right margin of about 3%. Cards: about 73-97.5% of the width (about 24% wide); card 1 from about 32% to 64% of the height, card 2 from about 65% to 98%, gap about 1.5%. In each card, the circular zoom (about 21% of the canvas in diameter) sits at the top and overlaps the arched top of the colored base; the label sits in the lower 40% of the card.",
+    "lighting_and_depth": "Soft, flattering beauty key light on the model's face from the front-left, warm skin tones and glossy hair highlights. The background is a dark, moody interior (windows, shelves) heavily blurred and darkened so the white headline and the cards stand out. Zoom photos are bright, high-key macro shots on white. Band and cards are flat graphic shapes without shadows."
+  },
+  "layout_summary": "Square canvas filled with a lifestyle photo: a smiling model from the target audience, front-facing, in the left two-thirds, holding the user's product vertically beside her face and showing its result on herself, over a dark blurred interior. At the top right, a 2-line bold white uppercase headline, right-aligned. Under it, a horizontal nude-colored band running from the center to the right edge with a 2-line dark uppercase subtitle, right-aligned. In the right column, two stacked cards with an arched top in a terracotta or brand tone: each has a circular macro photo at the top (a close-up of a detail of the product or of the result) and a 2-line white uppercase label in the colored base.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "lifestyle photo",
+      "position": "Full canvas, edge to edge; model in the left two-thirds",
+      "visual_function": "Shows the product in use and the result on a real person",
+      "adaptation_rule": "Full-bleed photo of a smiling, confident person matching the target audience, front-facing, framed from the head to the chest, placed in the left two-thirds, over a dark, softly blurred interior. The result of the product must be visible on them (hair, skin, outfit, posture, environment). Keep the right third darker and calm for the text and the cards."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "product in hand",
+      "position": "Held vertically beside the face, about 4-14% of the width and 25-88% of the height",
+      "visual_function": "Shows exactly what creates the result",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), held naturally in the person's hand next to their face, in use or ready to be used. For clothing or accessories, the person wears it; for small products, they hold it at cheek height."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "subtitle band",
+      "position": "From about 39% of the width to the right edge, about 16-28% of the height",
+      "visual_function": "Holds the explanation of the star feature",
+      "adaptation_rule": "Flat nude or peach rectangle (or a light warm tone of the palette), square corners, touching the right edge."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "arched detail-zoom cards (2)",
+      "position": "Right column, about 73-97.5% of the width; card 1 at about 32-64% of the height, card 2 at about 65-98%",
+      "visual_function": "Shows two modes, variants or results of the star feature up close",
+      "adaptation_rule": "Each card is a tall base with a fully rounded (arched) top in terracotta or the brand's deep warm color, slightly rounded bottom corners and a circular photo about 21% of the canvas in diameter at its top, overlapping the arch, framed by a thin dark outline. The two circles show macro close-ups on a white background of two different details of the user's product or of two different results it creates (two settings, two textures, two finishes, two uses)."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top right, right-aligned, about 2-15% of the canvas height",
+      "text_style": "Extra bold sans-serif, uppercase, each line about 6.5% of the canvas height, max 2 lines, right-aligned, white over the dark background",
+      "guia_texto": "El resultado estrella que se ve en la modelo. De 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Inside the nude band, right-aligned",
+      "text_style": "Medium sans-serif, uppercase, each line about 4.5% of the canvas height, max 2 lines, right-aligned, dark brown or charcoal on the nude band",
+      "guia_texto": "La característica que produce ese resultado y lo que permite lograr. De 5 a 8 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "card 1 label",
+      "reference_position": "Lower part of card 1, centered",
+      "text_style": "Medium sans-serif, uppercase, about 3.5% of the canvas height, max 2 lines, centered, white on the card color",
+      "guia_texto": "El nombre del primer modo o resultado. De 1 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "card 2 label",
+      "reference_position": "Lower part of card 2, centered",
+      "text_style": "Same style as the card 1 label",
+      "guia_texto": "El nombre del segundo modo o resultado, en contraste con el primero. De 1 a 3 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed lifestyle photo of a smiling model in the left two-thirds over a dark blurred interior",
+    "The user's product held beside the model's face with its result visible on them",
+    "Right-aligned two-line white headline at the top right",
+    "Nude band with a dark subtitle reaching the right edge",
+    "Two stacked arch-topped cards on the right with circular macro zooms and white labels"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Free shipping or payment labels",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Benefit icons or check lists",
+    "Before/after split",
+    "More than two cards",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Foto con tonos naturales de piel y un fondo oscuro. La marca aparece en la banda nude (o un tono claro y cálido de la paleta) y en la base terracota de las tarjetas (o el color principal profundo de la marca). Titular en blanco; subtítulo en marrón oscuro; etiquetas de las tarjetas en blanco.",
+  "posicion_logo": null
+}

@@ -44,6 +44,7 @@ import {
   creditosAUsd,
 } from './config.js';
 import { listaDeReferencias, esGenerada } from './referencias.js';
+import { ELECCION_POR_DEFECTO, leerEleccion, cascadaVideo, modeloDeCadena, modeloParaClip, primerModeloQueSirve } from './modelos-elegidos.js';
 
 export const VERSION_CONTINUIDAD = 1;
 
@@ -106,12 +107,40 @@ const esObjeto = (v) => Boolean(v) && typeof v === 'object' && !Array.isArray(v)
 const listaCorta = (xs, max = 10) => (xs.length <= max ? xs.join(', ') : `${xs.slice(0, max).join(', ')} y ${xs.length - max} mas`);
 const modeloPrincipal = () => MODELOS.video.principal;
 
-/** Los tramos que acepta el modelo principal (4, 6, 8, 10). Se leen de config.js, no se copian. */
-export const tramosDeVideo = () => MODELOS_VIDEO[modeloPrincipal()].duraciones;
+/**
+ * MODELOS ELEGIDOS (2026-11-08). Los largos de la cadena se calculan con el
+ * modelo de la cadena (modeloDeCadena: el primero de la cascada de voz en off
+ * del anuncio que acepta imagen final). Sin temp/<slug>/modelos.json es Omni,
+ * con sus tramos, como siempre. Las funciones de abajo reciben `modelo`
+ * (opcional, por defecto el de siempre); las que tienen la carpeta lo leen de
+ * ahi (validarContinuidad, resumenContinuidad, el CLI).
+ *
+ * Un modelo de duracion libre (Grok Imagine 1.5, PixVerse V6: enteros de 1 a
+ * 15 s) no tiene tramos: sus "tramos" son los enteros entre TRAMO_MINIMO_LIBRE
+ * (o su minimo, si es mayor) y su maximo. Un paso de 1 o 2 s no le da tiempo a
+ * la camara de recorrer nada; el de Omni mas corto es de 4.
+ */
+export const TRAMO_MINIMO_LIBRE = 3;
+
+/** El modelo de la cadena de un anuncio (por su carpeta). Sin carpeta, el de siempre. */
+export const modeloDeCadenaEn = (carpeta) => (carpeta ? modeloDeCadena(leerEleccion(carpeta)) : modeloPrincipal());
+
+/**
+ * Los tramos que acepta el modelo (Omni: 4, 6, 8, 10). Se leen de config.js,
+ * no se copian. Uno de duracion libre: los enteros de su minimo (al menos
+ * TRAMO_MINIMO_LIBRE) a su maximo.
+ */
+export const tramosDeVideo = (modelo = modeloPrincipal()) => {
+  const def = MODELOS_VIDEO[modelo] ?? MODELOS_VIDEO[modeloPrincipal()];
+  if (Array.isArray(def.duraciones) && def.duraciones.length) return def.duraciones;
+  const desde = Math.max(TRAMO_MINIMO_LIBRE, Math.ceil(def.duracionMin ?? 1));
+  const hasta = Math.floor(def.duracionMax ?? 10);
+  return Array.from({ length: Math.max(1, hasta - desde + 1) }, (_, i) => desde + i);
+};
 
 /** El menor tramo que cubre `segundos`; si pasa del mas largo, el mas largo. */
-export function tramoQueCubre(segundos) {
-  const ts = tramosDeVideo();
+export function tramoQueCubre(segundos, modelo = modeloPrincipal()) {
+  const ts = tramosDeVideo(modelo);
   return ts.find((d) => d >= segundos - EPS) ?? ts[ts.length - 1];
 }
 
@@ -206,9 +235,10 @@ export function ventanasDeFrases(m, tiempos) {
  * Devuelve { pasos: [{ de, a, ventana, duracion, duracion_propio? }],
  *            cierre: { toma, ventana, duracion }, detalle: [...], duracion: T }
  */
-export function proponerDuraciones(m, tiempos, { reglas = REGLAS_CONTINUIDAD, propioCorto = true } = {}) {
+export function proponerDuraciones(m, tiempos, { reglas = REGLAS_CONTINUIDAD, propioCorto = true, modelo = modeloPrincipal() } = {}) {
   const ventanas = ventanasDeFrases(m, tiempos);
-  const ts = tramosDeVideo();
+  const ts = tramosDeVideo(modelo);
+  const tramoQueCubre = (s) => ts.find((d) => d >= s - EPS) ?? ts[ts.length - 1];
   const pasoPara = (propio, ventana) => ts.find((p) => propio + p >= ventana - EPS) ?? ts[ts.length - 1];
   const pasos = [];
   const detalle = [];
@@ -231,7 +261,7 @@ export function proponerDuraciones(m, tiempos, { reglas = REGLAS_CONTINUIDAD, pr
       continue;
     }
     // Toma B: el propio de siempre (el tramo que se le pide hoy a t.duracion).
-    const deSiempre = esNumero(t.duracion) ? (duracionPara(modeloPrincipal(), t.duracion) ?? ts[ts.length - 1]) : ts[0];
+    const deSiempre = esNumero(t.duracion) ? (duracionPara(modelo, t.duracion) ?? ts[ts.length - 1]) : ts[0];
     let propio = deSiempre;
     let paso = pasoPara(propio, w.ventana);
     if (propioCorto && (propio + paso) / w.ventana > reglas.fuerte + EPS) {
@@ -290,7 +320,7 @@ export function proponerDuraciones(m, tiempos, { reglas = REGLAS_CONTINUIDAD, pr
  * `tiempos`, lo que propondria --duraciones; sin tiempos, la duracion de la
  * toma (4 s en el paso de una B). Esos clips llevan `estimado: true`.
  */
-export function cadenaDeClips(m, { estimar = false, tiempos = null } = {}) {
+export function cadenaDeClips(m, { estimar = false, tiempos = null, modelo = modeloPrincipal() } = {}) {
   const tomas = (Array.isArray(m?.tomas) ? m.tomas : []).filter(esObjeto);
   const c = esObjeto(m?.continuidad) ? m.continuidad : {};
   const pasos = (Array.isArray(c.pasos) ? c.pasos : []).filter(esObjeto);
@@ -299,14 +329,14 @@ export function cadenaDeClips(m, { estimar = false, tiempos = null } = {}) {
   let propuesta = null;
   if (estimar && tiempos) {
     try {
-      propuesta = proponerDuraciones(m, tiempos);
+      propuesta = proponerDuraciones(m, tiempos, { modelo });
     } catch {
       propuesta = null; // sin tiempos que cuadren se estima con las tomas
     }
   }
   const propuestaDe = (n) => propuesta?.pasos.find((x) => x.de === n) ?? null;
-  const tramoDe = (s) => (esNumero(s) && s > 0 ? duracionPara(modeloPrincipal(), s) : null);
-  const tramoMinimo = tramosDeVideo()[0];
+  const tramoDe = (s) => (esNumero(s) && s > 0 ? duracionPara(modelo, s) : null);
+  const tramoMinimo = tramosDeVideo(modelo)[0];
 
   const out = [];
   tomas.forEach((t, i) => {
@@ -452,23 +482,39 @@ export function referenciasSoloDelBrollDescartado(m) {
  * Costo de la cadena con el modelo principal. Lo que falta por escribir se
  * estima (ver cadenaDeClips con estimar) y se marca.
  */
-export function costoDeCadena(m, { tiempos = null, resolucion = RESOLUCION_VIDEO } = {}) {
-  const cadena = cadenaDeClips(m, { estimar: true, tiempos });
+export function costoDeCadena(m, { tiempos = null, resolucion = RESOLUCION_VIDEO, eleccion = null } = {}) {
+  // Con la eleccion del anuncio: los largos con el modelo de la cadena, y cada
+  // clip cobrado con el primer modelo de su cascada que lo puede hacer (con
+  // PixVerse + Grok 1.5, los pasos y propios van a PixVerse y el cierre de una
+  // toma sin imagen final a Grok). Sin eleccion, todo con Omni, como siempre.
+  const modelo = eleccion ? modeloDeCadena(eleccion) : modeloPrincipal();
+  const cascada = eleccion ? cascadaVideo(eleccion, 'vozEnOff') : [modeloPrincipal()];
+  const cadena = cadenaDeClips(m, { estimar: true, tiempos, modelo });
   let creditos = 0;
   let segundos = 0;
   const excedidos = [];
+  const modelos = new Set();
   for (const c of cadena) {
-    const r = esNumero(c.segundos) ? creditosClip(modeloPrincipal(), c.segundos, resolucion) : { excedeTope: true };
+    // El que de verdad lo hace, mirando tambien el tope de duracion (como
+    // generar-videos; con la cascada de siempre, el primero, como antes).
+    const delClip = eleccion
+      ? modeloParaClip(cascada, { frameFinal: Boolean(c.imagenFinal) }, c.segundos, {
+          deSiempre: cascadaVideo(ELECCION_POR_DEFECTO, 'vozEnOff'),
+        })
+      : primerModeloQueSirve(cascada, { frameFinal: Boolean(c.imagenFinal) });
+    const r = esNumero(c.segundos) ? creditosClip(delClip, c.segundos, resolucion) : { excedeTope: true };
     if (r.excedeTope) {
       excedidos.push(c.archivo);
       continue;
     }
-    creditos += r.creditos;
+    modelos.add(delClip);
+    creditos = Math.round((creditos + r.creditos) * 100) / 100;
     segundos += r.duracion;
   }
   return {
     cadena,
     clips: cadena.length,
+    modelos: [...modelos],
     creditos,
     usd: creditosAUsd(creditos),
     segundos,
@@ -559,7 +605,10 @@ function revisarPromptDePaso(p, t, sig, id, av) {
  * o hay un "revisar": true -> error. Sin el, eso es un aviso: es lo normal
  * antes de imagenes y audio.
  */
-export function validarContinuidad(m, { carpeta = null, exigirPasos = false, E = null, A = null } = {}) {
+export function validarContinuidad(m, { carpeta = null, exigirPasos = false, E = null, A = null, modelo = null } = {}) {
+  // El modelo con que se calculan los largos: el de la cadena del anuncio
+  // (temp/<slug>/modelos.json); sin eleccion, Omni y sus tramos.
+  const modeloCadena = modelo ?? modeloDeCadenaEn(carpeta);
   const errores = [];
   const avisos = [];
   const err = (s) => {
@@ -608,8 +657,10 @@ export function validarContinuidad(m, { carpeta = null, exigirPasos = false, E =
     return { errores, avisos };
   }
 
-  const tramos = tramosDeVideo();
-  const listaTramos = `${tramos.join(', ')} (los tramos de ${modeloPrincipal()})`;
+  const tramos = tramosDeVideo(modeloCadena);
+  const listaTramos = MODELOS_VIDEO[modeloCadena]?.duraciones
+    ? `${tramos.join(', ')} (los tramos de ${modeloCadena})`
+    : `un entero de ${tramos[0]} a ${tramos[tramos.length - 1]} (${modeloCadena}, el modelo elegido para este anuncio)`;
   const indice = new Map(tomas.map((t, i) => [t.n, i]));
   const pasos = Array.isArray(c.pasos) ? c.pasos : [];
   const vistos = new Map();
@@ -745,7 +796,7 @@ export function validarContinuidad(m, { carpeta = null, exigirPasos = false, E =
       } catch (e) {
         av(`audio/tiempos.json no es JSON valido (${e.message}): no se pudieron revisar las ventanas.`);
       }
-      if (tiempos) revisarContraTiempos(m, tiempos, { cmd, av });
+      if (tiempos) revisarContraTiempos(m, tiempos, { cmd, av, modelo: modeloCadena });
     }
   }
 
@@ -753,10 +804,10 @@ export function validarContinuidad(m, { carpeta = null, exigirPasos = false, E =
 }
 
 /** Avisos que salen de comparar el bloque con los tiempos reales de la voz. */
-function revisarContraTiempos(m, tiempos, { cmd, av }) {
+function revisarContraTiempos(m, tiempos, { cmd, av, modelo = modeloPrincipal() }) {
   let propuesta;
   try {
-    propuesta = proponerDuraciones(m, tiempos);
+    propuesta = proponerDuraciones(m, tiempos, { modelo });
   } catch (e) {
     av(e.message.replace(/<carpeta>/g, cmd));
     return;
@@ -779,7 +830,7 @@ function revisarContraTiempos(m, tiempos, { cmd, av }) {
     );
   }
   try {
-    const pred = planearContinuidad({ manifiesto: m, tiempos, largos: null });
+    const pred = planearContinuidad({ manifiesto: m, tiempos, largos: null, modelo });
     const fuertes = pred.clips.filter((x) => x.velocidad > REGLAS_CONTINUIDAD.fuerte + EPS);
     if (fuertes.length) {
       av(
@@ -800,7 +851,9 @@ function revisarContraTiempos(m, tiempos, { cmd, av }) {
  * audio/tiempos.json si esta en `carpeta`; si no, con la duracion de cada
  * toma) y va con estimado: true.
  */
-export function resumenContinuidad(m, { carpeta = null, tiempos = null } = {}) {
+export function resumenContinuidad(m, { carpeta = null, tiempos = null, eleccion = null } = {}) {
+  // Los modelos del anuncio (temp/<slug>/modelos.json); sin eleccion ni carpeta, los de siempre.
+  const eleccionAnuncio = eleccion ?? (carpeta ? leerEleccion(carpeta) : null);
   if (!tiempos && carpeta) {
     try {
       const ruta = path.join(carpeta, 'audio', 'tiempos.json');
@@ -817,12 +870,12 @@ export function resumenContinuidad(m, { carpeta = null, tiempos = null } = {}) {
       .map((p) => p.de)
       .filter((n) => tomas.slice(0, -1).some((t) => t.n === n))
   );
-  const costo = costoDeCadena(m, { tiempos });
+  const costo = costoDeCadena(m, { tiempos, eleccion: eleccionAnuncio });
   const k = cuentaDeCadena(costo.cadena);
   let conTiempos = false;
   if (costo.estimado && tiempos) {
     try {
-      proponerDuraciones(m, tiempos);
+      proponerDuraciones(m, tiempos, { modelo: modeloDeCadena(eleccionAnuncio) });
       conTiempos = true;
     } catch {
       conTiempos = false;
@@ -1020,16 +1073,16 @@ const leerLargo = (largos, archivo) => {
  * sinSolucion, velocidadMaxima, clips, bloques, unidades, avisos, resumen }.
  * `clips` es la lista plana que va al plan (plan-montaje.json, continuidad.clips).
  */
-export function planearContinuidad({ manifiesto, tiempos, largos = null, respaldo = [], reglas = REGLAS_CONTINUIDAD }) {
+export function planearContinuidad({ manifiesto, tiempos, largos = null, respaldo = [], reglas = REGLAS_CONTINUIDAD, modelo = modeloPrincipal() }) {
   const ventanas = ventanasDeFrases(manifiesto, tiempos);
   const T = tiempos.duracion;
   const prediccion = largos == null;
   const conRespaldo = new Set(respaldo);
   const avisos = [];
 
-  const cadena = cadenaDeClips(manifiesto, { estimar: true, tiempos });
+  const cadena = cadenaDeClips(manifiesto, { estimar: true, tiempos, modelo });
   const clips = cadena.map((c) => {
-    const pedido = c.tramo ?? (esNumero(c.segundos) ? tramoQueCubre(c.segundos) : null);
+    const pedido = c.tramo ?? (esNumero(c.segundos) ? tramoQueCubre(c.segundos, modelo) : null);
     let medida = prediccion ? null : leerLargo(largos, c.archivo);
     const falta = !prediccion && !medida;
     if (!medida) medida = { segundos: pedido, frames: null, fps: null };
@@ -1189,12 +1242,12 @@ export function planearContinuidad({ manifiesto, tiempos, largos = null, respald
       avisos.push(`${nombres} va a ${u.velocidad.toFixed(2)}x${llega}, sobre la guia de ${reglas.guia.toFixed(1)}x. No se corta.`);
     }
     if (u.velocidad < minima - EPS) {
-      const sugerido = tramoQueCubre(u.w.ventana);
+      const sugerido = tramoQueCubre(u.w.ventana, modelo);
       const pedir =
         u.suyos.length === 1 && u.suyos[0].pedido < sugerido
           ? `pidelo de ${sugerido}s`
-          : u.w.ventana > tramosDeVideo().at(-1)
-            ? `su frase dura ${u.w.ventana.toFixed(2)}s y el video mas largo es de ${tramosDeVideo().at(-1)}s`
+          : u.w.ventana > tramosDeVideo(modelo).at(-1)
+            ? `su frase dura ${u.w.ventana.toFixed(2)}s y el video mas largo es de ${tramosDeVideo(modelo).at(-1)}s`
             : 'pidelo mas largo';
       avisos.push(`${nombres} va a ${u.velocidad.toFixed(2)}x (menos de ${minima.toFixed(1)}x): habra cuadros repetidos; ${pedir}.`);
     }
@@ -1256,8 +1309,8 @@ export function planearContinuidad({ manifiesto, tiempos, largos = null, respald
 }
 
 /** La prediccion de velocidades antes de pagar los videos: los tramos pedidos, sin clips. No escribe nada. */
-export function prediccionContinuidad({ manifiesto, tiempos, reglas = REGLAS_CONTINUIDAD }) {
-  return planearContinuidad({ manifiesto, tiempos, largos: null, reglas });
+export function prediccionContinuidad({ manifiesto, tiempos, reglas = REGLAS_CONTINUIDAD, modelo = modeloPrincipal() }) {
+  return planearContinuidad({ manifiesto, tiempos, largos: null, reglas, modelo });
 }
 
 /**
@@ -1510,6 +1563,10 @@ function cliPreparar({ ruta, carpeta, carpetaArg }) {
 function cliDuraciones({ ruta, carpeta, carpetaArg }) {
   const leido = leerManifiesto(ruta);
   const { m } = leido;
+  // Los largos se calculan con el modelo de la cadena de ESTE anuncio
+  // (temp/<slug>/modelos.json); sin eleccion, los tramos de Omni.
+  const eleccion = leerEleccion(carpeta);
+  const modeloCadena = modeloDeCadena(eleccion);
   if (!esObjeto(m.continuidad)) {
     salir(['', '  Este manifiesto no tiene el bloque "continuidad". Primero:', `      npm run continuidad -- ${carpetaArg} --preparar`, '']);
   }
@@ -1527,7 +1584,7 @@ function cliDuraciones({ ruta, carpeta, carpetaArg }) {
   let propuesta;
   try {
     tiempos = JSON.parse(fs.readFileSync(rutaTiempos, 'utf8'));
-    propuesta = proponerDuraciones(m, tiempos);
+    propuesta = proponerDuraciones(m, tiempos, { modelo: modeloCadena });
   } catch (e) {
     salir(['', `  ${e.message.replace(/<carpeta>/g, carpetaArg)}`, '  No se cambio nada.', '']);
   }
@@ -1572,10 +1629,10 @@ function cliDuraciones({ ruta, carpeta, carpetaArg }) {
     console.log(`  ${f.nombre.padEnd(w.nombre)}  ${String(f.tipo).padEnd(4)}  ${f.frase.padEnd(w.frase)}  ${f.ventana.padStart(w.ventana)}  ${f.pide.padEnd(w.pide)}  ${f.v}`);
   }
 
-  const costo = costoDeCadena(nuevo, { tiempos });
-  console.log(`\n  Clips: ${textoCuenta(costo.cadena)}. Costo: ${costo.creditos} creditos = US$${costo.usd.toFixed(2)} (${modeloPrincipal()} a ${RESOLUCION_VIDEO}, sin reintentos ni respaldo).`);
+  const costo = costoDeCadena(nuevo, { tiempos, eleccion });
+  console.log(`\n  Clips: ${textoCuenta(costo.cadena)}. Costo: ${costo.creditos} creditos = US$${costo.usd.toFixed(2)} (${costo.modelos.join(' y ') || modeloCadena} a ${RESOLUCION_VIDEO}, sin reintentos ni respaldo).`);
   try {
-    const pred = prediccionContinuidad({ manifiesto: nuevo, tiempos });
+    const pred = prediccionContinuidad({ manifiesto: nuevo, tiempos, modelo: modeloCadena });
     const s = pred.resumen;
     console.log(
       `  Prevision prestando tiempo (la imagen llega hasta ${REGLAS_CONTINUIDAD.temprano}s antes o ${REGLAS_CONTINUIDAD.tarde}s despues de su frase): ` +

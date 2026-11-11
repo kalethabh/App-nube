@@ -83,8 +83,18 @@
 // lineas-habladas.json se quita (sacarDerivadosDeTomaH): el clip nuevo se
 // mide otra vez con `npm run lineas` (al final se dice con que tomas). El
 // B-roll de estos estilos va a Kling (MODELO_VIDEO_BROLL_POR_ESTILO), mudo
-// (SONIDO_BROLL_POR_ESTILO: 14 cr/s en vez de 20), con la duracion entera que
+// (SONIDO_BROLL_POR_ESTILO: 15,1 cr/s en vez de 22,7), con la duracion entera que
 // pide el manifiesto (3 a 15 s). Fuera de estos estilos ningun trabajo cambia.
+//
+// MODELOS ELEGIDOS (2026-11-08): lo de arriba es lo de siempre, lo que sale SIN
+// temp/<slug>/modelos.json (anuncios viejos y la CLI). Con ese archivo (lo
+// escribe la app desde Ajustes > Modelos) cada trabajo lleva la cascada de su
+// categoria (modelos-elegidos.js): voz en off, objeto parlante, UGC, podcast y
+// entrevista, B-roll de esos dos. La cascada salta, sin pedir ni cobrar, el
+// modelo que no puede hacer un clip (motivoParaSaltar: PixVerse sin imagen
+// final, Grok v1 con frame). Un bloque R (o una toma H por ingredientes) pedido
+// a un modelo sin su largo (Grok v1 empieza en 6 s) se recorta al largo del
+// bloque al bajarlo (recortarAlBloque). log-modelos.json lleva "dialogo".
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -103,12 +113,14 @@ import {
   TOPE_ESPERA_IMAGEN_MS,
   MODELO_VIDEO_UGC,
   ESTILOS_HABLADOS,
-  ESTILOS_SIN_RESPALDO_VIDEO,
-  MODELO_VIDEO_BROLL_POR_ESTILO,
   SONIDO_BROLL_POR_ESTILO,
+  MODELO_VIDEO_BROLL_POR_ESTILO,
+  DURACIONES_H,
   INGREDIENTE_IMAGEN,
   creditosAUsd,
   creditosClip,
+  audioActivo,
+  resolucionPara,
   cargarEnv,
   requerirClave,
 } from './config.js';
@@ -127,6 +139,15 @@ import { archivarSiExiste } from './historial.js';
 import { tieneContinuidad, cadenaDeClips, filtrarCadena, textoCuenta, avisosDeLargo } from './continuidad.js';
 import { armarClipQuieto, clipDeBiblioteca, guardarEnBiblioteca, itemDeTrabajo, modoSinCobro, movimientoQuieto } from './clips-sin-cobro.js';
 import { brollQueEntranEnCarpeta, lineasBrollQueNoEntra } from './planear-montaje.js';
+import {
+  ELECCION_POR_DEFECTO,
+  leerEleccion,
+  cascadaVideo,
+  cascadaDelTrabajo,
+  motivoParaSaltar,
+  primerModeloQueSirve,
+  esModeloConDialogo,
+} from './modelos-elegidos.js';
 
 const REINTENTOS = 3;
 
@@ -185,7 +206,10 @@ function trabajoR(b, extra) {
  * El prompt del propio con duracion_propio y el del cierre ya vienen con el
  * numero de su cabecera ajustado al largo que se pide (ajustarCabecera).
  */
-export function planContinuidad(m, { soloTomas = null, soloPasos = null } = {}) {
+export function planContinuidad(m, { soloTomas = null, soloPasos = null, eleccion = ELECCION_POR_DEFECTO } = {}) {
+  // Todos los clips de la cadena van con la cascada de voz en off del anuncio.
+  const cascada = cascadaVideo(eleccion, 'vozEnOff');
+  const tope = marcaDeTope(cascada, cascadaVideo(ELECCION_POR_DEFECTO, 'vozEnOff'));
   return filtrarCadena(cadenaDeClips(m), { soloTomas, soloPasos }).map((c) => ({
     id: c.id,
     clase: c.rol === 'paso' ? 'paso' : 'toma',
@@ -203,7 +227,20 @@ export function planContinuidad(m, { soloTomas = null, soloPasos = null } = {}) 
       c.rol === 'paso'
         ? `paso ${c.deToma}->${c.aToma} ${c.segundos}s`
         : `toma ${c.linea} (${c.tipoToma}, ${c.rol}) ${c.segundos}s`,
+    cascada: [...cascada],
+    ...tope,
   }));
+}
+
+/**
+ * Con una cascada elegida (distinta de la de siempre para ese clip), un clip
+ * mas largo que el tope de un modelo sigue con el siguiente que lo cubre (p.
+ * ej. un B-roll hablado de 12 s con Omni elegido va a Kling). Con la de
+ * siempre no se marca y, como antes, se para y hay que dividir la toma.
+ */
+function marcaDeTope(cascada, deSiempre) {
+  const igual = cascada.length === deSiempre.length && cascada.every((x, i) => x === deSiempre[i]);
+  return igual ? {} : { saltaPorTope: true };
 }
 
 /**
@@ -213,16 +250,23 @@ export function planContinuidad(m, { soloTomas = null, soloPasos = null } = {}) 
  * B-roll sin tocar nada mas (la revision de los clips de la app).
  * Con continuidad, la cadena (ver planContinuidad).
  */
-export function construirPlan(m, { soloTomas, ganchos = false, soloPasos = null, soloBroll = null } = {}) {
-  if (tieneContinuidad(m)) return planContinuidad(m, { soloTomas, soloPasos });
+export function construirPlan(m, { soloTomas, ganchos = false, soloPasos = null, soloBroll = null, eleccion = ELECCION_POR_DEFECTO } = {}) {
+  if (tieneContinuidad(m)) return planContinuidad(m, { soloTomas, soloPasos, eleccion });
   const trabajos = [];
 
-  // Estilos hablados (podcast, entrevista): la toma H va a Omni sin respaldo
-  // (ESTILOS_SIN_RESPALDO_VIDEO) y el B-roll a Kling, mudo. Fuera de estos
-  // estilos ninguno de estos campos se escribe y los trabajos salen iguales.
+  // MODELOS (2026-11-08): cada trabajo lleva su cascada explicita, la de su
+  // categoria en la eleccion del anuncio (modelos-elegidos.js; sin
+  // modelos.json, la de siempre): voz en off y objeto parlante [Omni, Kling],
+  // bloques R y tomas H [Omni] (Kling no genera el dialogo), B-roll de los
+  // estilos hablados [Kling], mudo. Ver cascadaDelTrabajo.
+  const conCascada = (trabajo) => {
+    const cascada = cascadaDelTrabajo(eleccion, m, trabajo);
+    return { ...trabajo, cascada, ...marcaDeTope(cascada, cascadaDelTrabajo(ELECCION_POR_DEFECTO, m, trabajo)) };
+  };
+
+  // Estilos hablados (podcast, entrevista): el B-roll va mudo
+  // (SONIDO_BROLL_POR_ESTILO). Fuera de estos estilos ese campo no se escribe.
   const hablado = ESTILOS_HABLADOS.includes(m.estilo);
-  const sinRespaldoH = ESTILOS_SIN_RESPALDO_VIDEO.includes(m.estilo);
-  const modeloBroll = hablado ? MODELO_VIDEO_BROLL_POR_ESTILO[m.estilo] ?? MODELOS.video.principal : null;
   const sonidoBroll = hablado && typeof SONIDO_BROLL_POR_ESTILO[m.estilo] === 'boolean' ? SONIDO_BROLL_POR_ESTILO[m.estilo] : undefined;
 
   const tomas = soloBroll ? [] : soloTomas ? m.tomas.filter((t) => soloTomas.includes(t.n)) : m.tomas;
@@ -230,7 +274,9 @@ export function construirPlan(m, { soloTomas, ganchos = false, soloPasos = null,
     if (t.tipo === 'R') {
       // Bloque UGC: no hay frame inicial ni final que buscar en img/.
       trabajos.push(
-        trabajoR(t, { id: `toma-${t.n}`, clase: 'toma', n: t.n, archivo: `toma-${t.n}.mp4`, descripcion: `toma ${t.n} (R) ${t.duracion}s` })
+        conCascada(
+          trabajoR(t, { id: `toma-${t.n}`, clase: 'toma', n: t.n, archivo: `toma-${t.n}.mp4`, descripcion: `toma ${t.n} (R) ${t.duracion}s` })
+        )
       );
       continue;
     }
@@ -239,39 +285,39 @@ export function construirPlan(m, { soloTomas, ganchos = false, soloPasos = null,
       // los ingredientes como image_urls, en su orden ("imagen" = la imagen
       // del clip). imagenInicial queda para comprobar que exista y para
       // mostrarla; al modelo no va como first_frame_url.
-      trabajos.push({
+      trabajos.push(
+        conCascada({
+          id: `toma-${t.n}`,
+          clase: 'toma',
+          n: t.n,
+          tipo: 'H',
+          porIngredientes: true,
+          archivo: `toma-${t.n}.mp4`,
+          prompt: t.prompt_video,
+          segundos: t.duracion,
+          imagenInicial: `toma-${t.n}-inicial.png`,
+          imagenFinal: null,
+          referencias: [...t.ingredientes],
+          descripcion: `toma ${t.n} (H, por ingredientes) ${t.duracion}s`,
+        })
+      );
+      continue;
+    }
+    trabajos.push(
+      conCascada({
         id: `toma-${t.n}`,
         clase: 'toma',
         n: t.n,
-        tipo: 'H',
-        porIngredientes: true,
+        tipo: t.tipo,
         archivo: `toma-${t.n}.mp4`,
         prompt: t.prompt_video,
         segundos: t.duracion,
         imagenInicial: `toma-${t.n}-inicial.png`,
-        imagenFinal: null,
-        referencias: [...t.ingredientes],
-        descripcion: `toma ${t.n} (H, por ingredientes) ${t.duracion}s`,
-        cascada: [MODELO_VIDEO_UGC],
-      });
-      continue;
-    }
-    trabajos.push({
-      id: `toma-${t.n}`,
-      clase: 'toma',
-      n: t.n,
-      tipo: t.tipo,
-      archivo: `toma-${t.n}.mp4`,
-      prompt: t.prompt_video,
-      segundos: t.duracion,
-      imagenInicial: `toma-${t.n}-inicial.png`,
-      // Solo las Tipo B llevan frame de cierre.
-      imagenFinal: t.tipo === 'B' ? `toma-${t.n}-final.png` : null,
-      descripcion: `toma ${t.n} (${t.tipo}) ${t.duracion}s`,
-      // Toma hablada: solo Omni (Kling no genera el dialogo). Sin esta clave,
-      // generarConCascada usa la cascada de siempre.
-      ...(t.tipo === 'H' && sinRespaldoH ? { cascada: [MODELOS.video.principal] } : {}),
-    });
+        // Solo las Tipo B llevan frame de cierre.
+        imagenFinal: t.tipo === 'B' ? `toma-${t.n}-final.png` : null,
+        descripcion: `toma ${t.n} (${t.tipo}) ${t.duracion}s`,
+      })
+    );
   }
 
   const brolls = soloBroll
@@ -280,7 +326,7 @@ export function construirPlan(m, { soloTomas, ganchos = false, soloPasos = null,
       ? (m.broll || []).filter((b) => soloTomas.includes(tomaDelBroll(b)))
       : m.broll || [];
   for (const b of brolls) {
-    trabajos.push({
+    const trabajo = conCascada({
       id: `broll-${b.n}`,
       clase: 'broll',
       n: b.n,
@@ -290,11 +336,16 @@ export function construirPlan(m, { soloTomas, ganchos = false, soloPasos = null,
       segundos: b.duracion,
       imagenInicial: `broll-${b.n}.png`,
       imagenFinal: null,
-      descripcion: `B-roll ${b.n} ${b.duracion}s${hablado ? ` (${modeloBroll}, mudo)` : ''}`,
-      // B-roll de un estilo hablado: Kling, mudo, con la duracion entera que
-      // pide el manifiesto (el validador la acota a 3-15 s).
-      ...(hablado ? { cascada: [modeloBroll], ...(sonidoBroll !== undefined ? { sonido: sonidoBroll } : {}) } : {}),
+      // B-roll de un estilo hablado: mudo, con la duracion entera que pide el
+      // manifiesto (el validador la acota a 3-15 s).
+      ...(hablado && sonidoBroll !== undefined ? { sonido: sonidoBroll } : {}),
     });
+    // "mudo" solo si el modelo tiene interruptor de audio y va apagado (Kling;
+    // Omni y Grok traen audio siempre).
+    const m0 = trabajo.cascada[0];
+    const mudo = Boolean(MODELOS_VIDEO[m0]?.audio?.campo) && !audioActivo(m0, trabajo.sonido);
+    trabajo.descripcion = `B-roll ${b.n} ${b.duracion}s${hablado ? ` (${m0}${mudo ? ', mudo' : ''})` : ''}`;
+    trabajos.push(trabajo);
   }
 
   // Ganchos alternativos: otras versiones del bloque que reemplazan, para
@@ -304,14 +355,16 @@ export function construirPlan(m, { soloTomas, ganchos = false, soloPasos = null,
     const lista = soloTomas ? m.ganchos_alternativos.filter((g) => soloTomas.includes(g.reemplaza)) : m.ganchos_alternativos;
     for (const g of lista) {
       trabajos.push(
-        trabajoR(g, {
-          id: `gancho-${g.id}`,
-          clase: 'gancho',
-          n: g.reemplaza,
-          gancho: g.id,
-          archivo: `gancho-${g.id}.mp4`,
-          descripcion: `gancho ${g.id} (R, reemplaza la toma ${g.reemplaza}) ${g.duracion}s`,
-        })
+        conCascada(
+          trabajoR(g, {
+            id: `gancho-${g.id}`,
+            clase: 'gancho',
+            n: g.reemplaza,
+            gancho: g.id,
+            archivo: `gancho-${g.id}.mp4`,
+            descripcion: `gancho ${g.id} (R, reemplaza la toma ${g.reemplaza}) ${g.duracion}s`,
+          })
+        )
       );
     }
   }
@@ -390,6 +443,99 @@ export function sacarFotograma(rutaVideo, segundo, rutaDestino) {
   }
   fs.renameSync(tmp, rutaDestino);
   return { ruta: rutaDestino, segundo: s };
+}
+
+/**
+ * Deja un clip con `segundos` de largo, cortando la cola. Lo usa un bloque R
+ * (o una toma H por ingredientes) pedido a un modelo que no tiene ese largo
+ * (Grok v1 empieza en 6 s y un bloque puede ser de 4): el clip queda con el
+ * largo del bloque, como si se hubiera pedido asi, y el montaje y
+ * cortar-cola-ugc lo ven igual que uno de Omni. Primero sin recodificar
+ * (-c copy); si el largo no queda bien, recodificando. Devuelve true si corto.
+ */
+export function recortarAlBloque(ruta, segundos) {
+  const medir = (r) => {
+    try {
+      const d = Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', r], { encoding: 'utf8' }).trim());
+      return Number.isFinite(d) ? d : null;
+    } catch {
+      return null;
+    }
+  };
+  const antes = medir(ruta);
+  if (antes !== null && antes <= segundos + 0.05) return false;
+  const tmp = path.join(path.dirname(ruta), `.${path.basename(ruta, '.mp4')}.recorte.mp4`);
+  const correr = (args) => execFileSync('ffmpeg', ['-y', '-hide_banner', '-loglevel', 'error', '-i', ruta, '-t', String(segundos), ...args, tmp], { stdio: ['ignore', 'ignore', 'pipe'] });
+  try {
+    correr(['-c', 'copy', '-movflags', '+faststart']);
+    const d = medir(tmp);
+    if (d === null || Math.abs(d - segundos) > 0.15) {
+      correr(['-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart']);
+    }
+  } catch (e) {
+    fs.rmSync(tmp, { force: true });
+    const detalle = String(e.stderr || e.message || '').trim().split(/\r?\n/).slice(-2).join(' ');
+    throw new Error(`no pude recortar ${path.basename(ruta)} a ${segundos}s (ffmpeg: ${detalle})`);
+  }
+  fs.renameSync(tmp, ruta);
+  return true;
+}
+
+/** Medida de un clip con el aspecto y la resolucion configurados (1080p en Kads). */
+function medidaDeSalida(aspecto, resolucion = RESOLUCION_VIDEO) {
+  const [a, b] = String(aspecto || '9:16').split(':').map(Number);
+  const lado = Number(String(resolucion).replace(/[^0-9]/g, '')) || 720;
+  const par = (x) => Math.round(x / 2) * 2;
+  if (!(a > 0 && b > 0)) return { ancho: lado, alto: par(lado * 16 / 9) };
+  return a <= b ? { ancho: lado, alto: par((lado * b) / a) } : { ancho: par((lado * a) / b), alto: lado };
+}
+
+/**
+ * Deja el clip de un modelo con `normalizarSalida` (Grok, PixVerse) igual que
+ * uno de Omni para el resto del sistema: un solo video y un solo audio (Grok
+ * trae una portada mjpeg como segundo video) y la medida configurada del aspecto
+ * del anuncio (Grok 1.5 sigue al frame y a veces da 704x1280: se escala hasta
+ * cubrir y se recorta el sobrante, sin deformar). Con Omni o Kling no se llama.
+ * Un clip que ya esta bien no se toca. Devuelve true si lo cambio.
+ */
+export function normalizarClip(ruta, aspecto, resolucion = RESOLUCION_VIDEO) {
+  const { ancho, alto } = medidaDeSalida(aspecto, resolucion);
+  const info = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,width,height', '-of', 'json', ruta], { encoding: 'utf8' }));
+  const videos = (info.streams || []).filter((s) => s.codec_type === 'video');
+  const audios = (info.streams || []).filter((s) => s.codec_type === 'audio');
+  const v = videos[0];
+  if (!v) throw new Error(`${path.basename(ruta)} no trae video`);
+  const medidaBien = v.width === ancho && v.height === alto;
+  if (medidaBien && videos.length === 1 && audios.length <= 1) return false;
+  const tmp = path.join(path.dirname(ruta), `.${path.basename(ruta, '.mp4')}.normal.mp4`);
+  const args = ['-y', '-hide_banner', '-loglevel', 'error', '-i', ruta, '-map', '0:v:0', '-map', '0:a:0?'];
+  if (medidaBien) args.push('-c', 'copy');
+  else {
+    args.push(
+      '-vf', `scale=${ancho}:${alto}:force_original_aspect_ratio=increase:flags=lanczos,crop=${ancho}:${alto},setsar=1`,
+      '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-c:a', 'copy',
+    );
+  }
+  args.push('-movflags', '+faststart', tmp);
+  try {
+    execFileSync('ffmpeg', args, { stdio: ['ignore', 'ignore', 'pipe'] });
+  } catch (e) {
+    fs.rmSync(tmp, { force: true });
+    const detalle = String(e.stderr || e.message || '').trim().split(/\r?\n/).slice(-2).join(' ');
+    throw new Error(`no pude dejar ${path.basename(ruta)} en ${ancho}x${alto} (ffmpeg: ${detalle})`);
+  }
+  fs.renameSync(tmp, ruta);
+  return true;
+}
+
+/** normalizarClip si el modelo lo pide; un error se avisa y el clip queda como bajo (ya se pago). */
+function normalizarSiHaceFalta(modelo, ruta, aspecto, descripcion) {
+  if (!MODELOS_VIDEO[modelo]?.normalizarSalida) return;
+  try {
+    normalizarClip(ruta, aspecto);
+  } catch (e) {
+    console.log(`  !  ${descripcion}: ${e.message}; el clip queda como lo dio el modelo`);
+  }
 }
 
 /**
@@ -745,9 +891,13 @@ async function generarConCascada(trabajo, ctx, log) {
   // pediria otro al principal y, si volvia a fallar, OTRO al respaldo mientras
   // el primero seguia en kie (que lo cobra al terminar). La huella de cada
   // nivel se arma igual que abajo (su duracion, su resolucion, su prompt).
+  // Un nivel que no puede hacer este clip (ver motivoParaSaltar: PixVerse sin
+  // imagen final, Grok v1 con frame, un modelo sin frame final en una B) se
+  // salta sin pedir ni cobrar nada.
+  const saltoDe = (modelo) => motivoParaSaltar(modelo, { frameFinal: Boolean(trabajo.imagenFinal) });
   const huellaDeNivel = (modelo) => {
     const { resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO);
-    if (excedeTope || (trabajo.imagenFinal && !MODELOS_VIDEO[modelo].frameFinal)) return null;
+    if (excedeTope || saltoDe(modelo)) return null;
     const prompt = ajustarDuracionEnPrompt(trabajo.prompt, duracion).prompt;
     return huellaDeVideo({ modelo, prompt, aspecto: ctx.aspectRatio, resolucion: resolucion.api, duracion, sonido: trabajo.sonido, archivos: archivosEntrada });
   };
@@ -761,33 +911,51 @@ async function generarConCascada(trabajo, ctx, log) {
     }
   }
 
+  // El ultimo modelo al que se le pidio de verdad (para los mensajes).
+  let ultimoPedido = null;
   for (let nivel = desde; nivel < cascada.length; nivel++) {
     const modelo = cascada[nivel];
-    const def = MODELOS_VIDEO[modelo];
-    const { creditos, resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO);
+    const { resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO);
 
-    if (excedeTope) {
-      throw new Error(
-        `${trabajo.descripcion} dura ${trabajo.segundos}s y pasa el tope de ${modelo}.\n` +
-          '  Hay que dividirla en dos tomas en el manifiesto, no truncarla.'
-      );
-    }
-
-    if (trabajo.imagenFinal && !def.frameFinal) {
-      fallos.push(`${modelo} no acepta frame final`);
+    const salto = saltoDe(modelo);
+    if (salto) {
+      fallos.push(salto);
+      // El de siempre (frame final en un modelo que no lo acepta) se salta
+      // callado, como antes; los nuevos dicen por que.
+      if (!(trabajo.imagenFinal && !MODELOS_VIDEO[modelo]?.frameFinal)) console.log(`  ..  ${trabajo.descripcion}: ${salto}; se salta sin pedirle nada`);
       continue;
     }
 
-    if (nivel > desde) {
+    if (excedeTope) {
+      // Si queda despues otro modelo que lo puede hacer, se pasa a ese (p. ej.
+      // un B-roll hablado de 12 s con Omni elegido sigue con Kling). Si no,
+      // para como siempre: hay que dividir la toma. (El plan del CLI ya para
+      // antes de pagar si el primero no alcanza y ninguno lo cubre.)
+      const quedaOtro =
+        trabajo.saltaPorTope === true &&
+        cascada.slice(nivel + 1).some((x) => !saltoDe(x) && !creditosClip(x, trabajo.segundos, RESOLUCION_VIDEO).excedeTope);
+      if (!quedaOtro) {
+        throw new Error(
+          `${trabajo.descripcion} dura ${trabajo.segundos}s y pasa el tope de ${modelo}.\n` +
+            '  Hay que dividirla en dos tomas en el manifiesto, no truncarla.'
+        );
+      }
+      fallos.push(`${trabajo.segundos}s pasa el tope de ${modelo}`);
+      console.log(`  ..  ${trabajo.descripcion}: ${trabajo.segundos}s pasa el tope de ${modelo}; se salta sin pedirle nada`);
+      continue;
+    }
+
+    if (ultimoPedido !== null) {
       console.log(
         rechazoPorContenido
-          ? `\n  ! ${trabajo.descripcion}: ${cascada[nivel - 1]} lo rechazo por contenido (con ese modelo no se reintenta: el mismo prompt falla igual).`
-          : `\n  ! ${trabajo.descripcion}: fallo ${REINTENTOS} veces con ${cascada[0]}.`
+          ? `\n  ! ${trabajo.descripcion}: ${ultimoPedido} lo rechazo por contenido (con ese modelo no se reintenta: el mismo prompt falla igual).`
+          : `\n  ! ${trabajo.descripcion}: fallo ${REINTENTOS} veces con ${ultimoPedido}.`
       );
       console.log(`    Motivo: ${fallos[fallos.length - 1]}`);
       console.log(`    Cambio al modelo de respaldo: ${modelo} (${resolucion.nombre}, ${duracion}s).`);
       console.log('    Puede haber diferencia visual con el resto de los clips.\n');
     }
+    ultimoPedido = modelo;
     rechazoPorContenido = false;
 
     for (let intento = 1; intento <= REINTENTOS; intento++) {
@@ -823,12 +991,18 @@ async function generarConCascada(trabajo, ctx, log) {
           alAvisar: avisoSigueGenerando(trabajo),
           huella,
         });
+        normalizarSiHaceFalta(modelo, r.ruta, ctx.aspectRatio, trabajo.descripcion);
 
+        // Respaldo = antes en la cascada habia un modelo que PODIA hacer este
+        // clip (y fallo, o quedo atras al retomar). Uno que se salto porque no
+        // podia (PixVerse en un clip sin imagen final) no cuenta: para ese clip
+        // el que lo hizo es el primero. Con la cascada de siempre, nivel > 0.
+        const esRespaldo = cascada.slice(0, nivel).some((x) => !saltoDe(x) && !creditosClip(x, trabajo.segundos, RESOLUCION_VIDEO).excedeTope);
         log.push({
           id: trabajo.id,
           archivo: trabajo.archivo,
           modelo: r.modeloReal,
-          respaldo: nivel > 0,
+          respaldo: esRespaldo,
           intentos: intento,
           tipo: trabajo.tipo,
           segundosUtiles: trabajo.segundos,
@@ -837,6 +1011,8 @@ async function generarConCascada(trabajo, ctx, log) {
           frameFinal: Boolean(urlFinal),
           creditos: r.creditos,
           taskId: r.taskId,
+          // Si el modelo que lo hizo genera habla (catalogo-modelos.json).
+          dialogo: esModeloConDialogo(modelo),
           ...(typeof trabajo.sonido === 'boolean' ? { sonido: trabajo.sonido } : {}),
           // Solo con continuidad: que papel tiene el clip en la cadena y, en
           // los pasos, de que imagen sale y a cual llega.
@@ -847,7 +1023,7 @@ async function generarConCascada(trabajo, ctx, log) {
         });
 
         const marcaB = urlFinal ? ' [inicial+final]' : '';
-        const aviso = nivel > 0 ? '  (RESPALDO)' : '';
+        const aviso = esRespaldo ? '  (RESPALDO)' : '';
         console.log(`  OK  ${trabajo.descripcion} -> ${duracion}s${marcaB} — ${r.creditos ?? '?'} cr${aviso}`);
         return { ruta: r.ruta };
       } catch (e) {
@@ -889,12 +1065,14 @@ async function generarConCascada(trabajo, ctx, log) {
   }
 
   // Toma hablada: que paso y que hacer, como en un bloque R.
-  if (esH) throw errorTomaH(trabajo, erroresH, cascada[0], ctx);
+  if (esH) throw errorTomaH(trabajo, erroresH, cascada[0], ctx, cascada);
 
   // Un solo modelo en la cascada (hoy, el B-roll de los estilos hablados): no
   // hubo "dos modelos" que probar.
   const conQue =
-    cascada.length > 1
+    cascada.length > 2
+      ? `fallo con todos los modelos que podian hacerlo (${cascada.join(', ')})`
+      : cascada.length > 1
       ? `fallo con los dos modelos (${cascada.join(' y ')})`
       : rechazoPorContenido
         ? `fue rechazado por contenido con ${cascada[0]} (no se reintento: el mismo prompt falla igual; en este estilo no tiene modelo de respaldo)`
@@ -931,7 +1109,7 @@ async function generarConCascada(trabajo, ctx, log) {
  * con su misma funcion y su mismo largo, y rehazla. Sin respaldo: Kling no
  * genera el dialogo.
  */
-function errorTomaH(trabajo, errores, modelo, ctx) {
+function errorTomaH(trabajo, errores, modelo, ctx, cascada = [modelo]) {
   const motivo = [...errores].reverse().find((e) => e?.failCode || e?.failMsg) || errores[errores.length - 1] || new Error('(sin detalle)');
   const clase = clasificarFalloR(motivo);
   const carpetaArg = ctx.carpetaArg;
@@ -977,8 +1155,9 @@ function errorTomaH(trabajo, errores, modelo, ctx) {
     `${titulo}\n` +
       `  failCode: ${motivo.failCode ?? '(no vino)'}\n` +
       `  failMsg:  ${motivo.failMsg ?? motivo.message}\n\n` +
-      '  En las tomas habladas no hay modelo de respaldo (Kling no genera el dialogo), asi que\n' +
-      '  aqui se para.\n\n' +
+      (cascada.length > 1
+        ? `  Se probo con ${cascada.join(' y ')} (los modelos elegidos para este anuncio) y ninguno lo genero,\n  asi que aqui se para.\n\n`
+        : '  En las tomas habladas no hay modelo de respaldo (Kling no genera el dialogo), asi que\n' + '  aqui se para.\n\n') +
       queHacer
   );
   err.trabajo = trabajo;
@@ -1047,10 +1226,25 @@ export function clasificarFalloR(e) {
  */
 export async function generarBloqueR(trabajo, ctx, log) {
   const destino = path.join(ctx.dirVideo, trabajo.archivo);
-  const modelo = MODELO_VIDEO_UGC;
-  const { resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO);
-  if (excedeTope || duracion !== trabajo.segundos) {
-    throw new Error(`${trabajo.descripcion}: ${modelo} solo genera bloques de 4, 6, 8 o 10 s. Corrige "duracion" en el manifiesto.`);
+  // La cascada del camino de referencias (construirPlan): sin modelos.json,
+  // solo Omni, como siempre. Un modelo que no recibe referencias se salta.
+  const cascada = Array.isArray(trabajo.cascada) && trabajo.cascada.length ? trabajo.cascada : [MODELO_VIDEO_UGC];
+  const niveles = cascada.map((modelo) => {
+    const salto = motivoParaSaltar(modelo, { referencias: true });
+    if (salto) return { modelo, salto };
+    const { resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO);
+    // Un modelo con tramos (Omni) tiene que dar el largo exacto del bloque. Uno
+    // de duracion libre (Grok v1, de 6 a 30 s) se pide con la menor que cubra
+    // y el clip se recorta al largo del bloque al bajarlo (recortarAlBloque).
+    const exacta = !excedeTope && (duracion === trabajo.segundos || !MODELOS_VIDEO[modelo].duraciones);
+    return { modelo, resolucion, duracion, excedeTope, sirve: exacta };
+  });
+  const primeroSinSalto = niveles.find((n) => !n.salto);
+  if (!niveles.some((n) => n.sirve)) {
+    if (!primeroSinSalto) {
+      throw new Error(`${trabajo.descripcion}: ninguno de sus modelos (${cascada.join(', ')}) recibe imagenes de referencia.`);
+    }
+    throw new Error(`${trabajo.descripcion}: ${primeroSinSalto.modelo} solo genera bloques de 4, 6, 8 o 10 s. Corrige "duracion" en el manifiesto.`);
   }
 
   // Se suben ANTES de archivar el clip anterior: si una subida falla, el clip
@@ -1072,82 +1266,147 @@ export async function generarBloqueR(trabajo, ctx, log) {
   const esH = trabajo.tipo === 'H';
   if (esH && trabajo.clase === 'toma') avisarDerivadosSacados(sacarDerivadosDeTomaH(ctx.carpeta, trabajo.n), trabajo.n, ctx.carpetaArg);
   // En H el numero de "Duracion:" del prompt se ajusta como en cualquier toma
-  // hablada (no-op si ya coincide); en R el prompt va tal cual.
-  const ajuste = esH ? ajustarDuracionEnPrompt(trabajo.prompt, duracion) : { prompt: trabajo.prompt, cambiado: false };
+  // hablada (no-op si ya coincide) al largo del BLOQUE: un modelo que lo pide
+  // mas largo (Grok v1, de 6 s para arriba) lo recorta despues, y el habla
+  // tiene que entrar en el largo del bloque. En R el prompt va tal cual.
+  const ajuste = esH ? ajustarDuracionEnPrompt(trabajo.prompt, trabajo.segundos) : { prompt: trabajo.prompt, cambiado: false };
   if (ajuste.cambiado) {
     console.log(`      (${trabajo.descripcion}: el prompt decia "Duracion: ${ajuste.antes}s" y el clip se pide de ${ajuste.despues}s; se ajusta el numero dentro del prompt para que no se contradigan)`);
   }
 
-  const fallos = [];
-  for (let intento = 1; intento <= REINTENTOS; intento++) {
-    try {
-      // El fotograma de un lugar se saca en esta corrida: su contenido se lee aqui.
-      const huella = huellaDeVideo({
-        modelo,
-        prompt: ajuste.prompt,
-        aspecto: ctx.aspectRatio,
-        resolucion: resolucion.api,
-        duracion,
-        archivos: trabajo.rutasReferencias.map((r) => r.ruta),
-      });
-      const r = await generarVideo({
-        modelo,
-        prompt: ajuste.prompt,
-        frameInicial: null,
-        frameFinal: null,
-        imagenesReferencia: urls,
-        aspectRatio: ctx.aspectRatio,
-        resolucionApi: resolucion.api,
-        duracion,
-        rutaDestino: destino,
-        // Pasado este tiempo solo se avisa: se sigue esperando el mismo pedido.
-        timeoutMs: TIMEOUT_VIDEO_MS,
-        alAvisar: avisoSigueGenerando(trabajo),
-        huella,
-      });
-
-      log.push({
-        id: trabajo.id,
-        archivo: trabajo.archivo,
-        modelo: r.modeloReal,
-        respaldo: false,
-        intentos: intento,
-        // 'R' en los bloques (como siempre); 'H' en una toma hablada por ingredientes.
-        tipo: esH ? 'H' : 'R',
-        ...(esH ? { porIngredientes: true } : {}),
-        segundosUtiles: trabajo.segundos,
-        segundosPedidos: duracion,
-        resolucion: resolucion.nombre,
-        frameFinal: false,
-        referencias: trabajo.referencias,
-        creditos: r.creditos,
-        taskId: r.taskId,
-      });
-
-      console.log(`  OK  ${trabajo.descripcion} -> ${duracion}s [${esH ? 'ingredientes' : 'refs'}: ${trabajo.referencias.join(', ')}] — ${r.creditos ?? '?'} cr`);
-      return { ruta: r.ruta };
-    } catch (e) {
-      // Sigue en kie, o termino y no se pudo bajar: otro intento crearia otra tarea igual.
-      if (esSigueEnKie(e)) throw errorSigueEnKie(trabajo, e, ctx);
-      if (esPagadaSinBajar(e)) throw errorPagadaSinBajar(trabajo, e, ctx);
-      fallos.push(e);
-      const clase = clasificarFalloR(e);
-      const quedan = REINTENTOS - intento;
-      if (clase === 'contenido') {
-        // El mismo prompt va a fallar igual: no se gastan los otros intentos.
-        console.log(`  ..  ${trabajo.descripcion}: intento ${intento}/${REINTENTOS} rechazado por contenido (${e.message.slice(0, 130)}) — no se reintenta`);
-        break;
-      }
-      const espera = clase === 'servidor' ? ESPERAS_SERVIDOR_MS[Math.min(intento - 1, ESPERAS_SERVIDOR_MS.length - 1)] : 3000 * intento;
-      const siguiente = !quedan ? '' : clase === 'servidor' ? ` — error del servidor, reintento en ${Math.round(espera / 1000)} s` : ' — reintento';
-      console.log(`  ..  ${trabajo.descripcion}: intento ${intento}/${REINTENTOS} fallo (${e.message.slice(0, 130)})${siguiente}`);
-      if (quedan) await new Promise((r) => setTimeout(r, espera));
+  // El fotograma de un lugar se saca en esta corrida: su contenido se lee al armar la huella.
+  const huellaDeNivel = (n) =>
+    huellaDeVideo({
+      modelo: n.modelo,
+      prompt: ajuste.prompt,
+      aspecto: ctx.aspectRatio,
+      resolucion: n.resolucion.api,
+      duracion: n.duracion,
+      archivos: trabajo.rutasReferencias.map((r) => r.ruta),
+    });
+  // Una tarea que quedo en kie se retoma con el MISMO modelo con que se pidio
+  // (como en generarConCascada): si fue con un respaldo, se empieza por ese.
+  let desde = 0;
+  const pendiente = leerPendiente(destino);
+  if (pendiente && niveles.length > 1) {
+    const k = niveles.findIndex((n) => n.sirve && huellaDeNivel(n) === pendiente.huella);
+    if (k > 0) {
+      desde = k;
+      console.log(`  ..  ${trabajo.descripcion}: la tarea que quedo en kie se pidio con el respaldo (${cascada[k]}); se retoma con ese modelo`);
     }
   }
 
+  const fallos = [];
+  let ultimoPedido = null;
+  let rechazoPorContenido = false;
+  for (let nivel = desde; nivel < niveles.length; nivel++) {
+    const n = niveles[nivel];
+    const { modelo, resolucion, duracion } = n;
+    if (n.salto || !n.sirve) {
+      const motivo = n.salto || (n.excedeTope ? `${trabajo.segundos}s pasa el tope de ${modelo}` : `${modelo} no genera bloques de ${trabajo.segundos} s`);
+      console.log(`  ..  ${trabajo.descripcion}: ${motivo}; se salta sin pedirle nada`);
+      continue;
+    }
+    if (ultimoPedido !== null) {
+      console.log(
+        rechazoPorContenido
+          ? `\n  ! ${trabajo.descripcion}: ${ultimoPedido} lo rechazo por contenido (con ese modelo no se reintenta: el mismo prompt falla igual).`
+          : `\n  ! ${trabajo.descripcion}: fallo con ${ultimoPedido}.`
+      );
+      console.log(`    Motivo: ${fallos[fallos.length - 1]?.message ?? '(sin detalle)'}`);
+      console.log(`    Cambio al modelo de respaldo: ${modelo} (${resolucion.nombre}, ${duracion}s).\n`);
+    }
+    ultimoPedido = modelo;
+    rechazoPorContenido = false;
+
+    for (let intento = 1; intento <= REINTENTOS; intento++) {
+      try {
+        const huella = huellaDeNivel(n);
+        const r = await generarVideo({
+          modelo,
+          prompt: ajuste.prompt,
+          frameInicial: null,
+          frameFinal: null,
+          imagenesReferencia: urls,
+          aspectRatio: ctx.aspectRatio,
+          resolucionApi: resolucion.api,
+          duracion,
+          rutaDestino: destino,
+          // Pasado este tiempo solo se avisa: se sigue esperando el mismo pedido.
+          timeoutMs: TIMEOUT_VIDEO_MS,
+          alAvisar: avisoSigueGenerando(trabajo),
+          huella,
+        });
+        normalizarSiHaceFalta(modelo, r.ruta, ctx.aspectRatio, trabajo.descripcion);
+
+        // Pedido mas largo que el bloque (el modelo no tiene su largo): se
+        // deja con el largo del bloque, como si se hubiera pedido asi.
+        // (Un recorte que falla no es un fallo del clip: ya se pago y se bajo.
+        // Se avisa y queda entero; pedir otro cobraria dos veces.)
+        let recortado = false;
+        if (duracion > trabajo.segundos) {
+          try {
+            recortado = recortarAlBloque(r.ruta, trabajo.segundos);
+          } catch (e) {
+            console.log(`  !  ${trabajo.descripcion}: ${e.message}; el clip queda de ${duracion}s`);
+          }
+        }
+
+        log.push({
+          id: trabajo.id,
+          archivo: trabajo.archivo,
+          modelo: r.modeloReal,
+          // Respaldo = antes habia un modelo que podia hacerlo (ver generarConCascada).
+          respaldo: niveles.slice(0, nivel).some((x) => x.sirve),
+          intentos: intento,
+          // 'R' en los bloques (como siempre); 'H' en una toma hablada por ingredientes.
+          tipo: esH ? 'H' : 'R',
+          ...(esH ? { porIngredientes: true } : {}),
+          segundosUtiles: trabajo.segundos,
+          segundosPedidos: duracion,
+          resolucion: resolucion.nombre,
+          frameFinal: false,
+          referencias: trabajo.referencias,
+          creditos: r.creditos,
+          taskId: r.taskId,
+          // Si el modelo que lo hizo genera habla (catalogo-modelos.json).
+          dialogo: esModeloConDialogo(modelo),
+          ...(recortado ? { recortadoA: trabajo.segundos } : {}),
+        });
+
+        const marcaRecorte = recortado ? ` (recortado a ${trabajo.segundos}s)` : '';
+        const aviso = niveles.slice(0, nivel).some((x) => x.sirve) ? '  (RESPALDO)' : '';
+        console.log(`  OK  ${trabajo.descripcion} -> ${duracion}s${marcaRecorte} [${esH ? 'ingredientes' : 'refs'}: ${trabajo.referencias.join(', ')}] — ${r.creditos ?? '?'} cr${aviso}`);
+        return { ruta: r.ruta };
+      } catch (e) {
+        // Sigue en kie, o termino y no se pudo bajar: otro intento crearia otra tarea igual.
+        if (esSigueEnKie(e)) throw errorSigueEnKie(trabajo, e, ctx);
+        if (esPagadaSinBajar(e)) throw errorPagadaSinBajar(trabajo, e, ctx);
+        fallos.push(e);
+        const clase = clasificarFalloR(e);
+        const quedan = REINTENTOS - intento;
+        if (clase === 'contenido') {
+          // El mismo prompt va a fallar igual: no se gastan los otros intentos.
+          const respaldo = niveles.slice(nivel + 1).find((x) => x.sirve)?.modelo;
+          const queSigue = respaldo ? ` — no se reintenta con ${modelo}: paso al respaldo (${respaldo})` : ' — no se reintenta';
+          console.log(`  ..  ${trabajo.descripcion}: intento ${intento}/${REINTENTOS} rechazado por contenido (${e.message.slice(0, 130)})${queSigue}`);
+          rechazoPorContenido = true;
+          break;
+        }
+        const espera = clase === 'servidor' ? ESPERAS_SERVIDOR_MS[Math.min(intento - 1, ESPERAS_SERVIDOR_MS.length - 1)] : 3000 * intento;
+        const siguiente = !quedan ? '' : clase === 'servidor' ? ` — error del servidor, reintento en ${Math.round(espera / 1000)} s` : ' — reintento';
+        console.log(`  ..  ${trabajo.descripcion}: intento ${intento}/${REINTENTOS} fallo (${e.message.slice(0, 130)})${siguiente}`);
+        if (quedan) await new Promise((r) => setTimeout(r, espera));
+      }
+    }
+  }
+  const modelo = ultimoPedido ?? cascada[0];
+  // Los modelos a los que se les pidio de verdad, para el mensaje.
+  const probados = niveles.slice(desde).filter((x) => x.sirve).map((x) => x.modelo);
+
   // Toma hablada por ingredientes: que paso y que hacer, como en cualquier
   // toma H (se rehace con rehacer-toma.js, no con la forma corta de los R).
-  if (esH) throw errorTomaH(trabajo, fallos, modelo, ctx);
+  if (esH) throw errorTomaH(trabajo, fallos, probados.length > 1 ? probados[0] : modelo, ctx, probados.length > 1 ? probados : [modelo]);
 
   // El motivo que dio kie. Si algun intento trajo failCode/failMsg (la tarea
   // se creo y el modelo la rechazo), ese es el que importa.
@@ -1203,8 +1462,9 @@ export async function generarBloqueR(trabajo, ctx, log) {
     `${titulo}\n` +
       `  failCode: ${motivo.failCode ?? '(no vino)'}\n` +
       `  failMsg:  ${motivo.failMsg ?? motivo.message}\n\n` +
-      '  En los bloques UGC no hay modelo de respaldo (Kling no genera el dialogo y pronuncia\n' +
-      '  mal), asi que aqui se para.\n\n' +
+      (probados.length > 1
+        ? `  Se probo con ${probados.join(' y ')} (los modelos elegidos para este anuncio) y ninguno lo genero,\n  asi que aqui se para.\n\n`
+        : '  En los bloques UGC no hay modelo de respaldo (Kling no genera el dialogo y pronuncia\n' + '  mal), asi que aqui se para.\n\n') +
       queHacer
   );
   err.trabajo = trabajo;
@@ -1761,7 +2021,10 @@ async function cli() {
   const dirVideo = path.join(carpeta, 'video');
   fs.mkdirSync(dirVideo, { recursive: true });
 
-  let plan = construirPlan(manifiesto, { soloTomas, ganchos: conGanchos, soloPasos, soloBroll });
+  // Los modelos de ESTE anuncio (temp/<slug>/modelos.json, lo escribe la app);
+  // sin ese archivo, los de siempre.
+  const eleccion = leerEleccion(carpeta);
+  let plan = construirPlan(manifiesto, { soloTomas, ganchos: conGanchos, soloPasos, soloBroll, eleccion });
   if (sinBroll) plan = plan.filter((t) => t.clase !== 'broll');
 
   // B-ROLL QUE NO ENTRA (2026-10-26). En voz en off y musica, con la voz ya
@@ -1811,11 +2074,13 @@ async function cli() {
     console.error(`      npm run rehacer -- ${carpetaArg} <N>\n`);
     process.exit(1);
   }
-  // Una toma hablada por ingredientes se pide con la duracion exacta (Omni:
-  // 4, 6, 8 o 10 s), sin redondear: forzar otra la haria fallar al generar.
-  const duracionesOmni = MODELOS_VIDEO[MODELO_VIDEO_UGC].duraciones;
-  if (duracionForzada && plan.some((t) => t.porIngredientes) && !duracionesOmni.includes(duracionForzada)) {
-    console.error(`\n  --duracion ${duracionForzada}: las tomas habladas por ingredientes solo se piden de ${duracionesOmni.join(', ')} s.`);
+  // Una toma hablada por ingredientes es siempre de 4, 6, 8 o 10 s, con
+  // cualquier modelo (DURACIONES_H, lo que exige el validador): Omni la pide
+  // exacta y forzar otra la haria fallar al generar (y si el elegido es de
+  // duracion libre, su respaldo Omni tampoco podria hacerla).
+  const conIngredientes = plan.find((t) => t.porIngredientes);
+  if (duracionForzada && conIngredientes && !DURACIONES_H.includes(duracionForzada)) {
+    console.error(`\n  --duracion ${duracionForzada}: las tomas habladas por ingredientes solo se piden de ${DURACIONES_H.join(', ')} s.`);
     console.error('  Pide una de esas, o corrige "duracion" (y el "Duracion: Ns." del prompt) en el manifiesto.\n');
     process.exit(1);
   }
@@ -1935,7 +2200,8 @@ async function cli() {
       : manifiesto.ganchos_alternativos.filter((g) => !soloTomas || soloTomas.includes(g.reemplaza));
   const avisoGanchos = () => {
     if (!ganchosFuera.length) return;
-    const cr = ganchosFuera.reduce((s, g) => s + (creditosClip(MODELO_VIDEO_UGC, g.duracion, RESOLUCION_VIDEO).creditos ?? 0), 0);
+    const modeloGanchos = primerModeloQueSirve(cascadaVideo(eleccion, 'ugc', { referencias: true }), { referencias: true });
+    const cr = ganchosFuera.reduce((s, g) => s + (creditosClip(modeloGanchos, g.duracion, RESOLUCION_VIDEO).creditos ?? 0), 0);
     const ids = ganchosFuera.map((g) => g.id).join(', ');
     console.log(`  Opcional:   ${ganchosFuera.length} gancho(s) alternativo(s) (${ids}) NO entran en esta corrida:`);
     console.log(`              ${cr} creditos = US$${creditosAUsd(cr).toFixed(2)} mas. Se generan con:`);
@@ -1946,7 +2212,7 @@ async function cli() {
   if (conContinuidad) {
     // Que clips de la cadena entran, contando los que ya estan hechos.
     if (soloTomas) {
-      const deTomas = construirPlan(manifiesto, { soloTomas }).map((t) => t.archivo.replace('.mp4', ''));
+      const deTomas = construirPlan(manifiesto, { soloTomas, eleccion }).map((t) => t.archivo.replace('.mp4', ''));
       console.log(`  Limitado a las tomas: ${soloTomas.join(', ')} (los clips que tocan sus imagenes: ${deTomas.join(', ') || 'ninguno'})`);
     }
     if (soloPasos) console.log(`  Limitado a los pasos: ${soloPasos.join(', ')} (${soloPasos.map((k) => `paso-${k}`).join(', ')})`);
@@ -2020,7 +2286,12 @@ async function cli() {
   // Bloques R: que se manda en cada uno, para verlo ANTES de pagar.
   const bloquesR = plan.filter((t) => t.tipo === 'R');
   if (bloquesR.length) {
-    console.log('  Bloques UGC (tipo R): solo referencias, sin frames y sin modelo de respaldo.');
+    const cascadaR = bloquesR[0].cascada?.length ? bloquesR[0].cascada : [MODELO_VIDEO_UGC];
+    console.log(
+      cascadaR.length > 1
+        ? `  Bloques UGC (tipo R): solo referencias, sin frames (${cascadaR.join(' y, si falla, ')}).`
+        : '  Bloques UGC (tipo R): solo referencias, sin frames y sin modelo de respaldo.'
+    );
     console.log('  Cada uno se manda con estas imagenes, en este orden (Imagen 1, Imagen 2...):\n');
     // Un lugar repetido: de donde sale su fotograma (ver ordenarPorLugares).
     const deDondeSale = (r) => {
@@ -2099,15 +2370,42 @@ async function cli() {
   if (hablado) {
     // Las tomas con frame inicial (podcast, y entrevistas de antes) y las que
     // van por ingredientes (entrevista) se explican cada una a su manera.
+    // El respaldo de las H y el modelo del B-roll salen de la cascada de cada
+    // trabajo (Ajustes > Modelos). Con los de siempre, los textos de antes.
+    const respaldoDe = (t) => {
+      const resto = (t?.cascada || []).slice(1);
+      return resto.length ? `si falla, sigue con ${resto.join(' y ')}` : 'sin modelo de respaldo (Kling no genera el dialogo)';
+    };
+    const brollsDelPlan = plan.filter((t) => t.clase === 'broll');
+    const textoBroll = (() => {
+      const modelos = [...new Set(brollsDelPlan.map((t) => primerModeloQueSirve(t.cascada, {})).filter(Boolean))];
+      if (!modelos.length || (modelos.length === 1 && modelos[0] === MODELO_VIDEO_BROLL_POR_ESTILO[manifiesto.estilo])) {
+        return 'B-roll: Kling, mudo, por segundo.';
+      }
+      const uno = (m) => {
+        const def = MODELOS_VIDEO[m];
+        const mudo = Boolean(def?.audio?.campo) && !audioActivo(m, brollsDelPlan[0].sonido);
+        return `${m}${mudo ? ', mudo' : ''}${def?.cobro === 'por-segundo' ? ', por segundo' : ', por clip'}`;
+      };
+      return `B-roll: ${modelos.map(uno).join('; ')}.`;
+    })();
+    const conFrame = plan.find((t) => t.tipo === 'H' && !t.porIngredientes);
     if (!porIngredientes.length || porIngredientes.length < plan.filter((t) => t.tipo === 'H').length) {
       console.log('  Tomas habladas (H): su frame inicial como first_frame_url, sin frame final, sin referencias');
       // (Con tomas por ingredientes, lo del B-roll lo dice su parrafo, abajo.)
-      console.log(`  y sin modelo de respaldo (Kling no genera el dialogo).${porIngredientes.length ? '' : ' B-roll: Kling, mudo, por segundo.'}\n`);
+      console.log(`  y ${respaldoDe(conFrame)}.${porIngredientes.length ? '' : ` ${textoBroll}`}\n`);
     }
     if (porIngredientes.length) {
+      const respaldoIng = respaldoDe(porIngredientes[0]);
       console.log('  Tomas habladas (H) por ingredientes: estas imagenes como image_urls, en este orden (imagen 1,');
-      console.log('  imagen 2... del prompt; la 1 es la imagen del clip, que el prompt pide como frame inicial), sin');
-      console.log('  modelo de respaldo (Kling no genera el dialogo). B-roll: Kling, mudo, por segundo.\n');
+      if (respaldoIng.startsWith('sin ')) {
+        // Los textos de siempre, tal cual.
+        console.log('  imagen 2... del prompt; la 1 es la imagen del clip, que el prompt pide como frame inicial), sin');
+        console.log(`  modelo de respaldo (Kling no genera el dialogo). ${textoBroll}\n`);
+      } else {
+        console.log('  imagen 2... del prompt; la 1 es la imagen del clip, que el prompt pide como frame inicial);');
+        console.log(`  ${respaldoIng}. ${textoBroll}\n`);
+      }
     }
     const ancho = Math.max(...plan.map((t) => t.descripcion.length));
     for (const t of plan) {
@@ -2126,89 +2424,118 @@ async function cli() {
     console.log('');
   }
 
-  // Costo real clip por clip, segun la duracion de cada uno. Un bloque R va
-  // siempre a MODELO_VIDEO_UGC (es el unico que sabe recibir referencias); un
-  // trabajo con cascada propia (tomas H, B-roll de los estilos hablados) va al
-  // primero de su cascada.
-  const modeloDe = (t) => t.cascada?.[0] ?? (t.tipo === 'R' ? MODELO_VIDEO_UGC : MODELOS.video.principal);
+  // Costo real clip por clip, segun la duracion de cada uno, con el primer
+  // modelo de su cascada que puede hacerlo (motivoParaSaltar: PixVerse solo
+  // con imagen final, Grok v1 solo por referencias). Sin modelos.json: Omni
+  // para las tomas y los bloques R, Kling mudo para el B-roll de los hablados.
+  const clipDe = (t) => ({ referencias: t.tipo === 'R' || t.porIngredientes === true, frameFinal: Boolean(t.imagenFinal) });
+  const cascadaDe = (t) => (t.cascada?.length ? t.cascada : t.tipo === 'R' ? [MODELO_VIDEO_UGC] : [MODELOS.video.principal, MODELOS.video.respaldo]);
+  const modeloDe = (t) => {
+    const primero = primerModeloQueSirve(cascadaDe(t), clipDe(t));
+    // Si el primero no alcanza el largo y otro de la cascada si, se cobra con
+    // ese (asi lo hace generarConCascada). Con --duracion forzada, como antes:
+    // se para y se divide.
+    if (!duracionForzada && t.saltaPorTope === true && creditosClip(primero, t.segundos, RESOLUCION_VIDEO).excedeTope) {
+      const otro = cascadaDe(t).find((x) => !motivoParaSaltar(x, clipDe(t)) && !creditosClip(x, t.segundos, RESOLUCION_VIDEO).excedeTope);
+      if (otro) return otro;
+    }
+    return primero;
+  };
+  const redondo = (x) => Math.round(x * 100) / 100;
   let creditosTotal = 0;
   let segundosPedidos = 0;
   let segundosUtiles = 0;
-  const porTramo = {};
-  const porModelo = new Map(); // modelo -> { duracion -> clips } (estilos hablados: una tabla por modelo)
+  const porModelo = new Map(); // modelo -> Map(duracion -> { n, cu, sonido })
   for (const t of plan) {
-    const { creditos, duracion, excedeTope } = creditosClip(modeloDe(t), t.segundos, RESOLUCION_VIDEO);
+    const modelo = modeloDe(t);
+    const sonido = typeof t.sonido === 'boolean' ? { sonido: t.sonido } : {};
+    const { creditos, duracion, excedeTope } = creditosClip(modelo, t.segundos, RESOLUCION_VIDEO, sonido);
     if (excedeTope) {
       console.error(`\n  ${t.descripcion} pasa el tope del modelo. Hay que dividirla en el manifiesto.\n`);
       process.exit(1);
     }
     t.duracionPedida = duracion;
     t.creditos = creditos;
-    creditosTotal += creditos;
+    t.modeloPlan = modelo;
+    creditosTotal = redondo(creditosTotal + creditos);
     segundosPedidos += duracion;
     segundosUtiles += t.segundos;
-    porTramo[duracion] = (porTramo[duracion] || 0) + 1;
-    const tramosDelModelo = porModelo.get(modeloDe(t)) || {};
-    tramosDelModelo[duracion] = (tramosDelModelo[duracion] || 0) + 1;
-    porModelo.set(modeloDe(t), tramosDelModelo);
+    if (!porModelo.has(modelo)) porModelo.set(modelo, new Map());
+    const tramos = porModelo.get(modelo);
+    const e = tramos.get(duracion) || { n: 0, cu: creditos, sonido: t.sonido };
+    e.n++;
+    tramos.set(duracion, e);
   }
+  // Los modelos de respaldo de un trabajo (sin el que se uso para el costo),
+  // para el resumen. Con la cascada de siempre (dos modelos) no se dice nada.
+  const siFalla = (t) => {
+    if (!t) return '';
+    const resto = cascadaDe(t).filter((x) => x !== t.modeloPlan && !motivoParaSaltar(x, clipDe(t)));
+    return resto.length && cascadaDe(t).length > 2 ? ` (si falla: ${resto.join(', ')})` : '';
+  };
 
   const tiposB = plan.filter((t) => t.imagenFinal).length;
   // El validador no deja mezclar bloques R con tomas de otro tipo: o todo el
   // plan es R, o nada lo es.
   const planR = bloquesR.length > 0;
+  const fila = (tramo, n, cu) =>
+    console.log(`   ${String(tramo).padStart(2)}s     ${String(n).padStart(3)}      ${String(cu).padStart(4)}        ${String(redondo(n * cu)).padStart(5)}`);
   if (planR) {
     const nGanchos = plan.filter((t) => t.clase === 'gancho').length;
+    const r0 = plan.find((t) => t.tipo === 'R');
     console.log(`  Clips:      ${plan.length}  (bloques R${nGanchos ? `, ${nGanchos} de ellos gancho(s) alternativo(s)` : ''})`);
-    console.log(`  Modelo:     ${MODELO_VIDEO_UGC} a ${RESOLUCION_VIDEO}, referencias como image_urls`);
+    console.log(`  Modelo:     ${r0.modeloPlan} a ${RESOLUCION_VIDEO}, referencias como image_urls${siFalla(r0)}`);
     console.log('  Audio:      la voz la genera el modelo dentro de cada clip (dialogo con lip-sync)\n');
   } else if (conContinuidad) {
     console.log(`  Clips:      ${textoCuenta(plan)}, ${tiposB} con frame inicial + final`);
-    console.log(`  Modelo:     ${MODELOS.video.principal} a ${RESOLUCION_VIDEO}`);
+    const modelos = [...porModelo.keys()];
+    console.log(`  Modelo:     ${modelos.join(' y ')} a ${RESOLUCION_VIDEO}${modelos.length > 1 ? ' (segun si el clip tiene imagen final)' : ''}`);
     console.log('  Audio:      ambiente nativo del modelo, sin voces (se mezcla bajo la voz en off)\n');
   } else if (hablado) {
     const nH = plan.filter((t) => t.tipo === 'H').length;
     const nBroll = plan.filter((t) => t.clase === 'broll').length;
-    const modeloBroll = plan.find((t) => t.clase === 'broll')?.cascada?.[0];
+    const modeloBroll = plan.find((t) => t.clase === 'broll')?.modeloPlan;
     console.log(`  Clips:      ${plan.length}  (${nH} toma(s) hablada(s)${nBroll ? ` + ${nBroll} B-roll` : ''})`);
     const comoH = !porIngredientes.length
       ? ''
       : porIngredientes.length === nH
         ? ', por ingredientes'
         : `, ${porIngredientes.length} por ingredientes y ${nH - porIngredientes.length} con frame inicial`;
-    console.log(`  Modelo:     ${MODELOS.video.principal} a ${RESOLUCION_VIDEO} para las tomas habladas (sin respaldo${comoH})`);
-    if (modeloBroll) console.log(`              ${modeloBroll} a ${RESOLUCION_VIDEO} para el B-roll (sin audio)`);
-    console.log('  Audio:      la voz la genera Omni dentro de cada toma (dialogo con lip-sync); el B-roll va mudo\n');
+    const modelosH = [...new Set(plan.filter((t) => t.tipo === 'H').map((t) => t.modeloPlan))];
+    const tH = plan.find((t) => t.tipo === 'H');
+    const respaldoH = tH && cascadaDe(tH).length > 1 ? `si falla: ${cascadaDe(tH).slice(1).join(', ')}` : 'sin respaldo';
+    console.log(`  Modelo:     ${(modelosH.length ? modelosH : [MODELOS.video.principal]).join(' y ')} a ${RESOLUCION_VIDEO} para las tomas habladas (${respaldoH}${comoH})`);
+    // Mudo solo si el modelo del B-roll tiene interruptor de audio (Kling); Omni y Grok lo traen siempre.
+    const brollDelPlan = plan.find((t) => t.clase === 'broll');
+    const brollMudo = Boolean(modeloBroll && MODELOS_VIDEO[modeloBroll]?.audio?.campo) && !audioActivo(modeloBroll, brollDelPlan?.sonido);
+    if (modeloBroll) console.log(`              ${modeloBroll} a ${RESOLUCION_VIDEO} para el B-roll (${brollMudo ? 'sin audio' : 'trae su audio'})`);
+    const quienHabla = modelosH.length && modelosH.every((x) => x === MODELOS.video.principal) ? 'Omni' : 'el modelo';
+    console.log(`  Audio:      la voz la genera ${quienHabla} dentro de cada toma (dialogo con lip-sync)${!nBroll || brollMudo ? '; el B-roll va mudo' : ''}\n`);
   } else {
+    const t0 = plan.find((t) => t.clase === 'toma') ?? plan[0];
+    const modelos = [...porModelo.keys()];
     console.log(`  Clips:      ${plan.length}  (${tiposB} con frame inicial + final)`);
-    console.log(`  Modelo:     ${MODELOS.video.principal} a ${RESOLUCION_VIDEO}`);
+    console.log(`  Modelo:     ${modelos.join(' y ')} a ${RESOLUCION_VIDEO}${siFalla(t0)}`);
     console.log('  Audio:      ambiente nativo del modelo, sin voces (se mezcla bajo la voz en off)\n');
   }
-  if (hablado) {
-    // Una tabla por modelo: Omni cobra por tramo, Kling por segundo (sin audio).
-    const creditosUnitarios = (modelo, tramo) => {
-      const def = MODELOS_VIDEO[modelo];
-      return def.cobro === 'por-segundo' ? def.precio[RESOLUCION_VIDEO] * Number(tramo) : def.precio[RESOLUCION_VIDEO][tramo];
-    };
+  if (hablado || porModelo.size > 1) {
+    // Una tabla por modelo: Omni cobra por tramo, los demas por segundo.
     for (const [modelo, tramos] of porModelo) {
       const def = MODELOS_VIDEO[modelo];
-      console.log(`  ${modelo}${def.cobro === 'por-segundo' ? ` (${def.precio[RESOLUCION_VIDEO]} creditos por segundo, sin audio)` : ''}:`);
+      // "sin audio" solo si el modelo tiene interruptor de audio (Kling).
+      const mudo = [...tramos.values()].some((e) => e.sonido === false) && Boolean(def.audio?.campo);
+      const tabla = !mudo && def.precioConAudio && audioActivo(modelo) ? def.precioConAudio : def.precio;
+      const porSegundo = def.cobro === 'por-segundo' ? tabla[resolucionPara(modelo, RESOLUCION_VIDEO).nombre] : null;
+      console.log(`  ${modelo}${porSegundo != null ? ` (${porSegundo} creditos por segundo${mudo ? ', sin audio' : ''})` : ''}:`);
       console.log('  Largo   clips   creditos c/u   subtotal');
-      for (const tramo of Object.keys(tramos).sort((a, b) => a - b)) {
-        const n = tramos[tramo];
-        const cu = creditosUnitarios(modelo, tramo);
-        console.log(`   ${String(tramo).padStart(2)}s     ${String(n).padStart(3)}      ${String(cu).padStart(4)}        ${String(n * cu).padStart(5)}`);
-      }
+      for (const tramo of [...tramos.keys()].sort((a, b) => a - b)) fila(tramo, tramos.get(tramo).n, tramos.get(tramo).cu);
     }
   } else {
-    const modeloTabla = planR ? MODELO_VIDEO_UGC : MODELOS.video.principal;
     // En UGC por bloques "tramo" es otra cosa (cada timestamp dentro del bloque):
     // ahi la columna se llama "Largo" para no confundir.
     console.log(planR ? '  Largo   clips   creditos c/u   subtotal' : '  Tramo   clips   creditos c/u   subtotal');
-    for (const tramo of Object.keys(porTramo).sort((a, b) => a - b)) {
-      const n = porTramo[tramo];
-      const cu = MODELOS_VIDEO[modeloTabla].precio[RESOLUCION_VIDEO][tramo];
-      console.log(`   ${String(tramo).padStart(2)}s     ${String(n).padStart(3)}      ${String(cu).padStart(4)}        ${String(n * cu).padStart(5)}`);
+    for (const [, tramos] of porModelo) {
+      for (const tramo of [...tramos.keys()].sort((a, b) => a - b)) fila(tramo, tramos.get(tramo).n, tramos.get(tramo).cu);
     }
   }
 

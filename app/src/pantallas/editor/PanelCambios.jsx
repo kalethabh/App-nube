@@ -1,6 +1,6 @@
 // Panel derecho: "Cambios rápidos". Lo que se toca aquí se ve y se oye al instante en la vista previa
-// sin generar nada. Lo único que vuelve a generar ("Rehacer con IA") muestra antes del "Sí" qué va a pasar.
-// Sin precios en el editor: el costo del anuncio se ve solo en el informe de la entrega.
+// sin generar nada. Lo único que vuelve a generar es Regenerar un clip (./AccionesClip.jsx): su costo va en su botón
+// (los precios del motor); el costo del anuncio se ve en el informe de la entrega.
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowLeftRight,
@@ -36,6 +36,7 @@ import { ESTILO_POR_ID } from './subtitulos/estilos.jsx';
 import { FUENTES } from './subtitulos/fuentes.js';
 import { Deslizador } from './piezas.jsx';
 import { FUENTES_TEXTO, LUGAR_TEXTO } from './modelo.js';
+import { AccionesClip } from './AccionesClip.jsx';
 
 const NOMBRES_COLOR = {
   '#E8442A': 'Coral',
@@ -336,21 +337,24 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
         {item.quieto && !item.quitado ? (
           <p className="ed-nota ed-nota--aviso">
             <Snowflake size={13} strokeWidth={2.2} aria-hidden="true" />
-            {pista === 'video'
-              ? `Se ve quieta ${coma(item.quieto)} s al final: su clip no alcanza. Acórtala o alarga la toma de al lado.`
-              : `Se ve quieto ${coma(item.quieto)} s al final: su clip no alcanza. Acórtalo.`}
+            {/* (si lo causó tu velocidad o tu deslizado, el consejo es ese) */}
+            {Number(item.ajuste?.desliza) > 0 || (item.velocidadPropia !== null && item.velocidadPropia !== undefined)
+              ? `Se ve ${pista === 'video' ? 'quieta' : 'quieto'} ${coma(item.quieto)} s al final: con esa velocidad y ese deslizado, su clip no alcanza. Desliza menos o baja la velocidad.`
+              : pista === 'video'
+                ? `Se ve quieta ${coma(item.quieto)} s al final: su clip no alcanza. Acórtala o alarga la escena de al lado.`
+                : `Se ve quieto ${coma(item.quieto)} s al final: su clip no alcanza. Acórtalo.`}
           </p>
         ) : null}
         {pista === 'video' ? (
           pistas.cortes?.tomas ? (
             <>
-              <p className="ed-nota">Arrástrala para cambiarla de lugar; sus bordes la recortan y la toma de al lado se estira. La voz no se mueve.</p>
-              <BotonesCorte acciones={acciones} borrar="Borrar toma" />
+              <p className="ed-nota">Arrástrala para cambiarla de lugar; sus bordes la recortan y la escena de al lado se estira. La voz no se mueve.</p>
+              <BotonesCorte acciones={acciones} borrar="Borrar escena" />
             </>
           ) : (
             <p className="ed-nota ed-nota--candado">
               <Lock size={13} strokeWidth={2.2} aria-hidden="true" />
-              {item.oculto ? 'Esta toma solo se oye: la tapa el B-roll.' : pistas.cortes?.motivo || 'Los cortes los pone la voz: esta toma dura lo que dura su frase.'}
+              {item.oculto ? 'Esta escena solo se oye: la tapa una imagen de apoyo.' : pistas.cortes?.motivo || 'Los cortes los pone la voz: esta escena dura lo que dura su frase.'}
             </p>
           )
         ) : (
@@ -361,22 +365,18 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
             etiqueta="Se ve en el video"
             descripcion={
               !item.removible
-                ? 'Tapa una toma que solo se oye: no se puede quitar.'
+                ? 'Tapa una escena que solo se oye: no se puede quitar.'
                 : item.quietoSiLoQuitas
-                  ? `${item.quitado ? 'Quitado: debajo se ve la toma' : 'Si lo quitas, se ve la toma que va debajo'}, y su clip no alcanza: queda quieta ${String(item.quietoSiLoQuitas).replace('.', ',')} s al final.`
+                  ? `${item.quitado ? 'Quitado: debajo se ve la escena' : 'Si lo quitas, se ve la escena que va debajo'}, y su clip no alcanza: queda quieta ${String(item.quietoSiLoQuitas).replace('.', ',')} s al final.`
                   : item.quitado
-                    ? 'Quitado: debajo se ve la toma.'
-                    : 'Si lo quitas, se ve la toma que va debajo.'
+                    ? 'Quitado: debajo se ve la escena.'
+                    : 'Si lo quitas, se ve la escena que va debajo.'
             }
             onCambio={(v) => cambiar((s) => ({ ...s, quitados: v ? s.quitados.filter((x) => x !== id) : [...s.quitados, id] }), { etiqueta: v ? `Volver a poner ${item.nombre}` : `Quitar ${item.nombre}` })}
           />
         )}
-        {pista === 'broll' && item.editable ? <BotonesCorte acciones={acciones} borrar="Borrar B-roll" /> : null}
-        {acciones.sePuedeRehacer?.(item) ? (
-          <Boton variante="secundario" tamano="chico" icono={WandSparkles} bloque onClick={() => acciones.abrirRehacer(item)}>
-            Rehacer con IA
-          </Boton>
-        ) : null}
+        {pista === 'broll' && item.editable ? <BotonesCorte acciones={acciones} borrar="Borrar" /> : null}
+        {item.tipo !== 'reaccion' && item.clip ? <AccionesClip item={item} acciones={acciones} slug={acciones.slug} /> : null}
       </Seccion>
     );
   }
@@ -521,7 +521,7 @@ export function PanelCambios({ plan, pistas, subs, ed, cambiar, seleccion, onSel
             onClick={acciones.alternarSubtitulos}
             deshabilitado={!haySubtitulos}
           />
-          {acciones.rehacerDisponible ? <Atajo icono={WandSparkles} tono="ia" titulo="Rehacer con IA" valor="El clip que se ve" onClick={() => acciones.abrirRehacer()} /> : null}
+          {acciones.rehacerDisponible ? <Atajo icono={WandSparkles} tono="ia" titulo="¿Qué salió mal?" valor="Regenera el clip que se ve" onClick={() => acciones.abrirRehacer()} /> : null}
         </div>
 
         <Elegido seleccion={seleccion} pistas={pistas} subs={subs} ed={ed} cambiar={cambiar} acciones={acciones} alCerrar={() => onSeleccionar(null)} paleta={paleta} />

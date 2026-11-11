@@ -72,7 +72,7 @@ function revisarImagenes(t) {
 // La tarea compartida revisar-clips: {"clips": [{toma, rehacer, motivo, prompt_video}], "bien": []}
 function revisarClipsCompartida(t) {
   const C = t.match(/Carpeta del anuncio: (.+)/)[1].trim();
-  const archivo = t.match(/Escribe (\S+revisar-clips-(\d+)\.json)/);
+  const archivo = t.match(/Escribe (.+?revisar-clips-(\d+)\.json)/);
   const ronda = Number(archivo[2]);
   const m = JSON.parse(fs.readFileSync(path.join(C, 'manifiesto.json'), 'utf8'));
   const bloques = t.split('## Los clips')[1].split('## Qué hacer')[0].split(/\n(?=- )/);
@@ -81,7 +81,7 @@ function revisarClipsCompartida(t) {
   const malBroll = [];
   let broll = false;
   for (const b of bloques) {
-    const tira = b.match(/Tira del clip \(5 cuadros\): (\S+\.jpg)/);
+    const tira = b.match(/Tira del clip \(5 cuadros\): (.+?\.jpg)/);
     if (tira) usar('Read', { file_path: tira[1] });
     const tm = b.match(/^- Toma (\d+)/);
     const br = b.match(/^- B-roll (\d+)/);
@@ -133,7 +133,7 @@ function brollMal(x, bloque) {
 
 // La tarea compartida rechazo: {"clips": [{toma, cambios: [{antes, nueva}], motivo}]}
 function rechazoCompartido(t) {
-  const archivo = t.match(/\n(\S+rechazo-\d+\.json) \(JSON válido\)/)[1].trim();
+  const archivo = t.match(/\n(.+?rechazo-\d+\.json) \(JSON válido\)/)[1].trim();
   const bloques = t.split('## Las escenas rechazadas')[1].split('## Reglas del cambio')[0].split(/\n(?=- Toma )/);
   const clips = [];
   for (const b of bloques) {
@@ -155,7 +155,7 @@ function revisarClips(t) {
   const rehacer = [];
   let broll = false;
   for (const l of t.split('\n')) {
-    const r = l.match(/^\s+- ((toma|broll)-(\d+)) \(.*?\): (\S+\.jpg)/);
+    const r = l.match(/^\s+- ((toma|broll)-(\d+)) \(.*?\): (.+?\.jpg)/);
     if (!r) continue;
     usar('Read', { file_path: r[4] });
     const n = Number(r[3]);

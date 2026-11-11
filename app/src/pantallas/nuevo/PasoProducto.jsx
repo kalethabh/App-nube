@@ -1,8 +1,8 @@
-// Paso 1 "Tu producto": el formulario de una columna (izquierda) y la ficha que arma Claude (derecha).
+// Paso 1 "Tu producto": el formulario de una columna (izquierda) y la ficha que arma tu IA (derecha).
 //
 // "Analizar mi producto" hace, en orden: POST /api/productos (crea temp/_productos/<id>/), sube cada foto
 // con PUT /api/productos/:id/fotos/:n (cuerpo binario, la 1 es la principal) y lanza la sesión "ficha"
-// de Claude con POST /api/productos/:id/analizar. La pantalla (index.jsx) mira el avance con
+// de tu IA con POST /api/productos/:id/analizar. La pantalla (index.jsx) mira el avance con
 // GET /api/productos/:id hasta que llega la ficha real: lo deducido en amarillo y lo que falta en rojo,
 // con sus preguntas. Las correcciones y las respuestas se guardan con PUT /api/productos/:id/ficha.
 //
@@ -34,7 +34,7 @@ import {
 import { AreaTexto, Boton, CampoTexto, Chip, SubirVideo, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, urlFotoProducto, useEstilos } from '../../datos/api.js';
 import { TIPOS_PRODUCTO, faltanDe, filasDeFicha } from './datos.js';
-import { AvisoClaude, Progreso, TarjetaFalla } from './piezas.jsx';
+import { AvisoMotor, Progreso, TarjetaFalla } from './piezas.jsx';
 import { SelloEstilo } from './SelloEstilo.jsx';
 
 const TIPOS = [
@@ -321,7 +321,7 @@ function FichaAntes({ activa, fase, progreso, inicio }) {
         {activa ? (
           <Progreso
             icono={ScanSearch}
-            titulo={fase ? 'Preparando tu producto' : 'Claude está armando tu ficha'}
+            titulo={fase ? 'Preparando tu producto' : 'Tu IA está armando tu ficha'}
             frases={fase ? [fase] : progreso}
             inicio={fase ? undefined : inicio}
             suele="suele tardar uno o dos minutos"
@@ -333,7 +333,7 @@ function FichaAntes({ activa, fase, progreso, inicio }) {
               <ScanSearch size={22} strokeWidth={1.8} />
             </span>
             <h3 className="nv-ficha-antes__titulo">Tu ficha aparece aquí</h3>
-            <p className="nv-ficha-antes__descripcion">Claude junta todo lo de tu producto en una ficha que puedes corregir:</p>
+            <p className="nv-ficha-antes__descripcion">Tu IA junta todo lo de tu producto en una ficha que puedes corregir:</p>
             <ul className="nv-leyenda nv-leyenda--columna">
               <li>
                 <span className="nv-leyenda__muestra nv-leyenda__muestra--pagina" /> Lo que sacó de tu página, tus fotos y lo que contaste
@@ -539,7 +539,7 @@ function Preguntas({ ficha, cambios, onGuardar, onSeguir }) {
           <Boton variante="primario" tamano="grande" bloque iconoDerecha={ArrowRight} onClick={onSeguir}>
             Seguir con tu anuncio
           </Boton>
-          <p className="nv-preguntas__nota">Claude tiene todo lo que necesita. Puedes corregir cualquier dato con el lápiz.</p>
+          <p className="nv-preguntas__nota">Tu IA tiene todo lo que necesita. Puedes corregir cualquier dato con el lápiz.</p>
         </div>
       </Tarjeta>
     );
@@ -667,11 +667,11 @@ export function PasoProducto({
   estiloElegido,
   estiloPronto,
   estiloConContinuidad,
-  claude,
+  motor,
   onSeguir,
 }) {
   const { aviso } = useAvisos();
-  const [fase, setFase] = useState(null); // texto de lo que hace la app antes de Claude (guardar, subir fotos)
+  const [fase, setFase] = useState(null); // texto de lo que hace la app antes de tu IA (guardar, subir fotos)
   const tarea = leido.tarea;
   const ficha = leido.ficha;
   const fichaLista = Boolean(ficha) && !analizando;
@@ -685,8 +685,8 @@ export function PasoProducto({
   };
 
   const analizar = async () => {
-    if (claude.estado && !claude.listo) {
-      aviso({ tipo: 'aviso', titulo: 'Falta tu sesión de Claude', texto: 'Inicia sesión con tu cuenta de Claude para que pueda escribir tus guiones.' });
+    if (motor.falta) {
+      aviso({ tipo: 'aviso', titulo: `Conecta ${motor.nombre || 'tu IA'}`, texto: 'Elige tu IA e inicia sesión en Ajustes para que pueda escribir tus guiones.' });
       return;
     }
     // ya creado con lo mismo: se sigue directo (la ficha se arma sola, sin preguntar nada)
@@ -749,9 +749,9 @@ export function PasoProducto({
   };
 
   const derecha =
-    claude.estado && !claude.listo ? (
+    motor.falta ? (
       <Tarjeta variante="elevada" relleno="amplio" className="nv-aparece">
-        <AvisoClaude claude={claude} para="escribir tus guiones" />
+        <AvisoMotor motor={motor} para="escribir tus guiones" />
       </Tarjeta>
     ) : null;
 

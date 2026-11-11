@@ -79,8 +79,8 @@ function principal() {
     }
     const man = JSON.parse(fs.readFileSync(path.join(carpeta, 'manifiesto.json'), 'utf8'));
     await usar('Read', { file_path: path.join(carpeta, 'manifiesto.json') });
-    // "mira" las imagenes que nombra la tarea
-    for (const ruta of [...primero.matchAll(/([A-Z]:[\\/][^\s"]+\.(?:png|jpg))/g)].map((x) => x[1]).slice(0, 6)) await usar('Read', { file_path: ruta });
+    // "mira" las imagenes que nombra la tarea (la ruta puede llevar espacios y tildes)
+    for (const ruta of [...primero.matchAll(/([A-Z]:[\\/][^"\n]*?\.(?:png|jpg))/g)].map((x) => x[1]).slice(0, 6)) await usar('Read', { file_path: ruta });
     if (modo === 'nada') return resultado();
 
     if (que === 'imagenes') {

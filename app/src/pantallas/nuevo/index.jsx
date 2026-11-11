@@ -1,6 +1,6 @@
 // NUEVO ANUNCIO (#/nuevo): los bloques 1 y 2 de la propuesta, en dos pasos visibles, ya conectados.
 //   Paso 1 "Tu producto": qué vendes, link, fotos, "Cuéntame", guion propio -> la ficha real que arma
-//          Claude Code con la cuenta del usuario (sesión "ficha"), con lo deducido y lo que falta.
+//          IA del usuario (Claude o ChatGPT, con su cuenta; sesión "ficha"), con lo deducido y lo que falta.
 //   Paso 2 "Tu anuncio": los 12 estilos (uno o varios), y en cada uno su duración, su voz, la continuidad (en
 //          los 6 con narrador) y sus preguntas -> "Escribir el guion" (sesión "guion") -> se lee el guion real
 //          (en los cantados, la letra) -> "Me gusta, producir" o "Pedir cambios" -> la producción de ese anuncio.
@@ -30,7 +30,7 @@ import { BORRADOR_VACIO, PasoProducto, firmaDe } from './PasoProducto.jsx';
 import { PasoAnuncio } from './PasoAnuncio.jsx';
 import { Elegir } from './Elegir.jsx';
 import { estiloDeSlug, leerProducto, recordado, recordar } from './datos.js';
-import { useSesionClaude } from './piezas.jsx';
+import { useMotor } from '../ajustes/datos.js';
 import { useCallarAlSalir } from './reproductor.js';
 import './nuevo.css';
 
@@ -141,36 +141,48 @@ function IndicadorPasos({ paso, fichaLista, onIr }) {
   );
 }
 
-/** Quién escribe: Claude Code con la cuenta de Claude del usuario (GET /api/claude/estado). */
-function EstadoClaude({ claude }) {
-  const cc = claude.estado;
-  if (!cc) return null;
-  const ok = claude.listo;
-  const sinSesion = cc.instalado && !ok;
+/** Quién escribe: tu IA (Claude o ChatGPT) con tu cuenta (GET /api/ia/estado). */
+function EstadoIA({ motor }) {
+  if (motor.revisando) return null;
+  const ok = motor.listo;
+  if (!motor.elegido) {
+    return (
+      <Tooltip texto="Para escribir tus guiones, la app usa tu cuenta de Claude o de ChatGPT." lado="abajo">
+        <a href="#/ajustes" className="nv-claude nv-claude--falta" tabIndex={0}>
+          <PuntoEstado tono="error" />
+          <span>
+            Elige tu IA<span className="nv-claude__detalle"> · ir a Ajustes</span>
+          </span>
+        </a>
+      </Tooltip>
+    );
+  }
+  const sinSesion = motor.instalado && !motor.otraVersion && !motor.instalandoAhora && !ok;
+  const conPlanes = `${motor.cuenta}${motor.planes ? ` (${motor.planes})` : ''}`;
   return (
     <Tooltip
       texto={
         ok
-          ? 'La ficha y los guiones los escribe Claude Code con tu propia cuenta de Claude. No necesitas otra clave.'
+          ? `La ficha y los guiones los escribe ${motor.nombre} con tu propia cuenta.`
           : sinSesion
-            ? 'Claude Code está instalado, pero falta iniciar sesión con tu cuenta de Claude (Pro o Max).'
-            : 'Para que la IA escriba tus guiones, instala Claude Code e inicia sesión con tu cuenta de Claude.'
+            ? `${motor.programa} está instalado, pero falta iniciar sesión con ${conPlanes}.`
+            : `Para que ${motor.nombre} escriba tus guiones, instala ${motor.programa} e inicia sesión con ${motor.cuenta}.`
       }
       lado="abajo"
     >
       {sinSesion ? (
-        <button type="button" className="nv-claude nv-claude--falta" onClick={claude.iniciar}>
+        <button type="button" className="nv-claude nv-claude--falta" onClick={() => motor.iniciarSesion()}>
           <PuntoEstado tono="aviso" />
           <span>
-            Claude Code sin sesión<span className="nv-claude__detalle"> · iniciar sesión</span>
+            {motor.programa} sin sesión<span className="nv-claude__detalle"> · iniciar sesión</span>
           </span>
         </button>
       ) : (
         <a href={ok ? undefined : '#/ajustes'} className={`nv-claude${ok ? '' : ' nv-claude--falta'}`} tabIndex={0}>
           <PuntoEstado tono={ok ? 'ok' : 'error'} />
           <span>
-            {ok ? 'Escribe Claude Code' : 'Falta Claude Code'}
-            <span className="nv-claude__detalle">{ok ? ` · con tu cuenta${cc.version ? ` · v${cc.version}` : ''}` : ' · ir a Ajustes'}</span>
+            {ok ? `Escribe ${motor.nombre}` : `Falta ${motor.programa}`}
+            <span className="nv-claude__detalle">{ok ? ' · con tu cuenta' : ' · ir a Ajustes'}</span>
           </span>
         </a>
       )}
@@ -222,7 +234,7 @@ export default function Nuevo({ consulta }) {
 function Flujo({ consulta }) {
   useCallarAlSalir();
   const { aviso } = useAvisos();
-  const claude = useSesionClaude();
+  const motor = useMotor();
   const desdeUrl = useMemo(() => estiloDeConsulta(consulta), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ---------------------------------------------------------------- bloque 1: el producto
@@ -521,7 +533,7 @@ function Flujo({ consulta }) {
     } finally {
       guardarAnuncios(mapa);
       setCreando(false);
-      // lo que pasa ahora (Claude escribiendo) se ve entero: el guion sube a la vista
+      // lo que pasa ahora (tu IA escribiendo) se ve entero: el guion sube a la vista
       if (Object.keys(mapa).length) window.setTimeout(() => document.getElementById('nv-guiones')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 250);
     }
   };
@@ -540,9 +552,9 @@ function Flujo({ consulta }) {
         descripcion={
           paso === 1
             ? 'La foto, lo que quieras que la IA tenga en cuenta y, si tienes, un video de referencia.'
-            : 'Elige el estilo, lee el guion que escribe Claude y das un solo «Sí»: lo demás lo hace la app sola, hasta el video.'
+            : `Elige el estilo, lee el guion que escribe ${motor.elegido ? motor.nombre : 'tu IA'} y das un solo «Sí»: lo demás lo hace la app sola, hasta el video.`
         }
-        acciones={<EstadoClaude claude={claude} />}
+        acciones={<EstadoIA motor={motor} />}
       />
 
       <IndicadorPasos paso={paso} fichaLista={Boolean(productoId) || hayAnuncios} onIr={irAPaso} />
@@ -563,7 +575,7 @@ function Flujo({ consulta }) {
           estiloElegido={desdeUrl?.clave}
           estiloPronto={desdeUrl?.pronto}
           estiloConContinuidad={desdeUrl?.continuidad}
-          claude={claude}
+          motor={motor}
           onSeguir={() => irAPaso(2)}
         />
       ) : (
@@ -576,7 +588,7 @@ function Flujo({ consulta }) {
           anuncios={anuncios}
           creando={creando}
           onEscribir={escribir}
-          claude={claude}
+          motor={motor}
           onVolver={() => irAPaso(1)}
           onProductoDelAnuncio={adoptarProducto}
           enfoque={enfoque}

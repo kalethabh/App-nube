@@ -1,0 +1,100 @@
+{
+  "id": "F06",
+  "slug": "problema-solucion",
+  "nombre": "Problema → Solución",
+  "origen": "biblioteca",
+  "descripcion": "Dos paneles horizontales apilados que se leen de arriba abajo como causa y efecto. Arriba, el problema: una escena desaturada y fría con un rótulo corto marcado con una cruz. Abajo, la solución: la escena resuelta, a todo color y con la paleta de marca, con el producto como protagonista y un rótulo marcado con un check. Una línea de acento y una flecha circular hacia abajo unen los dos paneles.",
+  "angulos_compatibles": ["dolor", "transformacion", "rapido-y-facil", "mecanismo-unico", "beneficio-principal", "nueva-oportunidad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Problem / Solution Stacked Panels Ad",
+  "reference_style": "Two-panel vertical storyboard ad: a desaturated problem scene on top and a bright, branded solution scene with the product below, joined by a downward arrow",
+  "art_direction": {
+    "visual_hierarchy": "1) The color contrast between the grey top panel and the vivid bottom panel. 2) The problem caption, which works as the ad's hook. 3) The product in the bottom panel. 4) The solution caption. 5) The downward arrow badge linking them.",
+    "composition_style": "Vertical storyboard: two full-width horizontal panels stacked, each taking 50% of the canvas height. The top panel is read first (the problem) and the arrow leads the eye down to the bottom panel (the solution). In the bottom panel the product sits in the right half; the captions sit on the left side of each panel, forming a left-aligned reading line from top to bottom.",
+    "spacing_and_structure": "Top panel: 0-50% of the canvas height. Bottom panel: 50-100%. A brand-accent horizontal line about 0.8% of the canvas thick sits exactly at 50%. A circular arrow badge about 11% of the canvas in diameter is centered horizontally on that line, overlapping both panels. Top caption pill: top-left of the top panel, inset 6% from the left and top edges, max 62% of the canvas width. Bottom caption pill: bottom-left of the bottom panel, inset 6% from the left and bottom edges, max 55% of the canvas width so it never covers the product. Inner padding of each pill about 2-2.5% of the canvas.",
+    "lighting_and_depth": "Top panel: flat, cool, dim light, saturation reduced by about 60%, slight grey-blue cast, nothing glows. Bottom panel: bright soft key light, warm, full saturation, brand-colored background or props, the product with crisp highlights, a rim light and a soft contact shadow. Both panels use moderately shallow depth of field."
+  },
+  "layout_summary": "Square canvas divided into two equal horizontal panels. Top panel: a desaturated, cool photo of the problem situation, with a dark caption pill at its top-left containing a small red X icon and a short problem line. Bottom panel: a bright, warm photo of the same context solved, with the user's product large in the right half and a brand-colored caption pill at its bottom-left containing a white check icon and a short solution line. A thin accent line separates the panels and a circular badge with a downward arrow sits centered on it.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "problem photo panel",
+      "position": "Top half of the canvas, full width (0-50% of the height)",
+      "visual_function": "Shows the problem in the most visual, instantly readable way",
+      "adaptation_rule": "Show the problem situation of this product's buyer: the messy, broken, uncomfortable, slow or frustrating version of the context where the product is used. Realistic photo, relatable, not exaggerated. Desaturated cool grade. Keep the top-left area calmer for the caption. The product must NOT appear in this panel."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "solution photo panel",
+      "position": "Bottom half of the canvas, full width (50-100% of the height)",
+      "visual_function": "Shows the same context resolved thanks to the product",
+      "adaptation_rule": "Same place, person or object as the top panel whenever possible, now in its good state; warm, bright, with brand-colored tones in the background or props. Keep the left side calmer so the caption reads well."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Bottom panel, right half, vertically centered in the panel, about 32-38% of the canvas height",
+      "visual_function": "Hero of the solution; the clear reason the problem is gone",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), naturally integrated in the solved scene (in use, held or placed on the surface), front or 3/4 view, sharply in focus."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "divider line with downward arrow badge",
+      "position": "Horizontal line at exactly 50% of the canvas height, full width; circular badge centered on it, about 11% of the canvas in diameter",
+      "visual_function": "Separates the panels and turns them into a before-to-after sequence",
+      "adaptation_rule": "Line in the brand accent. Badge filled with the brand accent with a white downward arrow or chevron, a thin white outline (about 0.5% of the canvas) and a soft drop shadow so it pops over both panels."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "problem caption pill with X icon",
+      "position": "Top-left of the top panel, inset 6% from the left and top edges",
+      "visual_function": "Names the problem in words",
+      "adaptation_rule": "Semi-opaque dark rounded pill (black or brand-dark at about 75% opacity) with a small red X-in-circle icon on its left and the caption text to its right."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "solution caption pill with check icon",
+      "position": "Bottom-left of the bottom panel, inset 6% from the left and bottom edges",
+      "visual_function": "Names the solved state in words",
+      "adaptation_rule": "Solid rounded pill in the brand primary or accent color with a small white check-in-circle icon on its left and the caption text to its right."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "problem caption",
+      "reference_position": "Inside the dark pill at the top-left of the top panel",
+      "text_style": "Extra bold sans-serif, about 5-6% of the canvas height, max 2 lines, left-aligned, white; it is the largest text on the canvas",
+      "guia_texto": "El problema en 3 a 6 palabras, concreto y visual: lo que se ve en el panel de arriba. Es el gancho del anuncio, así que debe sonar a lo que el cliente piensa."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "solution caption",
+      "reference_position": "Inside the brand-colored pill at the bottom-left of the bottom panel",
+      "text_style": "Extra bold sans-serif, same size as the problem caption (about 5-6% of the canvas height), max 2 lines, left-aligned, white or the highest-contrast color on the pill",
+      "guia_texto": "El resultado con el producto en 3 a 6 palabras, en espejo con el problema: mismo tema, estado opuesto."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Two equal horizontal panels stacked vertically",
+    "Top panel desaturated and cool, without the product",
+    "Bottom panel warm, bright and in brand colors, with the user's product large in the right half",
+    "Accent divider line with a circular downward arrow badge at the center",
+    "Dark caption pill with a red X icon in the top panel",
+    "Brand-colored caption pill with a check icon in the bottom panel"
+  ],
+  "forbidden_additions": [
+    "Separate headline above or between the panels",
+    "Any text beyond the two captions",
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Trust seals, guarantee or certification badges",
+    "Benefit list or extra icons",
+    "Rating stars, reviews or testimonials",
+    "Product in the problem panel",
+    "A third panel or a side-by-side (left/right) split",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "La paleta de marca vive en el panel inferior (fondo y props), en la línea divisoria, en la flecha y en la píldora de la solución. El panel superior queda fuera de la paleta a propósito: grises fríos y desaturados. La píldora del problema es oscura y neutra, con la cruz en rojo."
+}

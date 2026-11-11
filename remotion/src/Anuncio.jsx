@@ -265,10 +265,14 @@ const piezasDeContinuidad = (clips, fps, durationInFrames) => {
     // El largo exacto del stream (cuadros / fps) si el plan lo trae; si no,
     // el redondeado a milesimas.
     const largo = c.frames > 0 && c.fps > 0 ? c.frames / c.fps : c.largoOriginal;
+    // Un video propio que el usuario puso en el editor (capas.mjs, velocidadFija): va a su velocidad y desde su
+    // entrada; si no alcanza la ventana, se queda quieto al final (no se estira).
+    const fija = Number(c.velocidadFija) > 0;
     return {
       archivo: c.archivo,
       tipo: c.rol,
-      velocidad: (largo * fps) / largoFrames,
+      velocidad: fija ? Number(c.velocidadFija) : (largo * fps) / largoFrames,
+      ...(fija && c.recorteInicio ? { recorteInicio: c.recorteInicio } : {}),
       pushIn: false,
       mudo: Boolean(c.mudo),
       desdeFrames,
@@ -325,7 +329,8 @@ const piezasDeBloques = (plan, fps, durationInFrames) => {
       ...b.toma,
       tipo: b.tipo,
       pushIn: b.tipo === 'A' || b.tipo === 'C',
-      mudo: Boolean(b.toma.audioDeformado),
+      // mudo: el audio deformado de una toma acelerada, o tu propio video sin su sonido (el editor, capas.mjs)
+      mudo: Boolean(b.toma.audioDeformado || b.toma.mudo),
       desdeFrames: desde,
       largoFrames: Math.max(1, hasta - desde),
       // La transicion se busca por numero de toma, no por posicion en el array:

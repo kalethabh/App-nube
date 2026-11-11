@@ -1,0 +1,128 @@
+{
+  "id": "F19",
+  "slug": "mito-realidad",
+  "nombre": "Mito vs. realidad",
+  "origen": "biblioteca",
+  "descripcion": "Dos tarjetas superpuestas a la izquierda y el producto alto a la derecha. Atrás, inclinada, una ficha de papel gris con la creencia falsa tachada en rojo y un sello de goma rojo que dice MITO. Encima, cubriéndola en parte, la tarjeta de la REALIDAD en color de marca con un check y la verdad en texto fuerte: la verdad literalmente tapa al mito. El producto se apoya junto a esa tarjeta como prueba. Rompe una creencia del público y posiciona el producto como la respuesta correcta.",
+  "angulos_compatibles": ["romper-expectativas", "enemigo-comun", "mecanismo-unico", "objecion-confianza", "curiosidad", "autoridad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Myth vs. Reality Layered Cards Ad",
+  "reference_style": "Bold editorial myth-busting ad with layered cards: a tilted, rubber-stamped and crossed-out myth note behind a vivid brand-colored reality card, with the product standing tall beside it",
+  "art_direction": {
+    "visual_hierarchy": "1) The reality statement on the front brand-colored card. 2) The product standing tall on the right. 3) The red rubber stamp and the crossed-out myth on the tilted note behind. 4) The small reality label with its check icon.",
+    "composition_style": "Layered, asymmetric collage. The left 64% of the canvas holds two overlapping cards: the myth note behind, rotated about -5 degrees and desaturated, and the reality card in front, perfectly straight, covering the myth note's lower part. A red rubber stamp is slapped at an angle over the myth note's upper-right corner. The product stands tall in the right column and slightly overlaps the reality card's right edge, tying the truth to the product.",
+    "spacing_and_structure": "Myth note about 6-60% of the canvas width and 7-44% of the canvas height, rotated about -5 degrees. Rubber stamp about 36-62% of the width and 4-17% of the height, rotated about -12 degrees. Myth statement about 10-56% of the width and 20-34% of the height, below the stamp and above the reality card. Reality card about 6-64% of the width and 38-90% of the height, overlapping the bottom of the myth note by about 6% of the canvas height; inside it, the check icon and label at about 42-48% of the height and the reality statement at about 51-84%. Product about 62-95% of the width and 16-92% of the height, overlapping the reality card's right edge by about 2-3% of the width. Safe margins of about 5-6%; nothing touches the edges.",
+    "lighting_and_depth": "Clear layering through shadows: the myth note has a faint, short shadow and looks flat and faded; the reality card casts a deeper, wider soft shadow onto the myth note and the background, so it feels on top. The stamp looks like real pressed ink with a slightly distressed texture. The product gets a soft studio key light from the upper left, a subtle rim light and a soft contact shadow on an implied surface."
+  },
+  "layout_summary": "Square canvas with a dark or deep brand-tinted background. Upper left, a desaturated gray paper note tilted about -5 degrees shows the myth statement crossed out with a red hand-drawn line, and a red rectangular rubber stamp reading the myth label is pressed across its upper-right corner. Overlapping the lower part of that note, a larger, straight, vivid brand-colored card holds a check icon with the reality label and the reality statement in large bold type. On the right, the user's product stands tall, slightly overlapping the reality card's right edge. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Deep, neutral stage that makes the layered cards and the product stand out",
+      "adaptation_rule": "Use the darkest color of the approved palette or a deep neutral tinted with it, flat or with a very subtle vignette. No textures or decorative shapes."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "myth note",
+      "position": "Upper left, about 6-60% of the canvas width and 7-44% of the canvas height, rotated about -5 degrees, behind the reality card",
+      "visual_function": "Holds the false belief and visually discards it",
+      "adaptation_rule": "Light gray or off-white desaturated paper note with slightly rounded corners and subtle paper texture. Never use brand colors on it."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "myth statement with strikethrough",
+      "position": "Inside the visible part of the myth note, below the stamp, left-aligned, about 10-56% of the canvas width and 20-34% of the canvas height",
+      "visual_function": "States the common false belief the audience holds",
+      "adaptation_rule": "Write the false belief related to the angle in muted dark gray type, crossed out by one rough hand-drawn red marker line running across the text. Keep it fully below the stamp and above the area covered by the reality card, so neither covers a single letter."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "rubber stamp",
+      "position": "Over the myth note's upper-right corner, about 36-62% of the canvas width and 4-17% of the canvas height, rotated about -12 degrees",
+      "visual_function": "Instantly brands the note as false with a bold, physical gesture",
+      "adaptation_rule": "Rectangular rubber-stamp impression with a double border in red ink, slightly distressed and uneven like real pressed ink, containing the myth label."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "reality card",
+      "position": "Left, in front, about 6-64% of the canvas width and 38-90% of the canvas height, perfectly straight",
+      "visual_function": "The hero of the ad: the truth covering the myth",
+      "adaptation_rule": "Solid card in the main brand color (or a smooth gradient of the palette), rounded corners (radius about 2.5% of the canvas width), deep soft shadow cast onto the myth note and the background."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "reality label with check icon",
+      "position": "Top-left inside the reality card, inset about 4% from its edges",
+      "visual_function": "Marks the card as the correct answer",
+      "adaptation_rule": "Solid circle with a white check mark, about 5.5% of the canvas width in diameter, in the brand accent color (or green if the palette has no suitable accent), followed by the reality label."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "reality statement",
+      "position": "Inside the reality card, below the label, left-aligned, about 10-60% of the canvas width and 51-84% of the canvas height",
+      "visual_function": "Delivers the truth that the product embodies",
+      "adaptation_rule": "Write the true statement that replaces the myth and points to how the product works or what it offers. Large bold type with maximum contrast against the card."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "product",
+      "position": "Right column, about 62-95% of the canvas width and 16-92% of the canvas height, slightly overlapping the reality card's right edge",
+      "visual_function": "Visual proof of the reality; anchors the truth to what is being sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, as tall as its proportions allow within the column (about 55-70% of the canvas height for tall products), with a soft contact shadow."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "myth label (stamp)",
+      "reference_position": "Inside the red rubber stamp over the myth note's upper-right corner",
+      "text_style": "Bold condensed uppercase stamp lettering, about 5.5-6% of the canvas height, 1 line, red ink with a distressed texture, rotated with the stamp",
+      "guia_texto": "La palabra 'Mito' o equivalente en el idioma del anuncio. 1 palabra."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "myth statement",
+      "reference_position": "Inside the visible part of the myth note, below the stamp and above the reality card, left-aligned",
+      "text_style": "Medium weight sans-serif, about 4.5-5% of the canvas height per line, max 2 lines, left-aligned, muted dark gray, crossed out by a red hand-drawn line",
+      "guia_texto": "La creencia falsa que tiene el público sobre el problema o la categoría, dicha como la diría la gente. De 4 a 9 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "reality label",
+      "reference_position": "Top-left inside the reality card, right of the check icon",
+      "text_style": "Bold uppercase sans-serif with wide letter spacing, about 3.2% of the canvas height, 1 line, high contrast against the card",
+      "guia_texto": "La palabra 'Realidad' o equivalente en el idioma del anuncio. 1 palabra."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "reality statement",
+      "reference_position": "Inside the reality card, below the label, left-aligned",
+      "text_style": "Extra bold sans-serif, about 5.5-6% of the canvas height per line, max 4 lines, left-aligned, tight line spacing, maximum contrast against the card; one key word may use the brand accent color",
+      "guia_texto": "La verdad que desmiente el mito y apunta al producto o a su mecanismo, sin nombrar marcas de la competencia. De 5 a 10 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Desaturated gray myth note, tilted, behind the reality card",
+    "Red hand-drawn strikethrough over the myth text",
+    "Red distressed rubber stamp over the myth note's corner",
+    "Straight, vivid brand-colored reality card overlapping the myth note, with a check icon",
+    "The user's product standing tall on the right, slightly overlapping the reality card",
+    "Clear depth layering through shadows"
+  ],
+  "forbidden_additions": [
+    "Headline or text outside the two cards and the stamp",
+    "A second myth or more than one myth/reality pair",
+    "Arrows, extra stickers or a second stamp",
+    "Split-screen panels or photo backgrounds",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or benefit icons",
+    "People, faces or before/after photos",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "La paleta de marca vive solo en la tarjeta de la realidad (color principal o degradado de la paleta), en el ícono de check y en el fondo (el color más oscuro de la paleta o un neutro profundo teñido con ella). La ficha del mito es siempre gris claro desaturado, y el sello y el tachado van en rojo, sin colores de marca."
+}

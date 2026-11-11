@@ -1,0 +1,207 @@
+{
+  "id": "G24",
+  "slug": "pantalla-dividida-dos-estados",
+  "nombre": "Pantalla dividida Día 1 vs. Día 30",
+  "origen": "ganador:original-939959663a2a4adb383fd74193ac8174.webp",
+  "descripcion": "Pantalla dividida en vertical 50/50 con una línea blanca fina al centro; ambas mitades son fotos reales a sangre de la misma persona con el producto, oscurecidas arriba con un degradado negro. Arriba de cada mitad va un encabezado de tiempo gigante en amarillo («Día 1» / «Día 30») con una línea pequeña debajo y, bajo él, 4 cajas-etiqueta apiladas: a la izquierda blancas con borde amarillo, a la derecha rellenas de amarillo (el estado escalado). A la izquierda, un primer plano de manos sosteniendo el producto frente a la cara; a la derecha, un contrapicado dinámico del producto en acción. Un sello circular blanco de garantía cierra en la esquina inferior derecha. No es problema contra solución: es una escalada (el Día 1 ya es bueno, el Día 30 es épico), aspiracional y con un toque de humor. Detiene muy bien el scroll.",
+  "angulos_compatibles": [
+    "transformacion",
+    "identidad",
+    "promesa-emocional",
+    "romper-expectativas",
+    "objecion-confianza",
+    "beneficio-principal",
+    "comparacion"
+  ],
+  "tipos_producto": [
+    "ropa",
+    "gadget",
+    "juguete",
+    "cosmetico",
+    "nutraceutico"
+  ],
+  "ad_format": "Day 1 vs Day 30 Split-Screen Escalation Ad",
+  "reference_style": "Bold, aspirational split-screen ad made of two real full-bleed photos of the same person with the product, darkened at the top, with giant yellow time headers and two stacks of four label boxes (outlined on the left, filled on the right) and a white circular guarantee seal",
+  "art_direction": {
+    "visual_hierarchy": "1) The two giant yellow time headers, which set up the comparison. 2) The two photos, close-up on the left and dynamic action on the right. 3) The two stacks of label boxes, read left then right, where the filled right boxes signal the level-up. 4) The guarantee seal in the lower-right corner. 5) The small lines under the time headers.",
+    "composition_style": "Vertical 50/50 split across the whole canvas, divided by a thin white line at exactly 50% of the width. Each half is a full-bleed photo with its own text stack in the upper part, centered on that half: time header, small line, then four stacked label boxes. The product lives in the lower half of each photo: held up to the camera in the left half, in action and very close to the lens in the right half. The guarantee seal overlaps the lower-right corner of the right photo.",
+    "spacing_and_structure": "Divider: full height at 50% of the width, about 0.4% of the canvas wide. Time headers: centered on each half (at about 25% and 75% of the width), from about 5% to 11.5% of the canvas height. Small lines: centered under each header, at about 12.5-15% of the height. Label boxes: four per half, left boxes from about 9% to 41% of the width, right boxes from about 59% to 91%; rows at about 18-23.5%, 24.5-30%, 31-36.5% and 37.5-43% of the height (each about 5.5% tall with about 1% gaps), corner radius about 0.8% of the canvas. Left photo: the product, held in both hands, occupies about 5-42% of the width and 45-100% of the height, with the person's face partly visible behind it on the right side of that half. Right photo: the product, on the person's limb or body, occupies about 55-85% of the width and 60-100% of the height, very close to the lens. Guarantee seal: circle about 21% of the canvas width in diameter, centered at about 88.5% of the width and 88% of the height, so it almost touches the right and bottom edges (about 1% margin).",
+    "lighting_and_depth": "Two real, candid-looking outdoor photos with natural daylight, rich contrast and a slightly cinematic grade (deep shadows, saturated colors in the urban or activity setting). Each half is darkened by a black gradient at the top (about 85% opacity at the top edge, fading to transparent at about 45-50% of the height) so the yellow and white graphics read clearly. Left photo: eye-level close-up with shallow depth of field, the product sharp and the face softly blurred behind it. Right photo: wide-angle worm's-eye view from very low, the product sharp in the foreground with dynamic perspective and the person and sky behind. Boxes, headers and seal are flat graphics; the seal has a soft drop shadow."
+  },
+  "layout_summary": "Square canvas split vertically in two equal halves by a thin white line. Left half: a full-bleed real photo of a person holding the user's product up in both hands in front of their face, close to the camera, outdoors; at the top, over a black gradient, a giant yellow condensed uppercase time header ('Day 1' idea), a small yellow line under it and four stacked rectangular label boxes, white with a yellow border and black condensed uppercase text. Right half: a full-bleed real photo from a very low angle of the same person in a dynamic action wearing or using the product, which looms large in the foreground; at the top, the same structure with a later time header ('Day 30' idea), the same small line and four stacked label boxes filled in solid yellow with black text. A white circular seal with a black guarantee text overlaps the lower-right corner.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "left photo panel (first contact)",
+      "position": "Left 50% of the canvas, full height, edge to edge",
+      "visual_function": "Shows the first moment with the product: already exciting from day one",
+      "adaptation_rule": "Real-looking candid photo of a person matching the target audience holding the user's product up with both hands in front of their face, close to the camera, looking at it, in the setting where the product is used (street court, gym, outdoors, home). Eye-level close-up with shallow depth of field. Darken the top with a black gradient for the texts."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "right photo panel (peak moment)",
+      "position": "Right 50% of the canvas, full height, edge to edge",
+      "visual_function": "Shows the escalated, epic result after using the product for a while",
+      "adaptation_rule": "Real-looking photo of the same person, now in a dynamic peak moment of use (kicking, running, jumping, showing off, performing) with the product worn or used and very close to the lens, shot from a very low worm's-eye angle with wide-angle perspective, sky or setting behind. Darken the top with a black gradient for the texts."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product (in both photos)",
+      "position": "Left half: held in both hands at about 5-42% of the canvas width and 45-100% of the height. Right half: worn or used, in the foreground at about 55-85% of the width and 60-100% of the height",
+      "visual_function": "Keeps the product as the hero of both moments",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, material, label, logo and colors) in both halves, sharply in focus. Never cover it with the label boxes."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "center divider line",
+      "position": "Full height at exactly 50% of the canvas width, about 0.4% of the canvas wide",
+      "visual_function": "Separates the two moments cleanly",
+      "adaptation_rule": "Straight solid white line, flat, with no badge or icon on it."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "left label boxes (4, outlined)",
+      "position": "Left half, from about 9% to 41% of the canvas width, rows at about 18-23.5%, 24.5-30%, 31-36.5% and 37.5-43% of the height",
+      "visual_function": "Lists the immediate wins of the first moment",
+      "adaptation_rule": "Four identical rectangles with slightly rounded corners (about 0.8% of the canvas), white fill and a yellow border about 0.5% of the canvas thick, each holding one centered line of text."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "right label boxes (4, filled)",
+      "position": "Right half, from about 59% to 91% of the canvas width, same rows as the left boxes",
+      "visual_function": "Lists the escalated wins; the solid fill signals the level-up",
+      "adaptation_rule": "Four identical rectangles with the same size and radius as the left boxes, solid warm yellow fill with a thin lighter yellow edge, each holding one centered line of text."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "circular guarantee seal",
+      "position": "Lower-right corner, overlapping the right photo, about 21% of the canvas width in diameter, centered at about 88.5% of the width and 88% of the height, almost touching the right and bottom edges",
+      "visual_function": "Removes risk at the moment of decision",
+      "adaptation_rule": "Solid white circle with a soft drop shadow, holding three stacked lines of black condensed text: the guarantee period large on top and two smaller lines below. Write the user's real guarantee."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "time header (left)",
+      "reference_position": "Top of the left half, centered on it",
+      "text_style": "Extra bold condensed uppercase sans-serif, about 6.5% of the canvas height, 1 line, centered on the half, warm yellow on the dark gradient",
+      "guia_texto": "Marca de tiempo del primer momento, de 1 a 2 palabras (por ejemplo «Día 1»)."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "small line under the left header",
+      "reference_position": "Right under the left time header, centered",
+      "text_style": "Bold condensed uppercase sans-serif, about 2.5% of the canvas height, 1 line, centered, warm yellow",
+      "guia_texto": "Complemento que ancla el tiempo al producto, en 3 a 4 palabras (por ejemplo «de usar» + nombre del producto del usuario)."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "time header (right)",
+      "reference_position": "Top of the right half, centered on it",
+      "text_style": "Same style as the left time header",
+      "guia_texto": "Marca de tiempo del momento escalado, de 1 a 2 palabras (por ejemplo «Día 30»), coherente con la de la izquierda."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "small line under the right header",
+      "reference_position": "Right under the right time header, centered",
+      "text_style": "Same style as the small line on the left",
+      "guia_texto": "La misma frase que en la mitad izquierda."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "left label 1",
+      "reference_position": "Inside the first left box, centered",
+      "text_style": "Bold condensed uppercase sans-serif, about 2.8% of the canvas height, 1 line, centered, near-black on white",
+      "guia_texto": "Primera ganancia inmediata que se siente desde el primer día (rendimiento, sensación, estilo), en 2 a 3 palabras, con tono enérgico."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "left label 2",
+      "reference_position": "Inside the second left box, centered",
+      "text_style": "Same style as left label 1",
+      "guia_texto": "Segunda ganancia inmediata, en 2 a 3 palabras (puede ser de estilo o de cómo se ve)."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "left label 3",
+      "reference_position": "Inside the third left box, centered",
+      "text_style": "Same style as left label 1",
+      "guia_texto": "Tercera ganancia inmediata, en 2 a 3 palabras (por ejemplo sobre comodidad o facilidad)."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "left label 4",
+      "reference_position": "Inside the fourth left box, centered",
+      "text_style": "Same style as left label 1",
+      "guia_texto": "Cuarta ganancia inmediata, en 2 a 3 palabras (por ejemplo sobre protección, calidad o seguridad)."
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "right label 1",
+      "reference_position": "Inside the first right box, centered",
+      "text_style": "Bold condensed uppercase sans-serif, about 2.8% of the canvas height, 1 line, centered, near-black on yellow",
+      "guia_texto": "Logro escalado o de estatus que llega con el tiempo, en 2 a 4 palabras, aspiracional y con un toque de humor (racha, récord, nivel alcanzado)."
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "right label 2",
+      "reference_position": "Inside the second right box, centered",
+      "text_style": "Same style as right label 1",
+      "guia_texto": "Segundo logro escalado, en 2 a 4 palabras, más grande que su par de la izquierda."
+    },
+    {
+      "block_id": "text_block_11",
+      "reference_function": "right label 3",
+      "reference_position": "Inside the third right box, centered",
+      "text_style": "Same style as right label 1",
+      "guia_texto": "Tercer logro escalado, en 2 a 4 palabras: cómo te ven o reaccionan los demás."
+    },
+    {
+      "block_id": "text_block_12",
+      "reference_function": "right label 4",
+      "reference_position": "Inside the fourth right box, centered",
+      "text_style": "Same style as right label 1",
+      "guia_texto": "Remate épico de identidad, en 2 a 4 palabras (el título que el cliente se gana)."
+    },
+    {
+      "block_id": "text_block_13",
+      "reference_function": "guarantee period",
+      "reference_position": "Inside the seal, top line, centered",
+      "text_style": "Extra bold condensed uppercase sans-serif, about 4.5% of the canvas height, 1 line, centered, black on white",
+      "guia_texto": "El plazo de la garantía real que dio el usuario, en 1 a 2 palabras o cifras (por ejemplo «30 días»)."
+    },
+    {
+      "block_id": "text_block_14",
+      "reference_function": "guarantee type",
+      "reference_position": "Inside the seal, two lines under the period, centered",
+      "text_style": "Bold condensed uppercase sans-serif, about 2.4% of the canvas height, 2 lines, centered, black on white",
+      "guia_texto": "El tipo de garantía, en 2 a 4 palabras (por ejemplo devolución de tu dinero)."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Vertical 50/50 split with a thin white divider",
+    "Two full-bleed real photos of the same person with the product, darkened at the top by a black gradient",
+    "Left photo: product held in both hands in front of the face, close-up",
+    "Right photo: low-angle dynamic action shot with the product in the foreground",
+    "Giant yellow time header and small yellow line at the top of each half",
+    "Four outlined white label boxes on the left and four filled yellow label boxes on the right",
+    "White circular guarantee seal in the lower-right corner"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or shipping badge",
+    "Rating stars, reviews or testimonials",
+    "Main headline band or subheadline above the split",
+    "Arrow badge on the divider",
+    "Desaturated or 'problem' grade on the left half",
+    "Benefit icons",
+    "More than two panels or a horizontal split",
+    "More than 4 label boxes per half",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fotos reales con colores naturales y contrastados del contexto de uso, oscurecidas arriba con un degradado negro. Encabezados de tiempo y líneas de apoyo en amarillo cálido y saturado (o en el acento de la marca si es luminoso y contrasta sobre negro). Cajas de la izquierda blancas con borde amarillo y texto negro; cajas de la derecha rellenas del mismo amarillo con texto negro. Divisor y sello en blanco con texto negro. El producto conserva sus colores reales; la ropa del set puede llevar colores de la marca.",
+  "posicion_logo": null
+}

@@ -1,0 +1,172 @@
+{
+  "id": "G19",
+  "slug": "tres-columnas-producto-lista-persona",
+  "nombre": "Tres columnas: producto, beneficios y persona",
+  "origen": "ganador:ChatGPT Image 22 ene 2026, 09_55_25 p.m..png",
+  "descripcion": "Fondo lifestyle claro y cálido (sala desenfocada con plantas y luz de ventana). Arriba, un titular-pregunta grande de 1 línea que nombra el dolor; debajo, una pincelada amarilla tipo resaltador con la propuesta (verbo de invitación + el concepto de solución en negrita y mayúsculas, por ejemplo el alivio o resultado que promete). El cuerpo va en tres columnas: el producto grande a la izquierda sobre una mesita redonda con hojas frescas; al centro, un subtítulo de 2 líneas con la palabra clave en negrita, un divisor fino y una lista de 4 beneficios con check verde circular; a la derecha, una persona sonriente a cámara, de la cintura arriba, sosteniendo un vaso. Cierra abajo una franja dorada en pincelada a todo el ancho con 5 estrellas y la cifra de clientes satisfechos. Dolor, solución y prueba social en un solo vistazo; muy de nutracéuticos en LATAM.",
+  "angulos_compatibles": ["dolor", "beneficio-principal", "prueba-social", "rapido-y-facil", "beneficio-sin-sacrificio"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "hogar", "gadget"],
+  "ad_format": "Three-Column Pain Question Ad (Product, Benefit Checklist and Smiling User)",
+  "reference_style": "Warm, high-key LATAM direct-response ad: a one-line pain question headline, a yellow highlighter brush stroke with the 'try + solution concept' proposal, the product on a round side table at the left, a green-check benefit list in the middle, a smiling person holding a glass at the right and a gold brush-stroke social proof strip along the bottom",
+  "art_direction": {
+    "visual_hierarchy": "1) The pain question headline at the top. 2) The product on the left and the smiling person on the right, which frame the whole layout. 3) The yellow highlighter brush stroke with the proposal. 4) The two-line subtitle and the four checked benefits in the middle column, read top to bottom. 5) The gold strip at the bottom with the five stars and the customer count.",
+    "composition_style": "A centered text stack across the top, then a three-column body that shares one vertical band: left column (about 5-35% of the canvas width) with the product standing on a round side table; middle column (about 33-62% of the width) with the subtitle, a thin divider and the benefit checklist; right column (about 55-100% of the width) with the person, cropped by the right edge. The person's head rises higher than the product (top of the head at about 16% of the canvas height, level with the highlighter stroke) while the product's top sits at about 25%, so the right side feels taller and the eye travels diagonally from the question to the person. A full-width strip closes the bottom and overlaps the lower part of the person and the table.",
+    "spacing_and_structure": "Headline: one line from about 5.5% to 12% of the canvas height, spanning about 7-85% of the width, centered. Highlighter stroke: from about 14% to 20% of the height and from about 5% to 64% of the width (left-weighted, not centered), with its text centered on the stroke. Product: from about 25% to 86% of the height (about 60% tall), from about 8% to 32% of the width, standing on the top of a round side table whose top surface spans about 0-53% of the width at about 82-90% of the height, with fresh leaves at both sides of its base. Subtitle: from about 24% to 31% of the height and about 33% to 61% of the width, left-aligned, with a thin divider right under it at about 32%. Benefit list: four rows from about 35% to 66% of the height (row centers at about 38%, 46%, 54% and 62%), check circles at about 34-38% of the width, texts from about 39% to 61%. Person: from about 55% of the width to the right edge, top of the head at about 16% of the height, face centered at about 81% of the width and 34% of the height, the hand with the glass at about 63-73% of the width and 51-64% of the height; the torso continues down behind the bottom strip. Bottom strip: full width, from about 90% to 98.5% of the height. Text side margins about 5-7%.",
+    "lighting_and_depth": "Warm, soft natural window light from the upper right; high-key, creamy tones. The background is a softly blurred living room (light walls, sofa, potted plants on the left side) with shallow depth of field. The product is tack-sharp with soft highlights and a soft contact shadow on the marble or stone table top. The person is lit by the same warm window light, sharp, with natural skin tones and a relaxed posture. Text and icons are flat; the highlighter stroke and the bottom strip have a painted, slightly textured brush edge."
+  },
+  "layout_summary": "Square canvas filled with a warm, softly blurred living-room background. At the top, a large one-line question headline in very dark green or near-black, centered. Under it, on the left, a yellow highlighter brush stroke carrying a short proposal: an invitation verb in regular weight followed by a 1-3 word solution concept (the relief or result the product promises) in extra bold uppercase. Below, three columns: on the left, the user's product, large and upright, on a round light marble side table with fresh green leaves at its base; in the middle, a two-line subtitle (first line regular, second line bold with the key word), a thin divider and four benefit rows, each starting with a solid green circle with a white check; on the right, a smiling person looking at the camera, shown from the waist up, sitting at the table and holding a glass of water, cropped by the right edge. A gold brush-stroke strip spans the full width at the bottom with five gold stars on its left followed by a bold line stating the number of satisfied customers.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "lifestyle background",
+      "position": "Full canvas, behind every element",
+      "visual_function": "Places the product in a calm, everyday home setting that feels warm and trustworthy",
+      "adaptation_rule": "A softly blurred, bright living room or home corner (light walls, sofa, potted plants, window light) in warm natural tones, with shallow depth of field. Keep the area behind the headline and the middle column calm and light so the dark text reads perfectly."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, one line from about 5.5% to 12% of the canvas height, about 7-85% of the width",
+      "visual_function": "Stops the scroll by naming the viewer's problem as a direct question",
+      "adaptation_rule": "Write the pain question of this variation's angle. It must fit in one line."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "highlighter brush stroke",
+      "position": "Under the headline, from about 14% to 20% of the canvas height and from about 5% to 64% of the width (left-weighted)",
+      "visual_function": "Highlights the solution proposal as if marked with a highlighter, answering the question with the promised relief or result",
+      "adaptation_rule": "One horizontal painted brush stroke in warm yellow with rough, dry-brush ends and a slightly irregular edge, sized to its text. Flat, no shadow."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Left column, from about 8% to 32% of the canvas width and from about 25% to 86% of the height (about 60% tall), standing on the side table",
+      "visual_function": "Main visual anchor; shows exactly what solves the problem",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front view, upright, label facing the camera, with a soft contact shadow on the table top."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "side table with fresh leaves",
+      "position": "Bottom-left, round table top spanning about 0-53% of the canvas width at about 82-90% of the height; leaves at both sides of the product's base",
+      "visual_function": "Grounds the product in the room and adds a fresh, natural feel",
+      "adaptation_rule": "A small round light marble or stone side table seen slightly from above, with a few fresh green leaves or herbs linked to the product's ingredients or use (mint, herbs, flowers, citrus leaves) arranged at the base of the product. Nothing covers the product's label."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "thin divider line",
+      "position": "Middle column, right under the subtitle, at about 32% of the canvas height, from about 33% to 60% of the width",
+      "visual_function": "Separates the subtitle from the benefit list",
+      "adaptation_rule": "Hairline about 0.2% of the canvas thick in a light, low-contrast tone (pale gold or light grey)."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "benefit check icons (4)",
+      "position": "Middle column, at the left of each benefit row, about 34-38% of the canvas width, row centers at about 38%, 46%, 54% and 62% of the height",
+      "visual_function": "Marks each benefit as a confirmed result and makes the list scannable",
+      "adaptation_rule": "Solid green circles about 4% of the canvas in diameter with a bold white check mark, all identical. No other icon style."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "smiling person holding a glass",
+      "position": "Right column, from about 55% of the canvas width to the right edge, top of the head at about 16% of the height, torso continuing behind the bottom strip; face at about 81% of the width and 34% of the height",
+      "visual_function": "Shows the relieved, happy result and puts a relatable face on the solution",
+      "adaptation_rule": "A realistic person matching the target audience (age, gender, style), smiling warmly at the camera, from the waist up, sitting or leaning at the table in relaxed everyday clothes in light neutral tones. They hold a simple item linked to the moment of use at chest height (a glass of water in the reference; for other products the equivalent item, such as a cup, a towel or a hand resting on the area the product helps). Never a second unit of the product. Cropped by the right edge of the canvas."
+    },
+    {
+      "block_id": "block_09",
+      "block_type": "bottom gold brush-stroke strip",
+      "position": "Full width, from about 90% to 98.5% of the canvas height",
+      "visual_function": "Closes the ad with social proof on a band that reads as a seal of approval",
+      "adaptation_rule": "A wide painted brush stroke in gold or mustard yellow with a subtle dry-brush texture and soft ragged ends, spanning the full width, slightly lighter towards its ends. It overlaps the lower part of the person and the table. It holds the five stars on the left and the customer-count line written with the user's real customer figure."
+    },
+    {
+      "block_id": "block_10",
+      "block_type": "star rating row",
+      "position": "Inside the bottom strip, left side, from about 5% to 31% of the canvas width, vertically centered on the strip",
+      "visual_function": "Signals customer satisfaction before the figure is read",
+      "adaptation_rule": "Five filled gold stars with a thin darker outline, each about 3.5% of the canvas height, evenly spaced in one row."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline (pain question)",
+      "reference_position": "Top center, one line",
+      "text_style": "Extra bold sans-serif, line about 6.5% of the canvas height, 1 line, centered, very dark green or near-black on the light background, with opening and closing question marks",
+      "guia_texto": "Pregunta directa que nombra el problema que resuelve el producto, en 4 a 7 palabras (¿Sufres de...? / ¿Te pasa que...?)."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "proposal on the highlighter stroke",
+      "reference_position": "Centered on the yellow highlighter brush stroke",
+      "text_style": "Sans-serif, about 4.5% of the canvas height, 1 line, dark green or near-black; the first word in regular weight and the solution concept in extra bold uppercase",
+      "guia_texto": "Un verbo corto de invitación a probar (Prueba / Descubre) seguido del concepto de solución en mayúsculas: el alivio o resultado que promete el producto en 1 a 3 palabras (o el nombre del producto si es corto y descriptivo). De 2 a 5 palabras en total."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "subtitle (what the product is)",
+      "reference_position": "Middle column, top, above the divider, left-aligned",
+      "text_style": "Sans-serif, 2 lines, left-aligned: first line regular, about 2.8% of the canvas height, dark green; second line bold, about 3.5%, in the brand green or accent, carrying the key differentiator",
+      "guia_texto": "Qué es el producto en la primera línea y su diferencial clave en la segunda (formato, absorción, origen natural, rapidez), en 5 a 8 palabras en total."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 1",
+      "reference_position": "Middle column, first row, right of the first check",
+      "text_style": "Semi-bold sans-serif, about 3% of the canvas height per line, max 2 lines, left-aligned, near-black or very dark green",
+      "guia_texto": "El beneficio más fuerte para el ángulo, como alivio o resultado concreto, en 3 a 5 palabras. Usa los beneficios guardados en producto.json (Paso 2)."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 2",
+      "reference_position": "Middle column, second row, right of the second check",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Segundo beneficio, en 3 a 5 palabras, como resultado para el cliente."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "benefit 3",
+      "reference_position": "Middle column, third row, right of the third check",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Tercer beneficio, en 3 a 5 palabras, como resultado para el cliente."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "benefit 4",
+      "reference_position": "Middle column, fourth row, right of the fourth check",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Cuarto beneficio, en 3 a 5 palabras; idealmente el beneficio de uso diario o de largo plazo."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "customer count",
+      "reference_position": "Inside the bottom strip, right of the stars, left-aligned",
+      "text_style": "Bold sans-serif, about 4% of the canvas height, 1 line, left-aligned, very dark green or near-black on the gold strip",
+      "guia_texto": "Cuántos clientes satisfechos tiene el producto, con una cifra concreta y redonda, en 4 a 6 palabras (Más de X clientes satisfechos)."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Warm, softly blurred living-room background with window light",
+    "One-line pain question headline at the top",
+    "Yellow highlighter brush stroke with the invitation verb + bold uppercase solution concept",
+    "The user's product, large, on a round light side table with fresh leaves, in the left column",
+    "Two-line subtitle, thin divider and four benefits with solid green check circles in the middle column",
+    "Smiling person from the waist up, holding a glass (or the equivalent moment-of-use item), cropped by the right edge",
+    "Full-width gold brush-stroke strip at the bottom with five gold stars and the customer count"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or shipping badge",
+    "Trust seals, guarantee or certification badges",
+    "Testimonial quotes or review cards",
+    "Arrows or callout lines",
+    "Icon tiles or illustrated icons on the benefits (only the green checks)",
+    "Numbers on the benefit rows",
+    "Cards or panels behind the columns",
+    "More than one person",
+    "A second unit of the product",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fondo en colores naturales cálidos (crema, beige, blanco roto y verdes de plantas) con luz de ventana. Titular y textos en verde muy oscuro o casi negro. La pincelada del resaltador va en amarillo cálido y la franja inferior en dorado o amarillo mostaza con textura de pincel: son parte del formato y se mantienen. Los checks van en verde (o en el color de acento de la marca si es verde o fresco). La paleta de marca vive en el producto, en la palabra clave del subtítulo y en detalles del set; la persona viste neutros claros.",
+  "posicion_logo": null
+}

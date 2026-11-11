@@ -1,0 +1,135 @@
+{
+  "id": "F31",
+  "slug": "lista-razones",
+  "nombre": "Lista de razones",
+  "origen": "biblioteca",
+  "descripcion": "Anuncio tipo listicle en dos mitades. Arriba: un número gigante en color de acento (el N de 'N razones') con el resto del titular debajo, a la izquierda, y el producto grande a la derecha. Abajo: de 3 a 5 franjas horizontales a todo el ancho, apiladas como tarjetas, cada una con un círculo numerado y una razón corta. El número gigante detiene el scroll y las franjas se leen de un vistazo en el celular.",
+  "angulos_compatibles": ["beneficio-principal", "caracteristica-estrella", "mecanismo-unico", "beneficio-sin-sacrificio", "objecion-confianza", "curiosidad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Numbered Reasons Listicle Ad",
+  "reference_style": "Bold editorial listicle ad: a giant accent numeral opening an 'N reasons why…' headline, the product as hero beside it, and a stack of full-width numbered reason strips across the lower half",
+  "art_direction": {
+    "visual_hierarchy": "1) The giant accent numeral and the headline words under it, read together as one statement ('N reasons why…'). 2) The product, large, in the upper-right. 3) The numbered reason strips across the lower half, read top to bottom, with the number badges leading the eye.",
+    "composition_style": "Top/bottom split. Upper half: the giant numeral sits top-left (glyph about 26-28% of the canvas height), the rest of the headline is left-aligned directly under it in the left 50% of the canvas, and the product stands in the upper-right column (about 58-94% of the canvas width), about 42-46% of the canvas height, in front of a soft circle or on a low pedestal. Lower half: 3-5 rounded horizontal strips span the full safe width (about 6-94% of the canvas width), stacked with equal heights and equal gaps; each strip has a solid accent number badge at its left end and one line of reason text after it.",
+    "spacing_and_structure": "Numeral from about 5% to 31% of the canvas height; headline words from about 33% to 50% (max 3 lines); product from about 7% to 51%, base resting at about 51%. Strip stack from about 55% to 94% of the canvas height: about 7% per strip with 1.2% gaps for 5 strips, about 8.8% with 1.6% gaps for 4 strips, about 12% with 2% gaps for 3 strips. Inside each strip: number badge (a circle about 70% of the strip height, max 8% of the canvas width) at about 2% from the strip's left edge, text starting about 2.5% after the badge, vertically centered. Safe margins of about 6% on every side. The product never overlaps the strips or the headline.",
+    "lighting_and_depth": "Clean studio light on the product from the upper right, a subtle rim light on its left edge, a soft contact shadow on the pedestal or under the product, and a soft radial glow behind it. Background flat or a very subtle gradient in the brand color. The strips are flat cards with a very soft drop shadow so they lift slightly off the background; number badges are flat, crisp, solid circles (no 3D, no bevel)."
+  },
+  "layout_summary": "Square canvas with a brand-colored background. In the upper-left, a giant numeral in the accent color with the rest of the 'reasons why…' headline left-aligned under it. In the upper-right, the user's product stands large in front of a soft circle or on a low pedestal with a gentle glow. Across the lower half, 3-5 full-width rounded strips are stacked evenly, each with a solid accent circle holding its number (1, 2, 3…) and one short reason.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Clean brand backdrop that keeps the numeral and the strips legible",
+      "adaptation_rule": "Use the approved palette as a flat color or a very subtle gradient, with a soft radial glow only behind the product. No textures or photos behind the text."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "giant numeral",
+      "position": "Top-left, from about 6% to about 26% of the canvas width and 5% to 31% of the canvas height",
+      "visual_function": "Pattern-interrupt that promises a quick, countable read and stops the scroll",
+      "adaptation_rule": "The single digit N (3, 4 or 5), equal to the number of strips, set huge in the brand accent color. Solid fill (or a bold outline if the batch plan calls for a lighter look)."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "headline words",
+      "position": "Directly under the numeral, left-aligned, from about 6% to 54% of the canvas width and 33% to 50% of the canvas height",
+      "visual_function": "Completes the 'N reasons why…' statement with the angle's hook",
+      "adaptation_rule": "Write the rest of the 'N reasons why…' headline adapted to this variation's angle so that numeral + words read as one sentence. Keep it in max 3 short lines."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Upper-right column, about 58-94% of the canvas width, from about 7% to 51% of the canvas height (about 42-46% of the canvas height)",
+      "visual_function": "Main visual anchor; shows exactly what the reasons refer to",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), standing upright in front or 3/4 view with its label facing the camera. For flat or wide products, tilt them slightly upright or scale them to the column width so they fill it without touching the strips."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "circular backdrop shape or pedestal",
+      "position": "Behind and under the product in the upper-right column",
+      "visual_function": "Frames the product and separates it from the headline",
+      "adaptation_rule": "A soft circle (about 34-38% of the canvas width) in a lighter or darker tone of the palette behind the product, or a low cylindrical pedestal in a palette tone, as the batch plan indicates."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "numbered reason strips (3-5)",
+      "position": "Lower half, stacked from about 55% to 94% of the canvas height, each spanning about 6-94% of the canvas width",
+      "visual_function": "Delivers the reasons in a fast, ordered, easy-to-scan sequence",
+      "adaptation_rule": "3 to 5 rounded strips as set in the batch plan (default 4), identical in size and style, filled with a lighter or darker tint of the background (or white at high opacity on dark backgrounds), each with a solid accent-colored circle containing its number (1, 2, 3…) at the left end and one short reason. Order the reasons from strongest to supporting. Use only the strips the plan asks for and redistribute their height to fill the stack area."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline numeral",
+      "reference_position": "Top-left, first element of the canvas",
+      "text_style": "Ultra-bold sans-serif digit, about 26-28% of the canvas height, 1 character, left aligned, in the brand accent color with strong contrast against the background",
+      "guia_texto": "Solo el número N de 'N razones' (3, 4 o 5). Debe coincidir exactamente con la cantidad de franjas."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline (words after the numeral)",
+      "reference_position": "Directly under the numeral, left aligned, left half of the canvas",
+      "text_style": "Extra bold sans-serif, about 5-5.5% of the canvas height per line, max 3 lines, left aligned, maximum contrast; one key word may use the brand accent color",
+      "guia_texto": "El resto del titular 'razones por las que…' adaptado al ángulo, en 4 a 8 palabras (ej. la idea de 'razones por las que ya no vuelves atrás'). Junto con el número debe leerse como una sola frase."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "reason 1",
+      "reference_position": "Strip 1, to the right of number badge 1",
+      "text_style": "Semi-bold sans-serif, about 3.4-4% of the canvas height, 1 line, left aligned, high contrast against the strip; the number inside the badge in extra bold contrast color",
+      "guia_texto": "Razón 1: la razón más fuerte según el ángulo, en 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "reason 2",
+      "reference_position": "Strip 2, to the right of number badge 2",
+      "text_style": "Same style as reason 1",
+      "guia_texto": "Razón 2: un beneficio o característica distinta, en 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "reason 3",
+      "reference_position": "Strip 3, to the right of number badge 3",
+      "text_style": "Same style as reason 1",
+      "guia_texto": "Razón 3: otra razón concreta (facilidad, ingrediente, material, resultado), en 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "reason 4 (OPTIONAL)",
+      "reference_position": "Strip 4, to the right of number badge 4",
+      "text_style": "Same style as reason 1",
+      "guia_texto": "Solo si el plan pide 4 o 5 razones: razón de apoyo en 3 a 6 palabras (ej. una objeción resuelta). Si no, se omite esta capa."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "reason 5 (OPTIONAL)",
+      "reference_position": "Strip 5, to the right of number badge 5",
+      "text_style": "Same style as reason 1",
+      "guia_texto": "Solo si el plan pide 5 razones: cierre en 3 a 6 palabras (ej. comodidad, durabilidad o la razón emocional). Si no, se omite esta capa."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Giant numeral in the brand accent at the top-left, opening the headline",
+    "The user's product standing large in the upper-right column",
+    "Soft circular backdrop shape or low pedestal behind the product",
+    "3-5 full-width rounded strips stacked evenly across the lower half",
+    "Solid accent number badge at the left end of each strip",
+    "Brand-colored background"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Icons or check marks replacing the numbers",
+    "Subheadline or paragraph text",
+    "Comparison table or competitor products",
+    "More than five strips, or a strip count different from the numeral",
+    "Two-column layout with the list beside the product",
+    "People or hands",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca completa: el fondo usa el color principal (liso o con degradado suave), el número gigante y los círculos numerados usan el color de acento, las franjas usan un tono más claro u oscuro del fondo (o blanco casi opaco si el fondo es oscuro), y el texto usa el color de mayor contraste. La forma circular detrás del producto usa un tono más claro u oscuro del color principal."
+}

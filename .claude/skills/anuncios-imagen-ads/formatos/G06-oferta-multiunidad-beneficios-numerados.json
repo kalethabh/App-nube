@@ -1,0 +1,130 @@
+{
+  "id": "G06",
+  "slug": "oferta-multiunidad-beneficios-numerados",
+  "nombre": "Oferta multiunidad con franja de beneficios numerados",
+  "origen": "ganador:548197052_1837884440187145_625211173917755383_n.jpg",
+  "descripcion": "Fondo blanco con una ola azul que cruza el centro detrás del producto. Arriba, una pila tipográfica centrada de 3 niveles: una línea pequeña y espaciada con la garantía y el envío, una línea de urgencia en azul marino y el descuento gigante y condensado. En el centro, 3 envases (uno adelante al centro y dos atrás a los lados) con una explosión de polvo dorado detrás e ingredientes reales en la base. Al pie, una franja de 4 celdas con borde: cada una tiene un ícono que sobresale por arriba, un beneficio corto y un número en un cuadro azul abajo. Premium y ordenado: oferta fuerte arriba, producto rico en el medio y beneficios escaneables abajo.",
+  "angulos_compatibles": [
+    "oferta",
+    "objecion-confianza",
+    "beneficio-principal",
+    "mecanismo-unico",
+    "objecion-precio"
+  ],
+  "tipos_producto": [
+    "nutraceutico",
+    "cosmetico",
+    "otro"
+  ],
+  "ad_format": "Multi-Unit Discount Offer with Numbered Benefit Strip Ad",
+  "reference_style": "Premium supplement-style discount ad: a centered three-level offer type stack, three product units with a golden powder burst and real ingredients at their base over a flowing blue wave, and a bordered four-cell benefit strip with protruding icons and numbered tabs",
+  "art_direction": {
+    "visual_hierarchy": "1) The giant discount line. 2) The three product units with the golden burst. 3) The urgency line. 4) The four-cell benefit strip. 5) The small guarantee and shipping line at the very top.",
+    "composition_style": "Centered, symmetrical composition in three horizontal tiers: the offer type stack at the top, the product trio with ingredients in the middle, and the benefit strip at the bottom. A wide blue wave band crosses the full width behind the lower half of the products, its soft curved top edge rising slightly from left to right, breaking the symmetry and adding motion.",
+    "spacing_and_structure": "Guarantee line: from about 17% to 83% of the canvas width and 3.5% to 7% of the height, centered. Urgency line: from about 24% to 76% of the width and 10% to 15.5% of the height. Discount line: from about 5% to 88% of the width and 17.5% to 30% of the height. Product trio: from about 15% to 83% of the width and 32% to 74% of the height; front unit from about 37% to 65% of the width and 32% to 74% of the height; side units from about 15% to 41% and 60% to 83% of the width, 35% to 68% of the height, partly hidden behind the front unit. Golden burst: from about 15% to 85% of the width and 30% to 62% of the height, behind and around the trio, starting just under the discount line (never behind the type stack), with a few particles drifting down toward the strip. Ingredients: along the base of the trio, from about 13% to 82% of the width and 63% to 77% of the height. Blue wave: a wide band crossing the full width behind the products, from about 50% of the height down to behind the benefit strip at the left edge, and from about 42% to 77% of the height at the right edge; white background above it and below it on the right. Benefit strip: from about 8% to 92.5% of the width and 82% to 95.5% of the height, four equal cells; icons about 6.5% of the canvas centered on the top edge of each cell (about 78-85% of the height); numbered tabs about 8% wide and 5% tall centered on the bottom edge of each cell (about 93-98% of the height).",
+    "lighting_and_depth": "Premium commercial studio light: soft key light from the front left, crisp rim light and glossy highlights on the packaging, soft contact shadows under the units and the ingredients. A fine golden powder burst explodes behind the units, catching the light. Blue wave: smooth with lighter highlight curves, flat graphic look. Benefit strip: white cells with thin slate-blue borders, rounded outer corners and a faint soft shadow; icons slightly 3D emoji-style; numbered tabs flat."
+  },
+  "layout_summary": "Square canvas with a white background and a wide blue wave band crossing the full width behind the lower half of the products. At the top, a centered type stack: a small, widely spaced uppercase line, a bold navy urgency line, and a giant condensed navy discount line. In the center, three units of the user's product (one in front at the center and two behind on the sides) with a golden powder burst behind them and the real ingredients or components scattered at their base. At the bottom, a bordered strip of four equal cells: each has a small colorful icon breaking out of its top edge, a two-line uppercase benefit in the middle and a small blue tab with a white number on its bottom edge.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background with wave",
+      "position": "Full canvas; wave band crossing the full width behind the products, from about 50% of the height down to the strip at the left edge and from about 42% to 77% at the right edge",
+      "visual_function": "Clean premium base with motion that frames the product zone",
+      "adaptation_rule": "White background with one wide flowing wave in the brand's main color (medium blue in the original) with lighter highlight curves, passing behind the products. No other patterns."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "offer type stack",
+      "position": "Top center, from about 3% to 30% of the canvas height",
+      "visual_function": "States the deal, the urgency and the risk reversal before the product is seen",
+      "adaptation_rule": "Three centered lines of type with clear size contrast: small spaced guarantee and shipping line, medium bold urgency line, giant condensed discount line. Use only the real guarantee, shipping, timing and discount data the user gave."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product trio",
+      "position": "Center, from about 15% to 83% of the canvas width and 32% to 74% of the height; front unit from about 37% to 65% of the width",
+      "visual_function": "Shows the multi-unit deal and the product as a premium object",
+      "adaptation_rule": "Render three units of the user's product exactly as in the attached product photo (same geometry, packaging, label and colors): one in front at the center, fully visible and slightly larger, and two behind on the left and right, partly covered, turned slightly inward."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "powder burst",
+      "position": "Behind and around the product trio, from about 15% to 85% of the canvas width and 30% to 62% of the height, starting just under the discount line",
+      "visual_function": "Adds energy and a sense of potency",
+      "adaptation_rule": "Fine golden powder or particle explosion radiating from behind the units, in gold or a warm tone matching the product's color, denser near the units and fading outward."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "ingredients at the base",
+      "position": "Along the base of the trio, from about 13% to 82% of the canvas width and 63% to 77% of the height",
+      "visual_function": "Proves what is inside: real, natural components",
+      "adaptation_rule": "Realistic arrangement of the user's real key ingredients or components (roots, leaves, fruits, flowers, seeds, minerals or materials) scattered in front of and around the base of the units, never covering the front label."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "numbered benefit strip (4 cells)",
+      "position": "Bottom, from about 8% to 92.5% of the canvas width and 82% to 95.5% of the height",
+      "visual_function": "Four benefits that are scannable in order",
+      "adaptation_rule": "Horizontal white strip with thin slate-blue borders and rounded outer corners, divided into four equal cells. On the top edge of each cell, centered and breaking out of it, a small colorful emoji-style icon (about 6.5% of the canvas) literally representing its benefit. On the bottom edge, centered and straddling it, a small rounded blue tab with a dark border and a white number from 1 to 4."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "guarantee and shipping line",
+      "reference_position": "Top center, from about 3.5% to 7% of the height",
+      "text_style": "Regular sans-serif, uppercase, dark grey or navy, about 3.3-3.6% of the canvas height, wide letter spacing, 1 line, centered",
+      "guia_texto": "La garantía real del usuario + su condición de envío, unidas con un «+», de 4 a 7 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "urgency line",
+      "reference_position": "Under the guarantee line, centered, from about 10% to 15.5% of the height",
+      "text_style": "Extra bold condensed sans-serif with tight tracking, uppercase, navy, about 5.5% of the canvas height, 1 line, centered",
+      "guia_texto": "El plazo real de la oferta o una urgencia verdadera, de 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "discount line",
+      "reference_position": "Under the urgency line, centered, from about 17.5% to 30% of the height",
+      "text_style": "Ultra bold condensed sans-serif, uppercase, navy, about 11-12% of the canvas height, 1 line, centered, spanning about 83% of the width",
+      "guia_texto": "El descuento real del usuario: el porcentaje máximo de ahorro o la mecánica multiunidad (2x1, 3x2), de 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit cell texts (4)",
+      "reference_position": "Centered inside each of the four cells, between the icon and the numbered tab",
+      "text_style": "Medium sans-serif, uppercase, dark navy or charcoal, about 3% of the canvas height, max 2 lines per cell, centered",
+      "guia_texto": "Cuatro beneficios, uno por celda, de 2 a 3 palabras cada uno, ordenados del más fuerte al más débil para el ángulo; cada uno nombra un resultado distinto para el cliente."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "cell numbers",
+      "reference_position": "Inside each blue tab on the bottom edge of the cells",
+      "text_style": "Bold sans-serif, white, about 3% of the canvas height, centered",
+      "guia_texto": "Los números 1, 2, 3 y 4 en orden."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Centered three-level offer type stack with a giant condensed discount line",
+    "Three units of the user's product, one in front at the center and two behind",
+    "Golden powder burst behind the units",
+    "Real ingredients or components scattered at the base",
+    "Wide blue wave crossing the white background behind the products",
+    "Four-cell bordered benefit strip with protruding icons and numbered tabs"
+  ],
+  "forbidden_additions": [
+    "Price figure or struck-through price",
+    "Podium or pedestal",
+    "Round discount seal or sticker",
+    "CTA button or CTA arrow",
+    "Rating stars, reviews or testimonials",
+    "Certification badges or seals",
+    "People or hands",
+    "Bottom bar or banner beyond the benefit strip",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Base blanca con una ola en el color principal de la marca (azul medio en el original). Toda la tipografía de la oferta en azul marino muy oscuro (o el tono más oscuro de la marca). Explosión de polvo dorada. Franja de beneficios blanca con bordes gris azulado, íconos a color y pestañas numeradas en el color principal con número blanco.",
+  "posicion_logo": null
+}

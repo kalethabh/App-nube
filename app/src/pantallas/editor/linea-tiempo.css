@@ -802,3 +802,38 @@ body.lt-arrastrando * {
     padding: 0 8px;
   }
 }
+
+/* tu video y la velocidad del clip (arriba a la derecha) y deslizar su contenido (2026-11-09) */
+.lt-pieza__chips {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  z-index: 2;
+  display: inline-flex;
+  gap: 3px;
+  pointer-events: none;
+}
+.lt-pieza__chips .lt-pieza__chip {
+  margin-left: 0;
+  line-height: 14px;
+  background: var(--pista-video);
+  color: #fff;
+}
+.lt-pieza__chips .lt-pieza__chip--suave {
+  background: rgba(8, 8, 11, 0.72);
+}
+/* (en una pieza chica solo queda el ojo de lo que notó la revisión) */
+.lt-pieza[data-ancho='chico'] .lt-pieza__chips .lt-pieza__chip:not(.lt-pieza__chip--aviso) {
+  display: none;
+}
+/* lo que notó la revisión en ese clip: el ojo ámbar, como en el proceso (2026-11-09) */
+.lt-pieza__chips .lt-pieza__chip--aviso {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 3px;
+  background: var(--aviso);
+  color: #1d1505;
+}
+.lt-pieza.es-deslizable {
+  cursor: ew-resize;
+}

@@ -3,17 +3,23 @@ chcp 65001 >nul
 title Anuncios con IA
 setlocal
 rem Anuncios con IA para Windows: doble clic. Deja esta ventana abierta mientras uses la app; para cerrarla, cierra
-rem esta ventana. Si falta Node.js, ffmpeg, Python o Claude Code, los instala solo (de sus sitios oficiales y sin
-rem permisos de administrador), deja lista la app y la abre en el navegador.
+rem esta ventana. Si falta Node.js, ffmpeg o Python, los instala solo (de sus sitios oficiales y sin permisos de
+rem administrador), deja lista la app y la abre en el navegador. El programa de tu IA (Claude Code o Codex) lo
+rem instala la app: el que elegiste, o el que elijas en la bienvenida.
 cd /d "%~dp0app" 2>nul || goto :sin_carpeta
 if not exist "%~dp0app\inicio\programas-windows.ps1" goto :sin_carpeta
 
 rem Claude Code (instalador oficial) queda en %USERPROFILE%\.local\bin: así se encuentra aunque esta ventana sea vieja
 set "PATH=%USERPROFILE%\.local\bin;%PATH%"
-rem Siempre con tu cuenta de Claude, nunca con una clave de API
+rem Siempre con tu cuenta de Claude o de ChatGPT, nunca con una clave de API (y Codex con la sesión propia de la app)
 set "ANTHROPIC_API_KEY="
 set "ANTHROPIC_AUTH_TOKEN="
 set "CLAUDE_CODE_OAUTH_TOKEN="
+set "OPENAI_API_KEY="
+set "OPENAI_BASE_URL="
+set "CODEX_API_KEY="
+set "CODEX_ACCESS_TOKEN="
+set "CODEX_HOME="
 
 rem 4455 siempre; PUERTO=<n> solo para las pruebas (el servidor lee la misma variable)
 set "AIA_PUERTO=4455"
@@ -50,17 +56,14 @@ where node >nul 2>nul || goto :sin_node
 rem (de 64 bits para Intel/AMD: el armado de los videos no tiene versión para ARM; en una PC con ARM corre emulado)
 node -e "const [a, b] = process.versions.node.split('.').map(Number); process.exit((a > 20 || (a === 20 && b >= 19)) && process.arch === 'x64' ? 0 : 1)" >nul 2>nul || goto :sin_node
 
-rem ---------------------------------------------------------------- Claude Code (claude.exe, el instalador oficial)
-where claude.exe >nul 2>nul && goto :claude_ok
-echo.
-echo  Instalando Claude Code con el instalador oficial de Anthropic (solo la primera vez)...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://claude.ai/install.ps1 | iex"
-where claude.exe >nul 2>nul && (echo  Claude Code listo.) || (echo  Aviso: no se pudo instalar Claude Code. La app te muestra cómo hacerlo en la Bienvenida.)
-:claude_ok
-
 rem ---------------------------------------------------------------- la app: lo que falte de instalar y la interfaz
 node "%~dp0app\inicio\preparar-app.mjs"
 if errorlevel 1 goto :error_preparar
+
+rem ---------------------------------------------------------------- el programa de tu IA (Claude Code o Codex)
+rem Solo el de la IA elegida, si falta. Sin IA elegida no instala nada (se elige en la app). Si no puede, lo dice y la
+rem app abre igual: ahí se instala con un botón (en Ajustes, Conexiones). Sale siempre bien: no hace falta mirarlo.
+node "%~dp0app\inicio\preparar-motor.mjs"
 
 rem ---------------------------------------------------------------- abrir la app
 echo.

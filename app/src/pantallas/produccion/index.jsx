@@ -3,7 +3,7 @@
 // EN VIVO: si el anuncio lo produce la app, tiene conductor (temp/<slug>/app/conductor.json). Se lee
 // GET /api/anuncios/:slug/conductor cada 2 s y el detalle del anuncio (las piezas) cada 3 a 5 s:
 //   - la línea de etapas sale de los pasos del conductor (agrupados en etapas, ver src/datos/produccion.js)
-//   - cada pieza se pone verde cuando existe su archivo; la que la IA mandó rehacer queda en ámbar
+//   - cada pieza se pone verde cuando existe su archivo; la que tiene un aviso de la revisión se marca en ámbar
 //   - el registro cuenta los pasos en frases simples (./vivo.js)
 //   - si un paso falla: una tarjeta con lo que pasó y "Continuar" (reintenta; lo ya hecho no se paga)
 //   - si el saldo de kie no alcanza: "Tu saldo de kie no alcanza: recarga para seguir", sin números
@@ -11,8 +11,13 @@
 //   - en modo prueba: la banda "Modo prueba: no se gasta nada"
 //   - los cantados: su única pausa, "Elige la versión de tu canción" (useCancionEnVivo). Antes de que se escriban
 //     las escenas todavía no hay manifiesto: se ve la línea de pasos y, cuando toca, la elección (SinEscenas)
-//   - nada se decide a mano: la app rehace sola lo que sale mal (con su tope) y lo que quedó va al informe
-//   - al terminar, lleva sola a la Entrega
+//   - todo se genera al primer intento (desde 2026-11-09): la revisión de la IA no rehace nada sola, deja un aviso en
+//     la pieza («La revisión notó: …») y tú decides. Lo técnico (kie que falla, un clip que no habló) sigue solo.
+//   - cada pieza se descarga y se regenera desde su panel: Regenerar (tal cual, con su costo), «¿Qué salió mal?» y
+//     «Corregir esto» si tiene un aviso (src/datos/regenerar.js, lo mismo que el editor). Lo pedido entra a una fila
+//     y la pieza nueva aparece sola cuando el anuncio se vuelve a armar (sin salir de esta pantalla)
+//   - ?pieza=<id> (desde la entrega) abre esa pieza
+//   - al terminar la producción (no una regeneración), lleva sola a la Entrega
 //
 // Las carpetas hechas desde la terminal (sin conductor) se ven con su estado real, según sus archivos.
 //
@@ -21,7 +26,7 @@
 //   ?simular=1&vista=revision   abre directo la revisión de clips (estilos hablados), con todos los clips ya llegados
 //   ?simular=1&decision=<tipo>  revision · cancion · toma (ver src/datos/ejemplo.js)
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowRight, Eye, Film, ListChecks, Pause, PencilLine, Play, RotateCcw, SearchX, Settings, SkipForward, Unplug } from 'lucide-react';
+import { ArrowRight, Download, Eye, Film, ListChecks, Pause, PencilLine, Play, RotateCcw, SearchX, Settings, SkipForward, Unplug } from 'lucide-react';
 import {
   BarraDeProgreso,
   Boton,
@@ -33,13 +38,15 @@ import {
   useAvisos,
   useBarraSuperior,
 } from '../../componentes/index.js';
-import { invalidar, useAnuncio, useAnuncios } from '../../datos/api.js';
+import { conVersion, invalidar, useAnuncio, useAnuncios } from '../../datos/api.js';
+import { avisoDelLote, idsDelPedido, noSeRegenera, regenerarEnMarcha, useRegenerar } from '../../datos/regenerar.js';
 import { enlace, enlaceDelGuion, ir, rutas } from '../../datos/rutas.js';
 import { enMinuscula, plural } from '../../datos/formato.js';
 import { TEXTO_ALTO, TEXTO_GUION, altoDe, avanceDeConductor, continuarProduccion, etapasDeConductor, frenoPorElGuion, pasoActual, sinEscenasAun, textoDeFila, textoDePaso, tieneConductor, useConductor } from '../../datos/produccion.js';
 import { decisionesProduccion } from '../../datos/ejemplo.js';
 import { useProduccion } from './datos.js';
-import { clipsParaRevisar, construirModelo, etapasDe, quien, registroReal } from './modelo.js';
+import { clipsParaRevisar, construirModelo, esMasculina, etapasDe, piezasConAviso, piezasEnOrden, quien, registroReal } from './modelo.js';
+import { FilaRegenerar } from './Regenerar.jsx';
 import { POST, estadoEn, finDePiezas, planificar, registroSimulado, useReloj } from './simulacion.js';
 import { frasesConductor, registroConductor, vistaConductor } from './vivo.js';
 import { ElegirCancion, useCancionEnVivo } from './ElegirCancion.jsx';
@@ -183,13 +190,22 @@ export default function Produccion({ params, consulta }) {
   useEffect(() => setMirarLista(enLista?.estado === 'guion'), [enLista?.estado]);
   // (uno de la app ya terminado también: su conductor dice qué rehizo la revisión; se pide una vez, sin mirar cada 2 s)
   const pedirConductor = !pideSimulacion && (tieneConductor(enLista) || Boolean(enLista?.nuevo && !enLista?.enGuion));
+  // regenerar piezas (solo los anuncios de la app): lo pedido, el lote en marcha y la fila
+  const alTerminarRef = useRef(null);
+  const reh = useRegenerar(pedirConductor ? slug : null, { alTerminar: (t) => alTerminarRef.current?.(t) });
+  const regenerandoActivo = regenerarEnMarcha(reh.trabajo) || reh.cola.length > 0;
+  // si viste una regeneración, al terminar de armarse el anuncio te quedas aquí (no te lleva a la entrega)
+  const vioRegenerar = useRef(false);
+  useEffect(() => {
+    if (regenerandoActivo) vioRegenerar.current = true;
+  }, [regenerandoActivo]);
   const [conductorCerrado, setConductorCerrado] = useState(false);
   const {
     datos: conductor,
     cargando: cargandoConductor,
     recargar: recargarConductor,
     leido: conductorLeido,
-  } = useConductor(pedirConductor ? slug : null, { cadaMs: pedirConductor && !conductorCerrado ? 2000 : undefined });
+  } = useConductor(pedirConductor ? slug : null, { cadaMs: pedirConductor && (!conductorCerrado || regenerandoActivo) ? 2000 : undefined });
   const enVivo = pedirConductor && Boolean(conductor);
   const corriendo = enVivo && conductor.estado !== 'listo';
   // los cantados: la canción lista espera que elijas la versión (la única pausa de su producción)
@@ -215,6 +231,26 @@ export default function Produccion({ params, consulta }) {
     if (a) setVieja(!conductor && a.estado !== 'listo' && a.estado !== 'guion');
   }, [a, conductor]);
 
+  // cuando termina un lote de lo que regeneraste: las piezas nuevas se ven solas (mismo nombre, otra versión). El aviso
+  // dice lo que pasó de verdad: solo lo que se aplicó sale como «ya está nueva»; lo que falló, con su porqué.
+  alTerminarRef.current = (t) => {
+    if (!t) return;
+    invalidar('anuncios');
+    invalidar(`anuncio:${slug}`);
+    invalidar(`entrega:${slug}`);
+    recargar();
+    recargarExtras();
+    const x = avisoDelLote(t, { textoListo: 'El anuncio se volvió a armar con lo nuevo: tu video ya lo tiene.' });
+    if (!x) return;
+    aviso({
+      tipo: x.tipo,
+      titulo: x.titulo,
+      texto: x.texto,
+      duracion: x.tipo === 'ok' ? 9000 : 12000,
+      ...(x.exportarDeNuevo ? { accion: { etiqueta: 'Ir al editor', alHacer: () => ir(rutas.editor(slug)) } } : {}),
+    });
+  };
+
   // cada vez que el conductor cambia de paso, las piezas se miran enseguida
   const firmaPasos = conductor ? `${conductor.paso}|${conductor.estado}|${conductor.pasos.map((p) => p.estado).join(',')}` : '';
   useEffect(() => {
@@ -233,6 +269,11 @@ export default function Produccion({ params, consulta }) {
     invalidar('anuncios');
     invalidar(`anuncio:${slug}`);
     invalidar(`entrega:${slug}`);
+    // se volvió a armar por algo que regeneraste: te quedas aquí, viendo la pieza nueva (el aviso lo da el lote)
+    if (vioRegenerar.current || regenerarEnMarcha(reh.trabajo) || reh.cola.length) {
+      vioRegenerar.current = false;
+      return undefined;
+    }
     aviso({ tipo: 'ok', titulo: '¡Tu anuncio está listo!', texto: 'Te llevo a la entrega: ahí están las versiones y el informe.' });
     const id = setTimeout(() => ir(rutas.anuncio(slug)), 2200);
     return () => clearTimeout(id);
@@ -257,14 +298,27 @@ export default function Produccion({ params, consulta }) {
       setContinuando(false);
     }
   };
+  // después de pedir una regeneración: se vuelve a mirar el conductor (el anuncio se va a volver a armar)
+  const alPedirRegenerar = useCallback(() => {
+    vioRegenerar.current = true;
+    setConductorCerrado(false);
+    recargarConductor();
+  }, [recargarConductor]);
 
-  // ---------------------------------------------------------------- el modelo (las piezas toma por toma)
+  // ---------------------------------------------------------------- el modelo (las piezas escena por escena)
   const listos = Boolean(a && (extras || errorExtras));
-  // lo que la revisión de la IA mandó rehacer: la clave evita rearmar todo en cada lectura del conductor
+  // lo que la app hizo otra vez sola (lo técnico) y lo que regeneraste tú: la clave evita rearmar todo en cada lectura
   const claveRehechos = JSON.stringify(enVivo ? conductor.rehechos || {} : {});
   const rehechos = useMemo(() => JSON.parse(claveRehechos), [claveRehechos]);
-  // Ningún precio en esta pantalla: el costo del anuncio se ve solo en el informe de la entrega.
-  const modelo = useMemo(() => (listos ? construirModelo(a, extras, { rehechos }) : null), [listos, a, extras, rehechos]);
+  // (pieza -> cómo la pediste, la última vez: regenerar, tu video en el anuncio o volver al clip original)
+  const claveRegenerados = JSON.stringify(
+    enVivo
+      ? (conductor.rehacer || []).flatMap((x) => (Array.isArray(x.piezas) && x.piezas.length ? x.piezas : [x.pieza]).filter(Boolean).map((pz) => [pz, x.modos?.[pz] || null]))
+      : []
+  );
+  const regenerados = useMemo(() => new Map(JSON.parse(claveRegenerados)), [claveRegenerados]);
+  // Sin precios aquí, salvo el de regenerar una pieza (va en su botón): el costo del anuncio está en la entrega.
+  const modelo = useMemo(() => (listos ? construirModelo(a, extras, { rehechos, regenerados }) : null), [listos, a, extras, rehechos, regenerados]);
   const etapasViejas = useMemo(() => (modelo ? etapasDe(a, modelo) : []), [a, modelo]);
 
   // ---------------------------------------------------------------- simulación (solo con ?simular=1)
@@ -300,12 +354,28 @@ export default function Produccion({ params, consulta }) {
   const esperaCancion = Boolean(simulando && ejemploCancion && cancion.elegida === null);
   const [t, reloj] = useReloj({ activo: simulando, factor: factorBase * (rapido ? 3 : 1), pausado, hasta: esperaCancion ? 0 : tope });
 
-  const v = useMemo(() => {
+  const vBase = useMemo(() => {
     if (!modelo) return null;
     if (simulando) return estadoEn(modelo, plan, t, decisiones);
     if (enVivo) return vistaConductor(a, modelo, conductor);
     return vistaReal(a, modelo);
   }, [modelo, simulando, plan, t, decisiones, a, enVivo, conductor]);
+  // lo que pediste regenerar: se sigue viendo la de ahora, marcada «regenerándose» o «en la fila»
+  const v = useMemo(() => {
+    if (!vBase || simulando || !reh.cargado) return vBase;
+    const marcas = new Map();
+    if (regenerarEnMarcha(reh.trabajo)) {
+      for (const x of reh.trabajo.piezas || []) if (!['error', 'cancelado'].includes(x.estado)) for (const id of idsDelPedido(x, reh.porPieza)) marcas.set(id, 'regenerando');
+    }
+    for (const x of reh.cola) for (const id of idsDelPedido(x, reh.porPieza)) if (!marcas.has(id)) marcas.set(id, 'en-fila');
+    if (!marcas.size) return vBase;
+    const estados = new Map(vBase.estados);
+    for (const [id, nota] of marcas) {
+      const e = estados.get(id);
+      if (e && TERMINADA.has(e.estado)) estados.set(id, { ...e, nota });
+    }
+    return { ...vBase, estados };
+  }, [vBase, simulando, reh.cargado, reh.trabajo, reh.cola, reh.porPieza]);
 
   // la simulación se detiene sola al terminar
   useEffect(() => {
@@ -325,10 +395,7 @@ export default function Produccion({ params, consulta }) {
 
   // ---------------------------------------------------------------- panel de una pieza
   const [seleccion, setSeleccion] = useState(null);
-  const orden = useMemo(
-    () => (modelo ? [...modelo.hojas, ...modelo.tomas.flatMap((g) => [...g.flujo, ...g.broll]), ...modelo.sueltos].map((p) => p.id) : []),
-    [modelo]
-  );
+  const orden = useMemo(() => piezasEnOrden(modelo).map((p) => p.id), [modelo]);
   const abrir = useCallback((id) => setSeleccion((s) => (s === id ? null : id)), []);
   const irA = useCallback(
     (paso) =>
@@ -360,6 +427,20 @@ export default function Produccion({ params, consulta }) {
     if (!seleccion) return;
     document.querySelector(`[data-pieza="${CSS.escape(seleccion)}"]`)?.scrollIntoView?.({ block: 'nearest', behavior: 'smooth' });
   }, [seleccion]);
+
+  // ?pieza=<id> (desde «Lo que notó la revisión» de la entrega): abre esa pieza una vez. Con continuidad, el clip
+  // propio de una escena no tiene pieza: se abre su imagen de inicio (ahí está su aviso).
+  const piezaPedida = consulta?.get('pieza') || null;
+  const piezaAbierta = useRef(null);
+  useEffect(() => {
+    if (!modelo || !piezaPedida || piezaAbierta.current === piezaPedida) return;
+    let id = piezaPedida;
+    const m = id.match(/^vid:toma-(\d+)$/);
+    if (!modelo.porId.has(id) && m && modelo.porId.has(`img:toma-${m[1]}-inicial`)) id = `img:toma-${m[1]}-inicial`;
+    if (!modelo.porId.has(id)) return;
+    piezaAbierta.current = piezaPedida;
+    setSeleccion(id);
+  }, [modelo, piezaPedida]);
 
   // al abrir la revisión, el reproductor queda a la vista
   const hayDatos = Boolean(modelo && modo);
@@ -475,7 +556,9 @@ export default function Produccion({ params, consulta }) {
   const pieza = seleccion ? modelo.porId.get(seleccion) : null;
   const estadoSel = pieza ? v.estados.get(pieza.id) : null;
   const terminado = v.terminado && !simulando;
-  const revisada = !enVivo || !conductor.pasos.some((p) => p.id === 'revision-imagenes' && !['hecho', 'saltado'].includes(p.estado));
+  // (mientras el anuncio se vuelve a armar por algo que regeneraste, las demás piezas ya se revisaron antes: no «todavía
+  // se van a revisar»; las del lote se marcan aparte)
+  const revisada = !enVivo || regenerarEnMarcha(reh.trabajo) || !conductor.pasos.some((p) => p.id === 'revision-imagenes' && !['hecho', 'saltado'].includes(p.estado));
 
   // las tarjetas de "Te necesita"
   const tarjetas = [];
@@ -498,7 +581,6 @@ export default function Produccion({ params, consulta }) {
       alHacer: delGuion ? () => ir(rutas.nuevo({ paso: '2', anuncios: slug, ...(a?.productoId ? { producto: a.productoId } : {}) })) : continuar,
       cargando: continuando,
       secundaria: tipo === 'saldo' ? { texto: 'Ver en Ajustes', href: enlace.ajustes(), icono: Settings } : undefined,
-      // por qué (con lo que respondió kie) y qué se puede hacer
       causa: v.alto.paso?.error?.causa || null,
     });
   }
@@ -541,9 +623,42 @@ export default function Produccion({ params, consulta }) {
     if (simulando && p.id !== v.defecto && v.estados.get(p.id)?.estado === 'te-necesita')
       tarjetas.push({ id: p.id, titulo: `${quien(p)}: revisa este clip`, texto: 'Salió con el modelo de respaldo, que no genera el diálogo.', accion: 'Ver y decidir', iconoBoton: ArrowRight, alHacer: () => setSeleccion(p.id) });
   }
+  // lo que notó la revisión (no se rehízo nada solo): para mirar, sin frenar nada
+  const conAviso = !simulando && terminado ? piezasConAviso(modelo) : [];
+  if (conAviso.length && !regenerandoActivo && !v.alto) {
+    // lo que se puede prometer: regenerar solo donde se puede (la hoja y los iconos no), «Corregir esto» con lo que la
+    // revisión ya sugirió solo si lo sugirió
+    const una = conAviso.length === 1 ? conAviso[0] : null;
+    const conSugerencia = (p) => p.avisos.some((x) => x.sugerencia);
+    // (el paso, el gancho y el icono van en masculino)
+    const mira = una && esMasculina(una) ? 'No se rehízo solo. Míralo (está marcado con un ojo)' : 'No se rehízo sola. Mírala (está marcada con un ojo)';
+    const regenera = una && esMasculina(una) ? 'regenéralo' : 'regenérala';
+    const textoUna = !una
+      ? null
+      : noSeRegenera(una.id)
+        ? `${mira}: ${una.tipo === 'icono' ? 'los iconos no se regeneran' : 'esta imagen es la base de los clips y no se regenera'} desde aquí; en su panel está qué puedes hacer.`
+        : conSugerencia(una)
+          ? `${mira} y, si quieres, ${regenera}: «Corregir esto» usa lo que la revisión ya sugirió.`
+          : `${mira} y, si quieres, ${regenera}: con «Corregir esto» la IA ajusta la instrucción con lo que notó la revisión.`;
+    tarjetas.push({
+      id: 'avisos',
+      icono: 'aviso',
+      tono: 'aviso',
+      sobre: 'Para mirar',
+      titulo: una
+        ? `La revisión notó algo en ${quien(una).replace(/ \(.*\)$/, '').replace(/^Escena/, 'la escena').replace(/^Imagen/, 'la imagen').replace(/^Paso/, 'el paso').replace(/^Hoja/, 'la hoja').replace(/^Foto/, 'la foto').replace(/^Gancho/, 'el gancho').replace(/^Icono/, 'el icono')}`
+        : `La revisión notó algo en ${conAviso.length} piezas`,
+      texto: una ? textoUna : 'No se rehízo nada solo. Míralas (están marcadas con un ojo) y decide en cada una si la dejas así o la regeneras.',
+      accion: una ? 'Verla' : 'Ver la primera',
+      iconoBoton: ArrowRight,
+      alHacer: () => setSeleccion(conAviso[0].id),
+    });
+  }
 
   const textoEstilo = [a.estiloNombre, a.continuidad ? 'con continuidad' : null].filter(Boolean).join(' ');
   const verEntrega = terminado || a.estado === 'listo';
+  // el video terminado se descarga desde aquí también (la versión completa)
+  const principal = a.estado === 'listo' && !simulando ? (a.versiones || []).find((x) => x.principal && x.clase === 'video') || null : null;
 
   const pagina = (
     <div className={`pagina prod${pieza ? ' prod--con-panel' : ''}${appCerrada ? ' prod--cerrada' : ''}`}>
@@ -558,14 +673,27 @@ export default function Produccion({ params, consulta }) {
       <CabeceraPagina
         sobretitulo="Producción"
         titulo={a.titulo}
-        descripcion={`${textoEstilo ? `${textoEstilo} · ` : ''}${plural(modelo.tomas.length, 'toma', 'tomas')} · ${plural(modelo.piezas.length, 'pieza', 'piezas')}. ${
-          !simulando && terminado ? 'Así quedó cada pieza: toca una para verla en grande.' : 'No tienes que hacer nada: si algo te necesita, aparece aquí.'
+        descripcion={`${textoEstilo ? `${textoEstilo} · ` : ''}${plural(modelo.tomas.length, 'escena', 'escenas')} · ${plural(modelo.piezas.length, 'pieza', 'piezas')}. ${
+          !simulando && terminado
+            ? enVivo
+              ? 'Así quedó cada pieza: toca una para verla en grande, descargarla o regenerarla.'
+              : 'Así quedó cada pieza: toca una para verla en grande o descargarla.'
+            : 'No tienes que hacer nada: si algo te necesita, aparece aquí.'
         }`}
         acciones={
-          verEntrega ? (
-            <Boton variante="secundario" href={enlace.anuncio(slug)} icono={Eye}>
-              Ver la entrega
-            </Boton>
+          verEntrega || principal ? (
+            <div className="prod-cabecera-acciones">
+              {principal ? (
+                <Boton variante="primario" href={conVersion(principal.url, principal.fecha)} download={principal.archivo} icono={Download}>
+                  Descargar video
+                </Boton>
+              ) : null}
+              {verEntrega ? (
+                <Boton variante="secundario" href={enlace.anuncio(slug)} icono={Eye}>
+                  Ver la entrega
+                </Boton>
+              ) : null}
+            </div>
           ) : null
         }
       />
@@ -601,6 +729,17 @@ export default function Produccion({ params, consulta }) {
       ) : null}
 
       <TeNecesita tarjetas={tarjetas} />
+
+      {!simulando ? (
+        <FilaRegenerar
+          reh={reh}
+          onAbrir={(ids) => {
+            const id = ids.find((x) => modelo.porId.has(x));
+            if (id) setSeleccion(id);
+          }}
+          onCancelarLote={() => reh.cancelar()}
+        />
+      ) : null}
 
       <Mando
         a={a}
@@ -665,6 +804,9 @@ export default function Produccion({ params, consulta }) {
           simulando={simulando}
           enVivo={enVivo}
           revisada={revisada}
+          slug={slug}
+          reh={enVivo ? reh : null}
+          onPedido={alPedirRegenerar}
           onCerrar={() => setSeleccion(null)}
           onIr={irA}
           onDecidir={decidirPieza}

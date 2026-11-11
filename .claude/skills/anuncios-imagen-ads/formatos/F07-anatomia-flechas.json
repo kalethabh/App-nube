@@ -1,0 +1,112 @@
+{
+  "id": "F07",
+  "slug": "anatomia-flechas",
+  "nombre": "Anatomía del producto",
+  "origen": "biblioteca",
+  "descripcion": "El producto, centrado y nítido sobre un fondo técnico limpio (rejilla o puntos muy sutiles), con 4 líneas finas de señalamiento que salen de partes concretas del producto hacia 4 etiquetas cortas, dos a cada lado. Titular compacto arriba. Se siente como una ficha técnica premium: demuestra calidad y explica el mecanismo de un vistazo.",
+  "angulos_compatibles": ["mecanismo-unico", "caracteristica-estrella", "beneficio-principal", "objecion-confianza", "objecion-precio", "curiosidad"],
+  "tipos_producto": ["gadget", "cosmetico", "ropa", "hogar", "juguete", "nutraceutico", "digital"],
+  "ad_format": "Product Anatomy Callout Ad",
+  "reference_style": "Premium technical breakdown ad: the product centered on a subtle grid background, with thin leader lines pointing to four labeled features",
+  "art_direction": {
+    "visual_hierarchy": "1) The product in the center. 2) The headline at the top. 3) The four callout labels, read in a Z pattern (upper-left, upper-right, lower-left, lower-right). 4) The thin leader lines and anchor dots that tie each label to the product.",
+    "composition_style": "Symmetrical, centered diagram composition. The product sits in the central column (from 30% to 70% of the canvas width), its center at about 56% of the canvas height. Four labels are distributed two on the left and two on the right, in the outer columns (from 6% to 28% and from 72% to 94% of the width), at roughly 34% and 72% of the canvas height. Each leader line runs from its label to a specific point on the product with one clean elbow.",
+    "spacing_and_structure": "Headline zone: 6-19% of the canvas height, centered. Product: about 44-50% of the canvas height, inside the central 40% of the width. Left labels left-aligned at the 6% margin; right labels right-aligned at the 94% margin. Every label stays at least 3% away from the product silhouette. Leader lines never cross each other, the labels or the product's front label.",
+    "lighting_and_depth": "Crisp studio lighting: soft key light from the upper left and a cool rim light that outlines the product silhouette; a soft radial glow behind the product separates it from the background; a soft contact shadow or subtle reflection underneath. The grid, lines and labels are flat and quiet; only the product has volume."
+  },
+  "layout_summary": "Square canvas with a brand-toned background carrying a very subtle technical grid. A compact headline sits centered at the top. The user's product is centered below it, large and sharp. Four thin leader lines start at small dots placed on specific parts of the product and run outward with a single elbow to four short labels: two on the left side (upper and lower) and two on the right side (upper and lower).",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background with technical grid",
+      "position": "Full canvas",
+      "visual_function": "Gives a precise, engineered, spec-sheet feel",
+      "adaptation_rule": "Solid brand tone (the darkest palette color or a light brand tint) with a barely visible grid or dot pattern (lines at about 5% opacity, spacing about 5% of the canvas) and a soft radial glow behind the product."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, 6-19% of the canvas height",
+      "visual_function": "Invites the viewer to look closer and frames why the details matter",
+      "adaptation_rule": "Write the hook of this variation's angle. Keep it compact so it fits in max 2 lines and leaves the stage to the product."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Center, its center at about 56% of the canvas height, about 44-50% of the canvas height, inside the central 40% of the width",
+      "visual_function": "The object being dissected; the anchor every callout points to",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), in the front or 3/4 view that best shows the parts the callouts point to. If the packaging has few distinct physical parts (e.g. a bottle or jar), place a small sample of its content right next to it (a few capsules, a cream swatch, a fabric fold) so the callouts have real anchor points. For digital products, show the product on a clean, generic device mockup and point to interface areas. Never alter, open or explode the product."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "callout leader lines with anchor dots",
+      "position": "Four lines from the product outward: to the upper-left, lower-left, upper-right and lower-right labels",
+      "visual_function": "Connects each feature to the exact part of the product that delivers it",
+      "adaptation_rule": "Thin lines about 0.3% of the canvas thick in the brand accent or white, each starting with a small solid dot (about 1.2% of the canvas) placed on the exact part being described, then a short diagonal segment and a horizontal segment ending next to its label. All four lines share the same style and weight."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "feature labels (4)",
+      "position": "Outer columns (6-28% and 72-94% of the canvas width): upper-left and upper-right at about 30-38% of the canvas height; lower-left and lower-right at about 68-76%",
+      "visual_function": "Names each feature in a few words",
+      "adaptation_rule": "Text only, optionally with a thin accent underline; no boxes, no icons. Left labels left-aligned, right labels right-aligned, each placed at the outer end of its leader line."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center",
+      "text_style": "Extra bold sans-serif, each line about 6-7% of the canvas height, max 2 lines, centered, maximum contrast against the background; one key word may use the brand accent",
+      "guia_texto": "Invita a mirar el producto de cerca o declara su diferencia en 3 a 7 palabras (qué lo hace distinto o por qué funciona)."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "feature label (upper-left)",
+      "reference_position": "Upper-left outer column, at the end of the upper-left leader line",
+      "text_style": "Bold sans-serif, about 3.2-3.8% of the canvas height, max 2 lines, left-aligned, highest contrast against the background",
+      "guia_texto": "La característica estrella del ángulo, de 2 a 4 palabras, ligada a la parte del producto que señala. Usa las 4 características guardadas en producto.json (Paso 2)."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "feature label (upper-right)",
+      "reference_position": "Upper-right outer column, at the end of the upper-right leader line",
+      "text_style": "Same style as the upper-left label, right-aligned",
+      "guia_texto": "Segunda característica, de 2 a 4 palabras, ligada a la parte que señala."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "feature label (lower-left)",
+      "reference_position": "Lower-left outer column, at the end of the lower-left leader line",
+      "text_style": "Same style as the upper-left label, left-aligned",
+      "guia_texto": "Tercera característica, de 2 a 4 palabras, ligada a la parte que señala."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "feature label (lower-right)",
+      "reference_position": "Lower-right outer column, at the end of the lower-right leader line",
+      "text_style": "Same style as the upper-left label, right-aligned",
+      "guia_texto": "Cuarta característica, de 2 a 4 palabras, ligada a la parte que señala."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "The user's product, centered, large and sharp",
+    "Four thin leader lines with anchor dots on specific parts of the product",
+    "Four short feature labels, two on each side",
+    "Brand-toned background with a barely visible technical grid and a soft glow behind the product"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Trust seals, guarantee or certification badges",
+    "Icons, boxes or cards around the labels",
+    "Rating stars, reviews or testimonials",
+    "People, hands or lifestyle scenes",
+    "More than 4 callouts",
+    "Exploded, cutaway or X-ray views that alter the product",
+    "Subheadline or paragraph text",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca sobria y técnica: fondo con el tono más oscuro o más claro de la paleta, líneas y puntos en el color de acento, etiquetas y titular en el color de mayor contraste. La rejilla es casi invisible. El producto conserva sus colores reales."
+}

@@ -18,14 +18,17 @@
 // conductor.json (contrato):
 //   { slug, familia, estado: 'esperando'|'corriendo'|'pausado'|'error'|'listo', paso: '<id>',
 //     pasos: [{ id, nombre, estado: 'pendiente'|'corriendo'|'hecho'|'error'|'saltado', inicio?, fin?, intentos,
-//               error?: { mensaje (palabras simples), motivo, detalle, reintentoEn? }, nota?, detalle?,
+//               error?: { mensaje (palabras simples), motivo, detalle, reintentoEn?, motor? }, nota?, detalle?,
 //               turno?: { recurso: 'pesada'|'elevenlabs', desde } }],
 //     rehechos: { 'toma-7': 1, render: 1 }, modoPrueba, actualizado,
 //     motivo?: 'saldo'|'detenido'|'modo'|'huerfano'|'limite-claude'|'elegir-cancion'|..., creado, aprobado,
 //     terminado?, saldoInicial?, saldoFinal? }
 //   "esperando" sin error = en la fila; "esperando" con pasos[].error.mensaje = esperando la conexion, un
-//   reintento automatico o que se renueve el plan de Claude (lo lee altoDe() de la pantalla). "pausado" con
-//   motivo "saldo" = recargar y Continuar; con motivo "elegir-cancion" = el usuario elige la cancion.
+//   reintento automatico o que se renueve el plan de la IA (lo lee altoDe() de la pantalla). Con motivo
+//   "limite-claude" (el id de siempre, tambien con ChatGPT) la IA que llego al limite va en pasos[].error.motor
+//   ('claude' | 'codex'; sin el, Claude). "pausado" con motivo "saldo" = recargar y Continuar; con motivo
+//   "elegir-cancion" = el usuario elige la cancion. Un paso con error y motivo "plan-sin-codex" = el plan de ChatGPT
+//   no incluye Codex: no se retoma solo.
 //   pasos[].turno: el paso espera su lugar en una fila compartida (el render de otro anuncio, ElevenLabs).
 //
 // LAS FAMILIAS. Cada una es server/lib/familias/<archivo>.js y exporta FAMILIA (su id), ESTILOS (las claves de
@@ -35,7 +38,8 @@
 //
 // VARIOS ANUNCIOS A LA VEZ (colas.js): entran tantos como diga Ajustes › Tu PC (o lo que aguanta la PC, en
 // automatico); los demas esperan en la fila, en el orden en que se aprobaron. Cada uno entra apenas se aprueba
-// su guion. Entre los que corren se comparten Claude (2 sesiones; en pausa al primer aviso de limite), kie
+// su guion. Entre los que corren se comparten la IA (Claude o ChatGPT: 2 sesiones; la IA que avisa su limite de uso
+// queda en pausa, y si se elige la otra, los que la esperaban siguen con esa), kie
 // (cada proceso con su parte de los pedidos cada 10 s), ElevenLabs (2) y lo pesado (de a 1, o 2 con 32 GB).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -47,11 +51,12 @@ import * as gasto from './gasto.js';
 import * as colas from './colas.js';
 import { olvidarSaldo } from './claves.js';
 import { guardarMusicaDelAnuncio } from './biblioteca.js';
+import { motorActual, nombreIA, alCambiarDeMotor } from './motor-ia.js';
 
 // ---------------------------------------------------------------- las familias
 
 /** En este orden: si dos familias dijeran el mismo estilo, gana la primera. */
-const ARCHIVOS_DE_FAMILIAS = ['voz-en-off', 'continuidad', 'objeto-parlante', 'ugc', 'hablado', 'musical', 'historia-musical'];
+const ARCHIVOS_DE_FAMILIAS = ['voz-en-off', 'continuidad', 'objeto-parlante', 'ugc', 'hablado', 'musical', 'historia-musical', 'imagen-ads'];
 const DIR_FAMILIAS = path.join(path.dirname(fileURLToPath(import.meta.url)), 'familias');
 const CONTINUIDAD = 'continuidad';
 
@@ -180,21 +185,28 @@ const SIN_MANDO = 'La app ya está abierta en otra ventana, y es esa la que prod
 
 // ---------------------------------------------------------------- lo que se puede inyectar (pruebas)
 
-let claudeInyectado; // undefined = el de verdad (./claude.js); null = sin Claude; objeto = { lanzarSesion, ... }
+let claudeInyectado; // undefined = el de verdad (./motor-ia.js); null = sin IA; objeto = { lanzarSesion, ... }
 
-/** Para las pruebas: otro lanzador de Claude ({ lanzarSesion }) o null. */
+/** Para las pruebas: otro lanzador de la IA ({ lanzarSesion, motorActual? }) o null. */
 export function configurar({ claude } = {}) {
   if (claude !== undefined) claudeInyectado = claude;
 }
 
+/** El lanzador de la IA: motor-ia.js (Claude o ChatGPT, la elegida al lanzar cada sesion), o el de las pruebas. */
 async function moduloClaude() {
   if (claudeInyectado !== undefined) return claudeInyectado;
   try {
-    const m = await import('./claude.js');
+    const m = await import('./motor-ia.js');
     return typeof m.lanzarSesion === 'function' ? m : null;
   } catch {
     return null;
   }
+}
+
+/** La IA que lanzaria una sesion ahora (un lanzador de prueba sin motorActual cuenta como Claude). */
+function motorAhora() {
+  if (claudeInyectado !== undefined) return claudeInyectado?.motorActual?.() || 'claude';
+  return motorActual() || 'claude';
 }
 
 // ---------------------------------------------------------------- conductor.json
@@ -252,31 +264,51 @@ function crearConductor(slug, familia, brief) {
 
 // ---------------------------------------------------------------- la fila de anuncios
 
-const activos = new Map(); // slug -> { control: AbortController, promesa, c, limiteClaude }
+const activos = new Map(); // slug -> { control: AbortController, promesa, c, limiteClaude, planSinCodex }
 const fila = []; // slugs esperando turno, en el orden en que se aprobaron
-const retomasClaude = new Map(); // slug -> timeout: esperan que se renueve el plan de Claude (fuera de la fila)
+const retomasClaude = new Map(); // slug -> timeout: esperan que se renueve el plan de su IA (fuera de la fila)
 
 // Un anuncio que solo espera su lugar en la fila pesada (el render de otro) no cuenta para "a la vez": mientras
-// espera, el de la fila puede ir avanzando con sus imagenes, sus videos y su voz.
-const cuentanALaVez = () => [...activos.values()].filter((e) => !e.esperaPesada).length;
+// espera, el de la fila puede ir avanzando con sus imagenes, sus videos y su voz. Un lote de anuncios de imagen
+// (una familia FUERA_DE_LA_FILA) tampoco: va en su propia fila, con su propio "a la vez" (A_LA_VEZ de la familia).
+const cuentanALaVez = () => [...activos.values()].filter((e) => !e.esperaPesada && !e.aparte).length;
+
+/** ¿Entra ya? Los videos, con la misma cuenta de siempre; una familia aparte, contra los suyos en marcha. */
+function cabe(slug) {
+  const fam = FAMILIAS[leerConductor(slug)?.familia];
+  if (fam?.FUERA_DE_LA_FILA) return [...activos.values()].filter((e) => e.familia === fam.FAMILIA).length < (Number(fam.A_LA_VEZ) || 1);
+  return cuentanALaVez() < colas.anunciosALaVez();
+}
 
 function encolar(slug) {
   if (activos.has(slug) || fila.includes(slug)) return;
-  if (cuentanALaVez() < colas.anunciosALaVez()) arrancar(slug);
+  if (cabe(slug)) arrancar(slug);
   else fila.push(slug);
 }
 
+// Recorre toda la fila en orden: un lote que espera no frena a un video, ni al reves.
 function siguiente() {
-  while (fila.length && cuentanALaVez() < colas.anunciosALaVez()) {
-    const s = fila.shift();
+  for (let i = 0; i < fila.length; ) {
+    const s = fila[i];
     const c = leerConductor(s);
-    if (c && (c.estado === 'esperando' || c.estado === 'corriendo')) arrancar(s);
+    if (!c || !['esperando', 'corriendo'].includes(c.estado)) {
+      fila.splice(i, 1);
+      continue;
+    }
+    if (cabe(s)) {
+      fila.splice(i, 1);
+      arrancar(s);
+      continue;
+    }
+    i++;
   }
 }
 
 function arrancar(slug) {
   const control = new AbortController();
-  const entrada = { control, promesa: null, c: null, limiteClaude: null };
+  const entrada = { control, promesa: null, c: null, limiteClaude: null, planSinCodex: null };
+  entrada.familia = leerConductor(slug)?.familia || null;
+  entrada.aparte = FAMILIAS[entrada.familia]?.FUERA_DE_LA_FILA === true;
   activos.set(slug, entrada);
   entrada.promesa = correrConductor(slug, entrada)
     .catch((e) => {
@@ -307,9 +339,13 @@ export async function esperarA(slug) {
   return leerConductor(slug);
 }
 
-// ---------------------------------------------------------------- esperar a que se renueve el plan de Claude
+// ---------------------------------------------------------------- esperar a que se renueve el plan de la IA
 
+// (el id guardado no cambia: tambien es el de ChatGPT; la IA va en pasos[].error.motor)
 const MOTIVO_CLAUDE = 'limite-claude';
+
+/** La IA cuyo limite espera el anuncio: la de su paso (los que esperaban antes de esta version, Claude). */
+const motorDeLaEspera = (c) => c?.pasos?.find((p) => p.error?.motivo === MOTIVO_CLAUDE)?.error?.motor || 'claude';
 
 function cancelarRetomaClaude(slug) {
   const t = retomasClaude.get(slug);
@@ -317,17 +353,21 @@ function cancelarRetomaClaude(slug) {
   retomasClaude.delete(slug);
 }
 
-/** A la hora `hasta`, el anuncio vuelve a la fila (si sigue esperando a Claude). */
-function programarRetomaClaude(slug, hasta) {
+/**
+ * A la hora `hasta`, el anuncio vuelve a la fila (si sigue esperando a la IA). Si ahora esta elegida otra IA que la
+ * del limite (`motor`), vuelve enseguida: la otra no esta en pausa por eso.
+ */
+function programarRetomaClaude(slug, hasta, motor = 'claude') {
   cancelarRetomaClaude(slug);
-  const ms = Math.max(1000, Math.min(Date.parse(hasta) - Date.now(), 2 ** 31 - 1) || 0);
+  const ms = motor !== motorAhora() ? 1000 : Math.max(1000, Math.min(Date.parse(hasta) - Date.now(), 2 ** 31 - 1) || 0);
   const t = setTimeout(() => {
     retomasClaude.delete(slug);
     const c = leerConductor(slug);
     if (!c || c.estado !== 'esperando' || c.motivo !== MOTIVO_CLAUDE) return;
-    // otra sesion pudo correr la pausa mas tarde (el limite semanal): se espera hasta esa hora
-    const pausa = colas.pausaDeClaude();
-    if (pausa && Date.parse(pausa.hasta) > Date.now() + 1000) return programarRetomaClaude(slug, pausa.hasta);
+    // otra sesion pudo correr la pausa mas tarde (el limite semanal): se espera hasta esa hora, si sigue esa IA
+    const espera = motorDeLaEspera(c);
+    const pausa = espera === motorAhora() ? colas.pausaDeClaude(espera) : null;
+    if (pausa && Date.parse(pausa.hasta) > Date.now() + 1000) return programarRetomaClaude(slug, pausa.hasta, espera);
     volverALaFila(c);
   }, ms);
   t.unref?.();
@@ -343,26 +383,46 @@ function volverALaFila(c) {
 }
 
 /**
- * El paso necesitaba a Claude y el plan se acabo por ahora: el anuncio deja su lugar (los demas siguen) y vuelve
- * solo a la fila cuando se renueva. Al abrir la app, lo mismo (retomarTodo).
+ * El paso necesitaba a la IA y el plan se acabo por ahora: el anuncio deja su lugar (los demas siguen) y vuelve
+ * solo a la fila cuando se renueva. Al abrir la app, lo mismo (retomarTodo). La IA es la que llego al limite
+ * (pausa.motor): queda en el paso, asi se sabe a cual se espera aunque despues se elija otra.
  */
 function esperarAClaude(c, p, pausa) {
-  const hasta = pausa?.hasta || colas.pausaDeClaude()?.hasta || new Date(Date.now() + 30 * 60000).toISOString();
+  const motor = pausa?.motor || motorAhora();
+  const hasta = pausa?.hasta || colas.pausaDeClaude(motor)?.hasta || new Date(Date.now() + 30 * 60000).toISOString();
   const hora = colas.horaDe(hasta);
   p.estado = 'pendiente';
   delete p.detalle;
   delete p.turno;
   p.error = {
-    mensaje: `Se acabó por ahora el uso de tu plan de Claude: sigo solo${hora ? ` a las ${hora}` : ' en un rato'}. Lo ya hecho no se repite.`,
+    mensaje: `Se acabó por ahora el uso de tu plan de ${nombreIA(motor)}: sigo solo${hora ? ` a las ${hora}` : ' en un rato'}. Lo ya hecho no se repite.`,
     motivo: MOTIVO_CLAUDE,
     reintentoEn: hasta,
+    motor,
   };
   c.estado = 'esperando';
   c.motivo = MOTIVO_CLAUDE;
   guardar(c);
-  programarRetomaClaude(c.slug, hasta);
-  console.log(`[conductor] ${c.slug}: espera a que se renueve el plan de Claude (${hasta}).`);
+  programarRetomaClaude(c.slug, hasta, motor);
+  console.log(`[conductor] ${c.slug}: espera a que se renueve el plan de ${nombreIA(motor)} (${hasta}).`);
 }
+
+// Se eligio otra IA (motor-ia.elegirMotor, ya guardada): se limpia la pausa de la anterior y cada anuncio que esperaba
+// el limite de otra IA vuelve ya a la fila, con la nueva, por el mismo camino que "Continuar". Los que esperan a la
+// IA que se eligio siguen esperando su hora.
+alCambiarDeMotor(({ motor, anterior } = {}) => {
+  if (anterior) colas.reanudarClaude(anterior);
+  for (const slug of [...retomasClaude.keys()]) {
+    const c = leerConductor(slug);
+    if (!c || c.estado !== 'esperando' || c.motivo !== MOTIVO_CLAUDE || motorDeLaEspera(c) === motor) continue;
+    try {
+      continuar(slug);
+      console.log(`[conductor] ${slug}: sigue con ${nombreIA(motor)} (esperaba el plan de ${nombreIA(motorDeLaEspera(c))}).`);
+    } catch (e) {
+      console.error(`[conductor] ${slug}: no pude seguir con ${nombreIA(motor)}: ${e?.message || e}`);
+    }
+  }
+});
 
 // ---------------------------------------------------------------- correr los pasos
 
@@ -477,12 +537,18 @@ function contexto(c, p, entrada) {
     paso: p,
     senal,
     guardar: () => guardar(c),
-    /** El lanzador de Claude (o null), con la fila compartida: en pausa por limite de uso no abre sesiones. */
+    /**
+     * El lanzador de la IA elegida (o null), con la fila compartida: con su IA en pausa por limite de uso no abre
+     * sesiones. Un plan de ChatGPT sin Codex no es un limite: el paso no se retoma solo.
+     */
     claude: async () => {
       const m = await moduloClaude();
       return colas.claudeEnFila(m, {
         alLimite: (pausa) => {
           entrada.limiteClaude = pausa;
+        },
+        alPlanSinCodex: (r) => {
+          entrada.planSinCodex = { mensaje: r?.error || null };
         },
       });
     },
@@ -588,7 +654,8 @@ function contexto(c, p, entrada) {
                 if (n) argsProceso.push('--concurrencia', String(n));
               }
               if (recursos.kie) {
-                const k = colas.cuotaKie(slug, activos.size);
+                // opciones.topeKie: lo mas que se lleva este proceso (los lotes de imagenes, 6 cada 10 s)
+                const k = colas.cuotaKie(slug, activos.size, { tope: opciones.topeKie });
                 env.KIE_LIMITE_CREACIONES = String(k.limite);
                 soltarKie = k.soltar;
               }
@@ -711,6 +778,7 @@ async function correrConductor(slug, entrada) {
     delete p.detalle;
     delete p.turno;
     entrada.limiteClaude = null;
+    entrada.planSinCodex = null;
     guardar(c);
 
     let r;
@@ -743,8 +811,9 @@ async function correrConductor(slug, entrada) {
       guardar(c);
       return;
     }
-    // El paso necesitaba a Claude y el plan se acabo por ahora: sigue solo cuando se renueve.
-    if (entrada.limiteClaude && (r?.pausa || !r || r.ok === false)) return esperarAClaude(c, p, entrada.limiteClaude);
+    // El paso necesitaba a la IA y el plan se acabo por ahora: sigue solo cuando se renueve. Si el plan de ChatGPT no
+    // incluye Codex, no: eso no se renueva solo (queda el error, con su texto, hasta que el usuario toque "Continuar").
+    if (entrada.limiteClaude && !entrada.planSinCodex && (r?.pausa || !r || r.ok === false)) return esperarAClaude(c, p, entrada.limiteClaude);
     if (r?.pausa) {
       p.estado = PAUSAS_SIN_ERROR.has(r.pausa.motivo) ? 'pendiente' : 'error';
       p.error = { mensaje: r.pausa.mensaje, motivo: r.pausa.motivo, ...(r.pausa.detalle ? { detalle: r.pausa.detalle } : {}) };
@@ -764,6 +833,10 @@ async function correrConductor(slug, entrada) {
       if (!p.error.causa) {
         const causa = procesos.causaDeFallo(ctxPaso?.ultimoFallo || p.error.detalle);
         if (causa) p.error.causa = causa;
+      }
+      if (entrada.planSinCodex) {
+        const antes = p.error && typeof p.error === 'object' ? p.error : { mensaje: String(p.error) };
+        p.error = { ...antes, mensaje: entrada.planSinCodex.mensaje || antes.mensaje, motivo: 'plan-sin-codex' };
       }
       delete p.detalle;
       delete p.turno;
@@ -863,10 +936,10 @@ export function continuar(slug) {
     return leerConductor(slug);
   }
   if (fila.includes(slug)) return c;
-  // Esperaba que se renovara el plan de Claude: el usuario quiere probar ya (si sigue el limite, vuelve a esperar).
+  // Esperaba que se renovara el plan de su IA: el usuario quiere probar ya (si sigue el limite, vuelve a esperar).
   if (retomasClaude.has(slug) || c.motivo === MOTIVO_CLAUDE) {
     cancelarRetomaClaude(slug);
-    colas.reanudarClaude();
+    colas.reanudarClaude(motorDeLaEspera(c));
   }
   for (const p of c.pasos) {
     if (p.estado === 'error' || p.estado === 'corriendo') p.estado = 'pendiente';
@@ -882,6 +955,33 @@ export function continuar(slug) {
   guardar(c);
   encolar(slug);
   return leerConductor(slug);
+}
+
+/**
+ * Reabre un conductor terminado desde el paso `desde` (lo anterior queda hecho) y lo pone en marcha. Para "Regenerar"
+ * en los anuncios de imagen. Si no estaba terminado: en pausa, con error o esperando a Claude, el usuario pidio algo y
+ * se intenta ya (continuar); si esta en marcha, no hace nada (el paso toma el pedido en su proxima vuelta).
+ */
+export function reabrir(slug, desde) {
+  if (!slugDeLaApp(slug)) throw new ErrorDeApp('No encuentro ese anuncio.', 404);
+  if (activos.has(slug) || fila.includes(slug)) return leerConductor(slug);
+  const c = leerConductor(slug);
+  if (!c) throw new ErrorDeApp('Este anuncio todavía no empezó a producirse.', 404);
+  if (c.estado === 'listo') {
+    const i = Math.max(0, c.pasos.findIndex((p) => p.id === desde));
+    c.pasos.forEach((p, k) => {
+      if (k < i) return;
+      p.estado = 'pendiente';
+      for (const x of ['error', 'detalle', 'nota', 'inicio', 'fin', 'turno']) delete p[x];
+    });
+    c.paso = c.pasos[i]?.id || c.paso;
+    c.estado = 'pausado';
+    c.motivo = 'detenido';
+    delete c.terminado;
+    delete c.error;
+    guardar(c);
+  }
+  return continuar(slug);
 }
 
 /** Corta lo que este corriendo. Queda "pausado"; "Continuar" sigue desde el mismo paso (sin pagar dos veces). */
@@ -1001,13 +1101,15 @@ export async function retomarTodo({ solo = null } = {}) {
       delete p.render;
     }
     if (c.motivo === MOTIVO_CLAUDE) {
-      // la hora a la que se renovaba el plan quedo en el paso que esperaba: la fila de Claude vuelve a la pausa
+      // la hora a la que se renovaba el plan quedo en el paso que esperaba, con su IA: la fila de esa IA vuelve a la
+      // pausa (si ahora esta elegida otra, programarRetomaClaude lo pone en la fila enseguida)
       const hora = c.pasos.find((p) => p.error?.motivo === MOTIVO_CLAUDE)?.error?.reintentoEn;
-      const pausa = Date.parse(hora || '') > Date.now() ? colas.pausarClaude({ hasta: hora }) : colas.pausaDeClaude();
+      const motor = motorDeLaEspera(c);
+      const pausa = Date.parse(hora || '') > Date.now() ? colas.pausarClaude({ hasta: hora, motor }) : colas.pausaDeClaude(motor);
       if (pausa) {
         c.estado = 'esperando';
         guardar(c);
-        programarRetomaClaude(c.slug, pausa.hasta);
+        programarRetomaClaude(c.slug, pausa.hasta, motor);
         retomados.push(c.slug);
         continue;
       }

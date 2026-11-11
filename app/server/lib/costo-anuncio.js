@@ -15,6 +15,7 @@ import { RAIZ, TEMP, DOLARES_POR_CREDITO } from './rutas.js';
 import { leerJSON, existe, listar } from './archivos.js';
 import { entornoDelMotor, consultarSaldoKie } from './procesos.js';
 import { leerPlanDeCosto, caminoDeMusica } from './familias/voz-en-off.js';
+import { copiarModelosAlAnuncio } from './modelos.js';
 
 const CREDITOS_SUNO = 12;
 const usd = (cr) => Math.round(cr * DOLARES_POR_CREDITO * 100) / 100;
@@ -73,8 +74,12 @@ export async function costoDeAnuncio(slug) {
   if (!existe(fm)) return null;
   const brief = leerJSON(path.join(dir, 'app', 'brief.json')) || {};
   const estilo = brief.estilo || leerJSON(fm)?.estilo || null;
-  // se recalcula cuando cambia el guion o llegan piezas nuevas
-  const firma = [fs.statSync(fm).mtimeMs, listar(path.join(dir, 'img')).length, listar(path.join(dir, 'video')).length, listar(path.join(dir, 'musica')).length].join('|');
+  // El plan usa los modelos elegidos para este anuncio, como la producción.
+  copiarModelosAlAnuncio(slug);
+  const modelos = path.join(dir, 'modelos.json');
+  const marcaModelos = existe(modelos) ? fs.statSync(modelos).mtimeMs : 0;
+  // Se recalcula también cuando cambia la elección antes de aprobar.
+  const firma = [marcaModelos, fs.statSync(fm).mtimeMs, listar(path.join(dir, 'img')).length, listar(path.join(dir, 'video')).length, listar(path.join(dir, 'musica')).length].join('|');
   let plan = cache.get(slug);
   if (plan) plan = { ...plan };
   if (!plan || plan.firma !== firma || Date.now() - plan.t > 10 * 60000) {

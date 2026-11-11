@@ -4,9 +4,14 @@
 //   modelos    con qué modelo salió cada pieza, si fue el de respaldo, cuántos intentos y cuántos créditos
 //   revisiones la tira de 5 cuadros que miró la IA de cada clip (qa/)
 //   oido       lo que se oyó en cada clip hablado (lineas-habladas.json, ya como texto)
+//   avisos     lo que notó la revisión en cada pieza (app/avisos.json, lib/avisos.js): { 'vid:toma-5': [{ fuente, paso,
+//              texto, fecha, sugerencia: bool }] }. Desde 2026-11-09 la app no rehace nada sola por calidad: la
+//              revisión solo avisa y el usuario decide. `sugerencia` dice si hay una instrucción lista para «Corregir
+//              esto» (el texto de esa instrucción no sale de aquí: lo usa el servidor al regenerar)
 //   fechas     cuándo llegó cada pieza (para el registro)
 //
-// Todo SOLO LECTURA desde temp/<slug>/. Nunca devuelve prompts: de qa/indice.json solo sale la tira.
+// Todo SOLO LECTURA desde temp/<slug>/. Nunca devuelve prompts: de qa/indice.json solo sale la tira, y de los avisos
+// solo si traen sugerencia.
 //
 // El conductor de produccion (lib/conductor.js), para los anuncios hechos por la app (con app/brief.json):
 //
@@ -28,8 +33,9 @@ import path from 'node:path';
 import { TEMP, PUERTO } from '../lib/rutas.js';
 import { leerJSON, listar, stat, existe, esImagen, esVideo, dentroDe } from '../lib/archivos.js';
 import { slugValido, urlAnuncio } from '../lib/anuncios.js';
-import { modelosDelMotor, nombreDeModelo } from '../lib/modelos.js';
-import { iniciarProduccion, continuar, detener, leerConductor, retomarTodo, slugDeLaApp, estadoDeLaFila, estadoCompleto, esperarFamilias, familiaDe } from '../lib/conductor.js';
+import { leerAvisos } from '../lib/avisos.js';
+import { nombreDeModelo, esModeloConDialogo } from '../lib/modelos.js';
+import { iniciarProduccion, continuar, detener, leerConductor, retomarTodo, slugDeLaApp, estadoDeLaFila, estadoCompleto, esperarFamilias, familiaDe, FAMILIAS } from '../lib/conductor.js';
 
 const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
 
@@ -68,12 +74,21 @@ function paraLaPantalla(c) {
 
 /** slug -> titulo de los anuncios de la app (para decir a cual espera). */
 async function titulosDeAnuncios() {
+  let titulos;
   try {
     const { listarAnunciosNuevos } = await import('../lib/anuncios-nuevos.js');
-    return new Map(listarAnunciosNuevos().map((a) => [a.slug, a.titulo]));
+    titulos = new Map(listarAnunciosNuevos().map((a) => [a.slug, a.titulo]));
   } catch {
     return new Map(); // sin titulos: "otro anuncio"
   }
+  // y los lotes de anuncios de imagen: «Anuncios de imagen: Crema Luna» (si no se pudieran leer, los de siempre)
+  try {
+    const { titulosDeLotes } = await import('../lib/imagen-ads/lotes.js');
+    for (const [slug, titulo] of titulosDeLotes()) if (!titulos.has(slug)) titulos.set(slug, titulo);
+  } catch {
+    /* sin los lotes: como antes */
+  }
+  return titulos;
 }
 
 /**
@@ -83,14 +98,20 @@ async function titulosDeAnuncios() {
  */
 async function filaDe(slug) {
   const f = estadoDeLaFila();
-  const i = f.fila.indexOf(slug);
+  // Un lote de anuncios de imagen va en su propia fila (FUERA_DE_LA_FILA): un video espera solo por videos y un lote
+  // solo por lotes. Sin lotes, esto da lo mismo de siempre.
+  const deLotes = (s) => FAMILIAS[leerConductor(s)?.familia]?.FUERA_DE_LA_FILA === true;
+  const lote = deLotes(slug);
+  const activos = f.activos.filter((s) => deLotes(s) === lote);
+  const enFila = f.fila.filter((s) => deLotes(s) === lote);
+  const i = enFila.indexOf(slug);
   if (i < 0) return null;
   const titulos = await titulosDeAnuncios();
   return {
-    antes: [...f.activos, ...f.fila.slice(0, i)].map((s) => titulos.get(s) || 'otro anuncio'),
-    enMarcha: f.activos.length,
+    antes: [...activos, ...enFila.slice(0, i)].map((s) => titulos.get(s) || 'otro anuncio'),
+    enMarcha: activos.length,
     delante: i,
-    aLaVez: f.maximo,
+    aLaVez: lote ? Number(FAMILIAS[leerConductor(slug)?.familia]?.A_LA_VEZ) || 1 : f.maximo,
   };
 }
 
@@ -104,9 +125,9 @@ async function responder(res, accion) {
   }
 }
 
-// Nombres de los modelos como los conoce el alumno (sin códigos): la versión sale del nombre que guardó
-// el motor (kling-3.0 -> Kling 3.0); si no trae versión, la del respaldo que usa el motor hoy.
-const nombreModelo = (m) => nombreDeModelo(m, { respaldoActual: modelosDelMotor().respaldo });
+// Nombres de los modelos como los conoce el alumno (sin códigos): los del catálogo de modelos
+// (produccion/catalogo-modelos.json); lo que no está ahí, por su nombre con la versión que guardó el motor.
+const nombreModelo = (m) => nombreDeModelo(m);
 
 const PIEZA = /((?:toma|broll|paso)-\d+(?:-(?:inicial|final))?)$/;
 const FECHA = /(\d{4}-\d{2}-\d{2})(?:T(\d{2})-(\d{2})(?:-(\d{2}))?)?/;
@@ -218,6 +239,8 @@ export default function rutasProduccion(app) {
       esperandoAClaude: e.esperandoAClaude.map(conTitulo),
       filas: {
         claude: { trabajando: e.filas.claude.trabajando ?? 0, esperando: e.filas.claude.esperando ?? 0, lugares: e.filas.claude.maximo ?? 2, pausaHasta: e.filas.claude.pausa?.hasta || null },
+        // la pausa de cada IA ({ desde, hasta, conHora, motor } o null): `claude.pausaHasta` es solo la de la elegida
+        pausas: { claude: e.filas.pausas?.claude || null, codex: e.filas.pausas?.codex || null },
         kie: { procesos: e.filas.kie.procesos.length },
         elevenlabs: lugares(e.filas.elevenlabs),
         pesada: lugares(e.filas.pesada),
@@ -289,6 +312,8 @@ export default function rutasProduccion(app) {
         modelos[`${tipo}:${x.id}`] = {
           modelo: nombreModelo(x.modelo),
           respaldo: Boolean(x.respaldo),
+          // si el modelo hace hablar al personaje: el campo del log o, si no lo trae, el catálogo (null: no se sabe)
+          ...(tipo === 'vid' ? { dialogo: typeof x.dialogo === 'boolean' ? x.dialogo : esModeloConDialogo(x.modelo) } : {}),
           intentos: Number(x.intentos) || 1,
           creditos: Number.isFinite(Number(x.creditos)) ? Number(x.creditos) : null,
         };
@@ -338,11 +363,24 @@ export default function rutasProduccion(app) {
       if (st?.isFile()) audio[clave] = st.mtime.toISOString();
     }
 
+    // ---------------------------------------------------------------- lo que notó la revisión (avisos)
+    const avisos = {};
+    for (const [clave, lista] of Object.entries(leerAvisos(dir))) {
+      avisos[clave] = lista.map((a) => ({
+        fuente: a.fuente || 'revision-ia',
+        paso: a.paso || null,
+        texto: a.texto,
+        fecha: a.fecha || null,
+        sugerencia: Boolean((a.sugerencia && Object.keys(a.sugerencia).length) || a.arreglo),
+      }));
+    }
+
     res.json({
       arreglos,
       modelos,
       revisiones,
       oido,
+      avisos,
       fechas: {
         imagenes: fechasDe(path.join(dir, 'img'), img),
         clips: fechasDe(path.join(dir, 'video'), video),

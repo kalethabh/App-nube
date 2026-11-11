@@ -521,7 +521,9 @@ async function principal() {
   );
 
   // los archivos que el render va a pedir
-  const archivos = archivosDelPlan(carpeta, plan);
+  // (los del plan y los del plan con los cambios: un video propio que el usuario puso en el editor vive en
+  // video/subidos/ y solo lo nombra el plan ajustado)
+  const archivos = [...new Set([...archivosDelPlan(carpeta, plan), ...archivosDelPlan(carpeta, planP)])].sort();
   const faltan = [];
   for (const p of piezasVisibles(planP)) if (!fs.existsSync(path.join(carpeta, 'video', p.archivo)) && !faltan.includes(p.archivo)) faltan.push(p.archivo);
   if (plan.audio?.voz && !fs.existsSync(path.join(carpeta, plan.audio.voz))) faltan.push(plan.audio.voz);

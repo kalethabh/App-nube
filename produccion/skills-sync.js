@@ -9,6 +9,11 @@
 //   node produccion/skills-sync.js            revisa y avisa si hay desfase
 //   node produccion/skills-sync.js --empaquetar   .claude/  ->  skills/*.skill
 //   node produccion/skills-sync.js --desempaquetar skills/*.skill -> .claude/
+//
+// Una skill que trae MAS archivos que SKILL.md (anuncios-imagen-ads: formatos,
+// angulos, scripts) se empaqueta aparte: este script solo sabe meter y sacar
+// SKILL.md, asi que no le arma .skill, no la compara y no la pisa al
+// desempaquetar (lo dice en la lista).
 
 import fs from 'node:fs';
 import os from 'node:os';
@@ -18,6 +23,27 @@ import { RAIZ } from './config.js';
 
 const DIR_EJECUTADAS = path.join(RAIZ, '.claude', 'skills');
 const DIR_PAQUETES = path.join(RAIZ, 'skills');
+
+/** ¿La skill instalada tiene algun archivo ademas de SKILL.md? (entonces se empaqueta aparte) */
+export function tieneMasArchivos(nombre) {
+  const raiz = path.join(DIR_EJECUTADAS, nombre);
+  const pila = [raiz];
+  while (pila.length) {
+    const dir = pila.pop();
+    let entradas = [];
+    try {
+      entradas = fs.readdirSync(dir, { withFileTypes: true });
+    } catch {
+      continue;
+    }
+    for (const e of entradas) {
+      const ruta = path.join(dir, e.name);
+      if (e.isDirectory()) pila.push(ruta);
+      else if (path.relative(raiz, ruta) !== 'SKILL.md') return true;
+    }
+  }
+  return false;
+}
 
 const leerEjecutada = (nombre) => {
   const p = path.join(DIR_EJECUTADAS, nombre, 'SKILL.md');
@@ -72,6 +98,10 @@ const norm = (s) => (s == null ? null : s.replace(/\r\n/g, '\n').trimEnd());
 export function revisar() {
   const filas = [];
   for (const n of nombres()) {
+    if (tieneMasArchivos(n)) {
+      filas.push({ nombre: n, estado: 'aparte', bytesEjecutada: null, bytesPaquete: null });
+      continue;
+    }
     const eje = norm(leerEjecutada(n));
     const paq = norm(leerPaquete(n));
     let estado;
@@ -113,9 +143,10 @@ if (process.argv[1] && process.argv[1].endsWith('skills-sync.js')) {
   console.log('  skills/<n>.skill             es solo el paquete para repartir\n');
 
   for (const f of filas) {
-    const marca = { ok: 'OK      ', desfase: 'DESFASE ', 'solo-ejecutada': 'sin-paq ', 'solo-paquete': 'sin-ejec' }[f.estado];
+    const marca = { ok: 'OK      ', desfase: 'DESFASE ', 'solo-ejecutada': 'sin-paq ', 'solo-paquete': 'sin-ejec', aparte: 'APARTE  ' }[f.estado];
     let detalle = '';
-    if (f.estado === 'desfase') detalle = `ejecutada ${f.bytesEjecutada} bytes vs paquete ${f.bytesPaquete} bytes`;
+    if (f.estado === 'aparte') detalle = 'esta skill se empaqueta aparte (tiene mas archivos que SKILL.md): no se le arma .skill';
+    else if (f.estado === 'desfase') detalle = `ejecutada ${f.bytesEjecutada} bytes vs paquete ${f.bytesPaquete} bytes`;
     else if (f.estado === 'solo-paquete') detalle = 'existe el .skill pero no esta instalada en .claude/skills';
     else if (f.estado === 'solo-ejecutada') detalle = 'esta instalada pero no hay .skill para distribuir';
     console.log(`  ${marca} ${f.nombre.padEnd(32)} ${detalle}`);
@@ -129,6 +160,7 @@ if (process.argv[1] && process.argv[1].endsWith('skills-sync.js')) {
       empaquetar(f.nombre);
       console.log(`  empaquetada  ${f.nombre}  ->  skills/${f.nombre}.skill`);
     }
+    for (const f of filas.filter((x) => x.estado === 'aparte')) console.log(`  aparte       ${f.nombre}: esta skill se empaqueta aparte (no se le arma .skill)`);
     console.log('');
   } else if (args.includes('--desempaquetar')) {
     console.log('');
@@ -136,6 +168,7 @@ if (process.argv[1] && process.argv[1].endsWith('skills-sync.js')) {
       desempaquetar(f.nombre);
       console.log(`  instalada    skills/${f.nombre}.skill  ->  .claude/skills/${f.nombre}/SKILL.md`);
     }
+    for (const f of filas.filter((x) => x.estado === 'aparte')) console.log(`  aparte       ${f.nombre}: esta skill se empaqueta aparte (no se toca)`);
     console.log('');
   } else if (desfasadas.length) {
     console.log('\n  Hay desfase. Lo que se ejecuta NO es lo que vas a repartir.');

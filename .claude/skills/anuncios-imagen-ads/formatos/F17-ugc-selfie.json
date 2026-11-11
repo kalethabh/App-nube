@@ -1,0 +1,101 @@
+{
+  "id": "F17",
+  "slug": "ugc-selfie",
+  "nombre": "Foto estilo cliente (UGC)",
+  "origen": "biblioteca",
+  "descripcion": "Foto casera estilo cliente: selfie o selfie de espejo de una persona real sosteniendo el producto hacia la cámara en su casa, con encuadre imperfecto, luz doméstica y grano de celular. Encima, stickers de texto estilo historia (caja blanca con letra negra) y una flecha dibujada a mano hacia el producto. Auténtico, no de estudio.",
+  "angulos_compatibles": ["testimonio", "transformacion", "identidad", "prueba-social", "romper-expectativas", "rutina-uso", "curiosidad"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "ropa", "gadget", "juguete", "hogar", "digital", "otro"],
+  "ad_format": "UGC Selfie Story Ad",
+  "reference_style": "Authentic customer-style smartphone selfie holding the product, with native story-style text stickers; deliberately unpolished and real, like an organic story posted by a customer",
+  "art_direction": {
+    "visual_hierarchy": "1) The top caption sticker (the hook). 2) The person's face and expression looking into the camera. 3) The product held up toward the camera. 4) The smaller secondary sticker and its hand-drawn arrow pointing to the product.",
+    "composition_style": "Handheld smartphone framing cropped to square: slightly off-center, a slight tilt (1-3 degrees), arm's-length front-camera selfie, or a mirror selfie where the phone is a generic phone with no logos. The person fills about 60-70% of the frame with the face in the upper-middle, slightly left, and the product is held up beside the face or at chest height on the right, so face and product share the sweet spot without the product ever covering the face. Stickers sit over low-detail areas (top headroom, lower corner), never over the face or the product label.",
+    "spacing_and_structure": "Top caption sticker centered, x 10-90% and y 5-19%. Person's face around x 26-56% and y 22-52%. Product around x 54-86% and y 38-80%, about 25-32% of the canvas height, label toward the camera. Secondary sticker around x 8-45% and y 76-88% (opposite side from the product), with a hand-drawn arrow curving from it to the product. 5% safe margins.",
+    "lighting_and_depth": "Real, imperfect home lighting: warm indoor lamp mixed with window daylight, or bathroom vanity light. Slight smartphone sharpening, mild digital noise, natural skin texture with visible pores, no retouching glow. Home background (bathroom, bedroom, car, kitchen) with everyday objects slightly out of focus, with the limited depth typical of a phone camera. No studio lighting and no cinematic grading."
+  },
+  "layout_summary": "Square, casual smartphone selfie taken at home. A real-looking person from the target audience looks into the camera with a genuine expression and holds the product up near their face, label toward the lens. At the top, a story-style caption: each line of text on its own rounded white box with black text. In a lower corner, a smaller sticker in a contrasting box, with a white hand-drawn arrow curving toward the product. No other graphics.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "home setting",
+      "position": "Full canvas, behind the person",
+      "visual_function": "Real home environment that proves the photo was taken by a real customer",
+      "adaptation_rule": "Choose a believable home spot for this product: bathroom mirror for cosmetics and personal care, bedroom or full-length mirror for clothing, kitchen for supplements and home products, desk or sofa for gadgets and digital products, kids' room for toys, car seat for on-the-go products. Lived-in but not messy, slightly out of focus. Use the setting from the batch plan so variations differ."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "person",
+      "position": "Center to center-left, filling about 60-70% of the frame, face around x 26-56% and y 22-52%",
+      "visual_function": "The customer; their face and expression give the ad its credibility and emotion",
+      "adaptation_rule": "Match the target audience (age, gender, style), casual everyday look, minimal makeup, real skin texture. Genuine expression that fits the angle (excited, surprised, relieved, proud), looking into the camera lens. For clothing, a mirror selfie wearing the garment with the phone covering part of the face is allowed."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Held up on the right, beside the face or at chest height, around x 54-86% and y 38-80%",
+      "visual_function": "Shows exactly what the customer is talking about",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), held naturally in one hand toward the camera, label readable, about 25-32% of the canvas height, in sharp focus, never covering the face. For clothing, the person wears it as the hero; for digital products, they hold a phone whose screen shows the product toward the camera."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "story caption sticker",
+      "position": "Top center, x 10-90% and y 5-19%",
+      "visual_function": "The hook, written as the customer's own caption",
+      "adaptation_rule": "Native story-style caption: each text line sits on its own rounded white box that hugs the text, with near-black text. Max 2 lines, centered, over the headroom area."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "secondary sticker",
+      "position": "Lower corner opposite the product, around x 8-45% and y 76-88%",
+      "visual_function": "A second, quieter line that points to the product or adds the result",
+      "adaptation_rule": "Smaller story-style label in a contrasting box: semi-transparent near-black box with white text, or a brand-accent box with high-contrast text. Max 2 lines."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "hand-drawn arrow",
+      "position": "From the secondary sticker curving toward the product",
+      "visual_function": "Directs the eye to the product in a native, handmade way",
+      "adaptation_rule": "A single white freehand marker-style arrow (like a story drawing tool), slightly wobbly, ending near but not over the product label."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "story caption (hook)",
+      "reference_position": "Top center, over the headroom",
+      "text_style": "Medium-to-bold rounded sans-serif in the classic story-caption style, about 4.2-4.8% of the canvas height, centered, near-black text on rounded white boxes hugging each line, max 2 lines",
+      "guia_texto": "El gancho en primera persona, como una historia real del cliente (ej. 'POV: por fin encontré algo que funciona', 'Día 14 usando esto'). 5 a 10 palabras; puede llevar 1 emoji."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "secondary sticker",
+      "reference_position": "Lower corner opposite the product, connected to the arrow",
+      "text_style": "Same story-caption font, smaller (about 3-3.4% of the canvas height), left-aligned, max 2 lines, white text on a semi-transparent dark box or high-contrast text on a brand-accent box",
+      "guia_texto": "Resultado o detalle concreto que señala al producto (ej. 'este es el culpable 👇', 'llevo 2 semanas'). 2 a 6 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Real-looking person from the target audience holding the product toward the camera",
+    "Home setting with imperfect, natural indoor light and phone-camera grain",
+    "Story-style caption at the top on rounded white boxes",
+    "Smaller secondary sticker with a white hand-drawn arrow pointing to the product"
+  ],
+  "forbidden_additions": [
+    "Studio lighting, seamless backdrop or heavy retouching",
+    "Graphic ad headline in display typography outside the stickers",
+    "Real platform interface elements (progress bars, usernames, like or share buttons, platform logos)",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars or review cards",
+    "Benefit list, checkmarks or icons",
+    "Before/after split or collage",
+    "Emoji, GIF, poll, question or location stickers",
+    "More than two text stickers",
+    "Additional people in the frame",
+    "Visible phone brand logos",
+    "Logos or brand marks",
+    "Bottom bar or banner"
+  ],
+  "notas_paleta": "Colores reales y algo imperfectos de una foto casera. La paleta de marca solo en detalles: la ropa de la persona o algún objeto del entorno, y opcionalmente el fondo del sticker secundario. El sticker principal mantiene el estilo nativo (caja blanca con texto negro)."
+}

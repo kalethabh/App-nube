@@ -5,17 +5,20 @@
 //   pesadosALaVez()      lo pesado de tu PC (el render y el recorte del host): de a 1; de a 2 con 32 GB o mas
 //   recursosDe(script, args, opciones)   que filas necesita un comando del motor
 //   entrar(slug, recursos, { senal, alEsperar })   espera su lugar en las filas -> soltar() (null si lo cortaron)
-//   cuotaKie(slug, anunciosActivos)      su parte del limite de pedidos a kie -> { limite, soltar() }
-//   claudeEnFila(modulo, { alLimite })   el lanzador de Claude con la pausa por limite de uso
-//   lanzarSesion(o)                      lo mismo, para quien no tiene el modulo a mano (la sesion de guion)
-//   pausaDeClaude() · pausarClaude({ reinicio }) · reanudarClaude()
+//   cuotaKie(slug, anunciosActivos, { tope })   su parte del limite de pedidos a kie -> { limite, soltar() }
+//   claudeEnFila(modulo, { alLimite, alPlanSinCodex })   el lanzador de la IA con la pausa por limite de uso
+//   lanzarSesion(o)                      lo mismo con la IA elegida (motor-ia.js), para quien no tiene el modulo a
+//                                        mano (la sesion de guion y la de la ficha)
+//   pausaDeClaude(motor) · pausarClaude({ reinicio, hasta, motor }) · reanudarClaude(motor)   una pausa por IA
+//                                        ('claude' | 'codex'; sin motor, la de la IA elegida)
 //   estadoDeLasFilas()
 //
 // Las cuatro filas:
-//   - Claude: 2 sesiones a la vez (eso ya lo cuenta claude.js, MAX_SESIONES, para TODAS las sesiones: guion,
-//     ficha y produccion). Aca va la pausa: al primer aviso de limite de uso la fila entera queda en pausa
-//     hasta que se renueva el plan (la hora que dio Claude; si no la dio, se vuelve a probar a los 30 min).
-//     Mientras tanto ninguna sesion nueva se abre: vuelve enseguida con { limite: true } sin gastar un turno.
+//   - La IA (Claude o ChatGPT): 2 sesiones a la vez (eso ya lo cuenta ia/fila.js, MAX_SESIONES, para TODAS las
+//     sesiones de las dos IA: guion, ficha y produccion). Aca va la pausa, una por IA: al primer aviso de limite de
+//     uso la fila de ESA IA queda en pausa hasta que se renueva el plan (la hora que dio la IA; si no la dio, se
+//     vuelve a probar a los 30 min). Mientras tanto ninguna sesion nueva se abre con esa IA: vuelve enseguida con
+//     { limite: true } sin gastar un turno. Si se elige la otra IA, esa no esta en pausa y sigue.
 //     Al cerrar y abrir la app, la hora vuelve del conductor.json de los anuncios que esperaban (retomarTodo).
 //   - kie: un proceso del motor por anuncio (procesos.js no deja correr dos sobre la misma carpeta) y cada uno
 //     con su parte de los 18 pedidos cada 10 s (KIE_LIMITE_CREACIONES: el limite del motor es por proceso,
@@ -34,6 +37,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { RAIZ, TEMP } from './rutas.js';
 import { leerConfig } from './config.js';
+import { motorActual, nombreIA } from './motor-ia.js';
 
 const GB = 1024 ** 3;
 /** Lo mas que la app hace a la vez (el selector de Tu PC va de 1 a esto). */
@@ -159,7 +163,7 @@ const SOLOS = new Set(['recortar-host.js']); // no corre con ningun otro pesado 
 // Los que hablan con ElevenLabs (la voz o Scribe) por si quien los lanza no dijo `que`.
 const DE_ELEVENLABS = new Set(['generar-audio.js', 'revisar-voces.js', 'lineas-habladas.js', 'subtitulos-dialogo.js', 'cortar-cola-ugc.js']);
 // Los que crean tareas en kie (imagenes, videos, Suno).
-const DE_KIE = new Set(['producir.js', 'generar-imagenes.js', 'generar-videos.js', 'generar-musica.js', 'generar-cancion.js', 'suno-retomable.js', 'test-imagen.js', 'test-imagen-crochet.js']);
+const DE_KIE = new Set(['producir.js', 'generar-imagenes.js', 'generar-videos.js', 'generar-musica.js', 'generar-cancion.js', 'suno-retomable.js', 'test-imagen.js', 'test-imagen-crochet.js', 'generar-imagen-ads.js']);
 const QUE_KIE = new Set(['imagenes', 'videos', 'musica', 'cancion']);
 const QUE_ELEVENLABS = new Set(['voz', 'scribe']);
 // Con estas banderas el comando solo mira o calcula: no pide nada ni arma nada.
@@ -326,60 +330,69 @@ let ultimoKie = 0;
 /**
  * La parte del limite de pedidos a kie para un proceso nuevo de `slug`: 18 / anuncios activos, sin pasar de lo
  * que dejan libre los que ya corren (que siguen con la parte que les toco al arrancar). Minimo 2.
+ * Con `tope` (los lotes de anuncios de imagen: 6), nunca mas que eso. Sin tope, la misma cuenta de siempre.
  * Devuelve { limite, soltar() }: soltar al terminar el proceso.
  */
-export function cuotaKie(slug, anunciosActivos = 1) {
+export function cuotaKie(slug, anunciosActivos = 1, { tope = null } = {}) {
   const n = Math.max(1, Number(anunciosActivos) || 1);
   const justo = Math.floor(LIMITE_KIE / n);
   let otros = 0;
   for (const x of kieEnCurso.values()) if (x.slug !== slug) otros += x.limite;
-  const limite = Math.max(MINIMO_KIE, Math.min(justo, LIMITE_KIE - otros));
+  const limite = Math.max(MINIMO_KIE, Math.min(justo, LIMITE_KIE - otros, Number(tope) > 0 ? Number(tope) : Infinity));
   const id = ++ultimoKie;
   kieEnCurso.set(id, { slug, limite, desde: Date.now() });
   return { limite, soltar: () => kieEnCurso.delete(id) };
 }
 
-// ---------------------------------------------------------------- Claude: la pausa por limite de uso
+// ---------------------------------------------------------------- la IA: la pausa por limite de uso, una por IA
 
 const SIN_HORA_MS = 30 * 60000; // sin hora de renovacion: se vuelve a probar a los 30 min
-const MARGEN_MS = 60000; // a la hora que dijo Claude, un minuto mas
+const MARGEN_MS = 60000; // a la hora que dijo la IA, un minuto mas
 const TOPE_MS = 8 * 24 * 3600000; // un limite semanal puede ser de dias, no mas
 
 // En memoria: lo que sobrevive a cerrar la app es la hora que quedo en el conductor.json de cada anuncio que
-// esperaba (pasos[].error.reintentoEn), y retomarTodo() la vuelve a poner con pausarClaude({ hasta }).
-let pausaClaude = null; // { desde, hasta, conHora }
+// esperaba (pasos[].error.reintentoEn, con su IA en pasos[].error.motor), y retomarTodo() la vuelve a poner con
+// pausarClaude({ hasta, motor }). Cada IA tiene su pausa: el limite de una no frena a la otra.
+const pausas = { claude: null, codex: null }; // motor -> { desde, hasta, conHora, motor } | null
 
-/** La pausa de la fila de Claude ({ desde, hasta, conHora }) o null si no esta en pausa. */
-export function pausaDeClaude() {
-  if (!pausaClaude) return null;
-  if (Date.now() >= Date.parse(pausaClaude.hasta)) {
-    pausaClaude = null;
+// sin IA elegida (o una que no se conoce) cuenta como Claude, la de siempre
+const motorDePausa = (motor) => (motor === 'codex' ? 'codex' : 'claude');
+
+/** La pausa de la fila de esa IA (por defecto, la elegida): { desde, hasta, conHora, motor } o null. */
+export function pausaDeClaude(motor = motorActual()) {
+  const m = motorDePausa(motor);
+  const p = pausas[m];
+  if (!p) return null;
+  if (Date.now() >= Date.parse(p.hasta)) {
+    pausas[m] = null;
     return null;
   }
-  return { ...pausaClaude };
+  return { ...p };
 }
 
 /**
- * El primer aviso de limite: la fila de Claude queda en pausa hasta `reinicio` (la hora que dio Claude, mas un
- * minuto) o 30 min si no se sabe. Con `hasta`, esa hora exacta (al abrir la app, la que habia quedado).
+ * El primer aviso de limite: la fila de esa IA queda en pausa hasta `reinicio` (la hora que dio la IA, mas un
+ * minuto) o 30 min si no se sabe. Con `hasta`, esa hora exacta (al abrir la app, la que habia quedado). `motor` es
+ * la IA que de verdad llego al limite (por defecto, la elegida).
  */
-export function pausarClaude({ reinicio = null, hasta: exacta = null } = {}) {
+export function pausarClaude({ reinicio = null, hasta: exacta = null, motor = motorActual() } = {}) {
+  const m = motorDePausa(motor);
   const tExacta = Date.parse(exacta || '');
   const t = Date.parse(reinicio || '');
   const conHora = Number.isFinite(tExacta) || (Number.isFinite(t) && t > Date.now());
   const hasta = Math.min(Number.isFinite(tExacta) ? tExacta : conHora ? t + MARGEN_MS : Date.now() + SIN_HORA_MS, Date.now() + TOPE_MS);
-  if (hasta <= Date.now()) return pausaDeClaude();
+  if (hasta <= Date.now()) return pausaDeClaude(m);
+  const antes = pausaDeClaude(m);
   // si ya estaba en pausa, gana la hora mas tardia (otra sesion pudo traer la del limite semanal)
-  if (pausaClaude && Date.parse(pausaClaude.hasta) >= hasta) return { ...pausaClaude };
-  const nueva = !pausaClaude;
-  pausaClaude = { desde: pausaClaude?.desde || ahora(), hasta: new Date(hasta).toISOString(), conHora };
-  if (nueva) console.log(`[colas] Claude llegó al límite de uso: su fila queda en pausa hasta ${pausaClaude.hasta}.`);
-  return { ...pausaClaude };
+  if (antes && Date.parse(antes.hasta) >= hasta) return antes;
+  pausas[m] = { desde: antes?.desde || ahora(), hasta: new Date(hasta).toISOString(), conHora, motor: m };
+  if (!antes) console.log(`[colas] ${nombreIA(m)} llegó al límite de uso: su fila queda en pausa hasta ${pausas[m].hasta}.`);
+  return { ...pausas[m] };
 }
 
-/** Saca la pausa ("Continuar" del usuario: probar ya). */
-export function reanudarClaude() {
-  pausaClaude = null;
+/** Saca la pausa de esa IA (por defecto, la elegida): "Continuar" del usuario (probar ya) o se eligio otra IA. */
+export function reanudarClaude(motor = motorActual()) {
+  pausas[motorDePausa(motor)] = null;
 }
 
 export function horaDe(iso) {
@@ -388,18 +401,20 @@ export function horaDe(iso) {
   return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
 }
 
-const mensajeDePausa = (p) => `Se acabó por ahora el uso de tu plan de Claude. Toca "Reintentar" cuando se renueve${p?.conHora ? ` (a las ${horaDe(p.hasta)})` : ''}: lo ya hecho no se repite.`;
+const mensajeDePausa = (p, motor = p?.motor) => `Se acabó por ahora el uso de tu plan de ${nombreIA(motorDePausa(motor))}. Toca "Reintentar" cuando se renueve${p?.conHora ? ` (a las ${horaDe(p.hasta)})` : ''}: lo ya hecho no se repite.`;
 
 /**
- * El lanzador de Claude (claude.js o el de las pruebas) con la pausa de la fila: en pausa no abre ninguna sesion
- * y devuelve enseguida { ok: false, limite: true, reinicio, enPausa: true }; una sesion que vuelve con el aviso de
- * limite pone la pausa. alLimite(pausa) avisa a quien lanzo la sesion (el conductor la retoma sola despues).
+ * El lanzador de la IA (motor-ia.js, o el de las pruebas) con la pausa de la fila: con la IA de antes de lanzar en
+ * pausa no abre ninguna sesion y devuelve enseguida { ok: false, limite: true, reinicio, enPausa: true }; una sesion
+ * que vuelve con el aviso de limite pone la pausa de la IA que trabajo (r.motor). alLimite(pausa) avisa a quien lanzo
+ * la sesion (el conductor la retoma sola despues). Un plan sin Codex (r.planSinCodex) no es un limite que se renueve
+ * solo: no pausa nada, y alPlanSinCodex(r) avisa (el conductor no lo retoma solo).
  */
-export function claudeEnFila(modulo, { alLimite = null } = {}) {
+export function claudeEnFila(modulo, { alLimite = null, alPlanSinCodex = null } = {}) {
   if (!modulo || typeof modulo.lanzarSesion !== 'function') return modulo;
-  const avisar = (p) => {
+  const avisar = (fn, x) => {
     try {
-      alLimite?.(p);
+      fn?.(x);
     } catch {
       /* quien escucha no frena */
     }
@@ -407,39 +422,46 @@ export function claudeEnFila(modulo, { alLimite = null } = {}) {
   return {
     ...modulo,
     async lanzarSesion(o) {
-      const enPausa = pausaDeClaude();
+      // la IA de antes de lanzar (un modulo de prueba sin motorActual cuenta como Claude)
+      const motorAntes = modulo.motorActual?.() || 'claude';
+      const enPausa = pausaDeClaude(motorAntes);
       if (enPausa) {
-        avisar(enPausa);
+        avisar(alLimite, enPausa);
         try {
-          o?.alProgreso?.('Claude está en pausa hasta que se renueve tu plan');
+          o?.alProgreso?.(`${nombreIA(motorDePausa(motorAntes))} está en pausa hasta que se renueve tu plan`);
         } catch {
           /* idem */
         }
-        return { ok: false, limite: true, enPausa: true, reinicio: enPausa.hasta, error: mensajeDePausa(enPausa), sesion: o?.uuid, modo: 'pausa', turnos: 0, costo: 0, uso: null, duracionMs: 0, denegados: [], init: null, frases: [] };
+        return { ok: false, limite: true, enPausa: true, reinicio: enPausa.hasta, error: mensajeDePausa(enPausa), sesion: o?.uuid, modo: 'pausa', turnos: 0, costo: 0, uso: null, duracionMs: 0, denegados: [], init: null, frases: [], motor: enPausa.motor };
       }
       const r = await modulo.lanzarSesion(o);
-      if (r?.limite) avisar(pausarClaude({ reinicio: r.reinicio }));
+      if (r?.planSinCodex) avisar(alPlanSinCodex, r);
+      // la pausa va a la IA que de verdad trabajo: si mientras tanto se eligio otra, no la frena
+      else if (r?.limite) avisar(alLimite, pausarClaude({ reinicio: r.reinicio, motor: r.motor || motorAntes }));
       return r;
     },
   };
 }
 
-/** lanzarSesion de claude.js con la pausa de la fila (para la sesion de guion y la de la ficha). */
+/** lanzarSesion de la IA elegida (motor-ia.js) con la pausa de la fila (para la sesion de guion y la de la ficha). */
 export async function lanzarSesion(o) {
-  const m = await import('./claude.js');
+  const m = await import('./motor-ia.js');
   return claudeEnFila(m).lanzarSesion(o);
 }
 
 // ---------------------------------------------------------------- lo que se ve
 
-/** Para GET /api/produccion/fila y las pruebas (sin precios ni rutas). */
+/**
+ * Para GET /api/produccion/fila y las pruebas (sin precios ni rutas). `claude` es la fila de la IA (las sesiones las
+ * comparten las dos) con la pausa de la elegida; `pausas`, la de cada IA.
+ */
 export async function estadoDeLasFilas() {
   let claude = null;
   try {
-    const m = await import('./claude.js');
+    const m = await import('./motor-ia.js');
     claude = typeof m.sesionesEnCurso === 'function' ? m.sesionesEnCurso() : null;
   } catch {
-    /* sin claude.js */
+    /* sin motor-ia.js */
   }
   return {
     anunciosALaVez: anunciosALaVez(),
@@ -448,5 +470,6 @@ export async function estadoDeLasFilas() {
     elevenlabs: filaElevenLabs.estado(),
     kie: { limite: LIMITE_KIE, procesos: [...kieEnCurso.values()].map((x) => ({ slug: x.slug, limite: x.limite })) },
     claude: { ...(claude || {}), pausa: pausaDeClaude() },
+    pausas: { claude: pausaDeClaude('claude'), codex: pausaDeClaude('codex') },
   };
 }

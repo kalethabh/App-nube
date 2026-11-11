@@ -1,0 +1,142 @@
+{
+  "id": "G03",
+  "slug": "chats-cliente-beneficiario",
+  "nombre": "Capturas de chat junto al producto y su beneficiario",
+  "origen": "ganador:496941912_1215411256892710_3277396164688985178_n (1).jpg",
+  "descripcion": "Fondo verde desenfocado a sangre. Arriba al centro, una píldora blanca con borde verde lleva un titular de 2 líneas. En la mitad izquierda, dos capturas de chat en modo oscuro, apiladas y levemente inclinadas, muestran los mensajes de un cliente con su hora: el relato del resultado contado en ráfagas cortas. En la mitad derecha, grande y recortado, aparece quien se beneficia del producto (en el original, una mascota feliz; puede ser una persona) con el producto delante, en la base. Abajo a la izquierda, sobre una zona más clara del fondo, un llamado a la acción en texto blanco grande, una pestaña verde oscura pegada al borde izquierdo que introduce la lista y 3 beneficios con guion en verde oscuro. Los chats son la prueba social puesta al lado del producto y de quien lo disfruta.",
+  "angulos_compatibles": [
+    "testimonio",
+    "prueba-social",
+    "dolor",
+    "beneficio-principal",
+    "transformacion",
+    "promesa-emocional"
+  ],
+  "tipos_producto": [
+    "nutraceutico",
+    "cosmetico",
+    "gadget",
+    "hogar",
+    "juguete",
+    "otro"
+  ],
+  "ad_format": "Chat Screenshots with Product and Beneficiary Ad",
+  "reference_style": "Emotional direct-response proof ad: blurred green backdrop, a white outlined headline pill, two tilted dark-mode chat screenshots with customer messages on the left, and a large happy beneficiary cut-out with the product in front on the right",
+  "art_direction": {
+    "visual_hierarchy": "1) The large happy beneficiary on the right. 2) The headline pill at the top. 3) The chat screenshots, read top to bottom. 4) The product in front of the beneficiary. 5) The call to action, the dark label tab and the three dash benefits at the lower left.",
+    "composition_style": "Two vertical halves under a centered headline pill. The left half holds the proof (two stacked chat screenshots, the second shifted to the right and lower) and, below them, the closing text stack. The right half holds the beneficiary cut-out, large and bleeding off the right and bottom edges, with the product standing in front of it and also bleeding off the bottom edge. The second chat panel slips slightly behind the product, linking proof and product.",
+    "spacing_and_structure": "Headline pill: from about 10.5% to 90% of the canvas width and 2.5% to 19.5% of the height, centered. Chat panel 1: from about 3% to 58% of the width and 21% to 38% of the height. Chat panel 2: from about 12.5% to 60% of the width and 37% to 68% of the height, its right edge passing behind the product. Both panels tilted about 2-3 degrees (rising to the right). Beneficiary: from about 56% to 100% of the width and 27% to 100% of the height; head at about 60-97% of the width and 28-60% of the height. Product: from about 53% to 71% of the width and 48% to 100% of the height (about half of the canvas height), cropped by the bottom edge. Call to action: from about 10% to 51% of the width and 70.5% to 76% of the height. Label tab: from the left edge (0%) to about 37% of the width and 78.5% to 83% of the height, flush with the left edge. Dash benefits: three lines from about 10% to 43% of the width and 84% to 95% of the height, line pitch about 4%.",
+    "lighting_and_depth": "Background: a heavily blurred photo in saturated greens (soft bokeh blotches of deep teal-green and bright mint, with no readable detail), deeper teal behind the chats and brightest mint at the lower left behind the benefit list so the dark text reads clearly. Beneficiary: bright, soft frontal light, sharp cut-out with a warm, friendly look. Product: studio cut-out with soft key light from the left, glossy highlights on glass or packaging and a subtle rim light. Chat panels: flat screenshots with feathered, slightly blurred edges and a soft shadow so they float over the background. The headline pill has a faint soft shadow; the text overlays are flat with a subtle dark drop shadow on the call to action."
+  },
+  "layout_summary": "Square canvas with a blurred saturated green background. A white rounded pill with a green outline sits at the top center holding a two-line uppercase headline (first line in bright green, second line in dark green). On the left, two dark-mode chat screenshots are stacked and slightly tilted: the upper one with 2 message bubbles and the lower one, shifted right, with 5 bubbles of different widths, each with a small timestamp. On the right, the happy beneficiary appears large, cut out and cropped by the right and bottom edges, with the user's product standing in front of it at the bottom. At the lower left, over the brightest mint part of the background, a big white uppercase call to action, then a dark green label tab flush with the left edge holding a white uppercase label, and three short dark-green benefit lines starting with a dash.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Fresh, natural-feeling backdrop with depth that keeps all the attention on the chats and the beneficiary",
+      "adaptation_rule": "Heavily blurred photo or bokeh in a saturated tone of the brand palette (green in the original), lighter in the middle and darker toward the edges. No readable detail."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline pill",
+      "position": "Top center, from about 10.5% to 90% of the canvas width and 2.5% to 19.5% of the height",
+      "visual_function": "Frames the headline as the promise the chats confirm",
+      "adaptation_rule": "White rounded rectangle (corner radius about 4% of the canvas) with a bright accent-colored outline about 0.8% thick and a faint soft shadow, holding the 2-line headline centered."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "chat screenshot testimonials (2)",
+      "position": "Left half: panel 1 from about 3% to 58% of the width and 21% to 38% of the height; panel 2 from about 12.5% to 60% of the width and 37% to 68% of the height; both tilted about 2-3 degrees",
+      "visual_function": "Real-feeling customer proof: the result told by the customer in their own words",
+      "adaptation_rule": "Two cropped dark-mode chat screenshots with a dark green-teal wallpaper, feathered edges and a soft shadow. Panel 1 shows 2 message bubbles, panel 2 shows 5 bubbles of varied widths. All bubbles come from the same customer (a monologue, not a conversation): dark charcoal rounded bubbles with white text and a tiny timestamp at the bottom right of each, a few minutes apart. Generic interface only: no app name, no contact name, no avatars, no real app colors or logos. Write adapted messages for the user's product."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "beneficiary",
+      "position": "Right half, from about 56% to 100% of the canvas width and 27% to 100% of the height, cropped by the right and bottom edges",
+      "visual_function": "Shows who enjoys the result; the emotional anchor of the ad",
+      "adaptation_rule": "Large cut-out of the one who benefits from the product, visibly happy and healthy: a pet for pet products (as in the original), a child for kids' products, an older parent for products bought for family, or the target customer themselves. Front view, looking at the camera or slightly to the side, relaxed and joyful expression. Realistic photo, not illustration."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product",
+      "position": "In front of the beneficiary, from about 53% to 71% of the canvas width and 48% to 100% of the height, cropped by the bottom edge",
+      "visual_function": "Connects the happy result with what is being sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), standing upright, front view, label facing the camera, about half the canvas height, overlapping the lower part of the beneficiary and the right end of chat panel 2."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "label tab",
+      "position": "Lower left, from the left edge (0%) to about 37% of the canvas width and 78.5% to 83% of the height, flush with the left edge",
+      "visual_function": "Introduces the benefit list",
+      "adaptation_rule": "Solid rectangle in the darkest green of the palette (deep forest or teal green), flush with the left edge of the canvas like a tab, square ends, holding a short white uppercase label that starts at about 12% of the width."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline",
+      "reference_position": "Inside the headline pill, top center",
+      "text_style": "Extra bold sans-serif, uppercase, each line about 6% of the canvas height, 2 lines, centered; first line in the bright accent color and second line in a dark tone of the palette",
+      "guia_texto": "La promesa del ángulo presentada como la solución que el cliente buscaba, de 4 a 7 palabras repartidas en 2 líneas."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "chat panel 1 messages (2 bubbles)",
+      "reference_position": "Inside chat panel 1, upper left",
+      "text_style": "Regular sans-serif in the native chat style, white, about 2.7% of the canvas height, left-aligned inside each bubble, max 2 lines per bubble, with a tiny grey timestamp",
+      "guia_texto": "Dos mensajes cortos del cliente en primera persona y en tono coloquial: su alegría por haberlo comprado y una valoración rápida. De 4 a 10 palabras por mensaje."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "chat panel 2 messages (5 bubbles)",
+      "reference_position": "Inside chat panel 2, center left",
+      "text_style": "Same style as chat panel 1 messages; bubbles of varied widths, the first two up to 2 lines and the last three 1 line",
+      "guia_texto": "Cinco mensajes seguidos del mismo cliente que cuentan la historia: qué tan grave estaba el problema antes, el momento en que decidió comprarlo y tres resultados concretos y cortos. De 2 a 10 palabras por mensaje, natural y creíble, sin lenguaje de marketing."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "call to action",
+      "reference_position": "Lower left, from about 10% to 51% of the width and 70.5% to 76% of the height",
+      "text_style": "Black-weight sans-serif, uppercase, white with a subtle dark drop shadow, about 5.5-6% of the canvas height, 1 line, left-aligned, wrapped in opening and closing exclamation marks",
+      "guia_texto": "Llamado a la acción imperativo y directo, de 2 a 3 palabras, entre signos de exclamación."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "list label",
+      "reference_position": "Inside the dark label tab, lower left",
+      "text_style": "Extra bold sans-serif, uppercase, white on the dark tab, about 4% of the canvas height, 1 line, left-aligned from about 12% of the width",
+      "guia_texto": "Etiqueta de 1 a 3 palabras que introduce para qué sirve el producto (la lista de abajo), terminada en dos puntos."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "dash benefits (3 lines)",
+      "reference_position": "Under the label tab, from about 10% to 43% of the width and 84% to 95% of the height",
+      "text_style": "Semi-bold sans-serif, dark green (the darkest palette tone) on the bright mint background, about 3.5% of the canvas height, 3 lines, left-aligned, each line starting with a dash",
+      "guia_texto": "Tres usos o beneficios concretos, uno por línea, empezando con un verbo en infinitivo y ligados al dolor que resuelve. De 2 a 3 palabras por línea."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Blurred saturated background in the brand palette",
+    "White rounded headline pill with an accent outline at the top",
+    "Two stacked, slightly tilted dark-mode chat screenshots with customer messages and timestamps",
+    "Large happy beneficiary cut-out on the right, cropped by the edges",
+    "The user's product standing in front of the beneficiary at the bottom",
+    "Call to action, dark label tab flush with the left edge and three dark dash benefits at the lower left"
+  ],
+  "forbidden_additions": [
+    "Real messaging-app names, logos, interface bars or signature colors",
+    "Contact names, avatars or phone numbers in the chats",
+    "Replies from the brand (the chats are only the customer's messages)",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Shipping or payment strip",
+    "Rating stars or review cards",
+    "Trust seals, guarantee or certification badges",
+    "Arrows, callout lines or stickers",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fondo verde saturado desenfocado (o el color principal de la marca si es verde o natural; si no, un tono saturado de la paleta), con manchas de verde azulado profundo y menta brillante, más claro abajo a la izquierda. Píldora del titular blanca con borde en el acento brillante; primera línea del titular en el acento brillante y segunda en el tono más oscuro de la paleta. Chats en modo oscuro (fondo verde azulado muy oscuro, burbujas gris carbón, texto blanco). Llamado a la acción en blanco; pestaña de la etiqueta en verde muy oscuro con texto blanco; beneficios en verde oscuro sobre el fondo menta claro.",
+  "posicion_logo": null
+}

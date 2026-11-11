@@ -1,0 +1,79 @@
+{
+  "id": "F01",
+  "slug": "producto-heroe",
+  "nombre": "Producto protagonista",
+  "origen": "biblioteca",
+  "descripcion": "El producto ocupa el centro y domina la imagen sobre un fondo de marca con profundidad. Arriba, un titular fuerte y un subtítulo corto. Formato limpio, directo y premium.",
+  "angulos_compatibles": ["beneficio-principal", "caracteristica-estrella", "nueva-oportunidad", "identidad", "promesa-emocional", "curiosidad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Product Hero Ad",
+  "reference_style": "Premium minimalist product hero ad with a bold headline and the product as the single visual anchor",
+  "art_direction": {
+    "visual_hierarchy": "1) Bold headline at the top. 2) The product, large and centered, as the visual anchor. 3) Short subheadline directly under the headline.",
+    "composition_style": "Centered, symmetrical composition. The product sits slightly below the vertical center and fills about 45-55% of the canvas height. The text stack is centered in the top area.",
+    "spacing_and_structure": "Top 25-30% of the canvas reserved for the text stack. Generous negative space around the product. Even safe margins of about 6-8% on every side; nothing touches the edges.",
+    "lighting_and_depth": "Soft studio key light from the upper left, a subtle rim light separating the product from the background, a soft contact shadow under the product and a gentle radial glow behind it for depth."
+  },
+  "layout_summary": "Square canvas with a brand-colored background. Headline and subheadline stacked and centered in the top area. The product, large and centered, occupies the middle and lower part of the canvas, resting on an implied surface with a soft shadow. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Brand-colored backdrop with depth that makes the product pop",
+      "adaptation_rule": "Use the approved palette as a smooth gradient, a subtle textured surface or a soft out-of-focus set. Choose the treatment indicated in the batch plan so it differs from other variations."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "product",
+      "position": "Center, slightly below the middle of the canvas",
+      "visual_function": "Main visual anchor; shows exactly what is being sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, optionally on a simple pedestal or surface that matches the palette."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "headline",
+      "position": "Top center",
+      "visual_function": "Stops the scroll and states the angle's hook",
+      "adaptation_rule": "Write the hook of this variation's angle. Keep it short so it fits in max 2 lines."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "subheadline",
+      "position": "Directly below the headline, centered",
+      "visual_function": "Completes the headline with the benefit or what the product is",
+      "adaptation_rule": "One short supporting line based on the user's benefits or product data."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, first element of the text stack",
+      "text_style": "Extra bold sans-serif, very large (each line about 9-11% of the canvas height), max 2 lines, centered, maximum contrast against the background; one key word may use the brand accent color",
+      "guia_texto": "El gancho del ángulo en 3 a 7 palabras. Una sola idea, fácil de leer en el celular."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, centered",
+      "text_style": "Regular weight sans-serif, about 40% of the headline size, 1 line, centered, high contrast",
+      "guia_texto": "Completa el titular con el beneficio principal o qué es el producto, en 5 a 10 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "The user's product, large and centered",
+    "Brand-colored background with depth (gradient, textured surface or soft set)",
+    "Soft contact shadow under the product"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount or offer badge",
+    "Benefit list or icons",
+    "Rating stars, reviews or testimonials",
+    "Bottom bar or banner",
+    "Logos or brand marks",
+    "Extra props that compete with the product"
+  ],
+  "notas_paleta": "Paleta de marca completa: el fondo usa el color principal o un degradado de la paleta; el titular usa el color de mayor contraste; un color de acento puede resaltar una palabra clave."
+}

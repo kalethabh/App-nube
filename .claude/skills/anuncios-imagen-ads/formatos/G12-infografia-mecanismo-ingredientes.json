@@ -1,0 +1,185 @@
+{
+  "id": "G12",
+  "slug": "infografia-mecanismo-ingredientes",
+  "nombre": "Infografía de mecanismo: ingredientes hacia órganos",
+  "origen": "ganador:615817681_1440572650817373_5677087537517399825_n.jpg",
+  "descripcion": "Infografía de mecanismo sobre un fondo de naturaleza con bokeh y luz cálida, hojas nítidas que enmarcan las esquinas y una mesa de madera en la mitad inferior. Arriba, un titular centrado de 2 líneas en mayúsculas verde oscuro y un subtítulo de una línea. El producto va centrado sobre la mesa; a su izquierda, un bloque que nombra el mecanismo de doble acción (etiqueta dorada, 2 líneas y un subrayado fino) y a su derecha, 3 insignias apiladas (ícono en un círculo blanco y texto corto). Bajo el producto hay un diagrama: dos zonas del cuerpo ilustradas, cada una con su pastilla de acción, y una fila de 5 círculos de ingredientes cuyas flechas curvas suben hacia ellas. Abajo cierra una banda-pastilla ancha con un check y la garantía.",
+  "angulos_compatibles": ["mecanismo-unico", "beneficio-sin-sacrificio", "objecion-confianza", "enemigo-comun", "autoridad", "caracteristica-estrella"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "hogar", "otro"],
+  "ad_format": "Ingredient-to-Target Mechanism Infographic Ad",
+  "reference_style": "Natural, warm, trustworthy supplement-style infographic: the product on a wooden table in a sunlit bokeh garden, a dual-action mechanism diagram where ingredient circles send curved arrows up to two illustrated target zones, side badges and a cream-gold guarantee pill",
+  "art_direction": {
+    "visual_hierarchy": "1) The two-line headline. 2) The product centered on the table. 3) The mechanism diagram: the two illustrated target zones with their action pills and the row of ingredient circles with arrows. 4) The dual-system text on the left and the three badges on the right. 5) The subtitle. 6) The guarantee pill at the bottom.",
+    "composition_style": "Centered, symmetrical, top-to-bottom flow: headline → product flanked by two side text columns → two target zones → ingredients → guarantee. The diagram reads bottom-up (ingredients feed the target zones) and sits directly under the product so the product visually contains the mechanism. Foreground leaves frame the four corners.",
+    "spacing_and_structure": "Headline from about 6% to 18% of the canvas height and subtitle at about 19.5-23%, both centered, up to about 70% of the width. Product centered at 50% of the width, from about 25% to 64% of the height (about 39% of the canvas height and 24% of the width), base on the table. Left block: about 7-36% of the width and 39-51% of the height (label, 2 lines and a thin underline ending in a small dot). Right badges: three rows at about 68-96% of the width, at about 34-41%, 42-48% and 49-56% of the height; icon circle about 7% of the canvas in diameter on the left of each row, text to its right. Target zones: two illustrations about 13-15% of the canvas wide, at about 34-48% and 54-66% of the width, from about 57% to 71% of the height, overlapping the bottom of the product. Action pills: about 22-33% of the width (left) and 66-79% (right), at about 62-66% of the height, just outside each target zone. Arrows between about 69% and 76% of the height. Ingredient circles: five, about 9.5% of the canvas in diameter, evenly spaced from about 23% to 77% of the width, at about 76-85% of the height. Guarantee pill: about 16-84% of the width and 87-97% of the height. Foreground leaves in the four corners, each about 12-16% of the canvas.",
+    "lighting_and_depth": "Warm golden sunlight from the top center, soft bokeh of green foliage in the background, a faint pattern of thin molecular hexagon lines over the background, and crisp foreground leaves in the corners for depth. The table is a light wooden surface in perspective. The product has soft warm light and a gentle contact shadow on the wood. Target zones are glossy semi-realistic 3D illustrations; one may carry a small action effect such as a flame. Ingredient circles are white with a soft drop shadow. The guarantee pill has a soft shadow and a subtle metallic gold border."
+  },
+  "layout_summary": "Square canvas: sunlit nature bokeh in the upper half, a light wooden table in perspective in the lower half, green leaves framing the four corners. A 2-line dark green uppercase headline and a 1-line subtitle centered at the top. The user's product stands centered on the table. To its left, a dual-action mechanism text block (gold label, 2 white lines and a thin gold underline ending in a dot); to its right, three stacked badges (white circle with a dark line icon and 2 short white uppercase lines). Just below the product, two illustrated target zones side by side, each with a dark rounded action pill on its outer side. Under them, a row of five white circles with ingredient illustrations, each sending a thin curved dark-green arrow up to the zone it acts on. At the bottom, a wide cream-gold rounded pill with a check icon and a 2-line guarantee.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background (nature bokeh + wooden table)",
+      "position": "Full canvas; table from about 59% of the height to the bottom",
+      "visual_function": "Natural, trustworthy setting that frames the product as clean and natural",
+      "adaptation_rule": "Sunlit outdoor bokeh of green foliage with warm golden light in the upper half, a faint thin-line molecular hexagon pattern over it, and a light wooden table in perspective filling the lower ~40% of the canvas. Adjust the greenery tone to the palette while keeping it natural."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "corner leaves",
+      "position": "Four corners, each about 12-16% of the canvas, partly cut by the edges",
+      "visual_function": "Foreground framing that adds depth and reinforces the natural feel",
+      "adaptation_rule": "Sharp green leaves (or the plant that matches the main ingredient) entering from each corner, never covering text."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Center, 50% of the width, from about 25% to 64% of the height",
+      "visual_function": "Main visual anchor; the source of the mechanism",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front view, standing on the table with a soft contact shadow; its lower part may be slightly covered by the target-zone illustrations."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "dual mechanism text block",
+      "position": "Left of the product, about 7-36% of the width and 39-51% of the height",
+      "visual_function": "Names the two-way mechanism at a glance",
+      "adaptation_rule": "A gold label line, two short white lines below it, and a thin gold underline ending in a small dot that points toward the product."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "reassurance badges (3)",
+      "position": "Right of the product, about 68-96% of the width, rows at about 34-41%, 42-48% and 49-56% of the height",
+      "visual_function": "Proof and reassurance points (scientific backing, safety, what it does not contain)",
+      "adaptation_rule": "White circles about 7% of the canvas in diameter with a dark green line icon that literally represents each point (flask, organ, crossed-out ingredient, shield, leaf...), each followed by two short white uppercase lines. Write adapted reassurance content for the user's product: scientific backing, protection of a sensitive area, and the absence of an unwanted ingredient or side effect."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "target zones (2)",
+      "position": "Below the product, at about 34-48% and 54-66% of the width, from about 57% to 71% of the height",
+      "visual_function": "Shows where and how the product acts",
+      "adaptation_rule": "Two glossy semi-realistic 3D illustrations of the two zones the product acts on: organs for a supplement, skin or hair layers for a cosmetic, surfaces or materials for a home product. Each may carry a small effect that shows its action (flame, shield, glow, droplets)."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "action pills (2)",
+      "position": "Outer side of each target zone: about 22-33% of the width (left) and 66-79% (right), at about 62-66% of the height",
+      "visual_function": "Names the action on each zone in one word",
+      "adaptation_rule": "Dark olive or dark brand-color rounded pills with white text, touching or nearly touching their zone."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "ingredient circles (5)",
+      "position": "Row at about 76-85% of the height, evenly spaced from about 23% to 77% of the width, each about 9.5% of the canvas in diameter",
+      "visual_function": "Shows what the product is made of",
+      "adaptation_rule": "White circles with a soft shadow, each holding a realistic illustration of one of the user's real key ingredients or components. If the product has fewer than five, use three or four and keep the row centered."
+    },
+    {
+      "block_id": "block_09",
+      "block_type": "mechanism arrows",
+      "position": "Between the ingredient row and the target zones, about 69-76% of the height",
+      "visual_function": "Turns the infographic into a mechanism: which ingredient acts on which zone",
+      "adaptation_rule": "Thin curved dark-green arrows, one from the top of each circle up to the zone it acts on, curving gently inward; the left ingredients feed the left zone and the right ones the right zone."
+    },
+    {
+      "block_id": "block_10",
+      "block_type": "guarantee pill",
+      "position": "Bottom center, about 16-84% of the width and 87-97% of the height",
+      "visual_function": "Removes the risk at the end of the reading",
+      "adaptation_rule": "Wide fully rounded pill in a cream-to-gold gradient with a thin gold border and a soft shadow; a dark check-in-circle icon on its left and two lines of text. Write the guarantee adapted to the user's product."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, about 6-18% of the canvas height",
+      "text_style": "Extra bold sans-serif, uppercase, each line about 6.5% of the canvas height, max 2 lines, centered, dark forest green (or the darkest brand color) over the light bokeh",
+      "guia_texto": "La promesa principal ligada a la zona que el producto protege o mejora, con tono natural. De 5 a 8 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, centered",
+      "text_style": "Medium sans-serif, uppercase, about 3.8% of the canvas height, 1 line, centered, near-black or dark green",
+      "guia_texto": "El beneficio sin sacrificio o lo que evita (por ejemplo «sin dietas extremas» o «vuelve a sentirte ligero»). De 4 a 7 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "mechanism label",
+      "reference_position": "Left block, first line",
+      "text_style": "Bold sans-serif, uppercase, about 3.5% of the canvas height, 1 line, left-aligned, gold",
+      "guia_texto": "El nombre del mecanismo terminado en dos puntos (por ejemplo «Doble acción:»). 2 o 3 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "mechanism description",
+      "reference_position": "Left block, under the label, above the gold underline",
+      "text_style": "Bold sans-serif, uppercase, about 3% of the canvas height, max 2 lines, left-aligned, white",
+      "guia_texto": "Las dos acciones del mecanismo unidas por «&» o «y». De 4 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "badge 1",
+      "reference_position": "Right column, first row, right of the icon circle",
+      "text_style": "Bold sans-serif, uppercase, about 2.6-2.8% of the canvas height, max 2 lines, left-aligned, white",
+      "guia_texto": "El respaldo de la fórmula (ciencia, estudios, ingredientes probados). De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "badge 2",
+      "reference_position": "Right column, second row, right of the icon circle",
+      "text_style": "Same style as badge 1",
+      "guia_texto": "Una protección o beneficio extra sobre una zona sensible. De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "badge 3",
+      "reference_position": "Right column, third row, right of the icon circle",
+      "text_style": "Same style as badge 1",
+      "guia_texto": "Lo que el producto NO contiene o el efecto indeseado que evita («Sin…»). De 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "left action pill",
+      "reference_position": "Inside the left action pill",
+      "text_style": "Bold sans-serif, uppercase, about 2.8% of the canvas height, 1 line, centered, white",
+      "guia_texto": "Un verbo de acción sobre la zona izquierda (por ejemplo «Limpia»). 1 palabra."
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "right action pill",
+      "reference_position": "Inside the right action pill",
+      "text_style": "Same style as the left action pill",
+      "guia_texto": "Un verbo de acción sobre la zona derecha, distinto del izquierdo (por ejemplo «Protege»). 1 palabra."
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "guarantee text",
+      "reference_position": "Inside the guarantee pill, right of the check icon",
+      "text_style": "Bold sans-serif, uppercase, about 3.3% of the canvas height, max 2 lines, left-aligned, near-black",
+      "guia_texto": "La promesa sin riesgo con el plazo de resultados y la devolución (por ejemplo «garantía de satisfacción…»). De 8 a 14 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Sunlit nature bokeh background with a wooden table in the lower half and leaves framing the corners",
+    "Two-line dark green headline and one-line subtitle at the top",
+    "The user's product centered on the table",
+    "Dual-mechanism text block on the left and three icon badges on the right",
+    "Two illustrated target zones under the product, each with a dark action pill",
+    "Row of five ingredient circles with curved arrows up to the target zones",
+    "Wide cream-gold guarantee pill with a check icon at the bottom"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Free shipping or payment-method labels",
+    "Rating stars, reviews or testimonials",
+    "People or hands",
+    "Before/after images",
+    "Numbered steps",
+    "Full-width bottom bar or banner",
+    "Dark or flat solid background",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta natural y cálida: verdes del follaje, madera clara y luz dorada. Titular en verde bosque oscuro (o el color más oscuro de la marca); etiqueta del mecanismo y bordes en dorado; textos laterales en blanco; pastillas de acción en verde oliva oscuro; banda de garantía en crema con degradado dorado. Los colores de marca aparecen en el producto y pueden teñir sutilmente las pastillas y los íconos.",
+  "posicion_logo": null
+}

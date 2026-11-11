@@ -1,0 +1,140 @@
+{
+  "id": "F21",
+  "slug": "costo-por-uso",
+  "nombre": "Costo por uso",
+  "origen": "biblioteca",
+  "descripcion": "Una ecuación visual que se entiende en un segundo: el producto con su etiqueta de precio, dividido entre una hoja de calendario con los días o usos que rinde, igual a un círculo grande con el costo por día. Debajo, una tarjeta que lo compara con un gasto cotidiano (un café, un snack, un taxi). Convierte un precio que parece alto en un número pequeño y diario, y desarma la objeción de precio.",
+  "angulos_compatibles": ["objecion-precio", "comparacion", "beneficio-sin-sacrificio", "romper-expectativas", "enemigo-comun", "rutina-uso"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "ropa", "gadget", "hogar", "digital", "servicio"],
+  "ad_format": "Cost-Per-Use Equation Ad",
+  "reference_style": "Clean, clever infographic ad that shows a visual math equation (product price divided by days equals cost per day) with a cutout product, a tear-off calendar sheet, a bold result circle and an everyday-spend comparison card",
+  "art_direction": {
+    "visual_hierarchy": "1) The result circle with the cost per day. 2) The headline at the top. 3) The equation read left to right: product with price tag, divide sign, calendar sheet, equals sign. 4) The comparison card at the bottom.",
+    "composition_style": "Top headline, then one horizontal equation row that reads like a sentence from left to right, made of real objects and bold glyphs instead of boxes: product cutout, large divide sign, calendar sheet, large equals sign, result circle. The result circle is the largest and most saturated element of the row. A wide rounded comparison card closes the bottom.",
+    "spacing_and_structure": "Headline from about 4% to 19% of the canvas height, centered. Equation row from about 26% to 66% of the canvas height, all items vertically centered on about 46% of the canvas height: product with price tag about 4-30% of the canvas width (the tag stays inside this zone, about 16-30% of the width and 50-64% of the height), divide sign about 31-37%, calendar sheet about 38-56%, equals sign about 57-63%, result circle about 66-95% (diameter about 29% of the canvas width, about 31-61% of the height). Comparison card from about 6% to 94% of the canvas width and 74% to 92% of the canvas height. Even breathing room between all items; nothing touches the edges.",
+    "lighting_and_depth": "Clean, bright, even lighting on a flat light background. The product is studio-lit from the upper left with a subtle rim light and a soft contact shadow. The price tag and calendar sheet are tactile paper objects with gentle soft shadows and slight paper texture. The result circle is flat with a soft drop shadow. The comparison card is flat with a faint shadow."
+  },
+  "layout_summary": "Square canvas with a light, brand-tinted flat background (optionally a very faint grid like a notebook). A bold headline sits centered at the top. Across the middle runs a visual equation: on the left, the user's product standing upright with a paper price tag hanging from or leaning against its lower right; then a large divide sign; then a tear-off calendar sheet showing the number of days or uses; then a large equals sign; then a big solid accent-colored circle showing the cost per day. At the bottom, a wide rounded card shows a small image of an everyday expense on the left and one comparison line next to it.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Clean, calm surface that makes the math easy to read",
+      "adaptation_rule": "Use the lightest color of the approved palette (never pure white) as a flat background, optionally with a barely visible notebook grid in a slightly darker tint."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, from about 4% to 19% of the canvas height",
+      "visual_function": "Frames the price question and invites the viewer to do the math",
+      "adaptation_rule": "Write a short headline that reframes the price in the light of the angle (what it really costs, why it is cheaper than it looks). Max 2 lines, centered."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product with price tag",
+      "position": "Left of the equation row, about 4-30% of the canvas width and 26-66% of the canvas height",
+      "visual_function": "First term of the equation: what you buy and what it costs",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), standing upright in front or 3/4 view, about 38% of the canvas height. A small paper price tag with a string, rotated about +8 degrees, hangs from or leans against its lower right (about 16-30% of the canvas width and 50-64% of the height, never crossing into the divide sign) and shows the full price. For clothing, show the garment neatly folded or on a small hanger. For digital products or services, use a phone or laptop mockup of the product, or a ticket-style card, in place of the physical product."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "math operators",
+      "position": "Divide sign centered at about 34% of the canvas width; equals sign centered at about 60%; both at about 46% of the canvas height",
+      "visual_function": "Turn the row of objects into an equation that reads instantly",
+      "adaptation_rule": "Large, thick, rounded divide and equals glyphs in the darkest palette color, each about 6% of the canvas height and width."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "calendar sheet",
+      "position": "Center of the equation row, about 38-56% of the canvas width and 33-59% of the canvas height",
+      "visual_function": "Second term: how many days or uses one purchase covers",
+      "adaptation_rule": "Tear-off desk calendar page with a binding strip or rings on top in the brand accent color, showing the number of days, uses or wears one unit lasts (from the user's data) in very large type with its unit underneath."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "result circle",
+      "position": "Right of the equation row, about 66-95% of the canvas width, centered at about 46% of the canvas height",
+      "visual_function": "The answer and the visual climax: a small daily number",
+      "adaptation_rule": "Solid circle in the brand accent color, about 29% of the canvas width in diameter, containing the cost per day or per use (price divided by days or uses, calculated from the user's real price) in very large bold type and its unit below."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "comparison card",
+      "position": "Bottom, about 6-94% of the canvas width and 74-92% of the canvas height",
+      "visual_function": "Grounds the daily cost against a familiar everyday expense",
+      "adaptation_rule": "Wide rounded card in a light or soft brand tone. On its left, a small realistic image or clean icon of an everyday expense the target audience knows (coffee, snack, taxi ride, delivery meal, salon visit) about 12% of the canvas width; to its right, one comparison line."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, from about 4% to 19% of the canvas height",
+      "text_style": "Extra bold sans-serif, large (each line about 7-8% of the canvas height), max 2 lines, centered, maximum contrast against the background; one key word may use the brand accent color",
+      "guia_texto": "Replantea el precio desde el ángulo: cuánto cuesta de verdad o por qué es menos de lo que parece. De 3 a 8 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "price",
+      "reference_position": "On the paper price tag next to the product",
+      "text_style": "Bold sans-serif, about 3.5-4% of the canvas height, 1 line, centered on the tag, dark ink on light paper",
+      "guia_texto": "El precio real del producto que dio el usuario, con su moneda. Solo cifra y moneda."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "days or uses count",
+      "reference_position": "On the calendar sheet: number large in the middle, unit below",
+      "text_style": "Number in ultra bold sans-serif about 7.5-8.5% of the canvas height, scaled down if needed to fit inside the sheet; unit in medium weight about 3% of the canvas height; centered on the sheet, dark on light",
+      "guia_texto": "Cuántos días, usos o puestas rinde una unidad según los datos del usuario (por ejemplo 30 días, 60 usos). Número y 1 palabra."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "math operators",
+      "reference_position": "Between the product and the calendar sheet, and between the calendar sheet and the result circle",
+      "text_style": "Thick rounded glyphs about 6% of the canvas height, darkest palette color",
+      "guia_texto": "Solo los símbolos ÷ y =. Sin palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "cost per day",
+      "reference_position": "Inside the result circle, upper and central part",
+      "text_style": "Ultra bold sans-serif, very large (about 6.5-7.5% of the canvas height, scaled down if needed so the full figure fits inside the circle with inner padding), 1 line, centered, maximum contrast against the circle; currency symbol at about 60% size",
+      "guia_texto": "El resultado real de dividir el precio entre los días o usos, redondeado y con su moneda. Solo cifra y moneda."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "cost unit",
+      "reference_position": "Inside the result circle, directly under the cost per day",
+      "text_style": "Medium weight sans-serif, about 3.5% of the canvas height, 1 line, centered, high contrast against the circle",
+      "guia_texto": "La unidad del resultado (al día, por uso, por puesta). De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "comparison line",
+      "reference_position": "Inside the comparison card, to the right of the everyday-expense image, left-aligned",
+      "text_style": "Semi-bold sans-serif, about 4% of the canvas height, max 2 lines, left-aligned, high contrast against the card; the compared item may be bold",
+      "guia_texto": "Compara el costo diario con un gasto cotidiano que el público conoce (menos que un café al día). De 4 a 9 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "The user's product standing upright with a paper price tag",
+    "Large divide and equals signs forming a left-to-right equation",
+    "Tear-off calendar sheet with the days or uses count",
+    "Solid accent-colored result circle with the cost per day",
+    "Wide comparison card with a small everyday-expense image",
+    "Light, brand-tinted flat background"
+  ],
+  "forbidden_additions": [
+    "CTA button or CTA strip",
+    "Discount seal, percentage badge or struck-through old price",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or benefit icons",
+    "Coins, money piles, piggy banks, calculators or receipts as extra props",
+    "Extra equations, charts or tables",
+    "People or hands",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca completa pero sobria: fondo en el tono más claro de la paleta, signos y textos en el color más oscuro, y el acento más fuerte reservado para el círculo del resultado y las argollas del calendario. La tarjeta comparativa usa un tono suave de la paleta."
+}

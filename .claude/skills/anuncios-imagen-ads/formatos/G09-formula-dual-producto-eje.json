@@ -1,0 +1,120 @@
+{
+  "id": "G09",
+  "slug": "formula-dual-producto-eje",
+  "nombre": "Fórmula dual: dos columnas de beneficios con el producto en el eje",
+  "origen": "ganador:576584777_2019903742126516_335738082650068225_n.jpg",
+  "descripcion": "Lienzo dividido en vertical en dos mitades de color contrastado (izquierda en el color oscuro de la marca, derecha en gris claro). Arriba de cada mitad va el nombre de un ingrediente o componente en mayúsculas grandes, en dos líneas, y debajo una columna de 5 beneficios: cada uno con un ícono de línea simple a la izquierda y un texto corto con la primera palabra en negrita. El producto, centrado y a media altura, se monta sobre la línea divisoria y une las dos mitades. Abajo al centro, un botón pastilla de CTA del canal de compra con su ícono debajo. No es «nosotros contra ellos»: las dos columnas son positivas y se suman. Ideal para productos 2 en 1, fórmulas con 2 ingredientes clave o productos con 2 usos o 2 públicos.",
+  "angulos_compatibles": ["beneficio-principal", "caracteristica-estrella", "mecanismo-unico", "beneficio-sin-sacrificio", "rutina-uso"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "gadget", "hogar", "otro"],
+  "ad_format": "Dual Formula Split Benefits Ad",
+  "reference_style": "Symmetric, highly scannable split-screen benefits ad: a dark brand-colored left half and a light grey right half, each topped by a two-line component title and a five-row icon benefit column, with the product sitting on the dividing line and a small CTA pill at the bottom center",
+  "art_direction": {
+    "visual_hierarchy": "1) The two component titles at the top of each half. 2) The product on the dividing line. 3) The two benefit columns, read top to bottom. 4) The CTA pill and its channel icon at the bottom center.",
+    "composition_style": "Perfectly symmetric vertical split at 50% of the width. Each half mirrors the other: title at the top, five benefit rows below. The product is centered horizontally on the dividing line at mid-height, half on each color, physically joining the two components. The CTA pill and its icon sit centered at the bottom, also crossing the division.",
+    "spacing_and_structure": "Split: left half from 0% to 50% of the canvas width, right half from 50% to 100%. Left title: from about 6% to 46% of the width and 5% to 17% of the height, left-aligned. Right title: from about 60% to 96% of the width, same height band, left-aligned. Left benefit column: icons at about 5-12% of the width, texts from about 13.5% to 34% of the width (up to 45% in the first row, which sits above the product); rows at about 23-30%, 35-47%, 52-62%, 66-75% and 80-87% of the height. Right benefit column: icons at about 66-74% of the width, texts from about 75.5% to 98%; rows at about 23-30%, 35-46%, 51-61%, 65-75% and 79-87% of the height. Product: from about 34% to 66% of the width and 31% to 77% of the height, centered on the dividing line. CTA pill: from about 37% to 63% of the width and 86% to 91% of the height. Channel icon: from about 46.5% to 53.5% of the width and 92% to 99% of the height. Benefit texts never run under the product.",
+    "lighting_and_depth": "Flat graphic halves: the left a solid deep brand color with a very subtle vignette, the right a light grey with a faint top-to-bottom gradient. Product: soft studio light from the front, clean highlights, a soft contact shadow that falls on both halves, making it the only 3D object. Icons, text and CTA pill are flat."
+  },
+  "layout_summary": "Square canvas split vertically down the middle: the left half in a deep dark brand color, the right half in light grey. At the top of each half, a large two-line uppercase title naming one component (white on the left, dark brand color on the right). Below each title, five benefit rows: a simple line icon on the left and a short text whose first words are bold (white on the left, dark on the right). The user's product stands at the center on the dividing line, at mid-height. At the bottom center, a small bright green rounded CTA pill with white uppercase text and, under it, a small icon of the purchase channel.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "split background",
+      "position": "Left half from 0% to 50% of the canvas width, right half from 50% to 100%",
+      "visual_function": "Separates the two components or uses into two clear territories",
+      "adaptation_rule": "Left half in a solid deep brand color (dark green in the original), right half in light grey or a very light brand tint, divided by a straight vertical line at 50% of the width. Flat, no texture."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "component titles (2)",
+      "position": "Top of each half: left from about 6% to 46% of the width, right from about 60% to 96%, both from about 5% to 17% of the height",
+      "visual_function": "Names the two pillars of the product",
+      "adaptation_rule": "Large two-line uppercase titles, each naming one key ingredient, component, use or audience of the user's product. White on the dark half, dark brand color on the light half."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "left benefit column (5 rows)",
+      "position": "Left half, icons at about 5-12% of the width and texts from about 13.5% to 34% of the width, from about 23% to 87% of the height",
+      "visual_function": "Lists what the first component does",
+      "adaptation_rule": "Five rows, each with a simple white thin-line icon (about 7% of the canvas) that literally represents its benefit, followed by a short white text. Same icon style and stroke in every row."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "right benefit column (5 rows)",
+      "position": "Right half, icons at about 66-74% of the width and texts from about 75.5% to 98% of the width, from about 23% to 87% of the height",
+      "visual_function": "Lists what the second component does",
+      "adaptation_rule": "Five rows mirroring the left column, with thin-line icons in the dark brand color and dark text. Same icon style and stroke as the left column."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product on the dividing line",
+      "position": "Center, from about 34% to 66% of the canvas width and 31% to 77% of the height, centered on the split",
+      "visual_function": "Shows that one product delivers both columns",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front view, centered exactly on the dividing line, about 46% of the canvas height, with a soft contact shadow."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "CTA pill with channel icon",
+      "position": "Bottom center: pill from about 37% to 63% of the width and 86% to 91% of the height; icon from about 46.5% to 53.5% of the width and 92% to 99% of the height",
+      "visual_function": "Tells the viewer where and how to order",
+      "adaptation_rule": "Small fully rounded pill in a bright green (or the brand accent) with white CTA text, and under it a small rounded-square icon in the same color with a simple generic white glyph of the purchase channel (chat bubble with a phone, cart or cursor). Never a real app logo."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "left component title",
+      "reference_position": "Top of the left half, left-aligned",
+      "text_style": "Extra bold sans-serif, uppercase, white, each line about 6.5-7% of the canvas height, 2 lines, left-aligned",
+      "guia_texto": "El nombre del primer ingrediente, componente, uso o público del producto, de 1 a 3 palabras en 2 líneas."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "right component title",
+      "reference_position": "Top of the right half, left-aligned",
+      "text_style": "Same style as the left title, in the dark brand color",
+      "guia_texto": "El nombre del segundo ingrediente, componente, uso o público, de 1 a 3 palabras en 2 líneas."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "left benefits (5 rows)",
+      "reference_position": "Left half, right of each icon",
+      "text_style": "Sans-serif, white, about 3.3-3.6% of the canvas height, max 4 lines per row (rows beside the product max 3 lines), left-aligned; the first 1-2 words in bold and the rest in regular",
+      "guia_texto": "Cinco beneficios del primer componente, uno por fila, de 3 a 7 palabras cada uno, empezando con un verbo de resultado en negrita, cada fila con un verbo distinto."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "right benefits (5 rows)",
+      "reference_position": "Right half, right of each icon",
+      "text_style": "Same style as the left benefits, in near-black or the dark brand color",
+      "guia_texto": "Cinco beneficios del segundo componente, uno por fila, de 3 a 7 palabras cada uno, empezando con un verbo en negrita; no repetir beneficios de la columna izquierda."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "CTA",
+      "reference_position": "Centered inside the CTA pill",
+      "text_style": "Bold sans-serif, uppercase, white, about 2.8% of the canvas height, 1 line, centered",
+      "guia_texto": "Verbo de acción + el canal de compra real del usuario, de 3 a 4 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Vertical split into a dark brand-colored half and a light grey half",
+    "Two-line uppercase component title at the top of each half",
+    "Five icon-plus-text benefit rows in each half, first words in bold",
+    "The user's product centered exactly on the dividing line at mid-height",
+    "Small CTA pill with a generic channel icon at the bottom center"
+  ],
+  "forbidden_additions": [
+    "Versus symbol, X marks, crosses or negative framing of either side",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Real messaging-app logos",
+    "Headline across the full width",
+    "People, hands or lifestyle scenes",
+    "More than 5 benefits per column",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Mitad izquierda en el color oscuro principal de la marca (verde bosque en el original) con títulos, íconos y textos en blanco; mitad derecha en gris claro con títulos, íconos y textos en el mismo color oscuro de la marca. Botón CTA e ícono del canal en verde brillante (o el acento de la marca). El producto aporta su propio color en el centro.",
+  "posicion_logo": null
+}

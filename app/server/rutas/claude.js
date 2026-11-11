@@ -1,8 +1,12 @@
-// Claude Code con la cuenta del usuario (ver lib/claude.js).
+// Claude Code con la cuenta del usuario (ver lib/claude.js). Se conservan tal cual: las usan la prueba de humo y la
+// pantalla de respaldo. Elegir la IA, instalarla e iniciar sesion con las dos va por /api/ia (rutas/ia.js).
 //
 // GET  /api/claude/estado -> { instalado, version, sesion: "ok" | "sin-sesion" | "desconocido", cuenta?, actualizar?, motivo?, trabajando }
 // POST /api/claude/login  -> abre `claude auth login` en una ventana (el login lo hace Claude Code: la app no toca tokens)
-import { estadoClaude, abrirLogin, sesionesEnCurso } from '../lib/claude.js';
+//
+// `trabajando` sale de la fila compartida (lib/ia/fila.js): cuenta las sesiones de las dos IA.
+import { estadoClaude, abrirLogin } from '../lib/claude.js';
+import { sesionesEnCurso } from '../lib/ia/fila.js';
 import { soloDesdeLaApp } from '../lib/productos.js';
 
 export default function rutasClaude(app) {

@@ -1,15 +1,16 @@
-// Ajustes (#/ajustes): Conexiones, Tu PC y Acerca de, con un índice a la izquierda.
+// Ajustes (#/ajustes): Conexiones, Modelos, Tu PC y Acerca de, con un índice a la izquierda.
 // #/ajustes?bienvenida=1 abre la bienvenida de la primera vez.
 // Preferencias (idioma, mercado y subtítulos por defecto) se quitó: el idioma y el mercado salen de la ficha de cada
 // producto y los subtítulos se cambian en el editor (Diego, 2026-10-26: "si no se va a usar, hay que quitarlo").
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Cloud, Cpu, Info, PlugZap, Sparkles, Wallet } from 'lucide-react';
+import { Cloud, Cpu, Info, PlugZap, SlidersHorizontal, Sparkles, Wallet } from 'lucide-react';
 import { Boton, CabeceraPagina, PuntoEstado, useAvisos } from '../../componentes/index.js';
 import { useEstado } from '../../datos/api.js';
 import { ir, rutas } from '../../datos/rutas.js';
 import { idioma as nombreIdioma } from '../../datos/formato.js';
-import { apiAjustes, estadoClaude, useAjustes, useAlCambiarConexiones, useClaude } from './datos.js';
+import { apiAjustes, mayuscula, useAjustes, useAlCambiarConexiones, useMotor } from './datos.js';
 import { Conexiones } from './Conexiones.jsx';
+import { Modelos, resumenModelos } from './Modelos.jsx';
 import { TuPC } from './TuPC.jsx';
 import { AcercaDe } from './AcercaDe.jsx';
 import { Inversion } from './Inversion.jsx';
@@ -20,6 +21,7 @@ import './ajustes.css';
 
 const SECCIONES = [
   { id: 'conexiones', texto: 'Conexiones', icono: PlugZap },
+  { id: 'modelos', texto: 'Modelos', icono: SlidersHorizontal },
   { id: 'tu-pc', texto: 'Tu PC', icono: Cpu },
   { id: 'guardado', texto: 'Guardado', icono: Cloud },
   { id: 'inversion', texto: 'Inversión', icono: Wallet },
@@ -56,10 +58,12 @@ function Indice({ activa, metas, alIr }) {
 export default function Ajustes({ consulta }) {
   const { datos: estado, recargar: recargarEstado } = useEstado();
   useAlCambiarConexiones(recargarEstado);
-  const { datos: claudeReal } = useClaude();
+  const motor = useMotor();
   const { datos: ajustesServidor, recargar } = useAjustes();
   const { aviso } = useAvisos();
   const [cambiosLocales, setCambiosLocales] = useState({});
+  const [modelosLocales, setModelosLocales] = useState({});
+  const [guardandoModelo, setGuardandoModelo] = useState(null);
   const [activa, setActiva] = useState('conexiones');
   const [bienvenida, setBienvenida] = useState(() => consulta?.has('bienvenida') || false);
   const contenedor = useRef(null);
@@ -67,8 +71,42 @@ export default function Ajustes({ consulta }) {
   // lo que el usuario acaba de elegir se ve al instante, sin esperar al servidor
   const ajustes = useMemo(() => {
     if (!ajustesServidor) return null;
-    return { ...ajustesServidor, preferencias: { ...ajustesServidor.preferencias, ...cambiosLocales } };
-  }, [ajustesServidor, cambiosLocales]);
+    const m = ajustesServidor.modelos;
+    return {
+      ...ajustesServidor,
+      preferencias: { ...ajustesServidor.preferencias, ...cambiosLocales },
+      modelos: m ? { ...m, eleccion: { ...m.eleccion, ...modelosLocales } } : m,
+    };
+  }, [ajustesServidor, cambiosLocales, modelosLocales]);
+
+  // Modelos: guarda al cambiar. Vale para los anuncios nuevos (uno ya empezado sigue con los suyos).
+  const guardarModelo = useCallback(
+    async (categoriaId, opcionId) => {
+      const categoria = ajustesServidor?.modelos?.categorias?.find((c) => c.id === categoriaId);
+      const opcion = categoria?.opciones?.find((o) => o.id === opcionId);
+      setModelosLocales((c) => ({ ...c, [categoriaId]: opcionId }));
+      setGuardandoModelo(categoriaId);
+      try {
+        await apiAjustes.guardarModelos({ [categoriaId]: opcionId });
+        await Promise.all([recargar(), recargarEstado()]);
+        aviso({
+          tipo: 'ok',
+          titulo: 'Guardado',
+          texto: categoria && opcion ? `${categoria.nombre}: tus anuncios nuevos usan ${opcion.nombre}. Los que ya empezaste siguen igual.` : 'Tus anuncios nuevos usan ese modelo.',
+        });
+      } catch (err) {
+        aviso({ tipo: 'error', titulo: 'No se pudo guardar', texto: err.message });
+      } finally {
+        setModelosLocales((c) => {
+          const n = { ...c };
+          delete n[categoriaId];
+          return n;
+        });
+        setGuardandoModelo(null);
+      }
+    },
+    [ajustesServidor, aviso, recargar, recargarEstado]
+  );
 
   const guardarPreferencia = useCallback(
     async (cambio) => {
@@ -147,12 +185,11 @@ export default function Ajustes({ consulta }) {
   };
 
   // ---------------------------------------------------------------- resumen de arriba
-  // Claude: instalado (claude --version) y con la sesión iniciada (claude auth status). Si la sesión
-  // no se pudo comprobar, queda "Sin comprobar" en gris, nunca "Falta".
-  const claude = estadoClaude(estado, claudeReal);
+  // Tu IA: elegida, instalada y con la sesión iniciada. Si la sesión no se pudo comprobar (o todavía se está
+  // revisando), queda "Sin comprobar" en gris, nunca "Falta".
   const conexiones = estado
     ? [
-        { nombre: 'Claude', ok: Boolean(claude.instalado) && claude.sesion !== 'sin-sesion', sinComprobar: Boolean(claude.instalado) && !claude.listo },
+        { nombre: mayuscula(motor.nombre) || 'Tu IA', ok: motor.revisando || motor.listo, sinComprobar: motor.revisando || (motor.listo && !motor.conectado) },
         { nombre: 'kie.ai', ok: Boolean(estado.claves?.kie) },
         { nombre: 'ElevenLabs', ok: Boolean(estado.claves?.elevenlabs) },
       ]
@@ -175,6 +212,11 @@ export default function Ajustes({ consulta }) {
           texto: faltan ? `Falta${faltan === 1 ? "" : "n"} ${faltan}` : sinComprobar ? `${listas} listas · ${sinComprobar} sin comprobar` : `${listas} de ${conexiones.length} listas`,
         }
       : null,
+    modelos: (() => {
+      const { recomendados, total } = resumenModelos(ajustes?.modelos);
+      if (!total) return null;
+      return { texto: recomendados === total ? 'Los recomendados' : `${recomendados} de ${total} recomendados` };
+    })(),
     'tu-pc': ajustes?.equipo ? { texto: `${ajustes.produccion?.ahora ?? ajustes.equipo.recomendacion.aLaVez ?? 1} a la vez` } : null,
     acerca: ajustes?.app?.version ? { texto: `Versión ${ajustes.app.version}` } : null,
   };
@@ -184,7 +226,7 @@ export default function Ajustes({ consulta }) {
       <CabeceraPagina
         sobretitulo="Ajustes"
         titulo={titulo}
-        descripcion="Tus conexiones y tu PC. Tus claves nunca se muestran: solo si están guardadas o faltan."
+        descripcion="Tus conexiones, los modelos de IA y tu PC. Tus claves nunca se muestran: solo si están guardadas o faltan."
         extra={
           conexiones ? (
             <div className="ajustes__resumen">
@@ -213,7 +255,8 @@ export default function Ajustes({ consulta }) {
           <Indice activa={activa} metas={metas} alIr={irA} />
         </aside>
         <div className="ajustes__secciones">
-          <Conexiones estado={estado} recargar={recargarEstado} />
+          <Conexiones estado={estado} recargar={recargarEstado} alElegirModelos={() => irA('modelos')} />
+          <Modelos ajustes={ajustes} guardando={guardandoModelo} alCambiar={guardarModelo} />
           <TuPC ajustes={ajustes} recargar={recargar} alCambiarALaVez={(v) => guardarPreferencia({ aLaVez: v })} />
           <Guardado />
           <Inversion />

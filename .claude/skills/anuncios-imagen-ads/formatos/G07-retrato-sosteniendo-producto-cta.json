@@ -1,0 +1,133 @@
+{
+  "id": "G07",
+  "slug": "retrato-sosteniendo-producto-cta",
+  "nombre": "Retrato sosteniendo el producto + columna con CTA",
+  "origen": "ganador:562356153_1294000592477816_3237817272303573426_n (1).jpg",
+  "descripcion": "Fondo negro o muy oscuro de estudio. En la mitad derecha, el retrato de una persona del público objetivo (en el original, un hombre con el torso desnudo y una toalla al hombro) que sonríe con calma y sostiene el producto hacia cámara, en el centro de la imagen. En la columna izquierda: un titular blanco enorme de 3 líneas, debajo un ícono de escudo con check y una descripción de 3 líneas, y abajo un botón CTA azul redondeado con una línea pequeña sobre la entrega. Un sello circular con la forma de pago ocupa la esquina inferior derecha. Limpio, de jerarquía clara y con tono de confianza: funciona muy bien para temas íntimos o delicados.",
+  "angulos_compatibles": [
+    "promesa-emocional",
+    "identidad",
+    "beneficio-principal",
+    "objecion-confianza",
+    "beneficio-sin-sacrificio"
+  ],
+  "tipos_producto": [
+    "cosmetico",
+    "nutraceutico",
+    "gadget",
+    "hogar",
+    "otro"
+  ],
+  "ad_format": "Studio Portrait Holding Product with CTA Column Ad",
+  "reference_style": "Clean, confident dark studio ad: a warm portrait of the target customer holding the product toward the camera on the right, a huge white three-line headline, a shield-icon description and a rounded blue messaging-style CTA button in the left column, and a subtle circular payment seal at the lower right",
+  "art_direction": {
+    "visual_hierarchy": "1) The huge white headline. 2) The person's face and the product held toward the camera at the center. 3) The rounded CTA button. 4) The shield icon with the description. 5) The payment seal and the delivery line.",
+    "composition_style": "Two-column layout on a dark studio background. The portrait fills the right half, cropped by the right and bottom edges, with the hand bringing the product forward into the center of the canvas, between the text column and the face. The left column stacks, top to bottom: headline, shield-plus-description, empty breathing space, CTA button and delivery line. The round seal sits over the lower-right corner, on the person's shoulder area.",
+    "spacing_and_structure": "Headline: from about 6% to 62% of the canvas width and 8% to 38% of the height, three lines, left-aligned (the end of the first line may slightly overlap the dark hair area but never the face). Shield icon: from about 6% to 11% of the width and 43% to 50% of the height. Description: from about 13% to 45% of the width and 43% to 55% of the height. CTA button: from about 5% to 43% of the width and 76% to 85% of the height. Delivery line: from about 5% to 44% of the width and 89.5% to 93.5% of the height. Person: from about 40% (the fingers of the holding hand) to 100% of the width and 2% to 100% of the height; head and face at about 58-95% of the width and 5-57% of the height. Product: held in the hand at about 47-59% of the width and 33-81% of the height (about 48% of the canvas height), label facing the camera, the hand wrapping its lower half down to about 87% of the height. Seal: circle about 14% of the canvas in diameter centered at about 85% of the width and 83% of the height, with its label bar spanning about 75.5-93% of the width. Left margin of about 5-6% shared by all left-column elements.",
+    "lighting_and_depth": "Low-key studio photography: soft key light from the front left modeling the face and torso with warm natural skin tones, a subtle rim light separating the person from the dark background, the product sharply in focus and well lit, a shallow depth of field. Background: near-black charcoal gradient, slightly lighter grey behind the person's head. The text, icon and button are flat; the seal is semi-transparent and stamp-like."
+  },
+  "layout_summary": "Square canvas with a near-black studio background. On the right half, a warm, confident portrait of a person from the target audience, smiling softly at the camera, cropped by the right and bottom edges, holding the user's product toward the camera at the center of the canvas. On the left, a huge white three-line headline, then a blue outline shield icon with a white three-line description beside it, then lower down a fully rounded bright blue CTA button with white uppercase text and a small white delivery line under it. At the lower right, a semi-transparent circular payment seal with arched text, a horizontal label bar across its middle and thin rings.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Discreet, premium, private atmosphere that makes the white text and the face stand out",
+      "adaptation_rule": "Near-black charcoal studio gradient, slightly lighter behind the person's head. No texture, no room or props."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "portrait holding the product",
+      "position": "Right half, from about 40% (the holding hand) to 100% of the canvas width and 2% to 100% of the height, cropped by the right and bottom edges",
+      "visual_function": "Puts a trustworthy, relatable face behind the product; the person presents it to the viewer",
+      "adaptation_rule": "Studio portrait of one person from the target audience (age, gender and style of the buyer), calm confident smile, looking straight at the camera, styled to match the product's moment of use (for example a towel on the shoulder for personal care, workout clothes for fitness, casual clothes for home products). One hand holds the product up toward the camera near the center of the canvas. Not UGC and not a candid scene: a clean, posed portrait."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "In the person's hand, at about 47-59% of the canvas width and 33-81% of the height",
+      "visual_function": "Shows exactly what is being recommended",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), held upright toward the camera, label fully visible and sharp, large thanks to its closeness to the lens."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "shield icon",
+      "position": "Left column, from about 6% to 11% of the canvas width and 43% to 50% of the height",
+      "visual_function": "Signals protection and safety next to the description",
+      "adaptation_rule": "Outline shield with a check inside, in the bright blue of the CTA button (or the brand accent), thin line, flat."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "CTA button",
+      "position": "Left column, from about 5% to 43% of the canvas width and 76% to 85% of the height",
+      "visual_function": "Invites a direct message or order, like a messaging call to action",
+      "adaptation_rule": "Fully rounded pill in bright blue (or the brand accent) with the CTA text in white, centered. Flat, no icon and no platform logo."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "payment seal",
+      "position": "Lower-right corner, circle about 14% of the canvas in diameter centered at about 85% of the width and 83% of the height",
+      "visual_function": "Reduces purchase risk with a stamp-like guarantee of how the customer pays",
+      "adaptation_rule": "Semi-transparent light-grey circle with a thin navy ring, a short word arched along its top inside, a white horizontal label bar crossing the middle and extending slightly beyond the circle with the main words, and thin arcs below. Write the real payment or delivery condition of the user."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Left column, top, from about 6% to 62% of the width and 8% to 38% of the height",
+      "text_style": "Extra bold sans-serif, sentence case ending with a period, white, each line about 9-10% of the canvas height, tight leading, max 3 lines, left-aligned",
+      "guia_texto": "La promesa emocional del ángulo dirigida al cliente (confianza, tranquilidad, seguridad en sí mismo), de 4 a 6 palabras en 3 líneas cortas, cerrada con punto."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "product description",
+      "reference_position": "Left column, right of the shield icon, from about 13% to 45% of the width",
+      "text_style": "Regular sans-serif, white, about 3.3% of the canvas height, max 3 lines, left-aligned",
+      "guia_texto": "Qué es el producto y qué hace, de 4 a 7 palabras (tipo de producto + sus 2 funciones principales)."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "CTA",
+      "reference_position": "Centered inside the blue CTA button",
+      "text_style": "Bold sans-serif, uppercase, white, about 3.3% of the canvas height, 1 line, centered",
+      "guia_texto": "La acción que debe hacer el cliente según el canal de compra del usuario (escribir, pedir, comprar), de 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "delivery line",
+      "reference_position": "Under the CTA button, left-aligned with it",
+      "text_style": "Regular sans-serif, white, about 2.8% of the canvas height, 1 line, left-aligned",
+      "guia_texto": "La promesa real de entrega del usuario (rapidez + país o zona), de 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "payment seal text",
+      "reference_position": "Inside the seal: one short word arched at the top and the main words on the label bar",
+      "text_style": "Bold sans-serif, uppercase, near-black; the arched word about 3% of the canvas height and the label-bar words about 2.5%, 1 line each",
+      "guia_texto": "La condición real de pago o entrega del usuario en 2 palabras: la palabra que introduce la condición arriba en arco y la condición en sí en la barra."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Near-black studio background",
+    "Portrait of one person from the target audience smiling at the camera on the right half",
+    "The user's product held toward the camera near the center, label visible",
+    "Huge white three-line headline at the top left",
+    "Shield icon with a three-line description",
+    "Fully rounded bright blue CTA button with a delivery line under it",
+    "Semi-transparent circular payment seal at the lower right"
+  ],
+  "forbidden_additions": [
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or more icons",
+    "Messaging-app logos or icons on the button",
+    "More than one seal",
+    "Lifestyle room, bathroom or outdoor background",
+    "Second person",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fondo negro carbón; titular, descripción y línea de entrega en blanco; ícono del escudo y botón CTA en azul brillante (o el acento de la marca, que debe contrastar fuerte con el negro); sello en gris claro semitransparente con anillo azul marino y texto casi negro. El producto aporta el color de marca en el centro.",
+  "posicion_logo": null
+}

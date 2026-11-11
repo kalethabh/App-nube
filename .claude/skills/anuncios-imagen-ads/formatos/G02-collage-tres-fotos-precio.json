@@ -1,0 +1,158 @@
+{
+  "id": "G02",
+  "slug": "collage-tres-fotos-precio",
+  "nombre": "Collage de 3 fotos con checks y precio",
+  "origen": "ganador:487433628_29658307090423119_6614594872174058287_n.jpg",
+  "descripcion": "Banda superior oscura a todo el ancho con el nombre o la categoría del producto en blanco, y un sello circular rojo con un reclamo de confianza en la esquina superior derecha. Debajo, un collage de 3 fotos a sangre: una lifestyle a todo el ancho en la mitad superior, con el público disfrutando el producto en uso, y dos en la mitad inferior (a la izquierda, una persona poniéndoselo o usándolo; a la derecha, un macro del producto puesto). Sobre la unión, a la izquierda, 3 checks verdes con píldoras oscuras de texto (palabra clave en negrita) y, en el centro inferior, un precio rojo grande con un «por sólo» encima. Al pie, una banda negra delgada y, montada sobre su borde superior (mitad sobre las fotos), una píldora blanca con ícono de camión y la condición de pago. Las fotos se unen con cortes rectos, sin separadores. El producto nunca aparece recortado: se entiende puesto, en las fotos.",
+  "angulos_compatibles": ["oferta", "caracteristica-estrella", "objecion-confianza", "beneficio-principal", "rapido-y-facil"],
+  "tipos_producto": ["gadget", "cosmetico", "ropa", "hogar", "juguete", "otro"],
+  "ad_format": "Three-Photo Collage Offer Ad",
+  "reference_style": "Busy, high-trust LATAM cash-on-delivery collage ad: a dark title band, one wide lifestyle photo over two smaller in-use photos, overlaid green check pills, a big red price and a black bottom band with a white payment pill",
+  "art_direction": {
+    "visual_hierarchy": "1) The wide lifestyle photo with happy people using the product. 2) The big red price in the lower center. 3) The product name in the top band and the red seal in the corner. 4) The three check pills. 5) The macro photo of the product in place. 6) The payment pill in the bottom band.",
+    "composition_style": "Edge-to-edge photo grid of 1 wide photo on top and 2 photos below, framed by a dark band at the top and a black band at the bottom. Graphic elements float over the photo seams: the check pills cross the horizontal seam on the left, the price block crosses the vertical seam in the lower center, and the round seal overlaps the top band and the top photo in the upper-right corner.",
+    "spacing_and_structure": "Top band: full width, from 0% to about 8% of the canvas height. Top photo: full width, from about 8% to 56.5% of the height. Bottom-left photo: from 0% to about 59.5% of the width and 56.5% to 95.5% of the height. Bottom-right photo: from about 59.5% to 100% of the width, same height band. The photos butt directly against each other with hard straight seams: no gutters, frames or borders between them. Seal: circle about 13-14% of the canvas in diameter, centered at about 91% of the width and 13% of the height. Check pills: three rows from about 2% to 44% of the width, at about 41-46%, 48-53% and 56-61% of the height (row pitch about 7.3%); check circle about 5.5% in diameter at about 2-7.5% of the width, pill from about 9% to 44% of the width. Price block: from about 36% to 68% of the width; small label at about 65-68% of the height (centered over the figure), price figure at about 69.5-77% of the height. Bottom band: thin, full width, from about 95.5% to 100% of the height. White pill: from about 25% to 75% of the width and about 92.5% to 97.5% of the height, straddling the seam between the bottom photos and the black band (about half over the photos, half over the band).",
+    "lighting_and_depth": "Photos: bright, warm, natural indoor light, realistic stock-photo quality, faces and product sharp, homes softly blurred behind. Graphic overlays are flat: the pills are solid dark with a thin white outline, the check circles are flat green with a white check, the seal is a flat red disc with a thin dashed outer ring, and the price is solid red with a thin white outline for separation from the photo. No glows or 3D effects."
+  },
+  "layout_summary": "Square canvas. A dark navy band across the top holds the product name in white. A red round seal with a thin dashed ring overlaps the band and the photo in the top-right corner. The upper half is a wide lifestyle photo of the target audience enjoying the product in use. The lower half splits into two photos: on the left, a person putting on or using the product in close-up; on the right, a macro of the product in place. Three green check circles with dark rounded text pills are stacked on the left over the seam between the upper and lower photos. A big red price with a small label above sits in the lower center over the seam between the two lower photos. A thin black band runs along the very bottom, and a centered white pill with a delivery-truck icon and the payment condition straddles its top edge, half over the lower photos. The photos meet with hard seams, without gutters.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "top title band",
+      "position": "Full width, from 0% to about 8% of the canvas height",
+      "visual_function": "Names the product before anything else",
+      "adaptation_rule": "Solid band in a saturated deep indigo blue (or the brand's darkest saturated color) holding the product name or category in white, centered."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "corner trust seal",
+      "position": "Top-right corner, circle about 13-14% of the canvas in diameter, centered at about 91% of the width and 13% of the height, overlapping the bottom edge of the top band and the top photo",
+      "visual_function": "Answers the main purchase doubt with one short claim",
+      "adaptation_rule": "Flat red disc with a thin dashed ring just outside its edge and a 2-line white text inside. Write a short trust claim adapted to the user's product and its main objection (for example no prescription needed, original product, guarantee or certification), using only claims the user can back."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "wide lifestyle photo",
+      "position": "Full width, from about 8% to 56.5% of the canvas height",
+      "visual_function": "Shows the emotional result: the target audience happy while using the product",
+      "adaptation_rule": "Bright, warm photo in a real home of one or two people from the target audience enjoying the product in use (for example one person helping the other put it on and both laughing). Faces large and expressive, the product visible in use. Keep the left part of its lower edge (from about 40% to 56% of the height and 0% to 45% of the width) calm because the check pills sit there."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "in-use close-up photo",
+      "position": "Bottom left, from 0% to about 59.5% of the canvas width and 56.5% to 95.5% of the height",
+      "visual_function": "Shows how the product is put on or used",
+      "adaptation_rule": "Close-up of a person from the target audience putting on, applying or using the user's product exactly as in the attached product photo, hands and face in profile, soft light. Keep the right part of the photo calm because the price sits there."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product macro photo",
+      "position": "Bottom right, from about 59.5% to 100% of the canvas width and 56.5% to 95.5% of the height",
+      "visual_function": "Shows the real product up close, in place, so its size and look are clear",
+      "adaptation_rule": "Macro photo of the user's product exactly as in the attached product photo (same geometry, materials and colors), worn or placed where it is used (on the body, on the surface, in the device), filling most of the frame, sharp, shallow depth of field."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "check pills (3)",
+      "position": "Left, from about 2% to 44% of the canvas width, rows at about 41-46%, 48-53% and 56-61% of the height, crossing the seam between the top and bottom photos",
+      "visual_function": "Three quick reasons to buy, readable over the photos",
+      "adaptation_rule": "Each row: a flat green circle about 5.5% of the canvas in diameter with a white check, followed by a fully rounded dark navy pill with a thin white outline holding one short white feature line, keyword in bold and the rest in regular. All rows the same width."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "price block",
+      "position": "Lower center, from about 36% to 68% of the canvas width and 65% to 77% of the height, over the seam between the two bottom photos",
+      "visual_function": "Anchors the offer with one big figure",
+      "adaptation_rule": "Small red uppercase label centered above a very large red price figure, both with a thin white outline. Use the exact price and currency the user gave; never invent a figure."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "bottom payment band",
+      "position": "Thin full-width band from about 95.5% to 100% of the canvas height, touching the left, right and bottom edges; the white pill sits at about 25-75% of the width and 92.5-97.5% of the height, straddling the band's top edge",
+      "visual_function": "Removes the payment risk at the last glance",
+      "adaptation_rule": "Solid black band with a centered white fully rounded pill with a thin dark outline (about 25-75% of the width, about 5% tall) that straddles the band's top edge, half over the bottom photos. The pill holds a small colored delivery-truck icon with speed lines on its left and the payment or shipping condition in dark text, key words in bold."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "product name in the top band",
+      "reference_position": "Centered inside the top band",
+      "text_style": "Bold sans-serif, sentence case, white, about 4.5-5% of the canvas height, 1 line, centered, up to about 85% of the width so it does not touch the seal",
+      "guia_texto": "Qué es el producto: su categoría o nombre + su función, en 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "trust seal claim",
+      "reference_position": "Centered inside the red seal",
+      "text_style": "Bold sans-serif, white, about 3.3% of the canvas height, 2 lines (first in sentence case, second in uppercase), centered",
+      "guia_texto": "Un reclamo de confianza que responde la duda principal del producto (sin receta, original, garantía, certificado), en 2 palabras. Solo lo que el usuario pueda respaldar."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "check pill 1",
+      "reference_position": "First check pill, left",
+      "text_style": "Sans-serif, white, about 3% of the canvas height, 1 line, centered in the pill; the keyword in extra bold and the rest in regular",
+      "guia_texto": "Beneficio o característica más fuerte para el ángulo: palabra clave en negrita + 1 o 2 palabras de cierre, de 2 a 4 palabras en total."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "check pill 2",
+      "reference_position": "Second check pill, left",
+      "text_style": "Same style as check pill 1",
+      "guia_texto": "Segunda característica concreta con la palabra clave en negrita, de 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "check pill 3",
+      "reference_position": "Third check pill, left",
+      "text_style": "Same style as check pill 1",
+      "guia_texto": "Tercera característica (durabilidad, resistencia o facilidad) con la palabra clave en negrita, de 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "price label",
+      "reference_position": "Lower center, directly above the price figure",
+      "text_style": "Extra bold sans-serif, uppercase, red with a thin white outline, about 3.3% of the canvas height, 1 line, centered over the figure",
+      "guia_texto": "Etiqueta corta que introduce el precio y lo hace sentir accesible, de 2 palabras."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "price figure",
+      "reference_position": "Lower center, from about 36% to 68% of the width",
+      "text_style": "Extra bold sans-serif, red with a thin white outline, about 7.5-8% of the canvas height (cap height), 1 line, centered, maximum visual weight among the overlays",
+      "guia_texto": "El precio real que dio el usuario con su moneda. Solo cifra y moneda."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "payment condition",
+      "reference_position": "Inside the white pill that straddles the top edge of the bottom band, right of the truck icon",
+      "text_style": "Sans-serif, near-black, about 3.3% of the canvas height, 1 line, centered; the key words in bold and the rest in regular",
+      "guia_texto": "La forma de pago o la condición de envío real que dio el usuario, en 2 a 4 palabras, con las palabras clave en negrita."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Edge-to-edge 1 + 2 photo collage with hard seams and no gutters",
+    "Wide lifestyle photo of the target audience using the product in the upper half",
+    "Close-up of a person putting on or using the product and a macro of the product in place in the lower half",
+    "Dark top band with the product name and a red round seal overlapping its corner",
+    "Three green check circles with dark rounded text pills over the left seam",
+    "Big red price with a small label above, over the lower seam",
+    "Thin black bottom band with a white pill straddling its top edge, holding a truck icon and the payment condition"
+  ],
+  "forbidden_additions": [
+    "Isolated product cut-out or studio packshot",
+    "Struck-through old price or discount percentage badge",
+    "CTA button",
+    "Rating stars, reviews or testimonials",
+    "More than one seal",
+    "More than 3 check pills",
+    "Countdown timer or urgency label",
+    "Arrows or callout lines",
+    "Fourth photo or 2x2 grid",
+    "White gutters, frames or borders between the photos",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de venta directa: banda superior en azul índigo intenso y saturado (o el color oscuro más saturado de la marca) con texto blanco; sello y precio en rojo intenso con borde blanco; checks en verde; píldoras de texto en azul marino casi negro con borde blanco; banda inferior negra y delgada con píldora blanca y texto casi negro. Las fotos llevan colores naturales y cálidos; la marca aparece solo en detalles de las fotos.",
+  "posicion_logo": null
+}

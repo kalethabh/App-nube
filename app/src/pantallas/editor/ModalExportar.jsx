@@ -19,7 +19,7 @@ import { exportacionEnMarcha } from './trabajos.js';
 const ETAPAS = [
   { id: 'preparar', etapas: ['preparar', 'armar'], titulo: 'Preparando tus cambios', detalle: 'Junto el montaje con lo que tocaste en el editor.' },
   { id: 'render', etapas: ['render'], titulo: 'Armando el video', detalle: 'Cuadro por cuadro, con el mismo montaje de la vista previa.' },
-  { id: 'revisar', etapas: ['revisar', 'repetir'], titulo: 'Revisión final', detalle: 'Que no haya cuadros negros ni imágenes quietas, y que dure y se vea como debe.' },
+  { id: 'revisar', etapas: ['revisar', 'repetir'], titulo: 'Revisión final', detalle: 'Que no haya cuadros negros ni imágenes congeladas de más de un segundo, y que dure y se vea como debe.' },
   { id: 'guardar', etapas: ['guardar'], titulo: 'Guardando', detalle: 'Sale como un archivo nuevo, junto a tus otras versiones.' },
 ];
 
@@ -139,7 +139,7 @@ export function ModalExportar({ abierto, onCerrar, a, duracion, subs, cambios, s
           Cancelar
         </Boton>
         <Boton variante="primario" icono={Download} onClick={exportar} cargando={pidiendo} data-autofocus>
-          Exportar en {calidad}p
+          Armar en {calidad}p
         </Boton>
       </>
     );
@@ -147,7 +147,7 @@ export function ModalExportar({ abierto, onCerrar, a, duracion, subs, cambios, s
     pie = (
       <>
         <Boton variante="fantasma" onClick={() => exp.cancelar()}>
-          Cancelar la exportación
+          Cancelar
         </Boton>
         <Boton variante="secundario" onClick={onCerrar} data-autofocus>
           Seguir editando
@@ -201,7 +201,7 @@ export function ModalExportar({ abierto, onCerrar, a, duracion, subs, cambios, s
       onCerrar={onCerrar}
       icono={fase === 'listo' ? CircleCheck : fase === 'error' ? TriangleAlert : Download}
       tono={fase === 'listo' ? 'ok' : fase === 'error' ? 'error' : 'acento'}
-      titulo={fase === 'listo' ? 'Tu versión está lista' : fase === 'exportando' ? 'Exportando tu versión' : fase === 'error' ? 'No se pudo exportar' : 'Exportar tu versión'}
+      titulo={fase === 'listo' ? 'Tu video está listo' : fase === 'exportando' ? 'Armando tu video' : fase === 'error' ? 'No se pudo armar tu video' : 'Descargar tu video'}
       descripcion={
         fase === 'listo'
           ? 'Salió como un archivo nuevo. Lo que ya te entregamos sigue igual.'
@@ -209,7 +209,7 @@ export function ModalExportar({ abierto, onCerrar, a, duracion, subs, cambios, s
             ? 'Puedes cerrar esta ventana y seguir editando: te aviso cuando termine.'
             : fase === 'error'
               ? 'No se gastó nada: exportar no cuesta. Puedes volver a intentarlo.'
-              : 'Sale como un archivo nuevo: lo que ya te entregamos no se toca. Exportar no cuesta nada.'
+              : 'Se arma con tus cambios en esta PC y después lo descargas. No cuesta nada, y lo que ya te entregamos no se toca.'
       }
       pie={pie}
       className="ed-exportar"
@@ -363,7 +363,7 @@ export function ModalExportar({ abierto, onCerrar, a, duracion, subs, cambios, s
           {t.control?.limpio ? (
             <p className="ed-nota ed-nota--ok">
               <ShieldCheck size={14} strokeWidth={2.2} aria-hidden="true" />
-              Pasó la revisión final: sin cuadros negros ni imágenes quietas, con su largo y su tamaño.
+              Pasó la revisión final: sin cuadros negros ni imágenes congeladas de más de un segundo, con su largo y su tamaño.
             </p>
           ) : t.control ? (
             <div className="ed-revision" role="status">

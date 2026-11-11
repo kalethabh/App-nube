@@ -4,7 +4,7 @@ import { ArrowUpRight, Check, Eye, EyeOff, KeyRound, LoaderCircle, PlugZap, Tria
 import { Boton, Insignia, Tooltip, useAvisos } from '../../componentes/index.js';
 import { apiAjustes } from './datos.js';
 
-/** Cuadrito con el icono de un servicio (kie.ai, ElevenLabs, Claude). */
+/** Cuadrito con el icono de un servicio (kie.ai, ElevenLabs, tu IA). */
 export function Marca({ icono: Icono, tono = 'acento', tamano = 'normal', apagada = false }) {
   return (
     <span className={`marca-servicio marca-servicio--${tono} marca-servicio--${tamano}${apagada ? ' marca-servicio--apagada' : ''}`} aria-hidden="true">

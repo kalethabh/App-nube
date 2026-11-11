@@ -1,0 +1,1367 @@
+/* "Anuncios de imagen": la portada (#/imagenes: tus productos y tus lotes) y «Crear anuncios de imagen»
+   (#/imagenes/nuevo: el formulario y el panel «Tu lote»). Las dos a todo el ancho, como «Mis anuncios». Todo con los
+   tokens de src/estilos/tokens.css. */
+
+.img {
+  gap: var(--e-8);
+}
+.img-simulacion {
+  margin-top: var(--e-3);
+  align-self: flex-start;
+}
+
+/* ---------------------------------------------------------------- la portada */
+.img-portada {
+  gap: var(--e-10);
+}
+.img-portada > .cabecera-pagina {
+  align-items: center;
+}
+
+/* tus productos: una fila de chips arriba de la cuadrícula (como los filtros de «Mis anuncios»). En la computadora
+   se envuelve y muestra los primeros; en el celular, una sola fila que se desliza de costado */
+.img-filtro {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-2);
+  margin-top: calc(var(--e-1) * -1);
+}
+.img-filtro__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  max-width: 280px;
+  height: 40px;
+  padding: 0 12px 0 4px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--borde-2);
+  background: var(--superficie-2);
+  color: var(--texto-2);
+  font-size: var(--t-chico);
+  font-weight: var(--peso-medio);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-rapido),
+    background var(--dur-rapido),
+    color var(--dur-rapido);
+}
+.img-filtro__chip--todos {
+  padding-left: 14px;
+}
+.img-filtro__chip:hover {
+  color: var(--texto-1);
+  border-color: var(--borde-3);
+  background: var(--superficie-3);
+}
+.img-filtro__chip:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+.img-filtro__chip--sel,
+.img-filtro__chip--sel:hover {
+  color: var(--texto-1);
+  border-color: var(--acento-borde);
+  background: var(--acento-suave);
+  box-shadow: 0 0 16px -6px var(--acento);
+}
+.img-filtro__chip .chip__contador {
+  margin-right: -4px;
+}
+.img-filtro__chip--sel .chip__contador {
+  color: var(--texto-1);
+}
+.img-filtro__foto {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--texto-3);
+  background: var(--texto-1);
+}
+.img-filtro__foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+/* el punto de lo que pasa con sus lotes (creándose o te necesita), en la esquina de la foto */
+.img-filtro__punto {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  display: grid;
+  place-items: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--superficie-2);
+}
+.img-filtro__punto .punto {
+  width: 7px;
+  height: 7px;
+  box-shadow: none;
+}
+.img-filtro__nombre {
+  min-width: 0;
+}
+.img-filtro__sufijo {
+  flex: none;
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+}
+.img-filtro__mas {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+  height: 40px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--acento);
+  font-size: var(--t-chico);
+  font-weight: var(--peso-semi);
+  cursor: pointer;
+}
+.img-filtro__mas:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+
+/* tus lotes: una cuadrícula que llena el ancho. Con un producto elegido, «Crear más con este producto» a la derecha
+   del título (en el celular, en su propia línea: el título nunca se parte) */
+.img-lotes-seccion {
+  scroll-margin-top: calc(var(--alto-barra) + var(--e-5));
+}
+.img-lotes-seccion > .seccion__cabecera {
+  flex-wrap: wrap;
+}
+.img-lotes-seccion .seccion__titulo {
+  white-space: nowrap;
+}
+/* (con un nombre de producto largo, «Crear más con «…»» se corta con puntos suspensivos) */
+.img-lotes__crear {
+  max-width: min(100%, 340px);
+}
+.img-lotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: var(--e-6) var(--e-5);
+}
+.img-lote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+.img-lote__enlace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  width: 100%;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.img-lote__enlace:focus-visible {
+  outline: none;
+}
+.img-lote__textos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 0 2px;
+}
+.img-lote__titulo {
+  font-size: var(--t-ui);
+  font-weight: var(--peso-semi);
+  color: var(--texto-1);
+}
+.img-lote__detalle {
+  font-size: var(--t-chico);
+  color: var(--texto-2);
+}
+/* el estado y cuándo, debajo del mosaico (la insignia no tapa la imagen) */
+.img-lote__estado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-top: 5px;
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+}
+.img-lote__cuando {
+  min-width: 0;
+}
+.img-lote__trozo {
+  white-space: nowrap;
+}
+.img-lote__borrar {
+  margin-left: -6px;
+}
+
+/* el mosaico: 1, 2, 3 o 4 cuadrados, siempre en un marco 1:1 y sin nada encima (mientras se crea, solo su barra) */
+.img-mosaico {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--r-l);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--fondo-0);
+  box-shadow: 0 0 0 1px var(--borde-1), var(--sombra-2);
+  transform: translateZ(0);
+  transition:
+    transform var(--dur-lento) var(--curva-salida),
+    box-shadow var(--dur-lento) var(--curva-salida);
+}
+.img-mosaico--2 {
+  grid-template-columns: 1fr 1fr;
+}
+.img-mosaico--3 {
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.img-mosaico--3 > :first-child {
+  grid-row: 1 / span 2;
+}
+.img-mosaico--4 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.img-mosaico--vacio {
+  display: block;
+}
+.img-lote__enlace:hover .img-mosaico,
+.img-lote__enlace:focus-visible .img-mosaico {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px var(--borde-3), var(--sombra-3), 0 0 34px -14px rgba(var(--acento-rgb), 0.4);
+}
+.img-lote__enlace:focus-visible .img-mosaico {
+  box-shadow: 0 0 0 2px var(--fondo-1), 0 0 0 4px var(--acento), var(--sombra-3);
+}
+.img-lote--necesita .img-mosaico {
+  box-shadow: 0 0 0 1px var(--necesita-borde), var(--sombra-2);
+}
+.img-mosaico__celda {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--superficie-2);
+}
+.img-mosaico__celda img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity var(--dur-escena) var(--curva-suave),
+    transform 1.4s var(--curva-salida);
+}
+.img-mosaico__celda img.img-mosaico__img--cargada {
+  opacity: 1;
+  transform: scale(1);
+}
+.img-lote__enlace:hover .img-mosaico__img--cargada {
+  transform: scale(1.05);
+}
+.img-mosaico__hueco {
+  min-width: 0;
+  min-height: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(var(--acento-rgb), 0.12), transparent 60%),
+    var(--superficie-2);
+}
+.img-mosaico__hueco--creando,
+.img-mosaico__sin--creando {
+  background: linear-gradient(100deg, var(--superficie-2) 20%, rgba(var(--cian-rgb), 0.12) 45%, var(--superficie-2) 70%);
+  background-size: 220% 100%;
+  animation: destello 1.8s ease-in-out infinite;
+}
+.img-mosaico__sin {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: var(--e-4);
+  text-align: center;
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+}
+.img-mosaico__sin:not(.img-mosaico__sin--creando) {
+  background:
+    radial-gradient(circle at 25% 15%, rgba(var(--acento-rgb), 0.16), transparent 55%),
+    radial-gradient(circle at 85% 90%, rgba(var(--cian-rgb), 0.08), transparent 55%),
+    var(--superficie-2);
+}
+.img-mosaico__sin svg {
+  color: var(--texto-4);
+}
+.img-mosaico__sombra {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 72%, var(--vidrio-oscuro) 100%);
+}
+.img-mosaico__avance {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 3;
+}
+
+/* sin lotes: la bienvenida en 3 pasos */
+.img-bienvenida {
+  padding-block: var(--e-12) var(--e-10);
+}
+.img-bienvenida .vacio__texto {
+  max-width: 560px;
+}
+.img-pasos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--e-4);
+  width: 100%;
+  max-width: 920px;
+  margin: var(--e-5) 0 var(--e-3);
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+.img-paso {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--e-5);
+  border-radius: var(--r-l);
+  border: 1px solid var(--borde-1);
+  background: var(--superficie-1);
+  box-shadow: var(--resalte-superior);
+}
+.img-paso__icono {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  color: var(--acento);
+  background: var(--acento-suave);
+  box-shadow: inset 0 0 0 1px var(--acento-borde);
+}
+.img-paso__n {
+  position: absolute;
+  top: var(--e-5);
+  right: var(--e-5);
+  font-family: var(--fuente-titulo);
+  font-size: var(--t-h3);
+  font-weight: var(--peso-titulo);
+  line-height: 1;
+  color: var(--texto-4);
+}
+.img-paso__titulo {
+  font-size: var(--t-ui);
+  font-weight: var(--peso-semi);
+  color: var(--texto-1);
+}
+.img-paso__texto {
+  font-size: var(--t-chico);
+  line-height: 1.5;
+  color: var(--texto-3);
+}
+
+/* ---------------------------------------------------------------- crear anuncios de imagen (#/imagenes/nuevo) */
+.img-crear-pagina {
+  gap: var(--e-6);
+}
+.img-crear__arriba {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--e-3);
+}
+.img-volver {
+  margin-left: -10px;
+}
+/* el formulario a la izquierda y «Tu lote» a la derecha, fijo al bajar */
+.img-crear {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+  gap: var(--e-6);
+  align-items: start;
+}
+.img-resumen {
+  position: sticky;
+  top: calc(var(--alto-barra) + var(--e-5));
+  min-width: 0;
+}
+.img-resumen__tarjeta {
+  display: flex;
+  flex-direction: column;
+}
+.img-resumen__producto {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  padding: var(--e-5) var(--e-5) var(--e-4);
+}
+.img-resumen__foto {
+  width: 84px;
+  height: 84px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-m);
+  overflow: hidden;
+  color: var(--texto-3);
+  background: var(--superficie-2);
+  box-shadow: 0 0 0 1px var(--borde-2);
+}
+.img-resumen__foto--claro:has(img) {
+  background: var(--texto-1);
+}
+.img-resumen__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.img-resumen__producto-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.img-resumen__sobre {
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  color: var(--acento);
+}
+.img-resumen__nombre {
+  font-size: var(--t-h4);
+  font-weight: 650;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.img-resumen__detalle {
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+}
+.img-resumen__lista {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0 var(--e-5);
+}
+.img-resumen__fila {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--e-3);
+  min-height: 44px;
+  padding: 8px 0;
+  border-top: 1px solid var(--borde-1);
+}
+.img-resumen__fila dt {
+  font-size: var(--t-chico);
+  color: var(--texto-3);
+}
+.img-resumen__fila dd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px var(--e-3);
+  margin: 0;
+  min-width: 0;
+  font-size: var(--t-chico);
+  font-weight: var(--peso-medio);
+  color: var(--texto-1);
+}
+.img-resumen__falta {
+  font-weight: var(--peso-normal);
+  color: var(--texto-3);
+}
+.img-resumen__nota {
+  font-size: var(--t-mini);
+  font-weight: var(--peso-normal);
+  color: var(--texto-3);
+}
+.img-resumen__formatos {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.img-resumen__forma {
+  display: inline-block;
+  border-radius: 3px;
+  border: 1.5px solid var(--texto-2);
+}
+.img-resumen__forma--cuadrado {
+  width: 13px;
+  height: 13px;
+}
+.img-resumen__forma--vertical {
+  width: 10px;
+  height: 17px;
+  margin-left: 6px;
+}
+.img-resumen__con-vista {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.img-resumen__logo {
+  width: 40px;
+  height: 26px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  padding: 3px;
+  border-radius: 6px;
+  background:
+    repeating-conic-gradient(var(--superficie-3) 0 25%, var(--superficie-2) 0 50%) 0 0 / 8px 8px;
+  box-shadow: 0 0 0 1px var(--borde-2);
+}
+.img-resumen__logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.img-resumen__refs {
+  display: inline-flex;
+  flex: none;
+}
+.img-resumen__ref {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--superficie-3);
+  box-shadow: 0 0 0 2px var(--superficie-1);
+}
+.img-resumen__ref + .img-resumen__ref {
+  margin-left: -7px;
+}
+.img-resumen__ref img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-resumen__ref--mas {
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  color: var(--texto-2);
+}
+.img-resumen__accion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  margin-top: var(--e-2);
+  padding: var(--e-5);
+  border-top: 1px solid var(--borde-1);
+  background:
+    radial-gradient(420px 160px at 50% 0%, rgba(var(--marca-2-rgb), 0.1), transparent 70%),
+    color-mix(in srgb, var(--fondo-1) 40%, transparent);
+}
+.img-resumen__pie {
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+  text-align: center;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+/* ---------------------------------------------------------------- el formulario */
+/* (se mide a sí mismo: los campos pasan a una columna cuando la tarjeta es angosta, también con «Tu lote» al lado) */
+.img-form {
+  overflow: hidden;
+  container-type: inline-size;
+}
+.img-grupo {
+  padding: var(--e-6);
+  border-bottom: 1px solid var(--borde-1);
+}
+.img-grupo:last-child {
+  border-bottom: 0;
+}
+.img-grupo__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--e-4);
+}
+.img-grupo__n {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  font-size: var(--t-micro);
+  font-weight: var(--peso-fuerte);
+  color: var(--acento);
+  background: var(--acento-suave);
+  box-shadow: inset 0 0 0 1px var(--acento-borde);
+}
+.img-grupo__titulo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--fuente-ui);
+  font-size: var(--t-destacado);
+  font-weight: var(--peso-semi);
+  letter-spacing: 0;
+}
+.img-grupo__opcional {
+  font-size: var(--t-mini);
+  font-weight: var(--peso-normal);
+  color: var(--texto-3);
+}
+.img-grupo__cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+
+.img-ayuda {
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+  line-height: 1.45;
+}
+.img-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-mini);
+  font-weight: var(--peso-medio);
+  color: var(--error);
+}
+.img-nota {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--r-m);
+  font-size: var(--t-chico);
+  line-height: 1.45;
+  color: var(--texto-2);
+  background: var(--acento-suave);
+  border: 1px solid var(--acento-borde);
+}
+.img-nota svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--acento);
+}
+.img-nota--aviso {
+  background: var(--aviso-suave);
+  border-color: var(--aviso-borde);
+}
+.img-nota--aviso svg {
+  color: var(--aviso);
+}
+
+/* los campos de "Cómo se vende": dos columnas en pantallas anchas */
+.img-campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--e-4) var(--e-5);
+  align-items: start;
+}
+.img-campos__ancho {
+  grid-column: 1 / -1;
+}
+.img-precio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  gap: var(--e-2);
+  align-items: start;
+}
+.img-precio__otra {
+  grid-column: 1 / -1;
+}
+
+/* con la tarjeta del formulario angosta (entre 1180 y ~1340 px con el menú abierto, o en el celular): una columna */
+@container (max-width: 620px) {
+  .img-campos {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* cantidad */
+.img-cantidad {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--e-3) var(--e-4);
+}
+.img-cantidad__campo {
+  width: 160px;
+}
+.img-cantidad__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-bottom: 5px;
+}
+.img-proporcion {
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+/* ---------------------------------------------------------------- soltar imágenes */
+.img-zona {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.img-soltar {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: var(--r-l);
+  border: 1.5px dashed var(--borde-3);
+  background:
+    radial-gradient(300px 120px at 0% 50%, rgba(var(--acento-rgb), 0.06), transparent 70%),
+    var(--superficie-1);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-rapido) var(--curva-suave),
+    background var(--dur-rapido) var(--curva-suave),
+    transform var(--dur-medio) var(--curva-salida);
+}
+.img-soltar:hover:not(:disabled) {
+  border-color: var(--acento-borde);
+  background:
+    radial-gradient(300px 120px at 0% 50%, rgba(var(--acento-rgb), 0.1), transparent 70%),
+    var(--superficie-1);
+}
+.img-soltar:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+.img-soltar:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+.img-soltar--encima {
+  border-style: solid;
+  border-color: var(--acento);
+  background: var(--acento-suave);
+  transform: scale(1.01);
+}
+.img-soltar--chica {
+  padding: 10px 14px;
+}
+.img-soltar__icono {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--acento);
+  background: var(--acento-suave);
+  box-shadow: inset 0 0 0 1px var(--acento-borde);
+}
+.img-soltar--chica .img-soltar__icono {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+.img-soltar__textos {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.img-soltar__titulo {
+  font-size: var(--t-ui);
+  font-weight: var(--peso-semi);
+}
+.img-soltar__ayuda {
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+}
+
+.img-zona__una {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  padding: 10px;
+  border-radius: var(--r-l);
+  border: 1px solid var(--borde-2);
+  background: var(--superficie-1);
+}
+.img-zona__una-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.img-zona__nombre {
+  font-size: var(--t-chico);
+  color: var(--texto-2);
+}
+.img-zona__vista {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--r-m);
+  overflow: hidden;
+  /* (fondo a cuadros: así se ve si el logo tiene transparencia) */
+  background:
+    repeating-conic-gradient(var(--superficie-3) 0 25%, var(--superficie-2) 0 50%) 0 0 / 14px 14px;
+  box-shadow: 0 0 0 1px var(--borde-2);
+}
+.img-zona__vista img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.img-zona__vista--grande {
+  width: 88px;
+  flex: none;
+}
+.img-zona__una--claro .img-zona__vista {
+  background: var(--texto-1);
+}
+.img-zona__heic {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  font-family: var(--fuente-mono);
+  font-size: var(--t-chico);
+  font-weight: var(--peso-semi);
+  color: var(--texto-2);
+  background: var(--superficie-3);
+}
+.img-zona__heic small {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--fuente-ui);
+  font-size: 10px;
+  font-weight: var(--peso-normal);
+  color: var(--texto-3);
+}
+.img-zona__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.img-zona__item {
+  position: relative;
+  animation: subir var(--dur-lento) var(--curva-salida) both;
+}
+.img-zona__n {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  padding: 2px 6px;
+  border-radius: var(--r-pill);
+  font-size: 10px;
+  font-weight: var(--peso-semi);
+  color: var(--texto-sobre-acento);
+  background: var(--vidrio-oscuro);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.img-zona__quitar {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--texto-sobre-acento);
+  background: var(--vidrio-oscuro);
+  cursor: pointer;
+  transition: background var(--dur-rapido);
+}
+.img-zona__quitar:hover {
+  background: var(--acento-fuerte);
+}
+.img-zona__quitar:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+
+/* ---------------------------------------------------------------- tu producto */
+.img-producto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+.img-producto__etiqueta {
+  font-size: var(--t-chico);
+  font-weight: var(--peso-semi);
+  color: var(--texto-2);
+}
+.img-producto__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.img-producto__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  height: 40px;
+  padding: 0 12px 0 4px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--borde-2);
+  background: var(--superficie-2);
+  color: var(--texto-2);
+  font-size: var(--t-chico);
+  font-weight: var(--peso-medio);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-rapido),
+    background var(--dur-rapido),
+    color var(--dur-rapido);
+}
+.img-producto__chip:hover:not(:disabled) {
+  border-color: var(--borde-3);
+  color: var(--texto-1);
+}
+.img-producto__chip:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+.img-producto__chip--sel {
+  color: var(--texto-1);
+  border-color: var(--acento);
+  background: var(--acento-suave);
+}
+.img-producto__chip-foto {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  color: var(--texto-3);
+  background: var(--texto-1);
+}
+.img-producto__chip-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-producto__chip-nombre {
+  min-width: 0;
+}
+/* "· 5 nov": cuando otro producto se llama igual */
+.img-producto__chip-sufijo {
+  flex: none;
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+}
+.img-producto__chip-marca {
+  flex: none;
+  color: var(--acento);
+}
+.img-producto__mas {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--acento);
+  font-size: var(--t-chico);
+  font-weight: var(--peso-semi);
+  cursor: pointer;
+}
+.img-producto__mas:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+.img-producto__fotos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--e-4);
+  border-radius: var(--r-l);
+  background: var(--superficie-1);
+  border: 1px solid var(--borde-1);
+  animation: subir var(--dur-lento) var(--curva-salida) both;
+}
+.img-producto__fotos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 108px));
+  gap: 10px;
+}
+.img-producto__foto {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-m);
+  overflow: hidden;
+  background: var(--texto-1);
+  box-shadow: 0 0 0 1px var(--borde-2);
+  cursor: pointer;
+  transition: box-shadow var(--dur-rapido);
+}
+.img-producto__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.img-producto__foto:hover:not(:disabled) {
+  box-shadow: 0 0 0 1px var(--borde-4);
+}
+.img-producto__foto:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+.img-producto__foto--sel,
+.img-producto__foto--sel:hover:not(:disabled) {
+  box-shadow: 0 0 0 2px var(--acento), var(--brillo-acento);
+}
+.img-producto__pagina {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  padding: 2px 7px;
+  border-radius: var(--r-pill);
+  font-size: 10px;
+  font-weight: var(--peso-semi);
+  color: var(--texto-sobre-acento);
+  background: var(--vidrio-oscuro);
+}
+.img-producto__foto-marca {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--texto-sobre-acento);
+  background: var(--acento-fuerte);
+}
+.img-producto__o {
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-etiqueta);
+}
+
+/* ---------------------------------------------------------------- la posición del logo */
+.img-pos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-5) var(--e-8);
+  padding: var(--e-4);
+  border-radius: var(--r-l);
+  background: var(--superficie-1);
+  border: 1px solid var(--borde-1);
+}
+.img-pos--apagada .img-pos__vistas,
+.img-pos--apagada .img-pos__rejilla {
+  opacity: 0.45;
+}
+.img-pos__elegir {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.img-pos__rejilla {
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
+  grid-template-rows: repeat(2, 40px);
+  gap: 6px;
+}
+.img-pos__opcion {
+  position: relative;
+  padding: 0;
+  border-radius: var(--r-s);
+  border: 1px solid var(--borde-2);
+  background: var(--superficie-2);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-rapido),
+    background var(--dur-rapido);
+}
+.img-pos__opcion:hover:not(:disabled) {
+  border-color: var(--borde-4);
+}
+.img-pos__opcion:focus-visible {
+  outline: none;
+  box-shadow: var(--anillo-foco);
+}
+.img-pos__opcion:disabled {
+  cursor: default;
+}
+.img-pos__opcion--sel {
+  border-color: var(--acento);
+  background: var(--acento-suave);
+}
+.img-pos__marca {
+  position: absolute;
+  width: 14px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--texto-3);
+}
+.img-pos__opcion--sel .img-pos__marca {
+  background: var(--acento);
+}
+.img-pos__marca--arriba {
+  top: 6px;
+}
+.img-pos__marca--abajo {
+  bottom: 6px;
+}
+.img-pos__marca--izquierda {
+  left: 6px;
+}
+.img-pos__marca--derecha {
+  right: 6px;
+}
+.img-pos__marca--centro {
+  left: calc(50% - 7px);
+}
+.img-pos__nombre {
+  font-size: var(--t-chico);
+  font-weight: var(--peso-semi);
+  color: var(--texto-2);
+}
+.img-pos__vistas {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--e-4);
+}
+.img-pos__lienzo {
+  position: relative;
+  display: block;
+  height: 112px;
+  border-radius: var(--r-s);
+  background:
+    linear-gradient(160deg, rgba(var(--marca-2-rgb), 0.35), rgba(var(--marca-3-rgb), 0.18)),
+    var(--superficie-3);
+  box-shadow: inset 0 0 0 1px var(--borde-2);
+  overflow: hidden;
+}
+.img-pos__lienzo--cuadrado {
+  aspect-ratio: 1;
+}
+.img-pos__lienzo--vertical {
+  aspect-ratio: 9 / 16;
+}
+/* las franjas de arriba y abajo que tapan Instagram y TikTok (15 %) */
+.img-pos__segura {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(var(--vidrio-oscuro), var(--vidrio-oscuro)) top / 100% 15% no-repeat,
+    linear-gradient(var(--vidrio-oscuro), var(--vidrio-oscuro)) bottom / 100% 15% no-repeat;
+}
+.img-pos__logo {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border-radius: 2px;
+  background: var(--texto-1);
+  box-shadow: 0 0 0 1px var(--acento), 0 0 10px rgba(var(--acento-rgb), 0.6);
+  transition:
+    left var(--dur-medio) var(--curva-salida),
+    top var(--dur-medio) var(--curva-salida);
+}
+.img-pos__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.img-pos__formato {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--fuente-mono);
+  font-size: var(--t-micro);
+  color: var(--texto-3);
+}
+
+/* ---------------------------------------------------------------- pantallas medianas y angostas */
+/* sin lugar para las dos columnas: una sola, con «Tu lote» abajo (después del último paso, como un pie) */
+@media (max-width: 1180px) {
+  .img-crear {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .img-resumen {
+    position: static;
+  }
+}
+@media (max-width: 720px) {
+  .img-portada {
+    gap: var(--e-8);
+  }
+  .img-portada > .cabecera-pagina {
+    align-items: flex-start;
+  }
+  .img-portada > .cabecera-pagina .cabecera-pagina__acciones {
+    width: 100%;
+  }
+  .img-portada > .cabecera-pagina .cabecera-pagina__acciones > * {
+    flex: 1;
+  }
+  .img-pasos {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .img-bienvenida {
+    padding: var(--e-8) var(--e-4);
+  }
+  /* el botón grande, del mismo ancho que los pasos (nunca encima del borde punteado) */
+  .img-bienvenida .vacio__acciones {
+    align-self: stretch;
+  }
+  .img-bienvenida .vacio__acciones .boton {
+    --px: var(--e-3);
+    --hueco-boton: 8px;
+    width: 100%;
+    height: auto;
+    min-height: var(--alto);
+    padding-block: 10px;
+    font-size: var(--t-ui);
+    line-height: 1.25;
+    white-space: normal;
+  }
+  /* (en un celular muy angosto el texto pasa a dos líneas en vez de cortarse) */
+  .img-bienvenida .vacio__acciones .boton__texto {
+    white-space: normal;
+    text-align: center;
+  }
+  .img-lotes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--e-5) var(--e-3);
+  }
+  .img-lotes-seccion > .seccion__cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--e-3);
+  }
+  .img-lotes-seccion .seccion__acciones {
+    margin-left: 0;
+  }
+  /* los productos: una sola fila que se desliza de costado, de borde a borde de la pantalla */
+  .img-filtro {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 2px var(--gutter) 4px;
+    scroll-padding-inline: var(--gutter);
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .img-filtro::-webkit-scrollbar {
+    display: none;
+  }
+  .img-filtro > * {
+    scroll-snap-align: start;
+  }
+  .img-filtro__chip {
+    max-width: 220px;
+  }
+  .img-lote__titulo {
+    font-size: var(--t-chico);
+  }
+  .img-lote__detalle {
+    font-size: var(--t-mini);
+  }
+  .img-mosaico__avance {
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+  }
+  .img-resumen__producto {
+    padding: var(--e-4) var(--e-4) var(--e-3);
+  }
+  .img-resumen__lista {
+    padding: 0 var(--e-4);
+  }
+  .img-resumen__accion {
+    padding: var(--e-4);
+  }
+  .img-grupo {
+    padding: var(--e-5) var(--e-4);
+  }
+  .img-campos {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .img-precio {
+    grid-template-columns: minmax(0, 1fr) 96px;
+  }
+  .img-pos {
+    gap: var(--e-4);
+  }
+  .img-pos__lienzo {
+    height: 92px;
+  }
+  .img-soltar {
+    gap: var(--e-3);
+    padding: 12px;
+  }
+  /* las dos opciones entran en una pantalla de celular: el texto pasa a dos líneas */
+  .img-proporcion .pestana {
+    height: auto;
+    min-height: 32px;
+    padding: 6px 10px;
+    white-space: normal;
+    line-height: 1.25;
+    text-align: center;
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "G20",
+  "slug": "mapa-causas-persona",
+  "nombre": "Mapa de causas del problema sobre la persona",
+  "origen": "ganador:Gemini_Generated_Image_kgsc6lkgsc6lkgsc.png",
+  "descripcion": "Fondo lifestyle muy claro y lavado (sala blanca con sofá). Arriba, un titular rojo grande de 2 líneas que anuncia los factores del problema. Al centro, una persona sentada en el sofá con gesto de malestar y las manos en la zona afectada. En la columna izquierda se apilan 5 causas, cada una con un ícono blanco dentro de un círculo rojo y una etiqueta en negrita de 2 líneas; de cada una sale una línea punteada roja que termina en la persona. A la derecha, en primer plano, el producto grande con su dosis derramada en la base, como la solución. Cierra abajo una píldora horizontal bicolor (rojo / verde lima) con la condición de envío y la de pago. Es un «diagnóstico» que educa, agita el dolor y presenta el producto en un solo vistazo.",
+  "angulos_compatibles": ["dolor", "enemigo-comun", "agitacion", "curiosidad", "mecanismo-unico", "oferta"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "hogar", "gadget", "otro"],
+  "ad_format": "Problem Causes Map Ad (Callouts on the Person)",
+  "reference_style": "Bright, washed-out lifestyle diagnosis ad: a big red two-line headline, a person in visible discomfort on a white sofa, a left column of five red-circle icons with bold labels linked to the person by red dotted lines, the product large in the right foreground with its dose spilled at the base, and a red / lime two-tone pill with shipping and payment terms at the bottom",
+  "art_direction": {
+    "visual_hierarchy": "1) The big red headline. 2) The person in discomfort at the center. 3) The product in the right foreground as the answer. 4) The five causes in the left column, read top to bottom, with the dotted lines that tie each one to the person. 5) The two-tone shipping / payment pill at the bottom.",
+    "composition_style": "Full-width centered headline at the top. Below it, a three-zone body: the cause column on the left (about 5-35% of the canvas width), the person in the center (about 38-68% of the width) and the product in the right foreground (about 67-94% of the width), overlapping the person's side so it reads as being in front of her. Five red dotted lines run from the cause column to points along the left contour of the person, from head to lap, like a diagnosis map. A centered horizontal pill closes the bottom.",
+    "spacing_and_structure": "Headline: 2 lines from about 7% to 23% of the canvas height, spanning about 10-90% of the width, centered. Cause column: five rows evenly spaced with centers at about 33%, 44.5%, 56%, 67% and 78.5% of the canvas height (about 11.4% apart); each row has a red circle icon about 7% of the canvas in diameter at about 5.5-12.5% of the width and a 2-line label from about 13.5% to 34% of the width. Dotted lines: each starts with a small solid red dot right after its label (at about 31-36% of the width) and ends on the person's contour at about 38-47% of the width: the first at the head or neck, the second at the shoulder, the third and fourth along the arm and torso, the fifth at the lap. Person: from about 38% to 68% of the width, top of the head at about 27% of the height, hands on the problem area at about 67% of the height, body continuing down to about 90%. Product: from about 67% to 94% of the width and from about 35% to 87% of the height (about 50% tall), with spilled dose units in front of its base from about 58% to 81% of the width and 79% to 89% of the height. Pill: from about 10% to 90% of the width and from about 91% to 96% of the height.",
+    "lighting_and_depth": "Very bright, high-key, slightly overexposed daylight; the room is washed-out white and cream with soft shadows and no strong contrast, so the red elements pop. The person is lit softly and naturally, sharp, with a believable expression of discomfort. The product is crisp and saturated with studio-like clarity, sharper than the background, with a soft contact shadow and the spilled units casting small soft shadows. Icons, lines, text and pill are flat graphics with no shadows."
+  },
+  "layout_summary": "Square canvas with a bright, washed-out white living room as background. A large, extra bold red headline in 2 lines is centered at the top. Below, at the center, a person sits on a white sofa with an expression of discomfort and both hands on the area where the problem is felt. On the left, a column of five causes: each one has a solid red circle with a thin inner white ring and a white line icon, followed by a bold 2-line black label; from each label a red dotted line, starting with a small red dot, runs with one bend to a point on the person's contour on the viewer's left (head, shoulder, arm, torso, lap). On the right, in the foreground, the user's product stands large and sharp, partly in front of the person, with a few units of its dose spilled in front of its base. At the bottom, a centered horizontal pill split in two colors: the left part red with a white uppercase shipping condition, the right part lime green with a black uppercase payment condition.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "lifestyle background",
+      "position": "Full canvas, behind every element",
+      "visual_function": "A clean, everyday home setting that makes the situation relatable and lets the red graphics stand out",
+      "adaptation_rule": "A bright, airy, almost white interior (white sofa, light cushions, pale walls, soft window light), slightly overexposed and low in contrast. Keep the top area and the left column calm and light so the red headline and the black labels read perfectly."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, 2 lines from about 7% to 23% of the canvas height, about 10-90% of the width",
+      "visual_function": "Announces that the ad reveals what causes or worsens the problem",
+      "adaptation_rule": "Write the hook of this variation's angle framed as the causes, factors or habits behind the problem. Keep it to 2 lines."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "person in discomfort",
+      "position": "Center, from about 38% to 68% of the canvas width, top of the head at about 27% of the height, body continuing down to about 90%",
+      "visual_function": "Embodies the problem so the viewer recognizes themselves; the target of every cause line",
+      "adaptation_rule": "A realistic person matching the target audience, sitting on the sofa in light neutral casual clothes, looking down or away with a believable expression of discomfort or worry (never grotesque), both hands on the body area where the problem is felt (abdomen, back, joints, head, skin or the relevant spot for the user's product). For pet products, the subject can be the pet showing the problem. The product is not in the person's hands."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "cause icon circles (5)",
+      "position": "Left column, about 5.5-12.5% of the canvas width, centers at about 33%, 44.5%, 56%, 67% and 78.5% of the height",
+      "visual_function": "Visual anchors that make each cause scannable and signal alert",
+      "adaptation_rule": "Solid red circles about 7% of the canvas in diameter, each with a thin white inner ring and a simple white line icon that literally represents its cause (e.g. chair, fast food, stressed head, calendar with clock, water drop). All icons share one style and stroke weight."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "red dotted callout lines with start dots (5)",
+      "position": "From the end of each label (about 31-36% of the canvas width) to points on the person's left contour (about 38-47% of the width), from head to lap",
+      "visual_function": "Connects every cause to the person, turning the image into a diagnosis map",
+      "adaptation_rule": "Red dashed lines about 0.3% of the canvas thick, each starting with a small solid red dot (about 1% of the canvas) and running horizontally then bending once diagonally to end on a different part of the person, distributed from top to bottom. Lines never cross each other or the product."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "product",
+      "position": "Right foreground, from about 67% to 94% of the canvas width and from about 35% to 87% of the height (about 50% tall), partly overlapping the person's side",
+      "visual_function": "Presents the solution right next to the problem",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front view, upright, label facing the camera, sharper and more saturated than the background, with a soft contact shadow."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "spilled dose",
+      "position": "In front of the product's base, from about 58% to 81% of the canvas width and from about 79% to 89% of the height",
+      "visual_function": "Shows what the product contains and adds tangible detail",
+      "adaptation_rule": "A small loose pile of the product's content in front of the base: capsules, tablets, gummies or a little powder for supplements; a swatch or a few drops for cosmetics; a small sample, refill or accessory for other products. Realistic and crisp."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "two-tone shipping / payment pill",
+      "position": "Bottom center, from about 10% to 90% of the canvas width and from about 91% to 96% of the height",
+      "visual_function": "Removes the last purchase friction with the delivery and payment conditions",
+      "adaptation_rule": "A horizontal fully rounded pill with a thin dark outline, split by a slightly slanted edge into two segments: the left one (about 41% of the pill) solid red, the right one solid lime green. One short uppercase condition centered in each segment."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, 2 lines",
+      "text_style": "Extra bold geometric sans-serif, each line about 8% of the canvas height, max 2 lines, centered, solid alert red on the light background",
+      "guia_texto": "Anuncia las causas o factores que provocan o empeoran el problema que resuelve el producto, en 4 a 7 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "cause label 1",
+      "reference_position": "Left column, first row, right of the first icon circle",
+      "text_style": "Bold sans-serif, about 3.2% of the canvas height per line, max 2 lines, left-aligned, near-black",
+      "guia_texto": "Primera causa o hábito que provoca el problema, en 2 a 3 palabras. Debe sonar cotidiana y reconocible, sin culpar al cliente."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "cause label 2",
+      "reference_position": "Left column, second row, right of the second icon circle",
+      "text_style": "Same style as cause label 1",
+      "guia_texto": "Segunda causa, en 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "cause label 3",
+      "reference_position": "Left column, third row, right of the third icon circle",
+      "text_style": "Same style as cause label 1",
+      "guia_texto": "Tercera causa, en 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "cause label 4",
+      "reference_position": "Left column, fourth row, right of the fourth icon circle",
+      "text_style": "Same style as cause label 1",
+      "guia_texto": "Cuarta causa, en 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "cause label 5",
+      "reference_position": "Left column, fifth row, right of the fifth icon circle",
+      "text_style": "Same style as cause label 1",
+      "guia_texto": "Quinta causa, en 2 a 3 palabras; idealmente la que el producto ataca de forma más directa."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "shipping condition",
+      "reference_position": "Centered in the red left segment of the pill",
+      "text_style": "Extra bold uppercase sans-serif, about 3% of the canvas height, 1 line, white on red, with opening and closing exclamation marks",
+      "guia_texto": "La condición de envío que dio el usuario (por ejemplo envío gratis), en 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "payment condition",
+      "reference_position": "Centered in the lime green right segment of the pill",
+      "text_style": "Extra bold uppercase sans-serif, about 3% of the canvas height, 1 line, near-black on lime green",
+      "guia_texto": "La condición de pago que dio el usuario (por ejemplo pago contra entrega), en 2 a 3 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Bright, washed-out white living-room background",
+    "Large red two-line headline at the top",
+    "Person sitting on a sofa with a visible gesture of discomfort, hands on the problem area, at the center",
+    "Left column of five causes, each with a white line icon in a red circle and a bold two-line label",
+    "Red dotted lines with start dots from each cause to a different point on the person",
+    "The user's product, large, in the right foreground with its dose spilled in front of the base",
+    "Two-tone red / lime green pill with the shipping and payment conditions at the bottom"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price figures, strikethrough prices or discount badges",
+    "Trust seals, guarantee or certification badges",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or check icons",
+    "Callout lines pointing at the product",
+    "More than one person",
+    "Product in the person's hands",
+    "Before / after split",
+    "Subheadline or paragraph text",
+    "Cards or panels behind the cause column",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fondo casi blanco y lavado (blancos, cremas y grises muy claros) para que el rojo destaque. Un rojo de alerta domina el titular, los círculos de los íconos, las líneas punteadas y la mitad izquierda de la píldora; las etiquetas van en negro. La mitad derecha de la píldora usa un verde lima vivo (o el color de acento de la marca si es un verde o un tono positivo) para marcar el lado de la solución. La paleta de marca vive en el producto y su dosis; la persona viste neutros claros (blanco, beige).",
+  "posicion_logo": null
+}

@@ -1,30 +1,36 @@
-// La cuadrícula toma por toma: cada fila es una toma con su frase y sus piezas en orden
-// (inicio -> final -> clip, y su b-roll aparte). Arriba, las hojas de referencia.
+// La cuadrícula escena por escena: cada fila es una escena con su frase y sus piezas en orden
+// (inicio -> final -> clip, y sus imágenes de apoyo aparte). Arriba, las hojas de referencia; al final, los ganchos de
+// UGC (el mismo anuncio con otro comienzo).
+// Una pieza con un aviso de la revisión se marca aparte (la revisión ya no rehace nada sola: tú decides).
 import { memo, useMemo, useState } from 'react';
-import { ChevronRight, Clapperboard, Layers, Mic } from 'lucide-react';
+import { ChevronRight, Clapperboard, Layers, Mic, Shuffle } from 'lucide-react';
 import { Chip, Insignia, Seccion } from '../../componentes/index.js';
 import { duracion as fmtDuracion } from '../../datos/formato.js';
 import { Pieza } from './Pieza.jsx';
 
 const PESO = { 'te-necesita': 5, generando: 4, 'en-cola': 3, arreglado: 2, listo: 1 };
 
-/** El estado de una toma: lo peor de sus piezas (para la insignia de la fila). */
+/** El estado de una escena: lo peor de sus piezas (para la insignia de la fila). */
 function estadoDeToma(piezas, estados) {
   const es = piezas.map((p) => estados.get(p.id)?.estado || 'en-cola');
   if (es.includes('te-necesita')) return 'te-necesita';
-  // cian solo si algo de esta toma se está haciendo ahora; si solo espera, gris ("En espera")
+  // cian solo si algo de esta escena se está haciendo ahora; si solo espera, gris ("En espera")
   if (es.includes('generando')) return 'generando';
   if (es.includes('en-cola')) return 'en-cola';
+  if (piezas.some((p) => p.avisos?.length)) return 'aviso';
   if (es.includes('arreglado')) return 'arreglado';
   return 'listo';
 }
 
+// cada filtro dice qué piezas muestra (el de «Con aviso» mira lo que notó la revisión, no el estado)
 const FILTROS = [
-  { id: 'todas', texto: 'Todas' },
-  { id: 'generando', texto: 'Generándose' },
-  { id: 'arreglado', texto: 'Se arreglaron solas' },
-  { id: 'te-necesita', texto: 'Te necesitan' },
+  { id: 'todas', texto: 'Todas', es: () => true },
+  { id: 'generando', texto: 'Generándose', es: (p, e) => e === 'generando' },
+  { id: 'aviso', texto: 'Con aviso', es: (p, e) => e !== 'generando' && e !== 'en-cola' && Boolean(p.avisos?.length) },
+  { id: 'arreglado', texto: 'Se arreglaron solas', es: (p, e) => e === 'arreglado' },
+  { id: 'te-necesita', texto: 'Te necesitan', es: (p, e) => e === 'te-necesita' },
 ];
+const FILTRO = Object.fromEntries(FILTROS.map((f) => [f.id, f]));
 
 const etiquetaHabla = (g) => {
   const quien = g.quien || (g.habla === 'A' ? 'el anfitrión A' : g.habla === 'B' ? 'el anfitrión B' : g.habla);
@@ -46,10 +52,10 @@ function marcaSinLetra(linea) {
 function FilaTomaBase({ grupo, estados, seleccion, onAbrir, filtro, hablado }) {
   const todas = [...grupo.flujo, ...grupo.broll];
   const estado = estadoDeToma(todas, estados);
-  const atenuar = (p) => filtro !== 'todas' && (estados.get(p.id)?.estado || 'en-cola') !== filtro;
+  const atenuar = (p) => filtro !== 'todas' && !FILTRO[filtro].es(p, estados.get(p.id)?.estado || 'en-cola');
   const unaSola = todas.length === 1;
   return (
-    <article className={`prod-toma prod-toma--${estado}${unaSola ? ' prod-toma--una' : ''}${todas.length > 5 ? ' prod-toma--muchas' : ''}`} aria-label={`Toma ${grupo.n}`}>
+    <article className={`prod-toma prod-toma--${estado === 'aviso' ? 'con-aviso' : estado}${unaSola ? ' prod-toma--una' : ''}${todas.length > 5 ? ' prod-toma--muchas' : ''}`} aria-label={`Escena ${grupo.n}`}>
       <header className="prod-toma__cabecera">
         <span className="prod-toma__numero t-mono" aria-hidden="true">
           {String(grupo.n).padStart(2, '0')}
@@ -59,7 +65,7 @@ function FilaTomaBase({ grupo, estados, seleccion, onAbrir, filtro, hablado }) {
             {grupo.linea && !/^\[[^\]]*\]$/.test(grupo.linea.trim()) ? (
               `«${grupo.linea}»`
             ) : (
-              <span className="t-3">{grupo.reacciones ? 'Reacciones, sin palabras' : marcaSinLetra(grupo.linea) || 'Toma sin texto'}</span>
+              <span className="t-3">{grupo.reacciones ? 'Reacciones, sin palabras' : marcaSinLetra(grupo.linea) || 'Escena sin texto'}</span>
             )}
           </p>
           <div className="prod-toma__meta">
@@ -109,26 +115,26 @@ export function Cuadricula({ modelo, estados, seleccion, onAbrir }) {
   const [filtro, setFiltro] = useState('todas');
 
   const cuentas = useMemo(() => {
-    const c = { todas: modelo.piezas.length, generando: 0, arreglado: 0, 'te-necesita': 0 };
+    const c = Object.fromEntries(FILTROS.map((f) => [f.id, 0]));
     for (const p of modelo.piezas) {
-      const e = estados.get(p.id)?.estado;
-      if (e in c) c[e]++;
+      const e = estados.get(p.id)?.estado || 'en-cola';
+      for (const f of FILTROS) if (f.es(p, e)) c[f.id]++;
     }
     return c;
   }, [modelo, estados]);
 
   // si el filtro se queda sin nada (p. ej. terminó de generarse todo), vuelve a "Todas"
   const filtroEfectivo = filtro !== 'todas' && !cuentas[filtro] ? 'todas' : filtro;
-  const visibles = modelo.tomas.filter(
-    (g) => filtroEfectivo === 'todas' || [...g.flujo, ...g.broll].some((p) => estados.get(p.id)?.estado === filtroEfectivo)
-  );
-  const hojasVisibles = modelo.hojas.filter((p) => filtroEfectivo === 'todas' || estados.get(p.id)?.estado === filtroEfectivo);
-  const sueltosVisibles = modelo.sueltos.filter((p) => filtroEfectivo === 'todas' || estados.get(p.id)?.estado === filtroEfectivo);
+  const pasa = (p) => FILTRO[filtroEfectivo].es(p, estados.get(p.id)?.estado || 'en-cola');
+  const visibles = modelo.tomas.filter((g) => filtroEfectivo === 'todas' || [...g.flujo, ...g.broll].some(pasa));
+  const hojasVisibles = modelo.hojas.filter((p) => filtroEfectivo === 'todas' || pasa(p));
+  const sueltosVisibles = modelo.sueltos.filter((p) => filtroEfectivo === 'todas' || pasa(p));
+  const ganchosVisibles = (modelo.ganchos || []).filter((p) => filtroEfectivo === 'todas' || pasa(p));
   // firma por fila: la fila solo se vuelve a dibujar si cambió algo suyo
   const firmaDe = (g) => {
     const piezas = [...g.flujo, ...g.broll];
     const sel = piezas.some((p) => p.id === seleccion) ? seleccion : '';
-    return piezas.map((p) => `${estados.get(p.id)?.estado}${estados.get(p.id)?.nota || ''}`).join('|') + sel;
+    return piezas.map((p) => `${estados.get(p.id)?.estado}${estados.get(p.id)?.nota || ''}${p.avisos?.length || ''}${p.fecha || ''}`).join('|') + sel;
   };
 
   return (
@@ -141,7 +147,7 @@ export function Cuadricula({ modelo, estados, seleccion, onAbrir }) {
               activo={filtroEfectivo === f.id}
               onClick={() => setFiltro(f.id)}
               contador={cuentas[f.id]}
-              tono={f.id === 'te-necesita' ? 'error' : f.id === 'arreglado' ? 'aviso' : f.id === 'generando' ? 'cian' : 'neutro'}
+              tono={f.id === 'te-necesita' ? 'error' : f.id === 'arreglado' || f.id === 'aviso' ? 'aviso' : f.id === 'generando' ? 'cian' : 'neutro'}
             >
               {f.texto}
             </Chip>
@@ -152,7 +158,7 @@ export function Cuadricula({ modelo, estados, seleccion, onAbrir }) {
             <i className="punto punto--ok" /> Lista
           </span>
           <span>
-            <i className="punto punto--aviso" /> Se arregló sola
+            <i className="punto punto--aviso" /> Con aviso
           </span>
           <span>
             <i className="punto punto--error" /> Te necesita
@@ -168,7 +174,7 @@ export function Cuadricula({ modelo, estados, seleccion, onAbrir }) {
           titulo={modelo.hablado ? 'Personajes y referencias' : 'Hojas de referencia'}
           contador={hojasVisibles.length}
           icono={Layers}
-          descripcion="Salen primero: de ellas se arma cada toma para que el personaje y tu producto se vean siempre iguales."
+          descripcion="Salen primero: de ellas se arma cada escena para que el personaje y tu producto se vean siempre iguales."
         >
           <div className="prod-hojas escalonado">
             {hojasVisibles.map((p) => (
@@ -181,39 +187,62 @@ export function Cuadricula({ modelo, estados, seleccion, onAbrir }) {
         </Seccion>
       ) : null}
 
-      <Seccion
-        titulo="Toma por toma"
-        contador={modelo.tomas.length}
-        icono={Clapperboard}
-        descripcion={
-          modelo.continuidad
-            ? 'Cada toma con su imagen de inicio y final, y el paso que la une con la siguiente.'
-            : modelo.hablado
-              ? 'Cada bloque con su frase del guion. Al pasar el mouse, el clip se reproduce.'
-              : 'Cada toma con su imagen, su clip y su b-roll. Al pasar el mouse, el clip se reproduce.'
-        }
-      >
-        <div className="prod-tomas">
-          {visibles.map((g) => (
-            <FilaToma
-              key={g.n}
-              grupo={g}
-              estados={estados}
-              seleccion={seleccion}
-              onAbrir={onAbrir}
-              filtro={filtroEfectivo}
-              hablado={modelo.hablado}
-              firma={firmaDe(g) + filtroEfectivo}
-            />
-          ))}
-        </div>
-      </Seccion>
+      {/* (con un filtro, solo si le queda alguna escena, y con cuántas quedan) */}
+      {visibles.length ? (
+        <Seccion
+          titulo="Escena por escena"
+          contador={visibles.length}
+          icono={Clapperboard}
+          descripcion={
+            modelo.continuidad
+              ? 'Cada escena con su imagen de inicio y final, y el paso que la une con la siguiente. Toca una pieza para verla, descargarla o regenerarla.'
+              : modelo.hablado
+                ? 'Cada escena con su frase del guion. Al pasar el mouse, el clip se reproduce; tócalo para verlo, descargarlo o regenerarlo.'
+                : 'Cada escena con su imagen, su clip y sus imágenes de apoyo. Al pasar el mouse, el clip se reproduce; tócalo para verlo, descargarlo o regenerarlo.'
+          }
+        >
+          <div className="prod-tomas">
+            {visibles.map((g) => (
+              <FilaToma
+                key={g.n}
+                grupo={g}
+                estados={estados}
+                seleccion={seleccion}
+                onAbrir={onAbrir}
+                filtro={filtroEfectivo}
+                hablado={modelo.hablado}
+                firma={firmaDe(g) + filtroEfectivo}
+              />
+            ))}
+          </div>
+        </Seccion>
+      ) : null}
 
       {sueltosVisibles.length ? (
-        <Seccion titulo="B-roll" contador={sueltosVisibles.length / 2} icono={Layers}>
+        <Seccion titulo="Imágenes de apoyo" contador={new Set(sueltosVisibles.map((p) => p.broll)).size} icono={Layers}>
           <div className="prod-hojas">
             {sueltosVisibles.map((p) => (
               <Pieza key={p.id} pieza={p} estado={estados.get(p.id)?.estado} nota={estados.get(p.id)?.nota} seleccionada={seleccion === p.id} onAbrir={onAbrir} />
+            ))}
+          </div>
+        </Seccion>
+      ) : null}
+
+      {ganchosVisibles.length ? (
+        <Seccion
+          titulo="Otros comienzos (ganchos)"
+          contador={ganchosVisibles.length}
+          icono={Shuffle}
+          descripcion="El mismo anuncio con otro arranque, para probar cuál vende más: cada uno reemplaza el comienzo y su versión está en la entrega. Toca uno para verlo, descargarlo o regenerarlo."
+        >
+          <div className="prod-hojas">
+            {ganchosVisibles.map((p) => (
+              <div key={p.id} className="prod-hoja">
+                <Pieza pieza={p} estado={estados.get(p.id)?.estado} nota={estados.get(p.id)?.nota} seleccionada={seleccion === p.id} onAbrir={onAbrir} mostrarEtiqueta={false} />
+                <span className="prod-hoja__nombre t-recortar" title={p.linea ? `«${p.linea}»` : undefined}>
+                  {p.nombre}
+                </span>
+              </div>
             ))}
           </div>
         </Seccion>

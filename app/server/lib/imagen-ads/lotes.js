@@ -1,0 +1,396 @@
+// Los lotes de ANUNCIOS DE IMAGEN como los ve la app: crear uno (borrador), listarlos, los productos que se pueden usar,
+// los pedidos del usuario (Regenerar, "Escribir de nuevo"), lo que se hereda del lote anterior del mismo producto y el
+// informe (ESPECIFICACION-imagen-ads.md §4, §9 y §12).
+//
+//   opciones() · productosConFoto() · crearLote(cuerpo) · listarLotes() · leerBrief(carpeta) · esLoteDeEstaApp(lote)
+//   agregarPedido(lote, cuerpo) · pedidosSinTerminar(carpeta) · asegurarPedidos(lote)
+//   loteAnterior(productoId, excepto) · usadosDe(productoId, excepto) · armarInforme(carpeta, brief) · piezasPorHacer(carpeta, brief)
+//
+// Solo los lotes de ESTA app (una app de prueba en otro puerto tiene los suyos: brief.puerto, como los videos).
+import fs from 'node:fs';
+import path from 'node:path';
+import { TEMP, PUERTO_DE_PRUEBA, esDeEstaApp } from '../rutas.js';
+import { leerJSON, existe, listar } from '../archivos.js';
+import { leerProducto, rutaFoto, urlFoto, idValido, PRODUCTOS, ErrorApp, aKebab } from '../productos.js';
+import { leerConfig } from '../config.js';
+import { modoPrueba } from '../procesos.js';
+import * as gasto from '../gasto.js';
+import { leerSkill } from './verificar.js';
+import { leerEstado, resumenDelLote } from './estado.js';
+import { PEDIDO_TERMINADO } from './planificador.js';
+import {
+  FAMILIA, RE_LOTE, RE_PIEZA, RE_V, R, POSICIONES, NOMBRE_POSICION, MAXIMO_VARIACIONES, MAXIMO_REFERENCIAS, carpetaDe, guardarJSON, idsDelLote,
+  vDe, formatoDe, piezaId, ordenDePiezas, ordenDeV, fotoDelLote,
+} from './disco.js';
+
+const IDIOMAS = ['es', 'en', 'pt'];
+const ahora = () => new Date().toISOString();
+
+// ---------------------------------------------------------------- lo que elige el formulario
+
+/** GET /api/imagen-ads/opciones */
+export function opciones() {
+  const { angulos } = leerSkill();
+  let idioma = 'es';
+  try {
+    const p = leerConfig().preferencias?.idioma;
+    if (IDIOMAS.includes(p)) idioma = p;
+  } catch {
+    /* sin ajustes: espanol */
+  }
+  return {
+    angulos: [...angulos.values()].map((a) => ({ id: a.id, nombre: a.nombre, queAtaca: a.que_ataca || '' })),
+    posiciones: POSICIONES.map((id) => ({ id, nombre: NOMBRE_POSICION[id] })),
+    maximo: MAXIMO_VARIACIONES,
+    maxReferencias: MAXIMO_REFERENCIAS,
+    idiomaPorDefecto: idioma,
+  };
+}
+
+// ---------------------------------------------------------------- los lotes en disco
+
+export const leerBrief = (carpeta) => leerJSON(R.brief(carpeta));
+
+/** ¿Es un lote de anuncios de imagen (por su nombre y su brief)? */
+export function esLote(lote) {
+  if (typeof lote !== 'string' || !RE_LOTE.test(lote)) return false;
+  const b = leerBrief(carpetaDe(lote));
+  return b?.familia === FAMILIA;
+}
+
+/** ¿Es un lote de esta app (y no de una app de prueba en otro puerto, o al reves)? */
+export const esLoteDeEstaApp = (lote) => esLote(lote) && esDeEstaApp(leerBrief(carpetaDe(lote)));
+
+/** Los lotes de esta app (sus nombres), del mas nuevo al mas viejo. */
+export function lotesDeEstaApp() {
+  return listar(TEMP)
+    .filter((n) => RE_LOTE.test(n))
+    .map((n) => ({ n, b: leerBrief(carpetaDe(n)) }))
+    .filter((x) => x.b?.familia === FAMILIA && esDeEstaApp(x.b))
+    .sort((a, b) => String(b.b.creado || '').localeCompare(String(a.b.creado || '')))
+    .map((x) => x.n);
+}
+
+/** GET /api/imagen-ads */
+export function listarLotes() {
+  return lotesDeEstaApp().map((lote) => {
+    const carpeta = carpetaDe(lote);
+    return resumenDelLote({ lote, carpeta, brief: leerBrief(carpeta), conductor: leerJSON(R.conductor(carpeta)) });
+  });
+}
+
+/** slug -> "Anuncios de imagen: Crema Luna" (para decir a cual espera un anuncio en la fila). */
+export function titulosDeLotes() {
+  return new Map(
+    listar(TEMP)
+      .filter((n) => RE_LOTE.test(n))
+      .map((n) => [n, leerBrief(carpetaDe(n))])
+      .filter(([, b]) => b?.familia === FAMILIA)
+      .map(([n, b]) => [n, `Anuncios de imagen: ${b.titulo || b.datos?.nombre || 'sin nombre'}`])
+  );
+}
+
+// ---------------------------------------------------------------- los productos
+
+const porNumero = (a, b) => (Number(a.match(/(\d+)\./)?.[1]) || 0) - (Number(b.match(/(\d+)\./)?.[1]) || 0);
+
+/** El ultimo lote de un producto (de esta app). Con `listo`, solo uno que haya terminado. */
+function ultimoLoteDe(productoId, { excepto = null, listo = false } = {}) {
+  for (const lote of lotesDeEstaApp()) {
+    if (lote === excepto) continue;
+    const c = carpetaDe(lote);
+    const b = leerBrief(c);
+    if (b?.productoId !== productoId) continue;
+    if (listo && leerJSON(R.conductor(c))?.estado !== 'listo') continue;
+    return { lote, carpeta: c, brief: b };
+  }
+  return null;
+}
+
+/**
+ * GET /api/imagen-ads/productos: los productos de esta app que tienen al menos una foto, del más nuevo al más viejo.
+ * `creado` es solo para mostrar: dos productos con el mismo nombre se distinguen por su fecha.
+ */
+export function productosConFoto() {
+  const salida = [];
+  for (const id of listar(PRODUCTOS)) {
+    if (!idValido(id)) continue;
+    const p = leerProducto(id);
+    if (!p || !esDeEstaApp(p)) continue;
+    const fotos = (p.fotos || [])
+      .slice()
+      .sort(porNumero)
+      .map((f) => ({ n: Number(f.match(/(\d+)\./)?.[1]), archivo: f }))
+      .filter((f) => Number.isInteger(f.n) && rutaFoto(id, f.n))
+      .map((f) => ({ n: f.n, url: urlFoto(id, f.n), deLaPagina: (p.fotosDeLaPagina || []).includes(f.archivo) }));
+    if (!fotos.length) continue;
+    const ficha = leerJSON(path.join(PRODUCTOS, id, 'ficha.json'));
+    const ultimo = ultimoLoteDe(id);
+    salida.push({
+      id,
+      nombre: ficha?.nombre || p.nombre || 'Producto sin nombre',
+      fotos,
+      fotoSugerida: (fotos.find((f) => !f.deLaPagina) || fotos[0]).n,
+      ultimoLote: ultimo ? { datos: ultimo.brief.datos || {} } : null,
+      creado: p.creado || null,
+    });
+  }
+  return salida.sort((a, b) => String(b.creado).localeCompare(String(a.creado)));
+}
+
+// ---------------------------------------------------------------- crear un lote (borrador)
+
+function texto(v, max, campo, { obligatorio = false } = {}) {
+  if (v === undefined || v === null) v = '';
+  if (typeof v !== 'string' && typeof v !== 'number') throw new ErrorApp(400, `Revisa el campo «${campo}».`);
+  const t = String(v).trim();
+  if (obligatorio && !t) throw new ErrorApp(400, `Falta «${campo}».`);
+  if (t.length > max) throw new ErrorApp(400, `«${campo}» es demasiado largo (hasta ${max} caracteres).`);
+  return t;
+}
+
+function fechaCarpeta(d = new Date()) {
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`;
+}
+
+/** POST /api/imagen-ads: valida todo y reserva la carpeta del lote (borrador: todavia no se paga nada). */
+export function crearLote(cuerpo = {}) {
+  const productoId = String(cuerpo.productoId || '');
+  const producto = idValido(productoId) ? leerProducto(productoId) : null;
+  if (!producto || !esDeEstaApp(producto)) throw new ErrorApp(404, 'No encuentro ese producto.');
+  const fotoProducto = Number(cuerpo.fotoProducto ?? 1);
+  if (!Number.isInteger(fotoProducto) || !rutaFoto(productoId, fotoProducto)) throw new ErrorApp(400, 'Elige cuál es la foto de tu producto.');
+  const d = cuerpo.datos && typeof cuerpo.datos === 'object' ? cuerpo.datos : {};
+  const datos = {
+    nombre: texto(d.nombre, 120, 'Nombre', { obligatorio: true }),
+    publico: texto(d.publico, 300, 'Público'),
+    precio: texto(d.precio, 40, 'Precio'),
+    moneda: texto(d.moneda, 12, 'Moneda'),
+    cta: texto(d.cta, 160, 'Llamado a la acción'),
+    pais: texto(d.pais, 60, 'País', { obligatorio: true }),
+    idioma: IDIOMAS.includes(d.idioma) ? d.idioma : null,
+    adicional: texto(d.adicional, 4000, 'Información adicional'),
+    angulo: d.angulo === null || d.angulo === undefined || d.angulo === '' ? null : String(d.angulo),
+  };
+  if (!datos.idioma) throw new ErrorApp(400, 'Elige el idioma de los textos (español, inglés o portugués).');
+  if (datos.angulo && !leerSkill().angulos.has(datos.angulo)) throw new ErrorApp(400, 'Ese ángulo no está en la lista.');
+  const cantidad = Number(cuerpo.cantidad);
+  if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > MAXIMO_VARIACIONES) throw new ErrorApp(400, `La cantidad va de 1 a ${MAXIMO_VARIACIONES}.`);
+  const f = Array.isArray(cuerpo.formatos) ? [...new Set(cuerpo.formatos.map(String))] : ['1:1'];
+  if (!(f.length === 1 && f[0] === '1:1') && !(f.length === 2 && f.includes('1:1') && f.includes('9:16'))) throw new ErrorApp(400, 'Elige «Solo cuadrado 1:1» o «Cuadrado + vertical 9:16».');
+  const formatos = f.length === 2 ? ['1:1', '9:16'] : ['1:1'];
+  let logo = null;
+  if (cuerpo.logo && typeof cuerpo.logo === 'object') {
+    const posicion = cuerpo.logo.posicion || 'arriba-centro';
+    if (!POSICIONES.includes(posicion)) throw new ErrorApp(400, 'Elige dónde va el logo.');
+    logo = { posicion, archivo: null };
+  }
+  fs.mkdirSync(TEMP, { recursive: true });
+  const base = `_img-${aKebab(datos.nombre, 24) || 'lote'}-${fechaCarpeta()}`;
+  let lote = null;
+  for (let i = 1; i < 500 && !lote; i++) {
+    const nombre = i === 1 ? base : `${base}-${i}`;
+    try {
+      fs.mkdirSync(carpetaDe(nombre)); // sin recursive: si ya existe, falla y se prueba el siguiente
+      lote = nombre;
+    } catch (e) {
+      if (e.code !== 'EEXIST') throw e;
+    }
+  }
+  if (!lote) throw new ErrorApp(409, 'No pude reservar la carpeta del lote. Vuelve a intentarlo en un minuto.');
+  const carpeta = carpetaDe(lote);
+  fs.mkdirSync(R.entrada(carpeta), { recursive: true });
+  const brief = {
+    slug: lote,
+    estilo: FAMILIA,
+    familia: FAMILIA,
+    titulo: datos.nombre,
+    productoId,
+    fotoProducto,
+    datos,
+    cantidad,
+    formatos,
+    referencias: [],
+    logo,
+    creado: ahora(),
+    ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}),
+  };
+  guardarJSON(R.brief(carpeta), brief);
+  return { lote, brief };
+}
+
+/**
+ * Lo que le falta a un borrador para empezar (null si nada). Lo pregunta el conductor antes de crear conductor.json
+ * (familias/imagen-ads.js, faltaParaProducir).
+ */
+export function faltaDelBorrador(carpeta, brief) {
+  // la foto: la que ya se copio al lote, o la elegida del producto
+  if (!fotoDelLote(carpeta) && !(brief?.productoId && rutaFoto(brief.productoId, brief.fotoProducto ?? 1))) return 'Falta la foto del producto.';
+  const faltan = (brief?.referencias || []).filter((r) => !existe(path.join(carpeta, r))).length;
+  if (faltan) return faltan === 1 ? 'Falta subir una referencia.' : `Faltan subir ${faltan} referencias.`;
+  if (brief?.logo?.posicion && !existe(R.logo(carpeta))) return 'Falta subir tu logo.';
+  return null;
+}
+
+// ---------------------------------------------------------------- los pedidos del usuario
+
+const leerPedidos = (carpeta) => {
+  const j = leerJSON(R.pedidos(carpeta));
+  return Array.isArray(j?.pedidos) ? j.pedidos : [];
+};
+
+/** Los pedidos que todavia no terminaron (los del estado y los que no entraron todavia). */
+export function pedidosSinTerminar(carpeta) {
+  const est = leerEstado(carpeta);
+  return leerPedidos(carpeta).filter((x) => {
+    const e = est?.pedidos?.[x.id];
+    return !e || !PEDIDO_TERMINADO.has(e.estado);
+  });
+}
+
+/**
+ * POST /api/imagen-ads/:lote/regenerar: { pieza, instruccion? } o { v, tipo: 'prompt' }. Lo agrega a pedidos.json (solo
+ * las rutas escriben ahi, y solo agregan). 409 si esa imagen ya tiene un cambio en camino o todavia se esta creando.
+ */
+export function agregarPedido(lote, cuerpo = {}) {
+  const carpeta = carpetaDe(lote);
+  const brief = leerBrief(carpeta);
+  const est = leerEstado(carpeta);
+  if (!est) throw new ErrorApp(409, 'Este lote todavía se está preparando: espera a que salgan sus primeras imágenes.');
+  const ocupada = (v) => pedidosSinTerminar(carpeta).some((x) => (x.v || vDe(x.pieza || '')) === v);
+  let pedido;
+  if (cuerpo.tipo === 'prompt') {
+    const v = String(cuerpo.v || '');
+    if (!RE_V.test(v) || !est.variaciones?.[v]) throw new ErrorApp(404, 'No encuentro ese anuncio en el lote.');
+    if (est.variaciones[v].prompt !== 'sin-prompt') throw new ErrorApp(409, 'Este anuncio ya está escrito.');
+    if (ocupada(v)) throw new ErrorApp(409, 'Este anuncio ya tiene un cambio en camino.');
+    pedido = { tipo: 'prompt', v };
+  } else {
+    const pieza = String(cuerpo.pieza || '');
+    if (!RE_PIEZA.test(pieza) || !est.piezas?.[pieza] || !(brief.formatos || []).includes(formatoDe(pieza))) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
+    const instruccion = typeof cuerpo.instruccion === 'string' ? cuerpo.instruccion.trim() : '';
+    if (instruccion.length > 600) throw new ErrorApp(400, 'Lo que quieres cambiar es demasiado largo (hasta 600 caracteres).');
+    if (ocupada(vDe(pieza))) throw new ErrorApp(409, 'Esta imagen ya tiene un cambio en camino.');
+    const p = est.piezas[pieza];
+    if (est.variaciones?.[vDe(pieza)]?.prompt === 'sin-prompt') throw new ErrorApp(409, 'Este anuncio quedó sin escribir: usa «Escribir de nuevo».');
+    if (p.fase !== 'final') throw new ErrorApp(409, 'Esta imagen todavía se está creando: espera a que termine.');
+    if (formatoDe(pieza) === '9:16') {
+      const c = est.piezas[piezaId(vDe(pieza), '1:1')];
+      if (c && (c.fase !== 'final' || !existe(R.img(carpeta, piezaId(vDe(pieza), '1:1'))))) throw new ErrorApp(409, 'Su imagen cuadrada no salió: rehaz primero la cuadrada.');
+    }
+    pedido = { pieza, instruccion };
+  }
+  const lista = leerPedidos(carpeta);
+  const n = Math.max(0, ...lista.map((x) => Number(String(x.id || '').slice(1)) || 0)) + 1;
+  const nuevo = { id: `U${String(n).padStart(4, '0')}`, ...pedido, fecha: ahora() };
+  guardarJSON(R.pedidos(carpeta), { pedidos: [...lista, nuevo] });
+  return nuevo;
+}
+
+/**
+ * Un lote terminado con pedidos sin terminar (por ejemplo, la app se cerro justo despues de un Regenerar): se reabre.
+ * Lo llaman el GET del lote y un barrido al arrancar. Devuelve true si lo reabrio.
+ */
+export async function asegurarPedidos(lote) {
+  const carpeta = carpetaDe(lote);
+  const brief = leerBrief(carpeta);
+  if (brief?.familia !== FAMILIA || !esDeEstaApp(brief)) return false;
+  const c = leerJSON(R.conductor(carpeta));
+  if (!c || c.estado !== 'listo' || Boolean(c.modoPrueba) !== modoPrueba()) return false;
+  if (!pedidosSinTerminar(carpeta).length) return false;
+  const conductor = await import('../conductor.js');
+  if (!conductor.tomarElMando()) return false;
+  try {
+    conductor.reabrir(lote, 'anuncios');
+    return true;
+  } catch (e) {
+    console.error(`[imagen-ads] ${lote}: no pude reabrir el lote para sus pedidos: ${e?.message || e}`);
+    return false;
+  }
+}
+
+// ---------------------------------------------------------------- lo que se hereda del lote anterior del mismo producto
+
+/** La identidad visual del ultimo lote listo del mismo producto (de esta app), o null. */
+export function loteAnterior(productoId, excepto) {
+  const u = ultimoLoteDe(productoId, { excepto, listo: true });
+  if (!u) return null;
+  const p = leerJSON(R.productoJson(u.carpeta));
+  const e = leerJSON(R.estrategia(u.carpeta));
+  if (!p?.identidad_visual) return null;
+  return { lote: u.lote, identidad_visual: p.identidad_visual, descripcion_visual_en: p.descripcion_visual_en || '', paleta: Array.isArray(e?.paleta) ? e.paleta : [] };
+}
+
+/** Las combinaciones angulo + formato ya usadas en los lotes de este producto (de esta app). */
+export function usadosDe(productoId, excepto) {
+  const vistos = new Set();
+  const salida = [];
+  for (const lote of lotesDeEstaApp()) {
+    if (lote === excepto) continue;
+    const c = carpetaDe(lote);
+    if (leerBrief(c)?.productoId !== productoId) continue;
+    for (const x of leerJSON(R.plan(c))?.variaciones || []) {
+      if (!x?.angulo_id || !x?.formato_id) continue;
+      const k = `${x.angulo_id}|${x.formato_id}`;
+      if (vistos.has(k)) continue;
+      vistos.add(k);
+      salida.push({ angulo_id: x.angulo_id, formato_id: x.formato_id });
+    }
+  }
+  return salida;
+}
+
+// ---------------------------------------------------------------- el saldo y el informe
+
+/** Cuantas imagenes faltan por hacer (para el paso del saldo: cada una a 10 creditos con GPT Image 2.5 a 2K). */
+export function piezasPorHacer(carpeta, brief) {
+  const est = leerEstado(carpeta);
+  const total = (Number(brief?.cantidad) || 0) * (brief?.formatos?.length || 1);
+  if (!est) return total;
+  let n = 0;
+  for (const p of Object.values(est.piezas || {})) if (p.fase !== 'final' && est.variaciones?.[p.v]?.prompt !== 'sin-prompt') n++;
+  for (const x of pedidosSinTerminar(carpeta)) n += x.tipo === 'prompt' ? brief.formatos.length : formatoDe(x.pieza) === '1:1' ? brief.formatos.length : 1;
+  return n;
+}
+
+/** app/informe.json (§4.9): como salio la revision y lo que costo (lo unico con precio, y solo con el lote terminado). */
+export function armarInforme(carpeta, brief) {
+  const est = leerEstado(carpeta);
+  const g = gasto.resumenDeGasto(carpeta);
+  const piezas = Object.keys(est?.piezas || {}).sort(ordenDePiezas);
+  const de = (resultado) => piezas.filter((p) => est.piezas[p].fase === 'final' && est.piezas[p].resultado === resultado && est.variaciones[est.piezas[p].v]?.prompt !== 'sin-prompt');
+  const sinPrompt = Object.keys(est?.variaciones || {})
+    .filter((v) => est.variaciones[v].prompt === 'sin-prompt')
+    .sort(ordenDeV);
+  const conImagen = piezas.filter((p) => existe(R.img(carpeta, p)));
+  const informe = {
+    tipo: FAMILIA,
+    fecha: ahora(),
+    variaciones: Object.keys(est?.variaciones || {}).filter((v) => est.variaciones[v].prompt === 'listo').length,
+    archivos: conImagen.length,
+    modoPrueba: modoPrueba(),
+    revision: {
+      // bien a la primera = bien en la ronda 1 de la revision; las que quedaron bien despues de un cambio tuyo van aparte
+      aLaPrimera: de('listo').filter((p) => est.piezas[p].revision?.ronda === 1).length,
+      rehechasPorTi: de('listo').filter((p) => est.piezas[p].revision?.ronda !== 1),
+      arregladas: de('arreglado'), // (solo en lotes de antes del 2026-11-09: ya no hay reintento automatico)
+      // las que la revision marco: quedan con su nota (todo al primer intento) para que el usuario decida
+      conDetalles: de('con-detalles').map((p) => ({ pieza: p, problemas: est.piezas[p].revision?.problemas || [] })),
+      sinRevisar: de('sin-revisar'),
+      sinImagen: de('sin-imagen').map((p) => ({ pieza: p, motivo: est.piezas[p].mensaje || 'kie no pudo hacer esta imagen' })),
+      sinPrompt,
+    },
+    costo: {
+      creditos: g.creditos,
+      dolares: g.dolares,
+      piezas: (g.imagenes?.piezas || 0) + (g.sinRegistro?.piezas || 0),
+      estimadas: g.sinRegistro?.piezas || 0,
+      estimado: Boolean(g.estimado),
+    },
+  };
+  guardarJSON(R.informe(carpeta), informe);
+  return informe;
+}
+
+export { idsDelLote };

@@ -1,4 +1,4 @@
-import { Check, Clock, Hand, LoaderCircle, PencilLine, Sparkles, TriangleAlert, Wrench } from 'lucide-react';
+import { Check, Clock, Hand, LoaderCircle, PencilLine, ScanEye, Sparkles, TriangleAlert, Wrench } from 'lucide-react';
 import './Insignia.css';
 
 /**
@@ -10,6 +10,8 @@ export const ESTADOS = {
   'en-produccion': { texto: 'En producción', tono: 'generando', icono: LoaderCircle, gira: true },
   listo: { texto: 'Listo', tono: 'ok', icono: Check },
   arreglado: { texto: 'Se arregló sola', tono: 'aviso', icono: Wrench },
+  // la revisión notó algo y no se rehízo nada solo: tú decides (regenerarla o dejarla así)
+  aviso: { texto: 'Con aviso', tono: 'aviso', icono: ScanEye },
   'te-necesita': { texto: 'Te necesita', tono: 'necesita', icono: Hand, late: true },
   error: { texto: 'Algo falló', tono: 'error', icono: TriangleAlert },
   'en-cola': { texto: 'En espera', tono: 'neutro', icono: Clock },

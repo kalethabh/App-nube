@@ -18,8 +18,11 @@ import { TEMP, PUERTO, PUERTO_DE_PRUEBA, esDeEstaApp } from './rutas.js';
 import { origenesPermitidos } from './servidor.js';
 import { leerJSON, existe, listar, escribirJSONSeguro } from './archivos.js';
 import { sesionActiva, prohibidasComunes, textoClaude, leerYValidar, validarEsquema, cargarEsquema } from './claude.js';
-// con la pausa compartida: si el plan de Claude se acabo, no se abre otra sesion hasta que se renueve
+// la IA elegida (Claude o ChatGPT) con la pausa compartida: si su plan se acabo, no se abre otra sesion hasta que se
+// renueve
 import { lanzarSesion } from './colas.js';
+import { nombreIA } from './motor-ia.js';
+import { prohibidasDeProducto } from './ia/reglas.js';
 
 export const PRODUCTOS = path.join(TEMP, '_productos');
 export const TIPOS = ['fisico', 'digital', 'servicio'];
@@ -505,7 +508,47 @@ function permisosFicha(id) {
   return {
     herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
     permitidas: [`Read(${c}/**)`, `Write(${c}/**)`, `Edit(${c}/**)`, 'Glob', 'Grep'],
-    prohibidas: prohibidasComunes({ terminal: false }),
+    // la ficha escribe ficha.json: producto.json (lo que escribio el usuario) no se pisa (para las dos IA)
+    prohibidas: [...prohibidasComunes({ terminal: false }), ...prohibidasDeProducto(relProducto(id))],
+  };
+}
+
+/** "Claude", "ChatGPT" o "Tu IA" (al principio de una frase); con `motor`, el de esa IA. */
+function laIA(motor) {
+  const n = nombreIA(motor || undefined);
+  return n.charAt(0).toUpperCase() + n.slice(1);
+}
+
+/** Lo que lee la IA para la ficha (o.material; Claude lo abre con Read y a ChatGPT se lo pasa la app): solo lo que existe. */
+function materialFicha(id) {
+  const p = leerProducto(id) || {};
+  const rel = relProducto(id);
+  const hay = (f) => existe(path.join(PRODUCTOS, id, ...f.split('/')));
+  return {
+    textos: ['producto.json', 'pagina.txt'].filter(hay).map((f) => `${rel}/${f}`),
+    imagenes: (p.fotos || []).filter(hay).map((f) => `${rel}/${f}`),
+  };
+}
+
+/**
+ * La sesion de la ficha, lista para lanzarSesion({ ...armarSesionFicha(id, …), uuid, alProgreso, registro }):
+ * { tipo, resume, prompt, herramientas, permitidas, prohibidas, material, fraseInicio, timeoutMs, silencioMs, maxTurnos,
+ * correcciones, verificar }. Con `retomar`, sigue la conversacion (la app se cerro mientras trabajaba). Va sin
+ * `esfuerzo`: el de siempre.
+ */
+export function armarSesionFicha(id, { retomar = false } = {}) {
+  return {
+    tipo: 'ficha',
+    resume: retomar,
+    prompt: retomar ? `${promptFicha(id)}\n\n(La app se cerró mientras trabajabas: sigue desde donde quedaste.)` : promptFicha(id),
+    ...permisosFicha(id),
+    material: materialFicha(id),
+    fraseInicio: `${laIA()} está leyendo tu producto`,
+    timeoutMs: 20 * 60000,
+    silencioMs: 8 * 60000,
+    maxTurnos: 30,
+    correcciones: 1,
+    verificar: async () => verificarFicha(id),
   };
 }
 
@@ -609,20 +652,12 @@ async function correrAnalisis(id, tarea, { retomar }) {
   const ficha = path.join(dir, 'ficha.json');
   if (!retomar && existe(ficha)) fs.renameSync(ficha, path.join(dir, 'ficha-anterior.json'));
   const r = await lanzarSesion({
-    tipo: 'ficha',
+    ...armarSesionFicha(id, { retomar }),
     uuid: tarea.uuid,
-    resume: retomar,
-    prompt: retomar ? `${promptFicha(id)}\n\n(La app se cerró mientras trabajabas: sigue desde donde quedaste.)` : promptFicha(id),
-    ...permisosFicha(id),
-    fraseInicio: 'Claude está leyendo tu producto',
     alProgreso: avanzar,
     registro: path.join(dir, 'registro', 'ficha.log'),
-    timeoutMs: 20 * 60000,
-    silencioMs: 8 * 60000,
-    maxTurnos: 30,
-    verificar: async () => verificarFicha(id),
   });
-  const fin = { ...tarea, fin: ahora(), medida: { turnos: r.turnos, duracionMs: r.duracionMs, uso: r.uso, costoEstimado: r.costo, modelo: r.init?.modelo || null }, denegados: r.denegados?.length ? r.denegados : undefined };
+  const fin = { ...tarea, fin: ahora(), medida: { turnos: r.turnos, duracionMs: r.duracionMs, uso: r.uso, costoEstimado: r.costo, modelo: r.init?.modelo || null, motor: r.motor || null }, denegados: r.denegados?.length ? r.denegados : undefined };
   if (r.ok) guardarTarea(id, { ...fin, estado: 'lista', paso: null, error: null });
   else {
     // una ficha a medias no se muestra; si no quedo una buena, vuelve la anterior (con lo que el usuario corrigio)
@@ -632,10 +667,13 @@ async function correrAnalisis(id, tarea, { retomar }) {
   }
 }
 
-/** El error de una sesion, como lo lee la pantalla: { mensaje, tipo, detalle? } */
+/**
+ * El error de una sesion, como lo lee la pantalla: { mensaje, tipo, detalle? }. tipo 'plan-sin-codex': el plan de
+ * ChatGPT no incluye Codex o no le queda uso (no se retoma solo). Sin mensaje, el de la IA que trabajo (r.motor).
+ */
 export function errorPublico(r) {
-  const tipo = r.limite ? 'limite' : r.sinClaude ? 'sin-claude' : r.sinSesion ? 'sin-sesion' : r.bloqueado ? 'bloqueo' : r.tiempo || r.colgado ? 'tiempo' : r.verificacion ? 'no-valido' : r.cancelado ? 'cancelada' : 'otro';
-  return { mensaje: r.error || 'Claude no terminó bien la tarea. Toca "Reintentar".', tipo, ...(r.faltan ? { faltan: r.faltan } : {}), ...(r.detalle ? { detalle: String(r.detalle).slice(0, 600) } : {}) };
+  const tipo = r.planSinCodex ? 'plan-sin-codex' : r.sinMotor ? 'sin-motor' : r.limite ? 'limite' : r.sinClaude ? 'sin-claude' : r.sinSesion ? 'sin-sesion' : r.bloqueado ? 'bloqueo' : r.tiempo || r.colgado ? 'tiempo' : r.verificacion ? 'no-valido' : r.cancelado ? 'cancelada' : 'otro';
+  return { mensaje: r.error || `${laIA(r.motor)} no terminó bien la tarea. Toca "Reintentar".`, tipo, ...(r.motor ? { motor: r.motor } : {}), ...(r.faltan ? { faltan: r.faltan } : {}), ...(r.detalle ? { detalle: String(r.detalle).slice(0, 600) } : {}) };
 }
 
 // ---------------------------------------------------------------- lo que lee la pantalla
@@ -647,7 +685,7 @@ export function estadoProducto(id) {
   const t = leerTarea(id);
   // la app se cerro mientras trabajaba y todavia no retomo: se muestra como que sigue (retomarFichas la relanza)
   const tarea = t
-    ? { id: t.id, estado: t.estado, paso: t.paso || null, progreso: t.progreso || [], error: t.error || null, limite: !!t.limite, reinicio: t.reinicio || null, inicio: t.inicio || null, fin: t.fin || null, pagina: t.pagina || null }
+    ? { id: t.id, estado: t.estado, paso: t.paso || null, progreso: t.progreso || [], error: t.error || null, limite: !!t.limite, reinicio: t.reinicio || null, inicio: t.inicio || null, fin: t.fin || null, pagina: t.pagina || null, motor: t.medida?.motor || t.error?.motor || null }
     : { estado: 'sin', progreso: [], error: null };
   return {
     producto: { ...p, imagenes: (p.fotos || []).map((f) => ({ n: Number(f.match(/(\d+)\./)?.[1]), archivo: f, url: urlFoto(id, Number(f.match(/(\d+)\./)?.[1])), deLaPagina: (p.fotosDeLaPagina || []).includes(f) })) },
@@ -662,7 +700,7 @@ export function estadoProducto(id) {
  */
 export function corregirFicha(id, cuerpo = {}) {
   if (!leerProducto(id)) throw new ErrorApp(404, 'No encuentro ese producto.');
-  if (leerTarea(id)?.estado === 'analizando' || enMarcha.has(id)) throw new ErrorApp(409, 'Claude todavía está armando la ficha. Espera a que termine.');
+  if (leerTarea(id)?.estado === 'analizando' || enMarcha.has(id)) throw new ErrorApp(409, `${laIA()} todavía está armando la ficha. Espera a que termine.`);
   const ruta = path.join(PRODUCTOS, id, 'ficha.json');
   const f = leerJSON(ruta);
   if (!f) throw new ErrorApp(409, 'Todavía no hay ficha de este producto.');

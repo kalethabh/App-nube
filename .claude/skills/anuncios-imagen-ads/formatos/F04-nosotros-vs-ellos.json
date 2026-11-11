@@ -1,0 +1,148 @@
+{
+  "id": "F04",
+  "slug": "nosotros-vs-ellos",
+  "nombre": "Nosotros vs. ellos",
+  "origen": "biblioteca",
+  "descripcion": "Tabla comparativa «nosotros vs. los demás». Titular arriba. Debajo, una tabla de 4 filas: a la izquierda el atributo comparado; al centro, una columna alta y elevada en el color de marca, con el producto como encabezado y un check en cada fila; a la derecha, una columna gris con una alternativa genérica sin marca y una cruz en cada fila. Ordenada, lógica y legible en 2 segundos: la columna de la marca gana a simple vista.",
+  "angulos_compatibles": ["comparacion", "enemigo-comun", "mecanismo-unico", "beneficio-sin-sacrificio", "objecion-precio", "caracteristica-estrella"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Us vs. Them Comparison Ad",
+  "reference_style": "Clean DTC comparison-table ad: a raised, brand-colored column with the product and check marks next to a muted grey generic column with crosses",
+  "art_direction": {
+    "visual_hierarchy": "1) The headline. 2) The highlighted brand column with the product on top, which visually wins (taller, colored, raised). 3) The column of checks against the column of crosses. 4) The row labels.",
+    "composition_style": "Structured three-column table under a centered headline. The table spans about 88% of the canvas width: a row-label column on the left (about 40% of the table width), the brand column in the middle (about 30%) and the generic column on the right (about 30%). The brand column is a tall rounded rectangle that rises higher and drops lower than the generic column and carries the product as its header.",
+    "spacing_and_structure": "Headline zone: 6-19% of the canvas height. Column headers (header image + header label): about 22-48%. Rows zone: about 50-93%, divided into 4 equal rows of about 10.5% each, separated by hairline dividers that run across the label column and the generic column. The brand column runs from about 20% to 95% of the canvas height; the generic column from about 26% to 93%. Check and cross icons are centered in their cells. Safe margins of 6% on all sides.",
+    "lighting_and_depth": "Mostly flat and graphic, with depth only where it helps the brand win: the brand column has a soft drop shadow so it looks raised, and the product has studio light, a crisp highlight and a soft contact shadow. The generic column and its object are flat, low-contrast and greyed out."
+  },
+  "layout_summary": "Square canvas with a quiet light (or dark) brand-toned background. A bold headline centered at the top. Below, a comparison table with 4 rows: row labels on the left; in the middle, a tall raised brand-colored column topped by the user's product and a short header label, with a check mark in every row; on the right, a shorter flat grey column topped by an unbranded generic alternative object and a short header label, with a cross in every row. Thin hairline dividers separate the rows.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Quiet base that lets the table read cleanly",
+      "adaptation_rule": "Use a light, calm background (off-white tinted with the palette or the lightest brand tone), or the darkest brand tone for dark identities. Flat or with a very soft gradient; it must never compete with the table."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, 6-19% of the canvas height",
+      "visual_function": "Frames the comparison and states why it matters",
+      "adaptation_rule": "Write the comparison hook of this variation's angle. Keep it short so it fits in max 2 lines."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "highlighted brand column",
+      "position": "Middle column of the table, about 30% of the table width, from about 20% to 95% of the canvas height",
+      "visual_function": "Visually crowns the user's product as the winner",
+      "adaptation_rule": "Tall rounded rectangle filled with the brand primary color, corner radius about 3% of the canvas, soft drop shadow, visibly taller and more prominent than the generic column."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Header of the brand column, centered on it, about 20-24% of the canvas height and no wider than about 22% of the canvas width (it must stay inside the column's width); its top may break slightly above the column edge for a 3D pop",
+      "visual_function": "Shows exactly which option wins",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, studio-lit, with a soft contact shadow on the column."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "muted generic-alternative column",
+      "position": "Right column of the table, about 30% of the table width, from about 26% to 93% of the canvas height",
+      "visual_function": "Represents the losing option in a deliberately plain way",
+      "adaptation_rule": "Flat light grey rounded rectangle (dark grey on dark backgrounds), no shadow, clearly less prominent than the brand column."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "generic alternative object",
+      "position": "Header of the generic column, centered on it, about 14-17% of the canvas height",
+      "visual_function": "Shows the usual option the product beats",
+      "adaptation_rule": "Show the typical alternative the buyer uses today for this need: a plain generic version of the same product category or the object of the old method. Completely unbranded (no label, no logo, no readable text), desaturated grey tones, flat lighting. Never depict a real competitor brand or packaging."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "check and cross icons",
+      "position": "One icon per row in each column, centered in its cell",
+      "visual_function": "Makes the verdict readable without reading the text",
+      "adaptation_rule": "Brand column: white check marks inside small circles in the brand accent (or green if the palette has no positive color). Generic column: red or dark-grey X marks inside small muted circles. Every icon about 5-6% of the canvas height, identical size and style across rows."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "row labels with hairline dividers",
+      "position": "Left column of the table, one label per row, left-aligned at the 6% margin; dividers between rows",
+      "visual_function": "Names what is being compared in each row",
+      "adaptation_rule": "Four short labels, one per row, vertically centered in the row. Hairline dividers (about 0.2% of the canvas, low-contrast grey) separate the rows across the label and generic columns, passing behind the brand column."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, above the table",
+      "text_style": "Extra bold sans-serif, each line about 6-7% of the canvas height, max 2 lines, centered, maximum contrast against the background; one key word may use the brand accent",
+      "guia_texto": "Plantea la comparación o declara la diferencia en 4 a 8 palabras (por qué cambiarse o qué hace distinto al producto)."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "brand column header label",
+      "reference_position": "Inside the top of the brand column, directly below the product, centered",
+      "text_style": "Bold sans-serif, about 3-3.5% of the canvas height, 1 line, centered, white or the highest-contrast color on the brand column",
+      "guia_texto": "El nombre del producto o de la marca, máximo 2 palabras, como texto simple (nunca un logo)."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "generic column header label",
+      "reference_position": "Directly below the generic object, centered in the generic column",
+      "text_style": "Medium weight sans-serif, same size as the brand header, 1 line, centered, mid-grey",
+      "guia_texto": "Cómo se llama la alternativa común, máximo 2 palabras («Otros», «Los demás» o la categoría genérica). Nunca una marca real."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "row label 1",
+      "reference_position": "Left column, first row",
+      "text_style": "Semi-bold sans-serif, about 3.2-3.8% of the canvas height, max 2 lines, left-aligned, dark on light background (or white on dark)",
+      "guia_texto": "El atributo que más pesa para el ángulo, de 2 a 4 palabras, formulado en positivo para que el check y la cruz se entiendan solos."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "row label 2",
+      "reference_position": "Left column, second row",
+      "text_style": "Same style as row label 1",
+      "guia_texto": "Segundo atributo diferencial, de 2 a 4 palabras, en positivo (ventaja de uso, ingrediente, material o resultado)."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "row label 3",
+      "reference_position": "Left column, third row",
+      "text_style": "Same style as row label 1",
+      "guia_texto": "Tercer atributo, de 2 a 4 palabras, en positivo (durabilidad, comodidad, rapidez, seguridad, etc.)."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "row label 4",
+      "reference_position": "Left column, fourth row",
+      "text_style": "Same style as row label 1",
+      "guia_texto": "Cuarto atributo, de 2 a 4 palabras, en positivo; si el ángulo es objeción de precio, aquí va el valor (por ejemplo, rendimiento o costo por uso), nunca una cifra de precio."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Three-column comparison table with 4 rows",
+    "Tall, raised brand-colored column topped by the user's product",
+    "Flat grey generic column topped by an unbranded generic alternative object",
+    "Check marks in every row of the brand column and crosses in every row of the generic column",
+    "Hairline dividers between rows"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price tags, discount, offer or urgency badges",
+    "Trust seals, guarantee or certification badges",
+    "Rating stars, reviews or testimonials",
+    "Icons other than the check and cross marks",
+    "Real competitor brands, logos or recognizable packaging",
+    "More than 4 rows or a third compared option",
+    "People or lifestyle scenes",
+    "Subheadline or paragraph text",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca aplicada para que la marca «gane»: la columna del producto en el color principal y los checks en el color de acento; la columna genérica, su objeto y las cruces en grises neutros (las cruces pueden ir en rojo apagado). El fondo usa el tono más claro (o el más oscuro) de la paleta para no competir con la tabla."
+}

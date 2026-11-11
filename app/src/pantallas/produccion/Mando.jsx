@@ -27,7 +27,7 @@ import {
 import { BarraDeProgreso, Boton, Insignia, VistaPrevia } from '../../componentes/index.js';
 import { arregladasSolas, duracion as fmtDuracion, fechaRelativa } from '../../datos/formato.js';
 import { miniatura } from '../../datos/api.js';
-import { partesArregladas, quien } from './modelo.js';
+import { partesArregladas, piezasConAviso, quien } from './modelo.js';
 import { MarcaModoPrueba } from './ModoPrueba.jsx';
 import { MiniaturasAlDia } from './Pieza.jsx';
 
@@ -40,11 +40,11 @@ function enMinutos(seg) {
   return `≈ ${Math.max(1, Math.round(seg / 60))} min`;
 }
 
-/** 'Toma 6 · Inicio' · 'B-roll 3 · Clip' · 'Hoja de mujer' (para el pie del monitor) */
+/** 'Escena 6 · inicio' · 'Imagen de apoyo 3' · 'Hoja de mujer' (para el pie del monitor) */
 function nombreCorto(p) {
-  if (p.broll) return `B-roll ${p.broll}`;
-  if (p.tipo === 'paso') return `Paso a la toma ${p.hacia}`;
-  if (p.toma) return p.clase === 'clip' ? `Toma ${p.toma}` : `Toma ${p.toma} · ${p.etiqueta.toLowerCase()}`;
+  if (p.broll) return `Imagen de apoyo ${p.broll}`;
+  if (p.tipo === 'paso') return `Paso a la escena ${p.hacia}`;
+  if (p.toma) return p.clase === 'clip' ? `Escena ${p.toma}` : `Escena ${p.toma} · ${p.etiqueta.toLowerCase()}`;
   return quien(p);
 }
 
@@ -192,11 +192,18 @@ export function Mando({ a, modelo, v, etapas, simulando, frase, detalle, avance,
   const hechas = v.conteo.imagenes + v.conteo.clips;
   const enCamino = v.conteo.generandoImg + v.conteo.generandoClip;
 
-  // lo que la revisión de la IA mandó rehacer (conductor.rehechos): "Sin problemas" no sería cierto. Las tomas por su
-  // número y los B-roll aparte (la pieza de un B-roll trae el número de la toma sobre la que va)
+  // Lo que notó la revisión (avisos: la app ya no rehace nada sola por calidad) y lo que la app hizo otra vez sola
+  // (conductor.rehechos: hoy solo lo técnico). Con algo de eso, "Sin problemas" no sería cierto.
+  const conAviso = piezasConAviso(modelo).length;
   const rehechasIA = new Set(modelo.piezas.filter((p) => p.rehecha && !p.broll && p.toma !== null && p.toma !== undefined).map((p) => p.toma)).size;
   const brollIA = new Set(modelo.piezas.filter((p) => p.rehecha && p.broll).map((p) => p.broll)).size;
-  const rehechoIA = [rehechasIA ? `${rehechasIA} ${rehechasIA === 1 ? 'toma rehecha' : 'tomas rehechas'}` : null, brollIA ? `${brollIA} B-roll ${brollIA === 1 ? 'rehecho' : 'rehechos'}` : null].filter(Boolean).join(' · ');
+  const rehechoIA = [
+    conAviso ? `${conAviso} ${conAviso === 1 ? 'aviso' : 'avisos'}` : null,
+    rehechasIA ? `${rehechasIA} ${rehechasIA === 1 ? 'escena hecha otra vez' : 'escenas hechas otra vez'}` : null,
+    brollIA ? `${brollIA} ${brollIA === 1 ? 'imagen de apoyo hecha otra vez' : 'imágenes de apoyo hechas otra vez'}` : null,
+  ]
+    .filter(Boolean)
+    .join(' · ');
   const detalles = v.detalles || {
     voz: modelo.cantado ? 'Elegida' : modelo.hablado ? `${modelo.hojas.filter((h) => h.tipo === 'hoja').length} ${modelo.hojas.length === 1 ? 'hoja' : 'hojas'}` : a.duracion ? fmtDuracion(a.duracion) : null,
     imagenes: `${v.conteo.imagenes} de ${modelo.imagenes.length}`,
@@ -297,6 +304,7 @@ export function Mando({ a, modelo, v, etapas, simulando, frase, detalle, avance,
               {[
                 enCamino ? `${enCamino} en camino` : null,
                 arregladas.n ? arregladasSolas(arregladas.n, arregladas.soloTomas) : null,
+                conAviso && !enCamino ? `${conAviso} con aviso de la revisión` : null,
                 v.conteo.necesitan ? `${v.conteo.necesitan} te necesita` : null,
               ]
                 .filter(Boolean)

@@ -1,0 +1,143 @@
+{
+  "id": "F10",
+  "slug": "muro-resenas",
+  "nombre": "Muro de reseñas",
+  "origen": "biblioteca",
+  "descripcion": "El producto en el centro, rodeado por 4 tarjetas de reseña flotantes (de 3 a 5 según el plan del lote) (5 estrellas, una frase corta y el nombre del cliente con su foto), escalonadas y levemente inclinadas a ambos lados. Arriba, un titular sobre cuántas personas ya lo aman y una línea de calificación promedio. Comunica volumen de prueba social en un solo vistazo.",
+  "angulos_compatibles": ["prueba-social", "testimonio", "objecion-confianza", "beneficio-principal", "transformacion", "identidad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Review Wall Social Proof Ad",
+  "reference_style": "Premium DTC social-proof ad: the product as the central hub, surrounded by short floating customer review cards that read as a wall of praise",
+  "art_direction": {
+    "visual_hierarchy": "1) Bold headline at the top stating how many people love the product. 2) The product, centered, as the hub of the composition. 3) The four floating review cards, read as a group (gold stars first, then the quotes). 4) The small aggregate rating line under the headline.",
+    "composition_style": "Hub-and-satellite composition. The product stands centered horizontally in the middle and lower band. Four review cards float around it in a staggered zigzag: two in a left column and two in a right column, with the right cards placed about 5% lower than the left ones so the layout feels organic, not a rigid grid. Each card is slightly rotated (between -4 and +4 degrees, alternating directions). Cards may overlap the outer edge of the product silhouette by at most 4% of the canvas width, but never cover its label or front face.",
+    "spacing_and_structure": "Top 23% of the canvas reserved for the headline (y 4-17%) and the rating line (y 18-22%). Each review card is about 32-34% of the canvas width and 18-20% of the canvas height, with internal padding of about 1.8% of the canvas; inside, top to bottom: stars row, 2-line quote, avatar + name row, separated by about 1% gaps. Left cards start about 4% from the left edge, right cards end about 4% from the right edge. About 13% vertical gap between the two cards on the same side so the product body stays visible between them. Safe margins of 4-5% on every side; no card touches the canvas edge.",
+    "lighting_and_depth": "The product is lit by a soft studio key light from the upper left, with a soft contact shadow and a gentle radial glow behind it. Review cards float in front on soft, diffuse drop shadows (offset downward, about 15-20% opacity), creating three clear depth layers: background, product, cards. Cards are flat, crisp and evenly lit, like clean UI elements over a photographic product scene."
+  },
+  "layout_summary": "Square canvas with a brand-colored background. Headline centered at the top, with a small rating line (five gold stars plus a short rating summary) directly beneath it. The product stands centered in the middle and lower part of the canvas on an implied surface. Four light rounded review cards float around it: upper-left, upper-right (slightly lower), lower-left and lower-right (slightly lower). Each card shows a row of five gold stars, a one-sentence quote in quotation marks, and a small circular avatar with the reviewer's first name. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Brand-colored backdrop that frames the product and makes the light review cards pop",
+      "adaptation_rule": "Use the approved palette as a smooth gradient or a subtle textured surface, medium-to-deep in value so the light cards stand out clearly. Keep it calm: no patterns, shapes or extra graphics behind the cards."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "product",
+      "position": "Centered horizontally (about x 32-68%), standing from about y 30% to y 90%",
+      "visual_function": "Central hub of the composition; the object all the reviews are talking about",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, about 55-60% of the canvas height, resting on an implied surface with a soft contact shadow. If the product is wide (box, device, folded garment), scale it so it stays within x 28-72% and reduce the cards' overlap so the label stays fully visible."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "headline",
+      "position": "Top center, about y 4-17%",
+      "visual_function": "Stops the scroll with the size of the crowd that already loves the product",
+      "adaptation_rule": "Write a short social-proof hook built around a number of happy customers or a strong collective reaction, adapted to this variation's angle. Max 2 lines."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "rating summary line",
+      "position": "Directly below the headline, centered, about y 18-22%",
+      "visual_function": "Condenses the overall rating into one glance and validates the headline",
+      "adaptation_rule": "A row of five small filled gold stars followed by the average rating and the review count. Keep it on one line and visually lighter than the headline."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "review card",
+      "position": "Upper left, about x 4-37% and y 26-45%, rotated about -3 degrees",
+      "visual_function": "First customer voice; states the main benefit",
+      "adaptation_rule": "Rounded rectangle card (corner radius about 2.5% of the canvas) in off-white or a very light tint of the palette, with a soft drop shadow. Inside, top to bottom: a row of five filled gold stars (each about 2.4% of the canvas), a short quote in quotation marks (max 2 lines), and a bottom row with a small circular avatar (about 4% of the canvas width) showing a realistic person who matches the target audience, next to the reviewer's first name and last-name initial."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "review card",
+      "position": "Upper right, about x 63-96% and y 31-50%, rotated about +2 degrees",
+      "visual_function": "Second customer voice; resolves a common objection",
+      "adaptation_rule": "Same card design as block_05 (same size, colors, stars, avatar and name row), with a different avatar person and a quote focused on a different point."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "review card",
+      "position": "Lower left, about x 4-37% and y 58-77%, rotated about +3 degrees",
+      "visual_function": "Third customer voice; adds the emotional result",
+      "adaptation_rule": "Same card design as block_05, with a different avatar person and a quote about how the customer feels now."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "review card",
+      "position": "Lower right, about x 63-96% and y 63-82%, rotated about -2 degrees",
+      "visual_function": "Fourth customer voice; closes with loyalty or recommendation",
+      "adaptation_rule": "Same card design as block_05, with a different avatar person and a quote about repurchasing or recommending. If the batch plan asks for 3 cards, drop this card and arrange the other three as a zigzag: block_05 upper left (y 26-45%), block_06 middle right (y 44-63%), block_07 lower left (y 62-81%). If it asks for 5, keep the right column as is and stack three slightly smaller cards (about 17% of the canvas height) in the left column at about y 25-42%, 46-63% and 67-84%, the fifth card using the same design."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, first element of the canvas",
+      "text_style": "Extra bold sans-serif, large (each line about 6.5-7% of the canvas height), max 2 lines, centered, maximum contrast against the background; the number or key word in the brand accent color",
+      "guia_texto": "Cuántas personas ya aman o usan el producto, con una cifra concreta o una reacción colectiva (ej. '+12.000 personas ya no vuelven atrás'). 4 a 7 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "rating summary",
+      "reference_position": "Directly below the headline, centered, to the right of five small gold stars",
+      "text_style": "Medium-weight sans-serif, about 2.8-3% of the canvas height, 1 line, centered together with the stars, high contrast but lighter in visual weight than the headline",
+      "guia_texto": "Calificación promedio y número de reseñas (ej. '4,9/5 · +2.300 reseñas'). Máximo 6 palabras o cifras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "testimonial quote + reviewer name (card 1)",
+      "reference_position": "Inside the upper-left review card, below the stars",
+      "text_style": "Quote in medium-weight sans-serif, about 2.8% of the canvas height, dark text on the light card, left-aligned, max 2 lines, inside quotation marks; reviewer name below in bold, about 2.2% of the canvas height, 1 line, next to the avatar",
+      "guia_texto": "Reseña en primera persona sobre el beneficio principal, con tono natural de cliente real. 3 a 7 palabras (debe caber en 2 líneas de la tarjeta). Firma: nombre de pila + inicial del apellido (ej. 'Carla M.')."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "testimonial quote + reviewer name (card 2)",
+      "reference_position": "Inside the upper-right review card, below the stars",
+      "text_style": "Same style as text_block_03: medium-weight quote about 2.8% of the canvas height, max 2 lines, left-aligned; bold name about 2.2%, 1 line",
+      "guia_texto": "Reseña que resuelve una objeción frecuente (sabor, facilidad de uso, rapidez, comodidad o relación precio-valor). 3 a 7 palabras. Firma distinta: nombre + inicial."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "testimonial quote + reviewer name (card 3)",
+      "reference_position": "Inside the lower-left review card, below the stars",
+      "text_style": "Same style as text_block_03: medium-weight quote about 2.8% of the canvas height, max 2 lines, left-aligned; bold name about 2.2%, 1 line",
+      "guia_texto": "Reseña sobre el resultado emocional: cómo se siente ahora el cliente gracias al producto. 3 a 7 palabras. Firma: nombre + inicial."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "testimonial quote + reviewer name (card 4)",
+      "reference_position": "Inside the lower-right review card, below the stars",
+      "text_style": "Same style as text_block_03: medium-weight quote about 2.8% of the canvas height, max 2 lines, left-aligned; bold name about 2.2%, 1 line",
+      "guia_texto": "Reseña de lealtad o recomendación (ya lo recompró, lo regaló, se lo recomendó a alguien). 3 a 7 palabras. Firma: nombre + inicial. Varía el largo de las reseñas para que se vean orgánicas."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "The user's product, centered as the hub of the composition",
+    "Four light rounded review cards (3 to 5 if the batch plan says so) floating around the product with soft drop shadows",
+    "A row of five filled gold stars at the top of every review card",
+    "A small circular avatar of a realistic person next to each reviewer's name",
+    "Five small gold stars in the rating line under the headline",
+    "Brand-colored background with depth"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount or offer badge",
+    "Benefit list or icons",
+    "Trust seals, guarantee badges or 'as seen in' media logos",
+    "Verified-buyer labels or check icons",
+    "Real review-platform names, logos or interface elements",
+    "A single large testimonial card or a long review text",
+    "Before/after images",
+    "Bottom bar or banner",
+    "Logos or brand marks",
+    "Arrows, stickers or decorative doodles",
+    "Extra props that compete with the product"
+  ],
+  "notas_paleta": "Paleta de marca en el fondo (color principal o un degradado medio-oscuro de la paleta). Las tarjetas van en blanco roto o en un tinte muy claro de la paleta, con texto oscuro. Las estrellas siempre en dorado o ámbar cálido. La cifra o palabra clave del titular en el color de acento."
+}

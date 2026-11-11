@@ -1,13 +1,14 @@
-// Los dos trabajos del editor que corren en la app y no en el navegador: exportar y rehacer con IA.
+// Los dos trabajos del editor que corren en la app y no en el navegador: exportar y regenerar piezas.
 // Siguen aunque se cierre el editor (o la app: al volver a abrirla siguen solos). Aquí solo se miran.
 //
-//   const exp = useExportacion(slug)   { trabajo, siguiente, hechos, exportar(datos), cancelar() }
-//   const reh = useRehacer(slug)       { disponible, motivo, piezas, trabajo, pedir(datos), cancelar() }
+//   const exp = useExportacion(slug)   { trabajo, siguiente, hechos, desactualizada, exportar(datos), cancelar() }
+//   const reh = useRegenerar(slug)     (src/datos/regenerar.js: lo mismo que usa el proceso)
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { servidor } from './servidor.js';
 
+export { regenerarEnMarcha as rehacerEnMarcha, useRegenerar } from '../../datos/regenerar.js';
+
 export const exportacionEnMarcha = (t) => Boolean(t) && (t.estado === 'esperando' || t.estado === 'exportando');
-export const rehacerEnMarcha = (t) => Boolean(t) && ['prompts', 'aplicar', 'produccion'].includes(t.fase);
 
 /** Pide `cargar` al abrir y, mientras `seguir(datos)` sea verdad, cada `cadaMs`. */
 function useSondeo(cargar, seguir, cadaMs, { alCambiar } = {}) {
@@ -80,41 +81,14 @@ export function useExportacion(slug, { alTerminar } = {}) {
     setDatos((d) => ({ ...(d || {}), trabajo: r.trabajo }));
     refrescar();
   }, [slug, setDatos, refrescar]);
-  return { trabajo: datos?.trabajo || null, siguiente: datos?.siguiente || 1, hechos: datos?.hechos || [], cargado: Boolean(datos), exportar, cancelar, refrescar };
-}
-
-export function useRehacer(slug, { alTerminar } = {}) {
-  const { datos, refrescar, setDatos } = useSondeo(
-    () => servidor.rehacer(slug),
-    (d) => rehacerEnMarcha(d.trabajo),
-    3000,
-    {
-      alCambiar: (antes, ahora) => {
-        if (rehacerEnMarcha(antes?.trabajo) && !rehacerEnMarcha(ahora?.trabajo)) alTerminar?.(ahora.trabajo);
-      },
-    }
-  );
-  const pedir = useCallback(
-    async (pedido) => {
-      const r = await servidor.pedirRehacer(slug, pedido);
-      setDatos((d) => ({ ...(d || {}), trabajo: r.trabajo }));
-      return r.trabajo;
-    },
-    [slug, setDatos]
-  );
-  const cancelar = useCallback(async () => {
-    const r = await servidor.cancelarRehacer(slug);
-    setDatos((d) => ({ ...(d || {}), trabajo: r.trabajo }));
-    refrescar();
-  }, [slug, setDatos, refrescar]);
   return {
-    disponible: Boolean(datos?.disponible),
-    motivo: datos?.motivo || null,
-    piezas: datos?.piezas || {},
-    enMarcha: Boolean(datos?.enMarcha),
     trabajo: datos?.trabajo || null,
+    siguiente: datos?.siguiente || 1,
+    hechos: datos?.hechos || [],
+    // regeneraste algo después de tu última exportación y tienes cambios: hay que exportar de nuevo (gratis)
+    desactualizada: datos?.desactualizada || null,
     cargado: Boolean(datos),
-    pedir,
+    exportar,
     cancelar,
     refrescar,
   };

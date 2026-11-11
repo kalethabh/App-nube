@@ -14,8 +14,8 @@ const TEXTO = {
   corto: 'Tu saldo no alcanza: recarga en kie.ai antes de producir',
 };
 
-export function useCostoAnuncio(slug, { cadaMs } = {}) {
-  return useDatos(slug ? `costo:${slug}` : null, () => fetch(`/api/anuncios/${encodeURIComponent(slug)}/costo`, { headers: { Accept: 'application/json' } }).then((r) => (r.ok ? r.json() : null)), { cadaMs });
+export function useCostoAnuncio(slug, { cadaMs, firma = '' } = {}) {
+  return useDatos(slug ? `costo:${slug}${firma ? `:${firma}` : ''}` : null, () => fetch(`/api/anuncios/${encodeURIComponent(slug)}/costo`, { headers: { Accept: 'application/json' } }).then((r) => (r.ok ? r.json() : null)), { cadaMs });
 }
 
 /** El saldo con su color, solo (para el registro o una línea). */
@@ -30,8 +30,8 @@ export function SaldoSemaforo({ saldo, semaforo }) {
   );
 }
 
-export function CostoAnuncio({ slug, enProduccion = false, className = '' }) {
-  const { datos: c, cargando } = useCostoAnuncio(slug, { cadaMs: enProduccion ? 20000 : undefined });
+export function CostoAnuncio({ slug, enProduccion = false, className = '', firma = '' }) {
+  const { datos: c, cargando } = useCostoAnuncio(slug, { cadaMs: enProduccion ? 20000 : undefined, firma });
   if (!c) {
     return cargando ? (
       <div className={`costo ${className}`}>
@@ -41,6 +41,9 @@ export function CostoAnuncio({ slug, enProduccion = false, className = '' }) {
       </div>
     ) : null;
   }
+  const presupuesto = !enProduccion && c.disponible && c.dolares && c.creditos
+    ? { dolares: c.dolares.max ?? c.dolares.min, creditos: c.creditos.max ?? c.creditos.min }
+    : c.falta;
   return (
     <div className={`costo costo--${c.semaforo || 'nada'} ${className}`}>
       <span className="costo__titulo">
@@ -62,9 +65,9 @@ export function CostoAnuncio({ slug, enProduccion = false, className = '' }) {
             </span>
           ) : null}
         </div>
-      ) : c.falta ? (
+      ) : presupuesto ? (
         <div className="costo__grande">
-          ~{usd(c.falta.dolares)} <em>· {miles(c.falta.creditos)} créditos de kie.ai</em>
+          ~{usd(presupuesto.dolares)} <em>· {miles(presupuesto.creditos)} créditos de kie.ai</em>
         </div>
       ) : (
         <div className="costo__filas">No pude calcular el costo ahora.</div>

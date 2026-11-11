@@ -1,0 +1,168 @@
+{
+  "id": "G21",
+  "slug": "panel-beneficios-producto-sello-precio",
+  "nombre": "Panel de beneficios con producto superpuesto y sello de precio",
+  "origen": "ganador:Gemini_Generated_Image_l9i58nl9i58nl9i5.png",
+  "descripcion": "Fondo gris muy claro o blanco suave. Arriba, un titular centrado de 2 líneas en mayúsculas: la primera en negro y la segunda en el color de marca. Debajo, un panel rectangular oscuro del color de marca sale desde el borde izquierdo y ocupa la franja media del lienzo, con 4 beneficios en columna (ícono lineal blanco y texto blanco de 2-3 líneas). El producto, enorme, se para a la derecha montado sobre el borde derecho del panel, con su dosis derramada al frente. Un sello circular de precio (título, precio anterior tachado y precio nuevo grande) se superpone a su esquina inferior derecha, con el envío en texto pequeño debajo. Limpio, escaneable y con oferta clara.",
+  "angulos_compatibles": ["beneficio-principal", "rutina-uso", "rapido-y-facil", "oferta", "objecion-precio", "caracteristica-estrella"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "hogar", "gadget"],
+  "ad_format": "Benefit Panel Ad with Overlapping Product and Price Seal",
+  "reference_style": "Clean, scannable ecommerce benefits ad: a two-tone uppercase headline, a dark brand-colored panel bleeding from the left edge with four white line-icon benefits, the product oversized and standing over the panel's right edge with its dose spilled in front, and a circular price seal overlapping the product's lower-right corner",
+  "art_direction": {
+    "visual_hierarchy": "1) The oversized product on the right. 2) The two-line headline at the top. 3) The circular price seal with the big new price. 4) The four benefits inside the panel, read top to bottom. 5) The small shipping line under the seal.",
+    "composition_style": "Full-width centered headline at the top; below it, an asymmetric layered composition: a flat rectangular panel in a dark brand color starts at the left edge of the canvas and runs to behind the product, holding the benefit column; the product stands upright on the right half, in front of the panel's right end, with its cap rising above the panel's top edge and its right side extending onto the light background. The price seal overlaps the product's lower-right corner and the shipping line sits under the seal, close to the bottom-right corner.",
+    "spacing_and_structure": "Headline: 2 lines from about 7% to 18% of the canvas height, spanning about 7-93% of the width, centered. Panel: from the left edge (0%) to behind the product (its right end hidden at about 62-66% of the width, never visible), from about 27% to 90% of the canvas height, square corners. Benefit column inside the panel: four rows with centers at about 37%, 49%, 61% and 72% of the height; line icons about 6% of the canvas, from about 5% to 11% of the width; texts from about 14% to 37% of the width. Product: from about 41% to 76% of the width and from about 20% to 86% of the height (about 65% tall), so its top protrudes about 7% above the panel. Spilled dose: in front of the product's lower-left, from about 23% to 56% of the width and from about 79% to 90% of the height, overlapping the panel's lower part and the product's base. Price seal: circle about 22% of the canvas width in diameter, centered at about 84% of the width and 80% of the height. Shipping line: centered at about 84% of the width, at about 94-96% of the height.",
+    "lighting_and_depth": "Soft, bright studio light from the upper left on a seamless light grey backdrop with a gentle diagonal falloff (slightly darker grey towards the lower right, with a soft curved shadow shape). The product has crisp highlights on its packaging and a soft contact shadow; the spilled units are sharp with small soft shadows. The panel is perfectly flat. The price seal has a thick white rim and a soft drop shadow that lifts it above the product. Icons and texts are flat."
+  },
+  "layout_summary": "Square canvas with a soft light grey to white seamless background. At the top, a centered two-line uppercase headline: the first line in near-black, the second in the brand color. Below, a flat dark brand-colored rectangle starts at the left edge and extends to behind the product, covering the middle and lower band of the canvas; inside it, on the left, four benefit rows stacked vertically, each with a thin white line icon and a short white text of 2-3 lines. On the right, the user's product stands very large and upright in front of the panel's right end, its top rising above the panel, with a small pile of its dose spilled in front of its base. A circular price seal in the brand color with a thick white rim overlaps the product's lower-right corner, holding a short offer title, a smaller old price with a strikethrough and a big new price with superscript decimals. Under the seal, a small bold uppercase shipping line.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Neutral, clean studio base that makes the panel and the product stand out",
+      "adaptation_rule": "Seamless light grey to soft white backdrop with a gentle diagonal light falloff and a faint soft curved shadow towards the lower right. No patterns, no props, no scene."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, 2 lines from about 7% to 18% of the canvas height, about 7-93% of the width",
+      "visual_function": "States the main promise and how the product is used",
+      "adaptation_rule": "Write the promise of this variation's angle in two short uppercase lines: the first states the benefit, the second (in the brand color) states the format or way of use. Each line must fit in one line."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "brand-colored benefit panel",
+      "position": "From the left edge to behind the product (right end hidden at about 62-66% of the canvas width), from about 27% to 90% of the height",
+      "visual_function": "Groups the benefits on a solid color block and creates the layered depth the product stands on",
+      "adaptation_rule": "Flat rectangle with square corners in the darkest saturated color of the brand palette, bleeding off the left edge. No gradient, no texture, no rounded corners. Its right end is always hidden behind the product."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "benefit line icons (4)",
+      "position": "Inside the panel, about 5-11% of the canvas width, row centers at about 37%, 49%, 61% and 72% of the height",
+      "visual_function": "Visual anchors that make each benefit scannable",
+      "adaptation_rule": "Thin white monoline icons about 6% of the canvas, without tiles or circles behind them, each literally representing its benefit (e.g. hand with a tap gesture, body silhouette with arrows, leaf, calendar). All share one stroke weight and style."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product",
+      "position": "Right half, from about 41% to 76% of the canvas width and from about 20% to 86% of the height (about 65% tall), standing in front of the panel's right end with its top above the panel",
+      "visual_function": "Main visual anchor; oversized so it dominates the ad",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front view, upright, label facing the camera, with a soft contact shadow. Its left part overlaps the panel and its right part sits on the light background."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "spilled dose",
+      "position": "In front of the product's lower-left, from about 23% to 56% of the canvas width and from about 79% to 90% of the height",
+      "visual_function": "Shows what the product contains and adds a tangible, close-up detail",
+      "adaptation_rule": "A small loose pile of the product's content: capsules, tablets, gummies or powder for supplements; a swatch or drops for cosmetics; a small sample, refill or accessory for other products. Crisp, realistic, overlapping the panel's lower edge and the product's base."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "circular price seal",
+      "position": "Overlapping the product's lower-right corner, about 22% of the canvas width in diameter, centered at about 84% of the width and 80% of the height",
+      "visual_function": "Makes the offer impossible to miss and anchors the price comparison",
+      "adaptation_rule": "A solid circle in the brand color (the same as the panel) with a thick white rim (about 1% of the canvas) and a soft drop shadow, holding three stacked text lines: offer title, old price with strikethrough and new price."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline line 1",
+      "reference_position": "Top center, first line",
+      "text_style": "Extra bold uppercase sans-serif, about 5% of the canvas height, 1 line, centered, near-black",
+      "guia_texto": "El beneficio principal del ángulo, en 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "headline line 2",
+      "reference_position": "Top center, second line, right under the first",
+      "text_style": "Extra bold uppercase sans-serif, same size as line 1, 1 line, centered, in the brand color",
+      "guia_texto": "El formato o la forma de uso que lo hace fácil (cápsulas, gotas, crema, polvo, uso diario), en 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 1",
+      "reference_position": "Inside the panel, first row, right of the first icon",
+      "text_style": "Regular or medium sans-serif, about 3.2% of the canvas height per line, max 3 lines, left-aligned, white on the panel",
+      "guia_texto": "El beneficio más fuerte para el ángulo, en 3 a 6 palabras. Usa los beneficios guardados en producto.json (Paso 2)."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 2",
+      "reference_position": "Inside the panel, second row, right of the second icon",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Segundo beneficio, en 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 3",
+      "reference_position": "Inside the panel, third row, right of the third icon",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Tercer beneficio, en 3 a 6 palabras; idealmente sobre el origen o la calidad de los ingredientes o materiales."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "benefit 4",
+      "reference_position": "Inside the panel, fourth row, right of the fourth icon",
+      "text_style": "Same style as benefit 1",
+      "guia_texto": "Cuarto beneficio, en 3 a 6 palabras; idealmente sobre lo práctico del uso diario."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "price seal title",
+      "reference_position": "Inside the seal, top, centered",
+      "text_style": "Bold sans-serif, about 3.2% of the canvas height, 2 lines, centered, white",
+      "guia_texto": "Etiqueta de la oferta en 2 palabras (por ejemplo «Precio especial» u «Oferta hoy»)."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "old price",
+      "reference_position": "Inside the seal, middle line, centered",
+      "text_style": "Regular sans-serif, about 2.2% of the canvas height, 1 line, centered, white at about 85% opacity, the figure with a strikethrough",
+      "guia_texto": "Una palabra como «Antes:» seguida del precio regular que dio el usuario (si no lo dio, uno creíble y mayor que el precio actual), con su moneda."
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "new price",
+      "reference_position": "Inside the seal, bottom line, centered",
+      "text_style": "Extra bold sans-serif, figure about 7% of the canvas height, 1 line, centered, white, currency symbol smaller at the left and decimals as superscript",
+      "guia_texto": "El precio de oferta real que dio el usuario, con su moneda. Solo cifra y moneda."
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "shipping line",
+      "reference_position": "Under the price seal, centered on it, near the bottom-right corner",
+      "text_style": "Extra bold uppercase sans-serif, about 2.6% of the canvas height, 1 line, centered, near-black",
+      "guia_texto": "La condición de envío que dio el usuario (por ejemplo envío gratis), en 2 a 3 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Two-line uppercase headline, first line near-black and second line in the brand color",
+    "Flat dark brand-colored panel bleeding from the left edge to behind the product",
+    "Four benefits inside the panel, each with a white line icon and white text",
+    "The user's product, oversized, standing over the panel's right end with its top above the panel",
+    "The product's dose spilled in front of its base",
+    "Circular brand-colored price seal with a white rim overlapping the product's lower-right corner, with old (strikethrough) and new price",
+    "Small shipping line under the seal",
+    "Light grey seamless studio background"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Callout lines or arrows",
+    "Tiles, circles or boxes behind the benefit icons",
+    "Divider lines between the benefits",
+    "Numbers on the benefit rows",
+    "People, hands or lifestyle scenes",
+    "Subheadline or paragraph text outside the panel",
+    "Discount percentage badge or a second offer badge",
+    "More than 4 benefits",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fondo neutro claro (blanco a gris perla) para que resalten el panel y el producto. El panel y el sello de precio van en el color principal de la marca en un tono oscuro y saturado (en la referencia, verde bosque), con íconos y textos blancos. La primera línea del titular va en negro y la segunda en ese mismo color de marca. El texto de envío va en negro. El producto y su dosis conservan sus colores reales.",
+  "posicion_logo": null
+}
