@@ -1,6 +1,6 @@
 // La columna de la derecha: lo que te necesita, la voz y la música, y el registro en frases simples.
 import { useEffect, useRef, useState } from 'react';
-import { AudioLines, CirclePause, EighthNotes, Hand, ImageIcon, ListChecks, Music, Pause, Play, RefreshCw, ScrollText, TriangleAlert, Wallet, WifiOff } from 'lucide-react';
+import { AudioLines, CirclePause, EighthNotes, Hand, ImageIcon, ListChecks, Music, Pause, Play, RefreshCw, ScanEye, ScrollText, TriangleAlert, Wallet, WifiOff } from 'lucide-react';
 import { Boton, PuntoEstado, Tarjeta, TarjetaCabecera, VistaPrevia } from '../../componentes/index.js';
 import { fechaRelativa } from '../../datos/formato.js';
 import { claveRegistro, haceSim } from './simulacion.js';
@@ -33,7 +33,7 @@ export function Causa({ causa }) {
   );
 }
 
-const ICONOS_NECESITA = { revision: ListChecks, cancion: EighthNotes, imagen: ImageIcon, error: TriangleAlert, saldo: Wallet, pausa: CirclePause, conexion: WifiOff, reintento: RefreshCw };
+const ICONOS_NECESITA = { revision: ListChecks, cancion: EighthNotes, imagen: ImageIcon, error: TriangleAlert, saldo: Wallet, pausa: CirclePause, conexion: WifiOff, reintento: RefreshCw, aviso: ScanEye };
 
 /**
  * Las tarjetas de lo que frena al anuncio. Cada una: { id, icono, titulo, texto, accion, alHacer,

@@ -1,0 +1,98 @@
+{
+  "id": "F15",
+  "slug": "estadistica-grande",
+  "nombre": "Cifra gigante",
+  "origen": "biblioteca",
+  "descripcion": "Una cifra gigante en primer plano cruza casi todo el ancho de la mitad inferior (ej. '+10.000', '3 en 1', '24h') y el producto, centrado, se eleva detrás de ella con la base oculta por los números. Arriba, una frase corta que abre la idea; abajo, una línea que explica la cifra. Se lee de arriba abajo como una sola frase. Tipográfico, audaz y con profundidad por capas.",
+  "angulos_compatibles": ["prueba-social", "caracteristica-estrella", "rapido-y-facil", "autoridad", "beneficio-principal", "curiosidad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Big Number Stat Ad",
+  "reference_style": "Bold, centered typographic stat ad where one oversized number sits in the foreground across the lower half and the product rises from behind it; layered, confident and minimal",
+  "art_direction": {
+    "visual_hierarchy": "1) The giant number in the foreground, the biggest and highest-contrast element. 2) The product, centered, rising from behind the number. 3) The explanation line under the number. 4) The short lead-in line at the top.",
+    "composition_style": "Centered, symmetrical composition built in three depth planes: background, product, number. The product stands centered in the upper and middle part of the canvas. The giant number runs across almost the full width of the lower half, in FRONT of the product, hiding only the product's base (its bottom 15-25%, never the label). The lead-in line sits centered above the product and the explanation line centered under the number, so the canvas reads top to bottom as one sentence: lead-in, product, number, explanation.",
+    "spacing_and_structure": "Lead-in line y 5-9%, centered. Product centered, about x 30-70% and y 12-66% (about 50-54% of the canvas height in total, with its top 75-85% visible above the number). Giant number centered within x 5-95%, baseline at about y 82%, top between about y 50% and 58% depending on its length (glyph height 24-32% of the canvas: short figures like '24h' are taller and narrower, long ones like '+10.000' fill 85-90% of the width). Explanation line centered, y 85-95%, max 2 lines. Side margins 5%; the empty background left and right of the product is part of the design.",
+    "lighting_and_depth": "Solid brand-colored background with a soft radial glow behind the product (upper center) and a subtle vignette in the corners. The product is lit by a crisp studio key light from the upper left with a soft rim light that separates it from the background. The number is flat, crisp graphic type in the foreground that casts a short, soft drop shadow (about 25% opacity) onto the product where they overlap, so it reads as a physical layer in front and its edges stay sharp over the product."
+  },
+  "layout_summary": "Square canvas with a bold solid brand-colored background and a soft glow behind the center. A short all-caps lead-in line centered at the top. The user's product stands centered below it, large, rising from behind a giant ultra-bold number that runs across the lower half of the canvas in front of the product's base, with its symbol or unit in the accent color. A one- or two-line explanation is centered under the number at the bottom. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Bold, clean field of brand color that gives the number maximum impact",
+      "adaptation_rule": "Solid brand color (the primary or the darkest color of the palette) with a soft radial glow behind the product and a subtle vignette. No patterns, shapes, surfaces or textures that compete with the type."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "lead-in line",
+      "position": "Top center, y 5-9%",
+      "visual_function": "Opens the sentence and tells the eye how to read the number",
+      "adaptation_rule": "A very short all-caps lead-in that, read together with the number and the explanation, forms one sentence. 1 line, centered."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Centered, about x 30-70% and y 12-66%, its base hidden behind the number",
+      "visual_function": "Shows what the number belongs to and creates depth by rising from behind the type",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front view, about 50-54% of the canvas height, label fully visible above the number's top edge. If the label sits low on the product, raise the product so the label clears the number. If the product is short and wide (box, device, folded garment), widen it to about x 22-78% and keep only its lower 15-20% behind the number; for digital products, show a phone or laptop screen displaying it, with the device's lower edge behind the number."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "giant number",
+      "position": "Centered within x 5-95%, baseline at about y 82%, top between about y 50% and 58%, in front of the product's base",
+      "visual_function": "Stops the scroll; one powerful fact about the product, readable in a fraction of a second",
+      "adaptation_rule": "One real, product-backed figure (customers, components, time, duration or percentage) chosen for this variation's angle. Never a price. It sits in front of the product and stays fully legible: no character is hidden, cut or covered. The symbol or unit is styled in the accent color."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "explanation line",
+      "position": "Bottom center, y 85-95%",
+      "visual_function": "Completes the sentence and links the number to the benefit",
+      "adaptation_rule": "One or two short centered lines that explain the number in terms of what the customer gets."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "lead-in line",
+      "reference_position": "Top center, above the product",
+      "text_style": "Semibold sans-serif in all caps with wide letter spacing, about 3-3.4% of the canvas height, brand accent color, centered, 1 line",
+      "guia_texto": "Abre la frase que la cifra completa: 'Ya somos', 'Todo en', 'Listo en', 'Más de'. 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "giant number",
+      "reference_position": "Centered across the lower half, in front of the product's base",
+      "text_style": "Ultra-bold (black weight) condensed sans-serif, glyph height about 24-32% of the canvas (as large as fits within x 5-95%), tight letter spacing, centered, 1 line, maximum contrast against the background and against the product where it crosses it, with a short soft shadow on the product; the symbol or unit (+, %, x, h, 'en 1') in the brand accent color at about 60% of the digit size",
+      "guia_texto": "Una sola cifra real y potente del producto: volumen de clientes ('+10.000'), composición ('3 en 1'), tiempo ('24h', '5 min'), porcentaje o duración ('60 días'). Máximo 7 caracteres; nunca un precio."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "explanation line",
+      "reference_position": "Bottom center, under the number",
+      "text_style": "Medium-weight sans-serif, about 3.8-4.2% of the canvas height, centered, max 2 lines, high contrast but softer than the number (same color at about 85% opacity); one key word may be bold",
+      "guia_texto": "Completa la frase y conecta la cifra con el beneficio del ángulo (ej. 'personas ya duermen mejor cada noche'). 5 a 10 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One giant ultra-bold number across the lower half, in front of the product",
+    "The user's product, centered and rising from behind the number, label fully visible",
+    "Bold solid brand-colored background with a soft glow behind the product"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Charts, graphs, progress bars or infographics",
+    "Secondary numbers or a stats grid",
+    "Benefit list or icons",
+    "Boxes, badges, divider bars or circles around the number",
+    "Pedestals, podiums or extra props",
+    "People or hands",
+    "Bottom bar or banner",
+    "Logos or brand marks",
+    "Decorative particles, confetti or extra shapes"
+  ],
+  "notas_paleta": "Paleta de marca completa con contraste máximo: fondo sólido en el color principal o el más oscuro de la paleta, con un brillo suave detrás del producto; la cifra en el color de mayor contraste (blanco roto o crema sobre fondo oscuro, o el color más oscuro sobre fondo claro), elegido también para que contraste con el producto donde lo cruza; el símbolo o unidad y la frase de arriba en el color de acento."
+}

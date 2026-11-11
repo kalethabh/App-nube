@@ -13,5 +13,5 @@ async function pedirProduccion(slug) {
   return datos;
 }
 
-/** { arreglos, modelos, revisiones, oido, fechas } */
+/** { arreglos, modelos, revisiones, oido, avisos (lo que notó la revisión en cada pieza), fechas } */
 export const useProduccion = (slug, opciones) => useDatos(slug ? `produccion:${slug}` : null, () => pedirProduccion(slug), opciones);

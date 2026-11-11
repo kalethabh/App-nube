@@ -2,6 +2,9 @@
 // continuidad, que va encima de uno de los 6 de voz en off).
 //
 //   temp/<slug>/                       lo del motor (manifiesto.json, transiciones.json, producto.<ext>, img/, video/…)
+//   temp/<slug>/modelos.json           los modelos de IA del anuncio: la copia de Ajustes › Modelos al crearlo y al
+//                                        aprobarlo (la escribe y la mantiene lib/modelos.js, copiarModelosAlAnuncio; la
+//                                        lee el motor). Aprobado, ya no sigue a Ajustes.
 //   temp/<slug>/app/brief.json         { slug, productoId, estilo, familia, faseGuion, duracion, voz: { id, nombre } | null,
 //                                        continuidad, respuestas, opciones, creado }
 //                                        duracion = { decide: "ia" } (la decide la IA, lo recomendado) o { decide:
@@ -37,8 +40,11 @@ import { TEMP, RAIZ, APP, PUERTO_DE_PRUEBA, esDeEstaApp } from './rutas.js';
 import { leerJSON, existe, listar, stat, segmentoValido } from './archivos.js';
 import * as configApp from './config.js';
 import { sesionActiva, prohibidasComunes, enTerminales, textoClaude, leerYValidar, matar } from './claude.js';
-// con la pausa compartida: si el plan de Claude se acabo, no se abre otra sesion hasta que se renueve
+// la IA elegida (Claude o ChatGPT) con la pausa compartida: si su plan se acabo, no se abre otra sesion hasta que se
+// renueve
 import { lanzarSesion } from './colas.js';
+import { nombreIA } from './motor-ia.js';
+import { prohibidasDeAnuncio } from './ia/reglas.js';
 import { ErrorApp, escribirJSON, aKebab, idValido as productoValido, leerProducto, leerFicha, fotoPrincipal, relProducto, detalleDelProducto, errorPublico, urlFoto } from './productos.js';
 import { ESTILOS as PRESENTACION } from './estilos.js';
 import { brollDe } from './broll.js';
@@ -47,6 +53,7 @@ import { textoParaClaude as textoAprendizajes, textoAhorro } from './aprendizaje
 import { audioPorId, avatarPorId, carpetaDeEstilo, prepararAvatar, prepararMusica } from './biblioteca.js';
 import { prepararReferencia, referenciaPedida, textoClonar } from './clonar.js';
 import { conDuracion, entenderDuracion, leerDuracion, duracionAprox, segundosPedidos } from './duracion.js';
+import { copiarModelosAlAnuncio } from './modelos.js';
 
 // ---------------------------------------------------------------- los estilos
 
@@ -267,6 +274,8 @@ export function crearAnuncio(datos = {}) {
   const brief = { slug, productoId, estilo, familia: null, faseGuion: def.faseGuion, duracion, voz, continuidad, respuestas, opciones: opcionesDe(estilo, respuestas), ...(avatar ? { avatar } : {}), ...(musicaBiblioteca ? { musicaBiblioteca } : {}), creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
   brief.familia = familiaDe(brief);
   escribirJSON(path.join(appDe(slug), 'brief.json'), brief);
+  // los modelos de IA que eligio en Ajustes › Modelos (el motor los lee de temp/<slug>/modelos.json)
+  copiarModelosAlAnuncio(slug);
   // la proxima vez, este estilo sugiere la misma voz
   if (voz) {
     if (configApp.recordarVoz) configApp.recordarVoz(estilo, voz);
@@ -722,6 +731,7 @@ const SOLO_DE_LA_APP = [
   'brief.json', 'sesion.json', 'conductor.json', 'proceso.json', 'informe.json', 'montaje.json', 'edicion.json', 'voces.json',
   'ventanas.json', 'ugc.json', 'habla.json', 'manifiesto-antes-de-ventanas.json', '*-estado.json', 'cancion-*.json', 'clips-*.json',
   'control-final-*.json', 'rehacer/**', 'exportes/**', 'gasto/**', 'registro/**', 'historial-guion/**', 'edicion/**',
+  'avisos.json', 'subidos.json',
 ];
 
 function permisosGuion(slug, brief) {
@@ -748,7 +758,152 @@ function permisosGuion(slug, brief) {
       // comodin: con un * se colarian opciones u otros archivos (y con npm, codigo que Claude mismo escribio)
       ...(conTerminal ? enTerminales(`node produccion/validar-manifiesto.js temp/${slug}/manifiesto.json`, `node produccion\\validar-manifiesto.js temp\\${slug}\\manifiesto.json`) : []),
     ],
-    prohibidas: [...prohibidasComunes({ terminal: conTerminal }), ...SOLO_DE_LA_APP.map((f) => `Edit(${c}/app/${f})`)],
+    // y nada de lo que decide que se cobra y que produce el motor (modelos.json, estado.json, img/, video/…): ninguna
+    // tarea lo escribe y una pagina de producto con instrucciones escondidas podria pedirlo (para las dos IA)
+    prohibidas: [...prohibidasComunes({ terminal: conTerminal }), ...SOLO_DE_LA_APP.map((f) => `Edit(${c}/app/${f})`), ...prohibidasDeAnuncio(slug)],
+  };
+}
+
+// ---------------------------------------------------------------- las sesiones del guion, armadas
+
+/** "Claude", "ChatGPT" o "Tu IA" (al principio de una frase). */
+const laIA = () => {
+  const n = nombreIA();
+  return n.charAt(0).toUpperCase() + n.slice(1);
+};
+const hayEnRaiz = (rel) => existe(path.join(RAIZ, ...rel.split('/')));
+
+/** Archivos de referencia propios de Kads: sin videos, audio ni enlaces fuera de la carpeta. */
+function materialPropio(slug, brief) {
+  const textos = [];
+  const imagenes = [];
+  const aPedido = [];
+  const archivos = (rel) => {
+    const abs = path.join(RAIZ, ...rel.split('/'));
+    let entradas;
+    try { entradas = fs.readdirSync(abs, { withFileTypes: true }); } catch { return []; }
+    return entradas.flatMap((e) => e.isDirectory() ? archivos(`${rel}/${e.name}`) : e.isFile() ? [`${rel}/${e.name}`] : []);
+  };
+  const esTexto = (f) => /\.(md|json|txt)$/i.test(f);
+  const esImagen = (f) => /\.(png|jpe?g|webp|gif)$/i.test(f);
+  const skill = `.claude/skills/${ESTILOS[brief.estilo].skill}`;
+  if (brief.estilo === 'realista-narrado') textos.push('.claude/skills/anuncios-estilo-pixar/SKILL.md');
+  const subestilo = brief.opciones?.subestilo;
+  // La ficha se lee al principio; los fotogramas y movimientos quedan disponibles para pedirlos por su ruta.
+  for (const f of archivos(`${skill}/subestilos`)) {
+    if (/\.md$/i.test(f) && (!subestilo || f === `${skill}/subestilos/${subestilo}.md`)) textos.push(f);
+    else if ((!subestilo || f.startsWith(`${skill}/subestilos/${subestilo}/`)) && (esTexto(f) || esImagen(f))) aPedido.push(f);
+  }
+  for (const f of archivos(`temp/${slug}/ref`)) if (esImagen(f)) imagenes.push(f);
+  if (referenciaPedida(brief)) {
+    textos.push('.claude/skills/anuncios-clonacion/SKILL.md');
+    for (const f of archivos(`temp/${slug}/referencia`)) {
+      if (esTexto(f)) textos.push(f);
+      else if (esImagen(f)) imagenes.push(f);
+    }
+  }
+  return { textos: textos.filter(hayEnRaiz), imagenes, aPedido };
+}
+
+/**
+ * Lo que lee la IA en el guion (o.material; Claude lo abre con Read y a ChatGPT se lo pasa la app). Solo lo que existe:
+ * la skill, la foto y las otras fotos del producto, su pagina y su ficha; con el esqueleto, el catalogo y sus
+ * miniaturas; al retomar o reintentar (deAntes), lo que ya estaba escrito. Con continuidad, la tarea nombra la skill
+ * de continuidad para decir que ahora no se sigue (estilos/continuidad.md): esa no se lee.
+ */
+function materialGuion(slug, brief, { foto = null, deAntes = false } = {}) {
+  const def = ESTILOS[brief.estilo];
+  const c = `temp/${slug}`;
+  const prod = relProducto(brief.productoId);
+  const p = leerProducto(brief.productoId) || {};
+  const textos = [`.claude/skills/${def.skill}/SKILL.md`, `${prod}/pagina.txt`, `${prod}/ficha.json`];
+  // (como textoFoto: sin foto principal, tampoco van las otras)
+  const imagenes = foto ? [`${c}/${foto}`, ...(p.fotos || []).slice(1).map((f) => `${prod}/${f}`)] : [];
+  if (brief.estilo === 'skeleton') {
+    textos.push('recursos/esqueletos/catalogo.json');
+    const miniaturas = listar(path.join(RAIZ, 'recursos', 'esqueletos')).filter((n) => /\.png$/i.test(n)).sort();
+    imagenes.push(...miniaturas.map((n) => `recursos/esqueletos/${n}`));
+  }
+  if (deAntes) textos.push(...GUARDADOS.map((rel) => `${c}/${rel}`));
+  const propios = materialPropio(slug, brief);
+  return {
+    textos: [...textos, ...propios.textos].filter(hayEnRaiz),
+    imagenes: [...imagenes, ...propios.imagenes].filter(hayEnRaiz),
+    aPedido: propios.aPedido,
+    ...(brief.continuidad ? { noSeLeen: ['.claude/skills/anuncios-continuidad/**'] } : {}),
+  };
+}
+
+/** Lo que el cambio puede tocar: el archivo del que sale lo que se dice (el manifiesto, la letra o la peticion). */
+function archivosDelCambio(slug, brief) {
+  const fam = ESTILOS[brief.estilo].familia;
+  return [`temp/${slug}/${fam === 'musical' ? 'app/letras.json' : fam === 'historia-musical' ? 'cancion/peticion.json' : 'manifiesto.json'}`];
+}
+
+/** Lo que lee la IA en un cambio: la skill y lo escrito (lo que nombra la tarea de cambios de esa fase). */
+function materialCambios(slug, brief) {
+  const def = ESTILOS[brief.estilo];
+  const c = `temp/${slug}`;
+  const deLaFase =
+    def.familia === 'musical'
+      ? ['app/letras.json']
+      : def.familia === 'historia-musical'
+        ? ['cancion/peticion.json', 'app/guion.json']
+        : ['manifiesto.json', 'app/guion.json', ...(def.transiciones && !brief.continuidad ? ['transiciones.json'] : [])];
+  const propios = materialPropio(slug, brief);
+  return { textos: [`.claude/skills/${def.skill}/SKILL.md`, ...propios.textos, ...deLaFase.map((rel) => `${c}/${rel}`)].filter(hayEnRaiz), imagenes: propios.imagenes, aPedido: propios.aPedido };
+}
+
+/**
+ * La sesion del guion, lista para lanzarSesion({ ...armarSesionGuion(slug, …), uuid, alProgreso, registro }):
+ * { tipo, resume, prompt, herramientas, permitidas, prohibidas, material, esfuerzo, fraseInicio, timeoutMs, silencioMs,
+ * maxTurnos, correcciones, verificar }. `foto` es la del anuncio (la prepara antes la app, prepararFoto); sin ella, la
+ * que ya este en su carpeta. Con `retomar` o `reintento`, sigue la conversacion desde lo que ya esta escrito.
+ */
+export function armarSesionGuion(slug, { brief = leerBrief(slug), foto = fotoEnCarpeta(slug), retomar = false, reintento = false, prepClonar = null } = {}) {
+  const deAntes = retomar || reintento;
+  let prompt = promptGuion(slug, brief, foto, prepClonar);
+  if (deAntes) prompt = `(El intento anterior no terminó: revisa lo que ya está escrito en temp/${slug}/ y sigue desde ahí; lo que ya está bien no lo rehagas.)\n\n${prompt}`;
+  return {
+    tipo: 'guion',
+    resume: deAntes,
+    prompt,
+    ...permisosGuion(slug, brief),
+    material: materialGuion(slug, brief, { foto, deAntes }),
+    esfuerzo: 'alto', // (Claude no lo usa)
+    fraseInicio: esLetras(brief) ? `${laIA()} empezó a escribir la letra` : `${laIA()} empezó a escribir tu guion`,
+    timeoutMs: 75 * 60000,
+    silencioMs: 10 * 60000,
+    maxTurnos: 80,
+    correcciones: 1,
+    verificar: () => verificarGuion(slug),
+  };
+}
+
+/**
+ * La sesion de un cambio pedido, como armarSesionGuion. `cambios` es para ChatGPT (Claude no lo usa): lo que pidio el
+ * usuario, si el guion vino del usuario y el archivo que se compara antes y despues (el control de tomas tocadas).
+ */
+export function armarSesionCambios(slug, { brief = leerBrief(slug), pedido = leerSesion(slug)?.pedido || '', reintento = false } = {}) {
+  const producto = leerProducto(brief.productoId) || {};
+  return {
+    tipo: 'cambios',
+    resume: true,
+    prompt: promptCambios(slug, brief, pedido, { reintento }),
+    ...permisosGuion(slug, brief),
+    material: materialCambios(slug, brief),
+    esfuerzo: 'alto', // (Claude no lo usa)
+    cambios: {
+      pedido: String(pedido).replace(/»/g, '"'),
+      guionDelUsuario: !esLetras(brief) && Boolean(String(producto.guionPropio || '').trim()),
+      archivos: archivosDelCambio(slug, brief),
+    },
+    fraseInicio: `${laIA()} está leyendo tu pedido`,
+    timeoutMs: 40 * 60000,
+    silencioMs: 10 * 60000,
+    maxTurnos: 60,
+    correcciones: 1,
+    verificar: () => verificarGuion(slug),
   };
 }
 
@@ -1054,35 +1209,26 @@ async function trabajar(slug, { tipo, pedido = null, retomar = false, reintento 
   };
 
   const letras = esLetras(brief);
-  let prompt;
+  let sesion;
   if (tipo === 'cambios') {
-    prompt = promptCambios(slug, brief, pedido, { reintento });
+    sesion = armarSesionCambios(slug, { brief, pedido, reintento });
   } else {
     avanzar('Preparando la foto de tu producto');
     const foto = await prepararFoto(slug, brief);
     const prepClonar = referenciaPedida(brief) ? await prepararReferencia(slug, brief, avanzar) : null;
-    prompt = promptGuion(slug, brief, foto, prepClonar);
-    if (retomar || reintento) prompt = `(El intento anterior no terminó: revisa lo que ya está escrito en temp/${slug}/ y sigue desde ahí; lo que ya está bien no lo rehagas.)\n\n${prompt}`;
+    sesion = armarSesionGuion(slug, { brief, foto, retomar, reintento, prepClonar });
     fs.rmSync(path.join(appDe(slug), 'bloqueo.json'), { force: true });
   }
 
   const r = await lanzarSesion({
-    tipo,
+    ...sesion,
     uuid: s.uuid,
-    resume: tipo === 'cambios' || retomar || reintento,
-    prompt,
-    ...permisosGuion(slug, brief),
-    fraseInicio: tipo === 'cambios' ? 'Claude está leyendo tu pedido' : letras ? 'Claude empezó a escribir la letra' : 'Claude empezó a escribir tu guion',
     alProgreso: avanzar,
     registro: path.join(appDe(slug), 'registro', tipo === 'cambios' ? 'cambios.log' : 'guion.log'),
-    timeoutMs: tipo === 'cambios' ? 40 * 60000 : 75 * 60000,
-    silencioMs: 10 * 60000,
-    maxTurnos: tipo === 'cambios' ? 60 : 80,
-    verificar: () => verificarGuion(slug),
   });
 
   s = leerSesion(slug) || s;
-  const medida = { tipo, fecha: ahora(), ok: r.ok, turnos: r.turnos, duracionMs: r.duracionMs, uso: r.uso, costoEstimado: r.costo, modelo: r.init?.modelo || null, herramientas: r.init?.herramientas || null, denegados: r.denegados?.length || 0 };
+  const medida = { tipo, fecha: ahora(), ok: r.ok, turnos: r.turnos, duracionMs: r.duracionMs, uso: r.uso, costoEstimado: r.costo, modelo: r.init?.modelo || null, herramientas: r.init?.herramientas || null, denegados: r.denegados?.length || 0, motor: r.motor || null };
   const medidas = [...(s.medidas || []), medida].slice(-20);
   if (r.ok) {
     const cambios = (s.cambios || []).map((c, i, a) => (i === a.length - 1 && tipo === 'cambios' ? { ...c, ok: true } : c));
@@ -1094,7 +1240,7 @@ async function trabajar(slug, { tipo, pedido = null, retomar = false, reintento 
     ...s,
     estado: r.bloqueado ? 'bloqueado' : 'error',
     fin: ahora(),
-    error: tipo === 'cambios' && !r.limite && !r.sinSesion && !r.sinClaude ? { ...errorPublico(r), mensaje: `No pude hacer el cambio que pediste: ${r.error} ${letras ? 'Tus letras anteriores siguen' : 'Tu guion anterior sigue'} igual.` } : errorPublico(r),
+    error: tipo === 'cambios' && !r.limite && !r.sinSesion && !r.sinClaude && !r.planSinCodex ? { ...errorPublico(r), mensaje: `No pude hacer el cambio que pediste: ${r.error} ${letras ? 'Tus letras anteriores siguen' : 'Tu guion anterior sigue'} igual.` } : errorPublico(r),
     limite: !!r.limite,
     reinicio: r.reinicio || null,
     bloqueado: r.bloqueado || undefined,
@@ -1151,7 +1297,7 @@ export function pedirCambios(slug, pedido) {
   if (elPedido.length < 3) throw new ErrorApp(400, `Escribe qué quieres cambiar ${que}.`);
   if (elPedido.length > 2000) throw new ErrorApp(400, 'El pedido es muy largo: cuéntalo en menos palabras.');
   const s = leerSesion(slug);
-  if (enMarcha.has(slug) || sesionActiva(s?.uuid)) throw new ErrorApp(409, 'Claude todavía está trabajando en este guion. Espera a que termine.');
+  if (enMarcha.has(slug) || sesionActiva(s?.uuid)) throw new ErrorApp(409, `${laIA()} todavía está trabajando en este guion. Espera a que termine.`);
   if (aprobadoYProduciendo(slug, s)) throw new ErrorApp(409, 'Este guion ya se aprobó y está en producción.');
   const reabierto = s?.estado === 'aprobado' && guionReabierto(slug);
   if (!(s?.estado === 'listo' || reabierto || (s?.estado === 'error' && s.cambioFallido && hayHoja(slug, brief)))) throw new ErrorApp(409, 'El guion todavía no está listo para pedir cambios.');
@@ -1193,7 +1339,7 @@ const PAUSA = new Int32Array(new SharedArrayBuffer(4));
 export function descartarAnuncio(slug) {
   if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
   const s = leerSesion(slug);
-  if (enMarcha.has(slug) || sesionActiva(s?.uuid)) throw new ErrorApp(409, 'Claude está trabajando en este guion. Espera a que termine para descartarlo.');
+  if (enMarcha.has(slug) || sesionActiva(s?.uuid)) throw new ErrorApp(409, `${laIA()} está trabajando en este guion. Espera a que termine para descartarlo.`);
   if (aprobadoYProduciendo(slug, s)) throw new ErrorApp(409, 'Este anuncio ya se está produciendo: no se puede descartar.');
   const papelera = path.join(TEMP, '_descartados');
   fs.mkdirSync(papelera, { recursive: true });
@@ -1240,7 +1386,7 @@ export async function aprobarGuion(slug, { letra } = {}) {
   if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
   const s = leerSesion(slug);
   if (aprobadoYProduciendo(slug, s)) return s;
-  if (enMarcha.has(slug) || sesionActiva(s?.uuid) || s?.estado === 'escribiendo' || s?.estado === 'cambiando') throw new ErrorApp(409, 'Claude todavía está escribiendo el guion. Espera a que termine.');
+  if (enMarcha.has(slug) || sesionActiva(s?.uuid) || s?.estado === 'escribiendo' || s?.estado === 'cambiando') throw new ErrorApp(409, `${laIA()} todavía está escribiendo el guion. Espera a que termine.`);
   if (s?.estado !== 'listo' && !(s?.estado === 'aprobado' && guionReabierto(slug))) throw new ErrorApp(409, 'El guion no está listo: no se puede aprobar todavía.');
   const brief = leerBrief(slug);
   const fam = ESTILOS[brief?.estilo]?.familia;
@@ -1259,6 +1405,9 @@ export async function aprobarGuion(slug, { letra } = {}) {
     const v = await validar(slug);
     if (v.codigo !== 0) throw new ErrorApp(409, 'El guion quedó con un problema. Pide un cambio o toca "Reintentar".', { detalle: v.errores.slice(0, 5) });
   }
+  // los modelos con los que se aprueba (los de Ajustes, los del costo estimado que se vio): desde aca el anuncio se
+  // queda con ellos aunque despues cambies Ajustes (lib/modelos.js, copiarModelosAlAnuncio)
+  copiarModelosAlAnuncio(slug, { alAprobar: true });
   return guardarSesion(slug, { ...s, estado: 'aprobado', aprobado: ahora() });
 }
 
@@ -1386,6 +1535,14 @@ export function estadoGuion(slug) {
 const ARCHIVOS_DEL_RESUMEN = ['brief.json', 'sesion.json', 'guion.json', 'letras.json', 'conductor.json'];
 const resumenes = new Map(); // slug -> { firma, fechas, productoId, uuid, valor }
 
+/** La IA que escribio o intento el guion: 'claude' | 'codex' | null (la de su ultima medida, o la del error). */
+export function motorDeSesion(s) {
+  const valida = (m) => (m === 'claude' || m === 'codex' ? m : null);
+  const medidas = Array.isArray(s?.medidas) ? s.medidas : [];
+  for (let i = medidas.length - 1; i >= 0; i--) if (valida(medidas[i]?.motor)) return medidas[i].motor;
+  return valida(s?.error?.motor);
+}
+
 function calcularResumen(slug, fechas) {
   const brief = leerBrief(slug);
   const s = leerSesion(slug) || {};
@@ -1431,6 +1588,8 @@ function calcularResumen(slug, fechas) {
     // de un guion que no salio: que tipo de falla (limite, sin-sesion, bloqueo…) y cuando se renueva el plan
     errorTipo: estado === 'error' && !c ? (s.estado === 'bloqueado' ? 'bloqueo' : s.limite ? 'limite' : s.error?.tipo || 'otro') : null,
     reinicio: estado === 'error' && !c ? s.reinicio || null : null,
+    // la IA que escribio (o intento) el guion: la de su ultima medida, o la del error (TeNecesitan la nombra)
+    motor: motorDeSesion(s),
     creado: brief?.creado || null,
     fecha: new Date(Math.max(...fechas) || Date.now()).toISOString(),
   };

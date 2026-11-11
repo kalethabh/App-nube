@@ -1,0 +1,130 @@
+{
+  "id": "F28",
+  "slug": "regalo",
+  "nombre": "Ideal para regalar",
+  "origen": "biblioteca",
+  "descripcion": "El producto asoma de una caja de regalo abierta con papel de seda y un lazo de satén suelto, en una escena cálida con luces desenfocadas (bokeh) y uno o dos regalos al fondo. Titular de regalo alineado a la izquierda arriba, subtítulo corto y una pequeña tarjeta colgada del lazo con una dedicatoria. Composición diagonal, emotiva y premium, adaptable a la ocasión (Navidad, Día de la Madre, San Valentín, cumpleaños).",
+  "angulos_compatibles": ["regalo", "promesa-emocional", "identidad", "rapido-y-facil", "beneficio-principal"],
+  "tipos_producto": ["cosmetico", "ropa", "gadget", "juguete", "hogar", "nutraceutico", "otro"],
+  "ad_format": "Gift Presentation Ad",
+  "reference_style": "Warm, festive premium gifting ad: the product revealed in an elegant open gift box with tissue paper and a loosened satin ribbon, cozy bokeh lights and an emotional gifting headline",
+  "art_direction": {
+    "visual_hierarchy": "1) The product rising from the open gift box, lower right of center. 2) The gifting headline in the top-left. 3) The short subheadline under the headline. 4) The small gift tag resting on the ribbon with a short handwritten-style dedication.",
+    "composition_style": "Asymmetric diagonal composition with the camera slightly above eye level (about 20-30 degrees, 3/4 view). The text stack is left-aligned in the top-left area, within the left 55% of the canvas width. The gift scene fills the lower 65% of the canvas, centered slightly to the right: an open gift box spanning about 40-86% of the canvas width (about 45% wide), its base at about 84% of the canvas height, its lid leaning against its right side, with the product standing or emerging from tissue paper inside; the top of the product reaches no higher than about 36% of the canvas height, so product plus box cover about 45-50% of the canvas height. A loosened satin ribbon flows diagonally from the box toward the bottom-left, with the gift tag resting on it. One or two smaller wrapped gifts sit blurred in the background to the right.",
+    "spacing_and_structure": "Headline and subheadline in the top-left, from about 6% to 30% of the canvas height and 6% to 58% of the canvas width; the top-right area stays as soft bokeh negative space. The far edge of the table blends into the bokeh at about 62-66% of the canvas height. At least 5% of the canvas height of clear space between the text stack and the top of the product. Safe margins of about 6-8% on every side; nothing touches the edges.",
+    "lighting_and_depth": "Warm, cozy golden key light from the upper right, soft fill from the left, a gentle rim light along the product edges and a soft sheen on the satin ribbon. Background filled with large, soft, out-of-focus circular bokeh (fairy lights or candlelight) in warm tones mixed with brand accents. Shallow depth of field: product, box and tag tack-sharp; background gifts and lights blurred. Soft contact shadows on the surface."
+  },
+  "layout_summary": "Square canvas with a warm, softly blurred festive background full of bokeh lights. Headline and subheadline stacked and left-aligned in the top-left. In the lower right of center, an open gift box in brand colors with tissue paper reveals the user's product standing inside, the lid leaning beside it. A loosened satin ribbon runs diagonally toward the bottom-left with a small gift tag on it. One or two wrapped gifts are blurred in the background on the right. Small seasonal accents near the box match the occasion.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background (festive bokeh)",
+      "position": "Full canvas, behind the scene",
+      "visual_function": "Creates the warm celebration mood that says 'gift' instantly",
+      "adaptation_rule": "Softly blurred interior setting with large circular bokeh lights in warm tones and brand accents. Tune the mood to the occasion set in the batch plan (cozy winter evening, spring brunch light, romantic dusk, birthday party glow) without adding characters or text."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "surface",
+      "position": "Bottom of the canvas, from about 64% of the canvas height down to the bottom edge",
+      "visual_function": "Grounds the gift scene and adds tactile realism",
+      "adaptation_rule": "A wooden table, linen cloth or marble top whose tone harmonizes with the palette; soft contact shadows under the box, lid and ribbon."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "open gift box with lid and tissue paper",
+      "position": "Lower right of center, spanning about 40-86% of the canvas width, walls from about 58% to 84% of the canvas height; lid leaning against its right side",
+      "visual_function": "Presents the product as a ready-made, desirable gift",
+      "adaptation_rule": "Rigid gift box in the brand's main color (matte or with a subtle texture), soft tissue paper in a lighter palette tone spilling over the edges. No printed logo, brand name or text on the box or lid."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Rising from the center of the open box (about 50-76% of the canvas width), its top at about 36% of the canvas height; the sharpest element of the scene",
+      "visual_function": "Main visual anchor; shows exactly what will be gifted",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, standing or emerging from the tissue paper with its label clearly visible. For clothing, show it neatly folded in the box with its most recognizable detail on top. If the product is too large for a gift box (furniture, large appliances), stand it beside the open box with the satin ribbon tied around it and keep the same positions."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "satin ribbon and gift tag",
+      "position": "Ribbon flowing diagonally from the box's front-left corner toward the bottom-left; small rectangular gift tag (about 12% of the canvas width) resting on it at about 16-30% of the canvas width and 76-86% of the canvas height",
+      "visual_function": "Adds the personal, emotional touch of a gift and leads the eye from the text to the product",
+      "adaptation_rule": "Loosened satin ribbon in the brand accent color (or gold/silver if it suits the palette) with a soft sheen. Kraft or cream paper tag tied with thin string, carrying a short handwritten-style dedication."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "background wrapped gifts",
+      "position": "Background right, behind and beside the box (about 72-94% of the canvas width, 40-64% of the canvas height), each about 12-18% of the canvas width, out of focus",
+      "visual_function": "Reinforces the gifting context and adds depth",
+      "adaptation_rule": "One or two smaller wrapped boxes in palette colors with ribbons, clearly blurred and smaller than the main box. Never more than two."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "seasonal accents",
+      "position": "A few small details on the surface around the base of the box, between about 72% and 92% of the canvas height",
+      "visual_function": "Signals the occasion without cluttering the scene",
+      "adaptation_rule": "Pick 1-2 subtle accents that match the occasion in the batch plan (pine sprigs and tiny ornaments for Christmas, a few petals or a single flower for Mother's Day or Valentine's, a little confetti for birthdays). Keep them small and never covering the product."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "headline",
+      "position": "Top-left, left-aligned, from about 6% to 22% of the canvas height, max about 52% of the canvas width",
+      "visual_function": "Positions the product as the perfect gift and stops the scroll",
+      "adaptation_rule": "Write the gifting hook of this variation's angle (who it is for or why it is the right gift). Keep it short so it fits in max 2 lines."
+    },
+    {
+      "block_id": "block_09",
+      "block_type": "subheadline",
+      "position": "Directly below the headline, left-aligned, ending by about 30% of the canvas height",
+      "visual_function": "Gives the reason it is the ideal gift",
+      "adaptation_rule": "One short supporting line based on the user's benefits or the emotional reason to give it."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top-left, first element of the text stack",
+      "text_style": "Extra bold sans-serif, large (each line about 7-8% of the canvas height), max 2 lines, left aligned, maximum contrast against the bokeh background; one key word may use the brand accent color",
+      "guia_texto": "El gancho de regalo según el ángulo: para quién es o por qué es el regalo correcto, en 3 a 6 palabras (ej. la idea de 'el regalo que sí va a usar')."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, left aligned",
+      "text_style": "Regular weight sans-serif, about 40% of the headline size, max 2 lines, left aligned, high contrast",
+      "guia_texto": "La razón del regalo: beneficio emocional o práctico del producto, en 6 a 10 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "gift tag dedication",
+      "reference_position": "On the small paper tag resting on the ribbon, bottom-left of the box",
+      "text_style": "Handwritten-style script in dark ink, about 3-3.5% of the canvas height, 1 line, centered on the tag",
+      "guia_texto": "Dedicatoria o destinatario muy corto, 1 a 3 palabras (ej. 'Para ti', 'Para mamá')."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Open gift box in brand colors with tissue paper and its lid leaning beside it",
+    "The user's product rising from the box with its label visible",
+    "Loosened satin ribbon in the brand accent with a small paper gift tag",
+    "Warm festive background with soft bokeh lights",
+    "One or two blurred wrapped gifts in the background",
+    "Shallow depth of field with warm golden lighting"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount or offer badge",
+    "Shipping or deadline banners",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or icons",
+    "Callout labels, leader lines or item lists",
+    "People, hands or faces",
+    "Santa, mascots or any licensed holiday characters",
+    "Text, logos or brand names printed on the gift box or wrapping",
+    "More than two background gifts",
+    "Heavy confetti or decorations covering the product",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Colores de marca en el regalo: la caja usa el color principal de la paleta, el papel de seda un tono más claro, y el lazo y los destellos del fondo el color de acento (o dorado/plata si combina con la paleta). El ambiente conserva su calidez festiva natural. El titular usa el color de mayor contraste sobre el fondo."
+}

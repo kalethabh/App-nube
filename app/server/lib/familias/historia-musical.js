@@ -3,7 +3,7 @@
 //
 // Son los mismos pasos que el musical (musical.js, pasosCantados), con tres diferencias que salen de la skill
 // anuncios-historias-musicales y de COMO-PRODUCIR seccion 9:
-//   - la letra la escribio Claude en el guion, con sus dos estilos y, si es larga, partida en bloques
+//   - la letra la escribio la IA en el guion, con sus dos estilos y, si es larga, partida en bloques
 //     (cancion/peticion.json; la sesion de guion de anuncios-nuevos.js la revisa): aca se vuelve a revisar
 //     (tildes, "duration" nunca) y se valida con el motor (generar-cancion --solo-plan, gratis);
 //   - Suno da 4 versiones (2 por estilo) y, si la letra iba en bloques, --elegir la extiende sola;
@@ -21,6 +21,9 @@ export const FASE_GUION = 'letras';
 export const PASO_PAUSA = PAUSA;
 
 export const PASOS = pasosCantados({ historia: true });
+
+/** Las sesiones de la IA son las del musical (§3.1 del diseño): con un ctx de historia, arman las de la historia. */
+export { armarSesionLetra, armarSesionTomas, armarSesionRevisionLote } from './musical.js';
 
 /**
  * Lo que tiene que estar para poder arrancar la produccion (en vez del manifiesto, que todavia no existe): null si

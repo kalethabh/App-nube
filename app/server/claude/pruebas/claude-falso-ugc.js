@@ -59,9 +59,10 @@ const estado = () => leer(rutaEstado, {}) || {};
 const guardarEstado = (e) => rutaEstado && escribir(rutaEstado, e);
 
 function carpetaDe(texto) {
-  const m = texto.match(/Carpeta del anuncio: (\S+)/);
+  const m = texto.match(/Carpeta del anuncio: (.+)/); // (la ruta puede llevar espacios y tildes)
   if (!m) return null;
-  return path.isAbsolute(m[1]) ? m[1] : path.join(RAIZ, m[1]);
+  const c = m[1].trim();
+  return path.isAbsolute(c) ? c : path.join(RAIZ, c);
 }
 
 async function revisarPersona(texto) {
@@ -99,7 +100,7 @@ async function revisarClips(texto) {
     const ent = entera.split(/\n\s*\n/)[0]; // solo la entrada (lo que sigue es el resto de la tarea)
     const n = Number(ent.match(/^- Toma (\d+)/)[1]);
     const x = piezaPorNumero(m, n);
-    const tira = ent.match(/Tira del clip[^:]*: (\S+)/)?.[1];
+    const tira = ent.match(/Tira del clip[^:]*: (.+?\.jpg)/)?.[1];
     if (tira) await usar('Read', { file_path: tira });
     e.vistas[x.clave] = (e.vistas[x.clave] || 0) + 1;
     const sucia = /NO DIJO SU FRASE LIMPIA/.test(ent);

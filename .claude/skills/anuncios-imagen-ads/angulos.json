@@ -1,0 +1,621 @@
+{
+  "descripcion": "Catálogo de ángulos de venta. Un ángulo es LO QUE DICE el anuncio (qué dolor, deseo u objeción ataca). El formato (formatos/) es CÓMO SE VE. Cada variación de un lote = 1 ángulo + 1 formato compatible. 'formatos_recomendados' se calcula a partir de 'angulos_compatibles' de cada esqueleto.",
+  "angulos": [
+    {
+      "id": "dolor",
+      "nombre": "Dolor / problema",
+      "que_ataca": "Nombra el problema que el cliente vive hoy, con sus palabras, para que se sienta identificado.",
+      "como_suena": [
+        "Nombrar la situación concreta del problema",
+        "Pregunta que describe el momento del dolor (sin señalar atributos personales)"
+      ],
+      "ejemplo": "Cuando el cabello se esponja apenas sales de casa",
+      "formatos_recomendados": [
+        "F02",
+        "F03",
+        "F05",
+        "F06",
+        "F12",
+        "F23",
+        "F24",
+        "F25",
+        "G03",
+        "G11",
+        "G13",
+        "G19",
+        "G20",
+        "G23"
+      ]
+    },
+    {
+      "id": "agitacion",
+      "nombre": "Agitar el problema",
+      "que_ataca": "Muestra lo que pasa si el problema sigue: costo, tiempo perdido, consecuencias que empeoran.",
+      "como_suena": [
+        "Consecuencia de no resolverlo",
+        "Lo que se pierde cada día que pasa"
+      ],
+      "ejemplo": "Cada mañana pierdes 20 minutos peleando con lo mismo",
+      "formatos_recomendados": [
+        "F02",
+        "F05",
+        "F25",
+        "G11",
+        "G20"
+      ]
+    },
+    {
+      "id": "transformacion",
+      "nombre": "Transformación / resultado",
+      "que_ataca": "El cambio entre el antes y el después: cómo se ve y se siente la vida con el producto.",
+      "como_suena": [
+        "De [situación actual] a [situación deseada]",
+        "El resultado visible"
+      ],
+      "ejemplo": "De cansada a llena de energía antes del mediodía",
+      "formatos_recomendados": [
+        "F03",
+        "F06",
+        "F09",
+        "F10",
+        "F11",
+        "F16",
+        "F17",
+        "F18",
+        "F26",
+        "F30",
+        "G03",
+        "G08",
+        "G13",
+        "G15",
+        "G16",
+        "G24"
+      ]
+    },
+    {
+      "id": "beneficio-principal",
+      "nombre": "Beneficio principal",
+      "que_ataca": "El beneficio más fuerte del producto, dicho de forma clara y directa.",
+      "como_suena": [
+        "Beneficio + para quién",
+        "Beneficio en pocas palabras"
+      ],
+      "ejemplo": "Piel suave e hidratada todo el día",
+      "formatos_recomendados": [
+        "F01",
+        "F02",
+        "F03",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F15",
+        "F16",
+        "F20",
+        "F26",
+        "F28",
+        "F30",
+        "F31",
+        "F32",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "G10",
+        "G11",
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G17",
+        "G19",
+        "G21",
+        "G22",
+        "G23",
+        "G24"
+      ]
+    },
+    {
+      "id": "beneficio-sin-sacrificio",
+      "nombre": "Beneficio sin sacrificio",
+      "que_ataca": "Obtener el resultado sin lo que el cliente odia hacer (dietas, esfuerzo, tiempo, gastar de más).",
+      "como_suena": [
+        "[Resultado] sin [sacrificio]",
+        "Todo el [beneficio], nada de [molestia]"
+      ],
+      "ejemplo": "Abdomen marcado sin pasar horas en el gimnasio",
+      "formatos_recomendados": [
+        "F04",
+        "F08",
+        "F16",
+        "F18",
+        "F21",
+        "F22",
+        "F31",
+        "G04",
+        "G07",
+        "G09",
+        "G12",
+        "G17",
+        "G19"
+      ]
+    },
+    {
+      "id": "mecanismo-unico",
+      "nombre": "Mecanismo único",
+      "que_ataca": "Explica POR QUÉ funciona: la tecnología, ingrediente o método que lo hace distinto.",
+      "como_suena": [
+        "El secreto está en [mecanismo]",
+        "Así funciona [mecanismo]"
+      ],
+      "ejemplo": "Su tecnología de iones sella la humedad en cada pasada",
+      "formatos_recomendados": [
+        "F04",
+        "F06",
+        "F07",
+        "F08",
+        "F18",
+        "F19",
+        "F22",
+        "F23",
+        "F24",
+        "F30",
+        "F31",
+        "F32",
+        "G01",
+        "G05",
+        "G06",
+        "G09",
+        "G12",
+        "G20",
+        "G23"
+      ]
+    },
+    {
+      "id": "enemigo-comun",
+      "nombre": "Enemigo común",
+      "que_ataca": "Culpa a algo externo del problema (la industria, los químicos, los métodos viejos) y posiciona el producto del lado del cliente.",
+      "como_suena": [
+        "No es tu culpa, es [enemigo]",
+        "Lo que [enemigo] no te dice"
+      ],
+      "ejemplo": "El problema no eres tú, son los productos con sulfatos",
+      "formatos_recomendados": [
+        "F02",
+        "F04",
+        "F05",
+        "F13",
+        "F19",
+        "F21",
+        "F24",
+        "F25",
+        "G11",
+        "G12",
+        "G20"
+      ]
+    },
+    {
+      "id": "comparacion",
+      "nombre": "Comparación con la alternativa",
+      "que_ataca": "Pone el producto frente a la opción que el cliente usa hoy y muestra por qué gana.",
+      "como_suena": [
+        "[Producto] vs. [alternativa]",
+        "Por qué dejar [alternativa]"
+      ],
+      "ejemplo": "Lo que hace tu plancha en 40 minutos, esto lo hace en 10",
+      "formatos_recomendados": [
+        "F04",
+        "F21",
+        "G24"
+      ]
+    },
+    {
+      "id": "objecion-precio",
+      "nombre": "Objeción de precio",
+      "que_ataca": "Responde 'es caro': costo por uso, ahorro frente a la alternativa, valor de lo que incluye.",
+      "como_suena": [
+        "Menos de [monto] al día",
+        "Lo que gastas en [alternativa] vs. esto"
+      ],
+      "ejemplo": "Menos de 1 sol al día por 3 meses de uso",
+      "formatos_recomendados": [
+        "F04",
+        "F07",
+        "F20",
+        "F21",
+        "F23",
+        "F27",
+        "G06",
+        "G08",
+        "G16",
+        "G21",
+        "G23"
+      ]
+    },
+    {
+      "id": "objecion-confianza",
+      "nombre": "Objeción de confianza",
+      "que_ataca": "Responde 'no sé si es confiable': garantía, pago contra entrega, envío, devoluciones.",
+      "como_suena": [
+        "Pagas cuando lo recibes",
+        "Si no te gusta, te devolvemos tu dinero"
+      ],
+      "ejemplo": "Pide hoy y paga recién cuando llegue a tu puerta",
+      "formatos_recomendados": [
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F12",
+        "F19",
+        "F22",
+        "F23",
+        "F24",
+        "F27",
+        "F31",
+        "G02",
+        "G06",
+        "G07",
+        "G10",
+        "G12",
+        "G24",
+        "G25"
+      ]
+    },
+    {
+      "id": "rapido-y-facil",
+      "nombre": "Rápido y fácil",
+      "que_ataca": "Responde 'es complicado': pocos pasos, poco tiempo, cualquiera lo puede usar.",
+      "como_suena": [
+        "En [tiempo] y [n] pasos",
+        "Tan fácil como [acción simple]"
+      ],
+      "ejemplo": "3 pasos y 5 minutos al día",
+      "formatos_recomendados": [
+        "F03",
+        "F06",
+        "F08",
+        "F11",
+        "F12",
+        "F15",
+        "F18",
+        "F25",
+        "F26",
+        "F28",
+        "F30",
+        "G01",
+        "G02",
+        "G04",
+        "G05",
+        "G13",
+        "G19",
+        "G21"
+      ]
+    },
+    {
+      "id": "prueba-social",
+      "nombre": "Prueba social",
+      "que_ataca": "Muchas personas ya lo usan y les gusta: cantidad de clientes, calificaciones, reseñas.",
+      "como_suena": [
+        "[Número] personas ya lo usan",
+        "La razón por la que todos hablan de [producto]"
+      ],
+      "ejemplo": "Más de 10 000 clientes ya lo usan cada mañana",
+      "formatos_recomendados": [
+        "F09",
+        "F10",
+        "F12",
+        "F13",
+        "F15",
+        "F17",
+        "G03",
+        "G10",
+        "G19",
+        "G22",
+        "G25"
+      ]
+    },
+    {
+      "id": "testimonio",
+      "nombre": "Testimonio",
+      "que_ataca": "La experiencia de UNA persona contada en primera persona.",
+      "como_suena": [
+        "Cita en primera persona con el resultado",
+        "Lo que cambió para [cliente]"
+      ],
+      "ejemplo": "\"Por fin duermo de corrido toda la noche\"",
+      "formatos_recomendados": [
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F17",
+        "G03",
+        "G22",
+        "G25"
+      ]
+    },
+    {
+      "id": "autoridad",
+      "nombre": "Autoridad / respaldo",
+      "que_ataca": "Respaldo de expertos, profesionales, estudios o certificaciones.",
+      "como_suena": [
+        "Recomendado por [profesionales]",
+        "Desarrollado con [respaldo]"
+      ],
+      "ejemplo": "La rutina que recomiendan los dermatólogos",
+      "formatos_recomendados": [
+        "F15",
+        "F19",
+        "F29",
+        "G01",
+        "G12",
+        "G22"
+      ]
+    },
+    {
+      "id": "curiosidad",
+      "nombre": "Curiosidad",
+      "que_ataca": "Abre un vacío de información que el cliente quiere cerrar.",
+      "como_suena": [
+        "El truco que [grupo] usa para [resultado]",
+        "Nadie te dijo esto sobre [tema]"
+      ],
+      "ejemplo": "El truco de 10 segundos que cambia tu café de la mañana",
+      "formatos_recomendados": [
+        "F01",
+        "F02",
+        "F05",
+        "F07",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F17",
+        "F19",
+        "F22",
+        "F23",
+        "F27",
+        "F29",
+        "F31",
+        "F32",
+        "G15",
+        "G20"
+      ]
+    },
+    {
+      "id": "pregunta-paradojica",
+      "nombre": "Pregunta paradójica",
+      "que_ataca": "Una pregunta que rompe la lógica del cliente y lo obliga a detenerse.",
+      "como_suena": [
+        "¿Y si [creencia] fuera al revés?",
+        "¿Por qué [contradicción]?"
+      ],
+      "ejemplo": "¿Y si dormir más te estuviera dejando más cansado?",
+      "formatos_recomendados": [
+        "F05",
+        "F13",
+        "F23"
+      ]
+    },
+    {
+      "id": "romper-expectativas",
+      "nombre": "Romper expectativas / mito",
+      "que_ataca": "Desmiente una creencia común de la categoría.",
+      "como_suena": [
+        "Mito: [creencia]. Realidad: [verdad]",
+        "Te dijeron que [creencia]. No es así"
+      ],
+      "ejemplo": "No necesitas 10 productos para una buena rutina",
+      "formatos_recomendados": [
+        "F02",
+        "F13",
+        "F14",
+        "F17",
+        "F19",
+        "F21",
+        "F25",
+        "F29",
+        "F32",
+        "G24"
+      ]
+    },
+    {
+      "id": "nueva-oportunidad",
+      "nombre": "Nueva oportunidad",
+      "que_ataca": "Presenta el producto como algo nuevo que el cliente no ha probado (no 'otro más').",
+      "como_suena": [
+        "Por fin existe [solución]",
+        "La nueva forma de [resultado]"
+      ],
+      "ejemplo": "La nueva forma de limpiar tu casa sin químicos",
+      "formatos_recomendados": [
+        "F01",
+        "F06",
+        "F16",
+        "F18",
+        "F29",
+        "F30"
+      ]
+    },
+    {
+      "id": "identidad",
+      "nombre": "Identidad / aspiración",
+      "que_ataca": "Quién se vuelve el cliente al usarlo: estatus, estilo de vida, pertenencia.",
+      "como_suena": [
+        "Para las que [rasgo de identidad]",
+        "Hecho para quien [aspiración]"
+      ],
+      "ejemplo": "Para mujeres que no tienen tiempo, pero no negocian su estilo",
+      "formatos_recomendados": [
+        "F01",
+        "F02",
+        "F03",
+        "F05",
+        "F10",
+        "F11",
+        "F13",
+        "F14",
+        "F16",
+        "F17",
+        "F24",
+        "F25",
+        "F28",
+        "F29",
+        "G07",
+        "G08",
+        "G10",
+        "G14",
+        "G15",
+        "G16",
+        "G17",
+        "G24",
+        "G25"
+      ]
+    },
+    {
+      "id": "promesa-emocional",
+      "nombre": "Promesa emocional",
+      "que_ataca": "Cómo se va a SENTIR el cliente: tranquilidad, seguridad, orgullo, alivio.",
+      "como_suena": [
+        "Siéntete [emoción] cada [momento]",
+        "La tranquilidad de [resultado]"
+      ],
+      "ejemplo": "La tranquilidad de saber que tu bebé duerme seguro",
+      "formatos_recomendados": [
+        "F01",
+        "F03",
+        "F09",
+        "F14",
+        "F16",
+        "F24",
+        "F26",
+        "F28",
+        "F29",
+        "F32",
+        "G03",
+        "G07",
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G17",
+        "G22",
+        "G24",
+        "G25"
+      ]
+    },
+    {
+      "id": "caracteristica-estrella",
+      "nombre": "Característica estrella",
+      "que_ataca": "Destaca una característica concreta y diferenciadora del producto (material, tamaño, función).",
+      "como_suena": [
+        "[Característica] que [beneficio]",
+        "Con [característica]"
+      ],
+      "ejemplo": "Batería de 30 horas en un tamaño de bolsillo",
+      "formatos_recomendados": [
+        "F01",
+        "F04",
+        "F07",
+        "F08",
+        "F15",
+        "F22",
+        "F27",
+        "F30",
+        "F31",
+        "F32",
+        "G01",
+        "G02",
+        "G04",
+        "G05",
+        "G09",
+        "G10",
+        "G12",
+        "G14",
+        "G17",
+        "G21",
+        "G23"
+      ]
+    },
+    {
+      "id": "rutina-uso",
+      "nombre": "Rutina / momento de uso",
+      "que_ataca": "Muestra el producto en el momento del día en que se usa y cómo encaja en la rutina.",
+      "como_suena": [
+        "Tu [momento del día] con [producto]",
+        "El paso que faltaba en tu rutina"
+      ],
+      "ejemplo": "El paso que faltaba en tu rutina de noche",
+      "formatos_recomendados": [
+        "F11",
+        "F14",
+        "F16",
+        "F17",
+        "F18",
+        "F20",
+        "F21",
+        "F26",
+        "G04",
+        "G09",
+        "G14",
+        "G21"
+      ]
+    },
+    {
+      "id": "oferta",
+      "nombre": "Oferta / promoción",
+      "que_ataca": "Precio, descuento, combo, envío gratis o pago contra entrega como motivo para comprar ahora.",
+      "como_suena": [
+        "[Oferta] solo por [tiempo/condición]",
+        "Llévate [combo] a [precio]"
+      ],
+      "ejemplo": "Llévate 2 por 99.90 soles con envío gratis",
+      "formatos_recomendados": [
+        "F20",
+        "F27",
+        "G01",
+        "G02",
+        "G04",
+        "G05",
+        "G06",
+        "G08",
+        "G10",
+        "G11",
+        "G16",
+        "G17",
+        "G20",
+        "G21",
+        "G25"
+      ]
+    },
+    {
+      "id": "regalo",
+      "nombre": "Ideal para regalar",
+      "que_ataca": "El producto como el regalo perfecto para alguien (fechas especiales o sin motivo).",
+      "como_suena": [
+        "El regalo perfecto para [persona]",
+        "Regálale [beneficio]"
+      ],
+      "ejemplo": "El regalo que mamá sí va a usar todos los días",
+      "formatos_recomendados": [
+        "F12",
+        "F14",
+        "F20",
+        "F22",
+        "F27",
+        "F28",
+        "G25"
+      ]
+    }
+  ]
+}

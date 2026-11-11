@@ -4,12 +4,15 @@
 // el costo del anuncio se ve solo en el informe de la entrega.
 //
 // Pieza:
-//   id        'img:toma-4-inicial' · 'vid:toma-4' · 'img:broll-2' · 'vid:paso-3' · 'img:mujer'
+//   id        'img:toma-4-inicial' · 'vid:toma-4' · 'img:broll-2' · 'vid:paso-3' · 'img:mujer' · 'vid:gancho-1b'
 //   clase     'imagen' | 'clip'
-//   tipo      'hoja' | 'icono' | 'inicial' | 'final' | 'clip' | 'paso' | 'broll-imagen' | 'broll-clip'
+//   tipo      'hoja' | 'icono' | 'inicial' | 'final' | 'clip' | 'paso' | 'broll-imagen' | 'broll-clip' | 'gancho'
 //   estado    el real: 'listo' | 'arreglado' | 'te-necesita' | 'generando' | 'en-cola'
 //   depende   ids de lo que tiene que estar antes
-import { miniatura } from '../../datos/api.js';
+//   avisos    lo que notó la revisión en esa pieza ([{ texto, fuente, paso, fecha, sugerencia: bool, clave }]): la app ya
+//             no rehace nada sola por calidad, solo avisa (el estado sigue siendo el real; el aviso va aparte)
+//   url, imagen, video  con «?v=<fecha>»: una pieza regenerada se llama igual que la de antes
+import { conVersion, miniatura } from '../../datos/api.js';
 import { duracion as fmtDuracion } from '../../datos/formato.js';
 
 // Estilos con revisión obligatoria de clips antes de montar.
@@ -17,8 +20,14 @@ export const esHablado = (a) => a?.familia === 'hablado';
 
 const nombreBonito = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
-/** Por qué se rehizo una pieza, en una frase corta (para el registro y el panel). */
-export function fraseArreglo(motivo, clase) {
+/** «Paso 2», «Gancho B», «Icono «x»»: las piezas que se nombran en masculino (las demás: escena, imagen, hoja). */
+export const esMasculina = (p) => ['paso', 'gancho', 'icono'].includes(p?.tipo);
+
+/**
+ * Por qué se rehizo una pieza, en una frase corta (para el registro y el panel). Con 'pedido' (lo hiciste tú):
+ * `modo` ('subido' = pusiste tu video, 'original' = volviste al clip original; si no, la regeneraste) y `masculina`.
+ */
+export function fraseArreglo(motivo, clase, { modo = null, masculina = false } = {}) {
   switch (motivo) {
     case 'voz-colada':
       return 'traía una voz colada; se silenció sola';
@@ -28,12 +37,20 @@ export function fraseArreglo(motivo, clase) {
       return 'los ojos no salieron como en la hoja; se repitió sola';
     case 'respaldo':
       return 'el modelo principal falló tres veces; salió con el de respaldo';
+    case 'sin-dialogo':
+      return 'salió con un modelo que no hace hablar al personaje';
     case 'reintento':
       return 'kie dio un error; la app lo pidió de nuevo';
     case 'version-anterior':
       return 'la primera versión no convenció; se repitió';
     case 'revision-ia':
-      return clase === 'clip' ? 'la IA revisó su imagen y pidió rehacerla; el clip salió de nuevo' : 'la IA la revisó y pidió rehacerla; se rehízo sola';
+      // (lo cuenta conductor.rehechos: hoy solo lo técnico, como un clip que salió sin su frase; antes, la revisión)
+      return clase === 'clip' ? 'no salió bien a la primera; la app hizo el clip otra vez' : 'no salió bien a la primera; la app la hizo otra vez';
+    case 'pedido':
+      if (modo === 'subido') return 'pusiste tu video';
+      if (modo === 'original') return 'volviste al clip original';
+      if (modo === 'lugar') return 'sale de otro momento de su escena, por tu «Corregir esto»';
+      return masculina ? 'lo regeneraste tú' : 'la regeneraste tú';
     default:
       return clase === 'clip' ? 'el clip salió con un defecto; se repitió solo' : 'salió con un defecto; se repitió sola';
   }
@@ -54,19 +71,33 @@ function etiquetaDePieza(tipo, extra = {}) {
     case 'paso':
       return extra.hacia ? `Paso a ${extra.hacia}` : 'Paso';
     case 'broll-imagen':
-      return 'B-roll';
+      return 'Apoyo';
     case 'broll-clip':
-      return 'B-roll clip';
+      return 'Apoyo · clip';
+    case 'gancho':
+      return extra.nombre || 'Gancho';
     default:
       return tipo;
   }
 }
 
-/** 'toma-7' · 'broll-3' · 'paso-2': la clave de conductor.rehechos a la que pertenece una pieza. */
+/** 'toma-7' · 'broll-3' · 'paso-2' · 'gancho-1b': la clave de conductor.rehechos a la que pertenece una pieza. */
 export function claveDeToma(p) {
   if (p.broll) return `broll-${p.broll}`;
   if (p.tipo === 'paso') return `paso-${String(p.id).replace(/^vid:paso-/, '')}`;
+  if (p.tipo === 'gancho') return `gancho-${p.gancho}`;
   return p.toma ? `toma-${p.toma}` : null;
+}
+
+/**
+ * ¿Este clip de un anuncio hablado salió sin el diálogo? Con `mod.dialogo` (log-modelos.json, del catálogo):
+ * los clips de las tomas (y los pasos) cuyo modelo no hace hablar. Sin ese dato, la regla de antes: todo clip
+ * de respaldo en un hablado.
+ */
+function sinDialogo(mod, p, hablado) {
+  if (!hablado || p.clase !== 'clip' || !mod) return false;
+  if (typeof mod.dialogo === 'boolean') return p.tipo !== 'broll-clip' && mod.dialogo === false;
+  return Boolean(mod.respaldo);
 }
 
 /**
@@ -83,15 +114,20 @@ export function partesArregladas(modelo, estados) {
  * Arma todo lo que la pantalla necesita.
  * @param {object} a       detalle del anuncio (useAnuncio)
  * @param {object} extras  /api/anuncios/:slug/produccion (puede ser null mientras carga)
- * @param {object} opciones.rehechos  conductor.rehechos ({ 'toma-7': 1 }): lo que la revisión de la IA mandó rehacer
+ * @param {object} opciones.rehechos  conductor.rehechos ({ 'toma-7': 1 }): lo que la app hizo otra vez sola (hoy solo lo
+ *                                    técnico: un clip que no salió o salió sin su frase; en anuncios de antes, la revisión)
+ * @param {Map}    opciones.regenerados las piezas que regeneraste tú, con cómo las pediste ('toma-3' -> 'tal-cual' |
+ *                                    'pedido' | 'sugerencia' | 'subido' | 'original': conductor.rehacer). Un Set
+ *                                    (sin el cómo) también sirve.
  */
-export function construirModelo(a, extras, { rehechos = null } = {}) {
-  const ex = extras || { arreglos: {}, modelos: {}, revisiones: {}, oido: {}, fechas: { imagenes: {}, clips: {}, audio: {} } };
+export function construirModelo(a, extras, { rehechos = null, regenerados = null } = {}) {
+  const ex = extras || { arreglos: {}, modelos: {}, revisiones: {}, oido: {}, avisos: {}, fechas: { imagenes: {}, clips: {}, audio: {} } };
   const piezas = [];
   const porId = new Map();
   const hablado = esHablado(a);
   const continuidad = Boolean(a.continuidad) || (a.pasos?.length || 0) > 0;
   const cantado = a.familia === 'cantado' || a.estilo === 'historias-musicales';
+  const avisosDe = (clave) => (Array.isArray(ex.avisos?.[clave]) ? ex.avisos[clave].map((x) => ({ ...x, clave })) : []);
 
   const nueva = (p) => {
     const clave = p.id.split(':')[1];
@@ -100,22 +136,42 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
     const arreglos = ex.arreglos?.[`${lado}:${clave}`] || [];
     const revision = ex.revisiones?.[`vid:${clave}`] || null;
     const fecha = (p.clase === 'imagen' ? ex.fechas?.imagenes : ex.fechas?.clips)?.[clave] || null;
+    // con continuidad no hay pieza del clip propio de una escena: su aviso va en su imagen de inicio
+    const avisos = [...avisosDe(p.id), ...(continuidad && p.tipo === 'inicial' ? avisosDe(`vid:toma-${p.toma}`) : [])];
+    // la versión del archivo: una pieza regenerada se llama igual que la de antes
+    const url = conVersion(p.url, fecha);
+    const conVer = { url, ...(p.imagen ? { imagen: conVersion(p.imagen, fecha) } : {}), ...(p.video ? { video: conVersion(p.video, fecha) } : {}) };
+    const deLaToma = claveDeToma(p);
 
     // El estado real, con lo que dicen los archivos y los registros del motor.
     let estado = p.url ? 'listo' : 'en-cola';
     let motivo = null;
-    const rehecha = rehechos ? Number(rehechos[claveDeToma(p)]) || 0 : 0;
+    const rehecha = rehechos ? Number(rehechos[deLaToma]) || 0 : 0;
+    // lo que regeneraste tú queda «lista» (con su «Antes»), no «se arregló sola»
+    // (con continuidad, regenerar la imagen de una escena hace de nuevo los dos pasos de al lado)
+    // (el lugar que vuelve de UGC: desde 2026-11-09 su fotograma solo cambia con tu «Corregir esto» en un bloque)
+    const lugarCambiado = p.tipo === 'hoja' && p.lugar && Boolean(regenerados?.size);
+    const pedida = lugarCambiado || Boolean(regenerados?.has(deLaToma)) || (p.tipo === 'paso' && Boolean(regenerados?.has(`toma-${p.toma}`) || regenerados?.has(`toma-${p.hacia}`)));
+    const regenerada = pedida && arreglos.length > 0 && !arreglos[arreglos.length - 1].motivo;
+    // cómo la pediste (regenerar, tu video en el anuncio, volver al original): para la frase del registro
+    const modoDe = (k) => (typeof regenerados?.get === 'function' ? regenerados.get(k) : null) || null;
+    const modoPedido = !regenerada ? null : lugarCambiado ? 'lugar' : modoDe(deLaToma) || (p.tipo === 'paso' ? modoDe(`toma-${p.toma}`) || modoDe(`toma-${p.hacia}`) : null);
     if (p.url) {
-      if (rehecha && !arreglos.length) {
+      if (regenerada) {
+        motivo = 'pedido';
+      } else if (rehecha && !arreglos.length) {
         estado = 'arreglado';
         motivo = 'revision-ia';
       } else if (arreglos.length) {
         estado = 'arreglado';
         motivo = arreglos[arreglos.length - 1].motivo || null;
-      } else if (mod?.respaldo) {
-        // En los hablados un clip de Kling es un defecto (no genera el diálogo): te necesita.
-        estado = hablado && p.clase === 'clip' ? 'te-necesita' : 'arreglado';
-        motivo = 'respaldo';
+      } else if (mod?.respaldo || sinDialogo(mod, p, hablado)) {
+        // En los hablados un clip de un modelo que no genera el diálogo es un defecto: te necesita. Si el registro
+        // trae `dialogo` (del catálogo de modelos) manda eso: un respaldo que sí habla (p. ej. Omni después de Grok)
+        // es solo "se arregló sola", y el B-roll no habla nunca. Sin ese dato, lo de antes: en los hablados, todo
+        // clip de respaldo (Kling) te necesita.
+        estado = sinDialogo(mod, p, hablado) ? 'te-necesita' : 'arreglado';
+        motivo = mod?.respaldo ? 'respaldo' : 'sin-dialogo';
       } else if ((mod?.intentos || 1) > 1) {
         estado = 'arreglado';
         motivo = 'reintento';
@@ -123,6 +179,7 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
     }
     const pieza = {
       ...p,
+      ...conVer,
       clave,
       etiqueta: etiquetaDePieza(p.tipo, p),
       modelo: mod?.modelo || null,
@@ -130,10 +187,12 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
       intentos: mod?.intentos || 1,
       arreglos,
       motivo,
+      modoPedido,
       rehecha,
       revision,
       fecha,
       estado,
+      avisos,
       depende: p.depende || [],
     };
     piezas.push(pieza);
@@ -149,6 +208,7 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
       tipo: 'hoja',
       toma: null,
       nombre: h.id === 'producto' ? 'Tu producto' : nombreBonito(h.nombre || h.id),
+      lugar: h.tipo === 'lugar',
       titulo: h.id === 'producto' ? 'Tu producto' : `Hoja de ${nombreBonito(h.nombre || h.id)}`,
       url: h.imagen,
       imagen: h.imagen,
@@ -195,7 +255,7 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
         clase: 'imagen',
         tipo: 'inicial',
         toma: t.n,
-        titulo: `Toma ${t.n} · imagen de inicio`,
+        titulo: `Escena ${t.n} · imagen de inicio`,
         url: t.imagenInicial,
         imagen: t.imagenInicial,
         linea: t.linea,
@@ -211,7 +271,7 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
         clase: 'imagen',
         tipo: 'final',
         toma: t.n,
-        titulo: `Toma ${t.n} · imagen final`,
+        titulo: `Escena ${t.n} · imagen final`,
         url: t.imagenFinal,
         imagen: t.imagenFinal,
         linea: t.linea,
@@ -227,7 +287,7 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
         clase: 'clip',
         tipo: 'clip',
         toma: t.n,
-        titulo: `Toma ${t.n} · clip`,
+        titulo: `Escena ${t.n} · clip`,
         url: t.clip,
         video: t.clip,
         duracion: t.duracionClip,
@@ -256,7 +316,7 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
       toma: p.de,
       a: `toma ${p.a}`,
       hacia: p.a,
-      titulo: `Paso de la toma ${p.de} a la ${p.a}`,
+      titulo: `Paso de la escena ${p.de} a la ${p.a}`,
       url: p.clip,
       video: p.clip,
       duracion: p.duracionClip,
@@ -285,7 +345,7 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
       tipo: 'broll-imagen',
       toma: g?.n ?? null,
       broll: b.n,
-      titulo: `B-roll ${b.n} · imagen`,
+      titulo: `Imagen de apoyo ${b.n} · imagen`,
       url: b.imagen,
       imagen: b.imagen,
       linea,
@@ -300,14 +360,14 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
       tipo: 'broll-clip',
       toma: g?.n ?? null,
       broll: b.n,
-      titulo: `B-roll ${b.n} · clip`,
+      titulo: `Imagen de apoyo ${b.n} · clip`,
       url: b.clip,
       video: b.clip,
       duracion: b.duracionClip,
       duracionPedida: b.duracion,
       linea,
       sincroniza: b.sincronizaCon,
-      fuente: b.imagen,
+      fuente: imagen?.url || b.imagen,
       depende: imagen ? [imagen.id] : idsHojas,
       prioridad: prio,
     });
@@ -315,6 +375,30 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
     if (g) g.broll.push(...hechas);
     else sueltos.push(...hechas);
   }
+
+  // ---------------------------------------------------------------- ganchos (UGC): el mismo anuncio con otro comienzo
+  // Cada uno es un clip de la persona que reemplaza al primer bloque (su versión se arma aparte, en la entrega). Salen
+  // en el mismo paso que los bloques; se regeneran como cualquier clip.
+  const ganchos = (a.ganchos || []).map((g, i) => {
+    const nombre = g.nombre || `Gancho ${g.letra || g.id}`;
+    return nueva({
+      id: `vid:gancho-${g.id}`,
+      clase: 'clip',
+      tipo: 'gancho',
+      toma: null,
+      gancho: String(g.id),
+      reemplaza: g.reemplaza ?? null,
+      nombre,
+      titulo: `${nombre} · clip`,
+      url: g.clip,
+      video: g.clip,
+      duracion: g.duracionClip,
+      duracionPedida: g.duracion,
+      linea: g.linea || null,
+      depende: idsHojas,
+      prioridad: 150 + i,
+    });
+  });
 
   // Los que dependen de cada pieza (para frenar solo eso si algo te necesita)
   const dependientes = new Map(piezas.map((p) => [p.id, []]));
@@ -335,12 +419,21 @@ export function construirModelo(a, extras, { rehechos = null } = {}) {
     hojas: [...hojas, ...iconos],
     tomas,
     sueltos,
+    ganchos,
     imagenes,
     clips,
     conVoz: Boolean(a.audio?.voz) || a.modoAudio === 'voz_en_off',
     conMusica,
     fechasAudio: ex.fechas?.audio || {},
+    // los avisos de piezas que el proceso no muestra (hoy, ninguna: con continuidad el del clip de una escena va en su
+    // imagen de inicio)
+    avisosSueltos: Object.keys(ex.avisos || {}).filter((k) => !porId.has(k) && !(continuidad && /^vid:toma-\d+$/.test(k))),
   };
+}
+
+/** Todas las piezas en el orden de la pantalla: hojas e iconos, escena por escena, imágenes de apoyo sueltas y ganchos. */
+export function piezasEnOrden(modelo) {
+  return modelo ? [...modelo.hojas, ...modelo.tomas.flatMap((g) => [...g.flujo, ...g.broll]), ...modelo.sueltos, ...(modelo.ganchos || [])] : [];
 }
 
 /** Clips que se revisan a mano en los hablados (los de las tomas, no el b-roll). */
@@ -407,12 +500,36 @@ export function registroReal(a, modelo) {
     let texto;
     if (lista.length > 1) {
       const que = listaNatural(lista.map((x) => NOMBRES[x.tipo] || x.etiqueta.toLowerCase()));
-      texto = p.motivo ? `Toma ${p.toma}: ${fraseArreglo(p.motivo, 'imagen')} (${que}).` : `Toma ${p.toma}: ${que} salieron con un defecto; se repitieron solos.`;
+      texto = p.motivo ? `Escena ${p.toma}: ${fraseArreglo(p.motivo, 'imagen')} (${que}).` : `Escena ${p.toma}: ${que} salieron con un defecto; se repitieron solos.`;
     } else {
       const veces = p.arreglos.length > 1 ? ` (${p.arreglos.length} veces)` : '';
       texto = `${quien(p)}: ${fraseArreglo(p.motivo, p.clase)}${veces}.`;
     }
     r.push({ estado: p.estado, texto, fecha, pieza: p.id });
+  }
+  // lo que regeneraste tú (o donde pusiste tu video, o volviste al clip original). Las piezas de una misma escena
+  // que se hicieron juntas (p. ej. las dos imágenes de una escena de inicio y final, y su clip) van en una línea que
+  // las nombra a todas: regenerar una imagen también rehace la otra.
+  const pedidas = new Map();
+  for (const p of modelo.piezas) {
+    if (p.motivo !== 'pedido') continue;
+    const clave = p.toma && !p.broll && NOMBRES[p.tipo] ? `toma-${p.toma}|${p.modoPedido || ''}` : p.id;
+    if (!pedidas.has(clave)) pedidas.set(clave, []);
+    pedidas.get(clave).push(p);
+  }
+  for (const lista of pedidas.values()) {
+    const p = lista[0];
+    const fecha = maxFecha(lista.map((x) => x.fecha || x.arreglos[x.arreglos.length - 1]?.fecha));
+    const texto =
+      lista.length > 1
+        ? `Escena ${p.toma}: ${fraseArreglo('pedido', 'imagen', { modo: p.modoPedido, masculina: false })} (${listaNatural(lista.map((x) => NOMBRES[x.tipo]))}).`
+        : `${quien(p)}: ${fraseArreglo('pedido', p.clase, { modo: p.modoPedido, masculina: esMasculina(p) })}.`;
+    r.push({ estado: 'listo', texto, fecha, pieza: p.id });
+  }
+  // lo que notó la revisión (la app no lo rehizo: tú decides)
+  for (const p of piezasConAviso(modelo)) {
+    const fecha = maxFecha(p.avisos.map((x) => x.fecha)) || p.fecha;
+    r.push({ estado: 'aviso', texto: `${quien(p)}: la revisión notó algo. ${textoDeAvisos(p)}`, fecha, pieza: p.id });
   }
   for (const v of a.versiones || []) {
     if (v.clase !== 'video') continue;
@@ -424,14 +541,29 @@ export function registroReal(a, modelo) {
     .sort((x, y) => Date.parse(y.fecha) - Date.parse(x.fecha));
 }
 
-/** "Toma 9" · "B-roll 3" · "Hoja de mujer" · "Paso de la toma 2 a la 3" */
+/**
+ * "Escena 9" · "Imagen de apoyo 3" · "Hoja de mujer" · "Paso 2 (a la escena 3)": los mismos nombres que la entrega
+ * (lib/avisos.js nombreDeLaPieza). Lo que va entre paréntesis al final se puede sacar (`.replace(/ \(.*\)$/, '')`).
+ */
 export function quien(p) {
   if (p.tipo === 'hoja') return p.clave === 'producto' ? 'Foto de tu producto' : `Hoja de ${String(p.nombre)}`;
   if (p.tipo === 'icono') return p.titulo;
-  if (p.tipo === 'paso') return `Paso a la toma ${p.hacia}`;
-  if (p.broll) return `B-roll ${p.broll}${p.clase === 'imagen' ? ' (imagen)' : ''}`;
+  if (p.tipo === 'gancho') return String(p.nombre);
+  if (p.tipo === 'paso') return `Paso ${p.toma} (a la escena ${p.hacia})`;
+  if (p.broll) return `Imagen de apoyo ${p.broll}${p.clase === 'imagen' ? ' (imagen)' : ''}`;
   const que = { inicial: ' (imagen de inicio)', final: ' (imagen final)', clip: '' }[p.tipo] || '';
-  return `Toma ${p.toma}${que}`;
+  return `Escena ${p.toma}${que}`;
+}
+
+/** Las piezas del modelo con algo que notó la revisión, en el orden de la pantalla. */
+export function piezasConAviso(modelo) {
+  return piezasEnOrden(modelo).filter((p) => p.avisos?.length);
+}
+
+/** Lo que notó la revisión en una pieza, en un solo texto (cada aviso con su punto). */
+export function textoDeAvisos(p) {
+  const textos = [...new Set((p?.avisos || []).map((x) => String(x.texto || '').trim()).filter(Boolean))];
+  return textos.map((t) => (/[.!?…][»")]*$/.test(t) ? t : `${t}.`)).join(' ');
 }
 
 /** Imagen para la miniatura de una pieza (achicada). Los clips usan un cuadro del medio. */

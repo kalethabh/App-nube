@@ -1,4 +1,4 @@
-// La bienvenida de la primera vez: 3 pasos (tu cuenta de Claude, tus claves, tu PC) y, si ya tienes un anuncio
+// La bienvenida de la primera vez: 3 pasos (tu IA: Claude o ChatGPT, tus claves, tu PC) y, si ya tienes un anuncio
 // terminado, el botón para estrenar el editor con él. Las ilustraciones usan las muestras de los estilos
 // (GET /api/estilos). Se abre sola la primera vez (BienvenidaPrimeraVez, para App.jsx) y desde Ajustes con
 // "Ver la bienvenida" (o #/ajustes?bienvenida=1).
@@ -24,28 +24,28 @@ import {
   TriangleAlert,
   Wand2,
 } from 'lucide-react';
-import { Boton, Logo, Modal, PuntoEstado } from '../../componentes/index.js';
+import { Boton, Esqueleto, Logo, Modal, PuntoEstado } from '../../componentes/index.js';
 import { miniatura, useAnuncio, useAnuncios, useEstado, useEstilos } from '../../datos/api.js';
 import { ir, rutas } from '../../datos/rutas.js';
 import { duracion } from '../../datos/formato.js';
 import { useMuestras } from '../../datos/muestras.js';
-import { ESTILOS_DE_MUESTRA, ESTILO_EJEMPLO, apiAjustes, estadoClaude, gb, useAjustes, useAlCambiarConexiones, useClaude } from './datos.js';
-import { ClaveElevenLabs, ClaveKie, FilasClaude } from './Conexiones.jsx';
+import { ESTILOS_DE_MUESTRA, ESTILO_EJEMPLO, MOTORES, apiAjustes, gb, otraIA, useAjustes, useAlCambiarConexiones, useMotor } from './datos.js';
+import { ClaveElevenLabs, ClaveKie, FilasMotor, TarjetasIA } from './Conexiones.jsx';
 import { Casillas, ICONO_REVISION, TEXTO_REVISION, nombreProcesador } from './TuPC.jsx';
-// ajustes.css trae las piezas que comparte con Ajustes (claves, filas de Claude, casillas): la bienvenida
+// ajustes.css trae las piezas que comparte con Ajustes (claves, filas y tarjetas de tu IA, casillas): la bienvenida
 // también se abre sola desde App.jsx, sin que se haya cargado la pantalla de Ajustes.
 import './ajustes.css';
 import './bienvenida.css';
 
 const PASOS = [
-  { id: 'claude', corto: 'Tu cuenta de Claude' },
+  { id: 'ia', corto: 'Tu IA' },
   { id: 'claves', corto: 'Tus claves' },
   { id: 'pc', corto: 'Tu PC' },
 ];
 
 // ---------------------------------------------------------------- ilustraciones (columna izquierda)
 
-function EscenaClaude({ activa, muestras, lineas, estilo }) {
+function EscenaIA({ activa, muestras, lineas, estilo }) {
   return (
     <div className={`escena escena--claude${activa ? ' escena--activa' : ''}`} aria-hidden="true">
       <div className="escena-claude__abanico">
@@ -95,8 +95,7 @@ function Nodo({ icono: Icono, tono, nombre, para, ok, className }) {
 }
 
 function EscenaClaves({ activa, estado }) {
-  const { datos: claudeReal } = useClaude();
-  const claude = estadoClaude(estado, claudeReal);
+  const motor = useMotor();
   return (
     <div className={`escena escena--claves${activa ? ' escena--activa' : ''}`} aria-hidden="true">
       <svg className="escena-claves__cables" viewBox="0 0 380 520" preserveAspectRatio="none">
@@ -109,7 +108,7 @@ function EscenaClaves({ activa, estado }) {
         <span className="escena-claves__aro escena-claves__aro--2" />
         <Logo tamano={58} />
       </div>
-      <Nodo className="escena-claves__nodo--arriba" icono={PenLine} tono="cian" nombre="Claude" para="Guiones" ok={claude.revisando ? null : claude.listo || (claude.instalado && claude.sesion === 'desconocido')} />
+      <Nodo className="escena-claves__nodo--arriba" icono={PenLine} tono="cian" nombre={motor.elegido ? motor.nombre : 'Tu IA'} para="Guiones" ok={motor.revisando ? null : motor.listo} />
       <Nodo className="escena-claves__nodo--izq" icono={Clapperboard} tono="acento" nombre="kie.ai" para="Imágenes y videos" ok={estado ? Boolean(estado.claves?.kie) : null} />
       <Nodo className="escena-claves__nodo--der" icono={AudioLines} tono="ok" nombre="ElevenLabs" para="Voz" ok={estado ? Boolean(estado.claves?.elevenlabs) : null} />
     </div>
@@ -164,12 +163,28 @@ function EscenaPC({ activa, ejemplo }) {
 
 // ---------------------------------------------------------------- pasos (columna derecha)
 
-function PasoClaude({ estado }) {
+/** Paso 1: sin IA elegida (todo alumno nuevo), las dos tarjetas; con una, sus dos filas y «Prefiero …». */
+function PasoIA() {
+  const motor = useMotor();
+  const [cambiando, setCambiando] = useState(false);
   const { datos: estilos } = useEstilos();
   const cuantos = estilos?.estilos?.filter((e) => e.familia !== 'efecto').length || 12;
+  if (!motor.elegido) return motor.revisando ? <Esqueleto alto={190} /> : <TarjetasIA motor={motor} />;
+  const otra = MOTORES[otraIA(motor.id)];
+  const preferir = async () => {
+    setCambiando(true);
+    // recordar: Ajustes › Conexiones ofrece «Volver a {la de antes}» mientras la nueva no está conectada (§4.4)
+    await motor.conectarCon(otra.id, { recordar: true });
+    setCambiando(false);
+  };
   return (
     <>
-      <FilasClaude estado={estado} compacto />
+      <FilasMotor compacto />
+      <p className="bv-otra-ia">
+        <button type="button" className="ia-enlace" disabled={cambiando} onClick={preferir}>
+          Prefiero {otra.nombre}
+        </button>
+      </p>
       <ul className="bv-beneficios">
         <li>
           <BookOpenText size={16} strokeWidth={2} aria-hidden="true" />
@@ -197,7 +212,7 @@ function PasoClaude({ estado }) {
         </div>
         <div>
           <dt className="t-num">0</dt>
-          <dd>claves de Anthropic que pegar</dd>
+          <dd>claves que pegar para tu IA</dd>
         </div>
         <div>
           <dt>1 vez</dt>
@@ -260,8 +275,8 @@ function PasoPC({ equipo, activo, ejemplo, alAbrirEditor }) {
   const terminado = filas.length > 0 && hechas >= filas.length;
   const rec = equipo?.recomendacion;
   const cifra = rec?.aLaVez ?? null;
-  // "lista" solo si no falta nada obligatorio para producir (lo de Claude se ve en el paso 1)
-  const obligatorioFalta = (equipo?.revisiones || []).some((r) => r.obligatorio && !r.ok && r.id !== 'claude');
+  // "lista" solo si no falta nada obligatorio para producir (lo de tu IA se ve en el paso 1)
+  const obligatorioFalta = (equipo?.revisiones || []).some((r) => r.obligatorio && !r.ok && r.id !== 'claude' && r.id !== 'motor');
   const faltaPython = (equipo?.revisiones || []).some((r) => r.id === 'python' && !r.ok);
   const nota = !terminado
     ? 'Calculando lo que aguanta tu PC…'
@@ -328,9 +343,9 @@ function PasoPC({ equipo, activo, ejemplo, alAbrirEditor }) {
 // ---------------------------------------------------------------- la bienvenida
 
 const TEXTOS = {
-  claude: {
-    titulo: 'Conecta tu cuenta de Claude',
-    texto: 'Los guiones los escribe Claude con tu cuenta, la misma que ya usas en tu PC.',
+  ia: {
+    titulo: 'Conecta tu IA',
+    texto: 'Tus guiones y tus anuncios de imagen los escribe una IA con tu propia cuenta. Elige la que ya usas: no necesitas ninguna clave.',
   },
   claves: {
     titulo: 'Pega tus claves',
@@ -394,7 +409,7 @@ export function Bienvenida({ abierto, onCerrar, pasoInicial = 0 }) {
       <div className="bienvenida__marco">
         <div className="bienvenida__escenario">
           <span className="bienvenida__luz" data-paso={id} aria-hidden="true" />
-          <EscenaClaude activa={id === 'claude'} muestras={muestras} lineas={lineas} estilo={muestra?.estiloNombre} />
+          <EscenaIA activa={id === 'ia'} muestras={muestras} lineas={lineas} estilo={muestra?.estiloNombre} />
           <EscenaClaves activa={id === 'claves'} estado={estado} />
           <EscenaPC activa={id === 'pc'} ejemplo={muestra} />
         </div>
@@ -424,7 +439,7 @@ export function Bienvenida({ abierto, onCerrar, pasoInicial = 0 }) {
             </h2>
             <p className="bienvenida__texto">{TEXTOS[id].texto}</p>
             <div className="bienvenida__contenido">
-              {id === 'claude' ? <PasoClaude estado={estado} /> : null}
+              {id === 'ia' ? <PasoIA /> : null}
               {id === 'claves' ? <PasoClaves estado={estado} recargar={recargarEstado} /> : null}
               {id === 'pc' ? <PasoPC equipo={ajustes?.equipo} activo={id === 'pc'} ejemplo={ejemplo} alAbrirEditor={() => terminar({ editor: true })} /> : null}
             </div>

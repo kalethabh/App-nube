@@ -15,7 +15,8 @@ import { RAIZ, TEMP, OUTPUT } from './rutas.js';
 import { leerJSON, existe } from './archivos.js';
 import { entornoDelMotor } from './procesos.js';
 import { lanzarSesion } from './colas.js';
-import { prohibidasComunes } from './claude.js';
+import { prohibidasComunes, nombreIA } from './motor-ia.js';
+import { materialKads } from './ia/material-kads.js';
 import { fotoPrincipal, listarProductos } from './productos.js';
 import { rutaDeReferencia } from '../rutas/referencias.js';
 
@@ -335,7 +336,7 @@ function propuestaBase(slug) {
 async function proponer(slug) {
   const c = `./temp/${slug}`;
   const e = leerEstado(slug);
-  avance(slug, 'Claude está viendo las tomas y traduciendo la voz');
+  avance(slug, `${nombreIA()} está viendo las tomas y traduciendo la voz`);
   const prompt = `TAREA: cambiar el producto en un video que ya existe (modo «Cambiar el producto en este mismo video» de la skill de clonación).
 Carpeta: temp/${slug}
 
@@ -357,6 +358,7 @@ Tu respuesta final: solo LISTO.`;
       herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
       permitidas: ['Read(./.claude/skills/anuncios-clonacion/**)', `Read(${c}/**)`, `Write(${c}/cambio.json)`, `Edit(${c}/cambio.json)`, 'Glob', 'Grep'],
       prohibidas: prohibidasComunes({ terminal: false }),
+      material: materialKads({ textos: ['.claude/skills/anuncios-clonacion/SKILL.md'], imagenes: [`temp/${slug}/producto.png`], carpetas: [`temp/${slug}/analisis`] }),
       registro: path.join(dirDe(slug), 'app', 'registro', 'propuesta.log'),
       timeoutMs: 25 * 60000,
       maxTurnos: 40,
@@ -377,7 +379,7 @@ Tu respuesta final: solo LISTO.`;
   }
   if (!r.ok || !existe(path.join(dirDe(slug), 'cambio.json'))) {
     fs.writeFileSync(path.join(dirDe(slug), 'cambio.json'), JSON.stringify(propuestaBase(slug), null, 2));
-    guardarEstado(slug, { etapa: 'revisar', aviso: 'Claude no pudo armar la propuesta: marca tú las escenas y escribe la voz en español.' });
+    guardarEstado(slug, { etapa: 'revisar', aviso: `${nombreIA(r?.motor)} no pudo armar la propuesta: marca tú las escenas y escribe la voz en español.` });
     return;
   }
   guardarEstado(slug, { etapa: 'revisar', aviso: null });

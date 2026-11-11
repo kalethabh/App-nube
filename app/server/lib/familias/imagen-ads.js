@@ -1,0 +1,679 @@
+// La produccion de un lote de ANUNCIOS DE IMAGEN (ESPECIFICACION-imagen-ads.md §6). Misma interfaz que las familias de
+// video (FAMILIA, ESTILOS, PASOS), con dos diferencias que lee el conductor:
+//   FUERA_DE_LA_FILA = true, A_LA_VEZ = 2   un lote no ocupa el lugar de un video (los videos nunca esperan por un lote)
+//                                           y hay como mucho 2 lotes en marcha
+//   ARRANCA_SIN_MANIFIESTO + faltaParaProducir   arranca sin guion: con el brief, la foto, las referencias y el logo
+//
+//   preparar    Valida el brief, copia la foto del producto, la ficha, la identidad del lote anterior y lo ya usado, y
+//               escribe lote.json. Comprueba ffmpeg ANTES de pagar nada.
+//   saldo       Que alcance para lo que falta (cada imagen a 10 creditos: GPT Image 2.5 a 2K fijo). Sin cifras.
+//   estrategia  La IA (1 sesion): producto.json, estrategia.json, plan.json y los primeros 4 anuncios.
+//   anuncios    El bucle de tres carriles: la IA (los anuncios que faltan, la revision y los ajustes; como mucho una
+//               sesion para TODOS los lotes, turno-claude.js), el motor (produccion/generar-imagen-ads.js: un proceso de
+//               larga vida que va tomando ordenes) y lo local (ffmpeg: recortes para la revision y el logo).
+//   informe     El costo (solo aca) y como salio la revision. Borra lo que sobra.
+//
+// La IA es la elegida (Claude o ChatGPT): ctx.claude() da el selector (motor-ia.js), que decide al lanzar cada sesion.
+// Cada sesion le pasa su `material` (lo que lee, para ChatGPT: imagen-ads/sesiones.js). La IA que hizo la estrategia
+// queda en el paso (conductor.json) y en estado.json (tandas.E001.motor): es la que nombra el informe.
+// No se puede cambiar de IA mientras un lote tiene una revision o un ajuste repartido (alPreguntarLotesOcupados).
+//
+// Reglas que no se negocian: una variacion entra al motor solo si su tanda de la IA termino bien; la revision vale solo
+// para la firma (tamaño y fecha) de la imagen que miro; ningun reintento por calidad (todo al primer intento, decision
+// de Diego 2026-11-09: la revision solo deja su nota en la pieza y el usuario decide si la regenera); dos fallos
+// seguidos del motor = error con "Continuar"; nada se paga dos veces al cerrar y abrir la app (el motor retoma por
+// huella lo que sigue en kie, y las ordenes en disco se reconocen al volver).
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { RAIZ } from '../rutas.js';
+import { leerJSON, existe, listar } from '../archivos.js';
+import { ESPERAS_REINTENTO_MS, mensajeDeFallo, consultarSaldoKie, hayConexion, clasificarFallo, dormir, modoPrueba, cancelar as cancelarMotor } from '../procesos.js';
+import { rutaFoto, fotoPrincipal, PRODUCTOS } from '../productos.js';
+import { MODELO, RESOLUCION } from '../../../../produccion/imagen-ads.js';
+import * as turnoClaude from '../imagen-ads/turno-claude.js';
+import * as plan from '../imagen-ads/planificador.js';
+import * as local from '../imagen-ads/local.js';
+import { R, firma, guardarJSON, conCeros, siguienteEnDisco, fotoDelLote, formatoDe } from '../imagen-ads/disco.js';
+import { cargarYNormalizar, guardar } from '../imagen-ads/estado.js';
+import { sesionEstrategia, sesionPrompts, sesionRevision, sesionAjuste, permisos } from '../imagen-ads/sesiones.js';
+import { verificarSesion, leerBloqueo, verificarRevision, verificarAjuste } from '../imagen-ads/verificar.js';
+import { revisionSimulada, revisionDeLaTanda } from '../imagen-ads/revision-simulada.js';
+import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador } from '../imagen-ads/lotes.js';
+import { nombreIA, datosIA, alPreguntarLotesOcupados } from '../motor-ia.js';
+
+export const FAMILIA = 'imagen-ads';
+export const ESTILOS = ['imagen-ads'];
+export const FUERA_DE_LA_FILA = true;
+export const A_LA_VEZ = 2;
+export const ARRANCA_SIN_MANIFIESTO = true;
+export const REHACER_DESDE = 'anuncios';
+
+/** Lo que le falta al lote para empezar (null si nada): "Falta la foto del producto." / "Faltan subir 2 referencias." */
+export function faltaParaProducir(carpeta, brief) {
+  return faltaDelBorrador(carpeta, brief);
+}
+
+export const CREDITOS_POR_IMAGEN = 10; // GPT Image 2.5 Sunburst a 2K (config.js), fijo en esta seccion
+/** El modelo de los lotes (fijo): lo nombra el costo estimado del formulario (lib/costo-estimado.js). */
+export const MODELO_DE_LAS_IMAGENES = MODELO;
+const SILENCIO_MS = 12 * 60000;
+const CON_PRECIO = /US\$|cr[eé]ditos?\b|\bsaldo\b|\bcr\b|\$\d/i;
+const ahora = () => new Date().toISOString();
+
+/** Las ultimas lineas utiles de lo que dijo el motor (para el detalle), sin precios ni saldos. */
+function ultimasLineas(texto, n = 12) {
+  return String(texto || '')
+    .split(/\r?\n/)
+    .map((l) => l.trimEnd())
+    .filter((l) => l.trim() && !CON_PRECIO.test(l))
+    .slice(-n)
+    .join('\n');
+}
+
+const error = (mensaje, motivo, detalle) => ({ ok: false, error: { mensaje, motivo, ...(detalle ? { detalle } : {}) } });
+
+// ---------------------------------------------------------------- la IA (Claude o ChatGPT)
+
+/** 'Claude', 'ChatGPT' o 'Tu IA' (para empezar una frase). Con `motor`, la que trabajo; sin el, la elegida ahora. */
+const NombreIA = (motor) => {
+  const n = motor ? nombreIA(motor) : nombreIA();
+  return n.charAt(0).toUpperCase() + n.slice(1);
+};
+/** Cuando el modulo de la IA no se pudo cargar: "No encuentro Claude Code en esta computadora." */
+const sinProgramaDeLaIA = () => `No encuentro ${datosIA().programa} en esta computadora.`;
+/** La nota de una imagen que quedo sin revisar porque se acabo el plan de la IA (la ve el usuario en esa imagen). */
+const notaSinRevision = (r) => `Se acabó por ahora el uso de tu plan de ${r?.motor ? nombreIA(r.motor) : nombreIA()} y la revisión no llegó a mirarla: revísala tú antes de publicarla.`;
+
+/** El error del limite de uso (el conductor espera a que se renueve), con la IA que trabajo si se sabe. */
+function errorDeLimite(r) {
+  const e = error(r?.error || `Se acabó por ahora el uso de tu plan de ${r?.motor ? nombreIA(r.motor) : nombreIA()}.`, 'limite-claude');
+  if (r?.motor) e.error.motor = r.motor;
+  return e;
+}
+
+// Los lotes con su paso `anuncios` corriendo ahora (slug -> su estado en memoria). Con una revision o un ajuste
+// repartido (tanda en curso), no se puede cambiar de IA (motor-ia.elegirMotor responde 409): esa tanda se volveria a
+// correr con la otra IA y con el tamaño de la anterior. Los lotes detenidos o esperando no cuentan.
+const lotesEnMarcha = new Map();
+
+/** true si algun lote en marcha tiene una tanda de revision o de ajuste sin terminar. */
+export function hayLoteRevisandoOAjustando() {
+  for (const est of lotesEnMarcha.values()) {
+    for (const t of Object.values(est?.tandas || {})) if (t?.estado === 'en-curso' && (t.tipo === 'revision' || t.tipo === 'ajuste')) return true;
+  }
+  return false;
+}
+alPreguntarLotesOcupados(hayLoteRevisandoOAjustando);
+
+function anotarRegistro(carpeta, tanda, datos) {
+  try {
+    fs.mkdirSync(path.dirname(R.registro(carpeta, tanda)), { recursive: true });
+    fs.appendFileSync(R.registro(carpeta, tanda), JSON.stringify({ type: 'app', momento: ahora(), ...datos }) + '\n', 'utf8');
+  } catch {
+    /* sin registro no se frena nada */
+  }
+}
+
+// ---------------------------------------------------------------- 1. preparar
+
+async function preparar(ctx) {
+  const b = ctx.brief;
+  const c = ctx.carpeta;
+  if (!b || b.familia !== FAMILIA || !Number.isInteger(b.cantidad) || b.cantidad < 1 || b.cantidad > 100 || !Array.isArray(b.formatos) || !b.formatos.includes('1:1')) {
+    return error('Este lote quedó incompleto y así no lo puedo hacer. Crea uno nuevo desde «Anuncios de imagen».', 'brief', 'app/brief.json');
+  }
+  // ffmpeg arma la revision y pega el logo: sin el, no se paga nada
+  const ff = await local.comprobarFfmpeg({ otraVez: true });
+  if (!ff.ok) {
+    return error('Falta un programa que la app necesita para revisar y armar tus imágenes (ffmpeg). Cierra la app y vuelve a abrirla: se instala solo.', 'ffmpeg', ff.bin ? `le faltan los filtros: ${ff.faltan.join(', ')}` : 'ffmpeg no está');
+  }
+  // la foto del producto (una copia: si despues cambias la del producto, este lote sigue con la suya)
+  if (!fotoDelLote(c)) {
+    const abs = rutaFoto(b.productoId, b.fotoProducto ?? 1) || fotoPrincipal(b.productoId);
+    if (!abs) return error('Falta la foto del producto. Súbela en el formulario y toca «Continuar».', 'foto');
+    const ext = path.extname(abs).toLowerCase().replace('.jpeg', '.jpg');
+    fs.mkdirSync(R.entrada(c), { recursive: true });
+    const tmp = path.join(R.entrada(c), `.producto-${process.pid}${ext}`);
+    fs.copyFileSync(abs, tmp);
+    fs.renameSync(tmp, path.join(R.entrada(c), `producto${ext}`));
+  }
+  if (!existe(R.ficha(c))) {
+    const ficha = b.productoId ? leerJSON(path.join(PRODUCTOS, b.productoId, 'ficha.json')) : null;
+    if (ficha) guardarJSON(R.ficha(c), ficha);
+  }
+  if (!existe(R.anterior(c)) && b.productoId) {
+    const a = loteAnterior(b.productoId, ctx.slug);
+    if (a) guardarJSON(R.anterior(c), a);
+  }
+  if (!existe(R.usados(c))) guardarJSON(R.usados(c), b.productoId ? usadosDe(b.productoId, ctx.slug) : []);
+  guardarJSON(R.lote(c), {
+    version: 1,
+    modelo: MODELO,
+    resolucion: RESOLUCION,
+    fondo: 'opaco',
+    producto: fotoDelLote(c),
+    formatos: b.formatos,
+    logo: b.logo?.posicion ? { posicion: b.logo.posicion } : null,
+  });
+  return { ok: true };
+}
+
+// ---------------------------------------------------------------- 2. saldo
+
+async function saldo(ctx) {
+  const n = piezasPorHacer(ctx.carpeta, ctx.brief);
+  if (!n) return { ok: true };
+  let s = null;
+  for (let intento = 0; s === null; ) {
+    s = await consultarSaldoKie();
+    if (s !== null) break;
+    if (!(await hayConexion())) {
+      if (!(await ctx.esperarConexion())) return { cancelado: true };
+    } else if (intento < ESPERAS_REINTENTO_MS.length) {
+      if (!(await ctx.esperar(ESPERAS_REINTENTO_MS[intento++], 'No pude consultar tu saldo de kie: lo intento de nuevo en un momento.'))) return { cancelado: true };
+    } else break;
+  }
+  if (s === null) return error('No pude consultar tu saldo de kie. Revisa tu clave de kie en Ajustes y toca “Continuar”.', 'clave');
+  if (s < n * CREDITOS_POR_IMAGEN) return { pausa: { motivo: 'saldo', mensaje: mensajeDeFallo('saldo') } };
+  return { ok: true };
+}
+
+// ---------------------------------------------------------------- 3. la estrategia (la IA)
+
+async function estrategia(ctx) {
+  const c = ctx.carpeta;
+  const b = ctx.brief;
+  const s = sesionEstrategia({ carpeta: c, lote: ctx.slug, brief: b });
+  // ya esta (se cerro la app justo despues): no se repite
+  if (!existe(R.bloqueo(c)) && verificarSesion({ carpeta: c, brief: b, tipo: 'estrategia', ids: s.ids }).ok) return { ok: true };
+  // "Continuar" despues de un bloqueo: la IA lo intenta otra vez
+  fs.rmSync(R.bloqueo(c), { force: true });
+  ctx.avance('Esperando su turno con la IA');
+  if (!(await turnoClaude.esperar(ctx.slug, 3, ctx.senal))) return { cancelado: true };
+  try {
+    const claude = await ctx.claude();
+    if (!claude?.lanzarSesion) return error(sinProgramaDeLaIA(), 'claude');
+    const p = ctx.paso;
+    p.uuid ||= crypto.randomUUID();
+    ctx.guardar();
+    let r = null;
+    for (let i = 1; i <= 2; i++) {
+      ctx.avance('La IA está armando la estrategia de tu lote');
+      r = await claude.lanzarSesion({
+        tipo: 'imagen-ads-estrategia',
+        cwd: RAIZ,
+        uuid: p.uuid,
+        resume: p.empezada === true,
+        prompt: p.empezada ? `(El intento anterior no terminó.) Sigue con la tarea de antes y termínala.\n\n${s.prompt}` : s.prompt,
+        ...permisos(ctx.slug, s.escribe, { conSkill: true, claude }),
+        material: s.material,
+        esfuerzo: s.esfuerzo,
+        maxTurnos: s.maxTurnos,
+        timeoutMs: s.timeoutMin * 60000,
+        silencioMs: SILENCIO_MS,
+        correcciones: 2,
+        verificar: s.verificar,
+        senal: ctx.senal,
+        alProgreso: (f) => ctx.avance(f),
+        registro: R.registro(c, 'E001'),
+      });
+      p.empezada = true;
+      if (r?.motor) p.motor = r.motor; // la IA que hizo la estrategia (la nombra el informe del lote)
+      ctx.guardar();
+      if (r?.ok) {
+        if (r.verificacion?.avisos?.length) anotarRegistro(c, 'E001', { avisos: r.verificacion.avisos });
+        return { ok: true };
+      }
+      // no cuentan como intento: Detener, el limite del plan, sin sesion, sin la IA, un plan sin Codex, un bloqueo
+      if (ctx.senal.aborted || r?.cancelado) return { cancelado: true };
+      if (r?.limite || r?.enPausa) return errorDeLimite(r);
+      // (un plan de ChatGPT sin Codex no se renueva solo: error con "Continuar", nunca una espera)
+      if (r?.sinSesion || r?.sinClaude || r?.planSinCodex) return error(r.error, 'claude');
+      if (r?.bloqueado) return error(leerBloqueo(c) || r.error, 'bloqueo');
+      if (r?.ocupada) {
+        await dormir(5000, ctx.senal);
+        i--;
+        if (ctx.senal.aborted) return { cancelado: true };
+      }
+    }
+    return error('La IA no pudo terminar la estrategia de tu lote. Toca “Continuar” para que lo intente otra vez.', 'claude', r?.detalle || r?.error);
+  } finally {
+    turnoClaude.soltar(ctx.slug);
+  }
+}
+
+// ---------------------------------------------------------------- 4. los anuncios: el bucle de tres carriles
+
+/** Lo que dijo el motor de una orden (con cache por fecha del archivo). */
+function leerResultado(carpeta, trabajo, cache) {
+  const ruta = R.resultado(carpeta, trabajo);
+  const f = firma(ruta);
+  if (!f) return null;
+  const c = cache.get(trabajo);
+  if (c?.firma === f) return c.res;
+  const res = leerJSON(ruta);
+  if (res) cache.set(trabajo, { firma: f, res });
+  return res || c?.res || null;
+}
+
+/** Las ordenes que el motor todavia no termino, y cada (orden, pieza) que falta: { vivas: ['T003'], claves: Set }. */
+function ordenesSinTerminar(carpeta, cache) {
+  const vivas = [];
+  const claves = new Set();
+  for (const n of listar(R.motor(carpeta)).filter((x) => /^T\d+\.json$/.test(x)).sort()) {
+    const id = n.replace(/\.json$/, '');
+    const o = leerJSON(R.orden(carpeta, id));
+    if (!o?.piezas?.length) continue;
+    const res = leerResultado(carpeta, id, cache);
+    if (res?.terminado === true) continue;
+    const faltan = o.piezas.filter((x) => {
+      const r = res?.piezas?.[x.pieza];
+      return !(r && r.orden === x.orden && ['lista', 'sin-imagen'].includes(r.estado));
+    });
+    if (!faltan.length) continue;
+    vivas.push(id);
+    for (const x of faltan) claves.add(`${id}:${x.pieza}:${x.orden}`);
+  }
+  return { vivas, claves };
+}
+
+/** Lee lo que escriben los demas: los pedidos nuevos y lo que va diciendo el motor (nunca vuelve a leer estado.json). */
+function absorber(est, carpeta, run) {
+  plan.absorberPedidos(est, leerJSON(R.pedidos(carpeta))?.pedidos);
+  const porTrabajo = new Map();
+  for (const [pieza, p] of Object.entries(est.piezas)) {
+    if (p.fase === 'pedida' && p.orden?.trabajo) {
+      if (!porTrabajo.has(p.orden.trabajo)) porTrabajo.set(p.orden.trabajo, []);
+      porTrabajo.get(p.orden.trabajo).push(pieza);
+    }
+    // una imagen que cambio despues de quedar por revisar (el motor la termino de mover): se revisa la nueva
+    if (p.fase === 'por-revisar') {
+      const f = firma(R.img(carpeta, pieza));
+      if (f && f !== p.firma) p.firma = f;
+    }
+  }
+  for (const [trabajo, piezas] of porTrabajo) {
+    const res = leerResultado(carpeta, trabajo, run.cache);
+    if (!res?.piezas) continue;
+    for (const pieza of piezas) {
+      const r = res.piezas[pieza];
+      if (!r) continue;
+      const que = plan.aplicarResultado(est, pieza, r, { firmaActual: firma(R.img(carpeta, pieza)) });
+      if (que) run.fallosMotor = 0; // una pieza terminada: el motor avanza
+      if (que === 'lista') local.borrarRecortes(carpeta, pieza); // los recortes de antes eran de la imagen vieja
+    }
+  }
+}
+
+/** Lo que se ve en disco (firmas de img/, recortes listos, vistas, finales con el logo al dia, ordenes vivas). */
+function mirarDisco(carpeta, est, brief, run) {
+  const conLogo = Boolean(brief?.logo?.posicion && existe(R.logo(carpeta)));
+  const shaLogo = conLogo ? local.sha1DelLogo(carpeta) : null;
+  const imagenes = {};
+  const recortes = {};
+  const vistas = {};
+  const finales = {};
+  for (const [pieza, p] of Object.entries(est.piezas)) {
+    imagenes[pieza] = firma(R.img(carpeta, pieza));
+    if (p.fase === 'por-revisar' || p.fase === 'revisando') recortes[pieza] = local.firmaDeRecortes(carpeta, pieza);
+    vistas[pieza] = existe(R.vista(carpeta, pieza));
+    if (conLogo && p.fase === 'final' && imagenes[pieza]) finales[pieza] = local.finalAlDia(carpeta, pieza, { posicion: brief.logo.posicion, shaLogo });
+  }
+  const { vivas } = ordenesSinTerminar(carpeta, run.cache);
+  return { ahora: Date.now(), imagenes, recortes, vistas, finales, ordenesVivas: vivas, conLogo };
+}
+
+/** Escribe la orden nueva al motor (T### = el mas alto en disco + 1) y anota sus piezas como pedidas. */
+function escribirOrden(carpeta, est, orden) {
+  const n = Math.max(Number(est.siguiente?.T) || 1, siguienteEnDisco(R.motor(carpeta), /^T(\d+)\.json$/));
+  const id = conCeros('T', n);
+  guardarJSON(R.orden(carpeta, id), { id, creado: ahora(), piezas: orden.piezas });
+  est.siguiente.T = n + 1;
+  plan.marcarOrden(est, id, orden);
+  return id;
+}
+
+const MOTOR = 'generar-imagen-ads.js';
+const MOTOR_FALSO = 'pruebas/motor-falso-imagen-ads.js';
+
+/**
+ * El script del motor. En la app de verdad, siempre produccion/generar-imagen-ads.js. El motor falso (lo usa solo
+ * app/herramientas/probar-imagen-ads.mjs) entra unicamente en modo prueba y con ANUNCIOS_MOTOR_IMAGEN_ADS apuntando a el.
+ */
+export function scriptDelMotor() {
+  return modoPrueba() && process.env.ANUNCIOS_MOTOR_IMAGEN_ADS === MOTOR_FALSO ? MOTOR_FALSO : MOTOR;
+}
+
+/** El motor: un proceso por lote que toma las ordenes de su carpeta y sale solo cuando no tiene trabajo. */
+async function lanzarMotor(ctx, run) {
+  const antes = ordenesSinTerminar(ctx.carpeta, run.cache).claves;
+  const script = scriptDelMotor();
+  // La corrida de gasto anterior quedo abierta (la app se cerro de golpe con el motor andando): gasto.js va a reusar su
+  // foto, asi que el motor sigue el registro que dejo el proceso cortado en vez de pisarlo (generar-imagen-ads.js).
+  const cortada = existe(path.join(ctx.carpeta, 'app', 'gasto', 'en-curso.json'));
+  let r;
+  try {
+    r = await ctx.correr(script, [ctx.carpetaArg, ...(cortada ? ['--heredar-log'] : [])], { que: ['imagenes'], topeKie: 6 });
+  } catch (e) {
+    if (e?.sinModoPrueba) {
+      run.duro = error('El modo prueba no está listo: no se corrió nada para no gastar.', 'modo-prueba', String(e.message || e));
+      return;
+    }
+    r = { codigo: 1, texto: String(e?.stack || e) };
+  }
+  if (r.cancelado || ctx.senal.aborted) return; // lo detuviste: no cuenta
+  if (r.codigo === 0) {
+    const despues = ordenesSinTerminar(ctx.carpeta, run.cache).claves;
+    // salio bien: avanzo si termino algo de lo que habia al lanzarlo (si no termino nada, cuenta como un fallo: asi
+    // nunca se relanza sin fin)
+    if (!antes.size || [...antes].some((k) => !despues.has(k))) run.fallosMotor = 0;
+    else contarFalloDelMotor(run, 'otro', 'el motor terminó sin avanzar');
+    return;
+  }
+  const clase = r.clase || clasificarFallo(r.texto);
+  if (clase === 'saldo') {
+    run.duro = { pausa: { motivo: 'saldo', mensaje: mensajeDeFallo('saldo') } };
+    return;
+  }
+  if (clase === 'clave') {
+    run.duro = error(mensajeDeFallo('clave'), 'clave', ultimasLineas(r.texto));
+    return;
+  }
+  contarFalloDelMotor(run, clase, ultimasLineas(r.texto));
+}
+
+function contarFalloDelMotor(run, clase, detalle) {
+  run.fallosMotor++;
+  // dos fallos seguidos: error con "Continuar" (nunca un bucle sin freno)
+  if (run.fallosMotor >= 2) run.duro = error(mensajeDeFallo(clase, { que: 'tus imágenes' }), clase || 'otro', detalle);
+}
+
+/** La sesion de una tanda (lo que le toca a la IA). */
+function sesionDe(ctx, est, id, t, brief) {
+  if (t.tipo === 'prompts') return sesionPrompts({ carpeta: ctx.carpeta, lote: ctx.slug, brief, ids: t.ids });
+  if (t.tipo === 'revision') return sesionRevision({ carpeta: ctx.carpeta, lote: ctx.slug, brief, tanda: id, t });
+  return sesionAjuste({ carpeta: ctx.carpeta, lote: ctx.slug, brief, tanda: id, pedidos: t.pedidos.map((u) => est.pedidos[u]).filter(Boolean) });
+}
+
+const firmasDe = (carpeta, piezas) => Object.fromEntries(piezas.map((p) => [p, firma(R.img(carpeta, p))]));
+
+/** Lo que dejo escrito una tanda que termino bien, aplicado al estado. */
+function aplicarTanda(ctx, est, id, brief, r) {
+  const c = ctx.carpeta;
+  const t = est.tandas[id];
+  if (r?.verificacion?.avisos?.length) anotarRegistro(c, id, { avisos: r.verificacion.avisos });
+  if (t.tipo === 'prompts') return plan.aplicarPrompts(est, id);
+  if (t.tipo === 'revision') {
+    const piezas = t.piezas.map((x) => x.pieza);
+    const v = verificarRevision(c, id, piezas);
+    if (v.errores.length) return plan.aplicarRevision(est, id, { revisadas: [] }, firmasDe(c, piezas)); // vuelven a esperar revision
+    for (const p of plan.aplicarRevision(est, id, v.datos, firmasDe(c, piezas))) local.borrarRecortes(c, p);
+    return;
+  }
+  if (t.tipo === 'ajuste') {
+    const v = verificarAjuste(c, id, t.pedidos.map((u) => ({ id: u, pieza: est.pedidos[u]?.pieza })), brief);
+    return plan.aplicarAjuste(est, id, v.errores.length ? { pedidos: [] } : v.datos);
+  }
+}
+
+/** Una tanda de la IA: dos intentos de verdad como mucho; lo que no es un fallo de verdad no cuenta. */
+async function correrTanda(ctx, est, run, d, brief) {
+  const c = ctx.carpeta;
+  const senal = run.senal || ctx.senal; // la del bucle (Detener o un error del bucle)
+  let id = d.tanda;
+  if (!id) {
+    const letra = d.tipo === 'prompts' ? 'E' : d.tipo === 'revision' ? 'R' : 'A';
+    const n = Number(est.siguiente[letra]) || 1;
+    id = conCeros(letra, n);
+    est.siguiente[letra] = n + 1;
+  }
+  const t = plan.iniciarTanda(est, d, id, est.tandas[id]?.uuid || crypto.randomUUID());
+  t.uuid ||= crypto.randomUUID();
+  run.tanda = id;
+  guardar(c, est);
+  const claude = await ctx.claude();
+  if (!claude?.lanzarSesion) {
+    run.duro = error(sinProgramaDeLaIA(), 'claude');
+    return;
+  }
+  const s = sesionDe(ctx, est, id, t, brief);
+  if (t.tipo === 'prompts') fs.rmSync(R.bloqueo(c), { force: true });
+  const usados = run.intentos.get(id) || 0;
+  for (let i = usados + 1; i <= 2; i++) {
+    run.frase = null;
+    const r = await claude.lanzarSesion({
+      tipo: `imagen-ads-${t.tipo}`,
+      cwd: RAIZ,
+      uuid: t.uuid,
+      resume: t.empezada === true,
+      prompt: t.empezada ? `(El intento anterior no terminó.) Sigue con la tarea de antes y termínala.\n\n${s.prompt}` : s.prompt,
+      ...permisos(ctx.slug, s.escribe, { conSkill: s.conSkill, claude }),
+      material: s.material,
+      ...(s.esfuerzo ? { esfuerzo: s.esfuerzo } : {}),
+      maxTurnos: s.maxTurnos,
+      timeoutMs: s.timeoutMin * 60000,
+      silencioMs: SILENCIO_MS,
+      correcciones: 2,
+      verificar: s.verificar,
+      senal,
+      alProgreso: (f) => {
+        run.frase = f;
+      },
+      registro: R.registro(c, id),
+    });
+    if (run.cerrado) return; // el bucle se cayo mientras tanto: el estado en memoria ya no es el que manda
+    t.empezada = true;
+    guardar(c, est);
+    if (r?.ok) {
+      aplicarTanda(ctx, est, id, brief, r);
+      if (est.tandas[id].estado === 'en-curso') est.tandas[id].estado = 'hecha';
+      return;
+    }
+    // NO cuentan como intento: Detener, la pausa o el limite del plan, sin sesion, sin la IA, un plan de ChatGPT sin
+    // Codex (no se renueva solo: error con "Continuar"), "ya esta trabajando en esto"
+    if (senal.aborted || r?.cancelado) return;
+    if (r?.limite || r?.enPausa) {
+      // La revision es solo un aviso: sin plan, esas piezas quedan «sin revisar» con su nota y el lote sigue (lo que
+      // llegue despues en esta vuelta tampoco espera: run.sinRevision). Escribir anuncios o preparar un cambio tuyo
+      // si espera a que se renueve el plan, como siempre.
+      if (t.tipo === 'revision') {
+        run.sinRevision = r;
+        for (const p of plan.dejarSinRevisar(est, (t.piezas || []).map((x) => x.pieza), { tanda: id, mensaje: notaSinRevision(r) })) local.borrarRecortes(c, p);
+        guardar(c, est);
+        return;
+      }
+      run.limite = r;
+      return;
+    }
+    if (r?.sinSesion || r?.sinClaude || r?.planSinCodex) {
+      run.duro = error(r.error, 'claude');
+      return;
+    }
+    if (r?.ocupada) return;
+    if (r?.bloqueado) {
+      run.duro = error(leerBloqueo(c) || r.error, 'bloqueo');
+      return;
+    }
+    run.intentos.set(id, i); // un fallo de verdad: lo escrito no paso la revision tras 2 correcciones, se colgo, tardo…
+    anotarRegistro(c, id, { fallo: r?.error || null, detalle: r?.detalle || null });
+  }
+  plan.marcarFallida(est, id);
+  if (t.tipo === 'revision') for (const x of t.piezas || []) local.borrarRecortes(c, x.pieza);
+}
+
+/** La revision del modo prueba: siempre igual y sin la IA (revision-simulada.js). */
+function aplicarSimuladas(carpeta, est, piezas) {
+  for (const f of ['1:1', '9:16']) {
+    const de = piezas.filter((p) => formatoDe(p) === f);
+    const tope = f === '1:1' ? plan.revisionCuadrados() : plan.TOPES.revisionVerticales;
+    for (let i = 0; i < de.length; i += tope) {
+      const grupo = de.slice(i, i + tope);
+      const n = Number(est.siguiente.R) || 1;
+      const id = conCeros('R', n);
+      est.siguiente.R = n + 1;
+      const t = plan.iniciarTanda(est, { tipo: 'revision', formato: f, piezas: grupo.map((p) => ({ pieza: p, firma: est.piezas[p].firma, ronda: est.piezas[p].ronda })) }, id, null);
+      t.simulada = true;
+      const json = revisionDeLaTanda(t.piezas);
+      guardarJSON(R.revision(carpeta, id), json);
+      for (const p of plan.aplicarRevision(est, id, json, firmasDe(carpeta, grupo))) local.borrarRecortes(carpeta, p);
+    }
+  }
+}
+
+/** Lo local (como mucho 2 a la vez). Tres fallos seguidos = error (ffmpeg no responde). */
+async function correrLocal(ctx, tareas, brief, run) {
+  const senal = run.senal || ctx.senal;
+  await Promise.all(
+    tareas.map(async (x) => {
+      try {
+        if (x.tipo === 'recortes') await local.hacerRecortes(ctx.carpeta, x.pieza, { senal });
+        else if (x.tipo === 'vista') await local.hacerVista(ctx.carpeta, x.pieza, { senal });
+        else if (x.tipo === 'logo') await local.componerLogo(ctx.carpeta, ctx.slug, x.pieza, brief, { senal });
+        run.fallosLocal = 0;
+      } catch (e) {
+        if (senal.aborted) return;
+        run.fallosLocal = (run.fallosLocal || 0) + 1;
+        console.error(`[imagen-ads] ${ctx.slug}: ${x.tipo} de ${x.pieza}: ${e?.message || e}`);
+        if (run.fallosLocal >= 3) run.duro = error('No pude preparar tus imágenes en la computadora (ffmpeg). Toca “Continuar” para probar de nuevo.', 'ffmpeg', String(e?.message || e));
+      }
+    })
+  );
+}
+
+/** "Creando 6 imágenes · Claude está revisando 8 imágenes · 12 de 20 listas" (o ChatGPT: la IA elegida). */
+function fraseDelLote(est, run, { claude }) {
+  const c = plan.cuentas(est);
+  const partes = [];
+  if (c.enMotor) partes.push(`Creando ${c.enMotor} ${c.enMotor === 1 ? 'imagen' : 'imágenes'}`);
+  if (claude && run.tanda) {
+    const t = est.tandas[run.tanda];
+    const ia = NombreIA();
+    const general =
+      t?.tipo === 'prompts'
+        ? `${ia} está escribiendo ${t.ids.length} ${t.ids.length === 1 ? 'anuncio' : 'anuncios'}`
+        : t?.tipo === 'revision'
+          ? `${ia} está revisando ${t.piezas.length} ${t.piezas.length === 1 ? 'imagen' : 'imágenes'}`
+          : `${ia} está preparando tus cambios`;
+    // («Claude empezó a trabajar» / «ChatGPT empezó a trabajar» no dicen nada mas que la frase general)
+    partes.push(run.frase && !/ empezó a trabajar$/.test(run.frase) ? `${general}: ${run.frase.charAt(0).toLowerCase()}${run.frase.slice(1)}` : general);
+  } else if (run.limite) partes.push(`${NombreIA(run.limite.motor)} está en pausa hasta que se renueve tu plan`);
+  partes.push(`${c.listas} de ${c.total} listas`);
+  return partes.join(' · ');
+}
+
+/**
+ * Corta los carriles que siguen vivos y espera a que terminen (el bucle se cayo por un error): Claude y lo local ya
+ * vieron su senal; el motor se corta por su proceso (y otra vez si justo lo relanzaba un reintento de red).
+ */
+async function cortarCarriles(ctx, vivos) {
+  for (;;) {
+    const lista = vivos().filter(Boolean);
+    if (!lista.length) return;
+    if (vivos()[1]) await cancelarMotor(ctx.slug).catch(() => {});
+    await Promise.race([Promise.allSettled(lista), dormir(1000)]);
+  }
+}
+
+async function anuncios(ctx) {
+  const c = ctx.carpeta;
+  const lote = ctx.slug;
+  const simulada = revisionSimulada();
+  const pasoEstrategia = ctx.conductor?.pasos?.find((p) => p.id === 'estrategia');
+  const uuidEstrategia = pasoEstrategia?.uuid || null;
+  const motorEstrategia = pasoEstrategia?.motor || null; // la IA que hizo la estrategia (estado.json la guarda en E001)
+  const est = cargarYNormalizar(c, ctx.brief, { uuidEstrategia, motorEstrategia, simulada }); // UNA lectura; despues, memoria
+  guardar(c, est);
+  // Los carriles de la IA y lo local van con su propia senal: la de Detener o la de un error del bucle (asi el paso
+  // nunca vuelve con algo vivo escribiendo, ni siquiera si se cae).
+  const corte = new AbortController();
+  const senal = AbortSignal.any([ctx.senal, corte.signal]);
+  const run = { fallosMotor: 0, fallosLocal: 0, intentos: new Map(), limite: null, sinRevision: null, duro: null, frase: null, tanda: null, cache: new Map(), senal, cerrado: false };
+  let claude = null;
+  let motor = null;
+  let locales = null;
+  lotesEnMarcha.set(lote, est);
+  try {
+    return await bucleDeAnuncios();
+  } catch (e) {
+    // el bucle se cayo (p. ej. el disco no dejo guardar): nada queda vivo ni escribe estado.json despues
+    run.cerrado = true;
+    corte.abort();
+    await cortarCarriles(ctx, () => [claude, motor, locales]);
+    turnoClaude.retirar(lote);
+    throw e;
+  } finally {
+    if (lotesEnMarcha.get(lote) === est) lotesEnMarcha.delete(lote);
+  }
+
+  async function bucleDeAnuncios() {
+    for (;;) {
+      if (ctx.senal.aborted) break;
+      const brief = leerJSON(R.brief(c)) || ctx.brief; // el logo puede cambiar mientras corre
+      absorber(est, c, run);
+      const hechos = mirarDisco(c, est, brief, run);
+      // sin plan para revisar (una revision ya choco con el limite en esta vuelta): lo que espera revision queda «sin
+      // revisar» con su nota y no frena el lote (la revision es solo un aviso)
+      if (run.sinRevision) for (const p of plan.dejarSinRevisar(est, plan.piezasPorRevisar(est), { mensaje: notaSinRevision(run.sinRevision) })) local.borrarRecortes(c, p);
+      const d = plan.decidir(est, hechos, { claudeLibre: !claude && !run.limite && !run.duro, motorLibre: !run.duro, localLibre: !locales, simulada });
+      if (d.orden) escribirOrden(c, est, d.orden);
+      if (!motor && !run.duro && (d.orden || hechos.ordenesVivas.length)) motor = lanzarMotor(ctx, run).finally(() => (motor = null));
+      if (d.simulada.length) aplicarSimuladas(c, est, d.simulada);
+      if (d.claude && !claude) {
+        if (turnoClaude.tomar(lote, d.claude.prioridad)) {
+          claude = correrTanda(ctx, est, run, d.claude, brief)
+            .catch((e) => {
+              console.error(`[imagen-ads] ${lote}: la tanda de la IA se cayó:`, e?.stack || e);
+              run.duro = error('Algo salió mal en la app mientras trabajaba la IA. Toca “Continuar” para seguir desde donde quedó.', 'app', String(e?.stack || e));
+            })
+            .finally(() => {
+              turnoClaude.soltar(lote);
+              run.tanda = null;
+              claude = null;
+            });
+        }
+      } else if (!claude) turnoClaude.retirar(lote);
+      if (d.local.length && !locales) locales = correrLocal(ctx, d.local, brief, run).finally(() => (locales = null));
+      guardar(c, est);
+      ctx.avance(fraseDelLote(est, run, { claude: Boolean(claude) }));
+      if (d.terminado && !claude && !motor && !locales) {
+        turnoClaude.retirar(lote);
+        guardar(c, est);
+        return { ok: true };
+      }
+      if ((run.duro || run.limite) && !claude && !motor && !locales && !d.orden && !d.local.length && !d.simulada.length) {
+        turnoClaude.retirar(lote);
+        guardar(c, est);
+        if (run.duro) return run.duro; // { pausa: { motivo: 'saldo' } } · { ok: false, error }
+        return errorDeLimite(run.limite); // el conductor espera a que se renueve
+      }
+      await Promise.race([claude, motor, locales, dormir(2000, ctx.senal)].filter(Boolean));
+    }
+    await Promise.allSettled([claude, motor, locales].filter(Boolean)); // nunca vuelve con algo vivo escribiendo
+    turnoClaude.retirar(lote);
+    guardar(c, est);
+    return { cancelado: true };
+  }
+}
+
+// ---------------------------------------------------------------- 5. informe
+
+async function informe(ctx) {
+  const c = ctx.carpeta;
+  armarInforme(c, ctx.brief);
+  fs.rmSync(R.subidas(c), { recursive: true, force: true });
+  // lo que sobra de la revision (la vista queda: la usa la revision de un vertical si regeneras su cuadrado)
+  for (const n of listar(R.dirRevision(c))) if (/_r[1-4]\.png$|\.firma$|\.tmp\./.test(n)) fs.rmSync(path.join(R.dirRevision(c), n), { force: true });
+  return { ok: true };
+}
+
+export const PASOS = [
+  { id: 'preparar', nombre: 'Preparando tu lote', correr: preparar },
+  { id: 'saldo', nombre: 'Revisando tu saldo de kie', correr: saldo },
+  { id: 'estrategia', nombre: 'La IA arma la estrategia', correr: estrategia },
+  { id: 'anuncios', nombre: 'Creando tus anuncios', correr: anuncios },
+  { id: 'informe', nombre: 'Armando tu informe', correr: informe },
+];
+
+/** Para las pruebas (app/herramientas/probar-imagen-ads.mjs): el bucle y sus piezas sueltas. */
+export const _pruebas = { anuncios, estrategia, preparar, informe, lanzarMotor, correrTanda, ordenesSinTerminar, fraseDelLote, lotesEnMarcha };

@@ -36,7 +36,46 @@ export const INICIAL = Object.freeze({
   brolls: null, // [{ id, b, desde, duracion, entrada }] encima de las tomas
   ajustesTextos: {}, // id de un texto sugerido -> { texto, inicio, fin, color, fondo, tamano, x, y, fuente } (lo que se cambió)
   textosNuevos: [], // los textos que agregó el usuario: [{ id, texto, inicio, fin, color, fondo, tamano, x, y, fuente }]
+  // Tu propio video en lugar de un clip (modo «en la edición»: no toca el anuncio). La clave es la pieza del plan
+  // ORIGINAL ('toma-3', 'broll-2', 'paso-4'), así la pieza sigue llamándose igual y se puede regenerar.
+  //   { id, archivo: 'subidos/<id>.mp4', largo, nombre, mudo }   mudo: true por defecto (la voz va aparte)
+  reemplazos: {},
+  // Velocidad y deslizar por clip (misma clave): { velocidad: 0.5 a 2, desliza: segundos del clip }. desliza cambia
+  // dónde empieza lo que se ve sin mover la ventana (se suma a la entrada de cada parte de esa pieza).
+  clips: {},
 });
+
+/** Las velocidades que ofrece el editor (cualquier número entre VELOCIDAD_MIN y VELOCIDAD_MAX también vale). */
+export const VELOCIDADES = Object.freeze([0.5, 0.75, 1, 1.25, 1.5, 2]);
+export const VELOCIDAD_MIN = 0.5;
+export const VELOCIDAD_MAX = 2;
+const ARCHIVO_SUBIDO = /^subidos\/[a-z0-9]{6,40}\.mp4$/i;
+
+/** Los reemplazos guardados que sirven (archivo de subidos/ y largo conocido). */
+function limpiarReemplazos(x) {
+  const salida = {};
+  for (const [pieza, r] of Object.entries(x && typeof x === 'object' && !Array.isArray(x) ? x : {})) {
+    if (!/^(toma|broll|paso)-\d+$/.test(pieza) || !r || typeof r !== 'object') continue;
+    if (!ARCHIVO_SUBIDO.test(String(r.archivo || '')) || !(Number(r.largo) > 0)) continue;
+    salida[pieza] = { id: String(r.id || ''), archivo: String(r.archivo), largo: Number(r.largo), nombre: r.nombre ? String(r.nombre).slice(0, 200) : null, mudo: r.mudo !== false };
+  }
+  return salida;
+}
+
+/** Los ajustes de velocidad y deslizar guardados, dentro de sus topes. */
+function limpiarClips(x) {
+  const salida = {};
+  for (const [pieza, c] of Object.entries(x && typeof x === 'object' && !Array.isArray(x) ? x : {})) {
+    if (!/^(toma|broll|paso)-\d+$/.test(pieza) || !c || typeof c !== 'object') continue;
+    const v = Number(c.velocidad);
+    const d = Number(c.desliza);
+    const limpio = {};
+    if (Number.isFinite(v) && v > 0) limpio.velocidad = Math.min(VELOCIDAD_MAX, Math.max(VELOCIDAD_MIN, v));
+    if (Number.isFinite(d) && d !== 0) limpio.desliza = d;
+    if (Object.keys(limpio).length) salida[pieza] = limpio;
+  }
+  return salida;
+}
 
 /** Une lo guardado con el estado inicial (si mañana se agrega un campo, lo viejo sigue sirviendo). */
 export function completarEdicion(guardado) {
@@ -57,6 +96,8 @@ export function completarEdicion(guardado) {
     brolls: Array.isArray(guardado.brolls) ? guardado.brolls : null,
     ajustesTextos: { ...obj(guardado.ajustesTextos) },
     textosNuevos: lista(guardado.textosNuevos).filter((x) => x && typeof x === 'object' && x.id),
+    reemplazos: limpiarReemplazos(guardado.reemplazos),
+    clips: limpiarClips(guardado.clips),
   };
 }
 
@@ -82,6 +123,70 @@ export const numDe = (archivo, prefijo) => {
   return m ? Number(m[1]) : null;
 };
 
+// ---------------------------------------------------------------- tu propio video, velocidad y deslizar
+
+/** La pieza de un archivo del plan: 'toma-3' | 'broll-2' | 'paso-4' | null (recortes, sonidos, imágenes…). */
+export function piezaDeArchivo(archivo) {
+  const m = /(?:^|\/)(toma|broll|paso)-(\d+)\.mp4$/.exec(String(archivo || ''));
+  return m ? `${m[1]}-${m[2]}` : null;
+}
+
+/**
+ * Qué se puede hacer con el clip de una pieza en el editor (gratis):
+ *   { velocidad, deslizar, reemplazar: 'edicion' | 'anuncio' | null, motivo }
+ * reemplazar 'edicion': tu video entra en la edición (no toca el anuncio). 'anuncio': el audio del clip es la voz, así
+ * que tu video reemplaza la pieza de verdad y la app vuelve a medir la voz (POST /reemplazo). Con un reemplazo en la
+ * edición, la velocidad y el deslizar siempre se pueden.
+ */
+export function queSePuedeConElClip(plan, pieza, ed = null) {
+  const fam = familia(plan);
+  const esBroll = /^broll-/.test(String(pieza));
+  const reemplazado = Boolean(ed?.reemplazos?.[pieza]);
+  const todo = { velocidad: true, deslizar: true, reemplazar: 'edicion', motivo: null };
+  if (!/^(toma|broll|paso)-\d+$/.test(String(pieza))) return { velocidad: false, deslizar: false, reemplazar: null, motivo: 'Esta parte no es un clip.' };
+  if (esBroll) return todo;
+  if (fam === 'continuidad') {
+    return reemplazado ? todo : { velocidad: false, deslizar: false, reemplazar: 'edicion', motivo: 'Con continuidad cada clip va justo de una escena a la siguiente: su velocidad la pone la app. Si lo reemplazas con tu video, sí puedes cambiarla.' };
+  }
+  if (fam === 'escena' || modoVoz(plan) === 'en-clips') {
+    return { velocidad: false, deslizar: false, reemplazar: 'anuncio', motivo: 'La voz va dentro de este clip: acelerarlo o moverlo desarmaría la voz y los subtítulos. Si lo reemplazas con tu video, la app vuelve a medir la voz.' };
+  }
+  return todo;
+}
+
+/** Lo que el usuario cambió en el clip de una pieza: { reemplazo (o null), velocidad (o null = la del plan), desliza }. */
+export function ajusteDeClip(plan, ed, pieza) {
+  if (!pieza) return { reemplazo: null, velocidad: null, desliza: 0 };
+  const puede = queSePuedeConElClip(plan, pieza, ed);
+  const reemplazo = puede.reemplazar === 'edicion' ? ed?.reemplazos?.[pieza] || null : null;
+  const c = ed?.clips?.[pieza] || {};
+  const v = Number(c.velocidad);
+  return {
+    reemplazo,
+    velocidad: puede.velocidad && Number.isFinite(v) && v > 0 ? Math.min(VELOCIDAD_MAX, Math.max(VELOCIDAD_MIN, v)) : reemplazo ? 1 : null,
+    desliza: puede.deslizar && Number.isFinite(Number(c.desliza)) ? Number(c.desliza) : 0,
+  };
+}
+
+/** Una entrada (segundo del clip) dentro del clip: nunca antes de 0 ni pasada su última décima. */
+const dentroDelClip = (entrada, largo) => Math.max(0, largo ? Math.min(entrada, largo - 0.1) : entrada);
+
+/**
+ * Un clip del plan (toma o B-roll de bloques, pieza de escena, clip de continuidad) con lo que cambió el usuario:
+ * archivo y largo del video subido, velocidad, entrada (recorteInicio, con el deslizar) y mudo. Sin cambios, el mismo
+ * objeto. `base` = la entrada sin el deslizar (si no viene, la del clip; con un reemplazo, 0).
+ */
+function clipAjustado(o, aj, { base = null } = {}) {
+  if (!o || (!aj.reemplazo && aj.velocidad === null && !aj.desliza)) return o;
+  const r = aj.reemplazo;
+  const largo = r ? r.largo : num(o.largoOriginal ?? o.largo) > 0 ? num(o.largoOriginal ?? o.largo) : null;
+  const desde = base ?? (r ? 0 : num(o.recorteInicio));
+  const salida = { ...o, recorteInicio: dentroDelClip(desde + aj.desliza, largo) };
+  if (aj.velocidad !== null) salida.velocidad = aj.velocidad;
+  if (r) Object.assign(salida, { archivo: r.archivo, largoOriginal: r.largo, largo: r.largo, mudo: r.mudo !== false, audioDeformado: false, reemplazo: true });
+  return salida;
+}
+
 // ---------------------------------------------------------------- cortar y mover tomas y B-roll
 
 // LA VOZ NO SE MUEVE: es la base del anuncio. Las tomas van una detrás de otra y entre todas cubren justo lo que
@@ -97,9 +202,9 @@ const num = (x, d = 0) => (Number.isFinite(Number(x)) ? Number(x) : d);
 /** Qué se puede cortar y mover en este anuncio, y por qué no lo demás. */
 export function cortesPosibles(plan) {
   const fam = familia(plan);
-  if (fam === 'continuidad') return { tomas: false, brolls: false, motivo: 'Con continuidad cada escena se transforma en la siguiente: las tomas no se cortan ni se mueven.' };
-  if (fam === 'escena') return { tomas: false, brolls: false, motivo: 'En este estilo la voz va dentro de las tomas: cortarlas o moverlas cortaría la voz. El B-roll se puede quitar.' };
-  if (modoVoz(plan) === 'en-clips') return { tomas: false, brolls: true, motivo: 'La voz va dentro de las tomas: cortarlas o moverlas cortaría la voz.' };
+  if (fam === 'continuidad') return { tomas: false, brolls: false, motivo: 'Con continuidad cada escena se transforma en la siguiente: las escenas no se cortan ni se mueven.' };
+  if (fam === 'escena') return { tomas: false, brolls: false, motivo: 'En este estilo la voz va dentro de las escenas: cortarlas o moverlas cortaría la voz. Las imágenes de apoyo se pueden quitar.' };
+  if (modoVoz(plan) === 'en-clips') return { tomas: false, brolls: true, motivo: 'La voz va dentro de las escenas: cortarlas o moverlas cortaría la voz.' };
   return { tomas: true, brolls: true, motivo: null };
 }
 
@@ -121,19 +226,42 @@ export function tomasDeEdicion(plan, ed) {
   const bl = plan?.bloques || [];
   const dur = num(plan?.duracion, 1);
   let lista = Array.isArray(ed?.tomas) ? ed.tomas.filter((s) => s && Number.isInteger(s.b) && bl[s.b]?.toma && num(s.duracion) > 0) : null;
-  if (!lista || !lista.length) lista = tomasBase(plan);
+  const sinCortes = !lista || !lista.length;
+  if (sinCortes) lista = tomasBase(plan);
   let t = 0;
   const salida = [];
   lista.forEach((s, i) => {
     const o = bl[s.b].toma;
-    const velocidad = num(o.velocidad, 1) || 1;
-    const largo = num(o.largoOriginal) > 0 ? num(o.largoOriginal) : null;
+    // tu video o la velocidad que elegiste (la pieza es la del plan original: sigue llamándose igual)
+    const pieza = piezaDeArchivo(o.archivo);
+    const aj = ajusteDeClip(plan, ed, pieza);
+    const r = aj.reemplazo;
+    const velocidad = aj.velocidad ?? (num(o.velocidad, 1) || 1);
+    const largo = r ? r.largo : num(o.largoOriginal) > 0 ? num(o.largoOriginal) : null;
     const inicio = t;
     const fin = i === lista.length - 1 ? dur : Math.min(dur, t + num(s.duracion));
     if (fin - inicio <= 1e-6) return;
     t = fin;
-    const entrada = Math.max(0, largo ? Math.min(num(s.entrada), largo - 0.1) : num(s.entrada));
-    salida.push({ id: String(s.id), b: s.b, entrada, duracion: fin - inicio, cabeza: s.cabeza !== false, inicio, fin, archivo: o.archivo, velocidad, largo, cubre: largo ? Math.max(0, (largo - entrada) / velocidad) : null });
+    const entrada = dentroDelClip(r && sinCortes ? 0 : num(s.entrada), largo);
+    // lo que se ve: la entrada con el deslizar (`entrada` es la guardada, la que mueven cortar y recortar)
+    const entradaVista = dentroDelClip(entrada + aj.desliza, largo);
+    salida.push({
+      id: String(s.id),
+      b: s.b,
+      entrada,
+      entradaVista,
+      duracion: fin - inicio,
+      cabeza: s.cabeza !== false,
+      inicio,
+      fin,
+      archivo: r ? r.archivo : o.archivo,
+      pieza,
+      reemplazado: Boolean(r),
+      mudo: r ? r.mudo !== false : Boolean(o.audioDeformado || o.mudo),
+      velocidad,
+      largo,
+      cubre: largo ? Math.max(0, (largo - entradaVista) / velocidad) : null,
+    });
   });
   if (salida.length && salida[salida.length - 1].fin < dur) {
     const u = salida[salida.length - 1];
@@ -158,16 +286,37 @@ export function brollsBase(plan) {
 export function brollsDeEdicion(plan, ed) {
   const bl = plan?.bloques || [];
   const dur = num(plan?.duracion, 1);
-  const lista = Array.isArray(ed?.brolls) ? ed.brolls.filter((x) => x && Number.isInteger(x.b) && bl[x.b]?.broll?.archivo) : brollsBase(plan);
+  const sinCortes = !Array.isArray(ed?.brolls);
+  const lista = sinCortes ? brollsBase(plan) : ed.brolls.filter((x) => x && Number.isInteger(x.b) && bl[x.b]?.broll?.archivo);
   return lista
     .map((x) => {
       const o = bl[x.b].broll;
-      const velocidad = num(o.velocidad, 1) || 1;
-      const largo = num(o.largoOriginal) > 0 ? num(o.largoOriginal) : null;
+      const pieza = piezaDeArchivo(o.archivo);
+      const aj = ajusteDeClip(plan, ed, pieza);
+      const r = aj.reemplazo;
+      const velocidad = aj.velocidad ?? (num(o.velocidad, 1) || 1);
+      const largo = r ? r.largo : num(o.largoOriginal) > 0 ? num(o.largoOriginal) : null;
       const desde = Math.max(0, Math.min(dur, num(x.desde)));
-      const entrada = Math.max(0, largo ? Math.min(num(x.entrada), largo - 0.1) : num(x.entrada));
+      const entrada = dentroDelClip(r && sinCortes ? 0 : num(x.entrada), largo);
+      const entradaVista = dentroDelClip(entrada + aj.desliza, largo);
       const fin = Math.min(dur, desde + Math.max(0, num(x.duracion)));
-      return { id: String(x.id), b: x.b, desde, duracion: fin - desde, entrada, fin, archivo: o.archivo, n: o.n ?? numDe(o.archivo, 'broll'), velocidad, largo, cubre: largo ? Math.max(0, (largo - entrada) / velocidad) : null };
+      return {
+        id: String(x.id),
+        b: x.b,
+        desde,
+        duracion: fin - desde,
+        entrada,
+        entradaVista,
+        fin,
+        archivo: r ? r.archivo : o.archivo,
+        pieza,
+        reemplazado: Boolean(r),
+        mudo: r ? r.mudo !== false : Boolean(o.mudo),
+        n: o.n ?? numDe(o.archivo, 'broll'),
+        velocidad,
+        largo,
+        cubre: largo ? Math.max(0, (largo - entradaVista) / velocidad) : null,
+      };
     })
     .filter((x) => x.fin - x.desde > 0.05);
 }
@@ -286,14 +435,16 @@ export function planAjustado(plan, ed) {
     // suyo y en el corte se vería un salto de zoom. Dividir no tiene que cambiar nada de lo que se ve.
     const partes = new Map();
     for (const s of segs) partes.set(s.b, (partes.get(s.b) || 0) + 1);
+    // (tu video, la velocidad y el deslizar ya vienen en cada parte: archivo, largo, velocidad, entradaVista, mudo)
+    const delClip = (x) => ({ archivo: x.archivo, velocidad: x.velocidad, mudo: x.mudo, ...(x.largo ? { largoOriginal: x.largo } : {}), ...(x.reemplazado ? { audioDeformado: false, reemplazo: true } : {}) });
     const bloques = segs.map((s) => {
       const o = plan.bloques[s.b];
       const tipo = partes.get(s.b) > 1 && (o.tipo === 'A' || o.tipo === 'C') ? 'B' : o.tipo;
-      return { ...o, tipo, linea: s.cabeza ? o.linea : null, inicio: s.inicio, fin: s.fin, toma: { ...o.toma, desde: s.inicio, recorteInicio: s.entrada, duracion: s.duracion }, broll: null };
+      return { ...o, tipo, linea: s.cabeza ? o.linea : null, inicio: s.inicio, fin: s.fin, toma: { ...o.toma, ...delClip(s), desde: s.inicio, recorteInicio: s.entradaVista, duracion: s.duracion }, broll: null };
     });
-    const ancla = segs[segs.length - 1]?.archivo || plan.bloques.find((b) => b.toma)?.toma.archivo;
+    const ancla = plan.bloques.find((b) => b.toma)?.toma.archivo || segs[segs.length - 1]?.archivo;
     for (const x of brolls) {
-      bloques.push({ tipo: 'broll', linea: null, inicio: dur, fin: dur, texto: '', toma: { archivo: ancla, desde: dur }, broll: { ...plan.bloques[x.b].broll, desde: x.desde, duracion: x.fin - x.desde, recorteInicio: x.entrada } });
+      bloques.push({ tipo: 'broll', linea: null, inicio: dur, fin: dur, texto: '', toma: { archivo: ancla, desde: dur }, broll: { ...plan.bloques[x.b].broll, ...delClip(x), desde: x.desde, duracion: x.fin - x.desde, recorteInicio: x.entradaVista } });
     }
     p.bloques = bloques;
     // la animación y el sonido de entrada siguen a su toma (si se borró el comienzo de la toma, se van con él)
@@ -302,12 +453,40 @@ export function planAjustado(plan, ed) {
       const s = cabezas.get(tr.toma);
       return s ? [{ ...tr, desde: s.inicio }] : [];
     });
-  } else if (quitados.size && fam === 'bloques') {
+  } else if (fam === 'bloques') {
+    // sin cortes: cada toma y B-roll con tu video, su velocidad y su deslizar (si los hay), y sin los B-roll quitados
     p.bloques = plan.bloques.map((b) => {
-      if (!b.broll) return b;
-      const nb = b.broll.n ?? numDe(b.broll.archivo, 'broll');
-      return quitados.has(`b${nb}`) ? { ...b, broll: null } : b;
+      const toma = b.toma ? clipAjustado(b.toma, ajusteDeClip(plan, ed, piezaDeArchivo(b.toma.archivo))) : b.toma;
+      let broll = b.broll;
+      if (broll) {
+        const nb = broll.n ?? numDe(broll.archivo, 'broll');
+        broll = quitados.has(`b${nb}`) ? null : clipAjustado(broll, ajusteDeClip(plan, ed, piezaDeArchivo(broll.archivo)));
+      }
+      return toma === b.toma && broll === b.broll ? b : { ...b, toma, broll };
     });
+  }
+  if (fam === 'continuidad' && plan.continuidad?.clips) {
+    // tu video en lugar de un paso o de una escena: va a su velocidad (1 si no la cambiaste), desde su comienzo (o
+    // donde lo deslizaste), y si no alcanza su ventana se queda quieto al final
+    let cambio = false;
+    const clips = plan.continuidad.clips.map((c) => {
+      const aj = ajusteDeClip(plan, ed, piezaDeArchivo(c.archivo));
+      if (!aj.reemplazo) return c;
+      cambio = true;
+      return { ...clipAjustado(c, aj, { base: 0 }), frames: null, fps: null, velocidadFija: aj.velocidad ?? 1 };
+    });
+    if (cambio) p.continuidad = { ...plan.continuidad, clips };
+  }
+  if (fam === 'escena') {
+    // las imágenes de apoyo de podcast y entrevista: tu video, velocidad y deslizar (los clips hablados no: la voz)
+    let cambio = false;
+    const piezas = (p.escena || plan.escena).piezas.map((x) => {
+      if (x.tipo !== 'clip' || !/^broll-/.test(piezaDeArchivo(x.archivo) || '')) return x;
+      const y = clipAjustado(x, ajusteDeClip(plan, ed, piezaDeArchivo(x.archivo)));
+      if (y !== x) cambio = true;
+      return y;
+    });
+    if (cambio) p.escena = { ...(p.escena || plan.escena), piezas };
   }
   if (quitados.size && fam === 'escena') {
     const originales = plan.escena.piezas;

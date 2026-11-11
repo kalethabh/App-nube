@@ -9,8 +9,26 @@
 //   - recortar el comienzo de una toma alarga la anterior;
 //   - borrar una toma alarga la de al lado; moverla de lugar corre las otras.
 //   Si un clip no alcanza a llenar su lugar, se ve quieto al final: la pantalla lo avisa (nunca negro).
-// El B-roll, los textos y la música van encima, en su propio tiempo.
-import { FPS, MINIMO, tomasDeEdicion, brollsDeEdicion, textosEnPantalla, tramosMusica, cortesPosibles, entradaEnLaCancion, LUGAR_TEXTO } from '@composicion/edicion/capas.mjs';
+// Las imágenes de apoyo, los textos y la música van encima, en su propio tiempo.
+//
+// DESLIZAR (como el «slip» de CapCut): cambia qué parte del clip se ve, sin mover su lugar ni su largo (para calzar
+// con la voz o con la boca). Y la VELOCIDAD de un clip (0,5× a 2×). Los dos se guardan por pieza en ed.clips y los
+// aplica capas.mjs (la misma cuenta para la vista previa y la exportación), con las reglas de cada familia
+// (queSePuedeConElClip): en los clips donde la voz va dentro (UGC, objeto parlante, podcast, entrevista) no se puede.
+import {
+  FPS,
+  MINIMO,
+  tomasDeEdicion,
+  brollsDeEdicion,
+  textosEnPantalla,
+  tramosMusica,
+  cortesPosibles,
+  entradaEnLaCancion,
+  LUGAR_TEXTO,
+  queSePuedeConElClip,
+  VELOCIDAD_MIN,
+  VELOCIDAD_MAX,
+} from '@composicion/edicion/capas.mjs';
 
 const r4 = (x) => Math.round(x * 10000) / 10000;
 const entre = (x, a, b) => Math.max(a, Math.min(b, x));
@@ -51,10 +69,10 @@ export function dividir(plan, ed, { pista, id, t, musica }) {
     if (!cortesPosibles(plan).brolls) return { error: cortesPosibles(plan).motivo };
     const lista = brollsDeEdicion(plan, ed);
     const k = lista.findIndex((x) => x.id === id);
-    if (k < 0) return { error: 'No encuentro ese B-roll.' };
+    if (k < 0) return { error: 'No encuentro esa imagen de apoyo.' };
     const x = lista[k];
     t = enCuadro(x.desde, t);
-    if (t <= x.desde + MINIMO || t >= x.fin - MINIMO) return { error: 'Pon el cursor dentro del B-roll, un poco más lejos de sus bordes.' };
+    if (t <= x.desde + MINIMO || t >= x.fin - MINIMO) return { error: 'Pon el cursor dentro de la imagen de apoyo, un poco más lejos de sus bordes.' };
     const d1 = t - x.desde;
     const a = { ...x, duracion: d1 };
     const z = { ...x, id: nuevoId(`${x.id}-`), desde: t, duracion: x.duracion - d1, entrada: x.entrada + d1 * x.velocidad };
@@ -111,7 +129,7 @@ export function recortar(plan, ed, { pista, id, borde, dt, musica, overlays }) {
     if (!cortesPosibles(plan).brolls) return { error: cortesPosibles(plan).motivo };
     const lista = brollsDeEdicion(plan, ed).map((x) => ({ ...x }));
     const x = lista.find((y) => y.id === id);
-    if (!x) return { error: 'No encuentro ese B-roll.' };
+    if (!x) return { error: 'No encuentro esa imagen de apoyo.' };
     if (borde === 'inicio') {
       const d = entre(dt, Math.max(-x.desde, -x.entrada / x.velocidad), x.duracion - MINIMO);
       x.desde += d;
@@ -209,7 +227,7 @@ export function borrar(plan, ed, { pista, id, musica }) {
   if (pista === 'broll') {
     if (!cortesPosibles(plan).brolls) return { error: cortesPosibles(plan).motivo };
     const lista = brollsDeEdicion(plan, ed);
-    if (!lista.some((x) => x.id === id)) return { error: 'No encuentro ese B-roll.' };
+    if (!lista.some((x) => x.id === id)) return { error: 'No encuentro esa imagen de apoyo.' };
     const r = conBrolls(ed, lista.filter((x) => x.id !== id));
     return { ed: { ...r.ed, quitados: ed.quitados.filter((x) => x !== id) } };
   }
@@ -261,6 +279,46 @@ export function ajustarTramo(plan, ed, { id, cambios, musica }) {
   return conTramos(ed, tramos);
 }
 
+// ---------------------------------------------------------------- deslizar y velocidad (por pieza)
+
+/** ed.clips con lo de una pieza cambiado (lo vacío se saca). */
+function conClip(ed, pieza, cambios) {
+  const clips = { ...(ed.clips || {}) };
+  const c = { ...(clips[pieza] || {}), ...cambios };
+  for (const k of Object.keys(c)) if (c[k] === null || c[k] === undefined) delete c[k];
+  if (Object.keys(c).length) clips[pieza] = c;
+  else delete clips[pieza];
+  return { ...ed, clips };
+}
+
+/**
+ * Desliza el contenido del clip de una pieza. `dt`: cuánto se arrastró (segundos del anuncio, + a la derecha: se ve
+ * lo de antes del clip). La pantalla pasa lo que sabe del clip: pieza, entradaBase (la entrada sin deslizar), largo y
+ * velocidad. O `desliza` directo (el control del panel).
+ */
+export function deslizar(plan, ed, { pieza, dt = 0, desliza, entradaBase = 0, largo = null, velocidad = 1 }) {
+  if (!pieza) return { error: 'Este clip no se puede deslizar.' };
+  const puede = queSePuedeConElClip(plan, pieza, ed);
+  if (!puede.deslizar) return { error: puede.motivo || 'Este clip no se puede deslizar.' };
+  const antes = Number(ed.clips?.[pieza]?.desliza) || 0;
+  let d = desliza !== undefined ? Number(desliza) || 0 : antes - dt * (Number(velocidad) || 1);
+  // lo que se ve tiene que estar dentro del clip: de su comienzo a una décima antes de su final
+  const piso = -Math.max(0, entradaBase);
+  const techo = largo ? Math.max(piso, largo - 0.1 - entradaBase) : Infinity;
+  d = r4(entre(d, piso, techo));
+  if (Math.abs(d - antes) < 0.0005) return { ed };
+  return { ed: conClip(ed, pieza, { desliza: Math.abs(d) < 0.0005 ? null : d }) };
+}
+
+/** La velocidad del clip de una pieza (null = la que venía). */
+export function cambiarVelocidad(plan, ed, { pieza, velocidad }) {
+  if (!pieza) return { error: 'Este clip no cambia de velocidad.' };
+  const puede = queSePuedeConElClip(plan, pieza, ed);
+  if (!puede.velocidad) return { error: puede.motivo || 'Este clip no cambia de velocidad.' };
+  const v = velocidad === null || velocidad === undefined ? null : r4(entre(Number(velocidad) || 1, VELOCIDAD_MIN, VELOCIDAD_MAX));
+  return { ed: conClip(ed, pieza, { velocidad: v }) };
+}
+
 // ---------------------------------------------------------------- una sola puerta para la pantalla
 
 /** Lo que se ve y se oye de las piezas que se cortan y mueven (al milisegundo), para saber si algo cambió. */
@@ -274,10 +332,12 @@ function huella(plan, ed, { musica, overlays }) {
   ]);
 }
 
-/** { tipo: 'dividir'|'recortar'|'mover'|'borrar', pista, id, ... } -> { ed } | { error } */
+/** { tipo: 'dividir'|'recortar'|'mover'|'borrar'|'deslizar'|'velocidad', pista, id, ... } -> { ed } | { error } */
 export function operar(plan, ed, op) {
   if (op.tipo === 'dividir') return dividir(plan, ed, op);
   if (op.tipo === 'borrar') return borrar(plan, ed, op);
+  if (op.tipo === 'deslizar') return deslizar(plan, ed, op);
+  if (op.tipo === 'velocidad') return cambiarVelocidad(plan, ed, op);
   if (op.tipo !== 'recortar' && op.tipo !== 'mover') return { error: 'No sé hacer eso.' };
   const r = op.tipo === 'recortar' ? recortar(plan, ed, op) : mover(plan, ed, op);
   // arrastrar hasta un tope (o soltar donde estaba) no es un cambio: no entra al historial

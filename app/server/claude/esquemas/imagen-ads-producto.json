@@ -1,0 +1,28 @@
+{
+  "$comment": "producto.json de un lote de anuncios de imagen (el PASO 2 de la skill anuncios-imagen-ads). Lo revisa lib/imagen-ads/verificar.js.",
+  "type": "object",
+  "required": ["slug", "nombre", "analisis", "tipo_producto", "descripcion_visual_en", "foto_producto", "datos", "identidad_visual", "beneficios", "caracteristicas"],
+  "properties": {
+    "slug": { "type": "string" },
+    "nombre": { "type": "string", "minLength": 1 },
+    "analisis": { "type": "string", "minLength": 1 },
+    "tipo_producto": { "type": "string", "minLength": 1 },
+    "descripcion_visual_en": { "type": "string", "minLength": 1 },
+    "foto_producto": { "type": "string", "minLength": 1 },
+    "datos": { "type": "object" },
+    "identidad_visual": {
+      "type": "object",
+      "required": ["color_palette", "visual_style", "visual_atmosphere", "graphic_language", "text_typography", "art_direction"],
+      "properties": {
+        "color_palette": { "type": "string", "minLength": 1 },
+        "visual_style": { "type": "string", "minLength": 1 },
+        "visual_atmosphere": { "type": "string", "minLength": 1 },
+        "graphic_language": { "type": "string", "minLength": 1 },
+        "text_typography": { "type": "string", "minLength": 1 },
+        "art_direction": { "type": "string", "minLength": 1 }
+      }
+    },
+    "beneficios": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "string", "minLength": 1 } },
+    "caracteristicas": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "string", "minLength": 1 } }
+  }
+}

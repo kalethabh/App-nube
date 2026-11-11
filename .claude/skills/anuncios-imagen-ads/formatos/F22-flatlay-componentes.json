@@ -1,0 +1,144 @@
+{
+  "id": "F22",
+  "slug": "flatlay-componentes",
+  "nombre": "Flatlay de componentes",
+  "origen": "biblioteca",
+  "descripcion": "Foto cenital (vista desde arriba) abundante y orgánica: el producto acostado en diagonal en el centro y, desde las cuatro esquinas, montones generosos de sus ingredientes, materiales o piezas reales que se salen del borde de la imagen y lo enmarcan. Cada montón lleva una pequeña etiqueta en forma de pastilla mirando hacia el centro. Un titular corto arriba. Se ve natural, editorial y premium; muestra 'de qué está hecho' y por qué funciona.",
+  "angulos_compatibles": ["mecanismo-unico", "caracteristica-estrella", "objecion-confianza", "beneficio-sin-sacrificio", "curiosidad", "regalo"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "ropa", "gadget", "juguete", "hogar", "otro"],
+  "ad_format": "Ingredients / Components Flatlay Ad",
+  "reference_style": "Lush editorial top-down flatlay photo: the product lying diagonally in the center, framed by abundant piles of its real ingredients or parts bleeding off the four corners, with small pill labels",
+  "art_direction": {
+    "visual_hierarchy": "1) The product lying diagonally in the center. 2) The four abundant component piles in the corners. 3) The headline at the top. 4) The four small labels.",
+    "composition_style": "Strict top-down (90 degree overhead) organic frame composition. The product lies in the center rotated about 15-20 degrees off vertical for energy. Four generous piles of components enter from the four corners and are cropped by the canvas edges, creating a natural, abundant frame around a calm central area. Piles are loose and organic (not aligned on a grid), with a few stray pieces drifting toward the product. The headline sits on clear surface at the top center.",
+    "spacing_and_structure": "Headline from about 4% to 15% of the canvas height and 8% to 92% of the width, centered, on clear surface. Product from about 32% to 68% of the canvas width and 24% to 80% of the canvas height. Component piles, each bleeding off the canvas edges: upper-left about 0-28% of the width and 18-44% of the height (cropped by the left edge); upper-right about 72-100% and 18-44% (cropped by the right edge); lower-left about 0-30% and 66-100% (cropped by the left and bottom edges); lower-right about 70-100% and 66-100% (cropped by the right and bottom edges). Upper labels sit just below their piles (about 45-50% of the height); lower labels sit just above their piles (about 59-64% of the height); all labels within 4-28% or 72-96% of the width so they never touch the product. Calm, open surface around the product.",
+    "lighting_and_depth": "Soft, diffused overhead daylight with a gentle directional fall from the upper left. Every object casts a short, soft shadow toward the lower right, consistent across the frame. Deep focus: everything sharp from edge to edge. Rich, true-to-life material textures (grain, gloss, fibers, droplets, metal) and natural, appetizing colors."
+  },
+  "layout_summary": "Square top-down photo of a tactile surface. The user's product lies in the center, rotated slightly on a diagonal, with its front facing the camera. From the four corners, abundant piles of its real components (ingredients, materials, parts or contents) spill in and are cropped by the edges of the image, framing the product. A few loose pieces drift toward the center. Each pile has a small rounded pill label facing the center: under the two upper piles and above the two lower piles. A short headline sits on clear surface at the top center. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background surface",
+      "position": "Full canvas, seen from directly above",
+      "visual_function": "Tactile, natural stage that makes the flatlay feel real and premium",
+      "adaptation_rule": "Choose a natural surface that fits the product's world (linen, stone, light wood, plaster, terrazzo, textured paper or fabric) tinted toward a neutral of the approved palette. Never pure white."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, on clear surface, from about 4% to 15% of the canvas height",
+      "visual_function": "Tells the viewer what they are looking at and why it matters",
+      "adaptation_rule": "Write a short headline about what the product is made of or what it contains, tied to the angle. Max 2 lines, centered."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Center, about 32-68% of the canvas width and 24-80% of the canvas height, rotated about 15-20 degrees off vertical",
+      "visual_function": "Main anchor; everything around it explains it",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), lying flat on the surface with its front label facing the camera so it stays readable from above. If the product cannot lie down, show it from a very high angle with the front still visible. For clothing, lay the garment flat, neatly spread or folded."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "component pile upper-left",
+      "position": "About 0-28% of the canvas width and 18-44% of the canvas height, cropped by the left edge",
+      "visual_function": "Shows the first key ingredient, material, part or content",
+      "adaptation_rule": "Abundant, organic pile of the product's most important component in its real physical form (raw ingredient, slices, leaves, powder, capsules, fabric, accessory, included item), spilling in from outside the frame."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "component pile upper-right",
+      "position": "About 72-100% of the canvas width and 18-44% of the canvas height, cropped by the right edge",
+      "visual_function": "Shows the second key component",
+      "adaptation_rule": "Abundant, organic pile of the second most important component in its real physical form, at a similar visual weight to the other piles, spilling in from outside the frame."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "component pile lower-left",
+      "position": "About 0-30% of the canvas width and 66-100% of the canvas height, cropped by the left and bottom edges",
+      "visual_function": "Shows the third key component",
+      "adaptation_rule": "Abundant, organic pile of the third component in its real physical form, spilling in from the corner."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "component pile lower-right",
+      "position": "About 70-100% of the canvas width and 66-100% of the canvas height, cropped by the right and bottom edges",
+      "visual_function": "Shows the fourth key component",
+      "adaptation_rule": "Abundant, organic pile of the fourth component in its real physical form, spilling in from the corner. Use only components the user's product really contains or includes."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "stray pieces",
+      "position": "A few pieces drifting from the piles toward the center, in the open surface around the product",
+      "visual_function": "Connects the piles to the product and adds an organic, just-styled feel",
+      "adaptation_rule": "A handful of small loose pieces of the same components (seeds, petals, leaves, granules, small parts, threads), never on the product's label or the text."
+    },
+    {
+      "block_id": "block_09",
+      "block_type": "component labels",
+      "position": "Under the two upper piles (about 45-50% of the canvas height) and above the two lower piles (about 59-64%), within 4-28% or 72-96% of the canvas width",
+      "visual_function": "Names each component so the viewer understands the composition",
+      "adaptation_rule": "Four small rounded pills in a light or brand tone, about 16-24% of the canvas width each (sized to their text, the whole word always inside the pill), with a short component name inside. Same size and style for all four. No leader lines."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, on clear surface",
+      "text_style": "Extra bold sans-serif, large (each line about 6.5-7.5% of the canvas height), max 2 lines, centered, high contrast against the surface; one key word may use the brand accent color",
+      "guia_texto": "De qué está hecho el producto o qué contiene, conectado con el ángulo (transparencia, ingrediente estrella, lo que incluye). De 3 a 7 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "component label 1",
+      "reference_position": "Inside the pill under the upper-left pile",
+      "text_style": "Semi-bold sans-serif, about 2.8% of the canvas height, 1 line, centered in the pill, high contrast against the pill",
+      "guia_texto": "Nombre del componente 1 o su función. De 1 a 3 palabras, máximo unos 16 caracteres."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "component label 2",
+      "reference_position": "Inside the pill under the upper-right pile",
+      "text_style": "Same style as label 1: semi-bold sans-serif, about 2.8% of the canvas height, 1 line, centered",
+      "guia_texto": "Nombre del componente 2 o su función. De 1 a 3 palabras, máximo unos 16 caracteres."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "component label 3",
+      "reference_position": "Inside the pill above the lower-left pile",
+      "text_style": "Same style as label 1: semi-bold sans-serif, about 2.8% of the canvas height, 1 line, centered",
+      "guia_texto": "Nombre del componente 3 o su función. De 1 a 3 palabras, máximo unos 16 caracteres."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "component label 4",
+      "reference_position": "Inside the pill above the lower-right pile",
+      "text_style": "Same style as label 1: semi-bold sans-serif, about 2.8% of the canvas height, 1 line, centered",
+      "guia_texto": "Nombre del componente 4 o su función. De 1 a 3 palabras, máximo unos 16 caracteres."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Strict top-down overhead camera angle",
+    "The user's product lying in the center on a slight diagonal, front facing the camera",
+    "Four abundant component piles entering from the corners and cropped by the canvas edges",
+    "Four small pill labels facing the center",
+    "A few stray component pieces drifting toward the product",
+    "Natural textured surface with consistent soft shadows"
+  ],
+  "forbidden_additions": [
+    "Perspective, eye-level or angled camera views",
+    "Boxes, packaging lids, tissue paper or unboxing elements",
+    "Neat grid or knolling arrangement",
+    "More than four labels or any leader lines and arrows",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Benefit icons or checklists",
+    "Subheadline or any text besides the headline and the four labels",
+    "Bottom bar or banner",
+    "People, hands or faces",
+    "Unrelated props (cups, phones, plants, notebooks) that are not part of the product",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Colores nativos de los materiales y componentes, que deben verse reales y apetecibles. La superficie es un neutro teñido con la paleta de marca; las pastillas de las etiquetas usan un tono claro o de acento de la marca y el titular el color de marca de mayor contraste con la superficie."
+}

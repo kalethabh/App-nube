@@ -79,6 +79,24 @@ estilo).
 
 ## En curso (lo siguiente que pedí)
 
+### Actualización funcional del paquete 2026-11-10
+
+Se integró el paquete `anuncios-con-ia-app.zip` de la publicación «Actualización-App»
+(SHA-256 `a14d3b8ddc1354b1e9a75eb8e5d4e899bd3da2d24a196c4bcd1209e29c8dea81`) sin sustituir la apariencia de Kads.
+La identidad visual, los estilos existentes y las funciones propias se conservan. Las pantallas nuevas usan los mismos componentes y tokens.
+
+- Elección Claude/ChatGPT, instalación y conexión: `lib/motor-ia.js`, `lib/codex*.js`, `rutas/ia.js`.
+- Anuncios de imagen: `lib/imagen-ads/`, familia y rutas `imagen-ads`, pantallas `imagenes/` e `imagenes-lote/`.
+  Generar y regenerar requieren confirmar el presupuesto mostrado (`costoMaximoConfirmado`).
+- Modelos por categoría y estimación: `produccion/catalogo-modelos.json`, `modelos-elegidos.js`, `estimar-costo.js`,
+  `lib/costo-estimado.js`. La ruta de costo conserva también gastos/saldo/semáforo de Kads.
+- Revisiones informativas, regeneración explícita y videos propios en el editor: `lib/avisos.js`, `lib/subidos.js`,
+  `rutas/reemplazo.js`. No se regeneran piezas automáticamente por calidad.
+- Se mantiene 1080p por defecto. Los modelos que solo aceptan 720p usan esa resolución con su costo correspondiente;
+  el render final sigue en 1080p. Los costos no cuentan dos veces imágenes iguales ni cobran clips reutilizados.
+
+Los siguientes dos pedidos siguen pendientes; esta integración no implementa una pantalla de estado de proveedores:
+
 1. **Si un modelo falla seguido porque se cayó, ofrecerme modelos parecidos**, decir si es más caro y cuánto saldría
    (por ejemplo, para video: Omni Flash 1.1 → Kling 3.0 o Kling 4.0; precios en `produccion/config.js`,
    `MODELOS_VIDEO`), y dejarme cambiar y seguir con un clic.

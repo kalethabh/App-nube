@@ -1,15 +1,13 @@
 // Lo que el editor le pide a la app (server/rutas/editor.js): guardar los cambios en la carpeta del anuncio,
-// subir la canción propia, exportar y rehacer con IA.
+// subir la canción propia y exportar. Regenerar una pieza y subir tu propio video van por src/datos/regenerar.js
+// (lo mismo que usa el proceso).
 //
 //   GET  /api/anuncios/:slug/edicion            -> { estado, t, canciones: [{ id, url }] }
 //   PUT  /api/anuncios/:slug/edicion            { estado, t, contexto } -> { ok, t }
 //   POST /api/anuncios/:slug/edicion/musica     (el archivo) ?id=&nombre= -> { ok, id, url }
-//   GET  /api/anuncios/:slug/exportar           -> { trabajo, hechos }
+//   GET  /api/anuncios/:slug/exportar           -> { trabajo, hechos, desactualizada }
 //   POST /api/anuncios/:slug/exportar           { calidad, version, subtitulos, srt, estado, contexto } -> { trabajo }
 //   POST /api/anuncios/:slug/exportar/cancelar  -> { trabajo }
-//   GET  /api/anuncios/:slug/rehacer            -> { disponible, motivo, piezas, trabajo }
-//   POST /api/anuncios/:slug/rehacer            { pieza, pedido, conImagen } -> { trabajo }
-//   POST /api/anuncios/:slug/rehacer/cancelar   -> { trabajo }
 export class ErrorServidor extends Error {
   constructor(mensaje, estado) {
     super(mensaje);
@@ -49,9 +47,6 @@ export const servidor = {
   exportacion: (slug) => pedir(`${base(slug)}/exportar`),
   exportar: (slug, datos) => pedir(`${base(slug)}/exportar`, { metodo: 'POST', cuerpo: datos }),
   cancelarExportacion: (slug) => pedir(`${base(slug)}/exportar/cancelar`, { metodo: 'POST', cuerpo: {} }),
-  rehacer: (slug) => pedir(`${base(slug)}/rehacer`),
-  pedirRehacer: (slug, datos) => pedir(`${base(slug)}/rehacer`, { metodo: 'POST', cuerpo: datos }),
-  cancelarRehacer: (slug) => pedir(`${base(slug)}/rehacer/cancelar`, { metodo: 'POST', cuerpo: {} }),
 };
 
 /** Dirección para ver o bajar un archivo de output/. */

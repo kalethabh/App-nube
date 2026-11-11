@@ -197,8 +197,8 @@ export const ESTILOS_CON_CONTINUIDAD = ['estilo-pixar', 'claymation', 'zack-d-fi
  *  - Sin modelo de respaldo para las tomas habladas (Kling no genera dialogo).
  *  - El B-roll de estos estilos se genera con Kling 3.0 (mas barato, a su
  *    criterio), siempre mudo (en el montaje va sin audio), desde una imagen
- *    generada como el B-roll de siempre. Kling cobra por segundo: 14 cr/s a
- *    720p sin audio, 20 con audio (ver MODELOS_VIDEO). Del 2026-10-24 al 25 fue
+ *    generada como el B-roll de siempre. Kling cobra por segundo: 15,1 cr/s a
+ *    720p sin audio, 22,7 con audio (kie, 2026-11-07; ver MODELOS_VIDEO). Del 2026-10-24 al 25 fue
  *    Kling 4.0 (28,5 cr/s); Diego lo volvio a 3.0 por el precio.
  *  - Los iconos (entrevista) se generan con gpt-image-2 a 1K, cuadrados, con
  *    fondo transparente (campo "background" de la API; si el modelo lo
@@ -230,10 +230,24 @@ export const INGREDIENTE_IMAGEN = 'imagen';
  *  - gemini-omni-video cobra POR VIDEO segun el tramo de duracion, y cobra
  *    IGUAL en 360p, 720p y 1080p. Solo 4k cuesta mas.
  *  - kling-3.0 cobra POR SEGUNDO y ahi 720p si es mas barato que 1080p.
- *    Usamos la variante sin audio: nuestros clips salen mudos.
+ *
+ * Campos que deciden por donde puede ir un clip (los lee la cascada de
+ * generar-videos.js; los modelos que se eligen en la app estan en
+ * catalogo-modelos.json y la eleccion de cada anuncio en modelos-elegidos.js):
+ *
+ *  - dialogo                el modelo genera habla con boca sincronizada si el
+ *                           prompt la pide. Va tambien en el catalogo y en
+ *                           video/log-modelos.json.
+ *  - frameFinal             acepta imagen final (tomas B, pasos de continuidad).
+ *  - frameFinalObligatorio  SOLO funciona con imagen inicial y final: un clip
+ *                           sin imagen final salta este modelo sin pedirle nada.
+ *  - sinFrames              no acepta primer ni ultimo frame: solo sirve por el
+ *                           camino de referencias (bloques R de UGC y tomas H por
+ *                           ingredientes). Un clip con frame lo salta.
  */
 export const MODELOS_VIDEO = {
   'google/gemini-omni-flash-1-1': {
+    dialogo: true,
     // nombre canonico -> { alto en pixeles, valor que espera la API }
     resoluciones: {
       '360p': { alto: 360, api: '360p' },
@@ -274,6 +288,7 @@ export const MODELOS_VIDEO = {
     },
   },
   'kling-3.0/video': {
+    dialogo: false,
     // En Kling la resolucion se pide con "mode", no con un campo resolution.
     resoluciones: {
       '720p': { alto: 720, api: 'std' },
@@ -304,11 +319,99 @@ export const MODELOS_VIDEO = {
     // silencia. En ese mismo anuncio se detectaron y silenciaron 3 clips del
     // modelo PRINCIPAL con esa misma tecnica.
     //
-    // Cuesta mas y se acepta: 720p pasa de 14 a 20 creditos por segundo.
+    // Cuesta mas y se acepta: 720p pasaba de 14 a 20 creditos por segundo.
     audio: { soportado: true, campo: 'sound', usar: true, puedeExcluirVoces: false },
     cobro: 'por-segundo',
-    precio: { '720p': 14, '1080p': 18, '4k': 67 }, // creditos por segundo, sin audio
-    precioConAudio: { '720p': 20, '1080p': 27, '4k': 67 },
+    // Creditos por segundo, leidos en kie el 2026-11-07 (antes 14/18/67 y 20/27/67).
+    // creditosClip usa precioConAudio cuando el clip va con sound: true.
+    precio: { '720p': 15.1, '1080p': 20.2, '4k': 75.5 }, // sin audio
+    precioConAudio: { '720p': 22.7, '1080p': 30.2, '4k': 75.5 },
+  },
+  // Grok Imagine Video 1.5 (preview). Probado de verdad el 2026-11-08
+  // (temp/prueba-modelos-baratos/correr.mjs): 6 s con imagen inicial y final =
+  // 27 cr, 7 s con solo imagen inicial = 31,5 cr, o sea 4,5 cr/s a 720p.
+  //  - first_frame_url y last_frame_url opcional.
+  //  - duration ENTERO de 1 a 15.
+  //  - resolution '480p' | '720p' | '1080p' (1080p sin precio medido: no se lista).
+  //  - aspect_ratio del manifiesto ('9:16').
+  //  - Sin referencias. El audio va siempre (no hay campo para apagarlo) y el
+  //    dialogo escrito en el prompt se habla.
+  'grok-imagine-video-1-5-preview': {
+    dialogo: true,
+    // La salida trae una portada (mjpeg) como 2.o video y a veces otro ancho
+    // (704x1280): generar-videos la deja como una de Omni (normalizarClip).
+    normalizarSalida: true,
+    resoluciones: {
+      '480p': { alto: 480, api: '480p' },
+      '720p': { alto: 720, api: '720p' },
+    },
+    duraciones: null, // libre, entero
+    duracionMin: 1,
+    duracionMax: 15,
+    frameFinal: true,
+    audio: { soportado: true, campo: null, usar: true, puedeExcluirVoces: false },
+    cobro: 'por-segundo',
+    precio: { '480p': 2.4, '720p': 4.5 },
+    precioConAudio: { '480p': 2.4, '720p': 4.5 },
+  },
+  // PixVerse V6 Transition. Probado de verdad el 2026-11-08: 6 s a 720p mudo =
+  // 43,2 cr (7,2 cr/s).
+  //  - first_frame_image_url y last_frame_image_url, LOS DOS OBLIGATORIOS: un
+  //    clip sin imagen final no puede ir por aqui (frameFinalObligatorio).
+  //  - quality '720p' (no tiene campo resolution ni aspect_ratio: la salida
+  //    sigue a las imagenes).
+  //  - duration ENTERO de 1 a 15.
+  //  - generate_audio_switch: false siempre (con audio cobra 9,6 cr/s). Sin dialogo.
+  'pixverse-v6/transition': {
+    dialogo: false,
+    // La salida trae una portada (mjpeg) como 2.o video y a veces otro ancho
+    // (704x1280): generar-videos la deja como una de Omni (normalizarClip).
+    normalizarSalida: true,
+    resoluciones: {
+      '720p': { alto: 720, api: '720p' },
+    },
+    duraciones: null, // libre, entero
+    duracionMin: 1,
+    duracionMax: 15,
+    frameFinal: true,
+    frameFinalObligatorio: true,
+    audio: { soportado: true, campo: null, usar: false, puedeExcluirVoces: false },
+    cobro: 'por-segundo',
+    precio: { '720p': 7.2 },
+    precioConAudio: { '720p': 9.6 },
+  },
+  // Grok Imagine (v1) imagen a video. Probado de verdad el 2026-11-08 con un
+  // bloque UGC de 10 s (personaje + producto como referencias) = 45 cr, 4,5 cr/s.
+  //  - image_urls: de 1 a 7 REFERENCIAS, sin primer ni ultimo frame
+  //    (sinFrames): solo sirve para los bloques R y las tomas H por ingredientes.
+  //  - El prompt nombra las referencias como @image1, @image2...: el adaptador
+  //    traduce el "Imagen N" / "imagen N" de nuestros prompts (asi se probo).
+  //  - duration TEXTO de '6' a '30'. Un bloque de 4 s se pide de 6 y se usa con
+  //    la duracion del bloque.
+  //  - resolution '720p', aspect_ratio '9:16', mode 'normal'.
+  //  - El audio va siempre y el dialogo escrito en el prompt se habla.
+  'grok-imagine/image-to-video': {
+    dialogo: true,
+    // La salida trae una portada (mjpeg) como 2.o video y a veces otro ancho
+    // (704x1280): generar-videos la deja como una de Omni (normalizarClip).
+    normalizarSalida: true,
+    // 1080p solo acepta una referencia; esta categoria usa personaje + producto.
+    // Se pide como maximo 720p para que el costo y la solicitud coincidan y
+    // la cascada no pague un modelo distinto por un rechazo de resolucion.
+    resoluciones: {
+      '480p': { alto: 480, api: '480p' },
+      '720p': { alto: 720, api: '720p' },
+    },
+    duraciones: null, // libre, entero (se manda como texto)
+    duracionMin: 6,
+    duracionMax: 30,
+    frameFinal: false,
+    sinFrames: true,
+    referencias: { max: 7 },
+    audio: { soportado: true, campo: null, usar: true, puedeExcluirVoces: false },
+    cobro: 'por-segundo',
+    precio: { '480p': 2.4, '720p': 4.5 },
+    precioConAudio: { '480p': 2.4, '720p': 4.5 },
   },
   // Kling 4.0 "Keyframe To Video". SIN USAR desde el 2026-10-25 (Diego volvio el
   // respaldo a Kling 3.0 por el precio); se deja para cuando se quiera. Leido el
@@ -324,6 +427,7 @@ export const MODELOS_VIDEO = {
   //  - El prompt puede nombrar los frames con @first_frame / @last_frame; no es
   //    obligatorio y nuestros prompts no lo hacen.
   'kling-4.0/keyframe-to-video': {
+    dialogo: false,
     resoluciones: {
       '720p': { alto: 720, api: '720p' },
       '1080p': { alto: 1080, api: '1080p' },
@@ -372,14 +476,35 @@ export function duracionPara(modelo, segundos) {
   return def.duracionMax && d > def.duracionMax ? null : d;
 }
 
-/** Creditos de un clip, ya resueltos modelo + resolucion + duracion. */
-export function creditosClip(modelo, segundos, preferida = RESOLUCION_VIDEO) {
+/**
+ * Si el clip sale con audio y se cobra como tal. Un modelo con interruptor de
+ * audio (Kling: campo "sound") va con `sonido` si llega como booleano y si no
+ * con su audio.usar; uno sin interruptor (Omni, Grok, PixVerse) va siempre con
+ * su audio.usar, se pase lo que se pase.
+ */
+export function audioActivo(modelo, sonido) {
+  const audio = MODELOS_VIDEO[modelo]?.audio;
+  if (!audio?.soportado) return false;
+  if (audio.campo) return typeof sonido === 'boolean' ? sonido : Boolean(audio.usar);
+  return Boolean(audio.usar);
+}
+
+/**
+ * Creditos de un clip, ya resueltos modelo + resolucion + duracion. Con audio
+ * activo (ver audioActivo) usa precioConAudio si el modelo lo tiene.
+ * `{ sonido }` es opcional: lo pasa quien sabe que el clip va mudo (el B-roll
+ * de los estilos hablados, SONIDO_BROLL_POR_ESTILO).
+ */
+export function creditosClip(modelo, segundos, preferida = RESOLUCION_VIDEO, { sonido } = {}) {
   const def = MODELOS_VIDEO[modelo];
   const res = resolucionPara(modelo, preferida);
   const dur = duracionPara(modelo, segundos);
   if (dur === null) return { creditos: null, resolucion: res, duracion: null, excedeTope: true };
 
-  const creditos = def.cobro === 'por-segundo' ? def.precio[res.nombre] * dur : def.precio[res.nombre][dur];
+  const tabla = audioActivo(modelo, sonido) && def.precioConAudio ? def.precioConAudio : def.precio;
+  const crudo = def.cobro === 'por-segundo' ? tabla[res.nombre] * dur : tabla[res.nombre][dur];
+  // Precios con decimales (15,1 cr/s): sin el redondeo, 15.1 * 3 da 45.300000000000004.
+  const creditos = typeof crudo === 'number' ? Math.round(crudo * 100) / 100 : crudo;
   return { creditos, resolucion: res, duracion: dur, excedeTope: false };
 }
 
@@ -400,6 +525,13 @@ export function creditosClip(modelo, segundos, preferida = RESOLUCION_VIDEO) {
  * la entrevista por ingredientes (2026-10-14) llegan igual que un bloque R: la
  * imagen del clip va como la primera de image_urls, no como first_frame_url.
  */
+/**
+ * Grok Imagine (v1) nombra las referencias como @image1, @image2... Nuestros
+ * prompts dicen "Imagen 1" / "imagen 2" (el orden de image_urls). Solo se
+ * tocan esas palabras seguidas de un numero.
+ */
+export const referenciasParaGrok = (prompt) => String(prompt ?? '').replace(/\b[Ii]magen\s+(\d+)\b/g, '@image$1');
+
 export const ADAPTADORES_VIDEO = {
   'google/gemini-omni-flash-1-1': ({ prompt, frameInicial, frameFinal, imagenesReferencia, aspectRatio, resolucionApi, duracion }) => {
     if (!frameInicial && !frameFinal && Array.isArray(imagenesReferencia) && imagenesReferencia.length > 0) {
@@ -451,6 +583,64 @@ export const ADAPTADORES_VIDEO = {
       multi_shots: false,
     },
   }),
+  // Grok Imagine 1.5: imagen inicial y, si hay, final. Sin referencias ni campo
+  // de audio (`sonido` no se manda). Cuerpo probado el 2026-11-08.
+  'grok-imagine-video-1-5-preview': ({ prompt, frameInicial, frameFinal, aspectRatio, resolucionApi, duracion }) => {
+    if (!frameInicial) throw new Error('grok-imagine-video-1-5-preview necesita imagen inicial.');
+    return {
+      model: 'grok-imagine-video-1-5-preview',
+      input: {
+        prompt,
+        first_frame_url: frameInicial,
+        ...(frameFinal ? { last_frame_url: frameFinal } : {}),
+        duration: Number(duracion),
+        resolution: resolucionApi,
+        aspect_ratio: aspectRatio,
+      },
+    };
+  },
+  // PixVerse V6 Transition: las DOS imagenes son obligatorias (la cascada salta
+  // este modelo sin pedir nada cuando el clip no trae imagen final; si aun asi
+  // llega aqui, es un error del motor). Siempre mudo. Sin aspect_ratio.
+  'pixverse-v6/transition': ({ prompt, frameInicial, frameFinal, resolucionApi, duracion }) => {
+    if (!frameInicial || !frameFinal) {
+      throw new Error('pixverse-v6/transition necesita imagen inicial y final; este clip no las trae las dos.');
+    }
+    return {
+      model: 'pixverse-v6/transition',
+      input: {
+        prompt,
+        first_frame_image_url: frameInicial,
+        last_frame_image_url: frameFinal,
+        quality: resolucionApi,
+        duration: Number(duracion),
+        generate_audio_switch: false,
+      },
+    };
+  },
+  // Grok Imagine (v1): SOLO referencias, sin frames (sinFrames). El "Imagen N"
+  // de nuestros prompts pasa a "@imageN", como en la prueba real.
+  'grok-imagine/image-to-video': ({ prompt, frameInicial, frameFinal, imagenesReferencia, aspectRatio, resolucionApi, duracion }) => {
+    if (frameInicial || frameFinal) {
+      throw new Error('grok-imagine/image-to-video no acepta imagen inicial ni final: solo referencias.');
+    }
+    const refs = Array.isArray(imagenesReferencia) ? imagenesReferencia : [];
+    const max = MODELOS_VIDEO['grok-imagine/image-to-video'].referencias.max;
+    if (refs.length < 1 || refs.length > max) {
+      throw new Error(`grok-imagine/image-to-video acepta de 1 a ${max} referencias y llegaron ${refs.length}.`);
+    }
+    return {
+      model: 'grok-imagine/image-to-video',
+      input: {
+        prompt: referenciasParaGrok(prompt),
+        image_urls: [...refs],
+        duration: String(duracion),
+        resolution: resolucionApi,
+        aspect_ratio: aspectRatio,
+        mode: 'normal',
+      },
+    };
+  },
   // `sonido` no se manda: Kling 4.0 no tiene ese campo (el B-roll mudo de los
   // estilos hablados se silencia en el montaje, como siempre).
   'kling-4.0/keyframe-to-video': ({ prompt, frameInicial, frameFinal, aspectRatio, resolucionApi, duracion }) => ({
@@ -493,11 +683,24 @@ export const ADAPTADORES_VIDEO = {
  *   https://docs.kie.ai/market/gpt/gpt-image-2-5-sunburst-text-to-image
  *   https://docs.kie.ai/market/gpt/gpt-image-2-5-sunburst-image-to-image
  * prompt hasta 20000 caracteres, input_urls hasta 16 imagenes (obligatorio en
- * el image-to-image), 9:16 admite 2K. "background" es opcional y no se manda.
+ * el image-to-image), 9:16 admite 2K. "background" es opcional: solo se manda
+ * con fondo 'opaco' (anuncios de imagen); los videos no lo mandan.
  */
 export const ADAPTADORES_IMAGEN = {
   'nano-banana-2': ({ prompt, referencias, aspectRatio, resolucion, formato }) => ({
     model: 'nano-banana-2',
+    input: {
+      prompt,
+      image_input: referencias,
+      aspect_ratio: aspectRatio,
+      resolution: resolucion,
+      output_format: formato,
+    },
+  }),
+  // Nano Banana 2.1: el mismo cuerpo que nano-banana-2. Probado el 2026-11-08 a
+  // 2K (6 creditos), con y sin referencias.
+  'nano-banana-2-1': ({ prompt, referencias, aspectRatio, resolucion, formato }) => ({
+    model: 'nano-banana-2-1',
     input: {
       prompt,
       image_input: referencias,
@@ -521,28 +724,34 @@ export const ADAPTADORES_IMAGEN = {
           input: { prompt, aspect_ratio: aspectRatio, resolution: resolucion, ...extra },
         };
   },
-  'gpt-image-2-5-sunburst': ({ prompt, referencias, aspectRatio, resolucion }) =>
-    referencias.length > 0
+  // `fondo: 'opaco'` (opcional) lo pide SOLO la seccion de anuncios de imagen
+  // (produccion/imagen-ads.js, FONDO): manda background: "opaque", como la
+  // skill (kie_cliente.py). Sin `fondo` (los videos), el cuerpo de siempre.
+  'gpt-image-2-5-sunburst': ({ prompt, referencias, aspectRatio, resolucion, fondo }) => {
+    const extra = fondo === 'opaco' ? { background: 'opaque' } : {};
+    return referencias.length > 0
       ? {
           model: 'gpt-image-2-5-sunburst-image-to-image',
-          input: { prompt, input_urls: referencias, aspect_ratio: aspectRatio, resolution: resolucion },
+          input: { prompt, input_urls: referencias, aspect_ratio: aspectRatio, resolution: resolucion, ...extra },
         }
       : {
           model: 'gpt-image-2-5-sunburst-text-to-image',
-          input: { prompt, aspect_ratio: aspectRatio, resolution: resolucion },
-        },
+          input: { prompt, aspect_ratio: aspectRatio, resolution: resolucion, ...extra },
+        };
+  },
 };
 
 /**
  * Precios en creditos por generacion. Consultados en https://kie.ai/pricing
- * el 2026-09-01. LOS PRECIOS CAMBIAN: si la estimacion se ve rara, vuelve a
+ * el 2026-09-01 y releidos el 2026-11-07 (ese dia cambio Kling 3.0 y se
+ * midieron los modelos nuevos; Omni seguia igual). LOS PRECIOS CAMBIAN: si la estimacion se ve rara, vuelve a
  * mirar la pagina y actualiza esta tabla.
  *
  * El costo real de cada tarea llega en "creditsConsumed" al consultarla, asi
  * que lo que se reporta al final del proceso es el gasto real, no el estimado.
  */
 export const PRECIOS = {
-  consultado: '2026-09-01',
+  consultado: '2026-11-07',
   usdPorCredito: 0.005, // 168 creditos = US$0.84 en toda la tabla
   imagen: {
     'nano-banana-2': { '1K': 8, '2K': 12, '4K': 18 },
@@ -556,6 +765,9 @@ export const PRECIOS = {
     // el mismo precio para text-to-image e image-to-image, 6 / 10 / 16
     // creditos a 1K / 2K / 4K. Solo el 2K esta medido.
     'gpt-image-2-5-sunburst': { '1K': null, '2K': 10, '4K': null },
+    // 2K MEDIDO el 2026-11-08 (temp/prueba-modelos-baratos: 6 creditos cada una,
+    // con y sin referencias). 1K y 4K sin medir: en null por lo mismo que arriba.
+    'nano-banana-2-1': { '1K': null, '2K': 6, '4K': null },
   },
   // Los precios de video viven en MODELOS_VIDEO, arriba: alli dependen
   // de resolucion y tramo de duracion, no de un solo numero.

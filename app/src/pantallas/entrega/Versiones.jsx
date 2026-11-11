@@ -89,7 +89,7 @@ export function Versiones({ videos, esperadas = [], elegida, onElegir, segundo =
                 <span className="ent-version__textos">
                   <span className="ent-version__nombre">{info.nombre}</span>
                   <span className="ent-version__desc">{info.descripcion}</span>
-                  <span className="ent-version__meta">{terminado ? 'Expórtala desde el editor' : t === 'con-subtitulos' ? 'Sale al terminar el montaje' : 'Sale después de la completa'}</span>
+                  <span className="ent-version__meta">{terminado ? 'Sácala en el editor, en «Otras versiones»' : t === 'con-subtitulos' ? 'Sale al terminar el montaje' : 'Sale después de la completa'}</span>
                 </span>
               </div>
             </div>
@@ -103,7 +103,7 @@ export function Versiones({ videos, esperadas = [], elegida, onElegir, segundo =
           </span>
           <div className="ent-versiones__editor-textos">
             <span className="ent-versiones__editor-titulo">{pregunta}</span>
-            <span className="ent-versiones__editor-texto">Sácala en el editor: toca Exportar y elige la versión.</span>
+            <span className="ent-versiones__editor-texto">Sácala en el editor: toca «Otras versiones», junto a «Descargar video», y elige la versión.</span>
           </div>
           <Boton variante="secundario" tamano="chico" iconoDerecha={ArrowRight} href={`${enlace.editor(slug)}?exportar=1`}>
             Sacarla en el editor

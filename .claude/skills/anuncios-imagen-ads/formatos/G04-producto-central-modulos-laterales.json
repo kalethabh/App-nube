@@ -1,0 +1,153 @@
+{
+  "id": "G04",
+  "slug": "producto-central-modulos-laterales",
+  "nombre": "Producto central con columnas de módulos (todo en uno)",
+  "origen": "ganador:509579783_1241224311118388_5322764138058248751_n.jpg",
+  "descripcion": "Fondo blanco y gris con formas diagonales rojas abstractas. Arriba, un sticker rojo inclinado de oferta en la esquina izquierda, el nombre del producto en rojo itálico gigante al centro y un subtítulo de 2 líneas que resume todo lo que hace. En el centro, el producto grande y recortado. La columna izquierda tiene 2 fotos circulares de uso (una persona usándolo en casa y otra con anotaciones de las zonas que trabaja) con una frase roja entre ellas; la columna derecha tiene 5 círculos blancos pequeños con pictogramas de distintos usos. Una banda inferior negra a todo el ancho lleva un camión y la condición de envío y pago. Saturado pero muy común en ventas contraentrega de LATAM: vende un producto «todo en uno» con muchos usos.",
+  "angulos_compatibles": [
+    "caracteristica-estrella",
+    "rapido-y-facil",
+    "beneficio-principal",
+    "oferta",
+    "beneficio-sin-sacrificio",
+    "rutina-uso"
+  ],
+  "tipos_producto": [
+    "gadget",
+    "hogar",
+    "otro"
+  ],
+  "ad_format": "All-in-One Product with Side Module Columns Ad",
+  "reference_style": "Dense, energetic LATAM cash-on-delivery ad: a huge italic red product name, a large central product cut-out flanked by a column of circular in-use photos on the left and a column of small white pictogram circles on the right, over white-grey with abstract red diagonal shapes, closed by a black shipping band",
+  "art_direction": {
+    "visual_hierarchy": "1) The huge red italic product name at the top. 2) The large central product. 3) The two circular in-use photos on the left. 4) The two-line subtitle. 5) The red result phrase between the circles. 6) The column of use pictograms on the right. 7) The offer sticker and the black shipping band.",
+    "composition_style": "Three-column layout under a centered title stack: a left column of two large circular photos with a phrase between them, a dominant central product, and a narrow right column of five small pictogram circles hugging the right edge in a gentle arc (the top and bottom circles further right, the middle three slightly inward toward the product). The offer sticker breaks the grid in the top-left corner at a tilt, and a full-width black band closes the bottom. Dynamic diagonal shapes in the background give a sporty energy.",
+    "spacing_and_structure": "Offer sticker: from about 0% to 17% of the canvas width and 0% to 12.5% of the height, rotated about -8 degrees, touching the top-left corner. Product name: centered, from about 24% to 82% of the width and 2% to 9.5% of the height. Subtitle: line 1 from about 5% to 97% of the width at about 15-20% of the height, line 2 centered at about 21-25%. Product: from about 34% to 84% of the width and 27% to 93% of the height (about 65% of the canvas height), its base just above the bottom band. Left column: circle 1 about 29-30% of the canvas in diameter, centered at about 21% of the width and 39% of the height (from about 7% to 36% of the width and 24.5% to 54% of the height); result phrase centered at about 19% of the width, from about 54.5% to 63% of the height; circle 2 about 31% in diameter, centered at about 16% of the width and 78% of the height (its left edge touching the canvas edge, bottom edge just above the band). Right column: five circles about 11-12% in diameter on a gentle arc, centered at about 94.5%, 90.5%, 90%, 90.5% and 94.5% of the width and at about 38%, 50%, 63%, 75.5% and 88% of the height (pitch about 12.5%); the top and bottom circles touch or are slightly cropped by the right edge. Bottom band: full width, from about 94% to 100% of the height.",
+    "lighting_and_depth": "Product: bright studio cut-out with crisp highlights on metal and padding and a soft contact shadow on the floor line. Background: white to light grey with large translucent diagonal chevron shapes in red and burgundy (strongest at the top right and behind the product) and soft grey diagonals, creating motion. Circular photos: bright, natural indoor light, each with a thin dark outline and a soft drop shadow lifting it off the background. Pictogram circles: flat white with a soft dark drop shadow. Sticker: flat red with a slight shadow."
+  },
+  "layout_summary": "Square canvas, white-grey background with abstract red diagonal shapes. Top left, a tilted red rectangular sticker with a two-line white offer word. Top center, the product name in huge red italic capitals, and under it a two-line black subtitle (first line bold, second regular). The product stands large in the center. On the left, two large circular photos stacked vertically: the upper one shows a person using the product at home, the lower one shows a person using it with small labels and dots marking the body zones or parts it works on; a short red two-line phrase sits between them. On the right edge, five small white circles stacked in a gentle arc, each with a black pictogram of a different use. A black full-width band at the bottom carries a white truck icon and the shipping and payment condition.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Clean but energetic base that keeps a very dense layout readable",
+      "adaptation_rule": "White to light grey base with large translucent diagonal chevron shapes in the brand accent (red and burgundy in the original) and soft grey diagonals, mostly at the top right and behind the product. Keep the areas behind the text calm."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "offer sticker",
+      "position": "Top-left corner, from about 0% to 17% of the canvas width and 0% to 12.5% of the height, rotated about -8 degrees",
+      "visual_function": "Signals a special deal before anything else is read",
+      "adaptation_rule": "Solid red (or the strongest accent) rectangle with a slight shadow holding a two-word white offer word in 2 lines. Adapt it to the user's offer; if the user gave none, use a short offer word that keeps the same function."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product name",
+      "position": "Top center, from about 24% to 82% of the canvas width and 2% to 9.5% of the height",
+      "visual_function": "Brands the product as a named, all-in-one solution",
+      "adaptation_rule": "The user's product name or category in huge italic capitals in the brand accent color."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Center, from about 34% to 84% of the canvas width and 27% to 93% of the height",
+      "visual_function": "Main visual anchor; shows exactly what is being sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, materials, colors and details), large, 3/4 view, standing on an implied floor line with a soft contact shadow, as a clean cut-out."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "circular in-use photo",
+      "position": "Left column, circle about 29-30% of the canvas in diameter, centered at about 21% of the width and 39% of the height",
+      "visual_function": "Shows the product used by a real person at home: it is easy and fits in daily life",
+      "adaptation_rule": "Circular crop of a bright photo of a person from the target audience using the user's product in its natural setting (living room, kitchen, bathroom), product clearly visible, thin dark outline and soft drop shadow around the circle."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "circular annotated photo",
+      "position": "Left column, circle about 31% of the canvas in diameter, centered at about 16% of the width and 78% of the height, its left edge touching the canvas edge",
+      "visual_function": "Shows everything the product works on, as visual proof of the all-in-one claim",
+      "adaptation_rule": "Circular crop of a person (or the product in action) with 3-4 small accent-colored dots on the zones, parts or areas the product acts on, each with a tiny text label and a thin accent-colored leader line. Thin dark outline and soft drop shadow around the circle."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "use pictogram column (5)",
+      "position": "Right edge, five circles about 11-12% of the canvas in diameter on a gentle arc, centered at about 94.5%, 90.5%, 90%, 90.5% and 94.5% of the width and at about 38%, 50%, 63%, 75.5% and 88% of the height",
+      "visual_function": "Lists at a glance the different uses or modes of the product",
+      "adaptation_rule": "Five flat white circles with a soft drop shadow, each holding a simple black silhouette or line pictogram of one different use, mode, position or application of the user's product. All pictograms in the same style and stroke. No text inside."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "bottom shipping band",
+      "position": "Full width, from about 94% to 100% of the canvas height, touching the left, right and bottom edges",
+      "visual_function": "Removes the shipping and payment risk",
+      "adaptation_rule": "Solid black band with a white line delivery-truck icon on the left of the text and the real shipping and payment condition in white, centered as a group."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "offer sticker word",
+      "reference_position": "Inside the tilted sticker, top-left corner",
+      "text_style": "Extra bold condensed sans-serif, uppercase, white, each line about 4.5-5% of the canvas height, 2 lines, centered, following the sticker's tilt",
+      "guia_texto": "La llamada de oferta en 2 palabras cortas (una por línea), acorde a la oferta real del usuario; solo si existe."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "product name",
+      "reference_position": "Top center",
+      "text_style": "Ultra bold italic sans-serif, uppercase, brand accent color, about 7.5% of the canvas height, 1 line, centered, spanning about 57% of the width",
+      "guia_texto": "El nombre del producto del usuario o su categoría, de 1 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "subtitle (all-in-one summary)",
+      "reference_position": "Under the product name, centered, from about 15% to 25% of the height",
+      "text_style": "Sans-serif, near-black, about 3.5-3.8% of the canvas height, 2 lines, centered; line 1 bold and wider (up to about 92% of the width), line 2 regular and shorter",
+      "guia_texto": "Línea 1: todo lo que hace o todas las zonas que trabaja, en una enumeración de 4 a 8 palabras. Línea 2: el remate de simplicidad (todo con un solo producto, sin complicaciones), de 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "result phrase",
+      "reference_position": "Left column, between the two circular photos, from about 3% to 35% of the width and 54.5% to 63% of the height",
+      "text_style": "Bold sans-serif, brand accent color, about 3.5% of the canvas height, 2 lines, centered on the column",
+      "guia_texto": "Frase corta de resultado y actitud, de 3 a 5 palabras, en 2 líneas (la segunda puede ser una exclamación)."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "zone labels in the annotated photo",
+      "reference_position": "Inside the lower circular photo, next to each dot",
+      "text_style": "Regular sans-serif, near-black or white for contrast, about 1.8-2% of the canvas height, 1 word each, 3-4 labels",
+      "guia_texto": "Nombre de cada zona, parte o área sobre la que actúa el producto, 1 palabra por etiqueta."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "shipping and payment condition",
+      "reference_position": "Inside the bottom black band, right of the truck icon",
+      "text_style": "Bold sans-serif, white, about 3.5% of the canvas height, 1 line, centered as a group with the icon",
+      "guia_texto": "La condición real de envío y la forma de pago que dio el usuario, en 4 a 7 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "The user's product, large and centered",
+    "Huge italic product name in the accent color at the top, with a two-line subtitle",
+    "Two large circular photos in the left column (one in use, one annotated with zones) and a phrase between them",
+    "Five small white pictogram circles stacked in a gentle arc along the right edge",
+    "Tilted offer sticker in the top-left corner",
+    "Black full-width shipping band at the bottom with a truck icon",
+    "White-grey background with abstract diagonal accent shapes"
+  ],
+  "forbidden_additions": [
+    "Price figure or struck-through price",
+    "CTA button",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Before/after split",
+    "Text inside the pictogram circles",
+    "More than 5 pictograms or more than 2 circular photos",
+    "Watermarks",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Base blanca y gris claro. El color de acento de la marca (rojo intenso en el original) domina: nombre del producto, frase de resultado, sticker de oferta, puntos de las anotaciones y formas diagonales (con un tono más oscuro, tipo vino). Subtítulo en negro. Pictogramas negros sobre círculos blancos. Banda inferior negra con texto e ícono blancos.",
+  "posicion_logo": "Top-right corner, small (about 8% of the canvas width and 9% of its height), above the pictogram column; the original also repeats faint semi-transparent watermark copies of the logo over the canvas, which must not be reproduced"
+}

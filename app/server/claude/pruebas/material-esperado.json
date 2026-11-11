@@ -1,0 +1,295 @@
+{
+  "_que_es": "Lo que TIENE que llegarle a Codex en cada tarea, escrito a mano leyendo cada tarea (app/server/claude/tarea-*.md y los textos que arma cada familia) y la tabla de §3.2 del diseño (DISENO-motor-codex.md, filas 1-24; las 20-23 de imagen, con todo lo de §2.6). Lo usa el Codex falso (codex-falso.js): compara lo que llegó en MATERIAL, IMÁGENES ADJUNTAS o DISPONIBLES contra esta lista. No usa la detección de la app (material.rutasEnTexto): si la detección fallara, la prueba lo ve.",
+  "_como_se_lee": {
+    "reconocer": "expresión regular (con /m) sobre el texto de la TAREA: la primera entrada que calza es la de esa tarea.",
+    "tipo": "el `tipo` con que el llamador lanza la sesión (lanzarSesion). Varias entradas comparten tipo (todas las revisiones son 'revision'): se distinguen por `reconocer`.",
+    "marcas": "<slug> sale de «Carpeta del anuncio: …» (temp/<slug>); <lote> de «Carpeta del lote: temp/<lote>»; <producto> es la carpeta de «Carpeta del producto: …» o, si no hay, la primera temp/_productos/<id> que nombra la tarea; <skill> la primera .claude/skills/<skill>/SKILL.md que nombra la tarea; <carpeta> la carpeta de la tarea, sea cual sea. Una ruta con una marca que la tarea no tiene no se pide.",
+    "ruta": "una ruta desde la raíz del proyecto, con marcas. `*` vale cualquier parte de un nombre y {a,b} cualquiera de las dos. Solo se piden las que existen.",
+    "enLineas": "las rutas que aparecen en las líneas de la TAREA que calzan con esta expresión (o en las líneas de `enArchivo`, si viene). Con `plantilla`, la ruta se arma con lo que capturó la expresión ($1).",
+    "json": "las rutas que trae un campo de un JSON del disco ({ archivo, campo, prefijo }).",
+    "especial": "hojas: img/<id>.png|jpg de cada referencia del manifiesto que existe · formatos-de-la-tanda: el formatos/<archivo> de cada variación de biblioteca de la tanda (sus ids salen de «Haz solo el PASO 5 de: …», su formato del plan.json y su archivo de formatos/indice.json) · referencias-de-la-tanda: la imagen de cada variación de la tanda que sale de una referencia.",
+    "como": "pegado = entero en MATERIAL (o «sin cambios desde la última vez» al retomar) · texto = en MATERIAL o en DISPONIBLES · imagen = adjunta (en IMÁGENES ADJUNTAS, con su -i) · segun-extension (lo de siempre si no se dice) = las imágenes como `comoImagen` (imagen) y los textos como `comoTexto` (texto).",
+    "si": "la entrada (o el archivo) solo se pide si la TAREA calza con esta expresión.",
+    "noDeben": "lo que la tarea nombra pero no deja leer: no tiene que llegar."
+  },
+  "nuncaDeben": [
+    "(^|/)\\.env",
+    "(^|/)auth\\.json$",
+    "^app/config\\.json$",
+    "(^|/)config\\.toml$",
+    "(^|/)credentials",
+    "(^|/)\\.git/",
+    "(^|/)\\.codex/",
+    "(^|/)node_modules/",
+    "^produccion/",
+    "^remotion/"
+  ],
+  "tareas": [
+    {
+      "id": "ficha",
+      "tipo": "ficha",
+      "donde": "productos.js:607 · tarea-ficha.md (promptFicha :508) · §3.2 fila 1",
+      "reconocer": "^TAREA: ficha del producto",
+      "deben": [
+        { "ruta": "<producto>/producto.json", "como": "texto", "nota": "la tarea lo nombra; sus datos también van en el texto" },
+        { "ruta": "<producto>/pagina.txt", "como": "texto", "nota": "solo si la app pudo bajar la página" },
+        { "json": { "archivo": "<producto>/producto.json", "campo": "fotos", "prefijo": "<producto>/" }, "como": "imagen", "nota": "todas las fotos («míralas todas con Read»)" }
+      ]
+    },
+    {
+      "id": "guion",
+      "tipo": "guion",
+      "donde": "anuncios-nuevos.js:1024 · tarea-guion.md (promptGuion :613, textoFoto :379, detalleDelProducto) · §3.2 filas 2, 2b y 2c",
+      "reconocer": "^TAREA: guion\\s*$",
+      "deben": [
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "pegado", "nota": "«Lee y sigue … (léelo entero antes de escribir nada)»" },
+        { "ruta": "temp/<slug>/producto.{png,jpg,jpeg,webp}", "como": "imagen", "nota": "la foto que preparó la app" },
+        { "enLineas": "^Otras fotos del producto, solo para mirar:", "como": "imagen" },
+        { "enLineas": "Más detalle del producto, si lo necesitas", "como": "texto", "nota": "pagina.txt y ficha.json del producto" },
+        { "ruta": "recursos/esqueletos/catalogo.json", "como": "texto", "si": "anuncios-skeleton-ads/SKILL\\.md", "nota": "el esqueleto elige la variante mirando el catálogo (§3.3, punto 2)" },
+        { "ruta": "recursos/esqueletos/*.png", "como": "imagen", "si": "anuncios-skeleton-ads/SKILL\\.md" },
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "texto", "si": "^\\(El intento anterior no terminó", "nota": "al retomar o reintentar: lo que ya estaba escrito" },
+        { "ruta": "temp/<slug>/transiciones.json", "como": "texto", "si": "^\\(El intento anterior no terminó" },
+        { "ruta": "temp/<slug>/app/guion.json", "como": "texto", "si": "^\\(El intento anterior no terminó" },
+        { "ruta": "temp/<slug>/app/letras.json", "como": "texto", "si": "^\\(El intento anterior no terminó" },
+        { "ruta": "temp/<slug>/cancion/peticion.json", "como": "texto", "si": "^\\(El intento anterior no terminó" }
+      ],
+      "noDeben": [
+        { "ruta": ".claude/skills/anuncios-continuidad/SKILL.md", "si": "ahora no la sigas", "nota": "estilos/continuidad.md la nombra para decir que no se use (noSeLeen, §2.6)" }
+      ]
+    },
+    {
+      "id": "cambios",
+      "tipo": "cambios",
+      "donde": "anuncios-nuevos.js:1024 con pedirCambios · tarea-cambios.md (promptCambios :637) · §3.2 fila 3",
+      "reconocer": "^TAREA: cambios al guion",
+      "deben": [
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "texto", "nota": "«la skill que ya estás usando»: pegada, o «sin cambios» si el hilo es del guion" },
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "pegado", "si": "manifiesto\\.json" },
+        { "ruta": "temp/<slug>/app/letras.json", "como": "pegado", "si": "letras\\.json" },
+        { "ruta": "temp/<slug>/cancion/peticion.json", "como": "pegado", "si": "peticion\\.json" },
+        { "ruta": "temp/<slug>/app/guion.json", "como": "pegado", "si": "guion\\.json" },
+        { "ruta": "temp/<slug>/transiciones.json", "como": "texto", "si": "transiciones\\.json" }
+      ]
+    },
+    {
+      "id": "revision-imagenes-cantados",
+      "tipo": "revision",
+      "donde": "musical.js:1326 · tarea-visual-revision.md (textoDeRevision :1207) · §3.2 fila 16",
+      "reconocer": "^TAREA: revisar las imágenes de (una historia musical|un musical) ",
+      "deben": [
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "pegado" },
+        { "enLineas": "Mira con Read la foto real del producto:", "como": "imagen" },
+        { "especial": "hojas", "como": "imagen", "nota": "«Las hojas … están en <img>»" },
+        { "enLineas": "^- toma \\d+ \\(tipo [ABC]\\):", "como": "imagen", "nota": "las imágenes del lote" },
+        { "enLineas": "^- toma (\\d+) \\(tipo [ABC]\\):", "plantilla": "temp/<slug>/app/revision/contexto-toma-$1.txt", "como": "texto", "nota": "el contexto de cada toma del lote, si la app lo armó: a pedido (repite el manifiesto pegado)" },
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "texto", "nota": "«si necesitas consultarlas»: a pedido" }
+      ]
+    },
+    {
+      "id": "revision-imagenes-voz",
+      "tipo": "revision",
+      "donde": "voz-en-off.js:631 (textoDeRevision :499) · §3.2 fila 4",
+      "reconocer": "^TAREA: revisar las imágenes de ",
+      "deben": [
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "pegado" },
+        { "enLineas": "Mira con Read la foto real del producto:", "como": "imagen" },
+        { "especial": "hojas", "como": "imagen" },
+        { "enLineas": "^- toma \\d+ \\(tipo [ABC]\\):", "como": "imagen" },
+        { "ruta": "temp/<slug>/app/revision/contexto-toma-*.txt", "como": "texto", "nota": "los arma la app antes (:599-607): a pedido (repiten el manifiesto pegado)" },
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "texto", "nota": "«si necesitas consultarlas»: a pedido" }
+      ]
+    },
+    {
+      "id": "continuidad-imagenes",
+      "tipo": "revision",
+      "donde": "continuidad.js:595 · tarea-continuidad-imagenes.md (:515) · §3.2 fila 17",
+      "reconocer": "^TAREA: continuidad-imagenes",
+      "deben": [
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "pegado" },
+        { "enLineas": "Mira con Read la foto real del producto:", "como": "imagen" },
+        { "especial": "hojas", "como": "imagen" },
+        { "enLineas": "^\\s*- toma \\d+ \\(tipo [ABC]\\):", "como": "imagen" },
+        { "ruta": "temp/<slug>/app/revision/contexto-toma-*.txt", "como": "texto" },
+        { "enLineas": "Sigue las reglas del estilo de", "como": "texto", "nota": "la skill del estilo, a pedido" }
+      ]
+    },
+    {
+      "id": "continuidad-pares",
+      "tipo": "revision",
+      "donde": "continuidad.js:903 · tarea-continuidad-pares.md (:821) · §3.2 fila 18",
+      "reconocer": "^TAREA: continuidad-pares",
+      "deben": [
+        { "ruta": ".claude/skills/anuncios-continuidad/SKILL.md", "como": "pegado", "nota": "«Lee entera»" },
+        { "ruta": "temp/<slug>/app/continuidad/pares.txt", "como": "pegado" },
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "pegado" },
+        { "enArchivo": "temp/<slug>/app/continuidad/pares.txt", "enLineas": "^\\s*(salida|llegada):", "como": "imagen", "nota": "las dos imágenes de cada paso: sus rutas están dentro de pares.txt, no en la tarea" }
+      ]
+    },
+    {
+      "id": "continuidad-cadena",
+      "tipo": "revision",
+      "donde": "continuidad.js:1140 · tarea-continuidad-cadena.md (:1050) · §3.2 fila 19",
+      "reconocer": "^TAREA: continuidad-cadena",
+      "deben": [
+        { "ruta": ".claude/skills/anuncios-continuidad/SKILL.md", "como": "pegado" },
+        { "ruta": "temp/<slug>/qa/uniones/indice.json", "como": "pegado" },
+        { "enLineas": "^\\s+- .+\\.(jpg|jpeg|png)\\s*$", "como": "imagen", "nota": "las uniones (punto 3) y las tiras (punto 4)" },
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "texto" },
+        { "enLineas": "Escríbelo con las reglas de", "como": "texto", "nota": "la skill del estilo, a pedido" }
+      ]
+    },
+    {
+      "id": "revisar-clips",
+      "tipo": "revision",
+      "donde": "tarea-revisar-clips.md, compartida: objeto-parlante.js:1055→:652 (fila 5, tipo revision) · ugc.js:1326 (fila 9, tipo revision) · hablado.js:1956 (fila 13, tipo revision-clips)",
+      "reconocer": "^TAREA: revisar-clips",
+      "deben": [
+        { "enLineas": "^1\\. Lee ", "como": "segun-extension", "comoTexto": "pegado", "nota": "el manifiesto y la foto del producto (punto 1)" },
+        { "especial": "hojas", "como": "imagen" },
+        { "enLineas": "^\\s+(Tira del clip|Imagen de la toma|Su imagen|Imagen)\\b[^:]*:", "como": "imagen", "nota": "la tira y la imagen de cada clip (y las de la persona y los lugares en UGC)" },
+        { "enLineas": "^\\s+Contexto para reescribirl[ao]:", "como": "texto" }
+      ]
+    },
+    {
+      "id": "rechazo",
+      "tipo": "rechazo",
+      "donde": "tarea-rechazo.md (objeto-parlante.js:988, ugc.js:893 con tipo revision, hablado.js:1277) y el rechazo propio de hablado (textoRechazo :1007, hablado.js:1336) · §3.2 filas 6, 8, 11 y 12",
+      "reconocer": "^TAREA: rechazo",
+      "deben": [
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "texto", "nota": "«solo leer», o lo que se edita en el rechazo de un B-roll" },
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "texto", "nota": "«si las necesitas»: a pedido" }
+      ]
+    },
+    {
+      "id": "revisar-persona",
+      "tipo": "revision",
+      "donde": "ugc.js:412 (textoRevisionPersona :367) · §3.2 fila 7",
+      "reconocer": "^TAREA: revisar-persona",
+      "deben": [
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "pegado" },
+        { "enLineas": "^- \"[^\"]+\": ", "como": "imagen", "nota": "la imagen de cada personaje" }
+      ]
+    },
+    {
+      "id": "revisar-imagenes-hablado",
+      "tipo": "revision",
+      "donde": "hablado.js:809 (textoRevisionDeImagenes :697, listaDeRevisionDeImagenes :653) · §3.2 fila 10",
+      "reconocer": "^TAREA: revisar-imagenes",
+      "deben": [
+        { "ruta": "temp/<slug>/manifiesto.json", "como": "pegado" },
+        { "enLineas": "Mira con Read la foto real del producto:", "como": "imagen" },
+        { "enLineas": "^\\s+- [^:]+: ", "como": "imagen", "nota": "hojas, la imagen de cada clip, iconos y B-roll (punto 3)" },
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "texto", "nota": "«consúltala si necesitas sus reglas»: a pedido" }
+      ]
+    },
+    {
+      "id": "letra",
+      "tipo": "letra",
+      "donde": "musical.js:400 · tarea-visual-letra.md · §3.2 fila 14",
+      "reconocer": "^TAREA: cambiar la frase de la letra",
+      "deben": [
+        { "ruta": "temp/<slug>/cancion/peticion.json", "como": "pegado" },
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "texto", "nota": "«si te sirve»: a pedido" }
+      ]
+    },
+    {
+      "id": "tomas-musical",
+      "tipo": "tomas",
+      "donde": "musical.js:962 · tarea-visual-musical.md · §3.2 fila 15",
+      "reconocer": "^TAREA: tomas del musical",
+      "deben": [
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "pegado", "nota": "la skill visual" },
+        { "ruta": ".claude/skills/anuncios-musicales/SKILL.md", "como": "pegado", "nota": "Pasos 6 y 7: «léelos también»" },
+        { "ruta": "temp/<slug>/app/tiempos-por-linea.txt", "como": "pegado" },
+        { "ruta": "temp/<slug>/app/mapa-cancion.txt", "como": "pegado" },
+        { "ruta": "temp/<slug>/audio/cancion.json", "como": "texto" },
+        { "ruta": "temp/<slug>/app/guion.json", "como": "texto", "si": "app/guion\\.json" },
+        { "ruta": "temp/<slug>/cancion/lineas.txt", "como": "texto", "si": "lineas\\.txt" },
+        { "ruta": "temp/<slug>/producto.{png,jpg,jpeg,webp}", "como": "imagen" },
+        { "enLineas": "^Otras fotos del producto, solo para mirar:", "como": "imagen" },
+        { "enLineas": "Más detalle del producto, si lo necesitas", "como": "texto" }
+      ]
+    },
+    {
+      "id": "tomas-historia",
+      "tipo": "tomas",
+      "donde": "musical.js:962 · tarea-visual-historia.md · §3.2 fila 15 y §3.3 punto 15",
+      "reconocer": "^TAREA: tomas de la historia musical",
+      "deben": [
+        { "ruta": ".claude/skills/<skill>/SKILL.md", "como": "pegado" },
+        { "ruta": "temp/<slug>/app/tiempos-por-linea.txt", "como": "pegado" },
+        { "ruta": "temp/<slug>/app/mapa-cancion.txt", "como": "pegado" },
+        { "ruta": "temp/<slug>/audio/cancion.json", "como": "texto" },
+        { "ruta": "temp/<slug>/app/guion.json", "como": "pegado" },
+        { "ruta": "temp/<slug>/cancion/lineas.txt", "como": "pegado" },
+        { "ruta": "temp/<slug>/producto.{png,jpg,jpeg,webp}", "como": "imagen", "nota": "lee la etiqueta para dictarla en el prompt (Paso 5.3)" },
+        { "enLineas": "^Otras fotos del producto, solo para mirar:", "como": "imagen" },
+        { "enLineas": "Más detalle del producto, si lo necesitas", "como": "texto" }
+      ]
+    },
+    {
+      "id": "imagen-ads-estrategia",
+      "tipo": "imagen-ads-estrategia",
+      "donde": "familias/imagen-ads.js:161 · sesiones.js sesionEstrategia (:67) · tarea-imagen-ads-estrategia.md · §2.6 y §3.2 fila 20",
+      "reconocer": "^TAREA: imagen-ads-estrategia",
+      "deben": [
+        { "ruta": ".claude/skills/anuncios-imagen-ads/SKILL.md", "como": "pegado" },
+        { "ruta": ".claude/skills/anuncios-imagen-ads/angulos.json", "como": "pegado", "nota": "nombrado suelto: «su `angulos.json`»" },
+        { "ruta": ".claude/skills/anuncios-imagen-ads/formatos/indice.json", "como": "pegado", "nota": "nombrado suelto: «su `formatos/indice.json`»" },
+        { "enLineas": "^- La foto del producto:", "como": "imagen" },
+        { "enLineas": "^- Imágenes de referencia, en este orden:", "como": "imagen", "nota": "las referencias que usa el lote" },
+        { "ruta": "temp/<lote>/entrada/ficha-producto.json", "como": "pegado", "si": "ficha-producto\\.json" },
+        { "ruta": "temp/<lote>/entrada/lote-anterior.json", "como": "pegado", "si": "lote-anterior\\.json" },
+        { "ruta": "temp/<lote>/entrada/usados.json", "como": "pegado", "si": "usados\\.json" },
+        { "ruta": ".claude/skills/anuncios-imagen-ads/formatos/*.json", "como": "texto", "nota": "los 57 formatos (y el índice): a pedido, para el PASO 5 de V01-V04" },
+        { "ruta": ".claude/skills/anuncios-imagen-ads/proporciones.md", "como": "texto", "si": "Proporciones: [^\\n]*9:16", "nota": "solo si el lote lleva 9:16" }
+      ]
+    },
+    {
+      "id": "imagen-ads-prompts",
+      "tipo": "imagen-ads-prompts",
+      "donde": "familias/imagen-ads.js:399 · sesiones.js sesionPrompts (:123) · tarea-imagen-ads-prompts.md · §2.6 y §3.2 fila 21",
+      "reconocer": "^TAREA: imagen-ads-prompts",
+      "deben": [
+        { "ruta": ".claude/skills/anuncios-imagen-ads/SKILL.md", "como": "pegado" },
+        { "ruta": "temp/<lote>/producto.json", "como": "pegado", "nota": "nombrado suelto: «`producto.json` y `plan.json` ya están: léelos»" },
+        { "ruta": "temp/<lote>/plan.json", "como": "pegado" },
+        { "especial": "formatos-de-la-tanda", "como": "pegado" },
+        { "especial": "referencias-de-la-tanda", "como": "imagen" }
+      ]
+    },
+    {
+      "id": "imagen-ads-revision",
+      "tipo": "imagen-ads-revision",
+      "donde": "familias/imagen-ads.js:399 · sesiones.js sesionRevision (:143) · tarea-imagen-ads-revision.md · §2.6 y §3.2 fila 22",
+      "reconocer": "^TAREA: imagen-ads-revision",
+      "deben": [
+        { "enLineas": "^La foto real del producto:", "como": "imagen" },
+        { "enLineas": "^- V\\d{2,3}_(1x1|9x16) \\(", "como": "segun-extension", "comoTexto": "pegado", "nota": "por pieza: su vista, sus 4 recortes, su V##.json y, en las verticales, la vista de su cuadrado" }
+      ]
+    },
+    {
+      "id": "imagen-ads-ajuste",
+      "tipo": "imagen-ads-ajuste",
+      "donde": "familias/imagen-ads.js:399 · sesiones.js sesionAjuste (:181) · tarea-imagen-ads-ajuste.md · §2.6 y §3.2 fila 23",
+      "reconocer": "^TAREA: imagen-ads-ajuste",
+      "deben": [
+        { "ruta": ".claude/skills/anuncios-imagen-ads/SKILL.md", "como": "pegado" },
+        { "enLineas": "^- U\\d{4} · ", "como": "segun-extension", "comoTexto": "pegado", "nota": "por pedido: su vista y su V##.json" },
+        { "ruta": "temp/<lote>/entrada/producto.{png,jpg,jpeg,webp}", "como": "imagen", "nota": "la foto: sesionAjuste la declara aunque la tarea no la nombre (§2.6)" }
+      ]
+    },
+    {
+      "id": "rehacer",
+      "tipo": "rehacer",
+      "donde": "rutas/editor.js:956 (textoDeRehacer :647) · §3.2 fila 24",
+      "reconocer": "^TAREA: rehacer una pieza",
+      "deben": [
+        { "enLineas": "^1\\. Lee ", "como": "pegado", "nota": "el contexto de la pieza" },
+        { "enLineas": "^2\\. ", "como": "segun-extension", "comoTexto": "texto", "nota": "su imagen, la foto del producto y el manifiesto" },
+        { "enLineas": "^3\\. Las reglas del estilo están en", "como": "texto", "nota": "la skill: «léelas si hace falta»" }
+      ]
+    }
+  ]
+}

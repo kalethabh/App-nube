@@ -950,3 +950,67 @@
 .ent-nube { margin-top: 14px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(var(--acento-rgb, 99,102,241), .35); display: grid; gap: 8px; justify-items: start; }
 .ent-nube__texto { margin: 0; font-size: .9em; line-height: 1.45; }
 .ent-nube__error { margin: 0; color: var(--peligro, #f87171); font-size: .9em; }
+
+
+/* Funciones nuevas de revisión, regeneración y descarga; conserva el diseño Kads. */
+@keyframes tb-crecer {
+from {
+    transform: scaleX(0);
+  }
+}
+.ent-avisos__lista {
+margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+.ent-aviso {
+display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  padding: var(--e-3) var(--e-4);
+  border-radius: var(--r-m);
+  background: var(--superficie-2);
+  border: 1px solid var(--borde-1);
+  border-left: 3px solid var(--aviso);
+}
+.ent-aviso__textos {
+flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ent-aviso__pieza {
+display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--t-ui);
+  font-weight: var(--peso-semi);
+  color: var(--texto-1);
+}
+.ent-aviso__texto {
+font-size: var(--t-chico);
+  line-height: 1.5;
+  color: var(--texto-2);
+}
+.ent-aviso__ir {
+flex: none;
+}
+.ent-enlace {
+color: var(--acento);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ent__descargar {
+grid-column: 1 / -1;
+}
+@media (max-width: 560px) {
+.ent-aviso {
+flex-direction: column;
+    align-items: stretch;
+}
+}

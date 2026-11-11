@@ -1,0 +1,105 @@
+{
+  "id": "F09",
+  "slug": "testimonio-tarjeta",
+  "nombre": "Tarjeta de testimonio",
+  "origen": "biblioteca",
+  "descripcion": "Foto lifestyle a sangre, cálida y real, del producto en su contexto de uso (en manos de alguien o en un rincón de casa, baño, cocina u oficina). Encima, en la parte inferior, una tarjeta blanca de reseña con 5 estrellas, una cita corta entre comillas y una fila con avatar redondo, nombre y «compra verificada». Se siente como una reseña real de un cliente: genera confianza sin parecer anuncio.",
+  "angulos_compatibles": ["testimonio", "prueba-social", "objecion-confianza", "transformacion", "promesa-emocional", "beneficio-principal"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Testimonial Card Overlay Ad",
+  "reference_style": "Authentic lifestyle photo with a clean review card overlay (stars, quote, avatar and name), styled like a native customer review",
+  "art_direction": {
+    "visual_hierarchy": "1) The lifestyle photo with the product in real use. 2) The five stars. 3) The quote. 4) The avatar, name and verified label that make it credible.",
+    "composition_style": "Full-bleed photo with a single floating card. The product and the action live in the upper 52-56% of the canvas; the review card floats over the lower part, centered horizontally, overlapping only background areas of the photo and never the product.",
+    "spacing_and_structure": "Card: about 84% of the canvas width (8% to 92%) and 36-40% of its height (top edge at about 54-58%, bottom edge at about 94%), corner radius about 3% of the canvas, inner padding about 4%. Inside the card, top to bottom: stars row (about 3% tall), a gap of about 2%, the quote (max 3 lines), a gap of about 2.5%, then the customer row (about 6.5% tall). Product in the photo: about 35-42% of the canvas height, between about 8% and 52% of the height, centered or slightly off-center.",
+    "lighting_and_depth": "Photo: warm natural window light, soft shadows, a realistic lived-in setting, shallow depth of field with the product sharp and the background softly blurred; candid smartphone-photo authenticity with good composition. Card: flat white with a soft, diffuse drop shadow (about 10-15% opacity) so it floats above the photo."
+  },
+  "layout_summary": "Square canvas filled edge to edge with a warm, authentic lifestyle photo showing the user's product in its moment of use, placed in the upper part of the frame. Over the lower part, a white rounded review card centered horizontally: a row of five filled stars at its top-left, a short quote in 2-3 lines below, and at the bottom a customer row with a small round avatar photo, the customer's name and a small verified label with a check icon. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "lifestyle photo",
+      "position": "Full canvas, edge to edge",
+      "visual_function": "Shows the product living in a real customer's life, which makes the review believable",
+      "adaptation_rule": "Show the user's product in its natural moment of use for the target audience: hands applying, holding or using it, or the product placed in the real room where it is used. If a person appears, show them naturally (hands, partial body or a relaxed face) matching the target audience. It must feel like a customer's own photo, not a studio set. Keep the lower 45% of the frame calm (table, wall, soft blurred background) because the card sits there."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "product",
+      "position": "Upper-middle area of the photo, between about 8% and 52% of the canvas height, about 35-42% of the canvas height, never covered by the card",
+      "visual_function": "Shows exactly what the review is about",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), naturally integrated in the scene, sharply in focus, label facing the camera."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "review card",
+      "position": "Lower part of the canvas, centered horizontally, about 84% of the width and 36-40% of the height, bottom edge at about 94% of the canvas height",
+      "visual_function": "Frames the customer's words as a genuine review",
+      "adaptation_rule": "Clean white or off-white rounded rectangle in a generic, native review style (no platform interface, no platform logos), with a soft diffuse drop shadow."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "star rating row",
+      "position": "Top-left inside the card, aligned with the inner padding",
+      "visual_function": "Signals satisfaction before the quote is read",
+      "adaptation_rule": "Five filled stars, each about 3% of the canvas height, in gold or the brand accent, evenly spaced."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "customer avatar",
+      "position": "Bottom-left inside the card, in the customer row",
+      "visual_function": "Puts a real face behind the words",
+      "adaptation_rule": "Small circular photo about 6.5% of the canvas in diameter: a realistic headshot of a person matching the target audience. If a person appears in the main photo, the avatar shows the same person."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "verified check icon",
+      "position": "Customer row, to the right of the avatar, at the start of the verified label line",
+      "visual_function": "Adds credibility to the reviewer",
+      "adaptation_rule": "Small solid check-in-circle icon in green or the brand accent, about 2.4% of the canvas height."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "testimonial quote",
+      "reference_position": "Inside the card, below the stars, left-aligned",
+      "text_style": "Medium or semi-bold sans-serif, about 3.4-3.8% of the canvas height, max 3 lines, left-aligned, near-black on the white card, wrapped in opening and closing quotation marks; the key phrase may be set in bold",
+      "guia_texto": "La reseña en primera persona, de 8 a 16 palabras, natural y específica: un resultado concreto, el momento en que lo notó o la duda que superó. Debe sonar a cliente real, no a marketing."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "customer name",
+      "reference_position": "Customer row, right of the avatar, top line",
+      "text_style": "Bold sans-serif, about 2.8-3.2% of the canvas height, 1 line, left-aligned, near-black",
+      "guia_texto": "Nombre + inicial del apellido (por ejemplo «Laura M.»), acorde al país y al público objetivo."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "verified label",
+      "reference_position": "Customer row, under the name, right after the check icon",
+      "text_style": "Regular sans-serif, about 2.3-2.6% of the canvas height, 1 line, left-aligned, mid-grey",
+      "guia_texto": "Etiqueta de verificación en 2 o 3 palabras («Compra verificada» o «Cliente verificado»)."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed, warm, authentic lifestyle photo with the user's product in use",
+    "White rounded review card floating over the lower part of the photo",
+    "Row of five filled stars at the top of the card",
+    "Small round avatar with the customer's name and a verified check icon"
+  ],
+  "forbidden_additions": [
+    "Headline or any text outside the card",
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Trust seals, guarantee or certification badges",
+    "Multiple review cards",
+    "Aggregate rating summary (average score or number of reviews)",
+    "Real platform logos or interface elements of review sites or social networks",
+    "Benefit list or benefit icons",
+    "Card covering the product",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Colores nativos de la escena para la foto (cálidos y naturales), con la paleta de marca presente en detalles del set (textiles, fondo u objetos). La tarjeta es blanca y neutra como una reseña real; el color de marca solo aparece en las estrellas (o en dorado) y en el ícono de verificación."
+}

@@ -184,6 +184,9 @@ export function armarVariante(carpeta, id, { reemplazar = false, carpetaArg = pa
     else avisos.push(`la referencia "${r.id}" apunta a ${r.archivo} y no esta en el original.`);
   }
   if (fs.existsSync(path.join(carpeta, 'estado.json'))) copiar(path.join(carpeta, 'estado.json'), 'estado.json');
+  // Los modelos del anuncio (Ajustes > Modelos): si se rehace un bloque de la
+  // variante, sale con los mismos que el original.
+  if (fs.existsSync(path.join(carpeta, 'modelos.json'))) copiar(path.join(carpeta, 'modelos.json'), 'modelos.json');
 
   // 3b. Lugares que se sacaban del bloque reemplazado: su fotograma (del bloque
   //     ORIGINAL) pasa de img/ a la carpeta, como foto fija (ver arriba). Si en

@@ -47,8 +47,11 @@ import { ESPERAS_REINTENTO_MS, mensajeDeFallo, consultarSaldoKie, hayConexion, m
 import { armarInforme } from '../informe.js';
 import { leerFicha, leerProducto, fotoPrincipal, relProducto, detalleDelProducto } from '../productos.js';
 import { textoClaude, enTerminales, prohibidasComunes } from '../claude.js';
-import { necesidadesDeVentanas, duracionQueCubre, notaBrollFuera } from './voz-en-off.js';
+import { necesidadesDeVentanas, duracionQueCubre, notaBrollFuera, modelosDeLasVentanas, topeDeLasVentanas, aplicarComoAvisos } from './voz-en-off.js';
+import { limpiarAvisosDelPaso, notaDeAvisos } from '../avisos.js';
 import { brollDe } from '../broll.js';
+import { nombreIA, datosIA } from '../motor-ia.js';
+import { hojasDelManifiesto, contextosDe } from '../ia/material.js';
 
 export const FAMILIA = 'musical';
 // "musical" es la clave del catalogo (estilos.js); "musicales" la del contrato de las familias.
@@ -69,7 +72,6 @@ export const VISUALES = {
 const CREDITOS_SUNO = 12; // por generacion (2 versiones) y por cada extend (generar-musica.js, MUSICA.creditos)
 const TOPE_OTRAS_TANDAS = 2; // "ninguna me convence": dos tandas mas como mucho
 const TOPE_REESCRITURAS = 2; // Suno rechazo una palabra de la letra: Claude la cambia, dos veces como mucho
-const TOPE_POR_TOMA = 1; // decision de Diego: la app rehace una vez por pieza
 const IMAGENES_POR_LOTE = 24; // la revision de imagenes va en sesiones de Claude de a este tanto (60-80 tomas no caben en una)
 
 const ahora = () => new Date().toISOString();
@@ -80,6 +82,10 @@ const tiempo = (s) => {
   return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`;
 };
 const esHistoria = (ctx) => ctx?.conductor?.familia === 'historia-musical' || ctx?.brief?.estilo === 'historias-musicales';
+// La IA en los textos: 'Claude', 'ChatGPT' o 'tu IA'. Sin `motor`, la elegida ahora; con el que anoto una sesion, la
+// que la hizo. LaIA, para empezar una frase.
+const laIA = (motor) => nombreIA(motor || undefined);
+const LaIA = (motor) => laIA(motor).replace(/^./, (c) => c.toUpperCase());
 
 export function escribirJSON(ruta, valor) {
   escribirJSONSeguro(ruta, valor);
@@ -363,29 +369,16 @@ async function saldoCancion(ctx) {
 
 // ---------------------------------------------------------------- 3. la cancion (y otra tanda)
 
-/** Suno rechazo una palabra de la letra: Claude cambia solo esa frase (tope 2). { ok } | { cancelado } | error */
-async function reescribirLetra(ctx, est, textoFallo) {
-  est.rechazos = Array.isArray(est.rechazos) ? est.rechazos : [];
-  if (est.rechazos.length >= TOPE_REESCRITURAS) {
-    return errorDe(
-      'Suno no quiso cantar la letra ni después de cambiar las palabras que lo frenaban. Hay que escribir el anuncio con otra letra.',
-      ultimasLineas(textoFallo, 4),
-      'contenido'
-    );
-  }
-  const claude = await ctx.claude();
-  if (!claude?.lanzarSesion) return errorDe('Suno rechazó una palabra de la letra y no pude abrir Claude para cambiarla. Toca “Continuar” para probar otra vez.', ultimasLineas(textoFallo, 4), 'contenido');
+/**
+ * §3.2 fila 14: Suno rechazo una palabra de la letra y la IA cambia solo esa frase en cancion/peticion.json (y anota
+ * los cambios en app/letra-cambios.json). Sin lanzarla (§3.1): quien la lanza agrega uuid, senal, alProgreso y
+ * registro. `antes`: la peticion de antes del cambio (verificar exige que la letra cambie). La skill queda a pedido.
+ */
+export function armarSesionLetra(ctx, { textoFallo = '', vez = 1, antes = leerJSON(RUTAS.peticion(ctx.carpeta)) } = {}) {
   const rutaP = RUTAS.peticion(ctx.carpeta);
-  const antes = leerJSON(rutaP);
-  if (!antes) return errorDe('No encuentro la letra de la canción.', 'cancion/peticion.json');
-  const vez = est.rechazos.length + 1;
-  const respaldo = path.join(ctx.carpeta, 'app', `peticion-antes-del-rechazo-${vez}.json`);
-  if (!existe(respaldo)) fs.copyFileSync(rutaP, respaldo);
   const rutaCambios = path.join(ctx.carpeta, 'app', 'letra-cambios.json');
-  fs.rmSync(rutaCambios, { force: true });
   const slugRel = `./temp/${ctx.slug}`;
   const skill = esHistoria(ctx) ? 'anuncios-historias-musicales' : 'anuncios-musicales';
-  ctx.avance('Suno no quiso cantar una palabra: Claude la cambia');
   const verificar = async () => {
     const p = leerJSON(rutaP);
     if (!p || typeof p.letra !== 'string' || !p.letra.trim()) return { ok: false, errores: ['cancion/peticion.json tiene que seguir siendo JSON válido, con "letra".'] };
@@ -397,10 +390,9 @@ async function reescribirLetra(ctx, est, textoFallo) {
     const v = await validarPeticion(ctx);
     return v.ok ? { ok: true } : { ok: false, errores: [v.error?.detalle || v.error?.mensaje || 'peticion.json no valida'] };
   };
-  const r = await claude.lanzarSesion({
+  return {
     tipo: 'letra',
     cwd: RAIZ,
-    uuid: crypto.randomUUID(),
     prompt: textoClaude('tarea-visual-letra', {
       slug: ctx.slug,
       skill,
@@ -409,12 +401,40 @@ async function reescribirLetra(ctx, est, textoFallo) {
     }),
     herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
     permitidas: [`Read(${slugRel}/**)`, `Read(./.claude/skills/${skill}/**)`, 'Glob', 'Grep', `Write(${slugRel}/cancion/peticion.json)`, `Edit(${slugRel}/cancion/peticion.json)`, `Write(${slugRel}/app/letra-cambios.json)`, `Edit(${slugRel}/app/letra-cambios.json)`],
-    prohibidas: typeof claude.prohibidasComunes === 'function' ? claude.prohibidasComunes({ terminal: false }) : prohibidasComunes({ terminal: false }),
-    alProgreso: (f) => ctx.avance(f),
+    prohibidas: prohibidasComunes({ terminal: false }),
+    material: { skillsAPedido: true },
     timeoutMs: 20 * 60000,
     maxTurnos: 30,
-    registro: path.join(ctx.carpeta, 'app', 'registro', 'letra-claude.jsonl'),
     verificar,
+  };
+}
+
+/** Suno rechazo una palabra de la letra: la IA cambia solo esa frase (tope 2). { ok } | { cancelado } | error */
+async function reescribirLetra(ctx, est, textoFallo) {
+  est.rechazos = Array.isArray(est.rechazos) ? est.rechazos : [];
+  if (est.rechazos.length >= TOPE_REESCRITURAS) {
+    return errorDe(
+      'Suno no quiso cantar la letra ni después de cambiar las palabras que lo frenaban. Hay que escribir el anuncio con otra letra.',
+      ultimasLineas(textoFallo, 4),
+      'contenido'
+    );
+  }
+  const claude = await ctx.claude();
+  if (!claude?.lanzarSesion) return errorDe(`Suno rechazó una palabra de la letra y no pude abrir ${laIA()} para cambiarla. Toca “Continuar” para probar otra vez.`, ultimasLineas(textoFallo, 4), 'contenido');
+  const rutaP = RUTAS.peticion(ctx.carpeta);
+  const antes = leerJSON(rutaP);
+  if (!antes) return errorDe('No encuentro la letra de la canción.', 'cancion/peticion.json');
+  const vez = est.rechazos.length + 1;
+  const respaldo = path.join(ctx.carpeta, 'app', `peticion-antes-del-rechazo-${vez}.json`);
+  if (!existe(respaldo)) fs.copyFileSync(rutaP, respaldo);
+  const rutaCambios = path.join(ctx.carpeta, 'app', 'letra-cambios.json');
+  fs.rmSync(rutaCambios, { force: true });
+  ctx.avance(`Suno no quiso cantar una palabra: ${laIA()} la cambia`);
+  const r = await claude.lanzarSesion({
+    ...armarSesionLetra(ctx, { textoFallo, vez, antes }),
+    uuid: crypto.randomUUID(),
+    alProgreso: (f) => ctx.avance(f),
+    registro: path.join(ctx.carpeta, 'app', 'registro', 'letra-claude.jsonl'),
     senal: ctx.senal,
   });
   if (ctx.senal?.aborted || r?.cancelado) {
@@ -423,7 +443,7 @@ async function reescribirLetra(ctx, est, textoFallo) {
   }
   if (!r?.ok) {
     fs.copyFileSync(respaldo, rutaP); // la letra vuelve a como estaba
-    return errorDe(`Suno rechazó una palabra de la letra y Claude no pudo cambiarla: ${r?.error || 'no terminó'}`, ultimasLineas(textoFallo, 4), r?.limite ? 'claude-limite' : 'contenido');
+    return errorDe(`Suno rechazó una palabra de la letra y ${laIA(r?.motor)} no pudo cambiarla: ${r?.error || 'no terminó'}`, ultimasLineas(textoFallo, 4), r?.limite ? 'claude-limite' : 'contenido');
   }
   est.rechazos.push({ fecha: ahora(), motivo: ultimasLineas(textoFallo, 2), cambios: leerJSON(rutaCambios) || [] });
   guardarEstadoCancion(ctx.carpeta, est);
@@ -847,7 +867,7 @@ async function verificarTomas(ctx, estiloVisual) {
   const c = ctx.carpeta;
   const historia = esHistoria(ctx);
   const bloqueo = leerJSON(path.join(c, 'app', 'bloqueo.json'));
-  if (bloqueo?.motivo) return { ok: false, final: true, error: `Claude no pudo escribir las escenas: ${bloqueo.motivo}` };
+  if (bloqueo?.motivo) return { ok: false, final: true, error: `${LaIA()} no pudo escribir las escenas: ${bloqueo.motivo}` };
   const m = leerJSON(RUTAS.manifiesto(c));
   if (!m) return { ok: false, errores: [`Falta temp/${ctx.slug}/manifiesto.json (o no es JSON válido).`] };
   const errores = [];
@@ -892,6 +912,78 @@ async function verificarTomas(ctx, estiloVisual) {
   return { ok: true };
 }
 
+/**
+ * §3.2 fila 15 y §3.3 punto 15: la IA escribe las escenas sobre la cancion (manifiesto.json; en la historia tambien
+ * cancion/lineas.txt y datos-editor.md), con sus comandos gratis (validar-manifiesto y tiempos-cancion, y --lineas en
+ * la historia). Esfuerzo alto. Sin lanzarla (§3.1): quien la lanza agrega uuid, resume, senal, alProgreso y registro.
+ *   cj          audio/cancion.json
+ *   elegida     la letra elegida (letraElegida; solo el musical) y estiloVisual su estilo visual
+ *   foto        la foto del producto en la carpeta del anuncio (o null) · tabla: si se midio tiempos-por-linea.txt
+ *   reintento   el intento anterior no termino (el texto lo dice)
+ */
+export function armarSesionTomas(ctx, { cj = leerJSON(RUTAS.cancionJson(ctx.carpeta)) || {}, elegida, estiloVisual, foto = fotoEnCarpeta(ctx.carpeta), tabla = existe(RUTAS.tabla(ctx.carpeta)), reintento = false } = {}) {
+  const c = ctx.carpeta;
+  const historia = esHistoria(ctx);
+  if (!historia && elegida === undefined) elegida = letraElegida(c, ctx.brief);
+  if (!historia && !estiloVisual) estiloVisual = elegida?.estiloVisual || 'crochet';
+  const pet = leerJSON(RUTAS.peticion(c)) || {};
+  const slugRel = `./temp/${ctx.slug}`;
+  const skillVisual = historia ? 'anuncios-historias-musicales' : VISUALES[estiloVisual].skill;
+  const valores = {
+    slug: ctx.slug,
+    skill: skillVisual,
+    estiloNombre: historia ? 'Historia musical' : VISUALES[estiloVisual].nombre,
+    estiloClave: historia ? 'historias-musicales' : estiloVisual,
+    titulo: pet.titulo || cj.titulo || '',
+    letra: cj.letra || pet.letra || '',
+    concepto: elegida?.op?.concepto || '',
+    ideaVisual: elegida?.op?.ideaVisual || elegida?.op?.idea_visual || '',
+    angulo: elegida?.letras?.angulo || '',
+    duracion: String(r2(cj.duracion)),
+    brief: JSON.stringify(briefDelProducto(ctx.brief), null, 2),
+    carpetaProducto: ctx.brief?.productoId ? relProducto(ctx.brief.productoId) : 'temp',
+    detalleProducto: detalleDelProducto(ctx.brief?.productoId),
+    foto: textoFoto(ctx.slug, ctx.brief, foto),
+    tabla: tabla ? `temp/${ctx.slug}/app/tiempos-por-linea.txt` : '(no se pudo medir: sácalos de audio/cancion.json)',
+  };
+  let prompt = textoClaude(historia ? 'tarea-visual-historia' : 'tarea-visual-musical', valores);
+  if (reintento) prompt = `(El intento anterior no terminó: revisa lo que ya está escrito en temp/${ctx.slug}/ y sigue desde ahí; lo que ya está bien no lo rehagas.)\n\n${prompt}`;
+
+  const comandos = [
+    ...enTerminales(`node produccion/validar-manifiesto.js temp/${ctx.slug}/manifiesto.json`, `node produccion\\validar-manifiesto.js temp\\${ctx.slug}\\manifiesto.json`),
+    ...enTerminales(`node produccion/tiempos-cancion.js temp/${ctx.slug}`, `node produccion\\tiempos-cancion.js temp\\${ctx.slug}`),
+    ...(historia ? enTerminales(`node produccion/tiempos-cancion.js temp/${ctx.slug} --lineas`, `node produccion\\tiempos-cancion.js temp\\${ctx.slug} --lineas`) : []),
+  ];
+  const escribibles = ['manifiesto.json', 'app/bloqueo.json', ...(historia ? ['cancion/lineas.txt', 'datos-editor.md'] : [])];
+  // tiempos-cancion es gratis y local (lee la cancion y el manifiesto): aca se permite, solo con su comando exacto.
+  const prohibidas = prohibidasComunes().filter((x) => !/tiempos-cancion/.test(x));
+  return {
+    tipo: 'tomas',
+    cwd: RAIZ,
+    prompt,
+    herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit', 'TodoWrite', 'Bash', 'PowerShell'],
+    permitidas: [
+      `Read(./.claude/skills/${skillVisual}/**)`,
+      ...(historia ? [] : ['Read(./.claude/skills/anuncios-musicales/**)']),
+      `Read(${slugRel}/**)`,
+      ...(ctx.brief?.productoId ? [`Read(./${relProducto(ctx.brief.productoId)}/**)`] : []),
+      ...escribibles.flatMap((a) => [`Write(${slugRel}/${a})`, `Edit(${slugRel}/${a})`]),
+      'Glob',
+      'Grep',
+      'TodoWrite',
+      ...comandos,
+    ],
+    prohibidas,
+    esfuerzo: 'alto',
+    fraseInicio: `${LaIA()} empezó a escribir las escenas`,
+    timeoutMs: (historia ? 150 : 75) * 60000,
+    silencioMs: 15 * 60000,
+    maxTurnos: historia ? 220 : 120,
+    correcciones: 2,
+    verificar: () => verificarTomas(ctx, estiloVisual),
+  };
+}
+
 async function tomas(ctx) {
   const c = ctx.carpeta;
   const historia = esHistoria(ctx);
@@ -918,83 +1010,32 @@ async function tomas(ctx) {
   if (ctx.senal?.aborted) return { cancelado: true };
 
   const claude = await ctx.claude();
-  if (!claude?.lanzarSesion) return errorDe('No pude abrir Claude para escribir las escenas. Revisa que Claude Code esté instalado y con tu sesión iniciada, y toca “Continuar”.', '', 'claude');
+  if (!claude?.lanzarSesion) return errorDe(`No pude abrir ${laIA()} para escribir las escenas. Revisa que ${datosIA().programa} esté instalado y con tu sesión iniciada, y toca “Continuar”.`, '', 'claude');
 
-  const pet = leerJSON(RUTAS.peticion(c)) || {};
-  const slugRel = `./temp/${ctx.slug}`;
-  const skillVisual = historia ? 'anuncios-historias-musicales' : VISUALES[estiloVisual].skill;
-  const valores = {
-    slug: ctx.slug,
-    skill: skillVisual,
-    estiloNombre: historia ? 'Historia musical' : VISUALES[estiloVisual].nombre,
-    estiloClave: historia ? 'historias-musicales' : estiloVisual,
-    titulo: pet.titulo || cj.titulo || '',
-    letra: cj.letra || pet.letra || '',
-    concepto: elegida?.op?.concepto || '',
-    ideaVisual: elegida?.op?.ideaVisual || elegida?.op?.idea_visual || '',
-    angulo: elegida?.letras?.angulo || '',
-    duracion: String(r2(cj.duracion)),
-    brief: JSON.stringify(briefDelProducto(ctx.brief), null, 2),
-    carpetaProducto: ctx.brief?.productoId ? relProducto(ctx.brief.productoId) : 'temp',
-    detalleProducto: detalleDelProducto(ctx.brief?.productoId),
-    foto: textoFoto(ctx.slug, ctx.brief, f.foto),
-    tabla: l.tabla ? `temp/${ctx.slug}/app/tiempos-por-linea.txt` : '(no se pudo medir: sácalos de audio/cancion.json)',
-  };
-  let prompt = textoClaude(historia ? 'tarea-visual-historia' : 'tarea-visual-musical', valores);
   const reintento = (est.intentos || 0) > 0;
-  if (reintento) prompt = `(El intento anterior no terminó: revisa lo que ya está escrito en temp/${ctx.slug}/ y sigue desde ahí; lo que ya está bien no lo rehagas.)\n\n${prompt}`;
+  const sesion = armarSesionTomas(ctx, { cj, elegida, estiloVisual, foto: f.foto, tabla: l.tabla, reintento });
   est.uuid = est.uuid || crypto.randomUUID();
   est.intentos = (est.intentos || 0) + 1;
   est.estiloVisual = estiloVisual;
   guardarEst();
   fs.rmSync(path.join(c, 'app', 'bloqueo.json'), { force: true });
 
-  const comandos = [
-    ...enTerminales(`node produccion/validar-manifiesto.js temp/${ctx.slug}/manifiesto.json`, `node produccion\\validar-manifiesto.js temp\\${ctx.slug}\\manifiesto.json`),
-    ...enTerminales(`node produccion/tiempos-cancion.js temp/${ctx.slug}`, `node produccion\\tiempos-cancion.js temp\\${ctx.slug}`),
-    ...(historia ? enTerminales(`node produccion/tiempos-cancion.js temp/${ctx.slug} --lineas`, `node produccion\\tiempos-cancion.js temp\\${ctx.slug} --lineas`) : []),
-  ];
-  const escribibles = ['manifiesto.json', 'app/bloqueo.json', ...(historia ? ['cancion/lineas.txt', 'datos-editor.md'] : [])];
-  const comunes = typeof claude.prohibidasComunes === 'function' ? claude.prohibidasComunes() : prohibidasComunes();
-  // tiempos-cancion es gratis y local (lee la cancion y el manifiesto): aca se permite, solo con su comando exacto.
-  const prohibidas = comunes.filter((x) => !/tiempos-cancion/.test(x));
-  ctx.avance('Claude está escribiendo las escenas sobre tu canción');
+  ctx.avance(`${LaIA()} está escribiendo las escenas sobre tu canción`);
   const r = await claude.lanzarSesion({
-    tipo: 'tomas',
-    cwd: RAIZ,
+    ...sesion,
     uuid: est.uuid,
     resume: reintento,
-    prompt,
-    herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit', 'TodoWrite', 'Bash', 'PowerShell'],
-    permitidas: [
-      `Read(./.claude/skills/${skillVisual}/**)`,
-      ...(historia ? [] : ['Read(./.claude/skills/anuncios-musicales/**)']),
-      `Read(${slugRel}/**)`,
-      ...(ctx.brief?.productoId ? [`Read(./${relProducto(ctx.brief.productoId)}/**)`] : []),
-      ...escribibles.flatMap((a) => [`Write(${slugRel}/${a})`, `Edit(${slugRel}/${a})`]),
-      'Glob',
-      'Grep',
-      'TodoWrite',
-      ...comandos,
-    ],
-    prohibidas,
-    fraseInicio: 'Claude empezó a escribir las escenas',
     alProgreso: (frase) => ctx.avance(frase),
-    timeoutMs: (historia ? 150 : 75) * 60000,
-    silencioMs: 15 * 60000,
-    maxTurnos: historia ? 220 : 120,
-    correcciones: 2,
     registro: path.join(c, 'app', 'registro', 'tomas-claude.jsonl'),
-    verificar: () => verificarTomas(ctx, estiloVisual),
     senal: ctx.senal,
   });
   if (ctx.senal?.aborted || r?.cancelado) return { cancelado: true };
   if (!r?.ok) {
-    const porque = String(r?.error || 'Claude no terminó.').replace(/\s*Toca "Reintentar"[^.]*\.?/g, '').trim();
+    const porque = String(r?.error || `${LaIA(r?.motor)} no terminó.`).replace(/\s*Toca "Reintentar"[^.]*\.?/g, '').trim();
     return errorDe(
       r?.limite ? r.error : `No pude terminar las escenas: ${porque} Toca “Continuar”: sigue desde donde quedó.`,
       r?.detalle || '',
-      r?.limite ? 'claude-limite' : r?.sinSesion || r?.sinClaude ? 'claude' : 'otro'
+      r?.limite ? 'claude-limite' : r?.sinSesion || r?.sinClaude || r?.planSinCodex ? 'claude' : 'otro'
     );
   }
   // sin transiciones ni musica de fondo (si Claude las dejo, se sacan: este estilo va con corte seco)
@@ -1051,10 +1092,12 @@ async function ventanas(ctx) {
   if (!tiempos?.lineas) return errorDe('Faltan los tiempos de la canción.', 'audio/tiempos.json');
   const cambios = [];
   const sinArreglo = [];
+  // los modelos del anuncio (Ajustes › Modelos): todos los de su cascada tienen que cubrir la ventana
+  const modelos = modelosDeLasVentanas(ctx.carpeta, manifiesto);
   for (const x of necesidadesDeVentanas(manifiesto, tiempos)) {
-    const r = duracionQueCubre(x.duracion, x.necesita);
+    const r = duracionQueCubre(x.duracion, x.necesita, modelos);
     if (r.imposible) {
-      sinArreglo.push({ que: x.que, n: x.n, toma: x.toma, necesita: r1(x.necesita), motivo: `pide ${r1(x.necesita)} s y un clip llega hasta 10` });
+      sinArreglo.push({ que: x.que, n: x.n, toma: x.toma, necesita: r1(x.necesita), motivo: `pide ${r1(x.necesita)} s y un clip llega hasta ${topeDeLasVentanas(modelos)}` });
       continue;
     }
     if (!r.cambia) continue;
@@ -1154,7 +1197,7 @@ export function validarRevision(valor, manifiesto, soloTomas = null) {
       continue;
     }
     if (!['A', 'B', 'C'].includes(toma.tipo)) {
-      errores.push(`${donde}: la toma ${n} es tipo ${toma.tipo}; acá solo se rehacen tomas A, B o C`);
+      errores.push(`${donde}: la toma ${n} es tipo ${toma.tipo}; acá solo se marcan tomas A, B o C`);
       continue;
     }
     if (vistas.has(n)) {
@@ -1231,14 +1274,45 @@ function textoDeRevision(ctx, manifiesto, lote, k, total, estiloVisual) {
   });
 }
 
-/** Modo prueba sin Claude: pide rehacer UNA toma (la primera A) con un prompt apenas distinto, para probar el camino. */
+/**
+ * §3.2 fila 16: la IA mira las imagenes de un lote de tomas (`lote`, el `k` de `total`) y escribe
+ * app/revision/lote-<k>.json. Ademas de lo que nombra la tarea: las hojas del manifiesto (adjuntas) y el contexto de
+ * cada toma del lote que la app ya armo (app/revision/contexto-toma-N.txt). La skill queda a pedido. Sin lanzarla
+ * (§3.1): quien la lanza agrega uuid, resume, senal, alProgreso y registro.
+ */
+export function armarSesionRevisionLote(ctx, { manifiesto = leerJSON(RUTAS.manifiesto(ctx.carpeta)), lote, k = 1, total = 1, estiloVisual = null }) {
+  const slugRel = `temp/${ctx.slug}`;
+  const skill = esHistoria(ctx) ? 'anuncios-historias-musicales' : VISUALES[estiloVisual]?.skill || 'anuncios-crochet';
+  const nums = new Set(lote.map((t) => t.n));
+  const ruta = rutaRevisionLote(ctx, k);
+  const verificar = async () => {
+    if (!existe(ruta)) return { ok: false, errores: [`No encuentro ${path.relative(RAIZ, ruta).split(path.sep).join('/')}: escríbelo (una lista, [] si todo está bien).`] };
+    const v = validarRevision(leerJSON(ruta), manifiesto, nums);
+    return v.errores.length ? { ok: false, errores: v.errores } : { ok: true };
+  };
+  const contextos = contextosDe(dirRevision(ctx), 'contexto-toma-*.txt').filter((r) => nums.has(Number(/contexto-toma-(\d+)\.txt$/.exec(r)?.[1])));
+  return {
+    tipo: 'revision',
+    cwd: RAIZ,
+    prompt: textoDeRevision(ctx, manifiesto, lote, k, total, estiloVisual),
+    herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
+    permitidas: [`Read(./${slugRel}/**)`, `Read(./.claude/skills/${skill}/**)`, 'Glob', 'Grep', `Write(./${slugRel}/app/revision/lote-${k}.json)`, `Edit(./${slugRel}/app/revision/lote-${k}.json)`],
+    prohibidas: prohibidasComunes({ terminal: false }),
+    // los contextos del lote, a pedido: repiten lo del manifiesto pegado (la tarea los lee solo de las tomas que rehace)
+    material: { skillsAPedido: true, aPedido: contextos, imagenes: hojasDelManifiesto(ctx.carpeta, manifiesto) },
+    timeoutMs: 30 * 60000,
+    verificar,
+  };
+}
+
+/** Modo prueba sin Claude: marca UNA toma (la primera A) con un prompt apenas distinto: deja un aviso para probar el camino. */
 function revisionSimulada(manifiesto) {
   const t = (manifiesto.tomas || []).find((x) => x.tipo === 'A' && x.n > 1) || (manifiesto.tomas || []).find((x) => x.tipo === 'A');
   if (!t) return [];
   return [
     {
       toma: t.n,
-      motivo: 'Prueba: la app rehace esta toma para probar el camino completo (modo prueba, sin Claude).',
+      motivo: `Prueba: un aviso de la revisión para probar el camino (modo prueba, sin ${laIA()}).`,
       promptsNuevos: { prompt_imagen_inicial: `${t.prompt_imagen_inicial} Keep every character identical to its reference sheet.`, prompt_video: `${t.prompt_video} Slow, steady movement.` },
     },
   ];
@@ -1250,17 +1324,7 @@ function copiarSiExiste(de, a) {
   fs.copyFileSync(de, a);
   return true;
 }
-function respaldarToma(ctx, n) {
-  const dir = path.join(dirRevision(ctx), 'respaldo', `toma-${n}`);
-  for (const [sub, nombre] of [
-    ['img', `toma-${n}-inicial.png`],
-    ['img', `toma-${n}-final.png`],
-    ['video', `toma-${n}.mp4`],
-  ]) {
-    copiarSiExiste(path.join(ctx.carpeta, sub, nombre), path.join(dir, sub, nombre));
-  }
-  fs.copyFileSync(RUTAS.manifiesto(ctx.carpeta), path.join(dir, 'manifiesto.json'));
-}
+/** Una toma que una version anterior de la app empezo a rehacer: vuelve a como estaba (imagenes, clip y manifiesto). */
 function restaurarToma(ctx, n) {
   const dir = path.join(dirRevision(ctx), 'respaldo', `toma-${n}`);
   for (const sub of ['img', 'video']) for (const nombre of listar(path.join(dir, sub))) copiarSiExiste(path.join(dir, sub, nombre), path.join(ctx.carpeta, sub, nombre));
@@ -1283,7 +1347,7 @@ async function revisionImagenes(ctx) {
       estado.sesion = { hecha: true, ok: false, fecha: ahora() };
       estado.sinRevision = true;
       guardarEstado();
-      return { saltado: true, nota: 'No se pudo abrir Claude para revisar las imágenes: siguen como salieron.' };
+      return { saltado: true, nota: `No se pudo abrir ${laIA()} para revisar las imágenes: siguen como salieron.` };
     }
     ctx.avance('Preparando la revisión de las imágenes');
     for (const t of (manifiesto.tomas || []).filter((x) => ['A', 'B', 'C'].includes(x.tipo))) {
@@ -1293,6 +1357,8 @@ async function revisionImagenes(ctx) {
       if (r.cancelado || ctx.senal?.aborted) return { cancelado: true };
       if (r.codigo === 0) escribirTexto(destino, r.texto);
     }
+    // una revision nueva: lo que dijo la de antes (si la hubo) ya no vale
+    limpiarAvisosDelPaso(ctx.carpeta, 'revision-imagenes');
     const lotes = lotesDeTomas(manifiesto);
     let pedidos = [];
     let descartados = [];
@@ -1302,49 +1368,37 @@ async function revisionImagenes(ctx) {
       pedidos = validarRevision(revisionSimulada(manifiesto), manifiesto).pedidos;
       estado.sesion = { hecha: true, ok: true, simulada: true, fecha: ahora() };
     } else {
-      const slugRel = `temp/${ctx.slug}`;
-      const skill = esHistoria(ctx) ? 'anuncios-historias-musicales' : VISUALES[estiloVisual]?.skill || 'anuncios-crochet';
       const maxIntentos = Math.max(1, Number(process.env.ANUNCIOS_REVISION_INTENTOS) || 2);
+      let motorUsado = null; // la IA que miro (lo que dice la nota si no termino)
       for (const [i, lote] of lotes.entries()) {
         const k = i + 1;
         const yaLote = estado.lotes[k];
         if (yaLote?.hecho) continue;
-        const nums = new Set(lote.map((t) => t.n));
         const ruta = rutaRevisionLote(ctx, k);
-        const verificar = async () => {
-          if (!existe(ruta)) return { ok: false, errores: [`No encuentro ${path.relative(RAIZ, ruta).split(path.sep).join('/')}: escríbelo (una lista, [] si todo está bien).`] };
-          const v = validarRevision(leerJSON(ruta), manifiesto, nums);
-          return v.errores.length ? { ok: false, errores: v.errores } : { ok: true };
-        };
         const uuid = yaLote?.uuid || crypto.randomUUID();
         let r = null;
         for (let intento = (yaLote?.intentos || 0) + 1; intento <= maxIntentos; intento++) {
           estado.lotes[k] = { uuid, intentos: intento, hecho: false };
           guardarEstado();
-          ctx.avance(lotes.length > 1 ? `Claude está mirando las imágenes (parte ${k} de ${lotes.length})` : 'Claude está mirando las imágenes');
-          const texto = textoDeRevision(ctx, manifiesto, lote, k, lotes.length, estiloVisual);
+          ctx.avance(lotes.length > 1 ? `${LaIA()} está mirando las imágenes (parte ${k} de ${lotes.length})` : `${LaIA()} está mirando las imágenes`);
+          const sesion = armarSesionRevisionLote(ctx, { manifiesto, lote, k, total: lotes.length, estiloVisual });
           r = await claude.lanzarSesion({
-            tipo: 'revision',
-            cwd: RAIZ,
+            ...sesion,
             uuid,
             resume: intento > 1,
-            prompt: intento > 1 ? `Sigue con la tarea de antes y termina ${path.relative(RAIZ, ruta).split(path.sep).join('/')}.\n\n${texto}` : texto,
-            herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
-            permitidas: [`Read(./${slugRel}/**)`, `Read(./.claude/skills/${skill}/**)`, 'Glob', 'Grep', `Write(./${slugRel}/app/revision/lote-${k}.json)`, `Edit(./${slugRel}/app/revision/lote-${k}.json)`],
-            prohibidas: typeof claude.prohibidasComunes === 'function' ? claude.prohibidasComunes({ terminal: false }) : prohibidasComunes({ terminal: false }),
+            prompt: intento > 1 ? `Sigue con la tarea de antes y termina ${path.relative(RAIZ, ruta).split(path.sep).join('/')}.\n\n${sesion.prompt}` : sesion.prompt,
             alProgreso: (frase) => ctx.avance(frase),
-            timeoutMs: 30 * 60000,
             registro: path.join(ctx.carpeta, 'app', 'registro', `revision-imagenes-claude-${k}.jsonl`),
-            verificar,
             senal: ctx.senal,
           });
+          if (r?.motor) motorUsado = r.motor;
           if (r?.ok) break;
           if (ctx.senal?.aborted || r?.cancelado) {
             estado.lotes[k].intentos = intento - 1;
             guardarEstado();
             return { cancelado: true };
           }
-          if (r?.limite || r?.sinClaude || r?.sinSesion) break;
+          if (r?.limite || r?.sinClaude || r?.sinSesion || r?.planSinCodex) break;
         }
         if (r?.ok) estado.lotes[k] = { uuid, hecho: true, ok: true };
         else {
@@ -1352,7 +1406,7 @@ async function revisionImagenes(ctx) {
           sinRevisar += lote.length;
           if (r?.limite) {
             limite = true;
-            break; // sin plan de Claude no se sigue con los demas lotes
+            break; // sin plan de la IA no se sigue con los demas lotes
           }
         }
         guardarEstado();
@@ -1365,7 +1419,7 @@ async function revisionImagenes(ctx) {
         descartados.push(...v.errores);
       }
       if (limite) sinRevisar = lotes.filter((_, i) => !estado.lotes[i + 1]?.ok).reduce((s, l) => s + l.length, 0);
-      estado.sesion = { hecha: true, ok: sinRevisar === 0, limite, fecha: ahora() };
+      estado.sesion = { hecha: true, ok: sinRevisar === 0, limite, fecha: ahora(), ...(motorUsado ? { motor: motorUsado } : {}) };
       if (sinRevisar) estado.sinRevision = true;
     }
     estado.pedidos = pedidos.map((x) => ({ ...x, fase: 'pendiente', resultado: null }));
@@ -1375,89 +1429,18 @@ async function revisionImagenes(ctx) {
     if (!estado.pedidos.length && estado.sinRevision && sinRevisar >= lotes.reduce((s, l) => s + l.length, 0)) {
       return {
         saltado: true,
-        nota: limite ? 'Se acabó el uso de tu plan de Claude por ahora: las imágenes no se revisaron y siguen como salieron.' : 'Claude no pudo terminar la revisión de las imágenes: siguen como salieron.',
+        nota: limite ? `Se acabó el uso de tu plan de ${laIA(estado.sesion?.motor)} por ahora: las imágenes no se revisaron y siguen como salieron.` : `${LaIA(estado.sesion?.motor)} no pudo terminar la revisión de las imágenes: siguen como salieron.`,
       };
     }
   }
 
-  // (b) aplicar cada pedido y rehacer esa toma, una sola vez por toma (igual que voz en off)
-  const rehechos = (ctx.conductor.rehechos ||= {});
-  for (const x of estado.pedidos) {
-    if (x.resultado) continue;
-    if (ctx.senal?.aborted) return { cancelado: true };
-    const clave = `toma-${x.toma}`;
-    if (x.fase === 'pendiente' || x.fase === 'aplicando') {
-      if (x.fase === 'pendiente') {
-        if ((rehechos[clave] || 0) >= TOPE_POR_TOMA) {
-          if (!existe(path.join(ctx.carpeta, 'img', `toma-${x.toma}-inicial.png`))) restaurarToma(ctx, x.toma);
-          x.resultado = 'tope';
-          guardarEstado();
-          continue;
-        }
-        respaldarToma(ctx, x.toma);
-        x.fase = 'aplicando';
-        x.vez = (rehechos[clave] || 0) + 1;
-        guardarEstado();
-      } else {
-        restaurarToma(ctx, x.toma);
-      }
-      rehechos[clave] = Math.max(rehechos[clave] || 0, x.vez || 1);
-      ctx.guardar();
-      ctx.avance(`Rehaciendo la toma ${x.toma}`);
-      const archivo = path.join(dirRevision(ctx), `prompts-toma-${x.toma}.json`);
-      escribirJSON(archivo, { ...x.prompts, motivo: `revision de la app: ${x.motivo}` });
-      const a = await ctx.correr('rehacer-toma.js', [ctx.carpetaArg, '--toma', String(x.toma), '--aplicar', path.relative(RAIZ, archivo).split(path.sep).join('/')]);
-      if (a.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      const v = a.codigo === 0 ? await ctx.correr('validar-manifiesto.js', [`${ctx.carpetaArg}/manifiesto.json`]) : null;
-      if (v?.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      if (a.codigo !== 0 || v.codigo !== 0) {
-        restaurarToma(ctx, x.toma);
-        x.resultado = 'no-se-pudo';
-        x.detalle = ultimasLineas((v || a).texto, 6);
-        guardarEstado();
-        continue;
-      }
-      x.fase = 'aplicado';
-      guardarEstado();
-    }
-    if (x.fase === 'aplicado') {
-      const r = await ctx.correr('generar-imagenes.js', [ctx.carpetaArg, '--tomas', String(x.toma), '--si'], { que: ['imagenes'] });
-      if (r.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      if (r.codigo !== 0) {
-        if (r.clase === 'saldo' || ['red', 'servidor'].includes(r.clase)) return fallo(r, { que: `la toma ${x.toma}` });
-        restaurarToma(ctx, x.toma);
-        x.resultado = 'no-se-pudo';
-        x.detalle = ultimasLineas(r.texto, 6);
-        guardarEstado();
-        continue;
-      }
-      x.fase = 'imagenes';
-      guardarEstado();
-    }
-    if (x.fase === 'imagenes') {
-      const r = await ctx.correr('generar-videos.js', [ctx.carpetaArg, '--tomas', String(x.toma), '--sin-broll', '--si'], { que: ['videos'] });
-      if (r.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      if (r.codigo !== 0) {
-        if (r.clase === 'saldo' || ['red', 'servidor'].includes(r.clase)) return fallo(r, { que: `el clip de la toma ${x.toma}` });
-        restaurarToma(ctx, x.toma);
-        x.resultado = 'no-se-pudo';
-        x.detalle = ultimasLineas(r.texto, 6);
-        guardarEstado();
-        continue;
-      }
-      x.fase = 'listo';
-      x.resultado = 'rehecha';
-      guardarEstado();
-    }
-  }
-  const hechas = estado.pedidos.filter((x) => x.resultado === 'rehecha').length;
-  const no = estado.pedidos.filter((x) => x.resultado && x.resultado !== 'rehecha').length;
-  const partes = [
-    hechas ? `${hechas} ${hechas === 1 ? 'toma rehecha' : 'tomas rehechas'}` : null,
-    no ? `${no} ${no === 1 ? 'no se pudo rehacer' : 'no se pudieron rehacer'}` : null,
-    estado.sinRevisar ? `${estado.sinRevisar} sin revisar` : null,
-  ].filter(Boolean);
-  return { ok: true, nota: partes.length ? `${partes.join('; ')}.` : 'Las imágenes pasaron la revisión.' };
+  // (b) cada toma marcada queda como AVISO en su imagen de inicio, con los prompts que escribio la revision como
+  // sugerencia (para «Corregir esto»): no se rehace nada solo (igual que voz en off)
+  aplicarComoAvisos(ctx, estado.pedidos, { paso: 'revision-imagenes', restaurar: (n) => restaurarToma(ctx, n) });
+  guardarEstado();
+  const avisos = estado.pedidos.filter((x) => x.resultado === 'aviso').length;
+  const partes = [notaDeAvisos(avisos), estado.sinRevisar ? `${estado.sinRevisar} sin revisar.` : null].filter(Boolean);
+  return { ok: true, nota: partes.length ? partes.join(' ') : 'Las imágenes pasaron la revisión.' };
 }
 
 // ---------------------------------------------------------------- 11. voces coladas (solo musical)

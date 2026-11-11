@@ -1,0 +1,132 @@
+{
+  "id": "G05",
+  "slug": "titular-banda-producto-ficha-precio",
+  "nombre": "Titular en banda + producto ancho + ficha de íconos con precio",
+  "origen": "ganador:536275062_1262254561837420_4365450844579834611_n.jpg",
+  "descripcion": "Fondo gris claro con una foto de contexto de uso muy desenfocada y lavada. Arriba, el nombre del producto en dos niveles, levemente inclinados: una línea negra condensada y, debajo, una banda negra a todo el ancho con la palabra clave gigante en amarillo y un ícono de línea temático al lado. En el centro, dos variantes del producto grandes y superpuestas en diagonal. Abajo a la izquierda, una lista de 5 características con pictograma negro y texto corto; abajo a la derecha, un círculo amarillo grande con el precio y el envío. Se lee de arriba abajo: qué es, cómo se ve, qué tiene y cuánto cuesta.",
+  "angulos_compatibles": [
+    "caracteristica-estrella",
+    "beneficio-principal",
+    "oferta",
+    "mecanismo-unico",
+    "rapido-y-facil"
+  ],
+  "tipos_producto": [
+    "gadget",
+    "ropa",
+    "hogar",
+    "juguete",
+    "otro"
+  ],
+  "ad_format": "Banded Headline Product Spec Sheet with Price Circle Ad",
+  "reference_style": "Bold retail product ad: a slightly tilted two-level condensed headline whose keyword sits huge in yellow on a full-width black band, two product variants overlapping diagonally in the center, and a bottom row with an icon spec list on the left and a big yellow price circle on the right, over a pale blurred context photo",
+  "art_direction": {
+    "visual_hierarchy": "1) The giant yellow keyword on the black band. 2) The two product variants in the center. 3) The big yellow price circle at the lower right. 4) The first headline line above the band. 5) The five-row icon spec list at the lower left.",
+    "composition_style": "Vertical three-tier stack: a tilted headline block across the top, a wide product zone in the middle, and a bottom row split into a spec list on the left and a price circle on the right. The black band and the headline line above it are rotated about -4 degrees (rising to the right), which adds energy. The two products overlap along a diagonal from the upper right to the lower left, the back one higher and to the right.",
+    "spacing_and_structure": "Headline line 1: from about 5% to 69% of the canvas width, tilted with the band (its letters span about 6.5-13% of the height at the left end and about 3-10% at the right end), left-aligned. Black band: full width, about 17% of the canvas thick, top edge from about 14% of the height at the left to 7% at the right, bottom edge from about 31% at the left to 24% at the right (rotated about -4 degrees). Keyword on the band: from about 6% to 61% of the width, vertically centered in the band, left-aligned with line 1. Thematic icon: inside the band, right of the keyword, from about 64% to 79% of the width and 9% to 21.5% of the height. Products: back unit from about 37% to 92% of the width and 25% to 50% of the height; front unit from about 14% to 82% of the width and 38% to 69% of the height. Spec list: five rows from about 3% to 55% of the width and 65% to 98% of the height (row pitch about 7.5%); pictograms about 5-6% of the canvas at about 3-12% of the width; texts from about 13.5% of the width. Price circle: about 30% of the canvas in diameter, from about 66.5% to 96.5% of the width and 67% to 97% of the height.",
+    "lighting_and_depth": "Background: very light grey with a heavily blurred, washed-out photo of the context of use (in the original, a car interior seen through the windshield), almost white. Products: bright studio light with glossy reflections on the surfaces, crisp edges and a soft shadow between the two units and under them. Band, text, pictograms: flat graphic. Price circle: radial amber-yellow gradient, slightly deeper orange toward the edge, with a thin lighter rim and a soft warm glow around it; two thin black decorative arcs inside it, one above and one below the price, follow the circle's curve."
+  },
+  "layout_summary": "Square canvas with a pale grey background showing a washed-out blurred context photo. At the top, a black condensed uppercase line, and right under it a full-width black band, both tilted about -4 degrees, with one giant yellow condensed keyword and, inside the band to its right, a yellow line icon (theme of the keyword). In the center, two variants of the user's product (for example two colors) overlapping diagonally and large. At the lower left, five rows each with a small black pictogram and a short dark text. At the lower right, a large amber-yellow circle framed inside by two thin black arcs, with a giant black price spanning almost its full width and a small white shipping line under it.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Suggests the context of use without competing with the product",
+      "adaptation_rule": "Very light grey base with a heavily blurred, washed-out photo of the place where the product is used (car, desk, kitchen, bathroom, outdoors), faded almost to white so it never competes with the text or the product."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline band",
+      "position": "Full width, about 17% of the canvas thick, from about 14-31% of the height at the left edge to 7-24% at the right edge (rotated about -4 degrees, rising to the right)",
+      "visual_function": "High-contrast stage for the headline keyword; the most distinctive element of the format",
+      "adaptation_rule": "Solid black band crossing the full width, slightly tilted, holding the giant keyword."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "thematic line icon",
+      "position": "Inside the band, right of the keyword, from about 64% to 79% of the canvas width and 9% to 21.5% of the height",
+      "visual_function": "Illustrates the keyword at a glance",
+      "adaptation_rule": "Simple outline icon in the keyword's yellow, literally representing the keyword or the moment of use (for example a moon, a sun, a drop, a bolt, a snowflake). One icon only."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product duo",
+      "position": "Center: back unit from about 37% to 92% of the width and 25% to 50% of the height; front unit from about 14% to 82% of the width and 38% to 69% of the height",
+      "visual_function": "Shows the product large and its options or variants",
+      "adaptation_rule": "Render two units of the user's product exactly as in the attached product photo (same geometry, materials and colors), overlapping diagonally: two real variants or colors of the product if the user has them, otherwise the same product from two different angles. The front unit is fully visible."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "icon spec list (5)",
+      "position": "Lower left, from about 3% to 55% of the canvas width and 65% to 98% of the height",
+      "visual_function": "Technical sheet that justifies the price",
+      "adaptation_rule": "Five rows, each with a small black pictogram (solid or line, about 5-6% of the canvas) literally representing its feature, followed by a short dark text. All pictograms in the same visual weight. No boxes or dividers."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "price circle",
+      "position": "Lower right, about 30% of the canvas in diameter, from about 66.5% to 96.5% of the width and 67% to 97% of the height",
+      "visual_function": "Makes the price the second strongest focal point after the headline",
+      "adaptation_rule": "Solid circle with a radial amber-yellow gradient (or the brand's warm accent), a thin lighter rim and a soft warm glow, with two thin black decorative arcs inside it (one above and one below the price), holding the giant price and a small shipping line. Use the exact price and currency the user gave."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline line 1 (what the product is)",
+      "reference_position": "Top left, directly above the band, from about 5% to 69% of the width, tilted with the band",
+      "text_style": "Bold condensed sans-serif, uppercase, black, about 6.5% of the canvas height, 1 line, left-aligned, tilted with the band",
+      "guia_texto": "La categoría del producto o lo que es, de 2 a 4 palabras; se completa con la palabra clave de la banda."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "headline keyword",
+      "reference_position": "On the black band, left-aligned with line 1",
+      "text_style": "Ultra bold condensed sans-serif, uppercase, yellow or the brand's warm accent, about 12% of the canvas height, 1 line, left-aligned, vertically centered in the band and tilted with it",
+      "guia_texto": "La palabra clave que define el diferencial o el momento de uso del producto (para cuándo, para qué o para quién), en 1 palabra, máximo 2."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "spec list texts (5 rows)",
+      "reference_position": "Lower left, right of each pictogram",
+      "text_style": "Semi-bold sans-serif, near-black, about 2.3-2.5% of the canvas height, max 2 lines per row, left-aligned",
+      "guia_texto": "Cinco características concretas, una por fila, de 3 a 8 palabras cada una: diseño o material, protección o tecnología, calidad o rendimiento, comodidad y el mecanismo que lo hace funcionar."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "price",
+      "reference_position": "Center of the price circle",
+      "text_style": "Ultra bold rounded sans-serif, black with a faint light halo, about 12% of the canvas height, 1 line, centered, spanning almost the full width of the circle",
+      "guia_texto": "El precio real que dio el usuario con su moneda. Solo cifra y moneda."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "shipping line",
+      "reference_position": "Inside the price circle, under the price",
+      "text_style": "Bold sans-serif, white, about 2.3-2.5% of the canvas height, 1 line, right-aligned under the price, between the price and the lower arc",
+      "guia_texto": "La condición real de envío del usuario, en 2 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-width black band, slightly tilted, with a giant yellow keyword and a thematic line icon",
+    "Black condensed headline line above the band",
+    "Two product units or variants overlapping diagonally in the center",
+    "Five-row spec list with black pictograms at the lower left",
+    "Big amber-yellow price circle with two thin black inner arcs at the lower right",
+    "Pale, washed-out blurred context photo as background"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Struck-through old price or discount percentage badge",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "People, hands or lifestyle scenes",
+    "Boxes, cards or dividers behind the spec rows",
+    "More than 5 spec rows",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Alto contraste negro y amarillo: banda negra con la palabra clave y el ícono en amarillo intenso (o el acento cálido de la marca); primera línea del titular, pictogramas y textos en negro; círculo de precio en degradado amarillo ámbar, algo más naranja hacia el borde, con dos arcos finos negros, el precio en negro y el envío en blanco. Fondo gris muy claro y lavado.",
+  "posicion_logo": null
+}

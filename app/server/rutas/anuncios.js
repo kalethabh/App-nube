@@ -66,6 +66,7 @@ function todos() {
       error: n.error,
       errorTipo: n.errorTipo,
       reinicio: n.reinicio,
+      motor: n.motor,
       miniatura: m.miniatura || n.miniatura,
       creado: n.creado || m.creado,
       fecha: Date.parse(n.fecha) > Date.parse(m.fecha) ? n.fecha : m.fecha,

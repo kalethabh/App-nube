@@ -1,0 +1,140 @@
+{
+  "id": "F20",
+  "slug": "oferta-combo",
+  "nombre": "Oferta / combo",
+  "origen": "biblioteca",
+  "descripcion": "Anuncio de oferta directo y premium: titular de oferta grande arriba, varias unidades del producto agrupadas como combo sobre un podio con un resplandor detrás, un sello de descuento inclinado en la esquina del combo, el bloque de precio (precio anterior tachado y precio nuevo grande) a la derecha, y una franja inferior a todo lo ancho con la condición de envío o pago y una flecha de llamado a la acción. Pensado para tráfico caliente y momentos de promoción.",
+  "angulos_compatibles": ["oferta", "regalo", "objecion-precio", "rutina-uso", "beneficio-principal"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "ropa", "gadget", "juguete", "hogar", "digital", "otro"],
+  "ad_format": "Bundle Offer Ad",
+  "reference_style": "High-energy premium e-commerce bundle offer ad with grouped product units on a podium, a rotated discount seal, a strong price block and a full-width CTA strip",
+  "art_direction": {
+    "visual_hierarchy": "1) Offer headline at the top. 2) The grouped product bundle with the discount seal on its corner. 3) The new price, large and bold. 4) The CTA strip at the bottom. 5) The struck-through old price and the bundle subline.",
+    "composition_style": "Asymmetric, energetic retail layout: the bundle sits center-left on a low podium, the discount seal overlaps the bundle's upper-right corner at a tilt of about -10 degrees, and the price block stacks in the right column. The headline stack is centered across the top and the CTA strip closes the composition edge to edge at the bottom.",
+    "spacing_and_structure": "Headline from about 4% to 15% of the canvas height and bundle subline from about 16% to 21%, both centered. Bundle from about 5% to 58% of the canvas width and 26% to 82% of the canvas height, podium included. Discount seal about 20% of the canvas width in diameter, centered near 58% of the width and 33% of the height (so it spans about 23-43% of the height and never touches the subline). Price block from about 61% to 95% of the canvas width and 47% to 77% of the canvas height, below the seal and clear of the bundle. CTA strip full width, touching the left, right and bottom edges, from about 85% to 100% of the canvas height. Top and side safe margins about 5-6%.",
+    "lighting_and_depth": "Punchy commercial studio lighting: strong key light from the upper left, crisp rim light on every unit, glossy highlights on packaging, a soft reflection on the podium top and a soft contact shadow under the group. A bright radial glow in the brand accent color sits behind the bundle to make it pop. The seal and the CTA strip have a subtle soft shadow; the price block is flat graphic type."
+  },
+  "layout_summary": "Square canvas with a rich brand-colored background and a radial glow behind the products. A big offer headline and a short subline are centered at the top. Center-left, two to four units of the user's product are grouped in a tight pyramid or fan on a low round podium. A starburst or round discount seal, tilted, overlaps the upper-right corner of the group. In the right column, a small struck-through old price sits above a large new price. A solid full-width strip along the bottom carries the shipping or payment condition and a small arrow icon.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background with radial glow",
+      "position": "Full canvas, glow centered behind the bundle",
+      "visual_function": "Rich, energetic backdrop that signals a special moment and makes the bundle pop",
+      "adaptation_rule": "Use the main brand color as a deep solid or gradient background with a soft radial glow in a lighter brand accent behind the products. Choose a clean treatment, never cluttered with confetti or patterns."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "offer headline",
+      "position": "Top center, from about 4% to 15% of the canvas height",
+      "visual_function": "Announces the deal in one glance",
+      "adaptation_rule": "Write the offer mechanic in very few words (e.g. combo, 2x1, 3x2, kit, bundle name), using only the real offer data the user gave."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "bundle subline",
+      "position": "Directly below the headline, centered, from about 16% to 21% of the canvas height",
+      "visual_function": "Clarifies what the bundle includes",
+      "adaptation_rule": "One short line stating the contents or quantity of the bundle (number of units, treatment length, included extras) from the user's data."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product bundle",
+      "position": "Center-left, about 5-58% of the canvas width and 26-82% of the canvas height",
+      "visual_function": "Shows exactly what you get; quantity reads as value",
+      "adaptation_rule": "Render 2 to 4 units of the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), grouped tightly in a pyramid, fan or staggered row with the front unit slightly larger and fully visible. If the offer includes a different item the user listed, place it at the front of the group. For clothing, show the garments neatly folded and stacked in a fan so each color or piece is visible. For digital products, show the main product mockup with its included extras as stacked device or cover mockups."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "podium",
+      "position": "Under the bundle, its top surface at about 72-82% of the canvas height",
+      "visual_function": "Elevates the bundle and gives it a premium retail stage",
+      "adaptation_rule": "Low round or rounded-rectangle podium in a brand tone, slightly lighter or darker than the background, with a soft reflective top."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "discount seal",
+      "position": "Overlapping the upper-right corner of the bundle, centered near 58% of the canvas width and 33% of the canvas height (about 48-68% of the width and 23-43% of the height), rotated about -10 degrees",
+      "visual_function": "Signals the saving instantly; the strongest color accent of the ad",
+      "adaptation_rule": "Starburst or circular seal about 20% of the canvas width in diameter, in the highest-energy accent color of the palette, with the discount text in high contrast. Only one seal."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "price block",
+      "position": "Right column, about 61-95% of the canvas width and 47-77% of the canvas height, vertically centered in that zone",
+      "visual_function": "Anchors value: old price versus new price",
+      "adaptation_rule": "Small struck-through old price on top and a large bold new price below, left-aligned within the column, using the exact price and currency the user gave. The old price is the regular price the user gave, or the unit price multiplied by the bundle quantity; if the user gave no regular price, write a plausible regular price higher than the offer price. Both prices must fit inside the column on one line each."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "CTA strip",
+      "position": "Full width along the bottom, from about 85% to 100% of the canvas height, touching the left, right and bottom edges",
+      "visual_function": "Removes the last friction (shipping or payment) and closes with an action",
+      "adaptation_rule": "Solid strip in a contrasting brand color with the user's CTA condition centered and a small right-pointing arrow or chevron icon near the right end."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "offer headline",
+      "reference_position": "Top center, from about 4% to 15% of the canvas height",
+      "text_style": "Ultra bold condensed or extra bold sans-serif, uppercase, very large (about 10-11% of the canvas height, scaled down if needed to stay within the side margins), 1 line, centered, maximum contrast; the number or key word may use the accent color",
+      "guia_texto": "La mecánica de la oferta real del usuario (combo, 2x1, 3x2, kit). De 1 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "bundle subline",
+      "reference_position": "Directly below the headline, centered",
+      "text_style": "Medium weight sans-serif, about 3.5% of the canvas height, 1 line, centered, high contrast",
+      "guia_texto": "Qué incluye el combo o para cuánto tiempo alcanza (unidades, duración del tratamiento, extras). De 4 a 8 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "discount badge",
+      "reference_position": "Centered inside the rotated discount seal",
+      "text_style": "Ultra bold sans-serif, about 6-7% of the canvas height for the main figure with a smaller second line, max 2 lines, centered, high contrast against the seal",
+      "guia_texto": "El ahorro real del combo: porcentaje (por ejemplo -30%) o la mecánica (2x1, 3x2), con una palabra de apoyo opcional como 'ahorra' o 'dto.'. De 1 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "old price",
+      "reference_position": "Top of the price block in the right column",
+      "text_style": "Regular weight sans-serif, about 4% of the canvas height, 1 line, left-aligned, muted contrast, with a clean horizontal strikethrough",
+      "guia_texto": "El precio regular que dio el usuario (o el precio unitario por la cantidad del combo); si no lo dio, uno creíble y mayor que el precio de oferta. Con su moneda. Solo cifra y moneda."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "new price",
+      "reference_position": "Below the old price in the right column",
+      "text_style": "Ultra bold sans-serif, very large (about 8.5-9.5% of the canvas height, scaled down if needed so the full figure fits inside the right column), 1 line, left-aligned, maximum contrast; currency symbol at about half size",
+      "guia_texto": "El precio real del combo que dio el usuario, con su moneda. Solo cifra y moneda."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "CTA",
+      "reference_position": "Centered inside the bottom CTA strip",
+      "text_style": "Bold uppercase sans-serif, about 4% of the canvas height, 1 line, centered, maximum contrast against the strip",
+      "guia_texto": "La condición de envío o pago y la acción que dio el usuario (por ejemplo envío gratis y pago contra entrega). De 3 a 7 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Two to four units of the user's product grouped as one bundle",
+    "Low podium under the bundle and a radial glow behind it",
+    "One rotated discount seal overlapping the bundle's upper-right corner",
+    "Price block with struck-through old price and large new price",
+    "Full-width CTA strip at the bottom with a small arrow icon"
+  ],
+  "forbidden_additions": [
+    "Rating stars, reviews or testimonials",
+    "Benefit list or benefit icons",
+    "Countdown timer or urgency label",
+    "Trust seals, guarantee badges or payment-method icons",
+    "Extra text blocks beyond the headline, subline, seal, prices and CTA strip",
+    "More than one discount seal or extra sticker badges",
+    "Multiple price tiers or comparison cards",
+    "People or hands",
+    "Confetti, ribbons or decorative clutter",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca completa con máxima energía: fondo en el color principal profundo con resplandor en un tono claro de la paleta; el sello de descuento en el acento más llamativo; la franja inferior en un color de marca que contraste con el fondo; precio nuevo y titular en el color de mayor contraste."
+}

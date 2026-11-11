@@ -1,0 +1,141 @@
+{
+  "id": "F24",
+  "slug": "carta-fundador",
+  "nombre": "Nota del fundador",
+  "origen": "biblioteca",
+  "descripcion": "Una carta real fotografiada: una hoja de papel crema con textura que ocupa casi toda la imagen, apenas inclinada sobre una superficie de color de marca. Escrita con letra a mano prolija (o tipografía editorial): saludo, dos párrafos cortos, firma en cursiva con nombre y cargo, y una posdata con el gancho. Una foto instantánea del producto pegada con cinta en la esquina superior derecha. Se siente íntima y humana, genera confianza y cuenta por qué existe el producto.",
+  "angulos_compatibles": ["dolor", "objecion-confianza", "promesa-emocional", "enemigo-comun", "identidad", "mecanismo-unico"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Founder Letter Ad",
+  "reference_style": "Intimate, photographic founder's note ad: a textured cream letter with neat handwriting, a cursive signature, a P.S. line and a taped instant photo of the product",
+  "art_direction": {
+    "visual_hierarchy": "1) The greeting and the first paragraph, which work as the hook. 2) The taped instant photo of the product. 3) The cursive signature. 4) The second paragraph and the P.S. line. 5) The name and role line.",
+    "composition_style": "Full-frame letter: the paper sheet fills almost the entire canvas, rotated about -1.5 degrees, with a thin band of the surface visible around it. Text is left-aligned along a margin at about 10% of the canvas width, like a real handwritten page. The instant photo is taped in the upper-right corner, rotated about +6 degrees, and the first paragraph wraps in a narrower column beside it. Calm, personal and unhurried, with real paper margins.",
+    "spacing_and_structure": "Paper sheet about 5-95% of the canvas width and 3-97% of the canvas height. Instant photo about 62-92% of the width and 6-38% of the height. Greeting about 10-58% of the width and 8-14% of the height. First paragraph about 10-58% of the width and 17-39% of the height (max 4 lines). Second paragraph about 10-90% of the width and 43-60% of the height (max 3 lines). Signature about 10-50% of the width and 64-73% of the height. Name and role line about 10-60% of the width and 74-78% of the height. P.S. line about 10-90% of the width and 82-92% of the height (max 2 lines). Comfortable line spacing (about 1.4x), clear gaps of about 3-4% of the canvas height between blocks, and inner paper margins of about 5%; no text runs off the paper.",
+    "lighting_and_depth": "Photographic realism. Soft, warm natural window light from the upper left, a very gentle light falloff across the paper, a soft shadow cast by the sheet onto the surface, a small shadow under the instant photo and a slightly translucent, light-catching strip of tape. Visible paper fiber texture and real ink pressure on the strokes. No digital gradients or graphic effects."
+  },
+  "layout_summary": "Square canvas showing a real photographed letter: a cream textured paper sheet, slightly rotated, fills almost the whole frame on top of a brand-colored surface visible only at the edges. Handwritten text runs down the left side of the page: a greeting, a first short paragraph in a narrow column, a second short paragraph at full width, a flowing cursive signature with a small name and role line beneath it, and a P.S. line at the bottom. In the upper-right corner, an instant photo of the user's product is attached to the page with a strip of washi tape. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "surface",
+      "position": "Full canvas, visible only as a thin band around the paper",
+      "visual_function": "Grounds the letter in a real place and brings the brand color in subtly",
+      "adaptation_rule": "Use a desk, linen or wood surface tinted with the main brand color (or a muted tone of the palette), soft and slightly out of focus at the edges."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "paper sheet",
+      "position": "About 5-95% of the canvas width and 3-97% of the canvas height, rotated about -1.5 degrees",
+      "visual_function": "The letter itself; makes the ad feel personal instead of commercial",
+      "adaptation_rule": "Cream or off-white textured writing paper with natural fibers, optionally faint ruled lines or a soft fold crease. No printed letterhead, no logo."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "taped instant photo with product",
+      "position": "Upper right of the paper, about 62-92% of the canvas width and 6-38% of the canvas height, rotated about +6 degrees",
+      "visual_function": "Shows what the letter is about; the only place the product appears",
+      "adaptation_rule": "Instant-film style photo with a white frame (thicker bottom border, no caption) showing the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), centered and well lit on a simple surface in a palette tone, filling most of the photo area."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "washi tape",
+      "position": "Across the top edge of the instant photo, slightly diagonal",
+      "visual_function": "Handmade detail that makes the page feel real",
+      "adaptation_rule": "One short strip of semi-translucent paper tape in the brand accent color or a soft tone of the palette."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "greeting",
+      "position": "Top left of the paper, about 10-58% of the canvas width and 8-14% of the canvas height",
+      "visual_function": "Opens the letter and speaks directly to the reader",
+      "adaptation_rule": "Write a warm opening addressed to the target audience, in the user's language."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "letter body",
+      "position": "First paragraph about 10-58% of the canvas width and 17-39% of the height (beside the photo); second paragraph about 10-90% of the width and 43-60% of the height",
+      "visual_function": "Tells why the product exists and what it changes, in a personal voice",
+      "adaptation_rule": "Two very short paragraphs in first person from the founder or the team: first the problem or story behind the product, then what the product does differently. Use only the user's real product data."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "signature and role",
+      "position": "Signature about 10-50% of the canvas width and 64-73% of the height; name and role line directly below, about 74-78% of the height",
+      "visual_function": "Puts a human behind the brand and closes with credibility",
+      "adaptation_rule": "Flowing cursive signature in ink, with a small printed-style line under it naming the founder (or the team) and their role."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "P.S. line",
+      "position": "Bottom of the paper, about 10-90% of the canvas width and 82-92% of the canvas height",
+      "visual_function": "The most-read line of any letter; carries the final hook",
+      "adaptation_rule": "Write one short postscript with the strongest hook of the angle (a personal promise, the key reason to try it or what the reader will feel)."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "greeting",
+      "reference_position": "Top left of the paper",
+      "text_style": "Neat, highly legible handwritten print in dark blue or black ink (or a refined editorial serif if the batch plan asks for the editorial version), about 5% of the canvas height, 1 line, left-aligned",
+      "guia_texto": "Saludo cálido dirigido al público objetivo (Hola, a ti que...; Querida amiga:). De 2 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "letter paragraph 1",
+      "reference_position": "Left column beside the instant photo",
+      "text_style": "Same handwriting as the greeting, about 3.6-4% of the canvas height per line, max 4 lines, left-aligned, line spacing about 1.4x, letters not connected so each word stays readable",
+      "guia_texto": "En primera persona: el problema o la historia que llevó a crear el producto, conectada con el dolor del ángulo. De 8 a 14 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "letter paragraph 2",
+      "reference_position": "Full width of the page below the instant photo",
+      "text_style": "Same handwriting and size as paragraph 1, max 3 lines, left-aligned, line spacing about 1.4x; one key phrase may be underlined by hand",
+      "guia_texto": "Qué hace el producto distinto o qué cambió para quienes lo usan, con tono humano y sin promesas exageradas. De 8 a 14 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "signature",
+      "reference_position": "Lower left of the paper",
+      "text_style": "Flowing cursive signature in ink, about 7-8% of the canvas height, 1 line, left-aligned",
+      "guia_texto": "Nombre de pila del fundador que dio el usuario; si no hay, el nombre de la marca como firma. De 1 a 2 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "name and role",
+      "reference_position": "Directly under the signature",
+      "text_style": "Small printed handwriting or small serif, about 2.5% of the canvas height, 1 line, left-aligned, slightly lighter ink",
+      "guia_texto": "Nombre y cargo (Fundadora de [marca]) o 'El equipo de [marca]'. De 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "P.S.",
+      "reference_position": "Bottom of the paper, full width",
+      "text_style": "Same handwriting as the body, about 3.4-3.6% of the canvas height, max 2 lines, left-aligned, line spacing about 1.4x, starting with the postscript abbreviation; may be underlined or in the brand accent ink",
+      "guia_texto": "Posdata con el gancho más fuerte del ángulo (una promesa personal, la razón para probarlo). Empieza con 'P.D.' o su equivalente en el idioma del anuncio. De 6 a 12 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Cream textured paper sheet filling almost the entire canvas, slightly rotated",
+    "Brand-colored surface visible only as a thin band around the paper",
+    "Instant photo of the user's product taped in the upper-right corner",
+    "Strip of washi tape on the instant photo",
+    "Flowing cursive signature",
+    "Realistic warm window light and paper texture"
+  ],
+  "forbidden_additions": [
+    "Headline or text outside the paper",
+    "Large printed headline, title or subject line on the page",
+    "Printed letterhead, logos or brand marks",
+    "Founder portrait or any person photo",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Benefit icons or checklists",
+    "Extra props on the paper (pens, cups, flowers, envelopes)",
+    "Bottom bar or banner"
+  ],
+  "notas_paleta": "Colores nativos de una carta real: papel crema o blanco roto y tinta azul oscura o negra. La paleta de marca solo aparece en detalles: la superficie que asoma alrededor del papel, la cinta adhesiva, el fondo de la foto instantánea y, si se desea, la tinta de la posdata."
+}

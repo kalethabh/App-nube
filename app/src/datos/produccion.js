@@ -13,7 +13,8 @@
 //
 // El conductor de cada anuncio (temp/<slug>/app/conductor.json, GET /api/anuncios/:slug/conductor) dice en
 // qué paso va. Aquí está todo lo que se calcula de él, para que la producción, el tablero y el menú
-// lo cuenten igual: las etapas, el avance, el tiempo que falta y por qué está frenado. Sin precios.
+// lo cuenten igual: las etapas, el avance, el tiempo que falta y por qué está frenado. Sin precios (el costo estimado
+// antes de producir lo arma el servidor: GET /api/anuncios/:slug/costo).
 import { invalidar, useAnuncios, useDatos } from './api.js';
 
 export const TICK = 2000;
@@ -77,7 +78,7 @@ export async function continuarProduccion(slug) {
 export const PASOS = {
   validar: {
     haciendo: 'Revisando el guion antes de empezar',
-    detalle: 'Se comprueba que cada toma tenga todo lo que necesita. Esto no gasta nada.',
+    detalle: 'Se comprueba que cada escena tenga todo lo que necesita. Esto no gasta nada.',
     hecho: 'Guion revisado: todo en orden.',
   },
   saldo: {
@@ -87,13 +88,13 @@ export const PASOS = {
   },
   voz: {
     haciendo: 'Grabando la voz',
-    detalle: 'ElevenLabs lee el guion con la voz que elegiste. De sus tiempos salen los de cada toma.',
+    detalle: 'ElevenLabs lee el guion con la voz que elegiste. De sus tiempos salen los de cada escena.',
     hecho: 'Voz lista.',
   },
   ventanas: {
-    haciendo: 'Ajustando cada toma a la voz',
-    detalle: 'Ninguna toma puede quedar más corta que su frase: si hace falta, se alarga antes de pedirla.',
-    hecho: 'Cada toma quedó a la medida de su frase.',
+    haciendo: 'Ajustando cada escena a la voz',
+    detalle: 'Ninguna escena puede quedar más corta que su frase: si hace falta, se alarga antes de pedirla.',
+    hecho: 'Cada escena quedó a la medida de su frase.',
   },
   'imagenes-y-videos': {
     haciendo: 'Generando las imágenes y los videos',
@@ -102,7 +103,7 @@ export const PASOS = {
   },
   'revision-imagenes': {
     haciendo: 'La IA revisa las imágenes',
-    detalle: 'Mira cada toma contra sus hojas: el personaje, tu producto y las letras. Si una salió mal, la rehace una vez.',
+    detalle: 'Mira cada escena contra sus hojas: el personaje, tu producto y las letras. Si nota algo, te deja un aviso en esa pieza (no rehace nada sola).',
     hecho: 'Imágenes revisadas.',
   },
   voces: {
@@ -132,7 +133,7 @@ export const PASOS = {
   },
   informe: {
     haciendo: 'Escribiendo tu informe',
-    detalle: 'Lo que decidió el montaje y lo que se arregló solo, en palabras simples.',
+    detalle: 'Lo que decidió el montaje y lo que notó la revisión, en palabras simples.',
     hecho: 'Informe listo.',
   },
 
@@ -164,14 +165,14 @@ export const PASOS = {
   },
   'revision-cadena': {
     haciendo: 'La IA revisa las uniones',
-    detalle: 'Mira dónde termina cada clip y dónde empieza el siguiente. Si uno no llega bien, lo rehace una vez.',
+    detalle: 'Mira dónde termina cada clip y dónde empieza el siguiente. Si uno no llega bien, te deja un aviso en ese paso.',
     hecho: 'Uniones revisadas.',
   },
 
   // ---- los que hablan dentro del clip (objeto parlante, UGC, podcast y entrevista)
   'revision-clips': {
     haciendo: 'Revisando los clips y lo que dice cada personaje',
-    detalle: 'Se escucha cada clip y se compara con su frase del guion; la IA mira también cómo se ve cada clip y cada B-roll. Lo que no sale bien se rehace solo.',
+    detalle: 'Se escucha cada clip y se compara con su frase del guion; la IA mira también cómo se ve cada clip y cada imagen de apoyo. Lo que nota queda como aviso en su pieza: tú decides.',
     hecho: 'Clips revisados: cada personaje dice su frase.',
   },
   persona: {
@@ -181,7 +182,7 @@ export const PASOS = {
   },
   'revision-persona': {
     haciendo: 'La IA revisa a la persona',
-    detalle: 'Antes de hacer los videos mira que la persona y tu producto estén bien. Si algo salió mal, la rehace una vez.',
+    detalle: 'Antes de hacer los videos mira que la persona y tu producto estén bien. Si nota algo, te deja un aviso en esa imagen.',
     hecho: 'Persona revisada.',
   },
   bloques: {
@@ -191,7 +192,7 @@ export const PASOS = {
   },
   'revision-bloques': {
     haciendo: 'Revisando cada bloque',
-    detalle: 'Se escucha cada bloque y se compara con el guion; la IA mira la cara y el producto. Lo que no sale limpio se rehace solo.',
+    detalle: 'Se escucha cada bloque y se compara con el guion; la IA mira la cara y el producto. Lo que nota queda como aviso en su bloque: tú decides.',
     hecho: 'Bloques revisados.',
   },
   ganchos: {
@@ -201,7 +202,7 @@ export const PASOS = {
   },
   'revision-habla': {
     haciendo: 'Revisando cada clip',
-    detalle: 'Se escucha cada clip y se compara con su frase; la IA mira también cómo se ve cada clip y cada B-roll. Lo que no sale bien se rehace solo.',
+    detalle: 'Se escucha cada clip y se compara con su frase; la IA mira también cómo se ve cada clip y cada imagen de apoyo. Lo que nota queda como aviso en su pieza: tú decides.',
     hecho: 'Clips revisados: cada uno dice su frase.',
   },
   'voz-historia': {

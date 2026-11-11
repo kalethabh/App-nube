@@ -22,9 +22,11 @@
 // de voz-en-off.js (ventanas, imagenes-y-videos y su revision), y el informe lo dice.
 //
 // Todo retoma desde donde quedo, sin pagar dos veces: cada comando del motor no repite lo que ya existe y retoma lo
-// que sigue en kie; las sesiones de Claude dejan su archivo en disco; cada rehacer anota su fase antes de pagar, con
-// el tope contado antes (1 vez por pieza). Un clip que se rehace se aparta a app/continuidad/respaldo/ y se pide
-// SIN --rehacer (solo lo que falta): si la app se cierra con el clip nuevo ya bajado, al volver no se pide otra vez.
+// que sigue en kie; las sesiones de Claude dejan su archivo en disco.
+// Todo al primer intento (decision de Diego, 2026-11-09): las dos revisiones (las imagenes y la cadena) NO rehacen
+// nada. Lo que ven queda como un aviso en esa pieza (app/avisos.json, lib/avisos.js: img:toma-N-inicial, vid:paso-K,
+// vid:toma-N) con el prompt que escribieron como sugerencia, y el usuario decide. Si el plan de la IA se acaba en una
+// revision, ese paso se salta con una nota (la revision ya no frena el anuncio).
 //
 // Archivos de la app (temp/<slug>/app/):
 //   continuidad/estado.json        { sinContinuidad?: { motivo, detalle, fecha }, bajadas: [...] }
@@ -34,8 +36,8 @@
 //   continuidad/pasos.json         lo que escribe Claude: { pasos: [{ de, a, forma, prompt_video }] }
 //   continuidad/pares-estado.json  la sesion de los pasos
 //   continuidad/cadena.json        lo que escribe Claude al revisar la cadena: [{ clip, motivo, prompt_video, forma? }]
-//   continuidad/cadena-estado.json los pedidos y lo que paso con cada uno
-//   continuidad/respaldo/          los clips apartados mientras se rehacen (con el nuevo listo, van a historial/)
+//   continuidad/cadena-estado.json los pedidos y lo que paso con cada uno (desde 2026-11-09: 'aviso')
+//   continuidad/respaldo/          los clips que una version anterior aparto para rehacerlos
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -44,9 +46,15 @@ import { leerJSON, existe, listar, escribirSeguro, escribirJSONSeguro } from '..
 import { ESPERAS_REINTENTO_MS, mensajeDeFallo, consultarSaldoKie, hayConexion, modoPrueba } from '../procesos.js';
 import { armarInforme } from '../informe.js';
 import { textoClaude, leerYValidar, validarEsquema, cargarEsquema, prohibidasComunes } from '../claude.js';
+import { nombreIA } from '../motor-ia.js';
+import { hojasDelManifiesto, contextosDe, rutasEnTexto } from '../ia/material.js';
 import * as vozEnOff from './voz-en-off.js';
+import { anotarAviso, limpiarAvisosDelPaso, notaDeAvisos, piezasConAviso } from '../avisos.js';
 // Las funciones puras del motor (no hablan con nadie ni cobran): la cadena, la prediccion y el validador del bloque.
 import * as motor from '../../../../produccion/continuidad.js';
+
+/** El modelo de la cadena de este anuncio (su temp/<slug>/modelos.json; sin el, Omni y sus tramos de siempre). */
+const modeloDeCadena = (ctx) => motor.modeloDeCadenaEn(ctx.carpeta);
 
 export const FAMILIA = 'continuidad';
 /** Los estilos que admiten el efecto (los mismos que ESTILOS_CON_CONTINUIDAD del motor). */
@@ -75,12 +83,9 @@ const SIN_SUNO = new Set(['estilo-lego', 'zack-d-films', 'skeleton']);
 const CREDITOS_SUNO = 12;
 const EFECTOS = ['woosh.mp3', 'deep-woosh.mp3']; // solo si el anuncio quedo sin continuidad (con cortes)
 
-const TOPE_POR_PIEZA = 1; // decision de Diego: cada pieza se rehace una sola vez; lo que pase el tope va al informe
 const MAX_TURNOS = 150; // mirar 20-40 imagenes y escribir: mas que una tarea de guion
 
 const ahora = () => new Date().toISOString();
-/** Marca de tiempo para nombres de archivo, la misma forma que historial.js del motor: 2026-09-03T18-42-07 */
-const sello = () => new Date().toISOString().slice(0, 19).replace(/:/g, '-');
 const r2 = (x) => Math.round(Number(x) * 100) / 100;
 const numeroES = (n, d = 1) => Number(n).toLocaleString('es-ES', { maximumFractionDigits: d, minimumFractionDigits: 0 });
 
@@ -198,14 +203,49 @@ async function comoVozEnOff(ctx, ids) {
   return { ok: true, nota: notas.join(' ') || null };
 }
 
-// ---------------------------------------------------------------- las sesiones de Claude
+// ---------------------------------------------------------------- las sesiones de la IA
+
+// La IA en los textos: 'Claude', 'ChatGPT' o 'tu IA'. Sin `motor`, la elegida ahora; con el que anoto una sesion
+// (estado.sesion.motor, r.motor), la que la hizo. LaIA, para empezar una frase.
+const laIA = (motor) => nombreIA(motor || undefined);
+const LaIA = (motor) => laIA(motor).replace(/^./, (c) => c.toUpperCase());
 
 /**
- * Una tarea de Claude que deja UN archivo (o dos) en temp/<slug>/. Hasta 2 intentos (el segundo sigue la misma
- * conversacion). estado.sesion queda en disco: al retomar, la conversacion sigue.
- * Devuelve lo de lanzarSesion, o { cancelado } si lo detuvieron, o { ok: false, sinClaude } sin Claude.
+ * El armado de una sesion de esta familia, sin lanzarla (§3.1 del diseño): { tipo, cwd, prompt, herramientas,
+ * permitidas, prohibidas, material, esfuerzo?, timeoutMs, maxTurnos, verificar }. Lee el anuncio y las skills; escribe
+ * SOLO su archivo (`escribe`, relativos a la carpeta del anuncio: el manifiesto, el brief y el conductor son de la
+ * app). Quien la lanza agrega uuid, resume, senal, alProgreso y registro.
  */
-async function sesionDeClaude(ctx, { estado, guardar, tipo, prompt, escribe, skills, verificar, frase, registro }) {
+function armarSesion(ctx, { tipo, prompt, escribe, skills, verificar, material = {}, esfuerzo = null }) {
+  const slugRel = rel(ctx);
+  return {
+    tipo,
+    cwd: RAIZ,
+    prompt,
+    herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
+    permitidas: [
+      `Read(./${slugRel}/**)`,
+      ...skills.filter(Boolean).map((s) => `Read(./.claude/skills/${s}/**)`),
+      'Glob',
+      'Grep',
+      ...escribe.flatMap((f) => [`Write(./${slugRel}/${f})`, `Edit(./${slugRel}/${f})`]),
+    ],
+    prohibidas: prohibidasComunes({ terminal: false }),
+    material,
+    ...(esfuerzo ? { esfuerzo } : {}),
+    timeoutMs: 45 * 60000,
+    maxTurnos: MAX_TURNOS,
+    verificar,
+  };
+}
+
+/**
+ * Una tarea de la IA que deja UN archivo (o dos) en temp/<slug>/: `sesion` es lo que arma una de las armarSesion… y
+ * `escribe` lo que tiene que dejar (lo nombra el segundo intento). Hasta 2 intentos (el segundo sigue la misma
+ * conversacion). estado.sesion queda en disco: al retomar, la conversacion sigue.
+ * Devuelve lo de lanzarSesion, o { cancelado } si lo detuvieron, o { ok: false, sinClaude } sin la IA.
+ */
+async function sesionDeClaude(ctx, { estado, guardar, sesion, escribe, frase, registro }) {
   const claude = await ctx.claude();
   if (!claude?.lanzarSesion) return { ok: false, sinClaude: true };
   const slugRel = rel(ctx);
@@ -218,28 +258,15 @@ async function sesionDeClaude(ctx, { estado, guardar, tipo, prompt, escribe, ski
     guardar();
     ctx.avance(frase);
     r = await claude.lanzarSesion({
-      tipo,
-      cwd: RAIZ,
+      ...sesion,
       uuid,
       resume: previos > 0,
-      prompt: previos > 0 ? `Sigue con la tarea de antes y termina ${escribe.map((f) => `${slugRel}/${f}`).join(' y ')}.\n\n${prompt}` : prompt,
-      herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
-      // lee el anuncio y las skills; escribe SOLO su archivo (el manifiesto, el brief y el conductor son de la app)
-      permitidas: [
-        `Read(./${slugRel}/**)`,
-        ...skills.filter(Boolean).map((s) => `Read(./.claude/skills/${s}/**)`),
-        'Glob',
-        'Grep',
-        ...escribe.flatMap((f) => [`Write(./${slugRel}/${f})`, `Edit(./${slugRel}/${f})`]),
-      ],
-      prohibidas: typeof claude.prohibidasComunes === 'function' ? claude.prohibidasComunes({ terminal: false }) : prohibidasComunes({ terminal: false }),
+      prompt: previos > 0 ? `Sigue con la tarea de antes y termina ${escribe.map((f) => `${slugRel}/${f}`).join(' y ')}.\n\n${sesion.prompt}` : sesion.prompt,
       alProgreso: (f) => ctx.avance(f),
-      timeoutMs: 45 * 60000,
-      maxTurnos: MAX_TURNOS,
       registro: path.join(ctx.carpeta, 'app', 'registro', registro),
-      verificar,
-      senal: ctx.senal, // Detener corta tambien a Claude
+      senal: ctx.senal, // Detener corta tambien a la IA
     });
+    if (r?.motor) estado.sesion.motor = r.motor; // la IA que la hizo (lo que dicen las notas despues)
     if (r?.ok) break;
     if (ctx.senal?.aborted || r?.cancelado) {
       // un intento cortado por Detener no cuenta
@@ -247,22 +274,22 @@ async function sesionDeClaude(ctx, { estado, guardar, tipo, prompt, escribe, ski
       guardar();
       return { cancelado: true };
     }
-    if (r?.limite || r?.sinClaude || r?.sinSesion) break;
+    if (r?.limite || r?.sinClaude || r?.sinSesion || r?.planSinCodex) break;
   }
   return r || { ok: false };
 }
 
-// Con el conductor de varios a la vez, una pausa con el plan de Claude agotado se convierte sola en "sigo cuando
+// Con el conductor de varios a la vez, una pausa con el plan de la IA agotado se convierte sola en "sigo cuando
 // se renueve" (conductor.js, esperarAClaude); sin el, queda en pausa y "Continuar" la retoma.
-const MENSAJE_LIMITE =
-  'Se acabó por ahora el uso de tu plan de Claude, y sin él no se pueden mirar las imágenes ni escribir los pasos entre escenas. Cuando se renueve, sigue desde aquí, sin pagar nada de nuevo.';
+const mensajeLimite = (motor) =>
+  `Se acabó por ahora el uso de tu plan de ${laIA(motor)}, y sin él no se pueden mirar las imágenes ni escribir los pasos entre escenas. Cuando se renueve, sigue desde aquí, sin pagar nada de nuevo.`;
 
 const notaSinClaude = (r, que) =>
   r?.limite
-    ? `Se acabó por ahora el uso de tu plan de Claude: ${que}.`
+    ? `Se acabó por ahora el uso de tu plan de ${laIA(r?.motor)}: ${que}.`
     : r?.sinClaude || r?.sinSesion
-      ? `No se pudo abrir Claude: ${que}.`
-      : `Claude no pudo terminar la revisión: ${que}.`;
+      ? `No se pudo abrir ${laIA(r?.motor)}: ${que}.`
+      : `${LaIA(r?.motor)} no pudo terminar la revisión: ${que}.`;
 
 // ---------------------------------------------------------------- reglas de los prompts de paso
 
@@ -475,7 +502,7 @@ export function validarRevisionDeImagenes(valor, manifiesto) {
       continue;
     }
     if (!['A', 'B', 'C'].includes(toma.tipo)) {
-      errores.push(`${donde}: la toma ${n} es tipo ${toma.tipo}; acá solo se rehacen tomas A, B o C`);
+      errores.push(`${donde}: la toma ${n} es tipo ${toma.tipo}; acá solo se marcan tomas A, B o C`);
       continue;
     }
     if (vistas.has(n)) {
@@ -531,27 +558,45 @@ function textoDeRevisionDeImagenes(ctx, manifiesto) {
   });
 }
 
-/** Modo prueba sin Claude: pide rehacer UNA imagen (la primera A despues de la 1), para probar el camino. */
+/**
+ * §3.2 fila 17: la IA mira las imagenes de las tomas antes de pagar los videos y escribe app/revision.json. Ademas
+ * de lo que nombra la tarea: las hojas del manifiesto (adjuntas) y los contexto-toma-N.txt que la app ya armo. La
+ * skill del estilo queda a pedido.
+ */
+export function armarSesionRevisionImagenes(ctx, { manifiesto = leerManifiesto(ctx) } = {}) {
+  return armarSesion(ctx, {
+    tipo: 'revision',
+    prompt: textoDeRevisionDeImagenes(ctx, manifiesto),
+    escribe: ['app/revision.json'],
+    skills: [datosDeEstilo(ctx).skill],
+    verificar: async () => {
+      if (!existe(rutaRevision(ctx))) return { ok: false, errores: [`No encuentro ${rel(ctx, 'app', 'revision.json')}: escríbelo (una lista, [] si todo está bien).`] };
+      const v = validarRevisionDeImagenes(leerJSON(rutaRevision(ctx)), manifiesto);
+      return v.errores.length ? { ok: false, errores: v.errores } : { ok: true };
+    },
+    material: {
+      skillsAPedido: true,
+      // a pedido: repiten lo del manifiesto pegado y la tarea los lee solo de las tomas que rehace (como Claude)
+      aPedido: contextosDe(dirRevision(ctx), 'contexto-toma-*.txt'),
+      imagenes: hojasDelManifiesto(ctx.carpeta, manifiesto),
+    },
+  });
+}
+
+/** Modo prueba sin Claude: marca UNA imagen (la primera A despues de la 1): deja un aviso para probar el camino. */
 function revisionDeImagenesSimulada(manifiesto) {
   const t = (manifiesto.tomas || []).find((x) => x.tipo === 'A' && x.n > 1) || (manifiesto.tomas || []).find((x) => x.tipo === 'A');
   if (!t) return [];
   return [
     {
       toma: t.n,
-      motivo: 'Prueba: la app rehace esta imagen para probar el camino completo (modo prueba, sin Claude).',
+      motivo: `Prueba: un aviso de la revisión para probar el camino (modo prueba, sin ${laIA()}).`,
       promptsNuevos: { prompt_imagen_inicial: `${t.prompt_imagen_inicial} Sharper details, clean and readable product label.`, prompt_video: t.prompt_video },
     },
   ];
 }
 
-/** Las imagenes de una toma y el manifiesto: se guardan para volver atras si no se puede rehacer. */
-function respaldarToma(ctx, n) {
-  const dir = path.join(dirRevision(ctx), 'respaldo', `toma-${n}`);
-  for (const nombre of [`toma-${n}-inicial.png`, `toma-${n}-final.png`]) copiarSiExiste(path.join(ctx.carpeta, 'img', nombre), path.join(dir, 'img', nombre));
-  fs.mkdirSync(dir, { recursive: true });
-  fs.copyFileSync(rutaManifiesto(ctx), path.join(dir, 'manifiesto.json'));
-}
-
+/** Una toma que una version anterior de la app empezo a rehacer: vuelve a como estaba (sus imagenes y el manifiesto). */
 function restaurarToma(ctx, n) {
   const dir = path.join(dirRevision(ctx), 'respaldo', `toma-${n}`);
   for (const nombre of listar(path.join(dir, 'img'))) copiarSiExiste(path.join(dir, 'img', nombre), path.join(ctx.carpeta, 'img', nombre));
@@ -581,33 +626,26 @@ async function revisionImagenes(ctx) {
     }
     if (ctx.senal?.aborted) return { cancelado: true };
     if (!estado.sesion?.uuid) fs.rmSync(rutaRevision(ctx), { force: true });
+    // una revision nueva: lo que dijo la de antes (si la hubo) ya no vale
+    limpiarAvisosDelPaso(ctx.carpeta, 'revision-imagenes');
 
     if (simulada) {
       escribirJSON(rutaRevision(ctx), revisionDeImagenesSimulada(manifiesto));
       estado.sesion = { hecha: true, ok: true, simulada: true, fecha: ahora() };
     } else {
-      const verificar = async () => {
-        if (!existe(rutaRevision(ctx))) return { ok: false, errores: [`No encuentro ${rel(ctx, 'app', 'revision.json')}: escríbelo (una lista, [] si todo está bien).`] };
-        const v = validarRevisionDeImagenes(leerJSON(rutaRevision(ctx)), manifiesto);
-        return v.errores.length ? { ok: false, errores: v.errores } : { ok: true };
-      };
       const r = await sesionDeClaude(ctx, {
         estado,
         guardar,
-        tipo: 'revision',
-        prompt: textoDeRevisionDeImagenes(ctx, manifiesto),
+        sesion: armarSesionRevisionImagenes(ctx, { manifiesto }),
         escribe: ['app/revision.json'],
-        skills: [datosDeEstilo(ctx).skill],
-        verificar,
-        frase: 'Claude está mirando las imágenes',
+        frase: `${LaIA()} está mirando las imágenes`,
         registro: 'revision-imagenes-claude.jsonl',
       });
       if (r.cancelado) return { cancelado: true };
-      // Sin plan de Claude por ahora: aca se espera (no se salta como en voz en off), porque el paso siguiente que
-      // necesita a Claude (los pares) lo esperaria igual, y una imagen mala descubierta despues cuesta dos videos.
-      if (!r.ok && r.limite) return { pausa: { motivo: 'claude', mensaje: MENSAJE_LIMITE } };
+      // Sin plan de la IA (o sin la IA): la revision ya no es obligatoria (desde 2026-11-09 solo deja avisos), asi que
+      // se salta con una nota y el anuncio sigue. Los pares, que si la necesitan, esperan al plan en su paso.
       if (!r.ok) {
-        Object.assign((estado.sesion ||= {}), { hecha: true, ok: false, limite: false, error: r.error || null });
+        Object.assign((estado.sesion ||= {}), { hecha: true, ok: false, limite: Boolean(r.limite), error: r.error || null });
         estado.sinRevision = true;
         guardar();
         return { saltado: true, nota: notaSinClaude(r, 'las imágenes no se revisaron y siguen como salieron') };
@@ -621,69 +659,15 @@ async function revisionImagenes(ctx) {
     guardar();
   }
 
-  // (b) aplicar cada pedido y rehacer esa imagen, una sola vez por toma (los videos todavia no existen)
-  const rehechos = (ctx.conductor.rehechos ||= {});
-  for (const x of estado.pedidos) {
-    if (x.resultado) continue;
-    if (ctx.senal?.aborted) return { cancelado: true };
-    const clave = `toma-${x.toma}`;
-    if (x.fase === 'pendiente' || x.fase === 'aplicando') {
-      if (x.fase === 'pendiente') {
-        if ((rehechos[clave] || 0) >= TOPE_POR_PIEZA) {
-          if (!existe(path.join(ctx.carpeta, 'img', `toma-${x.toma}-inicial.png`))) restaurarToma(ctx, x.toma);
-          x.resultado = 'tope';
-          guardar();
-          continue;
-        }
-        respaldarToma(ctx, x.toma);
-        // "aplicando" queda en disco ANTES de contar el tope y de tocar la toma
-        x.fase = 'aplicando';
-        x.vez = (rehechos[clave] || 0) + 1;
-        guardar();
-      } else {
-        restaurarToma(ctx, x.toma); // --aplicar quedo a medias: vuelve a como estaba y se aplica de nuevo (gratis)
-      }
-      rehechos[clave] = Math.max(rehechos[clave] || 0, x.vez || 1);
-      ctx.guardar();
-      ctx.avance(`Rehaciendo la imagen de la toma ${x.toma}`);
-      const archivo = path.join(dirRevision(ctx), `prompts-toma-${x.toma}.json`);
-      escribirJSON(archivo, { ...x.prompts, motivo: `revision de la app: ${x.motivo}` });
-      const a = await ctx.correr('rehacer-toma.js', [ctx.carpetaArg, '--toma', String(x.toma), '--aplicar', path.relative(RAIZ, archivo).split(path.sep).join('/')]);
-      if (a.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      const v = a.codigo === 0 ? await ctx.correr('validar-manifiesto.js', [`${ctx.carpetaArg}/manifiesto.json`]) : null;
-      if (v?.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      if (a.codigo !== 0 || v.codigo !== 0) {
-        restaurarToma(ctx, x.toma);
-        x.resultado = 'no-se-pudo';
-        x.detalle = ultimasLineas((v || a).texto, 6);
-        guardar();
-        continue;
-      }
-      x.fase = 'aplicado';
-      guardar();
-    }
-    if (x.fase === 'aplicado') {
-      const r = await ctx.correr('generar-imagenes.js', [ctx.carpetaArg, '--tomas', String(x.toma), '--si'], { que: ['imagenes'] });
-      if (r.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      if (r.codigo !== 0) {
-        if (r.clase === 'saldo' || ['red', 'servidor'].includes(r.clase)) return fallo(r, { que: `la imagen de la toma ${x.toma}` });
-        restaurarToma(ctx, x.toma);
-        x.resultado = 'no-se-pudo';
-        x.detalle = ultimasLineas(r.texto, 6);
-        guardar();
-        continue;
-      }
-      x.fase = 'listo';
-      x.resultado = 'rehecha';
-      guardar();
-    }
-  }
-  const hechas = estado.pedidos.filter((x) => x.resultado === 'rehecha').length;
-  const no = estado.pedidos.filter((x) => x.resultado && x.resultado !== 'rehecha').length;
-  const nota = !estado.pedidos.length
-    ? 'Las imágenes pasaron la revisión.'
-    : `${hechas ? `${hechas} ${hechas === 1 ? 'imagen rehecha' : 'imágenes rehechas'}` : ''}${hechas && no ? '; ' : ''}${no ? `${no} ${no === 1 ? 'no se pudo rehacer' : 'no se pudieron rehacer'}` : ''}.`;
-  return { ok: true, nota };
+  // (b) cada imagen marcada queda como AVISO en su imagen de inicio, con los prompts que escribio la revision como
+  // sugerencia: no se rehace nada solo. (Si el usuario la regenera despues, hay que reescribir los dos pasos que la
+  // tocan y pagar sus clips: eso lo hace el conductor con sus pasos de siempre.)
+  vozEnOff.aplicarComoAvisos(ctx, estado.pedidos, { paso: 'revision-imagenes', restaurar: (n) => restaurarToma(ctx, n) });
+  guardar();
+  // los avisos que QUEDAN (uno que el usuario ya corrigió no se vuelve a contar)
+  const avisos = piezasConAviso(ctx.carpeta, { paso: 'revision-imagenes' });
+  const habia = estado.pedidos.filter((x) => x.resultado === 'aviso').length;
+  return { ok: true, nota: avisos ? notaDeAvisos(avisos) : habia ? 'Ya no quedan avisos de la revisión.' : 'Las imágenes pasaron la revisión.' };
 }
 
 // ---------------------------------------------------------------- 7. duraciones de la cadena
@@ -694,19 +678,21 @@ async function revisionImagenes(ctx) {
  * tiene prompt), el propio de una toma B en duracion_propio. Nunca tomas[].duracion ni el cierre. Una vuelta por
  * cambio: cada uno mueve el reparto de los demas. Devuelve los cambios (escribe el manifiesto si hubo).
  */
-export function bajarLoMuyRapido(manifiesto, tiempos) {
-  const tramos = motor.tramosDeVideo();
+export function bajarLoMuyRapido(manifiesto, tiempos, modelo = motor.modeloDeCadenaEn(null)) {
+  // Los largos y la prediccion con el modelo de la cadena del anuncio (Ajustes > Modelos; sin eleccion, Omni y sus
+  // tramos). Un modelo sin tramos (PixVerse, Grok) baja de a un segundo.
+  const tramos = motor.tramosDeVideo(modelo);
   const fuerte = motor.REGLAS_CONTINUIDAD.fuerte;
   const m = structuredClone(manifiesto);
   const cambios = [];
   for (let vuelta = 0; vuelta < 40; vuelta++) {
     let pred;
     try {
-      pred = motor.prediccionContinuidad({ manifiesto: m, tiempos });
+      pred = motor.prediccionContinuidad({ manifiesto: m, tiempos, modelo });
     } catch {
       break;
     }
-    const cadena = motor.cadenaDeClips(m, { estimar: true, tiempos });
+    const cadena = motor.cadenaDeClips(m, { estimar: true, tiempos, modelo });
     let hubo = false;
     for (const u of pred.unidades) {
       if (u.ultima || !(u.velocidad > fuerte + 1e-9)) continue;
@@ -745,7 +731,7 @@ async function duraciones(ctx) {
   if (r.cancelado) return { cancelado: true };
   if (r.codigo !== 0) return { ok: false, error: { mensaje: 'No pude medir cada paso con los tiempos de la voz.', motivo: 'otro', detalle: ultimasLineas(r.texto) } };
   const tiempos = leerJSON(path.join(ctx.carpeta, 'audio', 'tiempos.json'));
-  const { manifiesto, cambios } = bajarLoMuyRapido(leerManifiesto(ctx), tiempos);
+  const { manifiesto, cambios } = bajarLoMuyRapido(leerManifiesto(ctx), tiempos, modeloDeCadena(ctx));
   const est = leerEstado(ctx);
   est.bajadas = cambios;
   guardarEstado(ctx, est);
@@ -809,7 +795,7 @@ function verificarPasos(ctx, pedidos, { estricto = false } = {}) {
   for (const p of pedidos) if (!vistos.has(clave(p))) errores.push(`pasos.json: falta el paso ${clave(p)}.`);
   const validos = lista.filter((x) => pedidosPorClave.has(clave(x)));
   const copia = conPasos(m, validos);
-  const { errores: delMotor, avisos } = motor.validarContinuidad(copia, { exigirPasos: true });
+  const { errores: delMotor, avisos } = motor.validarContinuidad(copia, { exigirPasos: true, modelo: modeloDeCadena(ctx) });
   errores.push(...delMotor.map((e) => e.replace(/:?\s*npm run [^\n]*$/i, '.')));
   if (estricto) for (const p of pedidos) errores.push(...avisosDelPaso(avisos, p.de, p.a));
   return errores.length ? { ok: false, errores, lista: validos } : { ok: true, errores: [], lista: validos };
@@ -825,6 +811,39 @@ function textoDePares(ctx, pedidos) {
     pares: abs(ctx, 'app', 'continuidad', 'pares.txt'),
     manifiesto: abs(ctx, 'manifiesto.json'),
     lista: pedidos.map((p) => `${p.de}->${p.a} (${p.duracion}s)`).join(', '),
+  });
+}
+
+/**
+ * §3.2 fila 18: la IA escribe el prompt de cada paso mirando sus dos imagenes (app/continuidad/pasos.json). La skill
+ * de continuidad va entera ("Lee entera") y las imagenes de cada paso salen de app/continuidad/pares.txt (la tarea no
+ * las nombra: estan dentro de ese archivo), en orden y sin repetir. Esfuerzo alto. `pedidos`: los pasos que hay que
+ * escribir ({ de, a, duracion }). La primera vuelta de verificar es estricta (los avisos del motor cuentan).
+ */
+export function armarSesionPares(ctx, { pedidos = pasosPorEscribir(leerManifiesto(ctx)) } = {}) {
+  let ronda = 0;
+  const verificar = async () => {
+    ronda++;
+    const x = verificarPasos(ctx, pedidos, { estricto: ronda === 1 });
+    return x.ok ? { ok: true } : { ok: false, errores: x.errores };
+  };
+  let pares = '';
+  try {
+    pares = fs.readFileSync(path.join(dirCont(ctx), 'pares.txt'), 'utf8');
+  } catch {
+    /* sin pares.txt: las imagenes las pide la IA, o las nombra la tarea */
+  }
+  return armarSesion(ctx, {
+    tipo: 'revision',
+    prompt: textoDePares(ctx, pedidos),
+    escribe: ['app/continuidad/pasos.json'],
+    skills: [SKILL_CONTINUIDAD, datosDeEstilo(ctx).skill],
+    verificar,
+    material: {
+      textos: [`.claude/skills/${SKILL_CONTINUIDAD}/SKILL.md`],
+      imagenes: rutasEnTexto(pares).filter((r) => /\.(png|jpe?g|webp|gif)$/i.test(r)),
+    },
+    esfuerzo: 'alto',
   });
 }
 
@@ -891,31 +910,22 @@ async function pares(ctx) {
         guardar();
       } else {
         if (!estado.sesion?.uuid) fs.rmSync(rutaPasos(ctx), { force: true });
-        let ronda = 0;
-        const verificar = async () => {
-          ronda++;
-          const x = verificarPasos(ctx, pedidos, { estricto: ronda === 1 });
-          return x.ok ? { ok: true } : { ok: false, errores: x.errores };
-        };
         const r = await sesionDeClaude(ctx, {
           estado,
           guardar,
-          tipo: 'revision',
-          prompt: textoDePares(ctx, pedidos),
+          sesion: armarSesionPares(ctx, { pedidos }),
           escribe: ['app/continuidad/pasos.json'],
-          skills: [SKILL_CONTINUIDAD, datosDeEstilo(ctx).skill],
-          verificar,
-          frase: 'Claude está mirando cada par de imágenes',
+          frase: `${LaIA()} está mirando cada par de imágenes`,
           registro: 'pares-claude.jsonl',
         });
         if (r.cancelado) return { cancelado: true };
         if (!r.ok) {
           // Sin los prompts no hay videos: se frena aca (nada se pago todavia por los videos) y "Continuar" lo reintenta.
-          if (r.limite) return { pausa: { motivo: 'claude', mensaje: MENSAJE_LIMITE } };
+          if (r.limite) return { pausa: { motivo: 'claude', mensaje: mensajeLimite(r.motor) } };
           return {
             ok: false,
             error: {
-              mensaje: r.sinClaude || r.sinSesion ? r.error || 'No se pudo abrir Claude para escribir los pasos entre escenas.' : 'Claude no pudo escribir los pasos entre escenas. Toca “Continuar” para que lo intente de nuevo: no se paga nada otra vez.',
+              mensaje: r.sinClaude || r.sinSesion ? r.error || `No se pudo abrir ${laIA()} para escribir los pasos entre escenas.` : `${LaIA(r.motor)} no pudo escribir los pasos entre escenas. Toca “Continuar” para que lo intente de nuevo: no se paga nada otra vez.`,
               motivo: 'claude',
               detalle: r.detalle || r.error || null,
             },
@@ -929,7 +939,7 @@ async function pares(ctx) {
       if (!v.ok) {
         estado.sesion = null; // la proxima vez, otra conversacion
         guardar();
-        return { ok: false, error: { mensaje: 'Los pasos entre escenas quedaron incompletos. Toca “Continuar” para que Claude los escriba de nuevo.', motivo: 'claude', detalle: v.errores.slice(0, 8).join('\n') } };
+        return { ok: false, error: { mensaje: `Los pasos entre escenas quedaron incompletos. Toca “Continuar” para que ${laIA()} los escriba de nuevo.`, motivo: 'claude', detalle: v.errores.slice(0, 8).join('\n') } };
       }
     }
     // 3. al manifiesto
@@ -950,7 +960,7 @@ async function pares(ctx) {
   if (fin.cancelado) return { cancelado: true };
   const mm = String(fin.texto).match(/Prompts escritos: (\d+) de (\d+)/);
   if (fin.codigo !== 0 || !mm || mm[1] !== mm[2]) {
-    return { ok: false, error: { mensaje: 'Quedaron pasos entre escenas sin escribir. Toca “Continuar” para que Claude los termine.', motivo: 'claude', detalle: ultimasLineas(fin.texto, 4) } };
+    return { ok: false, error: { mensaje: `Quedaron pasos entre escenas sin escribir. Toca “Continuar” para que ${laIA()} los termine.`, motivo: 'claude', detalle: ultimasLineas(fin.texto, 4) } };
   }
   return { ok: true };
 }
@@ -964,7 +974,7 @@ function leerCostoDeVideos(texto) {
   return { costo: num(t.match(/Costo:\s+([\d.]+) creditos/)), saldo: num(t.match(/Tu saldo:\s+([\d.]+) creditos/)), noAlcanza: /no te alcanza/i.test(t) };
 }
 
-const clipsQueFaltan = (ctx, m) => motor.cadenaDeClips(m).filter((c) => !existe(path.join(ctx.carpeta, 'video', c.archivo))).map((c) => c.archivo);
+const clipsQueFaltan = (ctx, m) => motor.cadenaDeClips(m, { modelo: modeloDeCadena(ctx) }).filter((c) => !existe(path.join(ctx.carpeta, 'video', c.archivo))).map((c) => c.archivo);
 
 async function videos(ctx) {
   if (sinContinuidad(ctx)) return { saltado: true, nota: null };
@@ -990,11 +1000,11 @@ const rutaCadena = (ctx) => path.join(dirCont(ctx), 'cadena.json');
 const rutaEstadoCadena = (ctx) => path.join(dirCont(ctx), 'cadena-estado.json');
 const dirRespaldoClips = (ctx) => path.join(dirCont(ctx), 'respaldo');
 
-/** Valida la revision de la cadena. Devuelve { pedidos, errores }. */
-export function validarCadena(valor, m, { estricto = false } = {}) {
+/** Valida la revision de la cadena. `modelo`: el de la cadena del anuncio (modeloDeCadena). Devuelve { pedidos, errores }. */
+export function validarCadena(valor, m, { estricto = false, modelo = motor.modeloDeCadenaEn(null) } = {}) {
   if (!Array.isArray(valor)) return { pedidos: [], errores: ['cadena.json tiene que ser una lista: [] si todo está bien, o [{ "clip", "motivo", "prompt_video" }]'] };
   const errores = validarEsquema(valor, cargarEsquema('continuidad-cadena'), 'cadena.json');
-  const cadena = motor.cadenaDeClips(m);
+  const cadena = motor.cadenaDeClips(m, { modelo });
   const pedidos = [];
   const vistos = new Set();
   for (const [i, x] of valor.entries()) {
@@ -1019,7 +1029,7 @@ export function validarCadena(valor, m, { estricto = false } = {}) {
         continue;
       }
       const duras = reglasDuras(x.prompt_video, p.duracion, c.id);
-      const { avisos } = motor.validarContinuidad(conPasos(m, [{ de: p.de, a: p.a, forma: x.forma, prompt_video: x.prompt_video }]), {});
+      const { avisos } = motor.validarContinuidad(conPasos(m, [{ de: p.de, a: p.a, forma: x.forma, prompt_video: x.prompt_video }]), { modelo });
       const blandos = estricto ? avisosDelPaso(avisos, p.de, p.a) : [];
       if (duras.length || blandos.length) {
         errores.push(...duras, ...blandos);
@@ -1048,7 +1058,7 @@ function textoDeCadena(ctx, m) {
   const e = datosDeEstilo(ctx);
   const indice = leerJSON(path.join(ctx.carpeta, 'qa', 'uniones', 'indice.json'));
   const uniones = (indice?.uniones || []).filter((u) => u.tira).map((u) => `   - ${path.join(ctx.carpeta, ...String(u.tira).split('/'))}`);
-  const cadena = motor.cadenaDeClips(m);
+  const cadena = motor.cadenaDeClips(m, { modelo: modeloDeCadena(ctx) });
   const tiras = cadena
     .map((c) => path.join(ctx.carpeta, 'qa', `${c.id}-tira.jpg`))
     .filter((f) => existe(f))
@@ -1069,27 +1079,39 @@ function textoDeCadena(ctx, m) {
   });
 }
 
-/** Modo prueba sin Claude: pide rehacer UN paso (el primero), para probar el camino. */
+/**
+ * §3.2 fila 19: la IA revisa la cadena terminada (las uniones y las tiras que ya saco la app) y escribe
+ * app/continuidad/cadena.json. La skill de continuidad va entera; la del estilo, a pedido. La primera vuelta de
+ * verificar es estricta.
+ */
+export function armarSesionCadena(ctx, { m = leerManifiesto(ctx) } = {}) {
+  let ronda = 0;
+  const verificar = async () => {
+    ronda++;
+    if (!existe(rutaCadena(ctx))) return { ok: false, errores: [`No encuentro ${rel(ctx, 'app', 'continuidad', 'cadena.json')}: escríbelo (una lista, [] si todo está bien).`] };
+    const v = validarCadena(leerJSON(rutaCadena(ctx)), leerManifiesto(ctx), { estricto: ronda === 1, modelo: modeloDeCadena(ctx) });
+    return v.errores.length ? { ok: false, errores: v.errores } : { ok: true };
+  };
+  return armarSesion(ctx, {
+    tipo: 'revision',
+    prompt: textoDeCadena(ctx, m),
+    escribe: ['app/continuidad/cadena.json'],
+    skills: [SKILL_CONTINUIDAD, datosDeEstilo(ctx).skill],
+    verificar,
+    material: { textos: [`.claude/skills/${SKILL_CONTINUIDAD}/SKILL.md`], skillsAPedido: true },
+  });
+}
+
+/** Modo prueba sin Claude: marca UN paso (el primero): deja un aviso para probar el camino. */
 function cadenaSimulada(m) {
   const p = (m.continuidad?.pasos || []).find((x) => typeof x.prompt_video === 'string' && x.prompt_video.trim());
   if (!p) return [];
   const lineas = p.prompt_video.split(/\r?\n/);
   lineas.splice(Math.min(2, lineas.length), 0, 'The camera keeps a slow, steady pace the whole way.');
-  return [{ clip: `paso-${p.de}`, motivo: 'Prueba: la app rehace este paso para probar el camino completo (modo prueba, sin Claude).', forma: p.forma || 'recorrer', prompt_video: lineas.join('\n') }];
+  return [{ clip: `paso-${p.de}`, motivo: `Prueba: un aviso de la revisión para probar el camino (modo prueba, sin ${laIA()}).`, forma: p.forma || 'recorrer', prompt_video: lineas.join('\n') }];
 }
 
-/** Pone el prompt nuevo del pedido en el manifiesto (se puede repetir sin romper nada). */
-function ponerPrompt(ctx, x) {
-  const m = leerManifiesto(ctx);
-  if (x.rol === 'paso') {
-    escribirManifiesto(ctx, conPasos(m, [{ de: x.toma, a: x.a, forma: x.forma, prompt_video: x.prompt_video }]));
-  } else {
-    const t = m.tomas.find((y) => y.n === x.toma);
-    t.prompt_video = x.prompt_video;
-    escribirManifiesto(ctx, m);
-  }
-}
-
+/** El prompt de antes de un pedido que una version anterior de la app dejo a mitad de rehacer: vuelve al manifiesto. */
 function devolverPrompt(ctx, x) {
   const m = leerManifiesto(ctx);
   if (x.rol === 'paso') {
@@ -1122,27 +1144,19 @@ async function revisionCadena(ctx) {
     }
     const m = leerManifiesto(ctx);
     if (!estado.sesion?.uuid) fs.rmSync(rutaCadena(ctx), { force: true });
+    // una revision nueva: lo que dijo la de antes (si la hubo) ya no vale
+    limpiarAvisosDelPaso(ctx.carpeta, 'revision-cadena');
     const simulada = modoPrueba() && process.env.ANUNCIOS_REVISION_REAL !== '1';
     if (simulada) {
       escribirJSON(rutaCadena(ctx), cadenaSimulada(m));
       estado.sesion = { hecha: true, ok: true, simulada: true, fecha: ahora() };
     } else {
-      let ronda = 0;
-      const verificar = async () => {
-        ronda++;
-        if (!existe(rutaCadena(ctx))) return { ok: false, errores: [`No encuentro ${rel(ctx, 'app', 'continuidad', 'cadena.json')}: escríbelo (una lista, [] si todo está bien).`] };
-        const v = validarCadena(leerJSON(rutaCadena(ctx)), leerManifiesto(ctx), { estricto: ronda === 1 });
-        return v.errores.length ? { ok: false, errores: v.errores } : { ok: true };
-      };
       const r = await sesionDeClaude(ctx, {
         estado,
         guardar,
-        tipo: 'revision',
-        prompt: textoDeCadena(ctx, m),
+        sesion: armarSesionCadena(ctx, { m }),
         escribe: ['app/continuidad/cadena.json'],
-        skills: [SKILL_CONTINUIDAD, datosDeEstilo(ctx).skill],
-        verificar,
-        frase: 'Claude está mirando cómo pasa cada escena a la siguiente',
+        frase: `${LaIA()} está mirando cómo pasa cada escena a la siguiente`,
         registro: 'revision-cadena-claude.jsonl',
       });
       if (r.cancelado) return { cancelado: true };
@@ -1155,83 +1169,36 @@ async function revisionCadena(ctx) {
       estado.sesion.hecha = true;
       estado.sesion.ok = true;
     }
-    const v = validarCadena(leerJSON(rutaCadena(ctx)), leerManifiesto(ctx));
+    const v = validarCadena(leerJSON(rutaCadena(ctx)), leerManifiesto(ctx), { modelo: modeloDeCadena(ctx) });
     estado.pedidos = v.pedidos.map((x) => ({ ...x, fase: 'pendiente', resultado: null }));
     estado.descartados = v.errores;
     guardar();
   }
 
-  // (b) rehacer cada clip marcado, una sola vez. El clip viejo se aparta y se pide SIN --rehacer (solo lo que falta).
-  const rehechos = (ctx.conductor.rehechos ||= {});
+  // (b) cada clip marcado queda como AVISO en su pieza (vid:paso-K o vid:toma-N), con el prompt que escribio la
+  // revision como sugerencia: no se rehace nada solo.
   for (const x of estado.pedidos) {
     if (x.resultado) continue;
-    if (ctx.senal?.aborted) return { cancelado: true };
-    const clave = x.rol === 'paso' ? x.clip : `clip-${x.clip}`;
-    const enVideo = path.join(ctx.carpeta, 'video', archivoDe(x));
-    const apartado = path.join(dirRespaldoClips(ctx), archivoDe(x));
-    if (x.fase === 'pendiente') {
-      if ((rehechos[clave] || 0) >= TOPE_POR_PIEZA) {
-        x.resultado = 'tope';
-        guardar();
-        continue;
-      }
-      const m = leerManifiesto(ctx);
-      if (x.rol === 'paso') {
-        const p = m.continuidad.pasos.find((y) => y.de === x.toma);
-        x.promptAntes = p?.prompt_video ?? null;
-        x.formaAntes = p?.forma ?? null;
-      } else x.promptAntes = m.tomas.find((y) => y.n === x.toma)?.prompt_video ?? null;
-      // "aplicando" queda en disco ANTES de contar el tope y de tocar nada
-      x.fase = 'aplicando';
-      x.vez = (rehechos[clave] || 0) + 1;
-      guardar();
+    // (un pedido que una version anterior dejo a mitad: vuelven su prompt y su clip de antes)
+    if (x.fase === 'aplicando' || x.fase === 'aplicado') {
+      if (x.promptAntes !== undefined) devolverPrompt(ctx, x);
+      const enVideo = path.join(ctx.carpeta, 'video', archivoDe(x));
+      const apartado = path.join(dirRespaldoClips(ctx), archivoDe(x));
+      if (!existe(enVideo) && existe(apartado)) mover(apartado, enVideo);
     }
-    if (x.fase === 'aplicando') {
-      // el tope se cuenta ANTES de pagar: si la app se cierra a mitad, al volver no se rehace otra vez
-      rehechos[clave] = Math.max(rehechos[clave] || 0, x.vez || 1);
-      ctx.guardar();
-      ctx.avance(`Rehaciendo ${x.rol === 'paso' ? `el paso ${x.toma} → ${x.a}` : `el video de la toma ${x.toma}`}`);
-      ponerPrompt(ctx, x);
-      const v = await ctx.correr('validar-manifiesto.js', [`${ctx.carpetaArg}/manifiesto.json`]);
-      if (v.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      if (v.codigo !== 0) {
-        devolverPrompt(ctx, x);
-        x.resultado = 'no-se-pudo';
-        x.detalle = ultimasLineas(v.texto, 6);
-        guardar();
-        continue;
-      }
-      if (existe(enVideo)) mover(enVideo, apartado);
-      x.fase = 'aplicado';
-      guardar();
-    }
-    if (x.fase === 'aplicado') {
-      const args = x.rol === 'paso' ? ['--pasos', String(x.toma)] : ['--tomas', String(x.toma)];
-      const r = await ctx.correr('generar-videos.js', [ctx.carpetaArg, ...args, '--si'], { que: ['videos'] });
-      if (r.cancelado || ctx.senal?.aborted) return { cancelado: true };
-      if (r.codigo !== 0 || !existe(enVideo)) {
-        // sin saldo o con kie caido: se frena aca y "Continuar" lo pide otra vez (lo que siguio en kie se retoma)
-        if (r.clase === 'saldo' || ['red', 'servidor'].includes(r.clase)) return fallo(r, { que: `el clip ${x.clip}` });
-        if (!existe(enVideo)) mover(apartado, enVideo); // vuelve el de antes
-        devolverPrompt(ctx, x);
-        x.resultado = 'no-se-pudo';
-        x.detalle = ultimasLineas(r.texto, 6);
-        guardar();
-        continue;
-      }
-      // el de antes no se tira (costo plata): a historial/, como hace el motor
-      if (existe(apartado)) mover(apartado, path.join(ctx.carpeta, 'historial', `${x.clip}--${sello()}.mp4`));
-      x.fase = 'listo';
-      x.resultado = 'rehecha';
-      guardar();
-    }
+    anotarAviso(ctx.carpeta, `vid:${x.clip}`, {
+      fuente: 'revision-ia',
+      paso: 'revision-cadena',
+      texto: x.motivo,
+      sugerencia: { prompt_video: x.prompt_video },
+    });
+    x.fase = 'aviso';
+    x.resultado = 'aviso';
   }
-  const hechas = estado.pedidos.filter((x) => x.resultado === 'rehecha').length;
-  const no = estado.pedidos.filter((x) => x.resultado && x.resultado !== 'rehecha').length;
-  const nota = !estado.pedidos.length
-    ? 'Cada escena pasa bien a la siguiente.'
-    : `${hechas ? `${hechas} ${hechas === 1 ? 'clip rehecho' : 'clips rehechos'}` : ''}${hechas && no ? '; ' : ''}${no ? `${no} ${no === 1 ? 'no se pudo rehacer' : 'no se pudieron rehacer'}` : ''}.`;
-  return { ok: true, nota };
+  guardar();
+  const avisos = piezasConAviso(ctx.carpeta, { paso: 'revision-cadena' });
+  const habia = estado.pedidos.filter((x) => x.resultado === 'aviso').length;
+  return { ok: true, nota: avisos ? notaDeAvisos(avisos) : habia ? 'Ya no quedan avisos de la revisión.' : 'Cada escena pasa bien a la siguiente.' };
 }
 
 // ---------------------------------------------------------------- 11. voces coladas
@@ -1404,8 +1371,10 @@ export function completarInforme({ carpeta, conductor, informe: inf, notas = {} 
 
   const cad = leerJSON(path.join(carpeta, 'app', 'continuidad', 'cadena-estado.json'));
   const pedidos = Array.isArray(cad?.pedidos) ? cad.pedidos : [];
+  // (los rehechos y los que no se pudieron son de anuncios de antes del 2026-11-09: ahora la revision solo deja avisos,
+  // que van con los de todo el anuncio en «Lo que notó la revisión», de informe.js)
   const hechos = pedidos.filter((x) => x.resultado === 'rehecha');
-  const noSe = pedidos.filter((x) => x.resultado && x.resultado !== 'rehecha');
+  const noSe = pedidos.filter((x) => x.resultado && !['rehecha', 'aviso'].includes(x.resultado));
   if (hechos.length) {
     p.push({
       id: 'pasos-rehechos',

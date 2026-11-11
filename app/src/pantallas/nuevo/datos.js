@@ -3,7 +3,7 @@
 // pantalla nunca se rompa por un dato que todavía no llegó.
 import { idioma as nombreIdioma, mercado as nombreMercado } from '../../datos/formato.js';
 
-// ---------------------------------------------------------------- tareas de Claude (ficha y guion)
+// ---------------------------------------------------------------- tareas de tu IA (ficha y guion)
 
 const CORRIENDO = new Set(['escribiendo', 'corriendo', 'analizando', 'esperando', 'pendiente', 'en-curso', 'trabajando', 'leyendo', 'cambiando']);
 const FALLO = new Set(['error', 'fallo', 'fallida', 'fallo-claude', 'cancelada']);
@@ -12,6 +12,12 @@ const FALLO = new Set(['error', 'fallo', 'fallida', 'fallo-claude', 'cancelada']
 export function frasesDe(lista) {
   if (!Array.isArray(lista)) return [];
   return lista.map((f) => (typeof f === 'string' ? f : f?.frase || f?.texto || '')).filter(Boolean);
+}
+
+/** La IA que hizo una tarea, si el servidor la manda ('claude' | 'codex'); si no, Claude (antes solo existía Claude). */
+function quienEscribio(t) {
+  const m = typeof t === 'object' ? t?.motor || t?.medidas?.[t.medidas.length - 1]?.motor : null;
+  return m === 'codex' ? 'ChatGPT' : 'Claude';
 }
 
 /**
@@ -32,7 +38,7 @@ export function leerProducto(r) {
   const error =
     estado !== 'error'
       ? null
-      : (typeof t === 'object' && t?.error) || (crudo && !FALLO.has(crudo) ? 'Claude terminó, pero no dejó la ficha de tu producto.' : 'No pude armar la ficha.');
+      : (typeof t === 'object' && t?.error) || (crudo && !FALLO.has(crudo) ? `${quienEscribio(t)} terminó, pero no dejó la ficha de tu producto.` : 'No pude armar la ficha.');
   return {
     producto,
     ficha: estado === 'analizando' ? null : ficha,
@@ -52,7 +58,7 @@ export function leerProducto(r) {
  * progreso, error }. En el musical lo que se lee son las letras (letras.opciones, letras.elegida).
  */
 export function leerGuion(r) {
-  // sin respuesta todavia: 'cargando' (nunca "Claude esta escribiendo" para un guion que quiza ya esta listo)
+  // sin respuesta todavia: 'cargando' (nunca "tu IA esta escribiendo" para un guion que quiza ya esta listo)
   if (!r) return { estado: 'cargando', fase: 'guion', guion: null, letras: null, progreso: [], error: null };
   const crudo = r.estado;
   const hay = Boolean(r.guion || r.letras);
@@ -81,14 +87,20 @@ export function leerGuion(r) {
   };
 }
 
-/** Qué tipo de falla es (para mostrar el botón que corresponde). */
+/**
+ * Qué tipo de falla es (para mostrar el botón que corresponde). Manda el `tipo` que manda el servidor (errorPublico de
+ * productos.js); el texto se mira solo de respaldo. 'sin-claude' = falta el programa de tu IA (Claude Code o Codex).
+ */
 export function tipoDeFalla(error, { limite = false } = {}) {
   if (!error && !limite) return null;
   const e = typeof error === 'string' ? { mensaje: error } : error || {};
   const tipo = String(e.tipo || e.codigo || '').toLowerCase();
   const texto = `${tipo} ${e.mensaje || e.message || ''}`.toLowerCase();
+  // (antes que el límite: el plan de ChatGPT sin Codex no se libera solo)
+  if (tipo === 'plan-sin-codex' || e.planSinCodex || /no incluye codex/.test(texto)) return 'plan-sin-codex';
   if (limite || e.limite || tipo === 'limite' || /l[ií]mite de uso|usage limit|hit your .*limit|rate.?limit/.test(texto)) return 'limite';
-  if (tipo === 'sin-claude' || /no est[aá] instalad|instala claude|falta claude code/.test(texto)) return 'sin-claude';
+  if (tipo === 'sin-motor' || e.sinMotor || /no elegiste tu ia/.test(texto)) return 'sin-motor';
+  if (tipo === 'sin-claude' || /no est[aá] instalad|instala claude|falta claude code|falta codex|no encuentro (claude code|codex)/.test(texto)) return 'sin-claude';
   if (tipo === 'sin-sesion' || /sin sesi[oó]n|inicia(r)? sesi[oó]n|no hay sesi[oó]n|not logged|auth login/.test(texto)) return 'sin-sesion';
   if (tipo === 'bloqueo' || Array.isArray(e.faltan)) return 'bloqueo';
   if (tipo === 'no-valido' || tipo === 'validacion' || /valid|esquema|schema|no pas[oó]/.test(texto)) return 'no-valido';
@@ -110,7 +122,7 @@ export const CAMPOS_FICHA = [
   { id: 'comoCompra', etiqueta: 'Cómo compra tu cliente' },
   { id: 'mercado', etiqueta: 'Dónde vendes', formato: nombreMercado },
   { id: 'idioma', etiqueta: 'Idioma del anuncio', formato: nombreIdioma },
-  // Lo que Claude saca de la página (reseñas, cifras, dosis…) también entra al guion: se ve y se corrige. Vacías y
+  // Lo que tu IA saca de la página (reseñas, cifras, dosis…) también entra al guion: se ve y se corrige. Vacías y
   // sin pregunta, no se muestran.
   { id: 'prueba', etiqueta: 'Un dato real o una prueba', opcional: true },
   { id: 'comoSeUsa', etiqueta: 'Cómo se usa', opcional: true },

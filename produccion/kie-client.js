@@ -672,8 +672,13 @@ export function esPagadaSinBajar(e) {
 /**
  * Crea la tarea (o retoma la pendiente), la espera y baja el resultado.
  * Lo comparten generarImagen y generarVideo.
+ *
+ * `antesDeCrear` (opcional; solo lo pasan los anuncios de imagen) se llama justo antes de crear una tarea NUEVA, con
+ * { retomadaFallida } (el error de la tarea retomada que fallo o que kie ya no tiene, o null). Si lanza, no se crea
+ * nada y el error sale tal cual: asi quien llama aplica su tope de intentos tambien cuando una retomada falla. Sin
+ * el, todo queda como siempre.
  */
-async function correrTarea({ model, input, rutaDestino, huella, alActualizar, alAvisar, timeoutMs, topeMs }) {
+async function correrTarea({ model, input, rutaDestino, huella, alActualizar, alAvisar, timeoutMs, topeMs, antesDeCrear = null }) {
   const archivoPendiente = huella ? rutaPendiente(rutaDestino) : null;
   const nombre = path.basename(rutaDestino);
   // Sin alAvisar de quien llama, el aviso sale por consola igual.
@@ -693,6 +698,7 @@ async function correrTarea({ model, input, rutaDestino, huella, alActualizar, al
   let taskId = null;
   let resultado = null;
   let retomada = false;
+  let retomadaFallida = null;
 
   // 1) La misma tarea quedo en marcha en una corrida anterior: se retoma.
   const pendiente = archivoPendiente ? leerPendiente(archivoPendiente) : null;
@@ -714,9 +720,10 @@ async function correrTarea({ model, input, rutaDestino, huella, alActualizar, al
       }
       // Fallo (no cobra) o kie ya no la tiene: se pide una nueva, abajo.
       borrarPendiente(archivoPendiente);
-      console.log(`  ..  ${nombre}: la tarea retomada ${e.tareaNoExiste ? 'ya no existe en kie.ai' : 'fallo en kie.ai'}; pido una nueva`);
+      console.log(`  ..  ${nombre}: la tarea retomada ${e.tareaNoExiste ? 'ya no existe en kie.ai' : 'fallo en kie.ai'}${antesDeCrear ? '' : '; pido una nueva'}`);
       taskId = null;
       retomada = false;
+      retomadaFallida = e;
     }
   } else if (pendiente) {
     // 1b) El pendiente es de otro pedido: antes de pisarlo, que no se pierda.
@@ -725,6 +732,7 @@ async function correrTarea({ model, input, rutaDestino, huella, alActualizar, al
 
   // 2) Una tarea nueva.
   if (!resultado) {
+    if (antesDeCrear) await antesDeCrear({ retomadaFallida });
     taskId = await crearTarea(model, input);
     if (archivoPendiente) escribirPendiente(archivoPendiente, { taskId, modelo: model, huella, creado: new Date().toISOString() });
     alActualizar?.({ state: 'created', taskId, modeloReal: model });
@@ -787,6 +795,7 @@ async function correrTarea({ model, input, rutaDestino, huella, alActualizar, al
  * `alAvisar(segundos)` (opcional): se llama una vez si pasa el aviso
  * (POLLING.timeoutMs) y se sigue esperando; sin el, el aviso sale por consola.
  * El tope es TOPE_ESPERA_IMAGEN_MS (o `topeMs`). Devuelve tambien `retomada`.
+ * `antesDeCrear` (opcional): ver correrTarea.
  */
 export async function generarImagen({
   modelo,
@@ -802,6 +811,7 @@ export async function generarImagen({
   alAvisar,
   timeoutMs = POLLING.timeoutMs,
   topeMs = TOPE_ESPERA_IMAGEN_MS,
+  antesDeCrear = null,
 }) {
   const adaptador = ADAPTADORES_IMAGEN[modelo];
   if (!adaptador) {
@@ -819,7 +829,7 @@ export async function generarImagen({
     fondo,
   });
 
-  return correrTarea({ model, input, rutaDestino, huella, alActualizar, alAvisar, timeoutMs, topeMs });
+  return correrTarea({ model, input, rutaDestino, huella, alActualizar, alAvisar, timeoutMs, topeMs, antesDeCrear });
 }
 
 /**

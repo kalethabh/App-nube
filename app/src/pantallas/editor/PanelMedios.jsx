@@ -2,7 +2,7 @@
 // los textos en pantalla.
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { Archive, Captions, Check, Film, Music, Pause, Play, Plus, Type, Upload, X } from 'lucide-react';
-import { Boton, EstadoVacio, Interruptor, MiniaturaVideo, Tooltip, VistaPrevia, useAvisos } from '../../componentes/index.js';
+import { Boton, EstadoVacio, Insignia, Interruptor, MiniaturaVideo, Tooltip, VistaPrevia, useAvisos } from '../../componentes/index.js';
 import { useDatos } from '../../datos/api.js';
 import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato.js';
 import { RejillaEstilos } from './Galeria.jsx';
@@ -96,8 +96,10 @@ function useEscucha() {
 
 // ---------------------------------------------------------------- pestañas
 
-function Medios({ a, plan, pistas, onIr, seleccion }) {
+function Medios({ a, plan, pistas, onIr, seleccion, reh }) {
   const { aviso } = useAvisos();
+  // lo que notó la revisión en un clip (si no es tu video: ese aviso es del clip de la app, que ahí no se ve)
+  const avisoDe = (c) => (c.pieza && !c.reemplazado ? reh?.porPieza?.[c.pieza]?.aviso || null : null);
   const vistos = new Set();
   const clips = [];
   for (const v of pistas.video) {
@@ -128,6 +130,8 @@ function Medios({ a, plan, pistas, onIr, seleccion }) {
               anchoImagen={240}
               seleccionada={seleccion?.pista === c.pista && seleccion?.id === c.id}
               onClick={() => onIr(c.pista, c)}
+              insignia={avisoDe(c) ? <Insignia estado="aviso" variante="vidrio" tamano="chico" /> : undefined}
+              title={avisoDe(c) ? `La revisión notó: ${avisoDe(c).texto}` : undefined}
             />
           ))}
         </div>
@@ -146,7 +150,7 @@ function Medios({ a, plan, pistas, onIr, seleccion }) {
                 imagen={b.imagen}
                 video={b.clip}
                 duracion={b.duracionClip}
-                titulo={`B-roll ${b.n}`}
+                titulo={`Imagen de apoyo ${b.n}`}
                 subtitulo={b.sincronizaCon ? `«${b.sincronizaCon}»` : 'Sin usar'}
                 anchoImagen={240}
                 atenuada
@@ -395,7 +399,7 @@ export function PanelMedios({ a, plan, pistas, ed, cambiar, acciones, pestana, o
             </button>
           </div>
         ) : null}
-        {pestana === 'medios' ? <Medios a={a} plan={plan} pistas={pistas} onIr={onIr} seleccion={seleccion} /> : null}
+        {pestana === 'medios' ? <Medios a={a} plan={plan} pistas={pistas} onIr={onIr} seleccion={seleccion} reh={acciones?.reh} /> : null}
         {pestana === 'musica' ? <PestanaMusica slug={a.slug} pistas={pistas} ed={ed} acciones={acciones} playerRef={playerRef} /> : null}
         {pestana === 'subtitulos' ? (
           pistas.subtitulos.length && galeria?.muestra ? (

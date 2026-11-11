@@ -1,8 +1,9 @@
 #!/bin/bash
 # Anuncios con IA para Mac: doble clic. La primera vez macOS lo bloquea por venir de internet: clic derecho sobre este
 # archivo → Abrir → Abrir (o Ajustes del Sistema → Privacidad y seguridad → «Abrir igualmente»).
-# Deja esta ventana abierta mientras uses la app; para cerrarla, cierra esta ventana. Si falta Node.js, ffmpeg, Python o
-# Claude Code, los instala solo (de sus sitios oficiales y sin contraseña), deja lista la app y la abre en el navegador.
+# Deja esta ventana abierta mientras uses la app; para cerrarla, cierra esta ventana. Si falta Node.js, ffmpeg o Python,
+# los instala solo (de sus sitios oficiales y sin contraseña), deja lista la app y la abre en el navegador. El programa
+# de tu IA (Claude Code o Codex) lo instala la app: el que elegiste, o el que elijas en la bienvenida.
 
 RAIZ="$(cd "$(dirname "$0")" && pwd)"
 pausar() { echo; read -n 1 -s -r -p " Pulsa una tecla para cerrar esta ventana." < /dev/tty 2>/dev/null; echo; }
@@ -13,8 +14,8 @@ cd "$RAIZ/app" 2>/dev/null && [ -f "$RAIZ/app/inicio/programas-mac.sh" ] \
 printf '\033]0;Anuncios con IA\007'
 # Claude Code (instalador oficial) queda en ~/.local/bin; Homebrew en /opt/homebrew (Apple) o /usr/local (Intel)
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
-# Siempre con tu cuenta de Claude, nunca con una clave de API
-unset ANTHROPIC_API_KEY ANTHROPIC_AUTH_TOKEN CLAUDE_CODE_OAUTH_TOKEN
+# Siempre con tu cuenta de Claude o de ChatGPT, nunca con una clave de API (y Codex con la sesión propia de la app)
+unset ANTHROPIC_API_KEY ANTHROPIC_AUTH_TOKEN CLAUDE_CODE_OAUTH_TOKEN OPENAI_API_KEY OPENAI_BASE_URL CODEX_API_KEY CODEX_ACCESS_TOKEN CODEX_HOME
 
 # 4455 siempre; PUERTO=<n> solo para las pruebas (el servidor lee la misma variable)
 URL="http://127.0.0.1:${PUERTO:-4455}"
@@ -66,25 +67,13 @@ else
   echo " Aviso: no se pudo instalar Python. Sin Python no salen el podcast en esquina, la entrevista ni los iconos. Vuelve a abrir este archivo para intentarlo de nuevo."
 fi
 
-# ---------------------------------------------------------------- Claude Code
-if ! command -v claude >/dev/null 2>&1; then
-  echo
-  echo " Instalando Claude Code con el instalador oficial de Anthropic (solo la primera vez)..."
-  curl -fsSL https://claude.ai/install.sh | bash
-  hash -r
-  if command -v claude >/dev/null 2>&1; then
-    # que la Terminal también lo encuentre cuando la abras tú
-    if [ -x "$HOME/.local/bin/claude" ] && ! grep -qs '.local/bin' "$HOME/.zshrc"; then
-      echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
-    fi
-    echo " Claude Code listo."
-  else
-    echo " Aviso: no se pudo instalar Claude Code. La app te muestra cómo hacerlo en la Bienvenida."
-  fi
-fi
-
 # ---------------------------------------------------------------- la app: lo que falte de instalar y la interfaz
 node "$RAIZ/app/inicio/preparar-app.mjs" || { pausar; exit 1; }
+
+# ---------------------------------------------------------------- el programa de tu IA (Claude Code o Codex)
+# Solo el de la IA elegida, si falta. Sin IA elegida no instala nada (se elige en la app). Si no puede, lo dice y la
+# app abre igual: ahí se instala con un botón (en Ajustes → Conexiones).
+node "$RAIZ/app/inicio/preparar-motor.mjs" || true
 
 # ---------------------------------------------------------------- abrir la app
 echo

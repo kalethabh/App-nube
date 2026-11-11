@@ -1,14 +1,16 @@
-// "Rehacer con IA": lo único del editor que vuelve a generar algo (y por eso cuesta). El usuario dice con sus
-// palabras qué quiere cambiar; Claude escribe los prompts nuevos (sin poder correr nada que cobre), la app los
-// aplica, vuelve a generar esa pieza y vuelve a armar el anuncio. Sin precios: el costo real se ve en el informe
-// de la entrega. Antes del "Sí" se dice qué va a pasar.
+// «¿Qué salió mal?»: regenerar una pieza contándole a la IA qué falló. Tu IA ajusta la instrucción (sin poder correr
+// nada que cobre), la app la aplica, vuelve a generar esa pieza y vuelve a armar el anuncio. Lo que cuesta se ve en el
+// botón (los precios del motor). Regenerar tal cual y «Corregir esto» no pasan por aquí: van directo desde el panel
+// del clip (sin otra sesión de la IA). Antes del «Sí» se dice qué va a pasar.
 import { useEffect, useState } from 'react';
-import { Clock, Film, History, ImageIcon, TriangleAlert, WandSparkles } from 'lucide-react';
+import { Clock, Film, History, ImageIcon, MessageSquareText, TriangleAlert, WandSparkles } from 'lucide-react';
 import { AreaTexto, Boton, Interruptor, Modal, Selector, Tarjeta } from '../../componentes/index.js';
 import { duracion as formatoDuracion } from '../../datos/formato.js';
+import { costoDeRegenerar } from '../../datos/regenerar.js';
 
 export function ModalRehacer({ abierto, onCerrar, objetivo, pistas, reh, alPedir }) {
-  const opciones = [...pistas.video, ...pistas.broll].filter((o) => o.pieza && reh.piezas[o.pieza] && o.clip);
+  // (un clip que en tu versión es TU video no se ofrece: regenerar el de la app no cambia lo que ves)
+  const opciones = [...pistas.video, ...pistas.broll].filter((o) => o.pieza && reh.porPieza[o.pieza] && !reh.porPieza[o.pieza].motivoNo && o.clip && !o.reemplazado);
   const [id, setId] = useState(null);
   const [conImagen, setConImagen] = useState(false);
   const [pedido, setPedido] = useState('');
@@ -27,14 +29,15 @@ export function ModalRehacer({ abierto, onCerrar, objetivo, pistas, reh, alPedir
 
   const item = opciones.find((o) => o.id === id) || opciones[0];
   if (!item) return null;
-  const pieza = reh.piezas[item.pieza];
+  const pieza = reh.porPieza[item.pieza];
   const puedeImagen = Boolean(pieza?.imagen);
   const conImg = puedeImagen && conImagen;
   const listo = pedido.trim().length >= 3;
+  const costo = costoDeRegenerar(pieza, conImg);
 
   const confirmar = async () => {
     if (!listo) {
-      setError('Cuéntale a la IA qué quieres cambiar.');
+      setError('Cuéntale a la IA qué salió mal.');
       return;
     }
     setEnviando(true);
@@ -43,21 +46,21 @@ export function ModalRehacer({ abierto, onCerrar, objetivo, pistas, reh, alPedir
       await alPedir({ pieza: item.pieza, pedido: pedido.trim(), conImagen: conImg }, item);
       onCerrar();
     } catch (e) {
-      setError(e.message);
+      setError(e?.datos?.motivo === 'saldo' ? 'Tu saldo de kie no alcanza: recarga para seguir.' : e.message);
     } finally {
       setEnviando(false);
     }
   };
 
-  const queEs = item.tipo === 'broll' ? 'B-roll' : pieza?.tipo === 'R' ? 'bloque' : pieza?.tipo === 'H' ? 'clip' : 'toma';
+  const queEs = item.tipo === 'broll' ? 'imagen de apoyo' : pieza?.clase === 'paso' ? 'paso' : pieza?.tipo === 'R' ? 'bloque' : 'escena';
 
   return (
     <Modal
       abierto={abierto}
       onCerrar={onCerrar}
-      icono={WandSparkles}
-      titulo="¿Rehacer este clip con IA?"
-      descripcion="Esto vuelve a generar ese clip. La línea del guion, su duración y el resto del anuncio no cambian."
+      icono={MessageSquareText}
+      titulo="¿Qué salió mal?"
+      descripcion="Cuéntalo con tus palabras: la IA ajusta la instrucción y regenera solo ese clip. La línea del guion, su duración y el resto del anuncio no cambian."
       className="ed-rehacer"
       pie={
         <>
@@ -65,7 +68,7 @@ export function ModalRehacer({ abierto, onCerrar, objetivo, pistas, reh, alPedir
             Cancelar
           </Boton>
           <Boton variante="primario" icono={WandSparkles} onClick={confirmar} cargando={enviando} disabled={!listo} data-autofocus={listo || undefined}>
-            Sí, rehacer
+            {`Regenerar${costo ? ` · ${costo}` : ''}`}
           </Boton>
         </>
       }
@@ -91,18 +94,25 @@ export function ModalRehacer({ abierto, onCerrar, objetivo, pistas, reh, alPedir
           />
         ) : null}
 
+        {pieza?.aviso ? (
+          <p className="ed-nota ed-nota--aviso">
+            <TriangleAlert size={13} strokeWidth={2.2} aria-hidden="true" />
+            La revisión notó: {pieza.aviso.texto}
+          </p>
+        ) : null}
+
         <AreaTexto
-          etiqueta="¿Qué quieres cambiar?"
+          etiqueta="¿Qué salió mal?"
           filas={3}
           value={pedido}
           onChange={(e) => setPedido(e.target.value)}
-          placeholder={item.tipo === 'broll' ? 'Ej.: que se vea el frasco abierto y más cerca' : 'Ej.: que mire a cámara al final y que el frasco se vea más grande'}
+          placeholder={item.tipo === 'broll' ? 'Ej.: el frasco salió con otra etiqueta y muy lejos' : 'Ej.: no mira a cámara al final y el frasco se ve muy chico'}
           data-autofocus={!listo || undefined}
           maxLength={600}
         />
 
         {puedeImagen ? (
-          <Interruptor activado={conImagen} onCambio={setConImagen} etiqueta="Rehacer también su imagen" descripcion="Úsalo si lo que falla es el dibujo (la escena, el personaje, el producto), no el movimiento." />
+          <Interruptor activado={conImagen} onCambio={setConImagen} etiqueta="También su imagen" descripcion="Úsalo si lo que falla es el dibujo (la escena, el personaje, el producto), no el movimiento." />
         ) : null}
 
         <Tarjeta variante="elevada" relleno="compacto" className="ed-pasara">
@@ -115,7 +125,7 @@ export function ModalRehacer({ abierto, onCerrar, objetivo, pistas, reh, alPedir
                 <WandSparkles size={14} strokeWidth={2.2} />
               </span>
               <span>
-                La IA escribe {queEs === 'toma' || queEs === 'clip' ? 'la escena' : `el ${queEs}`} de nuevo con tu pedido y vuelve a generar <strong>{item.nombre}</strong>
+                La IA ajusta la instrucción de {queEs === 'imagen de apoyo' ? 'la imagen de apoyo' : `${queEs === 'escena' ? 'la' : 'el'} ${queEs}`} con lo que contaste y vuelve a generar <strong>{item.nombre}</strong>
                 {conImg ? ' desde una imagen nueva' : puedeImagen ? ' con la misma imagen' : ''}.
               </span>
             </li>
@@ -131,19 +141,19 @@ export function ModalRehacer({ abierto, onCerrar, objetivo, pistas, reh, alPedir
               <span className="ed-pasara__icono" aria-hidden="true">
                 <Film size={14} strokeWidth={2.2} />
               </span>
-              <span>Después vuelve a armar el anuncio con el clip nuevo: montaje, subtítulos y los videos.</span>
+              <span>Después vuelve a armar el anuncio con el clip nuevo: montaje, subtítulos y el video.</span>
             </li>
             <li>
               <span className="ed-pasara__icono" aria-hidden="true">
                 <Clock size={14} strokeWidth={2.2} />
               </span>
-              <span>Tarda unos minutos. Puedes seguir editando mientras tanto: tus cambios no se pierden.</span>
+              <span>Tarda unos minutos. Puedes seguir editando y pedir otras: van a la fila. Tus cambios no se pierden.</span>
             </li>
             <li>
               <span className="ed-pasara__icono ed-pasara__icono--ok" aria-hidden="true">
                 <History size={14} strokeWidth={2.2} />
               </span>
-              <span>La versión anterior queda guardada en la carpeta del anuncio.</span>
+              <span>La versión de ahora queda guardada en la carpeta del anuncio.</span>
             </li>
           </ul>
           {error ? (

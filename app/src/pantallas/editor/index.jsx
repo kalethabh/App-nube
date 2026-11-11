@@ -7,8 +7,11 @@
 // window.remotion_staticBase = anuncio.base ("/archivos/anuncio/<slug>").
 //
 // Los cambios se guardan en la carpeta del anuncio y en este navegador (estado.js). Exportar arma un MP4
-// nuevo en esta PC (gratis) y "Rehacer con IA" vuelve a generar un clip (lo único que cuesta); los dos los
-// corre la app y siguen aunque se cierre el editor (trabajos.js). Sin precios en el editor.
+// nuevo en esta PC (gratis) y Regenerar vuelve a generar un clip (lo único que cuesta: su costo va en su botón):
+// tal cual, «¿Qué salió mal?» o «Corregir esto» (lo que sugirió la revisión). Lo pedido entra a una fila y la app lo
+// hace y vuelve a armar el anuncio sola (src/datos/regenerar.js, lo mismo que el proceso); sigue aunque se cierre el
+// editor. Además: tu propio video en lugar de un clip (elegirlo o arrastrarlo a la ventana; un audio arrastrado sigue
+// siendo la música), su velocidad y deslizar lo que se ve (capas.mjs), Descargar el clip y el video.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Player } from '@remotion/player';
 import { prefetch, staticFile } from 'remotion';
@@ -25,6 +28,7 @@ import {
   Redo2,
   RefreshCw,
   ScanLine,
+  SlidersHorizontal,
   SkipBack,
   SkipForward,
   StepBack,
@@ -34,9 +38,15 @@ import {
   Volume2,
   VolumeX,
   Clapperboard,
+  Film,
+  Clock,
+  Upload,
+  Monitor,
+  X,
 } from 'lucide-react';
-import { Boton, Chip, EstadoVacio, Esqueleto, Logo, Tooltip, useAvisos } from '../../componentes/index.js';
-import { useAnuncio } from '../../datos/api.js';
+import { Boton, Chip, EstadoVacio, Esqueleto, Logo, Modal, Tooltip, useAvisos } from '../../componentes/index.js';
+import { conVersion, useAnuncio } from '../../datos/api.js';
+import { MAX_VIDEO, apiRegenerar, avisoDelLote, cancelarDelLote, esVideo } from '../../datos/regenerar.js';
 import { enlace } from '../../datos/rutas.js';
 import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato.js';
 import { AnuncioEditado } from '@composicion/edicion/AnuncioEditado.jsx';
@@ -51,7 +61,7 @@ import { Globo } from './piezas.jsx';
 import { picosDe } from './ondas.js';
 import { INICIAL, guardarCancionPropia, leerCancionPropia, registrarUrlMusica, tieneCambios, urlMusica, useEdicion } from './estado.js';
 import { ALTO, ANCHO, FPS, construirPistas, contextoDeVista, mediosDelPlan, modoVoz, muestraDeGaleria, subtitulosEditados } from './modelo.js';
-import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRehacer } from './trabajos.js';
+import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRegenerar } from './trabajos.js';
 import { operar, agregarTexto as textoNuevo, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
 import { ESTILO_POR_ID } from './subtitulos/estilos.jsx';
 import { marcarClaves, palabrasDeMarca } from './subtitulos/claves.js';
@@ -303,9 +313,16 @@ function resumenDeCambios(ed, pistas) {
   const corr = Object.keys(ed.correcciones).length;
   if (corr) l.push(corr === 1 ? '1 subtítulo corregido' : `${corr} subtítulos corregidos`);
   if (ed.ocultos.length) l.push(ed.ocultos.length === 1 ? '1 subtítulo oculto' : `${ed.ocultos.length} subtítulos ocultos`);
-  if (ed.tomas) l.push('Tomas cortadas o movidas');
-  if (ed.brolls) l.push('B-roll cortados o movidos');
-  if (ed.quitados.length) l.push(ed.quitados.length === 1 ? '1 B-roll quitado' : `${ed.quitados.length} B-roll quitados`);
+  if (ed.tomas) l.push('Escenas cortadas o movidas');
+  if (ed.brolls) l.push('Imágenes de apoyo cortadas o movidas');
+  if (ed.quitados.length) l.push(ed.quitados.length === 1 ? '1 imagen de apoyo quitada' : `${ed.quitados.length} imágenes de apoyo quitadas`);
+  const tusVideos = Object.keys(ed.reemplazos || {}).length;
+  if (tusVideos) l.push(tusVideos === 1 ? 'Tu video en 1 clip' : `Tu video en ${tusVideos} clips`);
+  const clips = Object.values(ed.clips || {});
+  const conVelocidad = clips.filter((c) => c.velocidad !== undefined).length;
+  const deslizados = clips.filter((c) => c.desliza).length;
+  if (conVelocidad) l.push(conVelocidad === 1 ? '1 clip con otra velocidad' : `${conVelocidad} clips con otra velocidad`);
+  if (deslizados) l.push(deslizados === 1 ? '1 clip deslizado' : `${deslizados} clips deslizados`);
   if (ed.textos.length) l.push(ed.textos.length === 1 ? '1 texto en pantalla' : `${ed.textos.length} textos en pantalla`);
   const nuevos = (ed.textosNuevos || []).length;
   if (nuevos) l.push(nuevos === 1 ? '1 texto nuevo' : `${nuevos} textos nuevos`);
@@ -450,34 +467,139 @@ export default function Editor({ params, consulta }) {
   return <EditorListo key={slug} a={a} recargar={recargar} pedidoExportar={consulta?.get('exportar') || null} />;
 }
 
-/** Mientras se rehace una pieza: qué está pasando, arriba del video. */
-function Rehaciendo({ t, slug, onCancelar }) {
-  if (!t) return null;
-  const trabado = t.trabado && !t.trabado.espera;
-  const frase =
-    t.fase === 'produccion'
-      ? trabado
+/** Por qué la fila espera (esperaA del servidor). */
+const ESPERA = {
+  produccion: 'Se hace apenas termine de armarse el anuncio.',
+  exportacion: 'Se hace cuando termine la exportación.',
+  regenerando: 'Va en la próxima vuelta.',
+};
+
+/**
+ * Mientras se regenera algo (o espera en la fila): qué está pasando, arriba del video. `onCancelar()` devuelve la
+ * promesa del pedido: «Cancelar» corta todo lo que se prepara (si es más de una pieza, lo pregunta antes) y avisa qué
+ * quedó como estaba.
+ */
+function Regenerando({ reh, slug, onCancelar }) {
+  const { aviso } = useAvisos();
+  const [confirmar, setConfirmar] = useState(null); // lo que corta «Cancelar» (cancelarDelLote), mientras se pregunta
+  const t = reh.trabajo;
+  const enMarcha = rehacerEnMarcha(t);
+  const cola = reh.cola || [];
+  if (!enMarcha && !cola.length) return null;
+  const trabado = enMarcha && t.trabado && !t.trabado.espera;
+  const frase = !enMarcha
+    ? ESPERA[reh.esperaA] || 'Arranca en un momento.'
+    : t.fase === 'produccion'
+      ? trabado || t.trabado?.espera
         ? t.trabado.mensaje
-        : t.trabado?.espera
-          ? t.trabado.mensaje
-          : t.paso?.detalle || t.paso?.nombre || t.frase
+        : t.paso?.nombre
+          ? `Volviendo a armar el anuncio: ${t.paso.nombre.toLowerCase()}`
+          : 'Volviendo a armar el anuncio con lo nuevo'
       : t.frase;
+  const titulo = trabado
+    ? `Se frenó al regenerar ${t.nombre}`
+    : enMarcha
+      ? `Regenerando ${t.nombre}`
+      : cola.length === 1
+        ? `${cola[0].nombre} espera su turno`
+        : `${cola.length} clips esperan su turno`;
+  const cancelar = async (c) => {
+    setConfirmar(null);
+    try {
+      await onCancelar();
+      aviso(c.aviso);
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude cancelar', texto: e.message });
+    }
+  };
   return (
     <div className={`ed-rehaciendo${trabado ? ' es-trabado' : ''}`} role="status">
-      {trabado ? <TriangleAlert size={15} strokeWidth={2.4} aria-hidden="true" /> : <LoaderCircle size={15} strokeWidth={2.6} className="girando" aria-hidden="true" />}
+      {trabado ? (
+        <TriangleAlert size={15} strokeWidth={2.4} aria-hidden="true" />
+      ) : enMarcha ? (
+        <LoaderCircle size={15} strokeWidth={2.6} className="girando" aria-hidden="true" />
+      ) : (
+        <Clock size={15} strokeWidth={2.4} aria-hidden="true" />
+      )}
       <span className="ed-rehaciendo__textos">
-        <span className="ed-rehaciendo__titulo">{trabado ? `Se frenó al rehacer ${t.nombre}` : `Rehaciendo ${t.nombre}`}</span>
+        <span className="ed-rehaciendo__titulo">{titulo}</span>
         {frase ? <span className="ed-rehaciendo__detalle">{frase}</span> : null}
+        {enMarcha && cola.length ? <span className="ed-rehaciendo__detalle">Después: {cola.map((x) => x.nombre).join(', ')}.</span> : null}
       </span>
-      {t.fase === 'prompts' ? (
-        <Boton variante="fantasma" tamano="chico" onClick={onCancelar}>
+      {enMarcha && t.fase === 'prompts' ? (
+        <Boton
+          variante="fantasma"
+          tamano="chico"
+          onClick={() => {
+            const c = cancelarDelLote(t);
+            if (c.varias) setConfirmar(c);
+            else cancelar(c);
+          }}
+        >
           Cancelar
         </Boton>
-      ) : t.fase === 'produccion' ? (
+      ) : enMarcha && t.fase === 'produccion' ? (
         <Boton variante={trabado ? 'primario' : 'fantasma'} tamano="chico" href={enlace.produccion(slug)}>
           {trabado ? 'Resolverlo' : 'Ver el avance'}
         </Boton>
       ) : null}
+      <Modal
+        abierto={Boolean(confirmar)}
+        onCerrar={() => setConfirmar(null)}
+        icono={X}
+        titulo="¿Cancelar todo lo que se prepara?"
+        descripcion={confirmar?.pregunta}
+        tamano="chico"
+        pie={
+          <>
+            <Boton variante="fantasma" onClick={() => setConfirmar(null)}>
+              Seguir
+            </Boton>
+            <Boton variante="primario" icono={X} onClick={() => cancelar(confirmar)}>
+              Sí, cancelar
+            </Boton>
+          </>
+        }
+      />
+    </div>
+  );
+}
+
+// «Descargar video» es UN solo botón (Diego, 2026-11-09: «Exportar» y «Descargar video» parecían lo mismo):
+//   - si el video ya tiene todos tus cambios (la última versión que armaste aquí con lo mismo que ves, o el
+//     entregado si no cambiaste nada), lo baja al toque;
+//   - si no, abre la ventana que lo arma con tus cambios en esta PC (gratis) y desde ahí lo descargas.
+// Qué se armó con qué cambios se recuerda en este navegador (sin eso, se vuelve a armar: no cuesta nada).
+const claveArmado = (slug) => `anuncios-ia:editor:${slug}:armado`;
+function leerArmado(slug) {
+  try {
+    const v = JSON.parse(window.localStorage.getItem(claveArmado(slug)) || 'null');
+    return v && typeof v === 'object' && typeof v.firma === 'string' ? v : null;
+  } catch {
+    return null;
+  }
+}
+function guardarArmado(slug, valor) {
+  try {
+    window.localStorage.setItem(claveArmado(slug), JSON.stringify(valor));
+  } catch {
+    /* sin almacenamiento: la próxima vez se arma de nuevo */
+  }
+}
+
+/** Regeneraste algo después de armar tu video y tienes cambios: hay que descargarlo de nuevo (se vuelve a armar, gratis). */
+function ExportarDeNuevo({ desactualizada, onExportar, hayExportadas }) {
+  if (!desactualizada) return null;
+  return (
+    <div className="ed-rehaciendo ed-rehaciendo--aviso" role="status">
+      <TriangleAlert size={15} strokeWidth={2.4} aria-hidden="true" />
+      <span className="ed-rehaciendo__textos">
+        <span className="ed-rehaciendo__titulo">{hayExportadas ? 'Descarga tu video de nuevo' : 'Tu video sale con lo nuevo'}</span>
+        <span className="ed-rehaciendo__detalle">{desactualizada.mensaje}</span>
+      </span>
+      <Boton variante="primario" tamano="chico" icono={Download} onClick={onExportar}>
+        Descargar video
+      </Boton>
     </div>
   );
 }
@@ -513,22 +635,34 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   const exp = useExportacion(a.slug, {
     alTerminar: (t) => {
       if (exportarAbierto.current || !t) return;
-      if (t.estado === 'listo') aviso({ tipo: 'ok', titulo: 'Tu versión está lista', texto: t.resultado?.archivo || 'Salió como un archivo nuevo.', duracion: 9000, accion: { etiqueta: 'Verla', alHacer: () => setExportar(true) } });
+      if (t.estado === 'listo') aviso({ tipo: 'ok', titulo: 'Tu video está listo', texto: 'Ya lo puedes descargar.', duracion: 9000, accion: { etiqueta: 'Descargar', alHacer: () => setExportar(true) } });
       else if (t.estado === 'error') aviso({ tipo: 'error', titulo: 'No se pudo exportar', texto: t.error?.mensaje || 'Vuelve a intentarlo: exportar no cuesta.', duracion: 9000 });
     },
   });
-  const reh = useRehacer(a.slug, {
+  const reh = useRegenerar(a.slug, {
+    // el aviso dice lo que pasó de verdad: solo lo que se aplicó sale como «ya está nueva»; lo que falló, con su porqué
     alTerminar: (t) => {
       if (!t) return;
-      if (t.fase === 'listo') {
+      if (t.fase !== 'error' && t.fase !== 'cancelado') {
         recargar();
-        const nueva = /^(toma|escena)/i.test(t.nombre || '') ? 'nueva' : 'nuevo';
-        aviso({ tipo: 'ok', titulo: `${t.nombre || 'La pieza'} ya está ${nueva}`, texto: t.nota || 'El anuncio se volvió a armar con el clip nuevo.', duracion: 9000 });
-      } else if (t.fase === 'error') aviso({ tipo: 'error', titulo: `No se pudo rehacer ${t.nombre}`, texto: t.error?.mensaje || 'Vuelve a pedirlo.', duracion: 10000 });
+        exp.refrescar();
+      }
+      const x = avisoDelLote(t, { textoListo: 'El anuncio se volvió a armar con lo nuevo: ya está en la vista previa.' });
+      if (!x) return;
+      aviso({
+        tipo: x.tipo,
+        titulo: x.titulo,
+        texto: x.texto,
+        duracion: x.tipo === 'ok' ? 10000 : 12000,
+        ...(x.exportarDeNuevo ? { accion: { etiqueta: 'Descargar video', alHacer: () => setExportar(true) } } : {}),
+      });
     },
   });
   const rehaciendo = rehacerEnMarcha(reh.trabajo);
   const exportandoAhora = exportacionEnMarcha(exp.trabajo);
+  const [subiendo, setSubiendo] = useState(null); // la pieza a la que se está subiendo tu video
+  const videoRef = useRef(null); // el selector de archivo de «Reemplazar con tu video»
+  const videoPara = useRef(null); // a qué clip va el video que se elija
   const [pestana, setPestana] = useState('medios');
   // en ventanas de menos de 1366 de ancho el panel izquierdo es una columna de iconos y se abre encima
   const [panelAbierto, setPanelAbierto] = useState(false);
@@ -583,6 +717,25 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       liberar.forEach((f) => f());
     };
   }, [a.base, plan]);
+  // tus videos (los que reemplazan un clip en la edición): también se precargan, para que no se vean en negro
+  const clavesSubidos = Object.values(ed.reemplazos || {})
+    .map((r) => r.archivo)
+    .sort()
+    .join('|');
+  useEffect(() => {
+    if (!clavesSubidos) return undefined;
+    window.remotion_staticBase = a.base;
+    const liberar = [];
+    for (const archivo of clavesSubidos.split('|')) {
+      try {
+        const p = prefetch(staticFile(`video/${archivo}`), { method: 'blob-url' });
+        liberar.push(p.free);
+      } catch {
+        /* el Player lo pide solo cuando le toque */
+      }
+    }
+    return () => liberar.forEach((f) => f());
+  }, [a.base, clavesSubidos]);
 
   // ---------------------------------------------------------------- canción propia (de este navegador o del anuncio)
   useEffect(() => {
@@ -614,7 +767,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   const mv = modoVoz(plan);
   const subs = useMemo(() => subtitulosEditados(plan, ed, borrador), [plan, ed.correcciones, ed.ocultos, borrador]); // eslint-disable-line react-hooks/exhaustive-deps
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const pistas = useMemo(() => construirPistas(a, plan, ed, subs, colorAnuncio), [a, plan, ed.quitados, ed.textos, ed.musica, ed.tomas, ed.brolls, ed.ajustesTextos, ed.textosNuevos, subs, versionMusica, colorAnuncio]);
+  const pistas = useMemo(() => construirPistas(a, plan, ed, subs, colorAnuncio), [a, plan, ed.quitados, ed.textos, ed.musica, ed.tomas, ed.brolls, ed.ajustesTextos, ed.textosNuevos, ed.reemplazos, ed.clips, subs, versionMusica, colorAnuncio]);
   // mientras se arrastra una pieza: el resultado, solo para la línea de tiempo (al soltar se guarda)
   const [previa, setPrevia] = useState(null);
   const pistasLinea = useMemo(() => (previa ? construirPistas(a, plan, previa, subs, colorAnuncio) : pistas), [previa, pistas, a, plan, subs, colorAnuncio]);
@@ -712,37 +865,160 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     requestAnimationFrame(() => abrirEdicion(b.id, el));
   }, [subs, abrirEdicion]);
 
-  // Rehacer con IA: solo en los anuncios que produce la app, con el anuncio terminado y de a una pieza.
-  const sePuedeRehacer = useCallback((item) => Boolean(reh.disponible && item?.pieza && reh.piezas[item.pieza]), [reh.disponible, reh.piezas]);
+  // Regenerar: solo en los anuncios que produce la app. Se puede pedir varias seguidas (y mientras el anuncio se
+  // arma): van a la fila y la app las hace juntas.
+  const sePuedeRehacer = useCallback((item) => Boolean(reh.disponible && item?.pieza && reh.porPieza[item.pieza] && !reh.porPieza[item.pieza].motivoNo), [reh.disponible, reh.porPieza]);
+  /** El clip elegido en la línea de tiempo o, si no hay, el que se ve ahora (la imagen de apoyo si está encima). */
+  const clipActual = useCallback(
+    (sirve) => {
+      const sel = seleccion && (seleccion.pista === 'video' || seleccion.pista === 'broll') ? [...pistas.video, ...pistas.broll].find((x) => x.id === seleccion.id) : null;
+      if (sel && sirve(sel)) return sel;
+      const t = (playerRef.current?.getCurrentFrame() || 0) / FPS;
+      const enBroll = pistas.broll.find((b) => !b.quitado && t >= b.inicio && t < b.fin && sirve(b));
+      return enBroll || pistas.video.find((v) => t >= v.inicio && t < v.fin && sirve(v)) || null;
+    },
+    [seleccion, pistas]
+  );
   const abrirRehacer = useCallback(
     (item) => {
       if (!reh.disponible) return;
-      if (rehaciendo) {
-        aviso({ tipo: 'info', titulo: `Ya se está rehaciendo ${reh.trabajo?.nombre || 'una parte'}`, texto: 'Cuando termine puedes pedir otra.' });
-        return;
-      }
-      if (reh.enMarcha) {
-        aviso({ tipo: 'info', titulo: 'El anuncio se está produciendo', texto: 'Cuando termine puedes rehacer una parte.' });
-        return;
-      }
       playerRef.current?.pause();
       if (item) return setRehacerCon(item);
-      const sel = seleccion && (seleccion.pista === 'video' || seleccion.pista === 'broll') ? [...pistas.video, ...pistas.broll].find((x) => x.id === seleccion.id) : null;
-      if (sel) return setRehacerCon(sel);
-      const t = (playerRef.current?.getCurrentFrame() || 0) / FPS;
-      // la pieza que se ve ahora: el B-roll si está encima, si no la toma
-      const enBroll = pistas.broll.find((b) => !b.quitado && t >= b.inicio && t < b.fin && sePuedeRehacer(b));
-      setRehacerCon(enBroll || pistas.video.find((v) => t >= v.inicio && t < v.fin && sePuedeRehacer(v)) || pistas.video.find(sePuedeRehacer) || null);
+      setRehacerCon(clipActual(sePuedeRehacer) || pistas.video.find(sePuedeRehacer) || null);
     },
-    [seleccion, pistas, reh.disponible, reh.enMarcha, reh.trabajo, rehaciendo, sePuedeRehacer, aviso]
+    [pistas, reh.disponible, sePuedeRehacer, clipActual]
+  );
+  const avisoPedido = useCallback(
+    (r, nombre, corregir = false) => {
+      // (en la fila si quedó esperando: otro lote en marcha, una exportación o el anuncio armándose)
+      const enFila = (r?.cola || []).some((x) => x.id === r?.pedido?.id);
+      aviso({
+        tipo: 'info',
+        titulo: `${enFila ? 'En la fila' : corregir ? 'Corrigiendo' : 'Regenerando'}: ${nombre || 'el clip'}`,
+        texto: enFila ? `${ESPERA[r.esperaA] || 'Se hace cuando termine lo de ahora.'} Puedes seguir editando y pedir otras.` : 'Puedes seguir editando y pedir otras: te aviso cuando esté.',
+        duracion: 6500,
+      });
+    },
+    [aviso]
   );
   const pedirRehacer = useCallback(
-    async (datos) => {
-      const t = await reh.pedir(datos);
-      aviso({ tipo: 'info', titulo: `Rehaciendo ${t?.nombre || 'la pieza'}`, texto: 'Puedes seguir editando: te aviso cuando esté.', duracion: 6000 });
-      return t;
+    async (datos, item) => {
+      const r = await reh.pedir(datos);
+      avisoPedido(r, reh.porPieza[datos.pieza]?.nombre || item?.nombre);
+      return r;
+    },
+    [reh, avisoPedido]
+  );
+  /** Regenerar tal cual o «Corregir esto» (lo que sugirió la revisión), sin pasar por la IA. */
+  const regenerar = useCallback(
+    async (item, modo) => {
+      if (!item?.pieza) return;
+      try {
+        const r = await reh.pedir(modo === 'sugerencia' ? { pieza: item.pieza, usarSugerencia: true } : { pieza: item.pieza, pedido: '', conImagen: false });
+        avisoPedido(r, reh.porPieza[item.pieza]?.nombre || item.nombre, modo === 'sugerencia');
+      } catch (e) {
+        aviso({ tipo: 'error', titulo: 'No pude pedirlo', texto: e?.datos?.motivo === 'saldo' ? 'Tu saldo de kie no alcanza: recarga para seguir.' : e.message });
+      }
+    },
+    [reh, aviso, avisoPedido]
+  );
+  const quitarDeLaFila = useCallback(
+    async (x) => {
+      try {
+        await reh.cancelar(x.id);
+        aviso({ tipo: 'info', titulo: 'Lo saqué de la fila', texto: `${x.nombre} queda como estaba.` });
+      } catch (e) {
+        aviso({ tipo: 'error', titulo: 'No pude sacarlo de la fila', texto: e.message });
+      }
     },
     [reh, aviso]
+  );
+
+  // ---------------------------------------------------------------- tu propio video en lugar de un clip
+  const subirVideo = useCallback(
+    async (item, archivo) => {
+      if (!item?.pieza || !archivo) return;
+      if (!esVideo(archivo)) {
+        aviso({ tipo: 'error', titulo: 'Ese archivo no es un video', texto: 'Usa un MP4, MOV o WEBM.' });
+        return;
+      }
+      if (archivo.size > MAX_VIDEO) {
+        aviso({ tipo: 'error', titulo: 'Ese video es muy pesado', texto: 'Tiene más de 300 MB. Expórtalo más liviano y vuelve a subirlo.' });
+        return;
+      }
+      const nombre = item.nombre?.replace(/ · \d+$/, '') || 'ese clip';
+      setSubiendo(item.pieza);
+      try {
+        const r = await apiRegenerar.subirVideo(a.slug, item.pieza, archivo);
+        if (r.modo === 'edicion') {
+          // un video nuevo empieza como viene: la velocidad y el deslizado que tenía el clip de antes no se heredan
+          // (Deshacer los recupera)
+          cambiar(
+            (s) => {
+              const clips = { ...(s.clips || {}) };
+              delete clips[item.pieza];
+              return { ...s, clips, reemplazos: { ...(s.reemplazos || {}), [item.pieza]: { id: r.id, archivo: r.archivo, largo: r.largo, nombre: r.nombre || archivo.name, mudo: true } } };
+            },
+            { etiqueta: `Tu video en ${nombre}` }
+          );
+          aviso({ tipo: 'ok', titulo: `Tu video ya está en ${nombre}`, texto: 'Va mudo: se oye la voz del anuncio. Puedes cambiarle la velocidad o deslizarlo para que calce.', duracion: 8000 });
+        } else {
+          reh.anotar(r);
+          aviso({ tipo: 'info', titulo: 'Tu video entra al anuncio', texto: `La app vuelve a medir lo que se dice en ${nombre} y arma el anuncio de nuevo. Te aviso cuando esté.`, duracion: 8000 });
+        }
+      } catch (e) {
+        aviso({ tipo: 'error', titulo: 'No pude usar ese video', texto: e.message, duracion: 9000 });
+      } finally {
+        setSubiendo(null);
+      }
+    },
+    [a.slug, aviso, cambiar, reh]
+  );
+  const subirVideoRef = useRef(subirVideo);
+  subirVideoRef.current = subirVideo;
+  /** Un video arrastrado a la ventana: va al clip elegido (o al que se ve ahora). */
+  const usarVideo = useCallback(
+    (archivo) => {
+      const item = clipActual((x) => Boolean(x.pieza && x.puede?.reemplazar));
+      if (!item) {
+        aviso({ tipo: 'info', titulo: 'Elige qué clip reemplazar', texto: 'Toca el clip en la línea de tiempo y vuelve a soltar tu video (o usa «Reemplazar con tu video»).' });
+        return;
+      }
+      setSeleccion({ pista: pistas.video.includes(item) ? 'video' : 'broll', id: item.id });
+      subirVideo(item, archivo);
+    },
+    [clipActual, pistas, subirVideo, aviso]
+  );
+  const usarVideoRef = useRef(usarVideo);
+  usarVideoRef.current = usarVideo;
+  const volverAlClipOriginal = useCallback(
+    async (item, enAnuncio) => {
+      const nombre = item.nombre?.replace(/ · \d+$/, '') || 'el clip';
+      if (!enAnuncio) {
+        cambiar(
+          (s) => {
+            const reemplazos = { ...(s.reemplazos || {}) };
+            delete reemplazos[item.pieza];
+            const clips = { ...(s.clips || {}) };
+            // el clip original vuelve como lo puso la app: la velocidad y el deslizado que elegiste para tu video no
+            // se le aplican (Deshacer los recupera)
+            delete clips[item.pieza];
+            return { ...s, reemplazos, clips };
+          },
+          { etiqueta: `Volver al clip original de ${nombre}` }
+        );
+        aviso({ tipo: 'ok', titulo: 'Volvió el clip original', texto: 'Si fue sin querer, toca Deshacer.', accion: { etiqueta: 'Deshacer', alHacer: deshacer } });
+        return;
+      }
+      try {
+        const r = await apiRegenerar.volverAlOriginal(a.slug, item.pieza);
+        reh.anotar(r);
+        aviso({ tipo: 'info', titulo: 'Vuelve el clip original', texto: `La app pone de nuevo el clip de antes en ${nombre} y arma el anuncio. Te aviso cuando esté.` });
+      } catch (e) {
+        aviso({ tipo: 'error', titulo: 'No pude volver al original', texto: e.message });
+      }
+    },
+    [a.slug, aviso, cambiar, deshacer, reh]
   );
 
   const elegirEstilo = useCallback(
@@ -823,7 +1099,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         aviso({
           tipo: 'aviso',
           titulo: `${nuevo.nombre} queda quieta ${String(nuevo.quieto).replace('.', ',')} s al final`,
-          texto: 'Su clip no alcanza a llenar ese lugar. Acórtala o alarga la toma de al lado.',
+          texto: 'Su clip no alcanza a llenar ese lugar. Acórtala, alarga la escena de al lado o cámbiale la velocidad.',
           duracion: 8000,
         });
       }
@@ -844,9 +1120,18 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     },
     [plan, ed, extraOp, cambiar, aviso, avisarQuietos]
   );
+  /** Lo que deslizar necesita saber del clip (su pieza, dónde empieza sin deslizar, su largo y su velocidad). */
+  const datosDelClip = useCallback(
+    (id) => {
+      const x = [...pistas.video, ...pistas.broll].find((y) => y.id === id);
+      return x ? { pieza: x.pieza, entradaBase: Number(x.entradaBase) || 0, largo: Number(x.largo) || null, velocidad: Number(x.ajuste?.velocidad ?? x.velocidad) || 1 } : {};
+    },
+    [pistas]
+  );
   const arrastrar = useCallback(
-    (op, final) => {
-      if (!op) return setPrevia(null);
+    (opBase, final) => {
+      if (!opBase) return setPrevia(null);
+      const op = opBase.tipo === 'deslizar' ? { ...opBase, ...datosDelClip(opBase.id) } : opBase;
       const r = operar(plan, ed, { ...extraOp, ...op });
       if (!final) {
         if (!r.error) setPrevia(r.ed);
@@ -859,11 +1144,33 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       }
       if (JSON.stringify(r.ed) === JSON.stringify(ed)) return undefined;
       const nombre = nombreDe(op.pista, op.id);
-      cambiar(() => r.ed, { etiqueta: op.tipo === 'mover' ? (op.pista === 'video' ? `Cambiar de lugar ${nombre}` : `Mover ${nombre}`) : `Recortar ${nombre}` });
+      cambiar(() => r.ed, { etiqueta: op.tipo === 'deslizar' ? `Deslizar ${nombre}` : op.tipo === 'mover' ? (op.pista === 'video' ? `Cambiar de lugar ${nombre}` : `Mover ${nombre}`) : `Recortar ${nombre}` });
       avisarQuietos(ed, r.ed);
       return undefined;
     },
-    [plan, ed, extraOp, cambiar, aviso, avisarQuietos, nombreDe]
+    [plan, ed, extraOp, cambiar, aviso, avisarQuietos, nombreDe, datosDelClip]
+  );
+  /** La velocidad del clip de una pieza (null = como venía). */
+  const cambiarVelocidad = useCallback(
+    (item, velocidad) => {
+      const etiqueta = velocidad === null ? `Velocidad como venía (${item.nombre})` : `Velocidad ${String(velocidad).replace('.', ',')}× (${item.nombre})`;
+      aplicar({ tipo: 'velocidad', pieza: item.pieza, velocidad }, etiqueta);
+    },
+    [aplicar]
+  );
+  /** Deslizar lo que se ve del clip desde el control del panel (los toques seguidos son un solo paso). */
+  const deslizarClip = useCallback(
+    (item, desliza) => {
+      const datos = datosDelClip(item.id);
+      cambiar(
+        (s) => {
+          const r = operar(plan, s, { tipo: 'deslizar', ...datos, desliza });
+          return r.ed || s;
+        },
+        { etiqueta: `Deslizar ${item.nombre}`, grupo: `desliza-${item.pieza}` }
+      );
+    },
+    [plan, cambiar, datosDelClip]
   );
   const dividir = useCallback(() => {
     const p = playerRef.current;
@@ -881,13 +1188,13 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     // con otra cosa elegida, no se divide la toma de abajo sin avisar: se dice por qué no
     if (!objetivo && seleccion) {
       const textos = {
-        video: pistas.cortes.tomas ? 'Pon el cursor sobre la toma elegida para dividirla.' : pistas.cortes.motivo,
+        video: pistas.cortes.tomas ? 'Pon el cursor sobre la escena elegida para dividirla.' : pistas.cortes.motivo,
         voz: 'La voz no se corta: todo el anuncio la sigue.',
         textos: 'Los textos no se dividen: arrastra sus bordes para acortarlos.',
-        broll: pistas.cortes.brolls ? 'Pon el cursor sobre el B-roll elegido para dividirlo.' : pistas.cortes.motivo,
+        broll: pistas.cortes.brolls ? 'Pon el cursor sobre la imagen de apoyo elegida para dividirla.' : pistas.cortes.motivo,
         musica: 'Pon el cursor sobre la parte de la música elegida para dividirla.',
       };
-      aviso({ tipo: 'info', titulo: 'No se puede dividir ahí', texto: textos[seleccion.pista] || 'Eso no se divide. Elige un clip, un B-roll o la música.' });
+      aviso({ tipo: 'info', titulo: 'No se puede dividir ahí', texto: textos[seleccion.pista] || 'Eso no se divide. Elige un clip, una imagen de apoyo o la música.' });
       return;
     }
     if (!objetivo && pistas.cortes.tomas) {
@@ -895,7 +1202,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       if (v) objetivo = { pista: 'video', id: v.id };
     }
     if (!objetivo) {
-      aviso({ tipo: 'info', titulo: 'Elige qué dividir', texto: pistas.cortes.tomas ? 'Pon el cursor sobre el clip que quieres dividir.' : 'Elige un B-roll o la música y pon el cursor encima. Las tomas de este anuncio no se cortan.' });
+      aviso({ tipo: 'info', titulo: 'Elige qué dividir', texto: pistas.cortes.tomas ? 'Pon el cursor sobre el clip que quieres dividir.' : 'Elige una imagen de apoyo o la música y pon el cursor encima. Las escenas de este anuncio no se cortan.' });
       return;
     }
     if (aplicar({ tipo: 'dividir', ...objetivo, t }, `Dividir ${nombreDe(objetivo.pista, objetivo.id)}`)) setSeleccion(objetivo);
@@ -971,6 +1278,22 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       // solo se muestra donde de verdad se puede
       rehacerDisponible: reh.disponible,
       sePuedeRehacer,
+      // el clip elegido: regenerar, tu video, velocidad y deslizar (AccionesClip.jsx)
+      slug: a.slug,
+      reh,
+      regenerar,
+      quitarDeLaFila,
+      subiendo,
+      elegirVideo: (item) => {
+        videoPara.current = item;
+        videoRef.current?.click();
+      },
+      volverAlClipOriginal,
+      reemplazoDe: (pieza) => (pieza ? ed.reemplazos?.[pieza] || null : null),
+      mudoReemplazo: (item, mudo) =>
+        cambiar((s) => (s.reemplazos?.[item.pieza] ? { ...s, reemplazos: { ...s.reemplazos, [item.pieza]: { ...s.reemplazos[item.pieza], mudo } } } : s), { etiqueta: mudo ? 'Tu video sin sonido' : 'Tu video con su sonido' }),
+      velocidad: cambiarVelocidad,
+      deslizar: deslizarClip,
       enfocar: (seccion) => setEnfoque({ seccion, t: Date.now() }),
       alternarSubtitulos: () => cambiar((s) => ({ ...s, subtitulos: { ...s.subtitulos, visible: !s.subtitulos.visible } }), { etiqueta: 'Mostrar u ocultar subtítulos' }),
       alternarVoz: () => cambiar((s) => ({ ...s, voz: { ...s.voz, silenciada: !s.voz.silenciada } }), { etiqueta: 'Silenciar o activar la voz' }),
@@ -978,7 +1301,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       alternarBrolls: () => {
         const removibles = pistas.broll.filter((b) => b.removible).map((b) => b.id);
         const alguno = pistas.broll.some((b) => b.removible && !b.quitado);
-        cambiar((s) => ({ ...s, quitados: alguno ? [...new Set([...s.quitados, ...removibles])] : s.quitados.filter((x) => !removibles.includes(x)) }), { etiqueta: alguno ? 'Quitar los B-roll' : 'Volver a poner los B-roll' });
+        cambiar((s) => ({ ...s, quitados: alguno ? [...new Set([...s.quitados, ...removibles])] : s.quitados.filter((x) => !removibles.includes(x)) }), { etiqueta: alguno ? 'Quitar las imágenes de apoyo' : 'Volver a poner las imágenes de apoyo' });
       },
       alternarTextos: () => {
         const ids = pistas.textos.filter((x) => x.tipo === 'sugerido').map((x) => x.id);
@@ -1004,7 +1327,32 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         aviso({ tipo: 'ok', titulo: 'Volviste al anuncio entregado', texto: 'Si fue sin querer, toca Deshacer.', accion: { etiqueta: 'Deshacer', alHacer: deshacer } });
       },
     }),
-    [elegirEstilo, pedirMusica, corregirActual, abrirRehacer, reh.disponible, sePuedeRehacer, cambiar, pistas, aviso, deshacer, dividir, borrarElegido, borrable, agregarTexto, textoNuevoId, plan]
+    [
+      elegirEstilo,
+      pedirMusica,
+      corregirActual,
+      abrirRehacer,
+      reh,
+      sePuedeRehacer,
+      cambiar,
+      pistas,
+      aviso,
+      deshacer,
+      dividir,
+      borrarElegido,
+      borrable,
+      agregarTexto,
+      textoNuevoId,
+      plan,
+      a.slug,
+      regenerar,
+      quitarDeLaFila,
+      subiendo,
+      volverAlClipOriginal,
+      ed.reemplazos,
+      cambiarVelocidad,
+      deslizarClip,
+    ]
   );
 
   const irA = useCallback((pista, item) => {
@@ -1096,15 +1444,22 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     };
   }, [deshacer, rehacer, plan.duracion]);
 
-  // ---------------------------------------------------------------- arrastrar una canción a cualquier parte
+  // ---------------------------------------------------------------- arrastrar una canción o un video a cualquier parte
+  // (una canción va a la música; un video reemplaza el clip elegido, o el que se ve ahora)
   useEffect(() => {
     let cuenta = 0;
     const conArchivos = (e) => [...(e.dataTransfer?.types || [])].includes('Files');
+    // (mientras se arrastra solo se ve el tipo, no el nombre: un video sin tipo conocido, como un .mkv, llega vacío y
+    // se decide al soltar, por su nombre; mientras tanto, un cartel que no promete ni canción ni video)
+    const tipoDe = (e) => {
+      const t = String([...(e.dataTransfer?.items || [])].find((x) => x.kind === 'file')?.type || '');
+      return t.startsWith('video/') ? 'video' : t.startsWith('audio/') ? 'audio' : 'archivo';
+    };
     const entrar = (e) => {
       if (!conArchivos(e)) return;
       e.preventDefault();
       cuenta += 1;
-      setSoltando(true);
+      setSoltando(tipoDe(e));
     };
     const sobre = (e) => {
       if (conArchivos(e)) e.preventDefault();
@@ -1121,7 +1476,9 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     const soltar = (e) => {
       if (!conArchivos(e)) return;
       e.preventDefault();
-      usarArchivoRef.current(e.dataTransfer.files?.[0]);
+      const f = e.dataTransfer.files?.[0];
+      if (esVideo(f)) usarVideoRef.current(f);
+      else usarArchivoRef.current(f);
     };
     window.addEventListener('dragenter', entrar);
     window.addEventListener('dragover', sobre);
@@ -1167,6 +1524,20 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
 
   const bloqueEditando = editando ? subs.find((b) => b.id === editando.id) : null;
   const subtitulosVisibles = ed.subtitulos.visible && subs.length > 0;
+  // a qué clip iría un video que se suelta ahora
+  const destinoVideo = soltando === 'video' ? clipActual((x) => Boolean(x.pieza && x.puede?.reemplazar)) : null;
+  // «Descargar video»: tu última versión exportada o, si todavía no exportaste, la entregada
+  const ultimaExportada = exp.hechos?.[0] || null;
+  const entregada = (a.versiones || []).find((v) => v.principal && v.clase === 'video') || null;
+  // ¿Se puede bajar al toque? Solo si ese archivo ya tiene exactamente lo que ves (ver claveArmado arriba).
+  const armado = leerArmado(a.slug);
+  const firmaAhora = JSON.stringify(ed);
+  const armadoAlDia = Boolean(ultimaExportada && armado && armado.n === ultimaExportada.n && armado.firma === firmaAhora && (armado.version || 'completa') === 'completa' && !exp.desactualizada);
+  const paraDescargar = armadoAlDia
+    ? { url: conVersion(ultimaExportada.url, ultimaExportada.fecha), archivo: ultimaExportada.archivo, ayuda: 'Ya tiene todos tus cambios: se descarga al toque.' }
+    : !hayCambios && entregada
+      ? { url: conVersion(entregada.url, entregada.fecha), archivo: entregada.archivo, ayuda: 'No le hiciste cambios: se descarga el video que te entregó la app.' }
+      : null;
 
   return (
     <div className={`ed${galeria ? ' ed--galeria' : ''}`} style={altoLinea ? { '--alto-lt': `${altoLinea}px` } : undefined}>
@@ -1212,12 +1583,30 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
               onClick={(e) => setAtajos(atajos ? null : e.currentTarget.getBoundingClientRect())}
             />
           </Tooltip>
-          {/* Exportar arma un MP4 nuevo en esta PC (gratis), con la misma composición de la vista previa. */}
-          <Tooltip texto={rehaciendo ? 'Espera a que termine de rehacerse la pieza' : exportandoAhora ? 'Ver cómo va la exportación' : 'Un MP4 nuevo con tus cambios. No cuesta nada.'} lado="abajo">
-            <Boton variante="primario" icono={exportandoAhora ? LoaderCircle : Download} className={exportandoAhora ? 'ed-exportando-boton' : undefined} onClick={() => setExportar(true)} disabled={rehaciendo && !exportandoAhora}>
-              {exportandoAhora ? (exp.trabajo.estado === 'esperando' ? 'En espera' : `Exportando ${Math.round(exp.trabajo.avance?.valor || 0)} %`) : 'Exportar'}
-            </Boton>
+          {/* Un solo botón: baja al toque lo que ya tiene tus cambios, o lo arma en esta PC (gratis) y desde ahí se baja.
+              Las otras versiones (sin subtítulos, sin música, 1080p, el .srt) salen del ícono de al lado. */}
+          <Tooltip texto="Otras versiones: sin subtítulos, sin música, 1080p y el archivo de subtítulos" lado="abajo">
+            <Boton variante="fantasma" tamano="chico" soloIcono icono={SlidersHorizontal} etiqueta="Otras versiones" className="ed-solo-ancho" onClick={() => setExportar(true)} disabled={rehaciendo && !exportandoAhora} />
           </Tooltip>
+          {exportandoAhora ? (
+            <Tooltip texto="Ver cómo va tu video" lado="abajo">
+              <Boton variante="primario" icono={LoaderCircle} className="ed-exportando-boton" onClick={() => setExportar(true)}>
+                {exp.trabajo.estado === 'esperando' ? 'En espera' : `Armando ${Math.round(exp.trabajo.avance?.valor || 0)} %`}
+              </Boton>
+            </Tooltip>
+          ) : paraDescargar && !rehaciendo ? (
+            <Tooltip texto={paraDescargar.ayuda} lado="abajo">
+              <Boton variante="primario" icono={Download} href={paraDescargar.url} download={paraDescargar.archivo} className="ed-descargar">
+                Descargar video
+              </Boton>
+            </Tooltip>
+          ) : (
+            <Tooltip texto={rehaciendo ? 'Espera a que termine de regenerarse el clip' : 'Primero se arma con tus cambios en esta PC (no cuesta nada) y después lo descargas.'} lado="abajo">
+              <Boton variante="primario" icono={Download} onClick={() => setExportar(true)} disabled={rehaciendo}>
+                Descargar video
+              </Boton>
+            </Tooltip>
+          )}
         </div>
       </header>
 
@@ -1241,7 +1630,8 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
 
       {/* ---------------------------------------------------------------- centro: la vista previa */}
       <main className="ed-escenario" aria-label="Vista previa">
-        {rehaciendo ? <Rehaciendo t={reh.trabajo} slug={a.slug} onCancelar={() => reh.cancelar().catch((e) => aviso({ tipo: 'error', titulo: 'No pude cancelar', texto: e.message }))} /> : null}
+        <Regenerando reh={reh} slug={a.slug} onCancelar={() => reh.cancelar()} />
+        {!exportandoAhora && !rehaciendo ? <ExportarDeNuevo desactualizada={exp.desactualizada} hayExportadas={exp.hechos.length > 0} onExportar={() => setExportar(true)} /> : null}
         <div className="ed-escenario__lienzo-zona">
           <div className="ed-lienzo">
             <Player
@@ -1379,7 +1769,11 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         hayMusica={Boolean(pistas.musica) && !ed.musica.silenciada}
         versionInicial={versionPedida}
         exp={exp}
-        alExportar={(opciones) => exp.exportar({ ...opciones, estado: ed, contexto: contextoGuardado })}
+        alExportar={(opciones) => {
+          // lo que se arma ahora tiene exactamente lo que ves: así la próxima vez «Descargar video» lo baja al toque
+          guardarArmado(a.slug, { n: exp.siguiente, firma: JSON.stringify(ed), version: opciones?.version || 'completa' });
+          return exp.exportar({ ...opciones, estado: ed, contexto: contextoGuardado });
+        }}
       />
       {reh.disponible ? (
         <ModalRehacer abierto={rehacerCon !== undefined} onCerrar={() => setRehacerCon(undefined)} objetivo={rehacerCon || null} pistas={pistas} reh={reh} alPedir={pedirRehacer} />
@@ -1398,8 +1792,43 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
           usarArchivo(f);
         }}
       />
+      <input
+        ref={videoRef}
+        type="file"
+        accept="video/*,.mp4,.mov,.m4v,.webm"
+        className="visualmente-oculto"
+        tabIndex={-1}
+        aria-hidden="true"
+        onChange={(e) => {
+          const f = e.target.files?.[0];
+          e.target.value = '';
+          if (f && videoPara.current) subirVideo(videoPara.current, f);
+        }}
+      />
 
-      {soltando ? (
+      {soltando === 'video' ? (
+        <div className="ed-soltando" aria-hidden="true">
+          <div className="ed-soltando__caja">
+            <span className="ed-soltando__icono">
+              <Film size={28} strokeWidth={1.8} />
+            </span>
+            <span className="ed-soltando__titulo">{destinoVideo ? `Suelta tu video para reemplazar ${destinoVideo.nombre}` : 'Suelta tu video en lugar de un clip'}</span>
+            <span className="ed-soltando__detalle">
+              {destinoVideo ? 'MP4, MOV o WEBM · la app lo prepara en unos segundos' : 'Primero toca el clip que quieres reemplazar en la línea de tiempo'}
+            </span>
+          </div>
+        </div>
+      ) : soltando === 'archivo' ? (
+        <div className="ed-soltando" aria-hidden="true">
+          <div className="ed-soltando__caja">
+            <span className="ed-soltando__icono">
+              <Upload size={28} strokeWidth={1.8} />
+            </span>
+            <span className="ed-soltando__titulo">Suelta tu archivo</span>
+            <span className="ed-soltando__detalle">Un video reemplaza el clip que elegiste en la línea de tiempo; una canción va a la música.</span>
+          </div>
+        </div>
+      ) : soltando ? (
         <div className="ed-soltando" aria-hidden="true">
           <div className="ed-soltando__caja">
             <span className="ed-soltando__icono">

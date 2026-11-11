@@ -1,0 +1,129 @@
+{
+  "id": "F11",
+  "slug": "captura-notas",
+  "nombre": "Captura de notas",
+  "origen": "biblioteca",
+  "descripcion": "Captura nativa de una app de notas genérica: título personal, fecha, una lista corta de 4-5 ítems (razones, rutina o cambios notados) con un trazo de resaltador hecho a mano sobre el ítem clave, y una foto casera del producto adjunta abajo. Parece contenido orgánico y no un anuncio; se lee de arriba abajo en segundos.",
+  "angulos_compatibles": ["rutina-uso", "beneficio-principal", "testimonio", "curiosidad", "rapido-y-facil", "transformacion", "identidad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Native Notes-App Screenshot Ad",
+  "reference_style": "Native-looking smartphone notes-app screenshot with a short personal list and an attached casual product photo, designed to read as organic personal content rather than an ad",
+  "art_direction": {
+    "visual_hierarchy": "1) The bold note title at the top of the note body. 2) The short list, read top to bottom, with the highlighted key item. 3) The attached product photo at the bottom, which reveals what the note is about. 4) Discreet app chrome (status bar, back label, icons) that sells the native look.",
+    "composition_style": "Full-bleed flat UI screenshot with no device frame and no perspective: the canvas IS the phone screen, cropped to a square. A strict single column of content aligned to one common left margin. The attached photo spans the full content width at the bottom and is the only image on the canvas.",
+    "spacing_and_structure": "Status bar y 0-4%. Navigation bar y 4-10%. Note title y 12-17.5%. Date line y 18.5-21.5%. List y 24-53% (4-5 single-line items, line spacing about 1.5x so the items breathe). Attached photo y 56-95%, full content width (x 6-94%). Left and right margins 6%. Nothing outside these zones.",
+    "lighting_and_depth": "Flat, evenly lit digital interface with no shadows, gradients or 3D effects on the UI. Only the attached photo has real-world lighting: natural window daylight, casual smartphone-camera look with mild depth of field. Optional ultra-subtle paper grain on the note background."
+  },
+  "layout_summary": "Square crop of a generic smartphone notes app in light mode. A minimal status bar at the very top (time on the left, generic signal, wifi and battery glyphs on the right). Below it, a navigation bar with a back chevron and the word for 'Notes' in the accent color on the left, and generic share and more icons on the right. Then the note itself: a bold title, a small grey date line, a short numbered or checkbox list of 4-5 items with one item marked by a hand-drawn highlighter stroke, and a rounded-corner photo of the product attached at the bottom of the note.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Native note background that makes the image read as a real phone screenshot",
+      "adaptation_rule": "Warm off-white paper tone in light mode with an optional ultra-subtle paper grain; flat, no gradients, never pure white and never brand-colored. If the batch plan requests dark mode, use a near-black background with light text and keep every other rule."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "status bar",
+      "position": "Top strip, full width, y 0-4%",
+      "visual_function": "Sells the authentic smartphone-screenshot look",
+      "adaptation_rule": "Generic status bar: time on the left, generic signal, wifi and battery glyphs on the right, all small and dark grey. No carrier name, no notch or camera cutout, no platform-specific icons."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "navigation bar",
+      "position": "Below the status bar, full width, y 4-10%",
+      "visual_function": "Identifies the screen as a notes app without any real branding",
+      "adaptation_rule": "On the left, a back chevron followed by the word for 'Notes' in the ad language; on the right, two generic thin line icons (share and a three-dot 'more' icon). All in the brand accent color. No app name, no real app icons."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "note title",
+      "position": "Left-aligned at the 6% margin, y 12-17.5%",
+      "visual_function": "The hook, written as the personal title of a private note",
+      "adaptation_rule": "Rewrite the angle's hook as something a real person would title their own note. One line."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "date line",
+      "position": "Under the title, left-aligned, y 18.5-21.5%",
+      "visual_function": "Adds realism and intimacy: a real note written at a real moment",
+      "adaptation_rule": "A casual date and time in the ad language, small and grey. Nothing promotional."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "list",
+      "position": "Left-aligned at the 6% margin, y 24-53%",
+      "visual_function": "Carries the angle as a personal list of reasons, steps or changes",
+      "adaptation_rule": "4-5 single-line items, each preceded by a number or a round checkbox (checked items filled with a checkmark in the brand accent). Pick the list type that fits the angle: reasons, routine steps with times, changes noticed, or problems that stopped. Even line spacing."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "hand-drawn highlight",
+      "position": "Over one key list item (usually item 2 or 3)",
+      "visual_function": "Human, handwritten touch that drives the eye to the main benefit",
+      "adaptation_rule": "A single translucent highlighter stroke (or a loose hand-drawn circle) in the brand accent color, slightly uneven like a finger or stylus mark. Only one, and the text under it stays fully legible."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "attached product photo",
+      "position": "Bottom of the note, full content width, x 6-94% and y 56-95%",
+      "visual_function": "Shows the actual product the note is about, as if the person attached their own photo",
+      "adaptation_rule": "A casual but well-lit smartphone photo of the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), placed in its real context (bathroom shelf, kitchen counter, nightstand, desk, bag; for digital products, a phone or laptop screen showing it), centered in the photo, label clearly visible, product filling about 60-70% of the photo's height (about 23-27% of the canvas height). Corner radius about 2.5% of the canvas. No text inside the photo."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "UI labels (status bar time and back label)",
+      "reference_position": "Status bar top left (time) and navigation bar left (back label)",
+      "text_style": "System sans-serif, small: time about 2.2% of the canvas height, dark grey semibold; back label about 2.6% of the canvas height, brand accent color, regular weight; 1 line each",
+      "guia_texto": "Una hora genérica (ej. '9:41') y la palabra 'Notas' en el idioma del anuncio. Nunca nombres de apps reales."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "note title",
+      "reference_position": "Top of the note body, left-aligned at the 6% margin",
+      "text_style": "Bold system sans-serif, about 5-5.5% of the canvas height, near-black, left-aligned, 1 line (max about 30 characters)",
+      "guia_texto": "El gancho del ángulo escrito como título de una nota personal (ej. 'Por qué ya no tomo café' o 'Mi rutina de noche'). 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "date line",
+      "reference_position": "Directly under the title, left-aligned",
+      "text_style": "Regular system sans-serif, about 2.2% of the canvas height, mid grey, left-aligned, 1 line",
+      "guia_texto": "Fecha y hora casual (ej. '12 de marzo, 23:14'). Sin texto de venta."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "list items",
+      "reference_position": "Main body of the note, under the date line, left-aligned",
+      "text_style": "Regular system sans-serif, about 3.6-4% of the canvas height, near-black, left-aligned, one line per item, 4-5 items, each preceded by a number or a round checkbox; at most two items may end with a single emoji; the key item sits under the hand-drawn highlighter stroke",
+      "guia_texto": "4 a 5 ítems del ángulo en primera persona y tono casual: razones, pasos de una rutina, cambios que notó o problemas que se acabaron. Cada ítem de 2 a 6 palabras. El ítem resaltado es el beneficio principal."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Generic status bar and notes-app navigation bar with no real branding",
+    "Flat off-white note background with a screenshot look (no device frame)",
+    "Left-aligned list with numbers or round checkboxes",
+    "One hand-drawn highlighter stroke or circle in the brand accent",
+    "Rounded-corner casual photo of the user's product attached at the bottom of the note"
+  ],
+  "forbidden_additions": [
+    "Phone device frame, hands holding a phone or perspective mockup",
+    "Real app names, logos or platform-specific interface elements",
+    "Ad headline or graphic text outside the note",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonial cards",
+    "Icons or illustrations next to the list items",
+    "On-screen keyboard or text cursor",
+    "Logos or brand marks",
+    "Bottom bar or banner",
+    "Stickers, arrows or decorative graphics",
+    "Before/after images",
+    "A second photo or a collage"
+  ],
+  "notas_paleta": "Colores nativos de la interfaz: fondo blanco roto tipo papel, texto casi negro y gris para la fecha. La marca solo aparece en detalles: el color de acento en el chevron, la etiqueta 'Notas', los íconos de la barra, los checks y el trazo de resaltador. La foto adjunta puede incluir tonos de la paleta en el entorno (superficie, props)."
+}

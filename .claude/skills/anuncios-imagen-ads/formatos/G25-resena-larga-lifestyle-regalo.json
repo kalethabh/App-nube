@@ -1,0 +1,172 @@
+{
+  "id": "G25",
+  "slug": "resena-larga-lifestyle-regalo",
+  "nombre": "Reseña larga sobre foto lifestyle con garantía y regalo",
+  "origen": "ganador:original-cd32a6e94f94e2b172eefad1e31c8cd6 (1).jpg",
+  "descripcion": "Foto lifestyle a sangre en exterior (césped, cielo y luz natural) con el usuario del producto sentado en la mitad derecha, usándolo y mostrando otra unidad con las manos. En el cuadrante superior izquierdo, una tarjeta de reseña blanca casi opaca de bordes redondeados: avatar redondo, nombre y check azul de verificado, comillas grandes, un testimonio largo de 8 a 10 líneas con 2 o 3 frases resaltadas en amarillo y comillas de cierre. Abajo, sobre un degradado oscuro: a la izquierda, una calificación de plataforma de reseñas genérica con 5 estrellas y la garantía de devolución; a la derecha, «gratis» + el regalo, con una fila de 4 unidades del regalo en colores. El usuario de la foto puede ser el destinatario (por ejemplo, el hijo) y no quien escribe la reseña (la madre).",
+  "angulos_compatibles": ["testimonio", "prueba-social", "objecion-confianza", "oferta", "promesa-emocional", "identidad", "regalo"],
+  "tipos_producto": ["ropa", "juguete", "gadget", "cosmetico", "hogar", "nutraceutico"],
+  "ad_format": "Long Review Card over Lifestyle Photo with Guarantee and Free Gift",
+  "reference_style": "Authentic outdoor lifestyle photo of the product's user with a large semi-opaque review card in the upper-left (avatar, verified name, big quotation marks, long testimonial with yellow highlighted phrases) and a dark bottom gradient carrying a review-platform rating, a money-back guarantee and a free gift row",
+  "art_direction": {
+    "visual_hierarchy": "1) The user in the photo with the product. 2) The review card, scanned through its yellow highlighted phrases. 3) The free gift block with its row of colored units. 4) The rating row and the guarantee line at the bottom-left. 5) The avatar, name and verified badge that make the review credible.",
+    "composition_style": "Full-bleed outdoor photo split in two zones: the review card fills the upper-left quadrant (about 5-51.5% of the width) and the user sits in the right half, both sharing the same band; the user's face and the product held in their hands stay fully visible next to the card. A dark gradient covers the bottom of the photo, where a two-part strip sits: proof and guarantee on the left, the free gift on the right.",
+    "spacing_and_structure": "Review card: from about 5% to 51.5% of the canvas width and from about 12% to 69% of the height, corner radius about 2% of the canvas, inner padding about 2%. Inside the card: header row at about 14-20.5% of the height with the round avatar (about 6.5% of the canvas in diameter) at about 6.5-13% of the width, the name and the verified badge to its right; opening quotation mark at about 22-26% of the height; testimonial of 9-10 lines from about 27% to 63%, each line about 3.6% of the canvas height; closing quotation mark at the bottom-right of the card, at about 63-67% of the height and 43-47% of the width. User: in the right half, from about 50% of the width to the right edge, top of the head at about 7% of the height, the second unit of the product held in both hands at about 60-88% of the width and 27-37% of the height, the worn or used unit at about 82-93% of the width and 47-65% of the height; the body continues down behind the gift row. Dark gradient: from about 72% to 100% of the height. Rating row: from about 4.5% to 38.5% of the width at about 84-88% of the height. Guarantee line: from about 4.5% to 42% of the width at about 89-92% of the height. Gift block: the word 'free' and the gift name stacked from about 50% to 59% of the width at about 85-92% of the height; the row of four gift units from about 60% to 95% of the width and 82% to 95% of the height.",
+    "lighting_and_depth": "Natural outdoor daylight, sunny with soft shadows, vivid green grass, blue sky with white clouds and a line of trees softly blurred on the horizon (about 20-25% of the height). The user is sharp, with natural skin tones and a candid, slightly proud expression looking at the camera. The card is white at about 92% opacity with a thin light grey border and a very soft shadow. The bottom gradient goes from transparent to black at about 65% opacity. The gift units are clean cutouts with soft drop shadows, slightly overlapping each other."
+  },
+  "layout_summary": "Square canvas filled edge to edge with a bright outdoor photo: a grassy field, blue sky with clouds and trees in the distance. The user of the product sits on the grass in the right half, looking at the camera, wearing or using the user's product and holding a second unit up with both hands. Over the upper-left quadrant floats a large white, almost opaque review card with rounded corners: a round avatar, the reviewer's name and a blue verified badge at the top, big black opening quotation marks, a long left-aligned testimonial of about ten lines with two or three phrases highlighted with a yellow marker, and closing quotation marks at its bottom-right. Over a dark gradient at the bottom: on the left, a generic review-platform mark with five stars in small colored squares and, under it, a bold uppercase money-back guarantee line; on the right, a big uppercase 'free' word over the gift name, followed by a row of four units of the gift in different colors.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "outdoor lifestyle photo",
+      "position": "Full canvas, edge to edge",
+      "visual_function": "Shows the product in real life in a bright, authentic moment that makes the review believable",
+      "adaptation_rule": "A bright outdoor or natural setting where the product is used by the target audience (sports field, park, garden, terrace, beach), daylight, vivid natural colors, with the upper-left quadrant kept calm (sky, grass, soft background) because the card sits there."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "product user",
+      "position": "Right half, from about 50% of the canvas width to the right edge, top of the head at about 7% of the height, body continuing down behind the gift row",
+      "visual_function": "Puts a happy, real user next to the review; can be the person the buyer bought it for",
+      "adaptation_rule": "A realistic person who uses the product, matching the target audience or the person the buyer buys for (a child, a partner, a parent), sitting relaxed and looking at the camera with a slight smile. They wear or use one unit of the product and hold a second unit up with both hands. Never covered by the card."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product (worn and held)",
+      "position": "Held unit at about 60-88% of the canvas width and 27-37% of the height; worn or used unit at about 82-93% of the width and 47-65% of the height",
+      "visual_function": "Shows exactly what the review is about, both in use and up close",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, material, label, logo and colors), sharply in focus, logo facing the camera. If the product is not wearable, show it in use with one hand and a second unit held up, or one unit held up only."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "review card",
+      "position": "Upper-left quadrant, from about 5% to 51.5% of the canvas width and from about 12% to 69% of the height",
+      "visual_function": "Frames the long customer story as a genuine review",
+      "adaptation_rule": "White rounded rectangle at about 92% opacity (corner radius about 2% of the canvas) with a thin light grey border and a very soft shadow, in a generic native review style with no platform interface. Write a new long review adapted to the user's product."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "reviewer avatar",
+      "position": "Top-left inside the card, about 6.5-13% of the canvas width and 14-20.5% of the height",
+      "visual_function": "Puts a real face behind the review",
+      "adaptation_rule": "Small circular headshot about 6.5% of the canvas in diameter of the reviewer (the buyer), a realistic person matching the buyer profile; it may be a different person from the user in the photo (for example, the parent of the child shown)."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "verified badge",
+      "position": "Header row of the card, right after the reviewer's name",
+      "visual_function": "Signals that the reviewer is a verified buyer",
+      "adaptation_rule": "Small solid blue scalloped badge with a white check, about 2.8% of the canvas height."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "quotation marks",
+      "position": "Opening mark at the top-left of the testimonial (about 22-26% of the canvas height); closing mark at the bottom-right of the card (about 43-47% of the width, 63-67% of the height)",
+      "visual_function": "Frames the text as the customer's own words",
+      "adaptation_rule": "Large bold black quotation marks, about 3.5% of the canvas height, flat."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "yellow marker highlights",
+      "position": "Behind 2 or 3 key phrases of the testimonial, spread through the beginning, the middle and the end of the text",
+      "visual_function": "Lets the scroller read the key takeaways without reading the whole review",
+      "adaptation_rule": "Solid warm yellow rectangles tightly behind the highlighted words, slightly taller than the text, square corners, flat."
+    },
+    {
+      "block_id": "block_09",
+      "block_type": "bottom dark gradient",
+      "position": "Full width, from about 72% to 100% of the canvas height",
+      "visual_function": "Creates a legible base for the bottom proof and gift strip",
+      "adaptation_rule": "Black gradient from transparent at the top to about 65% opacity at the bottom edge, blending into the photo."
+    },
+    {
+      "block_id": "block_10",
+      "block_type": "review-platform rating row",
+      "position": "Bottom-left, from about 4.5% to 38.5% of the canvas width at about 84-88% of the height",
+      "visual_function": "Adds third-party style aggregate proof",
+      "adaptation_rule": "A generic review-platform mark (a single solid star icon followed by a short neutral word in white) and five stars, each white on its own small solid colored square (green in the reference, or the brand accent), in one row. Never a real platform's name or logo."
+    },
+    {
+      "block_id": "block_11",
+      "block_type": "money-back guarantee line",
+      "position": "Bottom-left, directly under the rating row, from about 4.5% to 42% of the canvas width at about 89-92% of the height",
+      "visual_function": "Removes the purchase risk right under the proof",
+      "adaptation_rule": "One line of bold condensed uppercase white text placed directly on the dark gradient, no box or seal. Write the user's real guarantee with its period; if the user has no guarantee, use their strongest real trust condition (e.g. easy returns)."
+    },
+    {
+      "block_id": "block_12",
+      "block_type": "free gift row",
+      "position": "Bottom-right, from about 60% to 95% of the canvas width and from about 82% to 95% of the height",
+      "visual_function": "Makes the bonus tangible and adds urgency to buy",
+      "adaptation_rule": "Four units of the free gift included in the user's offer, side by side and slightly overlapping, each in a different color or variant (for example black, white, red and blue), as clean product cutouts with soft drop shadows. If the user did not give a gift, show a small complementary item that fits the product, in four colors."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "reviewer name",
+      "reference_position": "Header row of the card, right of the avatar, followed by the verified badge",
+      "text_style": "Medium sans-serif, about 3.2% of the canvas height, 1 line, left-aligned, near-black",
+      "guia_texto": "Nombre + inicial del apellido de quien compra (por ejemplo «Laura M.»), acorde al país y al público objetivo."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "long testimonial",
+      "reference_position": "Inside the card, between the quotation marks, left-aligned",
+      "text_style": "Regular geometric sans-serif, about 2.4% of the canvas height (line spacing about 3.6%), 9-10 lines, left-aligned, near-black on white; 2 or 3 phrases set on yellow marker highlights",
+      "guia_texto": "Reseña larga en primera persona, de 50 a 70 palabras, natural y emocional: qué le encantó del producto, para quién lo recomienda, la comparación con lo que usaba antes, el resultado o la felicidad de quien lo usa y que volverá a comprar. Marca 2 o 3 frases clave para resaltar en amarillo (el beneficio estrella, para quién es y el agradecimiento final)."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "review-platform word",
+      "reference_position": "Bottom-left, right of the star icon of the rating row, before the five star squares",
+      "text_style": "Semi-bold sans-serif, about 3% of the canvas height, 1 line, white",
+      "guia_texto": "Una palabra genérica tipo plataforma de reseñas (por ejemplo «Reseñas»), nunca el nombre de una plataforma real. De 1 a 2 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "guarantee line",
+      "reference_position": "Bottom-left, under the rating row",
+      "text_style": "Bold condensed uppercase sans-serif, about 2.8% of the canvas height, 1 line, left-aligned, white",
+      "guia_texto": "La garantía real que dio el usuario con su plazo (por ejemplo devolución de tu dinero en X días), en 4 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "free word",
+      "reference_position": "Bottom-right, left of the gift row, top line",
+      "text_style": "Extra bold condensed uppercase sans-serif, about 4.5% of the canvas height, 1 line, left-aligned, white",
+      "guia_texto": "La palabra «Gratis» o equivalente, en 1 palabra."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "gift name",
+      "reference_position": "Bottom-right, under the free word",
+      "text_style": "Bold condensed uppercase sans-serif, about 2.2% of the canvas height, 1 line, left-aligned, white",
+      "guia_texto": "El nombre del regalo incluido en la oferta del usuario, en 1 a 3 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed bright outdoor lifestyle photo with the product's user sitting in the right half",
+    "The user wearing or using the product and holding a second unit up with both hands",
+    "Large white semi-opaque review card in the upper-left quadrant with avatar, name, verified badge and big quotation marks",
+    "Long testimonial of 9-10 lines with 2 or 3 yellow highlighted phrases",
+    "Dark gradient at the bottom",
+    "Generic review-platform mark with five stars in colored squares and the money-back guarantee line at the bottom-left",
+    "Free gift word and gift name with a row of four colored gift units at the bottom-right"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, strikethrough price or discount badge",
+    "Headline or any text outside the card and the bottom strip",
+    "More than one review card",
+    "Real review-platform names, logos or interface elements",
+    "Aggregate rating number or review count",
+    "Benefit list or icons",
+    "Callout lines or arrows",
+    "Card covering the user's face or the product",
+    "Circular seals or badges",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Foto con colores naturales y vivos de exterior (verde césped, cielo azul, luz de día). La tarjeta es blanca casi opaca con texto negro; los resaltados van en amarillo cálido. El check de verificado va en azul. Abajo, sobre el degradado oscuro, todos los textos en blanco; las estrellas de la plataforma en cuadros verdes (o en el color de acento de la marca). La paleta de marca vive en el producto, en la ropa del usuario y en las variantes de color del regalo.",
+  "posicion_logo": null
+}

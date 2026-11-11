@@ -1,7 +1,9 @@
 // La canción de los anuncios cantados (musical e historia musical): la ÚNICA pausa de su producción.
 //
-//   GET  /api/anuncios/:slug/cancion           { estado, titulo, estilos, elegida, puedeOtra, opciones: [{ n, url, duracion, grupo, detalle }] }
+//   GET  /api/anuncios/:slug/cancion           { estado, titulo, estilos, elegida, puedeOtra, opciones: [{ n, url, duracion, grupo, detalle, costo? }] }
 //                                              estado: no-hay | generando | eligiendo | esperando | elegida
+//                                              costo (si se pudo calcular): el video estimado con esa versión,
+//                                              { creditos: { min, max }, dolares: { min, max }, segundos }
 //   GET  /api/anuncios/:slug/cancion/:n/audio  el mp3 de la versión n (con Range: se puede adelantar)
 //   POST /api/anuncios/:slug/cancion {n}       elige la versión n y la producción sigue sola -> { ok, conductor }
 //   POST /api/anuncios/:slug/cancion {otra:true}  "ninguna me convence": otra tanda con la misma letra (tope 2)
@@ -12,6 +14,8 @@
 // Los POST solo desde la propia app (una página cualquiera podría mandarle un POST a 127.0.0.1).
 import { PUERTO } from '../lib/rutas.js';
 import { slugDeLaApp, leerConductor, continuar } from '../lib/conductor.js';
+import { costoDelAnuncio } from '../lib/costo-estimado.js';
+import { copiarModelosAlAnuncio } from '../lib/modelos.js';
 
 const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
 const CANTADOS = new Set(['musical', 'historia-musical']);
@@ -34,6 +38,27 @@ function desdeLaApp(req, res) {
   return true;
 }
 
+/**
+ * El costo estimado del VIDEO con cada versión (excepción a "sin precios" del 2026-11-09): opciones[i].costo =
+ * { creditos: { min, max }, dolares: { min, max }, segundos } (lo que va a durar la canción entera con esa versión).
+ * Solo si ya está calculado (lib/costo-estimado.js, la caché de GET /costo): esta ruta no lanza el motor ni lo
+ * espera. La pausa pide GET /costo aparte (su porCancion tiene lo mismo), así que las versiones nunca se demoran por
+ * el costo; si todavía no está, van sin costo.
+ */
+async function conCostoPorVersion(slug, datos) {
+  if (!Array.isArray(datos?.opciones) || !datos.opciones.length || datos.estado === 'elegida') return;
+  try {
+    const costo = await costoDelAnuncio(slug, { soloCache: true });
+    if (!costo?.disponible || !Array.isArray(costo.porCancion)) return;
+    for (const o of datos.opciones) {
+      const v = costo.porCancion.find((x) => x.n === o.n);
+      if (v) o.costo = { creditos: v.creditos, dolares: v.dolares, segundos: v.segundos };
+    }
+  } catch {
+    /* sin costo: la pantalla sigue como siempre */
+  }
+}
+
 /** conductor.json para la pantalla: sin los saldos de kie (ningún número a la vista). */
 function paraLaPantalla(c) {
   if (!c || typeof c !== 'object') return c;
@@ -48,7 +73,9 @@ export default function rutasCancion(app) {
     const c = leerConductor(slug);
     if (c && !CANTADOS.has(c.familia)) return res.status(404).json({ error: 'Este anuncio no lleva canción.' });
     const { opcionesDeCancion } = await cantados();
-    res.set('Cache-Control', 'no-store').json(opcionesDeCancion(slug, c));
+    const datos = opcionesDeCancion(slug, c);
+    await conCostoPorVersion(slug, datos);
+    res.set('Cache-Control', 'no-store').json(datos);
   });
 
   app.get('/api/anuncios/:slug/cancion/:n/audio', async (req, res) => {
@@ -73,6 +100,9 @@ export default function rutasCancion(app) {
     const otra = cuerpo.otra === true;
     const r = otra ? pedirOtraTanda(slug) : guardarEleccion(slug, cuerpo.n);
     if (!r.ok) return res.status(r.status || 400).json({ error: r.error });
+    // la pausa muestra el costo con los modelos de Ajustes y deja cambiarlos («Usar este»): el anuncio sigue con esos
+    // (ya aprobado, es la unica otra vez que se le copian: lib/modelos.js, copiarModelosAlAnuncio)
+    if (!otra) copiarModelosAlAnuncio(slug, { alAprobar: true });
     try {
       res.json({ ok: true, conductor: paraLaPantalla(continuar(slug)) });
     } catch (e) {

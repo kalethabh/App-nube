@@ -36,7 +36,12 @@ export function archivarSiExiste(ruta, raizAnuncio = null) {
 
   const ext = path.extname(ruta);
   const base = path.basename(ruta, ext);
-  const destino = path.join(dir, `${base}--${sello()}${ext}`);
+  const marca = sello();
+  let destino = path.join(dir, `${base}--${marca}${ext}`);
+  // Regenerar o restaurar varias piezas puede suceder en el mismo segundo.
+  // Cada version ya pagada conserva su archivo: rename no debe pisar la anterior.
+  let version = 2;
+  while (fs.existsSync(destino)) destino = path.join(dir, `${base}--${marca}-${version++}${ext}`);
 
   fs.renameSync(ruta, destino);
   return destino;

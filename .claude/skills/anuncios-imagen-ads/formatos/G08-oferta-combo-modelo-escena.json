@@ -1,0 +1,116 @@
+{
+  "id": "G08",
+  "slug": "oferta-combo-modelo-escena",
+  "nombre": "Oferta combo con modelo en escena",
+  "origen": "ganador:570971641_722165180900568_5268357398065482299_n.jpg",
+  "descripcion": "Fondo fotográfico a sangre de una escena real desenfocada donde vive el resultado (en el original, un salón de belleza). Una modelo que muestra el resultado ocupa la mitad derecha de arriba abajo. En la columna izquierda superior: una pastilla roja con la palabra de oferta, debajo «cantidad x precio» en tipografía blanca enorme con sombra y el nombre del producto en blanco más pequeño. Tres unidades del producto se agrupan en primer plano en el centro-derecha inferior (la del medio más grande y adelante) y tapan en parte a la modelo. Abajo a la izquierda, una etiqueta roja de dos líneas con el envío. Es la estructura típica de oferta contraentrega de LATAM, sin podio ni precio tachado: el precio va dentro del titular.",
+  "angulos_compatibles": [
+    "oferta",
+    "beneficio-principal",
+    "identidad",
+    "transformacion",
+    "objecion-precio"
+  ],
+  "tipos_producto": [
+    "cosmetico",
+    "nutraceutico",
+    "ropa",
+    "otro"
+  ],
+  "ad_format": "Bundle Offer with Model in Scene Ad",
+  "reference_style": "Photographic LATAM cash-on-delivery bundle ad: a blurred real-scene backdrop, a model showing the result on the right, a red offer pill and a huge white quantity-times-price headline on the left, three product units in the foreground and a red shipping label at the lower left",
+  "art_direction": {
+    "visual_hierarchy": "1) The huge white quantity-times-price headline. 2) The model showing the result. 3) The three product units in the foreground. 4) The red offer pill. 5) The product name. 6) The red shipping label.",
+    "composition_style": "Layered photographic composition with three depth planes: the blurred scene at the back, the model in the middle plane on the right half, and the product trio in the foreground at the lower center-right, overlapping the model. The text stack lives in the upper-left column over the calmest part of the blurred scene, centered on that column; the shipping label anchors the lower-left corner.",
+    "spacing_and_structure": "Offer pill: from about 3.5% to 49.5% of the canvas width and 2.5% to 14.5% of the height. Quantity-times-price headline: two lines from about 5% to 47% of the width and 16% to 37.5% of the height, centered on the column. Product name: two lines from about 6% to 46% of the width and 38% to 50% of the height. Model: from about 50% to 100% of the width and 0% to 100% of the height, face at about 72-95% of the width and 15-42% of the height, cropped by the right edge. Product trio: from about 37% to 82% of the width and 35% to 100% of the height; left unit about 37-50% of the width and 38-93% of the height, center unit about 47-66% and 35-100% (front, largest, cropped by the bottom edge), right unit about 66-82% and 38-93%. Shipping label: from about 4% to 36% of the canvas width and 80.5% to 94% of the height, fully visible, ending before the left unit of the trio, with its text fully inside it (in the original the text was cut by the edge and hidden by the products; the skeleton must keep it inside the canvas and clear of the products). Safe margins of about 4% on the left, top and bottom for every text element.",
+    "lighting_and_depth": "Background: a real interior photographed with a shallow depth of field, bright and warm (ceiling lights, white furniture), blurred enough to read only as a setting. Model: soft beauty light from the front left, glossy highlights on the result area (in the original, shiny hair), sharp. Products: commercial studio light with crisp reflections on the packaging and a soft shadow between units, sharp in the foreground. Text: white with a soft dark drop shadow for legibility over the photo; red pill and label flat with rounded corners."
+  },
+  "layout_summary": "Square canvas filled edge to edge with a blurred, bright photo of the real scene where the result lives. A model showing the result occupies the right half from top to bottom. In the upper-left column, a dark red rounded pill with a white offer word, then two lines of huge white text (quantity of units × price) and two smaller white lines with the product name, all centered on the column with soft shadows. Three units of the user's product stand in the foreground at the lower center-right, the middle one larger and in front, partly covering the model. A dark red rounded label with a two-line white shipping condition sits at the lower left.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "blurred scene photo",
+      "position": "Full canvas, edge to edge",
+      "visual_function": "Places the result in a real, aspirational setting",
+      "adaptation_rule": "Bright, warm photo of the place where the product's result is lived or achieved (beauty salon or bathroom for cosmetics, gym or kitchen for supplements, street or shop for clothing), strongly blurred. Keep the upper-left 50% calm and light-to-mid toned so the white text with shadow stays legible."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "model showing the result",
+      "position": "Right half, from about 50% to 100% of the canvas width and 0% to 100% of the height, cropped by the right edge",
+      "visual_function": "Shows the promised result on a real person",
+      "adaptation_rule": "One person from the target audience showing the product's result clearly and attractively (for example shiny healthy hair, glowing skin, a fit body, the garment worn well), calm confident expression, looking at the camera or slightly away. Never shows a before state."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "offer pill",
+      "position": "Top of the left column, from about 3.5% to 49.5% of the canvas width and 2.5% to 14.5% of the height",
+      "visual_function": "Announces the deal at first glance",
+      "adaptation_rule": "Solid dark red (or the brand's strongest accent) rounded rectangle holding one white offer word."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product trio",
+      "position": "Foreground, lower center-right, from about 37% to 82% of the canvas width and 35% to 100% of the height",
+      "visual_function": "Shows exactly how many units the offer includes",
+      "adaptation_rule": "Render three units of the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), standing in a row: the center unit larger, in front and cropped by the bottom edge, the two side units slightly behind. They overlap the model's lower body. If the user's offer has a different quantity, show that number of units with the same arrangement."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "shipping label",
+      "position": "Lower left, from about 4% to 36% of the canvas width and 80.5% to 94% of the height",
+      "visual_function": "Removes the shipping objection",
+      "adaptation_rule": "Solid dark red rounded rectangle, the same color as the offer pill, holding a two-line white shipping condition. Fully inside the canvas and clear of the products, with the whole text visible."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "offer word",
+      "reference_position": "Centered inside the red offer pill",
+      "text_style": "Extra bold sans-serif, uppercase, white, about 7% of the canvas height, 1 line, centered",
+      "guia_texto": "Una sola palabra que anuncie la oferta real del usuario (promo, combo o similar)."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "quantity × price headline",
+      "reference_position": "Left column, under the offer pill, from about 16% to 37.5% of the height",
+      "text_style": "Bold rounded sans-serif, white with a soft dark drop shadow, each line about 10-11% of the canvas height, 2 lines, centered on the left column; line 1 is quantity + unit + «x», line 2 is the price",
+      "guia_texto": "La mecánica real del combo del usuario: cantidad de unidades + tipo de envase + «x» en la primera línea y el precio total con su moneda en la segunda. Solo datos reales."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "product name",
+      "reference_position": "Left column, under the headline, from about 38% to 50% of the height",
+      "text_style": "Bold sans-serif, white with a soft dark drop shadow, about 6-6.5% of the canvas height, max 2 lines, centered on the left column",
+      "guia_texto": "Qué es el producto + su nombre o su función principal, de 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "shipping condition",
+      "reference_position": "Inside the red label at the lower left",
+      "text_style": "Extra bold sans-serif, uppercase, white, about 4-4.5% of the canvas height, 2 lines, left-aligned with inner padding, sized so the full text fits inside the label",
+      "guia_texto": "La condición real de envío del usuario y su alcance (gratis + a dónde), de 3 a 6 palabras en 2 líneas."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed blurred photo of the real scene where the result lives",
+    "Model showing the result on the right half",
+    "Red offer pill and huge white quantity-times-price headline in the upper-left column",
+    "Three product units grouped in the foreground, the middle one larger and in front",
+    "Red shipping label at the lower left, fully visible"
+  ],
+  "forbidden_additions": [
+    "Podium, pedestal or radial glow",
+    "Struck-through old price",
+    "Round discount seal or sticker",
+    "CTA button or arrow",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or icons",
+    "Before/after",
+    "Text cut by the canvas edges or hidden behind the products",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Colores naturales y cálidos de la escena fotográfica; textos principales en blanco con sombra oscura suave; pastilla de oferta y etiqueta de envío en rojo oscuro intenso (o el acento más fuerte de la marca). El producto aporta su propio color en primer plano.",
+  "posicion_logo": null
+}

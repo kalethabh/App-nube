@@ -105,12 +105,17 @@ const SALDO_POR_DEFECTO = 9999999;
  * porque los dos empiezan igual.
  */
 export const LATENCIAS_S = [
+  ['nano-banana-2-1', 40, 90], // prueba real del 2026-11-08: 44 a 85 s; va antes que nano-banana-2 (mismo comienzo)
   ['nano-banana-2', 40, 100],
   ['gpt-image-2-5-sunburst', 60, 180], // text-to-image e image-to-image
   ['gpt-image-2', 40, 100], // iconos; sin medir, se asume como nano-banana-2
   ['google/gemini-omni-flash-1-1', 56, 90],
   ['kling-3.0', 60, 120],
   ['kling-4.0', 60, 120], // sin medir: se asume como Kling 3.0
+  // Prueba real del 2026-11-08 (temp/prueba-modelos-baratos), una o dos tareas por modelo:
+  ['grok-imagine-video-1-5-preview', 50, 90], // 55 y 66 s
+  ['grok-imagine/', 80, 130], // 104 s
+  ['pixverse-v6/', 55, 100], // 67 s
   ['suno/', 40, 120], // generate de Suno (las tareas de /api/v1/generate van como "suno/<model>"); sin medir
   ['ai-music-api/', 60, 150], // extend de Suno por la API de jobs; sin medir
 ];
@@ -139,11 +144,16 @@ const ESTADOS_FINALES = new Set(['success', 'fail']);
  *   trabadas=N        las N primeras tareas quedan en "generating" para siempre
  *   trabadas-desde=K  ...contando desde la tarea numero K (por defecto 1)
  *   consulta500=P     P% de las consultas (recordInfo) devuelven HTTP 500
+ *   falla-modelo=M    TODAS las tareas de los modelos que empiezan por M fallan
+ *                     por contenido (se puede repetir: falla-modelo=a,falla-modelo=b).
+ *                     Sirve para ver que la cascada cae al modelo siguiente.
+ *                     Tambien por la variable de entorno KIE_SIMULADO_FALLA_MODELOS
+ *                     ("pixverse-v6/,grok-imagine/"), que se suma a esta opcion.
  */
 export function parsearFallos(fallos) {
-  const f = { servidorPct: 0, contenidoPct: 0, trabadas: 0, trabadasDesde: 1, consulta500Pct: 0 };
+  const f = { servidorPct: 0, contenidoPct: 0, trabadas: 0, trabadasDesde: 1, consulta500Pct: 0, fallaModelos: [] };
   if (!fallos) return f;
-  if (typeof fallos === 'object') return { ...f, ...fallos };
+  if (typeof fallos === 'object') return { ...f, ...fallos, fallaModelos: [...(fallos.fallaModelos || [])] };
   const claves = {
     servidor: 'servidorPct',
     fail: 'servidorPct',
@@ -155,6 +165,11 @@ export function parsearFallos(fallos) {
   };
   for (const parte of String(fallos).split(',').map((s) => s.trim()).filter(Boolean)) {
     const [k, v] = parte.split('=').map((s) => s.trim());
+    if (k === 'falla-modelo') {
+      if (!v) throw new Error(`--fallos: "${parte}" no trae el modelo`);
+      f.fallaModelos.push(v);
+      continue;
+    }
     const clave = claves[k];
     if (!clave) throw new Error(`--fallos: no conozco "${k}". Valen: ${Object.keys(claves).join(', ')}`);
     const n = Number(v);
@@ -170,6 +185,7 @@ export function describirFallos(f) {
   if (f.contenidoPct) partes.push(`${f.contenidoPct}% rechazo por contenido`);
   if (f.trabadas) partes.push(`${f.trabadas} trabada(s) desde la tarea ${f.trabadasDesde}`);
   if (f.consulta500Pct) partes.push(`${f.consulta500Pct}% de consultas con HTTP 500`);
+  if (f.fallaModelos?.length) partes.push(`siempre fallan (contenido): ${f.fallaModelos.join(', ')}`);
   return partes.length ? partes.join(', ') : 'ninguno';
 }
 
@@ -309,7 +325,11 @@ function crearCache(dirCache) {
 
 // ---------------------------------------------------------------- que pide cada tarea
 
-const esVideo = (modelo) => /omni|kling|veo|seedance|runway|hailuo|sora|video/i.test(modelo) && !/image/i.test(modelo);
+// Los de video cuyo nombre no lo dice (o dice "image", como el image-to-video
+// de Grok) van por nombre; los demas, por la regla de siempre.
+const MODELOS_DE_VIDEO = ['grok-imagine-video-1-5-preview', 'grok-imagine/image-to-video', 'pixverse-v6/'];
+const esVideo = (modelo) =>
+  MODELOS_DE_VIDEO.some((p) => modelo.startsWith(p)) || (/omni|kling|veo|seedance|runway|hailuo|sora|video/i.test(modelo) && !/image/i.test(modelo));
 // El extend de Suno va por createTask (CANCION.extender en generar-cancion.js).
 const esMusica = (modelo) => /^ai-music-api\//i.test(modelo);
 
@@ -325,16 +345,99 @@ function duracionPedida(input) {
   return Math.min(60, Math.round(d * 10) / 10);
 }
 
-/** Creditos aproximados (los de PRECIOS y MODELOS_VIDEO en config.js), solo para que el log tenga un numero. */
+const r2 = (x) => Math.round(x * 100) / 100;
+
+/**
+ * Creditos como los cobra kie (los de PRECIOS y MODELOS_VIDEO en config.js; los
+ * de Grok, PixVerse y Nano Banana 2.1, medidos el 2026-11-08). Kling con los
+ * precios de kie del 2026-11-07.
+ */
 function creditosDe(modelo, input, segundos) {
   if (modelo.startsWith('suno/') || esMusica(modelo)) return SUNO.creditos;
   if (modelo.startsWith('gpt-image-2-5-sunburst')) return 10;
   if (modelo.startsWith('gpt-image-2')) return { '1K': 6, '2K': 10, '4K': 16 }[input?.resolution] ?? 6;
+  if (modelo === 'nano-banana-2-1') return 6;
   if (modelo === 'nano-banana-2') return { '1K': 8, '2K': 12, '4K': 18 }[input?.resolution] ?? 8;
   if (modelo.includes('omni')) return { 4: 63, 6: 84, 8: 105, 10: 126 }[segundos] ?? 105;
   if (modelo.startsWith('kling-4.0')) return ({ '1080p': 42.5 }[input?.resolution] ?? 28.5) * Math.ceil(segundos);
-  if (modelo.startsWith('kling')) return (input?.sound === false ? 14 : 20) * Math.ceil(segundos);
+  if (modelo.startsWith('kling')) return r2((input?.sound === false ? 15.1 : 22.7) * Math.ceil(segundos));
+  if (modelo === 'grok-imagine-video-1-5-preview') return r2(({ '480p': 2.4 }[input?.resolution] ?? 4.5) * Math.ceil(segundos));
+  if (modelo === 'grok-imagine/image-to-video') return r2(({ '480p': 2.4, '1080p': 8 }[input?.resolution] ?? 4.5) * Math.ceil(segundos));
+  if (modelo.startsWith('pixverse-v6/')) return r2((input?.generate_audio_switch === true ? 9.6 : 7.2) * Math.ceil(segundos));
   return 10;
+}
+
+/**
+ * Lo que kie rechaza en createTask de los modelos nuevos (code 422, sin crear
+ * tarea), segun su documentacion y la prueba real del 2026-11-08. Devuelve el
+ * motivo o null. Omni, Kling, gpt-image-2 y nano-banana-2 no se revisan: se
+ * aceptan como siempre. Sunburst (los anuncios de imagen lo mandan con
+ * background y hasta 2 entradas), solo lo que dice su documentacion: prompt de
+ * hasta 20000 caracteres, input_urls de 1 a 16 en el image-to-image y, si
+ * viene, background opaque, transparent o auto (lo que mandan los videos, sin
+ * background, se acepta como siempre).
+ */
+export function validarCuerpo(modelo, input) {
+  const i = input && typeof input === 'object' ? input : {};
+  const esUrl = (v) => typeof v === 'string' && /^https?:\/\//i.test(v);
+  const entero = (v, min, max) => typeof v === 'number' && Number.isInteger(v) && v >= min && v <= max;
+  const enLista = (v, lista) => v === undefined || lista.includes(v);
+  const sinPrompt = typeof i.prompt !== 'string' || !i.prompt.trim();
+
+  if (modelo === 'pixverse-v6/transition') {
+    if (sinPrompt) return 'prompt is required';
+    if (!esUrl(i.first_frame_image_url)) return 'first_frame_image_url is required';
+    if (!esUrl(i.last_frame_image_url)) return 'last_frame_image_url is required';
+    if (!enLista(i.quality, ['360p', '540p', '720p', '1080p'])) return 'quality must be one of 360p, 540p, 720p, 1080p';
+    if (i.duration !== undefined && !entero(i.duration, 1, 15)) return 'duration must be an integer between 1 and 15';
+    if (i.generate_audio_switch !== undefined && typeof i.generate_audio_switch !== 'boolean') return 'generate_audio_switch must be a boolean';
+    return null;
+  }
+  if (modelo === 'grok-imagine/image-to-video') {
+    if (sinPrompt) return 'prompt is required';
+    if (i.first_frame_url !== undefined || i.last_frame_url !== undefined) return 'first_frame_url and last_frame_url are not supported by this model';
+    if (!Array.isArray(i.image_urls) || i.image_urls.length < 1 || i.image_urls.length > 7) return 'image_urls must have between 1 and 7 images';
+    if (!i.image_urls.every(esUrl)) return 'image_urls must be URLs';
+    if (i.duration !== undefined && !(typeof i.duration === 'string' && /^\d+$/.test(i.duration) && Number(i.duration) >= 6 && Number(i.duration) <= 30)) {
+      return 'duration must be a string between "6" and "30"';
+    }
+    if (!enLista(i.resolution, ['480p', '720p', '1080p'])) return 'resolution must be one of 480p, 720p, 1080p';
+    if (i.resolution === '1080p' && i.image_urls.length > 1) return '1080p only supports a single image';
+    if (!enLista(i.aspect_ratio, ['2:3', '3:2', '1:1', '16:9', '9:16'])) return 'aspect_ratio must be one of 2:3, 3:2, 1:1, 16:9, 9:16';
+    if (!enLista(i.mode, ['fun', 'normal', 'spicy'])) return 'mode must be one of fun, normal, spicy';
+    return null;
+  }
+  if (modelo === 'grok-imagine-video-1-5-preview') {
+    if (sinPrompt) return 'prompt is required';
+    if (i.first_frame_url !== undefined && !esUrl(i.first_frame_url)) return 'first_frame_url must be a URL';
+    if (i.last_frame_url !== undefined && !esUrl(i.first_frame_url)) return 'last_frame_url requires first_frame_url';
+    if (i.last_frame_url !== undefined && !esUrl(i.last_frame_url)) return 'last_frame_url must be a URL';
+    if (!esUrl(i.first_frame_url) && !(Array.isArray(i.image_urls) && i.image_urls.length === 1 && esUrl(i.image_urls[0]))) return 'first_frame_url is required';
+    if (i.duration !== undefined && !entero(i.duration, 1, 15)) return 'duration must be an integer between 1 and 15';
+    if (!enLista(i.resolution, ['480p', '720p', '1080p'])) return 'resolution must be one of 480p, 720p, 1080p';
+    if (!enLista(i.aspect_ratio, ['auto', '1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'])) return 'aspect_ratio is not supported';
+    return null;
+  }
+  if (modelo === 'gpt-image-2-5-sunburst-image-to-image' || modelo === 'gpt-image-2-5-sunburst-text-to-image') {
+    if (sinPrompt) return 'prompt is required';
+    if (i.prompt.length > 20000) return 'prompt must be at most 20000 characters';
+    if (modelo === 'gpt-image-2-5-sunburst-image-to-image') {
+      if (!Array.isArray(i.input_urls) || i.input_urls.length < 1 || i.input_urls.length > 16) return 'input_urls must have between 1 and 16 images';
+      if (!i.input_urls.every(esUrl)) return 'input_urls must be URLs';
+    }
+    if (!enLista(i.background, ['opaque', 'transparent', 'auto'])) return 'background must be one of opaque, transparent, auto';
+    return null;
+  }
+  if (modelo === 'nano-banana-2-1') {
+    if (sinPrompt) return 'prompt is required';
+    if (i.image_input !== undefined && (!Array.isArray(i.image_input) || i.image_input.length > 14 || !i.image_input.every(esUrl))) {
+      return 'image_input must be a list of up to 14 image URLs';
+    }
+    if (!enLista(i.resolution, ['1K', '2K', '4K'])) return 'resolution must be one of 1K, 2K, 4K';
+    if (!enLista(i.output_format, ['png', 'jpg'])) return 'output_format must be png or jpg';
+    return null;
+  }
+  return null;
 }
 
 /** Todas las URLs que trae un input (first_frame_url, image_urls, input_urls, image_input...). */
@@ -419,6 +522,7 @@ function statsVacias() {
     rutasDesconocidas: {},
     sinClave: 0,
     sinSaldo: 0,
+    cuerposInvalidos: 0, // createTask rechazados con 422 por validarCuerpo
     suno: { generaciones: 0, extensiones: 0, consultas: 0, letras: 0, rechazadas: 0, audioDesconocido: 0 },
   };
 }
@@ -458,6 +562,16 @@ export async function iniciar({
   alRegistrar = null,
 } = {}) {
   const opcFallos = parsearFallos(fallos);
+  // Los modelos que siempre fallan: los de la opcion y los de KIE_SIMULADO_FALLA_MODELOS.
+  // Sin ninguno de los dos (lo normal), nada cambia.
+  opcFallos.fallaModelos = [
+    ...(opcFallos.fallaModelos || []),
+    ...String(process.env.KIE_SIMULADO_FALLA_MODELOS || '')
+      .split(',')
+      .map((x) => x.trim())
+      .filter(Boolean),
+  ];
+  const fallaSiempre = (modelo) => opcFallos.fallaModelos.some((x) => modelo.startsWith(x));
   const lim = { ...LIMITE_KIE, ...limite };
   const cache = crearCache(dirCache);
   const azarConsultas = secuencia(Number(semilla) * 7919 + 13);
@@ -551,6 +665,14 @@ export async function iniciar({
     return n;
   }
 
+  /** "ancho:alto" de un PNG subido a este simulado; si no se puede leer, 9:16 (el de los anuncios). */
+  function aspectoDeImagenSubida(url) {
+    const id = String(url || '').match(/\/archivos\/subidas\/([0-9a-f]+)\//)?.[1];
+    const b = id ? subidas.get(id)?.buffer : null;
+    if (b && b.length >= 24 && b.readUInt32BE(0) === 0x89504e47) return `${b.readUInt32BE(16)}:${b.readUInt32BE(20)}`;
+    return '9:16';
+  }
+
   function crear(cuerpo) {
     const ahora = Date.now();
     const modelo = String(cuerpo.model);
@@ -571,7 +693,9 @@ export async function iniciar({
     const musica = esMusica(modelo);
     const video = !musica && esVideo(modelo);
     const segundos = video ? duracionPedida(input) : null;
-    const [ancho, alto] = musica ? [0, 0] : video ? tamanoVideo(input.aspect_ratio) : tamanoImagen(input.aspect_ratio);
+    // PixVerse no tiene aspect_ratio: su video sale con el aspecto de la imagen inicial.
+    const aspecto = input.aspect_ratio ?? (video ? aspectoDeImagenSubida(input.first_frame_image_url ?? input.first_frame_url) : undefined);
+    const [ancho, alto] = musica ? [0, 0] : video ? tamanoVideo(aspecto) : tamanoImagen(aspecto);
 
     const [min, max] = latenciaS(modelo);
     const uLat = fraccion(semilla, 'latencia', modelo, prompt, intento);
@@ -580,6 +704,7 @@ export async function iniciar({
     let destino = 'exito';
     const desde = opcFallos.trabadasDesde || 1;
     if (opcFallos.trabadas && numero >= desde && numero < desde + opcFallos.trabadas) destino = 'trabada';
+    else if (fallaSiempre(modelo)) destino = 'falloContenido';
     else if (fraccion(semilla, 'contenido', modelo, prompt) * 100 < opcFallos.contenidoPct) destino = 'falloContenido';
     else if (fraccion(semilla, 'servidor', modelo, prompt, intento) * 100 < opcFallos.servidorPct) destino = 'falloServidor';
 
@@ -1151,6 +1276,12 @@ export async function iniciar({
       }
       if (!cuerpo?.model || typeof cuerpo.model !== 'string') return json(res, 200, { code: 422, msg: 'model is required', data: null });
       if (!cuerpo.input || typeof cuerpo.input !== 'object') return json(res, 200, { code: 422, msg: 'input is required', data: null });
+      const invalido = validarCuerpo(String(cuerpo.model), cuerpo.input);
+      if (invalido) {
+        stats.cuerposInvalidos++;
+        registrar(`  !  createTask rechazado (422): ${cuerpo.model}: ${invalido}`);
+        return json(res, 200, { code: 422, msg: invalido, data: null });
+      }
       if (!alcanza(creditosDe(String(cuerpo.model), cuerpo.input, esVideo(String(cuerpo.model)) ? duracionPedida(cuerpo.input) : null), ahora)) {
         stats.sinSaldo++;
         registrar(`  !  createTask rechazado: sin saldo (${cuentaDeSaldo(ahora).restante} creditos)`);
@@ -1356,6 +1487,7 @@ export function lineasDeStats(s) {
   const rutas = Object.entries(s.rutasDesconocidas);
   if (rutas.length) L.push(`      rutas que el simulado no imita   ${rutas.map(([r, n]) => `${r} x${n}`).join(', ')}`);
   if (s.sinClave) L.push(`      pedidos sin clave (401)    ${s.sinClave}`);
+  if (s.cuerposInvalidos) L.push(`      cuerpos rechazados (422)   ${s.cuerposInvalidos}`);
   if (s.descargas.antesDeTiempo) L.push(`      descargas antes de terminar  ${s.descargas.antesDeTiempo}`);
   if (s.enMarchaAhora) L.push(`      siguen en marcha ahora     ${s.enMarchaAhora}`);
   if (s.saldo) L.push(`      creditos cobrados          ${s.saldo.gastado}   (quedan ${s.saldo.restante}${s.sinSaldo ? `; ${s.sinSaldo} pedido(s) rechazados sin saldo` : ''})`);

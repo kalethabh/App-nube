@@ -1,0 +1,91 @@
+{
+  "id": "F02",
+  "slug": "titular-gigante",
+  "nombre": "Titular gigante",
+  "origen": "biblioteca",
+  "descripcion": "Un titular enorme, tipográfico y alineado a la izquierda ocupa el 60-70% del lienzo sobre un fondo plano de color de marca, con una sola palabra clave resaltada en el color de acento. El producto aparece pequeño en la esquina inferior derecha y una línea corta de apoyo cierra abajo a la izquierda. Es un freno de scroll puro: la frase hace todo el trabajo y el producto solo firma.",
+  "angulos_compatibles": ["romper-expectativas", "enemigo-comun", "agitacion", "dolor", "curiosidad", "identidad", "beneficio-principal"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Typographic Statement Ad",
+  "reference_style": "Bold editorial typographic ad: an oversized, tightly set headline on a flat brand-colored background, with the product as a small sign-off in the corner",
+  "art_direction": {
+    "visual_hierarchy": "1) The giant headline, read as one solid block of type that dominates the canvas. 2) The single highlighted key word inside the headline. 3) The small product in the bottom-right corner. 4) The short support line at the bottom left.",
+    "composition_style": "Left-aligned, top-weighted typographic composition. The headline block runs from the 7% top margin down to about 66-68% of the canvas height and spans about 86% of the width (from 7% to 93%), set in 3-4 stacked lines, so the type mass fills roughly two thirds of the canvas. Below it, a footer zone from about 72% to 93% of the canvas height: support line on the left, product on the right, both bottom-aligned at about 93%.",
+    "spacing_and_structure": "Safe margins of about 7% on every side. Tight line spacing in the headline (leading about 0.95-1.0 of the font size) so the lines read as one block. A clear gap of about 4-5% of the canvas height between the last headline line and the top of the footer zone. Nothing else on the canvas; the empty background is part of the design.",
+    "lighting_and_depth": "Flat graphic design. The background is a solid brand color with at most a barely visible paper grain or soft vignette. The only depth is on the product: soft studio light, a crisp contact shadow and a faint drop shadow so it sits on the flat color like a real object."
+  },
+  "layout_summary": "Square canvas with a flat brand-colored background. A huge left-aligned headline in 3-4 stacked lines fills the top and middle of the canvas (from the 7% top margin to about 67% of the height, edge to edge between the side margins), with one key word highlighted by the accent color or a hand-drawn marker swipe behind it. In the bottom footer zone (about 72-93% of the height): a short support text at the bottom left and the product, small (about 18-22% of the canvas height), standing in the bottom-right corner with a soft shadow. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Flat, bold color field that leaves the giant type as the only thing to look at",
+      "adaptation_rule": "Fill with one solid color from the approved palette (usually the primary or the most saturated/darkest tone) with at most a barely visible grain or soft vignette. No photos, no patterns, no multi-color gradients."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top-left, from the 7% top margin down to about 66-68% of the canvas height, spanning about 86% of the canvas width (7% to 93%)",
+      "visual_function": "The scroll-stopper itself: the statement is the visual",
+      "adaptation_rule": "Set the angle's hook as 3-4 stacked lines of huge type that fill the block edge to edge; break lines by meaning so each line lands as a punch. Scale the font so the block keeps its 60-70% footprint whatever the word count."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "key-word highlight",
+      "position": "Inside the headline, on its single most emotional key word",
+      "visual_function": "Directs the eye to the word that carries the emotion of the angle",
+      "adaptation_rule": "Highlight exactly one word or short phrase: either recolor it in the brand accent or place a hand-drawn marker/brush swipe in the accent color behind it, with the text kept fully legible. Never highlight more than one item."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "support line",
+      "position": "Bottom-left footer zone, aligned with the headline's left edge, its last line ending at about 91-93% of the canvas height",
+      "visual_function": "Connects the statement to the product in a quiet second read",
+      "adaptation_rule": "One short sentence (max 2 lines) based on what the product is or what it solves. Keep it within the left 50% of the canvas so it never touches the product."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product",
+      "position": "Bottom-right corner inside the safe margin, base at about 93% of the canvas height; about 18-22% of the canvas height and no more than 25% of the canvas width",
+      "visual_function": "Signs off the statement and shows what is being sold without competing with the type",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), standing upright or at a slight 3/4 angle, with a crisp contact shadow on the flat background. Keep it small; it must never overlap the headline."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top-left, from the 7% top margin to about 67% of the height, filling about 86% of the width",
+      "text_style": "Ultra-bold (black weight) sans-serif with tight letter-spacing, huge: each line about 13-17% of the canvas height (larger with 3 lines, smaller with 4), 3-4 stacked lines, left-aligned, maximum contrast against the flat background (white on dark or near-black on light); the single key word set in the brand accent color or on an accent marker swipe",
+      "guia_texto": "Una afirmación de 3 a 7 palabras que rompa el patrón: una frase provocadora, una verdad incómoda o una confesión, según el ángulo. Afirmación, no pregunta. Debe entenderse sola, sin imagen. Indica 1 palabra clave (la que carga la emoción) para resaltarla."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "support line",
+      "reference_position": "Bottom-left footer zone, aligned with the headline's left edge",
+      "text_style": "Regular or medium weight sans-serif, about 3-3.5% of the canvas height, max 2 lines, left-aligned, max about 50% of the canvas width; same color as the headline at slightly lower opacity or the secondary palette color",
+      "guia_texto": "Remata el titular conectándolo con el producto (qué es o qué resuelve) en 5 a 10 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Giant left-aligned headline filling 60-70% of the canvas in 3-4 stacked lines",
+    "One key word highlighted with the brand accent color or a marker swipe",
+    "Flat solid brand-colored background",
+    "The user's product, small, in the bottom-right corner with a soft contact shadow"
+  ],
+  "forbidden_additions": [
+    "Large or centered product",
+    "Subheadline block directly under the headline",
+    "CTA button",
+    "Price, discount, offer or urgency badge",
+    "Trust seals, guarantee or certification badges",
+    "Benefit list or icons",
+    "Rating stars, reviews or testimonials",
+    "People, lifestyle scenes or background photos",
+    "Decorative shapes, stickers, arrows or emojis",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca, aplicada de forma muy gráfica: fondo plano con el color principal (o el más intenso u oscuro de la paleta); titular en el color de mayor contraste (blanco o casi negro); el color de acento solo para la palabra clave o su trazo de resaltado. Máximo 3 colores en total en el lienzo, sin contar el producto."
+}

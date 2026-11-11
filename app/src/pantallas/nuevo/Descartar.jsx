@@ -1,6 +1,6 @@
 // "Descartar este anuncio": para un anuncio que todavía no se produce (su guion espera tu aprobación o no salió).
 // Pide confirmación y lo saca del tablero con DELETE /api/anuncios/:slug. No se borra nada: la carpeta pasa a
-// temp/_descartados/. Mientras Claude escribe el guion o el anuncio ya se produce, el servidor no lo deja.
+// temp/_descartados/. Mientras tu IA escribe el guion o el anuncio ya se produce, el servidor no lo deja.
 //
 //   <BotonDescartar slug={a.slug} titulo={a.titulo} alDescartar={() => …} />   (soloIcono: el tacho, con su nombre al pasar)
 import { useState } from 'react';

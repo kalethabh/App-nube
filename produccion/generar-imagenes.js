@@ -92,6 +92,7 @@ import { archivarSiExiste } from './historial.js';
 import { repetidas } from './imagenes-repetidas.js';
 import { tieneContinuidad, referenciasSoloDelBrollDescartado } from './continuidad.js';
 import { brollQueEntranEnCarpeta, lineasBrollQueNoEntra } from './planear-montaje.js';
+import { ELECCION_POR_DEFECTO, leerEleccion, cascadaImagen } from './modelos-elegidos.js';
 import { buscarPython, comandoPython, comandoInstalar, paquetesQueFaltan, PAQUETES_PYTHON, CANDIDATOS_PYTHON } from './recortar-host.js';
 
 const REINTENTOS = 3;
@@ -134,7 +135,7 @@ const copiaSuFrame = (t) => t.tipo === 'H' && typeof t.frame_inicial === 'string
  * Con `soloBroll: [n]`, solo las hojas y las imagenes de esos B-roll (ninguna
  * toma ni icono): rehacer UN B-roll (la revision de los clips de la app).
  */
-export function construirPlan(m, { soloTomas, soloBroll = null } = {}) {
+export function construirPlan(m, { soloTomas, soloBroll = null, eleccion = ELECCION_POR_DEFECTO } = {}) {
   const trabajos = [];
 
   // Anuncio por bloques (UGC tipo R): sus hojas se generan con un modelo
@@ -146,7 +147,13 @@ export function construirPlan(m, { soloTomas, soloBroll = null } = {}) {
   // Image 2.5 Sunburst a 2K para todos desde el 2026-10-24, salvo que el estilo
   // tenga su excepcion en MODELO_IMAGEN_POR_ESTILO. TODAS sus imagenes llevan
   // esa cascada y sus resoluciones.
-  const delEstilo = modeloImagenDelEstilo(m.estilo);
+  //
+  // MODELOS ELEGIDOS (2026-11-08): si el anuncio eligio otro modelo de imagen
+  // en Ajustes > Modelos (temp/<slug>/modelos.json), TODAS sus imagenes van
+  // con esa cascada: hojas (tambien las de UGC), frames y B-roll. Los iconos
+  // no cambian. Con la eleccion de siempre, todo como antes.
+  const imagenElegida = eleccion && eleccion.imagen && eleccion.imagen !== ELECCION_POR_DEFECTO.imagen ? cascadaImagen(eleccion) : null;
+  const delEstilo = imagenElegida ?? modeloImagenDelEstilo(m.estilo);
 
   // Con continuidad no hay B-roll: una hoja generada que SOLO usaba el B-roll
   // descartado (continuidad.broll_descartado) no tiene quien la use y no se
@@ -186,7 +193,7 @@ export function construirPlan(m, { soloTomas, soloBroll = null } = {}) {
         (desdeArchivo ? ` — generada A PARTIR DE ${r.archivo}` : '') +
         (otrasHojas.length ? ` — con ${otrasHojas.join(', ')} como referencia` : '') +
         ' — se reusa en todas las tomas que la pidan',
-      ...(hayR
+      ...(hayR && !imagenElegida
         ? {
             cascada: [MODELO_IMAGEN_UGC, MODELOS.imagen.principal],
             resoluciones: { [MODELO_IMAGEN_UGC]: RESOLUCION_IMAGEN_UGC },
@@ -1379,7 +1386,9 @@ async function cli() {
     }
   }
 
-  let plan = construirPlan(manifiesto, { soloTomas, soloBroll });
+  // Los modelos de ESTE anuncio (temp/<slug>/modelos.json); sin el, los de siempre.
+  const eleccion = leerEleccion(carpeta);
+  let plan = construirPlan(manifiesto, { soloTomas, soloBroll, eleccion });
   // --broll: las hojas que ya estan no se tocan (tampoco con --rehacer): solo se rehace la imagen del B-roll.
   if (soloBroll) plan = plan.filter((t) => t.clase !== 'referencia' || !fs.existsSync(path.join(dirImg, t.archivo)));
 
@@ -1587,7 +1596,7 @@ async function cli() {
     // id de referencia -> su archivo local (la foto o la hoja), para la huella.
     archivosDeReferencias: new Map(),
     // "frame_anterior" se resuelve por id sobre el plan completo (sin --tomas).
-    anteriorDe: framesAnteriores(construirPlan(manifiesto)),
+    anteriorDe: framesAnteriores(construirPlan(manifiesto, { eleccion })),
     sha1s: new Map(),
     // Las hojas que estan (en disco o recien generadas), para estado.json.
     hojasListas: new Set(),

@@ -12,7 +12,8 @@ import { spawnSync } from 'node:child_process';
 import { RAIZ, TEMP } from './rutas.js';
 import { leerJSON, escribirJSONSeguro } from './archivos.js';
 import { lanzarSesion } from './colas.js';
-import { prohibidasComunes } from './claude.js';
+import { prohibidasComunes, nombreIA } from './motor-ia.js';
+import { materialKads } from './ia/material-kads.js';
 import { ESTILOS } from './anuncios-nuevos.js';
 import * as conductor from './conductor.js';
 
@@ -142,6 +143,10 @@ export function pedirGanchos(slug, { cuantos = 3 } = {}) {
       herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
       permitidas: [`Read(${c}/**)`, 'Read(./.claude/skills/anuncios-replicador-ganchos/**)', `Read(./.claude/skills/${ESTILOS[brief.estilo].skill}/**)`, 'Glob', 'Grep', `Write(${c}/app/ganchos.json)`, `Edit(${c}/app/ganchos.json)`],
       prohibidas: prohibidasComunes({ terminal: false }),
+      material: materialKads({
+        textos: ['.claude/skills/anuncios-replicador-ganchos/SKILL.md', `.claude/skills/${ESTILOS[brief.estilo].skill}/SKILL.md`, `temp/${slug}/manifiesto.json`],
+        imagenes: fs.readdirSync(path.join(TEMP, slug, 'img')).filter((f) => /^toma-1(?:-(?:inicial|final))?\.(png|jpe?g|webp)$/i.test(f)).map((f) => `temp/${slug}/img/${f}`),
+      }),
       timeoutMs: 30 * 60000,
       registro: path.join(dirApp(slug), 'registro', 'ganchos.jsonl'),
       verificar: () => {
@@ -149,7 +154,7 @@ export function pedirGanchos(slug, { cuantos = 3 } = {}) {
         return e.length ? { ok: false, errores: e } : { ok: true };
       },
     });
-    if (!r?.ok) throw new Error(r?.limite ? 'Se acabó el uso de tu plan de Claude por ahora. Vuelve a intentarlo más tarde.' : 'Claude no pudo escribir los ganchos. Vuelve a intentarlo.');
+    if (!r?.ok) throw new Error(r?.limite ? `Se acabó el uso de tu plan de ${nombreIA(r.motor)} por ahora. Vuelve a intentarlo más tarde.` : r?.error || `${nombreIA(r?.motor)} no pudo escribir los ganchos. Vuelve a intentarlo.`);
     const versiones = [...previos];
     for (const g of leerJSON(rutaGanchos(slug)).slice(0, n)) versiones.push(armarVersion(slug, g));
     guardarEstado(slug, { estado: 'listo', versiones, fin: ahora() });

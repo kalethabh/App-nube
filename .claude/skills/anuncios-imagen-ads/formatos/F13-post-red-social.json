@@ -1,0 +1,114 @@
+{
+  "id": "F13",
+  "slug": "post-red-social",
+  "nombre": "Post de red social",
+  "origen": "biblioteca",
+  "descripcion": "Tarjeta de post de red social genérica flotando sobre un fondo de marca: avatar y nombre de un cliente, un texto corto con una opinión fuerte o una confesión, una foto del producto y contadores de interacción altos. Se siente como un post viral real, sin marcas de ninguna plataforma.",
+  "angulos_compatibles": ["romper-expectativas", "enemigo-comun", "pregunta-paradojica", "curiosidad", "testimonio", "prueba-social", "identidad"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Native Social Post Card Ad",
+  "reference_style": "Generic social media post card floating on a brand-colored backdrop, styled like an organic viral post by a real customer with a strong opinion, a product photo and high engagement counts",
+  "art_direction": {
+    "visual_hierarchy": "1) The post text (the opinion or confession that carries the hook), right under the profile row. 2) The product photo inside the post. 3) The profile row (avatar + name) that makes it personal. 4) The engagement row with high counts as quiet social proof.",
+    "composition_style": "A single post card centered on the canvas and almost filling it, like a screenshot pasted onto a branded backdrop. Inside the card, a strict vertical stack aligned to one common inner left margin: profile row, text, photo, engagement row. Flat, frontal, no perspective or tilt.",
+    "spacing_and_structure": "Card spans x 6-94% and y 5-95%, corner radius about 3% of the canvas; the backdrop shows only as a 5-6% frame around it. Card inner padding 5% of the canvas. Profile row y 10-17%. Post text y 19-34% (max 3 lines). Product photo y 36-82%, full inner width (x 11-89%), corner radius about 2%. Engagement row y 85-91%.",
+    "lighting_and_depth": "The card is flat and evenly lit like UI, lifted from the backdrop by a soft, wide drop shadow (about 20% opacity) so it reads as a floating screenshot. The photo inside has natural, slightly warm real-world light, good smartphone quality with shallow depth of field. The backdrop is a smooth brand gradient with subtle grain."
+  },
+  "layout_summary": "Square canvas with a brand-colored gradient backdrop. A large light post card floats in the center with a soft shadow. Inside the card: a profile row (circular avatar, display name in bold, a grey handle and relative time, a three-dot menu icon on the right); two or three lines of post text; a wide rounded photo of the user's product in a real setting; and an engagement row with generic heart, comment and share icons and their counts on the left and a bookmark icon on the right.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas, visible as a 5-6% frame around the post card",
+      "visual_function": "Brand-colored backdrop that frames the card and gives the ad its brand identity",
+      "adaptation_rule": "Smooth gradient of the approved palette with subtle grain. No shapes, text or extra graphics."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "post card",
+      "position": "Centered, x 6-94% and y 5-95%",
+      "visual_function": "Container that makes the whole ad read as a native social post",
+      "adaptation_rule": "Rounded rectangle in light mode (off-white card, near-black text) with a soft wide drop shadow. If the brand palette is very light, use dark mode instead (near-black card, white text) so the card still contrasts with the backdrop. Generic interface only."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "profile row",
+      "position": "Top of the card, y 10-17%: avatar at about x 11-18%, name and handle from about x 20%, three-dot icon at about x 85-89%",
+      "visual_function": "Puts a real-looking person behind the post",
+      "adaptation_rule": "Circular avatar (about 7% of the canvas width) showing a realistic person who matches the target audience; display name in bold with the handle and relative time in grey on the same or next line; a generic three-dot menu icon at the far right. No verification badges, no follow buttons."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "post text",
+      "position": "Inside the card, x 11-89% and y 19-34%, left-aligned",
+      "visual_function": "Carries the hook as a personal opinion or confession",
+      "adaptation_rule": "Plain post text, max 3 lines, written like a real person posting, not like an ad. No hashtags and no links."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product photo",
+      "position": "Inside the card, full inner width x 11-89% and y 36-82%",
+      "visual_function": "Shows the product the post is about; the main visual",
+      "adaptation_rule": "A good-quality but natural smartphone photo of the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), in a real setting that fits its use (counter, desk, hand, bathroom shelf; for digital products, a phone or laptop screen showing it), product filling about 55-65% of the photo's height, label facing the camera. Corner radius about 2% of the canvas. No text inside the photo."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "engagement row",
+      "position": "Bottom of the card, x 11-89% and y 85-91%",
+      "visual_function": "High interaction counts that signal the post went viral",
+      "adaptation_rule": "Generic thin line icons on the left (heart filled in the brand accent, comment bubble, share arrow), each followed by its count; a bookmark icon aligned to the right. No platform-specific reaction icons."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "display name",
+      "reference_position": "Profile row, right of the avatar",
+      "text_style": "Bold sans-serif, about 3.2% of the canvas height, near-black (white in dark mode), left-aligned, 1 line",
+      "guia_texto": "Nombre y apellido realistas de una persona del público objetivo (no la marca). 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "handle + relative time",
+      "reference_position": "Profile row, next to or below the display name",
+      "text_style": "Regular sans-serif, about 2.4% of the canvas height, mid grey, left-aligned, 1 line",
+      "guia_texto": "Usuario genérico tipo '@nombre.apellido' y un tiempo relativo (ej. '· 3 h'). Sin nombres de redes reales."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "post body",
+      "reference_position": "Under the profile row, above the photo",
+      "text_style": "Regular-to-medium weight sans-serif, about 3.8-4.2% of the canvas height, near-black (white in dark mode), left-aligned, max 3 lines; at most one emoji at the end",
+      "guia_texto": "Opinión fuerte o confesión en primera persona que encarna el ángulo, como un post viral (ej. 'Opinión impopular: ...', 'Nadie me avisó que...'). 10 a 16 palabras (debe caber en 3 líneas)."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "engagement counts",
+      "reference_position": "Engagement row, next to each icon",
+      "text_style": "Medium-weight sans-serif, about 2.4-2.6% of the canvas height, dark grey (light grey in dark mode), 1 line",
+      "guia_texto": "Tres cifras altas y creíbles de me gusta, comentarios y compartidos (ej. '24,8 mil', '1.392', '856'). Solo números con abreviaturas."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Single generic post card floating on a brand-colored backdrop with a soft drop shadow",
+    "Circular avatar of a realistic person in the profile row",
+    "Wide rounded photo of the user's product in a real setting inside the card",
+    "Generic engagement icons (heart, comment, share, bookmark) with counts"
+  ],
+  "forbidden_additions": [
+    "Real social platform names, logos, icons or recognizable interface designs",
+    "Verification badges or 'sponsored' labels",
+    "CTA button or 'shop now' bar",
+    "Price, discount or offer badge",
+    "Rating stars or review cards",
+    "Benefit list or icons",
+    "Comment threads or reply previews",
+    "Hashtags, links or URLs",
+    "Headline or graphic text outside the post card",
+    "Multiple posts or a feed",
+    "Phone device frame or hands holding a phone",
+    "Stickers, arrows or doodles over the card",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fondo exterior con la paleta de marca (degradado del color principal). La tarjeta del post usa colores nativos neutros: blanco roto, texto casi negro y metadatos en gris (o modo oscuro si la paleta es muy clara). El acento de marca solo en el corazón relleno. La foto del producto puede incorporar tonos de la paleta en el entorno."
+}

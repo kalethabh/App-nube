@@ -23,11 +23,11 @@ import path from 'node:path';
 import { DOLARES_POR_CREDITO } from './rutas.js';
 import { leerJSON, listar, escribirSeguro, escribirJSONSeguro } from './archivos.js';
 import { duracionMp4 } from './mp4.js';
+import { eleccionDeCarpeta, cascadaDeLaPieza, creditosDeCascada, creditosTipicos, sonidoDeLaPieza } from './modelos.js';
 
 export const CREDITOS_SUNO = 12;
-// Para estimar lo que quedo sin registro (los de hoy: Sunburst 2K y Omni de 6 s).
-const CREDITOS_IMAGEN_ESTIMADO = 10;
-const CREDITOS_CLIP_ESTIMADO = 84;
+// Para estimar lo que quedo sin registro, sin nada registrado con que promediar: una imagen y un clip de 6 s con los
+// modelos del anuncio (con los de siempre, Sunburst 2K y Omni de 6 s: 10 y 84). Ver creditosTipicos (lib/modelos.js).
 
 const redondear = (n, d = 2) => Math.round(Number(n) * 10 ** d) / 10 ** d;
 export const aDolares = (creditos) => redondear((Number(creditos) || 0) * DOLARES_POR_CREDITO);
@@ -87,14 +87,20 @@ export function cerrarCorrida(carpeta, datos) {
   return r;
 }
 
-// Precio de hoy de lo que quedo sin registro (config.js): Sunburst 2K 10 cr; Omni por tramo; Kling 3.0 20 cr/s.
-const OMNI = { 4: 63, 6: 84, 8: 105, 10: 126 };
+// Precio de hoy de lo que quedo sin registro, con los modelos del anuncio (temp/<slug>/modelos.json, o los de
+// siempre): una imagen con el modelo de imagen elegido; un clip con el primer modelo de su cascada que hace ese largo
+// (con los de siempre: Omni por tramo y, mas largo, Kling por segundo).
 function estimarPieza(carpeta, rel) {
-  if (!rel.startsWith('video/')) return CREDITOS_IMAGEN_ESTIMADO;
+  const tipicos = creditosTipicos(carpeta);
+  if (!rel.startsWith('video/')) return tipicos.imagen;
   const d = duracionMp4(path.join(carpeta, rel));
-  if (!d) return CREDITOS_CLIP_ESTIMADO;
-  const tramo = [4, 6, 8, 10].find((x) => x >= d - 0.15);
-  return tramo ? OMNI[tramo] : 20 * Math.ceil(d);
+  if (!d) return tipicos.clip;
+  const m = leerJSON(path.join(carpeta, 'manifiesto.json'));
+  const nombre = path.basename(rel).match(/^(toma|broll)-(\d+)/);
+  const pieza = nombre?.[1] === 'broll' ? { clase: 'broll' } : (m?.tomas || []).find((t) => t.n === Number(nombre?.[2])) || null;
+  const cascada = cascadaDeLaPieza(eleccionDeCarpeta(carpeta), m, pieza);
+  // el largo medido del mp4 pasa un poco del pedido: 0,15 s de margen
+  return creditosDeCascada(cascada, Math.max(0, d - 0.15), { sonido: sonidoDeLaPieza(m, pieza) })?.primero ?? tipicos.clip;
 }
 
 /** Las entradas de un log-modelos.json que son de esta corrida. */
@@ -230,8 +236,9 @@ export function resumenDeGasto(carpeta, conductor = null) {
   // (la otra la volvio a generar: p. ej. la revision rehizo esa toma). No se descuenta. Dentro de una misma corrida
   // lo que el motor si anoto ya no entra en sinRegistro (registrarCorrida).
   const sin = [...sinMapa.keys()];
-  const promImg = imgs.length ? cImg / imgs.length : CREDITOS_IMAGEN_ESTIMADO;
-  const promVid = vids.length ? cVid / vids.length : CREDITOS_CLIP_ESTIMADO;
+  const tipicos = imgs.length && vids.length ? null : creditosTipicos(carpeta);
+  const promImg = imgs.length ? cImg / imgs.length : tipicos.imagen;
+  const promVid = vids.length ? cVid / vids.length : tipicos.clip;
   const crSinDe = (pre) => [...sinMapa.entries()].filter(([rel]) => rel.startsWith(pre)).reduce((s, [rel, cr]) => s + (cr ?? (rel.startsWith('img/') ? promImg : promVid)), 0);
   const crSinImg = crSinDe('img/');
   const crSinVid = crSinDe('video/');

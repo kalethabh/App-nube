@@ -2574,3 +2574,88 @@ html:has(.ed) .avisos {
   right: auto;
   transform: translateX(-50%);
 }
+
+/* ---------------------------------------------------------------- el clip elegido: regenerar, tu video, velocidad (2026-11-09) */
+.ed-clip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  padding-top: var(--e-3);
+  border-top: 1px solid var(--borde-1);
+}
+.ed-clip__aviso {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 12px;
+  border-radius: var(--r-m);
+  border: 1px solid var(--aviso-borde);
+  background: var(--aviso-suave);
+}
+.ed-clip__aviso strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-chico);
+  color: var(--texto-1);
+}
+.ed-clip__aviso strong svg {
+  color: var(--aviso);
+}
+.ed-clip__aviso p {
+  font-size: var(--t-chico);
+  line-height: 1.5;
+  color: var(--texto-2);
+}
+.ed-clip__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ed-clip__titulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-mini);
+  font-weight: var(--peso-semi);
+  color: var(--texto-2);
+}
+.ed-clip__titulo .ed-control__valor {
+  margin-left: auto;
+}
+.ed-clip__botones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.ed-clip__mudo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.ed-velocidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.ed-nota--cian {
+  color: var(--texto-2);
+}
+.ed-nota--cian svg {
+  color: var(--cian);
+}
+.ed-nota--fila {
+  align-items: center;
+  color: var(--texto-2);
+}
+.ed-nota--fila > span {
+  flex: 1;
+}
+.ed-rehaciendo--aviso {
+  border-color: var(--aviso-borde);
+  background: linear-gradient(180deg, var(--aviso-suave), rgba(247, 184, 75, 0.04)), var(--fondo-1);
+}
+.ed-rehaciendo--aviso > svg {
+  color: var(--aviso);
+}

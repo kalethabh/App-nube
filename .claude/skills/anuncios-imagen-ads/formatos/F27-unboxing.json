@@ -1,0 +1,122 @@
+{
+  "id": "F27",
+  "slug": "unboxing",
+  "nombre": "Qué incluye",
+  "origen": "biblioteca",
+  "descripcion": "Revelación del kit: una caja rígida premium abierta, vista de frente desde arriba en ángulo (unos 45°), con la tapa levantada detrás y un inserto con compartimentos a medida donde cada artículo del pedido tiene su lugar: el producto en el hueco central más grande y los demás artículos a los lados. Etiquetas tipo píldora con líneas finas a ambos lados de la caja nombran cada artículo. Titular arriba y, opcionalmente, un sticker circular de valor o precio sobre la esquina de la tapa. Transmite 'recibes todo esto, ordenado y listo' de forma tangible y premium.",
+  "angulos_compatibles": ["oferta", "objecion-precio", "caracteristica-estrella", "regalo", "objecion-confianza", "curiosidad"],
+  "tipos_producto": ["gadget", "cosmetico", "nutraceutico", "juguete", "hogar", "ropa"],
+  "ad_format": "What's Included Open Kit Box Ad",
+  "reference_style": "Premium kit-reveal unboxing ad: a rigid presentation box opened toward the camera at a high angle, the lid standing open behind it, every included item seated in its own fitted insert compartment and named with clean callout labels",
+  "art_direction": {
+    "visual_hierarchy": "1) The open box with the user's product in the large central compartment. 2) Bold headline at the top. 3) The smaller included items in their side compartments with their callout labels. 4) The optional value/price sticker on the lid's upper-right corner.",
+    "composition_style": "Strictly centered and symmetrical. Front view from a high angle (camera about 40-50 degrees above the table), with the front edge of the box parallel to the bottom of the canvas. The box body spans about 22-78% of the canvas width, its front edge at about 86% of the canvas height and the back of the interior at about 52%. The lid is hinged at the back and stands open almost upright behind the box, its inner face visible from about 24% to 52% of the canvas height. Inside, a fitted insert holds one large central compartment (about 40% of the box width) with the user's product and 2-4 smaller compartments arranged symmetrically on both sides (2 + 2, or 2 + 1 with one tall compartment). Callout pills sit outside the box on the left and right sides, each joined to its item by a thin leader line; the product's own pill sits centered just below the box's front edge.",
+    "spacing_and_structure": "Headline from about 5% to 18% of the canvas height. Lid from about 24% to 52%; box interior from about 52% to 80%; front wall from about 80% to 86%. Side labels in the free side bands (about 4-21% and 79-96% of the canvas width), vertically between about 50% and 82%, evenly spaced; the product's label from about 89% to 94%, centered. Every compartment has an even inner margin around its item; no item overlaps another or the compartment walls. Leader lines run straight and horizontal (or with one 45-degree elbow) and never cross an item. Safe margins of about 4-5% on every side. When the value sticker is used it overlaps the lid's upper-right corner (about 70-88% of the canvas width, 21-39% of the canvas height) and never touches the headline or the right-side labels.",
+    "lighting_and_depth": "Soft, warm studio light from a large diffused source at the upper left, gentle fill from the right. The lid casts a soft shadow into the back of the box; each compartment has subtle inner shadows so the items look seated in the insert. Soft contact shadow under the box on the table. Crisp focus on the whole box and its contents; the table and backdrop fall off slightly out of focus behind the lid."
+  },
+  "layout_summary": "Square canvas with a smooth tabletop and a soft seamless backdrop in brand tones. Headline centered at the top. Below it, a premium rigid box seen from the front at a high angle, centered, with its lid standing open behind it. Inside, a fitted insert holds the user's product in the large central compartment and 2-4 included items in smaller compartments on both sides, everything neat and symmetrical. Small label pills on the left and right sides of the box, each with a thin leader line to its item, and one pill centered below the box for the product. Optional circular value/price sticker overlapping the lid's upper-right corner.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "tabletop and backdrop",
+      "position": "Full canvas; the table surface fills the lower part and blends into a seamless backdrop behind the lid",
+      "visual_function": "Calm, premium studio set that makes the box the only focus",
+      "adaptation_rule": "A matte tabletop (fine linen, light stone, wood or seamless paper) in a soft or neutral tone of the approved palette, with a smooth seamless backdrop one step lighter or darker. No props, plants or decoration."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline",
+      "position": "Top center, from about 5% to 18% of the canvas height",
+      "visual_function": "Announces the kit reveal and the angle's hook",
+      "adaptation_rule": "Write the 'everything you get' hook of this variation's angle. Keep it short so it fits in max 2 lines."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "open rigid box with hinged lid",
+      "position": "Centered; box body about 22-78% of the canvas width, front edge at about 86% of the canvas height; lid standing open behind it from about 24% to 52% of the canvas height",
+      "visual_function": "Frames the whole order as a complete, well-packed, premium kit",
+      "adaptation_rule": "Clean rigid presentation box in the brand's main color, matte or soft-touch, with a lid that opens on a hinge and stands almost upright. The lid's inner face is plain or lined in a lighter palette tone. If the product photo shows its real retail packaging, echo its colors. No printed logo, brand name or text on the box or lid."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "fitted insert with compartments",
+      "position": "Inside the box, from about 52% to 80% of the canvas height: one large central compartment (about 40% of the box width) and 2-4 smaller compartments symmetrically on both sides",
+      "visual_function": "Shows that every item has its place, which reads as quality and completeness",
+      "adaptation_rule": "Molded insert (velvet, foam, molded pulp or card) in a lighter or darker tone of the palette, with clean cut-outs shaped to each item. Number of side compartments equals the number of included items besides the product (2 to 4)."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product",
+      "position": "In the large central compartment, the biggest and most visible item, about 25-30% of the canvas height",
+      "visual_function": "Main anchor; shows exactly what is being sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), standing upright in its compartment or lying in a contoured cut-out, whichever shows its label best. Fully visible, never covered. For clothing, show it neatly folded with its most recognizable detail on top."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "included items (2-4)",
+      "position": "In the side compartments, left and right of the product, arranged symmetrically",
+      "visual_function": "Proves the value of the order by showing every item the buyer receives",
+      "adaptation_rule": "Show ONLY what the user confirms is included (accessories, refills, charger, manual, bonus, gift, extra units). If the product has fewer real items, fill the compartments with extra units of the product (bundle), a small sample, its retail box or a plain thank-you/instructions card. Never invent accessories. Each item seated neatly, parallel to the box edges."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "callout labels with leader lines",
+      "position": "Side items: pills outside the box in the left (about 4-21% of the canvas width) and right (about 79-96%) bands, between about 50% and 82% of the canvas height. Product: one pill centered below the box front edge, about 89-94% of the canvas height",
+      "visual_function": "Names each item so the content is understood at a glance",
+      "adaptation_rule": "Small rounded label pills of identical style (each about 13-17% of the canvas width), one per item, each joined to its item by a thin straight leader line (about 0.3% of the canvas) in the contrast color ending in a small dot on the item. Left pills point to left compartments and right pills to right compartments; the product's pill connects with a short vertical line. Lines never cross each other or an item. Total 3-5 pills."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "value/price sticker (OPTIONAL)",
+      "position": "Overlapping the lid's upper-right corner, circular, about 18% of the canvas width (about 70-88% of the canvas width, 21-39% of the canvas height), rotated about -8 degrees",
+      "visual_function": "Turns the kit into a deal by showing its total value or price",
+      "adaptation_rule": "Include only when this variation's angle is oferta, objecion-precio or regalo AND the user provided a real price or value. Solid circle or scalloped seal in the brand accent color with a subtle print-like finish. When omitted, leave the lid corner clean and add 'value or price sticker' to the final exclusions."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center",
+      "text_style": "Extra bold sans-serif, large (each line about 7-8% of the canvas height), max 2 lines, centered, maximum contrast against the backdrop; one key word may use the brand accent color",
+      "guia_texto": "Presenta el contenido del pedido desde el ángulo, en 3 a 7 palabras (ej. la idea de 'todo lo que llega a tu casa')."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "item labels (3-5)",
+      "reference_position": "Inside the label pills: on the left and right of the box and centered below it",
+      "text_style": "Semi-bold sans-serif, about 2.4-2.8% of the canvas height, 1 line per label, centered inside rounded pills; high-contrast text on a brand-color or light pill; all labels identical in style",
+      "guia_texto": "Nombre corto de cada artículo incluido, 1 a 3 palabras por etiqueta (máximo unos 14 caracteres), entre 3 y 5 etiquetas. Solo artículos reales del pedido; puede incluir cantidad (ej. '2 repuestos', '1x Sérum 30 ml')."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "value/price (OPTIONAL, only with the sticker)",
+      "reference_position": "Inside the circular sticker on the lid's upper-right corner",
+      "text_style": "Two stacked lines centered in the sticker: a small regular line (about 2.4% of the canvas height, may be struck through when showing a former value) and a large extra bold line (about 5-6% of the canvas height); high contrast on the accent-colored sticker",
+      "guia_texto": "Solo si se usa el sticker: valor total o precio real dado por el usuario, máximo 4 palabras en total (ej. valor tachado + precio de hoy). Nunca inventes precios."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Front high-angle view (about 40-50 degrees) of a centered, symmetrical open box",
+    "Rigid box in the brand's main color with the hinged lid standing open behind it",
+    "Fitted insert with one large central compartment and 2-4 smaller side compartments",
+    "The user's product in the central compartment, fully visible",
+    "Small label pills with thin leader lines, one per item",
+    "Clean tabletop and seamless backdrop in brand palette tones with soft studio shadows"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Extra price tags, discount badges or offer boxes beyond the single optional value sticker",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or icons",
+    "Accessories or items the user did not confirm as included",
+    "Hands or people",
+    "Strict top-down flat lay or items scattered on the table outside the box",
+    "Ribbons, tissue paper, bokeh or festive decoration",
+    "Countdown timers or urgency labels",
+    "Bottom bar or banner",
+    "Logos or brand names printed on the box, lid or insert",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca aplicada al set: la mesa y el fondo usan tonos suaves o neutros de la paleta, la caja usa el color principal, el inserto un tono más claro u oscuro de ese color, las etiquetas y líneas usan el color de mayor contraste y el sticker de valor (si se usa) el color de acento. El producto y los artículos incluidos conservan sus colores reales."
+}

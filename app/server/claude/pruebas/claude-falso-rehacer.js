@@ -45,8 +45,16 @@ else {
     const ejemplo = JSON.parse((texto.match(/\n\s+(\{.*\})\n/) || [])[1] || '{}');
     const m = JSON.parse(fs.readFileSync(path.join(carpeta, 'manifiesto.json'), 'utf8'));
     const nb = texto.match(/rehacer el B-roll (\d+)/);
+    const np = texto.match(/rehacer el paso (\d+)/);
+    const ng = texto.match(/rehacer el gancho ([a-z0-9_-]+)/i);
     const nt = texto.match(/rehacer (?:la toma|el bloque) (\d+)/);
-    const pieza = nb ? m.broll.find((b) => b.n === Number(nb[1])) : m.tomas.find((t) => t.n === Number(nt[1]));
+    const pieza = nb
+      ? m.broll.find((b) => b.n === Number(nb[1]))
+      : np
+        ? (m.continuidad?.pasos || []).find((p) => p?.de === Number(np[1]))
+        : ng
+          ? (m.ganchos_alternativos || []).find((g) => String(g?.id) === ng[1])
+          : m.tomas.find((t) => t.n === Number(nt[1]));
     const pedido = (texto.match(/con sus palabras: «(.+?)»/) || [])[1] || '';
     const nuevos = {};
     for (const k of Object.keys(ejemplo)) {

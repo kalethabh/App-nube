@@ -28,26 +28,30 @@
 //     -> Promise<{ ok, resultado?, error?, limite?, reinicio?, sinSesion?, cancelado?, turnos, costo, uso, ... }>
 //   cancelarSesion(uuid) · sesionActiva(uuid) · estadoClaude() · abrirLogin()
 //   validarEsquema(valor, esquema) · cargarEsquema(nombre) · textoClaude(nombre, valores)
+//
+// La fila de 2 sesiones a la vez y el registro de las activas estan en ia/fila.js (los comparte con codex.js); de aca
+// se vuelven a exportar con los mismos nombres (MAX_SESIONES, sesionActiva, sesionesEnCurso, cancelarSesion, matar).
 import { spawn, execFile } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { APP, RAIZ } from './rutas.js';
+import { MAX_SESIONES, activas, enCurso, turno, soltarTurno, anotarLotes, sesionActiva, sesionesEnCurso, cancelarSesion, matar } from './ia/fila.js';
+
+export { MAX_SESIONES, sesionActiva, sesionesEnCurso, cancelarSesion, matar };
 
 const WIN = process.platform === 'win32';
 export const DIR_CLAUDE = path.join(APP, 'server', 'claude'); // modo-app.md, tarea-*.md y esquemas/
 
 // La version mas vieja que tiene --permission-prompts (sin eso Claude podria quedarse esperando una respuesta).
 export const VERSION_MINIMA = '2.1.259';
-// Sesiones de Claude a la vez (las demas esperan su turno). La etapa 3 decide el numero con el plan del usuario.
-export const MAX_SESIONES = 2;
 
 // ---------------------------------------------------------------- entorno
 
 // Las unicas variables de Claude que pasan: donde guarda su configuracion (si el usuario la movio) y su terminal.
 const QUEDAN = new Set(['CLAUDE_CONFIG_DIR', 'CLAUDE_CODE_GIT_BASH_PATH', 'CLAUDE_CODE_USE_POWERSHELL_TOOL']);
 // Lo del motor no le sirve a Claude (y asi ninguna clave queda escrita en su registro).
-const DEL_MOTOR = /^(KIE_|ELEVENLABS_|APIMART_|SUNO_|ANUNCIOS_MODO_PRUEBA$|NODE_USE_ENV_PROXY$|HTTPS?_PROXY$|NO_PROXY$)/i;
+export const DEL_MOTOR = /^(KIE_|ELEVENLABS_|APIMART_|SUNO_|ANUNCIOS_MODO_PRUEBA$|NODE_USE_ENV_PROXY$|HTTPS?_PROXY$|NO_PROXY$)/i;
 
 /** El entorno de Claude: el de la app sin nada que cambie la credencial (siempre el login de la cuenta). */
 export function entornoHijo(extra = {}) {
@@ -421,6 +425,26 @@ const IMAGEN = /\.(png|jpe?g|webp|gif)$/i;
 export function describirHerramienta(nombre, e = {}) {
   const ruta = String(e.file_path || e.notebook_path || e.path || '').replace(/\\/g, '/');
   const archivo = ruta.split('/').pop() || '';
+  // Los anuncios de imagen (sus lotes son temp/_img-…, y su skill anuncios-imagen-ads): frases propias. Ningun video
+  // tiene estos archivos, asi que para los videos todo sigue igual.
+  if (nombre === 'Read' && /\.claude\/skills\/anuncios-imagen-ads\//.test(ruta)) {
+    if (/\/formatos\//.test(ruta)) return 'Eligiendo el formato de cada anuncio';
+    if (archivo === 'angulos.json') return 'Eligiendo los ángulos de venta';
+  }
+  if (/(^|\/)temp\/_img-[^/]+\//.test(ruta)) {
+    if (nombre === 'Read') {
+      if (/\/revision\/V\d{2,3}_(1x1|9x16)_(r\d|vista)\.(png|jpe?g)$/i.test(ruta)) return 'Leyendo los textos de cada imagen';
+      if (archivo === 'plan.json') return 'Repasando el plan del lote';
+      if (/^V\d{2,3}\.json$/.test(archivo)) return 'Repasando cada anuncio';
+    } else if (nombre === 'Write' || nombre === 'Edit' || nombre === 'MultiEdit') {
+      if (archivo === 'plan.json') return 'Armando el plan del lote';
+      if (archivo === 'estrategia.json') return 'Armando la estrategia';
+      if (archivo === 'producto.json') return 'Anotando lo que sabe de tu producto';
+      if (/^V\d{2,3}\.json$/.test(archivo)) return nombre === 'Write' ? 'Escribiendo cada anuncio' : 'Ajustando un anuncio';
+      if (/^R\d{3}\.json$/.test(archivo)) return 'Anotando lo que vio en las imágenes';
+      if (/^A\d{3}\.json$/.test(archivo)) return 'Preparando los cambios que pediste';
+    }
+  }
   if (nombre === 'Read') {
     if (/\.claude\/skills\//.test(ruta)) return 'Leyendo las instrucciones del estilo';
     if (/\/recursos\/esqueletos\//.test(ruta)) return 'Mirando los esqueletos del catálogo';
@@ -501,53 +525,7 @@ function textoDeResultado(c) {
 
 // ---------------------------------------------------------------- sesiones
 
-const activas = new Map(); // uuid -> { control: AbortController, hijo }
-let enCurso = 0;
-const cola = [];
-
-function turno(senal) {
-  return new Promise((resolve) => {
-    if (enCurso < MAX_SESIONES) {
-      enCurso++;
-      return resolve(true);
-    }
-    const espera = { resolve };
-    cola.push(espera);
-    senal.addEventListener('abort', () => {
-      const i = cola.indexOf(espera);
-      if (i >= 0) cola.splice(i, 1);
-      resolve(false);
-    }, { once: true });
-  });
-}
-function soltarTurno() {
-  const siguiente = cola.shift();
-  if (siguiente) siguiente.resolve(true); // el lugar pasa al que esperaba
-  else enCurso = Math.max(0, enCurso - 1);
-}
-
-export const sesionActiva = (uuid) => activas.has(uuid);
-export const sesionesEnCurso = () => ({ trabajando: enCurso, esperando: cola.length, maximo: MAX_SESIONES });
-
-/** Corta una sesion (con todo lo que lanzo). true si habia algo que cortar. */
-export function cancelarSesion(uuid) {
-  const a = activas.get(uuid);
-  if (!a) return false;
-  a.control.abort();
-  if (a.hijo) matar(a.hijo);
-  return true;
-}
-
-/** Termina un proceso y todos los que lanzo (en Windows kill() dejaria vivos sus comandos). */
-export function matar(hijo) {
-  if (!hijo || hijo.exitCode !== null || hijo.signalCode !== null) return; // ya termino: su numero pudo reusarse
-  try {
-    if (WIN && hijo.pid) spawn('taskkill', ['/pid', String(hijo.pid), '/T', '/F'], { windowsHide: true, stdio: 'ignore' }).on('error', () => {});
-    else hijo.kill('SIGKILL');
-  } catch {
-    /* ya no estaba */
-  }
-}
+// activas, enCurso, turno(), soltarTurno(), sesionActiva, sesionesEnCurso, cancelarSesion y matar: en ia/fila.js.
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -583,7 +561,7 @@ export async function lanzarSesion(o) {
   if (!o.prompt) throw new Error('lanzarSesion: falta el prompt');
   if (activas.has(o.uuid)) return { ok: false, error: 'Claude ya está trabajando en esto.', ocupada: true, sesion: o.uuid };
   const control = new AbortController();
-  const entrada = { control, hijo: null };
+  const entrada = { control, hijo: null, tipo: o.tipo || null, conTurno: false };
   activas.set(o.uuid, entrada);
   const alProgreso = typeof o.alProgreso === 'function' ? o.alProgreso : () => {};
   // la senal de quien la lanza (p. ej. Detener en la produccion) corta la sesion con todo lo que lanzo
@@ -608,6 +586,8 @@ export async function lanzarSesion(o) {
     if (enCurso >= MAX_SESIONES) alProgreso('Esperando turno: Claude está terminando otra tarea');
     const conTurno = await turno(control.signal);
     if (!conTurno) return { ok: false, cancelado: true, error: MENSAJES.cancelado, sesion: o.uuid };
+    entrada.conTurno = true;
+    anotarLotes(o.tipo);
     try {
       let modo = o.resume ? 'resume' : 'nueva';
       let r = await correr(o, modo, entrada);
@@ -617,6 +597,7 @@ export async function lanzarSesion(o) {
       else if (!r.ok && !r.cancelado && modo === 'nueva' && r.sesionEnUso) r = await correr(o, (modo = 'resume'), entrada);
       return r;
     } finally {
+      entrada.conTurno = false;
       soltarTurno();
     }
   } finally {

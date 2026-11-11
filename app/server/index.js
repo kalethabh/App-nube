@@ -14,6 +14,9 @@
 // (o con `export default router` si es un express.Router). Usa Express 5: los comodines se
 // escriben con nombre ('/archivos/:slug/*ruta') y un error en una ruta async llega solo al
 // manejador de errores de abajo.
+//
+// Al arrancar, antes de las rutas: la IA elegida (migrarMotor, lib/motor-ia.js). Ya escuchando, en segundo plano:
+// lo de Codex (su config.toml, la carpeta de trabajo vacia y las conversaciones viejas), si se usa o esta instalado.
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,8 +24,42 @@ import { pathToFileURL } from 'node:url';
 import express from 'express';
 import { APP, DIST, RUTAS_API, HOST, PUERTO } from './lib/rutas.js';
 import { hostsPermitidos } from './lib/servidor.js';
+import { migrarMotor, motorElegido } from './lib/motor-ia.js';
 
 const DEV = process.argv.includes('--dev');
+
+// ---------------------------------------------------------------- la IA elegida
+// Antes solo existia Claude: quien ya paso la bienvenida queda con Claude, una sola vez (lo mismo hace
+// app/inicio/preparar-motor.mjs, que corre antes). Con AIA_MOTOR (solo pruebas) la IA ya esta fijada y no se toca
+// config.json.
+if (!process.env.AIA_MOTOR) {
+  const m = migrarMotor();
+  if (m.error) console.error(`  [motor-ia] no pude guardar la IA: ${m.error}`);
+}
+
+/**
+ * Codex (ChatGPT), solo si es la IA elegida o esta instalado: su config.toml propio, la carpeta de trabajo vacia y las
+ * conversaciones de mas de 30 dias. Cada paso por su lado: si uno falla se avisa en la consola y la app sigue. Si el
+ * CODEX_HOME de la app fuera la sesion del propio usuario (~/.codex, solo en pruebas), ahi no se escribe ni se borra.
+ */
+async function prepararCodex() {
+  const rutas = await import('./lib/codex-rutas.js');
+  if (motorElegido() !== 'codex' && !rutas.resolverCodex()) return;
+  const { home } = rutas.carpetasCodex();
+  const delUsuario = rutas.esHomeDelUsuario(home);
+  const paso = async (nombre, fn) => {
+    try {
+      await fn();
+    } catch (e) {
+      console.error(`  [codex] ${nombre}: ${e?.message || e}`);
+    }
+  };
+  if (!delUsuario) await paso('config.toml', () => rutas.asegurarConfigCodex(home));
+  await paso('carpeta de trabajo', () => rutas.vaciarTrabajo());
+  if (!delUsuario && fs.existsSync(path.join(APP, 'server', 'lib', 'codex.js'))) {
+    await paso('conversaciones viejas', async () => (await import('./lib/codex.js')).limpiarHilosViejos?.());
+  }
+}
 
 const app = express();
 app.disable('x-powered-by');
@@ -93,4 +130,5 @@ servidor.listen(PUERTO, HOST, () => {
   console.log(`\n  Kads Studio by Kalethabh ${DEV ? '(desarrollo)' : ''}`);
   console.log(`  Abre http://${HOST}:${PUERTO}`);
   console.log(`  Rutas cargadas: ${cargadas.join(', ')}\n`);
+  prepararCodex().catch((e) => console.error(`  [codex] ${e?.message || e}`));
 });

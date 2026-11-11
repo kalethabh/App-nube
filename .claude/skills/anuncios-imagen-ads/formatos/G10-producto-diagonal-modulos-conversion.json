@@ -1,0 +1,165 @@
+{
+  "id": "G10",
+  "slug": "producto-diagonal-modulos-conversion",
+  "nombre": "Producto en diagonal con rating, urgencia y regalo",
+  "origen": "ganador:589527282_893979252958624_8803664651308230630_n.jpg",
+  "descripcion": "Escena oscura y dramática con luces rojas y azules, humo y siluetas desenfocadas de personas del público disfrutando el producto. Arriba, un titular centrado de 2 líneas en mayúsculas gruesas: el nombre del producto en degradado amarillo-naranja y la característica estrella en blanco cromado. El producto, enorme y girado en diagonal, cruza el lienzo desde arriba a la izquierda hasta abajo a la derecha. A su alrededor van los módulos de conversión: a la izquierda, 5 estrellas, la calificación grande y el número de clientes; debajo, una pastilla roja con la urgencia de la oferta y, abajo a la izquierda, una caja oscura con borde luminoso, ícono de camión y 2 líneas con la condición de envío y el método de pago. Abajo a la derecha, el artículo de regalo con un «+» amarillo y la cantidad grande y una etiqueta de 2 líneas que dice que viene gratis. Estética de acción, energética y de alto contraste.",
+  "angulos_compatibles": ["oferta", "prueba-social", "caracteristica-estrella", "objecion-confianza", "beneficio-principal", "identidad"],
+  "tipos_producto": ["juguete", "gadget", "hogar", "cosmetico", "nutraceutico", "otro"],
+  "ad_format": "Diagonal Product Hero with Conversion Modules Ad",
+  "reference_style": "High-energy dark action-style e-commerce ad: a huge product rotated diagonally across a moody stage lit with red and blue lights, a two-tone metallic headline on top, and conversion modules (rating, limited-offer pill, shipping box and a '+ free bonus' block) wrapped around the product",
+  "art_direction": {
+    "visual_hierarchy": "1) The huge diagonal product crossing the canvas. 2) The two-line headline at the top (product name in the warm gradient, star feature in chrome white). 3) The bonus block at the lower right (bonus item, '+' sign and big quantity). 4) The rating block on the left (stars and big score). 5) The red limited-offer pill. 6) The shipping and payment box at the lower left.",
+    "composition_style": "Dynamic diagonal composition. The headline stack is centered across the top 23% of the canvas. The product's long axis runs at about 35-40 degrees from the upper left (just under the headline, near the left edge) down to the lower right, with its visual mass in the center and center-bottom. The conversion modules fill the two areas left free by the diagonal: the rating, the offer pill and the shipping box stack in the lower-left area (left column, about 5-54% of the width) and the bonus block sits in the lower-right corner (about 73-98% of the width). Blurred silhouettes of people stand behind everything, mainly in the upper-right area and behind the rating block.",
+    "spacing_and_structure": "Headline line 1 from about 3% to 12.5% of the canvas height and line 2 from about 13.5% to 23%, both centered, line 1 up to about 78% of the width and line 2 about 54% wide. Product: spans about 2-80% of the canvas width and 15-97% of the height along the diagonal; its upper-left tip starts just under the headline and its lower part almost reaches the bottom edge. Rating block centered on about 19% of the width: stars row at about 51-55% of the height (about 6-33% of the width), score at about 57-63%, customer-count line at about 64-67%. Offer pill: about 5-46% of the width and 70-78% of the height. Shipping box: about 5-54% of the width and 82.5-96.5% of the height, slightly overlapping the front of the product's lower part. Bonus block in the right column (about 73-98% of the width): bonus item at about 81-97% of the width and 50-70% of the height, '+' sign at about 73-82% of the width and 64-71% of the height, quantity at about 71-80% of the height, two-line 'free' label at about 80-93%. A small loose heap of the bonus spills on the floor at the bottom center (about 57-72% of the width, 86-96% of the height). Outer safe margin about 4-5%.",
+    "lighting_and_depth": "Dark, cinematic, high-contrast stage: near-black background with a strong red light flooding from the left and lower left, a cool blue light from the right and top, light haze or smoke and a dark vignette. The product has glossy highlights, a red rim light on its left edges and a blue rim light on its right edges, with deep shadows in between and a soft contact shadow on the floor. The bonus item glows from within in a cool color. The background people are blurred dark silhouettes lit only by the colored rim lights. All text carries a dark outline and drop shadow with metallic gradients; the offer pill and the shipping box emit a soft red glow."
+  },
+  "layout_summary": "Square canvas with a dark, dramatic scene: red light on the left, blue light on the right, haze and blurred silhouettes of people from the target audience using the product in the background. A two-line uppercase headline is centered at the top: line 1 in a yellow-to-orange gradient, line 2 in chrome white-silver. The user's product, very large and rotated diagonally, crosses the canvas from just under the headline at the upper left to the lower right. On the left, a rating block (five gold stars, a big chrome score and a small customer-count line); below it, a red rounded pill with the limited-offer text; at the lower left, a dark rounded box with a glowing border, a red truck icon and two lines of shipping and payment text. In the lower-right corner, the bonus item glows above a big yellow '+' sign, a large yellow-orange quantity and a two-line chrome label saying it comes free; a small heap of the bonus spills on the floor at the bottom center.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Creates the action, high-energy mood and gives depth behind the product",
+      "adaptation_rule": "Near-black stage with a saturated red light from the left and a blue light from the right, light haze and a dark vignette. Keep it dark and moody for any product; if the palette has a warm and a cool accent, they may replace the red and the blue."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "background people silhouettes",
+      "position": "Mainly the upper-right area (about 65-100% of the width, 10-45% of the height) plus one or two figures behind the rating block on the left; always behind the product and the modules",
+      "visual_function": "Suggests a community of people enjoying the product; adds story and scale",
+      "adaptation_rule": "Two to four strongly blurred people matching the target audience, using or enjoying the user's product (or in the situation where it is used), lit only by the colored rim lights. Faces not detailed; they never compete with the product or cover text."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "product",
+      "position": "Diagonal across the center, from about 2% of the width and 15% of the height (upper-left end) to about 80% of the width and 97% of the height (lower-right end); long axis at about 35-40 degrees",
+      "visual_function": "Main visual anchor; its size and tilt create energy and show exactly what is sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), very large, rotated so its longest axis follows the diagonal from the upper left to the lower right. If the product is compact or round, tilt it about 20-30 degrees and scale it to about 60-65% of the canvas height, centered slightly below the middle, keeping the left column and the lower-right corner free for the modules."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "rating block (stars + score + customer count)",
+      "position": "Left column, centered on about 19% of the width: stars at about 6-33% of the width and 51-55% of the height, score and customer line below down to about 67%",
+      "visual_function": "Social proof that signals approval before the offer is read",
+      "adaptation_rule": "Row of five filled gold stars with a subtle glow, each about 4% of the canvas height, evenly spaced; below, the big score and the customer-count line. Write adapted rating content for the user's product."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "limited-offer pill",
+      "position": "Left column, about 5-46% of the width and 70-78% of the height",
+      "visual_function": "Adds urgency right under the social proof",
+      "adaptation_rule": "Rounded rectangle (corner radius about 1.5% of the canvas) in saturated red or the hottest accent of the palette, with a slightly lighter inner border and a soft red outer glow; text centered. Use the real offer or urgency condition the user gave."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "shipping and payment box",
+      "position": "Lower left, about 5-54% of the width and 82.5-96.5% of the height, slightly overlapping the front of the product's lower part",
+      "visual_function": "Removes the last friction: shipping cost and payment risk",
+      "adaptation_rule": "Dark charcoal rounded rectangle (corner radius about 2%) with a thin metallic bevel border and a red outer glow. On its left, a delivery-truck line icon with speed lines in glowing red, about 13% of the canvas wide; to its right, two lines of text. Use the user's real shipping and payment conditions."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "bonus item",
+      "position": "Right column, about 81-97% of the width and 50-70% of the height, partly behind the '+' sign; a small loose heap of it on the floor at about 57-72% of the width and 86-96% of the height",
+      "visual_function": "Shows the extra the customer receives free with the purchase",
+      "adaptation_rule": "Render the real bonus item the user includes with the purchase (accessory, refill, consumable, extra unit or small extra product), glowing softly from within in a cool color or the palette's cool accent. If the bonus is a consumable or loose pieces, a small heap of it also spills on the floor at the bottom center. Use only a bonus the user actually offers."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "plus sign",
+      "position": "About 73-82% of the width and 64-71% of the height, overlapping the lower-left of the bonus item",
+      "visual_function": "Visually adds the bonus to the product",
+      "adaptation_rule": "Thick bold '+' in the same yellow-to-orange gradient as headline line 1, with a dark outline and drop shadow, about 7% of the canvas tall."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline line 1 (product name)",
+      "reference_position": "Top center, first line, about 3-12.5% of the canvas height",
+      "text_style": "Ultra bold condensed sans-serif, uppercase, about 9-9.5% of the canvas height, 1 line, centered, yellow-to-orange vertical gradient fill with a thin dark outline and dark drop shadow, up to about 78% of the canvas width",
+      "guia_texto": "El nombre o tipo de producto, corto y contundente. De 1 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "headline line 2 (star feature)",
+      "reference_position": "Top center, second line, about 13.5-23% of the canvas height",
+      "text_style": "Same ultra bold condensed sans-serif, uppercase, same size as line 1, 1 line, centered, chrome white-to-silver metallic gradient with a dark outline and drop shadow",
+      "guia_texto": "La característica estrella o el atributo que diferencia al producto según el ángulo. 1 o 2 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "rating score",
+      "reference_position": "Left column, under the stars, centered on about 19% of the width, about 57-63% of the canvas height",
+      "text_style": "Extra bold italic sans-serif, about 6.5% of the canvas height, 1 line, centered, chrome white-silver gradient with a dark drop shadow",
+      "guia_texto": "La calificación promedio del producto con su escala (por ejemplo «4,9/5»). Solo la cifra."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "customer count",
+      "reference_position": "Directly under the score, centered on the same axis, about 64-67% of the canvas height",
+      "text_style": "Medium italic sans-serif, about 2.5% of the canvas height, 1 line, centered, white, wrapped in parentheses",
+      "guia_texto": "La cantidad de clientes contentos, entre paréntesis (por ejemplo «(+1.200 compradores felices)»). De 3 a 5 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "limited-offer text",
+      "reference_position": "Centered inside the red pill",
+      "text_style": "Extra bold italic sans-serif, uppercase, about 4.5% of the canvas height, 1 line, centered, white on the red pill, between opening and closing exclamation marks",
+      "guia_texto": "La urgencia o condición de la oferta (por ejemplo «¡Últimas unidades!» o «¡Solo esta semana!»), entre signos de exclamación. De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "shipping line",
+      "reference_position": "Inside the shipping box, right of the truck icon, top line",
+      "text_style": "Extra bold sans-serif, about 5% of the canvas height, 1 line, left-aligned, white with a subtle shadow",
+      "guia_texto": "La condición de envío real del usuario (por ejemplo «Envío sin costo» o «Envío en 24 h»). De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "payment line",
+      "reference_position": "Inside the shipping box, under the shipping line",
+      "text_style": "Bold uppercase sans-serif, about 2.8% of the canvas height, 1 line, left-aligned, white",
+      "guia_texto": "El método de pago que quita el riesgo (por ejemplo «Pagas al recibir»). De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "bonus quantity",
+      "reference_position": "Right column, under the '+' sign, about 71-80% of the canvas height",
+      "text_style": "Ultra bold condensed sans-serif, about 8-9% of the canvas height, 1 line, centered in the right column, yellow-to-orange gradient with a dark outline and drop shadow (same treatment as headline line 1)",
+      "guia_texto": "La cantidad o el número del bonus (unidades, piezas, mililitros o «2x»). Solo la cifra, 1 palabra."
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "bonus label",
+      "reference_position": "Right column, under the quantity, about 80-93% of the canvas height",
+      "text_style": "Ultra bold condensed sans-serif, uppercase, each line about 6% of the canvas height, max 2 lines, centered in the right column, chrome white-silver gradient with a dark outline and drop shadow",
+      "guia_texto": "Qué es el bonus + que viene gratis con la compra (por ejemplo «recargas incluidas» o «repuestos sin costo»). De 2 a 4 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Dark dramatic background with red light on the left, blue light on the right, haze and blurred silhouettes of people",
+    "The user's product, huge and rotated diagonally from the upper left to the lower right",
+    "Two-line uppercase headline: warm yellow-orange gradient line over a chrome white line",
+    "Rating block on the left: five gold stars, big score and customer-count line",
+    "Red rounded limited-offer pill under the rating",
+    "Dark shipping and payment box with a glowing border and a truck icon at the lower left",
+    "Bonus block at the lower right: glowing bonus item, yellow '+' sign, big quantity and 'free' label"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, struck-through price or discount percentage",
+    "Countdown timer",
+    "Testimonial quotes, review cards or avatars",
+    "Benefit list or feature icons",
+    "Trust seals, guarantee or certification badges",
+    "Full-width bottom bar or banner",
+    "Before/after images",
+    "Extra text blocks beyond the headline and the conversion modules",
+    "Light, pastel or flat solid background",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Escena oscura, casi negra, iluminada con dos luces de color: rojo intenso a la izquierda y azul frío a la derecha (si la marca tiene un acento cálido y uno frío, pueden reemplazarlos). El degradado amarillo-naranja va en la línea 1 del titular, la cantidad del bonus y el «+»; el blanco plateado cromado, en la línea 2, la calificación y el texto del regalo. La pastilla de oferta y el brillo de la caja de envío van en el rojo de acento; las estrellas, en dorado. El producto conserva sus colores reales.",
+  "posicion_logo": null
+}

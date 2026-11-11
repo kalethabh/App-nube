@@ -1,0 +1,142 @@
+{
+  "id": "F18",
+  "slug": "como-funciona",
+  "nombre": "Cómo funciona 1-2-3",
+  "origen": "biblioteca",
+  "descripcion": "Cuadrícula modular de 2x2 que se lee en Z. La celda superior izquierda es un bloque de color de marca con el titular y el producto recortado; las otras tres celdas son fotos cuadradas de los pasos 1, 2 y 3 (tomarlo, usarlo, disfrutar el resultado), cada una con un círculo numerado grande arriba y una etiqueta corta abajo. Elimina la objeción de 'es complicado' y muestra que usarlo es tan simple como 1, 2, 3.",
+  "angulos_compatibles": ["rapido-y-facil", "rutina-uso", "mecanismo-unico", "beneficio-sin-sacrificio", "nueva-oportunidad", "transformacion"],
+  "tipos_producto": ["nutraceutico", "cosmetico", "gadget", "hogar", "juguete", "digital", "servicio"],
+  "ad_format": "How It Works 2x2 Step Grid Ad",
+  "reference_style": "Modern modular how-it-works ad: a 2x2 grid with a brand-colored headline tile holding the product and three square step photos with big number badges and caption chips",
+  "art_direction": {
+    "visual_hierarchy": "1) The headline tile at the top left (headline plus product). 2) The three big number badges, which set the reading order. 3) The step photos. 4) The caption chips at the bottom of each step photo.",
+    "composition_style": "Strict 2x2 modular grid of four equal square cells separated by thin, even gutters, read in a Z pattern: headline tile top-left, step 1 top-right, step 2 bottom-left, step 3 bottom-right. Each step cell repeats the same internal layout (badge top-left, chip bottom-left) so the grid feels like one designed system. No arrows; the numbers carry the order.",
+    "spacing_and_structure": "Outer frame of about 3% of the canvas on every side and gutters of about 2% between cells. Each cell is about 46% x 46% of the canvas: top-left 3-49% of the width and 3-49% of the height; top-right 51-97% and 3-49%; bottom-left 3-49% and 51-97%; bottom-right 51-97% and 51-97%. Cell corner radius about 2% of the canvas. Inside the headline tile: headline from about 7% to 25% of the canvas height and 7% to 45% of the width; product from about 24% to 46% of the width and 26% to 47% of the height, never touching the headline. Inside each step cell: number badge inset about 3% from the cell's top-left corner; caption chip inset about 3% from the cell's bottom-left corner.",
+    "lighting_and_depth": "Flat, clean mosaic with no drop shadows between cells. The three step photos share the same bright, soft daylight, white balance and color grade so they feel like one shoot. The product cutout in the headline tile gets a soft studio key light from the upper left, a subtle rim light and a soft contact shadow on the tile. Badges and chips are flat graphic elements."
+  },
+  "layout_summary": "Square canvas divided into a 2x2 grid of equal rounded square cells on a light frame color. Top-left cell: a solid brand-colored tile with a bold left-aligned headline in its upper part and the user's product, cut out and studio-lit, standing in its lower-right corner. Top-right cell: photo of step 1 (the product picked up or opened). Bottom-left cell: photo of step 2 (the core usage action with the product). Bottom-right cell: photo of step 3 (the result or enjoyment moment, product present). Each step photo has a large solid number badge (1, 2, 3) in its top-left corner and a solid caption chip with a short step name in its bottom-left corner. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "frame and gutters",
+      "position": "Full canvas, visible as a thin outer frame (about 3%) and gutters (about 2%) between the cells",
+      "visual_function": "Holds the grid together and gives it a clean, designed rhythm",
+      "adaptation_rule": "Use the lightest tone of the approved palette (never pure white) as a flat color. No textures."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "headline tile",
+      "position": "Top-left cell, about 3-49% of the canvas width and 3-49% of the canvas height",
+      "visual_function": "Entry point of the Z reading; frames the ad and shows the product",
+      "adaptation_rule": "Solid tile in the main brand color (or a smooth palette gradient), rounded corners, holding the headline and the product cutout."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "headline",
+      "position": "Upper part of the headline tile, left-aligned, about 7-45% of the canvas width and 7-25% of the canvas height",
+      "visual_function": "Frames the ad as a simple process and states the promise of the three steps",
+      "adaptation_rule": "Write a short headline that frames this variation's angle as an easy process (how simple, how fast, or what you get in 3 steps). Max 3 short lines."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "Lower-right corner of the headline tile, about 24-46% of the canvas width and 26-47% of the canvas height",
+      "visual_function": "Shows exactly what is being sold, with full fidelity",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), cut out, front or 3/4 view, about 20-22% of the canvas height, with a soft contact shadow on the tile. For digital products or services, use a generic phone mockup showing the product's main screen or the booking screen."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "step 1 photo",
+      "position": "Top-right cell, about 51-97% of the canvas width and 3-49% of the canvas height",
+      "visual_function": "Starting point: the product in hand, ready to use",
+      "adaptation_rule": "Square photo filling the cell: close-up of the user's product exactly as in the attached product photo, held in a hand or on a surface while being picked up, opened or unboxed. The product must be fully recognizable. Keep the top-left and bottom-left corners of the photo calm for the badge and chip."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "step 2 photo",
+      "position": "Bottom-left cell, about 3-49% of the canvas width and 51-97% of the canvas height",
+      "visual_function": "Shows the core action of using the product",
+      "adaptation_rule": "Square photo filling the cell: the key usage action for this product type (taking it, applying it, wearing it, pressing or plugging it in, opening the app on a phone, booking or receiving the service). Hands and the product in frame; faces optional and cropped. The product must be visible."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "step 3 photo",
+      "position": "Bottom-right cell, about 51-97% of the canvas width and 51-97% of the canvas height",
+      "visual_function": "Payoff: the result or the moment of enjoyment",
+      "adaptation_rule": "Square photo filling the cell: the believable outcome of using the product (a relaxed or satisfied person, the finished result, the tidy space, the product integrated into daily life), with the product present in the scene. No exaggerated effects and no before/after split."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "number badges",
+      "position": "Top-left corner of each step photo, inset about 3% from the cell edges",
+      "visual_function": "Set the reading order instantly",
+      "adaptation_rule": "Three identical solid circles in the brand accent color, about 9% of the canvas width in diameter, with the numbers 1, 2 and 3 in a bold contrasting color."
+    },
+    {
+      "block_id": "block_09",
+      "block_type": "caption chips",
+      "position": "Bottom-left corner of each step photo, inset about 3% from the cell edges, up to about 38% of the canvas width",
+      "visual_function": "Name each step in plain words while keeping the photos clean",
+      "adaptation_rule": "Three identical solid rounded chips in the main brand color or the darkest palette color, about 7-8% of the canvas height, each holding a short step caption in high contrast."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Upper part of the headline tile, left-aligned",
+      "text_style": "Extra bold sans-serif, large (each line about 5.5-6% of the canvas height), max 3 short lines, left-aligned, tight line spacing, maximum contrast against the tile; one key word may use the brand accent color",
+      "guia_texto": "Presenta el uso como un proceso simple y lo conecta con el ángulo: qué logras o qué tan fácil es en 3 pasos. De 3 a 6 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "step numbers",
+      "reference_position": "Inside each circular badge in the top-left corner of each step photo",
+      "text_style": "Bold sans-serif numerals about 5.5% of the canvas height, centered inside each badge, color contrasting with the badge fill",
+      "guia_texto": "Solo los números 1, 2 y 3, uno por insignia. Sin palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "step 1 caption",
+      "reference_position": "Inside the caption chip of the top-right photo",
+      "text_style": "Bold sans-serif, about 3.2% of the canvas height, max 2 lines, left-aligned inside the chip, high contrast against the chip",
+      "guia_texto": "Acción del paso 1 con verbo en imperativo (abre, toma, coloca, descarga, agenda). De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "step 2 caption",
+      "reference_position": "Inside the caption chip of the bottom-left photo",
+      "text_style": "Same style as the step 1 caption: bold sans-serif, about 3.2% of the canvas height, max 2 lines, left-aligned inside the chip",
+      "guia_texto": "La acción principal de uso, con verbo en imperativo y un detalle de tiempo o facilidad si encaja. De 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "step 3 caption",
+      "reference_position": "Inside the caption chip of the bottom-right photo",
+      "text_style": "Same style as the other captions: bold sans-serif, about 3.2% of the canvas height, max 2 lines, left-aligned inside the chip",
+      "guia_texto": "El resultado o beneficio que se siente al final, ligado al ángulo. De 2 a 4 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Strict 2x2 grid of four equal rounded square cells with thin even gutters",
+    "Brand-colored headline tile in the top-left cell with the product cutout",
+    "Three square step photos in Z order (top-right, bottom-left, bottom-right)",
+    "The user's product recognizable in the step 1 photo and visible in steps 2 and 3",
+    "Large solid number badges 1, 2, 3 in the top-left of each step photo",
+    "Solid caption chips in the bottom-left of each step photo"
+  ],
+  "forbidden_additions": [
+    "Arrows or connector lines between cells",
+    "A fourth step, extra cells or a timeline track",
+    "Text outside the cells",
+    "Subheadline, body copy or extra text in the headline tile",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Benefit checklist or icon list",
+    "Before/after split",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca completa en lo gráfico: marco y separadores en el tono más claro de la paleta; la celda del titular en el color principal; insignias numeradas en el color de acento; etiquetas de los pasos en el color principal o el más oscuro. Las fotos de los pasos conservan colores naturales con el mismo tratamiento de color en las tres."
+}

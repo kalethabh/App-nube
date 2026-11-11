@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { tomaDelBroll, listaDeReferencias, esGenerada, esAportada, esLugarDeToma, archivoDeHoja } from './referencias.js';
 import { RAIZ, ESTILOS_HABLADOS } from './config.js';
-import { tieneContinuidad, cadenaDeClips, medirCadena, planearContinuidad } from './continuidad.js';
+import { tieneContinuidad, cadenaDeClips, medirCadena, planearContinuidad, modeloDeCadenaEn } from './continuidad.js';
 // Solo para los estilos hablados: las reglas del montaje (una sola fuente con
 // el plan), la palabra donde cae el check, la velocidad del paso voz y si la
 // medida de un clip es de ESE clip (lineas-habladas.js ya lo carga
@@ -201,7 +201,10 @@ function escribirPlanContinuidad(carpeta, manifiesto) {
   const rutaTiempos = path.join(carpeta, 'audio', 'tiempos.json');
   const tiempos = fs.existsSync(rutaTiempos) ? JSON.parse(fs.readFileSync(rutaTiempos, 'utf8')) : null;
   const dirVideo = path.join(carpeta, 'video');
-  const cadena = cadenaDeClips(manifiesto, { estimar: true, tiempos });
+  // Los clips que faltan se preven con los largos del modelo de la cadena del
+  // anuncio (su modelos.json; sin el, Omni y sus tramos).
+  const modelo = modeloDeCadenaEn(carpeta);
+  const cadena = cadenaDeClips(manifiesto, { estimar: true, tiempos, modelo });
 
   // Los clips de respaldo (para avisar) y los que van mudos por voz colada.
   const leerJson = (ruta) => {
@@ -223,7 +226,7 @@ function escribirPlanContinuidad(carpeta, manifiesto) {
   } else {
     try {
       const largos = fs.existsSync(dirVideo) ? medirCadena(dirVideo, cadena) : new Map();
-      plan = planearContinuidad({ manifiesto, tiempos, largos, respaldo });
+      plan = planearContinuidad({ manifiesto, tiempos, largos, respaldo, modelo });
     } catch (e) {
       porQueSinTiempos = e.message;
     }

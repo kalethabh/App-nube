@@ -60,6 +60,7 @@ import { tieneContinuidad } from './continuidad.js';
 import { estimar } from './estimar-video.js';
 import { construirPlan as planDeVideos } from './generar-videos.js';
 import { brollQueEntranEnCarpeta } from './planear-montaje.js';
+import { leerEleccion } from './modelos-elegidos.js';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 
@@ -81,7 +82,9 @@ const SOLO_IMAGENES = new Set(['continuidad', 'hablado', 'ugc']);
  */
 const VOZ_LA_ELIGE_EL_USUARIO = new Set(['estilo-lego']);
 
-const usd = (cr) => `US$${creditosAUsd(cr).toFixed(2)}`;
+// Sumas de creditos con decimales (4,5 o 15,1 por segundo) sin restos de coma flotante.
+const r2 = (x) => Math.round(x * 100) / 100;
+const usd = (cr) =>`US$${creditosAUsd(cr).toFixed(2)}`;
 const seg = (ms) => `${Math.round(ms / 1000)} s`;
 
 /**
@@ -365,16 +368,18 @@ async function soloPlan({ carpeta, carpetaArg, m, familia, soloTomas, argsTomas,
     console.error(`\n  !  El plan de las imagenes salio con codigo ${rImg.codigo} (arriba dice por que). No sigo.\n`);
     return 1;
   }
-  const costoImg = rImg.salida.match(/Costo:\s+(\d+) creditos = US\$/);
+  // Con decimales (31.5 creditos, 6.5 de saldo): (\d+) leia 0 o solo la parte
+  // entera, y el control de saldo dejaba pasar lo que no alcanzaba.
+  const costoImg = rImg.salida.match(/Costo:\s+([\d.]+) creditos = US\$/);
   const creditosImg = costoImg ? Number(costoImg[1]) : 0;
-  const saldo = rImg.salida.match(/Tu saldo:\s+(\d+) creditos/);
+  const saldo = rImg.salida.match(/Tu saldo:\s+([\d.]+) creditos/);
 
   const rVid = await correrHijo(scripts.estimar, [carpetaArg], { capturar: true });
   if (rVid.codigo !== 0) {
     console.error(`\n  !  La estimacion de los videos salio con codigo ${rVid.codigo} (arriba dice por que). No sigo.\n`);
     return 1;
   }
-  const totalVid = rVid.salida.match(/TOTAL:\s+(\d+) creditos/);
+  const totalVid = rVid.salida.match(/TOTAL:\s+([\d.]+) creditos/);
   let creditosVid = totalVid ? Number(totalVid[1]) : 0;
 
   // Lo que estimar-video cuenta y esta corrida no paga. Con continuidad su
@@ -386,8 +391,10 @@ async function soloPlan({ carpeta, carpetaArg, m, familia, soloTomas, argsTomas,
     // la que generar-imagenes y generar-videos deciden que piden: con unos
     // tiempos de una voz que ya no esta (falta audio/voz.mp3) no decide nada, y
     // las imagenes y los videos cuentan todo el B-roll, igual que lo pedirian.
-    const est = estimar(m, { reglaBroll: brollQueEntranEnCarpeta(m, carpeta) });
-    const enPlan = new Set(planDeVideos(m, { soloTomas }).map((t) => t.id));
+    // Con los modelos de ESTE anuncio (temp/<slug>/modelos.json), como estimar-video y generar-videos.
+    const eleccion = leerEleccion(carpeta);
+    const est = estimar(m, { reglaBroll: brollQueEntranEnCarpeta(m, carpeta), eleccion });
+    const enPlan = new Set(planDeVideos(m, { soloTomas, eleccion }).map((t) => t.id));
     const fuera = { n: 0, cr: 0 };
     const hechos = { n: 0, cr: 0 };
     let cuenta = 0;
@@ -405,17 +412,18 @@ async function soloPlan({ carpeta, carpetaArg, m, familia, soloTomas, argsTomas,
     for (const d of est.detalle) {
       if (!enPlan.has(d.id)) {
         fuera.n++;
-        fuera.cr += d.creditos;
+        fuera.cr = r2(fuera.cr + d.creditos);
       } else if (fs.existsSync(path.join(carpeta, 'video', `${d.id}.mp4`))) {
         hechos.n++;
-        hechos.cr += d.creditos;
-      } else cuenta += d.creditos;
+        hechos.cr = r2(hechos.cr + d.creditos);
+      } else cuenta = r2(cuenta + d.creditos);
     }
     if (fuera.n) notasVid.push(`--tomas ${soloTomas.join(',')}: ${fuera.n} clip(s) no entran (${fuera.cr} creditos menos)`);
     if (hechos.n) notasVid.push(`ya estan en video/ ${hechos.n} clip(s): no se vuelven a pagar (${hechos.cr} creditos menos)`);
     if (fuera.n || hechos.n) creditosVid = cuenta;
   }
 
+  const totalJunto = r2(creditosImg + creditosVid);
   console.log(`\n=== Costo junto — ${path.basename(carpeta)} ===\n`);
   const soloImagenes = !haceVideos(familia, carpeta);
   console.log(`  Imagenes:   ${String(creditosImg).padStart(5)} creditos = ${usd(creditosImg)}`);
@@ -426,9 +434,9 @@ async function soloPlan({ carpeta, carpetaArg, m, familia, soloTomas, argsTomas,
   for (const n of notasVid) console.log(`              ${n}`);
   if (soloImagenes) {
     console.log(`\n  Esta corrida (--si) paga SOLO las imagenes: ${creditosImg} creditos = ${usd(creditosImg)}`);
-    console.log(`  Los videos van despues, por separado (npm run videos). Todo el anuncio: ${creditosImg + creditosVid} creditos = ${usd(creditosImg + creditosVid)}`);
+    console.log(`  Los videos van despues, por separado (npm run videos). Todo el anuncio: ${totalJunto} creditos = ${usd(totalJunto)}`);
   } else {
-    console.log(`  TOTAL:      ${String(creditosImg + creditosVid).padStart(5)} creditos = ${usd(creditosImg + creditosVid)}`);
+    console.log(`  TOTAL:      ${String(totalJunto).padStart(5)} creditos = ${usd(totalJunto)}`);
   }
   if (saldo) {
     const s = Number(saldo[1]);

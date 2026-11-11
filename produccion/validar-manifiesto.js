@@ -35,6 +35,8 @@ import {
   INGREDIENTE_IMAGEN,
   creditosClip,
   creditosAUsd,
+  audioActivo,
+  resolucionPara,
 } from './config.js';
 import {
   tieneContinuidad,
@@ -48,6 +50,19 @@ import { brollQueEntranEnCarpeta } from './planear-montaje.js';
 import { problemaConFotograma } from './fotogramas.js';
 import { repetidas } from './imagenes-repetidas.js';
 import { MOVIMIENTOS_QUIETO, clipDeBiblioteca, duracionDe, modoSinCobro, movimientoQuieto, problemaConClipDeBiblioteca } from './clips-sin-cobro.js';
+// Los modelos de cada anuncio (temp/<slug>/modelos.json): los costos del resumen
+// salen con ellos. Sin ese archivo, los de siempre.
+import {
+  ELECCION_POR_DEFECTO,
+  leerEleccion,
+  cascadaVideo,
+  cascadaDelTrabajo,
+  cascadaImagen,
+  modeloDeCadena,
+  modeloParaClip,
+  primerModeloQueSirve,
+  usaReferencias,
+} from './modelos-elegidos.js';
 
 const MODOS_AUDIO = ['voz_en_off', 'dialogo_nativo', 'musica'];
 // R = bloque UGC "solo referencias, cero frames" (ver validarBloqueR, abajo).
@@ -526,11 +541,17 @@ function validarLugaresR(m, lista, { hayR, E, A }) {
  *
  * Con `carpeta`, marca lo que ya esta en disco: eso no se vuelve a pagar.
  */
-function costoBloquesR(m, lista, { carpeta } = {}) {
+function costoBloquesR(m, lista, { carpeta, eleccion = ELECCION_POR_DEFECTO } = {}) {
   const existe = (rel) => Boolean(carpeta) && fs.existsSync(path.join(carpeta, rel));
-  const precioHoja = PRECIOS.imagen[MODELO_IMAGEN_UGC]?.[RESOLUCION_IMAGEN_UGC] ?? null;
+  // Con los modelos del anuncio: la hoja con el modelo de imagen elegido (si no
+  // es el de siempre) y los bloques con el primero de la cascada de UGC.
+  const imagenElegida = eleccion.imagen !== ELECCION_POR_DEFECTO.imagen ? cascadaImagen(eleccion) : null;
+  const modeloImagen = imagenElegida ? imagenElegida.cascada[0] : MODELO_IMAGEN_UGC;
+  const resolucionImagen = imagenElegida ? imagenElegida.resoluciones[modeloImagen] ?? '1K' : RESOLUCION_IMAGEN_UGC;
+  const modeloVideo = primerModeloQueSirve(cascadaVideo(eleccion, 'ugc', { referencias: true }), { referencias: true });
+  const precioHoja = PRECIOS.imagen[modeloImagen]?.[resolucionImagen] ?? null;
   const creditosDe = (b) =>
-    typeof b.duracion === 'number' ? creditosClip(MODELO_VIDEO_UGC, b.duracion, RESOLUCION_VIDEO).creditos : null;
+    typeof b.duracion === 'number' ? creditosClip(modeloVideo, b.duracion, RESOLUCION_VIDEO).creditos : null;
 
   const hojas = lista.filter(esGenerada).map((r) => {
     const archivo = `img/${archivoDeHoja(r)}`;
@@ -557,10 +578,10 @@ function costoBloquesR(m, lista, { carpeta } = {}) {
   const suma = (xs) => xs.reduce((s, x) => s + (x.creditos ?? 0), 0);
   const pendientes = (xs) => xs.filter((x) => !x.yaExiste);
   return {
-    modeloImagen: MODELO_IMAGEN_UGC,
-    resolucionImagen: RESOLUCION_IMAGEN_UGC,
+    modeloImagen,
+    resolucionImagen,
     precioHojaVerificado: precioHoja !== null,
-    modeloVideo: MODELO_VIDEO_UGC,
+    modeloVideo,
     resolucionVideo: RESOLUCION_VIDEO,
     hojas,
     ...(lugares.length ? { lugares } : {}),
@@ -1548,17 +1569,31 @@ function validarEntrevista(m, lista, { tomasH, E, A }) {
  *
  * Con `carpeta`, marca lo que ya esta en disco: eso no se vuelve a pagar.
  */
-function costoHablado(m, lista, { carpeta } = {}) {
+function costoHablado(m, lista, { carpeta, eleccion = ELECCION_POR_DEFECTO } = {}) {
   const existe = (rel) => Boolean(carpeta) && fs.existsSync(path.join(carpeta, rel));
   // Modelo de imagen del estilo (Sunburst 2K: el de todos los estilos desde el
-  // 2026-10-24, y el de podcast y entrevista desde el 2026-10-13).
-  const delEstilo = modeloImagenDelEstilo(m.estilo);
+  // 2026-10-24, y el de podcast y entrevista desde el 2026-10-13), o el que
+  // eligio el anuncio en Ajustes > Modelos.
+  const delEstilo = eleccion.imagen !== ELECCION_POR_DEFECTO.imagen ? cascadaImagen(eleccion) : modeloImagenDelEstilo(m.estilo);
   const modeloImagen = delEstilo?.cascada?.[0] ?? MODELOS.imagen.principal;
   const resolucionImagen = delEstilo?.resoluciones?.[modeloImagen] ?? '1K';
   const precioImagen = PRECIOS.imagen[modeloImagen]?.[resolucionImagen] ?? null;
-  const modeloVideo = MODELOS.video.principal;
-  const modeloBroll = MODELO_VIDEO_BROLL_POR_ESTILO[m.estilo];
-  const precioBrollSegundo = MODELOS_VIDEO[modeloBroll]?.precio?.[RESOLUCION_VIDEO] ?? null; // sin audio
+  // Las tomas H y el B-roll con el modelo que de verdad los hace (el primero
+  // de su cascada que puede, mirando tambien su tope de duracion, como
+  // generar-videos; sin modelos.json: Omni para las H y Kling para el B-roll, mudo).
+  const modeloDeToma = (t) =>
+    modeloParaClip(cascadaDelTrabajo(eleccion, m, t), { referencias: usaReferencias(t) }, t.duracion, {
+      deSiempre: cascadaDelTrabajo(ELECCION_POR_DEFECTO, m, t),
+    });
+  const modeloBrollDe = (segundos) =>
+    modeloParaClip(cascadaDelTrabajo(eleccion, m, { clase: 'broll' }), {}, segundos, {
+      deSiempre: cascadaDelTrabajo(ELECCION_POR_DEFECTO, m, { clase: 'broll' }),
+    });
+  const modeloVideo = m.tomas.find((t) => t?.tipo === 'H') ? modeloDeToma(m.tomas.find((t) => t?.tipo === 'H')) : MODELOS.video.principal;
+  const modeloBroll = primerModeloQueSirve(cascadaDelTrabajo(eleccion, m, { clase: 'broll' }));
+  const defBroll = MODELOS_VIDEO[modeloBroll];
+  const tablaBroll = defBroll && !audioActivo(modeloBroll, false) ? defBroll.precio : defBroll?.precioConAudio ?? defBroll?.precio;
+  const precioBrollSegundo = defBroll?.cobro === 'por-segundo' ? tablaBroll?.[resolucionPara(modeloBroll, RESOLUCION_VIDEO).nombre] ?? null : null; // sin audio
   const topesBroll = topesBrollHablado(m.estilo);
   const precioIcono = PRECIOS.imagen[MODELO_IMAGEN_ICONOS]?.[RESOLUCION_IMAGEN_ICONOS] ?? null;
   const tieneFrame = (t) => typeof t.frame_inicial === 'string' && t.frame_inicial.trim().length > 0;
@@ -1581,7 +1616,7 @@ function costoHablado(m, lista, { carpeta } = {}) {
   const clips = tomasH.map((t) => {
     const archivo = `video/toma-${t.n}.mp4`;
     const creditos =
-      typeof t.duracion === 'number' && t.duracion > 0 ? creditosClip(modeloVideo, t.duracion, RESOLUCION_VIDEO).creditos : null;
+      typeof t.duracion === 'number' && t.duracion > 0 ? creditosClip(modeloDeToma(t), t.duracion, RESOLUCION_VIDEO).creditos : null;
     // Por ingredientes (entrevista): las imagenes que recibe, en orden.
     const ingredientes = Array.isArray(t.ingredientes) && t.ingredientes.length ? [...t.ingredientes] : null;
     return { n: t.n, duracion: t.duracion, archivo, creditos, yaExiste: existe(archivo), ...(ingredientes ? { ingredientes } : {}) };
@@ -1593,13 +1628,18 @@ function costoHablado(m, lista, { carpeta } = {}) {
       const video = `video/broll-${b.n}.mp4`;
       const segundos =
         Number.isInteger(b.duracion) && b.duracion >= topesBroll.min && b.duracion <= topesBroll.max ? b.duracion : null;
+      const modelo = segundos !== null ? modeloBrollDe(segundos) : modeloBroll;
+      const r = segundos !== null ? creditosClip(modelo, segundos, RESOLUCION_VIDEO, { sonido: false }) : null;
       return {
         n: b.n,
         duracion: b.duracion,
+        modelo,
         imagen,
         video,
         creditosImagen: precioImagen,
-        creditosVideo: segundos !== null && precioBrollSegundo !== null ? precioBrollSegundo * segundos : null,
+        creditosVideo: r ? r.creditos ?? null : null,
+        // El largo esta bien y el modelo lo cubre, pero su precio no esta en config.js.
+        faltaPrecio: Boolean(r && !r.excedeTope && typeof r.creditos !== 'number'),
         imagenExiste: existe(imagen),
         videoExiste: existe(video),
       };
@@ -1635,6 +1675,10 @@ function costoHablado(m, lista, { carpeta } = {}) {
     resolucionImagen,
     precioImagenVerificado: precioImagen !== null,
     modeloVideo,
+    // Todos los modelos de las tomas H (con la eleccion de Grok: 1.5 con frame,
+    // v1 por ingredientes) y si tienen respaldo (sin modelos.json: no).
+    modelosVideo: [...new Set(tomasH.map(modeloDeToma))],
+    tomasConRespaldo: tomasH.some((t) => cascadaDelTrabajo(eleccion, m, t).length > 1),
     resolucionVideo: RESOLUCION_VIDEO,
     modeloBroll,
     precioBrollSegundo,
@@ -1673,7 +1717,11 @@ function validarFotogramas(m, E) {
   for (const r of Array.isArray(m.referencias) ? m.referencias : []) revisar(r.fotograma, `referencia "${r.id}" "fotograma"`);
 }
 
-export function validarManifiesto(m, { carpeta, exigirPasos = false } = {}) {
+export function validarManifiesto(m, { carpeta, exigirPasos = false, eleccion = null } = {}) {
+  // Los modelos del anuncio (temp/<slug>/modelos.json): solo cambian los costos
+  // del resumen y, con continuidad, los largos que se aceptan. Sin el archivo,
+  // los de siempre.
+  const eleccionAnuncio = eleccion ?? (carpeta ? leerEleccion(carpeta) : { ...ELECCION_POR_DEFECTO });
   const errores = [];
   const avisos = [];
   const E = (msg) => errores.push(msg);
@@ -2043,7 +2091,7 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false } = {}) {
 
   // --- continuidad: SOLO si el manifiesto trae el bloque (ver continuidad.js) ---
   const conContinuidad = tieneContinuidad(m);
-  if (conContinuidad) validarContinuidad(m, { carpeta, exigirPasos, E, A });
+  if (conContinuidad) validarContinuidad(m, { carpeta, exigirPasos, E, A, modelo: modeloDeCadena(eleccionAnuncio) });
 
   // --- estilos hablados: SOLO podcast y entrevista (ver validarTomaH y los dos de arriba) ---
   if (esHablado) {
@@ -2129,14 +2177,14 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false } = {}) {
     duracion: Number(duracion.toFixed(1)),
   };
   // Solo en anuncios por bloques: costo estimado con ganchos aparte.
-  if (hayR) resumen.bloquesR = costoBloquesR(m, lista, { carpeta });
+  if (hayR) resumen.bloquesR = costoBloquesR(m, lista, { carpeta, eleccion: eleccionAnuncio });
 
   // Solo en los estilos hablados: cuantos frames se copian de una referencia
   // (no se pagan), cuantos iconos, y el costo con el desglose por tipo.
   if (esHablado) {
     resumen.copias = tomasH.filter((t) => typeof t.frame_inicial === 'string' && t.frame_inicial.trim()).length;
     resumen.iconos = iconosDe(m).length;
-    resumen.hablado = costoHablado(m, lista, { carpeta });
+    resumen.hablado = costoHablado(m, lista, { carpeta, eleccion: eleccionAnuncio });
   }
 
   // Solo con continuidad: los videos son los clips de la cadena (pasos +
@@ -2144,7 +2192,7 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false } = {}) {
   // piden, no hay B-roll, y las hojas que solo usaba el B-roll descartado no
   // se generan.
   if (conContinuidad) {
-    const c = resumenContinuidad(m, { carpeta });
+    const c = resumenContinuidad(m, { carpeta, eleccion: eleccionAnuncio });
     const sinUso = referenciasSoloDelBrollDescartado(m).size;
     resumen.hojasAGenerar -= sinUso;
     resumen.imagenes -= sinUso + resumen.broll;
@@ -2273,18 +2321,19 @@ export function lineasCostoHablado(c) {
     : !conFrame
       ? 'por ingredientes (image_urls, en orden)'
       : `${porIngredientes} por ingredientes y ${conFrame} con frame inicial`;
-  L.push(`    Clips hablados:      ${c.clips.length} con ${c.modeloVideo} a ${c.resolucionVideo}, ${comoSePiden}, sin respaldo`);
+  const modelosH = c.modelosVideo?.length ? c.modelosVideo.join(' y ') : c.modeloVideo;
+  L.push(`    Clips hablados:      ${c.clips.length} con ${modelosH} a ${c.resolucionVideo}, ${comoSePiden}, ${c.tomasConRespaldo ? 'con respaldo si falla' : 'sin respaldo'}`);
   for (const k of c.clips) {
     L.push(fila(k.archivo, k.creditos, `   (${k.duracion}s${k.ingredientes ? `; ${k.ingredientes.join(' + ')}` : ''})${marca(k.yaExiste)}`));
   }
   if (c.broll.length) {
     L.push(
       `    B-roll:              ${c.broll.length}, imagen con ${c.modeloImagen} a ${c.resolucionImagen} (${cu(c.broll[0].creditosImagen)}) ` +
-        `y video con ${c.modeloBroll} a ${c.resolucionVideo}${MODELOS_VIDEO[c.modeloBroll]?.audio?.campo ? ' sin audio' : ''} (${c.precioBrollSegundo ?? '?'} cr/s)`
+        `y video con ${c.modeloBroll} a ${c.resolucionVideo}${MODELOS_VIDEO[c.modeloBroll]?.audio?.campo ? ' sin audio' : ''} (${c.precioBrollSegundo !== null ? `${c.precioBrollSegundo} cr/s` : 'precio por clip'})`
     );
     for (const b of c.broll) {
       L.push(fila(b.imagen, b.creditosImagen, marca(b.imagenExiste)));
-      L.push(fila(b.video, b.creditosVideo, `   (${b.duracion}s)${marca(b.videoExiste)}`));
+      L.push(fila(b.video, b.creditosVideo, `   (${b.duracion}s${b.modelo && b.modelo !== c.modeloBroll ? `, con ${b.modelo}` : ''})${marca(b.videoExiste)}`));
     }
   } else {
     L.push('    B-roll:              ninguno');
@@ -2317,7 +2366,7 @@ export function lineasCostoHablado(c) {
   if (c.iconos.length && !c.precioIconoVerificado) {
     L.push(`    OJO: el precio de ${c.modeloIconos} a ${c.resolucionIconos} no esta verificado y no entra en el total.`);
   }
-  if (c.broll.length && c.precioBrollSegundo === null) {
+  if (c.broll.some((b) => b.faltaPrecio)) {
     L.push(`    OJO: el precio por segundo de ${c.modeloBroll} a ${c.resolucionVideo} no esta en config.js y el video del B-roll no entra en el total.`);
   }
   const conAudio = MODELOS_VIDEO[c.modeloBroll]?.precioConAudio?.[c.resolucionVideo];

@@ -2,6 +2,17 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-11 · Kads Studio
+
+Actualización funcional del paquete 2026-11-10, conservando la marca, los colores, las fuentes y la estructura visual de Kads Studio.
+
+- **Claude o ChatGPT:** conexión e instalación desde Ajustes, con las cuentas del usuario. Los guiones, las revisiones y las herramientas propias respetan la IA elegida.
+- **Anuncios de imagen:** lotes de 1 a 100 anuncios, referencias, logo, versiones cuadradas y verticales, regeneración y descarga individual o en ZIP. El costo se muestra y se confirma antes de generar o regenerar.
+- **Modelos y costos:** selección por categoría en Ajustes y antes de aprobar el guion. Los precios usan la resolución efectiva del motor; se conserva el video final en 1080p y el saldo con semáforo.
+- **Revisión sin gastos automáticos:** los problemas de calidad quedan como avisos. Cada pieza permite descargar, regenerar, contar qué cambiar o aplicar la sugerencia de la revisión, con su costo a la vista.
+- **Editor:** reemplazar clips por videos propios, ajustar velocidad y contenido visible, restaurar el original y descargar el video con los cambios del editor.
+- Se conservan Realista con narrador, subestilos, clonación, Cambiar el producto, Sketch, Más ganchos, biblioteca, aprendizajes, guardado en la nube y los mensajes detallados de errores.
+
 ## 2026-11-08 · App-nube
 
 Lo de IA-VID-AUTOMATIC que le faltaba a esta app, sin cambiar cómo genera (igual de rápido, sin presupuestos ni costos estimados nuevos).

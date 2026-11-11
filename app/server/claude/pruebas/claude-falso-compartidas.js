@@ -49,9 +49,9 @@ function sumar(prompt, frase) {
 
 function revisionImagenes(t) {
   const carpeta = carpetaDe(t);
-  const salida = (t.match(/Escribe (\S+revision\.json), una lista/) || [])[1];
+  const salida = (t.match(/Escribe (.+?revision\.json), una lista/) || [])[1]; // (la ruta puede llevar espacios y tildes)
   const m = manifiestoDe(carpeta);
-  for (const r of [...t.matchAll(/^- toma \d+ \(tipo [ABC]\): (\S+\.png)/gm)].slice(0, 4)) usar('Read', { file_path: r[1] });
+  for (const r of [...t.matchAll(/^- toma \d+ \(tipo [ABC]\): (.+?\.png)/gm)].slice(0, 4)) usar('Read', { file_path: r[1] });
   const lista = [];
   if (process.env.FALSO_REVISION === 'uno') {
     const x = (m.tomas || []).find((y) => y.tipo === 'A' && y.n > 1) || (m.tomas || []).find((y) => ['A', 'C'].includes(y.tipo));
@@ -107,7 +107,7 @@ function revisarClips(t) {
   for (const b of seccion.split(/\n(?=- (?:Toma|B-roll) \d+)/)) {
     const br = b.match(/^\s*- B-roll (\d+)/);
     if (br) {
-      const tira = b.match(/Tira del clip[^:]*: (\S+\.jpg)/);
+      const tira = b.match(/Tira del clip[^:]*: (.+?\.jpg)/);
       if (tira) usar('Read', { file_path: tira[1] });
       const n = Number(br[1]);
       const x = (m.broll || []).find((y) => y.n === n);
@@ -137,7 +137,7 @@ function revisarClips(t) {
     }
     const tm = b.match(/^\s*- Toma (\d+)/);
     if (!tm) continue;
-    const tira = b.match(/Tira del clip[^:]*: (\S+\.jpg)/);
+    const tira = b.match(/Tira del clip[^:]*: (.+?\.jpg)/);
     if (tira) usar('Read', { file_path: tira[1] });
     const n = Number(tm[1]);
     const x = (m.tomas || []).find((y) => y.n === n);

@@ -34,6 +34,8 @@
 //   UGC (revisar-persona, revisar-clips, rechazo)           claude-falso-ugc.js       (FALSO_UGC_CONFIG=<.json>)
 //   voz en off y continuidad (revisar las imagenes), objeto parlante (rechazo, revisar-clips)
 //                                                           claude-falso-compartidas.js (FALSO_REVISION=uno)
+//   anuncios de imagen (imagen-ads-estrategia, -prompts, -revision, -ajuste)
+//                                                           claude-falso-imagen-ads.js (FALSO_IMAGEN_ADS=ok|mal|bloqueo|limite)
 // La ficha y lo que no tiene falso propio lo hace este.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -282,6 +284,7 @@ function especialista(texto) {
   if (process.env.FALSO_DESPACHADO) return null;
   const tarea = (String(texto).match(/^TAREA: ([^\n]+)/m) || [])[1] || '';
   if (!tarea || /^ficha\b/.test(tarea)) return null;
+  if (/^imagen-ads-/.test(tarea)) return 'claude-falso-imagen-ads.js';
   if (/^(guion|cambios)\b/.test(tarea)) return MODOS_DE_ESTILOS.has(modo(tarea.split(/\s/)[0])) ? 'claude-falso-estilos.js' : null;
   if (/^continuidad-/.test(tarea)) return 'claude-falso-continuidad.js';
   if (/^rehacer\b/.test(tarea)) return 'claude-falso-rehacer.js';

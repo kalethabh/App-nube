@@ -1,0 +1,142 @@
+{
+  "id": "F29",
+  "slug": "portada-revista",
+  "nombre": "Portada editorial",
+  "origen": "biblioteca",
+  "descripcion": "Anuncio con estética de portada de revista de moda o estilo de vida: una palabra enorme tipo cabecera (masthead) cruza todo el ancho superior, la persona con el producto (o el producto como estrella) llena el encuadre y su cabeza tapa parte de las letras, y a la izquierda se apilan un titular de portada principal y dos titulares secundarios. Detalles editoriales pequeños: línea de edición y un sello circular. Se siente aspiracional, con autoridad y de alto nivel.",
+  "angulos_compatibles": ["autoridad", "identidad", "curiosidad", "nueva-oportunidad", "romper-expectativas", "promesa-emocional"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Editorial Magazine Cover Ad",
+  "reference_style": "High-end fashion and lifestyle magazine cover adapted to a square ad: oversized masthead word across the top, a single cover subject in editorial studio light overlapping the masthead, and 2-3 cover lines in classic cover typography",
+  "art_direction": {
+    "visual_hierarchy": "1) The oversized masthead word across the top. 2) The cover subject (a person holding or using the product, or the product itself as the cover star) filling the frame and overlapping the masthead. 3) The main cover line, large, in the lower-left. 4) Two smaller secondary cover lines in the left column. 5) The issue line and the circular cover sticker as small details.",
+    "composition_style": "Full-bleed cover layout. The cover subject is centered to slightly right, framed from the chest or waist up (or the product shot large from a slightly low angle), filling about 70-80% of the canvas height and running off the bottom edge. The masthead spans about 88% of the canvas width across the top and the subject's head (or the top of the product) overlaps the lower third of the masthead letters, creating the classic magazine depth effect. Cover lines are stacked left-aligned in the left 35-40% of the canvas, in the free space beside the subject. A small circular sticker sits on the right side.",
+    "spacing_and_structure": "Masthead from about 4% to 21% of the canvas height. Issue line as a thin single line directly under the masthead, left-aligned, at about 22-24%. Two secondary cover lines stacked in the left column between about 32% and 62% of the canvas height. Main cover line in the lower-left, from about 70% to 92%. Circular sticker about 14% of the canvas width on the right side at about 55-70% of the canvas height. Tight editorial margins of about 4-5%. No text ever covers the face or the product.",
+    "lighting_and_depth": "Editorial beauty and fashion lighting: a large soft frontal key (beauty dish or octabox) slightly above the subject, gentle fill, a subtle hair/rim light that separates the subject from the backdrop. Clean seamless studio backdrop in a brand color with a soft vignette. Crisp high-detail skin, fabric and product texture with a glossy print-like finish and rich contrast. For product-only covers: dramatic studio key light, polished reflections and a soft shadow on a seamless colored backdrop."
+  },
+  "layout_summary": "Square canvas styled as a premium magazine cover. A huge single-word masthead runs across the top. Beneath and in front of it, the cover subject, a person holding the user's product near the face or chest (or the product alone as the hero), stands on a seamless brand-colored studio backdrop, the head overlapping the bottom of the masthead letters. A thin issue line sits under the masthead on the left. Two short secondary cover lines are stacked in the left column and a large main cover line anchors the lower-left. A small circular sticker sits on the right side.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Seamless studio backdrop that gives the editorial, high-fashion feel",
+      "adaptation_rule": "Seamless paper backdrop in the brand's main color or a refined neutral from the palette, with a soft vignette. No set props or environment."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "masthead",
+      "position": "Top, spanning about 88% of the canvas width, from about 4% to 21% of the canvas height; partially behind the subject's head",
+      "visual_function": "Makes the ad read instantly as a magazine cover and carries the core idea in one word",
+      "adaptation_rule": "One single invented word tied to the angle or the main benefit, set very large. Never the name or look of a real magazine. The subject's head or the product's top overlaps the lower third of the letters, with the letters staying readable."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "cover subject (person, OPTIONAL per batch plan)",
+      "position": "Center to slightly right (about 34-94% of the canvas width), framed from the chest or waist up, head top at about 12-16% of the canvas height, running off the bottom edge",
+      "visual_function": "Human, aspirational face of the cover that the audience identifies with",
+      "adaptation_rule": "Decide in the batch plan (scene field) between a person cover and a product-only cover. Default to a person for products used on or by people (cosmetics, clothing, nutraceuticals, services, courses) and to product-only for gadgets, home and objects, unless the plan says otherwise. Person: a model matching the user's target audience (age, gender, style), confident editorial pose, looking at the camera, holding or using the product near the face or chest so it is clearly visible. Product-only: omit the person, enlarge the product block to fill this space and add 'people or faces' to the final exclusions."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "product",
+      "position": "In the subject's hands near the face or chest; or, in a product-only cover, large and centered, about 60-70% of the canvas height, overlapping the masthead",
+      "visual_function": "Shows exactly what is being sold as the star of the cover",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), with its label facing the camera. With a person, make it large enough to read clearly (at least 18-22% of the canvas height). Without a person, shoot it heroically from a slightly low angle. For digital products or services, the person holds a phone or tablet showing the attached image unchanged, screen facing the camera."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "issue line",
+      "position": "Directly under the masthead, left-aligned, at about 22-24% of the canvas height",
+      "visual_function": "Small editorial detail that sells the magazine illusion",
+      "adaptation_rule": "One thin line of tiny caps text with a theme related to the angle."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "secondary cover lines (2)",
+      "position": "Left column, stacked between about 32% and 62% of the canvas height",
+      "visual_function": "Adds curiosity and supporting benefits in classic cover-line style",
+      "adaptation_rule": "Two short cover lines, each with a bold kicker (word or number) on top and a short description under it, based on the user's benefits or features."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "main cover line",
+      "position": "Lower-left, from about 70% to 92% of the canvas height, left 40-45% of the canvas width",
+      "visual_function": "The big promise or revelation of the cover; the main hook of the angle",
+      "adaptation_rule": "Write the angle's main hook as a magazine cover headline. Keep it short so it fits in max 3 lines."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "circular cover sticker",
+      "position": "Right side, about 14% of the canvas width, at about 55-70% of the canvas height, beside the subject's shoulder or the product, never over the face or the product",
+      "visual_function": "Editorial burst that adds exclusivity and a pop of accent color",
+      "adaptation_rule": "Solid circle or starburst in the brand accent color with 1-2 short editorial words."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "masthead word",
+      "reference_position": "Top, full width, partially overlapped by the cover subject",
+      "text_style": "Ultra-bold, tightly kerned display type in all caps, about 15-17% of the canvas height, 1 line, stretched to span about 88% of the canvas width, solid color with strong contrast against the backdrop. This is the one layer that may leave the brand typeface: a high-contrast Didone-style fashion serif gives the strongest cover look; if the brand typography is mandatory, use the brand title font in its heaviest weight, condensed and tightly kerned. All other text layers use the brand typography",
+      "guia_texto": "Una sola palabra inventada tipo nombre de revista ligada al ángulo o al beneficio (ej. 'GLOW', 'ENERGÍA', 'CALMA'), de 4 a 9 letras. Nunca el nombre de una revista real."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "issue line",
+      "reference_position": "Directly under the masthead, left aligned",
+      "text_style": "Tiny caps sans-serif, about 1.8-2% of the canvas height, wide letter spacing, 1 line, left aligned, medium contrast",
+      "guia_texto": "Línea de edición tipo revista, 3 a 6 palabras (ej. 'Edición especial · Rutina de verano'). Sin fechas reales ni precios."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "secondary cover line 1",
+      "reference_position": "Left column, upper position (about 32-45% of the canvas height)",
+      "text_style": "Bold kicker word or number in the brand accent (about 4% of the canvas height) above a regular-weight description (about 2.5% of the canvas height), max 2 lines in total for the description, left aligned",
+      "guia_texto": "Titular secundario 1: un beneficio o dato curioso en 3 a 6 palabras, que puede empezar con un número o palabra gancho."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "secondary cover line 2",
+      "reference_position": "Left column, lower position (about 48-62% of the canvas height)",
+      "text_style": "Same style as secondary cover line 1: bold accent kicker above a short regular description, max 2 lines for the description, left aligned",
+      "guia_texto": "Titular secundario 2: otro beneficio, característica o rutina en 3 a 6 palabras, distinto del anterior."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "main cover line",
+      "reference_position": "Lower-left",
+      "text_style": "Extra bold sans-serif (brand title font), large (each line about 6-7% of the canvas height), max 3 lines, left aligned within the left 42% of the canvas, maximum contrast; one key word in the brand accent color",
+      "guia_texto": "La gran promesa o revelación del ángulo escrita como titular de portada, en 3 a 6 palabras (cabe en 3 líneas cortas en la columna izquierda)."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "cover sticker",
+      "reference_position": "Inside the circular sticker on the right side",
+      "text_style": "Extra bold caps sans-serif, about 2.8-3.2% of the canvas height, max 2 lines, centered, high contrast on the accent circle",
+      "guia_texto": "1 a 2 palabras editoriales (ej. 'NUEVO', 'EXCLUSIVO', 'EDICIÓN LIMITADA')."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Oversized single-word masthead spanning the top of the canvas",
+    "Cover subject (person with the product, or the product alone) overlapping the bottom of the masthead letters",
+    "The user's product clearly visible with its label facing the camera",
+    "Seamless brand-colored studio backdrop with editorial lighting",
+    "Left-aligned stack of cover lines in the left column",
+    "Small circular cover sticker on the right side"
+  ],
+  "forbidden_additions": [
+    "Real magazine names, mastheads or signature cover frames",
+    "Barcode, cover price or website URL",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "More than three cover lines",
+    "Benefit icons or checklists",
+    "Page numbers, dates or publisher marks",
+    "Bottom bar or banner",
+    "Logos or brand marks",
+    "Text covering the face or the product"
+  ],
+  "notas_paleta": "Paleta de marca completa con lógica editorial: el fondo de estudio usa el color principal o un neutro de la paleta, el masthead usa el color de mayor contraste (o el acento si destaca), y las palabras clave de los titulares y el sello usan el acento. Máximo tres colores en la tipografía para que se sienta revista premium."
+}

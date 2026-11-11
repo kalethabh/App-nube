@@ -2,10 +2,14 @@
 // cualquier familia que la use (objeto parlante, podcast y entrevista; UGC no lleva B-roll).
 //
 // Un B-roll no tiene frase ni pasa por el transcriptor: Claude lo mira por como se ve (su tira qa/broll-N.jpg y su
-// imagen) y, si esta mal, escribe su prompt de video nuevo (y el de su imagen, si el problema ya esta ahi). La app lo
-// rehace sola, SOLO ese B-roll (ninguna toma), con su propio tope, y con lo que el motor ya sabe de cada estilo (que
-// modelo, con o sin sonido: generar-videos.js, construirPlan). Un B-roll que no entra en el video no se mira ni se
-// pide (la regla del motor, broll.js / planear-montaje.js: brollQueEntran).
+// imagen) y, si esta mal, escribe su prompt de video nuevo (y el de su imagen, si el problema ya esta ahi). Un B-roll
+// que no entra en el video no se mira ni se pide (la regla del motor, broll.js / planear-montaje.js: brollQueEntran).
+//
+// Todo al primer intento (decision de Diego, 2026-11-09): lo que ve la IA queda como un AVISO en ese B-roll
+// (lib/avisos.js, vid:broll-N), con su prompt nuevo como sugerencia; la app ya NO lo rehace sola. rehacerBroll queda
+// solo para terminar un pedido que una version anterior de la app dejo a mitad (ya respaldado o ya pagado): rehace SOLO
+// ese B-roll (ninguna toma), con su propio tope, y con lo que el motor ya sabe de cada estilo (que modelo, con o sin
+// sonido: generar-videos.js, construirPlan).
 //
 //   TOPE_BROLL                          cuantas veces se rehace como mucho un B-roll en la revision de clips
 //   vecesDeBroll(est)                   cuantas veces ya se rehizo (o se esta rehaciendo) en ESTA revision
@@ -17,7 +21,7 @@
 //   cuentasDeBroll(valor, { mostrados, conPedido, alTope, errores })   bien_broll / mal_broll y que no falte ninguno
 //   rehacerBroll(ctx, { p, est, ... })  aplica el pedido y lo genera (fases, para retomar sin pagar dos veces)
 //   resumenDeBroll(estados)             { rehechos, quedanMal } para la nota del paso y el informe
-//   detalleDeBrollMal(quedanMal, tope)  el texto del informe para los que quedaron mal
+//   detalleDeBrollMal(quedanMal, tope)  el texto del informe para los que la IA vio mal (de un anuncio sin avisos)
 //
 // El tope se cuenta en el estado de cada B-roll en la revision (est.veces), ANTES de pagar: no en
 // conductor.rehechos['broll-N'], que tambien suma la revision de las imagenes cuando rehace la imagen de un B-roll.
@@ -405,13 +409,14 @@ export function resumenDeBroll(estados = {}) {
   return { rehechos: rehechos.sort(orden), quedanMal: quedanMal.sort(orden) };
 }
 
-/** El texto del informe para los B-roll que quedaron mal (los de resumenDeBroll().quedanMal), en palabras sencillas. */
+/**
+ * El texto del informe para los B-roll que la IA vio mal (los de resumenDeBroll().quedanMal), en palabras sencillas.
+ * La app no los rehace sola: el usuario decide. (`tope` queda por compatibilidad: ya no se dice.)
+ */
 export function detalleDeBrollMal(quedanMal, tope = TOPE_BROLL) {
   const uno = quedanMal.length === 1;
-  const hasta = tope === 1 ? 'una vez' : `hasta ${tope} veces`;
-  const mirar = uno ? 'Míralo: si te molesta, rehazlo o quítalo desde el editor.' : 'Míralos: si te molestan, rehazlos o quítalos desde el editor.';
+  const mirar = uno ? 'Míralo: si te molesta, regenéralo desde el proceso o quítalo desde el editor.' : 'Míralos: si te molestan, regenéralos desde el proceso o quítalos desde el editor.';
   const noSePudo = quedanMal.filter((x) => x.como === 'no-se-pudo').length;
-  if (noSePudo === quedanMal.length) return uno ? `La IA lo vio mal, pero la app no pudo hacerlo de nuevo. ${mirar}` : `La IA los vio mal, pero la app no pudo hacerlos de nuevo. ${mirar}`;
-  if (!noSePudo) return uno ? `La IA lo vio mal y la app no lo pudo arreglar sola (se rehace ${hasta}). ${mirar}` : `La IA los vio mal y la app no los pudo arreglar sola (cada uno se rehace ${hasta}). ${mirar}`;
-  return `La IA los vio mal y la app no los pudo arreglar sola: ${noSePudo === 1 ? 'uno no se pudo hacer de nuevo' : `${noSePudo} no se pudieron hacer de nuevo`} y ${quedanMal.length - noSePudo === 1 ? 'otro siguió igual' : 'los otros siguieron igual'} después de rehacerse ${hasta}. ${mirar}`;
+  if (noSePudo === quedanMal.length) return uno ? `La IA lo vio mal y no se pudo hacer de nuevo. ${mirar}` : `La IA los vio mal y no se pudieron hacer de nuevo. ${mirar}`;
+  return uno ? `La IA lo vio mal. ${mirar}` : `La IA los vio mal. ${mirar}`;
 }

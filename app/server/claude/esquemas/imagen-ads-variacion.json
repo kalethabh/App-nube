@@ -1,0 +1,24 @@
+{
+  "$comment": "V##.json de un lote de anuncios de imagen: el AD_CREATIVE_SCHEMA de la skill (PASO 5), solo con lo que el motor necesita para armar el prompt. app_nota_vertical es de la app (inglés, corto).",
+  "type": "object",
+  "required": ["ad_info", "global_identity", "visual_prompt", "text_layers", "mandatory_visual_elements", "final_generation_exclusions", "reference_structure_analysis", "language_rule"],
+  "properties": {
+    "ad_info": { "type": "object", "required": ["variation_id"], "properties": { "variation_id": { "type": "string" } } },
+    "global_identity": {
+      "type": "object",
+      "required": ["color_palette", "text_typography"],
+      "properties": { "color_palette": { "type": "string", "minLength": 1 }, "text_typography": { "type": "string", "minLength": 1 } }
+    },
+    "visual_prompt": { "type": "string", "minLength": 200 },
+    "text_layers": { "type": "array", "items": { "type": "object", "required": ["text"], "properties": { "text": { "type": "string" } } } },
+    "mandatory_visual_elements": { "type": "array" },
+    "final_generation_exclusions": { "type": "array" },
+    "reference_structure_analysis": {
+      "type": "object",
+      "required": ["forbidden_additions"],
+      "properties": { "forbidden_additions": { "type": "array" }, "detected_visual_blocks": { "type": "array" } }
+    },
+    "language_rule": { "type": "string", "minLength": 1 },
+    "app_nota_vertical": { "type": "string", "maxLength": 600 }
+  }
+}

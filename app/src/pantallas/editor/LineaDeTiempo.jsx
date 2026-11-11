@@ -5,11 +5,13 @@
 // El cabezal y el reloj se mueven tocando el DOM directo (no con estado de React), así la línea de
 // tiempo no se vuelve a dibujar 30 veces por segundo mientras el video se reproduce.
 //
-// Como en CapCut: una pieza se arrastra para moverla (las tomas cambian de lugar; el B-roll, los textos y la
-// música se corren en el tiempo) y sus bordes para recortarla. Mientras se arrastra, la pantalla dibuja el
-// resultado (cortes.js) y al soltar lo guarda como un solo paso del historial. La voz no se mueve.
+// Como en CapCut: una pieza se arrastra para moverla (las escenas cambian de lugar; las imágenes de apoyo, los textos y
+// la música se corren en el tiempo) y sus bordes para recortarla. Con Alt (o en un clip que no se mueve, como tu
+// video en continuidad), arrastrar DESLIZA su contenido: cambia qué parte del clip se ve sin mover su lugar. Mientras
+// se arrastra, la pantalla dibuja el resultado (cortes.js) y al soltar lo guarda como un solo paso del historial. La
+// voz no se mueve.
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import { AudioLines, Captions, Clapperboard, Diamond, Eye, EyeOff, Film, Lock, Maximize2, MousePointerClick, Music, Plus, Scissors, Snowflake, Trash2, Type, Upload, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
+import { AudioLines, Captions, Clapperboard, Diamond, Eye, EyeOff, Film, Lock, Maximize2, MousePointerClick, Music, Plus, ScanEye, Scissors, Snowflake, Trash2, Type, Upload, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
 import { Tooltip } from '../../componentes/index.js';
 import { codigoDeTiempo } from '../../datos/formato.js';
 import { FPS, nombreDeQuienHabla } from './modelo.js';
@@ -87,8 +89,8 @@ function OndaLarga({ datos, ancho, alto, segundos, tAudio = 0, repetir, color, e
 // ---------------------------------------------------------------- un clip (botón) de una pista
 
 /**
- * arrastre (opcional) = { mover: bool, bordes: bool | { inicio, fin }, empezar(e, item, modo) }
- *   modo: 'mover' (la pieza entera) | 'inicio' | 'fin' (un borde)
+ * arrastre (opcional) = { mover: bool, bordes: bool | { inicio, fin }, deslizar: bool, empezar(e, item, modo) }
+ *   modo: 'mover' (la pieza entera) | 'inicio' | 'fin' (un borde) | 'deslizar' (su contenido: con Alt, o si no se mueve)
  */
 function Pieza({ pista, item, pps, seleccionado, onTocar, onDobleClic, className = '', children, titulo, arrastre = null }) {
   const left = PAD + item.inicio * pps;
@@ -100,17 +102,18 @@ function Pieza({ pista, item, pps, seleccionado, onTocar, onDobleClic, className
     onTocar?.(e, item);
     if (modo) arrastre.empezar(e, item, modo);
   };
+  const modoAlTocar = (e) => (arrastre?.deslizar && (e.altKey || !arrastre.mover) ? 'deslizar' : arrastre?.mover ? 'mover' : null);
   return (
     <button
       type="button"
-      className={`lt-pieza lt-pieza--${pista} ${seleccionado ? 'es-sel' : ''} ${arrastre?.mover ? 'es-movible' : ''} ${className}`}
+      className={`lt-pieza lt-pieza--${pista} ${seleccionado ? 'es-sel' : ''} ${arrastre?.mover ? 'es-movible' : ''} ${arrastre?.deslizar && !arrastre.mover ? 'es-deslizable' : ''} ${className}`}
       style={{ left, width }}
       title={titulo}
       aria-label={titulo}
       aria-pressed={seleccionado}
       data-id={item.id}
       data-ancho={width < 40 ? 'chico' : width < 90 ? 'medio' : 'grande'}
-      onPointerDown={(e) => empezar(e, arrastre?.mover ? 'mover' : null)}
+      onPointerDown={(e) => empezar(e, modoAlTocar(e))}
       onDoubleClick={(e) => {
         e.stopPropagation();
         onDobleClic?.(e, item);
@@ -168,6 +171,27 @@ function Envolvente({ tramo, plan, pps, alto, volumen = 1 }) {
       <path d={`${d} L${ancho},${alto} L0,${alto} Z`} className="lt-envolvente__area" />
       <path d={d} className="lt-envolvente__linea" />
     </svg>
+  );
+}
+
+/**
+ * Lo que le cambiaste al clip: «Tu video» y la velocidad («1,5×»), arriba a la derecha de la pieza. Y si la revisión
+ * notó algo en ese clip (`aviso`), el ojo ámbar (como en el proceso): se ve sin tener que tocarlo.
+ */
+function ChipsClip({ item, aviso = null }) {
+  const v = item.ajuste?.velocidad;
+  const conVelocidad = v !== null && v !== undefined && Math.abs(v - 1) > 0.001;
+  if (!item.reemplazado && !conVelocidad && !aviso) return null;
+  return (
+    <span className="lt-pieza__chips" aria-hidden="true">
+      {aviso ? (
+        <span className="lt-pieza__chip lt-pieza__chip--aviso">
+          <ScanEye size={10} strokeWidth={2.6} />
+        </span>
+      ) : null}
+      {item.reemplazado ? <span className="lt-pieza__chip">Tu video</span> : null}
+      {conVelocidad ? <span className="lt-pieza__chip lt-pieza__chip--suave">{String(Math.round(v * 100) / 100).replace('.', ',')}×</span> : null}
+    </span>
   );
 }
 
@@ -238,6 +262,9 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
   const anclaZoom = useRef(null);
   const anchoCarril = useAncho(carrilRef);
   const dur = pistas.duracion;
+  // lo que notó la revisión en el clip de una pieza (no en tu video: ese aviso es del clip de la app, que ahí no va)
+  const avisoDe = (x) => (x.pieza && !x.reemplazado ? acciones?.reh?.porPieza?.[x.pieza]?.aviso || null : null);
+  const conAviso = (x) => (avisoDe(x) ? ` (la revisión notó: ${avisoDe(x).texto})` : '');
 
   const ajuste = Math.max(2, (anchoCarril - PAD - 48) / dur);
   const maxZoom = Math.max(2, 240 / ajuste);
@@ -271,7 +298,10 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
       const x0 = e.clientX;
       let activo = false;
       let dt = 0;
-      const op = (extra) => ({ tipo: modo === 'mover' ? 'mover' : 'recortar', borde: modo === 'mover' ? undefined : modo, pista, id: item.id, ...extra });
+      const op = (extra) =>
+        modo === 'deslizar'
+          ? { tipo: 'deslizar', pista, id: item.id, ...extra }
+          : { tipo: modo === 'mover' ? 'mover' : 'recortar', borde: modo === 'mover' ? undefined : modo, pista, id: item.id, ...extra };
       const quitar = () => {
         window.removeEventListener('pointermove', mover);
         window.removeEventListener('pointerup', soltar);
@@ -303,8 +333,15 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
   const cortes = pistas.cortes || {};
   const arrastreDe = (pista, item) => {
     if (!onArrastrar) return null;
-    if (pista === 'video') return cortes.tomas ? { mover: true, bordes: { inicio: pistas.video[0]?.id !== item.id, fin: pistas.video[pistas.video.length - 1]?.id !== item.id }, empezar: empezarPieza('video') } : null;
-    if (pista === 'broll') return cortes.brolls && item.editable ? { mover: true, bordes: true, empezar: empezarPieza('broll') } : null;
+    const deslizar = Boolean(item.puede?.deslizar);
+    if (pista === 'video') {
+      if (cortes.tomas) return { mover: true, bordes: { inicio: pistas.video[0]?.id !== item.id, fin: pistas.video[pistas.video.length - 1]?.id !== item.id }, deslizar, empezar: empezarPieza('video') };
+      return deslizar ? { mover: false, deslizar: true, empezar: empezarPieza('video') } : null;
+    }
+    if (pista === 'broll') {
+      if (cortes.brolls && item.editable) return { mover: true, bordes: true, deslizar, empezar: empezarPieza('broll') };
+      return deslizar && !item.quitado ? { mover: false, deslizar: true, empezar: empezarPieza('broll') } : null;
+    }
     if (pista === 'textos') return item.editable ? { mover: true, bordes: true, empezar: empezarPieza('textos') } : null;
     if (pista === 'musica') return { mover: true, bordes: true, empezar: empezarPieza('musica') };
     return null;
@@ -484,7 +521,7 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
         </div>
         <p className="lt__pista-ayuda">
           <MousePointerClick size={14} strokeWidth={2} aria-hidden="true" />
-          Arrastra un clip para moverlo y sus bordes para recortarlo
+          Arrastra un clip para moverlo y sus bordes para recortarlo; con Alt, deslizas lo que se ve
         </p>
         <div className="lt__zoom">
           <Tooltip texto={<>Alejar <kbd>−</kbd></>}>
@@ -548,7 +585,7 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
           />
           <Cabecera
             icono={Clapperboard}
-            nombre="B-roll"
+            nombre="Apoyo"
             tono="broll"
             alto={ALTOS.broll}
             alternar={
@@ -556,7 +593,7 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
                 ? {
                     icono: broll.some((b) => !b.quitado) ? Eye : EyeOff,
                     apagado: broll.every((b) => b.quitado || !b.removible),
-                    texto: broll.some((b) => !b.quitado && b.removible) ? 'Quitar todos los B-roll' : 'Volver a poner los B-roll',
+                    texto: broll.some((b) => !b.quitado && b.removible) ? 'Quitar todas las imágenes de apoyo' : 'Volver a poner las imágenes de apoyo',
                     onClick: acciones.alternarBrolls,
                   }
                 : null
@@ -651,19 +688,20 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
                       onTocar={tocarPieza('broll')}
                       arrastre={arrastreDe('broll', b)}
                       className={`${b.quitado ? 'es-quitado' : ''} ${b.tipo === 'reaccion' ? 'es-reaccion' : ''}`}
-                      titulo={`${b.nombre}${b.texto ? `: ${b.texto}` : ''}${b.quitado ? ' (oculto)' : ''}${b.quieto ? ` (se ve quieto ${String(b.quieto).replace('.', ',')} s al final)` : ''}`}
+                      titulo={`${b.nombre}${b.texto ? `: ${b.texto}` : ''}${b.reemplazado ? ' (tu video)' : ''}${b.quitado ? ' (oculto)' : ''}${b.quieto ? ` (se ve quieta ${String(b.quieto).replace('.', ',')} s al final)` : ''}${conAviso(b)}`}
                     >
                       <span className="lt-pieza__tira" style={{ backgroundImage: `url("${b.miniatura}")` }} />
                       <span className="lt-pieza__etiqueta">
                         {b.quitado ? <EyeOff size={10} strokeWidth={2.6} aria-hidden="true" /> : null}
                         {b.nombre}
                       </span>
+                      <ChipsClip item={b} aviso={avisoDe(b)} />
                       {b.quieto && !b.quitado ? <Quieto segundos={b.quieto} /> : null}
                     </Pieza>
                   ))
                 ) : (
                   <span className="lt-carril__nada" style={{ left: PAD }}>
-                    {pistas.familia === 'continuidad' ? 'Con continuidad no hay B-roll: cada escena se transforma en la siguiente' : 'Este anuncio no lleva B-roll'}
+                    {pistas.familia === 'continuidad' ? 'Con continuidad no hay imágenes de apoyo: cada escena se transforma en la siguiente' : 'Este anuncio no lleva imágenes de apoyo'}
                   </span>
                 )}
               </div>
@@ -680,10 +718,11 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
                     onTocar={tocarPieza('video')}
                     arrastre={arrastreDe('video', v)}
                     className={v.oculto ? 'es-solo-voz' : ''}
-                    titulo={`${v.nombre}${v.texto ? `: «${v.texto}»` : ''}${v.oculto ? ' (solo se oye: la tapa el B-roll)' : ''}${v.quieto ? ` (se ve quieta ${String(v.quieto).replace('.', ',')} s al final)` : ''}`}
+                    titulo={`${v.nombre}${v.texto ? `: «${v.texto}»` : ''}${v.reemplazado ? ' (tu video)' : ''}${v.oculto ? ' (solo se oye: la tapa una imagen de apoyo)' : ''}${v.quieto ? ` (se ve quieta ${String(v.quieto).replace('.', ',')} s al final)` : ''}${conAviso(v)}`}
                   >
                     <span className="lt-pieza__tira" style={{ backgroundImage: `url("${v.miniatura}")` }} />
                     <span className="lt-pieza__etiqueta">{v.nombre}</span>
+                    <ChipsClip item={v} aviso={avisoDe(v)} />
                     {v.quieto ? <Quieto segundos={v.quieto} /> : null}
                   </Pieza>
                 ))}

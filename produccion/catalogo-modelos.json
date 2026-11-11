@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "modelos": {
+    "google/gemini-omni-flash-1-1": { "nombre": "Omni Flash 1.1", "dialogo": true, "tipo": "video" },
+    "kling-3.0/video": { "nombre": "Kling 3.0", "dialogo": false, "tipo": "video" },
+    "grok-imagine-video-1-5-preview": { "nombre": "Grok Imagine 1.5", "dialogo": true, "tipo": "video" },
+    "pixverse-v6/transition": { "nombre": "PixVerse V6", "dialogo": false, "tipo": "video" },
+    "grok-imagine/image-to-video": { "nombre": "Grok Imagine", "dialogo": true, "tipo": "video" },
+    "gpt-image-2-5-sunburst": { "nombre": "GPT Image 2.5", "dialogo": false, "tipo": "imagen" },
+    "nano-banana-2": { "nombre": "Nano Banana 2", "dialogo": false, "tipo": "imagen" },
+    "nano-banana-2-1": { "nombre": "Nano Banana 2.1", "dialogo": false, "tipo": "imagen" },
+    "gpt-image-2": { "nombre": "GPT Image 2", "dialogo": false, "tipo": "imagen" }
+  },
+  "categorias": [
+    {
+      "id": "vozEnOff",
+      "nombre": "Voz en off",
+      "descripcion": "Los anuncios con narrador, los de continuidad y los cantados (musicales e historias musicales).",
+      "porDefecto": "omni",
+      "opciones": [
+        {
+          "id": "omni",
+          "nombre": "Omni Flash 1.1",
+          "recomendado": true,
+          "nota": null,
+          "cascadas": { "frames": ["google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+        },
+        {
+          "id": "grok15",
+          "nombre": "Grok Imagine 1.5",
+          "recomendado": false,
+          "nota": null,
+          "cascadas": { "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
+        },
+        {
+          "id": "pixverse-grok15",
+          "nombre": "PixVerse V6 + Grok Imagine 1.5",
+          "recomendado": false,
+          "nota": "PixVerse en las tomas que van de una imagen a otra; Grok Imagine 1.5 en las demás",
+          "cascadas": { "frames": ["pixverse-v6/transition", "grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "costo": { "min": 45, "max": 72, "por": "clip de 10 s" }
+        }
+      ]
+    },
+    {
+      "id": "objetoParlante",
+      "nombre": "Personajes que hablan",
+      "descripcion": "Los anuncios donde el personaje habla con su propia boca, como el objeto parlante y el sketch.",
+      "porDefecto": "omni",
+      "opciones": [
+        {
+          "id": "omni",
+          "nombre": "Omni Flash 1.1",
+          "recomendado": true,
+          "nota": null,
+          "cascadas": { "frames": ["google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+        },
+        {
+          "id": "grok15",
+          "nombre": "Grok Imagine 1.5",
+          "recomendado": false,
+          "nota": null,
+          "cascadas": { "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
+        }
+      ]
+    },
+    {
+      "id": "ugc",
+      "nombre": "UGC",
+      "descripcion": "La persona que habla a cámara en los anuncios UGC.",
+      "porDefecto": "omni",
+      "opciones": [
+        {
+          "id": "omni",
+          "nombre": "Omni Flash 1.1",
+          "recomendado": true,
+          "nota": null,
+          "cascadas": { "referencias": ["google/gemini-omni-flash-1-1"] },
+          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+        },
+        {
+          "id": "grok",
+          "nombre": "Grok Imagine",
+          "recomendado": false,
+          "nota": null,
+          "cascadas": { "referencias": ["grok-imagine/image-to-video", "google/gemini-omni-flash-1-1"] },
+          "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
+        }
+      ]
+    },
+    {
+      "id": "podcastEntrevista",
+      "nombre": "Podcast y entrevista",
+      "descripcion": "Los clips donde hablan los anfitriones del podcast o la persona de la entrevista.",
+      "porDefecto": "omni",
+      "opciones": [
+        {
+          "id": "omni",
+          "nombre": "Omni Flash 1.1",
+          "recomendado": true,
+          "nota": null,
+          "cascadas": {
+            "frames": ["google/gemini-omni-flash-1-1"],
+            "referencias": ["google/gemini-omni-flash-1-1"]
+          },
+          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+        },
+        {
+          "id": "grok",
+          "nombre": "Grok Imagine",
+          "recomendado": false,
+          "nota": "Usa la versión 1.5 en las tomas con imagen inicial y la v1 en las de ingredientes",
+          "cascadas": {
+            "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-1"],
+            "referencias": ["grok-imagine/image-to-video", "google/gemini-omni-flash-1-1"]
+          },
+          "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
+        }
+      ]
+    },
+    {
+      "id": "brollHablado",
+      "nombre": "B-roll de podcast y entrevista",
+      "descripcion": "Los clips de apoyo que se ven mientras hablan en el podcast y la entrevista. En el anuncio van sin sonido.",
+      "porDefecto": "kling",
+      "opciones": [
+        {
+          "id": "kling",
+          "nombre": "Kling 3.0",
+          "recomendado": true,
+          "nota": null,
+          "cascadas": { "frames": ["kling-3.0/video"] },
+          "costo": { "min": 151, "max": 151, "por": "clip de 10 s" }
+        },
+        {
+          "id": "omni",
+          "nombre": "Omni Flash 1.1",
+          "recomendado": false,
+          "nota": null,
+          "cascadas": { "frames": ["google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+        },
+        {
+          "id": "grok15",
+          "nombre": "Grok Imagine 1.5",
+          "recomendado": false,
+          "nota": null,
+          "cascadas": { "frames": ["grok-imagine-video-1-5-preview", "kling-3.0/video"] },
+          "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
+        }
+      ]
+    },
+    {
+      "id": "imagen",
+      "nombre": "Imágenes",
+      "descripcion": "Todas las imágenes del anuncio: personajes, lugares, tomas y B-roll.",
+      "porDefecto": "gpt25",
+      "opciones": [
+        {
+          "id": "gpt25",
+          "nombre": "GPT Image 2.5",
+          "recomendado": true,
+          "nota": null,
+          "cascada": ["gpt-image-2-5-sunburst", "nano-banana-2"],
+          "resoluciones": { "gpt-image-2-5-sunburst": "2K", "nano-banana-2": "1K" },
+          "costo": { "min": 10, "max": 10, "por": "imagen" }
+        },
+        {
+          "id": "nb21",
+          "nombre": "Nano Banana 2.1",
+          "recomendado": false,
+          "nota": null,
+          "cascada": ["nano-banana-2-1", "nano-banana-2"],
+          "resoluciones": { "nano-banana-2-1": "2K", "nano-banana-2": "1K" },
+          "costo": { "min": 6, "max": 6, "por": "imagen" }
+        }
+      ]
+    }
+  ]
+}

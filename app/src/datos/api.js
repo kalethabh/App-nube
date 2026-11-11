@@ -51,7 +51,7 @@ export const api = {
   },
   /** { estilos: [...13], familias: [...] } */
   estilos: () => pedir('/api/estilos'),
-  /** { claves: { archivoEnv, kie, elevenlabs }, claudeCode: { instalado, version }, modelos, modoPrueba: { activo, listo, error } } */
+  /** { claves: { archivoEnv, kie, elevenlabs }, claudeCode: { instalado, version }, motor?, codex?, modelos, modoPrueba: { activo, listo, error } } */
   estado: () => pedir('/api/estado'),
 };
 
@@ -63,12 +63,23 @@ export const api = {
  * para verla en grande.
  *   miniatura(a.miniatura)                       -> 480 px de ancho
  *   miniatura(toma.clip, 320, { segundo: 1.2 })  -> un cuadro del clip
+ * Una url que ya trae su consulta (p. ej. «?v=<fecha>» de una pieza regenerada con el mismo nombre) la conserva.
  */
 export function miniatura(url, ancho = 480, { segundo } = {}) {
   if (!url || !url.startsWith('/archivos/') || url.startsWith('/archivos/miniatura/')) return url;
-  const q = new URLSearchParams({ ancho: String(ancho) });
+  const [camino, consulta = ''] = url.split('?');
+  const q = new URLSearchParams(consulta);
+  q.set('ancho', String(ancho));
   if (segundo !== undefined) q.set('t', String(segundo));
-  return `${url.replace('/archivos/', '/archivos/miniatura/')}?${q}`;
+  return `${camino.replace('/archivos/', '/archivos/miniatura/')}?${q}`;
+}
+
+/** La url de un archivo con su versión («?v=…»): una pieza regenerada se llama igual y el navegador mostraría la vieja. */
+export function conVersion(url, fecha) {
+  if (!url || !fecha) return url || null;
+  const v = Date.parse(fecha);
+  if (!Number.isFinite(v)) return url;
+  return `${url}${url.includes('?') ? '&' : '?'}v=${v}`;
 }
 
 // ---------------------------------------------------------------- cache compartida
@@ -165,12 +176,15 @@ export const useEstado = (opciones) => useDatos('estado', api.estado, opciones);
 //   const { datos } = useGuion(slug, { cadaMs: 2000 });
 //
 // Los errores llegan como ErrorApi con `.datos` (la respuesta entera del servidor), para que la
-// pantalla distinga "sin sesión de Claude", "límite de uso" o "no alcanza el saldo".
+// pantalla distinga "sin sesión de tu IA", "límite de uso" o "no alcanza el saldo".
 
 const enc = encodeURIComponent;
 
-/** Como pedir(), más: cuerpo binario (una foto) y `error` que puede venir como texto o como objeto. */
-async function pedirNuevo(url, { metodo = 'GET', cuerpo, binario } = {}) {
+/**
+ * Como pedir(), más: cuerpo binario (una foto) y `error` que puede venir como texto o como objeto.
+ * (Exportada para src/datos/imagenes.js, que suma los pedidos de "Anuncios de imagen".)
+ */
+export async function pedirNuevo(url, { metodo = 'GET', cuerpo, binario } = {}) {
   let r;
   try {
     r = await fetch(url, {
@@ -200,15 +214,40 @@ async function pedirNuevo(url, { metodo = 'GET', cuerpo, binario } = {}) {
   return datos;
 }
 
-/** Estado de Claude Code. Si el servidor todavía no tiene /api/claude/estado, sale de /api/estado (sin saber la sesión). */
-async function estadoClaude() {
+/**
+ * Tu IA (Claude o ChatGPT): GET /api/ia/estado. Un servidor de antes (sin /api/ia, 404) solo tenía Claude: la
+ * respuesta sale de /api/claude/estado, con Claude como elegida; y si esa tampoco está, de /api/estado (sin la sesión).
+ */
+async function estadoIA({ todos = false } = {}) {
   try {
-    return await pedirNuevo('/api/claude/estado');
+    return await pedirNuevo(`/api/ia/estado${todos ? '?todos=1' : ''}`);
+  } catch (e) {
+    if (e.estado !== 404) throw e;
+  }
+  let claude;
+  try {
+    claude = await pedirNuevo('/api/claude/estado');
   } catch (e) {
     if (e.estado !== 404) throw e;
     const s = await api.estado();
-    return { instalado: Boolean(s?.claudeCode?.instalado), version: s?.claudeCode?.version || null, sesion: 'desconocido' };
+    claude = { instalado: Boolean(s?.claudeCode?.instalado), version: s?.claudeCode?.version || null, sesion: 'desconocido' };
   }
+  const { trabajando = [], ...resto } = claude || {};
+  return { elegido: 'claude', respaldo: true, motores: { claude: resto }, instalando: null, login: null, trabajando };
+}
+
+/** Inicia la sesión de tu IA. Claude, en un servidor de antes (sin /api/ia), por /api/claude/login. */
+async function iniciarSesionIA(motor, { conCodigo = false } = {}) {
+  try {
+    return await pedirNuevo('/api/ia/login', { metodo: 'POST', cuerpo: { motor, ...(conCodigo ? { conCodigo: true } : {}) } });
+  } catch (e) {
+    if (e.estado !== 404 || motor !== 'claude') throw e;
+    return pedirNuevo('/api/claude/login', { metodo: 'POST' });
+  }
+}
+
+async function estadoClaude() {
+  return pedirNuevo('/api/claude/estado');
 }
 
 export const apiNuevo = {
@@ -217,6 +256,21 @@ export const apiNuevo = {
   claude: estadoClaude,
   /** Abre "claude auth login" en una ventana de la PC. */
   iniciarSesionClaude: () => pedirNuevo('/api/claude/login', { metodo: 'POST' }),
+  // ---- tu IA (Claude o ChatGPT), saldo y voces
+  ia: {
+    /** { elegido: 'claude'|'codex'|null, nombre, programa, motores: { claude?, codex? }, instalando, login, trabajando } */
+    estado: estadoIA,
+    /** Guarda la IA elegida. 409 si tu IA está escribiendo algo ahora. */
+    elegir: (motor) => pedirNuevo('/api/ia/elegir', { metodo: 'PUT', cuerpo: { motor } }),
+    /** Instala el programa de esa IA en segundo plano (el avance se ve en estado().instalando). */
+    instalar: (motor) => pedirNuevo('/api/ia/instalar', { metodo: 'POST', cuerpo: { motor } }),
+    /** Claude abre su ventana; ChatGPT, el navegador (o un código, con conCodigo). */
+    login: iniciarSesionIA,
+    /** Corta el inicio de sesión de ChatGPT que está abierto. */
+    cancelarLogin: () => pedirNuevo('/api/ia/login/cancelar', { metodo: 'POST', cuerpo: {} }),
+    /** Cierra la sesión de ChatGPT en la app (solo la de la app). */
+    salir: (motor) => pedirNuevo('/api/ia/salir', { metodo: 'POST', cuerpo: { motor } }),
+  },
   /** { kie: { creditos, alcanza? } }. Con slug, el servidor puede decir si alcanza para ESE anuncio. Nunca se muestran los números. */
   saldo: (slug) => pedirNuevo(`/api/saldo${slug ? `?slug=${enc(slug)}` : ''}`),
   /** [{ id, nombre, muestra, etiquetas }] (o { voces, vozPorEstilo }). */
@@ -241,7 +295,7 @@ export const apiNuevo = {
   crearAnuncio: (datos) => pedirNuevo('/api/anuncios', { metodo: 'POST', cuerpo: datos }),
   /** { estado: "escribiendo" | "listo" | "error", guion?, progreso: [frases], error? } */
   guion: (slug) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion`),
-  /** Pide un cambio con las palabras del usuario (la misma sesión de Claude, con --resume). */
+  /** Pide un cambio con las palabras del usuario (la misma sesión de tu IA, si es la que escribió el guion). */
   pedirCambios: (slug, pedido) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/cambios`, { metodo: 'POST', cuerpo: { pedido } }),
   /** Vuelve a escribir un guion que falló, en el mismo anuncio. Si el servidor no lo tiene, responde 404. */
   reintentarGuion: (slug) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/reintentar`, { metodo: 'POST' }),
@@ -254,6 +308,11 @@ export const apiNuevo = {
   producir: (slug, datos) => pedirNuevo(`/api/anuncios/${enc(slug)}/producir`, { metodo: 'POST', ...(datos ? { cuerpo: datos } : {}) }),
   /** Musical: el usuario elige una de las 2 o 3 letras (queda en app/letras.json como "elegida"; se puede cambiar hasta producir). */
   elegirLetra: (slug, n) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/letra`, { metodo: 'POST', cuerpo: { n } }),
+  /**
+   * El costo estimado antes de producir (server/rutas/costo.js): { disponible: false, motivo } o { disponible: true,
+   * dolares: { min, max }, conModelos, notas, categorias: [...] (con otro modelo), ... }. Lo arma el servidor.
+   */
+  costo: (slug) => pedirNuevo(`/api/anuncios/${enc(slug)}/costo`),
 
   // ---- la canción de los cantados (la única pausa de su producción: rutas/cancion.js)
   /** { estado, titulo, estilos, elegida, puedeOtra, opciones: [{ n, url, duracion, grupo, detalle }] } */
@@ -276,3 +335,8 @@ export const useProducto = (id, opciones) => useDatos(id ? `producto:${id}` : nu
 export const useGuion = (slug, opciones) => useDatos(slug ? `guion:${slug}` : null, () => apiNuevo.guion(slug), opciones);
 /** La canción de un cantado mientras se elige (slug null = no pedir nada). */
 export const useCancion = (slug, opciones) => useDatos(slug ? `cancion:${slug}` : null, () => apiNuevo.cancion(slug), opciones);
+/**
+ * El costo estimado de un anuncio (slug null = no pedir nada). `firma` va en la clave: lo que cambia el número sin
+ * cambiar el anuncio (la letra elegida). Al cambiar el modelo: invalidar('costo:') y recargar.
+ */
+export const useCostoEstimado = (slug, { firma = '', ...opciones } = {}) => useDatos(slug ? `costo:${slug}:${firma}` : null, () => apiNuevo.costo(slug), opciones);

@@ -7,20 +7,24 @@
 // Aca no hay narrador: cada personaje dice su frase DENTRO de su clip, con la boca sincronizada (modo_audio
 // "dialogo_nativo"). Eso cambia tres cosas respecto de la voz en off (COMO-PRODUCIR 1.1, 2 y 6):
 //   - no hay voz que grabar ni ventanas que ajustar: el clip manda y el montaje no acelera las tomas habladas;
-//   - un clip que salio del modelo de respaldo (Kling) es un DEFECTO: Kling no hace hablar al personaje, la toma
-//     queda sin su frase. Se rehace con Omni segun el motivo que imprimio el motor al cambiar de modelo:
-//       error del servidor -> el mismo clip otra vez (con una espera antes: Omni estaba caido);
+//   - un clip que salio de un modelo que no hace hablar al personaje (campo "dialogo" del catalogo de modelos: Kling,
+//     el ultimo de la cascada) es un DEFECTO: la toma queda sin su frase. Un clip de respaldo que SI habla (Omni
+//     despues de Grok Imagine) no lo es. Se rehace con los modelos del anuncio (Ajustes › Modelos) segun el motivo
+//     que imprimio el motor al cambiar de modelo:
+//       error del servidor -> el mismo clip otra vez (con una espera antes: el modelo elegido estaba caido);
 //       rechazo de contenido -> Claude reescribe SOLO la frase que lo dispara (misma funcion, mismo largo), la app
 //       la pone en la `linea` y en la misma frase dentro del `prompt_video`, valida y rehace ese clip;
 //   - el habla se revisa: la app transcribe cada clip con Scribe y lo compara con su frase (revisarHabla, la misma
 //     revision de las tomas habladas del podcast y la entrevista). Una palabra repetida, trabada, agregada o
-//     comida es un clip que se rehace (nunca "suena natural"); Claude mira las tiras de cuadros y escribe el prompt
-//     nuevo que lo evita (y marca los defectos que se ven: el objeto hecho persona, el producto cambiado, letras).
+//     comida queda como un AVISO en ese clip (nunca "suena natural"); Claude mira las tiras de cuadros y escribe el
+//     prompt nuevo que lo evitaria (y marca los defectos que se ven: el objeto hecho persona, el producto cambiado,
+//     letras), que queda como sugerencia del aviso.
 //   - en la misma revision Claude mira tambien cada B-roll que entra en el video (sin frase ni transcriptor: solo
-//     como se ve; su etiqueta que se borra, una cara de mas...) y la app rehace SOLO ese B-roll (lib/rehacer-broll.js).
-// Sin revision obligatoria del usuario (decision de Diego): la hacen la transcripcion y Claude. La app rehace sola,
-// con tope: hasta TOPE_CLIP_HABLADO veces cada clip hablado y TOPE_BROLL cada B-roll, por cualquier motivo; lo que
-// pase el tope va al informe.
+//     como se ve; su etiqueta que se borra, una cara de mas...): lo que ve tambien queda como aviso.
+// Todo al primer intento (decision de Diego, 2026-11-09): la revision NO rehace nada por calidad; deja avisos en cada
+// pieza (app/avisos.json, lib/avisos.js) y el usuario decide (Regenerar, «¿Qué salió mal?», «Corregir esto»). Lo
+// tecnico SI sigue solo, con tope (TOPE_CLIP_HABLADO por clip): un clip que no salio, uno de un modelo que no hace
+// hablar y una frase que el modelo de video rechazo por contenido.
 //
 // Los pasos (ids del contrato, los mismos de voz en off donde son lo mismo):
 //   validar · saldo · imagenes-y-videos · revision-clips · voces · musica · montaje · render · control-final · informe
@@ -31,10 +35,10 @@
 //                        clip que cambio sin pasar por aca no se da por conocido
 //   habla.json           lo que se oyo en cada clip y si dijo su frase limpia (lo escribe el proceso de la revision
 //                        del habla, este mismo archivo corrido como script: ver "como script", al final)
-//   clips-estado.json    las vueltas de la revision: lo que se vio, las sesiones de Claude y cada pedido de rehacer
-//                        con su fase (el tope se cuenta en conductor.rehechos ANTES de pagar); "broll": lo de cada
-//                        B-roll (sus veces, que son su tope, tambien antes de pagar; su historial, la ultima vez que
-//                        se miro y si estaba mal)
+//   clips-estado.json    las vueltas de la revision: lo que se vio, las sesiones de Claude y cada pedido tecnico de
+//                        rehacer con su fase (el tope se cuenta en conductor.rehechos ANTES de pagar); clips[n].mirado y
+//                        broll[n].mirado: la huella del clip que ya miro la IA (uno que cambia se vuelve a mirar);
+//                        "broll": lo de cada B-roll (la ultima vez que se miro y si estaba mal)
 //   clips/               respaldos de cada toma y cada B-roll antes de tocarlos, sus contextos y los prompts que se
 //                        aplicaron
 //   rechazo.json, revision-clips.json   lo que escribe Claude (tareas compartidas tarea-rechazo.md y
@@ -50,23 +54,38 @@ import { leerJSON, existe, listar, escribirJSONSeguro } from '../archivos.js';
 import { ESPERAS_REINTENTO_MS, mensajeDeFallo, consultarSaldoKie, hayConexion, modoPrueba, clasificarFallo } from '../procesos.js';
 import { doblarClipDePrueba } from '../voz-de-prueba.js';
 import { notaPedida } from '../duracion.js';
+import { clipSinDialogo } from '../modelos.js';
 import { TOPE_BROLL, vecesDeBroll, brollQueSeMiran, entradaDeBroll, seccionesDeBroll, validarPedidoDeBroll, pareceDelBroll, cuentasDeBroll, rehacerBroll, resumenDeBroll, detalleDeBrollMal } from '../rehacer-broll.js';
+import { nombreIA, prohibidasComunes } from '../motor-ia.js';
+import { hojasDelManifiesto } from '../ia/material.js';
+import { anotarAviso, limpiarAvisos, piezasConAviso, tieneAviso, notaDeAvisos } from '../avisos.js';
+import { esSubida } from '../subidos.js';
 
 export const FAMILIA = 'objeto-parlante';
 export const ESTILOS = ['talking-object-pixar'];
 
-/** Cuantas veces se rehace como mucho un clip hablado, por cualquier motivo (decision de Diego: 3 en los hablados). */
+/** Cuantas veces se rehace como mucho un clip hablado por algo tecnico (no salio, no habla, rechazo de contenido). */
 export const TOPE_CLIP_HABLADO = 3;
 // Una vuelta mas que el tope para mirar como quedo lo ultimo que se rehizo, y una de margen (un pedido que no
 // llega a pagar, porque su cambio no valida, no gasta el tope pero si una vuelta).
 const MAX_VUELTAS = TOPE_CLIP_HABLADO + 2;
 /** El tope de una toma: el de siempre, mas una vez por cada "Continuar" si fue una escena que no salio nunca. */
 const topeDe = (est, n) => TOPE_CLIP_HABLADO + ((est?.extraPara || []).includes(n) ? est.extra || 0 : 0);
+/**
+ * Hasta que numero de vuelta llega esta apertura del paso: las vueltas de antes (est.base, las de otras aperturas: el
+ * anuncio se volvio a armar por algo que regeneraste) mas MAX_VUELTAS, mas una por cada «Continuar».
+ */
+const vueltasHasta = (est) => (Number(est?.base) || 0) + MAX_VUELTAS + (est?.extra || 0);
 
 const ESTE_ARCHIVO = fileURLToPath(import.meta.url);
 const SKILL = 'anuncios-talking-object-pixar';
 
 const ahora = () => new Date().toISOString();
+/** El nombre de la IA ('Claude', 'ChatGPT' o 'tu IA') para empezar una frase: 'Tu IA'. Sin motor, la elegida. */
+const nombreAlEmpezar = (motor) => {
+  const n = nombreIA(motor);
+  return n.charAt(0).toUpperCase() + n.slice(1);
+};
 
 function escribirJSON(ruta, valor) {
   escribirJSONSeguro(ruta, valor);
@@ -161,7 +180,7 @@ export function leerMotivosDelMotor(texto) {
       out.set(archivoDe(m[1], m[2]), { clase: contenido ? 'contenido' : claseDe(motivo), texto: motivo.slice(0, 500) });
       continue;
     }
-    m = l.match(/^\s*(toma|B-roll) (\d+)\b.*\bfallo con los dos modelos/i);
+    m = l.match(/^\s*(toma|B-roll) (\d+)\b.*\bfallo con (?:los dos|todos los) modelos/i);
     if (m) {
       const archivo = archivoDe(m[1], m[2]);
       const ul = lineas.slice(i + 1, i + 3).find((x) => /Ultimo motivo:/.test(x));
@@ -194,6 +213,8 @@ function anotarModelos(ctx, { desde, texto }) {
     reg.clips[x.archivo] = {
       modelo: x.modelo || null,
       respaldo: Boolean(x.respaldo),
+      // si el modelo hace hablar al personaje (el log del motor o, si no lo trae, el catalogo de modelos)
+      dialogo: !clipSinDialogo(x),
       huella: h,
       fecha: ahora(),
       ...(motivo ? { motivo: { clase: motivo.clase, texto: motivo.texto } } : {}),
@@ -210,16 +231,17 @@ function anotarModelos(ctx, { desde, texto }) {
 }
 
 /**
- * Como esta hoy el clip de una toma: { hay, huella, respaldo: true|false|null (no se sabe), modelo, motivo, fallo }.
- * respaldo null = el clip cambio sin pasar por la app (o es de antes): no se sabe de que modelo salio.
+ * Como esta hoy el clip de una toma: { hay, huella, respaldo, sinFrase: true|false|null (no se sabe), modelo, motivo,
+ * fallo }. sinFrase = salio de un modelo que no hace hablar al personaje (el defecto; con Omni y Kling, lo mismo que
+ * salir del respaldo). null = el clip cambio sin pasar por la app (o es de antes): no se sabe de que modelo salio.
  */
 function estadoDelClip(ctx, n, reg = leerJSON(rutaModelos(ctx))) {
   const archivo = `toma-${n}.mp4`;
   const h = huella(rutaClip(ctx, n));
   const e = reg?.clips?.[archivo];
   if (!h) return { hay: false, fallo: e?.fallo || null };
-  if (e?.huella && mismaHuella(e.huella, h)) return { hay: true, huella: h, respaldo: Boolean(e.respaldo), modelo: e.modelo || null, motivo: e.motivo || null };
-  return { hay: true, huella: h, respaldo: null, modelo: null, motivo: null };
+  if (e?.huella && mismaHuella(e.huella, h)) return { hay: true, huella: h, respaldo: Boolean(e.respaldo), sinFrase: clipSinDialogo(e), modelo: e.modelo || null, motivo: e.motivo || null };
+  return { hay: true, huella: h, respaldo: null, sinFrase: null, modelo: null, motivo: null };
 }
 
 // ---------------------------------------------------------------- 1. validar
@@ -289,8 +311,8 @@ async function imagenesYVideos(ctx) {
   const reg = anotarModelos(ctx, { desde, texto: r.texto });
   const m = leerManifiesto(ctx);
   const tomas = tomasHabladas(m);
-  const delRespaldo = tomas.filter((t) => estadoDelClip(ctx, t.n, reg).respaldo === true).length;
-  const nota = delRespaldo ? `${delRespaldo === 1 ? 'Un clip salió' : `${delRespaldo} clips salieron`} del modelo de respaldo: en la revisión se rehace${delRespaldo === 1 ? '' : 'n'} con el principal.` : null;
+  const sinFrase = tomas.filter((t) => estadoDelClip(ctx, t.n, reg).sinFrase === true).length;
+  const nota = sinFrase ? `${sinFrase === 1 ? 'Un clip salió' : `${sinFrase} clips salieron`} sin su frase (de un modelo que no hace hablar): en la revisión se rehace${sinFrase === 1 ? '' : 'n'}.` : null;
   if (r.codigo === 0) return { ok: true, nota };
   // Un clip que los DOS modelos rechazaron por contenido no frena el anuncio: si es de una toma, en la revision Claude
   // reescribe su frase; si es un B-roll, el montaje sigue sin el (el informe lo dice). Solo si las imagenes salieron
@@ -314,8 +336,8 @@ async function imagenesYVideos(ctx) {
 const rutaRevisionClaude = (ctx) => path.join(dirApp(ctx), 'revision-clips.json');
 const rutaRechazoClaude = (ctx) => path.join(dirApp(ctx), 'rechazo.json');
 
-/** Claude simulado: solo en modo prueba y si no se pidio uno (el de verdad con ANUNCIOS_REVISION_REAL=1, o el falso). */
-const claudeSimulado = () => modoPrueba() && process.env.ANUNCIOS_REVISION_REAL !== '1' && !process.env.ANUNCIOS_CLAUDE_BIN;
+/** IA simulada: solo en modo prueba y si no se pidio una (la de verdad con ANUNCIOS_REVISION_REAL=1, o la falsa). */
+const claudeSimulado = () => modoPrueba() && process.env.ANUNCIOS_REVISION_REAL !== '1' && !process.env.ANUNCIOS_CLAUDE_BIN && !process.env.ANUNCIOS_CODEX_BIN;
 
 /** Lo que tuvo mal el habla de un clip, en palabras del usuario (sin segundos ni nombres tecnicos). */
 export function describirHabla(h) {
@@ -623,10 +645,11 @@ export function validarRevisionClips(valor, { tomas, obligatorias = [], opciones
 // ---- las sesiones de Claude ----
 
 /**
- * Una sesion de Claude de la revision, una sola vez por vuelta (lo que escribe queda en el estado: al retomar no se
- * repite). Devuelve la sesion ({ hecha, ok, datos, error }) o { cancelado } / { limite }.
+ * Una sesion de la IA de la revision, una sola vez por vuelta (lo que escribe queda en el estado: al retomar no se
+ * repite). `armar(ia)` devuelve la sesion armada (armarSesionRechazo o armarSesionRevisionClips) con el lanzador de
+ * ahora. Devuelve la sesion ({ hecha, ok, datos, error, motor? }) o { cancelado } / { limite, motor }.
  */
-async function sesionDeClaude(ctx, ronda, clave, guardarEstado, { tipo, prompt, archivo, verificar, frase }) {
+async function sesionDeClaude(ctx, ronda, clave, guardarEstado, { armar, archivo, frase }) {
   const s = (ronda.sesiones[clave] ||= {});
   if (s.hecha) return s;
   const claude = await ctx.claude();
@@ -635,7 +658,6 @@ async function sesionDeClaude(ctx, ronda, clave, guardarEstado, { tipo, prompt, 
     guardarEstado();
     return s;
   }
-  const rel = `temp/${ctx.slug}`;
   s.uuid ||= crypto.randomUUID();
   const maxIntentos = Math.max(1, Number(process.env.ANUNCIOS_REVISION_INTENTOS) || 2);
   let r = null;
@@ -645,22 +667,16 @@ async function sesionDeClaude(ctx, ronda, clave, guardarEstado, { tipo, prompt, 
     guardarEstado();
     fs.rmSync(archivo, { force: true });
     ctx.avance(frase);
+    const sesion = armar(claude);
     r = await claude.lanzarSesion({
-      tipo,
-      cwd: RAIZ,
+      ...sesion,
       uuid: s.uuid,
       resume: intento > 1,
-      prompt: intento > 1 ? `Sigue con la tarea de antes y termina ${relRaiz(archivo)}.\n\n${prompt}` : prompt,
-      herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
-      // lee el anuncio y la skill; escribe SOLO su archivo (el manifiesto lo cambia la app, despues de revisarlo)
-      permitidas: [`Read(./${rel}/**)`, `Read(./.claude/skills/${SKILL}/**)`, 'Glob', 'Grep', `Write(./${relRaiz(archivo)})`, `Edit(./${relRaiz(archivo)})`],
-      prohibidas: typeof claude.prohibidasComunes === 'function' ? claude.prohibidasComunes({ terminal: false }) : ['Bash', 'PowerShell', 'WebFetch', 'WebSearch'],
+      prompt: intento > 1 ? `Sigue con la tarea de antes y termina ${relRaiz(archivo)}.\n\n${sesion.prompt}` : sesion.prompt,
       // (describirHerramienta dice "fotos de tu producto" para cualquier imagen fuera de img/: aca son las tiras)
       alProgreso: (f) => ctx.avance(f === 'Mirando las fotos de tu producto' ? 'Mirando los clips' : f === 'Guardando' ? 'Anotando lo que vio' : f),
-      timeoutMs: 30 * 60000,
       registro: path.join(dirApp(ctx), 'registro', `${clave}-claude.jsonl`),
-      verificar,
-      senal: ctx.senal, // Detener corta tambien a Claude
+      senal: ctx.senal, // Detener corta tambien a la IA
     });
     if (r?.ok) {
       Object.assign(s, { hecha: true, ok: true, datos: r.verificacion?.datos ?? null, fecha: ahora() });
@@ -675,19 +691,83 @@ async function sesionDeClaude(ctx, ronda, clave, guardarEstado, { tipo, prompt, 
     if (r?.limite) {
       s.intentos = intento - 1; // sigue cuando se renueve el plan
       guardarEstado();
-      return { limite: true, error: r.error || null };
+      return { limite: true, error: r.error || null, motor: r.motor };
     }
-    if (r?.sinClaude || r?.sinSesion) break;
+    if (r?.sinClaude || r?.sinSesion || r?.planSinCodex) break;
   }
-  Object.assign(s, { hecha: true, ok: false, error: r?.error || 'no terminó', fecha: ahora() });
+  // (motor: la IA que no pudo, para el informe)
+  Object.assign(s, { hecha: true, ok: false, error: r?.error || 'no terminó', motor: r?.motor, fecha: ahora() });
   guardarEstado();
   return s;
 }
 
-const LIMITE_CLAUDE = {
+/** Se acabo el plan de la IA (`motor`, la que trabajo) a mitad de la revision: el conductor espera a que se renueve. */
+const limiteDeLaIA = (motor) => ({
   ok: false,
-  error: { mensaje: 'Se acabó por ahora el uso de tu plan de Claude: la revisión de los clips sigue cuando se renueve. Lo ya hecho no se repite.', motivo: 'limite-claude' },
-};
+  error: { mensaje: `Se acabó por ahora el uso de tu plan de ${nombreIA(motor)}: la revisión de los clips sigue cuando se renueve. Lo ya hecho no se repite.`, motivo: 'limite-claude' },
+});
+
+/**
+ * Lo comun de las dos sesiones de la revision (el primer intento; sesionDeClaude le suma uuid, resume, senal,
+ * alProgreso y registro): lee el anuncio y la skill y escribe SOLO `archivo` (el manifiesto lo cambia la app, despues
+ * de revisarlo). `ia` es el lanzador (sus prohibidasComunes, como siempre); sin el, las de motor-ia.
+ */
+function sesionDeRevision(ctx, { tipo, prompt, archivo, verificar, material, ia = { prohibidasComunes } }) {
+  const rel = `temp/${ctx.slug}`;
+  return {
+    tipo,
+    cwd: RAIZ,
+    prompt,
+    herramientas: ['Read', 'Glob', 'Grep', 'Write', 'Edit'],
+    permitidas: [`Read(./${rel}/**)`, `Read(./.claude/skills/${SKILL}/**)`, 'Glob', 'Grep', `Write(./${relRaiz(archivo)})`, `Edit(./${relRaiz(archivo)})`],
+    prohibidas: typeof ia?.prohibidasComunes === 'function' ? ia.prohibidasComunes({ terminal: false }) : ['Bash', 'PowerShell', 'WebFetch', 'WebSearch'],
+    // lo que una IA sin herramientas recibe ademas de lo que nombra la tarea (Claude no lo usa)
+    material,
+    timeoutMs: 30 * 60000,
+    verificar,
+  };
+}
+
+/**
+ * La sesion del rechazo de contenido: la IA reescribe SOLO la frase que el modelo de video no acepto (tarea-rechazo,
+ * compartida). Exportada para las pruebas (probar-codex.mjs).
+ */
+export function armarSesionRechazo(ctx, { tomas, motivos, probadas }, { ia } = {}) {
+  return sesionDeRevision(ctx, {
+    tipo: 'rechazo',
+    prompt: textoDeRechazo(ctx, { tomas, motivos, probadas }),
+    archivo: rutaRechazoClaude(ctx),
+    verificar: async () => {
+      const l = await leerConEsquema(rutaRechazoClaude(ctx), 'rechazo');
+      if (!l.ok) return l;
+      const v = validarRechazo(l.datos, { tomas, probadas });
+      return v.errores.length ? { ok: false, errores: v.errores } : { ok: true, datos: v.clips };
+    },
+    material: { skillsAPedido: true },
+    ia,
+  });
+}
+
+/**
+ * La sesion de la revision de los clips (tarea-revisar-clips, compartida): la IA mira las tiras y escribe los prompts
+ * de lo que hay que rehacer. Los cuadros y los contextos ya tienen que estar. Exportada para las pruebas.
+ */
+export function armarSesionRevisionClips(ctx, { m, tomas, habla, estado, obligatorias, brolls = [], alTopeBroll = [] }, { ia } = {}) {
+  return sesionDeRevision(ctx, {
+    tipo: 'revision',
+    prompt: textoDeRevision(ctx, { m, tomas, habla, estado, obligatorias, brolls, alTopeBroll }),
+    archivo: rutaRevisionClaude(ctx),
+    verificar: async () => {
+      const l = await leerConEsquema(rutaRevisionClaude(ctx), 'revision-clips');
+      if (!l.ok) return l;
+      const v = validarRevisionClips(l.datos, { tomas, obligatorias, brolls, alTopeBroll });
+      return v.errores.length ? { ok: false, errores: v.errores } : { ok: true, datos: { pedidos: v.pedidos, pedidosBroll: v.pedidosBroll, malBroll: v.malBroll } };
+    },
+    // la skill queda a pedido; las hojas van aparte porque la tarea solo nombra su carpeta
+    material: { skillsAPedido: true, imagenes: hojasDelManifiesto(ctx.carpeta, m) },
+    ia,
+  });
+}
 
 // ---- lo que se le dice a Claude ----
 
@@ -836,7 +916,7 @@ function rechazoSimulado(tomas) {
     clips: tomas.map((t) => {
       const palabra = String(t.linea).split(/\s+/).filter((w) => /^[\p{L}]{4,}$/u.test(w)).sort((a, b) => b.length - a.length)[0] || String(t.linea).split(/\s+/)[0];
       const nueva = palabra === palabra.toUpperCase() ? palabra.toLowerCase() : palabra.toUpperCase();
-      return { toma: t.n, cambios: [{ antes: palabra, nueva }], motivo: 'Prueba: la app reescribe esta frase para probar el camino completo (modo prueba, sin Claude).' };
+      return { toma: t.n, cambios: [{ antes: palabra, nueva }], motivo: `Prueba: la app reescribe esta frase para probar el camino completo (modo prueba, sin ${nombreIA()}).` };
     }),
   };
 }
@@ -849,7 +929,7 @@ function revisionSimulada(tomas, obligatorias, brolls = []) {
       .map((t) => ({
         toma: t.n,
         rehacer: 'clip',
-        motivo: 'Prueba: no dijo su frase limpia y la app rehace el clip (modo prueba, sin Claude).',
+        motivo: `Prueba: no dijo su frase limpia (un aviso para probar el camino; modo prueba, sin ${nombreIA()}).`,
         prompt_video: `${t.prompt_video}\nSays the line exactly once, word for word, with no extra words before or after it.`,
       })),
     bien: tomas.filter((t) => !obligatorias.includes(t.n)).map((t) => t.n),
@@ -867,6 +947,7 @@ async function escucharClips(ctx, numeros) {
   if (modoPrueba()) {
     const m = leerManifiesto(ctx);
     for (const t of tomasHabladas(m).filter((x) => numeros.includes(x.n))) {
+      if (esSubida(ctx.carpeta, `toma-${t.n}`)) continue; // tu video ya trae tu voz: no se le pone la de prueba encima
       try {
         await doblarClipDePrueba(path.join(ctx.carpeta, 'video', `toma-${t.n}.mp4`), t.linea, { semilla: `${ctx.slug}-${t.n}-${ctx.conductor?.rehechos?.[`toma-${t.n}`] || 0}` });
       } catch (e) {
@@ -923,14 +1004,16 @@ async function mirar(ctx, est, ronda, guardarEstado) {
   const tomas = tomasHabladas(m);
   const rehechos = ctx.conductor.rehechos || {};
   const vez = (n) => rehechos[`toma-${n}`] || 0;
-  const ultima = ronda.n >= MAX_VUELTAS + (est.extra || 0);
-  const puede = (n) => !ultima && vez(n) < topeDe(est, n);
+  const ultima = ronda.n >= vueltasHasta(est);
+  // (tu video en el anuncio no se vuelve a generar por nada: es lo que pusiste)
+  const tuyo = (n) => esSubida(ctx.carpeta, `toma-${n}`);
+  const puede = (n) => !ultima && !tuyo(n) && vez(n) < topeDe(est, n);
 
-  // 1. lo que dice cada clip del modelo principal (solo los que cambiaron desde la ultima vez: no se paga dos veces)
+  // 1. lo que dice cada clip de un modelo que hace hablar (solo los que cambiaron desde la ultima vez: no se paga dos veces)
   let reg = leerJSON(rutaModelos(ctx));
   const aEscuchar = tomas.filter((t) => {
     const e = estadoDelClip(ctx, t.n, reg);
-    if (!e.hay || e.respaldo === true) return false;
+    if (!e.hay || e.sinFrase === true) return false;
     const h = hablaVigente(ctx, t, e);
     return !h || h.error;
   });
@@ -946,11 +1029,11 @@ async function mirar(ctx, est, ronda, guardarEstado) {
   const casos = [];
   for (const t of tomas) {
     const e = estadoDelClip(ctx, t.n, reg);
-    const h = e.hay && e.respaldo !== true ? hablaVigente(ctx, t, e, todoHabla) : null;
+    const h = e.hay && e.sinFrase !== true ? hablaVigente(ctx, t, e, todoHabla) : null;
     if (h && !h.error) habla[t.n] = h;
     let que;
     if (!e.hay) que = e.fallo?.clase === 'contenido' ? 'rechazo' : 'falta';
-    else if (e.respaldo === true) que = e.motivo?.clase === 'contenido' ? 'rechazo' : 'respaldo';
+    else if (e.sinFrase === true) que = e.motivo?.clase === 'contenido' ? 'rechazo' : 'respaldo';
     else if (!h || h.error) que = 'sin-revisar';
     else que = h.limpio ? 'limpio' : 'habla';
     const motivo = e.motivo || e.fallo || null;
@@ -960,13 +1043,20 @@ async function mirar(ctx, est, ronda, guardarEstado) {
   }
   ronda.casos = casos;
   guardarEstado();
+  // Lo que se oyo queda como AVISO en cada clip que no dijo su frase limpia (siempre lo de ahora: el de un clip que
+  // cambio y quedo limpio se va). No se rehace: el usuario decide.
+  limpiarAvisos(ctx.carpeta, { paso: 'revision-clips', fuente: 'transcripcion' });
+  for (const c of casos.filter((x) => x.que === 'habla' && !tuyo(x.n))) {
+    const d = String(c.detalle || 'no dijo su frase como está en el guion');
+    anotarAviso(ctx.carpeta, `vid:toma-${c.n}`, { fuente: 'transcripcion', paso: 'revision-clips', texto: `No dijo su frase limpia: ${d.charAt(0).toLowerCase()}${d.slice(1)}.` });
+  }
 
   const pedidos = [];
   const tomaDe = (n) => tomas.find((t) => t.n === n);
 
-  // Una sesion de Claude que ya no pudo (no el limite de uso: ese espera) no se vuelve a abrir en las vueltas
-  // siguientes: gastaria el plan sin arreglar nada. Lo que necesitaba va al informe (o se rehace con el mismo prompt).
-  const yaFallo = (clave) => (est.rondas || []).some((r) => r !== ronda && r.sesiones?.[clave]?.hecha && r.sesiones[clave].ok === false);
+  // Una sesion de Claude que ya no pudo (no el limite de uso: ese se vuelve a probar) no se vuelve a abrir en las
+  // vueltas siguientes: gastaria el plan sin arreglar nada. Lo que necesitaba va al informe.
+  const yaFallo = (clave) => (est.rondas || []).some((r) => r !== ronda && r.sesiones?.[clave]?.hecha && r.sesiones[clave].ok === false && r.sesiones[clave].error !== 'limite');
 
   // 3. rechazo de contenido -> Claude reescribe la frase
   const rechazos = casos.filter((c) => c.que === 'rechazo' && puede(c.n) && !est.clips[c.n]?.sinClaude);
@@ -982,19 +1072,12 @@ async function mirar(ctx, est, ronda, guardarEstado) {
       guardarEstado();
     } else {
       const s = await sesionDeClaude(ctx, ronda, 'rechazo', guardarEstado, {
-        tipo: 'rechazo',
-        prompt: textoDeRechazo(ctx, { tomas: tr, motivos, probadas }),
+        armar: (ia) => armarSesionRechazo(ctx, { tomas: tr, motivos, probadas }, { ia }),
         archivo: rutaRechazoClaude(ctx),
-        frase: 'Claude está reescribiendo una frase que el modelo de video no aceptó',
-        verificar: async () => {
-          const l = await leerConEsquema(rutaRechazoClaude(ctx), 'rechazo');
-          if (!l.ok) return l;
-          const v = validarRechazo(l.datos, { tomas: tr, probadas });
-          return v.errores.length ? { ok: false, errores: v.errores } : { ok: true, datos: v.clips };
-        },
+        frase: `${nombreAlEmpezar()} está reescribiendo una frase que el modelo de video no aceptó`,
       });
       if (s.cancelado) return { cancelado: true };
-      if (s.limite) return LIMITE_CLAUDE;
+      if (s.limite) return limiteDeLaIA(s.motor);
       datos = s.ok ? s.datos : null;
       if (!s.ok) for (const c of rechazos) est.clips[c.n].sinClaude = s.error || true;
     }
@@ -1004,32 +1087,39 @@ async function mirar(ctx, est, ronda, guardarEstado) {
     }
   }
 
-  // 4. del respaldo por un error del servidor (o no salio por otra cosa): otra vez igual, despues de una espera
+  // 4. sin su frase (de un modelo que no hace hablar) por un error del servidor (o no salio por otra cosa): otra vez
+  // igual, despues de una espera
   for (const c of casos.filter((x) => (x.que === 'respaldo' || x.que === 'falta') && puede(x.n))) {
     pedidos.push({
       toma: c.n,
       como: 'reintentar',
       esperar: c.motivo?.clase !== 'otro',
-      motivo: c.que === 'respaldo' ? 'Salió sin su frase (del modelo de respaldo): se hizo otra vez con el principal.' : 'No salió: se hizo otra vez.',
+      motivo: c.que === 'respaldo' ? 'Salió sin su frase (de un modelo que no hace hablar al personaje): se hizo otra vez.' : 'No salió: se hizo otra vez.',
       fase: 'pendiente',
     });
   }
 
-  // 5. Claude mira los clips: en la primera vuelta todos los del modelo principal; despues, los que se rehicieron y
-  //    los que no dijeron su frase limpia. Los que no la dijeron se rehacen siempre (con su prompt nuevo, o con el
-  //    mismo si Claude no pudo: lo que falla suele ser la tirada).
-  const obligatorias = casos.filter((c) => c.que === 'habla' && puede(c.n)).map((c) => c.n);
+  // 5. Claude mira los clips que todavia no miro como estan ahora (en la primera vuelta, todos los del modelo
+  //    principal; despues, los que cambiaron: uno que la app rehizo por algo tecnico, o que regenero el usuario) y los
+  //    B-roll que entran en el video, igual. Lo que ve queda como AVISO en esa pieza, con su prompt nuevo como
+  //    sugerencia: no se rehace nada por como se ve o por como habla. Los que no dijeron su frase limpia van
+  //    marcados en la tarea (asi la sugerencia ya ataca eso).
+  const huellaToma = (n) => huella(rutaClip(ctx, n));
+  const huellaBroll = (n) => huella(path.join(ctx.carpeta, 'video', `broll-${n}.mp4`));
+  // (un clips-estado.json de antes no trae "mirado": ahi, lo de antes: lo que se rehizo en la vuelta anterior)
+  const conMirado = (x) => est.conMirado || x?.mirado !== undefined;
+  const sinMirar = (n) => (conMirado(est.clips[n]) ? !mismaHuella(est.clips[n]?.mirado, huellaToma(n)) : est.clips[n]?.rehechaEnRonda === ronda.n - 1);
+  const brollSinMirar = (b) => (conMirado(est.broll[b.n]) ? !mismaHuella(est.broll[b.n]?.mirado, huellaBroll(b.n)) : est.broll[b.n]?.rehechoEnRonda === ronda.n - 1);
   const aMirar = yaFallo('revision')
     ? []
     : casos
-        .filter((c) => ['limpio', 'habla', 'sin-revisar'].includes(c.que) && puede(c.n))
-        .filter((c) => ronda.n === 1 || c.que === 'habla' || est.clips[c.n]?.rehechaEnRonda === ronda.n - 1)
+        .filter((c) => ['limpio', 'habla', 'sin-revisar'].includes(c.que))
+        .filter((c) => (ronda.n === 1 || sinMirar(c.n)) && !tuyo(c.n))
         .map((c) => tomaDe(c.n));
-  // Los B-roll que entran en el video y tienen su clip: en la primera vuelta todos; despues, los que se rehicieron en
-  // la anterior (tambien al tope o en la ultima vuelta: se mira como quedo, para el informe, aunque ya no se rehaga).
-  const brollAMirar = yaFallo('revision') ? [] : brollQueSeMiran(ctx.carpeta, m).filter((b) => ronda.n === 1 || est.broll[b.n]?.rehechoEnRonda === ronda.n - 1);
-  // los que ya no se rehacen (su tope, o la ultima vuelta): Claude solo dice como quedaron, sin prompts
-  const alTopeBroll = brollAMirar.filter((b) => ultima || vecesDeBroll(est.broll[b.n]) >= TOPE_BROLL).map((b) => b.n);
+  const obligatorias = casos.filter((c) => c.que === 'habla' && aMirar.some((t) => t.n === c.n)).map((c) => c.n);
+  const brollAMirar = yaFallo('revision') ? [] : brollQueSeMiran(ctx.carpeta, m).filter((b) => ronda.n === 1 || brollSinMirar(b));
+  // (ya no se rehace ningun B-roll por como se ve: ninguno llega a su tope, y la IA escribe su prompt como sugerencia)
+  const alTopeBroll = [];
   if (aMirar.length || brollAMirar.length) {
     let datos = null;
     if (claudeSimulado()) {
@@ -1048,37 +1138,37 @@ async function mirar(ctx, est, ronda, guardarEstado) {
         if (!(await prepararContextos(ctx, aMirar, brollAMirar))) return { cancelado: true };
       }
       const s = await sesionDeClaude(ctx, ronda, 'revision', guardarEstado, {
-        tipo: 'revision',
-        prompt: textoDeRevision(ctx, { m, tomas: aMirar, habla, estado: est, obligatorias, brolls: brollAMirar, alTopeBroll }),
+        armar: (ia) => armarSesionRevisionClips(ctx, { m, tomas: aMirar, habla, estado: est, obligatorias, brolls: brollAMirar, alTopeBroll }, { ia }),
         archivo: rutaRevisionClaude(ctx),
-        frase: 'Claude está mirando los clips',
-        verificar: async () => {
-          const l = await leerConEsquema(rutaRevisionClaude(ctx), 'revision-clips');
-          if (!l.ok) return l;
-          const v = validarRevisionClips(l.datos, { tomas: aMirar, obligatorias, brolls: brollAMirar, alTopeBroll });
-          return v.errores.length ? { ok: false, errores: v.errores } : { ok: true, datos: { pedidos: v.pedidos, pedidosBroll: v.pedidosBroll, malBroll: v.malBroll } };
-        },
+        frase: `${nombreAlEmpezar()} está mirando los clips`,
       });
       if (s.cancelado) return { cancelado: true };
-      if (s.limite) return LIMITE_CLAUDE;
-      datos = s.ok ? s.datos : null;
-      if (!s.ok) ronda.sinRevision = s.error || true;
+      if (s.limite) {
+        // sin plan de la IA por ahora: la revision ya no frena el anuncio (solo deja avisos). Se sigue sin ella.
+        Object.assign((ronda.sesiones.revision ||= {}), { hecha: true, ok: false, error: 'limite', motor: s.motor, fecha: ahora() });
+        ronda.sinRevision = 'limite';
+        guardarEstado();
+      } else {
+        datos = s.ok ? s.datos : null;
+        if (!s.ok) ronda.sinRevision = s.error || true;
+      }
     }
     // (una sesion guardada por una version anterior de la app trae solo la lista de las tomas)
     if (Array.isArray(datos)) datos = { pedidos: datos, pedidosBroll: [] };
-    for (const x of datos?.pedidos || []) pedidos.push({ toma: x.toma, como: x.rehacer === 'toma' ? 'toma' : 'clip', motivo: x.motivo, prompts: x.prompts, fase: 'pendiente' });
     if (datos) {
+      const claves = [...aMirar.map((t) => `vid:toma-${t.n}`), ...brollAMirar.map((b) => `vid:broll-${b.n}`)];
+      limpiarAvisos(ctx.carpeta, { paso: 'revision-clips', fuente: 'revision-ia', claves });
+      for (const x of datos.pedidos || []) {
+        anotarAviso(ctx.carpeta, `vid:toma-${x.toma}`, { fuente: 'revision-ia', paso: 'revision-clips', texto: x.motivo, sugerencia: x.prompts || null });
+      }
       // lo que vio de cada B-roll (el informe dice como quedo cada uno con la ultima mirada)
       for (const b of brollAMirar) {
         const x = (datos.pedidosBroll || []).find((y) => y.broll === b.n) || (datos.malBroll || []).find((y) => y.n === b.n);
-        est.broll[b.n] = { ...(est.broll[b.n] || {}), visto: { ronda: ronda.n, mal: Boolean(x), ...(x?.motivo ? { motivo: x.motivo } : {}), fecha: ahora() } };
+        est.broll[b.n] = { ...(est.broll[b.n] || {}), mirado: huellaBroll(b.n), visto: { ronda: ronda.n, mal: Boolean(x), ...(x?.motivo ? { motivo: x.motivo } : {}), fecha: ahora() } };
+        if (x?.motivo) anotarAviso(ctx.carpeta, `vid:broll-${b.n}`, { fuente: 'revision-ia', paso: 'revision-clips', texto: x.motivo, sugerencia: x.prompts || null });
       }
-      for (const x of datos.pedidosBroll || []) pedidos.push({ broll: x.broll, rehacer: x.rehacer, motivo: x.motivo, prompts: x.prompts, fase: 'pendiente', ...(ultima ? { sinVueltas: true } : {}) });
+      for (const t of aMirar) est.clips[t.n] = { ...(est.clips[t.n] || {}), mirado: huellaToma(t.n) };
     }
-  }
-  for (const n of obligatorias) {
-    if (pedidos.some((p) => p.toma === n && !p.broll)) continue;
-    pedidos.push({ toma: n, como: 'reintentar', esperar: false, motivo: 'No dijo su frase limpia: se hizo otra vez.', fase: 'pendiente' });
   }
   ronda.pedidos = pedidos;
   guardarEstado();
@@ -1265,11 +1355,22 @@ function aplicarPedidoBroll(ctx, est, ronda, p, guardarEstado) {
 async function revisionClips(ctx) {
   const m = leerManifiesto(ctx);
   if (!m) return { ok: false, error: { mensaje: 'No encuentro el guion del anuncio.', motivo: 'otro', detalle: 'manifiesto.json' } };
-  const est = leerJSON(rutaEstado(ctx)) || { rondas: [], clips: {} };
+  // (conMirado: un estado nuevo anota la huella de lo que miro la IA; uno de antes del 2026-11-09, no)
+  const est = leerJSON(rutaEstado(ctx)) || { rondas: [], clips: {}, conMirado: true };
   est.rondas ||= [];
   est.clips ||= {};
   est.broll ||= {};
   const guardarEstado = () => escribirJSON(rutaEstado(ctx), est);
+  // El tope de vueltas cuenta desde que se abrio este paso: una pieza que regeneraste (o tu video en el anuncio) lo
+  // vuelve a abrir y cada apertura tiene sus vueltas (antes contaba toda la vida del anuncio y, tras unas cuantas
+  // regeneraciones, ya no escuchaba ni miraba el clip nuevo). Lo tecnico de cada clip lo sigue limitando su tope
+  // (topeDe y conductor.rehechos). «Continuar» a mitad de una vuelta, o tras una escena que no salio nunca, sigue en la
+  // misma apertura.
+  const ultimaAlEntrar = est.rondas[est.rondas.length - 1];
+  if (!est.sinClip?.length && (!ultimaAlEntrar || ultimaAlEntrar.fase === 'hecha') && est.base !== est.rondas.length) {
+    est.base = est.rondas.length;
+    guardarEstado();
+  }
   // "Continuar" despues de una escena que el modelo de video no acepto nunca (abajo): una vuelta mas, y una frase
   // nueva mas para esa escena (solo esa: el tope de las demas no cambia).
   if (est.sinClip?.length) {
@@ -1279,9 +1380,9 @@ async function revisionClips(ctx) {
     est.sinClip = null;
     guardarEstado();
   }
-  const maxVueltas = MAX_VUELTAS + (est.extra || 0);
+  const maxVueltas = vueltasHasta(est);
 
-  for (let vueltas = 0; vueltas < maxVueltas + 1; vueltas++) {
+  for (let vueltas = 0; vueltas < MAX_VUELTAS + (est.extra || 0) + 1; vueltas++) {
     if (ctx.senal?.aborted) return { cancelado: true };
     let ronda = est.rondas[est.rondas.length - 1];
     if (!ronda || ronda.fase === 'hecha') {
@@ -1306,6 +1407,14 @@ async function revisionClips(ctx) {
       for (const p of ronda.pedidos) {
         if (p.resultado) continue;
         if (ctx.senal?.aborted) return { cancelado: true };
+        // Un pedido por como se ve o por como hablo que dejo una version anterior de la app y que todavia no empezo:
+        // desde 2026-11-09 eso no se rehace solo, queda como aviso (lo tecnico sigue: reintentar y rechazo).
+        if (esDeCalidad(p) && p.fase === 'pendiente') {
+          anotarAviso(ctx.carpeta, p.broll ? `vid:broll-${p.broll}` : `vid:toma-${p.toma}`, { fuente: p.prompts ? 'revision-ia' : 'transcripcion', paso: 'revision-clips', texto: p.motivo, sugerencia: p.prompts || null });
+          p.resultado = 'aviso';
+          guardarEstado();
+          continue;
+        }
         const r = p.broll ? await aplicarPedidoBroll(ctx, est, ronda, p, guardarEstado) : await aplicarPedido(ctx, est, ronda, p, guardarEstado);
         if (r) return r;
       }
@@ -1335,21 +1444,24 @@ async function revisionClips(ctx) {
       },
     };
   }
+  // (rehechos: solo lo tecnico, un clip que no salio, que salio sin su frase o cuya frase se reescribio)
   const rehechas = Object.keys(est.clips).filter((k) => (est.clips[k].historial || []).some((x) => x.resultado === 'rehecho')).length;
-  const quedan = casos.filter((c) => ['respaldo', 'rechazo', 'habla', 'falta'].includes(c.que)).length;
+  const quedan = casos.filter((c) => ['respaldo', 'rechazo', 'falta'].includes(c.que)).length;
   const sinOir = casos.filter((c) => c.que === 'sin-revisar').length;
-  const rb = resumenDeBroll(est.broll);
+  const avisos = piezasConAviso(ctx.carpeta, { paso: 'revision-clips' });
   const partes = [];
-  if (rehechas) partes.push(`${rehechas === 1 ? 'un clip se rehízo' : `${rehechas} clips se rehicieron`}`);
-  if (rb.rehechos.length) partes.push(`${rb.rehechos.length === 1 ? 'un B-roll se rehízo' : `${rb.rehechos.length} B-roll se rehicieron`}`);
-  if (quedan) partes.push(`${quedan === 1 ? 'uno quedó' : `${quedan} quedaron`} con detalles: están en el informe`);
-  if (rb.quedanMal.length) partes.push(rb.quedanMal.length === 1 ? 'un B-roll quedó con un defecto: está en el informe' : `${rb.quedanMal.length} B-roll quedaron con un defecto: están en el informe`);
+  if (rehechas) partes.push(`${rehechas === 1 ? 'un clip se hizo otra vez (no salió o salió sin su frase)' : `${rehechas} clips se hicieron otra vez (no salieron o salieron sin su frase)`}`);
+  if (quedan) partes.push(`${quedan === 1 ? 'uno quedó' : `${quedan} quedaron`} sin su frase: está${quedan === 1 ? '' : 'n'} en el informe`);
   if (sinOir) partes.push(`${sinOir === 1 ? 'uno no se pudo escuchar' : `${sinOir} no se pudieron escuchar`}`);
-  const nota = partes.length ? `${partes.join('; ')}.`.replace(/^./, (c) => c.toUpperCase()) : 'Cada personaje dijo su frase limpia.';
+  if (ultimaRonda?.sinRevision === 'limite') partes.push(`se acabó por ahora el uso de tu plan de ${nombreIA(ultimaRonda.sesiones?.revision?.motor)}: la IA no miró los clips`);
+  const nota = [partes.length ? `${partes.join('; ')}.`.replace(/^./, (c) => c.toUpperCase()) : null, notaDeAvisos(avisos)].filter(Boolean).join(' ') || 'Cada personaje dijo su frase limpia.';
   est.fin = ahora();
   guardarEstado();
   return { ok: true, nota };
 }
+
+/** ¿Un pedido de la revision por como se ve o como hablo (no tecnico)? Los tecnicos: reintentar uno sin frase o que no salio, y el rechazo. */
+const esDeCalidad = (p) => Boolean(p.broll) || p.como === 'clip' || p.como === 'toma' || (p.como === 'reintentar' && /no dijo su frase limpia/i.test(String(p.motivo || '')));
 
 // ---------------------------------------------------------------- 5. voces coladas (en este modo, solo los B-roll)
 
@@ -1482,8 +1594,9 @@ function momentosDe(plan) {
 /**
  * Lo propio de este estilo en el informe que arma informe.js (pensado para la voz en off): manda lo que dice cada
  * personaje (no una voz en off), un clip que quedo del respaldo es un defecto (salio sin su frase) y uno que se
- * rehizo con el principal ya no lo es, las frases que se reescribieron por un rechazo, los clips que se rehicieron
- * por como hablaban y lo que quedo sin arreglar despues del tope. Reescribe app/informe.json.
+ * rehizo con el principal ya no lo es, las frases que se reescribieron por un rechazo y los clips que la app hizo otra
+ * vez por algo tecnico. Lo que noto la revision (como hablan, como se ven) va en los avisos («Lo que notó la revisión»,
+ * de informe.js). Reescribe app/informe.json.
  */
 export function completarInforme(ctx) {
   const ruta = path.join(dirApp(ctx), 'informe.json');
@@ -1530,7 +1643,7 @@ export function completarInforme(ctx) {
       piezas: imagenesRespaldo,
     });
   }
-  const delRespaldo = tomas.filter((t) => estadoDelClip(ctx, t.n, reg).respaldo === true);
+  const delRespaldo = tomas.filter((t) => estadoDelClip(ctx, t.n, reg).sinFrase === true);
   if (delRespaldo.length) {
     nuevos.push({
       id: 'respaldo',
@@ -1538,8 +1651,8 @@ export function completarInforme(ctx) {
       titulo: delRespaldo.length === 1 ? 'Un clip quedó sin su frase' : `${delRespaldo.length} clips quedaron sin su frase`,
       detalle:
         delRespaldo.length === 1
-          ? 'El modelo principal no lo pudo hacer y el de respaldo no hace hablar al personaje: la toma quedó sin su frase. La app lo volvió a intentar varias veces; rehazla desde el editor.'
-          : 'El modelo principal no los pudo hacer y el de respaldo no hace hablar al personaje: esas tomas quedaron sin su frase. La app lo volvió a intentar varias veces; rehazlas desde el editor.',
+          ? 'Los modelos que hacen hablar al personaje no lo pudieron hacer y el de respaldo no hace hablar: la escena quedó sin su frase. La app lo volvió a intentar varias veces; regenérala desde el proceso o el editor.'
+          : 'Los modelos que hacen hablar al personaje no los pudieron hacer y el de respaldo no hace hablar: esas escenas quedaron sin su frase. La app lo volvió a intentar varias veces; regenéralas desde el proceso o el editor.',
       piezas: delRespaldo.map((t) => pz(t.n, 'sin su frase')),
     });
   }
@@ -1585,18 +1698,20 @@ export function completarInforme(ctx) {
     nuevos.push({
       id: 'clips-rehechos',
       tipo: 'arreglado',
-      titulo: rehechas.length === 1 ? 'Un clip se rehízo' : `${rehechas.length} clips se rehicieron`,
-      detalle: 'La app escuchó cada clip y la IA los miró: estos no salieron bien la primera vez y se hicieron de nuevo hasta que el personaje dijo su frase limpia.',
+      titulo: rehechas.length === 1 ? 'Un clip se hizo otra vez' : `${rehechas.length} clips se hicieron otra vez`,
+      detalle: 'No salieron, o salieron sin su frase (el modelo de video falló de su lado): la app los generó otra vez, sola.',
       piezas: rehechas.map((t) => pz(t.n, motivoRehecho(t.n) || null)),
     });
   }
-  const conHabla = tomas.filter((t) => casoDe(t.n)?.que === 'habla');
+  // los que no dijeron su frase limpia ya estan en «Lo que notó la revisión» (sus avisos, de informe.js); aca solo los
+  // de un anuncio de antes, sin avisos
+  const conHabla = tomas.filter((t) => casoDe(t.n)?.que === 'habla' && !tieneAviso(ctx.carpeta, `vid:toma-${t.n}`));
   if (conHabla.length) {
     nuevos.push({
       id: 'habla',
       tipo: 'revisar',
       titulo: conHabla.length === 1 ? 'Un personaje no dijo su frase limpia' : `${conHabla.length} personajes no dijeron su frase limpia`,
-      detalle: `Se rehicieron hasta ${TOPE_CLIP_HABLADO} veces y siguen con una palabra de más, repetida o comida. Escúchalos: si te molesta, rehazlos desde el editor.`,
+      detalle: 'Tiene una palabra de más, repetida o comida. Escúchalos: si te molesta, regenéralos desde el proceso o el editor.',
       piezas: conHabla.map((t) => pz(t.n, casoDe(t.n).detalle || null)),
     });
   }
@@ -1624,19 +1739,23 @@ export function completarInforme(ctx) {
       piezas: rb.rehechos.map((x) => pz(x.n, x.motivo, 'B-roll')),
     });
   }
-  if (rb.quedanMal.length) {
-    const uno = rb.quedanMal.length === 1;
+  // (los que la IA vio mal ya estan en «Lo que notó la revisión»: aca solo los de un anuncio de antes, sin avisos)
+  const brollMal = rb.quedanMal.filter((x) => !tieneAviso(ctx.carpeta, `vid:broll-${x.n}`));
+  if (brollMal.length) {
+    const uno = brollMal.length === 1;
     nuevos.push({
       id: 'broll-mal',
       tipo: 'revisar',
-      titulo: uno ? 'Un B-roll quedó con un defecto' : `${rb.quedanMal.length} B-roll quedaron con un defecto`,
-      detalle: detalleDeBrollMal(rb.quedanMal, TOPE_BROLL),
-      piezas: rb.quedanMal.map((x) => pz(x.n, x.motivo, 'B-roll')),
+      titulo: uno ? 'Una imagen de apoyo quedó con un defecto' : `${brollMal.length} imágenes de apoyo quedaron con un defecto`,
+      detalle: detalleDeBrollMal(brollMal, TOPE_BROLL),
+      piezas: brollMal.map((x) => pz(x.n, x.motivo, 'B-roll')),
     });
   }
   const sinRevision = (est.rondas || []).some((r) => r.sinRevision) || tomas.some((t) => est.clips[t.n]?.sinClaude);
   if (sinRevision) {
-    nuevos.push({ id: 'revision-no', tipo: 'revisar', titulo: 'La IA no pudo mirar todos los clips', detalle: 'Claude no pudo terminar la revisión de los clips: lo que dijo cada personaje sí se comprobó, pero cómo se ven las tomas y los B-roll, no. Míralos.', piezas: [] });
+    // la IA que no pudo (la de la ultima sesion que fallo); sin ese dato, la elegida
+    const quien = (est.rondas || []).flatMap((r) => Object.values(r.sesiones || {})).filter((s) => s?.hecha && s.ok === false && s.motor).pop()?.motor;
+    nuevos.push({ id: 'revision-no', tipo: 'revisar', titulo: 'La IA no pudo mirar todos los clips', detalle: `${nombreAlEmpezar(quien)} no pudo terminar la revisión de los clips: lo que dijo cada personaje sí se comprobó, pero cómo se ven las tomas y los B-roll, no. Míralos.`, piezas: [] });
   }
   const sinSubs = leerJSON(path.join(dirApp(ctx), 'montaje.json'))?.sinSubtitulos || [];
   if (sinSubs.length) {

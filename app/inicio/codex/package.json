@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "name": "anuncios-codex",
+  "dependencies": {
+    "@openai/codex": "0.167.0"
+  }
+}

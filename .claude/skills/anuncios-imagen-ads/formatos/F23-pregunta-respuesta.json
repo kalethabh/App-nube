@@ -1,0 +1,106 @@
+{
+  "id": "F23",
+  "slug": "pregunta-respuesta",
+  "nombre": "Pregunta y respuesta",
+  "origen": "biblioteca",
+  "descripcion": "Diseño editorial en dos tonos. La mitad superior, en el color de marca más profundo, lleva una pastilla pequeña ('Nos preguntan') y la pregunta u objeción enorme alineada a la izquierda, con un signo de interrogación gigante en el mismo tono del fondo. La mitad inferior, en un tono claro, lleva la respuesta corta y directa a la izquierda, y el producto grande a la derecha montado sobre la línea que divide los dos colores. Responde la duda que frena la compra antes de que el cliente la escriba.",
+  "angulos_compatibles": ["pregunta-paradojica", "objecion-confianza", "objecion-precio", "curiosidad", "mecanismo-unico", "dolor"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Question & Answer Two-Tone Ad",
+  "reference_style": "Bold editorial two-tone Q&A ad: a dark question zone with an oversized left-aligned question and a giant tone-on-tone question mark, a light answer zone with a short direct answer, and the product straddling the color split",
+  "art_direction": {
+    "visual_hierarchy": "1) The oversized question in the dark top zone. 2) The product straddling the color split on the right. 3) The answer in the light bottom zone, with its first words in bold accent color. 4) The small kicker pill.",
+    "composition_style": "Two-tone horizontal split: a dark top zone (question) and a light bottom zone (answer), divided by one clean straight line. Left-aligned editorial grid with a strong text edge at 6% of the canvas width in both zones. The product stands on the right and straddles the split line, its upper part over the dark zone and its body over the light zone, bridging question and answer. A giant faint question mark sits behind the right side of the top zone.",
+    "spacing_and_structure": "Dark top zone from 0% to 52% of the canvas height; light bottom zone from 52% to 100%. Kicker pill from about 6% to 11% of the canvas height, starting at 6% of the width. Question from about 13% to 39% of the canvas height and 6% to 90% of the width. Giant question mark about 62-96% of the width and 2-50% of the height, behind everything. Answer from about 58% to 90% of the canvas height and 6% to 55% of the width. Product about 58-94% of the canvas width and 42-94% of the canvas height, crossing the split line at 52%. Left, top and bottom margins about 6%.",
+    "lighting_and_depth": "Both zones are flat solid color. The giant question mark is a flat tone-on-tone glyph with no shadow. The product gets a soft studio key light from the upper left, a subtle rim light that separates its top from the dark zone, a soft contact shadow on the light zone and a faint shadow cast onto it, so it reads as standing in front of the split."
+  },
+  "layout_summary": "Square canvas split horizontally into two solid colors: a deep brand-colored top zone and a light palette-toned bottom zone. In the top zone, a small outlined kicker pill sits top left, a very large bold question fills most of the zone left-aligned, and a giant faint question mark in the same hue sits behind its right side. In the bottom zone, a short direct answer is left-aligned in the left column. The user's product stands large on the right, crossing the color split line. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "two-tone background",
+      "position": "Top zone 0-52% of the canvas height; bottom zone 52-100%; full width",
+      "visual_function": "Separates question and answer into two clear moments and gives the ad a bold editorial look",
+      "adaptation_rule": "Top zone in the deepest color of the approved palette; bottom zone in the lightest palette tone (never pure white). One clean straight horizontal split line, no gradient between them."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "giant question mark",
+      "position": "Right side of the top zone, about 62-96% of the canvas width and 2-50% of the canvas height, behind all other elements",
+      "visual_function": "Graphic device that signals 'question' at a glance and adds depth",
+      "adaptation_rule": "One oversized question mark glyph in a tone only slightly lighter or darker than the top zone (very low contrast), flat, no outline, clipped at the split line."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "kicker pill",
+      "position": "Top left, from about 6% to 11% of the canvas height, starting at 6% of the canvas width",
+      "visual_function": "Frames the question as a real, frequent customer question",
+      "adaptation_rule": "Small rounded outlined pill in the brand accent color with a short kicker inside."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "question",
+      "position": "Top zone, left-aligned, from about 13% to 39% of the canvas height and 6% to 90% of the canvas width",
+      "visual_function": "Stops the scroll by voicing the exact doubt or objection the viewer has",
+      "adaptation_rule": "Write the objection or paradoxical question related to the angle, phrased the way a real customer would ask it, ending with a question mark."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "answer",
+      "position": "Bottom zone, left column, from about 58% to 90% of the canvas height and 6% to 55% of the canvas width",
+      "visual_function": "Resolves the doubt quickly and points to the product",
+      "adaptation_rule": "Write a short, direct answer that opens with a clear verdict and then gives the reason, based on the user's product data and benefits."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "product",
+      "position": "Right, about 58-94% of the canvas width and 42-94% of the canvas height, crossing the split line at 52%",
+      "visual_function": "Bridges question and answer; shows what is being sold",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), front or 3/4 view, about 48-52% of the canvas height, standing on the light zone with a soft contact shadow, its upper part rising over the dark zone."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "kicker",
+      "reference_position": "Inside the small pill at the top left of the dark zone",
+      "text_style": "Semi-bold uppercase sans-serif with wide letter spacing, about 2.5% of the canvas height, 1 line, brand accent color on the dark zone",
+      "guia_texto": "Etiqueta que presenta la pregunta como algo que la gente pregunta (nos preguntan, pregunta frecuente, la duda de todos). De 2 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "question",
+      "reference_position": "Dark top zone, left-aligned, from about 13% to 39% of the canvas height",
+      "text_style": "Extra bold sans-serif, very large (each line about 8-8.5% of the canvas height), max 3 lines, left-aligned, tight line spacing, maximum contrast against the dark zone",
+      "guia_texto": "La duda u objeción del cliente dicha en su voz, en forma de pregunta (¿de verdad funciona?, ¿por qué cuesta eso?). De 4 a 9 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "answer",
+      "reference_position": "Light bottom zone, left column, left-aligned",
+      "text_style": "Regular weight sans-serif, about 4.5% of the canvas height per line, max 5 lines, left-aligned, dark color with high contrast against the light zone; the first 1-3 words (the verdict) in bold and in the brand accent color",
+      "guia_texto": "Empieza con un veredicto claro (Sí., No., Depende., En 10 minutos.) y sigue con la razón ligada al producto o su mecanismo, sin promesas exageradas. De 8 a 18 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Two-tone horizontal split: deep brand-colored top zone and light bottom zone",
+    "Giant tone-on-tone question mark behind the right side of the top zone",
+    "Small outlined kicker pill at the top left",
+    "The user's product, large, on the right, crossing the color split line"
+  ],
+  "forbidden_additions": [
+    "Chat bubbles, app or social media interface elements",
+    "More than one question or answer",
+    "Arrows or connectors between question and answer",
+    "Subheadline or any text besides the kicker, question and answer",
+    "Photo backgrounds or photo panels",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or icons",
+    "People or faces",
+    "Bottom bar or banner",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Paleta de marca completa: la zona superior en el color más profundo de la paleta y la inferior en el tono más claro; la pregunta en el color de mayor contraste sobre el fondo oscuro; la respuesta en el color más oscuro sobre el fondo claro; el acento en la pastilla y en las palabras del veredicto; el signo de interrogación gigante en un tono apenas distinto de la zona superior."
+}

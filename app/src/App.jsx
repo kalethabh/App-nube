@@ -30,6 +30,9 @@ const Saldo = lazy(() => import('./pantallas/saldo/index.jsx'));
 const Cambiar = lazy(() => import('./pantallas/cambiar/index.jsx'));
 const Sketch = lazy(() => import('./pantallas/sketch/index.jsx'));
 const Aprendizajes = lazy(() => import('./pantallas/aprendizajes/index.jsx'));
+const Imagenes = lazy(() => import('./pantallas/imagenes/index.jsx'));
+const CrearImagenes = lazy(() => import('./pantallas/imagenes/Crear.jsx'));
+const LoteImagenes = lazy(() => import('./pantallas/imagenes-lote/index.jsx'));
 const Componentes = lazy(() => import('./pantallas/componentes/index.jsx'));
 // La bienvenida de 3 pasos: se abre sola la primera vez (hasta que se cierra o se termina).
 const BienvenidaPrimeraVez = lazy(() => import('./pantallas/ajustes/Bienvenida.jsx'));
@@ -70,6 +73,23 @@ export const RUTAS = [
   { patron: '/saldo', Pantalla: Saldo, menu: 'saldo', titulo: 'Saldo y costos', migas: () => [{ texto: 'Saldo y costos' }] },
   { patron: '/biblioteca', Pantalla: Biblioteca, menu: 'biblioteca', titulo: 'Biblioteca', migas: () => [{ texto: 'Biblioteca' }] },
   { patron: '/ajustes', Pantalla: Ajustes, menu: 'ajustes', titulo: 'Ajustes', migas: () => [{ texto: 'Ajustes' }] },
+  // Anuncios de imagen: la portada (tus productos y tus lotes), el formulario para crear un lote y la pantalla de un
+  // lote (avance y galería). "/imagenes/nuevo" va antes que "/imagenes/:lote" (un lote nunca se llama "nuevo")
+  { patron: '/imagenes', Pantalla: Imagenes, menu: 'imagenes', titulo: 'Anuncios de imagen', migas: () => [{ texto: 'Anuncios de imagen' }] },
+  {
+    patron: '/imagenes/nuevo',
+    Pantalla: CrearImagenes,
+    menu: 'imagenes',
+    titulo: 'Crear anuncios de imagen',
+    migas: () => [{ texto: 'Anuncios de imagen', href: enlace.imagenes() }, { texto: 'Crear anuncios de imagen' }],
+  },
+  {
+    patron: '/imagenes/:lote',
+    Pantalla: LoteImagenes,
+    menu: 'imagenes',
+    titulo: 'Tu lote de imágenes',
+    migas: () => [{ texto: 'Anuncios de imagen', href: enlace.imagenes() }, { texto: 'Tu lote' }],
+  },
   { patron: '/componentes', Pantalla: Componentes, menu: null, titulo: 'Guía de diseño', migas: () => [{ texto: 'Guía de diseño' }] },
 ];
 
@@ -247,7 +267,7 @@ export default function App() {
         <MenuLateral activo={actual?.ruta.menu} plegado={plegado} onPlegar={plegar} />
         <div className="principal">
           {/* en el tablero el gran "Nuevo anuncio" ya está en la portada: no se repite arriba */}
-          <BarraArriba migas={migas} ocultarNuevo={actual?.ruta.menu === 'nuevo' || actual?.ruta.patron === '/tablero'} />
+          <BarraArriba migas={migas} ocultarNuevo={actual?.ruta.menu === 'nuevo' || actual?.ruta.patron === '/tablero' || actual?.ruta.patron === '/imagenes' || actual?.ruta.patron === '/imagenes/nuevo'} />
           <main className="principal__contenido" id="contenido">
             <BandaVersionNueva />
             <BandaGlobalModoPrueba />

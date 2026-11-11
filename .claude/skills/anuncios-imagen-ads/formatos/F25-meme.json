@@ -1,0 +1,86 @@
+{
+  "id": "F25",
+  "slug": "meme",
+  "nombre": "Meme",
+  "origen": "biblioteca",
+  "descripcion": "Meme clásico de dos líneas: una foto de reacción a toda la imagen, con aspecto de foto de celular casera, donde una persona del público objetivo hace un gesto exagerado y reconocible en una situación cotidiana, con el producto visible en la escena. Texto blanco en mayúsculas con contorno negro arriba (la situación con la que todos se identifican) y abajo (el remate que conecta con el producto). Se siente nativo, no parece anuncio y genera comentarios y compartidos.",
+  "angulos_compatibles": ["dolor", "agitacion", "identidad", "enemigo-comun", "romper-expectativas", "rapido-y-facil"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Meme Ad",
+  "reference_style": "Native, lo-fi classic two-line meme: a full-bleed candid smartphone reaction photo with bold white outlined uppercase text at the top and bottom",
+  "art_direction": {
+    "visual_hierarchy": "1) The person's exaggerated facial expression. 2) The top text (the relatable setup). 3) The bottom text (the punchline). 4) The product in the scene.",
+    "composition_style": "Single full-bleed photo with no panels or frames. Medium shot of one person centered or slightly left, face in the upper-middle of the frame, product held in hand or placed in the foreground at the right. Text sits on top of the photo in the top and bottom strips, centered, leaving the face completely clear. Slightly imperfect, candid framing like a real phone snapshot.",
+    "spacing_and_structure": "Top text from about 3% to 21% of the canvas height. Bottom text from about 80% to 96% of the canvas height. Both centered with side margins of about 4%. The person's face sits between about 24% and 60% of the canvas height and must never be covered by text. The product sits around 56-86% of the canvas width and 48-78% of the canvas height, about 22-28% of the canvas height in size, in sharp focus.",
+    "lighting_and_depth": "Casual available light like a real smartphone photo: window light or overhead room light, slightly uneven exposure, mild grain, natural skin texture with no retouching, a slightly busy but realistic everyday background with moderate depth of field. No studio lighting, no glossy commercial polish."
+  },
+  "layout_summary": "Square canvas filled edge to edge by one candid smartphone-style photo of a person from the target audience reacting with an exaggerated, instantly readable expression (relief, smugness, side-eye, shock, exhaustion) in an everyday setting. The user's product is visible in the scene, held in hand or on a surface in the right foreground. Bold white uppercase text with a thick black outline runs across the top of the photo and across the bottom. No other elements.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "reaction photo",
+      "position": "Full canvas, edge to edge",
+      "visual_function": "The emotional hook; the expression carries the joke and the relatable feeling",
+      "adaptation_rule": "Candid smartphone-style photo of one original, non-famous person matching the target audience (age, gender, style) in an everyday setting tied to the angle's situation (kitchen, bathroom, bedroom, car, office desk, couch, gym). The facial expression must be exaggerated and instantly readable and must fit the punchline: suffering for the pain setup, smug relief or delight for the product payoff."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "product",
+      "position": "Right foreground of the photo, about 56-86% of the canvas width and 48-78% of the canvas height",
+      "visual_function": "Ties the joke to what is being sold without breaking the native look",
+      "adaptation_rule": "Show the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), naturally held in the person's hand or resting on a surface close to the camera, in sharp focus with its front visible, about 22-28% of the canvas height. It must look like part of the snapshot, not pasted in."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "top text",
+      "position": "Top of the photo, centered, from about 3% to 21% of the canvas height",
+      "visual_function": "Sets up the relatable situation that makes the viewer think 'that's me'",
+      "adaptation_rule": "Write the everyday situation or pain of the angle in the classic meme voice (when..., me after..., nobody:)."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "bottom text",
+      "position": "Bottom of the photo, centered, from about 80% to 96% of the canvas height",
+      "visual_function": "Delivers the punchline that connects the situation with the product",
+      "adaptation_rule": "Write a short, funny payoff that links the situation to the product or its benefit, without sounding like an ad."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "meme top text",
+      "reference_position": "Top of the photo, centered",
+      "text_style": "Classic meme typography: heavy condensed sans-serif in uppercase, white fill with a thick black outline, about 7-8% of the canvas height per line, max 2 lines, centered",
+      "guia_texto": "La situación cotidiana o el dolor del ángulo contado como meme, en lenguaje coloquial del país (cuando..., yo después de..., nadie:). De 4 a 8 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "meme bottom text",
+      "reference_position": "Bottom of the photo, centered",
+      "text_style": "Same classic meme typography as the top text: heavy condensed uppercase sans-serif, white with a thick black outline, about 7-8% of the canvas height per line, max 2 lines, centered",
+      "guia_texto": "El remate gracioso que conecta la situación con el producto o su beneficio, sin sonar a publicidad. Puede nombrar el producto. De 3 a 8 palabras."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One full-bleed candid smartphone-style reaction photo",
+    "One person from the target audience with an exaggerated, readable facial expression",
+    "The user's product visible and in focus in the scene",
+    "White uppercase meme text with a thick black outline at the top and at the bottom",
+    "Face fully clear of text"
+  ],
+  "forbidden_additions": [
+    "Famous meme templates, celebrities, cartoon characters or recognizable public figures",
+    "Social media interface elements, usernames, handles, like counters or watermarks",
+    "Multi-panel or split-screen layouts",
+    "White caption band or any frame around the photo",
+    "Emojis, stickers, arrows or any text besides the top and bottom lines",
+    "Bottom bar or banner",
+    "Studio lighting or polished commercial look",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Benefit list or icons",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Colores nativos de la escena: debe verse como una foto casera real. La paleta de marca solo aparece en detalles discretos del ambiente (una prenda, un cojín, una taza, una pared); el producto conserva sus colores reales. El texto siempre en blanco con contorno negro, nunca en colores de marca."
+}

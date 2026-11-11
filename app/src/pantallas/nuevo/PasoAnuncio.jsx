@@ -589,7 +589,7 @@ function PildoraTanda({ elegidos, estilos, visible, onIr, hayGuiones }) {
 
 // ---------------------------------------------------------------- el paso completo
 
-export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambiarAjuste, anuncios, creando, onEscribir, claude, onVolver, onProductoDelAnuncio, enfoque = null }) {
+export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambiarAjuste, anuncios, creando, onEscribir, motor, onVolver, onProductoDelAnuncio, enfoque = null }) {
   // lo que dice el brief de un anuncio ya creado (duración, voz, continuidad y respuestas) se ve en su tarjeta de ajustes
   const alLeerBrief = (clave, b) => {
     const c = {};
@@ -695,7 +695,7 @@ export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambi
           anuncios={anuncios}
           creando={creando}
           sinProducto={!producto}
-          claude={claude}
+          motor={motor}
           onEscribir={onEscribir}
           onVolverAlProducto={onVolver}
           onBrief={alLeerBrief}

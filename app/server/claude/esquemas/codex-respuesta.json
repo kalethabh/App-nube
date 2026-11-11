@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["estado", "respuesta", "archivos", "ediciones", "leer", "comandos"],
+  "properties": {
+    "estado": { "type": "string", "enum": ["LISTO", "BLOQUEADO", "SEGUIR"] },
+    "respuesta": { "type": "string" },
+    "archivos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ruta", "contenido"],
+        "properties": { "ruta": { "type": "string" }, "contenido": { "type": "string" } }
+      }
+    },
+    "ediciones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ruta", "buscar", "reemplazar"],
+        "properties": { "ruta": { "type": "string" }, "buscar": { "type": "string" }, "reemplazar": { "type": "string" } }
+      }
+    },
+    "leer": { "type": "array", "items": { "type": "string" } },
+    "comandos": { "type": "array", "items": { "type": "string" } }
+  }
+}

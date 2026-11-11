@@ -1,0 +1,405 @@
+// La seccion "Anuncios de imagen": un lote de anuncios de imagen (1:1 y 9:16) para un producto (ESPECIFICACION-imagen-ads.md §9).
+//
+// GET    /api/imagen-ads/opciones                    angulos, posiciones del logo, topes, idioma por defecto y `costo`:
+//                                                    { creditosPorImagen, dolaresPorImagen, dolaresPorCredito, margen, modelo }
+//                                                    (el modelo de los lotes es fijo: no se compara)
+// GET    /api/imagen-ads/productos                   los productos de esta app con foto
+// GET    /api/imagen-ads                             { lotes: [...] } (el mas nuevo primero)
+// POST   /api/imagen-ads                             crea el borrador -> 201 { lote, brief }
+// PUT    /api/imagen-ads/:lote/referencias/:n        una referencia (binario; n de 1 a 10; solo en borrador)
+// DELETE /api/imagen-ads/:lote/referencias/:n
+// PUT    /api/imagen-ads/:lote/logo                  el logo (binario). En un lote ya hecho cambia el archivo (misma posicion)
+// DELETE /api/imagen-ads/:lote/logo
+// POST   /api/imagen-ads/:lote/generar               arranca con costoMaximoConfirmado del formulario
+// GET    /api/imagen-ads/:lote                       la vista del lote (con ETag)
+// GET    /api/imagen-ads/:lote/prompt/:pieza         { texto }: el prompt exacto que recibio kie (o el V##.json con como=json)
+// POST   /api/imagen-ads/:lote/regenerar             { pieza, instruccion? } o { v, tipo: 'prompt' } -> 202 { pedido }
+// POST   /api/imagen-ads/:lote/continuar · /detener
+// GET    /api/imagen-ads/:lote/descargar?logo=1|0&prompts=0|1   el zip (en streaming)
+// DELETE /api/imagen-ads/:lote                       solo un borrador (nada pagado)
+// GET    /archivos/imagen-ads/:lote/<ruta>           una imagen del lote (lista cerrada)
+// GET    /archivos/miniatura/imagen-ads/:lote/<ruta>?ancho=480
+//
+// EXCEPCION (decision de Diego): GET /api/imagen-ads/:lote/prompt/:pieza es la UNICA ruta de la app que devuelve un
+// prompt. La pantalla nunca lo muestra: solo lo copia con el boton "Copiar prompt". Ninguna otra ruta devuelve prompts.
+// Sin precios en la vista del lote: el costo real sale solo en `informe`, y solo con el lote terminado. La unica
+// excepcion es el precio por imagen de /opciones, para el costo estimado del formulario (decision de Diego del
+// 2026-11-09).
+// Los POST, PUT y DELETE, solo desde la propia app (soloDesdeLaApp).
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import express from 'express';
+import { TIPOS_MEDIO, dentroDe, stat, listar, existe } from '../lib/archivos.js';
+import { ErrorApp, soloDesdeLaApp, formatoDeBytes } from '../lib/productos.js';
+import { iniciarProduccion, continuar, detener, leerConductor, esperarFamilias, reabrir, estadoDeLaFila, tomarElMando } from '../lib/conductor.js';
+import { modoPrueba } from '../lib/procesos.js';
+import { miniatura, anchoPermitido } from '../lib/miniaturas.js';
+import { R, RE_LOTE, RE_PIEZA, carpetaDe, guardarJSON, firma, vDe, formatoDe, nombreFormato, nombreSeguro, ordenDePiezas, idsDelLote, piezaId, MAXIMO_REFERENCIAS, POSICIONES } from '../lib/imagen-ads/disco.js';
+import * as lotes from '../lib/imagen-ads/lotes.js';
+import { vistaDelLote, leerEstado } from '../lib/imagen-ads/estado.js';
+import * as local from '../lib/imagen-ads/local.js';
+import { prepararZip, enviarZip } from '../lib/imagen-ads/zip.js';
+import { estadoDelTurno } from '../lib/imagen-ads/turno-claude.js';
+import { costoDeImagenAds } from '../lib/costo-estimado.js';
+import { costoMaximoDeLaAccion, costoAprobado } from '../lib/imagen-ads/costo.js';
+
+// ---------------------------------------------------------------- utilidades
+
+const conErrores = (fn) => async (req, res, next) => {
+  try {
+    await fn(req, res);
+  } catch (e) {
+    if (e instanceof ErrorApp || (Number.isInteger(e?.status) && e.status >= 400 && e.status < 600)) {
+      if (!res.headersSent) return res.status(e.status).json({ error: e.message });
+      return;
+    }
+    next(e);
+  }
+};
+
+// El binario llega crudo (el JSON de la app tiene un tope de 2 MB).
+const crudo = express.raw({ type: () => true, limit: '25mb' });
+const leerBinario = (req, res, next) =>
+  crudo(req, res, (err) => {
+    if (err) return res.status(err.status === 413 ? 413 : 400).json({ error: err.status === 413 ? 'Esa imagen pesa demasiado (más de 25 MB). Prueba con una más liviana.' : 'No pude leer esa imagen.' });
+    next();
+  });
+
+/** El lote de la URL: valido, de anuncios de imagen y de esta app. Si no, 404. */
+function elLote(req) {
+  const lote = String(req.params.lote || '');
+  if (!RE_LOTE.test(lote) || !lotes.esLoteDeEstaApp(lote)) throw new ErrorApp(404, 'No encuentro ese lote.');
+  const carpeta = carpetaDe(lote);
+  return { lote, carpeta, brief: lotes.leerBrief(carpeta) };
+}
+
+const enBorrador = (lote) => !leerConductor(lote);
+
+async function comprobarCostoConfirmado(brief, cuerpo, { loteCompleto = false } = {}) {
+  const precio = await costoDeImagenAds();
+  const maximo = costoMaximoDeLaAccion(precio, brief, loteCompleto ? null : cuerpo);
+  if (maximo === null) throw new ErrorApp(503, 'No pude calcular el costo. Vuelve a intentarlo antes de generar.');
+  if (!costoAprobado(cuerpo, maximo)) throw new ErrorApp(428, 'Confirma el costo de esta generación antes de continuar. Si cambió el precio, recarga la pantalla.');
+}
+const enMarcha = (lote) => {
+  const f = estadoDeLaFila();
+  return f.activos.includes(lote) || f.fila.includes(lote);
+};
+
+/** conductor.json para la pantalla, sin los saldos (ningun numero a la vista). */
+function paraLaPantalla(c) {
+  if (!c || typeof c !== 'object') return c;
+  const { saldoInicial, saldoFinal, ...resto } = c;
+  return resto;
+}
+
+function guardarBrief(carpeta, brief) {
+  guardarJSON(R.brief(carpeta), brief);
+  return brief;
+}
+
+/** Vuelve a pegar el logo en todo lo que ya tiene imagen (con el lote quieto: lo hace la ruta, de fondo). */
+function recomponerLogo(lote, carpeta) {
+  const brief = lotes.leerBrief(carpeta);
+  const est = leerEstado(carpeta);
+  for (const p of Object.keys(est?.piezas || {}).sort(ordenDePiezas)) {
+    if (!existe(R.img(carpeta, p))) continue;
+    local.componerLogo(carpeta, lote, p, brief).catch((e) => console.error(`[imagen-ads] ${lote}: no pude poner el logo en ${p}: ${e?.message || e}`));
+  }
+}
+
+// La lista cerrada de lo que se puede abrir de un lote (nunca un JSON ni un prompt).
+const PERMITIDOS = [
+  /^img\/V\d{2,3}_(1x1|9x16)\.png$/,
+  /^final\/V\d{2,3}_(1x1|9x16)\.png$/,
+  /^versiones\/V\d{2,3}_(1x1|9x16)\.v\d+\.png$/,
+  /^entrada\/producto\.(png|jpe?g|webp)$/,
+  /^entrada\/referencias\/R\d{2}\.(png|jpe?g|webp)$/,
+  /^entrada\/logo\.png$/,
+];
+
+function archivoDelLote(req) {
+  const lote = String(req.params.lote || '');
+  if (!RE_LOTE.test(lote) || !lotes.esLoteDeEstaApp(lote)) return null; // de imagen-ads y de esta app (como la API)
+  const partes = Array.isArray(req.params.ruta) ? req.params.ruta : String(req.params.ruta || '').split('/');
+  const rel = partes.join('/');
+  if (!PERMITIDOS.some((re) => re.test(rel))) return null;
+  const abs = dentroDe(carpetaDe(lote), partes);
+  return abs ? { lote, rel, abs } : null;
+}
+
+// (copia de enviar() de rutas/archivos.js, que no esta exportada)
+function enviar(res, abs) {
+  const tipo = TIPOS_MEDIO[path.extname(abs).toLowerCase()];
+  if (!tipo) return res.status(404).json({ error: 'Ese archivo no se puede abrir desde la app.' });
+  const st = stat(abs);
+  if (!st?.isFile()) return res.status(404).json({ error: 'No encuentro ese archivo.' });
+  res.sendFile(abs, {
+    dotfiles: 'deny',
+    acceptRanges: true,
+    cacheControl: true,
+    maxAge: 0,
+    headers: { 'Content-Type': tipo, 'X-Content-Type-Options': 'nosniff' },
+  });
+}
+
+/** El ETag de la vista: cambia cuando cambia algo de lo que la arma. */
+function etagDe(lote, carpeta) {
+  const marcas = [R.conductor(carpeta), R.estado(carpeta), R.pedidos(carpeta), R.informe(carpeta), R.brief(carpeta), R.plan(carpeta), R.estrategia(carpeta), R.indiceVersiones(carpeta), R.dirImg(carpeta), R.dirFinal(carpeta), R.entrada(carpeta), R.logo(carpeta)].map((r) => {
+    const s = stat(r);
+    return s ? `${s.size}:${s.mtimeMs}` : '-';
+  });
+  for (const n of listar(R.motor(carpeta)).filter((x) => /\.resultado\.json$/.test(x)).sort()) {
+    const s = stat(path.join(R.motor(carpeta), n));
+    marcas.push(s ? `${n}:${s.mtimeMs}` : n);
+  }
+  const f = estadoDeLaFila();
+  marcas.push(f.activos.includes(lote) ? 'a' : f.fila.includes(lote) ? `f${f.fila.indexOf(lote)}` : '-', modoPrueba() ? 'p' : 'r');
+  return `"${crypto.createHash('sha1').update(marcas.join('|')).digest('hex').slice(0, 24)}"`;
+}
+
+/** Si el lote espera en la fila: { detrasDe: ['Anuncios de imagen: Sérum Glow'] }. */
+function filaDe(lote) {
+  const f = estadoDeLaFila();
+  const i = f.fila.indexOf(lote);
+  if (i < 0) return null;
+  const titulos = lotes.titulosDeLotes();
+  const delante = [...f.activos, ...f.fila.slice(0, i)].filter((s) => titulos.has(s));
+  return { detrasDe: delante.map((s) => titulos.get(s)) };
+}
+
+// ---------------------------------------------------------------- las rutas
+
+export default function rutasImagenAds(app) {
+  // con el costo de cada imagen para el estimado del formulario (null si no se pudo leer: el formulario va sin numero)
+  app.get('/api/imagen-ads/opciones', async (req, res) => res.json({ ...lotes.opciones(), costo: await costoDeImagenAds() }));
+
+  app.get('/api/imagen-ads/productos', (req, res) => res.set('Cache-Control', 'no-store').json({ productos: lotes.productosConFoto() }));
+
+  app.get('/api/imagen-ads', (req, res) => {
+    const t = estadoDelTurno();
+    res.set('Cache-Control', 'no-store').json({ lotes: lotes.listarLotes(), sesionesDeLotes: { ahora: t.enCurso, maximo: t.maximo } });
+  });
+
+  app.post('/api/imagen-ads', soloDesdeLaApp, conErrores((req, res) => {
+    res.status(201).json(lotes.crearLote(req.body || {}));
+  }));
+
+  // ------------------------------------------------------------ referencias (solo en borrador)
+  app.put('/api/imagen-ads/:lote/referencias/:n', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    if (!enBorrador(lote)) throw new ErrorApp(409, 'Este lote ya empezó: sus referencias ya no se cambian.');
+    const n = Number(req.params.n);
+    if (!Number.isInteger(n) || n < 1 || n > MAXIMO_REFERENCIAS) throw new ErrorApp(400, `Puedes subir hasta ${MAXIMO_REFERENCIAS} referencias.`);
+    const bytes = Buffer.isBuffer(req.body) ? req.body : null;
+    if (!bytes?.length) throw new ErrorApp(400, 'No llegó ninguna imagen.');
+    const formato = formatoDeBytes(bytes);
+    if (!formato) throw new ErrorApp(400, 'Eso no parece una imagen. Sube una JPG, PNG o WEBP.');
+    const nombre = `R${String(n).padStart(2, '0')}`;
+    const abs = await local.normalizarImagen(bytes, path.join(R.referencias(carpeta), nombre), formato);
+    const rel = `entrada/referencias/${path.basename(abs)}`;
+    const otras = (brief.referencias || []).filter((r) => !path.basename(r).startsWith(`${nombre}.`));
+    brief.referencias = [...otras, rel].sort((a, b) => Number(path.basename(a).slice(1, 3)) - Number(path.basename(b).slice(1, 3)));
+    guardarBrief(carpeta, brief);
+    res.json({ n, url: `/archivos/imagen-ads/${encodeURIComponent(lote)}/${rel}?v=${firma(abs)}` });
+  }));
+
+  app.delete('/api/imagen-ads/:lote/referencias/:n', soloDesdeLaApp, conErrores((req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    if (!enBorrador(lote)) throw new ErrorApp(409, 'Este lote ya empezó: sus referencias ya no se cambian.');
+    const nombre = `R${String(Number(req.params.n) || 0).padStart(2, '0')}`;
+    for (const x of listar(R.referencias(carpeta))) if (x.startsWith(`${nombre}.`)) fs.rmSync(path.join(R.referencias(carpeta), x), { force: true });
+    brief.referencias = (brief.referencias || []).filter((r) => !path.basename(r).startsWith(`${nombre}.`));
+    guardarBrief(carpeta, brief);
+    res.json({ ok: true });
+  }));
+
+  // ------------------------------------------------------------ el logo
+  app.put('/api/imagen-ads/:lote/logo', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    const bytes = Buffer.isBuffer(req.body) ? req.body : null;
+    if (!bytes?.length) throw new ErrorApp(400, 'No llegó ningún logo.');
+    const formato = formatoDeBytes(bytes);
+    if (!['png', 'jpg', 'webp'].includes(formato)) throw new ErrorApp(400, 'Sube tu logo en PNG (mejor sin fondo), JPG o WEBP.');
+    const borrador = enBorrador(lote);
+    const pedida = typeof req.query.posicion === 'string' ? req.query.posicion : null;
+    if (pedida && !POSICIONES.includes(pedida)) throw new ErrorApp(400, 'Elige dónde va el logo.');
+    if (!borrador && !brief.logo?.posicion) throw new ErrorApp(409, 'Este lote se hizo sin logo: no se le puede agregar uno. Haz otro lote con tu logo.');
+    if (!borrador && pedida && pedida !== brief.logo.posicion) throw new ErrorApp(409, 'La posición del logo quedó fija al crear las imágenes: puedes cambiar el archivo, no el lugar.');
+    const info = await local.prepararLogo(carpeta, bytes, formato);
+    const posicion = borrador ? pedida || brief.logo?.posicion || 'arriba-centro' : brief.logo.posicion;
+    brief.logo = { posicion, archivo: 'entrada/logo.png' };
+    guardarBrief(carpeta, brief);
+    // con el lote en marcha lo pega su carril local; quieto, se pega aca, de fondo (un solo escritor: local.enFilaDelLote)
+    if (!borrador && !enMarcha(lote)) recomponerLogo(lote, carpeta);
+    res.json({ url: `/archivos/imagen-ads/${encodeURIComponent(lote)}/entrada/logo.png?v=${firma(R.logo(carpeta))}`, ancho: info.ancho, alto: info.alto, transparente: info.transparente });
+  }));
+
+  app.delete('/api/imagen-ads/:lote/logo', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    fs.rmSync(R.logo(carpeta), { force: true });
+    fs.rmSync(R.logoJson(carpeta), { force: true });
+    if (enBorrador(lote)) brief.logo = null;
+    else if (brief.logo) {
+      brief.logo = { posicion: brief.logo.posicion, archivo: null }; // la posicion queda: la zona ya se reservo al generar
+      await local.quitarFinales(carpeta, lote);
+    }
+    guardarBrief(carpeta, brief);
+    res.json({ ok: true });
+  }));
+
+  // ------------------------------------------------------------ arrancar, seguir, detener
+  app.post('/api/imagen-ads/:lote/generar', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { lote, brief } = elLote(req);
+    await esperarFamilias();
+    if (leerConductor(lote)) throw new ErrorApp(409, 'Este lote ya empezó.');
+    await comprobarCostoConfirmado(brief, req.body, { loteCompleto: true });
+    const c = iniciarProduccion(lote);
+    res.json({ lote, conductor: paraLaPantalla(c) });
+  }));
+
+  app.post('/api/imagen-ads/:lote/continuar', soloDesdeLaApp, conErrores((req, res) => {
+    const { lote } = elLote(req);
+    res.json(paraLaPantalla(continuar(lote)));
+  }));
+
+  app.post('/api/imagen-ads/:lote/detener', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { lote } = elLote(req);
+    res.json(paraLaPantalla(await detener(lote)));
+  }));
+
+  // ------------------------------------------------------------ la vista
+  app.get('/api/imagen-ads/:lote', conErrores(async (req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    await lotes.asegurarPedidos(lote);
+    const etag = etagDe(lote, carpeta);
+    res.set('Cache-Control', 'no-cache');
+    res.set('ETag', etag);
+    if (req.headers['if-none-match'] === etag) return res.status(304).end();
+    const conductor = paraLaPantalla(leerConductor(lote));
+    res.json(vistaDelLote({ lote, carpeta, brief, conductor, fila: conductor?.estado === 'esperando' ? filaDe(lote) : null, modoPrueba: conductor ? Boolean(conductor.modoPrueba) : modoPrueba() }));
+  }));
+
+  // ------------------------------------------------------------ el prompt (para "Copiar prompt": nunca se muestra)
+  app.get('/api/imagen-ads/:lote/prompt/:pieza', conErrores((req, res) => {
+    const { carpeta, brief } = elLote(req);
+    const pieza = String(req.params.pieza || '');
+    if (!RE_PIEZA.test(pieza) || !idsDelLote(brief.cantidad).includes(vDe(pieza)) || !(brief.formatos || []).includes(formatoDe(pieza))) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
+    res.set('Cache-Control', 'no-store');
+    if (req.query.como === 'json') {
+      let texto = null;
+      try {
+        texto = fs.readFileSync(R.v(carpeta, vDe(pieza)), 'utf8');
+      } catch {
+        throw new ErrorApp(404, 'Todavía no se escribió este anuncio.');
+      }
+      return res.json({ texto });
+    }
+    const actual = leerEstado(carpeta)?.piezas?.[pieza]?.version || null;
+    const n = req.query.version !== undefined ? Number(req.query.version) : null;
+    const ruta = n && Number.isInteger(n) && n !== actual ? R.versionTxt(carpeta, pieza, n) : R.prompt(carpeta, pieza);
+    let texto;
+    try {
+      texto = fs.readFileSync(ruta, 'utf8');
+    } catch {
+      throw new ErrorApp(404, 'Todavía no se creó esta imagen.');
+    }
+    res.json({ texto });
+  }));
+
+  // ------------------------------------------------------------ regenerar
+  app.post('/api/imagen-ads/:lote/regenerar', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { lote, brief } = elLote(req);
+    const c = leerConductor(lote);
+    if (!c) throw new ErrorApp(409, 'Este lote todavía no empezó.');
+    if (Boolean(c.modoPrueba) !== modoPrueba()) {
+      throw new ErrorApp(409, c.modoPrueba ? 'Este lote se empezó en modo prueba. Abre la app en modo prueba para cambiarlo (así no se gasta nada).' : 'Este lote se empezó de verdad. Abre la app sin el modo prueba para cambiarlo.');
+    }
+    if (!tomarElMando()) throw new ErrorApp(409, 'La app ya está abierta en otra ventana, y es esa la que produce. Usa esa ventana.');
+    await comprobarCostoConfirmado(brief, req.body);
+    const pedido = lotes.agregarPedido(lote, req.body || {});
+    // Lo detuviste: el pedido queda guardado y se hace al tocar "Continuar" (reabrir lo continuaria entero, con todo lo
+    // que faltaba). Terminado, en pausa por saldo o por el plan de Claude, o con error: se reabre o sigue ya; en
+    // marcha: lo toma en su proxima vuelta.
+    if (c.estado === 'pausado' && c.motivo === 'detenido' && !enMarcha(lote)) return res.status(202).json({ pedido: { id: pedido.id, estado: 'en-espera' } });
+    try {
+      reabrir(lote, 'anuncios');
+    } catch (e) {
+      console.error(`[imagen-ads] ${lote}: no pude reabrir el lote para ${pedido.id}: ${e?.message || e}`);
+    }
+    res.status(202).json({ pedido: { id: pedido.id, estado: 'pendiente' } });
+  }));
+
+  // ------------------------------------------------------------ el zip
+  app.get('/api/imagen-ads/:lote/descargar', conErrores(async (req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    const conLogo = req.query.logo !== '0' && Boolean(brief.logo?.posicion && existe(R.logo(carpeta)));
+    const conPrompts = req.query.prompts === '1';
+    const titulo = nombreSeguro(brief.titulo || brief.datos?.nombre, 'Anuncios');
+    const shaLogo = conLogo ? local.sha1DelLogo(carpeta) : null;
+    const entradas = [];
+    for (const v of idsDelLote(brief.cantidad)) {
+      for (const f of brief.formatos || ['1:1']) {
+        const p = piezaId(v, f);
+        if (!existe(R.img(carpeta, p))) continue;
+        // "Con logo" lleva solo las que ya tienen su logo pegado (las que todavia se revisan o se rehacen, todavia no):
+        // nunca una mezcla con y sin logo. La pantalla dice cuantas van.
+        const final = conLogo && local.finalAlDia(carpeta, p, { posicion: brief.logo.posicion, shaLogo });
+        if (conLogo && !final) continue;
+        entradas.push({ nombre: `${titulo}/${v}-${nombreFormato(f)}.png`, origen: final ? R.final(carpeta, p) : R.img(carpeta, p) });
+        if (conPrompts && existe(R.prompt(carpeta, p))) entradas.push({ nombre: `${titulo}/prompts/${v}-${nombreFormato(f)}.txt`, origen: R.prompt(carpeta, p) });
+      }
+    }
+    if (!entradas.some((e) => e.nombre.endsWith('.png'))) throw new ErrorApp(404, conLogo ? 'Todavía no hay imágenes con tu logo para descargar.' : 'Todavía no hay imágenes para descargar.');
+    const plan = await prepararZip(entradas);
+    const archivo = `${titulo}${conLogo ? '' : ' (sin logo)'}.zip`;
+    res.set({
+      'Content-Type': 'application/zip',
+      'Content-Length': String(plan.tamano),
+      'Content-Disposition': `attachment; filename="${archivo.replace(/[^\x20-\x7e]/g, '_').replace(/"/g, '')}"; filename*=UTF-8''${encodeURIComponent(archivo)}`,
+      'Cache-Control': 'no-store',
+      'X-Content-Type-Options': 'nosniff',
+    });
+    await enviarZip(res, plan); // si algo falla a mitad, corta la respuesta: la descarga sale fallida, nunca colgada
+  }));
+
+  // ------------------------------------------------------------ borrar un borrador
+  app.delete('/api/imagen-ads/:lote', soloDesdeLaApp, conErrores((req, res) => {
+    const { lote, carpeta } = elLote(req);
+    if (!enBorrador(lote) || enMarcha(lote)) throw new ErrorApp(409, 'Este lote ya empezó: no se puede borrar desde aquí.');
+    fs.rmSync(carpeta, { recursive: true, force: true });
+    res.json({ ok: true });
+  }));
+
+  // ------------------------------------------------------------ los archivos
+  app.get('/archivos/imagen-ads/:lote/*ruta', (req, res) => {
+    const a = archivoDelLote(req);
+    if (!a) return res.status(404).json({ error: 'No encuentro ese archivo.' });
+    enviar(res, a.abs);
+  });
+
+  app.get('/archivos/miniatura/imagen-ads/:lote/*ruta', async (req, res) => {
+    const a = archivoDelLote(req);
+    if (!a || !stat(a.abs)?.isFile()) return res.status(404).json({ error: 'No encuentro ese archivo.' });
+    try {
+      const archivo = await miniatura(a.abs, anchoPermitido(req.query.ancho || 480));
+      res.sendFile(archivo, { dotfiles: 'allow', cacheControl: true, maxAge: 0, headers: { 'X-Content-Type-Options': 'nosniff' } });
+    } catch {
+      res.redirect(302, `/archivos/imagen-ads/${encodeURIComponent(a.lote)}/${a.rel}`);
+    }
+  });
+
+  // Los pedidos que quedaron colgados (la app se cerro justo despues de un "Regenerar"): un barrido al arrancar.
+  if (!process.env.ANUNCIOS_NO_RETOMAR) {
+    setTimeout(async () => {
+      try {
+        await esperarFamilias();
+        if (!tomarElMando()) return;
+        for (const lote of lotes.lotesDeEstaApp()) await lotes.asegurarPedidos(lote);
+      } catch (e) {
+        console.error('[imagen-ads] No pude revisar los pedidos pendientes:', e?.message || e);
+      }
+    }, 15000).unref();
+  }
+}

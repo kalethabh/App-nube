@@ -1,7 +1,9 @@
 // ENTREGA (#/anuncio/:slug): el anuncio terminado.
 //   Izquierda: el reproductor 9:16 grande con la versión elegida, Descargar y Abrir carpeta.
 //   Derecha:   el anuncio, "Abrir en el editor" (lo destacado), las versiones, el informe en tres
-//              apartados (decisiones, lo que salió mal, costo real) y otros anuncios del mismo producto.
+//              apartados (decisiones, lo que salió mal, costo real), «Lo que notó la revisión» (una línea por pieza
+//              con un enlace que la abre en el proceso para regenerarla: ./Avisos.jsx) y otros anuncios del mismo
+//              producto.
 // En los anuncios de la app, el informe sale de su informe.json (ver normalizarInforme en ./Informe.jsx) y,
 // si se hizo en modo prueba, arriba va la banda "Modo prueba: no se gasta nada".
 import { useMemo, useRef, useState } from 'react';
@@ -20,7 +22,7 @@ import {
   useAvisos,
   useBarraSuperior,
 } from '../../componentes/index.js';
-import { miniatura, useAnuncio, useAnuncios } from '../../datos/api.js';
+import { conVersion, miniatura, useAnuncio, useAnuncios } from '../../datos/api.js';
 import { enlace, enlaceDelGuion } from '../../datos/rutas.js';
 import { duracion, fechaCompleta, fechaRelativa, idioma, mercado, tamano } from '../../datos/formato.js';
 import { imagenesDistintas } from '../../datos/variantes.js';
@@ -31,6 +33,7 @@ import { Versiones } from './Versiones.jsx';
 import { MasGanchos } from './MasGanchos.jsx';
 import { EnLaNube } from './EnLaNube.jsx';
 import { Informe, normalizarInforme } from './Informe.jsx';
+import { AvisosRevision } from './Avisos.jsx';
 import { NOMBRE_CORTO, abrirCarpeta, useEntrega } from './datos.js';
 import './entrega.css';
 
@@ -178,7 +181,7 @@ export default function Entrega({ params }) {
             {version ? (
               <Reproductor
                 ref={reproductor}
-                src={version.url}
+                src={conVersion(version.url, version.fecha)}
                 duracion={version.duracion || a.duracion}
                 poster={miniatura(version.url, 720, { segundo: 1 })}
                 etiqueta={NOMBRE_CORTO[version.tipo] || version.nombre}
@@ -188,8 +191,8 @@ export default function Entrega({ params }) {
             )}
           </div>
           <div className="ent__archivo">
-            <Boton variante="secundario" icono={Download} href={version?.url} download={version?.archivo} disabled={!version} bloque>
-              Descargar
+            <Boton variante="secundario" icono={Download} href={version ? conVersion(version.url, version.fecha) : undefined} download={version?.archivo} disabled={!version} bloque>
+              Descargar video
             </Boton>
             <Boton
               variante="secundario"
@@ -225,6 +228,7 @@ export default function Entrega({ params }) {
           ) : null}
           <EnLaNube slug={a.slug} alTraer={recargar} />
           {version ? <MasGanchos slug={a.slug} /> : null}
+
         </div>
 
         {/* ------------------------------------------------ derecha: el anuncio */}
@@ -265,7 +269,7 @@ export default function Entrega({ params }) {
               <h2 className="ent-editar__titulo">{listo ? '¿Quieres cambiar algo?' : enGuion ? 'Primero va el guion' : 'Todavía se está armando'}</h2>
               <p className="ent-editar__texto">
                 {listo
-                  ? 'Música, subtítulos, textos o un clip, sin volver a generar el anuncio. Exportas ahí mismo.'
+                  ? 'Música, subtítulos, textos, la velocidad de un clip o tu propio video en su lugar, sin volver a generar el anuncio. Si un clip no te convence, lo regeneras ahí. Exportas ahí mismo.'
                   : enGuion
                     ? 'La producción empieza apenas apruebes el guion. Desde ahí todo es automático hasta los videos.'
                     : 'Cuando termine el montaje vas a poder retocar aquí la música, los subtítulos, los textos o un clip.'}
@@ -320,7 +324,7 @@ export default function Entrega({ params }) {
           {modoPrueba ? <BandaModoPrueba className="ent-prueba">Este anuncio se hizo con los simuladores de tu PC: sus imágenes, videos, voz y música son de mentira.</BandaModoPrueba> : null}
 
           {informe ? (
-            <Informe informe={{ ...informe, modoPrueba }} onIr={irA} terminado={a.estado === 'listo'} familia={conductor?.familia || a.produccion || a.familia || null} />
+            <Informe informe={{ ...informe, modoPrueba }} onIr={irA} terminado={a.estado === 'listo'} familia={conductor?.familia || a.produccion || a.familia || null} avisosAparte={Boolean(entrega?.avisos?.length)} />
           ) : cargandoInforme ? (
             <div className="pila" style={{ '--hueco': 'var(--e-4)' }}>
               <Esqueleto ancho={120} alto={22} />
@@ -328,6 +332,9 @@ export default function Entrega({ params }) {
               <Esqueleto alto={180} />
             </div>
           ) : null}
+
+          {/* lo que notó la revisión: una línea por pieza, con su enlace al proceso para regenerarla */}
+          <AvisosRevision slug={a.slug} avisos={entrega?.avisos} onIr={irA} deLaApp={Boolean(informe?.deLaApp || conductor)} editable={listo && Boolean(a.tienePlan)} />
 
           {informe?.hermanos?.length ? (
             <Seccion titulo="Del mismo producto" contador={informe.hermanos.length} descripcion="Otros estilos y versiones que hiciste para esta marca.">

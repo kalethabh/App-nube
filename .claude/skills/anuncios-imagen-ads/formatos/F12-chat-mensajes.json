@@ -1,0 +1,143 @@
+{
+  "id": "F12",
+  "slug": "chat-mensajes",
+  "nombre": "Conversación de chat",
+  "origen": "biblioteca",
+  "descripcion": "Captura de una conversación de chat genérica entre dos amigos: una cuenta su problema, la otra le recomienda el producto y le manda una foto real de él, comparte su resultado y la amiga reacciona. Prueba social íntima y nativa, sin estética de anuncio y sin marcas de ninguna app.",
+  "angulos_compatibles": ["dolor", "testimonio", "prueba-social", "curiosidad", "objecion-confianza", "rapido-y-facil", "regalo"],
+  "tipos_producto": ["todos"],
+  "ad_format": "Native Chat Conversation Screenshot Ad",
+  "reference_style": "Native-looking messaging-app screenshot of a short conversation between two friends, where one recommends the product and sends a real photo of it inside the chat",
+  "art_direction": {
+    "visual_hierarchy": "1) The product photo bubble in the middle of the conversation (the only large image). 2) The first incoming message with the friend's problem, read first top-left. 3) The outgoing recommendation and result messages. 4) The friend's final reaction. 5) Discreet app chrome (header, input bar) that sells the native look.",
+    "composition_style": "Full-bleed flat UI screenshot with no device frame and no perspective: the canvas IS the phone screen, cropped to a square. Classic chat rhythm: incoming bubbles aligned to the left margin, outgoing bubbles aligned to the right margin, alternating down the screen. The photo bubble sits on the right side as part of the outgoing sequence, creating a strong visual block in the center of the canvas.",
+    "spacing_and_structure": "Header y 0-11%. Chat area y 12-89%. Input bar y 90-100%. Side margins 5%. Text bubbles are sized to their text, never wider than 65% of the canvas. Vertical gap between bubbles about 2%; consecutive outgoing bubbles sit closer (about 1%). Photo bubble about 50% of the canvas width and 30% of the canvas height.",
+    "lighting_and_depth": "Flat, evenly lit digital interface: bubbles are flat shapes with at most a hairline shadow, no gradients or 3D effects. Only the photo inside the chat has real-world lighting: natural daylight, casual smartphone-camera look, mild depth of field, believable and unstaged."
+  },
+  "layout_summary": "Square crop of a generic messaging app. Header on top with a back arrow, a circular avatar of the friend, her first name and an online status, plus generic call icons on the right. On a soft neutral chat wallpaper: an incoming white bubble on the left with the friend's problem; an outgoing tinted bubble on the right with the recommendation; an outgoing photo bubble on the right showing the real product, with a small emoji reaction on its corner; another outgoing bubble with the personal result; and a final incoming bubble on the left with the friend's reaction. A generic message input bar at the bottom.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas between the header and the input bar (y 11-90%)",
+      "visual_function": "Native chat wallpaper that makes the conversation read as a real screenshot",
+      "adaptation_rule": "A soft light neutral (pale beige or light grey) or a very pale tint of the brand palette, optionally with an ultra-subtle generic pattern at very low contrast. Never copy the wallpaper, pattern or exact colors of a real messaging app."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "chat header",
+      "position": "Top, full width, y 0-11%",
+      "visual_function": "Establishes who is talking and sells the native look",
+      "adaptation_rule": "A thin generic status bar on top (time, signal and battery glyphs), then: back arrow, circular contact avatar (about 7% of the canvas width) with a realistic friend's face matching the target audience, the contact's first name and an online status line; generic call and video line icons on the right. Header in a light neutral or in the darkest brand color with light text."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "incoming message bubble",
+      "position": "Left, about x 5-68% and y 14-23%",
+      "visual_function": "Opens the conversation with the friend's problem or question (the pain)",
+      "adaptation_rule": "White or light grey bubble with a small tail on the left, corner radius about 2.5% of the canvas, width fitted to the text, up to 2 lines. Tiny timestamp at the bottom right inside the bubble."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "outgoing message bubble",
+      "position": "Right, about x 45-95% and y 25-32%",
+      "visual_function": "The direct recommendation of the product",
+      "adaptation_rule": "Bubble in a light tint of the brand primary color with dark text and a small tail on the right, width fitted to the text, 1 line. Tiny timestamp and double-check read ticks at the bottom right."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "product photo message",
+      "position": "Right-aligned, about x 45-95% and y 34-64%",
+      "visual_function": "Shows the product inside the conversation as proof; the visual anchor of the ad",
+      "adaptation_rule": "Outgoing photo bubble containing a casual but well-lit smartphone photo of the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), in a real context (held in hand, on a counter or nightstand; for digital products, on a phone or laptop screen), label clearly visible, product filling about 65-75% of the photo's height (about 20-22% of the canvas height). Thin bubble border in the outgoing color, corner radius about 2.5% of the canvas, tiny timestamp overlaid at the bottom right. A small round emoji reaction (heart-eyes or fire) overlaps its bottom-left corner."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "outgoing message bubble",
+      "position": "Right, about x 32-95% and y 66-75%",
+      "visual_function": "Shares the personal result after using the product",
+      "adaptation_rule": "Same outgoing bubble style as block_04, up to 2 lines."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "incoming message bubble",
+      "position": "Left, about x 5-70% and y 77-87%",
+      "visual_function": "The friend's reaction; closes the loop with desire or a resolved objection",
+      "adaptation_rule": "Same incoming bubble style as block_03, up to 2 lines."
+    },
+    {
+      "block_id": "block_08",
+      "block_type": "input bar",
+      "position": "Bottom, full width, y 90-100%",
+      "visual_function": "Completes the native screenshot look",
+      "adaptation_rule": "A rounded text field with a short grey placeholder, plus generic emoji, camera and microphone line icons in grey or the brand accent. No real-app send button design."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "contact name + online status",
+      "reference_position": "Chat header, right of the avatar",
+      "text_style": "Name in semibold system sans-serif about 3% of the canvas height, 1 line; status below in regular weight about 2% of the canvas height, grey (or light at reduced opacity on a dark header), 1 line; both left-aligned",
+      "guia_texto": "Nombre de pila de la amiga o amigo, con un emoji opcional (ej. 'Vale 💛'), y 'en línea' en el idioma del anuncio. 1 a 2 palabras."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "incoming message 1 (problem)",
+      "reference_position": "First bubble, left",
+      "text_style": "Regular system sans-serif, about 3.2-3.5% of the canvas height, dark text, left-aligned inside the bubble, max 2 lines; tiny timestamp about 1.6% of the canvas height in grey",
+      "guia_texto": "La amiga cuenta el problema o hace la pregunta del ángulo, en tono de chat natural (ej. 'No sé qué hacer, otra noche sin dormir 😩'). 5 a 10 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "outgoing message 2 (recommendation)",
+      "reference_position": "Second bubble, right, above the photo",
+      "text_style": "Regular system sans-serif, about 3.2-3.5% of the canvas height, dark text on the tinted bubble, left-aligned inside the bubble, 1 line; tiny timestamp and read ticks",
+      "guia_texto": "La recomendación directa y cercana (ej. 'Tienes que probar esto, en serio'). 3 a 8 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "outgoing message 3 (result)",
+      "reference_position": "Bubble right, below the photo",
+      "text_style": "Same style as text_block_03, max 2 lines",
+      "guia_texto": "El resultado vivido en primera persona con un detalle concreto (tiempo, sensación, rutina). 5 a 10 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "incoming message 4 (reaction)",
+      "reference_position": "Last bubble, left",
+      "text_style": "Same style as text_block_02, max 2 lines",
+      "guia_texto": "Reacción de la amiga: sorpresa, objeción resuelta o ganas de comprarlo (ej. '¿¿Dónde lo conseguiste??'). 3 a 8 palabras, puede llevar 1 emoji."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "UI micro-labels (status bar time and input placeholder)",
+      "reference_position": "Status bar top left and inside the input field",
+      "text_style": "System sans-serif, about 2-2.2% of the canvas height, grey, 1 line each",
+      "guia_texto": "Una hora genérica (ej. '21:08') y el placeholder 'Mensaje' en el idioma del anuncio. Nunca nombres de apps reales."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Generic chat header with a circular avatar of the friend and generic icons",
+    "Soft neutral chat wallpaper (screenshot look, no device frame)",
+    "Incoming bubbles on the left in white or light grey",
+    "Outgoing bubbles on the right in a light tint of the brand color, with timestamps and read ticks",
+    "Photo bubble with a casual real photo of the user's product and a small emoji reaction on its corner",
+    "Generic message input bar at the bottom"
+  ],
+  "forbidden_additions": [
+    "Real messaging-app names, logos, wallpapers or signature colors",
+    "Phone device frame, hands holding a phone or perspective mockup",
+    "On-screen keyboard",
+    "Ad headline or graphic text outside the chat",
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, review cards or testimonial graphics",
+    "Link previews, voice-note bubbles or a second photo",
+    "Group chat names or more than two participants",
+    "Benefit list, icons or arrows",
+    "Logos or brand marks",
+    "Notification banners or stickers"
+  ],
+  "notas_paleta": "Colores nativos de chat con acentos de marca: fondo de chat neutro suave (beige, gris claro o un tinte muy pálido de la paleta); burbujas entrantes blancas; burbujas salientes en un tinte claro del color principal de la marca con texto oscuro legible; íconos y ticks en el color de acento. Nunca el verde ni el azul característicos de apps reales."
+}

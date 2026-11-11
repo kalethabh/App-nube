@@ -1,0 +1,25 @@
+{
+  "$comment": "estrategia.json de un lote de anuncios de imagen: lo que ve el usuario en «Ver estrategia», en español sencillo.",
+  "type": "object",
+  "required": ["resumen", "paleta", "tipografia", "estilo", "beneficios", "caracteristicas"],
+  "properties": {
+    "resumen": { "type": "string", "minLength": 1, "maxLength": 1200 },
+    "paleta": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["hex", "nombre"],
+        "properties": {
+          "hex": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+          "nombre": { "type": "string", "minLength": 1, "maxLength": 60 }
+        }
+      }
+    },
+    "tipografia": { "type": "string", "minLength": 1, "maxLength": 400 },
+    "estilo": { "type": "string", "minLength": 1, "maxLength": 800 },
+    "beneficios": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "string", "minLength": 1 } },
+    "caracteristicas": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "string", "minLength": 1 } }
+  }
+}

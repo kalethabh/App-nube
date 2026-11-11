@@ -1,0 +1,150 @@
+{
+  "id": "G01",
+  "slug": "experto-senalando-producto",
+  "nombre": "Experto que señala el producto",
+  "origen": "ganador:482320952_1156049599341001_5278431550232697867_n.jpg",
+  "descripcion": "Fondo azul en degradado, profundo arriba y más claro en el centro. El producto, alargado y levemente inclinado, ocupa de arriba abajo el tercio izquierdo. Arriba a la derecha, un titular blanco enorme de 2 líneas dice qué es el producto y, debajo, 3 viñetas con check en círculo dan sus características. En la mitad derecha inferior, un presentador con aspecto de experto del rubro (en el original, bata médica y estetoscopio), sonriente y sorprendido, señala el producto con los dos índices. Al pie, una línea pequeña de envío o pago a la izquierda y una banda azul sólida a todo el ancho con una frase-beneficio grande. Lo que frena el scroll es el gesto de señalar y la cara de sorpresa; el experto aporta autoridad visual.",
+  "angulos_compatibles": [
+    "autoridad",
+    "caracteristica-estrella",
+    "rapido-y-facil",
+    "beneficio-principal",
+    "mecanismo-unico",
+    "oferta"
+  ],
+  "tipos_producto": [
+    "gadget",
+    "cosmetico",
+    "nutraceutico",
+    "hogar",
+    "otro"
+  ],
+  "ad_format": "Expert Presenter Pointing Ad",
+  "reference_style": "Direct-response e-commerce ad on a deep blue gradient: a tall product cut-out in the left third, a huge white two-line headline with three check bullets at the top right, and a cut-out expert presenter in professional attire pointing at the product with both index fingers and an excited, surprised smile, closed by a solid medium-blue full-width benefit band",
+  "art_direction": {
+    "visual_hierarchy": "1) The huge white headline at the top right. 2) The tall product on the left and the expert's surprised face and pointing hands, which lead the eye from the face to the product. 3) The three check bullets under the headline. 4) The benefit phrase in the bottom band. 5) The small shipping or payment note at the lower left.",
+    "composition_style": "Asymmetric diagonal composition. The product is a tall vertical anchor filling the left third from top to bottom, slightly tilted. The expert fills the lower-right half, cropped by the right edge and by the bottom band, with both arms extended to the left so the two pointing hands work as arrows aimed at the product. The text stack (headline plus bullets) sits in the upper-right area, between the top of the product and the right edge, above the expert's head. A full-width band closes the bottom.",
+    "spacing_and_structure": "Product: from about 3% to 40% of the canvas width and from about 3% to 86% of the height (about 80% of the canvas height), rotated about 12-15 degrees so its top leans to the left and its lower tip points down and to the right. Headline: from about 25% to 92% of the width and 3% to 19% of the height, centered in that zone. Check bullets: three rows from about 30% to 82% of the width, between about 24% and 44% of the height, each row about 5% tall with a row pitch of about 7%; check icons in a column at about 30-35% of the width, texts starting at about 37%. Expert: from about 38% to 100% of the width and from about 18% of the height down to the top of the bottom band; face at about 80-98% of the width and 20-50% of the height, very close to the right edge; upper pointing hand at about 38-50% of the width and 42-57% of the height, aimed at the middle of the product; lower pointing hand at about 40-52% of the width and 77-84% of the height, aimed at the lower part of the product. Shipping or payment note: from about 3% to 38% of the width and 81% to 88% of the height, under the product tip. Bottom band: full width, touching the left, right and bottom edges, from about 89% to 100% of the height. The last bullet text may come close to the expert's head but never overlaps the face.",
+    "lighting_and_depth": "Bright, even commercial lighting with a composited cut-out look. Product: studio cut-out with a soft key light from the upper left and glossy highlights along its body, no cast shadow, floating on the gradient. Expert: bright frontal studio photo cut-out with crisp edges, natural skin tones and no shadow on the background. Background: smooth gradient, deep navy-royal blue at the top and in the corners, fading to a lighter, slightly greyish steel blue in the middle and lower left behind the product. Bottom band: flat, solid medium royal blue, slightly brighter and more saturated than the deep background right above it, separated by a crisp straight edge."
+  },
+  "layout_summary": "Square canvas with a blue (brand) gradient background, deep at the top and lighter steel blue in the middle. In the left third, the user's product stands tall from the top almost to the bottom, slightly tilted. At the top right, a huge white two-line headline, and under it three rows of white bullets, each starting with a solid circle holding a white check. In the lower-right half, a cut-out expert in professional attire, with an open-mouth excited and surprised smile, points at the product with both index fingers. Under the product tip, a small white two-line shipping or payment note. A solid medium-blue full-width band at the very bottom carries a large pale benefit phrase.",
+  "detected_visual_blocks": [
+    {
+      "block_id": "block_01",
+      "block_type": "background",
+      "position": "Full canvas",
+      "visual_function": "Saturated, clinical-feeling backdrop that makes the white text and the cut-outs pop",
+      "adaptation_rule": "Smooth gradient in the brand's main color (deep navy-royal blue in the original): darkest at the top and in the corners, fading to a lighter, slightly greyish tone in the middle and lower left behind the product. No texture, no pattern, no room or scene."
+    },
+    {
+      "block_id": "block_02",
+      "block_type": "product",
+      "position": "Left third, from about 3% to 40% of the canvas width and 3% to 86% of the height, tilted about 12-15 degrees (top leaning left, tip pointing down-right)",
+      "visual_function": "Main visual anchor and the target of the expert's pointing gesture",
+      "adaptation_rule": "Render the user's product exactly as in the attached product photo (same geometry, packaging, label and colors), as a large studio cut-out filling the left column vertically, front view with its main controls or label visible. If the product is short or wide, keep it in the same left column, as large as the column allows, with the same slight tilt."
+    },
+    {
+      "block_id": "block_03",
+      "block_type": "headline",
+      "position": "Top right, from about 25% to 92% of the canvas width and 3% to 19% of the height",
+      "visual_function": "Says in one glance what the product is",
+      "adaptation_rule": "Write what the product is (its category or name plus its function) in 2 lines, huge and white."
+    },
+    {
+      "block_id": "block_04",
+      "block_type": "check bullet list (3)",
+      "position": "Under the headline, from about 30% to 82% of the canvas width and 24% to 44% of the height, three rows",
+      "visual_function": "Proves the headline with concrete features that are scannable at a glance",
+      "adaptation_rule": "Three rows, each with a solid circle about 5% of the canvas in diameter, filled with a brighter tone of the brand's main color, holding a white check mark, followed by a short white uppercase feature text. All three icons identical. Order the features from strongest to weakest for this angle."
+    },
+    {
+      "block_id": "block_05",
+      "block_type": "expert presenter",
+      "position": "Lower-right half, from about 38% to 100% of the canvas width and 18% to 89% of the height, cropped by the right edge and by the bottom band",
+      "visual_function": "Adds visual authority and stops the scroll with the pointing gesture and the surprised expression",
+      "adaptation_rule": "Cut-out half-body photo of a realistic, non-famous expert whose attire matches the product's field: medical scrubs with a stethoscope for health devices (as in the original), a white lab coat for cosmetics or supplements, a chef jacket for kitchen products, a technician uniform for tools, sportswear for fitness. Age and gender of a trust figure for the target audience; glasses optional. Expression: wide open-mouth excited and surprised smile, eyebrows raised, looking at the camera. Both arms extended to the left with index fingers pointing at the product: the upper hand at the middle of the product and the lower hand at its lower part."
+    },
+    {
+      "block_id": "block_06",
+      "block_type": "shipping or payment note",
+      "position": "Lower left, from about 3% to 38% of the canvas width and 81% to 88% of the height, under the product tip",
+      "visual_function": "Removes purchase friction in a discreet way",
+      "adaptation_rule": "Small white uppercase text in 2 centered lines, placed directly on the background, no box. Use only the real shipping or payment condition the user gave."
+    },
+    {
+      "block_id": "block_07",
+      "block_type": "bottom benefit band",
+      "position": "Full width along the bottom, from about 89% to 100% of the canvas height, touching the left, right and bottom edges",
+      "visual_function": "Closes the ad with the experiential promise in large type",
+      "adaptation_rule": "Solid band in a medium, saturated tone of the brand's main color (royal blue in the original), slightly brighter than the deep background right above it, with a crisp straight top edge, holding one large benefit phrase centered."
+    }
+  ],
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline (what the product is)",
+      "reference_position": "Top right, from about 25% to 92% of the width and 3% to 19% of the height",
+      "text_style": "Extra bold geometric sans-serif, uppercase, white, each line about 8-9% of the canvas height, max 2 lines, centered within its zone, maximum contrast against the background",
+      "guia_texto": "Qué es el producto: su categoría o su nombre + su función, en 2 a 5 palabras. Directo y reconocible: el cliente tiene que entender qué es en 1 segundo."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "feature bullet 1",
+      "reference_position": "First bullet row, right of the first check icon",
+      "text_style": "Bold sans-serif, uppercase, white, about 3.2-3.6% of the canvas height, 1 line, left-aligned, high contrast",
+      "guia_texto": "La característica o el dato técnico más fuerte del producto para el ángulo (una cifra, un nivel, una tecnología), en 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "feature bullet 2",
+      "reference_position": "Second bullet row, right of the second check icon",
+      "text_style": "Same style as feature bullet 1",
+      "guia_texto": "Segunda característica concreta (el componente o el mecanismo que lo hace funcionar), en 2 a 4 palabras."
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "feature bullet 3",
+      "reference_position": "Third bullet row, right of the third check icon",
+      "text_style": "Same style as feature bullet 1",
+      "guia_texto": "Tercera característica concreta (qué incluye, accesorios o cantidad), en 1 a 3 palabras."
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "shipping or payment note",
+      "reference_position": "Lower left, under the product tip, from about 3% to 38% of the width",
+      "text_style": "Bold sans-serif, uppercase, white, about 2.2-2.5% of the canvas height, max 2 lines, centered",
+      "guia_texto": "La condición real de envío y la forma de pago que dio el usuario, en 4 a 7 palabras. Si el usuario no tiene una, otra condición real de compra corta (garantía o entrega rápida)."
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "benefit phrase in the bottom band",
+      "reference_position": "Centered inside the bottom band",
+      "text_style": "Black-weight geometric sans-serif, sentence case with opening and closing exclamation marks, very pale icy blue or white, about 6.5-7% of the canvas height, 1 line spanning about 85% of the band width, centered",
+      "guia_texto": "La frase-beneficio del ángulo como exclamación, de 3 a 6 palabras: cómo se siente usarlo o qué evita (facilidad, rapidez, comodidad). Tono positivo y simple."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "The user's product, tall and slightly tilted, filling the left third from top to bottom",
+    "Cut-out expert in professional attire matching the product's field, pointing at the product with both index fingers",
+    "Excited, surprised open-mouth smile on the expert, looking at the camera",
+    "Huge white two-line headline at the top right",
+    "Three bullets with a white check inside a solid circle",
+    "Solid medium-blue full-width band at the bottom with a large benefit phrase",
+    "Smooth brand-colored gradient background, deep at the top and lighter in the middle"
+  ],
+  "forbidden_additions": [
+    "CTA button",
+    "Price, discount or offer badge",
+    "Rating stars, reviews or testimonials",
+    "Trust seals, guarantee or certification badges",
+    "Drawn arrows, callout lines or doodles",
+    "Subheadline or paragraph text",
+    "More than 3 bullets",
+    "Second person, crowd or before/after",
+    "Room, lifestyle scene or photographic background",
+    "Real celebrity or identifiable public figure",
+    "Logos or brand marks"
+  ],
+  "notas_paleta": "Fondo en degradado del color principal de la marca (azul marino rey en el original): más profundo arriba y en las esquinas, más claro y algo grisáceo en el centro detrás del producto. Titular, viñetas y nota de envío en blanco. Círculos de los checks en un tono brillante y vivo del color principal. Banda inferior sólida en un tono medio y saturado del mismo color, un poco más brillante que el fondo justo encima, con la frase en un celeste muy pálido o blanco. La vestimenta del experto en un color que armonice con la paleta (en el original, celeste).",
+  "posicion_logo": null
+}

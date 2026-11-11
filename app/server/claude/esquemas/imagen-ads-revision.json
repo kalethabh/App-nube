@@ -1,0 +1,21 @@
+{
+  "$comment": "revision/R###.json de un lote de anuncios de imagen: una entrada por imagen de la tanda. Cada problema, una frase corta en español sencillo (la lee el usuario). correccion_en (solo con ok false): cómo corregirlo, corto y en inglés, para el reintento automático (lo lee el modelo de imagen).",
+  "type": "object",
+  "required": ["revisadas"],
+  "properties": {
+    "revisadas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["pieza", "ok", "problemas"],
+        "properties": {
+          "pieza": { "type": "string", "pattern": "^V\\d{2,3}_(1x1|9x16)$" },
+          "ok": { "type": "boolean" },
+          "problemas": { "type": "array", "maxItems": 12, "items": { "type": "string", "minLength": 1, "maxLength": 400 } },
+          "correccion_en": { "type": "string", "maxLength": 600 }
+        }
+      }
+    }
+  }
+}

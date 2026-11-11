@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
 import { RAIZ, TEMP, ENV } from './rutas.js';
+import { copiarModelosAlAnuncio } from './modelos.js';
 
 const WIN = process.platform === 'win32';
 const DIR_MOTOR = path.join(RAIZ, 'produccion');
@@ -579,6 +580,10 @@ export async function correr({ slug, paso, script, args = [], env = {}, pesado =
   const comando = `node produccion/${script.replace(/\\/g, '/')} ${args.join(' ')}`.trim();
   const entorno = await entornoDelMotor(env);
   if (senal?.aborted) return { codigo: null, texto: '', ms: 0, cancelado: true, comando };
+  // Los modelos del anuncio (temp/<slug>/modelos.json): los de Ajustes › Modelos mientras no este aprobado ni haya
+  // nada generado (si el usuario los cambio antes de aprobar, se usa lo nuevo). Aprobado o con algo generado no se
+  // tocan: sigue con los que tenia al aprobarlo (lib/modelos.js).
+  copiarModelosAlAnuncio(slug);
 
   if (pesado && !(await turnoPesado(senal))) return { codigo: null, texto: '', ms: 0, cancelado: true, comando };
   try {
