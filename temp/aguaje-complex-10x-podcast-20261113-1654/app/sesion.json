@@ -1,6 +1,6 @@
 {
   "uuid": "b6c966ff-e522-4d4f-a406-3b586e8a686d",
-  "estado": "cambiando",
+  "estado": "listo",
   "tipo": "cambios",
   "intentos": 2,
   "progreso": [
@@ -14,13 +14,14 @@
   "cambios": [
     {
       "pedido": "cambia el guión por este: \n\nPRESENTADORA 1: Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana.\nPRESENTADORA 2: ¿En serio?\nPRESENTADORA 1: Imagínate que ya estaba ahorrando pa' operarme.\nPRESENTADORA 2: ¡Ay, no me digas! Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\".\nPRESENTADORA 1: ¿Y qué te tomaste? Porque a mí me dijeron que comprara \"el original\".\nPRESENTADORA 2: ¡Ay no, ese cuento! No existe un solo aguaje original. Hay unos que te dicen eso pa' venderte más caro, y ni siquiera traen todo lo que funciona.\nPRESENTADORA 1: ¿Y entonces qué hay que buscar?\nPRESENTADORA 2: Que traiga aguaje, fenogreco y maca negra, los tres, en su máxima pureza. Eso es lo que da los resultados, no la marca.\nPRESENTADORA 1: ¿Y eso no engorda? Porque yo probé unas pastillas, se me hinchó todo y cuando las dejé, rebote.\nPRESENTADORA 2: Nada que ver. A mí no me pasó, porque esto no te infla: son ingredientes naturales. Y si haces los tres meses completos, el resultado se queda.\nPRESENTADORA 1: ¿Y cómo te fue?\nPRESENTADORA 2: Uy, mija, ahora en el gym me pongo de lado… si me entiendes.\nPRESENTADORA 1: ¡Ay no!\nPRESENTADORA 2: Eso sí: hazte el tratamiento completo de tres meses. Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote. Me llegó a la casa y lo pagué al recibirlo.\nPRESENTADORA 1: Ya mismo les escribo.\nPRESENTADORA 2: El tuyo está en el botón de abajo.",
-      "fecha": "2026-11-13T22:07:32.628Z"
+      "fecha": "2026-11-13T22:07:32.628Z",
+      "ok": true
     }
   ],
-  "actualizado": "2026-11-13T22:10:07.246Z",
+  "actualizado": "2026-11-13T22:10:36.309Z",
   "error": null,
   "inicioIntento": "2026-11-13T22:07:32.629Z",
-  "fin": "2026-11-13T22:00:56.693Z",
+  "fin": "2026-11-13T22:10:36.309Z",
   "limite": false,
   "reinicio": null,
   "medidas": [
@@ -76,9 +77,62 @@
       ],
       "denegados": 1,
       "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-13T22:10:36.309Z",
+      "ok": true,
+      "turnos": 22,
+      "duracionMs": 183470,
+      "uso": {
+        "input_tokens": 8,
+        "cache_creation_input_tokens": 48631,
+        "cache_read_input_tokens": 600881,
+        "output_tokens": 23362,
+        "output_tokens_details": {
+          "thinking_tokens": 8657
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 48631,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 176433,
+            "cache_creation_input_tokens": 4306,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4306
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 3.8271919999999993,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
     }
   ],
   "ajustados": 0,
   "pedido": "cambia el guión por este: \n\nPRESENTADORA 1: Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana.\nPRESENTADORA 2: ¿En serio?\nPRESENTADORA 1: Imagínate que ya estaba ahorrando pa' operarme.\nPRESENTADORA 2: ¡Ay, no me digas! Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\".\nPRESENTADORA 1: ¿Y qué te tomaste? Porque a mí me dijeron que comprara \"el original\".\nPRESENTADORA 2: ¡Ay no, ese cuento! No existe un solo aguaje original. Hay unos que te dicen eso pa' venderte más caro, y ni siquiera traen todo lo que funciona.\nPRESENTADORA 1: ¿Y entonces qué hay que buscar?\nPRESENTADORA 2: Que traiga aguaje, fenogreco y maca negra, los tres, en su máxima pureza. Eso es lo que da los resultados, no la marca.\nPRESENTADORA 1: ¿Y eso no engorda? Porque yo probé unas pastillas, se me hinchó todo y cuando las dejé, rebote.\nPRESENTADORA 2: Nada que ver. A mí no me pasó, porque esto no te infla: son ingredientes naturales. Y si haces los tres meses completos, el resultado se queda.\nPRESENTADORA 1: ¿Y cómo te fue?\nPRESENTADORA 2: Uy, mija, ahora en el gym me pongo de lado… si me entiendes.\nPRESENTADORA 1: ¡Ay no!\nPRESENTADORA 2: Eso sí: hazte el tratamiento completo de tres meses. Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote. Me llegó a la casa y lo pagué al recibirlo.\nPRESENTADORA 1: Ya mismo les escribo.\nPRESENTADORA 2: El tuyo está en el botón de abajo.",
-  "respaldo": "historial-guion/01"
+  "respaldo": null
 }

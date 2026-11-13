@@ -2,8 +2,8 @@
   "titulo": "Aguaje Complex 10X · \"No me podía ni poner un jean\"",
   "idioma": "es",
   "mercado": "LatAm",
-  "duracionEstimada": 74,
-  "de_que_va": "Dos amigas conversan en un podcast: una cuenta que se sentía plana y ya ahorraba para operarse, y la otra le cuenta lo natural que le funcionó. Cierra con el consejo del tratamiento completo de tres meses.",
+  "duracionEstimada": 96,
+  "de_que_va": "Dos amigas conversan en un podcast: una cuenta que se sentía plana y ya ahorraba para operarse, y la otra le explica que no existe un solo aguaje \"original\": lo que importa son los tres ingredientes. Cierra con el consejo del tratamiento completo de tres meses.",
   "personajes": [
     {
       "id": "A",
@@ -59,7 +59,7 @@
     },
     {
       "n": 6,
-      "momento": "solución",
+      "momento": "duda",
       "quien": "Presentadora 1",
       "lado": "A",
       "dice": "¿Y qué te tomaste?",
@@ -67,14 +67,54 @@
     },
     {
       "n": 7,
-      "momento": "solución",
-      "quien": "Presentadora 2",
-      "lado": "B",
-      "dice": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza.",
-      "se_ve": "La Presentadora 2 cuenta los tres ingredientes con los dedos. Arriba se ven frutos de aguaje en una canasta, semillas de fenogreco y polvo de maca negra sobre una mesa de madera."
+      "momento": "duda",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "Porque a mí me dijeron que comprara \"el original\".",
+      "se_ve": "La Presentadora 1, dudosa, hace comillas con los dedos."
     },
     {
       "n": 8,
+      "momento": "duda",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "¡Ay no, ese cuento!",
+      "se_ve": "La Presentadora 2 voltea los ojos riéndose y mueve la mano como espantando la idea."
+    },
+    {
+      "n": 9,
+      "momento": "duda",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "No existe un solo aguaje original.",
+      "se_ve": "La Presentadora 2, firme, niega con la cabeza y con el dedo."
+    },
+    {
+      "n": 10,
+      "momento": "duda",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Hay unos que te dicen eso pa' venderte más caro, y ni siquiera traen todo lo que funciona.",
+      "se_ve": "La Presentadora 2 lo cuenta como un dato de amiga, frotando los dedos al hablar de lo caro."
+    },
+    {
+      "n": 11,
+      "momento": "solución",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "¿Y entonces qué hay que buscar?",
+      "se_ve": "La Presentadora 1 abre las manos, con ganas de saber."
+    },
+    {
+      "n": 12,
+      "momento": "solución",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Que traiga aguaje, fenogreco y maca negra, los tres, en su máxima pureza.",
+      "se_ve": "La Presentadora 2 cuenta los tres ingredientes con los dedos. Arriba se ven frutos de aguaje en una canasta, semillas de fenogreco y polvo de maca negra sobre una mesa de madera."
+    },
+    {
+      "n": 13,
       "momento": "solución",
       "quien": "Presentadora 2",
       "lado": "B",
@@ -82,31 +122,39 @@
       "se_ve": "La Presentadora 2 habla segura. Arriba se la ve en el sofá con el frasco cerrado junto a su cara, la etiqueta de frente."
     },
     {
-      "n": 9,
+      "n": 14,
       "momento": "duda",
       "quien": "Presentadora 1",
       "lado": "A",
-      "dice": "¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote.",
-      "se_ve": "La Presentadora 1 frunce el ceño, desconfiada, y cruza los brazos."
+      "dice": "¿Y eso no engorda? Porque yo probé unas pastillas, se me hinchó todo y cuando las dejé, rebote.",
+      "se_ve": "La Presentadora 1 frunce el ceño, desconfiada, y cruza los brazos. Por un momento se ve a su amiga negando con una sonrisa, como quien ya pasó por eso."
     },
     {
-      "n": 10,
+      "n": 15,
       "momento": "duda",
       "quien": "Presentadora 2",
       "lado": "B",
-      "dice": "Nada que ver, a mí no me pasó.",
-      "se_ve": "La Presentadora 2 niega tranquila y estira la mano hacia su amiga. Por un momento se ve a la amiga, aliviada."
+      "dice": "Nada que ver.",
+      "se_ve": "La Presentadora 2 niega tranquila y estira la mano hacia su amiga."
     },
     {
-      "n": 11,
+      "n": 16,
       "momento": "duda",
       "quien": "Presentadora 2",
       "lado": "B",
-      "dice": "Eso era lo que me daba miedo también.",
-      "se_ve": "La Presentadora 2, sincera, con la mano en el pecho."
+      "dice": "A mí no me pasó, porque esto no te infla: son ingredientes naturales.",
+      "se_ve": "La Presentadora 2, sincera, con la mano en el pecho. Por un momento se ve a la amiga, aliviada."
     },
     {
-      "n": 12,
+      "n": 17,
+      "momento": "duda",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Y si haces los tres meses completos, el resultado se queda.",
+      "se_ve": "La Presentadora 2 marca el tres con los dedos y asiente, segura."
+    },
+    {
+      "n": 18,
       "momento": "prueba",
       "quien": "Presentadora 1",
       "lado": "A",
@@ -114,7 +162,7 @@
       "se_ve": "La Presentadora 1 sonríe y levanta las cejas."
     },
     {
-      "n": 13,
+      "n": 19,
       "momento": "prueba",
       "quien": "Presentadora 2",
       "lado": "B",
@@ -122,7 +170,7 @@
       "se_ve": "La Presentadora 2 sonríe pícara y mueve la mano de lado. Arriba se la ve en el gimnasio, de lado frente al espejo, con más caderas y piernas, sonriendo segura."
     },
     {
-      "n": 14,
+      "n": 20,
       "momento": "prueba",
       "quien": "Presentadora 1",
       "lado": "A",
@@ -130,7 +178,7 @@
       "se_ve": "La Presentadora 1 se tapa la boca, con una risa corta."
     },
     {
-      "n": 15,
+      "n": 21,
       "momento": "oferta",
       "quien": "Presentadora 2",
       "lado": "B",
@@ -138,7 +186,7 @@
       "se_ve": "La Presentadora 2, seria y cercana, marca el tres con los dedos."
     },
     {
-      "n": 16,
+      "n": 22,
       "momento": "oferta",
       "quien": "Presentadora 2",
       "lado": "B",
@@ -146,7 +194,7 @@
       "se_ve": "La Presentadora 2 mira a la cámara, como dando un consejo de amiga. Por un momento se ve a su amiga asintiendo, impresionada."
     },
     {
-      "n": 17,
+      "n": 23,
       "momento": "cierre",
       "quien": "Presentadora 2",
       "lado": "B",
@@ -154,7 +202,7 @@
       "se_ve": "La Presentadora 2 lo cuenta de pasada, a su amiga."
     },
     {
-      "n": 18,
+      "n": 24,
       "momento": "cierre",
       "quien": "Presentadora 1",
       "lado": "A",
@@ -162,7 +210,7 @@
       "se_ve": "La Presentadora 1 toma su celular y empieza a escribir, sonriendo emocionada. La pantalla no se ve."
     },
     {
-      "n": 19,
+      "n": 25,
       "momento": "cierre",
       "quien": "Presentadora 2",
       "lado": "B",
@@ -176,5 +224,12 @@
     "Van cuatro imágenes de apoyo, el máximo de este estilo: el jean que queda plano, los tres ingredientes, el frasco cerrado en la mano y el gimnasio. La alcancía y el domiciliario quedaron fuera, y el cierre va con las dos en pantalla. El antes entra desde la primera frase, como en tu video.",
     "No dijiste de qué región es el acento: las dos hablan con el mismo acento colombiano natural, sin atarlo a una ciudad. Si quieres costeño, paisa, rolo o caleño, pídelo antes de producir.",
     "El fondo lleva repisa con velas, cerámica y matas, sin libros, porque a los libros les salen letras inventadas. No se ven precios ni cápsulas sueltas, y no agregué ninguna cifra de prueba porque no diste ninguna."
+  ],
+  "cambios_hechos": [
+    "Cambié el guion por el nuevo que mandaste, palabra por palabra.",
+    "Entró la parte de \"el original\": la Presentadora 1 lo pregunta y la Presentadora 2 explica que no existe un solo aguaje original.",
+    "La respuesta de los ingredientes ahora dice \"Que traiga aguaje, fenogreco y maca negra, los tres\". Las imágenes de los ingredientes y del frasco siguen en esas frases.",
+    "La duda del rebote y su respuesta van con tu texto nuevo: \"se me hinchó todo\", \"esto no te infla\" y los tres meses completos. Ahí se ve por un momento la reacción de cada amiga.",
+    "El anuncio quedó más largo que antes, cerca de un minuto y cuarto, porque el guion nuevo tiene más texto. No recorté nada."
   ]
 }
