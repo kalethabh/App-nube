@@ -22,7 +22,7 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
 const CARPETA = 'Anuncios con IA';
 
 // lo que nunca va (además de lo que no está en el repositorio)
-const FUERA = [/^mis_archivos\//, /^temp\//, /^output\//, /^respaldos\//, /^CONTEXTO-PROYECTO\.md$/, /^app\/esp\.png$/, /^\.github\//, /^\.claude\/settings\.local\.json$/, /(^|\/)\.env$/];
+const FUERA = [/^instalar\//, /^mis_archivos\//, /^temp\//, /^output\//, /^respaldos\//, /^CONTEXTO-PROYECTO\.md$/, /^app\/esp\.png$/, /^\.github\//, /^\.claude\/settings\.local\.json$/, /(^|\/)\.env$/];
 
 const PREFERENCIAS = `# Mis preferencias
 
