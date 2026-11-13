@@ -6,7 +6,7 @@
       "estilo": "gigante",
       "color": "#B5279B",
       "tamano": 1,
-      "altura": 0.29
+      "altura": 0.19
     },
     "correcciones": {},
     "ocultos": [],
@@ -16,7 +16,7 @@
     },
     "musica": {
       "fuente": "original",
-      "volumen": 1,
+      "volumen": 1.13,
       "silenciada": false,
       "inicio": 0,
       "id": null,
@@ -35,11 +35,11 @@
     "reemplazos": {},
     "clips": {}
   },
-  "t": 1794608816972,
+  "t": 1794609024689,
   "contexto": {
     "titulo": "Aguaje Complex 10X",
     "overlays": [],
     "color": "#3B7A2A"
   },
-  "guardado": "2026-11-13T22:26:57.579Z"
+  "guardado": "2026-11-13T22:30:25.296Z"
 }

@@ -1,0 +1,13 @@
+{
+  "pid": 38145,
+  "paso": "exportar",
+  "script": "exportar-edicion.js",
+  "args": [
+    "temp/aguaje-complex-10x-claymation-20261113-1558",
+    "--pedido",
+    "temp/aguaje-complex-10x-claymation-20261113-1558/app/exportes/pedido-1.json"
+  ],
+  "comando": "node produccion/exportar-edicion.js temp/aguaje-complex-10x-claymation-20261113-1558 --pedido temp/aguaje-complex-10x-claymation-20261113-1558/app/exportes/pedido-1.json",
+  "inicio": "2026-11-13T22:30:45.338Z",
+  "app": 34784
+}
