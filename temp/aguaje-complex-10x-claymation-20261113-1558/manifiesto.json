@@ -371,7 +371,97 @@
         "referencias": []
       }
     ],
-    "pasos": []
+    "pasos": [
+      {
+        "de": 1,
+        "a": 2,
+        "ventana": 3.41,
+        "duracion": 4
+      },
+      {
+        "de": 2,
+        "a": 3,
+        "ventana": 5.05,
+        "duracion": 6
+      },
+      {
+        "de": 3,
+        "a": 4,
+        "ventana": 3.31,
+        "duracion": 4
+      },
+      {
+        "de": 4,
+        "a": 5,
+        "ventana": 2.87,
+        "duracion": 4
+      },
+      {
+        "de": 5,
+        "a": 6,
+        "ventana": 4.02,
+        "duracion": 6
+      },
+      {
+        "de": 6,
+        "a": 7,
+        "ventana": 2.84,
+        "duracion": 4
+      },
+      {
+        "de": 7,
+        "a": 8,
+        "ventana": 5.61,
+        "duracion": 6
+      },
+      {
+        "de": 8,
+        "a": 9,
+        "ventana": 2.9,
+        "duracion": 4
+      },
+      {
+        "de": 9,
+        "a": 10,
+        "ventana": 3.3,
+        "duracion": 4
+      },
+      {
+        "de": 10,
+        "a": 11,
+        "ventana": 2.66,
+        "duracion": 4
+      },
+      {
+        "de": 11,
+        "a": 12,
+        "ventana": 2.86,
+        "duracion": 4
+      },
+      {
+        "de": 12,
+        "a": 13,
+        "ventana": 3.67,
+        "duracion": 4
+      },
+      {
+        "de": 13,
+        "a": 14,
+        "ventana": 3.45,
+        "duracion": 4
+      },
+      {
+        "de": 14,
+        "a": 15,
+        "ventana": 1.92,
+        "duracion": 4
+      }
+    ],
+    "cierre": {
+      "toma": 15,
+      "ventana": 3.6,
+      "duracion": 4
+    }
   },
   "voz_en_off": "¿Por qué tus glúteos no crecen si ya intentaste de todo? Mil sentadillas, cremas, pastillas… y sigues igual de plana. Y ya estabas pensando en una cirugía de millones. Pero el problema no está afuera. Está adentro. Tus glúteos están dormidos: si no despiertan, no crecen. Y las cremas no llegan hasta allá adentro. Aguaje Complex 10X: el aguaje, el fenogreco y la maca negra llegan directo al músculo y lo despiertan. Día diez: el jean ya no te queda suelto. Yo hice el tratamiento completo de tres meses, porque es el que da resultados rápidos y duraderos: se quedan incluso después de terminarlo, sin efecto rebote. Lo pedí, me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo. Este es el que debes pedir: aguaje y fenogreco puro de verdad.",
   "overlays": []

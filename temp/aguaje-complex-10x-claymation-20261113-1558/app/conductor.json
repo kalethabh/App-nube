@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-claymation-20261113-1558",
   "familia": "continuidad",
   "estado": "corriendo",
-  "paso": "imagenes",
+  "paso": "pares",
   "pasos": [
     {
       "id": "validar",
@@ -39,27 +39,35 @@
     {
       "id": "imagenes",
       "nombre": "Crear las imágenes",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-13T21:15:38.626Z"
+      "inicio": "2026-11-13T21:15:38.626Z",
+      "fin": "2026-11-13T21:17:47.405Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:17:47.406Z",
+      "fin": "2026-11-13T21:19:31.325Z",
+      "nota": "Las imágenes pasaron la revisión."
     },
     {
       "id": "duraciones",
       "nombre": "Medir cada paso con la voz",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:19:31.326Z",
+      "fin": "2026-11-13T21:19:32.531Z"
     },
     {
       "id": "pares",
       "nombre": "Escribir el paso entre cada escena",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:19:32.533Z",
+      "detalle": "Mirando las imágenes del anuncio"
     },
     {
       "id": "videos",
@@ -114,7 +122,7 @@
   "modoPrueba": false,
   "creado": "2026-11-13T21:15:31.187Z",
   "aprobado": "2026-11-13T21:15:31.187Z",
-  "actualizado": "2026-11-13T21:15:38.626Z",
+  "actualizado": "2026-11-13T21:19:41.524Z",
   "saldoInicial": {
     "creditos": 2064.8,
     "fecha": "2026-11-13T21:15:32.232Z"
