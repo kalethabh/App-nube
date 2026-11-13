@@ -37,6 +37,7 @@ export {
   cortesPosibles,
   FUENTES_TEXTO,
   LUGAR_TEXTO,
+  LUGAR_IMAGEN,
   MINIMO,
   VELOCIDADES,
   VELOCIDAD_MIN,
@@ -353,7 +354,8 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
   // Textos sugeridos del manifiesto (hoy no se dibujan en el video entregado: el usuario los activa). La misma
   // cuenta que usa la composición para dibujarlos.
   // Y los que agregó el usuario, con su aspecto ya resuelto (la misma cuenta que usa la composición).
-  textos.push(...textosEnPantalla(plan, ed, a.overlays, colorAnuncio).map((x) => ({ ...x, editable: true })));
+  // (una imagen que subió el usuario lleva su miniatura en la pista, como los iconos)
+  textos.push(...textosEnPantalla(plan, ed, a.overlays, colorAnuncio).map((x) => ({ ...x, editable: true, ...(x.archivo ? { imagen: urlConVersion(a, x.archivo) } : {}) })));
   textos.sort((x, y) => x.inicio - y.inicio);
 
   // La pieza de cada clip ("toma-3", "broll-2", "paso-4"): con ella se regenera, se reemplaza con tu video y se le

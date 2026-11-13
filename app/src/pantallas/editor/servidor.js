@@ -5,6 +5,7 @@
 //   GET  /api/anuncios/:slug/edicion            -> { estado, t, canciones: [{ id, url }] }
 //   PUT  /api/anuncios/:slug/edicion            { estado, t, contexto } -> { ok, t }
 //   POST /api/anuncios/:slug/edicion/musica     (el archivo) ?id=&nombre= -> { ok, id, url }
+//   POST /api/anuncios/:slug/edicion/imagen     (el archivo) ?id=&nombre= -> { ok, id, archivo, url }
 //   GET  /api/anuncios/:slug/exportar           -> { trabajo, hechos, desactualizada }
 //   POST /api/anuncios/:slug/exportar           { calidad, version, subtitulos, srt, estado, contexto } -> { trabajo }
 //   POST /api/anuncios/:slug/exportar/cancelar  -> { trabajo }
@@ -43,6 +44,7 @@ const base = (slug) => `/api/anuncios/${encodeURIComponent(slug)}`;
 export const servidor = {
   leerEdicion: (slug) => pedir(`${base(slug)}/edicion`),
   guardarEdicion: (slug, datos) => pedir(`${base(slug)}/edicion`, { metodo: 'PUT', cuerpo: datos }),
+  subirImagen: (slug, { id, nombre, archivo }) => pedir(`${base(slug)}/edicion/imagen?${new URLSearchParams({ id, nombre: nombre || '' })}`, { metodo: 'POST', archivo }),
   subirCancion: (slug, { id, nombre, archivo }) => pedir(`${base(slug)}/edicion/musica?${new URLSearchParams({ id, nombre: nombre || '' })}`, { metodo: 'POST', archivo }),
   exportacion: (slug) => pedir(`${base(slug)}/exportar`),
   exportar: (slug, datos) => pedir(`${base(slug)}/exportar`, { metodo: 'POST', cuerpo: datos }),

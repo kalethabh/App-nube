@@ -9,6 +9,7 @@
 //
 // Vive en remotion/src/edicion/ para que la vista previa del editor (app/, con Vite) y el render
 // (produccion/exportar-edicion.js, con el webpack de Remotion) usen este mismo archivo.
+import { createContext, useContext } from 'react';
 import { FUENTES } from './fuentes.js';
 import { COLOR_PROPIO, colorDeEstilo } from '../capas.mjs';
 
@@ -76,10 +77,20 @@ export function indiceDeBloque(bloques, t) {
 
 // ---------------------------------------------------------------- piezas comunes
 
+/**
+ * Lo que la capa de un subtítulo recibe de Subtitulos: su marca para el editor (data-capa="sub:<bloque>", con la que
+ * se arrastra en la vista previa; el rectángulo es el de su contenido) y el corrimiento a lo ancho, en píxeles.
+ * En las muestras de la galería no hay: la capa queda como siempre.
+ */
+const LugarDeCapa = createContext(null);
+
 function Capa({ abajo, children, style }) {
+  const lugar = useContext(LugarDeCapa);
   return (
     <div
+      {...(lugar?.capa ? { 'data-capa': lugar.capa, 'data-capa-contenido': '' } : {})}
       style={{
+        ...(lugar?.dx ? { transform: `translateX(${lugar.dx}px)` } : {}),
         position: 'absolute',
         inset: 0,
         display: 'flex',
@@ -521,9 +532,11 @@ export { colorDeEstilo };
  *   bloques     [{ id, inicio, fin, texto, palabras: [{ texto, inicio, fin }], desdeAbajo? }]
  *   tamano      fracción del ancho (la del plan × la del usuario)
  *   altura      fracción desde abajo elegida (alturaBase = la del plan)
+ *   lado        corrimiento a lo ancho, fracción del ancho (0 = centrado)
+ *   porBloque   los subtítulos movidos solos: { [id]: { altura, lado } } (mandan sobre altura y lado)
  *   marcas      resultado de marcarClaves, indexado por id de bloque
  */
-export function Subtitulos({ t, bloques, estilo = 'caja', color, tamano = 0.0722, altura, alturaBase = 0.26, marcas, ancho = 720, alto = 1280, anchoFuente }) {
+export function Subtitulos({ t, bloques, estilo = 'caja', color, tamano = 0.0722, altura, alturaBase = 0.26, lado = 0, porBloque = null, marcas, ancho = 720, alto = 1280, anchoFuente, conMarca = false }) {
   if (!bloques?.length) return null;
   const i = indiceDeBloque(bloques, t);
   if (i < 0) return null;
@@ -531,8 +544,16 @@ export function Subtitulos({ t, bloques, estilo = 'caja', color, tamano = 0.0722
   if (!b.palabras?.length) return null;
   // anchoFuente: las muestras de la galería son un acercamiento (un cuadro más chico con la letra del video)
   const fs = Math.round((anchoFuente ?? ancho) * tamano);
-  const desde = (b.desdeAbajo ?? alturaBase) + ((altura ?? alturaBase) - alturaBase);
+  const propio = porBloque?.[b.id ?? i] || null;
+  const alturaB = Number.isFinite(Number(propio?.altura)) && propio?.altura !== null ? Number(propio.altura) : altura ?? alturaBase;
+  const ladoB = Number.isFinite(Number(propio?.lado)) && propio?.lado !== null ? Number(propio.lado) : Number(lado) || 0;
+  const desde = (b.desdeAbajo ?? alturaBase) + (alturaB - alturaBase);
   const abajo = alto * Math.max(0.04, Math.min(0.78, desde));
   const { Componente } = ESTILO_POR_ID[estilo] || ESTILO_POR_ID.caja;
-  return <Componente b={b} i={b.id ?? i} t={t} fs={fs} abajo={abajo} color={color} marcas={marcas?.[b.id ?? i]} ancho={ancho} alto={alto} />;
+  const dx = Math.round(Math.max(-0.35, Math.min(0.35, ladoB)) * ancho);
+  return (
+    <LugarDeCapa.Provider value={dx || conMarca ? { dx, capa: conMarca ? `sub:${b.id ?? i}` : null } : null}>
+      <Componente b={b} i={b.id ?? i} t={t} fs={fs} abajo={abajo} color={color} marcas={marcas?.[b.id ?? i]} ancho={ancho} alto={alto} />
+    </LugarDeCapa.Provider>
+  );
 }

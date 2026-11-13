@@ -21,7 +21,8 @@ export const ALTO = 1280;
 
 /** Lo que el usuario puede cambiar en el editor, tal como sale del anuncio entregado. */
 export const INICIAL = Object.freeze({
-  subtitulos: { visible: true, estilo: 'caja', color: null, tamano: 1, altura: null },
+  subtitulos: { visible: true, estilo: 'caja', color: null, tamano: 1, altura: null, lado: 0 }, // lado: corrimiento a lo ancho (fracción del ancho, -0,35 a 0,35)
+  lugaresSubtitulos: {}, // un subtítulo movido solo: índice del bloque -> { altura, lado } (mandan sobre los de todos)
   correcciones: {}, // índice del bloque de subtítulos -> texto corregido
   ocultos: [], // índices de bloques de subtítulos ocultos
   voz: { volumen: 1, silenciada: false },
@@ -36,6 +37,7 @@ export const INICIAL = Object.freeze({
   brolls: null, // [{ id, b, desde, duracion, entrada }] encima de las tomas
   ajustesTextos: {}, // id de un texto sugerido -> { texto, inicio, fin, color, fondo, tamano, x, y, fuente } (lo que se cambió)
   textosNuevos: [], // los textos que agregó el usuario: [{ id, texto, inicio, fin, color, fondo, tamano, x, y, fuente }]
+  //               y sus imágenes: [{ id, texto (el nombre), archivo: 'app/edicion/imagenes/img-<id>.<ext>', inicio, fin, ancho, x, y }]
   // Tu propio video en lugar de un clip (modo «en la edición»: no toca el anuncio). La clave es la pieza del plan
   // ORIGINAL ('toma-3', 'broll-2', 'paso-4'), así la pieza sigue llamándose igual y se puede regenerar.
   //   { id, archivo: 'subidos/<id>.mp4', largo, nombre, mudo }   mudo: true por defecto (la voz va aparte)
@@ -95,7 +97,10 @@ export function completarEdicion(guardado) {
     tomas: Array.isArray(guardado.tomas) ? guardado.tomas : null,
     brolls: Array.isArray(guardado.brolls) ? guardado.brolls : null,
     ajustesTextos: { ...obj(guardado.ajustesTextos) },
-    textosNuevos: lista(guardado.textosNuevos).filter((x) => x && typeof x === 'object' && x.id),
+    lugaresSubtitulos: { ...obj(guardado.lugaresSubtitulos) },
+    textosNuevos: lista(guardado.textosNuevos)
+      .filter((x) => x && typeof x === 'object' && x.id)
+      .filter((x) => x.archivo === undefined || ARCHIVO_IMAGEN.test(String(x.archivo))),
     reemplazos: limpiarReemplazos(guardado.reemplazos),
     clips: limpiarClips(guardado.clips),
   };
@@ -398,6 +403,8 @@ export function ajustesSubtitulos(plan, ed, subs, titulo) {
     tamano: (e.tamano ?? 0.0722) * ed.subtitulos.tamano,
     altura: ed.subtitulos.altura ?? alturaBase,
     alturaBase,
+    lado: Number(ed.subtitulos.lado) || 0,
+    porBloque: ed.lugaresSubtitulos && Object.keys(ed.lugaresSubtitulos).length ? ed.lugaresSubtitulos : null,
     marcas: ed.subtitulos.estilo === 'claves' ? marcarClaves(subs, palabrasDeMarca(titulo)) : null,
   };
 }
@@ -641,6 +648,11 @@ export const FUENTES_TEXTO = [
   { id: 'ui', nombre: 'Simple' },
   { id: 'cursiva', nombre: 'Cursiva' },
 ];
+/** Las imágenes que sube el usuario en el editor (rutas dentro de la carpeta del anuncio). */
+export const ARCHIVO_IMAGEN = /^app\/edicion\/imagenes\/img-[a-z0-9]{2,40}\.(png|jpe?g|webp|gif)$/i;
+/** Dónde va una imagen nueva: su centro, en la mitad a lo ancho y un poco arriba de la mitad; y su ancho. */
+export const LUGAR_IMAGEN = { x: 0.5, y: 0.42, ancho: 0.5 };
+
 /** Dónde va un texto si no se movió: centrado, con su borde de arriba al 17 % del alto. */
 export const LUGAR_TEXTO = { x: 0.5, y: 0.17 };
 
@@ -678,8 +690,19 @@ export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
   const propios = (ed?.textosNuevos || []).map((a, j) => ({
     id: String(a.id),
     tipo: 'propio',
+    // una imagen: su archivo y, en el estilo, su centro (x, y de 0 a 1) y su ancho (fracción del ancho del video)
+    ...(a.archivo
+      ? {
+          archivo: String(a.archivo),
+          imagenEstilo: {
+            x: Math.max(0, Math.min(1, num(a.x ?? LUGAR_IMAGEN.x, LUGAR_IMAGEN.x))),
+            y: Math.max(0, Math.min(1, num(a.y ?? LUGAR_IMAGEN.y, LUGAR_IMAGEN.y))),
+            ancho: Math.max(0.08, Math.min(1.2, num(a.ancho ?? LUGAR_IMAGEN.ancho, LUGAR_IMAGEN.ancho))),
+          },
+        }
+      : {}),
     ...tiempo(a, { inicio: 0, fin: Math.min(dur, 2.5) }),
-    texto: String(a.texto ?? ''),
+    texto: String(a.texto ?? '') || (a.archivo ? 'Imagen' : ''),
     visible: true,
     editado: true,
     estilo: estilo(a, { color: '#FFFFFF', fondo: color, giro: j % 2 ? 2 : -2 }),

@@ -497,8 +497,12 @@ async function principal() {
   // "Con subtitulos" o "Sin subtitulos" en la exportacion manda sobre lo que se ve en el editor, y la version "sin
   // musica" (o "limpia") silencia la musica que tenga la edicion, solo en este video
   const sinMusica = pedido.sinMusica === true;
+  // las imagenes que el usuario puso encima del video: las que ya no estan en la carpeta no van (y se avisa)
+  const sinImagen = (estado.textosNuevos || []).filter((x) => x.archivo && !fs.existsSync(path.join(carpeta, x.archivo)));
+  for (const x of sinImagen) console.log(`  AVISO: no encuentro la imagen ${x.archivo}: el video sale sin ella.`);
   const edicion = {
     ...estado,
+    textosNuevos: (estado.textosNuevos || []).filter((x) => !sinImagen.includes(x)),
     subtitulos: { ...estado.subtitulos, visible: pedido.subtitulos !== 'sin' },
     ...(sinMusica ? { musica: { ...estado.musica, silenciada: true } } : {}),
   };
@@ -534,6 +538,7 @@ async function principal() {
   fs.rmSync(publico, { recursive: true, force: true });
   for (const rel of archivos) enlazar(path.join(carpeta, rel), path.join(publico, rel));
   if (relMusica) enlazar(musicaElegida.ruta, path.join(publico, relMusica));
+  for (const x of edicion.textosNuevos) if (x.archivo) enlazar(path.join(carpeta, x.archivo), path.join(publico, x.archivo));
   process.on('exit', () => {
     try {
       fs.rmSync(publico, { recursive: true, force: true });

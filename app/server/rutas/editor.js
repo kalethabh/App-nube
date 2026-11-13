@@ -10,6 +10,8 @@
 //   PUT  /api/anuncios/:slug/edicion           { estado, t, contexto } -> { ok, t }
 //   POST /api/anuncios/:slug/edicion/musica?id=&nombre=   (el archivo de audio) -> { ok, id, url }
 //        la cancion que el usuario arrastro: temp/<slug>/app/edicion/musica-<id>.<ext> (de ahi la toma la exportacion)
+//   POST /api/anuncios/:slug/edicion/imagen?id=&nombre=   (la imagen) -> { ok, id, archivo, url }
+//        una imagen que el usuario pone encima del video: temp/<slug>/app/edicion/imagenes/img-<id>.<ext>
 //
 // EXPORTAR (gratis: Remotion y ffmpeg en esta PC). Un trabajo por anuncio, en temp/<slug>/app/exportes/:
 //   GET  /api/anuncios/:slug/exportar          -> { trabajo, siguiente, hechos: [{ n, archivo, srt, url, control }] }
@@ -210,6 +212,9 @@ const dirCanciones = (slug) => path.join(dirApp(slug), 'edicion');
 const TIPOS_CANCION = { 'audio/mpeg': '.mp3', 'audio/mp3': '.mp3', 'audio/wav': '.wav', 'audio/x-wav': '.wav', 'audio/wave': '.wav', 'audio/mp4': '.m4a', 'audio/x-m4a': '.m4a', 'audio/aac': '.aac', 'audio/ogg': '.ogg' };
 const EXT_CANCION = /\.(mp3|wav|m4a|aac|ogg)$/i;
 const MAX_CANCION = 80 * 1024 * 1024;
+const TIPOS_IMAGEN = { 'image/png': '.png', 'image/jpeg': '.jpg', 'image/jpg': '.jpg', 'image/webp': '.webp', 'image/gif': '.gif' };
+const EXT_IMAGEN = /\.(png|jpe?g|webp|gif)$/i;
+const MAX_IMAGEN = 15 * 1024 * 1024;
 
 function cancionesGuardadas(slug) {
   return listar(dirCanciones(slug))
@@ -266,6 +271,30 @@ function rutasEdicion(app) {
       .slice(5);
     for (const c of viejas) fs.rmSync(path.join(dir, c.archivo), { force: true });
     res.json({ ok: true, id, url: urlAnuncio(slug, `app/edicion/musica-${id}${ext}`) });
+  });
+
+  // Una imagen para poner encima del video (la pista de textos del editor). Se guarda en la carpeta del anuncio: de
+  // ahi la toma la exportacion. No se borran las viejas: deshacer puede volver a una que ya no esta en la edicion.
+  app.post('/api/anuncios/:slug/edicion/imagen', express.raw({ type: () => true, limit: MAX_IMAGEN + 1024 }), (req, res) => {
+    const { slug } = req.params;
+    if (!desdeLaApp(req, res)) return;
+    if (!anuncioConPlan(slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
+    const id = String(req.query.id || '');
+    if (!/^[a-z0-9]{2,40}$/i.test(id)) return res.status(400).json({ error: 'Falta el id de la imagen.' });
+    const nombre = String(req.query.nombre || '');
+    const tipo = String(req.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
+    let ext = TIPOS_IMAGEN[tipo] || (EXT_IMAGEN.test(nombre) ? nombre.match(EXT_IMAGEN)[0].toLowerCase() : null);
+    if (ext === '.jpeg') ext = '.jpg';
+    if (!ext) return res.status(400).json({ error: 'Ese archivo no es una imagen. Usa un PNG, JPG, WEBP o GIF.' });
+    const cuerpo = req.body;
+    if (!Buffer.isBuffer(cuerpo) || !cuerpo.length) return res.status(400).json({ error: 'La imagen llegó vacía.' });
+    const dir = path.join(dirCanciones(slug), 'imagenes');
+    fs.mkdirSync(dir, { recursive: true });
+    const rel = `app/edicion/imagenes/img-${id.toLowerCase()}${ext}`;
+    const final = path.join(dirAnuncio(slug), rel);
+    fs.writeFileSync(`${final}.tmp`, cuerpo);
+    fs.renameSync(`${final}.tmp`, final);
+    res.json({ ok: true, id, archivo: rel, url: urlAnuncio(slug, rel) });
   });
 }
 

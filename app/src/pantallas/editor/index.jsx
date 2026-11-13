@@ -62,7 +62,9 @@ import { picosDe } from './ondas.js';
 import { INICIAL, guardarCancionPropia, leerCancionPropia, registrarUrlMusica, tieneCambios, urlMusica, useEdicion } from './estado.js';
 import { ALTO, ANCHO, FPS, construirPistas, contextoDeVista, mediosDelPlan, modoVoz, muestraDeGaleria, subtitulosEditados } from './modelo.js';
 import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRegenerar } from './trabajos.js';
-import { operar, agregarTexto as textoNuevo, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
+import { operar, agregarTexto as textoNuevo, agregarImagen as imagenNueva, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
+import { servidor } from './servidor.js';
+import { useArrastrarEnVideo } from './arrastrar.js';
 import { ESTILO_POR_ID } from './subtitulos/estilos.jsx';
 import { marcarClaves, palabrasDeMarca } from './subtitulos/claves.js';
 import { cargarFuentesSubtitulos } from './subtitulos/fuentes.js';
@@ -1248,6 +1250,69 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     // un poco después del comienzo, cuando el texto ya terminó de entrar
     p?.seekTo(Math.round(Math.min(x.fin - 0.1, x.inicio + 0.6) * FPS));
   }, [plan, ed, colorAnuncio, cambiar]);
+  // Una imagen tuya en el cursor: se sube a la carpeta del anuncio (de ahí la toma la exportación) y entra en la
+  // pista de textos, donde se mueve, se recorta y se borra como un texto.
+  const agregarImagen = useCallback(
+    async (archivo) => {
+      if (!archivo) return;
+      const esImagen = /^image\/(png|jpe?g|webp|gif)$/i.test(archivo.type) || /\.(png|jpe?g|webp|gif)$/i.test(archivo.name);
+      if (!esImagen) return aviso({ tipo: 'error', titulo: 'Ese archivo no es una imagen', texto: 'Usa un PNG, JPG, WEBP o GIF.' });
+      if (archivo.size > 15 * 1024 * 1024) return aviso({ tipo: 'error', titulo: 'La imagen pesa demasiado', texto: 'Usa una de menos de 15 MB.' });
+      const p = playerRef.current;
+      p?.pause();
+      const t = (p?.getCurrentFrame() || 0) / FPS;
+      let r;
+      try {
+        r = await servidor.subirImagen(a.slug, { id: `i${Date.now().toString(36)}`, nombre: archivo.name, archivo });
+      } catch (e) {
+        return aviso({ tipo: 'error', titulo: 'No pude subir la imagen', texto: e.message });
+      }
+      const nuevo = `i${Date.now().toString(36)}`;
+      cambiar((s) => imagenNueva(plan, s, { t, archivo: r.archivo, nombre: archivo.name, id: nuevo }).ed, { etiqueta: 'Agregar imagen' });
+      setSeleccion({ pista: 'textos', id: nuevo });
+      p?.seekTo(Math.round((t + 0.6) * FPS));
+      aviso({ tipo: 'ok', titulo: 'Tu imagen ya está en el video', texto: 'Arrástrala en la vista previa para ponerla donde quieras.', duracion: 4000 });
+    },
+    [a.slug, aviso, cambiar, plan]
+  );
+  // Mover los subtítulos con el mouse: todos juntos o solo el que se arrastra (la casilla del panel; se recuerda en
+  // este navegador). bloque null = todos (la altura y el lado de siempre); un número = solo ese; 'todos' + null = los
+  // movidos vuelven a donde van todos.
+  const [moverSoloEste, setMoverSoloEsteEstado] = useState(() => {
+    try {
+      return localStorage.getItem('editor.moverSoloEste') === '1';
+    } catch {
+      return false;
+    }
+  });
+  const setMoverSoloEste = useCallback((v) => {
+    setMoverSoloEsteEstado(Boolean(v));
+    try {
+      localStorage.setItem('editor.moverSoloEste', v ? '1' : '0');
+    } catch {
+      // sin almacenamiento, vale mientras la pantalla siga abierta
+    }
+  }, []);
+  const lugarSubtitulo = useCallback(
+    (bloque, cambios, opciones = {}) => {
+      if (bloque === 'todos') return cambiar((s) => ({ ...s, lugaresSubtitulos: {} }), { etiqueta: 'Subtítulos a su lugar' });
+      if (bloque === null) {
+        return cambiar((s) => ({ ...s, subtitulos: { ...s.subtitulos, ...cambios } }), { etiqueta: opciones.etiqueta || 'Mover los subtítulos', grupo: opciones.grupo });
+      }
+      cambiar(
+        (s) => {
+          const l = { ...(s.lugaresSubtitulos || {}) };
+          if (cambios) l[bloque] = { ...(l[bloque] || {}), ...cambios };
+          else delete l[bloque];
+          return { ...s, lugaresSubtitulos: l };
+        },
+        { etiqueta: cambios ? opciones.etiqueta || `Mover el subtítulo ${bloque + 1}` : `Subtítulo ${bloque + 1} a su lugar`, grupo: opciones.grupo }
+      );
+    },
+    [cambiar]
+  );
+  const usarImagenRef = useRef(agregarImagen);
+  usarImagenRef.current = agregarImagen;
   const teclasRef = useRef({});
   teclasRef.current = { dividir, borrar: borrarElegido };
 
@@ -1257,6 +1322,10 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       borrar: borrarElegido,
       puedeBorrar: borrable,
       agregarTexto,
+      agregarImagen,
+      moverSoloEste,
+      setMoverSoloEste,
+      lugarSubtitulo,
       textoNuevoId,
       ajustarTexto: (id, cambios, opciones = {}) => cambiar((s) => cambiarTexto(s, id, cambios).ed, { etiqueta: opciones.etiqueta || 'Cambiar texto', grupo: opciones.grupo }),
       restablecerTexto: (id) =>
@@ -1342,6 +1411,10 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       borrarElegido,
       borrable,
       agregarTexto,
+      agregarImagen,
+      moverSoloEste,
+      setMoverSoloEste,
+      lugarSubtitulo,
       textoNuevoId,
       plan,
       a.slug,
@@ -1354,6 +1427,14 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       deslizarClip,
     ]
   );
+  // Arrastrar los textos y las imágenes en la vista previa (arrastrar.js): se mueven con el mouse y el elegido lleva
+  // un marco. Un toque sobre ellos los elige (no pausa ni reproduce).
+  const lienzoRef = useRef(null);
+  const marcoRef = useRef(null);
+  const alturaBaseSub = plan.estiloSubtitulos?.desdeAbajo ?? 0.26;
+  // (el estilo «Una palabra gigante» nunca baja del 30 %: el arrastre arranca desde donde se ve)
+  const lugarSubs = { piso: ed.subtitulos.estilo === 'gigante' ? 0.3 : 0.04, altura: ed.subtitulos.altura ?? alturaBaseSub, lado: Number(ed.subtitulos.lado) || 0, porBloque: ed.lugaresSubtitulos || {}, soloEste: moverSoloEste };
+  const manejadoresArrastre = useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos: pistas.textos, seleccion, setSeleccion, ajustar: acciones.ajustarTexto, subtitulos: lugarSubs, moverSubtitulo: lugarSubtitulo });
 
   const irA = useCallback((pista, item) => {
     const p = playerRef.current;
@@ -1478,6 +1559,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       e.preventDefault();
       const f = e.dataTransfer.files?.[0];
       if (esVideo(f)) usarVideoRef.current(f);
+      else if (/^image\//.test(f?.type || '') || /\.(png|jpe?g|webp|gif)$/i.test(f?.name || '')) usarImagenRef.current(f);
       else usarArchivoRef.current(f);
     };
     window.addEventListener('dragenter', entrar);
@@ -1633,7 +1715,8 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         <Regenerando reh={reh} slug={a.slug} onCancelar={() => reh.cancelar()} />
         {!exportandoAhora && !rehaciendo ? <ExportarDeNuevo desactualizada={exp.desactualizada} hayExportadas={exp.hechos.length > 0} onExportar={() => setExportar(true)} /> : null}
         <div className="ed-escenario__lienzo-zona">
-          <div className="ed-lienzo">
+          <div className="ed-lienzo" ref={lienzoRef} {...manejadoresArrastre}>
+            <div className="ed-lienzo__marco" ref={marcoRef} aria-hidden="true" />
             <Player
               ref={playerRef}
               component={AnuncioEditado}
