@@ -1,0 +1,25 @@
+{
+  "slug": "aguaje-complex-10x-claymation-20261113-1558",
+  "productoId": "producto-1fd0",
+  "estilo": "claymation",
+  "familia": "continuidad",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "id": "J4vZAFDEcpenkMp3f3R9",
+    "nombre": "Valentina - Conversational Medellin"
+  },
+  "continuidad": true,
+  "respuestas": {
+    "clonar": "subido:mwfggpg0b44651|AGUAJE 02 - CLAYMATION.mp4",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {},
+  "musicaBiblioteca": {
+    "estilo": "claymation",
+    "id": "aguaje-claymation-continuidad-alternativ-7061"
+  },
+  "creado": "2026-11-13T20:58:32.174Z"
+}
