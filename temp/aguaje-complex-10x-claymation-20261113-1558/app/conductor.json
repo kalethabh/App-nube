@@ -116,7 +116,15 @@
       "nombre": "Exportar los videos",
       "estado": "corriendo",
       "intentos": 1,
-      "inicio": "2026-11-13T21:31:15.621Z"
+      "inicio": "2026-11-13T21:31:15.621Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 224,
+        "total": 1544,
+        "restante": 554,
+        "en": "2026-11-13T21:33:42.712Z"
+      }
     },
     {
       "id": "control-final",
@@ -135,7 +143,7 @@
   "modoPrueba": false,
   "creado": "2026-11-13T21:15:31.187Z",
   "aprobado": "2026-11-13T21:15:31.187Z",
-  "actualizado": "2026-11-13T21:31:15.621Z",
+  "actualizado": "2026-11-13T21:33:42.712Z",
   "saldoInicial": {
     "creditos": 2064.8,
     "fecha": "2026-11-13T21:15:32.232Z"
