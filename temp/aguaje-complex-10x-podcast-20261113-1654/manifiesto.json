@@ -36,21 +36,28 @@
     { "orden": 5, "habla": "B", "texto": "Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\".", "beat": "revelación",
       "cutaway": { "host": "A", "reaccion": 1, "tras": "Yo estaba igualita" } },
     { "orden": 6, "habla": "A", "texto": "¿Y qué te tomaste?", "beat": "producto" },
-    { "orden": 7, "habla": "B", "texto": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza.", "beat": "producto" },
-    { "orden": 8, "habla": "B", "texto": "Eso es lo que da los resultados, no la marca.", "beat": "producto" },
-    { "orden": 9, "habla": "A", "texto": "¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote.", "beat": "objeción" },
-    { "orden": 10, "habla": "B", "texto": "Nada que ver, a mí no me pasó.", "beat": "objeción",
-      "cutaway": { "host": "A", "reaccion": 3, "tras": "a mí no me pasó" } },
-    { "orden": 11, "habla": "B", "texto": "Eso era lo que me daba miedo también.", "beat": "objeción" },
-    { "orden": 12, "habla": "A", "texto": "¿Y cómo te fue?", "beat": "prueba" },
-    { "orden": 13, "habla": "B", "texto": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes.", "beat": "prueba" },
-    { "orden": 14, "habla": "A", "texto": "¡Ay no!", "beat": "prueba" },
-    { "orden": 15, "habla": "B", "texto": "Eso sí: hazte el tratamiento completo de tres meses.", "beat": "cierre" },
-    { "orden": 16, "habla": "B", "texto": "Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote.", "beat": "cierre",
+    { "orden": 7, "habla": "A", "texto": "Porque a mí me dijeron que comprara \"el original\".", "beat": "objeción" },
+    { "orden": 8, "habla": "B", "texto": "¡Ay no, ese cuento!", "beat": "objeción" },
+    { "orden": 9, "habla": "B", "texto": "No existe un solo aguaje original.", "beat": "objeción" },
+    { "orden": 10, "habla": "B", "texto": "Hay unos que te dicen eso pa' venderte más caro, y ni siquiera traen todo lo que funciona.", "beat": "objeción" },
+    { "orden": 11, "habla": "A", "texto": "¿Y entonces qué hay que buscar?", "beat": "producto" },
+    { "orden": 12, "habla": "B", "texto": "Que traiga aguaje, fenogreco y maca negra, los tres, en su máxima pureza.", "beat": "producto" },
+    { "orden": 13, "habla": "B", "texto": "Eso es lo que da los resultados, no la marca.", "beat": "producto" },
+    { "orden": 14, "habla": "A", "texto": "¿Y eso no engorda? Porque yo probé unas pastillas, se me hinchó todo y cuando las dejé, rebote.", "beat": "objeción",
+      "cutaway": { "host": "B", "reaccion": 1, "tras": "se me hinchó todo" } },
+    { "orden": 15, "habla": "B", "texto": "Nada que ver.", "beat": "objeción" },
+    { "orden": 16, "habla": "B", "texto": "A mí no me pasó, porque esto no te infla: son ingredientes naturales.", "beat": "objeción",
+      "cutaway": { "host": "A", "reaccion": 3, "tras": "A mí no me pasó" } },
+    { "orden": 17, "habla": "B", "texto": "Y si haces los tres meses completos, el resultado se queda.", "beat": "objeción" },
+    { "orden": 18, "habla": "A", "texto": "¿Y cómo te fue?", "beat": "prueba" },
+    { "orden": 19, "habla": "B", "texto": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes.", "beat": "prueba" },
+    { "orden": 20, "habla": "A", "texto": "¡Ay no!", "beat": "prueba" },
+    { "orden": 21, "habla": "B", "texto": "Eso sí: hazte el tratamiento completo de tres meses.", "beat": "cierre" },
+    { "orden": 22, "habla": "B", "texto": "Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote.", "beat": "cierre",
       "cutaway": { "host": "A", "reaccion": 2, "tras": "Es el que da resultados rápidos y duraderos" } },
-    { "orden": 17, "habla": "B", "texto": "Me llegó a la casa y lo pagué al recibirlo.", "beat": "cta" },
-    { "orden": 18, "habla": "A", "texto": "Ya mismo les escribo.", "beat": "cta" },
-    { "orden": 19, "habla": "B", "texto": "El tuyo está en el botón de abajo.", "beat": "cta" }
+    { "orden": 23, "habla": "B", "texto": "Me llegó a la casa y lo pagué al recibirlo.", "beat": "cta" },
+    { "orden": 24, "habla": "A", "texto": "Ya mismo les escribo.", "beat": "cta" },
+    { "orden": 25, "habla": "B", "texto": "El tuyo está en el botón de abajo.", "beat": "cta" }
   ],
   "tomas": [
     {
@@ -65,22 +72,33 @@
       "referencias": []
     },
     {
-      "n": 2, "tipo": "H", "habla": "A", "duracion": 10, "frame_inicial": "host-a",
+      "n": 2, "tipo": "H", "habla": "A", "duracion": 8, "frame_inicial": "host-a",
       "lineas": [
         { "orden": 6, "texto": "¿Y qué te tomaste?" },
-        { "orden": 9, "texto": "¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote." },
-        { "orden": 12, "texto": "¿Y cómo te fue?" }
+        { "orden": 7, "texto": "Porque a mí me dijeron que comprara \"el original\"." },
+        { "orden": 11, "texto": "¿Y entonces qué hay que buscar?" }
       ],
-      "linea": "¿Y qué te tomaste? ¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote. ¿Y cómo te fue?",
+      "linea": "¿Y qué te tomaste? Porque a mí me dijeron que comprara \"el original\". ¿Y entonces qué hay que buscar?",
       "prompt_imagen_inicial": null, "prompt_imagen_final": null,
-      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"¿Y qué te tomaste?\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she settles back into the sofa and then leans in, curious, eyebrows raised\n\nLínea 2: \"¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote.\"\nDelivery: she frowns, distrustful, and crosses her arms as she asks; quick natural rhythm, a small shake of the head on the last words\n\nLínea 3: \"¿Y cómo te fue?\"\nDelivery: she uncrosses her arms, smiles and raises her eyebrows, eager to hear the answer\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain) at a quick, animated conversational pace, confessional and self-deprecating, laughing at herself. Her voice is that of a 27-year-old woman: bright, light and medium-high in pitch, full of energy. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"¿Y qué te tomaste?\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she settles back into the sofa and then leans in, curious, eyebrows raised\n\nLínea 2: \"Porque a mí me dijeron que comprara \"el original\".\"\nDelivery: a bit doubtful, she makes small air quotes with her fingers on the last two words\n\nLínea 3: \"¿Y entonces qué hay que buscar?\"\nDelivery: she opens her hands, palms up, honestly lost and wanting to know\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain) at a quick, animated conversational pace, confessional and self-deprecating, laughing at herself. Her voice is that of a 27-year-old woman: bright, light and medium-high in pitch, full of energy. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
       "referencias": []
     },
     {
-      "n": 3, "tipo": "H", "habla": "A", "duracion": 4, "frame_inicial": "host-a",
+      "n": 3, "tipo": "H", "habla": "A", "duracion": 10, "frame_inicial": "host-a",
       "lineas": [
-        { "orden": 14, "texto": "¡Ay no!" },
-        { "orden": 18, "texto": "Ya mismo les escribo." }
+        { "orden": 14, "texto": "¿Y eso no engorda? Porque yo probé unas pastillas, se me hinchó todo y cuando las dejé, rebote." },
+        { "orden": 18, "texto": "¿Y cómo te fue?" }
+      ],
+      "linea": "¿Y eso no engorda? Porque yo probé unas pastillas, se me hinchó todo y cuando las dejé, rebote. ¿Y cómo te fue?",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"¿Y eso no engorda? Porque yo probé unas pastillas, se me hinchó todo y cuando las dejé, rebote.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she frowns, distrustful, and crosses her arms as she asks; quick natural rhythm, a small shake of the head on the last word\n\nLínea 2: \"¿Y cómo te fue?\"\nDelivery: she uncrosses her arms, smiles and raises her eyebrows, eager to hear the answer\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain) at a quick, animated conversational pace, confessional and self-deprecating, laughing at herself. Her voice is that of a 27-year-old woman: bright, light and medium-high in pitch, full of energy. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 4, "tipo": "H", "habla": "A", "duracion": 4, "frame_inicial": "host-a",
+      "lineas": [
+        { "orden": 20, "texto": "¡Ay no!" },
+        { "orden": 24, "texto": "Ya mismo les escribo." }
       ],
       "linea": "¡Ay no! Ya mismo les escribo.",
       "prompt_imagen_inicial": null, "prompt_imagen_final": null,
@@ -88,10 +106,10 @@
       "referencias": []
     },
     {
-      "n": 4, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
+      "n": 5, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
       "lineas": [
         { "orden": 2, "texto": "¿En serio?" },
-        { "orden": 16, "texto": "Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote." }
+        { "orden": 22, "texto": "Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote." }
       ],
       "linea": "¿En serio? Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote.",
       "prompt_imagen_inicial": null, "prompt_imagen_final": null,
@@ -99,7 +117,7 @@
       "referencias": []
     },
     {
-      "n": 5, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
+      "n": 6, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
       "lineas": [
         { "orden": 4, "texto": "¡Ay, no me digas!" },
         { "orden": 5, "texto": "Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\"." }
@@ -110,32 +128,54 @@
       "referencias": []
     },
     {
-      "n": 6, "tipo": "H", "habla": "B", "duracion": 10, "frame_inicial": "host-b",
+      "n": 7, "tipo": "H", "habla": "B", "duracion": 4, "frame_inicial": "host-b",
       "lineas": [
-        { "orden": 7, "texto": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza." },
-        { "orden": 8, "texto": "Eso es lo que da los resultados, no la marca." }
+        { "orden": 8, "texto": "¡Ay no, ese cuento!" },
+        { "orden": 9, "texto": "No existe un solo aguaje original." }
       ],
-      "linea": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza. Eso es lo que da los resultados, no la marca.",
+      "linea": "¡Ay no, ese cuento! No existe un solo aguaje original.",
       "prompt_imagen_inicial": null, "prompt_imagen_final": null,
-      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Uno que trae aguaje, fenogreco y maca negra en su máxima pureza.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she counts the three ingredients on her fingers, one finger for each; the word aguaje is said 'a-GUA-je', with the stress on 'gua', and fenogreco is said 'fe-no-GRE-co'\n\nLínea 2: \"Eso es lo que da los resultados, no la marca.\"\nDelivery: matter-of-fact, open palm, a light shake of the head on the last three words, sure of what she says\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain), the same accent as her friend, at a lively conversational pace, a touch more measured than her friend, warm, confident and playful, like the friend who has already been through it. Her voice is that of a 30-year-old woman: fuller, slightly husky and a notch lower in pitch. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
-      "referencias": []
-    },
-    {
-      "n": 7, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
-      "lineas": [
-        { "orden": 10, "texto": "Nada que ver, a mí no me pasó." },
-        { "orden": 11, "texto": "Eso era lo que me daba miedo también." }
-      ],
-      "linea": "Nada que ver, a mí no me pasó. Eso era lo que me daba miedo también.",
-      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
-      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Nada que ver, a mí no me pasó.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she shakes her head calmly with a relaxed smile and reaches one hand out toward her friend off-camera, as if touching her arm to reassure her\n\nLínea 2: \"Eso era lo que me daba miedo también.\"\nDelivery: honest and close, her hand comes back to her chest, a small nod\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain), the same accent as her friend, at a lively conversational pace, a touch more measured than her friend, warm, confident and playful, like the friend who has already been through it. Her voice is that of a 30-year-old woman: fuller, slightly husky and a notch lower in pitch. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"¡Ay no, ese cuento!\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she rolls her eyes with a laugh in her voice and waves one hand as if brushing the idea away\n\nLínea 2: \"No existe un solo aguaje original.\"\nDelivery: firm and clear, she shakes her head and her index finger from side to side; the word aguaje is said 'a-GUA-je', with the stress on 'gua'\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain), the same accent as her friend, at a lively conversational pace, a touch more measured than her friend, warm, confident and playful, like the friend who has already been through it. Her voice is that of a 30-year-old woman: fuller, slightly husky and a notch lower in pitch. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
       "referencias": []
     },
     {
       "n": 8, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
       "lineas": [
-        { "orden": 13, "texto": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes." },
-        { "orden": 19, "texto": "El tuyo está en el botón de abajo." }
+        { "orden": 10, "texto": "Hay unos que te dicen eso pa' venderte más caro, y ni siquiera traen todo lo que funciona." },
+        { "orden": 15, "texto": "Nada que ver." }
+      ],
+      "linea": "Hay unos que te dicen eso pa' venderte más caro, y ni siquiera traen todo lo que funciona. Nada que ver.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Hay unos que te dicen eso pa' venderte más caro, y ni siquiera traen todo lo que funciona.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; like sharing an insider tip, she rubs her thumb against her fingers when she talks about the price and then shakes her head; the word pa' is the short spoken form of 'para', said simply as 'pa'\n\nLínea 2: \"Nada que ver.\"\nDelivery: she shakes her head calmly with a relaxed smile and reaches one hand out toward her friend off-camera, as if touching her arm to reassure her\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain), the same accent as her friend, at a lively conversational pace, a touch more measured than her friend, warm, confident and playful, like the friend who has already been through it. Her voice is that of a 30-year-old woman: fuller, slightly husky and a notch lower in pitch. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 9, "tipo": "H", "habla": "B", "duracion": 10, "frame_inicial": "host-b",
+      "lineas": [
+        { "orden": 12, "texto": "Que traiga aguaje, fenogreco y maca negra, los tres, en su máxima pureza." },
+        { "orden": 13, "texto": "Eso es lo que da los resultados, no la marca." }
+      ],
+      "linea": "Que traiga aguaje, fenogreco y maca negra, los tres, en su máxima pureza. Eso es lo que da los resultados, no la marca.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Que traiga aguaje, fenogreco y maca negra, los tres, en su máxima pureza.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she counts the three ingredients on her fingers, one finger for each, and shows the three fingers together when she says 'los tres'; the word aguaje is said 'a-GUA-je', with the stress on 'gua', and fenogreco is said 'fe-no-GRE-co'\n\nLínea 2: \"Eso es lo que da los resultados, no la marca.\"\nDelivery: matter-of-fact, open palm, a light shake of the head on the last three words, sure of what she says\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain), the same accent as her friend, at a lively conversational pace, a touch more measured than her friend, warm, confident and playful, like the friend who has already been through it. Her voice is that of a 30-year-old woman: fuller, slightly husky and a notch lower in pitch. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 10, "tipo": "H", "habla": "B", "duracion": 10, "frame_inicial": "host-b",
+      "lineas": [
+        { "orden": 16, "texto": "A mí no me pasó, porque esto no te infla: son ingredientes naturales." },
+        { "orden": 17, "texto": "Y si haces los tres meses completos, el resultado se queda." }
+      ],
+      "linea": "A mí no me pasó, porque esto no te infla: son ingredientes naturales. Y si haces los tres meses completos, el resultado se queda.",
+      "prompt_imagen_inicial": null, "prompt_imagen_final": null,
+      "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering multiple lines with natural pauses between them as if listening to responses.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"A mí no me pasó, porque esto no te infla: son ingredientes naturales.\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; honest and close, one hand on her chest at the start, then an open palm toward her friend, reassuring her\n\nLínea 2: \"Y si haces los tres meses completos, el resultado se queda.\"\nDelivery: she holds up three fingers when she says the number and gives one sure nod at the end\n\nAudio: she speaks in a natural everyday Colombian Spanish accent (not neutral Latin American, not Mexican, not from Spain), the same accent as her friend, at a lively conversational pace, a touch more measured than her friend, warm, confident and playful, like the friend who has already been through it. Her voice is that of a 30-year-old woman: fuller, slightly husky and a notch lower in pitch. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound.",
+      "referencias": []
+    },
+    {
+      "n": 11, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
+      "lineas": [
+        { "orden": 19, "texto": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes." },
+        { "orden": 25, "texto": "El tuyo está en el botón de abajo." }
       ],
       "linea": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes. El tuyo está en el botón de abajo.",
       "prompt_imagen_inicial": null, "prompt_imagen_final": null,
@@ -143,10 +183,10 @@
       "referencias": []
     },
     {
-      "n": 9, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
+      "n": 12, "tipo": "H", "habla": "B", "duracion": 8, "frame_inicial": "host-b",
       "lineas": [
-        { "orden": 15, "texto": "Eso sí: hazte el tratamiento completo de tres meses." },
-        { "orden": 17, "texto": "Me llegó a la casa y lo pagué al recibirlo." }
+        { "orden": 21, "texto": "Eso sí: hazte el tratamiento completo de tres meses." },
+        { "orden": 23, "texto": "Me llegó a la casa y lo pagué al recibirlo." }
       ],
       "linea": "Eso sí: hazte el tratamiento completo de tres meses. Me llegó a la casa y lo pagué al recibirlo.",
       "prompt_imagen_inicial": null, "prompt_imagen_final": null,
@@ -154,7 +194,7 @@
       "referencias": []
     },
     {
-      "n": 10, "tipo": "H", "habla": "A", "clase": "reacciones", "duracion": 8, "frame_inicial": "host-a",
+      "n": 13, "tipo": "H", "habla": "A", "clase": "reacciones", "duracion": 8, "frame_inicial": "host-a",
       "reacciones": [
         { "n": 1, "descripcion": "Levanta las cejas y ladea la cabeza, sorprendida, con un murmullo corto y agudo de labios cerrados." },
         { "n": 2, "descripcion": "Aprieta los labios y asiente una sola vez, despacio, impresionada, con un murmullo grave de boca cerrada." },
@@ -166,7 +206,7 @@
       "referencias": []
     },
     {
-      "n": 11, "tipo": "H", "habla": "B", "clase": "reacciones", "duracion": 8, "frame_inicial": "host-b",
+      "n": 14, "tipo": "H", "habla": "B", "clase": "reacciones", "duracion": 8, "frame_inicial": "host-b",
       "reacciones": [
         { "n": 1, "descripcion": "Niega despacio con una sonrisa de labios cerrados y un suspiro suave por la nariz, como quien ya pasó por eso." },
         { "n": 2, "descripcion": "Levanta las cejas con los labios apretados y suelta una risa corta por la nariz." },
@@ -186,19 +226,19 @@
       "referencias": ["host-a"]
     },
     {
-      "n": 2, "encima_de_toma": 6, "en_linea": 7, "sincroniza_con": "aguaje, fenogreco y maca negra", "duracion": 5, "quieto": true,
+      "n": 2, "encima_de_toma": 9, "en_linea": 12, "sincroniza_con": "aguaje, fenogreco y maca negra", "duracion": 5, "quieto": true,
       "prompt_imagen": "Foto realista vertical 9:16, como tomada con una cámara real, de tres ingredientes naturales sobre una mesa de madera de cocina, en primer plano, vistos un poco desde arriba. A la izquierda, una canasta tejida pequeña con frutos de aguaje frescos: ovalados, del tamaño de un huevo, con la cáscara cubierta de escamas pequeñas, duras y brillantes de color rojizo oscuro, como la piel de una piña de pino; uno está partido a la mitad y muestra una capa delgada de pulpa amarilla anaranjada alrededor de una semilla grande. No son mangos ni papayas. Al centro, un platico de cerámica clara con semillas de fenogreco: pequeñas, duras, de color amarillo ocre y forma casi cuadrada. A la derecha, una cuchara de madera con polvo fino de maca negra, de color café oscuro. La canasta, el platico y la cuchara, enteros, caben en la franja del medio de la imagen, con aire alrededor; arriba y abajo solo queda la mesa de madera. Luz natural suave y difusa de una ventana de cocina, de lado, con sombras suaves. Sobre la mesa solo hay: la canasta con los frutos, el platico con las semillas y la cuchara con el polvo; no hay nada más. No hay frascos, cápsulas, pastillas, manos ni personas. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.",
       "prompt_video": "Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija. Nada se mueve de su lugar: solo cambia apenas la luz suave de la ventana sobre los frutos, las semillas y el polvo. Nadie habla: no hay voces ni bocas que se muevan. No entran manos ni personas. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.",
       "referencias": []
     },
     {
-      "n": 3, "encima_de_toma": 6, "en_linea": 8, "sincroniza_con": "Eso es lo que da los resultados", "duracion": 5,
+      "n": 3, "encima_de_toma": 9, "en_linea": 13, "sincroniza_con": "Eso es lo que da los resultados", "duracion": 5,
       "prompt_imagen": "Foto realista vertical 9:16, como tomada con una cámara real, de la mujer de la primera imagen de referencia, sentada en el mismo sofá de lino beige de la misma sala cálida, sosteniendo junto a su cara el frasco de la segunda imagen de referencia. Es la misma mujer adulta de 30 años: misma cara, misma piel morena, mismo pelo negro en moño alto con mechones sueltos, mismos aretes de argolla dorados y mismo suéter tejido color terracota. En este plano no hay micrófono ni audífonos. Plano del pecho hacia arriba. Sostiene el frasco cerrado con una sola mano, a la altura del pecho y junto a su cara, a la misma distancia de la cámara que ella, con los dedos por los costados y por detrás, sin tapar la etiqueta; el frasco ocupa cerca de un tercio de la altura de la imagen. Su otra mano está vacía y fuera del cuadro; no sostiene nada más que el frasco cerrado; no hay cápsulas ni pastillas a la vista. Mira hacia el lado izquierdo de la imagen, a su amiga, que no se ve, con una sonrisa segura; no mira a la cámara. Su cara y el frasco entero caben en la franja del medio de la imagen, con aire alrededor; arriba solo queda la pared de color arena y abajo solo su suéter y el sofá. Luz natural de tarde, suave y difusa, de una ventana grande, que le da de frente al frasco: la etiqueta queda iluminada, sin contraluz. El frasco es exactamente el de la segunda imagen de referencia: negro, de lados rectos con hombros redondeados, cerca del doble de alto que de ancho, de boca ancha, con tapa negra casi tan ancha como el cuerpo y una banda rosada alrededor de la tapa; ni botella delgada ni pote chato; la misma etiqueta negra con letras blancas y rosadas, legible, al derecho y nunca en espejo; solo hay uno. Acabado mate, sin reflejos fuertes, sin arcoíris, sin destellos de lente. Piel real con poros y textura, sin filtro de belleza. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.",
       "prompt_video": "Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin acercamiento. La mujer sostiene el frasco quieto junto a su cara, a la misma distancia de la cámara que ella, y sonríe asintiendo apenas hacia su amiga, que no se ve; parpadea y respira con naturalidad. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. No mira a la cámara. El frasco no se desliza ni se mueve de su lugar; la etiqueta se mantiene idéntica y legible todo el clip, siempre al derecho, nunca en espejo; solo hay un frasco, negro, de boca ancha, ni botella delgada ni pote chato. Su otra mano sigue vacía y fuera del cuadro. No se ven cápsulas sueltas ni el frasco abierto. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.",
       "referencias": ["host-b", "producto"]
     },
     {
-      "n": 4, "encima_de_toma": 8, "en_linea": 13, "sincroniza_con": "ahora en el gym me pongo de lado", "duracion": 5,
+      "n": 4, "encima_de_toma": 11, "en_linea": 19, "sincroniza_con": "ahora en el gym me pongo de lado", "duracion": 5,
       "prompt_imagen": "Foto realista vertical 9:16, como tomada con una cámara real, de la mujer de la primera imagen de referencia en un gimnasio real, de pie junto a un espejo grande de pared. Usa la primera imagen de referencia SOLO para su cara, su pelo y su piel: no copies el micrófono, los audífonos, el sofá, la sala ni la ropa. Es una mujer adulta de 30 años, de piel morena, con el pelo negro recogido en un moño alto con mechones sueltos. Lleva leggings negros opacos de cintura alta y un top deportivo negro de tirantes anchos, que cubre bien. Está de tres cuartos de lado, con la cara girada hacia la cámara y una sonrisa segura, mirando su reflejo, sin mirar al lente. Tiene una figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas, cerca de una vez y media más anchas que la cintura, y piernas gruesas y fuertes que llenan los leggings; se nota a primera vista, sin caricatura. Una mano apoyada en la cintura. De la cabeza a medio muslo cabe en la franja del medio de la imagen, con aire alrededor; arriba solo queda la pared y los ventanales, y abajo solo sus piernas y el piso del gimnasio. Luz natural de día que entra por ventanales grandes; al fondo, desenfocadas, unas mancuernas y una banca. Piel real con poros y textura, sin filtro de belleza. Nada sexualizado: pose natural y relajada, de frente y de lado, nunca de espaldas. No hay nadie más. No hay letreros, pantallas ni nada con letras. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.",
       "prompt_video": "Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin acercamiento. La mujer gira apenas el cuerpo para verse de lado en el espejo, sonríe segura y acomoda la mano en la cintura. Su figura no cambia en todo el clip. Nunca queda de espaldas a la cámara. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. No mira a la cámara. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.",
       "referencias": ["host-b"]
