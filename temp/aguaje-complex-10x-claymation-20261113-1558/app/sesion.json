@@ -1,33 +1,27 @@
 {
   "uuid": "7ccea351-048e-4006-ade7-60e5cc94cd14",
   "estado": "listo",
-  "tipo": "guion",
-  "intentos": 1,
+  "tipo": "cambios",
+  "intentos": 2,
   "progreso": [
-    "Preparando la foto de tu producto",
-    "Analizando el video de referencia",
-    "Claude empezó a escribir tu guion",
-    "Leyendo las instrucciones del estilo",
-    "Leyendo",
-    "Mirando las imágenes del anuncio",
-    "Mirando las fotos de tu producto",
-    "Repasando la ficha de tu producto",
+    "Claude está leyendo tu pedido",
+    "Repasando el guion",
     "Buscando en los archivos",
-    "Leyendo",
-    "Mirando las imágenes del anuncio",
-    "Buscando en los archivos",
-    "Leyendo",
-    "Guardando",
-    "Escribiendo el guion y cada escena",
     "Revisando que el guion esté completo",
     "Pasando el guion en limpio"
   ],
   "inicio": "2026-11-13T20:58:32.177Z",
-  "cambios": [],
-  "actualizado": "2026-11-13T21:04:59.281Z",
+  "cambios": [
+    {
+      "pedido": "quiero que sea mejor este: ¿Por qué tus glúteos no crecen si ya intentaste de todo?\nMil sentadillas, cremas, pastillas… y sigues igual de plana.\nY ya estabas pensando en una cirugía de millones.\nPero el problema no está afuera. Está adentro.\nTus glúteos están dormidos: si no despiertan, no crecen. Y las cremas no llegan hasta allá adentro.\nAguaje Complex 10X: el aguaje, el fenogreco y la maca negra llegan directo al músculo y lo despiertan.\nDía diez: el jean ya no te queda suelto.\nYo pedí el tratamiento por tres, a 149.900. Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
+      "fecha": "2026-11-13T21:07:22.450Z",
+      "ok": true
+    }
+  ],
+  "actualizado": "2026-11-13T21:07:39.624Z",
   "error": null,
-  "inicioIntento": "2026-11-13T20:58:32.177Z",
-  "fin": "2026-11-13T21:04:59.281Z",
+  "inicioIntento": "2026-11-13T21:07:22.451Z",
+  "fin": "2026-11-13T21:07:39.624Z",
   "limite": false,
   "reinicio": null,
   "medidas": [
@@ -83,7 +77,62 @@
       ],
       "denegados": 1,
       "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-13T21:07:39.624Z",
+      "ok": true,
+      "turnos": 5,
+      "duracionMs": 17018,
+      "uso": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 6381,
+        "cache_read_input_tokens": 331946,
+        "output_tokens": 1359,
+        "output_tokens_details": {
+          "thinking_tokens": 591
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6381,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 113789,
+            "cache_creation_input_tokens": 1079,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1079
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 2.7074045000000004,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
     }
   ],
-  "ajustados": 0
+  "ajustados": 0,
+  "pedido": "quiero que sea mejor este: ¿Por qué tus glúteos no crecen si ya intentaste de todo?\nMil sentadillas, cremas, pastillas… y sigues igual de plana.\nY ya estabas pensando en una cirugía de millones.\nPero el problema no está afuera. Está adentro.\nTus glúteos están dormidos: si no despiertan, no crecen. Y las cremas no llegan hasta allá adentro.\nAguaje Complex 10X: el aguaje, el fenogreco y la maca negra llegan directo al músculo y lo despiertan.\nDía diez: el jean ya no te queda suelto.\nYo pedí el tratamiento por tres, a 149.900. Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
+  "respaldo": null
 }
