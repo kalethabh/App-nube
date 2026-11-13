@@ -1,8 +1,30 @@
 {
   "sesion": {
     "uuid": "e3728d2e-04bb-4f47-a61d-74a7628d65ab",
-    "intentos": 1
+    "intentos": 1,
+    "usada": true,
+    "motor": "claude",
+    "ok": true,
+    "limite": false
   },
-  "pedidos": [],
-  "fase": "revisar"
+  "pedidos": [
+    {
+      "id": "broll-1",
+      "tipo": "broll",
+      "n": 1,
+      "motivo": "La cara queda muy arriba en la imagen: en pantalla dividida se cortaría y solo se vería del cuello para abajo.",
+      "prompt": "Foto realista vertical 9:16, como tomada con una cámara real desde lejos, de la misma mujer adulta de 27 años de la primera imagen de referencia (úsala SOLO para su cara, su pelo y su piel, nunca para su ropa ni para el lugar), en su cuarto por la mañana, de pie frente a un espejo de cuerpo entero apoyado en la pared, terminando de subirse un jean. Está de tres cuartos de lado, casi de perfil, con la cara girada hacia este lado: se le ve bien la cara, con gesto de fastidio y un suspiro, mirándose en el espejo, nunca a la cámara. Lleva una camiseta gris de dormir, holgada y arrugada, y un jean azul que le queda una talla grande atrás: un pliegue de tela sobrante debajo de la cadera, los bolsillos de atrás caídos, la parte de atrás baja en una sola línea recta y plana, y los muslos delgados y rectos dejan el jean flojo. Es una mujer adulta delgada y sin curvas. Plano abierto: se la ve de cuerpo entero y pequeña en el cuadro, ocupando solo la mitad central del alto de la imagen. Su cabeza queda bastante abajo: la parte de arriba del pelo está a un tercio del alto de la imagen, contando desde arriba, y su cara queda cerca del centro. El tercio de arriba de la imagen está vacío: solo pared lisa. Sus rodillas quedan a tres cuartos del alto; el cuarto de abajo solo tiene sus pantorrillas, el piso de madera y la base del espejo. Luz natural suave de una ventana a un lado; al fondo, desenfocada, una cama destendida. Piel real con poros y textura, sin filtro de belleza, pelo castaño largo con ondas, algo despeinado. Sin texto, sin letreros ni logos, sin marcas ni bordados en el jean. Un solo instante, sin collage.",
+      "resultado": "aviso"
+    },
+    {
+      "id": "broll-5",
+      "tipo": "broll",
+      "n": 5,
+      "motivo": "La cara queda muy arriba en la imagen: en pantalla dividida se cortaría la cabeza y solo se vería el cuerpo.",
+      "prompt": "Foto realista vertical 9:16, como tomada con una cámara real desde lejos, de la misma mujer adulta de 30 años de la primera imagen de referencia (úsala SOLO para su cara, su pelo y su piel, nunca para su ropa, su cuerpo ni el lugar), en un gimnasio real con luz natural de ventanales, de pie frente a un espejo grande. Está de tres cuartos de lado, con la cara girada hacia este lado: se le ve bien la cara, sonriendo segura, mirando hacia el espejo, nunca a la cámara. Nunca de espaldas a la cámara. Lleva leggings negros de tiro alto y un top deportivo negro que le cubre bien el pecho. Tiene una figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas, cerca de una vez y media más anchas que la cintura, y piernas gruesas que llenan los leggings; se nota a primera vista, sin caricatura. Postura natural, una mano en la cintura; nada sexualizado. Plano abierto: se la ve de cuerpo entero y pequeña en el cuadro, ocupando solo la mitad central del alto de la imagen. Su cabeza queda bastante abajo: la parte de arriba del moño está a un tercio del alto de la imagen, contando desde arriba, y su cara queda cerca del centro. El tercio de arriba de la imagen está vacío: solo la pared y los ventanales. Sus rodillas quedan a tres cuartos del alto; el cuarto de abajo solo tiene sus pantorrillas y el piso del gimnasio. Al fondo, desenfocadas, unas mancuernas y una máquina, sin nadie más. Piel real con poros y textura, sin filtro de belleza, pelo negro recogido en un moño alto con mechones sueltos. Sin texto, sin letreros ni logos en la ropa ni en las paredes. Un solo instante, sin collage.",
+      "resultado": "aviso"
+    }
+  ],
+  "fase": "fin",
+  "descartados": []
 }

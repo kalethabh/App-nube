@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-podcast-20261113-1712",
   "familia": "hablado",
   "estado": "corriendo",
-  "paso": "revision-imagenes",
+  "paso": "videos",
   "pasos": [
     {
       "id": "validar",
@@ -31,16 +31,19 @@
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-13T22:24:04.680Z",
-      "detalle": "Claude empezó a trabajar"
+      "fin": "2026-11-13T22:25:55.037Z",
+      "nota": "La revisión dejó 2 avisos: míralos en el proceso."
     },
     {
       "id": "videos",
       "nombre": "Crear los clips",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-13T22:25:55.037Z",
+      "detalle": "Generando los clips"
     },
     {
       "id": "revision-habla",
@@ -77,7 +80,7 @@
   "modoPrueba": false,
   "creado": "2026-11-13T22:22:05.138Z",
   "aprobado": "2026-11-13T22:22:05.138Z",
-  "actualizado": "2026-11-13T22:24:05.191Z",
+  "actualizado": "2026-11-13T22:25:55.038Z",
   "saldoInicial": {
     "creditos": 2741.2,
     "fecha": "2026-11-13T22:22:07.344Z"
