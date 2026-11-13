@@ -1,0 +1,432 @@
+{
+  "carpeta": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712",
+  "archivos": [
+    "img/broll-1.png",
+    "img/broll-2.png",
+    "img/broll-3.png",
+    "img/broll-4.png",
+    "img/broll-5.png",
+    "img/broll-6.png",
+    "img/host-a.png",
+    "img/host-b.png",
+    "img/toma-1-inicial.png",
+    "img/toma-10-inicial.png",
+    "img/toma-11-inicial.png",
+    "img/toma-2-inicial.png",
+    "img/toma-3-inicial.png",
+    "img/toma-4-inicial.png",
+    "img/toma-5-inicial.png",
+    "img/toma-6-inicial.png",
+    "img/toma-7-inicial.png",
+    "img/toma-8-inicial.png",
+    "img/toma-9-inicial.png",
+    "producto.png",
+    "qa/broll-1.jpg",
+    "qa/broll-2.jpg",
+    "qa/broll-3.jpg",
+    "qa/broll-4.jpg",
+    "qa/broll-5.jpg",
+    "qa/broll-6.jpg",
+    "qa/toma-1.jpg",
+    "qa/toma-10.jpg",
+    "qa/toma-11.jpg",
+    "qa/toma-2.jpg",
+    "qa/toma-3.jpg",
+    "qa/toma-4.jpg",
+    "qa/toma-5.jpg",
+    "qa/toma-6.jpg",
+    "qa/toma-7.jpg",
+    "qa/toma-8.jpg",
+    "qa/toma-9.jpg",
+    "referencia/audio-referencia.mp3",
+    "referencia/hoja-tomas.jpg",
+    "referencia/original.mp4",
+    "referencia/tomas/toma-01.jpg",
+    "referencia/tomas/toma-02.jpg",
+    "referencia/tomas/toma-03.jpg",
+    "referencia/tomas/toma-04.jpg",
+    "referencia/tomas/toma-05.jpg",
+    "referencia/tomas/toma-06.jpg",
+    "referencia/tomas/toma-07.jpg",
+    "referencia/tomas/toma-08.jpg",
+    "referencia/tomas/toma-09.jpg",
+    "referencia/tomas/toma-10.jpg",
+    "referencia/tomas/toma-11.jpg",
+    "referencia/tomas/toma-12.jpg",
+    "video/broll-1.mp4",
+    "video/broll-2.mp4",
+    "video/broll-3.mp4",
+    "video/broll-4.mp4",
+    "video/broll-5.mp4",
+    "video/broll-6.mp4",
+    "video/toma-1.mp4",
+    "video/toma-10.mp4",
+    "video/toma-11.mp4",
+    "video/toma-2.mp4",
+    "video/toma-3.mp4",
+    "video/toma-4.mp4",
+    "video/toma-5.mp4",
+    "video/toma-6.mp4",
+    "video/toma-7.mp4",
+    "video/toma-8.mp4",
+    "video/toma-9.mp4"
+  ],
+  "finales": [
+    "aguaje-complex-10x-podcast-20261113-1712_9x16_con-subtitulos.mp4"
+  ],
+  "ubicaciones": {
+    "img/broll-1.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/broll-1.png",
+      "bytes": 5422654,
+      "sha256": "f0e3d06a91b9b187b42017687bb6015dd0eff11a2642e4546d9fe483449bfcf6"
+    },
+    "img/broll-2.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/broll-2.png",
+      "bytes": 5793782,
+      "sha256": "0b0b2895992e1f17aa9e5be669536be2f96ac67f68d197478671299c564658c0"
+    },
+    "img/broll-3.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/broll-3.png",
+      "bytes": 6169308,
+      "sha256": "98a8e23b96c382d17a5669dc8db9dca479d5766dc5978ace55de1e44a35b4538"
+    },
+    "img/broll-4.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/broll-4.png",
+      "bytes": 5413361,
+      "sha256": "f964cca2aa4a2553eb5052efdbbf3eb3de712b8bf9207f7932104cf3bd2f79a9"
+    },
+    "img/broll-5.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/broll-5.png",
+      "bytes": 5516000,
+      "sha256": "1db7ec353b2e7ada03ae156bd37bde1a40404f165244f66b066355e5dbe1da8c"
+    },
+    "img/broll-6.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/broll-6.png",
+      "bytes": 5160743,
+      "sha256": "f55bf31644a4f6397757928089da240256d3dd972575c8808fefeaf103895110"
+    },
+    "img/host-a.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/host-a.png",
+      "bytes": 5912979,
+      "sha256": "ca9861b0e315ef2823d8cf6c89b555867cc15d7fd4376525e66dacbdde2b4d22"
+    },
+    "img/host-b.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/host-b.png",
+      "bytes": 5919729,
+      "sha256": "4fb0a71af88b48b3f0795a6bef543d7e0ea348ba61a898e8b1f35c178ff78fe7"
+    },
+    "img/toma-1-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-1-inicial.png",
+      "bytes": 5912979,
+      "sha256": "ca9861b0e315ef2823d8cf6c89b555867cc15d7fd4376525e66dacbdde2b4d22"
+    },
+    "img/toma-10-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-10-inicial.png",
+      "bytes": 5912979,
+      "sha256": "ca9861b0e315ef2823d8cf6c89b555867cc15d7fd4376525e66dacbdde2b4d22"
+    },
+    "img/toma-11-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-11-inicial.png",
+      "bytes": 5919729,
+      "sha256": "4fb0a71af88b48b3f0795a6bef543d7e0ea348ba61a898e8b1f35c178ff78fe7"
+    },
+    "img/toma-2-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-2-inicial.png",
+      "bytes": 5912979,
+      "sha256": "ca9861b0e315ef2823d8cf6c89b555867cc15d7fd4376525e66dacbdde2b4d22"
+    },
+    "img/toma-3-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-3-inicial.png",
+      "bytes": 5912979,
+      "sha256": "ca9861b0e315ef2823d8cf6c89b555867cc15d7fd4376525e66dacbdde2b4d22"
+    },
+    "img/toma-4-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-4-inicial.png",
+      "bytes": 5919729,
+      "sha256": "4fb0a71af88b48b3f0795a6bef543d7e0ea348ba61a898e8b1f35c178ff78fe7"
+    },
+    "img/toma-5-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-5-inicial.png",
+      "bytes": 5919729,
+      "sha256": "4fb0a71af88b48b3f0795a6bef543d7e0ea348ba61a898e8b1f35c178ff78fe7"
+    },
+    "img/toma-6-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-6-inicial.png",
+      "bytes": 5919729,
+      "sha256": "4fb0a71af88b48b3f0795a6bef543d7e0ea348ba61a898e8b1f35c178ff78fe7"
+    },
+    "img/toma-7-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-7-inicial.png",
+      "bytes": 5919729,
+      "sha256": "4fb0a71af88b48b3f0795a6bef543d7e0ea348ba61a898e8b1f35c178ff78fe7"
+    },
+    "img/toma-8-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-8-inicial.png",
+      "bytes": 5919729,
+      "sha256": "4fb0a71af88b48b3f0795a6bef543d7e0ea348ba61a898e8b1f35c178ff78fe7"
+    },
+    "img/toma-9-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/img/toma-9-inicial.png",
+      "bytes": 5919729,
+      "sha256": "4fb0a71af88b48b3f0795a6bef543d7e0ea348ba61a898e8b1f35c178ff78fe7"
+    },
+    "producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/producto.png",
+      "bytes": 153809,
+      "sha256": "db12553d2868068804a9a6f8bdb6bfaba7fc27101bacddc0a19e9e94d26b9fd8"
+    },
+    "qa/broll-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/broll-1.jpg",
+      "bytes": 147864,
+      "sha256": "5b18ce58991349ea448aa2efc218c1c98b0128ce3cf0d1a719b9723bd8883066"
+    },
+    "qa/broll-2.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/broll-2.jpg",
+      "bytes": 284366,
+      "sha256": "bb0d42038abd93195cbe023e9209e714d033520b4e33b1fe6433fcedc058ebae"
+    },
+    "qa/broll-3.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/broll-3.jpg",
+      "bytes": 181337,
+      "sha256": "6fade31bc0def6e470989145803296b9cfc4628129981e35e897a68b97379efe"
+    },
+    "qa/broll-4.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/broll-4.jpg",
+      "bytes": 179419,
+      "sha256": "126b6f63931fa920edb4d5e377d87ca9a88375311245f63c31228b0be3ef82fe"
+    },
+    "qa/broll-5.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/broll-5.jpg",
+      "bytes": 205113,
+      "sha256": "61847314aab454230cb2debd39d04294135fc3ef35da9471a12250b169fea1e0"
+    },
+    "qa/broll-6.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/broll-6.jpg",
+      "bytes": 160041,
+      "sha256": "dae9c41a7a1926cf137ce98f69bf12f6f1d2491ea4bf7ec169ec00cb78223843"
+    },
+    "qa/toma-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-1.jpg",
+      "bytes": 239097,
+      "sha256": "f0ae13be21aab303e4ba38fd1ac8e0236e8fc1573af3715b654f92d0747e3d71"
+    },
+    "qa/toma-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-10.jpg",
+      "bytes": 243243,
+      "sha256": "03eab2de1bf46eb3c37b66e621f221faa492b2feabe63bbb7bee3802e7aff5ee"
+    },
+    "qa/toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-11.jpg",
+      "bytes": 294665,
+      "sha256": "e0a0ebdbc4084cb1a97cc90a8b00f3e24dea741b859370e2e1ac14fc90670bdd"
+    },
+    "qa/toma-2.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-2.jpg",
+      "bytes": 233018,
+      "sha256": "ff26d60ca31b59c41893c20473a466c2aa1372411abf9185fd5297e3eb416462"
+    },
+    "qa/toma-3.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-3.jpg",
+      "bytes": 234628,
+      "sha256": "f6980ae9c8b0c0c6dd2c83369482d24eab96ad51775c72ec15d3f5b711134842"
+    },
+    "qa/toma-4.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-4.jpg",
+      "bytes": 275504,
+      "sha256": "63952c0fe19e13f2a52372d2baee19663aa8d4401e34282052d699d4093f8c04"
+    },
+    "qa/toma-5.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-5.jpg",
+      "bytes": 275706,
+      "sha256": "180745f0aee2822223a98929532f4edb00e5d22d4bb227a795d79854219eb972"
+    },
+    "qa/toma-6.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-6.jpg",
+      "bytes": 282040,
+      "sha256": "ceed128c875966e6254bda6ed51d2512448517296446af7cb0e9fd5b11508285"
+    },
+    "qa/toma-7.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-7.jpg",
+      "bytes": 280622,
+      "sha256": "d3a5b33066db362470b36609c4106f18d30913b0994f78e2eae2bd3957319509"
+    },
+    "qa/toma-8.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-8.jpg",
+      "bytes": 287505,
+      "sha256": "d27d20ce6867d2ef7b4cb989b575f59872162b1030f65c27992069c561d3ea54"
+    },
+    "qa/toma-9.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/qa/toma-9.jpg",
+      "bytes": 283333,
+      "sha256": "806f0a0820f53e188989a4491f286d0a3666334dc339faa22a81b4ec093e5c1b"
+    },
+    "referencia/audio-referencia.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/audio-referencia.mp3",
+      "bytes": 622069,
+      "sha256": "8e0de26e299d78b4ee973b290c36782c2a039fa369f66922218c0a5dc56aa107"
+    },
+    "referencia/hoja-tomas.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/hoja-tomas.jpg",
+      "bytes": 127656,
+      "sha256": "f2768564fa7dbfcb6b23b4305eab2b3a48f827e814cbda68b0390707a254e870"
+    },
+    "referencia/original.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/original.mp4",
+      "bytes": 6499827,
+      "sha256": "7356d055b148301348f40168ae13cdfbdccce71d542576fac220fdeb2b0b8a44"
+    },
+    "referencia/tomas/toma-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-01.jpg",
+      "bytes": 35201,
+      "sha256": "49ee6653f0e73217cb6771c11262a544fc31c80ba6dd94435b8ee5d673cc6e7b"
+    },
+    "referencia/tomas/toma-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-02.jpg",
+      "bytes": 40281,
+      "sha256": "d76d9c6b687309b2037d481dcc4940a1293bec7964ad054a54f2fb0229b1fc9e"
+    },
+    "referencia/tomas/toma-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-03.jpg",
+      "bytes": 37604,
+      "sha256": "da1d4f4407eb2b6aee8097f154a516a636d2759415195048d2280e1653432f49"
+    },
+    "referencia/tomas/toma-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-04.jpg",
+      "bytes": 40547,
+      "sha256": "5698794a462ce55b610bf51e95bcb64178049bfdd3b3623e362c69dbd1ddec03"
+    },
+    "referencia/tomas/toma-05.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-05.jpg",
+      "bytes": 36114,
+      "sha256": "74bb3fdc0a16195a71ab32ab3b6b34053aae690ee8c122fae3b5cafcca909140"
+    },
+    "referencia/tomas/toma-06.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-06.jpg",
+      "bytes": 40345,
+      "sha256": "a98e07cbbd9d5f54d4150ad915dfbaba6d7540aa3c39f9b811dd408829fc8fbc"
+    },
+    "referencia/tomas/toma-07.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-07.jpg",
+      "bytes": 42935,
+      "sha256": "d369e909d5c2c2dbb1e9fe4f4c703c3c961a7f1eb33edb2d36bfd73f2dd85fb4"
+    },
+    "referencia/tomas/toma-08.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-08.jpg",
+      "bytes": 35688,
+      "sha256": "d85a3d85a20eba97e4bdf47f1b6e4b6e877d20cc97fec14ef4c4344c895a66a0"
+    },
+    "referencia/tomas/toma-09.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-09.jpg",
+      "bytes": 43296,
+      "sha256": "c0f1bc28c5402897cefc27ab3de77c3420655bef5b01b2e039fc561017cd2468"
+    },
+    "referencia/tomas/toma-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-10.jpg",
+      "bytes": 38099,
+      "sha256": "7b0fd3f596bfbafd1bf8cdd30debcdeafd267cb40d65d21476afb726c950d13d"
+    },
+    "referencia/tomas/toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-11.jpg",
+      "bytes": 43685,
+      "sha256": "089a74b032da66cdde19e48e48f548847abbdb30e8d9199221bea4254270d76c"
+    },
+    "referencia/tomas/toma-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/referencia/tomas/toma-12.jpg",
+      "bytes": 35462,
+      "sha256": "ba5d7f01fbab536e1fa3cfa9c50c301d80f8334226bf889be9599a5aa51da8c7"
+    },
+    "video/broll-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/broll-1.mp4",
+      "bytes": 7878017,
+      "sha256": "7fbbc07ff3232141102fc7a1efe9bf44edae79fbced3a327c9d0aa9d7885ab3c"
+    },
+    "video/broll-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/broll-2.mp4",
+      "bytes": 1884388,
+      "sha256": "a09d41eaf6a10669ba32846b9cd390a8fb4ecad507a1da954160dcb79d745f67"
+    },
+    "video/broll-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/broll-3.mp4",
+      "bytes": 8749839,
+      "sha256": "35f53a987540cc9e096d9c0161d4fba5d7465b4dfd813508d8508b3036a8451f"
+    },
+    "video/broll-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/broll-4.mp4",
+      "bytes": 7801093,
+      "sha256": "f2fe2e8724ff86b194f2362e6da91ef782684611d88681d4819270a4f6730fdd"
+    },
+    "video/broll-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/broll-5.mp4",
+      "bytes": 4886477,
+      "sha256": "a0aec09e3d56530f9e89c4005c3d73249d214cfc516b2303503c8651f22089c8"
+    },
+    "video/broll-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/broll-6.mp4",
+      "bytes": 8876007,
+      "sha256": "cc44ff31c8765a33da003418535f4585b9646c592465024d86b94a2a07193f3c"
+    },
+    "video/toma-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-1.mp4",
+      "bytes": 8544580,
+      "sha256": "a9fb7e428c989f064655c89378d8dd1ea2d7b165f8308e1cb8279f47fc5588d8"
+    },
+    "video/toma-10.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-10.mp4",
+      "bytes": 5843408,
+      "sha256": "3486e4bc066bb25c9336e29014c0560f253cea41f892b0ab30ba7584580a9750"
+    },
+    "video/toma-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-11.mp4",
+      "bytes": 6546511,
+      "sha256": "7389d3122bcd81eee2b915ac7acabcf606c0af396fd85de69afc84bbdfada83c"
+    },
+    "video/toma-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-2.mp4",
+      "bytes": 8281330,
+      "sha256": "f8c8ae23ae3b4577f3c3d293c995098271a39b522b45babe3dca93ba4244da34"
+    },
+    "video/toma-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-3.mp4",
+      "bytes": 3684880,
+      "sha256": "023477ab2fcb87d63b9fcf3b53476d8eb8cfabd7c812c9423a0e0a3c29f70236"
+    },
+    "video/toma-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-4.mp4",
+      "bytes": 7539568,
+      "sha256": "c0cb8ed21194e28614a0f4227ca4047a4e1bb948ac78a9e284cae099fb23e72a"
+    },
+    "video/toma-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-5.mp4",
+      "bytes": 9152864,
+      "sha256": "67b3c4b64b57b9d38ee54b43b1ff91e608f8bb0a97bdfbeb02e3a937dc498bef"
+    },
+    "video/toma-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-6.mp4",
+      "bytes": 7841281,
+      "sha256": "7ba5b4ca9bd487b5fdcc0b797191e937c484375280e7f80dc423945aab016771"
+    },
+    "video/toma-7.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-7.mp4",
+      "bytes": 9014038,
+      "sha256": "2f143dfff0d8119bc9f17adfbbfd38a17c62044c656cf595de3bd3946e86cd8c"
+    },
+    "video/toma-8.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-8.mp4",
+      "bytes": 7385045,
+      "sha256": "964d67709e3b800d96761f00c21f6b270edcd74330432209c26982b406cf32dd"
+    },
+    "video/toma-9.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-podcast-20261113-1712/video/toma-9.mp4",
+      "bytes": 7977416,
+      "sha256": "049abb9ea7ddf7ab227805b6c8a84f8bebdc0230159001b8e9e249157706e33c"
+    }
+  },
+  "ubicacionesFinales": {
+    "aguaje-complex-10x-podcast-20261113-1712_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/videos-finales/aguaje-complex-10x-podcast-20261113-1712_9x16_con-subtitulos.mp4",
+      "bytes": 68991062,
+      "sha256": "4344b13c760d1199f7a322ad220e5698727e61b13ef232a683670aa85476a0f4"
+    }
+  },
+  "fecha": "2026-11-13T23:54:51.238Z"
+}
