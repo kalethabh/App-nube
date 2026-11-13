@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-10x-claymation-20261113-1558",
   "familia": "continuidad",
-  "estado": "corriendo",
-  "paso": "control-final",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -122,22 +122,25 @@
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-13T21:45:19.835Z"
+      "inicio": "2026-11-13T21:45:19.835Z",
+      "fin": "2026-11-13T21:46:22.047Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:46:22.047Z",
+      "fin": "2026-11-13T21:46:22.359Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-13T21:15:31.187Z",
   "aprobado": "2026-11-13T21:15:31.187Z",
-  "actualizado": "2026-11-13T21:45:19.835Z",
+  "actualizado": "2026-11-13T21:46:22.360Z",
   "saldoInicial": {
     "creditos": 2064.8,
     "fecha": "2026-11-13T21:15:32.232Z"
@@ -145,5 +148,10 @@
   "costoPlan": {
     "creditos": 1029,
     "fecha": "2026-11-13T21:15:32.233Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 2741.2,
+    "fecha": "2026-11-13T21:46:22.247Z"
+  },
+  "terminado": "2026-11-13T21:46:22.360Z"
 }

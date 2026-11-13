@@ -1,0 +1,186 @@
+{
+  "slug": "aguaje-complex-10x-claymation-20261113-1558",
+  "generado": "2026-11-13T21:46:22.268Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 51.46,
+    "estimada": 57.3,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-10x-claymation-20261113-1558_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda la voz",
+      "detalle": "El video se adaptó a los 0:51 de la voz en off: ninguna frase se recortó para cuadrar."
+    },
+    {
+      "id": "voz",
+      "icono": "voz",
+      "titulo": "La voz: Valentina - Conversational Medellin",
+      "detalle": "Es la que elegiste para este estilo."
+    },
+    {
+      "id": "continuidad",
+      "icono": "continuidad",
+      "titulo": "14 pasos encadenados, sin cortes",
+      "detalle": "Cada video va de una escena a la siguiente y el montaje no corta ninguno: solo cambia su velocidad para que cada imagen llegue con su frase. En una escena la imagen llega un instante antes o después de su frase (como mucho 0 s)."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:22; se repite para cubrir todo el video."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "52 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [],
+  "problemas": [
+    {
+      "id": "respaldo",
+      "tipo": "arreglado",
+      "titulo": "2 clips salieron con el modelo de respaldo",
+      "detalle": "El modelo principal no lo pudo hacer y la app usó el de respaldo para no frenar el anuncio. Puede verse un poco distinto: míralo.",
+      "piezas": [
+        {
+          "n": 8,
+          "unidad": "paso",
+          "momento": 27.109,
+          "valor": "clip"
+        },
+        {
+          "n": 10,
+          "unidad": "paso",
+          "momento": 33.309,
+          "valor": "clip"
+        }
+      ]
+    },
+    {
+      "id": "voces-coladas",
+      "tipo": "arreglado",
+      "titulo": "Un clip traía una voz que no iba",
+      "detalle": "El modelo de video metió una frase que nadie escribió. Se le quitó el sonido a ese clip (la imagen queda igual); se pierde su sonido de ambiente.",
+      "piezas": [
+        {
+          "n": 10,
+          "unidad": "paso",
+          "momento": 33.309,
+          "valor": "sin sonido"
+        }
+      ]
+    },
+    {
+      "id": "revision-avisos",
+      "tipo": "revisar",
+      "titulo": "Lo que notó la revisión",
+      "detalle": "La revisión notó algo en 4 piezas y no se rehízo nada solo: míralas y, si quieres, regenéralas desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).",
+      "piezas": [
+        {
+          "n": null,
+          "unidad": "Paso 4",
+          "momento": 11.773,
+          "valor": "No llega bien a la imagen siguiente: al final falta el borde de jean que enmarca el cuartito, así que en la unión ese borde aparece de golpe.",
+          "clave": "vid:paso-4",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Paso 6",
+          "momento": 18.657,
+          "valor": "A mitad del camino la protagonista sale con otra cara y otro peinado, con un objeto rosado en la mano, y detrás aparece un jean suelto que no tiene sentido.",
+          "clave": "vid:paso-6",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Paso 10",
+          "momento": 33.309,
+          "valor": "A mitad del camino las etiquetas de los tres frascos salen con letras deformadas, y el marco de la puerta cruza la imagen de lado a lado como una cortina.",
+          "clave": "vid:paso-10",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Paso 12",
+          "momento": 38.824,
+          "valor": "Mientras camina hacia la puerta le cambia el peinado: el moño amarillo se convierte en una balaca ancha y después vuelve a ser moño.",
+          "clave": "vid:paso-12",
+          "sugerencia": true
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 1323.6,
+    "dolares": 6.62,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 20,
+      "creditos": 200,
+      "dolares": 1
+    },
+    "videos": {
+      "piezas": 15,
+      "creditos": 1123.6,
+      "dolares": 5.62
+    },
+    "musica": {
+      "pistas": 0,
+      "creditos": 0,
+      "dolares": 0
+    },
+    "sinRegistro": {
+      "piezas": 0,
+      "creditosEstimados": 0
+    },
+    "estimado": false,
+    "elevenlabs": {
+      "caracteres": 768,
+      "scribeSegundos": 65.2
+    },
+    "corridas": 4,
+    "respaldo": [
+      "paso-8.mp4",
+      "paso-10.mp4"
+    ],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 20,
+        "creditos": 200,
+        "dolares": 1
+      },
+      {
+        "id": "videos",
+        "piezas": 15,
+        "creditos": 1123.6,
+        "dolares": 5.62
+      },
+      {
+        "id": "voz",
+        "caracteres": 768
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 2064.8,
+      "saldoDespues": 2741.2,
+      "diferencia": -676.4,
+      "coincide": false
+    },
+    "rehecho": false
+  }
+}
