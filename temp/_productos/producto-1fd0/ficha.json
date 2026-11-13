@@ -1,0 +1,50 @@
+{
+  "nombre": "Aguaje Complex 10X",
+  "queEs": "Cápsulas de aguaje con fenogreco y magnesio, de la marca coneXion Lab, para mujeres que quieren más glúteos y caderas.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Despierta los glúteos dormidos",
+    "Caderas más anchas",
+    "Piernas más gruesas",
+    "Figura de reloj de arena",
+    "Con vitamina A y vitamina E"
+  ],
+  "publico": "Mujeres adultas en Colombia, de 20 a 40 años, que quieren más glúteos, caderas y piernas.",
+  "dolor": "El jean le queda grande atrás, con el bolsillo caído: siente que no tiene glúteos ni caderas y que nada se los hace crecer.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Según la etiqueta: aguaje 200 mg, fenogreco 400 mg, magnesio 2070 mg, vitamina A y vitamina E. Tú también mencionaste maca negra, pero no se lee en la etiqueta.",
+  "comoSeUsa": "",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco negro con banda rosada, de frente, sobre fondo blanco. Se lee el nombre, la marca, los ingredientes y que trae 60 cápsulas."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta y tienes alguna oferta o envío gratis?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo te compran: por la página, por WhatsApp o pagando al recibir?"
+    },
+    {
+      "campo": "ingredientes",
+      "pregunta": "¿El producto lleva maca negra? En la etiqueta no aparece."
+    }
+  ]
+}
