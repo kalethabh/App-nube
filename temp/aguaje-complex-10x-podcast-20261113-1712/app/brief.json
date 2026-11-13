@@ -1,0 +1,21 @@
+{
+  "slug": "aguaje-complex-10x-podcast-20261113-1712",
+  "productoId": "producto-0e3f",
+  "estilo": "podcast",
+  "familia": "hablado",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": null,
+  "continuidad": false,
+  "respuestas": {
+    "modo": "Pantalla dividida",
+    "clonar": "subido:mwfi3i8o2a78e8|AGUAJE 01 - VIDIA.mp4",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {
+    "modoBroll": "dividida"
+  },
+  "creado": "2026-11-13T22:12:42.250Z"
+}

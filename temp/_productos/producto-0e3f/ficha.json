@@ -1,0 +1,50 @@
+{
+  "nombre": "Aguaje Complex 10X",
+  "queEs": "Cápsulas naturales de aguaje y fenogreco para mujeres que quieren más cadera y piernas, de la marca Conexion Lab.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Más cadera y piernas de forma natural, sin operarte",
+    "Resultados rápidos y duraderos",
+    "El resultado se queda incluso después de terminar el tratamiento",
+    "Sin efecto rebote",
+    "No engorda ni hincha",
+    "Ingredientes en su máxima pureza: lo que da el resultado son los ingredientes, no la marca"
+  ],
+  "publico": "Mujeres jóvenes y adultas de Colombia, de unos 20 a 40 años, que se sienten planas de cadera y piernas y quieren verse con más curvas sin cirugía.",
+  "dolor": "Se siente plana: el jean le queda grande atrás y sin forma, y hasta está ahorrando para operarse.",
+  "oferta": "El mejor es el tratamiento completo de 3 meses. En el anuncio no se dicen ni se muestran precios.",
+  "comoCompra": "Toca el botón de abajo del anuncio y escribe para pedirlo. Se lo llevan a domicilio y paga en efectivo al recibirlo.",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "Otros frascos que le vendieron como \"el original\": no traen todo lo que funciona, la hincharon y tuvo efecto rebote.",
+  "prueba": "",
+  "ingredientes": "Según la etiqueta: aguaje 200 mg, fenogreco 400 mg, magnesio 2070 mg, vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g cada una. Tú nos contaste que lleva aguaje, fenogreco y maca negra; la maca negra no se lee en la etiqueta de la foto.",
+  "comoSeUsa": "",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "Frasco negro con banda rosada, de frente, sobre fondo blanco. Se lee la marca Conexion Lab, el nombre Aguaje Complex 10X, los ingredientes y 60 cápsulas."
+    }
+  ],
+  "deducido": [
+    "queEs",
+    "publico",
+    "dolor",
+    "comoCompra",
+    "probo",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "ingredientes",
+      "pregunta": "En la etiqueta se lee magnesio y no maca negra. ¿El producto sí trae maca negra y la nombramos igual?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿El botón del anuncio lleva a WhatsApp o a una página?"
+    }
+  ]
+}
