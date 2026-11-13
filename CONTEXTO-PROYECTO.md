@@ -2,8 +2,28 @@
 
 Última actualización: 2026-11-11.
 
-**Para la conversación nueva:** lee este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
+**Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
+
+## Regla permanente de continuidad
+
+El usuario pidió el 2026-11-11: **«Sube siempre el contexto para continuar en cualquier lado».**
+Al terminar cada cambio de desarrollo o decisión relevante, actualizar este archivo y subirlo a GitHub con los
+cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
+los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
+publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Estado para retomar
+
+- **Versión actual:** `2026-11-11b` (archivo `VERSION`). Las funciones descritas abajo están integradas en `main`.
+- **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
+  integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
+- **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
+- **Preferencia vigente:** conservar logo, colores, fuentes, menú y diseño de Kads; adaptar los controles nuevos.
+- **Publicación:** los cambios de Kads se reciben desde `main` con el botón **Actualizar**. El ZIP de la Release
+  «Actualización-App» es la fuente original del proveedor y reemplazaría archivos personalizados si se instala entero.
+- **Siguiente trabajo funcional pendiente:** los dos pedidos de modelos alternativos ante fallas y «Estado de la IA»,
+  detallados al final. Mantener el contexto al día no autoriza a iniciar esas funciones sin una petición de trabajo.
 
 ## Qué es
 
@@ -13,19 +33,22 @@ sencillo: no soy programador.
   (https://github.com/kalethabh/IA-VID-AUTOMATIC, privada).
 - **En mi Mac** (M4) está clonada en `~/Anuncios con IA`. Se abre con doble clic en «Abrir Anuncios con IA.command»
   (que arranca `app/inicio/arrancar.mjs`); la app corre en http://127.0.0.1:4455.
-- **Servicios:** Claude Code con mi cuenta escribe los guiones (sin clave de API); kie.ai hace imágenes, videos y
-  música (Suno); ElevenLabs hace la voz y las transcripciones. Las claves van en `.env`, que nunca se sube ni se lee.
+- **Servicios:** Claude Code o ChatGPT/Codex, con mi cuenta y sin claves de API de Anthropic/OpenAI, escribe los
+  guiones y hace las revisiones. Se elige en Ajustes → Conexiones. kie.ai hace imágenes, videos y música (Suno);
+  ElevenLabs hace la voz y las transcripciones. Las claves van en `.env`, que nunca se sube ni se lee.
 - **Otros repositorios míos que usa:** `biblioteca-anuncios` (en `mis_archivos/biblioteca/`, compartido con
   IA-VID-AUTOMATIC) y `anuncios-ia-videos` (los anuncios terminados, por producto; la app lo lee en
   `mis_archivos/.anuncios-github`).
 
 ## Cómo trabajar los cambios (lo que ya acordamos)
 
-1. Trabajar en la rama `mejoras-de-ia-vid` (que siga a `main`).
+1. Partir del `main` más reciente, en una rama de trabajo. Antes se usaba `mejoras-de-ia-vid`; las últimas mejoras
+   se hicieron en ramas por función y se incorporaron por PR. No asumir que una rama vieja ya contiene lo último.
 2. Probar sin gastar: app en **modo prueba** (`PUERTO=4477 ANUNCIOS_MODO_PRUEBA=1 node app/inicio/arrancar.mjs`, con
    kie.ai y ElevenLabs simulados), capturas con Playwright y la **prueba de humo**
-   (`HUMO_FORZAR=1 node app/herramientas/prueba-humo.mjs`; queda 61/64: lo único que falla es Python con `rembg` del
-   servidor de prueba). Después borrar lo que dejaron las pruebas en `temp/` y `output/` (nunca mis anuncios).
+   (`HUMO_FORZAR=1 node app/herramientas/prueba-humo.mjs`). Para una revisión rápida:
+   `HUMO_FORZAR=1 HUMO_SIN_ANUNCIO=1 node app/herramientas/prueba-humo.mjs`. Ver resultados recientes y límites abajo.
+   Después borrar solo lo que dejaron las pruebas en `temp/` y `output/` (nunca mis anuncios).
 3. **Autorizado: unir solo.** Abrir el PR y unirlo a `main` sin preguntarme (`gh api ... /merge` con
    `merge_method=merge`; GraphQL no funciona). Después `git pull origin main` en la rama. No forzar push.
 4. En la Mac, para tener lo nuevo: botón **Actualizar** de la app (se reinicia sola; si hay algo produciéndose,
@@ -36,8 +59,8 @@ sencillo: no soy programador.
 ## Cómo está armada la app
 
 - `app/server/` (Express): `lib/anuncios-nuevos.js` (estilos y guion), `lib/conductor.js` (producción paso a paso),
-  `lib/familias/*.js`, `lib/claude.js` y `lib/colas.js` (sesiones de Claude Code), `rutas/*.js` (se cargan solas, en
-  orden alfabético).
+  `lib/familias/*.js`, `lib/motor-ia.js`, `lib/claude.js`, `lib/codex*.js` y `lib/colas.js` (sesiones de la IA elegida).
+  Las `rutas/*.js` se cargan solas, en orden alfabético.
 - `app/src/` (React + Vite; `npm run build` deja `app/dist`). Diseño: negro y verde lima, Inter, íconos lucide.
 - `produccion/`: el motor. `remotion/` arma el video. `.claude/skills/`: una skill por estilo.
 
@@ -77,7 +100,7 @@ estilo).
 - **Actualizar** desde GitHub con reinicio solo; aviso si corre una versión vieja de la app (`lib/version.js`).
 - **Paquete para compartir** (`npm run paquete`) y **despliegue en servidor** (`DESPLEGAR.md`; decidí no desplegar).
 
-## En curso (lo siguiente que pedí)
+## Últimas actualizaciones terminadas
 
 ### Actualización funcional del paquete 2026-11-10
 
@@ -95,15 +118,6 @@ La identidad visual, los estilos existentes y las funciones propias se conservan
 - Se mantiene 1080p por defecto. Los modelos que solo aceptan 720p usan esa resolución con su costo correspondiente;
   el render final sigue en 1080p. Los costos no cuentan dos veces imágenes iguales ni cobran clips reutilizados.
 
-Los siguientes dos pedidos siguen pendientes; esta integración no implementa una pantalla de estado de proveedores:
-
-1. **Si un modelo falla seguido porque se cayó, ofrecerme modelos parecidos**, decir si es más caro y cuánto saldría
-   (por ejemplo, para video: Omni Flash 1.1 → Kling 3.0 o Kling 4.0; precios en `produccion/config.js`,
-   `MODELOS_VIDEO`), y dejarme cambiar y seguir con un clic.
-2. **Un apartado «Estado de la IA»** en tiempo real: si kie.ai (y cada modelo), ElevenLabs y Claude están bien, con
-   fallas o caídos, y desde cuándo. Idea: revisar cada minuto mientras la app está abierta y medir también con mis
-   propias generaciones (los `log-modelos.json` de cada anuncio y los errores del conductor).
-
 ### Carpeta de guardado configurable (2026-11-11b)
 
 **Ajustes → Guardado** permite guardar los medios en este computador, usar la detección de Drive o elegir una
@@ -116,8 +130,54 @@ espacio es opcional para videos con restauración integrada. Los lotes de imáge
 copian sin borrar sus originales. Cambiar de carpeta mantiene recuperables las ubicaciones archivadas anteriores.
 Los modelos se eligen en **Ajustes → Modelos** o junto al costo antes de aprobar un anuncio.
 
+## Validación más reciente y sus límites
+
+Todo se probó sin servicios de pago y sin modificar los anuncios personales.
+
+- PR #33: compilación Vite; 580 casos de Codex; 147 del servidor y 173 del motor de imágenes; 232 de modelos,
+  174 de costos y 7 de integración Kads. Precios contrastados a 720p/1080p. Navegador: pantallas, editor y cambio
+  de modelo/letra actualizan costo y semáforo, con un solo panel y sin errores JavaScript.
+- Humo completo con IA falsa del PR #33: Claude **216/220**, Codex **151/155**, con MP4 en 1080×1920, lotes,
+  regeneraciones, exportación, clips propios/restauración y límites/cambio de IA. Tres fallos de cada corrida fueron
+  paquetes Python faltantes (`rembg`, `onnxruntime`); el cuarto fue la consulta de actualización de npm bloqueada.
+  Se desactivó esa consulta solo en modo prueba y se comprobó el CLI local con cero salidas bloqueadas. No se
+  repitió el humo completo después de ese ajuste.
+- PR #34: `node --test app/herramientas/probar-almacenamiento.mjs app/herramientas/probar-archivo-nube.mjs`
+  → **41/41**; compilación y **16 comprobaciones de navegador** correctas. Se probó guardar la configuración
+  realmente en una carpeta y un puerto aislados, sin copiar archivos del usuario.
+- Último humo rápido: **79/82**; solo quedan las tres comprobaciones conocidas de los paquetes Python del entorno.
+  La guardia de red pasa. Los diálogos nativos Mac/Windows tienen pruebas simuladas; no se ejecutaron en esos sistemas.
+- Las pruebas con simuladores no confirman por sí solas el inicio de sesión real, una generación de pago o que el
+  cliente de Drive haya terminado de subir una copia. Lo pendiente en la Mac está en la sección siguiente.
+
+## Pedidos funcionales pendientes
+
+Los selectores de modelos y sus cascadas ya existen; estos dos pedidos adicionales siguen pendientes:
+
+1. **Ofrecer modelos parecidos cuando uno falle repetidamente**, mostrando la diferencia de precio y permitiendo
+   cambiar y continuar con un clic. Los precios y capacidades viven en `produccion/config.js` y el catálogo de modelos.
+2. **«Estado de la IA» en tiempo real:** kie.ai y sus modelos, ElevenLabs y Claude/ChatGPT, con fallas y desde cuándo.
+   La idea es revisar cada minuto mientras la app esté abierta y aprovechar los registros de las propias generaciones.
+
 ## Pendiente de confirmar en mi Mac
 
 - Que el borrador de subtítulos en «Mejor calidad» no tarde horas (si tarda, usar «Rápido»).
 - El primer sketch completo (montaje y revisión) y la sugerencia de IA al editar imágenes, con Claude de verdad.
 - En kie.ai, la lista blanca de IP de mi clave tiene que estar desactivada (o con mi IP), si no, falla todo.
+
+## Cómo retomar desde otra conversación o equipo
+
+Compartir el repositorio privado con el asistente o conectar GitHub y pegar:
+
+> Continúa el proyecto Kads Studio de https://github.com/kalethabh/App-nube. Lee primero AGENTS.md,
+> CONTEXTO-PROYECTO.md y CLAUDE.md en la rama main. Conserva el diseño actual y actualiza/sube el contexto
+> al terminar. Mi siguiente tarea es: [escribir aquí lo que quiero hacer].
+
+Para actualizar y abrir desde Terminal en la Mac (sin anuncios en producción):
+
+```bash
+cd "$HOME/Anuncios con IA" && git pull --ff-only origin main && bash "./Abrir Anuncios con IA.command"
+```
+
+Dejar la Terminal abierta mientras se usa la app. Si Git indica un conflicto o historias divergentes, revisar el
+mensaje y preservar los cambios; no usar `reset --hard` ni forzar push para poder abrirla.
