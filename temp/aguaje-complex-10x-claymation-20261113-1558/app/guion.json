@@ -2,8 +2,8 @@
   "titulo": "Aguaje Complex 10X · Tus glúteos están dormidos",
   "idioma": "es",
   "mercado": "LatAm",
-  "duracionEstimada": 46.8,
-  "de_que_va": "Una mujer ya probó de todo y el jean le sigue quedando grande atrás. Dentro del bolsillo hay una casita donde duermen dos bolitas color coral: los ingredientes llegan con casco y despertador, las despiertan y el jean por fin le llena.",
+  "duracionEstimada": 56.1,
+  "de_que_va": "Una mujer ya probó de todo y el jean le sigue quedando grande atrás. Dentro del bolsillo hay una casita donde duermen dos bolitas color coral: los ingredientes llegan con casco y despertador, las despiertan y el jean por fin le llena. Al final cuenta que hizo el tratamiento de tres meses y cómo lo pidió.",
   "partes": [
     {
       "n": 1,
@@ -70,20 +70,41 @@
     },
     {
       "n": 10,
-      "momento": "oferta",
-      "dice": "Yo pedí el tratamiento por tres, a 149.900.",
+      "momento": "prueba",
+      "dice": "Yo hice el tratamiento completo de tres meses,",
       "se_ve": "De frente en su mesa, sonríe y presenta los tres frascos cerrados, puestos en fila al centro.",
-      "segundos": 5.4
+      "segundos": 3.3
     },
     {
       "n": 11,
+      "momento": "prueba",
+      "dice": "porque es el que da resultados rápidos y duraderos:",
+      "se_ve": "Camina de frente por una calle colorida de la costa, segura y sonriente, con una bolsa de compras y el jean a su medida.",
+      "segundos": 3.8
+    },
+    {
+      "n": 12,
+      "momento": "prueba",
+      "dice": "se quedan incluso después de terminarlo, sin efecto rebote.",
+      "se_ve": "De vuelta en su apartamento, repite el gesto del inicio: jala la pretina del jean y ya no sobra nada. Guiña el ojo.",
+      "segundos": 3.8
+    },
+    {
+      "n": 13,
       "momento": "oferta",
-      "dice": "Me llegó a la casa y lo pagué al recibirlo.",
+      "dice": "Lo pedí por 149.900,",
+      "se_ve": "Sentada de frente en su mecedora, hace el pedido desde el celular, feliz.",
+      "segundos": 3.8
+    },
+    {
+      "n": 14,
+      "momento": "oferta",
+      "dice": "me llegó a la casa y lo pagué al recibirlo.",
       "se_ve": "En la puerta de su apartamento, el mensajero le entrega la caja y ella le paga ahí mismo.",
       "segundos": 4.2
     },
     {
-      "n": 12,
+      "n": 15,
       "momento": "cierre",
       "dice": "El tuyo está en el botón de abajo.",
       "se_ve": "En un malecón al atardecer, en el mismo encuadre del antes y después, luce su figura de reloj de arena y señala hacia abajo.",
@@ -91,15 +112,17 @@
     }
   ],
   "decisiones": [
-    "Clonado de: AGUAJE 02 - CLAYMATION.mp4 · 12 tomas · 46 s",
-    "Usé tu guion tal cual, sin cambiar una palabra: solo lo partí en 12 escenas. Como no trae las frases de \"día veinte\", \"día treinta\" ni \"sin bisturí\" del video original, esas tres escenas no van; el cierre lo repartí en tres: los tres frascos, la entrega en la puerta y el malecón.",
+    "Clonado de: AGUAJE 02 - CLAYMATION.mp4 · 15 tomas · 46 s",
+    "Usé tu guion tal cual, sin cambiar una palabra: solo lo partí en 15 escenas para que cada frase tenga su imagen. La voz las dice seguidas y en tu mismo orden.",
     "Todo lo visual es nuevo, como pediste: la protagonista morena de moña amarilla, el apartamento costeño, la casita dentro del bolsillo y los ingredientes con casco. El frasco sale siempre cerrado y no se ven cápsulas. No hay letreros en las imágenes.",
-    "Ojo con dos datos de tu guion: la maca negra no se lee en la etiqueta del frasco, y el precio de 149.900 por tres con pago al recibir lo tomé de tu texto. Revisa que los dos sean ciertos antes de publicar.",
-    "La música es la que ya elegiste de tu biblioteca: «Aguaje claymation continuidad (alternativa)». La duración es un estimado: con una voz colombiana con energía, como la pediste, quedará entre 40 y 46 segundos."
+    "Ojo con estos datos de tu guion, revísalos antes de publicar: la maca negra no se lee en la etiqueta del frasco; el precio de 149.900 con pago al recibir y lo de \"resultados duraderos, sin efecto rebote\" los tomé de tu texto.",
+    "Con el cierre nuevo el anuncio queda más largo: unos 48 a 56 segundos, según la velocidad de la voz. La música es la que ya elegiste de tu biblioteca: «Aguaje claymation continuidad (alternativa)»."
   ],
   "cambios_hechos": [
-    "Comparé tu texto con el guion, palabra por palabra: ya es exactamente el mismo, así que no cambié ninguna frase.",
-    "Tus 8 frases están repartidas en 12 escenas solo para que cada una tenga su imagen. La voz las dice seguidas, completas y en tu mismo orden: nada se corta ni se quita.",
-    "Si lo que quieres es otra cosa (otra escena, otro orden o menos escenas), dímelo con esas palabras y lo cambio."
+    "Cambié el cierre por tu texto nuevo, palabra por palabra: ahora cuenta que hiciste el tratamiento completo de tres meses, que los resultados son rápidos y duraderos, sin efecto rebote, y que lo pediste por 149.900.",
+    "Las primeras nueve escenas quedaron iguales: no toqué ni una palabra.",
+    "Agregué tres escenas para las frases nuevas: ella caminando por una calle colorida, ella jalando la pretina del jean (ya no le sobra nada) y ella haciendo el pedido desde el celular.",
+    "La escena de los tres frascos ahora acompaña \"el tratamiento completo de tres meses\".",
+    "El anuncio pasó de 12 a 15 escenas y dura unos 9 segundos más."
   ]
 }
