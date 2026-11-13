@@ -41,6 +41,21 @@ function enMinutos(seg) {
 }
 
 /** 'Escena 6 · inicio' · 'Imagen de apoyo 3' · 'Hoja de mujer' (para el pie del monitor) */
+/** El reloj de «Falta» con un aro que se llena con lo que va de los videos (0 a 1). */
+function RelojAvance({ valor }) {
+  const r = 8;
+  const largo = 2 * Math.PI * r;
+  return (
+    <span className="prod-reloj" aria-hidden="true">
+      <svg viewBox="0 0 20 20" width="20" height="20">
+        <circle cx="10" cy="10" r={r} className="prod-reloj__fondo" />
+        <circle cx="10" cy="10" r={r} className="prod-reloj__aro" strokeDasharray={largo} strokeDashoffset={largo * (1 - Math.max(0, Math.min(1, valor)))} />
+      </svg>
+      <Clock size={10} strokeWidth={2.6} className="prod-reloj__icono" />
+    </span>
+  );
+}
+
 function nombreCorto(p) {
   if (p.broll) return `Imagen de apoyo ${p.broll}`;
   if (p.tipo === 'paso') return `Paso a la escena ${p.hacia}`;
@@ -215,6 +230,12 @@ export function Mando({ a, modelo, v, etapas, simulando, frase, detalle, avance,
   };
 
   const tono = v.esperandoTu ? 'error' : v.terminado ? 'ok' : 'cian';
+  // mientras se generan los videos, el reloj de «Falta» muestra cuántos van
+  const totalClips = modelo.clips.length;
+  const clipsListos = v.conteo?.clips || 0;
+  const generandoVideos =
+    !v.terminado && totalClips > 0 && clipsListos < totalClips && (v.etapa?.videos === 'en-marcha' || (v.conteo?.generandoClip || 0) > 0);
+  const avanceVideos = totalClips ? clipsListos / totalClips : 0;
   const insignia = <InsigniaEstado v={v} />;
   // en la revisión de clips: una sola franja (lo importante es el reproductor)
   if (compacto) {
@@ -269,9 +290,15 @@ export function Mando({ a, modelo, v, etapas, simulando, frase, detalle, avance,
         <div className="prod-datos">
           <div className="prod-dato">
             <span className="prod-dato__etiqueta">
-              <Clock size={13} strokeWidth={2.2} aria-hidden="true" /> {v.terminado ? 'Tiempo' : 'Falta'}
+              {generandoVideos ? <RelojAvance valor={avanceVideos} /> : <Clock size={13} strokeWidth={2.2} aria-hidden="true" />} {v.terminado ? 'Tiempo' : 'Falta'}
             </span>
             <span className="prod-dato__valor t-num">{v.terminado ? (simulando ? enMinutos(v.total) : 'Listo') : v.esperandoTu || v.alto ? 'En pausa' : enMinutos(v.falta)}</span>
+            {generandoVideos ? (
+              <span className="prod-dato__sub prod-dato__sub--videos" aria-live="polite">
+                Videos: {clipsListos} de {totalClips} listos · {Math.round(avanceVideos * 100)} %
+                {v.conteo?.generandoClip ? ` · ${v.conteo.generandoClip} generándose` : ''}
+              </span>
+            ) : null}
             <span className="prod-dato__sub">
               {v.terminado
                 ? simulando
