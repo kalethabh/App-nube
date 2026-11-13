@@ -1,0 +1,180 @@
+{
+  "titulo": "Aguaje Complex 10X · \"No me podía ni poner un jean\"",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 74,
+  "de_que_va": "Dos amigas conversan en un podcast: una cuenta que se sentía plana y ya ahorraba para operarse, y la otra le cuenta lo natural que le funcionó. Cierra con el consejo del tratamiento completo de tres meses.",
+  "personajes": [
+    {
+      "id": "A",
+      "nombre": "Presentadora 1",
+      "como_es": "27 años, piel trigueña clara, pelo castaño largo con ondas, blusa de seda crema y aretes pequeños dorados; es la que cuenta su problema."
+    },
+    {
+      "id": "B",
+      "nombre": "Presentadora 2",
+      "como_es": "30 años, morena, pelo negro en moño alto con mechones sueltos, argollas y suéter tejido terracota; segura y divertida, la amiga que sabe."
+    }
+  ],
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana.",
+      "se_ve": "La Presentadora 1 se señala la cadera con las dos manos, con cara de frustración graciosa. Arriba entra ella misma en su cuarto, subiéndose un jean que le queda grande y plano atrás."
+    },
+    {
+      "n": 2,
+      "momento": "gancho",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "¿En serio?",
+      "se_ve": "La Presentadora 2 abre los ojos y se inclina hacia su amiga."
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "Imagínate que ya estaba ahorrando pa' operarme.",
+      "se_ve": "La Presentadora 1 voltea los ojos y suspira, riéndose de sí misma."
+    },
+    {
+      "n": 4,
+      "momento": "giro",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "¡Ay, no me digas!",
+      "se_ve": "La Presentadora 2 se lleva la mano al pecho, riéndose."
+    },
+    {
+      "n": 5,
+      "momento": "giro",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\".",
+      "se_ve": "La Presentadora 2 baja la voz como contando un chisme, se acerca al micrófono y levanta el dedo. Por un momento se ve a su amiga, sorprendida."
+    },
+    {
+      "n": 6,
+      "momento": "solución",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "¿Y qué te tomaste?",
+      "se_ve": "La Presentadora 1 se acomoda en el sofá, curiosa."
+    },
+    {
+      "n": 7,
+      "momento": "solución",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza.",
+      "se_ve": "La Presentadora 2 cuenta los tres ingredientes con los dedos. Arriba se ven frutos de aguaje en una canasta, semillas de fenogreco y polvo de maca negra sobre una mesa de madera."
+    },
+    {
+      "n": 8,
+      "momento": "solución",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Eso es lo que da los resultados, no la marca.",
+      "se_ve": "La Presentadora 2 habla segura. Arriba se la ve en el sofá con el frasco cerrado junto a su cara, la etiqueta de frente."
+    },
+    {
+      "n": 9,
+      "momento": "duda",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote.",
+      "se_ve": "La Presentadora 1 frunce el ceño, desconfiada, y cruza los brazos."
+    },
+    {
+      "n": 10,
+      "momento": "duda",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Nada que ver, a mí no me pasó.",
+      "se_ve": "La Presentadora 2 niega tranquila y estira la mano hacia su amiga. Por un momento se ve a la amiga, aliviada."
+    },
+    {
+      "n": 11,
+      "momento": "duda",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Eso era lo que me daba miedo también.",
+      "se_ve": "La Presentadora 2, sincera, con la mano en el pecho."
+    },
+    {
+      "n": 12,
+      "momento": "prueba",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "¿Y cómo te fue?",
+      "se_ve": "La Presentadora 1 sonríe y levanta las cejas."
+    },
+    {
+      "n": 13,
+      "momento": "prueba",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes.",
+      "se_ve": "La Presentadora 2 sonríe pícara y mueve la mano de lado. Arriba se la ve en el gimnasio, de lado frente al espejo, con más caderas y piernas, sonriendo segura."
+    },
+    {
+      "n": 14,
+      "momento": "prueba",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "¡Ay no!",
+      "se_ve": "La Presentadora 1 se tapa la boca, con una risa corta."
+    },
+    {
+      "n": 15,
+      "momento": "oferta",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Eso sí: hazte el tratamiento completo de tres meses.",
+      "se_ve": "La Presentadora 2, seria y cercana, marca el tres con los dedos."
+    },
+    {
+      "n": 16,
+      "momento": "oferta",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote.",
+      "se_ve": "La Presentadora 2 mira a la cámara, como dando un consejo de amiga. Por un momento se ve a su amiga asintiendo, impresionada."
+    },
+    {
+      "n": 17,
+      "momento": "cierre",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "Me llegó a la casa y lo pagué al recibirlo.",
+      "se_ve": "La Presentadora 2 lo cuenta de pasada, a su amiga."
+    },
+    {
+      "n": 18,
+      "momento": "cierre",
+      "quien": "Presentadora 1",
+      "lado": "A",
+      "dice": "Ya mismo les escribo.",
+      "se_ve": "La Presentadora 1 toma su celular y empieza a escribir, sonriendo emocionada. La pantalla no se ve."
+    },
+    {
+      "n": 19,
+      "momento": "cierre",
+      "quien": "Presentadora 2",
+      "lado": "B",
+      "dice": "El tuyo está en el botón de abajo.",
+      "se_ve": "La Presentadora 2 mira a la cámara, sonríe y señala hacia abajo con el dedo."
+    }
+  ],
+  "decisiones": [
+    "Tu guion tal cual · lo visual, guiado por AGUAJE 01 - VIDIA.mp4. No cambié ni una palabra: solo separé los turnos largos en frases para poder grabarlos. Ojo: la etiqueta del frasco dice magnesio, no maca negra; el guion dice maca negra porque es tu texto.",
+    "La Presentadora 1 va a la izquierda y la Presentadora 2 a la derecha, cada una en su primer plano y con su propia voz. Las imágenes de apoyo van en pantalla dividida. No hay plano abierto de las dos juntas: en este estilo cada una se graba por separado.",
+    "Van cuatro imágenes de apoyo, el máximo de este estilo: el jean que queda plano, los tres ingredientes, el frasco cerrado en la mano y el gimnasio. La alcancía y el domiciliario quedaron fuera, y el cierre va con las dos en pantalla. El antes entra desde la primera frase, como en tu video.",
+    "No dijiste de qué región es el acento: las dos hablan con el mismo acento colombiano natural, sin atarlo a una ciudad. Si quieres costeño, paisa, rolo o caleño, pídelo antes de producir.",
+    "El fondo lleva repisa con velas, cerámica y matas, sin libros, porque a los libros les salen letras inventadas. No se ven precios ni cápsulas sueltas, y no agregué ninguna cifra de prueba porque no diste ninguna."
+  ]
+}
