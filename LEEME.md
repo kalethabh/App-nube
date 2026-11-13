@@ -14,6 +14,14 @@ Las claves se pegan dentro de la app (Ajustes, Conexiones). Nunca se las pases a
 
 ## Cómo empezar
 
+### Con un comando (cualquier persona, Mac o Windows)
+
+- **Mac**, en la Terminal: `curl -fsSL https://raw.githubusercontent.com/kalethabh/kads-studio/main/instalar-mac.sh | bash`
+- **Windows**, en PowerShell: `irm https://raw.githubusercontent.com/kalethabh/kads-studio/main/instalar-windows.ps1 | iex`
+
+Deja la app en tu carpeta de usuario y crea «Kads Studio» (en Aplicaciones en Mac; en el Escritorio y el menú Inicio en
+Windows). Para actualizar, vuelve a pegar el mismo comando: no toca tus anuncios ni tus claves.
+
 ### Desde GitHub (así se guarda todo solo)
 
 1. Instala **Git** si no lo tienes (Mac: abre la Terminal y escribe `git --version`; si falta, la Mac ofrece instalarlo. Windows: https://git-scm.com).
