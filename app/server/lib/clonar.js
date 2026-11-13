@@ -83,12 +83,25 @@ export async function prepararReferencia(slug, brief, avanzar = () => {}) {
 }
 
 /** Lo que va en la tarea del guion cuando el anuncio se clona de un video. */
-export function textoClonar(slug, brief, prep) {
+export function textoClonar(slug, brief, prep, { guionPropio = false } = {}) {
   const pedida = referenciaPedida(brief);
   if (!pedida) return '';
   const c = `temp/${slug}/referencia`;
   if (!prep?.ok) {
     return `## Clonar un video\n\nEl usuario pidió clonar un video, pero ${String(prep?.aviso || 'no se pudo preparar').replace(/\.$/, '').toLowerCase()}. Escribe el anuncio como siempre y anótalo en "decisiones".`;
+  }
+  // Con el guion del usuario, el video es solo la guía visual: no se analiza para escribir otro guion.
+  if (guionPropio) {
+    return [
+      '## Video de referencia: solo para lo visual',
+      '',
+      'El usuario trajo **su propio guion** (`guion_del_usuario`) y además subió un video de referencia. El texto del anuncio es su guion, palabra por palabra (Paso 0 de la skill del estilo). El video sirve **solo** para cómo se ve: los planos, las acciones y el ritmo de sus tomas.',
+      '',
+      `- **No sigas la skill de clonación**: no escribas \`${c}/adn.md\` ni \`${c}/guion-clonado.md\`, no leas ni compares lo que se dice en el video (\`transcripcion.json\`) y no adaptes ni reescribas el gancho: el gancho es la primera línea de su guion.`,
+      `- Mira \`${c}/hoja-tomas.jpg\` y los fotogramas de \`${c}/tomas/\` con Read, y usa sus planos y acciones como guía visual para las tomas de su guion, con el look del estilo. Las tomas salen de su guion (una o más por línea), no del video.`,
+      '- De la referencia nunca se copian marcas, logos, precios, caras ni la música.',
+      '- En "decisiones", la primera línea: "Tu guion tal cual · lo visual, guiado por <nombre o link del video>".',
+    ].join('\n');
   }
   return [
     '## Clonar un video (lo primero)',
