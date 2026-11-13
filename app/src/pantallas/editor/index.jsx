@@ -1275,6 +1275,42 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     },
     [a.slug, aviso, cambiar, plan]
   );
+  // Mover los subtítulos con el mouse: todos juntos o solo el que se arrastra (la casilla del panel; se recuerda en
+  // este navegador). bloque null = todos (la altura y el lado de siempre); un número = solo ese; 'todos' + null = los
+  // movidos vuelven a donde van todos.
+  const [moverSoloEste, setMoverSoloEsteEstado] = useState(() => {
+    try {
+      return localStorage.getItem('editor.moverSoloEste') === '1';
+    } catch {
+      return false;
+    }
+  });
+  const setMoverSoloEste = useCallback((v) => {
+    setMoverSoloEsteEstado(Boolean(v));
+    try {
+      localStorage.setItem('editor.moverSoloEste', v ? '1' : '0');
+    } catch {
+      // sin almacenamiento, vale mientras la pantalla siga abierta
+    }
+  }, []);
+  const lugarSubtitulo = useCallback(
+    (bloque, cambios, opciones = {}) => {
+      if (bloque === 'todos') return cambiar((s) => ({ ...s, lugaresSubtitulos: {} }), { etiqueta: 'Subtítulos a su lugar' });
+      if (bloque === null) {
+        return cambiar((s) => ({ ...s, subtitulos: { ...s.subtitulos, ...cambios } }), { etiqueta: opciones.etiqueta || 'Mover los subtítulos', grupo: opciones.grupo });
+      }
+      cambiar(
+        (s) => {
+          const l = { ...(s.lugaresSubtitulos || {}) };
+          if (cambios) l[bloque] = { ...(l[bloque] || {}), ...cambios };
+          else delete l[bloque];
+          return { ...s, lugaresSubtitulos: l };
+        },
+        { etiqueta: cambios ? opciones.etiqueta || `Mover el subtítulo ${bloque + 1}` : `Subtítulo ${bloque + 1} a su lugar`, grupo: opciones.grupo }
+      );
+    },
+    [cambiar]
+  );
   const usarImagenRef = useRef(agregarImagen);
   usarImagenRef.current = agregarImagen;
   const teclasRef = useRef({});
@@ -1287,6 +1323,9 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       puedeBorrar: borrable,
       agregarTexto,
       agregarImagen,
+      moverSoloEste,
+      setMoverSoloEste,
+      lugarSubtitulo,
       textoNuevoId,
       ajustarTexto: (id, cambios, opciones = {}) => cambiar((s) => cambiarTexto(s, id, cambios).ed, { etiqueta: opciones.etiqueta || 'Cambiar texto', grupo: opciones.grupo }),
       restablecerTexto: (id) =>
@@ -1373,6 +1412,9 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       borrable,
       agregarTexto,
       agregarImagen,
+      moverSoloEste,
+      setMoverSoloEste,
+      lugarSubtitulo,
       textoNuevoId,
       plan,
       a.slug,
@@ -1389,7 +1431,10 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   // un marco. Un toque sobre ellos los elige (no pausa ni reproduce).
   const lienzoRef = useRef(null);
   const marcoRef = useRef(null);
-  const manejadoresArrastre = useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos: pistas.textos, seleccion, setSeleccion, ajustar: acciones.ajustarTexto });
+  const alturaBaseSub = plan.estiloSubtitulos?.desdeAbajo ?? 0.26;
+  // (el estilo «Una palabra gigante» nunca baja del 30 %: el arrastre arranca desde donde se ve)
+  const lugarSubs = { piso: ed.subtitulos.estilo === 'gigante' ? 0.3 : 0.04, altura: ed.subtitulos.altura ?? alturaBaseSub, lado: Number(ed.subtitulos.lado) || 0, porBloque: ed.lugaresSubtitulos || {}, soloEste: moverSoloEste };
+  const manejadoresArrastre = useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos: pistas.textos, seleccion, setSeleccion, ajustar: acciones.ajustarTexto, subtitulos: lugarSubs, moverSubtitulo: lugarSubtitulo });
 
   const irA = useCallback((pista, item) => {
     const p = playerRef.current;

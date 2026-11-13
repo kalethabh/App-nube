@@ -187,6 +187,35 @@ function EditorImagen({ x, acciones }) {
   );
 }
 
+/**
+ * Cómo se mueven los subtítulos al arrastrarlos en el video: todos juntos (como la Altura) o solo el que se arrastra.
+ * Con `bloque` (un subtítulo elegido) también deja volverlo a donde van todos.
+ */
+function MoverSubtitulos({ acciones, ed, bloque = null }) {
+  const movidos = Object.keys(ed.lugaresSubtitulos || {}).length;
+  const propio = bloque !== null && ed.lugaresSubtitulos?.[bloque];
+  return (
+    <div className="ed-mover-sub">
+      <Interruptor
+        tamano="chico"
+        activado={acciones.moverSoloEste}
+        etiqueta="Mover solo el subtítulo que arrastro"
+        descripcion={acciones.moverSoloEste ? 'Al arrastrar uno en el video, se mueve solo ese.' : 'Al arrastrar uno en el video, se mueven todos.'}
+        onCambio={(v) => acciones.setMoverSoloEste(v)}
+      />
+      {propio ? (
+        <Boton variante="fantasma" tamano="chico" icono={RotateCcw} onClick={() => acciones.lugarSubtitulo(bloque, null)}>
+          Volver a donde van todos
+        </Boton>
+      ) : bloque === null && movidos ? (
+        <Boton variante="fantasma" tamano="chico" icono={RotateCcw} onClick={() => acciones.lugarSubtitulo('todos', null)}>
+          {movidos === 1 ? 'Volver el movido a su lugar' : `Volver los ${movidos} movidos a su lugar`}
+        </Boton>
+      ) : null}
+    </div>
+  );
+}
+
 /** Un tramo de la música: dónde suena, sus fundidos y desde qué segundo de la canción arranca. */
 function EditorTramo({ tramo, musica, acciones }) {
   const ajustar = (cambios, etiqueta, grupo) => acciones.ajustarTramo(tramo.id, cambios, { etiqueta, grupo });
@@ -334,6 +363,7 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
             Decía: <q>{b.original}</q>
           </p>
         ) : null}
+        <MoverSubtitulos acciones={acciones} ed={ed} bloque={id} />
       </Seccion>
     );
   }
@@ -628,6 +658,18 @@ export function PanelCambios({ plan, pistas, subs, ed, cambiar, seleccion, onSel
                 )
               }
             />
+            <Deslizador
+              icono={ArrowLeftRight}
+              etiqueta="Hacia los lados"
+              valor={Number(ed.subtitulos.lado) || 0}
+              min={-0.35}
+              max={0.35}
+              porDefecto={0}
+              formato={(v) => (Math.abs(v) < 0.01 ? 'Al centro' : v < 0 ? 'A la izquierda' : 'A la derecha')}
+              onCambio={(v) => cambiar((s) => ({ ...s, subtitulos: { ...s.subtitulos, lado: Math.abs(v) < 0.01 ? 0 : v } }), { etiqueta: 'Subtítulos a un lado', grupo: 'lado-sub' })}
+            />
+            <MoverSubtitulos acciones={acciones} ed={ed} />
+            <p className="ed-nota">También puedes arrastrarlos en el video.</p>
           </Seccion>
         ) : null}
 

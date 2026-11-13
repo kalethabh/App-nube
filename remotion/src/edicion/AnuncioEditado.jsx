@@ -227,7 +227,7 @@ function CapaSubtitulos({ ajustes }) {
   const { fps, width, height } = useVideoConfig();
   return (
     <AbsoluteFill style={{ pointerEvents: 'none' }}>
-      <Subtitulos t={frame / fps} ancho={width} alto={height} {...ajustes} />
+      <Subtitulos t={frame / fps} ancho={width} alto={height} {...ajustes} conMarca />
     </AbsoluteFill>
   );
 }

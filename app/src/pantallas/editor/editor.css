@@ -2690,3 +2690,9 @@ html:has(.ed) .avisos {
   object-fit: contain;
   background: repeating-conic-gradient(rgba(255, 255, 255, 0.06) 0% 25%, transparent 0% 50%) 50% / 16px 16px;
 }
+.ed-mover-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}

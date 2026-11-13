@@ -21,7 +21,8 @@ export const ALTO = 1280;
 
 /** Lo que el usuario puede cambiar en el editor, tal como sale del anuncio entregado. */
 export const INICIAL = Object.freeze({
-  subtitulos: { visible: true, estilo: 'caja', color: null, tamano: 1, altura: null },
+  subtitulos: { visible: true, estilo: 'caja', color: null, tamano: 1, altura: null, lado: 0 }, // lado: corrimiento a lo ancho (fracción del ancho, -0,35 a 0,35)
+  lugaresSubtitulos: {}, // un subtítulo movido solo: índice del bloque -> { altura, lado } (mandan sobre los de todos)
   correcciones: {}, // índice del bloque de subtítulos -> texto corregido
   ocultos: [], // índices de bloques de subtítulos ocultos
   voz: { volumen: 1, silenciada: false },
@@ -96,6 +97,7 @@ export function completarEdicion(guardado) {
     tomas: Array.isArray(guardado.tomas) ? guardado.tomas : null,
     brolls: Array.isArray(guardado.brolls) ? guardado.brolls : null,
     ajustesTextos: { ...obj(guardado.ajustesTextos) },
+    lugaresSubtitulos: { ...obj(guardado.lugaresSubtitulos) },
     textosNuevos: lista(guardado.textosNuevos)
       .filter((x) => x && typeof x === 'object' && x.id)
       .filter((x) => x.archivo === undefined || ARCHIVO_IMAGEN.test(String(x.archivo))),
@@ -401,6 +403,8 @@ export function ajustesSubtitulos(plan, ed, subs, titulo) {
     tamano: (e.tamano ?? 0.0722) * ed.subtitulos.tamano,
     altura: ed.subtitulos.altura ?? alturaBase,
     alturaBase,
+    lado: Number(ed.subtitulos.lado) || 0,
+    porBloque: ed.lugaresSubtitulos && Object.keys(ed.lugaresSubtitulos).length ? ed.lugaresSubtitulos : null,
     marcas: ed.subtitulos.estilo === 'claves' ? marcarClaves(subs, palabrasDeMarca(titulo)) : null,
   };
 }
