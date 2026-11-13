@@ -1,14 +1,11 @@
 {
   "uuid": "7ccea351-048e-4006-ade7-60e5cc94cd14",
-  "estado": "listo",
+  "estado": "cambiando",
   "tipo": "cambios",
-  "intentos": 2,
+  "intentos": 3,
   "progreso": [
     "Claude está leyendo tu pedido",
-    "Repasando el guion",
-    "Buscando en los archivos",
-    "Revisando que el guion esté completo",
-    "Pasando el guion en limpio"
+    "Ajustando el guion"
   ],
   "inicio": "2026-11-13T20:58:32.177Z",
   "cambios": [
@@ -16,11 +13,15 @@
       "pedido": "quiero que sea mejor este: ¿Por qué tus glúteos no crecen si ya intentaste de todo?\nMil sentadillas, cremas, pastillas… y sigues igual de plana.\nY ya estabas pensando en una cirugía de millones.\nPero el problema no está afuera. Está adentro.\nTus glúteos están dormidos: si no despiertan, no crecen. Y las cremas no llegan hasta allá adentro.\nAguaje Complex 10X: el aguaje, el fenogreco y la maca negra llegan directo al músculo y lo despiertan.\nDía diez: el jean ya no te queda suelto.\nYo pedí el tratamiento por tres, a 149.900. Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
       "fecha": "2026-11-13T21:07:22.450Z",
       "ok": true
+    },
+    {
+      "pedido": "cambia el guión por este: ¿Por qué tus glúteos no crecen si ya intentaste de todo?\nMil sentadillas, cremas, pastillas… y sigues igual de plana.\nY ya estabas pensando en una cirugía de millones.\nPero el problema no está afuera. Está adentro.\nTus glúteos están dormidos: si no despiertan, no crecen. Y las cremas no llegan hasta allá adentro.\nAguaje Complex 10X: el aguaje, el fenogreco y la maca negra llegan directo al músculo y lo despiertan.\nDía diez: el jean ya no te queda suelto.\nYo hice el tratamiento completo de tres meses, porque es el que da resultados rápidos y duraderos: se quedan incluso después de terminarlo, sin efecto rebote.\nLo pedí por 149.900, me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
+      "fecha": "2026-11-13T21:10:33.089Z"
     }
   ],
-  "actualizado": "2026-11-13T21:07:39.624Z",
+  "actualizado": "2026-11-13T21:10:59.080Z",
   "error": null,
-  "inicioIntento": "2026-11-13T21:07:22.451Z",
+  "inicioIntento": "2026-11-13T21:10:33.090Z",
   "fin": "2026-11-13T21:07:39.624Z",
   "limite": false,
   "reinicio": null,
@@ -133,6 +134,6 @@
     }
   ],
   "ajustados": 0,
-  "pedido": "quiero que sea mejor este: ¿Por qué tus glúteos no crecen si ya intentaste de todo?\nMil sentadillas, cremas, pastillas… y sigues igual de plana.\nY ya estabas pensando en una cirugía de millones.\nPero el problema no está afuera. Está adentro.\nTus glúteos están dormidos: si no despiertan, no crecen. Y las cremas no llegan hasta allá adentro.\nAguaje Complex 10X: el aguaje, el fenogreco y la maca negra llegan directo al músculo y lo despiertan.\nDía diez: el jean ya no te queda suelto.\nYo pedí el tratamiento por tres, a 149.900. Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
-  "respaldo": null
+  "pedido": "cambia el guión por este: ¿Por qué tus glúteos no crecen si ya intentaste de todo?\nMil sentadillas, cremas, pastillas… y sigues igual de plana.\nY ya estabas pensando en una cirugía de millones.\nPero el problema no está afuera. Está adentro.\nTus glúteos están dormidos: si no despiertan, no crecen. Y las cremas no llegan hasta allá adentro.\nAguaje Complex 10X: el aguaje, el fenogreco y la maca negra llegan directo al músculo y lo despiertan.\nDía diez: el jean ya no te queda suelto.\nYo hice el tratamiento completo de tres meses, porque es el que da resultados rápidos y duraderos: se quedan incluso después de terminarlo, sin efecto rebote.\nLo pedí por 149.900, me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
+  "respaldo": "historial-guion/02"
 }
