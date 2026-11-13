@@ -1,11 +1,14 @@
 {
-  "pid": 39201,
-  "paso": "montaje",
-  "script": "planear-montaje.js",
+  "pid": 39359,
+  "paso": "render",
+  "script": "ensamblar.js",
   "args": [
-    "temp/aguaje-complex-10x-podcast-20261113-1712"
+    "temp/aguaje-complex-10x-podcast-20261113-1712",
+    "--solo-completa",
+    "--concurrencia",
+    "1"
   ],
-  "comando": "node produccion/planear-montaje.js temp/aguaje-complex-10x-podcast-20261113-1712",
-  "inicio": "2026-11-13T22:36:11.280Z",
+  "comando": "node produccion/ensamblar.js temp/aguaje-complex-10x-podcast-20261113-1712 --solo-completa --concurrencia 1",
+  "inicio": "2026-11-13T22:36:18.013Z",
   "app": 34784
 }

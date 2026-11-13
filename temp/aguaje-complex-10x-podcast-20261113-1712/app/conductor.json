@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-podcast-20261113-1712",
   "familia": "hablado",
   "estado": "corriendo",
-  "paso": "montaje",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -57,16 +57,26 @@
     {
       "id": "montaje",
       "nombre": "Armar la conversación y los subtítulos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-13T22:36:05.448Z",
-      "detalle": "Armando la conversación"
+      "fin": "2026-11-13T22:36:18.010Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-13T22:36:18.010Z",
+      "detalle": "Tu PC está armando el video con subtítulos",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 255,
+        "total": 1904,
+        "restante": 1058,
+        "en": "2026-11-13T22:38:16.603Z"
+      }
     },
     {
       "id": "control-final",
@@ -85,7 +95,7 @@
   "modoPrueba": false,
   "creado": "2026-11-13T22:22:05.138Z",
   "aprobado": "2026-11-13T22:22:05.138Z",
-  "actualizado": "2026-11-13T22:36:11.278Z",
+  "actualizado": "2026-11-13T22:38:16.603Z",
   "saldoInicial": {
     "creditos": 2741.2,
     "fecha": "2026-11-13T22:22:07.344Z"
