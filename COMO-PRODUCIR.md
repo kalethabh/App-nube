@@ -523,18 +523,19 @@ Precios de `produccion/config.js`, consultados en <https://kie.ai/pricing>.
 | Una imagen (hoja, frame, B-roll) | Nano Banana 2, 1K | 8 | 0.04 |
 | Una imagen de estilo lego, podcast o entrevista, y la de la persona de UGC | GPT Image 2.5 Sunburst, 2K | 10 | 0.05 |
 | Un icono de la entrevista | GPT Image 2, 1K, fondo transparente | 6 | 0.03 |
-| Un clip de 4 s | Omni Flash 1.1, 720p | 63 | 0.32 |
-| Un clip de 6 s | Omni Flash 1.1, 720p | 84 | 0.42 |
-| Un clip de 8 s | Omni Flash 1.1, 720p | 105 | 0.53 |
-| Un clip de 10 s | Omni Flash 1.1, 720p | 126 | 0.63 |
+| Un clip de 4 s | Omni Flash 1.2, 1080p (10 por segundo) | 40 | 0.20 |
+| Un clip de 6 s | Omni Flash 1.2, 1080p | 60 | 0.30 |
+| Un clip de 8 s | Omni Flash 1.2, 1080p | 80 | 0.40 |
+| Un clip de 10 s | Omni Flash 1.2, 1080p | 100 | 0.50 |
+| Un clip de 15 s | Omni Flash 1.2, 1080p | 150 | 0.75 |
 | Un B-roll de podcast o entrevista (mudo) | Kling 3.0, 720p, sin audio | 14 por segundo (5 s: 70) | 0.07 por segundo |
 | Un clip del modelo de respaldo (solo si Omni falla) | Kling 3.0, 720p, con sonido | 20 por segundo | 0.10 por segundo |
 | Una pista de música de fondo | Suno | 12 | 0.06 |
 | Una canción (por cada prompt de estilo; Suno da dos versiones) | Suno | 12 | 0.06 |
 | Cada bloque más de una canción larga (extend) | Suno | 12 | 0.06 |
 
-**Bajar la resolución no ahorra nada**: en Omni, 360p, 720p y 1080p cuestan lo
-mismo. Las copias que hace el motor (el frame heredado de la toma anterior, la
+**Bajar la resolución ahorra poco**: Omni Flash 1.2 cobra por segundo, 9
+créditos en 720p y 10 en 1080p (4 en 360p, 22 en 4k). Las copias que hace el motor (el frame heredado de la toma anterior, la
 hoja de un host copiada al primer cuadro de su toma, el fotograma de un lugar
 que vuelve) no cuestan.
 
@@ -839,20 +840,22 @@ anteriores quedan en `prompts-anteriores.json`; el archivo viejo, no). En las
 tomas habladas de podcast y entrevista, los bloques de UGC y los pasos de
 continuidad, `npm run rehacer` lo mueve a `historial/`.
 
-**Un clip de Omni no pasa de 10 segundos.** Una toma que necesite más se parte
-en dos.
+**Un clip de Omni no pasa de 15 segundos (10 si lleva imagen final).** Una
+toma que necesite más se parte en dos.
 La `duracion` de una toma en el manifiesto es la que dice la skill (en
-historias musicales, su ventana con un decimal); **el clip se pide con el tramo
-de Omni que la cubre —4, 6, 8 o 10 s—**. Una toma de 5 s se pide de 6: el motor
+historias musicales, su ventana con un decimal); **el clip se pide con esa
+duración redondeada hacia arriba al entero, de 3 a 15 s (hasta 10 con imagen
+final)**: Omni Flash 1.2 cobra por segundo. Una toma de 7,2 s se pide de 8; una
+de 5, de 5: el motor
 ajusta el número de "Duración:" dentro del prompt para que no se contradigan, y
-el montaje la acomoda a su ventana. Algunas tomas llevan ya en el manifiesto uno
-de esos cuatro números, porque su clip se pide con ese largo exacto: los bloques
+el montaje la acomoda a su ventana. Algunas tomas llevan ya en el manifiesto un
+entero de 3 a 15, porque su clip se pide con ese largo exacto: los bloques
 de UGC y las tomas habladas de podcast y entrevista (el validador lo exige), y
 los pasos de continuidad (los calcula `npm run continuidad -- temp/[slug]
 --duraciones`).
 
-**El B-roll de Omni se pide a 4 segundos como mínimo** (y por los mismos
-tramos de 4, 6, 8 o 10 s), porque el modelo no baja de ahí. Si su hueco en el
+**El B-roll de Omni se pide a 3 segundos como mínimo** (en segundos enteros,
+como las tomas), porque el modelo no baja de ahí. Si su hueco en el
 montaje es mayor, hay que pedirlo más largo o el render congela el último
 fotograma. En podcast y entrevista el B-roll va a Kling 3.0, mudo, con la
 duración entera que pide el manifiesto: de 3 a 15 s, que es lo que acepta el
@@ -883,8 +886,8 @@ El motor usa lo que dice `produccion/config.js` y nada más:
 | Imágenes de estilo lego, podcast y entrevista | GPT Image 2.5 Sunburst, 2K | Nano Banana 2, 1K |
 | La imagen de la persona de UGC | GPT Image 2.5 Sunburst, 2K | Nano Banana 2 |
 | Iconos de la entrevista | GPT Image 2, 1K, fondo transparente | Nano Banana 2 (sin transparencia: el montaje lo pone en una tarjeta blanca) |
-| Videos | Omni Flash 1.1, 720p | Kling 3.0, con sonido (en objeto parlante entra igual, pero no genera el diálogo: sección 1.1) |
-| Bloques de UGC y tomas habladas de podcast y entrevista | Omni Flash 1.1, 720p | **ninguno**: Kling no genera el diálogo |
+| Videos | Omni Flash 1.2, 1080p | Kling 3.0, con sonido (en objeto parlante entra igual, pero no genera el diálogo: sección 1.1) |
+| Bloques de UGC y tomas habladas de podcast y entrevista | Omni Flash 1.2, 1080p | **ninguno**: Kling no genera el diálogo |
 | B-roll de podcast y entrevista | Kling 3.0, 720p, sin audio | — |
 | Música y canciones | Suno, por kie.ai | — |
 | Voz y transcripciones | ElevenLabs | — |
@@ -931,7 +934,7 @@ se cubren con tomas de ~3 s, no con una larga**: una intro de 8,5 s son tres
 hueco en partes iguales. Imprime inicio, fin y **ventana** de cada línea; una
 línea que pase de 10 s se parte en dos en `lineas.txt` y se vuelve a medir.
 **La `duracion` de cada toma del manifiesto es su ventana**, con un decimal; el
-clip se pide con el tramo de 4, 6, 8 o 10 s que la cubre (sección 8).
+clip se pide con esa ventana redondeada hacia arriba al entero (sección 8).
 
 **5. Los clips van mudos y sin transiciones.** El manifiesto lleva
 `"clips_mudos": true` y el plan apaga el ambiente de los 50-80 clips: el único
@@ -1032,9 +1035,9 @@ como pieza Lego. La lista completa está en la skill.
 ## 11. UGC — el flujo propio
 
 Una persona generada con IA habla a cámara todo el anuncio, por **bloques** de
-4, 6, 8 o 10 s: cada bloque se genera de una vez en Omni Flash con referencias
-(la imagen de la persona, la foto del producto y, si vuelve a un lugar, el
-fotograma de ese lugar), sin frames encadenados, sin B-roll y **sin modelo de
+3 a 15 s (10 por defecto): cada bloque se genera de una vez en Omni Flash
+con referencias, hasta 6 (la imagen de la persona, la foto del producto y, si
+vuelve a un lugar, el fotograma de ese lugar), sin frames encadenados, sin B-roll y **sin modelo de
 respaldo**. La voz la genera el clip: no hay `npm run audio`.
 
 ```
@@ -1320,8 +1323,8 @@ npm run ensamblar    -- temp/[slug]
   revisar y sus videos van a `historial/`; mientras esa marca esté, los videos no
   arrancan.
 - **La predicción decide la duración antes de pagar**: un video por encima de
-  2,5x cuya duración no está en el mínimo (4 s) baja al tramo anterior, como dice
-  la skill. Si ya está en 4 s, se paga así y la velocidad va en el informe.
+  2,5x cuya duración no está en el mínimo (3 s) baja un segundo, como dice
+  la skill. Si ya está en 3 s, se paga así y la velocidad va en el informe.
 - **El montaje nunca corta un video**: solo cambia su velocidad para que empiece
   con su frase y llegue a la imagen siguiente cuando empieza la frase siguiente.
   Las velocidades altas y las llegadas movidas (hasta 0,3 s antes o 0,4 s
@@ -1514,7 +1517,8 @@ Los clips se piden en **1080p** y el MP4 final sale en **1080x1920**
 `ensamblar.js` lo agranda entero con `--scale=1.5`, letras y animaciones
 incluidas). Los clips quietos se arman del mismo tamaño.
 
-- **Costo**: el modelo principal (Omni) cobra igual en 720p y en 1080p. Kling
+- **Costo**: el modelo principal (Omni Flash 1.2) cobra 10 créditos por segundo
+  en 1080p y 9 en 720p (el 1.1 cobraba igual en las dos). Kling
   (el respaldo, y el B-roll de podcast y entrevista) pasa de 14 a 18 créditos
   por segundo en 1080p, en su modo "pro".
 - **Tiempo de montaje**: medido, un 22% más que en 720p (9 s de video: 20,4 s

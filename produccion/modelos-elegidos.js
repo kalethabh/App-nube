@@ -26,7 +26,7 @@ export const CATALOGO = JSON.parse(fs.readFileSync(RUTA_CATALOGO, 'utf8'));
 
 // Lo de siempre, para una categoria u opcion que no trae la cascada pedida
 // (p. ej. un B-roll en un anuncio UGC). Son las cascadas de antes de la eleccion.
-const OMNI = 'google/gemini-omni-flash-1-1';
+const OMNI = 'google/gemini-omni-flash-1-2';
 const KLING = 'kling-3.0/video';
 const CASCADA_FRAMES_DE_SIEMPRE = Object.freeze([OMNI, KLING]);
 const CASCADA_REFERENCIAS_DE_SIEMPRE = Object.freeze([OMNI]);
@@ -197,9 +197,9 @@ export function mismaCascada(a, b) {
 export function modeloParaClip(cascada, clip = {}, segundos = null, { deSiempre = null } = {}) {
   const primero = primerModeloQueSirve(cascada, clip);
   if (!primero || !Number.isFinite(segundos) || mismaCascada(cascada, deSiempre)) return primero;
-  if (!MODELOS_VIDEO[primero] || !creditosClip(primero, segundos, RESOLUCION_VIDEO).excedeTope) return primero;
+  if (!MODELOS_VIDEO[primero] || !creditosClip(primero, segundos, RESOLUCION_VIDEO, { conFinal: Boolean(clip.frameFinal) }).excedeTope) return primero;
   const otro = (cascada || []).find(
-    (x) => MODELOS_VIDEO[x] && motivoParaSaltar(x, clip) === null && !creditosClip(x, segundos, RESOLUCION_VIDEO).excedeTope
+    (x) => MODELOS_VIDEO[x] && motivoParaSaltar(x, clip) === null && !creditosClip(x, segundos, RESOLUCION_VIDEO, { conFinal: Boolean(clip.frameFinal) }).excedeTope
   );
   return otro ?? primero;
 }
@@ -234,7 +234,7 @@ function idDelCatalogo(id) {
   return mejor;
 }
 
-/** 'google/gemini-omni-flash-1-1' -> 'Omni Flash 1.1'. null si no esta en el catalogo. */
+/** 'google/gemini-omni-flash-1-2' -> 'Omni Flash 1.2'. null si no esta en el catalogo. */
 export function nombreModelo(id) {
   const k = idDelCatalogo(id);
   return k ? CATALOGO.modelos[k].nombre : null;

@@ -55,7 +55,7 @@ Revisa las imágenes antes de seguir: los pasos se escriben mirándolas, y una i
 npm run continuidad -- temp/[slug] --duraciones
 ```
 
-Lee los tiempos reales de la voz y escribe en el manifiesto, para cada paso, la duración que se pide; en las tomas con inicial y final, si su clip de siempre más el paso pasarían de 2,5x en su frase, escribe `duracion_propio` con un largo más corto (casi siempre 4 s; mismo prompt y mismas imágenes, el motor solo cambia el número de su cabecera); y fija el clip de cierre. Se puede correr de nuevo sin romper nada: conserva los prompts ya escritos.
+Lee los tiempos reales de la voz y escribe en el manifiesto, para cada paso, la duración que se pide; en las tomas con inicial y final, si su clip de siempre más el paso pasarían de 2,5x en su frase, escribe `duracion_propio` con un largo más corto (casi siempre 3 s; mismo prompt y mismas imágenes, el motor solo cambia el número de su cabecera); y fija el clip de cierre. Se puede correr de nuevo sin romper nada: conserva los prompts ya escritos.
 
 ### Paso 4 — Mirar cada par y escribir el prompt de cada paso
 
@@ -84,7 +84,7 @@ npm run videos   -- temp/[slug] --solo-plan      (muestra el costo; espera el s�
 npm run videos   -- temp/[slug] --si
 ```
 
-Si la predicción muestra un video por encima de 2,5x y su duración no está en el mínimo (4 s), bájala al tramo anterior (4, 6, 8 o 10): la de un paso, en `continuidad.pasos[].duracion` y en el ", Ns." de su cabecera, los dos iguales; la del propio de una toma con inicial y final, en `duracion_propio`. Nunca toques `tomas[].duracion`. Si ya está en 4 s no hay nada que bajar: se paga así y la velocidad va en el informe como decisión del montaje.
+Si la predicción muestra un video por encima de 2,5x y su duración no está en el mínimo (3 s), bájala un segundo (con Omni Flash 1.2 los pasos llevan imagen final y se piden enteros, de 3 a 10 s): la de un paso, en `continuidad.pasos[].duracion` y en el ", Ns." de su cabecera, los dos iguales; la del propio de una toma con inicial y final, en `duracion_propio`. Nunca toques `tomas[].duracion`. Si ya está en 3 s no hay nada que bajar: se paga así y la velocidad va en el informe como decisión del montaje.
 
 ### Paso 6 — Revisar la cadena
 
@@ -209,8 +209,8 @@ No tiene una imagen siguiente a la que llegar: su clip es el de siempre, el que 
 
 ## Duración de cada clip
 
-- **Un paso** se pide con la primera duración del generador que cubra la frase de la toma de salida (en Gemini Omni Flash: 4, 6, 8 o 10 s): una frase de 3,3 s pide 4; una de 4,6 pide 6.
-- **En una toma con inicial y final**, su propio clip y el paso comparten la frase: el paso se pide de 4 s. Si su clip de siempre más el paso pasan de 2,5 veces su frase (un clip de 6 s en una frase de menos de 4 s), su clip se pide más corto, casi siempre de 4 s: mismo prompt y mismas imágenes, solo cambia el número de la cabecera.
+- **Un paso** se pide con la primera duración del generador que cubra la frase de la toma de salida (en Gemini Omni Flash 1.2, el entero redondeado hacia arriba, de 3 a 10 s, porque el paso lleva imagen final): una frase de 3,3 s pide 4; una de 4,6 pide 5.
+- **En una toma con inicial y final**, su propio clip y el paso comparten la frase: el paso se pide del mínimo, 3 s. Si su clip de siempre más el paso pasan de 2,5 veces su frase (un clip de 6 s en una frase de menos de 3,6 s), su clip se pide más corto, casi siempre de 3 s: mismo prompt y mismas imágenes, solo cambia el número de la cabecera.
 - **La última toma** se pide con la primera duración que cubra su frase hasta el final del audio.
 
 Después, al montar, cada clip se acelera o se frena hasta caber en su frase: **nunca se corta**.

@@ -33,7 +33,7 @@ import { MODELOS_VIDEO, RESOLUCION_VIDEO, duracionPara as duracionDelMotor, cred
 const RUTA_CATALOGO = path.join(RAIZ, 'produccion', 'catalogo-modelos.json');
 export const ARCHIVO_DEL_ANUNCIO = 'modelos.json';
 
-const OMNI = 'google/gemini-omni-flash-1-1';
+const OMNI = 'google/gemini-omni-flash-1-2';
 const KLING = 'kling-3.0/video';
 // Lo de siempre (antes de que se pudiera elegir), para una opcion sin la cascada pedida: como el motor.
 const FRAMES_DE_SIEMPRE = Object.freeze([OMNI, KLING]);
@@ -129,7 +129,7 @@ function idDelCatalogo(id) {
 }
 
 /**
- * El nombre que ve el alumno: el del catalogo ('google/gemini-omni-flash-1-1' -> 'Omni Flash 1.1',
+ * El nombre que ve el alumno: el del catalogo ('google/gemini-omni-flash-1-2' -> 'Omni Flash 1.2',
  * 'nano-banana-2-1' -> 'Nano Banana 2.1'). Lo que no esta en el catalogo (Suno, un modelo viejo de un log) se
  * nombra por su id, con la version si la trae. null si no se sabe.
  */
@@ -254,7 +254,7 @@ export function duracionPara(id, segundos) {
   return MODELOS_VIDEO[modelo] ? duracionDelMotor(modelo, Number(segundos) || 0) : null;
 }
 
-/** Lo mas largo que hace un clip de la cascada entera (el tope del que menos llega): 10 con Omni. */
+/** Lo mas largo que hace un clip de la cascada entera (el tope del que menos llega): 15 con Omni 1.2. */
 export function duracionMaximaDeCascada(cascada) {
   const topes = (cascada || []).map((id) => {
     const def = MODELOS_VIDEO[idDelCatalogo(id) || id];
@@ -295,7 +295,7 @@ export const sonidoDeLaPieza = (manifiesto, pieza) => (categoriaDeVideo(manifies
 
 /**
  * Lo tipico de un anuncio, para estimar lo que no tiene registro: { imagen, clip } en creditos. El clip, uno de 6 s
- * con el primer modelo de su categoria principal (con Omni, 84: lo de siempre).
+ * con el primer modelo de su categoria principal (con Omni 1.2 a 1080p, 60; el 84 de respaldo era el del 1.1).
  */
 export function creditosTipicos(carpeta) {
   const eleccion = eleccionDeCarpeta(carpeta);
@@ -324,7 +324,7 @@ export function costoTexto(costo) {
 }
 
 /**
- * "Si falla, usa Omni Flash 1.1 y después Kling 3.0": los modelos que siguen al primero en sus cascadas, sin
+ * "Si falla, usa Omni Flash 1.2 y después Kling 3.0": los modelos que siguen al primero en sus cascadas, sin
  * repetir y sin los que ya nombra la opcion (PixVerse V6 + Grok Imagine 1.5). null si no hay ninguno.
  */
 export function siFallaTexto(opcion) {
@@ -388,7 +388,7 @@ export function modelosParaConexiones() {
   const respaldo = cascada.slice(1).map(nombreDeModelo).find((n) => n && !propios.has(n)) || null;
   return {
     imagen: img?.nombre || nombreDeModelo(img?.cascada?.[0]) || 'GPT Image 2.5',
-    video: voz?.nombre || nombreDeModelo(cascada[0]) || 'Omni Flash 1.1',
+    video: voz?.nombre || nombreDeModelo(cascada[0]) || 'Omni Flash 1.2',
     respaldo,
     musica: 'Suno',
   };

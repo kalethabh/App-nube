@@ -103,7 +103,7 @@ function correrMotor(slug, args) {
 
 // ---------------------------------------------------------------- para la pantalla
 
-/** "Omni Flash 1.1 y GPT Image 2.5" (sin repetir). */
+/** "Omni Flash 1.2 y GPT Image 2.5" (sin repetir). */
 function enPalabras(nombres) {
   const xs = [...new Set(nombres.filter(Boolean))];
   if (xs.length <= 1) return xs[0] || '';

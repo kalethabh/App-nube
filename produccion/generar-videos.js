@@ -698,8 +698,9 @@ function avisarDerivadosSacados(sacados, n, carpetaArg) {
  *
  * Los prompts los escribe la skill y el motor no los edita. Pero en
  * dialogo_nativo el video prompt empieza con "Duracion: Ns." y el parametro
- * `duration` de la API solo acepta 4, 6, 8 o 10. Cuando la duracion de la
- * escena se redondea hacia arriba (5.2s -> 6), el numero escrito adentro del
+ * `duration` de la API es un entero (con Omni 1.1, solo 4, 6, 8 o 10; con el
+ * 1.2, de 3 a 15). Cuando la duracion de la escena se redondea hacia arriba
+ * (5.2s -> 6), el numero escrito adentro del
  * prompt y el parametro dejan de coincidir, y le estariamos mandando dos
  * duraciones distintas al mismo modelo en la misma llamada.
  *
@@ -896,7 +897,7 @@ async function generarConCascada(trabajo, ctx, log) {
   // salta sin pedir ni cobrar nada.
   const saltoDe = (modelo) => motivoParaSaltar(modelo, { frameFinal: Boolean(trabajo.imagenFinal) });
   const huellaDeNivel = (modelo) => {
-    const { resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO);
+    const { resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO, { conFinal: Boolean(trabajo.imagenFinal) });
     if (excedeTope || saltoDe(modelo)) return null;
     const prompt = ajustarDuracionEnPrompt(trabajo.prompt, duracion).prompt;
     return huellaDeVideo({ modelo, prompt, aspecto: ctx.aspectRatio, resolucion: resolucion.api, duracion, sonido: trabajo.sonido, archivos: archivosEntrada });
@@ -915,7 +916,7 @@ async function generarConCascada(trabajo, ctx, log) {
   let ultimoPedido = null;
   for (let nivel = desde; nivel < cascada.length; nivel++) {
     const modelo = cascada[nivel];
-    const { resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO);
+    const { resolucion, duracion, excedeTope } = creditosClip(modelo, trabajo.segundos, RESOLUCION_VIDEO, { conFinal: Boolean(trabajo.imagenFinal) });
 
     const salto = saltoDe(modelo);
     if (salto) {
@@ -933,7 +934,7 @@ async function generarConCascada(trabajo, ctx, log) {
       // antes de pagar si el primero no alcanza y ninguno lo cubre.)
       const quedaOtro =
         trabajo.saltaPorTope === true &&
-        cascada.slice(nivel + 1).some((x) => !saltoDe(x) && !creditosClip(x, trabajo.segundos, RESOLUCION_VIDEO).excedeTope);
+        cascada.slice(nivel + 1).some((x) => !saltoDe(x) && !creditosClip(x, trabajo.segundos, RESOLUCION_VIDEO, { conFinal: Boolean(trabajo.imagenFinal) }).excedeTope);
       if (!quedaOtro) {
         throw new Error(
           `${trabajo.descripcion} dura ${trabajo.segundos}s y pasa el tope de ${modelo}.\n` +
@@ -997,7 +998,7 @@ async function generarConCascada(trabajo, ctx, log) {
         // clip (y fallo, o quedo atras al retomar). Uno que se salto porque no
         // podia (PixVerse en un clip sin imagen final) no cuenta: para ese clip
         // el que lo hizo es el primero. Con la cascada de siempre, nivel > 0.
-        const esRespaldo = cascada.slice(0, nivel).some((x) => !saltoDe(x) && !creditosClip(x, trabajo.segundos, RESOLUCION_VIDEO).excedeTope);
+        const esRespaldo = cascada.slice(0, nivel).some((x) => !saltoDe(x) && !creditosClip(x, trabajo.segundos, RESOLUCION_VIDEO, { conFinal: Boolean(trabajo.imagenFinal) }).excedeTope);
         log.push({
           id: trabajo.id,
           archivo: trabajo.archivo,
@@ -1244,7 +1245,7 @@ export async function generarBloqueR(trabajo, ctx, log) {
     if (!primeroSinSalto) {
       throw new Error(`${trabajo.descripcion}: ninguno de sus modelos (${cascada.join(', ')}) recibe imagenes de referencia.`);
     }
-    throw new Error(`${trabajo.descripcion}: ${primeroSinSalto.modelo} solo genera bloques de 4, 6, 8 o 10 s. Corrige "duracion" en el manifiesto.`);
+    throw new Error(`${trabajo.descripcion}: ${primeroSinSalto.modelo} no genera un bloque de ${trabajo.segundos} s (Omni Flash 1.2: un entero de 3 a 15 s). Corrige "duracion" en el manifiesto.`);
   }
 
   // Se suben ANTES de archivar el clip anterior: si una subida falla, el clip
@@ -2074,13 +2075,13 @@ async function cli() {
     console.error(`      npm run rehacer -- ${carpetaArg} <N>\n`);
     process.exit(1);
   }
-  // Una toma hablada por ingredientes es siempre de 4, 6, 8 o 10 s, con
-  // cualquier modelo (DURACIONES_H, lo que exige el validador): Omni la pide
+  // Una toma hablada por ingredientes es siempre de las duraciones de
+  // DURACIONES_H (con Omni 1.2, un entero de 3 a 15 s; lo exige el validador): Omni la pide
   // exacta y forzar otra la haria fallar al generar (y si el elegido es de
   // duracion libre, su respaldo Omni tampoco podria hacerla).
   const conIngredientes = plan.find((t) => t.porIngredientes);
   if (duracionForzada && conIngredientes && !DURACIONES_H.includes(duracionForzada)) {
-    console.error(`\n  --duracion ${duracionForzada}: las tomas habladas por ingredientes solo se piden de ${DURACIONES_H.join(', ')} s.`);
+    console.error(`\n  --duracion ${duracionForzada}: las tomas habladas por ingredientes se piden de un entero de ${DURACIONES_H[0]} a ${DURACIONES_H[DURACIONES_H.length - 1]} s.`);
     console.error('  Pide una de esas, o corrige "duracion" (y el "Duracion: Ns." del prompt) en el manifiesto.\n');
     process.exit(1);
   }
@@ -2435,8 +2436,8 @@ async function cli() {
     // Si el primero no alcanza el largo y otro de la cascada si, se cobra con
     // ese (asi lo hace generarConCascada). Con --duracion forzada, como antes:
     // se para y se divide.
-    if (!duracionForzada && t.saltaPorTope === true && creditosClip(primero, t.segundos, RESOLUCION_VIDEO).excedeTope) {
-      const otro = cascadaDe(t).find((x) => !motivoParaSaltar(x, clipDe(t)) && !creditosClip(x, t.segundos, RESOLUCION_VIDEO).excedeTope);
+    if (!duracionForzada && t.saltaPorTope === true && creditosClip(primero, t.segundos, RESOLUCION_VIDEO, { conFinal: clipDe(t).frameFinal }).excedeTope) {
+      const otro = cascadaDe(t).find((x) => !motivoParaSaltar(x, clipDe(t)) && !creditosClip(x, t.segundos, RESOLUCION_VIDEO, { conFinal: clipDe(t).frameFinal }).excedeTope);
       if (otro) return otro;
     }
     return primero;
@@ -2449,7 +2450,7 @@ async function cli() {
   for (const t of plan) {
     const modelo = modeloDe(t);
     const sonido = typeof t.sonido === 'boolean' ? { sonido: t.sonido } : {};
-    const { creditos, duracion, excedeTope } = creditosClip(modelo, t.segundos, RESOLUCION_VIDEO, sonido);
+    const { creditos, duracion, excedeTope } = creditosClip(modelo, t.segundos, RESOLUCION_VIDEO, { ...sonido, conFinal: clipDe(t).frameFinal });
     if (excedeTope) {
       console.error(`\n  ${t.descripcion} pasa el tope del modelo. Hay que dividirla en el manifiesto.\n`);
       process.exit(1);

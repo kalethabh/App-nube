@@ -359,10 +359,10 @@ async function voz(ctx) {
 // (planear-montaje.js, por lib/broll.js), la misma regla que usan generar-imagenes y generar-videos para no pedir el
 // B-roll que no entra. Aca no hay copia: si la regla cambia alla, cambia aca.
 // Los clips que se pueden pedir dependen de los modelos del anuncio (Ajustes › Modelos, temp/<slug>/modelos.json;
-// lib/modelos.js, duracionPara): Omni Flash en tramos de 4, 6, 8 o 10 s; Kling 3.0 de 3 a 15 s y Grok Imagine 1.5 o
+// lib/modelos.js, duracionPara): Omni Flash 1.2 de 3 a 15 s (hasta 10 con imagen final); Kling 3.0 de 3 a 15 s y Grok Imagine 1.5 o
 // PixVerse V6 de 1 a 15, redondeado hacia arriba. Se mira que TODOS los de su cascada cubran la ventana: si el
 // primero falla, el clip sale del siguiente. Sin eleccion, los de siempre: Omni y Kling.
-const CASCADA_DE_SIEMPRE = ['google/gemini-omni-flash-1-1', 'kling-3.0/video'];
+const CASCADA_DE_SIEMPRE = ['google/gemini-omni-flash-1-2', 'kling-3.0/video'];
 
 /** Los modelos que pueden hacer los clips de las ventanas de este anuncio (su cascada, en orden). */
 export function modelosDeLasVentanas(carpeta, manifiesto) {

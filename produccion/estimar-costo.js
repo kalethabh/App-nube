@@ -324,19 +324,20 @@ export function costoImagenes(m, { eleccion, brollFuera = [] } = {}) {
   return { creditos, piezas: plan.length, sinPrecio, porClase };
 }
 
-/** El tope de duracion de un modelo (el ultimo tramo o duracionMax). */
-function topeDe(modelo) {
+/** El tope de duracion de un modelo (el ultimo tramo o duracionMax; con imagen final, duracionMaxConFinal si lo tiene). */
+function topeDe(modelo, { conFinal = false } = {}) {
   const def = MODELOS_VIDEO[modelo];
   if (!def) return null;
-  return Array.isArray(def.duraciones) && def.duraciones.length ? def.duraciones[def.duraciones.length - 1] : def.duracionMax ?? null;
+  if (Array.isArray(def.duraciones) && def.duraciones.length) return def.duraciones[def.duraciones.length - 1];
+  return conFinal && def.duracionMaxConFinal ? def.duracionMaxConFinal : def.duracionMax ?? null;
 }
 
 /** Lo que cuesta un clip que pasa el tope del modelo: partido en las partes iguales que hagan falta. */
-function creditosPartido(modelo, segundos, sonido) {
-  const tope = topeDe(modelo);
+function creditosPartido(modelo, segundos, sonido, { conFinal = false } = {}) {
+  const tope = topeDe(modelo, { conFinal });
   if (!tope || !Number.isFinite(segundos) || segundos <= 0) return { creditos: 0, partes: 0 };
   const partes = Math.ceil(segundos / tope);
-  const r = creditosClip(modelo, segundos / partes, RESOLUCION_VIDEO, typeof sonido === 'boolean' ? { sonido } : {});
+  const r = creditosClip(modelo, segundos / partes, RESOLUCION_VIDEO, { ...(typeof sonido === 'boolean' ? { sonido } : {}), conFinal });
   return { creditos: r.excedeTope ? 0 : r2((r.creditos || 0) * partes), partes };
 }
 
@@ -372,7 +373,8 @@ function categoriaDelClip(m, d) {
  */
 function porQueOtroModelo(primero, info) {
   const motivo = motivoParaSaltar(primero, info);
-  if (!motivo) return topeDe(primero) ? `de más de ${topeDe(primero)} s` : 'más larga';
+  const tope = topeDe(primero, { conFinal: Boolean(info?.frameFinal) });
+  if (!motivo) return tope ? `de más de ${tope} s` : 'más larga';
   if (/necesita imagen inicial y final/.test(motivo)) return 'sin imagen final';
   if (/no acepta frame final/.test(motivo)) return 'con imagen final';
   if (/no recibe imagenes de referencia/.test(motivo)) return 'con referencias';
@@ -394,7 +396,7 @@ export function costoVideos(m, { eleccion, reglaBroll = { aplica: false }, tiemp
   let piezas = est.detalle.length;
   let partidos = 0;
   for (const c of est.excedidos) {
-    const p = creditosPartido(c.modelo ?? MODELOS.video.principal, c.segundos, c.sonido);
+    const p = creditosPartido(c.modelo ?? MODELOS.video.principal, c.segundos, c.sonido, { conFinal: c.tipo === 'B' || c.tipo === 'paso' });
     creditos = r2(creditos + p.creditos);
     piezas += p.partes;
     partidos++;

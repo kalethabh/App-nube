@@ -32,7 +32,9 @@ test('el costo del anuncio descuenta imagenes repetidas, clips quietos y bibliot
   assert.equal(p.piezas['toma-1'].clip.creditos, 0);
   assert.equal(p.piezas['toma-1'].imagen.creditos, 10); // regenerar una imagen suelta si cobra
   assert.equal(p.piezas['toma-3'], undefined); // desde biblioteca: no se genera nada
-  assert.equal(p.piezas['toma-2'].clip.creditos, 63);
+  // 4 s con Omni Flash 1.2, que cobra por segundo (720p: 36; 1080p: 40; el 1.1 cobraba 63 en las dos)
+  assert.equal(p.piezas['toma-2'].clip.creditos, creditosClip('google/gemini-omni-flash-1-2', 4, RESOLUCION_VIDEO).creditos);
+  assert.equal(p.piezas['toma-2'].clip.creditos, RESOLUCION_VIDEO === '1080p' ? 40 : 36);
 });
 
 test('los fotogramas de subestilo siguen en el plan al cambiar de modelo', () => {
