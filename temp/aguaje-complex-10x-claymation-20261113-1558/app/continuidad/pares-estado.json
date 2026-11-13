@@ -2,7 +2,9 @@
   "sesion": {
     "uuid": "51195311-bd19-4742-9af5-91b3ff68c476",
     "intentos": 1,
-    "hecha": false,
-    "fecha": "2026-11-13T21:19:32.904Z"
+    "hecha": true,
+    "fecha": "2026-11-13T21:19:32.904Z",
+    "motor": "claude",
+    "ok": true
   }
 }
