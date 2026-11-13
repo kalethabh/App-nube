@@ -246,6 +246,39 @@
   border: 1px solid var(--borde-1);
   box-shadow: var(--resalte-superior);
 }
+.prod-reloj {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin: -3px 0;
+}
+.prod-reloj svg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+.prod-reloj__fondo {
+  fill: none;
+  stroke: currentColor;
+  stroke-opacity: 0.2;
+  stroke-width: 2.4;
+}
+.prod-reloj__aro {
+  fill: none;
+  stroke: var(--acento, currentColor);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+.prod-reloj__icono {
+  position: relative;
+}
+.prod-dato__sub--videos {
+  color: var(--texto-2);
+  font-weight: 560;
+}
 .prod-dato__etiqueta {
   display: inline-flex;
   align-items: center;

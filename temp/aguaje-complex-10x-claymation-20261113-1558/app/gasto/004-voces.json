@@ -1,0 +1,20 @@
+{
+  "numero": 4,
+  "paso": "voces",
+  "comando": "node produccion/revisar-voces.js temp/aguaje-complex-10x-claymation-20261113-1558 --silenciar",
+  "inicio": "2026-11-13T21:30:44.416Z",
+  "fin": "2026-11-13T21:31:03.143Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 15,
+      "segundos": 65.2
+    }
+  }
+}

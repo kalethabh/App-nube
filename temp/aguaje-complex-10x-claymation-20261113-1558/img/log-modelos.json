@@ -1,0 +1,242 @@
+{
+  "generado": "2026-11-13T21:17:47.253Z",
+  "segundos": 128,
+  "imagenes": [
+    {
+      "id": "protagonista",
+      "archivo": "protagonista.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "10f6a795bbc1d9aeb1125aace66c2f73"
+    },
+    {
+      "id": "protagonista-curvas",
+      "archivo": "protagonista-curvas.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "a8bc9bad89049e3f607351d09ba37f3e"
+    },
+    {
+      "id": "dormilones",
+      "archivo": "dormilones.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "ac8768b21974060d1c7ef3fcf96139dd"
+    },
+    {
+      "id": "obreros",
+      "archivo": "obreros.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "c78f50c34432a23d67fc5e8b216dfee4"
+    },
+    {
+      "id": "casita",
+      "archivo": "casita.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "813a57d98ab1fdcb8ca7fb256154b175"
+    },
+    {
+      "id": "toma-1-inicial",
+      "archivo": "toma-1-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 10,
+      "taskId": "3c41b3e23bae541603d9bb5e8127153a"
+    },
+    {
+      "id": "toma-2-inicial",
+      "archivo": "toma-2-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 10,
+      "taskId": "e4f8deb40676c8b1c8d66746c857f2f0"
+    },
+    {
+      "id": "toma-3-inicial",
+      "archivo": "toma-3-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 10,
+      "taskId": "b5192a939c60442a051d9db30713849e"
+    },
+    {
+      "id": "toma-4-inicial",
+      "archivo": "toma-4-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "c9d8d65d7a7cda624248102598bb363a"
+    },
+    {
+      "id": "toma-5-inicial",
+      "archivo": "toma-5-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "dormilones",
+        "casita"
+      ],
+      "creditos": 10,
+      "taskId": "d1c2afdc46f25a23e974ad2217e9300e"
+    },
+    {
+      "id": "toma-6-inicial",
+      "archivo": "toma-6-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "dormilones",
+        "casita"
+      ],
+      "creditos": 10,
+      "taskId": "5e480962f37f9be4d206f720599eb19c"
+    },
+    {
+      "id": "toma-7-inicial",
+      "archivo": "toma-7-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista",
+        "producto",
+        "obreros"
+      ],
+      "creditos": 10,
+      "taskId": "8ac52ac1678f416b868a01dca1ac6f2f"
+    },
+    {
+      "id": "toma-8-inicial",
+      "archivo": "toma-8-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "dormilones",
+        "obreros",
+        "casita"
+      ],
+      "creditos": 10,
+      "taskId": "9c62e2119e91a8f952bb9dbfc6f75095"
+    },
+    {
+      "id": "toma-9-inicial",
+      "archivo": "toma-9-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas"
+      ],
+      "creditos": 10,
+      "taskId": "c6e29211706c68a1aabf9d0379c00974"
+    },
+    {
+      "id": "toma-10-inicial",
+      "archivo": "toma-10-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas",
+        "producto"
+      ],
+      "creditos": 10,
+      "taskId": "48a9832bfbc3199b91ecc7e8dc286c2b"
+    },
+    {
+      "id": "toma-11-inicial",
+      "archivo": "toma-11-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas"
+      ],
+      "creditos": 10,
+      "taskId": "c51ca0cab8bc30a3d5512f4495b08bc4"
+    },
+    {
+      "id": "toma-12-inicial",
+      "archivo": "toma-12-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas"
+      ],
+      "creditos": 10,
+      "taskId": "f592cc9cd244184ca1a4e0e21e079d5b"
+    },
+    {
+      "id": "toma-13-inicial",
+      "archivo": "toma-13-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas"
+      ],
+      "creditos": 10,
+      "taskId": "03100b5e2b420620b0a241b853e8f3fd"
+    },
+    {
+      "id": "toma-14-inicial",
+      "archivo": "toma-14-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas"
+      ],
+      "creditos": 10,
+      "taskId": "68ffbd34278e712cc74ca6578da854cd"
+    },
+    {
+      "id": "toma-15-inicial",
+      "archivo": "toma-15-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas",
+        "producto"
+      ],
+      "creditos": 10,
+      "taskId": "b956c929ca3cf9e957c1390deba2ec15"
+    }
+  ]
+}

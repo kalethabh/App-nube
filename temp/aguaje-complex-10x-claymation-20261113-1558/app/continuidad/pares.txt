@@ -1,0 +1,121 @@
+=== Continuidad: pares — aguaje-complex-10x-claymation-20261113-1558 ===
+
+  Por cada paso: abre las dos imagenes, elige la forma y escribe su prompt en continuidad.pasos[].prompt_video.
+
+  Paso 1 -> 2   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-1-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-2-inicial.png
+    linea 1:  "¿Por qué tus glúteos no crecen si ya intentaste de todo?"
+    linea 2:  "Mil sentadillas, cremas, pastillas… y sigues igual de plana."
+    video 1:  Stop-motion claymation animation, image-to-video from the shot above, 4.6s.
+    video 2:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+
+  Paso 2 -> 3   (toma A -> toma A)   se pide 6s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-2-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-3-inicial.png
+    linea 2:  "Mil sentadillas, cremas, pastillas… y sigues igual de plana."
+    linea 3:  "Y ya estabas pensando en una cirugía de millones."
+    video 2:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+    video 3:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+
+  Paso 3 -> 4   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-3-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-4-inicial.png
+    linea 3:  "Y ya estabas pensando en una cirugía de millones."
+    linea 4:  "Pero el problema no está afuera. Está adentro."
+    video 3:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+    video 4:  Stop-motion claymation animation, image-to-video from the shot above, 3.3s.
+
+  Paso 4 -> 5   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-4-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-5-inicial.png
+    linea 4:  "Pero el problema no está afuera. Está adentro."
+    linea 5:  "Tus glúteos están dormidos: si no despiertan, no crecen."
+    video 4:  Stop-motion claymation animation, image-to-video from the shot above, 3.3s.
+    video 5:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+
+  Paso 5 -> 6   (toma A -> toma A)   se pide 6s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-5-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-6-inicial.png
+    linea 5:  "Tus glúteos están dormidos: si no despiertan, no crecen."
+    linea 6:  "Y las cremas no llegan hasta allá adentro."
+    video 5:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+    video 6:  Stop-motion claymation animation, image-to-video from the shot above, 3.3s.
+
+  Paso 6 -> 7   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-6-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-7-inicial.png
+    linea 6:  "Y las cremas no llegan hasta allá adentro."
+    linea 7:  "Aguaje Complex 10X: el aguaje, el fenogreco y la maca negra"
+    video 6:  Stop-motion claymation animation, image-to-video from the shot above, 3.3s.
+    video 7:  Stop-motion claymation animation, image-to-video from the shot above, 4.6s.
+
+  Paso 7 -> 8   (toma A -> toma A)   se pide 6s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-7-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-8-inicial.png
+    linea 7:  "Aguaje Complex 10X: el aguaje, el fenogreco y la maca negra"
+    linea 8:  "llegan directo al músculo y lo despiertan."
+    video 7:  Stop-motion claymation animation, image-to-video from the shot above, 4.6s.
+    video 8:  Stop-motion claymation animation, image-to-video from the shot above, 2.9s.
+
+  Paso 8 -> 9   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-8-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-9-inicial.png
+    linea 8:  "llegan directo al músculo y lo despiertan."
+    linea 9:  "Día diez: el jean ya no te queda suelto."
+    video 8:  Stop-motion claymation animation, image-to-video from the shot above, 2.9s.
+    video 9:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+
+  Paso 9 -> 10   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-9-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-10-inicial.png
+    linea 9:  "Día diez: el jean ya no te queda suelto."
+    linea 10:  "Yo hice el tratamiento completo de tres meses,"
+    video 9:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+    video 10:  Stop-motion claymation animation, image-to-video from the shot above, 3.3s.
+
+  Paso 10 -> 11   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-10-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-11-inicial.png
+    linea 10:  "Yo hice el tratamiento completo de tres meses,"
+    linea 11:  "porque es el que da resultados rápidos y duraderos:"
+    video 10:  Stop-motion claymation animation, image-to-video from the shot above, 3.3s.
+    video 11:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+
+  Paso 11 -> 12   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-11-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-12-inicial.png
+    linea 11:  "porque es el que da resultados rápidos y duraderos:"
+    linea 12:  "se quedan incluso después de terminarlo, sin efecto rebote."
+    video 11:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+    video 12:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+
+  Paso 12 -> 13   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-12-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-13-inicial.png
+    linea 12:  "se quedan incluso después de terminarlo, sin efecto rebote."
+    linea 13:  "Lo pedí, me llegó a la casa y lo pagué al recibirlo."
+    video 12:  Stop-motion claymation animation, image-to-video from the shot above, 3.8s.
+    video 13:  Stop-motion claymation animation, image-to-video from the shot above, 4.6s.
+
+  Paso 13 -> 14   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-13-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-14-inicial.png
+    linea 13:  "Lo pedí, me llegó a la casa y lo pagué al recibirlo."
+    linea 14:  "El tuyo está en el botón de abajo."
+    video 13:  Stop-motion claymation animation, image-to-video from the shot above, 4.6s.
+    video 14:  Stop-motion claymation animation, image-to-video from the shot above, 3.3s.
+
+  Paso 14 -> 15   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-14-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-15-inicial.png
+    linea 14:  "El tuyo está en el botón de abajo."
+    linea 15:  "Este es el que debes pedir: aguaje y fenogreco puro de verdad."
+    video 14:  Stop-motion claymation animation, image-to-video from the shot above, 3.3s.
+    video 15:  Stop-motion claymation animation, image-to-video from the shot above, 4.6s.
+
+  Cierre: toma 15 (A)   se pide 4s
+    video/toma-15.mp4 arranca en /Users/kalethabh/Anuncios con IA/temp/aguaje-complex-10x-claymation-20261113-1558/img/toma-15-inicial.png, con el prompt de la toma (no se escribe).
+
+  Prompts escritos: 0 de 14. Faltan: 1->2, 2->3, 3->4, 4->5, 5->6, 6->7, 7->8, 8->9, 9->10, 10->11 y 4 mas
+

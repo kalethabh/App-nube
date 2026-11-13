@@ -1,0 +1,105 @@
+{
+  "titulo": "Aguaje Complex 10X · Tus glúteos están dormidos",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 46.8,
+  "de_que_va": "Una mujer ya probó de todo y el jean le sigue quedando grande atrás. Dentro del bolsillo hay una casita donde duermen dos bolitas color coral: los ingredientes llegan con casco y despertador, las despiertan y el jean por fin le llena.",
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "¿Por qué tus glúteos no crecen si ya intentaste de todo?",
+      "se_ve": "Ella, de frente en su apartamento costeño, se estira la pretina del jean y le sobra un montón de tela.",
+      "segundos": 4.6
+    },
+    {
+      "n": 2,
+      "momento": "problema",
+      "dice": "Mil sentadillas, cremas, pastillas… y sigues igual de plana.",
+      "se_ve": "El antes: de tres cuartos de lado y mirando a cámara, con el jean grande atrás y el bolsillo caído; en el piso, una pesa, cremas y un pote cerrado.",
+      "segundos": 3.8
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "dice": "Y ya estabas pensando en una cirugía de millones.",
+      "se_ve": "De frente en la mesa, abraza su alcancía mientras en una nube de pensamiento aparecen un bisturí y un montón de billetes.",
+      "segundos": 3.8
+    },
+    {
+      "n": 4,
+      "momento": "giro",
+      "dice": "Pero el problema no está afuera. Está adentro.",
+      "se_ve": "El bolsillo del jean, muy de cerca: tiene una puertica redonda que se entreabre y deja salir una luz cálida.",
+      "segundos": 3.3
+    },
+    {
+      "n": 5,
+      "momento": "causa",
+      "dice": "Tus glúteos están dormidos: si no despiertan, no crecen.",
+      "se_ve": "Adentro hay una casita de plastilina donde dos bolitas color coral, con gorro de dormir, roncan en sus camas.",
+      "segundos": 3.8
+    },
+    {
+      "n": 6,
+      "momento": "causa",
+      "dice": "Y las cremas no llegan hasta allá adentro.",
+      "se_ve": "La crema se queda embarrada por fuera de la ventanita y adentro las dos bolitas siguen dormidas.",
+      "segundos": 3.3
+    },
+    {
+      "n": 7,
+      "momento": "solución",
+      "dice": "Aguaje Complex 10X: el aguaje, el fenogreco y la maca negra",
+      "se_ve": "Ella, de frente, muestra el frasco cerrado junto a su cara; en la mesa, el aguaje, el fenogreco y la maca con casco de obrero y un despertador.",
+      "segundos": 4.6
+    },
+    {
+      "n": 8,
+      "momento": "solución",
+      "dice": "llegan directo al músculo y lo despiertan.",
+      "se_ve": "En la casita suena el despertador y las dos bolitas saltan de la cama, despiertas y más grandes.",
+      "segundos": 2.9
+    },
+    {
+      "n": 9,
+      "momento": "prueba",
+      "dice": "Día diez: el jean ya no te queda suelto.",
+      "se_ve": "El después, en el mismo encuadre del antes: en el probador de una tienda, con otra blusa, caderas más anchas, piernas más gruesas y el jean bien lleno.",
+      "segundos": 3.8
+    },
+    {
+      "n": 10,
+      "momento": "oferta",
+      "dice": "Yo pedí el tratamiento por tres, a 149.900.",
+      "se_ve": "De frente en su mesa, sonríe y presenta los tres frascos cerrados, puestos en fila al centro.",
+      "segundos": 5.4
+    },
+    {
+      "n": 11,
+      "momento": "oferta",
+      "dice": "Me llegó a la casa y lo pagué al recibirlo.",
+      "se_ve": "En la puerta de su apartamento, el mensajero le entrega la caja y ella le paga ahí mismo.",
+      "segundos": 4.2
+    },
+    {
+      "n": 12,
+      "momento": "cierre",
+      "dice": "El tuyo está en el botón de abajo.",
+      "se_ve": "En un malecón al atardecer, en el mismo encuadre del antes y después, luce su figura de reloj de arena y señala hacia abajo.",
+      "segundos": 3.3
+    }
+  ],
+  "decisiones": [
+    "Clonado de: AGUAJE 02 - CLAYMATION.mp4 · 12 tomas · 46 s",
+    "Usé tu guion tal cual, sin cambiar una palabra: solo lo partí en 12 escenas. Como no trae las frases de \"día veinte\", \"día treinta\" ni \"sin bisturí\" del video original, esas tres escenas no van; el cierre lo repartí en tres: los tres frascos, la entrega en la puerta y el malecón.",
+    "Todo lo visual es nuevo, como pediste: la protagonista morena de moña amarilla, el apartamento costeño, la casita dentro del bolsillo y los ingredientes con casco. El frasco sale siempre cerrado y no se ven cápsulas. No hay letreros en las imágenes.",
+    "Ojo con dos datos de tu guion: la maca negra no se lee en la etiqueta del frasco, y el precio de 149.900 por tres con pago al recibir lo tomé de tu texto. Revisa que los dos sean ciertos antes de publicar.",
+    "La música es la que ya elegiste de tu biblioteca: «Aguaje claymation continuidad (alternativa)». La duración es un estimado: con una voz colombiana con energía, como la pediste, quedará entre 40 y 46 segundos."
+  ],
+  "cambios_hechos": [
+    "Comparé tu texto con el guion, palabra por palabra: ya es exactamente el mismo, así que no cambié ninguna frase.",
+    "Tus 8 frases están repartidas en 12 escenas solo para que cada una tenga su imagen. La voz las dice seguidas, completas y en tu mismo orden: nada se corta ni se quita.",
+    "Si lo que quieres es otra cosa (otra escena, otro orden o menos escenas), dímelo con esas palabras y lo cambio."
+  ]
+}

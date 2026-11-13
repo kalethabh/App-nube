@@ -1,0 +1,37 @@
+{
+  "generado": "2026-11-13T21:45:20.337Z",
+  "anuncio": "aguaje-complex-10x-claymation-20261113-1558",
+  "limpio": true,
+  "codigo": 0,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-10x-claymation-20261113-1558_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-13T21:45:14.150Z",
+      "deEsteMontaje": true,
+      "duracion": 51.52,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "se entrego solo la version completa: la version sin musica sale del editor"
+  },
+  "defectos": [],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}
