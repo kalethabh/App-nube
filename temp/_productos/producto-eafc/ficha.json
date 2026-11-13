@@ -1,0 +1,42 @@
+{
+  "nombre": "Aguaje Complex 10X",
+  "queEs": "Cápsulas naturales de aguaje, fenogreco y maca negra para mujeres que quieren más caderas y piernas sin operarse.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aguaje, fenogreco y maca negra en su máxima pureza",
+    "Una opción natural antes de pensar en operarte",
+    "Resultados rápidos y duraderos",
+    "Los resultados se quedan incluso después de terminar el tratamiento",
+    "Sin efecto rebote"
+  ],
+  "publico": "Mujeres adultas en Colombia, de unos 20 a 35 años, que se sienten planas de caderas y piernas y quieren más curvas de forma natural.",
+  "dolor": "Se siente plana: los jeans le quedan grandes atrás y no le lucen, y hasta ha pensado en ahorrar para operarse.",
+  "oferta": "Tratamiento completo de 3 meses (el recomendado). No se dicen ni se muestran precios.",
+  "comoCompra": "Escribe por el botón de abajo del anuncio, le llega a domicilio y paga en efectivo al recibir.",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Según la etiqueta: 200 mg de aguaje, 400 mg de fenogreco, 2070 mg de magnesio, vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g cada una. Según el usuario: aguaje, fenogreco y maca negra en su máxima pureza.",
+  "comoSeUsa": "",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "Frasco negro con tapa negra y banda rosada, de frente, sobre fondo blanco. La etiqueta dice Conexion Lab, Aguaje Complex 10X y 60 cápsulas."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "comoCompra",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "ingredientes",
+      "pregunta": "En la etiqueta se lee magnesio pero no maca negra. ¿El producto sí trae maca negra?"
+    }
+  ]
+}
