@@ -1,0 +1,1072 @@
+{
+  "generado": "2026-11-13T21:31:08.053Z",
+  "reglas": {
+    "minPalabras": 2,
+    "maxPalabras": 3,
+    "maxCaracteres": 20,
+    "pausaQueCorta": 0.28,
+    "maxSegundos": 2.2,
+    "colaSeg": 0.12
+  },
+  "bloques": [
+    {
+      "inicio": 0,
+      "fin": 0.572,
+      "texto": "¿Por qué tus",
+      "palabras": [
+        {
+          "texto": "¿Por",
+          "inicio": 0,
+          "fin": 0.186
+        },
+        {
+          "texto": "qué",
+          "inicio": 0.232,
+          "fin": 0.313
+        },
+        {
+          "texto": "tus",
+          "inicio": 0.372,
+          "fin": 0.534
+        }
+      ]
+    },
+    {
+      "inicio": 0.592,
+      "fin": 1.536,
+      "texto": "glúteos no crecen",
+      "palabras": [
+        {
+          "texto": "glúteos",
+          "inicio": 0.592,
+          "fin": 0.975
+        },
+        {
+          "texto": "no",
+          "inicio": 1.033,
+          "fin": 1.126
+        },
+        {
+          "texto": "crecen",
+          "inicio": 1.184,
+          "fin": 1.509
+        }
+      ]
+    },
+    {
+      "inicio": 1.556,
+      "fin": 2.441,
+      "texto": "si ya intentaste",
+      "palabras": [
+        {
+          "texto": "si",
+          "inicio": 1.556,
+          "fin": 1.649
+        },
+        {
+          "texto": "ya",
+          "inicio": 1.707,
+          "fin": 1.765
+        },
+        {
+          "texto": "intentaste",
+          "inicio": 1.788,
+          "fin": 2.415
+        }
+      ]
+    },
+    {
+      "inicio": 2.461,
+      "fin": 3.243,
+      "texto": "de todo?",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 2.461,
+          "fin": 2.554
+        },
+        {
+          "texto": "todo?",
+          "inicio": 2.612,
+          "fin": 3.123
+        }
+      ]
+    },
+    {
+      "inicio": 3.413,
+      "fin": 4.485,
+      "texto": "Mil sentadillas,",
+      "palabras": [
+        {
+          "texto": "Mil",
+          "inicio": 3.413,
+          "fin": 3.587
+        },
+        {
+          "texto": "sentadillas,",
+          "inicio": 3.646,
+          "fin": 4.481
+        }
+      ]
+    },
+    {
+      "inicio": 4.505,
+      "fin": 6.645,
+      "texto": "cremas, pastillas…",
+      "palabras": [
+        {
+          "texto": "cremas,",
+          "inicio": 4.505,
+          "fin": 5.283
+        },
+        {
+          "texto": "pastillas…",
+          "inicio": 5.341,
+          "fin": 6.525
+        }
+      ]
+    },
+    {
+      "inicio": 6.989,
+      "fin": 7.666,
+      "texto": "y sigues igual",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 6.989,
+          "fin": 7.047
+        },
+        {
+          "texto": "sigues",
+          "inicio": 7.117,
+          "fin": 7.372
+        },
+        {
+          "texto": "igual",
+          "inicio": 7.419,
+          "fin": 7.639
+        }
+      ]
+    },
+    {
+      "inicio": 7.686,
+      "fin": 8.398,
+      "texto": "de plana.",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 7.686,
+          "fin": 7.744
+        },
+        {
+          "texto": "plana.",
+          "inicio": 7.79,
+          "fin": 8.278
+        }
+      ]
+    },
+    {
+      "inicio": 8.464,
+      "fin": 9.071,
+      "texto": "Y ya estabas",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 8.464,
+          "fin": 8.545
+        },
+        {
+          "texto": "ya",
+          "inicio": 8.649,
+          "fin": 8.696
+        },
+        {
+          "texto": "estabas",
+          "inicio": 8.719,
+          "fin": 9.033
+        }
+      ]
+    },
+    {
+      "inicio": 9.091,
+      "fin": 9.918,
+      "texto": "pensando en una",
+      "palabras": [
+        {
+          "texto": "pensando",
+          "inicio": 9.091,
+          "fin": 9.532
+        },
+        {
+          "texto": "en",
+          "inicio": 9.555,
+          "fin": 9.601
+        },
+        {
+          "texto": "una",
+          "inicio": 9.764,
+          "fin": 9.903
+        }
+      ]
+    },
+    {
+      "inicio": 9.938,
+      "fin": 11.428,
+      "texto": "cirugía de millones.",
+      "palabras": [
+        {
+          "texto": "cirugía",
+          "inicio": 9.938,
+          "fin": 10.321
+        },
+        {
+          "texto": "de",
+          "inicio": 10.368,
+          "fin": 10.437
+        },
+        {
+          "texto": "millones.",
+          "inicio": 10.495,
+          "fin": 11.308
+        }
+      ]
+    },
+    {
+      "inicio": 11.773,
+      "fin": 12.449,
+      "texto": "Pero el problema",
+      "palabras": [
+        {
+          "texto": "Pero",
+          "inicio": 11.773,
+          "fin": 11.958
+        },
+        {
+          "texto": "el",
+          "inicio": 11.981,
+          "fin": 12.028
+        },
+        {
+          "texto": "problema",
+          "inicio": 12.086,
+          "fin": 12.423
+        }
+      ]
+    },
+    {
+      "inicio": 12.469,
+      "fin": 13.437,
+      "texto": "no está afuera.",
+      "palabras": [
+        {
+          "texto": "no",
+          "inicio": 12.469,
+          "fin": 12.539
+        },
+        {
+          "texto": "está",
+          "inicio": 12.585,
+          "fin": 12.736
+        },
+        {
+          "texto": "afuera.",
+          "inicio": 12.771,
+          "fin": 13.317
+        }
+      ]
+    },
+    {
+      "inicio": 13.479,
+      "fin": 14.598,
+      "texto": "Está adentro.",
+      "palabras": [
+        {
+          "texto": "Está",
+          "inicio": 13.479,
+          "fin": 13.827
+        },
+        {
+          "texto": "adentro.",
+          "inicio": 13.886,
+          "fin": 14.478
+        }
+      ]
+    },
+    {
+      "inicio": 14.64,
+      "fin": 15.595,
+      "texto": "Tus glúteos están",
+      "palabras": [
+        {
+          "texto": "Tus",
+          "inicio": 14.64,
+          "fin": 14.849
+        },
+        {
+          "texto": "glúteos",
+          "inicio": 14.907,
+          "fin": 15.29
+        },
+        {
+          "texto": "están",
+          "inicio": 15.348,
+          "fin": 15.569
+        }
+      ]
+    },
+    {
+      "inicio": 15.615,
+      "fin": 16.826,
+      "texto": "dormidos: si no",
+      "palabras": [
+        {
+          "texto": "dormidos:",
+          "inicio": 15.615,
+          "fin": 16.358
+        },
+        {
+          "texto": "si",
+          "inicio": 16.521,
+          "fin": 16.637
+        },
+        {
+          "texto": "no",
+          "inicio": 16.695,
+          "fin": 16.8
+        }
+      ]
+    },
+    {
+      "inicio": 16.846,
+      "fin": 17.894,
+      "texto": "despiertan, no",
+      "palabras": [
+        {
+          "texto": "despiertan,",
+          "inicio": 16.846,
+          "fin": 17.566
+        },
+        {
+          "texto": "no",
+          "inicio": 17.752,
+          "fin": 17.868
+        }
+      ]
+    },
+    {
+      "inicio": 17.914,
+      "fin": 18.557,
+      "texto": "crecen.",
+      "palabras": [
+        {
+          "texto": "crecen.",
+          "inicio": 17.914,
+          "fin": 18.437
+        }
+      ]
+    },
+    {
+      "inicio": 18.657,
+      "fin": 19.322,
+      "texto": "Y las cremas",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 18.657,
+          "fin": 18.715
+        },
+        {
+          "texto": "las",
+          "inicio": 18.796,
+          "fin": 18.924
+        },
+        {
+          "texto": "cremas",
+          "inicio": 18.982,
+          "fin": 19.284
+        }
+      ]
+    },
+    {
+      "inicio": 19.342,
+      "fin": 19.961,
+      "texto": "no llegan hasta",
+      "palabras": [
+        {
+          "texto": "no",
+          "inicio": 19.342,
+          "fin": 19.435
+        },
+        {
+          "texto": "llegan",
+          "inicio": 19.458,
+          "fin": 19.737
+        },
+        {
+          "texto": "hasta",
+          "inicio": 19.783,
+          "fin": 19.957
+        }
+      ]
+    },
+    {
+      "inicio": 19.981,
+      "fin": 20.762,
+      "texto": "allá adentro.",
+      "palabras": [
+        {
+          "texto": "allá",
+          "inicio": 19.981,
+          "fin": 20.12
+        },
+        {
+          "texto": "adentro.",
+          "inicio": 20.143,
+          "fin": 20.642
+        }
+      ]
+    },
+    {
+      "inicio": 21.502,
+      "fin": 23.804,
+      "texto": "Aguaje Complex 10X:",
+      "palabras": [
+        {
+          "texto": "Aguaje",
+          "inicio": 21.502,
+          "fin": 21.966
+        },
+        {
+          "texto": "Complex",
+          "inicio": 22.024,
+          "fin": 22.57
+        },
+        {
+          "texto": "10X:",
+          "inicio": 22.732,
+          "fin": 23.684
+        }
+      ]
+    },
+    {
+      "inicio": 23.974,
+      "fin": 25.139,
+      "texto": "el aguaje, el",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 23.974,
+          "fin": 24.114
+        },
+        {
+          "texto": "aguaje,",
+          "inicio": 24.172,
+          "fin": 24.776
+        },
+        {
+          "texto": "el",
+          "inicio": 24.961,
+          "fin": 25.101
+        }
+      ]
+    },
+    {
+      "inicio": 25.159,
+      "fin": 26.3,
+      "texto": "fenogreco y la",
+      "palabras": [
+        {
+          "texto": "fenogreco",
+          "inicio": 25.159,
+          "fin": 25.751
+        },
+        {
+          "texto": "y",
+          "inicio": 26.041,
+          "fin": 26.111
+        },
+        {
+          "texto": "la",
+          "inicio": 26.192,
+          "fin": 26.262
+        }
+      ]
+    },
+    {
+      "inicio": 26.32,
+      "fin": 27.496,
+      "texto": "maca negra llegan",
+      "palabras": [
+        {
+          "texto": "maca",
+          "inicio": 26.32,
+          "fin": 26.54
+        },
+        {
+          "texto": "negra",
+          "inicio": 26.587,
+          "fin": 26.947
+        },
+        {
+          "texto": "llegan",
+          "inicio": 27.109,
+          "fin": 27.469
+        }
+      ]
+    },
+    {
+      "inicio": 27.516,
+      "fin": 28.599,
+      "texto": "directo al músculo",
+      "palabras": [
+        {
+          "texto": "directo",
+          "inicio": 27.516,
+          "fin": 27.841
+        },
+        {
+          "texto": "al",
+          "inicio": 27.864,
+          "fin": 27.922
+        },
+        {
+          "texto": "músculo",
+          "inicio": 27.98,
+          "fin": 28.479
+        }
+      ]
+    },
+    {
+      "inicio": 28.7,
+      "fin": 29.783,
+      "texto": "y lo despiertan.",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 28.7,
+          "fin": 28.769
+        },
+        {
+          "texto": "lo",
+          "inicio": 28.839,
+          "fin": 28.932
+        },
+        {
+          "texto": "despiertan.",
+          "inicio": 28.978,
+          "fin": 29.663
+        }
+      ]
+    },
+    {
+      "inicio": 30.012,
+      "fin": 30.991,
+      "texto": "Día diez:",
+      "palabras": [
+        {
+          "texto": "Día",
+          "inicio": 30.012,
+          "fin": 30.314
+        },
+        {
+          "texto": "diez:",
+          "inicio": 30.372,
+          "fin": 30.871
+        }
+      ]
+    },
+    {
+      "inicio": 31.161,
+      "fin": 32.012,
+      "texto": "el jean ya",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 31.161,
+          "fin": 31.3
+        },
+        {
+          "texto": "jean",
+          "inicio": 31.382,
+          "fin": 31.637
+        },
+        {
+          "texto": "ya",
+          "inicio": 31.823,
+          "fin": 31.974
+        }
+      ]
+    },
+    {
+      "inicio": 32.032,
+      "fin": 32.488,
+      "texto": "no te queda",
+      "palabras": [
+        {
+          "texto": "no",
+          "inicio": 32.032,
+          "fin": 32.113
+        },
+        {
+          "texto": "te",
+          "inicio": 32.16,
+          "fin": 32.229
+        },
+        {
+          "texto": "queda",
+          "inicio": 32.276,
+          "fin": 32.45
+        }
+      ]
+    },
+    {
+      "inicio": 32.508,
+      "fin": 33.139,
+      "texto": "suelto.",
+      "palabras": [
+        {
+          "texto": "suelto.",
+          "inicio": 32.508,
+          "fin": 33.019
+        }
+      ]
+    },
+    {
+      "inicio": 33.309,
+      "fin": 33.753,
+      "texto": "Yo hice el",
+      "palabras": [
+        {
+          "texto": "Yo",
+          "inicio": 33.309,
+          "fin": 33.46
+        },
+        {
+          "texto": "hice",
+          "inicio": 33.506,
+          "fin": 33.669
+        },
+        {
+          "texto": "el",
+          "inicio": 33.692,
+          "fin": 33.738
+        }
+      ]
+    },
+    {
+      "inicio": 33.773,
+      "fin": 34.786,
+      "texto": "tratamiento completo",
+      "palabras": [
+        {
+          "texto": "tratamiento",
+          "inicio": 33.773,
+          "fin": 34.296
+        },
+        {
+          "texto": "completo",
+          "inicio": 34.354,
+          "fin": 34.772
+        }
+      ]
+    },
+    {
+      "inicio": 34.806,
+      "fin": 35.925,
+      "texto": "de tres meses,",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 34.806,
+          "fin": 34.865
+        },
+        {
+          "texto": "tres",
+          "inicio": 34.911,
+          "fin": 35.143
+        },
+        {
+          "texto": "meses,",
+          "inicio": 35.213,
+          "fin": 35.805
+        }
+      ]
+    },
+    {
+      "inicio": 35.967,
+      "fin": 36.482,
+      "texto": "porque es el",
+      "palabras": [
+        {
+          "texto": "porque",
+          "inicio": 35.967,
+          "fin": 36.258
+        },
+        {
+          "texto": "es",
+          "inicio": 36.281,
+          "fin": 36.339
+        },
+        {
+          "texto": "el",
+          "inicio": 36.397,
+          "fin": 36.443
+        }
+      ]
+    },
+    {
+      "inicio": 36.502,
+      "fin": 37.341,
+      "texto": "que da resultados",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 36.502,
+          "fin": 36.583
+        },
+        {
+          "texto": "da",
+          "inicio": 36.629,
+          "fin": 36.699
+        },
+        {
+          "texto": "resultados",
+          "inicio": 36.757,
+          "fin": 37.256
+        }
+      ]
+    },
+    {
+      "inicio": 37.361,
+      "fin": 38.723,
+      "texto": "rápidos y duraderos:",
+      "palabras": [
+        {
+          "texto": "rápidos",
+          "inicio": 37.361,
+          "fin": 37.755
+        },
+        {
+          "texto": "y",
+          "inicio": 37.813,
+          "fin": 37.848
+        },
+        {
+          "texto": "duraderos:",
+          "inicio": 37.883,
+          "fin": 38.603
+        }
+      ]
+    },
+    {
+      "inicio": 38.824,
+      "fin": 39.639,
+      "texto": "se quedan incluso",
+      "palabras": [
+        {
+          "texto": "se",
+          "inicio": 38.824,
+          "fin": 38.94
+        },
+        {
+          "texto": "quedan",
+          "inicio": 38.998,
+          "fin": 39.241
+        },
+        {
+          "texto": "incluso",
+          "inicio": 39.3,
+          "fin": 39.636
+        }
+      ]
+    },
+    {
+      "inicio": 39.659,
+      "fin": 40.069,
+      "texto": "después de",
+      "palabras": [
+        {
+          "texto": "después",
+          "inicio": 39.659,
+          "fin": 39.961
+        },
+        {
+          "texto": "de",
+          "inicio": 39.985,
+          "fin": 40.043
+        }
+      ]
+    },
+    {
+      "inicio": 40.089,
+      "fin": 41.184,
+      "texto": "terminarlo, sin",
+      "palabras": [
+        {
+          "texto": "terminarlo,",
+          "inicio": 40.089,
+          "fin": 40.786
+        },
+        {
+          "texto": "sin",
+          "inicio": 40.89,
+          "fin": 41.146
+        }
+      ]
+    },
+    {
+      "inicio": 41.204,
+      "fin": 42.322,
+      "texto": "efecto rebote.",
+      "palabras": [
+        {
+          "texto": "efecto",
+          "inicio": 41.204,
+          "fin": 41.563
+        },
+        {
+          "texto": "rebote.",
+          "inicio": 41.633,
+          "fin": 42.202
+        }
+      ]
+    },
+    {
+      "inicio": 42.492,
+      "fin": 43.355,
+      "texto": "Lo pedí, me",
+      "palabras": [
+        {
+          "texto": "Lo",
+          "inicio": 42.492,
+          "fin": 42.62
+        },
+        {
+          "texto": "pedí,",
+          "inicio": 42.666,
+          "fin": 43.212
+        },
+        {
+          "texto": "me",
+          "inicio": 43.247,
+          "fin": 43.351
+        }
+      ]
+    },
+    {
+      "inicio": 43.375,
+      "fin": 43.819,
+      "texto": "llegó a la",
+      "palabras": [
+        {
+          "texto": "llegó",
+          "inicio": 43.375,
+          "fin": 43.618
+        },
+        {
+          "texto": "a",
+          "inicio": 43.642,
+          "fin": 43.665
+        },
+        {
+          "texto": "la",
+          "inicio": 43.7,
+          "fin": 43.781
+        }
+      ]
+    },
+    {
+      "inicio": 43.839,
+      "fin": 44.597,
+      "texto": "casa y lo",
+      "palabras": [
+        {
+          "texto": "casa",
+          "inicio": 43.839,
+          "fin": 44.222
+        },
+        {
+          "texto": "y",
+          "inicio": 44.303,
+          "fin": 44.373
+        },
+        {
+          "texto": "lo",
+          "inicio": 44.454,
+          "fin": 44.559
+        }
+      ]
+    },
+    {
+      "inicio": 44.617,
+      "fin": 45.875,
+      "texto": "pagué al recibirlo.",
+      "palabras": [
+        {
+          "texto": "pagué",
+          "inicio": 44.617,
+          "fin": 44.884
+        },
+        {
+          "texto": "al",
+          "inicio": 44.907,
+          "fin": 44.954
+        },
+        {
+          "texto": "recibirlo.",
+          "inicio": 45.023,
+          "fin": 45.755
+        }
+      ]
+    },
+    {
+      "inicio": 45.94,
+      "fin": 46.571,
+      "texto": "El tuyo está",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 45.94,
+          "fin": 46.103
+        },
+        {
+          "texto": "tuyo",
+          "inicio": 46.161,
+          "fin": 46.405
+        },
+        {
+          "texto": "está",
+          "inicio": 46.428,
+          "fin": 46.567
+        }
+      ]
+    },
+    {
+      "inicio": 46.591,
+      "fin": 47.07,
+      "texto": "en el botón",
+      "palabras": [
+        {
+          "texto": "en",
+          "inicio": 46.591,
+          "fin": 46.637
+        },
+        {
+          "texto": "el",
+          "inicio": 46.695,
+          "fin": 46.753
+        },
+        {
+          "texto": "botón",
+          "inicio": 46.8,
+          "fin": 47.043
+        }
+      ]
+    },
+    {
+      "inicio": 47.09,
+      "fin": 47.79,
+      "texto": "de abajo.",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 47.09,
+          "fin": 47.148
+        },
+        {
+          "texto": "abajo.",
+          "inicio": 47.194,
+          "fin": 47.67
+        }
+      ]
+    },
+    {
+      "inicio": 47.856,
+      "fin": 48.382,
+      "texto": "Este es el",
+      "palabras": [
+        {
+          "texto": "Este",
+          "inicio": 47.856,
+          "fin": 48.17
+        },
+        {
+          "texto": "es",
+          "inicio": 48.193,
+          "fin": 48.251
+        },
+        {
+          "texto": "el",
+          "inicio": 48.297,
+          "fin": 48.344
+        }
+      ]
+    },
+    {
+      "inicio": 48.402,
+      "fin": 49.3,
+      "texto": "que debes pedir:",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 48.402,
+          "fin": 48.483
+        },
+        {
+          "texto": "debes",
+          "inicio": 48.529,
+          "fin": 48.738
+        },
+        {
+          "texto": "pedir:",
+          "inicio": 48.796,
+          "fin": 49.18
+        }
+      ]
+    },
+    {
+      "inicio": 49.365,
+      "fin": 50.472,
+      "texto": "aguaje y fenogreco",
+      "palabras": [
+        {
+          "texto": "aguaje",
+          "inicio": 49.365,
+          "fin": 49.853
+        },
+        {
+          "texto": "y",
+          "inicio": 49.876,
+          "fin": 49.899
+        },
+        {
+          "texto": "fenogreco",
+          "inicio": 49.957,
+          "fin": 50.445
+        }
+      ]
+    },
+    {
+      "inicio": 50.492,
+      "fin": 51.575,
+      "texto": "puro de verdad.",
+      "palabras": [
+        {
+          "texto": "puro",
+          "inicio": 50.492,
+          "fin": 50.701
+        },
+        {
+          "texto": "de",
+          "inicio": 50.735,
+          "fin": 50.793
+        },
+        {
+          "texto": "verdad.",
+          "inicio": 50.828,
+          "fin": 51.455
+        }
+      ]
+    }
+  ]
+}

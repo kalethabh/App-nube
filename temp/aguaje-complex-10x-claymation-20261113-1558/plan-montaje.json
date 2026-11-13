@@ -1,0 +1,1915 @@
+{
+  "generado": "2026-11-13T21:31:15.582Z",
+  "aprobado": false,
+  "duracion": 51.455,
+  "reglas": {
+    "umbralBroll": {
+      "B": 3.5,
+      "A": 3,
+      "C": 3
+    },
+    "tomaConBroll": {
+      "preferido": 2.5,
+      "minimo": 2
+    },
+    "brollMinimo": 1.2,
+    "velocidadMaxima": 1.6,
+    "velocidadQueDeformaAudio": null,
+    "fadeAudioMs": 80,
+    "duckingDb": -10,
+    "subtitulos": {
+      "tamano": 0.06137,
+      "interlineado": 1.1,
+      "contornoRespectoTamano": 0.135,
+      "desdeAbajo": 0.26,
+      "coloresResaltado": [
+        "#E8442A",
+        "#F5A524",
+        "#2F7DE1",
+        "#159A5B",
+        "#B5279B",
+        "#E01E5A",
+        "#7B3FE4",
+        "#0FA3B1",
+        "#D64500",
+        "#3B7A2A"
+      ],
+      "cajaPadding": 0.12,
+      "cajaRedondeo": 0.1
+    },
+    "transiciones": {
+      "duracionSeg": 0.45,
+      "duracionZoomSeg": 0.5,
+      "efectoDb": 0,
+      "zoomDesde": 1.35
+    },
+    "musica": {
+      "db": -26,
+      "subeEnPayoffDb": 4,
+      "fadeInSeg": 1.2,
+      "fadeOutSeg": 1.5
+    },
+    "dialogoNativo": {
+      "duckingDb": 0,
+      "broll": {
+        "duracionObjetivo": 2,
+        "margenSegundos": 1,
+        "margenMinimo": 0.5,
+        "duracionMinima": 1.2,
+        "anclaEnFraccion": 0.35,
+        "mudo": true
+      },
+      "musica": {
+        "db": -22,
+        "subeEnPayoffDb": 4,
+        "fadeInSeg": 1.2,
+        "fadeOutSeg": 1.5
+      }
+    }
+  },
+  "audio": {
+    "voz": "audio/voz.mp3",
+    "ducking": -10,
+    "fadeMs": 80
+  },
+  "musica": {
+    "archivo": "musica/fondo.mp3",
+    "db": -26,
+    "subeEnPayoffDb": 4,
+    "payoffDesdeSeg": 21.502,
+    "fadeInSeg": 1.2,
+    "fadeOutSeg": 1.5,
+    "loop": true,
+    "duracionPista": 35.04
+  },
+  "bloques": [
+    {
+      "linea": 1,
+      "texto": "¿Por qué tus glúteos no crecen si ya intentaste de todo?",
+      "inicio": 0.081,
+      "fin": 3.413,
+      "ventana": 3.332,
+      "tipo": "A",
+      "clips": [
+        "paso-1.mp4"
+      ]
+    },
+    {
+      "linea": 2,
+      "texto": "Mil sentadillas, cremas, pastillas… y sigues igual de plana.",
+      "inicio": 3.413,
+      "fin": 8.464,
+      "ventana": 5.051,
+      "tipo": "A",
+      "clips": [
+        "paso-2.mp4"
+      ]
+    },
+    {
+      "linea": 3,
+      "texto": "Y ya estabas pensando en una cirugía de millones.",
+      "inicio": 8.464,
+      "fin": 11.773,
+      "ventana": 3.309,
+      "tipo": "A",
+      "clips": [
+        "paso-3.mp4"
+      ]
+    },
+    {
+      "linea": 4,
+      "texto": "Pero el problema no está afuera. Está adentro.",
+      "inicio": 11.773,
+      "fin": 14.64,
+      "ventana": 2.867,
+      "tipo": "A",
+      "clips": [
+        "paso-4.mp4"
+      ]
+    },
+    {
+      "linea": 5,
+      "texto": "Tus glúteos están dormidos: si no despiertan, no crecen.",
+      "inicio": 14.64,
+      "fin": 18.657,
+      "ventana": 4.017,
+      "tipo": "A",
+      "clips": [
+        "paso-5.mp4"
+      ]
+    },
+    {
+      "linea": 6,
+      "texto": "Y las cremas no llegan hasta allá adentro.",
+      "inicio": 18.657,
+      "fin": 21.502,
+      "ventana": 2.845,
+      "tipo": "A",
+      "clips": [
+        "paso-6.mp4"
+      ]
+    },
+    {
+      "linea": 7,
+      "texto": "Aguaje Complex 10X: el aguaje, el fenogreco y la maca negra",
+      "inicio": 21.502,
+      "fin": 27.109,
+      "ventana": 5.607,
+      "tipo": "A",
+      "clips": [
+        "paso-7.mp4"
+      ]
+    },
+    {
+      "linea": 8,
+      "texto": "llegan directo al músculo y lo despiertan.",
+      "inicio": 27.109,
+      "fin": 30.012,
+      "ventana": 2.903,
+      "tipo": "A",
+      "clips": [
+        "paso-8.mp4"
+      ]
+    },
+    {
+      "linea": 9,
+      "texto": "Día diez: el jean ya no te queda suelto.",
+      "inicio": 30.012,
+      "fin": 33.309,
+      "ventana": 3.297,
+      "tipo": "A",
+      "clips": [
+        "paso-9.mp4"
+      ]
+    },
+    {
+      "linea": 10,
+      "texto": "Yo hice el tratamiento completo de tres meses,",
+      "inicio": 33.309,
+      "fin": 35.967,
+      "ventana": 2.658,
+      "tipo": "A",
+      "clips": [
+        "paso-10.mp4"
+      ]
+    },
+    {
+      "linea": 11,
+      "texto": "porque es el que da resultados rápidos y duraderos:",
+      "inicio": 35.967,
+      "fin": 38.824,
+      "ventana": 2.857,
+      "tipo": "A",
+      "clips": [
+        "paso-11.mp4"
+      ]
+    },
+    {
+      "linea": 12,
+      "texto": "se quedan incluso después de terminarlo, sin efecto rebote.",
+      "inicio": 38.824,
+      "fin": 42.492,
+      "ventana": 3.668,
+      "tipo": "A",
+      "clips": [
+        "paso-12.mp4"
+      ]
+    },
+    {
+      "linea": 13,
+      "texto": "Lo pedí, me llegó a la casa y lo pagué al recibirlo.",
+      "inicio": 42.492,
+      "fin": 45.94,
+      "ventana": 3.448,
+      "tipo": "A",
+      "clips": [
+        "paso-13.mp4"
+      ]
+    },
+    {
+      "linea": 14,
+      "texto": "El tuyo está en el botón de abajo.",
+      "inicio": 45.94,
+      "fin": 47.856,
+      "ventana": 1.916,
+      "tipo": "A",
+      "clips": [
+        "paso-14.mp4"
+      ]
+    },
+    {
+      "linea": 15,
+      "texto": "Este es el que debes pedir: aguaje y fenogreco puro de verdad.",
+      "inicio": 47.856,
+      "fin": 51.455,
+      "ventana": 3.599,
+      "tipo": "A",
+      "clips": [
+        "toma-15.mp4"
+      ]
+    }
+  ],
+  "continuidad": {
+    "reglas": {
+      "guia": 2,
+      "fuerte": 2.5,
+      "minima": 1,
+      "minimaCierre": 0.9,
+      "temprano": 0.3,
+      "tarde": 0.4
+    },
+    "velocidadMaximaPosible": 1.5,
+    "tope": 2,
+    "sinSolucion": false,
+    "velocidadMaxima": 2,
+    "resumen": {
+      "clips": 15,
+      "sobreGuia": 0,
+      "sobreFuerte": 0,
+      "bajoMinima": 0,
+      "llegadasMovidas": 1,
+      "maxDeriva": 0.042,
+      "metraje": 65.125,
+      "faltan": 0
+    },
+    "unidades": [
+      {
+        "linea": 1,
+        "tipo": "A",
+        "desde": 0,
+        "ini": 0,
+        "objetivo": 3.413,
+        "ventana": 3.413,
+        "llegada": 3.413,
+        "deriva": 0,
+        "velocidad": 1.148,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 2,
+        "clips": [
+          "paso-1.mp4"
+        ]
+      },
+      {
+        "linea": 2,
+        "tipo": "A",
+        "desde": 3.413,
+        "ini": 3.413,
+        "objetivo": 8.464,
+        "ventana": 5.051,
+        "llegada": 8.464,
+        "deriva": 0,
+        "velocidad": 1.18,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 3,
+        "clips": [
+          "paso-2.mp4"
+        ]
+      },
+      {
+        "linea": 3,
+        "tipo": "A",
+        "desde": 8.464,
+        "ini": 8.464,
+        "objetivo": 11.773,
+        "ventana": 3.309,
+        "llegada": 11.773,
+        "deriva": 0,
+        "velocidad": 1.184,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 4,
+        "clips": [
+          "paso-3.mp4"
+        ]
+      },
+      {
+        "linea": 4,
+        "tipo": "A",
+        "desde": 11.773,
+        "ini": 11.773,
+        "objetivo": 14.64,
+        "ventana": 2.867,
+        "llegada": 14.64,
+        "deriva": 0,
+        "velocidad": 1.366,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 5,
+        "clips": [
+          "paso-4.mp4"
+        ]
+      },
+      {
+        "linea": 5,
+        "tipo": "A",
+        "desde": 14.64,
+        "ini": 14.64,
+        "objetivo": 18.657,
+        "ventana": 4.017,
+        "llegada": 18.657,
+        "deriva": 0,
+        "velocidad": 1.483,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 6,
+        "clips": [
+          "paso-5.mp4"
+        ]
+      },
+      {
+        "linea": 6,
+        "tipo": "A",
+        "desde": 18.657,
+        "ini": 18.657,
+        "objetivo": 21.502,
+        "ventana": 2.845,
+        "llegada": 21.502,
+        "deriva": 0,
+        "velocidad": 1.377,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 7,
+        "clips": [
+          "paso-6.mp4"
+        ]
+      },
+      {
+        "linea": 7,
+        "tipo": "A",
+        "desde": 21.502,
+        "ini": 21.502,
+        "objetivo": 27.109,
+        "ventana": 5.607,
+        "llegada": 27.109,
+        "deriva": 0,
+        "velocidad": 1.063,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 8,
+        "clips": [
+          "paso-7.mp4"
+        ]
+      },
+      {
+        "linea": 8,
+        "tipo": "A",
+        "desde": 27.109,
+        "ini": 27.109,
+        "objetivo": 30.012,
+        "ventana": 2.903,
+        "llegada": 30.012,
+        "deriva": 0,
+        "velocidad": 1.392,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 9,
+        "clips": [
+          "paso-8.mp4"
+        ]
+      },
+      {
+        "linea": 9,
+        "tipo": "A",
+        "desde": 30.012,
+        "ini": 30.012,
+        "objetivo": 33.309,
+        "ventana": 3.297,
+        "llegada": 33.309,
+        "deriva": 0,
+        "velocidad": 1.188,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 10,
+        "clips": [
+          "paso-9.mp4"
+        ]
+      },
+      {
+        "linea": 10,
+        "tipo": "A",
+        "desde": 33.309,
+        "ini": 33.309,
+        "objetivo": 35.967,
+        "ventana": 2.658,
+        "llegada": 35.967,
+        "deriva": 0,
+        "velocidad": 1.521,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 11,
+        "clips": [
+          "paso-10.mp4"
+        ]
+      },
+      {
+        "linea": 11,
+        "tipo": "A",
+        "desde": 35.967,
+        "ini": 35.967,
+        "objetivo": 38.824,
+        "ventana": 2.857,
+        "llegada": 38.824,
+        "deriva": 0,
+        "velocidad": 1.371,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 12,
+        "clips": [
+          "paso-11.mp4"
+        ]
+      },
+      {
+        "linea": 12,
+        "tipo": "A",
+        "desde": 38.824,
+        "ini": 38.824,
+        "objetivo": 42.492,
+        "ventana": 3.668,
+        "llegada": 42.492,
+        "deriva": 0,
+        "velocidad": 1.068,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 13,
+        "clips": [
+          "paso-12.mp4"
+        ]
+      },
+      {
+        "linea": 13,
+        "tipo": "A",
+        "desde": 42.492,
+        "ini": 42.492,
+        "objetivo": 45.94,
+        "ventana": 3.448,
+        "llegada": 45.898,
+        "deriva": -0.042,
+        "velocidad": 1.15,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 14,
+        "clips": [
+          "paso-13.mp4"
+        ]
+      },
+      {
+        "linea": 14,
+        "tipo": "A",
+        "desde": 45.898,
+        "ini": 45.94,
+        "objetivo": 47.856,
+        "ventana": 1.916,
+        "llegada": 47.856,
+        "deriva": 0,
+        "velocidad": 2,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 15,
+        "clips": [
+          "paso-14.mp4"
+        ]
+      },
+      {
+        "linea": 15,
+        "tipo": "A",
+        "desde": 47.856,
+        "ini": 47.856,
+        "objetivo": 51.455,
+        "ventana": 3.599,
+        "llegada": 51.455,
+        "deriva": 0,
+        "velocidad": 1.088,
+        "minima": 0.9,
+        "ultima": true,
+        "aToma": null,
+        "clips": [
+          "toma-15.mp4"
+        ]
+      }
+    ],
+    "clips": [
+      {
+        "archivo": "paso-1.mp4",
+        "rol": "paso",
+        "linea": 1,
+        "de": "toma-1-inicial",
+        "a": "toma-2-inicial",
+        "aToma": 2,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 0,
+        "hasta": 3.413,
+        "velocidad": 1.148,
+        "recorte": 0,
+        "objetivo": 3.413,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-2.mp4",
+        "rol": "paso",
+        "linea": 2,
+        "de": "toma-2-inicial",
+        "a": "toma-3-inicial",
+        "aToma": 3,
+        "largoOriginal": 5.958,
+        "frames": 143,
+        "fps": 24,
+        "tramo": 6,
+        "desde": 3.413,
+        "hasta": 8.464,
+        "velocidad": 1.18,
+        "recorte": 0,
+        "objetivo": 8.464,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-3.mp4",
+        "rol": "paso",
+        "linea": 3,
+        "de": "toma-3-inicial",
+        "a": "toma-4-inicial",
+        "aToma": 4,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 8.464,
+        "hasta": 11.773,
+        "velocidad": 1.184,
+        "recorte": 0,
+        "objetivo": 11.773,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-4.mp4",
+        "rol": "paso",
+        "linea": 4,
+        "de": "toma-4-inicial",
+        "a": "toma-5-inicial",
+        "aToma": 5,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 11.773,
+        "hasta": 14.64,
+        "velocidad": 1.366,
+        "recorte": 0,
+        "objetivo": 14.64,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-5.mp4",
+        "rol": "paso",
+        "linea": 5,
+        "de": "toma-5-inicial",
+        "a": "toma-6-inicial",
+        "aToma": 6,
+        "largoOriginal": 5.958,
+        "frames": 143,
+        "fps": 24,
+        "tramo": 6,
+        "desde": 14.64,
+        "hasta": 18.657,
+        "velocidad": 1.483,
+        "recorte": 0,
+        "objetivo": 18.657,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-6.mp4",
+        "rol": "paso",
+        "linea": 6,
+        "de": "toma-6-inicial",
+        "a": "toma-7-inicial",
+        "aToma": 7,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 18.657,
+        "hasta": 21.502,
+        "velocidad": 1.377,
+        "recorte": 0,
+        "objetivo": 21.502,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-7.mp4",
+        "rol": "paso",
+        "linea": 7,
+        "de": "toma-7-inicial",
+        "a": "toma-8-inicial",
+        "aToma": 8,
+        "largoOriginal": 5.958,
+        "frames": 143,
+        "fps": 24,
+        "tramo": 6,
+        "desde": 21.502,
+        "hasta": 27.109,
+        "velocidad": 1.063,
+        "recorte": 0,
+        "objetivo": 27.109,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-8.mp4",
+        "rol": "paso",
+        "linea": 8,
+        "de": "toma-8-inicial",
+        "a": "toma-9-inicial",
+        "aToma": 9,
+        "largoOriginal": 4.042,
+        "frames": 97,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 27.109,
+        "hasta": 30.012,
+        "velocidad": 1.392,
+        "recorte": 0,
+        "objetivo": 30.012,
+        "deriva": 0,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "paso-9.mp4",
+        "rol": "paso",
+        "linea": 9,
+        "de": "toma-9-inicial",
+        "a": "toma-10-inicial",
+        "aToma": 10,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 30.012,
+        "hasta": 33.309,
+        "velocidad": 1.188,
+        "recorte": 0,
+        "objetivo": 33.309,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-10.mp4",
+        "rol": "paso",
+        "linea": 10,
+        "de": "toma-10-inicial",
+        "a": "toma-11-inicial",
+        "aToma": 11,
+        "largoOriginal": 4.042,
+        "frames": 97,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 33.309,
+        "hasta": 35.967,
+        "velocidad": 1.521,
+        "recorte": 0,
+        "objetivo": 35.967,
+        "deriva": 0,
+        "mudo": true,
+        "respaldo": true
+      },
+      {
+        "archivo": "paso-11.mp4",
+        "rol": "paso",
+        "linea": 11,
+        "de": "toma-11-inicial",
+        "a": "toma-12-inicial",
+        "aToma": 12,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 35.967,
+        "hasta": 38.824,
+        "velocidad": 1.371,
+        "recorte": 0,
+        "objetivo": 38.824,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-12.mp4",
+        "rol": "paso",
+        "linea": 12,
+        "de": "toma-12-inicial",
+        "a": "toma-13-inicial",
+        "aToma": 13,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 38.824,
+        "hasta": 42.492,
+        "velocidad": 1.068,
+        "recorte": 0,
+        "objetivo": 42.492,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-13.mp4",
+        "rol": "paso",
+        "linea": 13,
+        "de": "toma-13-inicial",
+        "a": "toma-14-inicial",
+        "aToma": 14,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 42.492,
+        "hasta": 45.898,
+        "velocidad": 1.15,
+        "recorte": 0,
+        "objetivo": 45.94,
+        "deriva": -0.042,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-14.mp4",
+        "rol": "paso",
+        "linea": 14,
+        "de": "toma-14-inicial",
+        "a": "toma-15-inicial",
+        "aToma": 15,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 45.898,
+        "hasta": 47.856,
+        "velocidad": 2,
+        "recorte": 0,
+        "objetivo": 47.856,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "toma-15.mp4",
+        "rol": "cierre",
+        "linea": 15,
+        "de": "toma-15-inicial",
+        "a": null,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 47.856,
+        "hasta": 51.455,
+        "velocidad": 1.088,
+        "recorte": 0,
+        "objetivo": 51.455,
+        "deriva": 0,
+        "mudo": false
+      }
+    ]
+  },
+  "subtitulos": [
+    {
+      "inicio": 0,
+      "fin": 0.572,
+      "texto": "¿Por qué tus",
+      "palabras": [
+        {
+          "texto": "¿Por",
+          "inicio": 0,
+          "fin": 0.186
+        },
+        {
+          "texto": "qué",
+          "inicio": 0.232,
+          "fin": 0.313
+        },
+        {
+          "texto": "tus",
+          "inicio": 0.372,
+          "fin": 0.534
+        }
+      ]
+    },
+    {
+      "inicio": 0.592,
+      "fin": 1.536,
+      "texto": "glúteos no crecen",
+      "palabras": [
+        {
+          "texto": "glúteos",
+          "inicio": 0.592,
+          "fin": 0.975
+        },
+        {
+          "texto": "no",
+          "inicio": 1.033,
+          "fin": 1.126
+        },
+        {
+          "texto": "crecen",
+          "inicio": 1.184,
+          "fin": 1.509
+        }
+      ]
+    },
+    {
+      "inicio": 1.556,
+      "fin": 2.441,
+      "texto": "si ya intentaste",
+      "palabras": [
+        {
+          "texto": "si",
+          "inicio": 1.556,
+          "fin": 1.649
+        },
+        {
+          "texto": "ya",
+          "inicio": 1.707,
+          "fin": 1.765
+        },
+        {
+          "texto": "intentaste",
+          "inicio": 1.788,
+          "fin": 2.415
+        }
+      ]
+    },
+    {
+      "inicio": 2.461,
+      "fin": 3.243,
+      "texto": "de todo?",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 2.461,
+          "fin": 2.554
+        },
+        {
+          "texto": "todo?",
+          "inicio": 2.612,
+          "fin": 3.123
+        }
+      ]
+    },
+    {
+      "inicio": 3.413,
+      "fin": 4.485,
+      "texto": "Mil sentadillas,",
+      "palabras": [
+        {
+          "texto": "Mil",
+          "inicio": 3.413,
+          "fin": 3.587
+        },
+        {
+          "texto": "sentadillas,",
+          "inicio": 3.646,
+          "fin": 4.481
+        }
+      ]
+    },
+    {
+      "inicio": 4.505,
+      "fin": 6.645,
+      "texto": "cremas, pastillas…",
+      "palabras": [
+        {
+          "texto": "cremas,",
+          "inicio": 4.505,
+          "fin": 5.283
+        },
+        {
+          "texto": "pastillas…",
+          "inicio": 5.341,
+          "fin": 6.525
+        }
+      ]
+    },
+    {
+      "inicio": 6.989,
+      "fin": 7.666,
+      "texto": "y sigues igual",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 6.989,
+          "fin": 7.047
+        },
+        {
+          "texto": "sigues",
+          "inicio": 7.117,
+          "fin": 7.372
+        },
+        {
+          "texto": "igual",
+          "inicio": 7.419,
+          "fin": 7.639
+        }
+      ]
+    },
+    {
+      "inicio": 7.686,
+      "fin": 8.398,
+      "texto": "de plana.",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 7.686,
+          "fin": 7.744
+        },
+        {
+          "texto": "plana.",
+          "inicio": 7.79,
+          "fin": 8.278
+        }
+      ]
+    },
+    {
+      "inicio": 8.464,
+      "fin": 9.071,
+      "texto": "Y ya estabas",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 8.464,
+          "fin": 8.545
+        },
+        {
+          "texto": "ya",
+          "inicio": 8.649,
+          "fin": 8.696
+        },
+        {
+          "texto": "estabas",
+          "inicio": 8.719,
+          "fin": 9.033
+        }
+      ]
+    },
+    {
+      "inicio": 9.091,
+      "fin": 9.918,
+      "texto": "pensando en una",
+      "palabras": [
+        {
+          "texto": "pensando",
+          "inicio": 9.091,
+          "fin": 9.532
+        },
+        {
+          "texto": "en",
+          "inicio": 9.555,
+          "fin": 9.601
+        },
+        {
+          "texto": "una",
+          "inicio": 9.764,
+          "fin": 9.903
+        }
+      ]
+    },
+    {
+      "inicio": 9.938,
+      "fin": 11.428,
+      "texto": "cirugía de millones.",
+      "palabras": [
+        {
+          "texto": "cirugía",
+          "inicio": 9.938,
+          "fin": 10.321
+        },
+        {
+          "texto": "de",
+          "inicio": 10.368,
+          "fin": 10.437
+        },
+        {
+          "texto": "millones.",
+          "inicio": 10.495,
+          "fin": 11.308
+        }
+      ]
+    },
+    {
+      "inicio": 11.773,
+      "fin": 12.449,
+      "texto": "Pero el problema",
+      "palabras": [
+        {
+          "texto": "Pero",
+          "inicio": 11.773,
+          "fin": 11.958
+        },
+        {
+          "texto": "el",
+          "inicio": 11.981,
+          "fin": 12.028
+        },
+        {
+          "texto": "problema",
+          "inicio": 12.086,
+          "fin": 12.423
+        }
+      ]
+    },
+    {
+      "inicio": 12.469,
+      "fin": 13.437,
+      "texto": "no está afuera.",
+      "palabras": [
+        {
+          "texto": "no",
+          "inicio": 12.469,
+          "fin": 12.539
+        },
+        {
+          "texto": "está",
+          "inicio": 12.585,
+          "fin": 12.736
+        },
+        {
+          "texto": "afuera.",
+          "inicio": 12.771,
+          "fin": 13.317
+        }
+      ]
+    },
+    {
+      "inicio": 13.479,
+      "fin": 14.598,
+      "texto": "Está adentro.",
+      "palabras": [
+        {
+          "texto": "Está",
+          "inicio": 13.479,
+          "fin": 13.827
+        },
+        {
+          "texto": "adentro.",
+          "inicio": 13.886,
+          "fin": 14.478
+        }
+      ]
+    },
+    {
+      "inicio": 14.64,
+      "fin": 15.595,
+      "texto": "Tus glúteos están",
+      "palabras": [
+        {
+          "texto": "Tus",
+          "inicio": 14.64,
+          "fin": 14.849
+        },
+        {
+          "texto": "glúteos",
+          "inicio": 14.907,
+          "fin": 15.29
+        },
+        {
+          "texto": "están",
+          "inicio": 15.348,
+          "fin": 15.569
+        }
+      ]
+    },
+    {
+      "inicio": 15.615,
+      "fin": 16.826,
+      "texto": "dormidos: si no",
+      "palabras": [
+        {
+          "texto": "dormidos:",
+          "inicio": 15.615,
+          "fin": 16.358
+        },
+        {
+          "texto": "si",
+          "inicio": 16.521,
+          "fin": 16.637
+        },
+        {
+          "texto": "no",
+          "inicio": 16.695,
+          "fin": 16.8
+        }
+      ]
+    },
+    {
+      "inicio": 16.846,
+      "fin": 17.894,
+      "texto": "despiertan, no",
+      "palabras": [
+        {
+          "texto": "despiertan,",
+          "inicio": 16.846,
+          "fin": 17.566
+        },
+        {
+          "texto": "no",
+          "inicio": 17.752,
+          "fin": 17.868
+        }
+      ]
+    },
+    {
+      "inicio": 17.914,
+      "fin": 18.557,
+      "texto": "crecen.",
+      "palabras": [
+        {
+          "texto": "crecen.",
+          "inicio": 17.914,
+          "fin": 18.437
+        }
+      ]
+    },
+    {
+      "inicio": 18.657,
+      "fin": 19.322,
+      "texto": "Y las cremas",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 18.657,
+          "fin": 18.715
+        },
+        {
+          "texto": "las",
+          "inicio": 18.796,
+          "fin": 18.924
+        },
+        {
+          "texto": "cremas",
+          "inicio": 18.982,
+          "fin": 19.284
+        }
+      ]
+    },
+    {
+      "inicio": 19.342,
+      "fin": 19.961,
+      "texto": "no llegan hasta",
+      "palabras": [
+        {
+          "texto": "no",
+          "inicio": 19.342,
+          "fin": 19.435
+        },
+        {
+          "texto": "llegan",
+          "inicio": 19.458,
+          "fin": 19.737
+        },
+        {
+          "texto": "hasta",
+          "inicio": 19.783,
+          "fin": 19.957
+        }
+      ]
+    },
+    {
+      "inicio": 19.981,
+      "fin": 20.762,
+      "texto": "allá adentro.",
+      "palabras": [
+        {
+          "texto": "allá",
+          "inicio": 19.981,
+          "fin": 20.12
+        },
+        {
+          "texto": "adentro.",
+          "inicio": 20.143,
+          "fin": 20.642
+        }
+      ]
+    },
+    {
+      "inicio": 21.502,
+      "fin": 23.804,
+      "texto": "Aguaje Complex 10X:",
+      "palabras": [
+        {
+          "texto": "Aguaje",
+          "inicio": 21.502,
+          "fin": 21.966
+        },
+        {
+          "texto": "Complex",
+          "inicio": 22.024,
+          "fin": 22.57
+        },
+        {
+          "texto": "10X:",
+          "inicio": 22.732,
+          "fin": 23.684
+        }
+      ]
+    },
+    {
+      "inicio": 23.974,
+      "fin": 25.139,
+      "texto": "el aguaje, el",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 23.974,
+          "fin": 24.114
+        },
+        {
+          "texto": "aguaje,",
+          "inicio": 24.172,
+          "fin": 24.776
+        },
+        {
+          "texto": "el",
+          "inicio": 24.961,
+          "fin": 25.101
+        }
+      ]
+    },
+    {
+      "inicio": 25.159,
+      "fin": 26.3,
+      "texto": "fenogreco y la",
+      "palabras": [
+        {
+          "texto": "fenogreco",
+          "inicio": 25.159,
+          "fin": 25.751
+        },
+        {
+          "texto": "y",
+          "inicio": 26.041,
+          "fin": 26.111
+        },
+        {
+          "texto": "la",
+          "inicio": 26.192,
+          "fin": 26.262
+        }
+      ]
+    },
+    {
+      "inicio": 26.32,
+      "fin": 27.496,
+      "texto": "maca negra llegan",
+      "palabras": [
+        {
+          "texto": "maca",
+          "inicio": 26.32,
+          "fin": 26.54
+        },
+        {
+          "texto": "negra",
+          "inicio": 26.587,
+          "fin": 26.947
+        },
+        {
+          "texto": "llegan",
+          "inicio": 27.109,
+          "fin": 27.469
+        }
+      ]
+    },
+    {
+      "inicio": 27.516,
+      "fin": 28.599,
+      "texto": "directo al músculo",
+      "palabras": [
+        {
+          "texto": "directo",
+          "inicio": 27.516,
+          "fin": 27.841
+        },
+        {
+          "texto": "al",
+          "inicio": 27.864,
+          "fin": 27.922
+        },
+        {
+          "texto": "músculo",
+          "inicio": 27.98,
+          "fin": 28.479
+        }
+      ]
+    },
+    {
+      "inicio": 28.7,
+      "fin": 29.783,
+      "texto": "y lo despiertan.",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 28.7,
+          "fin": 28.769
+        },
+        {
+          "texto": "lo",
+          "inicio": 28.839,
+          "fin": 28.932
+        },
+        {
+          "texto": "despiertan.",
+          "inicio": 28.978,
+          "fin": 29.663
+        }
+      ]
+    },
+    {
+      "inicio": 30.012,
+      "fin": 30.991,
+      "texto": "Día diez:",
+      "palabras": [
+        {
+          "texto": "Día",
+          "inicio": 30.012,
+          "fin": 30.314
+        },
+        {
+          "texto": "diez:",
+          "inicio": 30.372,
+          "fin": 30.871
+        }
+      ]
+    },
+    {
+      "inicio": 31.161,
+      "fin": 32.012,
+      "texto": "el jean ya",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 31.161,
+          "fin": 31.3
+        },
+        {
+          "texto": "jean",
+          "inicio": 31.382,
+          "fin": 31.637
+        },
+        {
+          "texto": "ya",
+          "inicio": 31.823,
+          "fin": 31.974
+        }
+      ]
+    },
+    {
+      "inicio": 32.032,
+      "fin": 32.488,
+      "texto": "no te queda",
+      "palabras": [
+        {
+          "texto": "no",
+          "inicio": 32.032,
+          "fin": 32.113
+        },
+        {
+          "texto": "te",
+          "inicio": 32.16,
+          "fin": 32.229
+        },
+        {
+          "texto": "queda",
+          "inicio": 32.276,
+          "fin": 32.45
+        }
+      ]
+    },
+    {
+      "inicio": 32.508,
+      "fin": 33.139,
+      "texto": "suelto.",
+      "palabras": [
+        {
+          "texto": "suelto.",
+          "inicio": 32.508,
+          "fin": 33.019
+        }
+      ]
+    },
+    {
+      "inicio": 33.309,
+      "fin": 33.753,
+      "texto": "Yo hice el",
+      "palabras": [
+        {
+          "texto": "Yo",
+          "inicio": 33.309,
+          "fin": 33.46
+        },
+        {
+          "texto": "hice",
+          "inicio": 33.506,
+          "fin": 33.669
+        },
+        {
+          "texto": "el",
+          "inicio": 33.692,
+          "fin": 33.738
+        }
+      ]
+    },
+    {
+      "inicio": 33.773,
+      "fin": 34.786,
+      "texto": "tratamiento completo",
+      "palabras": [
+        {
+          "texto": "tratamiento",
+          "inicio": 33.773,
+          "fin": 34.296
+        },
+        {
+          "texto": "completo",
+          "inicio": 34.354,
+          "fin": 34.772
+        }
+      ]
+    },
+    {
+      "inicio": 34.806,
+      "fin": 35.925,
+      "texto": "de tres meses,",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 34.806,
+          "fin": 34.865
+        },
+        {
+          "texto": "tres",
+          "inicio": 34.911,
+          "fin": 35.143
+        },
+        {
+          "texto": "meses,",
+          "inicio": 35.213,
+          "fin": 35.805
+        }
+      ]
+    },
+    {
+      "inicio": 35.967,
+      "fin": 36.482,
+      "texto": "porque es el",
+      "palabras": [
+        {
+          "texto": "porque",
+          "inicio": 35.967,
+          "fin": 36.258
+        },
+        {
+          "texto": "es",
+          "inicio": 36.281,
+          "fin": 36.339
+        },
+        {
+          "texto": "el",
+          "inicio": 36.397,
+          "fin": 36.443
+        }
+      ]
+    },
+    {
+      "inicio": 36.502,
+      "fin": 37.341,
+      "texto": "que da resultados",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 36.502,
+          "fin": 36.583
+        },
+        {
+          "texto": "da",
+          "inicio": 36.629,
+          "fin": 36.699
+        },
+        {
+          "texto": "resultados",
+          "inicio": 36.757,
+          "fin": 37.256
+        }
+      ]
+    },
+    {
+      "inicio": 37.361,
+      "fin": 38.723,
+      "texto": "rápidos y duraderos:",
+      "palabras": [
+        {
+          "texto": "rápidos",
+          "inicio": 37.361,
+          "fin": 37.755
+        },
+        {
+          "texto": "y",
+          "inicio": 37.813,
+          "fin": 37.848
+        },
+        {
+          "texto": "duraderos:",
+          "inicio": 37.883,
+          "fin": 38.603
+        }
+      ]
+    },
+    {
+      "inicio": 38.824,
+      "fin": 39.639,
+      "texto": "se quedan incluso",
+      "palabras": [
+        {
+          "texto": "se",
+          "inicio": 38.824,
+          "fin": 38.94
+        },
+        {
+          "texto": "quedan",
+          "inicio": 38.998,
+          "fin": 39.241
+        },
+        {
+          "texto": "incluso",
+          "inicio": 39.3,
+          "fin": 39.636
+        }
+      ]
+    },
+    {
+      "inicio": 39.659,
+      "fin": 40.069,
+      "texto": "después de",
+      "palabras": [
+        {
+          "texto": "después",
+          "inicio": 39.659,
+          "fin": 39.961
+        },
+        {
+          "texto": "de",
+          "inicio": 39.985,
+          "fin": 40.043
+        }
+      ]
+    },
+    {
+      "inicio": 40.089,
+      "fin": 41.184,
+      "texto": "terminarlo, sin",
+      "palabras": [
+        {
+          "texto": "terminarlo,",
+          "inicio": 40.089,
+          "fin": 40.786
+        },
+        {
+          "texto": "sin",
+          "inicio": 40.89,
+          "fin": 41.146
+        }
+      ]
+    },
+    {
+      "inicio": 41.204,
+      "fin": 42.322,
+      "texto": "efecto rebote.",
+      "palabras": [
+        {
+          "texto": "efecto",
+          "inicio": 41.204,
+          "fin": 41.563
+        },
+        {
+          "texto": "rebote.",
+          "inicio": 41.633,
+          "fin": 42.202
+        }
+      ]
+    },
+    {
+      "inicio": 42.492,
+      "fin": 43.355,
+      "texto": "Lo pedí, me",
+      "palabras": [
+        {
+          "texto": "Lo",
+          "inicio": 42.492,
+          "fin": 42.62
+        },
+        {
+          "texto": "pedí,",
+          "inicio": 42.666,
+          "fin": 43.212
+        },
+        {
+          "texto": "me",
+          "inicio": 43.247,
+          "fin": 43.351
+        }
+      ]
+    },
+    {
+      "inicio": 43.375,
+      "fin": 43.819,
+      "texto": "llegó a la",
+      "palabras": [
+        {
+          "texto": "llegó",
+          "inicio": 43.375,
+          "fin": 43.618
+        },
+        {
+          "texto": "a",
+          "inicio": 43.642,
+          "fin": 43.665
+        },
+        {
+          "texto": "la",
+          "inicio": 43.7,
+          "fin": 43.781
+        }
+      ]
+    },
+    {
+      "inicio": 43.839,
+      "fin": 44.597,
+      "texto": "casa y lo",
+      "palabras": [
+        {
+          "texto": "casa",
+          "inicio": 43.839,
+          "fin": 44.222
+        },
+        {
+          "texto": "y",
+          "inicio": 44.303,
+          "fin": 44.373
+        },
+        {
+          "texto": "lo",
+          "inicio": 44.454,
+          "fin": 44.559
+        }
+      ]
+    },
+    {
+      "inicio": 44.617,
+      "fin": 45.875,
+      "texto": "pagué al recibirlo.",
+      "palabras": [
+        {
+          "texto": "pagué",
+          "inicio": 44.617,
+          "fin": 44.884
+        },
+        {
+          "texto": "al",
+          "inicio": 44.907,
+          "fin": 44.954
+        },
+        {
+          "texto": "recibirlo.",
+          "inicio": 45.023,
+          "fin": 45.755
+        }
+      ]
+    },
+    {
+      "inicio": 45.94,
+      "fin": 46.571,
+      "texto": "El tuyo está",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 45.94,
+          "fin": 46.103
+        },
+        {
+          "texto": "tuyo",
+          "inicio": 46.161,
+          "fin": 46.405
+        },
+        {
+          "texto": "está",
+          "inicio": 46.428,
+          "fin": 46.567
+        }
+      ]
+    },
+    {
+      "inicio": 46.591,
+      "fin": 47.07,
+      "texto": "en el botón",
+      "palabras": [
+        {
+          "texto": "en",
+          "inicio": 46.591,
+          "fin": 46.637
+        },
+        {
+          "texto": "el",
+          "inicio": 46.695,
+          "fin": 46.753
+        },
+        {
+          "texto": "botón",
+          "inicio": 46.8,
+          "fin": 47.043
+        }
+      ]
+    },
+    {
+      "inicio": 47.09,
+      "fin": 47.79,
+      "texto": "de abajo.",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 47.09,
+          "fin": 47.148
+        },
+        {
+          "texto": "abajo.",
+          "inicio": 47.194,
+          "fin": 47.67
+        }
+      ]
+    },
+    {
+      "inicio": 47.856,
+      "fin": 48.382,
+      "texto": "Este es el",
+      "palabras": [
+        {
+          "texto": "Este",
+          "inicio": 47.856,
+          "fin": 48.17
+        },
+        {
+          "texto": "es",
+          "inicio": 48.193,
+          "fin": 48.251
+        },
+        {
+          "texto": "el",
+          "inicio": 48.297,
+          "fin": 48.344
+        }
+      ]
+    },
+    {
+      "inicio": 48.402,
+      "fin": 49.3,
+      "texto": "que debes pedir:",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 48.402,
+          "fin": 48.483
+        },
+        {
+          "texto": "debes",
+          "inicio": 48.529,
+          "fin": 48.738
+        },
+        {
+          "texto": "pedir:",
+          "inicio": 48.796,
+          "fin": 49.18
+        }
+      ]
+    },
+    {
+      "inicio": 49.365,
+      "fin": 50.472,
+      "texto": "aguaje y fenogreco",
+      "palabras": [
+        {
+          "texto": "aguaje",
+          "inicio": 49.365,
+          "fin": 49.853
+        },
+        {
+          "texto": "y",
+          "inicio": 49.876,
+          "fin": 49.899
+        },
+        {
+          "texto": "fenogreco",
+          "inicio": 49.957,
+          "fin": 50.445
+        }
+      ]
+    },
+    {
+      "inicio": 50.492,
+      "fin": 51.575,
+      "texto": "puro de verdad.",
+      "palabras": [
+        {
+          "texto": "puro",
+          "inicio": 50.492,
+          "fin": 50.701
+        },
+        {
+          "texto": "de",
+          "inicio": 50.735,
+          "fin": 50.793
+        },
+        {
+          "texto": "verdad.",
+          "inicio": 50.828,
+          "fin": 51.455
+        }
+      ]
+    }
+  ],
+  "estiloSubtitulos": {
+    "tamano": 0.06137,
+    "interlineado": 1.1,
+    "contornoRespectoTamano": 0.135,
+    "desdeAbajo": 0.26,
+    "coloresResaltado": [
+      "#E8442A",
+      "#F5A524",
+      "#2F7DE1",
+      "#159A5B",
+      "#B5279B",
+      "#E01E5A",
+      "#7B3FE4",
+      "#0FA3B1",
+      "#D64500",
+      "#3B7A2A"
+    ],
+    "cajaPadding": 0.12,
+    "cajaRedondeo": 0.1,
+    "colorResaltado": "#3B7A2A"
+  },
+  "transiciones": [],
+  "reglasTransiciones": {
+    "duracionSeg": 0.45,
+    "duracionZoomSeg": 0.5,
+    "efectoDb": 0,
+    "zoomDesde": 1.35
+  },
+  "brollFuera": [],
+  "avisos": [
+    "paso-8.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "paso-10.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes)."
+  ]
+}

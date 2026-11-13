@@ -1,0 +1,12 @@
+{
+  "pid": 32823,
+  "paso": "render",
+  "script": "ensamblar.js",
+  "args": [
+    "temp/aguaje-complex-10x-claymation-20261113-1558",
+    "--solo-completa"
+  ],
+  "comando": "node produccion/ensamblar.js temp/aguaje-complex-10x-claymation-20261113-1558 --solo-completa",
+  "inicio": "2026-11-13T21:31:15.634Z",
+  "app": 25602
+}

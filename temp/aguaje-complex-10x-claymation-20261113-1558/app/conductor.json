@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-claymation-20261113-1558",
   "familia": "continuidad",
   "estado": "corriendo",
-  "paso": "revision-cadena",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -80,34 +80,43 @@
     {
       "id": "revision-cadena",
       "nombre": "Revisar las uniones entre escenas",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-13T21:27:47.115Z",
-      "detalle": "Mirando los cuadros de los clips"
+      "fin": "2026-11-13T21:30:44.408Z",
+      "nota": "La revisión dejó 4 avisos: míralos en el proceso."
     },
     {
       "id": "voces",
       "nombre": "Buscar voces que no van",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:30:44.412Z",
+      "fin": "2026-11-13T21:31:03.146Z",
+      "nota": "1 clip(s) traían una voz que no iba: van sin sonido."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:31:03.146Z",
+      "fin": "2026-11-13T21:31:03.598Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:31:03.599Z",
+      "fin": "2026-11-13T21:31:15.617Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:31:15.621Z"
     },
     {
       "id": "control-final",
@@ -126,7 +135,7 @@
   "modoPrueba": false,
   "creado": "2026-11-13T21:15:31.187Z",
   "aprobado": "2026-11-13T21:15:31.187Z",
-  "actualizado": "2026-11-13T21:29:31.132Z",
+  "actualizado": "2026-11-13T21:31:15.621Z",
   "saldoInicial": {
     "creditos": 2064.8,
     "fecha": "2026-11-13T21:15:32.232Z"
