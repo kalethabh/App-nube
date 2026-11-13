@@ -145,6 +145,17 @@ Los modelos se eligen en **Ajustes → Modelos** o junto al costo antes de aprob
 - El avance dice «está repartiendo tu guion en escenas». Probado: sintaxis (`node --check`) y el texto armado; sin un
   anuncio real todavía.
 
+### Editor: imágenes propias y mover con el mouse (2026-11-13, PR pendiente)
+
+- «Agregar imagen en el cursor» (pestaña Textos) o soltar un PNG/JPG/WEBP/GIF en la ventana: se sube a
+  `temp/<slug>/app/edicion/imagenes/` (`POST /api/anuncios/:slug/edicion/imagen`) y va en `textosNuevos` con
+  `archivo`, `ancho`, `x`, `y` (centro). Se mueve, recorta y borra en la pista de textos como un texto.
+- En la vista previa, textos e imágenes se arrastran con el mouse (`app/src/pantallas/editor/arrastrar.js`; la
+  composición marca cada uno con `data-capa`). El elegido lleva un marco; un toque no pausa ni reproduce.
+- Se dibuja en `AnuncioEditado.jsx` (`ImagenEnPantalla`) y la exportación enlaza las imágenes a la carpeta pública
+  (`produccion/exportar-edicion.js`). Probado en una copia con el anuncio de Aguaje: subir, arrastrar (imagen y
+  texto), Deshacer y exportar a 720 (las imágenes salen en su lugar).
+
 ## Validación más reciente y sus límites
 
 Todo se probó sin servicios de pago y sin modificar los anuncios personales.

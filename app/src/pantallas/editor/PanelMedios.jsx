@@ -1,7 +1,7 @@
 // Panel izquierdo, como el de CapCut: los clips del anuncio, la música, los estilos de subtítulos y
 // los textos en pantalla.
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { Archive, Captions, Check, Film, Music, Pause, Play, Plus, Type, Upload, X } from 'lucide-react';
+import { Archive, Captions, Check, Film, ImagePlus, Music, Pause, Play, Plus, Type, Upload, X } from 'lucide-react';
 import { Boton, EstadoVacio, Insignia, Interruptor, MiniaturaVideo, Tooltip, VistaPrevia, useAvisos } from '../../componentes/index.js';
 import { useDatos } from '../../datos/api.js';
 import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato.js';
@@ -271,16 +271,34 @@ function PestanaMusica({ slug, pistas, ed, acciones, playerRef }) {
 
 function PestanaTextos({ pistas, ed, cambiar, onIr, acciones }) {
   const textos = pistas.textos;
+  const elegirImagen = useRef(null);
   const agregar = (
-    <Boton variante="secundario" tamano="chico" icono={Plus} bloque onClick={acciones.agregarTexto}>
-      Agregar texto en el cursor
-    </Boton>
+    <>
+      <Boton variante="secundario" tamano="chico" icono={Plus} bloque onClick={acciones.agregarTexto}>
+        Agregar texto en el cursor
+      </Boton>
+      <Boton variante="secundario" tamano="chico" icono={ImagePlus} bloque onClick={() => elegirImagen.current?.click()}>
+        Agregar imagen en el cursor
+      </Boton>
+      <input
+        ref={elegirImagen}
+        type="file"
+        accept="image/png,image/jpeg,image/webp,image/gif"
+        hidden
+        onChange={(e) => {
+          const f = e.target.files?.[0];
+          e.target.value = '';
+          if (f) acciones.agregarImagen(f);
+        }}
+      />
+      <p className="ed-medios__nota">Arrastra los textos y las imágenes en el video para moverlos.</p>
+    </>
   );
   if (!textos.length) {
     return (
       <div className="ed-pestana-textos">
         {agregar}
-        <EstadoVacio variante="compacto" icono={Type} titulo="Sin textos en pantalla" descripcion="Agrega uno y elige su color, fondo, tamaño, lugar y tipo de letra." />
+        <EstadoVacio variante="compacto" icono={Type} titulo="Sin textos ni imágenes" descripcion="Agrega un texto (su color, fondo, tamaño y letra) o una imagen, y muévelos con el mouse en el video." />
       </div>
     );
   }

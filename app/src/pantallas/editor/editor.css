@@ -2659,3 +2659,34 @@ html:has(.ed) .avisos {
 .ed-rehaciendo--aviso > svg {
   color: var(--aviso);
 }
+
+/* ---------------------------------------------------------------- mover textos e imágenes con el mouse (arrastrar.js) */
+.ed-lienzo.sobre-capa,
+.ed-lienzo.sobre-capa * {
+  cursor: move !important;
+}
+.ed-lienzo.es-arrastrando,
+.ed-lienzo.es-arrastrando * {
+  cursor: grabbing !important;
+  user-select: none;
+}
+.ed-lienzo__marco {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  border: 2px dashed var(--acento);
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+.ed-elegido__imagen {
+  display: block;
+  max-width: 100%;
+  max-height: 140px;
+  margin: 0 auto 4px;
+  border-radius: var(--r-s, 8px);
+  object-fit: contain;
+  background: repeating-conic-gradient(rgba(255, 255, 255, 0.06) 0% 25%, transparent 0% 50%) 50% / 16px 16px;
+}

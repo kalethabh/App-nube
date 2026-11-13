@@ -25,6 +25,7 @@ import {
   cortesPosibles,
   entradaEnLaCancion,
   LUGAR_TEXTO,
+  LUGAR_IMAGEN,
   queSePuedeConElClip,
   VELOCIDAD_MIN,
   VELOCIDAD_MAX,
@@ -270,6 +271,19 @@ export function agregarTexto(plan, ed, { t, color }) {
   const inicio = r4(entre(t, 0, Math.max(0, dur - largo)));
   const id = nuevoId('t');
   const x = { id, texto: 'Tu texto', inicio, fin: r4(inicio + largo), color: '#FFFFFF', fondo: color || '#E8442A', tamano: 1, x: LUGAR_TEXTO.x, y: LUGAR_TEXTO.y, fuente: 'titulo' };
+  return { ed: { ...ed, textosNuevos: [...(ed.textosNuevos || []), x] }, nuevo: id };
+}
+
+/**
+ * Una imagen nueva en el cursor (ya subida a la carpeta del anuncio: `archivo`). Va en la pista de textos: se mueve,
+ * se recorta y se borra igual que un texto. Dura 3 segundos (o lo que quede del anuncio).
+ */
+export function agregarImagen(plan, ed, { t, archivo, nombre, id: idDado = null }) {
+  const dur = plan.duracion || 1;
+  const largo = Math.min(3, dur);
+  const inicio = r4(entre(t, 0, Math.max(0, dur - largo)));
+  const id = idDado || nuevoId('i');
+  const x = { id, texto: String(nombre || 'Imagen').replace(/\.[a-z0-9]+$/i, '').slice(0, 60) || 'Imagen', archivo, inicio, fin: r4(inicio + largo), ...LUGAR_IMAGEN };
   return { ed: { ...ed, textosNuevos: [...(ed.textosNuevos || []), x] }, nuevo: id };
 }
 

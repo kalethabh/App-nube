@@ -35,7 +35,7 @@ import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato
 import { ESTILO_POR_ID } from './subtitulos/estilos.jsx';
 import { FUENTES } from './subtitulos/fuentes.js';
 import { Deslizador } from './piezas.jsx';
-import { FUENTES_TEXTO, LUGAR_TEXTO } from './modelo.js';
+import { FUENTES_TEXTO, LUGAR_IMAGEN, LUGAR_TEXTO } from './modelo.js';
 import { AccionesClip } from './AccionesClip.jsx';
 
 const NOMBRES_COLOR = {
@@ -163,7 +163,26 @@ function EditorTexto({ x, acciones, paleta }) {
       <Deslizador icono={ALargeSmall} etiqueta="Tamaño" valor={e.tamano} min={0.6} max={1.8} porDefecto={1} onCambio={(v) => ajustar({ tamano: v }, 'Tamaño del texto', `tamano-${id}`)} />
       <Deslizador icono={ArrowUpDown} etiqueta="Altura" valor={e.y} min={0.05} max={0.85} porDefecto={LUGAR_TEXTO.y} formato={altura} onCambio={(v) => ajustar({ y: v }, 'Altura del texto', `y-${id}`)} />
       <Deslizador icono={ArrowLeftRight} etiqueta="Hacia los lados" valor={e.x} min={0.2} max={0.8} porDefecto={LUGAR_TEXTO.x} formato={lado} onCambio={(v) => ajustar({ x: Math.abs(v - 0.5) < 0.02 ? 0.5 : v }, 'Mover el texto a un lado', `x-${id}`)} />
-      <p className="ed-nota">Para que aparezca antes o después, arrastra el texto en la línea de tiempo; sus bordes cambian cuánto dura.</p>
+      <p className="ed-nota">Arrástralo en el video para moverlo. Para que aparezca antes o después, arrastra el texto en la línea de tiempo; sus bordes cambian cuánto dura.</p>
+    </>
+  );
+}
+
+/** La imagen elegida: su tamaño y su lugar (también se mueve arrastrándola en el video). */
+function EditorImagen({ x, acciones }) {
+  const id = x.id;
+  const e = x.imagenEstilo || {};
+  const ajustar = (cambios, etiqueta, grupo) => acciones.ajustarTexto(id, cambios, { etiqueta, grupo });
+  const pct = (v) => `${Math.round(v * 100)} %`;
+  const lado = (v) => (Math.abs(v - 0.5) < 0.02 ? 'Al centro' : v < 0.5 ? 'A la izquierda' : 'A la derecha');
+  const altura = (v) => (v < 0.36 ? 'Arriba' : v < 0.62 ? 'Al centro' : 'Abajo');
+  return (
+    <>
+      {x.imagen ? <img className="ed-elegido__imagen" src={x.imagen} alt="" /> : null}
+      <Deslizador icono={ALargeSmall} etiqueta="Tamaño" valor={e.ancho ?? LUGAR_IMAGEN.ancho} min={0.1} max={1.2} porDefecto={LUGAR_IMAGEN.ancho} formato={pct} onCambio={(v) => ajustar({ ancho: v }, 'Tamaño de la imagen', `ancho-${id}`)} />
+      <Deslizador icono={ArrowUpDown} etiqueta="Altura" valor={e.y ?? LUGAR_IMAGEN.y} min={0} max={1} porDefecto={LUGAR_IMAGEN.y} formato={altura} onCambio={(v) => ajustar({ y: v }, 'Altura de la imagen', `y-${id}`)} />
+      <Deslizador icono={ArrowLeftRight} etiqueta="Hacia los lados" valor={e.x ?? LUGAR_IMAGEN.x} min={0} max={1} porDefecto={LUGAR_IMAGEN.x} formato={lado} onCambio={(v) => ajustar({ x: Math.abs(v - 0.5) < 0.02 ? 0.5 : v }, 'Mover la imagen a un lado', `x-${id}`)} />
+      <p className="ed-nota">Arrástrala en el video para ponerla donde quieras. Para que aparezca antes o después, muévela en la línea de tiempo; sus bordes cambian cuánto dura.</p>
     </>
   );
 }
@@ -384,6 +403,14 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
   if (pista === 'textos') {
     const x = pistas.textos.find((y) => y.id === id);
     if (!x) return null;
+    if (x.archivo) {
+      return (
+        <Seccion icono={Type} titulo="Tu imagen" resaltada accion={<span className="ed-seccion__dato t-mono">{codigoDeTiempo(x.inicio)}</span>}>
+          <EditorImagen key={id} x={x} acciones={acciones} />
+          <BotonesCorte acciones={acciones} dividir={false} borrar="Borrar imagen" />
+        </Seccion>
+      );
+    }
     if (x.fijo) {
       return (
         <Seccion icono={Type} titulo={x.tipo === 'icono' ? 'Icono en pantalla' : 'Texto en pantalla'} resaltada accion={<span className="ed-seccion__dato t-mono">{codigoDeTiempo(x.inicio)}</span>}>

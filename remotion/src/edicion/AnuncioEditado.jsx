@@ -21,7 +21,7 @@
 //              url ya resuelta: en la vista previa una dirección de la app (o el archivo que arrastró el
 //              usuario); en el render, una ruta dentro de la carpeta pública (se pide con staticFile).
 import { useEffect, useMemo, useState } from 'react';
-import { AbsoluteFill, Audio, Loop, Sequence, continueRender, delayRender, getRemotionEnvironment, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Audio, Img, Loop, Sequence, continueRender, delayRender, getRemotionEnvironment, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Anuncio } from '../Anuncio.jsx';
 import { capasDeEdicion } from './capas.mjs';
 import { Subtitulos } from './subtitulos/estilos.jsx';
@@ -134,7 +134,7 @@ function MusicaEntera({ musica }) {
  * fundido. Su aspecto ya viene resuelto (textosEnPantalla en capas.mjs): color de letra, fondo (o sin fondo),
  * tamaño, lugar y tipo de letra. Sin cambios se ve exactamente como siempre.
  */
-function TextoEnPantalla({ texto, inicio, fin, estilo }) {
+function TextoEnPantalla({ id, texto, inicio, fin, estilo }) {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
@@ -158,6 +158,7 @@ function TextoEnPantalla({ texto, inicio, fin, estilo }) {
       <div style={{ display: 'flex', width: '100%', padding: `0 ${width * 0.04}px`, boxSizing: 'border-box' }}>
         <div style={{ flexGrow: lado }} />
         <div
+          data-capa={id}
           style={{
             flex: '0 1 auto',
             maxWidth: width * 0.84,
@@ -189,6 +190,38 @@ function TextoEnPantalla({ texto, inicio, fin, estilo }) {
   );
 }
 
+/**
+ * Una imagen que puso el usuario en el editor: centrada en (x, y), con su ancho (el alto sale de la imagen). Entra
+ * con un pop y se va con un fundido, como los textos.
+ */
+function ImagenEnPantalla({ id, archivo, inicio, fin, estilo }) {
+  const frame = useCurrentFrame();
+  const { fps, width, height } = useVideoConfig();
+  const t = frame / fps;
+  if (t < inicio || t >= fin) return null;
+  const e = estilo || {};
+  const dt = t - inicio;
+  const k = dt <= 0 ? 0 : 1 - Math.exp(-dt * 10) * Math.cos(dt * 20);
+  const salida = interpolate(t, [fin - 0.18, fin], [1, 0], CLAMP);
+  return (
+    <AbsoluteFill style={{ pointerEvents: 'none' }}>
+      <Img
+        data-capa={id}
+        src={fuente(archivo)}
+        style={{
+          position: 'absolute',
+          left: width * (e.x ?? 0.5),
+          top: height * (e.y ?? 0.42),
+          width: width * (e.ancho ?? 0.5),
+          height: 'auto',
+          transform: `translate(-50%, -50%) scale(${0.6 + 0.4 * k})`,
+          opacity: salida,
+        }}
+      />
+    </AbsoluteFill>
+  );
+}
+
 function CapaSubtitulos({ ajustes }) {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
@@ -204,9 +237,13 @@ export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color }) 
   return (
     <AbsoluteFill style={{ backgroundColor: 'black' }}>
       <Anuncio plan={plan} sinSubtitulos sinMusica />
-      {(textos || []).map((x) => (
-        <TextoEnPantalla key={x.id} texto={x.texto} inicio={x.inicio} fin={x.fin} estilo={x.estilo} />
-      ))}
+      {(textos || []).map((x) =>
+        x.archivo ? (
+          <ImagenEnPantalla key={x.id} id={x.id} archivo={x.archivo} inicio={x.inicio} fin={x.fin} estilo={x.imagenEstilo} />
+        ) : (
+          <TextoEnPantalla key={x.id} id={x.id} texto={x.texto} inicio={x.inicio} fin={x.fin} estilo={x.estilo} />
+        )
+      )}
       {subtitulos ? <CapaSubtitulos ajustes={subtitulos} /> : null}
       {voz?.archivo ? <Audio src={staticFile(voz.archivo)} volume={() => Math.max(0, Math.min(1, voz.volumen))} /> : null}
       {musica?.src ? <Musica musica={musica} /> : null}
