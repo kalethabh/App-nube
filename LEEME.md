@@ -14,21 +14,7 @@ Las claves se pegan dentro de la app (Ajustes, Conexiones). Nunca se las pases a
 
 ## Cómo empezar
 
-### Desde GitHub (así se guarda todo solo)
-
-1. Instala **Git** si no lo tienes (Mac: abre la Terminal y escribe `git --version`; si falta, la Mac ofrece instalarlo. Windows: https://git-scm.com).
-2. En la Terminal, en tu carpeta de usuario:
-
-   ```
-   git clone https://github.com/kalethabh/App-nube.git "Anuncios con IA"
-   ```
-
-   (te pide iniciar sesión en GitHub la primera vez, porque el repositorio es privado).
-3. Abre la carpeta «Anuncios con IA» y sigue desde el paso 2 de abajo (doble clic en el lanzador).
-
-Con la app abierta, cada 2 minutos lo liviano (guiones, ajustes, aprendizajes) se sube solo a tu GitHub, y los videos, audios e imágenes van a tu Google Drive, en la carpeta «Anuncios con IA». **Apenas un anuncio termina, lo pesado se borra de tu computador** (queda en Drive); si lo abres para editarlo, vuelve solo. Necesitas Google Drive para escritorio, con **«Transmitir archivos»** activado (Preferencias de Google Drive → Google Drive → Transmitir archivos), así lo de Drive tampoco ocupa espacio. Lo ves en **Ajustes, Guardado**.
-
-### Desde el zip
+### Cómo empezar desde el zip
 
 1. **Descomprime el zip.** Te queda una carpeta llamada «Anuncios con IA». Déjala en un lugar fijo, en tu carpeta de usuario:
    - En **Windows**: abre el Explorador, escribe %USERPROFILE% en la barra de arriba, pulsa Enter y pega ahí la carpeta. Mejor no en Escritorio, Documentos ni Descargas: muchas veces están dentro de OneDrive, que intenta subir tus videos y puede trabar la instalación. Tampoco la metas dentro de muchas otras carpetas: si la ruta queda muy larga, Windows no deja armar los videos.
