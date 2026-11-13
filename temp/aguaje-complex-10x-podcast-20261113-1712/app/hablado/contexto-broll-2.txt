@@ -1,0 +1,26 @@
+
+=== Contexto para rehacer el B-roll 2 ===
+
+  NO SE TOCAN (atados al montaje):
+    n                2
+    duracion         5
+    encima_de_toma   5
+    sincroniza_con   aguaje, fenogreco y maca negra
+    referencias      (ninguna)
+
+  VA CON LA TOMA 5 (tipo H):
+    su frase:        "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza. Eso es lo que da los resultados, no la marca."
+
+  Un B-roll no tiene frase: nadie habla en el (no hay nada que copiar letra por letra).
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen (prompt_imagen) ---
+Foto realista vertical 9:16, como tomada con una cámara real, de tres ingredientes naturales sobre una mesa de madera de cocina, vistos un poco desde arriba. Los tres, enteros, caben en la franja del medio de la imagen, con aire alrededor; arriba y abajo solo queda la mesa de madera. Luz natural suave y difusa de una ventana de cocina, a un lado. Sobre la mesa solo hay: una canasta pequeña con frutos de aguaje frescos (frutos ovalados del tamaño de un huevo, con cáscara de escamas pequeñas, duras y brillantes de color rojizo oscuro, como una piña de pino lisa; uno abierto por la mitad muestra una pulpa amarilla delgada alrededor de una semilla grande; no son mangos ni papayas), un platico de cerámica con semillas de fenogreco (granos pequeños, duros, de color amarillo mostaza) y una cuchara de madera con polvo de maca negra (polvo fino de color café oscuro); no hay nada más. No hay frascos, cápsulas ni pastillas. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.
+
+  --- video (prompt_video) ---
+Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija. Nada se mueve de su lugar; solo cambia apenas la luz de la ventana sobre la mesa. Nadie habla: no hay voces ni bocas que se muevan. No entran manos al cuadro. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.
+
+  Para aplicar prompts nuevos (JSON con "prompt_video" y, si la imagen estaba mal, "prompt_imagen"):
+      node produccion/rehacer-toma.js temp/aguaje-complex-10x-podcast-20261113-1712 --broll 2 --aplicar nuevos.json
+

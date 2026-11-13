@@ -1,11 +1,11 @@
 {
-  "pid": 38380,
-  "paso": "revision-habla",
-  "script": "extraer-frames.js",
+  "pid": 39201,
+  "paso": "montaje",
+  "script": "planear-montaje.js",
   "args": [
     "temp/aguaje-complex-10x-podcast-20261113-1712"
   ],
-  "comando": "node produccion/extraer-frames.js temp/aguaje-complex-10x-podcast-20261113-1712",
-  "inicio": "2026-11-13T22:33:23.632Z",
+  "comando": "node produccion/planear-montaje.js temp/aguaje-complex-10x-podcast-20261113-1712",
+  "inicio": "2026-11-13T22:36:11.280Z",
   "app": 34784
 }

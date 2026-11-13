@@ -1,0 +1,456 @@
+{
+  "generado": "2026-11-13T22:34:16.444Z",
+  "nota": "Fotogramas fijos. NO sirven para juzgar la fluidez del movimiento ni el audio.",
+  "frames": 5,
+  "clips": [
+    {
+      "clip": "toma-1.mp4",
+      "tira": "qa/toma-1.jpg",
+      "duracion": 10,
+      "segundos": [
+        0.2,
+        2.7,
+        5,
+        7.5,
+        9.7
+      ],
+      "tipo": "H",
+      "linea": "Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana. Imagínate que ya estaba ahorrando pa' operarme.",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-a",
+      "lineas": [
+        {
+          "orden": 1,
+          "texto": "Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana."
+        },
+        {
+          "orden": 3,
+          "texto": "Imagínate que ya estaba ahorrando pa' operarme."
+        }
+      ]
+    },
+    {
+      "clip": "toma-2.mp4",
+      "tira": "qa/toma-2.jpg",
+      "duracion": 10,
+      "segundos": [
+        0.2,
+        2.7,
+        5,
+        7.5,
+        9.7
+      ],
+      "tipo": "H",
+      "linea": "¿Y qué te tomaste? ¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote. ¿Y cómo te fue?",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-a",
+      "lineas": [
+        {
+          "orden": 6,
+          "texto": "¿Y qué te tomaste?"
+        },
+        {
+          "orden": 9,
+          "texto": "¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote."
+        },
+        {
+          "orden": 12,
+          "texto": "¿Y cómo te fue?"
+        }
+      ]
+    },
+    {
+      "clip": "toma-3.mp4",
+      "tira": "qa/toma-3.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "H",
+      "linea": "¡Ay no! Ya mismo les escribo.",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-a",
+      "lineas": [
+        {
+          "orden": 14,
+          "texto": "¡Ay no!"
+        },
+        {
+          "orden": 18,
+          "texto": "Ya mismo les escribo."
+        }
+      ]
+    },
+    {
+      "clip": "toma-4.mp4",
+      "tira": "qa/toma-4.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.16,
+        2.14,
+        3.96,
+        5.95,
+        7.69
+      ],
+      "tipo": "H",
+      "linea": "¡Ay, no me digas! Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\".",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-b",
+      "lineas": [
+        {
+          "orden": 4,
+          "texto": "¡Ay, no me digas!"
+        },
+        {
+          "orden": 5,
+          "texto": "Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\"."
+        }
+      ]
+    },
+    {
+      "clip": "toma-5.mp4",
+      "tira": "qa/toma-5.jpg",
+      "duracion": 10,
+      "segundos": [
+        0.2,
+        2.7,
+        5,
+        7.5,
+        9.7
+      ],
+      "tipo": "H",
+      "linea": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza. Eso es lo que da los resultados, no la marca.",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-b",
+      "lineas": [
+        {
+          "orden": 7,
+          "texto": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza."
+        },
+        {
+          "orden": 8,
+          "texto": "Eso es lo que da los resultados, no la marca."
+        }
+      ]
+    },
+    {
+      "clip": "toma-6.mp4",
+      "tira": "qa/toma-6.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.16,
+        2.14,
+        3.96,
+        5.95,
+        7.69
+      ],
+      "tipo": "H",
+      "linea": "Nada que ver, a mí no me pasó. Eso era lo que me daba miedo también.",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-b",
+      "lineas": [
+        {
+          "orden": 10,
+          "texto": "Nada que ver, a mí no me pasó."
+        },
+        {
+          "orden": 11,
+          "texto": "Eso era lo que me daba miedo también."
+        }
+      ]
+    },
+    {
+      "clip": "toma-7.mp4",
+      "tira": "qa/toma-7.jpg",
+      "duracion": 10,
+      "segundos": [
+        0.2,
+        2.7,
+        5,
+        7.5,
+        9.7
+      ],
+      "tipo": "H",
+      "linea": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes. Eso sí: hazte el tratamiento completo de tres meses.",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-b",
+      "lineas": [
+        {
+          "orden": 13,
+          "texto": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes."
+        },
+        {
+          "orden": 15,
+          "texto": "Eso sí: hazte el tratamiento completo de tres meses."
+        }
+      ]
+    },
+    {
+      "clip": "toma-8.mp4",
+      "tira": "qa/toma-8.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.16,
+        2.14,
+        3.96,
+        5.95,
+        7.69
+      ],
+      "tipo": "H",
+      "linea": "¿En serio? Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote.",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-b",
+      "lineas": [
+        {
+          "orden": 2,
+          "texto": "¿En serio?"
+        },
+        {
+          "orden": 16,
+          "texto": "Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote."
+        }
+      ]
+    },
+    {
+      "clip": "toma-9.mp4",
+      "tira": "qa/toma-9.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.16,
+        2.14,
+        3.96,
+        5.95,
+        7.69
+      ],
+      "tipo": "H",
+      "linea": "Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-b",
+      "lineas": [
+        {
+          "orden": 17,
+          "texto": "Me llegó a la casa y lo pagué al recibirlo."
+        },
+        {
+          "orden": 19,
+          "texto": "El tuyo está en el botón de abajo."
+        }
+      ]
+    },
+    {
+      "clip": "toma-10.mp4",
+      "tira": "qa/toma-10.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.16,
+        2.14,
+        3.96,
+        5.95,
+        7.69
+      ],
+      "tipo": "H",
+      "linea": "",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-a",
+      "reacciones": [
+        {
+          "n": 1,
+          "descripcion": "Levanta las cejas y abre los ojos, sorprendida, con un \"mm\" corto de boca cerrada"
+        },
+        {
+          "n": 2,
+          "descripcion": "Afloja los hombros y suelta el aire por la nariz, aliviada, con una sonrisa de labios cerrados"
+        },
+        {
+          "n": 3,
+          "descripcion": "Entrecierra los ojos y asiente despacio, convencida, con un murmullo grave de boca cerrada"
+        }
+      ]
+    },
+    {
+      "clip": "toma-11.mp4",
+      "tira": "qa/toma-11.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.16,
+        2.14,
+        3.96,
+        5.95,
+        7.69
+      ],
+      "tipo": "H",
+      "linea": "",
+      "referencias": [],
+      "esperado": {
+        "inicial": null,
+        "final": null
+      },
+      "frame_inicial": "host-b",
+      "reacciones": [
+        {
+          "n": 1,
+          "descripcion": "Niega despacio con una sonrisa de labios cerrados y un suspiro por la nariz, como quien ya pasó por eso"
+        },
+        {
+          "n": 2,
+          "descripcion": "Ladea la cabeza y aprieta los labios con cara de \"qué pesar\", con un \"mm\" corto"
+        },
+        {
+          "n": 3,
+          "descripcion": "Levanta las cejas y se echa un poco hacia atrás, divertida, con un soplido corto por la nariz"
+        }
+      ]
+    },
+    {
+      "clip": "broll-1.mp4",
+      "tira": "qa/broll-1.jpg",
+      "duracion": 5.04,
+      "segundos": [
+        0.1,
+        1.36,
+        2.52,
+        3.78,
+        4.89
+      ],
+      "tipo": "broll",
+      "linea": "porque atrás me quedaba nada",
+      "referencias": [
+        "host-a"
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "broll-2.mp4",
+      "tira": "qa/broll-2.jpg",
+      "duracion": 5,
+      "segundos": [
+        0.1,
+        1.35,
+        2.5,
+        3.75,
+        4.85
+      ],
+      "tipo": "broll",
+      "linea": "aguaje, fenogreco y maca negra",
+      "referencias": [],
+      "esperado": null
+    },
+    {
+      "clip": "broll-3.mp4",
+      "tira": "qa/broll-3.jpg",
+      "duracion": 5.04,
+      "segundos": [
+        0.1,
+        1.36,
+        2.52,
+        3.78,
+        4.89
+      ],
+      "tipo": "broll",
+      "linea": "Eso es lo que da los resultados",
+      "referencias": [
+        "host-b",
+        "producto"
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "broll-4.mp4",
+      "tira": "qa/broll-4.jpg",
+      "duracion": 5.04,
+      "segundos": [
+        0.1,
+        1.36,
+        2.52,
+        3.78,
+        4.89
+      ],
+      "tipo": "broll",
+      "linea": "Porque yo probé unas pastillas",
+      "referencias": [
+        "host-a"
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "broll-5.mp4",
+      "tira": "qa/broll-5.jpg",
+      "duracion": 5.04,
+      "segundos": [
+        0.1,
+        1.36,
+        2.52,
+        3.78,
+        4.89
+      ],
+      "tipo": "broll",
+      "linea": "ahora en el gym me pongo de lado",
+      "referencias": [
+        "host-b"
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "broll-6.mp4",
+      "tira": "qa/broll-6.jpg",
+      "duracion": 5.04,
+      "segundos": [
+        0.1,
+        1.36,
+        2.52,
+        3.78,
+        4.89
+      ],
+      "tipo": "broll",
+      "linea": "Me llegó a la casa",
+      "referencias": [
+        "host-b"
+      ],
+      "esperado": null
+    }
+  ]
+}

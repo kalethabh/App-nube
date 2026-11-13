@@ -1,0 +1,31 @@
+
+=== Contexto para rehacer el B-roll 3 ===
+
+  NO SE TOCAN (atados al montaje):
+    n                3
+    duracion         5
+    encima_de_toma   5
+    sincroniza_con   Eso es lo que da los resultados
+    referencias      host-b, producto
+
+  VA CON LA TOMA 5 (tipo H):
+    su frase:        "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza. Eso es lo que da los resultados, no la marca."
+
+  Un B-roll no tiene frase: nadie habla en el (no hay nada que copiar letra por letra).
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen (prompt_imagen) ---
+Foto realista vertical 9:16, como tomada con una cámara real, de la misma mujer adulta de 30 años de la primera imagen de referencia (úsala SOLO para su cara, su pelo y su piel, nunca para su ropa ni para el lugar), en la cocina de su casa, con una camiseta blanca sencilla, vista desde el pecho hacia arriba y de frente. Con una sola mano sostiene el frasco cerrado junto a su cara, a la altura del pecho y a la misma distancia de la cámara que ella, con los dedos por los costados, sin tapar la etiqueta. El frasco es exactamente el de la segunda imagen de referencia (la foto del producto): un frasco negro mate de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa negra ancha, casi tan ancha como el cuerpo, rodeada por una banda rosada, y etiqueta negra con letras blancas grandes y una línea rosada; ni botella delgada ni pote chato; misma forma, mismos colores, mismas proporciones y misma etiqueta legible, al derecho, nunca en espejo; solo hay uno. El frasco ocupa cerca del 40 % de la altura del cuadro. Su otra mano está vacía y fuera del cuadro: no sostiene nada más que el frasco cerrado; no hay cápsulas, ni pastillas, ni el frasco abierto. Su cara y el frasco, enteros, caben en la franja del medio de la imagen, con aire alrededor; arriba solo queda la pared de la cocina y abajo solo su camiseta. Sonríe tranquila con la boca cerrada, mirando el frasco. Luz natural suave y difusa de una ventana, de frente, que ilumina la etiqueta; frasco mate, sin reflejos, sin arcoíris, sin destellos de lente. Piel real con poros y textura, sin filtro de belleza, pelo negro recogido en un moño alto con mechones sueltos. Sin texto sobreimpreso ni logos agregados. Un solo instante, sin collage.
+
+  --- video (prompt_video) ---
+Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin zoom ni acercamiento. Ella sostiene el frasco cerrado junto a su cara, a la misma distancia de la cámara que ella, lo mira y asiente apenas con una sonrisa de boca cerrada. El frasco no se acerca al lente, no gira ni se desliza; la etiqueta siempre se lee al derecho, nunca en espejo, y se mantiene idéntica y legible todo el clip; solo hay un frasco, negro mate, de lados rectos, ni botella delgada ni pote chato. Su otra mano no entra al cuadro. No se ven cápsulas sueltas ni el frasco abierto. La luz no cambia, sin reflejos ni arcoíris. Nadie habla: no hay voces ni bocas que se muevan. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.
+
+  --- referencia "host-b" (personaje) — repetir palabra por palabra ---
+Usa la imagen adjunta como referencia del lugar, la luz y el encuadre. Mantén la misma sala cálida y elegante con el sofá de lino beige, la misma luz natural de tarde que entra por una ventana grande a un lado, la misma lámpara de pie cálida al fondo y el mismo tipo de micrófono de podcast negro en su brazo articulado. Cambia a la persona: ahora es otra mujer adulta colombiana de 30 años, morena, de piel canela más oscura, cara más redonda con pómulos llenos, cejas gruesas y oscuras, labios más gruesos y nariz más ancha, con el pelo negro recogido en un moño alto con mechones sueltos, aretes de argolla dorados y un suéter tejido color terracota, con unos audífonos negros colgados al cuello. Se ve segura y divertida, la amiga que sabe. Está sentada frente al mismo micrófono, que queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla, vista desde el pecho hacia arriba, un poco descentrada, con el mismo encuadre: los dos hombros y los brazos dentro del cuadro, con aire a los dos lados del cuerpo, sin que ningún brazo toque el borde de la imagen. Mira hacia el lado izquierdo de la imagen, a la amiga con la que habla, que no se ve. Nunca mira a la cámara. Cara real: piel con poros y textura, tono desparejo, sin retoque, sin filtro de belleza, sin efecto plástico, proporciones de persona común. Cambia la posición de los adornos del fondo, todos sin letras: la lámpara de pie ahora queda del otro lado, la repisa de madera se ve desde otro ángulo con otras velas y otro jarrón de cerámica, y una mata grande queda cerca de ella. No hay libros, pantallas ni nada con letras. Es el mismo ambiente, pero desde otro lugar. Se ve como grabado con una cámara de cine, lente de 35 mm a f/2, con poca profundidad de campo. Sin texto, sin letreros ni logos. Aspect 9:16.
+
+  --- referencia "producto" (producto): la foto real producto.png (se manda tal cual) ---
+
+  Para aplicar prompts nuevos (JSON con "prompt_video" y, si la imagen estaba mal, "prompt_imagen"):
+      node produccion/rehacer-toma.js temp/aguaje-complex-10x-podcast-20261113-1712 --broll 3 --aplicar nuevos.json
+

@@ -1,0 +1,29 @@
+
+=== Contexto para rehacer el B-roll 1 ===
+
+  NO SE TOCAN (atados al montaje):
+    n                1
+    duracion         5
+    encima_de_toma   1
+    sincroniza_con   porque atrás me quedaba nada
+    referencias      host-a
+
+  VA CON LA TOMA 1 (tipo H):
+    su frase:        "Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana. Imagínate que ya estaba ahorrando pa' operarme."
+
+  Un B-roll no tiene frase: nadie habla en el (no hay nada que copiar letra por letra).
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen (prompt_imagen) ---
+Foto realista vertical 9:16, como tomada con una cámara real, de la misma mujer adulta de 27 años de la primera imagen de referencia (úsala SOLO para su cara, su pelo y su piel, nunca para su ropa ni para el lugar), en su cuarto por la mañana, de pie frente a un espejo de cuerpo entero apoyado en la pared, terminando de subirse un jean. Está de tres cuartos de lado, casi de perfil, con la cara girada hacia este lado: se le ve bien la cara, con gesto de fastidio y un suspiro, mirándose en el espejo. Lleva una camiseta gris de dormir, holgada y arrugada, y un jean azul que le queda una talla grande atrás: un pliegue de tela sobrante debajo de la cadera, los bolsillos de atrás caídos, la parte de atrás baja en una sola línea recta y plana, y los muslos delgados y rectos dejan el jean flojo. Es una mujer adulta delgada y sin curvas. Se la ve completa pero pequeña en el cuadro: de la cabeza a las rodillas cabe en la franja del medio de la imagen, con aire alrededor; arriba solo queda la pared y abajo solo sus pantorrillas, el piso de madera y la base del espejo. Luz natural suave de una ventana a un lado; al fondo, desenfocada, una cama destendida. Piel real con poros y textura, sin filtro de belleza, pelo castaño largo con ondas, algo despeinado. Sin texto, sin letreros ni logos. Un solo instante, sin collage.
+
+  --- video (prompt_video) ---
+Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin zoom ni acercamiento. Ella termina de acomodarse el jean en la cintura, se mira de lado en el espejo, deja caer los hombros y suelta un suspiro con la boca cerrada. Su cuerpo no cambia de forma: el jean sigue flojo, recto y plano atrás todo el clip. Nunca queda de espaldas a la cámara. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.
+
+  --- referencia "host-a" (personaje) — repetir palabra por palabra ---
+Foto hiperrealista de una mujer adulta colombiana de 27 años, piel trigueña clara, cara ovalada, cejas finas y naturales, sentada en un podcast, vista desde el pecho hacia arriba, un poco descentrada. Los dos hombros y los brazos quedan dentro del cuadro, con aire a los dos lados del cuerpo: ningún brazo toca el borde de la imagen. Delante hay un micrófono de podcast negro, de los grandes, montado en un brazo articulado que entra por un lado de la imagen. El micrófono queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla. Está en medio de una conversación: mira hacia el lado derecho de la imagen, a la amiga con la que habla, que no se ve. Nunca mira a la cámara. Expresión natural, a punto de hablar, con una media sonrisa. Pelo castaño largo con ondas suaves y algunos mechones sueltos, maquillaje natural, aretes pequeños dorados, blusa de seda color crema con arrugas reales, unos audífonos negros colgados al cuello. Cara real: piel con poros y textura, tono desparejo, sin maquillaje pesado, sin retoque, sin filtro de belleza, sin efecto plástico; proporciones de persona común, no de modelo. El lugar no es un estudio frío: es una sala cálida y elegante, sentada en un sofá de lino beige. Luz natural de tarde, cálida y suave, que entra por una ventana grande a un lado, y al fondo una lámpara de pie de luz cálida encendida; sombras suaves, nada de luz plana. Al fondo, un poco desenfocado, una repisa de madera con velas, jarrones de cerámica y matas verdes; no hay libros, pantallas ni nada con letras. Se ve como grabado con una cámara de cine, lente de 35 mm a f/2, con poca profundidad de campo. Sin texto, sin letreros ni logos. Aspect 9:16.
+
+  Para aplicar prompts nuevos (JSON con "prompt_video" y, si la imagen estaba mal, "prompt_imagen"):
+      node produccion/rehacer-toma.js temp/aguaje-complex-10x-podcast-20261113-1712 --broll 1 --aplicar nuevos.json
+

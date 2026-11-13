@@ -1,0 +1,314 @@
+{
+  "ronda": 1,
+  "fase": "fin",
+  "tomas": {
+    "1": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 8544580,
+          "fechaClip": 1794608927174,
+          "limpio": false,
+          "oido": "agregó «Mhm.» (segundo 4,9)",
+          "transcripcion": "Les juro que yo no me podía ni poner un jean porque atrás me quedaba nada. Mhm. Plana, plana. Imagínate que ya estaba ahorrando pa operarme. Mhm",
+          "toleradas": []
+        }
+      ],
+      "limpio": false,
+      "mirado": "8544580-1794608927174"
+    },
+    "2": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 8281330,
+          "fechaClip": 1794608919326,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "¿Y qué te tomaste? ¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote. ¿Y cómo te fue?",
+          "toleradas": []
+        }
+      ],
+      "limpio": true,
+      "mirado": "8281330-1794608919326"
+    },
+    "3": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 3684880,
+          "fechaClip": 1794608916795,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "¡Ay, no! Ya mismo les escribo",
+          "toleradas": []
+        }
+      ],
+      "limpio": true,
+      "mirado": "3684880-1794608916795"
+    },
+    "4": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 7539568,
+          "fechaClip": 1794608919214,
+          "limpio": false,
+          "oido": "agregó «Semida.» (segundo 0,1); no dijo «\"Mija,»",
+          "transcripcion": "Semida. ¡Ay, no me digas! Yo estaba igualita hasta que mi prima me dijo: \"Antes del bisturí, prueba lo natural\".",
+          "toleradas": []
+        }
+      ],
+      "limpio": false,
+      "mirado": "7539568-1794608919214"
+    },
+    "5": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 9152864,
+          "fechaClip": 1794608930201,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza. Eso es lo que da los resultados, no la marca",
+          "toleradas": []
+        }
+      ],
+      "limpio": true,
+      "mirado": "9152864-1794608930201"
+    },
+    "6": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 7841281,
+          "fechaClip": 1794608921102,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Nada que ver, a mí no me pasó. Eso era lo que me daba miedo también",
+          "toleradas": []
+        }
+      ],
+      "limpio": true,
+      "mirado": "7841281-1794608921102"
+    },
+    "7": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 9014038,
+          "fechaClip": 1794608918066,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Uy, mija, ahora en el gym me pongo de lado, ¿sí me entiendes? Eso sí, hazte el tratamiento completo de tres meses",
+          "toleradas": []
+        }
+      ],
+      "limpio": true,
+      "mirado": "9014038-1794608918066"
+    },
+    "8": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 7385045,
+          "fechaClip": 1794608896399,
+          "limpio": false,
+          "oido": "agregó «Sí,» (segundo 1,4); no dijo «que»",
+          "transcripcion": "¿En serio? Sí, es el que da resultados rápidos y duraderos. Se quedan incluso después de terminarlo y sin efecto rebote",
+          "toleradas": []
+        }
+      ],
+      "limpio": false,
+      "mirado": "7385045-1794608896399"
+    },
+    "9": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 7977416,
+          "fechaClip": 1794608919244,
+          "limpio": true,
+          "oido": "",
+          "transcripcion": "Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo",
+          "toleradas": []
+        }
+      ],
+      "limpio": true,
+      "mirado": "7977416-1794608919244"
+    },
+    "10": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 5843408,
+          "fechaClip": 1794608942239,
+          "limpio": false,
+          "oido": "dijo «It's so pretty.» (una reacción va sin palabras)",
+          "transcripcion": "It's so pretty.",
+          "toleradas": []
+        }
+      ],
+      "limpio": false,
+      "mirado": "5843408-1794608942239"
+    },
+    "11": {
+      "veces": 0,
+      "intentos": [
+        {
+          "ronda": 1,
+          "tamano": 6546511,
+          "fechaClip": 1794609074312,
+          "limpio": false,
+          "oido": "dijo «Okay. And it wouldn't been. Maybe go» (una reacción va sin palabras)",
+          "transcripcion": "Okay. And it wouldn't been. Maybe go",
+          "toleradas": []
+        }
+      ],
+      "limpio": false,
+      "mirado": "6546511-1794609074312"
+    }
+  },
+  "broll": {
+    "1": {
+      "visto": {
+        "ronda": 1,
+        "mal": true,
+        "motivo": "Abre la boca como si hablara y aparecen unas letras en la camiseta de la figura de adelante.",
+        "fecha": "2026-11-13T22:36:05.441Z"
+      },
+      "mirado": "7878017-1794609158016"
+    },
+    "2": {
+      "visto": {
+        "ronda": 1,
+        "mal": false,
+        "fecha": "2026-11-13T22:36:05.442Z"
+      },
+      "mirado": "1884388-1794608757236"
+    },
+    "3": {
+      "visto": {
+        "ronda": 1,
+        "mal": false,
+        "fecha": "2026-11-13T22:36:05.442Z"
+      },
+      "mirado": "8749839-1794609171398"
+    },
+    "4": {
+      "visto": {
+        "ronda": 1,
+        "mal": false,
+        "fecha": "2026-11-13T22:36:05.442Z"
+      },
+      "mirado": "7801093-1794609174163"
+    },
+    "5": {
+      "visto": {
+        "ronda": 1,
+        "mal": false,
+        "fecha": "2026-11-13T22:36:05.442Z"
+      },
+      "mirado": "4886477-1794609203565"
+    },
+    "6": {
+      "visto": {
+        "ronda": 1,
+        "mal": false,
+        "fecha": "2026-11-13T22:36:05.442Z"
+      },
+      "mirado": "8876007-1794609162094"
+    }
+  },
+  "rondas": {
+    "1": {
+      "revisar": [
+        "toma-1",
+        "toma-2",
+        "toma-3",
+        "toma-4",
+        "toma-5",
+        "toma-6",
+        "toma-7",
+        "toma-8",
+        "toma-9",
+        "toma-10",
+        "toma-11",
+        "broll-1",
+        "broll-2",
+        "broll-3",
+        "broll-4",
+        "broll-5",
+        "broll-6"
+      ],
+      "sucias": [
+        "toma-1",
+        "toma-4",
+        "toma-8",
+        "toma-10",
+        "toma-11"
+      ],
+      "sinDialogo": [],
+      "alTope": [],
+      "sesion": {
+        "uuid": "256062d4-4c97-496c-81d9-ec3386cbf27a",
+        "usada": true,
+        "intentos": 1,
+        "motor": "claude",
+        "ok": true,
+        "limite": false
+      },
+      "pedidos": [],
+      "descartados": []
+    }
+  },
+  "sesion": {
+    "uuid": "256062d4-4c97-496c-81d9-ec3386cbf27a",
+    "usada": true
+  },
+  "conMirado": true,
+  "resumen": {
+    "fecha": "2026-11-13T22:36:05.447Z",
+    "sucias": [
+      1,
+      4,
+      8,
+      10,
+      11
+    ],
+    "rehechas": [],
+    "brollRehechos": [],
+    "brollMal": [
+      1
+    ]
+  },
+  "marcas": {
+    "toma-1": "8544580-1794608927174",
+    "toma-2": "8281330-1794608919326",
+    "toma-3": "3684880-1794608916795",
+    "toma-4": "7539568-1794608919214",
+    "toma-5": "9152864-1794608930201",
+    "toma-6": "7841281-1794608921102",
+    "toma-7": "9014038-1794608918066",
+    "toma-8": "7385045-1794608896399",
+    "toma-9": "7977416-1794608919244",
+    "toma-10": "5843408-1794608942239",
+    "toma-11": "6546511-1794609074312",
+    "broll-1": "7878017-1794609158016",
+    "broll-2": "1884388-1794608757236",
+    "broll-3": "8749839-1794609171398",
+    "broll-4": "7801093-1794609174163",
+    "broll-5": "4886477-1794609203565",
+    "broll-6": "8876007-1794609162094"
+  }
+}

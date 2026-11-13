@@ -1,0 +1,29 @@
+
+=== Contexto para rehacer el B-roll 4 ===
+
+  NO SE TOCAN (atados al montaje):
+    n                4
+    duracion         5
+    encima_de_toma   2
+    sincroniza_con   Porque yo probé unas pastillas
+    referencias      host-a
+
+  VA CON LA TOMA 2 (tipo H):
+    su frase:        "¿Y qué te tomaste? ¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote. ¿Y cómo te fue?"
+
+  Un B-roll no tiene frase: nadie habla en el (no hay nada que copiar letra por letra).
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen (prompt_imagen) ---
+Foto realista vertical 9:16, como tomada con una cámara real, de la misma mujer adulta de 27 años de la primera imagen de referencia (úsala SOLO para su cara, su pelo y su piel, nunca para su ropa ni para el lugar), sentada en el borde de su cama, de frente, con una camiseta gris de dormir y una sudadera suelta. Se ve hinchada por retención de líquidos: la cara un poco inflamada, con las mejillas llenas, y el abdomen blando y levemente inflamado bajo la camiseta; no parece un embarazo. Con cara de fastidio mira un frasco blanco liso, genérico, sin marca y sin ninguna letra, cerrado, que acaba de dejar sobre la mesa de noche a su lado; el frasco es más o menos del alto de su mano. Ella y la mesa de noche, de la cabeza a las rodillas, caben en la franja del medio de la imagen, con aire alrededor; arriba solo queda la pared y abajo solo el piso y el borde de la cama. Luz natural suave de una ventana a un lado. Piel real con poros y textura, sin filtro de belleza, pelo castaño largo recogido a medias, despeinado. No hay cápsulas ni pastillas a la vista. Sin texto, sin letreros ni logos. Un solo instante, sin collage.
+
+  --- video (prompt_video) ---
+Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin zoom ni acercamiento. Ella se pone una mano sobre el abdomen, incómoda, mira el frasco blanco de la mesa de noche y niega despacio con la cabeza, con la boca cerrada. El frasco no se mueve ni se abre; no se ven cápsulas sueltas. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados.
+
+  --- referencia "host-a" (personaje) — repetir palabra por palabra ---
+Foto hiperrealista de una mujer adulta colombiana de 27 años, piel trigueña clara, cara ovalada, cejas finas y naturales, sentada en un podcast, vista desde el pecho hacia arriba, un poco descentrada. Los dos hombros y los brazos quedan dentro del cuadro, con aire a los dos lados del cuerpo: ningún brazo toca el borde de la imagen. Delante hay un micrófono de podcast negro, de los grandes, montado en un brazo articulado que entra por un lado de la imagen. El micrófono queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla. Está en medio de una conversación: mira hacia el lado derecho de la imagen, a la amiga con la que habla, que no se ve. Nunca mira a la cámara. Expresión natural, a punto de hablar, con una media sonrisa. Pelo castaño largo con ondas suaves y algunos mechones sueltos, maquillaje natural, aretes pequeños dorados, blusa de seda color crema con arrugas reales, unos audífonos negros colgados al cuello. Cara real: piel con poros y textura, tono desparejo, sin maquillaje pesado, sin retoque, sin filtro de belleza, sin efecto plástico; proporciones de persona común, no de modelo. El lugar no es un estudio frío: es una sala cálida y elegante, sentada en un sofá de lino beige. Luz natural de tarde, cálida y suave, que entra por una ventana grande a un lado, y al fondo una lámpara de pie de luz cálida encendida; sombras suaves, nada de luz plana. Al fondo, un poco desenfocado, una repisa de madera con velas, jarrones de cerámica y matas verdes; no hay libros, pantallas ni nada con letras. Se ve como grabado con una cámara de cine, lente de 35 mm a f/2, con poca profundidad de campo. Sin texto, sin letreros ni logos. Aspect 9:16.
+
+  Para aplicar prompts nuevos (JSON con "prompt_video" y, si la imagen estaba mal, "prompt_imagen"):
+      node produccion/rehacer-toma.js temp/aguaje-complex-10x-podcast-20261113-1712 --broll 4 --aplicar nuevos.json
+

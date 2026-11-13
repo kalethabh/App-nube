@@ -1,0 +1,1302 @@
+{
+  "generado": "2026-11-13T22:36:11.099Z",
+  "aprobado": false,
+  "duracion": 63.478,
+  "reglas": {
+    "umbralBroll": {
+      "B": 3.5,
+      "A": 3,
+      "C": 3
+    },
+    "tomaConBroll": {
+      "preferido": 2.5,
+      "minimo": 2
+    },
+    "brollMinimo": 1.2,
+    "velocidadMaxima": 1.6,
+    "velocidadQueDeformaAudio": null,
+    "fadeAudioMs": 80,
+    "duckingDb": -10,
+    "subtitulos": {
+      "tamano": 0.06137,
+      "interlineado": 1.1,
+      "contornoRespectoTamano": 0.135,
+      "desdeAbajo": 0.26,
+      "coloresResaltado": [
+        "#E8442A",
+        "#F5A524",
+        "#2F7DE1",
+        "#159A5B",
+        "#B5279B",
+        "#E01E5A",
+        "#7B3FE4",
+        "#0FA3B1",
+        "#D64500",
+        "#3B7A2A"
+      ],
+      "cajaPadding": 0.12,
+      "cajaRedondeo": 0.1
+    },
+    "transiciones": {
+      "duracionSeg": 0.45,
+      "duracionZoomSeg": 0.5,
+      "efectoDb": 0,
+      "zoomDesde": 1.35
+    },
+    "musica": {
+      "db": -26,
+      "subeEnPayoffDb": 4,
+      "fadeInSeg": 1.2,
+      "fadeOutSeg": 1.5
+    },
+    "dialogoNativo": {
+      "duckingDb": 0,
+      "broll": {
+        "duracionObjetivo": 2,
+        "margenSegundos": 1,
+        "margenMinimo": 0.5,
+        "duracionMinima": 1.2,
+        "anclaEnFraccion": 0.35,
+        "mudo": true
+      },
+      "musica": {
+        "db": -22,
+        "subeEnPayoffDb": 4,
+        "fadeInSeg": 1.2,
+        "fadeOutSeg": 1.5
+      }
+    },
+    "podcast": {
+      "cutawaySeg": 1.4,
+      "cutawayMinSeg": 0.8,
+      "cutawayTrasFraseSeg": -0.1,
+      "turnoMinSeg": 2,
+      "cutawayVolumenDb": -6,
+      "margenSeg": 0.3,
+      "reacciones": {
+        "antesSeg": 0.3,
+        "ventanaSeg": 0.05,
+        "sobreRuidoDb": 20,
+        "unirHuecoSeg": 0.3,
+        "minEventoSeg": 0.1
+      },
+      "brollMinSeg": 1.5,
+      "brollMaxSeg": 5,
+      "brollVelocidadMax": 1.6,
+      "esquina": {
+        "ancho": 0.4,
+        "margen": 0.04,
+        "radio": 0.04
+      },
+      "subtitulosEnBroll": {
+        "desdeAbajo": 0.45,
+        "fraccionMinima": 0.5
+      }
+    },
+    "entrevista": {
+      "congeladoSeg": 0.8,
+      "congeladoVariante": "glitch",
+      "disolvenciaSeg": 0.25,
+      "cabezaSeg": 0.12,
+      "colaSeg": 0.25,
+      "colaAntesDelCongeladoSeg": 0.8,
+      "pausaInteriorSeg": 0.3,
+      "voz": {
+        "velocidad": 1.2,
+        "huecoMinSeg": 0.18,
+        "aireSeg": 0.07
+      },
+      "iconosA": {
+        "centroY": 0.6,
+        "ancho": 0.26,
+        "xs": {
+          "1": [
+            0.5
+          ],
+          "2": [
+            0.2,
+            0.8
+          ],
+          "3": [
+            0.2,
+            0.5,
+            0.8
+          ]
+        }
+      },
+      "checkQuedaSeg": 0.9,
+      "palabrasVaciasCheck": [
+        "de",
+        "del",
+        "o",
+        "u",
+        "y",
+        "e",
+        "la",
+        "las",
+        "el",
+        "los",
+        "lo",
+        "a",
+        "al",
+        "en",
+        "con",
+        "por",
+        "para",
+        "un",
+        "una",
+        "uno",
+        "que",
+        "eh",
+        "ah",
+        "ahm",
+        "mm",
+        "este"
+      ],
+      "iconosB": {
+        "centroY": 0.56,
+        "ancho": 0.24,
+        "xs": {
+          "1": [
+            0.5
+          ],
+          "2": [
+            0.32,
+            0.68
+          ],
+          "3": [
+            0.25,
+            0.5,
+            0.75
+          ]
+        },
+        "minSeg": 0.6
+      },
+      "producto": {
+        "centroX": 0.5,
+        "centroY": 0.56,
+        "ancho": 0.32,
+        "seg": 3
+      },
+      "subtitulosGancho": {
+        "desdeAbajo": 0.45
+      },
+      "brollVelocidadMin": 0.75,
+      "brollVelocidadMax": 1.3,
+      "ventanaMaxSeg": 8,
+      "ventanaMinSeg": 1.2,
+      "iconoSeg": 2.5,
+      "iconoAncho": 0.22,
+      "stickerSeg": 3,
+      "stickerAncho": 0.28
+    }
+  },
+  "audio": {
+    "voz": null,
+    "ducking": 0,
+    "fadeMs": 80
+  },
+  "musica": null,
+  "bloques": [
+    {
+      "linea": 1,
+      "texto": "Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana.",
+      "inicio": 0,
+      "fin": 6.839,
+      "ventana": 6.839,
+      "tipo": "H",
+      "habla": "A",
+      "beat": "entrada en frío",
+      "toma": {
+        "archivo": "toma-1.mp4",
+        "largoOriginal": 10,
+        "duracion": 6.839,
+        "desde": 0,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.051,
+        "recorteFin": 3.11,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 1,
+        "desdeClip": 0.051,
+        "hastaClip": 6.89
+      },
+      "brollEncima": {
+        "n": 1,
+        "archivo": "broll-1.mp4",
+        "sincroniza_con": "porque atrás me quedaba nada",
+        "modo": "pantalla-dividida",
+        "desde": 3.109,
+        "duracion": 3.43,
+        "velocidad": 1.47,
+        "recorte": 0,
+        "largoOriginal": 5.042,
+        "anclaSegundo": 3.109,
+        "comoCae": "anclado a \"porque atrás me quedaba nada\" (3.11s, estimado)"
+      }
+    },
+    {
+      "linea": 8,
+      "texto": "¿En serio?",
+      "inicio": 6.839,
+      "fin": 8.319,
+      "ventana": 1.48,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "reconocimiento",
+      "toma": {
+        "archivo": "toma-8.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 1.48,
+        "desde": 6.839,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 6.45,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 2,
+        "desdeClip": 0,
+        "hastaClip": 1.48
+      }
+    },
+    {
+      "linea": 1,
+      "texto": "Imagínate que ya estaba ahorrando pa' operarme.",
+      "inicio": 8.319,
+      "fin": 10.849,
+      "ventana": 2.53,
+      "tipo": "H",
+      "habla": "A",
+      "beat": "el problema",
+      "toma": {
+        "archivo": "toma-1.mp4",
+        "largoOriginal": 10,
+        "duracion": 2.53,
+        "desde": 8.319,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 6.89,
+        "recorteFin": 0.58,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 3,
+        "desdeClip": 6.89,
+        "hastaClip": 9.42
+      }
+    },
+    {
+      "linea": 4,
+      "texto": "¡Ay, no me digas!",
+      "inicio": 10.849,
+      "fin": 13.129,
+      "ventana": 2.28,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "reconocimiento",
+      "toma": {
+        "archivo": "toma-4.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 2.28,
+        "desde": 10.849,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 5.65,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 4,
+        "desdeClip": 0,
+        "hastaClip": 2.28
+      }
+    },
+    {
+      "linea": 4,
+      "texto": "Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\".",
+      "inicio": 13.129,
+      "fin": 18.12,
+      "ventana": 4.991,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "revelación",
+      "toma": {
+        "archivo": "toma-4.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 4.991,
+        "desde": 13.129,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 2.28,
+        "recorteFin": 0.659,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 5,
+        "desdeClip": 2.28,
+        "hastaClip": 7.271
+      },
+      "cutaway": {
+        "host": "A",
+        "reaccion": 1,
+        "descripcion": "Levanta las cejas y abre los ojos, sorprendida, con un \"mm\" corto de boca cerrada",
+        "archivo": "toma-10.mp4",
+        "desde": 14.109,
+        "duracion": 1.4,
+        "recorteInicio": 0.58,
+        "conSonido": true,
+        "volumenDb": -6,
+        "tras": "Yo estaba igualita",
+        "momento": "eventos",
+        "sonidoEn": 0.88
+      }
+    },
+    {
+      "linea": 2,
+      "texto": "¿Y qué te tomaste?",
+      "inicio": 18.12,
+      "fin": 19.309,
+      "ventana": 1.189,
+      "tipo": "H",
+      "habla": "A",
+      "beat": "producto",
+      "toma": {
+        "archivo": "toma-2.mp4",
+        "largoOriginal": 10,
+        "duracion": 1.189,
+        "desde": 18.12,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.171,
+        "recorteFin": 8.64,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 6,
+        "desdeClip": 0.171,
+        "hastaClip": 1.36
+      }
+    },
+    {
+      "linea": 5,
+      "texto": "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza.",
+      "inicio": 19.309,
+      "fin": 25.04,
+      "ventana": 5.731,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "producto",
+      "toma": {
+        "archivo": "toma-5.mp4",
+        "largoOriginal": 10,
+        "duracion": 5.731,
+        "desde": 19.309,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.119,
+        "recorteFin": 4.15,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 7,
+        "desdeClip": 0.119,
+        "hastaClip": 5.85
+      },
+      "brollEncima": {
+        "n": 2,
+        "archivo": "broll-2.mp4",
+        "sincroniza_con": "aguaje, fenogreco y maca negra",
+        "modo": "pantalla-dividida",
+        "desde": 20.25,
+        "duracion": 4.49,
+        "velocidad": 1.114,
+        "recorte": 0,
+        "largoOriginal": 5,
+        "anclaSegundo": 20.25,
+        "comoCae": "anclado a \"aguaje, fenogreco y maca negra\" (20.25s, estimado)"
+      }
+    },
+    {
+      "linea": 5,
+      "texto": "Eso es lo que da los resultados, no la marca.",
+      "inicio": 25.04,
+      "fin": 27.246,
+      "ventana": 2.206,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "producto",
+      "toma": {
+        "archivo": "toma-5.mp4",
+        "largoOriginal": 10,
+        "duracion": 2.206,
+        "desde": 25.04,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 5.85,
+        "recorteFin": 1.944,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 8,
+        "desdeClip": 5.85,
+        "hastaClip": 8.056
+      },
+      "brollEncima": {
+        "n": 3,
+        "archivo": "broll-3.mp4",
+        "sincroniza_con": "Eso es lo que da los resultados",
+        "modo": "pantalla-dividida",
+        "desde": 25.17,
+        "duracion": 1.776,
+        "velocidad": 1.6,
+        "recorte": 1.375,
+        "largoOriginal": 5.042,
+        "anclaSegundo": 25.17,
+        "comoCae": "anclado a \"Eso es lo que da los resultados\" (25.17s, estimado)"
+      }
+    },
+    {
+      "linea": 2,
+      "texto": "¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote.",
+      "inicio": 27.246,
+      "fin": 32.246,
+      "ventana": 5,
+      "tipo": "H",
+      "habla": "A",
+      "beat": "objeción",
+      "toma": {
+        "archivo": "toma-2.mp4",
+        "largoOriginal": 10,
+        "duracion": 5,
+        "desde": 27.246,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 1.36,
+        "recorteFin": 3.64,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 9,
+        "desdeClip": 1.36,
+        "hastaClip": 6.36
+      },
+      "brollEncima": {
+        "n": 4,
+        "archivo": "broll-4.mp4",
+        "sincroniza_con": "Porque yo probé unas pastillas",
+        "modo": "pantalla-dividida",
+        "desde": 29.606,
+        "duracion": 2.34,
+        "velocidad": 1.6,
+        "recorte": 0.811,
+        "largoOriginal": 5.042,
+        "anclaSegundo": 29.606,
+        "comoCae": "anclado a \"Porque yo probé unas pastillas\" (29.61s, estimado)"
+      }
+    },
+    {
+      "linea": 6,
+      "texto": "Nada que ver, a mí no me pasó.",
+      "inicio": 32.246,
+      "fin": 34.461,
+      "ventana": 2.215,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "objeción",
+      "toma": {
+        "archivo": "toma-6.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 2.215,
+        "desde": 32.246,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.425,
+        "recorteFin": 5.29,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 10,
+        "desdeClip": 0.425,
+        "hastaClip": 2.64
+      },
+      "cutaway": {
+        "host": "A",
+        "reaccion": 2,
+        "descripcion": "Afloja los hombros y suelta el aire por la nariz, aliviada, con una sonrisa de labios cerrados",
+        "archivo": "toma-10.mp4",
+        "desde": 34.581,
+        "duracion": 1.4,
+        "recorteInicio": 1.96,
+        "conSonido": true,
+        "volumenDb": -6,
+        "tras": "a mí no me pasó",
+        "momento": "eventos",
+        "sonidoEn": 2.26
+      }
+    },
+    {
+      "linea": 6,
+      "texto": "Eso era lo que me daba miedo también.",
+      "inicio": 34.461,
+      "fin": 37.273,
+      "ventana": 2.812,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "objeción",
+      "toma": {
+        "archivo": "toma-6.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 2.812,
+        "desde": 34.461,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 3.01,
+        "recorteFin": 2.108,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 11,
+        "desdeClip": 3.01,
+        "hastaClip": 5.822
+      }
+    },
+    {
+      "linea": 2,
+      "texto": "¿Y cómo te fue?",
+      "inicio": 37.273,
+      "fin": 39.83,
+      "ventana": 2.557,
+      "tipo": "H",
+      "habla": "A",
+      "beat": "prueba",
+      "toma": {
+        "archivo": "toma-2.mp4",
+        "largoOriginal": 10,
+        "duracion": 2.557,
+        "desde": 37.273,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 6.36,
+        "recorteFin": 1.083,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 12,
+        "desdeClip": 6.36,
+        "hastaClip": 8.917
+      }
+    },
+    {
+      "linea": 7,
+      "texto": "Uy, mija, ahora en el gym me pongo de lado… si me entiendes.",
+      "inicio": 39.83,
+      "fin": 44.492,
+      "ventana": 4.662,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "prueba",
+      "toma": {
+        "archivo": "toma-7.mp4",
+        "largoOriginal": 10,
+        "duracion": 4.662,
+        "desde": 39.83,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.098,
+        "recorteFin": 5.24,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 13,
+        "desdeClip": 0.098,
+        "hastaClip": 4.76
+      },
+      "brollEncima": {
+        "n": 5,
+        "archivo": "broll-5.mp4",
+        "sincroniza_con": "ahora en el gym me pongo de lado",
+        "modo": "pantalla-dividida",
+        "desde": 40.852,
+        "duracion": 3.34,
+        "velocidad": 1.509,
+        "recorte": 0.001,
+        "largoOriginal": 5.042,
+        "anclaSegundo": 40.852,
+        "comoCae": "anclado a \"ahora en el gym me pongo de lado\" (40.85s, estimado)"
+      }
+    },
+    {
+      "linea": 3,
+      "texto": "¡Ay no!",
+      "inicio": 44.492,
+      "fin": 45.742,
+      "ventana": 1.25,
+      "tipo": "H",
+      "habla": "A",
+      "beat": "prueba",
+      "toma": {
+        "archivo": "toma-3.mp4",
+        "largoOriginal": 3.92,
+        "duracion": 1.25,
+        "desde": 44.492,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.4,
+        "recorteFin": 2.27,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 14,
+        "desdeClip": 0.4,
+        "hastaClip": 1.65
+      }
+    },
+    {
+      "linea": 7,
+      "texto": "Eso sí: hazte el tratamiento completo de tres meses.",
+      "inicio": 45.742,
+      "fin": 49.693,
+      "ventana": 3.951,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "cierre",
+      "toma": {
+        "archivo": "toma-7.mp4",
+        "largoOriginal": 10,
+        "duracion": 3.951,
+        "desde": 45.742,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 5.14,
+        "recorteFin": 0.909,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 15,
+        "desdeClip": 5.14,
+        "hastaClip": 9.091
+      },
+      "cutaway": {
+        "host": "A",
+        "reaccion": 3,
+        "descripcion": "Entrecierra los ojos y asiente despacio, convencida, con un murmullo grave de boca cerrada",
+        "archivo": "toma-10.mp4",
+        "desde": 49.362,
+        "duracion": 1.4,
+        "recorteInicio": 5.36,
+        "conSonido": true,
+        "volumenDb": -6,
+        "tras": "hazte el tratamiento completo de tres meses",
+        "momento": "eventos",
+        "sonidoEn": 5.66
+      }
+    },
+    {
+      "linea": 8,
+      "texto": "Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote.",
+      "inicio": 49.693,
+      "fin": 56.083,
+      "ventana": 6.39,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "cierre",
+      "toma": {
+        "archivo": "toma-8.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 6.39,
+        "desde": 49.693,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 1.54,
+        "recorteFin": 0,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 16,
+        "desdeClip": 1.54,
+        "hastaClip": 7.93
+      }
+    },
+    {
+      "linea": 9,
+      "texto": "Me llegó a la casa y lo pagué al recibirlo.",
+      "inicio": 56.083,
+      "fin": 59.315,
+      "ventana": 3.232,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "prueba",
+      "toma": {
+        "archivo": "toma-9.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 3.232,
+        "desde": 56.083,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.188,
+        "recorteFin": 4.51,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 17,
+        "desdeClip": 0.188,
+        "hastaClip": 3.42
+      },
+      "brollEncima": {
+        "n": 6,
+        "archivo": "broll-6.mp4",
+        "sincroniza_con": "Me llegó a la casa",
+        "modo": "pantalla-dividida",
+        "desde": 56.335,
+        "duracion": 2.68,
+        "velocidad": 1.6,
+        "recorte": 0.471,
+        "largoOriginal": 5.042,
+        "anclaSegundo": 56.335,
+        "comoCae": "anclado a \"Me llegó a la casa\" (56.34s, estimado)"
+      }
+    },
+    {
+      "linea": 3,
+      "texto": "Ya mismo les escribo.",
+      "inicio": 59.315,
+      "fin": 60.878,
+      "ventana": 1.563,
+      "tipo": "H",
+      "habla": "A",
+      "beat": "cta",
+      "toma": {
+        "archivo": "toma-3.mp4",
+        "largoOriginal": 3.92,
+        "duracion": 1.563,
+        "desde": 59.315,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 1.65,
+        "recorteFin": 0.707,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 18,
+        "desdeClip": 1.65,
+        "hastaClip": 3.213
+      }
+    },
+    {
+      "linea": 9,
+      "texto": "El tuyo está en el botón de abajo.",
+      "inicio": 60.878,
+      "fin": 63.478,
+      "ventana": 2.6,
+      "tipo": "H",
+      "habla": "B",
+      "beat": "cta",
+      "toma": {
+        "archivo": "toma-9.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 2.6,
+        "desde": 60.878,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 4,
+        "recorteFin": 1.33,
+        "problema": false
+      },
+      "segmento": {
+        "orden": 19,
+        "desdeClip": 4,
+        "hastaClip": 6.6
+      }
+    }
+  ],
+  "escena": {
+    "estilo": "podcast",
+    "modoBroll": "pantalla-dividida",
+    "lados": {
+      "A": "izquierda",
+      "B": "derecha"
+    },
+    "piezas": [
+      {
+        "tipo": "clip",
+        "archivo": "toma-1.mp4",
+        "desde": 0,
+        "duracion": 6.839,
+        "recorteInicio": 0.051,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 1: A dice \"Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-8.mp4",
+        "desde": 6.839,
+        "duracion": 1.48,
+        "recorteInicio": 0,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 2: B dice \"¿En serio?\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-1.mp4",
+        "desde": 8.319,
+        "duracion": 2.53,
+        "recorteInicio": 6.89,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 3: A dice \"Imagínate que ya estaba ahorrando pa' operarme.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-4.mp4",
+        "desde": 10.849,
+        "duracion": 2.28,
+        "recorteInicio": 0,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 4: B dice \"¡Ay, no me digas!\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-4.mp4",
+        "desde": 13.129,
+        "duracion": 4.991,
+        "recorteInicio": 2.28,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 5: B dice \"Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\".\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-2.mp4",
+        "desde": 18.12,
+        "duracion": 1.189,
+        "recorteInicio": 0.171,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 6: A dice \"¿Y qué te tomaste?\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-5.mp4",
+        "desde": 19.309,
+        "duracion": 5.731,
+        "recorteInicio": 0.119,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 7: B dice \"Uno que trae aguaje, fenogreco y maca negra en su máxima pureza.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-5.mp4",
+        "desde": 25.04,
+        "duracion": 2.206,
+        "recorteInicio": 5.85,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 8: B dice \"Eso es lo que da los resultados, no la marca.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-2.mp4",
+        "desde": 27.246,
+        "duracion": 5,
+        "recorteInicio": 1.36,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 9: A dice \"¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-6.mp4",
+        "desde": 32.246,
+        "duracion": 2.215,
+        "recorteInicio": 0.425,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 10: B dice \"Nada que ver, a mí no me pasó.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-6.mp4",
+        "desde": 34.461,
+        "duracion": 2.812,
+        "recorteInicio": 3.01,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 11: B dice \"Eso era lo que me daba miedo también.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-2.mp4",
+        "desde": 37.273,
+        "duracion": 2.557,
+        "recorteInicio": 6.36,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 12: A dice \"¿Y cómo te fue?\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-7.mp4",
+        "desde": 39.83,
+        "duracion": 4.662,
+        "recorteInicio": 0.098,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 13: B dice \"Uy, mija, ahora en el gym me pongo de lado… si me entiendes.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-3.mp4",
+        "desde": 44.492,
+        "duracion": 1.25,
+        "recorteInicio": 0.4,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 14: A dice \"¡Ay no!\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-7.mp4",
+        "desde": 45.742,
+        "duracion": 3.951,
+        "recorteInicio": 5.14,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 15: B dice \"Eso sí: hazte el tratamiento completo de tres meses.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-8.mp4",
+        "desde": 49.693,
+        "duracion": 6.39,
+        "recorteInicio": 1.54,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 16: B dice \"Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-9.mp4",
+        "desde": 56.083,
+        "duracion": 3.232,
+        "recorteInicio": 0.188,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 17: B dice \"Me llegó a la casa y lo pagué al recibirlo.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-3.mp4",
+        "desde": 59.315,
+        "duracion": 1.563,
+        "recorteInicio": 1.65,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 18: A dice \"Ya mismo les escribo.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-9.mp4",
+        "desde": 60.878,
+        "duracion": 2.6,
+        "recorteInicio": 4,
+        "velocidad": 1,
+        "mudo": false,
+        "capa": 0,
+        "marco": "completo",
+        "porque": "linea 19: B dice \"El tuyo está en el botón de abajo.\""
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-1.mp4",
+        "desde": 3.109,
+        "duracion": 3.43,
+        "recorteInicio": 3.16,
+        "velocidad": 1,
+        "mudo": true,
+        "capa": 1,
+        "marco": "mitad-inferior",
+        "porque": "A en la mitad de abajo mientras va el B-roll 1"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-10.mp4",
+        "desde": 14.109,
+        "duracion": 1.4,
+        "recorteInicio": 0.58,
+        "velocidad": 1,
+        "mudo": false,
+        "volumenDb": -6,
+        "capa": 1,
+        "marco": "completo",
+        "porque": "cutaway: A reaccion 1 (Levanta las cejas y abre los ojos, sorprendida, con un \"mm\" corto de boca cerrada) justo despues de \"Yo estaba igualita\" (termina en 14.21s, estimado), mientras B dice la linea 5"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-5.mp4",
+        "desde": 20.25,
+        "duracion": 4.49,
+        "recorteInicio": 1.06,
+        "velocidad": 1,
+        "mudo": true,
+        "capa": 1,
+        "marco": "mitad-inferior",
+        "porque": "B en la mitad de abajo mientras va el B-roll 2"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-5.mp4",
+        "desde": 25.17,
+        "duracion": 1.776,
+        "recorteInicio": 5.98,
+        "velocidad": 1,
+        "mudo": true,
+        "capa": 1,
+        "marco": "mitad-inferior",
+        "porque": "B en la mitad de abajo mientras va el B-roll 3"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-2.mp4",
+        "desde": 29.606,
+        "duracion": 2.34,
+        "recorteInicio": 3.72,
+        "velocidad": 1,
+        "mudo": true,
+        "capa": 1,
+        "marco": "mitad-inferior",
+        "porque": "A en la mitad de abajo mientras va el B-roll 4"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-10.mp4",
+        "desde": 34.581,
+        "duracion": 1.4,
+        "recorteInicio": 1.96,
+        "velocidad": 1,
+        "mudo": false,
+        "volumenDb": -6,
+        "capa": 1,
+        "marco": "completo",
+        "porque": "cutaway: A reaccion 2 (Afloja los hombros y suelta el aire por la nariz, aliviada, con una sonrisa de labios cerrados) justo despues de \"a mí no me pasó\" (termina en 34.16s, estimado), corrido a los 2 s del turno de B, mientras B dice la linea 10"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-7.mp4",
+        "desde": 40.852,
+        "duracion": 3.34,
+        "recorteInicio": 1.12,
+        "velocidad": 1,
+        "mudo": true,
+        "capa": 1,
+        "marco": "mitad-inferior",
+        "porque": "B en la mitad de abajo mientras va el B-roll 5"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-10.mp4",
+        "desde": 49.362,
+        "duracion": 1.4,
+        "recorteInicio": 5.36,
+        "velocidad": 1,
+        "mudo": false,
+        "volumenDb": -6,
+        "capa": 1,
+        "marco": "completo",
+        "porque": "cutaway: A reaccion 3 (Entrecierra los ojos y asiente despacio, convencida, con un murmullo grave de boca cerrada) justo despues de \"hazte el tratamiento completo de tres meses\" (termina en 49.46s, estimado), mientras B dice la linea 15"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "toma-9.mp4",
+        "desde": 56.335,
+        "duracion": 2.68,
+        "recorteInicio": 0.44,
+        "velocidad": 1,
+        "mudo": true,
+        "capa": 1,
+        "marco": "mitad-inferior",
+        "porque": "B en la mitad de abajo mientras va el B-roll 6"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "broll-1.mp4",
+        "desde": 3.109,
+        "duracion": 3.43,
+        "recorteInicio": 0,
+        "velocidad": 1.47,
+        "mudo": true,
+        "capa": 2,
+        "marco": "mitad-superior",
+        "porque": "B-roll 1 en la linea 1 (\"porque atrás me quedaba nada\")"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "broll-2.mp4",
+        "desde": 20.25,
+        "duracion": 4.49,
+        "recorteInicio": 0,
+        "velocidad": 1.114,
+        "mudo": true,
+        "capa": 2,
+        "marco": "mitad-superior",
+        "porque": "B-roll 2 en la linea 7 (\"aguaje, fenogreco y maca negra\")"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "broll-3.mp4",
+        "desde": 25.17,
+        "duracion": 1.776,
+        "recorteInicio": 0,
+        "velocidad": 1.6,
+        "mudo": true,
+        "capa": 2,
+        "marco": "mitad-superior",
+        "porque": "B-roll 3 en la linea 8 (\"Eso es lo que da los resultados\")"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "broll-4.mp4",
+        "desde": 29.606,
+        "duracion": 2.34,
+        "recorteInicio": 0,
+        "velocidad": 1.6,
+        "mudo": true,
+        "capa": 2,
+        "marco": "mitad-superior",
+        "porque": "B-roll 4 en la linea 9 (\"Porque yo probé unas pastillas\")"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "broll-5.mp4",
+        "desde": 40.852,
+        "duracion": 3.34,
+        "recorteInicio": 0,
+        "velocidad": 1.509,
+        "mudo": true,
+        "capa": 2,
+        "marco": "mitad-superior",
+        "porque": "B-roll 5 en la linea 13 (\"ahora en el gym me pongo de lado\")"
+      },
+      {
+        "tipo": "clip",
+        "archivo": "broll-6.mp4",
+        "desde": 56.335,
+        "duracion": 2.68,
+        "recorteInicio": 0,
+        "velocidad": 1.6,
+        "mudo": true,
+        "capa": 2,
+        "marco": "mitad-superior",
+        "porque": "B-roll 6 en la linea 17 (\"Me llegó a la casa\")"
+      }
+    ]
+  },
+  "subtitulos": [],
+  "estiloSubtitulos": {
+    "tamano": 0.06137,
+    "interlineado": 1.1,
+    "contornoRespectoTamano": 0.135,
+    "desdeAbajo": 0.26,
+    "coloresResaltado": [
+      "#E8442A",
+      "#F5A524",
+      "#2F7DE1",
+      "#159A5B",
+      "#B5279B",
+      "#E01E5A",
+      "#7B3FE4",
+      "#0FA3B1",
+      "#D64500",
+      "#3B7A2A"
+    ],
+    "cajaPadding": 0.12,
+    "cajaRedondeo": 0.1,
+    "colorResaltado": "#159A5B"
+  },
+  "transiciones": [],
+  "reglasTransiciones": {
+    "duracionSeg": 0.45,
+    "duracionZoomSeg": 0.5,
+    "efectoDb": 0,
+    "zoomDesde": 1.35
+  },
+  "brollFuera": [],
+  "avisos": [
+    "Todavia no hay subtitulos.json: las frases ancla van estimadas. Despues de  node produccion/subtitulos-dialogo.js <carpeta>  vuelve a planear.",
+    "B-roll 1 (linea 1): \"porque atrás me quedaba nada\" cae a 3.11s ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "B-roll 2 (linea 7): \"aguaje, fenogreco y maca negra\" cae a 20.25s ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "B-roll 3 (linea 8): \"Eso es lo que da los resultados\" cae a 25.17s ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "B-roll 4 (linea 9): \"Porque yo probé unas pastillas\" cae a 29.61s ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "B-roll 5 (linea 13): \"ahora en el gym me pongo de lado\" cae a 40.85s ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "B-roll 6 (linea 17): \"Me llegó a la casa\" cae a 56.34s ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "toma 10 (reacciones de A): NO ESTA LIMPIO, dice palabras (\"It's\" 4.60s, \"so\" 4.80s, \"pretty.\" 5.00s). Una reaccion no lleva ninguna palabra ni monosilabo, en ningun idioma: el clip se regenera aunque esa reaccion no se use (npm run rehacer -- <carpeta> --toma 10 --contexto). Mientras tanto, el cutaway que tenga una palabra dentro queda fuera.",
+    "linea 5, cutaway de A: el fin de \"Yo estaba igualita\" sale ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "linea 10, cutaway de A: el fin de \"a mí no me pasó\" sale ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "linea 15, cutaway de A: el fin de \"hazte el tratamiento completo de tres meses\" sale ESTIMADO por la transcripcion de lineas-habladas.json. Con subtitulos.json sale exacto: node produccion/subtitulos-dialogo.js <carpeta>  y despues  npm run plan.",
+    "toma 1: NO ESTA LIMPIA segun npm run lineas (agrego la muletilla \"Mhm.\" (4.94s)). Un clip hablado que no esta limpio se regenera: npm run rehacer -- <carpeta> --toma 1 --contexto",
+    "toma 8: NO ESTA LIMPIA segun npm run lineas (agrego \"Sí,\" (1.44s); no dijo \"que\"). Un clip hablado que no esta limpio se regenera: npm run rehacer -- <carpeta> --toma 8 --contexto",
+    "toma 4: NO ESTA LIMPIA segun npm run lineas (agrego \"Semida.\" (0.12s); no dijo \"\"Mija,\"). Un clip hablado que no esta limpio se regenera: npm run rehacer -- <carpeta> --toma 4 --contexto"
+  ]
+}

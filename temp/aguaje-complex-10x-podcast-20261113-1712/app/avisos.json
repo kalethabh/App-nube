@@ -22,6 +22,102 @@
           "prompt_imagen": "Foto realista vertical 9:16, como tomada con una cámara real desde lejos, de la misma mujer adulta de 30 años de la primera imagen de referencia (úsala SOLO para su cara, su pelo y su piel, nunca para su ropa, su cuerpo ni el lugar), en un gimnasio real con luz natural de ventanales, de pie frente a un espejo grande. Está de tres cuartos de lado, con la cara girada hacia este lado: se le ve bien la cara, sonriendo segura, mirando hacia el espejo, nunca a la cámara. Nunca de espaldas a la cámara. Lleva leggings negros de tiro alto y un top deportivo negro que le cubre bien el pecho. Tiene una figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas, cerca de una vez y media más anchas que la cintura, y piernas gruesas que llenan los leggings; se nota a primera vista, sin caricatura. Postura natural, una mano en la cintura; nada sexualizado. Plano abierto: se la ve de cuerpo entero y pequeña en el cuadro, ocupando solo la mitad central del alto de la imagen. Su cabeza queda bastante abajo: la parte de arriba del moño está a un tercio del alto de la imagen, contando desde arriba, y su cara queda cerca del centro. El tercio de arriba de la imagen está vacío: solo la pared y los ventanales. Sus rodillas quedan a tres cuartos del alto; el cuarto de abajo solo tiene sus pantorrillas y el piso del gimnasio. Al fondo, desenfocadas, unas mancuernas y una máquina, sin nadie más. Piel real con poros y textura, sin filtro de belleza, pelo negro recogido en un moño alto con mechones sueltos. Sin texto, sin letreros ni logos en la ropa ni en las paredes. Un solo instante, sin collage."
         }
       }
+    ],
+    "vid:toma-1": [
+      {
+        "fuente": "transcripcion",
+        "paso": "revision-habla",
+        "texto": "No dijo su línea limpia: agregó «Mhm.» (segundo 4,9).",
+        "fecha": "2026-11-13T22:34:27.883Z"
+      },
+      {
+        "fuente": "revision-ia",
+        "paso": "revision-habla",
+        "texto": "Dijo un «mhm» que no va en su frase, en medio y al final.",
+        "fecha": "2026-11-13T22:36:05.442Z",
+        "sugerencia": {
+          "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering her two lines with one short, completely silent pause between them.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, without repeating, adding or changing any word, and without \"um\", \"uh\", \"eh\", \"mhm\", \"mm\" or any hum or agreement sound that is not in the script. Only her voice is heard: nobody else speaks, hums or answers at any moment. After her last line she says nothing else and makes no sound: she stays silent with her lips closed until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana.\"\nDelivery: she only says her own lines, never the other person's questions or comments; she says the whole line in one continuous flow, going straight from \"nada\" into \"Plana, plana\" with no gap and no sound in between; funny frustration, she gestures down toward her hips with both hands and on \"Plana, plana\" shakes her head with a resigned little smile; natural hands, eyebrows and head, nothing stiff\n\nLínea 2: \"Imagínate que ya estaba ahorrando pa' operarme.\"\nDelivery: she rolls her eyes silently first, lips closed, with no sigh and no hum, then says it half embarrassed, like confessing it to a friend; right after \"operarme\" she closes her lips and stays quiet\n\nAudio: she speaks in a natural Colombian Spanish accent (not neutral, not Mexican, not from Spain) at a quick, animated conversational pace, with the bright, slightly higher-pitched voice of a woman in her late 20s, confessional and self-deprecating, laughing at herself. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. No other voice, no \"mhm\", no hums. Soft room tone of a small podcast studio, close-mic'd podcast sound."
+        }
+      }
+    ],
+    "vid:toma-4": [
+      {
+        "fuente": "transcripcion",
+        "paso": "revision-habla",
+        "texto": "No dijo su línea limpia: agregó «Semida.» (segundo 0,1); no dijo «\"Mija,».",
+        "fecha": "2026-11-13T22:34:27.885Z"
+      },
+      {
+        "fuente": "revision-ia",
+        "paso": "revision-habla",
+        "texto": "Soltó una palabra rara al empezar y se comió el «Mija» de la frase.",
+        "fecha": "2026-11-13T22:36:05.443Z",
+        "sugerencia": {
+          "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering her two lines with one short, silent pause between them.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, word for word, without repeating, adding, skipping or changing any word, and without \"um\", \"uh\" or \"eh\" that are not in the script. The very first sound of the clip is her word \"¡Ay\": no word, syllable or murmur comes before it. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"¡Ay, no me digas!\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she holds still and silent for a brief beat, then puts a hand on her chest and says it smiling wide, amused and surprised\n\nLínea 2: \"Yo estaba igualita, hasta que mi prima me dijo: \"Mija, antes del bisturí, pruébalo natural\".\"\nDelivery: unhurried, every word pronounced; she lowers her voice like sharing gossip, leans closer to the microphone and raises her index finger exactly as she says the word \"Mija\", which opens the quote and is clearly heard, followed by a tiny pause; she ends on the exact words \"pruébalo natural\"\n\nAudio: she speaks in a natural Colombian Spanish accent (not neutral, not Mexican, not from Spain) at a lively but steady conversational pace, with the warm, slightly lower-pitched voice of a woman around 30, confident and playful, like the friend who has been through it and knows. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound."
+        }
+      }
+    ],
+    "vid:toma-8": [
+      {
+        "fuente": "transcripcion",
+        "paso": "revision-habla",
+        "texto": "No dijo su línea limpia: agregó «Sí,» (segundo 1,4); no dijo «que».",
+        "fecha": "2026-11-13T22:34:27.886Z"
+      },
+      {
+        "fuente": "revision-ia",
+        "paso": "revision-habla",
+        "texto": "Agregó un «Sí» que no va y se comió una palabra de la frase.",
+        "fecha": "2026-11-13T22:36:05.444Z",
+        "sugerencia": {
+          "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She speaks directly to someone off-camera, delivering her two lines with one silent pause between them.\n\nNo captions. No background music. No camera movement or angle changes.\n\nShe says each line exactly as written, only once, word for word, without repeating, adding, skipping or changing any word, and without \"um\", \"uh\", \"eh\" or \"sí\" that are not in the script. After her last line she says nothing else: she stays silent, listening, until the clip ends.\n\nSCRIPT:\n\nLínea 1: \"¿En serio?\"\nDelivery: she only says her own lines, never the other person's questions or comments, and between lines stays silent, listening; she opens her eyes wide and leans toward her friend, surprised; then a pause of about one second with her lips closed, no sound at all\n\nLínea 2: \"Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote.\"\nDelivery: the line starts directly on the word \"Es\", with no \"Sí\" and no filler word before it; she says it as one single flowing sentence, without splitting it in two, clearly pronouncing \"que se quedan\"; serious and warm, explaining it to her friend with small hand movements, marking \"sin efecto rebote\" with a firm little nod\n\nAudio: she speaks in a natural Colombian Spanish accent (not neutral, not Mexican, not from Spain) at a lively but steady conversational pace, with the warm, slightly lower-pitched voice of a woman around 30, confident and playful, like the friend who has been through it and knows. The voice sounds like it's coming from a close podcast mic with little echo and reverberation. As her mouth moves away from the microphone, the audio changes in volume. Soft room tone of a small podcast studio, close-mic'd podcast sound."
+        }
+      }
+    ],
+    "vid:toma-10": [
+      {
+        "fuente": "transcripcion",
+        "paso": "revision-habla",
+        "texto": "La reacción tenía que ir sin palabras: dijo «It's so pretty.» (una reacción va sin palabras).",
+        "fecha": "2026-11-13T22:34:27.886Z"
+      },
+      {
+        "fuente": "revision-ia",
+        "paso": "revision-habla",
+        "texto": "Se oyó una frase en inglés y aquí no debe decir nada.",
+        "fecha": "2026-11-13T22:36:05.444Z",
+        "sugerencia": {
+          "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip. No dialogue at any point.\n\nNo captions. No background music. No camera movement or angle changes.\n\nREACTIONS, in this order, with a clear pause between each one:\n\nReacción 1: she pulls her head back a little, raises her eyebrows and opens her eyes wide, surprised, with a quick sniff of air in through her nose, lips sealed, no voice\nReacción 2: she lets her shoulders drop and breathes out slowly through her nose, relieved, with a closed-lip smile\nReacción 3: she narrows her eyes, presses her lips together and nods slowly, convinced, in silence, lips sealed\n\nAudio: only soft breathing sounds made with the lips sealed (a quick sniff in through the nose, a relieved breath out through the nose) and the room tone of a small podcast studio. No voice, no humming, no whispering. No words in any language, no music."
+        }
+      }
+    ],
+    "vid:toma-11": [
+      {
+        "fuente": "transcripcion",
+        "paso": "revision-habla",
+        "texto": "La reacción tenía que ir sin palabras: dijo «Okay. And it wouldn't been. Maybe go» (una reacción va sin palabras).",
+        "fecha": "2026-11-13T22:34:27.887Z"
+      },
+      {
+        "fuente": "revision-ia",
+        "paso": "revision-habla",
+        "texto": "Se oyeron palabras en inglés y aquí no debe decir nada.",
+        "fecha": "2026-11-13T22:36:05.445Z",
+        "sugerencia": {
+          "prompt_video": "Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. In the first instant she closes her lips, and her mouth stays closed for the rest of the clip. No dialogue at any point.\n\nNo captions. No background music. No camera movement or angle changes.\n\nREACTIONS, in this order, with a clear pause between each one:\n\nReacción 1: she shakes her head slowly with a closed-lip smile and a soft sigh through her nose, as if she has been there too\nReacción 2: she tilts her head, puts one hand on her chest and presses her lips together in a sympathetic wince, in silence, lips sealed\nReacción 3: she raises her eyebrows and leans back a little, amused, with a short laugh through her nose, lips sealed, no voice\n\nAudio: only soft breathing sounds made with the lips sealed (a soft sigh through the nose, a short laugh through the nose) and the room tone of a small podcast studio. No voice, no humming, no whispering. No words in any language, no music."
+        }
+      }
+    ],
+    "vid:broll-1": [
+      {
+        "fuente": "revision-ia",
+        "paso": "revision-habla",
+        "texto": "Abre la boca como si hablara y aparecen unas letras en la camiseta de la figura de adelante.",
+        "fecha": "2026-11-13T22:36:05.441Z",
+        "sugerencia": {
+          "prompt_video": "Duración: 5s. Video vertical 9:16 a partir de la imagen. Cámara fija, sin zoom ni acercamiento. Ella se queda de lado, igual que en la imagen, termina de acomodarse el jean en la cintura con la misma mano, se mira de lado en el espejo, deja caer los hombros y suelta un suspiro por la nariz con la boca cerrada. Su cuerpo no cambia de forma: el jean sigue flojo, recto y plano atrás todo el clip. Nunca queda de espaldas a la cámara. La luz no cambia. Nadie habla: no hay voces ni bocas que se muevan. Sin cortes ni cambios de plano, sin texto, sin subtítulos, sin logos agregados. She stays in the same side-on pose as the start frame the whole shot: she never turns to face forward and never puts both hands on her hips. Her lips stay closed from the first frame to the last. The blurred figure at the left edge of the frame stays exactly where it is, small, out of focus and almost still: it never moves into the frame, never grows, and its grey t-shirt stays plain, with no letters, drawings or prints anywhere. Only one small, slow movement; nothing appears or disappears."
+        }
+      }
     ]
   }
 }

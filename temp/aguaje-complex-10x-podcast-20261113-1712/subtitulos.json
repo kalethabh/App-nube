@@ -1,0 +1,1454 @@
+{
+  "generado": "2026-11-13T22:36:11.273Z",
+  "lineaDeTiempo": [
+    {
+      "toma": 1,
+      "inicio": 0,
+      "fin": 6.839,
+      "desdeClip": 0.051
+    },
+    {
+      "toma": 8,
+      "inicio": 6.839,
+      "fin": 8.319,
+      "desdeClip": 0
+    },
+    {
+      "toma": 1,
+      "inicio": 8.319,
+      "fin": 10.849,
+      "desdeClip": 6.89
+    },
+    {
+      "toma": 4,
+      "inicio": 10.849,
+      "fin": 13.129,
+      "desdeClip": 0
+    },
+    {
+      "toma": 4,
+      "inicio": 13.129,
+      "fin": 18.12,
+      "desdeClip": 2.28
+    },
+    {
+      "toma": 2,
+      "inicio": 18.12,
+      "fin": 19.309,
+      "desdeClip": 0.171
+    },
+    {
+      "toma": 5,
+      "inicio": 19.309,
+      "fin": 25.04,
+      "desdeClip": 0.119
+    },
+    {
+      "toma": 5,
+      "inicio": 25.04,
+      "fin": 27.246,
+      "desdeClip": 5.85
+    },
+    {
+      "toma": 2,
+      "inicio": 27.246,
+      "fin": 32.246,
+      "desdeClip": 1.36
+    },
+    {
+      "toma": 6,
+      "inicio": 32.246,
+      "fin": 34.461,
+      "desdeClip": 0.425
+    },
+    {
+      "toma": 6,
+      "inicio": 34.461,
+      "fin": 37.273,
+      "desdeClip": 3.01
+    },
+    {
+      "toma": 2,
+      "inicio": 37.273,
+      "fin": 39.83,
+      "desdeClip": 6.36
+    },
+    {
+      "toma": 7,
+      "inicio": 39.83,
+      "fin": 44.492,
+      "desdeClip": 0.098
+    },
+    {
+      "toma": 3,
+      "inicio": 44.492,
+      "fin": 45.742,
+      "desdeClip": 0.4
+    },
+    {
+      "toma": 7,
+      "inicio": 45.742,
+      "fin": 49.693,
+      "desdeClip": 5.14
+    },
+    {
+      "toma": 8,
+      "inicio": 49.693,
+      "fin": 56.083,
+      "desdeClip": 1.54
+    },
+    {
+      "toma": 9,
+      "inicio": 56.083,
+      "fin": 59.315,
+      "desdeClip": 0.188
+    },
+    {
+      "toma": 3,
+      "inicio": 59.315,
+      "fin": 60.878,
+      "desdeClip": 1.65
+    },
+    {
+      "toma": 9,
+      "inicio": 60.878,
+      "fin": 63.478,
+      "desdeClip": 4
+    }
+  ],
+  "bloques": [
+    {
+      "inicio": 0.289,
+      "fin": 0.849,
+      "texto": "Les juro que",
+      "palabras": [
+        {
+          "texto": "Les",
+          "inicio": 0.289,
+          "fin": 0.429
+        },
+        {
+          "texto": "juro",
+          "inicio": 0.489,
+          "fin": 0.689
+        },
+        {
+          "texto": "que",
+          "inicio": 0.749,
+          "fin": 0.849
+        }
+      ]
+    },
+    {
+      "inicio": 0.869,
+      "fin": 1.189,
+      "texto": "yo no me",
+      "palabras": [
+        {
+          "texto": "yo",
+          "inicio": 0.869,
+          "fin": 0.949
+        },
+        {
+          "texto": "no",
+          "inicio": 0.969,
+          "fin": 1.029
+        },
+        {
+          "texto": "me",
+          "inicio": 1.069,
+          "fin": 1.189
+        }
+      ]
+    },
+    {
+      "inicio": 1.209,
+      "fin": 1.909,
+      "texto": "podía ni poner",
+      "palabras": [
+        {
+          "texto": "podía",
+          "inicio": 1.209,
+          "fin": 1.449
+        },
+        {
+          "texto": "ni",
+          "inicio": 1.489,
+          "fin": 1.549
+        },
+        {
+          "texto": "poner",
+          "inicio": 1.629,
+          "fin": 1.869
+        }
+      ]
+    },
+    {
+      "inicio": 1.929,
+      "fin": 2.529,
+      "texto": "un jean,",
+      "palabras": [
+        {
+          "texto": "un",
+          "inicio": 1.929,
+          "fin": 2.009
+        },
+        {
+          "texto": "jean,",
+          "inicio": 2.109,
+          "fin": 2.409
+        }
+      ]
+    },
+    {
+      "inicio": 3.109,
+      "fin": 3.849,
+      "texto": "porque atrás me",
+      "palabras": [
+        {
+          "texto": "porque",
+          "inicio": 3.109,
+          "fin": 3.349
+        },
+        {
+          "texto": "atrás",
+          "inicio": 3.389,
+          "fin": 3.709
+        },
+        {
+          "texto": "me",
+          "inicio": 3.749,
+          "fin": 3.849
+        }
+      ]
+    },
+    {
+      "inicio": 3.869,
+      "fin": 4.709,
+      "texto": "quedaba nada.",
+      "palabras": [
+        {
+          "texto": "quedaba",
+          "inicio": 3.869,
+          "fin": 4.189
+        },
+        {
+          "texto": "nada.",
+          "inicio": 4.249,
+          "fin": 4.589
+        }
+      ]
+    },
+    {
+      "inicio": 5.829,
+      "fin": 6.729,
+      "texto": "Plana, plana.",
+      "palabras": [
+        {
+          "texto": "Plana,",
+          "inicio": 5.829,
+          "fin": 6.169
+        },
+        {
+          "texto": "plana.",
+          "inicio": 6.289,
+          "fin": 6.609
+        }
+      ]
+    },
+    {
+      "inicio": 7.419,
+      "fin": 8.139,
+      "texto": "¿En serio?",
+      "palabras": [
+        {
+          "texto": "¿En",
+          "inicio": 7.419,
+          "fin": 7.539
+        },
+        {
+          "texto": "serio?",
+          "inicio": 7.639,
+          "fin": 8.019
+        }
+      ]
+    },
+    {
+      "inicio": 8.549,
+      "fin": 9.249,
+      "texto": "Imagínate que ya",
+      "palabras": [
+        {
+          "texto": "Imagínate",
+          "inicio": 8.549,
+          "fin": 8.969
+        },
+        {
+          "texto": "que",
+          "inicio": 9.009,
+          "fin": 9.089
+        },
+        {
+          "texto": "ya",
+          "inicio": 9.129,
+          "fin": 9.189
+        }
+      ]
+    },
+    {
+      "inicio": 9.269,
+      "fin": 9.949,
+      "texto": "estaba ahorrando pa'",
+      "palabras": [
+        {
+          "texto": "estaba",
+          "inicio": 9.269,
+          "fin": 9.429
+        },
+        {
+          "texto": "ahorrando",
+          "inicio": 9.449,
+          "fin": 9.849
+        },
+        {
+          "texto": "pa'",
+          "inicio": 9.869,
+          "fin": 9.929
+        }
+      ]
+    },
+    {
+      "inicio": 9.969,
+      "fin": 10.669,
+      "texto": "operarme.",
+      "palabras": [
+        {
+          "texto": "operarme.",
+          "inicio": 9.969,
+          "fin": 10.549
+        }
+      ]
+    },
+    {
+      "inicio": 11.549,
+      "fin": 12.149,
+      "texto": "¡Ay, no me",
+      "palabras": [
+        {
+          "texto": "¡Ay,",
+          "inicio": 11.549,
+          "fin": 11.769
+        },
+        {
+          "texto": "no",
+          "inicio": 11.849,
+          "fin": 11.929
+        },
+        {
+          "texto": "me",
+          "inicio": 11.989,
+          "fin": 12.129
+        }
+      ]
+    },
+    {
+      "inicio": 12.169,
+      "fin": 12.989,
+      "texto": "digas!",
+      "palabras": [
+        {
+          "texto": "digas!",
+          "inicio": 12.169,
+          "fin": 12.869
+        }
+      ]
+    },
+    {
+      "inicio": 13.389,
+      "fin": 14.329,
+      "texto": "Yo estaba igualita,",
+      "palabras": [
+        {
+          "texto": "Yo",
+          "inicio": 13.389,
+          "fin": 13.449
+        },
+        {
+          "texto": "estaba",
+          "inicio": 13.469,
+          "fin": 13.689
+        },
+        {
+          "texto": "igualita,",
+          "inicio": 13.729,
+          "fin": 14.209
+        }
+      ]
+    },
+    {
+      "inicio": 14.369,
+      "fin": 14.848,
+      "texto": "hasta que mi",
+      "palabras": [
+        {
+          "texto": "hasta",
+          "inicio": 14.369,
+          "fin": 14.549
+        },
+        {
+          "texto": "que",
+          "inicio": 14.609,
+          "fin": 14.689
+        },
+        {
+          "texto": "mi",
+          "inicio": 14.709,
+          "fin": 14.829
+        }
+      ]
+    },
+    {
+      "inicio": 14.868,
+      "fin": 15.349,
+      "texto": "prima me dijo:",
+      "palabras": [
+        {
+          "texto": "prima",
+          "inicio": 14.868,
+          "fin": 15.049
+        },
+        {
+          "texto": "me",
+          "inicio": 15.109,
+          "fin": 15.189
+        },
+        {
+          "texto": "dijo:",
+          "inicio": 15.209,
+          "fin": 15.369
+        }
+      ]
+    },
+    {
+      "inicio": 15.369,
+      "fin": 15.989,
+      "texto": "\"Mija, antes del",
+      "palabras": [
+        {
+          "texto": "\"Mija,",
+          "inicio": 15.369,
+          "fin": 15.429
+        },
+        {
+          "texto": "antes",
+          "inicio": 15.489,
+          "fin": 15.809
+        },
+        {
+          "texto": "del",
+          "inicio": 15.829,
+          "fin": 15.929
+        }
+      ]
+    },
+    {
+      "inicio": 16.009,
+      "fin": 17.229,
+      "texto": "bisturí, pruébalo",
+      "palabras": [
+        {
+          "texto": "bisturí,",
+          "inicio": 16.009,
+          "fin": 16.469
+        },
+        {
+          "texto": "pruébalo",
+          "inicio": 16.849,
+          "fin": 17.109
+        }
+      ]
+    },
+    {
+      "inicio": 17.289,
+      "fin": 17.969,
+      "texto": "natural\".",
+      "palabras": [
+        {
+          "texto": "natural\".",
+          "inicio": 17.289,
+          "fin": 17.849
+        }
+      ]
+    },
+    {
+      "inicio": 18.349,
+      "fin": 18.729,
+      "texto": "¿Y qué te",
+      "palabras": [
+        {
+          "texto": "¿Y",
+          "inicio": 18.349,
+          "fin": 18.409
+        },
+        {
+          "texto": "qué",
+          "inicio": 18.489,
+          "fin": 18.569
+        },
+        {
+          "texto": "te",
+          "inicio": 18.629,
+          "fin": 18.689
+        }
+      ]
+    },
+    {
+      "inicio": 18.749,
+      "fin": 19.429,
+      "texto": "tomaste?",
+      "palabras": [
+        {
+          "texto": "tomaste?",
+          "inicio": 18.749,
+          "fin": 19.309
+        }
+      ]
+    },
+    {
+      "inicio": 19.61,
+      "fin": 20.23,
+      "texto": "Uno que trae",
+      "palabras": [
+        {
+          "texto": "Uno",
+          "inicio": 19.61,
+          "fin": 19.75
+        },
+        {
+          "texto": "que",
+          "inicio": 19.81,
+          "fin": 19.93
+        },
+        {
+          "texto": "trae",
+          "inicio": 19.95,
+          "fin": 20.15
+        }
+      ]
+    },
+    {
+      "inicio": 20.25,
+      "fin": 21.91,
+      "texto": "aguaje, fenogreco y",
+      "palabras": [
+        {
+          "texto": "aguaje,",
+          "inicio": 20.25,
+          "fin": 20.77
+        },
+        {
+          "texto": "fenogreco",
+          "inicio": 20.97,
+          "fin": 21.61
+        },
+        {
+          "texto": "y",
+          "inicio": 21.79,
+          "fin": 21.83
+        }
+      ]
+    },
+    {
+      "inicio": 21.93,
+      "fin": 22.69,
+      "texto": "maca negra",
+      "palabras": [
+        {
+          "texto": "maca",
+          "inicio": 21.93,
+          "fin": 22.17
+        },
+        {
+          "texto": "negra",
+          "inicio": 22.25,
+          "fin": 22.57
+        }
+      ]
+    },
+    {
+      "inicio": 23.85,
+      "fin": 24.55,
+      "texto": "en su máxima",
+      "palabras": [
+        {
+          "texto": "en",
+          "inicio": 23.85,
+          "fin": 23.93
+        },
+        {
+          "texto": "su",
+          "inicio": 23.99,
+          "fin": 24.07
+        },
+        {
+          "texto": "máxima",
+          "inicio": 24.13,
+          "fin": 24.47
+        }
+      ]
+    },
+    {
+      "inicio": 24.57,
+      "fin": 25.03,
+      "texto": "pureza.",
+      "palabras": [
+        {
+          "texto": "pureza.",
+          "inicio": 24.57,
+          "fin": 24.91
+        }
+      ]
+    },
+    {
+      "inicio": 25.17,
+      "fin": 25.51,
+      "texto": "Eso es lo",
+      "palabras": [
+        {
+          "texto": "Eso",
+          "inicio": 25.17,
+          "fin": 25.31
+        },
+        {
+          "texto": "es",
+          "inicio": 25.33,
+          "fin": 25.37
+        },
+        {
+          "texto": "lo",
+          "inicio": 25.41,
+          "fin": 25.45
+        }
+      ]
+    },
+    {
+      "inicio": 25.53,
+      "fin": 25.87,
+      "texto": "que da los",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 25.53,
+          "fin": 25.59
+        },
+        {
+          "texto": "da",
+          "inicio": 25.63,
+          "fin": 25.71
+        },
+        {
+          "texto": "los",
+          "inicio": 25.75,
+          "fin": 25.85
+        }
+      ]
+    },
+    {
+      "inicio": 25.89,
+      "fin": 26.75,
+      "texto": "resultados, no la",
+      "palabras": [
+        {
+          "texto": "resultados,",
+          "inicio": 25.89,
+          "fin": 26.43
+        },
+        {
+          "texto": "no",
+          "inicio": 26.51,
+          "fin": 26.59
+        },
+        {
+          "texto": "la",
+          "inicio": 26.63,
+          "fin": 26.69
+        }
+      ]
+    },
+    {
+      "inicio": 26.77,
+      "fin": 27.21,
+      "texto": "marca.",
+      "palabras": [
+        {
+          "texto": "marca.",
+          "inicio": 26.77,
+          "fin": 27.09
+        }
+      ]
+    },
+    {
+      "inicio": 27.246,
+      "fin": 28.826,
+      "texto": "¿Y eso no",
+      "palabras": [
+        {
+          "texto": "¿Y",
+          "inicio": 27.246,
+          "fin": 28.506
+        },
+        {
+          "texto": "eso",
+          "inicio": 28.566,
+          "fin": 28.706
+        },
+        {
+          "texto": "no",
+          "inicio": 28.746,
+          "fin": 28.826
+        }
+      ]
+    },
+    {
+      "inicio": 28.846,
+      "fin": 29.466,
+      "texto": "engorda?",
+      "palabras": [
+        {
+          "texto": "engorda?",
+          "inicio": 28.846,
+          "fin": 29.346
+        }
+      ]
+    },
+    {
+      "inicio": 29.606,
+      "fin": 30.286,
+      "texto": "Porque yo probé",
+      "palabras": [
+        {
+          "texto": "Porque",
+          "inicio": 29.606,
+          "fin": 29.826
+        },
+        {
+          "texto": "yo",
+          "inicio": 29.866,
+          "fin": 29.926
+        },
+        {
+          "texto": "probé",
+          "inicio": 30.026,
+          "fin": 30.266
+        }
+      ]
+    },
+    {
+      "inicio": 30.306,
+      "fin": 31.386,
+      "texto": "unas pastillas y",
+      "palabras": [
+        {
+          "texto": "unas",
+          "inicio": 30.306,
+          "fin": 30.486
+        },
+        {
+          "texto": "pastillas",
+          "inicio": 30.526,
+          "fin": 31.126
+        },
+        {
+          "texto": "y",
+          "inicio": 31.306,
+          "fin": 31.326
+        }
+      ]
+    },
+    {
+      "inicio": 31.406,
+      "fin": 32.366,
+      "texto": "me dio rebote.",
+      "palabras": [
+        {
+          "texto": "me",
+          "inicio": 31.406,
+          "fin": 31.486
+        },
+        {
+          "texto": "dio",
+          "inicio": 31.526,
+          "fin": 31.666
+        },
+        {
+          "texto": "rebote.",
+          "inicio": 31.726,
+          "fin": 32.246
+        }
+      ]
+    },
+    {
+      "inicio": 32.581,
+      "fin": 33.341,
+      "texto": "Nada que ver,",
+      "palabras": [
+        {
+          "texto": "Nada",
+          "inicio": 32.581,
+          "fin": 32.821
+        },
+        {
+          "texto": "que",
+          "inicio": 32.941,
+          "fin": 33.061
+        },
+        {
+          "texto": "ver,",
+          "inicio": 33.101,
+          "fin": 33.321
+        }
+      ]
+    },
+    {
+      "inicio": 33.361,
+      "fin": 33.621,
+      "texto": "a mí no",
+      "palabras": [
+        {
+          "texto": "a",
+          "inicio": 33.361,
+          "fin": 33.401
+        },
+        {
+          "texto": "mí",
+          "inicio": 33.441,
+          "fin": 33.521
+        },
+        {
+          "texto": "no",
+          "inicio": 33.541,
+          "fin": 33.621
+        }
+      ]
+    },
+    {
+      "inicio": 33.641,
+      "fin": 34.281,
+      "texto": "me pasó.",
+      "palabras": [
+        {
+          "texto": "me",
+          "inicio": 33.641,
+          "fin": 33.761
+        },
+        {
+          "texto": "pasó.",
+          "inicio": 33.801,
+          "fin": 34.161
+        }
+      ]
+    },
+    {
+      "inicio": 35.131,
+      "fin": 35.571,
+      "texto": "Eso era lo",
+      "palabras": [
+        {
+          "texto": "Eso",
+          "inicio": 35.131,
+          "fin": 35.271
+        },
+        {
+          "texto": "era",
+          "inicio": 35.291,
+          "fin": 35.431
+        },
+        {
+          "texto": "lo",
+          "inicio": 35.451,
+          "fin": 35.51
+        }
+      ]
+    },
+    {
+      "inicio": 35.591,
+      "fin": 36.071,
+      "texto": "que me daba",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 35.591,
+          "fin": 35.671
+        },
+        {
+          "texto": "me",
+          "inicio": 35.691,
+          "fin": 35.771
+        },
+        {
+          "texto": "daba",
+          "inicio": 35.811,
+          "fin": 36.051
+        }
+      ]
+    },
+    {
+      "inicio": 36.091,
+      "fin": 37.111,
+      "texto": "miedo también.",
+      "palabras": [
+        {
+          "texto": "miedo",
+          "inicio": 36.091,
+          "fin": 36.411
+        },
+        {
+          "texto": "también.",
+          "inicio": 36.491,
+          "fin": 36.991
+        }
+      ]
+    },
+    {
+      "inicio": 37.273,
+      "fin": 39.313,
+      "texto": "¿Y cómo te",
+      "palabras": [
+        {
+          "texto": "¿Y",
+          "inicio": 37.273,
+          "fin": 38.873
+        },
+        {
+          "texto": "cómo",
+          "inicio": 38.913,
+          "fin": 39.093
+        },
+        {
+          "texto": "te",
+          "inicio": 39.153,
+          "fin": 39.233
+        }
+      ]
+    },
+    {
+      "inicio": 39.333,
+      "fin": 39.673,
+      "texto": "fue?",
+      "palabras": [
+        {
+          "texto": "fue?",
+          "inicio": 39.333,
+          "fin": 39.553
+        }
+      ]
+    },
+    {
+      "inicio": 40.092,
+      "fin": 41.092,
+      "texto": "Uy, mija, ahora",
+      "palabras": [
+        {
+          "texto": "Uy,",
+          "inicio": 40.092,
+          "fin": 40.252
+        },
+        {
+          "texto": "mija,",
+          "inicio": 40.352,
+          "fin": 40.672
+        },
+        {
+          "texto": "ahora",
+          "inicio": 40.852,
+          "fin": 41.092
+        }
+      ]
+    },
+    {
+      "inicio": 41.112,
+      "fin": 41.752,
+      "texto": "en el gym",
+      "palabras": [
+        {
+          "texto": "en",
+          "inicio": 41.112,
+          "fin": 41.172
+        },
+        {
+          "texto": "el",
+          "inicio": 41.212,
+          "fin": 41.292
+        },
+        {
+          "texto": "gym",
+          "inicio": 41.392,
+          "fin": 41.632
+        }
+      ]
+    },
+    {
+      "inicio": 41.852,
+      "fin": 42.432,
+      "texto": "me pongo de",
+      "palabras": [
+        {
+          "texto": "me",
+          "inicio": 41.852,
+          "fin": 41.992
+        },
+        {
+          "texto": "pongo",
+          "inicio": 42.012,
+          "fin": 42.252
+        },
+        {
+          "texto": "de",
+          "inicio": 42.312,
+          "fin": 42.392
+        }
+      ]
+    },
+    {
+      "inicio": 42.452,
+      "fin": 42.872,
+      "texto": "lado…",
+      "palabras": [
+        {
+          "texto": "lado…",
+          "inicio": 42.452,
+          "fin": 42.752
+        }
+      ]
+    },
+    {
+      "inicio": 43.352,
+      "fin": 44.312,
+      "texto": "si me entiendes.",
+      "palabras": [
+        {
+          "texto": "si",
+          "inicio": 43.352,
+          "fin": 43.472
+        },
+        {
+          "texto": "me",
+          "inicio": 43.512,
+          "fin": 43.552
+        },
+        {
+          "texto": "entiendes.",
+          "inicio": 43.592,
+          "fin": 44.192
+        }
+      ]
+    },
+    {
+      "inicio": 44.712,
+      "fin": 45.592,
+      "texto": "¡Ay no!",
+      "palabras": [
+        {
+          "texto": "¡Ay",
+          "inicio": 44.712,
+          "fin": 44.932
+        },
+        {
+          "texto": "no!",
+          "inicio": 45.072,
+          "fin": 45.472
+        }
+      ]
+    },
+    {
+      "inicio": 46.422,
+      "fin": 46.962,
+      "texto": "Eso sí:",
+      "palabras": [
+        {
+          "texto": "Eso",
+          "inicio": 46.422,
+          "fin": 46.582
+        },
+        {
+          "texto": "sí:",
+          "inicio": 46.682,
+          "fin": 46.842
+        }
+      ]
+    },
+    {
+      "inicio": 47.122,
+      "fin": 48.022,
+      "texto": "hazte el tratamiento",
+      "palabras": [
+        {
+          "texto": "hazte",
+          "inicio": 47.122,
+          "fin": 47.342
+        },
+        {
+          "texto": "el",
+          "inicio": 47.362,
+          "fin": 47.402
+        },
+        {
+          "texto": "tratamiento",
+          "inicio": 47.462,
+          "fin": 47.962
+        }
+      ]
+    },
+    {
+      "inicio": 48.042,
+      "fin": 49.022,
+      "texto": "completo de tres",
+      "palabras": [
+        {
+          "texto": "completo",
+          "inicio": 48.042,
+          "fin": 48.562
+        },
+        {
+          "texto": "de",
+          "inicio": 48.602,
+          "fin": 48.662
+        },
+        {
+          "texto": "tres",
+          "inicio": 48.742,
+          "fin": 48.962
+        }
+      ]
+    },
+    {
+      "inicio": 49.042,
+      "fin": 49.582,
+      "texto": "meses.",
+      "palabras": [
+        {
+          "texto": "meses.",
+          "inicio": 49.042,
+          "fin": 49.462
+        }
+      ]
+    },
+    {
+      "inicio": 50.053,
+      "fin": 50.373,
+      "texto": "Es el que",
+      "palabras": [
+        {
+          "texto": "Es",
+          "inicio": 50.053,
+          "fin": 50.133
+        },
+        {
+          "texto": "el",
+          "inicio": 50.173,
+          "fin": 50.233
+        },
+        {
+          "texto": "que",
+          "inicio": 50.313,
+          "fin": 50.373
+        }
+      ]
+    },
+    {
+      "inicio": 50.393,
+      "fin": 51.193,
+      "texto": "da resultados",
+      "palabras": [
+        {
+          "texto": "da",
+          "inicio": 50.393,
+          "fin": 50.473
+        },
+        {
+          "texto": "resultados",
+          "inicio": 50.553,
+          "fin": 51.113
+        }
+      ]
+    },
+    {
+      "inicio": 51.213,
+      "fin": 52.313,
+      "texto": "rápidos y duraderos,",
+      "palabras": [
+        {
+          "texto": "rápidos",
+          "inicio": 51.213,
+          "fin": 51.613
+        },
+        {
+          "texto": "y",
+          "inicio": 51.653,
+          "fin": 51.673
+        },
+        {
+          "texto": "duraderos,",
+          "inicio": 51.733,
+          "fin": 52.333
+        }
+      ]
+    },
+    {
+      "inicio": 52.333,
+      "fin": 53.173,
+      "texto": "que se quedan",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 52.333,
+          "fin": 52.563
+        },
+        {
+          "texto": "se",
+          "inicio": 52.793,
+          "fin": 52.853
+        },
+        {
+          "texto": "quedan",
+          "inicio": 52.933,
+          "fin": 53.153
+        }
+      ]
+    },
+    {
+      "inicio": 53.193,
+      "fin": 53.993,
+      "texto": "incluso después de",
+      "palabras": [
+        {
+          "texto": "incluso",
+          "inicio": 53.193,
+          "fin": 53.573
+        },
+        {
+          "texto": "después",
+          "inicio": 53.593,
+          "fin": 53.873
+        },
+        {
+          "texto": "de",
+          "inicio": 53.893,
+          "fin": 53.953
+        }
+      ]
+    },
+    {
+      "inicio": 54.013,
+      "fin": 55.073,
+      "texto": "terminarlo, y sin",
+      "palabras": [
+        {
+          "texto": "terminarlo,",
+          "inicio": 54.013,
+          "fin": 54.593
+        },
+        {
+          "texto": "y",
+          "inicio": 54.833,
+          "fin": 54.853
+        },
+        {
+          "texto": "sin",
+          "inicio": 54.933,
+          "fin": 55.033
+        }
+      ]
+    },
+    {
+      "inicio": 55.093,
+      "fin": 55.993,
+      "texto": "efecto rebote.",
+      "palabras": [
+        {
+          "texto": "efecto",
+          "inicio": 55.093,
+          "fin": 55.393
+        },
+        {
+          "texto": "rebote.",
+          "inicio": 55.473,
+          "fin": 55.873
+        }
+      ]
+    },
+    {
+      "inicio": 56.335,
+      "fin": 56.735,
+      "texto": "Me llegó a",
+      "palabras": [
+        {
+          "texto": "Me",
+          "inicio": 56.335,
+          "fin": 56.435
+        },
+        {
+          "texto": "llegó",
+          "inicio": 56.475,
+          "fin": 56.655
+        },
+        {
+          "texto": "a",
+          "inicio": 56.675,
+          "fin": 56.715
+        }
+      ]
+    },
+    {
+      "inicio": 56.755,
+      "fin": 57.535,
+      "texto": "la casa y",
+      "palabras": [
+        {
+          "texto": "la",
+          "inicio": 56.755,
+          "fin": 56.815
+        },
+        {
+          "texto": "casa",
+          "inicio": 56.895,
+          "fin": 57.255
+        },
+        {
+          "texto": "y",
+          "inicio": 57.455,
+          "fin": 57.515
+        }
+      ]
+    },
+    {
+      "inicio": 57.555,
+      "fin": 58.435,
+      "texto": "lo pagué al",
+      "palabras": [
+        {
+          "texto": "lo",
+          "inicio": 57.555,
+          "fin": 57.635
+        },
+        {
+          "texto": "pagué",
+          "inicio": 57.735,
+          "fin": 58.255
+        },
+        {
+          "texto": "al",
+          "inicio": 58.315,
+          "fin": 58.395
+        }
+      ]
+    },
+    {
+      "inicio": 58.455,
+      "fin": 59.135,
+      "texto": "recibirlo.",
+      "palabras": [
+        {
+          "texto": "recibirlo.",
+          "inicio": 58.455,
+          "fin": 59.015
+        }
+      ]
+    },
+    {
+      "inicio": 59.585,
+      "fin": 60.145,
+      "texto": "Ya mismo les",
+      "palabras": [
+        {
+          "texto": "Ya",
+          "inicio": 59.585,
+          "fin": 59.685
+        },
+        {
+          "texto": "mismo",
+          "inicio": 59.745,
+          "fin": 59.945
+        },
+        {
+          "texto": "les",
+          "inicio": 60.005,
+          "fin": 60.105
+        }
+      ]
+    },
+    {
+      "inicio": 60.165,
+      "fin": 60.725,
+      "texto": "escribo.",
+      "palabras": [
+        {
+          "texto": "escribo.",
+          "inicio": 60.165,
+          "fin": 60.605
+        }
+      ]
+    },
+    {
+      "inicio": 61.758,
+      "fin": 62.318,
+      "texto": "El tuyo está",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 61.758,
+          "fin": 61.818
+        },
+        {
+          "texto": "tuyo",
+          "inicio": 61.918,
+          "fin": 62.118
+        },
+        {
+          "texto": "está",
+          "inicio": 62.158,
+          "fin": 62.318
+        }
+      ]
+    },
+    {
+      "inicio": 62.338,
+      "fin": 62.818,
+      "texto": "en el botón",
+      "palabras": [
+        {
+          "texto": "en",
+          "inicio": 62.338,
+          "fin": 62.378
+        },
+        {
+          "texto": "el",
+          "inicio": 62.418,
+          "fin": 62.498
+        },
+        {
+          "texto": "botón",
+          "inicio": 62.538,
+          "fin": 62.818
+        }
+      ]
+    },
+    {
+      "inicio": 62.838,
+      "fin": 63.378,
+      "texto": "de abajo.",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 62.838,
+          "fin": 62.898
+        },
+        {
+          "texto": "abajo.",
+          "inicio": 62.938,
+          "fin": 63.258
+        }
+      ]
+    }
+  ]
+}

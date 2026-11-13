@@ -1,0 +1,48 @@
+
+=== Contexto para rehacer la toma 10 (hablada, tipo H) ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:          H
+    duracion:      8s (siempre 4, 6, 8 o 10)
+    frame inicial: la referencia "host-a" copiada tal cual (no hay imagen que rehacer: solo cambia el video)
+    habla:         A
+    clase:         reacciones
+
+  COMO SE PIDE EL VIDEO: con la imagen del clip como frame inicial (first_frame_url).
+
+  QUE TIENE QUE DECIR ESTA TOMA (el copy solo cambia si Omni la rechazo por contenido):
+    linea:       ""
+    reacciones (un tercio del clip cada una):
+      1)  Levanta las cejas y abre los ojos, sorprendida, con un "mm" corto de boca cerrada
+      2)  Afloja los hombros y suelta el aire por la nariz, aliviada, con una sonrisa de labios cerrados
+      3)  Entrecierra los ojos y asiente despacio, convencida, con un murmullo grave de boca cerrada
+    viene de:    "Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo."
+    lleva a:     ""
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- video ---
+Podcast-style video. Static camera, medium close-up framing locked to the start frame throughout. She is listening, not speaking. Her mouth stays closed the entire clip. No dialogue at any point.
+
+No captions. No background music. No camera movement or angle changes.
+
+REACTIONS, in this order, with a clear pause between each one:
+
+Reacción 1: she raises her eyebrows and opens her eyes wide, surprised, with a short closed-mouth "mm" of surprise, lips sealed
+Reacción 2: she lets her shoulders drop and breathes out slowly through her nose, relieved, with a closed-lip smile
+Reacción 3: she narrows her eyes and nods slowly, convinced, with a low closed-mouth hum, lips sealed
+
+Audio: only soft nonverbal sounds made with the lips sealed (a short surprised hum, a relieved breath through the nose, a low hum) and the room tone of a small podcast studio. No words in any language, no music.
+
+  --- referencia "host-a" (personaje) — repetir palabra por palabra ---
+Foto hiperrealista de una mujer adulta colombiana de 27 años, piel trigueña clara, cara ovalada, cejas finas y naturales, sentada en un podcast, vista desde el pecho hacia arriba, un poco descentrada. Los dos hombros y los brazos quedan dentro del cuadro, con aire a los dos lados del cuerpo: ningún brazo toca el borde de la imagen. Delante hay un micrófono de podcast negro, de los grandes, montado en un brazo articulado que entra por un lado de la imagen. El micrófono queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla. Está en medio de una conversación: mira hacia el lado derecho de la imagen, a la amiga con la que habla, que no se ve. Nunca mira a la cámara. Expresión natural, a punto de hablar, con una media sonrisa. Pelo castaño largo con ondas suaves y algunos mechones sueltos, maquillaje natural, aretes pequeños dorados, blusa de seda color crema con arrugas reales, unos audífonos negros colgados al cuello. Cara real: piel con poros y textura, tono desparejo, sin maquillaje pesado, sin retoque, sin filtro de belleza, sin efecto plástico; proporciones de persona común, no de modelo. El lugar no es un estudio frío: es una sala cálida y elegante, sentada en un sofá de lino beige. Luz natural de tarde, cálida y suave, que entra por una ventana grande a un lado, y al fondo una lámpara de pie de luz cálida encendida; sombras suaves, nada de luz plana. Al fondo, un poco desenfocado, una repisa de madera con velas, jarrones de cerámica y matas verdes; no hay libros, pantallas ni nada con letras. Se ve como grabado con una cámara de cine, lente de 35 mm a f/2, con poca profundidad de campo. Sin texto, sin letreros ni logos. Aspect 9:16.
+
+  --- referencia "host-b" (personaje) — repetir palabra por palabra ---
+Usa la imagen adjunta como referencia del lugar, la luz y el encuadre. Mantén la misma sala cálida y elegante con el sofá de lino beige, la misma luz natural de tarde que entra por una ventana grande a un lado, la misma lámpara de pie cálida al fondo y el mismo tipo de micrófono de podcast negro en su brazo articulado. Cambia a la persona: ahora es otra mujer adulta colombiana de 30 años, morena, de piel canela más oscura, cara más redonda con pómulos llenos, cejas gruesas y oscuras, labios más gruesos y nariz más ancha, con el pelo negro recogido en un moño alto con mechones sueltos, aretes de argolla dorados y un suéter tejido color terracota, con unos audífonos negros colgados al cuello. Se ve segura y divertida, la amiga que sabe. Está sentada frente al mismo micrófono, que queda un poco más abajo que la boca y hacia el lado al que mira, sin taparle la boca ni la barbilla, vista desde el pecho hacia arriba, un poco descentrada, con el mismo encuadre: los dos hombros y los brazos dentro del cuadro, con aire a los dos lados del cuerpo, sin que ningún brazo toque el borde de la imagen. Mira hacia el lado izquierdo de la imagen, a la amiga con la que habla, que no se ve. Nunca mira a la cámara. Cara real: piel con poros y textura, tono desparejo, sin retoque, sin filtro de belleza, sin efecto plástico, proporciones de persona común. Cambia la posición de los adornos del fondo, todos sin letras: la lámpara de pie ahora queda del otro lado, la repisa de madera se ve desde otro ángulo con otras velas y otro jarrón de cerámica, y una mata grande queda cerca de ella. No hay libros, pantallas ni nada con letras. Es el mismo ambiente, pero desde otro lugar. Se ve como grabado con una cámara de cine, lente de 35 mm a f/2, con poca profundidad de campo. Sin texto, sin letreros ni logos. Aspect 9:16.
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion, y aplicala con:
+      node produccion/rehacer-toma.js temp/aguaje-complex-10x-podcast-20261113-1712 --toma 10 --aplicar nuevos.json
+  nuevos.json = { "prompt_video", "motivo" }
+  Solo si Omni la rechazo por contenido, ademas el copy nuevo de ESTA toma, con su misma funcion y largo:
+  "linea" y "lineas" o "dialogo".
+

@@ -1,17 +1,27 @@
 {
   "n": 1,
-  "estado": "exportando",
+  "estado": "listo",
   "calidad": "1080",
   "version": "completa",
   "subtitulos": "con",
   "sinMusica": false,
   "srt": false,
   "creado": "2026-11-13T22:30:45.330Z",
-  "actualizado": "2026-11-13T22:34:13.728Z",
+  "actualizado": "2026-11-13T22:35:13.283Z",
   "avance": {
-    "etapa": "render",
-    "valor": 85,
+    "etapa": "guardar",
+    "valor": 100,
     "cuadro": 1544,
     "total": 1544
-  }
+  },
+  "control": {
+    "limpio": true,
+    "codigo": 0,
+    "motivo": null,
+    "defectos": [],
+    "avisos": []
+  },
+  "archivo": "aguaje-complex-10x-claymation-20261113-1558_editado-1.mp4",
+  "srtArchivo": null,
+  "terminado": "2026-11-13T22:35:13.185Z"
 }
