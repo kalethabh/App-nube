@@ -659,6 +659,12 @@ function textoBiblioteca(slug, brief) {
   return partes.join('\n\n');
 }
 
+/** ¿El usuario trajo su propio guion? (en los cantados es material para la letra, no un guion que se respeta tal cual) */
+function tieneGuionPropio(brief) {
+  if (esLetras(brief) || ESTILOS[brief?.estilo]?.familia === 'historia-musical') return false;
+  return Boolean(String(leerProducto(brief.productoId)?.guionPropio || '').trim());
+}
+
 function promptGuion(slug, brief, foto, prepClonar = null) {
   const def = ESTILOS[brief.estilo];
   const t = piezasDeLaTarea(slug, brief, def);
@@ -672,12 +678,12 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
     duracion: tareaDuracion(brief),
     guionDelUsuario: esLetras(brief)
       ? '- `guion_del_usuario`: si viene, es material de trabajo para la canción o la historia (este estilo no tiene Paso 0). Si es null, escribes desde cero.'
-      : '- `guion_del_usuario`: si viene, es el guion que trae el usuario y aplica el Paso 0 de la skill (no cambias una sola palabra de ese texto). Si es null, escribes el guion desde cero.',
+      : '- `guion_del_usuario`: si viene, es el guion que trae el usuario y aplica el Paso 0 de la skill: no cambias una sola palabra de ese texto, no escribes otro guion ni variantes, y no haces análisis de ángulo, investigación ni búsquedas para crear uno nuevo. Tu trabajo es solo partirlo en tomas y escribir lo que se ve. Si es null, escribes el guion desde cero.',
     carpetaProducto: relProducto(brief.productoId),
     detalleProducto: detalleDelProducto(brief.productoId, { vineta: true }),
     foto: textoFoto(slug, brief, foto),
     pasos: lista(t.pasos),
-    delEstilo: [textoClonar(slug, brief, prepClonar), textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
+    delEstilo: [textoClonar(slug, brief, prepClonar, { guionPropio: tieneGuionPropio(brief) }), textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
   });
@@ -871,7 +877,7 @@ export function armarSesionGuion(slug, { brief = leerBrief(slug), foto = fotoEnC
     ...permisosGuion(slug, brief),
     material: materialGuion(slug, brief, { foto, deAntes }),
     esfuerzo: 'alto', // (Claude no lo usa)
-    fraseInicio: esLetras(brief) ? `${laIA()} empezó a escribir la letra` : `${laIA()} empezó a escribir tu guion`,
+    fraseInicio: esLetras(brief) ? `${laIA()} empezó a escribir la letra` : tieneGuionPropio(brief) ? `${laIA()} está repartiendo tu guion en escenas` : `${laIA()} empezó a escribir tu guion`,
     timeoutMs: 75 * 60000,
     silencioMs: 10 * 60000,
     maxTurnos: 80,

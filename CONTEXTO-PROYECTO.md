@@ -136,6 +136,15 @@ Los modelos se eligen en **Ajustes → Modelos** o junto al costo antes de aprob
   «Videos: X de N listos · Y % · Z generándose» (`app/src/pantallas/produccion/Mando.jsx`, `RelojAvance`). El avance
   es por clips terminados: kie.ai no da el porcentaje de cada clip.
 
+### Con guion propio no se escribe otro guion (2026-11-13, PR pendiente)
+
+- Si el usuario pega su guion, la tarea del guion dice que no se escribe otro, ni variantes, ni se hace análisis de
+  ángulo o investigación: solo se parte en tomas (`app/server/lib/anuncios-nuevos.js`, `tieneGuionPropio`).
+- Si además sube un video para clonar, ese video es solo guía visual: no se sigue la skill de clonación (sin
+  `adn.md` ni `guion-clonado.md`, sin comparar la transcripción) (`app/server/lib/clonar.js`, `textoClonar`).
+- El avance dice «está repartiendo tu guion en escenas». Probado: sintaxis (`node --check`) y el texto armado; sin un
+  anuncio real todavía.
+
 ## Validación más reciente y sus límites
 
 Todo se probó sin servicios de pago y sin modificar los anuncios personales.
