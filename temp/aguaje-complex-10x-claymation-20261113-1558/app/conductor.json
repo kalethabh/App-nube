@@ -67,7 +67,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-13T21:19:32.533Z",
-      "detalle": "Mirando las imágenes del anuncio"
+      "detalle": "Escribiendo el paso entre cada escena"
     },
     {
       "id": "videos",
@@ -122,7 +122,7 @@
   "modoPrueba": false,
   "creado": "2026-11-13T21:15:31.187Z",
   "aprobado": "2026-11-13T21:15:31.187Z",
-  "actualizado": "2026-11-13T21:19:41.524Z",
+  "actualizado": "2026-11-13T21:21:06.589Z",
   "saldoInicial": {
     "creditos": 2064.8,
     "fecha": "2026-11-13T21:15:32.232Z"
