@@ -1,6 +1,6 @@
 {
   "uuid": "b6c966ff-e522-4d4f-a406-3b586e8a686d",
-  "estado": "escribiendo",
+  "estado": "listo",
   "tipo": "guion",
   "intentos": 1,
   "progreso": [
@@ -15,11 +15,74 @@
     "Leyendo las instrucciones del estilo",
     "Leyendo",
     "Buscando en los archivos",
-    "Escribiendo el guion y cada escena"
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Ajustando el guion",
+    "Pasando el guion en limpio",
+    "Revisando que el guion esté completo"
   ],
   "inicio": "2026-11-13T21:54:55.624Z",
   "cambios": [],
-  "actualizado": "2026-11-13T21:58:33.109Z",
+  "actualizado": "2026-11-13T22:00:56.693Z",
   "error": null,
-  "inicioIntento": "2026-11-13T21:54:55.625Z"
+  "inicioIntento": "2026-11-13T21:54:55.625Z",
+  "fin": "2026-11-13T22:00:56.693Z",
+  "limite": false,
+  "reinicio": null,
+  "medidas": [
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-13T22:00:56.693Z",
+      "ok": true,
+      "turnos": 15,
+      "duracionMs": 353918,
+      "uso": {
+        "input_tokens": 12,
+        "cache_creation_input_tokens": 123444,
+        "cache_read_input_tokens": 402903,
+        "output_tokens": 40816,
+        "output_tokens_details": {
+          "thinking_tokens": 20058
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 123444,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 126888,
+            "cache_creation_input_tokens": 5220,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 5220
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 2.4563514999999994,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 1,
+      "motor": "claude"
+    }
+  ],
+  "ajustados": 0
 }
