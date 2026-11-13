@@ -1,12 +1,11 @@
 {
-  "pid": 32823,
-  "paso": "render",
-  "script": "ensamblar.js",
+  "pid": 33997,
+  "paso": "control-final",
+  "script": "control-final.js",
   "args": [
-    "temp/aguaje-complex-10x-claymation-20261113-1558",
-    "--solo-completa"
+    "temp/aguaje-complex-10x-claymation-20261113-1558"
   ],
-  "comando": "node produccion/ensamblar.js temp/aguaje-complex-10x-claymation-20261113-1558 --solo-completa",
-  "inicio": "2026-11-13T21:31:15.634Z",
+  "comando": "node produccion/control-final.js temp/aguaje-complex-10x-claymation-20261113-1558",
+  "inicio": "2026-11-13T21:45:19.840Z",
   "app": 25602
 }
