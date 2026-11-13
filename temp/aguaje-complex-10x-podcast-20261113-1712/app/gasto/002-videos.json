@@ -1,0 +1,149 @@
+{
+  "numero": 2,
+  "paso": "videos",
+  "comando": "node produccion/generar-videos.js temp/aguaje-complex-10x-podcast-20261113-1712 --si",
+  "inicio": "2026-11-13T22:25:55.038Z",
+  "fin": "2026-11-13T22:33:23.621Z",
+  "codigo": 0,
+  "creditos": 1702,
+  "dolares": 8.51,
+  "imagenes": [],
+  "videos": [
+    {
+      "archivo": "toma-1.mp4",
+      "id": "toma-1",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 126
+    },
+    {
+      "archivo": "toma-2.mp4",
+      "id": "toma-2",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 126
+    },
+    {
+      "archivo": "toma-3.mp4",
+      "id": "toma-3",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "toma-4.mp4",
+      "id": "toma-4",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 105
+    },
+    {
+      "archivo": "toma-5.mp4",
+      "id": "toma-5",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 126
+    },
+    {
+      "archivo": "toma-6.mp4",
+      "id": "toma-6",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 105
+    },
+    {
+      "archivo": "toma-7.mp4",
+      "id": "toma-7",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 126
+    },
+    {
+      "archivo": "toma-8.mp4",
+      "id": "toma-8",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 105
+    },
+    {
+      "archivo": "toma-9.mp4",
+      "id": "toma-9",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 105
+    },
+    {
+      "archivo": "toma-10.mp4",
+      "id": "toma-10",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 105
+    },
+    {
+      "archivo": "toma-11.mp4",
+      "id": "toma-11",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 105
+    },
+    {
+      "archivo": "broll-1.mp4",
+      "id": "broll-1",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 101
+    },
+    {
+      "archivo": "broll-3.mp4",
+      "id": "broll-3",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 101
+    },
+    {
+      "archivo": "broll-4.mp4",
+      "id": "broll-4",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 101
+    },
+    {
+      "archivo": "broll-5.mp4",
+      "id": "broll-5",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 101
+    },
+    {
+      "archivo": "broll-6.mp4",
+      "id": "broll-6",
+      "modelo": "kling-3.0/video",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 101
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [
+    {
+      "archivo": "video/broll-2.mp4",
+      "creditosEstimados": 101
+    }
+  ],
+  "elevenlabs": null
+}
