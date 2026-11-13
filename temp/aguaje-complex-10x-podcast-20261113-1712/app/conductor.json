@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-10x-podcast-20261113-1712",
   "familia": "hablado",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -65,37 +65,33 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-13T22:36:18.010Z",
-      "detalle": "Tu PC está armando el video con subtítulos",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 1785,
-        "total": 1904,
-        "restante": 17,
-        "en": "2026-11-13T22:42:11.421Z"
-      }
+      "fin": "2026-11-13T22:43:03.578Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-13T22:43:03.578Z",
+      "fin": "2026-11-13T22:43:16.298Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-13T22:43:16.298Z",
+      "fin": "2026-11-13T22:43:16.496Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-13T22:22:05.138Z",
   "aprobado": "2026-11-13T22:22:05.138Z",
-  "actualizado": "2026-11-13T22:42:11.421Z",
+  "actualizado": "2026-11-13T22:43:16.496Z",
   "saldoInicial": {
     "creditos": 2741.2,
     "fecha": "2026-11-13T22:22:07.344Z"
@@ -103,5 +99,10 @@
   "costoPlan": {
     "creditos": 1702,
     "fecha": "2026-11-13T22:22:07.345Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 959.2,
+    "fecha": "2026-11-13T22:43:16.480Z"
+  },
+  "terminado": "2026-11-13T22:43:16.496Z"
 }

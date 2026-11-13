@@ -1,0 +1,258 @@
+==============================================================================
+PLAN DE MONTAJE — aguaje-complex-10x-podcast-20261113-1712
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+VOZ EN OFF:  no hay. La gente habla DENTRO de cada clip, con lip-sync.
+MUSICA:      ninguna. Este estilo va sin musica de fondo (decision del estilo):
+             no le pongas una pista debajo. Solo se oyen las voces de los clips.
+
+REGLA MADRE: manda el clip. La duracion del anuncio es la suma de los trozos
+hablados que se usan, en el orden de abajo.
+
+LO QUE NO SE HACE, NUNCA:
+  - No aceleres un clip hablado: deforma la voz y desincroniza la boca.
+  - No cortes DENTRO de una linea: ahi vive el lip-sync. Se corta entre linea y
+    linea, en la pausa, en los segundos que dice abajo.
+  Si un clip no sirve, se REGENERA (node produccion/rehacer-toma.js temp/aguaje-complex-10x-podcast-20261113-1712 --toma N --contexto,
+  despues --aplicar nuevos.json y npm run videos -- <carpeta> --tomas N --si). No se ajusta.
+  Un clip con palabras repetidas, trabadas, cambiadas o agregadas (npm run
+  lineas lo marca NO ESTA LIMPIO) tambien se regenera, y un clip de reacciones
+  en el que se oye una palabra, igual. La unica excepcion la decide el motor:
+  una letra (a, e, o, u, y) repetida muy rapido y sin pausa ("a, a", menos de
+  0,2 s) sale tolerada: se informa con su segundo para revisarla a oido y no se
+  regenera.
+
+PODCAST. Dos anfitriones: A a la IZQUIERDA y B a la DERECHA.
+Cada clip de un host trae VARIAS lineas del guion seguidas, y el anuncio las
+intercala con las del otro host en el orden del guion. O sea: de cada clip se
+usa un TROZO por linea, en los segundos que dice abajo, y los trozos van en
+fila, en corte seco, sin transiciones del editor.
+
+CUTAWAY: mientras un host habla, se ve al OTRO reaccionando: un trozo de su clip
+de reacciones ENCIMA de la imagen, CON SU SONIDO (la risa, el "hmm") a -6 dB,
+mas bajo que la voz, que sigue sonando igual por debajo. Dura 1.4 s y entra
+justo despues de la frase que lo provoca (0.1 s antes de que termine), nunca en
+los primeros 2 s del turno de quien habla: quien empieza a hablar se ve. Quien
+habla vuelve a cuadro al menos 0.3 s antes de terminar su turno: si el cutaway
+no entra entero se acorta hasta 0.8 s, y si ni asi, no va. Nunca encima de un
+B-roll. Cada reaccion sale del segundo de su clip en que de verdad pasa (su
+sonido), no de un tercio fijo: abajo va el segundo exacto de cada una.
+
+B-ROLL (modo pantalla dividida): mientras va el B-roll, el B-roll va ARRIBA,
+MUDO, en una caja del 58 % del alto, recortado al centro (se ve la franja del
+medio del clip), y su ultimo 14 % se desvanece con un degradado sobre el host:
+no hay una linea de corte. El host que habla va ABAJO, en la mitad de abajo de
+la pantalla, con su mismo clip encuadrado mas abajo: la cabeza arriba de su
+mitad y el microfono a la vista (encuadre vertical al 23 %). Su audio sigue
+sonando igual.
+El B-roll va de la solucion hasta antes del CTA. El CTA (las ultimas lineas) va
+siempre con los hosts a pantalla completa. Mientras va un B-roll, los subtitulos
+suben (abajo, en SUBTITULOS).
+
+------------------------------------------------------------------------------
+
+LINEA 1   [A]   — entrada en frío
+  Cuando:   00:00.00 -> 00:06.84   (6.84s)
+  Dice:     "Les juro que yo no me podía ni poner un jean, porque atrás me quedaba nada. Plana, plana."
+  Clip:     video/toma-1.mp4   del segundo 0.05 al 6.89 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  B-roll:   video/broll-1.mp4   ENCIMA desde 00:03.11, 3.43 s, a 1.47x, MUDO.
+            Pantalla dividida: el B-roll ARRIBA (con el degradado sobre el host) y A ABAJO,
+            con la cabeza arriba de su mitad, MUDO:
+            el trozo de toma-1.mp4 que ya esta sonando, desde su segundo 3.16.
+            Sincroniza con "porque atrás me quedaba nada" (00:03.11).
+
+LINEA 2   [B]   — reconocimiento
+  Cuando:   00:06.84 -> 00:08.32   (1.48s)
+  Dice:     "¿En serio?"
+  Clip:     video/toma-8.mp4   del segundo 0.00 al 1.48 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 3   [A]   — el problema
+  Cuando:   00:08.32 -> 00:10.85   (2.53s)
+  Dice:     "Imagínate que ya estaba ahorrando pa' operarme."
+  Clip:     video/toma-1.mp4   del segundo 6.89 al 9.42 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 4   [B]   — reconocimiento
+  Cuando:   00:10.85 -> 00:13.13   (2.28s)
+  Dice:     "¡Ay, no me digas!"
+  Clip:     video/toma-4.mp4   del segundo 0.00 al 2.28 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 5   [B]   — revelación
+  Cuando:   00:13.13 -> 00:18.12   (4.99s)
+  Dice:     "Yo estaba igualita, hasta que mi prima me dijo: "Mija, antes del bisturí, pruébalo natural"."
+  Clip:     video/toma-4.mp4   del segundo 2.28 al 7.27 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  Cutaway:  video/toma-10.mp4   (reacciones de A), reaccion 1 "Levanta las cejas y abre los ojos, sorprendida, con un "mm" corto de boca cerrada".
+            ENCIMA desde 00:14.11, 1.40 s, tomando el clip desde el segundo 0.58
+            (su sonido arranca en el 0.88).
+            CON SU SONIDO a -6 dB, justo despues de "Yo estaba igualita".
+
+LINEA 6   [A]   — producto
+  Cuando:   00:18.12 -> 00:19.31   (1.19s)
+  Dice:     "¿Y qué te tomaste?"
+  Clip:     video/toma-2.mp4   del segundo 0.17 al 1.36 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 7   [B]   — producto
+  Cuando:   00:19.31 -> 00:25.04   (5.73s)
+  Dice:     "Uno que trae aguaje, fenogreco y maca negra en su máxima pureza."
+  Clip:     video/toma-5.mp4   del segundo 0.12 al 5.85 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  B-roll:   video/broll-2.mp4   ENCIMA desde 00:20.25, 4.49 s, a 1.11x, MUDO.
+            Pantalla dividida: el B-roll ARRIBA (con el degradado sobre el host) y B ABAJO,
+            con la cabeza arriba de su mitad, MUDO:
+            el trozo de toma-5.mp4 que ya esta sonando, desde su segundo 1.06.
+            Sincroniza con "aguaje, fenogreco y maca negra" (00:20.25).
+
+LINEA 8   [B]   — producto
+  Cuando:   00:25.04 -> 00:27.25   (2.21s)
+  Dice:     "Eso es lo que da los resultados, no la marca."
+  Clip:     video/toma-5.mp4   del segundo 5.85 al 8.06 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  B-roll:   video/broll-3.mp4   ENCIMA desde 00:25.17, 1.78 s, a 1.60x, MUDO.
+            Pantalla dividida: el B-roll ARRIBA (con el degradado sobre el host) y B ABAJO,
+            con la cabeza arriba de su mitad, MUDO:
+            el trozo de toma-5.mp4 que ya esta sonando, desde su segundo 5.98.
+            Sincroniza con "Eso es lo que da los resultados" (00:25.17).
+
+LINEA 9   [A]   — objeción
+  Cuando:   00:27.25 -> 00:32.25   (5.00s)
+  Dice:     "¿Y eso no engorda? Porque yo probé unas pastillas y me dio rebote."
+  Clip:     video/toma-2.mp4   del segundo 1.36 al 6.36 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  B-roll:   video/broll-4.mp4   ENCIMA desde 00:29.61, 2.34 s, a 1.60x, MUDO.
+            Pantalla dividida: el B-roll ARRIBA (con el degradado sobre el host) y A ABAJO,
+            con la cabeza arriba de su mitad, MUDO:
+            el trozo de toma-2.mp4 que ya esta sonando, desde su segundo 3.72.
+            Sincroniza con "Porque yo probé unas pastillas" (00:29.61).
+
+LINEA 10   [B]   — objeción
+  Cuando:   00:32.25 -> 00:34.46   (2.21s)
+  Dice:     "Nada que ver, a mí no me pasó."
+  Clip:     video/toma-6.mp4   del segundo 0.42 al 2.64 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  Cutaway:  video/toma-10.mp4   (reacciones de A), reaccion 2 "Afloja los hombros y suelta el aire por la nariz, aliviada, con una sonrisa de labios cerrados".
+            ENCIMA desde 00:34.58, 1.40 s, tomando el clip desde el segundo 1.96
+            (su sonido arranca en el 2.26).
+            CON SU SONIDO a -6 dB, justo despues de "a mí no me pasó".
+
+LINEA 11   [B]   — objeción
+  Cuando:   00:34.46 -> 00:37.27   (2.81s)
+  Dice:     "Eso era lo que me daba miedo también."
+  Clip:     video/toma-6.mp4   del segundo 3.01 al 5.82 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 12   [A]   — prueba
+  Cuando:   00:37.27 -> 00:39.83   (2.56s)
+  Dice:     "¿Y cómo te fue?"
+  Clip:     video/toma-2.mp4   del segundo 6.36 al 8.92 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 13   [B]   — prueba
+  Cuando:   00:39.83 -> 00:44.49   (4.66s)
+  Dice:     "Uy, mija, ahora en el gym me pongo de lado… si me entiendes."
+  Clip:     video/toma-7.mp4   del segundo 0.10 al 4.76 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  B-roll:   video/broll-5.mp4   ENCIMA desde 00:40.85, 3.34 s, a 1.51x, MUDO.
+            Pantalla dividida: el B-roll ARRIBA (con el degradado sobre el host) y B ABAJO,
+            con la cabeza arriba de su mitad, MUDO:
+            el trozo de toma-7.mp4 que ya esta sonando, desde su segundo 1.12.
+            Sincroniza con "ahora en el gym me pongo de lado" (00:40.85).
+
+LINEA 14   [A]   — prueba
+  Cuando:   00:44.49 -> 00:45.74   (1.25s)
+  Dice:     "¡Ay no!"
+  Clip:     video/toma-3.mp4   del segundo 0.40 al 1.65 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 15   [B]   — cierre
+  Cuando:   00:45.74 -> 00:49.69   (3.95s)
+  Dice:     "Eso sí: hazte el tratamiento completo de tres meses."
+  Clip:     video/toma-7.mp4   del segundo 5.14 al 9.09 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  Cutaway:  video/toma-10.mp4   (reacciones de A), reaccion 3 "Entrecierra los ojos y asiente despacio, convencida, con un murmullo grave de boca cerrada".
+            ENCIMA desde 00:49.36, 1.40 s, tomando el clip desde el segundo 5.36
+            (su sonido arranca en el 5.66).
+            CON SU SONIDO a -6 dB, justo despues de "hazte el tratamiento completo de tres meses".
+
+LINEA 16   [B]   — cierre
+  Cuando:   00:49.69 -> 00:56.08   (6.39s)
+  Dice:     "Es el que da resultados rápidos y duraderos, que se quedan incluso después de terminarlo, y sin efecto rebote."
+  Clip:     video/toma-8.mp4   del segundo 1.54 al 7.93 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 17   [B]   — prueba
+  Cuando:   00:56.08 -> 00:59.31   (3.23s)
+  Dice:     "Me llegó a la casa y lo pagué al recibirlo."
+  Clip:     video/toma-9.mp4   del segundo 0.19 al 3.42 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+  B-roll:   video/broll-6.mp4   ENCIMA desde 00:56.34, 2.68 s, a 1.60x, MUDO.
+            Pantalla dividida: el B-roll ARRIBA (con el degradado sobre el host) y B ABAJO,
+            con la cabeza arriba de su mitad, MUDO:
+            el trozo de toma-9.mp4 que ya esta sonando, desde su segundo 0.44.
+            Sincroniza con "Me llegó a la casa" (00:56.34).
+
+LINEA 18   [A]   — cta
+  Cuando:   00:59.31 -> 01:00.88   (1.56s)
+  Dice:     "Ya mismo les escribo."
+  Clip:     video/toma-3.mp4   del segundo 1.65 al 3.21 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+LINEA 19   [B]   — cta
+  Cuando:   01:00.88 -> 01:03.48   (2.60s)
+  Dice:     "El tuyo está en el botón de abajo."
+  Clip:     video/toma-9.mp4   del segundo 4.00 al 6.60 del clip.
+            Ese trozo entero, a 1x. El corte cae en la pausa entre lineas.
+
+------------------------------------------------------------------------------
+
+CLIPS DE REACCIONES (solo para los cutaways, con su sonido; nunca van enteros)
+  video/toma-10.mp4   reacciones de A (8 s). De cada una se usa el trozo donde pasa:
+      1) Levanta las cejas y abre los ojos, sorprendida, con un "mm" corto de boca cerrada   -> desde el segundo 0.58 (sonido en el 0.88)
+      2) Afloja los hombros y suelta el aire por la nariz, aliviada, con una sonrisa de labios cerrados   -> desde el segundo 1.96 (sonido en el 2.26)
+      3) Entrecierra los ojos y asiente despacio, convencida, con un murmullo grave de boca cerrada   -> desde el segundo 5.36 (sonido en el 5.66)
+  video/toma-11.mp4   reacciones de B (8 s). De cada una se usa el trozo donde pasa:
+      1) Niega despacio con una sonrisa de labios cerrados y un suspiro por la nariz, como quien ya pasó por eso   (no se usa en este montaje)
+      2) Ladea la cabeza y aprieta los labios con cara de "qué pesar", con un "mm" corto   (no se usa en este montaje)
+      3) Levanta las cejas y se echa un poco hacia atrás, divertida, con un soplido corto por la nariz   (no se usa en este montaje)
+  Una reaccion no lleva ninguna palabra: si se oye una, ese clip se regenera.
+
+------------------------------------------------------------------------------
+
+AVISOS DEL PLAN (ninguno detiene el montaje)
+  ! toma 10 (reacciones de A): NO ESTA LIMPIO, dice palabras ("It's" 4.60s, "so" 4.80s, "pretty." 5.00s). Una reaccion no lleva ninguna palabra ni monosilabo, en ningun idioma: el clip se regenera aunque esa reaccion no se use (npm run rehacer -- <carpeta> --toma 10 --contexto). Mientras tanto, el cutaway que tenga una palabra dentro queda fuera.
+  ! toma 1: NO ESTA LIMPIA segun npm run lineas (agrego la muletilla "Mhm." (4.94s)). Un clip hablado que no esta limpio se regenera: npm run rehacer -- <carpeta> --toma 1 --contexto
+  ! toma 8: NO ESTA LIMPIA segun npm run lineas (agrego "Sí," (1.44s); no dijo "que"). Un clip hablado que no esta limpio se regenera: npm run rehacer -- <carpeta> --toma 8 --contexto
+  ! toma 4: NO ESTA LIMPIA segun npm run lineas (agrego "Semida." (0.12s); no dijo ""Mija,"). Un clip hablado que no esta limpio se regenera: npm run rehacer -- <carpeta> --toma 4 --contexto
+
+------------------------------------------------------------------------------
+
+SUBTITULOS
+  Palabra resaltada, como en todos los estilos. Salen de transcribir los clips:
+      node produccion/subtitulos-dialogo.js temp/aguaje-complex-10x-podcast-20261113-1712
+  Cada linea se subtitula con su trozo de clip, en el orden del guion.
+  Van abajo (a 0.26 del alto, desde abajo) y SUBEN a 0.45 mientras va un B-roll
+  (los bloques con mas de 50 % de su tiempo encima de uno): quedan en la union,
+  sobre el degradado.
+      00:03.11 -> 00:06.73   "porque atrás me quedaba nada. Plana, plana."   (3 bloques)
+      00:20.25 -> 00:24.55   "aguaje, fenogreco y maca negra en su máxima"   (3 bloques)
+      00:25.17 -> 00:26.75   "Eso es lo que da los resultados, no la"   (3 bloques)
+      00:29.61 -> 00:32.37   "Porque yo probé unas pastillas y me dio rebote."   (3 bloques)
+      00:41.11 -> 00:44.31   "en el gym me pongo de lado… si me entiendes."   (4 bloques)
+      00:56.34 -> 00:59.13   "Me llegó a la casa y lo pagué al recibirlo."   (4 bloques)
+
+AUDIO
+  La voz viene DENTRO de cada clip y va a su nivel (0 dB), sin agacharla. Los
+  B-roll van MUDOS, y el host que se ve con el B-roll tambien (el audio es el de su
+  linea). Los cutaways suenan con su reaccion a -6 dB. Un fade corto (~80ms) en cada
+  corte evita que suene seco.
+  Sin musica de fondo y sin transiciones de plantilla (woosh, zoom): este estilo
+  no las lleva.
+
+==============================================================================

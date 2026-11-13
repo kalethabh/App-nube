@@ -1,0 +1,37 @@
+{
+  "generado": "2026-11-13T22:43:03.716Z",
+  "anuncio": "aguaje-complex-10x-podcast-20261113-1712",
+  "limpio": true,
+  "codigo": 0,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-10x-podcast-20261113-1712_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-13T22:43:02.925Z",
+      "deEsteMontaje": true,
+      "duracion": 63.531,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "el plan no lleva musica"
+  },
+  "defectos": [],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}

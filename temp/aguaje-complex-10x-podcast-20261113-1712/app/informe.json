@@ -1,0 +1,182 @@
+{
+  "slug": "aguaje-complex-10x-podcast-20261113-1712",
+  "generado": "2026-11-13T22:43:16.490Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 63.48,
+    "estimada": 92,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-10x-podcast-20261113-1712_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "duracion",
+      "icono": "voz",
+      "titulo": "Dura 1:03: lo que tardan en decirse sus líneas",
+      "detalle": "Ninguna línea se recortó ni se aceleró para cuadrar."
+    },
+    {
+      "id": "sin-musica",
+      "icono": "musica",
+      "titulo": "Sin música",
+      "detalle": "Como en un podcast de verdad: solo se oyen las dos voces."
+    },
+    {
+      "id": "modo-broll",
+      "icono": "broll",
+      "titulo": "B-roll en pantalla dividida",
+      "detalle": "El B-roll va arriba y se funde con el host que habla, que queda abajo."
+    },
+    {
+      "id": "cutaways",
+      "icono": "voz",
+      "titulo": "3 reacciones del otro host",
+      "detalle": "Entran justo después de la frase que las provoca, con su sonido un poco más bajo que la voz."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "69 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [],
+  "problemas": [
+    {
+      "id": "revision-avisos",
+      "tipo": "revisar",
+      "titulo": "Lo que notó la revisión",
+      "detalle": "La revisión notó algo en 8 piezas y no se rehízo nada solo: míralas y, si quieres, regenéralas desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).",
+      "piezas": [
+        {
+          "n": null,
+          "unidad": "Escena 1",
+          "momento": 0,
+          "valor": "No dijo su línea limpia: agregó «Mhm.» (segundo 4,9). Dijo un «mhm» que no va en su frase, en medio y al final.",
+          "clave": "vid:toma-1",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Escena 4",
+          "momento": 10.849,
+          "valor": "No dijo su línea limpia: agregó «Semida.» (segundo 0,1); no dijo «\"Mija,». Soltó una palabra rara al empezar y se comió el «Mija» de la frase.",
+          "clave": "vid:toma-4",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Escena 8",
+          "momento": 6.839,
+          "valor": "No dijo su línea limpia: agregó «Sí,» (segundo 1,4); no dijo «que». Agregó un «Sí» que no va y se comió una palabra de la frase.",
+          "clave": "vid:toma-8",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Escena 10",
+          "momento": null,
+          "valor": "La reacción tenía que ir sin palabras: dijo «It's so pretty.» (una reacción va sin palabras). Se oyó una frase en inglés y aquí no debe decir nada.",
+          "clave": "vid:toma-10",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Escena 11",
+          "momento": null,
+          "valor": "La reacción tenía que ir sin palabras: dijo «Okay. And it wouldn't been. Maybe go» (una reacción va sin palabras). Se oyeron palabras en inglés y aquí no debe decir nada.",
+          "clave": "vid:toma-11",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Imagen de apoyo 1 · imagen",
+          "momento": null,
+          "valor": "La cara queda muy arriba en la imagen: en pantalla dividida se cortaría y solo se vería del cuello para abajo.",
+          "clave": "img:broll-1",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Imagen de apoyo 1",
+          "momento": null,
+          "valor": "Abre la boca como si hablara y aparecen unas letras en la camiseta de la figura de adelante.",
+          "clave": "vid:broll-1",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Imagen de apoyo 5 · imagen",
+          "momento": null,
+          "valor": "La cara queda muy arriba en la imagen: en pantalla dividida se cortaría la cabeza y solo se vería el cuerpo.",
+          "clave": "img:broll-5",
+          "sugerencia": true
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 1883,
+    "dolares": 9.42,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 19,
+      "creditos": 80,
+      "dolares": 0.4
+    },
+    "videos": {
+      "piezas": 16,
+      "creditos": 1702,
+      "dolares": 8.51
+    },
+    "musica": {
+      "pistas": 0,
+      "creditos": 0,
+      "dolares": 0
+    },
+    "sinRegistro": {
+      "piezas": 1,
+      "creditosEstimados": 101
+    },
+    "estimado": true,
+    "elevenlabs": {
+      "caracteres": 0,
+      "scribeSegundos": 91.5
+    },
+    "corridas": 3,
+    "respaldo": [],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 19,
+        "creditos": 80,
+        "dolares": 0.4
+      },
+      {
+        "id": "videos",
+        "piezas": 17,
+        "creditos": 1803,
+        "dolares": 9.02,
+        "estimadas": 1
+      },
+      {
+        "id": "voz",
+        "caracteres": 0
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 2741.2,
+      "saldoDespues": 959.2,
+      "diferencia": 1782,
+      "coincide": false
+    },
+    "rehecho": false
+  }
+}
