@@ -130,6 +130,12 @@ espacio es opcional para videos con restauración integrada. Los lotes de imáge
 copian sin borrar sus originales. Cambiar de carpeta mantiene recuperables las ubicaciones archivadas anteriores.
 Los modelos se eligen en **Ajustes → Modelos** o junto al costo antes de aprobar un anuncio.
 
+### Avance de los videos en el reloj de «Falta» (2026-11-13, PR pendiente)
+
+- En la producción, mientras se generan los videos, el reloj de «Falta» lleva un aro que se llena y la línea
+  «Videos: X de N listos · Y % · Z generándose» (`app/src/pantallas/produccion/Mando.jsx`, `RelojAvance`). El avance
+  es por clips terminados: kie.ai no da el porcentaje de cada clip.
+
 ## Validación más reciente y sus límites
 
 Todo se probó sin servicios de pago y sin modificar los anuncios personales.
