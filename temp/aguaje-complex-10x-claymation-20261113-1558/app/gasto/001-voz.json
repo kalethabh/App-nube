@@ -1,0 +1,17 @@
+{
+  "numero": 1,
+  "paso": "voz",
+  "comando": "node produccion/generar-audio.js temp/aguaje-complex-10x-claymation-20261113-1558",
+  "inicio": "2026-11-13T21:15:32.233Z",
+  "fin": "2026-11-13T21:15:38.625Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "caracteres": 768
+  }
+}

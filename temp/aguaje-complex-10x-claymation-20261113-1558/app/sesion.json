@@ -1,13 +1,15 @@
 {
   "uuid": "7ccea351-048e-4006-ade7-60e5cc94cd14",
-  "estado": "cambiando",
+  "estado": "aprobado",
   "tipo": "cambios",
   "intentos": 4,
   "progreso": [
     "Claude está leyendo tu pedido",
     "Buscando en los archivos",
     "Repasando el guion",
-    "Ajustando el guion"
+    "Ajustando el guion",
+    "Revisando que el guion esté completo",
+    "Pasando el guion en limpio"
   ],
   "inicio": "2026-11-13T20:58:32.177Z",
   "cambios": [
@@ -23,13 +25,14 @@
     },
     {
       "pedido": "que no diga el precio, que termine diciendo que ese es el q deben adquir, aguaje y fenogreco puro de verdad",
-      "fecha": "2026-11-13T21:13:02.915Z"
+      "fecha": "2026-11-13T21:13:02.915Z",
+      "ok": true
     }
   ],
-  "actualizado": "2026-11-13T21:13:39.254Z",
+  "actualizado": "2026-11-13T21:15:31.186Z",
   "error": null,
   "inicioIntento": "2026-11-13T21:13:02.916Z",
-  "fin": "2026-11-13T21:12:08.900Z",
+  "fin": "2026-11-13T21:14:39.407Z",
   "limite": false,
   "reinicio": null,
   "medidas": [
@@ -191,9 +194,63 @@
       ],
       "denegados": 0,
       "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-13T21:14:39.407Z",
+      "ok": true,
+      "turnos": 15,
+      "duracionMs": 96486,
+      "uso": {
+        "input_tokens": 10,
+        "cache_creation_input_tokens": 16659,
+        "cache_read_input_tokens": 669650,
+        "output_tokens": 11423,
+        "output_tokens_details": {
+          "thinking_tokens": 2735
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 16659,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 142628,
+            "cache_creation_input_tokens": 2829,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 2829
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 4.105841000000001,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
     }
   ],
   "ajustados": 0,
   "pedido": "que no diga el precio, que termine diciendo que ese es el q deben adquir, aguaje y fenogreco puro de verdad",
-  "respaldo": "historial-guion/03"
+  "respaldo": null,
+  "aprobado": "2026-11-13T21:15:31.186Z"
 }
