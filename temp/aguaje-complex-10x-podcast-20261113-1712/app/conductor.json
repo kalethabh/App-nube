@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-podcast-20261113-1712",
   "familia": "hablado",
   "estado": "corriendo",
-  "paso": "imagenes",
+  "paso": "revision-imagenes",
   "pasos": [
     {
       "id": "validar",
@@ -23,15 +23,18 @@
     {
       "id": "imagenes",
       "nombre": "Crear las imágenes",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-13T22:22:07.346Z"
+      "inicio": "2026-11-13T22:22:07.346Z",
+      "fin": "2026-11-13T22:24:04.680Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-13T22:24:04.680Z",
+      "detalle": "Claude empezó a trabajar"
     },
     {
       "id": "videos",
@@ -74,7 +77,7 @@
   "modoPrueba": false,
   "creado": "2026-11-13T22:22:05.138Z",
   "aprobado": "2026-11-13T22:22:05.138Z",
-  "actualizado": "2026-11-13T22:22:07.346Z",
+  "actualizado": "2026-11-13T22:24:05.191Z",
   "saldoInicial": {
     "creditos": 2741.2,
     "fecha": "2026-11-13T22:22:07.344Z"

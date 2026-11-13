@@ -1,0 +1,187 @@
+{
+  "generado": "2026-11-13T22:24:04.656Z",
+  "segundos": 116,
+  "imagenes": [
+    {
+      "id": "host-a",
+      "archivo": "host-a.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "233136717348e850cc443b71a99cd26c"
+    },
+    {
+      "id": "host-b",
+      "archivo": "host-b.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-a"
+      ],
+      "creditos": 10,
+      "taskId": "24135fe40e54958498b4101098155bf8"
+    },
+    {
+      "id": "toma-1-inicial",
+      "archivo": "toma-1-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-a.png",
+      "referencia": "host-a",
+      "creditos": 0
+    },
+    {
+      "id": "toma-2-inicial",
+      "archivo": "toma-2-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-a.png",
+      "referencia": "host-a",
+      "creditos": 0
+    },
+    {
+      "id": "toma-3-inicial",
+      "archivo": "toma-3-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-a.png",
+      "referencia": "host-a",
+      "creditos": 0
+    },
+    {
+      "id": "toma-4-inicial",
+      "archivo": "toma-4-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-5-inicial",
+      "archivo": "toma-5-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-6-inicial",
+      "archivo": "toma-6-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-7-inicial",
+      "archivo": "toma-7-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-8-inicial",
+      "archivo": "toma-8-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-9-inicial",
+      "archivo": "toma-9-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "toma-10-inicial",
+      "archivo": "toma-10-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-a.png",
+      "referencia": "host-a",
+      "creditos": 0
+    },
+    {
+      "id": "toma-11-inicial",
+      "archivo": "toma-11-inicial.png",
+      "modelo": null,
+      "copiaDe": "img/host-b.png",
+      "referencia": "host-b",
+      "creditos": 0
+    },
+    {
+      "id": "broll-1",
+      "archivo": "broll-1.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-a"
+      ],
+      "creditos": 10,
+      "taskId": "00a3b0c7315301c8d483740177c783cf"
+    },
+    {
+      "id": "broll-2",
+      "archivo": "broll-2.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "0ab4174cf74ece7849d4be9e0325abda"
+    },
+    {
+      "id": "broll-3",
+      "archivo": "broll-3.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-b",
+        "producto"
+      ],
+      "creditos": 10,
+      "taskId": "63ba6b86d57d3a9d3be43d9928935f78"
+    },
+    {
+      "id": "broll-4",
+      "archivo": "broll-4.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-a"
+      ],
+      "creditos": 10,
+      "taskId": "46313689d0d3916c729cfc9a543bbcd1"
+    },
+    {
+      "id": "broll-5",
+      "archivo": "broll-5.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-b"
+      ],
+      "creditos": 10,
+      "taskId": "80aa092542d7358ae421aef38936d146"
+    },
+    {
+      "id": "broll-6",
+      "archivo": "broll-6.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "host-b"
+      ],
+      "creditos": 10,
+      "taskId": "66e47ae2f47771be07c205ccb5d814cc"
+    }
+  ]
+}

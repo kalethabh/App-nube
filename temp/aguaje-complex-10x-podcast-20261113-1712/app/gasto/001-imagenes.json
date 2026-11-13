@@ -1,0 +1,168 @@
+{
+  "numero": 1,
+  "paso": "imagenes",
+  "comando": "node produccion/producir.js temp/aguaje-complex-10x-podcast-20261113-1712 --si",
+  "inicio": "2026-11-13T22:22:07.348Z",
+  "fin": "2026-11-13T22:24:04.679Z",
+  "codigo": 0,
+  "creditos": 80,
+  "dolares": 0.4,
+  "imagenes": [
+    {
+      "archivo": "host-a.png",
+      "id": "host-a",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "host-b.png",
+      "id": "host-b",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "toma-1-inicial.png",
+      "id": "toma-1-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-2-inicial.png",
+      "id": "toma-2-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-3-inicial.png",
+      "id": "toma-3-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-4-inicial.png",
+      "id": "toma-4-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-5-inicial.png",
+      "id": "toma-5-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-6-inicial.png",
+      "id": "toma-6-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-7-inicial.png",
+      "id": "toma-7-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-8-inicial.png",
+      "id": "toma-8-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-9-inicial.png",
+      "id": "toma-9-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-10-inicial.png",
+      "id": "toma-10-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-11-inicial.png",
+      "id": "toma-11-inicial",
+      "modelo": null,
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "broll-1.png",
+      "id": "broll-1",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-2.png",
+      "id": "broll-2",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-3.png",
+      "id": "broll-3",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-4.png",
+      "id": "broll-4",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-5.png",
+      "id": "broll-5",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    },
+    {
+      "archivo": "broll-6.png",
+      "id": "broll-6",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    }
+  ],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": null
+}
