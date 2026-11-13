@@ -1,0 +1,323 @@
+{
+  "generado": "2026-11-13T21:28:13.111Z",
+  "nota": "Fotogramas fijos. NO sirven para juzgar la fluidez del movimiento ni el audio.",
+  "frames": 5,
+  "clips": [
+    {
+      "clip": "paso-1.mp4",
+      "tira": "qa/paso-1.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 1,
+      "a": 2,
+      "linea": "¿Por qué tus glúteos no crecen si ya intentaste de todo?",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-1-inicial.png",
+        "imagenFinal": "img/toma-2-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-2.mp4",
+      "tira": "qa/paso-2.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        0.12,
+        1.61,
+        2.98,
+        4.48,
+        5.79
+      ],
+      "tipo": "paso",
+      "de": 2,
+      "a": 3,
+      "linea": "Mil sentadillas, cremas, pastillas… y sigues igual de plana.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-2-inicial.png",
+        "imagenFinal": "img/toma-3-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-3.mp4",
+      "tira": "qa/paso-3.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 3,
+      "a": 4,
+      "linea": "Y ya estabas pensando en una cirugía de millones.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-3-inicial.png",
+        "imagenFinal": "img/toma-4-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-4.mp4",
+      "tira": "qa/paso-4.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 4,
+      "a": 5,
+      "linea": "Pero el problema no está afuera. Está adentro.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-4-inicial.png",
+        "imagenFinal": "img/toma-5-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-5.mp4",
+      "tira": "qa/paso-5.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        0.12,
+        1.61,
+        2.98,
+        4.48,
+        5.79
+      ],
+      "tipo": "paso",
+      "de": 5,
+      "a": 6,
+      "linea": "Tus glúteos están dormidos: si no despiertan, no crecen.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-5-inicial.png",
+        "imagenFinal": "img/toma-6-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-6.mp4",
+      "tira": "qa/paso-6.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 6,
+      "a": 7,
+      "linea": "Y las cremas no llegan hasta allá adentro.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-6-inicial.png",
+        "imagenFinal": "img/toma-7-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-7.mp4",
+      "tira": "qa/paso-7.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        0.12,
+        1.61,
+        2.98,
+        4.48,
+        5.79
+      ],
+      "tipo": "paso",
+      "de": 7,
+      "a": 8,
+      "linea": "Aguaje Complex 10X: el aguaje, el fenogreco y la maca negra",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-7-inicial.png",
+        "imagenFinal": "img/toma-8-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-8.mp4",
+      "tira": "qa/paso-8.jpg",
+      "duracion": 4.04,
+      "segundos": [
+        0.08,
+        1.09,
+        2.02,
+        3.03,
+        3.92
+      ],
+      "tipo": "paso",
+      "de": 8,
+      "a": 9,
+      "linea": "llegan directo al músculo y lo despiertan.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-8-inicial.png",
+        "imagenFinal": "img/toma-9-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-9.mp4",
+      "tira": "qa/paso-9.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 9,
+      "a": 10,
+      "linea": "Día diez: el jean ya no te queda suelto.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-9-inicial.png",
+        "imagenFinal": "img/toma-10-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-10.mp4",
+      "tira": "qa/paso-10.jpg",
+      "duracion": 4.04,
+      "segundos": [
+        0.08,
+        1.09,
+        2.02,
+        3.03,
+        3.92
+      ],
+      "tipo": "paso",
+      "de": 10,
+      "a": 11,
+      "linea": "Yo hice el tratamiento completo de tres meses,",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-10-inicial.png",
+        "imagenFinal": "img/toma-11-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-11.mp4",
+      "tira": "qa/paso-11.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 11,
+      "a": 12,
+      "linea": "porque es el que da resultados rápidos y duraderos:",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-11-inicial.png",
+        "imagenFinal": "img/toma-12-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-12.mp4",
+      "tira": "qa/paso-12.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 12,
+      "a": 13,
+      "linea": "se quedan incluso después de terminarlo, sin efecto rebote.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-12-inicial.png",
+        "imagenFinal": "img/toma-13-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-13.mp4",
+      "tira": "qa/paso-13.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 13,
+      "a": 14,
+      "linea": "Lo pedí, me llegó a la casa y lo pagué al recibirlo.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-13-inicial.png",
+        "imagenFinal": "img/toma-14-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-14.mp4",
+      "tira": "qa/paso-14.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 14,
+      "a": 15,
+      "linea": "El tuyo está en el botón de abajo.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-14-inicial.png",
+        "imagenFinal": "img/toma-15-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-15.mp4",
+      "tira": "qa/toma-15.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "A",
+      "linea": "Este es el que debes pedir: aguaje y fenogreco puro de verdad.",
+      "referencias": [
+        "protagonista-curvas",
+        "producto"
+      ],
+      "esperado": {
+        "inicial": "Vertical 9:16. CHARACTER: a claymation adult woman in her late 20s with clearly adult facial features and adult proportions, warm brown morena clay skin, black tightly curly hair gathered up in a high curly puff tied with a bright yellow bow scrunchie, a few loose curls at the temples, dark oval eyes with sculpted eyelids, thick dark eyebrows, small rounded nose, small gold hoop earrings, wearing a turquoise sleeveless blouse tucked into dark indigo blue jeans that fit her snugly and white sneakers, rounded handmade clay body, tactile plasticine material with refined subtle sculpting marks, matte surface finish. Primer plano from the chest up, she stands facing the camera, never with her back to the camera, with a big confident smile, on a seaside promenade at sunset sculpted entirely in clay: a white railing, a row of palm trees, old-style street lamps just lit, the calm sea behind and a glowing orange and pink sky. With one hand she holds up, right next to her face and at the same distance from the camera as her face, the closed supplement bottle from the product reference image, copied exactly: a black wide-mouth bottle about twice as tall as it is wide, straight sides with softly rounded shoulders, a short black screw cap almost as wide as the body and about one seventh of the bottle's height, a hot-pink band right under the cap, and its front label with the big white words AGUAJE COMPLEX 10X exactly as in the reference; neither a thin bottle nor a squat jar; modeled from matte plasticine, like a handmade stop-motion prop, not a real plastic bottle. The bottle faces the camera, about 40 percent of the frame height, her fingers on its sides without covering the label, the label reads the right way round, never mirrored. Her other hand is empty and out of the frame; she holds nothing but the closed bottle; no capsules, no pills. Matte, no rainbow, no prism light, no lens flare. Handmade clay texture with refined subtle sculpting marks, soft diffused lighting, tactile plasticine material, matte surface finish, no captions no watermark, no text other than the bottle's own label\n\nNegative prompt: amateur clay sculpture, messy fingerprints, excessive fingerprints, uneven childish proportions, crude modeling, malformed anatomy, real-world materials, realistic transparency, real glass, real metal, real fabric, photorealistic textures, flat lighting, stock photo look, CGI hyperrealism, generic 3D render, 2D illustration, anime style, harsh shadows, overly glossy plastic, cluttered composition, weak focal point, text artifacts, childlike face, back view, photographic product shot, glossy reflective bottle, open bottle, loose capsules, pills, mirrored label, thin tall bottle, squat jar, price tag",
+        "final": null
+      }
+    }
+  ]
+}

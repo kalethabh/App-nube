@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-claymation-20261113-1558",
   "familia": "continuidad",
   "estado": "corriendo",
-  "paso": "videos",
+  "paso": "revision-cadena",
   "pasos": [
     {
       "id": "validar",
@@ -72,15 +72,18 @@
     {
       "id": "videos",
       "nombre": "Crear los videos encadenados",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-13T21:22:22.623Z"
+      "inicio": "2026-11-13T21:22:22.623Z",
+      "fin": "2026-11-13T21:27:47.115Z"
     },
     {
       "id": "revision-cadena",
       "nombre": "Revisar las uniones entre escenas",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-13T21:27:47.115Z",
+      "detalle": "Mirando los cuadros de los clips"
     },
     {
       "id": "voces",
@@ -123,7 +126,7 @@
   "modoPrueba": false,
   "creado": "2026-11-13T21:15:31.187Z",
   "aprobado": "2026-11-13T21:15:31.187Z",
-  "actualizado": "2026-11-13T21:22:22.623Z",
+  "actualizado": "2026-11-13T21:29:31.132Z",
   "saldoInicial": {
     "creditos": 2064.8,
     "fecha": "2026-11-13T21:15:32.232Z"

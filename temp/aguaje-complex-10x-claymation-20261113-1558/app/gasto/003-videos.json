@@ -1,0 +1,136 @@
+{
+  "numero": 3,
+  "paso": "videos",
+  "comando": "node produccion/generar-videos.js temp/aguaje-complex-10x-claymation-20261113-1558 --si",
+  "inicio": "2026-11-13T21:22:25.646Z",
+  "fin": "2026-11-13T21:27:47.112Z",
+  "codigo": 0,
+  "creditos": 1123.6,
+  "dolares": 5.62,
+  "imagenes": [],
+  "videos": [
+    {
+      "archivo": "paso-1.mp4",
+      "id": "paso-1",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "paso-2.mp4",
+      "id": "paso-2",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 84
+    },
+    {
+      "archivo": "paso-3.mp4",
+      "id": "paso-3",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "paso-4.mp4",
+      "id": "paso-4",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "paso-5.mp4",
+      "id": "paso-5",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 84
+    },
+    {
+      "archivo": "paso-6.mp4",
+      "id": "paso-6",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "paso-7.mp4",
+      "id": "paso-7",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 84
+    },
+    {
+      "archivo": "paso-8.mp4",
+      "id": "paso-8",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 120.8
+    },
+    {
+      "archivo": "paso-9.mp4",
+      "id": "paso-9",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "paso-10.mp4",
+      "id": "paso-10",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 120.8
+    },
+    {
+      "archivo": "paso-11.mp4",
+      "id": "paso-11",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "paso-12.mp4",
+      "id": "paso-12",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "paso-13.mp4",
+      "id": "paso-13",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "paso-14.mp4",
+      "id": "paso-14",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    },
+    {
+      "archivo": "toma-15.mp4",
+      "id": "toma-15",
+      "modelo": "google/gemini-omni-flash-1-1",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 63
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": null
+}
