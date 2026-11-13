@@ -1,6 +1,6 @@
 {
   "uuid": "7ccea351-048e-4006-ade7-60e5cc94cd14",
-  "estado": "escribiendo",
+  "estado": "listo",
   "tipo": "guion",
   "intentos": 1,
   "progreso": [
@@ -18,11 +18,72 @@
     "Buscando en los archivos",
     "Leyendo",
     "Guardando",
-    "Escribiendo el guion y cada escena"
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Pasando el guion en limpio"
   ],
   "inicio": "2026-11-13T20:58:32.177Z",
   "cambios": [],
-  "actualizado": "2026-11-13T21:01:33.884Z",
+  "actualizado": "2026-11-13T21:04:59.281Z",
   "error": null,
-  "inicioIntento": "2026-11-13T20:58:32.177Z"
+  "inicioIntento": "2026-11-13T20:58:32.177Z",
+  "fin": "2026-11-13T21:04:59.281Z",
+  "limite": false,
+  "reinicio": null,
+  "medidas": [
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-13T21:04:59.281Z",
+      "ok": true,
+      "turnos": 22,
+      "duracionMs": 381582,
+      "uso": {
+        "input_tokens": 16,
+        "cache_creation_input_tokens": 108487,
+        "cache_read_input_tokens": 458633,
+        "output_tokens": 45174,
+        "output_tokens_details": {
+          "thinking_tokens": 12079
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 108487,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 106241,
+            "cache_creation_input_tokens": 2246,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 2246
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 2.4436165,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 1,
+      "motor": "claude"
+    }
+  ],
+  "ajustados": 0
 }
