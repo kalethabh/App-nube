@@ -16,11 +16,13 @@
     "Leyendo",
     "Mirando las imágenes del anuncio",
     "Buscando en los archivos",
-    "Leyendo"
+    "Leyendo",
+    "Guardando",
+    "Escribiendo el guion y cada escena"
   ],
   "inicio": "2026-11-13T20:58:32.177Z",
   "cambios": [],
-  "actualizado": "2026-11-13T20:58:57.316Z",
+  "actualizado": "2026-11-13T21:01:33.884Z",
   "error": null,
   "inicioIntento": "2026-11-13T20:58:32.177Z"
 }
