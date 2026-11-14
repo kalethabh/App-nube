@@ -1,13 +1,12 @@
 {
-  "pid": 70812,
-  "paso": "musica",
-  "script": "suno-retomable.js",
+  "pid": 71803,
+  "paso": "render",
+  "script": "ensamblar.js",
   "args": [
-    "generar-musica.js",
     "temp/aguaje-complex-10x-ugc-20261113-2203",
-    "--si"
+    "--solo-completa"
   ],
-  "comando": "node produccion/suno-retomable.js generar-musica.js temp/aguaje-complex-10x-ugc-20261113-2203 --si",
-  "inicio": "2026-11-14T03:24:31.304Z",
-  "app": 54629
+  "comando": "node produccion/ensamblar.js temp/aguaje-complex-10x-ugc-20261113-2203 --solo-completa",
+  "inicio": "2026-11-14T03:26:44.714Z",
+  "app": 71565
 }
