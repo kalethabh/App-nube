@@ -176,6 +176,17 @@ Los modelos se eligen en **Ajustes → Modelos** o junto al costo antes de aprob
 - Pruebas: `RESOLUCION_VIDEO=720p node produccion/pruebas/probar-modelos.js` (220), `probar-estimar-costo.js`
   (175), `probar-integracion-kads.js` (7, también a 1080p) y `probar-imagen-ads.js` (173). Sin un anuncio real todavía.
 
+### Editor: «Guardar» deja tu versión como la del anuncio (2026-11-13, PR pendiente)
+
+- Botón «Guardar» junto a «Descargar video»: arma el video con los cambios (la misma exportación, completa a 1080p,
+  `guardar: true`) y al terminar escribe `temp/<slug>/app/version-principal.json` ({ archivo, n, guardado }). No
+  descarga nada. Si el último video armado ya tiene lo que se ve, solo lo marca (al instante).
+- `lib/anuncios.js` (versionesDe): mientras ese archivo exista en output/, esa versión es la principal («Tu versión
+  guardada»): la que muestran Anuncios, la entrega, el tablero y la producción. La entregada sigue como «Completa».
+- `POST /api/anuncios/:slug/version-principal { archivo | null }` (null = vuelve la original; botón ↺ del editor).
+- El indicador de autoguardado del editor dice «Cambios guardados». Probado en una copia: guardar (2 min a 1080p),
+  volver al original, guardar de nuevo al instante y la entrega reproduciendo la guardada.
+
 ## Validación más reciente y sus límites
 
 Todo se probó sin servicios de pago y sin modificar los anuncios personales.

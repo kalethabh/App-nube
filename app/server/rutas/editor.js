@@ -51,7 +51,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { TEMP, OUTPUT, RAIZ, PUERTO, esDeEstaApp } from '../lib/rutas.js';
-import { listarAnuncios, urlAnuncio, slugValido } from '../lib/anuncios.js';
+import { listarAnuncios, urlAnuncio, slugValido, rutaVersionPrincipal } from '../lib/anuncios.js';
 import { stat, leerJSON, existe, listar, segmentoValido } from '../lib/archivos.js';
 import * as procesos from '../lib/procesos.js';
 import * as conductor from '../lib/conductor.js';
@@ -364,6 +364,20 @@ function versionesEditadas(slug) {
     .sort((a, b) => b.n - a.n);
 }
 
+/**
+ * «Guardar» en el editor: la version exportada pasa a ser la principal del anuncio (lib/anuncios.js, versionGuardada).
+ * archivo null: vuelve la que entrego la app (la guardada queda en output/ como una version mas).
+ */
+function marcarPrincipal(slug, archivo, n = null) {
+  if (!archivo) return fs.rmSync(rutaVersionPrincipal(slug), { force: true });
+  escribirJSON(rutaVersionPrincipal(slug), { archivo, n, guardado: ahora() });
+}
+/** La version que el usuario guardo (si sigue en output/): { archivo, n } o null. */
+function versionGuardadaDe(slug) {
+  const v = leerJSON(rutaVersionPrincipal(slug));
+  return v?.archivo && existe(path.join(OUTPUT, v.archivo)) ? { archivo: v.archivo, n: v.n ?? null, guardado: v.guardado || null } : null;
+}
+
 function guardarTrabajoExportar(slug, t) {
   t.actualizado = ahora();
   escribirJSON(rutaTrabajoExportar(slug), t);
@@ -377,6 +391,7 @@ function vistaExportar(slug, t) {
     estado: t.estado,
     calidad: t.calidad,
     version: t.version || null,
+    guardar: Boolean(t.guardar),
     subtitulos: t.subtitulos,
     sinMusica: Boolean(t.sinMusica),
     srt: t.srt,
@@ -457,6 +472,8 @@ function lanzarExportacion(slug) {
               t.estado = 'listo';
               t.terminado = ahora();
               t.avance = { etapa: 'guardar', valor: 100, cuadro: t.avance?.cuadro ?? null, total: t.avance?.total ?? null };
+              // «Guardar»: este video pasa a ser el del anuncio en todas las secciones
+              if (t.guardar) marcarPrincipal(slug, t.archivo, t.n);
               cerrarSolo ||= setTimeout(() => procesos.cancelar(slug), 30000);
               cerrarSolo.unref?.();
             }
@@ -485,6 +502,7 @@ function lanzarExportacion(slug) {
     } else if (t.archivo && [0, 1, 2].includes(r.codigo)) {
       t.estado = 'listo';
       t.terminado = ahora();
+      if (t.guardar) marcarPrincipal(slug, t.archivo, t.n);
     } else {
       t.estado = 'error';
       const ocupado = /Ya hay un proceso del motor corriendo/.test(String(r.texto));
@@ -553,7 +571,7 @@ function rutasExportar(app) {
       t = { ...t, estado: 'error', error: { mensaje: 'La exportación se cortó. Vuelve a exportar: no cuesta nada.' } };
     }
     res.set('Cache-Control', 'no-store');
-    res.json({ trabajo: vistaExportar(slug, t), siguiente: siguienteNumero(slug), hechos: versionesEditadas(slug), desactualizada: await versionDesactualizada(slug) });
+    res.json({ trabajo: vistaExportar(slug, t), siguiente: siguienteNumero(slug), hechos: versionesEditadas(slug), desactualizada: await versionDesactualizada(slug), guardada: versionGuardadaDe(slug) });
   });
 
   app.post('/api/anuncios/:slug/exportar', (req, res) => {
@@ -563,7 +581,7 @@ function rutasExportar(app) {
     if (exportando.has(slug)) return res.status(409).json({ error: 'Ya se está exportando una versión de este anuncio.' });
     if (trabajoDeRehacerActivo(slug)) return res.status(409).json({ error: 'Se está regenerando una parte de este anuncio. Descarga tu video cuando termine.' });
     if (procesos.enMarcha(slug)) return res.status(409).json({ error: 'El anuncio se está armando en este momento. Descarga tu video cuando termine.' });
-    const { calidad, subtitulos, srt, estado, contexto, version } = req.body || {};
+    const { calidad, subtitulos, srt, estado, contexto, version, guardar } = req.body || {};
     if (!esObjeto(estado)) return res.status(400).json({ error: 'Faltan los cambios del editor.' });
     if (version !== undefined && version !== null && !Object.hasOwn(VERSIONES_EXPORTAR, version)) return res.status(400).json({ error: 'Esa versión no existe.' });
     const v = version ? VERSIONES_EXPORTAR[version] : null;
@@ -576,6 +594,8 @@ function rutasExportar(app) {
       subtitulos: v ? (v.subtitulos === 'con' && subtitulos !== 'sin' ? 'con' : 'sin') : subtitulos === 'sin' ? 'sin' : 'con',
       sinMusica: Boolean(v?.sinMusica),
       srt: srt !== false,
+      // «Guardar» (no «Descargar»): al terminar, este video pasa a ser el principal del anuncio
+      guardar: guardar === true,
       estado,
       contexto: limpiarContexto(contexto),
     };
@@ -583,10 +603,25 @@ function rutasExportar(app) {
     // lo que se exporta tambien queda como los cambios guardados del anuncio
     const g = leerJSON(rutaEdicion(slug));
     if (!g || JSON.stringify(g.estado) !== JSON.stringify(estado)) escribirJSON(rutaEdicion(slug), { v: 1, estado, t: Math.max(Date.now(), Number(g?.t) || 0), contexto: pedido.contexto, guardado: ahora() });
-    const t = { n, estado: 'esperando', calidad: pedido.calidad, version: pedido.version, subtitulos: pedido.subtitulos, sinMusica: pedido.sinMusica, srt: pedido.srt, creado: ahora() };
+    const t = { n, estado: 'esperando', calidad: pedido.calidad, version: pedido.version, subtitulos: pedido.subtitulos, sinMusica: pedido.sinMusica, srt: pedido.srt, guardar: pedido.guardar, creado: ahora() };
     guardarTrabajoExportar(slug, t);
     lanzarExportacion(slug);
     res.json({ trabajo: vistaExportar(slug, leerJSON(rutaTrabajoExportar(slug))), siguiente: n + 1 });
+  });
+
+  // La version principal del anuncio: { archivo } una version del editor (<slug>_editado-N.mp4) o { archivo: null } =
+  // vuelve la que entrego la app. La guardada no se borra.
+  app.post('/api/anuncios/:slug/version-principal', (req, res) => {
+    const { slug } = req.params;
+    if (!desdeLaApp(req, res)) return;
+    if (!anuncioConPlan(slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
+    const archivo = req.body?.archivo ?? null;
+    if (archivo !== null) {
+      const ok = typeof archivo === 'string' && new RegExp(`^${slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}_editado-\\d+\\.mp4$`).test(archivo) && existe(path.join(OUTPUT, archivo));
+      if (!ok) return res.status(400).json({ error: 'Esa versión no existe.' });
+      marcarPrincipal(slug, archivo, Number(archivo.match(/_editado-(\d+)\.mp4$/)[1]));
+    } else marcarPrincipal(slug, null);
+    res.json({ ok: true, guardada: versionGuardadaDe(slug) });
   });
 
   app.post('/api/anuncios/:slug/exportar/cancelar', async (req, res) => {

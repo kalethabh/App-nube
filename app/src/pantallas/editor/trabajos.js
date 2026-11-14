@@ -87,6 +87,8 @@ export function useExportacion(slug, { alTerminar } = {}) {
     hechos: datos?.hechos || [],
     // regeneraste algo después de tu última exportación y tienes cambios: hay que exportar de nuevo (gratis)
     desactualizada: datos?.desactualizada || null,
+    // la version que el usuario guardo («Guardar»): la principal del anuncio, { archivo, n, guardado } o null
+    guardada: datos?.guardada || null,
     cargado: Boolean(datos),
     exportar,
     cancelar,
