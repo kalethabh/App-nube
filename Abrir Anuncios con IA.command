@@ -75,6 +75,14 @@ node "$RAIZ/app/inicio/preparar-app.mjs" || { pausar; exit 1; }
 # app abre igual: ahí se instala con un botón (en Ajustes → Conexiones).
 node "$RAIZ/app/inicio/preparar-motor.mjs" || true
 
+# ---------------------------------------------------------------- «Kads Studio.app» en el Escritorio y en Aplicaciones
+# Un doble clic y la app arranca sin esta ventana (instalar/crear-app-mac.sh). Se crea la primera vez, y otra vez si
+# esta carpeta cambió de lugar.
+APP_MAC="$HOME/Applications/Kads Studio.app"
+if [ -f "$RAIZ/instalar/crear-app-mac.sh" ] && [ "$(cat "$APP_MAC/Contents/Resources/raiz.txt" 2>/dev/null)" != "$RAIZ" ]; then
+  bash "$RAIZ/instalar/crear-app-mac.sh" 2>/dev/null || true
+fi
+
 # ---------------------------------------------------------------- abrir la app
 echo
 echo " Abriendo Anuncios con IA en tu navegador..."
