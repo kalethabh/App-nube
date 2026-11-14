@@ -1,0 +1,13 @@
+{
+  "pid": 55189,
+  "paso": "exportar",
+  "script": "exportar-edicion.js",
+  "args": [
+    "temp/aguaje-complex-10x-podcast-20261113-1712",
+    "--pedido",
+    "temp/aguaje-complex-10x-podcast-20261113-1712/app/exportes/pedido-1.json"
+  ],
+  "comando": "node produccion/exportar-edicion.js temp/aguaje-complex-10x-podcast-20261113-1712 --pedido temp/aguaje-complex-10x-podcast-20261113-1712/app/exportes/pedido-1.json",
+  "inicio": "2026-11-14T00:28:38.498Z",
+  "app": 54629
+}

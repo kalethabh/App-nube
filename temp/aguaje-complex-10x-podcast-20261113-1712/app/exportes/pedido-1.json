@@ -1,0 +1,51 @@
+{
+  "n": 1,
+  "calidad": "1080",
+  "version": "completa",
+  "subtitulos": "con",
+  "sinMusica": false,
+  "srt": true,
+  "guardar": true,
+  "estado": {
+    "subtitulos": {
+      "visible": true,
+      "estilo": "gigante",
+      "color": "#B5279B",
+      "tamano": 1,
+      "altura": 0.3,
+      "lado": 0.009
+    },
+    "lugaresSubtitulos": {},
+    "correcciones": {},
+    "ocultos": [],
+    "voz": {
+      "volumen": 1,
+      "silenciada": false
+    },
+    "musica": {
+      "fuente": "original",
+      "volumen": 1,
+      "silenciada": false,
+      "inicio": 0,
+      "id": null,
+      "nombre": null,
+      "url": null,
+      "duracion": null,
+      "origen": null,
+      "tramos": null
+    },
+    "quitados": [],
+    "textos": [],
+    "tomas": null,
+    "brolls": null,
+    "ajustesTextos": {},
+    "textosNuevos": [],
+    "reemplazos": {},
+    "clips": {}
+  },
+  "contexto": {
+    "titulo": "Aguaje Complex 10X",
+    "overlays": [],
+    "color": "#159A5B"
+  }
+}
