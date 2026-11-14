@@ -1,0 +1,45 @@
+Square 1:1 editorial flatlay photograph, strict top-down view (camera exactly 90 degrees overhead), on a pale blush-cream #FCE7EF honed stone surface with very subtle veining. CENTER (x 34-66%, y 24-80%): the product from the attached image lying flat on the surface, rotated about 15-20 degrees off vertical with the cap toward the upper right and its front label facing the camera and fully readable: a small cylindrical supplement bottle with a glossy black body, about twice as tall as wide, rounded shoulders, a wide hot-pink ribbed screw cap printed with small white 'VITALABH' logos, a solid pink band around the very bottom, and a black label with big white 'AGUAJE', 'COMPLEX' in white with '3 EN 1' in pink, a thin pink strip, italic pink-red 'TRIPLE ACCIÓN' and three small pink-outlined dosage boxes. Use the attached product image as the only source of truth for the bottle and its label; do not redesign, replace or reinterpret it. Ignore the hand, the floor and the video player bar visible in the attached photo: show only the bottle, with no hand. FOUR CORNER PILES, abundant, loose and organic, each spilling in from outside the frame and cropped by the canvas edges: upper-left (x 0-28%, y 18-44%) whole and halved aguaje fruits, an oval palm fruit with reddish-brown scaly skin and bright orange-yellow pulp; upper-right (x 72-100%, y 18-44%) a generous heap of small golden-brown fenugreek seeds; lower-left (x 0-30%, y 66-100%) several small black maca roots, turnip-shaped with dark purple-black skin, with a little dark powder; lower-right (x 70-100%, y 66-100%) a generous pile of plain translucent gelatin capsules filled with light beige powder. A few stray pieces (some fenugreek seeds, one or two capsules, a small piece of aguaje skin) drift across the open surface toward the bottle, never touching the label. LABELS: four small rounded hot-pink #E8327C pills with white semi-bold text, all the same size, one under each upper pile (y 45-50%) and one above each lower pile (y 59-64%), kept within x 4-28% on the left and x 72-96% on the right, facing the center, with no lines or arrows. HEADLINE (y 4-15%, x 8-92%): two centered lines of extra-bold sans-serif (Poppins Bold) on the clear surface at the top, first line near-black #0D0D0F, second line hot pink #E8327C. Soft diffused overhead daylight falling gently from the upper left; every object casts a short soft shadow toward the lower right; deep focus, everything sharp; true-to-life, appetizing natural textures. No people, no hands, no extra props, no other text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, on clear surface): "Tres ingredientes, un solo frasco" — Poppins Bold (extra bold), each line about 7% of the canvas height, 2 lines, centered: 'Tres ingredientes,' in near-black and 'un solo frasco' in hot pink
+- component label 1 (Inside the pill under the upper-left pile): "Aguaje" — Poppins SemiBold, about 2.8% of the canvas height, 1 line, centered in the pill, white on hot pink
+- component label 2 (Inside the pill under the upper-right pile): "Fenogreco" — Poppins SemiBold, about 2.8% of the canvas height, 1 line, centered in the pill, white on hot pink
+- component label 3 (Inside the pill above the lower-left pile): "Maca negra" — Poppins SemiBold, about 2.8% of the canvas height, 1 line, centered in the pill, white on hot pink
+- component label 4 (Inside the pill above the lower-right pile): "60 cápsulas" — Poppins SemiBold, about 2.8% of the canvas height, 1 line, centered in the pill, white on hot pink
+
+BRAND IDENTITY:
+- color_palette: Primary: deep glossy black #0D0D0F and hot pink #E8327C. Secondary: soft pink #F58FB8, blush cream #FCE7EF and pure white #FFFFFF. Accents: raspberry red #D81B60 and warm aguaje orange #F2A33A (only in the fruit and warm light).
+- text_typography: Poppins Bold for headlines and Poppins Regular for the rest of the text.
+
+MANDATORY ELEMENTS:
+- Strict top-down overhead camera angle
+- The user's product lying in the center on a slight diagonal, front label facing the camera
+- Four abundant component piles entering from the corners and cropped by the canvas edges: aguaje fruits, fenugreek seeds, black maca roots and capsules
+- Four small pill labels facing the center
+- A few stray component pieces drifting toward the product
+- Pale blush stone surface with consistent soft shadows
+
+STRICT EXCLUSIONS:
+- Do not show the hand, the floor or the video player bar from the attached product photo.
+- Do not use a perspective or angled view: the camera is exactly overhead.
+- Do not add people, hands, unrelated props, lines or arrows.
+- Do not add logos or brand marks outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Perspective, eye-level or angled camera views
+- Do not add: Boxes, packaging lids, tissue paper or unboxing elements
+- Do not add: Neat grid or knolling arrangement
+- Do not add: More than four labels or any leader lines and arrows
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit icons or checklists
+- Do not add: Subheadline or any text besides the headline and the four labels
+- Do not add: Bottom bar or banner
+- Do not add: People, hands or faces
+- Do not add: Unrelated props (cups, phones, plants, notebooks) that are not part of the product
+- Do not add: Logos or brand marks
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

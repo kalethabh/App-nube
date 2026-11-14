@@ -1,0 +1,127 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format G15 (Persona en éxtasis + producto en pedestal + palabra gigante)",
+    "reference_style": "Luxury beauty campaign: a person in a moment of pure pleasure in warm golden light, a single giant word as the headline with an italic tagline, and a studio-quality product shot on a marble pedestal composited in the foreground, with floating droplets and petals",
+    "angle_used": "Promesa emocional",
+    "ad_format": "Emotional Lifestyle with Pedestal Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: deep glossy black #0D0D0F and hot pink #E8327C. Secondary: soft pink #F58FB8, blush cream #FCE7EF and pure white #FFFFFF. Accents: raspberry red #D81B60 and warm aguaje orange #F2A33A (only in the fruit and warm light).",
+    "visual_style": "Modern, feminine and bold beauty-wellness advertising: high contrast black and pink, clean premium product photography, confident and fresh, Latin American e-commerce energy without looking cheap.",
+    "visual_atmosphere": "Confident, vibrant, feminine and warm; glossy highlights, soft pink glows, a feeling of self-care and self-assurance.",
+    "graphic_language": "Rounded pill shapes and rounded cards, soft pink gradients, brush-stroke or solid pink bands behind key words, thin line icons, soft drop shadows, natural ingredient props (aguaje fruit with reddish scaly skin and orange pulp, fenugreek seeds, black maca root), strong contrast between black, pink and white.",
+    "text_typography": "Poppins Bold for headlines and Poppins Regular for the rest of the text."
+  },
+  "creative_objective": "Sell the feeling, not the feature: a woman who feels confident and at ease with herself, in golden light, with the bottle as the premium hero in the foreground and a single giant word naming the emotion.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant single word at the top. 2) The woman's expression of pleasure. 3) The product on its pedestal on the right. 4) The italic tagline. 5) The floating particles.",
+    "composition_style": "Layered depth: giant word at the back top, person in the middle ground in the left two-thirds, product in the foreground on the right. The word and the tagline are centered horizontally; the woman's head sits just under the tagline, left of center; the product stands on the right in front of her raised arm.",
+    "spacing_and_structure": "Giant word: x 20-80%, y 3.5-18%, centered. Tagline: same width, y 20.5-24%. Person: from the left edge to about x 65%, from about y 22% (raised hands and elbows) to the bottom edge, face centered at about x 37%, y 45%. Product: x 60-88%, y 40-93% (about 55% of the canvas height), standing on a marble pedestal whose top is at about y 93% and spans from x 58% to the right edge, cut by the bottom edge. Particles mainly in the top corners and along the right edge, each 1-4% of the canvas.",
+    "lighting_and_depth": "Warm golden-hour sunlight from the upper left, glowing skin with soft highlights, a satin dress catching the light. The terrace with pink flowers behind is strongly blurred and warm. The product is lit like a studio shot: crisp highlights on the glossy black bottle, clean reflections and a soft shadow on the pedestal, slightly sharper than the scene so it reads as the hero. Droplets are glossy and translucent, some sharp and some blurred for depth.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled with a warm, golden lifestyle photo on a blurred terrace with pink flowers. One huge bold white word is centered at the top, with a short white italic uppercase tagline right below. In the left two-thirds, a Colombian woman of about 30 in a 3/4 profile, eyes closed, smiling, arms raised behind her head in a gesture of pleasure, framed from the raised elbows down to the chest. On the right, the user's bottle stands upright in the foreground on a light marble pedestal. Translucent droplets and pink petals float around the edges.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "lifestyle photo background",
+        "position": "Full canvas, edge to edge",
+        "visual_function": "Sets a warm, aspirational, luxurious mood",
+        "adaptation_rule": "Blurred outdoor terrace with pink bougainvillea and tropical greenery in warm golden light; tones of blush, soft pink, gold and cream.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "person",
+        "position": "Left two-thirds, from the left edge to about x 65%, from about y 22% to the bottom edge",
+        "visual_function": "Shows the emotion the product promises",
+        "adaptation_rule": "A Colombian woman of about 30, long dark wavy hair, warm tan skin, 3/4 profile, eyes closed, serene smile, arms raised behind her head, wearing an elegant soft-pink satin slip dress. She does NOT hold or use the product. Hair and skin look radiant.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "Right foreground, x 60-88%, y 40-93%",
+        "visual_function": "Main product anchor; signals premium quality",
+        "adaptation_rule": "The user's bottle exactly as in the attached photo, upright, front view, studio-sharp, overlapping the woman's raised arm, about 55% of the canvas height.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "pedestal",
+        "position": "Under the product, top at about y 93%, from x 58% to the right edge, cut by the bottom edge",
+        "visual_function": "Premium stage that separates the product from the scene",
+        "adaptation_rule": "Polished light marble pedestal top with soft blush veining and a soft reflection; two or three pink petals resting on it.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "floating particles",
+        "position": "Mainly in the top corners and along the right edge, each 1-4% of the canvas; a few soft pink flowers peek in at the lower-left edge",
+        "visual_function": "Adds sensoriality and luxury",
+        "adaptation_rule": "Translucent water droplets and pink petals, some in focus and some blurred. Never over the face, the text or the product label.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Free shipping or payment labels",
+      "Rating stars, reviews or testimonials",
+      "Trust seals, guarantee or certification badges",
+      "Benefit list or icons",
+      "Bands, boxes or cards behind the text",
+      "Person holding or applying the product",
+      "More than one product unit",
+      "Bottom bar or banner",
+      "Logos or brand marks"
+    ]
+  },
+  "visual_prompt": "Square 1:1 luxury beauty-campaign ad: a full-bleed warm golden-hour lifestyle photograph with layered depth. BACKGROUND: an outdoor terrace with pink bougainvillea flowers and tropical greenery, strongly blurred, bathed in warm golden sunlight from the upper left, in tones of blush, soft pink, gold and cream. TOP (x 20-80%, y 3.5-18%): one giant single word in ultra-bold uppercase sans-serif (Poppins Bold), pure white, tight letter spacing, centered, about 15% of the canvas height; directly below it (y 20.5-24%) a one-line tagline in medium italic uppercase sans-serif, white, centered, the same width as the giant word. No bands or boxes behind the text. PERSON (left two-thirds, from the left edge to about x 65%, from y 22% to the bottom edge): a Colombian woman of about 30 with long dark wavy hair and warm tan skin, in a 3/4 profile, eyes closed, serene confident smile, both arms raised behind her head in an open gesture of pleasure and freedom, framed from the raised elbows down to the chest, wearing an elegant soft-pink satin slip dress that catches the light; her face is centered at about x 37%, y 45%; glowing skin, radiant hair. She does not hold or touch the product. PRODUCT (right foreground, x 60-88%, y 40-93%): the product from the attached image standing upright in front view, studio-sharp, overlapping her raised arm: a small cylindrical supplement bottle with a glossy black body, about twice as tall as wide, rounded shoulders, a wide hot-pink ribbed screw cap printed with small white 'VITALABH' logos, a solid pink band around the very bottom, and a black label with big white 'AGUAJE', 'COMPLEX' in white with '3 EN 1' in pink, a thin pink strip, italic pink-red 'TRIPLE ACCIÓN' and three small pink-outlined dosage boxes. Use the attached product image as the only source of truth for the bottle and its label; do not redesign, replace or reinterpret it. Ignore the hand, the floor and the video player bar visible in the attached photo: show only the bottle, with no hand. Only one bottle. It stands on a polished light marble pedestal with soft blush veining whose top is at about y 93% and runs from x 58% to the right edge, cut by the bottom edge, with a soft reflection, a soft contact shadow and two or three pink petals resting on it. PARTICLES: translucent glossy water droplets and pink petals floating mainly in the top corners and along the right edge, each 1-4% of the canvas, some sharp and some blurred; a few soft pink flowers peek in at the lower-left edge; nothing over her face, the text or the product label. Clean, premium, feminine, cinematic. No buttons, no badges, no icons, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "giant word",
+      "reference_position": "Top center, about y 3.5-18%",
+      "text_style": "Poppins Bold, ultra bold, uppercase, about 15% of the canvas height, a single word, centered, pure white, tight letter spacing",
+      "text": "SEGURA"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "tagline",
+      "reference_position": "Directly below the giant word, centered, about y 20.5-24%",
+      "text_style": "Poppins Medium Italic, uppercase, about 3.5% of the canvas height, 1 line, centered, white, the same width as the giant word",
+      "text": "DE TUS CURVAS, CADA DÍA"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed warm golden lifestyle photo with a blurred floral terrace background",
+    "One giant white word centered at the top with an italic tagline below",
+    "Woman with eyes closed and arms raised behind her head in the left two-thirds",
+    "The user's product in the right foreground on a light marble pedestal",
+    "Floating translucent droplets and pink petals"
+  ],
+  "final_generation_exclusions": [
+    "Do not show the hand, the floor or the video player bar from the attached product photo.",
+    "Do not show the woman holding, touching or taking the product.",
+    "Do not show more than one bottle.",
+    "Do not place bands, boxes or cards behind the text.",
+    "Do not add logos or brand marks outside the product label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

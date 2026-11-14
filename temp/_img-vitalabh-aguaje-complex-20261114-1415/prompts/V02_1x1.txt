@@ -1,0 +1,39 @@
+Square 1:1 bold typographic ad, centered and symmetrical, built in three depth planes. BACKGROUND: solid deep black #0D0D0F with a strong, soft hot-pink #E8327C radial glow behind the upper center and a subtle dark vignette in the corners; no patterns, no surface, no props. TOP (y 5-9%): one short all-caps lead-in line, centered, wide letter spacing, soft pink #F58FB8. PRODUCT (x 34-66%, y 12-66%): the product from the attached image standing upright, centered, front view, studio-sharp: a small cylindrical supplement bottle with a glossy black body, about twice as tall as wide, rounded shoulders, a wide hot-pink ribbed screw cap printed with small white 'VITALABH' logos, a solid pink band around the very bottom, and a black label with big white 'AGUAJE', 'COMPLEX' in white with '3 EN 1' in pink, a thin pink strip, italic pink-red 'TRIPLE ACCIÓN' and three small pink-outlined dosage boxes. Use the attached product image as the only source of truth for the bottle and its label; do not redesign, replace or reinterpret it. Ignore the hand, the floor and the video player bar visible in the attached photo: show only the bottle, with no hand. Crisp key light from the upper left and a pink rim light on both edges so the black bottle separates clearly from the dark background. GIANT NUMBER (x 5-95%, top at y 56%, baseline at y 82%): the text '3 EN 1' in ultra-bold condensed sans-serif, one line, centered, placed IN FRONT of the bottle so it covers only the pink base band of the bottle and never the label; the digit '3' in pure white at full size, 'EN 1' in hot pink #E8327C with a thin white outline at about 60% of the digit size, baseline-aligned; the type casts a short soft shadow on the bottle and stays fully legible, with no character hidden or cut. BOTTOM (y 85-95%): a two-line explanation, centered, medium-weight sans-serif, white at about 85% opacity. Nothing else on the canvas: no people, no icons, no badges, no extra shapes.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- lead-in line (Top center, above the product): "TRIPLE ACCIÓN" — Poppins SemiBold, all caps, wide letter spacing, about 3.2% of the canvas height, soft pink #F58FB8, centered, 1 line
+- giant number (Centered across the lower half, in front of the product's base): "3 EN 1" — Ultra-bold condensed sans-serif, glyph height about 26% of the canvas, tight letter spacing, centered, 1 line; '3' in pure white, 'EN 1' in hot pink with a thin white outline at about 60% of the digit size; short soft shadow on the product
+- explanation line (Bottom center, under the number): "Aguaje, fenogreco y maca negra en un solo frasco" — Poppins Medium, about 4% of the canvas height, centered, 2 lines: 'Aguaje, fenogreco y maca negra' / 'en un solo frasco'; white at about 85% opacity, 'un solo frasco' in bold
+
+BRAND IDENTITY:
+- color_palette: Primary: deep glossy black #0D0D0F and hot pink #E8327C. Secondary: soft pink #F58FB8, blush cream #FCE7EF and pure white #FFFFFF. Accents: raspberry red #D81B60 and warm aguaje orange #F2A33A (only in the fruit and warm light).
+- text_typography: Poppins Bold for headlines and Poppins Regular for the rest of the text.
+
+MANDATORY ELEMENTS:
+- One giant ultra-bold '3 EN 1' across the lower half, in front of the product
+- The user's product, centered and rising from behind the number, label fully visible
+- Solid deep black background with a soft hot-pink glow behind the product
+
+STRICT EXCLUSIONS:
+- Do not show the hand, the floor or the video player bar from the attached product photo.
+- Do not cover any part of the product label with the number.
+- Do not add people, hands, pedestals, props, particles or extra shapes.
+- Do not add logos or brand marks outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Charts, graphs, progress bars or infographics
+- Do not add: Secondary numbers or a stats grid
+- Do not add: Benefit list or icons
+- Do not add: Boxes, badges, divider bars or circles around the number
+- Do not add: Pedestals, podiums or extra props
+- Do not add: People or hands
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks
+- Do not add: Decorative particles, confetti or extra shapes
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
