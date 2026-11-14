@@ -1,0 +1,24 @@
+{
+  "numero": 3,
+  "paso": "bloques",
+  "comando": "node produccion/generar-videos.js temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 --si",
+  "inicio": "2026-11-14T01:24:49.456Z",
+  "fin": "2026-11-14T01:27:56.762Z",
+  "codigo": 0,
+  "creditos": 80,
+  "dolares": 0.4,
+  "imagenes": [],
+  "videos": [
+    {
+      "archivo": "toma-9.mp4",
+      "id": "toma-9",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 80
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": null
+}

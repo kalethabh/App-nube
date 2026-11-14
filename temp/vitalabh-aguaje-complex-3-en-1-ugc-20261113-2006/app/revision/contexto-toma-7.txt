@@ -1,0 +1,69 @@
+
+=== Contexto para rehacer el bloque 7 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    6s
+    referencias: 1) personaje  2) producto  3) lugar-bodega (fotograma del bloque 1, segundo 6.8)   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        oferta
+    linea:       "Aquí sí les decimos la verdad: lo ideal es el tratamiento completo de tres meses."
+    viene de:    "Y otra cosa que no les dicen: les venden un solo frasco, pa' que tengan que estar comprando y comprando. Ese es el negocio."
+    lleva a:     "Los resultados llegan más rápido, son duraderos, sin efecto rebote, y se quedan incluso después de terminarlo. No tienen que estar comprando cada rato."
+
+  TRAMOS:
+    [0.0–2.4s]  "Aquí sí les decimos la verdad:"
+    [2.4–6.0s]  "lo ideal es el tratamiento completo de tres meses."
+
+  --- video ---
+Duración: 6s.
+
+REFERENCIAS:
+Imagen 1: Daniela, la creadora. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos, mismos lentes y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+Imagen 2: el producto. Es la referencia exacta del envase: usa solo el frasco, no la mano, ni el fondo, ni la barra negra de abajo de esa foto.
+Imagen 3: la bodega. Es la misma bodega de despacho donde grabó al principio: úsala solo como referencia del lugar (estanterías metálicas con filas de frascos, mesa de empaque de madera, cajas de cartón, paredes blancas, piso de cemento y luz del portón). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa.
+
+STYLE / MOOD:
+UGC realista de respuesta directa, serio y cercano, como una vendedora honesta que mira a los ojos y dice las cosas como son. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Se ve como un video real de celular: piel real con textura y poros, gestos naturales de manos, cejas y cabeza, nada rígido. Se siente casero y auténtico, no un comercial pulido.
+
+LANGUAGE / VOICE:
+Español de Colombia, natural y cotidiano, con acento colombiano natural (no neutro, no mexicano, no de España). Voz femenina de una mujer de unos 29 años, de timbre medio-agudo, cálida, clara y chispeante, como contándole un chisme bueno a una amiga, sin tono de locutora. Ritmo rápido de conversación, con energía, sin sonar memorizado. Habla en español de Colombia.
+
+MAIN CHARACTER:
+La mujer de la imagen 1: colombiana adulta de 29 años, piel trigueña clara con textura real y poros visibles, cara redonda de mejillas llenas, cejas oscuras gruesas y bien definidas, ojos cafés, lentes de marco transparente, cabello castaño oscuro, largo y liso, con las puntas más claras, contextura con curvas, sin tatuajes visibles. Personalidad alegre, cercana y franca. En este video lleva una camiseta tipo polo negra lisa, sin logos, con arrugas naturales, un jean azul claro, y el cabello suelto con mechones sueltos, sin maquillaje de estudio.
+
+SETTING:
+La bodega de despacho de una tienda en línea, de día. Al fondo, estanterías metálicas grises llenas de filas de frascos negros con tapa rosada, iguales al producto, lejos y fuera de foco; a un lado, cajas de cartón cerradas apiladas; paredes blancas y piso de cemento gris. Adelante, una mesa de empaque de madera clara. La luz natural de un portón amplio abierto detrás de la cámara le da de frente a ella y a los frascos, junto con tubos de luz blanca en el techo. Sobre la mesa solo hay: tres frascos cerrados e idénticos, de pie, alineados uno al lado del otro en el centro, con la etiqueta hacia la cámara; no hay nada más. Todo se ve real y vivido, no un set.
+
+PERFORMANCE:
+Se pone seria y cercana, mira fijo a cámara, sin regañar. Gestos concretos y creíbles: una mano al pecho, acomoda un frasco en la fila, marca tres con los dedos. Sin sobreactuar.
+
+PRODUCT / VISUAL KEY:
+El producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de boca ancha y hombros redondeados, más o menos una vez y media más alto que ancho, con tapa rosada fucsia ancha, casi del ancho del cuerpo, cubierta por un sello plástico rosado, y una franja rosada en la base; ni botella delgada ni pote chato. Etiqueta negra con «VITALABH» pequeño arriba, «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1», una franja rosada delgada, «TRIPLE ACCIÓN» en letras rosadas inclinadas, tres recuadros con «200 mg», «400 mg» y «200 mg», y abajo «60 CÁPSULAS». Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, más o menos del alto de su mano. Superficie mate, sin arcoíris ni reflejos de prisma. La etiqueta siempre se lee al derecho, nunca en espejo. El frasco siempre está cerrado: no se ven cápsulas sueltas ni el frasco abierto. Cuando aparece en su mano, lo sostiene junto a su cara, a la misma distancia de la cámara que ella, a la altura del pecho, con los dedos por los costados sin tapar la etiqueta, y ocupa cerca del 40 % del alto del cuadro; la luz le da de frente y la etiqueta queda iluminada, sin contraluz. En este video hay exactamente tres frascos idénticos en primer plano, alineados al centro de la mesa, cerca de la cámara y nunca pegados a un borde del cuadro, cada uno más o menos del alto de su mano; los de las estanterías del fondo se ven lejos y fuera de foco.
+
+TIMESTAMPS:
+[0.0–2.4s]
+Plano selfie cercano, sentada a la mesa de empaque, con el celular en la mano derecha. Seria y cercana, se lleva la mano izquierda abierta al pecho y mira fijo a cámara.
+DIÁLOGO: “Aquí sí les decimos la verdad:”
+[2.4–6.0s]
+Corte a plano medio, con el celular apoyado en la mesa: los tres frascos están alineados al centro del cuadro, delante de ella. Con la mano izquierda endereza el frasco del medio y con la derecha marca tres con los dedos; al terminar de hablar asiente una vez y se queda quieta, con los tres dedos arriba, en silencio.
+DIÁLOGO: “lo ideal es el tratamiento completo de tres meses.”
+
+AUDIO:
+Solo la voz de ella y el sonido ambiente de una bodega de despacho: espacio amplio con un eco leve y el roce suave del frasco sobre la madera. Ninguna otra voz. Sin música.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta de los frascos, idéntico a la imagen 2. No debe aparecer otra persona ni un producto distinto, y la cara de Daniela no cambia entre planos.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer colombiana adulta de 29 años, piel trigueña clara con textura real, poros visibles y pequeñas imperfecciones; cara redonda de mejillas llenas; cejas oscuras, gruesas y bien definidas; ojos cafés; nariz pequeña y redondeada; lentes de marco transparente; labios con un brillo rosado suave y nada más de maquillaje; cabello castaño oscuro, largo y liso, suelto sobre los hombros, con las puntas más claras y algunos mechones sueltos; contextura con curvas; sin tatuajes visibles. Lleva una camiseta tipo polo negra lisa, sin estampados ni logos, con arrugas naturales. Está de pie frente a una pared lisa color blanco hueso de su casa, mira directamente a cámara con una sonrisa leve y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, sin retoque de estudio ni piel plástica. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 7
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 --toma 7 --aplicar nuevos.json
+

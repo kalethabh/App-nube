@@ -1,0 +1,77 @@
+
+=== Contexto para rehacer el bloque 6 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    8s
+    referencias: 1) personaje  2) producto  3) lugar-bodega (fotograma del bloque 1, segundo 6.8)   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        problema
+    linea:       "Y otra cosa que no les dicen: les venden un solo frasco, pa' que tengan que estar comprando y comprando. Ese es el negocio."
+    viene de:    "Lo que de verdad hace que funcione es que traiga aguaje, fenogreco y maca negra, los tres, puros. Eso es lo que da los resultados, no la marca."
+    lleva a:     "Aquí sí les decimos la verdad: lo ideal es el tratamiento completo de tres meses."
+
+  TRAMOS:
+    [0.0–2.3s]  "Y otra cosa que no les dicen:"
+    [2.3–4.0s]  "les venden un solo frasco,"
+    [4.0–6.6s]  "pa' que tengan que estar comprando y comprando."
+    [6.6–8.0s]  "Ese es el negocio."
+
+  --- video ---
+Duración: 8s.
+
+REFERENCIAS:
+Imagen 1: Daniela, la creadora. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos, mismos lentes y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+Imagen 2: el producto. Es la referencia exacta del envase: usa solo el frasco, no la mano, ni el fondo, ni la barra negra de abajo de esa foto.
+Imagen 3: la bodega. Es la misma bodega de despacho donde grabó al principio: úsala solo como referencia del lugar (estanterías metálicas con filas de frascos, mesa de empaque de madera, cajas de cartón, paredes blancas, piso de cemento y luz del portón). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa.
+
+STYLE / MOOD:
+UGC realista de respuesta directa, franco y cómplice, como una amiga que te abre los ojos sin pelear. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Se ve como un video real de celular: piel real con textura y poros, gestos naturales de manos, cejas y cabeza, nada rígido. Se siente casero y auténtico, no un comercial pulido.
+
+LANGUAGE / VOICE:
+Español de Colombia, natural y cotidiano, con acento colombiano natural (no neutro, no mexicano, no de España). Voz femenina de una mujer de unos 29 años, de timbre medio-agudo, cálida, clara y chispeante, como contándole un chisme bueno a una amiga, sin tono de locutora. Ritmo rápido de conversación, con energía, sin sonar memorizado. Habla en español de Colombia.
+
+MAIN CHARACTER:
+La mujer de la imagen 1: colombiana adulta de 29 años, piel trigueña clara con textura real y poros visibles, cara redonda de mejillas llenas, cejas oscuras gruesas y bien definidas, ojos cafés, lentes de marco transparente, cabello castaño oscuro, largo y liso, con las puntas más claras, contextura con curvas, sin tatuajes visibles. Personalidad alegre, cercana y franca. En este video lleva una camiseta tipo polo negra lisa, sin logos, con arrugas naturales, un jean azul claro, y el cabello suelto con mechones sueltos, sin maquillaje de estudio.
+
+SETTING:
+La bodega de despacho de una tienda en línea, de día. Al fondo, estanterías metálicas grises llenas de filas de frascos negros con tapa rosada, iguales al producto, lejos y fuera de foco; a un lado, cajas de cartón cerradas apiladas; paredes blancas y piso de cemento gris. Adelante, una mesa de empaque de madera clara. La luz natural de un portón amplio abierto detrás de la cámara le da de frente a ella y al frasco, junto con tubos de luz blanca en el techo. Sobre la mesa solo hay: una bolsa de envío blanca, plana y sin letras, y un rollo de cinta de empaque; no hay nada más. Todo se ve real y vivido, no un set.
+
+PERFORMANCE:
+Tono de amiga que avisa, sin rabia, con un poco de picardía. Gestos concretos y creíbles: levanta un solo frasco junto a su cara con cara de «¿ven?», mueve la otra mano en círculos, ladea la cabeza. Su otra mano no sostiene nada. Sin sobreactuar.
+
+PRODUCT / VISUAL KEY:
+El producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de boca ancha y hombros redondeados, más o menos una vez y media más alto que ancho, con tapa rosada fucsia ancha, casi del ancho del cuerpo, cubierta por un sello plástico rosado, y una franja rosada en la base; ni botella delgada ni pote chato. Etiqueta negra con «VITALABH» pequeño arriba, «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1», una franja rosada delgada, «TRIPLE ACCIÓN» en letras rosadas inclinadas, tres recuadros con «200 mg», «400 mg» y «200 mg», y abajo «60 CÁPSULAS». Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, más o menos del alto de su mano. Superficie mate, sin arcoíris ni reflejos de prisma. La etiqueta siempre se lee al derecho, nunca en espejo. El frasco siempre está cerrado: no se ven cápsulas sueltas ni el frasco abierto. Cuando aparece en su mano, lo sostiene junto a su cara, a la misma distancia de la cámara que ella, a la altura del pecho, con los dedos por los costados sin tapar la etiqueta, y ocupa cerca del 40 % del alto del cuadro; la luz le da de frente y la etiqueta queda iluminada, sin contraluz. En este video solo hay un frasco en primer plano, en su mano izquierda durante todo el video; los de las estanterías del fondo se ven lejos y fuera de foco.
+
+TIMESTAMPS:
+[0.0–2.3s]
+Plano selfie cercano, de pie junto a la mesa de empaque, con el celular en la mano derecha y el frasco cerrado en la izquierda, abajo, a la altura del pecho. Se acerca un poco al lente y levanta las cejas, como avisando.
+DIÁLOGO: “Y otra cosa que no les dicen:”
+[2.3–4.0s]
+Corte a plano medio, con el celular apoyado en la mesa: levanta el frasco junto a su cara con la mano izquierda, con la etiqueta de frente, y con la derecha muestra un solo dedo, con cara de «¿ven?».
+DIÁLOGO: “les venden un solo frasco,”
+[4.0–6.6s]
+Corte a plano tres cuartos, con el celular apoyado en una caja: con el frasco quieto junto a su cara, mueve la mano derecha en círculos en el aire y gira un poco los ojos.
+DIÁLOGO: “pa' que tengan que estar comprando y comprando.”
+[6.6–8.0s]
+Corte a plano cercano de frente, del pecho hacia arriba, con el celular apoyado en la mesa: baja la mano derecha, ladea la cabeza y aprieta los labios; al terminar de hablar se queda quieta, con el frasco junto a su cara, en silencio.
+DIÁLOGO: “Ese es el negocio.”
+
+AUDIO:
+Solo la voz de ella y el sonido ambiente de una bodega de despacho: espacio amplio con un eco leve y el roce de su ropa. Ninguna otra voz. Sin música.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un producto distinto, y la cara de Daniela no cambia entre planos.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer colombiana adulta de 29 años, piel trigueña clara con textura real, poros visibles y pequeñas imperfecciones; cara redonda de mejillas llenas; cejas oscuras, gruesas y bien definidas; ojos cafés; nariz pequeña y redondeada; lentes de marco transparente; labios con un brillo rosado suave y nada más de maquillaje; cabello castaño oscuro, largo y liso, suelto sobre los hombros, con las puntas más claras y algunos mechones sueltos; contextura con curvas; sin tatuajes visibles. Lleva una camiseta tipo polo negra lisa, sin estampados ni logos, con arrugas naturales. Está de pie frente a una pared lisa color blanco hueso de su casa, mira directamente a cámara con una sonrisa leve y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, sin retoque de estudio ni piel plástica. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 6
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 --toma 6 --aplicar nuevos.json
+

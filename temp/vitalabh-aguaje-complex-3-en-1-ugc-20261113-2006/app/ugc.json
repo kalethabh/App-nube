@@ -23,9 +23,108 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T01:24:49.455Z",
+  "actualizado": "2026-11-14T01:28:10.874Z",
   "sesionRechazo": {
     "uuid": "2c8e9fb1-2d5d-416b-9850-081a21b59ffd",
     "usada": true
+  },
+  "revision": {
+    "ronda": 1,
+    "medidas": {
+      "1": {
+        "huella": "9091402-1794619290551",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "2": {
+        "huella": "9426187-1794619467336",
+        "medido": true,
+        "limpio": false,
+        "motivo": "dijo «superguau.» en vez de «súper»; no dijo «wow!»"
+      },
+      "3": {
+        "huella": "6850762-1794619471490",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "4": {
+        "huella": "5794507-1794619476743",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "5": {
+        "huella": "11121297-1794619471431",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "6": {
+        "huella": "7739404-1794619466261",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "7": {
+        "huella": "6032303-1794619457244",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "8": {
+        "huella": "8122550-1794619465765",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "9": {
+        "huella": "7243723-1794619676741",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      }
+    },
+    "vistos": {},
+    "piezas": {},
+    "pendientes": [],
+    "revisarTambien": [],
+    "sinRevisar": [],
+    "lugares": {},
+    "vuelta": {
+      "ronda": 1,
+      "medir": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mirar": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mirarGanchos": [],
+      "hablaMal": {
+        "2": "No dijo su parte tal cual: dijo «superguau.» en vez de «súper»; no dijo «wow!»."
+      },
+      "medido": true,
+      "visual": null
+    },
+    "sesion": {
+      "uuid": "c0ae5afb-6ba4-48f7-b9dd-6f1deb3e9710"
+    }
   }
 }

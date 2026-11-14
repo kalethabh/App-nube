@@ -1,0 +1,376 @@
+{
+  "generado": "2026-11-14T01:28:08.863Z",
+  "nota": "Fotogramas fijos. NO sirven para juzgar la fluidez del movimiento ni el audio.",
+  "frames": 5,
+  "clips": [
+    {
+      "clip": "toma-1.mp4",
+      "tira": "qa/toma-1.jpg",
+      "duracion": 10,
+      "segundos": [
+        2.45,
+        5.4,
+        6.85,
+        8.9
+      ],
+      "tipo": "R",
+      "linea": "¡Miren esto! Este pedido es pa' una clienta que ya nos pide por tercera vez. ¡La tercera! ¿Y saben por qué repiten? Porque a muchas les ha funcionado:",
+      "referencias": [
+        "personaje",
+        "producto"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 4.9,
+          "linea": "¡Miren esto! Este pedido es pa' una clienta que ya nos pide por tercera vez.",
+          "fotograma": 2.45
+        },
+        {
+          "desde": 4.9,
+          "hasta": 5.9,
+          "linea": "¡La tercera!",
+          "fotograma": 5.4
+        },
+        {
+          "desde": 5.9,
+          "hasta": 7.8,
+          "linea": "¿Y saben por qué repiten?",
+          "fotograma": 6.85
+        },
+        {
+          "desde": 7.8,
+          "hasta": 10,
+          "linea": "Porque a muchas les ha funcionado:",
+          "fotograma": 8.9
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-2.mp4",
+      "tira": "qa/toma-2.jpg",
+      "duracion": 10,
+      "segundos": [
+        0.65,
+        3.35,
+        6.9,
+        9.2
+      ],
+      "tipo": "R",
+      "linea": "no las engordó, lo que tenían en el abdomen se les moldeó y se les tonificó, y les aumentó el volumen en piernas y cola. ¡Se ven súper wow!",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 1.3,
+          "linea": "no las engordó,",
+          "fotograma": 0.65
+        },
+        {
+          "desde": 1.3,
+          "hasta": 5.4,
+          "linea": "lo que tenían en el abdomen se les moldeó y se les tonificó,",
+          "fotograma": 3.35
+        },
+        {
+          "desde": 5.4,
+          "hasta": 8.4,
+          "linea": "y les aumentó el volumen en piernas y cola.",
+          "fotograma": 6.9
+        },
+        {
+          "desde": 8.4,
+          "hasta": 10,
+          "linea": "¡Se ven súper wow!",
+          "fotograma": 9.2
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-3.mp4",
+      "tira": "qa/toma-3.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        1.8,
+        5.8
+      ],
+      "tipo": "R",
+      "linea": "Y les cuento algo que yo veo aquí todos los días. Hay tiendas que dicen que el suyo es «el aguaje original de Vitalcom».",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 3.6,
+          "linea": "Y les cuento algo que yo veo aquí todos los días.",
+          "fotograma": 1.8
+        },
+        {
+          "desde": 3.6,
+          "hasta": 8,
+          "linea": "Hay tiendas que dicen que el suyo es «el aguaje original de Vitalcom».",
+          "fotograma": 5.8
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-4.mp4",
+      "tira": "qa/toma-4.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        1,
+        3.35,
+        5.35
+      ],
+      "tipo": "R",
+      "linea": "Mentira: no hay un solo original. Lo dicen pa' que solo les compren a ellos, y mucho más caro.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2,
+          "linea": "Mentira: no hay un solo original.",
+          "fotograma": 1
+        },
+        {
+          "desde": 2,
+          "hasta": 4.7,
+          "linea": "Lo dicen pa' que solo les compren a ellos,",
+          "fotograma": 3.35
+        },
+        {
+          "desde": 4.7,
+          "hasta": 6,
+          "linea": "y mucho más caro.",
+          "fotograma": 5.35
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-5.mp4",
+      "tira": "qa/toma-5.jpg",
+      "duracion": 10,
+      "segundos": [
+        1.8,
+        4.35,
+        5.7,
+        7.5,
+        9.35
+      ],
+      "tipo": "R",
+      "linea": "Lo que de verdad hace que funcione es que traiga aguaje, fenogreco y maca negra, los tres, puros. Eso es lo que da los resultados, no la marca.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 3.6,
+          "linea": "Lo que de verdad hace que funcione es que traiga aguaje,",
+          "fotograma": 1.8
+        },
+        {
+          "desde": 3.6,
+          "hasta": 5.1,
+          "linea": "fenogreco y maca negra,",
+          "fotograma": 4.35
+        },
+        {
+          "desde": 5.1,
+          "hasta": 6.3,
+          "linea": "los tres, puros.",
+          "fotograma": 5.7
+        },
+        {
+          "desde": 6.3,
+          "hasta": 8.7,
+          "linea": "Eso es lo que da los resultados,",
+          "fotograma": 7.5
+        },
+        {
+          "desde": 8.7,
+          "hasta": 10,
+          "linea": "no la marca.",
+          "fotograma": 9.35
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-6.mp4",
+      "tira": "qa/toma-6.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        1.15,
+        3.15,
+        5.3,
+        7.3
+      ],
+      "tipo": "R",
+      "linea": "Y otra cosa que no les dicen: les venden un solo frasco, pa' que tengan que estar comprando y comprando. Ese es el negocio.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.3,
+          "linea": "Y otra cosa que no les dicen:",
+          "fotograma": 1.15
+        },
+        {
+          "desde": 2.3,
+          "hasta": 4,
+          "linea": "les venden un solo frasco,",
+          "fotograma": 3.15
+        },
+        {
+          "desde": 4,
+          "hasta": 6.6,
+          "linea": "pa' que tengan que estar comprando y comprando.",
+          "fotograma": 5.3
+        },
+        {
+          "desde": 6.6,
+          "hasta": 8,
+          "linea": "Ese es el negocio.",
+          "fotograma": 7.3
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-7.mp4",
+      "tira": "qa/toma-7.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        1.2,
+        4.2
+      ],
+      "tipo": "R",
+      "linea": "Aquí sí les decimos la verdad: lo ideal es el tratamiento completo de tres meses.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.4,
+          "linea": "Aquí sí les decimos la verdad:",
+          "fotograma": 1.2
+        },
+        {
+          "desde": 2.4,
+          "hasta": 6,
+          "linea": "lo ideal es el tratamiento completo de tres meses.",
+          "fotograma": 4.2
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-8.mp4",
+      "tira": "qa/toma-8.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.85,
+        2.55,
+        4.55,
+        6.85
+      ],
+      "tipo": "R",
+      "linea": "Los resultados llegan más rápido, son duraderos, sin efecto rebote, y se quedan incluso después de terminarlo. No tienen que estar comprando cada rato.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 1.7,
+          "linea": "Los resultados llegan más rápido,",
+          "fotograma": 0.85
+        },
+        {
+          "desde": 1.7,
+          "hasta": 3.4,
+          "linea": "son duraderos, sin efecto rebote,",
+          "fotograma": 2.55
+        },
+        {
+          "desde": 3.4,
+          "hasta": 5.7,
+          "linea": "y se quedan incluso después de terminarlo.",
+          "fotograma": 4.55
+        },
+        {
+          "desde": 5.7,
+          "hasta": 8,
+          "linea": "No tienen que estar comprando cada rato.",
+          "fotograma": 6.85
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-9.mp4",
+      "tira": "qa/toma-9.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        1.15,
+        3.8,
+        6.65
+      ],
+      "tipo": "R",
+      "linea": "Este ya va empacadito, mañana sale, y ella lo paga cuando le llegue a su casa. El tuyo está en el botón de abajo.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.3,
+          "linea": "Este ya va empacadito, mañana sale,",
+          "fotograma": 1.15
+        },
+        {
+          "desde": 2.3,
+          "hasta": 5.3,
+          "linea": "y ella lo paga cuando le llegue a su casa.",
+          "fotograma": 3.8
+        },
+        {
+          "desde": 5.3,
+          "hasta": 8,
+          "linea": "El tuyo está en el botón de abajo.",
+          "fotograma": 6.65
+        }
+      ],
+      "esperado": null
+    }
+  ]
+}
