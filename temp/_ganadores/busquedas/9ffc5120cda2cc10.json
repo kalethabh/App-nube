@@ -1,0 +1,66 @@
+{
+  "clave": "9ffc5120cda2cc10",
+  "filtros": {
+    "paises": [
+      "CO",
+      "EC",
+      "GT",
+      "MX",
+      "PE",
+      "CL",
+      "AR",
+      "US"
+    ],
+    "idioma": "es",
+    "texto": "amua",
+    "buscarEn": "ad_copy",
+    "nichos": [
+      646,
+      239
+    ],
+    "formato": "",
+    "diasMin": 14,
+    "orden": "escalando",
+    "unoPorMarca": false,
+    "cantidad": 12,
+    "pagina": 1
+  },
+  "args": {
+    "status": "active",
+    "ad_countries": {
+      "include": [
+        "CO",
+        "EC",
+        "GT",
+        "MX",
+        "PE",
+        "CL",
+        "AR",
+        "US"
+      ]
+    },
+    "ad_languages": [
+      "es"
+    ],
+    "sort_by": "reachDelta7d",
+    "order": "desc",
+    "limit": 12,
+    "page": 1,
+    "query": "amua",
+    "search_in": "ad_copy",
+    "category_ids": [
+      646,
+      239
+    ],
+    "min_days_running": 14
+  },
+  "fecha": "2026-11-14T13:06:48.821Z",
+  "anuncios": [],
+  "creditos": {
+    "plan": "professional",
+    "restantes": 5882,
+    "limite": 10000,
+    "fin": "2026-11-26T14:18:24.000Z",
+    "fecha": "2026-11-14T13:06:47.864Z"
+  }
+}
