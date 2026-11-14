@@ -43,7 +43,8 @@
       "estado": "corriendo",
       "intentos": 3,
       "inicio": "2026-11-14T03:37:42.089Z",
-      "fin": "2026-11-14T03:49:08.924Z"
+      "fin": "2026-11-14T03:49:08.924Z",
+      "detalle": "Buscando otra forma de decir la frase"
     },
     {
       "id": "revision-bloques",
@@ -93,7 +94,7 @@
   "modoPrueba": false,
   "creado": "2026-11-14T03:15:54.518Z",
   "aprobado": "2026-11-14T03:15:54.518Z",
-  "actualizado": "2026-11-14T04:37:14.184Z",
+  "actualizado": "2026-11-14T04:39:08.205Z",
   "saldoInicial": {
     "creditos": 2117.2,
     "fecha": "2026-11-14T03:15:55.387Z"
