@@ -49,7 +49,7 @@ import { CampoClave } from './piezas.jsx';
  * de la voz en off, su respaldo y la música. Sin repetir: el mismo nombre va una sola vez.
  */
 function modelosDe(estado) {
-  const m = estado?.modelos || { imagen: 'GPT Image 2.5', video: 'Omni Flash 1.1', respaldo: 'Kling 3.0', musica: 'Suno' };
+  const m = estado?.modelos || { imagen: 'GPT Image 2.5', video: 'Omni Flash 1.2', respaldo: 'Kling 3.0', musica: 'Suno' };
   return [...new Set([m.imagen, m.video, m.respaldo, m.musica].filter(Boolean))];
 }
 

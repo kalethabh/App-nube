@@ -59,13 +59,16 @@ export const MODELOS = {
     //   gemini-omni-video            image_urls son solo REFERENCIAS.
     //                                No acepta frame final. firstFrameUrl y
     //                                lastFrameUrl ahi son campos de SALIDA.
-    //   google/gemini-omni-flash-1-1 acepta first_frame_url + last_frame_url.
+    //   google/gemini-omni-flash-1-1 y 1-2 aceptan first_frame_url + last_frame_url.
     //
-    // Nuestras tomas Tipo B necesitan frame final, y los dos cuestan lo mismo,
-    // asi que va el flash-1-1. Verificado en:
-    //   https://docs.kie.ai/market/google/gemini-omni-flash-1-1
-    //   https://docs.kie.ai/market/gemini-omni-video
-    principal: 'google/gemini-omni-flash-1-1',
+    // Nuestras tomas Tipo B necesitan frame final, asi que va el flash. Desde
+    // el 2026-11-13 es el 1.2 (pedido del usuario: "el nuevo, reemplazar el
+    // 1.1"): cobra por segundo (10 s a 1080p = 100 cr; el 1.1 cobraba 126 por
+    // el tramo de 10 s), hace clips de 3 a 15 s (3 a 10 con frame final),
+    // mejor habla y labios, y sostiene mejor caras y producto. Verificado en:
+    //   https://docs.kie.ai/market/google/gemini-omni-flash-1-2
+    //   https://kie.ai/gemini-omni-1-2-flash (precios)
+    principal: 'google/gemini-omni-flash-1-2',
     // Kling 3.0. El 2026-10-24 se cambio a Kling 4.0 y se probo con clips reales
     // (ESTADO-ACTUAL 1.16): mejor lip-sync, pero 28,5 cr/s. Diego, 2026-10-25: "es
     // bueno, pero es caro; me parece mas razonable el 3.0 para respaldo". La
@@ -79,7 +82,8 @@ export const MODELOS = {
  *
  * 1080p desde el 2026-11-08 (traido de IA-VID-AUTOMATIC, a pedido del usuario,
  * para que los anuncios se vean tan nitidos como los de referencia): el modelo
- * principal (gemini-omni-flash-1-1) cobra IGUAL en 720p y en 1080p; Kling, el
+ * principal era gemini-omni-flash-1-1, que cobraba IGUAL en 720p y en 1080p; el
+ * 1.2 (2026-11-13) cobra 9 cr/s a 720p y 10 a 1080p; Kling, el
  * respaldo, cobra por segundo un poco mas (ver MODELOS_VIDEO). El MP4 final
  * sale tambien en 1080x1920 (ensamblar.js le pasa a Remotion --scale=1.5;
  * ESCALA_RENDER) y los clips quietos (clips-sin-cobro.js) se arman del mismo
@@ -125,7 +129,7 @@ export const ESCALA_RENDER = RESOLUCION_VIDEO === '1080p' ? 1.5 : 1;
  */
 export const MODELO_IMAGEN_UGC = 'gpt-image-2-5-sunburst';
 export const RESOLUCION_IMAGEN_UGC = '2K';
-export const MODELO_VIDEO_UGC = 'google/gemini-omni-flash-1-1';
+export const MODELO_VIDEO_UGC = 'google/gemini-omni-flash-1-2';
 
 /**
  * MODELO DE IMAGEN DE TODOS LOS ESTILOS (decision de Diego, 2026-10-24: "para
@@ -211,8 +215,13 @@ export const MODELO_VIDEO_BROLL_POR_ESTILO = { podcast: 'kling-3.0/video', entre
 export const SONIDO_BROLL_POR_ESTILO = { podcast: false, entrevista: false };
 export const MODELO_IMAGEN_ICONOS = 'gpt-image-2';
 export const RESOLUCION_IMAGEN_ICONOS = '1K';
-/** Lo unico que acepta Omni Flash para una toma hablada (tipo H). */
-export const DURACIONES_H = [4, 6, 8, 10];
+/**
+ * Lo que se puede pedir para una toma hablada (tipo H). Con Omni Flash 1.1
+ * eran los tramos 4, 6, 8 y 10; el 1.2 (2026-11-13) acepta cualquier entero de
+ * 3 a 15 y cobra por segundo: la toma se pide con su largo medido, redondeado
+ * hacia arriba, sin pagar segundos de mas.
+ */
+export const DURACIONES_H = Object.freeze(Array.from({ length: 13 }, (_, i) => i + 3));
 /**
  * Estilos cuyas tomas H se generan por INGREDIENTES ("tomas[].ingredientes",
  * ver arriba). El podcast no esta: Diego lo aprobo con frame inicial y por
@@ -244,8 +253,43 @@ export const INGREDIENTE_IMAGEN = 'imagen';
  *  - sinFrames              no acepta primer ni ultimo frame: solo sirve por el
  *                           camino de referencias (bloques R de UGC y tomas H por
  *                           ingredientes). Un clip con frame lo salta.
+ *  - duracionMaxConFinal    lo mas largo que hace CON imagen final (si es menos
+ *                           que duracionMax): una B o un paso de continuidad mas
+ *                           largo excede su tope (duracionPara con conFinal).
  */
 export const MODELOS_VIDEO = {
+  // Omni Flash 1.2 (2026-11-13, el principal). Lo nuevo frente al 1.1, segun la
+  // doc de kie: duracion entera de 3 a 15 s (3 a 10 con first + last frame),
+  // cobro POR SEGUNDO (antes por tramo), hasta 6 referencias (antes 7) que no se
+  // mezclan con frames, audio con habla, musica y efectos sincronizados (habla
+  // mas natural, labios mas claros, varios hablantes distintos) y mas
+  // consistencia de caras, ropa, empaque y producto entre tomas.
+  'google/gemini-omni-flash-1-2': {
+    dialogo: true,
+    resoluciones: {
+      '360p': { alto: 360, api: '360p' },
+      '720p': { alto: 720, api: '720p' },
+      '1080p': { alto: 1080, api: '1080p' },
+      '4k': { alto: 2160, api: '4k' },
+    },
+    duraciones: null, // libre: un entero
+    duracionMin: 3,
+    duracionMax: 15,
+    duracionMaxConFinal: 10,
+    frameFinal: true, // first_frame_url + last_frame_url
+    referencias: { max: 6 },
+    // El audio ahora esta documentado (habla, musica y efectos), pero sigue sin
+    // parametro: sale solo, como en el 1.1.
+    audio: {
+      soportado: true,
+      documentado: true,
+      parametro: null,
+      contenido: 'habla, musica y efectos sincronizados (doc de kie, 2026-11-13)',
+    },
+    cobro: 'por-segundo',
+    // Creditos por segundo (kie.ai/gemini-omni-1-2-flash, 2026-11-13).
+    precio: { '360p': 4, '720p': 9, '1080p': 10, '4k': 22 },
+  },
   'google/gemini-omni-flash-1-1': {
     dialogo: true,
     // nombre canonico -> { alto en pixeles, valor que espera la API }
@@ -462,8 +506,12 @@ export function resolucionPara(modelo, preferida = RESOLUCION_VIDEO) {
   return { nombre, api: datos.api, alto: datos.alto, exacta: false };
 }
 
-/** Duracion que hay que pedir para cubrir `segundos` sin quedarse corto. */
-export function duracionPara(modelo, segundos) {
+/**
+ * Duracion que hay que pedir para cubrir `segundos` sin quedarse corto.
+ * `conFinal`: el clip lleva imagen final (una B, un paso de continuidad); un
+ * modelo con duracionMaxConFinal (Omni 1.2: 10 s) no pasa de ahi.
+ */
+export function duracionPara(modelo, segundos, { conFinal = false } = {}) {
   const def = MODELOS_VIDEO[modelo];
   if (!def) throw new Error(`No conozco el modelo de video "${modelo}"`);
 
@@ -473,7 +521,8 @@ export function duracionPara(modelo, segundos) {
     return tramo ?? null;
   }
   const d = Math.max(def.duracionMin ?? 1, Math.ceil(segundos));
-  return def.duracionMax && d > def.duracionMax ? null : d;
+  const tope = conFinal && def.duracionMaxConFinal ? Math.min(def.duracionMaxConFinal, def.duracionMax ?? Infinity) : def.duracionMax;
+  return tope && d > tope ? null : d;
 }
 
 /**
@@ -495,10 +544,10 @@ export function audioActivo(modelo, sonido) {
  * `{ sonido }` es opcional: lo pasa quien sabe que el clip va mudo (el B-roll
  * de los estilos hablados, SONIDO_BROLL_POR_ESTILO).
  */
-export function creditosClip(modelo, segundos, preferida = RESOLUCION_VIDEO, { sonido } = {}) {
+export function creditosClip(modelo, segundos, preferida = RESOLUCION_VIDEO, { sonido, conFinal = false } = {}) {
   const def = MODELOS_VIDEO[modelo];
   const res = resolucionPara(modelo, preferida);
-  const dur = duracionPara(modelo, segundos);
+  const dur = duracionPara(modelo, segundos, { conFinal });
   if (dur === null) return { creditos: null, resolucion: res, duracion: null, excedeTope: true };
 
   const tabla = audioActivo(modelo, sonido) && def.precioConAudio ? def.precioConAudio : def.precio;
@@ -533,6 +582,34 @@ export function creditosClip(modelo, segundos, preferida = RESOLUCION_VIDEO, { s
 export const referenciasParaGrok = (prompt) => String(prompt ?? '').replace(/\b[Ii]magen\s+(\d+)\b/g, '@image$1');
 
 export const ADAPTADORES_VIDEO = {
+  // Omni Flash 1.2: el mismo cuerpo que el 1.1 (frames, o referencias sin
+  // frames), con la duracion como entero y hasta 6 referencias. Una sola
+  // manera por pedido: con first_frame_url no van image_urls.
+  'google/gemini-omni-flash-1-2': ({ prompt, frameInicial, frameFinal, imagenesReferencia, aspectRatio, resolucionApi, duracion }) => {
+    const modelo = 'google/gemini-omni-flash-1-2';
+    if (!frameInicial && !frameFinal && Array.isArray(imagenesReferencia) && imagenesReferencia.length > 0) {
+      const max = MODELOS_VIDEO[modelo].referencias.max;
+      if (imagenesReferencia.length > max) {
+        // No se recorta en silencio: la imagen que sobra es una que el prompt nombra y que el modelo nunca veria.
+        throw new Error(`${modelo} acepta hasta ${max} referencias y llegaron ${imagenesReferencia.length}.`);
+      }
+      return { model: modelo, input: { prompt, image_urls: [...imagenesReferencia], duration: Number(duracion), aspect_ratio: aspectRatio, resolution: resolucionApi } };
+    }
+    if (frameFinal && Number(duracion) > MODELOS_VIDEO[modelo].duracionMaxConFinal) {
+      throw new Error(`${modelo} con imagen final llega hasta ${MODELOS_VIDEO[modelo].duracionMaxConFinal} s y se pidieron ${duracion}.`);
+    }
+    return {
+      model: modelo,
+      input: {
+        prompt,
+        first_frame_url: frameInicial,
+        ...(frameFinal ? { last_frame_url: frameFinal } : {}),
+        duration: Number(duracion),
+        aspect_ratio: aspectRatio,
+        resolution: resolucionApi,
+      },
+    };
+  },
   'google/gemini-omni-flash-1-1': ({ prompt, frameInicial, frameFinal, imagenesReferencia, aspectRatio, resolucionApi, duracion }) => {
     if (!frameInicial && !frameFinal && Array.isArray(imagenesReferencia) && imagenesReferencia.length > 0) {
       const max = MODELOS_VIDEO['google/gemini-omni-flash-1-1'].referencias.max;

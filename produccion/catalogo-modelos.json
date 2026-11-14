@@ -1,6 +1,7 @@
 {
   "version": 1,
   "modelos": {
+    "google/gemini-omni-flash-1-2": { "nombre": "Omni Flash 1.2", "dialogo": true, "tipo": "video" },
     "google/gemini-omni-flash-1-1": { "nombre": "Omni Flash 1.1", "dialogo": true, "tipo": "video" },
     "kling-3.0/video": { "nombre": "Kling 3.0", "dialogo": false, "tipo": "video" },
     "grok-imagine-video-1-5-preview": { "nombre": "Grok Imagine 1.5", "dialogo": true, "tipo": "video" },
@@ -20,18 +21,18 @@
       "opciones": [
         {
           "id": "omni",
-          "nombre": "Omni Flash 1.1",
+          "nombre": "Omni Flash 1.2",
           "recomendado": true,
           "nota": null,
-          "cascadas": { "frames": ["google/gemini-omni-flash-1-1", "kling-3.0/video"] },
-          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+          "cascadas": { "frames": ["google/gemini-omni-flash-1-2", "kling-3.0/video"] },
+          "costo": { "min": 90, "max": 90, "por": "clip de 10 s" }
         },
         {
           "id": "grok15",
           "nombre": "Grok Imagine 1.5",
           "recomendado": false,
           "nota": null,
-          "cascadas": { "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "cascadas": { "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-2", "kling-3.0/video"] },
           "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
         },
         {
@@ -39,7 +40,7 @@
           "nombre": "PixVerse V6 + Grok Imagine 1.5",
           "recomendado": false,
           "nota": "PixVerse en las tomas que van de una imagen a otra; Grok Imagine 1.5 en las demás",
-          "cascadas": { "frames": ["pixverse-v6/transition", "grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "cascadas": { "frames": ["pixverse-v6/transition", "grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-2", "kling-3.0/video"] },
           "costo": { "min": 45, "max": 72, "por": "clip de 10 s" }
         }
       ]
@@ -52,18 +53,18 @@
       "opciones": [
         {
           "id": "omni",
-          "nombre": "Omni Flash 1.1",
+          "nombre": "Omni Flash 1.2",
           "recomendado": true,
           "nota": null,
-          "cascadas": { "frames": ["google/gemini-omni-flash-1-1", "kling-3.0/video"] },
-          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+          "cascadas": { "frames": ["google/gemini-omni-flash-1-2", "kling-3.0/video"] },
+          "costo": { "min": 90, "max": 90, "por": "clip de 10 s" }
         },
         {
           "id": "grok15",
           "nombre": "Grok Imagine 1.5",
           "recomendado": false,
           "nota": null,
-          "cascadas": { "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-1", "kling-3.0/video"] },
+          "cascadas": { "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-2", "kling-3.0/video"] },
           "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
         }
       ]
@@ -76,18 +77,18 @@
       "opciones": [
         {
           "id": "omni",
-          "nombre": "Omni Flash 1.1",
+          "nombre": "Omni Flash 1.2",
           "recomendado": true,
           "nota": null,
-          "cascadas": { "referencias": ["google/gemini-omni-flash-1-1"] },
-          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+          "cascadas": { "referencias": ["google/gemini-omni-flash-1-2"] },
+          "costo": { "min": 90, "max": 90, "por": "clip de 10 s" }
         },
         {
           "id": "grok",
           "nombre": "Grok Imagine",
           "recomendado": false,
           "nota": null,
-          "cascadas": { "referencias": ["grok-imagine/image-to-video", "google/gemini-omni-flash-1-1"] },
+          "cascadas": { "referencias": ["grok-imagine/image-to-video", "google/gemini-omni-flash-1-2"] },
           "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
         }
       ]
@@ -100,14 +101,14 @@
       "opciones": [
         {
           "id": "omni",
-          "nombre": "Omni Flash 1.1",
+          "nombre": "Omni Flash 1.2",
           "recomendado": true,
           "nota": null,
           "cascadas": {
-            "frames": ["google/gemini-omni-flash-1-1"],
-            "referencias": ["google/gemini-omni-flash-1-1"]
+            "frames": ["google/gemini-omni-flash-1-2"],
+            "referencias": ["google/gemini-omni-flash-1-2"]
           },
-          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+          "costo": { "min": 90, "max": 90, "por": "clip de 10 s" }
         },
         {
           "id": "grok",
@@ -115,8 +116,8 @@
           "recomendado": false,
           "nota": "Usa la versión 1.5 en las tomas con imagen inicial y la v1 en las de ingredientes",
           "cascadas": {
-            "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-1"],
-            "referencias": ["grok-imagine/image-to-video", "google/gemini-omni-flash-1-1"]
+            "frames": ["grok-imagine-video-1-5-preview", "google/gemini-omni-flash-1-2"],
+            "referencias": ["grok-imagine/image-to-video", "google/gemini-omni-flash-1-2"]
           },
           "costo": { "min": 45, "max": 45, "por": "clip de 10 s" }
         }
@@ -138,11 +139,11 @@
         },
         {
           "id": "omni",
-          "nombre": "Omni Flash 1.1",
+          "nombre": "Omni Flash 1.2",
           "recomendado": false,
           "nota": null,
-          "cascadas": { "frames": ["google/gemini-omni-flash-1-1", "kling-3.0/video"] },
-          "costo": { "min": 126, "max": 126, "por": "clip de 10 s" }
+          "cascadas": { "frames": ["google/gemini-omni-flash-1-2", "kling-3.0/video"] },
+          "costo": { "min": 90, "max": 90, "por": "clip de 10 s" }
         },
         {
           "id": "grok15",

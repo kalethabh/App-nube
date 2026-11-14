@@ -730,7 +730,7 @@ function validarTomaH(t, id, { lista, E, A }) {
   const reacciones = t.clase === 'reacciones';
 
   if (typeof t.duracion === 'number' && !DURACIONES_H.includes(t.duracion)) {
-    E(`${id}: es una toma hablada (H) y dura ${t.duracion}s. Omni solo genera clips de ${DURACIONES_H.join(', ')} s: mide el clip y redondea hacia arriba.`);
+    E(`${id}: es una toma hablada (H) y dura ${t.duracion}s. Se pide un entero de ${DURACIONES_H[0]} a ${DURACIONES_H[DURACIONES_H.length - 1]} s (Omni Flash 1.2): mide el clip y redondea hacia arriba.`);
   }
 
   // "linea" es todo lo que se dice en el clip, en orden: contra eso se alinean

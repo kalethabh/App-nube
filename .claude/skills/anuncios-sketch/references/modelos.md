@@ -1,6 +1,6 @@
 # Modelos y proveedores
 
-**Por defecto:** imágenes con **GPT Image 2** y video con **Gemini Omni Flash 1.1**, todo vía la API de **Kie**. Es la combinación aprobada en producción: buena consistencia de personajes, etiqueta del producto legible y diálogo con labios sincronizados que respeta el guion palabra por palabra.
+**Por defecto:** imágenes con **GPT Image 2** y video con **Gemini Omni Flash 1.2**, todo vía la API de **Kie**. Es la combinación aprobada en producción: buena consistencia de personajes, etiqueta del producto legible y diálogo con labios sincronizados que respeta el guion palabra por palabra.
 
 El usuario puede pedir otro modelo o proveedor. Se cambia en `proyecto.json` → `"modelos": {"imagen": "<alias>", "video": "<alias>"}`; los adaptadores están en `scripts/modelos.py`.
 
@@ -20,7 +20,7 @@ Todas aceptan `aspect_ratio` "9:16". Una imagen fallida no se cobra.
 ## Video con diálogo (Kie)
 | Alias | Modelo en Kie | Fotograma inicial | Duraciones | Audio | Créditos (720p) |
 |---|---|---|---|---|---|
-| `omni-flash` ⭐ | `google/gemini-omni-flash-1-1` | `first_frame_url` | "4","6","8","10" | Diálogo nativo con labios sincronizados (sin interruptor) | 63 / 84 / 105 / 126 |
+| `omni-flash` ⭐ | `google/gemini-omni-flash-1-2` | `first_frame_url` | 3–15 (entero) | Diálogo nativo con labios sincronizados (sin interruptor) | 9 por segundo |
 | `seedance-2` | `bytedance/seedance-2` | `first_frame_url` | 4–15 (entero) | `generate_audio: true` | ≈ 41 por segundo |
 | `seedance-2-fast` | `bytedance/seedance-2-fast` | `first_frame_url` | 4–15 | `generate_audio: true` | ≈ 25 por segundo (solo 480p/720p) |
 | `kling-3` / `kling-3-pro` | `kling-3.0/video` | `image_urls: [frame]` | "3"–"15" | `sound: true` | 20 / 27 por segundo |
@@ -30,13 +30,13 @@ Veo quedó por detrás de Omni Flash en las pruebas (más caro por clip y peor c
 **Omni Flash, detalles:**
 - `aspect_ratio` no tiene valor por defecto: siempre "9:16".
 - `first_frame_url` excluye `image_urls`, `character_ids` y `audio_ids`.
-- **Modo personaje + voz** (para fijar la misma voz en todas las tomas): crea voces con `POST /api/v1/omni/audio/create` (`audio_id` de una lista de 30 voces de Gemini, `name`, `voice_description`) y personajes con `POST /api/v1/omni/character/create` (`descriptions`, `image_urls` con retrato y cuerpo, `audio_ids`). Los dos endpoints son gratis. Después se generan los clips con `character_ids` + `image_urls` (hasta 7 cupos), **sin** `first_frame_url`: se pierde el encuadre exacto del fotograma. Úsalo solo si las voces cambian demasiado entre tomas. Con descripciones de voz fijas en el prompt, la consistencia ya fue aceptable.
+- **Modo personaje + voz** (para fijar la misma voz en todas las tomas): crea voces con `POST /api/v1/omni/audio/create` (`audio_id` de una lista de 30 voces de Gemini, `name`, `voice_description`) y personajes con `POST /api/v1/omni/character/create` (`descriptions`, `image_urls` con retrato y cuerpo, `audio_ids`). Los dos endpoints son gratis. Después se generan los clips con `character_ids` + `image_urls` (hasta 6 cupos con la 1.2; el 1.1 aceptaba 7), **sin** `first_frame_url`: se pierde el encuadre exacto del fotograma. Úsalo solo si las voces cambian demasiado entre tomas. Con descripciones de voz fijas en el prompt, la consistencia ya fue aceptable.
 
 ## Costo típico de un anuncio de 19 tomas (GPT Image 2 + Omni Flash)
 - 6 referencias + 19 fotogramas ≈ 250 créditos.
-- 18 clips (el packshot no se anima) de 4–8 s ≈ 1.450 créditos.
+- 18 clips (el packshot no se anima) de 4–8 s ≈ 950 créditos (Omni Flash 1.2 a 720p, 9 por segundo).
 - 15 % de margen para repeticiones.
-- **Total ≈ 1.950 créditos** (1 crédito ≈ USD 0,005, es decir ≈ USD 10).
+- **Total ≈ 1.400 créditos** (1 crédito ≈ USD 0,005, es decir ≈ USD 7).
 Antes de producir, calcula el costo exacto del proyecto con `produccion.py <carpeta> estimar` y ponlo en la propuesta. Saldo: `python kie.py credito`.
 
 ## Fuera de Kie

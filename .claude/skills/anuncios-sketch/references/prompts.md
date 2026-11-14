@@ -29,7 +29,7 @@ Orden recomendado del texto:
 
 El script agrega solo: las descripciones de los personajes, el orden de las referencias, la locación, "characters look at each other, never into the camera lens" (salvo `a_camara: true`, que va en la foto grupal y en el CTA a cámara) y el estilo.
 
-**`dur`** es la duración que se **genera** (el modelo la redondea hacia arriba: con Omni, a 4, 6, 8 o 10 s, y cobra eso). Lo que se ve en el video lo decide el montaje, que recorta a la línea. Regla: 4 s para líneas de hasta 6 palabras y reacciones; 6 s para líneas de 7 a 12 palabras o con gesto; 8 s para la línea del producto.
+**`dur`** es la duración que se **genera** (se redondea hacia arriba: con Omni Flash 1.2, al segundo entero, de 3 a 15 s, y cobra por segundo). Lo que se ve en el video lo decide el montaje, que recorta a la línea. Regla: 4 s para líneas de hasta 6 palabras y reacciones; 6 s para líneas de 7 a 12 palabras o con gesto; 8 s para la línea del producto.
 
 **Varias locaciones:** define cada una en `locaciones` (`"terraza"`, `"bano"`) y pon `"locacion": "bano"` en las tomas que ocurren ahí. Si no se indica, la toma usa `"principal"`.
 

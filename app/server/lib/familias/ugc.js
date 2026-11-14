@@ -16,7 +16,7 @@
 //   control-final · ganchos · informe
 //
 // Lo propio de este estilo:
-//   - Una persona generada habla a camara todo el anuncio, por bloques de 4, 6, 8 o 10 s (tomas tipo R). La voz la
+//   - Una persona generada habla a camara todo el anuncio, por bloques de 3 a 15 s (tomas tipo R; con Omni 1.1 eran de 4, 6, 8 o 10). La voz la
 //     genera el clip: no hay voz en off ni ElevenLabs para la voz (solo Scribe, para escuchar los bloques).
 //   - La imagen de la persona se hace PRIMERO y Claude la mira antes de pagar los bloques (esa cara va en todo el
 //     anuncio). Si ve algo, queda como un AVISO en esa imagen (que dice que todos los bloques salen de ella): la app no
