@@ -1,0 +1,14 @@
+{
+  "id": "41eeaa04-386f-45cc-b024-f3388db315fa",
+  "uuid": "41eeaa04-386f-45cc-b024-f3388db315fa",
+  "estado": "analizando",
+  "paso": "claude",
+  "progreso": [
+    "Claude está leyendo tu producto",
+    "Mirando las fotos de tu producto"
+  ],
+  "intentos": 1,
+  "inicio": "2026-11-14T23:50:00.120Z",
+  "error": null,
+  "actualizado": "2026-11-14T23:50:02.687Z"
+}
