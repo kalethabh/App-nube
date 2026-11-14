@@ -1,0 +1,47 @@
+{
+  "v": 1,
+  "estado": {
+    "subtitulos": {
+      "visible": true,
+      "estilo": "pop",
+      "color": "#FFD43B",
+      "tamano": 1,
+      "altura": null,
+      "lado": 0
+    },
+    "lugaresSubtitulos": {},
+    "correcciones": {},
+    "ocultos": [],
+    "voz": {
+      "volumen": 1,
+      "silenciada": false
+    },
+    "musica": {
+      "fuente": "original",
+      "volumen": 1,
+      "silenciada": false,
+      "inicio": 0,
+      "id": null,
+      "nombre": null,
+      "url": null,
+      "duracion": null,
+      "origen": null,
+      "tramos": null
+    },
+    "quitados": [],
+    "textos": [],
+    "tomas": null,
+    "brolls": null,
+    "ajustesTextos": {},
+    "textosNuevos": [],
+    "reemplazos": {},
+    "clips": {}
+  },
+  "t": 1794621371799,
+  "contexto": {
+    "titulo": "Vitalabh Aguaje Complex 3 en 1",
+    "overlays": [],
+    "color": "#0FA3B1"
+  },
+  "guardado": "2026-11-14T01:56:12.402Z"
+}

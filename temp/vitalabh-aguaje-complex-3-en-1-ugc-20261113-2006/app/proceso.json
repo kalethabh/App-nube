@@ -1,0 +1,13 @@
+{
+  "pid": 64185,
+  "paso": "exportar",
+  "script": "exportar-edicion.js",
+  "args": [
+    "temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006",
+    "--pedido",
+    "temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006/app/exportes/pedido-1.json"
+  ],
+  "comando": "node produccion/exportar-edicion.js temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 --pedido temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006/app/exportes/pedido-1.json",
+  "inicio": "2026-11-14T01:56:24.155Z",
+  "app": 54629
+}
