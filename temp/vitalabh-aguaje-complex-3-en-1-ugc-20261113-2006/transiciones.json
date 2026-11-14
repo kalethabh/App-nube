@@ -1,0 +1,12 @@
+{
+  "efectos": {
+    "woosh": "efectos/woosh.mp3",
+    "deep-woosh": "efectos/deep-woosh.mp3"
+  },
+  "puntos": [
+    { "toma": 3, "animacion": "deslizar-derecha", "efecto": "woosh", "porque": "entrada del problema: baja la voz y cuenta lo que hacen otras tiendas" },
+    { "toma": 5, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada de la solución: lo que de verdad hace que funcione son los tres ingredientes" },
+    { "toma": 7, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "entrada del resultado: el tratamiento completo de tres meses y lo que se logra con él" },
+    { "toma": 9, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada del cierre: el pedido empacado y el botón de abajo" }
+  ]
+}

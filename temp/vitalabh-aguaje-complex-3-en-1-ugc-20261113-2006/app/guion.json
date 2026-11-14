@@ -1,0 +1,85 @@
+{
+  "titulo": "Aguaje Complex 3 en 1 — La clienta que pide por tercera vez",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 74,
+  "de_que_va": "Una vendedora cuenta, desde la bodega donde empaca los pedidos, por qué sus clientas repiten. Avisa de lo que hacen otras tiendas y recomienda el tratamiento completo de tres meses, que se paga al recibir.",
+  "personajes": [
+    {
+      "nombre": "Daniela",
+      "como_es": "Vendedora colombiana de 29 años, de pelo largo y liso, lentes transparentes, polo negro y jean claro, alegre y franca."
+    }
+  ],
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "¡Miren esto! Este pedido es pa' una clienta que ya nos pide por tercera vez. ¡La tercera! ¿Y saben por qué repiten? Porque a muchas les ha funcionado:",
+      "se_ve": "En la bodega, sentada junto a la mesa de empaque, se graba en selfie, levanta el frasco junto a su cara y muestra tres dedos, emocionada.",
+      "segundos": 10
+    },
+    {
+      "n": 2,
+      "momento": "prueba",
+      "dice": "no las engordó, lo que tenían en el abdomen se les moldeó y se les tonificó, y les aumentó el volumen en piernas y cola. ¡Se ven súper wow!",
+      "se_ve": "De pie junto a la mesa, niega con el dedo, pasa la mano por delante de su cintura, dibuja una silueta en el aire y se ríe tapándose la boca.",
+      "segundos": 10
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "dice": "Y les cuento algo que yo veo aquí todos los días. Hay tiendas que dicen que el suyo es «el aguaje original de Vitalcom».",
+      "se_ve": "Se acerca a la cámara y baja la voz, como contando un secreto; luego hace comillas con los dedos y levanta las cejas.",
+      "segundos": 8
+    },
+    {
+      "n": 4,
+      "momento": "problema",
+      "dice": "Mentira: no hay un solo original. Lo dicen pa' que solo les compren a ellos, y mucho más caro.",
+      "se_ve": "Delante de las estanterías, niega con la cabeza con calma, se encoge de hombros y hace el gesto de plata con los dedos.",
+      "segundos": 6
+    },
+    {
+      "n": 5,
+      "momento": "solución",
+      "dice": "Lo que de verdad hace que funcione es que traiga aguaje, fenogreco y maca negra, los tres, puros. Eso es lo que da los resultados, no la marca.",
+      "se_ve": "Sentada a la mesa, sostiene el frasco cerrado junto a su cara y cuenta los tres ingredientes con los dedos, señalando la etiqueta.",
+      "segundos": 10
+    },
+    {
+      "n": 6,
+      "momento": "problema",
+      "dice": "Y otra cosa que no les dicen: les venden un solo frasco, pa' que tengan que estar comprando y comprando. Ese es el negocio.",
+      "se_ve": "Levanta un solo frasco con cara de \"¿ven?\" y mueve la otra mano en círculos al decir \"comprando y comprando\".",
+      "segundos": 8
+    },
+    {
+      "n": 7,
+      "momento": "oferta",
+      "dice": "Aquí sí les decimos la verdad: lo ideal es el tratamiento completo de tres meses.",
+      "se_ve": "Se pone seria y cercana, con la mano en el pecho; después se ven tres frascos alineados en la mesa y ella marca \"tres\" con los dedos.",
+      "segundos": 6
+    },
+    {
+      "n": 8,
+      "momento": "oferta",
+      "dice": "Los resultados llegan más rápido, son duraderos, sin efecto rebote, y se quedan incluso después de terminarlo. No tienen que estar comprando cada rato.",
+      "se_ve": "Con los tres frascos delante, explica con las manos, apoya las palmas en la mesa a los lados de los frascos y niega con una sonrisa tranquila.",
+      "segundos": 8
+    },
+    {
+      "n": 9,
+      "momento": "cierre",
+      "dice": "Este ya va empacadito, mañana sale, y ella lo paga cuando le toquen la puerta. El tuyo está en el botón de abajo.",
+      "se_ve": "Una compañera la graba mientras mete el frasco en la bolsa blanca, la cierra y pega la guía; vuelve a la selfie, señala hacia abajo y guiña un ojo.",
+      "segundos": 8
+    }
+  ],
+  "decisiones": [
+    "Tu guion tal cual · lo visual, guiado por AGUAJE 03 - DESPACHO.mp4. No cambié ninguna palabra; solo lo partí en 9 partes, unos 74 segundos.",
+    "Lo cuenta Daniela, una vendedora de 29 años: pelo largo y liso, lentes transparentes, polo negro y jean, parecida a la foto que subiste, sin copiar la cara. Todo pasa en la bodega de despacho, entre la mesa de empaque y las estanterías. No usé ningún subestilo: ninguno calzaba con una bodega.",
+    "Las escenas aparte que pediste (las dos clientas, los ingredientes en la mesa, el mensajero y la entrega) no van: en este estilo ella habla a cámara todo el tiempo. Lo cuenta con los gestos que describiste: la cintura, la silueta, los tres ingredientes sobre el frasco y el empaque del pedido.",
+    "Habla con acento colombiano natural, sin una región fija, porque no indicaste cuál. El frasco siempre sale cerrado. No va precio ni envío gratis: no tengo ese dato.",
+    "Ojo: tu guion nombra otra marca y dice \"Mentira\", y promete cambios en el cuerpo. Lo dejé igual porque es tu texto, pero esas frases pueden hacer que alguna parte no se genere a la primera o que la plataforma frene el anuncio."
+  ]
+}
