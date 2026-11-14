@@ -1,0 +1,12 @@
+{
+  "pid": 69503,
+  "paso": "persona",
+  "script": "producir.js",
+  "args": [
+    "temp/aguaje-complex-10x-ugc-20261113-2203",
+    "--si"
+  ],
+  "comando": "node produccion/producir.js temp/aguaje-complex-10x-ugc-20261113-2203 --si",
+  "inicio": "2026-11-14T03:15:55.389Z",
+  "app": 54629
+}
