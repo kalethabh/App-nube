@@ -50,7 +50,7 @@ import * as procesos from './procesos.js';
 import * as gasto from './gasto.js';
 import * as colas from './colas.js';
 import { olvidarSaldo } from './claves.js';
-import { guardarMusicaDelAnuncio } from './biblioteca.js';
+import { guardarMusicaDelAnuncio, guardarPersonajesDelAnuncio } from './biblioteca.js';
 import { motorActual, nombreIA, alCambiarDeMotor } from './motor-ia.js';
 
 // ---------------------------------------------------------------- las familias
@@ -856,8 +856,13 @@ async function correrConductor(slug, entrada) {
   c.estado = 'listo';
   c.terminado = ahora();
   guardar(c);
-  // La música que se generó para este anuncio queda en la biblioteca para los próximos (no en modo prueba).
-  if (!c.modoPrueba) guardarMusicaDelAnuncio(c.slug, leerJSON(path.join(TEMP, c.slug, 'app', 'brief.json')));
+  // La música y los personajes que se generaron para este anuncio quedan en la biblioteca para los próximos (no en
+  // modo prueba).
+  if (!c.modoPrueba) {
+    const brief = leerJSON(path.join(TEMP, c.slug, 'app', 'brief.json'));
+    guardarMusicaDelAnuncio(c.slug, brief);
+    guardarPersonajesDelAnuncio(c.slug, brief);
+  }
 }
 
 // ---------------------------------------------------------------- lo que llama la app
