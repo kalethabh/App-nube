@@ -1,0 +1,75 @@
+
+=== Contexto para rehacer el bloque 7 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    8s
+    referencias: 1) personaje  2) lugar-habitacion (fotograma del bloque 2, segundo 1.4)   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        problema: el cuento del único original
+    linea:       "Ah, y si les dicen que el único original es el de Vitalcom, mentira: lo que sirve es que tenga los componentes puros."
+    viene de:    "Y sin efecto rebote, no me engordó."
+    lleva a:     "Y no les vendan de a uno, que ese es el negocio de ellos pa' que estén comprando y comprando."
+
+  TRAMOS:
+    [0.0–4.2s] [personaje]  "Ah, y si les dicen que el único original es el de Vitalcom,"
+    [4.2–5.2s] [personaje]  "mentira:"
+    [5.2–8.0s] [personaje]  "lo que sirve es que tenga los componentes puros."
+
+  --- video ---
+Duración: 8s.
+
+REFERENCIAS:
+Imagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+Imagen 2: la habitación. Es la misma habitación donde grabó antes: úsala solo como referencia del lugar (paredes blancas, piso de madera, cama con cabecero beige, espejo alto y mesa de noche). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa de noche.
+
+STYLE / MOOD:
+UGC realista de respuesta directa, rápido, seguro y divertido, como un amigo que te avisa algo con gracia, sin rabia. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.
+
+LANGUAGE / VOICE:
+Español de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.
+
+MAIN CHARACTER:
+El hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un crop top azul rey de manga corta, un pantalón cargo blanco ancho de tiro alto y unas gafas de sol negras ovaladas estilo Y2K, puestas al empezar, con los rizos sueltos.
+
+SETTING:
+Su habitación, moderna y clara, de día. Paredes blancas, piso de madera, una cama con cabecero tapizado beige y ropa de cama blanca, un espejo alto de marco negro apoyado en la pared y una mesa de noche de madera oscura. La luz natural del día entra por una ventana grande que queda detrás de la cámara y le da de frente a él. Sobre la mesa de noche no hay nada. Todo se ve real y vivido, no un set.
+
+PERFORMANCE:
+Habla mirando a cámara como un amigo que avisa, divertido y sin rabia. Gestos naturales y creíbles con las manos, las cejas y la cabeza: voltea los ojos con gracia, hace comillas con los dedos, niega con el índice. Nada rígido. Sin sobreactuar.
+
+TIMESTAMPS:
+[0.0–4.2s]
+Plano medio de frente, de la cabeza a la cadera, con el celular apoyado: con la mano derecha se sube las gafas de sol a la cabeza, sobre los rizos, se cruza de brazos y voltea los ojos con gracia; al decir «original» descruza los brazos y hace comillas en el aire con los dedos de las dos manos.
+DIÁLOGO: “Ah, y si les dicen que el único original es el de Vitalcom,”
+[4.2–5.2s]
+Corte a selfie cercano, con el celular en la mano izquierda, que queda fuera del cuadro: con las gafas en la cabeza, niega con el índice de la mano derecha y con la cabeza, con media sonrisa.
+DIÁLOGO: “mentira:”
+[5.2–8.0s]
+Corte a plano de tres cuartos, sentado al borde de la cama, con el celular apoyado: con las gafas en la cabeza, explica con las dos manos abiertas, con las palmas hacia arriba, y asiente; al terminar de hablar sonríe y se queda quieto, con las manos abiertas, en silencio.
+DIÁLOGO: “lo que sirve es que tenga los componentes puros.”
+
+AUDIO:
+Solo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto ni aparecer otra persona, y la cara de Santi no cambia entre planos.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Hombre adulto colombiano de 25 años, latino; piel trigueña cuidada, con brillo natural, textura real y poros visibles; cabello negro rizado y con volumen arriba, con degradado bajo a los lados y algún rizo suelto sobre la frente; ojos cafés oscuros; cejas negras perfiladas; cara ovalada de mandíbula definida y nariz recta; bigote y barba muy finos y cuidados, apenas una línea; contextura delgada-atlética, hombros definidos y cintura fina; pulseras plateadas finas en una muñeca; uñas limpias y cortas; sin tatuajes visibles. Lleva una camiseta básica blanca lisa de algodón, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color crema de su casa, mira directamente a cámara con media sonrisa segura y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  --- referencia "personaje-2" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer adulta colombiana de 28 años, latina; piel clara trigueña con textura real y poros visibles; cabello largo castaño con mechas rubias que le enmarcan la cara, ondas grandes en las puntas y algunos mechones sueltos; ojos cafés; cejas definidas; cara ovalada de mejillas llenas y nariz pequeña; labios gruesos con gloss nude y maquillaje mínimo; figura curvilínea de reloj de arena, con la cintura pequeña; una pulsera dorada fina y un anillo dorado fino; sin tatuajes visibles. Lleva una camiseta básica de tiras color beige, lisa, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color blanco de su casa, mira directamente a cámara con una sonrisa leve y tranquila y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  --- referencia "personaje-3" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer adulta colombiana de 26 años, latina, morena; piel canela con textura real y poros visibles; cabello negro muy liso y largo, con raya al medio, suelto sobre los hombros, con algún pelito suelto; ojos oscuros; cejas gruesas; cara redonda de pómulos marcados; labios gruesos rosados y maquillaje mínimo; figura curvilínea de reloj de arena, con la cintura pequeña; un collar fino plateado; sin tatuajes visibles. Lleva una camiseta básica gris clara, lisa, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color gris claro de su casa, mira directamente a cámara con una sonrisa alegre y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/aguaje-complex-10x-ugc-20261113-2203 7
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/aguaje-complex-10x-ugc-20261113-2203 --toma 7 --aplicar nuevos.json
+

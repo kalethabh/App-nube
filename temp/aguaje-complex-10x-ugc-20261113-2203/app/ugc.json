@@ -10,5 +10,147 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T03:17:14.898Z"
+  "actualizado": "2026-11-14T03:24:31.302Z",
+  "revision": {
+    "ronda": 1,
+    "medidas": {
+      "1": {
+        "huella": "2315762-1794626385472",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "2": {
+        "huella": "2087161-1794626383317",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "3": {
+        "huella": "5545143-1794626412709",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "4": {
+        "huella": "6071889-1794626577533",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "5": {
+        "huella": "4990090-1794626384618",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "6": {
+        "huella": "4082945-1794626565117",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "7": {
+        "huella": "4513423-1794626541303",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "8": {
+        "huella": "5273961-1794626548797",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "9": {
+        "huella": "4827365-1794626554548",
+        "medido": true,
+        "limpio": false,
+        "motivo": "dijo «Hágase» en vez de «Háganse»"
+      },
+      "10": {
+        "huella": "3765146-1794626379159",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "11": {
+        "huella": "2496992-1794626519711",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      }
+    },
+    "vistos": {},
+    "piezas": {
+      "toma-1": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-2": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-3": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-4": {
+        "motivos": [
+          "El frasco sale con la tapa negra y sin la franja rosada en dos de los tres planos; no es igual al de tu foto."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-5": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-6": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-7": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-8": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-9": {
+        "motivos": [
+          "No dijo su parte tal cual: dijo «Hágase» en vez de «Háganse»."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-10": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-11": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      }
+    },
+    "pendientes": [],
+    "revisarTambien": [],
+    "sinRevisar": [],
+    "lugares": {},
+    "vuelta": null,
+    "sesion": {
+      "uuid": "9d42b7a1-0244-4903-958d-b66973abd6db",
+      "usada": true
+    }
+  }
 }

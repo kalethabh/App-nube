@@ -1,12 +1,13 @@
 {
-  "pid": 69745,
-  "paso": "bloques",
-  "script": "generar-videos.js",
+  "pid": 70812,
+  "paso": "musica",
+  "script": "suno-retomable.js",
   "args": [
+    "generar-musica.js",
     "temp/aguaje-complex-10x-ugc-20261113-2203",
     "--si"
   ],
-  "comando": "node produccion/generar-videos.js temp/aguaje-complex-10x-ugc-20261113-2203 --si",
-  "inicio": "2026-11-14T03:17:14.903Z",
+  "comando": "node produccion/suno-retomable.js generar-musica.js temp/aguaje-complex-10x-ugc-20261113-2203 --si",
+  "inicio": "2026-11-14T03:24:31.304Z",
   "app": 54629
 }

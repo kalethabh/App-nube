@@ -1,0 +1,83 @@
+
+=== Contexto para rehacer el bloque 9 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    8s
+    referencias: 1) personaje  2) producto  3) lugar-habitacion (fotograma del bloque 2, segundo 1.4)   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        oferta: el tratamiento completo
+    linea:       "Háganse el tratamiento completo de tres meses: resultados rápidos y duraderos, que se quedan incluso después de terminarlo, sin efecto rebote."
+    viene de:    "Y no les vendan de a uno, que ese es el negocio de ellos pa' que estén comprando y comprando."
+    lleva a:     "A mí me llegó a la casa y lo pagué al recibirlo."
+
+  TRAMOS:
+    [0.0–2.6s] [personaje]  "Háganse el tratamiento completo de tres meses:"
+    [2.6–4.2s] [personaje]  "resultados rápidos y duraderos,"
+    [4.2–6.6s] [personaje]  "que se quedan incluso después de terminarlo,"
+    [6.6–8.0s] [personaje]  "sin efecto rebote."
+
+  --- video ---
+Duración: 8s.
+
+REFERENCIAS:
+Imagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+Imagen 2: el producto. Es la referencia exacta del envase.
+Imagen 3: la habitación. Es la misma habitación donde grabó antes: úsala solo como referencia del lugar (paredes blancas, piso de madera, cama con cabecero beige, espejo alto y mesa de noche). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa de noche.
+
+STYLE / MOOD:
+UGC realista de respuesta directa, cercano y sincero, como un amigo que se pone serio un momento para darte un buen consejo. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.
+
+LANGUAGE / VOICE:
+Español de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.
+
+MAIN CHARACTER:
+El hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un crop top azul rey de manga corta, un pantalón cargo blanco ancho de tiro alto y unas gafas de sol negras ovaladas estilo Y2K, subidas en la cabeza sobre los rizos.
+
+SETTING:
+Su habitación, moderna y clara, de día. Paredes blancas, piso de madera, una cama con cabecero tapizado beige y ropa de cama blanca, un espejo alto de marco negro apoyado en la pared y una mesa de noche de madera oscura. La luz natural del día entra por una ventana grande que queda detrás de la cámara y le da de frente a él y a los frascos. Sobre la mesa de noche solo hay tres frascos cerrados, alineados uno al lado del otro; no hay nada más. Todo se ve real y vivido, no un set.
+
+PERFORMANCE:
+Se pone serio y cercano, mira a cámara como dando un consejo de amigo, y termina con una sonrisa tranquila. Gestos naturales y creíbles con las dos manos, que están vacías: marca tres con los dedos, asiente, baja las palmas. Nada rígido. Sin sobreactuar.
+
+PRODUCT / VISUAL KEY:
+El producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa de rosca rosada fucsia, corta y casi tan ancha como el cuerpo, y una franja rosada en la base; etiqueta negra con «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1» y «TRIPLE ACCIÓN» en rosado, y tres recuadros pequeños de borde rosado. No es una botella delgada ni un pote chato. De la imagen 2 toma solo el frasco: no copies la mano que lo sostiene, el fondo ni la barra gris de abajo. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, un poco más alto que la palma de una mano. En este video hay exactamente tres frascos idénticos, ni uno más. Siempre están cerrados: no se ven cápsulas sueltas ni un frasco abierto. Los tres están de pie sobre la mesa de noche, alineados al centro del cuadro, nunca pegados a un borde, cerca de la cámara y a la misma distancia que él, con las etiquetas de frente; nadie los mueve. La luz les da de frente y las etiquetas quedan iluminadas, sin contraluz, sin arcoíris ni reflejos de colores; las etiquetas siempre se leen al derecho, nunca en espejo. En este video se ven en el primer tramo y en el último.
+
+TIMESTAMPS:
+[0.0–2.6s]
+Plano medio con el celular apoyado: la mesa de noche queda cerca de la cámara, al centro del cuadro, con los tres frascos alineados y las etiquetas de frente; él está sentado al borde de la cama, inclinado justo detrás de la mesa de noche, con la cara encima de los frascos. Mira a cámara, serio y cercano, y marca tres con los dedos de la mano derecha.
+DIÁLOGO: “Háganse el tratamiento completo de tres meses:”
+[2.6–4.2s]
+Corte a selfie cercano, con el celular en la mano izquierda, que queda fuera del cuadro: asiente con seguridad y levanta las cejas.
+DIÁLOGO: “resultados rápidos y duraderos,”
+[4.2–6.6s]
+Corte a plano de tres cuartos, del pecho para arriba, sentado al borde de la cama, con el celular apoyado: baja despacio las dos palmas abiertas, como diciendo que eso se queda ahí, mirando a cámara.
+DIÁLOGO: “que se quedan incluso después de terminarlo,”
+[6.6–8.0s]
+Corte al plano medio con la mesa de noche al centro y los tres frascos alineados delante de él: cruza y separa las manos abiertas, como diciendo «listo»; al terminar de hablar sonríe y se queda quieto, en silencio.
+DIÁLOGO: “sin efecto rebote.”
+
+AUDIO:
+Solo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en las etiquetas de los frascos, idéntico a la imagen 2. No debe aparecer otra persona ni un cuarto frasco, y la cara de Santi no cambia entre planos.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Hombre adulto colombiano de 25 años, latino; piel trigueña cuidada, con brillo natural, textura real y poros visibles; cabello negro rizado y con volumen arriba, con degradado bajo a los lados y algún rizo suelto sobre la frente; ojos cafés oscuros; cejas negras perfiladas; cara ovalada de mandíbula definida y nariz recta; bigote y barba muy finos y cuidados, apenas una línea; contextura delgada-atlética, hombros definidos y cintura fina; pulseras plateadas finas en una muñeca; uñas limpias y cortas; sin tatuajes visibles. Lleva una camiseta básica blanca lisa de algodón, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color crema de su casa, mira directamente a cámara con media sonrisa segura y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  --- referencia "personaje-2" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer adulta colombiana de 28 años, latina; piel clara trigueña con textura real y poros visibles; cabello largo castaño con mechas rubias que le enmarcan la cara, ondas grandes en las puntas y algunos mechones sueltos; ojos cafés; cejas definidas; cara ovalada de mejillas llenas y nariz pequeña; labios gruesos con gloss nude y maquillaje mínimo; figura curvilínea de reloj de arena, con la cintura pequeña; una pulsera dorada fina y un anillo dorado fino; sin tatuajes visibles. Lleva una camiseta básica de tiras color beige, lisa, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color blanco de su casa, mira directamente a cámara con una sonrisa leve y tranquila y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  --- referencia "personaje-3" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer adulta colombiana de 26 años, latina, morena; piel canela con textura real y poros visibles; cabello negro muy liso y largo, con raya al medio, suelto sobre los hombros, con algún pelito suelto; ojos oscuros; cejas gruesas; cara redonda de pómulos marcados; labios gruesos rosados y maquillaje mínimo; figura curvilínea de reloj de arena, con la cintura pequeña; un collar fino plateado; sin tatuajes visibles. Lleva una camiseta básica gris clara, lisa, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color gris claro de su casa, mira directamente a cámara con una sonrisa alegre y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/aguaje-complex-10x-ugc-20261113-2203 9
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/aguaje-complex-10x-ugc-20261113-2203 --toma 9 --aplicar nuevos.json
+
