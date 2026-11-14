@@ -1,0 +1,48 @@
+{
+  "video": "original.mp4",
+  "duracion": 26.26,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 7.33,
+      "duracion": 7.33,
+      "fotograma": "tomas/toma-01.jpg",
+      "dice": "Miren esto. Esta guía va para Cali y es la tercera vez que la misma clienta pide su Aguaje Complex. Cuando repiten tanto es porque sí funciona.",
+      "eventos": []
+    },
+    {
+      "n": 2,
+      "desde": 7.33,
+      "hasta": 13.33,
+      "duracion": 6,
+      "fotograma": "tomas/toma-02.jpg",
+      "dice": "Aquí despachamos cientos de pedidos al día, pero con el Aguaje Complex la mayoría son clientas que ya vieron cambios y quieren mantenerlos.",
+      "eventos": []
+    },
+    {
+      "n": 3,
+      "desde": 13.33,
+      "hasta": 20.77,
+      "duracion": 7.44,
+      "fotograma": "tomas/toma-03.jpg",
+      "dice": "Este aguaje de Vitalcon viene reforzado con fenogreco, magnesio y vitamina E para estimular masa y firmeza en piernas y glúteos de forma cien por ciento natural.",
+      "eventos": []
+    },
+    {
+      "n": 4,
+      "desde": 20.77,
+      "hasta": 26.26,
+      "duracion": 5.49,
+      "fotograma": "tomas/toma-04.jpg",
+      "dice": "Pide tu Aguaje Complex original con envío gratis. Pagas en la puerta de tu casa. Toca aquí abajo",
+      "eventos": []
+    }
+  ],
+  "texto": "Miren esto. Esta guía va para Cali y es la tercera vez que la misma clienta pide su Aguaje Complex. Cuando repiten tanto es porque sí funciona. Aquí despachamos cientos de pedidos al día, pero con el Aguaje Complex la mayoría son clientas que ya vieron cambios y quieren mantenerlos. Este aguaje de Vitalcon viene reforzado con fenogreco, magnesio y vitamina E para estimular masa y firmeza en piernas y glúteos de forma cien por ciento natural. Pide tu Aguaje Complex original con envío gratis. Pagas en la puerta de tu casa. Toca aquí abajo",
+  "palabras_por_segundo": 3.62,
+  "eventos_de_audio": [],
+  "aviso": null
+}

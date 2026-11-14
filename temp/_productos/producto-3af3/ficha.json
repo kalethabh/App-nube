@@ -1,0 +1,53 @@
+{
+  "nombre": "Vitalabh Aguaje Complex 3 en 1",
+  "queEs": "Suplemento alimenticio en cápsulas a base de aguaje, fenogreco y maca negra, de triple acción",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio",
+    "Abdomen moldeado y tonificado",
+    "Tres ingredientes en un solo frasco: aguaje, fenogreco y maca negra"
+  ],
+  "publico": "Mujeres adultas, de 25 a 40 años, que quieren más volumen en piernas y cola sin subir de peso",
+  "dolor": "Quiere más volumen en piernas y cola y una cintura más marcada, pero le da miedo engordar y no quiere gastar en frascos sueltos que no alcanzan para ver el cambio",
+  "oferta": "Tratamiento completo de 3 frascos (tres meses). Pagas en efectivo cuando lo recibes.",
+  "comoCompra": "Pide con el botón del anuncio, le llega a su casa con mensajero y paga en efectivo al recibir (contra entrega)",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "Comprar un solo frasco en otras tiendas que dicen ser \"la original\" y lo venden mucho más caro, y tener que seguir comprando y comprando",
+  "prueba": "Hay clientas que ya van por su tercera compra (lo cuenta la vendedora en el guion)",
+  "ingredientes": "Por porción de 2 cápsulas: aguaje en polvo (fruto) 200 mg, fenogreco en polvo (semilla) 400 mg, maca negra en polvo (raíz) 200 mg. También trae vitamina A y vitamina E. Cápsula de gelatina. Frasco de 60 cápsulas de 0,5 g cada una (contenido neto 30 g).",
+  "comoSeUsa": "Tomar 2 cápsulas al día, preferiblemente con las comidas principales. Uso continuo por al menos 3 meses. No exceder la porción diaria recomendada.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco en la mano, de frente: negro con tapa y base rosadas, se lee bien la etiqueta. Abajo se ve la barra de un reproductor de video."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": true,
+      "nota": "El diseño completo de la etiqueta, plano, con medidas de imprenta. Sirve para leer los datos, no para mostrar el frasco."
+    },
+    {
+      "archivo": "fotos/3.jpg",
+      "sirve": false,
+      "nota": "No muestra el producto. Es una selfie de una mujer joven de pelo largo y gafas, sentada junto a un escritorio; sirve como referencia de la persona que habla en el anuncio."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta el tratamiento de 3 frascos y el envío es gratis?"
+    }
+  ]
+}
