@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "pedidos": [
+    {
+      "id": "d5c7dfaeeb6c",
+      "creado": "2026-11-14T03:28:08.283Z",
+      "pieza": "toma-1",
+      "nombre": "Bloque 1",
+      "modo": "pedido",
+      "pedido": "Sus gluteos y piernas no se ven con volúmen notorio, que de verdad tenga volumen en glúteos, piernas y caderas de mujer",
+      "conImagen": false
+    }
+  ]
+}
