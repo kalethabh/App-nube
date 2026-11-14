@@ -239,8 +239,15 @@ function Flujo({ consulta }) {
 
   // ---------------------------------------------------------------- bloque 1: el producto
   const productoUrl = consulta?.get('producto') || null;
+  // «Adaptar a mi producto» desde Mejores anuncios (#/ganadores): llega el video del ganador ya bajado, como uno subido
+  const referenciaUrl = useMemo(() => {
+    const r = consulta?.get('referencia') || '';
+    return !productoUrl && /^subido:[a-z0-9]{6,30}\|/.test(r) ? r.slice(0, 700) : null;
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const [productoId, setProductoId] = useState(productoUrl);
-  const [borrador, setBorradorCrudo] = useState(() => (productoUrl ? BORRADOR_VACIO : { ...BORRADOR_VACIO, ...recordado('borrador', {}), fotos: [] }));
+  const [borrador, setBorradorCrudo] = useState(() =>
+    productoUrl ? BORRADOR_VACIO : { ...BORRADOR_VACIO, ...recordado('borrador', {}), fotos: [], ...(referenciaUrl ? { referencia: referenciaUrl } : {}) }
+  );
   const [firmaCreada, setFirmaCreada] = useState(null);
   const porRestaurar = useRef(Boolean(productoUrl)); // el producto vino por la URL: su formulario sale del servidor
   const [cambios, setCambios] = useState({ correcciones: {}, respuestas: {} });
@@ -257,6 +264,11 @@ function Flujo({ consulta }) {
       }
       return nuevo;
     });
+
+  // el video que llegó por la URL queda recordado (la URL pierde ?referencia= en cuanto la pantalla la actualiza)
+  useEffect(() => {
+    if (referenciaUrl) setBorrador((b) => ({ ...b, referencia: referenciaUrl }));
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // la sesión "ficha": se mira cada 2 s mientras corre (y unos segundos después de lanzarla)
   const [lanzadaEn, setLanzadaEn] = useState(0);

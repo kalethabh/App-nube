@@ -1,0 +1,84 @@
+// MEJORES ANUNCIOS (lib/ganadores.js): buscar en TrendTrack con el conector de claude.ai del usuario.
+//
+//   GET    /api/ganadores                 -> { opciones: { nichos, paises, ordenes, creditosPorAnuncio }, creditos,
+//                                             recientes, guardados, buscando }
+//   POST   /api/ganadores/buscar          { filtros, forzar? } -> { clave, filtros, fecha, anuncios, creditos, desdeCache }
+//                                             (tarda unos segundos: abre una sesión de Claude; la caché responde al instante)
+//   GET    /api/ganadores/busquedas/:clave -> una búsqueda ya hecha (sin gastar)
+//   POST   /api/ganadores/guardados       { anuncio, nota? } -> { anuncio }
+//   DELETE /api/ganadores/guardados/:id
+//   POST   /api/ganadores/adaptar         { anuncio } -> { id, nombre, valor: "subido:<id>|<nombre>" } (baja el video
+//                                             para «Adaptar a mi producto» en Nuevo anuncio)
+import express from 'express';
+import { soloDesdeLaApp } from '../lib/productos.js';
+import {
+  CREDITOS_POR_ANUNCIO,
+  NICHOS,
+  ORDENES,
+  PAISES,
+  bajarParaReferencia,
+  buscarGanadores,
+  busquedaEnCurso,
+  busquedaGuardada,
+  busquedasRecientes,
+  guardarAnuncio,
+  listarGuardados,
+  quitarGuardado,
+  ultimosCreditos,
+} from '../lib/ganadores.js';
+
+const json = express.json({ limit: '1mb' });
+
+const responderError = (res, e, porDefecto) => {
+  const status = Number.isInteger(e?.status) ? e.status : 500;
+  if (status >= 500 && !e?.status) console.error('[ganadores]', e);
+  res.status(status).json({ error: e?.status ? e.message : porDefecto });
+};
+
+export default function rutasGanadores(app) {
+  app.get('/api/ganadores', (req, res) => {
+    res.set('Cache-Control', 'no-store').json({
+      opciones: { nichos: NICHOS, paises: PAISES, ordenes: Object.entries(ORDENES).map(([id, o]) => ({ id, texto: o.texto })), creditosPorAnuncio: CREDITOS_POR_ANUNCIO },
+      creditos: ultimosCreditos(),
+      recientes: busquedasRecientes(),
+      guardados: listarGuardados(),
+      buscando: Boolean(busquedaEnCurso()),
+    });
+  });
+
+  app.post('/api/ganadores/buscar', soloDesdeLaApp, json, async (req, res) => {
+    try {
+      const r = await buscarGanadores(req.body?.filtros || {}, { forzar: req.body?.forzar === true });
+      res.json(r);
+    } catch (e) {
+      responderError(res, e, 'La búsqueda no terminó bien. Vuelve a intentar.');
+    }
+  });
+
+  app.get('/api/ganadores/busquedas/:clave', (req, res) => {
+    const r = busquedaGuardada(req.params.clave);
+    if (!r) return res.status(404).json({ error: 'Esa búsqueda ya no está guardada. Búscala de nuevo.' });
+    res.set('Cache-Control', 'no-store').json(r);
+  });
+
+  app.post('/api/ganadores/guardados', soloDesdeLaApp, json, (req, res) => {
+    try {
+      res.status(201).json({ anuncio: guardarAnuncio(req.body?.anuncio, req.body?.nota) });
+    } catch (e) {
+      responderError(res, e, 'No pude guardar ese anuncio.');
+    }
+  });
+
+  app.delete('/api/ganadores/guardados/:id', soloDesdeLaApp, (req, res) => {
+    quitarGuardado(String(req.params.id || ''));
+    res.json({ ok: true });
+  });
+
+  app.post('/api/ganadores/adaptar', soloDesdeLaApp, json, async (req, res) => {
+    try {
+      res.status(201).json(await bajarParaReferencia(req.body?.anuncio));
+    } catch (e) {
+      responderError(res, e, 'No pude preparar ese video.');
+    }
+  });
+}

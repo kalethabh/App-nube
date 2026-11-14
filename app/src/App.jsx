@@ -33,6 +33,7 @@ const Aprendizajes = lazy(() => import('./pantallas/aprendizajes/index.jsx'));
 const Imagenes = lazy(() => import('./pantallas/imagenes/index.jsx'));
 const CrearImagenes = lazy(() => import('./pantallas/imagenes/Crear.jsx'));
 const LoteImagenes = lazy(() => import('./pantallas/imagenes-lote/index.jsx'));
+const Ganadores = lazy(() => import('./pantallas/ganadores/index.jsx'));
 const Componentes = lazy(() => import('./pantallas/componentes/index.jsx'));
 // La bienvenida de 3 pasos: se abre sola la primera vez (hasta que se cierra o se termina).
 const BienvenidaPrimeraVez = lazy(() => import('./pantallas/ajustes/Bienvenida.jsx'));
@@ -90,6 +91,8 @@ export const RUTAS = [
     titulo: 'Tu lote de imágenes',
     migas: () => [{ texto: 'Anuncios de imagen', href: enlace.imagenes() }, { texto: 'Tu lote' }],
   },
+  // Mejores anuncios: los que están funcionando en Meta, de TrendTrack (con el conector de la cuenta de Claude)
+  { patron: '/ganadores', Pantalla: Ganadores, menu: 'ganadores', titulo: 'Mejores anuncios', migas: () => [{ texto: 'Mejores anuncios' }] },
   { patron: '/componentes', Pantalla: Componentes, menu: null, titulo: 'Guía de diseño', migas: () => [{ texto: 'Guía de diseño' }] },
 ];
 
