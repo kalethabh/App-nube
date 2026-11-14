@@ -31,11 +31,14 @@
         "linea": "¿Saben con qué empiezo yo mis días, mi gente? Con esto.",
         "frase_original": "Sabes con qué / mi vida",
         "frase_nueva": "Saben con qué / mi gente",
-        "motivo": "Cambié «Sabes» por «Saben» y «mi vida» por «mi gente», para que no suene a coqueteo. Ojo: la frase ya no dice nada delicado. Lo más probable es que frene cómo la escena muestra el cuerpo (la pose de espaldas). Si la rechazan otra vez, toca suavizar esa imagen."
+        "motivo": "Cambié «Sabes» por «Saben» y «mi vida» por «mi gente», para que no suene a coqueteo. Ojo: la frase ya no dice nada delicado. Lo más probable es que frene cómo la escena muestra el cuerpo (la pose de espaldas). Si la rechazan otra vez, toca suavizar esa imagen.",
+        "rechazo": "Request blocked: The generation was blocked by Google safety review."
       }
     ]
   },
-  "extraRechazos": {},
+  "extraRechazos": {
+    "toma-1": 3
+  },
   "descartados": [],
   "ganchos": {},
   "persona": {
@@ -45,7 +48,7 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T03:47:31.808Z",
+  "actualizado": "2026-11-14T03:49:08.922Z",
   "revision": {
     "ronda": 1,
     "medidas": {
