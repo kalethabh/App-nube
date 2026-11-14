@@ -1,11 +1,12 @@
 {
-  "pid": 72967,
-  "paso": "rehacer",
-  "script": "validar-manifiesto.js",
+  "pid": 73323,
+  "paso": "bloques",
+  "script": "generar-videos.js",
   "args": [
-    "temp/aguaje-complex-10x-ugc-20261113-2203/manifiesto.json"
+    "temp/aguaje-complex-10x-ugc-20261113-2203",
+    "--si"
   ],
-  "comando": "node produccion/validar-manifiesto.js temp/aguaje-complex-10x-ugc-20261113-2203/manifiesto.json",
-  "inicio": "2026-11-14T03:36:33.747Z",
+  "comando": "node produccion/generar-videos.js temp/aguaje-complex-10x-ugc-20261113-2203 --si",
+  "inicio": "2026-11-14T03:37:42.091Z",
   "app": 71565
 }

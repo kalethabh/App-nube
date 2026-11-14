@@ -1,0 +1,442 @@
+{
+  "estilo": "ugc",
+  "modo_audio": "dialogo_nativo",
+  "mercado": "LatAm",
+  "idioma": "es",
+  "aspect_ratio": "9:16",
+  "referencias": [
+    {
+      "id": "personaje",
+      "tipo": "personaje",
+      "prompt": "Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Hombre adulto colombiano de 25 años, latino; piel trigueña cuidada, con brillo natural, textura real y poros visibles; cabello negro rizado y con volumen arriba, con degradado bajo a los lados y algún rizo suelto sobre la frente; ojos cafés oscuros; cejas negras perfiladas; cara ovalada de mandíbula definida y nariz recta; bigote y barba muy finos y cuidados, apenas una línea; contextura delgada-atlética, hombros definidos y cintura fina; pulseras plateadas finas en una muñeca; uñas limpias y cortas; sin tatuajes visibles. Lleva una camiseta básica blanca lisa de algodón, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color crema de su casa, mira directamente a cámara con media sonrisa segura y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos."
+    },
+    {
+      "id": "personaje-2",
+      "tipo": "personaje",
+      "prompt": "Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer adulta colombiana de 28 años, latina; piel clara trigueña con textura real y poros visibles; cabello largo castaño con mechas rubias que le enmarcan la cara, ondas grandes en las puntas y algunos mechones sueltos; ojos cafés; cejas definidas; cara ovalada de mejillas llenas y nariz pequeña; labios gruesos con gloss nude y maquillaje mínimo; figura curvilínea de reloj de arena, con la cintura pequeña; una pulsera dorada fina y un anillo dorado fino; sin tatuajes visibles. Lleva una camiseta básica de tiras color beige, lisa, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color blanco de su casa, mira directamente a cámara con una sonrisa leve y tranquila y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos."
+    },
+    {
+      "id": "personaje-3",
+      "tipo": "personaje",
+      "prompt": "Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer adulta colombiana de 26 años, latina, morena; piel canela con textura real y poros visibles; cabello negro muy liso y largo, con raya al medio, suelto sobre los hombros, con algún pelito suelto; ojos oscuros; cejas gruesas; cara redonda de pómulos marcados; labios gruesos rosados y maquillaje mínimo; figura curvilínea de reloj de arena, con la cintura pequeña; un collar fino plateado; sin tatuajes visibles. Lleva una camiseta básica gris clara, lisa, con arrugas naturales, sin estampados ni logos. Está de pie frente a una pared lisa color gris claro de su casa, mira directamente a cámara con una sonrisa alegre y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular ultra realista, como una foto real, sin filtro de belleza, sin piel plástica, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos."
+    },
+    {
+      "id": "producto",
+      "tipo": "producto",
+      "archivo": "producto.png",
+      "nota": "conservar forma, colores y etiqueta exactos; solo el frasco, sin la mano ni la barra de abajo"
+    },
+    {
+      "id": "lugar-habitacion",
+      "tipo": "lugar",
+      "de_toma": 2,
+      "segundo": 1.4,
+      "nota": "la habitación clara del hombre (Bloque 2), para los Bloques 7, 8, 9 y 11"
+    },
+    {
+      "id": "lugar-cuarto",
+      "tipo": "lugar",
+      "de_toma": 3,
+      "segundo": 1.9,
+      "nota": "el cuarto de la mujer 1 (Bloque 3), para los Bloques 4 y 6"
+    }
+  ],
+  "tomas": [
+    {
+      "n": 1,
+      "tipo": "R",
+      "duracion": 4,
+      "fase": "gancho",
+      "linea": "¿Cómo hice pa' tener este jopo, mi vida? Con esto.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.8,
+          "linea": "¿Cómo hice pa' tener este jopo, mi vida?",
+          "habla": "personaje"
+        },
+        {
+          "desde": 2.8,
+          "hasta": 4,
+          "linea": "Con esto.",
+          "habla": "personaje"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 4s.\n\nREFERENCIAS:\nImagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose. De la imagen 1 no tomes la forma del cuerpo de la cintura para abajo: esa la dicta este texto.\nImagen 2: el producto. Es la referencia exacta del envase.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, rápido, seguro y divertido, como un creador de contenido de TikTok mostrando su secreto. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nEl hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un esqueleto blanco ajustado de algodón (camiseta sin mangas) y un biker gris oscuro de algodón que le llega por encima de la rodilla, sin gafas, con los rizos sueltos.\nSu silueta de la cintura para abajo es lo más notorio del video y se ve desde el primer cuadro: figura de reloj de arena, con la cintura muy fina y las caderas anchas y curvas, cerca de una vez y media más anchas que la cintura; glúteos grandes, redondos, altos y muy proyectados hacia atrás, que de perfil sobresalen claramente de la línea de la espalda; muslos gruesos, llenos y redondeados, que se tocan entre sí. El biker gris es de tiro alto, queda tenso y liso, y llena todo su volumen, sin arrugas ni tela floja. No tiene piernas delgadas, ni cadera recta, ni glúteos planos. Cuerpo real, de gimnasio, con proporciones creíbles, no una caricatura.\n\nSETTING:\nSu cuarto, en la mañana. Pared color durazno con líneas blancas finas en diagonal; un espejo de cuerpo entero de marco negro con esquinas redondeadas apoyado en la pared; una cama con cobija fucsia de flores; una ventana con cortina clara por donde entra la luz natural de la mañana, que le da de frente a él y al frasco. Sobre la cama solo está la cobija; no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara con seguridad y picardía, como quien cuenta un secreto. Gestos naturales y creíbles con las manos, las cejas y la cabeza, nada rígido; media sonrisa, energía alta. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa de rosca rosada fucsia, corta y casi tan ancha como el cuerpo, y una franja rosada en la base; etiqueta negra con «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1» y «TRIPLE ACCIÓN» en rosado, y tres recuadros pequeños de borde rosado. No es una botella delgada ni un pote chato. De la imagen 2 toma solo el frasco: no copies la mano que lo sostiene, el fondo ni la barra gris de abajo. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, un poco más alto que la palma de una mano. Solo hay un frasco. Siempre está cerrado: no se ven cápsulas sueltas ni el frasco abierto. Cuando está en la mano, va en una sola mano, junto a la cara, a la altura del pecho y a la misma distancia de la cámara que la cara, con los dedos por los costados sin tapar la etiqueta, y ocupa cerca del 40 % de la altura del cuadro; la otra mano no sostiene nada. La luz le da de frente y la etiqueta queda iluminada, sin contraluz, sin arcoíris ni reflejos de colores; la etiqueta siempre se lee al derecho, nunca en espejo. En este video no se ve en el primer tramo y está en su mano derecha en el segundo.\n\nTIMESTAMPS:\n[0.0–2.8s]\nPlano con el celular apoyado a la altura de su cadera, a dos pasos de él, de la cabeza a las rodillas: está de pie junto al espejo de cuerpo entero, de perfil a la cámara, con el cuerpo girado un poco de espaldas (tres cuartos de espalda), así que se ve completa la curva de la espalda baja, los glúteos grandes y redondos que sobresalen hacia atrás, la cadera ancha y los muslos gruesos, que llenan el centro del cuadro. Las dos manos están vacías. Arranca posando, con la mano derecha en la cintura fina; gira la cabeza y mira a la cámara por encima del hombro con una ceja levantada y media sonrisa pícara, y se da una palmadita en el costado de la cadera con la mano izquierda.\nDIÁLOGO: “¿Cómo hice pa' tener este jopo, mi vida?”\n[2.8–4.0s]\nCorte a plano del pecho para arriba, de frente, con el celular apoyado: sostiene el frasco cerrado junto a su cara con la mano derecha, con la etiqueta de frente a cámara, y la mano izquierda queda vacía y fuera del cuadro. Guiña un ojo; al terminar de hablar sonríe y se queda quieto, sosteniendo el frasco, en silencio.\nDIÁLOGO: “Con esto.”\n\nAUDIO:\nSolo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Santi no cambia entre planos.",
+      "referencias": [
+        "personaje",
+        "producto"
+      ]
+    },
+    {
+      "n": 2,
+      "tipo": "R",
+      "duracion": 4,
+      "fase": "gancho: también es para hombres",
+      "linea": "Y no, no es solo pa' ustedes, mis reinas. ¡Pa' nosotros también!",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.8,
+          "linea": "Y no, no es solo pa' ustedes, mis reinas.",
+          "habla": "personaje"
+        },
+        {
+          "desde": 2.8,
+          "hasta": 4,
+          "linea": "¡Pa' nosotros también!",
+          "habla": "personaje"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 4s.\n\nREFERENCIAS:\nImagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose. De la imagen 1 no tomes la forma del cuerpo de la cintura para abajo: esa la dicta este texto.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, rápido, seguro y divertido, como un creador de contenido de TikTok hablándoles a sus seguidoras. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nEl hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un crop top azul rey de manga corta, un pantalón blanco de tiro alto, ajustado al cuerpo de la cintura a los tobillos, de tela gruesa y opaca con algo de elástico, y unas gafas de sol negras ovaladas estilo Y2K, puestas al empezar, con los rizos sueltos.\nSu silueta de la cintura para abajo es lo más notorio del primer plano y se ve desde el primer cuadro: figura de reloj de arena, con la cintura muy fina y las caderas anchas y curvas, cerca de una vez y media más anchas que la cintura; glúteos grandes, redondos, altos y muy proyectados hacia atrás, que de perfil sobresalen claramente de la línea de la espalda; muslos gruesos, llenos y redondeados, que se tocan entre sí. El pantalón blanco queda justo, tenso y liso sobre la cadera, los glúteos y los muslos, y llena todo su volumen, sin arrugas, sin tela floja y sin bolsillos abultados; no es un pantalón ancho ni holgado. No tiene piernas delgadas, ni cadera recta, ni glúteos planos. Cuerpo real, de gimnasio, con proporciones creíbles, no una caricatura.\n\nSETTING:\nSu habitación, moderna y clara, de día. Paredes blancas, piso de madera, una cama con cabecero tapizado beige y ropa de cama blanca, un espejo alto de marco negro apoyado en la pared y una mesa de noche de madera oscura. La luz natural del día entra por una ventana grande que queda detrás de la cámara y le da de frente a él. Sobre la mesa de noche no hay nada. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara, seguro, coqueto y divertido. Gestos naturales y creíbles con las manos, las cejas y la cabeza, nada rígido; se ríe con ganas y levanta la barbilla con orgullo. Sin sobreactuar.\n\nTIMESTAMPS:\n[0.0–2.8s]\nPlano con el celular apoyado a la altura de su cadera, a dos pasos de él, de la cabeza a las rodillas: está de pie entre la cama y el espejo alto, y se ve bien la habitación. Está de perfil a la cámara, con el cuerpo girado un poco de espaldas (tres cuartos de espalda) y el peso en una pierna, así que se ve completa la curva de la espalda baja, los glúteos grandes y redondos que sobresalen hacia atrás, la cadera ancha y los muslos gruesos dentro del pantalón blanco justo, en el centro del cuadro. Gira la cabeza y mira a la cámara por encima del hombro: con el índice de la mano derecha se baja las gafas hasta la punta de la nariz y mira por encima de ellas, mueve ese mismo índice de lado a lado diciendo que no y se ríe, con la mano izquierda apoyada en la cintura fina.\nDIÁLOGO: “Y no, no es solo pa' ustedes, mis reinas.”\n[2.8–4.0s]\nCorte a plano medio de frente, de la cabeza a medio muslo, con el celular apoyado: con las gafas todavía en la punta de la nariz, se ve la cintura fina y la cadera ancha y curva llenando el pantalón blanco justo; se señala el pecho con las dos manos, orgulloso, levantando la barbilla; al terminar de hablar sonríe y se queda quieto, con las manos en el pecho, en silencio.\nDIÁLOGO: “¡Pa' nosotros también!”\n\nAUDIO:\nSolo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto ni aparecer otra persona, y la cara de Santi no cambia entre planos.",
+      "referencias": [
+        "personaje"
+      ]
+    },
+    {
+      "n": 3,
+      "tipo": "R",
+      "duracion": 6,
+      "fase": "solución: los tres ingredientes",
+      "linea": "Lo que funciona es que traiga aguaje, fenogreco y maca negra, los tres, en sus extractos puros.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 3.8,
+          "linea": "Lo que funciona es que traiga aguaje, fenogreco y maca negra,",
+          "habla": "personaje-2"
+        },
+        {
+          "desde": 3.8,
+          "hasta": 6,
+          "linea": "los tres, en sus extractos puros.",
+          "habla": "personaje-2"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 6s.\n\nREFERENCIAS:\nImagen 1: Vale. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el producto. Es la referencia exacta del envase.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, claro y seguro, como la amiga que se informó y te lo explica sin rodeos. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz femenina de una mujer de unos 28 años, de timbre medio-grave, cálido y aterciopelado, serena y segura, como la amiga que se informa y lo explica claro, sin tono de locutora. Ritmo ágil y de conversación, con énfasis en lo importante, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nLa mujer de la imagen 1: mujer adulta colombiana de 28 años, latina, de piel clara trigueña con textura real y poros visibles; cabello largo castaño con mechas rubias que le enmarcan la cara y ondas grandes en las puntas; ojos cafés, cejas definidas, cara ovalada de mejillas llenas, labios gruesos con gloss nude; figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas y piernas gruesas que llenan los leggings; una pulsera dorada fina y un anillo dorado fino; sin tatuajes visibles. Personalidad segura y tranquila, la amiga que se informa: habla claro, sonríe con confianza y hace gestos precisos con las manos. En este video lleva un top deportivo rosado palo de escote en V discreto, leggings rosados de tiro alto y medias blancas, con el cabello suelto.\n\nSETTING:\nSu cuarto, moderno y claro, en la mañana. Pared blanca lisa, un espejo de cuerpo entero apoyado en la pared, una cama con cojines blancos y una mesa de madera. La luz natural de la mañana entra por una ventana que queda detrás de la cámara y le da de frente a ella y al frasco. Sobre la mesa de madera solo hay: un termo rosado, tres frutos de aguaje frescos (ovalados, del tamaño de un huevo, con cáscara de escamas pequeñas, rojizas y brillantes; no son mango ni papaya), un platico blanco con semillas de fenogreco (granitos duros color mostaza) y una cuchara de madera con polvo de maca negra (polvo fino café oscuro); no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara con calma y seguridad, como explicándole algo a una amiga. Gestos precisos y creíbles con la mano libre: cuenta con los dedos, señala, niega suave con la cabeza, levanta una ceja. Nada rígido. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa de rosca rosada fucsia, corta y casi tan ancha como el cuerpo, y una franja rosada en la base; etiqueta negra con «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1» y «TRIPLE ACCIÓN» en rosado, y tres recuadros pequeños de borde rosado. No es una botella delgada ni un pote chato. De la imagen 2 toma solo el frasco: no copies la mano que lo sostiene, el fondo ni la barra gris de abajo. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, un poco más alto que la palma de una mano. Solo hay un frasco. Siempre está cerrado: no se ven cápsulas sueltas ni el frasco abierto. Cuando está en la mano, va en una sola mano, junto a la cara, a la altura del pecho y a la misma distancia de la cámara que la cara, con los dedos por los costados sin tapar la etiqueta, y ocupa cerca del 40 % de la altura del cuadro; la otra mano no sostiene nada. La luz le da de frente y la etiqueta queda iluminada, sin contraluz, sin arcoíris ni reflejos de colores; la etiqueta siempre se lee al derecho, nunca en espejo. En este video está en su mano derecha en los dos tramos.\n\nTIMESTAMPS:\n[0.0–3.8s]\nPlano medio de frente, de la cintura para arriba, con el celular apoyado en la mesa; ella está de pie junto a su espejo y detrás se ve bien el cuarto (la pared blanca, el espejo y la cama con cojines blancos). Sostiene el frasco cerrado junto a su cara con la mano derecha, con la etiqueta de frente a cámara, y con la mano izquierda vacía cuenta uno, dos y tres con los dedos, despacio y segura.\nDIÁLOGO: “Lo que funciona es que traiga aguaje, fenogreco y maca negra,”\n[3.8–6.0s]\nCorte a plano desde la mesa: en primer término, nítidos sobre la madera, los tres frutos de aguaje, el platico con semillas de fenogreco y la cuchara de madera con polvo de maca negra; ella justo detrás, del pecho para arriba, con el frasco todavía en la mano derecha junto a su cara, los señala con la mano izquierda abierta y mira a cámara; al terminar de hablar sonríe con confianza y se queda quieta, sosteniendo el frasco, en silencio.\nDIÁLOGO: “los tres, en sus extractos puros.”\n\nAUDIO:\nSolo la voz de ella y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Vale no cambia entre planos.",
+      "referencias": [
+        "personaje-2",
+        "producto"
+      ]
+    },
+    {
+      "n": 4,
+      "tipo": "R",
+      "duracion": 6,
+      "fase": "solución: los ingredientes, no la marca",
+      "linea": "Eso es lo que da los resultados, no la marca de Vitalcom, por eso es que no ven resultados.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.2,
+          "linea": "Eso es lo que da los resultados,",
+          "habla": "personaje-2"
+        },
+        {
+          "desde": 2.2,
+          "hasta": 3.8,
+          "linea": "no la marca de Vitalcom,",
+          "habla": "personaje-2"
+        },
+        {
+          "desde": 3.8,
+          "hasta": 6,
+          "linea": "por eso es que no ven resultados.",
+          "habla": "personaje-2"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 6s.\n\nREFERENCIAS:\nImagen 1: Vale. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el producto. Es la referencia exacta del envase.\nImagen 3: el cuarto. Es el mismo cuarto donde grabó antes: úsala solo como referencia del lugar (pared blanca, espejo de cuerpo entero, cama con cojines blancos y mesa de madera). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, claro y seguro, como la amiga que se informó y te lo explica sin rodeos. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz femenina de una mujer de unos 28 años, de timbre medio-grave, cálido y aterciopelado, serena y segura, como la amiga que se informa y lo explica claro, sin tono de locutora. Ritmo ágil y de conversación, con énfasis en lo importante, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nLa mujer de la imagen 1: mujer adulta colombiana de 28 años, latina, de piel clara trigueña con textura real y poros visibles; cabello largo castaño con mechas rubias que le enmarcan la cara y ondas grandes en las puntas; ojos cafés, cejas definidas, cara ovalada de mejillas llenas, labios gruesos con gloss nude; figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas y piernas gruesas que llenan los leggings; una pulsera dorada fina y un anillo dorado fino; sin tatuajes visibles. Personalidad segura y tranquila, la amiga que se informa: habla claro, sonríe con confianza y hace gestos precisos con las manos. En este video lleva un top deportivo rosado palo de escote en V discreto, leggings rosados de tiro alto y medias blancas, con el cabello suelto.\n\nSETTING:\nSu cuarto, moderno y claro, en la mañana. Pared blanca lisa, un espejo de cuerpo entero apoyado en la pared, una cama con cojines blancos y una mesa de madera. La luz natural de la mañana entra por una ventana que queda detrás de la cámara y le da de frente a ella y al frasco. Sobre la mesa de madera solo hay: un termo rosado, tres frutos de aguaje frescos (ovalados, del tamaño de un huevo, con cáscara de escamas pequeñas, rojizas y brillantes; no son mango ni papaya), un platico blanco con semillas de fenogreco (granitos duros color mostaza) y una cuchara de madera con polvo de maca negra (polvo fino café oscuro); no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara con calma y seguridad, como explicándole algo a una amiga. Gestos precisos y creíbles con la mano libre: asiente, niega suave con la cabeza, levanta una ceja, se encoge de hombros. Nada rígido. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa de rosca rosada fucsia, corta y casi tan ancha como el cuerpo, y una franja rosada en la base; etiqueta negra con «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1» y «TRIPLE ACCIÓN» en rosado, y tres recuadros pequeños de borde rosado. No es una botella delgada ni un pote chato. De la imagen 2 toma solo el frasco: no copies la mano que lo sostiene, el fondo ni la barra gris de abajo. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, un poco más alto que la palma de una mano. Solo hay un frasco. Siempre está cerrado: no se ven cápsulas sueltas ni el frasco abierto. Cuando está en la mano, va en una sola mano, junto a la cara, a la altura del pecho y a la misma distancia de la cámara que la cara, con los dedos por los costados sin tapar la etiqueta, y ocupa cerca del 40 % de la altura del cuadro; la otra mano no sostiene nada. La luz le da de frente y la etiqueta queda iluminada, sin contraluz, sin arcoíris ni reflejos de colores; la etiqueta siempre se lee al derecho, nunca en espejo. En este video está en su mano derecha en los tres tramos.\n\nTIMESTAMPS:\n[0.0–2.2s]\nPlano del pecho para arriba, de frente, con el celular apoyado en la mesa; ella está de pie junto a su espejo. Sostiene el frasco cerrado junto a su cara con la mano derecha, con la etiqueta de frente a cámara; asiente y abre la mano izquierda vacía con la palma hacia arriba.\nDIÁLOGO: “Eso es lo que da los resultados,”\n[2.2–3.8s]\nCorte a selfie cercano: sostiene el celular con la mano izquierda, que queda fuera del cuadro, y el frasco con la derecha junto a su cara. Niega suave con la cabeza y levanta una ceja.\nDIÁLOGO: “no la marca de Vitalcom,”\n[3.8–6.0s]\nCorte a plano medio de tres cuartos, de la cintura para arriba, con la cara hacia la cámara y el celular apoyado en la mesa: con el frasco junto a su cara en la mano derecha, se encoge de hombros con media sonrisa; al terminar de hablar sonríe y se queda quieta, sosteniendo el frasco, en silencio.\nDIÁLOGO: “por eso es que no ven resultados.”\n\nAUDIO:\nSolo la voz de ella y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Vale no cambia entre planos.\nEn los tres tramos, desde el primer cuadro, el frasco tiene la tapa rosada fucsia y la franja rosada en la base, igual que en la imagen 2: nunca sale con la tapa negra ni todo negro, y no cambia de un plano a otro.",
+      "referencias": [
+        "personaje-2",
+        "producto",
+        "lugar-cuarto"
+      ]
+    },
+    {
+      "n": 5,
+      "tipo": "R",
+      "duracion": 8,
+      "fase": "prueba: su resultado",
+      "linea": "Y lo que tenía en el abdomen es como si se me hubiera ido pa' la cola, las piernas y las caderas. ¡Mírame!",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 5.2,
+          "linea": "Y lo que tenía en el abdomen es como si se me hubiera ido pa' la cola,",
+          "habla": "personaje-3"
+        },
+        {
+          "desde": 5.2,
+          "hasta": 6.9,
+          "linea": "las piernas y las caderas.",
+          "habla": "personaje-3"
+        },
+        {
+          "desde": 6.9,
+          "hasta": 8,
+          "linea": "¡Mírame!",
+          "habla": "personaje-3"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 8s.\n\nREFERENCIAS:\nImagen 1: Dani. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, alegre y con mucha energía, como una amiga emocionada contando lo que le pasó. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz femenina de una mujer de unos 26 años, de timbre agudo y brillante, risueña y muy enérgica, a la que se le escapa la risa, como contándole un chisme feliz a una amiga, sin tono de locutora. Ritmo rápido y emocionado, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nLa mujer de la imagen 1: mujer adulta colombiana de 26 años, latina, morena de piel canela con textura real y poros visibles; cabello negro muy liso y largo, con raya al medio, suelto sobre los hombros; ojos oscuros, cejas gruesas, cara redonda de pómulos marcados, labios gruesos rosados; figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas, cerca de una vez y media más anchas que la cintura, y piernas gruesas; un collar fino plateado; sin tatuajes visibles. Personalidad extrovertida y alegre, la que se ríe de todo: mucha energía, gestos grandes, se mueve mientras habla. En este video lleva una camiseta de tiras blanca de borde ondulado, de escote discreto, y un biker rosado de bolitas blancas a medio muslo, con el cabello suelto.\n\nSETTING:\nSu vestier, de día. Repisas claras con luz cálida integrada, ropa colgada en ganchos, bolsos lisos sin marcas ni logos, alfombra beige, una lámpara colgante redonda y un espejo de cuerpo entero. La luz natural entra por una ventana lateral y, junto con la luz de las repisas, le da de frente a ella. En el piso no hay nada más que la alfombra. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla rápido y emocionada, mirando a cámara, con cara de no poder creerlo. Gestos grandes y naturales con las manos, se ríe, se acomoda el pelo. Nada rígido. Sin sobreactuar.\n\nTIMESTAMPS:\n[0.0–5.2s]\nSelfie en el espejo del vestier, de la cabeza a las rodillas, de frente: sostiene el celular con la mano derecha a la altura del pecho, sin taparse la cara, y tiene la mano izquierda en la cintura. Mientras habla, pasa la mano izquierda plana por delante de su cintura, de arriba hacia abajo, y la baja por el costado de la cadera, con los ojos muy abiertos.\nDIÁLOGO: “Y lo que tenía en el abdomen es como si se me hubiera ido pa' la cola,”\n[5.2–6.9s]\nCorte a plano medio con el celular apoyado en una repisa, de la cabeza a las rodillas: con las dos manos libres, da una vuelta sobre sí misma riéndose, con el pelo moviéndose.\nDIÁLOGO: “las piernas y las caderas.”\n[6.9–8.0s]\nCorte a plano medio de frente, de la cabeza a la cadera: se acomoda el pelo detrás de la oreja y abre los brazos; al terminar de hablar se ríe y se queda quieta, con los brazos abiertos, en silencio.\nDIÁLOGO: “¡Mírame!”\n\nAUDIO:\nSolo la voz de ella y el sonido ambiente de un vestier: acústica cerrada y suave, amortiguada por la ropa y la alfombra. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto ni aparecer otra persona, y la cara de Dani no cambia entre planos.",
+      "referencias": [
+        "personaje-3"
+      ]
+    },
+    {
+      "n": 6,
+      "tipo": "R",
+      "duracion": 4,
+      "fase": "prueba: sin rebote",
+      "linea": "Y sin efecto rebote, no me engordó.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 1.6,
+          "linea": "Y sin efecto rebote,",
+          "habla": "personaje-2"
+        },
+        {
+          "desde": 1.6,
+          "hasta": 2.6,
+          "linea": null
+        },
+        {
+          "desde": 2.6,
+          "hasta": 4,
+          "linea": "no me engordó.",
+          "habla": "personaje-2"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 4s.\n\nREFERENCIAS:\nImagen 1: Vale. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el cuarto. Es el mismo cuarto donde grabó antes: úsala solo como referencia del lugar (pared blanca, espejo de cuerpo entero, cama con cojines blancos y mesa de madera). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, claro y seguro, como la amiga que se informó y te lo explica sin rodeos. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz femenina de una mujer de unos 28 años, de timbre medio-grave, cálido y aterciopelado, serena y segura, como la amiga que se informa y lo explica claro, sin tono de locutora. Ritmo ágil y de conversación, con énfasis en lo importante, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nLa mujer de la imagen 1: mujer adulta colombiana de 28 años, latina, de piel clara trigueña con textura real y poros visibles; cabello largo castaño con mechas rubias que le enmarcan la cara y ondas grandes en las puntas; ojos cafés, cejas definidas, cara ovalada de mejillas llenas, labios gruesos con gloss nude; figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas y piernas gruesas que llenan los leggings; una pulsera dorada fina y un anillo dorado fino; sin tatuajes visibles. Personalidad segura y tranquila, la amiga que se informa: habla claro, sonríe con confianza y hace gestos precisos con las manos. En este video lleva un top deportivo rosado palo de escote en V discreto, leggings rosados de tiro alto y medias blancas, con el cabello suelto.\n\nSETTING:\nSu cuarto, moderno y claro, en la mañana. Pared blanca lisa, un espejo de cuerpo entero apoyado en la pared, una cama con cojines blancos y una mesa de madera. La luz natural de la mañana entra por una ventana que queda detrás de la cámara y le da de frente a ella. Sobre la mesa de madera solo hay: un termo rosado, tres frutos de aguaje frescos (ovalados, del tamaño de un huevo, con cáscara de escamas pequeñas, rojizas y brillantes; no son mango ni papaya), un platico blanco con semillas de fenogreco (granitos duros color mostaza) y una cuchara de madera con polvo de maca negra (polvo fino café oscuro); no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara con calma y seguridad, sonriendo. Gestos precisos y creíbles con las dos manos, que están vacías. Nada rígido. Sin sobreactuar.\n\nTIMESTAMPS:\n[0.0–1.6s]\nPlano medio de frente, de la cabeza a la cadera, con el celular apoyado en la mesa: cruza y separa las manos abiertas frente a ella, como diciendo «listo», sonriendo.\nDIÁLOGO: “Y sin efecto rebote,”\n[1.6–2.6s]\nCorte a plano de tres cuartos de lado, de la cabeza a las rodillas, con la cara hacia la cámara: se pasa la mano derecha por el costado de la cadera, sonriendo. Sin diálogo; se oye el roce suave de la mano sobre la tela.\n[2.6–4.0s]\nCorte a plano del pecho para arriba, de frente: niega con el índice de la mano izquierda; al terminar de hablar sonríe y se queda quieta, en silencio.\nDIÁLOGO: “no me engordó.”\n\nAUDIO:\nSolo la voz de ella y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco, y el roce suave de la tela. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto ni aparecer otra persona, y la cara de Vale no cambia entre planos.",
+      "referencias": [
+        "personaje-2",
+        "lugar-cuarto"
+      ]
+    },
+    {
+      "n": 7,
+      "tipo": "R",
+      "duracion": 8,
+      "fase": "problema: el cuento del único original",
+      "linea": "Ah, y si les dicen que el único original es el de Vitalcom, mentira: lo que sirve es que tenga los componentes puros.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 4.2,
+          "linea": "Ah, y si les dicen que el único original es el de Vitalcom,",
+          "habla": "personaje"
+        },
+        {
+          "desde": 4.2,
+          "hasta": 5.2,
+          "linea": "mentira:",
+          "habla": "personaje"
+        },
+        {
+          "desde": 5.2,
+          "hasta": 8,
+          "linea": "lo que sirve es que tenga los componentes puros.",
+          "habla": "personaje"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 8s.\n\nREFERENCIAS:\nImagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose. De la imagen 1 no tomes la forma del cuerpo de la cintura para abajo: esa la dicta este texto.\nImagen 2: la habitación. Es la misma habitación donde grabó antes: úsala solo como referencia del lugar (paredes blancas, piso de madera, cama con cabecero beige, espejo alto y mesa de noche). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa de noche.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, rápido, seguro y divertido, como un amigo que te avisa algo con gracia, sin rabia. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nEl hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un crop top azul rey de manga corta, un pantalón blanco de tiro alto, ajustado al cuerpo de la cintura a los tobillos, de tela gruesa y opaca con algo de elástico, y unas gafas de sol negras ovaladas estilo Y2K, puestas al empezar, con los rizos sueltos.\nSu silueta de la cintura para abajo se nota desde el primer cuadro: figura de reloj de arena, con la cintura muy fina y las caderas anchas y curvas, cerca de una vez y media más anchas que la cintura; glúteos grandes, redondos, altos y muy proyectados hacia atrás, que de perfil sobresalen claramente de la línea de la espalda; muslos gruesos, llenos y redondeados, que se tocan entre sí. El pantalón blanco queda justo, tenso y liso sobre la cadera, los glúteos y los muslos, y llena todo su volumen, sin arrugas, sin tela floja y sin bolsillos abultados; no es un pantalón ancho ni holgado. No tiene piernas delgadas, ni cadera recta, ni glúteos planos. Cuerpo real, de gimnasio, con proporciones creíbles, no una caricatura.\nLAS GAFAS: son un objeto sólido y real que nunca desaparece. Empiezan puestas sobre los ojos; él las sube una sola vez, despacio, y desde ese momento quedan apoyadas encima de la cabeza, sobre los rizos, como una diadema, con los dos lentes negros ovalados y la montura negra completos y bien visibles sobre el cabello hasta el último cuadro del video. No se derriten, no se funden con el pelo, no se esconden entre los rizos, no cambian de forma y él nunca se las quita ni las suelta.\n\nSETTING:\nSu habitación, moderna y clara, de día. Paredes blancas, piso de madera, una cama con cabecero tapizado beige y ropa de cama blanca, un espejo alto de marco negro apoyado en la pared y una mesa de noche de madera oscura. La luz natural del día entra por una ventana grande que queda detrás de la cámara y le da de frente a él. Sobre la mesa de noche no hay nada. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara como un amigo que avisa, divertido y sin rabia. Gestos naturales y creíbles con las manos, las cejas y la cabeza: voltea los ojos con gracia, hace comillas con los dedos, niega con el índice. Nada rígido. Sin sobreactuar.\n\nTIMESTAMPS:\n[0.0–4.2s]\nPlano con el celular apoyado a la altura de su cadera, a dos pasos de él, de la cabeza a las rodillas: está de pie entre la cama y el espejo alto, con el cuerpo girado en tres cuartos y el peso en una pierna, así que se ve la cintura fina, la cadera ancha y curva, los glúteos redondos que sobresalen hacia atrás y los muslos gruesos llenando el pantalón blanco justo. Empieza con las gafas de sol puestas. Con la mano derecha toma la montura por una patilla, con dos dedos, y la desliza despacio hacia arriba, de los ojos a la frente y de la frente a lo alto de la cabeza, en un solo movimiento continuo que se ve completo; las gafas quedan apoyadas encima de los rizos, con los dos lentes negros a la vista, y él baja la mano vacía. Ya con los ojos descubiertos, voltea los ojos con gracia; al decir «original» hace comillas en el aire con los dedos de las dos manos, a la altura de los hombros, sin tocarse la cabeza.\nDIÁLOGO: “Ah, y si les dicen que el único original es el de Vitalcom,”\n[4.2–5.2s]\nCorte a selfie cercano, con el celular en la mano izquierda, que queda fuera del cuadro: las gafas de sol negras siguen apoyadas encima de la cabeza, sobre los rizos, enteras y bien visibles en la parte alta del cuadro; niega con el índice de la mano derecha, a la altura de la barbilla, y con la cabeza, con media sonrisa.\nDIÁLOGO: “mentira:”\n[5.2–8.0s]\nCorte a plano de tres cuartos, de la cabeza a las rodillas, con el celular apoyado: está sentado de medio lado al borde de la cama, con una pierna cruzada sobre la otra, y se ven la cadera ancha y curva y los muslos gruesos y llenos dentro del pantalón blanco justo. Las mismas gafas de sol negras siguen apoyadas encima de la cabeza, sobre los rizos, enteras y bien visibles. Explica con las dos manos abiertas, con las palmas hacia arriba, a la altura del pecho, y asiente; al terminar de hablar sonríe y se queda quieto, con las manos abiertas, en silencio, con las gafas todavía sobre la cabeza.\nDIÁLOGO: “lo que sirve es que tenga los componentes puros.”\n\nAUDIO:\nSolo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto ni aparecer otra persona, y la cara de Santi no cambia entre planos. Las gafas de sol se ven sobre su cabeza en todos los planos después de subirlas.",
+      "referencias": [
+        "personaje",
+        "lugar-habitacion"
+      ]
+    },
+    {
+      "n": 8,
+      "tipo": "R",
+      "duracion": 8,
+      "fase": "problema: comprar de a uno",
+      "linea": "Y no les vendan de a uno, que ese es el negocio de ellos pa' que estén comprando y comprando.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.4,
+          "linea": "Y no les vendan de a uno,",
+          "habla": "personaje"
+        },
+        {
+          "desde": 2.4,
+          "hasta": 3.6,
+          "linea": null
+        },
+        {
+          "desde": 3.6,
+          "hasta": 8,
+          "linea": "que ese es el negocio de ellos pa' que estén comprando y comprando.",
+          "habla": "personaje"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 8s.\n\nREFERENCIAS:\nImagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el producto. Es la referencia exacta del envase.\nImagen 3: la habitación. Es la misma habitación donde grabó antes: úsala solo como referencia del lugar (paredes blancas, piso de madera, cama con cabecero beige, espejo alto y mesa de noche). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa de noche.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, rápido, seguro y divertido, como un amigo que te avisa algo con gracia, sin rabia. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nEl hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un crop top azul rey de manga corta, un pantalón cargo blanco ancho de tiro alto y unas gafas de sol negras ovaladas estilo Y2K, subidas en la cabeza sobre los rizos.\n\nSETTING:\nSu habitación, moderna y clara, de día. Paredes blancas, piso de madera, una cama con cabecero tapizado beige y ropa de cama blanca, un espejo alto de marco negro apoyado en la pared y una mesa de noche de madera oscura. La luz natural del día entra por una ventana grande que queda detrás de la cámara y le da de frente a él y al frasco. Sobre la mesa de noche no hay nada. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara como un amigo que avisa, divertido y sin rabia. Gestos naturales y creíbles con la mano libre, las cejas y la cabeza. Nada rígido. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa de rosca rosada fucsia, corta y casi tan ancha como el cuerpo, y una franja rosada en la base; etiqueta negra con «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1» y «TRIPLE ACCIÓN» en rosado, y tres recuadros pequeños de borde rosado. No es una botella delgada ni un pote chato. De la imagen 2 toma solo el frasco: no copies la mano que lo sostiene, el fondo ni la barra gris de abajo. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, un poco más alto que la palma de una mano. Solo hay un frasco. Siempre está cerrado: no se ven cápsulas sueltas ni el frasco abierto. Cuando está en la mano, va en una sola mano, junto a la cara, a la altura del pecho y a la misma distancia de la cámara que la cara, con los dedos por los costados sin tapar la etiqueta, y ocupa cerca del 40 % de la altura del cuadro; la otra mano no sostiene nada. La luz le da de frente y la etiqueta queda iluminada, sin contraluz, sin arcoíris ni reflejos de colores; la etiqueta siempre se lee al derecho, nunca en espejo. En este video está en su mano derecha en los tres tramos.\n\nTIMESTAMPS:\n[0.0–2.4s]\nPlano del pecho para arriba, de frente, con el celular apoyado: sostiene un solo frasco cerrado junto a su cara con la mano derecha, con la etiqueta de frente a cámara, y lo mueve apenas, como diciendo «¿ven?», con una ceja levantada. La mano izquierda queda vacía y fuera del cuadro.\nDIÁLOGO: “Y no les vendan de a uno,”\n[2.4–3.6s]\nCorte a selfie cercano, con el celular en la mano izquierda, que queda fuera del cuadro: mira de reojo el frasco que tiene junto a la cara en la mano derecha, le da dos golpecitos en la tapa con el índice de esa misma mano y vuelve a mirar a cámara con cara de «ya saben». Sin diálogo; se oyen los dos golpecitos de la uña en la tapa.\n[3.6–8.0s]\nCorte a plano medio, de la cabeza a la cadera, con el celular apoyado: con el frasco todavía en la mano derecha a la altura del pecho, hace círculos en el aire con la mano izquierda vacía al decir «comprando y comprando» y niega con la cabeza, divertido; al terminar de hablar levanta una ceja y se queda quieto, sosteniendo el frasco, en silencio.\nDIÁLOGO: “que ese es el negocio de ellos pa' que estén comprando y comprando.”\n\nAUDIO:\nSolo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco, y los golpecitos en la tapa. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Santi no cambia entre planos.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-habitacion"
+      ]
+    },
+    {
+      "n": 9,
+      "tipo": "R",
+      "duracion": 8,
+      "fase": "oferta: el tratamiento completo",
+      "linea": "Háganse el tratamiento completo de tres meses: resultados rápidos y duraderos, que se quedan incluso después de terminarlo, sin efecto rebote.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.6,
+          "linea": "Háganse el tratamiento completo de tres meses:",
+          "habla": "personaje"
+        },
+        {
+          "desde": 2.6,
+          "hasta": 4.2,
+          "linea": "resultados rápidos y duraderos,",
+          "habla": "personaje"
+        },
+        {
+          "desde": 4.2,
+          "hasta": 6.6,
+          "linea": "que se quedan incluso después de terminarlo,",
+          "habla": "personaje"
+        },
+        {
+          "desde": 6.6,
+          "hasta": 8,
+          "linea": "sin efecto rebote.",
+          "habla": "personaje"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 8s.\n\nREFERENCIAS:\nImagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el producto. Es la referencia exacta del envase.\nImagen 3: la habitación. Es la misma habitación donde grabó antes: úsala solo como referencia del lugar (paredes blancas, piso de madera, cama con cabecero beige, espejo alto y mesa de noche). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa de noche.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, cercano y sincero, como un amigo que se pone serio un momento para darte un buen consejo. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nEl hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un crop top azul rey de manga corta, un pantalón cargo blanco ancho de tiro alto y unas gafas de sol negras ovaladas estilo Y2K, subidas en la cabeza sobre los rizos.\n\nSETTING:\nSu habitación, moderna y clara, de día. Paredes blancas, piso de madera, una cama con cabecero tapizado beige y ropa de cama blanca, un espejo alto de marco negro apoyado en la pared y una mesa de noche de madera oscura. La luz natural del día entra por una ventana grande que queda detrás de la cámara y le da de frente a él y a los frascos. Sobre la mesa de noche solo hay tres frascos cerrados, alineados uno al lado del otro; no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nSe pone serio y cercano, mira a cámara como dando un consejo de amigo, y termina con una sonrisa tranquila. Gestos naturales y creíbles con las dos manos, que están vacías: marca tres con los dedos, asiente, baja las palmas. Nada rígido. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa de rosca rosada fucsia, corta y casi tan ancha como el cuerpo, y una franja rosada en la base; etiqueta negra con «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1» y «TRIPLE ACCIÓN» en rosado, y tres recuadros pequeños de borde rosado. No es una botella delgada ni un pote chato. De la imagen 2 toma solo el frasco: no copies la mano que lo sostiene, el fondo ni la barra gris de abajo. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, un poco más alto que la palma de una mano. En este video hay exactamente tres frascos idénticos, ni uno más. Siempre están cerrados: no se ven cápsulas sueltas ni un frasco abierto. Los tres están de pie sobre la mesa de noche, alineados al centro del cuadro, nunca pegados a un borde, cerca de la cámara y a la misma distancia que él, con las etiquetas de frente; nadie los mueve. La luz les da de frente y las etiquetas quedan iluminadas, sin contraluz, sin arcoíris ni reflejos de colores; las etiquetas siempre se leen al derecho, nunca en espejo. En este video se ven en el primer tramo y en el último.\n\nTIMESTAMPS:\n[0.0–2.6s]\nPlano medio con el celular apoyado: la mesa de noche queda cerca de la cámara, al centro del cuadro, con los tres frascos alineados y las etiquetas de frente; él está sentado al borde de la cama, inclinado justo detrás de la mesa de noche, con la cara encima de los frascos. Mira a cámara, serio y cercano, y marca tres con los dedos de la mano derecha.\nDIÁLOGO: “Háganse el tratamiento completo de tres meses:”\n[2.6–4.2s]\nCorte a selfie cercano, con el celular en la mano izquierda, que queda fuera del cuadro: asiente con seguridad y levanta las cejas.\nDIÁLOGO: “resultados rápidos y duraderos,”\n[4.2–6.6s]\nCorte a plano de tres cuartos, del pecho para arriba, sentado al borde de la cama, con el celular apoyado: baja despacio las dos palmas abiertas, como diciendo que eso se queda ahí, mirando a cámara.\nDIÁLOGO: “que se quedan incluso después de terminarlo,”\n[6.6–8.0s]\nCorte al plano medio con la mesa de noche al centro y los tres frascos alineados delante de él: cruza y separa las manos abiertas, como diciendo «listo»; al terminar de hablar sonríe y se queda quieto, en silencio.\nDIÁLOGO: “sin efecto rebote.”\n\nAUDIO:\nSolo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en las etiquetas de los frascos, idéntico a la imagen 2. No debe aparecer otra persona ni un cuarto frasco, y la cara de Santi no cambia entre planos.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-habitacion"
+      ]
+    },
+    {
+      "n": 10,
+      "tipo": "R",
+      "duracion": 4,
+      "fase": "cierre: llega a la casa y se paga al recibir",
+      "linea": "A mí me llegó a la casa y lo pagué al recibirlo.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 4,
+          "linea": "A mí me llegó a la casa y lo pagué al recibirlo.",
+          "habla": "personaje-3"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 4s.\n\nREFERENCIAS:\nImagen 1: Dani. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, alegre y con mucha energía, como una amiga contando feliz cómo le llegó su pedido. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz femenina de una mujer de unos 26 años, de timbre agudo y brillante, risueña y muy enérgica, a la que se le escapa la risa, como contándole un chisme feliz a una amiga, sin tono de locutora. Ritmo rápido y emocionado, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nLa mujer de la imagen 1: mujer adulta colombiana de 26 años, latina, morena de piel canela con textura real y poros visibles; cabello negro muy liso y largo, con raya al medio, suelto sobre los hombros; ojos oscuros, cejas gruesas, cara redonda de pómulos marcados, labios gruesos rosados; figura curvilínea de reloj de arena: cintura pequeña, caderas anchas y redondeadas, cerca de una vez y media más anchas que la cintura, y piernas gruesas; un collar fino plateado; sin tatuajes visibles. Personalidad extrovertida y alegre, la que se ríe de todo: mucha energía, gestos grandes, se mueve mientras habla. En este video lleva un saco de sudadera gris, abierto, encima de una camiseta de tiras blanca de borde ondulado, y un biker rosado de bolitas blancas a medio muslo, con el cabello suelto.\n\nSETTING:\nLa entrada de su casa, de día, vista desde adentro. Puerta principal de madera, abierta; pared clara y un tapete de entrada. La luz natural entra por una ventana que queda detrás de la cámara y le da de frente a ella. En el umbral hay un domiciliario adulto, con gorra y chaqueta lisas, sin logos ni letras, de perfil y en segundo plano, que no habla. Ella tiene una caja de cartón lisa y cerrada, sin letras ni logos; no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara, feliz y con mucha energía, riéndose. Gestos grandes y naturales, se mueve mientras habla. Nada rígido. Sin sobreactuar.\n\nTIMESTAMPS:\n[0.0–4.0s]\nPlano medio con el celular apoyado en un mueble de la entrada, de la cabeza a las rodillas; ella está de tres cuartos, con la cara hacia la cámara. Tiene la caja de cartón cerrada bajo el brazo izquierdo; con la mano derecha le entrega unos billetes al domiciliario, que los recibe, asiente y se va. Ella se lleva la mano derecha al pecho, agradecida, gira hacia la cámara y da un pasito de baile hacia adentro abrazando la caja; al terminar de hablar sonríe y se queda quieta, con la caja abrazada, en silencio.\nDIÁLOGO: “A mí me llegó a la casa y lo pagué al recibirlo.”\n\nAUDIO:\nSolo la voz de ella y el sonido ambiente de la entrada de una casa: tono cálido, la calle muy suave al fondo. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto. El domiciliario no habla ni mira a cámara, y la cara de Dani no cambia entre planos.",
+      "referencias": [
+        "personaje-3"
+      ]
+    },
+    {
+      "n": 11,
+      "tipo": "R",
+      "duracion": 4,
+      "fase": "cierre: el botón de abajo",
+      "linea": "El tuyo lo puedes pedir aquí abajo, reina.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.8,
+          "linea": "El tuyo lo puedes pedir aquí abajo,",
+          "habla": "personaje"
+        },
+        {
+          "desde": 2.8,
+          "hasta": 4,
+          "linea": "reina.",
+          "habla": "personaje"
+        }
+      ],
+      "prompt_imagen_inicial": null,
+      "prompt_imagen_final": null,
+      "prompt_video": "Duración: 4s.\n\nREFERENCIAS:\nImagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: la habitación. Es la misma habitación donde grabó antes: úsala solo como referencia del lugar (paredes blancas, piso de madera, cama con cabecero beige, espejo alto y mesa de noche). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa de noche.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, rápido, seguro y divertido, como un creador de contenido de TikTok despidiéndose con coquetería. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nEl hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un crop top azul rey de manga corta, un pantalón cargo blanco ancho de tiro alto y unas gafas de sol negras ovaladas estilo Y2K, subidas en la cabeza sobre los rizos.\n\nSETTING:\nSu habitación, moderna y clara, de día. Paredes blancas, piso de madera, una cama con cabecero tapizado beige y ropa de cama blanca, un espejo alto de marco negro apoyado en la pared y una mesa de noche de madera oscura. La luz natural del día entra por una ventana grande que queda detrás de la cámara y le da de frente a él. Sobre la mesa de noche no hay nada. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara, coqueto, seguro y divertido. Gestos naturales y creíbles con las dos manos, que están vacías. Nada rígido. Sin sobreactuar.\n\nTIMESTAMPS:\n[0.0–2.8s]\nPlano medio de frente, de la cabeza a la cadera, con el celular apoyado: se acomoda los rizos con la mano izquierda y con el índice de la mano derecha señala hacia abajo, sonriendo.\nDIÁLOGO: “El tuyo lo puedes pedir aquí abajo,”\n[2.8–4.0s]\nCorte a plano cercano, del pecho para arriba, de frente: con la mano derecha se baja las gafas de sol de la cabeza a los ojos y lanza un beso al aire; al terminar de hablar sonríe y se queda quieto, en silencio.\nDIÁLOGO: “reina.”\n\nAUDIO:\nSolo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto ni aparecer otra persona, y la cara de Santi no cambia entre planos.",
+      "referencias": [
+        "personaje",
+        "lugar-habitacion"
+      ]
+    }
+  ],
+  "ganchos_alternativos": [
+    {
+      "id": "1b",
+      "reemplaza": 1,
+      "duracion": 4,
+      "linea": "Todo el mundo me pregunta qué me hice. Con esto.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.8,
+          "linea": "Todo el mundo me pregunta qué me hice.",
+          "habla": "personaje"
+        },
+        {
+          "desde": 2.8,
+          "hasta": 4,
+          "linea": "Con esto.",
+          "habla": "personaje"
+        }
+      ],
+      "prompt_video": "Duración: 4s.\n\nREFERENCIAS:\nImagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el producto. Es la referencia exacta del envase.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, rápido, seguro y divertido, como un creador de contenido de TikTok mostrando su secreto. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nEl hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un esqueleto blanco ajustado de algodón (camiseta sin mangas) y un biker gris oscuro de algodón que le llega por encima de la rodilla, sin gafas, con los rizos sueltos.\n\nSETTING:\nSu cuarto, en la mañana. Pared color durazno con líneas blancas finas en diagonal; un espejo de cuerpo entero de marco negro con esquinas redondeadas apoyado en la pared; una cama con cobija fucsia de flores; una ventana con cortina clara por donde entra la luz natural de la mañana, que le da de frente a él y al frasco. Sobre la cama solo está la cobija; no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara con seguridad y picardía, como quien cuenta un secreto. Gestos naturales y creíbles con las manos, las cejas y la cabeza, nada rígido; media sonrisa, energía alta. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa de rosca rosada fucsia, corta y casi tan ancha como el cuerpo, y una franja rosada en la base; etiqueta negra con «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1» y «TRIPLE ACCIÓN» en rosado, y tres recuadros pequeños de borde rosado. No es una botella delgada ni un pote chato. De la imagen 2 toma solo el frasco: no copies la mano que lo sostiene, el fondo ni la barra gris de abajo. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, un poco más alto que la palma de una mano. Solo hay un frasco. Siempre está cerrado: no se ven cápsulas sueltas ni el frasco abierto. Cuando está en la mano, va en una sola mano, junto a la cara, a la altura del pecho y a la misma distancia de la cámara que la cara, con los dedos por los costados sin tapar la etiqueta, y ocupa cerca del 40 % de la altura del cuadro; la otra mano no sostiene nada. La luz le da de frente y la etiqueta queda iluminada, sin contraluz, sin arcoíris ni reflejos de colores; la etiqueta siempre se lee al derecho, nunca en espejo. En este video no se ve en el primer tramo y está en su mano derecha en el segundo.\n\nTIMESTAMPS:\n[0.0–2.8s]\nSelfie cercano en mano, sentado al borde de la cama, con la pared durazno detrás: sostiene el celular con la mano derecha, que queda fuera del cuadro. Voltea los ojos con gracia, se abanica con la mano izquierda vacía y suelta media sonrisa pícara mirando a cámara.\nDIÁLOGO: “Todo el mundo me pregunta qué me hice.”\n[2.8–4.0s]\nCorte a plano del pecho para arriba, de frente, con el celular apoyado (ya no es el espejo): sostiene el frasco cerrado junto a su cara con la mano derecha, con la etiqueta de frente a cámara, y la mano izquierda queda vacía y fuera del cuadro. Guiña un ojo; al terminar de hablar sonríe y se queda quieto, sosteniendo el frasco, en silencio.\nDIÁLOGO: “Con esto.”\n\nAUDIO:\nSolo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Santi no cambia entre planos.",
+      "referencias": [
+        "personaje",
+        "producto"
+      ]
+    },
+    {
+      "id": "1c",
+      "reemplaza": 1,
+      "duracion": 4,
+      "linea": "Los hombres también podemos sacar cola, mi amor. Con esto.",
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.8,
+          "linea": "Los hombres también podemos sacar cola, mi amor.",
+          "habla": "personaje"
+        },
+        {
+          "desde": 2.8,
+          "hasta": 4,
+          "linea": "Con esto.",
+          "habla": "personaje"
+        }
+      ],
+      "prompt_video": "Duración: 4s.\n\nREFERENCIAS:\nImagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el producto. Es la referencia exacta del envase.\n\nSTYLE / MOOD:\nUGC realista de respuesta directa, rápido, seguro y divertido, como un creador de contenido de TikTok mostrando su secreto. Video vertical 9:16 grabado con celular por él mismo, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que él mismo editó en el celular. Imagen ultra realista de celular: piel real con poros, sin filtro de belleza. Nada sugerente ni sexualizado. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, con acento colombiano natural y cotidiano (no neutro, no mexicano, no de España). Voz masculina de un hombre de unos 25 años, de timbre medio-agudo, brillante y juguetón, muy expresiva, con chispa y picardía, como un creador de contenido contándole un secreto a sus amigas, sin tono de locutor. Ritmo rápido y seguro, con energía, sin sonar memorizado. Habla en español de Colombia.\n\nMAIN CHARACTER:\nEl hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un esqueleto blanco ajustado de algodón (camiseta sin mangas) y un biker gris oscuro de algodón que le llega por encima de la rodilla, sin gafas, con los rizos sueltos.\n\nSETTING:\nSu cuarto, en la mañana. Pared color durazno con líneas blancas finas en diagonal; un espejo de cuerpo entero de marco negro con esquinas redondeadas apoyado en la pared; una cama con cobija fucsia de flores; una ventana con cortina clara por donde entra la luz natural de la mañana, que le da de frente a él y al frasco. Sobre la cama solo está la cobija; no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nHabla mirando a cámara con seguridad y picardía, como quien cuenta un secreto. Gestos naturales y creíbles con las manos, las cejas y la cabeza, nada rígido; media sonrisa, energía alta. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro, de lados rectos y hombros redondeados, casi el doble de alto que de ancho, con tapa de rosca rosada fucsia, corta y casi tan ancha como el cuerpo, y una franja rosada en la base; etiqueta negra con «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1» y «TRIPLE ACCIÓN» en rosado, y tres recuadros pequeños de borde rosado. No es una botella delgada ni un pote chato. De la imagen 2 toma solo el frasco: no copies la mano que lo sostiene, el fondo ni la barra gris de abajo. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, un poco más alto que la palma de una mano. Solo hay un frasco. Siempre está cerrado: no se ven cápsulas sueltas ni el frasco abierto. Cuando está en la mano, va en una sola mano, junto a la cara, a la altura del pecho y a la misma distancia de la cámara que la cara, con los dedos por los costados sin tapar la etiqueta, y ocupa cerca del 40 % de la altura del cuadro; la otra mano no sostiene nada. La luz le da de frente y la etiqueta queda iluminada, sin contraluz, sin arcoíris ni reflejos de colores; la etiqueta siempre se lee al derecho, nunca en espejo. En este video no se ve en el primer tramo y está en su mano derecha en el segundo.\n\nTIMESTAMPS:\n[0.0–2.8s]\nPlano medio de frente, de la cabeza a las rodillas, con el celular apoyado sobre la cama: está de pie delante de la pared durazno, con las manos vacías en la cintura. Levanta la barbilla con orgullo, se señala a sí mismo con el pulgar de la mano derecha y sonríe mirando a cámara.\nDIÁLOGO: “Los hombres también podemos sacar cola, mi amor.”\n[2.8–4.0s]\nCorte a plano del pecho para arriba, de frente, con el celular apoyado (ya no es el espejo): sostiene el frasco cerrado junto a su cara con la mano derecha, con la etiqueta de frente a cámara, y la mano izquierda queda vacía y fuera del cuadro. Guiña un ojo; al terminar de hablar sonríe y se queda quieto, sosteniendo el frasco, en silencio.\nDIÁLOGO: “Con esto.”\n\nAUDIO:\nSolo la voz de él y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Santi no cambia entre planos.",
+      "referencias": [
+        "personaje",
+        "producto"
+      ]
+    }
+  ],
+  "broll": [],
+  "overlays": []
+}
