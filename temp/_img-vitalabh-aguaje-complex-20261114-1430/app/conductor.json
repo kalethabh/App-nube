@@ -1,0 +1,50 @@
+{
+  "slug": "_img-vitalabh-aguaje-complex-20261114-1430",
+  "familia": "imagen-ads",
+  "estado": "corriendo",
+  "paso": "estrategia",
+  "pasos": [
+    {
+      "id": "preparar",
+      "nombre": "Preparando tu lote",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-14T19:30:49.525Z",
+      "fin": "2026-11-14T19:30:49.569Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Revisando con qué se hacen tus imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-14T19:30:49.569Z",
+      "fin": "2026-11-14T19:30:49.570Z"
+    },
+    {
+      "id": "estrategia",
+      "nombre": "La IA arma la estrategia",
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-14T19:30:49.570Z",
+      "detalle": "Armando el plan del lote",
+      "uuid": "5605dbcf-eea5-4eb3-a846-f4d52720bbd3"
+    },
+    {
+      "id": "anuncios",
+      "nombre": "Creando tus anuncios",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "informe",
+      "nombre": "Armando tu informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-14T19:30:49.525Z",
+  "aprobado": "2026-11-14T19:30:49.525Z",
+  "actualizado": "2026-11-14T19:32:32.891Z"
+}

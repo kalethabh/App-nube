@@ -1,0 +1,26 @@
+{
+  "resumen": "Las 5 imágenes van con el mismo mensaje directo de tu referencia: más glúteos y piernas, sin efecto rebote. La primera copia la estructura de tu referencia con otra mujer y en otro lugar, y le suma la oferta del tratamiento completo x3 unidades por $139,900. Las demás muestran el mismo cambio con otros diseños; el precio aparece solo en los diseños que tienen un espacio para la oferta.",
+  "paleta": [
+    { "hex": "#E91E78", "nombre": "Rosa fuerte" },
+    { "hex": "#0E0E10", "nombre": "Negro brillante" },
+    { "hex": "#A80F55", "nombre": "Magenta profundo" },
+    { "hex": "#F7A8C9", "nombre": "Rosa suave" },
+    { "hex": "#FCE3EE", "nombre": "Rosa de fondo" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#F28A1E", "nombre": "Naranja aguaje" }
+  ],
+  "tipografia": "Poppins Bold en mayúsculas para los títulos y el precio. Poppins Regular para el resto.",
+  "estilo": "Femenino, llamativo y directo. Rosa y negro como tu frasco, con fotos reales de mujeres adultas en ropa deportiva mostrando el cambio en glúteos y piernas.",
+  "beneficios": [
+    "Ayuda a aumentar el volumen de glúteos y piernas",
+    "Sin efecto rebote: no te hace subir de peso",
+    "Ayuda a moldear tu figura y tu cintura",
+    "No necesitas rutinas de ejercicio para tomarlo"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje, fenogreco y maca negra en un solo frasco",
+    "60 cápsulas por frasco: 2 al día con tus comidas",
+    "Con vitamina A y vitamina E",
+    "Tratamiento completo de 3 frascos (3 meses), con pago al recibir"
+  ]
+}
