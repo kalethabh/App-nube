@@ -20,7 +20,18 @@
         "linea": "¿Sabes con qué empiezo yo mis días, mi vida? Con esto.",
         "frase_original": "Cómo hice pa' verme así de bien",
         "frase_nueva": "Sabes con qué empiezo yo mis días",
-        "motivo": "Cambié «Cómo hice pa' verme así de bien» por «Sabes con qué empiezo yo mis días». Hablar de cómo cambió su cuerpo seguía frenando la escena, así que el gancho ahora despierta curiosidad sin prometer un resultado. Sigue mostrando el producto con «Con esto»."
+        "motivo": "Cambié «Cómo hice pa' verme así de bien» por «Sabes con qué empiezo yo mis días». Hablar de cómo cambió su cuerpo seguía frenando la escena, así que el gancho ahora despierta curiosidad sin prometer un resultado. Sigue mostrando el producto con «Con esto».",
+        "rechazo": "Request blocked: The generation was blocked by Google safety review."
+      },
+      {
+        "fecha": "2026-11-14T03:47:31.808Z",
+        "failMsg": "Request blocked: The generation was blocked by Google safety review.",
+        "fase": "aplicado",
+        "lineaAntes": "¿Sabes con qué empiezo yo mis días, mi vida? Con esto.",
+        "linea": "¿Saben con qué empiezo yo mis días, mi gente? Con esto.",
+        "frase_original": "Sabes con qué / mi vida",
+        "frase_nueva": "Saben con qué / mi gente",
+        "motivo": "Cambié «Sabes» por «Saben» y «mi vida» por «mi gente», para que no suene a coqueteo. Ojo: la frase ya no dice nada delicado. Lo más probable es que frene cómo la escena muestra el cuerpo (la pose de espaldas). Si la rechazan otra vez, toca suavizar esa imagen."
       }
     ]
   },
@@ -34,7 +45,7 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T03:45:36.484Z",
+  "actualizado": "2026-11-14T03:47:31.808Z",
   "revision": {
     "ronda": 1,
     "medidas": {
