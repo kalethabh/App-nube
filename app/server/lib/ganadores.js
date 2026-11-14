@@ -84,6 +84,7 @@ const entero = (v, min, max, porDefecto) => {
 
 /** Normaliza lo que manda la pantalla (lo que no se reconoce se ignora). */
 export function filtrosLimpios(f = {}) {
+  // paises: [] = todos los países (sin filtro de país); si no viene nada, Colombia
   const paises = (Array.isArray(f.paises) ? f.paises : f.pais ? [f.pais] : ['CO'])
     .map((p) => String(p || '').toUpperCase())
     .filter((p) => /^[A-Z]{2}$/.test(p))
@@ -94,7 +95,7 @@ export function filtrosLimpios(f = {}) {
     .slice(0, 6);
   const texto = String(f.texto || '').replace(/\s+/g, ' ').trim().slice(0, 120);
   return {
-    paises: paises.length ? [...new Set(paises)] : ['CO'],
+    paises: [...new Set(paises)],
     idioma: /^[a-z]{2}$/.test(String(f.idioma || '')) ? String(f.idioma) : 'es',
     texto,
     buscarEn: ['ad_copy', 'brand', 'domain'].includes(f.buscarEn) ? f.buscarEn : 'ad_copy',
@@ -112,13 +113,13 @@ export function filtrosLimpios(f = {}) {
 export function argumentosBusqueda(f) {
   const a = {
     status: 'active',
-    ad_countries: { include: f.paises },
     ad_languages: [f.idioma],
     sort_by: ORDENES[f.orden].sort_by,
     order: 'desc',
     limit: f.cantidad,
     page: f.pagina,
   };
+  if (f.paises.length) a.ad_countries = { include: f.paises };
   if (f.texto) {
     a.query = f.texto;
     a.search_in = f.buscarEn;
@@ -142,7 +143,7 @@ const urlSegura = (u) => {
     return null;
   }
 };
-const deTrendtrack = (u) => {
+export const deTrendtrack = (u) => {
   const x = urlSegura(u);
   return x && /(^|\.)trendtrack\.io$/i.test(new URL(x).hostname) ? x : null;
 };
