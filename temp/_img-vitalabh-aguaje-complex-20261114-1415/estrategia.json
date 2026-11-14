@@ -1,0 +1,26 @@
+{
+  "resumen": "Vitalabh Aguaje Complex 3 en 1 es un suplemento en cápsulas con aguaje, fenogreco y maca negra, para mujeres que quieren apoyar sus curvas. Tus anuncios van a usar el negro y el rosado del frasco, con letras gruesas y fotos reales. El primero sigue tu imagen de referencia y los demás muestran el 3 en 1, los ingredientes, la seguridad en ti misma y la rutina diaria.",
+  "paleta": [
+    { "hex": "#0D0D0F", "nombre": "Negro brillante" },
+    { "hex": "#E8327C", "nombre": "Rosado fuerte" },
+    { "hex": "#F58FB8", "nombre": "Rosado suave" },
+    { "hex": "#FCE7EF", "nombre": "Crema rosada" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#D81B60", "nombre": "Frambuesa" },
+    { "hex": "#F2A33A", "nombre": "Naranja aguaje" }
+  ],
+  "tipografia": "Poppins gruesa para los títulos y Poppins normal para el resto.",
+  "estilo": "Moderno, femenino y con fuerza: negro y rosado con mucho contraste, el frasco siempre nítido y brillante, ingredientes naturales y personas reales con luz cálida.",
+  "beneficios": [
+    "Apoya el volumen de glúteos y piernas",
+    "Acompaña una figura más definida",
+    "Tres ingredientes en un solo frasco",
+    "Fácil de tomar: 2 cápsulas al día"
+  ],
+  "caracteristicas": [
+    "Aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg por porción",
+    "Con vitamina A y vitamina E",
+    "Frasco de 60 cápsulas",
+    "Se toma con las comidas principales"
+  ]
+}
