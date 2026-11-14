@@ -345,6 +345,11 @@ export async function costoDePiezas(slug, { esperarMs = 2000 } = {}) {
  */
 export async function costoDeImagenAds() {
   try {
+    const { motorDeImagenes } = await import('./motor-imagenes.js');
+    // Con tu suscripcion de ChatGPT no se cobra por imagen: el costo es 0 (y la pantalla lo dice asi).
+    if (motorDeImagenes() === 'chatgpt') {
+      return { conChatGPT: true, creditosPorImagen: 0, dolaresPorImagen: 0, dolaresPorCredito: DOLARES_POR_CREDITO, margen: 0, modelo: 'ChatGPT (tu suscripción)' };
+    }
     const f = await import('./familias/imagen-ads.js');
     const creditos = Number(f.CREDITOS_POR_IMAGEN);
     if (!(creditos > 0)) return null;

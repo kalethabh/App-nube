@@ -160,7 +160,7 @@ export function InformeLote({ vista, onRegenerar, onAbrir, onEscribir, escribien
 
         {c ? (
           <Tarjeta variante="elevada" className="lote-costo">
-            <TarjetaCabecera icono={Receipt} titulo={modoPrueba ? 'Lo que habría costado' : 'Costo real'} subtitulo="Las imágenes de este lote en kie.ai, con lo que regeneraste." />
+            <TarjetaCabecera icono={Receipt} titulo={modoPrueba ? 'Lo que habría costado' : 'Costo real'} subtitulo={Number(c.dolares) === 0 && !modoPrueba ? 'Las imágenes de este lote las hizo tu ChatGPT: sin costo por imagen.' : 'Las imágenes de este lote en kie.ai, con lo que regeneraste.'} />
             <div className="lote-costo__total">
               <span className="lote-costo__numero t-num">{dinero(c.dolares)}</span>
               {modoPrueba ? (

@@ -483,6 +483,8 @@ export function firmaDeArchivo(abs) {
 export const MENSAJES_SIN_IMAGEN = {
   contenido: 'kie no quiso hacer esta imagen por sus reglas de contenido',
   'fallo-de-kie': 'kie no pudo hacer esta imagen',
+  'contenido-chatgpt': 'ChatGPT no quiso hacer esta imagen por sus reglas de contenido',
+  'fallo-de-chatgpt': 'ChatGPT no pudo hacer esta imagen',
   'pedido-invalido': 'kie no pudo hacer esta imagen',
   'no-se-pudo-bajar': 'kie la hizo pero no se pudo bajar',
   'falta-cuadrado': 'No se pudo hacer la vertical porque falta su imagen cuadrada',

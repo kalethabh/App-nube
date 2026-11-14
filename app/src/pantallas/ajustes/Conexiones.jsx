@@ -43,6 +43,7 @@ import {
   useSaldo,
 } from './datos.js';
 import { CampoClave } from './piezas.jsx';
+import { TarjetaChatGPTImagenes } from './ChatGPTImagenes.jsx';
 
 /**
  * Los modelos elegidos en Ajustes › Modelos (vienen de /api/estado: el catálogo + tu elección): la imagen, el video
@@ -663,7 +664,7 @@ export function Conexiones({ estado, recargar, alElegirModelos }) {
         <div className="conexion-claude__cuerpo">
           <div className="conexion-claude__cabecera">
             <div className="pila" style={{ '--hueco': '6px' }}>
-              <span className="t-etiqueta">Guiones</span>
+              <span className="t-etiqueta">Guiones y textos</span>
               <h3 className="conexion-claude__titulo">{motor.elegido ? `Tu IA: ${motor.nombre}` : 'Tu IA'}</h3>
               <p className="conexion-claude__lema">
                 {motor.elegido
@@ -686,11 +687,14 @@ export function Conexiones({ estado, recargar, alElegirModelos }) {
         </div>
       </Tarjeta>
 
+      {/* Las imágenes de los anuncios de imagen: tu ChatGPT (sin costo por imagen) o kie.ai */}
+      <TarjetaChatGPTImagenes />
+
       {/* Imágenes, videos y música: kie.ai, su clave y su saldo */}
       <Tarjeta className="conexion-bloque">
         <div className="conexion-bloque__cabecera">
           <div className="pila" style={{ '--hueco': '4px' }}>
-            <h3 className="conexion-bloque__titulo">Imágenes, videos y música</h3>
+            <h3 className="conexion-bloque__titulo">Videos, música e imágenes de los videos</h3>
             <p className="conexion-bloque__texto">Los hace kie.ai con tu cuenta, con los modelos de IA que elegiste:</p>
           </div>
           <div className="modelos-kie__fila">

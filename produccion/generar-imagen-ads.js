@@ -1,6 +1,11 @@
 // ANUNCIOS DE IMAGEN — el motor que cobra (ESPECIFICACION-imagen-ads.md, seccion 5.2).
 //
-//   node produccion/generar-imagen-ads.js temp/<lote> [--concurrencia 30] [--ociosa 20] [--heredar-log]
+//   node produccion/generar-imagen-ads.js temp/<lote> [--motor chatgpt|kie] [--concurrencia 30] [--ociosa 20] [--heredar-log]
+//
+// --motor chatgpt (lo pasa la app cuando las imagenes van con la suscripcion de ChatGPT, lib/motor-imagenes.js): cada
+// pieza la hace Codex con image_gen (produccion/chatgpt-imagen.js), sin kie, sin subir nada y sin costo por imagen;
+// 3 a la vez por defecto. Sin sesion o sin uso de ChatGPT se deja de pedir con CHATGPT_SIN_SESION / CHATGPT_LIMITE en
+// el texto (la app lo convierte en su mensaje). Lo de abajo (huellas, tareas que se retoman) es de kie.
 //
 // --heredar-log (lo pasa la app cuando la corrida anterior se corto: la app se cerro de golpe y su gasto quedo
 // abierto en app/gasto/en-curso.json): este proceso sigue el img/log-modelos.json que dejo el proceso cortado en vez
@@ -51,6 +56,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { creditosAUsd, cargarEnv, requerirClave } from './config.js';
 import { generarImagen, subirArchivo, esSigueEnKie, esPagadaSinBajar, clasificarFallo } from './kie-client.js';
+import { generarConChatGPT, codexDesdeEntorno, MODELO_CHATGPT } from './chatgpt-imagen.js';
 import {
   MODELO,
   RESOLUCION,
@@ -264,8 +270,10 @@ export function validarOrden(datos, id) {
 // ---------------------------------------------------------------- el motor
 
 class Motor {
-  constructor({ carpeta, carpetaArg, lote, concurrencia, ociosaMs, heredarLog = false }) {
+  constructor({ carpeta, carpetaArg, lote, concurrencia, ociosaMs, heredarLog = false, chatgpt = null }) {
     this.carpeta = carpeta;
+    // Con la suscripcion de ChatGPT (--motor chatgpt): sin kie, sin subir nada y sin costo por imagen.
+    this.chatgpt = chatgpt;
     this.heredarLog = heredarLog;
     this.carpetaArg = carpetaArg;
     this.lote = lote;
@@ -508,7 +516,7 @@ class Motor {
     if (this.detenido) return;
     this.detenido = { codigo, clase, texto };
     console.log(`\n  !!  ${codigo === 2 ? 'Orden o lote invalido' : 'Se deja de pedir'}: ${primeraLinea(texto)}`);
-    if (codigo !== 2) console.log('      Las que ya estaban en kie se esperan hasta que terminen.\n');
+    if (codigo !== 2) console.log(this.chatgpt ? '      Las que ya estaban en marcha se esperan hasta que terminen.\n' : '      Las que ya estaban en kie se esperan hasta que terminen.\n');
   }
 
   // ------------------------------------------------------------ una pieza
@@ -835,6 +843,9 @@ class Motor {
     }
     escribirAtomico(rutaTxt, prompt);
 
+    // 5') Con ChatGPT: sin subir nada, sin tareas que retomar y sin costo.
+    if (this.chatgpt) return this.procesarConChatGPT(T, item, { prompt, archivos, destino, rehacer, huella, formato });
+
     // 5) Pedir, con los topes.
     let topes = 0;
     let descargas = 0;
@@ -999,6 +1010,51 @@ class Motor {
     }
   }
 
+  /**
+   * Una pieza con la suscripcion de ChatGPT. Hasta INTENTOS intentos (anotados antes de pedir). Sin sesion o sin uso
+   * disponible: el intento se devuelve y se deja de pedir (la app lo dice con su marca CHATGPT_SIN_SESION o
+   * CHATGPT_LIMITE).
+   */
+  async procesarConChatGPT(T, item, { prompt, archivos, destino, rehacer, huella, formato }) {
+    const { pieza } = item;
+    const rec = T.resultado.piezas[pieza];
+    for (;;) {
+      if (this.detenido) return;
+      if ((Number(rec.intentosApi) || 0) >= INTENTOS) return this.sinImagen(T, item, rec.ultimoMotivo || 'fallo-de-chatgpt');
+      rec.intentosApi = (Number(rec.intentosApi) || 0) + 1;
+      rec.intentoAbierto = true;
+      rec.taskId = null;
+      rec.estado = 'generando';
+      await this.guardarYa(T);
+      try {
+        const res = await generarConChatGPT({
+          prompt,
+          referencias: archivos,
+          aspecto: formato,
+          rutaDestino: destino,
+          codex: this.chatgpt,
+          alAvisar: (s) => console.log(`  ..  ${pieza}: ChatGPT sigue haciendo la imagen (${s} s)`),
+        });
+        rec.intentoAbierto = false;
+        return this.alSalirBien(T, item, res, { rehacer, huella, referencias: archivos.length });
+      } catch (e) {
+        rec.intentoAbierto = false;
+        if (e?.sinSesion || e?.limite) {
+          rec.intentosApi = Math.max(0, (Number(rec.intentosApi) || 1) - 1);
+          rec.estado = 'en-cola';
+          await this.guardarYa(T);
+          return this.detener(1, e.sinSesion ? 'chatgpt-sesion' : 'chatgpt-limite', `${e.sinSesion ? 'CHATGPT_SIN_SESION' : 'CHATGPT_LIMITE'} ${primeraLinea(e.message)}`);
+        }
+        const motivo = e?.contenido ? 'contenido-chatgpt' : 'fallo-de-chatgpt';
+        rec.ultimoMotivo = motivo;
+        console.log(`  ..  ${pieza}: intento ${rec.intentosApi}/${INTENTOS} fallo en ChatGPT (${primeraLinea(e?.message || String(e)).slice(0, 160)})`);
+        if (rec.intentosApi >= INTENTOS) return this.sinImagen(T, item, motivo, e?.message);
+        await this.guardarYa(T);
+        await dormir(3000 * rec.intentosApi);
+      }
+    }
+  }
+
   /** Un fallo de todo el proceso: deja de pedir, con un texto que procesos.clasificarFallo entiende. */
   detenerPorError(e, que) {
     const codigo = codigoDelError(e);
@@ -1043,7 +1099,7 @@ class Motor {
 
   async correr() {
     console.log(`\n=== Anuncios de imagen — ${path.basename(this.carpeta)} ===\n`);
-    console.log(`  Modelo: ${MODELO} a ${RESOLUCION}${FONDO ? `, fondo ${FONDO}` : ''}${this.lote.logo ? `; logo ${this.lote.logo.posicion} (lo pega la app)` : ''}`);
+    console.log(`  Modelo: ${this.chatgpt ? `${MODELO_CHATGPT}, con tu suscripcion (sin costo por imagen)` : `${MODELO} a ${RESOLUCION}${FONDO ? `, fondo ${FONDO}` : ''}`}${this.lote.logo ? `; logo ${this.lote.logo.posicion} (lo pega la app)` : ''}`);
     console.log(`  Hasta ${this.concurrencia} a la vez; sale tras ${Math.round(this.ociosaMs / 1000)} s sin trabajo.\n`);
 
     this.heredarRegistro();
@@ -1132,21 +1188,32 @@ function opcionNumero(args, nombre, porDefecto, { min, max }) {
 
 async function cli() {
   const args = process.argv.slice(2);
-  const valores = new Set(['--concurrencia', '--ociosa'].map((o) => args.indexOf(o)).filter((i) => i !== -1).map((i) => i + 1));
+  const valores = new Set(['--concurrencia', '--ociosa', '--motor'].map((o) => args.indexOf(o)).filter((i) => i !== -1).map((i) => i + 1));
   const heredarLog = args.includes('--heredar-log');
   const carpetaArg = args.find((a, i) => !a.startsWith('--') && !valores.has(i));
   if (!carpetaArg) {
-    console.error('\n  Uso: node produccion/generar-imagen-ads.js temp/<lote> [--concurrencia 30] [--ociosa 20] [--heredar-log]\n');
+    console.error('\n  Uso: node produccion/generar-imagen-ads.js temp/<lote> [--motor chatgpt|kie] [--concurrencia 30] [--ociosa 20] [--heredar-log]\n');
     return 2;
   }
   let motor;
   try {
     const carpeta = path.resolve(carpetaArg);
     if (!fs.existsSync(carpeta) || !fs.statSync(carpeta).isDirectory()) throw new ErrorInvalido(`No existe la carpeta del lote: ${carpetaArg}`);
-    const concurrencia = Math.round(opcionNumero(args, '--concurrencia', 30, { min: 1, max: 100 }));
+    const iMotor = args.indexOf('--motor');
+    const conChatGPT = iMotor !== -1 && args[iMotor + 1] === 'chatgpt';
+    if (iMotor !== -1 && !['chatgpt', 'kie'].includes(args[iMotor + 1])) throw new ErrorInvalido('--motor necesita chatgpt o kie.');
+    const concurrencia = Math.round(opcionNumero(args, '--concurrencia', conChatGPT ? 3 : 30, { min: 1, max: 100 }));
     const ociosaMs = Math.round(opcionNumero(args, '--ociosa', 20, { min: 0, max: 3600 }) * 1000);
     const lote = leerLote(carpeta);
-    motor = new Motor({ carpeta, carpetaArg, lote, concurrencia, ociosaMs, heredarLog });
+    let chatgpt = null;
+    if (conChatGPT) {
+      chatgpt = codexDesdeEntorno();
+      if (!chatgpt) {
+        console.error('\n  CHATGPT_SIN_SESION Falta conectar ChatGPT para hacer imagenes (Ajustes › Conexiones).\n');
+        return 1;
+      }
+    }
+    motor = new Motor({ carpeta, carpetaArg, lote, concurrencia, ociosaMs, heredarLog, chatgpt });
   } catch (e) {
     console.error(`\n  ${e.message}\n`);
     return e instanceof ErrorInvalido ? 2 : 1;
@@ -1158,6 +1225,7 @@ async function cli() {
   } catch {
     // sin .env: vale la que venga en el entorno (requerirClave lo dice si no hay ninguna)
   }
+  if (motor.chatgpt) return motor.correr();
   try {
     requerirClave('KIE_API_KEY', 'pegala en Ajustes de la app (sale de https://kie.ai/api-key)');
   } catch (e) {
