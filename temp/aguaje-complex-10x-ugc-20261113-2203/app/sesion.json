@@ -16,11 +16,15 @@
     "Leyendo",
     "Buscando en los archivos",
     "Escribiendo el guion y cada escena",
-    "Revisando que el guion esté completo"
+    "Revisando que el guion esté completo",
+    "Ajustando el guion",
+    "Revisando que el guion esté completo",
+    "Guardando",
+    "Marcando las transiciones"
   ],
   "inicio": "2026-11-14T03:03:41.014Z",
   "cambios": [],
-  "actualizado": "2026-11-14T03:10:24.258Z",
+  "actualizado": "2026-11-14T03:12:49.432Z",
   "error": null,
   "inicioIntento": "2026-11-14T03:03:41.015Z"
 }
