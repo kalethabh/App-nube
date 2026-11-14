@@ -1,0 +1,28 @@
+{
+  "id": "8e7ac4afe311",
+  "fase": "prompts",
+  "frase": "Buscando en los archivos",
+  "piezas": [
+    {
+      "id": "f0bbd2a87eaf",
+      "creado": "2026-11-14T01:31:03.070Z",
+      "pieza": "toma-9",
+      "nombre": "Bloque 9",
+      "modo": "pedido",
+      "pedido": "en el segundo cuadro parece que no estuviera el producto en la bolsa cuando le pega la etiqueta. debe verse que si hay el producto ahí.",
+      "conImagen": false,
+      "estado": "prompts",
+      "sesion": {
+        "uuid": "547d017d-3f08-4025-b110-7350fb3aecd6",
+        "intentos": 1
+      }
+    }
+  ],
+  "creado": "2026-11-14T01:36:45.108Z",
+  "actualizado": "2026-11-14T01:36:49.245Z",
+  "pieza": "toma-9",
+  "nombre": "Bloque 9",
+  "pedido": "en el segundo cuadro parece que no estuviera el producto en la bolsa cuando le pega la etiqueta. debe verse que si hay el producto ahí.",
+  "conImagen": false,
+  "modo": "pedido"
+}

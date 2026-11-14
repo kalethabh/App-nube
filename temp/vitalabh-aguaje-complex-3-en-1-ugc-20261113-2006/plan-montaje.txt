@@ -1,0 +1,218 @@
+==============================================================================
+PLAN DE MONTAJE — vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+ANUNCIO POR BLOQUES (UGC). Cada bloque es un clip de 4 a 10 s donde la persona
+habla con su propia voz, con lip-sync. No hay voz en off ni B-roll.
+
+REGLA MADRE: manda el clip. Los bloques van en orden y en corte seco; la
+duracion del anuncio es la suma de los bloques ya recortados.
+
+LO QUE NO SE HACE, NUNCA:
+  - No aceleres un bloque hablado: deforma la voz y desincroniza la boca.
+  - No cortes por DENTRO del dialogo: ahi vive el lip-sync.
+  Si un bloque no sirve, se REGENERA (npm run rehacer -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 N). No se ajusta.
+
+LO QUE SI: recorta el silencio del principio y del final de cada bloque. Si al
+final repite palabras que ya dijo, cortalas (abajo se indica donde, si se midio).
+
+------------------------------------------------------------------------------
+
+BLOQUE 1   (10 s, tipo R)   — gancho + prueba
+  Cuando:   00:00.00 -> 00:09.62   (9.62s de ventana)
+  Clip:     video/toma-1.mp4
+  Tramos:
+            [0.0–4.9s]  "¡Miren esto! Este pedido es pa' una clienta que ya nos pide por tercera vez."
+            [4.9–5.9s]  "¡La tercera!"
+            [5.9–7.8s]  "¿Y saben por qué repiten?"
+            [7.8–10.0s]  "Porque a muchas les ha funcionado:"
+  Dice:     "¡Miren esto! Este pedido es pa' una clienta que ya nos pide por tercera vez. ¡La tercera! ¿Y saben por qué repiten? Porque a muchas les ha funcionado:"
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+  Recorte:  0.00s del INICIO y 0.38s del FINAL.
+            Quedan 9.62s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 2   (10 s, tipo R)   — prueba
+  Cuando:   00:09.62 -> 00:19.62   (10.00s de ventana)
+  Clip:     video/toma-2.mp4
+  Tramos:
+            [0.0–1.3s]  "no las engordó,"
+            [1.3–5.4s]  "lo que tenían en el abdomen se les moldeó y se les tonificó,"
+            [5.4–8.4s]  "y les aumentó el volumen en piernas y cola."
+            [8.4–10.0s]  "¡Se ven súper wow!"
+  Dice:     "no las engordó, lo que tenían en el abdomen se les moldeó y se les tonificó, y les aumentó el volumen en piernas y cola. ¡Se ven súper wow!"
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 10.00s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 3   (8 s, tipo R)   — problema
+  Cuando:   00:19.62 -> 00:26.91   (7.29s de ventana)
+  Clip:     video/toma-3.mp4
+  Tramos:
+            [0.0–3.6s]  "Y les cuento algo que yo veo aquí todos los días."
+            [3.6–8.0s]  "Hay tiendas que dicen que el suyo es «el aguaje original de Vitalcom»."
+  Dice:     "Y les cuento algo que yo veo aquí todos los días. Hay tiendas que dicen que el suyo es «el aguaje original de Vitalcom»."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
+  Recorte:  0.51s del INICIO y 0.14s del FINAL.
+            Quedan 7.29s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 4   (6 s, tipo R)   — problema
+  Cuando:   00:26.91 -> 00:32.88   (5.97s de ventana)
+  Clip:     video/toma-4.mp4
+  Tramos:
+            [0.0–2.0s]  "Mentira: no hay un solo original."
+            [2.0–4.7s]  "Lo dicen pa' que solo les compren a ellos,"
+            [4.7–6.0s]  "y mucho más caro."
+  Dice:     "Mentira: no hay un solo original. Lo dicen pa' que solo les compren a ellos, y mucho más caro."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 5.97s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 5   (10 s, tipo R)   — solución
+  Cuando:   00:32.88 -> 00:42.47   (9.59s de ventana)
+  Clip:     video/toma-5.mp4
+  Tramos:
+            [0.0–3.6s]  "Lo que de verdad hace que funcione es que traiga aguaje,"
+            [3.6–5.1s]  "fenogreco y maca negra,"
+            [5.1–6.3s]  "los tres, puros."
+            [6.3–8.7s]  "Eso es lo que da los resultados,"
+            [8.7–10.0s]  "no la marca."
+  Dice:     "Lo que de verdad hace que funcione es que traiga aguaje, fenogreco y maca negra, los tres, puros. Eso es lo que da los resultados, no la marca."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
+  Recorte:  0.00s del INICIO y 0.41s del FINAL.
+            Quedan 9.59s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 6   (8 s, tipo R)   — problema
+  Cuando:   00:42.47 -> 00:49.83   (7.36s de ventana)
+  Clip:     video/toma-6.mp4
+  Tramos:
+            [0.0–2.3s]  "Y otra cosa que no les dicen:"
+            [2.3–4.0s]  "les venden un solo frasco,"
+            [4.0–6.6s]  "pa' que tengan que estar comprando y comprando."
+            [6.6–8.0s]  "Ese es el negocio."
+  Dice:     "Y otra cosa que no les dicen: les venden un solo frasco, pa' que tengan que estar comprando y comprando. Ese es el negocio."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
+  Recorte:  0.29s del INICIO y 0.28s del FINAL.
+            Quedan 7.36s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 7   (6 s, tipo R)   — oferta
+  Cuando:   00:49.83 -> 00:55.66   (5.84s de ventana)
+  Clip:     video/toma-7.mp4
+  Tramos:
+            [0.0–2.4s]  "Aquí sí les decimos la verdad:"
+            [2.4–6.0s]  "lo ideal es el tratamiento completo de tres meses."
+  Dice:     "Aquí sí les decimos la verdad: lo ideal es el tratamiento completo de tres meses."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
+  Recorte:  0.13s del INICIO y 0.00s del FINAL.
+            Quedan 5.84s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 8   (8 s, tipo R)   — oferta
+  Cuando:   00:55.66 -> 01:03.59   (7.93s de ventana)
+  Clip:     video/toma-8.mp4
+  Tramos:
+            [0.0–1.7s]  "Los resultados llegan más rápido,"
+            [1.7–3.4s]  "son duraderos, sin efecto rebote,"
+            [3.4–5.7s]  "y se quedan incluso después de terminarlo."
+            [5.7–8.0s]  "No tienen que estar comprando cada rato."
+  Dice:     "Los resultados llegan más rápido, son duraderos, sin efecto rebote, y se quedan incluso después de terminarlo. No tienen que estar comprando cada rato."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 9   (8 s, tipo R)   — cierre
+  Cuando:   01:03.59 -> 01:11.32   (7.73s de ventana)
+  Clip:     video/toma-9.mp4
+  Tramos:
+            [0.0–2.3s]  "Este ya va empacadito, mañana sale,"
+            [2.3–5.3s]  "y ella lo paga cuando le llegue a su casa."
+            [5.3–8.0s]  "El tuyo está en el botón de abajo."
+  Dice:     "Este ya va empacadito, mañana sale, y ella lo paga cuando le llegue a su casa. El tuyo está en el botón de abajo."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
+  Recorte:  0.00s del INICIO y 0.20s del FINAL.
+            Quedan 7.73s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+------------------------------------------------------------------------------
+
+GANCHOS ALTERNATIVOS (opcionales, para probar en Meta cual vende mas)
+Cada uno es otra version completa del bloque que reemplaza. El resto del anuncio
+no cambia: se arma una version del anuncio por gancho.
+
+GANCHO 1b   (10 s) — reemplaza al BLOQUE 1
+  Clip:     video/gancho-1b.mp4   (todavia no generado: npm run videos -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 --ganchos)
+  Tramos:
+            [0.0–4.9s]  "Trabajo empacando pedidos, y este es pa' una clienta que ya pide por tercera vez."
+            [4.9–5.9s]  "¡La tercera!"
+            [5.9–7.8s]  "¿Y saben por qué repiten?"
+            [7.8–10.0s]  "Porque a muchas les ha funcionado:"
+  Dice:     "Trabajo empacando pedidos, y este es pa' una clienta que ya pide por tercera vez. ¡La tercera! ¿Y saben por qué repiten? Porque a muchas les ha funcionado:"
+  Version del anuncio con este gancho:  npm run ugc:gancho -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 1b
+  (a mano: la misma linea de tiempo, cambiando solo el bloque 1 por este clip)
+
+GANCHO 1c   (10 s) — reemplaza al BLOQUE 1
+  Clip:     video/gancho-1c.mp4   (todavia no generado: npm run videos -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 --ganchos)
+  Tramos:
+            [0.0–4.9s]  "¿Cómo saben si un producto sí sirve? Miren: esta clienta ya nos pide por tercera vez."
+            [4.9–5.9s]  "¡La tercera!"
+            [5.9–7.8s]  "¿Y saben por qué repiten?"
+            [7.8–10.0s]  "Porque a muchas les ha funcionado:"
+  Dice:     "¿Cómo saben si un producto sí sirve? Miren: esta clienta ya nos pide por tercera vez. ¡La tercera! ¿Y saben por qué repiten? Porque a muchas les ha funcionado:"
+  Version del anuncio con este gancho:  npm run ugc:gancho -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006 1c
+  (a mano: la misma linea de tiempo, cambiando solo el bloque 1 por este clip)
+
+------------------------------------------------------------------------------
+
+SUBTITULOS, TEXTO EN PANTALLA Y MUSICA
+  Van en el montaje, nunca dentro de los clips. Musica baja, unos -22 dB por
+  debajo de la voz.
+
+AUDIO DE LOS CLIPS
+  La voz viene DENTRO de cada clip, con el ambiente del lugar. No se le agrega
+  narracion. Un fade corto (~80ms) en cada corte evita que suene seco.
+
+==============================================================================

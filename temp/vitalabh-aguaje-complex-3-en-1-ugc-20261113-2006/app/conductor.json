@@ -1,8 +1,8 @@
 {
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006",
   "familia": "ugc",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -74,42 +74,41 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-14T01:30:28.523Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 2012,
-        "total": 2140,
-        "restante": 13,
-        "en": "2026-11-14T01:34:48.393Z"
-      }
+      "fin": "2026-11-14T01:36:13.592Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-14T01:36:13.592Z",
+      "fin": "2026-11-14T01:36:42.940Z"
     },
     {
       "id": "ganchos",
       "nombre": "Armar las versiones con otro gancho",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "saltado",
+      "intentos": 1,
+      "inicio": "2026-11-14T01:36:42.941Z",
+      "fin": "2026-11-14T01:36:42.943Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-14T01:36:42.944Z",
+      "fin": "2026-11-14T01:36:43.438Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-14T01:18:15.331Z",
   "aprobado": "2026-11-14T01:18:15.331Z",
-  "actualizado": "2026-11-14T01:34:48.393Z",
+  "actualizado": "2026-11-14T01:36:43.439Z",
   "saldoInicial": {
     "creditos": 959.2,
     "fecha": "2026-11-14T01:18:16.241Z"
@@ -117,5 +116,10 @@
   "costoPlan": {
     "creditos": 762,
     "fecha": "2026-11-14T01:18:16.242Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 2197.2,
+    "fecha": "2026-11-14T01:36:43.424Z"
+  },
+  "terminado": "2026-11-14T01:36:43.439Z"
 }

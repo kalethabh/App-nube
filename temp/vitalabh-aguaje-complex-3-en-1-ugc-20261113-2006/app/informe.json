@@ -1,0 +1,179 @@
+{
+  "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006",
+  "generado": "2026-11-14T01:36:43.433Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 71.32,
+    "estimada": 74,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda lo que dice la persona",
+      "detalle": "El video dura 1:11: 9 bloques donde la persona habla a cámara (pedidos, suman 1:14). Ninguna frase se recortó para cuadrar."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 1:04."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "4 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "83 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "Cada bloque a su velocidad",
+      "detalle": "Un bloque hablado nunca se acelera: le cambiaría la voz y los labios dejarían de ir con lo que dice."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 3,
+      "momento": 19.622,
+      "animacion": "deslizar-derecha",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 5,
+      "momento": 32.877,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 7,
+      "momento": 49.826,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 9,
+      "momento": 63.593,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "revision-avisos",
+      "tipo": "revisar",
+      "titulo": "Lo que notó la revisión",
+      "detalle": "La revisión notó algo en 2 piezas y no se rehízo nada solo: míralas y, si quieres, regenéralas desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).",
+      "piezas": [
+        {
+          "n": null,
+          "unidad": "Escena 2",
+          "momento": 9.622,
+          "valor": "No dijo su parte tal cual: dijo «superguau.» en vez de «súper»; no dijo «wow!». Al final no dijo «súper wow» limpio: juntó las dos palabras y sonó como una sola, distinta a la frase.",
+          "clave": "vid:toma-2",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Escena 6",
+          "momento": 42.467,
+          "valor": "Al final aparece un celular en un soporte delante de ella, que antes no estaba y nadie puso ahí.",
+          "clave": "vid:toma-6",
+          "sugerencia": true
+        }
+      ]
+    },
+    {
+      "id": "rechazos",
+      "tipo": "arreglado",
+      "titulo": "Se cambió una frase que el generador rechazó",
+      "detalle": "El generador de video no acepta algunas frases (sobre todo de salud): se cambió solo esa frase por otra que dice lo mismo, con el mismo largo. Es lo único del guion que se tocó.",
+      "piezas": [
+        {
+          "n": 9,
+          "unidad": "bloque",
+          "momento": 63.593,
+          "valor": "«y ella lo paga cuando le toquen la puerta.» pasó a «y ella lo paga cuando le llegue a su casa.»"
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 762,
+    "dolares": 3.81,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 1,
+      "creditos": 10,
+      "dolares": 0.05
+    },
+    "videos": {
+      "piezas": 9,
+      "creditos": 740,
+      "dolares": 3.7
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 0,
+      "creditosEstimados": 0
+    },
+    "estimado": false,
+    "elevenlabs": {
+      "caracteres": 0,
+      "scribeSegundos": 147.4
+    },
+    "corridas": 6,
+    "respaldo": [],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 1,
+        "creditos": 10,
+        "dolares": 0.05
+      },
+      {
+        "id": "videos",
+        "piezas": 9,
+        "creditos": 740,
+        "dolares": 3.7
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 0
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 959.2,
+      "saldoDespues": 2197.2,
+      "diferencia": -1238,
+      "coincide": false
+    },
+    "rehecho": false
+  },
+  "estilo": "ugc"
+}
