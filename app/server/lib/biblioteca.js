@@ -337,7 +337,7 @@ function leerAvatar(carpeta, id) {
   if (!personas.length) return null;
   let creado = Number(j.creado);
   if (!creado) creado = fs.statSync(dir).mtimeMs;
-  return { id, nombre: String(j.nombre || id), estilo: carpeta, clave: claveDeCarpeta(carpeta), creado, personas };
+  return { id, nombre: String(j.nombre || id), estilo: carpeta, clave: claveDeCarpeta(carpeta), creado, ...(j.origen ? { origen: String(j.origen) } : {}), personas };
 }
 
 /** Los avatares guardados (de un estilo por su clave de la app o su carpeta, o de todos), los más nuevos primero. */
@@ -362,7 +362,7 @@ export function avatarPorId(estilo, id) {
  * Guarda un avatar nuevo con sus imágenes (subidas, de un anuncio o el retrato de un subestilo).
  * personas: [{ rol, nombre?, imagen: <ruta u "subida:…">, descripcion? }]. Exige los personajes obligatorios del estilo.
  */
-export function crearAvatar(estilo, nombre, personas) {
+export function crearAvatar(estilo, nombre, personas, { origen } = {}) {
   const carpeta = carpetaDeEstilo(estilo);
   const r = ROLES_AVATAR[carpeta];
   if (!r) throw Object.assign(new Error('Ese estilo no usa avatares.'), { status: 400 });
@@ -393,7 +393,7 @@ export function crearAvatar(estilo, nombre, personas) {
         descripcion: String(p.descripcion || '').trim().slice(0, 600) || undefined,
       };
     });
-    escribirJSON(path.join(dir, 'avatar.json'), { id, nombre, estilo: carpeta, creado: Date.now(), personas: guardadas });
+    escribirJSON(path.join(dir, 'avatar.json'), { id, nombre, estilo: carpeta, creado: Date.now(), ...(origen ? { origen: String(origen) } : {}), personas: guardadas });
   } catch (e) {
     fs.rmSync(dir, { recursive: true, force: true });
     throw e;
@@ -605,8 +605,30 @@ export function guardarMusicaDelAnuncio(slug, brief) {
 }
 
 /**
- * Las hojas de los personajes de un anuncio (para guardarlas como avatar): las referencias del manifiesto que no son
- * el producto y tienen su imagen en img/ o ref/.
+ * Si el anuncio ya se archivó en la nube (app/en-la-nube.json, lib/archivo-nube.js) y su imagen ya no está en temp/,
+ * la copia de vuelta desde esa carpeta. Devuelve true si el archivo quedó en temp/<slug>/<relativo>.
+ */
+function traerDeLaNube(slug, relativo) {
+  const local = path.join(TEMP, slug, relativo);
+  if (fs.existsSync(local)) return true;
+  const m = leerJSON(path.join(TEMP, slug, 'app', 'en-la-nube.json'));
+  if (!m?.carpeta || !Array.isArray(m.archivos) || !m.archivos.includes(relativo)) return false;
+  const copia = path.resolve(m.carpeta, relativo);
+  if (!copia.startsWith(path.resolve(m.carpeta) + path.sep)) return false;
+  try {
+    if (!fs.statSync(copia).isFile()) return false;
+    fs.mkdirSync(path.dirname(local), { recursive: true });
+    fs.copyFileSync(copia, local);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Las hojas de los personajes de un anuncio (para guardarlas como avatar): las referencias del manifiesto que son
+ * personajes (no el producto, ni lugares u objetos) y tienen su imagen en img/ o ref/, aunque el anuncio ya esté
+ * archivado en la nube.
  */
 export function personajesDelAnuncio(slug) {
   const m = leerJSON(path.join(TEMP, slug, 'manifiesto.json'));
@@ -615,11 +637,49 @@ export function personajesDelAnuncio(slug) {
   const out = [];
   for (const r of refs) {
     if (!r || typeof r.id !== 'string' || /producto|frasco|envase|logo/i.test(r.id) || r.es_producto) continue;
-    const candidatos = [r.archivo, `img/${r.id}.png`, `img/${r.id}.jpg`, `ref/${r.id}.png`].filter(Boolean);
-    const archivo = candidatos.find((c) => fs.existsSync(path.join(TEMP, slug, c)) && IMAGEN.test(c));
+    if (r.tipo && !/personaje|persona|avatar|host/i.test(String(r.tipo))) continue;
+    const candidatos = [r.archivo, `img/${r.id}.png`, `img/${r.id}.jpg`, `img/${r.id}.webp`, `ref/${r.id}.png`, `ref/${r.id}.jpg`].filter((c) => typeof c === 'string' && IMAGEN.test(c));
+    const archivo = candidatos.find((c) => fs.existsSync(path.join(TEMP, slug, c))) || candidatos.find((c) => traerDeLaNube(slug, c));
     if (archivo) out.push({ id: r.id, imagen: `temp/${slug}/${archivo}`, descripcion: String(r.prompt || r.descripcion || '').slice(0, 600) });
   }
   return out;
+}
+
+/**
+ * Al terminar un anuncio: guarda solos sus personajes como un avatar de la biblioteca, para repetirlos en otros
+ * anuncios sin volver a pagar su imagen. No lo hace si el anuncio ya salió de un avatar guardado, si ya se guardó o
+ * si faltan los personajes obligatorios del estilo. Nunca lanza.
+ */
+export function guardarPersonajesDelAnuncio(slug, brief) {
+  try {
+    if (!brief?.estilo || brief.avatar?.id) return null;
+    const carpeta = carpetaDeEstilo(brief.estilo);
+    const r = carpeta && ROLES_AVATAR[carpeta];
+    if (!r) return null;
+    if (listarAvatares(carpeta).some((a) => a.origen === slug)) return null;
+    const lista = personajesDelAnuncio(slug);
+    if (!lista.length) return null;
+    const libres = [...lista];
+    const tomar = (p) => libres.splice(libres.indexOf(p), 1)[0];
+    const personas = [];
+    for (const rol of r.roles) {
+      const p = libres.find((x) => x.id === rol.id) || libres.find((x) => x.id.startsWith(rol.id)) || libres[0];
+      if (!p) return null;
+      personas.push({ rol: rol.id, imagen: tomar(p).imagen, descripcion: p.descripcion });
+    }
+    for (const p of libres.slice(0, r.extras || 0)) {
+      personas.push({ rol: `extra:${p.id}`, nombre: p.id.replace(/[-_]+/g, ' ').replace(/^\w/, (c) => c.toUpperCase()), imagen: p.imagen, descripcion: p.descripcion });
+    }
+    const base = slug.replace(/-\d{8}-\d{4}$/, '').replace(/-+/g, ' ');
+    const fecha = /-(\d{4})(\d{2})(\d{2})-\d{4}$/.exec(slug);
+    const nombre = `${base}${fecha ? ` · ${Number(fecha[3])}/${Number(fecha[2])}` : ''}`.slice(0, 60);
+    const a = crearAvatar(carpeta, nombre, personas, { origen: slug });
+    console.log(`[biblioteca] guardé los personajes de ${slug} como el avatar «${a?.nombre}»`);
+    return a;
+  } catch (e) {
+    console.warn(`[biblioteca] no pude guardar los personajes de ${slug} (${e.message})`);
+    return null;
+  }
 }
 
 // ---------------------------------------------------------------- imágenes y clips (los llena IA-VID-AUTOMATIC y el motor)
