@@ -1,0 +1,76 @@
+{
+  "nombre": "Aguaje Complex 10X",
+  "queEs": "Suplemento en cápsulas a base de aguaje, fenogreco y maca negra, para aumentar glúteos y piernas.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "No engorda",
+    "Sin efecto rebote",
+    "Sin necesidad de hacer ejercicio",
+    "También es para hombres, no solo para mujeres"
+  ],
+  "publico": "Mujeres adultas jóvenes de Colombia que quieren más cola y piernas, y también hombres (en especial hombres gay) que buscan lo mismo.",
+  "dolor": "Quiere más cola y piernas sin engordar ni que se le vaya todo al abdomen, y le da miedo el efecto rebote.",
+  "oferta": "Tratamiento completo de tres meses (3 frascos). Sin precios en el anuncio.",
+  "comoCompra": "Con el botón de abajo del anuncio. Llega a la casa y se paga al recibirlo.",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "Comprar de a un frasco y seguir comprando y comprando sin hacer el tratamiento completo. Marcas que dicen ser \"el único original\".",
+  "prueba": "",
+  "ingredientes": "Aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg. También vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g cada una (contenido neto 30 g).",
+  "comoSeUsa": "Tomar 2 cápsulas al día, preferiblemente con las comidas principales. Uso continuo por al menos 3 meses. No exceder la porción diaria recomendada.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco en una mano: negro con tapa y base rosadas. La etiqueta dice \"Aguaje Complex 3 en 1\", no \"10X\"."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": true,
+      "nota": "El diseño completo de la etiqueta, extendido. Sirve para leer los datos, no para mostrar el frasco. Es una foto de más: por eso tus fotos de personas quedaron corridas un puesto."
+    },
+    {
+      "archivo": "fotos/3.jpg",
+      "sirve": false,
+      "nota": "No muestra el producto. Es la referencia de pose y tipo de cuerpo del hombre para la toma 1 (la que llamas 2.ª foto)."
+    },
+    {
+      "archivo": "fotos/4.jpg",
+      "sirve": false,
+      "nota": "No muestra el producto. Es la referencia de estilo del hombre: crop top azul, cargo blanco y gafas (la que llamas 3.ª foto). Trae un texto encima que no se usa."
+    },
+    {
+      "archivo": "fotos/5.jpg",
+      "sirve": false,
+      "nota": "No muestra el producto. Es la referencia de estilo, pelo y cuerpo de la mujer 1 (la que llamas 4.ª foto)."
+    },
+    {
+      "archivo": "fotos/6.jpg",
+      "sirve": false,
+      "nota": "No muestra el producto. Es la referencia de estilo, pelo y cuerpo de la mujer 2 (la que llamas 5.ª foto). Los bolsos del fondo tienen marcas: no se copian."
+    }
+  ],
+  "deducido": [
+    "queEs",
+    "dolor",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "nombre",
+      "pregunta": "Escribiste \"Aguaje Complex 10X\", pero el frasco de la foto dice \"Aguaje Complex 3 en 1\". ¿Cuál nombre va en el anuncio?"
+    },
+    {
+      "campo": "pais",
+      "pregunta": "¿De qué región de Colombia quieres el acento de los tres (paisa, costeño, rolo, caleño…)?"
+    },
+    {
+      "campo": "oferta",
+      "pregunta": "Tu texto llegó cortado al final, en las reglas (termina en \"Du\"). ¿Qué decía esa última regla?"
+    }
+  ]
+}

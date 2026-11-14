@@ -1,0 +1,410 @@
+{
+  "palabras": [
+    {
+      "texto": "Miren",
+      "desde": 0.18,
+      "hasta": 0.42
+    },
+    {
+      "texto": "cómo",
+      "desde": 0.44,
+      "hasta": 0.6
+    },
+    {
+      "texto": "me",
+      "desde": 0.64,
+      "hasta": 0.7
+    },
+    {
+      "texto": "ha",
+      "desde": 0.72,
+      "hasta": 0.8
+    },
+    {
+      "texto": "crecido",
+      "desde": 0.82,
+      "hasta": 1.16
+    },
+    {
+      "texto": "el",
+      "desde": 1.18,
+      "hasta": 1.24
+    },
+    {
+      "texto": "jopo.",
+      "desde": 1.32,
+      "hasta": 1.74
+    },
+    {
+      "texto": "Esto",
+      "desde": 2.22,
+      "hasta": 2.46
+    },
+    {
+      "texto": "fue",
+      "desde": 2.5,
+      "hasta": 2.58
+    },
+    {
+      "texto": "lo",
+      "desde": 2.62,
+      "hasta": 2.68
+    },
+    {
+      "texto": "que",
+      "desde": 2.76,
+      "hasta": 2.88
+    },
+    {
+      "texto": "hice.",
+      "desde": 2.9,
+      "hasta": 3.18
+    },
+    {
+      "texto": "Empecé",
+      "desde": 3.4,
+      "hasta": 3.66
+    },
+    {
+      "texto": "a",
+      "desde": 3.68,
+      "hasta": 3.7
+    },
+    {
+      "texto": "tomar",
+      "desde": 3.76,
+      "hasta": 3.98
+    },
+    {
+      "texto": "este",
+      "desde": 4.019,
+      "hasta": 4.16
+    },
+    {
+      "texto": "Aguaje",
+      "desde": 4.18,
+      "hasta": 4.44
+    },
+    {
+      "texto": "Complex,",
+      "desde": 4.52,
+      "hasta": 4.9
+    },
+    {
+      "texto": "que",
+      "desde": 4.98,
+      "hasta": 5.04
+    },
+    {
+      "texto": "es",
+      "desde": 5.06,
+      "hasta": 5.16
+    },
+    {
+      "texto": "cien",
+      "desde": 5.2,
+      "hasta": 5.38
+    },
+    {
+      "texto": "por",
+      "desde": 5.4,
+      "hasta": 5.5
+    },
+    {
+      "texto": "ciento",
+      "desde": 5.54,
+      "hasta": 5.74
+    },
+    {
+      "texto": "natural",
+      "desde": 5.78,
+      "hasta": 6.22
+    },
+    {
+      "texto": "y",
+      "desde": 6.26,
+      "hasta": 6.3
+    },
+    {
+      "texto": "te",
+      "desde": 6.36,
+      "hasta": 6.4
+    },
+    {
+      "texto": "ayuda",
+      "desde": 6.44,
+      "hasta": 6.68
+    },
+    {
+      "texto": "a",
+      "desde": 6.7,
+      "hasta": 6.72
+    },
+    {
+      "texto": "tonificar",
+      "desde": 6.78,
+      "hasta": 7.36
+    },
+    {
+      "texto": "y",
+      "desde": 7.48,
+      "hasta": 7.52
+    },
+    {
+      "texto": "aumentar",
+      "desde": 7.56,
+      "hasta": 8
+    },
+    {
+      "texto": "esas",
+      "desde": 8.039,
+      "hasta": 8.26
+    },
+    {
+      "texto": "nalgas",
+      "desde": 8.32,
+      "hasta": 8.7
+    },
+    {
+      "texto": "y",
+      "desde": 8.74,
+      "hasta": 8.76
+    },
+    {
+      "texto": "piernas.",
+      "desde": 8.88,
+      "hasta": 9.26
+    },
+    {
+      "texto": "Y",
+      "desde": 9.38,
+      "hasta": 9.42
+    },
+    {
+      "texto": "no",
+      "desde": 9.48,
+      "hasta": 9.54
+    },
+    {
+      "texto": "solo",
+      "desde": 9.62,
+      "hasta": 9.82
+    },
+    {
+      "texto": "sirve",
+      "desde": 9.88,
+      "hasta": 10.12
+    },
+    {
+      "texto": "para",
+      "desde": 10.16,
+      "hasta": 10.28
+    },
+    {
+      "texto": "aumentar,",
+      "desde": 10.32,
+      "hasta": 10.76
+    },
+    {
+      "texto": "si",
+      "desde": 10.96,
+      "hasta": 11.04
+    },
+    {
+      "texto": "tienes",
+      "desde": 11.1,
+      "hasta": 11.34
+    },
+    {
+      "texto": "grasa",
+      "desde": 11.38,
+      "hasta": 11.6
+    },
+    {
+      "texto": "acumulada,",
+      "desde": 11.66,
+      "hasta": 12.16
+    },
+    {
+      "texto": "te",
+      "desde": 12.3,
+      "hasta": 12.34
+    },
+    {
+      "texto": "ayuda",
+      "desde": 12.38,
+      "hasta": 12.64
+    },
+    {
+      "texto": "a",
+      "desde": 12.68,
+      "hasta": 12.7
+    },
+    {
+      "texto": "quemarla,",
+      "desde": 12.78,
+      "hasta": 13.26
+    },
+    {
+      "texto": "tonificar",
+      "desde": 13.44,
+      "hasta": 14
+    },
+    {
+      "texto": "y",
+      "desde": 14.14,
+      "hasta": 14.18
+    },
+    {
+      "texto": "moldear",
+      "desde": 14.24,
+      "hasta": 14.54
+    },
+    {
+      "texto": "piernas",
+      "desde": 14.68,
+      "hasta": 15.04
+    },
+    {
+      "texto": "y",
+      "desde": 15.06,
+      "hasta": 15.12
+    },
+    {
+      "texto": "glúteos",
+      "desde": 15.16,
+      "hasta": 15.5
+    },
+    {
+      "texto": "para",
+      "desde": 15.58,
+      "hasta": 15.72
+    },
+    {
+      "texto": "que",
+      "desde": 15.76,
+      "hasta": 15.82
+    },
+    {
+      "texto": "se",
+      "desde": 15.88,
+      "hasta": 15.96
+    },
+    {
+      "texto": "vean",
+      "desde": 16,
+      "hasta": 16.18
+    },
+    {
+      "texto": "firmes.",
+      "desde": 16.3,
+      "hasta": 16.74
+    },
+    {
+      "texto": "Pide",
+      "desde": 16.78,
+      "hasta": 16.94
+    },
+    {
+      "texto": "tu",
+      "desde": 17,
+      "hasta": 17.04
+    },
+    {
+      "texto": "Aguaje",
+      "desde": 17.08,
+      "hasta": 17.34
+    },
+    {
+      "texto": "Complex",
+      "desde": 17.42,
+      "hasta": 17.84
+    },
+    {
+      "texto": "con",
+      "desde": 17.88,
+      "hasta": 17.96
+    },
+    {
+      "texto": "envío",
+      "desde": 18,
+      "hasta": 18.26
+    },
+    {
+      "texto": "gratis",
+      "desde": 18.3,
+      "hasta": 18.62
+    },
+    {
+      "texto": "a",
+      "desde": 18.68,
+      "hasta": 18.74
+    },
+    {
+      "texto": "toda",
+      "desde": 18.8,
+      "hasta": 18.96
+    },
+    {
+      "texto": "Colombia",
+      "desde": 19.04,
+      "hasta": 19.44
+    },
+    {
+      "texto": "y",
+      "desde": 19.58,
+      "hasta": 19.62
+    },
+    {
+      "texto": "pagas",
+      "desde": 19.74,
+      "hasta": 20
+    },
+    {
+      "texto": "cuando",
+      "desde": 20.06,
+      "hasta": 20.26
+    },
+    {
+      "texto": "te",
+      "desde": 20.3,
+      "hasta": 20.36
+    },
+    {
+      "texto": "llegue",
+      "desde": 20.4,
+      "hasta": 20.56
+    },
+    {
+      "texto": "a",
+      "desde": 20.6,
+      "hasta": 20.62
+    },
+    {
+      "texto": "la",
+      "desde": 20.66,
+      "hasta": 20.74
+    },
+    {
+      "texto": "casa.",
+      "desde": 20.8,
+      "hasta": 21.1
+    },
+    {
+      "texto": "Toca",
+      "desde": 21.28,
+      "hasta": 21.44
+    },
+    {
+      "texto": "aquí",
+      "desde": 21.46,
+      "hasta": 21.6
+    },
+    {
+      "texto": "abajo.",
+      "desde": 21.66,
+      "hasta": 22
+    }
+  ],
+  "eventos": []
+}

@@ -1,0 +1,48 @@
+{
+  "video": "original.mp4",
+  "duracion": 22.89,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 3.43,
+      "duracion": 3.43,
+      "fotograma": "tomas/toma-01.jpg",
+      "dice": "Miren cómo me ha crecido el jopo. Esto fue lo que hice.",
+      "eventos": []
+    },
+    {
+      "n": 2,
+      "desde": 3.43,
+      "hasta": 9.3,
+      "duracion": 5.87,
+      "fotograma": "tomas/toma-02.jpg",
+      "dice": "Empecé a tomar este Aguaje Complex, que es cien por ciento natural y te ayuda a tonificar y aumentar esas nalgas y piernas.",
+      "eventos": []
+    },
+    {
+      "n": 3,
+      "desde": 9.3,
+      "hasta": 16.8,
+      "duracion": 7.5,
+      "fotograma": "tomas/toma-03.jpg",
+      "dice": "Y no solo sirve para aumentar, si tienes grasa acumulada, te ayuda a quemarla, tonificar y moldear piernas y glúteos para que se vean firmes.",
+      "eventos": []
+    },
+    {
+      "n": 4,
+      "desde": 16.8,
+      "hasta": 22.89,
+      "duracion": 6.09,
+      "fotograma": "tomas/toma-04.jpg",
+      "dice": "Pide tu Aguaje Complex con envío gratis a toda Colombia y pagas cuando te llegue a la casa. Toca aquí abajo.",
+      "eventos": []
+    }
+  ],
+  "texto": "Miren cómo me ha crecido el jopo. Esto fue lo que hice. Empecé a tomar este Aguaje Complex, que es cien por ciento natural y te ayuda a tonificar y aumentar esas nalgas y piernas. Y no solo sirve para aumentar, si tienes grasa acumulada, te ayuda a quemarla, tonificar y moldear piernas y glúteos para que se vean firmes. Pide tu Aguaje Complex con envío gratis a toda Colombia y pagas cuando te llegue a la casa. Toca aquí abajo.",
+  "palabras_por_segundo": 3.54,
+  "eventos_de_audio": [],
+  "aviso": null
+}

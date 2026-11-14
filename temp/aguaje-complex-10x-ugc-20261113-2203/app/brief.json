@@ -1,0 +1,22 @@
+{
+  "slug": "aguaje-complex-10x-ugc-20261113-2203",
+  "productoId": "producto-8db8",
+  "estilo": "ugc",
+  "familia": "ugc",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": null,
+  "continuidad": false,
+  "respuestas": {
+    "ganchos": "No, solo uno",
+    "clonar": "subido:mwft7qi03815e2|AGUAJE 04 - ROSCA.mp4",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {
+    "ganchos": false,
+    "subestilo": null
+  },
+  "creado": "2026-11-14T03:03:41.011Z"
+}
