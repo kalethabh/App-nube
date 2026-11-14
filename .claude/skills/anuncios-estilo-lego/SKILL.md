@@ -141,7 +141,7 @@ En ese caso la línea 1 es un gancho con un loop de curiosidad que no se resuelv
 ### 2.5 — Desglose línea por línea
 Baja el guion a nivel de toma por línea — cada línea/beat tiene su propia toma visual sincronizada, asignada a un tiempo de la plantilla (2.1), a uno de los 4 tipos de toma y a uno de los tres looks. La duración de cada toma es la duración real de decir esa línea (≈ palabras ÷ 2.4), no un número fijo.
 
-**Chequeo antes de cerrar la tabla — ninguna toma pasa de ~9-10 segundos.** El modelo de video no genera clips de más de 10 s, así que una línea que calcule por encima de eso no se puede producir: hay que **dividirla en dos tomas** y renumerar, nunca truncarla. Una línea así casi siempre es dos ideas metidas en una — en la plantilla, el caso típico es el tiempo 3 (el ingrediente y lo que hace) y el 14 (el producto y por qué es distinto): van en varias tomas, no en una.
+**Chequeo antes de cerrar la tabla — ninguna toma pasa de ~14-15 segundos (~9-10 si es Start/End Frame).** El modelo de video (Omni Flash 1.2) no genera clips de más de 15 s, ni de más de 10 s con imagen final, así que una línea que calcule por encima de eso no se puede producir: hay que **dividirla en dos tomas** y renumerar, nunca truncarla. Una línea así casi siempre es dos ideas metidas en una — en la plantilla, el caso típico es el tiempo 3 (el ingrediente y lo que hace) y el 14 (el producto y por qué es distinto): van en varias tomas, no en una.
 
 Arma el guion en esta tabla:
 
@@ -364,7 +364,7 @@ Lighting: [la luz de la imagen]
 
 > **Por qué tres cabeceras, medido el 2026-10-05.** Con la cabecera y la línea de rigidez del Lego, en las tomas de minifigura el plástico no se dobló en ningún clip: brazos que giran en el hombro, piernas de una pieza al caminar, la cara que cambia como una impresión nueva. Pero en el B-roll de las gotas sobre la placa, esa misma cabecera **convirtió las hojas reales en plantas de Lego a mitad del clip**. En la segunda vuelta, con la cabecera de lo real (y otro encuadre), las hojas siguieron siendo hojas. La última frase de la línea de rigidez ("Nothing changes shape except what Motion describes") se agregó en la segunda vuelta y se deja por prudencia: en la primera, sin ella, la pieza de la metáfora ya cambió bien. La animación es **fluida**, no stop-motion: así se movió la referencia del estilo y así anima el modelo de video.
 
-**`[DURACIÓN]` es el largo del clip que se pide**: el primer tramo de 4, 6, 8 o 10 s que cubre la duración de la toma (1.7 → 4, 4.6 → 6, 8.3 → 10), como en la prueba real; el clip se ajusta a la voz en el montaje. El motor no corrige ese número dentro del prompt.
+**`[DURACIÓN]` es el largo del clip que se pide**: la duración de la toma redondeada hacia arriba al entero, de 3 a 15 s (hasta 10 s si la toma lleva imagen final, Start/End Frame): 1.7 → 3, 4.6 → 5, 7 → 7, 7.2 → 8; el clip se ajusta a la voz en el montaje. El motor no corrige ese número dentro del prompt.
 
 ### 3.3 — Start/End Frame: cuándo usarlo y cómo decidirlo (la IA decide sola, nunca presenta opciones al usuario)
 

@@ -13,7 +13,7 @@ Convierte un producto o servicio en un anuncio UGC completo: una persona generad
 
 - **Una persona de aspecto real, generada con IA, habla a cámara todo el anuncio.** La voz la genera el mismo generador de video dentro de cada clip, con los labios sincronizados. No hay voz en off, ni locutor, ni una voz grabada aparte.
 - **Casero y auténtico**: vertical 9:16, grabado con celular por la propia persona, en mano o apoyado, leve tembleque, luz natural, cortes secos. Nunca un comercial pulido.
-- **Se arma por bloques.** El anuncio es una fila de videos cortos, cada uno generado de una vez (10 s por defecto; 8 o 6 s; 4 s rara vez). Dentro de cada bloque hay **tramos** con timestamps: en cada tramo cambia el plano y la acción, como un video que la persona editó en su celular. Un bloque de 10 s ya trae 4 o 5 planos distintos adentro.
+- **Se arma por bloques.** El anuncio es una fila de videos cortos, cada uno generado de una vez (10 s por defecto; cualquier entero de 3 a 15 s, según sus palabras). Dentro de cada bloque hay **tramos** con timestamps: en cada tramo cambia el plano y la acción, como un video que la persona editó en su celular. Un bloque de 10 s ya trae 4 o 5 planos distintos adentro.
 - **Recorre varios lugares** coherentes con lo que se vende: la cocina, el auto, la oficina, el gimnasio, la calle, el local del negocio. Normalmente un lugar por bloque.
 - **Sirve para todo**: productos físicos, suplementos, productos digitales (cursos, apps) y servicios (gimnasio, inmobiliaria, clínica, academia).
 - **Referencias, no frames**: una imagen generada de la persona (fija su cara) y la foto real del producto. Cada bloque se genera con esas referencias adjuntas; si vuelve a un lugar que ya salió en otro bloque, lleva además un fotograma de ese bloque, que fija el lugar (Sección D, "Lugar que vuelve"). No hay frame inicial ni final, ni frames encadenados, ni B-roll.
@@ -22,7 +22,7 @@ Convierte un producto o servicio en un anuncio UGC completo: una persona generad
 Vocabulario de esta skill (úsalo igual con el usuario):
 
 - **Anuncio**: el video final.
-- **Bloque**: cada video que se genera de una vez (10, 8 o 6 s; 4 s rara vez).
+- **Bloque**: cada video que se genera de una vez (10 s por defecto; un entero de 3 a 15 s).
 - **Tramo**: cada timestamp dentro del bloque (por ejemplo `[0.0–2.2s]`), con su plano, su acción, su emoción y, como mucho, una línea hablada.
 
 ## Reglas obligatorias — léelas antes de generar cualquier cosa
@@ -327,7 +327,7 @@ Pídelo de [N] segundos.
 
 Antes de responder, revisa esto en silencio. Si algo falla, corrígelo y vuelve a revisar; al usuario solo le llega la versión ya revisada.
 
-1. **Palabras vs duración**: ¿cada bloque está dentro de la guía de su duración, descontando los tramos sin diálogo? Si le sobran segundos, bájalo a 8 o 6 s; si le faltan, súbelo o pasa una frase al bloque siguiente (en un guion ganador, solo moviendo el corte).
+1. **Palabras vs duración**: ¿cada bloque está dentro de la guía de su duración, descontando los tramos sin diálogo? Si le sobran segundos, bájalo (a 9, 8 o los que pida el texto); si le faltan, súbelo o pasa una frase al bloque siguiente (en un guion ganador, solo moviendo el corte).
 2. **Tramos que suman**: ¿cada bloque empieza en 0.0, los tramos siguen sin huecos ni solapes y el último termina justo en la duración del bloque? ¿El número de tramos está en el rango de su duración? ¿Dos bloques seguidos tienen repartos distintos?
 3. **Línea literal**: ¿cada línea del guion (B) aparece letra por letra en su prompt (D), en el mismo tramo y dentro de `DIÁLOGO: “…”`? ¿Ningún prompt dice algo que no esté en el guion?
 4. **Primera línea e idioma**: ¿cada prompt empieza con `Duración: Ns.` igual a su "Pídelo de N segundos"? ¿Cada uno dice `Habla en …` con el idioma del anuncio?
@@ -350,14 +350,15 @@ Antes de responder, revisa esto en silencio. Si algo falla, corrígelo y vuelve 
 
 | Bloque | Tramos | Palabras (si habla en todo el bloque) |
 |---|---|---|
-| **10 s** (por defecto: el más barato por segundo) | 4 o 5 | 26 a 30 |
+| **11 a 15 s** (posible con Omni Flash 1.2; sin probar todavía) | 5 a 7 | ≈3 por segundo: 15 s → 39 a 45 |
+| **10 s** (por defecto: el probado y recomendado) | 4 o 5 | 26 a 30 |
 | **8 s** | 3 o 4 | 21 a 24 |
 | **6 s** | 2 o 3 | 15 a 18 |
 | **4 s** (rara vez, por ejemplo un remate) | 1 o 2 | 9 a 12 |
 
-- **Solo 10, 8, 6 o 4 segundos** (lo que acepta Omni Flash).
+- **Cualquier entero de 3 a 15 segundos** (lo que acepta Omni Flash 1.2, que cobra igual por cada segundo). Los intermedios (9, 7, 5…) llevan las palabras que les tocan a ~3 por segundo. El 10 s sigue siendo el probado; un bloque llega a 15 s solo si el texto lo pide.
 - **≈3 palabras por cada segundo que la persona habla.** Medido: 30 palabras en 10 s salen naturales y completas. Cada tramo sin diálogo resta ~3 palabras por segundo (un bloque de 10 s con 2 s mudos lleva 20 a 24). Las muletillas cuentan.
-- **Elige la duración por las palabras: que no sobre tiempo.** Si a un bloque le sobra tiempo, la persona rellena repitiendo sus últimas palabras (medido: un bloque de 10 s con 24 palabras repitió el final). Si el texto es más corto, el bloque va de 8 o 6 s.
+- **Elige la duración por las palabras: que no sobre tiempo.** Si a un bloque le sobra tiempo, la persona rellena repitiendo sus últimas palabras (medido: un bloque de 10 s con 24 palabras repitió el final). Si el texto es más corto, el bloque va más corto (9, 8, 7 s…).
 - **Más tramos = más dinámico.** Sin patrón fijo: reparte los segundos según la acción y el diálogo de cada tramo; dos bloques seguidos no repiten el mismo reparto. Los tramos suman exactamente la duración del bloque.
 - **Una idea por tramo**, con la línea proporcional al tramo (~3 palabras por segundo: un tramo de 2 s lleva unas 6). Frases completas: el corte cae entre frases, nunca a la mitad de una.
 - **Tramo sin diálogo**: como mucho uno por bloque, nunca el primero ni el último, y con el sonido de la acción (la tapa girando, el agua cayendo en el vaso). Úsalo solo cuando la acción lo pide: el generador puede adelantar ahí la línea siguiente.
@@ -658,7 +659,7 @@ donde `[slug-del-anuncio]` es el nombre del producto en kebab-case (por ejemplo,
 | `tomas` | Una entrada por bloque, en orden. En el motor cada bloque es una "toma" y su clip es `video/toma-N.mp4` |
 | `tomas[].n` | El número del bloque (1, 2, 3…) |
 | `tomas[].tipo` | Siempre `"R"`: solo referencias, cero frames. Ninguna otra skill lo usa |
-| `tomas[].duracion` | 10, 8, 6 o 4: la misma del `Duración: Ns.` de su prompt y del "Pídelo de N segundos" |
+| `tomas[].duracion` | Un entero de 3 a 15 (10 por defecto): la misma del `Duración: Ns.` de su prompt y del "Pídelo de N segundos" |
 | `tomas[].fase` | La fase del bloque en el mapa de la Sección A |
 | `tomas[].tramos` | Una entrada por timestamp del bloque: `desde` y `hasta` son los segundos del timestamp, como números (`[2.2–4.2s]` → `2.2` y `4.2`), y `linea` es la línea de ese tramo sin las comillas, o `null` si el tramo es sin diálogo. Con varios personajes, cada tramo con línea lleva además `habla`: el id de quien la dice |
 | `tomas[].linea` | Todas las líneas habladas del bloque, en orden, unidas por un espacio. Los subtítulos y el corte de cola se alinean contra este campo |
@@ -678,7 +679,7 @@ En `referencias` va **una entrada por cada imagen que usan los bloques**:
 - **Un logo o una pantalla** que el usuario quiso como referencia (Sección C): una entrada más con su `archivo`, copiado a la carpeta del anuncio con ese mismo nombre.
 - **Un lugar que vuelve** (Sección D, "Lugar que vuelve"): `id: "lugar-<lugar>"` (por ejemplo, `lugar-oficina`), `tipo: "lugar"`, `de_toma` = el número del bloque de origen, donde ese lugar sale primero (siempre un bloque del anuncio: nunca un gancho, ni el mismo bloque que lo usa), `segundo` = la mitad de un tramo de ese bloque con plano medio o abierto donde el lugar se ve bien (no un primer plano de las manos ni una selfie muy cerrada; el mismo segundo de la línea "Adjunta como referencias…"), y una `nota` corta. **Sin `prompt` ni `archivo`**: el motor saca ese fotograma del bloque de origen ya generado (con ffmpeg, gratis) y lo guarda en `img/<id>.png`. Una sola entrada por lugar, aunque lo usen varios bloques y los ganchos.
 
-En `tomas[].referencias` van los ids que ese bloque lleva, **en orden**: es el orden en que el motor manda las imágenes, y por eso tiene que coincidir con "Imagen 1, Imagen 2" del prompt. Lo normal es `["personaje", "producto"]`; si el producto no se ve en ningún tramo del bloque, `["personaje"]`; con dos personajes, `["personaje", "personaje-2", "producto"]`. **Si el producto se ve, aunque sea de fondo, va.** El lugar que vuelve va siempre al final: `["personaje", "producto", "lugar-oficina"]`, o `["personaje", "lugar-oficina"]` si el producto no se ve. Cada bloque lleva de 1 a 7 referencias.
+En `tomas[].referencias` van los ids que ese bloque lleva, **en orden**: es el orden en que el motor manda las imágenes, y por eso tiene que coincidir con "Imagen 1, Imagen 2" del prompt. Lo normal es `["personaje", "producto"]`; si el producto no se ve en ningún tramo del bloque, `["personaje"]`; con dos personajes, `["personaje", "personaje-2", "producto"]`. **Si el producto se ve, aunque sea de fondo, va.** El lugar que vuelve va siempre al final: `["personaje", "producto", "lugar-oficina"]`, o `["personaje", "lugar-oficina"]` si el producto no se ve. Cada bloque lleva de 1 a 6 referencias (el máximo de Omni Flash 1.2).
 
 Por ejemplo, un anuncio cuyo Bloque 4 vuelve a la oficina del Bloque 1 (en el Bloque 1, el tramo `[5.6–7.4s]` es un plano medio donde se ve la oficina):
 
@@ -707,7 +708,7 @@ Ese comando copia la foto a la carpeta del anuncio con el nombre correcto y la c
 Repasa esto en silencio, además de la Sección F. Si algo falla, corrígelo: no entregues un manifiesto roto.
 
 1. ¿`modo_audio` es `"dialogo_nativo"`, no hay campo `voz_en_off` y **todas** las tomas son `tipo: "R"`, una por bloque, con el mismo número?
-2. ¿Cada `duracion` es 10, 8, 6 o 4, y es la misma del `Duración: Ns.` de la primera línea de su `prompt_video`?
+2. ¿Cada `duracion` es un entero de 3 a 15, y es la misma del `Duración: Ns.` de la primera línea de su `prompt_video`?
 3. ¿Los `tramos` de cada bloque van seguidos desde 0 hasta la duración, sin huecos ni solapes, con los mismos segundos de los timestamps del prompt?
 4. ¿La `linea` de cada bloque es exactamente las líneas de sus tramos unidas en orden por un espacio, y cada línea aparece letra por letra dentro de su `prompt_video`?
 5. ¿Cada `prompt_video` declara el idioma (`Habla en …`)?
@@ -762,7 +763,7 @@ o lo produzcas a mano. Después, si quieres, seguimos con A o B.
 
 **Las dos paradas que sí van, y que no se saltan nunca:**
 
-1. **El costo, antes de generar.** `npm run validar -- temp/[slug]/manifiesto.json` revisa el manifiesto e imprime el costo estimado: la imagen de la persona y cada bloque (de referencia: un bloque de 10 s son 126 créditos, US$0,63; uno de 8 s, 105; uno de 6 s, 84; uno de 4 s, 63; la imagen, 10; el fotograma de un lugar que vuelve no cuesta: lo saca el motor). Muéstraselo en dólares y espera un sí: el usuario paga cada imagen y cada clip. **Los ganchos alternativos van aparte, como opcionales**: el validador los muestra fuera del total y cada uno es un clip más del largo del Bloque 1. Pregunta en el mismo mensaje si los genera también, con el ángulo y la línea con que arranca cada uno (el ángulo, de `notas-paquete.md`; la línea, el primer tramo de `1b` y de `1c`, copiado del manifiesto), para que sepa qué está aprobando; sin un sí, no se generan.
+1. **El costo, antes de generar.** `npm run validar -- temp/[slug]/manifiesto.json` revisa el manifiesto e imprime el costo estimado: la imagen de la persona y cada bloque (de referencia, Omni Flash 1.2 a 1080p cobra 10 créditos por segundo: un bloque de 10 s son 100 créditos, US$0,50; uno de 8 s, 80; uno de 6 s, 60; uno de 15 s, 150; la imagen, 10; el fotograma de un lugar que vuelve no cuesta: lo saca el motor). Muéstraselo en dólares y espera un sí: el usuario paga cada imagen y cada clip. **Los ganchos alternativos van aparte, como opcionales**: el validador los muestra fuera del total y cada uno es un clip más del largo del Bloque 1. Pregunta en el mismo mensaje si los genera también, con el ángulo y la línea con que arranca cada uno (el ángulo, de `notas-paquete.md`; la línea, el primer tramo de `1b` y de `1c`, copiado del manifiesto), para que sepa qué está aprobando; sin un sí, no se generan.
 2. **La revisión de los bloques, antes de montar.** Un bloque hablado no se puede acelerar ni cortar por dentro: si sale mal, solo se arregla regenerándolo, y regenerar después de ensamblar es rehacer todo el montaje.
 
 Con el sí del costo, corre `imagenes`, `videos` y `musica` con `--si`: el usuario ya confirmó, y sin esa marca el comando se queda esperando una confirmación en la terminal.
@@ -896,7 +897,7 @@ Entrégale el paquete **completo, nunca una muestra**, con el orden y el formato
 - Nunca voz en off ni una voz aparte: la voz la genera el video.
 - Nunca reutilices copy, cifras ni ángulos de otros anuncios, ni del ejemplo de esta skill.
 - Nunca reescribas, acortes ni pulas un guion ganador (la única excepción es un bloque que Omni rechaza por contenido, ver la última regla); nunca lo rellenes para llegar a una duración.
-- Nunca un bloque de otra duración que 10, 8, 6 o 4 s, ni tramos que no sumen exactamente la duración del bloque.
+- Nunca un bloque de menos de 3 s ni de más de 15 s, ni de segundos con decimales, ni tramos que no sumen exactamente la duración del bloque.
 - Nunca un bloque con palabras de más (sale apurado) ni de menos (repite al final): se corrige con la duración del bloque o moviendo el corte, nunca rellenando ni recortando el guion.
 - Nunca un tramo sin diálogo como primero o último, ni más de uno por bloque.
 - Nunca la imagen del personaje como imagen de inicio: siempre como referencia.

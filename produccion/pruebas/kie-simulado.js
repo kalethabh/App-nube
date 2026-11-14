@@ -109,6 +109,7 @@ export const LATENCIAS_S = [
   ['nano-banana-2', 40, 100],
   ['gpt-image-2-5-sunburst', 60, 180], // text-to-image e image-to-image
   ['gpt-image-2', 40, 100], // iconos; sin medir, se asume como nano-banana-2
+  ['google/gemini-omni-flash-1-2', 56, 90], // sin medir: se asume como el 1.1
   ['google/gemini-omni-flash-1-1', 56, 90],
   ['kling-3.0', 60, 120],
   ['kling-4.0', 60, 120], // sin medir: se asume como Kling 3.0

@@ -15,7 +15,7 @@ Producto de prueba: Nature's Sunshine Lymphatic Drainage. Sketch "El baby shower
    - Los bloqueos no se cobran.
 9. **Transcriptor:** el modelo `medium` alucinó en bucle ("¿qué es lo que ha pasado?") sobre una línea correcta, y otras veces corta los susurros. Antes de culpar al clip, verifica con `large-v3`. Whisper también alucina sobre el silencio ("Gracias por ver el video", "you", "Teksting av…"): manda la VAD.
 10. **El modelo improvisa repeticiones** ("almorcé bastante… almorcé bastante"). A veces funcionan como actuación. Decide toma por toma: si suma, déjala; si no, el corte por anclas la recorta.
-11. **Costos reales:** GPT Image 2 cuesta 10 créditos por imagen a 2K y Omni Flash 63/84/105 créditos (4/6/8 s). El anuncio completo, con algunas repeticiones, salió en ≈ 1.900 créditos.
+11. **Costos reales:** GPT Image 2 cuesta 10 créditos por imagen a 2K y Omni Flash 63/84/105 créditos (4/6/8 s). Esos eran los precios por tramo de Omni Flash 1.1; el 1.2 cobra por segundo (9 créditos/s a 720p, la resolución del sketch). El anuncio completo, con algunas repeticiones, salió en ≈ 1.900 créditos.
 12. **Música:** se nivela (la canción tiene subidas fuertes), va unos 15 LU bajo el diálogo y lleva ducking. A 18 LU ya quedaba demasiado baja.
 13. **Sincronía al unir:** unir partes AAC con `-f concat -c copy` atrasa la voz unos 21 ms por toma (0,34 s al final de un anuncio de 62 s), y los labios se adelantan a la voz. `montaje.py` une con el filtro `concat` y `revision.py` mide la sincronía de cada toma. Pasó en la primera entrega de la v2 y se corrigió.
 14. **Picos:** el limitador tiene que ir después de remuestrear a 48 kHz (`loudnorm` trabaja internamente a 192 kHz). Si no, la versión con música llegó a +1,3 dBFS.

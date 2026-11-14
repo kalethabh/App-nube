@@ -141,7 +141,9 @@ export function estimar(manifiesto, { modelo = null, resolucion = RESOLUCION_VID
   for (const c of clips) {
     // Un clip con modelo propio se cobra con ese modelo (y sin audio si va
     // mudo); el resto, con el de la estimacion.
-    const r = creditosClip(c.modelo ?? modeloBase, c.segundos, resolucion, typeof c.sonido === 'boolean' ? { sonido: c.sonido } : {});
+    // (una toma B y un paso llevan imagen final: Omni 1.2 los hace hasta 10 s)
+    const conFinal = c.tipo === 'B' || c.tipo === 'paso';
+    const r = creditosClip(c.modelo ?? modeloBase, c.segundos, resolucion, { ...(typeof c.sonido === 'boolean' ? { sonido: c.sonido } : {}), conFinal });
     if (r.excedeTope) {
       excedidos.push(c);
       continue;

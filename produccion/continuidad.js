@@ -126,15 +126,16 @@ export const TRAMO_MINIMO_LIBRE = 3;
 export const modeloDeCadenaEn = (carpeta) => (carpeta ? modeloDeCadena(leerEleccion(carpeta)) : modeloPrincipal());
 
 /**
- * Los tramos que acepta el modelo (Omni: 4, 6, 8, 10). Se leen de config.js,
- * no se copian. Uno de duracion libre: los enteros de su minimo (al menos
- * TRAMO_MINIMO_LIBRE) a su maximo.
+ * Los tramos que acepta el modelo (Omni 1.1: 4, 6, 8, 10). Se leen de
+ * config.js, no se copian. Uno de duracion libre: los enteros de su minimo (al
+ * menos TRAMO_MINIMO_LIBRE) a su maximo CON imagen final, porque todo paso de
+ * la cadena la lleva (Omni 1.2: de 3 a 10, aunque sin imagen final llega a 15).
  */
 export const tramosDeVideo = (modelo = modeloPrincipal()) => {
   const def = MODELOS_VIDEO[modelo] ?? MODELOS_VIDEO[modeloPrincipal()];
   if (Array.isArray(def.duraciones) && def.duraciones.length) return def.duraciones;
   const desde = Math.max(TRAMO_MINIMO_LIBRE, Math.ceil(def.duracionMin ?? 1));
-  const hasta = Math.floor(def.duracionMax ?? 10);
+  const hasta = Math.floor(def.duracionMaxConFinal ?? def.duracionMax ?? 10);
   return Array.from({ length: Math.max(1, hasta - desde + 1) }, (_, i) => desde + i);
 };
 
@@ -261,7 +262,7 @@ export function proponerDuraciones(m, tiempos, { reglas = REGLAS_CONTINUIDAD, pr
       continue;
     }
     // Toma B: el propio de siempre (el tramo que se le pide hoy a t.duracion).
-    const deSiempre = esNumero(t.duracion) ? (duracionPara(modelo, t.duracion) ?? ts[ts.length - 1]) : ts[0];
+    const deSiempre = esNumero(t.duracion) ? (duracionPara(modelo, t.duracion, { conFinal: true }) ?? ts[ts.length - 1]) : ts[0];
     let propio = deSiempre;
     let paso = pasoPara(propio, w.ventana);
     if (propioCorto && (propio + paso) / w.ventana > reglas.fuerte + EPS) {
@@ -335,7 +336,7 @@ export function cadenaDeClips(m, { estimar = false, tiempos = null, modelo = mod
     }
   }
   const propuestaDe = (n) => propuesta?.pasos.find((x) => x.de === n) ?? null;
-  const tramoDe = (s) => (esNumero(s) && s > 0 ? duracionPara(modelo, s) : null);
+  const tramoDe = (s) => (esNumero(s) && s > 0 ? duracionPara(modelo, s, { conFinal: true }) : null);
   const tramoMinimo = tramosDeVideo(modelo)[0];
 
   const out = [];
@@ -502,7 +503,7 @@ export function costoDeCadena(m, { tiempos = null, resolucion = RESOLUCION_VIDEO
           deSiempre: cascadaVideo(ELECCION_POR_DEFECTO, 'vozEnOff'),
         })
       : primerModeloQueSirve(cascada, { frameFinal: Boolean(c.imagenFinal) });
-    const r = esNumero(c.segundos) ? creditosClip(delClip, c.segundos, resolucion) : { excedeTope: true };
+    const r = esNumero(c.segundos) ? creditosClip(delClip, c.segundos, resolucion, { conFinal: Boolean(c.imagenFinal) }) : { excedeTope: true };
     if (r.excedeTope) {
       excedidos.push(c.archivo);
       continue;

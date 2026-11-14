@@ -1,6 +1,7 @@
 """Adaptadores de modelos de Kie: traducen (prompt, referencias, aspecto, resolución, duración) al payload de cada modelo.
 Para cambiar de modelo basta poner su alias en proyecto.json -> "modelos": {"imagen": ..., "video": ...}.
 Parámetros verificados en docs.kie.ai el 2026-10-31 (ver references/modelos.md). Si Kie cambia un campo, se corrige aquí."""
+import math
 import sys
 
 IMAGEN = ["gpt-image-2", "nano-banana-2", "nano-banana-2-1", "nano-banana-pro", "seedream-4.5", "seedream-5-lite"]
@@ -60,12 +61,12 @@ def imagen(alias, prompt, refs, aspecto, res):
 
 # ---------- video (imagen a video con diálogo) ----------
 def video(alias, prompt, frame_url, dur, aspecto, res):
-    if alias == "omni-flash":  # 4 s 63 cr · 6 s 84 · 8 s 105 · 10 s 126 (720p)
-        d = _cerca(dur, [4, 6, 8, 10])
-        if dur > 10:
-            _aviso(f"omni-flash: máximo 10 s (pediste {dur}); divide la toma en dos")
-        return {"model": "google/gemini-omni-flash-1-1", "input": {
-            "prompt": prompt, "first_frame_url": frame_url, "aspect_ratio": aspecto, "resolution": res, "duration": str(d)}}
+    if alias == "omni-flash":  # Omni Flash 1.2 (desde 2026-11-13): de 3 a 15 s, por segundo (720p 9 cr/s · 1080p 10)
+        if dur > 15:
+            _aviso(f"omni-flash: máximo 15 s (pediste {dur}); divide la toma en dos")
+        return {"model": "google/gemini-omni-flash-1-2", "input": {
+            "prompt": prompt, "first_frame_url": frame_url, "aspect_ratio": aspecto, "resolution": res,
+            "duration": _segundos_omni(dur)}}
     if alias in ("seedance-2", "seedance-2-fast"):  # 720p: 41 cr/s (2) · 24,8 cr/s (fast); audio nativo
         if alias == "seedance-2-fast" and res not in ("480p", "720p"):
             _aviso("seedance-2-fast solo hace 480p/720p; se usa 720p")
@@ -97,9 +98,14 @@ COSTO_IMAGEN = {"gpt-image-2": 10, "nano-banana-2": 12, "nano-banana-2-1": 6, "n
                 "seedream-4.5": 6.5, "seedream-5-lite": 5.5}
 
 
+def _segundos_omni(dur):
+    """Omni Flash 1.2 pide un entero de 3 a 15: el largo de la toma, redondeado hacia arriba."""
+    return int(min(max(math.ceil(dur - 1e-9), 3), 15))
+
+
 def costo_clip(alias, dur):
-    if alias == "omni-flash":
-        return {4: 63, 6: 84, 8: 105, 10: 126}[_cerca(dur, [4, 6, 8, 10])]
+    if alias == "omni-flash":  # 720p, la del sketch: 9 cr/s
+        return 9 * _segundos_omni(dur)
     if alias.startswith("seedance"):
         return (41 if alias == "seedance-2" else 24.8) * int(min(max(round(dur), 4), 15))
     if alias.startswith("kling"):

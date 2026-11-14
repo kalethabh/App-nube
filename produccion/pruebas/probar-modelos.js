@@ -50,7 +50,7 @@ const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const RAIZ = path.resolve(AQUI, '..', '..');
 const TEMP = path.join(RAIZ, 'temp');
 
-const OMNI = 'google/gemini-omni-flash-1-1';
+const OMNI = 'google/gemini-omni-flash-1-2';
 const KLING = 'kling-3.0/video';
 const GROK15 = 'grok-imagine-video-1-5-preview';
 const GROK1 = 'grok-imagine/image-to-video';
@@ -368,10 +368,21 @@ bloque('créditos', () => {
     assert.equal(creditosClip(KLING, 10, '1080p').creditos, 302);
   });
   caso('Omni: igual con o sin sonido', () => {
-    for (const [s, cr] of [[4, 63], [6, 84], [8, 105], [10, 126]]) {
+    // Omni Flash 1.2 cobra por segundo (9 cr/s a 720p) y pide el largo exacto, de 3 a 15 s
+    for (const [s, cr] of [[3, 27], [4, 36], [5, 45], [6, 54], [10, 90], [15, 135]]) {
       assert.equal(creditosClip(OMNI, s).creditos, cr);
       assert.equal(creditosClip(OMNI, s, '720p', { sonido: false }).creditos, cr);
     }
+    assert.equal(creditosClip(OMNI, 10, '1080p').creditos, 100);
+  });
+  caso('Omni 1.2: largo libre, y con imagen final hasta 10 s', () => {
+    assert.equal(duracionPara(OMNI, 2), 3);
+    assert.equal(duracionPara(OMNI, 7.2), 8);
+    assert.equal(duracionPara(OMNI, 12), 12);
+    assert.equal(duracionPara(OMNI, 16), null);
+    assert.equal(duracionPara(OMNI, 10, { conFinal: true }), 10);
+    assert.equal(duracionPara(OMNI, 12, { conFinal: true }), null);
+    assert.equal(creditosClip(OMNI, 12, '720p', { conFinal: true }).excedeTope, true);
   });
   caso('medidos en la prueba real', () => {
     assert.equal(creditosClip(GROK15, 6).creditos, 27);
@@ -583,10 +594,12 @@ bloque('modeloParaClip', () => {
   // Con la cascada de siempre, como antes: el primero, aunque no llegue (se avisa que hay que dividir).
   caso('de siempre, 12 s: Omni', () => assert.equal(modeloParaClip(deSiempre, {}, 12, { deSiempre }), OMNI));
   caso('de siempre, 6 s: Omni', () => assert.equal(modeloParaClip(deSiempre, {}, 6, { deSiempre }), OMNI));
-  // B-roll hablado con Omni elegido: 12 s pasa el tope de Omni y lo hace Kling.
+  // B-roll hablado con Omni elegido: Omni 1.2 llega a 15 s (el 1.1 llegaba a 10 y a los 12 lo hacia Kling).
   const brollOmni = cascadaVideo({ ...ELECCION_POR_DEFECTO, brollHablado: 'omni' }, 'brollHablado');
   const brollDeSiempre = cascadaVideo(ELECCION_POR_DEFECTO, 'brollHablado');
-  caso('B-roll Omni 12 s -> Kling', () => assert.equal(modeloParaClip(brollOmni, {}, 12, { deSiempre: brollDeSiempre }), KLING));
+  caso('B-roll Omni 12 s -> Omni (1.2 llega a 15)', () => assert.equal(modeloParaClip(brollOmni, {}, 12, { deSiempre: brollDeSiempre }), OMNI));
+  caso('toma B de 12 s con Omni elegido -> Kling (con imagen final Omni llega a 10)', () =>
+    assert.equal(modeloParaClip(cascadaVideo(ELECCION_POR_DEFECTO, 'vozEnOff'), { frameFinal: true }, 12, { deSiempre: [] }), KLING));
   caso('B-roll Omni 8 s -> Omni', () => assert.equal(modeloParaClip(brollOmni, {}, 8, { deSiempre: brollDeSiempre }), OMNI));
   caso('B-roll Kling 12 s -> Kling', () => assert.equal(modeloParaClip(brollDeSiempre, {}, 12, { deSiempre: brollDeSiempre }), KLING));
   // PixVerse se salta sin imagen final; con imagen final la hace el.

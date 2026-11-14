@@ -455,11 +455,12 @@ export function muestraDeGaleria(subs, pistas) {
 
 // ---------------------------------------------------------------- rehacer con IA
 
-// Los largos en que se puede pedir un clip de nuevo (los tramos del motor).
-const LARGOS_CLIP = [4, 6, 8, 10];
+// Los largos en que se puede pedir un clip de nuevo: con Omni Flash 1.2, un entero de 3 a 15 s (el 1.1 pedía 4, 6, 8 o 10).
+const LARGO_MIN = 3;
+const LARGO_MAX = 15;
 
-/** Rehacer un clip con IA: el largo en que se pide (el tramo más cercano al que se ve en el anuncio). */
+/** Rehacer un clip con IA: el largo en que se pide (el que se ve en el anuncio, redondeado hacia arriba). */
 export function segundosRehacer(largoSeg) {
   const largo = Number(largoSeg) || 6;
-  return LARGOS_CLIP.reduce((mejor, x) => (Math.abs(x - largo) < Math.abs(mejor - largo) ? x : mejor), 6);
+  return Math.min(LARGO_MAX, Math.max(LARGO_MIN, Math.ceil(largo - 1e-6)));
 }

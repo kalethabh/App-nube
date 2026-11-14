@@ -62,7 +62,7 @@ const RAIZ = path.resolve(AQUI, '..', '..');
 const TEMP = path.join(RAIZ, 'temp');
 const SCRIPT = path.join(RAIZ, 'produccion', 'estimar-costo.js');
 
-const OMNI = 'google/gemini-omni-flash-1-1';
+const OMNI = 'google/gemini-omni-flash-1-2';
 const KLING = 'kling-3.0/video';
 const GROK15 = 'grok-imagine-video-1-5-preview';
 const GROK1 = 'grok-imagine/image-to-video';
@@ -219,8 +219,8 @@ bloque('continuidad: simula --preparar y estima la cadena', () => {
   const r = estimarCosto(e);
   // la hoja "perro" solo la usaba el B-roll descartado: no se genera
   caso('imágenes: hoja nina + 3 iniciales + 1 final (sin B-roll ni su hoja) = 5 × 10', () => assert.equal(parte(r, 'imagenes'), 50));
-  // paso-1 (2,5 s), toma-2 propio (4,5 s), paso-2 (B: el tramo mínimo, 4 s), cierre toma-3 (5 s)
-  const cadena = cr(OMNI, 2.5) + cr(OMNI, 4.5) + cr(OMNI, 4) + cr(OMNI, 5);
+  // paso-1 (2,5 s), toma-2 propio (4,5 s), paso-2 (B: el tramo mínimo, 3 s con Omni 1.2), cierre toma-3 (5 s)
+  const cadena = cr(OMNI, 2.5) + cr(OMNI, 4.5) + cr(OMNI, 3) + cr(OMNI, 5);
   caso(`cadena: 2 pasos + 1 propio + cierre = ${cadena}`, () => assert.equal(parte(r, 'videos'), cadena));
   caso('4 clips', () => assert.equal(r.partes.find((p) => p.id === 'videos').piezas, 4));
   caso('margen continuidad 0 y Suno en claymation', () => {
@@ -303,12 +303,16 @@ bloque('entrevista: tomas por ingredientes e iconos fijos', () => {
 });
 
 bloque('clips que pasan el tope del modelo', () => {
+  // Omni 1.2 hace hasta 15 s, pero con imagen final hasta 10: una B de 12 s se parte en dos de 6 s
+  const sinFinal = claymation();
+  sinFinal.tomas[2].duracion = 12;
+  sinFinal.broll = [];
+  caso('una A de 12 s: Omni 1.2 la hace de una vez', () => assert.equal(parte(estimarCosto(entrada(sinFinal)), 'videos'), cr(OMNI, 2.5) + cr(OMNI, 4.5) + cr(OMNI, 12)));
   const m = claymation();
-  m.tomas[2].duracion = 12;
+  m.tomas[2] = { ...m.tomas[2], tipo: 'B', duracion: 12, prompt_imagen_final: 'imagen de prueba final' };
   m.broll = [];
   const r = estimarCosto(entrada(m));
-  // Omni llega a 10 s: con la cascada de siempre el clip de 12 s se parte en dos de 6 s
-  caso('con la cascada de siempre se cuenta partido (2 × 6 s con Omni)', () => assert.equal(parte(r, 'videos'), cr(OMNI, 2.5) + cr(OMNI, 4.5) + 2 * cr(OMNI, 6)));
+  caso('una B de 12 s con la cascada de siempre se cuenta partida (2 × 6 s con Omni)', () => assert.equal(parte(r, 'videos'), cr(OMNI, 2.5) + cr(OMNI, 4.5) + 2 * cr(OMNI, 6)));
   caso('y lo dice', () => assert.ok(r.notas.some((n) => /Una escena dura más de lo que el modelo hace de una vez/.test(n)), r.notas));
   const grok = estimarCosto(entrada(m), { eleccion: { vozEnOff: 'grok15' } });
   caso('Grok 1.5 llega a 15 s: sin partir', () => assert.equal(parte(grok, 'videos'), cr(GROK15, 2.5) + cr(GROK15, 4.5) + cr(GROK15, 12)));
@@ -419,7 +423,8 @@ bloque('cada opción = estimarCosto con esa elección (una categoría a la vez)'
     const comp = compararModelos(ejemplos['voz en off']);
     const o = opcion(comp, 'vozEnOff', 'pixverse-grok15');
     assert.match(o.nota || '', /sin imagen final se hacen con Grok Imagine 1\.5/);
-    assert.equal(opcion(comp, 'vozEnOff', 'omni').nota, undefined);
+    // Omni 1.2 cobra por segundo desde 3 s: un paso más corto se cobra como de 3 y la nota lo dice
+    assert.match(opcion(comp, 'vozEnOff', 'omni').nota || '', /Omni Flash 1\.2 cobra como mínimo 3 s por escena/);
   });
   caso('las categorías salen en el orden de Ajustes (las imágenes al final)', () => {
     const comp = compararModelos(ejemplos.podcast);
@@ -477,7 +482,7 @@ bloque('estimar-costo.js --json', () => {
     fs.writeFileSync(path.join(dir, rel), typeof v === 'string' ? v : JSON.stringify(v, null, 2));
   };
   const correr = (carpeta, ...args) => {
-    const r = spawnSync(process.execPath, [SCRIPT, carpeta, '--json', ...args], { encoding: 'utf8', timeout: 30000, env: { PATH: process.env.PATH, SystemRoot: process.env.SystemRoot } });
+    const r = spawnSync(process.execPath, [SCRIPT, carpeta, '--json', ...args], { encoding: 'utf8', timeout: 30000, env: { PATH: process.env.PATH, SystemRoot: process.env.SystemRoot, ...(process.env.RESOLUCION_VIDEO ? { RESOLUCION_VIDEO: process.env.RESOLUCION_VIDEO } : {}) } });
     let datos = null;
     try {
       datos = JSON.parse(r.stdout);
@@ -498,7 +503,7 @@ bloque('estimar-costo.js --json', () => {
       assert.equal(d.familia, 'voz-en-off');
       assert.equal(d.comparaSobre, 'total');
       assert.deepEqual(d.comparar.map((c) => c.categoria), ['vozEnOff', 'imagen']);
-      assert.deepEqual(d.modelos.map((x) => x.nombre), ['Omni Flash 1.1', 'GPT Image 2.5']);
+      assert.deepEqual(d.modelos.map((x) => x.nombre), ['Omni Flash 1.2', 'GPT Image 2.5']);
       assert.equal(d.creditos.min, estimarCosto(entrada(claymation())).creditos.min);
     });
     r = correr(path.join(dir, 'voz'), '--eleccion', '{"vozEnOff":"grok15","imagen":"nb21"}');

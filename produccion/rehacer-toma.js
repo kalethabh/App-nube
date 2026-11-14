@@ -929,9 +929,9 @@ function imprimirContextoH(c, carpetaArg) {
   console.log(`\n=== Contexto para rehacer la toma ${n} (hablada, tipo H) ===\n`);
   console.log('  NO SE TOCAN (atados al audio y al montaje):');
   console.log('    tipo:          H');
-  // Las tomas H se escriben de 4, 6, 8 o 10 s con cualquier modelo (DURACIONES_H):
-  // Omni las pide asi; uno de duracion libre (Grok) pide lo mismo.
-  console.log(`    duracion:      ${c.fijo.duracion}s (siempre 4, 6, 8 o 10)`);
+  // Las tomas H se escriben con las duraciones de DURACIONES_H (Omni 1.2: un entero de
+  // 3 a 15 s) con cualquier modelo; uno de duracion libre (Grok) pide lo mismo.
+  console.log(`    duracion:      ${c.fijo.duracion}s (un entero de 3 a 15)`);
   if (h.frame_inicial) {
     console.log(`    frame inicial: la referencia "${h.frame_inicial}" copiada tal cual (no hay imagen que rehacer: solo cambia el video)`);
   } else {

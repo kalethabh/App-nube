@@ -161,14 +161,14 @@ duración de la toma (segundos) = palabras de la línea ÷ 2.0
 
 **Nunca uses `palabras ÷ 2.4`.** Ese es el estimador de las skills de voz en off, donde la voz es una pista de ElevenLabs aparte y no hay aire muerto que pagar. Aquí no hay ElevenLabs: habla el modelo de video, dentro del clip.
 
-- Una línea de 9 palabras → 4.5s → clip de 6.
-- Una línea de 13 palabras → 6.5s → clip de 8.
+- Una línea de 9 palabras → 4.5s → clip de 5.
+- Una línea de 13 palabras → 6.5s → clip de 7.
 - Una línea de 15 palabras → 7.5s → clip de 8.
 - **Una línea de más de 17 palabras no existe**: pártela en dos tomas, con su propio personaje/encuadre cada una. Nunca la trunques ni la metas a presión en una sola toma.
 
-> **Si el cálculo cae EXACTO en un valor que acepta el modelo (4.0, 6.0, 8.0), sube al siguiente.**
+> **Si el cálculo cae EXACTO en un valor que acepta el modelo (un entero: 4.0, 6.0, 7.0…), sube al siguiente.**
 >
-> Una línea de 8 palabras da 4.0s exactos: **declara 6, no 4.** Una de 12 da 6.0s exactos: declara 8. El motor redondea hacia arriba, pero un número que ya coincide con el enum no tiene nada que redondear, y el clip sale justo del largo del diálogo, sin un milímetro de cola.
+> Una línea de 8 palabras da 4.0s exactos: **declara 5, no 4.** Una de 12 da 6.0s exactos: declara 7. (Con Omni Flash 1.1, que solo aceptaba 4, 6, 8 o 10, el siguiente era 6 y 8.) El motor redondea hacia arriba, pero un número que ya es entero no tiene nada que redondear, y el clip sale justo del largo del diálogo, sin un milímetro de cola.
 >
 > **Medido en el primer anuncio de este estilo**, sobre los diez clips:
 >
@@ -180,7 +180,7 @@ duración de la toma (segundos) = palabras de la línea ÷ 2.0
 >
 > Las dos únicas tomas cuyo cálculo caía exacto sobre el enum fueron las dos que quedaron sin cola. Ninguna de las otras tuvo el problema.
 >
-> El aire que sobra por subir un escalón **no cuesta nada**: el montaje recorta el silencio de los bordes. La sílaba cortada solo se arregla regenerando el clip, que cuesta dinero y una vuelta más de revisión.
+> El aire que sobra por subir un escalón **cuesta poco** (un segundo más: Omni Flash 1.2 cobra por segundo) y el montaje recorta el silencio de los bordes. La sílaba cortada solo se arregla regenerando el clip, que cuesta dinero y una vuelta más de revisión.
 
 Escribe cada línea a ese conteo real, no la aproximes a ojo. Una línea de 6 palabras deja al personaje posando en silencio media toma; una de 20 lo hace correr.
 
@@ -448,11 +448,11 @@ En Pixar-style casi siempre es **el mismo personaje en un micro-momento distinto
 
   Una toma corta no tiene sitio para un inserto: se le come la cara al personaje justo cuando está diciendo la única frase que tiene. En una toma de 4s el inserto de 2s es la mitad del plano.
 
-  Esto baja el costo bastante: de 8 B-roll entregados, si solo 3 o 4 tomas pasan de 5s, se generan 3 o 4. Cada B-roll que no se genera son ~63 créditos de video más su imagen.
+  Esto baja el costo bastante: de 8 B-roll entregados, si solo 3 o 4 tomas pasan de 5s, se generan 3 o 4. Cada B-roll que no se genera son ~40 créditos de video (4 s) más su imagen.
 
-  > **El umbral se evalúa contra la duración CALCULADA (palabras ÷ 2.0, con decimales), nunca contra la redondeada a 4/6/8/10.**
+  > **El umbral se evalúa contra la duración CALCULADA (palabras ÷ 2.0, con decimales), nunca contra la redondeada al entero.**
   >
-  > Una línea de 9 palabras da 4.5s y se pide como clip de 6, pero **sigue siendo una toma corta y no lleva inserto**. Si midieras contra el 6 redondeado, casi cualquier toma calificaría y la regla dejaría de ahorrar: el redondeo es un detalle de la API, no una decisión de montaje.
+  > Una línea de 9 palabras da 4.5s y se pide como clip de 5, pero **sigue siendo una toma corta y no lleva inserto**. Si midieras contra el 5 redondeado, casi cualquier toma calificaría y la regla dejaría de ahorrar: el redondeo es un detalle de la API, no una decisión de montaje.
   >
   > Además ese clip de 6s trae más aire muerto en los bordes justamente por haberse redondeado hacia arriba, y ahí es donde el montaje recorta. La toma útil sigue midiendo ~4.5s.
 
@@ -580,7 +580,7 @@ donde `[slug-del-anuncio]` es el nombre del producto en kebab-case (ej. `goli-ma
 | `referencias` | La **lista** de lo que el anuncio reusa entre tomas: una entrada por cada personaje que habla. El producto es el caso especial: si habla lleva `archivo` + `prompt` + `generar_desde_archivo: true`; si no habla, solo `archivo`. Ver 6.4 |
 | `tomas[].n` | El número de toma de la tabla del Paso 2.5, consecutivo desde 1 |
 | `tomas[].tipo` | `"A"`, `"B"` o `"C"`, según la decisión de director del Paso 3.6 |
-| `tomas[].duracion` | La duración calculada en el Paso 2.4 (palabras ÷ 2.0). **Máximo 8.** El motor la redondea hacia arriba al valor que acepta el modelo. **Si el cálculo cae exacto en 4.0, 6.0 u 8.0, declara aquí el siguiente valor del enum** — 4.0 se declara `6`, 6.0 se declara `8`. El motor no puede subirlo solo: un número que ya coincide con el enum no tiene nada que redondear, y el clip sale sin cola. Ver el recuadro del Paso 2.4 |
+| `tomas[].duracion` | La duración calculada en el Paso 2.4 (palabras ÷ 2.0). **Máximo 8.** El motor la redondea hacia arriba al entero (lo que acepta el modelo). **Si el cálculo cae exacto en un entero, declara aquí el siguiente** — 4.0 se declara `5`, 6.0 se declara `7`. El motor no puede subirlo solo: un número que ya es entero no tiene nada que redondear, y el clip sale sin cola. Ver el recuadro del Paso 2.4 |
 | `tomas[].linea` | El texto hablado exacto de esa toma, sin las comillas del formato. De aquí salen los subtítulos, así que va con sus tildes y su ñ |
 | `tomas[].prompt_imagen_inicial` | El prompt de imagen completo. **Siempre lleva texto, en todas las tomas** |
 | `tomas[].prompt_imagen_final` | Solo en Tipo B. En Tipo A y C va `null` |
@@ -593,8 +593,9 @@ donde `[slug-del-anuncio]` es el nombre del producto en kebab-case (ej. `goli-ma
 | `overlays` | Siempre `[]`. Las notas de texto en pantalla del punto 6 del Paso 5 son para CapCut; el pipeline no las dibuja |
 
 > **El redondeo de duración es SIEMPRE hacia arriba, nunca hacia abajo.**
-> El modelo de video solo acepta 4, 6, 8 o 10 segundos. Una toma de 7s se pide de
-> 8, no de 6. Redondear hacia abajo le corta la última sílaba al personaje, y eso
+> El modelo de video (Omni Flash 1.2) acepta cualquier entero de 3 a 15 segundos
+> (hasta 10 si la toma lleva imagen final, Tipo B): se pide la duración redondeada
+> al entero, 7 → 7, 7.2 → 8, nunca 7.2 → 7. Redondear hacia abajo le corta la última sílaba al personaje, y eso
 > solo se arregla regenerando el clip. El aire que sobra no es problema: el
 > montaje recorta el silencio de los bordes. Tú escribes la duración real; el
 > redondeo lo hace el motor.
@@ -674,7 +675,7 @@ Repasa esto en silencio. Si algo falla, corrígelo — no entregues un manifiest
 2. ¿Hay una toma por cada fila de la tabla del guion, con el mismo `n`?
 3. ¿**Ninguna** toma tiene `frame_inicial`, y **todas** tienen `prompt_imagen_inicial` con texto?
 4. ¿Las tomas Tipo B tienen `prompt_imagen_final`, y las Tipo A y C lo tienen en `null`?
-5. ¿Ninguna `duracion` de toma pasa de 8, y ninguna `linea` pasa de 17 palabras? ¿Y ninguna toma cuyo cálculo dio exacto 4.0 o 6.0 quedó declarada con ese número, en vez del siguiente del enum?
+5. ¿Ninguna `duracion` de toma pasa de 8, y ninguna `linea` pasa de 17 palabras? ¿Y ninguna toma cuyo cálculo dio un entero exacto (4.0, 6.0…) quedó declarada con ese número, en vez del siguiente?
 6. ¿Cada `prompt_video` lleva la línea hablada en el formato con dos puntos y comillas, **y el idioma declarado**?
 7. ¿Ningún prompt de imagen lleva `--ar`, `--v` ni otro parámetro de herramienta adentro?
 8. ¿Los B-roll del manifiesto son exactamente los de las tomas de 5s o más, con su `n` original sin renumerar?

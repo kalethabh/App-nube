@@ -29,7 +29,7 @@ Dos cosas matan el formato: que la persona se lea como actor, o que los clips se
 4. **El producto no aparece antes de su momento.** Nada en la entrevista lo menciona hasta el beat de entrega (variante B) o hasta que la persona lo descubre en su historia (variante A).
 5. **La marca la dice el entrevistador, nunca la persona entrevistada** (en B). En A, la persona la nombra dos veces: cuando la descubre en su historia y en el cierre. Esta regla sola hace la mayor parte del trabajo de no sonar guionado.
 6. **Un intercambio completo por clip.** Cada clip cierra una idea: una pregunta con su respuesta, o una respuesta con su remate. Nada queda colgado para el clip siguiente.
-7. **La duración de cada clip se mide** (sección "Producción") y se redondea hacia arriba a **4, 6, 8 o 10 segundos**, lo único que acepta el generador de clips hablados. El techo es **10 s**: lo que no entra se parte en un corte de idea completa. La duración va en la etiqueta encima del bloque y en el manifiesto, no dentro del prompt.
+7. **La duración de cada clip se mide** (sección "Producción") y se redondea hacia arriba al **segundo entero, de 3 a 15** (lo que acepta Omni Flash 1.2, que cobra por segundo). El techo es **15 s** (lo calibrado y probado llega a 10 s): lo que no entra se parte en un corte de idea completa. La duración va en la etiqueta encima del bloque y en el manifiesto, no dentro del prompt.
 8. **Cada bloque de prompt va COMPLETO**, en su propio bloque de código. Nunca "[misma estructura que arriba]". Cuando el usuario lo ve (opción C, o la parte que pida), lee exactamente lo que el motor va a mandar.
 9. **Los personajes se generan una sola vez y van adjuntos a cada imagen de clip**: la persona entrevistada (hoja de personaje en fondo blanco), la calle vacía, y la mano del entrevistador con el micrófono (fondo blanco; solo en B). Con eso adjunto, el modelo no inventa. El entrevistador no se genera: de él solo entra el brazo con el micrófono, y el otro brazo únicamente para entregar el producto. Su cara y su cuerpo nunca entran en cuadro, y su otra mano no aparece antes de la entrega.
 10. **Una imagen por clip, y el video se genera con ingredientes.** La imagen del clip, que se genera con los personajes adjuntos, es la **imagen 1** del video, y el prompt pide usarla como frame inicial. En B van además la mano con el micrófono (**imagen 2**) y, en los clips donde sale, la foto del producto (**imagen 3**). En A, solo la imagen 1. Lo que el clip tiene que mostrar al empezar (la persona, la calle, el brazo con el mic, el producto si ya está) va en la imagen del clip; los ingredientes le recuerdan al video cómo son la mano y el producto para que no los cambie. La imagen describe cómo está la persona al empezar ese clip, que es aproximadamente cómo terminó el anterior. El prompt de video de cada clip termina con una línea "Termina:" y la imagen del clip siguiente empieza con esa misma línea.
@@ -170,8 +170,8 @@ Duración = palabras ÷ 2,6          (habla en el caso lento, para que nunca cor
          + tiempo de acción         (1s: algo entra en cuadro o alguien se acomoda · 1,5s: una reacción sostenida, mirar algo en silencio, recibir el producto y leer la etiqueta, o la cara de no saber al final del gancho)
          + 0,5s de cierre
 → redondear hacia arriba al segundo entero
-→ subir al siguiente de 4, 6, 8 o 10 (lo único que acepta el generador: 5 → 6, 7 → 8, 9 → 10)
-→ si pasa de 10, partir en un corte de idea completa
+→ ese entero es lo que se pide (de 3 a 15: Omni Flash 1.2 acepta cualquier entero y cobra por segundo)
+→ si pasa de 15, partir en un corte de idea completa (lo probado llega a 10)
 ```
 
 Si en el caso rápido sobra aire, el motor lo recorta con los tiempos de cada palabra (la transcripción de la revisión): deja **0,12 s antes de la primera palabra y 0,25 s después de la última palabra del guion** (el último clip del gancho de A deja 0,8 s, para la cara de no saber). Cuenta la última palabra del guion, no la última que se oye: una repetición o una muletilla que el modelo agregue después del guion queda fuera. Para eso la transcripción tiene que ser del clip que está en `video/` (el motor lo comprueba por el tamaño del archivo): si falta o es de un clip anterior, el motor recorta como puede y avisa que corras `npm run lineas -- temp/[slug] --tomas N`. Si falta tiempo, el modelo corta palabras — y eso no se arregla.
@@ -180,10 +180,13 @@ Si en el caso rápido sobra aire, el motor lo recorta con los tiempos de cada pa
 
 | Clip | Dos voces (pregunta + respuesta) | Una voz (la historia de la variante A) |
 |---|---|---|
+| **15 s** (Omni 1.2, sin probar todavía) | hasta 35 | hasta 37 |
 | **10 s** | 12 a 21 | hasta 25 |
 | **8 s** | 10 a 17 | hasta 20 |
 | **6 s** | 7 a 13 | hasta 15 |
 | **4 s** | 5 a 8 | hasta 10 |
+
+Los segundos intermedios (5, 7, 9, 11…) también se piden: su presupuesto queda entre el de sus vecinos.
 
 Menos del mínimo desperdicia el clip; más del máximo corta. Un clip puede llevar pocas palabras a propósito cuando el momento es una reacción (la cara cambiando al oír algo). Ese aire es del guion, no desperdicio.
 
@@ -343,7 +346,7 @@ Todas las imágenes de clip tienen el mismo encuadre (muslos hacia arriba) y el 
 
 ### Prompts de video
 
-Un bloque completo por clip, con etiqueta `### 🎬 CLIP N — [nombre del beat] · Ns · N palabras · ingredientes: imagen del clip N [+ mano con micrófono] [+ tu foto del producto]`. Encima del primer bloque, una sola línea: *el motor genera cada clip a 720p, 9:16, con audio, pidiendo la duración de la etiqueta. Se genera con ingredientes: imagen 1 = la imagen del clip (el prompt la usa como frame inicial); imagen 2 = la mano con el micrófono; imagen 3 = tu foto del producto, en los clips donde sale.* (En A: *se genera con un ingrediente, la imagen del clip, que el prompt usa como frame inicial.*)
+Un bloque completo por clip, con etiqueta `### 🎬 CLIP N — [nombre del beat] · Ns · N palabras · ingredientes: imagen del clip N [+ mano con micrófono] [+ tu foto del producto]`. Encima del primer bloque, una sola línea: *el motor genera cada clip a 1080p, 9:16, con audio, pidiendo la duración de la etiqueta. Se genera con ingredientes: imagen 1 = la imagen del clip (el prompt la usa como frame inicial); imagen 2 = la mano con el micrófono; imagen 3 = tu foto del producto, en los clips donde sale.* (En A: *se genera con un ingrediente, la imagen del clip, que el prompt usa como frame inicial.*)
 
 **Plantilla de clip con dos voces** (sustituye los corchetes; el género según la persona):
 
@@ -1044,7 +1047,7 @@ Lo que cambia respecto a la A: `variante: "B"`, sin `congelado`, con la referenc
 | `tomas[].n` | El número del clip (1, 2, 3…) |
 | `tomas[].tipo` | Siempre `"H"`: clip hablado, que el motor genera por ingredientes |
 | `tomas[].fase` | El beat del clip (gancho, historia 1, cierre; abordaje + confesión, lo que ya probó, entrega, veredicto + remate, cierre) |
-| `tomas[].duracion` | 4, 6, 8 o 10: la de la etiqueta del clip, medida con la fórmula y redondeada hacia arriba |
+| `tomas[].duracion` | Un entero de 3 a 15: la de la etiqueta del clip, medida con la fórmula y redondeada hacia arriba |
 | `tomas[].dialogo` | Las líneas del clip en orden: `habla` = `"entrevistador"` o `"persona"`, `texto` = la línea sin comillas. En el clip de cierre de B, solo el entrevistador; en la historia de A, solo la persona |
 | `tomas[].linea` | Todos los `texto` del `dialogo`, en orden, unidos por un espacio. Los subtítulos, la transcripción y todas las frases ancla se alinean contra este campo |
 | `tomas[].solo_voz` | Solo en A, en todos los clips después del congelado: `true`. Se genera entero, se usa su audio y el video lo cubre la cadena de B-roll. El paso `voz` le quita los silencios de adentro y lo pasa a 1,2x. En el gancho y en toda la B no se escribe |
@@ -1086,7 +1089,7 @@ Ese comando copia la foto a la carpeta del anuncio con el nombre correcto y la c
 Repasa esto en silencio, además del Chequeo final. Si algo falla, corrígelo: no entregues un manifiesto roto.
 
 1. ¿`estilo` es `"entrevista"`, `modo_audio` es `"dialogo_nativo"`, no hay campo `voz_en_off` y **todas** las tomas son `tipo: "H"`, una por clip, con el mismo número que su etiqueta?
-2. ¿Cada `duracion` es 4, 6, 8 o 10, igual a la de la etiqueta del clip, y las palabras del clip están dentro de la guía de esa duración?
+2. ¿Cada `duracion` es un entero de 3 a 15, igual a la de la etiqueta del clip, y las palabras del clip están dentro de la guía de esa duración?
 3. ¿Cada `linea` es exactamente los `texto` de su `dialogo` unidos en orden por un espacio, y cada `texto` aparece letra por letra dentro de su `prompt_video` (entre comillas, después de "Entrevistador:" o "[Ella / Él]…:")?
 4. ¿`prompt_imagen_inicial` está en todos los clips y `prompt_imagen_final` es `null` en todos? ¿Ningún clip lleva `frame_inicial`? ¿Todos los clips llevan `ingredientes`, empezando por `"imagen"` y en el mismo orden en que la primera línea de su prompt de video nombra las imágenes (imagen 1, 2, 3)?
 5. ¿Las `referencias` de cada clip existen en la lista, van en el orden en que su prompt de imagen las nombra, y el producto está en todos los clips donde se ve en cuadro, en `referencias` y en `ingredientes`? ¿En A ningún clip lleva `mano-mic` ni `producto` y todos los `ingredientes` son `["imagen"]`; en B todos llevan `mano-mic` en las dos listas?
@@ -1109,7 +1112,7 @@ Repasa esto en silencio, además del Chequeo final. Si algo falla, corrígelo: n
 
 Ya armaste el paquete completo (ficha, guion, personajes, imagen de cada clip, prompts de video, iconos, B-roll y plan de montaje) y el manifiesto quedó guardado en `temp/[slug]/manifiesto.json`, con el chequeo G.6 pasado. **Nada de eso se muestra en el chat**: el paquete queda interno, en el manifiesto, y el manifiesto no se muestra nunca. **Ahora, y solo ahora, en el chat va solo esto: un resumen corto y la pregunta de cómo quiere seguir.**
 
-**El resumen**, de 1 a 3 líneas: la variante (gancho callejero o entrevista completa), el producto, el mercado y el idioma, cuántos clips y cuántos B-roll, la duración aproximada y, en media línea, que el manifiesto quedó guardado y revisado. Si hay una decisión que conviene que sepa, va en UNA línea más (por ejemplo, "agregué 'Pagas al recibirlo' en el cierre por el pago contra entrega", o "el gancho va en dos clips porque las dos preguntas no entraban en 10 s"; si convertiste un guion de otro formato (Paso 0), esa línea dice en corto qué cambió, por ejemplo "tus afirmaciones pasaron a preguntas del entrevistador y el cierre es el de la variante"). Nada más: ni el guion, ni los prompts, ni el manifiesto.
+**El resumen**, de 1 a 3 líneas: la variante (gancho callejero o entrevista completa), el producto, el mercado y el idioma, cuántos clips y cuántos B-roll, la duración aproximada y, en media línea, que el manifiesto quedó guardado y revisado. Si hay una decisión que conviene que sepa, va en UNA línea más (por ejemplo, "agregué 'Pagas al recibirlo' en el cierre por el pago contra entrega", o "el gancho va en dos clips porque las dos preguntas no entraban en 15 s"; si convertiste un guion de otro formato (Paso 0), esa línea dice en corto qué cambió, por ejemplo "tus afirmaciones pasaron a preguntas del entrevistador y el cierre es el de la variante"). Nada más: ni el guion, ni los prompts, ni el manifiesto.
 
 No lo decidas tú: las tres salidas son legítimas y cuestan cosas distintas.
 
@@ -1143,7 +1146,7 @@ revises o lo produzcas a mano. Después, si quieres, seguimos con A o B.
 
 **Las dos paradas que sí van, y que no se saltan nunca:**
 
-1. **El costo, antes de generar.** `npm run validar -- temp/[slug]/manifiesto.json` revisa el manifiesto e imprime el costo estimado, desglosado por tipo. De referencia (o lo que diga el validador, que es lo que manda): cada hoja, cada imagen de clip y cada imagen de B-roll, 10 créditos (GPT Image 2.5 Sunburst a 2K); cada clip hablado, 63 (4 s), 84 (6 s), 105 (8 s) o 126 (10 s) créditos; cada icono, 6 créditos (GPT Image 2 a 1K); cada B-roll en Kling, 14 créditos por segundo (un B-roll de 5 s, 70; el de cierre de 6 s, 84). Sin música: no hay nada que generar ahí. Muéstraselo en dólares y espera un sí: el usuario paga cada imagen y cada clip. Presenta el costo como número, sin ofrecer una versión más barata que quite clips o B-roll.
+1. **El costo, antes de generar.** `npm run validar -- temp/[slug]/manifiesto.json` revisa el manifiesto e imprime el costo estimado, desglosado por tipo. De referencia (o lo que diga el validador, que es lo que manda): cada hoja, cada imagen de clip y cada imagen de B-roll, 10 créditos (GPT Image 2.5 Sunburst a 2K); cada clip hablado, 10 créditos por segundo (Omni Flash 1.2 a 1080p: 4 s, 40; 6 s, 60; 8 s, 80; 10 s, 100; 15 s, 150); cada icono, 6 créditos (GPT Image 2 a 1K); cada B-roll en Kling, 14 créditos por segundo (un B-roll de 5 s, 70; el de cierre de 6 s, 84). Sin música: no hay nada que generar ahí. Muéstraselo en dólares y espera un sí: el usuario paga cada imagen y cada clip. Presenta el costo como número, sin ofrecer una versión más barata que quite clips o B-roll.
 2. **La revisión de los clips, antes de montar.** Un clip que se ve no se puede acelerar ni cortar por dentro: si sale mal, solo se arregla rehaciéndolo, y rehacer después de ensamblar es rehacer todo el montaje.
 
 Con el sí del costo, corre `imagenes` y `videos` con `--si`: el usuario ya confirmó, y sin esa marca el comando se queda esperando una confirmación en la terminal.
@@ -1309,7 +1312,7 @@ Al final, ofrécele seguir con A o con B, o dejarlo ahí: el manifiesto ya está
 - Nunca una foto de una persona real como la persona entrevistada: siempre generada con IA desde su hoja de personaje. La única foto real es la del producto.
 - Nunca reutilices copy, cifras ni ángulos de otros anuncios, ni los ejemplos de esta skill.
 - Nunca el producto antes de su momento, y nunca la marca en boca de la persona en la B.
-- Nunca un clip de otra duración que 4, 6, 8 o 10 s, ni más de 10: lo que no entra se parte en un corte de idea completa.
+- Nunca un clip de menos de 3 s ni de más de 15 (lo probado llega a 10): lo que no entra se parte en un corte de idea completa.
 - Nunca un clip con palabras de más (corta) ni de menos (desperdicia): se corrige con la duración del clip o moviendo el corte, nunca rellenando ni recortando el guion.
 - Nunca una pregunta del entrevistador de más de una oración, ni la persona repitiendo sus palabras.
 - Nunca una voz hecha aparte: toda voz sale de un clip generado, también el cierre del entrevistador y la historia de la A.
@@ -1346,7 +1349,7 @@ Al final, ofrécele seguir con A o con B, o dejarlo ahí: el manifiesto ya está
 - Hice las dos pausas: briefing completo y elección de variante con recomendación.
 - No inventé ciudad, género, edad, quién es la persona ni el llamado a la acción: todo salió del briefing.
 - El guion sigue la estructura de la variante elegida, beat por beat, y el producto entra en su momento.
-- Cada clip es un intercambio completo, con su duración medida y redondeada a 4, 6, 8 o 10 en la etiqueta, y sus palabras dentro de la guía.
+- Cada clip es un intercambio completo, con su duración medida y redondeada hacia arriba al entero (de 3 a 15) en la etiqueta, y sus palabras dentro de la guía.
 - Los personajes con sus prompts en español simple (tres en B, dos en A); una imagen por clip, cada una empezando con la línea "Termina:" del clip anterior, con el brazo y el mic del lado correcto (B) o sin ellos (A), y con el producto donde se ve.
 - Cada prompt de video: en español, simple, con la primera línea de ingredientes (imagen 1, y en B imagen 2 y, donde sale el producto, imagen 3), el diálogo, las voces idénticas (con la pronunciación de la marca si hace falta), el sonido, la lista de "Lo que NO debe pasar" adaptada con sus líneas fijas de no repetir, y la línea "Termina:". La etiqueta de cada clip dice sus ingredientes, y coinciden con `ingredientes` del manifiesto.
 - En A: los iconos del gancho (dos por pregunta, el elegido con su check y su frase, que dice la palabra de la opción igual que la pregunta y con una muletilla o una palabra más; la última sin elección), el congelado declarado después del último clip del gancho, los clips de la historia marcados solo voz, y la cadena de B-roll (uno por idea, cada 3 a 6 s de voz, el primero con la primera frase de la historia, cada uno con su imagen y su video para Kling, mudo, con el producto adjunto cuando se nombra, sin deslizarlo, y dos B-roll del producto distintos entre sí).
