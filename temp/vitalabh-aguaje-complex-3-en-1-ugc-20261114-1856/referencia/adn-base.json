@@ -1,0 +1,66 @@
+{
+  "video": "original.mp4",
+  "duracion": 13.07,
+  "formato": "1080x1920",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 2.13,
+      "duracion": 2.13,
+      "fotograma": "tomas/toma-01.jpg",
+      "dice": "Lo que tomó todos los días para",
+      "eventos": []
+    },
+    {
+      "n": 2,
+      "desde": 2.13,
+      "hasta": 3.47,
+      "duracion": 1.34,
+      "fotograma": "tomas/toma-02.jpg",
+      "dice": "aumentar mis glúteos.",
+      "eventos": []
+    },
+    {
+      "n": 3,
+      "desde": 3.47,
+      "hasta": 5.17,
+      "duracion": 1.7,
+      "fotograma": "tomas/toma-03.jpg",
+      "dice": "Una cápsula media hora antes",
+      "eventos": []
+    },
+    {
+      "n": 4,
+      "desde": 5.17,
+      "hasta": 6.63,
+      "duracion": 1.46,
+      "fotograma": "tomas/toma-04.jpg",
+      "dice": "de cada comida y",
+      "eventos": []
+    },
+    {
+      "n": 5,
+      "desde": 6.63,
+      "hasta": 8.67,
+      "duracion": 2.04,
+      "fotograma": "tomas/toma-05.jpg",
+      "dice": "aumentarás glúteos y piernas.",
+      "eventos": []
+    },
+    {
+      "n": 6,
+      "desde": 8.67,
+      "hasta": 13.07,
+      "duracion": 4.4,
+      "fotograma": "tomas/toma-06.jpg",
+      "dice": "Además, moldea tu figura. Verás increíbles resultados en un mes",
+      "eventos": []
+    }
+  ],
+  "texto": "Lo que tomó todos los días para aumentar mis glúteos. Una cápsula media hora antes de cada comida y aumentarás glúteos y piernas. Además, moldea tu figura. Verás increíbles resultados en un mes",
+  "palabras_por_segundo": 2.53,
+  "eventos_de_audio": [],
+  "aviso": null
+}

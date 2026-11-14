@@ -1,0 +1,22 @@
+{
+  "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
+  "productoId": "producto-0e3d",
+  "estilo": "ugc",
+  "familia": "ugc",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": null,
+  "continuidad": false,
+  "respuestas": {
+    "ganchos": "No, solo uno",
+    "clonar": "subido:mwgtg05mc709d5|AGUAJE 05 - GANADOR (H264).mp4",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {
+    "ganchos": false,
+    "subestilo": null
+  },
+  "creado": "2026-11-14T23:56:15.044Z"
+}

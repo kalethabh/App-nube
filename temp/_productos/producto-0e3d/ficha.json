@@ -1,0 +1,59 @@
+{
+  "nombre": "VITALABH Aguaje Complex 3 en 1",
+  "queEs": "Suplemento alimenticio en cápsulas rosadas, a base de aguaje, fenogreco y maca negra.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Volumen real en glúteos",
+    "Piernas tonificadas",
+    "Abdomen moldeado",
+    "Sin gimnasio y sin dietas costosas",
+    "Sin efecto rebote (no engorda)",
+    "Triple acción: tres extractos en una sola cápsula"
+  ],
+  "publico": "Mujeres adultas, de unos 20 a 40 años, delgadas o con poca forma, que quieren más volumen en glúteos y piernas sin subir de peso.",
+  "dolor": "Siente que el glúteo se le ve plano y caído, que no llena el jean y que las piernas no tienen forma. No tiene tiempo ni plata para gimnasio o dietas costosas.",
+  "oferta": "Se recomienda el tratamiento completo de 3 meses (3 frascos). El precio no se menciona en el anuncio, ni en la voz ni en la imagen.",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "Gimnasio y dietas costosas.",
+  "prueba": "",
+  "ingredientes": "Según la etiqueta: 200 mg de aguaje (fruto, en polvo), 400 mg de fenogreco (semilla, en polvo) y 200 mg de maca negra (raíz, en polvo). También trae vitamina A y vitamina E. Cápsula de gelatina. Frasco de 60 cápsulas de 0,5 g cada una (contenido neto 30 g).",
+  "comoSeUsa": "Tomar 2 cápsulas al día, preferiblemente con las comidas principales. Uso continuo por al menos 3 meses. No exceder la porción diaria recomendada.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco en la mano: negro con tapa y base rosadas, etiqueta de frente y legible. Abajo se ve una barra de reproducción de video que no hace parte del producto."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": true,
+      "nota": "El diseño plano de la etiqueta completa, con medidas de imprenta. Sirve para leer los textos, los ingredientes y el modo de uso, no como foto del frasco."
+    },
+    {
+      "archivo": "fotos/3.png",
+      "sirve": false,
+      "nota": "Una cápsula rosada de banco de imágenes, con marcas de agua encima. Solo sirve como guía del color y la forma de la cápsula."
+    },
+    {
+      "archivo": "fotos/4.jpg",
+      "sirve": false,
+      "nota": "Selfie de una mujer frente al espejo, sin el producto. Solo sirve como guía del estilo de las selfies."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "probo",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo te compra la clienta: por WhatsApp, por la página o contra entrega?"
+    }
+  ]
+}
