@@ -1,0 +1,229 @@
+==============================================================================
+PLAN DE MONTAJE — aguaje-complex-10x-ugc-20261113-2203
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+ANUNCIO POR BLOQUES (UGC). Cada bloque es un clip de 4 a 10 s donde la persona
+habla con su propia voz, con lip-sync. No hay voz en off ni B-roll.
+
+REGLA MADRE: manda el clip. Los bloques van en orden y en corte seco; la
+duracion del anuncio es la suma de los bloques ya recortados.
+
+LO QUE NO SE HACE, NUNCA:
+  - No aceleres un bloque hablado: deforma la voz y desincroniza la boca.
+  - No cortes por DENTRO del dialogo: ahi vive el lip-sync.
+  Si un bloque no sirve, se REGENERA (npm run rehacer -- temp/aguaje-complex-10x-ugc-20261113-2203 N). No se ajusta.
+
+LO QUE SI: recorta el silencio del principio y del final de cada bloque. Si al
+final repite palabras que ya dijo, cortalas (abajo se indica donde, si se midio).
+
+------------------------------------------------------------------------------
+
+BLOQUE 1   (4 s, tipo R)   — gancho
+  Cuando:   00:00.00 -> 00:03.04   (3.04s de ventana)
+  Clip:     video/toma-1.mp4
+  Tramos:
+            [0.0–2.8s] [personaje]  "¿Cómo hice pa' tener este jopo, mi vida?"
+            [2.8–4.0s] [personaje]  "Con esto."
+  Dice:     "¿Cómo hice pa' tener este jopo, mi vida? Con esto."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+  Recorte:  0.88s del INICIO y 0.00s del FINAL.
+            Quedan 3.04s utiles de los 3.92s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 2   (4 s, tipo R)   — gancho: también es para hombres
+  Cuando:   00:03.04 -> 00:06.96   (3.92s de ventana)
+  Clip:     video/toma-2.mp4
+  Tramos:
+            [0.0–2.8s] [personaje]  "Y no, no es solo pa' ustedes, mis reinas."
+            [2.8–4.0s] [personaje]  "¡Pa' nosotros también!"
+  Dice:     "Y no, no es solo pa' ustedes, mis reinas. ¡Pa' nosotros también!"
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 3.92s utiles de los 3.92s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 3   (6 s, tipo R)   — solución: los tres ingredientes
+  Cuando:   00:06.96 -> 00:12.93   (5.97s de ventana)
+  Clip:     video/toma-3.mp4
+  Tramos:
+            [0.0–3.8s] [personaje-2]  "Lo que funciona es que traiga aguaje, fenogreco y maca negra,"
+            [3.8–6.0s] [personaje-2]  "los tres, en sus extractos puros."
+  Dice:     "Lo que funciona es que traiga aguaje, fenogreco y maca negra, los tres, en sus extractos puros."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje-2    -> img/personaje-2.png
+            2) producto       -> producto.png
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 5.97s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 4   (6 s, tipo R)   — solución: los ingredientes, no la marca
+  Cuando:   00:12.93 -> 00:18.54   (5.62s de ventana)
+  Clip:     video/toma-4.mp4
+  Tramos:
+            [0.0–2.2s] [personaje-2]  "Eso es lo que da los resultados,"
+            [2.2–3.8s] [personaje-2]  "no la marca de Vitalcom,"
+            [3.8–6.0s] [personaje-2]  "por eso es que no ven resultados."
+  Dice:     "Eso es lo que da los resultados, no la marca de Vitalcom, por eso es que no ven resultados."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje-2    -> img/personaje-2.png
+            2) producto       -> producto.png
+            3) lugar-cuarto   -> img/lugar-cuarto.png   (fotograma del bloque 3, segundo 1.9)
+  Recorte:  0.27s del INICIO y 0.08s del FINAL.
+            Quedan 5.62s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 5   (8 s, tipo R)   — prueba: su resultado
+  Cuando:   00:18.54 -> 00:25.95   (7.41s de ventana)
+  Clip:     video/toma-5.mp4
+  Tramos:
+            [0.0–5.2s] [personaje-3]  "Y lo que tenía en el abdomen es como si se me hubiera ido pa' la cola,"
+            [5.2–6.9s] [personaje-3]  "las piernas y las caderas."
+            [6.9–8.0s] [personaje-3]  "¡Mírame!"
+  Dice:     "Y lo que tenía en el abdomen es como si se me hubiera ido pa' la cola, las piernas y las caderas. ¡Mírame!"
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje-3    -> img/personaje-3.png
+  Recorte:  0.52s del INICIO y 0.00s del FINAL.
+            Quedan 7.41s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 6   (4 s, tipo R)   — prueba: sin rebote
+  Cuando:   00:25.95 -> 00:29.59   (3.64s de ventana)
+  Clip:     video/toma-6.mp4
+  Tramos:
+            [0.0–1.6s] [personaje-2]  "Y sin efecto rebote,"
+            [1.6–2.6s]  (sin dialogo)
+            [2.6–4.0s] [personaje-2]  "no me engordó."
+  Dice:     "Y sin efecto rebote, no me engordó."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje-2    -> img/personaje-2.png
+            2) lugar-cuarto   -> img/lugar-cuarto.png   (fotograma del bloque 3, segundo 1.9)
+  Recorte:  0.28s del INICIO y 0.00s del FINAL.
+            Quedan 3.64s utiles de los 3.92s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 7   (8 s, tipo R)   — problema: el cuento del único original
+  Cuando:   00:29.59 -> 00:37.07   (7.48s de ventana)
+  Clip:     video/toma-7.mp4
+  Tramos:
+            [0.0–4.2s] [personaje]  "Ah, y si les dicen que el único original es el de Vitalcom,"
+            [4.2–5.2s] [personaje]  "mentira:"
+            [5.2–8.0s] [personaje]  "lo que sirve es que tenga los componentes puros."
+  Dice:     "Ah, y si les dicen que el único original es el de Vitalcom, mentira: lo que sirve es que tenga los componentes puros."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) lugar-habitacion -> img/lugar-habitacion.png   (fotograma del bloque 2, segundo 1.4)
+  Recorte:  0.45s del INICIO y 0.00s del FINAL.
+            Quedan 7.48s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 8   (8 s, tipo R)   — problema: comprar de a uno
+  Cuando:   00:37.07 -> 00:43.97   (6.90s de ventana)
+  Clip:     video/toma-8.mp4
+  Tramos:
+            [0.0–2.4s] [personaje]  "Y no les vendan de a uno,"
+            [2.4–3.6s]  (sin dialogo)
+            [3.6–8.0s] [personaje]  "que ese es el negocio de ellos pa' que estén comprando y comprando."
+  Dice:     "Y no les vendan de a uno, que ese es el negocio de ellos pa' que estén comprando y comprando."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-habitacion -> img/lugar-habitacion.png   (fotograma del bloque 2, segundo 1.4)
+  Recorte:  0.28s del INICIO y 0.75s del FINAL.
+            Quedan 6.90s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 9   (8 s, tipo R)   — oferta: el tratamiento completo
+  Cuando:   00:43.97 -> 00:51.90   (7.93s de ventana)
+  Clip:     video/toma-9.mp4
+  Tramos:
+            [0.0–2.6s] [personaje]  "Háganse el tratamiento completo de tres meses:"
+            [2.6–4.2s] [personaje]  "resultados rápidos y duraderos,"
+            [4.2–6.6s] [personaje]  "que se quedan incluso después de terminarlo,"
+            [6.6–8.0s] [personaje]  "sin efecto rebote."
+  Dice:     "Háganse el tratamiento completo de tres meses: resultados rápidos y duraderos, que se quedan incluso después de terminarlo, sin efecto rebote."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-habitacion -> img/lugar-habitacion.png   (fotograma del bloque 2, segundo 1.4)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 10   (4 s, tipo R)   — cierre: llega a la casa y se paga al recibir
+  Cuando:   00:51.90 -> 00:55.82   (3.92s de ventana)
+  Clip:     video/toma-10.mp4
+  Tramos:
+            [0.0–4.0s] [personaje-3]  "A mí me llegó a la casa y lo pagué al recibirlo."
+  Dice:     "A mí me llegó a la casa y lo pagué al recibirlo."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje-3    -> img/personaje-3.png
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 3.92s utiles de los 3.92s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 11   (4 s, tipo R)   — cierre: el botón de abajo
+  Cuando:   00:55.82 -> 00:59.52   (3.70s de ventana)
+  Clip:     video/toma-11.mp4
+  Tramos:
+            [0.0–2.8s] [personaje]  "El tuyo lo puedes pedir aquí abajo,"
+            [2.8–4.0s] [personaje]  "reina."
+  Dice:     "El tuyo lo puedes pedir aquí abajo, reina."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) lugar-habitacion -> img/lugar-habitacion.png   (fotograma del bloque 2, segundo 1.4)
+  Recorte:  0.09s del INICIO y 0.13s del FINAL.
+            Quedan 3.70s utiles de los 3.92s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+------------------------------------------------------------------------------
+
+GANCHOS ALTERNATIVOS (opcionales, para probar en Meta cual vende mas)
+Cada uno es otra version completa del bloque que reemplaza. El resto del anuncio
+no cambia: se arma una version del anuncio por gancho.
+
+GANCHO 1b   (4 s) — reemplaza al BLOQUE 1
+  Clip:     video/gancho-1b.mp4   (todavia no generado: npm run videos -- temp/aguaje-complex-10x-ugc-20261113-2203 --ganchos)
+  Tramos:
+            [0.0–2.8s] [personaje]  "Todo el mundo me pregunta qué me hice."
+            [2.8–4.0s] [personaje]  "Con esto."
+  Dice:     "Todo el mundo me pregunta qué me hice. Con esto."
+  Version del anuncio con este gancho:  npm run ugc:gancho -- temp/aguaje-complex-10x-ugc-20261113-2203 1b
+  (a mano: la misma linea de tiempo, cambiando solo el bloque 1 por este clip)
+
+GANCHO 1c   (4 s) — reemplaza al BLOQUE 1
+  Clip:     video/gancho-1c.mp4   (todavia no generado: npm run videos -- temp/aguaje-complex-10x-ugc-20261113-2203 --ganchos)
+  Tramos:
+            [0.0–2.8s] [personaje]  "Los hombres también podemos sacar cola, mi amor."
+            [2.8–4.0s] [personaje]  "Con esto."
+  Dice:     "Los hombres también podemos sacar cola, mi amor. Con esto."
+  Version del anuncio con este gancho:  npm run ugc:gancho -- temp/aguaje-complex-10x-ugc-20261113-2203 1c
+  (a mano: la misma linea de tiempo, cambiando solo el bloque 1 por este clip)
+
+------------------------------------------------------------------------------
+
+SUBTITULOS, TEXTO EN PANTALLA Y MUSICA
+  Van en el montaje, nunca dentro de los clips. Musica baja, unos -22 dB por
+  debajo de la voz.
+
+AUDIO DE LOS CLIPS
+  La voz viene DENTRO de cada clip, con el ambiente del lugar. No se le agrega
+  narracion. Un fade corto (~80ms) en cada corte evita que suene seco.
+
+==============================================================================

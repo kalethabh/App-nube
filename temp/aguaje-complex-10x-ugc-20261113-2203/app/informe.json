@@ -1,0 +1,165 @@
+{
+  "slug": "aguaje-complex-10x-ugc-20261113-2203",
+  "generado": "2026-11-14T03:35:26.003Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 59.52,
+    "estimada": 64,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-10x-ugc-20261113-2203_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda lo que dice la persona",
+      "detalle": "El video dura 1:00: 11 bloques donde la persona habla a cámara (pedidos, suman 1:04). Ninguna frase se recortó para cuadrar."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:56."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "4 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "67 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "Cada bloque a su velocidad",
+      "detalle": "Un bloque hablado nunca se acelera: le cambiaría la voz y los labios dejarían de ir con lo que dice."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 3,
+      "momento": 6.956,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 5,
+      "momento": 18.543,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 7,
+      "momento": 29.591,
+      "animacion": "deslizar-derecha",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 10,
+      "momento": 51.9,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "revision-avisos",
+      "tipo": "revisar",
+      "titulo": "Lo que notó la revisión",
+      "detalle": "La revisión notó algo en 2 piezas y no se rehízo nada solo: míralas y, si quieres, regenéralas desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).",
+      "piezas": [
+        {
+          "n": null,
+          "unidad": "Escena 4",
+          "momento": 12.926,
+          "valor": "El frasco sale con la tapa negra y sin la franja rosada en dos de los tres planos; no es igual al de tu foto.",
+          "clave": "vid:toma-4",
+          "sugerencia": true
+        },
+        {
+          "n": null,
+          "unidad": "Escena 9",
+          "momento": 43.97,
+          "valor": "No dijo su parte tal cual: dijo «Hágase» en vez de «Háganse». Dijo «Hágase» en vez de «Háganse», y las gafas aparecen y desaparecen de un plano a otro.",
+          "clave": "vid:toma-9",
+          "sugerencia": true
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 682,
+    "dolares": 3.41,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 3,
+      "creditos": 30,
+      "dolares": 0.15
+    },
+    "videos": {
+      "piezas": 11,
+      "creditos": 640,
+      "dolares": 3.2
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 0,
+      "creditosEstimados": 0
+    },
+    "estimado": false,
+    "elevenlabs": {
+      "caracteres": 0,
+      "scribeSegundos": 126.6
+    },
+    "corridas": 5,
+    "respaldo": [],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 3,
+        "creditos": 30,
+        "dolares": 0.15
+      },
+      {
+        "id": "videos",
+        "piezas": 11,
+        "creditos": 640,
+        "dolares": 3.2
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 0
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 2117.2,
+      "saldoDespues": 1435.2,
+      "diferencia": 682,
+      "coincide": true
+    },
+    "rehecho": false
+  },
+  "estilo": "ugc"
+}

@@ -1,12 +1,11 @@
 {
-  "pid": 71803,
-  "paso": "render",
-  "script": "ensamblar.js",
+  "pid": 72967,
+  "paso": "rehacer",
+  "script": "validar-manifiesto.js",
   "args": [
-    "temp/aguaje-complex-10x-ugc-20261113-2203",
-    "--solo-completa"
+    "temp/aguaje-complex-10x-ugc-20261113-2203/manifiesto.json"
   ],
-  "comando": "node produccion/ensamblar.js temp/aguaje-complex-10x-ugc-20261113-2203 --solo-completa",
-  "inicio": "2026-11-14T03:26:44.714Z",
+  "comando": "node produccion/validar-manifiesto.js temp/aguaje-complex-10x-ugc-20261113-2203/manifiesto.json",
+  "inicio": "2026-11-14T03:36:33.747Z",
   "app": 71565
 }

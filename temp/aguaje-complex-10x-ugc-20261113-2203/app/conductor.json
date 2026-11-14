@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-10x-ugc-20261113-2203",
   "familia": "ugc",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -73,43 +73,42 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
       "inicio": "2026-11-14T03:25:17.707Z",
       "retomado": true,
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 1757,
-        "total": 1786,
-        "restante": 3,
-        "en": "2026-11-14T03:34:30.357Z"
-      }
+      "fin": "2026-11-14T03:35:12.597Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-14T03:35:12.597Z",
+      "fin": "2026-11-14T03:35:25.791Z"
     },
     {
       "id": "ganchos",
       "nombre": "Armar las versiones con otro gancho",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "saltado",
+      "intentos": 1,
+      "inicio": "2026-11-14T03:35:25.791Z",
+      "fin": "2026-11-14T03:35:25.792Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-14T03:35:25.792Z",
+      "fin": "2026-11-14T03:35:26.009Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-14T03:15:54.518Z",
   "aprobado": "2026-11-14T03:15:54.518Z",
-  "actualizado": "2026-11-14T03:34:30.357Z",
+  "actualizado": "2026-11-14T03:35:26.009Z",
   "saldoInicial": {
     "creditos": 2117.2,
     "fecha": "2026-11-14T03:15:55.387Z"
@@ -117,5 +116,10 @@
   "costoPlan": {
     "creditos": 682,
     "fecha": "2026-11-14T03:15:55.387Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 1435.2,
+    "fecha": "2026-11-14T03:35:25.992Z"
+  },
+  "terminado": "2026-11-14T03:35:26.009Z"
 }

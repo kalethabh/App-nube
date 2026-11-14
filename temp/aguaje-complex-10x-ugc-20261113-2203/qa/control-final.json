@@ -1,0 +1,37 @@
+{
+  "generado": "2026-11-14T03:35:12.738Z",
+  "anuncio": "aguaje-complex-10x-ugc-20261113-2203",
+  "limpio": true,
+  "codigo": 0,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-10x-ugc-20261113-2203_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-14T03:35:11.880Z",
+      "deEsteMontaje": true,
+      "duracion": 59.584,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "se entrego solo la version completa: la version sin musica sale del editor"
+  },
+  "defectos": [],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}
