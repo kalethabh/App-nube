@@ -1,0 +1,12 @@
+{
+  "efectos": {
+    "woosh": "efectos/woosh.mp3",
+    "deep-woosh": "efectos/deep-woosh.mp3"
+  },
+  "puntos": [
+    { "toma": 3, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada de la solución: la mujer 1 explica que lo que funciona son los tres ingredientes puros" },
+    { "toma": 5, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "entrada de la prueba: la mujer 2 muestra su resultado" },
+    { "toma": 7, "animacion": "deslizar-derecha", "efecto": "woosh", "porque": "entrada del problema: el cuento del único original y el negocio de vender de a uno" },
+    { "toma": 10, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada del cierre: cómo llega, cómo se paga y el botón de abajo" }
+  ]
+}

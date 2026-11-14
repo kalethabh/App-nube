@@ -1,0 +1,107 @@
+{
+  "titulo": "Aguaje Complex 10X · ¿Cómo hice pa' tener este jopo?",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 64,
+  "de_que_va": "Tres creadores, cada uno en su casa, cuentan en cortes rápidos por qué les funcionó: los tres ingredientes puros, sin engordar y sin rebote. Arranca un hombre para mostrar que también es para ellos, y cierra con el tratamiento completo, el pago al recibir y el botón de abajo.",
+  "personajes": [
+    {
+      "nombre": "Santi (el hombre)",
+      "como_es": "25 años, trigueño, rizos negros con degradado, bigote y barba muy finos, delgado y atlético; seguro, divertido y coqueto."
+    },
+    {
+      "nombre": "Vale (la que sabe)",
+      "como_es": "28 años, piel clara trigueña, pelo largo castaño con mechas rubias y ondas, conjunto deportivo rosado; tranquila y segura."
+    },
+    {
+      "nombre": "Dani (la del resultado)",
+      "como_es": "26 años, morena de piel canela, pelo negro muy liso con raya al medio, camiseta blanca de tiras y biker rosado de bolitas; alegre y con mucha energía."
+    }
+  ],
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "¿Cómo hice pa' tener este jopo, mi vida? Con esto.",
+      "se_ve": "Santi se graba de perfil frente al espejo de su cuarto, rompe la pose, mira a la cámara con picardía y, de frente, levanta el frasco junto a su cara y guiña un ojo.",
+      "segundos": 4
+    },
+    {
+      "n": 2,
+      "momento": "gancho",
+      "dice": "Y no, no es solo pa' ustedes, mis reinas. ¡Pa' nosotros también!",
+      "se_ve": "Ya con crop top azul y pantalón blanco, en su habitación clara, se baja las gafas con un dedo, dice que no con el índice, se ríe y se señala con las dos manos, orgulloso.",
+      "segundos": 4
+    },
+    {
+      "n": 3,
+      "momento": "solución",
+      "dice": "Lo que funciona es que traiga aguaje, fenogreco y maca negra, los tres, en sus extractos puros.",
+      "se_ve": "Vale, junto al espejo de su cuarto, sostiene el frasco junto a la cara y cuenta los tres ingredientes con los dedos; después se ven sobre su mesa los frutos de aguaje, las semillas de fenogreco y el polvo de maca negra.",
+      "segundos": 6
+    },
+    {
+      "n": 4,
+      "momento": "solución",
+      "dice": "Eso es lo que da los resultados, no la marca de Vitalcom, por eso es que no ven resultados.",
+      "se_ve": "Vale sigue en su cuarto con el frasco junto a la cara: asiente, niega suave con la cabeza levantando una ceja y se encoge de hombros con media sonrisa.",
+      "segundos": 6
+    },
+    {
+      "n": 5,
+      "momento": "prueba",
+      "dice": "Y lo que tenía en el abdomen es como si se me hubiera ido pa' la cola, las piernas y las caderas. ¡Mírame!",
+      "se_ve": "Dani se graba en el espejo de su vestier, se pasa la mano por la cintura y la cadera, emocionada; deja el celular, da una vuelta riéndose y termina de frente con los brazos abiertos.",
+      "segundos": 8
+    },
+    {
+      "n": 6,
+      "momento": "prueba",
+      "dice": "Y sin efecto rebote, no me engordó.",
+      "se_ve": "Vale, en su cuarto, cruza las manos como diciendo «listo», se pasa la mano por la cadera y niega con el dedo, sonriendo.",
+      "segundos": 4
+    },
+    {
+      "n": 7,
+      "momento": "problema",
+      "dice": "Ah, y si les dicen que el único original es el de Vitalcom, mentira: lo que sirve es que tenga los componentes puros.",
+      "se_ve": "Santi, en su habitación, se sube las gafas a la cabeza, se cruza de brazos, voltea los ojos con gracia y hace comillas con los dedos; después explica con las manos abiertas, como un amigo que avisa.",
+      "segundos": 8
+    },
+    {
+      "n": 8,
+      "momento": "problema",
+      "dice": "Y no les vendan de a uno, que ese es el negocio de ellos pa' que estén comprando y comprando.",
+      "se_ve": "Santi levanta un solo frasco junto a su cara, le da dos golpecitos en la tapa y hace círculos en el aire con la otra mano, divertido.",
+      "segundos": 8
+    },
+    {
+      "n": 9,
+      "momento": "oferta",
+      "dice": "Háganse el tratamiento completo de tres meses: resultados rápidos y duraderos, que se quedan incluso después de terminarlo, sin efecto rebote.",
+      "se_ve": "Santi se pone serio y cercano: sentado junto a su mesa de noche, con tres frascos alineados al centro, marca «tres» con los dedos y termina con una sonrisa tranquila.",
+      "segundos": 8
+    },
+    {
+      "n": 10,
+      "momento": "cierre",
+      "dice": "A mí me llegó a la casa y lo pagué al recibirlo.",
+      "se_ve": "Dani, con un saco gris encima, recibe una caja en la puerta de su casa, le paga en efectivo al domiciliario, le agradece con la mano en el pecho y entra con un pasito de baile.",
+      "segundos": 4
+    },
+    {
+      "n": 11,
+      "momento": "cierre",
+      "dice": "El tuyo lo puedes pedir aquí abajo, reina.",
+      "se_ve": "Santi se acomoda los rizos, señala hacia abajo, se pone las gafas y lanza un beso.",
+      "segundos": 4
+    }
+  ],
+  "decisiones": [
+    "Tu guion tal cual · lo visual, guiado por AGUAJE 04 - ROSCA.mp4. Solo corregí «aqupi» por «aquí» en la última línea, para que se pronuncie bien. La línea 1 dice «mi vida», como en tu guion (en tus notas decía «mor»).",
+    "Tu guion nombra a Vitalcom dos veces (partes 4 y 7) y dice «mentira». Lo dejé porque es tu texto, pero en tus notas pediste no nombrar otras marcas: si prefieres quitarlo, pídelo como cambio antes de producir.",
+    "Estructura: cadena de testimonios de tres personas, cada una en su casa, con cortes rápidos. Son 11 partes y dura cerca de un minuto, porque cada parte dura lo que piden sus palabras. Tus líneas largas (la de los ingredientes y la del tratamiento) van en dos partes seguidas, sin cambiar palabras.",
+    "Los ingredientes se ven sobre la mesa de Vale, dentro de su misma escena (este estilo no lleva tomas sueltas). Las caras son nuevas: de tus fotos tomé solo la ropa, el pelo, el tipo de cuerpo y los lugares. El frasco siempre sale cerrado.",
+    "Faltaron tres datos: la región del acento (quedó colombiano natural, sin región; si quieres paisa, costeño, rolo o caleño, dilo antes de producir, porque cambiarlo después obliga a rehacer todo), tu última regla llegó cortada (termina en «Du»), y la etiqueta de la foto dice «3 en 1», no «10X» (el guion no dice el nombre, así que no afecta)."
+  ]
+}
