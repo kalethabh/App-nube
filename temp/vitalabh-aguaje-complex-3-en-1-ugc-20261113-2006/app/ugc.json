@@ -5,9 +5,10 @@
   "ganchos": {},
   "persona": {
     "sesion": {
-      "uuid": "97417767-6301-408f-b4fb-6ffb81cd772a"
+      "uuid": "97417767-6301-408f-b4fb-6ffb81cd772a",
+      "usada": true
     },
-    "pedidos": null
+    "pedidos": []
   },
-  "actualizado": "2026-11-14T01:18:48.343Z"
+  "actualizado": "2026-11-14T01:18:54.484Z"
 }
