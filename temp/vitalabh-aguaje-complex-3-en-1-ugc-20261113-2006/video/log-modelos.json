@@ -1,7 +1,7 @@
 {
-  "generado": "2026-11-14T01:27:56.750Z",
+  "generado": "2026-11-14T01:40:08.965Z",
   "parcial": false,
-  "segundos": 187,
+  "segundos": 165,
   "clips": [
     {
       "id": "toma-9",
@@ -20,7 +20,7 @@
         "lugar-bodega"
       ],
       "creditos": 80,
-      "taskId": "25411cbf94aec664f8bba880706e10a8",
+      "taskId": "058f465f5c1d76eb3679eb19b37c8c48",
       "dialogo": true
     }
   ]

@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "bloques",
+  "paso": "revision-bloques",
   "pasos": [
     {
       "id": "validar",
@@ -40,15 +40,19 @@
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
-      "inicio": "2026-11-14T01:37:23.068Z"
+      "inicio": "2026-11-14T01:37:23.068Z",
+      "fin": "2026-11-14T01:40:08.979Z",
+      "nota": "1 frase se cambió porque el generador las rechazó."
     },
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "corriendo",
+      "intentos": 2,
+      "inicio": "2026-11-14T01:40:08.980Z",
+      "detalle": "Anotando lo que vio en los clips"
     },
     {
       "id": "musica",
@@ -91,7 +95,7 @@
   "modoPrueba": false,
   "creado": "2026-11-14T01:18:15.331Z",
   "aprobado": "2026-11-14T01:18:15.331Z",
-  "actualizado": "2026-11-14T01:37:23.068Z",
+  "actualizado": "2026-11-14T01:40:34.565Z",
   "saldoInicial": {
     "creditos": 959.2,
     "fecha": "2026-11-14T01:18:16.241Z"
