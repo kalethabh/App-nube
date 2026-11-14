@@ -1,5 +1,18 @@
 {
-  "rechazos": {},
+  "rechazos": {
+    "toma-1": [
+      {
+        "fecha": "2026-11-14T03:43:36.682Z",
+        "failMsg": "Request blocked: The generation was blocked by Google safety review.",
+        "fase": "aplicado",
+        "lineaAntes": "¿Cómo hice pa' tener este jopo, mi vida? Con esto.",
+        "linea": "¿Cómo hice pa' verme así de bien, mi vida? Con esto.",
+        "frase_original": "tener este jopo",
+        "frase_nueva": "verme así de bien",
+        "motivo": "Cambié «tener este jopo» por «verme así de bien». Nombrar esa parte del cuerpo fue lo que frenó la escena. El gancho sigue igual: pregunta cómo lo logró y muestra el producto."
+      }
+    ]
+  },
   "extraRechazos": {},
   "descartados": [],
   "ganchos": {},
@@ -10,7 +23,7 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T03:24:31.302Z",
+  "actualizado": "2026-11-14T03:43:36.682Z",
   "revision": {
     "ronda": 1,
     "medidas": {
@@ -152,5 +165,9 @@
       "uuid": "9d42b7a1-0244-4903-958d-b66973abd6db",
       "usada": true
     }
+  },
+  "sesionRechazo": {
+    "uuid": "8af3e5a2-608b-4508-91cb-529dadb55f50",
+    "usada": true
   }
 }

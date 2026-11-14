@@ -1,27 +1,8 @@
 {
-  "generado": "2026-11-14T03:22:57.546Z",
-  "parcial": false,
-  "segundos": 342,
+  "generado": "2026-11-14T03:43:22.451Z",
+  "parcial": true,
+  "segundos": 340,
   "clips": [
-    {
-      "id": "toma-1",
-      "archivo": "toma-1.mp4",
-      "modelo": "google/gemini-omni-flash-1-2",
-      "respaldo": false,
-      "intentos": 1,
-      "tipo": "R",
-      "segundosUtiles": 4,
-      "segundosPedidos": 4,
-      "resolucion": "1080p",
-      "frameFinal": false,
-      "referencias": [
-        "personaje",
-        "producto"
-      ],
-      "creditos": 40,
-      "taskId": "ce5eaf45029c35ebc763463042c68028",
-      "dialogo": true
-    },
     {
       "id": "toma-2",
       "archivo": "toma-2.mp4",
@@ -37,26 +18,7 @@
         "personaje"
       ],
       "creditos": 40,
-      "taskId": "519f6a805d46ee9a381b64d42a645195",
-      "dialogo": true
-    },
-    {
-      "id": "toma-3",
-      "archivo": "toma-3.mp4",
-      "modelo": "google/gemini-omni-flash-1-2",
-      "respaldo": false,
-      "intentos": 1,
-      "tipo": "R",
-      "segundosUtiles": 6,
-      "segundosPedidos": 6,
-      "resolucion": "1080p",
-      "frameFinal": false,
-      "referencias": [
-        "personaje-2",
-        "producto"
-      ],
-      "creditos": 60,
-      "taskId": "b22a9bc42e01831638742c2bf5114aaa",
+      "taskId": "2145c5fcadec8f1771a208e680854ae6",
       "dialogo": true
     },
     {
@@ -76,44 +38,7 @@
         "lugar-cuarto"
       ],
       "creditos": 60,
-      "taskId": "3da97d4db81fcb4e5b85097c94c95ba3",
-      "dialogo": true
-    },
-    {
-      "id": "toma-5",
-      "archivo": "toma-5.mp4",
-      "modelo": "google/gemini-omni-flash-1-2",
-      "respaldo": false,
-      "intentos": 1,
-      "tipo": "R",
-      "segundosUtiles": 8,
-      "segundosPedidos": 8,
-      "resolucion": "1080p",
-      "frameFinal": false,
-      "referencias": [
-        "personaje-3"
-      ],
-      "creditos": 80,
-      "taskId": "03b8af140809f22cc9087754270b84a2",
-      "dialogo": true
-    },
-    {
-      "id": "toma-6",
-      "archivo": "toma-6.mp4",
-      "modelo": "google/gemini-omni-flash-1-2",
-      "respaldo": false,
-      "intentos": 1,
-      "tipo": "R",
-      "segundosUtiles": 4,
-      "segundosPedidos": 4,
-      "resolucion": "1080p",
-      "frameFinal": false,
-      "referencias": [
-        "personaje-2",
-        "lugar-cuarto"
-      ],
-      "creditos": 40,
-      "taskId": "2657288d211930ad597c56d4f9dd2a84",
+      "taskId": "68ffbe2ff463b76ba38c3778e011c51d",
       "dialogo": true
     },
     {
@@ -132,7 +57,7 @@
         "lugar-habitacion"
       ],
       "creditos": 80,
-      "taskId": "b246ec033756e19a027baa91c993b280",
+      "taskId": "40caefa2c2b34717352f3da76c74007c",
       "dialogo": true
     },
     {
@@ -152,45 +77,7 @@
         "lugar-habitacion"
       ],
       "creditos": 80,
-      "taskId": "e93936521d9b121a1534d023f98297ef",
-      "dialogo": true
-    },
-    {
-      "id": "toma-9",
-      "archivo": "toma-9.mp4",
-      "modelo": "google/gemini-omni-flash-1-2",
-      "respaldo": false,
-      "intentos": 1,
-      "tipo": "R",
-      "segundosUtiles": 8,
-      "segundosPedidos": 8,
-      "resolucion": "1080p",
-      "frameFinal": false,
-      "referencias": [
-        "personaje",
-        "producto",
-        "lugar-habitacion"
-      ],
-      "creditos": 80,
-      "taskId": "5fd902ef2b218182586c67e49dc62e72",
-      "dialogo": true
-    },
-    {
-      "id": "toma-10",
-      "archivo": "toma-10.mp4",
-      "modelo": "google/gemini-omni-flash-1-2",
-      "respaldo": false,
-      "intentos": 1,
-      "tipo": "R",
-      "segundosUtiles": 4,
-      "segundosPedidos": 4,
-      "resolucion": "1080p",
-      "frameFinal": false,
-      "referencias": [
-        "personaje-3"
-      ],
-      "creditos": 40,
-      "taskId": "d0ff765b375fac3cdddcde84cf08e305",
+      "taskId": "64365a57fc454ccb5d65268025b9bea9",
       "dialogo": true
     },
     {
@@ -209,7 +96,7 @@
         "lugar-habitacion"
       ],
       "creditos": 40,
-      "taskId": "a115155988aa35756ea53d75c52952c6",
+      "taskId": "73118fcf33b7b871c605bc3648469ec2",
       "dialogo": true
     }
   ]
