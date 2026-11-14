@@ -1,0 +1,15 @@
+{
+  "id": "731da8b9-a2ac-4624-9eab-de0f1c0b6f5d",
+  "uuid": "731da8b9-a2ac-4624-9eab-de0f1c0b6f5d",
+  "estado": "analizando",
+  "paso": "claude",
+  "progreso": [
+    "Claude está leyendo tu producto",
+    "Mirando las fotos de tu producto",
+    "Armando la ficha de tu producto"
+  ],
+  "intentos": 1,
+  "inicio": "2026-11-14T23:55:45.192Z",
+  "error": null,
+  "actualizado": "2026-11-14T23:56:03.815Z"
+}
