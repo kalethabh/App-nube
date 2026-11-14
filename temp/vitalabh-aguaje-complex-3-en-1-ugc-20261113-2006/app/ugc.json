@@ -23,7 +23,7 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T01:28:10.874Z",
+  "actualizado": "2026-11-14T01:29:30.635Z",
   "sesionRechazo": {
     "uuid": "2c8e9fb1-2d5d-416b-9850-081a21b59ffd",
     "usada": true
@@ -87,44 +87,65 @@
       }
     },
     "vistos": {},
-    "piezas": {},
+    "piezas": {
+      "toma-1": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-2": {
+        "motivos": [
+          "No dijo su parte tal cual: dijo «superguau.» en vez de «súper»; no dijo «wow!»."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-3": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-4": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-5": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-6": {
+        "motivos": [
+          "Al final aparece un celular en un soporte delante de ella, que antes no estaba y nadie puso ahí."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-7": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-8": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-9": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      }
+    },
     "pendientes": [],
     "revisarTambien": [],
     "sinRevisar": [],
     "lugares": {},
-    "vuelta": {
-      "ronda": 1,
-      "medir": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "mirar": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "mirarGanchos": [],
-      "hablaMal": {
-        "2": "No dijo su parte tal cual: dijo «superguau.» en vez de «súper»; no dijo «wow!»."
-      },
-      "medido": true,
-      "visual": null
-    },
+    "vuelta": null,
     "sesion": {
-      "uuid": "c0ae5afb-6ba4-48f7-b9dd-6f1deb3e9710"
+      "uuid": "c0ae5afb-6ba4-48f7-b9dd-6f1deb3e9710",
+      "usada": true
     }
   }
 }
