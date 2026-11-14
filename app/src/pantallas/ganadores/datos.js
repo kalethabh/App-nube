@@ -24,7 +24,7 @@ export function resumenFiltros(f, nichos = []) {
   if (!f) return '';
   const partes = [];
   if (f.texto) partes.push(`«${f.texto}»`);
-  partes.push((f.paises || []).map((p) => PAIS[p] || p).join(', '));
+  partes.push(f.paises?.length ? f.paises.map((p) => PAIS[p] || p).join(', ') : 'Todos los países');
   const n = (f.nichos || []).map((id) => nichos.find((x) => x.id === id)?.nombre).filter(Boolean);
   if (n.length) partes.push(n.join(', '));
   if (f.formato) partes.push(f.formato === 'image' ? 'imagen' : 'video');
@@ -42,5 +42,8 @@ export function agruparPorMarca(anuncios) {
   }
   return [...grupos.entries()].map(([clave, lista]) => ({ clave, lista }));
 }
+
+/** El video de un anuncio, servido por la app (se reproduce en cualquier navegador). */
+export const urlMedia = (url) => `/api/ganadores/media?u=${encodeURIComponent(url)}`;
 
 export const miles = (n) => (Number.isFinite(n) ? Math.round(n).toLocaleString('es-CO') : '—');

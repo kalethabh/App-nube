@@ -7,8 +7,11 @@
 //   GET    /api/ganadores/busquedas/:clave -> una búsqueda ya hecha (sin gastar)
 //   POST   /api/ganadores/guardados       { anuncio, nota? } -> { anuncio }
 //   DELETE /api/ganadores/guardados/:id
+//   GET    /api/ganadores/media?u=<url>   el video de un anuncio servido por la app (TrendTrack lo redirige a su
+//                                             almacenamiento y algunos navegadores no lo reproducen así); con Range
 //   POST   /api/ganadores/adaptar         { anuncio } -> { id, nombre, valor: "subido:<id>|<nombre>" } (baja el video
 //                                             para «Adaptar a mi producto» en Nuevo anuncio)
+import { Readable } from 'node:stream';
 import express from 'express';
 import { soloDesdeLaApp } from '../lib/productos.js';
 import {
@@ -17,6 +20,7 @@ import {
   ORDENES,
   PAISES,
   bajarParaReferencia,
+  deTrendtrack,
   buscarGanadores,
   busquedaEnCurso,
   busquedaGuardada,
@@ -72,6 +76,27 @@ export default function rutasGanadores(app) {
   app.delete('/api/ganadores/guardados/:id', soloDesdeLaApp, (req, res) => {
     quitarGuardado(String(req.params.id || ''));
     res.json({ ok: true });
+  });
+
+  app.get('/api/ganadores/media', async (req, res) => {
+    const url = deTrendtrack(req.query.u);
+    if (!url) return res.status(400).json({ error: 'Ese archivo no es de TrendTrack.' });
+    const corte = new AbortController();
+    res.on('close', () => corte.abort());
+    try {
+      const r = await fetch(url, { headers: req.headers.range ? { Range: String(req.headers.range) } : {}, redirect: 'follow', signal: corte.signal });
+      res.status(r.status);
+      for (const h of ['content-type', 'content-length', 'content-range', 'accept-ranges', 'last-modified', 'etag']) {
+        const v = r.headers.get(h);
+        if (v) res.set(h, v);
+      }
+      res.set('Cache-Control', 'private, max-age=86400');
+      if (!r.body) return res.end();
+      Readable.fromWeb(r.body).on('error', () => res.destroy()).pipe(res);
+    } catch {
+      if (!res.headersSent) res.status(502).json({ error: 'No pude traer ese video de TrendTrack.' });
+      else res.destroy();
+    }
   });
 
   app.post('/api/ganadores/adaptar', soloDesdeLaApp, json, async (req, res) => {

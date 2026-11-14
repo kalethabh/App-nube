@@ -9,7 +9,7 @@ import { Bookmark, BookmarkCheck, Copy, ExternalLink, Film, History, Image as Ic
 import { Boton, CabeceraPagina, CampoTexto, Chip, EsqueletoMiniaturas, EstadoVacio, Interruptor, Pestanas, Selector, useAvisos } from '../../componentes/index.js';
 import { invalidar } from '../../datos/api.js';
 import { ir, rutas } from '../../datos/rutas.js';
-import { PAIS, agruparPorMarca, ganadores, miles, resumenFiltros, useGanadores } from './datos.js';
+import { PAIS, agruparPorMarca, ganadores, miles, resumenFiltros, urlMedia, useGanadores } from './datos.js';
 import './ganadores.css';
 
 const PAISES_PRINCIPALES = ['CO', 'EC', 'GT', 'MX', 'PE', 'CL', 'AR', 'US'];
@@ -58,7 +58,6 @@ export default function Ganadores() {
     });
 
   const buscar = async ({ forzar = false } = {}) => {
-    if (!filtros.paises.length) return setError('Elige al menos un país.');
     setBuscando(true);
     setError(null);
     try {
@@ -190,6 +189,9 @@ function Filtros({ filtros, setFiltros, opciones }) {
       <div className="gan-filtros__fila">
         <span className="gan-filtros__etiqueta">Países</span>
         <div className="gan-filtros__chips">
+          <Chip tamano="chico" activo={!filtros.paises.length} onClick={() => setFiltros({ paises: [] })}>
+            Todos
+          </Chip>
           {PAISES_PRINCIPALES.map((p) => (
             <Chip key={p} tamano="chico" activo={filtros.paises.includes(p)} onClick={() => setFiltros({ paises: alternar(filtros.paises, p) })}>
               {PAIS[p] || p}
@@ -327,7 +329,7 @@ function TarjetaAnuncio({ a, guardado, onGuardar, variantes }) {
     <article className="gan-tarjeta">
       <div className="gan-tarjeta__medio">
         {a.tipo === 'video' && a.media ? (
-          <video src={a.media} poster={a.miniatura || undefined} controls muted playsInline preload="none" referrerPolicy="no-referrer" />
+          <video src={urlMedia(a.media)} poster={a.miniatura || undefined} controls playsInline preload="none" />
         ) : a.media || a.miniatura ? (
           <img src={a.media || a.miniatura} alt={`Anuncio de ${a.anunciante.nombre}`} loading="lazy" referrerPolicy="no-referrer" />
         ) : (
