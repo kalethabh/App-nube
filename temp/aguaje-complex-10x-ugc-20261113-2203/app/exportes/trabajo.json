@@ -1,6 +1,6 @@
 {
   "n": 1,
-  "estado": "exportando",
+  "estado": "listo",
   "calidad": "1080",
   "version": "completa",
   "subtitulos": "con",
@@ -8,11 +8,21 @@
   "srt": true,
   "guardar": false,
   "creado": "2026-11-14T17:00:41.380Z",
-  "actualizado": "2026-11-14T17:03:12.018Z",
+  "actualizado": "2026-11-14T17:03:58.406Z",
   "avance": {
-    "etapa": "render",
-    "valor": 78.2,
-    "cuadro": 1657,
+    "etapa": "guardar",
+    "valor": 100,
+    "cuadro": 1797,
     "total": 1797
-  }
+  },
+  "control": {
+    "limpio": true,
+    "codigo": 0,
+    "motivo": null,
+    "defectos": [],
+    "avisos": []
+  },
+  "archivo": "aguaje-complex-10x-ugc-20261113-2203_editado-1.mp4",
+  "srtArchivo": "aguaje-complex-10x-ugc-20261113-2203_editado-1.srt",
+  "terminado": "2026-11-14T17:03:58.316Z"
 }
