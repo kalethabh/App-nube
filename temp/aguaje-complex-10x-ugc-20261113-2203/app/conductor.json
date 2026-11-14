@@ -81,10 +81,10 @@
       "render": {
         "renders": 1,
         "n": 1,
-        "hechos": 687,
+        "hechos": 1690,
         "total": 1797,
-        "restante": 135,
-        "en": "2026-11-14T04:46:33.329Z"
+        "restante": 13,
+        "en": "2026-11-14T04:48:34.960Z"
       }
     },
     {
@@ -110,7 +110,7 @@
   "modoPrueba": false,
   "creado": "2026-11-14T03:15:54.518Z",
   "aprobado": "2026-11-14T03:15:54.518Z",
-  "actualizado": "2026-11-14T04:46:33.329Z",
+  "actualizado": "2026-11-14T04:48:34.960Z",
   "saldoInicial": {
     "creditos": 2117.2,
     "fecha": "2026-11-14T03:15:55.387Z"
