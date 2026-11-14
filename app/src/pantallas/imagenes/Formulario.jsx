@@ -589,7 +589,13 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         logo={logo.length ? { url: logo[0].url, posicion: posicionLogo } : null}
         referencias={referencias}
         costo={
-          costoLote
+          costoLote?.conChatGPT
+            ? {
+                rango: 'Sin costo por imagen',
+                etiqueta: 'Con tu ChatGPT',
+                chica: 'Las imágenes las hace tu suscripción de ChatGPT: no se cobra por imagen, solo usa tu cupo (cada imagen gasta más o menos 1 % del cupo de 5 horas). Puedes cambiarlo en Ajustes › Conexiones.',
+              }
+            : costoLote
             ? {
                 rango: rangoDinero(costoLote),
                 etiqueta: modoPrueba ? 'Lo que costaría' : 'Costo estimado',

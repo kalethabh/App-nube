@@ -11,6 +11,8 @@
  */
 export function costoDelLote(costo, piezas) {
   const k = Math.max(0, Math.round(Number(piezas) || 0));
+  // Con tu suscripción de ChatGPT no se cobra por imagen.
+  if (costo?.conChatGPT) return k ? { min: 0, max: 0, conChatGPT: true } : null;
   const porImagen = Number(costo?.dolaresPorImagen);
   if (!k || !(porImagen > 0)) return null;
   const cr = Number(costo?.creditosPorImagen);

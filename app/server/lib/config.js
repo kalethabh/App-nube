@@ -5,7 +5,8 @@
 //   vozDeEstilo('claymation')         -> { id, nombre } | null   (la ultima voz elegida para ese estilo)
 //   recordarVoz('claymation', voz)    -> la guarda para la proxima vez
 //
-// Las imagenes, los videos y la musica los hace siempre kie.ai: ya no hay proveedor para elegir.
+// Los videos y la musica los hace siempre kie.ai. Las imagenes de los anuncios de imagen: `motorImagenes` ('chatgpt' |
+// 'kie', lib/motor-imagenes.js; sin la clave, ChatGPT).
 import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG, CONFIG_PRINCIPAL } from './rutas.js';

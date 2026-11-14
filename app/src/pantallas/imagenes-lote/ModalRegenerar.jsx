@@ -103,7 +103,7 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
     >
       <div className="pila" style={{ '--hueco': '12px' }}>
         <p className="t-chico" role="status">
-          {costo ? `Costo estimado${cantidad > 1 ? ' máximo' : ''}: ${dinero(costo.max)}. Al confirmar autorizas esta generación.` : 'Calculando el costo antes de regenerar…'}
+          {costo?.conChatGPT ? 'Sin costo: la hace tu suscripción de ChatGPT (usa un poco de tu cupo).' : costo ? `Costo estimado${cantidad > 1 ? ' máximo' : ''}: ${dinero(costo.max)}. Al confirmar autorizas esta generación.` : 'Calculando el costo antes de regenerar…'}
         </p>
         {problemas.length ? (
           <div className="lote-regenerar__revision">

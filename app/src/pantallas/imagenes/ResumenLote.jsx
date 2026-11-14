@@ -108,7 +108,7 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
           <Boton variante="marca" tamano="grande" bloque cargando={ocupado} disabled={!costo} onClick={onGenerar}>
             {fase || textoBoton}
           </Boton>
-          <p className="img-resumen__pie">Al generar confirmas el costo mostrado. La IA arma la estrategia, crea las imágenes y las revisa; tú decides si quieres regenerar alguna.</p>
+          <p className="img-resumen__pie">{costo?.etiqueta === 'Con tu ChatGPT' ? 'La IA' : 'Al generar confirmas el costo mostrado. La IA'} arma la estrategia, crea las imágenes y las revisa; tú decides si quieres regenerar alguna.</p>
         </div>
       </Tarjeta>
     </aside>

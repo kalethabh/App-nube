@@ -8,6 +8,7 @@ export function imagenesDeLaAccion(brief, cuerpo = null) {
 }
 
 export function costoMaximoDeLaAccion(precio, brief, cuerpo = null) {
+  if (precio?.conChatGPT) return 0; // con tu ChatGPT: sin costo por imagen
   const porImagen = Number(precio?.dolaresPorImagen);
   if (!(porImagen > 0)) return null;
   return Math.round(porImagen * imagenesDeLaAccion(brief, cuerpo) * 100) / 100;

@@ -11,6 +11,7 @@ import { enlace } from '../datos/rutas.js';
 import { dolares, useSaldo, vozLibre } from '../datos/saldo.js';
 import { porcentaje } from '../datos/formato.js';
 import { mayuscula, useAlCambiarConexiones, useMotor } from '../pantallas/ajustes/datos.js';
+import { useMotorImagenes } from '../pantallas/ajustes/ChatGPTImagenes.jsx';
 
 // El menú, en grupos como en IA-VID-AUTOMATIC: "Nuevo anuncio" arriba, en grande; después lo que se hace primero.
 const GRUPOS = [
@@ -201,6 +202,10 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   const { datos: estado, recargar: recargarEstado } = useEstado();
   useAlCambiarConexiones(recargarEstado); // guardaste una clave o entraste a Claude: el pie se pone al día
   const motor = useMotor();
+  const imagenes = useMotorImagenes();
+  useAlCambiarConexiones(imagenes.recargar);
+  // las imágenes de los anuncios de imagen: con tu ChatGPT (sin costo) o kie.ai
+  const imagenesOk = imagenes.motor === 'kie' ? null : imagenes.revisando ? null : imagenes.conectado;
   // el saldo de las APIs (kie.ai en dólares, ElevenLabs en caracteres libres), cada minuto
   const { datos: saldo } = useSaldo();
   const totalAnuncios = p.cargando ? null : p.anuncios.length;
@@ -305,7 +310,8 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
         <div className="menu__conexiones">
           <Conexion ok={claveKie} nombre="kie.ai" para={dolares(saldo?.kie) || 'Imágenes y videos'} plegado={plegado} />
           <Conexion ok={claveVoz} nombre="ElevenLabs" para={vozLibre(saldo?.elevenlabs) || 'Voz'} plegado={plegado} />
-          <Conexion ok={claudeOk} nombre={mayuscula(motor.nombre) || 'Tu IA'} para="Guiones" falta={motor.instalado ? 'Inicia sesión' : 'Falta'} plegado={plegado} />
+          <Conexion ok={claudeOk} nombre={mayuscula(motor.nombre) || 'Tu IA'} para="Guiones y textos" falta={motor.instalado ? 'Inicia sesión' : 'Falta'} plegado={plegado} />
+          {imagenes.motor === 'chatgpt' ? <Conexion ok={imagenesOk} nombre="ChatGPT" para="Imágenes" falta={imagenes.chatgpt?.instalado ? 'Conecta' : 'Falta'} plegado={plegado} /> : null}
         </div>
       </a>
     </aside>

@@ -41,6 +41,7 @@ import { verificarSesion, leerBloqueo, verificarRevision, verificarAjuste } from
 import { revisionSimulada, revisionDeLaTanda } from '../imagen-ads/revision-simulada.js';
 import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador } from '../imagen-ads/lotes.js';
 import { nombreIA, datosIA, alPreguntarLotesOcupados } from '../motor-ia.js';
+import { motorDeImagenes, entornoParaImagenes, codexParaImagenes } from '../motor-imagenes.js';
 
 export const FAMILIA = 'imagen-ads';
 export const ESTILOS = ['imagen-ads'];
@@ -164,6 +165,11 @@ async function preparar(ctx) {
 async function saldo(ctx) {
   const n = piezasPorHacer(ctx.carpeta, ctx.brief);
   if (!n) return { ok: true };
+  // Con tu ChatGPT no hay saldo que mirar: solo que Codex este en esta PC (la sesion la revisa el motor al pedir).
+  if (motorDeImagenes() === 'chatgpt') {
+    if (!codexParaImagenes()) return error(MENSAJE_SIN_CHATGPT, 'chatgpt');
+    return { ok: true };
+  }
   let s = null;
   for (let intento = 0; s === null; ) {
     s = await consultarSaldoKie();
@@ -335,6 +341,8 @@ function escribirOrden(carpeta, est, orden) {
 }
 
 const MOTOR = 'generar-imagen-ads.js';
+const MENSAJE_SIN_CHATGPT = 'Tus imágenes se hacen con tu ChatGPT, pero no tiene la sesión iniciada. Ve a Ajustes › Conexiones › ChatGPT · Imágenes, toca «Conectar» y después «Continuar».';
+const MENSAJE_LIMITE_CHATGPT = 'Se acabó por ahora el uso de imágenes de tu ChatGPT (se renueva cada 5 horas). Cuando se renueve, toca «Continuar»: sigue desde donde quedó, sin repetir nada.';
 const MOTOR_FALSO = 'pruebas/motor-falso-imagen-ads.js';
 
 /**
@@ -354,7 +362,9 @@ async function lanzarMotor(ctx, run) {
   const cortada = existe(path.join(ctx.carpeta, 'app', 'gasto', 'en-curso.json'));
   let r;
   try {
-    r = await ctx.correr(script, [ctx.carpetaArg, ...(cortada ? ['--heredar-log'] : [])], { que: ['imagenes'], topeKie: 6 });
+    const conChatGPT = script === MOTOR && motorDeImagenes() === 'chatgpt';
+    const args = [ctx.carpetaArg, ...(conChatGPT ? ['--motor', 'chatgpt', '--concurrencia', '3'] : []), ...(cortada ? ['--heredar-log'] : [])];
+    r = await ctx.correr(script, args, conChatGPT ? { que: ['imagenes'], env: entornoParaImagenes() } : { que: ['imagenes'], topeKie: 6 });
   } catch (e) {
     if (e?.sinModoPrueba) {
       run.duro = error('El modo prueba no está listo: no se corrió nada para no gastar.', 'modo-prueba', String(e.message || e));
@@ -369,6 +379,14 @@ async function lanzarMotor(ctx, run) {
     // nunca se relanza sin fin)
     if (!antes.size || [...antes].some((k) => !despues.has(k))) run.fallosMotor = 0;
     else contarFalloDelMotor(run, 'otro', 'el motor terminó sin avanzar');
+    return;
+  }
+  if (/CHATGPT_SIN_SESION/.test(r.texto || '')) {
+    run.duro = error(MENSAJE_SIN_CHATGPT, 'chatgpt', ultimasLineas(r.texto));
+    return;
+  }
+  if (/CHATGPT_LIMITE/.test(r.texto || '')) {
+    run.duro = error(MENSAJE_LIMITE_CHATGPT, 'limite', ultimasLineas(r.texto));
     return;
   }
   const clase = r.clase || clasificarFallo(r.texto);
@@ -669,7 +687,7 @@ async function informe(ctx) {
 
 export const PASOS = [
   { id: 'preparar', nombre: 'Preparando tu lote', correr: preparar },
-  { id: 'saldo', nombre: 'Revisando tu saldo de kie', correr: saldo },
+  { id: 'saldo', nombre: 'Revisando con qué se hacen tus imágenes', correr: saldo },
   { id: 'estrategia', nombre: 'La IA arma la estrategia', correr: estrategia },
   { id: 'anuncios', nombre: 'Creando tus anuncios', correr: anuncios },
   { id: 'informe', nombre: 'Armando tu informe', correr: informe },
