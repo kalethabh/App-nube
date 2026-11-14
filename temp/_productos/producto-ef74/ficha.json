@@ -1,0 +1,56 @@
+{
+  "nombre": "Aguaje Complex 10X",
+  "queEs": "Suplemento alimenticio en cápsulas a base de aguaje, fenogreco y maca negra, de la marca Vitalabh.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio",
+    "Triple acción: aguaje, fenogreco y maca negra"
+  ],
+  "publico": "Mujeres adultas en Colombia que quieren aumentar glúteos y piernas.",
+  "dolor": "Quiere más glúteos y piernas, y no lo ha logrado con lo que ha intentado.",
+  "oferta": "No mostrar precios (así lo pediste). El tratamiento completo es de tres meses.",
+  "comoCompra": "Pide con el botón de abajo del anuncio. El pedido llega con mensajero y se paga en efectivo al recibir.",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "Según lo que contaste: las clientas prueban una vez y repiten; hay una clienta que ya va por su tercer pedido.",
+  "ingredientes": "Por porción de 2 cápsulas: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg. También trae vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g cada una (contenido neto 30 g), para 30 días.",
+  "comoSeUsa": "Tomar 2 cápsulas al día, de preferencia con las comidas principales. Uso continuo por al menos 3 meses. No pasar de la porción diaria recomendada.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco en la mano, de frente: negro con rosado, tapa rosada. En la etiqueta dice \"Aguaje Complex 3 en 1\"."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": true,
+      "nota": "El diseño completo de la etiqueta, abierto y plano: beneficios, ingredientes y modo de uso. Sirve para leer los datos, no para mostrar el frasco."
+    },
+    {
+      "archivo": "fotos/3.jpg",
+      "sirve": false,
+      "nota": "No muestra el producto. Es la selfie de referencia para el personaje: la empacadora y su forma de sostener el celular."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "mercado",
+    "idioma"
+  ],
+  "falta": [
+    {
+      "campo": "nombre",
+      "pregunta": "Escribiste \"Aguaje Complex 10X\", pero en el frasco dice \"Aguaje Complex 3 en 1\". ¿Con cuál nombre va el anuncio?"
+    },
+    {
+      "campo": "pais",
+      "pregunta": "¿De qué región de Colombia quieres el acento de la empacadora (paisa, costeño, bogotano, valluno…)?"
+    }
+  ]
+}
