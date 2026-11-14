@@ -196,6 +196,19 @@ function miniaturaDe(slug, m, c) {
 
 // ---------------------------------------------------------------- versiones en output/
 
+/**
+ * La version que el usuario GUARDO desde el editor («Guardar»): temp/<slug>/app/version-principal.json =
+ * { archivo: '<slug>_editado-N.mp4', n, guardado }. Mientras ese archivo exista en output/, es la principal del
+ * anuncio (la que se ve en Anuncios, la entrega, el tablero y la produccion) en lugar de la que entrego la app,
+ * que sigue ahi como otra version. Sin el archivo (o si ya no esta), la de siempre.
+ */
+export const rutaVersionPrincipal = (slug) => path.join(TEMP, slug, 'app', 'version-principal.json');
+function versionGuardada(slug) {
+  const v = leerJSON(rutaVersionPrincipal(slug));
+  const archivo = typeof v?.archivo === 'string' ? v.archivo : '';
+  return archivo.startsWith(`${slug}_editado-`) && archivo.endsWith('.mp4') ? archivo : null;
+}
+
 export const TIPOS_VERSION = {
   'con-subtitulos': { nombre: 'Completa', descripcion: 'Con subtítulos y música', orden: 0, principal: true },
   'solo-subtitulos': { nombre: 'Solo subtítulos', descripcion: 'Con subtítulos, sin música', orden: 1 },
@@ -247,6 +260,20 @@ function versionesDe(slug, archivosOutput) {
       duracion: esMp4 ? duracionMp4(path.join(OUTPUT, archivo)) : null,
       _orden: info.orden + (esMp4 ? 0 : 0.5),
     });
+  }
+  // la que guardo el usuario en el editor pasa a ser la principal (y va primera)
+  const guardada = versionGuardada(slug);
+  if (guardada && versiones.some((v) => v.archivo === guardada)) {
+    for (const v of versiones) {
+      if (v.clase !== 'video') continue;
+      v.principal = v.archivo === guardada;
+      if (v.principal) {
+        v.guardada = true;
+        v.nombre = 'Tu versión guardada';
+        v.descripcion = 'Con tus cambios del editor';
+        v._orden = -1;
+      }
+    }
   }
   versiones.sort((a, b) => a._orden - b._orden);
   return versiones.map(({ _orden, ...v }) => v);
@@ -337,6 +364,8 @@ function firmaDe(slug) {
     // con la voz se sabe que B-roll no entran (y no se generan): cambia la cuenta de las piezas
     stat(path.join(dir, 'audio', 'tiempos.json'))?.mtimeMs,
     stat(path.join(dir, 'audio', 'voz.mp3'))?.mtimeMs,
+    // «Guardar» del editor cambia la version principal
+    stat(path.join(dir, 'app', 'version-principal.json'))?.mtimeMs,
   ];
   return partes.join('|');
 }

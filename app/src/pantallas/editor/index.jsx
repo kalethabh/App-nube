@@ -27,6 +27,8 @@ import {
   Play,
   Redo2,
   RefreshCw,
+  RotateCcw,
+  Save,
   ScanLine,
   SlidersHorizontal,
   SkipBack,
@@ -268,7 +270,7 @@ function Guardado({ estado, hayCambios }) {
     );
   return (
     <span className="ed-guardado ed-guardado--ok">
-      <Check size={12} strokeWidth={3} aria-hidden="true" /> Guardado
+      <Check size={12} strokeWidth={3} aria-hidden="true" /> Cambios guardados
     </span>
   );
 }
@@ -636,7 +638,16 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   // ---------------------------------------------------------------- exportar y rehacer (los corre la app)
   const exp = useExportacion(a.slug, {
     alTerminar: (t) => {
-      if (exportarAbierto.current || !t) return;
+      if (!t) return;
+      // «Guardar»: el video con tus cambios pasa a ser el del anuncio (sin descargar nada)
+      if (t.guardar) {
+        if (t.estado === 'listo') {
+          recargar();
+          aviso({ tipo: 'ok', titulo: 'Guardado', texto: 'Ahora es el video de tu anuncio en todas las secciones. El original sigue en «Otras versiones».', duracion: 9000 });
+        } else if (t.estado === 'error') aviso({ tipo: 'error', titulo: 'No se pudo guardar', texto: t.error?.mensaje || 'Vuelve a intentarlo: no cuesta nada.', duracion: 9000 });
+        return;
+      }
+      if (exportarAbierto.current) return;
       if (t.estado === 'listo') aviso({ tipo: 'ok', titulo: 'Tu video está listo', texto: 'Ya lo puedes descargar.', duracion: 9000, accion: { etiqueta: 'Descargar', alHacer: () => setExportar(true) } });
       else if (t.estado === 'error') aviso({ tipo: 'error', titulo: 'No se pudo exportar', texto: t.error?.mensaje || 'Vuelve a intentarlo: exportar no cuesta.', duracion: 9000 });
     },
@@ -1621,6 +1632,42 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       ? { url: conVersion(entregada.url, entregada.fecha), archivo: entregada.archivo, ayuda: 'No le hiciste cambios: se descarga el video que te entregó la app.' }
       : null;
 
+  // «Guardar»: arma el video con tus cambios en esta PC (gratis) y lo deja como EL video del anuncio (Anuncios, la
+  // entrega, el tablero), sin descargarlo. El que entregó la app sigue en «Otras versiones».
+  const guardada = exp.guardada;
+  const guardandoAhora = exportandoAhora && Boolean(exp.trabajo?.guardar);
+  const guardadaAlDia = Boolean(guardada && armado && armado.n === guardada.n && armado.firma === firmaAhora && !exp.desactualizada);
+  const guardar = async () => {
+    // el último video que armaste ya tiene exactamente lo que ves: se usa ese, sin volver a armarlo
+    if (armadoAlDia && ultimaExportada) {
+      try {
+        await servidor.versionPrincipal(a.slug, ultimaExportada.archivo);
+        exp.refrescar();
+        recargar();
+        aviso({ tipo: 'ok', titulo: 'Guardado', texto: 'Ahora es el video de tu anuncio en todas las secciones. El original sigue en «Otras versiones».', duracion: 9000 });
+      } catch (e) {
+        aviso({ tipo: 'error', titulo: 'No se pudo guardar', texto: e.message, duracion: 9000 });
+      }
+      return;
+    }
+    guardarArmado(a.slug, { n: exp.siguiente, firma: firmaAhora, version: 'completa' });
+    try {
+      await exp.exportar({ calidad: '1080', version: 'completa', subtitulos: subtitulosVisibles ? 'con' : 'sin', srt: true, estado: ed, contexto: contextoGuardado, guardar: true });
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No se pudo guardar', texto: e.message, duracion: 9000 });
+    }
+  };
+  const volverAlOriginal = async () => {
+    try {
+      await servidor.versionPrincipal(a.slug, null);
+      exp.refrescar();
+      recargar();
+      aviso({ tipo: 'info', titulo: 'Volvió el video original', texto: 'Tu versión guardada sigue en «Otras versiones».', duracion: 7000 });
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude volver al original', texto: e.message });
+    }
+  };
+
   return (
     <div className={`ed${galeria ? ' ed--galeria' : ''}`} style={altoLinea ? { '--alto-lt': `${altoLinea}px` } : undefined}>
       {/* ---------------------------------------------------------------- barra de arriba */}
@@ -1670,7 +1717,40 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
           <Tooltip texto="Otras versiones: sin subtítulos, sin música, 1080p y el archivo de subtítulos" lado="abajo">
             <Boton variante="fantasma" tamano="chico" soloIcono icono={SlidersHorizontal} etiqueta="Otras versiones" className="ed-solo-ancho" onClick={() => setExportar(true)} disabled={rehaciendo && !exportandoAhora} />
           </Tooltip>
-          {exportandoAhora ? (
+          {guardada && !guardandoAhora ? (
+            <Tooltip texto="Volver a mostrar el video que entregó la app (tu versión guardada no se borra)" lado="abajo">
+              <Boton variante="fantasma" tamano="chico" soloIcono icono={RotateCcw} etiqueta="Volver al video original" onClick={volverAlOriginal} disabled={exportandoAhora} />
+            </Tooltip>
+          ) : null}
+          {guardandoAhora ? (
+            <Tooltip texto="Se arma con tus cambios en esta PC (no cuesta nada). Puedes seguir editando." lado="abajo">
+              <Boton variante="secundario" icono={LoaderCircle} className="ed-exportando-boton">
+                {exp.trabajo.estado === 'esperando' ? 'En espera' : `Guardando ${Math.round(exp.trabajo.avance?.valor || 0)} %`}
+              </Boton>
+            </Tooltip>
+          ) : guardadaAlDia ? (
+            <Tooltip texto="Este video ya es el de tu anuncio en todas las secciones" lado="abajo">
+              <Boton variante="secundario" icono={Check} disabled>
+                Guardado
+              </Boton>
+            </Tooltip>
+          ) : (
+            <Tooltip
+              texto={
+                rehaciendo
+                  ? 'Espera a que termine de regenerarse el clip'
+                  : !hayCambios && !guardada
+                    ? 'No hay cambios que guardar'
+                    : 'Guarda tus cambios como el video de tu anuncio, sin descargarlo: es el que se verá en todas las secciones'
+              }
+              lado="abajo"
+            >
+              <Boton variante="secundario" icono={Save} onClick={guardar} disabled={rehaciendo || exportandoAhora || (!hayCambios && !guardada)}>
+                Guardar
+              </Boton>
+            </Tooltip>
+          )}
+          {exportandoAhora && !guardandoAhora ? (
             <Tooltip texto="Ver cómo va tu video" lado="abajo">
               <Boton variante="primario" icono={LoaderCircle} className="ed-exportando-boton" onClick={() => setExportar(true)}>
                 {exp.trabajo.estado === 'esperando' ? 'En espera' : `Armando ${Math.round(exp.trabajo.avance?.valor || 0)} %`}

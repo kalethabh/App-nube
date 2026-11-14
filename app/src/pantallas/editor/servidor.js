@@ -9,6 +9,7 @@
 //   GET  /api/anuncios/:slug/exportar           -> { trabajo, hechos, desactualizada }
 //   POST /api/anuncios/:slug/exportar           { calidad, version, subtitulos, srt, estado, contexto } -> { trabajo }
 //   POST /api/anuncios/:slug/exportar/cancelar  -> { trabajo }
+//   POST /api/anuncios/:slug/version-principal  { archivo | null } -> { ok, guardada }  (null: vuelve la original)
 export class ErrorServidor extends Error {
   constructor(mensaje, estado) {
     super(mensaje);
@@ -48,6 +49,7 @@ export const servidor = {
   subirCancion: (slug, { id, nombre, archivo }) => pedir(`${base(slug)}/edicion/musica?${new URLSearchParams({ id, nombre: nombre || '' })}`, { metodo: 'POST', archivo }),
   exportacion: (slug) => pedir(`${base(slug)}/exportar`),
   exportar: (slug, datos) => pedir(`${base(slug)}/exportar`, { metodo: 'POST', cuerpo: datos }),
+  versionPrincipal: (slug, archivo) => pedir(`${base(slug)}/version-principal`, { metodo: 'POST', cuerpo: { archivo } }),
   cancelarExportacion: (slug) => pedir(`${base(slug)}/exportar/cancelar`, { metodo: 'POST', cuerpo: {} }),
 };
 
