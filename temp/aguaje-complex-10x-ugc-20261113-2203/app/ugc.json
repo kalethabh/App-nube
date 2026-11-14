@@ -9,7 +9,18 @@
         "linea": "¿Cómo hice pa' verme así de bien, mi vida? Con esto.",
         "frase_original": "tener este jopo",
         "frase_nueva": "verme así de bien",
-        "motivo": "Cambié «tener este jopo» por «verme así de bien». Nombrar esa parte del cuerpo fue lo que frenó la escena. El gancho sigue igual: pregunta cómo lo logró y muestra el producto."
+        "motivo": "Cambié «tener este jopo» por «verme así de bien». Nombrar esa parte del cuerpo fue lo que frenó la escena. El gancho sigue igual: pregunta cómo lo logró y muestra el producto.",
+        "rechazo": "Request blocked: The generation was blocked by Google safety review."
+      },
+      {
+        "fecha": "2026-11-14T03:45:36.484Z",
+        "failMsg": "Request blocked: The generation was blocked by Google safety review.",
+        "fase": "aplicado",
+        "lineaAntes": "¿Cómo hice pa' verme así de bien, mi vida? Con esto.",
+        "linea": "¿Sabes con qué empiezo yo mis días, mi vida? Con esto.",
+        "frase_original": "Cómo hice pa' verme así de bien",
+        "frase_nueva": "Sabes con qué empiezo yo mis días",
+        "motivo": "Cambié «Cómo hice pa' verme así de bien» por «Sabes con qué empiezo yo mis días». Hablar de cómo cambió su cuerpo seguía frenando la escena, así que el gancho ahora despierta curiosidad sin prometer un resultado. Sigue mostrando el producto con «Con esto»."
       }
     ]
   },
@@ -23,7 +34,7 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T03:43:36.682Z",
+  "actualizado": "2026-11-14T03:45:36.484Z",
   "revision": {
     "ronda": 1,
     "medidas": {
