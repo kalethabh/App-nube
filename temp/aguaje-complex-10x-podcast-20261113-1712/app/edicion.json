@@ -3,11 +3,11 @@
   "estado": {
     "subtitulos": {
       "visible": true,
-      "estilo": "caja",
+      "estilo": "gigante",
       "color": "#B5279B",
       "tamano": 1,
-      "altura": null,
-      "lado": 0
+      "altura": 0.3,
+      "lado": 0.017
     },
     "lugaresSubtitulos": {},
     "correcciones": {},
@@ -37,11 +37,11 @@
     "reemplazos": {},
     "clips": {}
   },
-  "t": 1794614533670,
+  "t": 1794614587025,
   "contexto": {
     "titulo": "Aguaje Complex 10X",
     "overlays": [],
     "color": "#159A5B"
   },
-  "guardado": "2026-11-14T00:02:14.286Z"
+  "guardado": "2026-11-14T00:03:07.631Z"
 }
