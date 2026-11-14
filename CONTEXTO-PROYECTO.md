@@ -102,6 +102,16 @@ estilo).
 
 ## Últimas actualizaciones terminadas
 
+### Los personajes de cada anuncio se guardan solos como avatar (2026-11-13)
+
+- Al terminar un anuncio (fuera del modo prueba), `guardarPersonajesDelAnuncio` (lib/biblioteca.js, llamado desde
+  conductor.js junto a la música) crea un avatar con sus hojas de personajes. Los asigna a los roles de `ROLES_AVATAR`:
+  primero por id y si no por orden, y el resto como extras hasta el límite del estilo. Queda `origen: <slug>` en avatar.json
+  para no repetirlo. No guarda nada si el anuncio ya usaba un avatar de la biblioteca o si faltan los roles obligatorios.
+- `personajesDelAnuncio` solo toma referencias de tipo personaje (no lugares u objetos). Si el anuncio ya se archivó en
+  la nube (`app/en-la-nube.json`), copia la imagen de vuelta a temp/ desde esa carpeta. Antes el botón «Guardar sus
+  personajes como avatar» decía «Ese anuncio no tiene hojas de personajes» en los anuncios archivados.
+
 ### Actualización funcional del paquete 2026-11-10
 
 Se integró el paquete `anuncios-con-ia-app.zip` de la publicación «Actualización-App»
