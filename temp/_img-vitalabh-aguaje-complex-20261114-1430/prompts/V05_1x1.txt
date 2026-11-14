@@ -1,0 +1,52 @@
+Square 1:1 social media ad for a women's supplement, built as a three-stage growing-circles timeline. BACKGROUND: full-canvas blush pink (#FCE3EE) with a very subtle gradient toward soft pink (#F7A8C9) at the bottom, clean and low-detail, never white. Safe margins of about 6-7% on every side. HEADLINE (top center, from about 6% to 19% of the canvas height): two centered lines of extra-bold uppercase Poppins, each line about 6% of the canvas height, in glossy black (#0E0E10) with the last three words 'MES A MES' in hot pink (#E91E78). TIMELINE TRACK: a thin horizontal line (about 0.5% of the canvas height) at about 46% of the canvas height, running from about 6% to 94% of the canvas width behind the circles and through their centers, shifting from soft pink on the left to hot pink on the right, with one small right-pointing chevron arrow centered in each of the two gaps between circles; the line is visible only in the gaps and at both ends. THREE CIRCULAR PHOTOS with their centers on that same line, growing from left to right with equal gaps of about 3.5% of the canvas width: circle 1 about 20% of the canvas width in diameter (spanning about 7-27% of the width, 36-56% of the height); circle 2 about 25% (30.5-55.5% of the width, 33.5-58.5% of the height); circle 3 about 32% (59-91% of the width, 30-62% of the height). Each circle has a thin white outline and a soft drop shadow; circle 3 also has a hot-pink ring about 1% of the canvas width thick and a faint pink glow. All three circles show the same adult Latina woman, about 25 years old, light-brown skin, in a realistic, candid smartphone-style fitness progress photo: seen from behind in a three-quarter view, framed from the waist to mid-thigh, standing on an open-air apartment terrace with a railing, potted plants and a soft blurred city view in late-afternoon light; she wears mauve high-waist sports leggings and the hem of a white t-shirt, and the tip of her long light-brown braid is visible at the top of the frame. Same camera angle, crop, outfit and place in all three photos, only scaled up from circle to circle; tasteful, fully clothed, natural adult proportions. Circle 1 (starting point): flatter glutes and slimmer thighs, slightly cooler and more muted tones. Circle 2 (first change): a slight, believable gain of roundness in glutes and thighs, neutral tones. Circle 3 (result): visibly fuller, rounder glutes and thighs with the same waist, warm and vibrant golden afternoon light; a realistic improvement, never exaggerated. The product does not appear inside any circle. TIME-LABEL PILLS: one small rounded pill straddling the top edge of each circle, centered on it, all about 4.5% of the canvas height, with bold white text: pills 1 and 2 filled with glossy black, pill 3 filled with hot pink. CAPTIONS: one single-line caption centered under each circle, all three on one shared baseline between about 65% and 71% of the canvas height, about 2.8% of the canvas height tall: captions 1 and 2 in glossy black Poppins Medium, caption 3 in deep magenta (#A80F55) Poppins SemiBold. PRODUCT (bottom center, from about 74% to 95% of the canvas height): one single bottle from the attached image, front view, standing upright on an implied surface with a soft contact shadow, lit by a soft studio key light from the upper left with a subtle rim light, about 21% of the canvas height, sharply in focus. The product is a cylindrical glossy black plastic supplement bottle with softly rounded shoulders, about twice as tall as it is wide, closed with a hot-pink ribbed screw cap, wrapped in a glossy black label that ends in a solid bright pink band at the very bottom; the label shows a small pink-and-white 'VITALABH' logo, the word 'AGUAJE' in very large bold white uppercase letters, 'COMPLEX' in bold white and '3 EN 1' in bold hot pink on the same line, a thin hot-pink strip with small white text, the words 'TRIPLE ACCIÓN' in bold italic hot pink with a swoosh underline, a row of three small pink-outlined rounded boxes joined by white plus signs, and '60 CÁPSULAS' in bold white at the bottom. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, texts and colors; do not redesign, replace or reinterpret it; ignore the hand and the video player bar visible in that photo and show only the bottle. All visible text in Spanish, spelled exactly as given, with correct accents. No price, no CTA button, no badges, no icons, no stars, no charts, no subheadline, no extra circles, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, first element of the canvas, from about 6% to 19% of the canvas height): "TU CAMBIO EN GLÚTEOS Y PIERNAS, MES A MES" — Poppins extra bold, uppercase, each line about 6% of the canvas height, 2 lines, centered: line 1 'TU CAMBIO EN GLÚTEOS' in glossy black, line 2 'Y PIERNAS, MES A MES' in glossy black with 'MES A MES' in hot pink
+- stage label 1 (Inside the pill on the top edge of circle 1): "DÍA 1" — Poppins Bold, uppercase, about 2.8% of the canvas height, 1 line, centered inside the rounded pill; white text on glossy black
+- stage label 2 (Inside the pill on the top edge of circle 2): "MES 1" — Poppins Bold, uppercase, about 2.8% of the canvas height, 1 line, centered inside the rounded pill; white text on glossy black
+- stage label 3 (Inside the pill on the top edge of circle 3): "MES 3" — Poppins Bold, uppercase, about 3.1% of the canvas height, 1 line, centered inside the rounded pill filled with hot pink; white text
+- caption stage 1 (Centered under circle 1, on the shared caption baseline): "Empiezas hoy" — Poppins Medium, about 2.8% of the canvas height, 1 line, centered, glossy black
+- caption stage 2 (Centered under circle 2, on the shared caption baseline): "Primeros cambios" — Poppins Medium, about 2.8% of the canvas height, 1 line, centered, glossy black
+- caption stage 3 (Centered under circle 3, on the shared caption baseline): "Más volumen, sin rebote" — Poppins SemiBold, about 3% of the canvas height, 1 line, centered, deep magenta
+
+BRAND IDENTITY:
+- color_palette: Primary: hot pink #E91E78 and glossy black #0E0E10. Secondary: deep magenta #A80F55, soft pink #F7A8C9, blush pink background #FCE3EE, pure white #FFFFFF for text and outlines. Small warm accent from the aguaje fruit: orange #F28A1E. In this ad the background is blush pink with a very subtle gradient, the timeline goes from soft pink to hot pink, and the final pill, ring and glow of the third circle use hot pink. The photos inside the circles keep natural tones, from cooler and muted in stage 1 to warmer and more vivid in stage 3.
+- text_typography: Poppins Bold (extra bold, uppercase) for headlines and prices; Poppins Regular / SemiBold for the rest of the text.
+
+MANDATORY ELEMENTS:
+- Three circular photo frames growing in size from left to right (about 20%, 25% and 32% of the canvas width)
+- The same woman, crop, angle and terrace in all three circles with a visible, believable progression from cool and muted to warm and vibrant
+- Thin horizontal timeline track through the circle centers with a chevron arrow in each gap
+- Hot-pink ring and faint glow on the largest (result) circle
+- Rounded time-label pill on the top edge of each circle
+- The user's bottle centered in the bottom band with a soft contact shadow
+- Blush-pink brand-colored background
+
+STRICT EXCLUSIONS:
+- Do not show the hand or the video player bar from the product photo.
+- No price, offer, discount or urgency badge.
+- No product inside the circles and no more than one bottle.
+- No fourth stage, no extra circles, no rectangular photo panels.
+- No charts, measurements, percentages or graphs.
+- No nudity, no lingerie, no exaggerated or unrealistic body proportions.
+- No plain white background.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: A fourth stage or extra circles
+- Do not add: Rectangular photo panels or a two-panel before/after split
+- Do not add: Number badges (1, 2, 3) instead of time labels
+- Do not add: Charts, graphs, percentages, measurements or numeric data overlays
+- Do not add: Benefit list or icons
+- Do not add: The product repeated inside the circles
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the bottle label
+- Do not add: Clinical or certification seals
+- Do not add: Subheadline or paragraph text
+- Do not add: Ingredients, fruits, leaves or capsules around the bottle
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
