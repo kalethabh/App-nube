@@ -1,0 +1,45 @@
+Square 1:1 premium dark social media ad for a women's supplement. BACKGROUND: very dark warm black (#0E0E10) with a subtle deep-magenta gradient on the right side; no texture, no light background. RIGHT HALF, HERO PRODUCT (about 60-90% of the width and 15.5-92% of the height): one unit of the product from the attached image, tall, upright, front view, sharp, with crisp specular highlights. The product is a cylindrical glossy black plastic supplement bottle with softly rounded shoulders, about twice as tall as it is wide, with a hot-pink ribbed screw cap and a glossy black label that ends in a solid bright pink band at the bottom; the label shows a small 'VITALABH' logo, the word 'AGUAJE' in very large bold white letters, 'COMPLEX' in white and '3 EN 1' in hot pink, a thin pink strip with small white text, the words 'TRIPLE ACCIÓN' in bold italic hot pink with a swoosh, a row of three small pink-outlined boxes joined by white plus signs, and '60 CÁPSULAS' at the bottom. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, texts and colors; do not redesign, replace or reinterpret it; ignore the hand and the video player bar visible in that photo. Because the bottle is black on a dark background, outline it with a strong hot-pink rim light so its silhouette is clearly readable. LIGHT FX: strong hot-pink (#E91E78) light rays burst from behind the top of the bottle, glowing pink particle spirals and sparkles orbit it, never covering the text. FLOOR: from about 80% of the height down, a glossy dark reflective surface with bright concentric rings of pink light radiating from the bottle's base and a soft reflection of the bottle. LEFT COLUMN (left-aligned, 4% left margin, from top to bottom): at about 5-7.5% of the height a small, widely letter-spaced uppercase eyebrow in hot pink with a thin pink gradient line under it (4-25% of the width); at about 11-38.5% of the height a giant three-line ultra-bold condensed uppercase headline, line 1 white, line 2 in a metallic pink gradient, line 3 white, never crossing 52% of the width; at about 42% of the height a thin pink gradient divider (4-39% of the width); at about 44-54.5% of the height a three-line medium uppercase subtitle, first line white, lines 2 and 3 in pink and slightly larger; at about 56-74.5% of the height two circular photos (each about 18.5% of the canvas in diameter, at 3-22% and 26-44.5% of the width) with a thin pink ring, joined by a small white right-pointing chevron between them: both show the same adult Latina woman in side profile, framed from waist to mid-thigh, wearing grey gym leggings and a black top, in the same softly lit room; the left circle (before) shows flatter glutes and slimmer thighs in duller light, the right circle (after) shows fuller, rounder, firmer glutes and thighs with the same waist in warmer light; realistic, tasteful fitness progress photos with the same framing and angle; at about 76-98.5% of the height (3.5-42.5% of the width) a dark semi-transparent rounded price card with a thin glowing pink border containing, centered from top to bottom: a bold uppercase pink label between exclamation marks, a giant price in a metallic pink gradient, a thin pink divider and one bold white uppercase line. Typography: Poppins Bold throughout, condensed feel on the headline. All visible text in Spanish, spelled exactly as given, with correct accents. No buttons, no stars, no seals, no struck-through price, no shipping labels, no benefit icons, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- eyebrow (Top-left, about 5-7.5% of the canvas height): "TRIPLE ACCIÓN EN CÁPSULAS" — Poppins Medium, uppercase, widely letter-spaced, about 2% of the canvas height, 1 line, left-aligned, hot pink
+- main headline (Left column, about 11-38.5% of the canvas height): "MÁS GLÚTEOS MÁS PIERNAS SIN REBOTE" — Poppins extra bold condensed, uppercase, each line about 8% of the canvas height, exactly 3 lines, left-aligned: line 1 'MÁS GLÚTEOS' in white, line 2 'MÁS PIERNAS' in metallic pink gradient, line 3 'SIN REBOTE' in white; never crosses 52% of the width
+- subtitle (Left column, under the divider, about 44-54.5% of the canvas height): "2 CÁPSULAS AL DÍA AGUAJE + FENOGRECO + MACA NEGRA" — Poppins Medium, uppercase, about 3% of the canvas height, 3 lines, left-aligned: line 1 '2 CÁPSULAS AL DÍA' in white, line 2 'AGUAJE + FENOGRECO' in pink, line 3 '+ MACA NEGRA' in pink
+- offer label (Top of the price card, centered): "¡TRATAMIENTO COMPLETO!" — Poppins Bold, uppercase, about 2.8% of the canvas height, 1 line, centered, hot pink, between exclamation marks
+- price (Center of the price card): "$139,900" — Poppins extra bold, about 9% of the canvas height, 1 line, centered, metallic pink gradient
+- quantity line (in the old-price slot) (Bottom of the price card, under the thin divider): "X3 UNIDADES" — Poppins Bold, uppercase, about 3% of the canvas height, 1 line, centered, white, not struck through
+
+BRAND IDENTITY:
+- color_palette: Primary: hot pink #E91E78 and glossy black #0E0E10. Secondary: deep magenta #A80F55, soft pink #F7A8C9, blush pink background #FCE3EE, pure white #FFFFFF for text and outlines. Small warm accent from the aguaje fruit: orange #F28A1E. In this variation the black dominates the canvas and the hot pink is the glowing accent.
+- text_typography: Poppins Bold (extra bold, uppercase) for headlines and prices; Poppins Regular / SemiBold for the rest of the text.
+
+MANDATORY ELEMENTS:
+- Dark warm-black background with hot-pink light rays and particle swirls behind the bottle
+- Left-aligned sales column: eyebrow with thin line, giant 3-line two-tone headline, divider and 3-line subtitle
+- Two circular before/after photos of the same woman joined by a small chevron
+- Dark price card with a thin pink border, giant price and quantity line
+- One unit of the user's black bottle with pink cap, tall and upright, on a reflective surface with concentric pink light ripples
+
+STRICT EXCLUSIONS:
+- Do not show the hand or the video player bar from the product photo.
+- No struck-through price and no invented regular price.
+- No more than one bottle.
+- No nudity, no lingerie, no exaggerated or unrealistic body proportions in the circular photos.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Trust seals, guarantee or certification badges
+- Do not add: Benefit list or icons
+- Do not add: Free shipping or payment labels
+- Do not add: Discount percentage seal or sticker
+- Do not add: Struck-through old price
+- Do not add: Countdown timer
+- Do not add: People other than the two before/after close-ups
+- Do not add: More than one product unit
+- Do not add: Bottom bar or banner
+- Do not add: Light background
+- Do not add: Logos or brand marks outside the bottle label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

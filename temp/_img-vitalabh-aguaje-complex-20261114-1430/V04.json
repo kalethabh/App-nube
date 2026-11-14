@@ -1,0 +1,145 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F03 (Antes / Después)",
+    "reference_style": "Side-by-side before/after split-screen ad with a strongly contrasting color grade between the two halves and a compact headline band on top",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Before / After Split Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot pink #E91E78 and glossy black #0E0E10. Secondary: deep magenta #A80F55, soft pink #F7A8C9, blush pink background #FCE3EE, pure white #FFFFFF for text and outlines. Small warm accent from the aguaje fruit: orange #F28A1E. The brand palette lives only in the headline band, the after half and the accents; the before half stays in cool desaturated greys.",
+    "visual_style": "Bold, feminine, high-contrast LATAM direct-response supplement ad: glossy pink and black graphics combined with realistic, candid smartphone-style fitness photos of adult women.",
+    "visual_atmosphere": "Energetic, confident, feminine and motivating; bright and clean, with the feeling of a real result shown by a real woman.",
+    "graphic_language": "Pink gradients with soft brush strokes, rounded photo frames with white borders, pill-shaped labels, small rounded icon badges in deep magenta, thick white outlines on headlines, glossy reflections, small heart accents, strong contrast between pink, black and white.",
+    "text_typography": "Poppins Bold (extra bold, uppercase) for headlines and prices; Poppins Regular / SemiBold for the rest of the text."
+  },
+  "creative_objective": "Make the transformation readable in one second: the same woman, same pose and framing, muted on the left and with visibly fuller glutes and legs on the right, holding the bottle, under a direct headline that also removes the fear of gaining weight.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The contrast between the muted left half and the bright right half. 2) The headline in the top band. 3) The bottle inside the after half. 4) The small before and after labels and the central arrow badge.",
+    "composition_style": "A solid headline band across the full width of the top 17% of the canvas. Below it, the remaining area is split vertically exactly in half by a thin white divider: left half = before, right half = after. Both halves use the same camera angle, framing and subject scale so they read as a mirrored pair where only the state changes.",
+    "spacing_and_structure": "Headline band: full width, top 17% of the height, text centered with 6% side margins. Split area: two equal halves of 50% width each, separated by a white divider line about 0.6% of the canvas wide. Labels sit about 3% below the band and 4% in from the left edge of each half. The arrow badge is centered on the divider at about 59% from the top, about 9.5% of the canvas in diameter. The bottom 6% stays free of text.",
+    "lighting_and_depth": "Before half: flat, cool, slightly underexposed light, saturation reduced by about 50%, grey-blue cast, no glow. After half: soft warm key light from the upper right, full saturation, a gentle glow and pink tones in the props, crisp highlights on the bottle. Same lens and moderate shallow depth of field on both halves.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas. Top band (17% of the height) in solid glossy black holding a centered 2-line white headline with one key phrase in hot pink. Below, a vertical 50/50 split: the left half shows the woman in side profile in the starting state (muted, cool, desaturated) with a small grey 'before' pill label at its top-left; the right half shows the same woman, same framing, with fuller glutes and legs (warm, bright, pink accents) with a small hot-pink 'after' pill label at its top-left and the user's bottle held in her hand in the lower-right area. A thin white divider separates the halves and a small hot-pink circular badge with a white right-pointing arrow sits on the divider at mid-height.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "headline band",
+        "position": "Full width, top 17% of the canvas",
+        "visual_function": "Solid color strip that holds the headline and frames the comparison below",
+        "adaptation_rule": "Flat glossy black (#0E0E10), no texture or gradient.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "before photo panel",
+        "position": "Left 50% of the split area, from the bottom of the headline band to the bottom of the canvas",
+        "visual_function": "Shows the starting state the viewer recognizes",
+        "adaptation_rule": "Adult Latina woman, about 35, long straight black hair worn loose, standing in side profile in an apartment living room with a large window and plants, framed from shoulders to knees, wearing a grey t-shirt and charcoal leggings; flatter glutes and slimmer thighs, neutral expression. Realistic and relatable, never exaggerated. Muted, cool, desaturated grade. The product does NOT appear in this half.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "after photo panel",
+        "position": "Right 50% of the split area, from the bottom of the headline band to the bottom of the canvas",
+        "visual_function": "Shows the result and ties it to the product and the brand colors",
+        "adaptation_rule": "Same woman, same living room, same side profile, framing and scale, now wearing a hot-pink sports top and black leggings, with visibly fuller, rounder, firmer glutes and thighs and the same waist, relaxed happy smile. Believable, realistic improvement. Warm, bright grade with pink tones in the props (a pink cushion, a pink towel).",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Inside the after half, lower-right area, about 30% of the canvas height and no wider than about 22% of the canvas width, clear of the divider, the arrow badge and the label",
+        "visual_function": "Credits the transformation to the product",
+        "adaptation_rule": "The user's bottle exactly as in the attached product photo, held in the woman's hand at hip height in front of her, label facing the camera, sharply in focus.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "divider line with arrow badge",
+        "position": "Vertical divider at exactly 50% of the canvas width across the split area; circular badge centered on it at about 59% from the top, diameter about 9.5% of the canvas",
+        "visual_function": "Separates the two states and signals the direction of change",
+        "adaptation_rule": "Thin white line. Badge filled with hot pink (#E91E78), holding a simple white right-pointing arrow, with a soft drop shadow.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "state labels (2 pill tags)",
+        "position": "Top-left corner of each half, about 3% below the headline band and 4% in from that half's left edge",
+        "visual_function": "Names each state at a glance",
+        "adaptation_rule": "Small rounded pills sized to their text: the before pill in neutral dark grey with white text; the after pill in hot pink with white text.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Trust seals, guarantee or certification badges",
+      "Benefit list or icons",
+      "Rating stars, reviews or testimonials",
+      "Subheadline or paragraph text",
+      "Extra text inside the photos beyond the two labels",
+      "Product in the before half",
+      "Measurement charts, percentages or graphs",
+      "More than two panels or a horizontal (top/bottom) split",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the bottle label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 before/after split-screen social media ad for a women's supplement. TOP BAND (full width, top 17% of the height): a flat glossy black (#0E0E10) strip holding a centered two-line extra-bold uppercase headline, line 1 in white and line 2 in hot pink (#E91E78), with 6% side margins. SPLIT AREA (everything below the band): divided vertically exactly in half by a thin white line about 0.6% of the canvas wide. Both halves show the same adult Latina woman, about 35 years old, light-brown skin, long straight black hair worn loose, standing in side profile (facing left) in the same apartment living room with a large window, a beige sofa and green plants, framed from shoulders to knees with the camera at hip height, same lens, same scale and moderate shallow depth of field; realistic, tasteful fitness progress photos with natural proportions. LEFT HALF (before): she wears a loose grey t-shirt and charcoal leggings, with flatter glutes and slimmer thighs and a neutral expression; flat, cool, slightly underexposed light, saturation reduced by about half, grey-blue cast, no glow; the product does not appear here. RIGHT HALF (after): the same woman, same pose and framing, now in a hot-pink sports top and black leggings, with visibly fuller, rounder and firmer glutes and thighs and the same waist, a relaxed happy smile; soft warm light from the upper right, full saturation, a gentle glow, a pink cushion on the sofa and a pink towel as brand-colored props. In the lower-right area of the right half she holds, at hip height in front of her, the product from the attached image with the label facing the camera, sharply in focus, about 30% of the canvas height. The product is a cylindrical glossy black plastic supplement bottle with softly rounded shoulders, about twice as tall as it is wide, with a hot-pink ribbed screw cap and a glossy black label that ends in a solid bright pink band at the bottom; the label shows a small 'VITALABH' logo, the word 'AGUAJE' in very large bold white letters, 'COMPLEX' in white and '3 EN 1' in hot pink, a thin pink strip with small white text, the words 'TRIPLE ACCIÓN' in bold italic hot pink with a swoosh, a row of three small pink-outlined boxes joined by white plus signs, and '60 CÁPSULAS' at the bottom. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, texts and colors; do not redesign, replace or reinterpret it; ignore the video player bar visible in that photo. LABELS: at the top-left of each half, about 3% below the band and 4% in from that half's left edge, a small rounded pill sized to its text: dark grey with white bold uppercase text on the left half, hot pink with white bold uppercase text on the right half. ARROW BADGE: centered on the white divider at about 59% from the top, a hot-pink circle about 9.5% of the canvas in diameter with a simple white right-pointing arrow and a soft drop shadow. The bottom 6% of the canvas has no text. Typography: Poppins Bold. All visible text in Spanish, spelled exactly as given, with correct accents. No price, no badges, no icons, no stars, no buttons, no subheadline, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Centered inside the top headline band",
+      "text_style": "Poppins extra bold, uppercase, each line about 5.5% of the canvas height, 2 lines, centered: line 1 'GLÚTEOS Y PIERNAS CON MÁS VOLUMEN,' in white, line 2 'SIN EFECTO REBOTE' in hot pink",
+      "text": "GLÚTEOS Y PIERNAS CON MÁS VOLUMEN, SIN EFECTO REBOTE"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "before label",
+      "reference_position": "Inside the pill at the top-left of the left half",
+      "text_style": "Poppins Bold, uppercase, about 3% of the canvas height, 1 line, white on the dark grey pill",
+      "text": "ANTES"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "after label",
+      "reference_position": "Inside the pill at the top-left of the right half",
+      "text_style": "Poppins Bold, uppercase, about 3% of the canvas height, 1 line, white on the hot-pink pill",
+      "text": "DESPUÉS"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Vertical 50/50 split with a thin white divider",
+    "Before half muted, cool and desaturated, without the product",
+    "After half warm, bright and with pink accents, with the user's bottle held in the woman's hand",
+    "Same woman, camera angle and framing in both halves",
+    "Small pill label at the top-left of each half",
+    "Hot-pink circular arrow badge centered on the divider",
+    "Solid black headline band across the top"
+  ],
+  "final_generation_exclusions": [
+    "Do not show the video player bar from the product photo.",
+    "No price, offer, discount or urgency badge.",
+    "No product in the before half.",
+    "No measurement charts, percentages or graphs.",
+    "No nudity, no lingerie, no exaggerated or unrealistic body proportions.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

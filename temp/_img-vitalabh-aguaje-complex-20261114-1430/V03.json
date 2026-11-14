@@ -1,0 +1,180 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format G16 (Columna de venta + producto héroe lateral)",
+    "reference_style": "Premium dark luxury e-commerce ad: a left-aligned sales column (eyebrow, giant two-tone headline, subtitle, mini before/after circles and a price card) beside a tall hero product bathed in accent-colored light rays and particle swirls on a reflective rippled surface",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Sales Column with Side Hero Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot pink #E91E78 and glossy black #0E0E10. Secondary: deep magenta #A80F55, soft pink #F7A8C9, blush pink background #FCE3EE, pure white #FFFFFF for text and outlines. Small warm accent from the aguaje fruit: orange #F28A1E. In this variation the black dominates the canvas and the hot pink is the glowing accent.",
+    "visual_style": "Bold, feminine, high-contrast LATAM direct-response supplement ad: glossy pink and black graphics combined with realistic, candid smartphone-style fitness photos of adult women.",
+    "visual_atmosphere": "Energetic, confident, feminine and motivating; bright and clean, with the feeling of a real result shown by a real woman.",
+    "graphic_language": "Pink gradients with soft brush strokes, rounded photo frames with white borders, pill-shaped labels, small rounded icon badges in deep magenta, thick white outlines on headlines, glossy reflections, small heart accents, strong contrast between pink, black and white.",
+    "text_typography": "Poppins Bold (extra bold, uppercase) for headlines and prices; Poppins Regular / SemiBold for the rest of the text."
+  },
+  "creative_objective": "State the transformation promise in three short direct lines, prove it with a compact before/after, and close with the full-treatment price next to a glowing hero bottle, preserving the exact two-column structure of the format.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant 3-line headline. 2) The tall hero bottle with its pink light effects. 3) The price in the price card. 4) The mini before/after circles. 5) The subtitle. 6) The eyebrow and the quantity line.",
+    "composition_style": "Two-column split: the left ~45% of the canvas is a left-aligned sales column read from top to bottom; the right ~55% is the product stage, with the bottle centered at about 75% of the width. Pink light rays and particle swirls wrap the bottle and spill slightly behind the left column.",
+    "spacing_and_structure": "Left margin of about 4%. Eyebrow at about 5-7.5% of the height with a thin line under it at about 8.5% (4-25% of the width). Headline: three lines at about 11-19.5%, 21-29% and 30.5-38.5% of the height, never past 52% of the width. Divider at about 42% of the height (4-39% of the width). Subtitle: three lines from about 44% to 54.5% of the height. Mini before/after: two circles about 18.5% of the canvas in diameter at about 3-22% and 26-44.5% of the width, 56-74.5% of the height, with a small chevron between them. Price card: about 3.5-42.5% of the width and 76-98.5% of the height. Bottle: about 60-90% of the width and 15.5-92% of the height. Reflective floor with concentric ripples from about 80% of the height down.",
+    "lighting_and_depth": "Very dark warm-black background. Strong hot-pink light rays burst from behind the top of the bottle, with glowing pink particle spirals and sparkles orbiting it, and bright concentric pink ripples of light on a glossy reflective floor at its base. Crisp specular highlights on the glossy black bottle and a reflection on the floor. Text with a subtle glow; accent lines in a metallic pink gradient. Semi-transparent dark price card with a thin glowing pink border.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square, dark warm-black canvas. Left column, left-aligned from top to bottom: a small, widely spaced uppercase eyebrow in hot pink with a thin line under it; a giant 3-line bold uppercase headline (white, pink metallic gradient, white); a thin gradient divider; a 3-line uppercase subtitle (first line white, the next two in pink); two circular photos of the same woman's hip-and-thigh profile (before and after) joined by a small white chevron; and a dark rounded price card with a thin pink border holding a label, a giant price, a thin divider and a quantity line. Right half: the user's bottle, tall and upright, front view, in a burst of pink light rays and particle swirls, standing on a glossy surface with concentric light ripples.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Dark luxury stage that makes the light effects and the product glow",
+        "adaptation_rule": "Warm black (#0E0E10) with a very subtle gradient toward deep magenta near the product; no texture.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "light FX (rays + particle swirls)",
+        "position": "Behind and around the product, about 45-100% of the width and 0-95% of the height",
+        "visual_function": "Creates the premium glow around the hero product",
+        "adaptation_rule": "Hot-pink light rays radiating from behind the top of the bottle, glowing pink particle spirals and sparkles orbiting it. Never over the text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "eyebrow line",
+        "position": "Under the eyebrow, about 4-25% of the width, at about 8.5% of the height",
+        "visual_function": "Underlines the eyebrow and opens the column",
+        "adaptation_rule": "Thin pink gradient line fading to the right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "divider line",
+        "position": "About 4-39% of the width, at about 42% of the height",
+        "visual_function": "Separates the headline from the subtitle",
+        "adaptation_rule": "Thin pink gradient line fading at both ends.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "mini before/after circles",
+        "position": "Circles at about 3-22% and 26-44.5% of the width and 56-74.5% of the height; chevron at about 23-25% of the width and 65% of the height",
+        "visual_function": "Proves the result in a compact way",
+        "adaptation_rule": "Two circular photos with a thin pink ring showing the same adult woman in side profile, framed from waist to mid-thigh, wearing grey gym leggings and a black top, in the same home setting: before on the left (flatter glutes and slimmer thighs, duller light), after on the right (fuller, rounder glutes and thighs, same waist, warmer light). Same framing and angle. A small white chevron between them points right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "price card",
+        "position": "Bottom of the left column, about 3.5-42.5% of the width and 76-98.5% of the height",
+        "visual_function": "Anchors the value and closes the sale",
+        "adaptation_rule": "Dark semi-transparent rounded rectangle with a thin pink border and a soft glow; inside, centered from top to bottom: the offer label, the giant price, a thin pink divider and the quantity line in white. No struck-through old price: the user gave no regular price, so that slot carries the quantity of units instead.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "product",
+        "position": "Right half, about 60-90% of the width and 15.5-92% of the height",
+        "visual_function": "Main visual anchor; shows exactly what is sold",
+        "adaptation_rule": "One unit of the user's bottle exactly as in the attached product photo, upright, front view, tall and dominant, with a reflection on the glossy floor.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "reflective base with light ripples",
+        "position": "From about 80% of the height to the bottom edge, centered under the product",
+        "visual_function": "Grounds the product on a premium stage",
+        "adaptation_rule": "Glossy dark reflective surface with bright concentric rings of pink light radiating from the bottle's base.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Rating stars, reviews or testimonials",
+      "Trust seals, guarantee or certification badges",
+      "Benefit list or icons",
+      "Free shipping or payment labels",
+      "Discount percentage seal or sticker",
+      "Struck-through old price",
+      "Countdown timer",
+      "People other than the two before/after close-ups",
+      "More than one product unit",
+      "Bottom bar or banner",
+      "Light background",
+      "Logos or brand marks outside the bottle label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium dark social media ad for a women's supplement. BACKGROUND: very dark warm black (#0E0E10) with a subtle deep-magenta gradient on the right side; no texture, no light background. RIGHT HALF, HERO PRODUCT (about 60-90% of the width and 15.5-92% of the height): one unit of the product from the attached image, tall, upright, front view, sharp, with crisp specular highlights. The product is a cylindrical glossy black plastic supplement bottle with softly rounded shoulders, about twice as tall as it is wide, with a hot-pink ribbed screw cap and a glossy black label that ends in a solid bright pink band at the bottom; the label shows a small 'VITALABH' logo, the word 'AGUAJE' in very large bold white letters, 'COMPLEX' in white and '3 EN 1' in hot pink, a thin pink strip with small white text, the words 'TRIPLE ACCIÓN' in bold italic hot pink with a swoosh, a row of three small pink-outlined boxes joined by white plus signs, and '60 CÁPSULAS' at the bottom. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, texts and colors; do not redesign, replace or reinterpret it; ignore the hand and the video player bar visible in that photo. Because the bottle is black on a dark background, outline it with a strong hot-pink rim light so its silhouette is clearly readable. LIGHT FX: strong hot-pink (#E91E78) light rays burst from behind the top of the bottle, glowing pink particle spirals and sparkles orbit it, never covering the text. FLOOR: from about 80% of the height down, a glossy dark reflective surface with bright concentric rings of pink light radiating from the bottle's base and a soft reflection of the bottle. LEFT COLUMN (left-aligned, 4% left margin, from top to bottom): at about 5-7.5% of the height a small, widely letter-spaced uppercase eyebrow in hot pink with a thin pink gradient line under it (4-25% of the width); at about 11-38.5% of the height a giant three-line ultra-bold condensed uppercase headline, line 1 white, line 2 in a metallic pink gradient, line 3 white, never crossing 52% of the width; at about 42% of the height a thin pink gradient divider (4-39% of the width); at about 44-54.5% of the height a three-line medium uppercase subtitle, first line white, lines 2 and 3 in pink and slightly larger; at about 56-74.5% of the height two circular photos (each about 18.5% of the canvas in diameter, at 3-22% and 26-44.5% of the width) with a thin pink ring, joined by a small white right-pointing chevron between them: both show the same adult Latina woman in side profile, framed from waist to mid-thigh, wearing grey gym leggings and a black top, in the same softly lit room; the left circle (before) shows flatter glutes and slimmer thighs in duller light, the right circle (after) shows fuller, rounder, firmer glutes and thighs with the same waist in warmer light; realistic, tasteful fitness progress photos with the same framing and angle; at about 76-98.5% of the height (3.5-42.5% of the width) a dark semi-transparent rounded price card with a thin glowing pink border containing, centered from top to bottom: a bold uppercase pink label between exclamation marks, a giant price in a metallic pink gradient, a thin pink divider and one bold white uppercase line. Typography: Poppins Bold throughout, condensed feel on the headline. All visible text in Spanish, spelled exactly as given, with correct accents. No buttons, no stars, no seals, no struck-through price, no shipping labels, no benefit icons, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "eyebrow",
+      "reference_position": "Top-left, about 5-7.5% of the canvas height",
+      "text_style": "Poppins Medium, uppercase, widely letter-spaced, about 2% of the canvas height, 1 line, left-aligned, hot pink",
+      "text": "TRIPLE ACCIÓN EN CÁPSULAS"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline",
+      "reference_position": "Left column, about 11-38.5% of the canvas height",
+      "text_style": "Poppins extra bold condensed, uppercase, each line about 8% of the canvas height, exactly 3 lines, left-aligned: line 1 'MÁS GLÚTEOS' in white, line 2 'MÁS PIERNAS' in metallic pink gradient, line 3 'SIN REBOTE' in white; never crosses 52% of the width",
+      "text": "MÁS GLÚTEOS MÁS PIERNAS SIN REBOTE"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "subtitle",
+      "reference_position": "Left column, under the divider, about 44-54.5% of the canvas height",
+      "text_style": "Poppins Medium, uppercase, about 3% of the canvas height, 3 lines, left-aligned: line 1 '2 CÁPSULAS AL DÍA' in white, line 2 'AGUAJE + FENOGRECO' in pink, line 3 '+ MACA NEGRA' in pink",
+      "text": "2 CÁPSULAS AL DÍA AGUAJE + FENOGRECO + MACA NEGRA"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "offer label",
+      "reference_position": "Top of the price card, centered",
+      "text_style": "Poppins Bold, uppercase, about 2.8% of the canvas height, 1 line, centered, hot pink, between exclamation marks",
+      "text": "¡TRATAMIENTO COMPLETO!"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "price",
+      "reference_position": "Center of the price card",
+      "text_style": "Poppins extra bold, about 9% of the canvas height, 1 line, centered, metallic pink gradient",
+      "text": "$139,900"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "quantity line (in the old-price slot)",
+      "reference_position": "Bottom of the price card, under the thin divider",
+      "text_style": "Poppins Bold, uppercase, about 3% of the canvas height, 1 line, centered, white, not struck through",
+      "text": "X3 UNIDADES"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Dark warm-black background with hot-pink light rays and particle swirls behind the bottle",
+    "Left-aligned sales column: eyebrow with thin line, giant 3-line two-tone headline, divider and 3-line subtitle",
+    "Two circular before/after photos of the same woman joined by a small chevron",
+    "Dark price card with a thin pink border, giant price and quantity line",
+    "One unit of the user's black bottle with pink cap, tall and upright, on a reflective surface with concentric pink light ripples"
+  ],
+  "final_generation_exclusions": [
+    "Do not show the hand or the video player bar from the product photo.",
+    "No struck-through price and no invented regular price.",
+    "No more than one bottle.",
+    "No nudity, no lingerie, no exaggerated or unrealistic body proportions in the circular photos.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

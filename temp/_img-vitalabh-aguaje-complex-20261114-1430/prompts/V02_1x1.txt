@@ -1,0 +1,41 @@
+Square 1:1 photographic social media ad for a women's supplement, LATAM cash-on-delivery bundle offer style. BACKGROUND (full canvas, edge to edge): a bright, modern gym with large windows, light wood floor, a few machines and soft pink neon accents, photographed with a very shallow depth of field so it is strongly blurred and reads only as a setting; the upper-left half is calm and mid-toned so white text is legible. MODEL (right half, about 50-100% of the width, full height, cropped by the right edge, sharp): one adult Latina woman, about 28 years old, medium-brown skin, dark curly shoulder-length hair, standing in a three-quarter back view with her face turned over her shoulder toward the camera with a calm, confident smile; she wears a hot-pink sports top and black high-waist gym leggings and shows full, round, firm glutes and toned thighs with a defined waist; tasteful, natural fitness photography, realistic proportions; camera at hip height with a portrait lens, soft light from the front left. TEXT STACK (upper-left column, centered on the column): at the top (about 3.5-49.5% of the width, 2.5-14.5% of the height) a solid deep magenta (#A80F55) rounded rectangle pill with two centered lines of white extra-bold uppercase text; under it (about 16-37.5% of the height) two lines of huge bold white text with a soft dark drop shadow, line 1 the quantity and line 2 the price; under it (about 38-50% of the height) two smaller bold white lines with soft shadow. PRODUCT TRIO (foreground, lower center-right, about 37-82% of the width and 35-100% of the height): three identical units of the product from the attached image standing in a row with labels facing the camera, the center unit larger, in front and cropped by the bottom edge, the two side units slightly behind, overlapping the model's lower legs; commercial studio light with crisp reflections. Each unit is a cylindrical glossy black plastic supplement bottle with softly rounded shoulders, about twice as tall as it is wide, with a hot-pink ribbed screw cap and a glossy black label that ends in a solid bright pink band at the bottom; the label shows a small 'VITALABH' logo, the word 'AGUAJE' in very large bold white letters, 'COMPLEX' in white and '3 EN 1' in hot pink, a thin pink strip with small white text, the words 'TRIPLE ACCIÓN' in bold italic hot pink with a swoosh, a row of three small pink-outlined boxes joined by white plus signs, and '60 CÁPSULAS' at the bottom. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, texts and colors; do not redesign, replace or reinterpret it; ignore the hand and the video player bar visible in that photo. PAYMENT LABEL (lower left, about 4-36% of the width and 80.5-94% of the height): a solid deep-magenta rounded rectangle, same color as the top pill, with a two-line white extra-bold uppercase text, left-aligned with inner padding, fully visible and not touching the bottles. Typography: Poppins Bold throughout. All visible text in Spanish, spelled exactly as given. No podium, no glow, no old price, no seals, no stars, no buttons, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- offer words (Centered inside the magenta offer pill at the top-left): "TRATAMIENTO COMPLETO" — Poppins extra bold, uppercase, white, 2 centered lines ('TRATAMIENTO' / 'COMPLETO'), each about 4.5% of the canvas height
+- quantity × price headline (Left column, under the offer pill, about 16-37.5% of the height): "X3 UNIDADES $139,900" — Poppins Bold, white with a soft dark drop shadow, 2 lines centered on the left column, each about 10% of the canvas height; line 1 'X3 UNIDADES', line 2 '$139,900'
+- product function (Left column, under the headline, about 38-50% of the height): "GLÚTEOS Y PIERNAS SIN EFECTO REBOTE" — Poppins Bold, uppercase, white with a soft dark drop shadow, 2 lines centered on the left column ('GLÚTEOS Y PIERNAS' / 'SIN EFECTO REBOTE'), each about 4.5% of the canvas height
+- payment condition (Inside the magenta label at the lower left): "PAGAS AL RECIBIR" — Poppins extra bold, uppercase, white, 2 lines ('PAGAS AL' / 'RECIBIR'), about 4.2% of the canvas height, left-aligned with inner padding, fully inside the label
+
+BRAND IDENTITY:
+- color_palette: Primary: hot pink #E91E78 and glossy black #0E0E10. Secondary: deep magenta #A80F55, soft pink #F7A8C9, blush pink background #FCE3EE, pure white #FFFFFF for text and outlines. Small warm accent from the aguaje fruit: orange #F28A1E.
+- text_typography: Poppins Bold (extra bold, uppercase) for headlines and prices; Poppins Regular / SemiBold for the rest of the text.
+
+MANDATORY ELEMENTS:
+- Full-bleed blurred photo of a bright modern gym
+- Adult woman showing the result on the right half, three-quarter back view, looking over her shoulder
+- Deep-magenta offer pill and huge white quantity and price headline in the upper-left column
+- Three units of the user's black bottle with pink cap in the foreground, the middle one larger and in front
+- Deep-magenta payment label at the lower left, fully visible
+
+STRICT EXCLUSIONS:
+- Do not show the hand or the video player bar from the product photo.
+- No podium, pedestal or radial glow behind the bottles.
+- No struck-through price, discount seal, free-shipping claim, stars or CTA button.
+- No before/after and no second person.
+- No nudity, no lingerie, no exaggerated or unrealistic body proportions.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Podium, pedestal or radial glow
+- Do not add: Struck-through old price
+- Do not add: Round discount seal or sticker
+- Do not add: CTA button or arrow
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit list or icons
+- Do not add: Before/after
+- Do not add: Free shipping claim
+- Do not add: Text cut by the canvas edges or hidden behind the products
+- Do not add: Logos or brand marks outside the bottle labels
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

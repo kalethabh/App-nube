@@ -1,0 +1,140 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format G08 (Oferta combo con modelo en escena)",
+    "reference_style": "Photographic LATAM cash-on-delivery bundle ad: a blurred real-scene backdrop, a model showing the result on the right, an offer pill and a huge white quantity-times-price headline on the left, three product units in the foreground and a payment label at the lower left",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Bundle Offer with Model in Scene Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot pink #E91E78 and glossy black #0E0E10. Secondary: deep magenta #A80F55, soft pink #F7A8C9, blush pink background #FCE3EE, pure white #FFFFFF for text and outlines. Small warm accent from the aguaje fruit: orange #F28A1E.",
+    "visual_style": "Bold, feminine, high-contrast LATAM direct-response supplement ad: glossy pink and black graphics combined with realistic, candid smartphone-style fitness photos of adult women.",
+    "visual_atmosphere": "Energetic, confident, feminine and motivating; bright and clean, with the feeling of a real result shown by a real woman.",
+    "graphic_language": "Pink gradients with soft brush strokes, rounded photo frames with white borders, pill-shaped labels, small rounded icon badges in deep magenta, thick white outlines on headlines, glossy reflections, small heart accents, strong contrast between pink, black and white.",
+    "text_typography": "Poppins Bold (extra bold, uppercase) for headlines and prices; Poppins Regular / SemiBold for the rest of the text."
+  },
+  "creative_objective": "Sell the full 3-bottle treatment at its exact price while a real-looking woman shows the result (fuller glutes and legs) in a gym, keeping the exact layered structure of the format: text stack upper-left, model on the right, product trio in the foreground, payment label lower-left.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The huge white quantity-times-price headline. 2) The model showing the result. 3) The three bottles in the foreground. 4) The magenta offer pill. 5) The two-line benefit name. 6) The magenta payment label.",
+    "composition_style": "Layered photographic composition with three depth planes: the blurred gym at the back, the model in the middle plane on the right half, and the product trio in the foreground at the lower center-right, overlapping the model's lower legs. The text stack lives in the upper-left column, centered on that column; the payment label anchors the lower-left corner.",
+    "spacing_and_structure": "Offer pill: about 3.5-49.5% of the width and 2.5-14.5% of the height. Headline: two lines at about 5-47% of the width and 16-37.5% of the height. Benefit name: two lines at about 6-46% of the width and 38-50% of the height. Model: about 50-100% of the width, full height. Product trio: about 37-82% of the width and 35-100% of the height, center unit larger, in front and cropped by the bottom edge. Payment label: about 4-36% of the width and 80.5-94% of the height, fully visible and clear of the bottles. Safe margins of about 4% for every text.",
+    "lighting_and_depth": "Background: a modern bright gym with large windows, light wood floor and soft pink neon accents, shot with a shallow depth of field and strongly blurred. Model: soft front-left light, sharp. Bottles: commercial studio light with crisp reflections on the glossy black plastic and a soft shadow between units. White text with a soft dark drop shadow; pill and label flat with rounded corners.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled edge to edge with a blurred, bright photo of a modern gym. A woman showing the result occupies the right half from top to bottom. In the upper-left column, a deep-magenta rounded pill with white offer words, then two lines of huge white text (quantity of units and price) and two smaller white lines with the product's main function, all centered on the column with soft shadows. Three units of the user's bottle stand in the foreground at the lower center-right, the middle one larger and in front, partly covering the model's legs. A deep-magenta rounded label with a two-line white payment condition sits at the lower left.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "blurred scene photo",
+        "position": "Full canvas, edge to edge",
+        "visual_function": "Places the result in a real, aspirational setting",
+        "adaptation_rule": "Bright modern gym with large windows, light wood floor, a few machines and soft pink neon accents, strongly blurred. The upper-left 50% stays calm and mid-toned so the white text with shadow is legible.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "model showing the result",
+        "position": "Right half, about 50-100% of the width and 0-100% of the height, cropped by the right edge",
+        "visual_function": "Shows the promised result on a real person",
+        "adaptation_rule": "One adult Latina woman, about 28, medium-brown skin, dark curly shoulder-length hair, standing in three-quarter back view with her face turned over her shoulder toward the camera, calm confident smile, wearing a hot-pink sports top and black high-waist gym leggings, showing full, round, firm glutes and toned thighs with a defined waist. Tasteful fitness look. Never a before state.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "offer pill",
+        "position": "Top of the left column, about 3.5-49.5% of the width and 2.5-14.5% of the height",
+        "visual_function": "Announces the deal at first glance",
+        "adaptation_rule": "Solid deep magenta (#A80F55) rounded rectangle holding the white offer words in two centered lines.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product trio",
+        "position": "Foreground, lower center-right, about 37-82% of the width and 35-100% of the height",
+        "visual_function": "Shows exactly how many units the offer includes",
+        "adaptation_rule": "Three identical units of the user's bottle exactly as in the attached product photo, standing in a row, labels facing the camera: the center unit larger, in front and cropped by the bottom edge, the two side units slightly behind.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "payment label (shipping label slot)",
+        "position": "Lower left, about 4-36% of the width and 80.5-94% of the height",
+        "visual_function": "Removes the purchase-risk objection",
+        "adaptation_rule": "Solid deep-magenta rounded rectangle, same color as the offer pill, holding a two-line white payment condition (cash on delivery, the real condition known for this product; no free-shipping claim). Fully inside the canvas and clear of the bottles.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Podium, pedestal or radial glow",
+      "Struck-through old price",
+      "Round discount seal or sticker",
+      "CTA button or arrow",
+      "Rating stars, reviews or testimonials",
+      "Benefit list or icons",
+      "Before/after",
+      "Free shipping claim",
+      "Text cut by the canvas edges or hidden behind the products",
+      "Logos or brand marks outside the bottle labels"
+    ]
+  },
+  "visual_prompt": "Square 1:1 photographic social media ad for a women's supplement, LATAM cash-on-delivery bundle offer style. BACKGROUND (full canvas, edge to edge): a bright, modern gym with large windows, light wood floor, a few machines and soft pink neon accents, photographed with a very shallow depth of field so it is strongly blurred and reads only as a setting; the upper-left half is calm and mid-toned so white text is legible. MODEL (right half, about 50-100% of the width, full height, cropped by the right edge, sharp): one adult Latina woman, about 28 years old, medium-brown skin, dark curly shoulder-length hair, standing in a three-quarter back view with her face turned over her shoulder toward the camera with a calm, confident smile; she wears a hot-pink sports top and black high-waist gym leggings and shows full, round, firm glutes and toned thighs with a defined waist; tasteful, natural fitness photography, realistic proportions; camera at hip height with a portrait lens, soft light from the front left. TEXT STACK (upper-left column, centered on the column): at the top (about 3.5-49.5% of the width, 2.5-14.5% of the height) a solid deep magenta (#A80F55) rounded rectangle pill with two centered lines of white extra-bold uppercase text; under it (about 16-37.5% of the height) two lines of huge bold white text with a soft dark drop shadow, line 1 the quantity and line 2 the price; under it (about 38-50% of the height) two smaller bold white lines with soft shadow. PRODUCT TRIO (foreground, lower center-right, about 37-82% of the width and 35-100% of the height): three identical units of the product from the attached image standing in a row with labels facing the camera, the center unit larger, in front and cropped by the bottom edge, the two side units slightly behind, overlapping the model's lower legs; commercial studio light with crisp reflections. Each unit is a cylindrical glossy black plastic supplement bottle with softly rounded shoulders, about twice as tall as it is wide, with a hot-pink ribbed screw cap and a glossy black label that ends in a solid bright pink band at the bottom; the label shows a small 'VITALABH' logo, the word 'AGUAJE' in very large bold white letters, 'COMPLEX' in white and '3 EN 1' in hot pink, a thin pink strip with small white text, the words 'TRIPLE ACCIÓN' in bold italic hot pink with a swoosh, a row of three small pink-outlined boxes joined by white plus signs, and '60 CÁPSULAS' at the bottom. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, texts and colors; do not redesign, replace or reinterpret it; ignore the hand and the video player bar visible in that photo. PAYMENT LABEL (lower left, about 4-36% of the width and 80.5-94% of the height): a solid deep-magenta rounded rectangle, same color as the top pill, with a two-line white extra-bold uppercase text, left-aligned with inner padding, fully visible and not touching the bottles. Typography: Poppins Bold throughout. All visible text in Spanish, spelled exactly as given. No podium, no glow, no old price, no seals, no stars, no buttons, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "offer words",
+      "reference_position": "Centered inside the magenta offer pill at the top-left",
+      "text_style": "Poppins extra bold, uppercase, white, 2 centered lines ('TRATAMIENTO' / 'COMPLETO'), each about 4.5% of the canvas height",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "quantity × price headline",
+      "reference_position": "Left column, under the offer pill, about 16-37.5% of the height",
+      "text_style": "Poppins Bold, white with a soft dark drop shadow, 2 lines centered on the left column, each about 10% of the canvas height; line 1 'X3 UNIDADES', line 2 '$139,900'",
+      "text": "X3 UNIDADES $139,900"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "product function",
+      "reference_position": "Left column, under the headline, about 38-50% of the height",
+      "text_style": "Poppins Bold, uppercase, white with a soft dark drop shadow, 2 lines centered on the left column ('GLÚTEOS Y PIERNAS' / 'SIN EFECTO REBOTE'), each about 4.5% of the canvas height",
+      "text": "GLÚTEOS Y PIERNAS SIN EFECTO REBOTE"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "payment condition",
+      "reference_position": "Inside the magenta label at the lower left",
+      "text_style": "Poppins extra bold, uppercase, white, 2 lines ('PAGAS AL' / 'RECIBIR'), about 4.2% of the canvas height, left-aligned with inner padding, fully inside the label",
+      "text": "PAGAS AL RECIBIR"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed blurred photo of a bright modern gym",
+    "Adult woman showing the result on the right half, three-quarter back view, looking over her shoulder",
+    "Deep-magenta offer pill and huge white quantity and price headline in the upper-left column",
+    "Three units of the user's black bottle with pink cap in the foreground, the middle one larger and in front",
+    "Deep-magenta payment label at the lower left, fully visible"
+  ],
+  "final_generation_exclusions": [
+    "Do not show the hand or the video player bar from the product photo.",
+    "No podium, pedestal or radial glow behind the bottles.",
+    "No struck-through price, discount seal, free-shipping claim, stars or CTA button.",
+    "No before/after and no second person.",
+    "No nudity, no lingerie, no exaggerated or unrealistic body proportions.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
