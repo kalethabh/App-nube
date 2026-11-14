@@ -1,0 +1,166 @@
+{
+  "generado": "2026-11-14T01:24:36.747Z",
+  "parcial": true,
+  "segundos": 342,
+  "clips": [
+    {
+      "id": "toma-1",
+      "archivo": "toma-1.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 10,
+      "segundosPedidos": 10,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto"
+      ],
+      "creditos": 100,
+      "taskId": "d15b08b7fa6927fd84706229645ad923",
+      "dialogo": true
+    },
+    {
+      "id": "toma-2",
+      "archivo": "toma-2.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 10,
+      "segundosPedidos": 10,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "creditos": 100,
+      "taskId": "1084684ca4895c1782814f764b5a231a",
+      "dialogo": true
+    },
+    {
+      "id": "toma-3",
+      "archivo": "toma-3.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "creditos": 80,
+      "taskId": "c166031ede766568a185423fbf3617f0",
+      "dialogo": true
+    },
+    {
+      "id": "toma-4",
+      "archivo": "toma-4.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 6,
+      "segundosPedidos": 6,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "creditos": 60,
+      "taskId": "d1879379f4c596294153cd278a9dc373",
+      "dialogo": true
+    },
+    {
+      "id": "toma-5",
+      "archivo": "toma-5.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 10,
+      "segundosPedidos": 10,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "creditos": 100,
+      "taskId": "0cd6604b7ee56252236a1b7424cdb21f",
+      "dialogo": true
+    },
+    {
+      "id": "toma-6",
+      "archivo": "toma-6.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "creditos": 80,
+      "taskId": "33b1151cdd7b3bd755786f34f783759d",
+      "dialogo": true
+    },
+    {
+      "id": "toma-7",
+      "archivo": "toma-7.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 6,
+      "segundosPedidos": 6,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "creditos": 60,
+      "taskId": "a79c192963b9cec428d9f95ac4037a4a",
+      "dialogo": true
+    },
+    {
+      "id": "toma-8",
+      "archivo": "toma-8.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-bodega"
+      ],
+      "creditos": 80,
+      "taskId": "1ff5e9f3870a4e0d3a4c3a8c047e37f0",
+      "dialogo": true
+    }
+  ]
+}

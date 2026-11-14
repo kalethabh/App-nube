@@ -1,5 +1,18 @@
 {
-  "rechazos": {},
+  "rechazos": {
+    "toma-9": [
+      {
+        "fecha": "2026-11-14T01:24:49.455Z",
+        "failMsg": "Request blocked: The generation was blocked by Google safety review.",
+        "fase": "aplicado",
+        "lineaAntes": "Este ya va empacadito, mañana sale, y ella lo paga cuando le toquen la puerta. El tuyo está en el botón de abajo.",
+        "linea": "Este ya va empacadito, mañana sale, y ella lo paga cuando le llegue a su casa. El tuyo está en el botón de abajo.",
+        "frase_original": "y ella lo paga cuando le toquen la puerta.",
+        "frase_nueva": "y ella lo paga cuando le llegue a su casa.",
+        "motivo": "Cambié «cuando le toquen la puerta» por «cuando le llegue a su casa». La frase original podía leerse como alguien llegando a la puerta de una persona, y eso pudo frenar la escena. Sigue diciendo lo mismo: se paga al recibir el pedido."
+      }
+    ]
+  },
   "extraRechazos": {},
   "descartados": [],
   "ganchos": {},
@@ -10,5 +23,9 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T01:18:54.484Z"
+  "actualizado": "2026-11-14T01:24:49.455Z",
+  "sesionRechazo": {
+    "uuid": "2c8e9fb1-2d5d-416b-9850-081a21b59ffd",
+    "usada": true
+  }
 }

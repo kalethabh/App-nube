@@ -42,7 +42,8 @@
       "nombre": "Crear los videos de la persona hablando",
       "estado": "corriendo",
       "intentos": 1,
-      "inicio": "2026-11-14T01:18:54.486Z"
+      "inicio": "2026-11-14T01:18:54.486Z",
+      "detalle": "Buscando otra forma de decir la frase"
     },
     {
       "id": "revision-bloques",
@@ -91,7 +92,7 @@
   "modoPrueba": false,
   "creado": "2026-11-14T01:18:15.331Z",
   "aprobado": "2026-11-14T01:18:15.331Z",
-  "actualizado": "2026-11-14T01:18:54.486Z",
+  "actualizado": "2026-11-14T01:24:46.963Z",
   "saldoInicial": {
     "creditos": 959.2,
     "fecha": "2026-11-14T01:18:16.241Z"
