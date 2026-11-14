@@ -1,6 +1,6 @@
 {
   "n": 1,
-  "estado": "exportando",
+  "estado": "listo",
   "calidad": "1080",
   "version": "completa",
   "subtitulos": "con",
@@ -8,11 +8,21 @@
   "srt": true,
   "guardar": true,
   "creado": "2026-11-14T00:28:38.493Z",
-  "actualizado": "2026-11-14T00:34:38.179Z",
+  "actualizado": "2026-11-14T00:34:55.907Z",
   "avance": {
-    "etapa": "revisar",
-    "valor": 91,
+    "etapa": "guardar",
+    "valor": 100,
     "cuadro": 1904,
     "total": 1904
-  }
+  },
+  "control": {
+    "limpio": true,
+    "codigo": 0,
+    "motivo": null,
+    "defectos": [],
+    "avisos": []
+  },
+  "archivo": "aguaje-complex-10x-podcast-20261113-1712_editado-1.mp4",
+  "srtArchivo": "aguaje-complex-10x-podcast-20261113-1712_editado-1.srt",
+  "terminado": "2026-11-14T00:34:55.792Z"
 }
