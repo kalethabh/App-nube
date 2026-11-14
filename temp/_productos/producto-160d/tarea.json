@@ -1,14 +1,57 @@
 {
   "id": "41eeaa04-386f-45cc-b024-f3388db315fa",
   "uuid": "41eeaa04-386f-45cc-b024-f3388db315fa",
-  "estado": "analizando",
-  "paso": "claude",
+  "estado": "lista",
+  "paso": null,
   "progreso": [
     "Claude está leyendo tu producto",
-    "Mirando las fotos de tu producto"
+    "Mirando las fotos de tu producto",
+    "Armando la ficha de tu producto"
   ],
   "intentos": 1,
   "inicio": "2026-11-14T23:50:00.120Z",
   "error": null,
-  "actualizado": "2026-11-14T23:50:02.687Z"
+  "fin": "2026-11-14T23:50:22.322Z",
+  "medida": {
+    "turnos": 4,
+    "duracionMs": 21518,
+    "uso": {
+      "input_tokens": 6,
+      "cache_creation_input_tokens": 16514,
+      "cache_read_input_tokens": 37355,
+      "output_tokens": 2073,
+      "output_tokens_details": {
+        "thinking_tokens": 755
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 16514,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 6,
+          "cache_read_input_tokens": 18368,
+          "cache_creation_input_tokens": 1962,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 1962
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "costoEstimado": 0.2356725,
+    "modelo": "claude-fable-5-2",
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-14T23:50:22.323Z"
 }

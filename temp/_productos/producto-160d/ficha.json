@@ -1,0 +1,52 @@
+{
+  "nombre": "Aguaje Complex 3 en 1 VitalABH",
+  "queEs": "Suplemento alimenticio en cápsulas rosadas a base de aguaje, fenogreco y maca negra, para mujeres.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas, más llenas y tonificadas",
+    "Abdomen moldeado",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio ni dietas costosas",
+    "Triple acción: tres extractos puros en una sola cápsula"
+  ],
+  "publico": "Mujeres adultas, de unos 20 a 40 años, delgadas o con poca forma, que quieren más volumen en glúteos y piernas sin ir al gimnasio.",
+  "dolor": "Se mira al espejo y ve el glúteo plano y caído, las piernas delgadas sin forma y el jean que no le llena. Siente que sin gimnasio ni dietas caras no hay cómo cambiarlo.",
+  "oferta": "No se menciona precio en el anuncio. Se recomienda el tratamiento completo de 3 meses (3 frascos).",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Cada porción de 2 cápsulas trae: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg. También trae vitamina A y vitamina E. Frasco de 60 cápsulas de 0,5 g cada una (contenido neto 30 g). Cápsula de gelatina.",
+  "comoSeUsa": "Tomar 2 cápsulas al día, preferiblemente con las comidas principales. Uso continuo por al menos 3 meses. No pasar de la porción diaria recomendada.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco negro con tapa y base rosadas en una mano, con la etiqueta de frente. Es una captura de un video: abajo se ve la barra del reproductor."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": false,
+      "nota": "Es el diseño plano de la etiqueta con medidas de imprenta, no el frasco. Sirvió para leer los ingredientes y el modo de uso."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo te compran: por WhatsApp, en tu página, contra entrega?"
+    },
+    {
+      "campo": "probo",
+      "pregunta": "¿Qué han probado tus clientas antes que no les funcionó?"
+    }
+  ]
+}
