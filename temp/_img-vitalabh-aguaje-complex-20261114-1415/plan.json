@@ -1,0 +1,80 @@
+{
+  "producto": "vitalabh-aguaje-complex-3-en-1",
+  "lote": "_img-vitalabh-aguaje-complex-20261114-1415",
+  "cantidad": 5,
+  "proporciones": ["1:1"],
+  "decisiones": [
+    "No diste un ángulo principal, así que elegí los que mejor le van a este producto.",
+    "No hay precio ni llamado a la acción, así que ningún anuncio los muestra.",
+    "Suavicé las promesas para que los anuncios no sean rechazados: dicen «apoya» y «acompaña» en vez de prometer resultados seguros.",
+    "Tu referencia tenía sellos de «sin gluten», «sin azúcar» y «envío gratis». Como no tengo esos datos, los cambié por datos reales: 3 en 1, 60 cápsulas y pago al recibir.",
+    "Tu referencia decía «resultados en 1 mes». Lo cambié por «constancia por 3 meses», que es el uso recomendado.",
+    "No sé de qué color son las cápsulas, así que las muestro transparentes con polvo claro."
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261114-1415/entrada/referencias/R01.jpg",
+      "analisis_referencia": {
+        "formato": "Antes / después con selfies de espejo, producto con ingredientes y fila de beneficios",
+        "estructura": "Arriba a la izquierda, un titular grande de dos líneas con una banda rosada debajo y una frase en letra manuscrita con un corazón. Debajo, tres sellos pequeños con ícono. Abajo a la izquierda, el frasco rodeado de frutos de aguaje, hojas y cápsulas. A la derecha, de arriba abajo, dos selfies de espejo en marcos redondeados (antes y después) unidas por una flecha rosada, cada una con su etiqueta. Abajo a la derecha, una fila de tres beneficios con ícono circular y una barra con una cápsula, la forma de tomarlo y un reloj.",
+        "por_que_funciona": "El antes y después con fotos caseras se siente real y detiene el scroll. El titular nombra el deseo en dos palabras, el frasco con la fruta explica de qué está hecho y la barra de abajo quita la duda de cómo se toma."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El cambio visible en glúteos y piernas, contado con dos selfies de espejo y el frasco como apoyo.",
+      "titular": "GLÚTEOS Y PIERNAS",
+      "escena": "Fondo rosado en degradado con pinceladas; dos selfies de espejo en un cuarto, la misma mujer en ropa deportiva; el frasco sobre una superficie rosada con frutos de aguaje, hojas de palma y cápsulas.",
+      "camara": "Frasco de frente a la altura de los ojos; selfies de espejo tomadas con el celular, de medio lado."
+    },
+    {
+      "id": "V02",
+      "fuente": "biblioteca",
+      "formato_id": "F15",
+      "formato": "Cifra gigante",
+      "angulo_id": "caracteristica-estrella",
+      "angulo": "Característica estrella",
+      "concepto": "El «3 EN 1» gigante: tres ingredientes en un solo frasco.",
+      "titular": "3 EN 1",
+      "escena": "Fondo negro profundo liso con un resplandor rosado detrás del frasco. Sin personas ni objetos.",
+      "camara": "Frontal de estudio, centrada y simétrica, a la altura del frasco."
+    },
+    {
+      "id": "V03",
+      "fuente": "biblioteca",
+      "formato_id": "F22",
+      "formato": "Flatlay de componentes",
+      "angulo_id": "mecanismo-unico",
+      "angulo": "Mecanismo único",
+      "concepto": "De qué está hecho: aguaje, fenogreco y maca negra a la vista, alrededor del frasco.",
+      "titular": "Tres ingredientes, un solo frasco",
+      "escena": "Superficie de piedra clara con un tono rosado suave. En las esquinas: frutos de aguaje, semillas de fenogreco, raíces de maca negra y cápsulas.",
+      "camara": "Cenital, justo desde arriba, con el frasco acostado en diagonal."
+    },
+    {
+      "id": "V04",
+      "fuente": "biblioteca",
+      "formato_id": "G15",
+      "formato": "Persona en éxtasis + producto en pedestal + palabra gigante",
+      "angulo_id": "promesa-emocional",
+      "angulo": "Promesa emocional",
+      "concepto": "Sentirte segura con tus curvas: una mujer plena, con luz dorada, y el frasco en primer plano.",
+      "titular": "SEGURA",
+      "escena": "Terraza con flores rosadas desenfocadas y luz dorada de atardecer. Mujer colombiana de unos 30 años con vestido de satén rosado, ojos cerrados y brazos detrás de la cabeza. Frasco sobre un pedestal de mármol claro, con pétalos y gotas flotando.",
+      "camara": "Plano medio a la altura de los ojos, perfil de tres cuartos, fondo muy desenfocado."
+    },
+    {
+      "id": "V05",
+      "fuente": "biblioteca",
+      "formato_id": "F14",
+      "formato": "Post-it",
+      "angulo_id": "rutina-uso",
+      "angulo": "Rutina / momento de uso",
+      "concepto": "El recordatorio diario: una nota pegada en la nevera junto al frasco.",
+      "titular": "2 cápsulas al día con tus comidas",
+      "escena": "Mesón de cocina junto a la puerta de la nevera, con luz de ventana por la mañana. Post-it rosado pastel con un corazón dibujado y firma corta. Detalles de la cocina en tonos rosados y negros, desenfocados.",
+      "camara": "A la altura de los ojos, apenas desde arriba, con poca profundidad de campo."
+    }
+  ]
+}

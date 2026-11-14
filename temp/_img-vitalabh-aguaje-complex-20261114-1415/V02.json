@@ -1,0 +1,132 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F15 (Cifra gigante)",
+    "reference_style": "Bold, centered typographic stat ad where one oversized number sits in the foreground across the lower half and the product rises from behind it; layered, confident and minimal",
+    "angle_used": "Característica estrella",
+    "ad_format": "Big Number Stat Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: deep glossy black #0D0D0F and hot pink #E8327C. Secondary: soft pink #F58FB8, blush cream #FCE7EF and pure white #FFFFFF. Accents: raspberry red #D81B60 and warm aguaje orange #F2A33A (only in the fruit and warm light).",
+    "visual_style": "Modern, feminine and bold beauty-wellness advertising: high contrast black and pink, clean premium product photography, confident and fresh, Latin American e-commerce energy without looking cheap.",
+    "visual_atmosphere": "Confident, vibrant, feminine and warm; glossy highlights, soft pink glows, a feeling of self-care and self-assurance.",
+    "graphic_language": "Rounded pill shapes and rounded cards, soft pink gradients, brush-stroke or solid pink bands behind key words, thin line icons, soft drop shadows, natural ingredient props (aguaje fruit with reddish scaly skin and orange pulp, fenugreek seeds, black maca root), strong contrast between black, pink and white.",
+    "text_typography": "Poppins Bold for headlines and Poppins Regular for the rest of the text."
+  },
+  "creative_objective": "Make the product's star feature, three ingredients in one bottle, impossible to miss: a giant '3 EN 1' in front of the bottle, read top to bottom as one sentence with the lead-in and the explanation line.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant number in the foreground, the biggest and highest-contrast element. 2) The product, centered, rising from behind the number. 3) The explanation line under the number. 4) The short lead-in line at the top.",
+    "composition_style": "Centered, symmetrical composition built in three depth planes: background, product, number. The product stands centered in the upper and middle part of the canvas. The giant number runs across almost the full width of the lower half, in front of the product, hiding only the product's pink base band (its bottom 15-20%, never the label). The lead-in line sits centered above the product and the explanation line centered under the number.",
+    "spacing_and_structure": "Lead-in line y 5-9%, centered. Product centered, about x 34-66% and y 12-66%. Giant number centered within x 5-95%, baseline at about y 82%, top at about y 56%. Explanation line centered, y 85-95%, 2 lines. Side margins 5%; the empty background left and right of the product is part of the design.",
+    "lighting_and_depth": "Solid deep black background with a strong soft hot-pink radial glow behind the product (upper center) and a subtle vignette in the corners. The product is lit by a crisp studio key light from the upper left with a pink rim light on both edges that separates the black bottle from the dark background. The number is flat, crisp graphic type in the foreground that casts a short, soft drop shadow onto the product where they overlap.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a solid deep black background and a hot-pink glow behind the center. A short all-caps lead-in line centered at the top. The user's product stands centered below it, large, rising from behind a giant ultra-bold '3 EN 1' that runs across the lower half of the canvas in front of the product's base, with 'EN 1' in the accent color. A two-line explanation is centered under the number at the bottom. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Bold, clean field of brand color that gives the number maximum impact",
+        "adaptation_rule": "Solid deep black #0D0D0F with a soft hot-pink #E8327C radial glow behind the product and a subtle vignette. No patterns, shapes, surfaces or textures.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "lead-in line",
+        "position": "Top center, y 5-9%",
+        "visual_function": "Opens the sentence and tells the eye how to read the number",
+        "adaptation_rule": "Very short all-caps lead-in in soft pink, 1 line, centered.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "Centered, about x 34-66% and y 12-66%, its base hidden behind the number",
+        "visual_function": "Shows what the number belongs to and creates depth by rising from behind the type",
+        "adaptation_rule": "The user's bottle exactly as in the attached photo, front view, about 54% of the canvas height, the whole label down to the '60 CÁPSULAS' line visible above the number's top edge; only the pink base band is covered.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "giant number",
+        "position": "Centered within x 5-95%, baseline at about y 82%, top at about y 56%, in front of the product's base",
+        "visual_function": "Stops the scroll; one powerful fact about the product",
+        "adaptation_rule": "'3 EN 1': the digit 3 in pure white, 'EN 1' in hot pink with a thin white outline so it stays legible over the black bottle. Fully legible, no character hidden.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "explanation line",
+        "position": "Bottom center, y 85-95%",
+        "visual_function": "Completes the sentence and links the number to what the customer gets",
+        "adaptation_rule": "Two short centered lines naming the three ingredients and the single bottle.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonials",
+      "Charts, graphs, progress bars or infographics",
+      "Secondary numbers or a stats grid",
+      "Benefit list or icons",
+      "Boxes, badges, divider bars or circles around the number",
+      "Pedestals, podiums or extra props",
+      "People or hands",
+      "Bottom bar or banner",
+      "Logos or brand marks",
+      "Decorative particles, confetti or extra shapes"
+    ]
+  },
+  "visual_prompt": "Square 1:1 bold typographic ad, centered and symmetrical, built in three depth planes. BACKGROUND: solid deep black #0D0D0F with a strong, soft hot-pink #E8327C radial glow behind the upper center and a subtle dark vignette in the corners; no patterns, no surface, no props. TOP (y 5-9%): one short all-caps lead-in line, centered, wide letter spacing, soft pink #F58FB8. PRODUCT (x 34-66%, y 12-66%): the product from the attached image standing upright, centered, front view, studio-sharp: a small cylindrical supplement bottle with a glossy black body, about twice as tall as wide, rounded shoulders, a wide hot-pink ribbed screw cap printed with small white 'VITALABH' logos, a solid pink band around the very bottom, and a black label with big white 'AGUAJE', 'COMPLEX' in white with '3 EN 1' in pink, a thin pink strip, italic pink-red 'TRIPLE ACCIÓN' and three small pink-outlined dosage boxes. Use the attached product image as the only source of truth for the bottle and its label; do not redesign, replace or reinterpret it. Ignore the hand, the floor and the video player bar visible in the attached photo: show only the bottle, with no hand. Crisp key light from the upper left and a pink rim light on both edges so the black bottle separates clearly from the dark background. GIANT NUMBER (x 5-95%, top at y 56%, baseline at y 82%): the text '3 EN 1' in ultra-bold condensed sans-serif, one line, centered, placed IN FRONT of the bottle so it covers only the pink base band of the bottle and never the label; the digit '3' in pure white at full size, 'EN 1' in hot pink #E8327C with a thin white outline at about 60% of the digit size, baseline-aligned; the type casts a short soft shadow on the bottle and stays fully legible, with no character hidden or cut. BOTTOM (y 85-95%): a two-line explanation, centered, medium-weight sans-serif, white at about 85% opacity. Nothing else on the canvas: no people, no icons, no badges, no extra shapes.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "lead-in line",
+      "reference_position": "Top center, above the product",
+      "text_style": "Poppins SemiBold, all caps, wide letter spacing, about 3.2% of the canvas height, soft pink #F58FB8, centered, 1 line",
+      "text": "TRIPLE ACCIÓN"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "giant number",
+      "reference_position": "Centered across the lower half, in front of the product's base",
+      "text_style": "Ultra-bold condensed sans-serif, glyph height about 26% of the canvas, tight letter spacing, centered, 1 line; '3' in pure white, 'EN 1' in hot pink with a thin white outline at about 60% of the digit size; short soft shadow on the product",
+      "text": "3 EN 1"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "explanation line",
+      "reference_position": "Bottom center, under the number",
+      "text_style": "Poppins Medium, about 4% of the canvas height, centered, 2 lines: 'Aguaje, fenogreco y maca negra' / 'en un solo frasco'; white at about 85% opacity, 'un solo frasco' in bold",
+      "text": "Aguaje, fenogreco y maca negra en un solo frasco"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One giant ultra-bold '3 EN 1' across the lower half, in front of the product",
+    "The user's product, centered and rising from behind the number, label fully visible",
+    "Solid deep black background with a soft hot-pink glow behind the product"
+  ],
+  "final_generation_exclusions": [
+    "Do not show the hand, the floor or the video player bar from the attached product photo.",
+    "Do not cover any part of the product label with the number.",
+    "Do not add people, hands, pedestals, props, particles or extra shapes.",
+    "Do not add logos or brand marks outside the product label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
