@@ -1,0 +1,245 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "uploaded reference (R01)",
+    "reference_style": "LATAM direct-response supplement ad: pink graphic layout with a giant headline, a hero bottle with its ingredients, two mirror-selfie before/after photo panels, icon badges and a usage bar",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Before / After Collage Ad with Hero Product",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot pink #E91E78 and glossy black #0E0E10. Secondary: deep magenta #A80F55, soft pink #F7A8C9, blush pink background #FCE3EE, pure white #FFFFFF for text and outlines. Small warm accent from the aguaje fruit: orange #F28A1E.",
+    "visual_style": "Bold, feminine, high-contrast LATAM direct-response supplement ad: glossy pink and black graphics combined with realistic, candid smartphone-style fitness photos of adult women.",
+    "visual_atmosphere": "Energetic, confident, feminine and motivating; bright and clean, with the feeling of a real result shown by a real woman.",
+    "graphic_language": "Pink gradients with soft brush strokes, rounded photo frames with white borders, pill-shaped labels, small rounded icon badges in deep magenta, thick white outlines on headlines, glossy reflections, small heart accents, strong contrast between pink, black and white.",
+    "text_typography": "Poppins Bold (extra bold, uppercase) for headlines and prices; Poppins Regular / SemiBold for the rest of the text."
+  },
+  "creative_objective": "Recreate the exact structure of the reference (headline stack top-left, badge row, hero bottle with ingredients lower-left, before/after mirror photos on the right, benefit icons and usage bar lower-right) for the user's product, with a different woman in a different place, keeping the same direct and specific promise (glutes and legs) and adding the offer block the user explicitly asked for.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The two before/after mirror photos with the pink arrow. 2) The giant headline at the top left. 3) The hero bottle with the aguaje fruits. 4) The offer card with the price. 5) The three benefit icons and the usage bar. 6) The three small badges.",
+    "composition_style": "Two-zone layout: the left ~45% is a vertical stack (headline, dark band, script line, badge row, hero bottle, offer card); the right ~55% holds two tall rounded photo panels side by side on top and, under them, a row of three benefit icons and a rounded usage bar.",
+    "spacing_and_structure": "Dense but ordered, with about 3% outer margins. Headline stack from 3% to 33% of the height on the left. Badge row at about 35-42% of the height. Hero bottle from about 44% to 86% of the height at 8-40% of the width. Offer card at 3-46% of the width and 86-97% of the height. Photo panels: left panel at 47-71% of the width, right panel at 73-97% of the width, both from 2% to 70% of the height. State labels centered just under each panel at about 70-75%. Benefit icon row at 49-97% of the width and 77-86% of the height. Usage bar at 49-97% of the width and 88-97% of the height.",
+    "lighting_and_depth": "Bright blush-to-hot-pink gradient background with soft painterly brush strokes and a glossy pink floor reflecting the bottle. Commercial studio light on the bottle with crisp highlights. The two photos look like real smartphone mirror selfies with warm indoor light. Soft drop shadows under panels, badges and cards.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square pink canvas. Top-left: a giant 2-line bold uppercase headline in deep magenta with a thick white outline, then a dark rounded band with a white uppercase line, then a short handwritten script line with a small heart. Under it, a row of three small badges (a rounded magenta icon square + a two-word label each). Lower-left: the hero bottle, large and upright, surrounded by whole and halved aguaje fruits, green palm leaves behind and a few capsules in front, on a glossy pink surface. Right side: two tall photo panels with rounded corners and thin white borders, side by side, showing mirror selfies of the same woman before (left) and after (right), with a pink curved arrow between them pointing right and a pill label centered under each panel. Lower-right: a row of three circular magenta icons with a short 2-3 line label each, and under it a rounded white bar with a capsule image on the left, a three-line usage text in the middle and a clock icon on the right. Added by explicit user request: one offer card at the bottom-left, under the bottle.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Feminine pink stage that unifies all the modules",
+        "adaptation_rule": "Blush pink to hot pink gradient with soft brush strokes behind the headline and a glossy pink floor at the bottom. No white background.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline stack",
+        "position": "Top-left, about 3-46% of the width and 3-33% of the height",
+        "visual_function": "Names the exact desire and the key promise",
+        "adaptation_rule": "Giant 2-line headline, a dark rounded band with the second idea and a handwritten script line with a small heart.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "badge row (3 small badges)",
+        "position": "Left, under the headline stack, about 3-46% of the width and 35-42% of the height",
+        "visual_function": "Quick product facts that build trust",
+        "adaptation_rule": "Three badges in a row, each a small rounded deep-magenta square with a white line icon and a two-line uppercase label to its right: a '3' inside a circle icon, a capsule icon and a hand-holding-banknote icon.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product with ingredients",
+        "position": "Lower-left, bottle at about 8-40% of the width and 44-86% of the height, ingredients around it",
+        "visual_function": "Shows exactly what is sold and where it comes from",
+        "adaptation_rule": "The user's bottle, upright, front view, exactly as in the attached product photo, surrounded by whole aguaje fruits (oval, reddish-brown shiny scaly skin) and halved aguaje fruits (yellow-orange flesh), green palm leaves behind it and three hot-pink capsules lying in front on the glossy pink surface.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "before/after photo panels with arrow",
+        "position": "Right side, two panels at about 47-71% and 73-97% of the width, 2-70% of the height; arrow between them at about 35% of the height",
+        "visual_function": "Visual proof of the transformation",
+        "adaptation_rule": "Two realistic smartphone mirror selfies of the same adult woman, same place, same pose and framing: before on the left, after on the right with visibly fuller, rounder glutes and thighs. A different woman and a different place than the reference: gym locker room. A glossy hot-pink curved arrow with a white outline overlaps the gap between the panels and points right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "state labels (2 pills)",
+        "position": "Centered under each photo panel, at about 70-75% of the height, slightly overlapping the bottom edge of each panel",
+        "visual_function": "Names each state",
+        "adaptation_rule": "Left pill in neutral grey with white text; right pill in hot pink with white text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "benefit icon row (3)",
+        "position": "Lower-right, about 49-97% of the width and 77-86% of the height",
+        "visual_function": "Three scannable benefits",
+        "adaptation_rule": "Three circular deep-magenta icons with thin white line drawings (a side silhouette of hips and legs, a waist silhouette, a calendar), each with a short uppercase label to its right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "usage bar",
+        "position": "Bottom-right, about 49-97% of the width and 88-97% of the height",
+        "visual_function": "Explains how to take it",
+        "adaptation_rule": "White rounded bar with a thin pink border: two hot-pink capsules on the left, a three-line usage text in the middle and a pink circular clock icon on the right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "offer card (added by explicit user request)",
+        "position": "Bottom-left, about 3-46% of the width and 86-97% of the height, under the bottle; the base of the bottle and the fruits slightly overlap its top edge",
+        "visual_function": "States the full-treatment offer and its price",
+        "adaptation_rule": "Glossy black rounded rectangle with a thin hot-pink border: a small white uppercase line on the left part and the price in large hot-pink bold digits on the right part. This is the only block not in the reference; the user asked to add this offer.",
+        "present_in_reference": false
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Struck-through old price or discount percentage",
+      "Rating stars, reviews or testimonials",
+      "Free shipping claim",
+      "Gluten free or sugar free claims",
+      "Guarantee or certification seals",
+      "Isolated brand logo outside the bottle",
+      "Any extra text block not listed in text_layers",
+      "A third photo panel or extra people"
+    ]
+  },
+  "visual_prompt": "Square 1:1 social media ad for a women's supplement, bold feminine pink-and-black graphic design combined with two realistic smartphone photos. BACKGROUND: a bright blush pink (#FCE3EE) to hot pink (#E91E78) gradient with soft painterly pink brush strokes behind the headline area and a glossy pink floor along the bottom; no white background. TOP-LEFT HEADLINE STACK (about 3-46% of the width, 3-33% of the height): a giant two-line extra-bold uppercase headline in deep magenta (#A80F55) with a thick white outline and a soft shadow; right under it a glossy black rounded band holding one white bold uppercase line; under the band a short handwritten script line in deep magenta followed by a small solid pink heart; two tiny outlined hearts float next to the headline as decoration. BADGE ROW (left, about 35-42% of the height): three small badges in one row, each made of a small rounded deep-magenta square with a white line icon (first: the number 3 inside a circle; second: a capsule; third: a hand holding a banknote) and a two-line bold uppercase deep-magenta label to its right. HERO PRODUCT (lower-left, about 8-40% of the width and 44-86% of the height): one unit of the product from the attached image, standing upright, front view, sharp, with studio highlights and a reflection on the glossy pink floor. The product is a cylindrical glossy black plastic supplement bottle with softly rounded shoulders, about twice as tall as it is wide, with a hot-pink ribbed screw cap and a glossy black label that ends in a solid bright pink band at the bottom; the label shows a small 'VITALABH' logo, the word 'AGUAJE' in very large bold white letters, 'COMPLEX' in white and '3 EN 1' in hot pink, a thin pink strip with small white text, the words 'TRIPLE ACCIÓN' in bold italic hot pink with a swoosh, a row of three small pink-outlined boxes joined by white plus signs, and '60 CÁPSULAS' at the bottom. Use the attached product image as the only source of truth for the bottle: same shape, cap, label, texts and colors; do not redesign, replace or reinterpret it; ignore the hand and the video player bar visible in that photo. Around the bottle: whole aguaje fruits (oval, with shiny reddish-brown scaly skin) and two halved aguaje fruits showing yellow-orange flesh, green palm leaves fanning out behind the bottle, and three hot-pink capsules lying in front on the floor. OFFER CARD (bottom-left, about 3-46% of the width and 86-97% of the height, under the bottle, its top edge slightly overlapped by the bottle base and fruits): a glossy black rounded rectangle with a thin hot-pink border; on its left part a two-line small white bold uppercase text, on its right part the price in large hot-pink extra-bold digits. RIGHT SIDE, BEFORE/AFTER PHOTOS (two tall panels with rounded corners and thin white borders, side by side, at about 47-71% and 73-97% of the width, from 2% to 70% of the height): two realistic, candid smartphone mirror selfies of the same adult Latina woman, about 30 years old, light tan skin, long straight honey-brown hair tied in a high ponytail, taken in a gym locker room with wooden lockers, a bench and warm ceiling lights; she stands in a three-quarter back view toward a full-length mirror, glancing over her shoulder at her phone, which she holds up in a mint-green case; framing from head to knees; tasteful, non-sexualized fitness progress photos in normal athletic wear. LEFT PANEL (before): black sports top and charcoal grey biker shorts, a slimmer and flatter lower body with little volume in glutes and thighs, slightly cooler and duller light. RIGHT PANEL (after): same woman, same locker room, same pose and framing, white sports top and soft pink biker shorts, visibly fuller, rounder and firmer glutes and thighs with the same slim waist, a believable realistic improvement, warmer and brighter light. Between the two panels, at about 35% of the height, a glossy hot-pink curved arrow with a white outline points from the left photo to the right photo, overlapping both frames. Centered just under each panel, overlapping its bottom edge at about 70-75% of the height, a pill label: the left pill in neutral grey with white bold uppercase text, the right pill in hot pink with white bold uppercase text. BENEFIT ROW (lower-right, about 49-97% of the width and 77-86% of the height): three circular deep-magenta icons with thin white line drawings (a side silhouette of hips and legs; a waist silhouette; a calendar), each with a short bold uppercase deep-magenta label of two or three lines to its right. USAGE BAR (bottom-right, about 49-97% of the width and 88-97% of the height): a white rounded bar with a thin pink border containing two hot-pink capsules on the left, a three-line bold uppercase text in the middle (black, with the middle line in hot pink) and a hot-pink circular clock icon on the right. Typography: Poppins Bold for headlines, labels and price; Poppins SemiBold for small texts; the script line in a casual handwritten brush font. All visible text in Spanish, spelled exactly as given, with correct accents. Do not add any button, star rating, seal, old price, extra badge, extra logo or extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top-left, two lines, about 3-22% of the height",
+      "text_style": "Poppins extra bold, uppercase, giant (each line about 9% of the canvas height), deep magenta with thick white outline and soft shadow, left-aligned; line 1 'GLÚTEOS Y', line 2 'PIERNAS'",
+      "text": "GLÚTEOS Y PIERNAS"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "headline band (second idea)",
+      "reference_position": "Inside the black rounded band under the headline, about 23-29% of the height",
+      "text_style": "Poppins Bold, uppercase, white on glossy black, 1 line, about 4% of the canvas height",
+      "text": "SIN EFECTO REBOTE"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "script tagline",
+      "reference_position": "Under the black band, about 29-33% of the height, followed by a small pink heart",
+      "text_style": "Casual handwritten brush script, lowercase, deep magenta, 1 line, about 4% of the canvas height",
+      "text": "así de fácil"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "badge 1",
+      "reference_position": "First badge of the row, to the right of its icon square",
+      "text_style": "Poppins Bold, uppercase, deep magenta, 2 lines ('TRIPLE' / 'ACCIÓN'), about 1.8% of the canvas height",
+      "text": "TRIPLE ACCIÓN"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "badge 2",
+      "reference_position": "Second badge of the row, to the right of its icon square",
+      "text_style": "Poppins Bold, uppercase, deep magenta, 2 lines ('60' / 'CÁPSULAS'), about 1.8% of the canvas height",
+      "text": "60 CÁPSULAS"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "badge 3",
+      "reference_position": "Third badge of the row, to the right of its icon square",
+      "text_style": "Poppins Bold, uppercase, deep magenta, 2 lines ('PAGO AL' / 'RECIBIR'), about 1.8% of the canvas height",
+      "text": "PAGO AL RECIBIR"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "before label",
+      "reference_position": "Grey pill centered under the left photo panel",
+      "text_style": "Poppins Bold, uppercase, white on neutral grey pill, 1 line, about 2.8% of the canvas height",
+      "text": "ANTES"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "after label",
+      "reference_position": "Hot-pink pill centered under the right photo panel",
+      "text_style": "Poppins Bold, uppercase, white on hot-pink pill, 1 line, about 2.8% of the canvas height",
+      "text": "DESPUÉS"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "benefit 1",
+      "reference_position": "Right of the first circular icon in the benefit row",
+      "text_style": "Poppins Bold, uppercase, deep magenta, 3 lines ('AYUDA A' / 'AUMENTAR GLÚTEOS' / 'Y PIERNAS'), about 1.7% of the canvas height",
+      "text": "AYUDA A AUMENTAR GLÚTEOS Y PIERNAS"
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "benefit 2",
+      "reference_position": "Right of the second circular icon in the benefit row",
+      "text_style": "Poppins Bold, uppercase, deep magenta, 2 lines ('MOLDEA' / 'TU FIGURA'), about 1.7% of the canvas height",
+      "text": "MOLDEA TU FIGURA"
+    },
+    {
+      "block_id": "text_block_11",
+      "reference_function": "benefit 3",
+      "reference_position": "Right of the third circular icon in the benefit row",
+      "text_style": "Poppins Bold, uppercase, deep magenta, 2 lines ('TRATAMIENTO' / 'DE 3 MESES'), about 1.7% of the canvas height",
+      "text": "TRATAMIENTO DE 3 MESES"
+    },
+    {
+      "block_id": "text_block_12",
+      "reference_function": "usage instruction",
+      "reference_position": "Middle of the white usage bar at the bottom-right",
+      "text_style": "Poppins Bold, uppercase, 3 lines ('2 CÁPSULAS AL DÍA' in black / 'CON TUS COMIDAS' in hot pink / 'PRINCIPALES' in black), about 2% of the canvas height, left-aligned",
+      "text": "2 CÁPSULAS AL DÍA CON TUS COMIDAS PRINCIPALES"
+    },
+    {
+      "block_id": "text_block_13",
+      "reference_function": "offer description (added by user request)",
+      "reference_position": "Left part of the black offer card at the bottom-left",
+      "text_style": "Poppins Bold, uppercase, white on glossy black, 2 lines ('TRATAMIENTO COMPLETO' / 'X3 UNIDADES'), about 2.2% of the canvas height",
+      "text": "TRATAMIENTO COMPLETO X3 UNIDADES"
+    },
+    {
+      "block_id": "text_block_14",
+      "reference_function": "price (added by user request)",
+      "reference_position": "Right part of the black offer card at the bottom-left",
+      "text_style": "Poppins extra bold, hot pink on glossy black, 1 line, about 5.5% of the canvas height",
+      "text": "$139,900"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Pink gradient background with brush strokes and a glossy pink floor",
+    "The user's black bottle with pink cap, upright at the lower-left, faithful to the attached product photo",
+    "Whole and halved aguaje fruits, green palm leaves and three pink capsules around the bottle",
+    "Two tall rounded photo panels with white borders: before and after mirror selfies of the same woman in a gym locker room",
+    "Glossy pink curved arrow between the two panels pointing right",
+    "Row of three small icon badges under the headline",
+    "Row of three circular benefit icons at the lower-right",
+    "White rounded usage bar with capsules and a clock icon",
+    "Black offer card with pink border at the bottom-left"
+  ],
+  "final_generation_exclusions": [
+    "Do not show the hand or the video player bar from the product photo.",
+    "Do not copy the woman, the bedroom or the product of the original reference: different woman, gym locker room, the user's bottle.",
+    "Do not add 'gluten free', 'sugar free', 'envío gratis' or any claim not listed.",
+    "Do not add an isolated brand logo outside the bottle label.",
+    "No nudity, no lingerie, no exaggerated or unrealistic body proportions; both photos show an adult woman in normal athletic wear.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

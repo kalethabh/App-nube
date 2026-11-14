@@ -1,0 +1,81 @@
+{
+  "producto": "vitalabh-aguaje-complex",
+  "lote": "_img-vitalabh-aguaje-complex-20261114-1430",
+  "cantidad": 5,
+  "proporciones": ["1:1"],
+  "decisiones": [
+    "Pediste mantener el mismo ángulo directo de la referencia, así que las 5 imágenes usan el ángulo de transformación. Cada una lleva otro diseño y otro mensaje.",
+    "En la primera imagen se sumó la oferta (tratamiento completo x3 unidades, $139,900) porque lo pediste, aunque tu referencia no trae precio.",
+    "El precio aparece solo en los diseños que tienen un espacio para la oferta (V01, V02 y V03). En V04 y V05 no va precio.",
+    "No se sabe si el envío es gratis, así que no se dice. Se usa 'pago al recibir', que sí está confirmado.",
+    "No se inventó un precio anterior tachado: en su lugar va 'X3 unidades'.",
+    "La referencia dice 'resultados en 1 mes'. Ese dato no está confirmado, así que se cambió por 'tratamiento de 3 meses'.",
+    "Las frases se suavizaron un poco ('ayuda a aumentar') para que el anuncio no sea rechazado."
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitalabh-aguaje-complex-20261114-1430/entrada/referencias/R01.jpg",
+      "analisis_referencia": {
+        "formato": "Antes / después con fotos de espejo, producto con sus ingredientes y fichas de beneficios",
+        "estructura": "Fondo rosa. Arriba a la izquierda, titular gigante en dos líneas, una banda oscura con la segunda idea y una frase en letra cursiva. Debajo, una fila de 3 sellos pequeños con ícono. Abajo a la izquierda, el frasco grande rodeado de frutos de aguaje, hojas y cápsulas. A la derecha, dos fotos altas de espejo (antes y después) con marco blanco, una flecha rosada entre ellas y una etiqueta debajo de cada una. Abajo a la derecha, 3 beneficios con ícono redondo y una barra con la forma de tomarlo.",
+        "por_que_funciona": "El antes y después de una persona real es la prueba más rápida del resultado. El titular nombra el deseo exacto (glúteos y piernas), el frasco grande deja claro qué se vende y los sellos y beneficios responden las dudas sin tener que leer mucho."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "La misma estructura de la referencia con otra mujer y en otro lugar (espejo de un gimnasio), más la oferta del tratamiento completo.",
+      "titular": "GLÚTEOS Y PIERNAS · SIN EFECTO REBOTE",
+      "escena": "Fotos de espejo en el vestuario de un gimnasio, con casilleros y luz cálida. Mujer latina de unos 30 años, pelo castaño miel en cola alta. Se añade un bloque de oferta abajo a la izquierda, pedido por el usuario.",
+      "camara": "Selfie de espejo de cuerpo casi entero, de medio perfil, tomada con el celular"
+    },
+    {
+      "id": "V02",
+      "fuente": "biblioteca",
+      "formato_id": "G08",
+      "formato": "Oferta combo con modelo en escena",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "La oferta de los 3 frascos como titular, junto a una mujer que ya muestra el resultado en el gimnasio.",
+      "titular": "X3 UNIDADES $139,900",
+      "escena": "Gimnasio moderno y luminoso, desenfocado. Mujer latina de unos 28 años, pelo rizado oscuro, de medio perfil mirando a cámara por encima del hombro. Tres frascos en primer plano. La etiqueta de envío se usa para 'Pagas al recibir'.",
+      "camara": "Plano medio largo a la altura de la cadera, lente de retrato con fondo muy desenfocado"
+    },
+    {
+      "id": "V03",
+      "fuente": "biblioteca",
+      "formato_id": "G16",
+      "formato": "Columna de venta + producto héroe lateral",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Versión oscura y elegante: promesa directa, mini antes y después, y la tarjeta con el precio del tratamiento junto al frasco iluminado.",
+      "titular": "MÁS GLÚTEOS · MÁS PIERNAS · SIN REBOTE",
+      "escena": "Fondo negro con rayos y destellos rosados alrededor del frasco, sobre una superficie brillante. Dos fotos redondas de antes y después de la misma mujer. En la tarjeta de precio no va precio anterior tachado: en su lugar va 'X3 unidades'.",
+      "camara": "Frasco de frente a la altura de los ojos; fotos redondas de perfil, de la cintura a medio muslo"
+    },
+    {
+      "id": "V04",
+      "fuente": "biblioteca",
+      "formato_id": "F03",
+      "formato": "Antes / Después",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Pantalla partida en dos: la misma mujer, en la misma pose, antes apagada y después con más volumen y el frasco en la mano.",
+      "titular": "GLÚTEOS Y PIERNAS CON MÁS VOLUMEN, SIN EFECTO REBOTE",
+      "escena": "Sala de un apartamento con ventana grande y plantas. Mujer latina de unos 35 años, pelo negro liso y suelto, de perfil. A la derecha sostiene el frasco. Este diseño no lleva precio.",
+      "camara": "Plano de cuerpo de perfil, de los hombros a las rodillas, a la altura de la cadera"
+    },
+    {
+      "id": "V05",
+      "fuente": "biblioteca",
+      "formato_id": "F26",
+      "formato": "Línea de tiempo",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El cambio paso a paso en tres momentos del tratamiento: día 1, mes 1 y mes 3.",
+      "titular": "TU CAMBIO EN GLÚTEOS Y PIERNAS, MES A MES",
+      "escena": "Fondo rosa suave con tres fotos redondas que crecen de izquierda a derecha. Mujer latina de unos 25 años, pelo castaño claro en trenza, en una terraza al aire libre con luz de tarde. Etiquetas de tiempo: Día 1, Mes 1 y Mes 3. Este diseño no lleva precio.",
+      "camara": "Fotos de espaldas en tres cuartos, de la cintura a medio muslo, siempre con el mismo encuadre"
+    }
+  ]
+}
