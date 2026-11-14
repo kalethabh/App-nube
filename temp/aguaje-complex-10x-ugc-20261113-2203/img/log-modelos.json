@@ -1,0 +1,36 @@
+{
+  "generado": "2026-11-14T03:17:06.324Z",
+  "segundos": 70,
+  "imagenes": [
+    {
+      "id": "personaje",
+      "archivo": "personaje.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "339664d255f50bdc8d65e17418800284"
+    },
+    {
+      "id": "personaje-2",
+      "archivo": "personaje-2.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "3ff639e4a0d5710303f4865ff289b897"
+    },
+    {
+      "id": "personaje-3",
+      "archivo": "personaje-3.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "4d90de73d5cf785414adc6a56193f60d"
+    }
+  ]
+}
