@@ -4,7 +4,7 @@
     "E": 3,
     "R": 5,
     "A": 1,
-    "T": 3
+    "T": 4
   },
   "tandas": {
     "E001": {
@@ -111,20 +111,26 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
-      "ronda": 1,
+      "orden": {
+        "id": "U0001",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T003"
+      },
+      "intentosApi": 1,
+      "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
-      "ultimaOrden": "g"
+      "pedido": "U0001",
+      "ultimaOrden": "g",
+      "fallo": null
     },
     "V02_1x1": {
       "v": "V02",
@@ -223,5 +229,21 @@
       "ultimaOrden": "g"
     }
   },
-  "pedidos": {}
+  "pedidos": {
+    "U0001": {
+      "id": "U0001",
+      "pieza": "V01_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-14T19:28:45.209Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V01_1x1",
+          "orden": "U0001",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    }
+  }
 }

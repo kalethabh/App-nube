@@ -1,0 +1,52 @@
+Square 1:1 supplement ad, dense but clean two-column collage on a pink gradient background (hot pink #E8327C blending to soft pink #F58FB8 and blush cream #FCE7EF) with soft pink brush strokes and glows. LEFT COLUMN, TOP (x 3-46%, y 3-31%): a huge two-line headline in ultra-bold rounded sans-serif (Poppins Bold), slightly tilted upward, deep raspberry #D81B60 letters with a thick white outline and soft shadow; right under it a solid near-black #0D0D0F rounded band with one line of bold white uppercase text; under the band a short handwritten script line in dark ink with one small pink heart at its end. LEFT COLUMN, MIDDLE (x 3-43%, y 34-42%): a row of three small badges, each made of a rounded-square raspberry-pink tile with a white line icon (first: three small overlapping circles; second: a small capsule bottle; third: a delivery truck) and a two-line bold dark label to its right. LEFT COLUMN, BOTTOM (product x 12-36%, y 44-92%): the product from the attached image, standing upright in front view on a glossy pink surface: a small cylindrical supplement bottle with a glossy black body, about twice as tall as wide, rounded shoulders, a wide hot-pink ribbed screw cap printed with small white 'VITALABH' logos, a solid pink band around the very bottom, and a black label with big white 'AGUAJE', 'COMPLEX' in white with '3 EN 1' in pink, a thin pink strip, italic pink-red 'TRIPLE ACCIÓN' and three small pink-outlined dosage boxes. Use the attached product image as the only source of truth for the bottle and its label; do not redesign, replace or reinterpret it. Ignore the hand, the floor and the video player bar visible in the attached photo: show only the bottle. Around the bottle, filling x 0-46%, y 50-100%: whole and halved aguaje fruits (oval palm fruit with reddish-brown scaly skin and bright orange-yellow pulp), fresh green palm leaves fanning out behind the bottle, and three plain translucent gelatin capsules filled with light beige powder lying in front. RIGHT COLUMN, TOP: two tall photos in rounded-corner frames with a thin light border and soft shadow, side by side. Left frame (x 47-70%, y 4-70%): a casual phone mirror selfie in a bedroom of a young Latina woman with dark hair in a bun, standing half-turned with her back and side toward the mirror, black sports top and grey cotton shorts, holding a phone, natural slim figure. Right frame (x 73-98%, y 2-72%, slightly larger and overlapping in front): the same woman, same room and same pose, white sports top and soft pink shorts, with moderately fuller and more toned glutes and legs, realistic, natural body proportions, not exaggerated. Between the frames, at about y 33%, one thick curved hot-pink arrow with a thin white outline pointing from the left photo to the right photo. Overlapping the bottom edge of the left frame, a grey rounded pill label with white bold text; overlapping the bottom edge of the right frame, a hot-pink rounded pill label with white bold text. RIGHT COLUMN, BOTTOM (x 46-99%, y 75-85%): a row of three benefit items, each a round raspberry line icon in a thin circle (first: glutes and legs silhouette; second: waist silhouette; third: calendar) with a short bold dark uppercase text in two or three lines to its right. Below it (x 50-98%, y 86-96%): a wide rounded light-pink bar with a thin raspberry border, a glossy pink capsule illustration at its left end, three short centered uppercase lines of text in the middle (first and third lines dark, middle line hot pink) and a raspberry line clock icon at its right end. Bright commercial lighting, glossy highlights on the bottle, crisp legible typography, premium Latin American beauty-wellness e-commerce look. No CTA button, no price, no stars, no seals, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top-left, two lines, x 3-46%, y 3-22%): "GLÚTEOS Y PIERNAS" — Poppins Bold, ultra-bold, uppercase, each line about 9% of the canvas height, deep raspberry with thick white outline and soft shadow, left-aligned, slightly tilted upward. Line 1: 'GLÚTEOS Y'. Line 2: 'PIERNAS'.
+- banded support line (Directly under the headline, inside the dark rounded band, about y 22-27%): "CON TRIPLE ACCIÓN" — Poppins Bold, uppercase, white on the near-black band, about 3.5% of the canvas height, 1 line
+- script line (Under the band, centered under the headline stack, about y 28-32%, followed by a small pink heart): "así de fácil" — Handwritten brush script, lowercase, dark ink, about 4% of the canvas height, 1 line
+- badge 1 (Badge row, first badge, right of its icon tile): "3 EN 1 FÓRMULA" — Poppins Bold, uppercase, dark raspberry, about 2.2% of the canvas height, 2 lines: '3 EN 1' / 'FÓRMULA'
+- badge 2 (Badge row, second badge, right of its icon tile): "60 CÁPSULAS" — Poppins Bold, uppercase, dark raspberry, about 2.2% of the canvas height, 2 lines: '60' / 'CÁPSULAS'
+- badge 3 (Badge row, third badge, right of its truck icon tile): "PAGO AL RECIBIR" — Poppins Bold, uppercase, dark raspberry, about 2.2% of the canvas height, 2 lines: 'PAGO AL' / 'RECIBIR'
+- before label (Grey pill overlapping the bottom edge of the left photo frame): "ANTES" — Poppins Bold, uppercase, white on grey pill, about 2.8% of the canvas height, 1 line, centered
+- after label (Hot-pink pill overlapping the bottom edge of the right photo frame): "DESPUÉS" — Poppins Bold, uppercase, white on hot-pink pill, about 2.8% of the canvas height, 1 line, centered
+- benefit 1 (Benefit row, first item, right of the glutes icon): "APOYA GLÚTEOS Y PIERNAS" — Poppins Bold, uppercase, near-black, about 2% of the canvas height, 3 short lines: 'APOYA' / 'GLÚTEOS Y' / 'PIERNAS'
+- benefit 2 (Benefit row, second item, right of the waist icon): "ACOMPAÑA TU FIGURA" — Poppins Bold, uppercase, near-black, about 2% of the canvas height, 2 lines: 'ACOMPAÑA' / 'TU FIGURA'
+- benefit 3 (Benefit row, third item, right of the calendar icon): "CONSTANCIA POR 3 MESES" — Poppins Bold, uppercase, near-black, about 2% of the canvas height, 2 lines: 'CONSTANCIA' / 'POR 3 MESES'
+- dosage instruction (Inside the wide rounded bar at the bottom-right, between the capsule and the clock icon): "TOMA 2 CÁPSULAS AL DÍA CON TUS COMIDAS" — Poppins Bold, uppercase, about 2.4% of the canvas height, centered, 3 lines: 'TOMA 2 CÁPSULAS' (near-black) / 'AL DÍA' (hot pink) / 'CON TUS COMIDAS' (near-black)
+
+BRAND IDENTITY:
+- color_palette: Primary: deep glossy black #0D0D0F and hot pink #E8327C. Secondary: soft pink #F58FB8, blush cream #FCE7EF and pure white #FFFFFF. Accents: raspberry red #D81B60 and warm aguaje orange #F2A33A (only in the fruit and warm light).
+- text_typography: Poppins Bold for headlines and Poppins Regular for the rest of the text.
+
+MANDATORY ELEMENTS:
+- Pink gradient background with soft brush strokes
+- The user's black bottle with pink cap, upright, bottom-left, label readable
+- Aguaje fruits (whole and halved), palm leaves and three capsules around the bottle
+- Two framed mirror-selfie photos of the same woman, before on the left and after on the right
+- One curved pink arrow between the two photos
+- Two pill labels under the photos
+- Row of three small badges with icon tiles
+- Row of three benefits with round line icons
+- Rounded dosage bar with capsule illustration and clock icon
+- One small heart next to the script line
+
+STRICT EXCLUSIONS:
+- Do not show the hand, the floor or the video player bar from the attached product photo.
+- Do not exaggerate the body change: keep natural, realistic proportions and no nudity.
+- Do not write 'gluten free', 'sugar free' or 'envío gratis'.
+- Do not add standalone logos or brand marks outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Guarantee or certification seals
+- Do not add: Gluten free, sugar free or free shipping claims
+- Do not add: Extra benefit lists or text blocks
+- Do not add: Bottom bar across the full width
+- Do not add: Standalone logos or brand marks outside the product label
+- Do not add: A third photo or extra people
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
