@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-14T03:23:11.671Z",
+  "generado": "2026-11-14T04:45:01.273Z",
   "nota": "Fotogramas fijos. NO sirven para juzgar la fluidez del movimiento ni el audio.",
   "frames": 5,
   "clips": [
@@ -12,7 +12,7 @@
         3.4
       ],
       "tipo": "R",
-      "linea": "¿Cómo hice pa' tener este jopo, mi vida? Con esto.",
+      "linea": "¿Quieren saber cuál es mi secreto, mi gente? Con esto.",
       "referencias": [
         "personaje",
         "producto"
@@ -21,7 +21,7 @@
         {
           "desde": 0,
           "hasta": 2.8,
-          "linea": "¿Cómo hice pa' tener este jopo, mi vida?",
+          "linea": "¿Quieren saber cuál es mi secreto, mi gente?",
           "fotograma": 1.4
         },
         {

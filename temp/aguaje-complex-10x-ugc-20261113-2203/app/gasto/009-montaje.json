@@ -1,0 +1,20 @@
+{
+  "numero": 9,
+  "paso": "montaje",
+  "comando": "node produccion/subtitulos-dialogo.js temp/aguaje-complex-10x-ugc-20261113-2203",
+  "inicio": "2026-11-14T04:45:06.147Z",
+  "fin": "2026-11-14T04:45:11.824Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 11,
+      "segundos": 63.3
+    }
+  }
+}

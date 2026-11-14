@@ -69,18 +69,18 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-14T04:41:27.528Z",
+  "actualizado": "2026-11-14T04:45:02.934Z",
   "revision": {
-    "ronda": 1,
+    "ronda": 2,
     "medidas": {
       "1": {
-        "huella": "2315762-1794626385472",
+        "huella": "2461021-1794631493777",
         "medido": true,
         "limpio": true,
         "motivo": null
       },
       "2": {
-        "huella": "2087161-1794626383317",
+        "huella": "1999434-1794627605112",
         "medido": true,
         "limpio": true,
         "motivo": null
@@ -92,7 +92,7 @@
         "motivo": null
       },
       "4": {
-        "huella": "6071889-1794626577533",
+        "huella": "5532847-1794627629271",
         "medido": true,
         "limpio": true,
         "motivo": null
@@ -110,13 +110,13 @@
         "motivo": null
       },
       "7": {
-        "huella": "4513423-1794626541303",
+        "huella": "4376009-1794627765626",
         "medido": true,
         "limpio": true,
         "motivo": null
       },
       "8": {
-        "huella": "5273961-1794626548797",
+        "huella": "5776761-1794627802438",
         "medido": true,
         "limpio": true,
         "motivo": null
@@ -134,7 +134,7 @@
         "motivo": null
       },
       "11": {
-        "huella": "2496992-1794626519711",
+        "huella": "1899685-1794627746879",
         "medido": true,
         "limpio": true,
         "motivo": null
@@ -162,7 +162,7 @@
           "El frasco sale con la tapa negra y sin la franja rosada en dos de los tres planos; no es igual al de tu foto."
         ],
         "veces": 0,
-        "estado": "aviso"
+        "estado": "bien"
       },
       "toma-5": {
         "motivos": [],
@@ -210,7 +210,8 @@
     "sesion": {
       "uuid": "9d42b7a1-0244-4903-958d-b66973abd6db",
       "usada": true
-    }
+    },
+    "sinRevisionVisual": "Se acabó el uso de tu plan de Claude por ahora"
   },
   "sesionRechazo": {
     "uuid": "8af3e5a2-608b-4508-91cb-529dadb55f50",

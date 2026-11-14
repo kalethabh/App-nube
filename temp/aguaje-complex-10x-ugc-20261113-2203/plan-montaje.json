@@ -1,7 +1,7 @@
 {
-  "generado": "2026-11-14T03:25:17.703Z",
+  "generado": "2026-11-14T04:45:14.897Z",
   "aprobado": false,
-  "duracion": 59.52,
+  "duracion": 59.897,
   "reglas": {
     "umbralBroll": {
       "B": 3.5,
@@ -76,7 +76,7 @@
     "archivo": "musica/fondo.mp3",
     "db": -22,
     "subeEnPayoffDb": 4,
-    "payoffDesdeSeg": 55.82,
+    "payoffDesdeSeg": 57.096,
     "fadeInSeg": 1.2,
     "fadeOutSeg": 1.5,
     "loop": false,
@@ -85,21 +85,21 @@
   "bloques": [
     {
       "linea": 1,
-      "texto": "¿Cómo hice pa' tener este jopo, mi vida? Con esto.",
+      "texto": "¿Quieren saber cuál es mi secreto, mi gente? Con esto.",
       "inicio": 0,
-      "fin": 3.036,
-      "ventana": 3.036,
+      "fin": 3.465,
+      "ventana": 3.465,
       "tipo": "R",
       "toma": {
         "archivo": "toma-1.mp4",
         "largoOriginal": 3.92,
-        "duracion": 3.036,
+        "duracion": 3.465,
         "desde": 0,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
-        "recorteInicio": 0.884,
-        "recorteFin": 0,
+        "recorteInicio": 0.404,
+        "recorteFin": 0.05,
         "pausasInteriores": 1,
         "problema": false
       },
@@ -108,19 +108,19 @@
     {
       "linea": 2,
       "texto": "Y no, no es solo pa' ustedes, mis reinas. ¡Pa' nosotros también!",
-      "inicio": 3.036,
-      "fin": 6.956,
-      "ventana": 3.92,
+      "inicio": 3.465,
+      "fin": 7.269,
+      "ventana": 3.804,
       "tipo": "R",
       "toma": {
         "archivo": "toma-2.mp4",
         "largoOriginal": 3.92,
-        "duracion": 3.92,
-        "desde": 3.036,
+        "duracion": 3.804,
+        "desde": 3.465,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
-        "recorteInicio": 0,
+        "recorteInicio": 0.116,
         "recorteFin": 0,
         "pausasInteriores": 1,
         "problema": false
@@ -130,15 +130,15 @@
     {
       "linea": 3,
       "texto": "Lo que funciona es que traiga aguaje, fenogreco y maca negra, los tres, en sus extractos puros.",
-      "inicio": 6.956,
-      "fin": 12.926,
+      "inicio": 7.269,
+      "fin": 13.239,
       "ventana": 5.97,
       "tipo": "R",
       "toma": {
         "archivo": "toma-3.mp4",
         "largoOriginal": 5.97,
         "duracion": 5.97,
-        "desde": 6.956,
+        "desde": 7.269,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
@@ -152,20 +152,20 @@
     {
       "linea": 4,
       "texto": "Eso es lo que da los resultados, no la marca de Vitalcom, por eso es que no ven resultados.",
-      "inicio": 12.926,
-      "fin": 18.543,
-      "ventana": 5.617,
+      "inicio": 13.239,
+      "fin": 18.925,
+      "ventana": 5.686,
       "tipo": "R",
       "toma": {
         "archivo": "toma-4.mp4",
         "largoOriginal": 5.97,
-        "duracion": 5.617,
-        "desde": 12.926,
+        "duracion": 5.686,
+        "desde": 13.239,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
-        "recorteInicio": 0.273,
-        "recorteFin": 0.08,
+        "recorteInicio": 0.077,
+        "recorteFin": 0.207,
         "pausasInteriores": 0,
         "problema": false
       },
@@ -174,15 +174,15 @@
     {
       "linea": 5,
       "texto": "Y lo que tenía en el abdomen es como si se me hubiera ido pa' la cola, las piernas y las caderas. ¡Mírame!",
-      "inicio": 18.543,
-      "fin": 25.949,
+      "inicio": 18.925,
+      "fin": 26.331,
       "ventana": 7.406,
       "tipo": "R",
       "toma": {
         "archivo": "toma-5.mp4",
         "largoOriginal": 7.93,
         "duracion": 7.406,
-        "desde": 18.543,
+        "desde": 18.925,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
@@ -196,15 +196,15 @@
     {
       "linea": 6,
       "texto": "Y sin efecto rebote, no me engordó.",
-      "inicio": 25.949,
-      "fin": 29.591,
+      "inicio": 26.331,
+      "fin": 29.973,
       "ventana": 3.642,
       "tipo": "R",
       "toma": {
         "archivo": "toma-6.mp4",
         "largoOriginal": 3.92,
         "duracion": 3.642,
-        "desde": 25.949,
+        "desde": 26.331,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
@@ -218,21 +218,21 @@
     {
       "linea": 7,
       "texto": "Ah, y si les dicen que el único original es el de Vitalcom, mentira: lo que sirve es que tenga los componentes puros.",
-      "inicio": 29.591,
-      "fin": 37.073,
-      "ventana": 7.482,
+      "inicio": 29.973,
+      "fin": 37.717,
+      "ventana": 7.744,
       "tipo": "R",
       "toma": {
         "archivo": "toma-7.mp4",
         "largoOriginal": 7.93,
-        "duracion": 7.482,
-        "desde": 29.591,
+        "duracion": 7.744,
+        "desde": 29.973,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
-        "recorteInicio": 0.448,
+        "recorteInicio": 0.186,
         "recorteFin": 0,
-        "pausasInteriores": 1,
+        "pausasInteriores": 2,
         "problema": false
       },
       "motivoBroll": "no hay B-roll para esta toma"
@@ -240,21 +240,21 @@
     {
       "linea": 8,
       "texto": "Y no les vendan de a uno, que ese es el negocio de ellos pa' que estén comprando y comprando.",
-      "inicio": 37.073,
-      "fin": 43.97,
-      "ventana": 6.897,
+      "inicio": 37.717,
+      "fin": 45.246,
+      "ventana": 7.529,
       "tipo": "R",
       "toma": {
         "archivo": "toma-8.mp4",
         "largoOriginal": 7.93,
-        "duracion": 6.897,
-        "desde": 37.073,
+        "duracion": 7.529,
+        "desde": 37.717,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
-        "recorteInicio": 0.28,
-        "recorteFin": 0.753,
-        "pausasInteriores": 2,
+        "recorteInicio": 0.331,
+        "recorteFin": 0.07,
+        "pausasInteriores": 3,
         "problema": false
       },
       "motivoBroll": "no hay B-roll para esta toma"
@@ -262,15 +262,15 @@
     {
       "linea": 9,
       "texto": "Háganse el tratamiento completo de tres meses: resultados rápidos y duraderos, que se quedan incluso después de terminarlo, sin efecto rebote.",
-      "inicio": 43.97,
-      "fin": 51.9,
+      "inicio": 45.246,
+      "fin": 53.176,
       "ventana": 7.93,
       "tipo": "R",
       "toma": {
         "archivo": "toma-9.mp4",
         "largoOriginal": 7.93,
         "duracion": 7.93,
-        "desde": 43.97,
+        "desde": 45.246,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
@@ -284,15 +284,15 @@
     {
       "linea": 10,
       "texto": "A mí me llegó a la casa y lo pagué al recibirlo.",
-      "inicio": 51.9,
-      "fin": 55.82,
+      "inicio": 53.176,
+      "fin": 57.096,
       "ventana": 3.92,
       "tipo": "R",
       "toma": {
         "archivo": "toma-10.mp4",
         "largoOriginal": 3.92,
         "duracion": 3.92,
-        "desde": 51.9,
+        "desde": 53.176,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
@@ -306,21 +306,21 @@
     {
       "linea": 11,
       "texto": "El tuyo lo puedes pedir aquí abajo, reina.",
-      "inicio": 55.82,
-      "fin": 59.52,
-      "ventana": 3.7,
+      "inicio": 57.096,
+      "fin": 59.897,
+      "ventana": 2.801,
       "tipo": "R",
       "toma": {
         "archivo": "toma-11.mp4",
         "largoOriginal": 3.92,
-        "duracion": 3.7,
-        "desde": 55.82,
+        "duracion": 2.801,
+        "desde": 57.096,
         "metodo": "sin-ajuste",
         "velocidad": 1,
         "recorte": 0,
-        "recorteInicio": 0.087,
-        "recorteFin": 0.133,
-        "pausasInteriores": 1,
+        "recorteInicio": 0.05,
+        "recorteFin": 1.069,
+        "pausasInteriores": 0,
         "problema": false
       },
       "motivoBroll": "no hay B-roll para esta toma"
@@ -328,1331 +328,1331 @@
   ],
   "subtitulos": [
     {
-      "inicio": 0.336,
-      "fin": 0.856,
-      "texto": "¿Cómo hice pa'",
+      "inicio": 0.176,
+      "fin": 0.976,
+      "texto": "¿Quieren saber cuál",
       "palabras": [
         {
-          "texto": "¿Cómo",
-          "inicio": 0.336,
-          "fin": 0.536
+          "texto": "¿Quieren",
+          "inicio": 0.176,
+          "fin": 0.436
         },
         {
-          "texto": "hice",
-          "inicio": 0.576,
+          "texto": "saber",
+          "inicio": 0.496,
           "fin": 0.736
         },
         {
-          "texto": "pa'",
-          "inicio": 0.756,
-          "fin": 0.796
+          "texto": "cuál",
+          "inicio": 0.816,
+          "fin": 0.956
         }
       ]
     },
     {
-      "inicio": 0.876,
-      "fin": 1.576,
-      "texto": "tener este jopo,",
+      "inicio": 0.996,
+      "fin": 1.736,
+      "texto": "es mi secreto,",
       "palabras": [
         {
-          "texto": "tener",
-          "inicio": 0.876,
-          "fin": 1.056
+          "texto": "es",
+          "inicio": 0.996,
+          "fin": 1.076
         },
         {
-          "texto": "este",
-          "inicio": 1.096,
-          "fin": 1.276
+          "texto": "mi",
+          "inicio": 1.116,
+          "fin": 1.196
         },
         {
-          "texto": "jopo,",
-          "inicio": 1.316,
-          "fin": 1.516
+          "texto": "secreto,",
+          "inicio": 1.236,
+          "fin": 1.676
         }
       ]
     },
     {
-      "inicio": 1.596,
-      "fin": 2.056,
-      "texto": "mi vida?",
+      "inicio": 1.756,
+      "fin": 2.376,
+      "texto": "mi gente?",
       "palabras": [
         {
           "texto": "mi",
-          "inicio": 1.596,
-          "fin": 1.696
+          "inicio": 1.756,
+          "fin": 1.836
         },
         {
-          "texto": "vida?",
-          "inicio": 1.716,
-          "fin": 1.936
+          "texto": "gente?",
+          "inicio": 1.876,
+          "fin": 2.256
         }
       ]
     },
     {
-      "inicio": 2.396,
-      "fin": 2.996,
+      "inicio": 2.756,
+      "fin": 3.376,
       "texto": "Con esto.",
       "palabras": [
         {
           "texto": "Con",
-          "inicio": 2.396,
-          "fin": 2.536
+          "inicio": 2.756,
+          "fin": 2.896
         },
         {
           "texto": "esto.",
-          "inicio": 2.616,
-          "fin": 2.876
+          "inicio": 2.976,
+          "fin": 3.256
         }
       ]
     },
     {
-      "inicio": 3.356,
-      "fin": 4.036,
+      "inicio": 3.729,
+      "fin": 4.429,
       "texto": "Y no, no",
       "palabras": [
         {
           "texto": "Y",
-          "inicio": 3.356,
-          "fin": 3.416
+          "inicio": 3.729,
+          "fin": 3.809
         },
         {
           "texto": "no,",
-          "inicio": 3.516,
-          "fin": 3.696
+          "inicio": 3.889,
+          "fin": 4.089
         },
         {
           "texto": "no",
-          "inicio": 3.956,
-          "fin": 4.036
+          "inicio": 4.349,
+          "fin": 4.429
         }
       ]
     },
     {
-      "inicio": 4.056,
-      "fin": 4.516,
+      "inicio": 4.449,
+      "fin": 4.909,
       "texto": "es solo pa'",
       "palabras": [
         {
           "texto": "es",
-          "inicio": 4.056,
-          "fin": 4.136
+          "inicio": 4.449,
+          "fin": 4.529
         },
         {
           "texto": "solo",
-          "inicio": 4.176,
-          "fin": 4.356
+          "inicio": 4.569,
+          "fin": 4.749
         },
         {
           "texto": "pa'",
-          "inicio": 4.436,
-          "fin": 4.516
+          "inicio": 4.829,
+          "fin": 4.909
         }
       ]
     },
     {
-      "inicio": 4.536,
-      "fin": 5.856,
+      "inicio": 4.929,
+      "fin": 6.209,
       "texto": "ustedes, mis reinas.",
       "palabras": [
         {
           "texto": "ustedes,",
-          "inicio": 4.536,
-          "fin": 4.976
+          "inicio": 4.929,
+          "fin": 5.349
         },
         {
           "texto": "mis",
-          "inicio": 5.056,
-          "fin": 5.196
+          "inicio": 5.429,
+          "fin": 5.549
         },
         {
           "texto": "reinas.",
-          "inicio": 5.276,
-          "fin": 5.736
+          "inicio": 5.629,
+          "fin": 6.089
         }
       ]
     },
     {
-      "inicio": 6.056,
-      "fin": 6.716,
+      "inicio": 6.529,
+      "fin": 7.149,
       "texto": "¡Pa' nosotros",
       "palabras": [
         {
           "texto": "¡Pa'",
-          "inicio": 6.056,
-          "fin": 6.156
+          "inicio": 6.529,
+          "fin": 6.629
         },
         {
           "texto": "nosotros",
-          "inicio": 6.216,
-          "fin": 6.676
+          "inicio": 6.689,
+          "fin": 7.129
         }
       ]
     },
     {
-      "inicio": 6.736,
-      "fin": 7.056,
+      "inicio": 7.169,
+      "fin": 7.369,
       "texto": "también!",
       "palabras": [
         {
           "texto": "también!",
-          "inicio": 6.736,
-          "fin": 6.936
+          "inicio": 7.169,
+          "fin": 7.249
         }
       ]
     },
     {
-      "inicio": 7.116,
-      "fin": 7.996,
+      "inicio": 7.429,
+      "fin": 8.309,
       "texto": "Lo que funciona",
       "palabras": [
         {
           "texto": "Lo",
-          "inicio": 7.116,
-          "fin": 7.176
+          "inicio": 7.429,
+          "fin": 7.489
         },
         {
           "texto": "que",
-          "inicio": 7.236,
-          "fin": 7.296
+          "inicio": 7.549,
+          "fin": 7.609
         },
         {
           "texto": "funciona",
-          "inicio": 7.396,
-          "fin": 7.876
+          "inicio": 7.709,
+          "fin": 8.189
         }
       ]
     },
     {
-      "inicio": 8.016,
-      "fin": 8.656,
+      "inicio": 8.329,
+      "fin": 8.969,
       "texto": "es que traiga",
       "palabras": [
         {
           "texto": "es",
-          "inicio": 8.016,
-          "fin": 8.116
+          "inicio": 8.329,
+          "fin": 8.429
         },
         {
           "texto": "que",
-          "inicio": 8.156,
-          "fin": 8.216
+          "inicio": 8.469,
+          "fin": 8.529
         },
         {
           "texto": "traiga",
-          "inicio": 8.276,
-          "fin": 8.556
+          "inicio": 8.589,
+          "fin": 8.869
         }
       ]
     },
     {
-      "inicio": 8.676,
-      "fin": 10.216,
+      "inicio": 8.989,
+      "fin": 10.529,
       "texto": "aguaje, fenogreco y",
       "palabras": [
         {
           "texto": "aguaje,",
-          "inicio": 8.676,
-          "fin": 9.196
+          "inicio": 8.989,
+          "fin": 9.509
         },
         {
           "texto": "fenogreco",
-          "inicio": 9.396,
-          "fin": 9.976
+          "inicio": 9.709,
+          "fin": 10.289
         },
         {
           "texto": "y",
-          "inicio": 10.116,
-          "fin": 10.156
+          "inicio": 10.429,
+          "fin": 10.469
         }
       ]
     },
     {
-      "inicio": 10.236,
-      "fin": 11.216,
+      "inicio": 10.549,
+      "fin": 11.529,
       "texto": "maca negra, los",
       "palabras": [
         {
           "texto": "maca",
-          "inicio": 10.236,
-          "fin": 10.476
+          "inicio": 10.549,
+          "fin": 10.789
         },
         {
           "texto": "negra,",
-          "inicio": 10.536,
-          "fin": 10.796
+          "inicio": 10.849,
+          "fin": 11.109
         },
         {
           "texto": "los",
-          "inicio": 10.996,
-          "fin": 11.156
+          "inicio": 11.309,
+          "fin": 11.469
         }
       ]
     },
     {
-      "inicio": 11.236,
-      "fin": 11.936,
+      "inicio": 11.549,
+      "fin": 12.249,
       "texto": "tres, en sus",
       "palabras": [
         {
           "texto": "tres,",
-          "inicio": 11.236,
-          "fin": 11.516
+          "inicio": 11.549,
+          "fin": 11.829
         },
         {
           "texto": "en",
-          "inicio": 11.676,
-          "fin": 11.736
+          "inicio": 11.989,
+          "fin": 12.049
         },
         {
           "texto": "sus",
-          "inicio": 11.796,
-          "fin": 11.916
+          "inicio": 12.109,
+          "fin": 12.229
         }
       ]
     },
     {
-      "inicio": 11.956,
-      "fin": 12.996,
+      "inicio": 12.269,
+      "fin": 13.309,
       "texto": "extractos puros.",
       "palabras": [
         {
           "texto": "extractos",
-          "inicio": 11.956,
-          "fin": 12.456
+          "inicio": 12.269,
+          "fin": 12.769
         },
         {
           "texto": "puros.",
-          "inicio": 12.576,
-          "fin": 12.876
+          "inicio": 12.889,
+          "fin": 13.189
         }
       ]
     },
     {
-      "inicio": 13.173,
-      "fin": 13.693,
+      "inicio": 13.542,
+      "fin": 14.102,
       "texto": "Eso es lo",
       "palabras": [
         {
           "texto": "Eso",
-          "inicio": 13.173,
-          "fin": 13.433
+          "inicio": 13.542,
+          "fin": 13.782
         },
         {
           "texto": "es",
-          "inicio": 13.453,
-          "fin": 13.533
+          "inicio": 13.842,
+          "fin": 13.942
         },
         {
           "texto": "lo",
-          "inicio": 13.573,
-          "fin": 13.633
+          "inicio": 13.982,
+          "fin": 14.042
         }
       ]
     },
     {
-      "inicio": 13.713,
-      "fin": 14.093,
+      "inicio": 14.122,
+      "fin": 14.542,
       "texto": "que da los",
       "palabras": [
         {
           "texto": "que",
-          "inicio": 13.713,
-          "fin": 13.793
+          "inicio": 14.122,
+          "fin": 14.202
         },
         {
           "texto": "da",
-          "inicio": 13.813,
-          "fin": 13.893
+          "inicio": 14.242,
+          "fin": 14.342
         },
         {
           "texto": "los",
-          "inicio": 13.953,
-          "fin": 14.053
+          "inicio": 14.422,
+          "fin": 14.522
         }
       ]
     },
     {
-      "inicio": 14.113,
-      "fin": 15.393,
+      "inicio": 14.562,
+      "fin": 15.882,
       "texto": "resultados, no la",
       "palabras": [
         {
           "texto": "resultados,",
-          "inicio": 14.113,
-          "fin": 14.793
+          "inicio": 14.562,
+          "fin": 15.242
         },
         {
           "texto": "no",
-          "inicio": 15.113,
-          "fin": 15.193
+          "inicio": 15.602,
+          "fin": 15.702
         },
         {
           "texto": "la",
-          "inicio": 15.253,
-          "fin": 15.333
+          "inicio": 15.762,
+          "fin": 15.822
         }
       ]
     },
     {
-      "inicio": 15.413,
-      "fin": 16.533,
+      "inicio": 15.902,
+      "fin": 17.042,
       "texto": "marca de Vitalcom,",
       "palabras": [
         {
           "texto": "marca",
-          "inicio": 15.413,
-          "fin": 15.713
+          "inicio": 15.902,
+          "fin": 16.202
         },
         {
           "texto": "de",
-          "inicio": 15.733,
-          "fin": 15.813
+          "inicio": 16.222,
+          "fin": 16.302
         },
         {
           "texto": "Vitalcom,",
-          "inicio": 15.853,
-          "fin": 16.413
+          "inicio": 16.322,
+          "fin": 16.922
         }
       ]
     },
     {
-      "inicio": 16.693,
-      "fin": 17.113,
+      "inicio": 17.062,
+      "fin": 17.502,
       "texto": "por eso es",
       "palabras": [
         {
           "texto": "por",
-          "inicio": 16.693,
-          "fin": 16.793
+          "inicio": 17.062,
+          "fin": 17.181
         },
         {
           "texto": "eso",
-          "inicio": 16.873,
-          "fin": 16.993
+          "inicio": 17.242,
+          "fin": 17.382
         },
         {
           "texto": "es",
-          "inicio": 17.013,
-          "fin": 17.113
+          "inicio": 17.402,
+          "fin": 17.502
         }
       ]
     },
     {
-      "inicio": 17.133,
-      "fin": 17.593,
+      "inicio": 17.522,
+      "fin": 17.962,
       "texto": "que no ven",
       "palabras": [
         {
           "texto": "que",
-          "inicio": 17.133,
-          "fin": 17.233
+          "inicio": 17.522,
+          "fin": 17.622
         },
         {
           "texto": "no",
-          "inicio": 17.293,
-          "fin": 17.393
+          "inicio": 17.662,
+          "fin": 17.762
         },
         {
           "texto": "ven",
-          "inicio": 17.433,
-          "fin": 17.573
+          "inicio": 17.802,
+          "fin": 17.922
         }
       ]
     },
     {
-      "inicio": 17.613,
-      "fin": 18.413,
+      "inicio": 17.982,
+      "fin": 18.782,
       "texto": "resultados.",
       "palabras": [
         {
           "texto": "resultados.",
-          "inicio": 17.613,
-          "fin": 18.293
+          "inicio": 17.982,
+          "fin": 18.662
         }
       ]
     },
     {
-      "inicio": 18.799,
-      "fin": 19.139,
+      "inicio": 19.181,
+      "fin": 19.521,
       "texto": "Y lo que",
       "palabras": [
         {
           "texto": "Y",
-          "inicio": 18.799,
-          "fin": 18.879
+          "inicio": 19.181,
+          "fin": 19.261
         },
         {
           "texto": "lo",
-          "inicio": 18.899,
-          "fin": 18.979
+          "inicio": 19.281,
+          "fin": 19.361
         },
         {
           "texto": "que",
-          "inicio": 19.039,
-          "fin": 19.099
+          "inicio": 19.421,
+          "fin": 19.481
         }
       ]
     },
     {
-      "inicio": 19.159,
-      "fin": 19.579,
+      "inicio": 19.541,
+      "fin": 19.961,
       "texto": "tenía en el",
       "palabras": [
         {
           "texto": "tenía",
-          "inicio": 19.159,
-          "fin": 19.379
+          "inicio": 19.541,
+          "fin": 19.761
         },
         {
           "texto": "en",
-          "inicio": 19.399,
-          "fin": 19.439
+          "inicio": 19.781,
+          "fin": 19.821
         },
         {
           "texto": "el",
-          "inicio": 19.479,
-          "fin": 19.559
+          "inicio": 19.861,
+          "fin": 19.941
         }
       ]
     },
     {
-      "inicio": 19.599,
-      "fin": 20.479,
+      "inicio": 19.981,
+      "fin": 20.861,
       "texto": "abdomen es como",
       "palabras": [
         {
           "texto": "abdomen",
-          "inicio": 19.599,
-          "fin": 20.079
+          "inicio": 19.981,
+          "fin": 20.461
         },
         {
           "texto": "es",
-          "inicio": 20.159,
-          "fin": 20.279
+          "inicio": 20.541,
+          "fin": 20.661
         },
         {
           "texto": "como",
-          "inicio": 20.299,
-          "fin": 20.459
+          "inicio": 20.681,
+          "fin": 20.841
         }
       ]
     },
     {
-      "inicio": 20.499,
-      "fin": 20.739,
+      "inicio": 20.881,
+      "fin": 21.121,
       "texto": "si se me",
       "palabras": [
         {
           "texto": "si",
-          "inicio": 20.499,
-          "fin": 20.579
+          "inicio": 20.881,
+          "fin": 20.961
         },
         {
           "texto": "se",
-          "inicio": 20.599,
-          "fin": 20.679
+          "inicio": 20.981,
+          "fin": 21.061
         },
         {
           "texto": "me",
-          "inicio": 20.699,
-          "fin": 20.739
+          "inicio": 21.081,
+          "fin": 21.121
         }
       ]
     },
     {
-      "inicio": 20.759,
-      "fin": 21.319,
+      "inicio": 21.141,
+      "fin": 21.701,
       "texto": "hubiera ido pa'",
       "palabras": [
         {
           "texto": "hubiera",
-          "inicio": 20.759,
-          "fin": 20.999
+          "inicio": 21.141,
+          "fin": 21.381
         },
         {
           "texto": "ido",
-          "inicio": 21.039,
-          "fin": 21.199
+          "inicio": 21.421,
+          "fin": 21.581
         },
         {
           "texto": "pa'",
-          "inicio": 21.219,
-          "fin": 21.299
+          "inicio": 21.601,
+          "fin": 21.681
         }
       ]
     },
     {
-      "inicio": 21.339,
-      "fin": 21.959,
+      "inicio": 21.721,
+      "fin": 22.341,
       "texto": "la cola,",
       "palabras": [
         {
           "texto": "la",
-          "inicio": 21.339,
-          "fin": 21.399
+          "inicio": 21.721,
+          "fin": 21.781
         },
         {
           "texto": "cola,",
-          "inicio": 21.519,
-          "fin": 21.839
+          "inicio": 21.901,
+          "fin": 22.221
         }
       ]
     },
     {
-      "inicio": 22.119,
-      "fin": 22.779,
+      "inicio": 22.501,
+      "fin": 23.161,
       "texto": "las piernas y",
       "palabras": [
         {
           "texto": "las",
-          "inicio": 22.119,
-          "fin": 22.279
+          "inicio": 22.501,
+          "fin": 22.661
         },
         {
           "texto": "piernas",
-          "inicio": 22.399,
-          "fin": 22.699
+          "inicio": 22.781,
+          "fin": 23.081
         },
         {
           "texto": "y",
-          "inicio": 22.739,
-          "fin": 22.759
+          "inicio": 23.121,
+          "fin": 23.141
         }
       ]
     },
     {
-      "inicio": 22.799,
-      "fin": 23.439,
+      "inicio": 23.181,
+      "fin": 23.821,
       "texto": "las caderas.",
       "palabras": [
         {
           "texto": "las",
-          "inicio": 22.799,
-          "fin": 22.899
+          "inicio": 23.181,
+          "fin": 23.281
         },
         {
           "texto": "caderas.",
-          "inicio": 22.979,
-          "fin": 23.459
+          "inicio": 23.361,
+          "fin": 23.841
         }
       ]
     },
     {
-      "inicio": 23.459,
-      "fin": 25.859,
+      "inicio": 23.841,
+      "fin": 26.241,
       "texto": "¡Mírame!",
       "palabras": [
         {
           "texto": "¡Mírame!",
-          "inicio": 23.459,
-          "fin": 25.739
+          "inicio": 23.841,
+          "fin": 26.121
         }
       ]
     },
     {
-      "inicio": 26.211,
-      "fin": 26.971,
+      "inicio": 26.593,
+      "fin": 27.353,
       "texto": "Y sin efecto",
       "palabras": [
         {
           "texto": "Y",
-          "inicio": 26.211,
-          "fin": 26.271
+          "inicio": 26.593,
+          "fin": 26.653
         },
         {
           "texto": "sin",
-          "inicio": 26.331,
-          "fin": 26.491
+          "inicio": 26.713,
+          "fin": 26.873
         },
         {
           "texto": "efecto",
-          "inicio": 26.551,
-          "fin": 26.891
+          "inicio": 26.933,
+          "fin": 27.273
         }
       ]
     },
     {
-      "inicio": 26.991,
-      "fin": 28.911,
+      "inicio": 27.373,
+      "fin": 29.293,
       "texto": "rebote, no me",
       "palabras": [
         {
           "texto": "rebote,",
-          "inicio": 26.991,
-          "fin": 27.411
+          "inicio": 27.373,
+          "fin": 27.793
         },
         {
           "texto": "no",
-          "inicio": 28.691,
-          "fin": 28.791
+          "inicio": 29.073,
+          "fin": 29.173
         },
         {
           "texto": "me",
-          "inicio": 28.851,
-          "fin": 28.911
+          "inicio": 29.233,
+          "fin": 29.293
         }
       ]
     },
     {
-      "inicio": 28.931,
-      "fin": 29.491,
+      "inicio": 29.313,
+      "fin": 29.873,
       "texto": "engordó.",
       "palabras": [
         {
           "texto": "engordó.",
-          "inicio": 28.931,
-          "fin": 29.371
+          "inicio": 29.313,
+          "fin": 29.753
         }
       ]
     },
     {
-      "inicio": 29.843,
-      "fin": 30.523,
+      "inicio": 30.227,
+      "fin": 31.007,
       "texto": "Ah, y si",
       "palabras": [
         {
           "texto": "Ah,",
-          "inicio": 29.843,
-          "fin": 30.003
+          "inicio": 30.227,
+          "fin": 30.387
         },
         {
           "texto": "y",
-          "inicio": 30.343,
-          "fin": 30.383
+          "inicio": 30.807,
+          "fin": 30.847
         },
         {
           "texto": "si",
-          "inicio": 30.423,
-          "fin": 30.523
+          "inicio": 30.907,
+          "fin": 30.987
         }
       ]
     },
     {
-      "inicio": 30.543,
-      "fin": 31.203,
+      "inicio": 31.027,
+      "fin": 31.627,
       "texto": "les dicen que",
       "palabras": [
         {
           "texto": "les",
-          "inicio": 30.543,
-          "fin": 30.683
+          "inicio": 31.027,
+          "fin": 31.187
         },
         {
           "texto": "dicen",
-          "inicio": 30.743,
-          "fin": 31.023
+          "inicio": 31.207,
+          "fin": 31.487
         },
         {
           "texto": "que",
-          "inicio": 31.103,
-          "fin": 31.203
+          "inicio": 31.567,
+          "fin": 31.627
         }
       ]
     },
     {
-      "inicio": 31.223,
-      "fin": 32.343,
+      "inicio": 31.647,
+      "fin": 32.747,
       "texto": "el único original",
       "palabras": [
         {
           "texto": "el",
-          "inicio": 31.223,
-          "fin": 31.303
+          "inicio": 31.647,
+          "fin": 31.727
         },
         {
           "texto": "único",
-          "inicio": 31.463,
-          "fin": 31.723
+          "inicio": 31.787,
+          "fin": 32.047
         },
         {
           "texto": "original",
-          "inicio": 31.763,
-          "fin": 32.243
+          "inicio": 32.087,
+          "fin": 32.627
         }
       ]
     },
     {
-      "inicio": 32.363,
-      "fin": 32.703,
+      "inicio": 32.827,
+      "fin": 33.287,
       "texto": "es el de",
       "palabras": [
         {
           "texto": "es",
-          "inicio": 32.363,
-          "fin": 32.463
+          "inicio": 32.827,
+          "fin": 32.947
         },
         {
           "texto": "el",
-          "inicio": 32.483,
-          "fin": 32.583
+          "inicio": 32.987,
+          "fin": 33.107
         },
         {
           "texto": "de",
-          "inicio": 32.603,
-          "fin": 32.683
+          "inicio": 33.147,
+          "fin": 33.227
         }
       ]
     },
     {
-      "inicio": 32.723,
-      "fin": 34.323,
+      "inicio": 33.307,
+      "fin": 34.967,
       "texto": "Vitalcom, mentira:",
       "palabras": [
         {
           "texto": "Vitalcom,",
-          "inicio": 32.723,
-          "fin": 33.303
+          "inicio": 33.307,
+          "fin": 33.967
         },
         {
           "texto": "mentira:",
-          "inicio": 33.663,
-          "fin": 34.203
+          "inicio": 34.267,
+          "fin": 34.847
         }
       ]
     },
     {
-      "inicio": 34.543,
-      "fin": 35.203,
+      "inicio": 35.167,
+      "fin": 35.687,
       "texto": "lo que sirve",
       "palabras": [
         {
           "texto": "lo",
-          "inicio": 34.543,
-          "fin": 34.603
+          "inicio": 35.167,
+          "fin": 35.227
         },
         {
           "texto": "que",
-          "inicio": 34.683,
-          "fin": 34.783
+          "inicio": 35.307,
+          "fin": 35.407
         },
         {
           "texto": "sirve",
-          "inicio": 34.823,
-          "fin": 35.183
+          "inicio": 35.447,
+          "fin": 35.687
         }
       ]
     },
     {
-      "inicio": 35.223,
-      "fin": 35.663,
+      "inicio": 35.707,
+      "fin": 36.147,
       "texto": "es que tenga",
       "palabras": [
         {
           "texto": "es",
-          "inicio": 35.223,
-          "fin": 35.323
+          "inicio": 35.707,
+          "fin": 35.787
         },
         {
           "texto": "que",
-          "inicio": 35.343,
-          "fin": 35.403
+          "inicio": 35.807,
+          "fin": 35.907
         },
         {
           "texto": "tenga",
-          "inicio": 35.463,
-          "fin": 35.643
+          "inicio": 35.927,
+          "fin": 36.127
         }
       ]
     },
     {
-      "inicio": 35.683,
-      "fin": 36.483,
+      "inicio": 36.167,
+      "fin": 37.107,
       "texto": "los componentes",
       "palabras": [
         {
           "texto": "los",
-          "inicio": 35.683,
-          "fin": 35.803
+          "inicio": 36.167,
+          "fin": 36.287
         },
         {
           "texto": "componentes",
-          "inicio": 35.823,
-          "fin": 36.403
+          "inicio": 36.347,
+          "fin": 36.987
         }
       ]
     },
     {
-      "inicio": 36.503,
-      "fin": 36.963,
+      "inicio": 37.127,
+      "fin": 37.587,
       "texto": "puros.",
       "palabras": [
         {
           "texto": "puros.",
-          "inicio": 36.503,
-          "fin": 36.843
+          "inicio": 37.127,
+          "fin": 37.467
         }
       ]
     },
     {
-      "inicio": 37.333,
-      "fin": 37.733,
+      "inicio": 37.986,
+      "fin": 38.386,
       "texto": "Y no les",
       "palabras": [
         {
           "texto": "Y",
-          "inicio": 37.333,
-          "fin": 37.393
+          "inicio": 37.986,
+          "fin": 38.046
         },
         {
           "texto": "no",
-          "inicio": 37.433,
-          "fin": 37.533
+          "inicio": 38.086,
+          "fin": 38.186
         },
         {
           "texto": "les",
-          "inicio": 37.553,
-          "fin": 37.693
+          "inicio": 38.206,
+          "fin": 38.346
         }
       ]
     },
     {
-      "inicio": 37.753,
-      "fin": 38.653,
+      "inicio": 38.406,
+      "fin": 39.126,
       "texto": "vendan de a",
       "palabras": [
         {
           "texto": "vendan",
-          "inicio": 37.753,
-          "fin": 38.133
+          "inicio": 38.406,
+          "fin": 38.786
         },
         {
           "texto": "de",
-          "inicio": 38.333,
-          "fin": 38.413
+          "inicio": 38.826,
+          "fin": 38.906
         },
         {
           "texto": "a",
-          "inicio": 38.473,
-          "fin": 38.533
+          "inicio": 38.946,
+          "fin": 39.006
         }
       ]
     },
     {
-      "inicio": 38.693,
-      "fin": 40.813,
+      "inicio": 39.166,
+      "fin": 41.266,
       "texto": "uno, que",
       "palabras": [
         {
           "texto": "uno,",
-          "inicio": 38.693,
-          "fin": 38.953
+          "inicio": 39.166,
+          "fin": 39.426
         },
         {
           "texto": "que",
-          "inicio": 40.653,
-          "fin": 40.773
+          "inicio": 41.126,
+          "fin": 41.246
         }
       ]
     },
     {
-      "inicio": 40.833,
-      "fin": 41.173,
+      "inicio": 41.286,
+      "fin": 41.646,
       "texto": "ese es el",
       "palabras": [
         {
           "texto": "ese",
-          "inicio": 40.833,
-          "fin": 40.953
+          "inicio": 41.286,
+          "fin": 41.405
         },
         {
           "texto": "es",
-          "inicio": 40.973,
-          "fin": 41.033
+          "inicio": 41.426,
+          "fin": 41.486
         },
         {
           "texto": "el",
-          "inicio": 41.073,
-          "fin": 41.153
+          "inicio": 41.526,
+          "fin": 41.626
         }
       ]
     },
     {
-      "inicio": 41.193,
-      "fin": 42.073,
+      "inicio": 41.666,
+      "fin": 42.646,
       "texto": "negocio de ellos",
       "palabras": [
         {
           "texto": "negocio",
-          "inicio": 41.193,
-          "fin": 41.613
+          "inicio": 41.666,
+          "fin": 42.126
         },
         {
           "texto": "de",
-          "inicio": 41.653,
-          "fin": 41.733
+          "inicio": 42.166,
+          "fin": 42.246
         },
         {
           "texto": "ellos",
-          "inicio": 41.813,
-          "fin": 42.053
+          "inicio": 42.386,
+          "fin": 42.586
         }
       ]
     },
     {
-      "inicio": 42.093,
-      "fin": 42.553,
+      "inicio": 42.666,
+      "fin": 43.246,
       "texto": "pa' que estén",
       "palabras": [
         {
           "texto": "pa'",
-          "inicio": 42.093,
-          "fin": 42.133
+          "inicio": 42.666,
+          "fin": 42.726
         },
         {
           "texto": "que",
-          "inicio": 42.213,
-          "fin": 42.253
+          "inicio": 42.786,
+          "fin": 42.826
         },
         {
           "texto": "estén",
-          "inicio": 42.273,
-          "fin": 42.533
+          "inicio": 42.866,
+          "fin": 43.226
         }
       ]
     },
     {
-      "inicio": 42.573,
-      "fin": 43.153,
+      "inicio": 43.266,
+      "fin": 43.846,
       "texto": "comprando y",
       "palabras": [
         {
           "texto": "comprando",
-          "inicio": 42.573,
-          "fin": 43.053
+          "inicio": 43.266,
+          "fin": 43.726
         },
         {
           "texto": "y",
-          "inicio": 43.073,
-          "fin": 43.093
+          "inicio": 43.766,
+          "fin": 43.786
         }
       ]
     },
     {
-      "inicio": 43.173,
-      "fin": 43.853,
+      "inicio": 43.866,
+      "fin": 44.566,
       "texto": "comprando.",
       "palabras": [
         {
           "texto": "comprando.",
-          "inicio": 43.173,
-          "fin": 43.733
+          "inicio": 43.866,
+          "fin": 44.446
         }
       ]
     },
     {
-      "inicio": 44.25,
-      "fin": 44.63,
+      "inicio": 45.526,
+      "fin": 45.906,
       "texto": "Háganse el",
       "palabras": [
         {
           "texto": "Háganse",
-          "inicio": 44.25,
-          "fin": 44.53
+          "inicio": 45.526,
+          "fin": 45.806
         },
         {
           "texto": "el",
-          "inicio": 44.55,
-          "fin": 44.63
+          "inicio": 45.826,
+          "fin": 45.906
         }
       ]
     },
     {
-      "inicio": 44.65,
-      "fin": 45.71,
+      "inicio": 45.926,
+      "fin": 46.986,
       "texto": "tratamiento completo",
       "palabras": [
         {
           "texto": "tratamiento",
-          "inicio": 44.65,
-          "fin": 45.11
+          "inicio": 45.926,
+          "fin": 46.386
         },
         {
           "texto": "completo",
-          "inicio": 45.21,
-          "fin": 45.69
+          "inicio": 46.486,
+          "fin": 46.966
         }
       ]
     },
     {
-      "inicio": 45.73,
-      "fin": 46.63,
+      "inicio": 47.006,
+      "fin": 47.906,
       "texto": "de tres meses:",
       "palabras": [
         {
           "texto": "de",
-          "inicio": 45.73,
-          "fin": 45.79
+          "inicio": 47.006,
+          "fin": 47.066
         },
         {
           "texto": "tres",
-          "inicio": 45.89,
-          "fin": 46.09
+          "inicio": 47.166,
+          "fin": 47.366
         },
         {
           "texto": "meses:",
-          "inicio": 46.17,
-          "fin": 46.51
+          "inicio": 47.446,
+          "fin": 47.786
         }
       ]
     },
     {
-      "inicio": 46.77,
-      "fin": 47.89,
+      "inicio": 48.046,
+      "fin": 49.166,
       "texto": "resultados rápidos y",
       "palabras": [
         {
           "texto": "resultados",
-          "inicio": 46.77,
-          "fin": 47.27
+          "inicio": 48.046,
+          "fin": 48.546
         },
         {
           "texto": "rápidos",
-          "inicio": 47.39,
-          "fin": 47.79
+          "inicio": 48.666,
+          "fin": 49.066
         },
         {
           "texto": "y",
-          "inicio": 47.83,
-          "fin": 47.85
+          "inicio": 49.106,
+          "fin": 49.126
         }
       ]
     },
     {
-      "inicio": 47.91,
-      "fin": 48.83,
+      "inicio": 49.186,
+      "fin": 50.106,
       "texto": "duraderos, que se",
       "palabras": [
         {
           "texto": "duraderos,",
-          "inicio": 47.91,
-          "fin": 48.43
+          "inicio": 49.186,
+          "fin": 49.706
         },
         {
           "texto": "que",
-          "inicio": 48.61,
-          "fin": 48.69
+          "inicio": 49.886,
+          "fin": 49.966
         },
         {
           "texto": "se",
-          "inicio": 48.71,
-          "fin": 48.83
+          "inicio": 49.986,
+          "fin": 50.106
         }
       ]
     },
     {
-      "inicio": 48.85,
-      "fin": 49.53,
+      "inicio": 50.126,
+      "fin": 50.806,
       "texto": "quedan incluso",
       "palabras": [
         {
           "texto": "quedan",
-          "inicio": 48.85,
-          "fin": 49.09
+          "inicio": 50.126,
+          "fin": 50.366
         },
         {
           "texto": "incluso",
-          "inicio": 49.13,
-          "fin": 49.51
+          "inicio": 50.406,
+          "fin": 50.786
         }
       ]
     },
     {
-      "inicio": 49.55,
-      "fin": 49.93,
+      "inicio": 50.826,
+      "fin": 51.206,
       "texto": "después de",
       "palabras": [
         {
           "texto": "después",
-          "inicio": 49.55,
-          "fin": 49.81
+          "inicio": 50.826,
+          "fin": 51.086
         },
         {
           "texto": "de",
-          "inicio": 49.83,
-          "fin": 49.89
+          "inicio": 51.106,
+          "fin": 51.166
         }
       ]
     },
     {
-      "inicio": 49.95,
-      "fin": 51.03,
+      "inicio": 51.226,
+      "fin": 52.306,
       "texto": "terminarlo, sin",
       "palabras": [
         {
           "texto": "terminarlo,",
-          "inicio": 49.95,
-          "fin": 50.51
+          "inicio": 51.226,
+          "fin": 51.786
         },
         {
           "texto": "sin",
-          "inicio": 50.87,
-          "fin": 51.01
+          "inicio": 52.146,
+          "fin": 52.286
         }
       ]
     },
     {
-      "inicio": 51.05,
-      "fin": 51.95,
+      "inicio": 52.326,
+      "fin": 53.226,
       "texto": "efecto rebote.",
       "palabras": [
         {
           "texto": "efecto",
-          "inicio": 51.05,
-          "fin": 51.37
+          "inicio": 52.326,
+          "fin": 52.646
         },
         {
           "texto": "rebote.",
-          "inicio": 51.45,
-          "fin": 51.83
+          "inicio": 52.726,
+          "fin": 53.106
         }
       ]
     },
     {
-      "inicio": 53.36,
-      "fin": 53.68,
+      "inicio": 54.636,
+      "fin": 54.956,
       "texto": "A mí me",
       "palabras": [
         {
           "texto": "A",
-          "inicio": 53.36,
-          "fin": 53.42
+          "inicio": 54.636,
+          "fin": 54.696
         },
         {
           "texto": "mí",
-          "inicio": 53.46,
-          "fin": 53.56
+          "inicio": 54.736,
+          "fin": 54.836
         },
         {
           "texto": "me",
-          "inicio": 53.6,
-          "fin": 53.68
+          "inicio": 54.876,
+          "fin": 54.956
         }
       ]
     },
     {
-      "inicio": 53.7,
-      "fin": 54.12,
+      "inicio": 54.976,
+      "fin": 55.396,
       "texto": "llegó a la",
       "palabras": [
         {
           "texto": "llegó",
-          "inicio": 53.7,
-          "fin": 53.88
+          "inicio": 54.976,
+          "fin": 55.156
         },
         {
           "texto": "a",
-          "inicio": 53.9,
-          "fin": 53.94
+          "inicio": 55.176,
+          "fin": 55.216
         },
         {
           "texto": "la",
-          "inicio": 53.98,
-          "fin": 54.04
+          "inicio": 55.256,
+          "fin": 55.316
         }
       ]
     },
     {
-      "inicio": 54.14,
-      "fin": 54.86,
+      "inicio": 55.416,
+      "fin": 56.136,
       "texto": "casa y lo",
       "palabras": [
         {
           "texto": "casa",
-          "inicio": 54.14,
-          "fin": 54.44
+          "inicio": 55.416,
+          "fin": 55.716
         },
         {
           "texto": "y",
-          "inicio": 54.62,
-          "fin": 54.68
+          "inicio": 55.896,
+          "fin": 55.956
         },
         {
           "texto": "lo",
-          "inicio": 54.72,
-          "fin": 54.78
+          "inicio": 55.996,
+          "fin": 56.056
         }
       ]
     },
     {
-      "inicio": 54.88,
-      "fin": 55.9,
+      "inicio": 56.156,
+      "fin": 57.176,
       "texto": "pagué al recibirlo.",
       "palabras": [
         {
           "texto": "pagué",
-          "inicio": 54.88,
-          "fin": 55.08
+          "inicio": 56.156,
+          "fin": 56.356
         },
         {
           "texto": "al",
-          "inicio": 55.1,
-          "fin": 55.18
+          "inicio": 56.376,
+          "fin": 56.456
         },
         {
           "texto": "recibirlo.",
-          "inicio": 55.22,
-          "fin": 55.78
+          "inicio": 56.516,
+          "fin": 57.056
         }
       ]
     },
     {
-      "inicio": 56.093,
-      "fin": 56.653,
+      "inicio": 57.366,
+      "fin": 57.886,
       "texto": "El tuyo lo",
       "palabras": [
         {
           "texto": "El",
-          "inicio": 56.093,
-          "fin": 56.173
+          "inicio": 57.366,
+          "fin": 57.446
         },
         {
           "texto": "tuyo",
-          "inicio": 56.273,
-          "fin": 56.493
+          "inicio": 57.526,
+          "fin": 57.746
         },
         {
           "texto": "lo",
-          "inicio": 56.553,
-          "fin": 56.613
+          "inicio": 57.786,
+          "fin": 57.846
         }
       ]
     },
     {
-      "inicio": 56.673,
-      "fin": 57.513,
+      "inicio": 57.906,
+      "fin": 58.626,
       "texto": "puedes pedir aquí",
       "palabras": [
         {
           "texto": "puedes",
-          "inicio": 56.673,
-          "fin": 56.933
+          "inicio": 57.906,
+          "fin": 58.106
         },
         {
           "texto": "pedir",
-          "inicio": 56.953,
-          "fin": 57.193
+          "inicio": 58.186,
+          "fin": 58.386
         },
         {
           "texto": "aquí",
-          "inicio": 57.333,
-          "fin": 57.493
+          "inicio": 58.426,
+          "fin": 58.606
         }
       ]
     },
     {
-      "inicio": 57.533,
-      "fin": 58.593,
+      "inicio": 58.646,
+      "fin": 59.766,
       "texto": "abajo, reina.",
       "palabras": [
         {
           "texto": "abajo,",
-          "inicio": 57.533,
-          "fin": 57.873
+          "inicio": 58.646,
+          "fin": 59.006
         },
         {
           "texto": "reina.",
-          "inicio": 58.113,
-          "fin": 58.473
+          "inicio": 59.306,
+          "fin": 59.646
         }
       ]
     }
@@ -1681,7 +1681,7 @@
   "transiciones": [
     {
       "toma": 3,
-      "desde": 6.956,
+      "desde": 7.269,
       "animacion": "zoom",
       "efecto": "deep-woosh",
       "archivo": "efectos/deep-woosh.mp3",
@@ -1690,7 +1690,7 @@
     },
     {
       "toma": 5,
-      "desde": 18.543,
+      "desde": 18.925,
       "animacion": "deslizar-izquierda",
       "efecto": "woosh",
       "archivo": "efectos/woosh.mp3",
@@ -1699,7 +1699,7 @@
     },
     {
       "toma": 7,
-      "desde": 29.591,
+      "desde": 29.973,
       "animacion": "deslizar-derecha",
       "efecto": "woosh",
       "archivo": "efectos/woosh.mp3",
@@ -1708,7 +1708,7 @@
     },
     {
       "toma": 10,
-      "desde": 51.9,
+      "desde": 53.176,
       "animacion": "zoom",
       "efecto": "deep-woosh",
       "archivo": "efectos/deep-woosh.mp3",

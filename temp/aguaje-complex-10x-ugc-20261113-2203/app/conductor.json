@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-10x-ugc-20261113-2203",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "bloques",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -40,36 +40,52 @@
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 3,
       "inicio": "2026-11-14T03:37:42.089Z",
-      "fin": "2026-11-14T03:49:08.924Z",
-      "detalle": "Buscando otra forma de decir la frase"
+      "fin": "2026-11-14T04:44:53.812Z",
+      "nota": "5 frases se cambiaron porque el generador las rechazó."
     },
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-14T04:44:53.813Z",
+      "fin": "2026-11-14T04:45:02.934Z",
+      "nota": "Se acabó el uso de tu plan de Claude por ahora: los fotogramas no se miraron con la IA. La revisión dejó un aviso: míralo en el proceso."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-14T04:45:02.935Z",
+      "fin": "2026-11-14T04:45:03.007Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-14T04:45:03.007Z",
+      "fin": "2026-11-14T04:45:14.901Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 2,
-      "retomado": true
+      "estado": "corriendo",
+      "intentos": 3,
+      "retomado": true,
+      "inicio": "2026-11-14T04:45:14.902Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 687,
+        "total": 1797,
+        "restante": 135,
+        "en": "2026-11-14T04:46:33.329Z"
+      }
     },
     {
       "id": "control-final",
@@ -94,7 +110,7 @@
   "modoPrueba": false,
   "creado": "2026-11-14T03:15:54.518Z",
   "aprobado": "2026-11-14T03:15:54.518Z",
-  "actualizado": "2026-11-14T04:41:24.815Z",
+  "actualizado": "2026-11-14T04:46:33.329Z",
   "saldoInicial": {
     "creditos": 2117.2,
     "fecha": "2026-11-14T03:15:55.387Z"

@@ -1,0 +1,24 @@
+{
+  "numero": 7,
+  "paso": "bloques",
+  "comando": "node produccion/generar-videos.js temp/aguaje-complex-10x-ugc-20261113-2203 --si",
+  "inicio": "2026-11-14T04:41:27.529Z",
+  "fin": "2026-11-14T04:44:53.810Z",
+  "codigo": 0,
+  "creditos": 40,
+  "dolares": 0.2,
+  "imagenes": [],
+  "videos": [
+    {
+      "archivo": "toma-1.mp4",
+      "id": "toma-1",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": null
+}

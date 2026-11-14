@@ -7,12 +7,12 @@
 
   QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
     fase:        gancho
-    linea:       "¿Cómo hice pa' tener este jopo, mi vida? Con esto."
+    linea:       "¿Quieren saber cuál es mi secreto, mi gente? Con esto."
     viene de:    "(es la primera)"
     lleva a:     "Y no, no es solo pa' ustedes, mis reinas. ¡Pa' nosotros también!"
 
   TRAMOS:
-    [0.0–2.8s] [personaje]  "¿Cómo hice pa' tener este jopo, mi vida?"
+    [0.0–2.8s] [personaje]  "¿Quieren saber cuál es mi secreto, mi gente?"
     [2.8–4.0s] [personaje]  "Con esto."
 
   Ganchos alternativos de este bloque: 1b, 1c (no cambian con esto)
@@ -21,7 +21,7 @@
 Duración: 4s.
 
 REFERENCIAS:
-Imagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+Imagen 1: Santi. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose. De la imagen 1 no tomes la forma del cuerpo de la cintura para abajo: esa la dicta este texto.
 Imagen 2: el producto. Es la referencia exacta del envase.
 
 STYLE / MOOD:
@@ -32,6 +32,7 @@ Español de Colombia, con acento colombiano natural y cotidiano (no neutro, no m
 
 MAIN CHARACTER:
 El hombre de la imagen 1: hombre adulto colombiano de 25 años, latino, de piel trigueña cuidada con brillo natural, textura real y poros visibles; cabello negro rizado con volumen arriba y degradado bajo a los lados; ojos cafés oscuros, cejas negras perfiladas, bigote y barba muy finos y cuidados; contextura delgada-atlética, cintura fina, caderas redondeadas y piernas gruesas y firmes; pulseras plateadas finas en una muñeca, uñas limpias; sin tatuajes visibles. Personalidad segura, divertida y encantadora, expresivo y orgulloso, una «diva» con cariño, nunca caricatura ni burla. En este video lleva un esqueleto blanco ajustado de algodón (camiseta sin mangas) y un biker gris oscuro de algodón que le llega por encima de la rodilla, sin gafas, con los rizos sueltos.
+Su silueta de la cintura para abajo es lo más notorio del video y se ve desde el primer cuadro: figura de reloj de arena, con la cintura muy fina y las caderas anchas y curvas, cerca de una vez y media más anchas que la cintura; glúteos grandes, redondos, altos y muy proyectados hacia atrás, que de perfil sobresalen claramente de la línea de la espalda; muslos gruesos, llenos y redondeados, que se tocan entre sí. El biker gris es de tiro alto, queda tenso y liso, y llena todo su volumen, sin arrugas ni tela floja. No tiene piernas delgadas, ni cadera recta, ni glúteos planos. Cuerpo real, de gimnasio, con proporciones creíbles, no una caricatura.
 
 SETTING:
 Su cuarto, en la mañana. Pared color durazno con líneas blancas finas en diagonal; un espejo de cuerpo entero de marco negro con esquinas redondeadas apoyado en la pared; una cama con cobija fucsia de flores; una ventana con cortina clara por donde entra la luz natural de la mañana, que le da de frente a él y al frasco. Sobre la cama solo está la cobija; no hay nada más. Todo se ve real y vivido, no un set.
@@ -44,10 +45,10 @@ El producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plás
 
 TIMESTAMPS:
 [0.0–2.8s]
-Selfie frente al espejo de cuerpo entero, de la cabeza a las rodillas: se ve su reflejo de perfil, con el celular en la mano derecha a la altura del pecho, sin taparle la cara, y la mano izquierda vacía. Arranca serio, posando; de repente rompe la pose, mira a la cámara por encima del hombro con una ceja levantada y media sonrisa pícara, y se da una palmadita en la cadera con la mano izquierda.
-DIÁLOGO: “¿Cómo hice pa' tener este jopo, mi vida?”
+Plano con el celular apoyado a la altura de su cadera, a dos pasos de él, de la cabeza a las rodillas: está de pie junto al espejo de cuerpo entero, de perfil a la cámara, con el cuerpo girado un poco de espaldas (tres cuartos de espalda), así que se ve completa la curva de la espalda baja, los glúteos grandes y redondos que sobresalen hacia atrás, la cadera ancha y los muslos gruesos, que llenan el centro del cuadro. Las dos manos están vacías. Arranca posando, con la mano derecha en la cintura fina; gira la cabeza y mira a la cámara por encima del hombro con una ceja levantada y media sonrisa pícara, y se da una palmadita en el costado de la cadera con la mano izquierda.
+DIÁLOGO: “¿Quieren saber cuál es mi secreto, mi gente?”
 [2.8–4.0s]
-Corte a plano del pecho para arriba, de frente, con el celular apoyado (ya no es el espejo): sostiene el frasco cerrado junto a su cara con la mano derecha, con la etiqueta de frente a cámara, y la mano izquierda queda vacía y fuera del cuadro. Guiña un ojo; al terminar de hablar sonríe y se queda quieto, sosteniendo el frasco, en silencio.
+Corte a plano del pecho para arriba, de frente, con el celular apoyado: sostiene el frasco cerrado junto a su cara con la mano derecha, con la etiqueta de frente a cámara, y la mano izquierda queda vacía y fuera del cuadro. Guiña un ojo; al terminar de hablar sonríe y se queda quieto, sosteniendo el frasco, en silencio.
 DIÁLOGO: “Con esto.”
 
 AUDIO:
