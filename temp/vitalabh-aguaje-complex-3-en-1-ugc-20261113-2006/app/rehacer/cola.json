@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "pedidos": [
+    {
+      "id": "f0bbd2a87eaf",
+      "creado": "2026-11-14T01:31:03.070Z",
+      "pieza": "toma-9",
+      "nombre": "Bloque 9",
+      "modo": "pedido",
+      "pedido": "en el segundo cuadro parece que no estuviera el producto en la bolsa cuando le pega la etiqueta. debe verse que si hay el producto ahí.",
+      "conImagen": false
+    }
+  ]
+}
