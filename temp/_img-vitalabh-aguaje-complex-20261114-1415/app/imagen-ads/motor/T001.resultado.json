@@ -4,7 +4,7 @@
     "V01_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 2,
+      "intentosApi": 3,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null,
@@ -50,6 +50,6 @@
       "modeloReal": "gpt-image (ChatGPT)"
     }
   },
-  "actualizado": "2026-11-14T19:22:05.418Z",
+  "actualizado": "2026-11-14T19:23:10.367Z",
   "terminado": false
 }

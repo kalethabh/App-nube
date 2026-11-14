@@ -73,7 +73,7 @@
     "R004": {
       "tipo": "revision",
       "uuid": "50bec728-63f0-4849-983b-641bc1236ae7",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -81,7 +81,8 @@
           "firma": "2235953-1794684147128",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -120,7 +121,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -204,21 +205,26 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2235953-1794684147128",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2235953-1794684147128"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-14T19:22:27.624Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R004"
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}
