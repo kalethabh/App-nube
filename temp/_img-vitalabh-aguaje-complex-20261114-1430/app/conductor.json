@@ -1,8 +1,8 @@
 {
   "slug": "_img-vitalabh-aguaje-complex-20261114-1430",
   "familia": "imagen-ads",
-  "estado": "corriendo",
-  "paso": "anuncios",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "preparar",
@@ -34,21 +34,24 @@
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-14T19:36:18.486Z",
-      "detalle": "5 de 5 listas"
+      "fin": "2026-11-14T19:44:50.519Z"
     },
     {
       "id": "informe",
       "nombre": "Armando tu informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-14T19:44:50.519Z",
+      "fin": "2026-11-14T19:44:50.522Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-14T19:30:49.525Z",
   "aprobado": "2026-11-14T19:30:49.525Z",
-  "actualizado": "2026-11-14T19:44:30.731Z"
+  "actualizado": "2026-11-14T19:44:50.522Z",
+  "terminado": "2026-11-14T19:44:50.522Z"
 }
