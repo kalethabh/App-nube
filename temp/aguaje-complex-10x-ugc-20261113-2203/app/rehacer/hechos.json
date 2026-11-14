@@ -1,0 +1,41 @@
+{
+  "v": 1,
+  "lotes": [
+    {
+      "id": "6f5b79d28961",
+      "terminado": "2026-11-14T04:50:14.638Z",
+      "piezas": [
+        {
+          "pieza": "toma-1",
+          "nombre": "Bloque 1",
+          "modo": "pedido"
+        },
+        {
+          "pieza": "toma-2",
+          "nombre": "Bloque 2",
+          "modo": "pedido"
+        },
+        {
+          "pieza": "toma-4",
+          "nombre": "Bloque 4",
+          "modo": "sugerencia"
+        },
+        {
+          "pieza": "toma-7",
+          "nombre": "Bloque 7",
+          "modo": "pedido"
+        },
+        {
+          "pieza": "toma-8",
+          "nombre": "Bloque 8",
+          "modo": "tal-cual"
+        },
+        {
+          "pieza": "toma-11",
+          "nombre": "Bloque 11",
+          "modo": "pedido"
+        }
+      ]
+    }
+  ]
+}

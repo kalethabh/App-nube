@@ -1,6 +1,6 @@
 {
   "id": "6f5b79d28961",
-  "fase": "produccion",
+  "fase": "listo",
   "frase": "Creando las piezas nuevas",
   "piezas": [
     {
@@ -119,7 +119,7 @@
     }
   ],
   "creado": "2026-11-14T03:35:26.087Z",
-  "actualizado": "2026-11-14T03:37:42.090Z",
+  "actualizado": "2026-11-14T04:50:14.640Z",
   "pieza": "toma-1",
   "nombre": "Bloque 1, Bloque 2, Bloque 4, Bloque 7, Bloque 8 y Bloque 11",
   "pedido": "Sus gluteos y piernas no se ven con volúmen notorio, que de verdad tenga volumen en glúteos, piernas y caderas de mujer",
@@ -127,5 +127,7 @@
   "modo": "pedido",
   "desde": "bloques",
   "reabierto": "2026-11-14T03:37:42.087Z",
-  "desdePaso": "bloques"
+  "desdePaso": "bloques",
+  "terminado": "2026-11-14T04:50:14.638Z",
+  "nota": null
 }

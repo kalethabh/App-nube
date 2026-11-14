@@ -22,22 +22,22 @@ final repite palabras que ya dijo, cortalas (abajo se indica donde, si se midio)
 ------------------------------------------------------------------------------
 
 BLOQUE 1   (4 s, tipo R)   — gancho
-  Cuando:   00:00.00 -> 00:03.04   (3.04s de ventana)
+  Cuando:   00:00.00 -> 00:03.46   (3.46s de ventana)
   Clip:     video/toma-1.mp4
   Tramos:
-            [0.0–2.8s] [personaje]  "¿Cómo hice pa' tener este jopo, mi vida?"
+            [0.0–2.8s] [personaje]  "¿Quieren saber cuál es mi secreto, mi gente?"
             [2.8–4.0s] [personaje]  "Con esto."
-  Dice:     "¿Cómo hice pa' tener este jopo, mi vida? Con esto."
+  Dice:     "¿Quieren saber cuál es mi secreto, mi gente? Con esto."
   Referencias con que se genera (en este orden, como "ingredientes", no como
   imagen de inicio):
             1) personaje      -> img/personaje.png
             2) producto       -> producto.png
-  Recorte:  0.88s del INICIO y 0.00s del FINAL.
-            Quedan 3.04s utiles de los 3.92s del clip.
+  Recorte:  0.40s del INICIO y 0.05s del FINAL.
+            Quedan 3.46s utiles de los 3.92s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 2   (4 s, tipo R)   — gancho: también es para hombres
-  Cuando:   00:03.04 -> 00:06.96   (3.92s de ventana)
+  Cuando:   00:03.46 -> 00:07.27   (3.80s de ventana)
   Clip:     video/toma-2.mp4
   Tramos:
             [0.0–2.8s] [personaje]  "Y no, no es solo pa' ustedes, mis reinas."
@@ -46,12 +46,12 @@ BLOQUE 2   (4 s, tipo R)   — gancho: también es para hombres
   Referencias con que se genera (en este orden, como "ingredientes", no como
   imagen de inicio):
             1) personaje      -> img/personaje.png
-  Recorte:  0.00s del INICIO y 0.00s del FINAL.
-            Quedan 3.92s utiles de los 3.92s del clip.
+  Recorte:  0.12s del INICIO y 0.00s del FINAL.
+            Quedan 3.80s utiles de los 3.92s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 3   (6 s, tipo R)   — solución: los tres ingredientes
-  Cuando:   00:06.96 -> 00:12.93   (5.97s de ventana)
+  Cuando:   00:07.27 -> 00:13.24   (5.97s de ventana)
   Clip:     video/toma-3.mp4
   Tramos:
             [0.0–3.8s] [personaje-2]  "Lo que funciona es que traiga aguaje, fenogreco y maca negra,"
@@ -66,7 +66,7 @@ BLOQUE 3   (6 s, tipo R)   — solución: los tres ingredientes
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 4   (6 s, tipo R)   — solución: los ingredientes, no la marca
-  Cuando:   00:12.93 -> 00:18.54   (5.62s de ventana)
+  Cuando:   00:13.24 -> 00:18.93   (5.69s de ventana)
   Clip:     video/toma-4.mp4
   Tramos:
             [0.0–2.2s] [personaje-2]  "Eso es lo que da los resultados,"
@@ -78,12 +78,12 @@ BLOQUE 4   (6 s, tipo R)   — solución: los ingredientes, no la marca
             1) personaje-2    -> img/personaje-2.png
             2) producto       -> producto.png
             3) lugar-cuarto   -> img/lugar-cuarto.png   (fotograma del bloque 3, segundo 1.9)
-  Recorte:  0.27s del INICIO y 0.08s del FINAL.
-            Quedan 5.62s utiles de los 5.97s del clip.
+  Recorte:  0.08s del INICIO y 0.21s del FINAL.
+            Quedan 5.69s utiles de los 5.97s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 5   (8 s, tipo R)   — prueba: su resultado
-  Cuando:   00:18.54 -> 00:25.95   (7.41s de ventana)
+  Cuando:   00:18.93 -> 00:26.33   (7.41s de ventana)
   Clip:     video/toma-5.mp4
   Tramos:
             [0.0–5.2s] [personaje-3]  "Y lo que tenía en el abdomen es como si se me hubiera ido pa' la cola,"
@@ -98,7 +98,7 @@ BLOQUE 5   (8 s, tipo R)   — prueba: su resultado
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 6   (4 s, tipo R)   — prueba: sin rebote
-  Cuando:   00:25.95 -> 00:29.59   (3.64s de ventana)
+  Cuando:   00:26.33 -> 00:29.97   (3.64s de ventana)
   Clip:     video/toma-6.mp4
   Tramos:
             [0.0–1.6s] [personaje-2]  "Y sin efecto rebote,"
@@ -114,7 +114,7 @@ BLOQUE 6   (4 s, tipo R)   — prueba: sin rebote
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 7   (8 s, tipo R)   — problema: el cuento del único original
-  Cuando:   00:29.59 -> 00:37.07   (7.48s de ventana)
+  Cuando:   00:29.97 -> 00:37.72   (7.74s de ventana)
   Clip:     video/toma-7.mp4
   Tramos:
             [0.0–4.2s] [personaje]  "Ah, y si les dicen que el único original es el de Vitalcom,"
@@ -125,12 +125,12 @@ BLOQUE 7   (8 s, tipo R)   — problema: el cuento del único original
   imagen de inicio):
             1) personaje      -> img/personaje.png
             2) lugar-habitacion -> img/lugar-habitacion.png   (fotograma del bloque 2, segundo 1.4)
-  Recorte:  0.45s del INICIO y 0.00s del FINAL.
-            Quedan 7.48s utiles de los 7.93s del clip.
+  Recorte:  0.19s del INICIO y 0.00s del FINAL.
+            Quedan 7.74s utiles de los 7.93s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 8   (8 s, tipo R)   — problema: comprar de a uno
-  Cuando:   00:37.07 -> 00:43.97   (6.90s de ventana)
+  Cuando:   00:37.72 -> 00:45.25   (7.53s de ventana)
   Clip:     video/toma-8.mp4
   Tramos:
             [0.0–2.4s] [personaje]  "Y no les vendan de a uno,"
@@ -142,12 +142,12 @@ BLOQUE 8   (8 s, tipo R)   — problema: comprar de a uno
             1) personaje      -> img/personaje.png
             2) producto       -> producto.png
             3) lugar-habitacion -> img/lugar-habitacion.png   (fotograma del bloque 2, segundo 1.4)
-  Recorte:  0.28s del INICIO y 0.75s del FINAL.
-            Quedan 6.90s utiles de los 7.93s del clip.
+  Recorte:  0.33s del INICIO y 0.07s del FINAL.
+            Quedan 7.53s utiles de los 7.93s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 9   (8 s, tipo R)   — oferta: el tratamiento completo
-  Cuando:   00:43.97 -> 00:51.90   (7.93s de ventana)
+  Cuando:   00:45.25 -> 00:53.18   (7.93s de ventana)
   Clip:     video/toma-9.mp4
   Tramos:
             [0.0–2.6s] [personaje]  "Háganse el tratamiento completo de tres meses:"
@@ -165,7 +165,7 @@ BLOQUE 9   (8 s, tipo R)   — oferta: el tratamiento completo
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 10   (4 s, tipo R)   — cierre: llega a la casa y se paga al recibir
-  Cuando:   00:51.90 -> 00:55.82   (3.92s de ventana)
+  Cuando:   00:53.18 -> 00:57.10   (3.92s de ventana)
   Clip:     video/toma-10.mp4
   Tramos:
             [0.0–4.0s] [personaje-3]  "A mí me llegó a la casa y lo pagué al recibirlo."
@@ -178,7 +178,7 @@ BLOQUE 10   (4 s, tipo R)   — cierre: llega a la casa y se paga al recibir
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 11   (4 s, tipo R)   — cierre: el botón de abajo
-  Cuando:   00:55.82 -> 00:59.52   (3.70s de ventana)
+  Cuando:   00:57.10 -> 00:59.90   (2.80s de ventana)
   Clip:     video/toma-11.mp4
   Tramos:
             [0.0–2.8s] [personaje]  "El tuyo lo puedes pedir aquí abajo,"
@@ -188,8 +188,8 @@ BLOQUE 11   (4 s, tipo R)   — cierre: el botón de abajo
   imagen de inicio):
             1) personaje      -> img/personaje.png
             2) lugar-habitacion -> img/lugar-habitacion.png   (fotograma del bloque 2, segundo 1.4)
-  Recorte:  0.09s del INICIO y 0.13s del FINAL.
-            Quedan 3.70s utiles de los 3.92s del clip.
+  Recorte:  0.05s del INICIO y 1.07s del FINAL.
+            Quedan 2.80s utiles de los 3.92s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 ------------------------------------------------------------------------------
