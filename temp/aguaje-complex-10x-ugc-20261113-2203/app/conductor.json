@@ -1,7 +1,7 @@
 {
   "slug": "aguaje-complex-10x-ugc-20261113-2203",
   "familia": "ugc",
-  "estado": "error",
+  "estado": "corriendo",
   "paso": "bloques",
   "pasos": [
     {
@@ -40,23 +40,10 @@
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "error",
-      "intentos": 2,
+      "estado": "corriendo",
+      "intentos": 3,
       "inicio": "2026-11-14T03:37:42.089Z",
-      "fin": "2026-11-14T03:49:08.924Z",
-      "error": {
-        "mensaje": "El generador de video rechazó el bloque 1 4 veces por sus reglas de contenido, aunque la IA cambió la frase 3 veces. Toca “Continuar” para que pruebe otras frases.",
-        "motivo": "contenido",
-        "detalle": "Frase de antes: «¿Cómo hice pa' tener este jopo, mi vida? Con esto.»\n1. «¿Cómo hice pa' verme así de bien, mi vida? Con esto.»: Request blocked: The generation was blocked by Google safety review.\n2. «¿Sabes con qué empiezo yo mis días, mi vida? Con esto.»: Request blocked: The generation was blocked by Google safety review.\n3. «¿Saben con qué empiezo yo mis días, mi gente? Con esto.»: Request blocked: The generation was blocked by Google safety review.",
-        "causa": {
-          "porque": "El modelo de video rechazó una escena por su contenido (algo que su filtro considera sensible).",
-          "dijo": "Error 400",
-          "hacer": [
-            "Abre el anuncio en el editor y rehaz esa toma con otra descripción.",
-            "O toca «Continuar»: a veces la misma escena pasa en otro intento."
-          ]
-        }
-      }
+      "fin": "2026-11-14T03:49:08.924Z"
     },
     {
       "id": "revision-bloques",
@@ -106,7 +93,7 @@
   "modoPrueba": false,
   "creado": "2026-11-14T03:15:54.518Z",
   "aprobado": "2026-11-14T03:15:54.518Z",
-  "actualizado": "2026-11-14T03:49:08.925Z",
+  "actualizado": "2026-11-14T04:37:14.184Z",
   "saldoInicial": {
     "creditos": 2117.2,
     "fecha": "2026-11-14T03:15:55.387Z"
