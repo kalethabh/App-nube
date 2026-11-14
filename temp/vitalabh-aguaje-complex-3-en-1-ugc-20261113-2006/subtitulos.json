@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-14T01:30:16.432Z",
+  "generado": "2026-11-14T01:41:51.301Z",
   "bloques": [
     {
       "inicio": 0.34,
@@ -75,7 +75,7 @@
         {
           "texto": "ya",
           "inicio": 3.28,
-          "fin": 3.36
+          "fin": 3.38
         },
         {
           "texto": "nos",
@@ -108,7 +108,7 @@
     },
     {
       "inicio": 4.62,
-      "fin": 4.96,
+      "fin": 4.98,
       "texto": "vez.",
       "palabras": [
         {
@@ -119,19 +119,19 @@
       ]
     },
     {
-      "inicio": 4.98,
-      "fin": 5.88,
+      "inicio": 5.02,
+      "fin": 5.9,
       "texto": "¡La tercera!",
       "palabras": [
         {
           "texto": "¡La",
-          "inicio": 4.98,
+          "inicio": 5.02,
           "fin": 5.1
         },
         {
           "texto": "tercera!",
           "inicio": 5.2,
-          "fin": 5.76
+          "fin": 5.78
         }
       ]
     },
@@ -143,12 +143,12 @@
         {
           "texto": "¿Y",
           "inicio": 6.06,
-          "fin": 6.1
+          "fin": 6.12
         },
         {
           "texto": "saben",
           "inicio": 6.18,
-          "fin": 6.38
+          "fin": 6.42
         },
         {
           "texto": "por",
@@ -198,7 +198,7 @@
     },
     {
       "inicio": 8.58,
-      "fin": 9.54,
+      "fin": 9.52,
       "texto": "les ha funcionado:",
       "palabras": [
         {
@@ -214,7 +214,7 @@
         {
           "texto": "funcionado:",
           "inicio": 8.84,
-          "fin": 9.42
+          "fin": 9.4
         }
       ]
     },
@@ -631,7 +631,7 @@
         {
           "texto": "Mentira:",
           "inicio": 27.067,
-          "fin": 27.527
+          "fin": 27.507
         },
         {
           "texto": "no",
@@ -653,7 +653,7 @@
         {
           "texto": "un",
           "inicio": 28.027,
-          "fin": 28.147
+          "fin": 28.107
         },
         {
           "texto": "solo",
@@ -1498,162 +1498,162 @@
     },
     {
       "inicio": 64.253,
-      "fin": 65.493,
+      "fin": 65.553,
       "texto": "empacadito, mañana",
       "palabras": [
         {
           "texto": "empacadito,",
           "inicio": 64.253,
-          "fin": 64.953
+          "fin": 64.993
         },
         {
           "texto": "mañana",
-          "inicio": 65.073,
-          "fin": 65.433
+          "inicio": 65.113,
+          "fin": 65.473
         }
       ]
     },
     {
-      "inicio": 65.513,
-      "fin": 67.113,
+      "inicio": 65.573,
+      "fin": 66.853,
       "texto": "sale, y ella",
       "palabras": [
         {
           "texto": "sale,",
-          "inicio": 65.513,
-          "fin": 65.833
+          "inicio": 65.573,
+          "fin": 65.893
         },
         {
           "texto": "y",
-          "inicio": 66.573,
-          "fin": 66.693
+          "inicio": 66.493,
+          "fin": 66.553
         },
         {
           "texto": "ella",
-          "inicio": 66.913,
-          "fin": 67.113
+          "inicio": 66.613,
+          "fin": 66.813
         }
       ]
     },
     {
-      "inicio": 67.133,
-      "fin": 67.853,
+      "inicio": 66.873,
+      "fin": 67.653,
       "texto": "lo paga cuando",
       "palabras": [
         {
           "texto": "lo",
-          "inicio": 67.133,
-          "fin": 67.213
+          "inicio": 66.873,
+          "fin": 66.953
         },
         {
           "texto": "paga",
-          "inicio": 67.313,
-          "fin": 67.533
+          "inicio": 67.053,
+          "fin": 67.293
         },
         {
           "texto": "cuando",
-          "inicio": 67.612,
-          "fin": 67.833
+          "inicio": 67.393,
+          "fin": 67.633
         }
       ]
     },
     {
-      "inicio": 67.873,
-      "fin": 68.273,
+      "inicio": 67.673,
+      "fin": 68.153,
       "texto": "le llegue a",
       "palabras": [
         {
           "texto": "le",
-          "inicio": 67.873,
-          "fin": 67.933
+          "inicio": 67.673,
+          "fin": 67.753
         },
         {
           "texto": "llegue",
-          "inicio": 67.993,
-          "fin": 68.193
+          "inicio": 67.813,
+          "fin": 68.053
         },
         {
           "texto": "a",
-          "inicio": 68.213,
-          "fin": 68.233
+          "inicio": 68.073,
+          "fin": 68.113
         }
       ]
     },
     {
-      "inicio": 68.293,
-      "fin": 68.853,
+      "inicio": 68.173,
+      "fin": 68.733,
       "texto": "su casa.",
       "palabras": [
         {
           "texto": "su",
-          "inicio": 68.293,
-          "fin": 68.373
+          "inicio": 68.173,
+          "fin": 68.253
         },
         {
           "texto": "casa.",
-          "inicio": 68.453,
-          "fin": 68.733
+          "inicio": 68.333,
+          "fin": 68.613
         }
       ]
     },
     {
-      "inicio": 69.173,
-      "fin": 70.173,
+      "inicio": 69.093,
+      "fin": 69.833,
       "texto": "El tuyo está",
       "palabras": [
         {
           "texto": "El",
-          "inicio": 69.173,
-          "fin": 69.233
+          "inicio": 69.093,
+          "fin": 69.153
         },
         {
           "texto": "tuyo",
-          "inicio": 69.333,
-          "fin": 69.633
+          "inicio": 69.253,
+          "fin": 69.613
         },
         {
           "texto": "está",
-          "inicio": 69.793,
-          "fin": 70.133
+          "inicio": 69.673,
+          "fin": 69.833
         }
       ]
     },
     {
-      "inicio": 70.193,
-      "fin": 70.653,
+      "inicio": 69.853,
+      "fin": 70.333,
       "texto": "en el botón",
       "palabras": [
         {
           "texto": "en",
-          "inicio": 70.193,
-          "fin": 70.253
+          "inicio": 69.853,
+          "fin": 69.913
         },
         {
           "texto": "el",
-          "inicio": 70.273,
-          "fin": 70.373
+          "inicio": 69.933,
+          "fin": 69.993
         },
         {
           "texto": "botón",
-          "inicio": 70.393,
-          "fin": 70.653
+          "inicio": 70.053,
+          "fin": 70.333
         }
       ]
     },
     {
-      "inicio": 70.673,
-      "fin": 71.233,
+      "inicio": 70.353,
+      "fin": 70.893,
       "texto": "de abajo.",
       "palabras": [
         {
           "texto": "de",
-          "inicio": 70.673,
-          "fin": 70.733
+          "inicio": 70.353,
+          "fin": 70.413
         },
         {
           "texto": "abajo.",
-          "inicio": 70.773,
-          "fin": 71.113
+          "inicio": 70.453,
+          "fin": 70.773
         }
       ]
     }

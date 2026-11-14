@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "revision-bloques",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -49,28 +49,42 @@
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
       "inicio": "2026-11-14T01:40:08.980Z",
-      "detalle": "Anotando lo que vio en los clips"
+      "fin": "2026-11-14T01:41:30.487Z",
+      "nota": "La revisión dejó 2 avisos: míralos en el proceso."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-14T01:41:30.488Z",
+      "fin": "2026-11-14T01:41:30.728Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-14T01:41:30.729Z",
+      "fin": "2026-11-14T01:42:01.168Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "corriendo",
+      "intentos": 2,
+      "inicio": "2026-11-14T01:42:01.168Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 433,
+        "total": 2130,
+        "restante": 171,
+        "en": "2026-11-14T01:42:49.144Z"
+      }
     },
     {
       "id": "control-final",
@@ -95,7 +109,7 @@
   "modoPrueba": false,
   "creado": "2026-11-14T01:18:15.331Z",
   "aprobado": "2026-11-14T01:18:15.331Z",
-  "actualizado": "2026-11-14T01:40:34.565Z",
+  "actualizado": "2026-11-14T01:42:49.144Z",
   "saldoInicial": {
     "creditos": 959.2,
     "fecha": "2026-11-14T01:18:16.241Z"
