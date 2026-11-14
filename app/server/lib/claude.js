@@ -16,7 +16,10 @@
 //   - --setting-sources project: los permisos que el usuario tenga en su ~/.claude/settings.json no entran, y tampoco
 //     los de .claude/settings.local.json (Claude Code lo escribe solo cuando alguien que trabaja en esta carpeta
 //     elige "no volver a preguntar": esas aprobaciones no pueden valer en las sesiones de la app).
-//   - --strict-mcp-config: sin conectores (ni los de claude.ai): estas tareas no los necesitan.
+//   - --strict-mcp-config: sin conectores (ni los de claude.ai): estas tareas no los necesitan. La excepcion es una
+//     tarea con o.conectores (la busqueda de "Mejores anuncios" en TrendTrack, lib/ganadores.js): sin ese flag
+//     aparecen los conectores de claude.ai del usuario, pero con --permission-mode dontAsk solo corre lo que esa
+//     tarea permite en o.permitidas (las herramientas de lectura que necesita); todo lo demas se rechaza solo.
 //   - el aviso de limite de uso reconoce "You've hit your session/weekly/Opus limit" (el de Landing Studio no).
 //   - plazos: sin salida durante un rato largo = colgado; tope total por tarea. Cancelar = taskkill /T /F.
 //
@@ -552,6 +555,10 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
  * @param {number} [o.correcciones]   cuantas veces se le pide corregir (1)
  * @param {object} [o.entorno]        variables extra para Claude (null = quitarla)
  * @param {AbortSignal} [o.senal]     si se aborta, la sesion se corta (como cancelarSesion)
+ * @param {boolean} [o.conectores]    sin --strict-mcp-config: la sesion ve los conectores de claude.ai del usuario
+ *        (solo corren los que esten en o.permitidas)
+ * @param {(nombre:string, texto:string, extra:{error:boolean}) => void} [o.alResultadoHerramienta]
+ *        recibe lo que devolvio cada herramienta tal cual (p. ej. el JSON de un conector), sin que Claude lo copie
  * @returns {Promise<{ok:boolean, resultado?:string, error?:string, detalle?:string, limite?:boolean, reinicio?:string,
  *   sinSesion?:boolean, sinClaude?:boolean, cancelado?:boolean, sesion:string, modo:string, turnos:number,
  *   costo:number, uso:object|null, duracionMs:number, denegados:any[], init:object|null, frases:string[]}>}
@@ -611,7 +618,7 @@ function argumentos(o, modo, bin) {
     '-p', '--input-format', 'stream-json', '--output-format', 'stream-json', '--verbose', '--include-partial-messages',
     '--permission-mode', 'dontAsk', '--permission-prompts', 'none',
     '--setting-sources', 'project',
-    '--strict-mcp-config',
+    ...(o.conectores ? [] : ['--strict-mcp-config']),
     '--max-turns', String(o.maxTurnos || 80),
     modo === 'resume' ? '--resume' : '--session-id', o.uuid,
     '--append-system-prompt', argumentoSeguro(bin, textoModoApp()),
@@ -682,6 +689,7 @@ function correr(o, modo, entrada) {
     let enTurno = true;
     const fondo = new Set(); // comandos que Claude dejo en segundo plano y no terminaron
     const bloques = new Map(); // indice -> { nombre, json } de la herramienta que se esta escribiendo (parciales)
+    const nombresHerramienta = new Map(); // tool_use id -> nombre (para o.alResultadoHerramienta)
 
     const frase = (f) => {
       if (!f || f === ultimaFrase) return;
@@ -876,11 +884,26 @@ function correr(o, modo, entrada) {
         if (ev.error === 'rate_limit') limite = true;
         else if (ev.error === 'authentication_failed') errorDeCuenta = 'sinSesion';
         if (ev.parent_tool_use_id) return; // lo que hace un ayudante no se cuenta
-        for (const b of ev.message?.content || []) if (b?.type === 'tool_use') frase(describirHerramienta(b.name, b.input || {}));
+        for (const b of ev.message?.content || []) {
+          if (b?.type !== 'tool_use') continue;
+          if (b.id) nombresHerramienta.set(b.id, b.name);
+          frase(describirHerramienta(b.name, b.input || {}));
+        }
         return;
       }
       if (ev.type === 'user') {
         enTurno = true;
+        if (typeof o.alResultadoHerramienta === 'function' && !ev.parent_tool_use_id) {
+          for (const b of Array.isArray(ev.message?.content) ? ev.message.content : []) {
+            if (b?.type !== 'tool_result') continue;
+            const texto = typeof b.content === 'string' ? b.content : (Array.isArray(b.content) ? b.content : []).filter((x) => x?.type === 'text').map((x) => x.text).join('');
+            try {
+              o.alResultadoHerramienta(nombresHerramienta.get(b.tool_use_id) || '', texto, { error: Boolean(b.is_error) });
+            } catch (err) {
+              console.error(`[claude] alResultadoHerramienta: ${err.message}`);
+            }
+          }
+        }
         return;
       }
       if (ev.type === 'result') {

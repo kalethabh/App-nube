@@ -76,6 +76,7 @@ export const rutas = {
   imagenes: (c) => '/imagenes' + (c ? '?' + new URLSearchParams(c) : ''),
   crearImagenes: (c) => '/imagenes/nuevo' + (c ? '?' + new URLSearchParams(c) : ''),
   loteImagenes: (lote) => `/imagenes/${s(lote)}`,
+  ganadores: (c) => '/ganadores' + (c ? '?' + new URLSearchParams(c) : ''),
 };
 
 /** Lo mismo que `rutas`, pero listo para href ("#/anuncio/befen"). */
