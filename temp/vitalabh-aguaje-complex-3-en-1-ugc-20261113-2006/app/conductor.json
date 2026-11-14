@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "render",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -74,42 +74,40 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
       "inicio": "2026-11-14T01:42:01.168Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 1660,
-        "total": 2130,
-        "restante": 44,
-        "en": "2026-11-14T01:44:50.606Z"
-      }
+      "fin": "2026-11-14T01:46:32.395Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-14T01:46:32.396Z",
+      "fin": "2026-11-14T01:46:50.993Z"
     },
     {
       "id": "ganchos",
       "nombre": "Armar las versiones con otro gancho",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "saltado",
+      "intentos": 2,
+      "inicio": "2026-11-14T01:46:50.993Z",
+      "fin": "2026-11-14T01:46:50.993Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "corriendo",
+      "intentos": 2,
+      "inicio": "2026-11-14T01:46:50.994Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-14T01:18:15.331Z",
   "aprobado": "2026-11-14T01:18:15.331Z",
-  "actualizado": "2026-11-14T01:44:50.606Z",
+  "actualizado": "2026-11-14T01:46:50.994Z",
   "saldoInicial": {
     "creditos": 959.2,
     "fecha": "2026-11-14T01:18:16.241Z"

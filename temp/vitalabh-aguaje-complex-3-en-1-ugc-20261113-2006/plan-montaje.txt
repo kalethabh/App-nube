@@ -161,7 +161,7 @@ BLOQUE 8   (8 s, tipo R)   — oferta
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 9   (8 s, tipo R)   — cierre
-  Cuando:   01:03.59 -> 01:11.32   (7.73s de ventana)
+  Cuando:   01:03.59 -> 01:10.99   (7.40s de ventana)
   Clip:     video/toma-9.mp4
   Tramos:
             [0.0–2.3s]  "Este ya va empacadito, mañana sale,"
@@ -173,8 +173,8 @@ BLOQUE 9   (8 s, tipo R)   — cierre
             1) personaje      -> img/personaje.png
             2) producto       -> producto.png
             3) lugar-bodega   -> img/lugar-bodega.png   (fotograma del bloque 1, segundo 6.8)
-  Recorte:  0.00s del INICIO y 0.20s del FINAL.
-            Quedan 7.73s utiles de los 7.93s del clip.
+  Recorte:  0.00s del INICIO y 0.53s del FINAL.
+            Quedan 7.40s utiles de los 7.93s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 ------------------------------------------------------------------------------
