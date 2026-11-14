@@ -1,6 +1,6 @@
 {
   "id": "8e7ac4afe311",
-  "fase": "produccion",
+  "fase": "listo",
   "frase": "Creando el clip nuevo",
   "piezas": [
     {
@@ -26,7 +26,7 @@
     }
   ],
   "creado": "2026-11-14T01:36:45.108Z",
-  "actualizado": "2026-11-14T01:37:23.071Z",
+  "actualizado": "2026-11-14T01:46:53.465Z",
   "pieza": "toma-9",
   "nombre": "Bloque 9",
   "pedido": "en el segundo cuadro parece que no estuviera el producto en la bolsa cuando le pega la etiqueta. debe verse que si hay el producto ahí.",
@@ -34,5 +34,7 @@
   "modo": "pedido",
   "desde": "bloques",
   "reabierto": "2026-11-14T01:37:23.064Z",
-  "desdePaso": "bloques"
+  "desdePaso": "bloques",
+  "terminado": "2026-11-14T01:46:53.465Z",
+  "nota": null
 }

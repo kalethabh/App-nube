@@ -1,7 +1,7 @@
 {
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006",
   "familia": "ugc",
-  "estado": "corriendo",
+  "estado": "listo",
   "paso": "informe",
   "pasos": [
     {
@@ -98,16 +98,17 @@
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
-      "inicio": "2026-11-14T01:46:50.994Z"
+      "inicio": "2026-11-14T01:46:50.994Z",
+      "fin": "2026-11-14T01:46:51.183Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-14T01:18:15.331Z",
   "aprobado": "2026-11-14T01:18:15.331Z",
-  "actualizado": "2026-11-14T01:46:50.994Z",
+  "actualizado": "2026-11-14T01:46:51.183Z",
   "saldoInicial": {
     "creditos": 959.2,
     "fecha": "2026-11-14T01:18:16.241Z"
@@ -117,8 +118,8 @@
     "fecha": "2026-11-14T01:18:16.242Z"
   },
   "saldoFinal": {
-    "creditos": 2197.2,
-    "fecha": "2026-11-14T01:36:43.424Z"
+    "creditos": 2117.2,
+    "fecha": "2026-11-14T01:46:51.172Z"
   },
   "rehacer": [
     {
@@ -132,5 +133,6 @@
       },
       "fecha": "2026-11-14T01:37:23.066Z"
     }
-  ]
+  ],
+  "terminado": "2026-11-14T01:46:51.183Z"
 }

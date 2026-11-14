@@ -1,9 +1,9 @@
 {
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261113-2006",
-  "generado": "2026-11-14T01:36:43.433Z",
+  "generado": "2026-11-14T01:46:51.179Z",
   "modoPrueba": false,
   "duracion": {
-    "real": 71.32,
+    "real": 70.99,
     "estimada": 74,
     "pedida": null
   },
@@ -114,8 +114,8 @@
   ],
   "sinProblemas": false,
   "costo": {
-    "creditos": 762,
-    "dolares": 3.81,
+    "creditos": 842,
+    "dolares": 4.21,
     "dolaresPorCredito": 0.005,
     "imagenes": {
       "piezas": 1,
@@ -123,9 +123,9 @@
       "dolares": 0.05
     },
     "videos": {
-      "piezas": 9,
-      "creditos": 740,
-      "dolares": 3.7
+      "piezas": 10,
+      "creditos": 820,
+      "dolares": 4.1
     },
     "musica": {
       "pistas": 1,
@@ -139,9 +139,9 @@
     "estimado": false,
     "elevenlabs": {
       "caracteres": 0,
-      "scribeSegundos": 147.4
+      "scribeSegundos": 229
     },
-    "corridas": 6,
+    "corridas": 9,
     "respaldo": [],
     "partes": [
       {
@@ -152,9 +152,9 @@
       },
       {
         "id": "videos",
-        "piezas": 9,
-        "creditos": 740,
-        "dolares": 3.7
+        "piezas": 10,
+        "creditos": 820,
+        "dolares": 4.1
       },
       {
         "id": "musica",
@@ -169,8 +169,8 @@
     ],
     "verificacion": {
       "saldoAntes": 959.2,
-      "saldoDespues": 2197.2,
-      "diferencia": -1238,
+      "saldoDespues": 2117.2,
+      "diferencia": -1158,
       "coincide": false
     },
     "rehecho": false
