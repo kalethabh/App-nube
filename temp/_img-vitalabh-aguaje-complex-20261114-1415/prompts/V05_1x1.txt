@@ -1,0 +1,44 @@
+Square 1:1 authentic lifestyle photograph of a real home kitchen in the morning, shot on a 50mm lens at eye level tilted only slightly down (about 15 degrees), with shallow depth of field. It must look like a real, slightly imperfect editorial photo, not a graphic design: there is no typed text, no overlay and no frame anywhere. SETTING: a light stone kitchen counter next to a matte light-gray fridge door; the fridge door is the vertical surface that fills the left and center of the background, and the line where the fridge door meets the counter sits at about y 58-65% of the canvas. Soft natural morning window light comes from the left, warm daylight tone, gentle real shadows. On the far right, softly blurred in the background, a few tidy everyday kitchen details in pink and black tones: a blush pink ceramic mug, a matte black kettle and a folded soft-pink kitchen towel. STICKY NOTE (upper-left area, about x 8-47% and y 8-47%): one single square paper sticky note in pastel pink, about 38-40% of the canvas width, stuck on the fridge door, rotated about 4 degrees, with matte paper texture, a slightly curled bottom edge that lifts away from the door and a faint shadow. On the note, a short message handwritten with a thick near-black felt-tip marker in casual but clearly legible print letters (not cursive), in three short lines filling about 70% of the note, each letter about 5% of the canvas height. In the bottom-right corner of the note, a tiny sign-off in the same handwriting, smaller (about 3% of the canvas height). In the bottom-left corner of the note, one small hand-drawn outlined heart made with the same marker. The note is in sharp focus and its text is perfectly readable. PRODUCT (right-center, about x 52-88% and y 34-90%, base resting on the counter at about y 88%): the product from the attached image standing upright on the kitchen counter, slightly in front of the fridge door, in front view with its label facing the camera, sharp, about 50-56% of the canvas height: a small cylindrical supplement bottle with a glossy black body, about twice as tall as it is wide, with rounded shoulders, a wide hot-pink ribbed screw cap printed with small white 'VITALABH' logos, a solid pink band around the very bottom, and a black wraparound label with a very large bold white 'AGUAJE', 'COMPLEX' in bold white followed by '3 EN 1' in pink, a thin pink strip with tiny white text, bold italic pink-red 'TRIPLE ACCIÓN' with a pink swoosh underline, three small rounded pink-outlined dosage boxes joined by white plus signs, and a small white bottom line. Use the attached product image as the only source of truth for the bottle and its label; do not redesign, replace or reinterpret it. Ignore the hand, the speckled floor and the video player bar visible in the attached photo: show only the bottle, with no hand. Only one bottle, with a soft contact shadow on the counter and clean natural highlights on its glossy black body. Note and bottle are close to each other and read as one scene; both are in sharp focus while the rest of the kitchen is softly blurred. Keep 5-6% margins around the note and the bottle. No people, no hands, no other notes or papers, no magnets with text, no loose capsules, no buttons, no badges, no icons, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- handwritten note message (On the sticky note, upper and middle area of the note): "2 cápsulas al día con tus comidas" — Handwritten felt-tip marker lettering, casual but clearly legible (print style, not cursive), near-black ink #0D0D0F, letters about 5% of the canvas height, centered on the note, exactly 3 short lines broken as: '2 cápsulas' / 'al día con' / 'tus comidas', filling about 70% of the note
+- sign-off (Bottom-right corner of the sticky note): "— Yo" — Same marker handwriting, smaller (about 3% of the canvas height), 1 line, right-aligned, near-black ink, preceded by a short handwritten dash
+
+BRAND IDENTITY:
+- color_palette: Primary: deep glossy black #0D0D0F and hot pink #E8327C. Secondary: soft pink #F58FB8, blush cream #FCE7EF and pure white #FFFFFF. Accents: raspberry red #D81B60 and warm aguaje orange #F2A33A (only in the fruit and warm light).
+- text_typography: Poppins Bold for headlines and Poppins Regular for the rest of the text. Exception for this variation: the only visible text is handwritten felt-tip marker lettering on the sticky note, as the format requires.
+
+MANDATORY ELEMENTS:
+- One square pastel pink sticky note with a handwritten marker message, slightly tilted and curled, stuck on the fridge door
+- One small hand-drawn heart on the note
+- The user's product, sharp, standing on the kitchen counter right next to the note
+- Real home kitchen with natural morning window light and a softly blurred background with pink and black details
+
+STRICT EXCLUSIONS:
+- Do not show the hand, the floor or the video player bar from the attached product photo.
+- Do not show people or hands.
+- Do not show more than one bottle.
+- Do not add more than one sticky note, nor other paper notes, magnets with text or printed labels.
+- Do not add more than one doodle on the note.
+- Do not add typed or graphic text: the only text outside the product label is the handwriting on the sticky note.
+- Do not use a studio backdrop or a flat brand-colored background.
+- Do not add logos or brand marks outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Graphic headline or typed text overlays
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonial cards
+- Do not add: Benefit list or icons
+- Do not add: Additional sticky notes, paper notes, fridge magnets with text or printed labels
+- Do not add: People or hands
+- Do not add: Studio seamless backdrop or flat brand-colored background
+- Do not add: Bottom bar, banner or graphic frame
+- Do not add: Logos or brand marks
+- Do not add: Cluttered props that compete with the product
+- Do not add: Loose capsules, food or ingredients on the counter
+- Do not add: More than one product unit
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
