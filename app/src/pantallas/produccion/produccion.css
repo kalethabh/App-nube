@@ -2059,6 +2059,17 @@ button.prod-registro__boton:hover {
 .prod-causa__titulo { margin-top: 4px; font-size: var(--t-mini); text-transform: uppercase; letter-spacing: 0.04em; }
 .prod-causa__hacer { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
 
+/* Una imagen rechazada por su contenido: su descripción, para cambiarla y seguir (Lateral.jsx: RechazoImagen). */
+.prod-rechazo { display: flex; flex-direction: column; gap: 8px; margin-top: var(--e-2); padding: var(--e-3); border-radius: var(--r-m); background: rgba(0, 0, 0, 0.25); font-size: var(--t-chico); color: var(--texto-2); }
+.prod-rechazo p { margin: 0; }
+.prod-rechazo__linea { color: var(--texto-3); font-size: var(--t-mini); }
+.prod-rechazo__texto { width: 100%; box-sizing: border-box; min-height: 120px; resize: vertical; padding: 10px; border-radius: var(--r-m); border: 1px solid var(--borde-2); background: rgba(0, 0, 0, 0.3); color: var(--texto-1); font: inherit; font-size: var(--t-mini); line-height: 1.5; }
+.prod-rechazo__texto:focus-visible { outline: 2px solid var(--acento); outline-offset: 1px; }
+.prod-rechazo__nota { font-size: var(--t-mini); color: var(--texto-3); }
+.prod-rechazo__nota--ok { color: var(--texto-1); }
+.prod-rechazo__nota--error { color: var(--error, #ff6b6b); }
+.prod-rechazo__acciones { display: flex; flex-wrap: wrap; gap: 8px; }
+
 
 /* Funciones nuevas de revisión, regeneración y descarga; conserva el diseño Kads. */
 .prod-panel__antes-nota {
