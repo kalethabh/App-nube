@@ -701,194 +701,258 @@
         "de": 1,
         "a": 2,
         "ventana": 5.54,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "entrar",
+        "prompt_video": "Image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: the translucent frosted pale-blue glass torso bust seen from the front in the clean light studio, in Semi-3D soft plastic-like animation style, with the gray stone of its lungs crumbled into chunks, the light-blue bronchial branches showing through the gaps and broken stone around its base. The camera pushes in toward the ringed windpipe at the center of the chest, passes through the frosted glass and enters the windpipe, which becomes a wide tunnel of smooth glossy pink ringed walls in Pixar-Disney style 3D animation, with thick shiny yellow-brown phlegm hanging from the walls. It slows down and comes to rest on the END frame: the view from inside the pink windpipe, heavy sheets and long sticky strands of yellow-brown phlegm peeling from the walls and dripping, a dark opening deep at the center.\nLighting: from flat, even, clean studio light to warm cinematic glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 2,
         "a": 3,
         "ventana": 4.6,
-        "duracion": 5
+        "duracion": 5,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 5s. Vertical 9:16.\nIt starts exactly on the START frame: the view from inside a windpipe, a wide tunnel of smooth glossy pink ringed walls, with thick yellow-brown phlegm peeling from the walls in heavy sheets and long sticky strands that drip toward the bottom, a dark opening deep at the center. The phlegm drips slowly in heavy glossy strands. The camera travels forward down the tunnel, passing between the hanging strands toward the dark opening; deeper in, the wet phlegm is left behind and the pink wall on the left carries an old thick layer of dull amber-yellow goo, like hardened resin, covered with fine gray dust and tiny cobwebs. It slows down and comes to rest on the END frame: the pink ringed tunnel with the old dusty amber layer clinging to the left wall and the dark opening at the center.\nLighting: warm cinematic glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 3,
         "a": 4,
         "ventana": 4.71,
-        "duracion": 5
+        "duracion": 5,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 5s. Vertical 9:16.\nIt starts exactly on the START frame: the view from inside a windpipe with smooth glossy pink ringed walls, an old thick layer of dull amber-yellow goo covered with fine gray dust and tiny cobwebs clinging to the left wall, a dark opening at the center. Fine dust floats and the tiny cobwebs sway gently. The camera keeps traveling forward past the old amber layer and into the dark opening; as it goes deeper, the rippled walls turn an intense glossy gold and amber, thick black sooty layers and dark crusty patches appear stuck all along them, and thin wisps of gray smoke hang in the air. It slows down and comes to rest on the END frame: the golden bronchial tunnel with black sooty crusts on its walls, gray smoke wisps and a small dark opening far away at the center.\nLighting: from warm cinematic glow to warm golden glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 4,
         "a": 5,
         "ventana": 3.58,
-        "duracion": 4
+        "duracion": 4,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 4s. Vertical 9:16.\nIt starts exactly on the START frame: the view down a bronchial tunnel with rippled walls in intense glossy gold and amber, thick black sooty layers and dark crusty patches stuck along the walls, thin wisps of gray smoke in the air and a small dark opening far away at the center. The smoke wisps drift and the black layers glisten. The camera travels steadily forward down the tunnel; the smoke clears, the walls ahead turn an intense glossy red and pink, and the black sooty layers start to lift off the walls in large flakes and curled pieces that hang half detached and float toward the center. It slows down and comes to rest on the END frame: the red and pink ringed tunnel with black flakes coming loose and floating in the air, a dark round opening at the center.\nLighting: from warm golden glow to warm red cinematic glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 5,
         "a": 6,
         "ventana": 2.27,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "salir",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: the view down a bronchial tunnel with intense glossy red and pink ringed walls, black sooty layers coming loose in large flakes that float toward the center, a dark round opening at the center. The black flakes peel off and drift toward the camera. The camera pulls back quickly out of the tunnel: the red walls get smaller and are covered by a white handkerchief pressed against a mouth, and the camera keeps pulling back until Gloria is in frame from the waist up, sitting slightly hunched on the fabric sofa of her living room in her gray wool cardigan. It slows down and comes to rest on the END frame: Gloria coughing into the white handkerchief with her eyes squeezed shut and her other hand on her chest, a houseplant and the window behind her.\nLighting: from warm red cinematic glow to warm natural window light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 6,
         "a": 7,
         "ventana": 1.66,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: Gloria sitting slightly hunched on the fabric sofa of her living room, in her gray wool cardigan, covering her mouth with a white handkerchief as she coughs, eyes squeezed shut, her other hand on her chest. She coughs once more, lowers the handkerchief and lays it open on the sofa cushion beside her. The camera follows the handkerchief down and tilts until it looks at it from above, while Gloria and her hand leave the frame. It slows down and comes to rest on the END frame: an overhead view of the white cloth handkerchief lying open and slightly wrinkled on the gray sofa cushion, with a small thick glossy blob of dark yellow phlegm in its middle, no face and no hands in frame.\nLighting: from warm natural window light to soft warm daylight\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 7,
         "a": 8,
         "ventana": 2.3,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "entrar",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: an overhead view of a white cloth handkerchief lying open on the gray sofa cushion, with a small thick glossy blob of dark yellow phlegm in its middle. The blob settles a little on the cloth. The camera pushes straight down into the blob until its glossy yellow fills the frame, goes through it and comes out inside a clean airway tunnel of glossy intense red concentric rings, perfectly clear of any residue, where a beam of electric blue-white light with tiny bright particles runs through the center to the far end. It slows down and comes to rest on the END frame: the view down the clean red ringed tunnel with the blue-white beam running from the lower left to the bright far end.\nLighting: from soft warm daylight to electric blue glow against saturated red\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 8,
         "a": 9,
         "ventana": 3.39,
-        "duracion": 4
+        "duracion": 4,
+        "forma": "salir",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 4s. Vertical 9:16.\nIt starts exactly on the START frame: the view down a clean airway tunnel of glossy intense red concentric rings, with a beam of electric blue-white light and tiny bright particles running through its center to the far end. The beam pulses softly. The camera pulls back out of the tunnel: the red rings get smaller and darker until they are the round mouth of a plain brown syrup bottle tilted in an adult hand, the blue light dims away, and thick glossy pink cough syrup pours out of that mouth into a metal spoon held by another adult hand, while the camera keeps pulling back into a warm kitchen with a tiled wall. It slows down and comes to rest on the END frame: a close-up over the kitchen counter, the hand tilting the brown syrup bottle with a blank label, the pink syrup pouring into the almost full spoon, only hands and forearms visible.\nLighting: from electric blue glow against saturated red to warm natural kitchen light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen; the label on the syrup bottle stays blank."
       },
       {
         "de": 9,
         "a": 10,
         "ventana": 3.67,
-        "duracion": 4
+        "duracion": 4,
+        "forma": "transformar",
+        "prompt_video": "Image-to-video from the START frame to the END frame, 4s. Vertical 9:16.\nIt starts exactly on the START frame: a close-up over a kitchen counter in Pixar-Disney style 3D animation, an adult hand tilting a plain brown syrup bottle with a blank label and pouring thick glossy pink cough syrup into a metal spoon held by another adult hand. The pink syrup overflows the spoon and drips. The camera pushes in on the falling stream of syrup until it runs down the center of the frame; the stream thickens and reddens into a swollen, narrow, intense red airway channel, the hands and the kitchen drop out of frame, and as the camera pulls back the red channel is seen running from the nose through the throat and down into the upper chest of a bust of an adult man made of smooth matte light-gray soft plastic, in Semi-3D soft plastic-like animation style, in a clean light studio. It slows down and comes to rest on the END frame: the gray bust in exact side profile facing left, eyes closed, face tense, with the red airway channel visible inside, resting on the studio floor.\nLighting: from warm natural kitchen light to flat, even, clean studio light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 10,
         "a": 11,
         "ventana": 5.29,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "rodear",
+        "prompt_video": "Image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: a bust of an adult man made of smooth matte light-gray soft plastic, in Semi-3D soft plastic-like animation style, in exact side profile facing left in a clean light studio, eyes closed, face relaxed, lips slightly parted, his airway channel a calm pale silver-gray, wide and open. The camera circles around the bust toward its front; during the turn the gray figure passes behind the edge of a plain curtain, and when the camera reaches the front it is Gloria, in Pixar-Disney style 3D animation shown entirely in black and white, standing by the window of her living room where the studio backdrop was. It slows down and comes to rest on the END frame: Gloria in black and white, framed from the waist up and facing the camera, in her gray wool cardigan, slightly hunched, one hand pressed flat on her chest, brow furrowed, breathing through her mouth, the curtain and the window behind her.\nLighting: from flat, even, clean studio light to cold gray light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 11,
         "a": 12,
         "ventana": 4.33,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: Gloria in full warm color on the small balcony of her apartment, in a mustard-yellow blouse, both arms open wide, eyes closed with a calm smile, green potted plants and the sunny city behind her. Gloria lowers her arms, turns and walks indoors, and the camera follows her in one smooth move into her bedroom; as she goes in, the daylight drops to night and the color drains out of the picture until it is black and white, and she sits down on the edge of her bed, now in her gray wool cardigan, beside the nightstand with the lit bedside lamp. It slows down and comes to rest on the END frame: Gloria in black and white, sitting on the edge of the bed at night, coughing into her closed fist with her other hand on her chest, the small lamp switched on and a glass of water on the wooden nightstand.\nLighting: from warm golden sunlight to cold lamp light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 12,
         "a": 13,
         "ventana": 4.03,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: morning in the bedroom in full warm color, Gloria deeply asleep on her side with her head on the pillow, covered up to her shoulders with a thick woven terracotta and yellow blanket, the bedside lamp switched off, golden light coming through the curtain of the window on the left. The camera lifts away from the bed and travels to the window on the left, goes through the light curtain and out into the morning air, and comes down onto the path of a neighborhood park with trees, grass and a green metal fence, where an adult Colombian man, 62 years old, with short gray hair, in a light blue sweatshirt and dark jogging pants, jogs gently toward the camera. It slows down and comes to rest on the END frame: the 62-year-old man framed from the knees up, jogging toward the camera on the park path with a slight smile, trees and mountains behind him.\nLighting: from soft golden morning light to warm morning daylight\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 13,
         "a": 14,
         "ventana": 3.69,
-        "duracion": 4
+        "duracion": 4,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 4s. Vertical 9:16.\nIt starts exactly on the START frame: an adult Colombian man, 62 years old, with short gray hair, in a light blue sweatshirt and dark jogging pants, jogging gently toward the camera on the path of a neighborhood park, framed from the knees up, trees and a green metal fence around him. He jogs on with a steady rhythm and passes out of frame to one side. The camera keeps traveling backward, away from the park and in through the open window of an apartment; as it comes indoors the color drains out of the picture until it is black and white, the park outside becomes a gray city view behind a plain curtain, and the camera pulls back across a living room until a whole fabric sofa is in frame. It slows down and comes to rest on the END frame: Gloria in black and white, in her gray wool cardigan, slumped sideways on the sofa with no energy, head resting on the armrest, eyes half closed, one arm hanging off the sofa, the window behind her and a coffee table in the foreground.\nLighting: from warm morning daylight to cold flat gray light, black and white\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 14,
         "a": 15,
         "ventana": 2.08,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: Gloria in black and white, in her gray wool cardigan, slumped sideways on the fabric sofa of her living room, head resting on the armrest, eyes half closed, one arm hanging off the sofa. She sighs, pushes herself up from the sofa and walks toward the camera; as she walks, color returns to the picture, the camera drops low in front of her, the living room walls open onto a steep concrete staircase between colorful brick houses under a bright sunny sky, and she keeps climbing toward the camera, now in a pink sweatshirt, with a cloth grocery bag of vegetables in one hand. It slows down and comes to rest on the END frame: Gloria in full warm color, seen from a few steps below and from the front with her whole body in frame, climbing the stairs with an upright posture and a happy determined face, the hillside neighborhood behind her.\nLighting: from cold flat gray light, black and white, to warm bright sunlight\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 15,
         "a": 16,
         "ventana": 3.02,
-        "duracion": 4
+        "duracion": 4,
+        "forma": "entrar",
+        "prompt_video": "Image-to-video from the START frame to the END frame, 4s. Vertical 9:16.\nIt starts exactly on the START frame: Gloria in Pixar-Disney style 3D animation, in a pink sweatshirt, climbing a steep concrete staircase between colorful brick houses on a sunny day, a cloth grocery bag of vegetables in one hand, seen from a few steps below with her whole body in frame. She climbs two firm steps toward the camera, smiling. The camera rises to her chest and pushes in until the pink sweatshirt fills the frame, goes through the fabric and finds, inside, a pair of lungs made of translucent pale frosted material joined at the top by a short windpipe, in Semi-3D soft plastic-like animation style; the camera pulls back a little and the lungs stand upright in a clean light studio. It slows down and comes to rest on the END frame: the pale lungs model centered in the plain light studio, dim and unlit inside, its bronchial branches a dull flat gray, resting on the floor with a soft contact shadow.\nLighting: from warm bright sunlight to flat, even, clean studio light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 16,
         "a": 17,
         "ventana": 3.95,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "salir",
+        "prompt_video": "Image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: a pair of lungs made of translucent pale frosted material, in Semi-3D soft plastic-like animation style, standing upright in a clean light studio, full and inflated, lit from the inside with an intense orange-golden light, their bronchial branches bright like golden veins. The camera pulls back: the lungs get smaller and settle inside the chest of the adult 40-year-old Colombian man with the trimmed dark beard, in Pixar-Disney style 3D animation, their golden light dimming under his gray t-shirt and dark blue jacket, while the studio backdrop around him becomes the inside of his parked car, seen through the windshield from the front. It slows down and comes to rest on the END frame: the man sitting in the driver seat, framed from the chest up, eyes closed, head slightly back against the headrest, hands on his lap, bright daylight in the car windows and a quiet street behind.\nLighting: from flat, even, clean studio light to bright warm daylight\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 17,
         "a": 18,
         "ventana": 4.6,
-        "duracion": 5
+        "duracion": 5,
+        "forma": "transformar",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 5s. Vertical 9:16.\nIt starts exactly on the START frame: the adult 40-year-old Colombian man with the trimmed dark beard sitting in the driver seat of his parked car, framed from the chest up through the windshield, eyes closed, head slightly back against the headrest, in his dark blue jacket and gray t-shirt. He breathes in deeply through his nose, opens his eyes and gives a small half smile. The camera pushes slowly toward his neck and upper chest and drops lower to look up at him; as it gets close, the skin and the clothes turn into smooth matte lavender-gray material and show the windpipe and the lungs inside, narrowed and glowing intense red, the car interior clears away into a soft lilac backdrop, and the figure is now a stylized adult woman in her fifties with gray hair. It slows down and comes to rest on the END frame: the lavender-gray woman seen from below, from the shoulders up, her face strained, brows pulled together and mouth open as she breathes with effort, the red airways glowing in her throat and upper chest against the lilac background.\nLighting: from bright warm daylight to dramatic colorful glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 18,
         "a": 19,
         "ventana": 2.01,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "rodear",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: a stylized adult woman in her fifties made of smooth matte lavender-gray material, seen from below from the shoulders up against a soft lilac background, her face strained and mouth open, her throat and upper chest glowing intense red where the narrowed airways show through. She breathes in with effort and her shoulders lift. The camera rises from her chest along her throat to her head while circling to her side; during the turn the lilac background darkens to deep blue, her head becomes a translucent blue outline with the brain visible inside, glowing pink and electric blue, and a thick orange haze gathers and swirls around it. It slows down and comes to rest on the END frame: the translucent blue head in side profile facing right, the glowing brain inside wrapped in slow swirling orange haze, dark blue background.\nLighting: from dramatic colorful glow to electric blue and orange glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 19,
         "a": 20,
         "ventana": 1.68,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "rodear",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: a translucent blue head in side profile facing right on a dark blue background, with a stylized brain glowing pink and electric blue inside it, wrapped in a thick slow swirling orange haze. The orange haze swirls and thins out. The camera circles from the side of the head to the front and moves down from the head to the chest; during the turn the blue figure gains warm skin, short dark hair and light stubble and becomes an adult Colombian man in his mid thirties in a plain white sleeveless undershirt, the dark background brightens into a simple bedroom with white curtains, and he sits on the edge of his bed with one hand pressed on the center of his chest. It slows down and comes to rest on the END frame: the man framed from the waist up from the front, sitting on the edge of the bed, hand on his chest, face tight with discomfort, looking down, soft morning light from the window.\nLighting: from electric blue and orange glow to soft morning light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 20,
         "a": 21,
         "ventana": 1.81,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "entrar",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: an adult Colombian man in his mid thirties with short dark hair and light stubble, in a plain white sleeveless undershirt, sitting on the edge of his bed in a bright bedroom, one hand pressed on the center of his chest, face tight with discomfort, looking down. He rubs his chest slowly with a small wince. The camera pushes in toward the center of his chest, just beside his hand, goes through the white undershirt and enters a bronchial tube with glossy pink-red walls, completely plugged at the center by a big mass of thick shiny yellow phlegm mixed with small dark round pellets. It slows down and comes to rest on the END frame: the macro view inside the pink-red tube with the yellow plug filling the center, thin strands of phlegm stretching to the walls and no space for the air to pass.\nLighting: from soft morning light to warm cinematic glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 21,
         "a": 22,
         "ventana": 4.2,
-        "duracion": 5
+        "duracion": 5,
+        "forma": "salir",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 5s. Vertical 9:16.\nIt starts exactly on the START frame: the macro view inside a bronchial tube with glossy pink-red walls, completely plugged at the center by a big mass of thick shiny yellow phlegm mixed with small dark round pellets, thin strands stretching to the walls. The yellow plug wobbles and pulses slightly. The camera pulls back slowly: the yellow mass gets smaller and becomes the thick yellow stew inside a big blackened pot, the pink-red walls around it darken into the round black rim of the pot, gray smoke rises past the lens, and the camera keeps pulling back and tilting up into a rustic countryside kitchen where an adult Colombian woman, 60 years old, with gray hair tied back, in a simple floral apron over a blouse, stirs the pot with a wooden spoon over a wood fire. It slows down and comes to rest on the END frame: the 60-year-old woman framed from the waist up, stirring the big blackened pot over the wood-burning stove, gray smoke drifting around her face, daylight coming through a small window.\nLighting: from warm cinematic glow to warm firelight and window light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 22,
         "a": 23,
         "ventana": 1.47,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: an adult Colombian woman, 60 years old, with gray hair tied back, in a simple floral apron, stirring a big blackened pot with a wooden spoon over a wood-burning stove in a rustic countryside kitchen, gray smoke rising from the fire around her face. She stirs the pot as the gray smoke rises. The smoke thickens and drifts across the lens, turning dark gray, and the camera moves forward through it; on the other side the smoke is the exhaust of a city bus with no logos and no lettering passing on a busy city street, and the adult 40-year-old Colombian man with the trimmed dark beard stands at a simple bus stop in his dark blue jacket with a backpack on one shoulder. It slows down and comes to rest on the END frame: the man framed from the knees up from the front, squinting and turning his face slightly away, waving one hand at the thick cloud of dark gray exhaust that drifts over him from the bus behind.\nLighting: from warm firelight and window light to soft overcast daylight\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 23,
         "a": 24,
         "ventana": 1.72,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: the adult 40-year-old Colombian man with the trimmed dark beard standing at a simple bus stop on a busy city street, in his dark blue jacket with a backpack on one shoulder, squinting and waving one hand at the thick cloud of dark gray exhaust left by the city bus passing behind him. The bus pulls away and the gray exhaust rolls over him and across the lens. The camera moves forward through the gray cloud; it thins out into the light steam rising from a ceramic mug, and behind it appears Gloria, sitting on her fabric sofa in her living room, wrapped in a thick knitted blanket over her gray wool cardigan. It slows down and comes to rest on the END frame: Gloria framed from the waist up from the front, tired dark circles under her eyes, holding the steaming ceramic mug in one hand and covering a cough with the fist of her other hand, soft gray daylight from the window behind her.\nLighting: from soft overcast daylight to soft window light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 24,
         "a": 25,
         "ventana": 2.23,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: Gloria sitting on her fabric sofa wrapped in a thick knitted blanket over her gray wool cardigan, holding a steaming ceramic mug in one hand and covering a cough with the fist of her other hand, framed from the waist up, a wooden table edge in the foreground. She coughs into her fist and her shoulders shake under the blanket. The camera lowers past the blanket to the wooden table in front of her and moves in along its surface toward the window, leaving Gloria out of frame; on the table stands the closed dropper bottle, a round amber-brown glass bottle with a black dropper cap and a dark green label, with a few dried velvety gray-green mullein leaves beside it, and the window light turns warm and golden. It slows down and comes to rest on the END frame: the closed dropper bottle standing in the center of the rustic wooden table next to the window, facing the camera with its dark green label to the front, the dried mullein leaves lying on the wood beside it.\nLighting: from soft window light to warm late-afternoon glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen; the bottle keeps its shape and its dark green label stays as it is, readable and never mirrored."
       },
       {
         "de": 25,
         "a": 26,
         "ventana": 4.78,
-        "duracion": 5
+        "duracion": 5,
+        "forma": "transformar",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 5s. Vertical 9:16.\nIt starts exactly on the START frame: the closed dropper bottle, a round amber-brown glass bottle with a black dropper cap and a dark green label, standing in the center of a rustic wooden table next to a window in warm late-afternoon light, with dried velvety gray-green mullein leaves lying on the wood beside it. The warm light shifts softly across the bottle, which stays still and closed. The camera glides down to one of the velvety mullein leaves beside the bottle and pushes in on it until the bottle leaves the frame; the leaf lifts off the wood and stands upright in the air, opens two big round shiny friendly eyes and a happy smile and stretches out two small leafy arms, one holding a little leafy broom, while the table and the window behind it turn into soft pink bronchial tubes on a cozy reddish-pink background. It slows down and comes to rest on the END frame: the cute mullein leaf character floating in front of the pink bronchial tubes, one arm raised in a wave and the other sweeping the pink wall with its little broom.\nLighting: from warm late-afternoon glow to warm cinematic glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen; while the bottle is in frame it keeps its shape and its dark green label stays as it is, readable and never mirrored."
       },
       {
         "de": 26,
         "a": 27,
         "ventana": 5.39,
-        "duracion": 6
+        "duracion": 6,
+        "forma": "transformar",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 6s. Vertical 9:16.\nIt starts exactly on the START frame: a cute mullein leaf character, a soft velvety gray-green oval leaf with big round shiny eyes, a happy smile and two small leafy arms, floating in front of soft pink bronchial tubes, one arm raised in a wave and the other sweeping the pink wall with a little leafy broom. The little leaf character waves hello and sweeps the pink wall once more. Then it curls up into a small dark green drop and falls downward; the camera follows the drop down as the pink tubes around it brighten into a clean sunny kitchen, the drop is now falling from a glass dropper with a black rubber bulb that enters from the top of the frame, and it lands in a clear glass of water on a light-colored counter, opening in soft green swirls. It slows down and comes to rest on the END frame: the macro close-up of the dropper releasing dark green drops into the glass of water with green swirls inside, and behind the glass, to the right, the open amber-brown dropper bottle with its dark green label, standing without its cap.\nLighting: from warm cinematic glow to bright clean morning light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen; the bottle keeps its shape and its dark green label stays as it is, readable and never mirrored."
       },
       {
         "de": 27,
         "a": 28,
         "ventana": 4.39,
-        "duracion": 5
+        "duracion": 5,
+        "forma": "entrar",
+        "prompt_video": "Image-to-video from the START frame to the END frame, 5s. Vertical 9:16.\nIt starts exactly on the START frame: a macro close-up in Pixar-Disney style 3D animation of a glass dropper with a black rubber bulb releasing dark green drops into a clear glass of water on a light-colored kitchen counter, the green liquid opening in soft swirls inside the water, and the open amber-brown dropper bottle with its dark green label standing behind to the right. In slow motion the dark green drops fall and open in swirling clouds inside the water. The camera pushes in through the side of the glass and into the green swirls until they fill the frame and the bottle is out of frame; the green thickens into a heavy glossy mass of green-yellow phlegm, and the camera pulls back and rises to show that the mass lies inside a short section of a bronchial tube made of soft pink material with rounded rings, opened lengthwise like an anatomical model, in Semi-3D soft plastic-like animation style, in a clean light studio. It slows down and comes to rest on the END frame: the pink tube section lying on its side on the studio floor, seen from a three-quarter angle slightly above, its inside clogged along its whole length with the thick green-yellow phlegm.\nLighting: from bright clean morning light to flat, even, clean studio light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen; while the bottle is in frame it keeps its shape and its dark green label stays as it is, readable and never mirrored."
       },
       {
         "de": 28,
         "a": 29,
         "ventana": 1.87,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "rodear",
+        "prompt_video": "Semi-3D soft plastic-like animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: a short section of a bronchial tube made of soft pink material with rounded rings, opened lengthwise like an anatomical model, lying on its side on the floor of a clean light studio, seen from a three-quarter angle slightly above, with small loose particles and droplets of green-yellow phlegm scattered on its clean pink walls. The camera swings down and around the tube to its near end until it is level with it and looks straight into its round opening; during the turn the last loose particles roll away and the tube is seen whole and closed, with its rings squeezed close together. It slows down and comes to rest on the END frame: the pink tube seen from the front, looking straight into its round opening, tight and narrow, dim inside with only a small dark hole at the center, resting on the studio floor.\nLighting: flat, even, clean studio light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 29,
         "a": 30,
         "ventana": 1.84,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "recorrer",
+        "prompt_video": "Semi-3D soft plastic-like animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: a short section of a bronchial tube made of soft pink material with rounded rings, seen from the front on the floor of a clean light studio, looking straight into its round opening, wide and fully open, with a bright electric-blue light filling the inside. The camera rises and travels over the tube along its length to its far end while the blue light inside dims; there the tube narrows into a short pink bronchial branch that splits into thin stems holding a cluster of small round translucent bubbles made of soft pale pink material, and the camera comes around to face the cluster. It slows down and comes to rest on the END frame: the cluster of alveoli hanging from the end of the short pink branch, centered in the plain light studio, the bubbles dull, grayish-pink and empty inside, with no light in them.\nLighting: flat, even, clean studio light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen."
       },
       {
         "de": 30,
         "a": 31,
         "ventana": 3.12,
         "duracion": 3,
-        "duracion_propio": 3
+        "duracion_propio": 3,
+        "forma": "salir",
+        "prompt_video": "Image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: a cluster of alveoli in Semi-3D soft plastic-like animation style, round translucent bubbles of soft pink material hanging from a short pink bronchial branch in a clean light studio, plump and healthy, each one filled with many tiny bright blue-white sparkling dots. The camera pulls back: the cluster gets smaller and settles inside the chest of Gloria, in Pixar-Disney style 3D animation, disappearing behind her mustard-yellow blouse, while the studio backdrop around her becomes the small tiled bathroom of her home, with the mirror and the sink beside her. It slows down and comes to rest on the END frame: Gloria framed from the chest up facing the camera, rested, with a calm happy expression, holding a clear glass of water with a faint green tint near her chin in one hand and, in her other hand at chest height, the closed dropper bottle with its dark green label facing the camera.\nLighting: from flat, even, clean studio light to soft warm morning light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen; the bottle keeps its shape and its dark green label stays as it is, readable and never mirrored."
       },
       {
         "de": 31,
         "a": 32,
         "ventana": 2.95,
-        "duracion": 3
+        "duracion": 3,
+        "forma": "entorno",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 3s. Vertical 9:16.\nIt starts exactly on the START frame: Gloria in a mustard-yellow blouse, standing in the small tiled bathroom of her home, framed from the chest up facing the camera with a calm happy expression, a clear glass of water with a faint green tint in one hand near her chin and the closed dropper bottle with its dark green label in her other hand at chest height. She takes a sip, sets the glass down out of frame and passes the closed bottle to her other hand, keeping its label toward the camera. Gloria stays sharp and centered while she sits down at a wooden table, and the soft bathroom behind her becomes her kitchen, with patterned tiled walls and warm light from a window at her side; her empty hand rises beside the bottle with the index finger pointing straight down. It slows down and comes to rest on the END frame: Gloria sitting at the wooden kitchen table, looking into the camera with a warm knowing smile, holding the closed dropper bottle at chest height on the left of the frame and pointing down with her other hand.\nLighting: from soft warm morning light to warm window light\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen; the bottle keeps its shape and its dark green label stays as it is, readable and never mirrored."
       },
       {
         "de": 32,
         "a": 33,
         "ventana": 6.57,
-        "duracion": 7
+        "duracion": 7,
+        "forma": "recorrer",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the START frame to the END frame, 7s. Vertical 9:16.\nIt starts exactly on the START frame: Gloria in a mustard-yellow blouse, sitting at the wooden table of her kitchen, looking into the camera with a warm knowing smile, holding the closed dropper bottle with its dark green label at chest height in one hand and pointing straight down with the index finger of her other hand. She nods warmly at the camera with her mouth closed in a smile and points down once more. Then she lowers the closed bottle and stands it on the wooden table in front of her, label toward the camera, and takes her hands away; the camera follows the bottle down to the level of the table and moves in on it, leaving Gloria out of frame, while the window light behind the bottle turns to a golden evening glow and dried velvety gray-green mullein leaves lie on the wood around its base. It slows down and comes to rest on the END frame: the closed dropper bottle standing in the center of the wooden table by the window, facing the camera with its dark green label to the front, the mullein leaves around its base and golden evening light glowing behind it.\nLighting: from warm window light to warm golden evening glow\nOne continuous shot, no cuts or wipes. No glowing lines, light streaks or magic effects. No captions, subtitles or added text on screen; the bottle keeps its shape and its dark green label stays as it is, readable and never mirrored."
       }
     ],
     "cierre": {
