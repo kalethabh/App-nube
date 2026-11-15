@@ -92,7 +92,10 @@ export function verificarPlan(carpeta, brief) {
   const { datos, errores } = leerConEsquema(R.plan(carpeta), 'imagen-ads-plan');
   if (!datos) return { datos, errores };
   const n = Number(brief?.cantidad) || 0;
-  const k = Math.min(n, (brief?.referencias || []).length);
+  const subidas = (brief?.referencias || []).length;
+  // «más de lo mismo» (brief.fiel): TODAS salen de las referencias, repartidas en orden (V01 = R01, V02 = R02, … y vuelve a R01)
+  const todas = Boolean(brief?.fiel && subidas);
+  const k = todas ? n : Math.min(n, subidas);
   const ids = idsDelLote(n);
   if (datos.cantidad !== n) errores.push(`plan.json → cantidad: tiene que ser ${n}`);
   const vs = Array.isArray(datos.variaciones) ? datos.variaciones : [];
@@ -103,10 +106,10 @@ export function verificarPlan(carpeta, brief) {
     if (x?.id !== ids[i]) errores.push(`${donde}.id: tiene que ser "${ids[i] || '?'}" (van de ${ids[0]} a ${ids[ids.length - 1]}, en orden)`);
     if (!RE_V.test(String(x?.id || ''))) return;
     if (i < k) {
-      if (x.fuente !== 'referencia') errores.push(`${donde}.fuente: las primeras ${k} salen de las referencias ("referencia")`);
+      if (x.fuente !== 'referencia') errores.push(`${donde}.fuente: ${todas ? 'en este lote todas' : `las primeras ${k}`} salen de las referencias ("referencia")`);
       const ref = String(x.referencia || '').replace(/\\/g, '/');
-      const esperada = (brief.referencias || [])[i];
-      const enRefs = /(^|\/)entrada\/referencias\/R\d{2}\.[a-z]+$/i.test(ref);
+      const esperada = (brief.referencias || [])[todas ? i % subidas : i];
+      const enRefs = /(^|\/)entrada\/referencias\/R\d{2}\.[a-z]+$/i.test(ref) && (!todas || path.basename(ref) === path.basename(esperada));
       if (!enRefs || !existe(path.join(carpeta, ref.replace(/^.*?(entrada\/referencias\/)/i, '$1')))) {
         errores.push(`${donde}.referencia: tiene que ser la ruta de su imagen de entrada/referencias/ (${esperada || 'R01…'})`);
       }

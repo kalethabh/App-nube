@@ -1,6 +1,6 @@
 <!-- Tarea "imagen-ads-estrategia" (Anuncios de imagen). Marcas que llena lib/imagen-ads/sesiones.js:
      {{lote}} {{datos}} {{cantidad}} {{proporciones}} {{angulo}} {{foto}} {{ficha}} {{referencias}} {{anterior}}
-     {{usados}} {{ids}} {{ultimo}} {{partes}} {{logo}} -->
+     {{usados}} {{ids}} {{ultimo}} {{partes}} {{logo}} {{fiel}} {{investigacion}} -->
 TAREA: imagen-ads-estrategia
 Carpeta del lote: temp/{{lote}}
 Lee y sigue `.claude/skills/anuncios-imagen-ads/SKILL.md` (léelo entero antes de escribir nada), y su `angulos.json` y su `formatos/indice.json`.
@@ -25,6 +25,10 @@ Lee y sigue `.claude/skills/anuncios-imagen-ads/SKILL.md` (léelo entero antes d
 {{usados}}
 {{logo}}
 
+{{fiel}}
+
+{{investigacion}}
+
 ## Qué escribir
 1. `temp/{{lote}}/producto.json` (PASO 2, con el formato de la skill).
 2. `temp/{{lote}}/estrategia.json`: lo que verá el usuario, en español sencillo (formato abajo).
@@ -35,5 +39,6 @@ Si falta un dato que la skill prohíbe inventar y sin él no hay anuncio, escrib
 
 ## estrategia.json
 { "resumen": "dos o tres frases", "paleta": [{ "hex": "#1E3A8A", "nombre": "Azul noche" }],
-  "tipografia": "…", "estilo": "…", "beneficios": ["", "", "", ""], "caracteristicas": ["", "", "", ""] }
+  "tipografia": "…", "estilo": "…", "beneficios": ["", "", "", ""], "caracteristicas": ["", "", "", ""],
+  "deseo_central": "…", "beneficio_principal": "…", "puntos_dolor": ["", "", ""] }
 La paleta lleva de 2 a 8 colores, cada uno con su `hex` de 6 cifras (#RRGGBB) y un nombre corto.

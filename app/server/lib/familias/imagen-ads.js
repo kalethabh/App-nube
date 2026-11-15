@@ -156,6 +156,8 @@ async function preparar(ctx) {
     producto: fotoDelLote(c),
     formatos: b.formatos,
     logo: b.logo?.posicion ? { posicion: b.logo.posicion } : null,
+    // «más de lo mismo»: el modelo de imagen recibe también la referencia de cada variación (generar-imagen-ads.js)
+    fiel: Boolean(b.fiel && (b.referencias || []).length),
   });
   return { ok: true };
 }

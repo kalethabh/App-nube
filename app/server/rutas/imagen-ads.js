@@ -8,6 +8,13 @@
 // POST   /api/imagen-ads                             crea el borrador -> 201 { lote, brief }
 // PUT    /api/imagen-ads/:lote/referencias/:n        una referencia (binario; n de 1 a 10; solo en borrador)
 // DELETE /api/imagen-ads/:lote/referencias/:n
+// PUT    /api/imagen-ads/:lote/investigacion         la investigación de mercado (texto pegado, .txt, .md, .docx o .pdf;
+//                                                    solo en borrador) -> { tipo: 'texto'|'pdf', caracteres }
+// DELETE /api/imagen-ads/:lote/investigacion
+// GET    /api/imagen-ads/biblioteca                  { referencias: [{ id, url, miniatura, fecha }] }: tu biblioteca de
+//                                                    referencias (cada una que subes a un lote queda guardada sola)
+// POST   /api/imagen-ads/biblioteca                  guarda una imagen (binario) -> { id, nueva }
+// DELETE /api/imagen-ads/biblioteca/:id
 // PUT    /api/imagen-ads/:lote/logo                  el logo (binario). En un lote ya hecho cambia el archivo (misma posicion)
 // DELETE /api/imagen-ads/:lote/logo
 // POST   /api/imagen-ads/:lote/generar               arranca con costoMaximoConfirmado del formulario
@@ -43,6 +50,7 @@ import { prepararZip, enviarZip } from '../lib/imagen-ads/zip.js';
 import { estadoDelTurno } from '../lib/imagen-ads/turno-claude.js';
 import { costoDeImagenAds } from '../lib/costo-estimado.js';
 import { costoMaximoDeLaAccion, costoAprobado } from '../lib/imagen-ads/costo.js';
+import * as biblioteca from '../lib/imagen-ads/biblioteca-referencias.js';
 
 // ---------------------------------------------------------------- utilidades
 
@@ -177,6 +185,28 @@ export default function rutasImagenAds(app) {
 
   app.get('/api/imagen-ads/productos', (req, res) => res.set('Cache-Control', 'no-store').json({ productos: lotes.productosConFoto() }));
 
+  // ------------------------------------------------------------ tu biblioteca de referencias
+  app.get('/api/imagen-ads/biblioteca', (req, res) => res.set('Cache-Control', 'no-store').json({ referencias: biblioteca.listar() }));
+
+  app.post('/api/imagen-ads/biblioteca', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const bytes = Buffer.isBuffer(req.body) ? req.body : null;
+    if (!bytes?.length) throw new ErrorApp(400, 'No llegó ninguna imagen.');
+    const formato = formatoDeBytes(bytes);
+    if (!formato) throw new ErrorApp(400, 'Eso no parece una imagen. Sube una JPG, PNG o WEBP.');
+    const dir = path.join(biblioteca.DIR_REFERENCIAS, '.subiendo');
+    const abs = await local.normalizarImagen(bytes, path.join(dir, `r-${process.pid}-${Date.now()}`), formato);
+    try {
+      res.status(201).json(biblioteca.guardar(abs));
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }));
+
+  app.delete('/api/imagen-ads/biblioteca/:id', soloDesdeLaApp, conErrores((req, res) => {
+    if (!biblioteca.borrar(req.params.id)) throw new ErrorApp(404, 'Esa referencia ya no está en tu biblioteca.');
+    res.json({ ok: true });
+  }));
+
   app.get('/api/imagen-ads', (req, res) => {
     const t = estadoDelTurno();
     res.set('Cache-Control', 'no-store').json({ lotes: lotes.listarLotes(), sesionesDeLotes: { ahora: t.enCurso, maximo: t.maximo } });
@@ -202,6 +232,12 @@ export default function rutasImagenAds(app) {
     const otras = (brief.referencias || []).filter((r) => !path.basename(r).startsWith(`${nombre}.`));
     brief.referencias = [...otras, rel].sort((a, b) => Number(path.basename(a).slice(1, 3)) - Number(path.basename(b).slice(1, 3)));
     guardarBrief(carpeta, brief);
+    // queda también en tu biblioteca de referencias, para usarla con otros productos
+    try {
+      biblioteca.guardar(abs);
+    } catch {
+      /* si no se pudo guardar en la biblioteca, el lote sigue igual */
+    }
     res.json({ n, url: `/archivos/imagen-ads/${encodeURIComponent(lote)}/${rel}?v=${firma(abs)}` });
   }));
 
@@ -211,6 +247,32 @@ export default function rutasImagenAds(app) {
     const nombre = `R${String(Number(req.params.n) || 0).padStart(2, '0')}`;
     for (const x of listar(R.referencias(carpeta))) if (x.startsWith(`${nombre}.`)) fs.rmSync(path.join(R.referencias(carpeta), x), { force: true });
     brief.referencias = (brief.referencias || []).filter((r) => !path.basename(r).startsWith(`${nombre}.`));
+    guardarBrief(carpeta, brief);
+    res.json({ ok: true });
+  }));
+
+  // ------------------------------------------------------------ la investigación de mercado (solo en borrador)
+  app.put('/api/imagen-ads/:lote/investigacion', soloDesdeLaApp, leerBinario, conErrores((req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    if (!enBorrador(lote)) throw new ErrorApp(409, 'Este lote ya empezó: su investigación ya no se cambia.');
+    const bytes = Buffer.isBuffer(req.body) ? req.body : null;
+    if (!bytes?.length) throw new ErrorApp(400, 'No llegó la investigación.');
+    const r = biblioteca.investigacionATexto(bytes, String(req.headers['x-nombre'] || ''));
+    if (!r) throw new ErrorApp(400, 'No pude leer esa investigación. Pega el texto, o súbela en .txt, .md, Word (.docx) o PDF.');
+    fs.mkdirSync(R.entrada(carpeta), { recursive: true });
+    for (const ext of ['md', 'pdf']) fs.rmSync(R.investigacion(carpeta, ext), { force: true });
+    if (r.pdf) fs.writeFileSync(R.investigacion(carpeta, 'pdf'), bytes);
+    else fs.writeFileSync(R.investigacion(carpeta, 'md'), r.texto);
+    brief.investigacion = `entrada/investigacion.${r.pdf ? 'pdf' : 'md'}`;
+    guardarBrief(carpeta, brief);
+    res.json({ tipo: r.pdf ? 'pdf' : 'texto', caracteres: r.pdf ? null : r.texto.length });
+  }));
+
+  app.delete('/api/imagen-ads/:lote/investigacion', soloDesdeLaApp, conErrores((req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    if (!enBorrador(lote)) throw new ErrorApp(409, 'Este lote ya empezó: su investigación ya no se cambia.');
+    for (const ext of ['md', 'pdf']) fs.rmSync(R.investigacion(carpeta, ext), { force: true });
+    brief.investigacion = null;
     guardarBrief(carpeta, brief);
     res.json({ ok: true });
   }));
