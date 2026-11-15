@@ -1,20 +1,20 @@
 {
-  "generado": "2026-11-15T00:28:22.764Z",
+  "generado": "2026-11-15T00:40:48.034Z",
   "bloques": [
     {
-      "inicio": 0.26,
-      "fin": 0.94,
+      "inicio": 0.24,
+      "fin": 0.92,
       "texto": "Esta era yo",
       "palabras": [
         {
           "texto": "Esta",
-          "inicio": 0.26,
-          "fin": 0.52
+          "inicio": 0.24,
+          "fin": 0.54
         },
         {
           "texto": "era",
-          "inicio": 0.54,
-          "fin": 0.7
+          "inicio": 0.56,
+          "fin": 0.72
         },
         {
           "texto": "yo",
@@ -24,110 +24,110 @@
       ]
     },
     {
-      "inicio": 0.96,
-      "fin": 2.08,
+      "inicio": 0.94,
+      "fin": 2.04,
       "texto": "hace tres meses…",
       "palabras": [
         {
           "texto": "hace",
-          "inicio": 0.96,
+          "inicio": 0.94,
           "fin": 1.16
         },
         {
           "texto": "tres",
-          "inicio": 1.24,
-          "fin": 1.46
+          "inicio": 1.22,
+          "fin": 1.44
         },
         {
           "texto": "meses…",
-          "inicio": 1.54,
-          "fin": 1.96
+          "inicio": 1.52,
+          "fin": 1.92
         }
       ]
     },
     {
-      "inicio": 2.36,
-      "fin": 2.96,
+      "inicio": 2.4,
+      "fin": 3,
       "texto": "el jean no",
       "palabras": [
         {
           "texto": "el",
-          "inicio": 2.36,
-          "fin": 2.46
+          "inicio": 2.4,
+          "fin": 2.5
         },
         {
           "texto": "jean",
-          "inicio": 2.46,
-          "fin": 2.65
+          "inicio": 2.58,
+          "fin": 2.78
         },
         {
           "texto": "no",
-          "inicio": 2.84,
-          "fin": 2.92
+          "inicio": 2.9,
+          "fin": 2.96
         }
       ]
     },
     {
-      "inicio": 2.98,
-      "fin": 3.9,
+      "inicio": 3.02,
+      "fin": 3.92,
       "texto": "me llenaba nada",
       "palabras": [
         {
           "texto": "me",
-          "inicio": 2.98,
-          "fin": 3.06
+          "inicio": 3.02,
+          "fin": 3.1
         },
         {
           "texto": "llenaba",
-          "inicio": 3.08,
-          "fin": 3.46
+          "inicio": 3.12,
+          "fin": 3.5
         },
         {
           "texto": "nada",
-          "inicio": 3.66,
+          "inicio": 3.6,
           "fin": 3.9
         }
       ]
     },
     {
-      "inicio": 3.92,
-      "fin": 4.46,
+      "inicio": 3.94,
+      "fin": 4.48,
       "texto": "atrás.",
       "palabras": [
         {
           "texto": "atrás.",
-          "inicio": 3.92,
-          "fin": 4.34
+          "inicio": 3.94,
+          "fin": 4.36
         }
       ]
     },
     {
-      "inicio": 4.72,
-      "fin": 5.12,
-      "texto": "Y no,",
+      "inicio": 4.82,
+      "fin": 5.4,
+      "texto": "Y no, no",
       "palabras": [
         {
           "texto": "Y",
-          "inicio": 4.72,
-          "fin": 4.76
+          "inicio": 4.82,
+          "fin": 4.86
         },
         {
           "texto": "no,",
-          "inicio": 4.86,
-          "fin": 5
+          "inicio": 4.94,
+          "fin": 5.1
+        },
+        {
+          "texto": "no",
+          "inicio": 5.3,
+          "fin": 5.38
         }
       ]
     },
     {
-      "inicio": 5.3,
-      "fin": 5.62,
-      "texto": "no me fui",
+      "inicio": 5.42,
+      "fin": 5.74,
+      "texto": "me fui al",
       "palabras": [
-        {
-          "texto": "no",
-          "inicio": 5.3,
-          "fin": 5.36
-        },
         {
           "texto": "me",
           "inicio": 5.42,
@@ -137,57 +137,50 @@
           "texto": "fui",
           "inicio": 5.56,
           "fin": 5.62
+        },
+        {
+          "texto": "al",
+          "inicio": 5.66,
+          "fin": 5.72
         }
       ]
     },
     {
-      "inicio": 5.64,
-      "fin": 6.48,
-      "texto": "al gimnasio ni",
+      "inicio": 5.76,
+      "fin": 6.86,
+      "texto": "gimnasio ni pagué",
       "palabras": [
-        {
-          "texto": "al",
-          "inicio": 5.64,
-          "fin": 5.72
-        },
         {
           "texto": "gimnasio",
           "inicio": 5.76,
-          "fin": 6.3
+          "fin": 6.32
         },
         {
           "texto": "ni",
-          "inicio": 6.34,
-          "fin": 6.42
-        }
-      ]
-    },
-    {
-      "inicio": 6.5,
-      "fin": 7.2,
-      "texto": "pagué dietas",
-      "palabras": [
-        {
-          "texto": "pagué",
-          "inicio": 6.5,
-          "fin": 6.76
+          "inicio": 6.46,
+          "fin": 6.54
         },
         {
-          "texto": "dietas",
-          "inicio": 6.8,
-          "fin": 7.14
+          "texto": "pagué",
+          "inicio": 6.62,
+          "fin": 6.84
         }
       ]
     },
     {
-      "inicio": 7.22,
-      "fin": 7.96,
-      "texto": "carísimas.",
+      "inicio": 6.88,
+      "fin": 8,
+      "texto": "dietas carísimas.",
       "palabras": [
         {
+          "texto": "dietas",
+          "inicio": 6.88,
+          "fin": 7.2
+        },
+        {
           "texto": "carísimas.",
-          "inicio": 7.22,
-          "fin": 7.84
+          "inicio": 7.3,
+          "fin": 7.88
         }
       ]
     },

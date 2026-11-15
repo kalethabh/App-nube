@@ -1,0 +1,20 @@
+{
+  "numero": 14,
+  "paso": "montaje",
+  "comando": "node produccion/subtitulos-dialogo.js temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
+  "inicio": "2026-11-15T00:40:44.884Z",
+  "fin": "2026-11-15T00:40:48.050Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 6,
+      "segundos": 39.7
+    }
+  }
+}
