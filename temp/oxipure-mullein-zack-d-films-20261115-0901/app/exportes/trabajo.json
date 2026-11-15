@@ -1,6 +1,6 @@
 {
   "n": 1,
-  "estado": "exportando",
+  "estado": "listo",
   "calidad": "1080",
   "version": "completa",
   "subtitulos": "con",
@@ -8,11 +8,21 @@
   "srt": false,
   "guardar": false,
   "creado": "2026-11-15T15:25:57.753Z",
-  "actualizado": "2026-11-15T15:32:34.338Z",
+  "actualizado": "2026-11-15T15:33:49.642Z",
   "avance": {
-    "etapa": "render",
-    "valor": 87.2,
+    "etapa": "guardar",
+    "valor": 100,
     "cuadro": 3423,
     "total": 3423
-  }
+  },
+  "control": {
+    "limpio": true,
+    "codigo": 0,
+    "motivo": null,
+    "defectos": [],
+    "avisos": []
+  },
+  "archivo": "oxipure-mullein-zack-d-films-20261115-0901_editado-1.mp4",
+  "srtArchivo": null,
+  "terminado": "2026-11-15T15:33:49.391Z"
 }
