@@ -10,9 +10,9 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-15T00:19:53.501Z",
+  "actualizado": "2026-11-15T00:28:09.497Z",
   "revision": {
-    "ronda": 2,
+    "ronda": 3,
     "medidas": {
       "1": {
         "huella": "4904803-1794701919729",
@@ -39,13 +39,13 @@
         "motivo": null
       },
       "5": {
-        "huella": "4427838-1794701289832",
+        "huella": "4815959-1794702315236",
         "medido": true,
         "limpio": true,
         "motivo": null
       },
       "6": {
-        "huella": "4251057-1794701446750",
+        "huella": "3146626-1794702485520",
         "medido": true,
         "limpio": true,
         "motivo": null
@@ -91,7 +91,21 @@
     "revisarTambien": [],
     "sinRevisar": [],
     "lugares": {},
-    "vuelta": null,
+    "vuelta": {
+      "ronda": 3,
+      "medir": [
+        5,
+        6
+      ],
+      "mirar": [
+        5,
+        6
+      ],
+      "mirarGanchos": [],
+      "hablaMal": {},
+      "medido": true,
+      "visual": null
+    },
     "sesion": {
       "uuid": "49770559-7ff5-4c62-9874-a50b34c03fe4",
       "usada": true
