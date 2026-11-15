@@ -89,6 +89,16 @@ export const FIDELIDAD_PRODUCTO =
   'same shape, packaging, cap, label, label text, colors and proportions. ' +
   'Never redesign, replace or reinterpret it.';
 
+// «Más de lo mismo» (2026-11-15): el modelo ve el anuncio de referencia y hace el mismo diseño para otro producto.
+const COPIAR_REFERENCIA =
+  'The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: ' +
+  'keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, ' +
+  'and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). ' +
+  'Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, ' +
+  'in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, ' +
+  'each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. ' +
+  "Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.";
+
 // De extender_vertical.py (:110-112): con la foto del producto como segunda imagen.
 const PRODUCTO_SEGUNDA =
   'The SECOND attached image is the real product: keep the product and its label ' +
@@ -255,9 +265,10 @@ export function bloqueCorreccion(correccion) {
  * `correccion` (la otra version que pidio el usuario), lo que salio mal, antes de la zona
  * del logo.
  */
-export function construirPrompt(ad, { logo = null, correccion = null } = {}) {
+export function construirPrompt(ad, { logo = null, correccion = null, referencia = false } = {}) {
   const pos = posicionDe(logo);
-  const partes = [strPy(ad.visual_prompt)];
+  // «Más de lo mismo» (referencia: true): la PRIMERA imagen adjunta es el anuncio de referencia y la SEGUNDA, el producto
+  const partes = referencia ? [COPIAR_REFERENCIA, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)] : [strPy(ad.visual_prompt)];
 
   const capas = oPy(getPy(ad, 'text_layers', undefined), []);
   if (!vacioPy(capas)) {
@@ -274,7 +285,8 @@ export function construirPrompt(ad, { logo = null, correccion = null } = {}) {
   }
 
   const identidad = oPy(getPy(ad, 'global_identity', undefined), {});
-  const lineasId = ['color_palette', 'text_typography'].filter((k) => !vacioPy(getPy(identidad, k, undefined))).map((k) => `${k}: ${strPy(identidad[k])}`);
+  // (con referencia, la tipografía es la de la referencia: no se manda otra)
+  const lineasId = (referencia ? ['color_palette'] : ['color_palette', 'text_typography']).filter((k) => !vacioPy(getPy(identidad, k, undefined))).map((k) => `${k}: ${strPy(identidad[k])}`);
   if (lineasId.length) partes.push('BRAND IDENTITY:\n- ' + lineasId.join('\n- '));
 
   const obligatorios = getPy(ad, 'mandatory_visual_elements', undefined);
@@ -291,7 +303,7 @@ export function construirPrompt(ad, { logo = null, correccion = null } = {}) {
   const fix = bloqueCorreccion(correccion);
   if (fix) partes.push(fix);
   if (pos) partes.push(bloqueLogo('1:1', pos));
-  partes.push(FIDELIDAD_PRODUCTO);
+  partes.push(referencia ? PRODUCTO_SEGUNDA : FIDELIDAD_PRODUCTO);
   return partes.join('\n\n');
 }
 

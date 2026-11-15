@@ -232,7 +232,7 @@ export function leerLote(carpeta) {
   if (lote.logo != null && !(typeof lote.logo === 'object' && POSICIONES[lote.logo.posicion])) {
     throw new ErrorInvalido(`lote.json: logo ${JSON.stringify(lote.logo)} (tiene que ser null o { "posicion": una de ${Object.keys(POSICIONES).join(', ')} }).`);
   }
-  return { ...lote, rutaProducto: producto, logo: lote.logo ? { posicion: lote.logo.posicion } : null };
+  return { ...lote, rutaProducto: producto, logo: lote.logo ? { posicion: lote.logo.posicion } : null, fiel: lote.fiel === true };
 }
 
 /** Valida una orden T###.json. Devuelve la lista de sus piezas (normalizada) o lanza ErrorInvalido. */
@@ -540,6 +540,22 @@ class Motor {
     return ad;
   }
 
+  /**
+   * «Más de lo mismo» (lote.fiel): la referencia de esa variacion (plan.json: fuente "referencia"), para que el modelo
+   * la vea junto con la foto del producto. null si el lote no es asi, si la variacion sale de la biblioteca o si la
+   * imagen no esta (entonces se genera como siempre, solo con la foto).
+   */
+  referenciaDe(v) {
+    if (!this.lote.fiel) return null;
+    const plan = leerJSON(path.join(this.carpeta, 'plan.json'));
+    const x = (plan?.variaciones || []).find((y) => y?.id === v);
+    if (!x || x.fuente !== 'referencia' || typeof x.referencia !== 'string') return null;
+    const m = /(entrada\/referencias\/R\d{2}\.[a-z]+)$/i.exec(x.referencia.replace(/\\/g, '/'));
+    if (!m) return null;
+    const abs = path.join(this.carpeta, ...m[1].split('/'));
+    return existe(abs) ? abs : null;
+  }
+
   armarPrompt(item, ad) {
     const formato = formatoDePieza(item.pieza);
     const logo = this.lote.logo;
@@ -547,7 +563,8 @@ class Motor {
     if (item.modo === 'editar') {
       armar = (a) => construirPromptEdicion(a, { instruccion: item.instruccion_en, formato, textos: item.textos === true, logo });
     } else if (formato === '1:1') {
-      armar = (a) => construirPrompt(a, { logo, correccion: item.correccion_en });
+      const referencia = Boolean(this.referenciaDe(vDePieza(item.pieza)));
+      armar = (a) => construirPrompt(a, { logo, correccion: item.correccion_en, referencia });
     } else {
       armar = (a) => construirPromptVertical(a, { conProducto: true, logo, correccion: item.correccion_en });
     }
@@ -821,7 +838,9 @@ class Motor {
       if (!existe(cuadrado)) return this.sinImagen(T, item, 'falta-cuadrado');
       archivos = [cuadrado, this.lote.rutaProducto];
     } else {
-      archivos = [this.lote.rutaProducto];
+      // «más de lo mismo»: primero la referencia de la variacion (el prompt la nombra como la PRIMERA) y despues el producto
+      const ref = this.referenciaDe(vDePieza(pieza));
+      archivos = ref ? [ref, this.lote.rutaProducto] : [this.lote.rutaProducto];
     }
 
     // 4) Destino, texto y huella.

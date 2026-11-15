@@ -47,6 +47,27 @@ export function PanelEstrategia({ estrategia: e, abierto, onCerrar }) {
           </div>
         ) : null}
 
+        {e.deseoCentral || e.beneficioPrincipal || (e.puntosDolor || []).length ? (
+          <div className="lote-estr__bloque lote-estr__mercado">
+            <h3 className="lote-estr__titulo">{e.conInvestigacion ? 'De tu investigación de mercado' : 'Lo que mueve a tu cliente'}</h3>
+            <div className="lote-estr__dos">
+              {e.deseoCentral ? (
+                <div className="lote-estr__bloque">
+                  <h4 className="lote-estr__subtitulo">Deseo central</h4>
+                  <p className="lote-estr__texto">{e.deseoCentral}</p>
+                </div>
+              ) : null}
+              {e.beneficioPrincipal ? (
+                <div className="lote-estr__bloque">
+                  <h4 className="lote-estr__subtitulo">Beneficio principal</h4>
+                  <p className="lote-estr__texto">{e.beneficioPrincipal}</p>
+                </div>
+              ) : null}
+            </div>
+            <Lista titulo="Puntos de dolor" items={e.puntosDolor} />
+          </div>
+        ) : null}
+
         <div className="lote-estr__dos">
           {e.tipografia ? (
             <div className="lote-estr__bloque">

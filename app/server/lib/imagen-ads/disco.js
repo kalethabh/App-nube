@@ -68,6 +68,7 @@ export const R = {
   anterior: (c) => path.join(c, 'entrada', 'lote-anterior.json'),
   usados: (c) => path.join(c, 'entrada', 'usados.json'),
   referencias: (c) => path.join(c, 'entrada', 'referencias'),
+  investigacion: (c, ext = 'md') => path.join(c, 'entrada', `investigacion.${ext}`),
   logo: (c) => path.join(c, 'entrada', 'logo.png'),
   logoJson: (c) => path.join(c, 'entrada', 'logo.json'),
   productoJson: (c) => path.join(c, 'producto.json'),

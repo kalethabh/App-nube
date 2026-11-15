@@ -1181,3 +1181,7 @@ button.lote-pieza__marco:hover .lote-pieza__img {
 .lote-regenerar__revision .lote-var__problemas svg {
   color: var(--aviso);
 }
+
+/* «Ver estrategia»: el deseo central, el beneficio principal y los puntos de dolor (2026-11-15). */
+.lote-estr__mercado { padding: 14px; border-radius: var(--r-m); background: rgba(255, 255, 255, 0.03); border: 1px solid var(--borde-1); }
+.lote-estr__subtitulo { margin: 0 0 4px; font-size: var(--t-mini); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--texto-3); }

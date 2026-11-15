@@ -5,7 +5,7 @@
 // Al tocar Generar, en orden (ESPECIFICACION §11.1):
 //   1. si la foto es nueva: crea el producto (POST /api/productos, tipo físico, sin analizar) y sube su foto
 //   2. POST /api/imagen-ads (el lote queda en borrador)
-//   3. PUT de cada referencia y del logo, de a una
+//   3. PUT de cada referencia, de la investigación de mercado y del logo, de a una
 //   4. POST /api/imagen-ads/:lote/generar
 //   5. va a la pantalla del lote
 // Si algo falla, avisa y se queda aquí recordando el lote ya creado: el reintento no crea otro (si cambiaste algo
@@ -15,8 +15,8 @@
 // precio por imagen lo manda el servidor (GET /api/imagen-ads/opciones → costo; el modelo de los lotes es fijo) y se
 // recalcula con la cantidad y el formato (costoDelLote). La pantalla del lote sigue sin precios hasta su informe.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, Globe, Megaphone, Sparkles, Tag, TriangleAlert, Users } from 'lucide-react';
-import { AreaTexto, CampoTexto, Chip, Pestanas, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
+import { CircleAlert, FileText, FileUp, Globe, Images, Megaphone, Sparkles, Tag, TriangleAlert, Users, X } from 'lucide-react';
+import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useEstado } from '../../datos/api.js';
 import { dinero } from '../../datos/formato.js';
 import {
@@ -39,6 +39,7 @@ import { ElegirProducto } from './ElegirProducto.jsx';
 import { PosicionLogo } from './PosicionLogo.jsx';
 import { ResumenLote } from './ResumenLote.jsx';
 import { ZonaImagenes, liberarVistas } from './ZonaImagenes.jsx';
+import { BibliotecaReferencias } from './BibliotecaReferencias.jsx';
 
 const MONEDAS = ['S/', 'US$', 'MXN $', 'COP $', 'CLP $', 'ARS $', 'R$', '€', 'Q', 'Bs'];
 const OPCIONES_MONEDA = [...MONEDAS.map((m) => ({ valor: m, etiqueta: m })), { valor: 'otra', etiqueta: 'Otra' }];
@@ -69,7 +70,14 @@ const VACIO = {
   cantidad: '10',
   conVertical: true,
   posicionLogo: POSICION_POR_DEFECTO,
+  // la investigación de mercado pegada (un archivo subido no se guarda en el navegador)
+  investigacion: '',
+  // «Más de lo mismo»: todas las variaciones copian el diseño de tus referencias
+  fiel: true,
 };
+
+const MAXIMO_INVESTIGACION = 120000;
+const PESO_INVESTIGACION = 20 * 1024 * 1024;
 
 // ---------------------------------------------------------------- el borrador en este navegador (sin imágenes)
 
@@ -149,11 +157,14 @@ export function Formulario({ simulando = false, productoPedido = null }) {
   const [fotoNueva, setFotoNueva] = useState([]);
   const [referencias, setReferencias] = useState([]);
   const [logo, setLogo] = useState([]);
+  const [archivoInv, setArchivoInv] = useState(null); // la investigación subida como archivo (.pdf, .docx, .txt, .md)
+  const [bibliotecaAbierta, setBibliotecaAbierta] = useState(false);
+  const entradaInv = useRef(null);
   const [transparente, setTransparente] = useState(null);
   const [errores, setErrores] = useState({});
   const [fase, setFase] = useState(null);
   const [nota, setNota] = useState(null);
-  const creado = useRef(null); // { firma, lote, refs: { n: id }, logo: id }
+  const creado = useRef(null); // { firma, lote, refs: { n: id }, logo: id, inv: clave }
   const productoCreado = useRef(null); // { fotoId, id }
   const ocupado = Boolean(fase);
 
@@ -249,6 +260,29 @@ export function Formulario({ simulando = false, productoPedido = null }) {
     if (el.tagName === 'INPUT') setTimeout(() => el.focus({ preventScroll: true }), 300);
   };
 
+  // la investigación de mercado: un archivo o el texto pegado
+  const elegirInvestigacion = (lista) => {
+    const a = [...(lista || [])][0];
+    if (!a) return;
+    if (!/\.(pdf|docx|txt|md)$/i.test(a.name) && !/^text\//.test(a.type)) {
+      aviso({ tipo: 'aviso', titulo: 'No puedo leer ese archivo', texto: 'Sube tu investigación en PDF, Word (.docx), .txt o .md, o pega el texto.' });
+      return;
+    }
+    if (a.size > PESO_INVESTIGACION) {
+      aviso({ tipo: 'aviso', titulo: 'Ese archivo pesa demasiado', texto: 'El máximo son 20 MB. Pega solo el texto importante.' });
+      return;
+    }
+    setArchivoInv(a);
+  };
+  const textoInv = f.investigacion.trim();
+  const hayInvestigacion = Boolean(archivoInv || textoInv);
+  const claveInv = archivoInv ? `a:${archivoInv.name}:${archivoInv.size}:${archivoInv.lastModified}` : textoInv ? `t:${textoInv.length}:${textoInv.slice(0, 40)}:${textoInv.slice(-40)}` : null;
+  const lugarRefs = Math.max(0, maxRefs - referencias.length);
+  const agregarDeBiblioteca = (archivos) => {
+    const nuevos = archivos.slice(0, lugarRefs).map((a) => ({ id: `${a.name}-${a.size}-${Math.random().toString(36).slice(2, 7)}`, archivo: a, nombre: a.name, heic: false, url: URL.createObjectURL(a) }));
+    if (nuevos.length) setReferencias((r) => [...r, ...nuevos]);
+  };
+
   const formatos = f.conVertical ? ['1:1', '9:16'] : ['1:1'];
   // el costo estimado: cada imagen (cuadrada o vertical) al precio que manda el servidor (un solo número: la revisión
   // ya no rehace nada sola)
@@ -317,7 +351,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
       }
 
       // 2. el lote (borrador). Si cambiaste algo que va en él desde el intento anterior, se arma otro.
-      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: logo.length ? { posicion: f.posicionLogo } : null };
+      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: logo.length ? { posicion: f.posicionLogo } : null, fiel: Boolean(f.fiel && referencias.length) };
       const firma = JSON.stringify(cuerpo);
       if (creado.current && creado.current.firma !== firma) {
         apiImagenes.borrar(creado.current.lote).catch(() => {});
@@ -327,7 +361,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         setFase('Creando tu lote');
         const r = await apiImagenes.crear(cuerpo);
         if (!r?.lote) throw new Error('La app no devolvió tu lote. Vuelve a intentarlo.');
-        creado.current = { firma, lote: r.lote, refs: {}, logo: null };
+        creado.current = { firma, lote: r.lote, refs: {}, logo: null, inv: null };
         invalidar(CLAVE_LOTES);
       }
       const c = creado.current;
@@ -345,6 +379,14 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         .filter((k) => k > referencias.length)) {
         await apiImagenes.quitarReferencia(c.lote, sobra);
         delete c.refs[sobra];
+      }
+      if (claveInv && c.inv !== claveInv) {
+        setFase('Subiendo tu investigación de mercado');
+        await apiImagenes.subirInvestigacion(c.lote, archivoInv || new Blob([textoInv], { type: 'text/plain' }));
+        c.inv = claveInv;
+      } else if (!claveInv && c.inv) {
+        await apiImagenes.quitarInvestigacion(c.lote);
+        c.inv = null;
       }
       if (logo.length && c.logo !== logo[0].id) {
         setFase('Subiendo tu logo');
@@ -504,7 +546,50 @@ export function Formulario({ simulando = false, productoPedido = null }) {
           </div>
         </Grupo>
 
-        <Grupo n={3} id="grupo-cantidad" titulo="Cuántos y en qué tamaño">
+        <Grupo n={3} id="grupo-investigacion" titulo="Investigación de mercado" opcional>
+          {archivoInv ? (
+            <div className="img-inv__archivo">
+              <FileText size={18} strokeWidth={1.8} aria-hidden="true" />
+              <span className="img-inv__nombre t-recortar" title={archivoInv.name}>
+                {archivoInv.name}
+              </span>
+              <Boton variante="fantasma" tamano="chico" icono={X} onClick={() => setArchivoInv(null)} disabled={ocupado}>
+                Quitar
+              </Boton>
+            </div>
+          ) : (
+            <AreaTexto
+              etiqueta="Pega aquí tu investigación"
+              filas={5}
+              maxLength={MAXIMO_INVESTIGACION}
+              placeholder="Lo que sabes de tu cliente: qué quiere lograr, qué le duele, qué ha probado, cómo lo dice con sus palabras, reseñas, comentarios…"
+              value={f.investigacion}
+              onChange={(e) => poner({ investigacion: e.target.value })}
+              disabled={ocupado}
+            />
+          )}
+          <div className="img-zona__acciones">
+            <Boton variante="secundario" tamano="chico" icono={FileUp} onClick={() => entradaInv.current?.click()} disabled={ocupado}>
+              {archivoInv ? 'Cambiar el archivo' : 'Subir un archivo'}
+            </Boton>
+            <input
+              ref={entradaInv}
+              type="file"
+              accept=".pdf,.docx,.txt,.md,text/plain,application/pdf"
+              hidden
+              onChange={(e) => {
+                elegirInvestigacion(e.target.files);
+                e.target.value = '';
+              }}
+            />
+          </div>
+          <p className="img-ayuda">
+            PDF, Word (.docx), .txt o .md, o pega el texto. De ahí la IA saca el <strong>deseo central</strong>, el <strong>beneficio principal</strong> y los <strong>puntos de dolor</strong>, y
+            escribe los textos de tus anuncios con eso. Los ves en «Ver estrategia».
+          </p>
+        </Grupo>
+
+        <Grupo n={4} id="grupo-cantidad" titulo="Cuántos y en qué tamaño">
           <div className="img-cantidad">
             <CampoTexto
               id="campo-cantidad"
@@ -543,7 +628,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
           <p className="t-chico t-3">{cantidadValida ? textoDeCantidad(n, f.conVertical) : `Elige de 1 a ${maximo} anuncios.`}</p>
         </Grupo>
 
-        <Grupo n={4} id="grupo-referencias" titulo="Referencias" opcional>
+        <Grupo n={5} id="grupo-referencias" titulo="Referencias" opcional>
           <ZonaImagenes
             archivos={referencias}
             onCambiar={setReferencias}
@@ -552,9 +637,28 @@ export function Formulario({ simulando = false, productoPedido = null }) {
             etiqueta="Tus referencias"
             titulo="Arrastra anuncios que te gusten"
             bloqueada={ocupado}
-            ayuda="La IA toma la estructura de cada una. Si subes más que la cantidad, se usan las primeras."
+            pegarSiempre
+            extra={
+              <Boton variante="secundario" tamano="chico" icono={Images} onClick={() => setBibliotecaAbierta(true)} disabled={ocupado}>
+                Elegir de tu biblioteca
+              </Boton>
+            }
+            ayuda="Sube, arrastra o pega (Ctrl/Cmd+V) anuncios que te gusten. Cada uno queda guardado en tu biblioteca para usarlo con otros productos."
           />
-          {cantidadValida && referencias.length > n ? (
+          <Interruptor
+            activado={Boolean(f.fiel)}
+            onCambio={(v) => poner({ fiel: v })}
+            etiqueta="Más de lo mismo"
+            descripcion={
+              f.fiel
+                ? 'Todos tus anuncios copian el diseño de tus referencias: la misma estructura y la misma tipografía, con tu producto y textos nuevos.'
+                : 'Cada referencia da un anuncio con su estructura; los demás salen de otros formatos de la biblioteca de la IA.'
+            }
+            deshabilitado={ocupado || !referencias.length}
+            className="img-fiel"
+          />
+          <BibliotecaReferencias abierta={bibliotecaAbierta} onCerrar={() => setBibliotecaAbierta(false)} lugar={lugarRefs} onElegir={agregarDeBiblioteca} />
+          {cantidadValida && referencias.length > n && !f.fiel ? (
             <p className="img-nota img-nota--aviso">
               <CircleAlert size={14} strokeWidth={2} aria-hidden="true" />
               Subiste {referencias.length} y pediste {n}: se usan las {n === 1 ? 'primera' : `${n} primeras`}.
@@ -562,7 +666,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
           ) : null}
         </Grupo>
 
-        <Grupo n={5} id="grupo-logo" titulo="Logo" opcional>
+        <Grupo n={6} id="grupo-logo" titulo="Logo" opcional>
           <ZonaImagenes archivos={logo} onCambiar={setLogo} max={1} titulo="Sube tu logo" bloqueada={ocupado} ayuda="De preferencia PNG sin fondo." masculino />
           {logo.length && transparente === false ? (
             <p className="img-nota img-nota--aviso" role="status">

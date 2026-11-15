@@ -313,6 +313,10 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
           estilo: estrategia.estilo || '',
           beneficios: Array.isArray(estrategia.beneficios) ? estrategia.beneficios : [],
           caracteristicas: Array.isArray(estrategia.caracteristicas) ? estrategia.caracteristicas : [],
+          deseoCentral: typeof estrategia.deseo_central === 'string' ? estrategia.deseo_central : '',
+          beneficioPrincipal: typeof estrategia.beneficio_principal === 'string' ? estrategia.beneficio_principal : '',
+          puntosDolor: Array.isArray(estrategia.puntos_dolor) ? estrategia.puntos_dolor.filter((x) => typeof x === 'string') : [],
+          conInvestigacion: Boolean(brief?.investigacion),
           plan: variaciones.map((x) => ({ v: x.v, angulo: x.angulo, formato: x.formato, titular: x.titular })).filter((x) => x.titular || x.angulo),
         }
       : null,

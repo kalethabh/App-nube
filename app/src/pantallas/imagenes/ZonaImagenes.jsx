@@ -3,10 +3,12 @@
 //   <ZonaImagenes archivos={refs} onCambiar={setRefs} max={10} titulo="Arrastra tus referencias aquí" numeradas />
 //   <ZonaImagenes archivos={logo} onCambiar={setLogo} max={1} titulo="Sube tu logo" ayuda="De preferencia PNG sin fondo" />
 //
+// PEGAR lo copiado: Ctrl/Cmd+V pega la imagen del portapapeles en la zona donde está el mouse (o la que tiene el
+// foco; si la pantalla tiene una sola zona con `pegarSiempre`, en esa), y el botón «Pegar» hace lo mismo con un clic.
 // `archivos` es una lista de { id, archivo (File), url (vista previa local), nombre }. Las vistas previas se crean
 // aquí y se liberan al quitar la imagen; la pantalla libera las que queden al salir (liberarVistas).
-import { useRef, useState } from 'react';
-import { ImageOff, ImagePlus, RefreshCw, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ClipboardPaste, ImageOff, ImagePlus, RefreshCw, X } from 'lucide-react';
 import { Boton, useAvisos } from '../../componentes/index.js';
 
 const PESO_MAXIMO = 25 * 1024 * 1024;
@@ -52,6 +54,8 @@ export function ZonaImagenes({
   id,
   fondoClaro = false,
   masculino = false, // «elegirlo» (el logo) en vez de «elegirla» (la foto)
+  pegarSiempre = false, // Ctrl/Cmd+V pega aquí aunque el mouse no esté encima (una sola zona por pantalla)
+  extra = null, // algo más junto al botón «Pegar» (por ejemplo «Elegir de tu biblioteca»)
 }) {
   const [encima, setEncima] = useState(false);
   const entrada = useRef(null);
@@ -95,11 +99,53 @@ export function ZonaImagenes({
     onCambiar(archivos.filter((a) => a.id !== idQuitar));
   };
 
+  // ---- pegar lo copiado
+  const raiz = useRef(null);
+  const sobre = useRef(false);
+  const agregarRef = useRef(agregar);
+  agregarRef.current = agregar;
+  const llena = max > 1 && archivos.length >= max;
+  useEffect(() => {
+    if (bloqueada) return undefined;
+    const alPegar = (e) => {
+      const aqui = sobre.current || raiz.current?.contains(document.activeElement);
+      const enCampo = /^(INPUT|TEXTAREA)$/.test(document.activeElement?.tagName || '') || document.activeElement?.isContentEditable;
+      if (!aqui && !(pegarSiempre && !enCampo)) return;
+      const imagenes = [...(e.clipboardData?.files || [])].filter((x) => /^image\//.test(x.type));
+      if (!imagenes.length) return;
+      e.preventDefault();
+      agregarRef.current(imagenes.map((x, i) => (x.name && x.name !== 'image.png' ? x : new File([x], `pegada-${Date.now().toString(36)}${i ? `-${i}` : ''}.${(x.type.split('/')[1] || 'png').replace('jpeg', 'jpg')}`, { type: x.type }))));
+    };
+    document.addEventListener('paste', alPegar);
+    return () => document.removeEventListener('paste', alPegar);
+  }, [bloqueada, pegarSiempre]);
+
+  const pegar = async () => {
+    try {
+      if (!navigator.clipboard?.read) throw new Error('sin-permiso');
+      const items = await navigator.clipboard.read();
+      const lista = [];
+      for (const it of items) {
+        const tipo = it.types.find((t) => /^image\//.test(t));
+        if (!tipo) continue;
+        const blob = await it.getType(tipo);
+        lista.push(new File([blob], `pegada-${Date.now().toString(36)}-${lista.length}.${(tipo.split('/')[1] || 'png').replace('jpeg', 'jpg')}`, { type: tipo }));
+      }
+      if (!lista.length) {
+        aviso({ tipo: 'aviso', titulo: 'No hay una imagen copiada', texto: 'Copia la imagen (clic derecho → Copiar imagen, o una captura de pantalla) y vuelve a tocar Pegar.' });
+        return;
+      }
+      agregar(lista);
+    } catch {
+      aviso({ tipo: 'info', titulo: 'Pégala con el teclado', texto: 'Pon el mouse encima de esta zona y pulsa Ctrl+V (Cmd+V en Mac).' });
+    }
+  };
+
   const abrir = () => entrada.current?.click();
   const uno = max === 1 ? archivos[0] : null;
 
   return (
-    <div className="img-zona" id={id}>
+    <div className="img-zona" id={id} ref={raiz} onMouseEnter={() => (sobre.current = true)} onMouseLeave={() => (sobre.current = false)}>
       {uno ? (
         <div className={`img-zona__una${fondoClaro ? ' img-zona__una--claro' : ''}`}>
           <span className="img-zona__vista img-zona__vista--grande">
@@ -176,6 +222,14 @@ export function ZonaImagenes({
           ))}
         </ul>
       ) : null}
+      {bloqueada ? null : (
+        <div className="img-zona__acciones">
+          <Boton variante="secundario" tamano="chico" icono={ClipboardPaste} onClick={pegar} disabled={llena}>
+            Pegar lo copiado
+          </Boton>
+          {extra}
+        </div>
+      )}
       {ayuda ? <p className="img-ayuda">{ayuda}</p> : null}
     </div>
   );

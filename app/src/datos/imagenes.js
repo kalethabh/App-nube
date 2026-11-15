@@ -27,6 +27,12 @@ export const apiImagenes = {
   /** n de 1 a 10 (solo en borrador) -> { n, url } */
   subirReferencia: (lote, n, archivo) => pedirNuevo(`${BASE}/${enc(lote)}/referencias/${n}`, { metodo: 'PUT', binario: archivo }),
   quitarReferencia: (lote, n) => pedirNuevo(`${BASE}/${enc(lote)}/referencias/${n}`, { metodo: 'DELETE' }),
+  /** La investigación de mercado del lote (un File o Blob: texto, .docx o .pdf; solo en borrador) -> { tipo, caracteres } */
+  subirInvestigacion: (lote, archivo) => pedirNuevo(`${BASE}/${enc(lote)}/investigacion`, { metodo: 'PUT', binario: archivo }),
+  quitarInvestigacion: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/investigacion`, { metodo: 'DELETE' }),
+  /** Tu biblioteca de referencias: { referencias: [{ id, url, miniatura, fecha }] } */
+  biblioteca: () => pedirNuevo(`${BASE}/biblioteca`),
+  quitarDeBiblioteca: (id) => pedirNuevo(`${BASE}/biblioteca/${enc(id)}`, { metodo: 'DELETE' }),
   /** -> { url, ancho, alto, transparente }. En un lote ya generado cambia el archivo y rehace las imágenes con logo. */
   subirLogo: (lote, archivo) => pedirNuevo(`${BASE}/${enc(lote)}/logo`, { metodo: 'PUT', binario: archivo }),
   quitarLogo: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/logo`, { metodo: 'DELETE' }),
