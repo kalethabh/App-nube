@@ -1,0 +1,323 @@
+{
+  "producto": "Vitalabh Aguaje Complex 3 en 1",
+  "pais": "Colombia",
+  "veredicto": {
+    "viable": "con-condiciones",
+    "texto": "Hay demanda real: en Colombia ya se venden muchas cápsulas de aguaje con fenogreco y maca, casi todas con pago al recibir. Pero no encontramos ningún estudio en personas que muestre que estos ingredientes aumenten glúteos o piernas, y el INVIMA ya sacó una alerta contra un producto de aguaje muy parecido. Se puede vender si cambias las promesas de la etiqueta y confirmas el registro sanitario antes de pautar.",
+    "posicionamiento": "Rutina femenina de 3 meses con tres plantas conocidas (aguaje, fenogreco y maca negra) más vitaminas A y E, como complemento de buena alimentación y ejercicio. Se vende la constancia, la fórmula clara y el pago al recibir. No se vende 'aumento de glúteos' ni 'sin ejercicio'."
+  },
+  "ficha": [
+    { "dato": "Nombre", "valor": "Aguaje Complex 3 en 1" },
+    { "dato": "Marca", "valor": "Vitalabh" },
+    { "dato": "Qué es", "valor": "Suplemento alimenticio en cápsulas, a base de aguaje, fenogreco y maca negra. La etiqueta lo llama 'Triple acción'." },
+    { "dato": "Presentación", "valor": "60 cápsulas de 0,5 g cada una. Contenido neto 30 g." },
+    { "dato": "Ingredientes principales", "valor": "Aguaje 200 mg + fenogreco 400 mg + maca negra 200 mg. La tabla de la etiqueta parece darlos por porción de 2 cápsulas (a verificar con el proveedor si es por porción o por cápsula)." },
+    { "dato": "Vitaminas", "valor": "Vitamina A 800 µg ER (100 % del valor de referencia) y vitamina E 10 mg (100 %), según la tabla." },
+    { "dato": "Otros ingredientes", "valor": "Aguaje en polvo (Mauritia flexuosa, fruto), fenogreco en polvo (Trigonella foenum-graecum, semilla), maca negra en polvo (Lepidium meyenii, raíz), acetato de vitamina E, palmitato de vitamina A, antiaglomerante (estearato de magnesio) y cápsula de gelatina bovina. Texto pequeño, a verificar." },
+    { "dato": "Modo de uso", "valor": "Tomar 2 cápsulas al día, preferiblemente con las comidas principales. La etiqueta pide uso continuo por al menos 3 meses." },
+    { "dato": "Duración", "valor": "1 frasco = 30 días. 3 frascos = 90 días. La oferta de 3 frascos sí cuadra con 'tres meses'." },
+    { "dato": "Promesas de la etiqueta", "valor": "Aumento de glúteos. Aumento de piernas. Sin efecto rebote (no engorda). Sin necesidad de hacer ejercicio. Resultados rápidos, duraderos y sin efecto rebote." },
+    { "dato": "Advertencias de la etiqueta", "valor": "No exceder la porción diaria. No es un medicamento. Mantener fuera del alcance de los niños. No consumir en embarazo o lactancia sin recomendación de un profesional de la salud (texto pequeño, a verificar)." },
+    { "dato": "Registro que muestra", "valor": "'Registro INVIMA: NSA-0019343-2026' (se lee con dificultad, a verificar)." },
+    { "dato": "Fabricante o titular", "valor": "Vitalabh S.A.S., Bogotá, Colombia (texto pequeño, a verificar)." },
+    { "dato": "Lote y vencimiento", "valor": "Lote VAB0026, vence 02/28." },
+    { "dato": "Idioma y origen", "valor": "Español. Marca colombiana, pero la etiqueta cita una norma mexicana (NOM-051) y el código de barras parece de muestra." },
+    { "dato": "Oferta actual", "valor": "Kit de 3 frascos (tres meses) con pago en efectivo al recibir. Precio: no informado." }
+  ],
+  "alertas": [
+    "Registro sanitario por confirmar. La etiqueta muestra un número que empieza por 'NSA', que es el tipo de permiso de los alimentos de bajo riesgo. Los suplementos en Colombia llevan un registro que empieza por 'SD'. El INVIMA ya declaró fraudulento un aguaje de otra marca que se vendía con un número 'NSA'. Antes de pautar, consulta el número en la página del INVIMA y confirma con el proveedor bajo qué categoría está aprobado.",
+    "Las promesas de la etiqueta no se pueden usar en anuncios. 'Aumento de glúteos', 'aumento de piernas', 'no engorda' y 'sin necesidad de hacer ejercicio' no tienen respaldo en estudios con personas, y en Colombia la publicidad de un suplemento solo puede hablar de los beneficios aprobados para sus ingredientes. También te pueden rechazar los anuncios o cerrar la cuenta publicitaria.",
+    "Errores en el arte de la etiqueta. Cita una norma mexicana (NOM-051) aunque el producto es de Bogotá, y el código de barras (7502345678904) parece un número de muestra. Además, no queda claro si los 200 + 400 + 200 mg son por cápsula o por las 2 cápsulas del día. Confirma todo con el proveedor antes de imprimir más etiquetas."
+  ],
+  "deseo_central": {
+    "frase": "Quiero verme con más curvas y sentirme segura con mi cuerpo, sin operarme, sin inyectarme nada raro y sin que me tumben la plata.",
+    "capas": {
+      "funcional": "Tener una rutina sencilla (dos cápsulas al día) que acompañe lo que ya hace por su cuerpo: comer mejor y entrenar.",
+      "visible": "Que la ropa le horme mejor: los jeans, los vestidos, el vestido de baño.",
+      "emocional": "Dejar de compararse con las mujeres que ve en redes y sentirse tranquila al mirarse al espejo.",
+      "identidad": "Ser la mujer que se cuida a su manera, de forma natural, sin pasar por un quirófano."
+    },
+    "hallazgos": [
+      { "hallazgo": "El aumento de glúteos fue la cuarta cirugía estética más hecha en Colombia en 2024, con 27.360 casos.", "donde": "Encuesta mundial de cirugía estética (ISAPS), citada por Portafolio", "revela": "El deseo de tener más curvas es masivo en el país. Quien no puede o no quiere operarse busca una opción más barata y menos riesgosa. (Verificado)" },
+      { "hallazgo": "Se volvió moda en redes tomar medicamentos para la alergia para 'aumentar glúteos y senos', y la prensa de salud tuvo que advertir del riesgo.", "donde": "Notas de prensa (El Tiempo y otros medios)", "revela": "El deseo es tan fuerte que muchas se arriesgan con cosas peligrosas. Hay espacio para una opción que se vea seria y cuidadosa. (Verificado)" },
+      { "hallazgo": "En las tiendas en línea de Colombia y México abundan las cápsulas de aguaje con fenogreco y maca, vendidas como 'apoyo a busto y glúteo'.", "donde": "Mercado Libre, Falabella y tiendas naturistas en línea", "revela": "La categoría ya existe y la compradora ya conoce la palabra 'aguaje'. No hay que educar desde cero. (Contenido de vendedor)" },
+      { "hallazgo": "Casi todas las tiendas colombianas del nicho ofrecen pago contraentrega y envío gratis.", "donde": "Tiendas en línea colombianas del nicho", "revela": "La compradora desconfía de pagar por adelantado. Pagar al recibir es parte del deseo: 'que no me estafen'. (Contenido de vendedor)" },
+      { "hallazgo": "En reseñas de aguaje hay opiniones opuestas: unas dicen que notaron algo de cambio y más energía, otras que no les sirvió o que les dio dolor de cabeza o granos.", "donde": "Resúmenes de reseñas de tiendas de EE. UU. (no se pudieron abrir las reseñas originales)", "revela": "La compradora llega con dudas. Prometer de más aumenta las devoluciones. (Temas recurrentes, sin citas verificadas)" }
+    ],
+    "uso": {
+      "frase_madre": "Tu rutina femenina de tres meses: aguaje, fenogreco y maca negra en una sola cápsula, y la pagas cuando la recibes.",
+      "hook": "Tres plantas, dos cápsulas al día y tres meses de constancia. Sin cuentos.",
+      "titular_landing": "Aguaje, fenogreco y maca negra en una sola cápsula: tu rutina de tres meses, con pago al recibir",
+      "promesa_whatsapp": "Te llega el kit de tres meses a tu casa, lo revisas y ahí sí pagas. Son dos cápsulas al día con tus comidas."
+    }
+  },
+  "beneficio_principal": "Una rutina simple y natural de tres meses (dos cápsulas al día) para acompañar el cuidado de tu figura, con una fórmula clara y pago al recibir.",
+  "mercado": {
+    "problema": "No es una enfermedad: es un deseo estético. Su tamaño se ve en la cirugía: en 2024 se hicieron 27.360 aumentos de glúteos en Colombia (cuarta cirugía más hecha del país) y 490.944 procedimientos estéticos en total, según la encuesta de ISAPS citada por Portafolio. En el mundo, el aumento de glúteos fue la cirugía que más creció en 2022, con 820.762 casos (ISAPS). No encontramos una cifra confiable de cuántas mujeres colombianas están inconformes con su figura: queda 'a verificar'. Lo empeoran la comparación en redes sociales y las modas peligrosas, como tomar medicamentos para la alergia para ganar volumen, sobre las que ya advirtió la prensa de salud.",
+    "activo": "Aguaje: solo hay estudios en animales. En ratas, un extracto del fruto mostró una actividad parecida a la del estrógeno en algunos tejidos, pero ningún estudio midió cambios en la figura y no encontramos estudios en personas sobre glúteos o piernas (Verificado). Fenogreco: en laboratorio muestra actividad parecida al estrógeno, pero no hay estudios serios en personas que muestren aumento de busto o de curvas; el centro de salud complementaria de EE. UU. (NCCIH) dice que puede dar diarrea, náuseas, bajar el azúcar en sangre y causar alergias, y que no es seguro en el embarazo en cantidades mayores a las de los alimentos (Verificado). Maca: las revisiones de estudios hablan de evidencia 'limitada' para el deseo sexual y los síntomas de la menopausia, con ensayos pequeños; nada sobre la figura (Verificado). Las dosis del producto (200, 400 y 200 mg) son bajas frente a las que suelen usarse en los estudios de maca y fenogreco (Inferencia, a verificar). Conclusión: la fórmula sirve para una promesa de bienestar y rutina, no para prometer aumento de volumen.",
+    "tendencia": "La categoría 'aguaje + fenogreco + maca' está muy ofrecida en tiendas en línea de Colombia, México y Perú, en cápsulas y en tabletas masticables, casi siempre con combos de 3 unidades y pago contraentrega (Contenido de vendedor). En EE. UU. se vende como 'aguaje curves'. No pudimos confirmar cifras de vistas o ventas en TikTok: 'a verificar'. La señal de alerta es que el INVIMA ya puso el ojo en esta categoría (alertas 132-2025 y 275-2025 contra productos de aguaje de otra marca).",
+    "regulacion": "Colombia: los suplementos se rigen por el Decreto 3249 de 2006. Necesitan registro sanitario del INVIMA (los números de suplementos empiezan por 'SD'), su publicidad debe ajustarse a los beneficios de sus ingredientes y debe ser aprobada antes por el INVIMA, y no puede confundir, exagerar ni engañar. El INVIMA considera fraudulento un producto sin registro y, en su alerta 275-2025 sobre un aguaje de otra marca, advirtió de posibles riesgos como cambios hormonales, retención de líquidos y palpitaciones. EE. UU. y Europa: se trata como suplemento, no como medicamento; no puede decir que trata, cura o previene nada, y el fabricante responde por la seguridad. Anuncios: Meta restringe los anuncios de suplementos a mayores de 18 años y su política de salud y apariencia muestra el 'antes y después' como ejemplo de anuncio no permitido; tampoco se puede hacer sentir mal a la persona con su cuerpo. Cada país tiene su propia entidad sanitaria: si vendes fuera de Colombia, hay que revisar la de ese país.",
+    "hueco": "Casi todos los competidores prometen lo mismo ('aumenta busto y glúteos') con etiquetas poco claras y registros dudosos. El hueco está en ser la opción seria: fórmula a la vista con sus miligramos, marca colombiana con registro verificable, kit pensado para los tres meses completos, advertencias claras y pago al recibir. Quien se vea confiable gana a la compradora que ya probó algo y quedó con dudas.",
+    "datos": [
+      { "etiqueta": "Aumentos de glúteos en Colombia en 2024", "valor": 27360, "unidad": "cirugías", "fuente": "ISAPS, citado por Portafolio" },
+      { "etiqueta": "Aumentos de glúteos en Colombia en 2023", "valor": 29578, "unidad": "cirugías", "fuente": "ISAPS, citado por Portafolio" },
+      { "etiqueta": "Procedimientos estéticos en Colombia en 2024", "valor": 490944, "unidad": "procedimientos", "fuente": "ISAPS, citado por Portafolio" },
+      { "etiqueta": "Aumentos de glúteos en el mundo en 2022", "valor": 820762, "unidad": "cirugías", "fuente": "ISAPS, comunicado de la encuesta 2022" },
+      { "etiqueta": "Población de Colombia (octubre de 2025)", "valor": 53.6, "unidad": "millones", "fuente": "DataReportal, Digital 2026 Colombia" },
+      { "etiqueta": "Edad mediana en Colombia", "valor": 32.5, "unidad": "años", "fuente": "DataReportal, Digital 2026 Colombia" },
+      { "etiqueta": "Personas que usan internet en Colombia", "valor": 77.8, "unidad": "%", "fuente": "DataReportal, Digital 2026 Colombia" },
+      { "etiqueta": "Cuentas de redes sociales frente a la población (no son personas únicas)", "valor": 70.4, "unidad": "%", "fuente": "DataReportal, Digital 2026 Colombia" },
+      { "etiqueta": "Mujeres en la audiencia adulta de Instagram en Colombia", "valor": 55, "unidad": "%", "fuente": "DataReportal, Digital 2026 Colombia" },
+      { "etiqueta": "Compras en línea pagadas contraentrega en Colombia (dato de 2024, a verificar)", "valor": 12, "unidad": "%", "fuente": "Informe citado por Perú Retail" }
+    ],
+    "competencia": [
+      { "producto": "Aguaje Maca y Fenogreco Siempre Bella (Falabella Colombia)", "activo": "Aguaje, maca y fenogreco", "tamano": "a verificar", "precio": "$79.900 COP (antes $120.000). La ficha muestra un registro 'NSA'. El INVIMA alertó sobre 'Aguaje Siempre Bella' de marca Natural Medix.", "precio_unidad": "a verificar", "precio_unidad_valor": null, "moneda": "COP" },
+      { "producto": "Fenogreco y Aguaje NaturalMedix (tienda Suplenergy Colombia)", "activo": "Fenogreco y aguaje", "tamano": "100 cápsulas", "precio": "$70.000 COP (antes $130.000), con contraentrega", "precio_unidad": "$700 COP por cápsula", "precio_unidad_valor": 700, "moneda": "COP" },
+      { "producto": "Combo Fenogreco + Aguaje (tienda Suplenaturals)", "activo": "Fenogreco y aguaje, en frascos separados", "tamano": "100 + 100 cápsulas", "precio": "$89.000 COP el combo, más envío de $13.000, con contraentrega", "precio_unidad": "$445 COP por cápsula", "precio_unidad_valor": 445, "moneda": "COP" },
+      { "producto": "Aguaje con Maca y Fenogreco x3 (tienda Natusaludable)", "activo": "Aguaje, maca y fenogreco (masticable)", "tamano": "3 frascos de 100 unidades", "precio": "$120.000 COP el pack de 3, con contraentrega", "precio_unidad": "$400 COP por unidad", "precio_unidad_valor": 400, "moneda": "COP" },
+      { "producto": "Aguaje - Maca y Fenogreco (tienda Megavida)", "activo": "Aguaje, maca y fenogreco (masticable)", "tamano": "a verificar", "precio": "$65.000 COP, con contraentrega", "precio_unidad": "a verificar", "precio_unidad_valor": null, "moneda": "COP" },
+      { "producto": "Aguaje + Fenogreco (tienda Kasabox)", "activo": "Aguaje y fenogreco", "tamano": "a verificar", "precio": "Entre $64.900 y $105.900 COP (la página mostraba datos confusos y el producto agotado), con pago al recibir y envío gratis", "precio_unidad": "a verificar", "precio_unidad_valor": null, "moneda": "COP" },
+      { "producto": "Hallgirl Aguaje 1000 mg (eBay, EE. UU.)", "activo": "Aguaje", "tamano": "60 cápsulas", "precio": "US$24,99", "precio_unidad": "US$0,42 por cápsula", "precio_unidad_valor": 0.42, "moneda": "USD" },
+      { "producto": "Mother Nature Organics Aguaje (Walmart, EE. UU.)", "activo": "Aguaje", "tamano": "120 cápsulas", "precio": "US$10,99 (antes US$14,99)", "precio_unidad": "US$0,09 por cápsula", "precio_unidad_valor": 0.09, "moneda": "USD" }
+    ]
+  },
+  "problemas": [
+    { "categoria": "estético", "problema": "Querer más curvas en glúteos y piernas y sentir que la ropa no horma como quisiera.", "como_lo_aborda": "No hay prueba en personas de que la fórmula cambie la figura. El producto acompaña una rutina de alimentación y ejercicio; no la reemplaza. Así debe comunicarse." },
+    { "categoria": "emocional", "problema": "Compararse con otras mujeres en redes y sentirse insegura con el cuerpo.", "como_lo_aborda": "Le da un ritual diario de cuidado propio y la sensación de estar haciendo algo por ella, sin mensajes que la hagan sentir mal." },
+    { "categoria": "físico", "problema": "Sentirse sin energía para entrenar o para el día a día.", "como_lo_aborda": "La maca se asocia de forma popular con energía y vitalidad, pero la evidencia en personas es limitada. No prometerlo como efecto seguro." },
+    { "categoria": "síntoma", "problema": "Buscar apoyo nutricional diario.", "como_lo_aborda": "Aporta el 100 % del valor de referencia de vitaminas A y E por porción, según la etiqueta. Es lo más sólido que se puede decir del producto." },
+    { "categoria": "económico", "problema": "No tener plata para una cirugía ni querer pagar por adelantado algo que puede no llegar.", "como_lo_aborda": "Kit de tres meses en un solo pedido y pago en efectivo al recibir." },
+    { "categoria": "social", "problema": "Miedo a los riesgos de operarse o de inyectarse sustancias, y a los 'inventos' de redes.", "como_lo_aborda": "Es una opción en cápsulas, de plantas conocidas, con advertencias claras. Su fuerza está en verse seria y transparente." }
+  ],
+  "puntos_dolor": [
+    { "dolor": "Quiero más cola y más pierna, pero no me voy a operar.", "sentimiento": "Deseo fuerte mezclado con miedo al quirófano.", "solucion_que_piden": "Algo natural, en cápsulas, fácil de tomar.", "encaje": "Encaja como rutina de cuidado, no como reemplazo de una cirugía. No se puede prometer aumento.", "intensidad": 9, "evidencia": "verificado" },
+    { "dolor": "Me da miedo pagar por internet y que no me llegue nada.", "sentimiento": "Desconfianza.", "solucion_que_piden": "Pagar cuando lo tenga en la mano.", "encaje": "Encaje total: la oferta ya es con pago al recibir.", "intensidad": 9, "evidencia": "vendedor" },
+    { "dolor": "Ya probé pastillas de estas y no me hicieron nada.", "sentimiento": "Decepción y sospecha.", "solucion_que_piden": "Que le digan la verdad: qué trae, cuánto trae y qué puede esperar.", "encaje": "Encaja si se muestra la fórmula con sus miligramos y se habla de constancia, sin prometer de más.", "intensidad": 8, "evidencia": "inferencia" },
+    { "dolor": "No quiero tomar algo que me engorde o me infle.", "sentimiento": "Miedo a un efecto que no quiere.", "solucion_que_piden": "Que el cambio se note solo donde quiere.", "encaje": "Encaje débil: la etiqueta dice 'no engorda', pero eso no se puede prometer ni dirigir a una zona del cuerpo. Mejor hablar de porción diaria y de acompañar con ejercicio.", "intensidad": 7, "evidencia": "inferencia" },
+    { "dolor": "Me asusta que me altere las hormonas, me saque granos o me dé dolor de cabeza.", "sentimiento": "Temor por la salud.", "solucion_que_piden": "Saber quién no lo debe tomar y qué efectos puede dar.", "encaje": "Se resuelve con advertencias claras antes de la compra. Eso baja las devoluciones.", "intensidad": 7, "evidencia": "inferencia" },
+    { "dolor": "¿Eso sí tiene INVIMA? Hay mucho producto chimbo.", "sentimiento": "Desconfianza hacia lo que se vende en redes.", "solucion_que_piden": "Ver el registro y saber quién lo fabrica.", "encaje": "Solo encaja si el registro se confirma. Si es válido, es el mejor argumento de confianza.", "intensidad": 7, "evidencia": "verificado" },
+    { "dolor": "Empiezo juiciosa y a las dos semanas lo dejo.", "sentimiento": "Frustración con ella misma.", "solucion_que_piden": "Algo fácil de seguir y que no se le acabe a mitad de camino.", "encaje": "Buen encaje: dos cápsulas al día y un kit que cubre los tres meses.", "intensidad": 6, "evidencia": "inferencia" },
+    { "dolor": "Voy al gimnasio y siento que no avanzo.", "sentimiento": "Impaciencia.", "solucion_que_piden": "Un apoyo extra para su esfuerzo.", "encaje": "Encaja como complemento de su rutina. No promete resultados del producto solo.", "intensidad": 6, "evidencia": "inferencia" }
+  ],
+  "lenguaje": [
+    { "patron": "'Natural', 'de plantas', 'sin químicos'", "angulo": "Tres plantas conocidas y nada más raro: la fórmula a la vista." },
+    { "patron": "'Sin cirugía', 'sin quirófano', 'sin inyecciones'", "angulo": "Cuidarte sin arriesgarte: una rutina en cápsulas." },
+    { "patron": "'Pago contraentrega', 'pagas al recibir', 'envío gratis'", "angulo": "Lo recibes, lo revisas y ahí sí pagas." },
+    { "patron": "'¿Sí sirve?', '¿en cuánto tiempo se ve?'", "angulo": "Honestidad: es una rutina de tres meses, no un milagro de una semana." },
+    { "patron": "'¿Tiene INVIMA?', 'que sea original'", "angulo": "Marca colombiana con registro que tú misma puedes consultar (solo si se confirma)." },
+    { "patron": "'El tratamiento completo', 'el kit de los tres meses'", "angulo": "Todo lo que necesitas para no quedarte a mitad de camino." },
+    { "patron": "'Aguaje', 'la fruta de las curvas'", "angulo": "Usar la palabra que la compradora ya busca, sin prometer el resultado." }
+  ],
+  "plataformas": [
+    { "plataforma": "Mercado Libre (Colombia, México y Perú)", "hallazgo": "Muchas publicaciones de cápsulas de aguaje con fenogreco, hinojo o maca, vendidas como 'apoyo a busto y glúteo', con descuentos y cuotas. La página de resultados no nos dejó entrar, así que no hay precios confirmados.", "dicen": "Sin reseñas verificadas. Temas recurrentes, sin citas." },
+    { "plataforma": "Falabella Colombia", "hallazgo": "Se vende 'Aguaje Maca y Fenogreco Siempre Bella' a $79.900. La ficha muestra un registro 'NSA'. La página del producto no abrió completa.", "dicen": "Sin reseñas verificadas." },
+    { "plataforma": "Tiendas naturistas en línea de Colombia", "hallazgo": "Precios entre $65.000 y $130.000 por producto o combo, casi siempre con contraentrega, envío gratis y combos de 3. Compiten por precio y por promesa de 'aumento'.", "dicen": "El impulso de compra es la oferta: combo, descuento y pago al recibir. (Contenido de vendedor)" },
+    { "plataforma": "Walmart y eBay (EE. UU.)", "hallazgo": "Aguaje solo, de 60 a 120 cápsulas, entre US$11 y US$25. Se vende como 'curves'. Walmart bloqueó la lectura de la página.", "dicen": "Según un resumen de reseñas: unas compradoras dicen notar algo de cambio, más energía y mejor piel; otras dicen que no funciona y mencionan dolor de cabeza, granos y molestias. (Temas recurrentes, sin citas verificadas)" },
+    { "plataforma": "Reddit", "hallazgo": "No aparecieron hilos sobre aguaje en la búsqueda.", "dicen": "Sin datos." },
+    { "plataforma": "TikTok e Instagram", "hallazgo": "No pudimos confirmar cifras de la tendencia del aguaje. Sí está documentada por la prensa la moda de tomar medicamentos para la alergia para 'aumentar glúteos', con advertencias de médicos.", "dicen": "Las usuarias buscan volumen 'sin ejercicio' y comparten trucos caseros. El deseo es fuerte y el riesgo de desinformación es alto. (Verificado por prensa)" },
+    { "plataforma": "INVIMA (alertas)", "hallazgo": "Alerta 275-2025 contra 'Aguaje Siempre Bella' de marca Natural Medix por no tener registro sanitario, y alerta 132-2025 contra ese producto y 'Aguaje Hinojo Maca Triple'. El INVIMA dice que estos productos se venden mucho por internet, redes y cadenas de WhatsApp.", "dicen": "La autoridad recomienda revisar siempre el registro antes de comprar. La compradora informada va a preguntar por él. (Verificado)" }
+  ],
+  "avatar": {
+    "nombre": "Daniela",
+    "edad": "26 años",
+    "ocupacion": "Auxiliar administrativa en una oficina",
+    "ciudad": "Cali, Colombia",
+    "demografia": [
+      { "dato": "Género", "valor": "Mujer" },
+      { "dato": "Rango de edad del grupo", "valor": "20 a 35 años (inferencia; los anuncios de suplementos solo pueden ir a mayores de 18)" },
+      { "dato": "Ingresos", "valor": "Entre uno y dos salarios mínimos (inferencia)" },
+      { "dato": "Cómo paga", "valor": "Prefiere efectivo al recibir. Desconfía de pagar por adelantado." },
+      { "dato": "Dónde está", "valor": "Instagram, TikTok, Facebook y WhatsApp, desde el celular" },
+      { "dato": "Cómo compra", "valor": "Ve el anuncio, escribe por WhatsApp, pregunta el precio y si tiene INVIMA, y pide contraentrega" },
+      { "dato": "Rutina", "valor": "Trabaja sentada todo el día. Va al gimnasio o hace rutinas en casa, sin mucha constancia (inferencia)" }
+    ],
+    "dolores": [
+      "Siente que su cuerpo no tiene las curvas que quisiera y que los jeans no le horman.",
+      "Se compara con las mujeres que ve en redes.",
+      "Ya compró cosas por internet que no le sirvieron o no le llegaron.",
+      "No tiene plata ni ganas de operarse, y le dan miedo las inyecciones.",
+      "Empieza rutinas y las deja a las pocas semanas."
+    ],
+    "dolor_masivo": "Sentir que, haga lo que haga, su cuerpo no cambia, y que la única salida real sería una cirugía que no puede pagar y que le da miedo.",
+    "puntos_debiles": [
+      "Compra si puede pagar al recibir y el envío es gratis.",
+      "Compra si ve la fórmula clara y una marca colombiana que da la cara.",
+      "Compra si le hablan como amiga, sin regaños ni presión.",
+      "Duda si no le muestran el registro sanitario.",
+      "Duda si le prometen demasiado: ya la engañaron antes.",
+      "Duda si teme efectos en sus hormonas o subir de peso."
+    ],
+    "motivaciones": [
+      "Verse bien en la ropa que le gusta.",
+      "Sentirse segura en la playa, en la piscina y en las fotos.",
+      "Cuidarse de forma natural, sin quirófano.",
+      "Sentir que por fin es constante con algo."
+    ],
+    "resultado_deseado": "Quiero mirarme al espejo y sentirme contenta con mis curvas, saber que lo logré cuidándome yo misma y sin haber arriesgado mi salud ni mi plata.",
+    "otros": [
+      { "quien": "Mujer de 35 a 45 años, después de tener hijos", "angulo": "Volver a dedicarse un rato a ella: un ritual diario de cuidado femenino. Recordarle que no es para embarazo ni lactancia." },
+      { "quien": "La amiga, hermana o prima que compra junto con ella", "angulo": "Hacer la rutina de tres meses en compañía y pedir dos kits en un solo envío." },
+      { "quien": "Hombres", "angulo": "No es el público. El producto y su imagen están pensados para mujeres; no se recomienda pautarles." }
+    ]
+  },
+  "impulso": {
+    "disparadores": [
+      "Un viaje, vacaciones o temporada de piscina que se acerca.",
+      "Empezar el gimnasio o un propósito de año nuevo.",
+      "Ver a una amiga o a una creadora de contenido hablar del aguaje.",
+      "Una oferta con pago al recibir y envío gratis.",
+      "Una foto o una prenda que no le quedó como esperaba."
+    ],
+    "beneficios": [
+      { "beneficio": "Pago en efectivo al recibir: sin riesgo de perder la plata", "peso": 9 },
+      { "beneficio": "Kit completo para los tres meses, sin quedarse a mitad de camino", "peso": 8 },
+      { "beneficio": "Tres plantas en una sola cápsula, en vez de comprar tres productos", "peso": 8 },
+      { "beneficio": "Rutina fácil: dos cápsulas al día con las comidas", "peso": 7 },
+      { "beneficio": "Opción en cápsulas, sin cirugía ni inyecciones", "peso": 7 },
+      { "beneficio": "Vitaminas A y E al 100 % del valor de referencia por porción", "peso": 5 },
+      { "beneficio": "Marca colombiana con registro consultable (solo si se confirma)", "peso": 5 }
+    ],
+    "resultados_deseados": [
+      "Que la ropa me horme mejor.",
+      "Sentirme segura y femenina.",
+      "No tener que operarme.",
+      "Ser constante con una rutina por fin.",
+      "No sentir que boté la plata."
+    ],
+    "tiempos": [
+      { "etapa": "Uso mínimo que pide la etiqueta", "tiempo": "3 meses de uso continuo. Lo dice el vendedor; no es una promesa clínica.", "evidencia": "vendedor" },
+      { "etapa": "Duración de un frasco", "tiempo": "30 días, a 2 cápsulas al día (60 cápsulas).", "evidencia": "verificado" },
+      { "etapa": "Duración del kit de 3 frascos", "tiempo": "90 días.", "evidencia": "verificado" },
+      { "etapa": "Cambios visibles en la figura", "tiempo": "No hay estudios en personas que den un tiempo. No se debe prometer ninguno.", "evidencia": "verificado" },
+      { "etapa": "Sensación de hábito y bienestar", "tiempo": "Depende de cada persona y de su alimentación y ejercicio. Sin plazo comprobado.", "evidencia": "inferencia" }
+    ]
+  },
+  "estrategia": {
+    "posicionamiento": {
+      "categoria": "Suplemento femenino de rutina diaria (bienestar y cuidado de la figura), no 'pastilla para aumentar glúteos'.",
+      "enemigo": "Las promesas mágicas y los inventos peligrosos de redes: productos sin registro, inyecciones y trucos caseros.",
+      "mecanismo": "Triple fórmula: aguaje + fenogreco + maca negra en una sola cápsula, con vitaminas A y E, en una rutina de tres meses.",
+      "promesa": "Una rutina clara y natural para acompañar el cuidado de tu figura: sabes qué tomas, cuánto tomas y solo pagas cuando la recibes."
+    },
+    "oferta": "Oferta principal: kit de 3 frascos (90 días) con pago al recibir y envío gratis. El nombre cuadra con la dosis: 3 frascos de 60 cápsulas a 2 por día son 3 meses. Mejor llamarlo 'kit de 3 meses' o 'rutina completa' que 'tratamiento', porque esa palabra suena a medicamento. Precio: no lo tenemos. Como punto de partida para probar, entre $139.900 y $169.900 COP el kit (supuesto). Ojo con el ancla de precio: a $149.900 el kit, cada cápsula sale a unos $833, más cara que la de varios competidores ($400 a $700). Por eso no te compares con ellos: usa como ancla el precio de comprar tus propios frascos de a uno (por ejemplo, 3 × $69.900 = $209.700, solo si de verdad vendes el frasco suelto a ese precio). Segunda opción: 1 frasco de prueba, a un precio que haga ver mejor el kit. Recompra: escribe por WhatsApp el día 75, cuando le quedan unos 15 días de producto.",
+    "unit_economics": [
+      { "dato": "Precio del kit de 3 frascos (supuesto)", "valor": "$149.900 COP" },
+      { "dato": "Costo de los 3 frascos (supuesto, reemplaza con tu dato)", "valor": "$30.000 COP" },
+      { "dato": "Flete de ida (supuesto)", "valor": "$15.000 COP" },
+      { "dato": "Comisión por recaudo en efectivo (supuesto, 3 %)", "valor": "$4.500 COP" },
+      { "dato": "Ganancia por pedido entregado, antes de publicidad", "valor": "$100.400 COP" },
+      { "dato": "Pedidos que sí se entregan (supuesto)", "valor": "75 % (25 % de devolución)" },
+      { "dato": "Costo de cada devolución (supuesto: el flete)", "valor": "$15.000 COP" },
+      { "dato": "Lo máximo que puedes gastar en publicidad por pedido despachado sin perder", "valor": "$71.550 COP" },
+      { "dato": "Fórmula", "valor": "(ganancia por pedido entregado × % de entrega) − (costo de devolución × % de devolución). Aquí: (100.400 × 0,75) − (15.000 × 0,25) = 71.550" },
+      { "dato": "Meta sana de costo de publicidad por pedido", "valor": "La mitad de ese tope o menos: unos $35.000 COP (supuesto)" }
+    ],
+    "fases": [
+      "Fase 0 (antes de gastar en anuncios): confirma el registro sanitario, corrige la etiqueta y define el precio con tu costo real.",
+      "Fase 1 (2 semanas): prueba 3 ángulos con poco presupuesto, todos llevando a WhatsApp, con el kit de 3 meses y pago al recibir.",
+      "Fase 2 (semanas 3 a 6): deja los 1 o 2 ángulos ganadores, suma videos de clientas reales y arma la página de venta.",
+      "Fase 3 (desde el mes 2): recompra por WhatsApp el día 75, referidos (amiga o hermana) y combos de dos kits."
+    ],
+    "canales": [
+      "Anuncios en Facebook e Instagram que llevan a WhatsApp (principal). Solo a mujeres mayores de 18.",
+      "TikTok con videos cortos de rutina diaria y de 'qué trae la cápsula'.",
+      "WhatsApp para cerrar la venta, confirmar el pedido y hacer la recompra.",
+      "Página de venta sencilla con formulario de pedido contraentrega.",
+      "Mercado Libre como vitrina de confianza (opcional, más adelante)."
+    ],
+    "angulos": [
+      { "nombre": "Pagas al recibir", "idea": "Lo recibes en tu casa, lo revisas y ahí sí pagas. Quita el miedo a que te tumben.", "fuerza": 9 },
+      { "nombre": "La fórmula a la vista", "idea": "Mostrar la etiqueta: 200 mg de aguaje, 400 mg de fenogreco y 200 mg de maca negra. Sin secretos.", "fuerza": 8 },
+      { "nombre": "Rutina de tres meses", "idea": "La constancia es lo que cuenta: un kit que cubre los 90 días, dos cápsulas al día.", "fuerza": 8 },
+      { "nombre": "Sin quirófano ni inventos", "idea": "Una opción en cápsulas para la mujer que quiere cuidarse sin arriesgarse.", "fuerza": 7 },
+      { "nombre": "Mi complemento del gimnasio", "idea": "Entreno, como bien y sumo mis dos cápsulas. El producto acompaña el esfuerzo, no lo reemplaza.", "fuerza": 7 },
+      { "nombre": "Tres en uno", "idea": "Tres plantas en un solo frasco, en vez de comprar tres productos distintos.", "fuerza": 6 }
+    ],
+    "whatsapp": "1) Saludo: 'Hola, ¿cómo estás? Soy [nombre], de Vitalabh. Qué bueno que escribes. ¿Para qué ciudad sería tu pedido?'\n2) Qué es: 'Aguaje Complex 3 en 1 es un suplemento en cápsulas con aguaje, fenogreco y maca negra, más vitaminas A y E. Se toman 2 cápsulas al día con las comidas.'\n3) Verdad primero: 'Te cuento con honestidad: es un suplemento, no un medicamento. Funciona como complemento de una buena alimentación y de tu rutina de ejercicio, y cada cuerpo es distinto.'\n4) Cuidado: 'Antes de seguir, una pregunta por tu bienestar: ¿estás embarazada, lactando, tomas algún medicamento o tienes alguna condición de salud? Si es así, lo mejor es que lo consultes primero con tu médico.'\n5) Oferta: 'La rutina recomendada es de 3 meses. El kit trae 3 frascos, uno por mes, y hoy queda en $[precio] con envío gratis.'\n6) Cierre: 'No pagas nada ahora: lo pagas en efectivo cuando lo recibes. ¿Me regalas tu nombre completo, dirección, barrio, ciudad y un celular para el envío?'\n7) Confirmación: 'Listo, [nombre]. Tu pedido sale hoy y llega en [X] días. Ten listo el valor en efectivo. Te aviso apenas salga a reparto.'\n8) Seguimiento: el día que llega ('¿Ya lo recibiste? Recuerda: 2 cápsulas al día con las comidas'), el día 30 ('¿Cómo vas con la rutina?') y el día 75 ('Ya casi terminas tu kit, ¿te aparto el siguiente?').",
+    "objeciones": [
+      { "objecion": "¿Sí funciona?", "respuesta": "Es un suplemento con aguaje, fenogreco y maca negra, para acompañar tu alimentación y tu ejercicio. No es un medicamento ni hace milagros, y cada cuerpo responde distinto. Por eso la rutina es de tres meses." },
+      { "objecion": "¿En cuánto tiempo veo cambios?", "respuesta": "No te puedo prometer un tiempo, porque depende de cada persona. La recomendación de la etiqueta es tomarlo de forma continua por tres meses." },
+      { "objecion": "¿Tiene INVIMA?", "respuesta": "Sí, el número está en la etiqueta y lo puedes consultar tú misma en la página del INVIMA. (Usa esta respuesta solo cuando hayas confirmado que el registro es válido.)" },
+      { "objecion": "¿Me engorda?", "respuesta": "Son 2 cápsulas pequeñas al día, de medio gramo cada una. Lo que cuenta para tu peso es tu alimentación y tu actividad física." },
+      { "objecion": "¿Tiene efectos secundarios?", "respuesta": "A algunas personas el fenogreco les puede dar molestias de estómago o alergia, y puede bajar el azúcar en sangre. No es para embarazo ni lactancia. Si tomas medicamentos o tienes una condición de salud, consulta antes con tu médico." },
+      { "objecion": "Está muy caro.", "respuesta": "El kit trae los tres meses completos, con envío gratis, y sale más económico que pedir los frascos de a uno. Y lo pagas apenas lo tengas en tus manos." },
+      { "objecion": "¿Y si no me llega?", "respuesta": "Por eso no pagas nada antes. Lo recibes en tu casa, lo revisas y ahí sí pagas en efectivo." },
+      { "objecion": "¿Puedo pedir solo un frasco?", "respuesta": "Claro que sí. Te cuento que la rutina recomendada es de tres meses y por eso el kit es el que mejor precio tiene." }
+    ],
+    "cumplimiento": [
+      "No usar en anuncios, página ni WhatsApp: 'aumenta glúteos', 'aumenta piernas', 'no engorda', 'sin efecto rebote', 'sin hacer ejercicio', 'resultados rápidos y duraderos', 'garantizado'.",
+      "No usar palabras de medicamento: 'cura', 'trata', 'regula las hormonas', 'tratamiento'. Mejor 'rutina', 'kit de 3 meses', 'suplemento'.",
+      "En Colombia la publicidad de suplementos debe ser aprobada antes por el INVIMA y ajustarse a los beneficios de los ingredientes. Consulta el trámite con un asesor.",
+      "Confirmar que el registro de la etiqueta es válido y corresponde a un suplemento. Si no lo es, no lanzar.",
+      "Corregir la etiqueta: quitar la norma mexicana, poner un código de barras real y aclarar si los miligramos son por cápsula o por porción.",
+      "Nada de fotos de 'antes y después' ni de imágenes que hagan sentir mal a la mujer con su cuerpo. No hablarle de 'tus glúteos' ni asumir cómo se siente.",
+      "Pautar solo a mayores de 18 años.",
+      "Testimonios solo de clientas reales, con su permiso. Los títulos en primera persona se publican como testimonio solo si hay una clienta real detrás.",
+      "No decir que es 'peruano', 'importado' o 'de la Amazonía' como origen del producto si se fabrica en Colombia. Sí se puede decir que el aguaje es una fruta amazónica.",
+      "Advertencias siempre visibles: no usar en embarazo ni lactancia; no es para menores; consultar al médico si tomas medicamentos (en especial para la diabetes), si tienes alergias o una condición hormonal; no exceder 2 cápsulas al día; la cápsula es de gelatina bovina (no es vegana).",
+      "No nombrar marcas competidoras en los anuncios."
+    ],
+    "kpis": [
+      "Costo de publicidad por pedido despachado: por debajo del tope que te da la fórmula (con los supuestos, $71.550; meta, cerca de $35.000).",
+      "Conversaciones de WhatsApp que terminan en pedido: medir cada semana.",
+      "Pedidos que sí se entregan: meta de 75 % o más (supuesto).",
+      "Porcentaje de pedidos que son del kit de 3 frascos frente a 1 frasco.",
+      "Recompra a los 90 días.",
+      "Anuncios rechazados: debe estar en cero o muy cerca. Si suben, revisa el texto."
+    ]
+  },
+  "titulos": [
+    { "dolor": "Miedo a pagar y que no llegue", "titulo": "Lo recibes, lo revisas y ahí sí pagas", "apoyo": "Kit de 3 meses con pago en efectivo al recibir.", "probar_primero": true },
+    { "dolor": "Miedo a pagar y que no llegue", "titulo": "Pagas en efectivo cuando llega a tu puerta", "apoyo": "Aguaje Complex 3 en 1. Envío a toda Colombia.", "probar_primero": false },
+    { "dolor": "Miedo a pagar y que no llegue", "titulo": "Tres frascos, tres meses, un solo pago al recibir", "apoyo": "Sin pagos por adelantado.", "probar_primero": false },
+    { "dolor": "Cansada de promesas exageradas", "titulo": "Sin promesas mágicas: la fórmula está en la etiqueta", "apoyo": "Aguaje 200 mg + fenogreco 400 mg + maca negra 200 mg.", "probar_primero": true },
+    { "dolor": "Cansada de promesas exageradas", "titulo": "Una fórmula clara vale más que una promesa grande", "apoyo": "Tres plantas y vitaminas A y E en una cápsula.", "probar_primero": false },
+    { "dolor": "Cansada de promesas exageradas", "titulo": "Aquí sabes qué tomas y cuánto tomas", "apoyo": "Suplemento en cápsulas. 2 al día con tus comidas.", "probar_primero": false },
+    { "dolor": "Falta de constancia", "titulo": "La constancia se nota más que el afán", "apoyo": "Un kit que te acompaña los 90 días.", "probar_primero": true },
+    { "dolor": "Falta de constancia", "titulo": "Dos cápsulas al día. Así de simple es la rutina", "apoyo": "Con el desayuno y con el almuerzo, y listo.", "probar_primero": false },
+    { "dolor": "Falta de constancia", "titulo": "Tres meses de rutina en un solo pedido", "apoyo": "Para no quedarte a mitad de camino.", "probar_primero": false },
+    { "dolor": "No querer cirugía ni inventos", "titulo": "Yo elegí una rutina, no un quirófano", "apoyo": "Aguaje, fenogreco y maca negra en cápsulas. (Testimonio: solo con una clienta real.)", "probar_primero": false },
+    { "dolor": "No querer cirugía ni inventos", "titulo": "Tres plantas conocidas, nada de inventos raros", "apoyo": "Suplemento alimenticio de marca colombiana.", "probar_primero": false },
+    { "dolor": "No querer cirugía ni inventos", "titulo": "Cuidarme sin arriesgarme: esa es mi regla", "apoyo": "Una rutina en cápsulas, con pago al recibir. (Testimonio: solo con una clienta real.)", "probar_primero": false },
+    { "dolor": "Querer un apoyo para el esfuerzo", "titulo": "Entreno, como bien y sumo mi Aguaje Complex", "apoyo": "El complemento de mi rutina. (Testimonio: solo con una clienta real.)", "probar_primero": false },
+    { "dolor": "Querer un apoyo para el esfuerzo", "titulo": "El complemento de la mujer que ya se cuida", "apoyo": "Acompaña tu alimentación y tu ejercicio.", "probar_primero": false },
+    { "dolor": "Querer un apoyo para el esfuerzo", "titulo": "Mi ritual femenino de todos los días", "apoyo": "2 cápsulas con mis comidas. (Testimonio: solo con una clienta real.)", "probar_primero": false },
+    { "dolor": "Tomar muchas cosas a la vez", "titulo": "Aguaje + fenogreco + maca negra: el 3 en 1", "apoyo": "Todo en una sola cápsula.", "probar_primero": false },
+    { "dolor": "Tomar muchas cosas a la vez", "titulo": "Tres ingredientes en un frasco, no tres frascos distintos", "apoyo": "Más simple y más fácil de seguir.", "probar_primero": false },
+    { "dolor": "Tomar muchas cosas a la vez", "titulo": "El aguaje ahora viene bien acompañado", "apoyo": "Con fenogreco, maca negra y vitaminas A y E.", "probar_primero": false }
+  ],
+  "heros": [
+    { "titular": "Aguaje, fenogreco y maca negra en una sola cápsula", "subtitulo": "Tu rutina femenina de tres meses. Dos cápsulas al día y pagas cuando la recibes. (Probar esta primero contra la segunda.)" },
+    { "titular": "Lo recibes, lo revisas y ahí sí pagas", "subtitulo": "Kit de 3 frascos de Aguaje Complex 3 en 1, con envío a toda Colombia y pago en efectivo al recibir." },
+    { "titular": "Tres meses de constancia en un solo kit", "subtitulo": "Tres frascos, uno por mes. Dos cápsulas al día con tus comidas, para acompañar tu alimentación y tu ejercicio." },
+    { "titular": "La fórmula a la vista, sin promesas mágicas", "subtitulo": "200 mg de aguaje, 400 mg de fenogreco y 200 mg de maca negra, con vitaminas A y E. Sabes qué tomas y cuánto tomas." },
+    { "titular": "Una rutina en cápsulas para la mujer que se cuida a su manera", "subtitulo": "Sin quirófano y sin inventos. Tres plantas conocidas en un suplemento de marca colombiana." },
+    { "titular": "El 3 en 1 que acompaña tu rutina", "subtitulo": "Entrenas, comes bien y sumas tus dos cápsulas al día. El kit de tres meses llega a tu casa y lo pagas al recibir." }
+  ],
+  "fuentes": [
+    { "titulo": "INVIMA: alerta sanitaria 275-2025, Aguaje Siempre Bella de marca Natural Medix", "url": "https://www.invima.gov.co/alertas-sanitarias/aguaje-siempre-bella-de-marca-natural-medix" },
+    { "titulo": "INVIMA: alerta por productos fraudulentos vendidos en redes sociales (junio de 2026)", "url": "https://www.invima.gov.co/blog/sala-de-prensa-13/el-invima-alerta-por-aumento-de-productos-fraudulentos-para-bajar-de-peso-comercializados-en-redes-sociales-513" },
+    { "titulo": "INVIMA: Decreto 3249 de 2006, suplementos dietarios", "url": "https://www.invima.gov.co/biblioteca/decreto-3249-2006-suplementos-dietarios-105008" },
+    { "titulo": "El Tiempo: INVIMA alerta por productos dietarios no autorizados", "url": "https://www.eltiempo.com/salud/invima-emite-alerta-por-productos-dietarios-no-autorizados-que-representan-riesgo-para-la-salud-autoridades-recomiendan-verificar-registro-sanitario-3539561" },
+    { "titulo": "DataReportal: Digital 2026 Colombia", "url": "https://datareportal.com/reports/digital-2026-colombia" },
+    { "titulo": "NCCIH (Institutos Nacionales de Salud de EE. UU.): fenogreco", "url": "https://www.nccih.nih.gov/health/fenugreek" },
+    { "titulo": "Actividad estrogénica del extracto de aguaje en ratas (estudio peruano)", "url": "https://alicia.concytec.gob.pe/vufind/Record/REVINMP_0a1b3657d7ea6d3d7041a258711e9c3c" },
+    { "titulo": "PubMed: actividad estrogénica de las semillas de fenogreco en laboratorio", "url": "https://pubmed.ncbi.nlm.nih.gov/20571172/" },
+    { "titulo": "Dr. Andrew Weil: ¿el fenogreco aumenta el busto?", "url": "https://drweil.com/?p=105928" },
+    { "titulo": "Revisión de estudios: maca y función sexual (2010)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2928177" },
+    { "titulo": "Portafolio: Colombia registró casi medio millón de procedimientos estéticos en 2024, según ISAPS", "url": "https://www.portafolio.co/negocios/industrias/colombia-registro-casi-medio-millon-de-procedimientos-esteticos-en-2024-segun-isaps-633973" },
+    { "titulo": "ISAPS: comunicado de la encuesta mundial 2022", "url": "https://www.isaps.org/media/qqkp40py/global-survey-2022-press-release.pdf" },
+    { "titulo": "El Tiempo: ¿la Vibazina sirve para aumentar glúteos?", "url": "https://www.eltiempo.com/salud/la-vibazina-sirve-para-aumentar-gluteos-750043" },
+    { "titulo": "EnColombia: por qué los compradores en Colombia prefieren pagar al recibir", "url": "https://encolombia.com/economia/empresas/transporte-mercancias-emprendimiento/en-colombia-prefieren-pagar-al-recibir/" },
+    { "titulo": "Meta: normas de publicidad sobre salud y bienestar", "url": "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness" },
+    { "titulo": "Falabella Colombia: Aguaje Maca y Fenogreco Siempre Bella", "url": "https://www.falabella.com.co/falabella-co/product/141168119/Aguaje-Maca-Y-Fenogreco-Siempre-Bella/141168120" },
+    { "titulo": "Suplenergy Colombia: Fenogreco y Aguaje 100 cápsulas", "url": "https://www.suplenergycolombia.com/producto/fenogreco-aguaje-100-caps/" },
+    { "titulo": "Suplenaturals: Fenogreco 100 cápsulas + Aguaje 100 cápsulas", "url": "https://suplenaturals.com/fenogreco-100caps-aguaje-100-caps/" },
+    { "titulo": "Natusaludable: Aguaje con Maca y Fenogreco 100 und x3", "url": "https://natusaludable.com/products/aguaje-maca-fenogreco-100und-x3" },
+    { "titulo": "Megavida: Aguaje - Maca y Fenogreco", "url": "https://megavidashop.com/products/aguaje-maca-y-fenogreco" },
+    { "titulo": "Kasabox: Aguaje + Fenogreco", "url": "https://kasaboxoficial.com/products/aguaje-fenogreco" },
+    { "titulo": "eBay: Hallgirl Aguaje 1000 mg, 60 cápsulas", "url": "https://ebay.com/itm/284186578030" },
+    { "titulo": "Walmart: Mother Nature Organics Aguaje", "url": "https://www.walmart.com/ip/548369004" },
+    { "titulo": "ShopSavvy: resumen de reseñas de Mother Nature Aguaje Curves", "url": "https://shopsavvy.com/reviews-tldr/\"mother-nature-aguaje-curves-capsules\"" }
+  ]
+}

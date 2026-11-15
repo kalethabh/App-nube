@@ -1,0 +1,25 @@
+{
+  "id": "408202fd-d1e6-4827-a147-2cff6ebd5d35",
+  "uuid": "408202fd-d1e6-4827-a147-2cff6ebd5d35",
+  "estado": "lista",
+  "pais": "Colombia",
+  "progreso": [
+    "Claude está investigando tu mercado",
+    "Leyendo las instrucciones del estilo",
+    "Mirando las fotos de tu producto",
+    "Guardando",
+    "Leyendo",
+    "Guardando",
+    "Buscando en los archivos"
+  ],
+  "intentos": 1,
+  "inicio": "2026-11-15T22:33:48.350Z",
+  "error": null,
+  "fin": "2026-11-15T22:39:41.477Z",
+  "medida": {
+    "turnos": 45,
+    "duracionMs": 352788,
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-15T22:39:41.478Z"
+}
