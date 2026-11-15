@@ -8,11 +8,11 @@
   "srt": false,
   "guardar": false,
   "creado": "2026-11-15T03:35:36.636Z",
-  "actualizado": "2026-11-15T03:37:19.544Z",
+  "actualizado": "2026-11-15T03:43:19.313Z",
   "avance": {
     "etapa": "render",
-    "valor": 24.3,
-    "cuadro": 1194,
+    "valor": 69.1,
+    "cuadro": 5552,
     "total": 6980
   }
 }
