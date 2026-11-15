@@ -5,7 +5,7 @@
 //        pistas: [{ id, texto, apariciones: [[t, x, y, w, h]], desde, hasta, veces }] }   (t en segundos del video
 //        COMO ESTÁ AHORA: en tus videos, con lo que quitaste descontado)
 //   POST /api/anuncios/:slug/textos-video   lee los textos del video (gratis, en esta PC: produccion/leer-textos-video.py
-//        con el OCR de «Borrar subtítulos»; unos 20 s por minuto de video). Va por la fila pesada.
+//        con el OCR de «Borrar subtítulos»; unos 30 s por minuto de video). Va por la fila pesada.
 //   POST /api/anuncios/:slug/seguimiento/ia  { pedido, elemento: { texto, esImagen } }  la IA elegida lee tu pedido
 //        («ponlo encima de "muna" en todo el video») y la lista de textos del video, y dice cuáles seguir.
 //        -> { pistas: [ids], siempre, mensaje }
@@ -30,6 +30,7 @@ const PY = process.platform === 'win32' ? path.join(RAIZ, '.venv-limpio', 'Scrip
 const dirSeg = (slug) => path.join(TEMP, slug, 'app', 'seguimiento');
 const archivoEstado = (slug) => path.join(dirSeg(slug), 'estado.json');
 const leyendo = new Map(); // slug -> valor
+const VERSION_LECTOR = 2; // la de produccion/leer-textos-video.py
 
 /** El video que se lee y su firma (si cambia, hay que leerlo de nuevo). */
 function videoDe(slug) {
@@ -59,7 +60,8 @@ function aLinea(t, fuente) {
 function pistasDe(slug) {
   const v = videoDe(slug);
   const leido = leerJSON(path.join(dirSeg(slug), 'textos.json'));
-  if (!v || !leido || leido.firma !== v.firma) return null;
+  // (una lectura con el lector de antes, que juntaba en una pista apariciones en lugares distintos, se vuelve a hacer)
+  if (!v || !leido || leido.firma !== v.firma || (leido.version || 1) < VERSION_LECTOR) return null;
   const fuente = v.plan?.videoPropio ? v.plan.fuente : null;
   return (leido.pistas || [])
     .map((p) => {

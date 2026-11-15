@@ -35,6 +35,71 @@ export function huella(archivo) {
 }
 const igual = (a, b) => a.bytes === b.bytes && a.sha256 === b.sha256;
 
+/** Lo mismo que huella(), sin trabar la app: lee por partes (la app sigue atendiendo mientras tanto). */
+export async function huellaAsync(archivo) {
+  if (!fs.lstatSync(archivo).isFile()) throw new Error('El archivo no es un archivo normal.');
+  const hash = crypto.createHash('sha256');
+  let bytes = 0;
+  for await (const trozo of fs.createReadStream(archivo, { highWaterMark: 1024 * 1024 })) {
+    bytes += trozo.length;
+    hash.update(trozo);
+  }
+  return { bytes, sha256: hash.digest('hex') };
+}
+
+/** Las revisiones que no son la copia en sí (que el destino esté dentro de la carpeta elegida, sin enlaces). */
+function revisarDestino(origen, destino, raiz) {
+  if (path.resolve(origen) === path.resolve(destino)) throw new Error('El destino coincide con el original.');
+  let raizReal = null;
+  if (raiz) {
+    raizReal = fs.realpathSync(raiz);
+    if (!dentro(raizReal, path.resolve(destino))) throw new Error('El destino está fuera de la carpeta elegida.');
+    let antecesor = path.dirname(path.resolve(destino));
+    while (true) {
+      try {
+        const st = fs.lstatSync(antecesor);
+        if (!st.isDirectory() && !st.isSymbolicLink()) throw new Error('El destino no es una carpeta.');
+        if (!dentro(raizReal, fs.realpathSync(antecesor))) throw new Error('El destino está fuera de la carpeta elegida.');
+        break;
+      } catch (e) {
+        if (e.code !== 'ENOENT') throw e;
+        try {
+          if (fs.lstatSync(antecesor).isSymbolicLink()) throw new Error('La carpeta de destino es un enlace no disponible.');
+        } catch (err) { if (err.code !== 'ENOENT') throw err; }
+        const arriba = path.dirname(antecesor);
+        if (arriba === antecesor) throw e;
+        antecesor = arriba;
+      }
+    }
+  }
+  fs.mkdirSync(path.dirname(destino), { recursive: true });
+  if (raizReal && !dentro(raizReal, fs.realpathSync(path.dirname(destino)))) throw new Error('El destino está fuera de la carpeta elegida.');
+  try {
+    if (fs.lstatSync(destino).isSymbolicLink()) throw new Error('El destino es un enlace a otro archivo.');
+  } catch (e) { if (e.code !== 'ENOENT') throw e; }
+}
+
+/**
+ * copiarVerificado() sin trabar la app (2026-11-14: con un video largo y sus 80 escenas, el respaldo leía cada archivo
+ * hasta 4 veces de corrido y la app dejaba de responder minutos). Las mismas revisiones; la lectura, la copia y el
+ * fsync van por partes.
+ */
+export async function copiarVerificadoAsync(origen, destino, { raiz } = {}) {
+  revisarDestino(origen, destino, raiz);
+  const original = await huellaAsync(origen);
+  if (fs.existsSync(destino) && igual(original, await huellaAsync(destino))) return { ...original, nuevo: false };
+  const tmp = `${destino}.${crypto.randomUUID()}.tmp`;
+  try {
+    await fs.promises.copyFile(origen, tmp, fs.constants.COPYFILE_EXCL);
+    if (!igual(original, await huellaAsync(tmp)) || !igual(original, await huellaAsync(origen))) throw new Error('El archivo cambió mientras se copiaba. Se conserva el original.');
+    const fh = await fs.promises.open(tmp, 'r+');
+    try { await fh.sync(); } finally { await fh.close(); }
+    await fs.promises.rename(tmp, destino);
+    if (!igual(original, await huellaAsync(destino))) throw new Error('No se pudo comprobar la copia. Se conserva el original.');
+    return { ...original, nuevo: true };
+  } finally { await fs.promises.rm(tmp, { force: true }); }
+}
+
 /** No deja un destino parcial, ni confunde dos archivos distintos del mismo tamaño. */
 export function copiarVerificado(origen, destino, { raiz, copiar = fs.copyFileSync } = {}) {
   if (path.resolve(origen) === path.resolve(destino)) throw new Error('El destino coincide con el original.');
@@ -83,7 +148,18 @@ export function copiarVerificado(origen, destino, { raiz, copiar = fs.copyFileSy
 }
 
 /** Se puede probar con carpetas aisladas, sin GitHub, cuentas ni anuncios reales. */
-export function crearArchivador({ temp, output, ocupado = () => false, guardarMarca = escribirJSONSeguro, copiar = copiarVerificado }) {
+export function crearArchivador({ temp, output, ocupado = () => false, guardarMarca = escribirJSONSeguro, copiar = null }) {
+  // Lo que ya se copió y se verificó: si el original y su copia siguen iguales (tamaño y fecha), no se vuelven a leer
+  // enteros en cada pasada. Se guarda en temp/.respaldos-verificados.json (sobrevive a reiniciar la app).
+  const archivoVerificados = path.join(temp, '.respaldos-verificados.json');
+  let verificados = null;
+  const leerVerificados = () => (verificados ??= new Map(Object.entries(leer(archivoVerificados) || {})));
+  const firma = (st) => `${st.size}:${Math.round(st.mtimeMs)}`;
+  const guardarVerificados = () => {
+    try {
+      fs.writeFileSync(archivoVerificados, JSON.stringify(Object.fromEntries(leerVerificados())));
+    } catch { /* la próxima pasada vuelve a verificar */ }
+  };
   const rutaMarca = (slug) => path.join(temp, slug, 'app', MARCA);
   const marca = (slug) => SLUG.test(slug) ? leer(rutaMarca(slug)) : null;
   const trabajos = () => {
@@ -134,16 +210,32 @@ export function crearArchivador({ temp, output, ocupado = () => false, guardarMa
     if (!fs.statSync(base).isDirectory()) throw new Error('La carpeta elegida no está disponible.');
     if ([temp, output].some((p) => dentro(path.resolve(p), base) || dentro(base, path.resolve(p)))) throw new Error('Elige una carpeta fuera de los archivos de trabajo de la app.');
     const resumen = { copiados: 0, liberados: 0, bytes: 0, fallos: [] };
+    let cambiosVerificados = 0;
     const slugs = trabajos();
     async function uno(slug, f, esFinal = false) {
       const destinoArchivo = path.join(base, esFinal ? 'videos-finales' : slug, ...f.rel.split('/'));
       try {
-        const prueba = copiar(f.abs, destinoArchivo, { raiz: base });
+        const v = leerVerificados();
+        const clave = `${f.abs}\n${destinoArchivo}`;
+        const stO = fs.statSync(f.abs);
+        let stD = null;
+        try { stD = fs.statSync(destinoArchivo); } catch { stD = null; }
+        const previo = v.get(clave);
+        let prueba;
+        if (!copiar && previo && stD && previo.origen === firma(stO) && previo.destino === firma(stD)) {
+          prueba = { bytes: previo.bytes, sha256: previo.sha256, nuevo: false }; // ya estaba copiado y verificado
+        } else {
+          prueba = copiar ? await copiar(f.abs, destinoArchivo, { raiz: base }) : await copiarVerificadoAsync(f.abs, destinoArchivo, { raiz: base });
+          if (!copiar) {
+            v.set(clave, { origen: firma(fs.statSync(f.abs)), destino: firma(fs.statSync(destinoArchivo)), bytes: prueba.bytes, sha256: prueba.sha256 });
+            if (++cambiosVerificados % 20 === 0) guardarVerificados();
+          }
+        }
         if (prueba.nuevo) resumen.copiados++;
         if (liberarEspacio && slug && sePuedeLiberar(slug)) {
           const registro = nuevaMarca(slug, base, { rel: f.rel, ubicacion: { archivo: destinoArchivo, bytes: prueba.bytes, sha256: prueba.sha256 } }, esFinal);
           guardarMarca(rutaMarca(slug), registro); // Siempre ANTES de quitar el original.
-          if (!igual(prueba, huella(f.abs)) || !igual(prueba, huella(destinoArchivo))) throw new Error('El archivo cambió: se conserva el original.');
+          if (!igual(prueba, await huellaAsync(f.abs)) || !igual(prueba, await huellaAsync(destinoArchivo))) throw new Error('El archivo cambió: se conserva el original.');
           if (!sePuedeLiberar(slug)) return;
           fs.rmSync(f.abs);
           resumen.liberados++;
@@ -164,6 +256,7 @@ export function crearArchivador({ temp, output, ocupado = () => false, guardarMa
         await uno(slug, { abs: path.join(output, e.name), rel: e.name }, true);
       }
     }
+    if (cambiosVerificados) guardarVerificados();
     return resumen;
   }
 
@@ -191,7 +284,7 @@ export function crearArchivador({ temp, output, ocupado = () => false, guardarMa
         const a = path.join(final ? output : path.join(temp, slug), ...rel.split('/'));
         if (fs.existsSync(a)) return; // Conservar una edición local posterior.
         if (ubicacion?.sha256 && !igual(ubicacion, huella(desde))) throw new Error('La copia guardada cambió.');
-        copiar(desde, a, { raiz: final ? output : path.join(temp, slug) });
+        (copiar || copiarVerificado)(desde, a, { raiz: final ? output : path.join(temp, slug) });
       } catch { faltan.push(rel); }
     };
     try { fs.mkdirSync(output, { recursive: true }); } catch { faltan.push('carpeta de videos terminados'); return fallo(); }

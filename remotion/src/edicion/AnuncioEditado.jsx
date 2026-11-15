@@ -23,7 +23,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AbsoluteFill, Audio, Img, Loop, Sequence, continueRender, delayRender, getRemotionEnvironment, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Anuncio } from '../Anuncio.jsx';
-import { capasDeEdicion, lugarSeguido } from './capas.mjs';
+import { capasDeEdicion, lugaresSeguidos } from './capas.mjs';
 import { Subtitulos } from './subtitulos/estilos.jsx';
 import { FUENTES, cargarFuentesSubtitulos } from './subtitulos/fuentes.js';
 
@@ -134,45 +134,50 @@ function MusicaEntera({ musica }) {
  * (así lo tapa). Sin el pop de entrada: aparece y se va con un fundido corto.
  */
 function TextoSeguido({ id, texto, t, inicio, fin, e, sigue, ancho, alto }) {
-  const l = lugarSeguido(sigue, t);
-  if (!l) return null;
+  const lugares = lugaresSeguidos(sigue, t);
+  if (!lugares.length) return null;
   const opacidad = Math.min(interpolate(t, [inicio, inicio + 0.12], [0, 1], CLAMP), interpolate(t, [fin - 0.12, fin], [1, 0], CLAMP));
   const sinFondo = !e.fondo;
-  // la letra: la de siempre por su tamaño, y al menos lo bastante grande para cubrir el alto del texto de abajo
-  const fs = Math.round(Math.max(ancho * 0.04 * (e.tamano ?? 1), l.h * alto * 0.78 * (e.tamano ?? 1)));
   return (
     <AbsoluteFill style={{ pointerEvents: 'none' }}>
-      <div
-        data-capa={id}
-        style={{
-          position: 'absolute',
-          left: ancho * l.x,
-          top: alto * l.y,
-          transform: 'translate(-50%, -50%)',
-          minWidth: sinFondo ? undefined : l.w * ancho * 1.08 + fs * 0.4,
-          minHeight: sinFondo ? undefined : l.h * alto * 1.3,
-          maxWidth: ancho * 0.96,
-          boxSizing: 'border-box',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: `${fs * 0.18}px ${fs * 0.35}px`,
-          borderRadius: fs * 0.22,
-          background: sinFondo ? 'transparent' : e.fondo,
-          color: e.color || '#fff',
-          fontFamily: FUENTES[e.fuente] || FUENTES.titulo,
-          fontWeight: 800,
-          fontSize: fs,
-          lineHeight: 1.05,
-          textAlign: 'center',
-          textTransform: 'uppercase',
-          whiteSpace: 'nowrap',
-          ...(sinFondo ? { WebkitTextStroke: `${Math.max(1, Math.round(fs * 0.07))}px rgba(0,0,0,0.85)`, paintOrder: 'stroke fill' } : {}),
-          opacity: opacidad,
-        }}
-      >
-        {texto}
-      </div>
+      {lugares.map((l, n) => {
+        // la letra: la de siempre por su tamaño, y al menos lo bastante grande para cubrir el alto del texto de abajo
+        const fs = Math.round(Math.max(ancho * 0.04 * (e.tamano ?? 1), l.h * alto * 0.78 * (e.tamano ?? 1)));
+        return (
+          <div
+            key={n}
+            data-capa={n === 0 ? id : undefined}
+            style={{
+              position: 'absolute',
+              left: ancho * l.x,
+              top: alto * l.y,
+              transform: 'translate(-50%, -50%)',
+              minWidth: sinFondo ? undefined : l.w * ancho * 1.08 + fs * 0.4,
+              minHeight: sinFondo ? undefined : l.h * alto * 1.3,
+              maxWidth: ancho * 0.96,
+              boxSizing: 'border-box',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: `${fs * 0.18}px ${fs * 0.35}px`,
+              borderRadius: fs * 0.22,
+              background: sinFondo ? 'transparent' : e.fondo,
+              color: e.color || '#fff',
+              fontFamily: FUENTES[e.fuente] || FUENTES.titulo,
+              fontWeight: 800,
+              fontSize: fs,
+              lineHeight: 1.05,
+              textAlign: 'center',
+              textTransform: 'uppercase',
+              whiteSpace: 'nowrap',
+              ...(sinFondo ? { WebkitTextStroke: `${Math.max(1, Math.round(fs * 0.07))}px rgba(0,0,0,0.85)`, paintOrder: 'stroke fill' } : {}),
+              opacity: opacidad,
+            }}
+          >
+            {texto}
+          </div>
+        );
+      })}
     </AbsoluteFill>
   );
 }
@@ -249,28 +254,31 @@ function ImagenEnPantalla({ id, archivo, inicio, fin, estilo, sigue }) {
   const t = frame / fps;
   if (t < inicio || t >= fin) return null;
   const e0 = estilo || {};
-  // siguiendo un texto del video: centrada encima de él y al menos de su ancho (lo tapa)
-  const l = sigue ? lugarSeguido(sigue, t) : null;
-  if (sigue && !l) return null;
-  const e = l ? { ...e0, x: l.x, y: l.y, ancho: Math.max(e0.ancho ?? 0.2, l.w * 1.12) } : e0;
   const dt = t - inicio;
   const k = dt <= 0 ? 0 : 1 - Math.exp(-dt * 10) * Math.cos(dt * 20);
   const salida = interpolate(t, [fin - 0.18, fin], [1, 0], CLAMP);
+  // siguiendo un texto del video: una copia encima de cada aparición, al menos de su ancho (lo tapa), sin el pop
+  const lugares = sigue ? lugaresSeguidos(sigue, t) : null;
+  if (sigue && !lugares.length) return null;
+  const copias = lugares ? lugares.map((l) => ({ x: l.x, y: l.y, ancho: Math.max(e0.ancho ?? 0.2, l.w * 1.12) })) : [{ x: e0.x ?? 0.5, y: e0.y ?? 0.42, ancho: e0.ancho ?? 0.5 }];
   return (
     <AbsoluteFill style={{ pointerEvents: 'none' }}>
-      <Img
-        data-capa={id}
-        src={fuente(archivo)}
-        style={{
-          position: 'absolute',
-          left: width * (e.x ?? 0.5),
-          top: height * (e.y ?? 0.42),
-          width: width * (e.ancho ?? 0.5),
-          height: 'auto',
-          transform: `translate(-50%, -50%) scale(${l ? 1 : 0.6 + 0.4 * k})`,
-          opacity: salida,
-        }}
-      />
+      {copias.map((c, n) => (
+        <Img
+          key={n}
+          data-capa={n === 0 ? id : undefined}
+          src={fuente(archivo)}
+          style={{
+            position: 'absolute',
+            left: width * c.x,
+            top: height * c.y,
+            width: width * c.ancho,
+            height: 'auto',
+            transform: `translate(-50%, -50%) scale(${lugares ? 1 : 0.6 + 0.4 * k})`,
+            opacity: lugares ? Math.min(salida, interpolate(t, [inicio, inicio + 0.12], [0, 1], CLAMP)) : salida,
+          }}
+        />
+      ))}
     </AbsoluteFill>
   );
 }

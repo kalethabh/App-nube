@@ -670,30 +670,59 @@ export const LUGAR_TEXTO = { x: 0.5, y: 0.17 };
 // ---------------------------------------------------------------- seguimiento (rutas/seguimiento.js)
 
 /**
- * Un texto o una imagen tuya que sigue a un texto del video: sigue = { texto, siempre, puntos: [[t, x, y, w, h]] } (t en
- * segundos del video; x, y el centro y w, h el tamaño de lo que sigue, en fracción del cuadro). -> lo que se usa o null.
+ * Un texto o una imagen tuya que sigue a un texto del video:
+ *   sigue = { texto, siempre, pistas: [[[t, x, y, w, h], ...], ...] }
+ * Una pista por cada aparición de ese texto (t en segundos del video; x, y el centro y w, h el tamaño de lo que sigue,
+ * en fracción del cuadro). Si el texto sale dos veces a la vez, va una copia encima de cada una. (Lo guardado antes con
+ * `puntos`, una sola lista, vale como una pista.) -> lo que se usa o null.
  */
-export function limpiarSigue(x) {
-  if (!x || typeof x !== 'object' || !Array.isArray(x.puntos)) return null;
-  const puntos = x.puntos
-    .filter((p) => Array.isArray(p) && p.length >= 5 && p.every((n) => Number.isFinite(Number(n))))
-    .map((p) => p.slice(0, 5).map(Number))
-    .sort((a, b) => a[0] - b[0])
-    .slice(0, 5000);
-  if (!puntos.length) return null;
-  return { texto: String(x.texto || '').slice(0, 120), siempre: x.siempre === true, puntos };
+export function limpiarSigue(x, cortes = null) {
+  if (!x || typeof x !== 'object') return null;
+  const limpia = (lista) =>
+    (Array.isArray(lista) ? lista : [])
+      .filter((p) => Array.isArray(p) && p.length >= 5 && p.slice(0, 5).every((n) => Number.isFinite(Number(n))))
+      .map((p) => p.slice(0, 5).map(Number))
+      .sort((a, b) => a[0] - b[0])
+      .slice(0, 5000);
+  // lo guardado antes (una sola lista, `puntos`) mezclaba apariciones en lugares distintos: se separa donde salta
+  // (y una pista que salta de lugar, como las del lector de antes, también se parte: nunca se cruza la pantalla)
+  const pistas = (Array.isArray(x.pistas) ? x.pistas.flatMap((l) => separarSaltos(limpia(l))) : Array.isArray(x.puntos) ? separarSaltos(limpia(x.puntos)) : []).filter((l) => l.length).slice(0, 80);
+  if (!pistas.length) return null;
+  return { texto: String(x.texto || '').slice(0, 120), siempre: x.siempre === true, pistas, cortes: Array.isArray(cortes) ? cortes : [] };
+}
+
+/** Una lista de lecturas ordenada por tiempo, partida donde el texto salta de lugar o deja de verse un rato. */
+function separarSaltos(ps) {
+  const salida = [];
+  let actual = [];
+  for (const p of ps) {
+    const u = actual[actual.length - 1];
+    const pasado = u ? p[0] - u[0] : 0;
+    if (u && (pasado > HUECO_SIGUE || Math.abs(p[1] - u[1]) > Math.max(0.1, 1.2 * u[3]) + 0.06 * pasado || Math.abs(p[2] - u[2]) > Math.max(0.05, 2.5 * u[4]) + 0.04 * pasado)) {
+      salida.push(actual);
+      actual = [];
+    }
+    actual.push(p);
+  }
+  if (actual.length) salida.push(actual);
+  return salida;
 }
 
 const HUECO_SIGUE = 1.6; // segundos sin verlo y se une con una línea (más que eso: salta)
+// El lector no ve el texto en el primer instante (sobre todo si se mueve rápido): tu elemento entra un poco antes de la
+// primera lectura y se va un poco después de la última, así no se alcanza a ver lo de abajo.
+// (nunca a través de un corte de escena: en la otra escena ese texto no está)
+const ANTES_SIGUE = 0.4;
+const DESPUES_SIGUE = 0.5;
+const hayCorte = (cortes, a, b) => (cortes || []).some((c) => c > a + 0.02 && c <= b + 0.02);
 
-/**
- * Dónde va en el segundo t: { x, y, w, h } o null (si no es «siempre» y el texto no está cerca de ese momento). Entre
- * dos lecturas seguidas se mueve en línea recta; fuera de ellas, con «siempre», se queda donde se vio por última vez
- * (o donde se verá primero).
- */
-export function lugarSeguido(sigue, t) {
-  const ps = sigue?.puntos;
-  if (!ps?.length) return null;
+const como = (p) => ({ x: p[1], y: p[2], w: p[3], h: p[4] });
+
+/** Dónde está una pista en el segundo t (o null si no está cerca de ese momento). */
+function lugarEnPista(ps, t, cortes) {
+  if (t < ps[0][0] - ANTES_SIGUE || t > ps[ps.length - 1][0] + DESPUES_SIGUE) return null;
+  if (t < ps[0][0] && hayCorte(cortes, t, ps[0][0])) return null;
+  if (t > ps[ps.length - 1][0] && hayCorte(cortes, ps[ps.length - 1][0], t)) return null;
   let k = 0;
   let lo = 0;
   let hi = ps.length - 1;
@@ -706,16 +735,35 @@ export function lugarSeguido(sigue, t) {
   }
   const a = ps[k];
   const b = ps[k + 1];
-  const como = (p) => ({ x: p[1], y: p[2], w: p[3], h: p[4] });
-  if (t < ps[0][0]) return sigue.siempre || ps[0][0] - t <= 0.35 ? como(ps[0]) : null;
-  if (!b) return sigue.siempre || t - a[0] <= 0.6 ? como(a) : null;
+  if (t < ps[0][0]) return como(ps[0]);
+  if (!b) return como(a);
   if (b[0] - a[0] <= HUECO_SIGUE) {
     const f = (t - a[0]) / Math.max(1e-6, b[0] - a[0]);
     return { x: a[1] + (b[1] - a[1]) * f, y: a[2] + (b[2] - a[2]) * f, w: a[3] + (b[3] - a[3]) * f, h: a[4] + (b[4] - a[4]) * f };
   }
-  if (t - a[0] <= 0.6) return como(a);
-  if (b[0] - t <= 0.35) return como(b);
-  return sigue.siempre ? como(a) : null;
+  if (t - a[0] <= DESPUES_SIGUE && !hayCorte(cortes, a[0], t)) return como(a);
+  if (b[0] - t <= ANTES_SIGUE && !hayCorte(cortes, t, b[0])) return como(b);
+  return null;
+}
+
+/**
+ * Dónde va en el segundo t: una posición { x, y, w, h } por cada aparición que está en pantalla. Con «siempre», si no
+ * hay ninguna, una sola donde se vio por última vez (o donde se verá primero).
+ */
+export function lugaresSeguidos(sigue, t) {
+  const pistas = sigue?.pistas || [];
+  const ahora = pistas.map((ps) => lugarEnPista(ps, t, sigue.cortes)).filter(Boolean);
+  if (ahora.length || !sigue?.siempre) return ahora;
+  let antes = null;
+  let despues = null;
+  for (const ps of pistas) {
+    for (const p of ps) {
+      if (p[0] <= t && (!antes || p[0] > antes[0])) antes = p;
+      if (p[0] > t && (!despues || p[0] < despues[0])) despues = p;
+    }
+  }
+  const p = antes || despues;
+  return p ? [como(p)] : [];
 }
 
 export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
@@ -743,6 +791,8 @@ export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
     const porDefecto = { color: impar ? '#111111' : '#FFFFFF', fondo: impar ? '#FFFFFF' : color, giro: impar ? 2 : -2 };
     return { ...x, ...tiempo(a, x), texto: typeof a.texto === 'string' ? a.texto : x.texto, editado: Object.keys(a).length > 0, estilo: estilo(a, porDefecto) };
   });
+  // dónde empieza cada escena (el seguimiento no entra ni sale a través de un corte)
+  const cortesDeEscena = (plan?.bloques || []).map((b) => num(b.toma?.desde ?? b.inicio)).filter((t) => t > 0);
   const propios = (ed?.textosNuevos || []).map((a, j) => ({
     id: String(a.id),
     tipo: 'propio',
@@ -762,7 +812,7 @@ export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
     visible: true,
     editado: true,
     estilo: estilo(a, { color: '#FFFFFF', fondo: color, giro: j % 2 ? 2 : -2 }),
-    sigue: limpiarSigue(a.sigue),
+    sigue: limpiarSigue(a.sigue, cortesDeEscena),
   }));
   return [...sugeridos, ...propios];
 }
