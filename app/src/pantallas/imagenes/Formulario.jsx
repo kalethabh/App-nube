@@ -15,7 +15,7 @@
 // precio por imagen lo manda el servidor (GET /api/imagen-ads/opciones → costo; el modelo de los lotes es fijo) y se
 // recalcula con la cantidad y el formato (costoDelLote). La pantalla del lote sigue sin precios hasta su informe.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, FileText, FileUp, Globe, Images, Megaphone, Sparkles, Tag, TriangleAlert, Users, X } from 'lucide-react';
+import { CircleAlert, CircleCheck, FileText, FileUp, Globe, Images, Megaphone, Sparkles, Tag, TriangleAlert, Users, X } from 'lucide-react';
 import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useEstado } from '../../datos/api.js';
 import { dinero } from '../../datos/formato.js';
@@ -32,7 +32,7 @@ import {
   useProductosImagen,
 } from '../../datos/imagenes.js';
 import { LOTE_EJEMPLO, opcionesDeEjemplo, productosDeEjemplo } from '../../datos/imagenes-simulacion.js';
-import { ir, rutas } from '../../datos/rutas.js';
+import { enlace, ir, rutas } from '../../datos/rutas.js';
 import { rangoDinero } from '../nuevo/CostoEstimado.jsx';
 import { useMotor } from '../ajustes/datos.js';
 import { ElegirProducto } from './ElegirProducto.jsx';
@@ -176,7 +176,8 @@ export function Formulario({ simulando = false, productoPedido = null }) {
 
   // el borrador se guarda en este navegador (sin las imágenes) para la próxima vez
   useEffect(() => {
-    if (!simulando) guardarBorrador(f);
+    // (la investigación pegada no se recuerda: en el próximo lote se usa la del producto, no una vieja)
+    if (!simulando) guardarBorrador({ ...f, investigacion: '' });
   }, [f, simulando]);
 
   // las vistas previas locales se liberan al salir de la pantalla
@@ -547,6 +548,22 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         </Grupo>
 
         <Grupo n={3} id="grupo-investigacion" titulo="Investigación de mercado" opcional>
+          {productoElegido?.investigacion && !hayInvestigacion ? (
+            <p className="img-nota img-nota--ok" role="status">
+              <CircleCheck size={14} strokeWidth={2} aria-hidden="true" />
+              <span>
+                Este producto ya tiene su investigación de mercado{productoElegido.investigacion.pais ? ` (${productoElegido.investigacion.pais})` : ''}: tus anuncios la usan sola, con lo que resaltaste primero.{' '}
+                <a href={enlace.investigacion(productoElegido.id)}>Verla</a>. Si pegas o subes otra aquí, se usa esa.
+              </span>
+            </p>
+          ) : productoElegido && !productoElegido.investigacion && !hayInvestigacion ? (
+            <p className="img-nota">
+              <Sparkles size={14} strokeWidth={2} aria-hidden="true" />
+              <span>
+                ¿No tienes una? <a href={enlace.investigacion(productoElegido.id)}>Haz la investigación de este producto</a> con solo su foto: queda guardada y la usan todos sus lotes.
+              </span>
+            </p>
+          ) : null}
           {archivoInv ? (
             <div className="img-inv__archivo">
               <FileText size={18} strokeWidth={1.8} aria-hidden="true" />

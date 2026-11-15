@@ -35,6 +35,8 @@ const Imagenes = lazy(() => import('./pantallas/imagenes/index.jsx'));
 const CrearImagenes = lazy(() => import('./pantallas/imagenes/Crear.jsx'));
 const LoteImagenes = lazy(() => import('./pantallas/imagenes-lote/index.jsx'));
 const Ganadores = lazy(() => import('./pantallas/ganadores/index.jsx'));
+const Investigaciones = lazy(() => import('./pantallas/investigacion/index.jsx'));
+const InformeInvestigacion = lazy(() => import('./pantallas/investigacion/Informe.jsx'));
 const Componentes = lazy(() => import('./pantallas/componentes/index.jsx'));
 // La bienvenida de 3 pasos: se abre sola la primera vez (hasta que se cierra o se termina).
 const BienvenidaPrimeraVez = lazy(() => import('./pantallas/ajustes/Bienvenida.jsx'));
@@ -76,6 +78,15 @@ export const RUTAS = [
   { patron: '/saldo', Pantalla: Saldo, menu: 'saldo', titulo: 'Saldo y costos', migas: () => [{ texto: 'Saldo y costos' }] },
   { patron: '/biblioteca', Pantalla: Biblioteca, menu: 'biblioteca', titulo: 'Biblioteca', migas: () => [{ texto: 'Biblioteca' }] },
   { patron: '/ajustes', Pantalla: Ajustes, menu: 'ajustes', titulo: 'Ajustes', migas: () => [{ texto: 'Ajustes' }] },
+  // Investigación de mercado: tus productos y el informe de cada uno
+  { patron: '/investigacion', Pantalla: Investigaciones, menu: 'investigacion', titulo: 'Investigación de mercado', migas: () => [{ texto: 'Investigación de mercado' }] },
+  {
+    patron: '/investigacion/:id',
+    Pantalla: InformeInvestigacion,
+    menu: 'investigacion',
+    titulo: 'Investigación de mercado',
+    migas: () => [{ texto: 'Investigación de mercado', href: enlace.investigacion() }, { texto: 'Informe' }],
+  },
   // Anuncios de imagen: la portada (tus productos y tus lotes), el formulario para crear un lote y la pantalla de un
   // lote (avance y galería). "/imagenes/nuevo" va antes que "/imagenes/:lote" (un lote nunca se llama "nuevo")
   { patron: '/imagenes', Pantalla: Imagenes, menu: 'imagenes', titulo: 'Anuncios de imagen', migas: () => [{ texto: 'Anuncios de imagen' }] },
