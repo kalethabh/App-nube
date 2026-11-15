@@ -1406,6 +1406,23 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       lugarSubtitulo,
       textoNuevoId,
       slug: a.slug,
+      // Textos nuevos que pidió con sus palabras (pestaña Textos, el campo de la IA): [{ texto, cambios }] con cambios =
+      // { inicio, fin, x, y, color, fondo, tamano } o { sigue, inicio, fin } si va encima de un texto del video. Los que
+      // siguen toman el aspecto del último texto que ya sigue algo. Un solo paso del historial.
+      crearTextos: (lista) =>
+        cambiar(
+          (s) => {
+            let e = s;
+            const modelo = [...(s.textosNuevos || [])].reverse().find((x) => x.sigue && !x.archivo) || null;
+            const aspecto = modelo ? { color: modelo.color, fondo: modelo.fondo, tamano: modelo.tamano, fuente: modelo.fuente } : {};
+            for (const { texto, cambios } of lista) {
+              const r = textoNuevo(plan, e, { t: cambios.inicio || 0, color: colorAnuncio });
+              e = cambiarTexto(r.ed, r.nuevo, { ...(cambios.sigue ? aspecto : {}), texto, ...cambios }).ed;
+            }
+            return e;
+          },
+          { etiqueta: lista.length === 1 ? `Agregar «${lista[0].texto.slice(0, 24)}»` : `Agregar ${lista.length} textos` }
+        ),
       ajustarTexto: (id, cambios, opciones = {}) => cambiar((s) => cambiarTexto(s, id, cambios).ed, { etiqueta: opciones.etiqueta || 'Cambiar texto', grupo: opciones.grupo }),
       restablecerTexto: (id) =>
         cambiar(
