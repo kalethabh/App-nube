@@ -2,7 +2,7 @@
   "slug": "oxipure-mullein-zack-d-films-20261115-0901",
   "familia": "continuidad",
   "estado": "corriendo",
-  "paso": "imagenes",
+  "paso": "pares",
   "pasos": [
     {
       "id": "validar",
@@ -39,28 +39,36 @@
     {
       "id": "imagenes",
       "nombre": "Crear las imágenes",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 5,
       "inicio": "2026-11-15T14:20:24.751Z",
-      "fin": "2026-11-15T14:26:26.637Z"
+      "fin": "2026-11-15T14:28:59.463Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T14:28:59.463Z",
+      "fin": "2026-11-15T14:30:44.335Z",
+      "nota": "Las imágenes pasaron la revisión."
     },
     {
       "id": "duraciones",
       "nombre": "Medir cada paso con la voz",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T14:30:44.335Z",
+      "fin": "2026-11-15T14:30:44.579Z",
+      "nota": "1 clip se pide más corto para no ir tan acelerado."
     },
     {
       "id": "pares",
       "nombre": "Escribir el paso entre cada escena",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-15T14:30:44.580Z",
+      "detalle": "Mirando las imágenes del anuncio"
     },
     {
       "id": "videos",
@@ -115,7 +123,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T14:28:09.232Z",
+  "actualizado": "2026-11-15T14:30:52.899Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"

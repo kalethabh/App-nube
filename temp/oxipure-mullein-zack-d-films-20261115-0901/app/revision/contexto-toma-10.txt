@@ -1,0 +1,45 @@
+
+=== Contexto para rehacer la toma 10 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        B
+    duracion:    4.6s
+    referencias: (ninguna)
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "Para el día diez, esa sensación pesada, de ahogo… se va."
+    viene de:    "Llega hasta donde el jarabe para la tos nunca alcanzó."
+    lleva a:     "Tu pecho se siente abierto y liviano, no apretado ni tapado."
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Vertical 9:16. A stylized bust of an adult man in his forties, seen in exact side profile facing left, made of smooth matte light-gray soft plastic like an anatomical model, from the upper chest to the top of the head, with his eyes closed. His airways are visible as a cut-away channel that runs from the nose through the throat and down the windpipe into the upper chest, glowing an intense saturated red, swollen and narrow. His face is tense, with the brow furrowed, the jaw tight and the lips pressed together. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is at the height of his chin, medium close shot, with the bust centered in the frame. The bust rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image
+
+  --- imagen final ---
+Vertical 9:16. A stylized bust of an adult man in his forties, seen in exact side profile facing left, made of smooth matte light-gray soft plastic like an anatomical model, from the upper chest to the top of the head, with his eyes closed. His airways are visible as a cut-away channel that runs from the nose through the throat and down the windpipe into the upper chest, now a calm pale silver-gray, wide, open and clear with no red at all. His face is relaxed and serene, with a smooth brow, a loose jaw and the lips slightly parted as he breathes out slowly. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is at the height of his chin, medium close shot, with the bust centered in the frame. The bust rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image
+
+Negative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background
+
+  --- video ---
+Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+Camera: locked-off static camera, no zoom
+Motion: the man breathes out slowly, the red glow in his airways fades to a calm pale silver-gray as the channel widens, and his tense face relaxes
+Lighting: flat, even, clean studio light
+
+  --- referencia "gloria" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation render, character reference of Gloria, an adult Colombian woman, 54 years old, clearly a mature adult: warm light-brown trigueña skin, round kind face with soft cheeks, gentle smile lines, dark brown eyes, dark brown shoulder-length hair with a few gray strands, average build. She stands facing the camera, framed from the knees up, arms relaxed at her sides, with a calm neutral friendly expression. She wears an open gray wool cardigan over a faded plain cream t-shirt and simple dark pants. Plain smooth warm beige wall behind her with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- referencia "hombre40" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation render, character reference of an adult Colombian man, 40 years old, clearly a grown adult: medium-brown skin, short dark hair, a trimmed full dark beard, thick eyebrows, friendly tired eyes, average build. He stands facing the camera, framed from the knees up, arms relaxed at his sides, with a calm neutral expression. He wears a plain dark blue casual jacket over a plain gray t-shirt and jeans. Plain smooth warm beige wall behind him with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  CONTINUIDAD: las imagenes de esta toma son la llegada o la salida de paso-9 (9->10) y paso-10 (10->11).
+  Al aplicar prompts nuevos esos pasos quedan con "revisar": true y sus clips van a historial/:
+  sus prompts se escribieron mirando las imagenes viejas.
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+

@@ -1,0 +1,24 @@
+{
+  "numero": 3,
+  "paso": "imagenes",
+  "comando": "node produccion/producir.js temp/oxipure-mullein-zack-d-films-20261115-0901 --si",
+  "inicio": "2026-11-15T14:28:09.232Z",
+  "fin": "2026-11-15T14:28:59.461Z",
+  "codigo": 0,
+  "creditos": 10,
+  "dolares": 0.05,
+  "imagenes": [
+    {
+      "archivo": "toma-3-inicial.png",
+      "id": "toma-3-inicial",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 10
+    }
+  ],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": null
+}

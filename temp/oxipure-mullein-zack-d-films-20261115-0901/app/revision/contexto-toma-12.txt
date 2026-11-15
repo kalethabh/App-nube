@@ -1,0 +1,47 @@
+
+=== Contexto para rehacer la toma 12 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        B
+    duracion:    4.2s
+    referencias: gloria
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "Y por fin duermes la noche entera sin despertarte tosiendo."
+    viene de:    "Tu pecho se siente abierto y liviano, no apretado ni tapado."
+    lleva a:     "Después de veinte días, el cambio de energía se nota."
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Vertical 9:16. Pixar-Disney style 3D animation render shown entirely in desaturated black and white with cold light, night in a modest Colombian bedroom, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, sitting on the edge of her bed, exhausted, wearing her gray wool cardigan over an old t-shirt, coughing into her closed fist with her other hand on her chest, a small bedside lamp switched on beside her on a wooden nightstand, a plain blanket on the bed, the bed seen from the side and filling the lower half of the frame, expressive facial detail, shallow depth of field, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- imagen final ---
+Vertical 9:16. Pixar-Disney style 3D animation render in full warm color, morning in the same modest Colombian bedroom with the same bed seen from the side in the same framing as the attached start image, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now deeply asleep lying on her side with her head on the pillow, peaceful rested face, covered up to her shoulders with a different blanket, a thick woven terracotta and yellow one, the bedside lamp switched off, soft golden morning light coming in through the curtain. Do NOT copy the sitting pose, the cough, the gray cardigan or the black-and-white look of the attached start image: keep only her face, the bed and the framing. The change from the start frame must be obvious at a glance. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- video ---
+Pixar-Disney style 3D animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+Camera: locked-off static camera, no zoom
+Motion: the cold black-and-white night dissolves into a warm colorful morning in the same framing, and Gloria goes from coughing on the edge of the bed to sleeping deeply on her side under the woven blanket, her shoulders rising and falling gently
+Lighting: from cold lamp light to soft golden morning light
+
+  --- referencia "gloria" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation render, character reference of Gloria, an adult Colombian woman, 54 years old, clearly a mature adult: warm light-brown trigueña skin, round kind face with soft cheeks, gentle smile lines, dark brown eyes, dark brown shoulder-length hair with a few gray strands, average build. She stands facing the camera, framed from the knees up, arms relaxed at her sides, with a calm neutral friendly expression. She wears an open gray wool cardigan over a faded plain cream t-shirt and simple dark pants. Plain smooth warm beige wall behind her with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- referencia "hombre40" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation render, character reference of an adult Colombian man, 40 years old, clearly a grown adult: medium-brown skin, short dark hair, a trimmed full dark beard, thick eyebrows, friendly tired eyes, average build. He stands facing the camera, framed from the knees up, arms relaxed at his sides, with a calm neutral expression. He wears a plain dark blue casual jacket over a plain gray t-shirt and jeans. Plain smooth warm beige wall behind him with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  CONTINUIDAD: las imagenes de esta toma son la llegada o la salida de paso-11 (11->12) y paso-12 (12->13).
+  Al aplicar prompts nuevos esos pasos quedan con "revisar": true y sus clips van a historial/:
+  sus prompts se escribieron mirando las imagenes viejas.
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+

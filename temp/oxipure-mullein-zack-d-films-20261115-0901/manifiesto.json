@@ -696,7 +696,206 @@
         ]
       }
     ],
-    "pasos": []
+    "pasos": [
+      {
+        "de": 1,
+        "a": 2,
+        "ventana": 5.54,
+        "duracion": 3
+      },
+      {
+        "de": 2,
+        "a": 3,
+        "ventana": 4.6,
+        "duracion": 5
+      },
+      {
+        "de": 3,
+        "a": 4,
+        "ventana": 4.71,
+        "duracion": 5
+      },
+      {
+        "de": 4,
+        "a": 5,
+        "ventana": 3.58,
+        "duracion": 4
+      },
+      {
+        "de": 5,
+        "a": 6,
+        "ventana": 2.27,
+        "duracion": 3
+      },
+      {
+        "de": 6,
+        "a": 7,
+        "ventana": 1.66,
+        "duracion": 3
+      },
+      {
+        "de": 7,
+        "a": 8,
+        "ventana": 2.3,
+        "duracion": 3
+      },
+      {
+        "de": 8,
+        "a": 9,
+        "ventana": 3.39,
+        "duracion": 4
+      },
+      {
+        "de": 9,
+        "a": 10,
+        "ventana": 3.67,
+        "duracion": 4
+      },
+      {
+        "de": 10,
+        "a": 11,
+        "ventana": 5.29,
+        "duracion": 3
+      },
+      {
+        "de": 11,
+        "a": 12,
+        "ventana": 4.33,
+        "duracion": 3
+      },
+      {
+        "de": 12,
+        "a": 13,
+        "ventana": 4.03,
+        "duracion": 3
+      },
+      {
+        "de": 13,
+        "a": 14,
+        "ventana": 3.69,
+        "duracion": 4
+      },
+      {
+        "de": 14,
+        "a": 15,
+        "ventana": 2.08,
+        "duracion": 3
+      },
+      {
+        "de": 15,
+        "a": 16,
+        "ventana": 3.02,
+        "duracion": 4
+      },
+      {
+        "de": 16,
+        "a": 17,
+        "ventana": 3.95,
+        "duracion": 3
+      },
+      {
+        "de": 17,
+        "a": 18,
+        "ventana": 4.6,
+        "duracion": 5
+      },
+      {
+        "de": 18,
+        "a": 19,
+        "ventana": 2.01,
+        "duracion": 3
+      },
+      {
+        "de": 19,
+        "a": 20,
+        "ventana": 1.68,
+        "duracion": 3
+      },
+      {
+        "de": 20,
+        "a": 21,
+        "ventana": 1.81,
+        "duracion": 3
+      },
+      {
+        "de": 21,
+        "a": 22,
+        "ventana": 4.2,
+        "duracion": 5
+      },
+      {
+        "de": 22,
+        "a": 23,
+        "ventana": 1.47,
+        "duracion": 3
+      },
+      {
+        "de": 23,
+        "a": 24,
+        "ventana": 1.72,
+        "duracion": 3
+      },
+      {
+        "de": 24,
+        "a": 25,
+        "ventana": 2.23,
+        "duracion": 3
+      },
+      {
+        "de": 25,
+        "a": 26,
+        "ventana": 4.78,
+        "duracion": 5
+      },
+      {
+        "de": 26,
+        "a": 27,
+        "ventana": 5.39,
+        "duracion": 6
+      },
+      {
+        "de": 27,
+        "a": 28,
+        "ventana": 4.39,
+        "duracion": 5
+      },
+      {
+        "de": 28,
+        "a": 29,
+        "ventana": 1.87,
+        "duracion": 3
+      },
+      {
+        "de": 29,
+        "a": 30,
+        "ventana": 1.84,
+        "duracion": 3
+      },
+      {
+        "de": 30,
+        "a": 31,
+        "ventana": 3.12,
+        "duracion": 3,
+        "duracion_propio": 3
+      },
+      {
+        "de": 31,
+        "a": 32,
+        "ventana": 2.95,
+        "duracion": 3
+      },
+      {
+        "de": 32,
+        "a": 33,
+        "ventana": 6.57,
+        "duracion": 7
+      }
+    ],
+    "cierre": {
+      "toma": 33,
+      "ventana": 5.36,
+      "duracion": 6
+    }
   },
   "voz_en_off": "Los primeros tres días vas a toser más de lo normal… y eso es buena señal. Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho… …la que llevaba ahí semanas, meses… o hasta años. Humo, polvo, flema vieja… capas que ni sabías que tenías. Sí, puede que botes una flema oscura y espesa… …pero así sabes que tu pecho se está limpiando. Llega hasta donde el jarabe para la tos nunca alcanzó. Para el día diez, esa sensación pesada, de ahogo… se va. Tu pecho se siente abierto y liviano, no apretado ni tapado. Y por fin duermes la noche entera sin despertarte tosiendo. Después de veinte días, el cambio de energía se nota. Se acaban los bajones de la tarde… y subes las escaleras sin parar a coger aire. Porque tu cuerpo ya no está peleando por cada bocanada de aire. Y te vas a dar cuenta de que no era normal vivir así, falto de aire. Los silbidos al respirar… la cabeza nublada… el pecho apretado… …era flema y bloqueo. Tu pecho no podía limpiarse solo. Si cocinaste con leña, respiras el humo de los buses o te quedó la tos de la gripa… …esto es OxiPure: extracto puro de hoja de gordolobo. La planta que las abuelas usaban para el pecho… ahora en gotas concentradas. Un gotero en agua, en la mañana y en la noche. Así de fácil. Te ayuda a soltar la flema, a abrir el paso del aire y a cuidar tus pulmones de forma natural. Yo ya no me imagino la mañana sin mis gotas. Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días. Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí.",
   "overlays": [

@@ -1,0 +1,42 @@
+
+=== Contexto para rehacer la toma 32 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        A
+    duracion:    7.9s
+    referencias: gloria, producto
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días."
+    viene de:    "Yo ya no me imagino la mañana sin mis gotas."
+    lleva a:     "Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí."
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Vertical 9:16. Pixar-Disney style 3D animation render, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now rested with color in her cheeks, wearing a mustard-yellow blouse instead of the gray cardigan, sitting at the wooden table of her Colombian kitchen with tiled walls and warm light from a window at her side, framed from the chest up facing the camera, looking straight into the camera with a warm knowing smile. With one hand she holds, at chest height and at the same distance from the camera as her face, the closed dropper bottle from the product reference image, kept exactly as in the reference: a round amber-brown glass bottle about twice as tall as it is wide, with rounded shoulders, a short narrow neck, a black dropper cap with a black rubber bulb, and the dark green label with white lettering facing the camera, readable and never mirrored; not a slim tall bottle, not a squat jar; the bottle takes about a third of the frame height, her fingers on its sides without covering the label. Her other hand is empty, raised beside the bottle with the index finger pointing straight down. Only this single bottle: no box, no carton, no second bottle, no yellow flowers, no capsules, no pills. Matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- video ---
+Pixar-Disney style 3D animation, image-to-video from the shot above, 8s. Vertical 9:16.
+Camera: locked-off static camera, no zoom
+Motion: she nods warmly at the camera with a knowing smile, lifts the closed bottle very slightly while keeping it at the same distance from the camera as her face, and points down twice with the index finger of her empty hand; her mouth stays closed in a smile, she does not speak; the bottle keeps its shape and its label is always readable and never mirrored
+Lighting: warm window light
+
+  --- referencia "gloria" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation render, character reference of Gloria, an adult Colombian woman, 54 years old, clearly a mature adult: warm light-brown trigueña skin, round kind face with soft cheeks, gentle smile lines, dark brown eyes, dark brown shoulder-length hair with a few gray strands, average build. She stands facing the camera, framed from the knees up, arms relaxed at her sides, with a calm neutral friendly expression. She wears an open gray wool cardigan over a faded plain cream t-shirt and simple dark pants. Plain smooth warm beige wall behind her with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- referencia "hombre40" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation render, character reference of an adult Colombian man, 40 years old, clearly a grown adult: medium-brown skin, short dark hair, a trimmed full dark beard, thick eyebrows, friendly tired eyes, average build. He stands facing the camera, framed from the knees up, arms relaxed at his sides, with a calm neutral expression. He wears a plain dark blue casual jacket over a plain gray t-shirt and jeans. Plain smooth warm beige wall behind him with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  CONTINUIDAD: las imagenes de esta toma son la llegada o la salida de paso-31 (31->32) y paso-32 (32->33).
+  Al aplicar prompts nuevos esos pasos quedan con "revisar": true y sus clips van a historial/:
+  sus prompts se escribieron mirando las imagenes viejas.
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+

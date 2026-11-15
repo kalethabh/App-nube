@@ -1,0 +1,273 @@
+=== Continuidad: pares — oxipure-mullein-zack-d-films-20261115-0901 ===
+
+  Por cada paso: abre las dos imagenes, elige la forma y escribe su prompt en continuidad.pasos[].prompt_video.
+
+  Paso 1 -> 2   (toma B -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-1-final.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-2-inicial.png
+    linea 1:  "Los primeros tres días vas a toser más de lo normal… y eso es buena señal."
+    linea 2:  "Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho…"
+    video 1:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 6s. Vertical 9:16.
+    video 2:  Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.
+    la toma 1 tiene imagen inicial y final: su propio video (toma-1.mp4, de toma-1-inicial.png a toma-1-final.png, 7s) va con su prompt de siempre; el paso sale de su imagen final.
+
+  Paso 2 -> 3   (toma A -> toma A)   se pide 5s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-2-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-3-inicial.png
+    linea 2:  "Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho…"
+    linea 3:  "…la que llevaba ahí semanas, meses… o hasta años."
+    video 2:  Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.
+    video 3:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 3 -> 4   (toma A -> toma A)   se pide 5s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-3-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-4-inicial.png
+    linea 3:  "…la que llevaba ahí semanas, meses… o hasta años."
+    linea 4:  "Humo, polvo, flema vieja…"
+    video 3:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 4:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 4 -> 5   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-4-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-5-inicial.png
+    linea 4:  "Humo, polvo, flema vieja…"
+    linea 5:  "capas que ni sabías que tenías."
+    video 4:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 5:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 5 -> 6   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-5-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-6-inicial.png
+    linea 5:  "capas que ni sabías que tenías."
+    linea 6:  "Sí, puede que botes"
+    video 5:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 6:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 6 -> 7   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-6-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-7-inicial.png
+    linea 6:  "Sí, puede que botes"
+    linea 7:  "una flema oscura y espesa…"
+    video 6:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 7:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 7 -> 8   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-7-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-8-inicial.png
+    linea 7:  "una flema oscura y espesa…"
+    linea 8:  "…pero así sabes que tu pecho se está limpiando."
+    video 7:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 8:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 8 -> 9   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-8-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-9-inicial.png
+    linea 8:  "…pero así sabes que tu pecho se está limpiando."
+    linea 9:  "Llega hasta donde el jarabe para la tos nunca alcanzó."
+    video 8:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 9:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 9 -> 10   (toma A -> toma B)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-9-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-10-inicial.png
+    linea 9:  "Llega hasta donde el jarabe para la tos nunca alcanzó."
+    linea 10:  "Para el día diez, esa sensación pesada, de ahogo… se va."
+    video 9:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 10:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+
+  Paso 10 -> 11   (toma B -> toma B)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-10-final.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-11-inicial.png
+    linea 10:  "Para el día diez, esa sensación pesada, de ahogo… se va."
+    linea 11:  "Tu pecho se siente abierto y liviano, no apretado ni tapado."
+    video 10:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+    video 11:  Pixar-Disney style 3D animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+    la toma 10 tiene imagen inicial y final: su propio video (toma-10.mp4, de toma-10-inicial.png a toma-10-final.png, 5s) va con su prompt de siempre; el paso sale de su imagen final.
+
+  Paso 11 -> 12   (toma B -> toma B)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-11-final.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-12-inicial.png
+    linea 11:  "Tu pecho se siente abierto y liviano, no apretado ni tapado."
+    linea 12:  "Y por fin duermes la noche entera sin despertarte tosiendo."
+    video 11:  Pixar-Disney style 3D animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+    video 12:  Pixar-Disney style 3D animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+    la toma 11 tiene imagen inicial y final: su propio video (toma-11.mp4, de toma-11-inicial.png a toma-11-final.png, 5s) va con su prompt de siempre; el paso sale de su imagen final.
+
+  Paso 12 -> 13   (toma B -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-12-final.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-13-inicial.png
+    linea 12:  "Y por fin duermes la noche entera sin despertarte tosiendo."
+    linea 13:  "Después de veinte días, el cambio de energía se nota."
+    video 12:  Pixar-Disney style 3D animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+    video 13:  Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.
+    la toma 12 tiene imagen inicial y final: su propio video (toma-12.mp4, de toma-12-inicial.png a toma-12-final.png, 5s) va con su prompt de siempre; el paso sale de su imagen final.
+
+  Paso 13 -> 14   (toma A -> toma A)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-13-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-14-inicial.png
+    linea 13:  "Después de veinte días, el cambio de energía se nota."
+    linea 14:  "Se acaban los bajones de la tarde…"
+    video 13:  Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.
+    video 14:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 14 -> 15   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-14-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-15-inicial.png
+    linea 14:  "Se acaban los bajones de la tarde…"
+    linea 15:  "y subes las escaleras sin parar a coger aire."
+    video 14:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 15:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 15 -> 16   (toma A -> toma B)   se pide 4s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-15-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-16-inicial.png
+    linea 15:  "y subes las escaleras sin parar a coger aire."
+    linea 16:  "Porque tu cuerpo ya no está peleando por cada bocanada de aire."
+    video 15:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 16:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+
+  Paso 16 -> 17   (toma B -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-16-final.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-17-inicial.png
+    linea 16:  "Porque tu cuerpo ya no está peleando por cada bocanada de aire."
+    linea 17:  "Y te vas a dar cuenta de que no era normal vivir así, falto de aire."
+    video 16:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 5s. Vertical 9:16.
+    video 17:  Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.
+    la toma 16 tiene imagen inicial y final: su propio video (toma-16.mp4, de toma-16-inicial.png a toma-16-final.png, 5s) va con su prompt de siempre; el paso sale de su imagen final.
+
+  Paso 17 -> 18   (toma A -> toma A)   se pide 5s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-17-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-18-inicial.png
+    linea 17:  "Y te vas a dar cuenta de que no era normal vivir así, falto de aire."
+    linea 18:  "Los silbidos al respirar…"
+    video 17:  Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.
+    video 18:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 18 -> 19   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-18-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-19-inicial.png
+    linea 18:  "Los silbidos al respirar…"
+    linea 19:  "la cabeza nublada…"
+    video 18:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 19:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 19 -> 20   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-19-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-20-inicial.png
+    linea 19:  "la cabeza nublada…"
+    linea 20:  "el pecho apretado…"
+    video 19:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 20:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 20 -> 21   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-20-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-21-inicial.png
+    linea 20:  "el pecho apretado…"
+    linea 21:  "…era flema y bloqueo. Tu pecho no podía limpiarse solo."
+    video 20:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 21:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 21 -> 22   (toma A -> toma A)   se pide 5s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-21-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-22-inicial.png
+    linea 21:  "…era flema y bloqueo. Tu pecho no podía limpiarse solo."
+    linea 22:  "Si cocinaste con leña,"
+    video 21:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 22:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 22 -> 23   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-22-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-23-inicial.png
+    linea 22:  "Si cocinaste con leña,"
+    linea 23:  "respiras el humo de los buses"
+    video 22:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 23:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 23 -> 24   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-23-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-24-inicial.png
+    linea 23:  "respiras el humo de los buses"
+    linea 24:  "o te quedó la tos de la gripa…"
+    video 23:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 24:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 24 -> 25   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-24-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-25-inicial.png
+    linea 24:  "o te quedó la tos de la gripa…"
+    linea 25:  "…esto es OxiPure: extracto puro de hoja de gordolobo."
+    video 24:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 25:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+
+  Paso 25 -> 26   (toma A -> toma A)   se pide 5s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-25-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-26-inicial.png
+    linea 25:  "…esto es OxiPure: extracto puro de hoja de gordolobo."
+    linea 26:  "La planta que las abuelas usaban para el pecho… ahora en gotas concentradas."
+    video 25:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 26:  Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.
+
+  Paso 26 -> 27   (toma A -> toma A)   se pide 6s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-26-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-27-inicial.png
+    linea 26:  "La planta que las abuelas usaban para el pecho… ahora en gotas concentradas."
+    linea 27:  "Un gotero en agua, en la mañana y en la noche. Así de fácil."
+    video 26:  Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.
+    video 27:  Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.
+
+  Paso 27 -> 28   (toma A -> toma B)   se pide 5s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-27-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-28-inicial.png
+    linea 27:  "Un gotero en agua, en la mañana y en la noche. Así de fácil."
+    linea 28:  "Te ayuda a soltar la flema,"
+    video 27:  Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.
+    video 28:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.
+
+  Paso 28 -> 29   (toma B -> toma B)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-28-final.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-29-inicial.png
+    linea 28:  "Te ayuda a soltar la flema,"
+    linea 29:  "a abrir el paso del aire"
+    video 28:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.
+    video 29:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.
+    la toma 28 tiene imagen inicial y final: su propio video (toma-28.mp4, de toma-28-inicial.png a toma-28-final.png, 3s) va con su prompt de siempre; el paso sale de su imagen final.
+
+  Paso 29 -> 30   (toma B -> toma B)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-29-final.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-30-inicial.png
+    linea 29:  "a abrir el paso del aire"
+    linea 30:  "y a cuidar tus pulmones de forma natural."
+    video 29:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.
+    video 30:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.
+    la toma 29 tiene imagen inicial y final: su propio video (toma-29.mp4, de toma-29-inicial.png a toma-29-final.png, 3s) va con su prompt de siempre; el paso sale de su imagen final.
+
+  Paso 30 -> 31   (toma B -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-30-final.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-31-inicial.png
+    linea 30:  "y a cuidar tus pulmones de forma natural."
+    linea 31:  "Yo ya no me imagino la mañana sin mis gotas."
+    video 30:  Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.
+    video 31:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    la toma 30 tiene imagen inicial y final: su propio video (toma-30.mp4, de toma-30-inicial.png a toma-30-final.png, 3s) va con su prompt de siempre; el paso sale de su imagen final.
+
+  Paso 31 -> 32   (toma A -> toma A)   se pide 3s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-31-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-32-inicial.png
+    linea 31:  "Yo ya no me imagino la mañana sin mis gotas."
+    linea 32:  "Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días."
+    video 31:  Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.
+    video 32:  Pixar-Disney style 3D animation, image-to-video from the shot above, 8s. Vertical 9:16.
+
+  Paso 32 -> 33   (toma A -> toma A)   se pide 7s   forma: (sin elegir)   prompt: FALTA
+    salida:   /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-32-inicial.png
+    llegada:  /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-33-inicial.png
+    linea 32:  "Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días."
+    linea 33:  "Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí."
+    video 32:  Pixar-Disney style 3D animation, image-to-video from the shot above, 8s. Vertical 9:16.
+    video 33:  Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.
+
+  Cierre: toma 33 (A)   se pide 6s
+    video/toma-33.mp4 arranca en /Users/kalethabh/Anuncios con IA/temp/oxipure-mullein-zack-d-films-20261115-0901/img/toma-33-inicial.png, con el prompt de la toma (no se escribe).
+
+  Prompts escritos: 0 de 32. Faltan: 1->2, 2->3, 3->4, 4->5, 5->6, 6->7, 7->8, 8->9, 9->10, 10->11 y 22 mas
+

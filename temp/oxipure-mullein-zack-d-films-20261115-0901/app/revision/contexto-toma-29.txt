@@ -1,0 +1,45 @@
+
+=== Contexto para rehacer la toma 29 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        B
+    duracion:    2.5s
+    referencias: (ninguna)
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "a abrir el paso del aire"
+    viene de:    "Te ayuda a soltar la flema,"
+    lleva a:     "y a cuidar tus pulmones de forma natural."
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings, like an anatomical model, is seen from the front looking straight into its round opening. The opening is tight and narrow, the rings are squeezed close together and the inside of the tube is dim, with only a small dark hole at the center. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is level with the center of the opening, close, with the tube centered and filling about two thirds of the frame width. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image
+
+  --- imagen final ---
+Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings, like an anatomical model, is seen from the front looking straight into its round opening. The opening is now wide and fully open, the rings are relaxed and evenly spaced in clear concentric circles, and a bright electric-blue light flows through the inside of the tube and glows out of the opening. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is level with the center of the opening, close, with the tube centered and filling about two thirds of the frame width. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image
+
+Negative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background
+
+  --- video ---
+Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.
+Camera: slow push-in toward the opening of the tube
+Motion: the tight rings relax and the opening widens ring by ring while an electric-blue light flows in and fills the inside of the tube
+Lighting: flat, even, clean studio light
+
+  --- referencia "gloria" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation render, character reference of Gloria, an adult Colombian woman, 54 years old, clearly a mature adult: warm light-brown trigueña skin, round kind face with soft cheeks, gentle smile lines, dark brown eyes, dark brown shoulder-length hair with a few gray strands, average build. She stands facing the camera, framed from the knees up, arms relaxed at her sides, with a calm neutral friendly expression. She wears an open gray wool cardigan over a faded plain cream t-shirt and simple dark pants. Plain smooth warm beige wall behind her with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  --- referencia "hombre40" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Pixar-Disney style 3D animation render, character reference of an adult Colombian man, 40 years old, clearly a grown adult: medium-brown skin, short dark hair, a trimmed full dark beard, thick eyebrows, friendly tired eyes, average build. He stands facing the camera, framed from the knees up, arms relaxed at his sides, with a calm neutral expression. He wears a plain dark blue casual jacket over a plain gray t-shirt and jeans. Plain smooth warm beige wall behind him with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image
+
+Negative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting
+
+  CONTINUIDAD: las imagenes de esta toma son la llegada o la salida de paso-28 (28->29) y paso-29 (29->30).
+  Al aplicar prompts nuevos esos pasos quedan con "revisar": true y sus clips van a historial/:
+  sus prompts se escribieron mirando las imagenes viejas.
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+
