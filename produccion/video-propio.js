@@ -134,6 +134,7 @@ export async function preparar(carpeta, { subtitulos = false, idioma = null } = 
   const voz = path.join(c, 'audio', 'voz.mp3');
   if (info.audio) ffmpeg(['-i', entrada, '-t', String(duracion), '-vn', '-ac', '2', '-ar', '44100', '-b:a', '192k', voz], 'separar el audio');
   else ffmpeg(['-f', 'lavfi', '-i', 'anullsrc=r=44100:cl=stereo', '-t', String(duracion), '-b:a', '64k', voz], 'audio en silencio');
+  fs.copyFileSync(voz, path.join(c, 'audio', 'voz-original.mp3')); // de aquí salen los cortes (quitarTramo)
 
   // 3. las escenas
   avance('escenas', 'Buscando las escenas', 45);
@@ -183,6 +184,7 @@ export async function preparar(carpeta, { subtitulos = false, idioma = null } = 
     videoPropio: true,
     duracion,
     audio: { voz: 'audio/voz.mp3', ducking: 0, fadeMs: 80 },
+    fuente: [{ desde: 0, hasta: duracion }], // qué partes del original quedan, en orden (quitarTramo las recorta)
     musica: null,
     bloques,
     subtitulos: subs,
@@ -230,6 +232,100 @@ export async function preparar(carpeta, { subtitulos = false, idioma = null } = 
   avisar('listo', listo);
   return listo;
 }
+
+// ---------------------------------------------------------------- quitar un tramo (el video queda más corto)
+
+/** Un segundo del video de antes en el de ahora, si se quita [a, b]. */
+const correrT = (t, a, b) => (t <= a ? t : t >= b ? t - (b - a) : a);
+
+/**
+ * Quita del video los segundos [a, b] (del video como está ahora): la imagen y el audio. Lo que sigue se corre hacia
+ * adelante y el video queda más corto. Rehace solo el audio (audio/voz-<n>.mp3, a partir de voz-original.mp3) y el
+ * plan: las escenas, los subtítulos y la duración. Las tomas no se tocan (una escena cortada por la mitad usa la misma
+ * toma con otra entrada).
+ *   -> { plan, mapa }   mapa: índice de cada bloque de subtítulos de antes -> el de ahora (o null si se fue)
+ */
+export function quitarTramo(carpeta, desde, hasta) {
+  const c = path.resolve(RAIZ, carpeta);
+  const archivoPlan = path.join(c, 'plan-montaje.json');
+  const plan = JSON.parse(fs.readFileSync(archivoPlan, 'utf8'));
+  if (!plan.videoPropio) throw new Error('Solo se pueden quitar partes de tus propios videos.');
+  const dur = Number(plan.duracion) || 0;
+  const a = r3(enCuadro(Math.max(0, Math.min(dur, Number(desde)))));
+  const b = r3(enCuadro(Math.max(0, Math.min(dur, Number(hasta)))));
+  if (!(b - a >= 1 / FPS)) throw new Error('Esa parte es demasiado corta para quitarla.');
+  if (dur - (b - a) < 0.5) throw new Error('No puedes quitar todo el video.');
+  const d = b - a;
+
+  // 1. qué partes del original quedan
+  const fuente = Array.isArray(plan.fuente) && plan.fuente.length ? plan.fuente : [{ desde: 0, hasta: dur }];
+  const nueva = [];
+  let t = 0;
+  for (const f of fuente) {
+    const largo = f.hasta - f.desde;
+    const i = t;
+    const z = t + largo;
+    t = z;
+    if (z <= a || i >= b) {
+      nueva.push(f);
+      continue;
+    }
+    if (i < a) nueva.push({ desde: f.desde, hasta: r3(f.desde + (a - i)) });
+    if (z > b) nueva.push({ desde: r3(f.desde + (b - i)), hasta: f.hasta });
+  }
+
+  // 2. el audio, de nuevo desde el original
+  const original = path.join(c, 'audio', 'voz-original.mp3');
+  if (!existeArchivo(original)) fs.copyFileSync(path.join(c, plan.audio?.voz || 'audio/voz.mp3'), original);
+  const n = (Number(plan.cortes) || 0) + 1;
+  const rel = `audio/voz-${n}-${Date.now().toString(36)}.mp3`;
+  const filtros = nueva.map((f, k) => `[0:a]atrim=start=${f.desde}:end=${f.hasta},asetpts=PTS-STARTPTS[a${k}]`);
+  const grafo = `${filtros.join(';')};${nueva.map((_, k) => `[a${k}]`).join('')}concat=n=${nueva.length}:v=0:a=1[a]`;
+  ffmpeg(['-i', original, '-filter_complex', grafo, '-map', '[a]', '-ac', '2', '-ar', '44100', '-b:a', '192k', path.join(c, rel)], 'recortar el audio');
+
+  // 3. las escenas
+  const bloques = [];
+  for (const bl of plan.bloques || []) {
+    const i = Number(bl.inicio);
+    const f = Number(bl.fin);
+    const ri = Number(bl.toma?.recorteInicio) || 0;
+    const parte = (ini, fin, entrada) => {
+      if (fin - ini < 1 / FPS) return;
+      bloques.push({ ...bl, inicio: r3(ini), fin: r3(fin), ventana: r3(fin - ini), toma: { ...bl.toma, desde: r3(ini), duracion: r3(fin - ini), recorteInicio: r3(entrada) } });
+    };
+    if (f <= a) parte(i, f, ri);
+    else if (i >= b) parte(i - d, f - d, ri);
+    else if (i >= a && f <= b) continue;
+    else if (i < a && f > b) {
+      parte(i, a, ri);
+      parte(a, f - d, ri + (b - i));
+    } else if (i < a) parte(i, a, ri);
+    else parte(a, f - d, ri + (b - i));
+  }
+  bloques.forEach((bl, k) => (bl.linea = k + 1));
+
+  // 4. los subtítulos: las palabras que quedan, corridas
+  const mapa = {};
+  const subtitulos = [];
+  (plan.subtitulos || []).forEach((s, k) => {
+    const palabras = (s.palabras || [])
+      .filter((p) => !((p.inicio + p.fin) / 2 > a && (p.inicio + p.fin) / 2 < b))
+      .map((p) => ({ ...p, inicio: r3(correrT(p.inicio, a, b)), fin: r3(correrT(p.fin, a, b)) }));
+    if (!palabras.length) {
+      mapa[k] = null;
+      return;
+    }
+    const cola = Math.max(0, Number(s.fin) - Number(s.palabras?.at(-1)?.fin ?? s.fin));
+    mapa[k] = subtitulos.length;
+    subtitulos.push({ ...s, inicio: palabras[0].inicio, fin: r3(Math.min(correrT(Number(s.fin), a, b), palabras.at(-1).fin + cola) || palabras.at(-1).fin), texto: palabras.map((p) => p.texto).join(' '), palabras });
+  });
+
+  const nuevoPlan = { ...plan, duracion: r3(dur - d), fuente: nueva, cortes: n, audio: { ...plan.audio, voz: rel }, bloques, subtitulos };
+  fs.writeFileSync(archivoPlan, JSON.stringify(nuevoPlan, null, 2));
+  if (subtitulos.length || existeArchivo(path.join(c, 'subtitulos.json'))) fs.writeFileSync(path.join(c, 'subtitulos.json'), JSON.stringify(subtitulos, null, 2));
+  return { plan: nuevoPlan, mapa, desde: a, hasta: b };
+}
+const existeArchivo = (f) => fs.existsSync(f);
 
 const esPrincipal = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (esPrincipal) {

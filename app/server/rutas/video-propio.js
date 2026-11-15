@@ -6,6 +6,11 @@
 //   POST /api/videos-propios/desde-salida  { archivo, subtitulos }   un MP4 que ya está en output/ (p. ej. el de
 //        «Cambiar el producto»: <slug>_cambiado.mp4) -> { slug }
 //   GET  /api/videos-propios/:slug  -> { slug, etapa: 'preparando'|'listo'|'error', texto, valor, error, aviso }
+//   POST /api/videos-propios/:slug/quitar    { desde, hasta, edicion }  quita esos segundos (imagen y audio): el video
+//        queda más corto (produccion/video-propio.js quitarTramo). Guarda antes el plan y los cambios del editor en
+//        app/video-propio/cortes/<n>.json para deshacer. -> { mapa, desde, hasta, duracion, puedeDeshacer }
+//   POST /api/videos-propios/:slug/deshacer  vuelve a poner lo último que se quitó -> { edicion, puedeDeshacer }
+//   GET  /api/videos-propios/:slug/cortes    -> { puedeDeshacer }
 //
 // La carpeta queda en temp/<slug>/ (video-<nombre>-<fecha>) con el estado en app/video-propio.json. Mientras se
 // prepara no tiene manifiesto.json, así que no aparece en Anuncios; al terminar es un anuncio más (estilo
@@ -17,13 +22,29 @@ import { TEMP, OUTPUT, RAIZ } from '../lib/rutas.js';
 import { leerJSON, existe, segmentoValido } from '../lib/archivos.js';
 import { entornoDelMotor } from '../lib/procesos.js';
 import * as colas from '../lib/colas.js';
-import { desdeLaApp } from './editor.js';
+import { desdeLaApp, anuncioConPlan } from './editor.js';
+import { quitarTramo } from '../../../produccion/video-propio.js';
 
 const MAX_VIDEO = 1024 * 1024 * 1024;
 const EXT_VIDEO = /\.(mp4|m4v|mov|webm|mkv|avi|3gp|mpe?g)$/i;
 const MOTOR = path.join(RAIZ, 'produccion', 'video-propio.js');
 const SLUG = /^video-[a-z0-9-]{1,80}$/;
 const enMarcha = new Set();
+const MAX_DESHACER = 30;
+
+const dirCortes = (slug) => path.join(dirDe(slug), 'app', 'video-propio', 'cortes');
+function cortesGuardados(slug) {
+  try {
+    return fs
+      .readdirSync(dirCortes(slug))
+      .map((n) => Number(/^(\d+)\.json$/.exec(n)?.[1]))
+      .filter((n) => Number.isInteger(n))
+      .sort((a, b) => a - b);
+  } catch {
+    return [];
+  }
+}
+const esVideoPropio = (slug) => SLUG.test(slug) && anuncioConPlan(slug) && leerJSON(path.join(dirDe(slug), 'plan-montaje.json'))?.videoPropio === true;
 
 const dirDe = (slug) => path.join(TEMP, slug);
 const archivoEstado = (slug) => path.join(dirDe(slug), 'app', 'video-propio.json');
@@ -188,5 +209,48 @@ export default function rutasVideoPropio(app) {
     // la app se cerró a mitad: se vuelve a preparar
     if (e.etapa === 'preparando' && !enMarcha.has(slug)) preparar(slug, { subtitulos: Boolean(e.subtitulosPedidos) });
     res.set('Cache-Control', 'no-store').json({ slug, etapa: e.etapa, texto: e.texto || null, valor: e.valor ?? 0, error: e.error || null, aviso: e.aviso || null, nombre: e.nombre || null });
+  });
+
+  app.get('/api/videos-propios/:slug/cortes', (req, res) => {
+    const { slug } = req.params;
+    if (!esVideoPropio(slug)) return res.status(404).json({ error: 'No encuentro ese video.' });
+    res.set('Cache-Control', 'no-store').json({ puedeDeshacer: cortesGuardados(slug).length > 0 });
+  });
+
+  app.post('/api/videos-propios/:slug/quitar', (req, res) => {
+    const { slug } = req.params;
+    if (!desdeLaApp(req, res)) return;
+    if (!esVideoPropio(slug)) return res.status(404).json({ error: 'No encuentro ese video.' });
+    const desde = Number(req.body?.desde);
+    const hasta = Number(req.body?.hasta);
+    if (!Number.isFinite(desde) || !Number.isFinite(hasta) || hasta <= desde) return res.status(400).json({ error: 'Elige qué parte quitar.' });
+    const plan = leerJSON(path.join(dirDe(slug), 'plan-montaje.json'));
+    try {
+      const r = quitarTramo(path.join('temp', slug), desde, hasta);
+      // lo de antes, para deshacer (el audio de antes sigue en su archivo: cada corte hace uno nuevo)
+      const lista = cortesGuardados(slug);
+      const n = (lista.at(-1) || 0) + 1;
+      fs.mkdirSync(dirCortes(slug), { recursive: true });
+      const edicion = req.body?.edicion && typeof req.body.edicion === 'object' ? req.body.edicion : null;
+      fs.writeFileSync(path.join(dirCortes(slug), `${n}.json`), JSON.stringify({ plan, edicion, fecha: new Date().toISOString() }) + '\n', 'utf8');
+      for (const viejo of lista.slice(0, Math.max(0, lista.length + 1 - MAX_DESHACER))) fs.rmSync(path.join(dirCortes(slug), `${viejo}.json`), { force: true });
+      res.json({ mapa: r.mapa, desde: r.desde, hasta: r.hasta, duracion: r.plan.duracion, puedeDeshacer: true });
+    } catch (e) {
+      res.status(400).json({ error: String(e?.message || e).slice(0, 200) || 'No pude quitar esa parte.' });
+    }
+  });
+
+  app.post('/api/videos-propios/:slug/deshacer', (req, res) => {
+    const { slug } = req.params;
+    if (!desdeLaApp(req, res)) return;
+    if (!esVideoPropio(slug)) return res.status(404).json({ error: 'No encuentro ese video.' });
+    const lista = cortesGuardados(slug);
+    const n = lista.at(-1);
+    const guardado = n ? leerJSON(path.join(dirCortes(slug), `${n}.json`)) : null;
+    if (!guardado?.plan) return res.status(409).json({ error: 'No hay nada que volver a poner.' });
+    fs.writeFileSync(path.join(dirDe(slug), 'plan-montaje.json'), JSON.stringify(guardado.plan, null, 2));
+    fs.writeFileSync(path.join(dirDe(slug), 'subtitulos.json'), JSON.stringify(guardado.plan.subtitulos || [], null, 2));
+    fs.rmSync(path.join(dirCortes(slug), `${n}.json`), { force: true });
+    res.json({ edicion: guardado.edicion || null, puedeDeshacer: lista.length > 1 });
   });
 }
