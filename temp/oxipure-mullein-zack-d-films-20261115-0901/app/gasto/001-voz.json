@@ -1,0 +1,17 @@
+{
+  "numero": 1,
+  "paso": "voz",
+  "comando": "node produccion/generar-audio.js temp/oxipure-mullein-zack-d-films-20261115-0901",
+  "inicio": "2026-11-15T14:20:17.598Z",
+  "fin": "2026-11-15T14:20:24.750Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "caracteres": 1555
+  }
+}
