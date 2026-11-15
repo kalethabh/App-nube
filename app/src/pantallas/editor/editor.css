@@ -2696,3 +2696,25 @@ html:has(.ed) .avisos {
   align-items: flex-start;
   gap: 6px;
 }
+
+/* Cuánto dura un texto o una imagen tuya (PanelCambios: TiempoEnPantalla) */
+.ed-tiempo-pantalla {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+.ed-tiempo-pantalla__cabecera {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--e-2);
+  font-size: var(--t-chico);
+  color: var(--texto-2);
+}
+.ed-tiempo-pantalla__cabecera .t-mono {
+  color: var(--texto-1);
+}
+.ed-tiempo-pantalla__botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
