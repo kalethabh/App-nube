@@ -2730,3 +2730,13 @@ html:has(.ed) .avisos {
 .ed-nota--error {
   color: var(--error);
 }
+.ed-seguimiento--pestana {
+  margin-top: var(--e-3);
+}
+.ed-seguimiento--pestana .ed-tiempo-pantalla__cabecera span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: var(--peso-semi);
+  color: var(--texto-1);
+}

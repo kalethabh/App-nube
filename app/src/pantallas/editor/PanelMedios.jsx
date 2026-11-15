@@ -1,8 +1,10 @@
 // Panel izquierdo, como el de CapCut: los clips del anuncio, la música, los estilos de subtítulos y
 // los textos en pantalla.
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { Archive, Captions, Check, Film, ImagePlus, Music, Pause, Play, Plus, Type, Upload, X } from 'lucide-react';
-import { Boton, EstadoVacio, Insignia, Interruptor, MiniaturaVideo, Tooltip, VistaPrevia, useAvisos } from '../../componentes/index.js';
+import { Archive, Captions, Check, Film, ImagePlus, Music, Pause, Play, Plus, Sparkles, Type, Upload, X } from 'lucide-react';
+import { AreaTexto, BarraDeProgreso, Boton, EstadoVacio, Insignia, Interruptor, MiniaturaVideo, Tooltip, VistaPrevia, useAvisos } from '../../componentes/index.js';
+import { pedirNuevo as pedirApi } from '../../datos/api.js';
+import { cambiosParaSeguir, useTextosVideo } from './seguimiento.js';
 import { useDatos } from '../../datos/api.js';
 import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato.js';
 import { RejillaEstilos } from './Galeria.jsx';
@@ -269,6 +271,85 @@ function PestanaMusica({ slug, pistas, ed, acciones, playerRef }) {
   );
 }
 
+/**
+ * Seguimiento con IA, para varios textos a la vez: «pon AMUA encima de "muna" en todo el video y 50% OFF encima de
+ * "COMPRA 2 LLÉVATE 1"». La IA arma cada texto nuevo con lo que sigue (rutas/seguimiento.js, varios: true) y entran
+ * todos en un solo paso (deshacer los quita juntos).
+ */
+function SeguimientoConIA({ acciones, total }) {
+  const tv = useTextosVideo(acciones.slug);
+  const [pedido, setPedido] = useState('');
+  const [ocupado, setOcupado] = useState(null);
+  const [nota, setNota] = useState(null);
+  const leer = async () => {
+    setOcupado('leer');
+    setNota(null);
+    try {
+      await tv.leer();
+    } catch (e) {
+      setNota({ error: true, texto: e.message });
+    } finally {
+      setOcupado(null);
+    }
+  };
+  const crear = async () => {
+    if (!pedido.trim()) return;
+    setOcupado('ia');
+    setNota(null);
+    try {
+      const r = await pedirApi(`/api/anuncios/${encodeURIComponent(acciones.slug)}/seguimiento/ia`, { metodo: 'POST', cuerpo: { pedido, varios: true } });
+      const lista = (r.textos || []).map((x) => ({ texto: x.texto, cambios: cambiosParaSeguir(tv.pistas, x.pistas, x.siempre, total) })).filter((x) => x.cambios);
+      if (!lista.length) {
+        setNota({ error: true, texto: r.mensaje || 'No encontré esos textos en el video. Revisa cómo están escritos.' });
+        return;
+      }
+      acciones.crearSeguidos(lista);
+      setNota({ texto: `${lista.length === 1 ? 'Agregué 1 texto' : `Agregué ${lista.length} textos`}: ${lista.map((x) => `«${x.texto}»`).join(', ')}.${r.mensaje ? ` ${r.mensaje}` : ''}` });
+      setPedido('');
+    } catch (e) {
+      setNota({ error: true, texto: e.message });
+    } finally {
+      setOcupado(null);
+    }
+  };
+  return (
+    <div className="ed-seguimiento ed-seguimiento--pestana">
+      <div className="ed-tiempo-pantalla__cabecera">
+        <span>
+          <Sparkles size={13} strokeWidth={2.2} aria-hidden="true" /> Textos que siguen, con IA
+        </span>
+      </div>
+      {tv.estado === 'listo' ? (
+        <>
+          <AreaTexto
+            value={pedido}
+            onChange={(ev) => setPedido(ev.target.value)}
+            filas={3}
+            placeholder={'Ej.: pon AMUA encima de "muna" en todo el video, y 50% OFF encima de "COMPRA 2 LLÉVATE 1"'}
+            aria-label="Qué textos quieres agregar"
+          />
+          <Boton variante="primario" tamano="chico" bloque icono={Sparkles} onClick={crear} cargando={ocupado === 'ia'} disabled={!pedido.trim()}>
+            Agregarlos con IA
+          </Boton>
+        </>
+      ) : tv.estado === 'leyendo' ? (
+        <BarraDeProgreso valor={tv.valor} animada etiqueta="Leyendo los textos del video" mostrarValor />
+      ) : tv.estado === 'sin-video' ? (
+        <p className="ed-medios__nota">{tv.error}</p>
+      ) : (
+        <>
+          <p className="ed-medios__nota">Pon textos tuyos encima de los que se ven en el video y que los sigan. Primero se leen los textos del video: es gratis y tarda unos 30 s por minuto.</p>
+          {tv.estado === 'error' ? <p className="ed-medios__nota ed-nota--error">{tv.error}</p> : null}
+          <Boton variante="secundario" tamano="chico" bloque onClick={leer} cargando={ocupado === 'leer'} disabled={!tv.estado}>
+            Buscar los textos del video
+          </Boton>
+        </>
+      )}
+      {nota ? <p className={`ed-medios__nota${nota.error ? ' ed-nota--error' : ''}`}>{nota.texto}</p> : null}
+    </div>
+  );
+}
+
 function PestanaTextos({ pistas, ed, cambiar, onIr, acciones }) {
   const textos = pistas.textos;
   const elegirImagen = useRef(null);
@@ -292,6 +373,7 @@ function PestanaTextos({ pistas, ed, cambiar, onIr, acciones }) {
         }}
       />
       <p className="ed-medios__nota">Arrastra los textos y las imágenes en el video para moverlos.</p>
+      <SeguimientoConIA acciones={acciones} total={pistas.duracion} />
     </>
   );
   if (!textos.length) {

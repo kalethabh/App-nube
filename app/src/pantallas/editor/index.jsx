@@ -1406,6 +1406,23 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       lugarSubtitulo,
       textoNuevoId,
       slug: a.slug,
+      // Varios textos nuevos que siguen a textos del video (pestaña Textos: «Seguimiento con IA»): [{ texto, cambios }]
+      // con cambios = { sigue, inicio, fin }. Toman el aspecto del último texto que ya sigue algo (o el de siempre).
+      // Un solo paso del historial.
+      crearSeguidos: (lista) =>
+        cambiar(
+          (s) => {
+            let e = s;
+            const modelo = [...(s.textosNuevos || [])].reverse().find((x) => x.sigue && !x.archivo) || null;
+            const aspecto = modelo ? { color: modelo.color, fondo: modelo.fondo, tamano: modelo.tamano, fuente: modelo.fuente } : {};
+            for (const { texto, cambios } of lista) {
+              const r = textoNuevo(plan, e, { t: cambios.inicio || 0, color: colorAnuncio });
+              e = cambiarTexto(r.ed, r.nuevo, { ...aspecto, texto, ...cambios }).ed;
+            }
+            return e;
+          },
+          { etiqueta: lista.length === 1 ? `Seguir con «${lista[0].texto}»` : `Agregar ${lista.length} textos que siguen` }
+        ),
       ajustarTexto: (id, cambios, opciones = {}) => cambiar((s) => cambiarTexto(s, id, cambios).ed, { etiqueta: opciones.etiqueta || 'Cambiar texto', grupo: opciones.grupo }),
       restablecerTexto: (id) =>
         cambiar(
