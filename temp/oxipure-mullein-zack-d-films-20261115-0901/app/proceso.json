@@ -1,5 +1,5 @@
 {
-  "pid": 5988,
+  "pid": 6471,
   "paso": "imagenes",
   "script": "producir.js",
   "args": [
@@ -7,6 +7,6 @@
     "--si"
   ],
   "comando": "node produccion/producir.js temp/oxipure-mullein-zack-d-films-20261115-0901 --si",
-  "inicio": "2026-11-15T14:20:24.752Z",
+  "inicio": "2026-11-15T14:24:51.516Z",
   "app": 2891
 }

@@ -40,8 +40,9 @@
       "id": "imagenes",
       "nombre": "Crear las imágenes",
       "estado": "corriendo",
-      "intentos": 1,
-      "inicio": "2026-11-15T14:20:24.751Z"
+      "intentos": 2,
+      "inicio": "2026-11-15T14:20:24.751Z",
+      "fin": "2026-11-15T14:23:46.304Z"
     },
     {
       "id": "revision-imagenes",
@@ -114,7 +115,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T14:20:24.751Z",
+  "actualizado": "2026-11-15T14:24:51.515Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"
