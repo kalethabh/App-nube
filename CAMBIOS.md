@@ -2,6 +2,15 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-15 · Editor, textos con IA y anuncios de imagen
+
+- **Actualizar con un clic:** si instalaste la app con el comando, el botón «Actualizar» de arriba ahora baja la última versión publicada y la deja lista. Tus anuncios, tus claves y tus ajustes no se tocan.
+- **Editor de videos:** la sección «Editor» edita cualquier video tuyo. Puedes cortar escenas (el video queda más corto), deshacer y rehacer, y alargar cuánto duran los textos e imágenes que agregas.
+- **Textos con IA y seguimiento:** en la pestaña Textos del editor escribes lo que quieres («ENVÍO GRATIS arriba en todo el video», «en la escena 5 pon OFERTA abajo», «AMUA encima de "muna"») y la IA los pone, también siguiendo un texto que se ve en el video.
+- **Imagen rechazada por contenido:** cuando el modelo no acepta una imagen, la tarjeta muestra su descripción para cambiarla o pedir una versión que sí pase, sin perder la escena.
+- **Anuncios de imagen:** investigación de mercado (deseo central, beneficio principal y puntos de dolor), «Más de lo mismo» (copia el diseño y la tipografía de tu referencia), biblioteca de referencias y pegar imágenes copiadas.
+- El instalador de Mac abre la app aunque macOS no abra la aplicación recién creada.
+
 ## 2026-11-11b · Carpeta de guardado
 
 - En **Ajustes → Guardado** puedes elegir entre este computador, la detección automática de Google Drive o una carpeta sincronizada de Google Drive, Dropbox o OneDrive. Puedes elegirla con una ventana de Mac/Windows o pegar su ruta.

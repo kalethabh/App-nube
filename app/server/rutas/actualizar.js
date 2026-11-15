@@ -6,6 +6,10 @@
 // POST /api/actualizar?solo=revisar        -> lo revisa y lo guarda: { id, version, versionActual, notas }
 // POST /api/actualizar/:id/aplicar         -> aplica el que se guardo con ?solo=revisar
 // DELETE /api/actualizar/:id               -> el alumno cancelo: se borra el que se guardo
+// GET  /api/actualizar/publica             -> { version, nueva, hayNueva, notas, bajando: { bytes, total } | null, error? }
+//                                             la ultima version PUBLICADA (lib/actualizar-publico.js), para quien instalo
+//                                             la app con el comando: el boton «Actualizar» de la barra
+// POST /api/actualizar/publica             -> la baja y la aplica (lo mismo que subir su zip en Ajustes › Acerca de)
 //
 // Despues de aplicar, hasta que se cierre y se vuelva a abrir el lanzador, la app no acepta nada que cambie algo
 // (POST, PUT, PATCH, DELETE fuera de esta ruta): el servidor que corre es el de antes y el motor ya es el nuevo.
@@ -33,6 +37,7 @@ import {
   ultimaActualizacion,
   versionInstalada,
 } from '../lib/actualizar.js';
+import { ultimaPublicada, bajarPaquete, avance, esMasNueva } from '../lib/actualizar-publico.js';
 
 const TOPE_BYTES = 4 * 1024 * 1024 * 1024 - 1; // un zip sin zip64 no pasa de 4 GB
 const TIPOS = /^(application\/(zip|x-zip|x-zip-compressed|octet-stream))(\s*;.*)?$/i;
@@ -123,6 +128,48 @@ export default function rutasActualizar(app) {
     const r = hayQueReabrir();
     if (!r || ['GET', 'HEAD', 'OPTIONS'].includes(req.method) || req.path.startsWith('/api/actualizar')) return next();
     res.status(409).json({ error: mensajeReabrir(r), reabrir: true });
+  });
+
+  // ------------------------------------------------------------ la version publicada (el boton «Actualizar» de la barra)
+  app.get('/api/actualizar/publica', async (req, res) => {
+    const version = versionInstalada();
+    const r = hayQueReabrir();
+    const u = await ultimaPublicada({ fresca: req.query.fresca === '1' });
+    res.set('Cache-Control', 'no-store').json({
+      version,
+      nueva: u.version || null,
+      hayNueva: !r && !u.error && esMasNueva(u.version, version),
+      bytes: u.bytes || null,
+      notas: u.notas || '',
+      bajando: avance(),
+      reabrir: r ? { version: r.version, mensaje: mensajeReabrir(r) } : null,
+      ...(u.error ? { error: u.error } : {}),
+    });
+  });
+
+  app.post('/api/actualizar/publica', async (req, res) => {
+    const origen = req.headers.origin;
+    if ((origen && !ORIGENES.has(String(origen).toLowerCase())) || String(req.headers['sec-fetch-site'] || '') === 'cross-site') return res.status(403).json({ error: 'Solo desde la app.' });
+    let ruta = null;
+    try {
+      await antesDeEmpezar();
+      const u = await ultimaPublicada({ fresca: true });
+      if (u.error) throw new ErrorActualizar(u.error, 502);
+      if (!esMasNueva(u.version, versionInstalada())) throw new ErrorActualizar('Ya tienes la última versión.', 409);
+      fs.mkdirSync(DIR_SUBIDAS, { recursive: true });
+      ruta = rutaSubida(nuevoIdSubida());
+      try {
+        await bajarPaquete(u.url, ruta, { esperados: u.bytes });
+      } catch (e) {
+        throw new ErrorActualizar(e?.message || 'No pude bajar la versión nueva. Vuelve a intentarlo.', 502);
+      }
+      await antesDeEmpezar(); // (por si algo arrancó mientras bajaba)
+      aplicar(res, ruta);
+    } catch (e) {
+      if (ruta) fs.rmSync(ruta, { force: true });
+      limpiarSubidas();
+      responderError(res, e);
+    }
   });
 
   app.get('/api/actualizar', (req, res) => {
