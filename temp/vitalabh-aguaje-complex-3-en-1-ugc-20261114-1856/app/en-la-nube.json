@@ -1,0 +1,258 @@
+{
+  "carpeta": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
+  "archivos": [
+    "app/rehacer/respaldo-008e22f41803/video/toma-3.mp4",
+    "app/rehacer/respaldo-8e641cb08a56/video/toma-1.mp4",
+    "app/rehacer/respaldo-a35290a5aff7/video/toma-6.mp4",
+    "app/rehacer/respaldo-e01befeeb681/video/toma-1.mp4",
+    "app/rehacer/respaldo-e0a2d1ee278c/video/toma-5.mp4",
+    "efectos/deep-woosh.mp3",
+    "efectos/woosh.mp3",
+    "historial/lugar-sala--2026-11-15T00-22-08.png",
+    "historial/toma-1--2026-11-15T00-15-21.mp4",
+    "historial/toma-1--2026-11-15T00-37-17.mp4",
+    "historial/toma-3--2026-11-15T00-16-04.mp4",
+    "historial/toma-5--2026-11-15T00-22-08.mp4",
+    "historial/toma-6--2026-11-15T00-22-41.mp4",
+    "img/lugar-sala.png",
+    "img/personaje.png",
+    "musica/fondo-alternativa.mp3",
+    "musica/fondo.mp3",
+    "producto.png",
+    "qa/toma-1.jpg",
+    "qa/toma-2.jpg",
+    "qa/toma-3.jpg",
+    "qa/toma-4.jpg",
+    "qa/toma-5.jpg",
+    "qa/toma-6.jpg",
+    "referencia/audio-referencia.mp3",
+    "referencia/hoja-tomas.jpg",
+    "referencia/original.mp4",
+    "referencia/tomas/toma-01.jpg",
+    "referencia/tomas/toma-02.jpg",
+    "referencia/tomas/toma-03.jpg",
+    "referencia/tomas/toma-04.jpg",
+    "referencia/tomas/toma-05.jpg",
+    "referencia/tomas/toma-06.jpg",
+    "video/toma-1.mp4",
+    "video/toma-2.mp4",
+    "video/toma-3.mp4",
+    "video/toma-4.mp4",
+    "video/toma-5.mp4",
+    "video/toma-6.mp4"
+  ],
+  "finales": [
+    "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856_9x16_con-subtitulos.mp4",
+    "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856_editado-1.mp4"
+  ],
+  "ubicaciones": {
+    "app/rehacer/respaldo-008e22f41803/video/toma-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/app/rehacer/respaldo-008e22f41803/video/toma-3.mp4",
+      "bytes": 2091271,
+      "sha256": "95d7a388f7cf48b4f13cd6c262feb77005815e332a2b80b57d842a3b6afa822b"
+    },
+    "app/rehacer/respaldo-8e641cb08a56/video/toma-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/app/rehacer/respaldo-8e641cb08a56/video/toma-1.mp4",
+      "bytes": 5410624,
+      "sha256": "183b4d2c8089603e431fd1fa0f39f194459c3db2a343470f95e0d4d88456d07a"
+    },
+    "app/rehacer/respaldo-a35290a5aff7/video/toma-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/app/rehacer/respaldo-a35290a5aff7/video/toma-6.mp4",
+      "bytes": 4251057,
+      "sha256": "3b18cd0f608178872b00664f6c9d45e9797ba9ed3568684d8a5d9472a4f82100"
+    },
+    "app/rehacer/respaldo-e01befeeb681/video/toma-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/app/rehacer/respaldo-e01befeeb681/video/toma-1.mp4",
+      "bytes": 4904803,
+      "sha256": "fe86ca2ada7c438d2d75a8655c0cd25d37fac0f7142d252f42980481f99961eb"
+    },
+    "app/rehacer/respaldo-e0a2d1ee278c/video/toma-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/app/rehacer/respaldo-e0a2d1ee278c/video/toma-5.mp4",
+      "bytes": 4427838,
+      "sha256": "4397e713d9aa7cdbdcc36c9c1ee2ccfa931bc225162d3adb1a44cc6deba0ff77"
+    },
+    "efectos/deep-woosh.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/efectos/deep-woosh.mp3",
+      "bytes": 32023,
+      "sha256": "0e667f4e4254f61ddb1101189fc2abd2293222293d88981c7fffaca558d4b00f"
+    },
+    "efectos/woosh.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/efectos/woosh.mp3",
+      "bytes": 6946,
+      "sha256": "1f508a90d70fadf6870deebf65984994d1ef62090a616d0c7a7eeecd57ce1f0c"
+    },
+    "historial/lugar-sala--2026-11-15T00-22-08.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/historial/lugar-sala--2026-11-15T00-22-08.png",
+      "bytes": 1256445,
+      "sha256": "658c2ddcc444970cd538db383479c7afebe829465f3d47ed522f008a6936484d"
+    },
+    "historial/toma-1--2026-11-15T00-15-21.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/historial/toma-1--2026-11-15T00-15-21.mp4",
+      "bytes": 5410624,
+      "sha256": "183b4d2c8089603e431fd1fa0f39f194459c3db2a343470f95e0d4d88456d07a"
+    },
+    "historial/toma-1--2026-11-15T00-37-17.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/historial/toma-1--2026-11-15T00-37-17.mp4",
+      "bytes": 4904803,
+      "sha256": "fe86ca2ada7c438d2d75a8655c0cd25d37fac0f7142d252f42980481f99961eb"
+    },
+    "historial/toma-3--2026-11-15T00-16-04.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/historial/toma-3--2026-11-15T00-16-04.mp4",
+      "bytes": 2091271,
+      "sha256": "95d7a388f7cf48b4f13cd6c262feb77005815e332a2b80b57d842a3b6afa822b"
+    },
+    "historial/toma-5--2026-11-15T00-22-08.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/historial/toma-5--2026-11-15T00-22-08.mp4",
+      "bytes": 4427838,
+      "sha256": "4397e713d9aa7cdbdcc36c9c1ee2ccfa931bc225162d3adb1a44cc6deba0ff77"
+    },
+    "historial/toma-6--2026-11-15T00-22-41.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/historial/toma-6--2026-11-15T00-22-41.mp4",
+      "bytes": 4251057,
+      "sha256": "3b18cd0f608178872b00664f6c9d45e9797ba9ed3568684d8a5d9472a4f82100"
+    },
+    "img/lugar-sala.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/img/lugar-sala.png",
+      "bytes": 1283531,
+      "sha256": "7305669f8d9c5a74fee61b7ddde558bf20892f63ba06b26ac0d228240a0bac89"
+    },
+    "img/personaje.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/img/personaje.png",
+      "bytes": 6279882,
+      "sha256": "433a5d868686e429a50108fe99a394a09e65f9b3bb51c9db3cd44c383d01517a"
+    },
+    "musica/fondo-alternativa.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/musica/fondo-alternativa.mp3",
+      "bytes": 868908,
+      "sha256": "6e39f9a8f80fd0687dadfdb6ae763382bbdc9ea9a8537c9a132e556ee745c80a"
+    },
+    "musica/fondo.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/musica/fondo.mp3",
+      "bytes": 914844,
+      "sha256": "1afca372d3ff1f7e540938554c27cc2298a60b9de6ea91c7edc634bae2996a94"
+    },
+    "producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/producto.png",
+      "bytes": 718914,
+      "sha256": "724767856b82a67d008eccb847dc0f19d4dd6ccf45edd6f6e0258ea2174be1ca"
+    },
+    "qa/toma-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/qa/toma-1.jpg",
+      "bytes": 116812,
+      "sha256": "c9d6f67a16125035958903a83014cd641d3809723946312f615944fb3429fce8"
+    },
+    "qa/toma-2.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/qa/toma-2.jpg",
+      "bytes": 166283,
+      "sha256": "4fd8de5640b35c7f6c51039268a54739a3df772fc851ca57c75642065a8d091a"
+    },
+    "qa/toma-3.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/qa/toma-3.jpg",
+      "bytes": 86922,
+      "sha256": "0bd33b045de00aef15796f5adf27b8f3d0f47df5bcf1c35f281c4e23c8809e86"
+    },
+    "qa/toma-4.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/qa/toma-4.jpg",
+      "bytes": 93100,
+      "sha256": "b3c9210d886e8045246ffe857d654859797b3018f8760b53f4142fc2fddf71d4"
+    },
+    "qa/toma-5.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/qa/toma-5.jpg",
+      "bytes": 97293,
+      "sha256": "1b15f307b469ae54df2f1bc8320e2654c72246fc3db0e192e4868dde6b0a1e69"
+    },
+    "qa/toma-6.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/qa/toma-6.jpg",
+      "bytes": 63176,
+      "sha256": "a3270f11b94673931c6aa9e5f206a19e3b2f67135a527d8d5c236abad38422dd"
+    },
+    "referencia/audio-referencia.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/audio-referencia.mp3",
+      "bytes": 209989,
+      "sha256": "bb49d55d98506169455ec6948e66dc16e85c47d55d8e61b20ca7fc1f52ad3d99"
+    },
+    "referencia/hoja-tomas.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/hoja-tomas.jpg",
+      "bytes": 53665,
+      "sha256": "0c46e49848aba1a571f2358b8093cb47033f17253eca64793490c759ce77b207"
+    },
+    "referencia/original.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/original.mp4",
+      "bytes": 4734377,
+      "sha256": "e8631734391654323c8bac9997ca073d6a4912f8320d3c5c52be20552517297e"
+    },
+    "referencia/tomas/toma-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/tomas/toma-01.jpg",
+      "bytes": 25408,
+      "sha256": "815b6e49703004f9de3e9f973cb35d656b6fc976f91b83e38239b059581b38cf"
+    },
+    "referencia/tomas/toma-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/tomas/toma-02.jpg",
+      "bytes": 31184,
+      "sha256": "22e3a877bf9f9cbc8d39b5419d6582456077ea8f82a364df9a12dd1f4894c321"
+    },
+    "referencia/tomas/toma-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/tomas/toma-03.jpg",
+      "bytes": 25701,
+      "sha256": "a1cd835db462ccfb7a811b04b06e546061a217f57a9e63502959a0f42a589731"
+    },
+    "referencia/tomas/toma-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/tomas/toma-04.jpg",
+      "bytes": 23753,
+      "sha256": "f9cab121e46e9ab8292a9093baa50d987fba64cfc1d0677dfc661738ce61a3e9"
+    },
+    "referencia/tomas/toma-05.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/tomas/toma-05.jpg",
+      "bytes": 26268,
+      "sha256": "fa2a1190bcde033cd0ea45935bcafd9968f303da51e8c7db0bfcc372b3a8b879"
+    },
+    "referencia/tomas/toma-06.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/referencia/tomas/toma-06.jpg",
+      "bytes": 18315,
+      "sha256": "693b9d281d44e6ad83653cf9074b3e57439f462901dc3c55e1ff86afaa44187b"
+    },
+    "video/toma-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/video/toma-1.mp4",
+      "bytes": 5947880,
+      "sha256": "592773c60ded7cff7fc70d857a0950ce8bd6c98d67fa2d24e6d77312dea70d42"
+    },
+    "video/toma-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/video/toma-2.mp4",
+      "bytes": 6068071,
+      "sha256": "7131584e68bb3f972c80a3d7ea5c3cf931e6e98ece7530bc41b6e321b379c0d2"
+    },
+    "video/toma-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/video/toma-3.mp4",
+      "bytes": 1665578,
+      "sha256": "fe494f875c69d49cdc6d35e1a403a8b3a5f57f3dd75bb3d6c0d6883d451c9cce"
+    },
+    "video/toma-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/video/toma-4.mp4",
+      "bytes": 2968609,
+      "sha256": "100ca377591e450c1b68bc5f2e30b54ca81ef48a55a2ca9c4f9e03a9bfb11e16"
+    },
+    "video/toma-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/video/toma-5.mp4",
+      "bytes": 4815959,
+      "sha256": "97bf97e76e1df2f041e01effe9efbe0a78137cf1b2ab348fed235157bf16d50a"
+    },
+    "video/toma-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856/video/toma-6.mp4",
+      "bytes": 3146626,
+      "sha256": "e1b68513fc716aee633bdd874e48e63909f58d56d42b82895be7dc17faad7191"
+    }
+  },
+  "ubicacionesFinales": {
+    "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/videos-finales/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856_9x16_con-subtitulos.mp4",
+      "bytes": 31453879,
+      "sha256": "281eda8eca6b44ad2265ec413a07dc436a769c7910dcf036d8211efe823820b0"
+    },
+    "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856_editado-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/videos-finales/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856_editado-1.mp4",
+      "bytes": 31445355,
+      "sha256": "e35a04ef59293828af30b7c9b6e3e9b648863df4383245b4e7d602c52089d681"
+    }
+  },
+  "fecha": "2026-11-15T03:13:54.011Z"
+}
