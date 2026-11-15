@@ -23,7 +23,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AbsoluteFill, Audio, Img, Loop, Sequence, continueRender, delayRender, getRemotionEnvironment, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Anuncio } from '../Anuncio.jsx';
-import { capasDeEdicion } from './capas.mjs';
+import { capasDeEdicion, lugarSeguido } from './capas.mjs';
 import { Subtitulos } from './subtitulos/estilos.jsx';
 import { FUENTES, cargarFuentesSubtitulos } from './subtitulos/fuentes.js';
 
@@ -130,16 +130,65 @@ function MusicaEntera({ musica }) {
 }
 
 /**
+ * Un texto tuyo que sigue a un texto del video (seguimiento): centrado encima de él y, con fondo, al menos de su tamaño
+ * (así lo tapa). Sin el pop de entrada: aparece y se va con un fundido corto.
+ */
+function TextoSeguido({ id, texto, t, inicio, fin, e, sigue, ancho, alto }) {
+  const l = lugarSeguido(sigue, t);
+  if (!l) return null;
+  const opacidad = Math.min(interpolate(t, [inicio, inicio + 0.12], [0, 1], CLAMP), interpolate(t, [fin - 0.12, fin], [1, 0], CLAMP));
+  const sinFondo = !e.fondo;
+  // la letra: la de siempre por su tamaño, y al menos lo bastante grande para cubrir el alto del texto de abajo
+  const fs = Math.round(Math.max(ancho * 0.04 * (e.tamano ?? 1), l.h * alto * 0.78 * (e.tamano ?? 1)));
+  return (
+    <AbsoluteFill style={{ pointerEvents: 'none' }}>
+      <div
+        data-capa={id}
+        style={{
+          position: 'absolute',
+          left: ancho * l.x,
+          top: alto * l.y,
+          transform: 'translate(-50%, -50%)',
+          minWidth: sinFondo ? undefined : l.w * ancho * 1.08 + fs * 0.4,
+          minHeight: sinFondo ? undefined : l.h * alto * 1.3,
+          maxWidth: ancho * 0.96,
+          boxSizing: 'border-box',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: `${fs * 0.18}px ${fs * 0.35}px`,
+          borderRadius: fs * 0.22,
+          background: sinFondo ? 'transparent' : e.fondo,
+          color: e.color || '#fff',
+          fontFamily: FUENTES[e.fuente] || FUENTES.titulo,
+          fontWeight: 800,
+          fontSize: fs,
+          lineHeight: 1.05,
+          textAlign: 'center',
+          textTransform: 'uppercase',
+          whiteSpace: 'nowrap',
+          ...(sinFondo ? { WebkitTextStroke: `${Math.max(1, Math.round(fs * 0.07))}px rgba(0,0,0,0.85)`, paintOrder: 'stroke fill' } : {}),
+          opacity: opacidad,
+        }}
+      >
+        {texto}
+      </div>
+    </AbsoluteFill>
+  );
+}
+
+/**
  * Un texto en pantalla (los sugeridos del anuncio y los que agrega el usuario): entra con un pop y se va con un
  * fundido. Su aspecto ya viene resuelto (textosEnPantalla en capas.mjs): color de letra, fondo (o sin fondo),
  * tamaño, lugar y tipo de letra. Sin cambios se ve exactamente como siempre.
  */
-function TextoEnPantalla({ id, texto, inicio, fin, estilo }) {
+function TextoEnPantalla({ id, texto, inicio, fin, estilo, sigue }) {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
   if (t < inicio || t >= fin) return null;
   const e = estilo || {};
+  if (sigue) return <TextoSeguido id={id} texto={texto} t={t} inicio={inicio} fin={fin} e={e} sigue={sigue} ancho={width} alto={height} />;
   const dt = t - inicio;
   const k = dt <= 0 ? 0 : 1 - Math.exp(-dt * 10) * Math.cos(dt * 20);
   const salida = interpolate(t, [fin - 0.18, fin], [1, 0], CLAMP);
@@ -194,12 +243,16 @@ function TextoEnPantalla({ id, texto, inicio, fin, estilo }) {
  * Una imagen que puso el usuario en el editor: centrada en (x, y), con su ancho (el alto sale de la imagen). Entra
  * con un pop y se va con un fundido, como los textos.
  */
-function ImagenEnPantalla({ id, archivo, inicio, fin, estilo }) {
+function ImagenEnPantalla({ id, archivo, inicio, fin, estilo, sigue }) {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
   if (t < inicio || t >= fin) return null;
-  const e = estilo || {};
+  const e0 = estilo || {};
+  // siguiendo un texto del video: centrada encima de él y al menos de su ancho (lo tapa)
+  const l = sigue ? lugarSeguido(sigue, t) : null;
+  if (sigue && !l) return null;
+  const e = l ? { ...e0, x: l.x, y: l.y, ancho: Math.max(e0.ancho ?? 0.2, l.w * 1.12) } : e0;
   const dt = t - inicio;
   const k = dt <= 0 ? 0 : 1 - Math.exp(-dt * 10) * Math.cos(dt * 20);
   const salida = interpolate(t, [fin - 0.18, fin], [1, 0], CLAMP);
@@ -214,7 +267,7 @@ function ImagenEnPantalla({ id, archivo, inicio, fin, estilo }) {
           top: height * (e.y ?? 0.42),
           width: width * (e.ancho ?? 0.5),
           height: 'auto',
-          transform: `translate(-50%, -50%) scale(${0.6 + 0.4 * k})`,
+          transform: `translate(-50%, -50%) scale(${l ? 1 : 0.6 + 0.4 * k})`,
           opacity: salida,
         }}
       />
@@ -239,9 +292,9 @@ export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color }) 
       <Anuncio plan={plan} sinSubtitulos sinMusica />
       {(textos || []).map((x) =>
         x.archivo ? (
-          <ImagenEnPantalla key={x.id} id={x.id} archivo={x.archivo} inicio={x.inicio} fin={x.fin} estilo={x.imagenEstilo} />
+          <ImagenEnPantalla key={x.id} id={x.id} archivo={x.archivo} inicio={x.inicio} fin={x.fin} estilo={x.imagenEstilo} sigue={x.sigue} />
         ) : (
-          <TextoEnPantalla key={x.id} id={x.id} texto={x.texto} inicio={x.inicio} fin={x.fin} estilo={x.estilo} />
+          <TextoEnPantalla key={x.id} id={x.id} texto={x.texto} inicio={x.inicio} fin={x.fin} estilo={x.estilo} sigue={x.sigue} />
         )
       )}
       {subtitulos ? <CapaSubtitulos ajustes={subtitulos} /> : null}
