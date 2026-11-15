@@ -28,9 +28,12 @@ export function edicionSinTramo(ed, a, b, mapa = {}) {
   };
   // lo que sigue a un texto del video: sus puntos también se corren (los de la parte quitada se van)
   const conSigue = (x) => {
-    if (!x || !Array.isArray(x.sigue?.puntos)) return x;
-    const puntos = x.sigue.puntos.filter((p) => !(p[0] > a && p[0] < b)).map((p) => [r3(correr(p[0], a, b)), ...p.slice(1)]);
-    return { ...x, sigue: puntos.length ? { ...x.sigue, puntos } : undefined };
+    const sigue = x?.sigue;
+    if (!sigue) return x;
+    const listas = Array.isArray(sigue.pistas) ? sigue.pistas : Array.isArray(sigue.puntos) ? [sigue.puntos] : [];
+    const pistas = listas.map((ps) => ps.filter((p) => !(p[0] > a && p[0] < b)).map((p) => [r3(correr(p[0], a, b)), ...p.slice(1)])).filter((ps) => ps.length);
+    const { puntos: _viejos, ...resto } = sigue;
+    return { ...x, sigue: pistas.length ? { ...resto, pistas } : undefined };
   };
   const textosNuevos = (ed.textosNuevos || []).map(intervalo).filter(Boolean).map(conSigue);
   const ajustesTextos = Object.fromEntries(
