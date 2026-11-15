@@ -2,7 +2,7 @@
   "slug": "oxipure-mullein-zack-d-films-20261115-0901",
   "familia": "continuidad",
   "estado": "corriendo",
-  "paso": "revision-cadena",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -81,34 +81,51 @@
     {
       "id": "revision-cadena",
       "nombre": "Revisar las uniones entre escenas",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-15T14:56:03.361Z",
-      "detalle": "Mirando los cuadros de los clips"
+      "fin": "2026-11-15T14:58:38.079Z",
+      "nota": "Cada escena pasa bien a la siguiente."
     },
     {
       "id": "voces",
       "nombre": "Buscar voces que no van",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T14:58:38.079Z",
+      "fin": "2026-11-15T14:59:34.133Z",
+      "nota": "3 clip(s) no se pudieron revisar."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T14:59:34.133Z",
+      "fin": "2026-11-15T14:59:34.216Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T14:59:34.216Z",
+      "fin": "2026-11-15T14:59:38.076Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-15T14:59:38.076Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 526,
+        "total": 3423,
+        "restante": 283,
+        "en": "2026-11-15T15:00:32.481Z"
+      }
     },
     {
       "id": "control-final",
@@ -127,7 +144,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T14:58:01.717Z",
+  "actualizado": "2026-11-15T15:00:32.481Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"

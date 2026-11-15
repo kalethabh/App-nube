@@ -1,0 +1,4199 @@
+{
+  "generado": "2026-11-15T14:59:38.072Z",
+  "aprobado": false,
+  "duracion": 114.102,
+  "reglas": {
+    "umbralBroll": {
+      "B": 3.5,
+      "A": 3,
+      "C": 3
+    },
+    "tomaConBroll": {
+      "preferido": 2.5,
+      "minimo": 2
+    },
+    "brollMinimo": 1.2,
+    "velocidadMaxima": 1.6,
+    "velocidadQueDeformaAudio": null,
+    "fadeAudioMs": 80,
+    "duckingDb": -10,
+    "subtitulos": {
+      "tamano": 0.06137,
+      "interlineado": 1.1,
+      "contornoRespectoTamano": 0.135,
+      "desdeAbajo": 0.26,
+      "coloresResaltado": [
+        "#E8442A",
+        "#F5A524",
+        "#2F7DE1",
+        "#159A5B",
+        "#B5279B",
+        "#E01E5A",
+        "#7B3FE4",
+        "#0FA3B1",
+        "#D64500",
+        "#3B7A2A"
+      ],
+      "cajaPadding": 0.12,
+      "cajaRedondeo": 0.1
+    },
+    "transiciones": {
+      "duracionSeg": 0.45,
+      "duracionZoomSeg": 0.5,
+      "efectoDb": 0,
+      "zoomDesde": 1.35
+    },
+    "musica": {
+      "db": -26,
+      "subeEnPayoffDb": 4,
+      "fadeInSeg": 1.2,
+      "fadeOutSeg": 1.5
+    },
+    "dialogoNativo": {
+      "duckingDb": 0,
+      "broll": {
+        "duracionObjetivo": 2,
+        "margenSegundos": 1,
+        "margenMinimo": 0.5,
+        "duracionMinima": 1.2,
+        "anclaEnFraccion": 0.35,
+        "mudo": true
+      },
+      "musica": {
+        "db": -22,
+        "subeEnPayoffDb": 4,
+        "fadeInSeg": 1.2,
+        "fadeOutSeg": 1.5
+      }
+    }
+  },
+  "audio": {
+    "voz": "audio/voz.mp3",
+    "ducking": -10,
+    "fadeMs": 80
+  },
+  "musica": {
+    "archivo": "musica/fondo.mp3",
+    "db": -16,
+    "subeEnPayoffDb": 4,
+    "payoffDesdeSeg": 77.833,
+    "fadeInSeg": 1.2,
+    "fadeOutSeg": 1.5,
+    "loop": false,
+    "duracionPista": 121.496729
+  },
+  "bloques": [
+    {
+      "linea": 1,
+      "texto": "Los primeros tres días vas a toser más de lo normal… y eso es buena señal.",
+      "inicio": 0,
+      "fin": 5.538,
+      "ventana": 5.538,
+      "tipo": "B",
+      "clips": [
+        "toma-1.mp4",
+        "paso-1.mp4"
+      ]
+    },
+    {
+      "linea": 2,
+      "texto": "Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho…",
+      "inicio": 5.538,
+      "fin": 10.136,
+      "ventana": 4.598,
+      "tipo": "A",
+      "clips": [
+        "paso-2.mp4"
+      ]
+    },
+    {
+      "linea": 3,
+      "texto": "…la que llevaba ahí semanas, meses… o hasta años.",
+      "inicio": 10.136,
+      "fin": 14.849,
+      "ventana": 4.713,
+      "tipo": "A",
+      "clips": [
+        "paso-3.mp4"
+      ]
+    },
+    {
+      "linea": 4,
+      "texto": "Humo, polvo, flema vieja…",
+      "inicio": 14.849,
+      "fin": 18.425,
+      "ventana": 3.576,
+      "tipo": "A",
+      "clips": [
+        "paso-4.mp4"
+      ]
+    },
+    {
+      "linea": 5,
+      "texto": "capas que ni sabías que tenías.",
+      "inicio": 18.425,
+      "fin": 20.7,
+      "ventana": 2.275,
+      "tipo": "A",
+      "clips": [
+        "paso-5.mp4"
+      ]
+    },
+    {
+      "linea": 6,
+      "texto": "Sí, puede que botes",
+      "inicio": 20.7,
+      "fin": 22.361,
+      "ventana": 1.661,
+      "tipo": "A",
+      "clips": [
+        "paso-6.mp4"
+      ]
+    },
+    {
+      "linea": 7,
+      "texto": "una flema oscura y espesa…",
+      "inicio": 22.361,
+      "fin": 24.659,
+      "ventana": 2.298,
+      "tipo": "A",
+      "clips": [
+        "paso-7.mp4"
+      ]
+    },
+    {
+      "linea": 8,
+      "texto": "…pero así sabes que tu pecho se está limpiando.",
+      "inicio": 24.659,
+      "fin": 28.05,
+      "ventana": 3.391,
+      "tipo": "A",
+      "clips": [
+        "paso-8.mp4"
+      ]
+    },
+    {
+      "linea": 9,
+      "texto": "Llega hasta donde el jarabe para la tos nunca alcanzó.",
+      "inicio": 28.05,
+      "fin": 31.718,
+      "ventana": 3.668,
+      "tipo": "A",
+      "clips": [
+        "paso-9.mp4"
+      ]
+    },
+    {
+      "linea": 10,
+      "texto": "Para el día diez, esa sensación pesada, de ahogo… se va.",
+      "inicio": 31.718,
+      "fin": 37.012,
+      "ventana": 5.294,
+      "tipo": "B",
+      "clips": [
+        "toma-10.mp4",
+        "paso-10.mp4"
+      ]
+    },
+    {
+      "linea": 11,
+      "texto": "Tu pecho se siente abierto y liviano, no apretado ni tapado.",
+      "inicio": 37.012,
+      "fin": 41.343,
+      "ventana": 4.331,
+      "tipo": "B",
+      "clips": [
+        "toma-11.mp4",
+        "paso-11.mp4"
+      ]
+    },
+    {
+      "linea": 12,
+      "texto": "Y por fin duermes la noche entera sin despertarte tosiendo.",
+      "inicio": 41.343,
+      "fin": 45.371,
+      "ventana": 4.028,
+      "tipo": "B",
+      "clips": [
+        "toma-12.mp4",
+        "paso-12.mp4"
+      ]
+    },
+    {
+      "linea": 13,
+      "texto": "Después de veinte días, el cambio de energía se nota.",
+      "inicio": 45.371,
+      "fin": 49.063,
+      "ventana": 3.692,
+      "tipo": "A",
+      "clips": [
+        "paso-13.mp4"
+      ]
+    },
+    {
+      "linea": 14,
+      "texto": "Se acaban los bajones de la tarde…",
+      "inicio": 49.063,
+      "fin": 51.141,
+      "ventana": 2.078,
+      "tipo": "A",
+      "clips": [
+        "paso-14.mp4"
+      ]
+    },
+    {
+      "linea": 15,
+      "texto": "y subes las escaleras sin parar a coger aire.",
+      "inicio": 51.141,
+      "fin": 54.16,
+      "ventana": 3.019,
+      "tipo": "A",
+      "clips": [
+        "paso-15.mp4"
+      ]
+    },
+    {
+      "linea": 16,
+      "texto": "Porque tu cuerpo ya no está peleando por cada bocanada de aire.",
+      "inicio": 54.16,
+      "fin": 58.107,
+      "ventana": 3.947,
+      "tipo": "B",
+      "clips": [
+        "toma-16.mp4",
+        "paso-16.mp4"
+      ]
+    },
+    {
+      "linea": 17,
+      "texto": "Y te vas a dar cuenta de que no era normal vivir así, falto de aire.",
+      "inicio": 58.107,
+      "fin": 62.705,
+      "ventana": 4.598,
+      "tipo": "A",
+      "clips": [
+        "paso-17.mp4"
+      ]
+    },
+    {
+      "linea": 18,
+      "texto": "Los silbidos al respirar…",
+      "inicio": 62.705,
+      "fin": 64.714,
+      "ventana": 2.009,
+      "tipo": "A",
+      "clips": [
+        "paso-18.mp4"
+      ]
+    },
+    {
+      "linea": 19,
+      "texto": "la cabeza nublada…",
+      "inicio": 64.714,
+      "fin": 66.397,
+      "ventana": 1.683,
+      "tipo": "A",
+      "clips": [
+        "paso-19.mp4"
+      ]
+    },
+    {
+      "linea": 20,
+      "texto": "el pecho apretado…",
+      "inicio": 66.397,
+      "fin": 68.208,
+      "ventana": 1.811,
+      "tipo": "A",
+      "clips": [
+        "paso-20.mp4"
+      ]
+    },
+    {
+      "linea": 21,
+      "texto": "…era flema y bloqueo. Tu pecho no podía limpiarse solo.",
+      "inicio": 68.208,
+      "fin": 72.411,
+      "ventana": 4.203,
+      "tipo": "A",
+      "clips": [
+        "paso-21.mp4"
+      ]
+    },
+    {
+      "linea": 22,
+      "texto": "Si cocinaste con leña,",
+      "inicio": 72.411,
+      "fin": 73.885,
+      "ventana": 1.474,
+      "tipo": "A",
+      "clips": [
+        "paso-22.mp4"
+      ]
+    },
+    {
+      "linea": 23,
+      "texto": "respiras el humo de los buses",
+      "inicio": 73.885,
+      "fin": 75.604,
+      "ventana": 1.719,
+      "tipo": "A",
+      "clips": [
+        "paso-23.mp4"
+      ]
+    },
+    {
+      "linea": 24,
+      "texto": "o te quedó la tos de la gripa…",
+      "inicio": 75.604,
+      "fin": 77.833,
+      "ventana": 2.229,
+      "tipo": "A",
+      "clips": [
+        "paso-24.mp4"
+      ]
+    },
+    {
+      "linea": 25,
+      "texto": "…esto es OxiPure: extracto puro de hoja de gordolobo.",
+      "inicio": 77.833,
+      "fin": 82.617,
+      "ventana": 4.784,
+      "tipo": "A",
+      "clips": [
+        "paso-25.mp4"
+      ]
+    },
+    {
+      "linea": 26,
+      "texto": "La planta que las abuelas usaban para el pecho… ahora en gotas concentradas.",
+      "inicio": 82.617,
+      "fin": 88.004,
+      "ventana": 5.387,
+      "tipo": "A",
+      "clips": [
+        "paso-26.mp4"
+      ]
+    },
+    {
+      "linea": 27,
+      "texto": "Un gotero en agua, en la mañana y en la noche. Así de fácil.",
+      "inicio": 88.004,
+      "fin": 92.392,
+      "ventana": 4.388,
+      "tipo": "A",
+      "clips": [
+        "paso-27.mp4"
+      ]
+    },
+    {
+      "linea": 28,
+      "texto": "Te ayuda a soltar la flema,",
+      "inicio": 92.392,
+      "fin": 94.261,
+      "ventana": 1.869,
+      "tipo": "B",
+      "clips": [
+        "toma-28.mp4",
+        "paso-28.mp4"
+      ]
+    },
+    {
+      "linea": 29,
+      "texto": "a abrir el paso del aire",
+      "inicio": 94.261,
+      "fin": 96.096,
+      "ventana": 1.835,
+      "tipo": "B",
+      "clips": [
+        "toma-29.mp4",
+        "paso-29.mp4"
+      ]
+    },
+    {
+      "linea": 30,
+      "texto": "y a cuidar tus pulmones de forma natural.",
+      "inicio": 96.096,
+      "fin": 99.218,
+      "ventana": 3.122,
+      "tipo": "B",
+      "clips": [
+        "toma-30.mp4",
+        "paso-30.mp4"
+      ]
+    },
+    {
+      "linea": 31,
+      "texto": "Yo ya no me imagino la mañana sin mis gotas.",
+      "inicio": 99.218,
+      "fin": 102.167,
+      "ventana": 2.949,
+      "tipo": "A",
+      "clips": [
+        "paso-31.mp4"
+      ]
+    },
+    {
+      "linea": 32,
+      "texto": "Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días.",
+      "inicio": 102.167,
+      "fin": 108.739,
+      "ventana": 6.572,
+      "tipo": "A",
+      "clips": [
+        "paso-32.mp4"
+      ]
+    },
+    {
+      "linea": 33,
+      "texto": "Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí.",
+      "inicio": 108.739,
+      "fin": 114.102,
+      "ventana": 5.363,
+      "tipo": "A",
+      "clips": [
+        "toma-33.mp4"
+      ]
+    }
+  ],
+  "continuidad": {
+    "reglas": {
+      "guia": 2,
+      "fuerte": 2.5,
+      "minima": 1,
+      "minimaCierre": 0.9,
+      "temprano": 0.3,
+      "tarde": 0.4
+    },
+    "velocidadMaximaPosible": 2.74,
+    "tope": 2.744,
+    "sinSolucion": false,
+    "velocidadMaxima": 2.744,
+    "resumen": {
+      "clips": 41,
+      "sobreGuia": 9,
+      "sobreFuerte": 4,
+      "bajoMinima": 0,
+      "llegadasMovidas": 3,
+      "maxDeriva": 0.4,
+      "metraje": 161.542,
+      "faltan": 0
+    },
+    "unidades": [
+      {
+        "linea": 1,
+        "tipo": "B",
+        "desde": 0,
+        "ini": 0,
+        "objetivo": 5.538,
+        "ventana": 5.538,
+        "llegada": 5.538,
+        "deriva": 0,
+        "velocidad": 1.806,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 2,
+        "clips": [
+          "toma-1.mp4",
+          "paso-1.mp4"
+        ]
+      },
+      {
+        "linea": 2,
+        "tipo": "A",
+        "desde": 5.538,
+        "ini": 5.538,
+        "objetivo": 10.136,
+        "ventana": 4.598,
+        "llegada": 10.136,
+        "deriva": 0,
+        "velocidad": 1.078,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 3,
+        "clips": [
+          "paso-2.mp4"
+        ]
+      },
+      {
+        "linea": 3,
+        "tipo": "A",
+        "desde": 10.136,
+        "ini": 10.136,
+        "objetivo": 14.849,
+        "ventana": 4.713,
+        "llegada": 14.849,
+        "deriva": 0,
+        "velocidad": 1.052,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 4,
+        "clips": [
+          "paso-3.mp4"
+        ]
+      },
+      {
+        "linea": 4,
+        "tipo": "A",
+        "desde": 14.849,
+        "ini": 14.849,
+        "objetivo": 18.425,
+        "ventana": 3.576,
+        "llegada": 18.425,
+        "deriva": 0,
+        "velocidad": 1.095,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 5,
+        "clips": [
+          "paso-4.mp4"
+        ]
+      },
+      {
+        "linea": 5,
+        "tipo": "A",
+        "desde": 18.425,
+        "ini": 18.425,
+        "objetivo": 20.7,
+        "ventana": 2.275,
+        "llegada": 20.7,
+        "deriva": 0,
+        "velocidad": 1.319,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 6,
+        "clips": [
+          "paso-5.mp4"
+        ]
+      },
+      {
+        "linea": 6,
+        "tipo": "A",
+        "desde": 20.7,
+        "ini": 20.7,
+        "objetivo": 22.361,
+        "ventana": 1.661,
+        "llegada": 22.361,
+        "deriva": 0,
+        "velocidad": 1.831,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 7,
+        "clips": [
+          "paso-6.mp4"
+        ]
+      },
+      {
+        "linea": 7,
+        "tipo": "A",
+        "desde": 22.361,
+        "ini": 22.361,
+        "objetivo": 24.659,
+        "ventana": 2.298,
+        "llegada": 24.659,
+        "deriva": 0,
+        "velocidad": 1.305,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 8,
+        "clips": [
+          "paso-7.mp4"
+        ]
+      },
+      {
+        "linea": 8,
+        "tipo": "A",
+        "desde": 24.659,
+        "ini": 24.659,
+        "objetivo": 28.05,
+        "ventana": 3.391,
+        "llegada": 28.05,
+        "deriva": 0,
+        "velocidad": 1.155,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 9,
+        "clips": [
+          "paso-8.mp4"
+        ]
+      },
+      {
+        "linea": 9,
+        "tipo": "A",
+        "desde": 28.05,
+        "ini": 28.05,
+        "objetivo": 31.718,
+        "ventana": 3.668,
+        "llegada": 31.718,
+        "deriva": 0,
+        "velocidad": 1.068,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 10,
+        "clips": [
+          "paso-9.mp4"
+        ]
+      },
+      {
+        "linea": 10,
+        "tipo": "B",
+        "desde": 31.718,
+        "ini": 31.718,
+        "objetivo": 37.012,
+        "ventana": 5.294,
+        "llegada": 37.012,
+        "deriva": 0,
+        "velocidad": 1.503,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 11,
+        "clips": [
+          "toma-10.mp4",
+          "paso-10.mp4"
+        ]
+      },
+      {
+        "linea": 11,
+        "tipo": "B",
+        "desde": 37.012,
+        "ini": 37.012,
+        "objetivo": 41.343,
+        "ventana": 4.331,
+        "llegada": 41.343,
+        "deriva": 0,
+        "velocidad": 1.857,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 12,
+        "clips": [
+          "toma-11.mp4",
+          "paso-11.mp4"
+        ]
+      },
+      {
+        "linea": 12,
+        "tipo": "B",
+        "desde": 41.343,
+        "ini": 41.343,
+        "objetivo": 45.371,
+        "ventana": 4.028,
+        "llegada": 45.371,
+        "deriva": 0,
+        "velocidad": 1.976,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 13,
+        "clips": [
+          "toma-12.mp4",
+          "paso-12.mp4"
+        ]
+      },
+      {
+        "linea": 13,
+        "tipo": "A",
+        "desde": 45.371,
+        "ini": 45.371,
+        "objetivo": 49.063,
+        "ventana": 3.692,
+        "llegada": 49.063,
+        "deriva": 0,
+        "velocidad": 1.095,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 14,
+        "clips": [
+          "paso-13.mp4"
+        ]
+      },
+      {
+        "linea": 14,
+        "tipo": "A",
+        "desde": 49.063,
+        "ini": 49.063,
+        "objetivo": 51.141,
+        "ventana": 2.078,
+        "llegada": 51.141,
+        "deriva": 0,
+        "velocidad": 1.464,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 15,
+        "clips": [
+          "paso-14.mp4"
+        ]
+      },
+      {
+        "linea": 15,
+        "tipo": "A",
+        "desde": 51.141,
+        "ini": 51.141,
+        "objetivo": 54.16,
+        "ventana": 3.019,
+        "llegada": 54.16,
+        "deriva": 0,
+        "velocidad": 1.297,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 16,
+        "clips": [
+          "paso-15.mp4"
+        ]
+      },
+      {
+        "linea": 16,
+        "tipo": "B",
+        "desde": 54.16,
+        "ini": 54.16,
+        "objetivo": 58.107,
+        "ventana": 3.947,
+        "llegada": 58.107,
+        "deriva": 0,
+        "velocidad": 2.016,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 17,
+        "clips": [
+          "toma-16.mp4",
+          "paso-16.mp4"
+        ]
+      },
+      {
+        "linea": 17,
+        "tipo": "A",
+        "desde": 58.107,
+        "ini": 58.107,
+        "objetivo": 62.705,
+        "ventana": 4.598,
+        "llegada": 62.705,
+        "deriva": 0,
+        "velocidad": 1.078,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 18,
+        "clips": [
+          "paso-17.mp4"
+        ]
+      },
+      {
+        "linea": 18,
+        "tipo": "A",
+        "desde": 62.705,
+        "ini": 62.705,
+        "objetivo": 64.714,
+        "ventana": 2.009,
+        "llegada": 64.714,
+        "deriva": 0,
+        "velocidad": 1.493,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 19,
+        "clips": [
+          "paso-18.mp4"
+        ]
+      },
+      {
+        "linea": 19,
+        "tipo": "A",
+        "desde": 64.714,
+        "ini": 64.714,
+        "objetivo": 66.397,
+        "ventana": 1.683,
+        "llegada": 66.397,
+        "deriva": 0,
+        "velocidad": 1.807,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 20,
+        "clips": [
+          "paso-19.mp4"
+        ]
+      },
+      {
+        "linea": 20,
+        "tipo": "A",
+        "desde": 66.397,
+        "ini": 66.397,
+        "objetivo": 68.208,
+        "ventana": 1.811,
+        "llegada": 68.208,
+        "deriva": 0,
+        "velocidad": 1.657,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 21,
+        "clips": [
+          "paso-20.mp4"
+        ]
+      },
+      {
+        "linea": 21,
+        "tipo": "A",
+        "desde": 68.208,
+        "ini": 68.208,
+        "objetivo": 72.411,
+        "ventana": 4.203,
+        "llegada": 72.411,
+        "deriva": 0,
+        "velocidad": 1.18,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 22,
+        "clips": [
+          "paso-21.mp4"
+        ]
+      },
+      {
+        "linea": 22,
+        "tipo": "A",
+        "desde": 72.411,
+        "ini": 72.411,
+        "objetivo": 73.885,
+        "ventana": 1.474,
+        "llegada": 73.885,
+        "deriva": 0,
+        "velocidad": 2.035,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 23,
+        "clips": [
+          "paso-22.mp4"
+        ]
+      },
+      {
+        "linea": 23,
+        "tipo": "A",
+        "desde": 73.885,
+        "ini": 73.885,
+        "objetivo": 75.604,
+        "ventana": 1.719,
+        "llegada": 75.604,
+        "deriva": 0,
+        "velocidad": 1.745,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 24,
+        "clips": [
+          "paso-23.mp4"
+        ]
+      },
+      {
+        "linea": 24,
+        "tipo": "A",
+        "desde": 75.604,
+        "ini": 75.604,
+        "objetivo": 77.833,
+        "ventana": 2.229,
+        "llegada": 77.833,
+        "deriva": 0,
+        "velocidad": 1.346,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 25,
+        "clips": [
+          "paso-24.mp4"
+        ]
+      },
+      {
+        "linea": 25,
+        "tipo": "A",
+        "desde": 77.833,
+        "ini": 77.833,
+        "objetivo": 82.617,
+        "ventana": 4.784,
+        "llegada": 82.617,
+        "deriva": 0,
+        "velocidad": 1.036,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 26,
+        "clips": [
+          "paso-25.mp4"
+        ]
+      },
+      {
+        "linea": 26,
+        "tipo": "A",
+        "desde": 82.617,
+        "ini": 82.617,
+        "objetivo": 88.004,
+        "ventana": 5.387,
+        "llegada": 88.004,
+        "deriva": 0,
+        "velocidad": 1.106,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 27,
+        "clips": [
+          "paso-26.mp4"
+        ]
+      },
+      {
+        "linea": 27,
+        "tipo": "A",
+        "desde": 88.004,
+        "ini": 88.004,
+        "objetivo": 92.392,
+        "ventana": 4.388,
+        "llegada": 92.092,
+        "deriva": -0.3,
+        "velocidad": 1.213,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 28,
+        "clips": [
+          "paso-27.mp4"
+        ]
+      },
+      {
+        "linea": 28,
+        "tipo": "B",
+        "desde": 92.092,
+        "ini": 92.392,
+        "objetivo": 94.261,
+        "ventana": 1.869,
+        "llegada": 94.294,
+        "deriva": 0.033,
+        "velocidad": 2.744,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 29,
+        "clips": [
+          "toma-28.mp4",
+          "paso-28.mp4"
+        ]
+      },
+      {
+        "linea": 29,
+        "tipo": "B",
+        "desde": 94.294,
+        "ini": 94.261,
+        "objetivo": 96.096,
+        "ventana": 1.835,
+        "llegada": 96.496,
+        "deriva": 0.4,
+        "velocidad": 2.744,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 30,
+        "clips": [
+          "toma-29.mp4",
+          "paso-29.mp4"
+        ]
+      },
+      {
+        "linea": 30,
+        "tipo": "B",
+        "desde": 96.496,
+        "ini": 96.096,
+        "objetivo": 99.218,
+        "ventana": 3.122,
+        "llegada": 99.218,
+        "deriva": 0,
+        "velocidad": 2.204,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 31,
+        "clips": [
+          "toma-30.mp4",
+          "paso-30.mp4"
+        ]
+      },
+      {
+        "linea": 31,
+        "tipo": "A",
+        "desde": 99.218,
+        "ini": 99.218,
+        "objetivo": 102.167,
+        "ventana": 2.949,
+        "llegada": 102.167,
+        "deriva": 0,
+        "velocidad": 1.017,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 32,
+        "clips": [
+          "paso-31.mp4"
+        ]
+      },
+      {
+        "linea": 32,
+        "tipo": "A",
+        "desde": 102.167,
+        "ini": 102.167,
+        "objetivo": 108.739,
+        "ventana": 6.572,
+        "llegada": 108.739,
+        "deriva": 0,
+        "velocidad": 1.071,
+        "minima": 1,
+        "ultima": false,
+        "aToma": 33,
+        "clips": [
+          "paso-32.mp4"
+        ]
+      },
+      {
+        "linea": 33,
+        "tipo": "A",
+        "desde": 108.739,
+        "ini": 108.739,
+        "objetivo": 114.102,
+        "ventana": 5.363,
+        "llegada": 114.102,
+        "deriva": 0,
+        "velocidad": 1.111,
+        "minima": 0.9,
+        "ultima": true,
+        "aToma": null,
+        "clips": [
+          "toma-33.mp4"
+        ]
+      }
+    ],
+    "clips": [
+      {
+        "archivo": "toma-1.mp4",
+        "rol": "propio",
+        "linea": 1,
+        "de": "toma-1-inicial",
+        "a": "toma-1-final",
+        "largoOriginal": 7,
+        "frames": 168,
+        "fps": 24,
+        "tramo": 7,
+        "desde": 0,
+        "hasta": 3.877,
+        "velocidad": 1.806,
+        "recorte": 0,
+        "objetivo": null,
+        "deriva": null,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-1.mp4",
+        "rol": "paso",
+        "linea": 1,
+        "de": "toma-1-final",
+        "a": "toma-2-inicial",
+        "aToma": 2,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 3.877,
+        "hasta": 5.538,
+        "velocidad": 1.806,
+        "recorte": 0,
+        "objetivo": 5.538,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-2.mp4",
+        "rol": "paso",
+        "linea": 2,
+        "de": "toma-2-inicial",
+        "a": "toma-3-inicial",
+        "aToma": 3,
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 5.538,
+        "hasta": 10.136,
+        "velocidad": 1.078,
+        "recorte": 0,
+        "objetivo": 10.136,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-3.mp4",
+        "rol": "paso",
+        "linea": 3,
+        "de": "toma-3-inicial",
+        "a": "toma-4-inicial",
+        "aToma": 4,
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 10.136,
+        "hasta": 14.849,
+        "velocidad": 1.052,
+        "recorte": 0,
+        "objetivo": 14.849,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-4.mp4",
+        "rol": "paso",
+        "linea": 4,
+        "de": "toma-4-inicial",
+        "a": "toma-5-inicial",
+        "aToma": 5,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 14.849,
+        "hasta": 18.425,
+        "velocidad": 1.095,
+        "recorte": 0,
+        "objetivo": 18.425,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-5.mp4",
+        "rol": "paso",
+        "linea": 5,
+        "de": "toma-5-inicial",
+        "a": "toma-6-inicial",
+        "aToma": 6,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 18.425,
+        "hasta": 20.7,
+        "velocidad": 1.319,
+        "recorte": 0,
+        "objetivo": 20.7,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-6.mp4",
+        "rol": "paso",
+        "linea": 6,
+        "de": "toma-6-inicial",
+        "a": "toma-7-inicial",
+        "aToma": 7,
+        "largoOriginal": 3.042,
+        "frames": 73,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 20.7,
+        "hasta": 22.361,
+        "velocidad": 1.831,
+        "recorte": 0,
+        "objetivo": 22.361,
+        "deriva": 0,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "paso-7.mp4",
+        "rol": "paso",
+        "linea": 7,
+        "de": "toma-7-inicial",
+        "a": "toma-8-inicial",
+        "aToma": 8,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 22.361,
+        "hasta": 24.659,
+        "velocidad": 1.305,
+        "recorte": 0,
+        "objetivo": 24.659,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-8.mp4",
+        "rol": "paso",
+        "linea": 8,
+        "de": "toma-8-inicial",
+        "a": "toma-9-inicial",
+        "aToma": 9,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 24.659,
+        "hasta": 28.05,
+        "velocidad": 1.155,
+        "recorte": 0,
+        "objetivo": 28.05,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-9.mp4",
+        "rol": "paso",
+        "linea": 9,
+        "de": "toma-9-inicial",
+        "a": "toma-10-inicial",
+        "aToma": 10,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 28.05,
+        "hasta": 31.718,
+        "velocidad": 1.068,
+        "recorte": 0,
+        "objetivo": 31.718,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "toma-10.mp4",
+        "rol": "propio",
+        "linea": 10,
+        "de": "toma-10-inicial",
+        "a": "toma-10-final",
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 31.718,
+        "hasta": 35.016,
+        "velocidad": 1.503,
+        "recorte": 0,
+        "objetivo": null,
+        "deriva": null,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-10.mp4",
+        "rol": "paso",
+        "linea": 10,
+        "de": "toma-10-final",
+        "a": "toma-11-inicial",
+        "aToma": 11,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 35.016,
+        "hasta": 37.012,
+        "velocidad": 1.503,
+        "recorte": 0,
+        "objetivo": 37.012,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "toma-11.mp4",
+        "rol": "propio",
+        "linea": 11,
+        "de": "toma-11-inicial",
+        "a": "toma-11-final",
+        "largoOriginal": 5.042,
+        "frames": 121,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 37.012,
+        "hasta": 39.727,
+        "velocidad": 1.857,
+        "recorte": 0,
+        "objetivo": null,
+        "deriva": null,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "paso-11.mp4",
+        "rol": "paso",
+        "linea": 11,
+        "de": "toma-11-final",
+        "a": "toma-12-inicial",
+        "aToma": 12,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 39.727,
+        "hasta": 41.343,
+        "velocidad": 1.857,
+        "recorte": 0,
+        "objetivo": 41.343,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "toma-12.mp4",
+        "rol": "propio",
+        "linea": 12,
+        "de": "toma-12-inicial",
+        "a": "toma-12-final",
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 41.343,
+        "hasta": 43.853,
+        "velocidad": 1.976,
+        "recorte": 0,
+        "objetivo": null,
+        "deriva": null,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-12.mp4",
+        "rol": "paso",
+        "linea": 12,
+        "de": "toma-12-final",
+        "a": "toma-13-inicial",
+        "aToma": 13,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 43.853,
+        "hasta": 45.371,
+        "velocidad": 1.976,
+        "recorte": 0,
+        "objetivo": 45.371,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-13.mp4",
+        "rol": "paso",
+        "linea": 13,
+        "de": "toma-13-inicial",
+        "a": "toma-14-inicial",
+        "aToma": 14,
+        "largoOriginal": 4.042,
+        "frames": 97,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 45.371,
+        "hasta": 49.063,
+        "velocidad": 1.095,
+        "recorte": 0,
+        "objetivo": 49.063,
+        "deriva": 0,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "paso-14.mp4",
+        "rol": "paso",
+        "linea": 14,
+        "de": "toma-14-inicial",
+        "a": "toma-15-inicial",
+        "aToma": 15,
+        "largoOriginal": 3.042,
+        "frames": 73,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 49.063,
+        "hasta": 51.141,
+        "velocidad": 1.464,
+        "recorte": 0,
+        "objetivo": 51.141,
+        "deriva": 0,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "paso-15.mp4",
+        "rol": "paso",
+        "linea": 15,
+        "de": "toma-15-inicial",
+        "a": "toma-16-inicial",
+        "aToma": 16,
+        "largoOriginal": 3.917,
+        "frames": 94,
+        "fps": 24,
+        "tramo": 4,
+        "desde": 51.141,
+        "hasta": 54.16,
+        "velocidad": 1.297,
+        "recorte": 0,
+        "objetivo": 54.16,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "toma-16.mp4",
+        "rol": "propio",
+        "linea": 16,
+        "de": "toma-16-inicial",
+        "a": "toma-16-final",
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 54.16,
+        "hasta": 56.619,
+        "velocidad": 2.016,
+        "recorte": 0,
+        "objetivo": null,
+        "deriva": null,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-16.mp4",
+        "rol": "paso",
+        "linea": 16,
+        "de": "toma-16-final",
+        "a": "toma-17-inicial",
+        "aToma": 17,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 56.619,
+        "hasta": 58.107,
+        "velocidad": 2.016,
+        "recorte": 0,
+        "objetivo": 58.107,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-17.mp4",
+        "rol": "paso",
+        "linea": 17,
+        "de": "toma-17-inicial",
+        "a": "toma-18-inicial",
+        "aToma": 18,
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 58.107,
+        "hasta": 62.705,
+        "velocidad": 1.078,
+        "recorte": 0,
+        "objetivo": 62.705,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-18.mp4",
+        "rol": "paso",
+        "linea": 18,
+        "de": "toma-18-inicial",
+        "a": "toma-19-inicial",
+        "aToma": 19,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 62.705,
+        "hasta": 64.714,
+        "velocidad": 1.493,
+        "recorte": 0,
+        "objetivo": 64.714,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-19.mp4",
+        "rol": "paso",
+        "linea": 19,
+        "de": "toma-19-inicial",
+        "a": "toma-20-inicial",
+        "aToma": 20,
+        "largoOriginal": 3.042,
+        "frames": 73,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 64.714,
+        "hasta": 66.397,
+        "velocidad": 1.807,
+        "recorte": 0,
+        "objetivo": 66.397,
+        "deriva": 0,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "paso-20.mp4",
+        "rol": "paso",
+        "linea": 20,
+        "de": "toma-20-inicial",
+        "a": "toma-21-inicial",
+        "aToma": 21,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 66.397,
+        "hasta": 68.208,
+        "velocidad": 1.657,
+        "recorte": 0,
+        "objetivo": 68.208,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-21.mp4",
+        "rol": "paso",
+        "linea": 21,
+        "de": "toma-21-inicial",
+        "a": "toma-22-inicial",
+        "aToma": 22,
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 68.208,
+        "hasta": 72.411,
+        "velocidad": 1.18,
+        "recorte": 0,
+        "objetivo": 72.411,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-22.mp4",
+        "rol": "paso",
+        "linea": 22,
+        "de": "toma-22-inicial",
+        "a": "toma-23-inicial",
+        "aToma": 23,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 72.411,
+        "hasta": 73.885,
+        "velocidad": 2.035,
+        "recorte": 0,
+        "objetivo": 73.885,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-23.mp4",
+        "rol": "paso",
+        "linea": 23,
+        "de": "toma-23-inicial",
+        "a": "toma-24-inicial",
+        "aToma": 24,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 73.885,
+        "hasta": 75.604,
+        "velocidad": 1.745,
+        "recorte": 0,
+        "objetivo": 75.604,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-24.mp4",
+        "rol": "paso",
+        "linea": 24,
+        "de": "toma-24-inicial",
+        "a": "toma-25-inicial",
+        "aToma": 25,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 75.604,
+        "hasta": 77.833,
+        "velocidad": 1.346,
+        "recorte": 0,
+        "objetivo": 77.833,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-25.mp4",
+        "rol": "paso",
+        "linea": 25,
+        "de": "toma-25-inicial",
+        "a": "toma-26-inicial",
+        "aToma": 26,
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 77.833,
+        "hasta": 82.617,
+        "velocidad": 1.036,
+        "recorte": 0,
+        "objetivo": 82.617,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-26.mp4",
+        "rol": "paso",
+        "linea": 26,
+        "de": "toma-26-inicial",
+        "a": "toma-27-inicial",
+        "aToma": 27,
+        "largoOriginal": 5.958,
+        "frames": 143,
+        "fps": 24,
+        "tramo": 6,
+        "desde": 82.617,
+        "hasta": 88.004,
+        "velocidad": 1.106,
+        "recorte": 0,
+        "objetivo": 88.004,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-27.mp4",
+        "rol": "paso",
+        "linea": 27,
+        "de": "toma-27-inicial",
+        "a": "toma-28-inicial",
+        "aToma": 28,
+        "largoOriginal": 4.958,
+        "frames": 119,
+        "fps": 24,
+        "tramo": 5,
+        "desde": 88.004,
+        "hasta": 92.092,
+        "velocidad": 1.213,
+        "recorte": 0,
+        "objetivo": 92.392,
+        "deriva": -0.3,
+        "mudo": false
+      },
+      {
+        "archivo": "toma-28.mp4",
+        "rol": "propio",
+        "linea": 28,
+        "de": "toma-28-inicial",
+        "a": "toma-28-final",
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 92.092,
+        "hasta": 93.185,
+        "velocidad": 2.744,
+        "recorte": 0,
+        "objetivo": null,
+        "deriva": null,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-28.mp4",
+        "rol": "paso",
+        "linea": 28,
+        "de": "toma-28-final",
+        "a": "toma-29-inicial",
+        "aToma": 29,
+        "largoOriginal": 3.042,
+        "frames": 73,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 93.185,
+        "hasta": 94.294,
+        "velocidad": 2.744,
+        "recorte": 0,
+        "objetivo": 94.261,
+        "deriva": 0.033,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "toma-29.mp4",
+        "rol": "propio",
+        "linea": 29,
+        "de": "toma-29-inicial",
+        "a": "toma-29-final",
+        "largoOriginal": 3.042,
+        "frames": 73,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 94.294,
+        "hasta": 95.403,
+        "velocidad": 2.744,
+        "recorte": 0,
+        "objetivo": null,
+        "deriva": null,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "paso-29.mp4",
+        "rol": "paso",
+        "linea": 29,
+        "de": "toma-29-final",
+        "a": "toma-30-inicial",
+        "aToma": 30,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 95.403,
+        "hasta": 96.496,
+        "velocidad": 2.744,
+        "recorte": 0,
+        "objetivo": 96.096,
+        "deriva": 0.4,
+        "mudo": false
+      },
+      {
+        "archivo": "toma-30.mp4",
+        "rol": "propio",
+        "linea": 30,
+        "de": "toma-30-inicial",
+        "a": "toma-30-final",
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 96.496,
+        "hasta": 97.857,
+        "velocidad": 2.204,
+        "recorte": 0,
+        "objetivo": null,
+        "deriva": null,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-30.mp4",
+        "rol": "paso",
+        "linea": 30,
+        "de": "toma-30-final",
+        "a": "toma-31-inicial",
+        "aToma": 31,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 97.857,
+        "hasta": 99.218,
+        "velocidad": 2.204,
+        "recorte": 0,
+        "objetivo": 99.218,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-31.mp4",
+        "rol": "paso",
+        "linea": 31,
+        "de": "toma-31-inicial",
+        "a": "toma-32-inicial",
+        "aToma": 32,
+        "largoOriginal": 3,
+        "frames": 72,
+        "fps": 24,
+        "tramo": 3,
+        "desde": 99.218,
+        "hasta": 102.167,
+        "velocidad": 1.017,
+        "recorte": 0,
+        "objetivo": 102.167,
+        "deriva": 0,
+        "mudo": false
+      },
+      {
+        "archivo": "paso-32.mp4",
+        "rol": "paso",
+        "linea": 32,
+        "de": "toma-32-inicial",
+        "a": "toma-33-inicial",
+        "aToma": 33,
+        "largoOriginal": 7.042,
+        "frames": 169,
+        "fps": 24,
+        "tramo": 7,
+        "desde": 102.167,
+        "hasta": 108.739,
+        "velocidad": 1.071,
+        "recorte": 0,
+        "objetivo": 108.739,
+        "deriva": 0,
+        "mudo": false,
+        "respaldo": true
+      },
+      {
+        "archivo": "toma-33.mp4",
+        "rol": "cierre",
+        "linea": 33,
+        "de": "toma-33-inicial",
+        "a": null,
+        "largoOriginal": 5.958,
+        "frames": 143,
+        "fps": 24,
+        "tramo": 6,
+        "desde": 108.739,
+        "hasta": 114.102,
+        "velocidad": 1.111,
+        "recorte": 0,
+        "objetivo": 114.102,
+        "deriva": 0,
+        "mudo": false
+      }
+    ]
+  },
+  "subtitulos": [
+    {
+      "inicio": 0,
+      "fin": 0.874,
+      "texto": "Los primeros tres",
+      "palabras": [
+        {
+          "texto": "Los",
+          "inicio": 0,
+          "fin": 0.186
+        },
+        {
+          "texto": "primeros",
+          "inicio": 0.232,
+          "fin": 0.592
+        },
+        {
+          "texto": "tres",
+          "inicio": 0.639,
+          "fin": 0.848
+        }
+      ]
+    },
+    {
+      "inicio": 0.894,
+      "fin": 1.605,
+      "texto": "días vas a",
+      "palabras": [
+        {
+          "texto": "días",
+          "inicio": 0.894,
+          "fin": 1.196
+        },
+        {
+          "texto": "vas",
+          "inicio": 1.265,
+          "fin": 1.463
+        },
+        {
+          "texto": "a",
+          "inicio": 1.544,
+          "fin": 1.567
+        }
+      ]
+    },
+    {
+      "inicio": 1.625,
+      "fin": 2.267,
+      "texto": "toser más de",
+      "palabras": [
+        {
+          "texto": "toser",
+          "inicio": 1.625,
+          "fin": 1.927
+        },
+        {
+          "texto": "más",
+          "inicio": 1.985,
+          "fin": 2.136
+        },
+        {
+          "texto": "de",
+          "inicio": 2.171,
+          "fin": 2.241
+        }
+      ]
+    },
+    {
+      "inicio": 2.287,
+      "fin": 3.197,
+      "texto": "lo normal…",
+      "palabras": [
+        {
+          "texto": "lo",
+          "inicio": 2.287,
+          "fin": 2.368
+        },
+        {
+          "texto": "normal…",
+          "inicio": 2.426,
+          "fin": 3.077
+        }
+      ]
+    },
+    {
+      "inicio": 3.518,
+      "fin": 4.078,
+      "texto": "y eso es",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 3.518,
+          "fin": 3.587
+        },
+        {
+          "texto": "eso",
+          "inicio": 3.704,
+          "fin": 3.936
+        },
+        {
+          "texto": "es",
+          "inicio": 3.982,
+          "fin": 4.04
+        }
+      ]
+    },
+    {
+      "inicio": 4.098,
+      "fin": 5.217,
+      "texto": "buena señal.",
+      "palabras": [
+        {
+          "texto": "buena",
+          "inicio": 4.098,
+          "fin": 4.365
+        },
+        {
+          "texto": "señal.",
+          "inicio": 4.412,
+          "fin": 5.097
+        }
+      ]
+    },
+    {
+      "inicio": 5.538,
+      "fin": 6.644,
+      "texto": "Tu cuerpo empieza",
+      "palabras": [
+        {
+          "texto": "Tu",
+          "inicio": 5.538,
+          "fin": 5.677
+        },
+        {
+          "texto": "cuerpo",
+          "inicio": 5.724,
+          "fin": 6.095
+        },
+        {
+          "texto": "empieza",
+          "inicio": 6.13,
+          "fin": 6.629
+        }
+      ]
+    },
+    {
+      "inicio": 6.664,
+      "fin": 7.318,
+      "texto": "a soltar la",
+      "palabras": [
+        {
+          "texto": "a",
+          "inicio": 6.664,
+          "fin": 6.687
+        },
+        {
+          "texto": "soltar",
+          "inicio": 6.745,
+          "fin": 7.129
+        },
+        {
+          "texto": "la",
+          "inicio": 7.187,
+          "fin": 7.256
+        }
+      ]
+    },
+    {
+      "inicio": 7.338,
+      "fin": 8.049,
+      "texto": "flema que se",
+      "palabras": [
+        {
+          "texto": "flema",
+          "inicio": 7.338,
+          "fin": 7.732
+        },
+        {
+          "texto": "que",
+          "inicio": 7.79,
+          "fin": 7.883
+        },
+        {
+          "texto": "se",
+          "inicio": 7.93,
+          "fin": 8.011
+        }
+      ]
+    },
+    {
+      "inicio": 8.069,
+      "fin": 8.885,
+      "texto": "te quedó pegada",
+      "palabras": [
+        {
+          "texto": "te",
+          "inicio": 8.069,
+          "fin": 8.15
+        },
+        {
+          "texto": "quedó",
+          "inicio": 8.197,
+          "fin": 8.406
+        },
+        {
+          "texto": "pegada",
+          "inicio": 8.475,
+          "fin": 8.858
+        }
+      ]
+    },
+    {
+      "inicio": 8.905,
+      "fin": 9.872,
+      "texto": "en el pecho…",
+      "palabras": [
+        {
+          "texto": "en",
+          "inicio": 8.905,
+          "fin": 8.963
+        },
+        {
+          "texto": "el",
+          "inicio": 9.021,
+          "fin": 9.091
+        },
+        {
+          "texto": "pecho…",
+          "inicio": 9.172,
+          "fin": 9.764
+        }
+      ]
+    },
+    {
+      "inicio": 9.892,
+      "fin": 10.87,
+      "texto": "…la que llevaba",
+      "palabras": [
+        {
+          "texto": "…la",
+          "inicio": 9.892,
+          "fin": 10.228
+        },
+        {
+          "texto": "que",
+          "inicio": 10.298,
+          "fin": 10.379
+        },
+        {
+          "texto": "llevaba",
+          "inicio": 10.414,
+          "fin": 10.867
+        }
+      ]
+    },
+    {
+      "inicio": 10.89,
+      "fin": 12.229,
+      "texto": "ahí semanas,",
+      "palabras": [
+        {
+          "texto": "ahí",
+          "inicio": 10.89,
+          "fin": 11.076
+        },
+        {
+          "texto": "semanas,",
+          "inicio": 11.157,
+          "fin": 12.109
+        }
+      ]
+    },
+    {
+      "inicio": 12.26,
+      "fin": 13.251,
+      "texto": "meses…",
+      "palabras": [
+        {
+          "texto": "meses…",
+          "inicio": 12.26,
+          "fin": 13.131
+        }
+      ]
+    },
+    {
+      "inicio": 13.41,
+      "fin": 14.691,
+      "texto": "o hasta años.",
+      "palabras": [
+        {
+          "texto": "o",
+          "inicio": 13.41,
+          "fin": 13.468
+        },
+        {
+          "texto": "hasta",
+          "inicio": 13.514,
+          "fin": 13.793
+        },
+        {
+          "texto": "años.",
+          "inicio": 13.839,
+          "fin": 14.571
+        }
+      ]
+    },
+    {
+      "inicio": 14.849,
+      "fin": 16.769,
+      "texto": "Humo, polvo,",
+      "palabras": [
+        {
+          "texto": "Humo,",
+          "inicio": 14.849,
+          "fin": 15.65
+        },
+        {
+          "texto": "polvo,",
+          "inicio": 15.859,
+          "fin": 16.649
+        }
+      ]
+    },
+    {
+      "inicio": 16.823,
+      "fin": 18.104,
+      "texto": "flema vieja…",
+      "palabras": [
+        {
+          "texto": "flema",
+          "inicio": 16.823,
+          "fin": 17.159
+        },
+        {
+          "texto": "vieja…",
+          "inicio": 17.217,
+          "fin": 17.984
+        }
+      ]
+    },
+    {
+      "inicio": 18.425,
+      "fin": 19.067,
+      "texto": "capas que ni",
+      "palabras": [
+        {
+          "texto": "capas",
+          "inicio": 18.425,
+          "fin": 18.785
+        },
+        {
+          "texto": "que",
+          "inicio": 18.843,
+          "fin": 18.913
+        },
+        {
+          "texto": "ni",
+          "inicio": 18.959,
+          "fin": 19.052
+        }
+      ]
+    },
+    {
+      "inicio": 19.087,
+      "fin": 20.495,
+      "texto": "sabías que tenías.",
+      "palabras": [
+        {
+          "texto": "sabías",
+          "inicio": 19.087,
+          "fin": 19.447
+        },
+        {
+          "texto": "que",
+          "inicio": 19.505,
+          "fin": 19.574
+        },
+        {
+          "texto": "tenías.",
+          "inicio": 19.621,
+          "fin": 20.375
+        }
+      ]
+    },
+    {
+      "inicio": 20.7,
+      "fin": 22.004,
+      "texto": "Sí, puede que",
+      "palabras": [
+        {
+          "texto": "Sí,",
+          "inicio": 20.7,
+          "fin": 21.2
+        },
+        {
+          "texto": "puede",
+          "inicio": 21.583,
+          "fin": 21.85
+        },
+        {
+          "texto": "que",
+          "inicio": 21.896,
+          "fin": 21.978
+        }
+      ]
+    },
+    {
+      "inicio": 22.024,
+      "fin": 22.886,
+      "texto": "botes una flema",
+      "palabras": [
+        {
+          "texto": "botes",
+          "inicio": 22.024,
+          "fin": 22.279
+        },
+        {
+          "texto": "una",
+          "inicio": 22.361,
+          "fin": 22.5
+        },
+        {
+          "texto": "flema",
+          "inicio": 22.558,
+          "fin": 22.848
+        }
+      ]
+    },
+    {
+      "inicio": 22.906,
+      "fin": 24.362,
+      "texto": "oscura y espesa…",
+      "palabras": [
+        {
+          "texto": "oscura",
+          "inicio": 22.906,
+          "fin": 23.336
+        },
+        {
+          "texto": "y",
+          "inicio": 23.417,
+          "fin": 23.44
+        },
+        {
+          "texto": "espesa…",
+          "inicio": 23.487,
+          "fin": 24.242
+        }
+      ]
+    },
+    {
+      "inicio": 24.451,
+      "fin": 25.603,
+      "texto": "…pero así sabes",
+      "palabras": [
+        {
+          "texto": "…pero",
+          "inicio": 24.451,
+          "fin": 24.915
+        },
+        {
+          "texto": "así",
+          "inicio": 24.961,
+          "fin": 25.17
+        },
+        {
+          "texto": "sabes",
+          "inicio": 25.24,
+          "fin": 25.577
+        }
+      ]
+    },
+    {
+      "inicio": 25.623,
+      "fin": 26.265,
+      "texto": "que tu pecho",
+      "palabras": [
+        {
+          "texto": "que",
+          "inicio": 25.623,
+          "fin": 25.704
+        },
+        {
+          "texto": "tu",
+          "inicio": 25.762,
+          "fin": 25.855
+        },
+        {
+          "texto": "pecho",
+          "inicio": 25.925,
+          "fin": 26.238
+        }
+      ]
+    },
+    {
+      "inicio": 26.285,
+      "fin": 27.659,
+      "texto": "se está limpiando.",
+      "palabras": [
+        {
+          "texto": "se",
+          "inicio": 26.285,
+          "fin": 26.366
+        },
+        {
+          "texto": "está",
+          "inicio": 26.389,
+          "fin": 26.587
+        },
+        {
+          "texto": "limpiando.",
+          "inicio": 26.656,
+          "fin": 27.539
+        }
+      ]
+    },
+    {
+      "inicio": 28.05,
+      "fin": 28.889,
+      "texto": "Llega hasta donde",
+      "palabras": [
+        {
+          "texto": "Llega",
+          "inicio": 28.05,
+          "fin": 28.351
+        },
+        {
+          "texto": "hasta",
+          "inicio": 28.375,
+          "fin": 28.595
+        },
+        {
+          "texto": "donde",
+          "inicio": 28.642,
+          "fin": 28.886
+        }
+      ]
+    },
+    {
+      "inicio": 28.909,
+      "fin": 29.678,
+      "texto": "el jarabe para",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 28.909,
+          "fin": 28.967
+        },
+        {
+          "texto": "jarabe",
+          "inicio": 29.025,
+          "fin": 29.408
+        },
+        {
+          "texto": "para",
+          "inicio": 29.466,
+          "fin": 29.652
+        }
+      ]
+    },
+    {
+      "inicio": 29.698,
+      "fin": 30.421,
+      "texto": "la tos nunca",
+      "palabras": [
+        {
+          "texto": "la",
+          "inicio": 29.698,
+          "fin": 29.768
+        },
+        {
+          "texto": "tos",
+          "inicio": 29.838,
+          "fin": 30.035
+        },
+        {
+          "texto": "nunca",
+          "inicio": 30.116,
+          "fin": 30.418
+        }
+      ]
+    },
+    {
+      "inicio": 30.441,
+      "fin": 31.328,
+      "texto": "alcanzó.",
+      "palabras": [
+        {
+          "texto": "alcanzó.",
+          "inicio": 30.441,
+          "fin": 31.208
+        }
+      ]
+    },
+    {
+      "inicio": 31.718,
+      "fin": 32.256,
+      "texto": "Para el día",
+      "palabras": [
+        {
+          "texto": "Para",
+          "inicio": 31.718,
+          "fin": 31.939
+        },
+        {
+          "texto": "el",
+          "inicio": 31.962,
+          "fin": 32.02
+        },
+        {
+          "texto": "día",
+          "inicio": 32.078,
+          "fin": 32.218
+        }
+      ]
+    },
+    {
+      "inicio": 32.276,
+      "fin": 33.695,
+      "texto": "diez, esa sensación",
+      "palabras": [
+        {
+          "texto": "diez,",
+          "inicio": 32.276,
+          "fin": 32.798
+        },
+        {
+          "texto": "esa",
+          "inicio": 32.914,
+          "fin": 33.123
+        },
+        {
+          "texto": "sensación",
+          "inicio": 33.158,
+          "fin": 33.657
+        }
+      ]
+    },
+    {
+      "inicio": 33.715,
+      "fin": 35.692,
+      "texto": "pesada, de ahogo…",
+      "palabras": [
+        {
+          "texto": "pesada,",
+          "inicio": 33.715,
+          "fin": 34.504
+        },
+        {
+          "texto": "de",
+          "inicio": 34.655,
+          "fin": 34.76
+        },
+        {
+          "texto": "ahogo…",
+          "inicio": 34.829,
+          "fin": 35.572
+        }
+      ]
+    },
+    {
+      "inicio": 35.851,
+      "fin": 36.621,
+      "texto": "se va.",
+      "palabras": [
+        {
+          "texto": "se",
+          "inicio": 35.851,
+          "fin": 36.014
+        },
+        {
+          "texto": "va.",
+          "inicio": 36.072,
+          "fin": 36.501
+        }
+      ]
+    },
+    {
+      "inicio": 37.012,
+      "fin": 37.584,
+      "texto": "Tu pecho se",
+      "palabras": [
+        {
+          "texto": "Tu",
+          "inicio": 37.012,
+          "fin": 37.151
+        },
+        {
+          "texto": "pecho",
+          "inicio": 37.198,
+          "fin": 37.442
+        },
+        {
+          "texto": "se",
+          "inicio": 37.488,
+          "fin": 37.558
+        }
+      ]
+    },
+    {
+      "inicio": 37.604,
+      "fin": 38.478,
+      "texto": "siente abierto y",
+      "palabras": [
+        {
+          "texto": "siente",
+          "inicio": 37.604,
+          "fin": 37.906
+        },
+        {
+          "texto": "abierto",
+          "inicio": 37.941,
+          "fin": 38.394
+        },
+        {
+          "texto": "y",
+          "inicio": 38.429,
+          "fin": 38.452
+        }
+      ]
+    },
+    {
+      "inicio": 38.498,
+      "fin": 40.069,
+      "texto": "liviano, no apretado",
+      "palabras": [
+        {
+          "texto": "liviano,",
+          "inicio": 38.498,
+          "fin": 39.195
+        },
+        {
+          "texto": "no",
+          "inicio": 39.346,
+          "fin": 39.45
+        },
+        {
+          "texto": "apretado",
+          "inicio": 39.485,
+          "fin": 40.042
+        }
+      ]
+    },
+    {
+      "inicio": 40.089,
+      "fin": 41.021,
+      "texto": "ni tapado.",
+      "palabras": [
+        {
+          "texto": "ni",
+          "inicio": 40.089,
+          "fin": 40.158
+        },
+        {
+          "texto": "tapado.",
+          "inicio": 40.216,
+          "fin": 40.901
+        }
+      ]
+    },
+    {
+      "inicio": 41.343,
+      "fin": 41.938,
+      "texto": "Y por fin",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 41.343,
+          "fin": 41.424
+        },
+        {
+          "texto": "por",
+          "inicio": 41.517,
+          "fin": 41.656
+        },
+        {
+          "texto": "fin",
+          "inicio": 41.714,
+          "fin": 41.912
+        }
+      ]
+    },
+    {
+      "inicio": 41.958,
+      "fin": 42.762,
+      "texto": "duermes la noche",
+      "palabras": [
+        {
+          "texto": "duermes",
+          "inicio": 41.958,
+          "fin": 42.329
+        },
+        {
+          "texto": "la",
+          "inicio": 42.376,
+          "fin": 42.434
+        },
+        {
+          "texto": "noche",
+          "inicio": 42.492,
+          "fin": 42.736
+        }
+      ]
+    },
+    {
+      "inicio": 42.782,
+      "fin": 43.494,
+      "texto": "entera sin",
+      "palabras": [
+        {
+          "texto": "entera",
+          "inicio": 42.782,
+          "fin": 43.258
+        },
+        {
+          "texto": "sin",
+          "inicio": 43.316,
+          "fin": 43.467
+        }
+      ]
+    },
+    {
+      "inicio": 43.514,
+      "fin": 44.214,
+      "texto": "despertarte",
+      "palabras": [
+        {
+          "texto": "despertarte",
+          "inicio": 43.514,
+          "fin": 44.187
+        }
+      ]
+    },
+    {
+      "inicio": 44.234,
+      "fin": 45.05,
+      "texto": "tosiendo.",
+      "palabras": [
+        {
+          "texto": "tosiendo.",
+          "inicio": 44.234,
+          "fin": 44.93
+        }
+      ]
+    },
+    {
+      "inicio": 45.371,
+      "fin": 46.187,
+      "texto": "Después de veinte",
+      "palabras": [
+        {
+          "texto": "Después",
+          "inicio": 45.371,
+          "fin": 45.72
+        },
+        {
+          "texto": "de",
+          "inicio": 45.754,
+          "fin": 45.812
+        },
+        {
+          "texto": "veinte",
+          "inicio": 45.859,
+          "fin": 46.161
+        }
+      ]
+    },
+    {
+      "inicio": 46.207,
+      "fin": 47.302,
+      "texto": "días, el cambio",
+      "palabras": [
+        {
+          "texto": "días,",
+          "inicio": 46.207,
+          "fin": 46.706
+        },
+        {
+          "texto": "el",
+          "inicio": 46.799,
+          "fin": 46.927
+        },
+        {
+          "texto": "cambio",
+          "inicio": 46.997,
+          "fin": 47.275
+        }
+      ]
+    },
+    {
+      "inicio": 47.322,
+      "fin": 48.149,
+      "texto": "de energía se",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 47.322,
+          "fin": 47.391
+        },
+        {
+          "texto": "energía",
+          "inicio": 47.449,
+          "fin": 47.949
+        },
+        {
+          "texto": "se",
+          "inicio": 48.007,
+          "fin": 48.1
+        }
+      ]
+    },
+    {
+      "inicio": 48.169,
+      "fin": 48.8,
+      "texto": "nota.",
+      "palabras": [
+        {
+          "texto": "nota.",
+          "inicio": 48.169,
+          "fin": 48.68
+        }
+      ]
+    },
+    {
+      "inicio": 49.063,
+      "fin": 49.659,
+      "texto": "Se acaban los",
+      "palabras": [
+        {
+          "texto": "Se",
+          "inicio": 49.063,
+          "fin": 49.179
+        },
+        {
+          "texto": "acaban",
+          "inicio": 49.214,
+          "fin": 49.493
+        },
+        {
+          "texto": "los",
+          "inicio": 49.516,
+          "fin": 49.632
+        }
+      ]
+    },
+    {
+      "inicio": 49.679,
+      "fin": 50.332,
+      "texto": "bajones de la",
+      "palabras": [
+        {
+          "texto": "bajones",
+          "inicio": 49.679,
+          "fin": 50.085
+        },
+        {
+          "texto": "de",
+          "inicio": 50.12,
+          "fin": 50.166
+        },
+        {
+          "texto": "la",
+          "inicio": 50.213,
+          "fin": 50.282
+        }
+      ]
+    },
+    {
+      "inicio": 50.352,
+      "fin": 51.052,
+      "texto": "tarde…",
+      "palabras": [
+        {
+          "texto": "tarde…",
+          "inicio": 50.352,
+          "fin": 50.932
+        }
+      ]
+    },
+    {
+      "inicio": 51.141,
+      "fin": 51.876,
+      "texto": "y subes las",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 51.141,
+          "fin": 51.223
+        },
+        {
+          "texto": "subes",
+          "inicio": 51.304,
+          "fin": 51.641
+        },
+        {
+          "texto": "las",
+          "inicio": 51.71,
+          "fin": 51.826
+        }
+      ]
+    },
+    {
+      "inicio": 51.896,
+      "fin": 53.014,
+      "texto": "escaleras sin parar",
+      "palabras": [
+        {
+          "texto": "escaleras",
+          "inicio": 51.896,
+          "fin": 52.384
+        },
+        {
+          "texto": "sin",
+          "inicio": 52.419,
+          "fin": 52.616
+        },
+        {
+          "texto": "parar",
+          "inicio": 52.697,
+          "fin": 52.987
+        }
+      ]
+    },
+    {
+      "inicio": 53.034,
+      "fin": 54.001,
+      "texto": "a coger aire.",
+      "palabras": [
+        {
+          "texto": "a",
+          "inicio": 53.034,
+          "fin": 53.057
+        },
+        {
+          "texto": "coger",
+          "inicio": 53.104,
+          "fin": 53.394
+        },
+        {
+          "texto": "aire.",
+          "inicio": 53.452,
+          "fin": 53.881
+        }
+      ]
+    },
+    {
+      "inicio": 54.16,
+      "fin": 54.964,
+      "texto": "Porque tu cuerpo",
+      "palabras": [
+        {
+          "texto": "Porque",
+          "inicio": 54.16,
+          "fin": 54.45
+        },
+        {
+          "texto": "tu",
+          "inicio": 54.497,
+          "fin": 54.59
+        },
+        {
+          "texto": "cuerpo",
+          "inicio": 54.624,
+          "fin": 54.938
+        }
+      ]
+    },
+    {
+      "inicio": 54.984,
+      "fin": 55.44,
+      "texto": "ya no está",
+      "palabras": [
+        {
+          "texto": "ya",
+          "inicio": 54.984,
+          "fin": 55.066
+        },
+        {
+          "texto": "no",
+          "inicio": 55.124,
+          "fin": 55.193
+        },
+        {
+          "texto": "está",
+          "inicio": 55.228,
+          "fin": 55.402
+        }
+      ]
+    },
+    {
+      "inicio": 55.46,
+      "fin": 56.474,
+      "texto": "peleando por cada",
+      "palabras": [
+        {
+          "texto": "peleando",
+          "inicio": 55.46,
+          "fin": 55.902
+        },
+        {
+          "texto": "por",
+          "inicio": 55.96,
+          "fin": 56.111
+        },
+        {
+          "texto": "cada",
+          "inicio": 56.192,
+          "fin": 56.447
+        }
+      ]
+    },
+    {
+      "inicio": 56.494,
+      "fin": 57.902,
+      "texto": "bocanada de aire.",
+      "palabras": [
+        {
+          "texto": "bocanada",
+          "inicio": 56.494,
+          "fin": 57.051
+        },
+        {
+          "texto": "de",
+          "inicio": 57.109,
+          "fin": 57.202
+        },
+        {
+          "texto": "aire.",
+          "inicio": 57.248,
+          "fin": 57.782
+        }
+      ]
+    },
+    {
+      "inicio": 58.107,
+      "fin": 58.575,
+      "texto": "Y te vas",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 58.107,
+          "fin": 58.189
+        },
+        {
+          "texto": "te",
+          "inicio": 58.282,
+          "fin": 58.351
+        },
+        {
+          "texto": "vas",
+          "inicio": 58.398,
+          "fin": 58.537
+        }
+      ]
+    },
+    {
+      "inicio": 58.595,
+      "fin": 59.19,
+      "texto": "a dar cuenta",
+      "palabras": [
+        {
+          "texto": "a",
+          "inicio": 58.595,
+          "fin": 58.618
+        },
+        {
+          "texto": "dar",
+          "inicio": 58.653,
+          "fin": 58.769
+        },
+        {
+          "texto": "cuenta",
+          "inicio": 58.839,
+          "fin": 59.164
+        }
+      ]
+    },
+    {
+      "inicio": 59.21,
+      "fin": 59.608,
+      "texto": "de que no",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 59.21,
+          "fin": 59.268
+        },
+        {
+          "texto": "que",
+          "inicio": 59.326,
+          "fin": 59.419
+        },
+        {
+          "texto": "no",
+          "inicio": 59.477,
+          "fin": 59.582
+        }
+      ]
+    },
+    {
+      "inicio": 59.628,
+      "fin": 60.537,
+      "texto": "era normal vivir",
+      "palabras": [
+        {
+          "texto": "era",
+          "inicio": 59.628,
+          "fin": 59.756
+        },
+        {
+          "texto": "normal",
+          "inicio": 59.814,
+          "fin": 60.186
+        },
+        {
+          "texto": "vivir",
+          "inicio": 60.232,
+          "fin": 60.499
+        }
+      ]
+    },
+    {
+      "inicio": 60.557,
+      "fin": 61.837,
+      "texto": "así, falto de",
+      "palabras": [
+        {
+          "texto": "así,",
+          "inicio": 60.557,
+          "fin": 61.01
+        },
+        {
+          "texto": "falto",
+          "inicio": 61.289,
+          "fin": 61.672
+        },
+        {
+          "texto": "de",
+          "inicio": 61.73,
+          "fin": 61.811
+        }
+      ]
+    },
+    {
+      "inicio": 61.857,
+      "fin": 62.5,
+      "texto": "aire.",
+      "palabras": [
+        {
+          "texto": "aire.",
+          "inicio": 61.857,
+          "fin": 62.38
+        }
+      ]
+    },
+    {
+      "inicio": 62.705,
+      "fin": 63.625,
+      "texto": "Los silbidos al",
+      "palabras": [
+        {
+          "texto": "Los",
+          "inicio": 62.705,
+          "fin": 62.891
+        },
+        {
+          "texto": "silbidos",
+          "inicio": 62.914,
+          "fin": 63.436
+        },
+        {
+          "texto": "al",
+          "inicio": 63.506,
+          "fin": 63.576
+        }
+      ]
+    },
+    {
+      "inicio": 63.645,
+      "fin": 64.555,
+      "texto": "respirar…",
+      "palabras": [
+        {
+          "texto": "respirar…",
+          "inicio": 63.645,
+          "fin": 64.435
+        }
+      ]
+    },
+    {
+      "inicio": 64.714,
+      "fin": 66.192,
+      "texto": "la cabeza nublada…",
+      "palabras": [
+        {
+          "texto": "la",
+          "inicio": 64.714,
+          "fin": 64.806
+        },
+        {
+          "texto": "cabeza",
+          "inicio": 64.864,
+          "fin": 65.282
+        },
+        {
+          "texto": "nublada…",
+          "inicio": 65.329,
+          "fin": 66.072
+        }
+      ]
+    },
+    {
+      "inicio": 66.397,
+      "fin": 67.933,
+      "texto": "el pecho apretado…",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 66.397,
+          "fin": 66.56
+        },
+        {
+          "texto": "pecho",
+          "inicio": 66.652,
+          "fin": 66.977
+        },
+        {
+          "texto": "apretado…",
+          "inicio": 67.012,
+          "fin": 67.825
+        }
+      ]
+    },
+    {
+      "inicio": 67.953,
+      "fin": 68.815,
+      "texto": "…era flema y",
+      "palabras": [
+        {
+          "texto": "…era",
+          "inicio": 67.953,
+          "fin": 68.347
+        },
+        {
+          "texto": "flema",
+          "inicio": 68.417,
+          "fin": 68.742
+        },
+        {
+          "texto": "y",
+          "inicio": 68.777,
+          "fin": 68.8
+        }
+      ]
+    },
+    {
+      "inicio": 68.835,
+      "fin": 69.64,
+      "texto": "bloqueo.",
+      "palabras": [
+        {
+          "texto": "bloqueo.",
+          "inicio": 68.835,
+          "fin": 69.52
+        }
+      ]
+    },
+    {
+      "inicio": 69.903,
+      "fin": 70.545,
+      "texto": "Tu pecho no",
+      "palabras": [
+        {
+          "texto": "Tu",
+          "inicio": 69.903,
+          "fin": 70.043
+        },
+        {
+          "texto": "pecho",
+          "inicio": 70.101,
+          "fin": 70.402
+        },
+        {
+          "texto": "no",
+          "inicio": 70.449,
+          "fin": 70.519
+        }
+      ]
+    },
+    {
+      "inicio": 70.565,
+      "fin": 71.497,
+      "texto": "podía limpiarse",
+      "palabras": [
+        {
+          "texto": "podía",
+          "inicio": 70.565,
+          "fin": 70.867
+        },
+        {
+          "texto": "limpiarse",
+          "inicio": 70.902,
+          "fin": 71.459
+        }
+      ]
+    },
+    {
+      "inicio": 71.517,
+      "fin": 72.206,
+      "texto": "solo.",
+      "palabras": [
+        {
+          "texto": "solo.",
+          "inicio": 71.517,
+          "fin": 72.086
+        }
+      ]
+    },
+    {
+      "inicio": 72.411,
+      "fin": 73.331,
+      "texto": "Si cocinaste con",
+      "palabras": [
+        {
+          "texto": "Si",
+          "inicio": 72.411,
+          "fin": 72.539
+        },
+        {
+          "texto": "cocinaste",
+          "inicio": 72.585,
+          "fin": 73.108
+        },
+        {
+          "texto": "con",
+          "inicio": 73.154,
+          "fin": 73.282
+        }
+      ]
+    },
+    {
+      "inicio": 73.351,
+      "fin": 74.492,
+      "texto": "leña, respiras el",
+      "palabras": [
+        {
+          "texto": "leña,",
+          "inicio": 73.351,
+          "fin": 73.735
+        },
+        {
+          "texto": "respiras",
+          "inicio": 73.885,
+          "fin": 74.327
+        },
+        {
+          "texto": "el",
+          "inicio": 74.396,
+          "fin": 74.466
+        }
+      ]
+    },
+    {
+      "inicio": 74.512,
+      "fin": 74.968,
+      "texto": "humo de los",
+      "palabras": [
+        {
+          "texto": "humo",
+          "inicio": 74.512,
+          "fin": 74.663
+        },
+        {
+          "texto": "de",
+          "inicio": 74.71,
+          "fin": 74.779
+        },
+        {
+          "texto": "los",
+          "inicio": 74.814,
+          "fin": 74.93
+        }
+      ]
+    },
+    {
+      "inicio": 74.988,
+      "fin": 75.886,
+      "texto": "buses o te",
+      "palabras": [
+        {
+          "texto": "buses",
+          "inicio": 74.988,
+          "fin": 75.43
+        },
+        {
+          "texto": "o",
+          "inicio": 75.604,
+          "fin": 75.72
+        },
+        {
+          "texto": "te",
+          "inicio": 75.778,
+          "fin": 75.859
+        }
+      ]
+    },
+    {
+      "inicio": 75.906,
+      "fin": 76.431,
+      "texto": "quedó la tos",
+      "palabras": [
+        {
+          "texto": "quedó",
+          "inicio": 75.906,
+          "fin": 76.091
+        },
+        {
+          "texto": "la",
+          "inicio": 76.138,
+          "fin": 76.207
+        },
+        {
+          "texto": "tos",
+          "inicio": 76.254,
+          "fin": 76.416
+        }
+      ]
+    },
+    {
+      "inicio": 76.451,
+      "fin": 77.384,
+      "texto": "de la gripa…",
+      "palabras": [
+        {
+          "texto": "de",
+          "inicio": 76.451,
+          "fin": 76.498
+        },
+        {
+          "texto": "la",
+          "inicio": 76.544,
+          "fin": 76.614
+        },
+        {
+          "texto": "gripa…",
+          "inicio": 76.66,
+          "fin": 77.264
+        }
+      ]
+    },
+    {
+      "inicio": 77.589,
+      "fin": 79.683,
+      "texto": "…esto es OxiPure:",
+      "palabras": [
+        {
+          "texto": "…esto",
+          "inicio": 77.589,
+          "fin": 78.123
+        },
+        {
+          "texto": "es",
+          "inicio": 78.216,
+          "fin": 78.344
+        },
+        {
+          "texto": "OxiPure:",
+          "inicio": 78.518,
+          "fin": 79.563
+        }
+      ]
+    },
+    {
+      "inicio": 79.888,
+      "fin": 80.948,
+      "texto": "extracto puro de",
+      "palabras": [
+        {
+          "texto": "extracto",
+          "inicio": 79.888,
+          "fin": 80.457
+        },
+        {
+          "texto": "puro",
+          "inicio": 80.526,
+          "fin": 80.793
+        },
+        {
+          "texto": "de",
+          "inicio": 80.851,
+          "fin": 80.921
+        }
+      ]
+    },
+    {
+      "inicio": 80.968,
+      "fin": 82.411,
+      "texto": "hoja de gordolobo.",
+      "palabras": [
+        {
+          "texto": "hoja",
+          "inicio": 80.968,
+          "fin": 81.211
+        },
+        {
+          "texto": "de",
+          "inicio": 81.258,
+          "fin": 81.328
+        },
+        {
+          "texto": "gordolobo.",
+          "inicio": 81.374,
+          "fin": 82.291
+        }
+      ]
+    },
+    {
+      "inicio": 82.617,
+      "fin": 83.212,
+      "texto": "La planta que",
+      "palabras": [
+        {
+          "texto": "La",
+          "inicio": 82.617,
+          "fin": 82.733
+        },
+        {
+          "texto": "planta",
+          "inicio": 82.779,
+          "fin": 83.081
+        },
+        {
+          "texto": "que",
+          "inicio": 83.127,
+          "fin": 83.197
+        }
+      ]
+    },
+    {
+      "inicio": 83.232,
+      "fin": 84.094,
+      "texto": "las abuelas usaban",
+      "palabras": [
+        {
+          "texto": "las",
+          "inicio": 83.232,
+          "fin": 83.348
+        },
+        {
+          "texto": "abuelas",
+          "inicio": 83.418,
+          "fin": 83.708
+        },
+        {
+          "texto": "usaban",
+          "inicio": 83.766,
+          "fin": 84.068
+        }
+      ]
+    },
+    {
+      "inicio": 84.114,
+      "fin": 85.198,
+      "texto": "para el pecho…",
+      "palabras": [
+        {
+          "texto": "para",
+          "inicio": 84.114,
+          "fin": 84.277
+        },
+        {
+          "texto": "el",
+          "inicio": 84.3,
+          "fin": 84.358
+        },
+        {
+          "texto": "pecho…",
+          "inicio": 84.428,
+          "fin": 85.078
+        }
+      ]
+    },
+    {
+      "inicio": 85.682,
+      "fin": 86.788,
+      "texto": "ahora en gotas",
+      "palabras": [
+        {
+          "texto": "ahora",
+          "inicio": 85.682,
+          "fin": 86.158
+        },
+        {
+          "texto": "en",
+          "inicio": 86.239,
+          "fin": 86.332
+        },
+        {
+          "texto": "gotas",
+          "inicio": 86.401,
+          "fin": 86.75
+        }
+      ]
+    },
+    {
+      "inicio": 86.808,
+      "fin": 87.973,
+      "texto": "concentradas.",
+      "palabras": [
+        {
+          "texto": "concentradas.",
+          "inicio": 86.808,
+          "fin": 87.853
+        }
+      ]
+    },
+    {
+      "inicio": 88.004,
+      "fin": 88.727,
+      "texto": "Un gotero en",
+      "palabras": [
+        {
+          "texto": "Un",
+          "inicio": 88.004,
+          "fin": 88.154
+        },
+        {
+          "texto": "gotero",
+          "inicio": 88.201,
+          "fin": 88.572
+        },
+        {
+          "texto": "en",
+          "inicio": 88.607,
+          "fin": 88.665
+        }
+      ]
+    },
+    {
+      "inicio": 88.747,
+      "fin": 89.435,
+      "texto": "agua, en la",
+      "palabras": [
+        {
+          "texto": "agua,",
+          "inicio": 88.747,
+          "fin": 89.153
+        },
+        {
+          "texto": "en",
+          "inicio": 89.199,
+          "fin": 89.292
+        },
+        {
+          "texto": "la",
+          "inicio": 89.35,
+          "fin": 89.408
+        }
+      ]
+    },
+    {
+      "inicio": 89.455,
+      "fin": 90.05,
+      "texto": "mañana y en",
+      "palabras": [
+        {
+          "texto": "mañana",
+          "inicio": 89.455,
+          "fin": 89.85
+        },
+        {
+          "texto": "y",
+          "inicio": 89.908,
+          "fin": 89.931
+        },
+        {
+          "texto": "en",
+          "inicio": 89.977,
+          "fin": 90.024
+        }
+      ]
+    },
+    {
+      "inicio": 90.07,
+      "fin": 90.829,
+      "texto": "la noche.",
+      "palabras": [
+        {
+          "texto": "la",
+          "inicio": 90.07,
+          "fin": 90.14
+        },
+        {
+          "texto": "noche.",
+          "inicio": 90.198,
+          "fin": 90.709
+        }
+      ]
+    },
+    {
+      "inicio": 91.092,
+      "fin": 92.187,
+      "texto": "Así de fácil.",
+      "palabras": [
+        {
+          "texto": "Así",
+          "inicio": 91.092,
+          "fin": 91.336
+        },
+        {
+          "texto": "de",
+          "inicio": 91.394,
+          "fin": 91.452
+        },
+        {
+          "texto": "fácil.",
+          "inicio": 91.51,
+          "fin": 92.067
+        }
+      ]
+    },
+    {
+      "inicio": 92.392,
+      "fin": 92.999,
+      "texto": "Te ayuda a",
+      "palabras": [
+        {
+          "texto": "Te",
+          "inicio": 92.392,
+          "fin": 92.52
+        },
+        {
+          "texto": "ayuda",
+          "inicio": 92.555,
+          "fin": 92.926
+        },
+        {
+          "texto": "a",
+          "inicio": 92.949,
+          "fin": 92.973
+        }
+      ]
+    },
+    {
+      "inicio": 93.019,
+      "fin": 94.23,
+      "texto": "soltar la flema,",
+      "palabras": [
+        {
+          "texto": "soltar",
+          "inicio": 93.019,
+          "fin": 93.379
+        },
+        {
+          "texto": "la",
+          "inicio": 93.449,
+          "fin": 93.518
+        },
+        {
+          "texto": "flema,",
+          "inicio": 93.576,
+          "fin": 94.11
+        }
+      ]
+    },
+    {
+      "inicio": 94.261,
+      "fin": 94.95,
+      "texto": "a abrir el",
+      "palabras": [
+        {
+          "texto": "a",
+          "inicio": 94.261,
+          "fin": 94.354
+        },
+        {
+          "texto": "abrir",
+          "inicio": 94.389,
+          "fin": 94.761
+        },
+        {
+          "texto": "el",
+          "inicio": 94.807,
+          "fin": 94.888
+        }
+      ]
+    },
+    {
+      "inicio": 94.97,
+      "fin": 96.007,
+      "texto": "paso del aire",
+      "palabras": [
+        {
+          "texto": "paso",
+          "inicio": 94.97,
+          "fin": 95.271
+        },
+        {
+          "texto": "del",
+          "inicio": 95.329,
+          "fin": 95.469
+        },
+        {
+          "texto": "aire",
+          "inicio": 95.527,
+          "fin": 95.887
+        }
+      ]
+    },
+    {
+      "inicio": 96.096,
+      "fin": 96.656,
+      "texto": "y a cuidar",
+      "palabras": [
+        {
+          "texto": "y",
+          "inicio": 96.096,
+          "fin": 96.165
+        },
+        {
+          "texto": "a",
+          "inicio": 96.223,
+          "fin": 96.247
+        },
+        {
+          "texto": "cuidar",
+          "inicio": 96.293,
+          "fin": 96.618
+        }
+      ]
+    },
+    {
+      "inicio": 96.676,
+      "fin": 97.515,
+      "texto": "tus pulmones de",
+      "palabras": [
+        {
+          "texto": "tus",
+          "inicio": 96.676,
+          "fin": 96.804
+        },
+        {
+          "texto": "pulmones",
+          "inicio": 96.85,
+          "fin": 97.372
+        },
+        {
+          "texto": "de",
+          "inicio": 97.419,
+          "fin": 97.477
+        }
+      ]
+    },
+    {
+      "inicio": 97.535,
+      "fin": 98.735,
+      "texto": "forma natural.",
+      "palabras": [
+        {
+          "texto": "forma",
+          "inicio": 97.535,
+          "fin": 97.86
+        },
+        {
+          "texto": "natural.",
+          "inicio": 97.907,
+          "fin": 98.615
+        }
+      ]
+    },
+    {
+      "inicio": 99.218,
+      "fin": 99.686,
+      "texto": "Yo ya no",
+      "palabras": [
+        {
+          "texto": "Yo",
+          "inicio": 99.218,
+          "fin": 99.416
+        },
+        {
+          "texto": "ya",
+          "inicio": 99.451,
+          "fin": 99.52
+        },
+        {
+          "texto": "no",
+          "inicio": 99.578,
+          "fin": 99.648
+        }
+      ]
+    },
+    {
+      "inicio": 99.706,
+      "fin": 100.394,
+      "texto": "me imagino la",
+      "palabras": [
+        {
+          "texto": "me",
+          "inicio": 99.706,
+          "fin": 99.764
+        },
+        {
+          "texto": "imagino",
+          "inicio": 99.811,
+          "fin": 100.263
+        },
+        {
+          "texto": "la",
+          "inicio": 100.31,
+          "fin": 100.368
+        }
+      ]
+    },
+    {
+      "inicio": 100.414,
+      "fin": 101.265,
+      "texto": "mañana sin mis",
+      "palabras": [
+        {
+          "texto": "mañana",
+          "inicio": 100.414,
+          "fin": 100.821
+        },
+        {
+          "texto": "sin",
+          "inicio": 100.867,
+          "fin": 101.03
+        },
+        {
+          "texto": "mis",
+          "inicio": 101.088,
+          "fin": 101.227
+        }
+      ]
+    },
+    {
+      "inicio": 101.285,
+      "fin": 102.044,
+      "texto": "gotas.",
+      "palabras": [
+        {
+          "texto": "gotas.",
+          "inicio": 101.285,
+          "fin": 101.924
+        }
+      ]
+    },
+    {
+      "inicio": 102.167,
+      "fin": 102.74,
+      "texto": "Me llegó a",
+      "palabras": [
+        {
+          "texto": "Me",
+          "inicio": 102.167,
+          "fin": 102.295
+        },
+        {
+          "texto": "llegó",
+          "inicio": 102.318,
+          "fin": 102.632
+        },
+        {
+          "texto": "a",
+          "inicio": 102.69,
+          "fin": 102.713
+        }
+      ]
+    },
+    {
+      "inicio": 102.76,
+      "fin": 103.657,
+      "texto": "la casa y",
+      "palabras": [
+        {
+          "texto": "la",
+          "inicio": 102.76,
+          "fin": 102.829
+        },
+        {
+          "texto": "casa",
+          "inicio": 102.887,
+          "fin": 103.305
+        },
+        {
+          "texto": "y",
+          "inicio": 103.514,
+          "fin": 103.595
+        }
+      ]
+    },
+    {
+      "inicio": 103.677,
+      "fin": 104.307,
+      "texto": "lo pagué al",
+      "palabras": [
+        {
+          "texto": "lo",
+          "inicio": 103.677,
+          "fin": 103.758
+        },
+        {
+          "texto": "pagué",
+          "inicio": 103.816,
+          "fin": 104.129
+        },
+        {
+          "texto": "al",
+          "inicio": 104.188,
+          "fin": 104.246
+        }
+      ]
+    },
+    {
+      "inicio": 104.327,
+      "fin": 105.283,
+      "texto": "recibirlo.",
+      "palabras": [
+        {
+          "texto": "recibirlo.",
+          "inicio": 104.327,
+          "fin": 105.163
+        }
+      ]
+    },
+    {
+      "inicio": 105.372,
+      "fin": 105.816,
+      "texto": "Y si no",
+      "palabras": [
+        {
+          "texto": "Y",
+          "inicio": 105.372,
+          "fin": 105.453
+        },
+        {
+          "texto": "si",
+          "inicio": 105.534,
+          "fin": 105.627
+        },
+        {
+          "texto": "no",
+          "inicio": 105.697,
+          "fin": 105.778
+        }
+      ]
+    },
+    {
+      "inicio": 105.836,
+      "fin": 106.931,
+      "texto": "te gusta, tienes",
+      "palabras": [
+        {
+          "texto": "te",
+          "inicio": 105.836,
+          "fin": 105.906
+        },
+        {
+          "texto": "gusta,",
+          "inicio": 105.952,
+          "fin": 106.498
+        },
+        {
+          "texto": "tienes",
+          "inicio": 106.614,
+          "fin": 106.904
+        }
+      ]
+    },
+    {
+      "inicio": 106.951,
+      "fin": 107.999,
+      "texto": "garantía de 30",
+      "palabras": [
+        {
+          "texto": "garantía",
+          "inicio": 106.951,
+          "fin": 107.415
+        },
+        {
+          "texto": "de",
+          "inicio": 107.473,
+          "fin": 107.543
+        },
+        {
+          "texto": "30",
+          "inicio": 107.659,
+          "fin": 107.938
+        }
+      ]
+    },
+    {
+      "inicio": 108.019,
+      "fin": 108.65,
+      "texto": "días.",
+      "palabras": [
+        {
+          "texto": "días.",
+          "inicio": 108.019,
+          "fin": 108.53
+        }
+      ]
+    },
+    {
+      "inicio": 108.739,
+      "fin": 109.613,
+      "texto": "Si todavía ves",
+      "palabras": [
+        {
+          "texto": "Si",
+          "inicio": 108.739,
+          "fin": 108.878
+        },
+        {
+          "texto": "todavía",
+          "inicio": 108.936,
+          "fin": 109.377
+        },
+        {
+          "texto": "ves",
+          "inicio": 109.424,
+          "fin": 109.575
+        }
+      ]
+    },
+    {
+      "inicio": 109.633,
+      "fin": 110.123,
+      "texto": "el botón de",
+      "palabras": [
+        {
+          "texto": "el",
+          "inicio": 109.633,
+          "fin": 109.691
+        },
+        {
+          "texto": "botón",
+          "inicio": 109.737,
+          "fin": 110.004
+        },
+        {
+          "texto": "de",
+          "inicio": 110.051,
+          "fin": 110.109
+        }
+      ]
+    },
+    {
+      "inicio": 110.143,
+      "fin": 111.389,
+      "texto": "abajo, es porque",
+      "palabras": [
+        {
+          "texto": "abajo,",
+          "inicio": 110.143,
+          "fin": 110.724
+        },
+        {
+          "texto": "es",
+          "inicio": 110.898,
+          "fin": 111.049
+        },
+        {
+          "texto": "porque",
+          "inicio": 111.107,
+          "fin": 111.362
+        }
+      ]
+    },
+    {
+      "inicio": 111.409,
+      "fin": 112.667,
+      "texto": "quedan unidades.",
+      "palabras": [
+        {
+          "texto": "quedan",
+          "inicio": 111.409,
+          "fin": 111.676
+        },
+        {
+          "texto": "unidades.",
+          "inicio": 111.757,
+          "fin": 112.547
+        }
+      ]
+    },
+    {
+      "inicio": 112.756,
+      "fin": 113.548,
+      "texto": "El tuyo está",
+      "palabras": [
+        {
+          "texto": "El",
+          "inicio": 112.756,
+          "fin": 112.918
+        },
+        {
+          "texto": "tuyo",
+          "inicio": 112.988,
+          "fin": 113.255
+        },
+        {
+          "texto": "está",
+          "inicio": 113.301,
+          "fin": 113.522
+        }
+      ]
+    },
+    {
+      "inicio": 113.568,
+      "fin": 114.222,
+      "texto": "ahí.",
+      "palabras": [
+        {
+          "texto": "ahí.",
+          "inicio": 113.568,
+          "fin": 114.102
+        }
+      ]
+    }
+  ],
+  "estiloSubtitulos": {
+    "tamano": 0.06137,
+    "interlineado": 1.1,
+    "contornoRespectoTamano": 0.135,
+    "desdeAbajo": 0.26,
+    "coloresResaltado": [
+      "#E8442A",
+      "#F5A524",
+      "#2F7DE1",
+      "#159A5B",
+      "#B5279B",
+      "#E01E5A",
+      "#7B3FE4",
+      "#0FA3B1",
+      "#D64500",
+      "#3B7A2A"
+    ],
+    "cajaPadding": 0.12,
+    "cajaRedondeo": 0.1,
+    "colorResaltado": "#F5A524"
+  },
+  "transiciones": [],
+  "reglasTransiciones": {
+    "duracionSeg": 0.45,
+    "duracionZoomSeg": 0.5,
+    "efectoDb": 0,
+    "zoomDesde": 1.35
+  },
+  "brollFuera": [],
+  "avisos": [
+    "paso-6.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "toma-11.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "paso-13.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "paso-14.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "paso-19.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "paso-28.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "toma-29.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "paso-32.mp4 salio del modelo de respaldo: revisa sus uniones (que arranque y llegue a sus imagenes).",
+    "toma-16 + paso-16 va a 2.02x, sobre la guia de 2.0x. No se corta.",
+    "paso-22 va a 2.04x, sobre la guia de 2.0x. No se corta.",
+    "MUY RAPIDO: toma-28 + paso-28 va a 2.74x aun prestando tiempo (llega 0.03s tarde a la 29), sobre 2.5x. No se corta: si se ve mal, pide ese clip mas corto (o el propio de la toma B a menos segundos).",
+    "MUY RAPIDO: toma-29 + paso-29 va a 2.74x aun prestando tiempo (llega 0.40s tarde a la 30), sobre 2.5x. No se corta: si se ve mal, pide ese clip mas corto (o el propio de la toma B a menos segundos).",
+    "toma-30 + paso-30 va a 2.20x, sobre la guia de 2.0x. No se corta."
+  ]
+}

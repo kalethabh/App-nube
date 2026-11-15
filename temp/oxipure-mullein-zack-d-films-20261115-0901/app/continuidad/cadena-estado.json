@@ -2,8 +2,11 @@
   "sesion": {
     "uuid": "a16de3de-a33e-4236-a6d6-cd609e60bb99",
     "intentos": 1,
-    "hecha": false,
-    "fecha": "2026-11-15T14:57:53.207Z"
+    "hecha": true,
+    "fecha": "2026-11-15T14:57:53.207Z",
+    "motor": "claude",
+    "ok": true
   },
-  "pedidos": []
+  "pedidos": [],
+  "descartados": []
 }

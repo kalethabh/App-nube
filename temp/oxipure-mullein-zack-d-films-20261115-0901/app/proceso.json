@@ -1,0 +1,12 @@
+{
+  "pid": 13132,
+  "paso": "render",
+  "script": "ensamblar.js",
+  "args": [
+    "temp/oxipure-mullein-zack-d-films-20261115-0901",
+    "--solo-completa"
+  ],
+  "comando": "node produccion/ensamblar.js temp/oxipure-mullein-zack-d-films-20261115-0901 --solo-completa",
+  "inicio": "2026-11-15T14:59:38.077Z",
+  "app": 8967
+}

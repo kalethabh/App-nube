@@ -1,0 +1,20 @@
+{
+  "numero": 6,
+  "paso": "voces",
+  "comando": "node produccion/revisar-voces.js temp/oxipure-mullein-zack-d-films-20261115-0901 --silenciar",
+  "inicio": "2026-11-15T14:58:38.080Z",
+  "fin": "2026-11-15T14:59:34.132Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 38,
+      "segundos": 146.6
+    }
+  }
+}
