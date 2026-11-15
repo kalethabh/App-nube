@@ -1,0 +1,281 @@
+{
+  "numero": 4,
+  "paso": "videos",
+  "comando": "node produccion/generar-videos.js temp/oxipure-mullein-zack-d-films-20261115-0901 --si",
+  "inicio": "2026-11-15T14:34:35.901Z",
+  "fin": "2026-11-15T14:51:59.718Z",
+  "codigo": 1,
+  "creditos": 1575.6,
+  "dolares": 7.88,
+  "imagenes": [],
+  "videos": [
+    {
+      "archivo": "paso-6.mp4",
+      "id": "paso-6",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "toma-11.mp4",
+      "id": "toma-11",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 151
+    },
+    {
+      "archivo": "paso-12.mp4",
+      "id": "paso-12",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-13.mp4",
+      "id": "paso-13",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 120.8
+    },
+    {
+      "archivo": "paso-14.mp4",
+      "id": "paso-14",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "toma-16.mp4",
+      "id": "toma-16",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "paso-16.mp4",
+      "id": "paso-16",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-17.mp4",
+      "id": "paso-17",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "paso-18.mp4",
+      "id": "paso-18",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-19.mp4",
+      "id": "paso-19",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "paso-20.mp4",
+      "id": "paso-20",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-21.mp4",
+      "id": "paso-21",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "paso-22.mp4",
+      "id": "paso-22",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-23.mp4",
+      "id": "paso-23",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-24.mp4",
+      "id": "paso-24",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-25.mp4",
+      "id": "paso-25",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "paso-26.mp4",
+      "id": "paso-26",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 60
+    },
+    {
+      "archivo": "paso-27.mp4",
+      "id": "paso-27",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 50
+    },
+    {
+      "archivo": "toma-28.mp4",
+      "id": "toma-28",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-29.mp4",
+      "id": "toma-29",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 90.6
+    },
+    {
+      "archivo": "paso-29.mp4",
+      "id": "paso-29",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "toma-30.mp4",
+      "id": "toma-30",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-30.mp4",
+      "id": "paso-30",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-31.mp4",
+      "id": "paso-31",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-32.mp4",
+      "id": "paso-32",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 211.4
+    },
+    {
+      "archivo": "toma-33.mp4",
+      "id": "toma-33",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 60
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [
+    {
+      "archivo": "video/paso-1.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-10.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-11.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-15.mp4",
+      "creditosEstimados": 40
+    },
+    {
+      "archivo": "video/paso-2.mp4",
+      "creditosEstimados": 50
+    },
+    {
+      "archivo": "video/paso-3.mp4",
+      "creditosEstimados": 50
+    },
+    {
+      "archivo": "video/paso-4.mp4",
+      "creditosEstimados": 40
+    },
+    {
+      "archivo": "video/paso-5.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-7.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-8.mp4",
+      "creditosEstimados": 40
+    },
+    {
+      "archivo": "video/paso-9.mp4",
+      "creditosEstimados": 40
+    },
+    {
+      "archivo": "video/toma-1.mp4",
+      "creditosEstimados": 70
+    },
+    {
+      "archivo": "video/toma-10.mp4",
+      "creditosEstimados": 50
+    },
+    {
+      "archivo": "video/toma-12.mp4",
+      "creditosEstimados": 50
+    }
+  ],
+  "elevenlabs": null
+}
