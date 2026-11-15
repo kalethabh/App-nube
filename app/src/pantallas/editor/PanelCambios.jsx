@@ -31,7 +31,8 @@ import {
   WandSparkles,
 } from 'lucide-react';
 import { AreaTexto, BarraDeProgreso, Boton, CampoTexto, Interruptor, Selector, Tooltip } from '../../componentes/index.js';
-import { pedirNuevo, useDatos } from '../../datos/api.js';
+import { pedirNuevo } from '../../datos/api.js';
+import { cambiosParaSeguir, useTextosVideo } from './seguimiento.js';
 import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato.js';
 import { ESTILO_POR_ID } from './subtitulos/estilos.jsx';
 import { FUENTES } from './subtitulos/fuentes.js';
@@ -360,23 +361,21 @@ function TiempoEnPantalla({ x, acciones, total }) {
  */
 function Seguimiento({ x, acciones, total }) {
   const slug = acciones.slug;
-  const [cadaMs, setCadaMs] = useState(undefined);
-  const { datos, recargar } = useDatos(`textos-video:${slug}`, () => pedirNuevo(`/api/anuncios/${encodeURIComponent(slug)}/textos-video`), { cadaMs });
-  const estado = datos?.estado || null;
-  useEffect(() => setCadaMs(estado === 'leyendo' ? 1500 : undefined), [estado]);
+  const tv = useTextosVideo(slug);
+  const estado = tv.estado;
+  const datos = { valor: tv.valor, error: tv.error };
   const [pedido, setPedido] = useState('');
   const [elegida, setElegida] = useState('');
   const [siempre, setSiempre] = useState(false);
   const [ocupado, setOcupado] = useState(null);
   const [nota, setNota] = useState(null);
-  const pistas = datos?.pistas || [];
+  const pistas = tv.pistas;
 
   const leer = async () => {
     setOcupado('leer');
     setNota(null);
     try {
-      await pedirNuevo(`/api/anuncios/${encodeURIComponent(slug)}/textos-video`, { metodo: 'POST', cuerpo: {} });
-      await recargar();
+      await tv.leer();
     } catch (e) {
       setNota({ error: true, texto: e.message });
     } finally {
@@ -384,16 +383,8 @@ function Seguimiento({ x, acciones, total }) {
     }
   };
   const seguir = (ids, conSiempre, etiqueta) => {
-    const elegidas = pistas.filter((p) => ids.includes(p.id));
-    if (!elegidas.length) return false;
-    // una pista por aparición (si sale dos veces a la vez, va una copia encima de cada una)
-    const pistasSigue = elegidas.map((p) => p.apariciones);
-    const desde = Math.min(...elegidas.map((p) => p.desde));
-    const hasta = Math.max(...elegidas.map((p) => p.hasta));
-    const texto = [...new Set(elegidas.map((p) => p.texto))].slice(0, 3).join(' · ');
-    const cambios = conSiempre
-      ? { sigue: { texto, siempre: true, pistas: pistasSigue }, inicio: 0, fin: Math.round(total * 100) / 100 }
-      : { sigue: { texto, siempre: false, pistas: pistasSigue }, inicio: Math.max(0, desde - 0.6), fin: Math.min(total, hasta + 0.7) };
+    const cambios = cambiosParaSeguir(pistas, ids, conSiempre, total);
+    if (!cambios) return false;
     acciones.ajustarTexto(x.id, cambios, { etiqueta });
     return true;
   };
