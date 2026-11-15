@@ -1,7 +1,7 @@
 {
   "slug": "oxipure-mullein-zack-d-films-20261115-0901",
   "familia": "continuidad",
-  "estado": "corriendo",
+  "estado": "error",
   "paso": "imagenes",
   "pasos": [
     {
@@ -39,10 +39,23 @@
     {
       "id": "imagenes",
       "nombre": "Crear las imágenes",
-      "estado": "corriendo",
-      "intentos": 2,
+      "estado": "error",
+      "intentos": 3,
       "inicio": "2026-11-15T14:20:24.751Z",
-      "fin": "2026-11-15T14:23:46.304Z"
+      "fin": "2026-11-15T14:25:21.428Z",
+      "error": {
+        "mensaje": "El modelo de video rechazó una escena por su contenido.",
+        "motivo": "contenido",
+        "detalle": "[img]     b) saltarte esa toma\n[img]     c) probar con otro modelo\n[img]\n  !  Imagenes terminadas a los 14 s (codigo 1).\n=== Produccion — oxipure-mullein-zack-d-films-20261115-0901: resumen ===\n  Imagenes:    SE DETUVO (codigo 1), nada nuevo, en 14 s\n  Tiempo:      14 s\n  Algo no salio. El detalle esta arriba, en las lineas [img], [voz] o [vid] que dicen que paso.\n  Para retomar, el mismo comando:\n      npm run producir -- temp/oxipure-mullein-zack-d-films-20261115-0901 --si\n  Lo ya hecho no se paga otra vez, y las tareas que seguian en kie se retoman.\n  Si el motivo es un rechazo por contenido, volver a correr no alcanza: ese mensaje dice que hacer.",
+        "causa": {
+          "porque": "La toma 3 no salió con ninguno de los dos modelos de video. El modelo de video rechazó una escena por su contenido (algo que su filtro considera sensible).",
+          "dijo": "400 The input or output was flagged as sensitive. Please try again with different inputs.",
+          "hacer": [
+            "Abre el anuncio en el editor y rehaz esa toma con otra descripción.",
+            "O toca «Continuar»: a veces la misma escena pasa en otro intento."
+          ]
+        }
+      }
     },
     {
       "id": "revision-imagenes",
@@ -115,7 +128,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T14:24:51.515Z",
+  "actualizado": "2026-11-15T14:25:21.428Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"
