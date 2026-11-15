@@ -26,6 +26,7 @@ const Estilos = lazy(() => import('./pantallas/estilos/index.jsx'));
 const Ajustes = lazy(() => import('./pantallas/ajustes/index.jsx'));
 const Biblioteca = lazy(() => import('./pantallas/biblioteca/index.jsx'));
 const Anuncios = lazy(() => import('./pantallas/anuncios/index.jsx'));
+const EditorVideos = lazy(() => import('./pantallas/editor-videos/index.jsx'));
 const Saldo = lazy(() => import('./pantallas/saldo/index.jsx'));
 const Cambiar = lazy(() => import('./pantallas/cambiar/index.jsx'));
 const Sketch = lazy(() => import('./pantallas/sketch/index.jsx'));
@@ -66,6 +67,7 @@ export const RUTAS = [
   { patron: '/anuncio/:slug/editor', Pantalla: Editor, menu: 'tablero', titulo: 'Editor', completa: true },
   { patron: '/estilos', Pantalla: Estilos, menu: 'estilos', titulo: 'Estilos', migas: () => [{ texto: 'Estilos' }] },
   { patron: '/anuncios', Pantalla: Anuncios, menu: 'anuncios', titulo: 'Anuncios', migas: () => [{ texto: 'Anuncios' }] },
+  { patron: '/editor', Pantalla: EditorVideos, menu: 'editor', titulo: 'Editor', migas: () => [{ texto: 'Editor' }] },
   { patron: '/aprendizajes', Pantalla: Aprendizajes, menu: 'aprendizajes', titulo: 'Aprendizajes', migas: () => [{ texto: 'Aprendizajes' }] },
   { patron: '/sketch', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia' }] },
   { patron: '/sketch/:slug', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia', href: enlace.sketch() }, { texto: 'Tu sketch' }] },

@@ -45,6 +45,10 @@ export const INICIAL = Object.freeze({
   // Velocidad y deslizar por clip (misma clave): { velocidad: 0.5 a 2, desliza: segundos del clip }. desliza cambia
   // dónde empieza lo que se ve sin mover la ventana (se suma a la entrada de cada parte de esa pieza).
   clips: {},
+  // Tus propios videos (plan.videoPropio): qué versión del video (con qué partes quitadas) va con estos cambios. Así
+  // deshacer y rehacer en el editor también ponen y quitan los cortes (rutas/video-propio.js: versiones). null = el
+  // video tal como entró.
+  corte: null,
 });
 
 /** Las velocidades que ofrece el editor (cualquier número entre VELOCIDAD_MIN y VELOCIDAD_MAX también vale). */
@@ -103,6 +107,7 @@ export function completarEdicion(guardado) {
       .filter((x) => x.archivo === undefined || ARCHIVO_IMAGEN.test(String(x.archivo))),
     reemplazos: limpiarReemplazos(guardado.reemplazos),
     clips: limpiarClips(guardado.clips),
+    corte: typeof guardado.corte === 'string' && /^v[a-z0-9]{1,24}$/.test(guardado.corte) ? guardado.corte : null,
   };
 }
 

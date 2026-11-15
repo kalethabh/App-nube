@@ -211,6 +211,7 @@ function versionGuardada(slug) {
 
 export const TIPOS_VERSION = {
   'con-subtitulos': { nombre: 'Completa', descripcion: 'Con subtítulos y música', orden: 0, principal: true },
+  original: { nombre: 'Tu video', descripcion: 'Tal como lo subiste', orden: 0, principal: true }, // video-propio.js
   'solo-subtitulos': { nombre: 'Solo subtítulos', descripcion: 'Con subtítulos, sin música', orden: 1 },
   'sin-subtitulos': { nombre: 'Sin subtítulos', descripcion: 'Para poner tus propios textos en CapCut', orden: 2 },
   'sin-subtitulos-sin-musica': { nombre: 'Sin subtítulos ni música', descripcion: 'Limpia, para editar en CapCut', orden: 3 },

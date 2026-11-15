@@ -6,6 +6,7 @@ import { Check, CircleAlert, CircleStop, Download, Film, ImagePlus, LoaderCircle
 import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Modal, Seccion, SubirVideo, useAvisos } from '../../componentes/index.js';
 import { useDatos, invalidar, miniatura } from '../../datos/api.js';
 import { enlace, ir, rutas } from '../../datos/rutas.js';
+import { BotonEditarVideo } from '../editor/EditarVideoPropio.jsx';
 import './cambiar.css';
 
 async function pedir(url, { metodo = 'GET', cuerpo } = {}) {
@@ -432,9 +433,14 @@ function Detalle({ slug }) {
                 <video src={s.url} controls playsInline preload="metadata" />
                 <div className="fila" style={{ '--hueco': '8px', justifyContent: 'space-between' }}>
                   <span>{s.nombre}</span>
-                  <Boton tamano="chico" icono={Download} href={s.url} download={s.archivo}>
-                    Descargar
-                  </Boton>
+                  <div className="fila" style={{ '--hueco': '6px' }}>
+                    <BotonEditarVideo archivo={s.archivo} variante="fantasma" tamano="chico">
+                      Editar
+                    </BotonEditarVideo>
+                    <Boton tamano="chico" icono={Download} href={s.url} download={s.archivo}>
+                      Descargar
+                    </Boton>
+                  </div>
                 </div>
               </div>
             ))}

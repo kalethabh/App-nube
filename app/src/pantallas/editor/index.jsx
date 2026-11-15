@@ -47,7 +47,7 @@ import {
   X,
 } from 'lucide-react';
 import { Boton, Chip, EstadoVacio, Esqueleto, Logo, Modal, Tooltip, useAvisos } from '../../componentes/index.js';
-import { conVersion, useAnuncio } from '../../datos/api.js';
+import { conVersion, pedirNuevo, useAnuncio } from '../../datos/api.js';
 import { MAX_VIDEO, apiRegenerar, avisoDelLote, cancelarDelLote, esVideo } from '../../datos/regenerar.js';
 import { enlace } from '../../datos/rutas.js';
 import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato.js';
@@ -62,7 +62,8 @@ import { EditorSubtitulo } from './EditorSubtitulo.jsx';
 import { Globo } from './piezas.jsx';
 import { picosDe } from './ondas.js';
 import { INICIAL, guardarCancionPropia, leerCancionPropia, registrarUrlMusica, tieneCambios, urlMusica, useEdicion } from './estado.js';
-import { ALTO, ANCHO, FPS, construirPistas, contextoDeVista, mediosDelPlan, modoVoz, muestraDeGaleria, subtitulosEditados } from './modelo.js';
+import { ALTO, ANCHO, FPS, construirPistas, contextoDeVista, mediosDelPlan, modoVoz, muestraDeGaleria, subtitulosEditados, completarEdicion } from './modelo.js';
+import { edicionSinTramo, quitarTramo as quitarTramoApi, ponerVersion } from './video-propio.js';
 import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRegenerar } from './trabajos.js';
 import { operar, agregarTexto as textoNuevo, agregarImagen as imagenNueva, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
 import { servidor } from './servidor.js';
@@ -805,6 +806,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     }),
     [muestra, colorAnuncio, ed.subtitulos.color, ed.subtitulos.tamano, plan.estiloSubtitulos, marcas, mv]
   );
+  // (en tus videos, lo que quitaste va en ed.corte: también cuenta)
   const hayCambios = tieneCambios(ed);
   const cambios = useMemo(() => resumenDeCambios(ed, pistas), [ed, pistas]);
 
@@ -1133,6 +1135,51 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     },
     [plan, ed, extraOp, cambiar, aviso, avisarQuietos]
   );
+  // Tus propios videos (plan.videoPropio): quitar una escena o recortar su borde quita esos segundos de verdad (imagen
+  // y audio) y el video queda más corto. Lo hace el servidor; aquí se corre lo del editor (video-propio.js).
+  const [quitando, setQuitando] = useState(false);
+  const quitarDelVideo = useCallback(
+    async (desde, hasta, que) => {
+      if (quitando) return;
+      setQuitando(true);
+      try {
+        playerRef.current?.pause();
+        const r = await quitarTramoApi(a.slug, desde, hasta);
+        // un paso del historial: deshacer vuelve a los cambios de antes y a la versión de antes del video
+        cambiar(() => ({ ...edicionSinTramo(ed, r.desde, r.hasta, r.mapa || {}), corte: r.version }), { etiqueta: `Quitar ${que}` });
+        setSeleccion(null);
+        await recargar();
+        aviso({
+          tipo: 'info',
+          titulo: `Quitaste ${que}`,
+          texto: `El video ahora dura ${String(Math.round(r.duracion * 10) / 10).replace('.', ',')} s. Deshacer lo vuelve a poner.`,
+          accion: { etiqueta: 'Deshacer', alHacer: deshacer },
+          duracion: 7000,
+        });
+      } catch (e) {
+        aviso({ tipo: 'error', titulo: 'No pude quitar esa parte', texto: e.message });
+      } finally {
+        setQuitando(false);
+      }
+    },
+    [quitando, a.slug, ed, cambiar, recargar, aviso, deshacer]
+  );
+  // Deshacer o rehacer un corte (o abrir con los cambios guardados): el video tiene que estar en la versión que dicen
+  // los cambios del editor.
+  const pidiendoVersion = useRef(null);
+  useEffect(() => {
+    if (!plan.videoPropio) return;
+    const quiero = ed.corte || 'v0';
+    if (quiero === (plan.version || 'v0') || pidiendoVersion.current === quiero) return;
+    pidiendoVersion.current = quiero;
+    playerRef.current?.pause();
+    ponerVersion(a.slug, quiero)
+      .then(() => recargar())
+      .catch((e) => aviso({ tipo: 'error', titulo: 'No pude volver a esa versión del video', texto: e.message }))
+      .finally(() => {
+        if (pidiendoVersion.current === quiero) pidiendoVersion.current = null;
+      });
+  }, [plan.videoPropio, plan.version, ed.corte, a.slug, recargar, aviso]);
   /** Lo que deslizar necesita saber del clip (su pieza, dónde empieza sin deslizar, su largo y su velocidad). */
   const datosDelClip = useCallback(
     (id) => {
@@ -1144,6 +1191,21 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   const arrastrar = useCallback(
     (opBase, final) => {
       if (!opBase) return setPrevia(null);
+      if (plan.videoPropio && opBase.pista === 'video' && (opBase.tipo === 'mover' || opBase.tipo === 'recortar')) {
+        setPrevia(null);
+        if (!final) return undefined;
+        const nombre = nombreDe('video', opBase.id);
+        if (opBase.tipo === 'mover') {
+          aviso({ tipo: 'info', titulo: 'Las escenas no cambian de orden', texto: 'En tus videos el orden queda fijo para que no se desordene lo que se dice. Puedes quitar escenas o recortar sus bordes.' });
+          return undefined;
+        }
+        const s = pistas.video.find((x) => x.id === opBase.id);
+        const dt = Number(opBase.dt) || 0;
+        if (s && opBase.borde === 'inicio' && dt > 0.02) quitarDelVideo(s.inicio, Math.min(s.fin, s.inicio + dt), `el comienzo de ${nombre}`);
+        else if (s && opBase.borde === 'fin' && dt < -0.02) quitarDelVideo(Math.max(s.inicio, s.fin + dt), s.fin, `el final de ${nombre}`);
+        else if (Math.abs(dt) > 0.02) aviso({ tipo: 'info', titulo: 'Así no se alarga', texto: 'En tus videos los bordes solo se recortan. Para recuperar lo que quitaste, toca Deshacer en el aviso del corte.' });
+        return undefined;
+      }
       const op = opBase.tipo === 'deslizar' ? { ...opBase, ...datosDelClip(opBase.id) } : opBase;
       const r = operar(plan, ed, { ...extraOp, ...op });
       if (!final) {
@@ -1161,7 +1223,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       avisarQuietos(ed, r.ed);
       return undefined;
     },
-    [plan, ed, extraOp, cambiar, aviso, avisarQuietos, nombreDe, datosDelClip]
+    [plan, ed, extraOp, cambiar, aviso, avisarQuietos, nombreDe, datosDelClip, pistas, quitarDelVideo]
   );
   /** La velocidad del clip de una pieza (null = como venía). */
   const cambiarVelocidad = useCallback(
@@ -1233,6 +1295,11 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     if (!seleccion || !borrable) return;
     const { pista, id } = seleccion;
     const nombre = nombreDe(pista, id);
+    if (pista === 'video' && plan.videoPropio) {
+      const s = pistas.video.find((x) => x.id === id);
+      if (s) quitarDelVideo(s.inicio, s.fin, nombre);
+      return;
+    }
     if (pista === 'broll' && !pistas.cortes.brolls) {
       // en este estilo el B-roll solo se oculta
       cambiar((s) => ({ ...s, quitados: [...new Set([...s.quitados, id])] }), { etiqueta: `Quitar ${nombre}` });
@@ -1247,7 +1314,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     }
     setSeleccion(null);
     aviso({ tipo: 'info', titulo: `Borraste ${nombre}`, texto: 'Si fue sin querer, toca Deshacer.', accion: { etiqueta: 'Deshacer', alHacer: deshacer } });
-  }, [seleccion, borrable, nombreDe, pistas, cambiar, aplicar, aviso, deshacer]);
+  }, [seleccion, borrable, nombreDe, pistas, cambiar, aplicar, aviso, deshacer, plan.videoPropio, quitarDelVideo]);
   const [textoNuevoId, setTextoNuevoId] = useState(null);
   const agregarTexto = useCallback(() => {
     const p = playerRef.current;

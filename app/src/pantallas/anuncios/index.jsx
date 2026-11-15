@@ -7,6 +7,7 @@ import { useAnuncios, useDatos, miniatura, invalidar } from '../../datos/api.js'
 import { enlace, ir, rutas } from '../../datos/rutas.js';
 import { normalizar } from '../tablero/datos.js';
 import { MarcaModoPrueba } from '../produccion/ModoPrueba.jsx';
+import { BotonEditarVideo } from '../editor/EditarVideoPropio.jsx';
 import '../tablero/tablero.css';
 import './anuncios.css';
 
@@ -187,6 +188,7 @@ export default function Anuncios() {
               ) : null}
             </label>
             <Selector className="tb-orden" aria-label="Ordenar" value={orden} onChange={(e) => setOrden(e.target.value)} opciones={ORDENES} />
+            <BotonEditarVideo />
           </div>
         }
       />

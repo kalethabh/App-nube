@@ -376,7 +376,7 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
   const mv = modoVoz(plan);
   let voz;
   if (mv !== 'en-clips') {
-    voz = { modo: mv, segmentos: [{ id: 'voz', inicio: 0, fin: dur, nombre: mv === 'cancion' ? 'Canción' : 'Voz en off', url: urlDe(a, plan.audio.voz) }] };
+    voz = { modo: mv, segmentos: [{ id: 'voz', inicio: 0, fin: dur, nombre: mv === 'cancion' ? 'Canción' : plan.videoPropio ? 'Audio del video' : 'Voz en off', url: urlDe(a, plan.audio.voz) }] };
   } else {
     const hojas = new Map((a.hojas || []).map((h) => [h.id, h.imagen]));
     voz = {
