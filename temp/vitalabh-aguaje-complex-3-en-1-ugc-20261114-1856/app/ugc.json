@@ -10,12 +10,12 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-15T00:11:35.700Z",
+  "actualizado": "2026-11-15T00:19:53.501Z",
   "revision": {
-    "ronda": 1,
+    "ronda": 2,
     "medidas": {
       "1": {
-        "huella": "5410624-1794701347377",
+        "huella": "4904803-1794701919729",
         "medido": true,
         "limpio": false,
         "motivo": "dijo «gym» en vez de «jean»"
@@ -27,7 +27,7 @@
         "motivo": null
       },
       "3": {
-        "huella": "2091271-1794701263659",
+        "huella": "1665578-1794701953602",
         "medido": true,
         "limpio": true,
         "motivo": null
@@ -55,6 +55,7 @@
     "piezas": {
       "toma-1": {
         "motivos": [
+          "No dijo su parte tal cual: dijo «gym» en vez de «jean».",
           "No dijo su parte tal cual: dijo «gym» en vez de «jean»."
         ],
         "veces": 0,

@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "bloques",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -40,33 +40,50 @@
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
-      "inicio": "2026-11-15T00:16:05.227Z"
+      "inicio": "2026-11-15T00:16:05.227Z",
+      "fin": "2026-11-15T00:19:13.620Z"
     },
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-15T00:19:13.621Z",
+      "fin": "2026-11-15T00:19:53.502Z",
+      "nota": "La revisión dejó un aviso: míralo en el proceso."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-15T00:19:53.503Z",
+      "fin": "2026-11-15T00:19:53.629Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-15T00:19:53.629Z",
+      "fin": "2026-11-15T00:20:00.865Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "corriendo",
+      "intentos": 2,
+      "inicio": "2026-11-15T00:20:00.865Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 52,
+        "total": 1185,
+        "restante": 110,
+        "en": "2026-11-15T00:20:08.046Z"
+      }
     },
     {
       "id": "control-final",
@@ -91,7 +108,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T00:04:22.477Z",
   "aprobado": "2026-11-15T00:04:22.477Z",
-  "actualizado": "2026-11-15T00:16:05.227Z",
+  "actualizado": "2026-11-15T00:20:08.046Z",
   "saldoInicial": {
     "creditos": 1095.2,
     "fecha": "2026-11-15T00:04:24.014Z"
