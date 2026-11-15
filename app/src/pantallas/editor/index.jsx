@@ -1405,6 +1405,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       setMoverSoloEste,
       lugarSubtitulo,
       textoNuevoId,
+      slug: a.slug,
       ajustarTexto: (id, cambios, opciones = {}) => cambiar((s) => cambiarTexto(s, id, cambios).ed, { etiqueta: opciones.etiqueta || 'Cambiar texto', grupo: opciones.grupo }),
       restablecerTexto: (id) =>
         cambiar(

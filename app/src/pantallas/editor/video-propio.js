@@ -26,7 +26,13 @@ export function edicionSinTramo(ed, a, b, mapa = {}) {
     const fin = r3(correr(Number(x.fin), a, b));
     return fin - inicio < 0.1 ? null : { ...x, inicio, fin };
   };
-  const textosNuevos = (ed.textosNuevos || []).map(intervalo).filter(Boolean);
+  // lo que sigue a un texto del video: sus puntos también se corren (los de la parte quitada se van)
+  const conSigue = (x) => {
+    if (!x || !Array.isArray(x.sigue?.puntos)) return x;
+    const puntos = x.sigue.puntos.filter((p) => !(p[0] > a && p[0] < b)).map((p) => [r3(correr(p[0], a, b)), ...p.slice(1)]);
+    return { ...x, sigue: puntos.length ? { ...x.sigue, puntos } : undefined };
+  };
+  const textosNuevos = (ed.textosNuevos || []).map(intervalo).filter(Boolean).map(conSigue);
   const ajustesTextos = Object.fromEntries(
     Object.entries(ed.ajustesTextos || {})
       .map(([id, x]) => [id, intervalo(x)])

@@ -667,6 +667,57 @@ export const LUGAR_TEXTO = { x: 0.5, y: 0.17 };
  *   estilo = { color, fondo (null = sin fondo), tamano, x, y, fuente, giro }
  * Sin cambios, los sugeridos que se ven alternan el color del anuncio y el blanco (como siempre).
  */
+// ---------------------------------------------------------------- seguimiento (rutas/seguimiento.js)
+
+/**
+ * Un texto o una imagen tuya que sigue a un texto del video: sigue = { texto, siempre, puntos: [[t, x, y, w, h]] } (t en
+ * segundos del video; x, y el centro y w, h el tamaño de lo que sigue, en fracción del cuadro). -> lo que se usa o null.
+ */
+export function limpiarSigue(x) {
+  if (!x || typeof x !== 'object' || !Array.isArray(x.puntos)) return null;
+  const puntos = x.puntos
+    .filter((p) => Array.isArray(p) && p.length >= 5 && p.every((n) => Number.isFinite(Number(n))))
+    .map((p) => p.slice(0, 5).map(Number))
+    .sort((a, b) => a[0] - b[0])
+    .slice(0, 5000);
+  if (!puntos.length) return null;
+  return { texto: String(x.texto || '').slice(0, 120), siempre: x.siempre === true, puntos };
+}
+
+const HUECO_SIGUE = 1.6; // segundos sin verlo y se une con una línea (más que eso: salta)
+
+/**
+ * Dónde va en el segundo t: { x, y, w, h } o null (si no es «siempre» y el texto no está cerca de ese momento). Entre
+ * dos lecturas seguidas se mueve en línea recta; fuera de ellas, con «siempre», se queda donde se vio por última vez
+ * (o donde se verá primero).
+ */
+export function lugarSeguido(sigue, t) {
+  const ps = sigue?.puntos;
+  if (!ps?.length) return null;
+  let k = 0;
+  let lo = 0;
+  let hi = ps.length - 1;
+  while (lo <= hi) {
+    const m = (lo + hi) >> 1;
+    if (ps[m][0] <= t) {
+      k = m;
+      lo = m + 1;
+    } else hi = m - 1;
+  }
+  const a = ps[k];
+  const b = ps[k + 1];
+  const como = (p) => ({ x: p[1], y: p[2], w: p[3], h: p[4] });
+  if (t < ps[0][0]) return sigue.siempre || ps[0][0] - t <= 0.35 ? como(ps[0]) : null;
+  if (!b) return sigue.siempre || t - a[0] <= 0.6 ? como(a) : null;
+  if (b[0] - a[0] <= HUECO_SIGUE) {
+    const f = (t - a[0]) / Math.max(1e-6, b[0] - a[0]);
+    return { x: a[1] + (b[1] - a[1]) * f, y: a[2] + (b[2] - a[2]) * f, w: a[3] + (b[3] - a[3]) * f, h: a[4] + (b[4] - a[4]) * f };
+  }
+  if (t - a[0] <= 0.6) return como(a);
+  if (b[0] - t <= 0.35) return como(b);
+  return sigue.siempre ? como(a) : null;
+}
+
 export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
   const dur = num(plan?.duracion, 1);
   const color = colorAnuncio || plan?.estiloSubtitulos?.colorResaltado || '#E8442A';
@@ -711,6 +762,7 @@ export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
     visible: true,
     editado: true,
     estilo: estilo(a, { color: '#FFFFFF', fondo: color, giro: j % 2 ? 2 : -2 }),
+    sigue: limpiarSigue(a.sigue),
   }));
   return [...sugeridos, ...propios];
 }

@@ -30,7 +30,8 @@ import {
   Volume2,
   WandSparkles,
 } from 'lucide-react';
-import { Boton, CampoTexto, Interruptor, Tooltip } from '../../componentes/index.js';
+import { AreaTexto, BarraDeProgreso, Boton, CampoTexto, Interruptor, Selector, Tooltip } from '../../componentes/index.js';
+import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato.js';
 import { ESTILO_POR_ID } from './subtitulos/estilos.jsx';
 import { FUENTES } from './subtitulos/fuentes.js';
@@ -352,6 +353,131 @@ function TiempoEnPantalla({ x, acciones, total }) {
   );
 }
 
+/**
+ * Seguimiento: tu texto o tu imagen va encima de un texto que se ve en el video y lo sigue (rutas/seguimiento.js).
+ * Primero se leen los textos del video (gratis, en esta PC); después lo pides con tus palabras a la IA («ponlo encima
+ * de "muna" en todo el video») o eliges el texto de la lista. Queda en el elemento: sigue = { texto, siempre, puntos }.
+ */
+function Seguimiento({ x, acciones, total }) {
+  const slug = acciones.slug;
+  const [cadaMs, setCadaMs] = useState(undefined);
+  const { datos, recargar } = useDatos(`textos-video:${slug}`, () => pedirNuevo(`/api/anuncios/${encodeURIComponent(slug)}/textos-video`), { cadaMs });
+  const estado = datos?.estado || null;
+  useEffect(() => setCadaMs(estado === 'leyendo' ? 1500 : undefined), [estado]);
+  const [pedido, setPedido] = useState('');
+  const [elegida, setElegida] = useState('');
+  const [siempre, setSiempre] = useState(false);
+  const [ocupado, setOcupado] = useState(null);
+  const [nota, setNota] = useState(null);
+  const pistas = datos?.pistas || [];
+
+  const leer = async () => {
+    setOcupado('leer');
+    setNota(null);
+    try {
+      await pedirNuevo(`/api/anuncios/${encodeURIComponent(slug)}/textos-video`, { metodo: 'POST', cuerpo: {} });
+      await recargar();
+    } catch (e) {
+      setNota({ error: true, texto: e.message });
+    } finally {
+      setOcupado(null);
+    }
+  };
+  const seguir = (ids, conSiempre, etiqueta) => {
+    const elegidas = pistas.filter((p) => ids.includes(p.id));
+    if (!elegidas.length) return false;
+    const puntos = elegidas.flatMap((p) => p.apariciones).sort((a, b) => a[0] - b[0]);
+    const texto = [...new Set(elegidas.map((p) => p.texto))].slice(0, 3).join(' · ');
+    const cambios = conSiempre
+      ? { sigue: { texto, siempre: true, puntos }, inicio: 0, fin: Math.round(total * 100) / 100 }
+      : { sigue: { texto, siempre: false, puntos }, inicio: Math.max(0, puntos[0][0] - 0.1), fin: Math.min(total, puntos.at(-1)[0] + 0.6) };
+    acciones.ajustarTexto(x.id, cambios, { etiqueta });
+    return true;
+  };
+  const conIA = async () => {
+    if (!pedido.trim()) return;
+    setOcupado('ia');
+    setNota(null);
+    try {
+      const r = await pedirNuevo(`/api/anuncios/${encodeURIComponent(slug)}/seguimiento/ia`, { metodo: 'POST', cuerpo: { pedido, elemento: { texto: x.texto, esImagen: Boolean(x.archivo) } } });
+      if (r.pistas?.length && seguir(r.pistas, r.siempre, `Seguir «${pedido.slice(0, 30)}»`)) {
+        setNota({ texto: r.mensaje || 'Listo: ya lo sigue.' });
+        setPedido('');
+      } else setNota({ error: true, texto: r.mensaje || 'No encontré ese texto en el video. Elígelo de la lista.' });
+    } catch (e) {
+      setNota({ error: true, texto: e.message });
+    } finally {
+      setOcupado(null);
+    }
+  };
+
+  const hora = (n) => `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}`;
+  const opciones = [
+    { valor: '', etiqueta: 'Elige un texto del video…' },
+    ...[...pistas]
+      .sort((a, b) => b.veces - a.veces)
+      .map((p) => ({ valor: p.id, etiqueta: `«${p.texto.slice(0, 40)}» · ${hora(p.desde)}${p.hasta - p.desde >= 1 ? `–${hora(p.hasta)}` : ''}` })),
+  ];
+
+  return (
+    <div className="ed-seguimiento">
+      <div className="ed-tiempo-pantalla__cabecera">
+        <span>Seguimiento</span>
+        {x.sigue ? <span className="t-mono">sigue «{x.sigue.texto.slice(0, 24)}»</span> : null}
+      </div>
+      {x.sigue ? (
+        <div className="ed-tiempo-pantalla__botones">
+          <span className="ed-nota" style={{ flex: 1 }}>
+            {x.sigue.siempre ? 'Va encima de ese texto y queda en todo el video.' : 'Va encima de ese texto solo cuando aparece.'}
+          </span>
+          <Boton variante="fantasma" tamano="chico" onClick={() => acciones.ajustarTexto(x.id, { sigue: undefined }, { etiqueta: 'Dejar de seguir' })}>
+            Dejar de seguir
+          </Boton>
+        </div>
+      ) : null}
+      {estado === 'listo' ? (
+        <>
+          <AreaTexto
+            value={pedido}
+            onChange={(ev) => setPedido(ev.target.value)}
+            filas={2}
+            placeholder={'Dile a la IA, por ejemplo: ponlo encima de "muna" en todo el video'}
+            aria-label="Qué quieres que haga la IA"
+          />
+          <div className="ed-tiempo-pantalla__botones">
+            <Boton variante="primario" tamano="chico" onClick={conIA} cargando={ocupado === 'ia'} disabled={!pedido.trim()}>
+              Hacerlo con IA
+            </Boton>
+          </div>
+          <span className="ed-nota">O elígelo tú ({pistas.length} textos encontrados):</span>
+          <Selector value={elegida} onChange={(ev) => setElegida(ev.target.value)} opciones={opciones} aria-label="Texto del video" />
+          <Interruptor tamano="chico" activado={siempre} onCambio={setSiempre} etiqueta="En todo el video" descripcion="Si no, solo donde aparece ese texto." />
+          <div className="ed-tiempo-pantalla__botones">
+            <Boton variante="secundario" tamano="chico" disabled={!elegida} onClick={() => seguir([elegida], siempre, 'Seguir un texto del video')}>
+              Ponerlo encima y seguirlo
+            </Boton>
+          </div>
+        </>
+      ) : estado === 'leyendo' ? (
+        <BarraDeProgreso valor={datos?.valor || 0} animada etiqueta="Leyendo los textos del video" mostrarValor />
+      ) : estado === 'sin-video' ? (
+        <span className="ed-nota">{datos?.error}</span>
+      ) : (
+        <>
+          <span className="ed-nota">Pon este {x.archivo ? 'elemento' : 'texto'} encima de un texto del video y que lo siga. Primero hay que leer los textos del video: es gratis y tarda unos 20 s por minuto.</span>
+          {estado === 'error' ? <span className="ed-nota ed-nota--error">{datos?.error}</span> : null}
+          <div className="ed-tiempo-pantalla__botones">
+            <Boton variante="secundario" tamano="chico" onClick={leer} cargando={ocupado === 'leer'} disabled={!estado}>
+              Buscar los textos del video
+            </Boton>
+          </div>
+        </>
+      )}
+      {nota ? <span className={`ed-nota${nota.error ? ' ed-nota--error' : ''}`}>{nota.texto}</span> : null}
+    </div>
+  );
+}
+
 function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, paleta }) {
   const campo = useRef(null);
   if (!seleccion) return null;
@@ -485,6 +611,7 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
         <Seccion icono={Type} titulo="Tu imagen" resaltada accion={<span className="ed-seccion__dato t-mono">{codigoDeTiempo(x.inicio)}</span>}>
           <EditorImagen key={id} x={x} acciones={acciones} />
           <TiempoEnPantalla x={x} acciones={acciones} total={pistas.duracion} />
+          <Seguimiento x={x} acciones={acciones} total={pistas.duracion} />
           <BotonesCorte acciones={acciones} dividir={false} borrar="Borrar imagen" />
         </Seccion>
       );
@@ -525,6 +652,7 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
         ) : null}
         <EditorTexto key={id} x={x} acciones={acciones} paleta={paleta} />
         {x.visible ? <TiempoEnPantalla x={x} acciones={acciones} total={pistas.duracion} /> : null}
+        {x.visible && x.tipo === 'propio' ? <Seguimiento x={x} acciones={acciones} total={pistas.duracion} /> : null}
         {x.visible ? <BotonesCorte acciones={acciones} dividir={false} borrar={x.tipo === 'sugerido' ? 'Quitar del video' : 'Borrar texto'} /> : null}
       </Seccion>
     );
