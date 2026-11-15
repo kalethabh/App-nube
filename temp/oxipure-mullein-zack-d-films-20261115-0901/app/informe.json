@@ -1,0 +1,201 @@
+{
+  "slug": "oxipure-mullein-zack-d-films-20261115-0901",
+  "generado": "2026-11-15T15:07:54.713Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 114.1,
+    "estimada": 125.7,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "oxipure-mullein-zack-d-films-20261115-0901_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda la voz",
+      "detalle": "El video se adaptó a los 1:54 de la voz en off: ninguna frase se recortó para cuadrar."
+    },
+    {
+      "id": "voz",
+      "icono": "voz",
+      "titulo": "La voz: Adam - Dominant, Firm",
+      "detalle": "Es la que elegiste para este estilo."
+    },
+    {
+      "id": "continuidad",
+      "icono": "continuidad",
+      "titulo": "32 pasos encadenados, sin cortes",
+      "detalle": "Cada video va de una escena a la siguiente y el montaje no corta ninguno: solo cambia su velocidad para que cada imagen llegue con su frase. 9 van un poco acelerados para llegar a tiempo (el que más, 2,7 veces más rápido). En 3 escenas la imagen llega un instante antes o después de su frase (como mucho 0,4 s). Un clip se pidió más corto para no ir tan rápido."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 1:18."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "115 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [],
+  "problemas": [
+    {
+      "id": "respaldo",
+      "tipo": "arreglado",
+      "titulo": "8 clips salieron con el modelo de respaldo",
+      "detalle": "El modelo principal no lo pudo hacer y la app usó el de respaldo para no frenar el anuncio. Puede verse un poco distinto: míralo.",
+      "piezas": [
+        {
+          "n": 6,
+          "unidad": "paso",
+          "momento": 20.7,
+          "valor": "clip"
+        },
+        {
+          "n": 11,
+          "unidad": "toma",
+          "momento": 37.012,
+          "valor": "clip"
+        },
+        {
+          "n": 13,
+          "unidad": "paso",
+          "momento": 45.371,
+          "valor": "clip"
+        },
+        {
+          "n": 14,
+          "unidad": "paso",
+          "momento": 49.063,
+          "valor": "clip"
+        },
+        {
+          "n": 19,
+          "unidad": "paso",
+          "momento": 64.714,
+          "valor": "clip"
+        },
+        {
+          "n": 29,
+          "unidad": "toma",
+          "momento": 94.261,
+          "valor": "clip"
+        },
+        {
+          "n": 32,
+          "unidad": "paso",
+          "momento": 102.167,
+          "valor": "clip"
+        },
+        {
+          "n": 28,
+          "unidad": "paso",
+          "momento": 92.392,
+          "valor": "clip"
+        }
+      ]
+    },
+    {
+      "id": "voces-sin-revisar",
+      "tipo": "revisar",
+      "titulo": "3 clips no se pudieron revisar",
+      "detalle": "No pude escuchar si traen alguna voz que no va (el servicio que transcribe no respondió). Escúchalos.",
+      "piezas": [
+        {
+          "n": 1,
+          "unidad": "toma",
+          "momento": 0,
+          "valor": null
+        },
+        {
+          "n": 1,
+          "unidad": "paso",
+          "momento": 0,
+          "valor": null
+        },
+        {
+          "n": 2,
+          "unidad": "paso",
+          "momento": 5.538,
+          "valor": null
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 2676.2,
+    "dolares": 13.38,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 43,
+      "creditos": 430,
+      "dolares": 2.15
+    },
+    "videos": {
+      "piezas": 27,
+      "creditos": 1666.2,
+      "dolares": 8.33
+    },
+    "musica": {
+      "pistas": 0,
+      "creditos": 0,
+      "dolares": 0
+    },
+    "sinRegistro": {
+      "piezas": 14,
+      "creditosEstimados": 580
+    },
+    "estimado": true,
+    "elevenlabs": {
+      "caracteres": 1555,
+      "scribeSegundos": 146.6
+    },
+    "corridas": 6,
+    "respaldo": [
+      "paso-6.mp4",
+      "toma-11.mp4",
+      "paso-13.mp4",
+      "paso-14.mp4",
+      "paso-19.mp4",
+      "toma-29.mp4",
+      "paso-32.mp4",
+      "paso-28.mp4"
+    ],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 43,
+        "creditos": 430,
+        "dolares": 2.15
+      },
+      {
+        "id": "videos",
+        "piezas": 41,
+        "creditos": 2246.2,
+        "dolares": 11.23,
+        "estimadas": 14
+      },
+      {
+        "id": "voz",
+        "caracteres": 1555
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 3333.2,
+      "saldoDespues": 2657,
+      "diferencia": 676.2,
+      "coincide": false
+    },
+    "rehecho": false
+  }
+}

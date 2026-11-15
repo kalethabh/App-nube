@@ -1,8 +1,8 @@
 {
   "slug": "oxipure-mullein-zack-d-films-20261115-0901",
   "familia": "continuidad",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -115,36 +115,33 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-15T14:59:38.076Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 3415,
-        "total": 3423,
-        "restante": 1,
-        "en": "2026-11-15T15:05:35.324Z"
-      }
+      "fin": "2026-11-15T15:07:29.027Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T15:07:29.027Z",
+      "fin": "2026-11-15T15:07:54.390Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T15:07:54.391Z",
+      "fin": "2026-11-15T15:07:54.731Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T15:05:35.324Z",
+  "actualizado": "2026-11-15T15:07:54.731Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"
@@ -152,5 +149,10 @@
   "costoPlan": {
     "creditos": 1710,
     "fecha": "2026-11-15T14:20:17.598Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 2657,
+    "fecha": "2026-11-15T15:07:54.708Z"
+  },
+  "terminado": "2026-11-15T15:07:54.731Z"
 }

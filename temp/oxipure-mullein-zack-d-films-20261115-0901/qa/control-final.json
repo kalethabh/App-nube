@@ -1,0 +1,37 @@
+{
+  "generado": "2026-11-15T15:07:29.158Z",
+  "anuncio": "oxipure-mullein-zack-d-films-20261115-0901",
+  "limpio": true,
+  "codigo": 0,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "oxipure-mullein-zack-d-films-20261115-0901_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-15T15:07:25.069Z",
+      "deEsteMontaje": true,
+      "duracion": 114.155,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "se entrego solo la version completa: la version sin musica sale del editor"
+  },
+  "defectos": [],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}

@@ -1,0 +1,301 @@
+==============================================================================
+PLAN DE MONTAJE — oxipure-mullein-zack-d-films-20261115-0901
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+VOZ EN OFF:  audio/voz.mp3        duracion 114.10s
+             voz: Adam - Dominant, Firm
+
+REGLA MADRE: manda el audio. Pon el mp3 en la linea de tiempo primero
+y calza cada clip en su lugar. El video se adapta a la voz, nunca al reves.
+
+CONTINUIDAD: el anuncio se ve como UNA sola toma. Cada clip arranca en la
+imagen donde termino el anterior, y el paso de una escena a la siguiente ya
+viene DENTRO del clip. Van todos seguidos, en este orden, sin huecos.
+
+LO QUE NO SE HACE, NUNCA:
+  - No cortes nada, ni el principio ni el final de ningun clip: solo se
+    cambia la velocidad. Un corte hace saltar la imagen en la union.
+  - No pongas transiciones del editor (woosh, zoom, deslizamientos, fundidos)
+    ni metas otros clips en medio: el paso entre escenas ya lo hace cada clip.
+
+COMO SE AJUSTA: cada clip entra en el segundo que dice abajo, a la velocidad
+que dice abajo, y termina justo donde entra el siguiente. Si tu editor no
+deja poner el numero exacto: velocidad = largo del clip / lo que dura en la
+linea de tiempo.
+En una frase muy corta, la imagen nueva puede llegar hasta 0.3s antes o
+0.4s despues de su frase: es a proposito, para no acelerar de mas.
+En una toma con imagen inicial y final, su frase se reparte entre sus dos
+clips (el suyo y el paso a la siguiente) a la MISMA velocidad.
+
+------------------------------------------------------------------------------
+
+TOMA 1   (tipo B)
+  Frase:    00:00.00 -> 00:05.54   (5.54s)
+  Dice:     "Los primeros tres días vas a toser más de lo normal… y eso es buena señal."
+  1) video/toma-1.mp4   (7.00s, de toma-1-inicial a toma-1-final)
+     Entra en 00:00.00 y termina en 00:03.88, a 1.81x. Entero: sin cortarle nada.
+  2) video/paso-1.mp4   (3.00s, de toma-1-final a toma-2-inicial)
+     Entra en 00:03.88 y termina en 00:05.54, a 1.81x. Entero: sin cortarle nada.
+     La imagen de la toma 2 llega justo cuando empieza su frase (00:05.54).
+
+TOMA 2   (tipo A)
+  Frase:    00:05.54 -> 00:10.14   (4.60s)
+  Dice:     "Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho…"
+  1) video/paso-2.mp4   (4.96s, de toma-2-inicial a toma-3-inicial)
+     Entra en 00:05.54 y termina en 00:10.14, a 1.08x. Entero: sin cortarle nada.
+     La imagen de la toma 3 llega justo cuando empieza su frase (00:10.14).
+
+TOMA 3   (tipo A)
+  Frase:    00:10.14 -> 00:14.85   (4.71s)
+  Dice:     "…la que llevaba ahí semanas, meses… o hasta años."
+  1) video/paso-3.mp4   (4.96s, de toma-3-inicial a toma-4-inicial)
+     Entra en 00:10.14 y termina en 00:14.85, a 1.05x. Entero: sin cortarle nada.
+     La imagen de la toma 4 llega justo cuando empieza su frase (00:14.85).
+
+TOMA 4   (tipo A)
+  Frase:    00:14.85 -> 00:18.43   (3.58s)
+  Dice:     "Humo, polvo, flema vieja…"
+  1) video/paso-4.mp4   (3.92s, de toma-4-inicial a toma-5-inicial)
+     Entra en 00:14.85 y termina en 00:18.43, a 1.09x. Entero: sin cortarle nada.
+     La imagen de la toma 5 llega justo cuando empieza su frase (00:18.43).
+
+TOMA 5   (tipo A)
+  Frase:    00:18.43 -> 00:20.70   (2.27s)
+  Dice:     "capas que ni sabías que tenías."
+  1) video/paso-5.mp4   (3.00s, de toma-5-inicial a toma-6-inicial)
+     Entra en 00:18.43 y termina en 00:20.70, a 1.32x. Entero: sin cortarle nada.
+     La imagen de la toma 6 llega justo cuando empieza su frase (00:20.70).
+
+TOMA 6   (tipo A)
+  Frase:    00:20.70 -> 00:22.36   (1.66s)
+  Dice:     "Sí, puede que botes"
+  1) video/paso-6.mp4   (3.04s, de toma-6-inicial a toma-7-inicial)
+     Entra en 00:20.70 y termina en 00:22.36, a 1.83x. Entero: sin cortarle nada.
+     Salio del modelo de respaldo: mira que arranque y llegue a sus imagenes.
+     La imagen de la toma 7 llega justo cuando empieza su frase (00:22.36).
+
+TOMA 7   (tipo A)
+  Frase:    00:22.36 -> 00:24.66   (2.30s)
+  Dice:     "una flema oscura y espesa…"
+  1) video/paso-7.mp4   (3.00s, de toma-7-inicial a toma-8-inicial)
+     Entra en 00:22.36 y termina en 00:24.66, a 1.30x. Entero: sin cortarle nada.
+     La imagen de la toma 8 llega justo cuando empieza su frase (00:24.66).
+
+TOMA 8   (tipo A)
+  Frase:    00:24.66 -> 00:28.05   (3.39s)
+  Dice:     "…pero así sabes que tu pecho se está limpiando."
+  1) video/paso-8.mp4   (3.92s, de toma-8-inicial a toma-9-inicial)
+     Entra en 00:24.66 y termina en 00:28.05, a 1.16x. Entero: sin cortarle nada.
+     La imagen de la toma 9 llega justo cuando empieza su frase (00:28.05).
+
+TOMA 9   (tipo A)
+  Frase:    00:28.05 -> 00:31.72   (3.67s)
+  Dice:     "Llega hasta donde el jarabe para la tos nunca alcanzó."
+  1) video/paso-9.mp4   (3.92s, de toma-9-inicial a toma-10-inicial)
+     Entra en 00:28.05 y termina en 00:31.72, a 1.07x. Entero: sin cortarle nada.
+     La imagen de la toma 10 llega justo cuando empieza su frase (00:31.72).
+
+TOMA 10   (tipo B)
+  Frase:    00:31.72 -> 00:37.01   (5.29s)
+  Dice:     "Para el día diez, esa sensación pesada, de ahogo… se va."
+  1) video/toma-10.mp4   (4.96s, de toma-10-inicial a toma-10-final)
+     Entra en 00:31.72 y termina en 00:35.02, a 1.50x. Entero: sin cortarle nada.
+  2) video/paso-10.mp4   (3.00s, de toma-10-final a toma-11-inicial)
+     Entra en 00:35.02 y termina en 00:37.01, a 1.50x. Entero: sin cortarle nada.
+     La imagen de la toma 11 llega justo cuando empieza su frase (00:37.01).
+
+TOMA 11   (tipo B)
+  Frase:    00:37.01 -> 00:41.34   (4.33s)
+  Dice:     "Tu pecho se siente abierto y liviano, no apretado ni tapado."
+  1) video/toma-11.mp4   (5.04s, de toma-11-inicial a toma-11-final)
+     Entra en 00:37.01 y termina en 00:39.73, a 1.86x. Entero: sin cortarle nada.
+     Salio del modelo de respaldo: mira que arranque y llegue a sus imagenes.
+  2) video/paso-11.mp4   (3.00s, de toma-11-final a toma-12-inicial)
+     Entra en 00:39.73 y termina en 00:41.34, a 1.86x. Entero: sin cortarle nada.
+     La imagen de la toma 12 llega justo cuando empieza su frase (00:41.34).
+
+TOMA 12   (tipo B)
+  Frase:    00:41.34 -> 00:45.37   (4.03s)
+  Dice:     "Y por fin duermes la noche entera sin despertarte tosiendo."
+  1) video/toma-12.mp4   (4.96s, de toma-12-inicial a toma-12-final)
+     Entra en 00:41.34 y termina en 00:43.85, a 1.98x. Entero: sin cortarle nada.
+  2) video/paso-12.mp4   (3.00s, de toma-12-final a toma-13-inicial)
+     Entra en 00:43.85 y termina en 00:45.37, a 1.98x. Entero: sin cortarle nada.
+     La imagen de la toma 13 llega justo cuando empieza su frase (00:45.37).
+
+TOMA 13   (tipo A)
+  Frase:    00:45.37 -> 00:49.06   (3.69s)
+  Dice:     "Después de veinte días, el cambio de energía se nota."
+  1) video/paso-13.mp4   (4.04s, de toma-13-inicial a toma-14-inicial)
+     Entra en 00:45.37 y termina en 00:49.06, a 1.09x. Entero: sin cortarle nada.
+     Salio del modelo de respaldo: mira que arranque y llegue a sus imagenes.
+     La imagen de la toma 14 llega justo cuando empieza su frase (00:49.06).
+
+TOMA 14   (tipo A)
+  Frase:    00:49.06 -> 00:51.14   (2.08s)
+  Dice:     "Se acaban los bajones de la tarde…"
+  1) video/paso-14.mp4   (3.04s, de toma-14-inicial a toma-15-inicial)
+     Entra en 00:49.06 y termina en 00:51.14, a 1.46x. Entero: sin cortarle nada.
+     Salio del modelo de respaldo: mira que arranque y llegue a sus imagenes.
+     La imagen de la toma 15 llega justo cuando empieza su frase (00:51.14).
+
+TOMA 15   (tipo A)
+  Frase:    00:51.14 -> 00:54.16   (3.02s)
+  Dice:     "y subes las escaleras sin parar a coger aire."
+  1) video/paso-15.mp4   (3.92s, de toma-15-inicial a toma-16-inicial)
+     Entra en 00:51.14 y termina en 00:54.16, a 1.30x. Entero: sin cortarle nada.
+     La imagen de la toma 16 llega justo cuando empieza su frase (00:54.16).
+
+TOMA 16   (tipo B)
+  Frase:    00:54.16 -> 00:58.11   (3.95s)
+  Dice:     "Porque tu cuerpo ya no está peleando por cada bocanada de aire."
+  1) video/toma-16.mp4   (4.96s, de toma-16-inicial a toma-16-final)
+     Entra en 00:54.16 y termina en 00:56.62, a 2.02x. Entero: sin cortarle nada.
+  2) video/paso-16.mp4   (3.00s, de toma-16-final a toma-17-inicial)
+     Entra en 00:56.62 y termina en 00:58.11, a 2.02x. Entero: sin cortarle nada.
+     La imagen de la toma 17 llega justo cuando empieza su frase (00:58.11).
+
+TOMA 17   (tipo A)
+  Frase:    00:58.11 -> 01:02.70   (4.60s)
+  Dice:     "Y te vas a dar cuenta de que no era normal vivir así, falto de aire."
+  1) video/paso-17.mp4   (4.96s, de toma-17-inicial a toma-18-inicial)
+     Entra en 00:58.11 y termina en 01:02.70, a 1.08x. Entero: sin cortarle nada.
+     La imagen de la toma 18 llega justo cuando empieza su frase (01:02.70).
+
+TOMA 18   (tipo A)
+  Frase:    01:02.70 -> 01:04.71   (2.01s)
+  Dice:     "Los silbidos al respirar…"
+  1) video/paso-18.mp4   (3.00s, de toma-18-inicial a toma-19-inicial)
+     Entra en 01:02.70 y termina en 01:04.71, a 1.49x. Entero: sin cortarle nada.
+     La imagen de la toma 19 llega justo cuando empieza su frase (01:04.71).
+
+TOMA 19   (tipo A)
+  Frase:    01:04.71 -> 01:06.40   (1.68s)
+  Dice:     "la cabeza nublada…"
+  1) video/paso-19.mp4   (3.04s, de toma-19-inicial a toma-20-inicial)
+     Entra en 01:04.71 y termina en 01:06.40, a 1.81x. Entero: sin cortarle nada.
+     Salio del modelo de respaldo: mira que arranque y llegue a sus imagenes.
+     La imagen de la toma 20 llega justo cuando empieza su frase (01:06.40).
+
+TOMA 20   (tipo A)
+  Frase:    01:06.40 -> 01:08.21   (1.81s)
+  Dice:     "el pecho apretado…"
+  1) video/paso-20.mp4   (3.00s, de toma-20-inicial a toma-21-inicial)
+     Entra en 01:06.40 y termina en 01:08.21, a 1.66x. Entero: sin cortarle nada.
+     La imagen de la toma 21 llega justo cuando empieza su frase (01:08.21).
+
+TOMA 21   (tipo A)
+  Frase:    01:08.21 -> 01:12.41   (4.20s)
+  Dice:     "…era flema y bloqueo. Tu pecho no podía limpiarse solo."
+  1) video/paso-21.mp4   (4.96s, de toma-21-inicial a toma-22-inicial)
+     Entra en 01:08.21 y termina en 01:12.41, a 1.18x. Entero: sin cortarle nada.
+     La imagen de la toma 22 llega justo cuando empieza su frase (01:12.41).
+
+TOMA 22   (tipo A)
+  Frase:    01:12.41 -> 01:13.89   (1.47s)
+  Dice:     "Si cocinaste con leña,"
+  1) video/paso-22.mp4   (3.00s, de toma-22-inicial a toma-23-inicial)
+     Entra en 01:12.41 y termina en 01:13.89, a 2.04x. Entero: sin cortarle nada.
+     La imagen de la toma 23 llega justo cuando empieza su frase (01:13.89).
+
+TOMA 23   (tipo A)
+  Frase:    01:13.89 -> 01:15.60   (1.72s)
+  Dice:     "respiras el humo de los buses"
+  1) video/paso-23.mp4   (3.00s, de toma-23-inicial a toma-24-inicial)
+     Entra en 01:13.89 y termina en 01:15.60, a 1.75x. Entero: sin cortarle nada.
+     La imagen de la toma 24 llega justo cuando empieza su frase (01:15.60).
+
+TOMA 24   (tipo A)
+  Frase:    01:15.60 -> 01:17.83   (2.23s)
+  Dice:     "o te quedó la tos de la gripa…"
+  1) video/paso-24.mp4   (3.00s, de toma-24-inicial a toma-25-inicial)
+     Entra en 01:15.60 y termina en 01:17.83, a 1.35x. Entero: sin cortarle nada.
+     La imagen de la toma 25 llega justo cuando empieza su frase (01:17.83).
+
+TOMA 25   (tipo A)
+  Frase:    01:17.83 -> 01:22.62   (4.78s)
+  Dice:     "…esto es OxiPure: extracto puro de hoja de gordolobo."
+  1) video/paso-25.mp4   (4.96s, de toma-25-inicial a toma-26-inicial)
+     Entra en 01:17.83 y termina en 01:22.62, a 1.04x. Entero: sin cortarle nada.
+     La imagen de la toma 26 llega justo cuando empieza su frase (01:22.62).
+
+TOMA 26   (tipo A)
+  Frase:    01:22.62 -> 01:28.00   (5.39s)
+  Dice:     "La planta que las abuelas usaban para el pecho… ahora en gotas concentradas."
+  1) video/paso-26.mp4   (5.96s, de toma-26-inicial a toma-27-inicial)
+     Entra en 01:22.62 y termina en 01:28.00, a 1.11x. Entero: sin cortarle nada.
+     La imagen de la toma 27 llega justo cuando empieza su frase (01:28.00).
+
+TOMA 27   (tipo A)
+  Frase:    01:28.00 -> 01:32.39   (4.39s)
+  Dice:     "Un gotero en agua, en la mañana y en la noche. Así de fácil."
+  1) video/paso-27.mp4   (4.96s, de toma-27-inicial a toma-28-inicial)
+     Entra en 01:28.00 y termina en 01:32.09, a 1.21x. Entero: sin cortarle nada.
+     La imagen de la toma 28 llega 0.30s ANTES de su frase (01:32.09 en vez de 01:32.39), a proposito.
+
+TOMA 28   (tipo B)
+  Frase:    01:32.39 -> 01:34.26   (1.87s)
+  Dice:     "Te ayuda a soltar la flema,"
+  1) video/toma-28.mp4   (3.00s, de toma-28-inicial a toma-28-final)
+     Entra en 01:32.09 y termina en 01:33.19, a 2.74x. Entero: sin cortarle nada.
+  2) video/paso-28.mp4   (3.04s, de toma-28-final a toma-29-inicial)
+     Entra en 01:33.19 y termina en 01:34.29, a 2.74x. Entero: sin cortarle nada.
+     Salio del modelo de respaldo: mira que arranque y llegue a sus imagenes.
+     La imagen de la toma 29 llega 0.03s DESPUES de su frase (01:34.29 en vez de 01:34.26), a proposito.
+
+TOMA 29   (tipo B)
+  Frase:    01:34.26 -> 01:36.10   (1.83s)
+  Dice:     "a abrir el paso del aire"
+  1) video/toma-29.mp4   (3.04s, de toma-29-inicial a toma-29-final)
+     Entra en 01:34.29 y termina en 01:35.40, a 2.74x. Entero: sin cortarle nada.
+     Salio del modelo de respaldo: mira que arranque y llegue a sus imagenes.
+  2) video/paso-29.mp4   (3.00s, de toma-29-final a toma-30-inicial)
+     Entra en 01:35.40 y termina en 01:36.50, a 2.74x. Entero: sin cortarle nada.
+     La imagen de la toma 30 llega 0.40s DESPUES de su frase (01:36.50 en vez de 01:36.10), a proposito.
+
+TOMA 30   (tipo B)
+  Frase:    01:36.10 -> 01:39.22   (3.12s)
+  Dice:     "y a cuidar tus pulmones de forma natural."
+  1) video/toma-30.mp4   (3.00s, de toma-30-inicial a toma-30-final)
+     Entra en 01:36.50 y termina en 01:37.86, a 2.20x. Entero: sin cortarle nada.
+  2) video/paso-30.mp4   (3.00s, de toma-30-final a toma-31-inicial)
+     Entra en 01:37.86 y termina en 01:39.22, a 2.20x. Entero: sin cortarle nada.
+     La imagen de la toma 31 llega justo cuando empieza su frase (01:39.22).
+
+TOMA 31   (tipo A)
+  Frase:    01:39.22 -> 01:42.17   (2.95s)
+  Dice:     "Yo ya no me imagino la mañana sin mis gotas."
+  1) video/paso-31.mp4   (3.00s, de toma-31-inicial a toma-32-inicial)
+     Entra en 01:39.22 y termina en 01:42.17, a 1.02x. Entero: sin cortarle nada.
+     La imagen de la toma 32 llega justo cuando empieza su frase (01:42.17).
+
+TOMA 32   (tipo A)
+  Frase:    01:42.17 -> 01:48.74   (6.57s)
+  Dice:     "Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días."
+  1) video/paso-32.mp4   (7.04s, de toma-32-inicial a toma-33-inicial)
+     Entra en 01:42.17 y termina en 01:48.74, a 1.07x. Entero: sin cortarle nada.
+     Salio del modelo de respaldo: mira que arranque y llegue a sus imagenes.
+     La imagen de la toma 33 llega justo cuando empieza su frase (01:48.74).
+
+TOMA 33   (tipo A)
+  Frase:    01:48.74 -> 01:54.10   (5.36s)
+  Dice:     "Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí."
+  1) video/toma-33.mp4   (5.96s, arranca en toma-33-inicial)
+     Entra en 01:48.74 y termina en 01:54.10, a 1.11x. Entero: sin cortarle nada.
+     Es el cierre: termina con el audio, en 01:54.10.
+
+------------------------------------------------------------------------------
+
+SUBTITULOS
+  audio/tiempos.json trae el tiempo exacto de cada caracter de la narracion.
+  De ahi salen subtitulos de 2-4 palabras perfectamente sincronizados.
+
+AUDIO DE LOS CLIPS
+  Los clips traen ambiente y efectos, sin voces. Mezclalos por debajo de la
+  narracion (unos -18/-20 dB) y ponles un fade corto de ~80ms en cada union
+  para que no suenen secos.
+
+==============================================================================
