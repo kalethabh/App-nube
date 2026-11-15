@@ -1,0 +1,61 @@
+{
+  "v": 1,
+  "estado": {
+    "subtitulos": {
+      "visible": true,
+      "estilo": "caja",
+      "color": null,
+      "tamano": 1,
+      "altura": null,
+      "lado": 0
+    },
+    "lugaresSubtitulos": {},
+    "correcciones": {},
+    "ocultos": [],
+    "voz": {
+      "volumen": 1,
+      "silenciada": false
+    },
+    "musica": {
+      "fuente": "original",
+      "volumen": 1,
+      "silenciada": false,
+      "inicio": 0,
+      "id": null,
+      "nombre": null,
+      "url": null,
+      "duracion": null,
+      "origen": null,
+      "tramos": null
+    },
+    "quitados": [],
+    "textos": [],
+    "tomas": null,
+    "brolls": null,
+    "ajustesTextos": {},
+    "textosNuevos": [
+      {
+        "id": "tmwh4ymrl0",
+        "texto": "AMUA",
+        "inicio": 85.5864,
+        "fin": 88.0864,
+        "color": "#111111",
+        "fondo": "#FFD43B",
+        "tamano": 1,
+        "x": 0.504,
+        "y": 0.673,
+        "fuente": "titulo"
+      }
+    ],
+    "reemplazos": {},
+    "clips": {},
+    "corte": null
+  },
+  "t": 1794704967138,
+  "contexto": {
+    "titulo": "5ANUA TST1",
+    "overlays": [],
+    "color": "#0FA3B1"
+  },
+  "guardado": "2026-11-15T01:09:27.746Z"
+}
