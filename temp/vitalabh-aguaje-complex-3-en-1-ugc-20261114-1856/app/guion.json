@@ -1,0 +1,64 @@
+{
+  "titulo": "Aguaje Complex 3 en 1 · «Esta era yo hace tres meses»",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 40,
+  "de_que_va": "Camila cuenta, como en una historia de Instagram, cómo le quedaba el jean hace tres meses y cómo fue cambiando mes a mes con los tres extractos. Cierra recomendando el tratamiento completo y contando cómo le llegó.",
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "Esta era yo hace tres meses… el jean no me llenaba nada atrás. Y no, no me fui al gimnasio ni pagué dietas carísimas.",
+      "se_ve": "En su cuarto, frente al espejo, Camila muestra que el jean le queda flojo; después se sienta en la cama con el frasco junto a la cara y niega con la cabeza.",
+      "segundos": 8
+    },
+    {
+      "n": 2,
+      "momento": "solución",
+      "dice": "Lo que funciona son los tres extractos puros: aguaje, fenogreco y maca negra. No es la marca, es lo que trae adentro. Una al día.",
+      "se_ve": "En la mesa de la cocina, de mañana, señala los frutos de aguaje, las semillas de fenogreco y la raíz de maca; luego levanta el frasco cerrado y marca «uno» con el dedo.",
+      "segundos": 8
+    },
+    {
+      "n": 3,
+      "momento": "prueba",
+      "dice": "Mes uno… mes dos… y sin efecto rebote.",
+      "se_ve": "Dos selfies seguidas en el espejo: en el pasillo con short de jean, con un cambio leve, y en el baño con biker gris y top blanco, con más forma en caderas y piernas.",
+      "segundos": 4
+    },
+    {
+      "n": 4,
+      "momento": "resultado",
+      "dice": "Mes tres. Mira, el jean ya me lo llena… y el abdomen se me moldeó.",
+      "se_ve": "En el vestier de una tienda, con jean negro y body beige, se ríe, gira un poco para verse de perfil en el espejo y se pasa la mano por el abdomen.",
+      "segundos": 6
+    },
+    {
+      "n": 5,
+      "momento": "oferta",
+      "dice": "Hice el tratamiento completo de tres meses, porque el resultado se queda aunque termines. Y no tienes que estar comprando frasco por frasco.",
+      "se_ve": "En la sala, con conjunto deportivo lila y el frasco junto a la cara, cuenta «uno, dos, tres» con los dedos y habla como dando un consejo.",
+      "segundos": 8
+    },
+    {
+      "n": 6,
+      "momento": "cierre",
+      "dice": "Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
+      "se_ve": "Sentada en el sofá de la misma sala, con el frasco en la mano, sonríe y señala hacia abajo.",
+      "segundos": 6
+    }
+  ],
+  "personajes": [
+    {
+      "nombre": "Camila",
+      "como_es": "Colombiana de 28 años, trigueña clara, pelo negro liso y largo, cejas definidas y uñas cortas en tono nude."
+    }
+  ],
+  "decisiones": [
+    "Tu guion tal cual · lo visual, guiado por AGUAJE 05 - GANADOR (H264).mp4",
+    "Es un testimonio: Camila (28 años, trigueña, pelo negro largo) lo dice todo a cámara, también las frases que traías como voz de fondo, porque en este estilo siempre habla la persona. No cambié ninguna palabra. Recorre su cuarto, la cocina, el pasillo, el baño, un vestier y la sala.",
+    "Dura unos 40 segundos y no 25: es lo que necesitan tus palabras para no sonar apuradas. En cada etapa describí su figura (de plana a con curvas, cintura igual), pero el cambio de cuerpo puede salir más suave de lo que pides.",
+    "Lo que no va: cápsulas a la vista ni frasco abierto (tu preferencia para este producto), los tres frascos en fila (se ve uno y ella cuenta con los dedos), la Versión B con la toma 4B y la canción del video original (la música la pone la app). Tampoco usé un subestilo: ninguno calzaba.",
+    "Ojo: tu guion dice «Una al día» y la etiqueta recomienda 2 cápsulas al día; lo dejé como lo escribiste. El acento es colombiano natural, sin marcar región: si quieres uno (paisa, costeño, rolo…), dímelo antes de producir."
+  ]
+}
