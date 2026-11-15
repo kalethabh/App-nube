@@ -1,8 +1,9 @@
 // La columna de la derecha: lo que te necesita, la voz y la música, y el registro en frases simples.
 import { useEffect, useRef, useState } from 'react';
-import { AudioLines, CirclePause, EighthNotes, Hand, ImageIcon, ListChecks, Music, Pause, Play, RefreshCw, ScanEye, ScrollText, TriangleAlert, Wallet, WifiOff } from 'lucide-react';
+import { AudioLines, CirclePause, EighthNotes, Hand, ImageIcon, ListChecks, Music, Pause, Play, RefreshCw, RotateCcw, ScanEye, ScrollText, Sparkles, TriangleAlert, Wallet, WifiOff } from 'lucide-react';
 import { Boton, PuntoEstado, Tarjeta, TarjetaCabecera, VistaPrevia } from '../../componentes/index.js';
 import { fechaRelativa } from '../../datos/formato.js';
+import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { claveRegistro, haceSim } from './simulacion.js';
 
 // ---------------------------------------------------------------- te necesita
@@ -33,6 +34,84 @@ export function Causa({ causa }) {
   );
 }
 
+/**
+ * Una imagen que el modelo rechazó por su contenido (rutas/rechazo-imagen.js): la descripción que rechazó, para
+ * cambiarla a mano o pedirle a la IA una versión que sí pase, y seguir. alSeguir: el «Continuar» de la tarjeta.
+ */
+export function RechazoImagen({ slug, alSeguir }) {
+  const { datos } = useDatos(`rechazo-imagen:${slug}`, () => pedirNuevo(`/api/anuncios/${encodeURIComponent(slug)}/rechazo-imagen`));
+  const pieza = datos?.pieza || null;
+  const [texto, setTexto] = useState(null);
+  const [ocupado, setOcupado] = useState(null); // 'ia' | 'guardar'
+  const [nota, setNota] = useState(null); // { tono: 'ok' | 'error', texto }
+  const clave = pieza?.clave || null;
+  useEffect(() => {
+    setTexto(null);
+    setNota(null);
+  }, [clave]);
+  if (!pieza) return null;
+  const valor = texto ?? pieza.prompt;
+  const url = `/api/anuncios/${encodeURIComponent(slug)}/rechazo-imagen`;
+  const sugerir = async () => {
+    setOcupado('ia');
+    setNota(null);
+    try {
+      const r = await pedirNuevo(`${url}/sugerir`, { metodo: 'POST', cuerpo: { clave, prompt: valor } });
+      setTexto(r.prompt);
+      setNota({ tono: 'ok', texto: r.motivo || 'Te dejé una versión nueva: revísala y toca «Guardar y continuar».' });
+    } catch (e) {
+      setNota({ tono: 'error', texto: e.message });
+    }
+    setOcupado(null);
+  };
+  const guardar = async () => {
+    setOcupado('guardar');
+    setNota(null);
+    try {
+      await pedirNuevo(url, { metodo: 'POST', cuerpo: { clave, prompt: valor } });
+      await alSeguir?.();
+    } catch (e) {
+      setNota({ tono: 'error', texto: e.message });
+    }
+    setOcupado(null);
+  };
+  const igual = valor.trim() === pieza.prompt.trim();
+  return (
+    <div className="prod-rechazo">
+      <strong className="prod-causa__titulo">Cambia la descripción de {pieza.que}</strong>
+      {pieza.linea ? (
+        <p className="prod-rechazo__linea">
+          La voz dice: <q>{pieza.linea}</q>
+        </p>
+      ) : null}
+      <textarea
+        className="prod-rechazo__texto"
+        rows={7}
+        maxLength={6000}
+        value={valor}
+        disabled={Boolean(ocupado)}
+        onChange={(e) => setTexto(e.target.value)}
+        aria-label={`La descripción de ${pieza.que}`}
+      />
+      {nota ? (
+        <p className={`prod-rechazo__nota prod-rechazo__nota--${nota.tono}`} role={nota.tono === 'error' ? 'alert' : 'status'}>
+          {nota.texto}
+        </p>
+      ) : (
+        <p className="prod-rechazo__nota">Así como está, el modelo la vuelve a rechazar. Cámbiala tú o pide una versión que sí pase.</p>
+      )}
+      <div className="prod-rechazo__acciones">
+        <Boton variante="secundario" tamano="chico" icono={Sparkles} onClick={sugerir} cargando={ocupado === 'ia'} disabled={ocupado === 'guardar'}>
+          Sugerir una versión que pase
+        </Boton>
+        <Boton variante="primario" tamano="chico" icono={RotateCcw} onClick={guardar} cargando={ocupado === 'guardar'} disabled={igual || ocupado === 'ia'}>
+          Guardar y continuar
+        </Boton>
+      </div>
+    </div>
+  );
+}
+
 const ICONOS_NECESITA = { revision: ListChecks, cancion: EighthNotes, imagen: ImageIcon, error: TriangleAlert, saldo: Wallet, pausa: CirclePause, conexion: WifiOff, reintento: RefreshCw, aviso: ScanEye };
 
 /**
@@ -59,6 +138,7 @@ export function TeNecesita({ tarjetas }) {
               <strong className="prod-necesita__titulo">{t.titulo}</strong>
               <p className="prod-necesita__texto">{t.texto}</p>
               {t.causa ? <Causa causa={t.causa} /> : null}
+              {t.rechazoImagen ? <RechazoImagen slug={t.rechazoImagen} alSeguir={t.alHacer} /> : null}
             </div>
             <div className="prod-necesita__acciones">
               {t.nota ? <span className="t-mini">{t.nota}</span> : null}
