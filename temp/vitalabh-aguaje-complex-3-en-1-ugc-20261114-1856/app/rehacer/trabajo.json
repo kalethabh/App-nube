@@ -1,80 +1,65 @@
 {
-  "id": "b5c3830ace03",
-  "fase": "listo",
-  "frase": "Creando las piezas nuevas",
+  "id": "cafb4b80f1a8",
+  "fase": "produccion",
+  "frase": "Creando el clip nuevo",
   "piezas": [
     {
-      "id": "e0a2d1ee278c",
-      "creado": "2026-11-15T00:16:12.072Z",
-      "pieza": "toma-5",
-      "nombre": "Bloque 5",
-      "modo": "tal-cual",
-      "pedido": "",
-      "conImagen": false,
-      "estado": "aplicada",
-      "respaldo": true,
-      "vecinos": [],
-      "desde": "bloques"
-    },
-    {
-      "id": "a35290a5aff7",
-      "creado": "2026-11-15T00:16:42.216Z",
-      "pieza": "toma-6",
-      "nombre": "Bloque 6",
+      "id": "e01befeeb681",
+      "creado": "2026-11-15T00:36:33.876Z",
+      "pieza": "toma-1",
+      "nombre": "Bloque 1",
       "modo": "pedido",
-      "pedido": "Debe verse en toda la escena con más glúteos piernas y caderas notoriamente",
+      "pedido": "la escena del espejo no debe tener sincronización de labios, debe tener los labios completamente cerrados sin seguir la voz en off.",
       "conImagen": false,
       "estado": "aplicada",
       "sesion": {
-        "uuid": "da308324-0aaa-46e8-85e2-9b0813d10de3",
+        "uuid": "fb53389b-a0e5-47ea-9622-ff1bffab6c7a",
         "intentos": 1
       },
       "prompts": {
-        "prompt_video": "Duración: 6s.\n\nREFERENCIAS:\nImagen 1: Camila. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el producto. Es la referencia exacta del envase.\nImagen 3: la sala. Es la misma sala donde grabó hace un momento: úsala solo como referencia del lugar (sofá gris con cojines de colores, mesa de centro de madera, planta, pared blanca, ventana y luz). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa de centro.\n\nSTYLE / MOOD:\nUGC realista, honesto y cercano, como una mujer contándole a una amiga lo que le pasó, estilo historia de Instagram o TikTok. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen hiperrealista de cámara de celular: luz natural, piel con textura real y poros, mechones sueltos, ropa con arrugas, sin filtro de belleza ni piel plástica. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, natural y cotidiano, con acento colombiano natural y relajado (natural Colombian Spanish accent), sin marcar una región en particular; nada de acento mexicano, de España ni neutro de locutor. Voz femenina de una mujer de unos 28 años, de timbre medio y cálido, clara y espontánea, cómplice, como mandándole una nota de voz a una amiga, emocionada pero sin gritar, sin tono de locutora. Ritmo ágil de conversación, con energía y pausas naturales, sin sonar memorizado ni lento. Habla en español de Colombia.\n\nMAIN CHARACTER:\nLa mujer de la imagen 1: Camila, mujer adulta colombiana de 28 años, con rasgos de adulta, piel trigueña clara con textura real y poros visibles, sin filtro de belleza, cabello negro liso y largo hasta la mitad de la espalda, ojos cafés oscuros, cejas definidas, uñas cortas en tono nude, sin tatuajes visibles. Personalidad cercana y cómplice. En este video lleva un conjunto deportivo lila: leggings largos y top deportivo de tirantes anchos, con el cabello suelto. En este video tiene una figura curvilínea de reloj de arena, natural y creíble: cintura pequeña, caderas anchas y redondeadas, piernas gruesas y firmes, abdomen plano y firme, y los brazos, el cuello y la cara igual de delgados que siempre. Su postura es erguida. Sus glúteos son redondos, firmes y voluminosos, y junto con las caderas anchas y los muslos gruesos son lo que más se nota de su figura bajo los leggings lila ajustados. Esa misma figura se ve en los dos planos, durante todo el video, sin adelgazarse ni cambiar entre planos.\n\nSETTING:\nLa sala de su apartamento, de día, la misma de la imagen 3. La luz natural de una ventana grande le da de frente a ella y al frasco, con sombras suaves. Sofá gris con dos cojines de colores, una mesa de centro de madera, una planta en una matera en la esquina, pared blanca y piso de baldosa clara. Sobre la mesa de centro no hay nada; no hay nada más. Todo se ve real y vivido, no un set. Ella está de pie en el espacio libre de la sala, delante del sofá, que queda vacío detrás de ella.\n\nPERFORMANCE:\nHabla cálida y tranquila, con una sonrisa que se escucha, contando su experiencia sin vender. Gestos concretos y creíbles con la mano libre, las cejas y la cabeza. Mira directo a cámara todo el tiempo, con la cara de frente. Está de pie durante todo el video, nunca sentada, con el cuerpo girado de tres cuartos hacia la cámara y el peso apoyado en una pierna, de modo que se aprecia el contorno de la cadera, el glúteo y el muslo. Se mueve como en un video real, nada rígido. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro brillante, de lados rectos y hombros redondeados, casi el doble de alto que de ancho contando la tapa, con tapa rosada fucsia de rosca casi tan ancha como el cuerpo y una franja rosada en la base; ni botella delgada ni pote chato. Etiqueta negra con «VITALABH» pequeño arriba, «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1», una franja rosada delgada, «TRIPLE ACCIÓN» en letras rosadas inclinadas, tres recuadros pequeños en fila y «60 CÁPSULAS» abajo. Es del alto de su mano. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, siempre al derecho y nunca en espejo. De la imagen 2 se copia solo el frasco: no la mano que lo sostiene, ni el fondo, ni la barra de reproducción de abajo. Solo hay un frasco, siempre cerrado con su tapa: no se ven cápsulas sueltas ni el frasco abierto. Acabado mate, sin arcoíris ni reflejos de colores. Cuando aparece, la luz le da de frente y la etiqueta queda iluminada, sin contraluz, y ella lo sostiene junto a su cara, a la misma distancia de la cámara que ella, con los dedos por los costados sin tapar la etiqueta. En este video lo tiene cerrado en la mano izquierda, junto a su cara, en los dos tramos.\n\nTIMESTAMPS:\n[0.0–3.4s]\nPlano entero con el celular apoyado en un mueble a la altura de la cadera, de la cabeza a los pies: está de pie en la sala, con el cuerpo girado de tres cuartos hacia la cámara y la cara de frente, el peso en una pierna y la cadera marcada hacia un lado. Se ven completos y con claridad la cintura pequeña, las caderas anchas, los glúteos redondos y voluminosos de perfil y las piernas gruesas en los leggings lila. Sostiene el frasco cerrado en la mano izquierda junto a su cara, con la etiqueta de frente. Con la mano derecha, vacía, se toca el pecho y después la apoya en la cadera, tranquila y sonriente.\nDIÁLOGO: “Me llegó a la casa y lo pagué al recibirlo.”\n[3.4–6.0s]\nCorte a plano americano con el celular apoyado, de las rodillas hacia arriba: sigue de pie en la misma postura de tres cuartos, con la cara de frente, y las caderas anchas, los glúteos redondos y los muslos gruesos siguen dentro del cuadro y bien visibles. Mantiene el frasco cerrado en la mano izquierda junto a su cara, con la etiqueta de frente, y con el índice de la mano derecha, vacía, señala hacia abajo; al terminar de hablar sonríe y se queda quieta, sosteniendo el frasco, en silencio.\nDIÁLOGO: “El tuyo está en el botón de abajo.”\n\nAUDIO:\nSolo la voz de ella y el sonido ambiente de una sala: tono cálido, espacio amoblado, la calle muy lejos detrás de la ventana. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Camila no cambia entre planos. En ningún plano se encuadra solo de la cintura hacia arriba: las caderas, los glúteos y los muslos siempre quedan dentro del cuadro."
+        "prompt_video": "Duración: 8s.\n\nREFERENCIAS:\nImagen 1: Camila. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.\nImagen 2: el producto. Es la referencia exacta del envase.\n\nSTYLE / MOOD:\nUGC realista, honesto y cercano, como una mujer contándole a una amiga lo que le pasó, estilo historia de Instagram o TikTok. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen hiperrealista de cámara de celular: luz natural, piel con textura real y poros, mechones sueltos, ropa con arrugas, sin filtro de belleza ni piel plástica. Se siente casero y auténtico, no un comercial pulido.\n\nLANGUAGE / VOICE:\nEspañol de Colombia, natural y cotidiano, con acento colombiano natural y relajado (natural Colombian Spanish accent), sin marcar una región en particular; nada de acento mexicano, de España ni neutro de locutor. Voz femenina de una mujer de unos 28 años, de timbre medio y cálido, clara y espontánea, cómplice, como mandándole una nota de voz a una amiga, emocionada pero sin gritar, sin tono de locutora. Ritmo ágil de conversación, con energía y pausas naturales, sin sonar memorizado ni lento. Habla en español de Colombia. Es una sola voz, la misma de principio a fin. Los dos planos del espejo son un video viejo y MUDO: en ellos la voz es una narración grabada después y puesta encima, viene de fuera de la imagen y nadie en pantalla la pronuncia. Solo en el último plano, sin espejo, Camila dice la frase a cámara.\n\nMAIN CHARACTER:\nLa mujer de la imagen 1: Camila, mujer adulta colombiana de 28 años, con rasgos de adulta, piel trigueña clara con textura real y poros visibles, sin filtro de belleza, cabello negro liso y largo hasta la mitad de la espalda, ojos cafés oscuros, cejas definidas, uñas cortas en tono nude, sin tatuajes visibles. Personalidad cercana y cómplice. En este video lleva un jean azul claro una talla grande y un top negro básico de tirantes anchos, con el cabello suelto. En este video su figura es delgada y recta, sin curvas: caderas angostas, piernas delgadas y rectas, y el jean le queda flojo, con tela sobrante en la parte de atrás y en las piernas. Su postura es algo encorvada.\n\nSETTING:\nSu cuarto, en un apartamento de clase media en Colombia, de día. La luz natural de una ventana a un lado le da de frente a ella y al frasco, con sombras suaves. Cama tendida con una cobija morada, closet de madera, piso de baldosa clara y un espejo de cuerpo entero apoyado en la pared, con algo de reflejo y marcas leves. Sobre la cama solo hay: la cobija morada, una almohada y el frasco cerrado; no hay nada más. Todo se ve real y vivido, no un set.\n\nPERFORMANCE:\nEn los dos planos del espejo (el \"antes\") Camila es una figura callada en un video mudo: desde el primer cuadro hasta el corte tiene los labios sellados, pegados uno contra el otro en una línea recta, la mandíbula quieta y cerrada. Su boca es lo único de su cara que no se mueve: no se abre, no articula, no tararea, no suspira por la boca, no sigue el ritmo de la narración. Actúa solo con el cuerpo, los ojos y las cejas: se mira el jean con la mirada baja, deja caer los hombros, resignada. La narración suena encima como si fuera de otra pista, sin relación con su boca. Solo en el último plano, ya sin espejo, habla a cámara, bajito y con picardía, medio riéndose de sí misma: niega con la cabeza, levanta una ceja. Se mueve como en un video real, nada rígido. Sin sobreactuar.\n\nPRODUCT / VISUAL KEY:\nEl producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro brillante, de lados rectos y hombros redondeados, casi el doble de alto que de ancho contando la tapa, con tapa rosada fucsia de rosca casi tan ancha como el cuerpo y una franja rosada en la base; ni botella delgada ni pote chato. Etiqueta negra con «VITALABH» pequeño arriba, «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1», una franja rosada delgada, «TRIPLE ACCIÓN» en letras rosadas inclinadas, tres recuadros pequeños en fila y «60 CÁPSULAS» abajo. Es del alto de su mano. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, siempre al derecho y nunca en espejo. De la imagen 2 se copia solo el frasco: no la mano que lo sostiene, ni el fondo, ni la barra de reproducción de abajo. Solo hay un frasco, siempre cerrado con su tapa: no se ven cápsulas sueltas ni el frasco abierto. Acabado mate, sin arcoíris ni reflejos de colores. Cuando aparece, la luz le da de frente y la etiqueta queda iluminada, sin contraluz, y ella lo sostiene junto a su cara, a la misma distancia de la cámara que ella, con los dedos por los costados sin tapar la etiqueta. En este video se ve solo en el último tramo, cerrado, en su mano izquierda junto a su cara; en los dos primeros tramos no se ve.\n\nTIMESTAMPS:\n[0.0–2.0s]\nVIDEO MUDO DEL ESPEJO. Selfie de cuerpo entero en el espejo del cuarto, con la cobija morada al fondo. Está de tres cuartos de lado, con la cara hacia el espejo; sostiene el celular con la mano derecha a la altura del pecho, sin taparse la cara, y la mano izquierda cuelga vacía. Con la mirada baja, puesta en el reflejo de su jean, se gira despacio un poco más de lado y deja caer los hombros, resignada. Labios sellados en una línea recta durante todo el plano, mandíbula quieta: su boca no se abre ni una vez. Cámara quieta, sin acercamiento.\nNARRACIÓN FUERA DE IMAGEN (pista de voz aparte, grabada después; nadie en pantalla la pronuncia; la boca de Camila sigue sellada mientras suena): “Esta era yo hace tres meses…”\n[2.0–4.4s]\nVIDEO MUDO DEL ESPEJO. Corte a plano medio en el mismo espejo, de la cabeza a medio muslo, de tres cuartos de lado y con la cara hacia el espejo: con la mirada baja, siguiendo su propia mano, agarra con la mano izquierda la pretina del jean a un costado de la cintura, la jala hacia afuera para mostrar que le sobra tela y la suelta. Cejas caídas, expresión resignada solo con los ojos. Labios sellados en una línea recta durante todo el plano, mandíbula quieta: su boca no se abre ni una vez. Cámara quieta.\nNARRACIÓN FUERA DE IMAGEN (pista de voz aparte, grabada después; nadie en pantalla la pronuncia; la boca de Camila sigue sellada mientras suena): “el jean no me llenaba nada atrás.”\n[4.4–8.0s]\nCorte a selfie cercano, del pecho hacia arriba, sentada al borde de la cama y sin espejo: sostiene el celular con la mano derecha, que queda fuera de cuadro, y con la mano izquierda sostiene el frasco cerrado que tomó de la cama, junto a su cara, con la etiqueta de frente a cámara, ocupando cerca del 40 % del alto del cuadro. Recién aquí abre la boca por primera vez: mira a cámara y habla, con los labios sincronizados con la voz: niega con la cabeza dos veces, levanta una ceja con media sonrisa pícara y al final sube el frasco hasta el lado de la mejilla; al terminar de hablar se queda quieta, sosteniendo el frasco, en silencio. No sostiene nada más que el frasco cerrado.\nDIÁLOGO: “Y no, no me fui al gimnasio ni pagué dietas carísimas.”\n\nAUDIO:\nSolo la voz de ella y el sonido ambiente de un dormitorio: acústica cerrada y suave, sin eco, el roce leve de la tela del jean. En los dos planos del espejo la voz es una narración puesta encima, limpia y cercana, que no sale de la boca de nadie en la imagen; es continua con la del último tramo: misma voz, mismo volumen y mismo tono, sin corte ni cambio de sonido al pasar a hablar a cámara. Ninguna otra voz. Sin música.\n\n*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes y las palabras «video mudo» y «narración» son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Camila no cambia entre planos. Regla principal de este video: de 0.0 a 4.4 segundos no hay sincronización de labios; la boca de Camila y la de su reflejo permanecen cerradas y quietas, con los labios sellados, aunque la narración esté sonando. La boca solo se mueve de 4.4 a 8.0 segundos."
       },
-      "motivo": "Ahora sale de pie y de cuerpo casi completo, un poco de lado, para que las caderas, los glúteos y las piernas se noten durante toda la escena.",
+      "motivo": "Dejé las dos escenas del espejo como un video mudo: ella tiene los labios sellados y la mirada baja todo el tiempo, y la voz suena encima como narración aparte; solo habla a cámara en la última parte.",
       "respaldo": true,
       "vecinos": [],
       "desde": "bloques"
     }
   ],
-  "creado": "2026-11-15T00:22:07.916Z",
+  "creado": "2026-11-15T00:36:33.877Z",
   "anterior": {
-    "id": "90b31a1b9201",
+    "id": "b5c3830ace03",
     "fase": "listo",
-    "terminado": "2026-11-15T00:22:07.913Z",
+    "terminado": "2026-11-15T00:31:17.980Z",
     "error": null,
     "nota": null,
     "exportarDeNuevo": false,
     "notaExportar": null,
     "piezas": [
       {
-        "id": "8e641cb08a56",
-        "pieza": "toma-1",
-        "nombre": "Bloque 1",
-        "modo": "pedido",
+        "id": "e0a2d1ee278c",
+        "pieza": "toma-5",
+        "nombre": "Bloque 5",
+        "modo": "tal-cual",
         "estado": "aplicada",
         "error": null
       },
       {
-        "id": "008e22f41803",
-        "pieza": "toma-3",
-        "nombre": "Bloque 3",
+        "id": "a35290a5aff7",
+        "pieza": "toma-6",
+        "nombre": "Bloque 6",
         "modo": "pedido",
         "estado": "aplicada",
         "error": null
       }
     ]
   },
-  "actualizado": "2026-11-15T00:31:17.981Z",
-  "pieza": "toma-5",
-  "nombre": "Bloque 5 y Bloque 6",
-  "pedido": "",
+  "actualizado": "2026-11-15T00:37:48.671Z",
+  "pieza": "toma-1",
+  "nombre": "Bloque 1",
+  "pedido": "la escena del espejo no debe tener sincronización de labios, debe tener los labios completamente cerrados sin seguir la voz en off.",
   "conImagen": false,
-  "modo": "tal-cual",
+  "modo": "pedido",
   "desde": "bloques",
-  "reabierto": "2026-11-15T00:22:41.775Z",
-  "desdePaso": "bloques",
-  "terminado": "2026-11-15T00:31:17.980Z",
-  "nota": null
+  "reabierto": "2026-11-15T00:37:48.664Z",
+  "desdePaso": "bloques"
 }
