@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "render",
+  "paso": "bloques",
   "pasos": [
     {
       "id": "validar",
@@ -40,75 +40,58 @@
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "hecho",
-      "intentos": 1,
-      "inicio": "2026-11-15T00:05:30.131Z",
-      "fin": "2026-11-15T00:10:46.780Z"
+      "estado": "corriendo",
+      "intentos": 2,
+      "inicio": "2026-11-15T00:16:05.227Z"
     },
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "hecho",
-      "intentos": 1,
-      "inicio": "2026-11-15T00:10:46.781Z",
-      "fin": "2026-11-15T00:11:35.700Z",
-      "nota": "La revisión dejó un aviso: míralo en el proceso."
+      "estado": "pendiente",
+      "intentos": 1
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "hecho",
-      "intentos": 1,
-      "inicio": "2026-11-15T00:11:35.701Z",
-      "fin": "2026-11-15T00:12:05.413Z"
+      "estado": "pendiente",
+      "intentos": 1
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "hecho",
-      "intentos": 1,
-      "inicio": "2026-11-15T00:12:05.414Z",
-      "fin": "2026-11-15T00:12:12.054Z"
+      "estado": "pendiente",
+      "intentos": 1
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
-      "intentos": 1,
-      "inicio": "2026-11-15T00:12:12.054Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 1166,
-        "total": 1177,
-        "restante": 0,
-        "en": "2026-11-15T00:14:00.281Z"
-      }
+      "estado": "pendiente",
+      "intentos": 1
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
       "estado": "pendiente",
-      "intentos": 0
+      "intentos": 1
     },
     {
       "id": "ganchos",
       "nombre": "Armar las versiones con otro gancho",
       "estado": "pendiente",
-      "intentos": 0
+      "intentos": 1
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
       "estado": "pendiente",
-      "intentos": 0
+      "intentos": 1
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-15T00:04:22.477Z",
   "aprobado": "2026-11-15T00:04:22.477Z",
-  "actualizado": "2026-11-15T00:14:00.281Z",
+  "actualizado": "2026-11-15T00:16:05.227Z",
   "saldoInicial": {
     "creditos": 1095.2,
     "fecha": "2026-11-15T00:04:24.014Z"
@@ -116,5 +99,24 @@
   "costoPlan": {
     "creditos": 422,
     "fecha": "2026-11-15T00:04:24.015Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 2673.2,
+    "fecha": "2026-11-15T00:14:32.754Z"
+  },
+  "rehacer": [
+    {
+      "id": "90b31a1b9201",
+      "pieza": "toma-1",
+      "piezas": [
+        "toma-1",
+        "toma-3"
+      ],
+      "modos": {
+        "toma-1": "pedido",
+        "toma-3": "pedido"
+      },
+      "fecha": "2026-11-15T00:16:05.225Z"
+    }
+  ]
 }

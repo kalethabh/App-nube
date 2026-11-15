@@ -1,14 +1,4 @@
 {
   "v": 1,
-  "pedidos": [
-    {
-      "id": "8e641cb08a56",
-      "creado": "2026-11-15T00:12:51.660Z",
-      "pieza": "toma-1",
-      "nombre": "Bloque 1",
-      "modo": "pedido",
-      "pedido": "La persona está hablando, debe ser en voz en off. la persona no debe hablar. en el antes.",
-      "conImagen": false
-    }
-  ]
+  "pedidos": []
 }

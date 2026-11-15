@@ -1,0 +1,151 @@
+{
+  "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
+  "generado": "2026-11-15T00:14:32.762Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 39.23,
+    "estimada": 40,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda lo que dice la persona",
+      "detalle": "El video dura 0:39: 6 bloques donde la persona habla a cámara (pedidos, suman 0:40). Ninguna frase se recortó para cuadrar."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:33."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "3 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "44 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "Cada bloque a su velocidad",
+      "detalle": "Un bloque hablado nunca se acelera: le cambiaría la voz y los labios dejarían de ir con lo que dice."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 2,
+      "momento": 7.754,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 4,
+      "momento": 19.517,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 6,
+      "momento": 33.257,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "revision-avisos",
+      "tipo": "revisar",
+      "titulo": "Lo que notó la revisión",
+      "detalle": "La revisión notó algo en esta pieza y no se rehízo nada solo: mírala y, si quieres, regenérala desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).",
+      "piezas": [
+        {
+          "n": null,
+          "unidad": "Escena 1",
+          "momento": 0,
+          "valor": "No dijo su parte tal cual: dijo «gym» en vez de «jean». Dijo «gym» en vez de «jean», así que la frase del pantalón no se entiende. Además, el frasco que se ve sobre la cama no tiene la tapa rosada del tuyo.",
+          "clave": "vid:toma-1",
+          "sugerencia": true
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 422,
+    "dolares": 2.11,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 1,
+      "creditos": 10,
+      "dolares": 0.05
+    },
+    "videos": {
+      "piezas": 6,
+      "creditos": 400,
+      "dolares": 2
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 0,
+      "creditosEstimados": 0
+    },
+    "estimado": false,
+    "elevenlabs": {
+      "caracteres": 0,
+      "scribeSegundos": 79.4
+    },
+    "corridas": 5,
+    "respaldo": [],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 1,
+        "creditos": 10,
+        "dolares": 0.05
+      },
+      {
+        "id": "videos",
+        "piezas": 6,
+        "creditos": 400,
+        "dolares": 2
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 0
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 1095.2,
+      "saldoDespues": 2673.2,
+      "diferencia": -1578,
+      "coincide": false
+    },
+    "rehecho": false
+  },
+  "estilo": "ugc"
+}

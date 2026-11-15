@@ -1,0 +1,155 @@
+==============================================================================
+PLAN DE MONTAJE — vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+ANUNCIO POR BLOQUES (UGC). Cada bloque es un clip de 4 a 10 s donde la persona
+habla con su propia voz, con lip-sync. No hay voz en off ni B-roll.
+
+REGLA MADRE: manda el clip. Los bloques van en orden y en corte seco; la
+duracion del anuncio es la suma de los bloques ya recortados.
+
+LO QUE NO SE HACE, NUNCA:
+  - No aceleres un bloque hablado: deforma la voz y desincroniza la boca.
+  - No cortes por DENTRO del dialogo: ahi vive el lip-sync.
+  Si un bloque no sirve, se REGENERA (npm run rehacer -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 N). No se ajusta.
+
+LO QUE SI: recorta el silencio del principio y del final de cada bloque. Si al
+final repite palabras que ya dijo, cortalas (abajo se indica donde, si se midio).
+
+------------------------------------------------------------------------------
+
+BLOQUE 1   (8 s, tipo R)   — gancho + problema
+  Cuando:   00:00.00 -> 00:07.75   (7.75s de ventana)
+  Clip:     video/toma-1.mp4
+  Tramos:
+            [0.0–2.0s]  "Esta era yo hace tres meses…"
+            [2.0–4.4s]  "el jean no me llenaba nada atrás."
+            [4.4–8.0s]  "Y no, no me fui al gimnasio ni pagué dietas carísimas."
+  Dice:     "Esta era yo hace tres meses… el jean no me llenaba nada atrás. Y no, no me fui al gimnasio ni pagué dietas carísimas."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+  Recorte:  0.18s del INICIO y 0.00s del FINAL.
+            Quedan 7.75s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 2   (8 s, tipo R)   — solución
+  Cuando:   00:07.75 -> 00:15.68   (7.93s de ventana)
+  Clip:     video/toma-2.mp4
+  Tramos:
+            [0.0–2.6s]  "Lo que funciona son los tres extractos puros:"
+            [2.6–4.4s]  "aguaje, fenogreco y maca negra."
+            [4.4–6.8s]  "No es la marca, es lo que trae adentro."
+            [6.8–8.0s]  "Una al día."
+  Dice:     "Lo que funciona son los tres extractos puros: aguaje, fenogreco y maca negra. No es la marca, es lo que trae adentro. Una al día."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 3   (4 s, tipo R)   — prueba: mes uno y mes dos
+  Cuando:   00:15.68 -> 00:19.52   (3.83s de ventana)
+  Clip:     video/toma-3.mp4
+  Tramos:
+            [0.0–1.3s]  "Mes uno…"
+            [1.3–2.6s]  "mes dos…"
+            [2.6–4.0s]  "y sin efecto rebote."
+  Dice:     "Mes uno… mes dos… y sin efecto rebote."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+  Recorte:  0.09s del INICIO y 0.00s del FINAL.
+            Quedan 3.83s utiles de los 3.92s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 4   (6 s, tipo R)   — resultado: mes tres
+  Cuando:   00:19.52 -> 00:25.49   (5.97s de ventana)
+  Clip:     video/toma-4.mp4
+  Tramos:
+            [0.0–1.4s]  "Mes tres."
+            [1.4–3.8s]  "Mira, el jean ya me lo llena…"
+            [3.8–6.0s]  "y el abdomen se me moldeó."
+  Dice:     "Mes tres. Mira, el jean ya me lo llena… y el abdomen se me moldeó."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 5.97s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 5   (8 s, tipo R)   — recomendación: el tratamiento completo
+  Cuando:   00:25.49 -> 00:33.26   (7.77s de ventana)
+  Clip:     video/toma-5.mp4
+  Tramos:
+            [0.0–2.4s]  "Hice el tratamiento completo de tres meses,"
+            [2.4–4.8s]  "porque el resultado se queda aunque termines."
+            [4.8–8.0s]  "Y no tienes que estar comprando frasco por frasco."
+  Dice:     "Hice el tratamiento completo de tres meses, porque el resultado se queda aunque termines. Y no tienes que estar comprando frasco por frasco."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+  Recorte:  0.00s del INICIO y 0.16s del FINAL.
+            Quedan 7.77s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 6   (6 s, tipo R)   — cierre
+  Cuando:   00:33.26 -> 00:39.23   (5.97s de ventana)
+  Clip:     video/toma-6.mp4
+  Tramos:
+            [0.0–3.4s]  "Me llegó a la casa y lo pagué al recibirlo."
+            [3.4–6.0s]  "El tuyo está en el botón de abajo."
+  Dice:     "Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-sala     -> img/lugar-sala.png   (fotograma del bloque 5, segundo 1.2)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 5.97s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+------------------------------------------------------------------------------
+
+GANCHOS ALTERNATIVOS (opcionales, para probar en Meta cual vende mas)
+Cada uno es otra version completa del bloque que reemplaza. El resto del anuncio
+no cambia: se arma una version del anuncio por gancho.
+
+GANCHO 1b   (8 s) — reemplaza al BLOQUE 1
+  Clip:     video/gancho-1b.mp4   (todavia no generado: npm run videos -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 --ganchos)
+  Tramos:
+            [0.0–2.0s]  "Te confieso algo que me apenaba…"
+            [2.0–4.4s]  "el jean no me llenaba nada atrás."
+            [4.4–8.0s]  "Y no, no me fui al gimnasio ni pagué dietas carísimas."
+  Dice:     "Te confieso algo que me apenaba… el jean no me llenaba nada atrás. Y no, no me fui al gimnasio ni pagué dietas carísimas."
+  Version del anuncio con este gancho:  npm run ugc:gancho -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 1b
+  (a mano: la misma linea de tiempo, cambiando solo el bloque 1 por este clip)
+
+GANCHO 1c   (8 s) — reemplaza al BLOQUE 1
+  Clip:     video/gancho-1c.mp4   (todavia no generado: npm run videos -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 --ganchos)
+  Tramos:
+            [0.0–2.0s]  "Yo pensaba que era de familia…"
+            [2.0–4.4s]  "el jean no me llenaba nada atrás."
+            [4.4–8.0s]  "Y no, no me fui al gimnasio ni pagué dietas carísimas."
+  Dice:     "Yo pensaba que era de familia… el jean no me llenaba nada atrás. Y no, no me fui al gimnasio ni pagué dietas carísimas."
+  Version del anuncio con este gancho:  npm run ugc:gancho -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 1c
+  (a mano: la misma linea de tiempo, cambiando solo el bloque 1 por este clip)
+
+------------------------------------------------------------------------------
+
+SUBTITULOS, TEXTO EN PANTALLA Y MUSICA
+  Van en el montaje, nunca dentro de los clips. Musica baja, unos -22 dB por
+  debajo de la voz.
+
+AUDIO DE LOS CLIPS
+  La voz viene DENTRO de cada clip, con el ambiente del lugar. No se le agrega
+  narracion. Un fade corto (~80ms) en cada corte evita que suene seco.
+
+==============================================================================
