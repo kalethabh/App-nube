@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "montaje",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -65,15 +65,25 @@
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-15T00:12:05.414Z"
+      "inicio": "2026-11-15T00:12:05.414Z",
+      "fin": "2026-11-15T00:12:12.054Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-15T00:12:12.054Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 1166,
+        "total": 1177,
+        "restante": 0,
+        "en": "2026-11-15T00:14:00.281Z"
+      }
     },
     {
       "id": "control-final",
@@ -98,7 +108,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T00:04:22.477Z",
   "aprobado": "2026-11-15T00:04:22.477Z",
-  "actualizado": "2026-11-15T00:12:05.414Z",
+  "actualizado": "2026-11-15T00:14:00.281Z",
   "saldoInicial": {
     "creditos": 1095.2,
     "fecha": "2026-11-15T00:04:24.014Z"
