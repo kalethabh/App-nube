@@ -305,6 +305,53 @@ function Atajo({ icono: Icono, titulo, valor, onClick, activo, tono = 'acento', 
 
 // ---------------------------------------------------------------- lo que el usuario eligió en la línea de tiempo
 
+/**
+ * Cuánto dura en pantalla un texto o una imagen tuya: alargarlo o acortarlo con botones, sin agarrar sus bordes en la
+ * línea de tiempo (en un video largo un texto de 2 s es una rayita). Cada toque es un paso del historial.
+ */
+function TiempoEnPantalla({ x, acciones, total }) {
+  const dur = Math.max(0.1, (Number(x.fin) || 0) - (Number(x.inicio) || 0));
+  const fin = (nuevoFin, etiqueta) => {
+    const f = Math.round(Math.max(x.inicio + 0.3, Math.min(total, nuevoFin)) * 100) / 100;
+    if (Math.abs(f - x.fin) < 0.005) return;
+    acciones.ajustarTexto(x.id, { fin: f }, { etiqueta });
+  };
+  const segundos = (n) => `${String(Math.round(n * 10) / 10).replace('.', ',')} s`;
+  const alFinal = x.fin >= total - 0.05;
+  return (
+    <div className="ed-tiempo-pantalla">
+      <div className="ed-tiempo-pantalla__cabecera">
+        <span>Cuánto dura</span>
+        <span className="t-mono">
+          {segundos(dur)} · {codigoDeTiempo(x.inicio)} a {codigoDeTiempo(x.fin)}
+        </span>
+      </div>
+      <div className="ed-tiempo-pantalla__botones">
+        <Boton variante="secundario" tamano="chico" onClick={() => fin(x.fin - 1, 'Acortar 1 s')} disabled={dur <= 0.35}>
+          −1 s
+        </Boton>
+        <Boton variante="secundario" tamano="chico" onClick={() => fin(x.fin + 1, 'Alargar 1 s')} disabled={alFinal}>
+          +1 s
+        </Boton>
+        <Boton variante="secundario" tamano="chico" onClick={() => fin(x.fin + 5, 'Alargar 5 s')} disabled={alFinal}>
+          +5 s
+        </Boton>
+        <Boton variante="secundario" tamano="chico" onClick={() => fin(total, 'Hasta el final')} disabled={alFinal}>
+          Hasta el final
+        </Boton>
+        <Boton
+          variante="secundario"
+          tamano="chico"
+          onClick={() => acciones.ajustarTexto(x.id, { inicio: 0, fin: Math.round(total * 100) / 100 }, { etiqueta: 'Todo el video' })}
+          disabled={x.inicio <= 0.01 && alFinal}
+        >
+          Todo el video
+        </Boton>
+      </div>
+    </div>
+  );
+}
+
 function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, paleta }) {
   const campo = useRef(null);
   if (!seleccion) return null;
@@ -437,6 +484,7 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
       return (
         <Seccion icono={Type} titulo="Tu imagen" resaltada accion={<span className="ed-seccion__dato t-mono">{codigoDeTiempo(x.inicio)}</span>}>
           <EditorImagen key={id} x={x} acciones={acciones} />
+          <TiempoEnPantalla x={x} acciones={acciones} total={pistas.duracion} />
           <BotonesCorte acciones={acciones} dividir={false} borrar="Borrar imagen" />
         </Seccion>
       );
@@ -476,6 +524,7 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
           />
         ) : null}
         <EditorTexto key={id} x={x} acciones={acciones} paleta={paleta} />
+        {x.visible ? <TiempoEnPantalla x={x} acciones={acciones} total={pistas.duracion} /> : null}
         {x.visible ? <BotonesCorte acciones={acciones} dividir={false} borrar={x.tipo === 'sugerido' ? 'Quitar del video' : 'Borrar texto'} /> : null}
       </Seccion>
     );
