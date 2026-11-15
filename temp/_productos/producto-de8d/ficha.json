@@ -1,0 +1,47 @@
+{
+  "nombre": "OxiPure Mullein",
+  "queEs": "Gotas de extracto de hoja de gordolobo en frasco gotero de 30 ml, para apoyo respiratorio natural de uso diario.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Apoyo respiratorio natural de uso diario",
+    "Ayuda a limpiar de forma natural la flema",
+    "Para la tos y el pecho apretado",
+    "Para respirar hondo y con el pecho abierto",
+    "Gotas fáciles de tomar en un vaso de agua"
+  ],
+  "publico": "Adultos de 40 a 65 años en Colombia, hombres y mujeres, que viven con tos, flema y el pecho apretado y prefieren algo natural.",
+  "dolor": "Tiene tos, flema y el pecho apretado todos los días, se cansa al subir escaleras, duerme mal por la tos y ya cree que eso es normal.",
+  "oferta": "",
+  "comoCompra": "Contra entrega: pide y paga al recibir.",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Extracto de hoja de gordolobo (mullein). La etiqueta no deja leer la dosis.",
+  "comoSeUsa": "Se llena el gotero y se sueltan las gotas en un vaso de agua. Uso diario.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "Frasco gotero de vidrio ámbar con etiqueta verde, su caja verde y el gotero con líquido verde. La etiqueta está en inglés, dice 60 ml y no muestra el nombre OxiPure."
+    }
+  ],
+  "deducido": [
+    "publico"
+  ],
+  "falta": [
+    {
+      "campo": "queEs",
+      "pregunta": "La foto dice 60 ml y no muestra el nombre OxiPure. ¿El frasco que vendes es igual al de la foto o es otro de 30 ml?"
+    },
+    {
+      "campo": "comoSeUsa",
+      "pregunta": "¿Cuántas gotas se toman y cuántas veces al día?"
+    },
+    {
+      "campo": "ingredientes",
+      "pregunta": "¿Lleva solo gordolobo o tiene otros ingredientes? Si tiene más, ¿cuáles?"
+    }
+  ]
+}
