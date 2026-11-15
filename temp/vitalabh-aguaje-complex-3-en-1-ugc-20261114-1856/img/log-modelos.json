@@ -1,0 +1,16 @@
+{
+  "generado": "2026-11-15T00:05:24.050Z",
+  "segundos": 59,
+  "imagenes": [
+    {
+      "id": "personaje",
+      "archivo": "personaje.png",
+      "modelo": "gpt-image-2-5-sunburst-text-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 10,
+      "taskId": "c7187e9b56fb9273786ef52b43d18052"
+    }
+  ]
+}
