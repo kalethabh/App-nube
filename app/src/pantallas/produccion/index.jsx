@@ -582,6 +582,8 @@ export default function Produccion({ params, consulta }) {
       cargando: continuando,
       secundaria: tipo === 'saldo' ? { texto: 'Ver en Ajustes', href: enlace.ajustes(), icono: Settings } : undefined,
       causa: v.alto.paso?.error?.causa || null,
+      // una imagen rechazada por su contenido: en la misma tarjeta se cambia su descripción (rutas/rechazo-imagen.js)
+      rechazoImagen: tipo === 'error' && v.alto.paso?.id === 'imagenes' && v.alto.paso?.error?.motivo === 'contenido' ? slug : null,
     });
   }
   if (esperaCancion) {
