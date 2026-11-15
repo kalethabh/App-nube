@@ -5,7 +5,7 @@
 // Al tocar Generar, en orden (ESPECIFICACION §11.1):
 //   1. si la foto es nueva: crea el producto (POST /api/productos, tipo físico, sin analizar) y sube su foto
 //   2. POST /api/imagen-ads (el lote queda en borrador)
-//   3. PUT de cada referencia, de la investigación de mercado y del logo, de a una
+//   3. PUT de cada referencia y del logo, de a una (la investigación de mercado del producto la pone el servidor)
 //   4. POST /api/imagen-ads/:lote/generar
 //   5. va a la pantalla del lote
 // Si algo falla, avisa y se queda aquí recordando el lote ya creado: el reintento no crea otro (si cambiaste algo
@@ -15,7 +15,7 @@
 // precio por imagen lo manda el servidor (GET /api/imagen-ads/opciones → costo; el modelo de los lotes es fijo) y se
 // recalcula con la cantidad y el formato (costoDelLote). La pantalla del lote sigue sin precios hasta su informe.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, CircleCheck, FileText, FileUp, Globe, Images, Megaphone, Sparkles, Tag, TriangleAlert, Users, X } from 'lucide-react';
+import { CircleAlert, CircleCheck, Globe, Images, Megaphone, Sparkles, Tag, Telescope, TriangleAlert, Users } from 'lucide-react';
 import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useEstado } from '../../datos/api.js';
 import { dinero } from '../../datos/formato.js';
@@ -70,14 +70,9 @@ const VACIO = {
   cantidad: '10',
   conVertical: true,
   posicionLogo: POSICION_POR_DEFECTO,
-  // la investigación de mercado pegada (un archivo subido no se guarda en el navegador)
-  investigacion: '',
   // «Más de lo mismo»: todas las variaciones copian el diseño de tus referencias
   fiel: true,
 };
-
-const MAXIMO_INVESTIGACION = 120000;
-const PESO_INVESTIGACION = 20 * 1024 * 1024;
 
 // ---------------------------------------------------------------- el borrador en este navegador (sin imágenes)
 
@@ -157,14 +152,12 @@ export function Formulario({ simulando = false, productoPedido = null }) {
   const [fotoNueva, setFotoNueva] = useState([]);
   const [referencias, setReferencias] = useState([]);
   const [logo, setLogo] = useState([]);
-  const [archivoInv, setArchivoInv] = useState(null); // la investigación subida como archivo (.pdf, .docx, .txt, .md)
   const [bibliotecaAbierta, setBibliotecaAbierta] = useState(false);
-  const entradaInv = useRef(null);
   const [transparente, setTransparente] = useState(null);
   const [errores, setErrores] = useState({});
   const [fase, setFase] = useState(null);
   const [nota, setNota] = useState(null);
-  const creado = useRef(null); // { firma, lote, refs: { n: id }, logo: id, inv: clave }
+  const creado = useRef(null); // { firma, lote, refs: { n: id }, logo: id }
   const productoCreado = useRef(null); // { fotoId, id }
   const ocupado = Boolean(fase);
 
@@ -176,8 +169,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
 
   // el borrador se guarda en este navegador (sin las imágenes) para la próxima vez
   useEffect(() => {
-    // (la investigación pegada no se recuerda: en el próximo lote se usa la del producto, no una vieja)
-    if (!simulando) guardarBorrador({ ...f, investigacion: '' });
+    if (!simulando) guardarBorrador(f);
   }, [f, simulando]);
 
   // las vistas previas locales se liberan al salir de la pantalla
@@ -261,23 +253,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
     if (el.tagName === 'INPUT') setTimeout(() => el.focus({ preventScroll: true }), 300);
   };
 
-  // la investigación de mercado: un archivo o el texto pegado
-  const elegirInvestigacion = (lista) => {
-    const a = [...(lista || [])][0];
-    if (!a) return;
-    if (!/\.(pdf|docx|txt|md)$/i.test(a.name) && !/^text\//.test(a.type)) {
-      aviso({ tipo: 'aviso', titulo: 'No puedo leer ese archivo', texto: 'Sube tu investigación en PDF, Word (.docx), .txt o .md, o pega el texto.' });
-      return;
-    }
-    if (a.size > PESO_INVESTIGACION) {
-      aviso({ tipo: 'aviso', titulo: 'Ese archivo pesa demasiado', texto: 'El máximo son 20 MB. Pega solo el texto importante.' });
-      return;
-    }
-    setArchivoInv(a);
-  };
-  const textoInv = f.investigacion.trim();
-  const hayInvestigacion = Boolean(archivoInv || textoInv);
-  const claveInv = archivoInv ? `a:${archivoInv.name}:${archivoInv.size}:${archivoInv.lastModified}` : textoInv ? `t:${textoInv.length}:${textoInv.slice(0, 40)}:${textoInv.slice(-40)}` : null;
   const lugarRefs = Math.max(0, maxRefs - referencias.length);
   const agregarDeBiblioteca = (archivos) => {
     const nuevos = archivos.slice(0, lugarRefs).map((a) => ({ id: `${a.name}-${a.size}-${Math.random().toString(36).slice(2, 7)}`, archivo: a, nombre: a.name, heic: false, url: URL.createObjectURL(a) }));
@@ -362,7 +337,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         setFase('Creando tu lote');
         const r = await apiImagenes.crear(cuerpo);
         if (!r?.lote) throw new Error('La app no devolvió tu lote. Vuelve a intentarlo.');
-        creado.current = { firma, lote: r.lote, refs: {}, logo: null, inv: null };
+        creado.current = { firma, lote: r.lote, refs: {}, logo: null };
         invalidar(CLAVE_LOTES);
       }
       const c = creado.current;
@@ -380,14 +355,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         .filter((k) => k > referencias.length)) {
         await apiImagenes.quitarReferencia(c.lote, sobra);
         delete c.refs[sobra];
-      }
-      if (claveInv && c.inv !== claveInv) {
-        setFase('Subiendo tu investigación de mercado');
-        await apiImagenes.subirInvestigacion(c.lote, archivoInv || new Blob([textoInv], { type: 'text/plain' }));
-        c.inv = claveInv;
-      } else if (!claveInv && c.inv) {
-        await apiImagenes.quitarInvestigacion(c.lote);
-        c.inv = null;
       }
       if (logo.length && c.logo !== logo[0].id) {
         setFase('Subiendo tu logo');
@@ -547,63 +514,33 @@ export function Formulario({ simulando = false, productoPedido = null }) {
           </div>
         </Grupo>
 
-        <Grupo n={3} id="grupo-investigacion" titulo="Investigación de mercado" opcional>
-          {productoElegido?.investigacion && !hayInvestigacion ? (
+        <Grupo n={3} id="grupo-investigacion" titulo="Investigación de mercado">
+          {productoElegido?.investigacion ? (
             <p className="img-nota img-nota--ok" role="status">
               <CircleCheck size={14} strokeWidth={2} aria-hidden="true" />
               <span>
-                Este producto ya tiene su investigación de mercado{productoElegido.investigacion.pais ? ` (${productoElegido.investigacion.pais})` : ''}: tus anuncios la usan sola, con lo que resaltaste primero.{' '}
-                <a href={enlace.investigacion(productoElegido.id)}>Verla</a>. Si pegas o subes otra aquí, se usa esa.
+                Tus anuncios usan la investigación de mercado de este producto{productoElegido.investigacion.pais ? ` (${productoElegido.investigacion.pais})` : ''}: su deseo central, su beneficio principal y sus puntos de dolor, con lo que resaltaste primero.{' '}
+                <a href={enlace.investigacion(productoElegido.id)}>Verla</a>
               </span>
             </p>
-          ) : productoElegido && !productoElegido.investigacion && !hayInvestigacion ? (
-            <p className="img-nota">
-              <Sparkles size={14} strokeWidth={2} aria-hidden="true" />
-              <span>
-                ¿No tienes una? <a href={enlace.investigacion(productoElegido.id)}>Haz la investigación de este producto</a> con solo su foto: queda guardada y la usan todos sus lotes.
-              </span>
-            </p>
-          ) : null}
-          {archivoInv ? (
-            <div className="img-inv__archivo">
-              <FileText size={18} strokeWidth={1.8} aria-hidden="true" />
-              <span className="img-inv__nombre t-recortar" title={archivoInv.name}>
-                {archivoInv.name}
-              </span>
-              <Boton variante="fantasma" tamano="chico" icono={X} onClick={() => setArchivoInv(null)} disabled={ocupado}>
-                Quitar
-              </Boton>
-            </div>
           ) : (
-            <AreaTexto
-              etiqueta="Pega aquí tu investigación"
-              filas={5}
-              maxLength={MAXIMO_INVESTIGACION}
-              placeholder="Lo que sabes de tu cliente: qué quiere lograr, qué le duele, qué ha probado, cómo lo dice con sus palabras, reseñas, comentarios…"
-              value={f.investigacion}
-              onChange={(e) => poner({ investigacion: e.target.value })}
-              disabled={ocupado}
-            />
+            <>
+              <p className="img-nota">
+                <Telescope size={14} strokeWidth={2} aria-hidden="true" />
+                <span>
+                  {productoElegido
+                    ? 'Este producto todavía no tiene investigación de mercado. Se hace una vez, solo con su foto, y la usan todos sus anuncios.'
+                    : 'La investigación de mercado se hace una vez por producto, solo con su foto, en «Investigación de mercado». Tus anuncios la usan sola.'}
+                </span>
+              </p>
+              <div className="img-zona__acciones">
+                <Boton variante="secundario" tamano="chico" icono={Telescope} href={enlace.investigacion(productoElegido?.id)} disabled={ocupado}>
+                  {productoElegido ? 'Investigar este producto' : 'Ir a Investigación de mercado'}
+                </Boton>
+              </div>
+              <p className="img-ayuda">Sin investigación, la IA deduce el deseo, el beneficio y los dolores de la foto y de lo que escribas arriba.</p>
+            </>
           )}
-          <div className="img-zona__acciones">
-            <Boton variante="secundario" tamano="chico" icono={FileUp} onClick={() => entradaInv.current?.click()} disabled={ocupado}>
-              {archivoInv ? 'Cambiar el archivo' : 'Subir un archivo'}
-            </Boton>
-            <input
-              ref={entradaInv}
-              type="file"
-              accept=".pdf,.docx,.txt,.md,text/plain,application/pdf"
-              hidden
-              onChange={(e) => {
-                elegirInvestigacion(e.target.files);
-                e.target.value = '';
-              }}
-            />
-          </div>
-          <p className="img-ayuda">
-            PDF, Word (.docx), .txt o .md, o pega el texto. De ahí la IA saca el <strong>deseo central</strong>, el <strong>beneficio principal</strong> y los <strong>puntos de dolor</strong>, y
-            escribe los textos de tus anuncios con eso. Los ves en «Ver estrategia».
-          </p>
         </Grupo>
 
         <Grupo n={4} id="grupo-cantidad" titulo="Cuántos y en qué tamaño">
