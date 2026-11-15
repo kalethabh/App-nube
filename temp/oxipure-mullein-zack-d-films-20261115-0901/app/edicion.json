@@ -1,0 +1,89 @@
+{
+  "v": 1,
+  "estado": {
+    "subtitulos": {
+      "visible": true,
+      "estilo": "pop",
+      "color": "#3B7A2A",
+      "tamano": 1,
+      "altura": null,
+      "lado": 0
+    },
+    "lugaresSubtitulos": {},
+    "correcciones": {},
+    "ocultos": [],
+    "voz": {
+      "volumen": 1,
+      "silenciada": false
+    },
+    "musica": {
+      "fuente": "original",
+      "volumen": 1,
+      "silenciada": false,
+      "inicio": 0,
+      "id": null,
+      "nombre": null,
+      "url": null,
+      "duracion": null,
+      "origen": null,
+      "tramos": null
+    },
+    "quitados": [],
+    "textos": [],
+    "tomas": null,
+    "brolls": null,
+    "ajustesTextos": {},
+    "textosNuevos": [],
+    "reemplazos": {},
+    "clips": {},
+    "corte": null
+  },
+  "t": 1794755361633,
+  "contexto": {
+    "titulo": "OxiPure Mullein",
+    "overlays": [
+      {
+        "texto": "3 DÍAS",
+        "toma": 1,
+        "momento": "inicio"
+      },
+      {
+        "texto": "SE VA",
+        "toma": 10,
+        "momento": "final"
+      },
+      {
+        "texto": "ANTES / AHORA",
+        "toma": 12,
+        "momento": "inicio"
+      },
+      {
+        "texto": "DÍA 20",
+        "toma": 13,
+        "momento": "inicio"
+      },
+      {
+        "texto": "GORDOLOBO",
+        "toma": 26,
+        "momento": "inicio"
+      },
+      {
+        "texto": "1 gotero · mañana y noche",
+        "toma": 27,
+        "momento": "inicio"
+      },
+      {
+        "texto": "Garantía 30 días",
+        "toma": 32,
+        "momento": "final"
+      },
+      {
+        "texto": "Pagas al recibir",
+        "toma": 33,
+        "momento": "inicio"
+      }
+    ],
+    "color": "#F5A524"
+  },
+  "guardado": "2026-11-15T15:09:22.240Z"
+}
