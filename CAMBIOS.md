@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-15a · Investigación de mercado
+
+- **Investigación de mercado:** sección nueva. Con la foto de tu producto, la IA investiga su mercado (qué quiere tu cliente, qué le duele, tu competencia y con qué mensajes venderlo). Se hace una vez por producto y funciona con Claude.
+- **Informe visual:** veredicto, deseo central, beneficio principal y dolores con gráficas; puedes resaltar lo que te importa.
+- **Anuncios de imagen** usan sola la investigación del producto, con lo que resaltaste primero.
+- **Imagen rechazada por contenido:** la sugerencia conserva la misma escena y cambia solo las palabras que frenan.
+
 ## 2026-11-15 · Editor, textos con IA y anuncios de imagen
 
 - **Actualizar con un clic:** si instalaste la app con el comando, el botón «Actualizar» de arriba ahora baja la última versión publicada y la deja lista. Tus anuncios, tus claves y tus ajustes no se tocan.
