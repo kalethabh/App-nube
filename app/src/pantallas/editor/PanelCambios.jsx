@@ -386,11 +386,14 @@ function Seguimiento({ x, acciones, total }) {
   const seguir = (ids, conSiempre, etiqueta) => {
     const elegidas = pistas.filter((p) => ids.includes(p.id));
     if (!elegidas.length) return false;
-    const puntos = elegidas.flatMap((p) => p.apariciones).sort((a, b) => a[0] - b[0]);
+    // una pista por aparición (si sale dos veces a la vez, va una copia encima de cada una)
+    const pistasSigue = elegidas.map((p) => p.apariciones);
+    const desde = Math.min(...elegidas.map((p) => p.desde));
+    const hasta = Math.max(...elegidas.map((p) => p.hasta));
     const texto = [...new Set(elegidas.map((p) => p.texto))].slice(0, 3).join(' · ');
     const cambios = conSiempre
-      ? { sigue: { texto, siempre: true, puntos }, inicio: 0, fin: Math.round(total * 100) / 100 }
-      : { sigue: { texto, siempre: false, puntos }, inicio: Math.max(0, puntos[0][0] - 0.1), fin: Math.min(total, puntos.at(-1)[0] + 0.6) };
+      ? { sigue: { texto, siempre: true, pistas: pistasSigue }, inicio: 0, fin: Math.round(total * 100) / 100 }
+      : { sigue: { texto, siempre: false, pistas: pistasSigue }, inicio: Math.max(0, desde - 0.6), fin: Math.min(total, hasta + 0.7) };
     acciones.ajustarTexto(x.id, cambios, { etiqueta });
     return true;
   };
@@ -464,7 +467,7 @@ function Seguimiento({ x, acciones, total }) {
         <span className="ed-nota">{datos?.error}</span>
       ) : (
         <>
-          <span className="ed-nota">Pon este {x.archivo ? 'elemento' : 'texto'} encima de un texto del video y que lo siga. Primero hay que leer los textos del video: es gratis y tarda unos 20 s por minuto.</span>
+          <span className="ed-nota">Pon este {x.archivo ? 'elemento' : 'texto'} encima de un texto del video y que lo siga. Primero hay que leer los textos del video: es gratis y tarda unos 30 s por minuto.</span>
           {estado === 'error' ? <span className="ed-nota ed-nota--error">{datos?.error}</span> : null}
           <div className="ed-tiempo-pantalla__botones">
             <Boton variante="secundario" tamano="chico" onClick={leer} cargando={ocupado === 'leer'} disabled={!estado}>
