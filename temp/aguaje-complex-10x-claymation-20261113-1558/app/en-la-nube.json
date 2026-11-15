@@ -1,0 +1,22 @@
+{
+  "carpeta": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/aguaje-complex-10x-claymation-20261113-1558",
+  "archivos": [],
+  "finales": [
+    "aguaje-complex-10x-claymation-20261113-1558_9x16_con-subtitulos.mp4",
+    "aguaje-complex-10x-claymation-20261113-1558_editado-1.mp4"
+  ],
+  "ubicaciones": {},
+  "ubicacionesFinales": {
+    "aguaje-complex-10x-claymation-20261113-1558_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/videos-finales/aguaje-complex-10x-claymation-20261113-1558_9x16_con-subtitulos.mp4",
+      "bytes": 78387484,
+      "sha256": "c357adeaf17481aac472fe9f8c6a615cccfd8080bd6b88ab0b3073a1fcc7116e"
+    },
+    "aguaje-complex-10x-claymation-20261113-1558_editado-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/Anuncios con IA/videos-finales/aguaje-complex-10x-claymation-20261113-1558_editado-1.mp4",
+      "bytes": 79393834,
+      "sha256": "31b050b35402c43bb00d3a26ec07f1fbb85bc4f0f1815d97967c41f753ec3d30"
+    }
+  },
+  "fecha": "2026-11-15T02:53:35.665Z"
+}
