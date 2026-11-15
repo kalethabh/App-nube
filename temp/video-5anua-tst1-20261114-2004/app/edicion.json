@@ -670,14 +670,14 @@
       },
       {
         "id": "tmwha2aej2",
-        "texto": "Tu texto",
+        "texto": "VITALDROPS",
         "inicio": 171.3333,
-        "fin": 173.8333,
-        "color": "#FFFFFF",
-        "fondo": "#0FA3B1",
-        "tamano": 1,
-        "x": 0.666,
-        "y": 0.668,
+        "fin": 174.2168,
+        "color": "#111111",
+        "fondo": "#FFD43B",
+        "tamano": 0.6,
+        "x": 0.54,
+        "y": 0.6,
         "fuente": "titulo"
       }
     ],
@@ -685,11 +685,11 @@
     "clips": {},
     "corte": null
   },
-  "t": 1794713475115,
+  "t": 1794713559454,
   "contexto": {
     "titulo": "5ANUA TST1",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-15T03:31:15.721Z"
+  "guardado": "2026-11-15T03:32:40.061Z"
 }
