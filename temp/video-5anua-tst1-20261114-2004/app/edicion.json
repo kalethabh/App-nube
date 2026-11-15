@@ -38,7 +38,7 @@
         "id": "tmwh7crim2",
         "texto": "AMUA",
         "inicio": 81.9,
-        "fin": 230.6,
+        "fin": 230.366,
         "color": "#111111",
         "fondo": "#FFD43B",
         "tamano": 0.99,
@@ -555,13 +555,13 @@
     ],
     "reemplazos": {},
     "clips": {},
-    "corte": "vmwha7jn187"
+    "corte": "vmwha7kwmld"
   },
-  "t": 1794713718065,
+  "t": 1794713719706,
   "contexto": {
     "titulo": "5ANUA TST1",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-15T03:35:19.705Z"
+  "guardado": "2026-11-15T03:35:20.322Z"
 }
