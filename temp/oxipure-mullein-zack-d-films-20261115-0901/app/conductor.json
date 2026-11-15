@@ -84,7 +84,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-15T14:56:03.361Z",
-      "detalle": "Sacando los cuadros de cada unión"
+      "detalle": "Mirando los cuadros de los clips"
     },
     {
       "id": "voces",
@@ -127,7 +127,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T14:56:03.361Z",
+  "actualizado": "2026-11-15T14:58:01.717Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"
