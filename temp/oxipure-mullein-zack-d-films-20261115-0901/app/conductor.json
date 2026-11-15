@@ -1,7 +1,7 @@
 {
   "slug": "oxipure-mullein-zack-d-films-20261115-0901",
   "familia": "continuidad",
-  "estado": "error",
+  "estado": "corriendo",
   "paso": "videos",
   "pasos": [
     {
@@ -73,23 +73,10 @@
     {
       "id": "videos",
       "nombre": "Crear los videos encadenados",
-      "estado": "error",
-      "intentos": 2,
+      "estado": "corriendo",
+      "intentos": 3,
       "inicio": "2026-11-15T14:34:35.292Z",
-      "fin": "2026-11-15T14:51:59.730Z",
-      "error": {
-        "mensaje": "El modelo de video rechazó una escena por su contenido.",
-        "motivo": "contenido",
-        "detalle": "    Cambio al modelo de respaldo: kling-3.0/video (1080p, 7s).\n    Puede haber diferencia visual con el resto de los clips.\n  ..  paso 28->29 3s: intento 1/3 rechazado por contenido (La tarea 76c0b407cf4bb4e71d7031d66c90b7f3 fallo. 400 Generation failed as the content includes sensitive information.) — no se reintenta (el mismo prompt falla igual)\n  SE DETUVO\n  paso 28->29 3s fallo con los dos modelos (google/gemini-omni-flash-1-2 y kling-3.0/video).\n  Ultimo motivo: La tarea 76c0b407cf4bb4e71d7031d66c90b7f3 fallo. 400 Generation failed as the content includes sensitive information.\n  No voy a inventar un prompt distinto por mi cuenta. Decide tu:\n    a) reescribir continuidad.pasos[de=28].prompt_video en el manifiesto, mirando sus dos imagenes\n       (npm run continuidad -- temp/oxipure-mullein-zack-d-films-20261115-0901 --pares), y volver a correr solo ese paso:\n           npm run videos -- temp/oxipure-mullein-zack-d-films-20261115-0901 --pasos 28\n    b) probar con otro modelo\n  Saltarse el paso no se puede: la cadena quedaria cortada.",
-        "causa": {
-          "porque": "El modelo de video rechazó una escena por su contenido (algo que su filtro considera sensible).",
-          "dijo": "400 Generation failed as the content includes sensitive information.",
-          "hacer": [
-            "Abre el anuncio en el editor y rehaz esa toma con otra descripción.",
-            "O toca «Continuar»: a veces la misma escena pasa en otro intento."
-          ]
-        }
-      }
+      "fin": "2026-11-15T14:51:59.730Z"
     },
     {
       "id": "revision-cadena",
@@ -138,7 +125,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T14:51:59.731Z",
+  "actualizado": "2026-11-15T14:52:44.919Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"
