@@ -1,0 +1,335 @@
+{
+  "titulo": "5ANUA TST1",
+  "estilo": "video-propio",
+  "modo_audio": "voz_en_off",
+  "idioma": "es",
+  "aspect_ratio": "9:16",
+  "video_propio": {
+    "archivo": "original.mp4",
+    "duracion": 235.4,
+    "escenas": 80,
+    "subtitulos": false
+  },
+  "tomas": [
+    {
+      "n": 1,
+      "duracion": 1.467
+    },
+    {
+      "n": 2,
+      "duracion": 2.533
+    },
+    {
+      "n": 3,
+      "duracion": 1.433
+    },
+    {
+      "n": 4,
+      "duracion": 1.067
+    },
+    {
+      "n": 5,
+      "duracion": 1.467
+    },
+    {
+      "n": 6,
+      "duracion": 3.233
+    },
+    {
+      "n": 7,
+      "duracion": 1.867
+    },
+    {
+      "n": 8,
+      "duracion": 2.9
+    },
+    {
+      "n": 9,
+      "duracion": 2.267
+    },
+    {
+      "n": 10,
+      "duracion": 3
+    },
+    {
+      "n": 11,
+      "duracion": 6.033
+    },
+    {
+      "n": 12,
+      "duracion": 3
+    },
+    {
+      "n": 13,
+      "duracion": 2.333
+    },
+    {
+      "n": 14,
+      "duracion": 1.7
+    },
+    {
+      "n": 15,
+      "duracion": 3.8
+    },
+    {
+      "n": 16,
+      "duracion": 2.533
+    },
+    {
+      "n": 17,
+      "duracion": 2.733
+    },
+    {
+      "n": 18,
+      "duracion": 1.767
+    },
+    {
+      "n": 19,
+      "duracion": 1.233
+    },
+    {
+      "n": 20,
+      "duracion": 2.367
+    },
+    {
+      "n": 21,
+      "duracion": 2.3
+    },
+    {
+      "n": 22,
+      "duracion": 1.667
+    },
+    {
+      "n": 23,
+      "duracion": 2.733
+    },
+    {
+      "n": 24,
+      "duracion": 2.1
+    },
+    {
+      "n": 25,
+      "duracion": 1.867
+    },
+    {
+      "n": 26,
+      "duracion": 1.4
+    },
+    {
+      "n": 27,
+      "duracion": 3.667
+    },
+    {
+      "n": 28,
+      "duracion": 0.7
+    },
+    {
+      "n": 29,
+      "duracion": 1.6
+    },
+    {
+      "n": 30,
+      "duracion": 1.9
+    },
+    {
+      "n": 31,
+      "duracion": 3.867
+    },
+    {
+      "n": 32,
+      "duracion": 3.333
+    },
+    {
+      "n": 33,
+      "duracion": 5.367
+    },
+    {
+      "n": 34,
+      "duracion": 3.367
+    },
+    {
+      "n": 35,
+      "duracion": 1.6
+    },
+    {
+      "n": 36,
+      "duracion": 3.5
+    },
+    {
+      "n": 37,
+      "duracion": 3.9
+    },
+    {
+      "n": 38,
+      "duracion": 3.967
+    },
+    {
+      "n": 39,
+      "duracion": 2.033
+    },
+    {
+      "n": 40,
+      "duracion": 2.1
+    },
+    {
+      "n": 41,
+      "duracion": 3.5
+    },
+    {
+      "n": 42,
+      "duracion": 6.833
+    },
+    {
+      "n": 43,
+      "duracion": 3.233
+    },
+    {
+      "n": 44,
+      "duracion": 2
+    },
+    {
+      "n": 45,
+      "duracion": 1.433
+    },
+    {
+      "n": 46,
+      "duracion": 1.333
+    },
+    {
+      "n": 47,
+      "duracion": 1.733
+    },
+    {
+      "n": 48,
+      "duracion": 1.5
+    },
+    {
+      "n": 49,
+      "duracion": 3.067
+    },
+    {
+      "n": 50,
+      "duracion": 3.4
+    },
+    {
+      "n": 51,
+      "duracion": 7.167
+    },
+    {
+      "n": 52,
+      "duracion": 8.733
+    },
+    {
+      "n": 53,
+      "duracion": 3.833
+    },
+    {
+      "n": 54,
+      "duracion": 3.3
+    },
+    {
+      "n": 55,
+      "duracion": 2.2
+    },
+    {
+      "n": 56,
+      "duracion": 3.633
+    },
+    {
+      "n": 57,
+      "duracion": 1.9
+    },
+    {
+      "n": 58,
+      "duracion": 1.267
+    },
+    {
+      "n": 59,
+      "duracion": 3.267
+    },
+    {
+      "n": 60,
+      "duracion": 7.133
+    },
+    {
+      "n": 61,
+      "duracion": 1.7
+    },
+    {
+      "n": 62,
+      "duracion": 3.167
+    },
+    {
+      "n": 63,
+      "duracion": 1.833
+    },
+    {
+      "n": 64,
+      "duracion": 1.233
+    },
+    {
+      "n": 65,
+      "duracion": 5.033
+    },
+    {
+      "n": 66,
+      "duracion": 2.3
+    },
+    {
+      "n": 67,
+      "duracion": 2.733
+    },
+    {
+      "n": 68,
+      "duracion": 7.533
+    },
+    {
+      "n": 69,
+      "duracion": 7.533
+    },
+    {
+      "n": 70,
+      "duracion": 2.167
+    },
+    {
+      "n": 71,
+      "duracion": 1.9
+    },
+    {
+      "n": 72,
+      "duracion": 4.7
+    },
+    {
+      "n": 73,
+      "duracion": 1.1
+    },
+    {
+      "n": 74,
+      "duracion": 1.7
+    },
+    {
+      "n": 75,
+      "duracion": 2.8
+    },
+    {
+      "n": 76,
+      "duracion": 1.533
+    },
+    {
+      "n": 77,
+      "duracion": 3.067
+    },
+    {
+      "n": 78,
+      "duracion": 6.2
+    },
+    {
+      "n": 79,
+      "duracion": 2.367
+    },
+    {
+      "n": 80,
+      "duracion": 2.633
+    }
+  ]
+}
