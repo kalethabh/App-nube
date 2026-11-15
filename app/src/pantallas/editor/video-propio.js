@@ -2,6 +2,7 @@
 // segundos de verdad (imagen y audio) y el video queda más corto. Lo hace el servidor (POST
 // /api/videos-propios/:slug/quitar, que rehace el plan y el audio); aquí se corre lo del editor que va en tiempos
 // del video: los textos e imágenes, la música y los subtítulos (por índice, con el mapa que devuelve el servidor).
+// Cada corte es un paso del historial del editor: ed.corte guarda la versión del video, y deshacer o rehacer la pone.
 import { pedirNuevo } from '../../datos/api.js';
 
 const r3 = (x) => Math.round(x * 1000) / 1000;
@@ -59,7 +60,9 @@ export function edicionSinTramo(ed, a, b, mapa = {}) {
   };
 }
 
-export const quitarTramo = (slug, desde, hasta, edicion) =>
-  pedirNuevo(`/api/videos-propios/${encodeURIComponent(slug)}/quitar`, { metodo: 'POST', cuerpo: { desde, hasta, edicion } });
+export const quitarTramo = (slug, desde, hasta) =>
+  pedirNuevo(`/api/videos-propios/${encodeURIComponent(slug)}/quitar`, { metodo: 'POST', cuerpo: { desde, hasta } });
 
-export const deshacerCorte = (slug) => pedirNuevo(`/api/videos-propios/${encodeURIComponent(slug)}/deshacer`, { metodo: 'POST', cuerpo: {} });
+/** Pone el video en esa versión (deshacer y rehacer del editor: ed.corte dice cuál va). */
+export const ponerVersion = (slug, version) =>
+  pedirNuevo(`/api/videos-propios/${encodeURIComponent(slug)}/version`, { metodo: 'POST', cuerpo: { version } });

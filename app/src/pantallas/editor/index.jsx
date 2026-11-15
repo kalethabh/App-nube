@@ -63,7 +63,7 @@ import { Globo } from './piezas.jsx';
 import { picosDe } from './ondas.js';
 import { INICIAL, guardarCancionPropia, leerCancionPropia, registrarUrlMusica, tieneCambios, urlMusica, useEdicion } from './estado.js';
 import { ALTO, ANCHO, FPS, construirPistas, contextoDeVista, mediosDelPlan, modoVoz, muestraDeGaleria, subtitulosEditados, completarEdicion } from './modelo.js';
-import { edicionSinTramo, quitarTramo as quitarTramoApi, deshacerCorte } from './video-propio.js';
+import { edicionSinTramo, quitarTramo as quitarTramoApi, ponerVersion } from './video-propio.js';
 import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRegenerar } from './trabajos.js';
 import { operar, agregarTexto as textoNuevo, agregarImagen as imagenNueva, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
 import { servidor } from './servidor.js';
@@ -806,8 +806,8 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     }),
     [muestra, colorAnuncio, ed.subtitulos.color, ed.subtitulos.tamano, plan.estiloSubtitulos, marcas, mv]
   );
-  // (en tus videos, quitar escenas cambia el plan, no los cambios del editor: también cuenta)
-  const hayCambios = tieneCambios(ed) || (Boolean(plan.videoPropio) && Number(plan.cortes) > 0 && Array.isArray(plan.fuente) && plan.fuente.length > 0 && !(plan.fuente.length === 1 && plan.fuente[0].desde === 0 && Math.abs(plan.fuente[0].hasta - plan.duracion) < 0.01));
+  // (en tus videos, lo que quitaste va en ed.corte: también cuenta)
+  const hayCambios = tieneCambios(ed);
   const cambios = useMemo(() => resumenDeCambios(ed, pistas), [ed, pistas]);
 
   // ---------------------------------------------------------------- acciones
@@ -1138,44 +1138,23 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   // Tus propios videos (plan.videoPropio): quitar una escena o recortar su borde quita esos segundos de verdad (imagen
   // y audio) y el video queda más corto. Lo hace el servidor; aquí se corre lo del editor (video-propio.js).
   const [quitando, setQuitando] = useState(false);
-  const [puedeRecuperar, setPuedeRecuperar] = useState(false);
-  useEffect(() => {
-    if (!plan.videoPropio) return undefined;
-    let vivo = true;
-    pedirNuevo(`/api/videos-propios/${encodeURIComponent(a.slug)}/cortes`)
-      .then((r) => vivo && setPuedeRecuperar(Boolean(r?.puedeDeshacer)))
-      .catch(() => {});
-    return () => {
-      vivo = false;
-    };
-  }, [plan, a.slug]);
-  const volverAPoner = useCallback(async () => {
-    try {
-      const r = await deshacerCorte(a.slug);
-      playerRef.current?.pause();
-      if (r?.edicion) reemplazar(completarEdicion(r.edicion));
-      await recargar();
-      aviso({ tipo: 'ok', titulo: 'Volvió lo que quitaste', texto: r?.puedeDeshacer ? 'Puedes seguir deshaciendo los cortes de antes.' : '' });
-    } catch (e) {
-      aviso({ tipo: 'error', titulo: 'No pude volver a ponerlo', texto: e.message });
-    }
-  }, [a.slug, reemplazar, recargar, aviso]);
   const quitarDelVideo = useCallback(
     async (desde, hasta, que) => {
       if (quitando) return;
       setQuitando(true);
       try {
         playerRef.current?.pause();
-        const r = await quitarTramoApi(a.slug, desde, hasta, ed);
-        reemplazar(edicionSinTramo(ed, r.desde, r.hasta, r.mapa || {}));
+        const r = await quitarTramoApi(a.slug, desde, hasta);
+        // un paso del historial: deshacer vuelve a los cambios de antes y a la versión de antes del video
+        cambiar(() => ({ ...edicionSinTramo(ed, r.desde, r.hasta, r.mapa || {}), corte: r.version }), { etiqueta: `Quitar ${que}` });
         setSeleccion(null);
         await recargar();
         aviso({
           tipo: 'info',
           titulo: `Quitaste ${que}`,
-          texto: `El video ahora dura ${String(Math.round(r.duracion * 10) / 10).replace('.', ',')} s.`,
-          accion: { etiqueta: 'Deshacer', alHacer: volverAPoner },
-          duracion: 9000,
+          texto: `El video ahora dura ${String(Math.round(r.duracion * 10) / 10).replace('.', ',')} s. Deshacer lo vuelve a poner.`,
+          accion: { etiqueta: 'Deshacer', alHacer: deshacer },
+          duracion: 7000,
         });
       } catch (e) {
         aviso({ tipo: 'error', titulo: 'No pude quitar esa parte', texto: e.message });
@@ -1183,8 +1162,24 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         setQuitando(false);
       }
     },
-    [quitando, a.slug, ed, reemplazar, recargar, aviso, volverAPoner]
+    [quitando, a.slug, ed, cambiar, recargar, aviso, deshacer]
   );
+  // Deshacer o rehacer un corte (o abrir con los cambios guardados): el video tiene que estar en la versión que dicen
+  // los cambios del editor.
+  const pidiendoVersion = useRef(null);
+  useEffect(() => {
+    if (!plan.videoPropio) return;
+    const quiero = ed.corte || 'v0';
+    if (quiero === (plan.version || 'v0') || pidiendoVersion.current === quiero) return;
+    pidiendoVersion.current = quiero;
+    playerRef.current?.pause();
+    ponerVersion(a.slug, quiero)
+      .then(() => recargar())
+      .catch((e) => aviso({ tipo: 'error', titulo: 'No pude volver a esa versión del video', texto: e.message }))
+      .finally(() => {
+        if (pidiendoVersion.current === quiero) pidiendoVersion.current = null;
+      });
+  }, [plan.videoPropio, plan.version, ed.corte, a.slug, recargar, aviso]);
   /** Lo que deslizar necesita saber del clip (su pieza, dónde empieza sin deslizar, su largo y su velocidad). */
   const datosDelClip = useCallback(
     (id) => {
@@ -1404,8 +1399,6 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       dividir,
       borrar: borrarElegido,
       puedeBorrar: borrable,
-      recuperar: plan.videoPropio ? volverAPoner : null,
-      puedeRecuperar,
       agregarTexto,
       agregarImagen,
       moverSoloEste,
@@ -1495,8 +1488,6 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       dividir,
       borrarElegido,
       borrable,
-      volverAPoner,
-      puedeRecuperar,
       agregarTexto,
       agregarImagen,
       moverSoloEste,
@@ -1700,8 +1691,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   const entregada = (a.versiones || []).find((v) => v.principal && v.clase === 'video') || null;
   // ¿Se puede bajar al toque? Solo si ese archivo ya tiene exactamente lo que ves (ver claveArmado arriba).
   const armado = leerArmado(a.slug);
-  // (en tus videos, lo que quitaste también: el mismo editor con otras escenas es otro video)
-  const firmaAhora = JSON.stringify(ed) + (plan.videoPropio ? JSON.stringify(plan.fuente || null) : '');
+  const firmaAhora = JSON.stringify(ed);
   const armadoAlDia = Boolean(ultimaExportada && armado && armado.n === ultimaExportada.n && armado.firma === firmaAhora && (armado.version || 'completa') === 'completa' && !exp.desactualizada);
   const paraDescargar = armadoAlDia
     ? { url: conVersion(ultimaExportada.url, ultimaExportada.fecha), archivo: ultimaExportada.archivo, ayuda: 'Ya tiene todos tus cambios: se descarga al toque.' }
@@ -2011,7 +2001,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         exp={exp}
         alExportar={(opciones) => {
           // lo que se arma ahora tiene exactamente lo que ves: así la próxima vez «Descargar video» lo baja al toque
-          guardarArmado(a.slug, { n: exp.siguiente, firma: JSON.stringify(ed) + (plan.videoPropio ? JSON.stringify(plan.fuente || null) : ''), version: opciones?.version || 'completa' });
+          guardarArmado(a.slug, { n: exp.siguiente, firma: JSON.stringify(ed), version: opciones?.version || 'completa' });
           return exp.exportar({ ...opciones, estado: ed, contexto: contextoGuardado });
         }}
       />

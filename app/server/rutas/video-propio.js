@@ -6,11 +6,12 @@
 //   POST /api/videos-propios/desde-salida  { archivo, subtitulos }   un MP4 que ya está en output/ (p. ej. el de
 //        «Cambiar el producto»: <slug>_cambiado.mp4) -> { slug }
 //   GET  /api/videos-propios/:slug  -> { slug, etapa: 'preparando'|'listo'|'error', texto, valor, error, aviso }
-//   POST /api/videos-propios/:slug/quitar    { desde, hasta, edicion }  quita esos segundos (imagen y audio): el video
-//        queda más corto (produccion/video-propio.js quitarTramo). Guarda antes el plan y los cambios del editor en
-//        app/video-propio/cortes/<n>.json para deshacer. -> { mapa, desde, hasta, duracion, puedeDeshacer }
-//   POST /api/videos-propios/:slug/deshacer  vuelve a poner lo último que se quitó -> { edicion, puedeDeshacer }
-//   GET  /api/videos-propios/:slug/cortes    -> { puedeDeshacer }
+//   POST /api/videos-propios/:slug/quitar    { desde, hasta }  quita esos segundos (imagen y audio): el video queda
+//        más corto (produccion/video-propio.js quitarTramo). -> { version, mapa, desde, hasta, duracion }
+//   POST /api/videos-propios/:slug/version   { version }  pone el video en esa versión (deshacer y rehacer del editor)
+//   VERSIONES: cada plan con cortes queda en app/video-propio/versiones/<version>.json (la de antes del primer corte es
+//   "v0"); el editor guarda en sus cambios cuál va (ed.corte) y, si deshaces o rehaces, pide esa. El audio de cada
+//   versión sigue en su propio archivo (audio/voz-<n>-<id>.mp3), así que volver a una es copiar su plan.
 //
 // La carpeta queda en temp/<slug>/ (video-<nombre>-<fecha>) con el estado en app/video-propio.json. Mientras se
 // prepara no tiene manifiesto.json, así que no aparece en Anuncios; al terminar es un anuncio más (estilo
@@ -32,17 +33,16 @@ const SLUG = /^video-[a-z0-9-]{1,80}$/;
 const enMarcha = new Set();
 const MAX_DESHACER = 30;
 
-const dirCortes = (slug) => path.join(dirDe(slug), 'app', 'video-propio', 'cortes');
-function cortesGuardados(slug) {
-  try {
-    return fs
-      .readdirSync(dirCortes(slug))
-      .map((n) => Number(/^(\d+)\.json$/.exec(n)?.[1]))
-      .filter((n) => Number.isInteger(n))
-      .sort((a, b) => a - b);
-  } catch {
-    return [];
-  }
+const dirVersiones = (slug) => path.join(dirDe(slug), 'app', 'video-propio', 'versiones');
+const VERSION = /^v[a-z0-9]{1,24}$/;
+const archivoVersion = (slug, v) => path.join(dirVersiones(slug), `${v}.json`);
+function guardarVersion(slug, plan) {
+  fs.mkdirSync(dirVersiones(slug), { recursive: true });
+  fs.writeFileSync(archivoVersion(slug, plan.version || 'v0'), JSON.stringify(plan) + '\n', 'utf8');
+}
+function ponerPlan(slug, plan) {
+  fs.writeFileSync(path.join(dirDe(slug), 'plan-montaje.json'), JSON.stringify(plan, null, 2));
+  fs.writeFileSync(path.join(dirDe(slug), 'subtitulos.json'), JSON.stringify(plan.subtitulos || [], null, 2));
 }
 const esVideoPropio = (slug) => SLUG.test(slug) && anuncioConPlan(slug) && leerJSON(path.join(dirDe(slug), 'plan-montaje.json'))?.videoPropio === true;
 
@@ -211,12 +211,6 @@ export default function rutasVideoPropio(app) {
     res.set('Cache-Control', 'no-store').json({ slug, etapa: e.etapa, texto: e.texto || null, valor: e.valor ?? 0, error: e.error || null, aviso: e.aviso || null, nombre: e.nombre || null });
   });
 
-  app.get('/api/videos-propios/:slug/cortes', (req, res) => {
-    const { slug } = req.params;
-    if (!esVideoPropio(slug)) return res.status(404).json({ error: 'No encuentro ese video.' });
-    res.set('Cache-Control', 'no-store').json({ puedeDeshacer: cortesGuardados(slug).length > 0 });
-  });
-
   app.post('/api/videos-propios/:slug/quitar', (req, res) => {
     const { slug } = req.params;
     if (!desdeLaApp(req, res)) return;
@@ -224,33 +218,33 @@ export default function rutasVideoPropio(app) {
     const desde = Number(req.body?.desde);
     const hasta = Number(req.body?.hasta);
     if (!Number.isFinite(desde) || !Number.isFinite(hasta) || hasta <= desde) return res.status(400).json({ error: 'Elige qué parte quitar.' });
-    const plan = leerJSON(path.join(dirDe(slug), 'plan-montaje.json'));
+    const antes = leerJSON(path.join(dirDe(slug), 'plan-montaje.json'));
     try {
+      // la versión de antes queda guardada (la primera vez, como "v0")
+      if (!antes.version) antes.version = 'v0';
+      if (!existe(archivoVersion(slug, antes.version))) guardarVersion(slug, antes);
       const r = quitarTramo(path.join('temp', slug), desde, hasta);
-      // lo de antes, para deshacer (el audio de antes sigue en su archivo: cada corte hace uno nuevo)
-      const lista = cortesGuardados(slug);
-      const n = (lista.at(-1) || 0) + 1;
-      fs.mkdirSync(dirCortes(slug), { recursive: true });
-      const edicion = req.body?.edicion && typeof req.body.edicion === 'object' ? req.body.edicion : null;
-      fs.writeFileSync(path.join(dirCortes(slug), `${n}.json`), JSON.stringify({ plan, edicion, fecha: new Date().toISOString() }) + '\n', 'utf8');
-      for (const viejo of lista.slice(0, Math.max(0, lista.length + 1 - MAX_DESHACER))) fs.rmSync(path.join(dirCortes(slug), `${viejo}.json`), { force: true });
-      res.json({ mapa: r.mapa, desde: r.desde, hasta: r.hasta, duracion: r.plan.duracion, puedeDeshacer: true });
+      const plan = { ...r.plan, version: `v${Date.now().toString(36)}${Math.floor(Math.random() * 36 ** 2).toString(36)}`, versionAnterior: antes.version };
+      ponerPlan(slug, plan);
+      guardarVersion(slug, plan);
+      res.json({ version: plan.version, mapa: r.mapa, desde: r.desde, hasta: r.hasta, duracion: plan.duracion });
     } catch (e) {
+      ponerPlan(slug, antes);
       res.status(400).json({ error: String(e?.message || e).slice(0, 200) || 'No pude quitar esa parte.' });
     }
   });
 
-  app.post('/api/videos-propios/:slug/deshacer', (req, res) => {
+  app.post('/api/videos-propios/:slug/version', (req, res) => {
     const { slug } = req.params;
     if (!desdeLaApp(req, res)) return;
     if (!esVideoPropio(slug)) return res.status(404).json({ error: 'No encuentro ese video.' });
-    const lista = cortesGuardados(slug);
-    const n = lista.at(-1);
-    const guardado = n ? leerJSON(path.join(dirCortes(slug), `${n}.json`)) : null;
-    if (!guardado?.plan) return res.status(409).json({ error: 'No hay nada que volver a poner.' });
-    fs.writeFileSync(path.join(dirDe(slug), 'plan-montaje.json'), JSON.stringify(guardado.plan, null, 2));
-    fs.writeFileSync(path.join(dirDe(slug), 'subtitulos.json'), JSON.stringify(guardado.plan.subtitulos || [], null, 2));
-    fs.rmSync(path.join(dirCortes(slug), `${n}.json`), { force: true });
-    res.json({ edicion: guardado.edicion || null, puedeDeshacer: lista.length > 1 });
+    const v = String(req.body?.version || 'v0');
+    if (!VERSION.test(v)) return res.status(400).json({ error: 'Esa versión no vale.' });
+    const actual = leerJSON(path.join(dirDe(slug), 'plan-montaje.json'));
+    if ((actual?.version || 'v0') === v) return res.json({ version: v, cambio: false });
+    const plan = leerJSON(archivoVersion(slug, v));
+    if (!plan) return res.status(404).json({ error: 'No encuentro esa versión del video.' });
+    ponerPlan(slug, plan);
+    res.json({ version: v, cambio: true, duracion: plan.duracion });
   });
 }

@@ -11,7 +11,7 @@
 // se arrastra, la pantalla dibuja el resultado (cortes.js) y al soltar lo guarda como un solo paso del historial. La
 // voz no se mueve.
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import { AudioLines, Captions, Clapperboard, Diamond, Eye, EyeOff, Film, Lock, Maximize2, MousePointerClick, Music, Plus, ScanEye, Scissors, Snowflake, Trash2, Type, Undo2, Upload, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
+import { AudioLines, Captions, Clapperboard, Diamond, Eye, EyeOff, Film, Lock, Maximize2, MousePointerClick, Music, Plus, ScanEye, Scissors, Snowflake, Trash2, Type, Upload, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
 import { Tooltip } from '../../componentes/index.js';
 import { codigoDeTiempo } from '../../datos/formato.js';
 import { FPS, nombreDeQuienHabla } from './modelo.js';
@@ -512,14 +512,6 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
               <Trash2 size={15} strokeWidth={2} />
             </button>
           </Tooltip>
-          {acciones.recuperar ? (
-            <Tooltip texto={acciones.puedeRecuperar ? 'Vuelve a poner la última parte que quitaste' : 'Aquí recuperas lo que quites del video'}>
-              <button type="button" className="lt__boton" onClick={acciones.recuperar} disabled={!acciones.puedeRecuperar}>
-                <Undo2 size={14} strokeWidth={2.4} aria-hidden="true" />
-                Recuperar lo quitado
-              </button>
-            </Tooltip>
-          ) : null}
           <Tooltip texto="Agregar un texto donde está el cursor">
             <button type="button" className="lt__boton" onClick={acciones.agregarTexto}>
               <Plus size={14} strokeWidth={2.4} aria-hidden="true" />
