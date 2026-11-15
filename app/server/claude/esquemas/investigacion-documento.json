@@ -1,0 +1,70 @@
+{
+  "$comment": "investigacion.json con formato \"documento\" (lib/investigacion.js): la investigación de mercado profunda tal como va en su PDF. La app la dibuja con el diseño del PDF (pantallas/investigacion/Documento.jsx). Los tipos de bloque los revisa lib/investigacion.js.",
+  "type": "object",
+  "required": ["formato", "producto", "pais", "fecha", "color", "portada", "claves", "secciones", "guia", "fuentes"],
+  "properties": {
+    "formato": { "const": "documento" },
+    "producto": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "pais": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "fecha": { "type": "string", "minLength": 4, "maxLength": 60 },
+    "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+    "portada": {
+      "type": "object",
+      "required": ["titulo", "subtitulo", "avatar", "canal"],
+      "properties": {
+        "titulo": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "subtitulo": { "type": "string", "maxLength": 200 },
+        "avatar": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "quien_compra": { "type": "string", "maxLength": 200 },
+        "canal": { "type": "string", "maxLength": 200 }
+      }
+    },
+    "claves": {
+      "type": "object",
+      "required": ["deseo_central", "beneficio_principal", "puntos_dolor"],
+      "properties": {
+        "deseo_central": { "type": "string", "minLength": 1, "maxLength": 600 },
+        "beneficio_principal": { "type": "string", "minLength": 1, "maxLength": 400 },
+        "puntos_dolor": { "type": "array", "minItems": 3, "maxItems": 10, "items": { "type": "string", "minLength": 1, "maxLength": 300 } }
+      }
+    },
+    "secciones": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["titulo", "bloques"],
+        "properties": {
+          "titulo": { "type": "string", "minLength": 1, "maxLength": 140 },
+          "bloques": { "type": "array", "minItems": 1, "maxItems": 80, "items": { "type": "object", "required": ["tipo"], "properties": { "tipo": { "type": "string" } } } }
+        }
+      }
+    },
+    "guia": {
+      "type": "object",
+      "required": ["mensajes"],
+      "properties": {
+        "mensajes": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["seccion", "titulo", "objetivo", "franja", "elementos", "maqueta"],
+            "properties": {
+              "seccion": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "titulo": { "type": "string", "minLength": 1, "maxLength": 200 },
+              "objetivo": { "type": "string", "minLength": 1, "maxLength": 200 },
+              "franja": { "type": "object", "required": ["beneficio", "tiempo", "deseo"] },
+              "elementos": { "type": "array", "minItems": 4, "maxItems": 8, "items": { "type": "object", "required": ["titulo", "texto"] } },
+              "maqueta": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "fuentes": { "type": "array", "minItems": 3, "maxItems": 80, "items": { "type": "object", "required": ["titulo", "url"], "properties": { "titulo": { "type": "string", "minLength": 1, "maxLength": 200 }, "url": { "type": "string", "minLength": 3, "maxLength": 600 } } } },
+    "nota_fuentes": { "type": "string", "maxLength": 600 }
+  }
+}

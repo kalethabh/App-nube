@@ -1,176 +1,124 @@
 ---
 name: "investigacion-mercado"
-description: "Investigación de mercado completa a partir de la imagen de un producto (/mercado): ficha, deseo, avatar, competencia, regulación, oferta, títulos y heros. General por defecto; local si se nombra un país."
+description: "Investigación de mercado profunda de un producto (suplemento, belleza, bienestar) para entrar a un país de LATAM: Reddit, reseñas, avatar con nombre y estrategia, entregada en PDF."
 ---
 
-# /mercado: investigación de mercado desde la imagen del producto
+# Investigación de Mercado Profunda — Joaquín Buelvas
 
-El usuario pasa la foto del producto (empaque, etiqueta o captura de un anuncio) y recibe un documento de investigación completo, listo para crear creativos, landing y guion de WhatsApp. El foco es la venta por Meta Ads, TikTok y WhatsApp, con contraentrega cuando aplique.
+Úsala cuando Joaquín envíe un producto (foto, link o nombre) y pida investigar el mercado de un país (Colombia, Ecuador, Guatemala, El Salvador u otro). Todo se escribe en español latino, con lenguaje del país objetivo. El entregable es un PDF.
 
-## Paso 0. Entradas
+## 0. Antes de empezar
+- Si no hay foto, link o nombre del producto, pídelo antes de investigar.
+- Si no dice el país, usa Colombia (su mercado principal) y dilo al inicio.
+- Identifica en la imagen: marca, nombre, presentación, ingredientes, dosis y claims. Busca la ficha oficial para confirmar la fórmula (puede variar por país). Si la marca no aparece en internet, avisa que puede ser marca blanca y pide la ficha técnica.
+- Contexto del negocio: Joaquín vende por Meta Ads + WhatsApp con pago contraentrega y ofertas por cantidad (ej. 3 x precio). Las recomendaciones deben servir a ese modelo.
 
-- **Imagen(es) del producto.** Obligatoria. No hagas preguntas antes de empezar: arranca de una vez.
-- **Alcance.**
-  - **Por defecto, la investigación es GENERAL:** el producto y su mercado a nivel global, con énfasis en el comprador hispano y latinoamericano. No preguntes el país.
-  - **Si el usuario nombra un país** ("/mercado Guatemala"), haz la investigación general y agrega la capa local (ver Paso 3B).
-- **Opcionales:** costo, flete, proveedor y precio pensado. Úsalos si vienen y no los pidas.
+## 1. Investigación (hazla tú, en paralelo cuando puedas)
+1. **Producto:** ingredientes, modo de uso, duración por unidad, precio de referencia en EE. UU., nivel de evidencia real.
+2. **Seguridad:** contraindicaciones e interacciones de cada ingrediente (embarazo, lactancia, niños, anticoagulantes, cirugías, medicamentos, enfermedades crónicas).
+3. **Reddit y foros:** busca con `site:reddit.com` y subreddits relevantes; si Reddit no es accesible, usa reportajes que citen esos hilos y foros abiertos (HealthUnlocked, WebMD Reviews, Trustpilot). Dilo con honestidad en el PDF y nunca inventes citas textuales: parafrasea.
+4. **Plataformas:** Amazon, eBay, TikTok, YouTube, AliExpress/Alibaba, Walmart, Trustpilot y Mercado Libre del país objetivo. Extrae elogios, quejas, efectos que la gente nota, sabor, precio y desconfianza. Si los resultados de búsqueda solo traen enlaces, abre las páginas con WebFetch.
+5. **Mercado local:** tamaño del dolor con cifras oficiales o de prensa, tendencias culturales relevantes, competidores locales y sus precios, datos de e-commerce, pago contraentrega y comercio social.
+6. **Regulación:** ente sanitario (INVIMA en Colombia, ARCSA en Ecuador, Ministerio de Salud en otros) y qué claims están prohibidos.
 
-## Paso 1. Leer la imagen
+Apunta a 12–20 búsquedas. Prioriza fuentes originales. Revisa la memoria de Joaquín por aprendizajes previos del mismo producto o categoría (ángulos que le funcionaron en otro país, precios de productos parecidos, avatares anteriores).
 
-Transcribe literal todo el texto visible y extrae:
+## 2. Estructura obligatoria del PDF
+1. Portada (producto, país, nombre del avatar y, si aplica, quién compra).
+2. Resumen ejecutivo + recomendación central + alertas antes de pautar.
+3. Ficha del producto.
+4. Panorama del mercado del país: tabla con el tamaño del dolor, contexto cultural, e-commerce y contraentrega, tabla de competencia.
+5. Problemas que resuelve, categorizados (sensación física, estético, hormonal o ciclo de vida, hábitos, ambiente, emocional y familiar, económico, etc.).
+6. Tabla problema–solución priorizada con sentimiento de comunidades: problema, cómo lo dicen (parafraseado), sentimiento, solución del producto. Incluye nota metodológica.
+7. Barrido por plataformas: tabla plataforma / qué dicen / insight para la venta.
+8. Puntos de dolor extraídos de reseñas.
+9. Impulso de compra: detonante, momento real, cómo activarlo en el anuncio.
+10. Beneficios que evalúa el cliente, priorizados.
+11. Los 5 resultados deseados, del más al menos importante.
+12. Tiempos de transformación, del más al menos importante, como experiencias reportadas y no garantías.
+13. Avatar principal con nombre propio típico del país y apodo (ej. "Diana Marcela, la que se siente inflada todo el día"; "Don Hernando, el de la tos de las mañanas"): demografía completa en tabla (edad, sexo, ciudades, estrato, estado civil, hijos, ocupación, ingresos, educación, hábitos o momento de vida, historial, medios, cómo compra). Si quien compra es otra persona (ej. la esposa), agrégala como columna en la tabla. Luego: dolor masivo que no lo deja dormir, puntos de dolor, puntos débiles y objeciones, motivaciones, resultado deseado en sus palabras, lenguaje que usa, y 2–3 avatares secundarios.
+14. Recomendaciones estratégicas: posicionamiento (promesa, mecanismo único, diferenciador), oferta escalonada en moneda local (aclarar que se ajusta al costo real), plan de entrada de 30 días, canales (Meta Ads, WhatsApp, TikTok, Mercado Libre, alianzas), 5 hooks, tabla de cumplimiento "evita / usa en su lugar" y advertencias de seguridad.
+15. Deseo central, propuestas de valor y copy para la landing, incluida la guía visual (ver sección 3).
+16. Fuentes consultadas.
 
-- Nombre, marca y presentación (ml, g, cápsulas, unidades).
-- Activo o ingredientes principales y su concentración.
-- Promesas de la etiqueta y modo de uso.
-- Idioma del empaque y señales de origen: genérico chino, varios revendedores con el mismo empaque, sellos dudosos.
+## 3. Deseo central, propuestas de valor y copy para la landing
+Esta sección va siempre en el PDF, antes de las fuentes, y sigue exactamente este formato:
 
-No inventes ingredientes ni concentraciones. Lo que no se lea va como "ilegible / a verificar".
+**3.1 Deseo central.** Una frase entre comillas, en primera persona y en el lenguaje del avatar (ej. "Volver a respirar tranquilo, sin miedo a lo que el cigarrillo y los años le están haciendo a mis pulmones."). Debajo, un párrafo corto que explique el deseo de superficie (el síntoma) y el deseo profundo (el miedo o la identidad), y cómo lo vive la persona que compra si es distinta.
 
-## Paso 2. Identificar el producto en la web
+**3.2 Seis propuestas de valor.** Cada una con un título corto que nombra el dolor y tres filas:
+- **Dolor:** la frase del avatar entre comillas, en su lenguaje.
+- **Propuesta:** la respuesta directa a ese dolor, entre comillas, lista para usar en un anuncio, explicando cómo ayuda el producto.
+- **Tiempo:** el tiempo de transformación, con lenguaje de "muchas personas notan…".
+Cubre dolores distintos: el síntoma principal, la sensación física, el dolor de la persona que compra (si aplica), la culpa o el hábito, la limitación en la vida diaria, y la desconfianza (esta última con pago al recibir y garantía). Cierra con "Cómo usarlas": cuáles 3 son los ángulos de prueba en Meta Ads (con su público), que la de desconfianza va como cierre de todos los anuncios y de WhatsApp, y el aviso legal.
 
-Busca por nombre + activo en Amazon, TikTok Shop, Walmart, AliExpress, eBay y Mercado Libre. Registra los datos que no coinciden entre listados (por ejemplo, dos concentraciones distintas) y llévalos a las alertas del resumen como "confirmar con el proveedor".
+**3.3 Propuesta de valor encapsulada.** Una sola frase en negrita que junte las seis ("[Producto] es tu [ritual/solución] para [beneficio 1], [beneficio 2] y [beneficio 3], mientras [deseo profundo]. [Confianza]."), seguida de viñetas que muestren qué propuesta cubre cada parte.
 
-## Paso 3A. Investigación general (siempre)
+**3.4 Títulos para el hero.** Cuatro opciones; cada una debe llevar el **tiempo de transformación**, el **deseo central** y el **beneficio principal**:
+- Opción 1 (recomendada): la más completa.
+- Opción 2 (más emocional).
+- Opción 3 (para quien compra, si es otra persona; si no, para un avatar secundario).
+- Opción 4 (corta, para celular).
+Cada opción con su subtítulo. Termina con el texto legal bajo el hero: "Muchas personas notan cambios desde [tiempo]. Los resultados varían. No reemplaza tratamiento médico."
 
-Haz entre 15 y 30 búsquedas, una por tema y nunca combinadas. Usa WebFetch para leer las páginas clave.
+**3.5 Títulos para la sección de dolor (sección 2 de la landing).** Siete opciones, cada una con una etiqueta que dice qué dolor ataca y su subtítulo:
+- Opción 1 (recomendada, identificación directa): una pregunta que describe el síntoma principal en un momento concreto del día, con el lenguaje del avatar (ej. "¿Tu día empieza con 20 minutos de tos y flema antes del primer tinto?").
+- Opción 2: la sensación física.
+- Opción 3: el dolor de quien compra (si es otra persona).
+- Opción 4: la culpa o el hábito.
+- Opción 5: la limitación en la vida diaria.
+- Opción 6: el entorno (ciudad, clima, trabajo, temporada).
+- Opción 7: la frustración con lo que ya probó.
+Después, "Cómo armar la sección": usar la opción 1 como título principal; debajo, un bloque "¿Te pasa esto?" con 6 síntomas con check (✔) en el lenguaje del avatar; una frase puente hacia la solución (ej. "Si marcaste 2 o más, [la parte del cuerpo] te está pidiendo ayuda. Y la respuesta puede estar en…"); y una caja de cuidado: no nombrar enfermedades (ej. EPOC, asma, diabetes) ni daños en órganos, solo síntomas que la persona siente.
 
-1. **El problema y su tamaño.**
-   - Prevalencia con fuentes médicas o científicas reales.
-   - Quién lo sufre más y qué lo empeora (clima, hábitos, trabajo, edad).
-2. **El activo o mecanismo.** Qué dice la evidencia, a qué concentración funciona, efectos secundarios y cómo se compara con las alternativas.
-3. **Competencia y precios.**
-   - Marcas líderes y alternativas en Amazon, Walmart y Mercado Libre de varios países.
-   - Tabla con producto, activo, tamaño, precio y **precio por unidad** (por ml, cápsula o dosis).
-   - Hueco de mercado.
-4. **Tendencia y demanda.** Si el producto o el activo es viral (TikTok Shop, Ads Library), qué formatos usan y qué se busca ("cómo usar X").
-5. **Voz del cliente.**
-   - Revisa Reddit (subreddits del problema), reseñas de Amazon, Walmart y Mercado Libre, TikTok y YouTube.
-   - Si una página se bloquea, dilo y marca esa sección como "temas recurrentes, sin citas verificadas".
-   - Nunca presentes paráfrasis como citas textuales.
-6. **Regulación general.**
-   - Cómo se clasifica el producto (cosmético, suplemento o medicamento) según FDA y la normativa europea, y límites conocidos del activo.
-   - Palabras prohibidas en Meta y TikTok para esa categoría.
-   - Recordatorio de que cada país tiene su entidad sanitaria (ver tabla).
+**3.6 Sección de beneficios (texto corto para la imagen de la landing).** Texto pensado para copiar y pegar en una imagen, legible en celular:
+- **Título:** tres opciones, cada una una propuesta de valor conectada con los 5 beneficios (ej. "Respira tranquilo desde la primera semana" con subtítulo "Gordolobo puro para tu pecho, tu garganta y tus noches"). La opción 1 es la recomendada y lleva subtítulo.
+- **5 beneficios** en tabla: título del beneficio de 2–4 palabras (va en grande) + una frase de máximo 8 palabras (va en tamaño mediano). Cubrir: el síntoma principal resuelto, la sensación física, el descanso o la vida diaria, la molestia visible, y "100 % natural" con los atributos del producto.
+- **Franja inferior opcional:** 3–4 atributos separados por "·" (ej. "Sin alcohol · Sin gluten · Sin GMO · Pagas al recibir").
+- **Nota de diseño:** título del beneficio grande y frase mediana; si la imagen queda cargada, dejar solo los 5 títulos con íconos; fondo limpio, sin follaje.
+Si Joaquín pide primero la versión larga de los beneficios en el chat, dásela con título, texto de 2–3 frases y tiempo de transformación por beneficio; en el PDF va la versión corta.
 
-## Paso 3B. Capa local (solo si se nombró un país)
+**3.7 Modo de uso (título con propuesta de valor e imagen de la landing).**
+- **Dosis:** usa la de la etiqueta. Si la etiqueta no la muestra, dilo en una caja de "Pendiente", arma el modo de uso con la frecuencia típica de la categoría (ej. 2 tomas: mañana y noche) eligiendo los momentos que conecten con los beneficios, y deja la cantidad como [X] para que Joaquín la complete.
+- **Título:** tres opciones; cada una es una propuesta de valor que menciona las veces al día y lo fácil o rápido que es (ej. "Solo 2 tomas al día para respirar tranquilo de la mañana a la noche" con subtítulo "Tu ritual de gordolobo en menos de 1 minuto"). La opción 1 es la recomendada y lleva subtítulo.
+- **Modo de uso para la imagen:** una tabla con columnas Momento / Cómo tomarlo / Valor de cada toma. Cada toma lleva su momento del día con ícono (al despertar, antes de dormir…), la cantidad y en qué se toma, y una frase que conecta esa toma con un beneficio concreto (ej. "Ayuda a soltar la flema y arrancar el día con el pecho despejado"). Cierra con una fila "Todos los días, sin falta" que conecta la constancia con el tiempo de transformación.
+- **Nota legal para la imagen** justo debajo de la tabla (edades, embarazo y lactancia, "no reemplaza tratamiento médico").
+- **Franja inferior opcional:** 3–4 atributos de uso (ej. "Sin alcohol · Fácil de llevar · Menos de 1 minuto"); advierte cuáles hay que confirmar con el producto (ej. el sabor).
+- **Variante:** si la etiqueta puede indicar más tomas, agrega la toma intermedia con su valor y cómo cambiar el título.
 
-- Población, edad mediana y usuarios de redes y WhatsApp (DataReportal del año en curso).
-- Peso del pago contraentrega y operadores COD locales.
-- Precios en anaquel local: supermercados y farmacias del país, en moneda local.
-- Entidad sanitaria y trámite.
-- Clima o contexto local que alimenta el problema.
-- Avatar con nombre, ciudad y dialecto del país.
+**3.8 Guía visual de la estructura de 4 mensajes (plantilla de Joaquín).**
+Joaquín usa una plantilla propia, "Guía visual de estructura de ventas", con 4 imágenes de 1080 × 1920 (9:16) que sirven para WhatsApp y para armar la landing. Si sube la plantilla, síguela exactamente; si no, usa esta especificación:
+- **Mensaje 1 · Hero (Producto e ingredientes).** Objetivo: qué es, para quién y su valor. Elementos numerados: (1) Título principal de 2–4 líneas con la fórmula Beneficio + Tiempo + Deseo; (2) Subtítulo de 1–2 líneas que suma y no repite; (3) Avatar del producto (él, ella o pareja), a un costado; (4) Producto + validación: estrellas y reseñas reales arriba del producto; (5) Ingredientes, hasta 7, con ícono + nombre + texto, solo los reales; (6) 4 sellos con atributos verificables.
+- **Mensaje 2 · Punto de dolor.** Objetivo: conectar y mostrar la solución. (1) Título de 2–3 líneas que nombra el problema; (2) Subtítulo de 1 línea que une problema y solución (aquí puede ir el tiempo de transformación); (3) Imagen del dolor coherente con el título; (4) Título secundario que presenta la solución; (5) Mensaje descriptivo de 2–3 líneas; (6) Producto grande y visible; (7) 4 sellos de confianza.
+- **Mensaje 3 · Beneficios.** Objetivo: mostrar el valor para su vida. (1) Título de 2–3 líneas con resultado y deseo; (2) Subtítulo de 1 línea que refuerza la propuesta; (3) Cinco beneficios: número + título corto + 1 línea + imagen, cada uno una ventaja distinta; (4) Imágenes de beneficios específicas, nada genérico; (5) Producto central que conecta los beneficios; (6) 4 sellos.
+- **Mensaje 4 · Modo de uso.** Objetivo: explicar cómo usarlo, sin dudas. (1) Título de 2–3 líneas, fácil y práctico; (2) Subtítulo de 1 línea que complementa; (3) Mensaje descriptivo de 2–3 líneas; (4) Tres pasos en orden: número + ícono + título + texto, con íconos según el producto real; (5) Producto grande y reconocible; (6) 4 sellos.
+Llena cada mensaje con el copy ya creado: Mensaje 1 con el hero recomendado (3.4), los componentes reales del producto y los sellos; Mensaje 2 con el título de dolor recomendado (3.5); Mensaje 3 con el título y los 5 beneficios cortos (3.6); Mensaje 4 con el modo de uso (3.7) convertido en 3 pasos. Si el producto tiene un solo ingrediente, muéstrale a Joaquín sus componentes naturales y pídele confirmarlos con la ficha técnica. Reseñas y dosis van como [calificación real], [N] y [X] si no son datos confirmados.
 
-## Paso 4. Estructura del documento
+Cómo construir la guía visual:
+- Páginas horizontales de 960 × 540 pt con fondo gris claro (#F7F7F7), acento azul (#2F5BEA) y el estilo de la plantilla: una página general con las 4 maquetas en miniatura, flechas entre ellas, la etiqueta "Mensaje N", el nombre de la sección y el título; luego una página por mensaje con la maqueta 9:16 a la izquierda (etiqueta "1080X1920 9:16") y a la derecha el kicker "MENSAJE N - …", el nombre de la sección, los elementos numerados con el texto real, una franja negra con Beneficio / Tiempo / Deseo bajo el título principal y la caja "OBJETIVO" abajo.
+- Dibuja las maquetas con reportlab canvas: bloques de título con el color de la marca y texto blanco ajustado al espacio, subtítulos en barra oscura, marcadores azules numerados unidos con líneas finas a su explicación, y sellos en círculos al pie.
+- Usa la foto real del producto que Joaquín envió: recorta el frasco y la caja, vuelve transparente el fondo blanco y colócala en cada maqueta. Las fotos de personas van como recuadros grises con la descripción de la escena (ej. "hombre de 50 años tosiendo al despertar").
+- En el PDF de investigación agrega una página de sección con una tabla Mensaje / Objetivo / Título y una caja "Antes de diseñar"; después inserta las páginas de la guía visual (con pypdf) justo antes de las fuentes. Entrégala también como PDF aparte si Joaquín la pide sola.
 
-1. **Resumen ejecutivo.**
-   - Veredicto (viable o no, y con qué posicionamiento).
-   - Ficha del producto en tabla.
-   - 3 alertas antes de lanzar.
-2. **Deseo central.**
-   - Frase en la voz del avatar.
-   - Tabla hallazgo → dónde apareció → qué revela.
-   - Capas del deseo: funcional, visible, emocional e identidad.
-   - Cómo usarlo en el copy: frase madre, hook, titular de landing y promesa de WhatsApp.
-3. **Panorama del mercado.**
-   - Tamaño del problema.
-   - El activo y la evidencia.
-   - Tendencia.
-   - Tabla de competencia con precios por unidad.
-   - Regulación.
-   - Si hay país: tabla de digital y canales, y precios locales.
-4. **Problemas que resuelve.** Tabla por categoría (físico, síntoma, estético, emocional, económico, social) con cómo lo aborda el producto.
-5. **Voz del cliente.**
-   - Lista priorizada: problema → sentimiento → solución que piden → encaje del producto.
-   - Patrones de lenguaje convertidos en ángulos.
-6. **Barrido de plataformas.** Tabla de plataforma, qué se encontró y qué dicen los compradores. Incluye los puntos de dolor de las reseñas y el impulso de compra observado.
-7. **Avatar con nombre.**
-   - Nombre, edad, ocupación y ciudad concretas (latinoamericano genérico si no hay país).
-   - Tabla demográfica.
-   - Dolores más fuertes y el "dolor masivo que no lo deja dormir".
-   - Puntos débiles: qué lo hace comprar o dudar.
-   - Motivaciones y resultado deseado en primera persona.
-   - Segundo comprador (pareja, mamá) y el otro género, cada uno con su ángulo.
-8. **Impulso de compra.**
-   - Disparadores.
-   - Beneficios en orden de peso.
-   - Top 5 de resultados deseados.
-   - Tiempos de transformación con fuente y advertencia de que no son promesas clínicas.
-9. **Recomendaciones estratégicas.**
-   - Posicionamiento: categoría, enemigo, mecanismo único y promesa central.
-   - Oferta y precio.
-   - Unit economics.
-   - Fases de entrada.
-   - Canales.
-   - 6 ángulos creativos.
-   - Guion de WhatsApp y objeciones.
-   - Cumplimiento y riesgos.
-   - KPIs.
-10. **18 títulos para imágenes de Meta.** Agrupados por dolor, cada uno con texto de apoyo, más la recomendación de cuáles 3 probar primero.
-11. **6 propuestas de valor para el hero de la landing.** Titular + subtítulo, más qué probar en A/B.
-12. **Fuentes.** Solo enlaces que realmente se consultaron.
+Si Joaquín pide cualquiera de estas partes después de entregar el PDF, dáselas también en el chat con el mismo formato y agrégalas al PDF existente.
 
-## Reglas de calidad (obligatorias)
+## 4. Reglas de contenido
+- Nunca prometas curar, tratar ni aliviar enfermedades; usa "ayuda a la sensación de", "apoya", "muchas personas notan".
+- Señala si el creativo actual de Joaquín tiene datos de otro país (bandera, moneda, "envío a todo el Ecuador"), términos que no son del país (ej. "suplemento alimenticio" en vez de "suplemento dietario" en Colombia) o claims riesgosos o que debe poder demostrar ("probado por terceros", garantías).
+- No inventes cifras, reseñas ni dosis: si un dato no aparece en las fuentes o en la etiqueta, márcalo como estimación, referencia o pendiente.
+- Si el producto puede tentar a alguien a dejar un tratamiento (inhaladores, medicamentos), dilo explícitamente y agrega preguntas de seguridad al guion de WhatsApp.
+- Recuerda la preferencia de Joaquín para prompts de imágenes de anuncios: fondo limpio, sin follaje que recargue y texto de beneficios grande y legible en celular.
 
-**Copy y dialecto**
+## 5. Construcción del PDF
+- Usa reportlab (Platypus) con fuentes DejaVu para tildes y ñ. Paleta sobria acorde al producto; encabezado y pie con número de página.
+- Tablas con encabezado de color y filas alternas; cajas destacadas para la recomendación central, el deseo central, la propuesta encapsulada y las alertas. Las propuestas de valor van en cajas con filas Dolor / Propuesta / Tiempo; los títulos del hero, de beneficios y de modo de uso en cajas blancas con borde del color de la marca; los títulos de dolor en cajas blancas con borde rojizo; el bloque "¿Te pasa esto?" y las franjas de atributos en cajas de color claro; los 5 beneficios y el modo de uso en tablas de tres columnas.
+- Evita subtítulos sueltos al final de una página y tablas separadas de su título (usa CondPageBreak o KeepTogether).
+- Renderiza las páginas a PNG y revísalas antes de entregar (texto cortado, tablas desbordadas, portada, textos que se salen de las maquetas).
+- Entrega el PDF con SendUserFile y cierra con 2–3 líneas: hallazgo principal, avatar y siguiente paso.
 
-- **Sin país:** español neutro latinoamericano con tú.
-- **Con país:** el dialecto de ese país, de forma consistente y sin mezclar.
-  - **Guatemala y Centroamérica:** voseo ("Volvé", "Pedilo", "Pagás").
-  - **Colombia, Ecuador y México:** tú.
-  - **EE. UU.:** neutro, o inglés si se pide.
-- Titulares afirmativos, en primera persona o como afirmación general. **Nada de preguntas** en los títulos.
-- Por la política de atributos personales de Meta: nada de "tu caspa", "tus kilos" ni "¿tienes X?" en anuncios, y nada de hooks que asuman la condición del lector.
-- No nombres marcas competidoras en los anuncios. En el análisis sí.
-- Vocabulario simple; copy corto, punchy y pensado para móvil.
-
-**Cumplimiento**
-
-- **Sin promesas de medicamento:** cura, trata, elimina hongos o bacterias, crecimiento de cabello, baja X kilos, desinflama órganos. Usa lenguaje cosmético o de bienestar.
-- **Sin absolutos:** nada de "cero X", "el último que vas a probar" o "100 % garantizado".
-- **Sin estadísticas inventadas.** Cada número lleva fuente; si no la tiene, no se usa.
-- **Sin testimonios inventados.** Marca que los títulos en primera persona se publican como testimonio solo si hay un cliente real detrás.
-- **Sin origen falso** ("fórmula japonesa", "importado de Alemania") si el producto es un genérico de otro origen.
-- **Advertencias de uso:** embarazo, niños, piel lastimada, interacciones y efectos secundarios conocidos, porque reducen las devoluciones.
-
-**Coherencia de números (verificar antes de entregar)**
-
-- **Precio:** calcula el precio por unidad frente a cada competidor. El ancla de precio que se le muestra al cliente debe ser más cara que tu oferta; si no lo es, cambia el ancla (por ejemplo, consulta médica + receta, o "lo que ya gastaste en lo que no sirvió").
-- **Duración:** calcula cuánto dura una unidad según la dosis o el modo de uso. Los nombres de los combos ("tratamiento 60 días") deben cuadrar con esa cuenta, y la secuencia de recompra debe llegar cuando el producto se esté acabando.
-- **Unit economics:** tabla con costo, flete, tasa de devolución, precio, margen y **CPA de equilibrio**. Si faltan datos, deja supuestos marcados y la fórmula para que el usuario los reemplace.
-- **Alcance publicitario ≠ personas.** No uses el alcance de una plataforma para dimensionar el mercado.
-
-**Nivel de evidencia**
-
-Marca cada hallazgo clave con una de tres etiquetas:
-
-- **Verificado:** con fuente.
-- **Contenido de vendedor:** AliExpress, landing del proveedor.
-- **Inferencia.**
-
-Los tiempos de transformación que salen del marketing del vendedor van con esa etiqueta.
-
-## Referencia por país (para la capa local)
-
-| País | Entidad sanitaria | Dónde mirar precios | Moneda | Dialecto |
-|---|---|---|---|---|
-| Colombia | INVIMA | Éxito, Cruz Verde, Farmatodo, Mercado Libre | COP | tú |
-| Guatemala | MSPAS | Walmart GT, Farmacias Galeno, Pacifiko | Q (GTQ) | voseo |
-| Ecuador | ARCSA | Fybeca, Pharmacys, Supermaxi | USD | tú |
-| México | COFEPRIS | Walmart MX, Farmacias del Ahorro, Mercado Libre | MXN | tú |
-| EE. UU. | FDA / FTC | Amazon, Walmart, Target | USD | neutro / inglés |
-
-Verifica en la búsqueda que cada tienda siga vendiendo en el país. La tabla es un punto de partida, no un dato confirmado.
-
-## Entrega
-
-- **Dentro de la app Kads Studio** (cuando la tarea dice dónde escribir): no crees ningún documento. Escribe la investigación en el archivo JSON que indica la tarea, con el formato que trae, y nada más.
-- **En un chat:** crea el documento con el tipo Docs si está disponible. Si no, usa un .docx con la skill docx. Si el usuario pide PDF, entrega PDF.
-- Título:
-  - "[PRODUCTO] — Investigación de mercado" (general).
-  - "[PRODUCTO] — Investigación de mercado [País]" (con país).
-- **Respuesta final en el chat:**
-  - Veredicto en 2–3 líneas.
-  - Las 3 alertas antes de lanzar.
-  - Un siguiente paso concreto: creativos de imagen, guiones de video o landing.
-  - No resumas el documento.
+## 6. Dentro de la app Kads Studio
+Cuando la tarea viene de la app (dice en qué archivo escribir), cambia solo la entrega; la investigación, la estructura (sección 2), el copy (sección 3) y las reglas (sección 4) son los mismos:
+- No uses reportlab, pypdf ni SendUserFile, y no corras comandos: la app dibuja el PDF con el mismo diseño de la sección 5 y de la guía visual (3.8). Tú escribes el CONTENIDO en el archivo JSON que indica la tarea, con sus bloques (tablas, cajas, citas, propuestas, opciones de título y los 4 mensajes de la guía).
+- La foto del producto ya la tiene la app: no la recortes; en las maquetas se pone sola.
+- No hay memoria de Joaquín ni chat: no preguntes nada. Si falta el país, es Colombia.
+- Reddit y las tiendas se revisan con WebSearch y WebFetch. Di en la nota metodológica qué se pudo revisar y qué no.

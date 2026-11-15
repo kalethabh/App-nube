@@ -11,6 +11,9 @@
 //   resumenDe(id)                   -> { fecha, pais } | null   (para saber si un producto ya la tiene)
 //   aMarkdown(id)                   -> el texto que lee la estrategia de un lote, o null
 //
+// La skill es la «Investigación de mercado profunda»: su PDF (portada, 14 secciones, guía visual de 4 mensajes y
+// fuentes) llega como JSON de bloques y la pantalla lo dibuja con el mismo diseño (Documento.jsx).
+//
 // Solo con Claude: la sesión de ChatGPT de la app trabaja sin internet.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -34,8 +37,34 @@ const enMarcha = new Map();
 
 const numeroDeFoto = (f) => Number(String(f).match(/(\d+)\./)?.[1]);
 
+// Dos formatos: "documento" (el de ahora: el contenido del PDF de la skill, que la app dibuja igual) y el de la
+// primera versión (datos sueltos con gráficas; las investigaciones ya hechas se siguen viendo así).
+const TIPOS_DE_BLOQUE = ['parrafo', 'subtitulo', 'vinetas', 'numerada', 'tabla', 'ficha', 'caja', 'cita', 'propuesta', 'opcion', 'franja', 'nota', 'guia-visual'];
+
+function validarInvestigacion(id) {
+  const crudo = leerJSON(rutaInv(id));
+  if (crudo?.formato !== 'documento') return leerYValidar(rutaInv(id), 'investigacion-mercado');
+  const v = leerYValidar(rutaInv(id), 'investigacion-documento');
+  if (!v.ok) return v;
+  const errores = [];
+  let guia = 0;
+  v.datos.secciones.forEach((sec, i) =>
+    (sec.bloques || []).forEach((b, k) => {
+      const donde = `secciones[${i}].bloques[${k}]`;
+      if (!TIPOS_DE_BLOQUE.includes(b?.tipo)) errores.push(`${donde}.tipo: "${b?.tipo}" no existe (valen ${TIPOS_DE_BLOQUE.join(', ')})`);
+      if (b?.tipo === 'guia-visual') guia++;
+      if (b?.tipo === 'tabla' && !(Array.isArray(b.columnas) && Array.isArray(b.filas) && b.filas.every((f) => Array.isArray(f) && f.length === b.columnas.length))) errores.push(`${donde}: cada fila de la tabla lleva una celda por columna`);
+      if (b?.tipo === 'ficha' && !(Array.isArray(b.filas) && b.filas.every((f) => Array.isArray(f) && f.length === 2))) errores.push(`${donde}: cada fila de la ficha es [dato, valor]`);
+      if (['vinetas', 'numerada'].includes(b?.tipo) && !(Array.isArray(b.items) && b.items.length)) errores.push(`${donde}.items: falta la lista`);
+      if (['parrafo', 'subtitulo', 'cita', 'nota'].includes(b?.tipo) && !(typeof b.texto === 'string' && b.texto.trim())) errores.push(`${donde}.texto: falta`);
+    })
+  );
+  if (guia !== 1) errores.push('Falta el bloque { "tipo": "guia-visual" } al final de la sección 14 (uno solo).');
+  return errores.length ? { ok: false, errores: errores.slice(0, 15) } : v;
+}
+
 function leerInvestigacion(id) {
-  const v = existe(rutaInv(id)) ? leerYValidar(rutaInv(id), 'investigacion-mercado') : null;
+  const v = existe(rutaInv(id)) ? validarInvestigacion(id) : null;
   return v?.ok ? v.datos : null;
 }
 
@@ -82,6 +111,7 @@ export function listar() {
       estado: t?.estado === 'investigando' ? 'investigando' : inv ? 'lista' : t?.estado === 'error' ? 'error' : 'sin',
       fecha: inv ? t?.fin || null : null,
       veredicto: inv?.veredicto?.viable || null,
+      avatar: inv?.portada?.avatar || null,
       pais: inv?.pais || t?.pais || null,
       resaltados: inv ? leerResaltados(id).length : 0,
       creado: p.creado || null,
@@ -103,7 +133,8 @@ function armarSesion(id, { pais, retomar }) {
     carpeta: rel,
     fotos,
     datos: JSON.stringify(datos, null, 2),
-    pais: pais ? `investigación general MÁS la capa local de ${pais} (Paso 3B). En el JSON, "pais": "${pais}".` : 'investigación GENERAL (sin capa local). En el JSON, "pais": null.',
+    pais: pais || 'Colombia',
+    fecha: new Intl.DateTimeFormat('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Bogota' }).format(new Date()),
     archivo,
   });
   // como las demás sesiones (sin terminal, sin leer el .env ni el motor), pero CON internet: lo pide la skill
@@ -116,13 +147,15 @@ function armarSesion(id, { pais, retomar }) {
     permitidas: [`Read(./${rel}/**)`, `Read(./.claude/skills/${SKILL}/**)`, 'Glob', 'Grep', 'WebSearch', 'WebFetch', `Write(./${archivo})`, `Edit(./${archivo})`],
     prohibidas,
     fraseInicio: `${nombreIA()} está investigando tu mercado`,
-    timeoutMs: 75 * 60000,
+    timeoutMs: 90 * 60000,
     silencioMs: 12 * 60000,
-    maxTurnos: 220,
-    correcciones: 2,
+    maxTurnos: 260,
+    correcciones: 3,
     verificar: async () => {
-      const v = leerYValidar(rutaInv(id), 'investigacion-mercado');
-      return v.ok ? { ok: true } : { ok: false, errores: v.errores.slice(0, 12) };
+      const crudo = leerJSON(rutaInv(id));
+      if (crudo && crudo.formato !== 'documento') return { ok: false, errores: ['"formato" tiene que ser "documento" (el formato de la tarea).'] };
+      const v = validarInvestigacion(id);
+      return v.ok ? { ok: true } : { ok: false, errores: v.errores.slice(0, 15) };
     },
   };
 }
@@ -212,10 +245,54 @@ const lista = (titulo, items) => (items?.length ? `\n## ${titulo}\n${items.map((
 const txt = (x) => (typeof x === 'string' ? x.trim() : '');
 
 /** La investigación como texto para la estrategia de un lote (lo resaltado por el usuario va primero y manda). */
+const sinNegrita = (t) => String(t ?? '').replace(/\*\*/g, '');
+
+/** Un bloque del documento como texto. */
+function bloqueATexto(b) {
+  const t = sinNegrita;
+  switch (b?.tipo) {
+    case 'subtitulo':
+      return `\n### ${t(b.texto)}`;
+    case 'parrafo':
+    case 'nota':
+      return t(b.texto);
+    case 'vinetas':
+    case 'numerada':
+      return (b.items || []).map((x) => `- ${t(x)}`).join('\n');
+    case 'tabla':
+      return (b.filas || []).map((f) => `- ${f.map((c, i) => `${t(b.columnas?.[i])}: ${t(c)}`).join(' | ')}`).join('\n');
+    case 'ficha':
+      return (b.filas || []).map((f) => `- ${t(f[0])}: ${t(f[1])}`).join('\n');
+    case 'caja':
+      return [b.titulo && `${t(b.titulo)}:`, b.texto && t(b.texto), ...(b.items || []).map((x) => `- ${t(x)}`), b.pie && t(b.pie)].filter(Boolean).join('\n');
+    case 'cita':
+      return `«${t(b.texto)}»`;
+    case 'propuesta':
+      return `${t(b.titulo)}\n- Dolor: ${t(b.dolor)}\n- Propuesta: ${t(b.propuesta)}\n- Tiempo: ${t(b.tiempo)}`;
+    case 'opcion':
+      return `- ${t(b.etiqueta)}: ${t(b.titulo)}${b.subtitulo ? ` — ${t(b.subtitulo)}` : ''}`;
+    case 'franja':
+      return `${t(b.etiqueta)} ${t(b.texto)}`;
+    default:
+      return '';
+  }
+}
+
+function documentoAMarkdown(inv, res) {
+  const partes = [
+    `# Investigación de mercado: ${inv.producto} (${inv.pais})`,
+    res.length ? `\n## LO QUE EL USUARIO RESALTÓ (tenlo en cuenta primero: es lo que más le importa)\n${res.map((r) => `- ${r.texto}${r.nota ? ` — nota del usuario: ${r.nota}` : ''}`).join('\n')}` : '',
+    `\n## Lo más importante\n- Deseo central: ${inv.claves.deseo_central}\n- Beneficio principal: ${inv.claves.beneficio_principal}\n- Puntos de dolor:\n${inv.claves.puntos_dolor.map((d) => `  - ${d}`).join('\n')}\n- Avatar: ${inv.portada.avatar}`,
+    ...inv.secciones.map((sec, i) => `\n## ${i + 1}. ${sec.titulo}\n${(sec.bloques || []).map(bloqueATexto).filter(Boolean).join('\n')}`),
+  ];
+  return partes.filter(Boolean).join('\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, 90000) + '\n';
+}
+
 export function aMarkdown(id) {
   const inv = idValido(id) ? leerInvestigacion(id) : null;
   if (!inv) return null;
   const res = leerResaltados(id);
+  if (inv.formato === 'documento') return documentoAMarkdown(inv, res);
   const a = inv.avatar || {};
   const e = inv.estrategia || {};
   const partes = [
