@@ -677,7 +677,7 @@ export function PanelCambios({ plan, pistas, subs, ed, cambiar, seleccion, onSel
           {hayVoz ? (
             <Deslizador
               icono={AudioLines}
-              etiqueta={esCancion ? 'Canción' : pistas.voz.modo === 'en-clips' ? 'Voz de los personajes' : 'Voz en off'}
+              etiqueta={esCancion ? 'Canción' : pistas.voz.modo === 'en-clips' ? 'Voz de los personajes' : pistas.voz.segmentos?.[0]?.nombre || 'Voz en off'}
               valor={ed.voz.silenciada ? 0 : ed.voz.volumen}
               porDefecto={1}
               extra={
