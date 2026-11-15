@@ -32,6 +32,17 @@
           "modo": "pedido"
         }
       ]
+    },
+    {
+      "id": "cafb4b80f1a8",
+      "terminado": "2026-11-15T00:43:12.894Z",
+      "piezas": [
+        {
+          "pieza": "toma-1",
+          "nombre": "Bloque 1",
+          "modo": "pedido"
+        }
+      ]
     }
   ]
 }

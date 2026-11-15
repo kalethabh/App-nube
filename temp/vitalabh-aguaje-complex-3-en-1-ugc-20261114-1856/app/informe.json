@@ -1,6 +1,6 @@
 {
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
-  "generado": "2026-11-15T00:31:14.555Z",
+  "generado": "2026-11-15T00:43:10.900Z",
   "modoPrueba": false,
   "duracion": {
     "real": 38.61,
@@ -37,7 +37,7 @@
       "id": "subtitulos",
       "icono": "subtitulos",
       "titulo": "Subtítulos palabra por palabra",
-      "detalle": "44 frases sincronizadas con la voz; la palabra que se dice se resalta."
+      "detalle": "43 frases sincronizadas con la voz; la palabra que se dice se resalta."
     },
     {
       "id": "ritmo",
@@ -66,28 +66,11 @@
       "efecto": "deep-woosh"
     }
   ],
-  "problemas": [
-    {
-      "id": "revision-avisos",
-      "tipo": "revisar",
-      "titulo": "Lo que notó la revisión",
-      "detalle": "La revisión notó algo en esta pieza y no se rehízo nada solo: mírala y, si quieres, regenérala desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).",
-      "piezas": [
-        {
-          "n": null,
-          "unidad": "Escena 1",
-          "momento": 0,
-          "valor": "No dijo su parte tal cual: dijo «gym» en vez de «jean». Volvió a decir «gym» en vez de «jean», así que la frase del pantalón no se entiende.",
-          "clave": "vid:toma-1",
-          "sugerencia": true
-        }
-      ]
-    }
-  ],
-  "sinProblemas": false,
+  "problemas": [],
+  "sinProblemas": true,
   "costo": {
-    "creditos": 682,
-    "dolares": 3.41,
+    "creditos": 762,
+    "dolares": 3.81,
     "dolaresPorCredito": 0.005,
     "imagenes": {
       "piezas": 1,
@@ -95,9 +78,9 @@
       "dolares": 0.05
     },
     "videos": {
-      "piezas": 10,
-      "creditos": 660,
-      "dolares": 3.3
+      "piezas": 11,
+      "creditos": 740,
+      "dolares": 3.7
     },
     "musica": {
       "pistas": 1,
@@ -111,9 +94,9 @@
     "estimado": false,
     "elevenlabs": {
       "caracteres": 0,
-      "scribeSegundos": 184.6
+      "scribeSegundos": 232.2
     },
-    "corridas": 11,
+    "corridas": 14,
     "respaldo": [],
     "partes": [
       {
@@ -124,9 +107,9 @@
       },
       {
         "id": "videos",
-        "piezas": 10,
-        "creditos": 660,
-        "dolares": 3.3
+        "piezas": 11,
+        "creditos": 740,
+        "dolares": 3.7
       },
       {
         "id": "musica",
@@ -141,8 +124,8 @@
     ],
     "verificacion": {
       "saldoAntes": 1095.2,
-      "saldoDespues": 2413.2,
-      "diferencia": -1318,
+      "saldoDespues": 2333.2,
+      "diferencia": -1238,
       "coincide": false
     },
     "rehecho": false

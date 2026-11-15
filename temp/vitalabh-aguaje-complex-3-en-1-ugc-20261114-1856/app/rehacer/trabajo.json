@@ -1,6 +1,6 @@
 {
   "id": "cafb4b80f1a8",
-  "fase": "produccion",
+  "fase": "listo",
   "frase": "Creando el clip nuevo",
   "piezas": [
     {
@@ -53,7 +53,7 @@
       }
     ]
   },
-  "actualizado": "2026-11-15T00:37:48.671Z",
+  "actualizado": "2026-11-15T00:43:12.895Z",
   "pieza": "toma-1",
   "nombre": "Bloque 1",
   "pedido": "la escena del espejo no debe tener sincronización de labios, debe tener los labios completamente cerrados sin seguir la voz en off.",
@@ -61,5 +61,7 @@
   "modo": "pedido",
   "desde": "bloques",
   "reabierto": "2026-11-15T00:37:48.664Z",
-  "desdePaso": "bloques"
+  "desdePaso": "bloques",
+  "terminado": "2026-11-15T00:43:12.894Z",
+  "nota": null
 }
