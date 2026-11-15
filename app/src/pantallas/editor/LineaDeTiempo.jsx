@@ -512,12 +512,7 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
               <Trash2 size={15} strokeWidth={2} />
             </button>
           </Tooltip>
-          <Tooltip texto="Agregar un texto donde está el cursor">
-            <button type="button" className="lt__boton" onClick={acciones.agregarTexto}>
-              <Plus size={14} strokeWidth={2.4} aria-hidden="true" />
-              Texto
-            </button>
-          </Tooltip>
+
         </div>
         <p className="lt__pista-ayuda">
           <MousePointerClick size={14} strokeWidth={2} aria-hidden="true" />
@@ -645,7 +640,7 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
                   ))
                 ) : (
                   <span className="lt-carril__nada" style={{ left: PAD }}>
-                    Sin textos en pantalla: agrega uno con «+ Texto»
+                    Sin textos en pantalla: pídelos en la pestaña Textos
                   </span>
                 )}
               </div>

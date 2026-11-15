@@ -272,11 +272,11 @@ function PestanaMusica({ slug, pistas, ed, acciones, playerRef }) {
 }
 
 /**
- * Seguimiento con IA, para varios textos a la vez: «pon AMUA encima de "muna" en todo el video y 50% OFF encima de
- * "COMPRA 2 LLÉVATE 1"». La IA arma cada texto nuevo con lo que sigue (rutas/seguimiento.js, varios: true) y entran
- * todos en un solo paso (deshacer los quita juntos).
+ * El campo de los textos (pestaña Textos): lo que quieres con tus palabras y la IA arma cada texto (rutas/seguimiento.js,
+ * POST /textos/ia): cuándo (todo el video, una escena, unos segundos), dónde (una zona de la pantalla o encima de un
+ * texto del video, siguiéndolo) y su color si lo dijiste. Entran todos en un solo paso (deshacer los quita juntos).
  */
-function SeguimientoConIA({ acciones, total }) {
+function CampoTextosIA({ acciones, total }) {
   const tv = useTextosVideo(acciones.slug);
   const [pedido, setPedido] = useState('');
   const [ocupado, setOcupado] = useState(null);
@@ -297,14 +297,33 @@ function SeguimientoConIA({ acciones, total }) {
     setOcupado('ia');
     setNota(null);
     try {
-      const r = await pedirApi(`/api/anuncios/${encodeURIComponent(acciones.slug)}/seguimiento/ia`, { metodo: 'POST', cuerpo: { pedido, varios: true } });
-      const lista = (r.textos || []).map((x) => ({ texto: x.texto, cambios: cambiosParaSeguir(tv.pistas, x.pistas, x.siempre, total) })).filter((x) => x.cambios);
+      const r = await pedirApi(`/api/anuncios/${encodeURIComponent(acciones.slug)}/textos/ia`, { metodo: 'POST', cuerpo: { pedido } });
+      const lista = (r.textos || [])
+        .map((x) => {
+          if (x.pistas?.length) {
+            const c = cambiosParaSeguir(tv.pistas, x.pistas, x.siempre, total);
+            return c ? { texto: x.texto, cambios: { ...c, ...(x.color ? { color: x.color } : {}), ...(x.fondo ? { fondo: x.fondo === 'transparente' ? null : x.fondo } : {}) } } : null;
+          }
+          return {
+            texto: x.texto,
+            cambios: {
+              inicio: x.inicio,
+              fin: x.fin,
+              x: x.x,
+              y: x.y,
+              tamano: x.tamano,
+              ...(x.color ? { color: x.color } : {}),
+              ...(x.fondo ? { fondo: x.fondo === 'transparente' ? null : x.fondo } : {}),
+            },
+          };
+        })
+        .filter(Boolean);
       if (!lista.length) {
-        setNota({ error: true, texto: r.mensaje || 'No encontré esos textos en el video. Revisa cómo están escritos.' });
+        setNota({ error: true, texto: r.necesitaLeer ? 'Para ponerlo encima de un texto del video, primero toca «Buscar los textos del video».' : r.mensaje || 'No entendí qué texto poner. Escríbelo entre comillas.' });
         return;
       }
-      acciones.crearSeguidos(lista);
-      setNota({ texto: `${lista.length === 1 ? 'Agregué 1 texto' : `Agregué ${lista.length} textos`}: ${lista.map((x) => `«${x.texto}»`).join(', ')}.${r.mensaje ? ` ${r.mensaje}` : ''}` });
+      acciones.crearTextos(lista);
+      setNota({ texto: `${lista.length === 1 ? 'Agregué' : `Agregué ${lista.length} textos:`} ${lista.map((x) => `«${x.texto}»`).join(', ')}.${r.mensaje ? ` ${r.mensaje}` : ''}${r.necesitaLeer ? ' Para lo que va encima de textos del video, primero busca los textos.' : ''}` });
       setPedido('');
     } catch (e) {
       setNota({ error: true, texto: e.message });
@@ -316,35 +335,32 @@ function SeguimientoConIA({ acciones, total }) {
     <div className="ed-seguimiento ed-seguimiento--pestana">
       <div className="ed-tiempo-pantalla__cabecera">
         <span>
-          <Sparkles size={13} strokeWidth={2.2} aria-hidden="true" /> Textos que siguen, con IA
+          <Sparkles size={13} strokeWidth={2.2} aria-hidden="true" /> Agrega textos con IA
         </span>
       </div>
-      {tv.estado === 'listo' ? (
-        <>
-          <AreaTexto
-            value={pedido}
-            onChange={(ev) => setPedido(ev.target.value)}
-            filas={3}
-            placeholder={'Ej.: pon AMUA encima de "muna" en todo el video, y 50% OFF encima de "COMPRA 2 LLÉVATE 1"'}
-            aria-label="Qué textos quieres agregar"
-          />
-          <Boton variante="primario" tamano="chico" bloque icono={Sparkles} onClick={crear} cargando={ocupado === 'ia'} disabled={!pedido.trim()}>
-            Agregarlos con IA
-          </Boton>
-        </>
-      ) : tv.estado === 'leyendo' ? (
+      <AreaTexto
+        value={pedido}
+        onChange={(ev) => setPedido(ev.target.value)}
+        filas={4}
+        placeholder={'Dile qué texto, cuándo y dónde. Ej.: "ENVÍO GRATIS" arriba en todo el video; "OFERTA" abajo en la escena 5; AMUA encima de "muna"'}
+        aria-label="Qué textos quieres agregar"
+      />
+      <Boton variante="primario" tamano="chico" bloque icono={Sparkles} onClick={crear} cargando={ocupado === 'ia'} disabled={!pedido.trim()}>
+        Agregarlos con IA
+      </Boton>
+      {tv.estado === 'leyendo' ? (
         <BarraDeProgreso valor={tv.valor} animada etiqueta="Leyendo los textos del video" mostrarValor />
-      ) : tv.estado === 'sin-video' ? (
-        <p className="ed-medios__nota">{tv.error}</p>
-      ) : (
+      ) : tv.estado === 'listo' ? (
+        <p className="ed-medios__nota">Puedes poner textos encima de los del video ({tv.pistas.length} encontrados) y que los sigan.</p>
+      ) : tv.estado && tv.estado !== 'sin-video' ? (
         <>
-          <p className="ed-medios__nota">Pon textos tuyos encima de los que se ven en el video y que los sigan. Primero se leen los textos del video: es gratis y tarda unos 30 s por minuto.</p>
+          <p className="ed-medios__nota">Para poner un texto encima de uno que se ve en el video (y que lo siga), primero hay que leerlos: es gratis y tarda unos 30 s por minuto.</p>
           {tv.estado === 'error' ? <p className="ed-medios__nota ed-nota--error">{tv.error}</p> : null}
-          <Boton variante="secundario" tamano="chico" bloque onClick={leer} cargando={ocupado === 'leer'} disabled={!tv.estado}>
+          <Boton variante="secundario" tamano="chico" bloque onClick={leer} cargando={ocupado === 'leer'}>
             Buscar los textos del video
           </Boton>
         </>
-      )}
+      ) : null}
       {nota ? <p className={`ed-medios__nota${nota.error ? ' ed-nota--error' : ''}`}>{nota.texto}</p> : null}
     </div>
   );
@@ -355,9 +371,6 @@ function PestanaTextos({ pistas, ed, cambiar, onIr, acciones }) {
   const elegirImagen = useRef(null);
   const agregar = (
     <>
-      <Boton variante="secundario" tamano="chico" icono={Plus} bloque onClick={acciones.agregarTexto}>
-        Agregar texto en el cursor
-      </Boton>
       <Boton variante="secundario" tamano="chico" icono={ImagePlus} bloque onClick={() => elegirImagen.current?.click()}>
         Agregar imagen en el cursor
       </Boton>
@@ -372,8 +385,8 @@ function PestanaTextos({ pistas, ed, cambiar, onIr, acciones }) {
           if (f) acciones.agregarImagen(f);
         }}
       />
+      <CampoTextosIA acciones={acciones} total={pistas.duracion} />
       <p className="ed-medios__nota">Arrastra los textos y las imágenes en el video para moverlos.</p>
-      <SeguimientoConIA acciones={acciones} total={pistas.duracion} />
     </>
   );
   if (!textos.length) {

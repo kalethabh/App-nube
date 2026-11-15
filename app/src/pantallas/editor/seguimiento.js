@@ -1,5 +1,5 @@
 // Seguimiento (rutas/seguimiento.js): lo que comparten el panel de un texto o una imagen (PanelCambios: Seguimiento)
-// y el campo de la pestaña Textos que crea varios textos que siguen a la vez (PanelMedios: SeguimientoConIA).
+// y el campo de la pestaña Textos que crea textos con IA (PanelMedios: CampoTextosIA).
 import { useEffect, useState } from 'react';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 
