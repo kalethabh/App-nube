@@ -1,0 +1,48 @@
+{
+  "v": 1,
+  "estado": {
+    "subtitulos": {
+      "visible": false,
+      "estilo": "caja",
+      "color": null,
+      "tamano": 1,
+      "altura": null,
+      "lado": 0
+    },
+    "lugaresSubtitulos": {},
+    "correcciones": {},
+    "ocultos": [],
+    "voz": {
+      "volumen": 1,
+      "silenciada": false
+    },
+    "musica": {
+      "fuente": "original",
+      "volumen": 1,
+      "silenciada": false,
+      "inicio": 0,
+      "id": null,
+      "nombre": null,
+      "url": null,
+      "duracion": null,
+      "origen": null,
+      "tramos": null
+    },
+    "quitados": [],
+    "textos": [],
+    "tomas": null,
+    "brolls": null,
+    "ajustesTextos": {},
+    "textosNuevos": [],
+    "reemplazos": {},
+    "clips": {},
+    "corte": null
+  },
+  "t": 1794710030250,
+  "contexto": {
+    "titulo": "VITALABH Aguaje Complex 3 en 1",
+    "overlays": [],
+    "color": "#E01E5A"
+  },
+  "guardado": "2026-11-15T02:34:08.865Z"
+}
