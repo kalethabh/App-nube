@@ -1,0 +1,67 @@
+{
+  "$comment": "investigacion.json de un producto (lib/investigacion.js): la investigación de mercado de la skill investigacion-mercado, en datos para que la app la muestre con gráficas. Solo es obligatorio lo que usa el resto de la app; lo demás se muestra si viene.",
+  "type": "object",
+  "required": ["producto", "veredicto", "alertas", "deseo_central", "beneficio_principal", "puntos_dolor", "avatar", "titulos", "fuentes"],
+  "properties": {
+    "producto": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "pais": { "type": ["string", "null"], "maxLength": 80 },
+    "veredicto": {
+      "type": "object",
+      "required": ["viable", "texto"],
+      "properties": {
+        "viable": { "type": "string", "enum": ["si", "con-condiciones", "no"] },
+        "texto": { "type": "string", "minLength": 1, "maxLength": 1500 },
+        "posicionamiento": { "type": "string", "maxLength": 800 }
+      }
+    },
+    "ficha": { "type": "array", "maxItems": 20, "items": { "type": "object", "required": ["dato", "valor"], "properties": { "dato": { "type": "string" }, "valor": { "type": "string" } } } },
+    "alertas": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "type": "string", "minLength": 1, "maxLength": 600 } },
+    "deseo_central": {
+      "type": "object",
+      "required": ["frase"],
+      "properties": {
+        "frase": { "type": "string", "minLength": 1, "maxLength": 600 },
+        "capas": { "type": "object" },
+        "hallazgos": { "type": "array", "maxItems": 12, "items": { "type": "object" } },
+        "uso": { "type": "object" }
+      }
+    },
+    "beneficio_principal": { "type": "string", "minLength": 1, "maxLength": 600 },
+    "mercado": { "type": "object" },
+    "problemas": { "type": "array", "maxItems": 20, "items": { "type": "object" } },
+    "puntos_dolor": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": ["dolor", "intensidad"],
+        "properties": {
+          "dolor": { "type": "string", "minLength": 1, "maxLength": 300 },
+          "intensidad": { "type": "number", "minimum": 1, "maximum": 10 },
+          "sentimiento": { "type": "string", "maxLength": 300 },
+          "solucion_que_piden": { "type": "string", "maxLength": 400 },
+          "encaje": { "type": "string", "maxLength": 400 },
+          "evidencia": { "type": "string", "enum": ["verificado", "vendedor", "inferencia"] }
+        }
+      }
+    },
+    "lenguaje": { "type": "array", "maxItems": 15, "items": { "type": "object" } },
+    "plataformas": { "type": "array", "maxItems": 12, "items": { "type": "object" } },
+    "avatar": {
+      "type": "object",
+      "required": ["nombre"],
+      "properties": { "nombre": { "type": "string", "minLength": 1, "maxLength": 80 } }
+    },
+    "impulso": { "type": "object" },
+    "estrategia": { "type": "object" },
+    "titulos": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 24,
+      "items": { "type": "object", "required": ["titulo"], "properties": { "titulo": { "type": "string", "minLength": 1, "maxLength": 200 }, "dolor": { "type": "string" }, "apoyo": { "type": "string" }, "probar_primero": { "type": "boolean" } } }
+    },
+    "heros": { "type": "array", "maxItems": 8, "items": { "type": "object" } },
+    "fuentes": { "type": "array", "maxItems": 80, "items": { "type": "object", "required": ["url"], "properties": { "titulo": { "type": "string" }, "url": { "type": "string", "minLength": 4, "maxLength": 600 } } } }
+  }
+}

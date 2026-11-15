@@ -8,6 +8,7 @@
 //
 // Solo los lotes de ESTA app (una app de prueba en otro puerto tiene los suyos: brief.puerto, como los videos).
 import fs from 'node:fs';
+import { resumenDe, aMarkdown } from '../investigacion.js';
 import path from 'node:path';
 import { TEMP, PUERTO_DE_PRUEBA, esDeEstaApp } from '../rutas.js';
 import { leerJSON, existe, listar } from '../archivos.js';
@@ -132,6 +133,8 @@ export function productosConFoto() {
       fotos,
       fotoSugerida: (fotos.find((f) => !f.deLaPagina) || fotos[0]).n,
       ultimoLote: ultimo ? { datos: ultimo.brief.datos || {} } : null,
+      // su investigación de mercado, si ya la tiene (sección «Investigación de mercado»): los lotes la usan sola
+      investigacion: resumenDe(id),
       creado: p.creado || null,
     });
   }
@@ -220,6 +223,15 @@ export function crearLote(cuerpo = {}) {
     creado: ahora(),
     ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}),
   };
+  // la investigación de mercado del producto (si ya la tiene y no se pidió sin ella) va al lote: la estrategia la lee
+  if (cuerpo.usarInvestigacion !== false) {
+    const md = aMarkdown(productoId);
+    if (md) {
+      fs.writeFileSync(R.investigacion(carpeta, 'md'), md);
+      brief.investigacion = 'entrada/investigacion.md';
+      brief.investigacionDelProducto = true;
+    }
+  }
   guardarJSON(R.brief(carpeta), brief);
   return { lote, brief };
 }
