@@ -1,0 +1,28 @@
+{
+  "n": 1,
+  "estado": "listo",
+  "calidad": "1080",
+  "version": "sin-subtitulos",
+  "subtitulos": "sin",
+  "sinMusica": false,
+  "srt": false,
+  "guardar": false,
+  "creado": "2026-11-15T02:40:44.996Z",
+  "actualizado": "2026-11-15T02:45:20.318Z",
+  "avance": {
+    "etapa": "guardar",
+    "valor": 100,
+    "cuadro": 1158,
+    "total": 1158
+  },
+  "control": {
+    "limpio": true,
+    "codigo": 0,
+    "motivo": null,
+    "defectos": [],
+    "avisos": []
+  },
+  "archivo": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856_editado-1.mp4",
+  "srtArchivo": null,
+  "terminado": "2026-11-15T02:45:18.555Z"
+}
