@@ -2,7 +2,7 @@
   "slug": "oxipure-mullein-zack-d-films-20261115-0901",
   "familia": "continuidad",
   "estado": "corriendo",
-  "paso": "videos",
+  "paso": "revision-cadena",
   "pasos": [
     {
       "id": "validar",
@@ -73,16 +73,18 @@
     {
       "id": "videos",
       "nombre": "Crear los videos encadenados",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 3,
       "inicio": "2026-11-15T14:34:35.292Z",
-      "fin": "2026-11-15T14:51:59.730Z"
+      "fin": "2026-11-15T14:56:03.361Z"
     },
     {
       "id": "revision-cadena",
       "nombre": "Revisar las uniones entre escenas",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-15T14:56:03.361Z",
+      "detalle": "Sacando los cuadros de cada unión"
     },
     {
       "id": "voces",
@@ -125,7 +127,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T14:52:44.919Z",
+  "actualizado": "2026-11-15T14:56:03.361Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"

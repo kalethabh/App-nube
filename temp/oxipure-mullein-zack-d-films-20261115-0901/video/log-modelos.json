@@ -1,7 +1,7 @@
 {
-  "generado": "2026-11-15T14:51:59.705Z",
-  "parcial": true,
-  "segundos": 672,
+  "generado": "2026-11-15T14:56:03.350Z",
+  "parcial": false,
+  "segundos": 194,
   "clips": [
     {
       "id": "paso-6",
@@ -370,6 +370,26 @@
       "taskId": "05c559b933b7644491db62a06499c5de",
       "dialogo": true,
       "rol": "propio"
+    },
+    {
+      "id": "paso-28",
+      "archivo": "paso-28.mp4",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "tipo": "paso",
+      "segundosUtiles": 3,
+      "segundosPedidos": 3,
+      "resolucion": "1080p",
+      "frameFinal": true,
+      "creditos": 90.6,
+      "taskId": "fe86ce192788224665d9b278efe7a6c1",
+      "dialogo": false,
+      "rol": "paso",
+      "deToma": 28,
+      "aToma": 29,
+      "desde": "toma-28-final.png",
+      "hasta": "toma-29-inicial.png"
     },
     {
       "id": "toma-29",

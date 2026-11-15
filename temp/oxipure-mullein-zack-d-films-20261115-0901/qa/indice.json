@@ -1,0 +1,856 @@
+{
+  "generado": "2026-11-15T14:56:34.335Z",
+  "nota": "Fotogramas fijos. NO sirven para juzgar la fluidez del movimiento ni el audio.",
+  "frames": 5,
+  "clips": [
+    {
+      "clip": "toma-1.mp4",
+      "tira": "qa/toma-1.jpg",
+      "duracion": 7,
+      "segundos": [
+        0.14,
+        1.89,
+        3.5,
+        5.25,
+        6.79
+      ],
+      "tipo": "B",
+      "linea": "Los primeros tres días vas a toser más de lo normal… y eso es buena señal.",
+      "referencias": [],
+      "esperado": {
+        "inicial": "Vertical 9:16. A stylized anatomical torso bust made of translucent frosted pale-blue glass, genderless and smooth, going from the base of the neck to the waist with no arms and no head, shows inside it a pair of lungs made of heavy gray stone covered in deep dark cracks. The stone lungs are whole and solid, dull and lifeless, filling the chest. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front of the torso at chest height, medium shot, with the lungs centered in the frame. The torso rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+        "final": "Vertical 9:16. A stylized anatomical torso bust made of translucent frosted pale-blue glass, genderless and smooth, going from the base of the neck to the waist with no arms and no head, shows inside it a pair of lungs whose gray stone shell has crumbled apart. Most of the cracked stone has fallen in broken chunks that lie piled at the bottom of the chest and around the base of the torso, and through the gaps a clean bronchial tree of light-blue branches is visible, softly glowing. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front of the torso at chest height, medium shot, with the lungs centered in the frame. The torso rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background"
+      }
+    },
+    {
+      "clip": "paso-1.mp4",
+      "tira": "qa/paso-1.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 1,
+      "a": 2,
+      "linea": "Los primeros tres días vas a toser más de lo normal… y eso es buena señal.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-1-final.png",
+        "imagenFinal": "img/toma-2-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-2.mp4",
+      "tira": "qa/paso-2.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "paso",
+      "de": 2,
+      "a": 3,
+      "linea": "Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-2-inicial.png",
+        "imagenFinal": "img/toma-3-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-3.mp4",
+      "tira": "qa/paso-3.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "paso",
+      "de": 3,
+      "a": 4,
+      "linea": "…la que llevaba ahí semanas, meses… o hasta años.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-3-inicial.png",
+        "imagenFinal": "img/toma-4-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-4.mp4",
+      "tira": "qa/paso-4.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 4,
+      "a": 5,
+      "linea": "Humo, polvo, flema vieja…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-4-inicial.png",
+        "imagenFinal": "img/toma-5-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-5.mp4",
+      "tira": "qa/paso-5.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 5,
+      "a": 6,
+      "linea": "capas que ni sabías que tenías.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-5-inicial.png",
+        "imagenFinal": "img/toma-6-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-6.mp4",
+      "tira": "qa/paso-6.jpg",
+      "duracion": 3.04,
+      "segundos": [
+        0.06,
+        0.82,
+        1.52,
+        2.28,
+        2.95
+      ],
+      "tipo": "paso",
+      "de": 6,
+      "a": 7,
+      "linea": "Sí, puede que botes",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-6-inicial.png",
+        "imagenFinal": "img/toma-7-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-7.mp4",
+      "tira": "qa/paso-7.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 7,
+      "a": 8,
+      "linea": "una flema oscura y espesa…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-7-inicial.png",
+        "imagenFinal": "img/toma-8-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-8.mp4",
+      "tira": "qa/paso-8.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 8,
+      "a": 9,
+      "linea": "…pero así sabes que tu pecho se está limpiando.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-8-inicial.png",
+        "imagenFinal": "img/toma-9-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-9.mp4",
+      "tira": "qa/paso-9.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 9,
+      "a": 10,
+      "linea": "Llega hasta donde el jarabe para la tos nunca alcanzó.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-9-inicial.png",
+        "imagenFinal": "img/toma-10-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-10.mp4",
+      "tira": "qa/toma-10.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "B",
+      "linea": "Para el día diez, esa sensación pesada, de ahogo… se va.",
+      "referencias": [],
+      "esperado": {
+        "inicial": "Vertical 9:16. A stylized bust of an adult man in his forties, seen in exact side profile facing left, made of smooth matte light-gray soft plastic like an anatomical model, from the upper chest to the top of the head, with his eyes closed. His airways are visible as a cut-away channel that runs from the nose through the throat and down the windpipe into the upper chest, glowing an intense saturated red, swollen and narrow. His face is tense, with the brow furrowed, the jaw tight and the lips pressed together. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is at the height of his chin, medium close shot, with the bust centered in the frame. The bust rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+        "final": "Vertical 9:16. A stylized bust of an adult man in his forties, seen in exact side profile facing left, made of smooth matte light-gray soft plastic like an anatomical model, from the upper chest to the top of the head, with his eyes closed. His airways are visible as a cut-away channel that runs from the nose through the throat and down the windpipe into the upper chest, now a calm pale silver-gray, wide, open and clear with no red at all. His face is relaxed and serene, with a smooth brow, a loose jaw and the lips slightly parted as he breathes out slowly. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is at the height of his chin, medium close shot, with the bust centered in the frame. The bust rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background"
+      }
+    },
+    {
+      "clip": "paso-10.mp4",
+      "tira": "qa/paso-10.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 10,
+      "a": 11,
+      "linea": "Para el día diez, esa sensación pesada, de ahogo… se va.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-10-final.png",
+        "imagenFinal": "img/toma-11-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-11.mp4",
+      "tira": "qa/toma-11.jpg",
+      "duracion": 5.04,
+      "segundos": [
+        0.1,
+        1.36,
+        2.52,
+        3.78,
+        4.89
+      ],
+      "tipo": "B",
+      "linea": "Tu pecho se siente abierto y liviano, no apretado ni tapado.",
+      "referencias": [
+        "gloria"
+      ],
+      "esperado": {
+        "inicial": "Vertical 9:16. Pixar-Disney style 3D animation render shown entirely in desaturated black and white with cold flat light, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, with tired dark circles and dry lips, standing by the window of her modest Colombian living room, wearing her gray wool cardigan over an old t-shirt, slightly hunched, one hand pressed flat on her chest, brow furrowed, breathing through her mouth, framed from the waist up and centered in the frame facing the camera, a plain curtain and the window frame behind her, expressive facial detail, shallow depth of field, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+        "final": "Vertical 9:16. Pixar-Disney style 3D animation render in full warm color, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now rested, with color in her cheeks and an upright posture, standing on the small balcony of her Colombian apartment with green potted plants behind her and warm sunlight, wearing a mustard-yellow blouse instead of the gray cardigan, both arms open wide to her sides, chest lifted as she breathes in deeply through her nose, eyes closed with a calm smile of relief, framed from the waist up and centered in the frame facing the camera, the same framing as the attached start image. Do NOT copy the room, the gray cardigan, the pose or the black-and-white look of the attached start image: keep only her face and the framing. The change from the start frame must be obvious at a glance. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting"
+      }
+    },
+    {
+      "clip": "paso-11.mp4",
+      "tira": "qa/paso-11.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 11,
+      "a": 12,
+      "linea": "Tu pecho se siente abierto y liviano, no apretado ni tapado.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-11-final.png",
+        "imagenFinal": "img/toma-12-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-12.mp4",
+      "tira": "qa/toma-12.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "B",
+      "linea": "Y por fin duermes la noche entera sin despertarte tosiendo.",
+      "referencias": [
+        "gloria"
+      ],
+      "esperado": {
+        "inicial": "Vertical 9:16. Pixar-Disney style 3D animation render shown entirely in desaturated black and white with cold light, night in a modest Colombian bedroom, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, sitting on the edge of her bed, exhausted, wearing her gray wool cardigan over an old t-shirt, coughing into her closed fist with her other hand on her chest, a small bedside lamp switched on beside her on a wooden nightstand, a plain blanket on the bed, the bed seen from the side and filling the lower half of the frame, expressive facial detail, shallow depth of field, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+        "final": "Vertical 9:16. Pixar-Disney style 3D animation render in full warm color, morning in the same modest Colombian bedroom with the same bed seen from the side in the same framing as the attached start image, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now deeply asleep lying on her side with her head on the pillow, peaceful rested face, covered up to her shoulders with a different blanket, a thick woven terracotta and yellow one, the bedside lamp switched off, soft golden morning light coming in through the curtain. Do NOT copy the sitting pose, the cough, the gray cardigan or the black-and-white look of the attached start image: keep only her face, the bed and the framing. The change from the start frame must be obvious at a glance. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting"
+      }
+    },
+    {
+      "clip": "paso-12.mp4",
+      "tira": "qa/paso-12.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 12,
+      "a": 13,
+      "linea": "Y por fin duermes la noche entera sin despertarte tosiendo.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-12-final.png",
+        "imagenFinal": "img/toma-13-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-13.mp4",
+      "tira": "qa/paso-13.jpg",
+      "duracion": 4.04,
+      "segundos": [
+        0.08,
+        1.09,
+        2.02,
+        3.03,
+        3.92
+      ],
+      "tipo": "paso",
+      "de": 13,
+      "a": 14,
+      "linea": "Después de veinte días, el cambio de energía se nota.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-13-inicial.png",
+        "imagenFinal": "img/toma-14-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-14.mp4",
+      "tira": "qa/paso-14.jpg",
+      "duracion": 3.04,
+      "segundos": [
+        0.06,
+        0.82,
+        1.52,
+        2.28,
+        2.95
+      ],
+      "tipo": "paso",
+      "de": 14,
+      "a": 15,
+      "linea": "Se acaban los bajones de la tarde…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-14-inicial.png",
+        "imagenFinal": "img/toma-15-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-15.mp4",
+      "tira": "qa/paso-15.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 15,
+      "a": 16,
+      "linea": "y subes las escaleras sin parar a coger aire.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-15-inicial.png",
+        "imagenFinal": "img/toma-16-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-16.mp4",
+      "tira": "qa/toma-16.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "B",
+      "linea": "Porque tu cuerpo ya no está peleando por cada bocanada de aire.",
+      "referencias": [],
+      "esperado": {
+        "inicial": "Vertical 9:16. A pair of stylized lungs made of translucent pale frosted material, joined at the top by a short windpipe, stand upright as a single anatomical model. The lungs are dim, slightly deflated and unlit inside, and the bronchial branches within them are a dull flat gray. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front at the height of the middle of the lungs, medium shot, with the lungs centered and filling about half of the frame. The model rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+        "final": "Vertical 9:16. A pair of stylized lungs made of translucent pale frosted material, joined at the top by a short windpipe, stand upright as a single anatomical model. The lungs are now full and inflated, lit from the inside with an intense orange-golden light, and the bronchial branches within them shine like bright veins of golden light. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front at the height of the middle of the lungs, medium shot, with the lungs centered and filling about half of the frame. The model rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background"
+      }
+    },
+    {
+      "clip": "paso-16.mp4",
+      "tira": "qa/paso-16.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 16,
+      "a": 17,
+      "linea": "Porque tu cuerpo ya no está peleando por cada bocanada de aire.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-16-final.png",
+        "imagenFinal": "img/toma-17-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-17.mp4",
+      "tira": "qa/paso-17.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "paso",
+      "de": 17,
+      "a": 18,
+      "linea": "Y te vas a dar cuenta de que no era normal vivir así, falto de aire.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-17-inicial.png",
+        "imagenFinal": "img/toma-18-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-18.mp4",
+      "tira": "qa/paso-18.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 18,
+      "a": 19,
+      "linea": "Los silbidos al respirar…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-18-inicial.png",
+        "imagenFinal": "img/toma-19-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-19.mp4",
+      "tira": "qa/paso-19.jpg",
+      "duracion": 3.04,
+      "segundos": [
+        0.06,
+        0.82,
+        1.52,
+        2.28,
+        2.95
+      ],
+      "tipo": "paso",
+      "de": 19,
+      "a": 20,
+      "linea": "la cabeza nublada…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-19-inicial.png",
+        "imagenFinal": "img/toma-20-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-20.mp4",
+      "tira": "qa/paso-20.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 20,
+      "a": 21,
+      "linea": "el pecho apretado…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-20-inicial.png",
+        "imagenFinal": "img/toma-21-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-21.mp4",
+      "tira": "qa/paso-21.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "paso",
+      "de": 21,
+      "a": 22,
+      "linea": "…era flema y bloqueo. Tu pecho no podía limpiarse solo.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-21-inicial.png",
+        "imagenFinal": "img/toma-22-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-22.mp4",
+      "tira": "qa/paso-22.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 22,
+      "a": 23,
+      "linea": "Si cocinaste con leña,",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-22-inicial.png",
+        "imagenFinal": "img/toma-23-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-23.mp4",
+      "tira": "qa/paso-23.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 23,
+      "a": 24,
+      "linea": "respiras el humo de los buses",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-23-inicial.png",
+        "imagenFinal": "img/toma-24-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-24.mp4",
+      "tira": "qa/paso-24.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 24,
+      "a": 25,
+      "linea": "o te quedó la tos de la gripa…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-24-inicial.png",
+        "imagenFinal": "img/toma-25-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-25.mp4",
+      "tira": "qa/paso-25.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "paso",
+      "de": 25,
+      "a": 26,
+      "linea": "…esto es OxiPure: extracto puro de hoja de gordolobo.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-25-inicial.png",
+        "imagenFinal": "img/toma-26-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-26.mp4",
+      "tira": "qa/paso-26.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        0.12,
+        1.61,
+        2.98,
+        4.48,
+        5.79
+      ],
+      "tipo": "paso",
+      "de": 26,
+      "a": 27,
+      "linea": "La planta que las abuelas usaban para el pecho… ahora en gotas concentradas.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-26-inicial.png",
+        "imagenFinal": "img/toma-27-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-27.mp4",
+      "tira": "qa/paso-27.jpg",
+      "duracion": 4.96,
+      "segundos": [
+        0.1,
+        1.34,
+        2.48,
+        3.72,
+        4.81
+      ],
+      "tipo": "paso",
+      "de": 27,
+      "a": 28,
+      "linea": "Un gotero en agua, en la mañana y en la noche. Así de fácil.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-27-inicial.png",
+        "imagenFinal": "img/toma-28-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-28.mp4",
+      "tira": "qa/toma-28.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "B",
+      "linea": "Te ayuda a soltar la flema,",
+      "referencias": [],
+      "esperado": {
+        "inicial": "Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings along its length, cut open lengthwise like an anatomical model so its inside is visible, lies on its side. The inside of the tube is clogged along its whole length with a thick, heavy, glossy mass of green-yellow phlegm stuck to the walls. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera looks at the tube from a three-quarter angle slightly above, close, with the tube centered and filling most of the width of the frame. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+        "final": "Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings along its length, cut open lengthwise like an anatomical model so its inside is visible, lies on its side. The green-yellow phlegm inside the tube has broken apart into many small loose particles and tiny droplets that are scattered and thinning out, and the pink walls underneath are clean and smooth. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera looks at the tube from a three-quarter angle slightly above, close, with the tube centered and filling most of the width of the frame. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background"
+      }
+    },
+    {
+      "clip": "paso-28.mp4",
+      "tira": "qa/paso-28.jpg",
+      "duracion": 3.04,
+      "segundos": [
+        0.06,
+        0.82,
+        1.52,
+        2.28,
+        2.95
+      ],
+      "tipo": "paso",
+      "de": 28,
+      "a": 29,
+      "linea": "Te ayuda a soltar la flema,",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-28-final.png",
+        "imagenFinal": "img/toma-29-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-29.mp4",
+      "tira": "qa/toma-29.jpg",
+      "duracion": 3.04,
+      "segundos": [
+        0.06,
+        0.82,
+        1.52,
+        2.28,
+        2.95
+      ],
+      "tipo": "B",
+      "linea": "a abrir el paso del aire",
+      "referencias": [],
+      "esperado": {
+        "inicial": "Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings, like an anatomical model, is seen from the front looking straight into its round opening. The opening is tight and narrow, the rings are squeezed close together and the inside of the tube is dim, with only a small dark hole at the center. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is level with the center of the opening, close, with the tube centered and filling about two thirds of the frame width. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+        "final": "Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings, like an anatomical model, is seen from the front looking straight into its round opening. The opening is now wide and fully open, the rings are relaxed and evenly spaced in clear concentric circles, and a bright electric-blue light flows through the inside of the tube and glows out of the opening. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is level with the center of the opening, close, with the tube centered and filling about two thirds of the frame width. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background"
+      }
+    },
+    {
+      "clip": "paso-29.mp4",
+      "tira": "qa/paso-29.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 29,
+      "a": 30,
+      "linea": "a abrir el paso del aire",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-29-final.png",
+        "imagenFinal": "img/toma-30-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-30.mp4",
+      "tira": "qa/toma-30.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "B",
+      "linea": "y a cuidar tus pulmones de forma natural.",
+      "referencias": [],
+      "esperado": {
+        "inicial": "Vertical 9:16. A cluster of stylized alveoli, like a bunch of small round translucent bubbles made of soft pale pink material, hangs from the end of a short pink bronchial branch as a single anatomical model. The bubbles are dull, grayish-pink and empty inside, with no light in them. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front, close, with the cluster centered and filling about half of the frame. The cluster rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+        "final": "Vertical 9:16. A cluster of stylized alveoli, like a bunch of small round translucent bubbles made of soft pale pink material, hangs from the end of a short pink bronchial branch as a single anatomical model. The bubbles are now plump and healthy pink, and each one is filled with many tiny bright blue-white sparkling dots of light that make the whole cluster glow softly from inside. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front, close, with the cluster centered and filling about half of the frame. The cluster rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background"
+      }
+    },
+    {
+      "clip": "paso-30.mp4",
+      "tira": "qa/paso-30.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 30,
+      "a": 31,
+      "linea": "y a cuidar tus pulmones de forma natural.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-30-final.png",
+        "imagenFinal": "img/toma-31-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-31.mp4",
+      "tira": "qa/paso-31.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 31,
+      "a": 32,
+      "linea": "Yo ya no me imagino la mañana sin mis gotas.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-31-inicial.png",
+        "imagenFinal": "img/toma-32-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-32.mp4",
+      "tira": "qa/paso-32.jpg",
+      "duracion": 7.04,
+      "segundos": [
+        0.14,
+        1.9,
+        3.52,
+        5.28,
+        6.83
+      ],
+      "tipo": "paso",
+      "de": 32,
+      "a": 33,
+      "linea": "Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-32-inicial.png",
+        "imagenFinal": "img/toma-33-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-33.mp4",
+      "tira": "qa/toma-33.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        0.12,
+        1.61,
+        2.98,
+        4.48,
+        5.79
+      ],
+      "tipo": "A",
+      "linea": "Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí.",
+      "referencias": [
+        "producto"
+      ],
+      "esperado": {
+        "inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, close still life of the closed dropper bottle from the product reference image, kept exactly as in the reference: a round amber-brown glass bottle about twice as tall as it is wide, with rounded shoulders, a short narrow neck and a black dropper cap with a black rubber bulb on top, and a dark green label covering the lower two thirds of the body with the mullein plant illustration with yellow flowers and the same white lettering as the reference, sharp, readable and never mirrored; not a slim tall bottle, not a squat jar. The bottle stands in the center of a wooden table by a window, facing the camera with the label to the front, filling about sixty percent of the frame height, with dried velvety gray-green mullein leaves, smooth-edged and oval, around its base and golden evening light glowing behind it. Only this single bottle: no box, no carton, no second bottle, no loose dropper, no yellow flowers, no capsules, no pills. Matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+        "final": null
+      }
+    }
+  ]
+}
