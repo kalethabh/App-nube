@@ -36,12 +36,12 @@
     "textosNuevos": [
       {
         "id": "tmwhzhz0j0",
-        "texto": "¿Qué pasa dentro\nde tus pulmones?",
+        "texto": "¿Qué pasa dentro   de tus pulmones? ",
         "inicio": 0,
         "fin": 5,
         "color": "#FFFFFF",
         "fondo": "#E8442A",
-        "tamano": 0.91,
+        "tamano": 1.05,
         "x": 0.437,
         "y": 0.136,
         "fuente": "caja"
@@ -51,7 +51,7 @@
     "clips": {},
     "corte": null
   },
-  "t": 1794756260834,
+  "t": 1794756307537,
   "contexto": {
     "titulo": "OxiPure Mullein",
     "overlays": [
@@ -98,5 +98,5 @@
     ],
     "color": "#F5A524"
   },
-  "guardado": "2026-11-15T15:24:21.443Z"
+  "guardado": "2026-11-15T15:25:08.142Z"
 }

@@ -1,0 +1,18 @@
+{
+  "n": 1,
+  "estado": "exportando",
+  "calidad": "1080",
+  "version": "completa",
+  "subtitulos": "con",
+  "sinMusica": false,
+  "srt": false,
+  "guardar": false,
+  "creado": "2026-11-15T15:25:57.753Z",
+  "actualizado": "2026-11-15T15:26:33.683Z",
+  "avance": {
+    "etapa": "render",
+    "valor": 19.6,
+    "cuadro": 364,
+    "total": 3423
+  }
+}
