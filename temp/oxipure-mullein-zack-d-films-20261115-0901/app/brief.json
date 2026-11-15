@@ -1,0 +1,25 @@
+{
+  "slug": "oxipure-mullein-zack-d-films-20261115-0901",
+  "productoId": "producto-de8d",
+  "estilo": "zack-d-films",
+  "familia": "continuidad",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "id": "pNInz6obpgDQGcFmaJgB",
+    "nombre": "Adam - Dominant, Firm"
+  },
+  "continuidad": true,
+  "respuestas": {
+    "fondo": "Estudio limpio, sin grilla",
+    "clonar": "subido:mwhvup44f73125|WhatsApp Video 2026-11-15 at 08.35.03.mp4",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {
+    "fondo": "estudio",
+    "subestilo": null
+  },
+  "creado": "2026-11-15T14:01:29.636Z"
+}

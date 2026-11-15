@@ -1,0 +1,408 @@
+{
+  "video": "original.mp4",
+  "duracion": 92.81,
+  "formato": "360x640",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 4,
+      "duracion": 4,
+      "fotograma": "tomas/toma-01.jpg",
+      "dice": "Los primeros tres días vas a toser al menos tres veces más de lo normal.",
+      "eventos": []
+    },
+    {
+      "n": 2,
+      "desde": 4,
+      "hasta": 5.97,
+      "duracion": 1.97,
+      "fotograma": "tomas/toma-02.jpg",
+      "dice": "Tu cuerpo va a empezar a descomponer la mucosidad",
+      "eventos": []
+    },
+    {
+      "n": 3,
+      "desde": 5.97,
+      "hasta": 7.37,
+      "duracion": 1.4,
+      "fotograma": "tomas/toma-03.jpg",
+      "dice": "que estuvo asentada en tus",
+      "eventos": []
+    },
+    {
+      "n": 4,
+      "desde": 7.37,
+      "hasta": 9.23,
+      "duracion": 1.86,
+      "fotograma": "tomas/toma-04.jpg",
+      "dice": "pulmones por semanas, meses",
+      "eventos": []
+    },
+    {
+      "n": 5,
+      "desde": 9.23,
+      "hasta": 10.97,
+      "duracion": 1.74,
+      "fotograma": "tomas/toma-05.jpg",
+      "dice": "o tal vez incluso años.",
+      "eventos": []
+    },
+    {
+      "n": 6,
+      "desde": 10.97,
+      "hasta": 11.63,
+      "duracion": 0.66,
+      "fotograma": "tomas/toma-06.jpg",
+      "dice": "Alquitrán,",
+      "eventos": []
+    },
+    {
+      "n": 7,
+      "desde": 11.63,
+      "hasta": 13.53,
+      "duracion": 1.9,
+      "fotograma": "tomas/toma-07.jpg",
+      "dice": "acumulación de flema y capas",
+      "eventos": []
+    },
+    {
+      "n": 8,
+      "desde": 13.53,
+      "hasta": 14.2,
+      "duracion": 0.67,
+      "fotograma": "tomas/toma-08.jpg",
+      "dice": "de toxinas que",
+      "eventos": []
+    },
+    {
+      "n": 9,
+      "desde": 14.2,
+      "hasta": 14.87,
+      "duracion": 0.67,
+      "fotograma": "tomas/toma-09.jpg",
+      "dice": "ni sabías",
+      "eventos": []
+    },
+    {
+      "n": 10,
+      "desde": 14.87,
+      "hasta": 15.6,
+      "duracion": 0.73,
+      "fotograma": "tomas/toma-10.jpg",
+      "dice": "que estaban ahí.",
+      "eventos": []
+    },
+    {
+      "n": 11,
+      "desde": 15.6,
+      "hasta": 17.27,
+      "duracion": 1.67,
+      "fotograma": "tomas/toma-11.jpg",
+      "dice": "Sí, puede que tosas una mucosidad",
+      "eventos": []
+    },
+    {
+      "n": 12,
+      "desde": 17.27,
+      "hasta": 18.57,
+      "duracion": 1.3,
+      "fotograma": "tomas/toma-12.jpg",
+      "dice": "oscura y espesa,",
+      "eventos": []
+    },
+    {
+      "n": 13,
+      "desde": 18.57,
+      "hasta": 20.8,
+      "duracion": 2.23,
+      "fotograma": "tomas/toma-13.jpg",
+      "dice": "pero así es como sabes que te estás limpiando.",
+      "eventos": []
+    },
+    {
+      "n": 14,
+      "desde": 20.8,
+      "hasta": 23.43,
+      "duracion": 2.63,
+      "fotograma": "tomas/toma-14.jpg",
+      "dice": "Eso a lo que los jarabes para la tos y los inhaladores",
+      "eventos": []
+    },
+    {
+      "n": 15,
+      "desde": 23.43,
+      "hasta": 28.63,
+      "duracion": 5.2,
+      "fotograma": "tomas/toma-15.jpg",
+      "dice": "no pudieron llegar. Para el día diez, esa sensación pesada y asfixiante desaparece.",
+      "eventos": []
+    },
+    {
+      "n": 16,
+      "desde": 28.63,
+      "hasta": 31.37,
+      "duracion": 2.74,
+      "fotograma": "tomas/toma-16.jpg",
+      "dice": "Tu pecho por fin se siente abierto y liviano, en lugar",
+      "eventos": []
+    },
+    {
+      "n": 17,
+      "desde": 31.37,
+      "hasta": 32.77,
+      "duracion": 1.4,
+      "fotograma": "tomas/toma-17.jpg",
+      "dice": "de apretado y congestionado",
+      "eventos": []
+    },
+    {
+      "n": 18,
+      "desde": 32.77,
+      "hasta": 35.67,
+      "duracion": 2.9,
+      "fotograma": "tomas/toma-18.jpg",
+      "dice": "después de cada respiro. Después de veinte días,",
+      "eventos": []
+    },
+    {
+      "n": 19,
+      "desde": 35.67,
+      "hasta": 37.53,
+      "duracion": 1.86,
+      "fotograma": "tomas/toma-19.jpg",
+      "dice": "el cambio de energía es real.",
+      "eventos": []
+    },
+    {
+      "n": 20,
+      "desde": 37.53,
+      "hasta": 39.53,
+      "duracion": 2,
+      "fotograma": "tomas/toma-20.jpg",
+      "dice": "Se terminaron los bajones de la tarde o",
+      "eventos": []
+    },
+    {
+      "n": 21,
+      "desde": 39.53,
+      "hasta": 41.17,
+      "duracion": 1.64,
+      "fotograma": "tomas/toma-21.jpg",
+      "dice": "andar arrastrándote todo el día.",
+      "eventos": []
+    },
+    {
+      "n": 22,
+      "desde": 41.17,
+      "hasta": 44.7,
+      "duracion": 3.53,
+      "fotograma": "tomas/toma-22.jpg",
+      "dice": "Solo energía limpia y constante, porque tu cuerpo ya no está luchando",
+      "eventos": []
+    },
+    {
+      "n": 23,
+      "desde": 44.7,
+      "hasta": 46.17,
+      "duracion": 1.47,
+      "fotograma": "tomas/toma-23.jpg",
+      "dice": "contra la falta de oxígeno.",
+      "eventos": []
+    },
+    {
+      "n": 24,
+      "desde": 46.17,
+      "hasta": 47.5,
+      "duracion": 1.33,
+      "fotograma": "tomas/toma-24.jpg",
+      "dice": "Te vas a demostrar a vos mismo",
+      "eventos": []
+    },
+    {
+      "n": 25,
+      "desde": 47.5,
+      "hasta": 49.03,
+      "duracion": 1.53,
+      "fotograma": "tomas/toma-25.jpg",
+      "dice": "que no era normal sentirte",
+      "eventos": []
+    },
+    {
+      "n": 26,
+      "desde": 49.03,
+      "hasta": 50.23,
+      "duracion": 1.2,
+      "fotograma": "tomas/toma-26.jpg",
+      "dice": "tan falto de aire.",
+      "eventos": []
+    },
+    {
+      "n": 27,
+      "desde": 50.23,
+      "hasta": 51.17,
+      "duracion": 0.94,
+      "fotograma": "tomas/toma-27.jpg",
+      "dice": "Los silbidos al",
+      "eventos": []
+    },
+    {
+      "n": 28,
+      "desde": 51.17,
+      "hasta": 52.53,
+      "duracion": 1.36,
+      "fotograma": "tomas/toma-28.jpg",
+      "dice": "respirar, la niebla mental,",
+      "eventos": []
+    },
+    {
+      "n": 29,
+      "desde": 52.53,
+      "hasta": 53.93,
+      "duracion": 1.4,
+      "fotograma": "tomas/toma-29.jpg",
+      "dice": "la opresión en el pecho,",
+      "eventos": []
+    },
+    {
+      "n": 30,
+      "desde": 53.93,
+      "hasta": 55.43,
+      "duracion": 1.5,
+      "fotograma": "tomas/toma-30.jpg",
+      "dice": "era mucosidad y",
+      "eventos": []
+    },
+    {
+      "n": 31,
+      "desde": 55.43,
+      "hasta": 58.37,
+      "duracion": 2.94,
+      "fotograma": "tomas/toma-31.jpg",
+      "dice": "bloqueo. Tu sistema no podía limpiarse por sí solo.",
+      "eventos": []
+    },
+    {
+      "n": 32,
+      "desde": 58.37,
+      "hasta": 60.9,
+      "duracion": 2.53,
+      "fotograma": "tomas/toma-32.jpg",
+      "dice": "Respirex combina cinco de los limpiadores",
+      "eventos": []
+    },
+    {
+      "n": 33,
+      "desde": 60.9,
+      "hasta": 63.17,
+      "duracion": 2.27,
+      "fotograma": "tomas/toma-33.jpg",
+      "dice": "pulmonares más poderosos de la naturaleza:",
+      "eventos": []
+    },
+    {
+      "n": 34,
+      "desde": 63.17,
+      "hasta": 63.83,
+      "duracion": 0.66,
+      "fotograma": "tomas/toma-34.jpg",
+      "dice": "gordolobo,",
+      "eventos": []
+    },
+    {
+      "n": 35,
+      "desde": 63.83,
+      "hasta": 64.67,
+      "duracion": 0.84,
+      "fotograma": "tomas/toma-35.jpg",
+      "dice": "bromelina,",
+      "eventos": []
+    },
+    {
+      "n": 36,
+      "desde": 64.67,
+      "hasta": 66.3,
+      "duracion": 1.63,
+      "fotograma": "tomas/toma-36.jpg",
+      "dice": "jengibre, cordyceps",
+      "eventos": []
+    },
+    {
+      "n": 37,
+      "desde": 66.3,
+      "hasta": 67.37,
+      "duracion": 1.07,
+      "fotograma": "tomas/toma-37.jpg",
+      "dice": "y cáscara de limón",
+      "eventos": []
+    },
+    {
+      "n": 38,
+      "desde": 67.37,
+      "hasta": 69.43,
+      "duracion": 2.06,
+      "fotograma": "tomas/toma-38.jpg",
+      "dice": "en una fórmula líquida de uso diario.",
+      "eventos": []
+    },
+    {
+      "n": 39,
+      "desde": 69.43,
+      "hasta": 75.1,
+      "duracion": 5.67,
+      "fotograma": "tomas/toma-39.jpg",
+      "dice": "Juntos disuelven la mucosidad, abren las vías respiratorias y restauran el flujo de oxígeno,",
+      "eventos": []
+    },
+    {
+      "n": 40,
+      "desde": 75.1,
+      "hasta": 78.63,
+      "duracion": 3.53,
+      "fotograma": "tomas/toma-40.jpg",
+      "dice": "mientras apoyan a tu sistema respiratorio y ayudan a que tus pulmones se",
+      "eventos": []
+    },
+    {
+      "n": 41,
+      "desde": 78.63,
+      "hasta": 80.23,
+      "duracion": 1.6,
+      "fotograma": "tomas/toma-41.jpg",
+      "dice": "desintoxiquen de forma natural.",
+      "eventos": []
+    },
+    {
+      "n": 42,
+      "desde": 80.23,
+      "hasta": 83.93,
+      "duracion": 3.7,
+      "fotograma": "tomas/toma-42.jpg",
+      "dice": "Si estás listo para tener pulmones limpios y una respiración natural,",
+      "eventos": []
+    },
+    {
+      "n": 43,
+      "desde": 83.93,
+      "hasta": 87.37,
+      "duracion": 3.44,
+      "fotograma": "tomas/toma-43.jpg",
+      "dice": "conseguí Respirex ahora con una garantía de treinta días.",
+      "eventos": []
+    },
+    {
+      "n": 44,
+      "desde": 87.37,
+      "hasta": 92.81,
+      "duracion": 5.44,
+      "fotograma": "tomas/toma-44.jpg",
+      "dice": "Si todavía podés ver el link de acá abajo es porque hay stock. No esperes más.",
+      "eventos": []
+    }
+  ],
+  "texto": "Los primeros tres días vas a toser al menos tres veces más de lo normal. Tu cuerpo va a empezar a descomponer la mucosidad que estuvo asentada en tus pulmones por semanas, meses o tal vez incluso años. Alquitrán, acumulación de flema y capas de toxinas que ni sabías que estaban ahí. Sí, puede que tosas una mucosidad oscura y espesa, pero así es como sabes que te estás limpiando. Eso a lo que los jarabes para la tos y los inhaladores no pudieron llegar. Para el día diez, esa sensación pesada y asfixiante desaparece. Tu pecho por fin se siente abierto y liviano, en lugar de apretado y congestionado después de cada respiro. Después de veinte días, el cambio de energía es real. Se terminaron los bajones de la tarde o andar arrastrándote todo el día. Solo energía limpia y constante, porque tu cuerpo ya no está luchando contra la falta de oxígeno. Te vas a demostrar a vos mismo que no era normal sentirte tan falto de aire. Los silbidos al respirar, la niebla mental, la opresión en el pecho, era mucosidad y bloqueo. Tu sistema no podía limpiarse por sí solo. Respirex combina cinco de los limpiadores pulmonares más poderosos de la naturaleza: gordolobo, bromelina, jengibre, cordyceps y cáscara de limón en una fórmula líquida de uso diario. Juntos disuelven la mucosidad, abren las vías respiratorias y restauran el flujo de oxígeno, mientras apoyan a tu sistema respiratorio y ayudan a que tus pulmones se desintoxiquen de forma natural. Si estás listo para tener pulmones limpios y una respiración natural, conseguí Respirex ahora con una garantía de treinta días. Si todavía podés ver el link de acá abajo es porque hay stock. No esperes más.",
+  "palabras_por_segundo": 3.1,
+  "eventos_de_audio": [],
+  "aviso": null
+}
