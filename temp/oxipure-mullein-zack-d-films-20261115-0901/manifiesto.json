@@ -1,0 +1,667 @@
+{
+  "estilo": "zack-d-films",
+  "modo_audio": "voz_en_off",
+  "mercado": "LatAm",
+  "idioma": "es",
+  "aspect_ratio": "9:16",
+  "referencias": [
+    {
+      "id": "gloria",
+      "tipo": "personaje",
+      "prompt": "Vertical 9:16. Pixar-Disney style 3D animation render, character reference of Gloria, an adult Colombian woman, 54 years old, clearly a mature adult: warm light-brown trigueña skin, round kind face with soft cheeks, gentle smile lines, dark brown eyes, dark brown shoulder-length hair with a few gray strands, average build. She stands facing the camera, framed from the knees up, arms relaxed at her sides, with a calm neutral friendly expression. She wears an open gray wool cardigan over a faded plain cream t-shirt and simple dark pants. Plain smooth warm beige wall behind her with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting"
+    },
+    {
+      "id": "hombre40",
+      "tipo": "personaje",
+      "prompt": "Vertical 9:16. Pixar-Disney style 3D animation render, character reference of an adult Colombian man, 40 years old, clearly a grown adult: medium-brown skin, short dark hair, a trimmed full dark beard, thick eyebrows, friendly tired eyes, average build. He stands facing the camera, framed from the knees up, arms relaxed at his sides, with a calm neutral expression. He wears a plain dark blue casual jacket over a plain gray t-shirt and jeans. Plain smooth warm beige wall behind him with soft even light, no furniture and no props. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. Warm soft lighting, expressive facial detail, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting"
+    },
+    {
+      "id": "producto",
+      "tipo": "producto",
+      "archivo": "producto.png",
+      "nota": "conservar forma, proporciones y texto real de la etiqueta; solo el frasco, sin la caja, sin flores y sin un segundo frasco"
+    }
+  ],
+  "tomas": [
+    {
+      "n": 1,
+      "tipo": "B",
+      "duracion": 6.7,
+      "linea": "Los primeros tres días vas a toser más de lo normal… y eso es buena señal.",
+      "prompt_imagen_inicial": "Vertical 9:16. A stylized anatomical torso bust made of translucent frosted pale-blue glass, genderless and smooth, going from the base of the neck to the waist with no arms and no head, shows inside it a pair of lungs made of heavy gray stone covered in deep dark cracks. The stone lungs are whole and solid, dull and lifeless, filling the chest. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front of the torso at chest height, medium shot, with the lungs centered in the frame. The torso rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+      "prompt_imagen_final": "Vertical 9:16. A stylized anatomical torso bust made of translucent frosted pale-blue glass, genderless and smooth, going from the base of the neck to the waist with no arms and no head, shows inside it a pair of lungs whose gray stone shell has crumbled apart. Most of the cracked stone has fallen in broken chunks that lie piled at the bottom of the chest and around the base of the torso, and through the gaps a clean bronchial tree of light-blue branches is visible, softly glowing. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front of the torso at chest height, medium shot, with the lungs centered in the frame. The torso rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background",
+      "prompt_video": "Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 6s. Vertical 9:16.\nCamera: very slow push-in toward the lungs, the torso stays fully in frame\nMotion: the cracks in the gray stone lungs spread, the stone breaks and falls away in chunks that pile at the base, revealing the light-blue bronchial branches glowing underneath\nLighting: flat, even, clean studio light",
+      "referencias": []
+    },
+    {
+      "n": 2,
+      "tipo": "A",
+      "duracion": 6.3,
+      "linea": "Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho…",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, cinematic macro view from inside a windpipe, a wide tunnel of smooth glossy pink ringed walls, where thick viscous shiny phlegm in intense yellow and brown is peeling away from the walls in heavy sheets and long sticky strands that hang toward the bottom of the frame, a dark opening deep at the center of the tunnel, stylized glossy fluid with rich saturated golden color, dramatic macro close-up, premium documentary visualization style, not a cold medical diagram, warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.\nCamera: slow tilt down following the fluid\nMotion: the thick yellow-brown phlegm peels off the pink walls and drips downward in slow motion in heavy glossy strands\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 3,
+      "tipo": "A",
+      "duracion": 3.8,
+      "linea": "…la que llevaba ahí semanas, meses… o hasta años.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, close-up of one adult hand wearing a pink latex glove, held up in the center of the frame, with the thumb and index finger slightly apart and a thick, clear, shiny string of mucus stretched between the two fingertips, a cozy middle-class Colombian living room softly out of focus behind it with a fabric sofa and a window with daylight, only the gloved hand and forearm are visible, no face, warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: the gloved fingers open slowly and the clear thick string of mucus stretches longer and thinner between them without breaking\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 4,
+      "tipo": "A",
+      "duracion": 1.7,
+      "linea": "Humo, polvo, flema vieja…",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, cinematic macro view looking down a bronchial tunnel with rippled walls in intense glossy gold and amber, with thick black sooty layers and dark crusty patches stuck all along the walls like old tar and dust, a small dark opening far away at the center, thin wisps of gray smoke hanging in the air of the tunnel, stylized rich saturated color, dramatic macro close-up, premium documentary visualization style, not a cold medical diagram, warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: steady forward travel down the golden tunnel\nMotion: the wisps of gray smoke drift and the black layers on the walls glisten as the camera passes them\nLighting: warm golden glow",
+      "referencias": []
+    },
+    {
+      "n": 5,
+      "tipo": "A",
+      "duracion": 2.5,
+      "linea": "capas que ni sabías que tenías.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, cinematic macro view looking down a bronchial tunnel whose ringed walls are now an intense glossy red and pink, with black sooty layers coming loose from the walls in large flakes and curled pieces that hang half detached and float toward the center, a dark round opening at the center of the tunnel, stylized rich saturated color, dramatic macro close-up, premium documentary visualization style, not a cold medical diagram, warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: steady forward travel down the red tunnel\nMotion: the black layers peel off the red walls in flakes and drift away toward the camera, leaving clean glossy wall behind\nLighting: warm red cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 6,
+      "tipo": "A",
+      "duracion": 1.7,
+      "linea": "Sí, puede que botes",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, with tired dark circles under her eyes and dry lips, sitting slightly hunched on the fabric sofa of her modest middle-class Colombian living room, wearing her gray wool cardigan over an old faded t-shirt, covering her mouth with a white handkerchief in one hand as she coughs, eyes squeezed shut, her other hand on her chest, framed from the waist up at chest height, daylight from a window at the side, a small wooden side table and a houseplant behind her, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera at chest height, no zoom\nMotion: she leans forward as she coughs into the handkerchief, then lowers it a little and gives a small half smile of relief, with natural movement of shoulders and head\nLighting: warm natural window light",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 7,
+      "tipo": "A",
+      "duracion": 2.1,
+      "linea": "una flema oscura y espesa…",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, top-down overhead view of a white cloth handkerchief lying open and slightly wrinkled on the gray fabric of a sofa cushion, with a small thick glossy blob of dark yellow phlegm in the middle of the handkerchief, stylized and clean, no face and no hands in the frame, soft daylight from a window, warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: very slow overhead push-in\nMotion: the thick blob slowly settles and spreads a little on the white cloth, catching the light\nLighting: soft warm daylight",
+      "referencias": []
+    },
+    {
+      "n": 8,
+      "tipo": "A",
+      "duracion": 3.8,
+      "linea": "…pero así sabes que tu pecho se está limpiando.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, cinematic view looking down a clean airway tunnel of glossy intense red concentric rings, perfectly clear of any residue, with a brilliant beam of electric blue-white light shooting through the center all the way to the far end, tiny bright particles sparkling along the beam, strong contrast between the saturated red rings and the blue light, dramatic macro close-up, premium documentary visualization style, not a cold medical diagram, cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: fast forward rush down the tunnel toward the light at the far end\nMotion: the blue-white beam pulses and the red rings streak past as bright particles fly by\nLighting: electric blue glow against saturated red",
+      "referencias": []
+    },
+    {
+      "n": 9,
+      "tipo": "A",
+      "duracion": 4.2,
+      "linea": "Llega hasta donde el jarabe para la tos nunca alcanzó.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, close-up on a kitchen counter in a middle-class Colombian kitchen with tiled wall, an adult hand tilting a plain brown syrup bottle with a completely blank label and no brand, pouring thick glossy pink cough syrup into a metal spoon held by the other adult hand just above the counter, the spoon almost full with the pink syrup about to spill over the edge, only hands and forearms visible, no face, daylight from a window, warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: the thick pink syrup keeps pouring slowly into the spoon and overflows a little, dripping onto the counter\nLighting: warm natural kitchen light",
+      "referencias": []
+    },
+    {
+      "n": 10,
+      "tipo": "B",
+      "duracion": 4.6,
+      "linea": "Para el día diez, esa sensación pesada, de ahogo… se va.",
+      "prompt_imagen_inicial": "Vertical 9:16. A stylized bust of an adult man in his forties, seen in exact side profile facing left, made of smooth matte light-gray soft plastic like an anatomical model, from the upper chest to the top of the head, with his eyes closed. His airways are visible as a cut-away channel that runs from the nose through the throat and down the windpipe into the upper chest, glowing an intense saturated red, swollen and narrow. His face is tense, with the brow furrowed, the jaw tight and the lips pressed together. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is at the height of his chin, medium close shot, with the bust centered in the frame. The bust rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+      "prompt_imagen_final": "Vertical 9:16. A stylized bust of an adult man in his forties, seen in exact side profile facing left, made of smooth matte light-gray soft plastic like an anatomical model, from the upper chest to the top of the head, with his eyes closed. His airways are visible as a cut-away channel that runs from the nose through the throat and down the windpipe into the upper chest, now a calm pale silver-gray, wide, open and clear with no red at all. His face is relaxed and serene, with a smooth brow, a loose jaw and the lips slightly parted as he breathes out slowly. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is at the height of his chin, medium close shot, with the bust centered in the frame. The bust rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background",
+      "prompt_video": "Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 5s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: the man breathes out slowly, the red glow in his airways fades to a calm pale silver-gray as the channel widens, and his tense face relaxes\nLighting: flat, even, clean studio light",
+      "referencias": []
+    },
+    {
+      "n": 11,
+      "tipo": "B",
+      "duracion": 4.6,
+      "linea": "Tu pecho se siente abierto y liviano, no apretado ni tapado.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render shown entirely in desaturated black and white with cold flat light, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, with tired dark circles and dry lips, standing by the window of her modest Colombian living room, wearing her gray wool cardigan over an old t-shirt, slightly hunched, one hand pressed flat on her chest, brow furrowed, breathing through her mouth, framed from the waist up and centered in the frame facing the camera, a plain curtain and the window frame behind her, expressive facial detail, shallow depth of field, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": "Vertical 9:16. Pixar-Disney style 3D animation render in full warm color, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now rested, with color in her cheeks and an upright posture, standing on the small balcony of her Colombian apartment with green potted plants behind her and warm sunlight, wearing a mustard-yellow blouse instead of the gray cardigan, both arms open wide to her sides, chest lifted as she breathes in deeply through her nose, eyes closed with a calm smile of relief, framed from the waist up and centered in the frame facing the camera, the same framing as the attached start image. Do NOT copy the room, the gray cardigan, the pose or the black-and-white look of the attached start image: keep only her face and the framing. The change from the start frame must be obvious at a glance. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, transition from the start frame to the end frame, 5s. Vertical 9:16.\nCamera: gentle slight arc around her, she stays facing the camera and fully in frame\nMotion: the cold black-and-white room melts into the warm colorful balcony as she straightens up, opens her arms and fills her chest with air, her frown turning into a calm smile with eyes closed\nLighting: from cold gray light to warm golden sunlight",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 12,
+      "tipo": "B",
+      "duracion": 4.2,
+      "linea": "Y por fin duermes la noche entera sin despertarte tosiendo.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render shown entirely in desaturated black and white with cold light, night in a modest Colombian bedroom, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, sitting on the edge of her bed, exhausted, wearing her gray wool cardigan over an old t-shirt, coughing into her closed fist with her other hand on her chest, a small bedside lamp switched on beside her on a wooden nightstand, a plain blanket on the bed, the bed seen from the side and filling the lower half of the frame, expressive facial detail, shallow depth of field, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": "Vertical 9:16. Pixar-Disney style 3D animation render in full warm color, morning in the same modest Colombian bedroom with the same bed seen from the side in the same framing as the attached start image, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now deeply asleep lying on her side with her head on the pillow, peaceful rested face, covered up to her shoulders with a different blanket, a thick woven terracotta and yellow one, the bedside lamp switched off, soft golden morning light coming in through the curtain. Do NOT copy the sitting pose, the cough, the gray cardigan or the black-and-white look of the attached start image: keep only her face, the bed and the framing. The change from the start frame must be obvious at a glance. Warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, transition from the start frame to the end frame, 5s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: the cold black-and-white night dissolves into a warm colorful morning in the same framing, and Gloria goes from coughing on the edge of the bed to sleeping deeply on her side under the woven blanket, her shoulders rising and falling gently\nLighting: from cold lamp light to soft golden morning light",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 13,
+      "tipo": "A",
+      "duracion": 4.2,
+      "linea": "Después de veinte días, el cambio de energía se nota.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, an adult Colombian man, 62 years old, with short gray hair, warm tan skin and a kind lined face, wearing a light blue sweatshirt and dark jogging pants, jogging gently toward the camera along the path of a neighborhood park in Colombia with trees, grass and a green metal fence, focused, breathing through his nose with a slight smile, framed from the knees up, soft morning daylight, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.\nCamera: smooth backward tracking shot at his pace, he stays framed from the knees up\nMotion: he jogs gently toward the camera with a steady rhythm, arms swinging naturally, breathing calmly through his nose with a slight smile\nLighting: warm morning daylight",
+      "referencias": []
+    },
+    {
+      "n": 14,
+      "tipo": "A",
+      "duracion": 2.9,
+      "linea": "Se acaban los bajones de la tarde…",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render shown entirely in desaturated black and white with cold flat afternoon light, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, slumped sideways on the fabric sofa of her modest Colombian living room with no energy, wearing her gray wool cardigan over an old t-shirt, head resting on the armrest, eyes half closed, one arm hanging off the sofa, the whole sofa visible in a medium wide shot from the front, a window with a plain curtain behind, expressive facial detail, shallow depth of field, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: she sighs heavily and sinks a little deeper into the sofa, her eyelids dropping\nLighting: cold flat gray light, black and white",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 15,
+      "tipo": "A",
+      "duracion": 3.8,
+      "linea": "y subes las escaleras sin parar a coger aire.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render in full warm color, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now rested with color in her cheeks, wearing a pink sweatshirt and comfortable pants instead of the gray cardigan, climbing a steep concrete staircase in a hillside neighborhood in Colombia with colorful brick houses on both sides, carrying a cloth grocery bag with vegetables in one hand, seen from a few steps below and from the front, her whole body in frame, determined and happy expression, upright posture, bright sunny day, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: follows her from below at her pace, her whole body stays in frame, no zoom\nMotion: she climbs the steep steps with a firm steady pace without stopping, the grocery bag swinging lightly, smiling\nLighting: warm bright sunlight",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 16,
+      "tipo": "B",
+      "duracion": 5.0,
+      "linea": "Porque tu cuerpo ya no está peleando por cada bocanada de aire.",
+      "prompt_imagen_inicial": "Vertical 9:16. A pair of stylized lungs made of translucent pale frosted material, joined at the top by a short windpipe, stand upright as a single anatomical model. The lungs are dim, slightly deflated and unlit inside, and the bronchial branches within them are a dull flat gray. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front at the height of the middle of the lungs, medium shot, with the lungs centered and filling about half of the frame. The model rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+      "prompt_imagen_final": "Vertical 9:16. A pair of stylized lungs made of translucent pale frosted material, joined at the top by a short windpipe, stand upright as a single anatomical model. The lungs are now full and inflated, lit from the inside with an intense orange-golden light, and the bronchial branches within them shine like bright veins of golden light. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front at the height of the middle of the lungs, medium shot, with the lungs centered and filling about half of the frame. The model rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background",
+      "prompt_video": "Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 5s. Vertical 9:16.\nCamera: very gentle slow turn around the lungs, they stay fully in frame\nMotion: the lungs inflate slowly as an orange-golden light switches on inside them and travels along the bronchial branches until they shine like veins of light\nLighting: flat, even, clean studio light",
+      "referencias": []
+    },
+    {
+      "n": 17,
+      "tipo": "A",
+      "duracion": 6.7,
+      "linea": "Y te vas a dar cuenta de que no era normal vivir así, falto de aire.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, the adult 40-year-old Colombian man with the trimmed dark beard from the reference image, same face, hair and skin, sitting in the driver seat of his parked car with the engine off, hands resting on his lap, eyes closed, head slightly back against the headrest, framed from the chest up through the windshield angle from the front, bright daylight coming through the car windows, a quiet neighborhood street softly out of focus behind, no brand or logo visible anywhere in the car, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: he breathes in deeply through his nose, his chest rises and falls, then he opens his eyes as if realizing something and gives a small half smile\nLighting: bright warm daylight",
+      "referencias": ["hombre40"]
+    },
+    {
+      "n": 18,
+      "tipo": "A",
+      "duracion": 1.7,
+      "linea": "Los silbidos al respirar…",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, stylized anatomical illustration of an adult woman in her fifties shown from the shoulders up, made of smooth matte lavender-gray material like an anatomical figure, with her upper chest and throat area glowing intense red where the narrowed airways show through, her face strained, brows pulled together and mouth open as she breathes with effort, soft lilac gradient background, dramatic colorful lighting, premium documentary visualization style, not a cold medical diagram, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: she breathes in with effort, her shoulders lift and the red glow in her chest pulses with each breath\nLighting: dramatic colorful glow",
+      "referencias": []
+    },
+    {
+      "n": 19,
+      "tipo": "A",
+      "duracion": 1.3,
+      "linea": "la cabeza nublada…",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, a stylized 3D brain glowing in pink and electric blue, seen from the side inside the translucent blue outline of a head, wrapped in a thick slow swirling orange haze that clouds its surface, dark blue background, intense saturated colors, premium documentary visualization style, not a cold medical diagram, cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in toward the brain\nMotion: the orange haze swirls slowly around the brain, dimming its glow\nLighting: electric blue and orange glow",
+      "referencias": []
+    },
+    {
+      "n": 20,
+      "tipo": "A",
+      "duracion": 1.3,
+      "linea": "el pecho apretado…",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, an adult Colombian man in his mid thirties with short dark hair and light stubble, wearing a plain white sleeveless undershirt, sitting on the edge of his bed in a simple bright bedroom, one hand pressed on the center of his chest, face tight with discomfort, looking down, framed from the waist up from the front, soft morning light from a window with white curtains, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: he presses his hand on his chest and rubs it slowly, breathing short and shallow with a small wince\nLighting: soft morning light",
+      "referencias": []
+    },
+    {
+      "n": 21,
+      "tipo": "A",
+      "duracion": 4.2,
+      "linea": "…era flema y bloqueo. Tu pecho no podía limpiarse solo.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, cinematic macro view inside a bronchial tube with glossy pink-red walls, completely plugged at the center by a big mass of thick shiny yellow phlegm mixed with small dark round pellets, leaving no space for the air to pass, a few thin strands of phlegm stretching to the walls, stylized viscous glossy fluid with intense saturated color, dramatic macro close-up, premium documentary visualization style, not a cold medical diagram, warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: slow push-in toward the plug\nMotion: the thick yellow plug wobbles and pulses slightly as air pushes against it without getting through\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 22,
+      "tipo": "A",
+      "duracion": 1.7,
+      "linea": "Si cocinaste con leña,",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, an adult Colombian woman, 60 years old, with gray hair tied back, warm brown skin and a gentle wrinkled face, wearing a simple floral apron over a blouse, stirring a big blackened pot with a wooden spoon over a wood-burning stove in a rustic countryside kitchen in Colombia, gray smoke rising from the burning wood and drifting around her face, framed from the waist up, daylight coming through a small window and cutting through the smoke, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: she stirs the pot slowly while the gray smoke from the wood fire rises and drifts across her face\nLighting: warm firelight and window light",
+      "referencias": []
+    },
+    {
+      "n": 23,
+      "tipo": "A",
+      "duracion": 2.5,
+      "linea": "respiras el humo de los buses",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, the adult 40-year-old Colombian man with the trimmed dark beard from the reference image, same face, hair and skin, standing at a simple bus stop on a busy street of a Colombian city, wearing his dark blue jacket with a backpack on one shoulder, a city bus with no logos and no lettering passing right behind him and leaving a thick cloud of dark gray exhaust smoke that drifts over him, he squints and turns his face slightly away, framed from the knees up from the front, overcast daylight, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: the bus pulls away behind him and the cloud of gray exhaust rolls over him as he squints and waves it away with one hand\nLighting: soft overcast daylight",
+      "referencias": ["hombre40"]
+    },
+    {
+      "n": 24,
+      "tipo": "A",
+      "duracion": 2.9,
+      "linea": "o te quedó la tos de la gripa…",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, with tired dark circles and dry lips, sitting on her fabric sofa wrapped in a thick knitted blanket over her gray wool cardigan, holding a steaming ceramic mug in one hand and covering a cough with the fist of her other hand, tired expression, framed from the waist up from the front, her modest Colombian living room behind her with soft gray daylight from the window, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: she coughs into her fist, her shoulders shake under the blanket, and the steam rises from the mug\nLighting: soft window light",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 25,
+      "tipo": "A",
+      "duracion": 3.8,
+      "linea": "…esto es OxiPure: extracto puro de hoja de gordolobo.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, still life of the closed dropper bottle from the product reference image, kept exactly as in the reference: a round amber-brown glass bottle about twice as tall as it is wide, with rounded shoulders, a short narrow neck and a black dropper cap with a black rubber bulb on top, and a dark green label covering the lower two thirds of the body with the mullein plant illustration with yellow flowers and the same white lettering as the reference, sharp, readable and never mirrored; not a slim tall bottle, not a squat jar. The bottle stands in the center of a rustic wooden table next to a window, facing the camera with the label to the front, filling about half of the frame height, with a few dried velvety gray-green mullein leaves, smooth-edged and oval, lying on the wood beside it. Only this single bottle: no box, no carton, no second bottle, no loose dropper, no yellow flowers, no capsules, no pills. Warm late-afternoon light from the window, matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: very slow gentle push-in, the whole bottle stays in frame\nMotion: the warm window light shifts softly across the bottle and the leaves; the bottle stays still and closed, its shape and label unchanged, the label always readable and never mirrored\nLighting: warm late-afternoon glow",
+      "referencias": ["producto"]
+    },
+    {
+      "n": 26,
+      "tipo": "A",
+      "duracion": 5.4,
+      "linea": "La planta que las abuelas usaban para el pecho… ahora en gotas concentradas.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, a cute original cartoon character that is a single mullein leaf: a soft velvety gray-green oval leaf with smooth edges and a fuzzy surface, with big round shiny friendly eyes, a determined happy smile, and two small leafy arms, floating in front of a pair of soft pink stylized bronchial tubes, one arm raised in a wave and the other sweeping along the pink wall like a broom, leaving a trail of clean warm glowing light where it has passed, cozy warm reddish-pink background with soft bokeh, lovable 100 percent original character design, warm cinematic lighting, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: the little leaf character waves hello, spins once and sweeps the pink bronchial wall with its arms, leaving a trail of warm light behind\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 27,
+      "tipo": "A",
+      "duracion": 5.4,
+      "linea": "Un gotero en agua, en la mañana y en la noche. Así de fácil.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, macro close-up of a glass dropper with a black rubber bulb entering from the top of the frame, its glass tube filled with dark green liquid extract, releasing a stream of dark green drops into a clear glass of water that stands on a light-colored kitchen counter, the green liquid opening in soft swirls inside the water, and behind the glass, softly out of focus, the dropper bottle from the product reference image: round amber-brown glass with rounded shoulders and a dark green label, standing open without its cap, not a slim tall bottle, not a squat jar. Only one bottle, no box, no carton, no yellow flowers, no capsules, no pills. Bright clean morning light, matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 5s. Vertical 9:16.\nCamera: locked-off static macro camera, no zoom\nMotion: in slow motion the dark green drops fall from the dropper into the glass and open in soft swirling clouds inside the water; the bottle behind stays still and out of focus\nLighting: bright clean morning light",
+      "referencias": ["producto"]
+    },
+    {
+      "n": 28,
+      "tipo": "B",
+      "duracion": 2.5,
+      "linea": "Te ayuda a soltar la flema,",
+      "prompt_imagen_inicial": "Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings along its length, cut open lengthwise like an anatomical model so its inside is visible, lies on its side. The inside of the tube is clogged along its whole length with a thick, heavy, glossy mass of green-yellow phlegm stuck to the walls. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera looks at the tube from a three-quarter angle slightly above, close, with the tube centered and filling most of the width of the frame. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+      "prompt_imagen_final": "Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings along its length, cut open lengthwise like an anatomical model so its inside is visible, lies on its side. The green-yellow phlegm inside the tube has broken apart into many small loose particles and tiny droplets that are scattered and thinning out, and the pink walls underneath are clean and smooth. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera looks at the tube from a three-quarter angle slightly above, close, with the tube centered and filling most of the width of the frame. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background",
+      "prompt_video": "Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: the thick green-yellow phlegm loosens from the pink walls and breaks apart into small particles that thin out, leaving the walls clean\nLighting: flat, even, clean studio light",
+      "referencias": []
+    },
+    {
+      "n": 29,
+      "tipo": "B",
+      "duracion": 2.5,
+      "linea": "a abrir el paso del aire",
+      "prompt_imagen_inicial": "Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings, like an anatomical model, is seen from the front looking straight into its round opening. The opening is tight and narrow, the rings are squeezed close together and the inside of the tube is dim, with only a small dark hole at the center. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is level with the center of the opening, close, with the tube centered and filling about two thirds of the frame width. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+      "prompt_imagen_final": "Vertical 9:16. A short section of a stylized bronchial tube made of soft pink material with rounded rings, like an anatomical model, is seen from the front looking straight into its round opening. The opening is now wide and fully open, the rings are relaxed and evenly spaced in clear concentric circles, and a bright electric-blue light flows through the inside of the tube and glows out of the opening. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is level with the center of the opening, close, with the tube centered and filling about two thirds of the frame width. The tube rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background",
+      "prompt_video": "Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.\nCamera: slow push-in toward the opening of the tube\nMotion: the tight rings relax and the opening widens ring by ring while an electric-blue light flows in and fills the inside of the tube\nLighting: flat, even, clean studio light",
+      "referencias": []
+    },
+    {
+      "n": 30,
+      "tipo": "B",
+      "duracion": 3.3,
+      "linea": "y a cuidar tus pulmones de forma natural.",
+      "prompt_imagen_inicial": "Vertical 9:16. A cluster of stylized alveoli, like a bunch of small round translucent bubbles made of soft pale pink material, hangs from the end of a short pink bronchial branch as a single anatomical model. The bubbles are dull, grayish-pink and empty inside, with no light in them. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front, close, with the cluster centered and filling about half of the frame. The cluster rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image",
+      "prompt_imagen_final": "Vertical 9:16. A cluster of stylized alveoli, like a bunch of small round translucent bubbles made of soft pale pink material, hangs from the end of a short pink bronchial branch as a single anatomical model. The bubbles are now plump and healthy pink, and each one is filled with many tiny bright blue-white sparkling dots of light that make the whole cluster glow softly from inside. The environment is a clean seamless studio with a plain light warm-gray to off-white backdrop and floor, a simple soft gradient with no grid, no lines and no props. Flat, even, soft clinical light comes from the front and above with no hard shadows. The camera is straight in front, close, with the cluster centered and filling about half of the frame. The cluster rests naturally on the studio floor with a soft contact shadow, never floating. Semi-3D soft plastic-like animation style, smooth matte-to-satin material, rounded simplified geometry, no micro-detail, no pores, no realism noise, stylized realism only, never photorealistic, no additional text or captions or watermark overlaid on the image\n\nNegative prompt: No text, no labels, no UI, no props, no hands, no tools, no cinematic lighting, no photorealism, no dark gradient background",
+      "prompt_video": "Semi-3D soft plastic-like animation, transition from the start frame to the end frame, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: blue-white light flows in through the branch and fills the bubbles one by one with tiny sparkling dots, and the dull cluster turns plump and glowing\nLighting: flat, even, clean studio light",
+      "referencias": []
+    },
+    {
+      "n": 31,
+      "tipo": "A",
+      "duracion": 4.2,
+      "linea": "Yo ya no me imagino la mañana sin mis gotas.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now rested with color in her cheeks and an upright posture, wearing a mustard-yellow blouse instead of the gray cardigan, standing in the small tiled bathroom of her Colombian home with the mirror and the sink beside her and soft morning light from a small window, framed from the chest up facing the camera, calm happy expression. In one hand she holds a clear glass of water with a faint green tint, raised near her chin, and in her other hand, at chest height and at the same distance from the camera as her face, she holds the closed dropper bottle from the product reference image, kept exactly as in the reference: a round amber-brown glass bottle about twice as tall as it is wide, with rounded shoulders, a short narrow neck, a black dropper cap with a black rubber bulb, and the dark green label with white lettering facing the camera, readable and never mirrored; not a slim tall bottle, not a squat jar; the bottle is about as tall as her hand, her fingers on its sides without covering the label. Only this single bottle: no box, no carton, no second bottle, no yellow flowers, no capsules, no pills. Matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 4s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: she drinks from the glass of water, lowers it and breathes in deeply through her nose with a calm smile; the closed bottle stays steady in her other hand at chest height, at the same distance from the camera as her face, its shape unchanged and its label always readable and never mirrored\nLighting: soft warm morning light",
+      "referencias": ["gloria", "producto"]
+    },
+    {
+      "n": 32,
+      "tipo": "A",
+      "duracion": 7.9,
+      "linea": "Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, now rested with color in her cheeks, wearing a mustard-yellow blouse instead of the gray cardigan, sitting at the wooden table of her Colombian kitchen with tiled walls and warm light from a window at her side, framed from the chest up facing the camera, looking straight into the camera with a warm knowing smile. With one hand she holds, at chest height and at the same distance from the camera as her face, the closed dropper bottle from the product reference image, kept exactly as in the reference: a round amber-brown glass bottle about twice as tall as it is wide, with rounded shoulders, a short narrow neck, a black dropper cap with a black rubber bulb, and the dark green label with white lettering facing the camera, readable and never mirrored; not a slim tall bottle, not a squat jar; the bottle takes about a third of the frame height, her fingers on its sides without covering the label. Her other hand is empty, raised beside the bottle with the index finger pointing straight down. Only this single bottle: no box, no carton, no second bottle, no yellow flowers, no capsules, no pills. Matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, ultra-detailed, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 8s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: she nods warmly at the camera with a knowing smile, lifts the closed bottle very slightly while keeping it at the same distance from the camera as her face, and points down twice with the index finger of her empty hand; her mouth stays closed in a smile, she does not speak; the bottle keeps its shape and its label is always readable and never mirrored\nLighting: warm window light",
+      "referencias": ["gloria", "producto"]
+    },
+    {
+      "n": 33,
+      "tipo": "A",
+      "duracion": 6.3,
+      "linea": "Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí.",
+      "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, close still life of the closed dropper bottle from the product reference image, kept exactly as in the reference: a round amber-brown glass bottle about twice as tall as it is wide, with rounded shoulders, a short narrow neck and a black dropper cap with a black rubber bulb on top, and a dark green label covering the lower two thirds of the body with the mullein plant illustration with yellow flowers and the same white lettering as the reference, sharp, readable and never mirrored; not a slim tall bottle, not a squat jar. The bottle stands in the center of a wooden table by a window, facing the camera with the label to the front, filling about sixty percent of the frame height, with dried velvety gray-green mullein leaves, smooth-edged and oval, around its base and golden evening light glowing behind it. Only this single bottle: no box, no carton, no second bottle, no loose dropper, no yellow flowers, no capsules, no pills. Matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_imagen_final": null,
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 6s. Vertical 9:16.\nCamera: slow steady push-in toward the label until it fills most of the frame\nMotion: the golden light glows softly behind the bottle; the bottle stays still and closed, its shape unchanged and its label always readable and never mirrored\nLighting: warm golden evening glow",
+      "referencias": ["producto"]
+    }
+  ],
+  "broll": [
+    {
+      "n": 1,
+      "despues_de_toma": 1,
+      "sincroniza_con": "y eso es buena señal",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: small pieces of cracked gray stone falling away from a bronchial branch and revealing clean light-blue glowing tissue underneath, warm golden-orange light with soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the stone pieces fall away and the blue glow grows\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 2,
+      "despues_de_toma": 2,
+      "sincroniza_con": "la flema que se te quedó pegada en el pecho",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: one thick glossy yellow strand of phlegm peeling off a soft pink airway wall, stretched and about to let go, warm golden-orange light with soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static macro camera\nMotion: the yellow strand stretches and lets go of the pink wall\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 3,
+      "despues_de_toma": 3,
+      "sincroniza_con": "semanas, meses… o hasta años",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: an old wooden hourglass on a living-room side table with almost all its sand already in the bottom bulb and a thin layer of dust on its top, a fabric sofa out of focus behind, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the last grains of sand fall through the hourglass\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 4,
+      "despues_de_toma": 4,
+      "sincroniza_con": "humo, polvo",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: gray smoke and fine dark dust particles drifting into a golden airway opening and settling on its walls, warm golden-orange light with soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: gentle forward drift\nMotion: the smoke and dust float in and settle on the golden walls\nLighting: warm golden glow",
+      "referencias": []
+    },
+    {
+      "n": 5,
+      "despues_de_toma": 5,
+      "sincroniza_con": "capas que ni sabías que tenías",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: extreme close-up of a black sooty flake curling up and peeling off a glossy red airway wall, with clean bright wall showing underneath, warm light with soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static macro camera\nMotion: the black flake curls, peels off and drifts away\nLighting: warm red glow",
+      "referencias": []
+    },
+    {
+      "n": 6,
+      "despues_de_toma": 6,
+      "sincroniza_con": "puede que botes",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, close-up of Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, in her gray wool cardigan, holding a white handkerchief over her mouth with one hand, eyes closed mid-cough, her living room softly out of focus behind, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: she coughs into the handkerchief and her shoulders shake\nLighting: warm window light",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 7,
+      "despues_de_toma": 7,
+      "sincroniza_con": "una flema oscura y espesa",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: a wooden nightstand with a glass of water, a plain box of tissues with no lettering and two crumpled white tissues beside it, soft daylight from a window, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the light shifts softly over the glass and the tissues\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 8,
+      "despues_de_toma": 8,
+      "sincroniza_con": "tu pecho se está limpiando",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: bright electric-blue sparkling particles sweeping along a clean glossy red airway wall and leaving it shining, soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: gentle forward drift\nMotion: the blue particles sweep along the red wall and leave it shining\nLighting: electric blue glow",
+      "referencias": []
+    },
+    {
+      "n": 9,
+      "despues_de_toma": 9,
+      "sincroniza_con": "el jarabe para la tos nunca alcanzó",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: a metal spoon full of thick pink syrup lying on a tiled kitchen counter next to a plain syrup bottle with a completely blank label, a sticky pink drip running down the side of the bottle, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the pink drip slides slowly down the side of the bottle\nLighting: warm kitchen light",
+      "referencias": []
+    },
+    {
+      "n": 10,
+      "despues_de_toma": 10,
+      "sincroniza_con": "esa sensación pesada… se va",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: a heavy dark gray cloud lifting off a pair of softly glowing stylized lungs and thinning out into the air, warm golden-orange light with soft glow, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera\nMotion: the gray cloud lifts off the lungs and fades away\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 11,
+      "despues_de_toma": 11,
+      "sincroniza_con": "abierto y liviano",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: an open balcony door of a Colombian apartment with light white curtains lifted by the breeze and green potted plants on the balcony in warm sunlight, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: gentle push-in toward the balcony\nMotion: the curtains wave softly in the breeze and the plant leaves move\nLighting: warm sunlight",
+      "referencias": []
+    },
+    {
+      "n": 12,
+      "despues_de_toma": 12,
+      "sincroniza_con": "duermes la noche entera",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: a wooden nightstand at dawn with a switched-off bedside lamp and a full glass of water, the edge of a pillow and a woven terracotta and yellow blanket beside it, soft golden morning light through the curtain, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the morning light grows slowly over the nightstand\nLighting: soft golden morning light",
+      "referencias": []
+    },
+    {
+      "n": 13,
+      "despues_de_toma": 13,
+      "sincroniza_con": "el cambio de energía se nota",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, low close-up of the legs and plain running shoes with no logos of an adult man in dark jogging pants, mid-stride on the path of a neighborhood park with grass and trees out of focus, morning sunlight, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: low tracking shot beside the feet\nMotion: the feet jog along the path with a light steady rhythm\nLighting: warm morning sunlight",
+      "referencias": []
+    },
+    {
+      "n": 14,
+      "despues_de_toma": 14,
+      "sincroniza_con": "los bajones de la tarde",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain, shown in desaturated black and white with cold flat light: a fabric sofa with a crumpled blanket and a flattened cushion, and a cup of cold coffee on the small table in front, afternoon light through a plain curtain, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the curtain moves slightly and the gray light dims\nLighting: cold flat gray light",
+      "referencias": []
+    },
+    {
+      "n": 15,
+      "despues_de_toma": 15,
+      "sincroniza_con": "subes las escaleras sin parar",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, rested and smiling, wearing a pink sweatshirt instead of the gray cardigan, standing at the top of a steep concrete staircase in a hillside neighborhood in Colombia with a cloth grocery bag in her hand, facing the camera with the colorful houses and the city below behind her, framed from the knees up, bright sunny day, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: she arrives at the top, breathes in calmly through her nose and smiles\nLighting: warm bright sunlight",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 16,
+      "despues_de_toma": 16,
+      "sincroniza_con": "cada bocanada de aire",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: a smooth stream of bright blue air particles flowing freely through a clean glowing golden bronchial tree, warm golden-orange light with soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: gentle forward drift\nMotion: the blue air particles flow smoothly through the golden branches\nLighting: warm golden glow",
+      "referencias": []
+    },
+    {
+      "n": 17,
+      "despues_de_toma": 17,
+      "sincroniza_con": "no era normal vivir así",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, close-up of the adult 40-year-old Colombian man with the trimmed dark beard from the reference image, same face, hair and skin, sitting in his parked car, looking out through the side window with a thoughtful small smile, daylight on his face, no brand or logo visible in the car, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: he breathes in slowly, nods slightly to himself and smiles\nLighting: bright warm daylight",
+      "referencias": ["hombre40"]
+    },
+    {
+      "n": 18,
+      "despues_de_toma": 18,
+      "sincroniza_con": "los silbidos al respirar",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: a narrowed red airway with thin white streaks of air squeezing through a small gap at its center, warm light with soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static macro camera\nMotion: thin streaks of air squeeze through the narrow gap in pulses\nLighting: warm red glow",
+      "referencias": []
+    },
+    {
+      "n": 19,
+      "despues_de_toma": 19,
+      "sincroniza_con": "la cabeza nublada",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: close view of the folds of a glowing pink and blue stylized brain half covered by a thick orange haze, dark blue background, soft glow, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow sideways drift\nMotion: the orange haze rolls slowly over the folds of the brain\nLighting: blue and orange glow",
+      "referencias": []
+    },
+    {
+      "n": 20,
+      "despues_de_toma": 20,
+      "sincroniza_con": "el pecho apretado",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: a stylized pale-blue translucent rib cage with softly glowing lungs inside, squeezed by a wide tight dark band wrapped around it, soft lilac background, soft glow, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera\nMotion: the dark band tightens a little around the rib cage and the glow of the lungs dims\nLighting: soft cool glow",
+      "referencias": []
+    },
+    {
+      "n": 21,
+      "despues_de_toma": 21,
+      "sincroniza_con": "era flema y bloqueo",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: extreme close-up of small dark round pellets trapped inside thick glossy yellow phlegm against a pink airway wall, warm golden-orange light with soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the thick yellow phlegm quivers slightly around the trapped dark pellets\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 22,
+      "despues_de_toma": 22,
+      "sincroniza_con": "cocinaste con leña",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: close-up of burning firewood under a blackened clay pot on a rustic wood-burning stove, glowing embers and thick gray smoke rising, a countryside kitchen out of focus behind, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera\nMotion: the flames flicker and the gray smoke rises in curls\nLighting: warm firelight",
+      "referencias": []
+    },
+    {
+      "n": 23,
+      "despues_de_toma": 23,
+      "sincroniza_con": "el humo de los buses",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: low close-up of the exhaust pipe at the back of a city bus with no logos and no lettering, puffing out a thick cloud of dark gray smoke on a Colombian city street, overcast daylight, cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera\nMotion: the exhaust pipe puffs out a cloud of gray smoke that rolls toward the camera\nLighting: soft overcast daylight",
+      "referencias": []
+    },
+    {
+      "n": 24,
+      "despues_de_toma": 24,
+      "sincroniza_con": "la tos de la gripa",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: a ceramic mug with steam rising from it on a windowsill, soft morning light coming through the window and lighting the steam, a folded knitted blanket beside it, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the steam rises from the mug in soft curls through the morning light\nLighting: soft morning light",
+      "referencias": []
+    },
+    {
+      "n": 25,
+      "despues_de_toma": 25,
+      "sincroniza_con": "extracto puro de hoja de gordolobo",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: close-up of a few mullein leaves, velvety, fuzzy, gray-green, oval with smooth edges, lying on a rustic wooden table in warm afternoon window light, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow sideways glide over the leaves\nMotion: the warm light slides softly over the velvety leaves\nLighting: warm afternoon glow",
+      "referencias": []
+    },
+    {
+      "n": 26,
+      "despues_de_toma": 26,
+      "sincroniza_con": "la planta que las abuelas usaban para el pecho",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: dried gray-green oval mullein leaves in an old ceramic bowl next to a small stone mortar and a steaming clay cup on a rustic wooden kitchen table in a grandmother's countryside kitchen, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: steam rises from the clay cup beside the bowl of leaves\nLighting: warm cinematic glow",
+      "referencias": []
+    },
+    {
+      "n": 27,
+      "despues_de_toma": 27,
+      "sincroniza_con": "un gotero en agua",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: extreme macro of a single dark green drop hanging from the glass tip of a dropper just above the surface of a clear glass of water, with soft green swirls already opening in the water below, bright clean morning light, matte, no rainbow, no prism light, no lens flare, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static macro camera\nMotion: in slow motion the green drop falls into the water and opens in a soft swirl\nLighting: bright clean morning light",
+      "referencias": []
+    },
+    {
+      "n": 28,
+      "despues_de_toma": 28,
+      "sincroniza_con": "soltar la flema",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: thick phlegm coming unstuck from the walls of the bronchi and dissolving into a soft electric-blue light, glowing particles drifting away, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: gentle forward drift\nMotion: the phlegm comes unstuck from the walls and dissolves into blue light\nLighting: electric blue glow",
+      "referencias": []
+    },
+    {
+      "n": 29,
+      "despues_de_toma": 29,
+      "sincroniza_con": "abrir el paso del aire",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: view down a clean pink airway whose rings open wide one after another like a camera aperture, with a soft electric-blue light coming from the far end, soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: steady forward travel\nMotion: the rings open wider one after another as the blue light comes closer\nLighting: electric blue glow",
+      "referencias": []
+    },
+    {
+      "n": 30,
+      "despues_de_toma": 30,
+      "sincroniza_con": "cuidar tus pulmones de forma natural",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Stylized 3D macro visualization, a still frame from a Pixar animated feature film, rounded slightly exaggerated shapes, simplified smooth surfaces with no fine grain: close view of round translucent pink alveoli full of tiny bright blue-white sparkling dots, softly glowing, with a small gray-green oval leaf shape reflected in their surface, soft glow, dramatic macro close-up, premium documentary visualization style (not cold medical diagram), no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: slow push-in\nMotion: the sparkling dots swirl gently inside the glowing alveoli\nLighting: soft blue-white glow",
+      "referencias": []
+    },
+    {
+      "n": 31,
+      "despues_de_toma": 31,
+      "sincroniza_con": "la mañana sin mis gotas",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, the closed dropper bottle from the product reference image, kept exactly as in the reference: a round amber-brown glass bottle about twice as tall as it is wide, with rounded shoulders, a short narrow neck, a black dropper cap with a black rubber bulb, and the dark green label with white lettering facing the camera, readable and never mirrored; not a slim tall bottle, not a squat jar. It stands on a small bathroom shelf next to a clear glass of water, slightly shorter than the glass, with soft morning light from a small window and white tiles behind. Only this single bottle: no box, no carton, no second bottle, no yellow flowers, no capsules, no pills. Matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: very slow gentle push-in, the whole bottle stays in frame\nMotion: the morning light grows softly over the bottle and the glass; the bottle stays still, its label readable and never mirrored\nLighting: soft morning light",
+      "referencias": ["producto"]
+    },
+    {
+      "n": 32,
+      "despues_de_toma": 32,
+      "sincroniza_con": "me llegó a la casa y lo pagué al recibirlo",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, Gloria, the adult 54-year-old Colombian woman from the reference image, same face, hair and skin, rested and smiling, wearing a mustard-yellow blouse instead of the gray cardigan, standing at the open front door of her Colombian house and receiving a small plain cardboard package with no lettering from an adult delivery courier in a plain helmet and plain jacket with no logos, while she hands him some folded bills with her other hand, both framed from the knees up, a sunny neighborhood street behind, warm cinematic lighting, expressive facial detail, shallow depth of field, subsurface scattering, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom\nMotion: the courier hands her the small package, she gives him the bills and smiles\nLighting: warm sunlight",
+      "referencias": ["gloria"]
+    },
+    {
+      "n": 33,
+      "despues_de_toma": 33,
+      "sincroniza_con": "el tuyo está ahí",
+      "duracion": 3,
+      "prompt_imagen": "Vertical 9:16. Pixar-Disney style 3D animation render, the closed dropper bottle from the product reference image seen from a slightly low three-quarter angle, kept exactly as in the reference: a round amber-brown glass bottle about twice as tall as it is wide, with rounded shoulders, a short narrow neck, a black dropper cap with a black rubber bulb, and the dark green label with white lettering toward the camera, readable and never mirrored; not a slim tall bottle, not a squat jar. It stands in the center of a wooden table by a window with dried gray-green oval mullein leaves around it and golden evening light. Only this single bottle: no box, no carton, no second bottle, no yellow flowers, no capsules, no pills. Matte, no rainbow, no prism light, no lens flare, warm cinematic lighting, shallow depth of field, octane render, 8k, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting",
+      "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 3s. Vertical 9:16.\nCamera: very slow gentle push-in, the whole bottle stays in frame\nMotion: the golden light glows softly on the bottle and the leaves; the bottle stays still, its label readable and never mirrored\nLighting: warm golden evening glow",
+      "referencias": ["producto"]
+    }
+  ],
+  "voz_en_off": "Los primeros tres días vas a toser más de lo normal… y eso es buena señal. Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho… …la que llevaba ahí semanas, meses… o hasta años. Humo, polvo, flema vieja… capas que ni sabías que tenías. Sí, puede que botes una flema oscura y espesa… …pero así sabes que tu pecho se está limpiando. Llega hasta donde el jarabe para la tos nunca alcanzó. Para el día diez, esa sensación pesada, de ahogo… se va. Tu pecho se siente abierto y liviano, no apretado ni tapado. Y por fin duermes la noche entera sin despertarte tosiendo. Después de veinte días, el cambio de energía se nota. Se acaban los bajones de la tarde… y subes las escaleras sin parar a coger aire. Porque tu cuerpo ya no está peleando por cada bocanada de aire. Y te vas a dar cuenta de que no era normal vivir así, falto de aire. Los silbidos al respirar… la cabeza nublada… el pecho apretado… …era flema y bloqueo. Tu pecho no podía limpiarse solo. Si cocinaste con leña, respiras el humo de los buses o te quedó la tos de la gripa… …esto es OxiPure: extracto puro de hoja de gordolobo. La planta que las abuelas usaban para el pecho… ahora en gotas concentradas. Un gotero en agua, en la mañana y en la noche. Así de fácil. Te ayuda a soltar la flema, a abrir el paso del aire y a cuidar tus pulmones de forma natural. Yo ya no me imagino la mañana sin mis gotas. Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días. Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí.",
+  "overlays": [
+    { "texto": "3 DÍAS", "toma": 1, "momento": "inicio" },
+    { "texto": "SE VA", "toma": 10, "momento": "final" },
+    { "texto": "ANTES / AHORA", "toma": 12, "momento": "inicio" },
+    { "texto": "DÍA 20", "toma": 13, "momento": "inicio" },
+    { "texto": "GORDOLOBO", "toma": 26, "momento": "inicio" },
+    { "texto": "1 gotero · mañana y noche", "toma": 27, "momento": "inicio" },
+    { "texto": "Garantía 30 días", "toma": 32, "momento": "final" },
+    { "texto": "Pagas al recibir", "toma": 33, "momento": "inicio" }
+  ]
+}

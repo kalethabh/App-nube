@@ -1,0 +1,247 @@
+{
+  "titulo": "OxiPure Mullein · Los primeros tres días vas a toser más",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 125.7,
+  "de_que_va": "Explica que la tos de los primeros días es el pecho limpiándose de flema vieja, y muestra a Gloria pasando de vivir con el pecho apretado a respirar hondo, dormir bien y subir escaleras. Cierra con las gotas de gordolobo y el pago al recibir.",
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "Los primeros tres días vas a toser más de lo normal… y eso es buena señal.",
+      "se_ve": "Un torso con pulmones de piedra gris agrietada que se desmoronan y dejan ver bronquios azul claro, en un estudio limpio.",
+      "segundos": 6.7
+    },
+    {
+      "n": 2,
+      "momento": "problema",
+      "dice": "Tu cuerpo empieza a soltar la flema que se te quedó pegada en el pecho…",
+      "se_ve": "Por dentro de la tráquea, una flema espesa amarilla y marrón se despega de las paredes rosadas y chorrea despacio.",
+      "segundos": 6.3
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "dice": "…la que llevaba ahí semanas, meses… o hasta años.",
+      "se_ve": "Una mano con guante rosado estira entre los dedos un hilo de mucosidad espesa, con una sala desenfocada atrás.",
+      "segundos": 3.8
+    },
+    {
+      "n": 4,
+      "momento": "problema",
+      "dice": "Humo, polvo, flema vieja…",
+      "se_ve": "La cámara avanza por un túnel dorado de los bronquios con capas negras pegadas en las paredes.",
+      "segundos": 1.7
+    },
+    {
+      "n": 5,
+      "momento": "problema",
+      "dice": "capas que ni sabías que tenías.",
+      "se_ve": "El túnel se vuelve rojo y las capas negras se desprenden de las paredes.",
+      "segundos": 2.5
+    },
+    {
+      "n": 6,
+      "momento": "problema",
+      "dice": "Sí, puede que botes",
+      "se_ve": "Gloria, con su saco gris, tose en el sofá de su sala tapándose la boca con un pañuelo, y al final medio sonríe.",
+      "segundos": 1.7
+    },
+    {
+      "n": 7,
+      "momento": "problema",
+      "dice": "una flema oscura y espesa…",
+      "se_ve": "Desde arriba, un pañuelo blanco con una flema amarilla oscura, sin que se vea la cara.",
+      "segundos": 2.1
+    },
+    {
+      "n": 8,
+      "momento": "giro",
+      "dice": "…pero así sabes que tu pecho se está limpiando.",
+      "se_ve": "Un túnel rojo de anillos, ya limpio, atravesado por un rayo de luz azul; la cámara sale disparada hacia el fondo.",
+      "segundos": 3.8
+    },
+    {
+      "n": 9,
+      "momento": "giro",
+      "dice": "Llega hasta donde el jarabe para la tos nunca alcanzó.",
+      "se_ve": "Una mano sirve jarabe rosado espeso en una cuchara sobre el mesón de la cocina, y se desborda un poco. Sin marca.",
+      "segundos": 4.2
+    },
+    {
+      "n": 10,
+      "momento": "prueba",
+      "dice": "Para el día diez, esa sensación pesada, de ahogo… se va.",
+      "se_ve": "Un hombre de perfil, con los ojos cerrados y las vías respiratorias en rojo, exhala y el rojo pasa a un gris claro y sereno, en un estudio limpio.",
+      "segundos": 4.6
+    },
+    {
+      "n": 11,
+      "momento": "prueba",
+      "dice": "Tu pecho se siente abierto y liviano, no apretado ni tapado.",
+      "se_ve": "Gloria en blanco y negro junto a la ventana, con la mano en el pecho, se transforma en Gloria a color en el balcón, con blusa mostaza y los brazos abiertos.",
+      "segundos": 4.6
+    },
+    {
+      "n": 12,
+      "momento": "prueba",
+      "dice": "Y por fin duermes la noche entera sin despertarte tosiendo.",
+      "se_ve": "Gloria en blanco y negro tose sentada en el borde de la cama de noche, y pasa a Gloria a color, dormida tranquila con otra cobija y luz de mañana.",
+      "segundos": 4.2
+    },
+    {
+      "n": 13,
+      "momento": "prueba",
+      "dice": "Después de veinte días, el cambio de energía se nota.",
+      "se_ve": "Un señor canoso de 62 años, con buzo azul claro, trota suave hacia la cámara en un parque de barrio.",
+      "segundos": 4.2
+    },
+    {
+      "n": 14,
+      "momento": "prueba",
+      "dice": "Se acaban los bajones de la tarde…",
+      "se_ve": "Gloria en blanco y negro, tirada en el sofá sin ganas, por la tarde.",
+      "segundos": 2.9
+    },
+    {
+      "n": 15,
+      "momento": "prueba",
+      "dice": "y subes las escaleras sin parar a coger aire.",
+      "se_ve": "Gloria a color, con buzo rosado y bolsa de mercado, sube a paso firme las escaleras de un barrio en loma.",
+      "segundos": 3.8
+    },
+    {
+      "n": 16,
+      "momento": "prueba",
+      "dice": "Porque tu cuerpo ya no está peleando por cada bocanada de aire.",
+      "se_ve": "Unos pulmones translúcidos se inflan y se encienden por dentro con luz naranja dorada, en un estudio limpio.",
+      "segundos": 5
+    },
+    {
+      "n": 17,
+      "momento": "prueba",
+      "dice": "Y te vas a dar cuenta de que no era normal vivir así, falto de aire.",
+      "se_ve": "Un hombre de 40 años con barba, sentado en su carro estacionado, respira hondo con los ojos cerrados y medio sonríe.",
+      "segundos": 6.7
+    },
+    {
+      "n": 18,
+      "momento": "problema",
+      "dice": "Los silbidos al respirar…",
+      "se_ve": "La figura de una mujer con el pecho en rojo, respirando con esfuerzo.",
+      "segundos": 1.7
+    },
+    {
+      "n": 19,
+      "momento": "problema",
+      "dice": "la cabeza nublada…",
+      "se_ve": "Un cerebro brillante envuelto en una neblina naranja.",
+      "segundos": 1.3
+    },
+    {
+      "n": 20,
+      "momento": "problema",
+      "dice": "el pecho apretado…",
+      "se_ve": "Un hombre sentado en la cama, con camiseta sin mangas, se lleva la mano al pecho con molestia.",
+      "segundos": 1.3
+    },
+    {
+      "n": 21,
+      "momento": "problema",
+      "dice": "…era flema y bloqueo. Tu pecho no podía limpiarse solo.",
+      "se_ve": "Un bronquio por dentro, tapado por flema amarilla espesa y bolitas oscuras que no dejan pasar el aire.",
+      "segundos": 4.2
+    },
+    {
+      "n": 22,
+      "momento": "problema",
+      "dice": "Si cocinaste con leña,",
+      "se_ve": "Una señora de 60 años revuelve una olla en un fogón de leña, entre el humo.",
+      "segundos": 1.7
+    },
+    {
+      "n": 23,
+      "momento": "problema",
+      "dice": "respiras el humo de los buses",
+      "se_ve": "El hombre de barba espera en un paradero y le pasa por encima el humo de un bus.",
+      "segundos": 2.5
+    },
+    {
+      "n": 24,
+      "momento": "problema",
+      "dice": "o te quedó la tos de la gripa…",
+      "se_ve": "Gloria, con cobija y una taza caliente, tose cansada en el sofá.",
+      "segundos": 2.9
+    },
+    {
+      "n": 25,
+      "momento": "solución",
+      "dice": "…esto es OxiPure: extracto puro de hoja de gordolobo.",
+      "se_ve": "El frasco sobre una mesa de madera junto a la ventana, con luz cálida de tarde y hojas de gordolobo secas al lado.",
+      "segundos": 3.8
+    },
+    {
+      "n": 26,
+      "momento": "solución",
+      "dice": "La planta que las abuelas usaban para el pecho… ahora en gotas concentradas.",
+      "se_ve": "Una hojita de gordolobo animada, con ojos grandes y brazos, saluda y barre unos bronquios rosados dejando luz.",
+      "segundos": 5.4
+    },
+    {
+      "n": 27,
+      "momento": "solución",
+      "dice": "Un gotero en agua, en la mañana y en la noche. Así de fácil.",
+      "se_ve": "De cerca y en cámara lenta, el gotero suelta el líquido verde en un vaso de agua; el frasco se ve desenfocado atrás.",
+      "segundos": 5.4
+    },
+    {
+      "n": 28,
+      "momento": "solución",
+      "dice": "Te ayuda a soltar la flema,",
+      "se_ve": "Un bronquio lleno de flema verde amarilla que se deshace en partículas, en un estudio limpio.",
+      "segundos": 2.5
+    },
+    {
+      "n": 29,
+      "momento": "solución",
+      "dice": "a abrir el paso del aire",
+      "se_ve": "El bronquio, que estaba cerrado, se abre en anillos y se llena de luz azul, en un estudio limpio.",
+      "segundos": 2.5
+    },
+    {
+      "n": 30,
+      "momento": "solución",
+      "dice": "y a cuidar tus pulmones de forma natural.",
+      "se_ve": "Las bolsitas de aire del pulmón, apagadas, se llenan de puntitos brillantes, en un estudio limpio.",
+      "segundos": 3.3
+    },
+    {
+      "n": 31,
+      "momento": "prueba",
+      "dice": "Yo ya no me imagino la mañana sin mis gotas.",
+      "se_ve": "Gloria, con blusa mostaza, en el baño de su casa: se toma el vaso de agua con sus gotas, con el frasco en la otra mano, y respira hondo.",
+      "segundos": 4.2
+    },
+    {
+      "n": 32,
+      "momento": "oferta",
+      "dice": "Me llegó a la casa y lo pagué al recibirlo. Y si no te gusta, tienes garantía de 30 días.",
+      "se_ve": "Gloria en la mesa de su cocina sostiene el frasco a la altura del pecho, con la etiqueta de frente, sonríe a la cámara y señala hacia abajo.",
+      "segundos": 7.9
+    },
+    {
+      "n": 33,
+      "momento": "cierre",
+      "dice": "Si todavía ves el botón de abajo, es porque quedan unidades. El tuyo está ahí.",
+      "se_ve": "El frasco con luz cálida de ventana y hojas de gordolobo; la cámara se acerca hasta que la etiqueta llena la pantalla.",
+      "segundos": 6.3
+    }
+  ],
+  "decisiones": [
+    "Tu guion tal cual · lo visual, guiado por WhatsApp Video 2026-11-15 at 08.35.03.mp4",
+    "No cambié ni una palabra. Solo partí algunas frases en dos o tres escenas para el corte rápido que pediste: quedan 33 escenas y unos dos minutos al ritmo normal de la voz.",
+    "El ángulo es el de tu guion: la flema pegada que nadie ve y cómo el pecho se limpia. Las escenas de pulmones y bronquios vistos por fuera van en un estudio limpio, sin cuadrícula; las de túnel van por dentro, como en tu video.",
+    "Gloria y las demás personas salen en animación 3D, no como foto real: así es este estilo. Gloria es la misma de principio a fin, con el antes en blanco y negro y el después a color.",
+    "El frasco sale igual al de tu foto, y ahí la etiqueta dice Mullein y 60 ml, no OxiPure ni 30 ml. Si tu frasco real es otro, cambia la foto. La garantía de 30 días y «mañana y noche» se dicen porque están en tu guion; el e-book y la oferta no los puse en pantalla porque no están en tu ficha."
+  ]
+}
