@@ -85,7 +85,7 @@ BLOQUE 4   (6 s, tipo R)   — resultado: mes tres
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 5   (8 s, tipo R)   — recomendación: el tratamiento completo
-  Cuando:   00:25.75 -> 00:33.52   (7.77s de ventana)
+  Cuando:   00:25.75 -> 00:33.37   (7.62s de ventana)
   Clip:     video/toma-5.mp4
   Tramos:
             [0.0–2.4s]  "Hice el tratamiento completo de tres meses,"
@@ -96,12 +96,12 @@ BLOQUE 5   (8 s, tipo R)   — recomendación: el tratamiento completo
   imagen de inicio):
             1) personaje      -> img/personaje.png
             2) producto       -> producto.png
-  Recorte:  0.00s del INICIO y 0.16s del FINAL.
-            Quedan 7.77s utiles de los 7.93s del clip.
+  Recorte:  0.00s del INICIO y 0.31s del FINAL.
+            Quedan 7.62s utiles de los 7.93s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 BLOQUE 6   (6 s, tipo R)   — cierre
-  Cuando:   00:33.52 -> 00:39.49   (5.97s de ventana)
+  Cuando:   00:33.37 -> 00:38.61   (5.24s de ventana)
   Clip:     video/toma-6.mp4
   Tramos:
             [0.0–3.4s]  "Me llegó a la casa y lo pagué al recibirlo."
@@ -112,8 +112,8 @@ BLOQUE 6   (6 s, tipo R)   — cierre
             1) personaje      -> img/personaje.png
             2) producto       -> producto.png
             3) lugar-sala     -> img/lugar-sala.png   (fotograma del bloque 5, segundo 1.2)
-  Recorte:  0.00s del INICIO y 0.00s del FINAL.
-            Quedan 5.97s utiles de los 5.97s del clip.
+  Recorte:  0.18s del INICIO y 0.55s del FINAL.
+            Quedan 5.24s utiles de los 5.97s del clip.
             NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
 
 ------------------------------------------------------------------------------

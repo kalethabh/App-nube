@@ -1,6 +1,6 @@
 {
   "id": "b5c3830ace03",
-  "fase": "produccion",
+  "fase": "listo",
   "frase": "Creando las piezas nuevas",
   "piezas": [
     {
@@ -66,7 +66,7 @@
       }
     ]
   },
-  "actualizado": "2026-11-15T00:22:41.780Z",
+  "actualizado": "2026-11-15T00:31:17.981Z",
   "pieza": "toma-5",
   "nombre": "Bloque 5 y Bloque 6",
   "pedido": "",
@@ -74,5 +74,7 @@
   "modo": "tal-cual",
   "desde": "bloques",
   "reabierto": "2026-11-15T00:22:41.775Z",
-  "desdePaso": "bloques"
+  "desdePaso": "bloques",
+  "terminado": "2026-11-15T00:31:17.980Z",
+  "nota": null
 }

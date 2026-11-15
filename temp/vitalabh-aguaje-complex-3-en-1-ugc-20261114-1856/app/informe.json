@@ -1,9 +1,9 @@
 {
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
-  "generado": "2026-11-15T00:22:07.882Z",
+  "generado": "2026-11-15T00:31:14.555Z",
   "modoPrueba": false,
   "duracion": {
-    "real": 39.49,
+    "real": 38.61,
     "estimada": 40,
     "pedida": null
   },
@@ -25,7 +25,7 @@
       "id": "musica",
       "icono": "musica",
       "titulo": "Música de fondo",
-      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:34."
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:33."
     },
     {
       "id": "transiciones",
@@ -61,7 +61,7 @@
     },
     {
       "toma": 6,
-      "momento": 33.52,
+      "momento": 33.369,
       "animacion": "zoom",
       "efecto": "deep-woosh"
     }
@@ -86,8 +86,8 @@
   ],
   "sinProblemas": false,
   "costo": {
-    "creditos": 542,
-    "dolares": 2.71,
+    "creditos": 682,
+    "dolares": 3.41,
     "dolaresPorCredito": 0.005,
     "imagenes": {
       "piezas": 1,
@@ -95,9 +95,9 @@
       "dolares": 0.05
     },
     "videos": {
-      "piezas": 8,
-      "creditos": 520,
-      "dolares": 2.6
+      "piezas": 10,
+      "creditos": 660,
+      "dolares": 3.3
     },
     "musica": {
       "pistas": 1,
@@ -111,9 +111,9 @@
     "estimado": false,
     "elevenlabs": {
       "caracteres": 0,
-      "scribeSegundos": 131
+      "scribeSegundos": 184.6
     },
-    "corridas": 8,
+    "corridas": 11,
     "respaldo": [],
     "partes": [
       {
@@ -124,9 +124,9 @@
       },
       {
         "id": "videos",
-        "piezas": 8,
-        "creditos": 520,
-        "dolares": 2.6
+        "piezas": 10,
+        "creditos": 660,
+        "dolares": 3.3
       },
       {
         "id": "musica",
@@ -141,8 +141,8 @@
     ],
     "verificacion": {
       "saldoAntes": 1095.2,
-      "saldoDespues": 2553.2,
-      "diferencia": -1458,
+      "saldoDespues": 2413.2,
+      "diferencia": -1318,
       "coincide": false
     },
     "rehecho": false
