@@ -3,10 +3,10 @@
 // los beneficios, los ángulos y los precios de la competencia, y el resto en bloques cortos.
 //
 // RESALTAR: selecciona cualquier texto del informe y toca «Resaltar». Queda marcado, se junta en «Lo que resaltaste»
-// (a la derecha) y es lo primero que leen tus anuncios de imagen de este producto.
+// (arriba a la derecha, junto al botón «Crear anuncios de imagen») y es lo primero que leen tus anuncios de imagen de este producto.
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { CircleAlert, CircleCheck, Copy, ExternalLink, Highlighter, Images, LoaderCircle, RotateCcw, Star, Telescope, TriangleAlert, X } from 'lucide-react';
-import { Boton, CabeceraPagina, CampoTexto, Esqueleto, EstadoVacio, Tarjeta, useAvisos } from '../../componentes/index.js';
+import { Boton, CampoTexto, Esqueleto, EstadoVacio, useAvisos } from '../../componentes/index.js';
 import { invalidar } from '../../datos/api.js';
 import { CLAVE_INVESTIGACIONES, apiInvestigacion, claveInvestigacion, useInvestigacion } from '../../datos/investigacion.js';
 import { fechaRelativa } from '../../datos/formato.js';
@@ -694,31 +694,22 @@ export default function PantallaInforme({ params }) {
   return (
     <Resaltados.Provider value={lista}>
       <div className="pagina inv">
-        <CabeceraPagina
-          sobretitulo="Investigación de mercado"
-          titulo={producto.nombre}
-          descripcion={`${tarea.fin ? `Hecha ${fechaRelativa(tarea.fin)}. ` : ''}Selecciona cualquier texto para resaltarlo.`}
-          acciones={
-            <details className="inv-otra">
-              <summary>
-                <RotateCcw size={14} strokeWidth={2} aria-hidden="true" /> Volver a investigar
-              </summary>
-              <div className="inv-otra__caja">
-                <p className="t-chico t-2">Reemplaza esta investigación por una nueva (lo que resaltaste se conserva).</p>
-                {formulario}
-              </div>
-            </details>
-          }
-        />
-        {tarea.estado === 'error' ? (
-          <p className="img-nota img-nota--aviso" role="alert">
-            <CircleAlert size={14} strokeWidth={2} aria-hidden="true" />
-            El último intento no terminó ({tarea.error?.mensaje || 'sin detalle'}). Esta es la investigación anterior.
-          </p>
-        ) : null}
-        <div className="inv-cuerpo">
-          <div ref={cuerpo}>
-            <Informe inv={inv} producto={producto} />
+        <header className="inv-cabeza">
+          <div className="inv-cabeza__textos">
+            <span className="inv-cabeza__sobre">Investigación de mercado</span>
+            <div className="inv-cabeza__fila">
+              <h1 className="inv-cabeza__titulo">{producto.nombre}</h1>
+              <details className="inv-otra">
+                <summary>
+                  <RotateCcw size={14} strokeWidth={2} aria-hidden="true" /> Volver a investigar
+                </summary>
+                <div className="inv-otra__caja">
+                  <p className="t-chico t-2">Reemplaza esta investigación por una nueva (lo que resaltaste se conserva).</p>
+                  {formulario}
+                </div>
+              </details>
+            </div>
+            <p className="inv-cabeza__desc">{tarea.fin ? `Hecha ${fechaRelativa(tarea.fin)}. ` : ''}Selecciona cualquier texto para resaltarlo.</p>
           </div>
           <PanelResaltados
             lista={lista}
@@ -726,6 +717,15 @@ export default function PantallaInforme({ params }) {
             onNota={(rid, nota) => guardar(lista.map((r) => (r.id === rid ? { ...r, nota: nota.trim() } : r)))}
             hrefAnuncios={enlace.crearImagenes({ producto: id })}
           />
+        </header>
+        {tarea.estado === 'error' ? (
+          <p className="img-nota img-nota--aviso" role="alert">
+            <CircleAlert size={14} strokeWidth={2} aria-hidden="true" />
+            El último intento no terminó ({tarea.error?.mensaje || 'sin detalle'}). Esta es la investigación anterior.
+          </p>
+        ) : null}
+        <div ref={cuerpo} className="inv-cuerpo">
+          <Informe inv={inv} producto={producto} />
         </div>
         {flotante ? (
           <button type="button" className="inv-flotante" style={{ left: flotante.x, top: flotante.y }} onMouseDown={(e) => e.preventDefault()} onClick={resaltar}>
