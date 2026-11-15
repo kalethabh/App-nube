@@ -521,7 +521,7 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
         </div>
         <p className="lt__pista-ayuda">
           <MousePointerClick size={14} strokeWidth={2} aria-hidden="true" />
-          Arrastra un clip para moverlo y sus bordes para recortarlo; con Alt, deslizas lo que se ve
+          {plan?.videoPropio ? 'Elige una escena y bórrala para quitarla del video; arrastra sus bordes para recortarla' : 'Arrastra un clip para moverlo y sus bordes para recortarlo; con Alt, deslizas lo que se ve'}
         </p>
         <div className="lt__zoom">
           <Tooltip texto={<>Alejar <kbd>−</kbd></>}>
