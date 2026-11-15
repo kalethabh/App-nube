@@ -10,5 +10,90 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-15T00:05:30.130Z"
+  "actualizado": "2026-11-15T00:11:35.700Z",
+  "revision": {
+    "ronda": 1,
+    "medidas": {
+      "1": {
+        "huella": "5410624-1794701347377",
+        "medido": true,
+        "limpio": false,
+        "motivo": "dijo «gym» en vez de «jean»"
+      },
+      "2": {
+        "huella": "6068071-1794701285132",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "3": {
+        "huella": "2091271-1794701263659",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "4": {
+        "huella": "2968609-1794701259088",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "5": {
+        "huella": "4427838-1794701289832",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "6": {
+        "huella": "4251057-1794701446750",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      }
+    },
+    "vistos": {},
+    "piezas": {
+      "toma-1": {
+        "motivos": [
+          "No dijo su parte tal cual: dijo «gym» en vez de «jean»."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-2": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-3": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-4": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-5": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-6": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      }
+    },
+    "pendientes": [],
+    "revisarTambien": [],
+    "sinRevisar": [],
+    "lugares": {},
+    "vuelta": null,
+    "sesion": {
+      "uuid": "49770559-7ff5-4c62-9874-a50b34c03fe4",
+      "usada": true
+    }
+  }
 }

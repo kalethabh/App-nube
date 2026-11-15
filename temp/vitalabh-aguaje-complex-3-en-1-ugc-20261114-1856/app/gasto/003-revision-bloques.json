@@ -1,0 +1,20 @@
+{
+  "numero": 3,
+  "paso": "revision-bloques",
+  "comando": "node produccion/cortar-cola-ugc.js temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 --tomas 1,2,3,4,5,6",
+  "inicio": "2026-11-15T00:10:46.789Z",
+  "fin": "2026-11-15T00:10:50.841Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 6,
+      "segundos": 39.7
+    }
+  }
+}

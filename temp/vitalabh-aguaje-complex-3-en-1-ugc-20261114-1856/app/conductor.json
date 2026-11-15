@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "bloques",
+  "paso": "montaje",
   "pasos": [
     {
       "id": "validar",
@@ -40,27 +40,34 @@
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-15T00:05:30.131Z"
+      "inicio": "2026-11-15T00:05:30.131Z",
+      "fin": "2026-11-15T00:10:46.780Z"
     },
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T00:10:46.781Z",
+      "fin": "2026-11-15T00:11:35.700Z",
+      "nota": "La revisión dejó un aviso: míralo en el proceso."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-15T00:11:35.701Z",
+      "fin": "2026-11-15T00:12:05.413Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-15T00:12:05.414Z"
     },
     {
       "id": "render",
@@ -91,7 +98,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T00:04:22.477Z",
   "aprobado": "2026-11-15T00:04:22.477Z",
-  "actualizado": "2026-11-15T00:05:30.131Z",
+  "actualizado": "2026-11-15T00:12:05.414Z",
   "saldoInicial": {
     "creditos": 1095.2,
     "fecha": "2026-11-15T00:04:24.014Z"

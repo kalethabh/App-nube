@@ -1,0 +1,228 @@
+{
+  "generado": "2026-11-15T00:10:52.931Z",
+  "nota": "Fotogramas fijos. NO sirven para juzgar la fluidez del movimiento ni el audio.",
+  "frames": 5,
+  "clips": [
+    {
+      "clip": "toma-1.mp4",
+      "tira": "qa/toma-1.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        1,
+        3.2,
+        6.2
+      ],
+      "tipo": "R",
+      "linea": "Esta era yo hace tres meses… el jean no me llenaba nada atrás. Y no, no me fui al gimnasio ni pagué dietas carísimas.",
+      "referencias": [
+        "personaje",
+        "producto"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2,
+          "linea": "Esta era yo hace tres meses…",
+          "fotograma": 1
+        },
+        {
+          "desde": 2,
+          "hasta": 4.4,
+          "linea": "el jean no me llenaba nada atrás.",
+          "fotograma": 3.2
+        },
+        {
+          "desde": 4.4,
+          "hasta": 8,
+          "linea": "Y no, no me fui al gimnasio ni pagué dietas carísimas.",
+          "fotograma": 6.2
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-2.mp4",
+      "tira": "qa/toma-2.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        1.3,
+        3.5,
+        5.6,
+        7.4
+      ],
+      "tipo": "R",
+      "linea": "Lo que funciona son los tres extractos puros: aguaje, fenogreco y maca negra. No es la marca, es lo que trae adentro. Una al día.",
+      "referencias": [
+        "personaje",
+        "producto"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.6,
+          "linea": "Lo que funciona son los tres extractos puros:",
+          "fotograma": 1.3
+        },
+        {
+          "desde": 2.6,
+          "hasta": 4.4,
+          "linea": "aguaje, fenogreco y maca negra.",
+          "fotograma": 3.5
+        },
+        {
+          "desde": 4.4,
+          "hasta": 6.8,
+          "linea": "No es la marca, es lo que trae adentro.",
+          "fotograma": 5.6
+        },
+        {
+          "desde": 6.8,
+          "hasta": 8,
+          "linea": "Una al día.",
+          "fotograma": 7.4
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-3.mp4",
+      "tira": "qa/toma-3.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.65,
+        1.95,
+        3.3
+      ],
+      "tipo": "R",
+      "linea": "Mes uno… mes dos… y sin efecto rebote.",
+      "referencias": [
+        "personaje"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 1.3,
+          "linea": "Mes uno…",
+          "fotograma": 0.65
+        },
+        {
+          "desde": 1.3,
+          "hasta": 2.6,
+          "linea": "mes dos…",
+          "fotograma": 1.95
+        },
+        {
+          "desde": 2.6,
+          "hasta": 4,
+          "linea": "y sin efecto rebote.",
+          "fotograma": 3.3
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-4.mp4",
+      "tira": "qa/toma-4.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        0.7,
+        2.6,
+        4.9
+      ],
+      "tipo": "R",
+      "linea": "Mes tres. Mira, el jean ya me lo llena… y el abdomen se me moldeó.",
+      "referencias": [
+        "personaje"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 1.4,
+          "linea": "Mes tres.",
+          "fotograma": 0.7
+        },
+        {
+          "desde": 1.4,
+          "hasta": 3.8,
+          "linea": "Mira, el jean ya me lo llena…",
+          "fotograma": 2.6
+        },
+        {
+          "desde": 3.8,
+          "hasta": 6,
+          "linea": "y el abdomen se me moldeó.",
+          "fotograma": 4.9
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-5.mp4",
+      "tira": "qa/toma-5.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        1.2,
+        3.6,
+        6.4
+      ],
+      "tipo": "R",
+      "linea": "Hice el tratamiento completo de tres meses, porque el resultado se queda aunque termines. Y no tienes que estar comprando frasco por frasco.",
+      "referencias": [
+        "personaje",
+        "producto"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.4,
+          "linea": "Hice el tratamiento completo de tres meses,",
+          "fotograma": 1.2
+        },
+        {
+          "desde": 2.4,
+          "hasta": 4.8,
+          "linea": "porque el resultado se queda aunque termines.",
+          "fotograma": 3.6
+        },
+        {
+          "desde": 4.8,
+          "hasta": 8,
+          "linea": "Y no tienes que estar comprando frasco por frasco.",
+          "fotograma": 6.4
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-6.mp4",
+      "tira": "qa/toma-6.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        1.7,
+        4.7
+      ],
+      "tipo": "R",
+      "linea": "Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-sala"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 3.4,
+          "linea": "Me llegó a la casa y lo pagué al recibirlo.",
+          "fotograma": 1.7
+        },
+        {
+          "desde": 3.4,
+          "hasta": 6,
+          "linea": "El tuyo está en el botón de abajo.",
+          "fotograma": 4.7
+        }
+      ],
+      "esperado": null
+    }
+  ]
+}

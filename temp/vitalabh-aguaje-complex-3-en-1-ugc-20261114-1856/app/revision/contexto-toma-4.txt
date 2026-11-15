@@ -1,0 +1,68 @@
+
+=== Contexto para rehacer el bloque 4 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    6s
+    referencias: 1) personaje   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        resultado: mes tres
+    linea:       "Mes tres. Mira, el jean ya me lo llena… y el abdomen se me moldeó."
+    viene de:    "Mes uno… mes dos… y sin efecto rebote."
+    lleva a:     "Hice el tratamiento completo de tres meses, porque el resultado se queda aunque termines. Y no tienes que estar comprando frasco por frasco."
+
+  TRAMOS:
+    [0.0–1.4s]  "Mes tres."
+    [1.4–3.8s]  "Mira, el jean ya me lo llena…"
+    [3.8–6.0s]  "y el abdomen se me moldeó."
+
+  --- video ---
+Duración: 6s.
+
+REFERENCIAS:
+Imagen 1: Camila. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+
+STYLE / MOOD:
+UGC realista, honesto y cercano, como una mujer contándole a una amiga lo que le pasó, estilo historia de Instagram o TikTok. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen hiperrealista de cámara de celular: luz natural, piel con textura real y poros, mechones sueltos, ropa con arrugas, sin filtro de belleza ni piel plástica. Se siente casero y auténtico, no un comercial pulido.
+
+LANGUAGE / VOICE:
+Español de Colombia, natural y cotidiano, con acento colombiano natural y relajado (natural Colombian Spanish accent), sin marcar una región en particular; nada de acento mexicano, de España ni neutro de locutor. Voz femenina de una mujer de unos 28 años, de timbre medio y cálido, clara y espontánea, cómplice, como mandándole una nota de voz a una amiga, emocionada pero sin gritar, sin tono de locutora. Ritmo ágil de conversación, con energía y pausas naturales, sin sonar memorizado ni lento. Habla en español de Colombia.
+
+MAIN CHARACTER:
+La mujer de la imagen 1: Camila, mujer adulta colombiana de 28 años, con rasgos de adulta, piel trigueña clara con textura real y poros visibles, sin filtro de belleza, cabello negro liso y largo hasta la mitad de la espalda, ojos cafés oscuros, cejas definidas, uñas cortas en tono nude, sin tatuajes visibles. Personalidad cercana y cómplice. En este video lleva un jean negro ajustado de tiro alto, cerrado, y un body beige de manga corta, con el cabello suelto. En este video tiene una figura curvilínea de reloj de arena, natural y creíble: cintura pequeña, caderas anchas y redondeadas, piernas gruesas y firmes que llenan el jean, abdomen plano y firme, y los brazos, el cuello y la cara igual de delgados que siempre. El cambio se nota a primera vista, sin exagerar; se ve firme y tonificada. Su postura es erguida.
+
+SETTING:
+El vestier de una tienda de ropa en un centro comercial: un cubículo pequeño de paredes claras, con una cortina gris cerrada, un espejo de cuerpo entero, una banca pequeña y un gancho en la pared con un jean colgado. Luz blanca suave y pareja que le da de frente. Sobre la banca no hay nada; no hay nadie más y no hay nada más. Todo se ve real, no un set.
+
+PERFORMANCE:
+Está emocionada: una risa corta al principio y después habla más pausado y orgullosa. Gestos concretos y creíbles: abre mucho los ojos, se mira en el espejo, sonríe segura. Se mueve como en un video real, nada rígido. Sin sobreactuar y sin poses sugestivas.
+
+TIMESTAMPS:
+[0.0–1.4s]
+Selfie de cuerpo entero en el espejo del vestier, de tres cuartos de lado y con la cara hacia el espejo. Sostiene el celular con la mano derecha a la altura del pecho, sin taparse la cara; la mano izquierda cuelga vacía. Suelta una risa corta, con los ojos muy abiertos. Cámara quieta, sin acercamiento.
+DIÁLOGO: “Mes tres.”
+[1.4–3.8s]
+Corte a plano medio en el mismo espejo, de la cabeza a medio muslo, de tres cuartos de lado: gira despacio el torso un cuarto de vuelta para mostrar el perfil de su silueta y vuelve de frente, siempre con la cara hacia el espejo, emocionada. Cámara quieta.
+DIÁLOGO: “Mira, el jean ya me lo llena…”
+[3.8–6.0s]
+Corte a plano medio de frente en el espejo, de la cabeza a la cadera: pasa la palma de la mano izquierda por el abdomen, sobre el body, de arriba abajo; al terminar de hablar sonríe orgullosa y se queda quieta, en silencio.
+DIÁLOGO: “y el abdomen se me moldeó.”
+
+AUDIO:
+Solo la voz de ella y el sonido ambiente de un vestier: acústica cerrada y cercana, un murmullo muy lejano de la tienda. Ninguna otra voz. Sin música.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto ni aparecer otra persona, y la cara de Camila no cambia entre planos.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer adulta colombiana de 28 años, con rasgos de adulta; piel trigueña clara con textura real y poros visibles, sin filtro de belleza; cabello negro liso y largo hasta la mitad de la espalda, suelto, con algunos mechones sueltos; ojos cafés oscuros; cejas definidas; rostro ovalado; maquillaje mínimo de todos los días; contextura delgada; uñas cortas en tono nude; sin tatuajes visibles. Lleva una camiseta básica blanca de algodón, lisa, sin estampados ni logos, con arrugas leves. Está de pie frente a una pared lisa color crema de su casa, mira directamente a cámara con una sonrisa leve y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 4
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 --toma 4 --aplicar nuevos.json
+

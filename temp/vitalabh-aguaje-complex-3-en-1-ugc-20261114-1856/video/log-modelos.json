@@ -1,0 +1,120 @@
+{
+  "generado": "2026-11-15T00:10:46.763Z",
+  "parcial": false,
+  "segundos": 316,
+  "clips": [
+    {
+      "id": "toma-1",
+      "archivo": "toma-1.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto"
+      ],
+      "creditos": 80,
+      "taskId": "467f4c32512bb0a7c6d1f7ec0dc8b4d0",
+      "dialogo": true
+    },
+    {
+      "id": "toma-2",
+      "archivo": "toma-2.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto"
+      ],
+      "creditos": 80,
+      "taskId": "4d08e831235f887295b04de1afdfbfc0",
+      "dialogo": true
+    },
+    {
+      "id": "toma-3",
+      "archivo": "toma-3.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 4,
+      "segundosPedidos": 4,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje"
+      ],
+      "creditos": 40,
+      "taskId": "68a5204abdb41b46f36cdfb08c5c2d1c",
+      "dialogo": true
+    },
+    {
+      "id": "toma-4",
+      "archivo": "toma-4.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 6,
+      "segundosPedidos": 6,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje"
+      ],
+      "creditos": 60,
+      "taskId": "36c4563f3f9372d14db2792fa7ca2730",
+      "dialogo": true
+    },
+    {
+      "id": "toma-5",
+      "archivo": "toma-5.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 8,
+      "segundosPedidos": 8,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto"
+      ],
+      "creditos": 80,
+      "taskId": "ffaab616c9c947218d6084423377b5e4",
+      "dialogo": true
+    },
+    {
+      "id": "toma-6",
+      "archivo": "toma-6.mp4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "tipo": "R",
+      "segundosUtiles": 6,
+      "segundosPedidos": 6,
+      "resolucion": "1080p",
+      "frameFinal": false,
+      "referencias": [
+        "personaje",
+        "producto",
+        "lugar-sala"
+      ],
+      "creditos": 60,
+      "taskId": "425c6d0d34c1fe54ce7de60a8448d0c5",
+      "dialogo": true
+    }
+  ]
+}

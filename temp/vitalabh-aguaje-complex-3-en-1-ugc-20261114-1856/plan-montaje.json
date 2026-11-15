@@ -1,0 +1,278 @@
+{
+  "generado": "2026-11-15T00:12:07.068Z",
+  "aprobado": false,
+  "duracion": 39.227,
+  "reglas": {
+    "umbralBroll": {
+      "B": 3.5,
+      "A": 3,
+      "C": 3
+    },
+    "tomaConBroll": {
+      "preferido": 2.5,
+      "minimo": 2
+    },
+    "brollMinimo": 1.2,
+    "velocidadMaxima": 1.6,
+    "velocidadQueDeformaAudio": null,
+    "fadeAudioMs": 80,
+    "duckingDb": -10,
+    "subtitulos": {
+      "tamano": 0.06137,
+      "interlineado": 1.1,
+      "contornoRespectoTamano": 0.135,
+      "desdeAbajo": 0.26,
+      "coloresResaltado": [
+        "#E8442A",
+        "#F5A524",
+        "#2F7DE1",
+        "#159A5B",
+        "#B5279B",
+        "#E01E5A",
+        "#7B3FE4",
+        "#0FA3B1",
+        "#D64500",
+        "#3B7A2A"
+      ],
+      "cajaPadding": 0.12,
+      "cajaRedondeo": 0.1
+    },
+    "transiciones": {
+      "duracionSeg": 0.45,
+      "duracionZoomSeg": 0.5,
+      "efectoDb": 0,
+      "zoomDesde": 1.35
+    },
+    "musica": {
+      "db": -26,
+      "subeEnPayoffDb": 4,
+      "fadeInSeg": 1.2,
+      "fadeOutSeg": 1.5
+    },
+    "dialogoNativo": {
+      "duckingDb": 0,
+      "broll": {
+        "duracionObjetivo": 2,
+        "margenSegundos": 1,
+        "margenMinimo": 0.5,
+        "duracionMinima": 1.2,
+        "anclaEnFraccion": 0.35,
+        "mudo": true
+      },
+      "musica": {
+        "db": -22,
+        "subeEnPayoffDb": 4,
+        "fadeInSeg": 1.2,
+        "fadeOutSeg": 1.5
+      }
+    }
+  },
+  "audio": {
+    "voz": null,
+    "ducking": 0,
+    "fadeMs": 80
+  },
+  "musica": {
+    "archivo": "musica/fondo.mp3",
+    "db": -22,
+    "subeEnPayoffDb": 4,
+    "payoffDesdeSeg": 33.257,
+    "fadeInSeg": 1.2,
+    "fadeOutSeg": 1.5,
+    "loop": false,
+    "duracionPista": 39.552
+  },
+  "bloques": [
+    {
+      "linea": 1,
+      "texto": "Esta era yo hace tres meses… el jean no me llenaba nada atrás. Y no, no me fui al gimnasio ni pagué dietas carísimas.",
+      "inicio": 0,
+      "fin": 7.754,
+      "ventana": 7.754,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-1.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 7.754,
+        "desde": 0,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.176,
+        "recorteFin": 0,
+        "pausasInteriores": 1,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 2,
+      "texto": "Lo que funciona son los tres extractos puros: aguaje, fenogreco y maca negra. No es la marca, es lo que trae adentro. Una al día.",
+      "inicio": 7.754,
+      "fin": 15.684,
+      "ventana": 7.93,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-2.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 7.93,
+        "desde": 7.754,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0,
+        "pausasInteriores": 1,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 3,
+      "texto": "Mes uno… mes dos… y sin efecto rebote.",
+      "inicio": 15.684,
+      "fin": 19.517,
+      "ventana": 3.833,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-3.mp4",
+        "largoOriginal": 3.92,
+        "duracion": 3.833,
+        "desde": 15.684,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.087,
+        "recorteFin": 0,
+        "pausasInteriores": 2,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 4,
+      "texto": "Mes tres. Mira, el jean ya me lo llena… y el abdomen se me moldeó.",
+      "inicio": 19.517,
+      "fin": 25.487,
+      "ventana": 5.97,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-4.mp4",
+        "largoOriginal": 5.97,
+        "duracion": 5.97,
+        "desde": 19.517,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0,
+        "pausasInteriores": 0,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 5,
+      "texto": "Hice el tratamiento completo de tres meses, porque el resultado se queda aunque termines. Y no tienes que estar comprando frasco por frasco.",
+      "inicio": 25.487,
+      "fin": 33.257,
+      "ventana": 7.77,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-5.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 7.77,
+        "desde": 25.487,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0.16,
+        "pausasInteriores": 1,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 6,
+      "texto": "Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo.",
+      "inicio": 33.257,
+      "fin": 39.227,
+      "ventana": 5.97,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-6.mp4",
+        "largoOriginal": 5.97,
+        "duracion": 5.97,
+        "desde": 33.257,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0,
+        "pausasInteriores": 1,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    }
+  ],
+  "subtitulos": [],
+  "estiloSubtitulos": {
+    "tamano": 0.06137,
+    "interlineado": 1.1,
+    "contornoRespectoTamano": 0.135,
+    "desdeAbajo": 0.26,
+    "coloresResaltado": [
+      "#E8442A",
+      "#F5A524",
+      "#2F7DE1",
+      "#159A5B",
+      "#B5279B",
+      "#E01E5A",
+      "#7B3FE4",
+      "#0FA3B1",
+      "#D64500",
+      "#3B7A2A"
+    ],
+    "cajaPadding": 0.12,
+    "cajaRedondeo": 0.1,
+    "colorResaltado": "#E01E5A"
+  },
+  "transiciones": [
+    {
+      "toma": 2,
+      "desde": 7.754,
+      "animacion": "zoom",
+      "efecto": "deep-woosh",
+      "archivo": "efectos/deep-woosh.mp3",
+      "adelantoSeg": 0.2,
+      "porque": "entrada de la solución: pasa del cuarto a la cocina y cuenta los tres extractos"
+    },
+    {
+      "toma": 4,
+      "desde": 19.517,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh",
+      "archivo": "efectos/woosh.mp3",
+      "adelantoSeg": 0.05,
+      "porque": "entrada del resultado: el mes tres en el vestier"
+    },
+    {
+      "toma": 6,
+      "desde": 33.257,
+      "animacion": "zoom",
+      "efecto": "deep-woosh",
+      "archivo": "efectos/deep-woosh.mp3",
+      "adelantoSeg": 0.2,
+      "porque": "entrada del cierre: cómo le llegó y el botón de abajo"
+    }
+  ],
+  "reglasTransiciones": {
+    "duracionSeg": 0.45,
+    "duracionZoomSeg": 0.5,
+    "efectoDb": 0,
+    "zoomDesde": 1.35
+  },
+  "brollFuera": [],
+  "avisos": []
+}
