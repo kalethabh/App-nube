@@ -1,0 +1,69 @@
+
+=== Contexto para rehacer el bloque 6 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    6s
+    referencias: 1) personaje  2) producto  3) lugar-sala (fotograma del bloque 5, segundo 1.2)   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        cierre
+    linea:       "Me llegó a la casa y lo pagué al recibirlo. El tuyo está en el botón de abajo."
+    viene de:    "Hice el tratamiento completo de tres meses, porque el resultado se queda aunque termines. Y no tienes que estar comprando frasco por frasco."
+    lleva a:     "(es la ultima)"
+
+  TRAMOS:
+    [0.0–3.4s]  "Me llegó a la casa y lo pagué al recibirlo."
+    [3.4–6.0s]  "El tuyo está en el botón de abajo."
+
+  --- video ---
+Duración: 6s.
+
+REFERENCIAS:
+Imagen 1: Camila. Úsala solo como referencia de identidad (misma cara, mismo cabello, mismos rasgos y tono de piel). No es el primer cuadro del video: no copies su fondo, su ropa ni su pose.
+Imagen 2: el producto. Es la referencia exacta del envase.
+Imagen 3: la sala. Es la misma sala donde grabó hace un momento: úsala solo como referencia del lugar (sofá gris con cojines de colores, mesa de centro de madera, planta, pared blanca, ventana y luz). No copies a la persona que aparece, ni su ropa, ni su pose, ni lo que hay sobre la mesa de centro.
+
+STYLE / MOOD:
+UGC realista, honesto y cercano, como una mujer contándole a una amiga lo que le pasó, estilo historia de Instagram o TikTok. Video vertical 9:16 grabado con celular por ella misma, en mano o apoyado, leve tembleque, cortes secos entre planos como un video que ella misma editó en el celular. Imagen hiperrealista de cámara de celular: luz natural, piel con textura real y poros, mechones sueltos, ropa con arrugas, sin filtro de belleza ni piel plástica. Se siente casero y auténtico, no un comercial pulido.
+
+LANGUAGE / VOICE:
+Español de Colombia, natural y cotidiano, con acento colombiano natural y relajado (natural Colombian Spanish accent), sin marcar una región en particular; nada de acento mexicano, de España ni neutro de locutor. Voz femenina de una mujer de unos 28 años, de timbre medio y cálido, clara y espontánea, cómplice, como mandándole una nota de voz a una amiga, emocionada pero sin gritar, sin tono de locutora. Ritmo ágil de conversación, con energía y pausas naturales, sin sonar memorizado ni lento. Habla en español de Colombia.
+
+MAIN CHARACTER:
+La mujer de la imagen 1: Camila, mujer adulta colombiana de 28 años, con rasgos de adulta, piel trigueña clara con textura real y poros visibles, sin filtro de belleza, cabello negro liso y largo hasta la mitad de la espalda, ojos cafés oscuros, cejas definidas, uñas cortas en tono nude, sin tatuajes visibles. Personalidad cercana y cómplice. En este video lleva un conjunto deportivo lila: leggings largos y top deportivo de tirantes anchos, con el cabello suelto. En este video tiene una figura curvilínea de reloj de arena, natural y creíble: cintura pequeña, caderas anchas y redondeadas, piernas gruesas y firmes, abdomen plano y firme, y los brazos, el cuello y la cara igual de delgados que siempre. Su postura es erguida.
+
+SETTING:
+La sala de su apartamento, de día, la misma de la imagen 3. La luz natural de una ventana grande le da de frente a ella y al frasco, con sombras suaves. Sofá gris con dos cojines de colores, una mesa de centro de madera, una planta en una matera en la esquina, pared blanca y piso de baldosa clara. Sobre la mesa de centro no hay nada; no hay nada más. Todo se ve real y vivido, no un set.
+
+PERFORMANCE:
+Habla cálida y tranquila, con una sonrisa que se escucha, contando su experiencia sin vender. Gestos concretos y creíbles con la mano libre, las cejas y la cabeza. Mira directo a cámara y siempre está de frente. Se mueve como en un video real, nada rígido. Sin sobreactuar.
+
+PRODUCT / VISUAL KEY:
+El producto es exactamente el frasco de la imagen 2: frasco cilíndrico de plástico negro brillante, de lados rectos y hombros redondeados, casi el doble de alto que de ancho contando la tapa, con tapa rosada fucsia de rosca casi tan ancha como el cuerpo y una franja rosada en la base; ni botella delgada ni pote chato. Etiqueta negra con «VITALABH» pequeño arriba, «AGUAJE» en letras blancas grandes, debajo «COMPLEX 3 EN 1», una franja rosada delgada, «TRIPLE ACCIÓN» en letras rosadas inclinadas, tres recuadros pequeños en fila y «60 CÁPSULAS» abajo. Es del alto de su mano. Debe verse idéntico a la referencia en todos los planos: misma forma, mismos colores, mismas proporciones, misma etiqueta legible, siempre al derecho y nunca en espejo. De la imagen 2 se copia solo el frasco: no la mano que lo sostiene, ni el fondo, ni la barra de reproducción de abajo. Solo hay un frasco, siempre cerrado con su tapa: no se ven cápsulas sueltas ni el frasco abierto. Acabado mate, sin arcoíris ni reflejos de colores. Cuando aparece, la luz le da de frente y la etiqueta queda iluminada, sin contraluz, y ella lo sostiene junto a su cara, a la misma distancia de la cámara que ella, con los dedos por los costados sin tapar la etiqueta. En este video lo tiene cerrado en la mano izquierda, junto a su cara, en los dos tramos.
+
+TIMESTAMPS:
+[0.0–3.4s]
+Plano medio con el celular apoyado en un mueble, de la cintura hacia arriba: está sentada en el sofá gris, de frente a cámara, con el frasco cerrado en la mano izquierda junto a su cara y la etiqueta de frente. Con la mano derecha, vacía, se toca el pecho y después abre la palma hacia arriba, tranquila y sonriente.
+DIÁLOGO: “Me llegó a la casa y lo pagué al recibirlo.”
+[3.4–6.0s]
+Corte a plano más cercano con el celular apoyado, del pecho hacia arriba, de frente: sigue con el frasco cerrado en la mano izquierda junto a su cara, ocupando cerca del 40 % del alto del cuadro, y con el índice de la mano derecha, vacía, señala hacia abajo; al terminar de hablar sonríe y se queda quieta, sosteniendo el frasco, en silencio.
+DIÁLOGO: “El tuyo está en el botón de abajo.”
+
+AUDIO:
+Solo la voz de ella y el sonido ambiente de una sala: tono cálido, espacio amoblado, la calle muy lejos detrás de la ventana. Ninguna otra voz. Sin música.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. El único texto visible es el impreso en la etiqueta del frasco, idéntico a la imagen 2. No debe aparecer otra persona ni un segundo frasco, y la cara de Camila no cambia entre planos.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Foto vertical 9:16 tomada con la cámara frontal de un celular, como una selfie casual de referencia. Plano medio, de la cintura hacia arriba. Mujer adulta colombiana de 28 años, con rasgos de adulta; piel trigueña clara con textura real y poros visibles, sin filtro de belleza; cabello negro liso y largo hasta la mitad de la espalda, suelto, con algunos mechones sueltos; ojos cafés oscuros; cejas definidas; rostro ovalado; maquillaje mínimo de todos los días; contextura delgada; uñas cortas en tono nude; sin tatuajes visibles. Lleva una camiseta básica blanca de algodón, lisa, sin estampados ni logos, con arrugas leves. Está de pie frente a una pared lisa color crema de su casa, mira directamente a cámara con una sonrisa leve y la boca cerrada, los brazos relajados a los costados y las manos vacías. Luz natural suave de una ventana que le da de frente. Estilo UGC auténtico, imagen de celular, sin retoque de estudio. Un solo instante congelado. Sin texto, sin logos, sin marcas de agua, sin objetos en las manos.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 6
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856 --toma 6 --aplicar nuevos.json
+

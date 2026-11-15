@@ -1,8 +1,8 @@
 {
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
   "familia": "ugc",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -73,42 +73,41 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
       "inicio": "2026-11-15T00:20:00.865Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 52,
-        "total": 1185,
-        "restante": 110,
-        "en": "2026-11-15T00:20:08.046Z"
-      }
+      "fin": "2026-11-15T00:22:01.639Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-15T00:22:01.640Z",
+      "fin": "2026-11-15T00:22:07.668Z"
     },
     {
       "id": "ganchos",
       "nombre": "Armar las versiones con otro gancho",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "saltado",
+      "intentos": 2,
+      "inicio": "2026-11-15T00:22:07.668Z",
+      "fin": "2026-11-15T00:22:07.668Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-15T00:22:07.668Z",
+      "fin": "2026-11-15T00:22:07.888Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-15T00:04:22.477Z",
   "aprobado": "2026-11-15T00:04:22.477Z",
-  "actualizado": "2026-11-15T00:20:08.046Z",
+  "actualizado": "2026-11-15T00:22:07.888Z",
   "saldoInicial": {
     "creditos": 1095.2,
     "fecha": "2026-11-15T00:04:24.014Z"
@@ -118,8 +117,8 @@
     "fecha": "2026-11-15T00:04:24.015Z"
   },
   "saldoFinal": {
-    "creditos": 2673.2,
-    "fecha": "2026-11-15T00:14:32.754Z"
+    "creditos": 2553.2,
+    "fecha": "2026-11-15T00:22:07.874Z"
   },
   "rehacer": [
     {
@@ -135,5 +134,6 @@
       },
       "fecha": "2026-11-15T00:16:05.225Z"
     }
-  ]
+  ],
+  "terminado": "2026-11-15T00:22:07.888Z"
 }

@@ -1,9 +1,9 @@
 {
   "slug": "vitalabh-aguaje-complex-3-en-1-ugc-20261114-1856",
-  "generado": "2026-11-15T00:14:32.762Z",
+  "generado": "2026-11-15T00:22:07.882Z",
   "modoPrueba": false,
   "duracion": {
-    "real": 39.23,
+    "real": 39.49,
     "estimada": 40,
     "pedida": null
   },
@@ -25,7 +25,7 @@
       "id": "musica",
       "icono": "musica",
       "titulo": "Música de fondo",
-      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:33."
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:34."
     },
     {
       "id": "transiciones",
@@ -49,19 +49,19 @@
   "transiciones": [
     {
       "toma": 2,
-      "momento": 7.754,
+      "momento": 7.93,
       "animacion": "zoom",
       "efecto": "deep-woosh"
     },
     {
       "toma": 4,
-      "momento": 19.517,
+      "momento": 19.78,
       "animacion": "deslizar-izquierda",
       "efecto": "woosh"
     },
     {
       "toma": 6,
-      "momento": 33.257,
+      "momento": 33.52,
       "animacion": "zoom",
       "efecto": "deep-woosh"
     }
@@ -77,7 +77,7 @@
           "n": null,
           "unidad": "Escena 1",
           "momento": 0,
-          "valor": "No dijo su parte tal cual: dijo «gym» en vez de «jean». Dijo «gym» en vez de «jean», así que la frase del pantalón no se entiende. Además, el frasco que se ve sobre la cama no tiene la tapa rosada del tuyo.",
+          "valor": "No dijo su parte tal cual: dijo «gym» en vez de «jean». Volvió a decir «gym» en vez de «jean», así que la frase del pantalón no se entiende.",
           "clave": "vid:toma-1",
           "sugerencia": true
         }
@@ -86,8 +86,8 @@
   ],
   "sinProblemas": false,
   "costo": {
-    "creditos": 422,
-    "dolares": 2.11,
+    "creditos": 542,
+    "dolares": 2.71,
     "dolaresPorCredito": 0.005,
     "imagenes": {
       "piezas": 1,
@@ -95,9 +95,9 @@
       "dolares": 0.05
     },
     "videos": {
-      "piezas": 6,
-      "creditos": 400,
-      "dolares": 2
+      "piezas": 8,
+      "creditos": 520,
+      "dolares": 2.6
     },
     "musica": {
       "pistas": 1,
@@ -111,9 +111,9 @@
     "estimado": false,
     "elevenlabs": {
       "caracteres": 0,
-      "scribeSegundos": 79.4
+      "scribeSegundos": 131
     },
-    "corridas": 5,
+    "corridas": 8,
     "respaldo": [],
     "partes": [
       {
@@ -124,9 +124,9 @@
       },
       {
         "id": "videos",
-        "piezas": 6,
-        "creditos": 400,
-        "dolares": 2
+        "piezas": 8,
+        "creditos": 520,
+        "dolares": 2.6
       },
       {
         "id": "musica",
@@ -141,8 +141,8 @@
     ],
     "verificacion": {
       "saldoAntes": 1095.2,
-      "saldoDespues": 2673.2,
-      "diferencia": -1578,
+      "saldoDespues": 2553.2,
+      "diferencia": -1458,
       "coincide": false
     },
     "rehecho": false

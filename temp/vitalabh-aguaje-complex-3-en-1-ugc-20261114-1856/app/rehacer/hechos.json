@@ -1,0 +1,21 @@
+{
+  "v": 1,
+  "lotes": [
+    {
+      "id": "90b31a1b9201",
+      "terminado": "2026-11-15T00:22:07.913Z",
+      "piezas": [
+        {
+          "pieza": "toma-1",
+          "nombre": "Bloque 1",
+          "modo": "pedido"
+        },
+        {
+          "pieza": "toma-3",
+          "nombre": "Bloque 3",
+          "modo": "pedido"
+        }
+      ]
+    }
+  ]
+}

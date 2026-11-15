@@ -1,23 +1,4 @@
 {
   "v": 1,
-  "pedidos": [
-    {
-      "id": "e0a2d1ee278c",
-      "creado": "2026-11-15T00:16:12.072Z",
-      "pieza": "toma-5",
-      "nombre": "Bloque 5",
-      "modo": "tal-cual",
-      "pedido": "",
-      "conImagen": false
-    },
-    {
-      "id": "a35290a5aff7",
-      "creado": "2026-11-15T00:16:42.216Z",
-      "pieza": "toma-6",
-      "nombre": "Bloque 6",
-      "modo": "pedido",
-      "pedido": "Debe verse en toda la escena con más glúteos piernas y caderas notoriamente",
-      "conImagen": false
-    }
-  ]
+  "pedidos": []
 }
