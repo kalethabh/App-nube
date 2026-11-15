@@ -10,7 +10,7 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-15T00:28:09.497Z",
+  "actualizado": "2026-11-15T00:28:17.591Z",
   "revision": {
     "ronda": 3,
     "medidas": {
@@ -91,21 +91,7 @@
     "revisarTambien": [],
     "sinRevisar": [],
     "lugares": {},
-    "vuelta": {
-      "ronda": 3,
-      "medir": [
-        5,
-        6
-      ],
-      "mirar": [
-        5,
-        6
-      ],
-      "mirarGanchos": [],
-      "hablaMal": {},
-      "medido": true,
-      "visual": null
-    },
+    "vuelta": null,
     "sesion": {
       "uuid": "49770559-7ff5-4c62-9874-a50b34c03fe4",
       "usada": true

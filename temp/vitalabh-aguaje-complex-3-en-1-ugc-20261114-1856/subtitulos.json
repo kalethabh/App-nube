@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-15T00:19:59.222Z",
+  "generado": "2026-11-15T00:28:22.764Z",
   "bloques": [
     {
       "inicio": 0.26,
@@ -565,52 +565,52 @@
       ]
     },
     {
-      "inicio": 26.03,
-      "fin": 26.85,
+      "inicio": 25.97,
+      "fin": 26.83,
       "texto": "Hice el tratamiento",
       "palabras": [
         {
           "texto": "Hice",
-          "inicio": 26.03,
-          "fin": 26.19
+          "inicio": 25.97,
+          "fin": 26.13
         },
         {
           "texto": "el",
-          "inicio": 26.21,
-          "fin": 26.27
+          "inicio": 26.17,
+          "fin": 26.23
         },
         {
           "texto": "tratamiento",
-          "inicio": 26.31,
-          "fin": 26.79
+          "inicio": 26.25,
+          "fin": 26.75
         }
       ]
     },
     {
-      "inicio": 26.87,
+      "inicio": 26.85,
       "fin": 27.81,
       "texto": "completo de tres",
       "palabras": [
         {
           "texto": "completo",
-          "inicio": 26.87,
-          "fin": 27.35
+          "inicio": 26.85,
+          "fin": 27.33
         },
         {
           "texto": "de",
-          "inicio": 27.39,
-          "fin": 27.47
+          "inicio": 27.37,
+          "fin": 27.45
         },
         {
           "texto": "tres",
-          "inicio": 27.55,
+          "inicio": 27.53,
           "fin": 27.75
         }
       ]
     },
     {
       "inicio": 27.83,
-      "fin": 28.67,
+      "fin": 28.73,
       "texto": "meses, porque el",
       "palabras": [
         {
@@ -620,257 +620,257 @@
         },
         {
           "texto": "porque",
-          "inicio": 28.39,
-          "fin": 28.57
+          "inicio": 28.43,
+          "fin": 28.63
         },
         {
           "texto": "el",
-          "inicio": 28.59,
-          "fin": 28.65
+          "inicio": 28.65,
+          "fin": 28.69
         }
       ]
     },
     {
-      "inicio": 28.69,
-      "fin": 29.71,
+      "inicio": 28.75,
+      "fin": 29.749,
       "texto": "resultado se queda",
       "palabras": [
         {
           "texto": "resultado",
-          "inicio": 28.69,
-          "fin": 29.17
+          "inicio": 28.75,
+          "fin": 29.23
         },
         {
           "texto": "se",
-          "inicio": 29.23,
+          "inicio": 29.31,
           "fin": 29.37
         },
         {
           "texto": "queda",
-          "inicio": 29.41,
-          "fin": 29.69
+          "inicio": 29.47,
+          "fin": 29.75
         }
       ]
     },
     {
-      "inicio": 29.73,
-      "fin": 30.63,
+      "inicio": 29.769,
+      "fin": 30.71,
       "texto": "aunque termines.",
       "palabras": [
         {
           "texto": "aunque",
-          "inicio": 29.73,
-          "fin": 29.95
+          "inicio": 29.769,
+          "fin": 30.05
         },
         {
           "texto": "termines.",
-          "inicio": 30.01,
-          "fin": 30.51
+          "inicio": 30.07,
+          "fin": 30.59
         }
       ]
     },
     {
-      "inicio": 30.81,
-      "fin": 31.23,
+      "inicio": 30.95,
+      "fin": 31.41,
       "texto": "Y no tienes",
       "palabras": [
         {
           "texto": "Y",
-          "inicio": 30.81,
-          "fin": 30.83
+          "inicio": 30.95,
+          "fin": 30.97
         },
         {
           "texto": "no",
-          "inicio": 30.89,
-          "fin": 30.95
+          "inicio": 31.03,
+          "fin": 31.11
         },
         {
           "texto": "tienes",
-          "inicio": 31.01,
-          "fin": 31.23
+          "inicio": 31.17,
+          "fin": 31.39
         }
       ]
     },
     {
-      "inicio": 31.25,
-      "fin": 32.05,
+      "inicio": 31.43,
+      "fin": 32.31,
       "texto": "que estar comprando",
       "palabras": [
         {
           "texto": "que",
-          "inicio": 31.25,
-          "fin": 31.29
+          "inicio": 31.43,
+          "fin": 31.47
         },
         {
           "texto": "estar",
-          "inicio": 31.31,
-          "fin": 31.53
+          "inicio": 31.49,
+          "fin": 31.71
         },
         {
           "texto": "comprando",
-          "inicio": 31.55,
-          "fin": 31.97
+          "inicio": 31.75,
+          "fin": 32.21
         }
       ]
     },
     {
-      "inicio": 32.07,
-      "fin": 33.07,
+      "inicio": 32.33,
+      "fin": 33.39,
       "texto": "frasco por frasco.",
       "palabras": [
         {
           "texto": "frasco",
-          "inicio": 32.07,
-          "fin": 32.35
+          "inicio": 32.33,
+          "fin": 32.65
         },
         {
           "texto": "por",
-          "inicio": 32.43,
-          "fin": 32.57
+          "inicio": 32.73,
+          "fin": 32.81
         },
         {
           "texto": "frasco.",
-          "inicio": 32.59,
-          "fin": 32.95
+          "inicio": 32.91,
+          "fin": 33.27
         }
       ]
     },
     {
-      "inicio": 34.32,
-      "fin": 34.72,
+      "inicio": 33.63,
+      "fin": 34.09,
       "texto": "Me llegó a",
       "palabras": [
         {
           "texto": "Me",
-          "inicio": 34.32,
-          "fin": 34.42
+          "inicio": 33.63,
+          "fin": 33.75
         },
         {
           "texto": "llegó",
-          "inicio": 34.44,
-          "fin": 34.64
+          "inicio": 33.79,
+          "fin": 34.01
         },
         {
           "texto": "a",
-          "inicio": 34.66,
-          "fin": 34.7
+          "inicio": 34.03,
+          "fin": 34.07
         }
       ]
     },
     {
-      "inicio": 34.74,
-      "fin": 35.44,
-      "texto": "la casa y",
+      "inicio": 34.11,
+      "fin": 34.79,
+      "texto": "la casa",
       "palabras": [
         {
           "texto": "la",
-          "inicio": 34.74,
-          "fin": 34.8
+          "inicio": 34.11,
+          "fin": 34.17
         },
         {
           "texto": "casa",
-          "inicio": 34.88,
-          "fin": 35.22
-        },
-        {
-          "texto": "y",
-          "inicio": 35.36,
-          "fin": 35.4
+          "inicio": 34.27,
+          "fin": 34.67
         }
       ]
     },
     {
-      "inicio": 35.46,
-      "fin": 36.18,
-      "texto": "lo pagué al",
+      "inicio": 34.95,
+      "fin": 35.69,
+      "texto": "y lo pagué",
       "palabras": [
         {
+          "texto": "y",
+          "inicio": 34.95,
+          "fin": 34.99
+        },
+        {
           "texto": "lo",
-          "inicio": 35.46,
-          "fin": 35.54
+          "inicio": 35.05,
+          "fin": 35.13
         },
         {
           "texto": "pagué",
-          "inicio": 35.62,
-          "fin": 36.02
-        },
-        {
-          "texto": "al",
-          "inicio": 36.04,
-          "fin": 36.14
+          "inicio": 35.23,
+          "fin": 35.57
         }
       ]
     },
     {
-      "inicio": 36.2,
-      "fin": 36.92,
-      "texto": "recibirlo.",
+      "inicio": 35.71,
+      "fin": 36.61,
+      "texto": "al recibirlo.",
       "palabras": [
         {
+          "texto": "al",
+          "inicio": 35.71,
+          "fin": 35.81
+        },
+        {
           "texto": "recibirlo.",
-          "inicio": 36.2,
-          "fin": 36.8
+          "inicio": 35.91,
+          "fin": 36.49
         }
       ]
     },
     {
-      "inicio": 37.26,
-      "fin": 38,
+      "inicio": 36.85,
+      "fin": 37.59,
       "texto": "El tuyo está",
       "palabras": [
         {
           "texto": "El",
-          "inicio": 37.26,
-          "fin": 37.32
+          "inicio": 36.85,
+          "fin": 36.95
         },
         {
           "texto": "tuyo",
-          "inicio": 37.42,
-          "fin": 37.7
+          "inicio": 37.03,
+          "fin": 37.31
         },
         {
           "texto": "está",
-          "inicio": 37.82,
-          "fin": 38
+          "inicio": 37.43,
+          "fin": 37.59
         }
       ]
     },
     {
-      "inicio": 38.02,
-      "fin": 38.46,
+      "inicio": 37.61,
+      "fin": 38.07,
       "texto": "en el botón",
       "palabras": [
         {
           "texto": "en",
-          "inicio": 38.02,
-          "fin": 38.06
+          "inicio": 37.61,
+          "fin": 37.65
         },
         {
           "texto": "el",
-          "inicio": 38.08,
-          "fin": 38.14
+          "inicio": 37.69,
+          "fin": 37.77
         },
         {
           "texto": "botón",
-          "inicio": 38.2,
-          "fin": 38.46
+          "inicio": 37.79,
+          "fin": 38.05
         }
       ]
     },
     {
-      "inicio": 38.48,
-      "fin": 39,
+      "inicio": 38.09,
+      "fin": 38.57,
       "texto": "de abajo.",
       "palabras": [
         {
           "texto": "de",
-          "inicio": 38.48,
-          "fin": 38.52
+          "inicio": 38.09,
+          "fin": 38.13
         },
         {
           "texto": "abajo.",
-          "inicio": 38.56,
-          "fin": 38.88
+          "inicio": 38.17,
+          "fin": 38.45
         }
       ]
     }
