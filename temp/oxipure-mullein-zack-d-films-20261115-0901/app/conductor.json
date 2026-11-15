@@ -74,8 +74,9 @@
       "id": "videos",
       "nombre": "Crear los videos encadenados",
       "estado": "corriendo",
-      "intentos": 1,
-      "inicio": "2026-11-15T14:34:35.292Z"
+      "intentos": 2,
+      "inicio": "2026-11-15T14:34:35.292Z",
+      "retomado": true
     },
     {
       "id": "revision-cadena",
@@ -124,7 +125,7 @@
   "modoPrueba": false,
   "creado": "2026-11-15T14:20:16.632Z",
   "aprobado": "2026-11-15T14:20:16.632Z",
-  "actualizado": "2026-11-15T14:34:35.292Z",
+  "actualizado": "2026-11-15T14:40:45.390Z",
   "saldoInicial": {
     "creditos": 3333.2,
     "fecha": "2026-11-15T14:20:17.597Z"
