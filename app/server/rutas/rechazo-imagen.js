@@ -6,7 +6,7 @@
 //   POST /api/anuncios/:slug/rechazo-imagen          { clave, prompt }  guarda la descripción nueva en el manifiesto
 //        (después la pantalla toca «Continuar», que rehace solo esa imagen)
 //   POST /api/anuncios/:slug/rechazo-imagen/sugerir  { clave, prompt? }  la IA elegida escribe otra descripción que
-//        muestra lo mismo sin lo que frena al filtro -> { prompt, motivo }   (no guarda nada: se revisa primero)
+//        es la misma escena (no pierde la esencia) sin las palabras que frenan al filtro -> { prompt, motivo }   (no guarda nada: se revisa primero)
 //
 // La pieza sale de lo que dijo produccion/generar-imagenes.js en temp/<slug>/app/registro/imagenes.log
 // («<descripcion> fallo con los dos modelos»). clave: 'toma-3-inicial' | 'toma-3-final' | 'referencia-<id>'.
@@ -138,10 +138,11 @@ La descripción que rechazó:
 ${pieza.prompt}
 >>>
 ${enElCampo && enElCampo !== pieza.prompt.trim() ? `\nEl usuario ya la había cambiado a esto y quiere otra opción distinta:\n<<<\n${enElCampo}\n>>>\n` : ''}
-Escribe otra descripción que cuente LO MISMO para el anuncio (la misma idea que acompaña a la voz) pero que el filtro acepte:
-1. Encuentra qué la frena. Lo que suele frenar: fluidos del cuerpo que se pueden leer como algo sexual o asqueroso (mocos o líquidos espesos entre los dedos, en la boca, sobre la piel), guantes de látex, sangre, heridas, agujas, desnudez o piel muy expuesta, niños, partes del cuerpo en primer plano, antes y después del cuerpo, medicamentos, violencia, personas o marcas reales.
-2. Cambia SOLO eso por otra forma de mostrar la misma idea (por ejemplo: verlo dentro del cuerpo en versión animada, una metáfora con un objeto, un plano más abierto). No hace falta que sea parecida a la anterior en lo que frena; sí en lo que comunica.
-3. Conserva tal cual todo lo demás: el formato y el estilo del comienzo (por ejemplo "Vertical 9:16. Pixar-Disney style 3D animation render"), la luz, las etiquetas de calidad del final y el "Negative prompt" si lo trae. Mismo idioma que la descripción (casi siempre inglés) y un largo parecido.
+Escribe otra descripción que el filtro acepte SIN PERDER LA ESENCIA de la imagen: tiene que seguir siendo la misma escena (el mismo sujeto, la misma acción, el mismo encuadre y el mismo lugar), solo dicha de otra forma.
+1. Encuentra las palabras que la frenan. Lo que suele frenar: fluidos del cuerpo dichos tal cual o que se pueden leer como algo sexual (mocos o líquidos claros, blancos o brillantes entre los dedos, en la boca, sobre la piel), guantes de látex, sangre, heridas, agujas, desnudez o piel muy expuesta, niños, primeros planos de partes del cuerpo, antes y después del cuerpo, medicamentos, violencia, personas o marcas reales.
+2. Cambia SOLO esas palabras, lo mínimo, y deja la escena igual: nombra el material de otra forma (por ejemplo, un moco pasa a ser una baba espesa de caricatura, verde amarillenta y opaca, tipo slime de juguete), cambia el objeto por su versión inocente (el guante de látex por un guante de cocina de goma), aclara que es de caricatura y nada gráfico. Quien vea la imagen nueva tiene que reconocer la misma idea que en la anterior.
+3. Solo si la escena misma es lo prohibido (no hay forma de decirla que pase), pasa a la escena más cercana que muestre la misma idea, y dilo en "motivo".${enElCampo && enElCampo !== pieza.prompt.trim() ? ' Como el usuario ya tiene una versión y pide otra, prueba un cambio distinto al de esa versión.' : ''}
+Conserva tal cual todo lo demás: el formato y el estilo del comienzo (por ejemplo "Vertical 9:16. Pixar-Disney style 3D animation render"), la luz, las etiquetas de calidad del final y el "Negative prompt" si lo trae. Mismo idioma que la descripción (casi siempre inglés) y un largo parecido.
 4. Sin texto en la imagen, sin marcas, sin promesas.
 
 Escribe ${rel} con este JSON y nada más:
