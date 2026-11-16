@@ -38,6 +38,9 @@ export function listar({ tipo = null, productoId = null } = {}) {
     .map((x) => ({ ...x, url: urlDe(x), clave: claveDe(x.origen) }));
 }
 
+/** La ruta en disco de la imagen de un item de listar() (para copiarla a un lote), o null. */
+export const rutaDeImagen = (x) => (x?.imagen && /^img\/[a-z0-9-]+\.(jpg|png)$/.test(x.imagen) && existe(path.join(DIR, x.imagen)) ? path.join(DIR, x.imagen) : null);
+
 /** Las claves marcadas ('imagen:<lote>:<pieza>' / 'video:<slug>'), para pintar el botón como activo. */
 export const origenes = () => leerLista().map((x) => claveDe(x.origen));
 

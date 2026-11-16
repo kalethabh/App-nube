@@ -1175,7 +1175,7 @@
     z-index: 5;
     margin: 0 calc(var(--gutter) * -1);
     padding: var(--e-2) var(--gutter);
-    background: rgba(11, 11, 15, 0.8);
+    background: var(--vidrio);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
   }

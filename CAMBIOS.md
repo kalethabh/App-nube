@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16g · Anuncios de imagen: Nuevos con lo que ya te funciona, y notificaciones en modo claro
+
+- **«Nuevos» aprende de lo que ya te funciona:** además de tu investigación y la foto del producto, la IA mira sola tus anuncios validados («Me funciona», los de este producto primero, y tu biblioteca de referencias) para elegir formatos, estructuras y ganchos que te funcionan. Crea diseños nuevos con eso; no los copia.
+- **«Variantes» siempre sale de algo que ya te funciona:** sin un creativo elegido no arranca, y esos creativos ya no se duplican en tu biblioteca de referencias.
+- **Sin investigación igual puedes generar**, con un aviso claro de que los títulos y ángulos salen menos precisos y un botón para investigar primero.
+- **Se quitó «Variar solo los títulos» de Nuevos:** hacía lo mismo que Variantes.
+- **Modo claro:** las notificaciones, los tooltips, el panel de una pieza en Producción y el índice de Ajustes en el celular ya no quedan oscuros (el texto no se leía).
+
 ## 2026-11-16f · Correcciones de la revisión técnica (sin cambios en cómo se crean los anuncios)
 
 - **La app en un servidor ya deja producir:** producir, editar, exportar, rehacer, la canción, los modelos y «Actualizar» respondían «Solo desde la app» cuando se entraba por el dominio del servidor. Ahora hay un solo control para toda la app, que además protege rutas que antes no lo tenían.
