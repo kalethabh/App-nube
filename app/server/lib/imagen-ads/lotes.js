@@ -225,8 +225,12 @@ export function crearLote(cuerpo = {}) {
     referenciasPropias: Array.isArray(cuerpo.referenciasPropias) ? [...new Set(cuerpo.referenciasPropias.map(Number).filter((k) => Number.isInteger(k) && k >= 1 && k <= 50))] : [],
     // Solo «Variantes» copia el diseño de sus referencias (y el modelo de imagen las ve). «Nuevos» siempre crea
     // diseños nuevos: la opción «Variar solo los títulos» de Nuevos hacía lo mismo que Variantes y se quitó (2026-11-16).
-    fiel: cuerpo.modo === 'variantes',
-    elegirTitulos: cuerpo.elegirTitulos === true,
+    fiel: cuerpo.modo === 'variantes' || cuerpo.rapido !== false,
+    // Ya no se eligen títulos antes (2026-11-16: «elimina lo de seleccionar títulos»): los pone la app o la IA.
+    elegirTitulos: false,
+    // Modo rápido por defecto («como pedirle a ChatGPT que me las varíe», imagen-ads/rapido.js); rapido: false = con
+    // la estrategia de la IA (más lento).
+    rapido: cuerpo.rapido !== false,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
     logo,

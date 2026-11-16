@@ -21,7 +21,7 @@ export default function PantallaCrearImagenes({ consulta }) {
         </Boton>
         <CabeceraPagina
           titulo="Crear anuncios de imagen"
-          descripcion="Elige tu producto y tus referencias. Revisa los títulos estratégicos, selecciona los que quieres y confirma la generación de tus imágenes."
+          descripcion="Elige tu producto y tus referencias (las tuyas o las que están funcionando en tu categoría) y genera: cada imagen sale con un título distinto, en pocos minutos."
           extra={
             simulando ? (
               <VistaPrevia

@@ -33,7 +33,7 @@ function Fila({ etiqueta, children }) {
  * producto: { nombre, foto, nueva } · cantidad: { valida, n, maximo } · conVertical · logo: { url, posicion } | null
  * referencias: [{ id, url, heic }] · costo: { rango, etiqueta, chica } | null · motor (useMotor) · fase · textoBoton
  */
-export function ResumenLote({ producto, cantidad, conVertical, logo, referencias, costo, motor, ocupado, fase, textoBoton, onGenerar, eligiendoTitulos = false }) {
+export function ResumenLote({ producto, cantidad, conVertical, logo, referencias, costo, motor, ocupado, fase, textoBoton, onGenerar }) {
   const { valida, n, maximo } = cantidad;
   const usadas = valida ? Math.min(n, referencias.length) : referencias.length;
   const sobran = referencias.length - VISIBLES;
@@ -111,7 +111,7 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
           <Boton variante="marca" tamano="grande" bloque cargando={ocupado} disabled={!costo} onClick={onGenerar}>
             {fase || textoBoton}
           </Boton>
-          <p className="img-resumen__pie">{eligiendoTitulos ? 'Primero verás los títulos y elegirás cuáles usar. Este paso usa tu IA y no genera imágenes.' : 'Al generar confirmas los títulos seleccionados y el costo mostrado. La IA crea las imágenes y las revisa.'}</p>
+          <p className="img-resumen__pie">Al generar confirmas el costo mostrado. Cada imagen sale de tu referencia y la foto de tu producto, con un título distinto.</p>
         </div>
       </Tarjeta>
     </aside>

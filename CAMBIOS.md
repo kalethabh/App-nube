@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16m · Anuncios de imagen rápidos, sin elegir títulos, y referencias de marcas que están funcionando
+
+- **Rápido, como pedirle a ChatGPT que te las varíe:** cada imagen sale de tu referencia y la foto de tu producto, con un título distinto, sin esperar a la IA de texto. Antes un lote de 5 tardaba 15-20 minutos (títulos, estrategia y revisión de cada imagen); ahora solo lo que tarda en hacerse cada imagen. Si quieres lo de antes, activa «Más elaborado (más lento)».
+- **Ya no se eligen títulos:** salen de los ganchos validados de tu investigación con TrendTrack y, si no hay, de los beneficios de la ficha del producto. Uno distinto por imagen.
+- **Referencias de tendencia para elegir:** en «Elegir de tu biblioteca» hay una pestaña nueva, **Tendencias**, con 67 creativos de imagen de marcas de salud que están funcionando (Amua/VitalDrops, aguaje y curvas, drenaje linfático, pulmones y mullein, suplementos), por categoría y con su alcance. Los eliges como cualquier referencia; la IA hace tu versión sin copiar marcas ni textos.
+- **3 estructuras más para los videos**, vistas en esos creativos: «roncar mata matrimonios», «aviso oficial: no lo compres en…» y «subirse a la tendencia del momento» (GLP-1 + producto).
+
 ## 2026-11-16l · Lo que está funcionando en TrendTrack, dentro de tus guiones
 
 - **6 estructuras nuevas aprendidas de anuncios que están creciendo ahora** (Meta, noviembre 2026): «una sola dosis: lo que pasa en las próximas 72 horas» (se repite en 5 marcas de suplementos, también de mullein), «no lo tomes hasta que conozcas la regla de…», «personaje 3D con tres señales → experto», «ese dolor no es lo que crees… y hay tres señales más», «lo que pasa si lo usas 60 días» y «ningún suplemento cura esto». Ya son 23 estructuras para elegir.

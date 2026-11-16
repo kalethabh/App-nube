@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16l` (archivo `VERSION`): estructuras y diseños aprendidos de TrendTrack.
-  Antes en `main`: `2026-11-16k` (PR #68 a #74).
+- **Versión actual:** `2026-11-16m` (archivo `VERSION`): anuncios de imagen rápidos y referencias de tendencia.
+  Antes en `main`: `2026-11-16l` (PR #68 a #75).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +136,39 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Anuncios de imagen rápidos, sin títulos, y referencias de tendencia (2026-11-16, versión 2026-11-16m)
+
+Pedido: «el generador de imágenes se demora mucho, debe ser así como en una conversación en GPT. Elimina lo de
+seleccionar títulos, es como si yo le pidiera a ChatGPT que me las varíe. Baja los creativos de aguaje, Amua, drenaje
+y marcas de salud muy buenas, agrégalas como referencia y que me permita seleccionarlas.»
+
+- Medido en 3 lotes reales de 5 imágenes: 15-20 min (títulos 2-3 min + elección, estrategia 4-6 min con la skill de
+  106 KB, prompts + generación + revisión de la IA por imagen 5-9 min).
+- `lib/imagen-ads/rapido.js → prepararRapido()`: sin la IA de texto, escribe producto.json, estrategia.json,
+  plan.json y TODOS los V##.json (validan con `verificarSesion`). Titulares: ganchos validados → beneficios de la
+  ficha → dolor/nombre; uno por variación. Referencias: las del usuario o, en Nuevos sin ninguna, las validadas
+  (`entrada/validados/` → `entrada/referencias/R##`). `app_rapido`: 'copiar' (Variantes) o 'inspirar' (Nuevos).
+  Sin referencias ni titulares: vuelve al camino de siempre (la estrategia de la IA).
+- `produccion/imagen-ads.js → construirPrompt`: con `app_rapido`, RAPIDO_COPIAR / RAPIDO_INSPIRAR (titular exacto,
+  los demás textos los escribe el modelo en español con los beneficios). Primera imagen = referencia, segunda = producto.
+- `familias/imagen-ads.js`: estrategia rápida (pone `lote.json fiel`), y sin revisión de la IA (`run.sinRevision =
+  'rapido'`, `dejarSinRevisar(..., { resultado: 'listo' })`). `estado.js`: con rápido, todas las variaciones listas en E001.
+- `lotes.js`: `rapido: cuerpo.rapido !== false` (por defecto), `elegirTitulos: false` siempre, `fiel` con rápido.
+- Formulario: sin propuesta ni selección de títulos; interruptor «Más elaborado (más lento)» (rapido: false); el aviso
+  «Elige tu IA» solo con «Más elaborado». Encabezado de «Crear» actualizado.
+- Referencias de tendencia: `mis_archivos/referencias-tendencia/<categoria>/<id>.jpg` + `indice.json` (67 imágenes,
+  ~10 MB, a 1080 px, con marca, alcance, crecimiento a 7 días). `biblioteca-referencias.js → listarTendencias()` y
+  `rutaTendencia()`; `GET /api/imagen-ads/tendencias` y `/api/imagen-ads/tendencias/:categoria/:archivo`.
+  `BibliotecaReferencias.jsx`: pestañas Tendencias / Tuyas, filtro por categoría, marca y alcance en cada una.
+- TrendTrack: Amua = la marca de VitalDrops (shopamua.com, 555 anuncios activos). Búsquedas de imágenes: dominio
+  shopamua.com, «aguaje», «drenaje linfático», «suplemento natural» (es) y «mullein». Créditos de TrendTrack al final:
+  3.134 (algunos se gastaron fuera de esta sesión).
+- 3 estructuras más en `mis_archivos/estructuras/trendtrack-2026-11.json` (26 en total).
+- Pruebas: anuncios de imagen 147/147; humo completo 220/220; lote rápido real en modo prueba (Variantes con una
+  referencia): listo en ~30 s, sin sesiones de la IA de texto, piezas «listo», prompt con RAPIDO_COPIAR; capturas del
+  formulario y de las tendencias sin errores JS.
+- **Falta en la Mac:** un lote rápido real con ChatGPT o kie para ver la calidad de los textos que escribe el modelo.
 
 ### Estructuras y diseños aprendidos de TrendTrack (2026-11-16, versión 2026-11-16l)
 

@@ -16,7 +16,7 @@
 // recalcula con la cantidad y el formato (costoDelLote). La pantalla del lote sigue sin precios hasta su informe.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CircleAlert, CircleCheck, Copy, Globe, Images, Sparkles, Tag, Telescope, Trophy, Users } from 'lucide-react';
-import { AreaTexto, Boton, CampoTexto, Chip, Pestanas, Tarjeta, useAvisos } from '../../componentes/index.js';
+import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useEstado } from '../../datos/api.js';
 import { dinero } from '../../datos/formato.js';
 import {
@@ -59,7 +59,8 @@ const VACIO = {
   cantidad: '10',
   conVertical: true,
   modo: 'nuevos',
-  // «Más de lo mismo»: todas las variaciones copian el diseño de tus referencias
+  // false = rápido, como pedirle a ChatGPT que te las varíe (por defecto); true = con la estrategia de la IA (más lento)
+  elaborado: false,
 };
 
 // ---------------------------------------------------------------- el borrador en este navegador (sin imágenes)
@@ -141,13 +142,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
   const [errores, setErrores] = useState({});
   const [fase, setFase] = useState(null);
   const [nota, setNota] = useState(null);
-  const [propuestas, setPropuestas] = useState(null);
-  const [seleccion, setSeleccion] = useState([]);
-  const entradasTitulos = JSON.stringify([f, fotoNueva.map((x) => x.id), referencias.map((x) => x.id), elegidos]);
-  const entradasActuales = useRef(entradasTitulos);
-  entradasActuales.current = entradasTitulos;
-  useEffect(() => { if (propuestas) document.getElementById('titulos-del-lote')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, [propuestas]);
-  useEffect(() => { setPropuestas(null); setSeleccion([]); }, [entradasTitulos]);
   const montado = useRef(true);
   useEffect(() => { montado.current = true; return () => { montado.current = false; }; }, []);
   const creado = useRef(null); // { firma, lote, refs: { n: id }, logo: id }
@@ -254,15 +248,12 @@ export function Formulario({ simulando = false, productoPedido = null }) {
       bajarAlPrimero(e);
       return;
     }
-    if (propuestas && seleccion.length !== n) {
-      aviso({ tipo: 'aviso', titulo: 'Elige tus títulos', texto: `Selecciona ${n} títulos para este lote.` });
-      return;
-    }
     if (!costoLote) {
       aviso({ tipo: 'aviso', titulo: 'Falta calcular el costo', texto: 'Espera a que aparezca el costo estimado antes de generar. Si no aparece, recarga la pantalla.' });
       return;
     }
-    if (motor.falta) {
+    // (el modo rápido no necesita la IA de texto para arrancar: solo el modo «Más elaborado»)
+    if (f.elaborado && motor.falta) {
       aviso(
         !motor.elegido
           ? { tipo: 'aviso', titulo: 'Elige tu IA', texto: 'Para armar la estrategia y revisar tus imágenes, la app usa tu cuenta de Claude o de ChatGPT. Elige una y vuelve a tocar Generar.' }
@@ -273,10 +264,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
       return;
     }
     if (simulando) {
-      if (!propuestas) {
-        setPropuestas({ esencia: 'Se conserva la demostración y el beneficio de la referencia. Ejemplo de diseño.', opciones: Array.from({ length: n + 3 }, (_, i) => ({ id: `T${i}`, titulo: `Un beneficio para tu rutina ${i + 1}`, porQue: 'Expresa la misma razón de compra.', base: 'Ejemplo simulado.' })) });
-        return;
-      }
       for (const t of ['Creando tu lote', referencias.length || elegidos.length ? 'Subiendo tus referencias' : null, 'Arrancando tu lote'].filter(Boolean)) {
         setFase(t);
         await esperar(450);
@@ -312,7 +299,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
       const propias = variantes ? itemsElegidos.map((x, i) => (x.productoId && x.productoId === productoId ? i + 1 : null)).filter(Boolean) : [];
 
       // 2. el lote (borrador). Si cambiaste algo que va en él desde el intento anterior, se arma otro.
-      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: null, modo: variantes ? 'variantes' : 'nuevos', referenciasPropias: propias, fiel: variantes, elegirTitulos: true, refs: refs.map((x) => x.id) };
+      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: null, modo: variantes ? 'variantes' : 'nuevos', referenciasPropias: propias, fiel: variantes, rapido: !f.elaborado, refs: refs.map((x) => x.id) };
       const firma = JSON.stringify(cuerpo);
       if (creado.current && creado.current.firma !== firma) {
         apiImagenes.borrar(creado.current.lote).catch(() => {});
@@ -342,27 +329,10 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         delete c.refs[sobra];
       }
 
-      // Los títulos se preparan sin pedir imágenes ni aprobar el presupuesto.
-      if (!propuestas) {
-        setFase('Preparando títulos para que elijas');
-        let r = await apiImagenes.proponerTitulos(c.lote);
-        const inicio = Date.now();
-        while (r.estado === 'preparando' && montado.current && Date.now() - inicio < 16 * 60000) {
-          await esperar(1500);
-          r = await apiImagenes.titulos(c.lote);
-        }
-        if (!montado.current) return;
-        if (r.estado !== 'lista') throw new Error(r.error || 'Los títulos siguen preparándose. Vuelve a intentarlo para recuperarlos.');
-        if (entradasActuales.current !== entradasTitulos) throw new Error('Cambiaste los datos del lote. Pide los títulos de nuevo para usar los datos actuales.');
-        setPropuestas(r);
-        setSeleccion([]);
-        return;
-      }
-
-      // 4. arranca solo con títulos seleccionados y el costo visible confirmado
+      // 4. arranca con el costo visible confirmado (los títulos los pone la app; ya no se eligen antes)
       setFase('Arrancando tu lote');
       try {
-        await apiImagenes.generar(c.lote, costoLote.max, seleccion);
+        await apiImagenes.generar(c.lote, costoLote.max, []);
       } catch (err) {
         if (err?.estado !== 409) throw err;
       }
@@ -376,7 +346,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
     }
   }
 
-  const textoBoton = !propuestas ? 'Proponer títulos primero' : cantidadValida ? `Generar ${n} ${n === 1 ? 'anuncio' : 'anuncios'}` : 'Generar anuncios';
+  const textoBoton = cantidadValida ? `Generar ${n} ${n === 1 ? 'anuncio' : 'anuncios'}` : 'Generar anuncios';
 
   // lo que muestra el panel «Tu lote»: la foto elegida (o la nueva), el logo con su posición y el costo
   const productoElegido = !fotoNueva.length && f.productoId ? (productos || []).find((x) => x.id === f.productoId) || null : null;
@@ -404,6 +374,18 @@ export function Formulario({ simulando = false, productoPedido = null }) {
               </>
             )}
           </p>
+          <Interruptor
+            activado={Boolean(f.elaborado)}
+            onCambio={(v) => poner({ elaborado: v })}
+            etiqueta="Más elaborado (más lento)"
+            descripcion={
+              f.elaborado
+                ? 'La IA estudia tu producto y tu investigación, arma una estrategia, escribe cada anuncio y revisa cada imagen. Tarda unos 15 minutos.'
+                : 'Rápido, como pedirle a ChatGPT que te las varíe: cada imagen sale de tu referencia y la foto de tu producto, con un título distinto. En pocos minutos.'
+            }
+            deshabilitado={ocupado}
+            className="img-fiel"
+          />
         </div>
         <Grupo n={1} id="grupo-producto" titulo="Tu producto">
           <ElegirProducto
@@ -610,23 +592,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         </Grupo>
 
         )}
-      {propuestas ? (
-        <Tarjeta className="img-titulos" relleno="ninguno" id="titulos-del-lote">
-          <div className="img-grupo__cuerpo">
-            <h2>Elige los títulos de tu lote</h2>
-            <p>{propuestas.esencia}</p>
-            <p className="t-chico t-3">Selecciona {n}. Se conserva el diseño y la razón de compra; cambia el título. Todavía no se han generado imágenes.</p>
-            <p role="status">{seleccion.length} de {n} seleccionados</p>
-            {propuestas.opciones.map((x) => (
-              <label key={x.id} className="img-titulo-opcion">
-                <input type="checkbox" checked={seleccion.includes(x.id)} disabled={ocupado || (!seleccion.includes(x.id) && seleccion.length >= n)}
-                  onChange={(e) => setSeleccion((antes) => e.target.checked ? [...antes, x.id] : antes.filter((id) => id !== x.id))} />
-                <span><strong>{x.titulo}</strong><span className="t-chico">{x.porQue}</span><span className="t-chico t-3">{x.base}</span></span>
-              </label>
-            ))}
-          </div>
-        </Tarjeta>
-      ) : null}
       </Tarjeta>
 
       <ResumenLote
@@ -650,12 +615,11 @@ export function Formulario({ simulando = false, productoPedido = null }) {
               }
             : null
         }
-        motor={motor}
+        motor={f.elaborado ? motor : { ...motor, falta: false }} // el modo rápido no necesita la IA de texto
         ocupado={ocupado}
         fase={fase}
         textoBoton={textoBoton}
         onGenerar={generar}
-        eligiendoTitulos={!propuestas}
       />
     </div>
   );
