@@ -10,6 +10,10 @@ export const apiInvestigacion = {
   /** { producto, tarea: { estado, progreso, error }, investigacion, resaltados } */
   una: (id) => pedirNuevo(`${BASE}/${enc(id)}`),
   investigar: (id, pais) => pedirNuevo(`${BASE}/${enc(id)}`, { metodo: 'POST', cuerpo: { pais: pais || null } }),
+  /** La investigación competitiva con TrendTrack: { tarea, competencia } */
+  competencia: (id) => pedirNuevo(`${BASE}/${enc(id)}/competencia`),
+  /** { enlace, producto?, pais?, brandtracker?, retomar? } lanza sus 6 etapas de una vez (gasta créditos de TrendTrack) */
+  competir: (id, cuerpo) => pedirNuevo(`${BASE}/${enc(id)}/competencia`, { metodo: 'POST', cuerpo }),
   resaltar: (id, resaltados) => pedirNuevo(`${BASE}/${enc(id)}/resaltados`, { metodo: 'PUT', cuerpo: { resaltados } }),
 };
 
@@ -17,3 +21,4 @@ export const CLAVE_INVESTIGACIONES = 'investigacion:lista';
 export const claveInvestigacion = (id) => `investigacion:${id}`;
 export const useInvestigaciones = (opciones) => useDatos(CLAVE_INVESTIGACIONES, apiInvestigacion.lista, opciones);
 export const useInvestigacion = (id, opciones) => useDatos(id ? claveInvestigacion(id) : null, () => apiInvestigacion.una(id), opciones);
+export const useCompetencia = (id, opciones) => useDatos(id ? `investigacion:${id}:competencia` : null, () => apiInvestigacion.competencia(id), opciones);
