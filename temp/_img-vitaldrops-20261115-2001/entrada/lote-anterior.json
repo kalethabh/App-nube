@@ -1,0 +1,38 @@
+{
+  "lote": "_img-vitaldrops-20261115-1947",
+  "identidad_visual": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a soft semi-illustrated realistic rendering of the model (smooth painterly digital illustration with realistic proportions and soft shading), on a light cream canvas with a tidy grid of progress panels.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Rounded-corner rectangular panels with a hairline pale-gold border, generous cream margins, a brushed metallic gold offer plaque with a thin inner border and rounded corners, a delicate pale-gold botanical sprig line drawing behind the product, soft contact shadows under the product.",
+    "text_typography": "Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text.",
+    "art_direction": "Every ad keeps the same cream canvas, the big black headline on top, the 2x2 grid of day-by-day progress panels, the product at bottom left and the gold offer plaque at bottom right. What changes is the woman, her outfit and the softly rendered place seen inside the panels."
+  },
+  "descripcion_visual_en": "A 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. When the source layout shows a carton, it is a tall rectangular lemon-yellow box, slightly taller than the bottle, with the lowercase black wordmark 'amua' at the top and 'VITALDROPS' in white uppercase letters running vertically along the front face.",
+  "paleta": [
+    {
+      "hex": "#FBF3DC",
+      "nombre": "Crema cálido"
+    },
+    {
+      "hex": "#F2DC4A",
+      "nombre": "Amarillo limón"
+    },
+    {
+      "hex": "#C9A441",
+      "nombre": "Dorado"
+    },
+    {
+      "hex": "#E6CF7A",
+      "nombre": "Dorado claro"
+    },
+    {
+      "hex": "#111111",
+      "nombre": "Negro"
+    },
+    {
+      "hex": "#8A4B14",
+      "nombre": "Ámbar"
+    }
+  ]
+}
