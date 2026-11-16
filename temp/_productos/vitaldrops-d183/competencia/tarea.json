@@ -7,28 +7,21 @@
   "pais": "COLOMBIA",
   "brandtracker": false,
   "progreso": [
-    "Claude está investigando a tu competencia en TrendTrack",
-    "Leyendo las instrucciones del estilo",
-    "Buscando en los archivos",
-    "Leyendo lo que contaste de tu producto",
-    "Leyendo",
-    "Guardando",
-    "Buscando en los archivos"
+    "Claude está en pausa hasta que se renueve tu plan"
   ],
-  "intentos": 1,
-  "inicio": "2026-11-16T14:59:18.861Z",
+  "intentos": 5,
+  "inicio": "2026-11-16T15:29:12.454Z",
   "error": {
-    "mensaje": "Se acabó por ahora el uso de tu plan de Claude. Toca \"Reintentar\" cuando se renueve (se renueva a las 11:50): lo ya hecho no se repite.",
+    "mensaje": "Se acabó por ahora el uso de tu plan de Claude. Toca \"Reintentar\" cuando se renueve (a las 11:51): lo ya hecho no se repite.",
     "tipo": "limite",
-    "motor": "claude",
-    "detalle": "You've hit your 5-hour limit · resets 11:50am (America/Bogota)\n[claude-code:unrecognized_model] {\"model\":\"claude-fable-5-2\",\"query_source\":\"sdk\"}"
+    "motor": "claude"
   },
-  "fin": "2026-11-16T15:17:29.665Z",
+  "fin": "2026-11-16T15:29:12.455Z",
   "medida": {
-    "turnos": 40,
-    "duracionMs": 1090790,
+    "turnos": 0,
+    "duracionMs": 0,
     "motor": "claude"
   },
   "limite": true,
-  "actualizado": "2026-11-16T15:17:29.666Z"
+  "actualizado": "2026-11-16T15:29:12.456Z"
 }
