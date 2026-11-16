@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16g` (archivo `VERSION`), rama `imagen-ads-modos`: Nuevos/Variantes de anuncios de imagen
-  y modo claro de las notificaciones (ver abajo). En `main`: `2026-11-16f` ([PR #68](https://github.com/kalethabh/App-nube/pull/68), [PR #69](https://github.com/kalethabh/App-nube/pull/69)).
+- **Versión actual:** `2026-11-16h` (archivo `VERSION`), rama `ajustes-rediseno` (sale de `imagen-ads-modos`, PR #70).
+  En `main`: `2026-11-16f` ([PR #68](https://github.com/kalethabh/App-nube/pull/68), [PR #69](https://github.com/kalethabh/App-nube/pull/69)).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +136,19 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Ajustes rediseñado (2026-11-16, versión 2026-11-16h)
+
+Pedido: «rediseña el apartado de ajustes, un diseño mejorado, más compacto, limpio y profesional». Se conserva la marca
+(colores, fuentes, logo, textos); cambia la disposición.
+
+- `pantallas/ajustes/index.jsx`: una sección a la vez (estado `activa`, `#/ajustes?seccion=<id>`; sin el seguimiento
+  por desplazamiento). «Cambiar modelos» de Conexiones cambia a la pestaña Modelos. En angosto, la pestaña activa se
+  desplaza a la vista.
+- `ajustes.css`: bloque «Rediseño compacto» al final (cabecera h3, menos rellenos, `conexion-claude__arte` oculto en
+  Ajustes, filas de Modelos y Tu PC más bajas). La página pasó de ~5.400 px a entre 900 y 1.900 px por sección.
+- Pruebas: capturas de las 7 secciones en claro y oscuro y en iPhone 13 (sin desborde horizontal), sin errores JS;
+  humo rápido 82/82.
 
 ### Anuncios de imagen: Nuevos con lo validado, Variantes estricto y modo claro de avisos (2026-11-16, versión 2026-11-16g)
 

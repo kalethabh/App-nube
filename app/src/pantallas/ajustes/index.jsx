@@ -1,5 +1,7 @@
-// Ajustes (#/ajustes): Conexiones, Modelos, Tu PC y Acerca de, con un índice a la izquierda.
+// Ajustes (#/ajustes): una sección a la vez (Conexiones, Modelos, Tu PC, Guardado, Inversión, Apariencia, Acerca de),
+// elegida en el menú de la izquierda (arriba en pantallas angostas). #/ajustes?seccion=modelos abre esa sección.
 // #/ajustes?bienvenida=1 abre la bienvenida de la primera vez.
+// (Rediseño 2026-11-16: antes eran las siete secciones una debajo de otra, unos 5.400 px de página.)
 // Preferencias (idioma, mercado y subtítulos por defecto) se quitó: el idioma y el mercado salen de la ficha de cada
 // producto y los subtítulos se cambian en el editor (Diego, 2026-10-26: "si no se va a usar, hay que quitarlo").
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -66,7 +68,8 @@ export default function Ajustes({ consulta }) {
   const [cambiosLocales, setCambiosLocales] = useState({});
   const [modelosLocales, setModelosLocales] = useState({});
   const [guardandoModelo, setGuardandoModelo] = useState(null);
-  const [activa, setActiva] = useState('conexiones');
+  const pedida = consulta?.get('seccion');
+  const [activa, setActiva] = useState(() => (SECCIONES.some((s) => s.id === pedida) ? pedida : 'conexiones'));
   const [bienvenida, setBienvenida] = useState(() => consulta?.has('bienvenida') || false);
   const contenedor = useRef(null);
 
@@ -137,41 +140,20 @@ export default function Ajustes({ consulta }) {
     [aviso, recargar]
   );
 
-  // el índice sigue la sección que se está leyendo
+  // #/ajustes?seccion=<id> (un enlace de otra pantalla, o volver atrás) elige la sección
   useEffect(() => {
-    const raiz = contenedor.current;
-    if (!raiz) return undefined;
-    const secciones = SECCIONES.map((s) => raiz.querySelector(`#${s.id}`)).filter(Boolean);
-    if (!secciones.length) return undefined;
-    // la que ya pasó la línea de lectura (42 % de la ventana); la última es corta y nunca llega arriba,
-    // así que al tocar el fondo de la página es la que se está leyendo
-    let cuadro = 0;
-    const medir = () => {
-      cuadro = 0;
-      const fondo = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
-      if (fondo) return setActiva(secciones[secciones.length - 1].id);
-      const linea = window.innerHeight * 0.42;
-      let actual = secciones[0];
-      for (const s of secciones) if (s.getBoundingClientRect().top <= linea) actual = s;
-      setActiva(actual.id);
-    };
-    const alDesplazar = () => {
-      if (!cuadro) cuadro = requestAnimationFrame(medir);
-    };
-    medir();
-    window.addEventListener('scroll', alDesplazar, { passive: true });
-    window.addEventListener('resize', alDesplazar);
-    return () => {
-      if (cuadro) cancelAnimationFrame(cuadro);
-      window.removeEventListener('scroll', alDesplazar);
-      window.removeEventListener('resize', alDesplazar);
-    };
-  }, []);
+    if (pedida && SECCIONES.some((s) => s.id === pedida)) setActiva(pedida);
+  }, [pedida]);
+
+  // en pantallas angostas el menú es una fila que se desplaza: la sección elegida queda a la vista
+  useEffect(() => {
+    contenedor.current?.querySelector('.indice__item--activo')?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' });
+  }, [activa]);
 
   const irA = (id) => {
     setActiva(id);
-    const el = contenedor.current?.querySelector(`#${id}`);
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    ir(`${rutas.ajustes()}?seccion=${id}`, { reemplazar: true });
+    window.scrollTo({ top: 0 });
   };
 
   // #/ajustes?bienvenida=1 también la abre si ya estabas en Ajustes (la pantalla no se vuelve a montar)
@@ -228,7 +210,7 @@ export default function Ajustes({ consulta }) {
       <CabeceraPagina
         sobretitulo="Ajustes"
         titulo={titulo}
-        descripcion="Tus conexiones, los modelos de IA y tu PC. Tus claves nunca se muestran: solo si están guardadas o faltan."
+        descripcion="Tus claves nunca se muestran: solo si están guardadas o faltan."
         extra={
           conexiones ? (
             <div className="ajustes__resumen">
@@ -256,14 +238,14 @@ export default function Ajustes({ consulta }) {
         <aside className="ajustes__indice">
           <Indice activa={activa} metas={metas} alIr={irA} />
         </aside>
-        <div className="ajustes__secciones">
-          <Conexiones estado={estado} recargar={recargarEstado} alElegirModelos={() => irA('modelos')} />
-          <Modelos ajustes={ajustes} guardando={guardandoModelo} alCambiar={guardarModelo} />
-          <TuPC ajustes={ajustes} recargar={recargar} alCambiarALaVez={(v) => guardarPreferencia({ aLaVez: v })} />
-          <Guardado />
-          <Inversion />
-          <Apariencia />
-          <AcercaDe ajustes={ajustes} alVerBienvenida={abrirBienvenida} />
+        <div className="ajustes__secciones" key={activa}>
+          {activa === 'conexiones' ? <Conexiones estado={estado} recargar={recargarEstado} alElegirModelos={() => irA('modelos')} /> : null}
+          {activa === 'modelos' ? <Modelos ajustes={ajustes} guardando={guardandoModelo} alCambiar={guardarModelo} /> : null}
+          {activa === 'tu-pc' ? <TuPC ajustes={ajustes} recargar={recargar} alCambiarALaVez={(v) => guardarPreferencia({ aLaVez: v })} /> : null}
+          {activa === 'guardado' ? <Guardado /> : null}
+          {activa === 'inversion' ? <Inversion /> : null}
+          {activa === 'apariencia' ? <Apariencia /> : null}
+          {activa === 'acerca' ? <AcercaDe ajustes={ajustes} alVerBienvenida={abrirBienvenida} /> : null}
         </div>
       </div>
 
