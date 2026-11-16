@@ -1,0 +1,28 @@
+{
+  "pedidos": [
+    {
+      "id": "U0001",
+      "pieza": "V01_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-16T23:43:07.458Z"
+    },
+    {
+      "id": "U0002",
+      "pieza": "V02_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-16T23:43:09.838Z"
+    },
+    {
+      "id": "U0003",
+      "pieza": "V03_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-16T23:44:23.396Z"
+    },
+    {
+      "id": "U0004",
+      "pieza": "V05_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-16T23:44:25.684Z"
+    }
+  ]
+}
