@@ -1,0 +1,46 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 static ad on a flat warm cream background (#FBF3DC). Recreate exactly the layout of the attached reference ad, re-proportioned to a square while keeping the same top-to-bottom order of bands. TOP BAND: a centered two-line headline in extra-bold uppercase geometric sans-serif, solid near-black, spanning most of the width. MIDDLE BAND (the largest area): a 2x2 grid of four identical rounded-corner rectangular panels with hairline pale-gold borders, equal narrow gutters and even cream margins. Each panel has a small bold metallic-gold uppercase day label in its top-left corner. Every panel shows THE SAME woman in the same pose and framing: a Latina woman around 28 years old with light caramel skin and straight dark-brown hair tied in a high ponytail, wearing a white sports bra and terracotta high-waisted leggings, seen from a rear three-quarter view, framed from head to mid-thigh at waist height, standing upright and looking back over her left shoulder with a calm, confident smile. Inside each panel, behind her, a softly rendered, pale and low-contrast bright bedroom with light curtains and a green plant, so the panels stay light and airy. From the first panel to the fourth, her hips and glutes look gradually fuller and rounder in a natural, believable, healthy progression (first panel: slimmer and flatter; fourth panel: clearly fuller curves); her face, hair, outfit, pose and the room stay identical in all four. Rendering style of the woman and room: the same soft semi-illustrated realistic look as the reference, a smooth painterly digital illustration with realistic proportions and gentle shading; tasteful, fully clothed, fitness-wellness tone. BOTTOM BAND, LEFT: the product, using the attached product image as the only source of truth: a 60 ml amber-brown glass dropper bottle with rounded shoulders, a black ribbed screw collar and a glossy black rubber bulb dropper, with a wraparound label that fades from bright lemon yellow at the top to white at the bottom, showing the lowercase black wordmark 'amua', the white uppercase name 'VITALDROPS', a small line of text and five small circular ingredient badges. Do not redesign, replace or reinterpret the bottle or its label. Behind the bottle and slightly to its left stands its tall rectangular lemon-yellow carton, slightly taller than the bottle, with the lowercase wordmark 'amua' at the top and 'VITALDROPS' in white uppercase running vertically, as in the reference. A delicate pale-gold botanical sprig line drawing sits behind and to the right of the product; soft contact shadow underneath. Do not include the round yellow '60 ml' sticker from the product photo. BOTTOM BAND, RIGHT: a horizontal brushed metallic gold plaque with rounded corners and a thin inner border, holding three centered lines of black text: a bold uppercase first line, a much larger heavy condensed uppercase middle line, and a lighter wide-spaced uppercase third line. The area under the plaque is plain cream background with no logo and no text. No other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top band, centered, two lines): "CURVAS MÁS LLENAS EN 21 DÍAS" — Extra-bold uppercase geometric sans-serif, solid near-black, centered, very large, tight leading. Line 1: 'CURVAS MÁS LLENAS'. Line 2: 'EN 21 DÍAS'.
+- panel label (Top-left corner of the top-left panel): "DÍA 1" — Small bold uppercase geometric sans-serif, metallic gold
+- panel label (Top-left corner of the top-right panel): "DÍA 7" — Small bold uppercase geometric sans-serif, metallic gold
+- panel label (Top-left corner of the bottom-left panel): "DÍA 14" — Small bold uppercase geometric sans-serif, metallic gold
+- panel label (Top-left corner of the bottom-right panel): "DÍA 21" — Small bold uppercase geometric sans-serif, metallic gold
+- offer label (First line inside the gold plaque, centered): "TRATAMIENTO COMPLETO" — Bold uppercase sans-serif, black, medium size
+- price / offer (Middle line inside the gold plaque, centered): "X3 UNIDADES $139,900" — Heavy condensed uppercase sans-serif, black, the largest text of the plaque
+- offer closing line (Third line inside the gold plaque, centered): "SIN EFECTO REBOTE" — Regular-weight uppercase sans-serif with wide letter spacing, black, small
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.
+
+MANDATORY ELEMENTS:
+- 2x2 grid of four equal rounded panels with hairline pale-gold borders
+- The same woman in all four panels, rear three-quarter view, looking over her shoulder, with gradually fuller curves from panel 1 to panel 4
+- Amber dropper bottle with yellow-to-white label (from the attached product photo) at bottom left
+- Tall yellow product carton behind the bottle
+- Pale-gold botanical sprig behind the product
+- Brushed gold rounded offer plaque at bottom right
+- Flat warm cream background
+
+STRICT EXCLUSIONS:
+- Do not copy the woman of the reference image: use the woman described in this prompt.
+- Do not add a standalone brand logo or wordmark under the plaque or anywhere outside the product packaging.
+- Do not include the round yellow '60 ml' sticker from the product photo.
+- No nudity, no lingerie, no exaggerated or unrealistic body proportions.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Standalone brand logo or wordmark outside the product packaging
+- Do not add: CTA button
+- Do not add: Benefit lists, checkmarks or icons
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Trust seals, shipping or payment badges
+- Do not add: Crossed-out price or discount percentage
+- Do not add: Arrows between panels
+- Do not add: Extra panels or extra bottles
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
