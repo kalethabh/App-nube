@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V05_1x1",
+      "ok": false,
+      "problemas": [
+        "El titular «VUELVE A AMAR TU SILUETA EN SOLO 21 DÍAS» sale cortado por el borde de arriba: solo se ve la parte baja de unas letras y no se puede leer.",
+        "Falta la tercera línea de la placa dorada, «SIN EFECTO REBOTE»: la placa sale cortada por el borde de abajo.",
+        "El producto sale cortado por abajo: del frasco solo se ve la parte de arriba de la etiqueta y en la caja se lee «ALDROPS» en vez de «VITALDROPS»."
+      ],
+      "correccion_en": "The layout is cropped at the top and bottom. Scale everything down to fit inside the square with cream margins on all sides. Show the full two-line headline \"VUELVE A AMAR TU SILUETA\" / \"EN SOLO 21 DÍAS\". Make the panels shorter. Show the whole gold plaque with its three lines: \"TRATAMIENTO COMPLETO\", \"X3 UNIDADES $139,900\", \"SIN EFECTO REBOTE\". Show the full bottle and carton down to their base, with the complete word \"VITALDROPS\" on both."
+    }
+  ]
+}

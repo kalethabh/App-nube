@@ -2,8 +2,8 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 3,
-    "A": 1,
+    "R": 5,
+    "A": 2,
     "T": 3
   },
   "tandas": {
@@ -45,7 +45,7 @@
     "R002": {
       "tipo": "revision",
       "uuid": "4880300e-7d25-4755-80f1-52fe279c1dd3",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -58,6 +58,43 @@
           "firma": "1673837-1794790382206",
           "ronda": 1
         }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "dc75dfed-e8ad-46db-8883-8648a2c3c604",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1320229-1794790475784",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "c9c27cb0-3841-48be-b31f-554427a60816",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "1859546-1794790484527",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "A001": {
+      "tipo": "ajuste",
+      "uuid": "87723fa1-98b1-43fb-a24a-73399e94d94c",
+      "estado": "en-curso",
+      "pedidos": [
+        "U0001"
       ]
     }
   },
@@ -111,85 +148,113 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1715022-1794790381251",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1715022-1794790381251"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-16T00:53:01.598Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R002"
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1673837-1794790382206",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1673837-1794790382206"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-16T00:53:03.805Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R002"
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1859546-1794790484527",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1859546-1794790484527"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-16T00:54:45.258Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "ajustando",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1320229-1794790475784",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular «VUELVE A AMAR TU SILUETA EN SOLO 21 DÍAS» sale cortado por el borde de arriba: solo se ve la parte baja de unas letras y no se puede leer.",
+          "Falta la tercera línea de la placa dorada, «SIN EFECTO REBOTE»: la placa sale cortada por el borde de abajo.",
+          "El producto sale cortado por abajo: del frasco solo se ve la parte de arriba de la etiqueta y en la caja se lee «ALDROPS» en vez de «VITALDROPS»."
+        ],
+        "firma": "1320229-1794790475784",
+        "correccion_en": "The layout is cropped at the top and bottom. Scale everything down to fit inside the square with cream margins on all sides. Show the full two-line headline \"VUELVE A AMAR TU SILUETA\" / \"EN SOLO 21 DÍAS\". Make the panels shorter. Show the whole gold plaque with its three lines: \"TRATAMIENTO COMPLETO\", \"X3 UNIDADES $139,900\", \"SIN EFECTO REBOTE\". Show the full bottle and carton down to their base, with the complete word \"VITALDROPS\" on both."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-16T00:54:37.081Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
-  "pedidos": {}
+  "pedidos": {
+    "U0001": {
+      "id": "U0001",
+      "pieza": "V05_1x1",
+      "instruccion": "Corrige lo que notó la revisión: el titular «VUELVE A AMAR TU SILUETA EN SOLO 21 DÍAS» sale cortado por el borde de arriba: solo se ve la parte baja de unas letras y no se puede leer. falta la tercera línea de la placa dorada, «SIN EFECTO REBOTE»: la placa sale cortada por el borde de abajo. el producto sale cortado por abajo: del frasco solo se ve la parte de arriba de la etiqueta y en la caja se lee «ALDROPS» en vez de «VITALDROPS».",
+      "fecha": "2026-11-16T00:55:07.621Z",
+      "estado": "ajustando",
+      "ajuste": "A001"
+    }
+  }
 }
