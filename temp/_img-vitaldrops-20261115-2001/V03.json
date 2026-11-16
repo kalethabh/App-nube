@@ -1,0 +1,139 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V03",
+    "structure_source": "library format G08 (Oferta combo con modelo en escena)",
+    "reference_style": "LATAM bundle-offer ad: a softly blurred real-scene backdrop, a confident woman on the right, an offer pill and a huge quantity-times-price headline on the left, three product units in the foreground and a claim label at the lower left",
+    "angle_used": "Oferta / promoción (the complete 3-bottle treatment at one price)",
+    "ad_format": "Bundle Offer with Model in Scene Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a soft semi-illustrated realistic rendering of the model (smooth painterly digital illustration with realistic proportions and soft shading), on a light cream canvas with a tidy grid of progress panels.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Rounded-corner rectangular panels with a hairline pale-gold border, generous cream margins, a brushed metallic gold offer plaque with a thin inner border and rounded corners, a delicate pale-gold botanical sprig line drawing behind the product, soft contact shadows under the product.",
+    "text_typography": "Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text."
+  },
+  "creative_objective": "Make the 3-bottle offer and its price impossible to miss, next to a confident, energetic woman in her gym, with the three bottles in the foreground.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The huge near-black quantity-times-price headline. 2) The confident woman on the right. 3) The three bottles in the foreground. 4) The gold offer pill. 5) The product name. 6) The gold claim label at the lower left.",
+    "composition_style": "Layered composition with three depth planes: the softly blurred gym at the back, the woman in the middle plane on the right half, and the trio of bottles in the foreground at the lower center-right, overlapping her. The text stack lives in the upper-left column over the calmest, lightest part of the scene, centered on that column; the claim label anchors the lower-left corner.",
+    "spacing_and_structure": "Offer pill: from about 3.5% to 49.5% of the width and 2.5% to 14.5% of the height. Quantity-times-price headline: two lines from about 4% to 48% of the width and 16% to 37.5% of the height, centered on the column. Product name: one line from about 6% to 46% of the width at about 40-46% of the height. Woman: from about 50% to 100% of the width, full height, face at about 72-95% of the width and 15-42% of the height, cropped by the right edge. Bottle trio: from about 37% to 82% of the width and 35% to 100% of the height; the center bottle larger, in front and cropped by the bottom edge, the two side bottles slightly behind. Claim label: from about 4% to 36% of the width and 80.5% to 94% of the height, fully visible, ending before the left bottle, its text fully inside it. Safe margins of about 4% on the left, top and bottom for every text element.",
+    "lighting_and_depth": "Background: a bright gym with large windows, strongly blurred, washed with warm cream daylight so the upper-left half is light and calm. Woman: soft frontal daylight, sharp. Bottles: crisp commercial light with clean reflections on the amber glass and a soft shadow between units, sharp in the foreground. Pill and label: flat brushed gold with a subtle sheen.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled edge to edge with a strongly blurred, bright, cream-toned gym scene. A confident woman occupies the right half from top to bottom, seen from the waist up. In the upper-left column, a brushed gold rounded pill with a two-line black offer text, then two huge near-black lines (quantity of units, then price) and one smaller near-black line with the product name, all centered on the column. Three units of the user's dropper bottle stand in the foreground at the lower center-right, the middle one larger and in front, partly covering the woman. A brushed gold rounded label with a two-line black claim sits at the lower left.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "blurred scene",
+        "position": "Full canvas, edge to edge",
+        "visual_function": "Places the product in the real setting where the audience works on her goals",
+        "adaptation_rule": "Bright modern gym with large windows, strongly blurred and washed in warm cream tones; the upper-left 50% stays calm and very light so the near-black text reads clearly.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "model",
+        "position": "Right half, from about 50% to 100% of the width, full height, cropped by the right edge",
+        "visual_function": "Shows a confident, energetic woman from the target audience",
+        "adaptation_rule": "A Colombian woman of about 28 with straight black hair in a high ponytail, an olive-green athletic top and a small white towel over one shoulder, seen from the waist up, relaxed confident smile, looking at the camera. She shows energy and confidence, not a body result; no before state.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "offer pill",
+        "position": "Top of the left column, from about 3.5% to 49.5% of the width and 2.5% to 14.5% of the height",
+        "visual_function": "Announces the deal at first glance",
+        "adaptation_rule": "Brushed metallic gold rounded rectangle (#C9A441 with #E6CF7A highlights) with a thin inner border, holding the offer name in black in two centered lines.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product trio",
+        "position": "Foreground, lower center-right, from about 37% to 82% of the width and 35% to 100% of the height",
+        "visual_function": "Shows exactly how many units the offer includes",
+        "adaptation_rule": "Three identical units of the user's dropper bottle exactly as in the attached product photo, standing in a row: the center unit larger, in front and cropped by the bottom edge, the two side units slightly behind.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "claim label (takes the place of the shipping label; the user gave no shipping condition)",
+        "position": "Lower left, from about 4% to 36% of the width and 80.5% to 94% of the height",
+        "visual_function": "Closes the offer with the user's supporting claim",
+        "adaptation_rule": "Brushed metallic gold rounded rectangle, the same finish as the offer pill, holding a two-line black claim, fully inside the canvas and clear of the bottles.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Podium, pedestal or radial glow",
+      "Struck-through old price",
+      "Round discount seal or sticker",
+      "CTA button or arrow",
+      "Rating stars, reviews or testimonials",
+      "Benefit list or icons",
+      "Before/after",
+      "Shipping or payment text",
+      "Text cut by the canvas edges or hidden behind the bottles",
+      "Logos or brand marks outside the product label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 advertising image, bright, warm and feminine, with a soft semi-illustrated realistic rendering (smooth painterly digital illustration, realistic proportions, soft shading). BACKGROUND, edge to edge: a modern gym with large windows, strongly blurred and washed in warm cream daylight (#FBF3DC tones), so that the upper-left half of the canvas is very light, calm and low in detail. RIGHT HALF (about 50-100% of the width, full height, cropped by the right edge): a Colombian woman of about 28 with straight black hair in a high ponytail, wearing an olive-green athletic top and a small white towel over one shoulder, seen from the waist up at chest-level camera height with a portrait lens, relaxed confident smile, looking at the camera; her face sits at about 72-95% of the width and 15-42% of the height. She conveys energy and confidence. UPPER-LEFT COLUMN, all centered on the column: at the top (about 3.5-49.5% of the width, 2.5-14.5% of the height), a brushed metallic gold rounded-corner pill with a thin inner border and a subtle sheen, holding a two-line bold uppercase black text; below it (about 16-37.5% of the height), two huge lines of heavy uppercase sans-serif text in solid near-black, with no outline and no shadow: the first line states the quantity of units and the second line the price; below (about 40-46% of the height), one smaller bold near-black line with the product name. FOREGROUND, lower center-right (about 37-82% of the width, 35-100% of the height): three identical units of the product standing in a row, the center one larger, in front and cropped by the bottom edge, the two side ones slightly behind, overlapping the woman's lower torso. Each unit is a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; each bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. Crisp commercial light on the bottles with clean reflections on the amber glass and soft shadows between them. LOWER LEFT (about 4-36% of the width, 80.5-94% of the height): a brushed metallic gold rounded-corner label, same finish as the pill, holding a two-line bold uppercase black text, fully inside the canvas, ending before the left bottle. Keep margins of about 4% on the left, top and bottom for every text. No podium, no glow, no other elements.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "offer name (offer pill)",
+      "reference_position": "Centered inside the gold pill at the top left, two lines: 'TRATAMIENTO' / 'COMPLETO'",
+      "text_style": "Extra-bold geometric sans-serif, uppercase, black, each line about 4.3% of the canvas height, 2 lines, centered",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "price (quantity × price headline)",
+      "reference_position": "Left column, under the offer pill, two lines: line 1 'X3 UNIDADES', line 2 '$139,900'",
+      "text_style": "Heavy uppercase sans-serif, solid near-black, no outline and no shadow, line 1 about 8% of the canvas height and line 2 about 11%, 2 lines, centered on the left column",
+      "text": "X3 UNIDADES $139,900"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "product name",
+      "reference_position": "Left column, under the headline, one line",
+      "text_style": "Bold geometric sans-serif, near-black, about 4.5% of the canvas height, 1 line, centered on the left column",
+      "text": "VITALDROPS en gotas"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "claim label (in the place of the shipping label)",
+      "reference_position": "Inside the gold label at the lower left, two lines: 'SIN EFECTO' / 'REBOTE'",
+      "text_style": "Extra-bold geometric sans-serif, uppercase, black, about 4.2% of the canvas height, 2 lines, left-aligned with inner padding, sized so the full text fits inside the label",
+      "text": "SIN EFECTO REBOTE"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed blurred bright gym scene in warm cream tones",
+    "Confident woman on the right half, seen from the waist up",
+    "Gold offer pill and huge near-black quantity-and-price headline in the upper-left column",
+    "Three units of the user's dropper bottle grouped in the foreground, the middle one larger and in front",
+    "Gold claim label at the lower left, fully visible"
+  ],
+  "final_generation_exclusions": [
+    "No podium, pedestal, radial glow, struck-through price or discount seal.",
+    "No shipping, payment, guarantee or urgency text.",
+    "No before/after and no emphasis on the woman's body shape.",
+    "No text cut by the canvas edges or hidden behind the bottles.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The offer lines are the user's exact wording.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

@@ -1,0 +1,223 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F18 (Cómo funciona 1-2-3) + gold offer plaque explicitly requested by the user",
+    "reference_style": "Modern modular how-it-works ad: a 2x2 grid with a brand-colored headline tile holding the product and three step scenes with big number badges and caption chips, closed by a gold offer plaque",
+    "angle_used": "Rutina / momento de uso (the morning drops ritual in three simple steps)",
+    "ad_format": "How It Works 2x2 Step Grid Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a soft semi-illustrated realistic rendering of the model (smooth painterly digital illustration with realistic proportions and soft shading), on a light cream canvas with a tidy grid of progress panels.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Rounded-corner rectangular panels with a hairline pale-gold border, generous cream margins, a brushed metallic gold offer plaque with a thin inner border and rounded corners, a delicate pale-gold botanical sprig line drawing behind the product, soft contact shadows under the product.",
+    "text_typography": "Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text."
+  },
+  "creative_objective": "Show that the drops are an easy morning ritual that fits into breakfast (fill the dropper, take it with juice, sit down and eat with appetite), and close with the 3-bottle offer plaque.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The lemon-yellow headline tile at the top left (headline plus product). 2) The three big number badges, which set the reading order. 3) The step scenes. 4) The gold offer plaque with the big price line. 5) The caption chips.",
+    "composition_style": "Strict 2x2 modular grid of four equal rounded cells separated by thin even cream gutters, read in a Z pattern: headline tile top-left, step 1 top-right, step 2 bottom-left, step 3 bottom-right. Each step cell repeats the same internal layout (badge top-left, chip bottom-left). No arrows. Below the grid, one wide gold offer plaque spans the same width as the grid.",
+    "spacing_and_structure": "Outer cream frame of about 3% on every side and gutters of about 2%. The grid occupies from about 3% to 80% of the canvas height: top row from about 3% to 40.5% of the height, bottom row from about 42.5% to 80%; left column from about 3% to 49% of the width, right column from about 51% to 97%. Cell corner radius about 2%. Inside the headline tile: headline in the upper-left part, product standing in the lower-right corner, never touching the headline. Number badge inset about 3% from each step cell's top-left corner; caption chip inset about 3% from its bottom-left corner. Offer plaque: from about 3% to 97% of the width and from about 83% to 97% of the height.",
+    "lighting_and_depth": "Flat, clean mosaic with no drop shadows between cells. The three step scenes share the same bright soft morning daylight and warm color grade. The product in the headline tile gets soft studio light from the upper left and a soft contact shadow. Badges and chips are flat graphics. The plaque has a subtle brushed-metal sheen.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a warm cream frame. A 2x2 grid of equal rounded cells fills the upper 80%. Top-left cell: a solid lemon-yellow tile with a bold left-aligned near-black headline in its upper part and the product standing in its lower-right corner. Top-right cell: step 1 scene (a hand filling the dropper over the open bottle). Bottom-left cell: step 2 scene (the dropper releasing drops into a glass of orange juice, bottle beside it). Bottom-right cell: step 3 scene (a woman enjoying a full breakfast, bottle on the table). Each step scene has a large solid number badge (1, 2, 3) in its top-left corner and a solid caption chip in its bottom-left corner. Under the grid, a wide brushed gold offer plaque with three centered lines of black text.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "frame and gutters",
+        "position": "Full canvas, visible as a thin outer frame (about 3%) and gutters (about 2%) between the cells",
+        "visual_function": "Holds the grid together with a clean, designed rhythm",
+        "adaptation_rule": "Flat warm cream #FBF3DC. No textures.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline tile",
+        "position": "Top-left cell, about 3-49% of the width and 3-40.5% of the height",
+        "visual_function": "Entry point of the Z reading; frames the ad and shows the product",
+        "adaptation_rule": "Solid lemon-yellow #F2DC4A tile with rounded corners and a hairline pale-gold border.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "headline",
+        "position": "Upper-left part of the headline tile, left-aligned",
+        "visual_function": "Frames the ad as a simple daily ritual",
+        "adaptation_rule": "Three short uppercase lines in solid near-black.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Lower-right corner of the headline tile, about 19% of the canvas height tall",
+        "visual_function": "Shows exactly what is being sold",
+        "adaptation_rule": "The user's dropper bottle exactly as in the attached product photo, front view, upright, with a soft contact shadow on the tile.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "step 1 scene",
+        "position": "Top-right cell, about 51-97% of the width and 3-40.5% of the height",
+        "visual_function": "Starting point: the product in hand, ready to use",
+        "adaptation_rule": "Close-up of a woman's hand lifting the black dropper, full of amber liquid, out of the open bottle, which stands on a small wooden balcony table, label facing the camera and fully recognizable; green plants softly blurred behind, morning light.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "step 2 scene",
+        "position": "Bottom-left cell, about 3-49% of the width and 42.5-80% of the height",
+        "visual_function": "Shows the core action of using the product",
+        "adaptation_rule": "Close-up of the same hand squeezing the dropper so a few amber drops fall into a glass of orange juice on the same table, with the bottle standing next to the glass, label visible.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "step 3 scene",
+        "position": "Bottom-right cell, about 51-97% of the width and 42.5-80% of the height",
+        "visual_function": "Payoff: sitting down to eat with appetite",
+        "adaptation_rule": "Medium close-up, from the chest up, of a Colombian woman of about 25 with dark curly hair tied up in a bun and a white t-shirt, seated at the same balcony table, smiling as she eats a full breakfast (arepa, eggs, fruit), with the bottle standing on the table. No exaggerated effects and no before/after.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "number badges",
+        "position": "Top-left corner of each step scene, inset about 3% from the cell edges",
+        "visual_function": "Set the reading order instantly",
+        "adaptation_rule": "Three identical solid metallic gold #C9A441 circles, about 9% of the canvas width in diameter, with the numerals 1, 2 and 3 in bold near-black.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "caption chips",
+        "position": "Bottom-left corner of each step scene, inset about 3% from the cell edges, up to about 38% of the canvas width",
+        "visual_function": "Name each step in plain words",
+        "adaptation_rule": "Three identical solid near-black #111111 rounded chips, about 7% of the canvas height, each with a short white caption.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_10",
+        "block_type": "gold offer plaque (added at the user's explicit request)",
+        "position": "Under the grid, from about 3% to 97% of the width and from about 83% to 97% of the height",
+        "visual_function": "States the 3-bottle offer and its price",
+        "adaptation_rule": "Brushed metallic gold rounded rectangle (#C9A441 with #E6CF7A highlights) with a thin inner border, holding three centered lines of black text.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Arrows or connector lines between cells",
+      "A fourth step, extra cells or a timeline track",
+      "Subheadline, body copy or extra text in the headline tile",
+      "CTA button",
+      "A second price, a struck-through price or a discount percentage",
+      "Rating stars, reviews or testimonials",
+      "Benefit checklist or icon list",
+      "Before/after split",
+      "Shipping or payment text",
+      "Dose amounts in ml or any number other than the step numerals and the offer",
+      "Logos or brand marks outside the product label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 advertising image built as a strict 2x2 modular grid on a flat warm cream frame (#FBF3DC), clean, bright and feminine, with a soft semi-illustrated realistic rendering (smooth painterly digital illustration, realistic proportions, soft shading). The grid fills the canvas from about 3% to 80% of the height: four equal cells with rounded corners (radius about 2%), a hairline pale-gold border, an outer cream margin of about 3% and thin even cream gutters of about 2%. It reads in a Z pattern. TOP-LEFT CELL: a solid lemon-yellow tile (#F2DC4A). In its upper-left part, a bold left-aligned headline in three short lines, extra-bold geometric uppercase sans-serif, solid near-black. In its lower-right corner stands the product, upright, front view, about 19% of the canvas height tall, with a soft contact shadow, never touching the headline: a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; the bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. The three other cells are scenes on the same sunny apartment balcony with green potted plants softly blurred in the background and a small light-wood table, all in the same soft warm morning daylight. TOP-RIGHT CELL (step 1): close-up, slightly from above, of a woman's hand lifting the black dropper, full of amber liquid, out of the open bottle standing on the table, the label facing the camera and fully recognizable. BOTTOM-LEFT CELL (step 2): close-up of the same hand squeezing the dropper so a few amber drops fall into a glass of orange juice, with the same bottle standing beside the glass. BOTTOM-RIGHT CELL (step 3): medium close-up, from the chest up, of a Colombian woman of about 25 with dark curly hair tied up in a bun and a white t-shirt, seated at the table, smiling happily as she eats a full breakfast (arepa, eggs and fruit), with the same bottle standing on the table. In the top-left corner of each of the three scene cells, a large solid metallic gold circle (about 9% of the canvas width) with a bold near-black numeral: 1, 2 and 3 in Z order. In the bottom-left corner of each scene cell, a solid near-black rounded chip with a short white bold caption. Keep the corners of each scene calm so the badges and chips read clearly. BELOW THE GRID, from about 83% to 97% of the height and with the same width as the grid, a brushed metallic gold rounded-corner plaque with a thin inner border and a subtle sheen, holding three centered lines of black uppercase text: a bold first line, a much larger heavy condensed middle line, and a regular-weight third line with wide letter spacing. No arrows, no other elements.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Upper-left part of the lemon-yellow tile, left-aligned, three lines: 'TU RITUAL' / 'DE CADA' / 'MAÑANA'",
+      "text_style": "Extra-bold geometric sans-serif, uppercase, solid near-black, each line about 5.5% of the canvas height, 3 short lines, left-aligned, tight leading",
+      "text": "TU RITUAL DE CADA MAÑANA"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "step number 1",
+      "reference_position": "Inside the gold badge in the top-left corner of the top-right scene",
+      "text_style": "Bold geometric sans-serif numeral, about 5.5% of the canvas height, centered, near-black on gold",
+      "text": "1"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "step number 2",
+      "reference_position": "Inside the gold badge in the top-left corner of the bottom-left scene",
+      "text_style": "Bold geometric sans-serif numeral, about 5.5% of the canvas height, centered, near-black on gold",
+      "text": "2"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "step number 3",
+      "reference_position": "Inside the gold badge in the top-left corner of the bottom-right scene",
+      "text_style": "Bold geometric sans-serif numeral, about 5.5% of the canvas height, centered, near-black on gold",
+      "text": "3"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "step 1 caption",
+      "reference_position": "Inside the caption chip of the top-right scene",
+      "text_style": "Bold geometric sans-serif, about 3.2% of the canvas height, 1 line, left-aligned inside the chip, white on near-black",
+      "text": "Llena el gotero"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "step 2 caption",
+      "reference_position": "Inside the caption chip of the bottom-left scene",
+      "text_style": "Bold geometric sans-serif, about 3.2% of the canvas height, 1 line, left-aligned inside the chip, white on near-black",
+      "text": "Tómalo con tu jugo"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "step 3 caption",
+      "reference_position": "Inside the caption chip of the bottom-right scene",
+      "text_style": "Bold geometric sans-serif, about 3.2% of the canvas height, 1 line, left-aligned inside the chip, white on near-black",
+      "text": "Come con ganas"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "offer plaque line 1",
+      "reference_position": "Inside the gold plaque under the grid, first line, centered",
+      "text_style": "Bold uppercase sans-serif, about 2.6% of the canvas height, 1 line, centered, black",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "price (offer plaque line 2)",
+      "reference_position": "Inside the gold plaque, middle line, centered",
+      "text_style": "Heavy condensed uppercase sans-serif, about 5.5% of the canvas height, 1 line, centered, black; the largest text of the plaque",
+      "text": "X3 UNIDADES $139,900"
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "offer plaque line 3",
+      "reference_position": "Inside the gold plaque, third line, centered",
+      "text_style": "Regular-weight uppercase sans-serif with wide letter spacing, about 2.3% of the canvas height, 1 line, centered, black",
+      "text": "SIN EFECTO REBOTE"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Strict 2x2 grid of four equal rounded cells with thin even cream gutters",
+    "Lemon-yellow headline tile in the top-left cell with the product standing in its lower-right corner",
+    "Three step scenes in Z order (top-right, bottom-left, bottom-right) on the same sunny balcony",
+    "The user's dropper bottle recognizable in step 1 and visible in steps 2 and 3",
+    "Large solid gold number badges 1, 2, 3 in the top-left of each step scene",
+    "Solid near-black caption chips in the bottom-left of each step scene",
+    "Wide brushed metallic gold offer plaque under the grid with three lines of black text"
+  ],
+  "final_generation_exclusions": [
+    "No arrows or connector lines between cells and no fourth step.",
+    "No dose amounts, no shipping, payment, guarantee or urgency text.",
+    "No before/after and no close-ups of the woman's body; she is seen from the chest up, eating.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The offer lines are the user's exact wording.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

@@ -1,0 +1,227 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F26 (Línea de tiempo) + gold offer plaque explicitly requested by the user",
+    "reference_style": "Clean, modern stage-by-stage progress ad: three circular frames of increasing size threaded on one horizontal timeline, showing the same woman's mood and energy improving, with the product and a gold offer plaque anchoring the bottom",
+    "angle_used": "Transformación / resultado (progress of the daily ritual: energy and appetite week by week, shown through mood, never through the body)",
+    "ad_format": "Growing Circles Timeline Progression Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a soft semi-illustrated realistic rendering of the model (smooth painterly digital illustration with realistic proportions and soft shading), on a light cream canvas with a tidy grid of progress panels.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Rounded-corner rectangular panels with a hairline pale-gold border, generous cream margins, a brushed metallic gold offer plaque with a thin inner border and rounded corners, a delicate pale-gold botanical sprig line drawing behind the product, soft contact shadows under the product.",
+    "text_typography": "Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text."
+  },
+  "creative_objective": "Make the viewer follow a believable, stage-by-stage story of the daily drops ritual (start, more energy, eating with appetite) told only through the woman's mood and routine, and close with the 3-bottle offer plaque.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Bold black two-line headline at the top. 2) The three circular portraits growing left to right, the largest ringed in gold. 3) The gold offer plaque at the bottom right with the big price line. 4) The product at the bottom left. 5) The time-label pills and the short captions.",
+    "composition_style": "Horizontal left-to-right progression with deliberate size growth. Headline centered in the top band. Three circular frames side by side with centers on one horizontal line at about 45% of the canvas height: circle 1 about 20% of the canvas width in diameter (centered at about 17% of the width), circle 2 about 25% (centered at about 43%), circle 3 about 32% (centered at about 75%). A thin timeline track runs behind them with a small chevron arrow pointing right in each gap. The bottom band is split in two: product on the left, offer plaque on the right.",
+    "spacing_and_structure": "Headline from about 5% to 18% of the canvas height. Circles between about 29% and 61%. Time-label pills straddling the top edge of each circle. Captions on one shared baseline from about 63.5% to 68%. Bottom band from about 72% to 95%: product centered at about 20% of the width (about 22% of the canvas height tall); offer plaque from about 38% to 94% of the width and from about 74% to 94% of the height. Safe margins of about 6% on every side. Nothing touches the canvas edges.",
+    "lighting_and_depth": "Inside the circles: identical camera angle, crop and soft daylight; stage 1 slightly cooler and more muted, stage 2 neutral, stage 3 warmest and most vibrant. Each circle has a thin pale-gold outline and a soft drop shadow; circle 3 adds a metallic gold ring and a faint gold glow. The product gets soft studio light from the upper left and a soft contact shadow. The plaque has a subtle brushed-metal sheen.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square warm cream canvas. Two-line black headline centered at the top. Across the middle, three circular portraits of the same woman at three stages grow in size from left to right along a thin horizontal timeline track with a chevron arrow in each gap; a rounded time-label pill sits on the top edge of each circle and the largest circle is ringed in gold; a short caption sits under each circle on a shared baseline. In the bottom band, the product stands at the left with a pale-gold botanical sprig line drawing behind it, and a brushed gold offer plaque with three lines of black text sits at the right.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Calm brand-colored backdrop that keeps the progression clean and readable",
+        "adaptation_rule": "Flat warm cream #FBF3DC with a very subtle lighter tone toward the top. No textures, no scene.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, from about 5% to 18% of the canvas height",
+        "visual_function": "Frames the image as a progress story and stops the scroll",
+        "adaptation_rule": "Two centered uppercase lines in solid near-black, extra-bold geometric sans.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "timeline track with chevron arrows",
+        "position": "Thin horizontal line at about 45% of the canvas height, behind the three circles, from about 6% to 94% of the width; one small chevron in each of the two gaps",
+        "visual_function": "Threads the three portraits into one readable sequence",
+        "adaptation_rule": "Thin line shifting from pale gold #E6CF7A on the left to metallic gold #C9A441 on the right, visible only in the gaps and at both ends; two small gold chevrons pointing right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "stage circle 1 (starting point, smallest)",
+        "position": "Left, about 20% of the canvas width in diameter, spanning about 7-27% of the width and 35-55% of the height",
+        "visual_function": "Shows the starting point the audience recognizes: low energy in the morning",
+        "adaptation_rule": "Shoulders-up portrait of a Colombian woman of about 26 with long wavy dark-brown hair and a mustard blouse at a bright kitchen counter, holding a coffee mug, sleepy and low on energy, soft neutral expression. Muted, slightly cooler tones. No product inside the circle. No body shown below the shoulders.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "stage circle 2 (first change, medium)",
+        "position": "Center, about 25% of the canvas width in diameter, spanning about 30.5-55.5% of the width and 32.5-57.5% of the height",
+        "visual_function": "Shows a first believable change: she looks awake and energetic",
+        "adaptation_rule": "Exactly the same woman, kitchen, crop and angle, scaled up: eyes bright, relaxed open smile, posture upright. Neutral tones. No product inside the circle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "stage circle 3 (result, largest)",
+        "position": "Right, about 32% of the canvas width in diameter, spanning about 59-91% of the width and 29-61% of the height",
+        "visual_function": "Closes the story: she eats with appetite and joy",
+        "adaptation_rule": "Same woman, kitchen, crop and angle, scaled up again: laughing warmly while lifting a fork over a full colorful breakfast plate (eggs, arepa, avocado, fruit) at the edge of the frame. Warmest, most vibrant tones. Metallic gold ring and faint gold glow. Her face, body and size stay identical in the three circles; only mood, energy and warmth change. No product inside the circle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "time-label pills (3)",
+        "position": "One rounded pill straddling the top edge of each circle, centered on it",
+        "visual_function": "Dates each stage so the sequence reads as time passing",
+        "adaptation_rule": "Small rounded pills of equal height (about 4.5% of the canvas height). Pills 1 and 2 filled with pale gold #E6CF7A, pill 3 filled with metallic gold #C9A441; near-black bold uppercase text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "stage captions (3)",
+        "position": "Centered under each circle on one shared baseline, from about 63.5% to 68% of the canvas height",
+        "visual_function": "Names what happens at each stage in a few words",
+        "adaptation_rule": "One short near-black caption per circle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "product",
+        "position": "Bottom left, centered at about 20% of the canvas width, from about 72% to 95% of the height",
+        "visual_function": "Connects the whole progression to what is being sold",
+        "adaptation_rule": "The user's dropper bottle exactly as in the attached product photo, front view, upright, with a soft contact shadow and a delicate pale-gold botanical sprig line drawing behind it.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_10",
+        "block_type": "gold offer plaque (added at the user's explicit request)",
+        "position": "Bottom right, from about 38% to 94% of the canvas width and from about 74% to 94% of the height",
+        "visual_function": "States the 3-bottle offer and its price",
+        "adaptation_rule": "Brushed metallic gold rounded rectangle (#C9A441 with #E6CF7A highlights) with a thin inner border, holding three centered lines of black text.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "A second price, a struck-through price or a discount percentage",
+      "Rating stars, reviews or testimonials",
+      "A fourth stage or extra circles",
+      "Rectangular photo panels or a two-panel before/after split",
+      "Number badges (1, 2, 3) instead of time labels",
+      "Charts, graphs, percentages or numeric data overlays",
+      "Benefit list or icons",
+      "The product repeated inside the circles",
+      "Body, weight or medical before/after comparisons; any view of the woman below the shoulders",
+      "Shipping or payment text",
+      "Full-width bottom bar or banner",
+      "Logos or brand marks outside the product label",
+      "Clinical or certification seals"
+    ]
+  },
+  "visual_prompt": "Square 1:1 advertising image on a flat warm cream background (#FBF3DC), clean, bright and feminine, with a soft semi-illustrated realistic rendering of the people (smooth painterly digital illustration, realistic proportions, soft shading). TOP BAND (about 5-18% of the height): a centered two-line headline in an extra-bold geometric uppercase sans-serif, solid near-black, tight leading. MIDDLE BAND: three circular portrait frames side by side, growing from left to right, with their centers on the same horizontal line at about 45% of the height: the left circle is small (about 20% of the canvas width in diameter), the center circle medium (about 25%), the right circle large (about 32%). A thin horizontal timeline line runs behind the circles through their centers, pale gold on the left turning metallic gold on the right, visible only in the gaps and at both ends, with one small gold chevron arrow pointing right in each gap. Each circle has a thin pale-gold outline and a soft drop shadow; the large right circle also has a metallic gold ring and a faint gold glow. All three circles show the SAME woman with the SAME framing, camera angle and place: a Colombian woman of about 26 with long wavy dark-brown hair and a mustard-yellow blouse, seen from the shoulders up, frontal at eye level, at the counter of a bright modern apartment kitchen softly blurred behind her. Left circle: she holds a coffee mug and looks sleepy and low on energy, with muted, slightly cool tones. Center circle: she looks awake, eyes bright, relaxed open smile, neutral natural tones. Right circle: she laughs warmly while lifting a fork over a full colorful breakfast plate (eggs, arepa, avocado and fruit) at the lower edge of the frame, with the warmest and most vibrant tones. Her face, body and size are identical in the three circles; only her mood, energy and the warmth of the light change. Never show her body below the shoulders. A small rounded pill sits on the top edge of each circle, centered on it: the first two filled with pale gold, the third filled with metallic gold, each with a short bold uppercase near-black time label. Under each circle, on one shared baseline, a short one-line near-black caption. BOTTOM BAND (about 72-95% of the height): on the left, centered at about 20% of the width, the product stands upright in front view: a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; the bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. Behind the bottle, a delicate pale-gold botanical sprig line drawing; under it, a soft contact shadow. On the right of the bottom band, from about 38% to 94% of the width, a brushed metallic gold rounded-corner plaque with a thin inner border and a subtle sheen, holding three centered lines of black uppercase text: a bold first line, a much larger heavy condensed middle line, and a regular-weight third line with wide letter spacing. Generous cream margins, nothing touching the canvas edges. No other elements.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, two lines: line 1 'MÁS APETITO Y ENERGÍA', line 2 'SEMANA A SEMANA'",
+      "text_style": "Extra-bold geometric sans-serif, uppercase, solid near-black, each line about 6.5% of the canvas height, 2 lines, centered, tight leading",
+      "text": "MÁS APETITO Y ENERGÍA SEMANA A SEMANA"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "stage label 1",
+      "reference_position": "Inside the pill on the top edge of circle 1",
+      "text_style": "Bold geometric sans-serif, uppercase, about 2.8% of the canvas height, 1 line, centered, near-black on pale gold",
+      "text": "DÍA 1"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "stage label 2",
+      "reference_position": "Inside the pill on the top edge of circle 2",
+      "text_style": "Bold geometric sans-serif, uppercase, about 2.8% of the canvas height, 1 line, centered, near-black on pale gold",
+      "text": "SEMANA 2"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "stage label 3",
+      "reference_position": "Inside the pill on the top edge of circle 3",
+      "text_style": "Bold geometric sans-serif, uppercase, about 3% of the canvas height, 1 line, centered, near-black on metallic gold",
+      "text": "SEMANA 4"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "caption stage 1",
+      "reference_position": "Centered under circle 1, on the shared caption baseline",
+      "text_style": "Medium weight geometric sans-serif, about 2.6% of the canvas height, 1 line, centered, near-black",
+      "text": "Empiezas tu ritual"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "caption stage 2",
+      "reference_position": "Centered under circle 2, on the shared caption baseline",
+      "text_style": "Medium weight geometric sans-serif, about 2.6% of the canvas height, 1 line, centered, near-black",
+      "text": "Más energía"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "caption stage 3",
+      "reference_position": "Centered under circle 3, on the shared caption baseline",
+      "text_style": "Semi-bold geometric sans-serif, about 3% of the canvas height, 1 line, centered, near-black",
+      "text": "Comes con ganas"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "offer plaque line 1",
+      "reference_position": "Inside the gold plaque, first line, centered",
+      "text_style": "Bold uppercase sans-serif, about 3% of the canvas height, 1 line, centered, black",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "price (offer plaque line 2)",
+      "reference_position": "Inside the gold plaque, middle line, centered",
+      "text_style": "Heavy condensed uppercase sans-serif, about 6.5% of the canvas height, 1 line, centered, black; the largest text of the plaque",
+      "text": "X3 UNIDADES $139,900"
+    },
+    {
+      "block_id": "text_block_10",
+      "reference_function": "offer plaque line 3",
+      "reference_position": "Inside the gold plaque, third line, centered",
+      "text_style": "Regular-weight uppercase sans-serif with wide letter spacing, about 2.6% of the canvas height, 1 line, centered, black",
+      "text": "SIN EFECTO REBOTE"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Three circular portrait frames growing in size from left to right (about 20%, 25% and 32% of the canvas width)",
+    "The same woman, crop, place and camera angle in all three circles, shoulders up, with a believable progression of mood from sleepy and muted to joyful and warm",
+    "Thin horizontal gold timeline track through the circle centers with a chevron arrow in each gap",
+    "Metallic gold ring and faint glow on the largest circle",
+    "Rounded time-label pill on the top edge of each circle",
+    "The user's dropper bottle at the bottom left with a soft contact shadow and a pale-gold botanical sprig line drawing behind it",
+    "Brushed metallic gold offer plaque at the bottom right with three lines of black text",
+    "Flat warm cream background"
+  ],
+  "final_generation_exclusions": [
+    "No body, weight or shape comparison; never show the woman below the shoulders; her body is identical in the three circles.",
+    "No product inside the circles and no second bottle.",
+    "No shipping, payment, guarantee or urgency text.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The progression is shown through mood and routine, not through the body. The offer lines are the user's exact wording.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
