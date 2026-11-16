@@ -171,13 +171,14 @@ aprendizajes ni la forma de crear los anuncios**; solo correcciones determinista
 - **Pruebas nuevas:** `produccion/pruebas/probar-creacion-incierta.js` (4/4: respuesta cortada, 504, sin conexión y
   caso normal, con un servidor local) y 4 casos de `restaurarAsync` en `app/herramientas/probar-archivo-nube.mjs`
   (30/30). Origen probado a mano con `ANUNCIOS_DOMINIO`: el dominio pasa, otra página y `cross-site` dan 403.
-- **Humo completo (modo prueba, Claude falso, kie y ElevenLabs simulados), con render: 218/220**, y salió el MP4.
-  Las 2 fallas son de costo («lo cobrado es el estimado»: 356 contra 212 créditos; «lo que costó regenerar es lo
-  que decía cada botón»: 199 contra 130) y **salen idénticas en `main` sin estos cambios** (se corrió la misma prueba
-  sobre `main`): vienen de antes, como `probar-estimar-costo.js` y `probar-modelos.js`. Es el próximo trabajo de C-04
-  (estimado contra cobrado). Para el render en el entorno de prueba se usó el Chromium local en
-  `remotion/node_modules/.remotion` (sin cambios en el repositorio). **Falta en la Mac:** un anuncio real, y la app en
-  el servidor (si se usa) entrando por el dominio.
+- **Humo completo (modo prueba, Claude falso, kie y ElevenLabs simulados), con render: 220/220** y el MP4.
+  Las 2 fallas de costo que salían (estimado 212 contra «cobrado» 356; botones 130 contra 199, también en `main`)
+  **no eran de la app**: el kie simulado (`produccion/pruebas/kie-simulado.js`) cobraba Omni 1.2 con los tramos del
+  1.1 (63/84/105/126 por video) en vez de por segundo (4/9/10/22 cr/s según resolución). Corregido el simulado.
+  `probar-estimar-costo.js` y `probar-modelos.js` fallaban porque sus números son de 720p y la app pasó a 1080p
+  por defecto: ahora importan primero `pruebas/a-720p.js` (175/175 y 398/398). La estimación de la app estaba bien.
+  Para el render en el entorno de prueba se usó el Chromium local en `remotion/node_modules/.remotion`.
+  **Falta en la Mac:** un anuncio real, y la app en el servidor (si se usa) entrando por el dominio.
 - **No hecho a propósito (decisiones del informe, sección 09):** tope de presupuesto por anuncio (C-03), firma de
   las actualizaciones (C-14), sacar `temp/` del repositorio y que el guardado no traiga código con `pull` (C-13), y los
   experimentos de contexto/skills/aprendizajes (C-05 a C-07), que el informe pide medir antes con anuncios aprobados.

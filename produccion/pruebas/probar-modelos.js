@@ -16,6 +16,7 @@
 //   6. Todo modelo del catalogo tiene adaptador y definicion.
 //   7. El kie simulado acepta esos cuerpos (y los de siempre) y rechaza los mal armados.
 
+import './a-720p.js'; // primero: fija 720p antes de que config.js lea la resolucion
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';

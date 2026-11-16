@@ -21,6 +21,7 @@
 //      objeto parlante 1.932); la matriz por modelo medida antes de la voz; y los
 //      cantados (cancion tipica) dentro de +-25 % de lo que da su manifiesto real.
 
+import './a-720p.js'; // primero: fija 720p antes de que config.js lea la resolucion
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
