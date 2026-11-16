@@ -7,6 +7,8 @@
 // 2. Lo sube como versión v<VERSION> al repositorio PÚBLICO kalethabh/kads-studio (lo crea la primera vez), que solo
 //    guarda el instalador y los zips de cada versión: el código de trabajo y lo tuyo siguen en App-nube, privado.
 // 3. Pone al día ahí los instaladores (instalar/), su README y la prueba automática en Mac y Windows.
+//    También sube «publicar-solo.yml»: el proceso que, desde ese repositorio, publica SOLA cada versión nueva cuando
+//    cambia la app en main (así no hace falta correr este comando después de cada cambio).
 //
 // Quien ya la instaló, la actualiza volviendo a pegar el comando del README. Necesita gh (GitHub CLI) con sesión
 // iniciada. No sube nada si VERSION no cambió desde la última publicada (con --forzar, vuelve a subir el zip).
@@ -58,7 +60,7 @@ function principal() {
 
   console.log('  Instaladores y README...');
   const dir = path.join(RAIZ, 'instalar');
-  for (const rel of ['README.md', 'instalar-mac.sh', 'instalar-windows.ps1', '.github/workflows/probar-instalador.yml']) subirArchivo(rel, path.join(dir, rel));
+  for (const rel of ['README.md', 'instalar-mac.sh', 'instalar-windows.ps1', '.github/workflows/probar-instalador.yml', '.github/workflows/publicar-solo.yml']) subirArchivo(rel, path.join(dir, rel));
 
   if (existe(['release', 'view', etiqueta, '--repo', REPO]) && !forzar) {
     console.log(`\n  La versión ${version} ya estaba publicada (los instaladores quedaron al día). Para subir el zip otra vez: npm run publicar -- --forzar\n`);
