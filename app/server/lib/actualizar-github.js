@@ -48,18 +48,36 @@ async function rama() {
   return r.ok && r.salida && r.salida !== 'HEAD' ? r.salida : null;
 }
 
-/** Pregunta a GitHub si hay algo nuevo (no cambia nada). */
+// Lo PUBLICADO vive siempre en main (ahí se unen los cambios). Antes se comparaba contra la rama en la que estaba la
+// carpeta: si la Mac había quedado en otra rama (p. ej. una de trabajo vieja), lo publicado en main nunca aparecía en
+// «Actualizar». Ahora se compara y se baja siempre main, esté la carpeta en la rama que esté.
+const PUBLICADA = process.env.KADS_RAMA_PUBLICADA || 'main';
+
+// La última respuesta de revisar(), para no ir a GitHub más de una vez por minuto con varias pestañas abiertas.
+let ultimaRevision = null;
+const VIGENCIA_REVISION_MS = 60 * 1000;
+
+/** revisar() con memoria de un minuto; `forzar` (abrir «Actualizar») va a GitHub siempre. */
+export async function revisarConMemoria({ forzar = false } = {}) {
+  if (!forzar && ultimaRevision && Date.now() - ultimaRevision.t < VIGENCIA_REVISION_MS) return ultimaRevision.r;
+  const r = await revisar();
+  ultimaRevision = { t: Date.now(), r };
+  return r;
+}
+
+/** Pregunta a GitHub si hay algo nuevo publicado (no cambia nada). */
 export async function revisar() {
   if (!fs.existsSync(path.join(RAIZ, '.git'))) return { repositorio: false, error: 'Esta carpeta no es un repositorio de GitHub: clónala desde GitHub para poder actualizarla con un clic.' };
   const r = await rama();
   if (!r) return { repositorio: true, error: 'No sé en qué rama está la app.' };
-  const f = await git(['fetch', '-q', 'origin', r], 120000);
-  if (!f.ok) return { repositorio: true, rama: r, error: 'No pude conectar con GitHub. Revisa tu internet y vuelve a probar.' };
-  const cuenta = await git(['rev-list', '--left-right', '--count', `HEAD...origin/${r}`]);
+  // (con refspec explícito: así se actualiza origin/main aunque la carpeta se haya clonado con una sola rama)
+  const f = await git(['fetch', '-q', 'origin', `+refs/heads/${PUBLICADA}:refs/remotes/origin/${PUBLICADA}`], 120000);
+  if (!f.ok) return { repositorio: true, rama: r, publicada: PUBLICADA, error: 'No pude conectar con GitHub. Revisa tu internet y vuelve a probar.' };
+  const cuenta = await git(['rev-list', '--left-right', '--count', `HEAD...origin/${PUBLICADA}`]);
   const [adelantados, atrasados] = cuenta.ok ? cuenta.salida.split(/\s+/).map(Number) : [0, 0];
-  const u = await git(['log', '-1', '--format=%s%x1f%cI', `origin/${r}`]);
+  const u = await git(['log', '-1', '--format=%s%x1f%cI', `origin/${PUBLICADA}`]);
   const [titulo, fecha] = u.ok ? u.salida.split('\x1f') : [];
-  return { repositorio: true, rama: r, atrasados: atrasados || 0, adelantados: adelantados || 0, ultimo: titulo ? { titulo, fecha } : null, pantallaSinArmar: interfazVieja() };
+  return { repositorio: true, rama: r, publicada: PUBLICADA, atrasados: atrasados || 0, adelantados: adelantados || 0, ultimo: titulo ? { titulo, fecha } : null, pantallaSinArmar: interfazVieja(), revisado: new Date().toISOString() };
 }
 
 /** Baja lo último. Nunca corren dos a la vez. */
@@ -84,7 +102,8 @@ export async function actualizar() {
     await guardarAhora();
     const viejo = (await git(['rev-parse', 'HEAD'])).salida;
     const identidad = (await git(['config', 'user.email'])).ok ? [] : ['-c', 'user.name=Kads Studio', '-c', 'user.email=anuncios-ia@localhost'];
-    const p = await git([...identidad, 'pull', '--no-rebase', '--no-edit', 'origin', antes.rama], 300000);
+    // lo publicado (main) se junta con lo de aquí, esté la carpeta en la rama que esté
+    const p = await git([...identidad, 'pull', '--no-rebase', '--no-edit', 'origin', PUBLICADA], 300000);
     if (!p.ok) {
       await git(['merge', '--abort']);
       return { ok: false, mensaje: 'Lo nuevo choca con un cambio que hiciste aquí, así que no toqué nada. Pídele a Claude Code que lo junte.', detalle: p.salida.slice(-400) };
@@ -122,5 +141,6 @@ export async function actualizar() {
     };
   } finally {
     ocupado = false;
+    ultimaRevision = null; // lo que diga GitHub ahora ya es otra cosa
   }
 }

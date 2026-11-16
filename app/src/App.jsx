@@ -15,6 +15,7 @@ import { Esqueleto, EsqueletoMiniaturas } from './componentes/Esqueleto.jsx';
 import { useHash, partirRuta, emparejar, ir, enlace } from './datos/rutas.js';
 import { BandaGlobalModoPrueba } from './pantallas/produccion/ModoPrueba.jsx';
 import { BandaVersionNueva } from './marco/BandaVersionNueva.jsx';
+import { BandaActualizacion } from './marco/BandaActualizacion.jsx';
 import './marco/marco.css';
 
 const Tablero = lazy(() => import('./pantallas/tablero/index.jsx'));
@@ -286,6 +287,7 @@ export default function App() {
           <BarraArriba migas={migas} ocultarNuevo={actual?.ruta.menu === 'nuevo' || actual?.ruta.patron === '/tablero' || actual?.ruta.patron === '/imagenes' || actual?.ruta.patron === '/imagenes/nuevo'} />
           <main className="principal__contenido" id="contenido">
             <BandaVersionNueva />
+            <BandaActualizacion />
             <BandaGlobalModoPrueba />
             {pantalla}
           </main>
