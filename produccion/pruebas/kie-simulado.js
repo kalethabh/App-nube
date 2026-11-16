@@ -350,8 +350,8 @@ const r2 = (x) => Math.round(x * 100) / 100;
 
 /**
  * Creditos como los cobra kie (los de PRECIOS y MODELOS_VIDEO en config.js; los
- * de Grok, PixVerse y Nano Banana 2.1, medidos el 2026-11-08). Kling con los
- * precios de kie del 2026-11-07.
+ * de Grok, PixVerse y Nano Banana 2.1, medidos el 2026-11-08; Omni 1.2, de su
+ * pagina del 2026-11-13). Kling con los precios de kie del 2026-11-07.
  */
 function creditosDe(modelo, input, segundos) {
   if (modelo.startsWith('suno/') || esMusica(modelo)) return SUNO.creditos;
@@ -359,6 +359,9 @@ function creditosDe(modelo, input, segundos) {
   if (modelo.startsWith('gpt-image-2')) return { '1K': 6, '2K': 10, '4K': 16 }[input?.resolution] ?? 6;
   if (modelo === 'nano-banana-2-1') return 6;
   if (modelo === 'nano-banana-2') return { '1K': 8, '2K': 12, '4K': 18 }[input?.resolution] ?? 8;
+  // Omni Flash 1.2 (el principal desde el 2026-11-13) cobra POR SEGUNDO segun la resolucion (kie.ai/gemini-omni-1-2-flash).
+  // Antes el simulado lo cobraba con los tramos del 1.1, y la prueba de humo veia «lo cobrado no es lo estimado».
+  if (modelo === 'google/gemini-omni-flash-1-2') return ({ '360p': 4, '720p': 9, '1080p': 10, '4k': 22 }[input?.resolution] ?? 10) * Math.ceil(segundos);
   if (modelo.includes('omni')) return { 4: 63, 6: 84, 8: 105, 10: 126 }[segundos] ?? 105;
   if (modelo.startsWith('kling-4.0')) return ({ '1080p': 42.5 }[input?.resolution] ?? 28.5) * Math.ceil(segundos);
   if (modelo.startsWith('kling')) return r2((input?.sound === false ? 15.1 : 22.7) * Math.ceil(segundos));

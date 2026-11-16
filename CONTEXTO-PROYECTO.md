@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16f` (archivo `VERSION`): «Correcciones de la revisión técnica», [PR #68](https://github.com/kalethabh/App-nube/pull/68),
-  integrado en `main` el 2026-11-16.
+- **Versión actual:** `2026-11-16i` (archivo `VERSION`): «Actualizar» al instante (rama `actualizar-al-instante`).
+  Antes en `main`: `2026-11-16h` (PR #68 a #71).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -137,6 +137,58 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
 
 ## Últimas actualizaciones terminadas
 
+### «Actualizar» ve al instante todo lo publicado (2026-11-16, versión 2026-11-16i)
+
+Pedido: «todos los cambios publicados me permita actualizar al instante en la app, no me sale para actualizar».
+Causa: `actualizar-github.js` comparaba y bajaba la rama ACTUAL de la carpeta (`origin/<rama>`); con la carpeta en
+una rama que no es `main` (o que no existe en GitHub, y entonces el fetch fallaba) lo publicado no aparecía. Además
+solo revisaba cada 10 minutos y el aviso era un punto en el botón.
+
+- `lib/actualizar-github.js`: `PUBLICADA = 'main'` (o `KADS_RAMA_PUBLICADA`); `fetch` con refspec explícito,
+  cuenta `HEAD...origin/main` y `pull origin main` en la rama que esté. `revisarConMemoria()` (1 min);
+  `GET /api/github/actualizar?ahora=1` pregunta sí o sí.
+- `marco/BotonActualizar.jsx`: cada 2 min; al abrir pregunta ahora; `actualizarDesdeGithub()` compartida.
+  `marco/BandaActualizacion.jsx` (nueva, en `App.jsx`): franja «Hay N cambios nuevos publicados» con «Actualizar
+  ahora» / «Después» (guarda la fecha del último cambio en `localStorage kads:actualizacion-despues`).
+- Probado: una copia en una rama vieja (`a9396e0`) veía 11 cambios de `main`; «Actualizar» los bajó (quedó en
+  `2026-11-16h`, `atrasados: 0`) y pidió el reinicio. Franja en claro y oscuro sin errores JS.
+- **Una sola vez en la Mac** (si su copia no tiene todavía este cambio): `git pull --no-rebase --no-edit origin main`
+  en `~/Anuncios con IA` y volver a abrir la app. Después, todo llega por la franja.
+
+### Ajustes rediseñado (2026-11-16, versión 2026-11-16h)
+
+Pedido: «rediseña el apartado de ajustes, un diseño mejorado, más compacto, limpio y profesional». Se conserva la marca
+(colores, fuentes, logo, textos); cambia la disposición.
+
+- `pantallas/ajustes/index.jsx`: una sección a la vez (estado `activa`, `#/ajustes?seccion=<id>`; sin el seguimiento
+  por desplazamiento). «Cambiar modelos» de Conexiones cambia a la pestaña Modelos. En angosto, la pestaña activa se
+  desplaza a la vista.
+- `ajustes.css`: bloque «Rediseño compacto» al final (cabecera h3, menos rellenos, `conexion-claude__arte` oculto en
+  Ajustes, filas de Modelos y Tu PC más bajas). La página pasó de ~5.400 px a entre 900 y 1.900 px por sección.
+- Pruebas: capturas de las 7 secciones en claro y oscuro y en iPhone 13 (sin desborde horizontal), sin errores JS;
+  humo rápido 82/82.
+
+### Anuncios de imagen: Nuevos con lo validado, Variantes estricto y modo claro de avisos (2026-11-16, versión 2026-11-16g)
+
+Pedido: «Variantes es en base a una imagen ya validada que esté funcionando; Nuevos, con lo que tenga de la
+investigación y la imagen del producto con la biblioteca de anuncios ya validados» (biblioteca = «Me funciona» +
+biblioteca de referencias). Sin investigación: generar igual con aviso (decisión recomendada y aceptada). Quitar
+«Variar solo los títulos» de Nuevos. Además: «corrige el modo claro y oscuro de las notificaciones».
+
+- `lotes.js → prepararValidados()`: en `modo: 'nuevos'` copia a `entrada/validados/A##` hasta 6 de «Me funciona»
+  (los del mismo producto primero) y completa hasta 8 con la biblioteca de referencias, sin repetidos (sha1); queda
+  en `brief.validados`. `fiel` solo en variantes. `faltaDelBorrador`: variantes sin referencias no arranca.
+- `sesiones.js`: `textoModo` y `textoValidados` en la estrategia, con las imágenes adjuntas (`validadosDelLote`):
+  estudiarlos para elegir formatos/estructuras/ganchos y crear diseños NUEVOS (no copiar marcas ni textos).
+  `titulos.js`: prompt propio de Nuevos y de Variantes; los validados entran en la firma.
+- `rutas/imagen-ads.js`: las referencias de un lote de Variantes ya no se guardan en la biblioteca de referencias.
+- `Formulario.jsx`: sin el interruptor «Variar solo los títulos»; textos de Nuevos; aviso de «sin investigación».
+- Modo claro: tokens `--vidrio-aviso`, `--vidrio-panel` y `--fondo-tooltip` en Avisos, Tooltip, el panel de una pieza
+  y el índice de Ajustes en el celular. Capturas en claro y oscuro.
+- Pruebas: servidor de anuncios de imagen 147/147; humo completo 220/220; prueba puntual de `prepararValidados` y de
+  la estrategia (no se guardó en el repo: escribe en `temp/_funcionan`).
+- **Falta en la Mac:** un lote real de Nuevos con «Me funciona» marcados, para ver la calidad.
+
 ### Correcciones de la revisión técnica (2026-11-16, versión 2026-11-16f, [PR #68](https://github.com/kalethabh/App-nube/pull/68))
 
 Pedido: aplicar el informe «Kads Studio · Evaluación colaborativa y hoja de ruta» y corregir los problemas que
@@ -171,13 +223,14 @@ aprendizajes ni la forma de crear los anuncios**; solo correcciones determinista
 - **Pruebas nuevas:** `produccion/pruebas/probar-creacion-incierta.js` (4/4: respuesta cortada, 504, sin conexión y
   caso normal, con un servidor local) y 4 casos de `restaurarAsync` en `app/herramientas/probar-archivo-nube.mjs`
   (30/30). Origen probado a mano con `ANUNCIOS_DOMINIO`: el dominio pasa, otra página y `cross-site` dan 403.
-- **Humo completo (modo prueba, Claude falso, kie y ElevenLabs simulados), con render: 218/220**, y salió el MP4.
-  Las 2 fallas son de costo («lo cobrado es el estimado»: 356 contra 212 créditos; «lo que costó regenerar es lo
-  que decía cada botón»: 199 contra 130) y **salen idénticas en `main` sin estos cambios** (se corrió la misma prueba
-  sobre `main`): vienen de antes, como `probar-estimar-costo.js` y `probar-modelos.js`. Es el próximo trabajo de C-04
-  (estimado contra cobrado). Para el render en el entorno de prueba se usó el Chromium local en
-  `remotion/node_modules/.remotion` (sin cambios en el repositorio). **Falta en la Mac:** un anuncio real, y la app en
-  el servidor (si se usa) entrando por el dominio.
+- **Humo completo (modo prueba, Claude falso, kie y ElevenLabs simulados), con render: 220/220** y el MP4.
+  Las 2 fallas de costo que salían (estimado 212 contra «cobrado» 356; botones 130 contra 199, también en `main`)
+  **no eran de la app**: el kie simulado (`produccion/pruebas/kie-simulado.js`) cobraba Omni 1.2 con los tramos del
+  1.1 (63/84/105/126 por video) en vez de por segundo (4/9/10/22 cr/s según resolución). Corregido el simulado.
+  `probar-estimar-costo.js` y `probar-modelos.js` fallaban porque sus números son de 720p y la app pasó a 1080p
+  por defecto: ahora importan primero `pruebas/a-720p.js` (175/175 y 398/398). La estimación de la app estaba bien.
+  Para el render en el entorno de prueba se usó el Chromium local en `remotion/node_modules/.remotion`.
+  **Falta en la Mac:** un anuncio real, y la app en el servidor (si se usa) entrando por el dominio.
 - **No hecho a propósito (decisiones del informe, sección 09):** tope de presupuesto por anuncio (C-03), firma de
   las actualizaciones (C-14), sacar `temp/` del repositorio y que el guardado no traiga código con `pull` (C-13), y los
   experimentos de contexto/skills/aprendizajes (C-05 a C-07), que el informe pide medir antes con anuncios aprobados.

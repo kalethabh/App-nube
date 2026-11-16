@@ -19,7 +19,7 @@
   padding: 14px 40px 14px 14px;
   border-radius: var(--r-l);
   overflow: hidden;
-  background: rgba(30, 30, 40, 0.9);
+  background: var(--vidrio-aviso); /* oscuro o claro según el tema (tokens.css); antes era siempre oscuro */
   -webkit-backdrop-filter: blur(18px) saturate(150%);
   backdrop-filter: blur(18px) saturate(150%);
   border: 1px solid var(--borde-2);

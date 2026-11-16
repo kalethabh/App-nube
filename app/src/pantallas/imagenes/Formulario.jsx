@@ -16,7 +16,7 @@
 // recalcula con la cantidad y el formato (costoDelLote). La pantalla del lote sigue sin precios hasta su informe.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CircleAlert, CircleCheck, Copy, Globe, Images, Sparkles, Tag, Telescope, Trophy, Users } from 'lucide-react';
-import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Tarjeta, useAvisos } from '../../componentes/index.js';
+import { AreaTexto, Boton, CampoTexto, Chip, Pestanas, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useEstado } from '../../datos/api.js';
 import { dinero } from '../../datos/formato.js';
 import {
@@ -60,7 +60,6 @@ const VACIO = {
   conVertical: true,
   modo: 'nuevos',
   // «Más de lo mismo»: todas las variaciones copian el diseño de tus referencias
-  fiel: true,
 };
 
 // ---------------------------------------------------------------- el borrador en este navegador (sin imágenes)
@@ -313,7 +312,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
       const propias = variantes ? itemsElegidos.map((x, i) => (x.productoId && x.productoId === productoId ? i + 1 : null)).filter(Boolean) : [];
 
       // 2. el lote (borrador). Si cambiaste algo que va en él desde el intento anterior, se arma otro.
-      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: null, modo: variantes ? 'variantes' : 'nuevos', referenciasPropias: propias, fiel: variantes ? true : Boolean(f.fiel && referencias.length), elegirTitulos: true, refs: refs.map((x) => x.id) };
+      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: null, modo: variantes ? 'variantes' : 'nuevos', referenciasPropias: propias, fiel: variantes, elegirTitulos: true, refs: refs.map((x) => x.id) };
       const firma = JSON.stringify(cuerpo);
       if (creado.current && creado.current.firma !== firma) {
         apiImagenes.borrar(creado.current.lote).catch(() => {});
@@ -400,7 +399,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
               <>
                 <Sparkles size={14} strokeWidth={2} aria-hidden="true" />
                 <span>
-                  Anuncios <strong>nuevos</strong>: los títulos juegan con los ganchos ya validados de tu investigación con TrendTrack.
+                  Anuncios <strong>nuevos</strong>: salen de tu investigación de mercado, la foto de tu producto y tus anuncios ya validados («Me funciona» y tu biblioteca de referencias). Los títulos juegan con los ganchos validados de TrendTrack.
                 </span>
               </>
             )}
@@ -507,7 +506,16 @@ export function Formulario({ simulando = false, productoPedido = null }) {
                   {productoElegido ? 'Investigar este producto' : 'Ir a Investigación de mercado'}
                 </Boton>
               </div>
-              <p className="img-ayuda">Sin investigación, la IA deduce el deseo, el beneficio y los dolores de la foto y de lo que escribas arriba.</p>
+              {variantes ? (
+                <p className="img-ayuda">Sin investigación, los títulos nuevos salen de lo que ya te funciona y de lo que escribas arriba.</p>
+              ) : (
+                <p className="img-nota img-nota--aviso" role="status">
+                  <CircleAlert size={14} strokeWidth={2} aria-hidden="true" />
+                  <span>
+                    Puedes generar igual: la IA usa la foto, lo que escribas arriba y tus anuncios ya validados. Pero sin investigación los títulos y los ángulos salen menos precisos (no sabe qué le duele a tu cliente ni qué ganchos funcionan en tu mercado). Te conviene investigar primero: se hace una sola vez por producto.
+                  </span>
+                </p>
+              )}
             </>
           )}
         </Grupo>
@@ -589,20 +597,11 @@ export function Formulario({ simulando = false, productoPedido = null }) {
             }
             ayuda="Sube, arrastra o pega (Ctrl/Cmd+V) anuncios que te gusten. Cada uno queda guardado en tu biblioteca para usarlo con otros productos."
           />
-          <Interruptor
-            activado={Boolean(f.fiel)}
-            onCambio={(v) => poner({ fiel: v })}
-            etiqueta="Variar solo los títulos"
-            descripcion={
-              f.fiel
-                ? 'Conserva el diseño, la escena y la razón de compra de tus referencias. Solo cambia el título por uno que tú selecciones.'
-                : 'Cada referencia da un anuncio con su estructura; los demás salen de otros formatos de la biblioteca de la IA.'
-            }
-            deshabilitado={ocupado || !referencias.length}
-            className="img-fiel"
-          />
+          <p className="img-ayuda">
+            Además, la IA mira sola tus anuncios ya validados («Me funciona», los de este producto primero, y tu biblioteca de referencias) para saber qué te funciona, y crea diseños nuevos con eso. Para copiar el diseño de algo que ya te funciona, usa «Variantes».
+          </p>
           <BibliotecaReferencias abierta={bibliotecaAbierta} onCerrar={() => setBibliotecaAbierta(false)} lugar={lugarRefs} onElegir={agregarDeBiblioteca} />
-          {cantidadValida && referencias.length > n && !f.fiel ? (
+          {cantidadValida && referencias.length > n ? (
             <p className="img-nota img-nota--aviso">
               <CircleAlert size={14} strokeWidth={2} aria-hidden="true" />
               Subiste {referencias.length} y pediste {n}: se usan las {n === 1 ? 'primera' : `${n} primeras`}.

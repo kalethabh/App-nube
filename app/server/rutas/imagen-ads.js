@@ -234,11 +234,14 @@ export default function rutasImagenAds(app) {
     const otras = (brief.referencias || []).filter((r) => !path.basename(r).startsWith(`${nombre}.`));
     brief.referencias = [...otras, rel].sort((a, b) => Number(path.basename(a).slice(1, 3)) - Number(path.basename(b).slice(1, 3)));
     guardarBrief(carpeta, brief);
-    // queda también en tu biblioteca de referencias, para usarla con otros productos
-    try {
-      biblioteca.guardar(abs);
-    } catch {
-      /* si no se pudo guardar en la biblioteca, el lote sigue igual */
+    // queda también en tu biblioteca de referencias, para usarla con otros productos (las de «Variantes» no: ya están
+    // en «Me funciona», y la biblioteca es de los anuncios que te gustan)
+    if (brief.modo !== 'variantes') {
+      try {
+        biblioteca.guardar(abs);
+      } catch {
+        /* si no se pudo guardar en la biblioteca, el lote sigue igual */
+      }
     }
     res.json({ n, url: `/archivos/imagen-ads/${encodeURIComponent(lote)}/${rel}?v=${firma(abs)}` });
   }));

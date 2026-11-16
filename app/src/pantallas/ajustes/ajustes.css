@@ -1175,7 +1175,7 @@
     z-index: 5;
     margin: 0 calc(var(--gutter) * -1);
     padding: var(--e-2) var(--gutter);
-    background: rgba(11, 11, 15, 0.8);
+    background: var(--vidrio);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
   }
@@ -1947,3 +1947,129 @@
 .apariencia__op--claro .apariencia__linea { background: #d5d8cf; }
 .apariencia__op--auto .apariencia__barra { background: linear-gradient(115deg, #141612 0 50%, #f5f5f5 50%); }
 .apariencia__op--auto .apariencia__linea { background: linear-gradient(115deg, #d5d8cf 0 60%, #3a3a3a 60%); }
+
+/* =============================================================================
+   Rediseño compacto (2026-11-16): una sección a la vez, menos relleno y tarjetas más bajas.
+   Va al final a propósito: ajusta lo de arriba sin tocar los colores, las fuentes ni la marca.
+   ============================================================================= */
+.ajustes .cabecera-pagina {
+  margin-bottom: var(--e-6);
+}
+.ajustes__cuerpo {
+  grid-template-columns: 208px minmax(0, 1fr);
+  gap: var(--e-8);
+}
+.ajustes__secciones {
+  gap: var(--e-8);
+  max-width: 920px;
+  animation: ajustes-entra var(--dur-medio) var(--curva-salida) both;
+}
+@keyframes ajustes-entra {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.indice {
+  padding: 4px;
+}
+.indice__item {
+  min-height: 42px;
+  padding: 6px 8px;
+  gap: 10px;
+}
+.indice__item--activo::before {
+  left: -4px;
+  top: 11px;
+  bottom: 11px;
+}
+.indice__icono {
+  width: 28px;
+  height: 28px;
+}
+.ajustes__pastilla {
+  height: 28px;
+  padding: 0 12px 0 10px;
+  font-size: var(--t-mini);
+}
+.ajustes__resumen {
+  margin-top: var(--e-2);
+}
+@media (max-width: 1180px) {
+  .ajustes__cuerpo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--e-4);
+  }
+  .indice__item {
+    min-height: 38px;
+  }
+  .indice__meta {
+    display: none;
+  }
+}
+
+/* ---- cabecera: título más chico, menos aire entre la cabecera y el contenido */
+.pagina.ajustes {
+  gap: var(--e-6);
+}
+.ajustes .cabecera-pagina {
+  margin-bottom: 0;
+  align-items: center;
+}
+.ajustes .cabecera-pagina__titulo {
+  font-size: var(--t-h3);
+  letter-spacing: -0.02em;
+}
+.ajustes .cabecera-pagina__descripcion {
+  font-size: var(--t-chico);
+  color: var(--texto-3);
+}
+
+/* ---- cada sección: título y descripción más compactos */
+.ajustes__seccion .seccion__titulo {
+  font-size: var(--t-h4);
+}
+.ajustes__seccion .seccion__descripcion {
+  font-size: var(--t-chico);
+}
+.ajustes__seccion .tarjeta--relleno-normal {
+  padding: var(--e-5);
+}
+.ajustes__seccion .tarjeta--relleno-amplio {
+  padding: var(--e-6);
+}
+
+/* ---- Tu IA: sin la ilustración (ocupaba media tarjeta en Ajustes; sigue en la bienvenida) */
+.ajustes .conexion-claude {
+  grid-template-columns: minmax(0, 1fr);
+}
+.ajustes .conexion-claude__arte {
+  display: none;
+}
+
+/* ---- Modelos: filas más bajas */
+.ajustes .modelo-fila {
+  padding: var(--e-4) var(--e-5);
+  gap: var(--e-2) var(--e-6);
+  align-items: center;
+}
+
+/* ---- Tu PC: la cifra grande, más chica */
+.ajustes .pc-recomendacion {
+  grid-template-columns: 210px minmax(0, 1fr);
+}
+.ajustes .pc-recomendacion__numero {
+  padding: var(--e-5) var(--e-6);
+}
+.ajustes .pc-recomendacion__cifra {
+  font-size: 64px;
+}
+
+/* ---- Acerca de: portada más baja */
+.ajustes .acerca__portada {
+  padding: var(--e-6);
+}

@@ -37,6 +37,14 @@ export function listar() {
     .map(({ ms, ...x }) => x);
 }
 
+/** Las referencias guardadas con su ruta en disco, la más nueva primero: [{ id, abs }]. */
+export function conRuta() {
+  return archivos()
+    .map((n) => ({ id: n.slice(0, 16), abs: path.join(DIR_REFERENCIAS, n), ms: fs.statSync(path.join(DIR_REFERENCIAS, n)).mtimeMs }))
+    .sort((a, b) => b.ms - a.ms)
+    .map(({ ms, ...x }) => x);
+}
+
 export function guardar(abs) {
   const ext = path.extname(abs).toLowerCase() === '.png' ? 'png' : 'jpg';
   const id = crypto.createHash('sha1').update(fs.readFileSync(abs)).digest('hex').slice(0, 16);
