@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 2,
-    "R": 2,
+    "R": 3,
     "A": 1,
     "T": 6
   },
@@ -29,6 +29,20 @@
           "pieza": "V04_1x1",
           "firma": "1592974-1794871994261",
           "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "69981953-a3ca-4204-9572-c1a2578bb3e1",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V03_1x1",
+          "firma": "1669612-1794872771126",
+          "ronda": "u"
         }
       ],
       "empezada": true
@@ -70,7 +84,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -94,7 +108,7 @@
         "version": 1,
         "trabajo": "T003"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -108,25 +122,26 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": "sin-imagen",
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "U0003",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T004"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1669612-1794872771126",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
-      "revision": null,
-      "motivo": "contenido-chatgpt",
-      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
-      "desde": null,
-      "pedido": "U0003",
-      "ultimaOrden": "g",
+      "revision": {
+        "tanda": "R002",
+        "ronda": "u",
+        "ok": true,
+        "problemas": [],
+        "firma": "1669612-1794872771126"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-16T23:46:11.667Z",
+      "pedido": null,
+      "ultimaOrden": "U0003",
       "fallo": null
     },
     "V04_1x1": {
@@ -166,7 +181,7 @@
         "version": 1,
         "trabajo": "T005"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -214,7 +229,7 @@
       "pieza": "V03_1x1",
       "instruccion": "",
       "fecha": "2026-11-16T23:44:23.396Z",
-      "estado": "generando",
+      "estado": "listo",
       "pasos": [
         {
           "pieza": "V03_1x1",
