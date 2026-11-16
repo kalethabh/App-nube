@@ -74,13 +74,18 @@ function entornoSinClaves() {
   return env;
 }
 
+// Con las imágenes de los videos en ChatGPT (Ajustes), el costo estimado las cuenta en 0 (se lee al estimar).
+let motorImagenesVideo = () => 'kie';
+import('./motor-imagenes.js').then((m) => (motorImagenesVideo = m.motorImagenesVideo)).catch(() => {});
+const conImagenesDeChatGPT = () => (motorImagenesVideo() === 'chatgpt' ? { AIA_IMAGENES_VIDEO: 'chatgpt' } : {});
+
 /** Corre produccion/estimar-costo.js con --json y devuelve lo que imprimio (un objeto), o null si fallo o tardo. */
 function correrMotor(slug, args) {
   return new Promise((resolve) => {
     let salida = '';
     let hijo;
     try {
-      hijo = spawn(process.execPath, [MOTOR, `temp/${slug}`, '--json', ...args], { cwd: RAIZ, env: entornoSinClaves(), stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true });
+      hijo = spawn(process.execPath, [MOTOR, `temp/${slug}`, '--json', ...args], { cwd: RAIZ, env: { ...entornoSinClaves(), ...conImagenesDeChatGPT() }, stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true });
     } catch {
       return resolve(null);
     }
@@ -230,6 +235,7 @@ async function pedidoDe(slug, { familia, brief }) {
     modoPrueba(),
     marca(RUTA_CATALOGO),
     marca(MOTOR),
+    motorImagenesVideo(), // cambiar a ChatGPT (o volver a kie) cambia el costo de las imágenes
   ]);
   return { args, firma, comparar, familia };
 }
