@@ -70,6 +70,16 @@
       }
     },
     "decisiones": { "type": "array", "maxItems": 10, "items": { "type": "string", "minLength": 1, "maxLength": 500 } },
+    "estructura": {
+      "description": "La estructura del guion elegida del catálogo (recursos/estructuras/catalogo.json o mis_archivos/estructuras/): qué se cuenta y en qué orden. «de-la-referencia» si sale de un video de referencia.",
+      "type": "object",
+      "required": ["id", "porque"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,60}$" },
+        "nombre": { "type": "string", "maxLength": 120 },
+        "porque": { "type": "string", "minLength": 1, "maxLength": 500 }
+      }
+    },
     "cambios_hechos": { "type": "array", "items": { "type": "string", "maxLength": 500 } }
   }
 }

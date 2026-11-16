@@ -52,6 +52,7 @@ import { subestilosDe, idDeSubestilo } from './subestilos.js';
 import { textoParaClaude as textoAprendizajes, textoAhorro } from './aprendizajes.js';
 import { audioPorId, avatarPorId, carpetaDeEstilo, prepararAvatar, prepararMusica } from './biblioteca.js';
 import { prepararReferencia, referenciaPedida, textoClonar } from './clonar.js';
+import { textoEstructuras, textoInvestigacion } from './estructuras.js';
 import { conDuracion, entenderDuracion, leerDuracion, duracionAprox, segundosPedidos } from './duracion.js';
 import { copiarModelosAlAnuncio } from './modelos.js';
 
@@ -683,7 +684,12 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
     detalleProducto: detalleDelProducto(brief.productoId, { vineta: true }),
     foto: textoFoto(slug, brief, foto),
     pasos: lista(t.pasos),
-    delEstilo: [textoClonar(slug, brief, prepClonar, { guionPropio: tieneGuionPropio(brief) }), textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
+    delEstilo: [
+      textoClonar(slug, brief, prepClonar, { guionPropio: tieneGuionPropio(brief) }),
+      // la investigación del producto (deseo, beneficio, dolores, objeciones) y la estructura más adecuada (2026-11-16)
+      textoInvestigacion({ slug, brief }).texto,
+      esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
+      textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
   });
@@ -737,7 +743,7 @@ const SOLO_DE_LA_APP = [
   'brief.json', 'sesion.json', 'conductor.json', 'proceso.json', 'informe.json', 'montaje.json', 'edicion.json', 'voces.json',
   'ventanas.json', 'ugc.json', 'habla.json', 'manifiesto-antes-de-ventanas.json', '*-estado.json', 'cancion-*.json', 'clips-*.json',
   'control-final-*.json', 'rehacer/**', 'exportes/**', 'gasto/**', 'registro/**', 'historial-guion/**', 'edicion/**',
-  'avisos.json', 'subidos.json',
+  'avisos.json', 'subidos.json', 'investigacion.md',
 ];
 
 function permisosGuion(slug, brief) {
@@ -831,6 +837,7 @@ function materialGuion(slug, brief, { foto = null, deAntes = false } = {}) {
     imagenes.push(...miniaturas.map((n) => `recursos/esqueletos/${n}`));
   }
   if (deAntes) textos.push(...GUARDADOS.map((rel) => `${c}/${rel}`));
+  textos.push(`${c}/app/investigacion.md`); // si el producto tiene investigación (la copia textoInvestigacion)
   const propios = materialPropio(slug, brief);
   return {
     textos: [...textos, ...propios.textos].filter(hayEnRaiz),

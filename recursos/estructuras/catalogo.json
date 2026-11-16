@@ -1,0 +1,283 @@
+{
+  "_nota": "Catálogo de ESTRUCTURAS de guion (el orden de lo que se cuenta), separado del ESTILO visual (cómo se ve). Cualquier estilo puede usar cualquier estructura compatible con su familia: la skill del estilo sigue mandando en lo técnico (tomas, duraciones, prompts, manifiesto); la estructura decide qué se cuenta y en qué orden. Lo lee la tarea del guion (app/server/lib/estructuras.js). Las que aprende la app de TrendTrack o de videos subidos van aparte, en mis_archivos/estructuras/*.json, con el mismo formato.",
+  "version": "2026-11-16",
+  "estructuras": [
+    {
+      "id": "problema-oculto-mecanismo",
+      "nombre": "Problema oculto + mecanismo revelado",
+      "origen": "Claymation, Zack D Films y Crochet (su estructura principal)",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc"],
+      "ideal_para": "Productos con un mecanismo que se puede mostrar (suplementos, salud, cuidado personal) y un público que ya siente el síntoma pero no sabe la causa.",
+      "consciencia": "consciente del problema, no de la solución",
+      "de_la_investigacion": ["puntos de dolor", "mecanismo / por qué pasa", "objeciones (lo que ya probaron)"],
+      "momentos": [
+        { "momento": "Gancho: el problema que avanza en silencio", "que_pasa": "Algo que pasa todos los días y la persona no nota hasta que es grande, con el síntoma en las palabras del cliente." },
+        { "momento": "La revelación", "que_pasa": "Lo que de verdad lo causa, mostrado: un villano personificado o una metáfora visual concreta." },
+        { "momento": "Por qué lo obvio no alcanza", "que_pasa": "Se descartan las soluciones que la gente ya probó (sale de las objeciones de la investigación)." },
+        { "momento": "El producto contra ESE mecanismo", "que_pasa": "El producto entra como la respuesta exacta al mecanismo revelado, no como algo genérico." },
+        { "momento": "Resultado + CTA", "que_pasa": "La consecuencia visible y la oferta/garantía real del producto." }
+      ],
+      "gancho_ejemplo": "«No es el cansancio: es lo que tu cuerpo deja de hacer mientras duermes.»"
+    },
+    {
+      "id": "escalada-dia-a-dia",
+      "nombre": "Escalada día a día (Día 1 → Día 30)",
+      "origen": "Esqueleto (su formato principal)",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc"],
+      "ideal_para": "Productos de uso continuo cuyo beneficio se nota con el tiempo (suplementos, skincare, hábitos).",
+      "consciencia": "consciente de la solución, duda de que funcione",
+      "de_la_investigacion": ["deseo principal", "beneficio principal", "tiempo de transformación"],
+      "momentos": [
+        { "momento": "Marcador 1 (el punto de partida)", "que_pasa": "Segunda persona, presente: «Día 1: …» con el dolor concreto." },
+        { "momento": "Marcadores intermedios", "que_pasa": "Cada salto de tiempo muestra un cambio pequeño y concreto; cada uno deja algo abierto para el siguiente." },
+        { "momento": "El giro", "que_pasa": "Se revela por qué está cambiando: el mecanismo o el ingrediente clave." },
+        { "momento": "El último marcador (payoff)", "que_pasa": "El deseo principal cumplido, visible y social." },
+        { "momento": "CTA", "que_pasa": "La oferta, separada del relato." }
+      ],
+      "gancho_ejemplo": "«Día 1 tomando esto: todavía te levantas como si no hubieras dormido.»"
+    },
+    {
+      "id": "que-pasa-si",
+      "nombre": "¿Qué le pasa a tu cuerpo si…?",
+      "origen": "Esqueleto («what happens if»)",
+      "familias": ["voz-en-off", "objeto-parlante"],
+      "ideal_para": "Curiosidad pura: ingredientes conocidos, hábitos diarios, productos con un efecto fisiológico que se puede visualizar.",
+      "consciencia": "poco consciente: hay que despertar la curiosidad",
+      "de_la_investigacion": ["mecanismo", "beneficio principal", "lenguaje del cliente"],
+      "momentos": [
+        { "momento": "La pregunta", "que_pasa": "«Esto es lo que le pasa a tu cuerpo si [hábito con el producto] cada día»." },
+        { "momento": "Minuto / hora / día", "que_pasa": "Cortes por tiempo con lo que pasa por dentro, cada vez más interesante." },
+        { "momento": "El dato que sorprende", "que_pasa": "Un efecto que la gente no esperaba, verificable en la ficha o la investigación." },
+        { "momento": "Producto + CTA", "que_pasa": "Cómo conseguir ese efecto todos los días." }
+      ],
+      "gancho_ejemplo": "«Esto es lo que le pasa a tu hígado 30 minutos después de tomar esto.»"
+    },
+    {
+      "id": "resena-con-humor",
+      "nombre": "Reseña con humor en primera persona",
+      "origen": "Esqueleto (parody-review) y UGC",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc"],
+      "ideal_para": "Productos fáciles de entender con un uso divertido; marcas con tono cercano.",
+      "consciencia": "consciente del producto o de la categoría",
+      "de_la_investigacion": ["objeciones", "lenguaje del cliente", "beneficio principal"],
+      "momentos": [
+        { "momento": "La confesión", "que_pasa": "«Lo compré convencido de que era otra estafa…» (la objeción más fuerte, dicha con humor)." },
+        { "momento": "La prueba en vivo", "que_pasa": "Lo usa frente a cámara, con un detalle real de uso." },
+        { "momento": "La sorpresa", "que_pasa": "Lo que no esperaba, contado como creador real." },
+        { "momento": "El veredicto + CTA", "que_pasa": "Recomendación honesta; la oferta va aparte, al final." }
+      ],
+      "gancho_ejemplo": "«Le di 7 días a esto para demostrar que era humo. Perdí.»"
+    },
+    {
+      "id": "alternativa-fallida-confiesa",
+      "nombre": "La alternativa fallida confiesa",
+      "origen": "Objeto parlante (principal) y Crochet",
+      "familias": ["objeto-parlante", "voz-en-off"],
+      "ideal_para": "Categorías con muchas soluciones baratas o genéricas que el cliente ya probó.",
+      "consciencia": "consciente de soluciones, frustrado con las que probó",
+      "de_la_investigacion": ["objeciones", "soluciones que ya probaron", "competencia"],
+      "momentos": [
+        { "momento": "El villano habla", "que_pasa": "La solución que falló confiesa en primera persona por qué no sirve." },
+        { "momento": "Más villanos (opcional)", "que_pasa": "Otras alternativas confiesan en fila, una línea cada una." },
+        { "momento": "La actualización obvia", "que_pasa": "El producto entra como lo que sí hace lo que los otros no." },
+        { "momento": "Prueba + CTA", "que_pasa": "Un dato concreto del producto y la oferta." }
+      ],
+      "gancho_ejemplo": "«Soy tu crema de farmacia. Me llenan de aceites baratos para que cueste poco.»"
+    },
+    {
+      "id": "elenco-de-ingredientes",
+      "nombre": "Elenco de ingredientes héroe",
+      "origen": "Objeto parlante",
+      "familias": ["objeto-parlante", "voz-en-off"],
+      "ideal_para": "Suplementos o fórmulas con 3-6 ingredientes activos reconocibles.",
+      "consciencia": "consciente de la solución, compara fórmulas",
+      "de_la_investigacion": ["beneficio por ingrediente", "deseo principal"],
+      "momentos": [
+        { "momento": "Gancho", "que_pasa": "El primer ingrediente se presenta con un beneficio fuerte." },
+        { "momento": "Uno por uno", "que_pasa": "Cada ingrediente: quién es y qué hace por ti, una idea por toma." },
+        { "momento": "La síntesis", "que_pasa": "«Y yo soy [producto]: todos juntos, en la dosis correcta.»" },
+        { "momento": "CTA", "que_pasa": "La oferta." }
+      ],
+      "gancho_ejemplo": "«Soy el magnesio. Si duermes mal, me necesitas más de lo que crees.»"
+    },
+    {
+      "id": "sintomas-en-fila",
+      "nombre": "«Si te pasa esto, necesitas…» (síntomas en fila)",
+      "origen": "Crochet (gancho por síntomas acumulados)",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc"],
+      "ideal_para": "Productos que resuelven varios síntomas concretos y visuales.",
+      "consciencia": "consciente del problema",
+      "de_la_investigacion": ["puntos de dolor (todos)", "lenguaje del cliente"],
+      "momentos": [
+        { "momento": "4-6 micro-ganchos", "que_pasa": "«Si [síntoma visual], necesitas esto.» Cada síntoma es una toma distinta y ninguno se resuelve todavía." },
+        { "momento": "La bisagra", "que_pasa": "«Ahora, aquí está el problema…»" },
+        { "momento": "La razón real", "que_pasa": "El dato técnico o el proceso que explica todos los síntomas." },
+        { "momento": "Producto + uso + CTA", "que_pasa": "Cómo se usa (concreto) y la oferta." }
+      ],
+      "gancho_ejemplo": "«Si te despiertas con la mandíbula apretada, necesitas esto.»"
+    },
+    {
+      "id": "anecdota-con-giro",
+      "nombre": "Anécdota graciosa con giro",
+      "origen": "Crochet",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc"],
+      "ideal_para": "Productos prácticos o todo-en-uno sin un «mecanismo oculto» que revelar.",
+      "consciencia": "cualquiera; funciona por entretenimiento",
+      "de_la_investigacion": ["situaciones reales del cliente", "beneficio principal"],
+      "momentos": [
+        { "momento": "La situación", "que_pasa": "Una escena o diálogo gracioso y muy específico." },
+        { "momento": "El giro irónico", "que_pasa": "Lo que buscaba no se resolvió del todo… pero pasó algo mejor." },
+        { "momento": "El producto", "que_pasa": "Presentado como la solución práctica." },
+        { "momento": "Prueba social + CTA", "que_pasa": "Un número real (si lo hay) y la oferta." }
+      ],
+      "gancho_ejemplo": "«Mi suegra dijo que mi casa olía raro. Tenía razón, pero no por lo que pensaba.»"
+    },
+    {
+      "id": "cuatro-capitulos",
+      "nombre": "Cuatro capítulos: persona → producto → por dentro → resultado",
+      "origen": "Estilo Pixar y Zack D Films",
+      "familias": ["voz-en-off", "objeto-parlante"],
+      "ideal_para": "Productos cuyo efecto pasa dentro del cuerpo u objeto y se puede animar.",
+      "consciencia": "consciente del problema",
+      "de_la_investigacion": ["situación cotidiana del dolor", "mecanismo", "deseo principal"],
+      "momentos": [
+        { "momento": "Persona en su situación", "que_pasa": "Alguien viviendo el problema en un momento cotidiano." },
+        { "momento": "El producto", "que_pasa": "El empaque real, con sus ingredientes." },
+        { "momento": "Por dentro", "que_pasa": "Lo que pasa adentro, contado como escena (no clínico)." },
+        { "momento": "El resultado", "que_pasa": "La consecuencia social o emocional, a veces con humor." }
+      ],
+      "gancho_ejemplo": "«Son las 3 de la tarde y Laura ya no puede con su cuerpo.»"
+    },
+    {
+      "id": "mito-vs-realidad",
+      "nombre": "Mito vs. realidad",
+      "origen": "Zack D Films (ángulos alternos)",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc", "hablado"],
+      "ideal_para": "Categorías llenas de creencias falsas que frenan la compra.",
+      "consciencia": "consciente de la solución, con creencias equivocadas",
+      "de_la_investigacion": ["objeciones", "creencias del mercado", "competencia"],
+      "momentos": [
+        { "momento": "El mito", "que_pasa": "Lo que todos creen, dicho con seguridad." },
+        { "momento": "La realidad", "que_pasa": "Por qué es falso, con un dato verificable." },
+        { "momento": "Qué hacer entonces", "que_pasa": "El producto como lo que sí funciona según esa realidad." },
+        { "momento": "CTA", "que_pasa": "La oferta." }
+      ],
+      "gancho_ejemplo": "«Tomar más agua no te quita la hinchazón. Esto sí.»"
+    },
+    {
+      "id": "cifra-que-impacta",
+      "nombre": "La cifra que impacta",
+      "origen": "Zack D Films",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc", "hablado"],
+      "ideal_para": "Cuando la investigación trae un dato fuerte y verificable.",
+      "consciencia": "poco consciente: el número despierta",
+      "de_la_investigacion": ["datos y cifras verificables (nunca inventadas)"],
+      "momentos": [
+        { "momento": "La cifra", "que_pasa": "El número, solo, en grande." },
+        { "momento": "Qué significa para ti", "que_pasa": "Bajado a la vida del cliente." },
+        { "momento": "La salida", "que_pasa": "El producto y por qué cambia ese número." },
+        { "momento": "CTA", "que_pasa": "La oferta." }
+      ],
+      "gancho_ejemplo": "«El 8 de cada 10 adultos no llega al magnesio que necesita.»",
+      "cuidado": "Solo con un dato que esté en la ficha o en la investigación. Nunca inventes una cifra."
+    },
+    {
+      "id": "relato-de-descubrimiento",
+      "nombre": "Relato de descubrimiento",
+      "origen": "Zack D Films",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc"],
+      "ideal_para": "Ingredientes naturales o con historia; cuando no hay un problema oculto claro sino un hallazgo curioso.",
+      "consciencia": "poco consciente",
+      "de_la_investigacion": ["origen del ingrediente", "beneficio principal"],
+      "momentos": [
+        { "momento": "El hallazgo", "que_pasa": "Alguien notó algo raro (personas, animales, un pueblo)." },
+        { "momento": "La investigación", "que_pasa": "Qué descubrieron que lo causaba." },
+        { "momento": "El mecanismo", "que_pasa": "Cómo funciona, mostrado." },
+        { "momento": "Producto + CTA", "que_pasa": "Cómo tenerlo hoy." }
+      ],
+      "gancho_ejemplo": "«En un pueblo de la Amazonía nadie usaba lentes después de los 60.»"
+    },
+    {
+      "id": "conversacion-con-objecion",
+      "nombre": "Conversación: problema → recomendación → objeción → prueba",
+      "origen": "Podcast (los 8 beats)",
+      "familias": ["hablado", "ugc", "objeto-parlante"],
+      "ideal_para": "Productos que se recomiendan entre amigos; públicos escépticos.",
+      "consciencia": "consciente del problema, desconfiado",
+      "de_la_investigacion": ["puntos de dolor (con sus palabras)", "objeción principal", "una prueba concreta"],
+      "momentos": [
+        { "momento": "Entrada en frío", "que_pasa": "A mitad de frase, sin saludo." },
+        { "momento": "El problema, situado", "que_pasa": "Vivido, con lugar y circunstancia." },
+        { "momento": "Reconocimiento y reencuadre", "que_pasa": "La otra persona lo vivió y cuenta qué le cambió." },
+        { "momento": "El producto como recomendación", "que_pasa": "Por nombre, de pasada, con un detalle de uso." },
+        { "momento": "La objeción", "que_pasa": "La pregunta escéptica que el espectador piensa; respuesta corta con un hecho." },
+        { "momento": "La prueba + CTA indirecto", "que_pasa": "Un solo dato real; el cierre como consejo." }
+      ],
+      "gancho_ejemplo": "«…y te juro que ya había probado todo, hasta lo de la almohada.»"
+    },
+    {
+      "id": "pregunta-de-opciones",
+      "nombre": "«¿Esto o aquello?» hasta que no sabe",
+      "origen": "Entrevista callejera (variante A)",
+      "familias": ["hablado", "ugc"],
+      "ideal_para": "Categorías con vocabulario de experto que el comprador normal no domina.",
+      "consciencia": "cree que sabe; se da cuenta de que no",
+      "de_la_investigacion": ["confusiones del mercado", "criterio de compra"],
+      "momentos": [
+        { "momento": "Tres preguntas de opción", "que_pasa": "Elige rápido, después duda, y en la tercera no sabe." },
+        { "momento": "El congelado", "que_pasa": "Esa duda ES el dolor que el producto resuelve." },
+        { "momento": "La explicación", "que_pasa": "Lo que hay que saber, simple." },
+        { "momento": "Producto + CTA", "que_pasa": "La forma fácil de acertar." }
+      ],
+      "gancho_ejemplo": "«¿Colágeno en polvo o en cápsulas?» «Polvo, claro.» «¿Hidrolizado o tipo II?» (silencio)"
+    },
+    {
+      "id": "testimonio-transformacion",
+      "nombre": "Testimonio de transformación",
+      "origen": "UGC",
+      "familias": ["ugc", "voz-en-off", "hablado"],
+      "ideal_para": "Productos con un antes y un después claro y creíble.",
+      "consciencia": "consciente de la solución, necesita prueba",
+      "de_la_investigacion": ["deseo principal", "tiempo de transformación", "objeciones"],
+      "momentos": [
+        { "momento": "Cómo estaba", "que_pasa": "El antes, con detalle humano concreto." },
+        { "momento": "Lo que probó y no sirvió", "que_pasa": "Una o dos soluciones fallidas (objeciones)." },
+        { "momento": "El cambio", "que_pasa": "Cuándo y cómo empezó a notar la diferencia con el producto." },
+        { "momento": "Cómo está ahora + CTA", "que_pasa": "El deseo cumplido y la recomendación." }
+      ],
+      "gancho_ejemplo": "«Hace dos meses no podía subir la escalera sin parar.»"
+    },
+    {
+      "id": "objecion-primero",
+      "nombre": "La objeción primero",
+      "origen": "Combinación de Podcast y Reseña (para públicos escépticos)",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc", "hablado"],
+      "ideal_para": "Cuando la investigación muestra una objeción dominante (precio, «es estafa», «no funciona»).",
+      "consciencia": "consciente del producto, frenado por una objeción",
+      "de_la_investigacion": ["objeción principal", "prueba que la desarma", "garantía"],
+      "momentos": [
+        { "momento": "La objeción dicha en voz alta", "que_pasa": "Tal como la dice el cliente." },
+        { "momento": "Por qué es razonable pensarlo", "que_pasa": "Empatía: el mercado está lleno de promesas vacías." },
+        { "momento": "Lo que la desarma", "que_pasa": "Un hecho concreto del producto (garantía, ingrediente, dato real)." },
+        { "momento": "CTA sin riesgo", "que_pasa": "La oferta con su garantía real." }
+      ],
+      "gancho_ejemplo": "«“Otro suplemento más que no sirve.” Eso pensé yo.»"
+    },
+    {
+      "id": "comparacion-lado-a-lado",
+      "nombre": "Comparación lado a lado",
+      "origen": "Claymation y Crochet (ángulos portables)",
+      "familias": ["voz-en-off", "objeto-parlante", "ugc"],
+      "ideal_para": "Cuando la diferencia con la competencia se puede VER.",
+      "consciencia": "compara opciones",
+      "de_la_investigacion": ["competencia", "diferenciador principal"],
+      "momentos": [
+        { "momento": "Los dos", "que_pasa": "Lo de siempre y el producto, en la misma escena." },
+        { "momento": "La prueba visual", "que_pasa": "Una demostración donde se ve la diferencia (sin nombrar marcas ajenas)." },
+        { "momento": "Por qué", "que_pasa": "La razón concreta de la diferencia." },
+        { "momento": "CTA", "que_pasa": "La oferta." }
+      ],
+      "gancho_ejemplo": "«A la izquierda, lo que compras en el súper. A la derecha, esto.»"
+    }
+  ]
+}
