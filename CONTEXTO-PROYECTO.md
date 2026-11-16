@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16j` (archivo `VERSION`): imágenes de los videos con ChatGPT (rama `imagenes-video-chatgpt`).
-  Antes en `main`: `2026-11-16i` (PR #68 a #72).
+- **Versión actual:** `2026-11-16k` (archivo `VERSION`): guiones con la investigación y catálogo de estructuras.
+  Antes en `main`: `2026-11-16j` (PR #68 a #73).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +136,29 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Guiones con la investigación de mercado y estructuras entre estilos (2026-11-16, versión 2026-11-16k)
+
+Pedido: reforzar los prompts («en esqueleto siempre genera el mismo diseño»), alimentar estructuras desde lo que
+funciona, y que «un estilo pueda tener diferentes estructuras o usar las de otro». Elección de estructura (del
+usuario): la más adecuada para el caso: la de la referencia si es una variante; desde cero, la recomendada por la
+investigación (deseo, beneficio, dolores, objeciones) y el tipo de producto; sin investigación, con lo que haya.
+
+- Hallazgo: la tarea del guion de VIDEO no recibía la investigación de mercado (solo los anuncios de imagen).
+- `lib/estructuras.js`: `catalogo()` (`recursos/estructuras/catalogo.json`, 17 estructuras sacadas de las skills,
+  con `familias`, `ideal_para`, `consciencia`, `de_la_investigacion`, `momentos`, `gancho_ejemplo`; más las
+  aprendidas en `mis_archivos/estructuras/*.json`, que pueden reemplazar por id), `anterioresDelProducto()`,
+  `textoEstructuras()` y `textoInvestigacion()` (copia `aMarkdown` + competencia a `temp/<slug>/app/investigacion.md`,
+  que la IA no puede editar).
+- `anuncios-nuevos.js → promptGuion`: agrega la investigación y la estructura (no en cantados; con guion propio no
+  se elige; con referencia, «de-la-referencia»). `materialGuion` incluye `app/investigacion.md`.
+- `esquemas/guion.json`: `estructura { id, nombre, porque }` opcional. `estilos/skeleton.md`: no repetir variante,
+  escenario ni vestuario de los anteriores del producto.
+- Pruebas: humo completo 220/220; tarea armada con VitalDrops (investigación de 55.000 caracteres, 15 estructuras
+  para voz en off) y con un anuncio con guion propio (sin estructura, como corresponde).
+- **Pendiente (siguiente paso):** alimentar `mis_archivos/estructuras/` y las referencias de diseño por estilo desde
+  TrendTrack (botón en la app con la sesión de Claude del usuario, y subir videos/capturas), y desde esta sesión
+  cuando TrendTrack esté conectado aquí.
 
 ### Imágenes de los videos con ChatGPT (2026-11-16, versión 2026-11-16j)
 
