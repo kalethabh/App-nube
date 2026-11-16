@@ -60,7 +60,7 @@ const git = (args, timeout = 120000) =>
     });
     p.on('close', (codigo) => {
       clearTimeout(t);
-      ok({ ok: codigo === 0, salida: salida.trim() });
+      ok({ ok: codigo === 0, salida: salida.trim(), cruda: salida }); // cruda: sin recortar (git status -z)
     });
   });
 
@@ -80,10 +80,28 @@ function excluirGigantes(rutas) {
   if (nuevas.length) fs.appendFileSync(f, `${actual && !actual.endsWith('\n') ? '\n' : ''}${nuevas.map((r) => `/${r}`).join('\n')}\n`);
 }
 
+/**
+ * Las entradas de `git status --porcelain -z`: { estado, ruta }. Con -z git no entrecomilla ni escapa las rutas con
+ * tildes o espacios (antes «Aguaje Fórmula.mp4» llegaba como "Aguaje F\303\263rmula.mp4", el tamaño no se podía
+ * leer y el tope de 45 MB no se aplicaba). En un cambio de nombre, la ruta de origen viene en la entrada siguiente.
+ */
+export function entradasDeEstado(salida) {
+  const partes = String(salida || '').split('\0');
+  const entradas = [];
+  for (let i = 0; i < partes.length; i++) {
+    const p = partes[i];
+    if (p.length < 4) continue;
+    const estado = p.slice(0, 2);
+    entradas.push({ estado, ruta: p.slice(3) });
+    if (/[RC]/.test(estado)) i++; // se salta la ruta de origen del cambio de nombre
+  }
+  return entradas;
+}
+
 async function guardarEnGitHub() {
-  const st = await git(['status', '--porcelain', '-uall']);
+  const st = await git(['status', '--porcelain', '-uall', '-z']);
   if (!st.ok) return anotar({ github: { ok: false, mensaje: 'No pude leer el estado de git en esta carpeta.' } });
-  const lineas = st.salida.split('\n').filter(Boolean);
+  const lineas = entradasDeEstado(st.cruda);
   if (!lineas.length) {
     // nada nuevo, pero quizá quedó algo sin subir de la vuelta anterior
     const sinSubir = await git(['log', '--oneline', '@{u}..HEAD']);
@@ -91,8 +109,7 @@ async function guardarEnGitHub() {
     return;
   }
   const gigantes = [];
-  for (const l of lineas) {
-    const rel = l.slice(3).replace(/^"|"$/g, '').split(' -> ').pop();
+  for (const { ruta: rel } of lineas) {
     try {
       if (fs.statSync(path.join(RAIZ, rel)).size > TOPE_BYTES) gigantes.push(rel);
     } catch {
@@ -101,8 +118,11 @@ async function guardarEnGitHub() {
   }
   excluirGigantes(gigantes);
   if (!(await git(['add', '-A'])).ok) return anotar({ github: { ok: false, mensaje: 'git no pudo agregar los cambios.' } });
+  // .git/info/exclude solo frena archivos nuevos: uno que git ya seguía y creció de más igual entraba con add -A, y
+  // GitHub rechazaba el push en cada vuelta. Se lo saca de lo que se va a subir (queda la versión anterior).
+  if (gigantes.length) await git(['reset', '-q', '--', ...gigantes]);
   const conIdentidad = (await git(['config', 'user.email'])).ok ? [] : ['-c', 'user.name=Anuncios con IA', '-c', 'user.email=anuncios-con-ia@localhost'];
-  const borrados = lineas.filter((l) => /^ ?D/.test(l)).length;
+  const borrados = lineas.filter((l) => /^ ?D/.test(l.estado)).length;
   const partes = [lineas.length - borrados ? `${lineas.length - borrados} cambios` : '', borrados ? `${borrados} borrados` : ''].filter(Boolean);
   const msj = `Guardado automático: ${partes.join(', ')}`;
   const c = await git([...conIdentidad, 'commit', '-q', '-m', msj]);
@@ -117,7 +137,19 @@ async function empujar(msj = null) {
     const conIdentidad = (await git(['config', 'user.email'])).ok ? [] : ['-c', 'user.name=Kads Studio', '-c', 'user.email=kads-studio@localhost'];
     const j = await git([...conIdentidad, 'pull', '-q', '--no-rebase', '--no-edit'], 10 * 60000);
     if (j.ok) p = await git(['push', '-q'], 10 * 60000);
-    else await git(['merge', '--abort']);
+    else {
+      await git(['merge', '--abort']);
+      // Lo de aquí y lo de GitHub cambiaron el mismo archivo: no se junta solo (podría pisar algo tuyo). Se avisa claro
+      // en vez del mensaje genérico de «sin internet», y lo guardado sigue a salvo en este computador.
+      return anotar({
+        github: {
+          ok: false,
+          conflicto: true,
+          mensaje: 'Guardado en este computador, pero en GitHub hay cambios de otra máquina sobre los mismos archivos y no los junté solo para no pisar nada. Hace falta juntarlos a mano.',
+          detalle: j.salida.slice(-300),
+        },
+      });
+    }
   }
   anotar({
     github: p.ok
@@ -181,9 +213,14 @@ function hacerPortada(slug, archivos) {
 }
 
 /** Recupera usando la ubicación de cada pieza, incluso si cambió el destino después. */
+const trayendo = new Map(); // slug -> promesa: dos pedidos a la vez del mismo anuncio esperan la misma copia
 export function traerDeVuelta(slug) {
   marcarOcupado(slug);
-  return archivador.restaurar(slug);
+  if (!trayendo.has(slug)) {
+    // promesa: la copia desde Drive no traba la app
+    trayendo.set(slug, archivador.restaurarAsync(slug).finally(() => trayendo.delete(slug)));
+  }
+  return trayendo.get(slug);
 }
 
 export async function guardarAhora() {

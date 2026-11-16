@@ -52,6 +52,7 @@ import { limpiarAvisosDelPaso, notaDeAvisos } from '../avisos.js';
 import { brollDe } from '../broll.js';
 import { nombreIA, datosIA } from '../motor-ia.js';
 import { hojasDelManifiesto, contextosDe } from '../ia/material.js';
+import { CREDITOS_SUNO } from '../../../../produccion/config.js'; // la unica fuente del precio de Suno
 
 export const FAMILIA = 'musical';
 // "musical" es la clave del catalogo (estilos.js); "musicales" la del contrato de las familias.
@@ -69,7 +70,6 @@ export const VISUALES = {
   'zack-d-films': { skill: 'anuncios-zack-d-films', nombre: 'Zack D Films', material: 'animación 3D cinematográfica estilo Zack D Films (si parece foto real o dibujo plano, está mal)' },
 };
 
-const CREDITOS_SUNO = 12; // por generacion (2 versiones) y por cada extend (generar-musica.js, MUSICA.creditos)
 const TOPE_OTRAS_TANDAS = 2; // "ninguna me convence": dos tandas mas como mucho
 const TOPE_REESCRITURAS = 2; // Suno rechazo una palabra de la letra: Claude la cambia, dos veces como mucho
 const IMAGENES_POR_LOTE = 24; // la revision de imagenes va en sesiones de Claude de a este tanto (60-80 tomas no caben en una)

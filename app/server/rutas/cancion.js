@@ -13,11 +13,12 @@
 // veces. El audio se sirve por aca (y no por /archivos) porque mientras se elige todavía no hay manifiesto.
 // Los POST solo desde la propia app (una página cualquiera podría mandarle un POST a 127.0.0.1).
 import { PUERTO } from '../lib/rutas.js';
+import { origenesPermitidos } from '../lib/servidor.js';
 import { slugDeLaApp, leerConductor, continuar } from '../lib/conductor.js';
 import { costoDelAnuncio } from '../lib/costo-estimado.js';
 import { copiarModelosAlAnuncio } from '../lib/modelos.js';
 
-const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+const ORIGENES = origenesPermitidos(PUERTO); // el mismo chequeo en toda la app (lib/servidor.js), con el dominio del servidor si lo hay
 const CANTADOS = new Set(['musical', 'historia-musical']);
 const PASO_PAUSA = 'elegir-cancion'; // familias/musical.js, PASO_PAUSA
 

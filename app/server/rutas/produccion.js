@@ -31,13 +31,14 @@
 // es gastar plata.
 import path from 'node:path';
 import { TEMP, PUERTO } from '../lib/rutas.js';
+import { origenesPermitidos } from '../lib/servidor.js';
 import { leerJSON, listar, stat, existe, esImagen, esVideo, dentroDe } from '../lib/archivos.js';
 import { slugValido, urlAnuncio } from '../lib/anuncios.js';
 import { leerAvisos } from '../lib/avisos.js';
 import { nombreDeModelo, esModeloConDialogo } from '../lib/modelos.js';
 import { iniciarProduccion, continuar, detener, leerConductor, retomarTodo, slugDeLaApp, estadoDeLaFila, estadoCompleto, esperarFamilias, familiaDe, FAMILIAS } from '../lib/conductor.js';
 
-const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+const ORIGENES = origenesPermitidos(PUERTO); // el mismo chequeo en toda la app (lib/servidor.js), con el dominio del servidor si lo hay
 
 /** true si el pedido viene de la app (o de este equipo sin navegador). Si no, ya respondio 403. */
 function desdeLaApp(req, res) {

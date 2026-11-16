@@ -1,5 +1,6 @@
-# Claves — NUNCA se comparten
+# Claves — NUNCA se comparten (y sus temporales al guardarlas: .env.<n>.tmp)
 .env
+.env.*.tmp
 
 # Lo instalado (cada computador lo instala solo)
 node_modules/

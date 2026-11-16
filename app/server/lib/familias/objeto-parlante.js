@@ -60,6 +60,7 @@ import { nombreIA, prohibidasComunes } from '../motor-ia.js';
 import { hojasDelManifiesto } from '../ia/material.js';
 import { anotarAviso, limpiarAvisos, piezasConAviso, tieneAviso, notaDeAvisos } from '../avisos.js';
 import { esSubida } from '../subidos.js';
+import { CREDITOS_SUNO } from '../../../../produccion/config.js'; // la unica fuente del precio de Suno
 
 export const FAMILIA = 'objeto-parlante';
 export const ESTILOS = ['talking-object-pixar'];
@@ -266,7 +267,6 @@ async function validar(ctx) {
 
 // ---------------------------------------------------------------- 2. saldo
 
-const CREDITOS_SUNO = 12;
 const hayMusica = (carpeta) => listar(path.join(carpeta, 'musica')).some((n) => /\.(mp3|wav|m4a|ogg|flac)$/i.test(n));
 
 async function saldo(ctx) {

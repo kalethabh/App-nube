@@ -88,6 +88,38 @@ function turnoDeCreacion() {
  */
 export const ESPERAS_429_MS = [5000, 10000, 20000, 40000];
 
+/**
+ * Errores de red que ocurren ANTES de mandar el pedido (no hay conexion con kie): reintentar es seguro.
+ * Cualquier otro corte (la conexion se cayo, se agoto la espera de la respuesta) puede pasar despues de que kie
+ * recibio el pedido.
+ */
+const SIN_CONEXION = new Set(['ENOTFOUND', 'EAI_AGAIN', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'UND_ERR_CONNECT_TIMEOUT', 'CERT_HAS_EXPIRED', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE', 'SELF_SIGNED_CERT_IN_CHAIN', 'DEPTH_ZERO_SELF_SIGNED_CERT']);
+function noSeMando(e) {
+  const codigo = e?.cause?.code || e?.code;
+  return Boolean(codigo && SIN_CONEXION.has(codigo));
+}
+
+/**
+ * Creacion INCIERTA (revision 2026-11-16, iniciativa C-02): el pedido de crear la tarea pudo llegar a kie, pero la
+ * respuesta (con el taskId) se perdio. kie pudo haberla creado y la va a cobrar, y sin su taskId no hay forma de
+ * retomarla. Antes, la cascada lo contaba como un fallo comun y pedia otra: si la primera existia, se pagaban dos.
+ * Ahora sale con err.creacionIncierta y las cascadas cortan ese trabajo sin pedir otra (esCreacionIncierta): la
+ * decision de volver a pedirla es del usuario, despues de mirar en kie.ai si se creo.
+ */
+function errorCreacionIncierta(e, modelo) {
+  const err = new Error(
+    `Se perdio la respuesta de kie.ai al crear la tarea (${modelo}): ${String(e?.cause?.code || e?.message || e).split(/\r?\n/)[0]}\n` +
+      '  kie pudo haberla creado igual (y cobrarla). No se pidio otra, para no pagar dos veces.\n' +
+      '  Mira en kie.ai (Logs / historial) si aparece; si no esta, vuelve a correr el mismo comando.'
+  );
+  return marcar(err, { creacionIncierta: true, causa: e });
+}
+
+/** true si no se sabe si kie creo la tarea (la respuesta se perdio): ni reintento ni respaldo. */
+export function esCreacionIncierta(e) {
+  return Boolean(e?.creacionIncierta);
+}
+
 /** Crea una tarea y devuelve el taskId. */
 export async function crearTarea(modelo, input, { callBackUrl } = {}) {
   const cuerpo = { model: modelo, input };
@@ -105,9 +137,16 @@ export async function crearTarea(modelo, input, { callBackUrl } = {}) {
         body: JSON.stringify(cuerpo),
       });
       texto = await res.text();
+    } catch (e) {
+      // Sin conexion (no se llego a mandar nada): un error de siempre, reintentar no puede duplicar.
+      if (!res && noSeMando(e)) throw e;
+      // El pedido pudo llegar a kie y la respuesta se perdio: no se sabe si creo (y va a cobrar) la tarea.
+      throw errorCreacionIncierta(e, modelo);
     } finally {
       cerrarTurno();
     }
+    // Un 504 (el portal se canso de esperar a kie) tampoco dice si la tarea se creo detras.
+    if (res.status === 504) throw errorCreacionIncierta(new Error(`HTTP 504: ${String(texto).slice(0, 200)}`), modelo);
     let json = null;
     try {
       json = JSON.parse(texto);

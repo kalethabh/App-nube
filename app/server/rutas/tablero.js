@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { TEMP, OUTPUT, PUERTO } from '../lib/rutas.js';
+import { origenesPermitidos } from '../lib/servidor.js';
 import { leerJSON, listar, stat, segmentoValido, dentroDe, esImagen, esVideo, esAudio } from '../lib/archivos.js';
 import { listarAnuncios, resumenAnuncio, slugValido, tituloDeSlug, ultimaActividad, MINUTOS_ACTIVO } from '../lib/anuncios.js';
 import { listarAnunciosNuevos, motorDeSesion } from '../lib/anuncios-nuevos.js';
@@ -557,7 +558,7 @@ function abrirEnExplorador(abs, { marcar = false } = {}) {
 }
 
 // Solo pedidos de esta misma app: si el navegador dice de donde viene, tiene que ser de aca.
-const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+const ORIGENES = origenesPermitidos(PUERTO); // el mismo chequeo en toda la app (lib/servidor.js), con el dominio del servidor si lo hay
 
 export default function rutasTablero(app) {
   app.get('/api/tablero', (req, res) => {

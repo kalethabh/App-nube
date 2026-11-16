@@ -22,7 +22,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import readline from 'node:readline/promises';
 import { stdin, stdout } from 'node:process';
-import { KIE, ESTILOS_SIN_MUSICA, creditosAUsd, cargarEnv, requerirClave } from './config.js';
+import { KIE, ESTILOS_SIN_MUSICA, CREDITOS_SUNO, creditosAUsd, cargarEnv, requerirClave } from './config.js';
 import { descargar, consultarCreditos } from './kie-client.js';
 import { pistaFijaDe, pistasEn, esPistaFija, elegirPista, copiarPistaFija } from './pista-fija.js';
 
@@ -35,9 +35,12 @@ export const MUSICA = {
   // La API exige callBackUrl aunque uno vaya a hacer polling. Se manda una
   // direccion inerte: example.com esta reservado por IANA justo para esto.
   callbackInerte: 'https://example.com/callback',
-  creditos: 12, // https://kie.ai/pricing -> Suno, Generate Music
+  creditos: CREDITOS_SUNO, // https://kie.ai/pricing -> Suno, Generate Music (produccion/config.js)
   extensiones: ['.mp3', '.wav', '.m4a', '.ogg', '.flac'],
 };
+
+// Cuanto se aguanta seguido sin una respuesta valida de kie antes de rendirse (la tarea sigue pagada en kie).
+const FALLOS_PASAJEROS_MS = 3 * 60 * 1000;
 
 const ESTADOS_FALLO = ['CREATE_TASK_FAILED', 'GENERATE_AUDIO_FAILED', 'CALLBACK_EXCEPTION', 'SENSITIVE_WORD_ERROR'];
 
@@ -46,16 +49,33 @@ export async function esperarMusica(taskId, { timeoutMs = 10 * 60 * 1000 } = {})
   const inicio = Date.now();
   let espera = 4000;
   let ultimo = null;
+  let sinRespuestaDesde = null;
 
   while (true) {
     if (Date.now() - inicio > timeoutMs) throw new Error(`Timeout esperando la musica (tarea ${taskId}).`);
 
-    const res = await fetch(`${KIE.base}${MUSICA.consulta}?taskId=${encodeURIComponent(taskId)}`, {
-      headers: { Authorization: `Bearer ${requerirClave('KIE_API_KEY', 'https://kie.ai/api-key')}` },
-    });
-    const json = await res.json();
+    // Un corte de internet o una respuesta rara de kie (HTML de un 502, JSON sin datos) NO es un fallo de la tarea:
+    // la cancion ya esta pagada y Suno sigue trabajando. Antes eso cortaba la espera y, al volver a correr, se pagaba
+    // otra. Ahora se tolera hasta FALLOS_PASAJEROS_MS seguidos, como en kie-client (esperarTarea).
+    let json = null;
+    try {
+      const res = await fetch(`${KIE.base}${MUSICA.consulta}?taskId=${encodeURIComponent(taskId)}`, {
+        headers: { Authorization: `Bearer ${requerirClave('KIE_API_KEY', 'https://kie.ai/api-key')}` },
+      });
+      json = await res.json();
+    } catch (e) {
+      json = { _pasajero: String(e?.message || e) };
+    }
     const datos = json?.data;
-    if (!datos) throw new Error(`kie.ai no devolvio datos de la tarea de musica: ${JSON.stringify(json).slice(0, 200)}`);
+    if (!datos) {
+      sinRespuestaDesde ??= Date.now();
+      if (Date.now() - sinRespuestaDesde > FALLOS_PASAJEROS_MS) {
+        throw new Error(`kie.ai no devolvio datos de la tarea de musica ${taskId} durante ${Math.round(FALLOS_PASAJEROS_MS / 60000)} min: ${JSON.stringify(json).slice(0, 200)}`);
+      }
+      await new Promise((r) => setTimeout(r, espera));
+      continue;
+    }
+    sinRespuestaDesde = null;
 
     if (datos.status !== ultimo) {
       ultimo = datos.status;

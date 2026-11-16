@@ -124,7 +124,7 @@ import {
   cargarEnv,
   requerirClave,
 } from './config.js';
-import { generarVideo, subirArchivo, consultarCreditos, clasificarFallo, esSigueEnKie, esPagadaSinBajar } from './kie-client.js';
+import { generarVideo, subirArchivo, consultarCreditos, clasificarFallo, esSigueEnKie, esPagadaSinBajar, esCreacionIncierta } from './kie-client.js';
 import { validarManifiesto } from './validar-manifiesto.js';
 import {
   tomaDelBroll,
@@ -1033,6 +1033,8 @@ async function generarConCascada(trabajo, ctx, log) {
         // respaldo (los dos crearian otra tarea).
         if (esSigueEnKie(e)) throw errorSigueEnKie(trabajo, e, ctx);
         if (esPagadaSinBajar(e)) throw errorPagadaSinBajar(trabajo, e, ctx);
+        // Se perdio la respuesta al crear: kie pudo crearla (y cobrarla). Otro intento o el respaldo pagarian dos.
+        if (esCreacionIncierta(e)) throw Object.assign(e, { message: `${trabajo.descripcion}: ${e.message}`, trabajo, claseFallo: 'creacion-incierta' });
         const quedan = REINTENTOS - intento;
         if (esH) {
           // Toma hablada: misma lectura del fallo que en un bloque R.
@@ -1383,6 +1385,8 @@ export async function generarBloqueR(trabajo, ctx, log) {
         // Sigue en kie, o termino y no se pudo bajar: otro intento crearia otra tarea igual.
         if (esSigueEnKie(e)) throw errorSigueEnKie(trabajo, e, ctx);
         if (esPagadaSinBajar(e)) throw errorPagadaSinBajar(trabajo, e, ctx);
+        // Se perdio la respuesta al crear: kie pudo crearla (y cobrarla). Otro intento o el respaldo pagarian dos.
+        if (esCreacionIncierta(e)) throw Object.assign(e, { message: `${trabajo.descripcion}: ${e.message}`, trabajo, claseFallo: 'creacion-incierta' });
         fallos.push(e);
         const clase = clasificarFalloR(e);
         const quedan = REINTENTOS - intento;

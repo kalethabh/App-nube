@@ -827,6 +827,10 @@ export const ADAPTADORES_IMAGEN = {
  * El costo real de cada tarea llega en "creditsConsumed" al consultarla, asi
  * que lo que se reporta al final del proceso es el gasto real, no el estimado.
  */
+/** Suno (kie.ai -> Suno, Generate Music): por generacion (las 2 versiones) y por cada extend. La UNICA fuente de este
+ *  precio: generar-musica.js, generar-cancion.js, estimar-costo.js y la app (lib/gasto.js, lib/familias/) lo leen de aqui. */
+export const CREDITOS_SUNO = 12;
+
 export const PRECIOS = {
   consultado: '2026-11-07',
   usdPorCredito: 0.005, // 168 creditos = US$0.84 en toda la tabla
@@ -861,8 +865,14 @@ export const creditosAUsd = (creditos) => creditos * PRECIOS.usdPorCredito;
  * marcha por cuenta. Lo que frena es lo primero, y eso lo cuida
  * LIMITE_CREACIONES (abajo), no estos numeros.
  */
-export const CONCURRENCIA = 12;
-export const CONCURRENCIA_VIDEO = 10; // los videos pesan mas y tardan mas
+// Se pueden bajar (o subir) en el .env con CONCURRENCIA_IMAGENES y CONCURRENCIA_VIDEOS, de 1 a 20; un valor que no
+// sea un numero en ese rango se ignora y queda el de siempre. (COMO-PRODUCIR 14.4 ya lo prometia y no se leia.)
+const numeroDelEnv = (nombre, porDefecto) => {
+  const v = Number(textoDelEnv(nombre, '', Array.from({ length: 20 }, (_, i) => String(i + 1))));
+  return Number.isInteger(v) && v >= 1 && v <= 20 ? v : porDefecto;
+};
+export const CONCURRENCIA = numeroDelEnv('CONCURRENCIA_IMAGENES', 12);
+export const CONCURRENCIA_VIDEO = numeroDelEnv('CONCURRENCIA_VIDEOS', 10); // los videos pesan mas y tardan mas
 
 /**
  * ESPERA DE UNA TAREA: AVISO y TOPE (opcion segura de Diego, 2026-10-24).

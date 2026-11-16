@@ -64,6 +64,7 @@ import { nombreIA, prohibidasComunes } from '../motor-ia.js';
 import { anotarAviso, limpiarAvisos, limpiarAvisosDelPaso, notaDeAvisos, piezasConAviso } from '../avisos.js';
 import { esSubida } from '../subidos.js';
 import { hojasDelManifiesto } from '../ia/material.js';
+import { CREDITOS_SUNO } from '../../../../produccion/config.js'; // la unica fuente del precio de Suno
 
 export const FAMILIA = 'ugc';
 export const ESTILOS = ['ugc'];
@@ -90,7 +91,6 @@ function creditosDeGancho(ctx, segundos) {
   const cascada = cascadaVideo(eleccionDeCarpeta(ctx.carpeta), 'ugc', { referencias: true });
   return (creditosDeCascada(cascada, Number(segundos) || 10) || creditosDeCascada(cascada, 10))?.primero ?? 126;
 }
-const CREDITOS_SUNO = 12;
 
 // ---------------------------------------------------------------- utilidades
 

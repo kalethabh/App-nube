@@ -22,6 +22,7 @@ import fs from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { Transform } from 'node:stream';
 import { HOST, PUERTO } from '../lib/rutas.js';
+import { origenesPermitidos } from '../lib/servidor.js';
 import {
   ErrorActualizar,
   aplicarActualizacion,
@@ -41,7 +42,7 @@ import { ultimaPublicada, bajarPaquete, avance, esMasNueva } from '../lib/actual
 
 const TOPE_BYTES = 4 * 1024 * 1024 * 1024 - 1; // un zip sin zip64 no pasa de 4 GB
 const TIPOS = /^(application\/(zip|x-zip|x-zip-compressed|octet-stream))(\s*;.*)?$/i;
-const ORIGENES = new Set([`http://${HOST}:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+const ORIGENES = origenesPermitidos(PUERTO); // el mismo chequeo en toda la app (lib/servidor.js), con el dominio del servidor si lo hay
 
 function permitido(req) {
   if (!TIPOS.test(String(req.headers['content-type'] || ''))) {

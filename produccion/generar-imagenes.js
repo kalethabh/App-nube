@@ -73,7 +73,7 @@ import {
   cargarEnv,
   requerirClave,
 } from './config.js';
-import { generarImagen, subirArchivo, consultarCreditos, esSigueEnKie, esPagadaSinBajar, clasificarFallo } from './kie-client.js';
+import { generarImagen, subirArchivo, consultarCreditos, esSigueEnKie, esPagadaSinBajar, esCreacionIncierta, clasificarFallo } from './kie-client.js';
 import { validarManifiesto } from './validar-manifiesto.js';
 import {
   listaDeReferencias,
@@ -936,6 +936,8 @@ async function generarConCascada(trabajo, ctx, log) {
       } catch (e) {
         if (esSigueEnKie(e)) throw errorSigueEnKie(trabajo, e);
         if (esPagadaSinBajar(e)) throw errorPagadaSinBajar(trabajo, e, ctx);
+        // Se perdio la respuesta al crear: kie pudo crearla (y cobrarla). Otro intento o el respaldo pagarian dos.
+        if (esCreacionIncierta(e)) throw Object.assign(e, { message: `${trabajo.descripcion}: ${e.message}`, trabajo, claseFallo: 'creacion-incierta' });
         fallos.push(e.message);
         ultimaClase = clasificarFallo(e);
         if (ultimaClase === 'contenido') {

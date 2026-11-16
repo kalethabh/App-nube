@@ -260,32 +260,69 @@ export function crearArchivador({ temp, output, ocupado = () => false, guardarMa
     return resumen;
   }
 
+  /** Dónde está guardada una pieza y adónde vuelve; null si ya hay una copia local (se conserva). Lanza si no es válida. */
+  function ubicar(m, slug, rel, final) {
+    if (!relativo(rel) || !MEDIO.test(rel) || (final && path.basename(rel) !== rel)) throw new Error('Pieza no válida.');
+    const ubicacion = (final ? m.ubicacionesFinales : m.ubicaciones)?.[rel];
+    let desde = ubicacion?.archivo;
+    if (!desde) {
+      if (typeof m.carpeta !== 'string' || !path.isAbsolute(m.carpeta)) throw new Error('El registro no tiene una carpeta válida.');
+      desde = final ? path.join(path.dirname(m.carpeta), 'videos-finales', rel) : path.join(m.carpeta, ...rel.split('/'));
+    }
+    // Solo recuperar medios con su nombre original: una marca inválida no
+    // puede convertir otro archivo (por ejemplo .env) en una imagen pública.
+    if (typeof desde !== 'string' || !path.isAbsolute(desde) || path.basename(desde) !== path.posix.basename(rel) || !MEDIO.test(desde)) throw new Error('El registro de ese archivo no es válido.');
+    const a = path.join(final ? output : path.join(temp, slug), ...rel.split('/'));
+    if (fs.existsSync(a)) return null;
+    return { desde, a, ubicacion, raiz: final ? output : path.join(temp, slug) };
+  }
+
+  /** Revisa la marca de un anuncio; devuelve el error de registro o null. */
+  function marcaInvalida(m) {
+    return typeof m !== 'object' || Array.isArray(m) || (m.archivos !== undefined && !Array.isArray(m.archivos)) || (m.finales !== undefined && !Array.isArray(m.finales));
+  }
+
+  const mensajeFallo = (faltan) => ({ ok: false, faltan, mensaje: `No pude recuperar ${faltan.length} archivo(s). Revisa que la carpeta guardada esté disponible y que Drive esté abierto, y vuelve a intentarlo.` });
+
+  /**
+   * restaurar() sin trabar la app: la huella y la copia van por partes. Antes, abrir el editor de un anuncio guardado
+   * en Drive calculaba el sha256 y copiaba cada video dentro del mismo pedido, y la app dejaba de responder mientras
+   * tanto (con videos largos, minutos). Mismas revisiones que restaurar().
+   */
+  async function restaurarAsync(slug) {
+    const m = marca(slug);
+    if (!m) return { ok: true, nada: true };
+    const faltan = [];
+    if (marcaInvalida(m)) return mensajeFallo(['registro de archivos']);
+    try { fs.mkdirSync(output, { recursive: true }); } catch { return mensajeFallo(['carpeta de videos terminados']); }
+    const piezas = [...(m.archivos || []).map((rel) => [rel, false]), ...(m.finales || []).map((rel) => [rel, true])];
+    for (const [rel, final] of piezas) {
+      try {
+        const r = ubicar(m, slug, rel, final);
+        if (!r) continue;
+        if (r.ubicacion?.sha256 && !igual(r.ubicacion, await huellaAsync(r.desde))) throw new Error('La copia guardada cambió.');
+        if (copiar) copiar(r.desde, r.a, { raiz: r.raiz });
+        else await copiarVerificadoAsync(r.desde, r.a, { raiz: r.raiz });
+      } catch { faltan.push(String(rel)); }
+    }
+    if (faltan.length) return mensajeFallo(faltan);
+    fs.rmSync(rutaMarca(slug), { force: true });
+    return { ok: true };
+  }
+
   function restaurar(slug) {
     const m = marca(slug);
     if (!m) return { ok: true, nada: true };
     const faltan = [];
-    const fallo = () => ({ ok: false, faltan, mensaje: `No pude recuperar ${faltan.length} archivo(s). Revisa que la carpeta guardada esté disponible y que Drive esté abierto, y vuelve a intentarlo.` });
-    if (typeof m !== 'object' || Array.isArray(m) || (m.archivos !== undefined && !Array.isArray(m.archivos)) || (m.finales !== undefined && !Array.isArray(m.finales))) {
-      faltan.push('registro de archivos');
-      return fallo();
-    }
+    const fallo = () => mensajeFallo(faltan);
+    if (marcaInvalida(m)) return mensajeFallo(['registro de archivos']);
     const traer = (rel, final) => {
-      if (!relativo(rel) || !MEDIO.test(rel) || (final && path.basename(rel) !== rel)) { faltan.push(String(rel)); return; }
       try {
-        const ubicacion = (final ? m.ubicacionesFinales : m.ubicaciones)?.[rel];
-        let desde = ubicacion?.archivo;
-        if (!desde) {
-          if (typeof m.carpeta !== 'string' || !path.isAbsolute(m.carpeta)) throw new Error('El registro no tiene una carpeta válida.');
-          desde = final ? path.join(path.dirname(m.carpeta), 'videos-finales', rel) : path.join(m.carpeta, ...rel.split('/'));
-        }
-        // Solo recuperar medios con su nombre original: una marca inválida no
-        // puede convertir otro archivo (por ejemplo .env) en una imagen pública.
-        if (typeof desde !== 'string' || !path.isAbsolute(desde) || path.basename(desde) !== path.posix.basename(rel) || !MEDIO.test(desde)) throw new Error('El registro de ese archivo no es válido.');
-        const a = path.join(final ? output : path.join(temp, slug), ...rel.split('/'));
-        if (fs.existsSync(a)) return; // Conservar una edición local posterior.
-        if (ubicacion?.sha256 && !igual(ubicacion, huella(desde))) throw new Error('La copia guardada cambió.');
-        (copiar || copiarVerificado)(desde, a, { raiz: final ? output : path.join(temp, slug) });
-      } catch { faltan.push(rel); }
+        const r = ubicar(m, slug, rel, final);
+        if (!r) return; // Conservar una edición local posterior.
+        if (r.ubicacion?.sha256 && !igual(r.ubicacion, huella(r.desde))) throw new Error('La copia guardada cambió.');
+        (copiar || copiarVerificado)(r.desde, r.a, { raiz: r.raiz });
+      } catch { faltan.push(String(rel)); }
     };
     try { fs.mkdirSync(output, { recursive: true }); } catch { faltan.push('carpeta de videos terminados'); return fallo(); }
     for (const rel of m.archivos || []) traer(rel, false);
@@ -294,5 +331,5 @@ export function crearArchivador({ temp, output, ocupado = () => false, guardarMa
     fs.rmSync(rutaMarca(slug), { force: true });
     return { ok: true };
   }
-  return { marca, respaldar, restaurar };
+  return { marca, respaldar, restaurar, restaurarAsync };
 }

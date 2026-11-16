@@ -11,12 +11,12 @@ const SLUG = /^[a-z0-9][a-z0-9-]{2,160}$/;
 const NECESITAN_ARCHIVOS = /^(edicion|exportar|rehacer)$/;
 
 export default function rutasNube(app) {
-  app.use('/api/anuncios/:slug/:accion', (req, res, next) => {
+  app.use('/api/anuncios/:slug/:accion', async (req, res, next) => {
     const { slug, accion } = req.params;
     if (!SLUG.test(slug) || !(NECESITAN_ARCHIVOS.test(accion) || (accion === 'ganchos' && req.method === 'POST'))) return next();
     marcarOcupado(slug);
     if (!marcaNube(slug)) return next();
-    const r = traerDeVuelta(slug);
+    const r = await traerDeVuelta(slug);
     if (!r.ok) return res.status(409).json({ error: r.mensaje });
     next();
   });
@@ -24,9 +24,9 @@ export default function rutasNube(app) {
     const m = SLUG.test(req.params.slug) ? marcaNube(req.params.slug) : null;
     res.set('Cache-Control', 'no-store').json({ enLaNube: Boolean(m), archivos: (m?.archivos?.length || 0) + (m?.finales?.length || 0) });
   });
-  app.post('/api/anuncios/:slug/nube/traer', soloDesdeLaApp, (req, res) => {
+  app.post('/api/anuncios/:slug/nube/traer', soloDesdeLaApp, async (req, res) => {
     if (!SLUG.test(req.params.slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
-    const r = traerDeVuelta(req.params.slug);
+    const r = await traerDeVuelta(req.params.slug);
     if (!r.ok) return res.status(409).json({ error: r.mensaje });
     res.json({ ok: true });
   });
