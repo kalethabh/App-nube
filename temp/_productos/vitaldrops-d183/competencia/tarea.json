@@ -1,27 +1,23 @@
 {
   "id": "050709ec-1d38-454b-bab0-c8707f43781e",
   "uuid": "050709ec-1d38-454b-bab0-c8707f43781e",
-  "estado": "error",
+  "estado": "lista",
   "enlace": "AMUA VITALDROP",
   "producto": "VITALDROPS",
   "pais": "COLOMBIA",
   "brandtracker": false,
   "progreso": [
-    "Claude está en pausa hasta que se renueve tu plan"
+    "Claude está investigando a tu competencia en TrendTrack",
+    "Buscando en los archivos"
   ],
-  "intentos": 5,
-  "inicio": "2026-11-16T15:29:12.454Z",
-  "error": {
-    "mensaje": "Se acabó por ahora el uso de tu plan de Claude. Toca \"Reintentar\" cuando se renueve (a las 11:51): lo ya hecho no se repite.",
-    "tipo": "limite",
-    "motor": "claude"
-  },
-  "fin": "2026-11-16T15:29:12.455Z",
+  "intentos": 6,
+  "inicio": "2026-11-16T15:54:44.327Z",
+  "error": null,
+  "fin": "2026-11-16T15:54:48.847Z",
   "medida": {
-    "turnos": 0,
-    "duracionMs": 0,
+    "turnos": 2,
+    "duracionMs": 4505,
     "motor": "claude"
   },
-  "limite": true,
-  "actualizado": "2026-11-16T15:29:12.456Z"
+  "actualizado": "2026-11-16T15:54:48.848Z"
 }
