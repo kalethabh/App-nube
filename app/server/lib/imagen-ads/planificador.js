@@ -634,7 +634,7 @@ export function aplicarAjuste(est, id, json) {
  * espera al plan). `piezas`: las de una tanda de revision o las que esperan revision; `tanda`: la tanda que no se pudo
  * correr (queda 'sin-plan' y no se vuelve a correr). Devuelve las piezas que quedaron «sin revisar».
  */
-export function dejarSinRevisar(est, piezas, { tanda = null, mensaje = null } = {}) {
+export function dejarSinRevisar(est, piezas, { tanda = null, mensaje = null, resultado = 'sin-revisar' } = {}) {
   const hechas = [];
   for (const id of piezas) {
     const p = est.piezas[id];
@@ -642,7 +642,8 @@ export function dejarSinRevisar(est, piezas, { tanda = null, mensaje = null } = 
     if (tanda && p.fase === 'revisando' && p.tandaRevision !== tanda) continue;
     delete p.tandaRevision;
     p.fase = 'final';
-    p.resultado = 'sin-revisar';
+    // (el modo rápido no lleva revisión de la IA: sus imágenes quedan «listo» apenas salen)
+    p.resultado = resultado === 'listo' ? 'listo' : 'sin-revisar';
     p.mensaje = mensaje || null;
     hechas.push(id);
   }

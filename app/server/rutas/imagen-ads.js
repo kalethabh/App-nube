@@ -190,6 +190,14 @@ export default function rutasImagenAds(app) {
   // ------------------------------------------------------------ tu biblioteca de referencias
   app.get('/api/imagen-ads/biblioteca', (req, res) => res.set('Cache-Control', 'no-store').json({ referencias: biblioteca.listar() }));
 
+  // las referencias de tendencia (TrendTrack, mis_archivos/referencias-tendencia/): para elegir como cualquier otra
+  app.get('/api/imagen-ads/tendencias', (req, res) => res.set('Cache-Control', 'no-store').json(biblioteca.listarTendencias()));
+  app.get('/api/imagen-ads/tendencias/:categoria/:archivo', (req, res) => {
+    const abs = biblioteca.rutaTendencia(req.params.categoria, req.params.archivo);
+    if (!abs) return res.status(404).json({ error: 'No encuentro esa referencia.' });
+    res.set({ 'Cache-Control': 'private, max-age=86400', 'X-Content-Type-Options': 'nosniff' }).type('image/jpeg').sendFile(abs);
+  });
+
   app.post('/api/imagen-ads/biblioteca', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
     const bytes = Buffer.isBuffer(req.body) ? req.body : null;
     if (!bytes?.length) throw new ErrorApp(400, 'No llegó ninguna imagen.');

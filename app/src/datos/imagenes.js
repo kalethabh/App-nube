@@ -32,6 +32,8 @@ export const apiImagenes = {
   quitarInvestigacion: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/investigacion`, { metodo: 'DELETE' }),
   /** Tu biblioteca de referencias: { referencias: [{ id, url, miniatura, fecha }] } */
   biblioteca: () => pedirNuevo(`${BASE}/biblioteca`),
+  // los creativos de tendencia (TrendTrack): solo lectura, se eligen como cualquier referencia
+  tendencias: () => pedirNuevo(`${BASE}/tendencias`),
   quitarDeBiblioteca: (id) => pedirNuevo(`${BASE}/biblioteca/${enc(id)}`, { metodo: 'DELETE' }),
   /** -> { url, ancho, alto, transparente }. En un lote ya generado cambia el archivo y rehace las imágenes con logo. */
   subirLogo: (lote, archivo) => pedirNuevo(`${BASE}/${enc(lote)}/logo`, { metodo: 'PUT', binario: archivo }),
