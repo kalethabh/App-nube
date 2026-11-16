@@ -15,6 +15,7 @@ import { spawn } from 'node:child_process';
 import { RAIZ, APP } from './rutas.js';
 import { guardarAhora } from './guardado.js';
 import { EN_SERVIDOR } from './servidor.js';
+import { interfazVieja, rearmarInterfaz } from './interfaz.js';
 
 function correr(cmd, args, { cwd = RAIZ, ms = 180000 } = {}) {
   return new Promise((ok) => {
@@ -58,7 +59,7 @@ export async function revisar() {
   const [adelantados, atrasados] = cuenta.ok ? cuenta.salida.split(/\s+/).map(Number) : [0, 0];
   const u = await git(['log', '-1', '--format=%s%x1f%cI', `origin/${r}`]);
   const [titulo, fecha] = u.ok ? u.salida.split('\x1f') : [];
-  return { repositorio: true, rama: r, atrasados: atrasados || 0, adelantados: adelantados || 0, ultimo: titulo ? { titulo, fecha } : null };
+  return { repositorio: true, rama: r, atrasados: atrasados || 0, adelantados: adelantados || 0, ultimo: titulo ? { titulo, fecha } : null, pantallaSinArmar: interfazVieja() };
 }
 
 /** Baja lo último. Nunca corren dos a la vez. */
@@ -68,7 +69,16 @@ export async function actualizar() {
   try {
     const antes = await revisar();
     if (antes.error) return { ok: false, mensaje: antes.error };
-    if (!antes.atrasados) return { ok: true, cambios: 0, reabrir: false, mensaje: 'Ya tienes lo último: no hay nada nuevo en GitHub.' };
+    if (!antes.atrasados) {
+      // lo nuevo ya bajó (el guardado automático junta lo de GitHub) pero la pantalla quedó sin armar
+      if (interfazVieja()) {
+        const bien = await rearmarInterfaz();
+        return bien
+          ? { ok: true, cambios: 0, reabrir: false, recargar: true, mensaje: 'Ya tenías lo último, pero faltaba armar la pantalla nueva. Listo: recarga la página para verla.' }
+          : { ok: false, mensaje: 'No pude armar la pantalla nueva. Cierra la ventana de la app y vuelve a abrirla: el lanzador la arma solo.' };
+      }
+      return { ok: true, cambios: 0, reabrir: false, mensaje: 'Ya tienes lo último: no hay nada nuevo en GitHub.' };
+    }
 
     // lo tuyo primero (guiones, ajustes, aprendizajes…): así no choca con lo que baja
     await guardarAhora();
@@ -86,7 +96,7 @@ export async function actualizar() {
     if (cambiados.some((f) => f === 'remotion/package-lock.json' || f === 'remotion/package.json')) await correr('npm', ['install', '--no-audit', '--no-fund'], { cwd: path.join(RAIZ, 'remotion'), ms: 600000 });
     let interfaz = true;
     if (cambiados.some((f) => f.startsWith('app/src/') || f === 'app/index.html' || f.startsWith('app/public/') || f.startsWith('app/vite'))) {
-      interfaz = (await correr('npm', ['run', 'build'], { cwd: APP, ms: 300000 })).ok;
+      interfaz = await rearmarInterfaz();
     }
     // el servidor que corre es el de antes: lo nuevo del servidor o del motor se usa al volver a abrir la app
     const reabrir = cambiados.some((f) => f.startsWith('app/server/') || f.startsWith('produccion/') || f.startsWith('app/inicio/') || /^app\/package/.test(f));

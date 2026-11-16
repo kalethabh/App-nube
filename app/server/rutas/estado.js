@@ -1,4 +1,5 @@
 import { desactualizado, motivoParaNoReiniciar, pedirReinicio, reinicioPedido } from '../lib/version.js';
+import { estadoInterfaz } from '../lib/interfaz.js';
 import { soloDesdeLaApp } from '../lib/productos.js';
 // GET /api/estado -> si estan las claves (si/no, NUNCA el valor), el programa de la IA elegida y los modelos que usa
 //                    el motor:
@@ -166,7 +167,7 @@ export default function rutasEstado(app) {
       // las pastillas de Conexiones: los modelos elegidos en Ajustes › Modelos (el catalogo + la eleccion)
       modelos: modelosParaConexiones(),
       modoPrueba: modoPruebaParaLaPantalla(),
-      servidor: { desactualizado: desactualizado(), ocupado: motivoParaNoReiniciar(), reinicioPedido: reinicioPedido() },
+      servidor: { desactualizado: desactualizado(), ocupado: motivoParaNoReiniciar(), reinicioPedido: reinicioPedido(), interfaz: estadoInterfaz() },
     });
   });
   app.post('/api/reiniciar', soloDesdeLaApp, (req, res) => {
