@@ -203,9 +203,386 @@
           "**Que le alcance.** Precio por debajo de las gotas importadas y con mejor trato que las gomitas."
         ] }
       ]
+    },
+    {
+      "titulo": "Los 5 resultados deseados",
+      "bloques": [
+        { "tipo": "numerada", "items": [
+          "**Verse con curvas.** Llenar el jean, tener caderas y cola, que la ropa horme. Es el resultado número uno y el que no puedes prometer de forma directa.",
+          "**Lograrlo de forma natural.** Sin cirugía, sin inyecciones, sin riesgos que la asusten.",
+          "**Comer con ganas y tener energía.** Dejar de saltarse comidas y tener fuerzas para entrenar.",
+          "**Sentirse segura.** Ponerse el vestido de baño, tomarse fotos, dejar de oír que está muy flaca.",
+          "**No volver a botar la plata.** Comprar algo honesto, recibirlo primero y pagar después."
+        ] }
+      ]
+    },
+    {
+      "titulo": "Tiempos de transformación",
+      "bloques": [
+        { "tipo": "parrafo", "texto": "Son experiencias que reportan algunas personas, no garantías. Los resultados varían de una mujer a otra." },
+        { "tipo": "tabla", "columnas": ["Prioridad", "Qué notan", "Cuándo", "De dónde sale"], "filas": [
+          ["1", "Más energía y cabeza más despejada", "Primeros días a dos semanas", "Reseñas públicas de la tienda oficial"],
+          ["2", "Más ganas de comer", "Primeras semanas", "Testimonios de la marca, sin verificar"],
+          ["3", "Días más tranquilos, mejor manejo del estrés", "De dos a ocho semanas", "Referencia general de estudios de ashwagandha, con dosis que no sabemos si el frasco trae"],
+          ["4", "Hábito instalado: come mejor y entrena con más constancia", "Desde el primer mes", "Estimación"],
+          ["5", "Cambios visibles en el cuerpo", "Sin dato confirmado. Depende de la comida y el ejercicio, y se mide en meses.", "No hay estudios del producto. Hay reseñas que dicen no haber visto cambios a los dos meses."]
+        ], "nota": "Para los anuncios usa solo «desde las primeras semanas» y siempre ligado a energía y apetito, no a medidas del cuerpo.", "estilo": "normal" }
+      ]
+    },
+    {
+      "titulo": "Avatar principal",
+      "bloques": [
+        { "tipo": "caja", "estilo": "avatar", "titulo": "Yuliana, la flaca que come y come y no le sale cola", "texto": "Tiene 26 años, trabaja todo el día y lleva años oyendo que le falta carnita. Quiere curvas, pero le tiene pavor al quirófano.", "items": [], "pie": "" },
+        { "tipo": "tabla", "columnas": ["Dato", "Yuliana"], "filas": [
+          ["Edad", "20 a 34 años (centro: 26)"],
+          ["Sexo", "Mujer"],
+          ["Ciudades", "Medellín, Cali, Barranquilla, Bogotá, Pereira, Bucaramanga, Cúcuta y municipios cercanos"],
+          ["Estrato", "2 y 3, algo de 4"],
+          ["Estado civil", "Soltera o con pareja"],
+          ["Hijos", "Sin hijos o con uno pequeño (si está lactando, no puede tomarlo)"],
+          ["Ocupación", "Asesora comercial, call center, estilista, manicurista, auxiliar administrativa, estudiante que trabaja"],
+          ["Ingresos", "Entre uno y dos salarios mínimos (estimación)"],
+          ["Educación", "Bachiller, técnica o tecnóloga; algunas en universidad"],
+          ["Hábitos y momento de vida", "Desayuna a las carreras, almuerza poco, a veces va al gimnasio. Vive pegada al celular. Quiere verse bien para diciembre, para un paseo o para una relación."],
+          ["Historial", "Ha probado gomitas, pastillas de maca, batidos o remedios caseros. Poco resultado."],
+          ["Medios", "TikTok, Instagram, Facebook y estados de WhatsApp. Sigue a creadoras de gimnasio y de belleza."],
+          ["Cómo compra", "Ve el anuncio, escribe por WhatsApp, pregunta mucho, pide pagar al recibir. Compra en quincena."]
+        ], "nota": "Perfil armado con lo que la marca vende, las búsquedas en Mercado Libre y el contexto del país. Ajústalo con tus primeras ventas.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "El dolor que no la deja dormir" },
+        { "tipo": "cita", "estilo": "dolor", "texto": "Me miro al espejo y sigo igual de flaca. Como, entreno, compro cosas, y nada me cambia. Y operarme me da terror." },
+        { "tipo": "subtitulo", "texto": "Puntos de dolor" },
+        { "tipo": "vinetas", "items": [
+          "La ropa no le horma: el jean le queda suelto en la cola y apretado en la cintura.",
+          "Los comentarios: «tan flaquita», «¿sí está comiendo?», «parece una tabla».",
+          "Se compara con las mujeres que ve en redes y con sus amigas.",
+          "No le da hambre, se le olvida comer o se llena muy rápido.",
+          "Llega cansada y sin ganas de entrenar.",
+          "Evita la piscina y las fotos de cuerpo entero."
+        ] },
+        { "tipo": "subtitulo", "texto": "Puntos débiles y objeciones" },
+        { "tipo": "vinetas", "items": [
+          "«¿Eso sí sirve o es puro cuento?»",
+          "«¿Y si me engorda la barriga y no la cola?» No prometas a dónde va el peso: nadie puede.",
+          "«¿Tiene INVIMA?»",
+          "«¿Eso no me daña las hormonas?»",
+          "«¿Y si lo dejo de tomar?»",
+          "«Ya me tumbaron una vez comprando por internet.»",
+          "«¿A qué sabe?»"
+        ] },
+        { "tipo": "subtitulo", "texto": "Motivaciones" },
+        { "tipo": "vinetas", "items": [
+          "Sentirse mujer con curvas, a su manera.",
+          "Verse bien con lo que se ponga.",
+          "Lograrlo sin riesgos y sin que nadie tenga que saberlo.",
+          "Demostrarse que sí puede cambiar su cuerpo con constancia."
+        ] },
+        { "tipo": "subtitulo", "texto": "Resultado deseado, en sus palabras" },
+        { "tipo": "cita", "estilo": "deseo", "texto": "Quiero ponerme un jean y que se me vea la cola, sin haberme hecho nada raro." },
+        { "tipo": "subtitulo", "texto": "Lenguaje que usa" },
+        { "tipo": "parrafo", "texto": "Cola, nalga, caderas, pierna, flaca, tabla, carnita, «me queda bailando», «no me engorda nada», «sacar cola», «algo natural», «¿eso sí sirve?», «me da pena», «la plata», «el gym», «pago contra entrega»." },
+        { "tipo": "subtitulo", "texto": "Avatares secundarios" },
+        { "tipo": "ficha", "filas": [
+          ["Daniela, la del gym que entrena juiciosa y no come suficiente", "22 a 32 años. Ya entrena pierna y glúteo tres o cuatro veces por semana. Busca energía y apetito para acompañar su rutina. Compra más rápido y entiende que el resultado es del ejercicio."],
+          ["Doña Sandra, la que a los 45 ya no se siente con la misma pila", "40 a 55 años. Menos energía y más estrés. La marca le habla a esta mujer en otro de sus mensajes. Ángulo: vitalidad y ánimo, sin nombrar la menopausia como enfermedad ni prometer nada hormonal. Más preguntas de seguridad, porque suele tomar medicamentos."],
+          ["Andrés, el que quiere más energía y vitalidad", "30 a 50 años. La misma mezcla se vende a hombres en otras marcas. Es un público posible más adelante, pero la etiqueta y la marca hablan a mujeres. No lo mezcles en la primera campaña."]
+        ], "nota": "" }
+      ]
+    },
+    {
+      "titulo": "Recomendaciones estratégicas",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "Posicionamiento" },
+        { "tipo": "ficha", "filas": [
+          ["Promesa", "Tu ritual diario para acompañar tu apetito y tu energía mientras trabajas tus curvas de forma natural."],
+          ["Mecanismo único", "Cinco ingredientes en gotas, en una sola toma al día: ashwagandha para los días de estrés, maca y fenogreco de uso tradicional, y remolacha con L-arginina. Líquido, fácil de tomar, sin pastillas."],
+          ["Diferenciador", "Promesa honesta, en gotas, con pago al recibir, sin suscripción y con alguien que te acompaña por WhatsApp durante los tres meses."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Oferta escalonada" },
+        { "tipo": "tabla", "columnas": ["Oferta", "Precio sugerido", "Para qué sirve"], "filas": [
+          ["1 frasco (1 mes)", "$89.900", "Ancla. Para quien quiere probar."],
+          ["2 frascos (2 meses)", "$139.900", "Paso intermedio."],
+          ["3 frascos (3 meses)", "$169.900", "La oferta principal: el proceso se mide en meses."]
+        ], "nota": "Son estimaciones según la competencia local (gomitas entre $60.000 y $79.900; gotas importadas a $326.900). Ajústalas a tu costo real, al flete y a las devoluciones.", "estilo": "normal" },
+        { "tipo": "subtitulo", "texto": "Plan de entrada de 30 días" },
+        { "tipo": "ficha", "filas": [
+          ["Días 1 a 5", "Confirma registro sanitario, originalidad del frasco, ficha técnica, dosis y sabor. Arma la landing y el guion de WhatsApp con las preguntas de seguridad."],
+          ["Días 6 a 12", "Lanza tres ángulos en Meta Ads con poco presupuesto: «como y no engordo», «entreno y no veo cambios» y «quiero algo natural, sin agujas»."],
+          ["Días 13 a 20", "Apaga lo que no trae conversaciones. Sube el ángulo ganador. Mide entregas efectivas, no solo pedidos."],
+          ["Días 21 a 30", "Pide testimonios reales de sabor, energía y apetito a las primeras clientas. Prepara el mensaje de recompra para el día 25 de uso."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Canales" },
+        { "tipo": "ficha", "filas": [
+          ["Meta Ads", "Videos cortos de una mujer contando su rutina. Mujeres de 20 a 34 años en ciudades principales. Sin antes y después, sin acercamientos al cuerpo, sin textos que señalen el físico de quien lo ve."],
+          ["WhatsApp", "Respuesta rápida, audio corto, preguntas de seguridad, oferta x3 y pago al recibir. Seguimiento en la semana 1 y la semana 3."],
+          ["TikTok", "Contenido orgánico tipo «mi rutina para subir de peso sano»: desayuno, gotas, entrenamiento de pierna. Aquí ya se habla de estos ingredientes."],
+          ["Mercado Libre", "Publicarlo después, cuando tengas registro sanitario y reseñas propias. Hoy no hay competencia directa en gotas a precio medio."],
+          ["Alianzas", "Entrenadoras de glúteo y pierna y creadoras pequeñas de gimnasio. Le dan al producto el contexto correcto: acompañante del ejercicio."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "5 hooks" },
+        { "tipo": "numerada", "items": [
+          "«Mija, ¿usted sí está comiendo?» Si te lo han dicho más de una vez, mira esto.",
+          "Yo comía de todo y el jean me seguía quedando bailando.",
+          "Quería curvas, pero ni loca me iba a inyectar algo.",
+          "Entrenaba pierna tres veces por semana y nada. Me faltaba esto en la mañana.",
+          "Lo que tomo todas las mañanas desde que decidí subir de peso sano."
+        ] },
+        { "tipo": "subtitulo", "texto": "Cumplimiento: evita y usa en su lugar" },
+        { "tipo": "tabla", "columnas": ["Evita", "Usa en su lugar"], "filas": [
+          ["«Aumenta glúteos, caderas y busto»", "«Acompaña tu proceso de ganar curvas con buena comida y ejercicio»"],
+          ["«Sube tus estrógenos» o «equilibra tus hormonas»", "«Cinco ingredientes de uso tradicional en una sola toma»"],
+          ["«Engorda solo donde quieres, no saca barriga»", "«Tu ritual diario mientras trabajas pierna y cola»"],
+          ["«El mismo resultado de una cirugía, sin operarte»", "«Un apoyo natural, sin agujas»"],
+          ["Fotos de antes y después", "Una mujer contando su rutina y cómo se siente"],
+          ["«Resultados garantizados en 15 días»", "«Muchas mujeres notan más energía y apetito desde las primeras semanas. Los resultados varían.»"],
+          ["«Aprobado por la FDA»", "El número de registro del INVIMA, cuando lo tengas"],
+          ["«Suplemento alimenticio» o «dietary supplement»", "«Suplemento dietario»"],
+          ["«Orgánico», «vegano», «probado en laboratorio»", "Solo lo que puedas demostrar con un documento"],
+          ["«Quita el estrés y la ansiedad»", "«Con ashwagandha, para acompañarte en los días pesados»"],
+          ["«¿Cansada de estar flaca y fea?»", "«¿Comes y comes y no subes?»"]
+        ], "nota": "En Colombia la publicidad de un suplemento dietario no puede exagerar ni atribuirle efectos preventivos o terapéuticos, y lo que publiques en una página web cuenta como publicidad. La etiqueta debe llevar la leyenda: «Este producto es un suplemento dietario, no es un medicamento y no suple una alimentación equilibrada».", "estilo": "evita" },
+        { "tipo": "subtitulo", "texto": "Advertencias de seguridad" },
+        { "tipo": "vinetas", "items": [
+          "No es para embarazadas, mujeres lactando ni menores de 18 años.",
+          "No reemplaza la comida ni ningún tratamiento médico. Nadie debe dejar un medicamento por tomar estas gotas.",
+          "Si la clienta está muy por debajo de su peso, perdió peso sin razón o tiene una relación difícil con la comida, lo correcto es recomendarle ir al médico y no venderle.",
+          "Si aparece malestar fuerte de estómago, mareo, sueño excesivo, piel u ojos amarillos, debe suspender y consultar."
+        ] },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Preguntas de seguridad para WhatsApp (antes de despachar)", "texto": "Si responde que sí a cualquiera, no le vendas sin que antes lo consulte con su médico:", "items": [
+          "¿Estás embarazada, buscando embarazo o lactando?",
+          "¿Tienes problemas de tiroides o tomas medicamento para la tiroides?",
+          "¿Tomas algo para la presión, o sufres de presión baja?",
+          "¿Tienes diabetes o tomas algo para el azúcar?",
+          "¿Tomas anticoagulantes o aspirina todos los días?",
+          "¿Has tenido un infarto o problemas del corazón?",
+          "¿Tienes alguna enfermedad del hígado, autoinmune o sensible a las hormonas?",
+          "¿Tomas pastillas para dormir, para la ansiedad o para las defensas?",
+          "¿Tienes una cirugía programada en las próximas semanas?",
+          "¿Eres alérgica a alguna planta o a las legumbres?"
+        ], "pie": "Guarda las respuestas en el chat. Te protegen a ti y a la clienta." }
+      ]
+    },
+    {
+      "titulo": "Deseo central, propuestas de valor y copy para la landing",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "14.1 Deseo central" },
+        { "tipo": "cita", "estilo": "central", "texto": "Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo." },
+        { "tipo": "parrafo", "texto": "**En la superficie** quiere subir de peso donde le gusta: cola, caderas y piernas. **En el fondo** quiere sentirse segura y femenina, dejar de oír comentarios sobre su cuerpo y lograrlo sin poner en riesgo su salud. Aquí compra la misma persona que lo usa. El copy le habla a ella, de tú a tú, como una amiga que ya pasó por lo mismo." },
+
+        { "tipo": "subtitulo", "texto": "14.2 Seis propuestas de valor" },
+        { "tipo": "propuesta", "titulo": "1. Come y come y no sube", "dolor": "Yo como de todo y no me engorda nada. Sigo igual de flaca.", "propuesta": "VitalDrops es tu ritual de cada mañana: cinco ingredientes en gotas que acompañan tu apetito y tu constancia mientras trabajas tus curvas con buena comida y ejercicio.", "tiempo": "Muchas mujeres notan más ganas de comer desde las primeras semanas. Los cambios en el cuerpo dependen de tu comida y tu ejercicio, y toman meses." },
+        { "tipo": "propuesta", "titulo": "2. Sin hambre y sin energía", "dolor": "Se me pasa el día sin comer y llego sin fuerzas ni para entrenar.", "propuesta": "Una toma al día con maca, remolacha y L-arginina para empezar la mañana con otra pila y sentarte a comer con ganas.", "tiempo": "Muchas mujeres notan más energía entre los primeros días y la segunda semana." },
+        { "tipo": "propuesta", "titulo": "3. Miedo al quirófano y a las agujas", "dolor": "Quiero curvas, pero ni loca me opero ni me inyecto nada.", "propuesta": "Son gotas de plantas que tomas por la boca. Sin agujas, sin incapacidad, a tu ritmo. Un apoyo natural para el camino largo y seguro.", "tiempo": "Es un proceso de constancia: muchas mujeres lo toman por tres meses seguidos junto con su rutina." },
+        { "tipo": "propuesta", "titulo": "4. La culpa de saltarse las comidas", "dolor": "Yo sé que no como bien. Vivo de afán, estresada, y se me quita el hambre.", "propuesta": "Con ashwagandha para acompañarte en los días pesados. Tus gotas con el desayuno son el recordatorio diario de cuidarte y comer a tus horas.", "tiempo": "Muchas personas notan los días más tranquilos entre la segunda y la octava semana." },
+        { "tipo": "propuesta", "titulo": "5. La ropa que no horma y la pena en la piscina", "dolor": "Los jeans me quedan bailando y me da pena ponerme vestido de baño.", "propuesta": "Empieza hoy tu ritual y trabaja con constancia el cuerpo con el que te quieres ver: tus gotas, tu plato lleno y tu rutina de pierna y cola.", "tiempo": "Muchas mujeres sienten que el hábito ya es parte de su día desde el primer mes." },
+        { "tipo": "propuesta", "titulo": "6. Ya la tumbaron antes", "dolor": "Ya compré gomitas y pastillas y no vi nada. No quiero botar más plata.", "propuesta": "Aquí no pagas nada por adelantado: recibes tu pedido, lo revisas y pagas en la puerta. Sin suscripciones ni cobros después. Y te acompañamos por WhatsApp todo el proceso.", "tiempo": "Entrega en [X] días hábiles según tu ciudad. Pagas al recibir." },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Cómo usarlas", "texto": "", "items": [
+          "**Ángulos de prueba en Meta Ads:** la 1 (mujeres de 20 a 34 años, público amplio), la 2 (mujeres interesadas en gimnasio y vida fitness) y la 3 (mujeres de 22 a 38 años interesadas en belleza y estética).",
+          "**La 6 va de cierre** en todos los anuncios y en WhatsApp: pago al recibir, sin suscripción.",
+          "**La garantía:** solo ofrécela si de verdad la vas a cumplir, y escribe sus condiciones.",
+          "**Aviso legal en todas las piezas:** «Este producto es un suplemento dietario, no es un medicamento y no suple una alimentación equilibrada. Los resultados varían.»"
+        ], "pie": "" },
+
+        { "tipo": "subtitulo", "texto": "14.3 Propuesta de valor encapsulada" },
+        { "tipo": "caja", "estilo": "encapsulada", "titulo": "", "texto": "VitalDrops es tu ritual diario de gotas para acompañar tu apetito, tu energía y tu constancia, mientras trabajas las curvas que quieres de forma natural y sin agujas. Pagas al recibir.", "items": [], "pie": "" },
+        { "tipo": "vinetas", "items": [
+          "**«Acompañar tu apetito»** cubre la propuesta 1.",
+          "**«Tu energía»** cubre la propuesta 2.",
+          "**«Tu constancia»** cubre las propuestas 4 y 5.",
+          "**«De forma natural y sin agujas»** cubre la propuesta 3.",
+          "**«Pagas al recibir»** cubre la propuesta 6."
+        ] },
+
+        { "tipo": "subtitulo", "texto": "14.4 Títulos para el hero" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Más apetito y energía desde las primeras semanas para trabajar las curvas que quieres", "subtitulo": "5 ingredientes en gotas, una sola toma al día. Natural, sin agujas y pagas al recibir." },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2 (más emocional)", "titulo": "Deja de sentirte la flaca del grupo: empieza hoy tu ritual y siente la diferencia en tu apetito desde las primeras semanas", "subtitulo": "Tus curvas se trabajan con constancia. Estas gotas te acompañan cada mañana." },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3 (para la del gym)", "titulo": "Entrenas pierna y cola juiciosa: súmale apetito y energía desde las primeras semanas para ver el cuerpo que quieres", "subtitulo": "El complemento diario de tu rutina, en gotas fáciles de tomar." },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 4 (corta, para celular)", "titulo": "Apetito y energía en semanas para tus curvas, natural", "subtitulo": "Gotas de 5 ingredientes. Una toma al día." },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Texto legal bajo el hero", "texto": "Muchas personas notan cambios en su energía y apetito desde las primeras semanas. Los resultados varían. No reemplaza tratamiento médico ni una alimentación equilibrada.", "items": [], "pie": "" },
+
+        { "tipo": "subtitulo", "texto": "14.5 Títulos para la sección de dolor (sección 2 de la landing)" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 1 (recomendada, identificación directa)", "titulo": "¿Te mides el jean en la mañana y te sigue quedando bailando, aunque comes de todo?", "subtitulo": "No es que no te esfuerces. A tu rutina le puede estar faltando un apoyo diario." },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 2 (la sensación física)", "titulo": "¿Se te pasa el día sin hambre y llegas a la noche sin una gota de energía?", "subtitulo": "Sin apetito y sin fuerzas es muy difícil trabajar el cuerpo que quieres." },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 3 (para la del gym)", "titulo": "¿Llevas meses entrenando pierna y cola y no ves el cambio?", "subtitulo": "El ejercicio pide comida y constancia. Ahí es donde entra tu ritual." },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 4 (la culpa o el hábito)", "titulo": "¿Vives de afán, te saltas el desayuno y después te preguntas por qué no subes?", "subtitulo": "Un hábito pequeño en la mañana puede ordenarte el día." },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 5 (la limitación en la vida diaria)", "titulo": "¿Te inventas una excusa cada vez que hay paseo a piscina?", "subtitulo": "Mereces disfrutar sin pensar en cómo te queda el vestido de baño." },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 6 (el entorno)", "titulo": "¿Cansada de que en cada reunión te pregunten si sí estás comiendo?", "subtitulo": "Tú sabes lo que quieres para tu cuerpo. Hazlo a tu manera y de forma natural." },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 7 (la frustración con lo que ya probó)", "titulo": "¿Ya probaste gomitas, pastillas y batidos, y sigues igual?", "subtitulo": "Esta vez sin promesas mágicas: un ritual diario, y pagas cuando lo recibes." },
+        { "tipo": "parrafo", "texto": "**Cómo armar la sección:** usa la opción 1 como título principal. Debajo va el bloque «¿Te pasa esto?» con sus seis frases y la frase puente hacia la solución." },
+        { "tipo": "caja", "estilo": "te-pasa", "titulo": "¿Te pasa esto?", "texto": "", "items": [
+          "Comes de todo y no subes ni un kilo",
+          "Los jeans te quedan sueltos en la cola",
+          "Se te olvida comer o te llenas con nada",
+          "Llegas sin energía para entrenar",
+          "Te dicen a cada rato que estás muy flaca",
+          "Quieres curvas, pero operarte te da miedo"
+        ], "pie": "Si marcaste 2 o más, a tu rutina le está faltando un apoyo diario. Y puede estar en cinco ingredientes que caben en un gotero." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "No nombres enfermedades ni condiciones (desnutrición, anemia, trastornos de la alimentación, problemas hormonales, menopausia). Habla solo de lo que ella siente y vive. No uses fotos que muestren un cuerpo como «malo» y otro como «bueno».", "items": [], "pie": "" },
+
+        { "tipo": "subtitulo", "texto": "14.6 Sección de beneficios (texto corto para la imagen)" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Tu ritual diario para trabajar tus curvas con más ganas", "subtitulo": "Ashwagandha, maca, fenogreco, remolacha y L-arginina en una sola toma" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "Más apetito y energía desde las primeras semanas", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "Come con ganas, entrena con pila, siéntete tú", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["N.º", "Título del beneficio (grande)", "Frase (mediana)"], "filas": [
+          ["1", "Más ganas de comer", "Acompaña tu apetito desde las primeras semanas"],
+          ["2", "Energía para tu día", "Pila para trabajar, estudiar y entrenar"],
+          ["3", "Días más tranquilos", "Con ashwagandha para los días pesados"],
+          ["4", "Apoyo para tus curvas", "El complemento de tu comida y ejercicio"],
+          ["5", "5 ingredientes vegetales", "En gotas, una sola toma al día"]
+        ], "nota": "", "estilo": "normal" },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Gotero de 60 ml · 1 toma al día · Sin agujas · Pagas al recibir", "nota": "" },
+        { "tipo": "nota", "texto": "Nota de diseño: el título de cada beneficio va grande y la frase mediana. Si la imagen queda cargada, deja solo los cinco títulos con íconos. Fondo limpio, sin follaje. Texto legible en celular." },
+
+        { "tipo": "subtitulo", "texto": "14.7 Modo de uso" },
+        { "tipo": "caja", "estilo": "pendiente", "titulo": "Pendiente", "texto": "La foto del frasco no muestra la dosis. La marca publica **2 ml una vez al día**, debajo de la lengua o en una bebida, y con eso el frasco dura 30 días. Usamos ese dato. Confírmalo con la etiqueta de tu lote y revisa cuánto líquido saca tu gotero antes de publicarlo.", "items": [], "pie": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Solo 1 toma al día para acompañar tu apetito y tu energía", "subtitulo": "Tu ritual de gotas en menos de 1 minuto, con el desayuno" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "Una vez al día, en la mañana, y listo", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "1 gotero, 1 vez al día: así de fácil es empezar", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo tomarlo", "Valor de cada toma"], "filas": [
+          ["☀ En la mañana, con el desayuno", "2 ml debajo de la lengua o mezclados en tu jugo o en agua", "Arrancas el día con tu ritual y te sientas a comer con calma"],
+          ["📅 Todos los días, sin falta", "A la misma hora, para que no se te olvide", "La constancia es la clave: muchas mujeres notan más energía y apetito desde las primeras semanas"]
+        ], "nota": "", "estilo": "normal" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Nota legal para la imagen", "texto": "Solo para mayores de 18 años. No usar en embarazo ni lactancia. Si tomas medicamentos o tienes alguna condición de salud, consulta primero a tu médico. Este producto es un suplemento dietario, no es un medicamento y no suple una alimentación equilibrada. No reemplaza tratamiento médico.", "items": [], "pie": "" },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "1 toma al día · Fácil de llevar · Menos de 1 minuto · Sin pastillas", "nota": "Confirma con tu producto antes de agregar atributos de sabor o «sin alcohol»." },
+        { "tipo": "nota", "texto": "Variante: si la etiqueta de tu lote indica otra cantidad u otra frecuencia, cambia el «2 ml» y el «1 toma al día» del título y de la tabla. Si la permite, puedes ofrecer la opción de tomarlo antes de entrenar, con el valor «llegas al gym con más pila»." },
+
+        { "tipo": "subtitulo", "texto": "14.8 Guía visual de la estructura de 4 mensajes" },
+        { "tipo": "tabla", "columnas": ["Mensaje", "Objetivo", "Título"], "filas": [
+          ["1 · Hero (producto e ingredientes)", "Qué es, para quién y su valor", "Más apetito y energía desde las primeras semanas para trabajar las curvas que quieres"],
+          ["2 · Punto de dolor", "Conectar y mostrar la solución", "¿Te mides el jean y te sigue quedando bailando, aunque comes de todo?"],
+          ["3 · Beneficios", "Mostrar el valor para su vida", "Tu ritual diario para trabajar tus curvas con más ganas"],
+          ["4 · Modo de uso", "Explicar cómo usarlo, sin dudas", "Solo 1 toma al día para acompañar tu apetito y tu energía"]
+        ], "nota": "Cuatro imágenes verticales para WhatsApp y para armar la landing.", "estilo": "azul" },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Antes de diseñar", "texto": "", "items": [
+          "Cambia [calificación real] y [N] por los datos de tus propias clientas. No uses las reseñas de la tienda de Estados Unidos.",
+          "Pon el precio real en la oferta x3.",
+          "Confirma la dosis de 2 ml con la etiqueta.",
+          "Usa una foto del frasco con la etiqueta bien escrita y, cuando la tengas, en español.",
+          "Las fotos de personas van de la cintura para arriba o en acción (desayunando, entrenando). Nada de acercamientos al cuerpo ni de antes y después.",
+          "Fondo limpio, sin follaje, y textos grandes que se lean en el celular."
+        ], "pie": "" },
+        { "tipo": "guia-visual" }
+      ]
     }
   ],
-  "guia": { "mensajes": [] },
-  "fuentes": [],
-  "nota_fuentes": ""
+  "guia": { "mensajes": [
+    {
+      "seccion": "Hero · Producto e ingredientes",
+      "titulo": "Más apetito y energía desde las primeras semanas para trabajar las curvas que quieres",
+      "subtitulo": "5 ingredientes en gotas, una sola toma al día. Natural y sin agujas.",
+      "franja": { "beneficio": "Más apetito y energía", "tiempo": "Desde las primeras semanas", "deseo": "Las curvas que quieres" },
+      "objetivo": "Que entienda en tres segundos qué es, para quién es y qué valor le da.",
+      "elementos": [
+        { "titulo": "Título principal", "texto": "Más apetito y energía desde las primeras semanas para trabajar las curvas que quieres" },
+        { "titulo": "Subtítulo", "texto": "5 ingredientes en gotas, una sola toma al día. Natural y sin agujas." },
+        { "titulo": "Avatar del producto", "texto": "Mujer de unos 26 años, delgada, sonriente, en ropa deportiva, con el gotero en la mano. A un costado." },
+        { "titulo": "Producto + validación", "texto": "El frasco de VitalDrops con [calificación real] estrellas · [N] clientas arriba." },
+        { "titulo": "Ingredientes", "texto": "Ashwagandha · Raíz de maca · Fenogreco · Raíz de remolacha · L-arginina. Solo estos cinco, con ícono y nombre." },
+        { "titulo": "4 sellos", "texto": "Gotero de 60 ml · 5 ingredientes · 1 toma al día · Pagas al recibir" }
+      ],
+      "maqueta": {
+        "foto": "Mujer de 26 años, delgada y sonriente, en ropa deportiva, con el gotero en la mano",
+        "validacion": "[calificación real] · [N] clientas",
+        "ingredientes": ["Ashwagandha", "Raíz de maca", "Fenogreco", "Raíz de remolacha", "L-arginina"],
+        "sellos": ["Gotero de 60 ml", "5 ingredientes", "1 toma al día", "Pagas al recibir"],
+        "oferta": "Ritual completo x3 $[precio]"
+      }
+    },
+    {
+      "seccion": "Punto de dolor",
+      "titulo": "¿Te mides el jean y te sigue quedando bailando, aunque comes de todo?",
+      "subtitulo": "A tu rutina le puede estar faltando un apoyo diario",
+      "franja": { "beneficio": "Un apoyo diario", "tiempo": "Desde las primeras semanas", "deseo": "Llenar el jean" },
+      "objetivo": "Que se vea reflejada en el problema y vea el producto como el siguiente paso.",
+      "elementos": [
+        { "titulo": "Título", "texto": "¿Te mides el jean y te sigue quedando bailando, aunque comes de todo?" },
+        { "titulo": "Subtítulo", "texto": "A tu rutina le puede estar faltando un apoyo diario" },
+        { "titulo": "Imagen del dolor", "texto": "Mujer joven frente al espejo de su cuarto, ajustándose la pretina de un jean que le queda suelto, con cara de resignación." },
+        { "titulo": "Título secundario", "texto": "Tu ritual de gotas para acompañar tu apetito y tu energía" },
+        { "titulo": "Mensaje descriptivo", "texto": "Cinco ingredientes en una sola toma al día. Muchas mujeres notan más ganas de comer y más energía desde las primeras semanas. Tú pones la comida y el ejercicio." },
+        { "titulo": "Producto", "texto": "El frasco de VitalDrops grande y visible." },
+        { "titulo": "4 sellos de confianza", "texto": "Pagas al recibir · Sin suscripción · Envío a toda Colombia · Atención por WhatsApp" }
+      ],
+      "maqueta": {
+        "foto": "Mujer joven frente al espejo, ajustándose un jean que le queda suelto",
+        "titulo2": "Tu ritual de gotas para acompañar tu apetito y tu energía",
+        "descripcion": "Cinco ingredientes en una sola toma al día. Muchas mujeres notan más ganas de comer y más energía desde las primeras semanas.",
+        "sellos": ["Pagas al recibir", "Sin suscripción", "Envío a toda Colombia", "Atención por WhatsApp"]
+      }
+    },
+    {
+      "seccion": "Beneficios",
+      "titulo": "Tu ritual diario para trabajar tus curvas con más ganas",
+      "subtitulo": "Ashwagandha, maca, fenogreco, remolacha y L-arginina en una sola toma",
+      "franja": { "beneficio": "Apetito y energía", "tiempo": "Desde las primeras semanas", "deseo": "Tus curvas, a tu manera" },
+      "objetivo": "Mostrarle lo que gana en su día a día, con cinco ventajas distintas.",
+      "elementos": [
+        { "titulo": "Título", "texto": "Tu ritual diario para trabajar tus curvas con más ganas" },
+        { "titulo": "Subtítulo", "texto": "Ashwagandha, maca, fenogreco, remolacha y L-arginina en una sola toma" },
+        { "titulo": "Cinco beneficios", "texto": "1. Más ganas de comer · 2. Energía para tu día · 3. Días más tranquilos · 4. Apoyo para tus curvas · 5. 5 ingredientes vegetales" },
+        { "titulo": "Imágenes de beneficios", "texto": "Un plato de desayuno completo; una mujer entrenando pierna; una mujer relajada tomando aire; una mujer feliz con su jean; las cinco plantas e ingredientes." },
+        { "titulo": "Producto central", "texto": "El frasco de VitalDrops en el centro, uniendo los cinco beneficios." },
+        { "titulo": "4 sellos", "texto": "Gotero de 60 ml · 1 toma al día · Sin agujas · Pagas al recibir" }
+      ],
+      "maqueta": {
+        "beneficios": [
+          { "titulo": "Más ganas de comer", "frase": "Acompaña tu apetito desde las primeras semanas" },
+          { "titulo": "Energía para tu día", "frase": "Pila para trabajar, estudiar y entrenar" },
+          { "titulo": "Días más tranquilos", "frase": "Con ashwagandha para los días pesados" },
+          { "titulo": "Apoyo para tus curvas", "frase": "El complemento de tu comida y ejercicio" },
+          { "titulo": "5 ingredientes vegetales", "frase": "En gotas, una sola toma al día" }
+        ],
+        "sellos": ["Gotero de 60 ml", "1 toma al día", "Sin agujas", "Pagas al recibir"]
+      }
+    },
+    {
+      "seccion": "Modo de uso",
+      "titulo": "Solo 1 toma al día para acompañar tu apetito y tu energía",
+      "subtitulo": "Tu ritual de gotas en menos de 1 minuto",
+      "franja": { "beneficio": "Fácil y rápido", "tiempo": "1 toma al día", "deseo": "Constancia sin esfuerzo" },
+      "objetivo": "Que sepa exactamente cómo tomarlo y vea que es fácil de cumplir.",
+      "elementos": [
+        { "titulo": "Título", "texto": "Solo 1 toma al día para acompañar tu apetito y tu energía" },
+        { "titulo": "Subtítulo", "texto": "Tu ritual de gotas en menos de 1 minuto" },
+        { "titulo": "Mensaje descriptivo", "texto": "Tómalo en la mañana con tu desayuno, debajo de la lengua o en tu jugo. La constancia de todos los días es lo que cuenta." },
+        { "titulo": "Tres pasos", "texto": "1. Desayuna · 2. Toma 2 ml (debajo de la lengua o en tu jugo) · 3. Repite a diario" },
+        { "titulo": "Producto", "texto": "El frasco de VitalDrops grande, con el gotero afuera." },
+        { "titulo": "4 sellos", "texto": "1 toma al día · Menos de 1 minuto · Sin pastillas · Fácil de llevar" }
+      ],
+      "maqueta": {
+        "descripcion": "Tómalo en la mañana con tu desayuno, debajo de la lengua o en tu jugo. La constancia de todos los días es lo que cuenta.",
+        "pasos": ["Desayuna", "Toma 2 ml", "Repite a diario"],
+        "sellos": ["1 toma al día", "Menos de 1 minuto", "Sin pastillas", "Fácil de llevar"]
+      }
+    }
+  ] },
+  "fuentes": [
+    { "titulo": "Tienda oficial de amua · página del producto (no se pudo abrir completa)", "url": "https://shopamua.com/products/amua-vitaldrops" },
+    { "titulo": "Tienda de amua · preguntas frecuentes", "url": "https://amuashop.com/pages/faqs" },
+    { "titulo": "Sitio público de opiniones · reseñas de la tienda oficial", "url": "https://www.trustpilot.com/review/shopamua.com" },
+    { "titulo": "Blog crítico · suscripción, garantía y promesas de la marca", "url": "https://malwaretips.com/blogs/amua-vitaldrops-reviews-refill-trap/" },
+    { "titulo": "Guía de reseñas del producto · ingredientes y cuidados", "url": "https://amuavital.com/" },
+    { "titulo": "Nota promocional · para qué lo vende la marca, dosis y precios en EE. UU.", "url": "https://www.redmond-reporter.com/2025/05/06/amua-vitaldrops-explained-safe-effective-drops-to-enhance-feminine-curves/" },
+    { "titulo": "Amazon · publicación del producto (no se pudo abrir)", "url": "https://www.amazon.com/AMUA-VitalDrops-Herbal-Liquid-Supplement/dp/B0H7HYQ7MZ" },
+    { "titulo": "eBay · publicación del producto (no se pudo abrir)", "url": "https://www.ebay.com/itm/147487315303" },
+    { "titulo": "YouTube · video de reseña «¿estafa o funciona?»", "url": "https://www.youtube.com/watch?v=iUfOCUHe2X0" },
+    { "titulo": "Tienda de suplementos · gotas casi iguales de otra marca", "url": "https://supp.co/products/clean-nutraceuticals-maca-root-liquid-drops" },
+    { "titulo": "Foro · hilo sobre ashwagandha y fenogreco (copia abierta)", "url": "https://libreddit.winscloud.net/r/Biohackers/comments/1jyedsh/supplements_for_insane_libido/mmxsl79/?context=3" },
+    { "titulo": "Manual MSD · ashwagandha, cuidados e interacciones", "url": "https://www.msdmanuals.com/es/professional/temas-especiales/suplementos-dietéticos/ashwagandha" },
+    { "titulo": "Mayo Clinic · L-arginina, cuidados e interacciones", "url": "https://www.mayoclinic.org/drugs-supplements-l-arginine/art-20364681" },
+    { "titulo": "Centro de salud complementaria de EE. UU. · fenogreco", "url": "https://nccih.nih.gov/health/fenugreek" },
+    { "titulo": "Centro oncológico de referencia · fenogreco", "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/fenugreek" },
+    { "titulo": "Guía de salud · maca, lo que dice la ciencia", "url": "https://ro.co/health-guide/benefits-of-maca/" },
+    { "titulo": "Portafolio · Colombia en el top 10 de cirugías plásticas", "url": "https://www.portafolio.co/economia/finanzas/colombia-en-el-top-10-de-paises-que-mas-cirugias-plasticas-realiza-isaps-588328" },
+    { "titulo": "Portafolio · entrevista a la presidenta de la sociedad internacional de cirugía plástica", "url": "https://www.portafolio.co/negocios/empresas/entrevista-lina-triana-presidenta-de-la-sociedad-internacional-de-cirugia-plastica-estetica-588703" },
+    { "titulo": "La FM · cirugías plásticas más pedidas en Colombia", "url": "https://www.lafm.com.co/estilo-de-vida/cirugias-plastica-mas-demandadas-en-colombia" },
+    { "titulo": "El Tiempo · ley de biopolímeros y cifras de Medicina Legal", "url": "https://www.eltiempo.com/salud/ley-de-biopolimeros-detalles-de-la-aprobacion-en-el-congreso-755666" },
+    { "titulo": "El Tiempo · advertencia sobre un medicamento usado para aumentar glúteos", "url": "https://www.eltiempo.com/salud/la-vibazina-sirve-para-aumentar-gluteos-750043" },
+    { "titulo": "Mercado Libre Colombia · gotas para aumentar glúteos", "url": "https://listado.mercadolibre.com.co/gotas-para-aumentar-los-gluteos" },
+    { "titulo": "Mercado Libre Colombia · fenogreco para aumentar glúteos", "url": "https://listado.mercadolibre.com.co/fenogreco-para-aumentar-gluteos" },
+    { "titulo": "INVIMA · norma de suplementos dietarios (Decreto 3249 de 2006)", "url": "https://normograma.invima.gov.co/compilacion/docs/decreto_3249_2006.htm" },
+    { "titulo": "INVIMA · concepto sobre publicidad de suplementos dietarios", "url": "https://normograma.invima.gov.co/compilacion/docs/concepto_invima_0000039_2021.htm" },
+    { "titulo": "Tiendanube · cifras del comercio electrónico en Colombia", "url": "https://www.tiendanube.com/blog/ecommerce-colombia/" },
+    { "titulo": "Coordinadora · vender por WhatsApp con pago contra entrega", "url": "https://coordinadora.com/blog/como-vender-por-whatsapp-y-redes-con-pago-contra-entrega/" }
+  ],
+  "nota_fuentes": "Consultadas el 15 de noviembre de 2026. Varias tiendas no dejaron abrir sus páginas; de ellas solo se usó lo que mostraron los resultados de búsqueda. Los precios cambian con frecuencia. Ninguna cita es textual."
 }

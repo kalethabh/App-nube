@@ -1,0 +1,30 @@
+{
+  "slug": "_img-vitaldrops-20261115-1947",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "VITALDROPS",
+  "productoId": "vitaldrops-d183",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "esa misma estructura q la referencia pero que sea otra persona, en otro lugar, agregar la oferta TRATAMIENTO COMPLETO X3 UNIDADES $139,900. SIN EFECTO REBOTE.\n\nMANTENER EL MISMO ANGULO DIRECTO Y ESPECÍFICO.",
+    "angulo": "transformacion"
+  },
+  "cantidad": 5,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png"
+  ],
+  "fiel": true,
+  "investigacion": null,
+  "logo": null,
+  "creado": "2026-11-16T00:47:00.917Z"
+}

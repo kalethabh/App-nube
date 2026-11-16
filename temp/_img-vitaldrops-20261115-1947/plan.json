@@ -1,0 +1,95 @@
+{
+  "producto": "vitaldrops",
+  "lote": "_img-vitaldrops-20261115-1947",
+  "cantidad": 5,
+  "proporciones": ["1:1"],
+  "decisiones": [
+    "Las 5 variaciones salen de la misma referencia y conservan su estructura, bloques y tipografía.",
+    "El bloque de oferta de la referencia se llena con la oferta exacta del usuario, en tres líneas.",
+    "El logotipo suelto de la marca bajo la placa se omite (regla de la skill).",
+    "Otra persona y otro lugar en cada variación, como pidió el usuario: el lugar se ve suave dentro de los cuatro cuadros.",
+    "Todas mantienen la promesa directa de 21 días; cambia el punto de entrada del mensaje."
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261115-1947/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo de transformación en cuadrícula 2x2 con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro grueso en mayúsculas, centrado, en 2 líneas. En el centro, cuadrícula 2x2 de cuadros con esquinas redondeadas y borde fino; cada cuadro lleva arriba a la izquierda una etiqueta dorada del día (1, 7, 14, 21) y la misma mujer de espaldas, girando la cara sobre el hombro, con el cambio creciendo de cuadro en cuadro. Abajo a la izquierda, la caja amarilla y el frasco gotero con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas de oferta. Debajo de la placa, el nombre de la marca (se omite).",
+        "por_que_funciona": "La promesa es concreta y con plazo, y los cuatro cuadros la prueban a la vista: el ojo recorre el progreso sin leer. El producto y la oferta cierran abajo, justo cuando el deseo ya está creado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "La promesa central, directa: curvas más llenas en 21 días, con el progreso visible día a día.",
+      "titular": "CURVAS MÁS LLENAS EN 21 DÍAS",
+      "escena": "Mujer latina de unos 28 años, piel canela clara, pelo castaño oscuro liso en cola alta; top deportivo blanco y leggings terracota. Dentro de cada cuadro, una habitación luminosa con cortinas claras y una planta, muy suave.",
+      "camara": "Plano tres cuartos de espaldas, de la cabeza a medio muslo, a la altura de la cintura; ella gira la cara sobre el hombro izquierdo."
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261115-1947/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo de transformación en cuadrícula 2x2 con producto y placa de oferta",
+        "estructura": "La misma de V01: titular de 2 líneas arriba, cuadrícula 2x2 con etiquetas de día, producto abajo a la izquierda y placa dorada de oferta abajo a la derecha.",
+        "por_que_funciona": "Promesa con plazo y prueba visual en cuatro pasos; el cierre con producto y oferta llega cuando el deseo ya está creado."
+      },
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "El dolor de los jeans que quedan sueltos atrás, resuelto en 21 días: en cada cuadro el mismo jean se llena más.",
+      "titular": "ADIÓS JEANS SUELTOS, HOLA CURVAS EN 21 DÍAS",
+      "escena": "Mujer latina de unos 32 años, piel trigueña, pelo ondulado a los hombros con reflejos miel; top blanco corto y jeans azul claro ajustados. Dentro de cada cuadro, un probador de tienda con cortina beige y un espejo, muy suave.",
+      "camara": "Plano tres cuartos de espaldas, de la cabeza a medio muslo, a la altura de la cintura; ella gira la cara sobre el hombro derecho."
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261115-1947/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo de transformación en cuadrícula 2x2 con producto y placa de oferta",
+        "estructura": "La misma de V01: titular de 2 líneas arriba, cuadrícula 2x2 con etiquetas de día, producto abajo a la izquierda y placa dorada de oferta abajo a la derecha.",
+        "por_que_funciona": "Promesa con plazo y prueba visual en cuatro pasos; el cierre con producto y oferta llega cuando el deseo ya está creado."
+      },
+      "angulo_id": "beneficio-sin-sacrificio",
+      "angulo": "Beneficio sin sacrificio",
+      "concepto": "Para quien entrena y no ve volumen: lo que las sentadillas no le dieron, en 21 días.",
+      "titular": "LO QUE EL GYM NO TE DIO, EN 21 DÍAS",
+      "escena": "Mujer latina de unos 25 años, piel oliva, pelo negro en una trenza larga; top deportivo negro y leggings gris carbón. Dentro de cada cuadro, un gimnasio claro con espejo y mancuernas desenfocadas, muy suave.",
+      "camara": "Plano tres cuartos de espaldas, de la cabeza a medio muslo, a la altura de la cintura; ella gira la cara sobre el hombro izquierdo."
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261115-1947/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo de transformación en cuadrícula 2x2 con producto y placa de oferta",
+        "estructura": "La misma de V01: titular de 2 líneas arriba, cuadrícula 2x2 con etiquetas de día, producto abajo a la izquierda y placa dorada de oferta abajo a la derecha.",
+        "por_que_funciona": "Promesa con plazo y prueba visual en cuatro pasos; el cierre con producto y oferta llega cuando el deseo ya está creado."
+      },
+      "angulo_id": "mecanismo-unico",
+      "angulo": "Mecanismo único",
+      "concepto": "El porqué en una línea: cinco ingredientes en unas gotas, y el resultado en 21 días.",
+      "titular": "5 ACTIVOS EN UNAS GOTAS, MÁS CURVAS EN 21 DÍAS",
+      "escena": "Mujer latina de unos 36 años, piel morena, pelo rizado oscuro suelto a los hombros; conjunto deportivo verde salvia. Dentro de cada cuadro, un balcón soleado con plantas y baranda clara, muy suave.",
+      "camara": "Plano tres cuartos de espaldas, de la cabeza a medio muslo, a la altura de la cintura; ella gira la cara sobre el hombro derecho."
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261115-1947/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo de transformación en cuadrícula 2x2 con producto y placa de oferta",
+        "estructura": "La misma de V01: titular de 2 líneas arriba, cuadrícula 2x2 con etiquetas de día, producto abajo a la izquierda y placa dorada de oferta abajo a la derecha.",
+        "por_que_funciona": "Promesa con plazo y prueba visual en cuatro pasos; el cierre con producto y oferta llega cuando el deseo ya está creado."
+      },
+      "angulo_id": "promesa-emocional",
+      "angulo": "Promesa emocional",
+      "concepto": "Cómo se va a sentir: volver a amar su silueta en 21 días.",
+      "titular": "VUELVE A AMAR TU SILUETA EN SOLO 21 DÍAS",
+      "escena": "Mujer latina de unos 42 años, piel clara bronceada, pelo liso castaño en melena corta; vestido corto ajustado color arena. Dentro de cada cuadro, una terraza con piscina al atardecer, muy suave.",
+      "camara": "Plano tres cuartos de espaldas, de la cabeza a medio muslo, a la altura de la cintura; ella gira la cara sobre el hombro izquierdo."
+    }
+  ]
+}

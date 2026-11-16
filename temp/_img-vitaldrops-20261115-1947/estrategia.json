@@ -1,0 +1,42 @@
+{
+  "resumen": "Hacemos cinco anuncios iguales a tu referencia: el titular grande arriba, los cuatro cuadros del día 1 al día 21, el producto abajo y la placa dorada con tu oferta. En cada uno cambia la mujer, el lugar y el titular, pero todos prometen lo mismo de forma directa: curvas más llenas en 21 días. La placa lleva tu oferta tal cual: tratamiento completo x3 unidades a $139,900, sin efecto rebote.",
+  "paleta": [
+    { "hex": "#FBF3DC", "nombre": "Crema cálido" },
+    { "hex": "#F2DC4A", "nombre": "Amarillo limón" },
+    { "hex": "#C9A441", "nombre": "Dorado" },
+    { "hex": "#E6CF7A", "nombre": "Dorado claro" },
+    { "hex": "#111111", "nombre": "Negro" },
+    { "hex": "#8A4B14", "nombre": "Ámbar" }
+  ],
+  "tipografia": "La misma de tu referencia: letras gruesas, rectas y en mayúsculas para el titular en negro; los días en dorado; y la oferta en negro sobre la placa dorada, con la línea del precio más grande.",
+  "estilo": "Fondo crema, limpio y luminoso. Cuatro cuadros con la misma mujer de espaldas, que muestran el cambio día a día, con el mismo acabado suave de la referencia. Abajo, el frasco con su caja a la izquierda y la placa dorada de la oferta a la derecha.",
+  "beneficios": [
+    "Curvas más llenas y con más volumen",
+    "Cambios que se notan semana a semana",
+    "Resultados que se mantienen, sin efecto rebote",
+    "Tu ropa te queda como siempre quisiste"
+  ],
+  "caracteristicas": [
+    "Cinco ingredientes: ashwagandha, maca, L-arginina, fenogreco y remolacha",
+    "En gotas, con gotero dosificador",
+    "Frasco de 60 ml",
+    "Tratamiento completo de 3 unidades"
+  ],
+  "deseo_central": "Tener curvas más llenas y notarlas en pocas semanas, sin que el cambio se pierda después.",
+  "beneficio_principal": "Ayuda a ganar volumen en las curvas de forma visible en 21 días, sin efecto rebote.",
+  "puntos_dolor": [
+    "Hago sentadillas todos los días y no veo volumen",
+    "Los jeans me quedan sueltos atrás",
+    "Ya probé de todo y no noto cambios",
+    "Lo poco que gano lo pierdo apenas paro",
+    "No quiero cirugías ni inyecciones",
+    "No tengo tiempo para vivir en el gimnasio"
+  ],
+  "decisiones": [
+    "Tu oferta va en la placa dorada, en las mismas tres líneas que tenía la oferta de la referencia.",
+    "Quité el nombre de la marca que estaba suelto debajo de la placa: ese espacio queda como fondo. El nombre sigue visible en el frasco y en la caja.",
+    "Cada anuncio muestra a una mujer distinta en un lugar distinto: habitación, probador, gimnasio, balcón y terraza.",
+    "Todos los titulares mantienen la promesa directa de los 21 días; lo que cambia es por dónde entra el mensaje.",
+    "Ojo: las plataformas de anuncios a veces rechazan las imágenes de antes y después del cuerpo y las promesas con plazo. Lo dejé así porque pediste la misma estructura y el mismo ángulo."
+  ]
+}
