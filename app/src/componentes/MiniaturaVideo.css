@@ -212,7 +212,7 @@
   bottom: 0;
   z-index: 4;
   height: 3px;
-  background: var(--acento);
+  background: var(--acento-fondo);
   box-shadow: 0 0 10px var(--acento);
   transform: scaleX(0);
   transform-origin: left center;
@@ -244,7 +244,7 @@
   transition: color var(--dur-rapido);
 }
 .miniatura--interactiva:hover .miniatura__titulo {
-  color: #fff;
+  color: var(--texto-1);
 }
 .miniatura__subtitulo {
   font-size: var(--t-mini);

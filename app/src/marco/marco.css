@@ -41,7 +41,7 @@
   overflow: hidden auto;
   background:
     radial-gradient(260px 200px at 0% 0%, rgba(var(--marca-2-rgb), 0.08), transparent 70%),
-    linear-gradient(180deg, var(--fondo-2) 0%, #0c0c10 100%);
+    linear-gradient(180deg, var(--fondo-2) 0%, var(--menu-fondo-fin) 100%);
   border-right: 1px solid var(--borde-1);
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.4);
   scrollbar-width: none;
@@ -83,7 +83,7 @@
   white-space: nowrap;
 }
 .menu__nombre-ia {
-  background-image: linear-gradient(135deg, #c8fc80 0%, var(--acento) 60%);
+  background-image: var(--texto-marca);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -141,7 +141,7 @@
     color var(--dur-rapido) var(--curva-suave);
 }
 .nav__item:hover {
-  background: rgba(255, 255, 255, 0.045);
+  background: rgba(var(--tinte-rgb), 0.045);
   color: var(--texto-1);
 }
 .nav__icono {
@@ -174,7 +174,7 @@
   color: var(--texto-3);
   padding: 2px 7px;
   border-radius: var(--r-pill);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--tinte-rgb), 0.05);
 }
 .nav__item--activo,
 .nav__item--activo:hover {
@@ -282,7 +282,7 @@
   transition: background var(--dur-rapido);
 }
 .produccion-mini__item:hover {
-  background: rgba(255, 255, 255, 0.045);
+  background: rgba(var(--tinte-rgb), 0.045);
 }
 .produccion-mini__miniatura {
   width: 26px;
@@ -373,7 +373,7 @@
   transition: background var(--dur-rapido) var(--curva-salida), color var(--dur-rapido) var(--curva-salida);
 }
 .medio-mini:hover {
-  background: rgba(255, 255, 255, 0.045);
+  background: rgba(var(--tinte-rgb), 0.045);
   color: var(--texto-1);
 }
 .medio-mini:focus-visible {
@@ -443,14 +443,14 @@
   gap: 10px;
   padding: 12px;
   border-radius: var(--r-l);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+  background: linear-gradient(180deg, rgba(var(--tinte-rgb), 0.035), rgba(var(--tinte-rgb), 0.015));
   border: 1px solid var(--borde-1);
   box-shadow: var(--resalte-superior);
   transition: border-color var(--dur-rapido), background var(--dur-rapido);
 }
 .menu__pie:hover {
   border-color: var(--borde-2);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(180deg, rgba(var(--tinte-rgb), 0.05), rgba(var(--tinte-rgb), 0.02));
 }
 .menu__conexiones {
   display: flex;
@@ -558,7 +558,7 @@
   align-items: center;
   gap: var(--e-4);
   padding: 0 var(--gutter);
-  background: rgba(11, 11, 15, 0.72);
+  background: var(--vidrio);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   backdrop-filter: blur(20px) saturate(160%);
   border-bottom: 1px solid var(--borde-1);
@@ -589,7 +589,7 @@
 }
 .migas__enlace:hover {
   color: var(--texto-1);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--tinte-rgb), 0.05);
 }
 .migas__actual {
   color: var(--texto-1);
@@ -691,7 +691,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--acento);
+  background: var(--acento-fondo);
   box-shadow: 0 0 0 2px var(--fondo-1), 0 0 10px rgba(var(--acento-rgb), 0.8);
   animation: latido 1.8s var(--curva-suave) infinite;
 }

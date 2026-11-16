@@ -19,7 +19,7 @@
   border-radius: var(--r-2xl);
   border: 1px solid var(--borde-1);
   background:
-    radial-gradient(520px 320px at 82% 18%, color-mix(in srgb, var(--acento) 15%, transparent), transparent 68%),
+    radial-gradient(520px 320px at 82% 18%, color-mix(in srgb, var(--acento-fondo) 15%, transparent), transparent 68%),
     radial-gradient(420px 260px at 100% 100%, color-mix(in srgb, var(--marca-3) 8%, transparent), transparent 62%),
     radial-gradient(380px 240px at 0% 0%, color-mix(in srgb, var(--cian) 5%, transparent), transparent 70%),
     linear-gradient(180deg, var(--superficie-1), color-mix(in srgb, var(--superficie-1) 55%, transparent));
@@ -33,7 +33,7 @@
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
-  background: linear-gradient(90deg, transparent 10%, color-mix(in srgb, var(--acento) 55%, transparent) 60%, color-mix(in srgb, var(--marca-3) 40%, transparent) 85%, transparent);
+  background: linear-gradient(90deg, transparent 10%, color-mix(in srgb, var(--acento-fondo) 55%, transparent) 60%, color-mix(in srgb, var(--marca-3) 40%, transparent) 85%, transparent);
   opacity: 0.7;
 }
 .tb-portada__texto {
@@ -867,7 +867,7 @@
 .tb-cambio--error .tb-cambio__paso { color: var(--error); }
 .tb-cambio__detalle { font-size: var(--t-mini); color: var(--texto-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tb-cambio__barra { display: block; height: 5px; border-radius: var(--r-pill); background: var(--superficie-2); overflow: hidden; }
-.tb-cambio__barra span { display: block; height: 100%; background: var(--acento); border-radius: inherit; transition: width 0.6s var(--curva-suave); }
+.tb-cambio__barra span { display: block; height: 100%; background: var(--acento-fondo); border-radius: inherit; transition: width 0.6s var(--curva-suave); }
 .tb-cambio__flecha { flex: none; color: var(--texto-3); }
 
 .tb-ficha__gastos { display: flex; flex-direction: column; gap: 3px; font-size: var(--t-chico); color: var(--texto-2); }

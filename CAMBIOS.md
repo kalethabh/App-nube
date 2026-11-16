@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16b · Modo claro y modo oscuro
+
+- **Modo claro:** botón de sol/luna arriba a la derecha para cambiar en un toque. En Ajustes → Apariencia eliges Claro, Oscuro o Automático (igual que tu computador, cambia solo).
+- **Todo legible en los dos:** textos, botones, tarjetas, semáforo del saldo, avisos y errores tienen su color para cada tema. El verde lima queda como fondo de los botones; sobre fondo claro, los textos verdes van en un verde más oscuro.
+- El editor de video va siempre oscuro, para ver bien los colores del video. Lo que elijas se guarda en este navegador.
+
 ## 2026-11-16a · Variaciones fieles y títulos elegidos
 
 - **Primero los títulos:** antes de generar imágenes, la IA propone títulos basados en la investigación de mercado y lo resaltado. Muestra la esencia que se conserva, el motivo de cada título y su base. Tú seleccionas los que usará el lote; después confirmas el costo y generas.

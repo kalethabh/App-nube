@@ -31,7 +31,7 @@
   inset: 8% -14% -4%;
   z-index: -1;
   border-radius: 50%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--acento) 22%, transparent), transparent);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--acento-fondo) 22%, transparent), transparent);
   filter: blur(30px);
   pointer-events: none;
 }
@@ -129,7 +129,7 @@
 }
 .ent-rep__grande:hover {
   transform: scale(1.07);
-  background: color-mix(in srgb, var(--acento) 70%, transparent);
+  background: color-mix(in srgb, var(--acento-fondo) 70%, transparent);
 }
 .ent-rep__espera {
   position: absolute;
@@ -186,7 +186,7 @@
   background: color-mix(in srgb, var(--texto-1) 28%, transparent);
 }
 .ent-rep__hecho {
-  background: var(--acento);
+  background: var(--acento-fondo);
   box-shadow: 0 0 12px color-mix(in srgb, var(--acento) 70%, transparent);
 }
 .ent-rep__pista:hover::before,
@@ -320,7 +320,7 @@
   align-items: start;
   border-color: color-mix(in srgb, var(--acento) 30%, transparent);
   background:
-    radial-gradient(460px 200px at 0% 0%, color-mix(in srgb, var(--acento) 13%, transparent), transparent 72%),
+    radial-gradient(460px 200px at 0% 0%, color-mix(in srgb, var(--acento-fondo) 13%, transparent), transparent 72%),
     radial-gradient(300px 160px at 100% 100%, color-mix(in srgb, var(--marca-3) 6%, transparent), transparent 70%),
     var(--superficie-2);
 }
@@ -494,7 +494,7 @@
   padding: var(--e-3) var(--e-4);
   border-radius: var(--r-l);
   border: 1px dashed var(--borde-2);
-  background: color-mix(in srgb, var(--acento) 5%, transparent);
+  background: color-mix(in srgb, var(--acento-fondo) 5%, transparent);
 }
 .ent-versiones__editor-icono {
   flex: none;
@@ -942,14 +942,14 @@
 .ent-ganchos { margin-top: 14px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--borde, rgba(127,127,127,.25)); display: grid; gap: 8px; }
 .ent-ganchos__titulo { display: flex; align-items: center; gap: 6px; font-weight: 700; margin: 0; }
 .ent-ganchos__texto { margin: 0; opacity: .75; font-size: .9em; }
-.ent-ganchos__error { margin: 0; color: var(--peligro, #f87171); font-size: .9em; }
+.ent-ganchos__error { margin: 0; color: var(--error); font-size: .9em; }
 .ent-ganchos__lista { margin: 0; padding-left: 18px; display: grid; gap: 2px; }
 .ent-ganchos__lista a { color: inherit; }
 
 /* En la nube */
 .ent-nube { margin-top: 14px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(var(--acento-rgb, 99,102,241), .35); display: grid; gap: 8px; justify-items: start; }
 .ent-nube__texto { margin: 0; font-size: .9em; line-height: 1.45; }
-.ent-nube__error { margin: 0; color: var(--peligro, #f87171); font-size: .9em; }
+.ent-nube__error { margin: 0; color: var(--error); font-size: .9em; }
 
 
 /* Funciones nuevas de revisión, regeneración y descarga; conserva el diseño Kads. */
