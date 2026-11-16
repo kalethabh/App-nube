@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16h` (archivo `VERSION`), rama `ajustes-rediseno` (sale de `imagen-ads-modos`, PR #70).
-  En `main`: `2026-11-16f` ([PR #68](https://github.com/kalethabh/App-nube/pull/68), [PR #69](https://github.com/kalethabh/App-nube/pull/69)).
+- **Versión actual:** `2026-11-16i` (archivo `VERSION`): «Actualizar» al instante (rama `actualizar-al-instante`).
+  Antes en `main`: `2026-11-16h` (PR #68 a #71).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +136,24 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### «Actualizar» ve al instante todo lo publicado (2026-11-16, versión 2026-11-16i)
+
+Pedido: «todos los cambios publicados me permita actualizar al instante en la app, no me sale para actualizar».
+Causa: `actualizar-github.js` comparaba y bajaba la rama ACTUAL de la carpeta (`origin/<rama>`); con la carpeta en
+una rama que no es `main` (o que no existe en GitHub, y entonces el fetch fallaba) lo publicado no aparecía. Además
+solo revisaba cada 10 minutos y el aviso era un punto en el botón.
+
+- `lib/actualizar-github.js`: `PUBLICADA = 'main'` (o `KADS_RAMA_PUBLICADA`); `fetch` con refspec explícito,
+  cuenta `HEAD...origin/main` y `pull origin main` en la rama que esté. `revisarConMemoria()` (1 min);
+  `GET /api/github/actualizar?ahora=1` pregunta sí o sí.
+- `marco/BotonActualizar.jsx`: cada 2 min; al abrir pregunta ahora; `actualizarDesdeGithub()` compartida.
+  `marco/BandaActualizacion.jsx` (nueva, en `App.jsx`): franja «Hay N cambios nuevos publicados» con «Actualizar
+  ahora» / «Después» (guarda la fecha del último cambio en `localStorage kads:actualizacion-despues`).
+- Probado: una copia en una rama vieja (`a9396e0`) veía 11 cambios de `main`; «Actualizar» los bajó (quedó en
+  `2026-11-16h`, `atrasados: 0`) y pidió el reinicio. Franja en claro y oscuro sin errores JS.
+- **Una sola vez en la Mac** (si su copia no tiene todavía este cambio): `git pull --no-rebase --no-edit origin main`
+  en `~/Anuncios con IA` y volver a abrir la app. Después, todo llega por la franja.
 
 ### Ajustes rediseñado (2026-11-16, versión 2026-11-16h)
 

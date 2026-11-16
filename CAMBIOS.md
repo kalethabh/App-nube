@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16i · «Actualizar» ve al instante todo lo publicado
+
+- **Siempre ve lo publicado:** «Actualizar» compara contra lo publicado en GitHub (`main`), esté tu carpeta en la rama que esté. Antes, si la carpeta había quedado en otra rama, lo nuevo nunca aparecía.
+- **Más rápido:** revisa cada 2 minutos (antes cada 10) y, al abrir «Actualizar», pregunta a GitHub en ese momento.
+- **Franja arriba:** apenas hay algo nuevo aparece «Hay N cambios nuevos publicados» con **Actualizar ahora** (y «Después»). La app se reinicia sola si hace falta y la página se recarga.
+
 ## 2026-11-16h · Ajustes rediseñado: más compacto y ordenado
 
 - **Una sección a la vez:** el menú de la izquierda (arriba en el celular) cambia de sección en vez de bajar por una página larguísima. El enlace guarda la sección (`#/ajustes?seccion=modelos`).

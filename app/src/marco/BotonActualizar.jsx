@@ -1,5 +1,6 @@
 // "Actualizar" (barra de arriba): baja lo último de tu repositorio de GitHub (POST /api/github/actualizar).
-// Cada 10 minutos pregunta si hay algo nuevo (solo pregunta, no cambia nada) y, si hay, el botón lleva un punto lima.
+// Cada 2 minutos pregunta si hay algo nuevo publicado en main (solo pregunta, no cambia nada) y, si hay, el botón lleva
+// un punto lima y arriba aparece la franja «Hay cambios nuevos» (BandaActualizacion.jsx) con «Actualizar ahora».
 // Si la app se instaló con el comando (sin repositorio), el mismo botón baja la última versión PUBLICADA
 // (ActualizarPublica: GET y POST /api/actualizar/publica).
 import { useState } from 'react';
@@ -8,10 +9,36 @@ import { Boton } from '../componentes/Boton.jsx';
 import { Modal } from '../componentes/Modal.jsx';
 import { useDatos, invalidar } from '../datos/api.js';
 
-async function revisar() {
-  const r = await fetch('/api/github/actualizar', { headers: { Accept: 'application/json' } });
+/** Lo que dice GitHub (el servidor lo recuerda un minuto; `ahora` pregunta sí o sí). */
+export async function revisarGithub({ ahora = false } = {}) {
+  const r = await fetch(`/api/github/actualizar${ahora ? '?ahora=1' : ''}`, { headers: { Accept: 'application/json' } });
   if (!r.ok) throw new Error('No pude revisar GitHub.');
   return r.json();
+}
+const revisar = () => revisarGithub();
+export const CADA_MS_GITHUB = 2 * 60000;
+
+/**
+ * Baja lo publicado y deja la app al día: si la app se reinicia sola, espera a que vuelva y recarga la página.
+ * Devuelve la respuesta del servidor ({ ok, mensaje, cambios, reinicia, recargar }).
+ */
+export async function actualizarDesdeGithub() {
+  const r = await fetch('/api/github/actualizar', { method: 'POST', headers: { Accept: 'application/json' } });
+  const d = await r.json().catch(() => ({}));
+  const resultado = d?.mensaje ? d : { ok: false, mensaje: 'No pude actualizar. Vuelve a intentarlo.' };
+  if (d?.reinicia) {
+    await new Promise((ok) => setTimeout(ok, 4000));
+    for (let i = 0; i < 60; i++) {
+      const e = await fetch('/api/estado', { cache: 'no-store' }).then((x) => (x.ok ? x.json() : null), () => null);
+      if (e?.servidor && !e.servidor.desactualizado) {
+        window.location.reload();
+        return resultado;
+      }
+      await new Promise((ok) => setTimeout(ok, 1500));
+    }
+  }
+  invalidar('github-actualizar');
+  return resultado;
 }
 
 const mb = (b) => `${Math.round((Number(b) || 0) / (1024 * 1024))} MB`;
@@ -117,14 +144,14 @@ function ActualizarPublica() {
 }
 
 export function BotonActualizar() {
-  const { datos: gh } = useDatos('github-actualizar', revisar, { cadaMs: 10 * 60000 });
+  const { datos: gh } = useDatos('github-actualizar', revisar, { cadaMs: CADA_MS_GITHUB });
   // la app llegó con el comando de instalación (sin repositorio): se actualiza con la última versión publicada
   if (gh?.repositorio === false) return <ActualizarPublica />;
   return <ActualizarDeGithub />;
 }
 
 function ActualizarDeGithub() {
-  const { datos, recargar } = useDatos('github-actualizar', revisar, { cadaMs: 10 * 60000 });
+  const { datos, recargar } = useDatos('github-actualizar', revisar, { cadaMs: CADA_MS_GITHUB });
   const [abierto, setAbierto] = useState(false);
   const [trabajando, setTrabajando] = useState(false);
   const [resultado, setResultado] = useState(null);
@@ -134,25 +161,15 @@ function ActualizarDeGithub() {
   const abrir = async () => {
     setResultado(null);
     setAbierto(true);
+    // al abrir se pregunta a GitHub en ese momento (no lo que se revisó hace un rato)
+    await revisarGithub({ ahora: true }).catch(() => null);
     invalidar('github-actualizar');
     recargar?.();
   };
   const actualizar = async () => {
     setTrabajando(true);
     try {
-      const r = await fetch('/api/github/actualizar', { method: 'POST', headers: { Accept: 'application/json' } });
-      const d = await r.json().catch(() => ({}));
-      setResultado(d?.mensaje ? d : { ok: false, mensaje: 'No pude actualizar. Vuelve a intentarlo.' });
-      // la app se reinicia sola: cuando vuelve a contestar, la página se recarga
-      if (d?.reinicia) {
-        await new Promise((r) => setTimeout(r, 4000));
-        for (let i = 0; i < 60; i++) {
-          const e = await fetch('/api/estado', { cache: 'no-store' }).then((x) => (x.ok ? x.json() : null), () => null);
-          if (e?.servidor && !e.servidor.desactualizado) return window.location.reload();
-          await new Promise((r) => setTimeout(r, 1500));
-        }
-      }
-      invalidar('github-actualizar');
+      setResultado(await actualizarDesdeGithub());
       recargar?.();
     } catch {
       setResultado({ ok: false, mensaje: 'No pude conectar con la app.' });
