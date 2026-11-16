@@ -1,7 +1,7 @@
 {
   "id": "292a54bc-7f74-4f04-83b6-3fb5f0cdbed0",
   "uuid": "292a54bc-7f74-4f04-83b6-3fb5f0cdbed0",
-  "estado": "investigando",
+  "estado": "lista",
   "pais": "COLOMBIA",
   "progreso": [
     "Claude está investigando tu mercado",
@@ -15,5 +15,11 @@
   "intentos": 1,
   "inicio": "2026-11-16T00:42:52.736Z",
   "error": null,
-  "actualizado": "2026-11-16T00:49:18.799Z"
+  "fin": "2026-11-16T00:49:19.196Z",
+  "medida": {
+    "turnos": 39,
+    "duracionMs": 386431,
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-16T00:49:19.198Z"
 }
