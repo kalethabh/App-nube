@@ -1,0 +1,277 @@
+{
+  "marca": "Amua (AMUA VITALDROPS)",
+  "tienda": "shopamua.com",
+  "producto": "Amua Vitaldrops (gotas herbales de 60 ml)",
+  "pais": "COLOMBIA",
+  "fecha": "16 de noviembre de 2026",
+  "explicacion": "Son gotas de plantas (maca, fenogreco y ashwagandha) que la marca vende a mujeres delgadas con la promesa de «subir de peso en los lugares correctos»: caderas, piernas y cola, sin cirugía.",
+  "advertencias": [
+    "La marca es nueva: TrendTrack registra la tienda desde el 9 de junio de 2026 y su primer anuncio desde mediados de junio. El anuncio más viejo tiene 126 días, así que «el más longevo» tiene techo.",
+    "El alcance que ves es casi todo del Reino Unido. La marca pauta 95 % en Estados Unidos, donde Meta no publica alcance. Las cifras de alcance están muy subestimadas: sirven para comparar anuncios entre sí, no para medir el tamaño real.",
+    "La marca no está en el seguimiento de marcas y no se podía agregar. No hay transcripciones completas ni conteo de anuncios por guion. Los guiones salen de las transcripciones que trae cada anuncio en la búsqueda, y varias vienen con errores de audio.",
+    "Las ventas de 30 días son una estimación con un rango muy amplio (entre US$1,2 M y US$5,0 M). No se separan por producto.",
+    "La búsqueda por palabra lee el texto escrito del anuncio, no lo que se dice en el video. Esta marca usa el mismo texto corto en casi todos sus videos, así que sus ángulos casi no aparecen en los conteos por palabra.",
+    "Las páginas de destino no se abrieron: se reporta la dirección y el titular que muestra el anuncio."
+  ],
+  "creditos": { "antes": 4328, "despues": 0 },
+  "etapas": [
+    {
+      "titulo": "Investigación maestra",
+      "contexto": "Se revisó la ficha de la tienda shopamua.com, sus páginas de anuncios y 30 creativos ordenados por duplicados, por días al aire, por alcance y por crecimiento de la última semana. El producto es uno solo: todo el análisis es de Vitaldrops.",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "1. Panorama competitivo" },
+        { "tipo": "metricas", "items": [
+          { "etiqueta": "Ingresos estimados 30 d", "valor": "US$3,12 M", "nota": "Rango de la estimación: US$1,2 M a US$5,0 M", "tono": "verde" },
+          { "etiqueta": "Unidades estimadas 30 d", "valor": "76.887", "nota": "Dato a revisar: sería 1 compra por cada 5 visitas", "tono": "ambar" },
+          { "etiqueta": "Ingreso por unidad", "valor": "US$40,6", "nota": "Ingresos divididos entre unidades", "tono": "" },
+          { "etiqueta": "Visitas al mes", "valor": "375.013", "nota": "−5,2 % frente al mes anterior. En junio eran 5.740", "tono": "ambar" },
+          { "etiqueta": "Anuncios activos", "valor": "1.228", "nota": "Eran 80 el 3 de agosto y 447 el 5 de octubre", "tono": "verde" },
+          { "etiqueta": "Anuncios históricos", "valor": "4.314", "nota": "En solo 5 meses", "tono": "azul" },
+          { "etiqueta": "Páginas que pautan", "valor": "6", "nota": "Amua, Roseline William, Thick Girl Secrets y 3 más", "tono": "" },
+          { "etiqueta": "Productos en catálogo", "valor": "9", "nota": "Un solo producto real y 4 complementos", "tono": "" },
+          { "etiqueta": "Anuncios en Google", "valor": "73", "nota": "Casi todos en Estados Unidos", "tono": "" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Producto del catálogo", "Precio", "Papel"], "filas": [
+          ["Amua Vitaldrops™", "US$59,99", "El producto. Aparece 4 veces en el catálogo (una por paquete o por página)"],
+          ["The Curve Blueprint (libro digital)", "US$19,99", "Complemento para subir el valor del pedido"],
+          ["Curve Bites", "US$19,99", "Complemento"],
+          ["Silky Bottle Pouch (bolsita para el frasco)", "US$19,99", "Complemento"],
+          ["Shipping Protection (protección de envío)", "US$2,99", "Cargo extra en el carrito"]
+        ], "nota": "Dato: catálogo y precios de la ficha de TrendTrack. El precio de US$59,99 coincide con el paquete de 3 frascos que la marca publicaba antes (1 frasco US$29,99, 3 frascos US$59,99, 5 frascos US$99,99, según la investigación previa de este producto)." },
+        { "tipo": "tabla", "columnas": ["Página que pauta", "Anuncios activos", "Alcance visible total", "Para qué la usan"], "filas": [
+          ["Amua (página oficial)", "555", "2.026.434", "Canciones, estáticos y anuncios de oferta. 16.382 seguidores en Facebook y 18.803 en Instagram"],
+          ["Roseline William (nombre de persona)", "565", "1.104.995", "Historias, sketches y testimonios. Es la que más pauta hoy: 295.225 de alcance en 30 días"],
+          ["Thick Girl Secrets", "54", "676.791", "Videos de explicación del mecanismo y textos largos"]
+        ], "nota": "Dato: el alcance es solo el que Meta publica (Reino Unido y Unión Europea). Inferencia: usar una página con nombre de persona hace que el anuncio parezca la historia de una mujer real y no una marca." },
+        { "tipo": "parrafo", "texto": "Dato: la marca pasó de 1 anuncio activo (15 de junio) a 1.234 (9 de noviembre). Solo desde el 5 de octubre casi triplicó su volumen (447 a 1.234). El tráfico subió de 5.740 visitas en junio a 395.417 en septiembre. Inferencia: está en plena fase de escalado y sigue encontrando creativos que le funcionan. La caída de 5 % en visitas del último mes es el primer aviso de techo." },
+        { "tipo": "parrafo", "texto": "COMPETIDORES_PENDIENTE" },
+        { "tipo": "subtitulo", "texto": "2. Familias de creativos ganadores" },
+        { "tipo": "barras", "titulo": "Alcance visible por familia (suma de los creativos revisados)", "unidad": "personas", "items": [
+          { "etiqueta": "B. Historias de revancha (el ex, la boda, la hermana)", "valor": 313497, "nota": "7 creativos. La familia que más renuevan", "tono": "verde" },
+          { "etiqueta": "A. Canciones y rap", "valor": 300008, "nota": "4 creativos. Tiene el anuncio de más alcance", "tono": "verde" },
+          { "etiqueta": "Sin transcripción (no se pudo leer el guion)", "valor": 171963, "nota": "3 creativos, uno es el que más crece hoy", "tono": "" },
+          { "etiqueta": "D. Explicación del mecanismo", "valor": 69885, "nota": "2 creativos", "tono": "azul" },
+          { "etiqueta": "C. «No compres esto» (testimonio a cámara)", "valor": 26173, "nota": "4 creativos, 3 ganchos sobre el mismo cuerpo", "tono": "azul" },
+          { "etiqueta": "E. Texto largo con foto", "valor": 25084, "nota": "2 creativos, 22 duplicados, 126 días", "tono": "azul" },
+          { "etiqueta": "F. Oferta directa", "valor": 22538, "nota": "1 creativo, lanzado el 4 de noviembre", "tono": "ambar" }
+        ] },
+        { "tipo": "vinetas", "items": [
+          "**A. Canciones y rap.** Dato: un rap («No booty, no hips, no curves») es el anuncio con más alcance visible de la marca (158.480) y lo relanzaron una semana después (116.982 más). Lógica: la canción entretiene, no parece anuncio y repite la promesa como estribillo. Pico: julio y agosto. La relanzaron el 6 de noviembre.",
+          "**B. Historias de revancha.** Dato: 7 versiones entre agosto y noviembre (la boda de la mejor amiga, la hermana, el ex en la guardería, el ex en la fiesta, el ex en prisión). Lógica: no venden curvas, venden que quien te despreció te vuelva a mirar. Pico: siguen lanzando versiones nuevas cada dos o tres semanas; dos de las que más crecen esta semana son de esta familia.",
+          "**C. «No compres esto».** Dato: el mismo testimonio de 3 semanas corre con tres aperturas distintas desde el 7 de octubre, y la versión original lleva 118 días activa. Lógica: la advertencia al revés frena el dedo y el cuerpo del video hace la venta.",
+          "**D. Explicación del mecanismo.** Dato: «lo que pasa en tu cuerpo en los primeros 14 días» duró 82 días y fue el número 1 de su página. Lógica: le da una razón a la promesa (la «señal» y los fitoestrógenos).",
+          "**E. Texto largo con foto.** Dato: una foto sencilla con un texto de más de 700 palabras («Evitaba pararme junto a mis amigas con curvas en las fotos»). Es el anuncio más viejo (126 días) y el más duplicado (12 y 10 copias). Lógica: lee como una confesión en Facebook.",
+          "**F. Oferta directa.** Dato: «Le debemos una disculpa a cada reina que compró Amua esta semana», lanzado el 4 de noviembre, creció 12.422 de alcance en 7 días. Inferencia: es el empujón de temporada de descuentos sobre un público que ya vio las historias."
+        ] },
+        { "tipo": "subtitulo", "texto": "3. Desglose de los anuncios más fuertes" },
+        { "tipo": "anuncios", "items": [
+          {
+            "id": "facebook_3864419977033622", "marca": "Amua", "nombre": "Rap «No booty, no hips»", "formato": "video",
+            "gancho": "No booty, no hips, no curves, no nothing. Skinny lil thing, workin' with my homegirl. She thick, thick, I'm sick, sick.",
+            "traduccion": "Sin cola, sin caderas, sin curvas, sin nada. Flaquita, trabajando con mi amiga. Ella con curvas, yo cansada de esto.",
+            "angulo": "Las curvas son moneda: la amiga con curvas se lleva todas las miradas", "avatar": "La amiga flaca que sale con la amiga con curvas",
+            "pasos": ["Estribillo del dolor: sin cola, sin caderas", "La amiga se lleva las miradas y los tragos en la discoteca", "«Las curvas son moneda y yo estaba quebrada»", "Probó batidos y sentadillas: nada", "Descubre el frasco de la amiga y los tres ingredientes", "Dos semanas después: el jean no cierra, el ex suda, la amiga pregunta si se operó", "Cierre: link abajo"],
+            "cifras": { "dias": 24, "anuncios": 2, "alcance": "158.480 (más 116.982 del relanzamiento)", "impresiones": "", "desde": "21 de julio de 2026", "hasta": "14 de agosto de 2026" },
+            "por_que": "Inferencia: es entretenimiento antes que anuncio. La canción repite el dolor y la promesa sin sonar a venta, y convierte un complejo privado en algo que se canta.",
+            "ganchos": ["El mismo video se relanzó el 31 de julio hacia otra página de destino (facebook_1940321336652313)"],
+            "url": "https://medias.trendtrack.io/facebook/video/94a98304b30e028f44a3686e042a33e40605fd3feed5afa949ed4d4703fdf2fe.mp4",
+            "landing": "https://shopamua.com/pages/curve-quiz"
+          },
+          {
+            "id": "facebook_1051005344544858", "marca": "Amua", "nombre": "«No compres Amua Vital Drops»", "formato": "video",
+            "gancho": "Do not buy Amua Vital Drops if you like being invisible. Do not buy Amua Vital Drops if you like your skinny booty.",
+            "traduccion": "No compres Amua Vital Drops si te gusta ser invisible. No compres Amua Vital Drops si te gusta tu cola flaca.",
+            "angulo": "Advertencia al revés más testimonio de 3 semanas", "avatar": "Mujer joven delgada, afroamericana, que ya probó sentadillas y batidos",
+            "pasos": ["Cuatro advertencias seguidas: «no compres si…»", "«Lleva tres semanas tomándolas»", "Prueba social: el ex escribe, la amiga pregunta", "Mecanismo: la señal del cuerpo estaba apagada y las plantas la despiertan", "Objeción del sabor: «es suave»", "Contraste: «sigue con tus sentadillas, yo tomo un gotero al día»", "Oferta: hasta 75 % menos y garantía de 90 días"],
+            "cifras": { "dias": 118, "anuncios": 2, "alcance": "15.463", "impresiones": "", "desde": "21 de julio de 2026", "hasta": "activo al 15 de noviembre de 2026" },
+            "por_que": "Inferencia: la prohibición despierta curiosidad y además califica al público: solo sigue mirando la que se siente invisible.",
+            "ganchos": ["What the f*** did these natural plants do to my ass in three weeks? (¿Qué carajos le hicieron estas plantas a mi cola en tres semanas?)", "Do not buy Amua Vital Drops. (No compres Amua Vital Drops.)", "Do not buy Amua Vital Drops if you like being invisible. (… si te gusta ser invisible.)"],
+            "url": "https://medias.trendtrack.io/facebook/video/e142cf579d0e8a23c64a248425578eb74b54d5a91548a2d0bf9f5b9c4faf6683.mp4",
+            "landing": "https://shopamua.com/pages/curve-quiz"
+          },
+          {
+            "id": "facebook_3980256198949602", "marca": "Amua (página Roseline William)", "nombre": "«Mi hermana dice que le arruiné la boda»", "formato": "video",
+            "gancho": "My sister said I ruined her wedding day. No. I didn't sleep with her husband or do anything crazy. I just went from flat to curvy since we last saw each other.",
+            "traduccion": "Mi hermana dice que le arruiné el día de su boda. No, no me acosté con su esposo ni hice nada loco. Solo pasé de plana a tener curvas desde la última vez que nos vimos.",
+            "angulo": "Secreto de familia: la tía de Brasil y los fitoestrógenos", "avatar": "La hermana flaca que siempre fue la envidiosa en silencio",
+            "pasos": ["Gancho de escándalo que se desmiente enseguida", "Años intentando subir de peso: batidos, suplementos, retos de sentadillas", "El médico: «es tu genética, o hazte una cirugía»", "Llama a la tía de Brasil y llora", "La tía revela el secreto: los goteros amarillos", "Mecanismo: «no es la dieta, es la hormona que le dice al cuerpo dónde poner el peso»", "Resultado y reacción de la hermana, que pide el frasco", "Oferta: lleva 3 y paga 2, garantía de 90 días"],
+            "cifras": { "dias": 19, "anuncios": 3, "alcance": "61.410", "impresiones": "", "desde": "14 de septiembre de 2026", "hasta": "3 de octubre de 2026" },
+            "por_que": "Inferencia: junta tres fuerzas: chisme de familia, autoridad heredada (la tía, «las brasileñas lo usan hace generaciones») y un culpable que no es ella (la genética no, la señal).",
+            "ganchos": [],
+            "url": "https://medias.trendtrack.io/facebook/video/70a689586b76e0032ff76045cefa298eb71b701bca51b26199bba799072932e4.mp4",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_1405928441479966", "marca": "Amua (página Thick Girl Secrets)", "nombre": "«Los primeros 14 días»", "formato": "video",
+            "gancho": "People don't realize how fast phytoestrogens work. Here's what happens inside your body in the first 14 days.",
+            "traduccion": "La gente no se imagina lo rápido que actúan los fitoestrógenos. Esto es lo que pasa dentro de tu cuerpo en los primeros 14 días.",
+            "angulo": "Línea de tiempo del mecanismo", "avatar": "La que ya conoce el producto y duda de si funciona",
+            "pasos": ["Promesa de velocidad", "Primera toma: la señal empieza a trabajar", "Semana 1: el jean aprieta", "Semana 2: la grasa va a caderas y cola, no a la barriga", "Semana 3: «¿te hiciste una cirugía?»", "Un mes: «las curvas se quedan»", "Beneficio social: los hombres te notan, el ex escribe", "Oferta: 90 días sin riesgo y hasta 75 % menos"],
+            "cifras": { "dias": 82, "anuncios": 2, "alcance": "64.027", "impresiones": "", "desde": "12 de agosto de 2026", "hasta": "2 de noviembre de 2026" },
+            "por_que": "Inferencia: la línea de tiempo vuelve creíble la promesa porque la parte en pasos pequeños y le dice a la compradora qué va a sentir cada semana.",
+            "ganchos": [],
+            "url": "https://medias.trendtrack.io/facebook/video/51cbb6811ce23c4da6135271c17ae58701e56fda1e9e97014ebdc1731aecaee0.mp4",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_1008332222095422", "marca": "Amua (página Roseline William)", "nombre": "Texto largo «Mis amigas con curvas»", "formato": "imagen",
+            "gancho": "I used to avoid standing next to my thick friends in pictures. Not because I didn't love my girls. Because every photo was proof of what I didn't have.",
+            "traduccion": "Yo evitaba pararme junto a mis amigas con curvas en las fotos. No porque no las quisiera. Sino porque cada foto era la prueba de lo que yo no tenía.",
+            "angulo": "La invisible: «de donde vengo, si no tienes curvas no existes»", "avatar": "La amiga simpática a la que nadie se le acerca",
+            "pasos": ["Confesión: las fotos de grupo", "Escenas de ser invisible: el karaoke, el barista, los desconocidos", "«Yo era la contratada por personalidad»", "Lo que ya hizo: un año de gimnasio, comer más, batidos", "Fondo: buscó precios de cirugía a las 2 de la mañana", "Descubre el producto por las reseñas de mujeres como ella", "Mecanismo: el cuerpo no recibía la señal; el estrés la bloquea", "Línea de tiempo: semanas, semana 6, mes 3", "Recompensa social: los hombres voltean, sale al frente en las fotos", "Cierre: garantía y lleva 3 paga 2"],
+            "cifras": { "dias": 126, "anuncios": 22, "alcance": "20.331 (más 4.753 de la segunda foto)", "impresiones": "", "desde": "13 de julio de 2026", "hasta": "activo; la segunda foto se apagó el 7 de noviembre de 2026" },
+            "por_que": "Inferencia: el titular («Pensé que siempre sería la flaca que nadie nota… hasta que probé estas gotas») y el texto parecen una publicación personal. Cuesta poco producirlo y por eso lo duplican tanto.",
+            "ganchos": ["Titular del enlace: I Thought I'd Stay the Skinny Girl Nobody Notices… Then I Tried These Drops (Pensé que siempre sería la flaca que nadie nota… hasta que probé estas gotas)"],
+            "url": "https://medias.trendtrack.io/facebook/image/a1fb612b324ec9d528255efdb3863ddefe611de0e7eba9ff246df5fe1b8b9c88.jpg",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_1120766514279618", "marca": "Amua (página Roseline William)", "nombre": "Sketch «La novia de mi ex me encerró en el baño»", "formato": "video",
+            "gancho": "I ran into my ex at a party. I wasn't trying to start anything, but his new girlfriend, she had questions.",
+            "traduccion": "Me encontré a mi ex en una fiesta. Yo no quería armar nada, pero su nueva novia tenía preguntas.",
+            "angulo": "Mini novela actuada: la rival quiere saber qué te hiciste", "avatar": "La ex a la que dejaron por una mujer con más curvas",
+            "pasos": ["Encuentro incómodo con el ex y la novia", "La novia la encara en el baño: «¿con qué cirujano fuiste?»", "Ella niega todo: ni cirugía ni inyecciones", "Revela las gotas y explica la señal en una frase", "Tiempo: pocas semanas, al mes dos no le cerraba el jean", "La rival pide el nombre de la marca, que se deletrea", "Cierre narrado con el resumen de la historia"],
+            "cifras": { "dias": 10, "anuncios": 5, "alcance": "28.267 (21.043 solo en los últimos 7 días)", "impresiones": "", "desde": "6 de noviembre de 2026", "hasta": "activo al 15 de noviembre de 2026" },
+            "por_que": "Inferencia: es el formato de mini novela que hoy retiene más en redes. La venta la hace la rival, no la marca: si hasta ella lo quiere, funciona.",
+            "ganchos": [],
+            "url": "https://medias.trendtrack.io/facebook/video/168cb0af155dff3238a2411ce6a507462dc20412bf8f27363b663bae7e02f8cb.mp4",
+            "landing": "https://shopamua.com/pages/curve-quiz"
+          }
+        ] },
+        { "tipo": "subtitulo", "texto": "4. Patrones" },
+        { "tipo": "plan", "titulo": "La estructura del guion, paso a paso", "items": [
+          { "cuando": "1. Gancho", "que": "Una escena social con testigos (boda, fiesta, foto de grupo, mensaje del ex) o una advertencia al revés. Nunca empieza hablando del producto." },
+          { "cuando": "2. Identidad", "que": "«Fui la flaca toda la vida: recta, sin caderas». La protagonista se describe con las palabras del público." },
+          { "cuando": "3. Lo que ya probó", "que": "Sentadillas, comer más, batidos para subir de peso. Todo se fue a la barriga." },
+          { "cuando": "4. El falso culpable", "que": "«Será mi genética» o «me toca operarme». Se menciona el precio de la cirugía (15.000 dólares)." },
+          { "cuando": "5. El mensajero", "que": "Alguien cercano entrega el secreto: la prima, la tía de Brasil, la estilista, la amiga." },
+          { "cuando": "6. El mecanismo", "que": "«No es tu esfuerzo, es la señal»: las plantas le dicen al cuerpo dónde guardar la grasa." },
+          { "cuando": "7. Línea de tiempo", "que": "Semana 1 más apetito, semana 3 el jean aprieta, mes 2 o 3 cambia el clóset." },
+          { "cuando": "8. Prueba social", "que": "«¿Te operaste?», el ex escribe «te ves diferente», los hombres voltean." },
+          { "cuando": "9. Oferta", "que": "Lleva 3 y paga 2, hasta 67 % o 75 % menos, garantía de 90 días, «se agota seguido»." }
+        ] },
+        { "tipo": "tabla", "columnas": ["Frase que se repite", "Traducción", "En cuántos de los guiones leídos"], "filas": [
+          ["hips, thighs, booty, not your stomach", "caderas, piernas y cola, no la barriga", "12 de 16"],
+          ["the signal / tell your body where to store fat", "la señal / decirle al cuerpo dónde guardar la grasa", "11 de 16"],
+          ["you look different", "te ves diferente (el mensaje del ex)", "6 de 16"],
+          ["did you get work done? / BBL?", "¿te operaste? / ¿cirugía de cola?", "9 de 16"],
+          ["squats / shakes didn't work", "las sentadillas y los batidos no sirvieron", "9 de 16"],
+          ["phytoestrogens", "fitoestrógenos", "8 de 16"],
+          ["invisible / nobody notices", "invisible / nadie me nota", "6 de 16"],
+          ["buy two get one free + 90-day guarantee", "lleva 3 paga 2 más garantía de 90 días", "10 de 16"],
+          ["my jeans don't fit the same", "el jean ya no me queda igual", "10 de 16"]
+        ], "nota": "Dato: conteo hecho a mano sobre los 16 guiones y textos que traían transcripción. No es un conteo de toda la cuenta." },
+        { "tipo": "subtitulo", "texto": "5. Sofisticación del mercado" },
+        { "tipo": "escala", "titulo": "Sofisticación del mercado (Schwartz)", "items": [
+          { "nombre": "La marca", "nivel": 4, "nota": "Inferencia: ya no vende «gana curvas» a secas. Vende un mecanismo con nombre (la señal, los fitoestrógenos) y lo envuelve en formatos de entretenimiento (canciones, mini novelas) para una audiencia que ya vio promesas directas." },
+          { "nombre": "El mercado en inglés", "nivel": 3, "nota": "Inferencia: la mayoría de competidores sigue en promesa directa o promesa exagerada («cola más grande con gomitas»). El detalle con datos está en la etapa 4." }
+        ] },
+        { "tipo": "subtitulo", "texto": "6. Estáticos" },
+        { "tipo": "barras", "titulo": "Formato de los anuncios históricos de la marca", "unidad": "anuncios", "items": [
+          { "etiqueta": "Video", "valor": 3938, "nota": "91 %", "tono": "azul" },
+          { "etiqueta": "Imagen", "valor": 376, "nota": "9 %", "tono": "" }
+        ] },
+        { "tipo": "anuncios", "items": [
+          {
+            "id": "facebook_1441696914452609", "marca": "Amua (página Thick Girl Secrets)", "nombre": "Texto largo «Mi ex me dijo flaca. Ahora está en prisión»", "formato": "imagen",
+            "gancho": "My ex told me I was too skinny. Now he's in prison.",
+            "traduccion": "Mi ex me dijo que yo era demasiado flaca. Ahora está en prisión.",
+            "angulo": "Humor más revancha, con tono moderado al final («lo sumé a mi rutina»)", "avatar": "La que quedó marcada por un comentario de su ex",
+            "pasos": ["Gancho absurdo que obliga a leer", "El comentario del ex: «tienes cuerpo de niña»", "Años comiendo y entrenando por rabia", "Cambia la meta: «quiero curvas por mí»", "Encuentra el producto por las reseñas", "Constancia: comida, entrenamiento y gotas", "Los demás lo notan", "Vuelve al chiste de la prisión", "Oferta suave: lleva 3 paga 2 y garantía"],
+            "cifras": { "dias": 11, "anuncios": 3, "alcance": "87.220", "impresiones": "", "desde": "14 de agosto de 2026", "hasta": "25 de agosto de 2026" },
+            "por_que": "Inferencia: es el estático de más alcance. Fue segmentado a 120 países, **Colombia incluida**, aunque en inglés. Es el único creativo visto que habla de constancia, comida y ejercicio en vez de prometer un resultado.",
+            "ganchos": ["Titular del enlace: My ex said I was too skinny… now look (Mi ex dijo que yo era muy flaca… mira ahora)"],
+            "url": "https://medias.trendtrack.io/facebook/image/af6a94b110deaf12bdb4deea44deaa88fe3363284a1f1248fbcb2c6b32bb7ec4.png",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_4647213618899681", "marca": "Amua", "nombre": "Estático de producto (julio)", "formato": "imagen",
+            "gancho": "Feel confident in your body with a natural blend designed to support healthy weight gain in the right places!",
+            "traduccion": "Siéntete segura con tu cuerpo con una mezcla natural pensada para apoyar un aumento de peso saludable en los lugares correctos.",
+            "angulo": "Promesa directa de marca", "avatar": "General",
+            "pasos": ["Imagen sola con el texto corto de siempre", "Titular: «Abraza tus curvas, naturalmente»"],
+            "cifras": { "dias": 110, "anuncios": 2, "alcance": "6.939", "impresiones": "", "desde": "29 de julio de 2026", "hasta": "activo al 15 de noviembre de 2026" },
+            "por_que": "Dato: es el tercero mejor ubicado de la página oficial. De la misma tanda del 29 de julio hay otros 5 estáticos activos con menos de 310 de alcance cada uno: siguen encendidos sin gastar y no son ganadores.",
+            "ganchos": [],
+            "url": "https://medias.trendtrack.io/facebook/image/d752a3d2b2efb519da042266d42930633afc74e7d0c2932be3935e75a4552b6e.png",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_1105087365237812", "marca": "Amua", "nombre": "Estático nuevo (octubre)", "formato": "imagen",
+            "gancho": "Feel confident in your body with a natural blend designed to support healthy weight gain in the right places!",
+            "traduccion": "Siéntete segura con tu cuerpo con una mezcla natural pensada para apoyar un aumento de peso saludable en los lugares correctos.",
+            "angulo": "Promesa directa de marca", "avatar": "General",
+            "pasos": ["Imagen sola con el texto corto de siempre"],
+            "cifras": { "dias": 35, "anuncios": 3, "alcance": "4.707 (4.228 en los últimos 7 días)", "impresiones": "", "desde": "12 de octubre de 2026", "hasta": "activo al 15 de noviembre de 2026" },
+            "por_que": "Dato: es el único estático entre los 7 anuncios que más crecieron esta semana. No se pudo ver el contenido de la imagen.",
+            "ganchos": [],
+            "url": "https://medias.trendtrack.io/facebook/image/b1ccc838d60041ccd4f07523514a99e477cdae68fc861ceec130890cf8450b4b.jpg",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          }
+        ] },
+        { "tipo": "parrafo", "texto": "Inferencia: los estáticos son 9 % de la cuenta y su función es otra: los de texto largo son los más duraderos y duplicados (126 días, 22 copias), mientras que los de solo producto casi no gastan. En esta marca el estático que funciona es el que cuenta una historia en el texto, no el que muestra el frasco." },
+        { "tipo": "subtitulo", "texto": "7. Embudo y páginas de destino" },
+        { "tipo": "tabla", "columnas": ["Destino", "Promesa que muestra el anuncio", "Traducción", "Ángulo", "Qué anuncios llegan"], "filas": [
+          ["shopamua.com/products/amua-vitaldrops", "Embrace your curves, naturally · Supports your natural curves with a 100% natural formula.", "Abraza tus curvas, naturalmente · Apoya tus curvas naturales con una fórmula 100 % natural.", "Página de producto con oferta", "La mayoría: testimonios, textos largos, mecanismo y oferta"],
+          ["shopamua.com/pages/curve-quiz", "Embrace your curves, naturally", "Abraza tus curvas, naturalmente", "Test de curvas (primera versión)", "Canciones y la mini novela del baño"],
+          ["shopamua.com/pages/curves-quizv2", "Embrace your curves, naturally", "Abraza tus curvas, naturalmente", "Test de curvas (segunda versión)", "Sketch de la hermana, historia de la guardería y un relanzamiento del rap"]
+        ], "nota": "Dato: las direcciones y titulares vienen del anuncio. No se abrió ninguna página, así que no se vio su contenido. Inferencia: el test existe en dos versiones porque lo están probando contra la página de producto; el contenido frío y de entretenimiento va al test, el de intención alta va directo al producto." },
+        { "tipo": "subtitulo", "texto": "8. Oferta, precio y retención" },
+        { "tipo": "tabla", "columnas": ["Elemento", "Lo que dicen los anuncios", "Lo que dice la etiqueta o fuentes externas"], "filas": [
+          ["Precio", "«Menos de un dólar al día» por tres frascos", "Ficha de TrendTrack: US$59,99. Investigación previa: 1 frasco US$29,99, 3 por US$59,99 y 5 por US$99,99"],
+          ["Paquetes", "«Lleva 3 y paga 2», «tres frascos para los 90 días completos»", "Coincide con el paquete de 3. El ingreso por unidad estimado (US$40,6) indica que no todas compran el de 3"],
+          ["Descuento", "«Hasta 67 % menos» en unos y «hasta 75 % menos» en otros", "Las dos cifras corren al mismo tiempo. Es un descuento permanente, no una promoción"],
+          ["Garantía", "«90 días de garantía, sin preguntas». Un sketch dice 30 días", "La investigación previa encontró que la garantía de 90 días solo aplica al comprar tres frascos"],
+          ["Escasez", "«Lote pequeño», «se agota seguido», «antes de que se acabe este lote»", "Sin evidencia. Lleva 5 meses activa con la misma frase"],
+          ["Resultados", "«3 semanas», «en una semana el jean aprieta», «los resultados no se van cuando lo dejas»", "No hay estudios del producto. Reseñas públicas dicen no ver cambios a los dos meses"],
+          ["Dosis", "Unos dicen «un gotero al día», otros «dos gotas», otros «dos goteros cada mañana»", "La marca publica 2 ml una vez al día. Los anuncios se contradicen entre sí"],
+          ["Ingredientes", "«Dosis clínicas completas» de maca, fenogreco y ashwagandha", "La etiqueta nombra cinco ingredientes y no publica cantidades"],
+          ["Regalos y complementos", "No se mencionan en los anuncios", "Catálogo: libro digital, Curve Bites y bolsita a US$19,99, protección de envío a US$2,99"],
+          ["Correo", "No aplica", "TrendTrack no ha capturado ningún correo de la marca. Sin dato de su retención por email"],
+          ["Suscripción", "No se menciona", "La investigación previa encontró quejas por cobros repetidos"]
+        ], "nota": "Dato: columna de anuncios, de los guiones leídos. Columna externa: ficha de TrendTrack y la investigación de producto del 15 de noviembre de 2026 que ya está en tu carpeta." },
+        { "tipo": "subtitulo", "texto": "9. Mapa de oportunidades" },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Seis oportunidades, cada una con su evidencia", "texto": "", "items": [
+          "**1. La mini novela actuada.** Dato: los dos sketches (la hermana, el baño) tienen 5 y 6 duplicados y uno creció 21.043 en 7 días. Es el formato más nuevo de la marca y nadie más lo usa en este producto.",
+          "**2. El texto largo en español.** Dato: es el creativo más duradero (126 días) y más barato de hacer. Solo necesita una foto casera y una buena historia.",
+          "**3. El mensajero de confianza.** Dato: la tía, la prima y la estilista aparecen en 4 de las historias de más alcance. Inferencia: en Colombia ese papel lo cumple la amiga, la prima o la señora del salón.",
+          "**4. La versión honesta.** Dato: el estático de más alcance (87.220) es el único que habla de constancia, comida y ejercicio. Inferencia: se puede escalar sin promesas imposibles.",
+          "**5. La canción.** Dato: el rap es el anuncio con más alcance visible (158.480) y lo relanzaron. Inferencia: en Colombia el equivalente natural es un coro urbano o popular.",
+          "**6. La línea de tiempo.** Dato: «los primeros 14 días» duró 82 días como número 1 de su página. Inferencia: funciona igual contando lo que sí se puede decir (apetito y energía en las primeras semanas)."
+        ] },
+        { "tipo": "subtitulo", "texto": "10. Plan de ejecución" },
+        { "tipo": "tabla", "columnas": ["#", "Gancho original", "En español", "De dónde sale"], "filas": [
+          ["1", "My sister said I ruined her wedding day.", "Mi hermana dice que le arruiné la boda.", "facebook_3980256198949602 · alcance 61.410"],
+          ["2", "Do not buy Amua Vital Drops if you like being invisible.", "No compres estas gotas si te gusta pasar desapercibida.", "facebook_1051005344544858 · 118 días"],
+          ["3", "I used to avoid standing next to my thick friends in pictures.", "Yo evitaba pararme junto a mis amigas con curvas en las fotos.", "facebook_1008332222095422 · 126 días, 22 copias"],
+          ["4", "My ex told me I was too skinny. Now he's in prison.", "Mi ex me dijo que yo era muy flaca. Hoy está preso.", "facebook_1441696914452609 · alcance 87.220"],
+          ["5", "People don't realize how fast phytoestrogens work.", "Nadie te cuenta lo que pasa en las primeras dos semanas.", "facebook_1405928441479966 · 82 días"],
+          ["6", "No booty, no hips, no curves, no nothing.", "Sin cola, sin caderas, sin curvas, sin nada.", "facebook_3864419977033622 · alcance 158.480"],
+          ["7", "I ran into my ex at a party… his new girlfriend, she had questions.", "Me encontré a mi ex en una fiesta, y la que tenía preguntas era su novia.", "facebook_1120766514279618 · +21.043 en 7 días"],
+          ["8", "This is BBL in the bottle… ain't for everybody, girl.", "Esto no es para todas, te lo advierto.", "facebook_4467606006814607 · 117 días"],
+          ["9", "Not one word from my ex since he left. Then out of nowhere: you look different.", "Ni una palabra de mi ex desde que se fue. Y de la nada: «te ves diferente».", "facebook_1117034347801450 · alcance 53.137"],
+          ["10", "We need to apologize to every queen who bought Amua this week.", "Le debemos una disculpa a todas las que compraron esta semana.", "facebook_994971129662026 · +12.422 en 7 días"]
+        ], "nota": "Las versiones en español son adaptaciones para probar, sin promesa de resultado. Las versiones 5 y 8 cambian a propósito: «fitoestrógenos» y «cirugía en un frasco» son promesas que no puedes sostener en Colombia." },
+        { "tipo": "plan", "titulo": "Secuencia de prueba de 3 semanas", "items": [
+          { "cuando": "Semana 1", "que": "Tres formatos baratos con el mismo ángulo («la flaca invisible»): un texto largo con foto casera, un testimonio a cámara con el gancho «no compres esto si…» y una línea de tiempo de las primeras semanas (apetito y energía). Un solo público amplio de mujeres. Mide conversaciones y pedidos, no clics." },
+          { "cuando": "Semana 2", "que": "Sobre el formato que ganó, cambia solo el gancho: prueba tres aperturas sobre el mismo cuerpo (la foto de grupo, el comentario de la tía, el jean que queda bailando). Suma la primera mini novela actuada con el mensajero de confianza (la prima o la amiga del salón)." },
+          { "cuando": "Semana 3", "que": "Duplica el ganador, lánzalo también en imagen y prueba el anuncio de oferta (3 frascos, pago al recibir) solo para quienes ya vieron un video. Decide con entregas efectivas, no con pedidos." }
+        ] }
+      ],
+      "limitaciones": [
+        "El alcance es casi todo del Reino Unido: la marca pauta 95 % en Estados Unidos y ahí no hay dato. Los órdenes de magnitud reales son mucho mayores.",
+        "Sin el seguimiento de marcas no hay conteo de anuncios por guion ni impresiones por guion. Las familias se armaron con 30 creativos de 4.314.",
+        "Tres de los anuncios que más crecen no traen transcripción (entre ellos el que más crece esta semana, facebook_1610595196830927, con 39.382 de alcance nuevo en 7 días). No se sabe qué dicen.",
+        "Las unidades estimadas (76.887) frente a las visitas (375.013) darían una compra por cada cinco visitas. No es creíble: toma las ventas como orden de magnitud.",
+        "No se abrieron las páginas de destino ni la etiqueta actual. Los precios de 1 y 5 frascos vienen de la investigación previa, no de TrendTrack."
+      ],
+      "riesgos": [
+        "Promesas de cuerpo que la marca hace y tú no debes copiar: «manda la grasa a caderas y cola y no a la barriga», «3 semanas», «los resultados no se van», «cirugía en un frasco». Versión defendible: «acompaña tu apetito y tu energía mientras trabajas tus curvas con comida y ejercicio».",
+        "Promesas hormonales: «imita tu estrógeno», «equilibra tus hormonas», «despierta tus receptores». Son afirmaciones de efecto en el cuerpo que un suplemento no puede hacer en Colombia.",
+        "Autoridad no verificable: «médicos», «especialistas en hormonas que cobraban 800 dólares la sesión», «dosis clínicas», «las brasileñas lo usan hace generaciones». Ninguna trae fuente.",
+        "Comparación directa con una cirugía y con su precio. Meta también limita los anuncios que señalan defectos del cuerpo («cola flaca», «cuerpo de niña»).",
+        "Escasez y descuentos permanentes («lote pequeño», «75 % menos») y páginas con nombre de persona que en realidad son de la marca: es una práctica que expone la cuenta a bloqueos."
+      ]
+    }
+  ]
+}
