@@ -1,0 +1,201 @@
+/* El PDF de la investigación de mercado, dibujado en la app (Documento.jsx). Medidas en pt, las del PDF (A4 = 595 pt
+   de ancho; las hojas de la guía visual, 960 × 540 pt). Colores del PDF: --marca es el color del producto. */
+@font-face { font-family: 'DejaVu Sans'; src: url('/fuentes/DejaVuSans.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DejaVu Sans'; src: url('/fuentes/DejaVuSans-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DejaVu Sans'; src: url('/fuentes/DejaVuSans-Oblique.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'DejaVu Sans'; src: url('/fuentes/DejaVuSans-BoldOblique.ttf') format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
+
+.doc {
+  --marca: #a8431f;
+  --tinta: #2b1f1b;
+  --gris: #6b5f5a;
+  --borde: #e3d5cf;
+  --fila: #f5eae6;
+  --clave: #fbf1ec;
+  --azul: #2f5bea;
+  display: flex; flex-direction: column; align-items: center; gap: 18pt;
+  font-family: 'DejaVu Sans', Verdana, sans-serif; font-size: 10pt; line-height: 1.42; color: var(--tinta);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.doc h1, .doc h2, .doc h3, .doc strong, .doc b, .doc th { font-family: inherit; letter-spacing: 0; }
+.doc ::selection { background: rgba(255, 213, 0, 0.55); }
+.doc .inv-marca { background: #ffe45c; color: inherit; border-bottom: 1.5pt solid #e0a800; border-radius: 2pt; padding: 0 1pt; }
+
+/* ---- las hojas */
+.doc-hoja { position: relative; width: 595pt; max-width: 100%; box-sizing: border-box; background: #fff; box-shadow: 0 6pt 24pt rgba(0, 0, 0, 0.45); display: flex; flex-direction: column; }
+.doc-hoja__cabeza { display: flex; justify-content: space-between; gap: 12pt; padding: 9pt 51pt; background: var(--marca); color: #fff; font-size: 8pt; font-weight: 700; }
+.doc-hoja__cabeza span:last-child { font-weight: 400; white-space: nowrap; }
+.doc-hoja__cuerpo { flex: 1; padding: 30pt 51pt 26pt; display: flex; flex-direction: column; gap: 9pt; min-height: 300pt; }
+.doc-hoja__pie { display: flex; justify-content: space-between; padding: 0 51pt 22pt; font-size: 8pt; color: var(--gris); }
+
+/* ---- la portada */
+.doc-portada { min-height: 842pt; padding: 100pt 62pt 60pt; background: #2b1f1b; color: #fff; }
+.doc-portada__sobre { font-size: 10.5pt; letter-spacing: 0.02em; color: #e9c9b9; }
+.doc-portada__titulo { margin: 34pt 0 0; font-size: 34pt; line-height: 1.32; font-weight: 700; color: #fff; max-width: 330pt; white-space: pre-line; }
+.doc-portada__sub { margin: 16pt 0 0; font-size: 13pt; color: #e9c9b9; }
+.doc-portada__pais { margin: 150pt 0 0; font-size: 20pt; font-weight: 700; }
+.doc-portada__linea { display: block; height: 6pt; margin: 52pt -62pt 0; background: var(--marca); }
+.doc-portada__datos { margin: 52pt 0 0; display: flex; flex-direction: column; }
+.doc-portada__datos dt { margin-top: 10pt; font-size: 9pt; color: #d9b9a9; }
+.doc-portada__datos dd { margin: 2pt 0 0; font-size: 12pt; font-weight: 700; }
+
+/* ---- títulos y texto */
+.doc-h2 { margin: 0 0 2pt; font-size: 20pt; line-height: 1.2; font-weight: 700; color: var(--marca); }
+.doc-h3 { margin: 8pt 0 0; font-size: 13pt; line-height: 1.25; font-weight: 700; color: var(--tinta); break-after: avoid; }
+.doc-p { margin: 0; }
+.doc-nota { margin: 0; font-size: 8.5pt; line-height: 1.4; color: var(--gris); }
+.doc-nota strong { color: var(--gris); }
+.doc-lista { margin: 0; padding-left: 16pt; display: flex; flex-direction: column; gap: 4pt; }
+.doc-lista li { padding-left: 2pt; }
+.doc-junto { display: flex; flex-direction: column; gap: 5pt; break-inside: avoid; }
+
+/* ---- tablas */
+.doc-tabla { width: 100%; border-collapse: collapse; font-size: 9pt; line-height: 1.35; table-layout: auto; }
+.doc-tabla th, .doc-tabla td { padding: 6pt 7pt; border: 0.6pt solid var(--borde); text-align: left; vertical-align: top; }
+.doc-tabla thead th { background: var(--marca); color: #fff; font-weight: 700; border-color: var(--marca); }
+.doc-tabla tbody tr:nth-child(even) td { background: var(--fila); }
+.doc-tabla--evita thead th { background: #c62828; border-color: #c62828; }
+.doc-tabla--azul thead th { background: var(--azul); border-color: var(--azul); }
+.doc-tabla--ficha th { width: 24%; background: var(--clave); font-weight: 700; }
+.doc-tabla--ficha tbody tr:nth-child(even) td { background: #fff; }
+.doc-tabla tr { break-inside: avoid; }
+
+/* ---- cajas */
+.doc-caja { display: flex; flex-direction: column; gap: 4pt; padding: 9pt 11pt; border: 0.8pt solid var(--borde); background: var(--fila); break-inside: avoid; }
+.doc-caja p { margin: 0; }
+.doc-caja__titulo { font-size: 10.5pt; font-weight: 700; color: var(--marca); }
+.doc-caja--recomendacion { background: #e8f3e6; border-color: #3e8e41; }
+.doc-caja--alerta { background: #fff2dd; border-color: #c97a16; }
+.doc-caja--avatar { background: #fbf1ec; border-color: var(--marca); }
+.doc-caja--avatar .doc-caja__titulo { font-size: 11pt; }
+.doc-caja--pendiente, .doc-caja--cuidado { background: #fff2dd; border-color: #c97a16; }
+.doc-caja--pendiente .doc-caja__texto, .doc-caja--cuidado .doc-caja__texto { font-size: 8.5pt; color: var(--gris); }
+.doc-caja--nota { font-size: 8.5pt; color: var(--gris); }
+.doc-caja--nota .doc-caja__titulo { font-size: 8.5pt; color: var(--gris); }
+.doc-caja--encapsulada { background: #fbf1ec; border-color: var(--marca); padding: 12pt 14pt; }
+.doc-caja--encapsulada .doc-caja__texto { font-size: 11.5pt; line-height: 1.4; font-weight: 700; }
+.doc-caja--te-pasa { background: #fce9e9; border-color: #c62828; }
+.doc-caja--te-pasa .doc-caja__pie { font-style: italic; margin-top: 3pt; }
+.doc-checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5pt; }
+.doc-checks li::before { content: '✔ '; }
+
+/* ---- citas */
+.doc-cita { margin: 0; padding: 12pt 22pt; border: 0.8pt solid var(--marca); background: #fbf1ec; font-size: 13pt; line-height: 1.35; font-weight: 700; font-style: italic; text-align: center; break-inside: avoid; }
+.doc-cita--dolor { background: #fce9e9; border-color: #c62828; }
+.doc-cita--deseo { background: #e8f3e6; border-color: #3e8e41; }
+
+/* ---- propuestas de valor */
+.doc-propuesta { width: 100%; break-inside: avoid; border-collapse: collapse; border: 0.8pt solid var(--marca); font-size: 9pt; line-height: 1.35; }
+.doc-propuesta thead th { padding: 5pt 7pt; background: var(--marca); color: #fff; font-size: 10.5pt; font-weight: 700; text-align: left; }
+.doc-propuesta tbody th { width: 13%; padding: 5pt 7pt; background: var(--clave); font-weight: 700; text-align: left; vertical-align: top; border-top: 0.6pt solid var(--borde); }
+.doc-propuesta tbody td { padding: 5pt 7pt; vertical-align: top; border-top: 0.6pt solid var(--borde); }
+
+/* ---- opciones de título */
+.doc-opcion { display: flex; flex-direction: column; gap: 2pt; padding: 8pt 10pt; border: 0.9pt solid var(--marca); background: #fff; break-inside: avoid; }
+.doc-opcion--dolor { border-color: #c62828; }
+.doc-opcion__etiqueta { font-size: 8.5pt; color: var(--gris); }
+.doc-opcion__titulo { font-size: 13pt; line-height: 1.25; font-weight: 700; }
+.doc-opcion__sub { font-size: 10pt; color: var(--gris); }
+
+/* ---- franjas */
+.doc-franja { padding: 8pt 10pt; border: 0.6pt solid var(--borde); background: #fbf1ec; break-inside: avoid; }
+.doc-franja p { margin: 0; font-size: 10.5pt; }
+.doc-franja__nota { margin-top: 4pt !important; font-size: 8.5pt !important; color: var(--gris); }
+
+/* ---- fuentes */
+.doc-fuentes { margin: 0; padding-left: 16pt; display: flex; flex-direction: column; gap: 8pt; }
+.doc-fuentes li { break-inside: avoid; }
+.doc-fuentes strong { display: block; font-size: 10pt; }
+.doc-fuentes a, .doc-fuentes span { display: block; font-size: 7.5pt; color: var(--gris); text-decoration: none; overflow-wrap: anywhere; }
+
+/* ---- la guía visual: hojas horizontales de 960 × 540 pt; por dentro todo va en cqw para que encoja con la hoja */
+/* (la hoja es el contenedor; sus medidas en cqw van en .doc-guia__dentro, porque en el contenedor mismo no valen) */
+.doc-hoja--guia { width: 960pt; aspect-ratio: 16 / 9; container-type: inline-size; background: #f7f7f7; display: block; overflow: hidden; }
+.doc-guia__dentro { position: relative; width: 100%; height: 100%; box-sizing: border-box; padding: 3.2cqw 4.2cqw 2.2cqw; font-size: 1cqw; line-height: 1.25; }
+.doc-guia__kicker { display: block; font-size: 1.05cqw; font-weight: 700; color: var(--azul); }
+.doc-guia__titulo { margin: 0.2cqw 0 0; font-size: 2.3cqw; line-height: 1.15; font-weight: 700; color: var(--tinta); }
+.doc-guia__pagina { position: absolute; right: 4.2cqw; bottom: 1.8cqw; font-size: 0.9cqw; color: var(--gris); }
+.doc-guia__fila { margin-top: 3.2cqw; display: flex; align-items: center; justify-content: space-between; }
+.doc-guia__mini { width: 15.6cqw; }
+.doc-guia__mini .doc-maq { font-size: 0.42cqw; }
+.doc-guia__nombre { margin: 0 0 0.6cqw; font-size: 0.86cqw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.doc-guia__nombre b { color: var(--azul); font-size: 0.98cqw; margin-right: 0.5cqw; }
+.doc-guia__pie { margin: 0.7cqw 0 0; font-size: 0.74cqw; color: var(--gris); min-height: 2cqw; }
+.doc-guia__flecha { flex: 1; height: 0.22cqw; margin: 0 0.8cqw; background: var(--azul); position: relative; }
+.doc-guia__flecha::after { content: ''; position: absolute; right: -0.1cqw; top: 50%; transform: translateY(-50%); border-left: 0.9cqw solid var(--azul); border-top: 0.5cqw solid transparent; border-bottom: 0.5cqw solid transparent; }
+
+/* la maqueta 9:16 (em = su tamaño de letra: en la hoja de un mensaje es 0.75cqw; en la miniatura, 0.42cqw) */
+.doc-maq { position: relative; aspect-ratio: 9 / 16; background: #fff; border: 0.12em solid #d5d5d5; border-radius: 1.4em; padding: 2.2em; display: flex; flex-direction: column; gap: 1em; overflow: hidden; color: var(--tinta); }
+.doc-maq__titulo { position: relative; padding: 1.3em 1em; min-height: 6.2em; border-radius: 0.7em; background: var(--marca); color: #fff; font-size: 1.5em; line-height: 1.2; font-weight: 700; text-align: center; }
+.doc-maq__franja { padding: 0.5em; background: #000; color: #fff; font-size: 0.9em; text-align: center; }
+.doc-maq__sub { position: relative; padding: 0.6em 0.8em; background: #2b1f1b; color: #fff; font-size: 0.9em; text-align: center; }
+.doc-maq__dos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6em; height: 17em; }
+.doc-maq__foto { position: relative; min-height: 0; padding: 0.8em; background: #d9d9d9; color: #666; font-size: 0.82em; }
+.doc-maq__foto--ancha { height: 12em; display: grid; place-items: center; text-align: center; }
+.doc-maq__col { position: relative; display: flex; flex-direction: column; gap: 0.3em; min-height: 0; }
+.doc-maq__estrellas { color: #f5b301; font-size: 0.95em; letter-spacing: 0.1em; }
+.doc-maq__validacion { font-size: 0.72em; color: #666; }
+.doc-maq__producto { flex: 1; min-height: 0; overflow: hidden; display: grid; place-items: center; padding: 0.6em; border: 0.14em solid var(--marca); border-radius: 0.8em; background: #efe5e1; color: var(--marca); font-size: 0.82em; font-weight: 700; text-align: center; }
+.doc-maq__producto--grande { flex: none; align-self: center; width: 50%; height: 10em; }
+.doc-maq__producto img { width: 100%; height: 100%; object-fit: contain; border-radius: 0.5em; }
+.doc-maq__producto:has(img) { background: #fff; }
+.doc-maq__ingredientes { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9em 0.6em; padding: 0 1.6em; font-size: 0.8em; }
+.doc-maq__ingredientes span { display: flex; align-items: center; gap: 0.4em; }
+.doc-maq__ingredientes i, .doc-maq__beneficio i { flex: none; width: 1.3em; height: 1.3em; border-radius: 50%; background: #efdcd4; }
+.doc-maq__sellos { display: flex; justify-content: space-around; padding: 0 1.6em; }
+.doc-maq__sello { width: 5.6em; height: 5.6em; border-radius: 50%; border: 0.14em solid var(--marca); display: grid; place-items: center; padding: 0.3em; box-sizing: border-box; color: var(--marca); font-size: 0.66em; line-height: 1.1; text-align: center; overflow: hidden; }
+.doc-maq__oferta { align-self: center; padding: 0.6em 3em; border: 0.14em solid #b9770e; border-radius: 0.6em; background: #fff2dd; font-size: 0.9em; font-weight: 700; }
+.doc-maq__titulo2 { position: relative; color: var(--marca); font-size: 1.15em; font-weight: 700; text-align: center; }
+.doc-maq__desc { position: relative; padding: 0 1em; font-size: 0.8em; text-align: center; }
+.doc-maq__beneficios { position: relative; display: flex; flex-direction: column; gap: 0.7em; }
+.doc-maq__beneficio { display: flex; align-items: center; gap: 0.8em; }
+.doc-maq__beneficio i { width: 3.6em; height: 2.6em; border-radius: 0; background: #d9d9d9; }
+.doc-maq__beneficio b { display: block; color: var(--azul); font-size: 0.95em; }
+.doc-maq__beneficio small { display: block; font-size: 0.72em; color: #555; }
+.doc-maq__pasos { display: flex; justify-content: space-around; margin: 1.6em 0 0.6em; font-size: 0.8em; text-align: center; }
+.doc-maq__pasos span { display: flex; flex-direction: column; align-items: center; gap: 0.5em; }
+.doc-maq__pasos b { width: 2em; height: 2em; border-radius: 50%; display: grid; place-items: center; background: var(--azul); color: #fff; }
+.doc-maq__marca { position: absolute; right: -0.9em; top: 50%; transform: translateY(-50%); width: 1.5em; height: 1.5em; border-radius: 50%; display: grid; place-items: center; background: var(--azul); color: #fff; font-size: 0.8cqw; width: 1.4cqw; height: 1.4cqw; font-weight: 700; font-style: normal; z-index: 2; }
+
+/* la hoja de un mensaje: la maqueta a la izquierda y sus elementos numerados a la derecha */
+.doc-guia__dentro--mensaje { display: grid; grid-template-columns: 27.6cqw 1fr; gap: 6cqw; padding-top: 2.6cqw; }
+.doc-mensaje__izq { display: flex; flex-direction: column; gap: 0.5cqw; }
+.doc-mensaje__izq .doc-maq { font-size: 0.74cqw; overflow: visible; height: 48.4cqw; aspect-ratio: auto; }
+.doc-mensaje__medida { font-size: 0.8cqw; color: var(--gris); }
+.doc-mensaje__der { display: flex; flex-direction: column; min-width: 0; padding-top: 1cqw; }
+.doc-mensaje__franja { margin: 0.8cqw 0 0; padding: 0.5cqw 0.9cqw; background: #000; color: #fff; font-size: 0.9cqw; }
+.doc-mensaje__elementos { list-style: none; margin: 1.6cqw 0 0; padding: 0; display: flex; flex-direction: column; gap: 1.5cqw; }
+.doc-mensaje__elementos li { display: flex; gap: 1cqw; align-items: flex-start; }
+.doc-mensaje__n { flex: none; width: 1.7cqw; height: 1.7cqw; border-radius: 50%; display: grid; place-items: center; background: var(--azul); color: #fff; font-size: 0.9cqw; font-weight: 700; }
+.doc-mensaje__elementos b { display: block; font-size: 1.12cqw; margin-bottom: 0.25cqw; }
+.doc-mensaje__elementos li > span:last-child { font-size: 0.95cqw; line-height: 1.3; }
+.doc-mensaje__objetivo { margin-top: auto; margin-bottom: 1.6cqw; padding: 0.9cqw 1.2cqw; border: 0.1cqw solid var(--azul); border-radius: 0.6cqw; background: #fff; font-size: 1.12cqw; }
+.doc-mensaje__objetivo b { display: block; margin-bottom: 0.4cqw; font-size: 0.95cqw; color: var(--azul); }
+
+/* ---- IMPRIMIR = el PDF: solo el documento, en A4, con su encabezado y su pie en cada página */
+@media print {
+  @page { size: A4; margin: 62pt 51pt 54pt;
+    @top-left { font-family: 'DejaVu Sans', sans-serif; font-size: 8pt; font-weight: 700; color: #fff; padding-left: 51pt; margin: 0 0 22pt -51pt; width: 78%; white-space: nowrap; text-align: left; }
+    @top-center { content: ''; margin-bottom: 22pt; width: 0; }
+    @top-right { font-family: 'DejaVu Sans', sans-serif; font-size: 8pt; color: #fff; padding-right: 51pt; margin: 0 -51pt 22pt 0; width: 22%; white-space: nowrap; text-align: right; }
+    @bottom-left { content: 'Uso interno · No es asesoría médica ni legal'; font-family: 'DejaVu Sans', sans-serif; font-size: 8pt; color: #6b5f5a; }
+    @bottom-right { content: 'Página ' counter(page); font-family: 'DejaVu Sans', sans-serif; font-size: 8pt; color: #6b5f5a; }
+  }
+  @page portada { margin: 0; @top-left { content: none; background: none; } @top-center { content: none; background: none; } @top-right { content: none; background: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+  @page guia { size: 960pt 540pt; margin: 0; @top-left { content: none; background: none; } @top-center { content: none; background: none; } @top-right { content: none; background: none; } @bottom-left { content: none; } @bottom-right { content: none; } }
+  :root { color-scheme: light !important; background: #fff !important; }
+  html, body, #raiz, .app, .principal, .principal__contenido, .pagina, .inv, .inv-cuerpo { display: block !important; height: auto !important; min-height: 0 !important; max-width: none !important; overflow: visible !important; margin: 0 !important; padding: 0 !important; background: #fff !important; }
+  .menu, .barra, .inv-cabeza, .inv-flotante, .franja-global, .avisos { display: none !important; }
+  /* (los fondos de la app, con sus degradados, no van al PDF: lo dejaban de 100 MB) */
+  *:not(.doc):not(.doc *) { background-image: none !important; box-shadow: none !important; }
+  *:not(.doc):not(.doc *)::before, *:not(.doc):not(.doc *)::after { content: none !important; display: none !important; }
+  .doc { display: block; gap: 0; }
+  .doc-hoja { width: auto; box-shadow: none; display: block; break-before: page; }
+  .doc-hoja__cabeza, .doc-hoja__pie { display: none; }
+  .doc-hoja__cuerpo { padding: 0; min-height: 0; display: block; }
+  .doc-hoja__cuerpo > * + * { margin-top: 9pt; }
+  .doc-portada { page: portada; break-before: auto; width: 100%; height: 100vh; min-height: 842pt; }
+  .doc-hoja--guia { page: guia; width: 960pt; height: 540pt; }
+  .doc-guia__pagina { display: none; }
+  .doc .inv-marca { background: none; border: 0; padding: 0; }
+}

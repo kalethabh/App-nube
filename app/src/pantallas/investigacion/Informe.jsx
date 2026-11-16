@@ -5,7 +5,7 @@
 // RESALTAR: selecciona cualquier texto del informe y toca «Resaltar». Queda marcado, se junta en «Lo que resaltaste»
 // (arriba a la derecha, junto al botón «Crear anuncios de imagen») y es lo primero que leen tus anuncios de imagen de este producto.
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, CircleCheck, Copy, ExternalLink, Highlighter, Images, LoaderCircle, RotateCcw, Star, Telescope, TriangleAlert, X } from 'lucide-react';
+import { CircleAlert, CircleCheck, Copy, Download, ExternalLink, Highlighter, Images, LoaderCircle, RotateCcw, Star, Telescope, TriangleAlert, X } from 'lucide-react';
 import { Boton, CampoTexto, Esqueleto, EstadoVacio, useAvisos } from '../../componentes/index.js';
 import { invalidar } from '../../datos/api.js';
 import { CLAVE_INVESTIGACIONES, apiInvestigacion, claveInvestigacion, useInvestigacion } from '../../datos/investigacion.js';
@@ -13,6 +13,7 @@ import { fechaRelativa } from '../../datos/formato.js';
 import { enlace } from '../../datos/rutas.js';
 import '../imagenes/imagenes.css';
 import './investigacion.css';
+import { Documento } from './Documento.jsx';
 
 // ---------------------------------------------------------------- el texto, con lo resaltado marcado
 
@@ -710,6 +711,13 @@ export default function PantallaInforme({ params }) {
               </details>
             </div>
             <p className="inv-cabeza__desc">{tarea.fin ? `Hecha ${fechaRelativa(tarea.fin)}. ` : ''}Selecciona cualquier texto para resaltarlo.</p>
+            {inv.formato === 'documento' ? (
+              <div>
+                <Boton variante="secundario" tamano="chico" icono={Download} onClick={() => window.print()}>
+                  Descargar PDF
+                </Boton>
+              </div>
+            ) : null}
           </div>
           <PanelResaltados
             lista={lista}
@@ -725,7 +733,7 @@ export default function PantallaInforme({ params }) {
           </p>
         ) : null}
         <div ref={cuerpo} className="inv-cuerpo">
-          <Informe inv={inv} producto={producto} />
+          {inv.formato === 'documento' ? <Documento inv={inv} foto={producto.foto} T={T} /> : <Informe inv={inv} producto={producto} />}
         </div>
         {flotante ? (
           <button type="button" className="inv-flotante" style={{ left: flotante.x, top: flotante.y }} onMouseDown={(e) => e.preventDefault()} onClick={resaltar}>
