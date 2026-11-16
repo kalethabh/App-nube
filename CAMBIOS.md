@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16h · Ajustes rediseñado: más compacto y ordenado
+
+- **Una sección a la vez:** el menú de la izquierda (arriba en el celular) cambia de sección en vez de bajar por una página larguísima. El enlace guarda la sección (`#/ajustes?seccion=modelos`).
+- **Más compacto:** cabecera más baja, títulos más chicos, menos relleno en las tarjetas, filas de Modelos más bajas, Tu PC y Acerca de más chicos. La ilustración grande de «Tu IA» se quitó de Ajustes (sigue en la bienvenida).
+- Mismos colores, fuentes, logo y textos de Kads; en claro y en oscuro.
+
 ## 2026-11-16g · Anuncios de imagen: Nuevos con lo que ya te funciona, y notificaciones en modo claro
 
 - **«Nuevos» aprende de lo que ya te funciona:** además de tu investigación y la foto del producto, la IA mira sola tus anuncios validados («Me funciona», los de este producto primero, y tu biblioteca de referencias) para elegir formatos, estructuras y ganchos que te funcionan. Crea diseños nuevos con eso; no los copia.
