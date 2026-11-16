@@ -35,6 +35,32 @@ export function elegirMotorDeImagenes(id) {
   return id;
 }
 
+// ---------------------------------------------------------------- las imagenes de los VIDEOS (2026-11-16)
+// Aparte de las de los anuncios de imagen: `motorImagenesVideo` en app/config.json ('chatgpt' | 'kie'). Por defecto kie,
+// como siempre. Con 'chatgpt', generar-imagenes.js prueba cada imagen primero con ChatGPT y, si no sale (o se acaba
+// el uso de la suscripción), sigue con kie. En modo prueba siempre kie.
+export function motorImagenesVideo() {
+  if (modoPrueba()) return 'kie';
+  try {
+    return leerConfig().motorImagenesVideo === 'chatgpt' ? 'chatgpt' : 'kie';
+  } catch {
+    return 'kie';
+  }
+}
+
+export function elegirMotorImagenesVideo(id) {
+  if (!Object.hasOwn(MOTORES_IMAGEN, id)) throw new ErrorApp(400, 'Elige ChatGPT o kie.ai.');
+  guardarConfig({ motorImagenesVideo: id });
+  return id;
+}
+
+/** Lo que va en el entorno del motor para las imágenes de los videos: {} con kie. */
+export function entornoImagenesVideo() {
+  if (motorImagenesVideo() !== 'chatgpt') return {};
+  const c = codexParaImagenes();
+  return c ? { AIA_IMAGENES_VIDEO: 'chatgpt', AIA_CHATGPT_IMAGENES: JSON.stringify(c) } : {};
+}
+
 export function codexParaImagenes() {
   const bin = resolverCodex();
   if (!bin) return null;

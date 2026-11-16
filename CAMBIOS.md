@@ -2,6 +2,19 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16k · Guiones con tu investigación de mercado y estructuras variadas
+
+- **Los guiones de video ahora leen tu investigación de mercado:** antes solo la usaban los anuncios de imagen. La IA saca de ahí el deseo principal, el beneficio principal, los dolores, las objeciones y las palabras de tu cliente, y con eso escribe el gancho, contesta la objeción y cierra con el beneficio. Sin investigación, usa lo que haya (ficha, página, lo que contaste) y no inventa datos.
+- **Estructuras de todos los estilos para cualquier estilo:** un catálogo de 17 estructuras (problema oculto, Día 1 → Día 30, ¿qué le pasa a tu cuerpo si…?, la alternativa fallida confiesa, mito vs. realidad, la objeción primero, testimonio…). Para cada anuncio la IA elige la más adecuada: la de la referencia si es una variante de un video; si es desde cero, la que mejor encaja con la investigación y el tipo de producto. Ya no sale siempre la misma del estilo.
+- **No repite lo que ya hiciste:** la IA ve los últimos anuncios del mismo producto (estilo, estructura y decisiones) y evita repetir la estructura y el diseño del personaje. En Esqueleto, además, varía la variante, el escenario y el vestuario.
+- La estructura elegida y el porqué quedan anotados en cada guion.
+
+## 2026-11-16j · Las imágenes de tus videos con tu ChatGPT
+
+- **Nueva opción en Ajustes → Conexiones → «Videos, música e imágenes de los videos»:** «Imágenes de tus videos: kie.ai o Mi ChatGPT». Con ChatGPT no se cobra cada imagen (en un claymation de ejemplo el estimado baja de US$4,36 a US$3,36).
+- **Nunca se frena:** si una imagen no sale con ChatGPT, o se acaba el uso de tu suscripción, esa y las que falten se hacen con kie.ai (se cobran) y el anuncio sigue.
+- El costo estimado lo cuenta solo: las imágenes de ChatGPT van en US$0. Los iconos con fondo transparente siguen con kie.ai.
+
 ## 2026-11-16i · «Actualizar» ve al instante todo lo publicado
 
 - **Siempre ve lo publicado:** «Actualizar» compara contra lo publicado en GitHub (`main`), esté tu carpeta en la rama que esté. Antes, si la carpeta había quedado en otra rama, lo nuevo nunca aparecía.

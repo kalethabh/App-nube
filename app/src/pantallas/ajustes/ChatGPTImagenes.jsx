@@ -177,3 +177,68 @@ export function TarjetaChatGPTImagenes() {
     </Tarjeta>
   );
 }
+
+/**
+ * Las imágenes de los VIDEOS (Conexiones › «Videos, música e imágenes de los videos»): kie.ai (se cobra cada una) o
+ * tu ChatGPT (sin costo por imagen). Con ChatGPT, si una no sale o se acaba el uso de tu suscripción, la app sigue con
+ * kie.ai para que el anuncio no se frene. Los iconos con fondo transparente van siempre con kie.ai.
+ */
+export function ImagenesDeVideos() {
+  const { datos } = useDatos(CLAVE, cargar);
+  const { aviso } = useAvisos();
+  const [guardando, setGuardando] = useState(null);
+  const c = datos?.chatgpt || null;
+  const conectado = Boolean(c?.instalado && !c?.actualizar && c?.sesion === 'ok');
+  const actual = datos?.motorVideo === 'chatgpt' ? 'chatgpt' : 'kie';
+  const elegir = async (id) => {
+    if (id === actual || guardando) return;
+    setGuardando(id);
+    try {
+      await pedirNuevo('/api/imagenes/motor', { metodo: 'PUT', cuerpo: { motorVideo: id } });
+      invalidar(CLAVE);
+      invalidar('costo'); // el costo estimado de los anuncios cambia
+      aviso({
+        tipo: 'ok',
+        titulo: 'Guardado',
+        texto: id === 'chatgpt' ? 'Las imágenes de tus videos nuevos se hacen con tu ChatGPT. Si alguna no sale, sigue con kie.ai.' : 'Las imágenes de tus videos se hacen con kie.ai.',
+      });
+    } catch (err) {
+      aviso({ tipo: 'error', titulo: 'No se pudo guardar', texto: err.message });
+    } finally {
+      setGuardando(null);
+    }
+  };
+  if (!datos) return null;
+  const opciones = [
+    { id: 'kie', titulo: 'kie.ai', texto: 'Se cobra cada imagen de tu saldo (unos US$0,05).' },
+    { id: 'chatgpt', titulo: 'Mi ChatGPT', texto: conectado ? 'Sin costo por imagen. Si alguna no sale o se acaba tu uso, sigue con kie.ai.' : 'Primero conecta tu ChatGPT arriba, en «ChatGPT · Imágenes».' },
+  ];
+  return (
+    <div className="imagenes-video" role="radiogroup" aria-label="Quién hace las imágenes de tus videos">
+      <p className="imagenes-video__titulo">Imágenes de tus videos</p>
+      <div className="imagenes-video__opciones">
+        {opciones.map((o) => {
+          const activa = actual === o.id;
+          const bloqueada = o.id === 'chatgpt' && !conectado && !activa;
+          return (
+            <button
+              key={o.id}
+              type="button"
+              role="radio"
+              aria-checked={activa}
+              className={`imagenes-video__opcion${activa ? ' imagenes-video__opcion--activa' : ''}`}
+              onClick={() => elegir(o.id)}
+              disabled={bloqueada || Boolean(guardando)}
+            >
+              <span className="imagenes-video__nombre">{o.titulo}</span>
+              <span className="imagenes-video__texto">{o.texto}</span>
+            </button>
+          );
+        })}
+      </div>
+      {actual === 'chatgpt' && !conectado ? (
+        <p className="imagenes-video__aviso">Tu ChatGPT no está conectado: por ahora las imágenes se hacen con kie.ai.</p>
+      ) : null}
+    </div>
+  );
+}

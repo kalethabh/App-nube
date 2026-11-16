@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16i` (archivo `VERSION`): «Actualizar» al instante (rama `actualizar-al-instante`).
-  Antes en `main`: `2026-11-16h` (PR #68 a #71).
+- **Versión actual:** `2026-11-16k` (archivo `VERSION`): guiones con la investigación y catálogo de estructuras.
+  Antes en `main`: `2026-11-16j` (PR #68 a #73).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +136,48 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Guiones con la investigación de mercado y estructuras entre estilos (2026-11-16, versión 2026-11-16k)
+
+Pedido: reforzar los prompts («en esqueleto siempre genera el mismo diseño»), alimentar estructuras desde lo que
+funciona, y que «un estilo pueda tener diferentes estructuras o usar las de otro». Elección de estructura (del
+usuario): la más adecuada para el caso: la de la referencia si es una variante; desde cero, la recomendada por la
+investigación (deseo, beneficio, dolores, objeciones) y el tipo de producto; sin investigación, con lo que haya.
+
+- Hallazgo: la tarea del guion de VIDEO no recibía la investigación de mercado (solo los anuncios de imagen).
+- `lib/estructuras.js`: `catalogo()` (`recursos/estructuras/catalogo.json`, 17 estructuras sacadas de las skills,
+  con `familias`, `ideal_para`, `consciencia`, `de_la_investigacion`, `momentos`, `gancho_ejemplo`; más las
+  aprendidas en `mis_archivos/estructuras/*.json`, que pueden reemplazar por id), `anterioresDelProducto()`,
+  `textoEstructuras()` y `textoInvestigacion()` (copia `aMarkdown` + competencia a `temp/<slug>/app/investigacion.md`,
+  que la IA no puede editar).
+- `anuncios-nuevos.js → promptGuion`: agrega la investigación y la estructura (no en cantados; con guion propio no
+  se elige; con referencia, «de-la-referencia»). `materialGuion` incluye `app/investigacion.md`.
+- `esquemas/guion.json`: `estructura { id, nombre, porque }` opcional. `estilos/skeleton.md`: no repetir variante,
+  escenario ni vestuario de los anteriores del producto.
+- Pruebas: humo completo 220/220; tarea armada con VitalDrops (investigación de 55.000 caracteres, 15 estructuras
+  para voz en off) y con un anuncio con guion propio (sin estructura, como corresponde).
+- **Pendiente (siguiente paso):** alimentar `mis_archivos/estructuras/` y las referencias de diseño por estilo desde
+  TrendTrack (botón en la app con la sesión de Claude del usuario, y subir videos/capturas), y desde esta sesión
+  cuando TrendTrack esté conectado aquí.
+
+### Imágenes de los videos con ChatGPT (2026-11-16, versión 2026-11-16j)
+
+Pedido: «en Videos, música e imágenes de los videos, la opción de usar GPT para crear imágenes en vez de kie». Decisión
+del usuario: si se acaba el uso de ChatGPT, seguir con kie (se cobra) para no frenar el anuncio.
+
+- `lib/motor-imagenes.js`: `motorImagenesVideo()` / `elegirMotorImagenesVideo()` (config `motorImagenesVideo`, por
+  defecto `kie`; en modo prueba siempre kie) y `entornoImagenesVideo()`; `procesos.entornoDelMotor` lo agrega al
+  motor (`AIA_IMAGENES_VIDEO=chatgpt` + `AIA_CHATGPT_IMAGENES`). Ruta: `PUT /api/imagenes/motor { motorVideo }`.
+- `produccion/generar-imagenes.js`: `intentarConChatGPT()` antes de la cascada de kie (2 intentos, 3 a la vez);
+  `limite`/`sinSesion` → `ctx.chatgptCaido` y el resto con kie; contenido/fallo → esa imagen con kie. Iconos y fondo
+  transparente, siempre kie. La URL para las referencias en kie se sube después (subir no cobra).
+- `estimar-costo.js → costoImagenes`: con `AIA_IMAGENES_VIDEO=chatgpt` las imágenes cuentan 0 (`deChatGPT`); la app
+  lo pasa al estimar y entra en la firma de la caché. Medido: claymation de Aguaje US$4,36 → US$3,36.
+- UI: `ImagenesDeVideos` (ChatGPTImagenes.jsx) en el bloque de kie de Conexiones; «Mi ChatGPT» se habilita con
+  ChatGPT conectado.
+- Pruebas: `produccion/pruebas/probar-imagenes-chatgpt.js` 4/4 (ChatGPT simulado + kie simulado: sale con ChatGPT
+  sin pedir a kie; límite → kie y sigue; icono → kie; sin elegir → kie). 175/175, 398, 147/147, humo rápido 82/82.
+- **Falta en la Mac:** un anuncio real con «Mi ChatGPT» (calidad y tiempo: cada imagen es un `codex exec`).
 
 ### «Actualizar» ve al instante todo lo publicado (2026-11-16, versión 2026-11-16i)
 
