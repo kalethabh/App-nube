@@ -14,6 +14,7 @@ import { enlace } from '../../datos/rutas.js';
 import '../imagenes/imagenes.css';
 import './investigacion.css';
 import { Documento } from './Documento.jsx';
+import { Competencia } from './Competencia.jsx';
 
 // ---------------------------------------------------------------- el texto, con lo resaltado marcado
 
@@ -734,6 +735,7 @@ export default function PantallaInforme({ params }) {
         ) : null}
         <div ref={cuerpo} className="inv-cuerpo">
           {inv.formato === 'documento' ? <Documento inv={inv} foto={producto.foto} T={T} /> : <Informe inv={inv} producto={producto} />}
+          <Competencia id={id} pais={inv.pais || 'Colombia'} T={T} />
         </div>
         {flotante ? (
           <button type="button" className="inv-flotante" style={{ left: flotante.x, top: flotante.y }} onMouseDown={(e) => e.preventDefault()} onClick={resaltar}>
