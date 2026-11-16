@@ -38,11 +38,11 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import express from 'express';
 import { TIPOS_MEDIO, dentroDe, stat, listar, existe } from '../lib/archivos.js';
-import { ErrorApp, soloDesdeLaApp, formatoDeBytes } from '../lib/productos.js';
+import { ErrorApp, soloDesdeLaApp, formatoDeBytes, rutaFoto } from '../lib/productos.js';
 import { iniciarProduccion, continuar, detener, leerConductor, esperarFamilias, reabrir, estadoDeLaFila, tomarElMando } from '../lib/conductor.js';
 import { modoPrueba } from '../lib/procesos.js';
 import { miniatura, anchoPermitido } from '../lib/miniaturas.js';
-import { R, RE_LOTE, RE_PIEZA, carpetaDe, guardarJSON, firma, vDe, formatoDe, nombreFormato, nombreSeguro, ordenDePiezas, idsDelLote, piezaId, MAXIMO_REFERENCIAS, POSICIONES } from '../lib/imagen-ads/disco.js';
+import { R, RE_LOTE, RE_PIEZA, carpetaDe, guardarJSON, firma, vDe, formatoDe, nombreFormato, nombreSeguro, ordenDePiezas, idsDelLote, piezaId, MAXIMO_REFERENCIAS, POSICIONES, fotoDelLote } from '../lib/imagen-ads/disco.js';
 import * as lotes from '../lib/imagen-ads/lotes.js';
 import { vistaDelLote, leerEstado } from '../lib/imagen-ads/estado.js';
 import * as local from '../lib/imagen-ads/local.js';
@@ -51,6 +51,7 @@ import { estadoDelTurno } from '../lib/imagen-ads/turno-claude.js';
 import { costoDeImagenAds } from '../lib/costo-estimado.js';
 import { costoMaximoDeLaAccion, costoAprobado } from '../lib/imagen-ads/costo.js';
 import * as biblioteca from '../lib/imagen-ads/biblioteca-referencias.js';
+import { estadoTitulos, proponerTitulos, seleccionarTitulos, titulosEnCurso } from '../lib/imagen-ads/titulos.js';
 
 // ---------------------------------------------------------------- utilidades
 
@@ -79,6 +80,7 @@ function elLote(req) {
   const lote = String(req.params.lote || '');
   if (!RE_LOTE.test(lote) || !lotes.esLoteDeEstaApp(lote)) throw new ErrorApp(404, 'No encuentro ese lote.');
   const carpeta = carpetaDe(lote);
+  if (['PUT', 'DELETE'].includes(req.method) && titulosEnCurso(carpeta)) throw new ErrorApp(409, 'Espera a que termine de preparar los títulos antes de cambiar o borrar este lote.');
   return { lote, carpeta, brief: lotes.leerBrief(carpeta) };
 }
 
@@ -311,12 +313,34 @@ export default function rutasImagenAds(app) {
     res.json({ ok: true });
   }));
 
+  app.get('/api/imagen-ads/:lote/titulos', conErrores((req, res) => {
+    const { carpeta, brief } = elLote(req);
+    res.json(estadoTitulos(carpeta, brief));
+  }));
+  app.post('/api/imagen-ads/:lote/titulos', soloDesdeLaApp, conErrores((req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    if (!enBorrador(lote)) throw new ErrorApp(409, 'Este lote ya empezó.');
+    const falta = lotes.faltaDelBorrador(carpeta, brief);
+    if (falta) throw new ErrorApp(400, falta);
+    // La sesión solo puede leer archivos de su lote.
+    if (!fotoDelLote(carpeta)) {
+      const foto = rutaFoto(brief.productoId, brief.fotoProducto ?? 1);
+      fs.copyFileSync(foto, path.join(R.entrada(carpeta), `producto${path.extname(foto)}`));
+    }
+    res.status(202).json(proponerTitulos(carpeta, lote, brief));
+  }));
+
   // ------------------------------------------------------------ arrancar, seguir, detener
   app.post('/api/imagen-ads/:lote/generar', soloDesdeLaApp, conErrores(async (req, res) => {
-    const { lote, brief } = elLote(req);
+    const { lote, carpeta, brief } = elLote(req);
     await esperarFamilias();
     if (leerConductor(lote)) throw new ErrorApp(409, 'Este lote ya empezó.');
+    if (brief.elegirTitulos) {
+      const seleccion = seleccionarTitulos(carpeta, brief, req.body?.titulos);
+      brief.seleccionTitulos = seleccion;
+    }
     await comprobarCostoConfirmado(brief, req.body, { loteCompleto: true });
+    guardarBrief(carpeta, brief);
     const c = iniciarProduccion(lote);
     res.json({ lote, conductor: paraLaPantalla(c) });
   }));

@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-11.
+Última actualización: 2026-11-16.
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-11b` (archivo `VERSION`). Las funciones descritas abajo están integradas en `main`.
+- **Versión actual:** `2026-11-16a` (archivo `VERSION`). Las funciones descritas abajo están integradas en `main`.
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -99,6 +99,37 @@ estilo).
   que respondió kie.ai y qué hacer (`procesos.causaDeFallo`, guardado en `paso.error.causa`).
 - **Actualizar** desde GitHub con reinicio solo; aviso si corre una versión vieja de la app (`lib/version.js`).
 - **Paquete para compartir** (`npm run paquete`) y **despliegue en servidor** (`DESPLEGAR.md`; decidí no desplegar).
+
+## Variaciones fieles y aprobación de títulos (2026-11-16)
+
+Implementación: [PR #61](https://github.com/kalethabh/App-nube/pull/61).
+
+Pedido: conservar la esencia del anuncio y por qué vende; variar solo los titulares con la investigación,
+mostrar propuestas antes para seleccionar y acelerar la preparación.
+
+- `imagen-ads/titulos.js`: propuesta breve independiente de la estrategia completa. Lee la foto, referencias y
+  la investigación copiada al lote (con resaltados primero), sin investigar de nuevo ni generar imágenes. Cada
+  opción muestra `titulo`, `porQue` y `base`; se guarda en el borrador y se reutiliza por huella de entradas.
+  Si no hay investigación, declara esa limitación en vez de inventar evidencia.
+- Formulario: «Proponer títulos primero» → selección de exactamente la cantidad del lote → «Generar N anuncios»
+  con el costo visible. El servidor exige selección válida y presupuesto confirmado para estos lotes nuevos.
+  GET/POST `/:lote/titulos`; `/generar` recibe `titulos` (ids). Los lotes anteriores conservan compatibilidad.
+- «Más de lo mismo» pasa a «Variar solo los títulos»: conserva diseño, escena, tipografía, textos secundarios,
+  deseo, beneficio y mecanismo persuasivo. El formulario y las tareas ya no piden otros ángulos en este modo.
+  Los títulos seleccionados se fijan en el plan y se validan también en las capas de texto del prompt.
+- `variaciones-fieles.js`: antes de arrancar el motor, reutiliza la primera plantilla válida por referencia,
+  uniforma las primeras variantes y completa las restantes cambiando el titular y el id. No sobreescribe
+  regeneraciones del usuario ni lotes en curso. Si no encuentra una capa de titular inequívoca, mantiene el
+  flujo normal de escritura. Menos sesiones repetidas; se mantiene la concurrencia existente del motor.
+- Validación sin servicios de pago: 147/147 del servidor de anuncios de imagen; 4/4 pruebas nuevas (selección,
+  huella, cambios de referencia, conservación de plantilla, títulos exactos y preparación para el motor);
+  compilación Vite. Navegador en modo simulado: propuestas, selección de diez, cambio de selección y sin errores
+  JavaScript. API en puerto aislado: propuestas sin conductor/producción, duplicados rechazados y costo obligatorio.
+- Límites: no se llamó a una IA real para las propuestas ni se generaron imágenes de pago. Falta confirmar calidad
+  comercial de títulos, fidelidad de píxeles y tiempos reales de kie.ai/ChatGPT; no se promete un porcentaje de mejora.
+  Vite informa una clave `slug` duplicada ya existente en el editor, ajena a este cambio.
+- Siguiente paso de uso: actualizar la app, elegir un producto con investigación y una referencia ganadora,
+  pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
 

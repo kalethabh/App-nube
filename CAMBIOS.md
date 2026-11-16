@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16a · Variaciones fieles y títulos elegidos
+
+- **Primero los títulos:** antes de generar imágenes, la IA propone títulos basados en la investigación de mercado y lo resaltado. Muestra la esencia que se conserva, el motivo de cada título y su base. Tú seleccionas los que usará el lote; después confirmas el costo y generas.
+- **Variar solo los títulos:** conserva el diseño, la escena, el beneficio y la razón de compra de la referencia. No pide cambiar a otros ángulos ni rehace los textos secundarios entre variaciones.
+- **Menos trabajo repetido:** las propuestas se reutilizan si no cambian las entradas. Las variaciones de una misma referencia comparten una plantilla visual validada; se cambia el título sin otra sesión para redactar cada prompt. Se conserva la generación simultánea que ya tenía el motor.
+- Las comprobaciones rechazan títulos distintos de los elegidos y propuestas de entradas antiguas. Los lotes anteriores pueden continuar como antes.
+
 ## 2026-11-15a · Investigación de mercado
 
 - **Investigación de mercado:** sección nueva. Con la foto de tu producto, la IA investiga su mercado (qué quiere tu cliente, qué le duele, tu competencia y con qué mensajes venderlo). Se hace una vez por producto y funciona con Claude.

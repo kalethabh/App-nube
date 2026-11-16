@@ -13,6 +13,7 @@
 //
 // La sesion de la estrategia (tandas.E001) guarda `motor`: la IA que la hizo ('claude' o 'codex'). La vista la manda
 // como `motor` (el informe dice quien hizo el lote).
+import { completarVariacionesFieles } from './variaciones-fieles.js';
 import { leerJSON, existe, listar } from '../archivos.js';
 import { nuevoEstado, asegurarPiezas, aplicarRevision, listaDePiezas, cuentas, PEDIDO_TERMINADO } from './planificador.js';
 import { verificarRevision, leerSkill } from './verificar.js';
@@ -82,6 +83,10 @@ export function cargarYNormalizar(carpeta, brief, { uuidEstrategia = null, motor
     asegurarPiezas(est, { cantidad, formatos });
     // (un estado de antes, sin la IA de la estrategia: se completa con la del paso, si se sabe)
     if (est.tandas?.E001 && !est.tandas.E001.motor && motor) est.tandas.E001.motor = motor;
+  }
+  // Solo antes de arrancar piezas: los títulos comparten una plantilla validada por referencia.
+  if (!leerEstado(carpeta)) {
+    for (const v of completarVariacionesFieles(carpeta, brief, { normalizarIniciales: true })) est.variaciones[v] = { prompt: 'listo', tanda: 'E001' };
   }
   ponerAlDiaNumeros(carpeta, est);
 

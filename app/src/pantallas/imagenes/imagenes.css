@@ -1383,3 +1383,9 @@
 .img-nota--ok { color: var(--texto-1); }
 .img-nota--ok svg { color: var(--ok); }
 .img-nota a { color: var(--acento); }
+
+/* Selección de títulos con los componentes y colores actuales. */
+.img-titulos { grid-column: 1; padding: 24px; }
+.img-titulo-opcion { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--borde-2); cursor: pointer; }
+.img-titulo-opcion input { flex: 0 0 auto; margin-top: 5px; accent-color: #9df626; }
+.img-titulo-opcion > span { display: grid; gap: 6px; }

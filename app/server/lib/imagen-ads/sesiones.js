@@ -69,10 +69,10 @@ function textoLogo(brief) {
 /** «Más de lo mismo»: todas las variaciones copian el diseño de las referencias (el modelo de imagen también las ve). */
 function textoFiel(n, k) {
   return `## Más de lo mismo (lo pidió el usuario)
-El usuario quiere MÁS ANUNCIOS IGUALES a ${k === 1 ? 'su referencia' : 'sus referencias'}: el mismo diseño, con otro producto y otros textos. Esto manda sobre el PASO 4 de la skill:
+El usuario quiere variaciones que conservan la ESENCIA y la razón por la que vende de ${k === 1 ? 'su referencia' : 'sus referencias'}: el mismo diseño y la misma idea de venta, adaptados a su producto; entre variaciones cambia SOLO el titular. Esto manda sobre el PASO 4 de la skill:
 - Las ${n} variaciones son \`"fuente": "referencia"\` (ninguna sale de la biblioteca), con la referencia que le toca a cada una en la lista de arriba${k < n ? ' (se repiten en orden)' : ''}.
 - Cada variación conserva de su referencia EXACTAMENTE la estructura, los bloques, la jerarquía, el encuadre y la tipografía (familia, peso, mayúsculas, tamaños relativos, efectos del texto). En \`global_identity.text_typography\` describe la tipografía DE LA REFERENCIA, no otra. No cambies el tipo de formato ni agregues o quites bloques.
-- Lo que cambia entre variaciones de una misma referencia es el mensaje: otro ángulo de venta, otro titular, otro dolor o beneficio (repártelos sin repetir titulares). El producto es siempre el del usuario.
+- Conserva el ángulo, deseo, beneficio, mecanismo persuasivo, oferta verificada del producto del usuario, CTA, textos secundarios y escena. Nunca traslades cifras, testimonios ni pruebas de otra marca como si fueran de este producto. NO cambies a otro dolor ni inventes conceptos nuevos. Solo varía el titular usando la investigación y los títulos aprobados; el producto es siempre el del usuario. Describe en estrategia.json por qué podría vender cada referencia (hipótesis, no garantía).
 - La app le manda al modelo de imagen la referencia junto con la foto del producto, así que en \`visual_prompt\` describe la misma composición de la referencia (no inventes otra) y en \`text_layers\` pon un texto por cada texto de la referencia, en su mismo lugar.
 - Los colores: conserva la lógica de color de la referencia (contraste, fondo claro u oscuro, acentos) llevada a la paleta del producto.`;
 }
@@ -85,6 +85,12 @@ function textoInvestigacion(lote, rel) {
 }
 
 const sinSaltos = (t, max = 600) => String(t || '').replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
+
+export function textoTitulosElegidos(brief) {
+  const s = brief?.seleccionTitulos;
+  if (!s?.titulos?.length) return '';
+  return `\n## Títulos ya elegidos por el usuario (obligatorio)\nNo vuelvas a proponer ni reescribir títulos ni investigar de nuevo. Conserva esta esencia: ${s.esencia}\n${s.titulos.map((x, i) => `${idsDelLote(s.titulos.length)[i]}: ${JSON.stringify(x.titulo)}. Base: ${x.base}`).join('\n')}\nEn plan.json, titular tiene que ser EXACTAMENTE ese texto. En cada V##.json, una sola capa text_layers lleva ese titular completo y exacto (usa saltos de línea solo para ajustar diseño). Si hay referencia fiel, entre sus variaciones conserva idénticos visual_prompt, global_identity, escena, prueba y todos los textos secundarios: solo cambia esa capa de titular y variation_id. Analiza cada referencia UNA sola vez y reutiliza su estructura. Estas decisiones mandan sobre cualquier instrucción de diversificar ángulos o escenas de la skill.\n`;
+}
 
 // ---------------------------------------------------------------- el material (lo que lee cada sesion)
 
@@ -180,7 +186,7 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
   return {
     tipo: 'estrategia',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-estrategia', valores),
+    prompt: textoClaude('tarea-imagen-ads-estrategia', valores) + textoTitulosElegidos(brief),
     escribe: ['producto.json', 'estrategia.json', 'plan.json', ...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json'],
     maxTurnos: 80 + 2 * k,
     timeoutMin: Math.min(120, 25 + 0.4 * n),
@@ -219,7 +225,7 @@ export function sesionPrompts({ carpeta, lote, brief, ids }) {
   return {
     tipo: 'prompts',
     ids,
-    prompt: textoClaude('tarea-imagen-ads-prompts', { lote, ids: listaDeIds(ids), variaciones: JSON.stringify(variaciones, null, 2), logo: textoLogo(brief) }),
+    prompt: textoClaude('tarea-imagen-ads-prompts', { lote, ids: listaDeIds(ids), variaciones: JSON.stringify(variaciones, null, 2), logo: textoLogo(brief) }) + textoTitulosElegidos(brief),
     escribe: [...ids.map((v) => `${v}.json`), 'app/imagen-ads/bloqueo.json'],
     maxTurnos: 60,
     timeoutMin: 35,
