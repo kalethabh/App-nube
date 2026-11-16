@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16c` (archivo `VERSION`). Las funciones descritas abajo están integradas en `main`.
+- **Versión actual:** `2026-11-16d` (archivo `VERSION`). Las funciones descritas abajo están integradas en `main`.
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -135,6 +135,15 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Investigación con TrendTrack en modo claro (2026-11-16, versión 2026-11-16d)
+
+- `app/src/pantallas/investigacion/competencia.css` (bloque `.tt`, la segunda parte del informe) tenía sus colores
+  oscuros fijos. Ahora usa variables propias (`--tinte`, `--fondo`, `--barra-etapas`, `--th-fondo`, `--th-tinta`)
+  y `[data-tema='claro'] .tt` redefine tintas, tarjetas y los cuatro colores de significado en tonos oscuros.
+  El PDF de la primera parte (`documento.css`) conserva su diseño propio de documento.
+- Prueba: capturas de Playwright del informe de un producto con las 6 etapas, en claro y oscuro (cabecera, etapas,
+  tablas, escalas, barras, cajas de riesgo/oportunidad); compilación correcta y sin errores en la página.
 
 ### La pantalla nueva se arma sola (2026-11-16, versión 2026-11-16c)
 
