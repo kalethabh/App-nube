@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16l · Lo que está funcionando en TrendTrack, dentro de tus guiones
+
+- **6 estructuras nuevas aprendidas de anuncios que están creciendo ahora** (Meta, noviembre 2026): «una sola dosis: lo que pasa en las próximas 72 horas» (se repite en 5 marcas de suplementos, también de mullein), «no lo tomes hasta que conozcas la regla de…», «personaje 3D con tres señales → experto», «ese dolor no es lo que crees… y hay tres señales más», «lo que pasa si lo usas 60 días» y «ningún suplemento cura esto». Ya son 23 estructuras para elegir.
+- **Esqueleto con diseños nuevos:** el esqueleto verde caricatura dentro de un cuerpo de vidrio con los síntomas marcados, la anatomía realista en corte, el órgano sobre un cuerpo real y más. La IA los usa para variar, sin copiar marcas ni textos.
+- Quedan en `mis_archivos/estructuras/` y `mis_archivos/tendencias/`, con la evidencia (alcance y crecimiento) de cada uno.
+
 ## 2026-11-16k · Guiones con tu investigación de mercado y estructuras variadas
 
 - **Los guiones de video ahora leen tu investigación de mercado:** antes solo la usaban los anuncios de imagen. La IA saca de ahí el deseo principal, el beneficio principal, los dolores, las objeciones y las palabras de tu cliente, y con eso escribe el gancho, contesta la objeción y cierra con el beneficio. Sin investigación, usa lo que haya (ficha, página, lo que contaste) y no inventa datos.

@@ -1,0 +1,50 @@
+{
+  "_nota": "Diseños que están funcionando HOY para el estilo Esqueleto (y anatomía 3D), vistos en TrendTrack el 2026-11-16. Son referencias para variar el diseño, no para copiar: nunca la marca, los textos ni el producto de otro. Lo lee app/server/lib/estructuras.js (textoTendencias) en la tarea del guion de este estilo.",
+  "fuente": "TrendTrack · 2026-11-16",
+  "disenos": [
+    {
+      "id": "esqueleto-verde-vidrio-gorro",
+      "nombre": "Esqueleto verde caricatura dentro de un cuerpo de vidrio",
+      "como_se_ve": "Huesos verde lima brillantes y redondeados, ojos grandes y saltones, un gorro de lana negro; el cuerpo es una cáscara de vidrio transparente con los órganos reales a la vista (pulmones, hígado, intestinos) y los SÍNTOMAS marcados sobre ellos (puntitos rojos, bultitos). Fondo gris de estudio liso. Primeros planos de detalle (cuello, costillas, barriga).",
+      "para_que": "El gancho de síntomas: mostrar tres señales en tres partes del cuerpo en los primeros 8 segundos.",
+      "evidencia": "Liver Health Forum (NAC + NAD+, hígado graso): 142.235 de alcance, +73.457 en 7 días.",
+      "enlace": "https://medias.trendtrack.io/facebook/thumbnails/853b5b6a691f91fd676b226938e8aed1bf47694a0a48e9e1273db6ecf685e20f.jpg"
+    },
+    {
+      "id": "anatomia-realista-en-corte",
+      "nombre": "Anatomía realista translúcida, en corte",
+      "como_se_ve": "Render médico realista: cabeza, garganta o torso en corte con músculos, vértebras y órganos; la cápsula o las gotas recorren el camino (boca → esófago → estómago → órgano). Luz cálida de estudio, sin estilo caricatura.",
+      "para_que": "La estructura «una dosis: las próximas 72 horas»: seguir el producto por dentro.",
+      "evidencia": "Liver Health Forum y Ancient Herbal Remedies (nov. 2026).",
+      "enlace": "https://medias.trendtrack.io/facebook/thumbnails/21f7fd91f4549dfad72a415e52e6eb3886db773ec617decfb745dfa1cf83309a.jpg"
+    },
+    {
+      "id": "organo-sobre-cuerpo-real",
+      "nombre": "El órgano dibujado sobre un cuerpo real",
+      "como_se_ve": "Una persona real se levanta la camiseta y el órgano (hígado graso, pulmón) aparece superpuesto sobre su barriga o pecho, con una flecha y un titular rojo.",
+      "para_que": "Hacer visible un problema interno en la primera imagen («4 señales de que…»).",
+      "evidencia": "Liver Health Forum, versión en español (oct. 2026).",
+      "enlace": "https://medias.trendtrack.io/facebook/thumbnails/7f6321787291806b80160649902d97ff73d3bdd5e3d59445a584dab9216e80c6.jpg"
+    },
+    {
+      "id": "torso-escultura-translucida",
+      "nombre": "Torso escultural translúcido en blanco y negro",
+      "como_se_ve": "Un torso humano como escultura brillante y mojada, casi transparente, en blanco y negro sobre fondo negro, con el texto «HERE'S WHAT HAPPENS».",
+      "para_que": "Gancho elegante para «esto es lo que pasa si lo usas X días».",
+      "evidencia": "Revolt Underwear: +98.158 de alcance en 7 días con 10 días al aire.",
+      "enlace": "https://medias.trendtrack.io/facebook/thumbnails/06fbb25beb5fa4845dc0c6d2d5ee5de47af0c2696c187c12f1fa20a81df1c2aa.jpg"
+    },
+    {
+      "id": "producto-en-su-jardin",
+      "nombre": "El producto entre sus ingredientes naturales",
+      "como_se_ve": "El esqueleto o el empaque en medio de flores, raíces y frutas de sus ingredientes (diente de león, equinácea, piña…), luz natural.",
+      "para_que": "El momento en que entra el producto: «esto es lo natural que funciona».",
+      "evidencia": "Liver Health Forum (nov. 2026)."
+    }
+  ],
+  "recursos_que_funcionan": [
+    "Un titular fijo en una franja roja durante TODO el video (una pregunta de dolor + una promesa): «¿Barriga dura que no baja? Así evitas la cirrosis».",
+    "El esqueleto solo en el gancho (0-8 s) y después otro registro (experto o B-roll 3D): el esqueleto no tiene que estar todo el anuncio.",
+    "Síntomas marcados SOBRE el órgano (puntos rojos, inflamación brillante) en vez de órganos iluminados en general."
+  ]
+}
