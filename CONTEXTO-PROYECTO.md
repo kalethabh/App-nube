@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16k` (archivo `VERSION`): guiones con la investigación y catálogo de estructuras.
-  Antes en `main`: `2026-11-16j` (PR #68 a #73).
+- **Versión actual:** `2026-11-16l` (archivo `VERSION`): estructuras y diseños aprendidos de TrendTrack.
+  Antes en `main`: `2026-11-16k` (PR #68 a #74).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +136,22 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Estructuras y diseños aprendidos de TrendTrack (2026-11-16, versión 2026-11-16l)
+
+TrendTrack conectado a la sesión de desarrollo (no solo a la app). Búsquedas: «skeleton» (casi todo relojes: el
+estilo esqueleto casi nunca dice «skeleton» en el texto), «what happens to your body» + día 1/huesos/hígado,
+la marca Liver Health Forum y «next 72 hours». 90 créditos de 3.932. Para ver miniaturas y videos se creó el
+entorno personal «App-nube» (hosts `medias.trendtrack.io` y `s3.eu-central-003.backblazeb2.com`, con script de
+instalación de app y remotion; el script queda sin probar hasta una sesión nueva en ese entorno).
+
+- `mis_archivos/estructuras/trendtrack-2026-11.json`: 6 estructuras con evidencia (alcance y crecimiento a 7 días).
+- `mis_archivos/tendencias/skeleton.json`: 5 diseños + recursos (titular fijo en franja roja, el esqueleto solo en
+  el gancho, síntomas marcados sobre el órgano). Solo descripciones y enlaces; no se guardan videos de otras marcas.
+- `lib/estructuras.js → textoTendencias(estilo)`, agregado a la tarea del guion. 23 estructuras en total.
+- Pruebas: humo completo 220/220 (en este entorno, el navegador de Remotion es un enlace al Chromium local).
+- Pendiente: el botón en la app para buscar y alimentar esto solo (con el TrendTrack del Claude del usuario) y subir
+  videos o capturas; tendencias de los demás estilos.
 
 ### Guiones con la investigación de mercado y estructuras entre estilos (2026-11-16, versión 2026-11-16k)
 
