@@ -338,3 +338,59 @@ test('cambio del original durante la copia no reemplaza el respaldo ni borra la 
   assert.equal(contenido(destino), '00000');
   assert.deepEqual(archivosEn(c.nube), [destino]);
 });
+
+// ---------------------------------------------------------------- restaurarAsync (traer de vuelta sin trabar la app)
+// Las mismas garantías que restaurar(): lo usa la app al abrir el editor de un anuncio guardado en Drive.
+
+test('restaurarAsync trae medios y finales de vuelta y borra la marca', async (t) => {
+  const c = caso(t);
+  const dir = c.crearTrabajo();
+  const img = escribir(path.join(dir, 'img', 'primera.png'), 'imagen original');
+  const fin = escribir(path.join(c.output, 'anuncio-prueba_completo.mp4'), 'video final');
+  await c.archivador.respaldar({ destino: c.nube, liberarEspacio: true });
+  assert.equal(fs.existsSync(img), false);
+  assert.deepEqual(await c.archivador.restaurarAsync('anuncio-prueba'), { ok: true });
+  assert.equal(contenido(img), 'imagen original');
+  assert.equal(contenido(fin), 'video final');
+  assert.equal(c.archivador.marca('anuncio-prueba'), null);
+});
+
+test('restaurarAsync no restaura una copia alterada y conserva la marca', async (t) => {
+  const c = caso(t);
+  const dir = c.crearTrabajo();
+  const original = escribir(path.join(dir, 'video', 'toma.mp4'), 'ABCDE');
+  await c.archivador.respaldar({ destino: c.nube, liberarEspacio: true });
+  escribir(path.join(c.nube, 'anuncio-prueba', 'video', 'toma.mp4'), '12345');
+  assert.equal((await c.archivador.restaurarAsync('anuncio-prueba')).ok, false);
+  assert.equal(fs.existsSync(original), false);
+  assert.ok(c.archivador.marca('anuncio-prueba'));
+});
+
+test('restaurarAsync conserva una edición local posterior', async (t) => {
+  const c = caso(t);
+  const original = escribir(path.join(c.crearTrabajo(), 'img', 'imagen.png'), 'original');
+  await c.archivador.respaldar({ destino: c.nube, liberarEspacio: true });
+  escribir(original, 'edición local');
+  assert.equal((await c.archivador.restaurarAsync('anuncio-prueba')).ok, true);
+  assert.equal(contenido(original), 'edición local');
+});
+
+test('restaurarAsync rechaza registros inválidos, escapes y .env disfrazado', async (t) => {
+  const c = caso(t);
+  const dir = c.crearTrabajo();
+  const secretoFalso = escribir(path.join(c.raiz, '.env'), 'SECRETO_FALSO_DE_LA_PRUEBA=solo-fixture');
+  const nombre = escribir(path.join(dir, 'app', 'en-la-nube.json'), {
+    carpeta: path.join(c.nube, 'anuncio-prueba'),
+    archivos: ['img/foto.png', '../fuera.png', 'app/ajustes.json'],
+    ubicaciones: { 'img/foto.png': { archivo: secretoFalso } },
+    finales: ['../../escape.mp4'],
+  });
+  const r = await c.archivador.restaurarAsync('anuncio-prueba');
+  assert.equal(r.ok, false);
+  assert.equal(r.faltan.length, 4);
+  assert.equal(fs.existsSync(path.join(dir, 'img', 'foto.png')), false);
+  assert.ok(fs.existsSync(nombre));
+  escribir(nombre, { carpeta: path.join(c.nube, 'x'), archivos: {} });
+  assert.equal((await c.archivador.restaurarAsync('anuncio-prueba')).ok, false);
+  assert.ok(c.archivador.marca('anuncio-prueba'));
+});

@@ -2,6 +2,17 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16f · Correcciones de la revisión técnica (sin cambios en cómo se crean los anuncios)
+
+- **La app en un servidor ya deja producir:** producir, editar, exportar, rehacer, la canción, los modelos y «Actualizar» respondían «Solo desde la app» cuando se entraba por el dominio del servidor. Ahora hay un solo control para toda la app, que además protege rutas que antes no lo tenían.
+- **No se paga dos veces si se pierde la respuesta de kie.ai:** si el pedido de una imagen o un video llega a kie.ai y la respuesta se corta, la app ya no pide otra sola (podía cobrar las dos). Se detiene esa pieza y te dice que mires en kie.ai si se creó.
+- **La música desde la terminal tampoco se paga dos veces:** `npm run musica` y `npm run cancion` ahora retoman la misma tarea de Suno si el proceso se corta, y un corte de internet de unos segundos ya no corta la espera.
+- **El guardado en GitHub es más confiable:** los archivos con tildes o espacios ahora respetan el tope de 45 MB, un archivo que ya estaba en GitHub y creció de más ya no traba la subida, y si GitHub tiene cambios de otra máquina sobre los mismos archivos te lo dice claro.
+- **Abrir un anuncio guardado en Drive ya no congela la app** mientras trae los videos de vuelta.
+- **Tus claves**: el archivo `.env` queda legible solo por tu usuario.
+- **La pantalla consulta menos**: con la pestaña oculta deja de preguntar al servidor y no repite el mismo pedido desde el menú, la barra y el tablero.
+- **La guía de producción** (`COMO-PRODUCIR.md`) ya no nombra comandos que no existen (`arrancar`, `revisar:imagenes`) y los topes de velocidad (`CONCURRENCIA_IMAGENES`, `CONCURRENCIA_VIDEOS` en el `.env`) ahora sí se leen.
+
 ## 2026-11-16e · Anuncios de imagen: Nuevos, Variantes y «Me funciona»
 
 - **Menos preguntas:** el formulario ya no pide precio, moneda, llamado a la acción, idioma (siempre en español), ángulo principal ni logo.

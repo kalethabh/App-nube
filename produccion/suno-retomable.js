@@ -16,7 +16,8 @@
 // proposito). Una tarea anotada que kie dice que fallo, o que kie ya no conoce, se olvida: la corrida siguiente pide
 // otra (como siempre).
 //
-// Lo usa la app (app/server/lib/familias/). --solo-plan no pide nada: va derecho al script.
+// Lo usan la app (app/server/lib/familias/) y los comandos de la terminal (npm run musica, npm run cancion: en
+// package.json pasan por aqui). --solo-plan no pide nada: va derecho al script.
 
 import fs from 'node:fs';
 import path from 'node:path';

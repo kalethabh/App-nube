@@ -52,6 +52,7 @@ import * as vozEnOff from './voz-en-off.js';
 import { anotarAviso, limpiarAvisosDelPaso, notaDeAvisos, piezasConAviso } from '../avisos.js';
 // Las funciones puras del motor (no hablan con nadie ni cobran): la cadena, la prediccion y el validador del bloque.
 import * as motor from '../../../../produccion/continuidad.js';
+import { CREDITOS_SUNO } from '../../../../produccion/config.js'; // la unica fuente del precio de Suno
 
 /** El modelo de la cadena de este anuncio (su temp/<slug>/modelos.json; sin el, Omni y sus tramos de siempre). */
 const modeloDeCadena = (ctx) => motor.modeloDeCadenaEn(ctx.carpeta);
@@ -80,7 +81,6 @@ const SKILL_CONTINUIDAD = 'anuncios-continuidad';
 // zack-d-films y skeleton ANTES de npm run musica (si no, iria a Suno y cobraria). COMO-PRODUCIR 3 y 13.
 const PISTA_A_MANO = { 'zack-d-films': 'zack-d-films.mp3', skeleton: 'esqueleto.mp3' };
 const SIN_SUNO = new Set(['estilo-lego', 'zack-d-films', 'skeleton']);
-const CREDITOS_SUNO = 12;
 const EFECTOS = ['woosh.mp3', 'deep-woosh.mp3']; // solo si el anuncio quedo sin continuidad (con cortes)
 
 const MAX_TURNOS = 150; // mirar 20-40 imagenes y escribir: mas que una tarea de guion

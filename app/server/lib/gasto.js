@@ -24,8 +24,9 @@ import { DOLARES_POR_CREDITO } from './rutas.js';
 import { leerJSON, listar, escribirSeguro, escribirJSONSeguro } from './archivos.js';
 import { duracionMp4 } from './mp4.js';
 import { eleccionDeCarpeta, cascadaDeLaPieza, creditosDeCascada, creditosTipicos, sonidoDeLaPieza } from './modelos.js';
+export { CREDITOS_SUNO } from '../../../produccion/config.js'; // la unica fuente del precio de Suno
+import { CREDITOS_SUNO } from '../../../produccion/config.js';
 
-export const CREDITOS_SUNO = 12;
 // Para estimar lo que quedo sin registro, sin nada registrado con que promediar: una imagen y un clip de 6 s con los
 // modelos del anuncio (con los de siempre, Sunburst 2K y Omni de 6 s: 10 y 84). Ver creditosTipicos (lib/modelos.js).
 

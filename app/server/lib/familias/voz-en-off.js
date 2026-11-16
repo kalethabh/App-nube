@@ -34,6 +34,7 @@ import { eleccionDeCarpeta, cascadaVideo, categoriaDeVideo, duracionPara, duraci
 import { nombreIA, prohibidasComunes } from '../motor-ia.js';
 import { hojasDelManifiesto, contextosDe } from '../ia/material.js';
 import { anotarAviso, limpiarAvisosDelPaso, notaDeAvisos, piezasConAviso } from '../avisos.js';
+import { CREDITOS_SUNO } from '../../../../produccion/config.js'; // la unica fuente del precio de Suno
 
 export const FAMILIA = 'voz-en-off';
 export const ESTILOS = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'realista-narrado', 'skeleton', 'estilo-lego'];
@@ -272,7 +273,6 @@ export function leerPlanDeCosto(texto) {
   return { total: total ?? (img !== null || vid !== null ? (img || 0) + (vid || 0) : null), saldo, noAlcanza: /no te alcanza/i.test(t) };
 }
 
-const CREDITOS_SUNO = 12;
 const hayMusica = (carpeta) => listar(path.join(carpeta, 'musica')).some((n) => /\.(mp3|wav|m4a|ogg|flac)$/i.test(n));
 const DIR_PISTAS = path.join(RAIZ, 'recursos', 'musica');
 

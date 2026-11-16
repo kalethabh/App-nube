@@ -22,6 +22,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { APP, RAIZ, TEMP, PUERTO } from '../lib/rutas.js';
+import { origenesPermitidos } from '../lib/servidor.js';
 import { leerJSON, existe } from '../lib/archivos.js';
 import { leerConfig, guardarConfig } from '../lib/config.js';
 import { slugsDeAnuncios } from '../lib/anuncios.js';
@@ -36,7 +37,7 @@ import { versionClaude, versionCodex, olvidarVersiones, moduloCodex } from './es
 
 // Lo que decide que se gasta (los modelos) solo se cambia desde la propia app, como las claves (rutas/claves.js):
 // una pagina de otro sitio no puede elegir por el usuario.
-const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+const ORIGENES = origenesPermitidos(PUERTO); // el mismo chequeo en toda la app (lib/servidor.js), con el dominio del servidor si lo hay
 function desdeLaApp(req, res, next) {
   const origen = req.headers.origin;
   if ((origen && !ORIGENES.has(String(origen).toLowerCase())) || String(req.headers['sec-fetch-site'] || '') === 'cross-site') {

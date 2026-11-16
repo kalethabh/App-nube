@@ -23,7 +23,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import express from 'express';
 import { APP, DIST, RUTAS_API, HOST, PUERTO } from './lib/rutas.js';
-import { hostsPermitidos } from './lib/servidor.js';
+import { hostsPermitidos, origenesPermitidos } from './lib/servidor.js';
 import { migrarMotor, motorElegido } from './lib/motor-ia.js';
 import { vigilarInterfaz } from './lib/interfaz.js';
 
@@ -70,6 +70,20 @@ app.disable('x-powered-by');
 const HOSTS = hostsPermitidos(PUERTO); // + el dominio del servidor, si la app corre en uno (lib/servidor.js)
 app.use((req, res, next) => {
   if (!HOSTS.has(String(req.headers.host || '').toLowerCase())) return res.status(403).send('Solo desde este equipo.');
+  next();
+});
+
+// Ninguna pagina de otro sitio puede cambiar nada (CSRF): todo pedido que no sea de lectura tiene que venir de la app
+// misma (su origen o el dominio del servidor) o de este equipo sin navegador (sin Origin). Antes cada ruta lo revisaba
+// por su cuenta, con listas copiadas que olvidaban el dominio del servidor; ahora hay un solo filtro para todas.
+const ORIGENES = origenesPermitidos(PUERTO);
+app.use((req, res, next) => {
+  if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return next();
+  const origen = req.headers.origin;
+  const sitio = String(req.headers['sec-fetch-site'] || '');
+  if ((origen && !ORIGENES.has(String(origen).toLowerCase())) || sitio === 'cross-site') {
+    return res.status(403).json({ error: 'Solo desde la app.' });
+  }
   next();
 });
 

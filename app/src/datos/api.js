@@ -87,10 +87,13 @@ export function conVersion(url, fecha) {
 const cache = new Map(); // clave -> { datos, t, promesa }
 const EDAD_MAXIMA = 5000;
 
+// `forzar`: true = siempre al servidor; un número = solo si lo guardado tiene más de esos ms (lo usa el sondeo: si
+// otra pantalla ya pidió lo mismo hace un momento, se aprovecha esa respuesta en vez de repetir el pedido).
 function obtener(clave, cargar, forzar) {
   const c = cache.get(clave);
   if (c?.promesa) return c.promesa;
-  if (!forzar && c && 'datos' in c && Date.now() - c.t < EDAD_MAXIMA) return Promise.resolve(c.datos);
+  const edadMaxima = forzar === true ? 0 : typeof forzar === 'number' ? forzar : EDAD_MAXIMA;
+  if (edadMaxima > 0 && c && 'datos' in c && Date.now() - c.t < edadMaxima) return Promise.resolve(c.datos);
   const promesa = cargar().then(
     (datos) => {
       cache.set(clave, { datos, t: Date.now() });
@@ -152,8 +155,21 @@ export function useDatos(clave, cargar, { cadaMs } = {}) {
     });
     pedirAhora(false);
     if (!cadaMs) return undefined;
-    const id = setInterval(() => pedirAhora(true), cadaMs);
-    return () => clearInterval(id);
+    // Con la pestaña oculta no se pregunta nada (antes seguía cada 2-5 s aunque nadie mirara); al volver, se pide
+    // enseguida. Si otra pantalla ya trajo lo mismo hace menos de medio intervalo, se usa eso (el menú, la barra de
+    // arriba y el tablero pedían /api/anuncios cada uno por su lado).
+    const oculta = () => typeof document !== 'undefined' && document.hidden;
+    const id = setInterval(() => {
+      if (!oculta()) pedirAhora(Math.floor(cadaMs / 2));
+    }, cadaMs);
+    const alVolver = () => {
+      if (!oculta()) pedirAhora(Math.floor(cadaMs / 2));
+    };
+    document.addEventListener('visibilitychange', alVolver);
+    return () => {
+      clearInterval(id);
+      document.removeEventListener('visibilitychange', alVolver);
+    };
   }, [clave, cadaMs, pedirAhora]);
 
   const recargar = useCallback(() => pedirAhora(true), [pedirAhora]);

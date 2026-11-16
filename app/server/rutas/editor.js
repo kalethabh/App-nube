@@ -51,6 +51,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { TEMP, OUTPUT, RAIZ, PUERTO, esDeEstaApp } from '../lib/rutas.js';
+import { origenesPermitidos } from '../lib/servidor.js';
 import { listarAnuncios, urlAnuncio, slugValido, rutaVersionPrincipal } from '../lib/anuncios.js';
 import { stat, leerJSON, existe, listar, segmentoValido } from '../lib/archivos.js';
 import * as procesos from '../lib/procesos.js';
@@ -156,7 +157,7 @@ function escribirJSON(ruta, valor) {
   }
 }
 
-const ORIGENES = new Set([`http://127.0.0.1:${PUERTO}`, `http://localhost:${PUERTO}`, `http://[::1]:${PUERTO}`]);
+const ORIGENES = origenesPermitidos(PUERTO); // el mismo chequeo en toda la app (lib/servidor.js), con el dominio del servidor si lo hay
 
 /** true si el pedido viene de la app (o de este equipo sin navegador). Si no, ya respondio 403. */
 export function desdeLaApp(req, res) {

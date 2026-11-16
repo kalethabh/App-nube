@@ -16,8 +16,8 @@ import { leerJSON, existe, listar } from './archivos.js';
 import { entornoDelMotor, consultarSaldoKie } from './procesos.js';
 import { leerPlanDeCosto, caminoDeMusica } from './familias/voz-en-off.js';
 import { copiarModelosAlAnuncio } from './modelos.js';
+import { CREDITOS_SUNO } from '../../../produccion/config.js'; // la unica fuente del precio de Suno
 
-const CREDITOS_SUNO = 12;
 const usd = (cr) => Math.round(cr * DOLARES_POR_CREDITO * 100) / 100;
 const conDolares = (cr) => (cr === null || cr === undefined ? null : { creditos: Math.round(cr), dolares: usd(cr) });
 

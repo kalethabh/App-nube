@@ -29,8 +29,10 @@ el proceso es este**, y el orden importa:
 npm run preparar    -- "<ruta de la foto>" [slug]   deja la foto del producto lista
 npm run validar     -- temp/[slug]/manifiesto.json
    ... el COSTO de todo el anuncio, y esperar el sí (1.1) ...
-npm run arrancar    -- temp/[slug] --si    imágenes + voz + música A LA VEZ (sección 14)
-npm run revisar:imagenes -- temp/[slug]     OBLIGATORIA antes de los videos (sección 14)
+npm run imagenes    -- temp/[slug] --si    las imágenes (en paralelo con la voz y la música: sección 14.4)
+npm run audio       -- temp/[slug]          la voz en off
+npm run musica      -- temp/[slug] --si     la música de fondo (sección 3)
+   ... REVISAR CADA IMAGEN con Read antes de los videos (sección 14.3) ...
 npm run videos      -- temp/[slug] --si
 npm run revisar     -- temp/[slug]
    ...aquí van la MÚSICA y las TRANSICIONES (secciones 3 y 4) ...
@@ -53,9 +55,11 @@ el arranque o el medio:
 | **podcast** y **entrevista** | sección 12: tomas habladas, sin música ni transiciones |
 | **continuidad** (efecto, va encima de un estilo de voz en off) | sección 13: reemplaza el proceso de producción del estilo |
 
-`npm run arrancar` reemplaza a `npm run imagenes` + `npm run audio` + `npm run
-musica` corridos en fila: hace lo mismo, cobra lo mismo, y tarda lo que tarda el
-más lento de los tres. Si prefieres uno solo, siguen existiendo por separado.
+`npm run imagenes`, `npm run audio` y `npm run musica` no dependen entre sí: se
+pueden correr a la vez, en tres terminales, y cobran lo mismo que en fila.
+(`npm run producir -- temp/[slug] --si` encadena imágenes, voz y videos en un
+solo paso, pero se salta la revisión de las imágenes: úsalo solo si el usuario
+lo pide.) Antes esta guía nombraba `npm run arrancar`, que no existe.
 
 `npm run revisar` lista los clips generados con su duración. En la terminal de
 Claude Code no puede preguntar nada: la aprobación es la del usuario en el
@@ -1403,14 +1407,11 @@ reusan:
 
 ### 14.3 Revisión de las imágenes antes de los videos — obligatoria
 
-`npm run videos --si` **no cobra** si las imágenes que usa no pasaron por la
-revisión (o cambiaron después: rehacer, lápiz):
-
-```
-npm run revisar:imagenes -- temp/[slug]                 arma las hojas en img/revision/
-   ... mirar CADA hoja con Read ...
-npm run revisar:imagenes -- temp/[slug] --aprobar "qué revisaste"
-```
+**Ojo: el motor NO lo hace cumplir.** No existe un comando `revisar:imagenes`
+(esta guía lo nombraba por error) y `npm run videos --si` cobra aunque nadie
+haya mirado las imágenes. La revisión depende de ti: antes de los videos, mira
+CADA imagen de `temp/[slug]/img/` con Read (y de nuevo las que cambien después:
+rehacer, lápiz).
 
 Se revisa, imagen por imagen, contra la skill (y el subestilo, si hay): la
 misma cara, pelo, ropa y cuerpo que la hoja del personaje; ningún texto o letra
@@ -1442,21 +1443,22 @@ inicio a fin, con el segundo en cada uno) y su duración en
 Cada `prompt_video` se escribe mirando esa tira: el mismo movimiento de cámara,
 a la misma velocidad, y la misma acción del personaje. El supervisor lo revisa
 en el momento de los prompts y otra vez con los clips hechos. Para un
-subestilo nuevo, la tira la deja
-`python3 produccion/movimiento-subestilos.py <video> <carpeta del subestilo>`.
+subestilo nuevo no hay todavía un script que arme la tira (esta guía nombraba
+`produccion/movimiento-subestilos.py`, que no existe en esta app): se hace a
+mano o se trae de IA-VID-AUTOMATIC.
 
 ### 14.4 En paralelo
 
-- **`npm run arrancar -- temp/[slug] --si`**: imágenes, voz (en voz_en_off, sin
-  continuidad) y música a la vez. Con `--solo-plan` da el costo de todo junto
-  (la tarjeta de la app). En esqueleto y Zack D Films copia sola su pista fija.
-- **Imágenes:** hasta 8 a la vez (antes 4). Las hojas de personaje ya no van
+- **Imágenes, voz y música a la vez:** `npm run imagenes`, `npm run audio` y
+  `npm run musica` en paralelo (no hay un comando único `arrancar`). En
+  esqueleto y Zack D Films `musica` copia sola su pista fija.
+- **Imágenes:** hasta 12 a la vez. Las hojas de personaje ya no van
   todas primero y de a una: cada hoja espera solo a las que usa (la "después"
   a la "antes"), y cada toma arranca apenas está su hoja; un B-roll sin
   personaje arranca enseguida.
-- **Videos:** hasta 6 clips a la vez (antes 3).
+- **Videos:** hasta 10 clips a la vez.
 - Los topes se cambian en el `.env` (`CONCURRENCIA_IMAGENES`,
-  `CONCURRENCIA_VIDEOS`, de 1 a 20). Si kie.ai respondiera 429, el motor espera
+  `CONCURRENCIA_VIDEOS`, de 1 a 20; `produccion/config.js`). Si kie.ai respondiera 429, el motor espera
   y reintenta solo.
 
 **Los avatares, como los de las referencias.** Cada subestilo trae, en su

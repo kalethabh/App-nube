@@ -15,7 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16e` (archivo `VERSION`). Las funciones descritas abajo están integradas en `main`.
+- **Versión actual:** `2026-11-16f` (archivo `VERSION`), en la rama `correcciones-revision` (ver «Correcciones de la
+  revisión técnica» abajo). Hasta que se una, `main` sigue en `2026-11-16e`.
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -135,6 +136,51 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Correcciones de la revisión técnica (2026-11-16, versión 2026-11-16f, rama `correcciones-revision`)
+
+Pedido: aplicar el informe «Kads Studio · Evaluación colaborativa y hoja de ruta» y corregir los problemas que
+encontró un análisis completo del código. Se respetó el principio del informe: **no se tocaron prompts, skills,
+aprendizajes ni la forma de crear los anuncios**; solo correcciones deterministas y de bajo riesgo creativo.
+
+- **Origen único (bug del modo servidor):** 6 rutas tenían su propia lista de orígenes sin el dominio del servidor,
+  así que con Caddy producir/editar/exportar/rehacer/canción/modelos/actualizar daban 403. Ahora todas usan
+  `origenesPermitidos()` (`lib/servidor.js`) y hay un filtro global en `server/index.js` para todo pedido que no sea
+  GET/HEAD/OPTIONS (también cubre rutas que no tenían chequeo). Sin `Origin` (pedidos de este equipo) se sigue aceptando.
+- **C-02, creación incierta en kie** (`produccion/kie-client.js`): si el pedido de crear la tarea pudo llegar y la
+  respuesta se perdió (conexión cortada después de mandar, o HTTP 504), sale `err.creacionIncierta` y las cascadas
+  de `generar-imagenes.js` y `generar-videos.js` cortan esa pieza sin reintentar ni pasar al respaldo. Sin conexión
+  (ENOTFOUND, ECONNREFUSED…) sigue siendo un error común. Los anuncios de imagen ya se detenían solos en ese caso.
+- **Suno:** `npm run musica` y `npm run cancion` pasan por `suno-retomable.js` (antes solo la app); `esperarMusica`
+  tolera hasta 3 min de errores pasajeros en vez de cortar (y que al volver a correr se pague otra).
+- **C-04 (parcial), precio de Suno en un solo lugar:** `CREDITOS_SUNO` vive en `produccion/config.js`; lo leen
+  `generar-musica.js`, `lib/gasto.js`, `lib/costo-anuncio.js` y las 5 familias (antes 7 copias del 12).
+- **Guardado** (`lib/guardado.js`): `git status -z` sin recortar (las rutas con tildes/espacios ahora respetan el tope
+  de 45 MB; además el recorte de la salida le comía la primera letra a la primera ruta); un archivo ya seguido que
+  pasa de 45 MB se saca del commit (`git reset`), porque `.git/info/exclude` no lo frenaba; si el `pull` tiene
+  conflicto, `estado().github.conflicto = true` con un mensaje claro.
+- **Drive sin trabar la app:** `archivador.restaurarAsync()` (`lib/archivo-nube.js`) con huella y copia por partes;
+  `traerDeVuelta()` devuelve una promesa y comparte la copia en curso del mismo anuncio. `restaurar()` síncrono queda
+  igual para las pruebas.
+- **Claves:** `.env` se escribe con permisos 0600; `.env.*.tmp` en `.gitignore`.
+- **Pantalla:** `useDatos` (`src/datos/api.js`) no sondea con la pestaña oculta, pide al volver y reutiliza una
+  respuesta de hace menos de medio intervalo (menú, barra y tablero repetían `/api/anuncios`).
+- **Guía:** `COMO-PRODUCIR.md` ya no nombra `npm run arrancar`, `npm run revisar:imagenes` ni
+  `movimiento-subestilos.py` (no existen) y aclara que la revisión de imágenes no la exige el motor;
+  `CONCURRENCIA_IMAGENES`/`CONCURRENCIA_VIDEOS` del `.env` ahora se leen (1–20; por defecto 12 y 10).
+- **Pruebas nuevas:** `produccion/pruebas/probar-creacion-incierta.js` (4/4: respuesta cortada, 504, sin conexión y
+  caso normal, con un servidor local) y 4 casos de `restaurarAsync` en `app/herramientas/probar-archivo-nube.mjs`
+  (30/30). Origen probado a mano con `ANUNCIOS_DOMINIO`: el dominio pasa, otra página y `cross-site` dan 403.
+- **Humo completo (modo prueba, Claude falso, kie y ElevenLabs simulados): 139/142.** Las 3 fallas son del entorno
+  de prueba: Remotion no pudo bajar su navegador (`remotion.media` bloqueado por la red), así que el render final no
+  corrió ahí (las 9 «salidas bloqueadas» de la guardia son esos reintentos). Imágenes, videos, voz, música, revisión
+  y montaje pasaron. Humo rápido de antes: 77/82 (Python sin `rembg` y el mismo navegador). **Falta en la Mac:** un
+  anuncio de punta a punta con el render, y la app en el servidor (si se usa) entrando por el dominio.
+- **No hecho a propósito (decisiones del informe, sección 09):** tope de presupuesto por anuncio (C-03), firma de
+  las actualizaciones (C-14), sacar `temp/` del repositorio y que el guardado no traiga código con `pull` (C-13), y los
+  experimentos de contexto/skills/aprendizajes (C-05 a C-07), que el informe pide medir antes con anuncios aprobados.
+- **Pruebas viejas que ya fallaban antes de este cambio** (iguales en `main`): `probar-estimar-costo.js` (13 casos)
+  y `probar-modelos.js` (3) esperan precios anteriores; hay que decidir qué precio es el correcto (C-04).
 
 ### Anuncios de imagen: Nuevos / Variantes, ganchos validados y «Me funciona» (2026-11-16, versión 2026-11-16e)
 

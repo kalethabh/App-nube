@@ -126,7 +126,13 @@ const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 /** Escribe en un .tmp y lo renombra. En Windows el renombre falla si otro proceso tiene el .env abierto justo en ese momento: se reintenta. */
 async function escribirSeguro(ruta, contenido) {
   const tmp = `${ruta}.${process.pid}.tmp`;
-  fs.writeFileSync(tmp, contenido);
+  // Solo tu usuario puede leer las claves (0600). En Windows el modo no aplica y no molesta.
+  fs.writeFileSync(tmp, contenido, { mode: 0o600 });
+  try {
+    fs.chmodSync(tmp, 0o600); // por si el .tmp ya existía con otros permisos
+  } catch {
+    /* Windows */
+  }
   for (let intento = 1; ; intento++) {
     try {
       fs.renameSync(tmp, ruta);
