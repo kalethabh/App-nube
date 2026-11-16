@@ -1,0 +1,40 @@
+Square 1:1 advertising image, bright, warm and feminine, with a soft semi-illustrated realistic rendering (smooth painterly digital illustration, realistic proportions, soft shading). BACKGROUND, edge to edge: a modern gym with large windows, strongly blurred and washed in warm cream daylight (#FBF3DC tones), so that the upper-left half of the canvas is very light, calm and low in detail. RIGHT HALF (about 50-100% of the width, full height, cropped by the right edge): a Colombian woman of about 28 with straight black hair in a high ponytail, wearing an olive-green athletic top and a small white towel over one shoulder, seen from the waist up at chest-level camera height with a portrait lens, relaxed confident smile, looking at the camera; her face sits at about 72-95% of the width and 15-42% of the height. She conveys energy and confidence. UPPER-LEFT COLUMN, all centered on the column: at the top (about 3.5-49.5% of the width, 2.5-14.5% of the height), a brushed metallic gold rounded-corner pill with a thin inner border and a subtle sheen, holding a two-line bold uppercase black text; below it (about 16-37.5% of the height), two huge lines of heavy uppercase sans-serif text in solid near-black, with no outline and no shadow: the first line states the quantity of units and the second line the price; below (about 40-46% of the height), one smaller bold near-black line with the product name. FOREGROUND, lower center-right (about 37-82% of the width, 35-100% of the height): three identical units of the product standing in a row, the center one larger, in front and cropped by the bottom edge, the two side ones slightly behind, overlapping the woman's lower torso. Each unit is a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; each bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. Crisp commercial light on the bottles with clean reflections on the amber glass and soft shadows between them. LOWER LEFT (about 4-36% of the width, 80.5-94% of the height): a brushed metallic gold rounded-corner label, same finish as the pill, holding a two-line bold uppercase black text, fully inside the canvas, ending before the left bottle. Keep margins of about 4% on the left, top and bottom for every text. No podium, no glow, no other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- offer name (offer pill) (Centered inside the gold pill at the top left, two lines: 'TRATAMIENTO' / 'COMPLETO'): "TRATAMIENTO COMPLETO" — Extra-bold geometric sans-serif, uppercase, black, each line about 4.3% of the canvas height, 2 lines, centered
+- price (quantity × price headline) (Left column, under the offer pill, two lines: line 1 'X3 UNIDADES', line 2 '$139,900'): "X3 UNIDADES $139,900" — Heavy uppercase sans-serif, solid near-black, no outline and no shadow, line 1 about 8% of the canvas height and line 2 about 11%, 2 lines, centered on the left column
+- product name (Left column, under the headline, one line): "VITALDROPS en gotas" — Bold geometric sans-serif, near-black, about 4.5% of the canvas height, 1 line, centered on the left column
+- claim label (in the place of the shipping label) (Inside the gold label at the lower left, two lines: 'SIN EFECTO' / 'REBOTE'): "SIN EFECTO REBOTE" — Extra-bold geometric sans-serif, uppercase, black, about 4.2% of the canvas height, 2 lines, left-aligned with inner padding, sized so the full text fits inside the label
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.
+- text_typography: Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text.
+
+MANDATORY ELEMENTS:
+- Full-bleed blurred bright gym scene in warm cream tones
+- Confident woman on the right half, seen from the waist up
+- Gold offer pill and huge near-black quantity-and-price headline in the upper-left column
+- Three units of the user's dropper bottle grouped in the foreground, the middle one larger and in front
+- Gold claim label at the lower left, fully visible
+
+STRICT EXCLUSIONS:
+- No podium, pedestal, radial glow, struck-through price or discount seal.
+- No shipping, payment, guarantee or urgency text.
+- No before/after and no emphasis on the woman's body shape.
+- No text cut by the canvas edges or hidden behind the bottles.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Podium, pedestal or radial glow
+- Do not add: Struck-through old price
+- Do not add: Round discount seal or sticker
+- Do not add: CTA button or arrow
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit list or icons
+- Do not add: Before/after
+- Do not add: Shipping or payment text
+- Do not add: Text cut by the canvas edges or hidden behind the bottles
+- Do not add: Logos or brand marks outside the product label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

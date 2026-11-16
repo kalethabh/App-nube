@@ -1,0 +1,170 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format G17 (Lifestyle con columna de beneficios y producto en primer plano); the bottom band carries the user's offer instead of shipping and payment, which the user did not give",
+    "reference_style": "Warm lifestyle ad: a serene woman in a glowing golden-hour living room with bokeh, a two-tone headline and a column of ringed line-icon benefits on the left, the product large in the lower-right foreground, and a metallic gold rounded offer band at the bottom",
+    "angle_used": "Beneficio sin sacrificio (a natural daily support taken by mouth: no needles, no operating room, at her own pace)",
+    "ad_format": "Lifestyle Benefit Column with Foreground Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a soft semi-illustrated realistic rendering of the model (smooth painterly digital illustration with realistic proportions and soft shading), on a light cream canvas with a tidy grid of progress panels.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Rounded-corner rectangular panels with a hairline pale-gold border, generous cream margins, a brushed metallic gold offer plaque with a thin inner border and rounded corners, a delicate pale-gold botanical sprig line drawing behind the product, soft contact shadows under the product.",
+    "text_typography": "Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text."
+  },
+  "creative_objective": "Show the calm of a woman who supports her routine with a simple natural daily ritual, with no needles and no surgery, list three everyday benefits (appetite, energy, calmer heavy days) and close with the 3-bottle offer in the gold band.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The two-tone headline (white line over a metallic gold line). 2) The woman's serene expression. 3) The product in the lower-right foreground. 4) The three benefit rows. 5) The gold offer band.",
+    "composition_style": "Layered asymmetric composition: text column on the left third, the woman in the center-right middle ground seen slightly from the side, the product in the right foreground, and the gold offer band anchoring the bottom left and running up to the product. The headline sits above everything at the top left.",
+    "spacing_and_structure": "Headline: line 1 at about 4-12% of the height, line 2 at about 14.5-22%, from 3.5% to at most 60% of the width, left-aligned. Benefit column: about 3.5-34.5% of the width; rows at about 26-37%, 41-52% and 56-67% of the height, separated by thin horizontal lines at about 39% and 54% (about 3.5-30% of the width); each row has a ringed icon circle about 10% of the canvas in diameter on the left and its text starting at about 16% of the width. Woman: head and shoulders from about 32% to 80% of the width, top of the head at about 15% of the height, cropped by the bottom edge. Product: about 77-98% of the width and 38-96% of the height (about 58% of the canvas height), its base nearly touching the bottom edge. Offer band: about 3.5-74% of the width and 77-96.5% of the height, corner radius about 3%, its right end next to the product without touching it.",
+    "lighting_and_depth": "Warm golden late-afternoon light entering from the right, amber and soft gold ambient tones, strong bokeh of warm out-of-focus lamps and string lights in the background, a few tiny floating golden light specks, soft glow on the woman's skin. The left third is darker and calmer (a soft warm brown shade) so the white text reads perfectly. The product has crisp studio highlights and stands on a glossy warm surface with a soft reflection at its base. Icon rings and dividers are thin metallic gold lines. The band has a satin brushed-gold gradient and a soft shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled edge to edge with a warm living-room lifestyle scene at golden hour: bokeh lights, a few tiny floating golden specks and a small bunch of cream flowers softly blurred at the middle left edge; a serene woman with long braids and a cream blouse, from the shoulders up, eyes closed and smiling, one hand resting gently at her neck, in the center-right. Top left, a 2-line bold uppercase headline (line 1 white, line 2 metallic gold). Below it, a left column of three benefits separated by thin horizontal gold lines, each with a thin gold-ringed circle holding a line icon and 2 lines of white text. Lower right, the user's dropper bottle large in the foreground. Bottom left, a wide rounded brushed-gold band with a ringed line icon of three small dropper bottles, a thin vertical divider and three lines of black offer text.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "lifestyle scene",
+        "position": "Full canvas, edge to edge; woman in the center-right",
+        "visual_function": "Sets the calm, warm mood and shows the feeling of a routine with no sacrifice",
+        "adaptation_rule": "Cozy living room at golden hour, heavily blurred: a beige sofa, a warm lamp, out-of-focus string lights and a window glowing with late-afternoon sun, plus a small bunch of cream flowers blurred at the middle left edge. A Colombian woman of about 32 with long dark box braids falling over one shoulder and a cream blouse, seen from the shoulders up, slightly from the side, eyes closed, serene closed-mouth smile, one hand resting gently at her neck. No view of her body below the shoulders. Keep the left third darker and calm for the text. The product does not appear in her hands.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "benefit icon circles (3)",
+        "position": "Left column, about 3.5-13.5% of the width, one per benefit row (rows at about 26-37%, 41-52% and 56-67% of the height)",
+        "visual_function": "Visual anchors that make each benefit scannable",
+        "adaptation_rule": "Thin metallic gold ring (circle about 10% of the canvas) with a simple gold line icon: row 1 a fork and spoon (appetite), row 2 a lightning bolt (energy), row 3 a leaf (ashwagandha, calmer days). Same style and stroke weight for all three.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "benefit dividers",
+        "position": "Between the rows, at about 39% and 54% of the height, about 3.5-30% of the width",
+        "visual_function": "Separate the benefits cleanly",
+        "adaptation_rule": "Thin metallic gold lines fading toward the right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "Lower-right foreground, about 77-98% of the width and 38-96% of the height",
+        "visual_function": "Main product anchor; shows exactly what is sold",
+        "adaptation_rule": "The user's dropper bottle exactly as in the attached product photo (same geometry, label and colors), upright, front view, large and studio-sharp, on a glossy warm surface with a soft reflection, overlapping the edge of the woman's shoulder without covering her face.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "bottom metallic band (carries the user's offer instead of shipping and payment)",
+        "position": "Bottom left, about 3.5-74% of the width and 77-96.5% of the height",
+        "visual_function": "Closes the ad with the 3-bottle offer and its price",
+        "adaptation_rule": "Wide rounded rectangle in a satin brushed-gold gradient (#C9A441 with #E6CF7A highlights), with a thin lighter inner border and a soft shadow; on its left, a thin near-black ringed circle about 10% of the canvas holding a simple near-black line icon of three small dropper bottles side by side (it replaces the truck icon, because no shipping condition was given), then a thin vertical near-black divider and three left-aligned lines of black text with the user's exact offer.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Truck icon, shipping or payment text",
+      "A second price, a struck-through price, a discount percentage or an urgency badge",
+      "Rating stars, reviews or testimonials",
+      "Trust seals, guarantee or certification badges",
+      "Before/after images",
+      "More than three benefits",
+      "Numbers on the benefit rows",
+      "Boxes or cards behind each benefit",
+      "Cold or blue-toned lighting",
+      "Syringes, needles or any medical or surgical imagery",
+      "Any view of the woman's body below the shoulders or any zoom on a body part",
+      "Logos or brand marks outside the product label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 advertising image filled edge to edge with one warm lifestyle scene, rendered in a soft semi-illustrated realistic style (smooth painterly digital illustration, realistic proportions, soft shading). SCENE: a cozy living room at golden hour, heavily blurred with a portrait-lens look: a beige sofa, a warm table lamp, out-of-focus string lights forming large amber and soft-gold bokeh circles, a window glowing with late-afternoon sun entering from the right, a few tiny floating golden light specks, and a small bunch of cream flowers softly blurred at the middle left edge. No cold or blue tones. The left third of the canvas is darker and calmer, a soft warm-brown shade, so white text reads perfectly. WOMAN: in the center-right middle ground, from about 32% to 80% of the width, top of her head at about 15% of the height and cropped by the bottom edge, a Colombian woman of about 32 with long dark box braids falling over one shoulder, wearing a cream blouse, framed from the shoulders up and seen slightly from the side; her eyes are closed, she has a serene closed-mouth smile and one hand rests gently at her neck; golden light glows softly on her skin. Do not show her body below the shoulders. She does not hold the product. TOP LEFT: a two-line headline, left-aligned from a 3.5% margin to at most 60% of the width, extra-bold geometric uppercase sans-serif: line 1 (about 4-12% of the height) in solid white, line 2 (about 14.5-22% of the height) in a metallic gold gradient (#C9A441 to #E6CF7A). LEFT COLUMN below the headline, about 3.5-34.5% of the width: three benefit rows at about 26-37%, 41-52% and 56-67% of the height. Each row has, on the left, a thin metallic gold ring about 10% of the canvas in diameter holding a simple gold line icon (row 1: a fork and spoon; row 2: a lightning bolt; row 3: a leaf), all with the same stroke weight, and to its right, starting at about 16% of the width, two lines of regular-weight white sentence-case text. Between the rows, at about 39% and 54% of the height, thin horizontal metallic gold lines from 3.5% to 30% of the width that fade toward the right. No boxes or cards behind the benefits and no numbers. LOWER-RIGHT FOREGROUND, about 77-98% of the width and 38-96% of the height (about 58% of the canvas height), base nearly touching the bottom edge, overlapping the edge of the woman's shoulder but never her face: the product, upright, front view, large and studio-sharp with crisp highlights, standing on a glossy warm surface with a soft reflection at its base: a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; the bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. BOTTOM LEFT, about 3.5-74% of the width and 77-96.5% of the height, its right end next to the product without touching it: a wide rounded-corner band (corner radius about 3%) in a satin brushed metallic gold gradient (#C9A441 with #E6CF7A highlights), with a thin lighter inner border and a soft shadow. On its left, a thin near-black ringed circle about 10% of the canvas holding a simple near-black line icon of three small dropper bottles side by side; then a thin vertical near-black divider; then three left-aligned lines of black uppercase text: a bold first line, a much larger heavy condensed middle line, and a regular-weight third line with wide letter spacing. No truck icon. No other graphics, badges or text anywhere.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "headline line 1",
+      "reference_position": "Top left, first line, about 4-12% of the canvas height",
+      "text_style": "Extra-bold geometric sans-serif, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, solid white",
+      "text": "TU RITUAL NATURAL"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "headline line 2",
+      "reference_position": "Top left, second line, about 14.5-22% of the canvas height",
+      "text_style": "Extra-bold geometric sans-serif, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, metallic gold gradient (#C9A441 to #E6CF7A)",
+      "text": "Y SIN AGUJAS"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 1",
+      "reference_position": "Left column, first row, right of the fork-and-spoon icon circle, two rows: 'Acompaña tu apetito' / 'cada día'",
+      "text_style": "Regular geometric sans-serif, sentence case, about 2.8% of the canvas height, 2 lines, left-aligned, white",
+      "text": "Acompaña tu apetito cada día"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 2",
+      "reference_position": "Left column, second row, right of the lightning-bolt icon circle, two rows: 'Energía para trabajar' / 'y entrenar'",
+      "text_style": "Regular geometric sans-serif, sentence case, about 2.8% of the canvas height, 2 lines, left-aligned, white",
+      "text": "Energía para trabajar y entrenar"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 3",
+      "reference_position": "Left column, third row, right of the leaf icon circle, two rows: 'Con ashwagandha para' / 'los días pesados'",
+      "text_style": "Regular geometric sans-serif, sentence case, about 2.8% of the canvas height, 2 lines, left-aligned, white",
+      "text": "Con ashwagandha para los días pesados"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "offer band line 1",
+      "reference_position": "Inside the gold band, right of the vertical divider, first line",
+      "text_style": "Bold uppercase sans-serif, about 2.8% of the canvas height, 1 line, left-aligned, black",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "price (offer band line 2)",
+      "reference_position": "Inside the gold band, right of the vertical divider, middle line",
+      "text_style": "Heavy condensed uppercase sans-serif, about 5.5% of the canvas height, 1 line, left-aligned, black; the largest text of the band",
+      "text": "X3 UNIDADES $139,900"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "offer band line 3",
+      "reference_position": "Inside the gold band, right of the vertical divider, third line",
+      "text_style": "Regular-weight uppercase sans-serif with wide letter spacing, about 2.4% of the canvas height, 1 line, left-aligned, black",
+      "text": "SIN EFECTO REBOTE"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed warm golden-hour living-room scene with bokeh lights and a serene woman with long braids and a cream blouse in the center-right, shoulders up, eyes closed",
+    "Two-line headline at the top left: white line over a metallic gold line",
+    "Left column of three benefits with thin gold-ringed line-icon circles (fork and spoon, lightning bolt, leaf) separated by thin gold dividers",
+    "The user's dropper bottle large in the lower-right foreground",
+    "Wide rounded brushed-gold band at the bottom left with a ringed three-bottle line icon, a thin vertical divider and three lines of black text"
+  ],
+  "final_generation_exclusions": [
+    "No truck icon and no shipping, payment, guarantee or urgency text.",
+    "No syringes, needles, medical or surgical imagery; the idea of 'no needles' lives only in the headline.",
+    "Never show the woman's body below the shoulders; no zoom on any body part; no before/after.",
+    "The woman does not hold the product; the product appears only once, in the lower-right foreground.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts: the benefits speak of accompanying appetite and energy, with no promise of body changes. The offer lines are the user's exact wording.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

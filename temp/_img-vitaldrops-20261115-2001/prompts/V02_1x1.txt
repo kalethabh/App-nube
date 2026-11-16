@@ -1,0 +1,48 @@
+Square 1:1 advertising image built as a strict 2x2 modular grid on a flat warm cream frame (#FBF3DC), clean, bright and feminine, with a soft semi-illustrated realistic rendering (smooth painterly digital illustration, realistic proportions, soft shading). The grid fills the canvas from about 3% to 80% of the height: four equal cells with rounded corners (radius about 2%), a hairline pale-gold border, an outer cream margin of about 3% and thin even cream gutters of about 2%. It reads in a Z pattern. TOP-LEFT CELL: a solid lemon-yellow tile (#F2DC4A). In its upper-left part, a bold left-aligned headline in three short lines, extra-bold geometric uppercase sans-serif, solid near-black. In its lower-right corner stands the product, upright, front view, about 19% of the canvas height tall, with a soft contact shadow, never touching the headline: a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; the bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. The three other cells are scenes on the same sunny apartment balcony with green potted plants softly blurred in the background and a small light-wood table, all in the same soft warm morning daylight. TOP-RIGHT CELL (step 1): close-up, slightly from above, of a woman's hand lifting the black dropper, full of amber liquid, out of the open bottle standing on the table, the label facing the camera and fully recognizable. BOTTOM-LEFT CELL (step 2): close-up of the same hand squeezing the dropper so a few amber drops fall into a glass of orange juice, with the same bottle standing beside the glass. BOTTOM-RIGHT CELL (step 3): medium close-up, from the chest up, of a Colombian woman of about 25 with dark curly hair tied up in a bun and a white t-shirt, seated at the table, smiling happily as she eats a full breakfast (arepa, eggs and fruit), with the same bottle standing on the table. In the top-left corner of each of the three scene cells, a large solid metallic gold circle (about 9% of the canvas width) with a bold near-black numeral: 1, 2 and 3 in Z order. In the bottom-left corner of each scene cell, a solid near-black rounded chip with a short white bold caption. Keep the corners of each scene calm so the badges and chips read clearly. BELOW THE GRID, from about 83% to 97% of the height and with the same width as the grid, a brushed metallic gold rounded-corner plaque with a thin inner border and a subtle sheen, holding three centered lines of black uppercase text: a bold first line, a much larger heavy condensed middle line, and a regular-weight third line with wide letter spacing. No arrows, no other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Upper-left part of the lemon-yellow tile, left-aligned, three lines: 'TU RITUAL' / 'DE CADA' / 'MAÑANA'): "TU RITUAL DE CADA MAÑANA" — Extra-bold geometric sans-serif, uppercase, solid near-black, each line about 5.5% of the canvas height, 3 short lines, left-aligned, tight leading
+- step number 1 (Inside the gold badge in the top-left corner of the top-right scene): "1" — Bold geometric sans-serif numeral, about 5.5% of the canvas height, centered, near-black on gold
+- step number 2 (Inside the gold badge in the top-left corner of the bottom-left scene): "2" — Bold geometric sans-serif numeral, about 5.5% of the canvas height, centered, near-black on gold
+- step number 3 (Inside the gold badge in the top-left corner of the bottom-right scene): "3" — Bold geometric sans-serif numeral, about 5.5% of the canvas height, centered, near-black on gold
+- step 1 caption (Inside the caption chip of the top-right scene): "Llena el gotero" — Bold geometric sans-serif, about 3.2% of the canvas height, 1 line, left-aligned inside the chip, white on near-black
+- step 2 caption (Inside the caption chip of the bottom-left scene): "Tómalo con tu jugo" — Bold geometric sans-serif, about 3.2% of the canvas height, 1 line, left-aligned inside the chip, white on near-black
+- step 3 caption (Inside the caption chip of the bottom-right scene): "Come con ganas" — Bold geometric sans-serif, about 3.2% of the canvas height, 1 line, left-aligned inside the chip, white on near-black
+- offer plaque line 1 (Inside the gold plaque under the grid, first line, centered): "TRATAMIENTO COMPLETO" — Bold uppercase sans-serif, about 2.6% of the canvas height, 1 line, centered, black
+- price (offer plaque line 2) (Inside the gold plaque, middle line, centered): "X3 UNIDADES $139,900" — Heavy condensed uppercase sans-serif, about 5.5% of the canvas height, 1 line, centered, black; the largest text of the plaque
+- offer plaque line 3 (Inside the gold plaque, third line, centered): "SIN EFECTO REBOTE" — Regular-weight uppercase sans-serif with wide letter spacing, about 2.3% of the canvas height, 1 line, centered, black
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.
+- text_typography: Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text.
+
+MANDATORY ELEMENTS:
+- Strict 2x2 grid of four equal rounded cells with thin even cream gutters
+- Lemon-yellow headline tile in the top-left cell with the product standing in its lower-right corner
+- Three step scenes in Z order (top-right, bottom-left, bottom-right) on the same sunny balcony
+- The user's dropper bottle recognizable in step 1 and visible in steps 2 and 3
+- Large solid gold number badges 1, 2, 3 in the top-left of each step scene
+- Solid near-black caption chips in the bottom-left of each step scene
+- Wide brushed metallic gold offer plaque under the grid with three lines of black text
+
+STRICT EXCLUSIONS:
+- No arrows or connector lines between cells and no fourth step.
+- No dose amounts, no shipping, payment, guarantee or urgency text.
+- No before/after and no close-ups of the woman's body; she is seen from the chest up, eating.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Arrows or connector lines between cells
+- Do not add: A fourth step, extra cells or a timeline track
+- Do not add: Subheadline, body copy or extra text in the headline tile
+- Do not add: CTA button
+- Do not add: A second price, a struck-through price or a discount percentage
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit checklist or icon list
+- Do not add: Before/after split
+- Do not add: Shipping or payment text
+- Do not add: Dose amounts in ml or any number other than the step numerals and the offer
+- Do not add: Logos or brand marks outside the product label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

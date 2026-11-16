@@ -1,0 +1,52 @@
+Square 1:1 advertising image on a flat warm cream background (#FBF3DC), clean, bright and feminine, with a soft semi-illustrated realistic rendering of the people (smooth painterly digital illustration, realistic proportions, soft shading). TOP BAND (about 5-18% of the height): a centered two-line headline in an extra-bold geometric uppercase sans-serif, solid near-black, tight leading. MIDDLE BAND: three circular portrait frames side by side, growing from left to right, with their centers on the same horizontal line at about 45% of the height: the left circle is small (about 20% of the canvas width in diameter), the center circle medium (about 25%), the right circle large (about 32%). A thin horizontal timeline line runs behind the circles through their centers, pale gold on the left turning metallic gold on the right, visible only in the gaps and at both ends, with one small gold chevron arrow pointing right in each gap. Each circle has a thin pale-gold outline and a soft drop shadow; the large right circle also has a metallic gold ring and a faint gold glow. All three circles show the SAME woman with the SAME framing, camera angle and place: a Colombian woman of about 26 with long wavy dark-brown hair and a mustard-yellow blouse, seen from the shoulders up, frontal at eye level, at the counter of a bright modern apartment kitchen softly blurred behind her. Left circle: she holds a coffee mug and looks sleepy and low on energy, with muted, slightly cool tones. Center circle: she looks awake, eyes bright, relaxed open smile, neutral natural tones. Right circle: she laughs warmly while lifting a fork over a full colorful breakfast plate (eggs, arepa, avocado and fruit) at the lower edge of the frame, with the warmest and most vibrant tones. Her face, body and size are identical in the three circles; only her mood, energy and the warmth of the light change. Never show her body below the shoulders. A small rounded pill sits on the top edge of each circle, centered on it: the first two filled with pale gold, the third filled with metallic gold, each with a short bold uppercase near-black time label. Under each circle, on one shared baseline, a short one-line near-black caption. BOTTOM BAND (about 72-95% of the height): on the left, centered at about 20% of the width, the product stands upright in front view: a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; the bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. Behind the bottle, a delicate pale-gold botanical sprig line drawing; under it, a soft contact shadow. On the right of the bottom band, from about 38% to 94% of the width, a brushed metallic gold rounded-corner plaque with a thin inner border and a subtle sheen, holding three centered lines of black uppercase text: a bold first line, a much larger heavy condensed middle line, and a regular-weight third line with wide letter spacing. Generous cream margins, nothing touching the canvas edges. No other elements.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, two lines: line 1 'MÁS APETITO Y ENERGÍA', line 2 'SEMANA A SEMANA'): "MÁS APETITO Y ENERGÍA SEMANA A SEMANA" — Extra-bold geometric sans-serif, uppercase, solid near-black, each line about 6.5% of the canvas height, 2 lines, centered, tight leading
+- stage label 1 (Inside the pill on the top edge of circle 1): "DÍA 1" — Bold geometric sans-serif, uppercase, about 2.8% of the canvas height, 1 line, centered, near-black on pale gold
+- stage label 2 (Inside the pill on the top edge of circle 2): "SEMANA 2" — Bold geometric sans-serif, uppercase, about 2.8% of the canvas height, 1 line, centered, near-black on pale gold
+- stage label 3 (Inside the pill on the top edge of circle 3): "SEMANA 4" — Bold geometric sans-serif, uppercase, about 3% of the canvas height, 1 line, centered, near-black on metallic gold
+- caption stage 1 (Centered under circle 1, on the shared caption baseline): "Empiezas tu ritual" — Medium weight geometric sans-serif, about 2.6% of the canvas height, 1 line, centered, near-black
+- caption stage 2 (Centered under circle 2, on the shared caption baseline): "Más energía" — Medium weight geometric sans-serif, about 2.6% of the canvas height, 1 line, centered, near-black
+- caption stage 3 (Centered under circle 3, on the shared caption baseline): "Comes con ganas" — Semi-bold geometric sans-serif, about 3% of the canvas height, 1 line, centered, near-black
+- offer plaque line 1 (Inside the gold plaque, first line, centered): "TRATAMIENTO COMPLETO" — Bold uppercase sans-serif, about 3% of the canvas height, 1 line, centered, black
+- price (offer plaque line 2) (Inside the gold plaque, middle line, centered): "X3 UNIDADES $139,900" — Heavy condensed uppercase sans-serif, about 6.5% of the canvas height, 1 line, centered, black; the largest text of the plaque
+- offer plaque line 3 (Inside the gold plaque, third line, centered): "SIN EFECTO REBOTE" — Regular-weight uppercase sans-serif with wide letter spacing, about 2.6% of the canvas height, 1 line, centered, black
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.
+- text_typography: Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text.
+
+MANDATORY ELEMENTS:
+- Three circular portrait frames growing in size from left to right (about 20%, 25% and 32% of the canvas width)
+- The same woman, crop, place and camera angle in all three circles, shoulders up, with a believable progression of mood from sleepy and muted to joyful and warm
+- Thin horizontal gold timeline track through the circle centers with a chevron arrow in each gap
+- Metallic gold ring and faint glow on the largest circle
+- Rounded time-label pill on the top edge of each circle
+- The user's dropper bottle at the bottom left with a soft contact shadow and a pale-gold botanical sprig line drawing behind it
+- Brushed metallic gold offer plaque at the bottom right with three lines of black text
+- Flat warm cream background
+
+STRICT EXCLUSIONS:
+- No body, weight or shape comparison; never show the woman below the shoulders; her body is identical in the three circles.
+- No product inside the circles and no second bottle.
+- No shipping, payment, guarantee or urgency text.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: A second price, a struck-through price or a discount percentage
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: A fourth stage or extra circles
+- Do not add: Rectangular photo panels or a two-panel before/after split
+- Do not add: Number badges (1, 2, 3) instead of time labels
+- Do not add: Charts, graphs, percentages or numeric data overlays
+- Do not add: Benefit list or icons
+- Do not add: The product repeated inside the circles
+- Do not add: Body, weight or medical before/after comparisons; any view of the woman below the shoulders
+- Do not add: Shipping or payment text
+- Do not add: Full-width bottom bar or banner
+- Do not add: Logos or brand marks outside the product label
+- Do not add: Clinical or certification seals
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

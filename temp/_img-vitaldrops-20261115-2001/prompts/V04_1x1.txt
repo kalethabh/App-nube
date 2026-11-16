@@ -1,0 +1,42 @@
+Square 1:1 advertising image filled edge to edge with one candid, close scene, rendered in a soft semi-illustrated realistic style (smooth painterly digital illustration, realistic proportions, soft shading) that still feels real and everyday, not like a studio shot. SCENE: a bedroom with natural window light, slightly cool and mildly desaturated, softly blurred (a bed with light linen and a clothes rail far behind). The camera is close, over the shoulder, looking toward a bedroom mirror: in the reflection we see a Colombian woman of about 24 with a short bob haircut with honey highlights, wearing a grey sweatshirt, from the shoulders up. At chest height she holds a pair of folded blue jeans in both hands and looks at them with a mild, resigned half-smile, as if they did not fit the way she hoped. Her face and hands with the jeans are the sharp point of interest, placed in the center to lower-center of the frame. Show only the situation: never show her body below the chest and never zoom on any body part. The product does not appear in this scene. TOP-LEFT: a smooth dark gradient (near-black at about 65% opacity fading diagonally to fully transparent, with no hard edges and no box) covering about the top 45% and left 75% of the canvas. Over it, starting at a 7% margin and spanning at most 72% of the width, a large left-aligned headline in three lines, extra-bold geometric uppercase sans-serif, white, with only its last word in lemon yellow (#F2DC4A); directly below, a short regular-weight white supporting line in two rows. BOTTOM-RIGHT CORNER, inset 6% from the right and bottom edges: a small rounded-corner tile (about 26% of the width and 30% of the height) filled with lemon yellow (#F2DC4A), with a hairline pale-gold border and a soft drop shadow; centered inside it stands the product, front view, studio-lit, about 23% of the canvas height, its black dropper bulb rising slightly above the tile: a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; the bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. BOTTOM-LEFT, from about 6% to 62% of the width and from about 76% to 94% of the height, not touching the tile: a brushed metallic gold rounded-corner plaque with a thin inner border and a subtle sheen, holding three centered lines of black uppercase text: a bold first line, a much larger heavy condensed middle line, and a regular-weight third line with wide letter spacing. The tile and the plaque are the only warm, saturated elements. No other graphics.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top-left, over the dark gradient, three lines: 'COMO DE TODO' / 'Y EL JEAN ME' / 'QUEDA BAILANDO'): "COMO DE TODO Y EL JEAN ME QUEDA BAILANDO" — Extra-bold geometric sans-serif, uppercase, each line about 7.5% of the canvas height, 3 lines, left-aligned, white; only the word BAILANDO in lemon yellow #F2DC4A
+- subtitle (Directly below the headline, left-aligned, two rows: 'A tu rutina le puede faltar' / 'un apoyo diario.'): "A tu rutina le puede faltar un apoyo diario." — Regular weight geometric sans-serif, sentence case, about 3.4% of the canvas height, 2 lines, left-aligned, white
+- offer plaque line 1 (Inside the gold plaque at the bottom left, first line, centered): "TRATAMIENTO COMPLETO" — Bold uppercase sans-serif, about 2.8% of the canvas height, 1 line, centered, black
+- price (offer plaque line 2) (Inside the gold plaque, middle line, centered): "X3 UNIDADES $139,900" — Heavy condensed uppercase sans-serif, about 6% of the canvas height, 1 line, centered, black; the largest text of the plaque
+- offer plaque line 3 (Inside the gold plaque, third line, centered): "SIN EFECTO REBOTE" — Regular-weight uppercase sans-serif with wide letter spacing, about 2.4% of the canvas height, 1 line, centered, black
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.
+- text_typography: Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text.
+
+MANDATORY ELEMENTS:
+- Full-bleed candid close-up of the woman at her bedroom mirror, shoulders up, holding folded jeans
+- Dark diagonal gradient in the top-left corner behind the text
+- Small lemon-yellow tile in the bottom-right corner holding the user's dropper bottle
+- Brushed metallic gold offer plaque in the bottom-left corner with three lines of black text
+- Shallow depth of field with her face and hands in focus
+
+STRICT EXCLUSIONS:
+- The product must not appear inside the bedroom scene, only inside the tile.
+- Never show the woman's body below the chest; no zoom on any body part; no before/after.
+- No shipping, payment, guarantee or urgency text.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Product inside the scene
+- Do not add: Large or centered product
+- Do not add: CTA button
+- Do not add: A second price, a struck-through price or a discount percentage
+- Do not add: Trust seals, guarantee or certification badges
+- Do not add: Benefit list or icons
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Before/after split or a second scene
+- Do not add: Arrows, stickers or emojis
+- Do not add: Shipping or payment text
+- Do not add: Any view of the woman's body below the chest or any zoom on a body part
+- Do not add: Logos or brand marks outside the product label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

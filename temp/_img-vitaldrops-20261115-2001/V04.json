@@ -1,0 +1,163 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F05 (Problema en primer plano) + gold offer plaque explicitly requested by the user",
+    "reference_style": "Candid close-up of a relatable frustration moment, with a bold overlaid headline, the product as a small branded way-out tile and a gold offer plaque",
+    "angle_used": "Dolor / problema (she eats everything and the jeans still fit loose, told in first person)",
+    "ad_format": "Pain-Point Close-Up Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a soft semi-illustrated realistic rendering of the model (smooth painterly digital illustration with realistic proportions and soft shading), on a light cream canvas with a tidy grid of progress panels.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Rounded-corner rectangular panels with a hairline pale-gold border, generous cream margins, a brushed metallic gold offer plaque with a thin inner border and rounded corners, a delicate pale-gold botanical sprig line drawing behind the product, soft contact shadows under the product.",
+    "text_typography": "Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text."
+  },
+  "creative_objective": "Make the viewer recognize her own moment in front of the mirror, in her own words, and present the drops and the 3-bottle offer as the daily support her routine may be missing.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The close-up of the woman holding the folded jeans at the mirror. 2) The white headline naming the problem. 3) The gold offer plaque at the bottom left. 4) The small lemon-yellow product tile at the bottom right. 5) The short subheadline.",
+    "composition_style": "Full-bleed composition. The camera is close, over her shoulder toward the bedroom mirror; the point of interest (her hands holding the folded jeans and her resigned expression in the reflection) sits in the center to lower-center, so the top-left area stays calmer and darker for the text, the bottom-right corner stays free for the product tile and the bottom-left for the offer plaque.",
+    "spacing_and_structure": "Text block in the top-left: starts at the 7% margin, spans at most 72% of the width and the top 40% of the height. Product tile: bottom-right, inset 6% from the right and bottom edges, about 26% of the width and 30% of the height. Offer plaque: bottom-left, from about 6% to 62% of the width and from about 76% to 94% of the height. The rest of the canvas is the scene, with no other graphics.",
+    "lighting_and_depth": "Natural window light in a bedroom, slightly cool and mildly desaturated, shallow depth of field with her face and hands in focus and the room softly blurred. A dark gradient (near-black at about 65% opacity fading to transparent) from the top-left corner gives the text contrast. The product tile and the gold plaque are the only warm, saturated elements.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled edge to edge with a candid close-up of a young woman at her bedroom mirror, seen from the shoulders up, holding a pair of folded jeans in her hands with a mildly resigned look. A dark diagonal gradient in the top-left corner holds a large white three-line headline and a short subheadline under it. In the bottom-right corner, a small rounded lemon-yellow tile contains the user's dropper bottle. In the bottom-left corner, a brushed gold offer plaque with three lines of black text.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "close-up pain-moment scene",
+        "position": "Full canvas, edge to edge",
+        "visual_function": "Makes the viewer instantly recognize her own frustration",
+        "adaptation_rule": "A Colombian woman of about 24 with a short bob haircut with honey highlights and a grey sweatshirt, seen over her shoulder in her bedroom mirror, from the shoulders up, holding a pair of folded blue jeans at chest height and looking at them with a mild, resigned half-smile. Show the situation, not her body: no view below the chest, no zoom on any body part. Relatable and gentle, never sad or exaggerated. The product does NOT appear in the scene.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "dark gradient overlay",
+        "position": "Top-left corner, covering about the top 45% and left 75% of the canvas, fading diagonally to transparent",
+        "visual_function": "Gives the text maximum contrast without hiding the scene",
+        "adaptation_rule": "Smooth near-black gradient at about 65% opacity fading to fully transparent. No hard edges, no box.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "headline",
+        "position": "Top-left, starting at the 7% margin, over the gradient",
+        "visual_function": "Names the problem exactly as she says it",
+        "adaptation_rule": "Three white uppercase lines; the word BAILANDO in lemon yellow.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "subheadline",
+        "position": "Directly below the headline, left-aligned with it",
+        "visual_function": "Opens the door to the solution without naming the product",
+        "adaptation_rule": "One short white supporting line in two rows.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "product way-out tile",
+        "position": "Bottom-right corner, inset 6% from the right and bottom edges, about 26% of the width and 30% of the height",
+        "visual_function": "Presents the product as the way out without breaking the emotional scene",
+        "adaptation_rule": "Rounded rectangle (corner radius about 2.5%) filled with lemon yellow #F2DC4A, with a hairline pale-gold border and a soft drop shadow.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "Inside the way-out tile, centered, about 23% of the canvas height; the dropper bulb may rise slightly above the tile",
+        "visual_function": "Shows what supports her routine",
+        "adaptation_rule": "The user's dropper bottle exactly as in the attached product photo, front view, studio-lit, with a soft contact shadow.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "gold offer plaque (added at the user's explicit request)",
+        "position": "Bottom-left, from about 6% to 62% of the width and from about 76% to 94% of the height",
+        "visual_function": "States the 3-bottle offer and its price",
+        "adaptation_rule": "Brushed metallic gold rounded rectangle (#C9A441 with #E6CF7A highlights) with a thin inner border, holding three centered lines of black text.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Product inside the scene",
+      "Large or centered product",
+      "CTA button",
+      "A second price, a struck-through price or a discount percentage",
+      "Trust seals, guarantee or certification badges",
+      "Benefit list or icons",
+      "Rating stars, reviews or testimonials",
+      "Before/after split or a second scene",
+      "Arrows, stickers or emojis",
+      "Shipping or payment text",
+      "Any view of the woman's body below the chest or any zoom on a body part",
+      "Logos or brand marks outside the product label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 advertising image filled edge to edge with one candid, close scene, rendered in a soft semi-illustrated realistic style (smooth painterly digital illustration, realistic proportions, soft shading) that still feels real and everyday, not like a studio shot. SCENE: a bedroom with natural window light, slightly cool and mildly desaturated, softly blurred (a bed with light linen and a clothes rail far behind). The camera is close, over the shoulder, looking toward a bedroom mirror: in the reflection we see a Colombian woman of about 24 with a short bob haircut with honey highlights, wearing a grey sweatshirt, from the shoulders up. At chest height she holds a pair of folded blue jeans in both hands and looks at them with a mild, resigned half-smile, as if they did not fit the way she hoped. Her face and hands with the jeans are the sharp point of interest, placed in the center to lower-center of the frame. Show only the situation: never show her body below the chest and never zoom on any body part. The product does not appear in this scene. TOP-LEFT: a smooth dark gradient (near-black at about 65% opacity fading diagonally to fully transparent, with no hard edges and no box) covering about the top 45% and left 75% of the canvas. Over it, starting at a 7% margin and spanning at most 72% of the width, a large left-aligned headline in three lines, extra-bold geometric uppercase sans-serif, white, with only its last word in lemon yellow (#F2DC4A); directly below, a short regular-weight white supporting line in two rows. BOTTOM-RIGHT CORNER, inset 6% from the right and bottom edges: a small rounded-corner tile (about 26% of the width and 30% of the height) filled with lemon yellow (#F2DC4A), with a hairline pale-gold border and a soft drop shadow; centered inside it stands the product, front view, studio-lit, about 23% of the canvas height, its black dropper bulb rising slightly above the tile: a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; the bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. BOTTOM-LEFT, from about 6% to 62% of the width and from about 76% to 94% of the height, not touching the tile: a brushed metallic gold rounded-corner plaque with a thin inner border and a subtle sheen, holding three centered lines of black uppercase text: a bold first line, a much larger heavy condensed middle line, and a regular-weight third line with wide letter spacing. The tile and the plaque are the only warm, saturated elements. No other graphics.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top-left, over the dark gradient, three lines: 'COMO DE TODO' / 'Y EL JEAN ME' / 'QUEDA BAILANDO'",
+      "text_style": "Extra-bold geometric sans-serif, uppercase, each line about 7.5% of the canvas height, 3 lines, left-aligned, white; only the word BAILANDO in lemon yellow #F2DC4A",
+      "text": "COMO DE TODO Y EL JEAN ME QUEDA BAILANDO"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, left-aligned, two rows: 'A tu rutina le puede faltar' / 'un apoyo diario.'",
+      "text_style": "Regular weight geometric sans-serif, sentence case, about 3.4% of the canvas height, 2 lines, left-aligned, white",
+      "text": "A tu rutina le puede faltar un apoyo diario."
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "offer plaque line 1",
+      "reference_position": "Inside the gold plaque at the bottom left, first line, centered",
+      "text_style": "Bold uppercase sans-serif, about 2.8% of the canvas height, 1 line, centered, black",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "price (offer plaque line 2)",
+      "reference_position": "Inside the gold plaque, middle line, centered",
+      "text_style": "Heavy condensed uppercase sans-serif, about 6% of the canvas height, 1 line, centered, black; the largest text of the plaque",
+      "text": "X3 UNIDADES $139,900"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "offer plaque line 3",
+      "reference_position": "Inside the gold plaque, third line, centered",
+      "text_style": "Regular-weight uppercase sans-serif with wide letter spacing, about 2.4% of the canvas height, 1 line, centered, black",
+      "text": "SIN EFECTO REBOTE"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed candid close-up of the woman at her bedroom mirror, shoulders up, holding folded jeans",
+    "Dark diagonal gradient in the top-left corner behind the text",
+    "Small lemon-yellow tile in the bottom-right corner holding the user's dropper bottle",
+    "Brushed metallic gold offer plaque in the bottom-left corner with three lines of black text",
+    "Shallow depth of field with her face and hands in focus"
+  ],
+  "final_generation_exclusions": [
+    "The product must not appear inside the bedroom scene, only inside the tile.",
+    "Never show the woman's body below the chest; no zoom on any body part; no before/after.",
+    "No shipping, payment, guarantee or urgency text.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts: the headline is a first-person line about a situation, not a statement about the viewer's body. The offer lines are the user's exact wording.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
