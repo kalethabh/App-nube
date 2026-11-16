@@ -1,0 +1,1326 @@
+{
+  "carpeta": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901",
+  "archivos": [
+    "audio/voz.mp3",
+    "img/gloria.png",
+    "img/hombre40.png",
+    "img/toma-1-final.png",
+    "img/toma-1-inicial.png",
+    "img/toma-10-final.png",
+    "img/toma-10-inicial.png",
+    "img/toma-11-final.png",
+    "img/toma-11-inicial.png",
+    "img/toma-12-final.png",
+    "img/toma-12-inicial.png",
+    "img/toma-13-inicial.png",
+    "img/toma-14-inicial.png",
+    "img/toma-15-inicial.png",
+    "img/toma-16-final.png",
+    "img/toma-16-inicial.png",
+    "img/toma-17-inicial.png",
+    "img/toma-18-inicial.png",
+    "img/toma-19-inicial.png",
+    "img/toma-2-inicial.png",
+    "img/toma-20-inicial.png",
+    "img/toma-21-inicial.png",
+    "img/toma-22-inicial.png",
+    "img/toma-23-inicial.png",
+    "img/toma-24-inicial.png",
+    "img/toma-25-inicial.png",
+    "img/toma-26-inicial.png",
+    "img/toma-27-inicial.png",
+    "img/toma-28-final.png",
+    "img/toma-28-inicial.png",
+    "img/toma-29-final.png",
+    "img/toma-29-inicial.png",
+    "img/toma-3-inicial.png",
+    "img/toma-30-final.png",
+    "img/toma-30-inicial.png",
+    "img/toma-31-inicial.png",
+    "img/toma-32-inicial.png",
+    "img/toma-33-inicial.png",
+    "img/toma-4-inicial.png",
+    "img/toma-5-inicial.png",
+    "img/toma-6-inicial.png",
+    "img/toma-7-inicial.png",
+    "img/toma-8-inicial.png",
+    "img/toma-9-inicial.png",
+    "musica/fondo.mp3",
+    "producto.png",
+    "qa/paso-1.jpg",
+    "qa/paso-10.jpg",
+    "qa/paso-11.jpg",
+    "qa/paso-12.jpg",
+    "qa/paso-13.jpg",
+    "qa/paso-14.jpg",
+    "qa/paso-15.jpg",
+    "qa/paso-16.jpg",
+    "qa/paso-17.jpg",
+    "qa/paso-18.jpg",
+    "qa/paso-19.jpg",
+    "qa/paso-2.jpg",
+    "qa/paso-20.jpg",
+    "qa/paso-21.jpg",
+    "qa/paso-22.jpg",
+    "qa/paso-23.jpg",
+    "qa/paso-24.jpg",
+    "qa/paso-25.jpg",
+    "qa/paso-26.jpg",
+    "qa/paso-27.jpg",
+    "qa/paso-28.jpg",
+    "qa/paso-29.jpg",
+    "qa/paso-3.jpg",
+    "qa/paso-30.jpg",
+    "qa/paso-31.jpg",
+    "qa/paso-32.jpg",
+    "qa/paso-4.jpg",
+    "qa/paso-5.jpg",
+    "qa/paso-6.jpg",
+    "qa/paso-7.jpg",
+    "qa/paso-8.jpg",
+    "qa/paso-9.jpg",
+    "qa/toma-1.jpg",
+    "qa/toma-10.jpg",
+    "qa/toma-11.jpg",
+    "qa/toma-12.jpg",
+    "qa/toma-16.jpg",
+    "qa/toma-28.jpg",
+    "qa/toma-29.jpg",
+    "qa/toma-30.jpg",
+    "qa/toma-33.jpg",
+    "qa/uniones/00-inicio-toma-1.jpg",
+    "qa/uniones/01-toma-1--paso-1.jpg",
+    "qa/uniones/02-paso-1--paso-2.jpg",
+    "qa/uniones/03-paso-2--paso-3.jpg",
+    "qa/uniones/04-paso-3--paso-4.jpg",
+    "qa/uniones/05-paso-4--paso-5.jpg",
+    "qa/uniones/06-paso-5--paso-6.jpg",
+    "qa/uniones/07-paso-6--paso-7.jpg",
+    "qa/uniones/08-paso-7--paso-8.jpg",
+    "qa/uniones/09-paso-8--paso-9.jpg",
+    "qa/uniones/10-paso-9--toma-10.jpg",
+    "qa/uniones/11-toma-10--paso-10.jpg",
+    "qa/uniones/12-paso-10--toma-11.jpg",
+    "qa/uniones/13-toma-11--paso-11.jpg",
+    "qa/uniones/14-paso-11--toma-12.jpg",
+    "qa/uniones/15-toma-12--paso-12.jpg",
+    "qa/uniones/16-paso-12--paso-13.jpg",
+    "qa/uniones/17-paso-13--paso-14.jpg",
+    "qa/uniones/18-paso-14--paso-15.jpg",
+    "qa/uniones/19-paso-15--toma-16.jpg",
+    "qa/uniones/20-toma-16--paso-16.jpg",
+    "qa/uniones/21-paso-16--paso-17.jpg",
+    "qa/uniones/22-paso-17--paso-18.jpg",
+    "qa/uniones/23-paso-18--paso-19.jpg",
+    "qa/uniones/24-paso-19--paso-20.jpg",
+    "qa/uniones/25-paso-20--paso-21.jpg",
+    "qa/uniones/26-paso-21--paso-22.jpg",
+    "qa/uniones/27-paso-22--paso-23.jpg",
+    "qa/uniones/28-paso-23--paso-24.jpg",
+    "qa/uniones/29-paso-24--paso-25.jpg",
+    "qa/uniones/30-paso-25--paso-26.jpg",
+    "qa/uniones/31-paso-26--paso-27.jpg",
+    "qa/uniones/32-paso-27--toma-28.jpg",
+    "qa/uniones/33-toma-28--paso-28.jpg",
+    "qa/uniones/34-paso-28--toma-29.jpg",
+    "qa/uniones/35-toma-29--paso-29.jpg",
+    "qa/uniones/36-paso-29--toma-30.jpg",
+    "qa/uniones/37-toma-30--paso-30.jpg",
+    "qa/uniones/38-paso-30--paso-31.jpg",
+    "qa/uniones/39-paso-31--paso-32.jpg",
+    "qa/uniones/40-paso-32--toma-33.jpg",
+    "qa/uniones/41-toma-33-final.jpg",
+    "referencia/audio-referencia.mp3",
+    "referencia/hoja-tomas.jpg",
+    "referencia/original.mp4",
+    "referencia/tomas/toma-01.jpg",
+    "referencia/tomas/toma-02.jpg",
+    "referencia/tomas/toma-03.jpg",
+    "referencia/tomas/toma-04.jpg",
+    "referencia/tomas/toma-05.jpg",
+    "referencia/tomas/toma-06.jpg",
+    "referencia/tomas/toma-07.jpg",
+    "referencia/tomas/toma-08.jpg",
+    "referencia/tomas/toma-09.jpg",
+    "referencia/tomas/toma-10.jpg",
+    "referencia/tomas/toma-11.jpg",
+    "referencia/tomas/toma-12.jpg",
+    "referencia/tomas/toma-13.jpg",
+    "referencia/tomas/toma-14.jpg",
+    "referencia/tomas/toma-15.jpg",
+    "referencia/tomas/toma-16.jpg",
+    "referencia/tomas/toma-17.jpg",
+    "referencia/tomas/toma-18.jpg",
+    "referencia/tomas/toma-19.jpg",
+    "referencia/tomas/toma-20.jpg",
+    "referencia/tomas/toma-21.jpg",
+    "referencia/tomas/toma-22.jpg",
+    "referencia/tomas/toma-23.jpg",
+    "referencia/tomas/toma-24.jpg",
+    "referencia/tomas/toma-25.jpg",
+    "referencia/tomas/toma-26.jpg",
+    "referencia/tomas/toma-27.jpg",
+    "referencia/tomas/toma-28.jpg",
+    "referencia/tomas/toma-29.jpg",
+    "referencia/tomas/toma-30.jpg",
+    "referencia/tomas/toma-31.jpg",
+    "referencia/tomas/toma-32.jpg",
+    "referencia/tomas/toma-33.jpg",
+    "referencia/tomas/toma-34.jpg",
+    "referencia/tomas/toma-35.jpg",
+    "referencia/tomas/toma-36.jpg",
+    "referencia/tomas/toma-37.jpg",
+    "referencia/tomas/toma-38.jpg",
+    "referencia/tomas/toma-39.jpg",
+    "referencia/tomas/toma-40.jpg",
+    "referencia/tomas/toma-41.jpg",
+    "referencia/tomas/toma-42.jpg",
+    "referencia/tomas/toma-43.jpg",
+    "referencia/tomas/toma-44.jpg",
+    "video/paso-1.mp4",
+    "video/paso-10.mp4",
+    "video/paso-11.mp4",
+    "video/paso-12.mp4",
+    "video/paso-13.mp4",
+    "video/paso-14.mp4",
+    "video/paso-15.mp4",
+    "video/paso-16.mp4",
+    "video/paso-17.mp4",
+    "video/paso-18.mp4",
+    "video/paso-19.mp4",
+    "video/paso-2.mp4",
+    "video/paso-20.mp4",
+    "video/paso-21.mp4",
+    "video/paso-22.mp4",
+    "video/paso-23.mp4",
+    "video/paso-24.mp4",
+    "video/paso-25.mp4",
+    "video/paso-26.mp4",
+    "video/paso-27.mp4",
+    "video/paso-28.mp4",
+    "video/paso-29.mp4",
+    "video/paso-3.mp4",
+    "video/paso-30.mp4",
+    "video/paso-31.mp4",
+    "video/paso-32.mp4",
+    "video/paso-4.mp4",
+    "video/paso-5.mp4",
+    "video/paso-6.mp4",
+    "video/paso-7.mp4",
+    "video/paso-8.mp4",
+    "video/paso-9.mp4",
+    "video/toma-1.mp4",
+    "video/toma-10.mp4",
+    "video/toma-11.mp4",
+    "video/toma-12.mp4",
+    "video/toma-16.mp4",
+    "video/toma-28.mp4",
+    "video/toma-29.mp4",
+    "video/toma-30.mp4",
+    "video/toma-33.mp4"
+  ],
+  "finales": [
+    "oxipure-mullein-zack-d-films-20261115-0901_9x16_con-subtitulos.mp4",
+    "oxipure-mullein-zack-d-films-20261115-0901_editado-1.mp4"
+  ],
+  "ubicaciones": {
+    "audio/voz.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/audio/voz.mp3",
+      "bytes": 1826524,
+      "sha256": "98ae07f44834d28dea9995e67c23024dacf892c7125a42c3821d68270eac263e"
+    },
+    "img/gloria.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/gloria.png",
+      "bytes": 6226981,
+      "sha256": "b2c38ac9162994a9b10cc40d57ff0a7bba62dbcc7145aabe82272638b4d1dd94"
+    },
+    "img/hombre40.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/hombre40.png",
+      "bytes": 5776020,
+      "sha256": "8e2f2c3aa2bb28f2da7858ad13cb6b210076153aded368a922e119279391da63"
+    },
+    "img/toma-1-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-1-final.png",
+      "bytes": 5046229,
+      "sha256": "081876317779c41046dbb54ee608134b34e33cc66faad053a847dfc0edcd2219"
+    },
+    "img/toma-1-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-1-inicial.png",
+      "bytes": 5180726,
+      "sha256": "689c6f7ffd543bc09762439ae72ffbc43a90cafc76b23e1e94cfa55ea7ca3f45"
+    },
+    "img/toma-10-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-10-final.png",
+      "bytes": 4824732,
+      "sha256": "c4d201eaed3299c20eb1092630cf779dafa910fafcdde87fdd9dcf25de9524b5"
+    },
+    "img/toma-10-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-10-inicial.png",
+      "bytes": 5124747,
+      "sha256": "ae78cce131dd5d85311815c63c90ad98e581a33af4f5813b0b71246240965012"
+    },
+    "img/toma-11-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-11-final.png",
+      "bytes": 6051358,
+      "sha256": "23ff7940d597c6090d222551057d19939db20376e4a85bc5dd626eda71157ad5"
+    },
+    "img/toma-11-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-11-inicial.png",
+      "bytes": 6588145,
+      "sha256": "ef16cd80880d9f2a4feabe3aa2ce5c571f16e5ffae6667197f01a7d4a428b8f7"
+    },
+    "img/toma-12-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-12-final.png",
+      "bytes": 5524441,
+      "sha256": "80f7dc53317b0442679736914165a9eb9d6865a095b184ad0c9849bfad85d341"
+    },
+    "img/toma-12-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-12-inicial.png",
+      "bytes": 5499423,
+      "sha256": "1e3b4eb137f6ed9ba3d2c86735d262fdd7f54f86e2b2fe4e91e7a84b1be9f87b"
+    },
+    "img/toma-13-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-13-inicial.png",
+      "bytes": 5814824,
+      "sha256": "1fd191c95f1dc4470fdb95f874fdb0d11f2ee389e4ffa5ea516be86a9caa6397"
+    },
+    "img/toma-14-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-14-inicial.png",
+      "bytes": 6321552,
+      "sha256": "33e6da14b3a8cefc238ca431c96aa4ea689085b22fd38aa82b50e61f00a71be5"
+    },
+    "img/toma-15-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-15-inicial.png",
+      "bytes": 6789288,
+      "sha256": "60a6047e5e5728d19605871fb961a2d765929f0292d103b453daa7ff050eeb8f"
+    },
+    "img/toma-16-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-16-final.png",
+      "bytes": 4333592,
+      "sha256": "308fae4341fbfabddd0c8e5d0bb5fcdbd798e588e9120f12e37d7fbc571fb2cc"
+    },
+    "img/toma-16-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-16-inicial.png",
+      "bytes": 4329193,
+      "sha256": "f81f822cc379c18827b20d3164c19e1df8bc552d8265579c0c0f55b21c0e0f48"
+    },
+    "img/toma-17-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-17-inicial.png",
+      "bytes": 5348658,
+      "sha256": "13dd740197a9d8df3c1c6517687c7f3549ad65700dad547507ad84e08f61fb8d"
+    },
+    "img/toma-18-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-18-inicial.png",
+      "bytes": 5654998,
+      "sha256": "e9f43cd533f452d34625ab71b27927477e08898c4befa25cb38713a4e25ff584"
+    },
+    "img/toma-19-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-19-inicial.png",
+      "bytes": 5083465,
+      "sha256": "dc19166e942e9e6f85c3ff71243fad9e7ede4acda2f0fbbae6b83d055dafe3b5"
+    },
+    "img/toma-2-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-2-inicial.png",
+      "bytes": 5323935,
+      "sha256": "26c46d0ecce490edba834bf1f0f9c5743e91f2ac68c620139c1c2b82cdfa2e83"
+    },
+    "img/toma-20-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-20-inicial.png",
+      "bytes": 5468102,
+      "sha256": "7639c00b45540cbbf4ce6f6d4ca15ca1755355711b208b1bf452ced9b735062b"
+    },
+    "img/toma-21-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-21-inicial.png",
+      "bytes": 5311342,
+      "sha256": "97ffc237675979991cde6af8cfdddeed022cf8ce8a36dbbc4f0afda1bacf2c29"
+    },
+    "img/toma-22-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-22-inicial.png",
+      "bytes": 5614690,
+      "sha256": "3a77c46e232346c0025e0980fdb704f602b48ae6d6901e8cd1d7ba1e955a8a84"
+    },
+    "img/toma-23-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-23-inicial.png",
+      "bytes": 5657927,
+      "sha256": "0d88c37e0898db0a4be4cba1e5e8a703f76b90ff54b48bf860985dee8391ff34"
+    },
+    "img/toma-24-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-24-inicial.png",
+      "bytes": 6414143,
+      "sha256": "ceb3c66f10809e2f549902fc697e7cdc564712af5dbaba6462ecd14fcb070d2f"
+    },
+    "img/toma-25-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-25-inicial.png",
+      "bytes": 4788259,
+      "sha256": "bde5294a4570f8199b9c3a2fab2a3d36d91fa5a9947972d66d3667698212da69"
+    },
+    "img/toma-26-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-26-inicial.png",
+      "bytes": 5454623,
+      "sha256": "395bb0bbf52915138b2b997c053a4b921e8c8437d5c0d03dcf5238de2ed7ed0f"
+    },
+    "img/toma-27-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-27-inicial.png",
+      "bytes": 4525718,
+      "sha256": "0d563f709aa86f463a0dc6fc8854c8fbc45d5411a4c8bc6183a143f7e8815618"
+    },
+    "img/toma-28-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-28-final.png",
+      "bytes": 4689293,
+      "sha256": "0a7983a5bdbe4cd7f9a5f937f49deb695062b1962de316c21306de117e48fc70"
+    },
+    "img/toma-28-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-28-inicial.png",
+      "bytes": 4871217,
+      "sha256": "b330b7fbe856d96738c3a3fce4334c56f526412abf7f981fa294d69482e70544"
+    },
+    "img/toma-29-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-29-final.png",
+      "bytes": 4074439,
+      "sha256": "7fa17da52af81bc0af7189c580e81060e985c362736cc61fbae1cabf01af1be9"
+    },
+    "img/toma-29-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-29-inicial.png",
+      "bytes": 4067357,
+      "sha256": "768fabd4dbaa01ecaa5c401f9eaef7f945d57acc417af480d7fae3b88e67dfa9"
+    },
+    "img/toma-3-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-3-inicial.png",
+      "bytes": 5434814,
+      "sha256": "249c21abe4f617158c51bccb41da77670e913806143cf01df5494daaae2fe396"
+    },
+    "img/toma-30-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-30-final.png",
+      "bytes": 4377602,
+      "sha256": "99f79f495e0331804921ada23d2f1ea56b9651c756daf3d56672a5484e507cc7"
+    },
+    "img/toma-30-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-30-inicial.png",
+      "bytes": 4599408,
+      "sha256": "9de7ae122148a7f17ce0c1cdd268c2e1fa1cd9b9c4cf843ed18321bac065400d"
+    },
+    "img/toma-31-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-31-inicial.png",
+      "bytes": 5868162,
+      "sha256": "e30d81f51f3721d95f678e8a1640dc64a7c7e0bfeb2dd7d45a8c15a3da840e2a"
+    },
+    "img/toma-32-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-32-inicial.png",
+      "bytes": 5087796,
+      "sha256": "c4e24c2a059837af055c2fac21ac5704e6178d8354bd4b46545c57ce067e875e"
+    },
+    "img/toma-33-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-33-inicial.png",
+      "bytes": 5001003,
+      "sha256": "f77c77b17470f867156173d2ab6cc543bdcc324e0ae2359d06c60ee4668b22f4"
+    },
+    "img/toma-4-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-4-inicial.png",
+      "bytes": 6085133,
+      "sha256": "61ba16bd7974d316966f2f5a6582a6c4323646616a10467fd58303a4c07ed187"
+    },
+    "img/toma-5-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-5-inicial.png",
+      "bytes": 6082078,
+      "sha256": "4a5f17735e5cfda17d92835f334e7a7bdb0fcd03d2b6b0267ca47dbb53cece60"
+    },
+    "img/toma-6-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-6-inicial.png",
+      "bytes": 6529131,
+      "sha256": "2d6f43f9e2cabc1e16404b8cff7c3f804558ad9b3c07640c3e643a6795f14f2c"
+    },
+    "img/toma-7-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-7-inicial.png",
+      "bytes": 7284918,
+      "sha256": "20c86df0b61efcc21216c0b99edec132c9104e67a8188ade83b037a3c7d95a54"
+    },
+    "img/toma-8-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-8-inicial.png",
+      "bytes": 4934816,
+      "sha256": "e63a1111aac29f3382ac3702d1f594d737d4dd93f8def0e3e0f07ff0d081444b"
+    },
+    "img/toma-9-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/img/toma-9-inicial.png",
+      "bytes": 5215561,
+      "sha256": "6ae81bed588ec134f4763d1ca3d75e5f6615569c2cddbd92638b7b4b90ea78ab"
+    },
+    "musica/fondo.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/musica/fondo.mp3",
+      "bytes": 3876386,
+      "sha256": "01f02d31bf1be65ecdb09973c950937755462ee5a93179ee55963d2b8bfaca65"
+    },
+    "producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/producto.png",
+      "bytes": 764594,
+      "sha256": "ac9c80a57a545f07a18ccaffccc92fb7a2fd2bb5da2171f924be10c24f012c08"
+    },
+    "qa/paso-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-1.jpg",
+      "bytes": 243294,
+      "sha256": "d3e07dc42e58331a06e9f5dd9dc2dffde1d3876ef0d7f5538e23c953b259210f"
+    },
+    "qa/paso-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-10.jpg",
+      "bytes": 172498,
+      "sha256": "2a348818c154ed42f661d91b0f37e849de80251a55ef243cd26a7072141c3023"
+    },
+    "qa/paso-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-11.jpg",
+      "bytes": 186414,
+      "sha256": "d924bb557ef5121d55e65c8d7ff79b576224bb6d34ac606b0bcd72cec1eb1b64"
+    },
+    "qa/paso-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-12.jpg",
+      "bytes": 243773,
+      "sha256": "4c6acae9ac5cce5a8b7473747f11a021f82a4236c823099a2373a6e17f4868a0"
+    },
+    "qa/paso-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-13.jpg",
+      "bytes": 206039,
+      "sha256": "ed3b5e1bf89a85b7bde174abd26cec3e64d37a559110aa08988715a643a82820"
+    },
+    "qa/paso-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-14.jpg",
+      "bytes": 280155,
+      "sha256": "7a61fe4f88669a44dcf9f7aff0df8c1d9425ecb03ee8172c6ddcbf39e749044e"
+    },
+    "qa/paso-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-15.jpg",
+      "bytes": 176701,
+      "sha256": "df12f90b3063ee3509060d2bcb6d3f00c2502ccd698ec424120498851404bcbe"
+    },
+    "qa/paso-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-16.jpg",
+      "bytes": 142154,
+      "sha256": "a16edfa6817af24990ba71eddf8823834ba063719ebd88f0a683dff3655f71ec"
+    },
+    "qa/paso-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-17.jpg",
+      "bytes": 224690,
+      "sha256": "9658a02ed9a5644378244cf22a11fc50c12fc1bd4af94a0223d423920e8d3170"
+    },
+    "qa/paso-18.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-18.jpg",
+      "bytes": 239524,
+      "sha256": "a0cbfe40464e62dfb551d07d002313d7f1d8ab72d7753c06cffe6cb35e8e422c"
+    },
+    "qa/paso-19.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-19.jpg",
+      "bytes": 191301,
+      "sha256": "9c9d854bcba33e5040641789423b92d27710b8e38490c80f693e21df59c5d31a"
+    },
+    "qa/paso-2.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-2.jpg",
+      "bytes": 288733,
+      "sha256": "cf6cbbd58b6bb94a56d03ba76f4f5e5afae7d56c4515c1cf7d12973b7d98fcc1"
+    },
+    "qa/paso-20.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-20.jpg",
+      "bytes": 217571,
+      "sha256": "e5970d096193ff7ba81cee4afe236d3b9ad1031600e5a475563912f4f9d3d206"
+    },
+    "qa/paso-21.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-21.jpg",
+      "bytes": 287780,
+      "sha256": "61459d6df23d29fe74ef4bf02bb97df9282ca3e37a9330543191005123289e03"
+    },
+    "qa/paso-22.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-22.jpg",
+      "bytes": 228481,
+      "sha256": "d52e9e146941c2ebeacefa1a1fa0644d902bc2e380f850bd85f399b722a8548b"
+    },
+    "qa/paso-23.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-23.jpg",
+      "bytes": 257883,
+      "sha256": "4993c65cc1d08d4a2965a0b4e68f107a9f7ad139b24d268f9f42a3b45c409e24"
+    },
+    "qa/paso-24.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-24.jpg",
+      "bytes": 273787,
+      "sha256": "1770cd6e2f1360911474c43ec07c4fdfaceb676782c3c567b04a7a0f2d00bdb9"
+    },
+    "qa/paso-25.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-25.jpg",
+      "bytes": 236889,
+      "sha256": "8dc246a50a0b895c1c836cb9705b207511328cf71f18f611d0a62c1e61ae0a47"
+    },
+    "qa/paso-26.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-26.jpg",
+      "bytes": 216709,
+      "sha256": "197f148170970d3e18a5dcfa2018517de228efb14acfa9a36f0bf3bceffa3742"
+    },
+    "qa/paso-27.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-27.jpg",
+      "bytes": 161966,
+      "sha256": "9fb287939c178be4cc3de1d96896c77b08e3f6523761785c8108703a3d0661ca"
+    },
+    "qa/paso-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-28.jpg",
+      "bytes": 112257,
+      "sha256": "e27a11469eb823ad0e4264ab78003b86c932f55f99a7a58e72b01b66705b2fa6"
+    },
+    "qa/paso-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-29.jpg",
+      "bytes": 97217,
+      "sha256": "abea796050a2917f668e76005ace97aa965ae3e0221c49e028c216939c6f8c66"
+    },
+    "qa/paso-3.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-3.jpg",
+      "bytes": 333404,
+      "sha256": "3312ca3ff48fe7cc6f82b75a9a37a4f489ad34bd1da4e21153034436c094e195"
+    },
+    "qa/paso-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-30.jpg",
+      "bytes": 168004,
+      "sha256": "001c89a9256ac53b0645dbb7f13e027471f8eb08d25e7d591127a6f28740c0fe"
+    },
+    "qa/paso-31.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-31.jpg",
+      "bytes": 224623,
+      "sha256": "3d8026d7acce8ec0eaa2b698c88e87abfa44d9ba48007287d21998b81473bfa1"
+    },
+    "qa/paso-32.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-32.jpg",
+      "bytes": 239001,
+      "sha256": "0c89b6eb632e2b79bb78624d220d07c5e5e48a565a79039a2d7b329c4445922a"
+    },
+    "qa/paso-4.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-4.jpg",
+      "bytes": 387303,
+      "sha256": "275a206c2fc1992ab8526f93b361fb4fcb674dd5bba64deeb67b77b303540f6c"
+    },
+    "qa/paso-5.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-5.jpg",
+      "bytes": 276660,
+      "sha256": "3b30d285094ede2f649b6226ba37acfb673f3b5283cd6d5b846a65f8f1bd7428"
+    },
+    "qa/paso-6.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-6.jpg",
+      "bytes": 219673,
+      "sha256": "d9ced848fe18f254c99b0016f9ae3bb169fe816ffae116122bd279b3930ae49e"
+    },
+    "qa/paso-7.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-7.jpg",
+      "bytes": 220291,
+      "sha256": "d6078cbefe15c899bc1a99753bc089cede2202a3861c42f687084e821d59d434"
+    },
+    "qa/paso-8.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-8.jpg",
+      "bytes": 244841,
+      "sha256": "6ccb5b35d6c3496083bce6e13c934d5e9ba20a94e1617275baff7ffc0a7c7004"
+    },
+    "qa/paso-9.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/paso-9.jpg",
+      "bytes": 164249,
+      "sha256": "5b03ad99da238756790d3af5f6e3fc22198c37903f2fd5208b3fa7cb32dc9183"
+    },
+    "qa/toma-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-1.jpg",
+      "bytes": 184077,
+      "sha256": "5dabe491e9ac940f2f74df7f0d8a6961d8654dd9ae39605c9056d3844c0954c5"
+    },
+    "qa/toma-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-10.jpg",
+      "bytes": 134544,
+      "sha256": "13e4b6f8821ca1a2bc28975ed5314eba60b0d63e64e99ea90a246d737c8515bc"
+    },
+    "qa/toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-11.jpg",
+      "bytes": 211990,
+      "sha256": "a6851c6230b07de24c088cbfe15699899aef46e517d916965f190846eaef1dfa"
+    },
+    "qa/toma-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-12.jpg",
+      "bytes": 246756,
+      "sha256": "0c0a2334ea8591b9b75f8c3c22583428016d2fba111b98293a3beb42e160e0e2"
+    },
+    "qa/toma-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-16.jpg",
+      "bytes": 91535,
+      "sha256": "f8d5f07ff43675e30477c2943714c93f8baee6d6ec837841323ff96c5377ec16"
+    },
+    "qa/toma-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-28.jpg",
+      "bytes": 147554,
+      "sha256": "096f1677fc419390b1eb0d6dc6f518af8b644ef00d78a01dc7813c563b63a1e4"
+    },
+    "qa/toma-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-29.jpg",
+      "bytes": 91014,
+      "sha256": "079bad290ef0aa554d3c25e1f2df152dd425adf571146cf3122459cdb2255056"
+    },
+    "qa/toma-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-30.jpg",
+      "bytes": 113928,
+      "sha256": "30ac43aae73513a86c687c7f57303a8082e4064c24b408c347053f535d9493fb"
+    },
+    "qa/toma-33.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/toma-33.jpg",
+      "bytes": 261920,
+      "sha256": "7ede4e27633861a88be6d7a7d3f9776d3f765d6d006b08e411d98378d90ede71"
+    },
+    "qa/uniones/00-inicio-toma-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/00-inicio-toma-1.jpg",
+      "bytes": 57348,
+      "sha256": "fc29a1d3a846ad8ac3c909d764c07f0157e0f0e3ea9375c61a35f43085e1a98a"
+    },
+    "qa/uniones/01-toma-1--paso-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/01-toma-1--paso-1.jpg",
+      "bytes": 112433,
+      "sha256": "389f766dd6f6cfd844f6533586609493ba41644731be78f43f38d1574947a395"
+    },
+    "qa/uniones/02-paso-1--paso-2.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/02-paso-1--paso-2.jpg",
+      "bytes": 223532,
+      "sha256": "87e7eb3d87990c6d7b5734466d27c3f3173eee52b9d05bc124f04a80c444ed78"
+    },
+    "qa/uniones/03-paso-2--paso-3.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/03-paso-2--paso-3.jpg",
+      "bytes": 208077,
+      "sha256": "3afd58b4bb13fce7dd5dd4578952d0a137910d091299f08ec798e0874f04ea58"
+    },
+    "qa/uniones/04-paso-3--paso-4.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/04-paso-3--paso-4.jpg",
+      "bytes": 301867,
+      "sha256": "b28261fdf85fe660778d52ce7da7e27e737db7132164c2ae58255d8a13e1b77c"
+    },
+    "qa/uniones/05-paso-4--paso-5.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/05-paso-4--paso-5.jpg",
+      "bytes": 259626,
+      "sha256": "09b74d62c0f09cf91ee738228a880d8a507ade5be3c88bd2031263bd39fda7e6"
+    },
+    "qa/uniones/06-paso-5--paso-6.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/06-paso-5--paso-6.jpg",
+      "bytes": 166666,
+      "sha256": "e6c07626738fa57c278c0b03ead82d3b7c6ec6d60cc4698f93de9419dc6e1d5d"
+    },
+    "qa/uniones/07-paso-6--paso-7.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/07-paso-6--paso-7.jpg",
+      "bytes": 185327,
+      "sha256": "74c00f6ac6799eba30defa973017e66b3d7b5ab000ea65ea24a55ff9ec05e922"
+    },
+    "qa/uniones/08-paso-7--paso-8.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/08-paso-7--paso-8.jpg",
+      "bytes": 202525,
+      "sha256": "4896765bfedc84a8ecc16d7d88a9f01c1dd52dea85dc73be660272de3ca19ff6"
+    },
+    "qa/uniones/09-paso-8--paso-9.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/09-paso-8--paso-9.jpg",
+      "bytes": 178105,
+      "sha256": "89a57136eac58719202d793c0dc5d6639df041b6a0474028e0e926547292f663"
+    },
+    "qa/uniones/10-paso-9--toma-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/10-paso-9--toma-10.jpg",
+      "bytes": 81396,
+      "sha256": "2b512a44f124b66e4d36f1498f3f88583d4941fedab2ab638d4f667037787e60"
+    },
+    "qa/uniones/11-toma-10--paso-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/11-toma-10--paso-10.jpg",
+      "bytes": 73396,
+      "sha256": "f3da0482a220722032ee41409dbba530c907b90409c7f9dd003fe15f7a7bf371"
+    },
+    "qa/uniones/12-paso-10--toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/12-paso-10--toma-11.jpg",
+      "bytes": 117283,
+      "sha256": "d4ee36b0cf4fccb3175980f1b1c34d4149ed826313ce0b66f64a2e0a85d5180e"
+    },
+    "qa/uniones/13-toma-11--paso-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/13-toma-11--paso-11.jpg",
+      "bytes": 168461,
+      "sha256": "26e6944f98755157da1bbeaa46a07a200e619c4620b0480ccbb7115e040e3502"
+    },
+    "qa/uniones/14-paso-11--toma-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/14-paso-11--toma-12.jpg",
+      "bytes": 96406,
+      "sha256": "d98403f2bcdf27f4b3b81974d43f8ac6ec8cd141ae49b796957e356b47c2b943"
+    },
+    "qa/uniones/15-toma-12--paso-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/15-toma-12--paso-12.jpg",
+      "bytes": 187265,
+      "sha256": "391dc6d335cd59c028bb57b06ac4ff3d8438e1db0fc41d59f2e4c9c7b9ddbadc"
+    },
+    "qa/uniones/16-paso-12--paso-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/16-paso-12--paso-13.jpg",
+      "bytes": 190791,
+      "sha256": "b437c0e762488b70849d7550fc8eab0c4280ad9be477c3e537665350342f7c9a"
+    },
+    "qa/uniones/17-paso-13--paso-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/17-paso-13--paso-14.jpg",
+      "bytes": 110173,
+      "sha256": "fa4e2304d61158ad6eb4a86bfef74ac4849a56c394c20a952e93b2b394c8b356"
+    },
+    "qa/uniones/18-paso-14--paso-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/18-paso-14--paso-15.jpg",
+      "bytes": 259983,
+      "sha256": "8ed9060392dda9a30ba46f67f0e4d9835081912c0e51a4072c1099439784e469"
+    },
+    "qa/uniones/19-paso-15--toma-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/19-paso-15--toma-16.jpg",
+      "bytes": 51137,
+      "sha256": "269a77203dd9e4150fde4bcf80f2bdc1c134e2a93a22af9ae4241120e22163c9"
+    },
+    "qa/uniones/20-toma-16--paso-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/20-toma-16--paso-16.jpg",
+      "bytes": 77140,
+      "sha256": "ef5cb9877e57e37ee9af4de62d80c830adcf7e67d0bc7c5b88184e7969036235"
+    },
+    "qa/uniones/21-paso-16--paso-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/21-paso-16--paso-17.jpg",
+      "bytes": 118546,
+      "sha256": "33c34d74edf03c92e9ff5b9c86973ffbaf93361687fc37023645bb6510341be3"
+    },
+    "qa/uniones/22-paso-17--paso-18.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/22-paso-17--paso-18.jpg",
+      "bytes": 172967,
+      "sha256": "464c604b9821d003f2565c449dd6e9be76377aa28f8d639405698bde8e791698"
+    },
+    "qa/uniones/23-paso-18--paso-19.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/23-paso-18--paso-19.jpg",
+      "bytes": 188383,
+      "sha256": "a7fbee72bf9049f768a9cd4efef350d201236c5250a7b6174924ff2fe6bc2b6c"
+    },
+    "qa/uniones/24-paso-19--paso-20.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/24-paso-19--paso-20.jpg",
+      "bytes": 130504,
+      "sha256": "eb61a6508bd54d1bc10fbe85e268012d89a0a629f6c6d868d6839a81dcb73404"
+    },
+    "qa/uniones/25-paso-20--paso-21.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/25-paso-20--paso-21.jpg",
+      "bytes": 201046,
+      "sha256": "a2f29638c0e50c153313c7619ea14e00a4a513e1e388091d55d281a6f8067b51"
+    },
+    "qa/uniones/26-paso-21--paso-22.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/26-paso-21--paso-22.jpg",
+      "bytes": 214838,
+      "sha256": "9ab99267a6ed95348ba16a1e8977fc966c18c73b59a1ea19ec9a83bc43809e7b"
+    },
+    "qa/uniones/27-paso-22--paso-23.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/27-paso-22--paso-23.jpg",
+      "bytes": 132231,
+      "sha256": "ac99b676d97df5f8b2dd19d082095d4edf640799e5c4fa59bf565fa1f4a8091e"
+    },
+    "qa/uniones/28-paso-23--paso-24.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/28-paso-23--paso-24.jpg",
+      "bytes": 231651,
+      "sha256": "3e048db9468f779df21ff5cf1c07bb90037efbf4ce22de1cd582923d1c9669c1"
+    },
+    "qa/uniones/29-paso-24--paso-25.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/29-paso-24--paso-25.jpg",
+      "bytes": 160547,
+      "sha256": "c25e1f188996bf70e233309237325cc516a341db9369e7e10195939bab4aa01d"
+    },
+    "qa/uniones/30-paso-25--paso-26.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/30-paso-25--paso-26.jpg",
+      "bytes": 177603,
+      "sha256": "4dafcd64e709c38ee237c20749fc3c9d12977c91d89243c32c50d4116a1ac793"
+    },
+    "qa/uniones/31-paso-26--paso-27.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/31-paso-26--paso-27.jpg",
+      "bytes": 152697,
+      "sha256": "48e3b9e5fea82283780b493a499100c5b7b20752f1612381c77c53e949858ff0"
+    },
+    "qa/uniones/32-paso-27--toma-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/32-paso-27--toma-28.jpg",
+      "bytes": 96119,
+      "sha256": "b277e61df74a5d9f225fd1cb2e114a02cae2fe4669b8c6161b7ad1476409c474"
+    },
+    "qa/uniones/33-toma-28--paso-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/33-toma-28--paso-28.jpg",
+      "bytes": 102905,
+      "sha256": "44c8462e89a1ac919f66b0bb3d8f65fb9a49387d00503f9edcb11fdf304aaac2"
+    },
+    "qa/uniones/34-paso-28--toma-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/34-paso-28--toma-29.jpg",
+      "bytes": 60333,
+      "sha256": "23470eeb3200656185e5a1e545eb35485714ff0bd0c80ef7a968e8ccd54fbc08"
+    },
+    "qa/uniones/35-toma-29--paso-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/35-toma-29--paso-29.jpg",
+      "bytes": 77977,
+      "sha256": "61ce018db5b4bb6446d3b2d5dbba2e6fd52faf3fc5c7ce59644bfdcd1f46ed35"
+    },
+    "qa/uniones/36-paso-29--toma-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/36-paso-29--toma-30.jpg",
+      "bytes": 59840,
+      "sha256": "0a0dd55316bf6aa5b65eafb7ce348d0b79f45bd980ff0eb8940ccbbc012f4ca1"
+    },
+    "qa/uniones/37-toma-30--paso-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/37-toma-30--paso-30.jpg",
+      "bytes": 98359,
+      "sha256": "9ceb7a1c9776ce70f37320bbb7ba872a7b0196a9274c8eb440642422d4d59b2c"
+    },
+    "qa/uniones/38-paso-30--paso-31.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/38-paso-30--paso-31.jpg",
+      "bytes": 145904,
+      "sha256": "a41306852dd077f7b17a1c8cf0a9544797e2442ddda3b8c325788cc14a4df8b8"
+    },
+    "qa/uniones/39-paso-31--paso-32.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/39-paso-31--paso-32.jpg",
+      "bytes": 168787,
+      "sha256": "12f09e9471dc9ed7b195093ba3dae05e9a80c90ba556d739da3458d0224631ec"
+    },
+    "qa/uniones/40-paso-32--toma-33.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/40-paso-32--toma-33.jpg",
+      "bytes": 186043,
+      "sha256": "e42a780978087527b205de7445f88b0dfd98085dd622f4e818f2fb676e66c6b6"
+    },
+    "qa/uniones/41-toma-33-final.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/qa/uniones/41-toma-33-final.jpg",
+      "bytes": 52621,
+      "sha256": "0becb485bbd86e418b98a35bbe4957f5ed4098ccfce6bf89ae61afb960fcd757"
+    },
+    "referencia/audio-referencia.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/audio-referencia.mp3",
+      "bytes": 1485980,
+      "sha256": "831684a42a4c250ba94084ea66be40b1c78d1e0617c62701bec3e7cdc5bf970e"
+    },
+    "referencia/hoja-tomas.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/hoja-tomas.jpg",
+      "bytes": 328883,
+      "sha256": "e27efc46b41af14f614a1aa1e39d88c0b8c9e3ccdf313e77fd94aa113f0403cf"
+    },
+    "referencia/original.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/original.mp4",
+      "bytes": 4485108,
+      "sha256": "571a13e9a590fb4c69dfe1d32c30677f8f248785c651860c44b0ef864b489493"
+    },
+    "referencia/tomas/toma-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-01.jpg",
+      "bytes": 34830,
+      "sha256": "417eceb8b70a92c247329e3fe2727318831977ca81b2d738446ec64299d8cd1a"
+    },
+    "referencia/tomas/toma-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-02.jpg",
+      "bytes": 23750,
+      "sha256": "c36f8107647259282cfc6eaa2949d860082d9d8024ff30427808e4db17e6005c"
+    },
+    "referencia/tomas/toma-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-03.jpg",
+      "bytes": 27097,
+      "sha256": "9e82603b27db7cbc95bb6ace42e7d3c97bc9db5176c7af78bf4595141249d5cc"
+    },
+    "referencia/tomas/toma-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-04.jpg",
+      "bytes": 22249,
+      "sha256": "a82ee0cca5f4d45d8ee033cb119a75e5e25afb1fa7426b4f0da4faf1e87f4076"
+    },
+    "referencia/tomas/toma-05.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-05.jpg",
+      "bytes": 17461,
+      "sha256": "191ab0d27619fb44f2402234bc673a5ffe8b7399cb6e9c392d510490d838fa3b"
+    },
+    "referencia/tomas/toma-06.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-06.jpg",
+      "bytes": 32230,
+      "sha256": "58163eaa6fc83969cf1a2b000b86080e58321f1f0c97fee6b56194f8c1d60f4d"
+    },
+    "referencia/tomas/toma-07.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-07.jpg",
+      "bytes": 30673,
+      "sha256": "e81ddc0177f2d28a3423fecf461dd613bb0ec2f90ed67dfde11cfe1910d36c16"
+    },
+    "referencia/tomas/toma-08.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-08.jpg",
+      "bytes": 32094,
+      "sha256": "dd1f34b5af66eb862da50c995af6588cbffdd5fa92e8f4c2839397647351b00d"
+    },
+    "referencia/tomas/toma-09.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-09.jpg",
+      "bytes": 34479,
+      "sha256": "3d961940699973599c32f097b6b1a7b7e21ef99dde1420b87ca5c4d7495a0b0a"
+    },
+    "referencia/tomas/toma-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-10.jpg",
+      "bytes": 30531,
+      "sha256": "5ecfcf0178ffe60b8a695617a589f4612ce4b560df2ca2bd4d0beddca92b553c"
+    },
+    "referencia/tomas/toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-11.jpg",
+      "bytes": 21092,
+      "sha256": "8b4584d05cb68f7f44230f707816735cc0171846e00e82c2bdc179ce37e969dd"
+    },
+    "referencia/tomas/toma-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-12.jpg",
+      "bytes": 19132,
+      "sha256": "a04f0b22802c429ac56a41d1e6728eda622176f059c826904d55ec726aaf5858"
+    },
+    "referencia/tomas/toma-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-13.jpg",
+      "bytes": 27858,
+      "sha256": "afdea3b12e627ff79e386cfc18e47f51589f3c450804023f9bc968f55e4f31ed"
+    },
+    "referencia/tomas/toma-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-14.jpg",
+      "bytes": 23121,
+      "sha256": "42b9db6c0d00ab4dbd65d87fd9a59f784214784bd1cc89f0b07ccc2e9f295bed"
+    },
+    "referencia/tomas/toma-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-15.jpg",
+      "bytes": 25716,
+      "sha256": "537eb3f9e05f9298cd5e7f844c74b7eb9081fb1f83c37c765c090b2ea5d918db"
+    },
+    "referencia/tomas/toma-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-16.jpg",
+      "bytes": 30296,
+      "sha256": "98753fd1c4f67dca107d41d9f8eac59c4bcfd07fddb6b64f98a1fe55dd40c20f"
+    },
+    "referencia/tomas/toma-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-17.jpg",
+      "bytes": 18630,
+      "sha256": "962056b85ddf92c08784afbd020d141241352c973671cef3e78a5656e79be9b5"
+    },
+    "referencia/tomas/toma-18.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-18.jpg",
+      "bytes": 17748,
+      "sha256": "863d99b3ac80b8dad5a82a99586621ff4f77991a4687db9744b8ff947725f44e"
+    },
+    "referencia/tomas/toma-19.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-19.jpg",
+      "bytes": 44405,
+      "sha256": "735e98110f865f75ff2b6f5f29cf92e373e9693adefd2afee253ffd7e5565196"
+    },
+    "referencia/tomas/toma-20.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-20.jpg",
+      "bytes": 46088,
+      "sha256": "853a5ba1b45199c84ab81cc63989acea0982d8ab7254e3e2437287bd8980fd1d"
+    },
+    "referencia/tomas/toma-21.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-21.jpg",
+      "bytes": 20998,
+      "sha256": "4cb70740cd3a328b98461f6b7bd817018ffa61e1e53c6cf4e847c1a210232c98"
+    },
+    "referencia/tomas/toma-22.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-22.jpg",
+      "bytes": 35111,
+      "sha256": "93d135668d6377f38ace5364613d221262bf3e479b778e0f6c41f20bc7b85828"
+    },
+    "referencia/tomas/toma-23.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-23.jpg",
+      "bytes": 15892,
+      "sha256": "d459af5d23abaaa25148737ae97961ba685299a0035b92e597d20de8dfbc4893"
+    },
+    "referencia/tomas/toma-24.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-24.jpg",
+      "bytes": 24009,
+      "sha256": "f0abb2147cd4da0e9932004526968b36204aeb8c5f0c17464e568a29d6b4812c"
+    },
+    "referencia/tomas/toma-25.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-25.jpg",
+      "bytes": 19942,
+      "sha256": "c1c3427f730dd69933e2af5144cce76267df39ca18c068f60a1d1cd105dbb5ae"
+    },
+    "referencia/tomas/toma-26.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-26.jpg",
+      "bytes": 23871,
+      "sha256": "d21efcccac5f63a310b37be2697654479e0f58ef92c548bab76b307ff69b73e5"
+    },
+    "referencia/tomas/toma-27.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-27.jpg",
+      "bytes": 20136,
+      "sha256": "aee554bba5350d5e693c18d0f58983f17f0386540de77715edec1fedc9b2ed9f"
+    },
+    "referencia/tomas/toma-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-28.jpg",
+      "bytes": 32269,
+      "sha256": "75afb886d38133ddd501db37b66ee9183f18c9ef1ba13bd322b7e28089ff6f2b"
+    },
+    "referencia/tomas/toma-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-29.jpg",
+      "bytes": 24177,
+      "sha256": "79c209a8a0876d2540c17c3077f91738339fc2781ce0b3d30e8ce3f81949c8a3"
+    },
+    "referencia/tomas/toma-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-30.jpg",
+      "bytes": 15754,
+      "sha256": "e0683472b2548ec2dea27dfbe25cd4fc775cb83956186a8d5616fe96c42cc5f2"
+    },
+    "referencia/tomas/toma-31.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-31.jpg",
+      "bytes": 21550,
+      "sha256": "05942853dfec982e6e39616a81b20122bf3425059f2f2f7867c4f877be3a58cd"
+    },
+    "referencia/tomas/toma-32.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-32.jpg",
+      "bytes": 32880,
+      "sha256": "b090308c46f5f9fc601ef31f2979105d483925b27e30c787c36c9971dba9bd32"
+    },
+    "referencia/tomas/toma-33.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-33.jpg",
+      "bytes": 29109,
+      "sha256": "e8fcc2f13fa1fec4ef02a9275f9176280ebd2d2087e5247aa202f57651ef2825"
+    },
+    "referencia/tomas/toma-34.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-34.jpg",
+      "bytes": 23669,
+      "sha256": "f58007d58ef5cdab0788a7da2f6faf49b755442ce4e4c5720320cd32c5056468"
+    },
+    "referencia/tomas/toma-35.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-35.jpg",
+      "bytes": 32359,
+      "sha256": "5038ce282ec2ab519a6e51769016e8fd69f1edecad3ead45af62109c3a4c8917"
+    },
+    "referencia/tomas/toma-36.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-36.jpg",
+      "bytes": 24273,
+      "sha256": "9e321919a5df040a9edabbfd6585523ae554ce37631fce48d7faf08fab7a8273"
+    },
+    "referencia/tomas/toma-37.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-37.jpg",
+      "bytes": 27087,
+      "sha256": "c24984a1953c3e43af1b1c2f83dc3fa933f6fb85bbb904cffbe220b373246a42"
+    },
+    "referencia/tomas/toma-38.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-38.jpg",
+      "bytes": 22469,
+      "sha256": "da3f11735659aab6b74114b0d55f15d271339ea132e876f4e42d08d53005b401"
+    },
+    "referencia/tomas/toma-39.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-39.jpg",
+      "bytes": 11986,
+      "sha256": "04cb4d2a5f7853483b3e2d3e4f3f561a7ca10023ee5c4839031ffd6de3ec6ece"
+    },
+    "referencia/tomas/toma-40.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-40.jpg",
+      "bytes": 24547,
+      "sha256": "3c4d65d1370d5a99794322b339e55d6734388aaf76653dfc02dd47e0da3ec32a"
+    },
+    "referencia/tomas/toma-41.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-41.jpg",
+      "bytes": 24384,
+      "sha256": "ab3c4bc1d45c09372fa026eb30b4c4b79bdf37881817709b991c49d3090896c3"
+    },
+    "referencia/tomas/toma-42.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-42.jpg",
+      "bytes": 29777,
+      "sha256": "d319bc9b4a6286ae3bc2a43a04d2065b8c56ad6837a12194fab051da681d3339"
+    },
+    "referencia/tomas/toma-43.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-43.jpg",
+      "bytes": 35666,
+      "sha256": "f74fd1c05297b2014cda0b3342144e1d8e36183238c1c9629c3ff7885c5bb90c"
+    },
+    "referencia/tomas/toma-44.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/referencia/tomas/toma-44.jpg",
+      "bytes": 31260,
+      "sha256": "10a960cc43ab3c8f62da62e448490c7061bc37fc69aa511919b2d1eb4b9ca342"
+    },
+    "video/paso-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-1.mp4",
+      "bytes": 4228700,
+      "sha256": "de74b11d688a409de5756a1470a2a27e3f6ea6daf60677465ef60cd7dddfa45c"
+    },
+    "video/paso-10.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-10.mp4",
+      "bytes": 2479338,
+      "sha256": "aceb7ef7eb629133154b335e7277678dc536f96baa189bba66db6f897cfb4c11"
+    },
+    "video/paso-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-11.mp4",
+      "bytes": 3766832,
+      "sha256": "e787f2afeda021159de2a9a5c2e11551c9f132f9f57c08d58e9d6957b7ada79f"
+    },
+    "video/paso-12.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-12.mp4",
+      "bytes": 3785346,
+      "sha256": "2e919e5c8d078fe36e7cbb8f03e6437c8395a656b6876db848b93b4d9ac20888"
+    },
+    "video/paso-13.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-13.mp4",
+      "bytes": 11394731,
+      "sha256": "5bd96996ba38c9070a8f531dc25d207f84a1b7ebd6e4537185348bdb3bbd9abf"
+    },
+    "video/paso-14.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-14.mp4",
+      "bytes": 9678270,
+      "sha256": "ec3e52518fdf6cd71d5e4e0f9545d949483d4af6f2a17b812d7a80aa68bbdeed"
+    },
+    "video/paso-15.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-15.mp4",
+      "bytes": 4187235,
+      "sha256": "58f1298a2207345e52d4e24df8e8c533edb3f77b6820694e7fd7fb1362e355c7"
+    },
+    "video/paso-16.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-16.mp4",
+      "bytes": 2208466,
+      "sha256": "7d3b5f7559b8b1c70a1c06cc4789833a8371e952e1f41627306bc1b49e564667"
+    },
+    "video/paso-17.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-17.mp4",
+      "bytes": 5098433,
+      "sha256": "cdfe97e8eb9895d1b51b60f4467a193e5669b30f6be998ffca28fb6ae97496a8"
+    },
+    "video/paso-18.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-18.mp4",
+      "bytes": 3850585,
+      "sha256": "c3ca450276f5174082bc6d9abf682338df95de4fb6074640b4b28e67afa08488"
+    },
+    "video/paso-19.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-19.mp4",
+      "bytes": 7981489,
+      "sha256": "ad1f0dbce2d761a746d48de8f0b31c2f9847208dac76b0a1934641520d318963"
+    },
+    "video/paso-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-2.mp4",
+      "bytes": 5650906,
+      "sha256": "024dfd9de4552d826e811fdb411a349c99ea8dc49d1973dc877774516e957364"
+    },
+    "video/paso-20.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-20.mp4",
+      "bytes": 3860275,
+      "sha256": "6b855267be39b6feef2874ee51cfcc5151162dc8caa928adfc6474f9ba79171e"
+    },
+    "video/paso-21.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-21.mp4",
+      "bytes": 6104414,
+      "sha256": "7496eae9d9d92641a329a026f362bcbdbd9ba9fc9ba3e0478be5ed6e8858572b"
+    },
+    "video/paso-22.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-22.mp4",
+      "bytes": 2955168,
+      "sha256": "04223ae36f99e2509916685e763f7efc6ef7bf8db171b83caec65814edb1db9b"
+    },
+    "video/paso-23.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-23.mp4",
+      "bytes": 3337912,
+      "sha256": "bc48609df56b8db7e8c7dc11c484dd994f3b0a7051f9abbfcb7b9304fb92dff1"
+    },
+    "video/paso-24.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-24.mp4",
+      "bytes": 3937098,
+      "sha256": "3c407a86dd7b26db6c7aad56f0a1458c011ed796559f97189c36a62a55646ff6"
+    },
+    "video/paso-25.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-25.mp4",
+      "bytes": 5145495,
+      "sha256": "c183625bbdf5264defcac87820b77a81e326bfb1c17ad37b26df02e923f0b01b"
+    },
+    "video/paso-26.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-26.mp4",
+      "bytes": 4470418,
+      "sha256": "f24b2d0715e1c309961a290991eb9f453fdd22b94a29ba43bcc9b987d80aa7e5"
+    },
+    "video/paso-27.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-27.mp4",
+      "bytes": 4356650,
+      "sha256": "5341e3c27b249bd22af2240376b9a782d8716d3ee92fcb19f98d630ee063c6a2"
+    },
+    "video/paso-28.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-28.mp4",
+      "bytes": 4492388,
+      "sha256": "9404e1f2cb2498ba91872fbf4f4a22e8a7d442389be92c5f0a8f6bca125635f8"
+    },
+    "video/paso-29.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-29.mp4",
+      "bytes": 1693247,
+      "sha256": "c05699ff93539bb1aa6508beb8d2ee47c62e838b12269aee052ead4b8bb62c33"
+    },
+    "video/paso-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-3.mp4",
+      "bytes": 7250073,
+      "sha256": "3cf5ec7de93dd6438edd5932966253fde6eea5a2eb592b0daf9910398b1f6f7a"
+    },
+    "video/paso-30.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-30.mp4",
+      "bytes": 2339612,
+      "sha256": "8e44e7e93fbe835d8a35c34b80c67a035d66d7f1f9c427d6f6f5b5572848638d"
+    },
+    "video/paso-31.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-31.mp4",
+      "bytes": 3242139,
+      "sha256": "9253f3eacf523ab363371a7e0356fc9f5889768af0f93d445fd1709f0b07e032"
+    },
+    "video/paso-32.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-32.mp4",
+      "bytes": 14077702,
+      "sha256": "c2e5eefb74512fcce892572ae2840c7cb378cee6f29e876be9a328b1338c439b"
+    },
+    "video/paso-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-4.mp4",
+      "bytes": 6869206,
+      "sha256": "12a5f30663aa313291f22478d1167381ae438423ce59754ea4caa6d62b18fe9a"
+    },
+    "video/paso-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-5.mp4",
+      "bytes": 4973408,
+      "sha256": "0d6d2bda07b424de0164b97daaedff9ff9beb9cbac55e638ac8e364b03a6d778"
+    },
+    "video/paso-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-6.mp4",
+      "bytes": 9754400,
+      "sha256": "2be1dae336f72221e353baecd1029cc5b34334e1721e3e58d9805f116ee71126"
+    },
+    "video/paso-7.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-7.mp4",
+      "bytes": 5361408,
+      "sha256": "b83a77bfb6b3103608877e8cf0c2079d9560f0a5350c56e2c5ab94db8b017c3d"
+    },
+    "video/paso-8.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-8.mp4",
+      "bytes": 4140492,
+      "sha256": "f34222b6da300930758e04f30c7ccb93326956c0e8adbf65bf190b9a395873d1"
+    },
+    "video/paso-9.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/paso-9.mp4",
+      "bytes": 3176543,
+      "sha256": "2be48e8bcb09c610aba8ab295e428ede91056b7b7ce004209079d592a802df42"
+    },
+    "video/toma-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-1.mp4",
+      "bytes": 4597446,
+      "sha256": "4b5da88e4ecfbd348c574cff1898ee170e6d4c97bdc8bf271c6d268032f73fb1"
+    },
+    "video/toma-10.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-10.mp4",
+      "bytes": 1413385,
+      "sha256": "ff5c3c9f56215f74ecaef058eda4cf29d729aceeefd26a1f93d3aa3b9cd61be7"
+    },
+    "video/toma-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-11.mp4",
+      "bytes": 11477276,
+      "sha256": "6cb466d0a0ae4338dd8beb9db502ee9e275314001cf66e8726ecfbedbdb76e0e"
+    },
+    "video/toma-12.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-12.mp4",
+      "bytes": 4441700,
+      "sha256": "9154c870c638ecdddc3323a6c17441ef0af6b152c177a80b5d1b21368ae9c894"
+    },
+    "video/toma-16.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-16.mp4",
+      "bytes": 1467571,
+      "sha256": "b860973b624d19e999b46a4d60b166f7b7693b4597a5ce5003c794be6abbea11"
+    },
+    "video/toma-28.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-28.mp4",
+      "bytes": 1343045,
+      "sha256": "afb77e9e4d8b21153137f162a39304962ce254580178028687c30edcdda5468f"
+    },
+    "video/toma-29.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-29.mp4",
+      "bytes": 2450704,
+      "sha256": "f35483e108a1dab431db1c810d7caada4a261fbb491c0e705173b497a996058c"
+    },
+    "video/toma-30.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-30.mp4",
+      "bytes": 1033143,
+      "sha256": "8126bf243c0277093c08e50378c483215767bc19ac31d8e71dbe4296ed6b0a2d"
+    },
+    "video/toma-33.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/oxipure-mullein-zack-d-films-20261115-0901/video/toma-33.mp4",
+      "bytes": 4260681,
+      "sha256": "b1ee18b646d90cd292d009bd72af82f0cff3ae57e50d71cf20661fd266adeefb"
+    }
+  },
+  "ubicacionesFinales": {
+    "oxipure-mullein-zack-d-films-20261115-0901_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/videos-finales/oxipure-mullein-zack-d-films-20261115-0901_9x16_con-subtitulos.mp4",
+      "bytes": 140950013,
+      "sha256": "c7c5ddbd25d75fb9669cc3798f4bd5ba10712e4d23afa0f88d95393a82ce83f9"
+    },
+    "oxipure-mullein-zack-d-films-20261115-0901_editado-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/videos-finales/oxipure-mullein-zack-d-films-20261115-0901_editado-1.mp4",
+      "bytes": 143828504,
+      "sha256": "48aa38650a79a6bdb4e4a88a3f770e7dcf5a5ac303e38de2119d22868e9f8cb9"
+    }
+  },
+  "fecha": "2026-11-16T21:48:10.419Z"
+}
