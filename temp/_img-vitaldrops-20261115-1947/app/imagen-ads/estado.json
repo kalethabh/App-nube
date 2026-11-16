@@ -4,7 +4,7 @@
     "E": 3,
     "R": 5,
     "A": 2,
-    "T": 3
+    "T": 4
   },
   "tandas": {
     "E001": {
@@ -92,10 +92,11 @@
     "A001": {
       "tipo": "ajuste",
       "uuid": "87723fa1-98b1-43fb-a24a-73399e94d94c",
-      "estado": "en-curso",
+      "estado": "hecha",
       "pedidos": [
         "U0001"
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -220,13 +221,20 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "ajustando",
+      "fase": "pedida",
       "resultado": "con-detalles",
       "version": 1,
       "firma": "1320229-1794790475784",
-      "orden": null,
-      "intentosApi": 1,
-      "ronda": 1,
+      "orden": {
+        "id": "U0001",
+        "modo": "editar",
+        "version": 2,
+        "instruccion_en": "Re-compose this same square ad so everything fits fully inside the 1:1 canvas with a clear cream margin on all four sides; nothing may be cut by any edge. Make the 2x2 panel grid shorter (about 55% of the canvas height) to free space above and below. TOP: the complete two-line headline, fully readable, with cream space above it: line 1 'VUELVE A AMAR TU SILUETA', line 2 'EN SOLO 21 DÍAS'. BOTTOM RIGHT: the whole gold plaque with its full border visible and exactly three centered black lines: 'TRATAMIENTO COMPLETO', the larger 'X3 UNIDADES $139,900', and the small wide-spaced 'SIN EFECTO REBOTE'. BOTTOM LEFT: the entire product, smaller: the full amber dropper bottle with its complete label and its base on the cream surface, and behind it the full yellow carton with the complete vertical word 'VITALDROPS' (all ten letters, not 'ALDROPS') and 'amua' at the top. Keep the product identical to the attached product photo. Keep everything else the same: the woman, hair, dress, pose and pool terrace in the four panels, the gold labels 'DÍA 1', 'DÍA 7', 'DÍA 14', 'DÍA 21', the botanical sprig, cream background, colors and typography. Do not add any new text, logo or element.",
+        "textos": false,
+        "trabajo": "T003"
+      },
+      "intentosApi": 2,
+      "ronda": "u",
       "reintentoAuto": "no",
       "revision": {
         "tanda": "R003",
@@ -243,8 +251,9 @@
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-16T00:54:37.081Z",
-      "pedido": null,
-      "ultimaOrden": "g"
+      "pedido": "U0001",
+      "ultimaOrden": "g",
+      "fallo": null
     }
   },
   "pedidos": {
@@ -253,8 +262,21 @@
       "pieza": "V05_1x1",
       "instruccion": "Corrige lo que notó la revisión: el titular «VUELVE A AMAR TU SILUETA EN SOLO 21 DÍAS» sale cortado por el borde de arriba: solo se ve la parte baja de unas letras y no se puede leer. falta la tercera línea de la placa dorada, «SIN EFECTO REBOTE»: la placa sale cortada por el borde de abajo. el producto sale cortado por abajo: del frasco solo se ve la parte de arriba de la etiqueta y en la caja se lee «ALDROPS» en vez de «VITALDROPS».",
       "fecha": "2026-11-16T00:55:07.621Z",
-      "estado": "ajustando",
-      "ajuste": "A001"
+      "estado": "generando",
+      "ajuste": "A001",
+      "instruccion_en": "Re-compose this same square ad so everything fits fully inside the 1:1 canvas with a clear cream margin on all four sides; nothing may be cut by any edge. Make the 2x2 panel grid shorter (about 55% of the canvas height) to free space above and below. TOP: the complete two-line headline, fully readable, with cream space above it: line 1 'VUELVE A AMAR TU SILUETA', line 2 'EN SOLO 21 DÍAS'. BOTTOM RIGHT: the whole gold plaque with its full border visible and exactly three centered black lines: 'TRATAMIENTO COMPLETO', the larger 'X3 UNIDADES $139,900', and the small wide-spaced 'SIN EFECTO REBOTE'. BOTTOM LEFT: the entire product, smaller: the full amber dropper bottle with its complete label and its base on the cream surface, and behind it the full yellow carton with the complete vertical word 'VITALDROPS' (all ten letters, not 'ALDROPS') and 'amua' at the top. Keep the product identical to the attached product photo. Keep everything else the same: the woman, hair, dress, pose and pool terrace in the four panels, the gold labels 'DÍA 1', 'DÍA 7', 'DÍA 14', 'DÍA 21', the botanical sprig, cream background, colors and typography. Do not add any new text, logo or element.",
+      "cambiaTextos": false,
+      "resumen": "Reacomodé el anuncio para que todo quepa completo: el titular se lee entero arriba, la placa dorada muestra sus tres líneas con «SIN EFECTO REBOTE», y el frasco y la caja se ven completos con «VITALDROPS». Los textos y la escena no cambian.",
+      "pasos": [
+        {
+          "pieza": "V05_1x1",
+          "orden": "U0001",
+          "modo": "editar",
+          "instruccion_en": "Re-compose this same square ad so everything fits fully inside the 1:1 canvas with a clear cream margin on all four sides; nothing may be cut by any edge. Make the 2x2 panel grid shorter (about 55% of the canvas height) to free space above and below. TOP: the complete two-line headline, fully readable, with cream space above it: line 1 'VUELVE A AMAR TU SILUETA', line 2 'EN SOLO 21 DÍAS'. BOTTOM RIGHT: the whole gold plaque with its full border visible and exactly three centered black lines: 'TRATAMIENTO COMPLETO', the larger 'X3 UNIDADES $139,900', and the small wide-spaced 'SIN EFECTO REBOTE'. BOTTOM LEFT: the entire product, smaller: the full amber dropper bottle with its complete label and its base on the cream surface, and behind it the full yellow carton with the complete vertical word 'VITALDROPS' (all ten letters, not 'ALDROPS') and 'amua' at the top. Keep the product identical to the attached product photo. Keep everything else the same: the woman, hair, dress, pose and pool terrace in the four panels, the gold labels 'DÍA 1', 'DÍA 7', 'DÍA 14', 'DÍA 21', the botanical sprig, cream background, colors and typography. Do not add any new text, logo or element.",
+          "textos": false
+        }
+      ],
+      "paso": 0
     }
   }
 }
