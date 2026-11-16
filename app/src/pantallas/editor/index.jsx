@@ -12,6 +12,7 @@
 // hace y vuelve a armar el anuncio sola (src/datos/regenerar.js, lo mismo que el proceso); sigue aunque se cierre el
 // editor. Además: tu propio video en lugar de un clip (elegirlo o arrastrarlo a la ventana; un audio arrastrado sigue
 // siendo la música), su velocidad y deslizar lo que se ve (capas.mjs), Descargar el clip y el video.
+import { forzarOscuro } from '../../datos/tema.js';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Player } from '@remotion/player';
 import { prefetch, staticFile } from 'remotion';
@@ -417,6 +418,10 @@ function EditorAviso({ slug, titulo, children }) {
 // ---------------------------------------------------------------- la pantalla
 
 export default function Editor({ params, consulta }) {
+  useEffect(() => {
+    forzarOscuro(true); // el editor de video va siempre oscuro (los colores del video se ven bien)
+    return () => forzarOscuro(false);
+  }, []);
   const { slug } = params;
   const { datos: a, cargando, error, recargar } = useAnuncio(slug);
 

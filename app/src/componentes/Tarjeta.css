@@ -44,7 +44,7 @@
   background:
     linear-gradient(180deg, rgba(var(--acento-rgb), 0.06), transparent 45%) padding-box,
     linear-gradient(var(--superficie-1), var(--superficie-1)) padding-box,
-    linear-gradient(140deg, rgba(var(--marca-1-rgb), 0.75), rgba(var(--marca-3-rgb), 0.4) 38%, rgba(255, 255, 255, 0.06) 72%) border-box;
+    linear-gradient(140deg, rgba(var(--marca-1-rgb), 0.75), rgba(var(--marca-3-rgb), 0.4) 38%, rgba(var(--tinte-rgb), 0.06) 72%) border-box;
   box-shadow: var(--resalte-superior), var(--sombra-2);
 }
 

@@ -6,7 +6,7 @@
   padding: 0 9px;
   border-radius: var(--r-pill);
   border: 1px dashed rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(var(--tinte-rgb), 0.025);
   color: var(--texto-3);
   font-size: var(--t-micro);
   font-weight: var(--peso-semi);
