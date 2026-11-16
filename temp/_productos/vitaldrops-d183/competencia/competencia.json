@@ -272,6 +272,153 @@
         "Comparación directa con una cirugía y con su precio. Meta también limita los anuncios que señalan defectos del cuerpo («cola flaca», «cuerpo de niña»).",
         "Escasez y descuentos permanentes («lote pequeño», «75 % menos») y páginas con nombre de persona que en realidad son de la marca: es una práctica que expone la cuenta a bloqueos."
       ]
+    },
+    {
+      "titulo": "Ganadores",
+      "contexto": "Solo los conceptos con evidencia de escala. La marca tiene 5 meses, así que el máximo posible son 126 días al aire. El alcance es el visible del Reino Unido: úsalo para comparar, no como tamaño real.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "clave", "titulo": "Criterio de ganador", "texto": "Un concepto entra si cumple al menos tres de estas cinco señales. Se descartaron los anuncios con muchos días y alcance mínimo (por ejemplo, cinco estáticos del 29 de julio con 110 días y menos de 310 de alcance) y los guiones de prueba de pocos días sin relanzamiento.", "items": [
+          "Alcance alto frente al resto de la cuenta (más de 15.000 visibles)",
+          "Varias copias del mismo creativo (5 o más duplicados)",
+          "Varios ganchos sobre el mismo cuerpo",
+          "Versión en imagen y en video, o página de destino propia",
+          "Relanzamiento semanas después"
+        ] },
+        { "tipo": "anuncios", "items": [
+          {
+            "id": "facebook_3864419977033622", "marca": "Amua", "nombre": "Ganador 1 · Rap «No booty, no hips»", "formato": "video",
+            "gancho": "No booty, no hips, no curves, no nothing. Skinny lil thing, workin' with my homegirl. She thick, thick, I'm sick, sick.",
+            "traduccion": "Sin cola, sin caderas, sin curvas, sin nada. Flaquita, trabajando con mi amiga. Ella con curvas, yo cansada de esto.",
+            "angulo": "«Las curvas son moneda y yo estaba quebrada»", "avatar": "La amiga flaca de la amiga con curvas",
+            "pasos": ["1. Estribillo del dolor", "2. Escena en la discoteca: todas las miradas y los tragos para la amiga", "3. Frase central: las curvas son moneda", "4. Lo que ya probó: batidos y sentadillas", "5. Descubre el frasco de la amiga; se nombran los tres ingredientes", "6. Dos semanas: el jean no cierra, el ex suda, «¿te operaste?»", "7. Cierre: ahora «tengo plata» y link abajo"],
+            "cifras": { "dias": 24, "anuncios": 4, "alcance": "275.462 sumando el relanzamiento", "impresiones": "", "desde": "21 de julio de 2026", "hasta": "14 de agosto de 2026" },
+            "por_que": "Dato: mayor alcance visible de la cuenta (158.480), relanzado el 31 de julio (116.982) y enviado a dos páginas de destino distintas. Video sí, estático no, relanzado sí. Inferencia: convierte la vergüenza en algo cantable y compartible; nadie se siente señalada por una canción.",
+            "ganchos": ["Solo se vio una apertura. El relanzamiento usa el mismo video (facebook_1940321336652313) hacia shopamua.com/pages/curves-quizv2"],
+            "url": "https://medias.trendtrack.io/facebook/video/94a98304b30e028f44a3686e042a33e40605fd3feed5afa949ed4d4703fdf2fe.mp4",
+            "landing": "https://shopamua.com/pages/curve-quiz"
+          },
+          {
+            "id": "facebook_1051005344544858", "marca": "Amua", "nombre": "Ganador 2 · «No compres Amua Vital Drops»", "formato": "video",
+            "gancho": "Do not buy Amua Vital Drops if you like being invisible.",
+            "traduccion": "No compres Amua Vital Drops si te gusta ser invisible.",
+            "angulo": "Advertencia al revés más testimonio de 3 semanas", "avatar": "Mujer joven delgada que ya probó de todo",
+            "pasos": ["1. Advertencia al revés (una o cuatro seguidas)", "2. «Dijeron que iba a llenar mis curvas, pero no me avisaron lo rápido»", "3. Tres semanas: el jean ya no queda igual", "4. Prueba social: el ex escribe, la amiga pregunta", "5. Mecanismo en una frase: las plantas despiertan la señal", "6. Objeción: «pensé que se iría a la barriga»", "7. Contraste: «sigan con sus sentadillas»", "8. Oferta: 75 % menos, lleva 3 paga 2, garantía de 90 días"],
+            "cifras": { "dias": 118, "anuncios": 20, "alcance": "26.173 entre las cuatro versiones", "impresiones": "", "desde": "21 de julio de 2026", "hasta": "activo al 15 de noviembre de 2026" },
+            "por_que": "Dato: 118 días activo, relanzado el 7 de octubre en la página Roseline William con tres aperturas y 6 copias de cada una. Es el único concepto donde se ve con claridad la prueba de ganchos sobre un mismo cuerpo. Inferencia: la prohibición crea curiosidad y filtra: quien se siente invisible sigue mirando.",
+            "ganchos": ["What the f*** did these natural plants do to my ass in three weeks? (¿Qué carajos le hicieron estas plantas a mi cola en tres semanas?) · facebook_1073596848882254 · alcance 401", "Do not buy Amua Vital Drops if you like being invisible. (… si te gusta ser invisible.) · facebook_1665460664911685 · alcance 8.742, el que ganó", "Do not buy Amua Vital Drops. (No compres Amua Vital Drops.) · facebook_1095208696251058 · alcance 1.567"],
+            "url": "https://medias.trendtrack.io/facebook/video/e142cf579d0e8a23c64a248425578eb74b54d5a91548a2d0bf9f5b9c4faf6683.mp4",
+            "landing": "https://shopamua.com/pages/curve-quiz"
+          },
+          {
+            "id": "facebook_1008332222095422", "marca": "Amua (página Roseline William)", "nombre": "Ganador 3 · Texto largo «Mis amigas con curvas»", "formato": "imagen",
+            "gancho": "I used to avoid standing next to my thick friends in pictures.",
+            "traduccion": "Yo evitaba pararme junto a mis amigas con curvas en las fotos.",
+            "angulo": "La invisible", "avatar": "La simpática del grupo a la que nadie se le acerca",
+            "pasos": ["1. Confesión de las fotos", "2. Tres escenas de ser invisible", "3. Identidad: «flaca toda la vida»", "4. Un año de gimnasio, comer más, batidos", "5. Fondo: precios de cirugía a las 2 de la mañana", "6. Reseñas de mujeres iguales a ella", "7. Mecanismo: la señal bloqueada por el estrés", "8. Línea de tiempo hasta el mes 3", "9. Recompensa social", "10. Tres frases «si tú eres la que…» y oferta"],
+            "cifras": { "dias": 126, "anuncios": 22, "alcance": "25.084 entre las dos fotos", "impresiones": "", "desde": "13 de julio de 2026", "hasta": "activo; la segunda foto se apagó el 7 de noviembre de 2026" },
+            "por_que": "Dato: el más viejo (126 días) y el más duplicado (12 y 10 copias), con titular propio y dos fotos distintas sobre el mismo texto. Estático sí, video no. Inferencia: nombra escenas que la lectora ha vivido tal cual, y le quita la culpa: «nunca fue tu esfuerzo ni tu genética».",
+            "ganchos": ["Segunda foto con el mismo texto: facebook_1921706715169973 · 117 días · 10 copias · alcance 4.753", "Titular: I Thought I'd Stay the Skinny Girl Nobody Notices… Then I Tried These Drops (Pensé que siempre sería la flaca que nadie nota… hasta que probé estas gotas)"],
+            "url": "https://medias.trendtrack.io/facebook/image/a1fb612b324ec9d528255efdb3863ddefe611de0e7eba9ff246df5fe1b8b9c88.jpg",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_4467606006814607", "marca": "Amua", "nombre": "Ganador 4 · Canción «BBL in the bottle»", "formato": "video",
+            "gancho": "This is BBL in the bottle. Gotta warn you before you try it. Side effects real. Ain't for everybody, girl.",
+            "traduccion": "Esto es una cirugía de cola en un frasco. Te lo advierto antes de probarlo. Los efectos secundarios son reales. No es para todas.",
+            "angulo": "Los «efectos secundarios» son los beneficios", "avatar": "La que piensa en operarse",
+            "pasos": ["1. Promesa en una frase y advertencia", "2. Efecto 1: vas a botar los jeans, toca clóset nuevo", "3. Efecto 2: tus amigas van a jurar que te operaste", "4. Efecto 3: te cambia el carácter, caminas distinto", "5. Por qué pasa: los fitoestrógenos mandan la señal", "6. Cierre: «si estás lista, 90 días sin riesgo; si no, espera»"],
+            "cifras": { "dias": 117, "anuncios": 8, "alcance": "24.546 entre el original y el relanzamiento", "impresiones": "", "desde": "22 de julio de 2026", "hasta": "activo; relanzado el 6 de noviembre de 2026" },
+            "por_que": "Dato: 117 días, número 1 de la página oficial, relanzado el 6 de noviembre con 5 copias (facebook_1352876086794281, 8.693 de alcance nuevo en 7 días y 20 puestos arriba en su página). Inferencia: «no es para todas» es un reto, y listar beneficios como efectos secundarios los hace sonar inevitables.",
+            "ganchos": ["Solo una apertura vista"],
+            "url": "https://medias.trendtrack.io/facebook/video/046b937864d88c668be307f6013d8200418860532efe17d43ed57b1bdfc3e35d.mp4",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_1405928441479966", "marca": "Amua (página Thick Girl Secrets)", "nombre": "Ganador 5 · «Los primeros 14 días»", "formato": "video",
+            "gancho": "People don't realize how fast phytoestrogens work. Here's what happens inside your body in the first 14 days.",
+            "traduccion": "La gente no se imagina lo rápido que actúan los fitoestrógenos. Esto es lo que pasa dentro de tu cuerpo en los primeros 14 días.",
+            "angulo": "Línea de tiempo del mecanismo", "avatar": "La que duda de si funciona",
+            "pasos": ["1. Promesa de velocidad", "2. Primera toma", "3. Semana 1", "4. Semana 2", "5. Semana 3: «¿te operaste?»", "6. Un mes: «no es temporal»", "7. Recompensa social", "8. Oferta y escasez"],
+            "cifras": { "dias": 82, "anuncios": 2, "alcance": "64.027", "impresiones": "", "desde": "12 de agosto de 2026", "hasta": "2 de noviembre de 2026" },
+            "por_que": "Dato: 82 días y número 1 de su página, alcance alto. Cumple alcance y permanencia; solo 2 copias y sin relanzamiento visto, así que es el ganador con menos señales. Inferencia: responde la pregunta de la que ya está interesada: «¿y cuándo voy a notar algo?».",
+            "ganchos": ["Mismo ángulo en otro guion de la misma página: When you get a BBL, doctors literally take fat from your stomach… (Cuando te haces una cirugía de cola, los médicos literalmente sacan grasa de tu barriga…) · facebook_2105349276724035 · 7 copias · 5 días · alcance 5.858. No escaló."],
+            "url": "https://medias.trendtrack.io/facebook/video/51cbb6811ce23c4da6135271c17ae58701e56fda1e9e97014ebdc1731aecaee0.mp4",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_3980256198949602", "marca": "Amua (página Roseline William)", "nombre": "Ganador 6 · La boda (tres versiones)", "formato": "video",
+            "gancho": "My sister said I ruined her wedding day. No. I didn't sleep with her husband or do anything crazy. I just went from flat to curvy since we last saw each other.",
+            "traduccion": "Mi hermana dice que le arruiné la boda. No me acosté con su esposo ni hice nada loco. Solo pasé de plana a tener curvas.",
+            "angulo": "«Me robé las miradas en la boda de otra»", "avatar": "La hermana o la amiga que siempre quedó en segundo plano",
+            "pasos": ["1. Escándalo en una boda", "2. Se desmiente y se explica", "3. Toda la vida flaca; batidos y sentadillas", "4. El médico: genética o cirugía", "5. El mensajero: la tía de Brasil", "6. Mecanismo: la hormona y la señal", "7. La novia pide el frasco", "8. Oferta: lleva 3 paga 2, 90 días"],
+            "cifras": { "dias": 19, "anuncios": 16, "alcance": "82.696 entre las versiones con dato", "impresiones": "", "desde": "7 de agosto de 2026 (primera versión)", "hasta": "versión actual activa desde el 12 de octubre de 2026" },
+            "por_que": "Dato: el concepto se rehízo tres veces en tres meses: la boda de la mejor amiga (7 de agosto, 7 copias, alcance 21.286), la boda de la hermana (14 de septiembre, número 1 de su página, 61.410) y el sketch actuado «mi esposo me dejó por mi hermana» (12 de octubre, 6 copias, activo, solo Estados Unidos). Inferencia: una boda es el escenario con más testigos posible; la fantasía es ser vista por todos a la vez.",
+            "ganchos": ["I caught my best friend's husband staring at me at her wedding. (Pillé al esposo de mi mejor amiga mirándome en su boda.) · facebook_1385197400341633", "Baby, I have something to tell you. Me and your sister, we're in love. (Amor, tengo que decirte algo. Tu hermana y yo estamos enamorados.) · facebook_1141605018441786 · video: https://medias.trendtrack.io/facebook/video/de831ce6bc0656565bfaf7973725d9bfb920a6c442436a01749c32ea98095f96.mp4"],
+            "url": "https://medias.trendtrack.io/facebook/video/70a689586b76e0032ff76045cefa298eb71b701bca51b26199bba799072932e4.mp4",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          },
+          {
+            "id": "facebook_1117034347801450", "marca": "Amua (página Roseline William)", "nombre": "Ganador 7 · El ex escribe «te ves diferente» (cuatro versiones)", "formato": "video",
+            "gancho": "Not one word from my ex since he left. Then out of nowhere: you look different.",
+            "traduccion": "Ni una palabra de mi ex desde que se fue. Y de la nada: «te ves diferente».",
+            "angulo": "Revancha silenciosa: él vuelve y ella lo deja en visto", "avatar": "La que fue dejada por una mujer con más curvas",
+            "pasos": ["1. El mensaje del ex", "2. Recuerdo: «necesito una mujer que pueda agarrar»", "3. La nueva novia en redes", "4. El espejo de lado: nada", "5. Sentadillas, batidos, comer hasta enfermarse", "6. La prima trae el frasco amarillo", "7. Semana 1 hambre, semana 3 el jean aprieta", "8. La foto en la playa", "9. Él escribe a las 2:14; hasta la novia pregunta qué toma", "10. Oferta cantada"],
+            "cifras": { "dias": 25, "anuncios": 13, "alcance": "230.801 entre las cuatro versiones", "impresiones": "", "desde": "6 de agosto de 2026 (primera versión)", "hasta": "dos versiones activas al 15 de noviembre de 2026" },
+            "por_que": "Dato: cuatro versiones: el ex en la guardería (6 de agosto, alcance 62.177), el estático del ex en prisión (14 de agosto, 87.220), la canción del mensaje de las 2:14 (22 de octubre, 53.137, de los cuales 47.696 en los últimos 30 días) y el sketch del baño (6 de noviembre, 5 copias, 28.267). Video y estático sí; relanzado como concepto sí. Inferencia: el premio no es el ex, es poder ignorarlo. Es una fantasía de poder, no de belleza.",
+            "ganchos": ["I ran into my ex at daycare drop off. Him and the thick girl he left me for. (Me encontré a mi ex dejando a los niños en la guardería. A él y a la de curvas por la que me dejó.) · facebook_1425958442707868", "My ex told me I was too skinny. Now he's in prison. (Mi ex me dijo que era muy flaca. Ahora está preso.) · facebook_1441696914452609", "I ran into my ex at a party… his new girlfriend, she had questions. (Me encontré a mi ex en una fiesta… su nueva novia tenía preguntas.) · facebook_1120766514279618"],
+            "url": "https://medias.trendtrack.io/facebook/video/7eee90ea7875037c565459094c0c77a79f82f387b1f32293835fe0c78b0e465f.mp4",
+            "landing": "https://shopamua.com/products/amua-vitaldrops"
+          }
+        ] },
+        { "tipo": "parrafo", "texto": "Dato: son 7 ganadores, no 8. No hay un octavo concepto que cumpla tres señales con lo que se pudo leer. El candidato más fuerte no tiene transcripción y va en la tabla de futuros ganadores." },
+        { "tipo": "tabla", "columnas": ["Nunca cambia", "Lo que prueban"], "filas": [
+          ["El texto escrito de casi todos los videos: «Feel confident in your body with a natural blend designed to support healthy weight gain in the right places!» (Siéntete segura con una mezcla natural para un aumento de peso saludable en los lugares correctos)", "El formato: canción, testimonio, mini novela actuada, texto largo, explicación"],
+          ["El titular: «Embrace your curves, naturally» (Abraza tus curvas, naturalmente)", "El gancho: hasta tres aperturas por cuerpo"],
+          ["La promesa: caderas, piernas y cola, no la barriga", "El mensajero: tía de Brasil, prima, estilista, amiga, la novia del ex"],
+          ["El enemigo: sentadillas, batidos y cirugía", "El escenario social: boda, fiesta, discoteca, guardería, playa, foto de grupo"],
+          ["El mecanismo: la señal que dice dónde guardar la grasa", "El nombre del mecanismo: «fitoestrógenos», «la señal», «equilibrio femenino», «plantas de chica con curvas»"],
+          ["Los tres ingredientes nombrados: maca, fenogreco, ashwagandha", "El plazo: 2 semanas, 3 semanas, 8 semanas, 90 días"],
+          ["La prueba social: «¿te operaste?» y «te ves diferente»", "El descuento: 67 % o 75 %"],
+          ["El cierre: lleva 3 paga 2 más garantía de 90 días", "La página de destino: producto, test versión 1 o test versión 2"],
+          ["La protagonista: mujer joven afroamericana, flaca «de toda la vida»", "La página que pauta: la oficial o una con nombre de persona"]
+        ], "nota": "Dato: comparación de los 16 guiones leídos." },
+        { "tipo": "caja", "estilo": "clave", "titulo": "La razón psicológica de fondo", "texto": "Inferencia: ningún ganador vende un cuerpo. Venden **dejar de ser invisible**. En todos, el momento de triunfo es una mirada ajena: el ex, la rival, la novia en su boda, los desconocidos. El producto resuelve una herida de estatus dentro del grupo, no una medida. Y todos le quitan la culpa a la compradora: no fue falta de esfuerzo ni mala genética, fue una «señal» que nadie le había explicado. Culpa afuera, solución simple, testigos que confirman.", "items": [] },
+        { "tipo": "subtitulo", "texto": "Reporte de patrones" },
+        { "tipo": "vinetas", "items": [
+          "Dato: los conceptos que duran (118 a 126 días) son los más simples de producir: un testimonio a cámara y un texto con foto. Los de más alcance por día son los más producidos: canciones e historias.",
+          "Dato: la marca no deja morir un concepto. Lo rehace: la boda tuvo 3 versiones y el ex tuvo 4, cada una con un formato nuevo.",
+          "Dato: desde octubre las historias pasaron de narración en primera persona a diálogo actuado entre dos o tres personajes.",
+          "Dato: todos los ganadores nombran lo que la compradora ya probó (sentadillas, batidos, comer más) antes de mostrar el producto.",
+          "Dato: el producto aparece tarde, después de la mitad del guion, y siempre lo entrega otra mujer.",
+          "Inferencia: prueban ganchos sobre cuerpos ya validados y no cuerpos nuevos. El cuerpo del testimonio de 3 semanas es el mismo desde julio.",
+          "Dato a contrastar: la versión con grosería en el gancho fue la peor de las tres (alcance 401 frente a 8.742). El gancho de identidad («si te gusta ser invisible») le ganó al de impacto."
+        ] },
+        { "tipo": "escala", "titulo": "Sofisticación del mercado (Schwartz), vista desde los ganadores", "items": [
+          { "nombre": "La marca", "nivel": 4, "nota": "Inferencia: los 7 ganadores llevan mecanismo. Los más nuevos casi no lo explican: lo dan por sabido y compiten con el formato y la historia, lo que ya roza el nivel 5 (identificación con el personaje)." },
+          { "nombre": "El mercado en inglés", "nivel": 3, "nota": "Inferencia: lectura provisional; se mide con conteos en la etapa 4." }
+        ] },
+        { "tipo": "subtitulo", "texto": "Futuros ganadores probables" },
+        { "tipo": "tabla", "columnas": ["Concepto", "Señal temprana (dato y fecha)", "Por qué podría ganar"], "filas": [
+          ["Video sin transcripción de la página Roseline William (facebook_1610595196830927) · https://medias.trendtrack.io/facebook/video/370c0b94487f17f64fbecc8a06e7870bb8616c3e3ad500fa77afdb6bcf9b8983.mp4", "Lanzado el 4 de noviembre de 2026. Alcance 106.999 en 12 días; 39.382 en los últimos 7. Es el que más crece de toda la cuenta", "Ya es el tercero de más alcance histórico con solo 12 días. Hay que verlo: no se sabe qué dice"],
+          ["Sketch del baño (facebook_1120766514279618)", "Lanzado el 6 de noviembre. 5 copias. 21.043 de alcance en 7 días", "Formato de mini novela, nuevo para la marca, y con la rival como vendedora"],
+          ["Video sin transcripción hacia el test versión 2 (facebook_1096567963205951) · https://medias.trendtrack.io/facebook/video/df047fcebb2b48c406040534e46155b3f33277c05ad9c1fba6c5e4d447ec1c2d.mp4", "Lanzado el 6 de noviembre. 5 copias. 20.082 en 7 días", "Mismo lote y mismo ritmo que el sketch del baño; probablemente otra mini novela"],
+          ["Anuncio de oferta «Le debemos una disculpa a cada reina» (facebook_994971129662026) · https://medias.trendtrack.io/facebook/video/d66b2b0657b282f349115000f152d78ad7522063be686bc09ec7acfb3e7c6286.mp4", "Lanzado el 4 de noviembre. 5 copias. 12.422 en 7 días", "Primer anuncio de pura oferta de la marca, justo antes de la temporada de descuentos"],
+          ["Relanzamiento de «BBL in the bottle» (facebook_1352876086794281) · https://medias.trendtrack.io/facebook/video/be4418754cd991c46bac2ffceb872edd16b78698afeba8a8a6d0aa2bc797d598.mp4", "Relanzado el 6 de noviembre. 5 copias. Subió 20 puestos en su página", "Ya ganó una vez y vuelve con más copias"],
+          ["Estático nuevo de producto (facebook_1105087365237812)", "Del 12 de octubre. 4.228 de sus 4.707 de alcance llegaron en los últimos 7 días", "Señal débil: el único estático que crece. Puede ser solo apoyo de la campaña de oferta"]
+        ], "nota": "Dato: orden por alcance ganado en los últimos 7 días entre los anuncios activos de la marca (969 activos en la búsqueda)." }
+      ],
+      "limitaciones": [
+        "Sin transcripciones completas no se pudo contar cuántos anuncios usan cada guion. «Anuncios» en cada tarjeta es la suma de duplicados de las versiones vistas, no el total real.",
+        "El techo de permanencia es de 126 días porque la marca empezó en junio de 2026.",
+        "El alcance es del Reino Unido. Un anuncio que solo corre en Estados Unidos (como el sketch de la hermana) aparece sin alcance aunque esté gastando.",
+        "Varias transcripciones tienen errores de audio; los ganchos se citaron de las partes legibles."
+      ],
+      "riesgos": [
+        "Los 7 ganadores prometen cambio de forma del cuerpo en semanas. Es el corazón de su éxito y también lo que no puedes repetir. Lo que sí se puede llevar: la escena social, el mensajero de confianza, la culpa afuera y la línea de tiempo de lo que sí se siente (apetito y energía).",
+        "La canción «BBL in the bottle» compara de frente con una cirugía. Versión defendible: «un apoyo natural, sin agujas», sin comparar resultados.",
+        "Las historias del ex y de la boda se apoyan en la validación de los hombres y en la rivalidad entre mujeres. Funciona en ese mercado; en una marca que quiera durar puede traer rechazo. Versión defendible: el momento de triunfo es ella frente al espejo o con la ropa que le gusta.",
+        "«Las brasileñas lo usan hace generaciones» y «la tía de Brasil» son autoridad inventada por un guion. No la presentes como un hecho."
+      ]
     }
   ]
 }
