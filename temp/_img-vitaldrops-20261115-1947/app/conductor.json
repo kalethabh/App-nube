@@ -1,8 +1,8 @@
 {
   "slug": "_img-vitaldrops-20261115-1947",
   "familia": "imagen-ads",
-  "estado": "corriendo",
-  "paso": "anuncios",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "preparar",
@@ -34,21 +34,24 @@
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
       "inicio": "2026-11-16T00:55:07.623Z",
-      "detalle": "Creando 1 imagen · 4 de 5 listas"
+      "fin": "2026-11-16T00:59:42.857Z"
     },
     {
       "id": "informe",
       "nombre": "Armando tu informe",
-      "estado": "pendiente",
-      "intentos": 1
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-16T00:59:42.858Z",
+      "fin": "2026-11-16T00:59:42.859Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-16T00:47:01.136Z",
   "aprobado": "2026-11-16T00:47:01.136Z",
-  "actualizado": "2026-11-16T00:55:29.270Z"
+  "actualizado": "2026-11-16T00:59:42.859Z",
+  "terminado": "2026-11-16T00:59:42.859Z"
 }

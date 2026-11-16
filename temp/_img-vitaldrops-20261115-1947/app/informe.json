@@ -1,23 +1,16 @@
 {
   "tipo": "imagen-ads",
-  "fecha": "2026-11-16T00:55:05.916Z",
+  "fecha": "2026-11-16T00:59:42.859Z",
   "variaciones": 5,
   "archivos": 5,
   "modoPrueba": false,
   "revision": {
     "aLaPrimera": 4,
-    "rehechasPorTi": [],
-    "arregladas": [],
-    "conDetalles": [
-      {
-        "pieza": "V05_1x1",
-        "problemas": [
-          "El titular «VUELVE A AMAR TU SILUETA EN SOLO 21 DÍAS» sale cortado por el borde de arriba: solo se ve la parte baja de unas letras y no se puede leer.",
-          "Falta la tercera línea de la placa dorada, «SIN EFECTO REBOTE»: la placa sale cortada por el borde de abajo.",
-          "El producto sale cortado por abajo: del frasco solo se ve la parte de arriba de la etiqueta y en la caja se lee «ALDROPS» en vez de «VITALDROPS»."
-        ]
-      }
+    "rehechasPorTi": [
+      "V05_1x1"
     ],
+    "arregladas": [],
+    "conDetalles": [],
     "sinRevisar": [],
     "sinImagen": [],
     "sinPrompt": []
