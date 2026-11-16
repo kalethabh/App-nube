@@ -15,6 +15,11 @@ export function BandaVersionNueva() {
   const [pendiente, setPendiente] = useState(false);
   const esperando = useRef(false);
   const servidor = datos?.servidor;
+  // la interfaz con la que se abrió esta página; si el servidor la vuelve a armar (pantallas nuevas), se ofrece recargar
+  const armadaAlAbrir = useRef(null);
+  const armada = servidor?.interfaz?.armada || null;
+  if (armada && armadaAlAbrir.current == null) armadaAlAbrir.current = armada;
+  const pantallaNueva = Boolean(armada && armadaAlAbrir.current && armada !== armadaAlAbrir.current);
 
   // espera a que la app vuelva con lo nuevo y recarga la página
   const esperar = async () => {
@@ -50,7 +55,30 @@ export function BandaVersionNueva() {
       </div>
     );
   }
-  if (!servidor?.desactualizado && !reiniciando) return null;
+  if (!servidor?.desactualizado && !reiniciando) {
+    if (servidor?.interfaz?.armando) {
+      return (
+        <div className="modo-prueba modo-prueba--global" role="status">
+          <RefreshCw size={15} strokeWidth={2.2} aria-hidden="true" className="girando" />
+          <span style={{ flex: 1 }}>
+            <strong>Preparando la versión nueva de la app…</strong> Unos segundos; después te aviso para recargar.
+          </span>
+        </div>
+      );
+    }
+    if (!pantallaNueva) return null;
+    return (
+      <div className="modo-prueba modo-prueba--global" role="alert">
+        <RefreshCw size={15} strokeWidth={2.2} aria-hidden="true" />
+        <span style={{ flex: 1 }}>
+          <strong>Hay una versión nueva de la app.</strong> Recarga la página para verla (no se pierde nada).
+        </span>
+        <Boton variante="primario" tamano="chico" onClick={() => window.location.reload()}>
+          Recargar
+        </Boton>
+      </div>
+    );
+  }
 
   if (servidor?.reinicioPedido || pendiente) {
     return (

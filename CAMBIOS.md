@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16c · La pantalla nueva llega sola
+
+- Si el guardado automático trae una versión nueva desde GitHub, la app ahora vuelve a armar la pantalla sola y te avisa arriba con «Recargar». Antes, Ajustes decía la versión nueva pero se seguía viendo la vieja (por ejemplo, sin el botón del modo claro).
+- «Actualizar» también lo nota: si ya bajó todo pero falta armar la pantalla, lo hace y te pide recargar.
+
 ## 2026-11-16b · Modo claro y modo oscuro
 
 - **Modo claro:** botón de sol/luna arriba a la derecha para cambiar en un toque. En Ajustes → Apariencia eliges Claro, Oscuro o Automático (igual que tu computador, cambia solo).

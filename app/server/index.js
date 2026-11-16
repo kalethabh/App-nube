@@ -25,6 +25,7 @@ import express from 'express';
 import { APP, DIST, RUTAS_API, HOST, PUERTO } from './lib/rutas.js';
 import { hostsPermitidos } from './lib/servidor.js';
 import { migrarMotor, motorElegido } from './lib/motor-ia.js';
+import { vigilarInterfaz } from './lib/interfaz.js';
 
 const DEV = process.argv.includes('--dev');
 
@@ -131,4 +132,5 @@ servidor.listen(PUERTO, HOST, () => {
   console.log(`  Abre http://${HOST}:${PUERTO}`);
   console.log(`  Rutas cargadas: ${cargadas.join(', ')}\n`);
   prepararCodex().catch((e) => console.error(`  [codex] ${e?.message || e}`));
+  if (!DEV) vigilarInterfaz(); // pantallas nuevas sin armar (p. ej. traídas por el guardado automático)
 });

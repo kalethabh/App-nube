@@ -129,6 +129,7 @@ function ActualizarDeGithub() {
   const [trabajando, setTrabajando] = useState(false);
   const [resultado, setResultado] = useState(null);
   const nuevos = datos?.atrasados || 0;
+  const sinArmar = !nuevos && Boolean(datos?.pantallaSinArmar); // lo nuevo ya bajó, falta armar la pantalla
 
   const abrir = async () => {
     setResultado(null);
@@ -164,7 +165,9 @@ function ActualizarDeGithub() {
     ? datos.error
     : !datos
       ? 'Revisando tu GitHub…'
-      : nuevos
+      : sinArmar
+        ? 'Ya bajó lo último de GitHub, pero falta armar la pantalla nueva. Toca «Actualizar ahora» (unos segundos).'
+        : nuevos
         ? `Hay ${nuevos} ${nuevos === 1 ? 'cambio nuevo' : 'cambios nuevos'} en GitHub${datos.ultimo?.titulo ? `. El último: «${datos.ultimo.titulo}».` : '.'}`
         : 'Tienes lo último: no hay nada nuevo en GitHub.';
 
@@ -174,7 +177,7 @@ function ActualizarDeGithub() {
         <Boton variante="secundario" tamano="chico" icono={RefreshCw} onClick={abrir}>
           Actualizar
         </Boton>
-        {nuevos ? <span className="barra__actualizar-punto" aria-label={`${nuevos} cambios nuevos`} /> : null}
+        {nuevos || sinArmar ? <span className="barra__actualizar-punto" aria-label={`${nuevos} cambios nuevos`} /> : null}
       </span>
       <Modal
         abierto={abierto}
@@ -184,7 +187,7 @@ function ActualizarDeGithub() {
         icono={RefreshCw}
         tamano="chico"
         pie={
-          resultado?.ok && resultado.cambios ? (
+          resultado?.ok && (resultado.cambios || resultado.recargar) ? (
             <Boton variante="primario" onClick={() => window.location.reload()}>
               Recargar la página
             </Boton>
@@ -193,7 +196,7 @@ function ActualizarDeGithub() {
               <Boton variante="fantasma" onClick={() => setAbierto(false)}>
                 Cerrar
               </Boton>
-              <Boton variante="primario" icono={RefreshCw} onClick={actualizar} cargando={trabajando} disabled={!nuevos || Boolean(datos?.error)}>
+              <Boton variante="primario" icono={RefreshCw} onClick={actualizar} cargando={trabajando} disabled={(!nuevos && !sinArmar) || Boolean(datos?.error)}>
                 Actualizar ahora
               </Boton>
             </>
