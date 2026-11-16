@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16f` (archivo `VERSION`), en la rama `correcciones-revision` (ver «Correcciones de la
-  revisión técnica» abajo). Hasta que se una, `main` sigue en `2026-11-16e`.
+- **Versión actual:** `2026-11-16f` (archivo `VERSION`): «Correcciones de la revisión técnica», [PR #68](https://github.com/kalethabh/App-nube/pull/68),
+  integrado en `main` el 2026-11-16.
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -137,7 +137,7 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
 
 ## Últimas actualizaciones terminadas
 
-### Correcciones de la revisión técnica (2026-11-16, versión 2026-11-16f, rama `correcciones-revision`)
+### Correcciones de la revisión técnica (2026-11-16, versión 2026-11-16f, [PR #68](https://github.com/kalethabh/App-nube/pull/68))
 
 Pedido: aplicar el informe «Kads Studio · Evaluación colaborativa y hoja de ruta» y corregir los problemas que
 encontró un análisis completo del código. Se respetó el principio del informe: **no se tocaron prompts, skills,
@@ -171,11 +171,13 @@ aprendizajes ni la forma de crear los anuncios**; solo correcciones determinista
 - **Pruebas nuevas:** `produccion/pruebas/probar-creacion-incierta.js` (4/4: respuesta cortada, 504, sin conexión y
   caso normal, con un servidor local) y 4 casos de `restaurarAsync` en `app/herramientas/probar-archivo-nube.mjs`
   (30/30). Origen probado a mano con `ANUNCIOS_DOMINIO`: el dominio pasa, otra página y `cross-site` dan 403.
-- **Humo completo (modo prueba, Claude falso, kie y ElevenLabs simulados): 139/142.** Las 3 fallas son del entorno
-  de prueba: Remotion no pudo bajar su navegador (`remotion.media` bloqueado por la red), así que el render final no
-  corrió ahí (las 9 «salidas bloqueadas» de la guardia son esos reintentos). Imágenes, videos, voz, música, revisión
-  y montaje pasaron. Humo rápido de antes: 77/82 (Python sin `rembg` y el mismo navegador). **Falta en la Mac:** un
-  anuncio de punta a punta con el render, y la app en el servidor (si se usa) entrando por el dominio.
+- **Humo completo (modo prueba, Claude falso, kie y ElevenLabs simulados), con render: 218/220**, y salió el MP4.
+  Las 2 fallas son de costo («lo cobrado es el estimado»: 356 contra 212 créditos; «lo que costó regenerar es lo
+  que decía cada botón»: 199 contra 130) y **salen idénticas en `main` sin estos cambios** (se corrió la misma prueba
+  sobre `main`): vienen de antes, como `probar-estimar-costo.js` y `probar-modelos.js`. Es el próximo trabajo de C-04
+  (estimado contra cobrado). Para el render en el entorno de prueba se usó el Chromium local en
+  `remotion/node_modules/.remotion` (sin cambios en el repositorio). **Falta en la Mac:** un anuncio real, y la app en
+  el servidor (si se usa) entrando por el dominio.
 - **No hecho a propósito (decisiones del informe, sección 09):** tope de presupuesto por anuncio (C-03), firma de
   las actualizaciones (C-14), sacar `temp/` del repositorio y que el guardado no traiga código con `pull` (C-13), y los
   experimentos de contexto/skills/aprendizajes (C-05 a C-07), que el informe pide medir antes con anuncios aprobados.
