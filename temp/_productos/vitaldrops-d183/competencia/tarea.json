@@ -1,7 +1,7 @@
 {
   "id": "050709ec-1d38-454b-bab0-c8707f43781e",
   "uuid": "050709ec-1d38-454b-bab0-c8707f43781e",
-  "estado": "investigando",
+  "estado": "error",
   "enlace": "AMUA VITALDROP",
   "producto": "VITALDROPS",
   "pais": "COLOMBIA",
@@ -12,10 +12,23 @@
     "Buscando en los archivos",
     "Leyendo lo que contaste de tu producto",
     "Leyendo",
-    "Guardando"
+    "Guardando",
+    "Buscando en los archivos"
   ],
   "intentos": 1,
   "inicio": "2026-11-16T14:59:18.861Z",
-  "error": null,
-  "actualizado": "2026-11-16T15:01:37.601Z"
+  "error": {
+    "mensaje": "Se acabó por ahora el uso de tu plan de Claude. Toca \"Reintentar\" cuando se renueve (se renueva a las 11:50): lo ya hecho no se repite.",
+    "tipo": "limite",
+    "motor": "claude",
+    "detalle": "You've hit your 5-hour limit · resets 11:50am (America/Bogota)\n[claude-code:unrecognized_model] {\"model\":\"claude-fable-5-2\",\"query_source\":\"sdk\"}"
+  },
+  "fin": "2026-11-16T15:17:29.665Z",
+  "medida": {
+    "turnos": 40,
+    "duracionMs": 1090790,
+    "motor": "claude"
+  },
+  "limite": true,
+  "actualizado": "2026-11-16T15:17:29.666Z"
 }

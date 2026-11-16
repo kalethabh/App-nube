@@ -14,7 +14,7 @@
     "La búsqueda por palabra lee el texto escrito del anuncio, no lo que se dice en el video. Esta marca usa el mismo texto corto en casi todos sus videos, así que sus ángulos casi no aparecen en los conteos por palabra.",
     "Las páginas de destino no se abrieron: se reporta la dirección y el titular que muestra el anuncio."
   ],
-  "creditos": { "antes": 4328, "despues": 0 },
+  "creditos": { "antes": 4328, "despues": 3932 },
   "etapas": [
     {
       "titulo": "Investigación maestra",
@@ -548,6 +548,174 @@
         "Ganchos que señalan el cuerpo («cola flaca», «tabla de planchar», «cuerpo de niña») pueden ser rechazados por Meta si se dirigen a quien mira. Úsalos en primera persona, nunca como «¿tú tienes…?».",
         "«Fitoestrógenos», «estrógeno» y «equilibrio hormonal» son afirmaciones de efecto en el cuerpo. Están en el mercado como dato, no como plantilla.",
         "Cifras sin fuente («70 a 80 % menos creatina», «25.000 mujeres», «+12.450 clientas»): no las repitas ni inventes las tuyas."
+      ]
+    },
+    {
+      "titulo": "Mapa de saturación de ángulos",
+      "contexto": "Se midió el mercado en inglés, no solo la marca: cuántos anuncios activos combinan la palabra «curves» (curvas) con cada ángulo en su texto escrito. La búsqueda lee el texto, no lo que se dice en el video. El mapa de Colombia está en la etapa 6.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Cómo leer estos números", "texto": "Dato: «curves» también aparece en anuncios de ropa, fajas, novelas románticas y clínicas. Las palabras muy comunes (confianza, garantía, jeans, invisible, ex) salen infladas. Sirven como orden de magnitud y para comparar ángulos entre sí. Además, Amua pone el mismo texto corto en casi todos sus videos, así que lo que dice dentro de ellos casi no suma aquí.", "items": [] },
+        { "tipo": "barras", "titulo": "Anuncios activos con «curves» más cada ángulo (texto escrito, mercado en inglés)", "unidad": "anuncios", "items": [
+          { "etiqueta": "confidence (confianza)", "valor": 3036, "nota": "Alta · inflado por ropa", "tono": "rojo" },
+          { "etiqueta": "guarantee (garantía)", "valor": 2303, "nota": "Alta · inflado", "tono": "rojo" },
+          { "etiqueta": "jeans", "valor": 1541, "nota": "Alta · inflado por ropa", "tono": "rojo" },
+          { "etiqueta": "invisible", "valor": 766, "nota": "Alta · inflado por ropa interior", "tono": "rojo" },
+          { "etiqueta": "weight gain (subir de peso)", "valor": 718, "nota": "Alta · buena parte es de Amua", "tono": "rojo" },
+          { "etiqueta": "surgery (cirugía)", "valor": 622, "nota": "Alta", "tono": "rojo" },
+          { "etiqueta": "BBL (cirugía de cola)", "valor": 355, "nota": "Alta", "tono": "rojo" },
+          { "etiqueta": "fenugreek (fenogreco)", "valor": 316, "nota": "Media", "tono": "ambar" },
+          { "etiqueta": "estrogen (estrógeno)", "valor": 268, "nota": "Media", "tono": "ambar" },
+          { "etiqueta": "ex", "valor": 262, "nota": "Media · inflado por novelas", "tono": "ambar" },
+          { "etiqueta": "hormones (hormonas)", "valor": 259, "nota": "Media", "tono": "ambar" },
+          { "etiqueta": "maca", "valor": 242, "nota": "Media", "tono": "ambar" },
+          { "etiqueta": "menopause (menopausia)", "valor": 163, "nota": "Media", "tono": "ambar" },
+          { "etiqueta": "squats (sentadillas)", "valor": 145, "nota": "Media", "tono": "ambar" },
+          { "etiqueta": "skinny (flaca)", "valor": 127, "nota": "Baja", "tono": "verde" },
+          { "etiqueta": "appetite (apetito)", "valor": 102, "nota": "Baja", "tono": "verde" },
+          { "etiqueta": "genetics (genética)", "valor": 55, "nota": "Baja", "tono": "verde" },
+          { "etiqueta": "phytoestrogens (fitoestrógenos)", "valor": 16, "nota": "Baja en texto; Amua lo dice dentro de los videos", "tono": "verde" }
+        ] },
+        { "tipo": "barras", "titulo": "Anuncios activos con «curves» por formato de producto", "unidad": "anuncios", "items": [
+          { "etiqueta": "drops (gotas)", "valor": 635, "nota": "Inflado: de 8 leídos, ninguno era de curvas", "tono": "" },
+          { "etiqueta": "supplement (suplemento)", "valor": 161, "nota": "", "tono": "azul" },
+          { "etiqueta": "gummies (gomitas)", "valor": 158, "nota": "7 de 8 leídos eran de Chumgum", "tono": "azul" }
+        ] },
+        { "tipo": "parrafo", "texto": "Dato: al leer los resultados, el producto real aparece poco. De 8 anuncios con «curves» y «drops», ninguno era de curvas. De 8 con «weight gain» y «curves», 6 eran de la propia Amua. Inferencia: fuera de Amua, este mercado en inglés es pequeño en marcas (Chumgum, Curvelle, Girlush y las nuevas de creatina). La saturación es de ideas repetidas por pocos jugadores, no de cientos de marcas." },
+        { "tipo": "subtitulo", "texto": "Ángulos sobreusados" },
+        { "tipo": "tabla", "columnas": ["Ángulo", "Saturación", "Evidencia"], "filas": [
+          ["Alternativa a la cirugía («cirugía en un frasco», «antes de operarte»)", "Alta", "622 y 355 anuncios; lo usan Amua, Chumgum, Curvelle, Hemokare y The Daily Reset"],
+          ["Las sentadillas no sirven", "Alta", "145 anuncios; 9 de 16 guiones de Amua; todas las marcas de creatina"],
+          ["Subir de peso «en los lugares correctos»", "Alta", "718 anuncios; frase literal en Amua, Girlush y Curvelle"],
+          ["La señal hormonal: estrógeno y plantas", "Media", "268, 259, 316 y 242 anuncios para estrógeno, hormonas, fenogreco y maca"],
+          ["«Efectos secundarios» irónicos", "Alta", "260 días en Amua y copiado por 3 marcas"],
+          ["Invisible, nadie me nota", "Media", "766 anuncios (inflado); en guiones es exclusivo de Amua y Chumgum"]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Ángulos frescos" },
+        { "tipo": "tabla", "columnas": ["Ángulo", "Saturación", "Evidencia"], "filas": [
+          ["El apetito: «me lleno con nada»", "Baja", "102 anuncios con la palabra; ningún guion leído lo usa como entrada. Amua solo lo nombra de paso («semana 1, tenía hambre todo el tiempo»)"],
+          ["«No es tu cuerpo, es tu plan»: método en vez de producto", "Baja", "Nuellaoboh, 91 días y 10 copias, en Nigeria y Ghana"],
+          ["Conservar las curvas al bajar de peso", "Baja", "Gene.In.Us, 93 días y 5 copias"],
+          ["Constancia y rutina: «lo sumé a lo que ya hacía»", "Baja", "El estático de más alcance de Amua (87.220) y el video más visto de Chumgum (12.073)"],
+          ["Genética como falsa excusa", "Baja", "55 anuncios; Amua lo dice en 3 guiones"],
+          ["Fitoestrógenos como palabra escrita", "Baja", "16 anuncios en texto. Es fresco en el texto y gastado en los videos"]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Lo que falta y lo que sobra" },
+        { "tipo": "tabla", "columnas": ["Tema", "Hallazgo", "Tipo"], "filas": [
+          ["Impulsores emocionales poco usados", "El orgullo propio (hacerlo por ella, no por el ex). Solo aparece al final de un anuncio de Amua", "Inferencia"],
+          ["Impulsores emocionales poco usados", "La tranquilidad: no tener que mentir sobre lo que te hiciste, no arriesgar la salud", "Inferencia"],
+          ["Impulsores emocionales poco usados", "La complicidad entre mujeres. Hoy la otra mujer es rival (la hermana, la novia del ex) o mensajera, nunca compañera de proceso", "Inferencia"],
+          ["Impulsores emocionales poco usados", "El cansancio de oír comentarios de la familia. No apareció en ningún guion en inglés", "Dato"],
+          ["Avatares sin explotar", "La que come y no sube por falta de apetito o por estrés", "Dato: 102 anuncios con «apetito», ninguno como gancho"],
+          ["Avatares sin explotar", "La mamá que quedó más delgada después de los hijos", "Dato: solo un guion de Amua tiene una mamá, y el tema es el ex"],
+          ["Avatares sin explotar", "La que bajó de peso con tratamiento y perdió forma", "Dato: una sola marca, 93 días"],
+          ["Avatares sin explotar", "Mujeres fuera del público afroamericano de Estados Unidos. Todos los guiones de Amua usan su jerga", "Dato"],
+          ["Claims sobreusados", "«3 semanas», «en los lugares correctos», «no en la barriga», «sin cirugía», «90 días de garantía», «hasta 75 % menos», «3 veces más grande»", "Dato"],
+          ["Posicionamiento débil que todos repiten", "«Natural, fácil y sin esfuerzo»: unas plantas hacen lo que el gimnasio no pudo. Nadie puede demostrarlo y todos lo dicen igual, así que no diferencia", "Inferencia"],
+          ["Posicionamiento débil que todos repiten", "«Abraza tus curvas, naturalmente» como titular. Lo copian hasta los revendedores en Colombia", "Dato"],
+          ["Estilos visuales que se están gastando", "El testimonio a cámara con el frasco en la mano y el mismo guion de 3 semanas (corre desde julio con tres aperturas)", "Inferencia: no se vieron los videos, se deduce de los guiones"],
+          ["Estilos visuales que se están gastando", "La lista de «efectos secundarios» contada a cámara: ya la hacen cuatro marcas", "Dato"],
+          ["Estilos visuales que se están gastando", "El estático de producto sin historia: 5 de los 6 de la tanda de julio no pasan de 310 de alcance", "Dato"]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "Oportunidades contrarias" },
+        { "tipo": "tabla", "columnas": ["Idea contraria", "Frase de ejemplo", "Contra qué va"], "filas": [
+          ["Las gotas no hacen el trabajo solas", "«Estas gotas no te van a sacar cola. Tu plato y tu rutina sí. Las gotas son para que no te saltes ninguno de los dos.»", "Contra «sin esfuerzo»"],
+          ["No dejes las sentadillas", "«Sigue entrenando pierna. Lo que tienes que dejar es de entrenar sin haber comido.»", "Contra «las sentadillas no sirven»"],
+          ["No es por el ex", "«No lo hice para que él volviera. Lo hice para dejar de esconderme en las fotos.»", "Contra la revancha"],
+          ["Sin plazo mágico", "«Si te prometen cola en 3 semanas, te están mintiendo. Esto se mide en meses.»", "Contra «3 semanas»"],
+          ["Antes de cotizar", "«Antes de cotizar una cirugía, dale tres meses a tu comida.»", "Contra «cirugía en un frasco»"]
+        ], "nota": "Inferencia: son frases para probar, no datos del mercado." },
+        { "tipo": "caja", "estilo": "oportunidad", "titulo": "Posicionamiento de océano azul", "texto": "Inferencia: todo el mercado vende **el atajo**. Nadie vende **el acompañante**: el hábito diario de la mujer que decidió subir de peso sana, con comida, entrenamiento y sus gotas. Es el único lugar donde la promesa se puede cumplir, donde las reseñas reales del producto (apetito, energía, sabor) juegan a favor y donde un imitador que solo traduce guiones no puede seguirte.", "items": [] },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Mecanismos nuevos (hipótesis que hay que sustentar antes de usar)", "texto": "", "items": [
+          "**El apetito primero.** «No subes porque no comes lo suficiente, y no comes porque no te da hambre.» Hay que sustentarlo con la ficha técnica y con testimonios reales; no se puede prometer que abre el apetito.",
+          "**El estrés que quita el hambre.** Ashwagandha para los días pesados. Solo como uso tradicional, sin prometer efecto.",
+          "**La constancia como mecanismo.** El gotero de la mañana como recordatorio de desayunar. No necesita prueba clínica porque no afirma nada sobre el cuerpo.",
+          "**Líquido frente a pastilla.** «Más fácil de tomar todos los días». Un revendedor en Colombia ya dice «se absorbe más rápido»: eso sí habría que demostrarlo."
+        ] },
+        { "tipo": "tabla", "columnas": ["Qué probar", "Propuesta", "Por qué"], "filas": [
+          ["Estructura narrativa nueva", "Diario de 30 días: una misma mujer, un video corto por semana, sin promesa de resultado", "Nadie muestra el proceso; todos saltan del antes al después"],
+          ["Estructura narrativa nueva", "La conversación de WhatsApp: la amiga pregunta y ella responde con audios", "Lleva el «mensajero de confianza» al formato en que se vende en Colombia"],
+          ["Estructura narrativa nueva", "Lo que nadie te dice: tres verdades incómodas (no es magia, toca comer, se mide en meses)", "Usa la estructura de los «efectos secundarios» con contenido honesto"],
+          ["Estructura narrativa nueva", "Dos amigas, no dos rivales: la que ya lo toma acompaña a la que empieza", "Cambia la rivalidad por complicidad"],
+          ["Dirección visual nueva", "La cocina y el desayuno: el gotero junto al plato, no junto al espejo", "Saca el producto del terreno de la promesa corporal"],
+          ["Dirección visual nueva", "El probador o el cuarto con la ropa encima de la cama, sin mostrar el cuerpo como defecto", "La escena del jean que queda bailando, que todo el mercado nombra y nadie muestra bien"],
+          ["Dirección visual nueva", "Captura de un chat o de una nota del celular como estático", "El texto largo ya probó que una pieza sencilla dura más"],
+          ["Arquetipo de creador nuevo", "La entrenadora de glúteo que dice «sin comer no hay cola»", "Autoridad real y creíble; hoy no hay ninguna"],
+          ["Arquetipo de creador nuevo", "La nutricionista o la que cocina: «lo que como en un día para subir de peso sano»", "Abre el ángulo del apetito"],
+          ["Arquetipo de creador nuevo", "La mamá o la tía que regaña con cariño", "El mensajero de confianza, en clave colombiana"],
+          ["Arquetipo de creador nuevo", "La escéptica que lo prueba un mes y cuenta la verdad", "Responde a «¿eso sí sirve?» sin prometer"]
+        ], "nota": "Inferencia: propuestas a partir de los huecos encontrados. Ninguna está validada con datos." },
+        { "tipo": "caja", "estilo": "veredicto", "titulo": "Lectura crítica: dónde apostar y dónde no", "texto": "Las tres apuestas con mejor relación entre oportunidad y riesgo, y lo que no haría.", "items": [
+          "**Apuesta 1: la flaca que come y no sube, entrando por el apetito.** Oportunidad alta (ángulo casi virgen en los dos mercados y es lo que las reseñas respaldan). Riesgo bajo de cumplimiento. Riesgo comercial: público más pequeño.",
+          "**Apuesta 2: las escenas sociales de Amua, con el triunfo puesto en ella y no en el ex.** Oportunidad alta (es lo que más alcance le da a la marca y no está en Colombia). Riesgo medio: producción más cara y copia rápida.",
+          "**Apuesta 3: el acompañante del gimnasio.** Oportunidad media (el dolor «entreno y no veo cambios» ya lo trabajan las creatinas). Riesgo bajo: es la promesa más fácil de sostener.",
+          "**No haría:** «cirugía en un frasco», los «efectos secundarios» traducidos, «3 semanas» y cualquier cosa con hormonas o fitoestrógenos. Están saturados, ya los copian y son justo lo que no puedes prometer.",
+          "**No haría:** competir por «sin cirugía y 100 % natural». Es el titular de todos."
+        ] }
+      ],
+      "limitaciones": [
+        "La búsqueda lee el texto escrito, no el video. Un ángulo puede estar en cientos de videos y aparecer en pocos textos; pasa con «fitoestrógenos» (16 en texto, 8 de 16 guiones de Amua).",
+        "Los conteos con «curves» están inflados por ropa, novelas y clínicas. No son el tamaño del nicho.",
+        "Se leyeron unos 40 anuncios del mercado para interpretar los conteos, con textos de menos de 1.500 caracteres. Pueden faltar marcas que solo usan textos largos.",
+        "Los estilos visuales se dedujeron de los guiones y de los formatos (video, imagen). No se vieron los videos."
+      ],
+      "riesgos": [
+        "Los ángulos saturados son también los de mayor riesgo: comparación con cirugía, promesas hormonales y plazos de semanas.",
+        "Los mecanismos nuevos son hipótesis. Usarlos sin ficha técnica ni registro los convierte en otra promesa sin sustento.",
+        "El ángulo del apetito roza un tema delicado: no le vendas a quien está muy por debajo de su peso o tiene una relación difícil con la comida."
+      ]
+    },
+    {
+      "titulo": "Avatares",
+      "contexto": "Nueve avatares del mercado, ordenados de más saturado a más libre. TrendTrack no da datos demográficos de la audiencia: cada avatar se dedujo del texto, los ganchos, los guiones y las páginas de destino de los anuncios.",
+      "bloques": [
+        { "tipo": "avatares", "items": [
+          { "nombre": "La que piensa en operarse", "frase": "Ya estaba mirando precios de cirugía, pero me da miedo y no me alcanza.", "perfil": "22 a 38 años. Conoce a alguien operada. Quiere cola y caderas ya, pero teme el quirófano, la recuperación y el costo. Desea el resultado de la cirugía sin el riesgo.", "angulo": "«Cirugía en un frasco», «antes de operarte prueba lo natural»", "ganchos": ["This is BBL in a bottle, but I need to warn you about the side effects. (Es una cirugía en un frasco, pero te advierto de los efectos secundarios.)", "Try This Before a BBL (Prueba esto antes de operarte)", "Mi tía me dijo: antes del bisturí, prueba lo natural."], "evidencia": "Amua: 260 días, 27 copias, alcance 325.949 (facebook_1437077177985145). Mercado: 622 anuncios con «curves» y «surgery», 355 con «BBL». Colombia: gomitas de aguaje 409 días; cápsulas 79 copias.", "volumen": "El más grande: es el ángulo más usado en los dos mercados", "momento": "estable", "saturacion": "alta" },
+          { "nombre": "La del gimnasio que no ve cambios", "frase": "Llevo un año haciendo sentadillas y el jean me queda igual.", "perfil": "20 a 35 años. Entrena pierna y glúteo varias veces por semana. Ya gastó en batidos. Su dolor es el esfuerzo sin premio. Desea que por fin se note.", "angulo": "«No es tu rutina», creatina para glúteos, «sigan con sus sentadillas»", "ganchos": ["Why is your butt not growing when you train it twice a week? (¿Por qué no te crece la cola si la entrenas dos veces por semana?)", "Stop grinding through squats with nothing to show for it! (¡Deja de matarte con sentadillas sin nada que mostrar!)", "Muchas mujeres entrenan duro… pero sienten que sus glúteos no crecen."], "evidencia": "145 anuncios con «curves» y «squats». Chumgum 147 días (facebook_1289483809837241). Tres marcas de creatina entraron entre el 19 de octubre y el 9 de noviembre de 2026. Colombia: creatina con colágeno, 46 días.", "volumen": "Grande y con marcas nuevas entrando", "momento": "creciendo", "saturacion": "alta" },
+          { "nombre": "La invisible del grupo", "frase": "Soy la simpática, la chistosa. Pero a la que se le acercan es a mi amiga.", "perfil": "18 a 30 años. Delgada de toda la vida. Sale con amigas con más curvas. Su dolor no es el cuerpo, es no ser vista. Desea entrar a un lugar y que la noten.", "angulo": "«Las curvas son moneda», «si te gusta ser invisible, no compres esto»", "ganchos": ["I used to avoid standing next to my thick friends in pictures. (Evitaba pararme junto a mis amigas con curvas en las fotos.)", "Do not buy Amua Vital Drops if you like being invisible. (No lo compres si te gusta ser invisible.)", "No booty, no hips, no curves, no nothing. (Sin cola, sin caderas, sin nada.)"], "evidencia": "Texto largo: 126 días y 22 copias (facebook_1008332222095422). Rap: alcance 158.480 (facebook_3864419977033622). «No compres»: 118 días.", "volumen": "Es el corazón de la marca: 3 de sus 7 ganadores", "momento": "estable", "saturacion": "media" },
+          { "nombre": "La dejada por una con más curvas", "frase": "Me dijo que necesitaba una mujer de la que pudiera agarrarse. Y se fue.", "perfil": "25 a 40 años. Salió de una relación larga, a veces con hijos. La herida es un comentario del ex sobre su cuerpo. Desea que él la vea distinta y poder ignorarlo.", "angulo": "Revancha silenciosa: «te ves diferente»", "ganchos": ["Not one word from my ex since he left. Then out of nowhere: you look different. (Ni una palabra de mi ex. Y de la nada: te ves diferente.)", "My ex told me I was too skinny. Now he's in prison. (Mi ex me dijo flaca. Ahora está preso.)", "I ran into my ex at a party… his new girlfriend, she had questions. (Me encontré a mi ex en una fiesta; la novia tenía preguntas.)"], "evidencia": "Cuatro versiones entre agosto y noviembre de 2026, alcance sumado 230.801. La canción ganó 47.696 en 30 días (facebook_1117034347801450) y el sketch 21.043 en 7 días (facebook_1120766514279618).", "volumen": "Alto dentro de Amua; fuera de Amua casi no existe", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "La mujer de más de 40", "frase": "Con los años se me fue la forma y la energía.", "perfil": "40 a 55 años. Cambios de cuerpo y de ánimo. Busca volver a sentirse femenina y con fuerza. Toma otros productos y hace más preguntas de seguridad.", "angulo": "Equilibrio hormonal, «para mujeres de 25 a 55», creatina para mayores de 40", "ganchos": ["Tired of feeling flat and less confident? (¿Cansada de sentirte plana y con menos confianza?)", "The natural BBL in gummies (la cirugía natural en gomitas), para mujeres de 40 a 50"], "evidencia": "163 anuncios con «curves» y «menopause». Chumgum, gomitas para busto: 170 días y 9 copias (facebook_1983235075625988). The Daily Reset: 26 días, 2.367 de alcance en 7 días. En los anuncios leídos de Amua no aparece.", "volumen": "Medio, repartido entre marcas de hormonas", "momento": "estable", "saturacion": "media" },
+          { "nombre": "La que quiere llegar distinta a un evento", "frase": "El matrimonio es en diciembre y ya me mandaron la foto del vestido.", "perfil": "22 a 35 años. Tiene una fecha: boda, grado, paseo, reencuentro. Desea que ese día la vean cambiada. Compra con afán.", "angulo": "La boda donde ella se roba las miradas; el vestido de dama de honor", "ganchos": ["My sister said I ruined her wedding day. (Mi hermana dice que le arruiné la boda.)", "I caught my best friend's husband staring at me at her wedding. (Pillé al esposo de mi mejor amiga mirándome en su boda.)", "Then she sent the dress. (Y entonces me mandó el vestido.)"], "evidencia": "Amua: tres versiones de la boda, alcance 61.410 la mayor (facebook_3980256198949602). Hemokare la adoptó el 11 de noviembre de 2026 (facebook_979941251390313). En Colombia no apareció.", "volumen": "Bajo: una marca y un imitador reciente", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "La que ya probó y desconfía", "frase": "Ya compré gomitas y pastillas y no vi nada. ¿Esto sí sirve o es puro cuento?", "perfil": "22 a 40 años. Gastó en productos baratos o de tiendas grandes. Lee reseñas antes de comprar. Desea no volver a botar la plata.", "angulo": "La reseña sincera, «la dosis de las otras es muy baja», «el original»", "ganchos": ["I need to be real with y'all about the negative side effects… (Tengo que ser sincera sobre los efectos secundarios negativos…)", "I was gonna check Amazon. Don't. Tried those first. Wasted four months. (Iba a mirar en Amazon. No lo hagas. Probé esas primero y perdí cuatro meses.)", "Voy a probar las pastillas virales de TikTok."], "evidencia": "Amua: 259 días y 21 copias (facebook_1403969721410788); el texto de 126 días se apoya en «leí las reseñas». Colombia: «original contra falsificado», 235 días.", "volumen": "Bajo como avatar declarado; alto como objeción dentro de otros guiones", "momento": "estable", "saturacion": "baja" },
+          { "nombre": "La que come y no sube", "frase": "Todo el mundo me dice «come más», pero me lleno con dos cucharadas.", "perfil": "18 a 34 años. Poco apetito, se salta comidas, vive con afán o estrés. Oye comentarios de la familia. Desea subir de peso sana y dejar de oír que está muy flaca.", "angulo": "El apetito y el plan: «no es tu cuerpo, es tu plan»", "ganchos": ["If you're eating everything and still not seeing the scale move… it's not your body failing you. It's your plan. (Si comes de todo y la báscula no se mueve, no es tu cuerpo: es tu plan.)", "Yo comía de todo y la báscula no se movía ni un kilo.", "Week 1, I was hungry all the time. (Semana 1: tenía hambre todo el tiempo.)"], "evidencia": "102 anuncios con «curves» y «appetite», ninguno lo usa de gancho. Nuellaoboh: 91 días y 10 copias (facebook_906733332511227). Colombia: Rhommerce, 9 días (facebook_4633992893553246).", "volumen": "Bajo: casi sin anuncios", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "La que bajó de peso y perdió sus curvas", "frase": "Adelgacé como quería, pero se me fue la cola con los kilos.", "perfil": "28 a 50 años. Bajó de peso con dieta o tratamiento. Está contenta con la báscula y triste con el espejo. Desea recuperar forma sin volver a engordar.", "angulo": "«Un tercio de lo que pierdes son tus curvas»", "ganchos": ["Every few pounds you lose, one of them isn't fat. (De cada pocos kilos que bajas, uno no es grasa.)", "1/3 Of Your Loss Is Your Curves (Un tercio de lo que pierdes son tus curvas)"], "evidencia": "Gene.In.Us: 93 días y 5 copias desde el 15 de agosto de 2026 (facebook_2029790350977956), solo Estados Unidos. Nadie más lo usa.", "volumen": "Mínimo: una marca", "momento": "emergente", "saturacion": "baja" }
+        ] },
+        { "tipo": "barras", "titulo": "Anuncios activos por avatar (palabra clave junto a «curves», mercado en inglés)", "unidad": "anuncios", "items": [
+          { "etiqueta": "La que piensa en operarse (surgery)", "valor": 622, "nota": "Saturado", "tono": "rojo" },
+          { "etiqueta": "La dejada (ex)", "valor": 262, "nota": "Inflado por novelas", "tono": "ambar" },
+          { "etiqueta": "La mujer de más de 40 (menopause)", "valor": 163, "nota": "", "tono": "ambar" },
+          { "etiqueta": "La del gimnasio (squats)", "valor": 145, "nota": "Creciendo", "tono": "rojo" },
+          { "etiqueta": "La invisible (skinny)", "valor": 127, "nota": "", "tono": "ambar" },
+          { "etiqueta": "La que come y no sube (appetite)", "valor": 102, "nota": "Nadie lo usa de gancho", "tono": "verde" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Avatar", "Saturación", "Momento", "Señal que lo sostiene", "En Colombia"], "filas": [
+          ["La que piensa en operarse", "Alta", "Estable", "622 anuncios; guion de 260 días copiado por 3 marcas", "Ya existe"],
+          ["La del gimnasio que no ve cambios", "Alta", "Creciendo", "3 marcas de creatina nuevas en 3 semanas", "Ya existe"],
+          ["La invisible del grupo", "Media", "Estable", "126 días y 22 copias; alcance 158.480", "Parecido"],
+          ["La dejada por una con más curvas", "Media", "Creciendo", "+47.696 en 30 días y +21.043 en 7 días", "Parecido"],
+          ["La mujer de más de 40", "Media", "Estable", "163 anuncios; Amua no la trabaja en lo leído", "Parecido"],
+          ["La que quiere llegar distinta a un evento", "Baja", "Emergente", "Hemokare la adopta el 11 de noviembre de 2026", "No existe"],
+          ["La que ya probó y desconfía", "Baja", "Estable", "259 días y 21 copias de la «reseña sincera»", "Parecido"],
+          ["La que come y no sube", "Baja", "Emergente", "91 días y 10 copias de un solo anunciante", "Ya existe"],
+          ["La que bajó de peso y perdió sus curvas", "Baja", "Emergente", "93 días, una sola marca", "Sin verificar"]
+        ], "nota": "La columna de Colombia resume la etapa 6. «Ya existe» en la que come y no sube es una sola prueba de 9 días." },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Cuáles elegiría para entrar y por qué", "texto": "", "items": [
+          "**Primero: la que come y no sube.** Es el único avatar donde lo que el producto puede decir con honestidad (apetito, energía, constancia) coincide con lo que ella busca. Casi nadie le habla, ni en inglés ni en Colombia.",
+          "**Segundo: la invisible del grupo.** Es el motor emocional de Amua y en Colombia solo existe dentro de un video traducido. Se puede contar sin prometer medidas: el triunfo es dejar de esconderse.",
+          "**Tercero, como prueba: la que quiere llegar distinta a un evento.** Diciembre está encima, nadie lo usa en Colombia y da una razón para comprar hoy. Condición: no prometer nada para la fecha.",
+          "**No entraría por:** la que piensa en operarse (saturado en los dos mercados y obliga a comparar con una cirugía) ni por la dejada (funciona, pero pone el valor de ella en la mirada del ex).",
+          "**Dejaría para después:** la del gimnasio. Es buena y honesta, pero ya compite con creatinas que tienen un argumento más fuerte."
+        ] }
+      ],
+      "limitaciones": [
+        "No hay demografía real de la audiencia. Edades y situaciones son una lectura de los guiones.",
+        "El volumen por avatar se midió con una palabra clave por avatar junto a «curves». Es una aproximación gruesa y varias están infladas.",
+        "Amua habla casi solo a mujeres afroamericanas de Estados Unidos. El traslado de cada avatar a Colombia es una inferencia.",
+        "La investigación de producto mencionaba una página de Amua para mujeres en la mediana edad. No apareció en los anuncios leídos."
+      ],
+      "riesgos": [
+        "Los avatares de la dejada y la invisible se construyen sobre la inseguridad. Meta restringe los anuncios que hacen sentir mal a alguien por su cuerpo: cuéntalos en primera persona y con final propio.",
+        "La mujer de más de 40 suele tomar medicamentos. Varios ingredientes del frasco tienen cuidados con tiroides, presión y azúcar.",
+        "La que come y no sube puede incluir a personas con un problema de salud detrás. No es un público para promesas."
       ]
     },
     {
