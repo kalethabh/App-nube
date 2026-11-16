@@ -66,6 +66,8 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
             </span>
             <span className="img-resumen__nota t-num">{valida ? `${conVertical ? n * 2 : n} ${(conVertical ? n * 2 : n) === 1 ? 'imagen' : 'imágenes'}` : null}</span>
           </Fila>
+          {/* (los lotes ya no llevan logo: solo se ve en los de antes) */}
+          {logo ? (
           <Fila etiqueta="Logo">
             {logo ? (
               <span className="img-resumen__con-vista">
@@ -78,6 +80,7 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
               <span className="img-resumen__falta">Sin logo</span>
             )}
           </Fila>
+          ) : null}
           <Fila etiqueta="Referencias">
             {referencias.length ? (
               <span className="img-resumen__con-vista">

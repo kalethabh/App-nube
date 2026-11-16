@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16d` (archivo `VERSION`). Las funciones descritas abajo están integradas en `main`.
+- **Versión actual:** `2026-11-16e` (archivo `VERSION`). Las funciones descritas abajo están integradas en `main`.
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -135,6 +135,32 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Anuncios de imagen: Nuevos / Variantes, ganchos validados y «Me funciona» (2026-11-16, versión 2026-11-16e)
+
+- **Formulario** (`pantallas/imagenes/Formulario.jsx`): sin precio, moneda, CTA, idioma, ángulo ni logo (el servidor
+  pone `idioma: 'es'` si no viene; los lotes viejos con logo siguen funcionando). Arriba, pestañas **Nuevos** /
+  **Variantes** (`brief.modo`).
+- **Ganchos validados:** `competencia.js → ganchosValidados(id)` saca los `hooks` (campo `mejorado`) de
+  `competencia.json`, primero saturación baja/media. `crearLote` los deja en `entrada/ganchos.json` (`brief.ganchos`);
+  `titulos.js` los pone en el prompt (jugar con ellos, citar G# y evidencia en `base`) y entran en la firma. En modo
+  prueba los títulos simulados salen de esos ganchos.
+- **«Me funciona»:** `lib/funcionan.js` + `rutas/funcionan.js` (`GET/POST /api/funcionan`, `DELETE /api/funcionan/:id`,
+  `/archivos/funcionan/:nombre`). Guarda en `temp/_funcionan/lista.json` y copia la imagen a `temp/_funcionan/img/`
+  (de un video: un cuadro a 1,2 s del MP4 con ffmpeg; sin MP4, la imagen de la primera toma). Botón
+  `componentes/BotonFunciona.jsx` (trofeo) en cada imagen del lote (`imagenes-lote/Variacion.jsx`, el lote llega por
+  el contexto `LoteFunciona`) y en la entrega de video (`entrega/index.jsx`).
+- **Variantes:** `pantallas/imagenes/ElegirFunciona.jsx` (filtros Todos/Imágenes/Videos y Este producto/Todos) sube
+  lo elegido como referencias (R01…), con `fiel: true` y `referenciasPropias` (las del mismo producto).
+  `sesiones.js → textoFiel/textoPaleta`: mismas tipografía y `reference_position`; las propias copian también la
+  paleta; las de otro producto adaptan la paleta al producto del usuario.
+- **Pruebas (modo prueba, sin pagar):** producto de prueba con la competencia de VitalDrops: los títulos salieron de
+  los ganchos reales con su evidencia; lote de 3 generado; trofeo marcado en V01; un video de prueba marcado (cuadro
+  del MP4); en Variantes se filtró y eligió imagen + video, se generó el lote de 2 y su brief quedó con
+  `modo: variantes`, `referenciasPropias: [1]` y el prompt con las reglas de paleta. Capturas en claro y oscuro.
+  `claude-falso-imagen-ads.js` ahora usa los títulos elegidos (antes el lote simulado con títulos se detenía).
+- **Falta confirmar en la Mac:** un lote real con Claude y kie.ai para ver que las variantes respetan la tipografía
+  y los colores.
 
 ### Investigación con TrendTrack en modo claro (2026-11-16, versión 2026-11-16d)
 

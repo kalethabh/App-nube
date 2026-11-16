@@ -21,6 +21,7 @@ import {
   Tooltip,
   useAvisos,
   useBarraSuperior,
+  BotonFunciona,
 } from '../../componentes/index.js';
 import { conVersion, miniatura, useAnuncio, useAnuncios } from '../../datos/api.js';
 import { enlace, enlaceDelGuion } from '../../datos/rutas.js';
@@ -204,6 +205,12 @@ export default function Entrega({ params }) {
               Abrir carpeta
             </Boton>
           </div>
+          {/* «Me funciona»: lo guardas para hacer variantes ganadoras en Anuncios de imagen → Variantes */}
+          {version ? (
+            <div className="ent__funciona">
+              <BotonFunciona tipo="video" slug={a.slug} conTexto />
+            </div>
+          ) : null}
           {version ? (
             <p className="ent__pie-video t-num">
               {version.nombre} · {duracion(version.duracion)} · {tamano(version.tamano)} · MP4 9:16

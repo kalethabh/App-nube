@@ -112,6 +112,26 @@ function armarSesion(id, t, { retomar }) {
   };
 }
 
+/**
+ * Los ganchos validados de la investigación con TrendTrack (etapa «Base de hooks»), para jugar con ellos en los títulos
+ * de los anuncios de imagen: [{ id: 'G1', gancho (el mejorado, en español), original, categoria, avatar, gatillo,
+ * saturacion, evidencia }], primero los menos saturados. [] si el producto no tiene esa investigación.
+ */
+export function ganchosValidados(id, max = 30) {
+  const c = leer(id);
+  if (!c) return [];
+  const t = (x, n = 400) => (typeof x === 'string' ? x.replace(/\s+/g, ' ').trim().slice(0, n) : '');
+  const orden = { baja: 0, media: 1, alta: 2 };
+  const items = c.etapas.flatMap((e) => (e.bloques || []).filter((b) => b?.tipo === 'hooks').flatMap((b) => b.items || []));
+  const vistos = new Set();
+  return items
+    .map((h) => ({ gancho: t(h?.mejorado) || t(h?.traduccion), original: t(h?.texto), categoria: t(h?.categoria, 60), avatar: t(h?.avatar, 120), gatillo: t(h?.gatillo, 80), saturacion: t(h?.saturacion, 20).toLowerCase(), evidencia: t(h?.evidencia, 200) }))
+    .filter((h) => h.gancho && !vistos.has(h.gancho.toLowerCase()) && vistos.add(h.gancho.toLowerCase()))
+    .sort((a, b) => (orden[a.saturacion] ?? 1) - (orden[b.saturacion] ?? 1))
+    .slice(0, max)
+    .map((h, i) => ({ id: `G${i + 1}`, ...h }));
+}
+
 /** POST /api/investigacion/:id/competencia: lanza las 6 etapas (no espera). */
 export function investigar(id, { enlace = '', producto = '', pais = '', brandtracker = false, retomar = false } = {}) {
   if (!leerProducto(id)) throw new ErrorApp(404, 'No encuentro ese producto.');

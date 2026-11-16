@@ -2,9 +2,10 @@
 // debajo de cada imagen, Descargar · Copiar prompt · Regenerar. La imagen aparece apenas existe, aunque todavía se
 // esté revisando. Las insignias dicen lo que no es "lista": con aviso, sin revisar, sin imagen… Desde 2026-11-09 la
 // revisión no rehace nada sola: lo que notó queda debajo («La revisión notó: …») con «Corregir esto» y Regenerar.
-import { memo, useState } from 'react';
+import { memo, useContext, useState } from 'react';
 import { Clock, Copy, Download, ImageOff, LoaderCircle, PenLine, RefreshCw, ScanEye, WandSparkles } from 'lucide-react';
-import { Boton, Insignia, Tooltip } from '../../componentes/index.js';
+import { Boton, BotonFunciona, Insignia, Tooltip } from '../../componentes/index.js';
+import { LoteFunciona } from '../../datos/funcionan.js';
 import { ESTADOS_PIEZA, PIEZA_EN_MARCHA, PIEZA_FINAL, partesDePieza } from '../../datos/imagenes.js';
 
 /** La insignia de una pieza (nada si está lista: en una galería de 100, "Lista" en cada una es ruido). */
@@ -32,6 +33,7 @@ export function porQueNo(p, { cuadrado = null, sinPrompt = false } = {}) {
 /** Una imagen con sus tres botones. `nombre` va arriba cuando la pieza se ve sola (Cuadrados / Verticales). */
 export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, onRegenerar, onCopiar, nombre, cuadrado = null }) {
   const [cargada, setCargada] = useState(false);
+  const lote = useContext(LoteFunciona);
   if (!p) return null;
   const vertical = formato === '9:16';
   const src = p.miniatura || p.url;
@@ -98,6 +100,8 @@ export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, on
         <Tooltip texto={p.puedeRegenerar ? 'Regenerar' : porQueNo(p, { cuadrado })}>
           <Boton variante="fantasma" tamano="chico" soloIcono icono={RefreshCw} etiqueta={`Regenerar ${quien}`} onClick={() => onRegenerar(p)} disabled={!p.puedeRegenerar} />
         </Tooltip>
+        {/* «Me funciona»: la guardas para hacer variantes ganadoras (Anuncios de imagen → Variantes) */}
+        {lote && p.url ? <BotonFunciona tipo="imagen" lote={lote} pieza={p.pieza} /> : null}
       </div>
     </div>
   );

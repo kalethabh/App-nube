@@ -67,14 +67,29 @@ function textoLogo(brief) {
 }
 
 /** «Más de lo mismo»: todas las variaciones copian el diseño de las referencias (el modelo de imagen también las ve). */
-function textoFiel(n, k) {
+function textoFiel(n, k, brief = {}) {
   return `## Más de lo mismo (lo pidió el usuario)
 El usuario quiere variaciones que conservan la ESENCIA y la razón por la que vende de ${k === 1 ? 'su referencia' : 'sus referencias'}: el mismo diseño y la misma idea de venta, adaptados a su producto; entre variaciones cambia SOLO el titular. Esto manda sobre el PASO 4 de la skill:
 - Las ${n} variaciones son \`"fuente": "referencia"\` (ninguna sale de la biblioteca), con la referencia que le toca a cada una en la lista de arriba${k < n ? ' (se repiten en orden)' : ''}.
 - Cada variación conserva de su referencia EXACTAMENTE la estructura, los bloques, la jerarquía, el encuadre y la tipografía (familia, peso, mayúsculas, tamaños relativos, efectos del texto). En \`global_identity.text_typography\` describe la tipografía DE LA REFERENCIA, no otra. No cambies el tipo de formato ni agregues o quites bloques.
 - Conserva el ángulo, deseo, beneficio, mecanismo persuasivo, oferta verificada del producto del usuario, CTA, textos secundarios y escena. Nunca traslades cifras, testimonios ni pruebas de otra marca como si fueran de este producto. NO cambies a otro dolor ni inventes conceptos nuevos. Solo varía el titular usando la investigación y los títulos aprobados; el producto es siempre el del usuario. Describe en estrategia.json por qué podría vender cada referencia (hipótesis, no garantía).
 - La app le manda al modelo de imagen la referencia junto con la foto del producto, así que en \`visual_prompt\` describe la misma composición de la referencia (no inventes otra) y en \`text_layers\` pon un texto por cada texto de la referencia, en su mismo lugar.
-- Los colores: conserva la lógica de color de la referencia (contraste, fondo claro u oscuro, acentos) llevada a la paleta del producto.`;
+- Los colores: conserva la lógica de color de la referencia (contraste, fondo claro u oscuro, acentos) llevada a la paleta del producto, salvo lo que se dice abajo de cada referencia.
+- La tipografía y la posición de cada texto son las de la referencia: misma familia o la más parecida, mismo peso, mismas mayúsculas, mismo tamaño relativo y mismo lugar (\`reference_position\` igual al de la referencia). No muevas ni agregues textos.${textoPaleta(brief)}`;
+}
+
+/** Qué pasa con la paleta: las referencias del mismo producto (creativos que ya funcionan) la conservan; las de otro producto la adaptan. */
+function textoPaleta(brief) {
+  const propias = new Set(brief?.referenciasPropias || []);
+  const n = (brief?.referencias || []).length;
+  const refs = brief?.referencias || [];
+  const ids = (lista) => (lista.length === 1 ? 'La referencia ' : 'Las referencias ') + lista.map((k) => `\`${String(refs[k - 1]).split('/').pop()}\``).join(', ');
+  const deEste = Array.from({ length: n }, (_, i) => i + 1).filter((k) => propias.has(k));
+  const otras = Array.from({ length: n }, (_, i) => i + 1).filter((k) => !propias.has(k));
+  const partes = [];
+  if (deEste.length) partes.push(`\n- ${ids(deEste)} ${deEste.length === 1 ? 'es un creativo' : 'son creativos'} de ESTE MISMO producto que ya le funciona${deEste.length === 1 ? '' : 'n'} al usuario: cópialo tal cual (composición, enfoque, tipografía, posiciones, paleta de colores, fondo y estilo de foto); lo único que cambia es el titular. No «mejores» nada.`);
+  if (otras.length) partes.push(`\n- ${ids(otras)} ${otras.length === 1 ? 'es de otro producto' : 'son de otros productos'}: conserva la tipografía, la posición de los textos, la composición y el enfoque, pero ADAPTA la paleta de colores a la del producto del usuario (los colores de su envase y su marca), con el mismo contraste y la misma jerarquía. Nunca copies la marca, el producto ni los textos de la referencia.`);
+  return partes.join('');
 }
 
 /** La investigación de mercado que subió el usuario: de ahí salen el deseo central, el beneficio principal y los dolores. */
@@ -165,7 +180,7 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
     ultimo: idsDelLote(n)[n - 1],
     partes: n > 40 ? 'Son muchas: escribe primero el archivo con las 40 primeras y agrega las demás con Edit, en tramos de 30, antes de seguir.' : '',
     logo: textoLogo(brief),
-    fiel: todas ? textoFiel(n, subidas.length) : '',
+    fiel: todas ? textoFiel(n, subidas.length, brief) : '',
     investigacion: textoInvestigacion(lote, investigacion),
   };
   // la skill fija (106 KB) pegada; la foto y las referencias adjuntas; la ficha, el lote anterior y lo ya usado, si

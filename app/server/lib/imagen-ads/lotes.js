@@ -9,7 +9,7 @@
 // Solo los lotes de ESTA app (una app de prueba en otro puerto tiene los suyos: brief.puerto, como los videos).
 import fs from 'node:fs';
 import { resumenDe, aMarkdown } from '../investigacion.js';
-import { aMarkdown as competenciaAMarkdown } from '../competencia.js';
+import { aMarkdown as competenciaAMarkdown, ganchosValidados } from '../competencia.js';
 import path from 'node:path';
 import { TEMP, PUERTO_DE_PRUEBA, esDeEstaApp } from '../rutas.js';
 import { leerJSON, existe, listar } from '../archivos.js';
@@ -173,7 +173,7 @@ export function crearLote(cuerpo = {}) {
     moneda: texto(d.moneda, 12, 'Moneda'),
     cta: texto(d.cta, 160, 'Llamado a la acción'),
     pais: texto(d.pais, 60, 'País', { obligatorio: true }),
-    idioma: IDIOMAS.includes(d.idioma) ? d.idioma : null,
+    idioma: IDIOMAS.includes(d.idioma) ? d.idioma : 'es', // la pantalla ya no lo pregunta: siempre en español
     adicional: texto(d.adicional, 4000, 'Información adicional'),
     angulo: d.angulo === null || d.angulo === undefined || d.angulo === '' ? null : String(d.angulo),
   };
@@ -216,8 +216,12 @@ export function crearLote(cuerpo = {}) {
     cantidad,
     formatos,
     referencias: [],
+    // «Nuevos» (de cero, con los ganchos validados) o «Variantes» (de creativos que ya te funcionaron)
+    modo: cuerpo.modo === 'variantes' ? 'variantes' : 'nuevos',
+    // las referencias (por número) que son del MISMO producto (un creativo tuyo que funciona): conservan hasta la paleta
+    referenciasPropias: Array.isArray(cuerpo.referenciasPropias) ? [...new Set(cuerpo.referenciasPropias.map(Number).filter((k) => Number.isInteger(k) && k >= 1 && k <= 50))] : [],
     // «Más de lo mismo»: todas las variaciones copian el diseño de tus referencias (y el modelo de imagen las ve)
-    fiel: cuerpo.fiel !== false,
+    fiel: cuerpo.modo === 'variantes' ? true : cuerpo.fiel !== false,
     elegirTitulos: cuerpo.elegirTitulos === true,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
@@ -234,6 +238,12 @@ export function crearLote(cuerpo = {}) {
       brief.investigacion = 'entrada/investigacion.md';
       brief.investigacionDelProducto = true;
     }
+  }
+  // los ganchos ya validados de la investigación con TrendTrack: los títulos juegan con ellos
+  const ganchos = ganchosValidados(productoId);
+  if (ganchos.length) {
+    guardarJSON(path.join(R.entrada(carpeta), 'ganchos.json'), { ganchos });
+    brief.ganchos = 'entrada/ganchos.json';
   }
   guardarJSON(R.brief(carpeta), brief);
   return { lote, brief };

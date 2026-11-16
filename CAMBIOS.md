@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16e · Anuncios de imagen: Nuevos, Variantes y «Me funciona»
+
+- **Menos preguntas:** el formulario ya no pide precio, moneda, llamado a la acción, idioma (siempre en español), ángulo principal ni logo.
+- **Títulos con ganchos ya validados:** los títulos juegan con los ganchos de la segunda parte de tu investigación (TrendTrack, «Base de hooks»), primero los menos saturados. Cada título dice de qué gancho sale y su evidencia.
+- **Nuevos o Variantes:** arriba eliges. «Nuevos» crea de cero. «Variantes» sale de algo que ya te funciona y conserva su diseño, tipografía, posición de los textos y enfoque; si es de otro producto, adapta los colores al tuyo.
+- **«Me funciona» (trofeo):** en cada imagen de tus lotes y en la entrega de cada video. Lo marcado aparece en «Variantes», con filtros por imágenes o videos y por producto, para elegir de cuáles sacar más.
+
 ## 2026-11-16d · Investigación con TrendTrack en modo claro
 
 - La segunda parte de la investigación de mercado (la competitiva con TrendTrack, las 6 etapas) ahora también cambia con el modo claro y oscuro. Los colores siguen diciendo lo mismo (verde libre, ámbar medio, rojo saturado, azul dato), en tonos que se leen bien sobre blanco.

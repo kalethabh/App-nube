@@ -20,6 +20,7 @@ import { InformeLote } from './InformeLote.jsx';
 import { ModalRegenerar } from './ModalRegenerar.jsx';
 import { PanelEstrategia } from './PanelEstrategia.jsx';
 import { Visor } from './Visor.jsx';
+import { LoteFunciona } from '../../datos/funcionan.js';
 import '../produccion/produccion.css';
 import './lote.css';
 
@@ -364,6 +365,7 @@ export default function PantallaLote({ params, consulta }) {
     });
 
   return (
+    <LoteFunciona.Provider value={simulando ? null : lote}>
     <div className="pagina lote">
       {real.error && real.datos && !simulando ? (
         <div className="lote-cerrada" role="alert">
@@ -410,5 +412,6 @@ export default function PantallaLote({ params, consulta }) {
       <ModalRegenerar pieza={aRegenerar} conVertical={conVertical} precio={precio} onCerrar={() => setARegenerar(null)} onConfirmar={pedirRegenerar} />
       <PanelEstrategia estrategia={vista.estrategia} abierto={verEstrategia && Boolean(vista.estrategia)} onCerrar={() => setVerEstrategia(false)} />
     </div>
+    </LoteFunciona.Provider>
   );
 }

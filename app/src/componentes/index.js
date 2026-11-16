@@ -20,3 +20,4 @@ export { useBarraSuperior } from './BarraSuperior.jsx';
 export { Estimado } from './Estimado.jsx';
 export { SubirVideo } from './SubirVideo.jsx';
 export { CostoAnuncio, SaldoSemaforo, useCostoAnuncio } from './CostoAnuncio.jsx';
+export { BotonFunciona } from './BotonFunciona.jsx';
