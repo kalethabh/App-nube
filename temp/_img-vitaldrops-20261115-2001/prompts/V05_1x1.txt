@@ -1,0 +1,47 @@
+Square 1:1 advertising image filled edge to edge with one warm lifestyle scene, rendered in a soft semi-illustrated realistic style (smooth painterly digital illustration, realistic proportions, soft shading). SCENE: a cozy living room at golden hour, heavily blurred with a portrait-lens look: a beige sofa, a warm table lamp, out-of-focus string lights forming large amber and soft-gold bokeh circles, a window glowing with late-afternoon sun entering from the right, a few tiny floating golden light specks, and a small bunch of cream flowers softly blurred at the middle left edge. No cold or blue tones. The left third of the canvas is darker and calmer, a soft warm-brown shade, so white text reads perfectly. WOMAN: in the center-right middle ground, from about 32% to 80% of the width, top of her head at about 15% of the height and cropped by the bottom edge, a Colombian woman of about 32 with long dark box braids falling over one shoulder, wearing a cream blouse, framed from the shoulders up and seen slightly from the side; her eyes are closed, she has a serene closed-mouth smile and one hand rests gently at her neck; golden light glows softly on her skin. Do not show her body below the shoulders. She does not hold the product. TOP LEFT: a two-line headline, left-aligned from a 3.5% margin to at most 60% of the width, extra-bold geometric uppercase sans-serif: line 1 (about 4-12% of the height) in solid white, line 2 (about 14.5-22% of the height) in a metallic gold gradient (#C9A441 to #E6CF7A). LEFT COLUMN below the headline, about 3.5-34.5% of the width: three benefit rows at about 26-37%, 41-52% and 56-67% of the height. Each row has, on the left, a thin metallic gold ring about 10% of the canvas in diameter holding a simple gold line icon (row 1: a fork and spoon; row 2: a lightning bolt; row 3: a leaf), all with the same stroke weight, and to its right, starting at about 16% of the width, two lines of regular-weight white sentence-case text. Between the rows, at about 39% and 54% of the height, thin horizontal metallic gold lines from 3.5% to 30% of the width that fade toward the right. No boxes or cards behind the benefits and no numbers. LOWER-RIGHT FOREGROUND, about 77-98% of the width and 38-96% of the height (about 58% of the canvas height), base nearly touching the bottom edge, overlapping the edge of the woman's shoulder but never her face: the product, upright, front view, large and studio-sharp with crisp highlights, standing on a glossy warm surface with a soft reflection at its base: a 60 ml amber-brown glass dropper bottle with rounded shoulders and a short neck, a black ribbed screw collar and a glossy black rubber bulb dropper, the glass pipette visible inside the amber liquid, and a wraparound label with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom, showing the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark descriptor line, five small thin-outlined circular ingredient badges in two rows and a small bottom line; the bottle is about 2.6 times taller than wide. Use the attached product image as the only source of truth for the product: do not redesign, replace, relabel or reinterpret it. BOTTOM LEFT, about 3.5-74% of the width and 77-96.5% of the height, its right end next to the product without touching it: a wide rounded-corner band (corner radius about 3%) in a satin brushed metallic gold gradient (#C9A441 with #E6CF7A highlights), with a thin lighter inner border and a soft shadow. On its left, a thin near-black ringed circle about 10% of the canvas holding a simple near-black line icon of three small dropper bottles side by side; then a thin vertical near-black divider; then three left-aligned lines of black uppercase text: a bold first line, a much larger heavy condensed middle line, and a regular-weight third line with wide letter spacing. No truck icon. No other graphics, badges or text anywhere.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- headline line 1 (Top left, first line, about 4-12% of the canvas height): "TU RITUAL NATURAL" — Extra-bold geometric sans-serif, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, solid white
+- headline line 2 (Top left, second line, about 14.5-22% of the canvas height): "Y SIN AGUJAS" — Extra-bold geometric sans-serif, uppercase, about 7.5% of the canvas height, 1 line, left-aligned, metallic gold gradient (#C9A441 to #E6CF7A)
+- benefit 1 (Left column, first row, right of the fork-and-spoon icon circle, two rows: 'Acompaña tu apetito' / 'cada día'): "Acompaña tu apetito cada día" — Regular geometric sans-serif, sentence case, about 2.8% of the canvas height, 2 lines, left-aligned, white
+- benefit 2 (Left column, second row, right of the lightning-bolt icon circle, two rows: 'Energía para trabajar' / 'y entrenar'): "Energía para trabajar y entrenar" — Regular geometric sans-serif, sentence case, about 2.8% of the canvas height, 2 lines, left-aligned, white
+- benefit 3 (Left column, third row, right of the leaf icon circle, two rows: 'Con ashwagandha para' / 'los días pesados'): "Con ashwagandha para los días pesados" — Regular geometric sans-serif, sentence case, about 2.8% of the canvas height, 2 lines, left-aligned, white
+- offer band line 1 (Inside the gold band, right of the vertical divider, first line): "TRATAMIENTO COMPLETO" — Bold uppercase sans-serif, about 2.8% of the canvas height, 1 line, left-aligned, black
+- price (offer band line 2) (Inside the gold band, right of the vertical divider, middle line): "X3 UNIDADES $139,900" — Heavy condensed uppercase sans-serif, about 5.5% of the canvas height, 1 line, left-aligned, black; the largest text of the band
+- offer band line 3 (Inside the gold band, right of the vertical divider, third line): "SIN EFECTO REBOTE" — Regular-weight uppercase sans-serif with wide letter spacing, about 2.4% of the canvas height, 1 line, left-aligned, black
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, offer plaque); near-black #111111 (headline and offer text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.
+- text_typography: Typography of the reference: headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Offer plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text.
+
+MANDATORY ELEMENTS:
+- Full-bleed warm golden-hour living-room scene with bokeh lights and a serene woman with long braids and a cream blouse in the center-right, shoulders up, eyes closed
+- Two-line headline at the top left: white line over a metallic gold line
+- Left column of three benefits with thin gold-ringed line-icon circles (fork and spoon, lightning bolt, leaf) separated by thin gold dividers
+- The user's dropper bottle large in the lower-right foreground
+- Wide rounded brushed-gold band at the bottom left with a ringed three-bottle line icon, a thin vertical divider and three lines of black text
+
+STRICT EXCLUSIONS:
+- No truck icon and no shipping, payment, guarantee or urgency text.
+- No syringes, needles, medical or surgical imagery; the idea of 'no needles' lives only in the headline.
+- Never show the woman's body below the shoulders; no zoom on any body part; no before/after.
+- The woman does not hold the product; the product appears only once, in the lower-right foreground.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Truck icon, shipping or payment text
+- Do not add: A second price, a struck-through price, a discount percentage or an urgency badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Trust seals, guarantee or certification badges
+- Do not add: Before/after images
+- Do not add: More than three benefits
+- Do not add: Numbers on the benefit rows
+- Do not add: Boxes or cards behind each benefit
+- Do not add: Cold or blue-toned lighting
+- Do not add: Syringes, needles or any medical or surgical imagery
+- Do not add: Any view of the woman's body below the shoulders or any zoom on a body part
+- Do not add: Logos or brand marks outside the product label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

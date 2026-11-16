@@ -1,0 +1,11 @@
+{
+  "revisadas": [
+    { "pieza": "V01_1x1", "ok": true, "problemas": [] },
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": ["En el titular, la C de «CADA» parece llevar una colita debajo, como una «Ç»."],
+      "correccion_en": "Write the headline exactly as \"TU RITUAL DE CADA MAÑANA\". The C in \"CADA\" must be a plain letter C with no cedilla, tail or mark under it."
+    }
+  ]
+}

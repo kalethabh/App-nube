@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 1,
+    "R": 4,
     "A": 1,
     "T": 3
   },
@@ -25,6 +25,58 @@
       "estado": "hecha",
       "ids": [
         "V05"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "289c7c25-c376-4f01-9f9f-d6299540cd01",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "1821358-1794791367906",
+          "ronda": 1
+        },
+        {
+          "pieza": "V02_1x1",
+          "firma": "2024835-1794791377758",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "f6aec067-f468-4fc1-91f7-327dbb765817",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V03_1x1",
+          "firma": "2011027-1794791357746",
+          "ronda": 1
+        },
+        {
+          "pieza": "V04_1x1",
+          "firma": "2032156-1794791462814",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "79fa7b5e-5102-42b6-8ebb-31827f6df2be",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1996585-1794791774341",
+          "ronda": 1
+        }
       ],
       "empezada": true
     }
@@ -55,15 +107,21 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1821358-1794791367906",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1821358-1794791367906"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-16T01:14:14.522Z",
@@ -73,15 +131,24 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2024835-1794791377758",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el titular, la C de «CADA» parece llevar una colita debajo, como una «Ç»."
+        ],
+        "firma": "2024835-1794791377758",
+        "correccion_en": "Write the headline exactly as \"TU RITUAL DE CADA MAÑANA\". The C in \"CADA\" must be a plain letter C with no cedilla, tail or mark under it."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-16T01:14:14.523Z",
@@ -91,15 +158,21 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2011027-1794791357746",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2011027-1794791357746"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-16T01:14:14.523Z",
@@ -109,15 +182,21 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2032156-1794791462814",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2032156-1794791462814"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-16T01:14:14.523Z",
@@ -127,24 +206,26 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
-      "intentosApi": 0,
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1996585-1794791774341",
+      "orden": null,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1996585-1794791774341"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-16T01:16:15.185Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

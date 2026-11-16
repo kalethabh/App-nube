@@ -1,0 +1,30 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-16T01:16:34.386Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 4,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "En el titular, la C de «CADA» parece llevar una colita debajo, como una «Ç»."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
