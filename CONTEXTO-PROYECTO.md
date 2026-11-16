@@ -102,7 +102,10 @@ estilo).
 
 ## Variaciones fieles y aprobación de títulos (2026-11-16)
 
-Implementación: [PR #61](https://github.com/kalethabh/App-nube/pull/61).
+Implementación: [PR #61](https://github.com/kalethabh/App-nube/pull/61), integrado en `main`
+(commit `5b34e17bf93bbb92c4195fa016074e1ee717f17b`). Versión pública
+[2026-11-16a](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-16a) publicada y ZIP confirmado
+como `uploaded`; disponible mediante «Actualizar». No se actualizó la instalación personal ni se produjo un anuncio real.
 
 Pedido: conservar la esencia del anuncio y por qué vende; variar solo los titulares con la investigación,
 mostrar propuestas antes para seleccionar y acelerar la preparación.
