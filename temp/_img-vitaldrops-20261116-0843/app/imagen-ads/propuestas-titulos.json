@@ -1,0 +1,53 @@
+{
+  "esencia": "Las dos referencias son el mismo anuncio (una en español y otra en inglés). Venden un solo deseo: verse con curvas. Lo hacen con un título directo y corto, y con un calendario de cuatro momentos (día 1, 7, 14 y 21) que muestra un proceso que avanza. Le hablan a una mujer que ya quiere curvas y busca con qué lograrlo. Los títulos conservan eso: el deseo de curvas, la idea de avance día a día y el tono directo. Lo que no conservan es la promesa de un cambio visible en 21 días: tu investigación dice que no se puede demostrar, que las normas de Colombia y de Meta la castigan y que la queja más dura de las compradoras es justo esa promesa. Por eso el calendario pasa a ser el de un ritual diario que acompaña el apetito y la energía. La hipótesis es que la mujer que quiere curvas de forma natural se detiene igual ante un título claro sobre sus curvas, y que una promesa honesta le da más confianza a quien ya probó otras cosas. Es una hipótesis, no una garantía.",
+  "opciones": [
+    {
+      "id": "T1",
+      "titulo": "TRABAJA TUS CURVAS DÍA A DÍA",
+      "porQue": "Mantiene el deseo de curvas y la idea de avance por días del calendario original. Cambia «te salen solas» por «las trabajas», que es lo que sí puedes decir.",
+      "base": "Recomendación central del resumen ejecutivo: venderlo como el ritual diario de la mujer que trabaja sus curvas de forma natural. Sección 13, cumplimiento: «Tu ritual diario mientras trabajas pierna y cola»."
+    },
+    {
+      "id": "T2",
+      "titulo": "21 DÍAS DE RITUAL PARA TUS CURVAS",
+      "porQue": "Conserva el número 21 y el calendario de la referencia, pero como días de constancia y no como fecha de resultado. Sigue hablando de curvas de forma directa.",
+      "base": "El 21 sale de la referencia, no de la investigación. La investigación (sección 11) no confirma ningún cambio de cuerpo en ese plazo, por eso aquí solo cuenta días de ritual. Sección 13: «Habla de constancia de semanas y meses. Nunca de resultados en días»."
+    },
+    {
+      "id": "T3",
+      "titulo": "CURVAS AL NATURAL, SIN AGUJAS",
+      "porQue": "Mismo deseo y mismo tono directo. Suma la razón que más pesa en Colombia para elegir unas gotas: no operarse ni inyectarse.",
+      "base": "Deseo central resaltado: «Verme con curvas y llenar el jean sin operarme ni inyectarme nada». Sección 13, cumplimiento: usar «Un apoyo natural, sin agujas». Lenguaje de la clienta: «algo natural»."
+    },
+    {
+      "id": "T4",
+      "titulo": "MÁS APETITO Y ENERGÍA PARA TUS CURVAS",
+      "porQue": "Sigue vendiendo curvas, pero pone delante lo que las compradoras sí cuentan que notan. Es el beneficio que hace creíble el proceso del calendario.",
+      "base": "Beneficio principal resaltado: un ritual de gotas que acompaña tu apetito y tu energía mientras trabajas tus curvas. Sección 14.4, opción 4 del título principal: «Apetito y energía en semanas para tus curvas, natural»."
+    },
+    {
+      "id": "T5",
+      "titulo": "TU RITUAL DIARIO PARA TUS CURVAS",
+      "porQue": "Dice lo mismo que el original (esto es para tus curvas) con la palabra que explica el calendario: una toma cada día.",
+      "base": "Sección 14.6, opción recomendada: «Tu ritual diario para trabajar tus curvas con más ganas». Sección 13, promesa de posicionamiento."
+    },
+    {
+      "id": "T6",
+      "titulo": "PARA LA QUE QUIERE LLENAR EL JEAN",
+      "porQue": "Nombra el mismo deseo con las palabras exactas de la clienta. Le habla a quien ya sabe lo que quiere, como hace la referencia, sin prometer el resultado.",
+      "base": "Deseo central resaltado: «llenar el jean». Punto de dolor resaltado: «Los jeans me quedan bailando en la cola». Sección 12, resultado deseado en sus palabras."
+    },
+    {
+      "id": "T7",
+      "titulo": "TUS CURVAS, SEMANA A SEMANA",
+      "porQue": "Guarda la idea de avance en el tiempo de los cuatro cuadros (día 1, 7, 14 y 21 son justo semanas) sin poner una fecha de resultado.",
+      "base": "Sección 11: lo que se nota se mide en semanas (energía en las primeras dos, apetito en las primeras semanas) y el cuerpo en meses. Sección 6: «Habla de constancia de semanas y meses»."
+    },
+    {
+      "id": "T8",
+      "titulo": "EMPIEZA HOY EL RITUAL DE TUS CURVAS",
+      "porQue": "Mantiene el deseo de curvas y el empuje a actuar ya que tiene la referencia, pero el impulso viene de empezar el proceso y no de una promesa con fecha.",
+      "base": "Sección 14.2, propuesta 5: «Empieza hoy tu ritual y trabaja con constancia el cuerpo con el que te quieres ver». Sección 8, detonante del evento cercano: «Si empiezas hoy, llevas tu ritual andando»."
+    }
+  ]
+}
