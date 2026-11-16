@@ -1,0 +1,35 @@
+{
+  "resumen": "VITALDROPS se vende como el ritual diario de gotas de la mujer que trabaja sus curvas de forma natural: acompaña su apetito y su energía, junto con buena comida y ejercicio. Los 5 anuncios llevan tu oferta tal cual (TRATAMIENTO COMPLETO, X3 UNIDADES $139,900, SIN EFECTO REBOTE), con una mujer distinta en un lugar distinto cada vez y el mismo estilo de marca del lote anterior. En este lote no llegó la imagen de referencia, así que el primer anuncio repite su idea de progreso por etapas y los demás usan otras estructuras; ninguno promete aumento de cola ni muestra antes y después del cuerpo, para que Meta no los rechace.",
+  "paleta": [
+    { "hex": "#FBF3DC", "nombre": "Crema cálido" },
+    { "hex": "#F2DC4A", "nombre": "Amarillo limón" },
+    { "hex": "#C9A441", "nombre": "Dorado" },
+    { "hex": "#E6CF7A", "nombre": "Dorado claro" },
+    { "hex": "#111111", "nombre": "Negro" },
+    { "hex": "#8A4B14", "nombre": "Ámbar" }
+  ],
+  "tipografia": "Títulos en letra gruesa, recta y en mayúsculas, color negro. Etiquetas pequeñas en dorado. La oferta va en una placa dorada con letras negras: una línea mediana, el precio bien grande y una línea fina debajo.",
+  "estilo": "Limpio, claro y femenino. Fondo crema, luz suave de día, detalles en amarillo limón y dorado, y la mujer dibujada con un acabado suave y realista. Se siente cálido, optimista y confiable.",
+  "beneficios": [
+    "Acompaña tu apetito desde las primeras semanas",
+    "Energía para trabajar, estudiar y entrenar",
+    "Con ashwagandha para los días pesados",
+    "Un apoyo natural y sin agujas mientras trabajas tus curvas con comida y ejercicio"
+  ],
+  "caracteristicas": [
+    "Gotero de 60 ml en frasco de vidrio ámbar",
+    "5 ingredientes vegetales: ashwagandha, maca, L-arginina, fenogreco y remolacha",
+    "En gotas, una toma al día, sin pastillas",
+    "Se toma sola o mezclada en tu jugo o en agua"
+  ],
+  "deseo_central": "Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo.",
+  "beneficio_principal": "Un ritual diario de gotas que acompaña tu apetito y tu energía mientras trabajas tus curvas con comida y ejercicio.",
+  "puntos_dolor": [
+    "Como y como y no me engorda nada",
+    "Los jeans me quedan bailando en la cola",
+    "Se me olvida comer y me lleno con nada",
+    "Voy al gym y no veo cambios en la pierna ni en la cola",
+    "Me da miedo el quirófano y más los biopolímeros",
+    "Ya compré gomitas y pastillas y no vi nada"
+  ]
+}

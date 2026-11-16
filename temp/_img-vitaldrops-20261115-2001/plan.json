@@ -1,0 +1,76 @@
+{
+  "producto": "vitaldrops",
+  "lote": "_img-vitaldrops-20261115-2001",
+  "cantidad": 5,
+  "proporciones": ["1:1"],
+  "decisiones": [
+    "En este lote no llegó ninguna imagen de referencia. Para acercarnos a lo que pediste, el primer anuncio cuenta el progreso por etapas y el segundo usa una cuadrícula de cuatro cuadros; los otros tres usan estructuras distintas para que puedas probar cuál funciona mejor.",
+    "Tu oferta va en los cinco anuncios, escrita tal cual: TRATAMIENTO COMPLETO, X3 UNIDADES $139,900, SIN EFECTO REBOTE. Donde la estructura no traía un espacio para la oferta, se agregó una placa dorada porque tú lo pediste.",
+    "Cada anuncio muestra a una mujer distinta en un lugar distinto.",
+    "El ángulo se mantiene directo: apetito, energía y el jean que queda bailando. No se promete aumento de cola ni de caderas, y no hay antes y después del cuerpo, porque Meta rechaza esos anuncios y la investigación lo desaconseja.",
+    "No se menciona envío ni forma de pago porque no los diste.",
+    "Ojo: la palabra «tratamiento» y la frase «sin efecto rebote» se dejaron como las escribiste. Si Meta rechaza algún anuncio, son lo primero que conviene cambiar."
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "biblioteca",
+      "formato_id": "F26",
+      "formato": "Línea de tiempo",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El progreso del ritual por etapas: empieza, llega la energía y luego las ganas de comer. Se ve en su ánimo, no en su cuerpo.",
+      "titular": "MÁS APETITO Y ENERGÍA SEMANA A SEMANA",
+      "escena": "Fondo crema. Tres círculos que crecen con la misma mujer (26 años, cabello largo ondulado castaño oscuro, blusa mostaza) de los hombros hacia arriba en el mesón de una cocina luminosa: con sueño y un café, despierta y sonriente, y riendo frente a un plato lleno. Frasco abajo a la izquierda y placa dorada con la oferta abajo a la derecha (bloque añadido a pedido del usuario).",
+      "camara": "Frontal a la altura de los ojos, plano de hombros hacia arriba, idéntico en los tres círculos."
+    },
+    {
+      "id": "V02",
+      "fuente": "biblioteca",
+      "formato_id": "F18",
+      "formato": "Cómo funciona 1-2-3",
+      "angulo_id": "rutina-uso",
+      "angulo": "Rutina / momento de uso",
+      "concepto": "El ritual de la mañana en tres pasos: llenas el gotero, lo tomas con tu jugo y te sientas a comer con ganas.",
+      "titular": "TU RITUAL DE CADA MAÑANA",
+      "escena": "Cuadrícula de cuatro cuadros sobre crema. Cuadro amarillo con el titular y el frasco; tres escenas en un balcón con plantas y luz de la mañana, con una mujer de cabello rizado recogido y camiseta blanca. Placa dorada con la oferta a todo lo ancho, abajo (bloque añadido a pedido del usuario).",
+      "camara": "Planos cercanos de manos y mesa, ligeramente desde arriba; el paso 3 en plano medio corto de la mujer desayunando."
+    },
+    {
+      "id": "V03",
+      "fuente": "biblioteca",
+      "formato_id": "G08",
+      "formato": "Oferta combo con modelo en escena",
+      "angulo_id": "oferta",
+      "angulo": "Oferta / promoción",
+      "concepto": "La oferta de los tres frascos al frente, con una mujer segura y con energía en el gimnasio.",
+      "titular": "X3 UNIDADES $139,900",
+      "escena": "Gimnasio luminoso y desenfocado en tonos crema. A la derecha, una mujer de cabello negro liso en cola alta, top deportivo verde oliva y toalla al hombro, sonriendo, de la cintura hacia arriba. Tres frascos en primer plano. Pastilla dorada con TRATAMIENTO COMPLETO arriba y etiqueta dorada con SIN EFECTO REBOTE abajo a la izquierda (ocupa el lugar del envío, que el usuario no dio).",
+      "camara": "Plano medio a la altura del pecho, lente de retrato con fondo muy desenfocado."
+    },
+    {
+      "id": "V04",
+      "fuente": "biblioteca",
+      "formato_id": "F05",
+      "formato": "Problema en primer plano",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "El momento frente al espejo con el jean en la mano: come de todo y le sigue quedando bailando.",
+      "titular": "COMO DE TODO Y EL JEAN ME QUEDA BAILANDO",
+      "escena": "Cuarto con luz de ventana. Una mujer de cabello corto tipo bob con reflejos miel y buzo gris sostiene un jean doblado frente al espejo, con gesto de resignación suave; se ve de los hombros hacia arriba, sin acercamientos al cuerpo. Frasco en una tarjeta amarilla abajo a la derecha y placa dorada con la oferta abajo a la izquierda (bloque añadido a pedido del usuario).",
+      "camara": "Primer plano cercano por encima del hombro hacia el espejo, poca profundidad de campo."
+    },
+    {
+      "id": "V05",
+      "fuente": "biblioteca",
+      "formato_id": "G17",
+      "formato": "Lifestyle con columna de beneficios y producto en primer plano",
+      "angulo_id": "beneficio-sin-sacrificio",
+      "angulo": "Beneficio sin sacrificio",
+      "concepto": "Un apoyo natural que se toma por la boca: sin agujas y sin quirófano, a tu ritmo.",
+      "titular": "TU RITUAL NATURAL Y SIN AGUJAS",
+      "escena": "Sala cálida con luz dorada de la tarde y luces desenfocadas. Una mujer de trenzas largas y blusa crema, serena, con los ojos cerrados y una sonrisa, de los hombros hacia arriba. Tres beneficios a la izquierda (apetito, energía, días más tranquilos), frasco grande abajo a la derecha y banda dorada abajo con la oferta en lugar del envío, que el usuario no dio.",
+      "camara": "Plano de hombros hacia arriba, ligeramente lateral, lente de retrato con fondo muy desenfocado."
+    }
+  ]
+}
