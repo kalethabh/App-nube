@@ -102,6 +102,8 @@ estilo).
 
 ## Variaciones fieles y aprobación de títulos (2026-11-16)
 
+Implementación: [PR #61](https://github.com/kalethabh/App-nube/pull/61).
+
 Pedido: conservar la esencia del anuncio y por qué vende; variar solo los titulares con la investigación,
 mostrar propuestas antes para seleccionar y acelerar la preparación.
 
