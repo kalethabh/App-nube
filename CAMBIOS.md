@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-16d · Investigación con TrendTrack en modo claro
+
+- La segunda parte de la investigación de mercado (la competitiva con TrendTrack, las 6 etapas) ahora también cambia con el modo claro y oscuro. Los colores siguen diciendo lo mismo (verde libre, ámbar medio, rojo saturado, azul dato), en tonos que se leen bien sobre blanco.
+
 ## 2026-11-16c · La pantalla nueva llega sola
 
 - Si el guardado automático trae una versión nueva desde GitHub, la app ahora vuelve a armar la pantalla sola y te avisa arriba con «Recargar». Antes, Ajustes decía la versión nueva pero se seguía viendo la vieja (por ejemplo, sin el botón del modo claro).
