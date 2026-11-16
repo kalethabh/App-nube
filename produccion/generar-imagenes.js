@@ -74,6 +74,7 @@ import {
   requerirClave,
 } from './config.js';
 import { generarImagen, subirArchivo, consultarCreditos, esSigueEnKie, esPagadaSinBajar, esCreacionIncierta, clasificarFallo } from './kie-client.js';
+import { generarConChatGPT, codexDesdeEntorno, MODELO_CHATGPT } from './chatgpt-imagen.js';
 import { validarManifiesto } from './validar-manifiesto.js';
 import {
   listaDeReferencias,
@@ -832,7 +833,88 @@ function errorPagadaSinBajar(trabajo, e, ctx) {
  *   - lo demas (servidor, otro): hasta REINTENTOS veces con ese modelo, como
  *     siempre, y despues el siguiente.
  */
-async function generarConCascada(trabajo, ctx, log) {
+// ---------------------------------------------------------------- imagenes con la suscripcion de ChatGPT
+//
+// Ajustes › Conexiones › «Videos, música e imágenes de los videos» › Imágenes con ChatGPT (2026-11-16): la app pasa
+// AIA_IMAGENES_VIDEO=chatgpt y AIA_CHATGPT_IMAGENES (lib/motor-imagenes.js). Cada imagen se intenta primero con
+// ChatGPT (sin costo por imagen) y, si no sale, sigue la cascada de kie de siempre (se cobra):
+//   - se acabo el uso de ChatGPT o no tiene la sesion iniciada: el resto de la corrida va con kie (ctx.chatgptCaido);
+//   - ChatGPT la rechazo o fallo 2 veces: esa imagen va con kie.
+// Los iconos (fondo transparente) van siempre con kie. Pocas a la vez (cada una es un `codex exec`).
+const CHATGPT_INTENTOS = 2;
+const CHATGPT_A_LA_VEZ = 3;
+
+/** El ChatGPT para las imagenes de esta corrida, o null (kie como siempre). */
+export function chatgptDeLaCorrida(env = process.env) {
+  return env.AIA_IMAGENES_VIDEO === 'chatgpt' ? codexDesdeEntorno(env) : null;
+}
+
+/** true si esta imagen la puede hacer ChatGPT (ni icono ni fondo transparente). */
+export const vaConChatGPT = (trabajo) => trabajo.clase !== 'icono' && !trabajo.fondo;
+
+function turnoChatGPT(ctx) {
+  ctx.chatgptCola ||= { activos: 0, esperando: [] };
+  const c = ctx.chatgptCola;
+  return new Promise((ok) => {
+    const entrar = () => {
+      c.activos++;
+      ok(() => {
+        c.activos--;
+        c.esperando.shift()?.();
+      });
+    };
+    if (c.activos < CHATGPT_A_LA_VEZ) entrar();
+    else c.esperando.push(entrar);
+  });
+}
+
+/** Intenta la imagen con ChatGPT. Devuelve { url, ruta } si salio; null si hay que seguir con kie. */
+async function intentarConChatGPT(trabajo, ctx, log, { archivos, destino, aspecto, usadas }) {
+  if (!ctx.chatgpt || ctx.chatgptCaido || !vaConChatGPT(trabajo)) return null;
+  // ChatGPT necesita el archivo de cada referencia (no la URL de kie): si falta alguno, va con kie.
+  if (archivos.some((a) => !a || !fs.existsSync(a))) return null;
+  for (let intento = 1; intento <= CHATGPT_INTENTOS; intento++) {
+    if (ctx.chatgptCaido) return null;
+    const soltar = await turnoChatGPT(ctx);
+    try {
+      const r = await generarConChatGPT({
+        prompt: promptConFotograma(trabajo.prompt, trabajo.fotograma),
+        referencias: archivos,
+        aspecto,
+        rutaDestino: destino,
+        codex: ctx.chatgpt,
+        alAvisar: (seg) => console.log(`  ..  ${trabajo.descripcion}: ChatGPT sigue haciendo la imagen (${seg} s)`),
+      });
+      // la URL para las tomas que la usan de referencia en kie (subir no cobra); si no se pudo, se sube al pedirla
+      let url = null;
+      try {
+        url = await subirArchivo(r.ruta);
+      } catch {
+        /* urlDeFrame la sube cuando haga falta */
+      }
+      log.push({ id: trabajo.id, archivo: trabajo.archivo, modelo: MODELO_CHATGPT, respaldo: false, intentos: intento, referencias: usadas, creditos: 0, taskId: null, chatgpt: true });
+      console.log(`  OK  ${trabajo.descripcion}${usadas.length ? ` [refs: ${usadas.join(', ')}]` : ''} — 0 cr (ChatGPT)`);
+      return { url, ruta: r.ruta };
+    } catch (e) {
+      if (e?.limite || e?.sinSesion) {
+        ctx.chatgptCaido = e.limite ? 'limite' : 'sesion';
+        console.log(`\n  !  ChatGPT ${e.limite ? 'llegó al límite de uso de tu suscripción' : 'no tiene la sesión iniciada'}: las imágenes que faltan se hacen en kie.ai (se cobran).\n`);
+        return null;
+      }
+      const motivo = String(e?.message || e).split(/\r?\n/)[0].slice(0, 140);
+      if (e?.contenido) {
+        console.log(`  ..  ${trabajo.descripcion}: ChatGPT no quiso hacerla (${motivo}); va con kie.ai`);
+        return null;
+      }
+      console.log(`  ..  ${trabajo.descripcion}: ChatGPT, intento ${intento}/${CHATGPT_INTENTOS} falló (${motivo})${intento < CHATGPT_INTENTOS ? ' — reintento' : '; va con kie.ai'}`);
+    } finally {
+      soltar();
+    }
+  }
+  return null;
+}
+
+export async function generarConCascada(trabajo, ctx, log) {
   const { urls: referencias, usadas, archivos } = await resolverReferencias(trabajo, ctx);
   const destino = path.join(ctx.dirImg, trabajo.archivo);
   // Con --rehacer, la imagen anterior se archiva en vez de perderse.
@@ -851,6 +933,9 @@ async function generarConCascada(trabajo, ctx, log) {
   // sin "fondo": el cuerpo de siempre.
   const aspecto = trabajo.aspectRatio || ctx.aspectRatio;
   const resolucionDe = (modelo) => trabajo.resoluciones?.[modelo] || RESOLUCION;
+  // Primero con la suscripción de ChatGPT, si se eligió (sin costo por imagen). Si no sale, kie como siempre.
+  const deChatGPT = await intentarConChatGPT(trabajo, ctx, log, { archivos, destino, aspecto, usadas });
+  if (deChatGPT) return deChatGPT;
   const huellaDe = (modelo) =>
     huellaDeImagen(
       { modelo, prompt: promptConFotograma(trabajo.prompt, trabajo.fotograma), aspecto, resolucion: resolucionDe(modelo), fondo: trabajo.fondo || null, archivos },
@@ -1052,12 +1137,12 @@ async function correrTrabajo(trabajo, ctx, log) {
     // Hoja lista: desde ahora su id da ESTA imagen (antes, en una hoja generada
     // desde la foto, daba la foto). Se anota en estado.json al final, con las
     // demas y en el orden de la lista (ver el CLI).
-    ctx.urlsDeReferencias.set(trabajo.id, r.url);
+    ctx.urlsDeReferencias.set(trabajo.id, r.url || (await subirArchivo(r.ruta)));
     ctx.archivosDeReferencias.set(trabajo.id, path.join(ctx.dirImg, trabajo.archivo));
     ctx.hojasListas?.add(trabajo.id);
     return;
   }
-  ctx.urlsPorId.set(trabajo.id, r.url);
+  if (r.url) ctx.urlsPorId.set(trabajo.id, r.url); // sin URL (ChatGPT sin subir): urlDeFrame la sube al pedirla
 }
 
 /**
@@ -1602,7 +1687,11 @@ async function cli() {
     sha1s: new Map(),
     // Las hojas que estan (en disco o recien generadas), para estado.json.
     hojasListas: new Set(),
+    // Imágenes con la suscripción de ChatGPT (Ajustes): null = todas con kie, como siempre.
+    chatgpt: chatgptDeLaCorrida(),
+    chatgptCaido: null,
   };
+  if (ctx.chatgpt) console.log('  Imágenes con tu ChatGPT (sin costo por imagen); si no sale alguna o se acaba el uso, sigue con kie.ai.');
 
   const log = [];
   const t0 = Date.now();

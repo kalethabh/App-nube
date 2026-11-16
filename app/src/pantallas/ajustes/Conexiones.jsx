@@ -43,7 +43,7 @@ import {
   useSaldo,
 } from './datos.js';
 import { CampoClave } from './piezas.jsx';
-import { TarjetaChatGPTImagenes } from './ChatGPTImagenes.jsx';
+import { TarjetaChatGPTImagenes, ImagenesDeVideos } from './ChatGPTImagenes.jsx';
 
 /**
  * Los modelos elegidos en Ajustes › Modelos (vienen de /api/estado: el catálogo + tu elección): la imagen, el video
@@ -712,6 +712,7 @@ export function Conexiones({ estado, recargar, alElegirModelos }) {
             ) : null}
           </div>
         </div>
+        <ImagenesDeVideos />
         <ClaveKie estado={e} alCambiar={recargar} />
         <SaldoKie guardada={e ? Boolean(e.claves?.kie) : null} />
       </Tarjeta>

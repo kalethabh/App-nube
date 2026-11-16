@@ -113,6 +113,12 @@ export async function entornoDelMotor(extra = {}) {
     env = dePrueba.PATH || dePrueba.Path ? { ...dePrueba } : { ...env, ...dePrueba };
   } else {
     for (const k of Object.keys(env)) if (SOLO_PRUEBAS.test(k)) delete env[k];
+    // las imágenes de los videos con la suscripción de ChatGPT, si se eligió en Ajustes (lib/motor-imagenes.js)
+    try {
+      Object.assign(env, (await import('./motor-imagenes.js')).entornoImagenesVideo());
+    } catch {
+      /* sin eso, kie como siempre */
+    }
   }
   for (const [k, v] of Object.entries(extra || {})) {
     // En modo prueba nada de afuera pisa las direcciones, las claves falsas ni la guardia.

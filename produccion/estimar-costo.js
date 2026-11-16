@@ -315,13 +315,22 @@ export function costoImagenes(m, { eleccion, brollFuera = [] } = {}) {
   let creditos = 0;
   let sinPrecio = 0;
   const porClase = {};
+  // Con las imágenes de ChatGPT (Ajustes; la app pasa AIA_IMAGENES_VIDEO=chatgpt) no se cobran, salvo los iconos y
+  // las de fondo transparente, que van siempre con kie (generar-imagenes.js, vaConChatGPT).
+  const conChatGPT = process.env.AIA_IMAGENES_VIDEO === 'chatgpt';
+  let deChatGPT = 0;
   for (const t of plan) {
+    if (conChatGPT && t.clase !== 'icono' && !t.fondo) {
+      deChatGPT++;
+      porClase[t.clase] = (porClase[t.clase] || 0) + 1;
+      continue;
+    }
     const c = creditosDeImagen(t);
     if (c === null) sinPrecio++;
     else creditos = r2(creditos + c);
     porClase[t.clase] = (porClase[t.clase] || 0) + 1;
   }
-  return { creditos, piezas: plan.length, sinPrecio, porClase };
+  return { creditos, piezas: plan.length, sinPrecio, porClase, ...(conChatGPT ? { deChatGPT } : {}) };
 }
 
 /** El tope de duracion de un modelo (el ultimo tramo o duracionMax; con imagen final, duracionMaxConFinal si lo tiene). */

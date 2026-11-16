@@ -2,13 +2,14 @@
 //
 //   GET /api/imagenes/motor  -> { motor: 'chatgpt'|'kie', opciones, chatgpt: { instalado, version, sesion, plan,
 //                                 limites: { usado5h, renueva5h, usadoSemana, renuevaSemana } | null }, login, instalando }
-//   PUT /api/imagenes/motor { motor } -> { motor }
+//   PUT /api/imagenes/motor { motor } -> { motor }   (anuncios de imagen)
+//   PUT /api/imagenes/motor { motorVideo } -> { motorVideo }   (las imágenes de los videos; con respaldo en kie)
 //
 // Para instalar Codex o iniciar sesion en ChatGPT se usan las de siempre (/api/ia/instalar y /api/ia/login con
 // motor 'codex'): no cambian la IA que escribe.
 import express from 'express';
 import { estadoIA } from '../lib/motor-ia.js';
-import { motorDeImagenes, elegirMotorDeImagenes, MOTORES_IMAGEN } from '../lib/motor-imagenes.js';
+import { motorDeImagenes, elegirMotorDeImagenes, motorImagenesVideo, elegirMotorImagenesVideo, MOTORES_IMAGEN } from '../lib/motor-imagenes.js';
 import { soloDesdeLaApp, ErrorApp } from '../lib/productos.js';
 
 const json = express.json({ limit: '10kb' });
@@ -38,6 +39,8 @@ export default function rutasMotorImagenes(app) {
     const instalando = e?.instalando?.motor === 'codex' ? e.instalando : null;
     res.set('Cache-Control', 'no-store').json({
       motor: motorDeImagenes(),
+      // las imágenes de los VIDEOS (aparte): 'kie' por defecto, 'chatgpt' con respaldo en kie
+      motorVideo: motorImagenesVideo(),
       opciones: Object.values(MOTORES_IMAGEN),
       chatgpt: c
         ? {
@@ -56,6 +59,8 @@ export default function rutasMotorImagenes(app) {
 
   app.put('/api/imagenes/motor', soloDesdeLaApp, json, (req, res) => {
     try {
+      // { motor } = anuncios de imagen; { motorVideo } = las imágenes de los videos
+      if (req.body?.motorVideo !== undefined) return res.json({ motorVideo: elegirMotorImagenesVideo(String(req.body.motorVideo || '')) });
       res.json({ motor: elegirMotorDeImagenes(String(req.body?.motor || '')) });
     } catch (err) {
       const status = err instanceof ErrorApp || Number.isInteger(err?.status) ? err.status : 500;
