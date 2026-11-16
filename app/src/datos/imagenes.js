@@ -37,7 +37,9 @@ export const apiImagenes = {
   subirLogo: (lote, archivo) => pedirNuevo(`${BASE}/${enc(lote)}/logo`, { metodo: 'PUT', binario: archivo }),
   quitarLogo: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/logo`, { metodo: 'DELETE' }),
   /** Arranca el lote con el costo que el usuario acaba de confirmar. 409 si ya empezó. */
-  generar: (lote, costoMaximoConfirmado) => pedirNuevo(`${BASE}/${enc(lote)}/generar`, { metodo: 'POST', cuerpo: { costoMaximoConfirmado } }),
+  proponerTitulos: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/titulos`, { metodo: 'POST' }),
+  titulos: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/titulos`),
+  generar: (lote, costoMaximoConfirmado, titulos) => pedirNuevo(`${BASE}/${enc(lote)}/generar`, { metodo: 'POST', cuerpo: { costoMaximoConfirmado, titulos } }),
   /** La vista del lote: conductor, avance, estrategia, variaciones con sus piezas, pedidos e informe. */
   lote: (lote) => pedirNuevo(`${BASE}/${enc(lote)}`),
   /** { texto }: el texto exacto que recibió el modelo. NUNCA se muestra: solo se copia (copiarDesde). */

@@ -33,7 +33,7 @@ function Fila({ etiqueta, children }) {
  * producto: { nombre, foto, nueva } · cantidad: { valida, n, maximo } · conVertical · logo: { url, posicion } | null
  * referencias: [{ id, url, heic }] · costo: { rango, etiqueta, chica } | null · motor (useMotor) · fase · textoBoton
  */
-export function ResumenLote({ producto, cantidad, conVertical, logo, referencias, costo, motor, ocupado, fase, textoBoton, onGenerar }) {
+export function ResumenLote({ producto, cantidad, conVertical, logo, referencias, costo, motor, ocupado, fase, textoBoton, onGenerar, eligiendoTitulos = false }) {
   const { valida, n, maximo } = cantidad;
   const usadas = valida ? Math.min(n, referencias.length) : referencias.length;
   const sobran = referencias.length - VISIBLES;
@@ -108,7 +108,7 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
           <Boton variante="marca" tamano="grande" bloque cargando={ocupado} disabled={!costo} onClick={onGenerar}>
             {fase || textoBoton}
           </Boton>
-          <p className="img-resumen__pie">{costo?.etiqueta === 'Con tu ChatGPT' ? 'La IA' : 'Al generar confirmas el costo mostrado. La IA'} arma la estrategia, crea las imágenes y las revisa; tú decides si quieres regenerar alguna.</p>
+          <p className="img-resumen__pie">{eligiendoTitulos ? 'Primero verás los títulos y elegirás cuáles usar. Este paso usa tu IA y no genera imágenes.' : 'Al generar confirmas los títulos seleccionados y el costo mostrado. La IA crea las imágenes y las revisa.'}</p>
         </div>
       </Tarjeta>
     </aside>

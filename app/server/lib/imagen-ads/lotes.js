@@ -217,6 +217,7 @@ export function crearLote(cuerpo = {}) {
     referencias: [],
     // «Más de lo mismo»: todas las variaciones copian el diseño de tus referencias (y el modelo de imagen las ve)
     fiel: cuerpo.fiel !== false,
+    elegirTitulos: cuerpo.elegirTitulos === true,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
     logo,

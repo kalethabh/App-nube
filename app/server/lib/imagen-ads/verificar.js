@@ -103,6 +103,8 @@ export function verificarPlan(carpeta, brief) {
   const { angulos, formatos } = leerSkill();
   vs.forEach((x, i) => {
     const donde = `plan.json → variaciones[${i}]`;
+    const elegido = brief?.seleccionTitulos?.titulos?.[i]?.titulo;
+    if (elegido && x?.titular !== elegido) errores.push(`${donde}.titular: usa exactamente el título seleccionado: ${elegido}`);
     if (x?.id !== ids[i]) errores.push(`${donde}.id: tiene que ser "${ids[i] || '?'}" (van de ${ids[0]} a ${ids[ids.length - 1]}, en orden)`);
     if (!RE_V.test(String(x?.id || ''))) return;
     if (i < k) {
@@ -148,6 +150,10 @@ export function verificarV(carpeta, v, { brief, plan = null, usados = [] } = {})
   const { datos, errores } = leerConEsquema(ruta, 'imagen-ads-variacion');
   const avisos = [];
   if (!datos) return { datos, errores, avisos };
+  const indiceTitulo = idsDelLote(Number(brief?.cantidad) || 0).indexOf(v);
+  const tituloElegido = brief?.seleccionTitulos?.titulos?.[indiceTitulo]?.titulo;
+  const normalizarTitulo = (t) => String(t || '').replace(/\s+/g, ' ').trim();
+  if (tituloElegido && !(Array.isArray(datos.text_layers) ? datos.text_layers : []).some((t) => normalizarTitulo(t.text) === normalizarTitulo(tituloElegido))) errores.push(`${v}.json → falta el título exacto seleccionado en text_layers`);
   if (datos.ad_info?.variation_id !== v) errores.push(`${v}.json → ad_info.variation_id: tiene que ser "${v}"`);
   (Array.isArray(datos.text_layers) ? datos.text_layers : []).forEach((t, i) => {
     if (!conTexto(t?.text)) errores.push(`${v}.json → text_layers[${i}].text: está vacío (si no va, saca esa capa)`);

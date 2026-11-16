@@ -21,7 +21,7 @@ export default function PantallaCrearImagenes({ consulta }) {
         </Boton>
         <CabeceraPagina
           titulo="Crear anuncios de imagen"
-          descripcion="Cuéntale a la IA tu producto y elige cuántos quieres. Ella arma la estrategia, crea cada imagen en cuadrado y, si quieres, también en vertical, y las revisa."
+          descripcion="Elige tu producto y tus referencias. Revisa los títulos estratégicos, selecciona los que quieres y confirma la generación de tus imágenes."
           extra={
             simulando ? (
               <VistaPrevia
