@@ -15,19 +15,16 @@
 // precio por imagen lo manda el servidor (GET /api/imagen-ads/opciones → costo; el modelo de los lotes es fijo) y se
 // recalcula con la cantidad y el formato (costoDelLote). La pantalla del lote sigue sin precios hasta su informe.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, CircleCheck, Globe, Images, Megaphone, Sparkles, Tag, Telescope, TriangleAlert, Users } from 'lucide-react';
-import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
+import { CircleAlert, CircleCheck, Copy, Globe, Images, Sparkles, Tag, Telescope, Trophy, Users } from 'lucide-react';
+import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useEstado } from '../../datos/api.js';
 import { dinero } from '../../datos/formato.js';
 import {
   CLAVE_LOTES,
   CLAVE_PRODUCTOS,
-  POSICIONES_LOGO,
-  POSICION_POR_DEFECTO,
   apiImagenes,
   costoDelLote,
   textoDeCantidad,
-  tieneTransparencia,
   useOpcionesImagen,
   useProductosImagen,
 } from '../../datos/imagenes.js';
@@ -36,17 +33,15 @@ import { enlace, ir, rutas } from '../../datos/rutas.js';
 import { rangoDinero } from '../nuevo/CostoEstimado.jsx';
 import { useMotor } from '../ajustes/datos.js';
 import { ElegirProducto } from './ElegirProducto.jsx';
-import { PosicionLogo } from './PosicionLogo.jsx';
+import { ElegirFunciona, comoArchivos } from './ElegirFunciona.jsx';
 import { ResumenLote } from './ResumenLote.jsx';
 import { ZonaImagenes, liberarVistas } from './ZonaImagenes.jsx';
 import { BibliotecaReferencias } from './BibliotecaReferencias.jsx';
 
-const MONEDAS = ['S/', 'US$', 'MXN $', 'COP $', 'CLP $', 'ARS $', 'R$', '€', 'Q', 'Bs'];
-const OPCIONES_MONEDA = [...MONEDAS.map((m) => ({ valor: m, etiqueta: m })), { valor: 'otra', etiqueta: 'Otra' }];
-const IDIOMAS = [
-  { valor: 'es', etiqueta: 'Español' },
-  { valor: 'en', etiqueta: 'Inglés' },
-  { valor: 'pt', etiqueta: 'Portugués' },
+// «Nuevos»: de cero, con los ganchos validados de tu investigación. «Variantes»: de algo que ya te funciona.
+const MODOS = [
+  { id: 'nuevos', etiqueta: 'Nuevos' },
+  { id: 'variantes', etiqueta: 'Variantes' },
 ];
 const CANTIDADES = [5, 10, 20, 50];
 const PROPORCIONES = [
@@ -59,17 +54,11 @@ const VACIO = {
   fotoProducto: null,
   nombre: '',
   publico: '',
-  precio: '',
-  moneda: 'US$',
-  monedaOtra: '',
-  cta: '',
   pais: '',
-  idioma: null,
   adicional: '',
-  angulo: '',
   cantidad: '10',
   conVertical: true,
-  posicionLogo: POSICION_POR_DEFECTO,
+  modo: 'nuevos',
   // «Más de lo mismo»: todas las variaciones copian el diseño de tus referencias
   fiel: true,
 };
@@ -100,17 +89,11 @@ const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 function desdeDatos(d) {
   if (!d || typeof d !== 'object') return {};
   const s = (x) => (typeof x === 'string' ? x : x === null || x === undefined ? '' : String(x));
-  const moneda = s(d.moneda);
   return {
     nombre: s(d.nombre),
     publico: s(d.publico),
-    precio: s(d.precio),
-    ...(moneda ? (MONEDAS.includes(moneda) ? { moneda, monedaOtra: '' } : { moneda: 'otra', monedaOtra: moneda }) : {}),
-    cta: s(d.cta),
     pais: s(d.pais),
-    ...(['es', 'en', 'pt'].includes(d.idioma) ? { idioma: d.idioma } : {}),
     adicional: s(d.adicional),
-    angulo: s(d.angulo),
   };
 }
 
@@ -151,15 +134,17 @@ export function Formulario({ simulando = false, productoPedido = null }) {
   const [f, setF] = useState(() => ({ ...VACIO, ...(simulando ? {} : leerBorrador()) }));
   const [fotoNueva, setFotoNueva] = useState([]);
   const [referencias, setReferencias] = useState([]);
-  const [logo, setLogo] = useState([]);
   const [bibliotecaAbierta, setBibliotecaAbierta] = useState(false);
-  const [transparente, setTransparente] = useState(null);
+  // «Variantes»: los creativos de «Lo que me funciona» elegidos (en orden)
+  const [elegidos, setElegidos] = useState([]);
+  const [itemsElegidos, setItemsElegidos] = useState([]);
+  const variantes = f.modo === 'variantes';
   const [errores, setErrores] = useState({});
   const [fase, setFase] = useState(null);
   const [nota, setNota] = useState(null);
   const [propuestas, setPropuestas] = useState(null);
   const [seleccion, setSeleccion] = useState([]);
-  const entradasTitulos = JSON.stringify([f, fotoNueva.map((x) => x.id), referencias.map((x) => x.id)]);
+  const entradasTitulos = JSON.stringify([f, fotoNueva.map((x) => x.id), referencias.map((x) => x.id), elegidos]);
   const entradasActuales = useRef(entradasTitulos);
   entradasActuales.current = entradasTitulos;
   useEffect(() => { if (propuestas) document.getElementById('titulos-del-lote')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, [propuestas]);
@@ -183,13 +168,8 @@ export function Formulario({ simulando = false, productoPedido = null }) {
 
   // las vistas previas locales se liberan al salir de la pantalla
   const vistas = useRef([]);
-  vistas.current = [...fotoNueva, ...referencias, ...logo];
+  vistas.current = [...fotoNueva, ...referencias];
   useEffect(() => () => liberarVistas(vistas.current), []);
-
-  // el idioma por defecto es el de Ajustes (hasta que elijas otro)
-  useEffect(() => {
-    if (f.idioma === null && opciones) setF((x) => (x.idioma === null ? { ...x, idioma: ['es', 'en', 'pt'].includes(opciones.idiomaPorDefecto) ? opciones.idiomaPorDefecto : 'es' } : x));
-  }, [opciones, f.idioma]);
 
   // el producto guardado ya no está (o no tiene fotos): se suelta. Con ?producto=<id> ("Hacer otro lote", «Crear más»),
   // se elige (una vez por cada producto pedido: también si el enlace cambia sin salir de la pantalla)
@@ -207,16 +187,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
     if (f.productoId && !productos.some((x) => x.id === f.productoId)) poner({ productoId: null, fotoProducto: null });
   }, [productos, productoPedido]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ¿el logo tiene transparencia? (se mira aquí para avisar enseguida)
-  useEffect(() => {
-    let vigente = true;
-    setTransparente(null);
-    if (logo[0]?.archivo) tieneTransparencia(logo[0].archivo).then((t) => vigente && setTransparente(t));
-    return () => {
-      vigente = false;
-    };
-  }, [logo]);
-
   function elegir(p) {
     if (!p) {
       poner({ productoId: null, fotoProducto: null });
@@ -233,9 +203,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
 
   const n = Number(f.cantidad);
   const cantidadValida = Number.isInteger(n) && n >= 1 && n <= maximo;
-  const angulos = opciones?.angulos || [];
-  const anguloElegido = angulos.find((a) => a.id === f.angulo);
-  const opcionesAngulo = useMemo(() => [{ valor: '', etiqueta: 'Que lo elija la IA' }, ...angulos.map((a) => ({ valor: a.id, etiqueta: a.nombre }))], [angulos]);
 
   function validar() {
     const e = {};
@@ -243,7 +210,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
     if (!f.nombre.trim()) e.nombre = 'Escribe el nombre de tu producto.';
     if (!f.pais.trim()) e.pais = 'Escribe el país donde vendes.';
     if (!cantidadValida) e.cantidad = `Elige de 1 a ${maximo} anuncios.`;
-    if (f.precio.trim() && f.moneda === 'otra' && !f.monedaOtra.trim()) e.monedaOtra = 'Escribe tu moneda.';
+    if (variantes && !elegidos.length) e.funciona = 'Elige al menos un creativo que te funcione.';
     return e;
   }
 
@@ -252,8 +219,8 @@ export function Formulario({ simulando = false, productoPedido = null }) {
       ['producto', 'campo-producto'],
       ['nombre', 'campo-nombre'],
       ['pais', 'campo-pais'],
-      ['monedaOtra', 'campo-moneda-otra'],
       ['cantidad', 'campo-cantidad'],
+      ['funciona', 'grupo-referencias-titulo'],
     ];
     const primero = orden.find(([k]) => e[k]);
     const el = primero ? document.getElementById(primero[1]) : null;
@@ -276,13 +243,9 @@ export function Formulario({ simulando = false, productoPedido = null }) {
   const datosDelLote = () => ({
     nombre: f.nombre.trim(),
     publico: f.publico.trim(),
-    precio: f.precio.trim(),
-    moneda: f.precio.trim() ? (f.moneda === 'otra' ? f.monedaOtra.trim() : f.moneda) : '',
-    cta: f.cta.trim(),
     pais: f.pais.trim(),
-    idioma: f.idioma || 'es',
+    idioma: 'es', // siempre en español
     adicional: f.adicional.trim(),
-    angulo: f.angulo || null,
   });
 
   async function generar() {
@@ -315,7 +278,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         setPropuestas({ esencia: 'Se conserva la demostración y el beneficio de la referencia. Ejemplo de diseño.', opciones: Array.from({ length: n + 3 }, (_, i) => ({ id: `T${i}`, titulo: `Un beneficio para tu rutina ${i + 1}`, porQue: 'Expresa la misma razón de compra.', base: 'Ejemplo simulado.' })) });
         return;
       }
-      for (const t of ['Creando tu lote', referencias.length ? 'Subiendo tus referencias' : null, logo.length ? 'Subiendo tu logo' : null, 'Arrancando tu lote'].filter(Boolean)) {
+      for (const t of ['Creando tu lote', referencias.length || elegidos.length ? 'Subiendo tus referencias' : null, 'Arrancando tu lote'].filter(Boolean)) {
         setFase(t);
         await esperar(450);
       }
@@ -343,8 +306,14 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         fotoProducto = 1;
       }
 
+      // las referencias: en «Variantes», los creativos que te funcionan (los del mismo producto conservan hasta sus colores)
+      const refs = variantes
+        ? (await comoArchivos(itemsElegidos)).map((archivo, i) => ({ id: `funciona-${itemsElegidos[i].id}`, archivo }))
+        : referencias;
+      const propias = variantes ? itemsElegidos.map((x, i) => (x.productoId && x.productoId === productoId ? i + 1 : null)).filter(Boolean) : [];
+
       // 2. el lote (borrador). Si cambiaste algo que va en él desde el intento anterior, se arma otro.
-      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: logo.length ? { posicion: f.posicionLogo } : null, fiel: Boolean(f.fiel && referencias.length), elegirTitulos: true };
+      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: null, modo: variantes ? 'variantes' : 'nuevos', referenciasPropias: propias, fiel: variantes ? true : Boolean(f.fiel && referencias.length), elegirTitulos: true, refs: refs.map((x) => x.id) };
       const firma = JSON.stringify(cuerpo);
       if (creado.current && creado.current.firma !== firma) {
         apiImagenes.borrar(creado.current.lote).catch(() => {});
@@ -360,23 +329,18 @@ export function Formulario({ simulando = false, productoPedido = null }) {
       const c = creado.current;
 
       // 3. las referencias y el logo, de a una
-      for (let i = 0; i < referencias.length; i++) {
-        const ref = referencias[i];
+      for (let i = 0; i < refs.length; i++) {
+        const ref = refs[i];
         if (c.refs[i + 1] === ref.id) continue;
-        setFase(referencias.length === 1 ? 'Subiendo tu referencia' : `Subiendo tus referencias (${i + 1} de ${referencias.length})`);
+        setFase(refs.length === 1 ? 'Subiendo tu referencia' : `Subiendo tus referencias (${i + 1} de ${refs.length})`);
         await apiImagenes.subirReferencia(c.lote, i + 1, ref.archivo);
         c.refs[i + 1] = ref.id;
       }
       for (const sobra of Object.keys(c.refs)
         .map(Number)
-        .filter((k) => k > referencias.length)) {
+        .filter((k) => k > refs.length)) {
         await apiImagenes.quitarReferencia(c.lote, sobra);
         delete c.refs[sobra];
-      }
-      if (logo.length && c.logo !== logo[0].id) {
-        setFase('Subiendo tu logo');
-        await apiImagenes.subirLogo(c.lote, logo[0].archivo);
-        c.logo = logo[0].id;
       }
 
       // Los títulos se preparan sin pedir imágenes ni aprobar el presupuesto.
@@ -418,11 +382,30 @@ export function Formulario({ simulando = false, productoPedido = null }) {
   // lo que muestra el panel «Tu lote»: la foto elegida (o la nueva), el logo con su posición y el costo
   const productoElegido = !fotoNueva.length && f.productoId ? (productos || []).find((x) => x.id === f.productoId) || null : null;
   const fotoElegida = productoElegido ? (productoElegido.fotos || []).find((x) => Number(x.n) === Number(f.fotoProducto)) || productoElegido.fotos?.[0] : null;
-  const posicionLogo = ((opciones?.posiciones || []).find((x) => x.id === f.posicionLogo) || POSICIONES_LOGO.find((x) => x.id === f.posicionLogo) || POSICIONES_LOGO[1]).nombre;
 
   return (
     <div className="img-crear">
       <Tarjeta variante="elevada" relleno="ninguno" className="img-form">
+        <div className="img-modo">
+          <Pestanas variante="segmentado" etiqueta="Qué quieres crear" items={MODOS} activa={f.modo} onCambio={(id) => poner({ modo: id })} />
+          <p className="img-modo__texto">
+            {variantes ? (
+              <>
+                <Copy size={14} strokeWidth={2} aria-hidden="true" />
+                <span>
+                  Variantes de algo que <strong>ya te funciona</strong>: mismo diseño, tipografía, posición de los textos y enfoque; cambia el título por ganchos ya validados.
+                </span>
+              </>
+            ) : (
+              <>
+                <Sparkles size={14} strokeWidth={2} aria-hidden="true" />
+                <span>
+                  Anuncios <strong>nuevos</strong>: los títulos juegan con los ganchos ya validados de tu investigación con TrendTrack.
+                </span>
+              </>
+            )}
+          </p>
+        </div>
         <Grupo n={1} id="grupo-producto" titulo="Tu producto">
           <ElegirProducto
             productos={productos}
@@ -474,43 +457,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
               onChange={(e) => poner({ publico: e.target.value })}
               disabled={ocupado}
             />
-            <div className="img-precio">
-              <CampoTexto
-                etiqueta="Precio"
-                opcional
-                inputMode="decimal"
-                placeholder="79.90"
-                maxLength={40}
-                value={f.precio}
-                onChange={(e) => poner({ precio: e.target.value })}
-                ayuda="Solo aparece en los formatos que muestran precio."
-                disabled={ocupado}
-              />
-              <Selector etiqueta="Moneda" opciones={OPCIONES_MONEDA} value={f.moneda} onChange={(e) => poner({ moneda: e.target.value })} disabled={ocupado} />
-              {f.moneda === 'otra' ? (
-                <CampoTexto
-                  id="campo-moneda-otra"
-                  etiqueta="Tu moneda"
-                  placeholder="Gs."
-                  maxLength={12}
-                  value={f.monedaOtra}
-                  onChange={(e) => poner({ monedaOtra: e.target.value })}
-                  error={errores.monedaOtra}
-                  disabled={ocupado}
-                  className="img-precio__otra"
-                />
-              ) : null}
-            </div>
-            <CampoTexto
-              etiqueta="Llamado a la acción"
-              opcional
-              icono={Megaphone}
-              placeholder="Pago contra entrega"
-              maxLength={160}
-              value={f.cta}
-              onChange={(e) => poner({ cta: e.target.value })}
-              disabled={ocupado}
-            />
             <CampoTexto
               id="campo-pais"
               etiqueta="País"
@@ -520,17 +466,6 @@ export function Formulario({ simulando = false, productoPedido = null }) {
               value={f.pais}
               onChange={(e) => poner({ pais: e.target.value })}
               error={errores.pais}
-              disabled={ocupado}
-            />
-            <Selector etiqueta="Idioma de los textos" opciones={IDIOMAS} value={f.idioma || 'es'} onChange={(e) => poner({ idioma: e.target.value })} disabled={ocupado} />
-            <Selector
-              etiqueta="Ángulo principal"
-              opcional
-              className="img-campos__ancho"
-              opciones={opcionesAngulo}
-              value={anguloElegido ? f.angulo : ''}
-              onChange={(e) => poner({ angulo: e.target.value })}
-              ayuda={anguloElegido?.queAtaca || 'Con referencias y «Variar solo los títulos», se conserva la razón de compra del original. Sin esa opción, la IA puede explorar otros ángulos.'}
               disabled={ocupado}
             />
             <AreaTexto
@@ -553,7 +488,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
             <p className="img-nota img-nota--ok" role="status">
               <CircleCheck size={14} strokeWidth={2} aria-hidden="true" />
               <span>
-                Tus anuncios usan la investigación de mercado de este producto{productoElegido.investigacion.pais ? ` (${productoElegido.investigacion.pais})` : ''}: su deseo central, su beneficio principal y sus puntos de dolor, con lo que resaltaste primero.{' '}
+                Tus anuncios usan la investigación de mercado de este producto{productoElegido.investigacion.pais ? ` (${productoElegido.investigacion.pais})` : ''}: su deseo central, su beneficio principal y sus puntos de dolor, con lo que resaltaste primero. Los títulos juegan con los ganchos ya validados de la segunda parte (TrendTrack), si la hiciste.{' '}
                 <a href={enlace.investigacion(productoElegido.id)}>Verla</a>
               </span>
             </p>
@@ -616,6 +551,27 @@ export function Formulario({ simulando = false, productoPedido = null }) {
           <p className="t-chico t-3">{cantidadValida ? textoDeCantidad(n, f.conVertical) : `Elige de 1 a ${maximo} anuncios.`}</p>
         </Grupo>
 
+        {variantes ? (
+          <Grupo n={5} id="grupo-referencias" titulo="Lo que te funciona">
+            <ElegirFunciona
+              elegidos={elegidos}
+              onCambiar={(ids, items) => {
+                setElegidos(ids);
+                setItemsElegidos(items);
+                setErrores((e) => ({ ...e, funciona: undefined }));
+              }}
+              max={maxRefs}
+              productoId={f.productoId}
+              bloqueado={ocupado}
+            />
+            {errores.funciona ? (
+              <p className="img-nota img-nota--aviso" role="alert">
+                <Trophy size={14} strokeWidth={2} aria-hidden="true" />
+                {errores.funciona}
+              </p>
+            ) : null}
+          </Grupo>
+        ) : (
         <Grupo n={5} id="grupo-referencias" titulo="Referencias" opcional>
           <ZonaImagenes
             archivos={referencias}
@@ -654,24 +610,7 @@ export function Formulario({ simulando = false, productoPedido = null }) {
           ) : null}
         </Grupo>
 
-        <Grupo n={6} id="grupo-logo" titulo="Logo" opcional>
-          <ZonaImagenes archivos={logo} onCambiar={setLogo} max={1} titulo="Sube tu logo" bloqueada={ocupado} ayuda="De preferencia PNG sin fondo." masculino />
-          {logo.length && transparente === false ? (
-            <p className="img-nota img-nota--aviso" role="status">
-              <TriangleAlert size={14} strokeWidth={2} aria-hidden="true" />
-              Tu logo tiene fondo: se verá como un recuadro. Si puedes, súbelo en PNG sin fondo.
-            </p>
-          ) : null}
-          <PosicionLogo
-            valor={f.posicionLogo}
-            onCambiar={(p) => poner({ posicionLogo: p })}
-            posiciones={opciones?.posiciones}
-            deshabilitada={!logo.length || ocupado}
-            logoUrl={logo[0]?.url}
-            conVertical={f.conVertical}
-          />
-          <p className="img-ayuda">La posición queda fija para este lote. En el vertical, el logo va un poco más adentro para que Instagram y TikTok no lo tapen.</p>
-        </Grupo>
+        )}
       {propuestas ? (
         <Tarjeta className="img-titulos" relleno="ninguno" id="titulos-del-lote">
           <div className="img-grupo__cuerpo">
@@ -695,8 +634,8 @@ export function Formulario({ simulando = false, productoPedido = null }) {
         producto={{ nombre: f.nombre.trim() || productoElegido?.nombre || '', foto: fotoNueva[0]?.url || fotoElegida?.url || null, nueva: Boolean(fotoNueva.length) }}
         cantidad={{ valida: cantidadValida, n, maximo }}
         conVertical={f.conVertical}
-        logo={logo.length ? { url: logo[0].url, posicion: posicionLogo } : null}
-        referencias={referencias}
+        logo={null}
+        referencias={variantes ? itemsElegidos.map((x) => ({ id: x.id, url: x.url })) : referencias}
         costo={
           costoLote?.conChatGPT
             ? {

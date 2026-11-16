@@ -1185,3 +1185,6 @@ button.lote-pieza__marco:hover .lote-pieza__img {
 /* «Ver estrategia»: el deseo central, el beneficio principal y los puntos de dolor (2026-11-15). */
 .lote-estr__mercado { padding: 14px; border-radius: var(--r-m); background: rgba(var(--tinte-rgb), 0.03); border: 1px solid var(--borde-1); }
 .lote-estr__subtitulo { margin: 0 0 4px; font-size: var(--t-mini); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--texto-3); }
+
+/* «Me funciona» (BotonFunciona) marcado: el trofeo en lima */
+.lote-pieza__acciones .boton-funciona--si { min-width: 0; }

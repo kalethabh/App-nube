@@ -81,7 +81,8 @@ function anuncio(v, entrada, brief, numero) {
     reference_function: String(t.reference_function || 'main headline').replace(/\s*\(OPTIONAL\)/g, ''),
     reference_position: t.reference_position || 'top center',
     text_style: 'Bold sans-serif, high contrast',
-    text: `Texto de prueba ${numero}.${i + 1}`,
+    // el titular elegido por el usuario (si lo hay) va completo en la primera capa, como pide la verificación
+    text: i === 0 && brief?.seleccionTitulos?.titulos?.length && entrada?.titular ? entrada.titular : `Texto de prueba ${numero}.${i + 1}`,
   }));
   return {
     prompt_type: 'ad_creative_generation',
@@ -103,12 +104,14 @@ function anuncio(v, entrada, brief, numero) {
 function elPlan(lote, brief) {
   const { angulos, formatos } = catalogo();
   const n = Number(brief.cantidad) || 1;
-  const refs = (brief.referencias || []).slice(0, n);
+  const todas = brief.referencias || [];
+  const refs = brief.fiel && todas.length ? Array.from({ length: n }, (_, i) => todas[i % todas.length]) : todas.slice(0, n);
+  const elegidos = brief.seleccionTitulos?.titulos || [];
   const variaciones = [];
   for (let i = 0; i < n; i++) {
     const v = `V${String(i + 1).padStart(2, '0')}`;
     const a = angulos[i % angulos.length] || { id: 'dolor', nombre: 'Dolor / problema' };
-    const base = { id: v, angulo_id: a.id, angulo: a.nombre, concepto: `Concepto de prueba ${i + 1}`, titular: `Titular de prueba ${i + 1}`, escena: `Escena de prueba ${i + 1}`, camara: 'Plano medio frontal' };
+    const base = { id: v, angulo_id: a.id, angulo: a.nombre, concepto: `Concepto de prueba ${i + 1}`, titular: elegidos[i]?.titulo || `Titular de prueba ${i + 1}`, escena: `Escena de prueba ${i + 1}`, camara: 'Plano medio frontal' };
     if (i < refs.length) variaciones.push({ ...base, fuente: 'referencia', referencia: refs[i], analisis_referencia: { formato: 'referencia', estructura: 'titular arriba', por_que_funciona: 'claro' } });
     else {
       const f = formatos[i % formatos.length] || { id: 'F01', nombre: 'Producto protagonista' };
