@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16f` (archivo `VERSION`): «Correcciones de la revisión técnica», [PR #68](https://github.com/kalethabh/App-nube/pull/68),
-  integrado en `main` el 2026-11-16.
+- **Versión actual:** `2026-11-16g` (archivo `VERSION`), rama `imagen-ads-modos`: Nuevos/Variantes de anuncios de imagen
+  y modo claro de las notificaciones (ver abajo). En `main`: `2026-11-16f` ([PR #68](https://github.com/kalethabh/App-nube/pull/68), [PR #69](https://github.com/kalethabh/App-nube/pull/69)).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +136,27 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Anuncios de imagen: Nuevos con lo validado, Variantes estricto y modo claro de avisos (2026-11-16, versión 2026-11-16g)
+
+Pedido: «Variantes es en base a una imagen ya validada que esté funcionando; Nuevos, con lo que tenga de la
+investigación y la imagen del producto con la biblioteca de anuncios ya validados» (biblioteca = «Me funciona» +
+biblioteca de referencias). Sin investigación: generar igual con aviso (decisión recomendada y aceptada). Quitar
+«Variar solo los títulos» de Nuevos. Además: «corrige el modo claro y oscuro de las notificaciones».
+
+- `lotes.js → prepararValidados()`: en `modo: 'nuevos'` copia a `entrada/validados/A##` hasta 6 de «Me funciona»
+  (los del mismo producto primero) y completa hasta 8 con la biblioteca de referencias, sin repetidos (sha1); queda
+  en `brief.validados`. `fiel` solo en variantes. `faltaDelBorrador`: variantes sin referencias no arranca.
+- `sesiones.js`: `textoModo` y `textoValidados` en la estrategia, con las imágenes adjuntas (`validadosDelLote`):
+  estudiarlos para elegir formatos/estructuras/ganchos y crear diseños NUEVOS (no copiar marcas ni textos).
+  `titulos.js`: prompt propio de Nuevos y de Variantes; los validados entran en la firma.
+- `rutas/imagen-ads.js`: las referencias de un lote de Variantes ya no se guardan en la biblioteca de referencias.
+- `Formulario.jsx`: sin el interruptor «Variar solo los títulos»; textos de Nuevos; aviso de «sin investigación».
+- Modo claro: tokens `--vidrio-aviso`, `--vidrio-panel` y `--fondo-tooltip` en Avisos, Tooltip, el panel de una pieza
+  y el índice de Ajustes en el celular. Capturas en claro y oscuro.
+- Pruebas: servidor de anuncios de imagen 147/147; humo completo 220/220; prueba puntual de `prepararValidados` y de
+  la estrategia (no se guardó en el repo: escribe en `temp/_funcionan`).
+- **Falta en la Mac:** un lote real de Nuevos con «Me funciona» marcados, para ver la calidad.
 
 ### Correcciones de la revisión técnica (2026-11-16, versión 2026-11-16f, [PR #68](https://github.com/kalethabh/App-nube/pull/68))
 

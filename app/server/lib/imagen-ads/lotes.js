@@ -10,6 +10,9 @@
 import fs from 'node:fs';
 import { resumenDe, aMarkdown } from '../investigacion.js';
 import { aMarkdown as competenciaAMarkdown, ganchosValidados } from '../competencia.js';
+import crypto from 'node:crypto';
+import * as funcionan from '../funcionan.js';
+import * as bibliotecaReferencias from './biblioteca-referencias.js';
 import path from 'node:path';
 import { TEMP, PUERTO_DE_PRUEBA, esDeEstaApp } from '../rutas.js';
 import { leerJSON, existe, listar } from '../archivos.js';
@@ -220,8 +223,9 @@ export function crearLote(cuerpo = {}) {
     modo: cuerpo.modo === 'variantes' ? 'variantes' : 'nuevos',
     // las referencias (por número) que son del MISMO producto (un creativo tuyo que funciona): conservan hasta la paleta
     referenciasPropias: Array.isArray(cuerpo.referenciasPropias) ? [...new Set(cuerpo.referenciasPropias.map(Number).filter((k) => Number.isInteger(k) && k >= 1 && k <= 50))] : [],
-    // «Más de lo mismo»: todas las variaciones copian el diseño de tus referencias (y el modelo de imagen las ve)
-    fiel: cuerpo.modo === 'variantes' ? true : cuerpo.fiel !== false,
+    // Solo «Variantes» copia el diseño de sus referencias (y el modelo de imagen las ve). «Nuevos» siempre crea
+    // diseños nuevos: la opción «Variar solo los títulos» de Nuevos hacía lo mismo que Variantes y se quitó (2026-11-16).
+    fiel: cuerpo.modo === 'variantes',
     elegirTitulos: cuerpo.elegirTitulos === true,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
@@ -239,6 +243,12 @@ export function crearLote(cuerpo = {}) {
       brief.investigacionDelProducto = true;
     }
   }
+  // «Nuevos»: tus anuncios ya validados («Me funciona», los de este producto primero, y tu biblioteca de referencias)
+  // van al lote como guía de lo que funciona. La IA los estudia; no los copia (eso es «Variantes»).
+  if (brief.modo === 'nuevos') {
+    const validados = prepararValidados(carpeta, productoId);
+    if (validados.length) brief.validados = validados;
+  }
   // los ganchos ya validados de la investigación con TrendTrack: los títulos juegan con ellos
   const ganchos = ganchosValidados(productoId);
   if (ganchos.length) {
@@ -247,6 +257,60 @@ export function crearLote(cuerpo = {}) {
   }
   guardarJSON(R.brief(carpeta), brief);
   return { lote, brief };
+}
+
+// Cuántos anuncios validados van a un lote de «Nuevos»: los de «Me funciona» hasta MAX_FUNCIONAN (los del mismo
+// producto primero) y de la biblioteca de referencias lo que falte hasta MAX_VALIDADOS (mirarlos le cuesta tiempo a la IA).
+const MAX_FUNCIONAN = 6;
+const MAX_VALIDADOS = 8;
+
+/**
+ * Copia al lote (entrada/validados/) los anuncios ya validados del usuario y devuelve
+ * [{ archivo: 'entrada/validados/A01.png', origen: 'me-funciona'|'biblioteca', mismoProducto, producto?, titulo? }].
+ * La misma imagen nunca va dos veces (una referencia de «Variantes» también pudo quedar en la biblioteca).
+ */
+export function prepararValidados(carpeta, productoId) {
+  let deFunciona = [];
+  try {
+    const todos = funcionan.listar();
+    deFunciona = [...todos.filter((x) => x.productoId === productoId), ...todos.filter((x) => x.productoId !== productoId)].slice(0, MAX_FUNCIONAN);
+  } catch {
+    /* sin lista: sigue con la biblioteca */
+  }
+  let deBiblioteca = [];
+  try {
+    deBiblioteca = bibliotecaReferencias.conRuta();
+  } catch {
+    /* sin biblioteca */
+  }
+  const candidatos = [
+    ...deFunciona.map((x) => ({ abs: funcionan.rutaDeImagen(x), origen: 'me-funciona', mismoProducto: x.productoId === productoId, producto: x.producto || '', titulo: x.titulo || '', tipo: x.tipo })),
+    ...deBiblioteca.map((x) => ({ abs: x.abs, origen: 'biblioteca', mismoProducto: false })),
+  ].filter((x) => x.abs);
+  const vistos = new Set();
+  const salida = [];
+  for (const c of candidatos) {
+    if (salida.length >= MAX_VALIDADOS) break;
+    let huella;
+    try {
+      huella = crypto.createHash('sha1').update(fs.readFileSync(c.abs)).digest('hex');
+    } catch {
+      continue;
+    }
+    if (vistos.has(huella)) continue;
+    vistos.add(huella);
+    const ext = path.extname(c.abs).toLowerCase() === '.png' ? 'png' : 'jpg';
+    const rel = `entrada/validados/A${String(salida.length + 1).padStart(2, '0')}.${ext}`;
+    try {
+      fs.mkdirSync(path.join(carpeta, 'entrada', 'validados'), { recursive: true });
+      fs.copyFileSync(c.abs, path.join(carpeta, rel));
+    } catch {
+      continue;
+    }
+    const { abs, ...datos } = c;
+    salida.push({ archivo: rel, ...datos });
+  }
+  return salida;
 }
 
 /**
@@ -258,6 +322,8 @@ export function faltaDelBorrador(carpeta, brief) {
   if (!fotoDelLote(carpeta) && !(brief?.productoId && rutaFoto(brief.productoId, brief.fotoProducto ?? 1))) return 'Falta la foto del producto.';
   const faltan = (brief?.referencias || []).filter((r) => !existe(path.join(carpeta, r))).length;
   if (faltan) return faltan === 1 ? 'Falta subir una referencia.' : `Faltan subir ${faltan} referencias.`;
+  // «Variantes» sale SIEMPRE de un creativo que ya te funciona (sin eso no hay de dónde variar)
+  if (brief?.modo === 'variantes' && !(brief.referencias || []).length) return 'Elige al menos un anuncio que ya te funcione.';
   if (brief?.logo?.posicion && !existe(R.logo(carpeta))) return 'Falta subir tu logo.';
   return null;
 }

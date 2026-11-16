@@ -25,6 +25,9 @@
   --superficie-3: #1f1f1f;       /* chips, botón secundario, pistas del editor */
   --superficie-4: #2a2a2a;       /* presionado, hover sobre superficie-3 */
   --vidrio: rgba(14, 14, 14, 0.78);          /* barras flotantes con blur */
+  --vidrio-aviso: rgba(30, 30, 40, 0.9);     /* las notificaciones (Avisos.css), con blur */
+  --vidrio-panel: rgba(15, 15, 20, 0.94);    /* paneles laterales flotantes (Producción → una pieza) */
+  --fondo-tooltip: #262632;                  /* los tooltips (Tooltip.css) */
   --vidrio-oscuro: rgba(0, 0, 0, 0.55);      /* chips sobre miniaturas */
   --velo: rgba(0, 0, 0, 0.74);               /* detrás de un modal */
 
@@ -221,6 +224,9 @@
   --superficie-3: #eaebe6;
   --superficie-4: #dfe1db;
   --vidrio: rgba(255, 255, 255, 0.82);
+  --vidrio-aviso: rgba(255, 255, 255, 0.94);
+  --vidrio-panel: rgba(255, 255, 255, 0.96);
+  --fondo-tooltip: #ffffff;
   --vidrio-oscuro: rgba(0, 0, 0, 0.55);
   --velo: rgba(24, 28, 20, 0.42);
 
