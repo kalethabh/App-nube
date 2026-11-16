@@ -402,7 +402,7 @@ button.lote-pieza__marco:hover .lote-pieza__img {
 .lote-pieza__cargando {
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%) var(--superficie-2);
+  background: linear-gradient(100deg, transparent 30%, rgba(var(--tinte-rgb), 0.05) 50%, transparent 70%) var(--superficie-2);
   background-size: 200% 100%;
   animation: lote-destello 1.4s linear infinite;
 }
@@ -418,7 +418,7 @@ button.lote-pieza__marco:hover .lote-pieza__img {
   text-align: center;
   color: var(--texto-4);
   background:
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(135deg, rgba(var(--tinte-rgb), 0.025) 0 6px, transparent 6px 12px),
     var(--superficie-2);
 }
 .lote-pieza__vacia--generando,
@@ -1183,5 +1183,5 @@ button.lote-pieza__marco:hover .lote-pieza__img {
 }
 
 /* «Ver estrategia»: el deseo central, el beneficio principal y los puntos de dolor (2026-11-15). */
-.lote-estr__mercado { padding: 14px; border-radius: var(--r-m); background: rgba(255, 255, 255, 0.03); border: 1px solid var(--borde-1); }
+.lote-estr__mercado { padding: 14px; border-radius: var(--r-m); background: rgba(var(--tinte-rgb), 0.03); border: 1px solid var(--borde-1); }
 .lote-estr__subtitulo { margin: 0 0 4px; font-size: var(--t-mini); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--texto-3); }

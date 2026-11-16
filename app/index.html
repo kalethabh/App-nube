@@ -10,6 +10,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/kads-icono-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/kads-icono-180.png" />
     <title>Kads Studio by Kalethabh</title>
+    <script>
+      /* el tema (datos/tema.js) antes de pintar, para que no parpadee */
+      (function () {
+        var t = 'oscuro';
+        try {
+          var v = localStorage.getItem('kads:tema');
+          if (v === 'claro' || v === 'oscuro') t = v;
+          else if (v === 'auto' && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'claro';
+        } catch (e) {}
+        document.documentElement.setAttribute('data-tema', t);
+      })();
+    </script>
   </head>
   <body>
     <div id="raiz"></div>

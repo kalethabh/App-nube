@@ -10,7 +10,7 @@
   border: 1px dashed var(--borde-2);
   background:
     radial-gradient(520px 220px at 50% -10%, rgba(var(--acento-rgb), 0.08), transparent 70%),
-    rgba(255, 255, 255, 0.012);
+    rgba(var(--tinte-rgb), 0.012);
 }
 .vacio--compacto {
   padding: var(--e-8) var(--e-5);
@@ -44,11 +44,11 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(var(--tinte-rgb), 0.06);
 }
 .vacio__aro--1 {
   inset: 14px;
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(var(--tinte-rgb), 0.08);
   background: radial-gradient(circle, color-mix(in srgb, var(--c) 16%, transparent), transparent 70%);
 }
 .vacio__aro--2 {

@@ -242,7 +242,7 @@
   min-width: 0;
   padding: 14px 16px 15px;
   border-radius: var(--r-l);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(var(--tinte-rgb), 0.025);
   border: 1px solid var(--borde-1);
   box-shadow: var(--resalte-superior);
 }
@@ -805,7 +805,7 @@
 /* los iconos (fondo transparente) van enteros dentro del marco */
 .prod-pieza--icono .prod-pieza__marco {
   background:
-    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08), transparent 70%),
+    radial-gradient(circle at 50% 40%, rgba(var(--tinte-rgb), 0.08), transparent 70%),
     var(--superficie-2);
 }
 .prod-pieza--icono .prod-pieza__img {
@@ -819,7 +819,7 @@
 /* en espera: marco vacío con trama */
 .prod-pieza--en-cola .prod-pieza__marco {
   background:
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.028) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(135deg, rgba(var(--tinte-rgb), 0.028) 0 6px, transparent 6px 12px),
     var(--superficie-1);
   box-shadow: inset 0 0 0 1px var(--borde-2);
 }
@@ -976,7 +976,7 @@
   gap: 10px;
   padding: 8px 8px 8px 8px;
   border-radius: var(--r-m);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(var(--tinte-rgb), 0.02);
   border: 1px solid var(--borde-1);
 }
 .prod-audio__icono {
@@ -1205,7 +1205,7 @@ button.prod-registro__boton:hover {
   font-size: var(--t-chico);
   overflow: hidden;
   background:
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(135deg, rgba(var(--tinte-rgb), 0.025) 0 8px, transparent 8px 16px),
     var(--superficie-1);
 }
 .prod-panel__fuente {
@@ -1403,7 +1403,7 @@ button.prod-registro__boton:hover {
   color: var(--texto-3);
   font-size: var(--t-chico);
   background:
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 8px, transparent 8px 16px),
+    repeating-linear-gradient(135deg, rgba(var(--tinte-rgb), 0.025) 0 8px, transparent 8px 16px),
     var(--superficie-1);
 }
 .prod-rev__play-grande {
@@ -1447,7 +1447,7 @@ button.prod-registro__boton:hover {
   background: rgba(8, 8, 11, 0.62);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(var(--tinte-rgb), 0.1);
 }
 .prod-rev__controles .boton--fantasma {
   color: #fff;
@@ -1516,7 +1516,7 @@ button.prod-registro__boton:hover {
   gap: 10px;
   padding: var(--e-4) var(--e-5);
   border-radius: var(--r-l);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(var(--tinte-rgb), 0.025);
   border: 1px solid var(--borde-1);
 }
 .prod-rev__oido-cabecera {
@@ -1608,7 +1608,7 @@ button.prod-registro__boton:hover {
 }
 .prod-rev__clip--espera .prod-rev__clip-marco {
   background:
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0 5px, transparent 5px 10px),
+    repeating-linear-gradient(135deg, rgba(var(--tinte-rgb), 0.03) 0 5px, transparent 5px 10px),
     var(--superficie-1);
 }
 .prod-rev__clip-marco img {
@@ -2046,8 +2046,8 @@ button.prod-registro__boton:hover {
 }
 
 /* el saldo de kie en el registro, con su color */
-.prod-registro__item--saldo-sobra .prod-registro__texto { color: #7bdc3a; }
-.prod-registro__item--saldo-justo .prod-registro__texto { color: #ffa53a; }
+.prod-registro__item--saldo-sobra .prod-registro__texto { color: var(--semaforo-sobra); }
+.prod-registro__item--saldo-justo .prod-registro__texto { color: var(--semaforo-justo); }
 .prod-registro__item--saldo-corto .prod-registro__texto { color: var(--error); }
 
 /* el porqué de un error y qué hacer (Lateral.jsx, Causa) */

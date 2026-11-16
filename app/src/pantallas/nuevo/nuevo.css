@@ -109,7 +109,7 @@
     border-color var(--dur-rapido) var(--curva-suave);
 }
 .nv-paso:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(var(--tinte-rgb), 0.03);
 }
 .nv-paso:disabled {
   cursor: default;
@@ -265,7 +265,7 @@
   gap: var(--e-4);
   padding: var(--e-6) var(--e-6) var(--e-5);
   border-bottom: 1px solid var(--borde-1);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  background: linear-gradient(180deg, rgba(var(--tinte-rgb), 0.02), transparent);
 }
 .nv-form__titulo {
   font-size: var(--t-h4);
@@ -450,7 +450,7 @@
   border: 1.5px dashed var(--borde-3);
   background:
     radial-gradient(300px 120px at 0% 50%, rgba(var(--acento-rgb), 0.06), transparent 70%),
-    rgba(255, 255, 255, 0.015);
+    rgba(var(--tinte-rgb), 0.015);
   color: inherit;
   text-align: left;
   transition:
@@ -462,7 +462,7 @@
   border-color: var(--acento-borde);
   background:
     radial-gradient(300px 120px at 0% 50%, rgba(var(--acento-rgb), 0.1), transparent 70%),
-    rgba(255, 255, 255, 0.025);
+    rgba(var(--tinte-rgb), 0.025);
 }
 .nv-soltar:focus-visible {
   outline: none;
@@ -530,7 +530,7 @@
   object-fit: contain;
 }
 .nv-foto--agregar {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(var(--tinte-rgb), 0.02);
   box-shadow: none;
   border: 1.5px dashed var(--borde-3);
   animation: none;
@@ -708,7 +708,7 @@
   border: 1px dashed var(--borde-2);
   background:
     radial-gradient(420px 260px at 50% 0%, rgba(var(--acento-rgb), 0.07), transparent 70%),
-    rgba(255, 255, 255, 0.012);
+    rgba(var(--tinte-rgb), 0.012);
   overflow: hidden;
 }
 .nv-ficha-antes--activa {
@@ -716,7 +716,7 @@
   border-color: var(--cian-borde);
   background:
     radial-gradient(420px 260px at 50% 0%, rgba(var(--cian-rgb), 0.08), transparent 70%),
-    rgba(255, 255, 255, 0.012);
+    rgba(var(--tinte-rgb), 0.012);
 }
 .nv-ficha-antes__fantasma {
   position: absolute;
@@ -763,7 +763,7 @@
   gap: 8px;
   padding: 12px 14px;
   border-radius: var(--r-m);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(var(--tinte-rgb), 0.02);
 }
 .nv-fantasma__fila--1 {
   background: var(--aviso-suave);
@@ -886,7 +886,7 @@
 }
 .nv-leyenda__muestra--pagina {
   background: var(--texto-3);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(var(--tinte-rgb), 0.06);
 }
 .nv-leyenda__muestra--dedujo {
   background: var(--aviso);
@@ -907,7 +907,7 @@
   padding: var(--e-5) var(--e-5) var(--e-4);
   background:
     radial-gradient(260px 140px at 0% 0%, rgba(52, 211, 154, 0.08), transparent 70%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    linear-gradient(180deg, rgba(var(--tinte-rgb), 0.02), transparent);
 }
 .nv-ficha__foto {
   width: 92px;
@@ -950,7 +950,7 @@
   padding: 0 var(--e-4) var(--e-4);
 }
 .nv-campo {
-  --fondo-campo: rgba(255, 255, 255, 0.02);
+  --fondo-campo: rgba(var(--tinte-rgb), 0.02);
   --borde-campo: var(--borde-1);
   padding: 10px 12px;
   border-radius: var(--r-m);
@@ -1028,7 +1028,7 @@
   align-items: center;
   gap: 6px;
   font-size: var(--t-chico);
-  color: #ff8a8a;
+  color: var(--error);
 }
 /* un campo con algo ya dicho y una pregunta pendiente: el dato y, debajo, que falta */
 .nv-campo-valor__texto .nv-campo-valor__falta {
@@ -1049,11 +1049,11 @@
   border-radius: var(--r-pill);
   font-size: var(--t-chico);
   color: var(--texto-1);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--tinte-rgb), 0.05);
   box-shadow: inset 0 0 0 1px var(--borde-2);
 }
 .nv-beneficio--dedujo {
-  color: #ffd690;
+  color: var(--aviso);
   background: var(--aviso-suave);
   box-shadow: inset 0 0 0 1px var(--aviso-borde);
 }
@@ -1081,7 +1081,7 @@
 }
 .nv-campo-valor__editar:hover {
   color: var(--texto-1);
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(var(--tinte-rgb), 0.07);
 }
 .nv-campo-editar {
   display: flex;
@@ -1155,7 +1155,7 @@
   font-size: var(--t-mini);
   line-height: 1.5;
   color: var(--texto-2);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(var(--tinte-rgb), 0.025);
   border: 1px dashed var(--borde-2);
 }
 .nv-ficha__sugerencia svg {
@@ -1503,7 +1503,7 @@
   min-height: 36px;
   padding: 8px 14px;
   border-radius: var(--r-m);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(var(--tinte-rgb), 0.02);
   border: 1px solid var(--borde-1);
 }
 .nv-voz--texto p {
@@ -1593,7 +1593,7 @@
   border-radius: var(--r-m);
   background:
     radial-gradient(240px 80px at 0% 50%, rgba(var(--cian-rgb), 0.07), transparent 70%),
-    rgba(255, 255, 255, 0.02);
+    rgba(var(--tinte-rgb), 0.02);
   border: 1px solid var(--borde-1);
 }
 .nv-preg-estilo {
@@ -1607,7 +1607,7 @@
   gap: 10px;
   padding: 12px 14px;
   border-radius: var(--r-m);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(var(--tinte-rgb), 0.02);
   border: 1px solid var(--borde-1);
 }
 .nv-preg-estilo__cabecera {
@@ -1678,7 +1678,7 @@
   border-radius: var(--r-xl);
   background:
     radial-gradient(500px 160px at 10% 50%, rgba(var(--acento-rgb), 0.07), transparent 70%),
-    rgba(255, 255, 255, 0.012);
+    rgba(var(--tinte-rgb), 0.012);
 }
 .nv-escribir__sellos {
   display: flex;
@@ -1860,7 +1860,7 @@
   border-bottom: 0;
 }
 .nv-linea:hover {
-  background: rgba(255, 255, 255, 0.018);
+  background: rgba(var(--tinte-rgb), 0.018);
 }
 .nv-linea__marca {
   display: flex;
@@ -1947,7 +1947,7 @@
   height: 48px;
   border: 0;
   border-top: 1px solid var(--borde-1);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.035));
+  background: linear-gradient(180deg, rgba(var(--tinte-rgb), 0.015), rgba(var(--tinte-rgb), 0.035));
   color: var(--texto-2);
   font-size: var(--t-chico);
   font-weight: var(--peso-semi);
@@ -1957,7 +1957,7 @@
 }
 .nv-guion__mas:hover {
   color: var(--texto-1);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--tinte-rgb), 0.05);
 }
 .nv-guion__lado {
   position: sticky;
@@ -2362,7 +2362,7 @@
   color: var(--texto-2);
 }
 .nv-continuidad--pronto {
-  background: rgba(255, 255, 255, 0.015);
+  background: rgba(var(--tinte-rgb), 0.015);
 }
 .nv-continuidad--pronto .interruptor__descripcion {
   color: var(--texto-3);
@@ -2439,7 +2439,7 @@
   height: 100%;
 }
 .nv-campo--vacio {
-  --fondo-campo: rgba(255, 255, 255, 0.015);
+  --fondo-campo: rgba(var(--tinte-rgb), 0.015);
 }
 .nv-campo-valor__vacio {
   flex: 1;
@@ -2711,7 +2711,7 @@
   background: rgba(var(--marca-2-rgb), 0.05);
 }
 .nv-decisiones--personajes {
-  background: rgba(255, 255, 255, 0.015);
+  background: rgba(var(--tinte-rgb), 0.015);
 }
 .nv-decisiones--personajes .nv-decisiones__titulo svg {
   color: var(--texto-2);
@@ -2778,7 +2778,7 @@
   font-size: var(--t-chico);
   line-height: 1.5;
   color: var(--texto-2);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(var(--tinte-rgb), 0.02);
   border: 1px solid var(--borde-1);
 }
 .nv-opcion__visual svg {
@@ -2882,6 +2882,6 @@
 .nv-tarjeta-cambiar__chips { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .nv-tarjeta-cambiar__chips span {
   display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: var(--r-pill);
-  background: var(--vidrio-oscuro, rgba(0, 0, 0, 0.5)); color: var(--texto-1); font-size: var(--t-mini);
+  background: var(--superficie-1); border: 1px solid var(--borde-2); color: var(--texto-2); font-size: var(--t-mini);
 }
 .nv-tarjeta-cambiar__chips svg { color: var(--acento); }

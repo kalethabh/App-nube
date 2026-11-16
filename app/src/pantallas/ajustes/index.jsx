@@ -3,7 +3,7 @@
 // Preferencias (idioma, mercado y subtítulos por defecto) se quitó: el idioma y el mercado salen de la ficha de cada
 // producto y los subtítulos se cambian en el editor (Diego, 2026-10-26: "si no se va a usar, hay que quitarlo").
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Cloud, Cpu, Info, PlugZap, SlidersHorizontal, Sparkles, Wallet } from 'lucide-react';
+import { Cloud, Cpu, Info, SunMoon, PlugZap, SlidersHorizontal, Sparkles, Wallet } from 'lucide-react';
 import { Boton, CabeceraPagina, PuntoEstado, useAvisos } from '../../componentes/index.js';
 import { useEstado } from '../../datos/api.js';
 import { ir, rutas } from '../../datos/rutas.js';
@@ -14,6 +14,7 @@ import { Modelos, resumenModelos } from './Modelos.jsx';
 import { TuPC } from './TuPC.jsx';
 import { AcercaDe } from './AcercaDe.jsx';
 import { Inversion } from './Inversion.jsx';
+import { Apariencia } from './Apariencia.jsx';
 import { Guardado } from './Guardado.jsx';
 import { Bienvenida } from './Bienvenida.jsx';
 import { ESTILOS_SUBTITULOS } from './Subtitulos.jsx';
@@ -25,6 +26,7 @@ const SECCIONES = [
   { id: 'tu-pc', texto: 'Tu PC', icono: Cpu },
   { id: 'guardado', texto: 'Guardado', icono: Cloud },
   { id: 'inversion', texto: 'Inversión', icono: Wallet },
+  { id: 'apariencia', texto: 'Apariencia', icono: SunMoon },
   { id: 'acerca', texto: 'Acerca de', icono: Info },
 ];
 
@@ -260,6 +262,7 @@ export default function Ajustes({ consulta }) {
           <TuPC ajustes={ajustes} recargar={recargar} alCambiarALaVez={(v) => guardarPreferencia({ aLaVez: v })} />
           <Guardado />
           <Inversion />
+          <Apariencia />
           <AcercaDe ajustes={ajustes} alVerBienvenida={abrirBienvenida} />
         </div>
       </div>

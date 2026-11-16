@@ -107,7 +107,7 @@
   transition: background var(--dur-rapido), color var(--dur-rapido);
 }
 .aviso__cerrar:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(var(--tinte-rgb), 0.08);
   color: var(--texto-1);
 }
 .aviso__tiempo {
