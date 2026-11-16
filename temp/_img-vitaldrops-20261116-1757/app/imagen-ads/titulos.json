@@ -1,0 +1,55 @@
+{
+  "estado": "lista",
+  "firma": "3bd233426094076d31319850ab344782fcabbcca59cb64c6c619b8bcb32ff0be",
+  "esencia": "Tu anuncio vende un deseo muy claro: verse con curvas más llenas, y verlo pronto. Lo logra con una promesa corta y directa, un plazo exacto (21 días) y una línea de tiempo que muestra el avance del día 1 al día 21. Le habla a la mujer que ya sabe lo que quiere y solo necesita creer que es posible y rápido. Los títulos de abajo conservan eso mismo: curvas, plazo de 21 días, frase corta en mayúsculas y tono seguro. Solo cambian las palabras, usando la forma de hablar de la clienta colombiana (llenar el jean, sacar cola, la flaquita). Es una hipótesis, no una garantía de venta. Ojo: el plazo de 21 días sale de tu anuncio, no de la investigación. La investigación advierte que prometer cambios del cuerpo en días no se puede demostrar y puede traer problemas con las reglas de anuncios y con clientas que no vean el cambio. Por eso T5 y T7 dicen lo mismo de forma más suave, por si quieres probar una versión más cuidadosa. No agregué precios, cifras ni resultados nuevos.",
+  "opciones": [
+    {
+      "id": "T1",
+      "titulo": "MÁS CURVAS EN SOLO 21 DÍAS",
+      "porQue": "Es la misma promesa de tu anuncio, con el mismo plazo y casi el mismo largo. El «solo» refuerza que es rápido, que es la razón por la que compran.",
+      "base": "G21 (la línea de tiempo: 82 días como número 1 de su página, alcance 64.027). Deseo central de la investigación: «verme con curvas»."
+    },
+    {
+      "id": "T2",
+      "titulo": "LLENA EL JEAN EN 21 DÍAS",
+      "porQue": "Dice el mismo resultado con la imagen que ella usa todos los días: el jean. Mismo plazo y más corto que el original, cabe sin problema.",
+      "base": "G27 (la ropa que no horma: 9 copias, 170 días). Resultado deseado en sus palabras: «ponerme un jean y que se me vea la cola». Dolor: «los jeans me quedan bailando»."
+    },
+    {
+      "id": "T3",
+      "titulo": "21 DÍAS PARA SACAR COLA",
+      "porQue": "Misma promesa y mismo plazo, pero con la frase exacta que la clienta colombiana busca y dice: «sacar cola».",
+      "base": "G21 (línea de tiempo). Lenguaje del cliente en la investigación: «sacar cola»; tendencia en redes de «lo que tomo para sacar cola»."
+    },
+    {
+      "id": "T4",
+      "titulo": "DE «LA FLAQUITA» A CURVAS EN 21 DÍAS",
+      "porQue": "Mantiene el plazo y las curvas, y suma el punto de partida de ella: el apodo que lleva años oyendo. Encaja con los cuadros del día 1 al día 21.",
+      "base": "G18 (titular del estático de 126 días y 22 copias: «pensé que siempre iba a ser la flaquita») y G14 (alcance 158.480). Dolor: «dejar de sentirme la flaca del grupo»."
+    },
+    {
+      "id": "T5",
+      "titulo": "TUS CURVAS, DÍA A DÍA: 21 DÍAS",
+      "porQue": "Conserva curvas, plazo y la idea de avance que muestran los cuatro cuadros, pero habla del proceso y no afirma un resultado. Es la versión más cuidadosa.",
+      "base": "G21 (línea de tiempo de las primeras dos semanas). Recomendación de la investigación: vender el ritual diario y la constancia."
+    },
+    {
+      "id": "T6",
+      "titulo": "RECUPERA TUS CURVAS EN 21 DÍAS",
+      "porQue": "Misma estructura y mismo plazo. Cambia «más llenas» por «recupera», que le habla también a la que bajó de peso y perdió cola. Combina bien con tu «sin efecto rebote».",
+      "base": "G9 (la que baja de peso y pierde curvas: 5 copias, 93 días, saturación baja)."
+    },
+    {
+      "id": "T7",
+      "titulo": "21 DÍAS DE GOTAS, CURVAS MÁS LLENAS",
+      "porQue": "Usa las mismas palabras de tu titular y el mismo plazo, pero pone las gotas al frente: lo que la diferencia de las gomitas y pastillas que ya probó. Suena a rutina de 21 días.",
+      "base": "G30 («por eso son gotas», anuncio de 28 días) y G16 (asombro con las gotas, 6 copias, 40 días). Competencia en Colombia: casi todo son gomitas y cápsulas."
+    },
+    {
+      "id": "T8",
+      "titulo": "21 DÍAS Y TE PREGUNTAN QUÉ TE HICISTE",
+      "porQue": "Mismo deseo y mismo plazo, pero el cambio lo confirman los demás. Deja ver las curvas en las fotos sin nombrarlas, y despierta curiosidad.",
+      "base": "G22 (7 copias, alcance 21.286: «tres personas me preguntaron qué me había hecho») y G24 (alcance 53.137). Hallazgo: los ganadores venden dejar de ser invisible."
+    }
+  ]
+}
