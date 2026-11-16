@@ -1,0 +1,31 @@
+{
+  "$comment": "competencia.json de un producto (lib/competencia.js): la investigación competitiva con TrendTrack, sus 6 etapas en bloques que dibuja pantallas/investigacion/Competencia.jsx. Los tipos de bloque los revisa lib/competencia.js.",
+  "type": "object",
+  "required": ["marca", "pais", "fecha", "etapas"],
+  "properties": {
+    "marca": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "tienda": { "type": "string", "maxLength": 200 },
+    "producto": { "type": "string", "maxLength": 200 },
+    "pais": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "fecha": { "type": "string", "maxLength": 60 },
+    "explicacion": { "type": "string", "maxLength": 600 },
+    "advertencias": { "type": "array", "maxItems": 12, "items": { "type": "string" } },
+    "creditos": { "type": "object" },
+    "etapas": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["titulo", "bloques"],
+        "properties": {
+          "titulo": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "contexto": { "type": "string", "maxLength": 1200 },
+          "bloques": { "type": "array", "minItems": 3, "maxItems": 80, "items": { "type": "object", "required": ["tipo"], "properties": { "tipo": { "type": "string" } } } },
+          "limitaciones": { "type": "array", "maxItems": 12, "items": { "type": "string" } },
+          "riesgos": { "type": "array", "maxItems": 12, "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

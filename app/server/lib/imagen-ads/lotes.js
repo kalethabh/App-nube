@@ -9,6 +9,7 @@
 // Solo los lotes de ESTA app (una app de prueba en otro puerto tiene los suyos: brief.puerto, como los videos).
 import fs from 'node:fs';
 import { resumenDe, aMarkdown } from '../investigacion.js';
+import { aMarkdown as competenciaAMarkdown } from '../competencia.js';
 import path from 'node:path';
 import { TEMP, PUERTO_DE_PRUEBA, esDeEstaApp } from '../rutas.js';
 import { leerJSON, existe, listar } from '../archivos.js';
@@ -228,7 +229,8 @@ export function crearLote(cuerpo = {}) {
   if (cuerpo.usarInvestigacion !== false) {
     const md = aMarkdown(productoId);
     if (md) {
-      fs.writeFileSync(R.investigacion(carpeta, 'md'), md);
+      // (con lo esencial de la investigación competitiva de TrendTrack, si la tiene)
+      fs.writeFileSync(R.investigacion(carpeta, 'md'), md + competenciaAMarkdown(productoId));
       brief.investigacion = 'entrada/investigacion.md';
       brief.investigacionDelProducto = true;
     }
