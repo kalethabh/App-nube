@@ -1,0 +1,59 @@
+{
+  "esencia": "La referencia no vende un cuerpo: vende la decisión de invertir en ti misma justo en fin de año, con un título muy corto y grande, y la idea de que la disciplina también es amor propio. Las propuestas conservan eso: el mismo deseo (trabajar tus curvas de forma natural), el mismo momento (diciembre y fin de año), el mismo tono de ánimo y la misma clienta que ya busca un producto. Cambia solo lo que se puede decir con honestidad: en vez de prometer cola o piernas, el título invita a empezar el ritual diario de gotas y a ser constante. Hipótesis: puede vender porque diciembre da una razón para empezar hoy y porque en Colombia nadie más está usando esa fecha para este producto. No es una garantía.",
+  "opciones": [
+    {
+      "id": "T1",
+      "titulo": "ESTE DICIEMBRE, HAZLO POR TI",
+      "porQue": "Dice lo mismo que «invierte en ti»: la compra es un regalo para ella misma y diciembre es la excusa para empezar. Es igual de corto que el original y no promete ningún resultado.",
+      "base": "G3 «Hazlo por ti. Que te lo noten es lo de menos» (cierre del sketch de la hermana, 6 copias, 35 días, saturación baja). Investigación, sección 8: el evento cercano y diciembre como detonante de compra."
+    },
+    {
+      "id": "T2",
+      "titulo": "HAZLO POR TI, NO PARA QUE LO NOTEN",
+      "porQue": "Mantiene el amor propio de la referencia y pone el triunfo en ella y no en la mirada de otros, como recomienda la investigación.",
+      "base": "G3 (saturación baja, 6 copias, 35 días). Investigación, competencia: «las escenas sociales, con el triunfo puesto en ella y no en el ex»."
+    },
+    {
+      "id": "T3",
+      "titulo": "ESTE FIN DE AÑO, PRUEBA SER CONSTANTE",
+      "porQue": "Es la misma invitación a invertir en ti, pero la inversión es la constancia. Encaja con la frase de la referencia «disciplina también es amor propio».",
+      "base": "G28 «Para la que ya se resignó a ser la flaca: todavía no has probado ser constante» (texto del anuncio de 44 días, saturación media). Investigación, mecanismos nuevos: la constancia como mecanismo."
+    },
+    {
+      "id": "T4",
+      "titulo": "DICIEMBRE YA VIENE. EMPIEZA TU RITUAL HOY",
+      "porQue": "Conserva la urgencia de fin de año de la referencia y da una razón para comprar ya, sin prometer nada para la fecha.",
+      "base": "G7, la que tiene un evento cerca (tensión y plazo, saturación baja, 1 copia, 5 días). Investigación, sección 8: «Si empiezas hoy, llevas tu ritual andando para diciembre» y la hipótesis del evento cercano, que nadie usa en Colombia."
+    },
+    {
+      "id": "T5",
+      "titulo": "ESTE FIN DE AÑO, NO TE SALTES EL DESAYUNO",
+      "porQue": "Convierte «invierte en ti» en un gesto concreto y fácil: cuidarte empieza por comer a tus horas, con tus gotas en la mañana.",
+      "base": "G18 «Pensé que siempre iba a ser la flaquita. Hasta que dejé de saltarme el desayuno» (titular del estático de 126 días y 22 copias, saturación media). Investigación, punto de dolor: «se me olvida comer y me lleno con nada»."
+    },
+    {
+      "id": "T6",
+      "titulo": "INVERTIR EN TI CABE EN UN GOTERO",
+      "porQue": "Es el mismo «invierte en ti», pero muestra qué tan fácil es: una toma al día, en gotas. Le habla a la que ya conoce este tipo de producto.",
+      "base": "G30 «Tomarte algo todos los días no debería ser complicado. Por eso son gotas» (anuncio de 28 días, saturación media). Investigación, sección 14.5: «cinco ingredientes que caben en un gotero»."
+    },
+    {
+      "id": "T7",
+      "titulo": "TU CONSTANCIA TAMBIÉN ES AMOR PROPIO",
+      "porQue": "Recoge la frase de la taza de la referencia y la lleva a lo que este producto sí puede sostener: el hábito diario junto con comida y ejercicio.",
+      "base": "G3 combinado con G28 (hacerlo por ti y ser constante). Investigación, motivaciones del avatar: «demostrarse que sí puede cambiar su cuerpo con constancia»."
+    },
+    {
+      "id": "T8",
+      "titulo": "ESTE DICIEMBRE, LLEGA SINTIÉNDOTE TÚ",
+      "porQue": "Mantiene «tu mejor versión esta temporada»: llegar a las fiestas sintiéndote bien contigo. Habla de cómo se siente ella, no de una medida.",
+      "base": "G23 «lo único que hice fue llegar distinta» (3 copias, 19 días, alcance 61.410, saturación media) combinado con G7 (el evento cerca). Investigación, sección 14.6: «Come con ganas, entrena con pila, siéntete tú»."
+    }
+  ],
+  "decisiones": [
+    "No usé «glúteos y piernas más firmes» ni «activa el glúteo dormido» de la referencia: la investigación dice que no se puede prometer cola, caderas ni piernas.",
+    "No mencioné registro INVIMA, precio ni oferta: no vienen en el formulario y no están confirmados.",
+    "Dejé fuera los ganchos de cirugía y los del ex: la investigación recomienda no entrar por ahí y además cambian el ángulo de la referencia.",
+    "Los títulos con diciembre no prometen ningún resultado para la fecha: solo invitan a empezar."
+  ]
+}
