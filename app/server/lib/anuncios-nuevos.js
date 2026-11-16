@@ -52,7 +52,7 @@ import { subestilosDe, idDeSubestilo } from './subestilos.js';
 import { textoParaClaude as textoAprendizajes, textoAhorro } from './aprendizajes.js';
 import { audioPorId, avatarPorId, carpetaDeEstilo, prepararAvatar, prepararMusica } from './biblioteca.js';
 import { prepararReferencia, referenciaPedida, textoClonar } from './clonar.js';
-import { textoEstructuras, textoInvestigacion } from './estructuras.js';
+import { textoEstructuras, textoInvestigacion, textoTendencias } from './estructuras.js';
 import { conDuracion, entenderDuracion, leerDuracion, duracionAprox, segundosPedidos } from './duracion.js';
 import { copiarModelosAlAnuncio } from './modelos.js';
 
@@ -689,6 +689,7 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
       // la investigación del producto (deseo, beneficio, dolores, objeciones) y la estructura más adecuada (2026-11-16)
       textoInvestigacion({ slug, brief }).texto,
       esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
+      textoTendencias(brief.estilo),
       textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
