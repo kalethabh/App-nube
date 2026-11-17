@@ -11,7 +11,7 @@
 // se arrastra, la pantalla dibuja el resultado (cortes.js) y al soltar lo guarda como un solo paso del historial. La
 // voz no se mueve.
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import { AudioLines, Captions, Clapperboard, Diamond, Eye, EyeOff, Film, Lock, Maximize2, MousePointerClick, Music, Plus, ScanEye, Scissors, Snowflake, Trash2, Type, Upload, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
+import { AudioLines, AudioWaveform, Captions, Clapperboard, Diamond, EarOff, Eye, EyeOff, Film, Lock, Maximize2, Megaphone, MousePointerClick, Music, Plus, ScanEye, Scissors, Snowflake, Trash2, Type, Upload, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
 import { Tooltip } from '../../componentes/index.js';
 import { codigoDeTiempo } from '../../datos/formato.js';
 import { FPS, nombreDeQuienHabla } from './modelo.js';
@@ -92,7 +92,7 @@ function OndaLarga({ datos, ancho, alto, segundos, tAudio = 0, repetir, color, e
  * arrastre (opcional) = { mover: bool, bordes: bool | { inicio, fin }, deslizar: bool, empezar(e, item, modo) }
  *   modo: 'mover' (la pieza entera) | 'inicio' | 'fin' (un borde) | 'deslizar' (su contenido: con Alt, o si no se mueve)
  */
-function Pieza({ pista, item, pps, seleccionado, onTocar, onDobleClic, className = '', children, titulo, arrastre = null }) {
+function Pieza({ pista, item, pps, seleccionado, onTocar, onDobleClic, className = '', children, titulo, arrastre = null, estilo = null }) {
   const left = PAD + item.inicio * pps;
   const width = Math.max(3, (item.fin - item.inicio) * pps - 2);
   const bordes = arrastre?.bordes && width > 16 ? (arrastre.bordes === true ? { inicio: true, fin: true } : arrastre.bordes) : null;
@@ -107,7 +107,7 @@ function Pieza({ pista, item, pps, seleccionado, onTocar, onDobleClic, className
     <button
       type="button"
       className={`lt-pieza lt-pieza--${pista} ${seleccionado ? 'es-sel' : ''} ${arrastre?.mover ? 'es-movible' : ''} ${arrastre?.deslizar && !arrastre.mover ? 'es-deslizable' : ''} ${className}`}
-      style={{ left, width }}
+      style={{ left, width, ...(estilo || {}) }}
       title={titulo}
       aria-label={titulo}
       aria-pressed={seleccionado}
@@ -175,13 +175,78 @@ function Envolvente({ tramo, plan, pps, alto, volumen = 1 }) {
 }
 
 /**
+ * El volumen de una parte de la voz (o de un audio tuyo): su nivel y sus fundidos, como la línea de la música.
+ * desde/hasta en segundos del anuncio; volumen 0 a 1.
+ */
+function EnvolventeSimple({ desde, hasta, volumen, fadeIn = 0, fadeOut = 0, pps, alto }) {
+  const largo = Math.max(0.001, hasta - desde);
+  const ancho = Math.max(1, largo * pps);
+  const y = (k) => (alto - 4) * (1 - Math.min(1, k) * 0.9) + 2;
+  const ts = [0, Math.min(largo, fadeIn), Math.max(0, largo - fadeOut), largo];
+  const ks = [fadeIn > 0 ? 0 : volumen, volumen, volumen, fadeOut > 0 ? 0 : volumen];
+  const d = ts.map((t, i) => `${i ? 'L' : 'M'}${(t * pps).toFixed(1)},${y(ks[i]).toFixed(1)}`).join(' ');
+  return (
+    <svg className="lt-envolvente" width={ancho} height={alto} viewBox={`0 0 ${ancho} ${alto}`} aria-hidden="true">
+      <path d={`${d} L${ancho},${alto} L0,${alto} Z`} className="lt-envolvente__area" />
+      <path d={d} className="lt-envolvente__linea" />
+    </svg>
+  );
+}
+
+/** Un audio tuyo en su pista: su onda (del archivo), su volumen y sus fundidos. */
+function PiezaAudio({ a, pps, alto, seleccionado, onTocar, arrastre, fila, filas }) {
+  const picos = usePicos(a.url);
+  const largo = a.hasta - a.desde;
+  const ancho = Math.max(3, largo * pps - 2);
+  const altoFila = Math.max(10, Math.floor(alto / filas));
+  return (
+    <Pieza
+      pista="audios"
+      item={a}
+      pps={pps}
+      seleccionado={seleccionado}
+      onTocar={onTocar}
+      arrastre={arrastre}
+      estilo={filas > 1 ? { top: fila * altoFila, height: altoFila - 1, bottom: 'auto' } : null}
+      titulo={`Tu audio: ${a.nombre} (${Math.round(a.volumen * 100)} %)`}
+    >
+      <OndaLarga datos={picos} ancho={ancho} alto={altoFila - 6} segundos={largo} tAudio={a.entrada} color="#ff8a4c" opacidad={0.75} nivel={() => a.volumen} />
+      <EnvolventeSimple desde={a.desde} hasta={a.hasta} volumen={a.volumen} fadeIn={a.fadeIn} fadeOut={a.fadeOut} pps={pps} alto={altoFila - 2} />
+      <span className="lt-pieza__etiqueta">
+        <AudioWaveform size={10} strokeWidth={2.6} aria-hidden="true" />
+        {a.nombre}
+        {Math.abs(a.volumen - 1) > 0.005 ? <span className="lt-pieza__chip lt-pieza__chip--suave">{Math.round(a.volumen * 100)} %</span> : null}
+      </span>
+    </Pieza>
+  );
+}
+
+/** Las filas de tus audios: dos que suenan a la vez van una encima de la otra. -> Map(id -> fila), filas */
+function filasDeAudios(audios) {
+  const fines = [];
+  const fila = new Map();
+  for (const a of audios) {
+    let k = fines.findIndex((f) => f <= a.desde + 1e-3);
+    if (k < 0) {
+      k = fines.length;
+      fines.push(0);
+    }
+    fines[k] = a.hasta;
+    fila.set(a.id, k);
+  }
+  return { fila, filas: Math.max(1, Math.min(3, fines.length)) };
+}
+
+/**
  * Lo que le cambiaste al clip: «Tu video» y la velocidad («1,5×»), arriba a la derecha de la pieza. Y si la revisión
  * notó algo en ese clip (`aviso`), el ojo ámbar (como en el proceso): se ve sin tener que tocarlo.
  */
 function ChipsClip({ item, aviso = null }) {
   const v = item.ajuste?.velocidad;
   const conVelocidad = v !== null && v !== undefined && Math.abs(v - 1) > 0.001;
-  if (!item.reemplazado && !conVelocidad && !aviso) return null;
+  const vol = item.ajuste?.volumen;
+  const conVolumen = item.puede?.volumen && !item.mudo && Number.isFinite(Number(vol)) && Math.abs(Number(vol) - 1) > 0.005;
+  if (!item.reemplazado && !conVelocidad && !aviso && !item.congelado && !conVolumen && !item.conColor) return null;
   return (
     <span className="lt-pieza__chips" aria-hidden="true">
       {aviso ? (
@@ -191,6 +256,9 @@ function ChipsClip({ item, aviso = null }) {
       ) : null}
       {item.reemplazado ? <span className="lt-pieza__chip">Tu video</span> : null}
       {conVelocidad ? <span className="lt-pieza__chip lt-pieza__chip--suave">{String(Math.round(v * 100) / 100).replace('.', ',')}×</span> : null}
+      {item.congelado ? <span className="lt-pieza__chip">Congelada</span> : null}
+      {conVolumen ? <span className="lt-pieza__chip lt-pieza__chip--suave">{Math.round(Number(vol) * 100)} %</span> : null}
+      {item.conColor ? <span className="lt-pieza__chip lt-pieza__chip--suave">Color</span> : null}
     </span>
   );
 }
@@ -235,9 +303,9 @@ function Cabecera({ icono: Icono, nombre, tono, candado, alternar, alto, childre
   );
 }
 
-const ALTOS_NORMALES = { textos: 24, subtitulos: 30, broll: 36, video: 46, voz: 34, musica: 34 };
+const ALTOS_NORMALES = { textos: 24, subtitulos: 30, broll: 36, video: 46, voz: 34, censuras: 20, audios: 26, musica: 34 };
 // pantallas bajas (720-800 px de alto): pistas más finas para que la vista previa siga grande
-const ALTOS_COMPACTOS = { textos: 16, subtitulos: 21, broll: 25, video: 34, voz: 23, musica: 23 };
+const ALTOS_COMPACTOS = { textos: 16, subtitulos: 21, broll: 25, video: 34, voz: 23, censuras: 15, audios: 18, musica: 23 };
 const CONSULTA_BAJA = '(max-height: 800px)';
 function usePantallaBaja() {
   return useSyncExternalStore(
@@ -344,6 +412,13 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
     }
     if (pista === 'textos') return item.editable ? { mover: true, bordes: true, empezar: empezarPieza('textos') } : null;
     if (pista === 'musica') return { mover: true, bordes: true, empezar: empezarPieza('musica') };
+    // la voz no se mueve: solo el borde entre dos partes (la primera empieza en 0 y la última llega al final)
+    if (pista === 'voz') {
+      const ts = pistas.voz?.tramos || [];
+      return ts.length > 1 ? { mover: false, bordes: { inicio: ts[0]?.id !== item.id, fin: ts[ts.length - 1]?.id !== item.id }, empezar: empezarPieza('voz') } : null;
+    }
+    if (pista === 'censuras') return { mover: true, bordes: true, empezar: empezarPieza('censuras') };
+    if (pista === 'audios') return { mover: true, bordes: true, empezar: empezarPieza('audios') };
     return null;
   };
 
@@ -489,6 +564,10 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
   const valorZoom = maxZoom > 1 ? (Math.log(z) / Math.log(maxZoom)) * 100 : 0;
 
   const { video, broll, efectos, textos, voz, musica, subtitulos } = pistas;
+  const censuras = pistas.censuras || [];
+  const audios = pistas.audios || [];
+  const { fila: filaAudio, filas: filasAudio } = filasDeAudios(audios);
+  const [soltandoAudio, setSoltandoAudio] = useState(false);
   const sugeridos = textos.filter((x) => x.tipo === 'sugerido');
   const sinMusicaPosible = voz?.modo === 'cancion';
 
@@ -603,6 +682,22 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
             candado={voz?.modo === 'cancion' ? 'La canción manda: el video sigue a la canción.' : 'La voz manda: todo el anuncio sigue a la voz.'}
             alternar={{ icono: ed.voz.silenciada ? VolumeX : Volume2, apagado: ed.voz.silenciada, texto: ed.voz.silenciada ? 'Volver a escuchar la voz' : 'Silenciar la voz en la vista previa', onClick: acciones.alternarVoz }}
           />
+          {voz?.modo !== 'cancion' ? (
+            <Cabecera icono={EarOff} nombre="Censuras" tono="censuras" alto={ALTOS.censuras}>
+              <Tooltip texto="Silenciar un tramo de la voz desde el cursor" lado="derecha">
+                <button type="button" className="lt-cab__boton" onClick={acciones.silenciarTramo} aria-label="Silenciar un tramo de la voz desde el cursor">
+                  <Plus size={12} strokeWidth={2.4} />
+                </button>
+              </Tooltip>
+            </Cabecera>
+          ) : null}
+          <Cabecera icono={AudioWaveform} nombre="Audio" tono="audios" alto={ALTOS.audios}>
+            <Tooltip texto="Agregar un audio tuyo (efecto de sonido) en el cursor" lado="derecha">
+              <button type="button" className="lt-cab__boton" onClick={acciones.pedirAudio} aria-label="Agregar un audio tuyo en el cursor">
+                <Plus size={12} strokeWidth={2.4} />
+              </button>
+            </Tooltip>
+          </Cabecera>
           <Cabecera
             icono={Music}
             nombre="Música"
@@ -732,37 +827,111 @@ export function LineaDeTiempo({ plan, pistas, playerRef, playerListo, seleccion,
 
               {/* Voz */}
               <div className={`lt-carril lt-carril--voz${ed.voz.silenciada ? ' es-silenciada' : ''}`} style={{ height: ALTOS.voz }}>
-                {(voz?.segmentos || []).map((s) => {
-                  const ancho = Math.max(3, (s.fin - s.inicio) * pps - 2);
+                {(voz?.tramos || []).map((tr) => {
+                  const largo = tr.hasta - tr.desde;
+                  const ancho = Math.max(3, largo * pps - 2);
+                  const varias = voz.tramos.length > 1;
+                  const cambiada = tr.volumen !== 1 || tr.fadeIn > 0 || tr.fadeOut > 0;
                   return (
                     <Pieza
-                      key={s.id}
+                      key={tr.id}
                       pista="voz"
-                      item={s}
+                      item={{ id: tr.id, inicio: tr.desde, fin: tr.hasta }}
                       pps={pps}
-                      seleccionado={esSel('voz', s.id)}
+                      seleccionado={esSel('voz', tr.id)}
                       onTocar={tocarPieza('voz')}
-                      titulo={s.texto ? `${s.habla ? nombreDeQuienHabla(s.habla) : 'Voz'}: «${s.texto}»` : s.nombre}
+                      arrastre={arrastreDe('voz', tr)}
+                      className={tr.volumen <= 0 ? 'es-muda' : ''}
+                      titulo={`${voz.modo === 'cancion' ? 'Canción' : 'Voz'}${varias ? ` · parte ${voz.tramos.indexOf(tr) + 1}` : ''}: ${tr.volumen <= 0 ? 'silenciada' : `${Math.round(tr.volumen * 100)} %`}. Ctrl B la divide en el cursor.`}
                     >
                       <OndaLarga
                         datos={voz.modo === 'en-clips' ? picosPalabras : picosVoz}
                         ancho={ancho}
                         alto={ALTOS.voz - 10}
-                        segundos={s.fin - s.inicio}
-                        tAudio={voz.modo === 'en-clips' ? s.inicio : 0}
+                        segundos={largo}
+                        tAudio={tr.desde}
                         color="#34d39a"
-                        opacidad={0.9}
+                        opacidad={tr.volumen <= 0 ? 0.25 : 0.9}
+                        nivel={() => Math.max(0.12, tr.volumen)}
                       />
-                      {s.avatar ? <img className="lt-pieza__avatar" src={s.avatar} alt="" draggable="false" /> : null}
-                      {voz.modo !== 'en-clips' || ancho > 60 ? (
+                      {cambiada ? <EnvolventeSimple desde={tr.desde} hasta={tr.hasta} volumen={tr.volumen} fadeIn={tr.fadeIn} fadeOut={tr.fadeOut} pps={pps} alto={ALTOS.voz - 2} /> : null}
+                      {ancho > 60 ? (
                         <span className="lt-pieza__etiqueta">
-                          <Lock size={9} strokeWidth={2.8} aria-hidden="true" />
-                          {s.nombre || (s.habla ? nombreDeQuienHabla(s.habla) : 'Voz')}
+                          {tr.volumen <= 0 ? <VolumeX size={9} strokeWidth={2.8} aria-hidden="true" /> : <Lock size={9} strokeWidth={2.8} aria-hidden="true" />}
+                          {voz.modo === 'cancion' ? 'Canción' : voz.segmentos?.[0]?.nombre && voz.modo !== 'en-clips' ? voz.segmentos[0].nombre : 'Voz'}
+                          {varias ? ` · ${voz.tramos.indexOf(tr) + 1}` : ''}
+                          {cambiada ? <span className="lt-pieza__chip lt-pieza__chip--suave">{tr.volumen <= 0 ? 'Muda' : `${Math.round(tr.volumen * 100)} %`}</span> : null}
                         </span>
                       ) : null}
                     </Pieza>
                   );
                 })}
+                {/* quién habla en cada línea (estilos hablados): solo de muestra, encima de la onda */}
+                {voz?.modo === 'en-clips'
+                  ? (voz.segmentos || [])
+                      .filter((x) => x.avatar && (x.fin - x.inicio) * pps > 40)
+                      .map((x) => <img key={x.id} className="lt-voz__avatar" src={x.avatar} alt="" draggable="false" style={{ left: PAD + x.inicio * pps + 3 }} />)
+                  : null}
+                {/* lo que está censurado se ve tachado encima de la voz */}
+                {censuras.map((c) => (
+                  <span key={c.id} className={`lt-voz__censura es-${c.modo}`} style={{ left: PAD + c.desde * pps, width: Math.max(2, (c.hasta - c.desde) * pps) }} aria-hidden="true" />
+                ))}
+              </div>
+
+              {/* Censuras: las palabras con pitido o en silencio, y los tramos que silenciaste */}
+              {voz?.modo !== 'cancion' ? (
+                <div className="lt-carril lt-carril--censuras" style={{ height: ALTOS.censuras }}>
+                  {censuras.length ? (
+                    censuras.map((c) => (
+                      <Pieza
+                        key={c.id}
+                        pista="censuras"
+                        item={c}
+                        pps={pps}
+                        seleccionado={esSel('censuras', c.id)}
+                        onTocar={tocarPieza('censuras')}
+                        arrastre={arrastreDe('censuras', c)}
+                        className={`es-${c.modo}`}
+                        titulo={`${c.modo === 'pitido' ? 'Pitido' : 'Silencio'}${c.palabra ? `: «${c.palabra}»` : ''}. Arrastra sus bordes para alargarla o acortarla.`}
+                      >
+                        {c.modo === 'pitido' ? <Megaphone size={9} strokeWidth={2.6} aria-hidden="true" /> : <VolumeX size={9} strokeWidth={2.6} aria-hidden="true" />}
+                        <span className="lt-pieza__texto">{c.palabra || (c.modo === 'pitido' ? 'Pitido' : 'Silencio')}</span>
+                      </Pieza>
+                    ))
+                  ) : (
+                    <span className="lt-carril__nada" style={{ left: PAD }}>
+                      Sin censuras: búscalas en la pestaña Audio o toca + para silenciar un tramo
+                    </span>
+                  )}
+                </div>
+              ) : null}
+
+              {/* Tus audios (efectos de sonido) */}
+              <div
+                className={`lt-carril lt-carril--audios${soltandoAudio ? ' es-encima' : ''}`}
+                style={{ height: ALTOS.audios }}
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setSoltandoAudio(true);
+                }}
+                onDragLeave={() => setSoltandoAudio(false)}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setSoltandoAudio(false);
+                  const f = e.dataTransfer.files?.[0];
+                  if (f) acciones.usarAudio?.(f, tiempoDesdeEvento(e));
+                }}
+              >
+                {audios.length ? (
+                  audios.map((x) => (
+                    <PiezaAudio key={x.id} a={x} pps={pps} alto={ALTOS.audios} seleccionado={esSel('audios', x.id)} onTocar={tocarPieza('audios')} arrastre={arrastreDe('audios', x)} fila={filaAudio.get(x.id) % filasAudio} filas={filasAudio} />
+                  ))
+                ) : (
+                  <button type="button" className="lt-soltar lt-soltar--fino" style={{ left: PAD, width: Math.max(260, dur * pps - 2) }} onPointerDown={(e) => e.stopPropagation()} onClick={acciones.pedirAudio}>
+                    <Upload size={12} strokeWidth={2.2} aria-hidden="true" />
+                    Arrastra aquí un efecto de sonido o cualquier audio tuyo (MP3, WAV o M4A)
+                  </button>
+                )}
               </div>
 
               {/* Música */}

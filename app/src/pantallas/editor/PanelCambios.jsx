@@ -12,7 +12,15 @@ import {
   Check,
   Clapperboard,
   Clock,
+  Contrast,
+  Copy,
+  Droplet,
+  EarOff,
   Eye,
+  Megaphone,
+  Snowflake as Congelar,
+  SunMedium,
+  VolumeX,
   Film,
   Lock,
   Music,
@@ -37,7 +45,7 @@ import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato
 import { ESTILO_POR_ID } from './subtitulos/estilos.jsx';
 import { FUENTES } from './subtitulos/fuentes.js';
 import { Deslizador } from './piezas.jsx';
-import { FUENTES_TEXTO, LUGAR_IMAGEN, LUGAR_TEXTO } from './modelo.js';
+import { FUENTES_TEXTO, LUGAR_IMAGEN, LUGAR_TEXTO, FUNDIDO_MAX, colorLimpio } from './modelo.js';
 import { AccionesClip } from './AccionesClip.jsx';
 
 const NOMBRES_COLOR = {
@@ -104,9 +112,16 @@ function Colores({ etiqueta, icono: Icono, valor, opciones, onElegir, conNinguno
 }
 
 /** Dividir y borrar lo que está elegido (los mismos de la línea de tiempo). */
-function BotonesCorte({ acciones, borrar = 'Borrar', dividir = true }) {
+function BotonesCorte({ acciones, borrar = 'Borrar', dividir = true, duplicar = false }) {
   return (
     <div className="ed-botones-corte">
+      {duplicar ? (
+        <Tooltip texto="Una copia justo después (Ctrl D)">
+          <Boton variante="secundario" tamano="chico" icono={Copy} onClick={acciones.duplicar}>
+            Duplicar
+          </Boton>
+        </Tooltip>
+      ) : null}
       {dividir ? (
         <Tooltip texto="Lo corta en dos donde está el cursor (Ctrl B)">
           <Boton variante="secundario" tamano="chico" icono={Scissors} onClick={acciones.dividir}>
@@ -247,6 +262,46 @@ function EditorTramo({ tramo, musica, acciones }) {
         />
       ) : null}
     </>
+  );
+}
+
+const segundos = (v) => (v ? `${coma(v)} s` : 'Sin fundido');
+
+/** El volumen y el color del clip elegido, y congelar la imagen (las escenas que se cortan). */
+function AjustesClip({ item, pista, acciones, cortes }) {
+  const puedeVolumen = item.puede?.volumen && !item.mudo && !item.congelado;
+  const color = colorLimpio(item.ajuste?.color ?? null) || { brillo: 1, contraste: 1, saturacion: 1 };
+  const vol = Number.isFinite(Number(item.ajuste?.volumen)) ? Number(item.ajuste.volumen) : 1;
+  const cambiarColor = (k, v, etiqueta) => acciones.ajustarClip(item, { color: { ...color, [k]: v } }, { etiqueta, grupo: `color-${k}-${item.pieza}` });
+  const conColor = Object.values(color).some((x) => Math.abs(x - 1) > 0.004);
+  if (!item.puede?.color && !puedeVolumen) return null;
+  const pct = (v) => `${Math.round(v * 100)} %`;
+  return (
+    <div className="ed-ajustes-clip">
+      {puedeVolumen ? (
+        <Deslizador icono={Volume2} etiqueta="Volumen del clip" valor={vol} porDefecto={1} formato={(v) => (v <= 0 ? 'Sin sonido' : pct(v))} onCambio={(v) => acciones.ajustarClip(item, { volumen: v }, { etiqueta: `Volumen de ${item.nombre}`, grupo: `vol-${item.pieza}` })} ayuda={pista === 'video' && item.puede?.reemplazar === 'anuncio' ? 'Es la voz de esta escena: bájala o súbela solo aquí.' : null} />
+      ) : null}
+      {item.puede?.color ? (
+        <>
+          <Deslizador icono={SunMedium} etiqueta="Brillo" valor={color.brillo} min={0.5} max={1.5} porDefecto={1} formato={pct} onCambio={(v) => cambiarColor('brillo', v, `Brillo de ${item.nombre}`)} />
+          <Deslizador icono={Contrast} etiqueta="Contraste" valor={color.contraste} min={0.5} max={1.5} porDefecto={1} formato={pct} onCambio={(v) => cambiarColor('contraste', v, `Contraste de ${item.nombre}`)} />
+          <Deslizador icono={Droplet} etiqueta="Saturación" valor={color.saturacion} min={0} max={2} porDefecto={1} formato={(v) => (v <= 0.01 ? 'Blanco y negro' : pct(v))} onCambio={(v) => cambiarColor('saturacion', v, `Saturación de ${item.nombre}`)} />
+          {conColor ? (
+            <Boton variante="fantasma" tamano="chico" icono={RotateCcw} onClick={() => acciones.ajustarClip(item, { color: null }, { etiqueta: `Color como venía (${item.nombre})` })}>
+              Color como venía
+            </Boton>
+          ) : null}
+        </>
+      ) : null}
+      {pista === 'video' && cortes?.tomas && !item.congelado ? (
+        <Tooltip texto="La escena se queda quieta 1,5 s donde está el cursor y después sigue (la voz no se mueve)">
+          <Boton variante="secundario" tamano="chico" icono={Congelar} onClick={() => acciones.congelar(item)}>
+            Congelar imagen aquí
+          </Boton>
+        </Tooltip>
+      ) : null}
+      {item.congelado ? <p className="ed-nota">Esta parte se ve quieta, sin sonido de su clip. Bórrala para quitar el congelado.</p> : null}
+    </div>
   );
 }
 
@@ -592,6 +647,7 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
           />
         )}
         {pista === 'broll' && item.editable ? <BotonesCorte acciones={acciones} borrar="Borrar" /> : null}
+        {item.pieza && !item.quitado ? <AjustesClip item={item} pista={pista} acciones={acciones} cortes={pistas.cortes} /> : null}
         {item.tipo !== 'reaccion' && item.clip ? <AccionesClip item={item} acciones={acciones} slug={acciones.slug} /> : null}
       </Seccion>
     );
@@ -606,7 +662,7 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
           <EditorImagen key={id} x={x} acciones={acciones} />
           <TiempoEnPantalla x={x} acciones={acciones} total={pistas.duracion} />
           <Seguimiento x={x} acciones={acciones} total={pistas.duracion} />
-          <BotonesCorte acciones={acciones} dividir={false} borrar="Borrar imagen" />
+          <BotonesCorte acciones={acciones} dividir={false} borrar="Borrar imagen" duplicar />
         </Seccion>
       );
     }
@@ -647,7 +703,7 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
         <EditorTexto key={id} x={x} acciones={acciones} paleta={paleta} />
         {x.visible ? <TiempoEnPantalla x={x} acciones={acciones} total={pistas.duracion} /> : null}
         {x.visible && x.tipo === 'propio' ? <Seguimiento x={x} acciones={acciones} total={pistas.duracion} /> : null}
-        {x.visible ? <BotonesCorte acciones={acciones} dividir={false} borrar={x.tipo === 'sugerido' ? 'Quitar del video' : 'Borrar texto'} /> : null}
+        {x.visible ? <BotonesCorte acciones={acciones} dividir={false} borrar={x.tipo === 'sugerido' ? 'Quitar del video' : 'Borrar texto'} duplicar /> : null}
       </Seccion>
     );
   }
@@ -665,14 +721,69 @@ function Elegido({ seleccion, pistas, subs, ed, cambiar, acciones, alCerrar, pal
   }
 
   if (pista === 'voz') {
-    const s = pistas.voz.segmentos.find((x) => x.id === id);
+    const ts = pistas.voz?.tramos || [];
+    const tr = ts.find((x) => x.id === id);
+    if (!tr) return null;
+    const varias = ts.length > 1;
+    const tope = Math.min(FUNDIDO_MAX, (tr.hasta - tr.desde) / 2);
+    const ajustar = (cambios, etiqueta, grupo) => acciones.ajustarTramoVoz(tr.id, cambios, { etiqueta, grupo });
+    const nombre = pistas.voz.modo === 'cancion' ? 'Canción' : 'Voz';
     return (
-      <Seccion icono={AudioLines} titulo={pistas.voz.modo === 'cancion' ? 'Canción' : s?.habla ? `Voz · habla ${s.habla}` : 'Voz'} resaltada accion={<Boton variante="fantasma" tamano="chico" onClick={alCerrar}>Listo</Boton>}>
-        {s?.texto ? <q className="ed-elegido__cita">{s.texto}</q> : null}
-        <p className="ed-nota ed-nota--candado">
-          <Lock size={13} strokeWidth={2.2} aria-hidden="true" />
-          {pistas.voz.modo === 'cancion' ? 'La canción no se corta ni se mueve: el video la sigue.' : 'La voz no se corta ni se mueve: todo el anuncio la sigue. Su volumen sí lo cambias abajo.'}
+      <Seccion icono={AudioLines} titulo={varias ? `${nombre} · parte ${ts.indexOf(tr) + 1}` : nombre} resaltada accion={<span className="ed-seccion__dato t-mono">{codigoDeTiempo(tr.desde)}</span>}>
+        <p className="ed-nota">
+          {varias ? `De ${codigoDeTiempo(tr.desde).replace(/\.\d+$/, '')} a ${codigoDeTiempo(tr.hasta).replace(/\.\d+$/, '')}. ` : ''}
+          {pistas.voz.modo === 'cancion' ? 'La canción no se mueve.' : 'La voz no se mueve.'} Divídela en el cursor (Ctrl B) para darle a cada parte su volumen; arrastra el borde entre dos partes para correrlo.
         </p>
+        <Deslizador icono={Volume2} etiqueta={varias ? 'Volumen de esta parte' : 'Volumen'} valor={tr.volumen} porDefecto={1} formato={(v) => (v <= 0 ? 'Silenciada' : `${Math.round(v * 100)} %`)} onCambio={(v) => ajustar({ volumen: v }, 'Volumen de la voz', `voz-vol-${tr.id}`)} />
+        <Deslizador icono={AudioLines} etiqueta="Fundido de entrada" valor={tr.fadeIn} min={0} max={tope} paso={0.1} porDefecto={0} formato={segundos} onCambio={(v) => ajustar({ fadeIn: v }, 'Fundido de entrada de la voz', `voz-fi-${tr.id}`)} />
+        <Deslizador icono={AudioLines} etiqueta="Fundido de salida" valor={tr.fadeOut} min={0} max={tope} paso={0.1} porDefecto={0} formato={segundos} onCambio={(v) => ajustar({ fadeOut: v }, 'Fundido de salida de la voz', `voz-fo-${tr.id}`)} />
+        <div className="ed-botones-corte">
+          <Tooltip texto="La divide en dos donde está el cursor (Ctrl B)">
+            <Boton variante="secundario" tamano="chico" icono={Scissors} onClick={acciones.dividir}>
+              Dividir
+            </Boton>
+          </Tooltip>
+          <Boton variante="fantasma" tamano="chico" icono={tr.volumen <= 0 ? Volume2 : VolumeX} onClick={() => ajustar({ volumen: tr.volumen <= 0 ? 1 : 0 }, tr.volumen <= 0 ? 'Que vuelva a sonar' : 'Silenciar esta parte')}>
+            {tr.volumen <= 0 ? 'Que vuelva a sonar' : varias ? 'Silenciar esta parte' : 'Silenciar la voz'}
+          </Boton>
+        </div>
+      </Seccion>
+    );
+  }
+
+  if (pista === 'censuras') {
+    const c = (pistas.censuras || []).find((x) => x.id === id);
+    if (!c) return null;
+    return (
+      <Seccion icono={EarOff} titulo={c.palabra ? `Censura: «${c.palabra}»` : 'Tramo silenciado'} resaltada accion={<span className="ed-seccion__dato t-mono">{codigoDeTiempo(c.desde)}</span>}>
+        <p className="ed-nota">
+          De {codigoDeTiempo(c.desde)} a {codigoDeTiempo(c.hasta)} ({coma(c.hasta - c.desde)} s). Arrastra sus bordes en la línea de tiempo para alargarla o acortarla.
+        </p>
+        <div className="ed-modos" role="radiogroup" aria-label="Cómo se censura">
+          <Boton variante={c.modo === 'silencio' ? 'primario' : 'secundario'} tamano="chico" icono={VolumeX} onClick={() => acciones.modoCensura(c.id, 'silencio')} aria-pressed={c.modo === 'silencio'}>
+            Silencio
+          </Boton>
+          <Boton variante={c.modo === 'pitido' ? 'primario' : 'secundario'} tamano="chico" icono={Megaphone} onClick={() => acciones.modoCensura(c.id, 'pitido')} aria-pressed={c.modo === 'pitido'}>
+            Pitido
+          </Boton>
+        </div>
+        <BotonesCorte acciones={acciones} dividir={false} borrar="Quitar la censura" />
+      </Seccion>
+    );
+  }
+
+  if (pista === 'audios') {
+    const x = (pistas.audios || []).find((y) => y.id === id);
+    if (!x) return null;
+    const tope = Math.min(FUNDIDO_MAX, (x.hasta - x.desde) / 2);
+    const ajustar = (cambios, etiqueta, grupo) => acciones.ajustarAudio(x.id, cambios, { etiqueta, grupo });
+    return (
+      <Seccion icono={AudioLines} titulo={`Tu audio: ${x.nombre}`} resaltada accion={<span className="ed-seccion__dato t-mono">{codigoDeTiempo(x.desde)}</span>}>
+        <p className="ed-nota">Arrástralo en la pista Audio para moverlo; sus bordes lo recortan.</p>
+        <Deslizador icono={Volume2} etiqueta="Volumen" valor={x.volumen} porDefecto={1} formato={(v) => (v <= 0 ? 'Sin sonido' : `${Math.round(v * 100)} %`)} onCambio={(v) => ajustar({ volumen: v }, 'Volumen del audio', `aud-vol-${x.id}`)} />
+        <Deslizador icono={AudioLines} etiqueta="Fundido de entrada" valor={x.fadeIn} min={0} max={tope} paso={0.1} porDefecto={0} formato={segundos} onCambio={(v) => ajustar({ fadeIn: v }, 'Fundido de entrada del audio', `aud-fi-${x.id}`)} />
+        <Deslizador icono={AudioLines} etiqueta="Fundido de salida" valor={x.fadeOut} min={0} max={tope} paso={0.1} porDefecto={0} formato={segundos} onCambio={(v) => ajustar({ fadeOut: v }, 'Fundido de salida del audio', `aud-fo-${x.id}`)} />
+        <BotonesCorte acciones={acciones} borrar="Borrar audio" duplicar />
       </Seccion>
     );
   }
@@ -844,7 +955,21 @@ export function PanelCambios({ plan, pistas, subs, ed, cambiar, seleccion, onSel
           </Seccion>
         ) : null}
 
-        <Seccion icono={Volume2} titulo="Sonido" id="ed-sonido" resaltada={resaltar === 'sonido' || actual === 'sonido'}>
+        <Seccion
+          icono={Volume2}
+          titulo="Sonido"
+          id="ed-sonido"
+          resaltada={resaltar === 'sonido' || actual === 'sonido'}
+          accion={
+            hayVoz && !esCancion ? (
+              <Tooltip texto="Silenciar o ponerle pitido a una palabra, fundidos de la voz y tus efectos de sonido">
+                <Boton variante="fantasma" tamano="chico" icono={EarOff} onClick={acciones.abrirAudio}>
+                  Censurar
+                </Boton>
+              </Tooltip>
+            ) : null
+          }
+        >
           {hayVoz ? (
             <Deslizador
               icono={AudioLines}
@@ -922,6 +1047,11 @@ export function PanelCambios({ plan, pistas, subs, ed, cambiar, seleccion, onSel
               ) : null}
             </>
           )}
+        </Seccion>
+
+        <Seccion icono={Film} titulo="Fundido a negro" id="ed-fundido">
+          <Deslizador icono={Film} etiqueta="Al comenzar" valor={ed.fundido?.entrada || 0} min={0} max={Math.min(FUNDIDO_MAX, pistas.duracion / 3)} paso={0.1} porDefecto={0} formato={segundos} onCambio={(v) => acciones.fundidoVideo('entrada', v)} />
+          <Deslizador icono={Film} etiqueta="Al terminar" valor={ed.fundido?.salida || 0} min={0} max={Math.min(FUNDIDO_MAX, pistas.duracion / 3)} paso={0.1} porDefecto={0} formato={segundos} onCambio={(v) => acciones.fundidoVideo('salida', v)} ayuda="El video aparece desde negro o se va a negro. El sonido no cambia: sus fundidos están en la voz y en la música." />
         </Seccion>
 
         <p className="ed-panel__pie">

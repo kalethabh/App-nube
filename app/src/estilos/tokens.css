@@ -115,6 +115,8 @@
   --pista-musica: #f7b84b;
   --pista-subtitulos: #f472b6;   /* rosa: distinto del lima de la marca, el azul (video), el violeta (B-roll) y el ámbar (música) */
   --pista-textos: #3ccff3;
+  --pista-censuras: #ff5d5d;     /* rojo: lo que pita o calla en la voz */
+  --pista-audios: #ff8a4c;       /* naranja: tus audios (efectos de sonido) */
 
   /* ---------------------------------------------------------------- tipografía */
   --fuente-titulo: 'Inter Variable', 'Segoe UI', system-ui, -apple-system, sans-serif; /* Inter en todo, como IA-VID-AUTOMATIC */

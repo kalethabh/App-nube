@@ -26,7 +26,7 @@ import { lanzarSesion, prohibidasComunes, nombreIA } from '../lib/motor-ia.js';
 import { materialKads } from '../lib/ia/material-kads.js';
 import { rutaFfmpeg } from '../lib/miniaturas.js';
 import * as capas from '../../../remotion/src/edicion/capas.mjs';
-import { desdeLaApp, anuncioConPlan } from './editor.js';
+import { desdeLaApp, anuncioConPlan, ponerPitido } from './editor.js';
 import { pistasDe } from './seguimiento.js';
 
 const Mayus = (t) => String(t).charAt(0).toUpperCase() + String(t).slice(1);
@@ -34,77 +34,14 @@ const r3 = (x) => Math.round(x * 1000) / 1000;
 const MAX_CUADROS = 160; // escenas que se miran como mucho (de a 4 por imagen cuando son muchas)
 const SUELTOS = 24; // hasta aquí, un cuadro por imagen; más, en hojas de 2×2 (la IA mira hasta ~48 imágenes)
 const POS = ['arriba a la izquierda', 'arriba a la derecha', 'abajo a la izquierda', 'abajo a la derecha'];
-const PITIDO = path.join(RAIZ, 'recursos', 'efectos-transiciones', 'pitido.mp3');
 
-/** Para comparar palabras: sin tildes, sin signos, en minúscula. */
-export const normal = (t) =>
-  String(t || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9ñ]/g, '');
+// El buscador de lo que se dice vive en capas.mjs: lo usan también la pestaña Audio del editor (sin la IA, gratis).
+export const normal = capas.normalPalabra;
+export const buscarDichas = capas.buscarDichas;
+const palabrasDeLaVoz = capas.palabrasDeLaVoz;
 
-/** Distancia de edición (para «amua» ≈ «amúa», «a mua»): solo para palabras cortas. */
-function distancia(a, b) {
-  if (Math.abs(a.length - b.length) > 2) return 9;
-  const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
-  for (let j = 1; j <= b.length; j++) d[0][j] = j;
-  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-  return d[a.length][b.length];
-}
-
-const parecida = (dicha, buscada) => dicha === buscada || (buscada.length >= 5 && distancia(dicha, buscada) <= 1);
-
-/**
- * Dónde se dice cada palabra o frase (en segundos del anuncio): [{ desde, hasta, palabra }], con un margen corto para
- * que no se escuche el comienzo ni el final. palabras = [{ texto, inicio, fin }] en orden.
- */
-export function buscarDichas(palabras, buscadas, margen = 0.04) {
-  const lista = palabras.map((w) => ({ ...w, n: normal(w.texto) })).filter((w) => w.n && Number.isFinite(w.inicio) && Number.isFinite(w.fin));
-  const salida = [];
-  for (const frase of buscadas) {
-    const partes = String(frase || '')
-      .split(/\s+/)
-      .map(normal)
-      .filter(Boolean);
-    if (!partes.length) continue;
-    const juntas = partes.join('');
-    for (let i = 0; i < lista.length; i++) {
-      // la frase palabra por palabra, o pegada en una sola («a mua» dicho «amua» y al revés)
-      let k = 0;
-      while (k < partes.length && i + k < lista.length && parecida(lista[i + k].n, partes[k])) k++;
-      let fin = k === partes.length ? i + k - 1 : -1;
-      if (fin < 0 && partes.length === 1) {
-        // una palabra que el reconocedor partió en dos: «a» + «mua»
-        if (i + 1 < lista.length && parecida(lista[i].n + lista[i + 1].n, juntas)) fin = i + 1;
-        // o dentro de una palabra pegada a un signo («AMUA?» ya sale sin signos) o con un sufijo («amuas»)
-        else if (juntas.length >= 4 && lista[i].n.startsWith(juntas) && lista[i].n.length - juntas.length <= 2) fin = i;
-      }
-      if (fin < 0) continue;
-      salida.push({ desde: Math.max(0, lista[i].inicio - margen), hasta: lista[fin].fin + margen, palabra: String(frase).slice(0, 80) });
-      i = fin;
-    }
-  }
-  // en orden y sin pisarse (dos que se tocan quedan en una)
-  salida.sort((a, b) => a.desde - b.desde);
-  const unidas = [];
-  for (const c of salida) {
-    const u = unidas[unidas.length - 1];
-    if (u && c.desde <= u.hasta + 0.02) u.hasta = Math.max(u.hasta, c.hasta);
-    else unidas.push({ ...c });
-  }
-  return unidas.map((c) => ({ ...c, desde: r3(c.desde), hasta: r3(c.hasta) }));
-}
-
-/** Las palabras de la voz: las del montaje (con sus tiempos reales) y, si corregiste un subtítulo, también las corregidas. */
-function palabrasDeLaVoz(plan, ed) {
-  const originales = (plan.subtitulos || []).flatMap((b) => (Array.isArray(b.palabras) ? b.palabras : []));
-  const corregidas = capas
-    .subtitulosEditados(plan, ed)
-    .filter((b) => b.corregido)
-    .flatMap((b) => (Array.isArray(b.palabras) ? b.palabras : []));
-  return [...originales, ...corregidas].map((w) => ({ texto: String(w.texto ?? w.palabra ?? ''), inicio: Number(w.inicio), fin: Number(w.fin) })).sort((a, b) => a.inicio - b.inicio);
-}
+/** ¿Pidió callar la voz (mutear, silenciar) y no un pitido? Entonces las censuras van en silencio. */
+export const pideSilencio = (pedido) => /\b(mute|mutea\w*|mutear\w*|muteo|muted?|silenci\w*|calla\w*|sin sonido|quit\w* (el )?(sonido|audio))\b/i.test(String(pedido || '')) && !/\b(pitido|bip|beep|piii+)\b/i.test(String(pedido || ''));
 
 /**
  * Las escenas que se pueden quitar, con el cuadro que se mira de cada una:
@@ -350,7 +287,7 @@ Escribe ${rel(salida)} con este JSON y nada más:
 
 Cada acción es una de estas (usa solo las que el pedido necesita, en el orden en que las pidió):
 1. Censurar palabras DICHAS por la voz: { "tipo": "censurar", "palabras": ["amua"], "modo": "pitido" }
-   palabras: como se dicen en la voz (puedes poner varias o frases cortas; si la voz la dice distinto, pon cómo la dice: «a mua», «amúa»). modo: "pitido" (si dijo censura, bip, pitido, «que no se escuche» sin más) o "silencio" (si pidió silenciar, mutear, quitar el sonido).
+   palabras: como se dicen en la voz (puedes poner varias o frases cortas; si la voz la dice distinto, pon cómo la dice: «a mua», «amúa»). modo: "pitido" (si dijo censura, bip, pitido, «que no se escuche» sin más) o "silencio" (si pidió silenciar, mutear, mutearlo, mute, callar, quitar el sonido: «lo que diga AMUA mutearlo» es silencio).
 2. Un texto nuevo en la pantalla: { "tipo": "texto", "texto": "VITALABH", "desde": 0, "hasta": ${dur.toFixed(1)}, "x": 0.5, "y": 0.12, "color": null, "fondo": null, "tamano": 1, "pistas": [], "siempre": false }
    Para REEMPLAZAR un texto de la pantalla («donde diga AMUA coloca VITALABH»): texto = el nuevo y pistas = los id de TODAS las apariciones del texto viejo (lo sigue y lo tapa; x, y no importan). siempre: true solo si pidió que esté en todo el video.
    Si no va encima de un texto: desde/hasta en segundos (todo el video si no dijo cuándo), x de 0 a 1 (0,5 centro) e y el borde de arriba de 0 a 1 (0,1 arriba, 0,4 medio, 0,62 abajo). color y fondo: hex ("#FFFFFF") solo si los dijo; fondo "transparente" = sin caja. tamano 1 normal, 1,4 grande, 0,75 chico.
@@ -391,7 +328,7 @@ Tu respuesta final: solo LISTO.`;
       if (!r.ok || !d || !Array.isArray(d.acciones)) {
         return res.status(502).json({ error: r?.sinMotor ? 'Elige tu IA en Ajustes › Conexiones para editar con tus palabras.' : r?.limite ? `Se acabó el uso de tu plan de ${nombreIA(r.motor)} por ahora.` : `${Mayus(nombreIA(r?.motor))} no pudo responder. Vuelve a intentarlo.` });
       }
-      res.json(resolverAcciones(d, { slug, dur, palabras, pistas, cuadros, sinEscenas, videoPropio: Boolean(plan.videoPropio) }));
+      res.json(resolverAcciones(d, { slug, dur, palabras, pistas, cuadros, sinEscenas, videoPropio: Boolean(plan.videoPropio), pedido }));
     } finally {
       fs.rmSync(trabajo, { recursive: true, force: true });
     }
@@ -399,7 +336,7 @@ Tu respuesta final: solo LISTO.`;
 }
 
 /** Lo que dijo la IA, convertido en cambios que la pantalla aplica (todo validado y dentro de sus topes). */
-export function resolverAcciones(d, { slug, dur, palabras, pistas, cuadros, sinEscenas, videoPropio }) {
+export function resolverAcciones(d, { slug, dur, palabras, pistas, cuadros, sinEscenas, videoPropio, pedido = '' }) {
   const n = (v, a, b, def) => (Number.isFinite(Number(v)) ? Math.max(a, Math.min(b, Number(v))) : def);
   const hex = (v) => (typeof v === 'string' && /^#[0-9a-f]{6}$/i.test(v) ? v : null);
   const validos = new Set((pistas || []).map((p) => p.id));
@@ -417,7 +354,8 @@ export function resolverAcciones(d, { slug, dur, palabras, pistas, cuadros, sinE
         avisos.push('Este video no tiene las palabras de la voz con sus tiempos, así que no puedo censurar lo que se dice. En tus videos, súbelo con «Subtítulos» activado.');
         continue;
       }
-      const modo = a.modo === 'silencio' ? 'silencio' : 'pitido';
+      // «mutear», «silenciar», «callar» es silencio aunque la IA diga pitido
+      const modo = a.modo === 'silencio' || pideSilencio(pedido) ? 'silencio' : 'pitido';
       const halladas = buscarDichas(palabras, buscadas);
       if (!halladas.length) avisos.push(`No encontré ${buscadas.map((x) => `«${x}»`).join(', ')} en la voz.`);
       for (const h of halladas) censuras.push({ id: `c${crypto.randomBytes(4).toString('hex')}`, ...h, modo });
@@ -450,17 +388,7 @@ export function resolverAcciones(d, { slug, dur, palabras, pistas, cuadros, sinE
     }
   }
   // el pitido tiene que estar en el anuncio para la vista previa (la exportación lo enlaza sola)
-  if (censuras.some((c) => c.modo === 'pitido')) {
-    const destino = path.join(TEMP, slug, capas.ARCHIVO_PITIDO);
-    try {
-      if (!existe(destino)) {
-        fs.mkdirSync(path.dirname(destino), { recursive: true });
-        fs.copyFileSync(PITIDO, destino);
-      }
-    } catch {
-      /* sin pitido en la vista previa: la exportación igual lo pone */
-    }
-  }
+  if (censuras.some((c) => c.modo === 'pitido')) ponerPitido(slug);
   return {
     censuras,
     textos,

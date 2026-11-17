@@ -7,7 +7,8 @@
 // Por dentro dibuja remotion/src/Anuncio.jsx (que no se toca) con el plan ya ajustado (tomas cortadas,
 // movidas o borradas, B-roll movidos, recortados o quitados, volumen de los clips) y sin sus subtítulos ni su
 // música (sinSubtitulos, sinMusica). Encima, en capas propias y sincronizadas con el mismo cuadro:
-//   - la voz en off (o la canción de los musicales), con su volumen;
+//   - la voz en off (o la canción de los musicales), con su volumen, sus partes, sus fundidos y las censuras
+//     (nivelVoz de capas.mjs); los pitidos de las censuras; tus audios (efectos de sonido); el fundido a negro;
 //   - la música (la del anuncio, una del usuario o la de otro anuncio), con volumen, inicio y repetición, y
 //     si el usuario la recortó o la movió, en sus tramos con sus fundidos;
 //   - los textos en pantalla (los sugeridos que activó y los que agregó), con su color, fondo, tamaño, lugar
@@ -23,7 +24,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AbsoluteFill, Audio, Img, Loop, Sequence, continueRender, delayRender, getRemotionEnvironment, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Anuncio } from '../Anuncio.jsx';
-import { FPS as FPS_VOZ, capasDeEdicion, enCensura, lugaresSeguidos } from './capas.mjs';
+import { FPS as FPS_VOZ, capasDeEdicion, enCensura, lugaresSeguidos, nivelVoz } from './capas.mjs';
 import { Subtitulos } from './subtitulos/estilos.jsx';
 import { FUENTES, cargarFuentesSubtitulos } from './subtitulos/fuentes.js';
 
@@ -348,7 +349,44 @@ function Pitidos({ pitidos }) {
   ));
 }
 
-export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color, pitidos }) {
+/**
+ * Tus audios (efectos de sonido o cualquier audio que subiste): cada uno suena de `desde` a `hasta` del anuncio,
+ * arrancando en el segundo `entrada` del archivo, con su volumen y sus fundidos (como un tramo de la música).
+ */
+function AudiosPropios({ audios }) {
+  const { fps } = useVideoConfig();
+  return (audios || []).map((a) => {
+    const desde = Math.max(0, Math.round(a.desde * fps));
+    const largo = Math.max(1, Math.round(a.hasta * fps) - desde);
+    const fi = Math.round((a.fadeIn || 0) * fps);
+    const fo = Math.round((a.fadeOut || 0) * fps);
+    const v = Math.max(0, Math.min(1, a.volumen ?? 1));
+    return (
+      <Sequence key={a.id} from={desde} durationInFrames={largo} layout="none" name={`Audio: ${a.nombre || ''}`}>
+        <Audio
+          src={fuente(a.archivo)}
+          trimBefore={a.entrada > 0 ? Math.round(a.entrada * fps) : undefined}
+          volume={(f) => Math.max(0, Math.min(1, v * Math.min(1, fi > 0 ? f / fi : 1, fo > 0 ? (largo - f) / fo : 1)))}
+        />
+      </Sequence>
+    );
+  });
+}
+
+/** El fundido a negro del comienzo y del final del video. */
+function FundidoNegro({ fundido }) {
+  const frame = useCurrentFrame();
+  const { fps, durationInFrames } = useVideoConfig();
+  const t = frame / fps;
+  const total = durationInFrames / fps;
+  const a = fundido.entrada > 0 ? Math.max(0, 1 - t / fundido.entrada) : 0;
+  const z = fundido.salida > 0 ? Math.max(0, 1 - (total - t) / fundido.salida) : 0;
+  const opacidad = Math.min(1, Math.max(a, z));
+  if (opacidad <= 0) return null;
+  return <AbsoluteFill style={{ backgroundColor: 'black', opacity: opacidad, pointerEvents: 'none' }} />;
+}
+
+export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color, pitidos, audios, fundido }) {
   return (
     <AbsoluteFill style={{ backgroundColor: 'black' }}>
       <Anuncio plan={plan} sinSubtitulos sinMusica />
@@ -364,11 +402,19 @@ export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color, pi
         <Audio
           src={staticFile(voz.archivo)}
           // (la voz empieza en el cuadro 0: el cuadro de la voz es el del anuncio)
-          volume={(f) => (voz.censuras?.length && enCensura(f / FPS_VOZ, voz.censuras) ? 0 : Math.max(0, Math.min(1, voz.volumen)))}
+          // (nivel: sus partes con su volumen, sus fundidos y las censuras; sin nivel, solo las censuras)
+          volume={(f) => {
+            const base = Math.max(0, Math.min(1, voz.volumen));
+            if (voz.nivel) return base * nivelVoz(f / FPS_VOZ, voz.nivel);
+            return voz.censuras?.length && enCensura(f / FPS_VOZ, voz.censuras) ? 0 : base;
+          }}
         />
       ) : null}
       {pitidos?.length ? <Pitidos pitidos={pitidos} /> : null}
       {musica?.src ? <Musica musica={musica} /> : null}
+      {audios?.length ? <AudiosPropios audios={audios} /> : null}
+      {/* el fundido a negro va encima de la imagen (y de los textos), debajo de nada */}
+      {fundido ? <FundidoNegro fundido={fundido} /> : null}
     </AbsoluteFill>
   );
 }

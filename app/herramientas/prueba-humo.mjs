@@ -773,6 +773,21 @@ async function prueba() {
       // ---------------------------------------------------------- Ajustes › Modelos
       await probarModelos({ pedir, check, ajustes: rutas['/api/ajustes'] });
 
+      // ---------------------------------------------------------- el audio del editor (2026-11-17j), sin anuncio
+      try {
+        const capas = await import(pathToFileURL(path.join(RAIZ, 'remotion', 'src', 'edicion', 'capas.mjs')).href);
+        const plan = { duracion: 6, audio: { voz: 'audio/voz.mp3' }, bloques: [], subtitulos: [{ texto: 'hola Amúa a mua', inicio: 0, fin: 3, palabras: [{ texto: 'hola', inicio: 0.2, fin: 0.6 }, { texto: 'Amúa?', inicio: 0.7, fin: 1.2 }, { texto: 'a', inicio: 1.5, fin: 1.6 }, { texto: 'mua', inicio: 1.6, fin: 2 }] }] };
+        const halladas = capas.buscarDichas(capas.palabrasDeLaVoz(plan, {}), ['AMUA']);
+        check('Editor › Audio: buscar «AMUA» encuentra «Amúa?» y «a mua» (sin la IA)', halladas.length === 2, halladas);
+        const ed = capas.completarEdicion({ voz: { volumen: 1, tramos: [{ id: 'a', desde: 0, hasta: 3, volumen: 1 }, { id: 'b', desde: 3, volumen: 0 }] }, censuras: halladas.map((h, i) => ({ id: `c${i}`, ...h, modo: 'silencio' })) });
+        const nivel = capas.datosNivelVoz(plan, ed);
+        check('Editor › Audio: la voz calla en las censuras y en la parte silenciada, y suena en lo demás', capas.nivelVoz(0.4, nivel) === 1 && capas.nivelVoz(1, nivel) === 0 && capas.nivelVoz(4, nivel) === 0, nivel);
+        const viejo = capas.completarEdicion({ voz: { volumen: 0.5 }, musica: { fuente: 'original' } });
+        check('Editor › Audio: los cambios guardados de antes siguen sirviendo', viejo.voz.tramos === null && Array.isArray(viejo.audios) && viejo.fundido.salida === 0 && capas.capasDeEdicion(plan, viejo, {}).fundido === null);
+      } catch (e) {
+        check('Editor › Audio: capas.mjs', false, e.message);
+      }
+
       // ---------------------------------------------------------- un anuncio claymation de punta a punta
       if (process.env.HUMO_SIN_ANUNCIO !== '1') {
         const conLote = process.env.HUMO_SIN_IMAGEN_ADS !== '1';

@@ -69,7 +69,22 @@ import { EditarConIA } from './EditarConIA.jsx';
 import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRegenerar } from './trabajos.js';
 import { PincelCensura } from './PincelCensura.jsx';
 import { GuiasLienzo, HerramientasLienzo } from './HerramientasLienzo.jsx';
-import { operar, agregarTexto as textoNuevo, agregarImagen as imagenNueva, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
+import {
+  operar,
+  agregarTexto as textoNuevo,
+  agregarImagen as imagenNueva,
+  ajustarTexto as cambiarTexto,
+  ajustarTramo as cambiarTramo,
+  ajustarTramoVoz,
+  fundidoVoz,
+  agregarCensuras,
+  quitarCensurasEn,
+  modoCensura,
+  silenciarTramo as tramoEnSilencio,
+  agregarAudio as audioNuevo,
+  ajustarAudio as cambiarAudio,
+  ajustarClip,
+} from './cortes.js';
 import { servidor } from './servidor.js';
 import { useArrastrarEnVideo } from './arrastrar.js';
 import { ESTILO_POR_ID } from './subtitulos/estilos.jsx';
@@ -776,7 +791,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   const mv = modoVoz(plan);
   const subs = useMemo(() => subtitulosEditados(plan, ed, borrador), [plan, ed.correcciones, ed.ocultos, borrador]); // eslint-disable-line react-hooks/exhaustive-deps
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const pistas = useMemo(() => construirPistas(a, plan, ed, subs, colorAnuncio), [a, plan, ed.quitados, ed.textos, ed.musica, ed.tomas, ed.brolls, ed.ajustesTextos, ed.textosNuevos, ed.reemplazos, ed.clips, subs, versionMusica, colorAnuncio]);
+  const pistas = useMemo(() => construirPistas(a, plan, ed, subs, colorAnuncio), [a, plan, ed.quitados, ed.textos, ed.musica, ed.tomas, ed.brolls, ed.ajustesTextos, ed.textosNuevos, ed.reemplazos, ed.clips, ed.voz, ed.censuras, ed.audios, subs, versionMusica, colorAnuncio]);
   // mientras se arrastra una pieza: el resultado, solo para la línea de tiempo (al soltar se guarda)
   const [previa, setPrevia] = useState(null);
   const pistasLinea = useMemo(() => (previa ? construirPistas(a, plan, previa, subs, colorAnuncio) : pistas), [previa, pistas, a, plan, subs, colorAnuncio]);
@@ -1092,6 +1107,15 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         return x ? `el texto «${String(x.texto).slice(0, 28)}»` : 'el texto';
       }
       if (pista === 'musica') return 'la música';
+      if (pista === 'voz') {
+        const ts = pistas.voz?.tramos || [];
+        return ts.length > 1 ? `la parte ${ts.findIndex((x) => x.id === id) + 1} de la voz` : 'la voz';
+      }
+      if (pista === 'censuras') {
+        const c = pistas.censuras.find((x) => x.id === id);
+        return c?.palabra ? `la censura de «${c.palabra}»` : 'el tramo silenciado';
+      }
+      if (pista === 'audios') return `el audio «${pistas.audios.find((x) => x.id === id)?.nombre || ''}»`;
       return 'eso';
     },
     [pistas]
@@ -1246,12 +1270,21 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     } else if (seleccion?.pista === 'musica') {
       const x = pistas.tramosMusica.find((y) => y.id === seleccion.id);
       if (x && t > x.desde && t < x.hasta) objetivo = { pista: 'musica', id: x.id };
+    } else if (seleccion?.pista === 'voz') {
+      // la voz: se divide la parte que está bajo el cursor (para darle a cada parte su volumen)
+      const x = (pistas.voz?.tramos || []).find((y) => t > y.desde && t < y.hasta);
+      if (x) objetivo = { pista: 'voz', id: x.id };
+    } else if (seleccion?.pista === 'audios') {
+      const x = pistas.audios.find((y) => y.id === seleccion.id);
+      if (x && t > x.desde && t < x.hasta) objetivo = { pista: 'audios', id: x.id };
     }
     // con otra cosa elegida, no se divide la toma de abajo sin avisar: se dice por qué no
     if (!objetivo && seleccion) {
       const textos = {
         video: pistas.cortes.tomas ? 'Pon el cursor sobre la escena elegida para dividirla.' : pistas.cortes.motivo,
-        voz: 'La voz no se corta: todo el anuncio la sigue.',
+        voz: 'Pon el cursor sobre la voz para dividirla.',
+        censuras: 'Las censuras no se dividen: arrastra sus bordes para acortarlas.',
+        audios: 'Pon el cursor sobre el audio elegido para dividirlo.',
         textos: 'Los textos no se dividen: arrastra sus bordes para acortarlos.',
         broll: pistas.cortes.brolls ? 'Pon el cursor sobre la imagen de apoyo elegida para dividirla.' : pistas.cortes.motivo,
         musica: 'Pon el cursor sobre la parte de la música elegida para dividirla.',
@@ -1276,6 +1309,10 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     if (pista === 'broll') return Boolean(pistas.broll.find((x) => x.id === id && (pistas.cortes.brolls || (x.removible && !x.quitado))));
     if (pista === 'textos') return Boolean(pistas.textos.find((x) => x.id === id && !x.fijo && x.visible));
     if (pista === 'musica') return Boolean(pistas.musica);
+    // una parte de la voz «se borra» callándola (la voz no se mueve)
+    if (pista === 'voz') return Boolean((pistas.voz?.tramos || []).find((x) => x.id === id && x.volumen > 0));
+    if (pista === 'censuras') return pistas.censuras.some((x) => x.id === id);
+    if (pista === 'audios') return pistas.audios.some((x) => x.id === id);
     return false;
   }, [seleccion, pistas]);
   const borrarElegido = useCallback(() => {
@@ -1291,7 +1328,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       // en este estilo el B-roll solo se oculta
       cambiar((s) => ({ ...s, quitados: [...new Set([...s.quitados, id])] }), { etiqueta: `Quitar ${nombre}` });
     } else {
-      const r = aplicar({ tipo: 'borrar', pista, id }, `Borrar ${nombre}`);
+      const r = aplicar({ tipo: 'borrar', pista, id }, pista === 'voz' ? `Silenciar ${nombre}` : `Borrar ${nombre}`);
       if (!r) return;
       if (r.sinMusica) {
         setSeleccion(null);
@@ -1374,10 +1411,115 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
     },
     [cambiar]
   );
+  // ---------------------------------------------------------------- audio: censuras, la voz y tus audios
+  // El pitido de las censuras tiene que estar en la carpeta del anuncio para sonar en la vista previa (la exportación
+  // lo pone sola). Se pide antes de poner un pitido y al abrir el editor si ya hay alguno.
+  const pitidoListo = useRef(false);
+  const asegurarPitido = useCallback(async () => {
+    if (pitidoListo.current) return true;
+    try {
+      await servidor.ponerPitido(a.slug);
+      pitidoListo.current = true;
+      return true;
+    } catch {
+      return false;
+    }
+  }, [a.slug]);
+  const hayPitido = (ed.censuras || []).some((c) => c.modo === 'pitido');
+  useEffect(() => {
+    if (hayPitido) asegurarPitido();
+  }, [hayPitido, asegurarPitido]);
+  /** Censuras nuevas ([{ desde, hasta, palabra }]) con pitido o en silencio, en un solo paso. -> cuántas entraron */
+  const censurar = useCallback(
+    async (lista, modo, etiqueta) => {
+      if (!lista.length) return 0;
+      if (modo === 'pitido') await asegurarPitido();
+      let nuevas = 0;
+      cambiar(
+        (s) => {
+          const r = agregarCensuras(s, lista.map((c) => ({ ...c, modo })));
+          nuevas = r.nuevas;
+          return r.ed;
+        },
+        { etiqueta: etiqueta || (modo === 'pitido' ? 'Pitido' : 'Silenciar') }
+      );
+      return nuevas || lista.length;
+    },
+    [cambiar, asegurarPitido]
+  );
+  const audioRef = useRef(null);
+  const audioEn = useRef(null);
+  /** Un audio tuyo (efecto de sonido) en el cursor o donde lo soltaste: se sube al anuncio y entra en su pista. */
+  const usarAudio = useCallback(
+    async (archivo, t = null) => {
+      if (!archivo) return;
+      const esAudio = /^audio\//.test(archivo.type) || /\.(mp3|wav|m4a|aac|ogg)$/i.test(archivo.name);
+      if (!esAudio) return aviso({ tipo: 'error', titulo: 'Ese archivo no es un audio', texto: 'Usa un MP3, WAV o M4A.' });
+      if (archivo.size > 40 * 1024 * 1024) return aviso({ tipo: 'error', titulo: 'El audio pesa demasiado', texto: 'Usa uno de menos de 40 MB.' });
+      const p = playerRef.current;
+      p?.pause();
+      const cuando = t ?? (p?.getCurrentFrame() || 0) / FPS;
+      const id = `a${Date.now().toString(36)}`;
+      let duracion = null;
+      try {
+        duracion = (await picosDe(URL.createObjectURL(archivo)))?.duracion ?? null;
+      } catch {
+        return aviso({ tipo: 'error', titulo: 'No pude leer ese audio', texto: 'Puede que el archivo esté dañado. Prueba con otro MP3.' });
+      }
+      let r;
+      try {
+        r = await servidor.subirAudio(a.slug, { id, nombre: archivo.name, archivo });
+      } catch (e) {
+        return aviso({ tipo: 'error', titulo: 'No pude subir el audio', texto: e.message });
+      }
+      cambiar((s) => audioNuevo(plan, s, { t: cuando, archivo: r.archivo, nombre: archivo.name, duracion, id }).ed, { etiqueta: `Agregar audio: ${archivo.name}` });
+      setSeleccion({ pista: 'audios', id });
+      aviso({ tipo: 'ok', titulo: 'Tu audio ya suena', texto: 'Arrástralo en la pista Audio para moverlo; sus bordes lo recortan.', duracion: 4500 });
+    },
+    [a.slug, aviso, cambiar, plan]
+  );
+  const usarAudioRef = useRef(usarAudio);
+  usarAudioRef.current = usarAudio;
+  const [transcribiendo, setTranscribiendo] = useState(false);
+  /** Tus videos subidos sin «Subtítulos»: transcribir la voz ahora (ElevenLabs, unos centavos). */
+  const transcribir = useCallback(async () => {
+    if (transcribiendo) return;
+    setTranscribiendo(true);
+    try {
+      const r = await pedirNuevo(`/api/videos-propios/${encodeURIComponent(a.slug)}/transcribir`, { metodo: 'POST', cuerpo: {} });
+      await recargar();
+      aviso({ tipo: 'ok', titulo: 'Listo: ya están las palabras', texto: r?.palabras ? `Encontré ${r.palabras} palabras. Ya puedes buscarlas y censurarlas.` : 'No encontré palabras en el audio.', duracion: 7000 });
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude transcribir la voz', texto: e.message, duracion: 9000 });
+    } finally {
+      setTranscribiendo(false);
+    }
+  }, [transcribiendo, a.slug, recargar, aviso]);
+  const duplicarElegido = useCallback(() => {
+    if (!seleccion || (seleccion.pista !== 'textos' && seleccion.pista !== 'audios')) {
+      aviso({ tipo: 'info', titulo: 'Elige qué duplicar', texto: 'Se puede duplicar un texto, una imagen tuya o un audio tuyo.' });
+      return;
+    }
+    const r = aplicar({ tipo: 'duplicar', pista: seleccion.pista, id: seleccion.id }, `Duplicar ${nombreDe(seleccion.pista, seleccion.id)}`);
+    if (r?.nuevo) setSeleccion({ pista: seleccion.pista, id: r.nuevo });
+  }, [seleccion, aplicar, aviso, nombreDe]);
+  const congelarAqui = useCallback(
+    (item) => {
+      const p = playerRef.current;
+      p?.pause();
+      const t = (p?.getCurrentFrame() || 0) / FPS;
+      const objetivo = item || pistas.video.find((v) => t >= v.inicio && t < v.fin);
+      if (!objetivo) return;
+      const r = aplicar({ tipo: 'congelar', id: objetivo.id, t }, `Congelar ${objetivo.nombre}`);
+      if (r?.nuevo) setSeleccion({ pista: 'video', id: r.nuevo });
+    },
+    [aplicar, pistas]
+  );
+
   const usarImagenRef = useRef(agregarImagen);
   usarImagenRef.current = agregarImagen;
   const teclasRef = useRef({});
-  teclasRef.current = { dividir, borrar: borrarElegido };
+  teclasRef.current = { dividir, borrar: borrarElegido, duplicar: duplicarElegido };
 
   const acciones = useMemo(
     () => ({
@@ -1488,6 +1630,55 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
           { etiqueta: 'Texto como venía' }
         ),
       ajustarTramo: (id, cambios, opciones = {}) => cambiar((s) => cambiarTramo(plan, s, { id, cambios, musica: pistas.musica }).ed, { etiqueta: opciones.etiqueta || 'Cambiar la música', grupo: opciones.grupo }),
+      // AUDIO (pestaña Audio, la línea de tiempo y el panel de la derecha)
+      censurar,
+      quitarCensurasEn: (desde, hasta, etiqueta = 'La palabra vuelve a sonar') => cambiar((s) => quitarCensurasEn(s, desde, hasta).ed, { etiqueta }),
+      quitarTodasLasCensuras: () => cambiar((s) => ({ ...s, censuras: [] }), { etiqueta: 'Quitar las censuras' }),
+      modoCensura: async (id, modo) => {
+        if (modo === 'pitido') await asegurarPitido();
+        cambiar((s) => modoCensura(s, id, modo).ed, { etiqueta: modo === 'pitido' ? 'Censura con pitido' : 'Censura en silencio' });
+      },
+      silenciarTramo: () => {
+        const p = playerRef.current;
+        p?.pause();
+        const t = (p?.getCurrentFrame() || 0) / FPS;
+        const r = tramoEnSilencio(plan, ed, { t });
+        cambiar(() => r.ed, { etiqueta: 'Silenciar un tramo' });
+        setSeleccion({ pista: 'censuras', id: r.nuevo });
+      },
+      ajustarTramoVoz: (id, cambios, opciones = {}) => cambiar((s) => ajustarTramoVoz(plan, s, { id, cambios }).ed || s, { etiqueta: opciones.etiqueta || 'Volumen de la voz', grupo: opciones.grupo }),
+      fundidoVoz: (lado, segundos) => cambiar((s) => fundidoVoz(plan, s, { lado, segundos }).ed || s, { etiqueta: lado === 'entrada' ? 'Fundido de entrada de la voz' : 'Fundido de salida de la voz', grupo: `fundido-voz-${lado}` }),
+      pedirAudio: () => {
+        audioEn.current = null;
+        audioRef.current?.click();
+      },
+      usarAudio: (f, t) => usarAudioRef.current(f, t),
+      ajustarAudio: (id, cambios, opciones = {}) => cambiar((s) => cambiarAudio(s, id, cambios).ed, { etiqueta: opciones.etiqueta || 'Cambiar el audio', grupo: opciones.grupo }),
+      duplicar: duplicarElegido,
+      congelar: congelarAqui,
+      ajustarClip: (item, cambios, opciones = {}) => {
+        const r = ajustarClip(plan, ed, { pieza: item.pieza, ...cambios });
+        if (r.error) return aviso({ tipo: 'info', titulo: 'Así no se puede', texto: r.error });
+        cambiar((s) => ajustarClip(plan, s, { pieza: item.pieza, ...cambios }).ed || s, { etiqueta: opciones.etiqueta || `Cambiar ${item.nombre}`, grupo: opciones.grupo });
+      },
+      fundidoVideo: (lado, segundos) => cambiar((s) => ({ ...s, fundido: { ...(s.fundido || { entrada: 0, salida: 0 }), [lado]: Math.round(Math.max(0, segundos) * 100) / 100 } }), { etiqueta: lado === 'entrada' ? 'Fundido de entrada del video' : 'Fundido de salida del video', grupo: `fundido-video-${lado}` }),
+      transcribir,
+      transcribiendo,
+      saltarA: (t) => {
+        const p = playerRef.current;
+        p?.pause();
+        p?.seekTo(Math.max(0, Math.round(t * FPS)));
+      },
+      irAAudio: (x) => {
+        setSeleccion({ pista: 'audios', id: x.id });
+        const p = playerRef.current;
+        p?.pause();
+        p?.seekTo(Math.round(x.desde * FPS));
+      },
+      abrirAudio: () => {
+        setPestana('audio');
+        setPanelAbierto(true);
+      },
       abrirGaleria: () => setGaleria(true),
       elegirEstilo,
       pedirMusica,
@@ -1575,6 +1766,13 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       deslizarClip,
       colorAnuncio,
       recargar,
+      censurar,
+      asegurarPitido,
+      ed,
+      duplicarElegido,
+      congelarAqui,
+      transcribir,
+      transcribiendo,
     ]
   );
   // Arrastrar los textos y las imágenes en la vista previa (arrastrar.js): se mueven con el mouse y el elegido lleva
@@ -1629,6 +1827,11 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       if (mod && !enCampo && k === 'b') {
         e.preventDefault();
         teclasRef.current.dividir();
+        return;
+      }
+      if (mod && !enCampo && k === 'd') {
+        e.preventDefault();
+        teclasRef.current.duplicar?.();
         return;
       }
       if (enCampo || mod || e.altKey) return;
@@ -2017,7 +2220,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
             onEncuadre={encuadrar}
           />
         </div>
-        {pincel ? <div className="ed-pincel-zona" ref={setBarraPincel} /> : <EditarConIA acciones={acciones} ed={ed} cambiar={cambiar} />}
+        {pincel ? <div className="ed-pincel-zona" ref={setBarraPincel} /> : <EditarConIA acciones={acciones} ed={ed} cambiar={cambiar} plan={plan} />}
         <Transporte
           playerRef={playerRef}
           listo={playerListo}
@@ -2143,6 +2346,19 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
           const f = e.target.files?.[0];
           e.target.value = '';
           usarArchivo(f);
+        }}
+      />
+      <input
+        ref={audioRef}
+        type="file"
+        accept="audio/*,.mp3,.wav,.m4a,.aac,.ogg"
+        className="visualmente-oculto"
+        tabIndex={-1}
+        aria-hidden="true"
+        onChange={(e) => {
+          const f = e.target.files?.[0];
+          e.target.value = '';
+          if (f) usarAudio(f, audioEn.current);
         }}
       />
       <input

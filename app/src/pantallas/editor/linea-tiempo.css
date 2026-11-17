@@ -837,3 +837,70 @@ body.lt-arrastrando * {
 .lt-pieza.es-deslizable {
   cursor: ew-resize;
 }
+
+/* ---------------------------------------------------------------- audio (2026-11-17j): censuras, tus audios, partes de la voz */
+.lt-cab--censuras { --c: var(--pista-censuras); }
+.lt-cab--audios { --c: var(--pista-audios); }
+.lt-pieza--censuras {
+  --c: var(--pista-censuras);
+  gap: 3px;
+  padding: 0 4px;
+  font-size: 10px;
+  background: color-mix(in srgb, var(--c) 30%, #101016);
+}
+.lt-pieza--censuras.es-silencio {
+  background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 4px, transparent 4px 8px), color-mix(in srgb, var(--pista-censuras) 14%, #101016);
+  border-color: color-mix(in srgb, var(--pista-censuras) 55%, transparent);
+}
+.lt-pieza--censuras svg { flex: none; }
+.lt-pieza--audios {
+  --c: var(--pista-audios);
+  padding: 0;
+  background: color-mix(in srgb, var(--c) 12%, #0d0d12);
+}
+.lt-pieza--voz.es-muda {
+  background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 5px, transparent 5px 10px), color-mix(in srgb, var(--pista-voz) 6%, #0d0d12);
+}
+.lt-voz__avatar {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+.lt-voz__censura {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  z-index: 3;
+  border-radius: 3px;
+  pointer-events: none;
+  background: repeating-linear-gradient(135deg, rgba(255, 93, 93, 0.55) 0 3px, rgba(255, 93, 93, 0.15) 3px 6px);
+  box-shadow: inset 0 0 0 1px rgba(255, 93, 93, 0.7);
+}
+.lt-voz__censura.es-silencio {
+  background: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0 3px, rgba(0, 0, 0, 0.25) 3px 6px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+.lt-carril--audios.es-encima::before {
+  background: rgba(255, 138, 76, 0.12);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 138, 76, 0.6);
+}
+.lt-soltar--fino {
+  top: 2px;
+  bottom: 2px;
+  font-size: 10.5px;
+  border-color: rgba(255, 138, 76, 0.38);
+  background: rgba(255, 138, 76, 0.04);
+}
+.lt-soltar--fino svg { color: var(--pista-audios); }
+.lt-soltar--fino:hover {
+  border-color: rgba(255, 138, 76, 0.75);
+  background: rgba(255, 138, 76, 0.09);
+}
