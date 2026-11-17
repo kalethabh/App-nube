@@ -2752,3 +2752,12 @@ html:has(.ed) .avisos {
 .ed-ia__nota { margin: 0; font-size: var(--t-micro); line-height: 1.4; color: var(--texto-2); }
 .ed-ia__censuras { flex: none; display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--borde-2); background: transparent; color: var(--texto-2); font-size: var(--t-micro); cursor: pointer; }
 .ed-ia__censuras:hover { color: var(--texto-1); border-color: var(--texto-3); }
+
+/* ---------------------------------------------------------------- el pincel para censurar (PincelCensura.jsx) */
+.ed-pincel { position: absolute; inset: 0; z-index: 20; user-select: none; }
+.ed-pincel__lienzo { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; }
+.ed-pincel-zona { width: 100%; max-width: 640px; margin: 0 auto; }
+.ed-pincel__barra { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 10px; border-radius: var(--r-l); border: 1px solid var(--acento-borde); background: var(--superficie-2); color: var(--texto-1); user-select: none; }
+.ed-pincel__ayuda { display: inline-flex; align-items: center; gap: 6px; flex: 1 1 auto; font-size: var(--t-chico); font-weight: 600; }
+.ed-pincel__tamanos { display: inline-flex; gap: 4px; }
+.ed-pincel__botones { display: inline-flex; gap: 4px; margin-left: auto; }

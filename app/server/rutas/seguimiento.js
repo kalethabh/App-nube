@@ -31,6 +31,7 @@ import { lanzarSesion, prohibidasComunes, nombreIA } from '../lib/motor-ia.js';
 
 const Mayus = (t) => String(t).charAt(0).toUpperCase() + String(t).slice(1);
 import { desdeLaApp, anuncioConPlan } from './editor.js';
+import { seguirZona } from '../lib/seguir-zona.js';
 
 const SCRIPT = path.join(RAIZ, 'produccion', 'leer-textos-video.py');
 const PY = process.platform === 'win32' ? path.join(RAIZ, '.venv-limpio', 'Scripts', 'python.exe') : path.join(RAIZ, '.venv-limpio', 'bin', 'python');
@@ -40,7 +41,7 @@ const leyendo = new Map(); // slug -> valor
 const VERSION_LECTOR = 2; // la de produccion/leer-textos-video.py
 
 /** El video que se lee y su firma (si cambia, hay que leerlo de nuevo). */
-function videoDe(slug) {
+export function videoDe(slug) {
   const plan = leerJSON(path.join(TEMP, slug, 'plan-montaje.json'));
   let abs = null;
   if (plan?.videoPropio) abs = path.join(TEMP, slug, 'video', 'completo.mp4');
@@ -54,7 +55,7 @@ function videoDe(slug) {
 }
 
 /** Un segundo del video original en el de ahora (plan.fuente: las partes que quedan, en orden), o null si se quitó. */
-function aLinea(t, fuente) {
+export function aLinea(t, fuente) {
   if (!Array.isArray(fuente) || !fuente.length) return t;
   let acumulado = 0;
   for (const f of fuente) {
@@ -135,6 +136,37 @@ function leerTextos(slug) {
   })();
 }
 
+/** Lo contrario de aLinea: un segundo del video de ahora en el original (plan.fuente). */
+function aOriginal(t, fuente) {
+  if (!Array.isArray(fuente) || !fuente.length) return t;
+  let acumulado = 0;
+  for (const f of fuente) {
+    const largo = f.hasta - f.desde;
+    if (t <= acumulado + largo) return f.desde + Math.max(0, t - acumulado);
+    acumulado += largo;
+  }
+  const u = fuente.at(-1);
+  return u.hasta;
+}
+
+/** La escena del editor donde cae t (segundos de ahora): { desde, hasta }. */
+function escenaDe(plan, t) {
+  const dur = Number(plan?.duracion) || 0;
+  const cortes = [...new Set((plan?.bloques || []).filter((b) => b.toma).map((b) => Number(b.toma.desde ?? b.inicio) || 0))].sort((a, b) => a - b);
+  let desde = 0;
+  let hasta = dur;
+  for (const c of cortes) {
+    if (c <= t + 1e-3) desde = c;
+    else {
+      hasta = c;
+      break;
+    }
+  }
+  return { desde, hasta: Math.max(desde + 0.2, hasta) };
+}
+
+const enCurso = new Set();
+
 /** Sin IA (o si no pudo): los textos del video que se parecen a lo que va entre comillas en el pedido. */
 function adivinar(pedido, pistas) {
   const norm = (t) => String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
@@ -147,6 +179,42 @@ function adivinar(pedido, pistas) {
 }
 
 export default function rutasSeguimiento(app) {
+  // EL PINCEL PARA CENSURAR: lo que pintaste en el momento t se sigue en su escena -> { apariciones, desde, hasta, ... }
+  //   POST /api/anuncios/:slug/censura/seguir  { t, x, y, w, h }  (x, y el centro y w, h el tamaño, de 0 a 1)
+  app.post('/api/anuncios/:slug/censura/seguir', async (req, res) => {
+    const { slug } = req.params;
+    if (!desdeLaApp(req, res)) return;
+    if (!anuncioConPlan(slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
+    const n = (v, a, b) => Math.max(a, Math.min(b, Number(v)));
+    const b = req.body || {};
+    if (![b.t, b.x, b.y, b.w, b.h].every((v) => Number.isFinite(Number(v)))) return res.status(400).json({ error: 'Pinta encima de lo que quieres censurar.' });
+    const v = videoDe(slug);
+    if (!v) return res.status(409).json({ error: 'Este anuncio todavía no tiene video: arma el video primero.' });
+    if (enCurso.has(slug)) return res.status(409).json({ error: 'Ya estoy siguiendo otra zona. Espera unos segundos.' });
+    enCurso.add(slug);
+    try {
+      const plan = v.plan || {};
+      const t = n(b.t, 0, Number(plan.duracion) || 1e6);
+      const esc = escenaDe(plan, t);
+      const fuente = plan.videoPropio ? plan.fuente : null;
+      const r = await seguirZona(v.abs, { t: aOriginal(t, fuente), x: n(b.x, 0, 1), y: n(b.y, 0, 1), w: n(b.w, 0.01, 1), h: n(b.h, 0.01, 1), desde: aOriginal(esc.desde, fuente), hasta: aOriginal(esc.hasta, fuente) });
+      // a los segundos de ahora, solo dentro de su escena
+      const apariciones = r.apariciones
+        .map(([to, x, y, w, h]) => {
+          const tl = aLinea(to, fuente);
+          return tl === null || tl < esc.desde - 0.05 || tl > esc.hasta + 0.05 ? null : [Math.round(tl * 1000) / 1000, x, y, w, h];
+        })
+        .filter(Boolean);
+      if (!apariciones.length) return res.status(422).json({ error: 'No pude seguir esa zona. Pinta un poco más grande, encima de lo que quieres tapar.' });
+      res.json({ apariciones, desde: apariciones[0][0], hasta: apariciones.at(-1)[0], quieta: r.quieta, perdida: r.perdida, escena: esc });
+    } catch (e) {
+      console.error(`[pincel] ${slug}: ${e?.message || e}`);
+      res.status(500).json({ error: 'No pude seguir esa zona en el video. Vuelve a intentarlo.' });
+    } finally {
+      enCurso.delete(slug);
+    }
+  });
+
   app.get('/api/anuncios/:slug/textos-video', (req, res) => {
     const { slug } = req.params;
     if (!anuncioConPlan(slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
