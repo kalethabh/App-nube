@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17l` (archivo `VERSION`): estilo «Agregar» (subir un video y decir lo que quieres; la IA
+- **Versión actual:** `2026-11-17l1` (archivo `VERSION`): estilo «Agregar» (subir un video y decir lo que quieres; la IA
   elige el estilo, la duración y el modelo de cada escena). Antes: `2026-11-17k` (editor con el audio como en CapCut),
   `2026-11-17j2` (lo último arriba y eliminar lotes de imágenes), `2026-11-17j1` (exportar más rápido), `2026-11-17i` (las imágenes respetan el ángulo y el gancho de la referencia), `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
@@ -137,6 +137,22 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### La esencia del video en «Agregar» y «Clonar» (2026-11-17, versión 2026-11-17l1)
+
+- Pedido: «debe tomar muy bien el detalle de los avatares, texturas, iluminación, movimientos, gestos, tonos… para que no
+  pierda la esencia». Antes el análisis daba UN fotograma por toma, a 480 px, del medio.
+- `analizar-referencia.mjs` (clonación, lo usan Agregar, Clonar y Cambiar producto): fotograma a 720 px;
+  `tomas/movimiento/tira-NN.jpg` (12 %, 50 % y 88 % de la toma, lado a lado con hstack del ffmpeg del sistema); por toma
+  `imagen` = signalstats a 4 fps (brillo/luz, saturación/color, temperatura por V−U, movimiento por YDIF) y
+  `palabras_por_segundo`. Campos nuevos: los de antes siguen igual.
+- `anuncios-agregar/SKILL.md`: Paso 2 mira las tiras y lo medido; Paso 3 suma avatar al detalle (textura de piel y pelo,
+  accesorios), iluminación al detalle, texturas, color y acabado (2b), movimientos y gestos (4b), tono de voz/música/
+  sonidos (4c) y una fila de esencia por toma; Paso 6: esa fila va en inglés en cada prompt de imagen y video (y el tono
+  en la voz), lo repetido palabra por palabra; Paso 7: chequeo de esencia toma por toma. `estilos/agregar.md` y
+  `clonar.js` nombran las tiras.
+- Pruebas: análisis de un video sintético (tiras y medidas correctas: naranja = cálida y quieta), humo 85/85,
+  probar-agregar 49/49. Sin probar con la IA real ni un video real del usuario.
 
 ### Estilo «Agregar»: sube un video y di lo que quieres (2026-11-17, versión 2026-11-17l)
 

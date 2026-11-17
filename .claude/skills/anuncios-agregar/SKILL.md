@@ -61,8 +61,12 @@ node .claude/skills/anuncios-clonacion/scripts/analizar-referencia.mjs temp/<slu
 
 ## Paso 2 — Mirarlo entero (entenderlo de verdad)
 
-Mira con Read `referencia/hoja-tomas.jpg` y **cada fotograma** de `referencia/tomas/`, y lee
-`adn-base.json` (tomas, tiempos y lo que se dice en cada una) y `transcripcion.json`. Corrige los
+Mira con Read `referencia/hoja-tomas.jpg`, **cada fotograma** de `referencia/tomas/` y **cada tira**
+de `referencia/tomas/movimiento/` (comienzo, mitad y final de la toma, lado a lado: ahí se ven el
+movimiento de la cámara, los gestos, cómo se mueve el cuerpo y si cambia la luz), y lee
+`adn-base.json` (tomas, tiempos, lo que se dice, las palabras por segundo y lo medido de la imagen:
+`imagen.luz`, `brillo`, `color`, `saturacion`, `temperatura`, `se_mueve`) y `transcripcion.json`.
+Lo medido no reemplaza mirar: úsalo para nombrar la luz y el movimiento con palabras justas. Corrige los
 cortes que el análisis haya hecho mal (dos tomas casi iguales que quedaron en una, un movimiento
 brusco que partió una toma en dos). No sigas hasta poder contar qué pasa en cada segundo y **por qué
 vende**.
@@ -70,20 +74,44 @@ vende**.
 ## Paso 3 — El ADN visual (`referencia/adn.md`)
 
 Todo lo de la skill de clonación (lo general y la tabla toma por toma) y, además, lo que hace que se
-vea igual. Escríbelo concreto, como se lo dirías a un camarógrafo:
+vea igual. **La esencia del video está en los detalles**: si se pierden, el anuncio sale "parecido" y
+deja de funcionar. Escríbelo concreto, como se lo dirías a un camarógrafo, a un maquillador y a un
+colorista; nunca "una mujer en un gimnasio" sino lo que hace que sea ESA imagen:
 
 1. **Las personas**, una por una: edad aparente, sexo, origen y tono de piel, **tipo de cuerpo**
    (contextura, cómo es la zona que vende: piernas, glúteos, abdomen, brazos, cara, piel, pelo),
    pelo, maquillaje, **ropa exacta** (prenda, color, ajuste: "leggings grises ajustados de tiro alto
    y top deportivo negro"), postura, actitud y cómo mira a la cámara. Si alguien se repite, que se
-   note que es la misma persona.
+   note que es la misma persona. **El avatar al detalle**: forma de la cara, cejas, ojos, labios,
+   **textura de la piel** (poros, pecas, brillo, marcas, sin retoque o muy retocada), textura y largo
+   del pelo (liso, ondulado, mojado, recogido, con frizz), uñas, joyas, tatuajes, lentes, accesorios.
+   Si es animado (3D, plastilina, tejido), lo mismo con su material.
 2. **El lugar y la luz**: dónde está (gimnasio, habitación, baño con espejo, calle), qué hay
-   alrededor, de dónde viene la luz y a qué hora parece.
+   alrededor, de dónde viene la luz y a qué hora parece. **La iluminación al detalle**: la luz
+   principal (ventana, aro de luz, sol, lámpara del techo, la pantalla del celular), de qué lado y a
+   qué altura, dura o suave (sombras con borde o difusas), su color (cálida, fría, mixta: ventana fría
+   y lámpara cálida), luces que se ven en cuadro, contraluz o brillo en el pelo, reflejos en la piel o
+   en el espejo, y si es pareja o cambia de una toma a otra (usa `imagen.luz`, `brillo`, `temperatura`).
+   **Las texturas**: telas (algodón, licra brillante, jean), superficies (azulejo, madera, cama
+   deshecha), el producto (vidrio, gotero, etiqueta mate o brillante).
+2b. **El color y el acabado**: paleta dominante, saturación (`imagen.color`), contraste, si tiene
+   filtro o gradación (cálido de Instagram, lavado, alto contraste), grano o ruido de celular, nitidez,
+   fondo desenfocado o todo en foco, formato y bordes.
 3. **La cámara y el realismo**: selfie con la cámara frontal, celular apoyado, alguien que la
    filma, reflejo en el espejo o cámara de cine; plano (cuerpo entero, medio, detalle) y movimiento;
    si se ve casero (celular, sin retoque) o producido. **Ese mismo nivel de realismo es el del anuncio.**
 4. **El ritmo**: cuánto dura cada toma en promedio, cómo corta (corte seco, zoom, giro, pasar la
    mano por la cámara), si acelera hacia el final.
+4b. **Los movimientos y los gestos** (míralos en las tiras): de la **cámara** (quieta, en mano con
+   temblor, se acerca, gira, sigue a la persona, el celular se da vuelta) y de la **persona** (camina,
+   se gira frente al espejo, se agacha, se toca la zona del cuerpo, señala, muestra el producto a la
+   cámara, lo abre, se sirve las gotas), y los **gestos y expresiones**: sonrisa, sorpresa, cejas,
+   asentir, mirar de reojo, guiñar, morderse el labio, poner los ojos en blanco, la energía del cuerpo.
+   Cada uno en su toma y en su momento (comienzo, mitad o final de la toma).
+4c. **El tono**: cómo suena y se siente. La **voz** (quién habla, edad, energía, emoción —cómplice,
+   indignada, eufórica, susurrando—, velocidad con `palabras_por_segundo`, pausas, acento y forma de
+   hablar, muletillas), la **música** (género, tempo, si sube en el resultado) y los **sonidos**
+   (`eventos`: risas, golpes, ASMR). Y el tono del anuncio: confesión, humor, urgencia, lujo, casero.
 5. **Textos en pantalla y subtítulos**: qué dicen, dónde van, cómo se ven.
 6. **El gancho**: qué se ve y qué se dice en los primeros 1 a 3 segundos, y su mecánica (una
    pregunta, un resultado de golpe, un antes y después, algo raro).
@@ -91,6 +119,11 @@ vea igual. Escríbelo concreto, como se lo dirías a un camarógrafo:
    promete (por ejemplo: "levantar y redondear glúteos y tonificar piernas") y cómo lo prueba.
 8. **El antes y después**, si lo hay: cómo se muestra (lado a lado, corte de uno al otro, giro,
    pantalla partida), en qué zona y cuánto cambia.
+
+**La tabla toma por toma** (además de las columnas de la skill de clonación) lleva, para cada toma:
+**luz** (fuente, lado, dura/suave, color) · **cámara** (plano y movimiento) · **persona** (qué hace,
+gestos y expresión, en orden) · **texturas y acabado** · **tono de la voz**. Esa fila es la esencia
+de la toma: después pasa a sus prompts (Paso 6).
 
 Si el producto del usuario es para otra cosa que el del video, el ángulo sale de **su** producto
 (su ficha y su investigación), con la misma mecánica del original. Si `ajustes_del_estilo.angulo`
@@ -133,6 +166,18 @@ sus reglas técnicas y sus chequeos**, cambiando solo esto:
 - **Las personas**: cada hoja de personaje describe lo del Paso 3 al detalle (edad, cuerpo, piel,
   pelo, ropa, lugar, cámara). Es **una persona nueva del mismo tipo**: nunca la cara de alguien real
   del video. Las tomas repiten la ropa y el lugar del original.
+- **La esencia en cada prompt.** El prompt de imagen y el de video de **cada** toma (y de cada
+  bloque de UGC y cada B-roll) llevan la fila de su toma en la tabla del ADN, escrita en inglés para el
+  generador: el avatar con su textura de piel, pelo, ropa y accesorios; la luz (fuente, lado, dureza,
+  color, reflejos); el color y el acabado (filtro, grano, nitidez, profundidad de campo); el
+  movimiento de la cámara; y lo que hace la persona con sus gestos y expresiones **en orden** ("she
+  glances at the mirror, raises an eyebrow, then smiles at the camera and taps the bottle"). Nada de
+  "same as reference": el generador no ve el video, solo lee el prompt. En los prompts de **voz**
+  (UGC con diálogo, o la indicación de la voz en off) va el tono: energía, emoción, velocidad y forma
+  de hablar.
+- **Lo que se repite, igual en todas**: la descripción del avatar, de su ropa y de la luz del lugar se
+  copia **palabra por palabra** en cada toma donde aparece (si cambia una palabra, el generador hace
+  otra persona u otra luz). Si en el original cambian (otra ropa, de día a noche), cambian igual.
 - **En UGC** los dos ganchos alternativos son opcionales (`ganchos_alternativos` puede no ir) y
   `notas-paquete.md` lleva el ADN resumido. **En voz en off**, el B-roll sale de los cortes a detalles
   del original, en su mismo lugar del guion.
@@ -187,6 +232,10 @@ cascada de siempre (Ajustes › Modelos). Usa solo estos (costo aproximado de un
   qué, en palabras sencillas.
 - En "decisiones": el formato (UGC o voz en off) y por qué, el ángulo y la zona del cuerpo, quién es
   la persona en una frase, y cómo va el antes y después.
+- **Chequeo de la esencia**, toma por toma, contra su fotograma y su tira: ¿el prompt nombra la luz
+  (fuente, lado, dureza, color), la textura de la piel y de la ropa, el acabado, el movimiento de la
+  cámara y los gestos en orden? ¿El avatar, la ropa y la luz están escritos igual en todas las tomas
+  donde se repiten? ¿El tono de la voz está en su indicación? Lo que falte, agrégalo antes de entregar.
 
 Por chat, cierra como la skill del formato elegido (resumen corto y las opciones A, B y C), con una
 línea más: **"Rehecho de: [video] · [N] tomas · [duración] s · formato [UGC/voz en off]"**.

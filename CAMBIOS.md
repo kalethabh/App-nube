@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17l1 · «Agregar» y «Clonar» no pierden la esencia del video
+
+- **Mira cada escena en movimiento:** de tu video ahora se sacan tres fotogramas por escena (comienzo, mitad y final), más grandes, para ver los movimientos de la cámara, los gestos, cómo se mueve la persona y si cambia la luz. También se mide la luz, el color y el movimiento de cada escena.
+- **El detalle va a cada imagen y cada video:** el avatar (cara, textura de la piel y del pelo, ropa, accesorios), la iluminación (de dónde viene, de qué lado, si es suave o dura, cálida o fría, los reflejos), las texturas, el color y el acabado (filtro, grano, nitidez), los movimientos y los gestos en orden, y el tono de la voz. Lo que se repite (la persona, su ropa, la luz) se escribe igual en todas las escenas para que no cambie.
+- Antes de entregar, la IA revisa escena por escena que no falte nada de eso.
+
 ## 2026-11-17l · Nuevo estilo «Agregar»: sube un video y di lo que quieres
 
 - **En Estilos y en Nuevo anuncio hay un estilo nuevo, «Agregar»** (grupo «Desde tu video»). Subes un video (o pegas su link) y, si quieres, escribes con tus palabras lo que quieres: por ejemplo «este mismo video pero estilo Pixar narrado, que dure 1:30 y no 5 minutos, manteniendo el guion y los ángulos».

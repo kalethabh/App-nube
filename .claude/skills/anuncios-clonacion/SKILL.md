@@ -41,7 +41,8 @@ node .claude/skills/anuncios-clonacion/scripts/analizar-referencia.mjs temp/[slu
 ```
 
 No cobra en kie.ai: corta el video en tomas donde cambia la imagen, saca un fotograma
-de cada toma (`referencia/tomas/`) y una hoja con todas (`referencia/hoja-tomas.jpg`),
+de cada toma (`referencia/tomas/`), la tira de su movimiento (`referencia/tomas/movimiento/`: comienzo, mitad y
+final, para ver gestos, movimientos y la luz) y una hoja con todas (`referencia/hoja-tomas.jpg`),
 y transcribe lo que se dice con el tiempo de cada palabra (ElevenLabs, centavos). Si
 el idioma del video no es español, agrégale `--idioma eng` o `--idioma por`.
 
