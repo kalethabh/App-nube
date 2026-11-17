@@ -1029,7 +1029,6 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
           },
           { etiqueta: `Volver al clip original de ${nombre}` }
         );
-        aviso({ tipo: 'ok', titulo: 'Volvió el clip original', texto: 'Si fue sin querer, toca Deshacer.', accion: { etiqueta: 'Deshacer', alHacer: deshacer } });
         return;
       }
       try {
@@ -1156,13 +1155,6 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         cambiar(() => ({ ...edicionSinTramo(ed, r.desde, r.hasta, r.mapa || {}), corte: r.version }), { etiqueta: `Quitar ${que}` });
         setSeleccion(null);
         await recargar();
-        aviso({
-          tipo: 'info',
-          titulo: `Quitaste ${que}`,
-          texto: `El video ahora dura ${String(Math.round(r.duracion * 10) / 10).replace('.', ',')} s. Deshacer lo vuelve a poner.`,
-          accion: { etiqueta: 'Deshacer', alHacer: deshacer },
-          duracion: 7000,
-        });
       } catch (e) {
         aviso({ tipo: 'error', titulo: 'No pude quitar esa parte', texto: e.message });
       } finally {
@@ -1210,7 +1202,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
         const dt = Number(opBase.dt) || 0;
         if (s && opBase.borde === 'inicio' && dt > 0.02) quitarDelVideo(s.inicio, Math.min(s.fin, s.inicio + dt), `el comienzo de ${nombre}`);
         else if (s && opBase.borde === 'fin' && dt < -0.02) quitarDelVideo(Math.max(s.inicio, s.fin + dt), s.fin, `el final de ${nombre}`);
-        else if (Math.abs(dt) > 0.02) aviso({ tipo: 'info', titulo: 'Así no se alarga', texto: 'En tus videos los bordes solo se recortan. Para recuperar lo que quitaste, toca Deshacer en el aviso del corte.' });
+        else if (Math.abs(dt) > 0.02) aviso({ tipo: 'info', titulo: 'Así no se alarga', texto: 'En tus videos los bordes solo se recortan. Para recuperar lo que quitaste, usa Deshacer (Cmd+Z o la flecha de arriba).' });
         return undefined;
       }
       const op = opBase.tipo === 'deslizar' ? { ...opBase, ...datosDelClip(opBase.id) } : opBase;
@@ -1315,12 +1307,10 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       if (!r) return;
       if (r.sinMusica) {
         setSeleccion(null);
-        aviso({ tipo: 'info', titulo: 'Quitaste la música', texto: 'Si fue sin querer, toca Deshacer.', accion: { etiqueta: 'Deshacer', alHacer: deshacer } });
         return;
       }
     }
     setSeleccion(null);
-    aviso({ tipo: 'info', titulo: `Borraste ${nombre}`, texto: 'Si fue sin querer, toca Deshacer.', accion: { etiqueta: 'Deshacer', alHacer: deshacer } });
   }, [seleccion, borrable, nombreDe, pistas, cambiar, aplicar, aviso, deshacer, plan.videoPropio, quitarDelVideo]);
   const [textoNuevoId, setTextoNuevoId] = useState(null);
   const agregarTexto = useCallback(() => {
@@ -1560,12 +1550,10 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       musicaOriginal: () => cambiar((s) => ({ ...s, musica: { ...INICIAL.musica, volumen: s.musica.volumen } }), { etiqueta: 'Música original' }),
       quitarMusica: () => {
         cambiar((s) => ({ ...s, musica: { ...s.musica, fuente: 'ninguna', silenciada: false } }), { etiqueta: 'Quitar la música' });
-        aviso({ tipo: 'info', titulo: 'Quitaste la música', texto: 'Si fue sin querer, toca Deshacer.', accion: { etiqueta: 'Deshacer', alHacer: deshacer } });
       },
       volverAlOriginal: () => {
         cambiar(() => INICIAL, { etiqueta: 'Volver al original' });
         setSeleccion(null);
-        aviso({ tipo: 'ok', titulo: 'Volviste al anuncio entregado', texto: 'Si fue sin querer, toca Deshacer.', accion: { etiqueta: 'Deshacer', alHacer: deshacer } });
       },
     }),
     [
