@@ -225,6 +225,35 @@ function resultadoConPlazo(ctx, k) {
 /** Pizarra: «¿Tomas diuréticos? Prueba esto.» con lo que ya probó la clienta. */
 const objecionVsEsto = (probo) => (probo ? `¿${probo.replace(/[¿?.]+/g, '').trim()}? Prueba esto.` : '');
 
+/** El dolor de la ficha («Siente que la piel se le ve apagada») como pregunta a la clienta («¿Sientes que la piel se te ve apagada?»). */
+export function comoPregunta(t) {
+  const x = sinPunto(limpio(t))
+    .replace(/^siente\b/i, 'Sientes')
+    .replace(/^tiene\b/i, 'Tienes')
+    .replace(/^no tiene\b/i, 'No tienes')
+    .replace(/^quiere\b/i, 'Quieres')
+    .replace(/^le\b/i, 'Te')
+    .replace(/\bse le\b/gi, 'se te')
+    .replace(/\bno le\b/gi, 'no te')
+    .replace(/\bsus\b/gi, 'tus')
+    .replace(/\bsu\b/gi, 'tu');
+  return x ? `¿${x.replace(/^[¿]+|[?]+$/g, '')}?` : '';
+}
+
+/** La primera frase del dolor de la ficha (antes de la coma o del «y que»). */
+const primerDolor = (dolor) => String(dolor || '').split(/\.\s+|;\s+|,\s+(?:que\s+)?|\s+y\s+que\s+/i)[0] || '';
+const minus = (t) => String(t || '').replace(/^[A-ZÁÉÍÓÚ](?![A-ZÁÉÍÓÚ])/, (c) => c.toLowerCase());
+const mayus = (t) => String(t || '').replace(/^./, (c) => c.toUpperCase());
+/** Los beneficios cortos (para rótulos e íconos). */
+const cortos = (b, n, max = 4) => {
+  const l = b.filter((x) => palabras(x) <= max);
+  return (l.length >= n ? l : b).slice(0, n);
+};
+/** ¿Es temporada de regalos? (noviembre y diciembre): el titular de temporada de los ganadores. */
+const enNavidad = (fecha = new Date()) => fecha.getMonth() >= 10;
+/** «a, b y c». */
+const conY = (l) => (l.length > 1 ? `${l.slice(0, -1).join(', ')} y ${l[l.length - 1]}` : l[0] || '');
+
 /** El primer beneficio que no dice lo mismo que el titular. */
 const beneficio = (ctx, k = 0) => elegir(ctx.beneficios, k) || ctx.queEs || ctx.nombre;
 
@@ -303,6 +332,69 @@ export function textosPara(id, ctx, k = 0) {
         comentario: elegir(ctx.objeciones, k) || (ctx.probo ? `¿Sirve si ya probé ${ctx.probo.toLowerCase()}?` : `¿Cómo se usa ${ctx.nombre}?`),
         marca: ctx.marca,
         respuesta: [ctx.queEs, ctx.comoSeUsa.split('.')[0]].filter(Boolean).join(' ').slice(0, 200) || b.slice(0, 2).join('. '),
+        legal,
+      };
+    case 'silueta-zonas': {
+      // «Bye bye / GLÚTEOS PLANOS» de los ganadores: la frase a mano arriba y el resultado enorme; las zonas, a los lados
+      const titular = elegir(b.filter((x) => palabras(x) >= 2 && palabras(x) <= 4), k) || titularDe(ctx, k, { dolor: true });
+      const zonas = cortos(b.filter((x) => x !== titular), 4, 3);
+      return { arriba: 'Por fin', titular, izquierda: zonas.slice(0, 3).map((x) => `+ ${x}`), derecha: zonas.slice(3, 4), legal: legal || 'Ilustración.' };
+    }
+    case 'solo-vs-con': {
+      const nc = nombreCorto(ctx.nombre);
+      const probo = ctx.probo && palabras(ctx.probo) <= 4 ? ctx.probo : '';
+      const ing = ctx.ingredientes.map((x) => x.nombre.toLowerCase()).slice(0, 3);
+      return {
+        sin: probo ? `Solo ${minus(probo)}` : 'Sin ayuda',
+        con: probo && `${probo} + ${nc}`.length <= 40 ? `${mayus(probo)} + ${nc}` : `Con ${nc}`,
+        titular: probo ? `Tu cuerpo necesita más que ${minus(probo)}.` : titularDe(ctx, k, { dolor: true }),
+        subtitulo: ing.length >= 2 ? `${beneficio(ctx, k)} con ${conY(ing)}.` : `${beneficio(ctx, k)}.`,
+        boton: `Prueba ${nc}`,
+        legal: legal || 'Ilustración.',
+      };
+    }
+    case 'nosotros-vs-ellos': {
+      const conValor = ctx.ingredientes.filter((x) => x.valor).slice(0, 3).map((x) => `${x.valor} de ${x.nombre.toLowerCase()}`);
+      const titular = titularDe(ctx, k + 1, { dolor: true });
+      return {
+        titular,
+        subtitulo: elegir(b.filter((x) => x !== titular), k) || ctx.queEs,
+        nuestro: nombreCorto(ctx.nombre),
+        ellos: ctx.probo && palabras(ctx.probo) <= 4 ? mayus(ctx.probo) : 'Lo de siempre',
+        nuestros: conValor.length >= 2 ? conValor : cortos(b, 3, 5),
+        suyos: ['No ataca la causa', 'Difícil de mantener', 'Resultados que no se ven'],
+        legal,
+      };
+    }
+    case 'no-compres':
+      // psicología inversa (los ganadores): «No compres esto si… a menos que quieras…»
+      return {
+        titular: ctx.probo ? `No compres esto si ya probaste ${minus(ctx.probo)}…` : 'No compres esto si ya te rendiste…',
+        texto: `…a menos que quieras ${conY(cortos(b, 3, 5).map(minus))}.`,
+        legal: legal || 'Resultados individuales.',
+      };
+    case 'pregunta-revelacion':
+      return {
+        pregunta: comoPregunta(primerDolor(ctx.dolor)) || elegir(ctx.objeciones, k) || titularDe(ctx, k, { dolor: true }),
+        revelacion: '¡No es tu *culpa*!',
+        cierre: `${nombreCorto(ctx.nombre)}: ${minus(beneficio(ctx, k))}`,
+        legal,
+      };
+    case 'historia': {
+      const dolor = sinPunto(enPrimeraPersona(primerDolor(ctx.dolor))) || elegir(ctx.dolores, k);
+      return { antes: 'Antes', despues: 'Después', frase: dolor ? `Siempre decía: «${dolor}»` : titularDe(ctx, k, { dolor: true }), remate: `Hasta que descubrí *${ctx.marca}*`, iconos: cortos(b, 3, 4), legal: legal || 'Resultados individuales.' };
+    }
+    case 'zonas-semanas': {
+      const etapas = (ctx.etapas || []).slice(0, 3);
+      // la primera etapa es el comienzo; los resultados de la ficha, en las siguientes (nunca un número inventado)
+      const res = [`Empiezas a tomar ${nombreCorto(ctx.nombre)}`, ...cortos(b, 2, 6)];
+      return { titular: (k % 2 === 0 && resultadoConPlazo(ctx, k)) || titularDe(ctx, k, { dolor: true }), pasos: etapas.map((e, i) => ({ ingrediente: e, beneficio: res[i] || '' })).filter((x) => x.beneficio), legal: legal || 'Ilustración. Resultados individuales.' };
+    }
+    case 'foto-iconos':
+      return {
+        titular: k % 2 === 1 && enNavidad() ? `Esta Navidad regálate *${minus(beneficio(ctx, k))}*` : titularDe(ctx, k + 3, { dolor: true }),
+        iconos: cortos(b, 3, 4),
+        nota: 'Tu mejor versión',
         legal,
       };
     case 'foto-titular':

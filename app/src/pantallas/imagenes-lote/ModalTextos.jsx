@@ -71,8 +71,8 @@ export function ModalTextos({ variacion, onGuardar, onCerrar }) {
                 <legend>{c.etiqueta}</legend>
                 {(Array.isArray(v) ? v : []).map((x, i) => (
                   <div key={i} className="lote-textos__par">
-                    <CampoTexto etiqueta={c.tipo === 'pares' ? `Ingrediente ${i + 1}` : `Valor ${i + 1}`} value={x[a]} maxLength={c.tipo === 'pares' ? 30 : 14} onChange={(e) => poner(c.clave, v.map((y, k) => (k === i ? { ...y, [a]: e.target.value } : y)))} disabled={enviando} />
-                    <CampoTexto etiqueta={c.tipo === 'pares' ? 'Beneficio' : 'Etiqueta'} value={x[b]} maxLength={c.max} onChange={(e) => poner(c.clave, v.map((y, k) => (k === i ? { ...y, [b]: e.target.value } : y)))} disabled={enviando} />
+                    <CampoTexto etiqueta={c.etiquetas ? `${c.etiquetas[0]} ${i + 1}` : c.tipo === 'pares' ? `Ingrediente ${i + 1}` : `Valor ${i + 1}`} value={x[a]} maxLength={c.tipo === 'pares' ? 30 : 14} onChange={(e) => poner(c.clave, v.map((y, k) => (k === i ? { ...y, [a]: e.target.value } : y)))} disabled={enviando} />
+                    <CampoTexto etiqueta={c.etiquetas ? c.etiquetas[1] : c.tipo === 'pares' ? 'Beneficio' : 'Etiqueta'} value={x[b]} maxLength={c.max} onChange={(e) => poner(c.clave, v.map((y, k) => (k === i ? { ...y, [b]: e.target.value } : y)))} disabled={enviando} />
                   </div>
                 ))}
               </fieldset>

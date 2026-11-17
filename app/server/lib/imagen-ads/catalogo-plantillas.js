@@ -7,16 +7,84 @@
 // 'datos' | 'numero', max, cuantos? }.
 
 export const FAMILIAS = [
+  { id: 'angulo', nombre: 'Ángulos ganadores' },
   { id: 'dolor', nombre: 'Dolor y resultado' },
   { id: 'beneficio', nombre: 'Beneficio explicado' },
   { id: 'nativo', nombre: 'Nativo de redes' },
-  { id: 'oferta', nombre: 'Oferta' },
+  // (pedido 2026-11-17: «que las plantillas no sean de oferta, sean de ángulos de venta». Las de oferta siguen en el
+  // catálogo para dibujar los lotes viejos, pero no se ofrecen en la pantalla ni entran en la mezcla de la app.)
+  { id: 'oferta', nombre: 'Oferta', oculta: true },
 ];
 
 const titular = { clave: 'titular', etiqueta: 'Titular', tipo: 'texto', max: 70 };
 const legal = { clave: 'legal', etiqueta: 'Línea legal (chiquita)', tipo: 'texto', max: 120 };
 
 export const CATALOGO = [
+  // ---- Ángulos ganadores: los conceptos validados de la categoría (referencias-ganadoras.md). Ninguno lleva oferta.
+  {
+    id: 'silueta-zonas',
+    nombre: 'Silueta con zonas (neón)',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'Fondo negro, la silueta en línea de neón y las zonas rotuladas («+ caderas», «cintura pequeña»). Titular: «Bye bye» + el dolor.',
+    campos: [{ clave: 'arriba', etiqueta: 'Frase a mano (arriba)', tipo: 'texto', max: 30 }, titular, { clave: 'izquierda', etiqueta: 'Zonas a la izquierda (una por línea)', tipo: 'lista', max: 22, cuantos: 3 }, { clave: 'derecha', etiqueta: 'Zonas a la derecha (una por línea)', tipo: 'lista', max: 22, cuantos: 2 }, legal],
+  },
+  {
+    id: 'solo-vs-con',
+    nombre: 'Solo X vs. X + tu producto',
+    familia: 'angulo',
+    escena: true,
+    descripcion: '«Solo ejercicio» | «Ejercicio + tu producto»: la ilustración partida, el titular abajo y un botón (sin precio).',
+    campos: [{ clave: 'sin', etiqueta: 'Rótulo izquierdo', tipo: 'texto', max: 30 }, { clave: 'con', etiqueta: 'Rótulo derecho', tipo: 'texto', max: 40 }, titular, { clave: 'subtitulo', etiqueta: 'Subtítulo', tipo: 'parrafo', max: 140 }, { clave: 'boton', etiqueta: 'Botón', tipo: 'texto', max: 30 }, legal],
+  },
+  {
+    id: 'nosotros-vs-ellos',
+    nombre: 'Tu producto vs. lo de siempre',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'Mitad tu producto (con tu color) y mitad lo que ya probó (en gris), con 3 diferencias por lado y flechas.',
+    campos: [titular, { clave: 'subtitulo', etiqueta: 'Subtítulo', tipo: 'texto', max: 70 }, { clave: 'nuestro', etiqueta: 'Tu lado', tipo: 'texto', max: 24 }, { clave: 'ellos', etiqueta: 'El otro lado', tipo: 'texto', max: 30 }, { clave: 'nuestros', etiqueta: 'Lo tuyo (uno por línea)', tipo: 'lista', max: 40, cuantos: 3 }, { clave: 'suyos', etiqueta: 'Lo de siempre (uno por línea)', tipo: 'lista', max: 40, cuantos: 3 }, legal],
+  },
+  {
+    id: 'no-compres',
+    nombre: 'No compres esto si…',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'Psicología inversa sobre un antes y después real, con recuadros negros como en TikTok.',
+    campos: [titular, { clave: 'texto', etiqueta: 'El «a menos que…»', tipo: 'parrafo', max: 200 }, legal],
+  },
+  {
+    id: 'pregunta-revelacion',
+    nombre: 'Pregunta y revelación',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'La persona con el problema, la pregunta y la revelación («no es lo que crees»), con el producto.',
+    campos: [{ clave: 'pregunta', etiqueta: 'La pregunta', tipo: 'texto', max: 70 }, { clave: 'revelacion', etiqueta: 'La revelación', tipo: 'texto', max: 50 }, { clave: 'cierre', etiqueta: 'El cierre (en el recuadro)', tipo: 'texto', max: 60 }, legal],
+  },
+  {
+    id: 'historia',
+    nombre: 'Historia con antes y después',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'El antes y después arriba y la historia en primera persona abajo («…hasta que descubrí tu marca»), con 3 íconos.',
+    campos: [{ clave: 'antes', etiqueta: 'Rótulo izquierdo', tipo: 'texto', max: 16 }, { clave: 'despues', etiqueta: 'Rótulo derecho', tipo: 'texto', max: 16 }, { clave: 'frase', etiqueta: 'La historia', tipo: 'parrafo', max: 90 }, { clave: 'remate', etiqueta: 'El remate', tipo: 'texto', max: 40 }, { clave: 'iconos', etiqueta: 'Íconos (uno por línea)', tipo: 'lista', max: 30, cuantos: 3 }, legal],
+  },
+  {
+    id: 'zonas-semanas',
+    nombre: 'Zonas y semanas',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'Las zonas del cuerpo dibujadas y lo que pasa semana a semana («Semana 1: …»).',
+    campos: [titular, { clave: 'pasos', etiqueta: 'Etapas (etapa → lo que pasa)', tipo: 'pares', max: 60, cuantos: 3, etiquetas: ['Etapa', 'Lo que pasa'] }, legal],
+  },
+  {
+    id: 'foto-iconos',
+    nombre: 'Foto grande con íconos',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'La zona del resultado en una foto grande, el titular («No solo glúteos, también tus piernas»), 3 íconos y el producto.',
+    campos: [titular, { clave: 'iconos', etiqueta: 'Íconos (uno por línea)', tipo: 'lista', max: 30, cuantos: 3 }, { clave: 'nota', etiqueta: 'Nota a mano', tipo: 'texto', max: 30 }, legal],
+  },
   {
     id: 'antes-despues',
     nombre: 'Antes y después',
@@ -157,27 +225,36 @@ export const CATALOGO = [
 
 export const POR_ID = new Map(CATALOGO.map((x) => [x.id, x]));
 
+/** Las familias que se ofrecen (sin las ocultas). */
+const OCULTAS = new Set(FAMILIAS.filter((f) => f.oculta).map((f) => f.id));
+export const esOculta = (id) => OCULTAS.has(POR_ID.get(id)?.familia);
+
 /**
- * «Que la app elija»: una mezcla entre las familias (de cada 4, una con escena), en este orden. Las de oferta van
- * aparte (nunca en una imagen de dolor) y al final de cada vuelta.
+ * «Que la app elija»: los ángulos ganadores primero (los conceptos validados) mezclados con las de dolor, beneficio y
+ * nativo. Sin oferta: la oferta va en otro anuncio, nunca en uno de ángulo.
  */
 export const ORDEN_AUTO = [
-  'producto-flechas',
+  'silueta-zonas',
   'antes-despues',
-  'burbujas',
-  'lista-iconos',
+  'solo-vs-con',
+  'producto-flechas',
+  'historia',
   'linea-tiempo',
+  'nosotros-vs-ellos',
+  'burbujas',
+  'foto-iconos',
+  'mapa-cuerpo',
+  'no-compres',
+  'pizarra',
+  'pregunta-revelacion',
+  'lista-iconos',
+  'zonas-semanas',
+  'mecanismo',
+  'foto-tiktok',
   'resena-tuit',
   'barra-datos',
   'nota-texto',
-  'mapa-cuerpo',
-  'sticker-oferta',
-  'pizarra',
-  'foto-tiktok',
   'comentario',
-  'mecanismo',
-  'buena-mala',
-  'casi-agotado',
 ];
 
 /** La plantilla de cada variación (en orden): las elegidas, una tras otra; sin elegidas, la mezcla de la app. */
@@ -192,7 +269,7 @@ export const escenasDe = (cantidad, elegidas) => asignar(cantidad, elegidas).fil
 
 /** Lo que manda GET /api/imagen-ads/opciones (sin los campos internos). */
 export const catalogoParaLaPantalla = () => ({
-  familias: FAMILIAS,
-  plantillas: CATALOGO.map(({ id, nombre, familia, escena, descripcion }) => ({ id, nombre, familia, escena, descripcion })),
+  familias: FAMILIAS.filter((f) => !f.oculta).map(({ id, nombre }) => ({ id, nombre })),
+  plantillas: CATALOGO.filter((x) => !OCULTAS.has(x.familia)).map(({ id, nombre, familia, escena, descripcion }) => ({ id, nombre, familia, escena, descripcion })),
   ordenAuto: ORDEN_AUTO,
 });

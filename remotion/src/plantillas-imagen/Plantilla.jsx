@@ -11,6 +11,7 @@ import { AntesDespues, LineaTiempo, MapaCuerpo, Pizarra } from './dolor.jsx';
 import { BarraDatos, ListaIconos, Mecanismo, ProductoFlechas } from './beneficio.jsx';
 import { Burbujas, Comentario, FotoTiktok, FotoTitular, NotaTexto, ResenaTuit } from './nativo.jsx';
 import { BuenaMala, CasiAgotado, StickerOferta } from './oferta.jsx';
+import { FotoIconos, Historia, NoCompres, NosotrosVsEllos, PreguntaRevelacion, SiluetaZonas, SoloVsCon, ZonasSemanas } from './angulos.jsx';
 import { Logo } from './base.jsx';
 
 export const PLANTILLAS = {
@@ -31,6 +32,14 @@ export const PLANTILLAS = {
   'sticker-oferta': StickerOferta,
   'casi-agotado': CasiAgotado,
   'buena-mala': BuenaMala,
+  'silueta-zonas': SiluetaZonas,
+  'solo-vs-con': SoloVsCon,
+  'nosotros-vs-ellos': NosotrosVsEllos,
+  'no-compres': NoCompres,
+  'pregunta-revelacion': PreguntaRevelacion,
+  historia: Historia,
+  'zonas-semanas': ZonasSemanas,
+  'foto-iconos': FotoIconos,
 };
 
 const FUENTES = [

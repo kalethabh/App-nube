@@ -38,7 +38,15 @@ textos ni sus personajes con licencia.
 | Burbujas «tus problemas / nuestro consejo» | `burbujas` | Grüns «Hair loss?» | Las quejas en palabras de la clienta (gris) y una respuesta (azul) |
 | Foto casera con subtítulos | `foto-tiktok` | Grüns «sorry but LOOK what I found» | Mano real con el producto en casa; 2–3 renglones cortos tipo TikTok |
 | Reseña / comentario | `resena-tuit`, `comentario` | Sonvital comentario «mi madre de 92 años…» (500 mil), Grüns tarjeta de reseña | Una historia concreta de una persona; nunca inventar clientas ni estrellas |
-| Oferta | `sticker-oferta`, `casi-agotado`, `buena-mala` | 2x1, «últimas unidades», «buena noticia / mala noticia» | Siempre aparte de las de dolor |
+| Silueta en neón con zonas | `silueta-zonas` | Muna «Bye bye GLÚTEOS PLANOS» (+ caderas, + pompis, + muslos, cintura pequeña) y «Etapa 1/2/3» | Fondo negro, la silueta en línea brillante; cada zona del resultado rotulada con un punto y una línea |
+| Solo X vs. X + producto | `solo-vs-con` | Grüns «On a GLP-1 / On a GLP-1 + Protein…», Sonvital «Solo ejercicio / Ejercicio + Drenaje linfático» | Ilustración médica partida al medio; el titular le habla a un público («Hombres, vuestra hinchazón necesita más que ejercicio») |
+| Nosotros vs. ellos | `nosotros-vs-ellos` | Grüns «Can't poop on a GLP-1?» (osito vs. polvo verde) | Mitad con color de marca, mitad gris; 3 diferencias por lado con flechas a mano |
+| Psicología inversa | `no-compres` | Grüns «Don't buy these gummies if you're on a weight loss journey… unless you want…» | Antes/después real, recuadros negros de TikTok, la objeción convertida en gancho |
+| Pregunta y revelación | `pregunta-revelacion` | Vitaly «Tu peso… ¿SUBE y BAJA? ¡ES TU SISTEMA LINFÁTICO!», Lymphoria «¿Tu pecho todavía se ve así? No es grasa…» | La persona con el problema; la pregunta en sus palabras; la revelación de la causa |
+| Historia + antes/después | `historia` | Muna «Toda mi vida fui "la amiga flaquita". Hasta que descubrí MUNA» | Antes/después arriba, la frase en primera persona y 3 íconos abajo |
+| Zonas y semanas | `zonas-semanas` | Maya Verra «Celulitis en 3 zonas – una solución» (Semana 1/2/3), Aurelys 2×2 «Antes / 24 h / 1 semana / 4 semanas» | Las zonas dibujadas y lo que cambia en cada etapa |
+| Foto grande con íconos | `foto-iconos` | Aguaje Complex «No solo glúteos, también tus piernas», «Esta Navidad regálate la figura» | La zona del resultado en una foto real grande, 3 íconos y el producto; ángulo de temporada sin precio |
+| Oferta (oculta) | `sticker-oferta`, `casi-agotado`, `buena-mala` | 2x1, «últimas unidades» | Ya no se ofrecen ni entran en la mezcla (pedido del usuario): las plantillas son de ángulo |
 
 ## Ángulos que se repiten (para elegir y escribir)
 
@@ -51,6 +59,13 @@ textos ni sus personajes con licencia.
 - **Público con nombre**: menopausia, +40, quien usa GLP-1, quien toma diuréticos, la hija de una madre mayor.
 - **Psicología inversa**: «efectos secundarios: tus jeans no te van a entrar», «no es para todas».
 - **Prueba social concreta**: un comentario con nombre y una historia, no «miles de clientes felices».
+
+## Lo que funciona aunque la imagen lleve oferta (Natures Sunshine, Aguaje Complex)
+
+Esos anuncios mezclan el ángulo con el precio. Lo que se replica es solo la parte del ángulo: «Desinflama la panza
+hinchada por la cerveza — sin dejar de tomarla» (objeción derribada), «2025 con retención / 2026 con drenaje activo»
+(antes y después por año), «Día 0 / Día 7 / Día 21: empiezas a llenar jeans» (resultado concreto por etapa), íconos
+de cada beneficio a los lados del antes y después. El precio, el envío y el «pago contraentrega» nunca entran.
 
 ## Lo que no se hace
 

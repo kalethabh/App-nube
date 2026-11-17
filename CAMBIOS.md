@@ -2,6 +2,20 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17p2 · Plantillas de ángulos ganadores (sin oferta)
+
+- **8 formatos nuevos en «Ángulos ganadores»**, sacados de anuncios ya validados de la categoría (sin copiar marcas ni textos):
+  - **Silueta con zonas (neón):** fondo negro, la silueta en línea de neón con tu color y las zonas rotuladas («+ caderas», «cintura pequeña»).
+  - **Solo X vs. X + tu producto:** «Solo sentadillas» | «Sentadillas + tu producto», con la ilustración partida y un botón «Prueba…» (sin precio).
+  - **Tu producto vs. lo de siempre:** mitad con tu color y mitad en gris, 3 diferencias por lado con flechas.
+  - **No compres esto si…:** psicología inversa sobre un antes y después, con recuadros negros como en TikTok.
+  - **Pregunta y revelación:** «¿Sientes que…?» + «¡No es tu culpa!», con la persona y el producto.
+  - **Historia con antes y después:** «Siempre decía: …» + «Hasta que descubrí TU MARCA», con 3 íconos.
+  - **Zonas y semanas:** las zonas del cuerpo dibujadas y lo que pasa en cada etapa.
+  - **Foto grande con íconos:** la zona del resultado en una foto, el titular, 3 íconos y el producto (en noviembre y diciembre, a veces «Esta Navidad regálate…»).
+- **Ya no hay plantillas de oferta** en el formulario ni en «Que la app elija»: la mezcla empieza por los ángulos ganadores. Los lotes viejos con oferta se siguen viendo igual.
+- Los textos salen de tu ficha, sin precios ni descuentos, y los cambias gratis con «Editar textos».
+
 ## 2026-11-17p1 · Las imágenes siguen las fórmulas de los anuncios ganadores
 
 - La app usa por dentro (sin mostrarlo) lo que aprendimos de anuncios de imagen ganadores: cómo comunican el ángulo, qué título usan y qué muestra la imagen.
