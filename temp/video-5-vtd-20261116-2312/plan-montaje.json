@@ -1,0 +1,3161 @@
+{
+  "generado": "2026-11-17T04:13:20.365Z",
+  "aprobado": true,
+  "videoPropio": true,
+  "duracion": 309.767,
+  "audio": {
+    "voz": "audio/voz.mp3",
+    "ducking": 0,
+    "fadeMs": 80
+  },
+  "fuente": [
+    {
+      "desde": 0,
+      "hasta": 309.767
+    }
+  ],
+  "musica": null,
+  "bloques": [
+    {
+      "linea": 1,
+      "texto": "",
+      "inicio": 0,
+      "fin": 4.233,
+      "ventana": 4.233,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-1.mp4",
+        "largoOriginal": 4.733,
+        "duracion": 4.233,
+        "desde": 0,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 2,
+      "texto": "",
+      "inicio": 4.233,
+      "fin": 5.533,
+      "ventana": 1.3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-2.mp4",
+        "largoOriginal": 1.8,
+        "duracion": 1.3,
+        "desde": 4.233,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 3,
+      "texto": "",
+      "inicio": 5.533,
+      "fin": 7.267,
+      "ventana": 1.733,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-3.mp4",
+        "largoOriginal": 2.233,
+        "duracion": 1.733,
+        "desde": 5.533,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 4,
+      "texto": "",
+      "inicio": 7.267,
+      "fin": 8.4,
+      "ventana": 1.133,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-4.mp4",
+        "largoOriginal": 1.633,
+        "duracion": 1.133,
+        "desde": 7.267,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 5,
+      "texto": "",
+      "inicio": 8.4,
+      "fin": 9.4,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-5.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 8.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 6,
+      "texto": "",
+      "inicio": 9.4,
+      "fin": 10.7,
+      "ventana": 1.3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-6.mp4",
+        "largoOriginal": 1.8,
+        "duracion": 1.3,
+        "desde": 9.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 7,
+      "texto": "",
+      "inicio": 10.7,
+      "fin": 14.067,
+      "ventana": 3.367,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-7.mp4",
+        "largoOriginal": 3.866,
+        "duracion": 3.367,
+        "desde": 10.7,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 8,
+      "texto": "",
+      "inicio": 14.067,
+      "fin": 15.067,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-8.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 14.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 9,
+      "texto": "",
+      "inicio": 15.067,
+      "fin": 16.2,
+      "ventana": 1.133,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-9.mp4",
+        "largoOriginal": 1.633,
+        "duracion": 1.133,
+        "desde": 15.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 10,
+      "texto": "",
+      "inicio": 16.2,
+      "fin": 17.2,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-10.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 16.2,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 11,
+      "texto": "",
+      "inicio": 17.2,
+      "fin": 17.967,
+      "ventana": 0.767,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-11.mp4",
+        "largoOriginal": 1.266,
+        "duracion": 0.767,
+        "desde": 17.2,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 12,
+      "texto": "",
+      "inicio": 17.967,
+      "fin": 19.5,
+      "ventana": 1.533,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-12.mp4",
+        "largoOriginal": 2.033,
+        "duracion": 1.533,
+        "desde": 17.967,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 13,
+      "texto": "",
+      "inicio": 19.5,
+      "fin": 23.5,
+      "ventana": 4,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-13.mp4",
+        "largoOriginal": 4.5,
+        "duracion": 4,
+        "desde": 19.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 14,
+      "texto": "",
+      "inicio": 23.5,
+      "fin": 24.8,
+      "ventana": 1.3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-14.mp4",
+        "largoOriginal": 1.8,
+        "duracion": 1.3,
+        "desde": 23.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 15,
+      "texto": "",
+      "inicio": 24.8,
+      "fin": 26.533,
+      "ventana": 1.733,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-15.mp4",
+        "largoOriginal": 2.233,
+        "duracion": 1.733,
+        "desde": 24.8,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 16,
+      "texto": "",
+      "inicio": 26.533,
+      "fin": 27.333,
+      "ventana": 0.8,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-16.mp4",
+        "largoOriginal": 1.3,
+        "duracion": 0.8,
+        "desde": 26.533,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 17,
+      "texto": "",
+      "inicio": 27.333,
+      "fin": 30.367,
+      "ventana": 3.033,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-17.mp4",
+        "largoOriginal": 3.533,
+        "duracion": 3.033,
+        "desde": 27.333,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 18,
+      "texto": "",
+      "inicio": 30.367,
+      "fin": 33.1,
+      "ventana": 2.733,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-18.mp4",
+        "largoOriginal": 3.233,
+        "duracion": 2.733,
+        "desde": 30.367,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 19,
+      "texto": "",
+      "inicio": 33.1,
+      "fin": 34.433,
+      "ventana": 1.333,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-19.mp4",
+        "largoOriginal": 1.833,
+        "duracion": 1.333,
+        "desde": 33.1,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 20,
+      "texto": "",
+      "inicio": 34.433,
+      "fin": 37.233,
+      "ventana": 2.8,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-20.mp4",
+        "largoOriginal": 3.3,
+        "duracion": 2.8,
+        "desde": 34.433,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 21,
+      "texto": "",
+      "inicio": 37.233,
+      "fin": 40.433,
+      "ventana": 3.2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-21.mp4",
+        "largoOriginal": 3.7,
+        "duracion": 3.2,
+        "desde": 37.233,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 22,
+      "texto": "",
+      "inicio": 40.433,
+      "fin": 41.9,
+      "ventana": 1.467,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-22.mp4",
+        "largoOriginal": 1.966,
+        "duracion": 1.467,
+        "desde": 40.433,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 23,
+      "texto": "",
+      "inicio": 41.9,
+      "fin": 43.833,
+      "ventana": 1.933,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-23.mp4",
+        "largoOriginal": 2.433,
+        "duracion": 1.933,
+        "desde": 41.9,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 24,
+      "texto": "",
+      "inicio": 43.833,
+      "fin": 44.8,
+      "ventana": 0.967,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-24.mp4",
+        "largoOriginal": 1.466,
+        "duracion": 0.967,
+        "desde": 43.833,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 25,
+      "texto": "",
+      "inicio": 44.8,
+      "fin": 45.967,
+      "ventana": 1.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-25.mp4",
+        "largoOriginal": 1.666,
+        "duracion": 1.167,
+        "desde": 44.8,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 26,
+      "texto": "",
+      "inicio": 45.967,
+      "fin": 46.967,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-26.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 45.967,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 27,
+      "texto": "",
+      "inicio": 46.967,
+      "fin": 47.633,
+      "ventana": 0.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-27.mp4",
+        "largoOriginal": 1.166,
+        "duracion": 0.667,
+        "desde": 46.967,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 28,
+      "texto": "",
+      "inicio": 47.633,
+      "fin": 48.5,
+      "ventana": 0.867,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-28.mp4",
+        "largoOriginal": 1.366,
+        "duracion": 0.867,
+        "desde": 47.633,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 29,
+      "texto": "",
+      "inicio": 48.5,
+      "fin": 50.5,
+      "ventana": 2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-29.mp4",
+        "largoOriginal": 2.5,
+        "duracion": 2,
+        "desde": 48.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 30,
+      "texto": "",
+      "inicio": 50.5,
+      "fin": 51.667,
+      "ventana": 1.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-30.mp4",
+        "largoOriginal": 1.666,
+        "duracion": 1.167,
+        "desde": 50.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 31,
+      "texto": "",
+      "inicio": 51.667,
+      "fin": 52.867,
+      "ventana": 1.2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-31.mp4",
+        "largoOriginal": 1.7,
+        "duracion": 1.2,
+        "desde": 51.667,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 32,
+      "texto": "",
+      "inicio": 52.867,
+      "fin": 53.467,
+      "ventana": 0.6,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-32.mp4",
+        "largoOriginal": 1.1,
+        "duracion": 0.6,
+        "desde": 52.867,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 33,
+      "texto": "",
+      "inicio": 53.467,
+      "fin": 55.133,
+      "ventana": 1.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-33.mp4",
+        "largoOriginal": 2.167,
+        "duracion": 1.667,
+        "desde": 53.467,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 34,
+      "texto": "",
+      "inicio": 55.133,
+      "fin": 57.367,
+      "ventana": 2.233,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-34.mp4",
+        "largoOriginal": 2.733,
+        "duracion": 2.233,
+        "desde": 55.133,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 35,
+      "texto": "",
+      "inicio": 57.367,
+      "fin": 58.567,
+      "ventana": 1.2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-35.mp4",
+        "largoOriginal": 1.7,
+        "duracion": 1.2,
+        "desde": 57.367,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 36,
+      "texto": "",
+      "inicio": 58.567,
+      "fin": 59.733,
+      "ventana": 1.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-36.mp4",
+        "largoOriginal": 1.666,
+        "duracion": 1.167,
+        "desde": 58.567,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 37,
+      "texto": "",
+      "inicio": 59.733,
+      "fin": 61.933,
+      "ventana": 2.2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-37.mp4",
+        "largoOriginal": 2.7,
+        "duracion": 2.2,
+        "desde": 59.733,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 38,
+      "texto": "",
+      "inicio": 61.933,
+      "fin": 62.767,
+      "ventana": 0.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-38.mp4",
+        "largoOriginal": 1.333,
+        "duracion": 0.833,
+        "desde": 61.933,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 39,
+      "texto": "",
+      "inicio": 62.767,
+      "fin": 66.033,
+      "ventana": 3.267,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-39.mp4",
+        "largoOriginal": 3.766,
+        "duracion": 3.267,
+        "desde": 62.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 40,
+      "texto": "",
+      "inicio": 66.033,
+      "fin": 75.5,
+      "ventana": 9.467,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-40.mp4",
+        "largoOriginal": 9.966,
+        "duracion": 9.467,
+        "desde": 66.033,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 41,
+      "texto": "",
+      "inicio": 75.5,
+      "fin": 76.333,
+      "ventana": 0.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-41.mp4",
+        "largoOriginal": 1.333,
+        "duracion": 0.833,
+        "desde": 75.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 42,
+      "texto": "",
+      "inicio": 76.333,
+      "fin": 77.167,
+      "ventana": 0.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-42.mp4",
+        "largoOriginal": 1.333,
+        "duracion": 0.833,
+        "desde": 76.333,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 43,
+      "texto": "",
+      "inicio": 77.167,
+      "fin": 81.667,
+      "ventana": 4.5,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-43.mp4",
+        "largoOriginal": 5,
+        "duracion": 4.5,
+        "desde": 77.167,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 44,
+      "texto": "",
+      "inicio": 81.667,
+      "fin": 88.167,
+      "ventana": 6.5,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-44.mp4",
+        "largoOriginal": 7,
+        "duracion": 6.5,
+        "desde": 81.667,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 45,
+      "texto": "",
+      "inicio": 88.167,
+      "fin": 90.033,
+      "ventana": 1.867,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-45.mp4",
+        "largoOriginal": 2.366,
+        "duracion": 1.867,
+        "desde": 88.167,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 46,
+      "texto": "",
+      "inicio": 90.033,
+      "fin": 94.367,
+      "ventana": 4.333,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-46.mp4",
+        "largoOriginal": 4.833,
+        "duracion": 4.333,
+        "desde": 90.033,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 47,
+      "texto": "",
+      "inicio": 94.367,
+      "fin": 96.5,
+      "ventana": 2.133,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-47.mp4",
+        "largoOriginal": 2.633,
+        "duracion": 2.133,
+        "desde": 94.367,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 48,
+      "texto": "",
+      "inicio": 96.5,
+      "fin": 102.9,
+      "ventana": 6.4,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-48.mp4",
+        "largoOriginal": 6.9,
+        "duracion": 6.4,
+        "desde": 96.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 49,
+      "texto": "",
+      "inicio": 102.9,
+      "fin": 103.767,
+      "ventana": 0.867,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-49.mp4",
+        "largoOriginal": 1.366,
+        "duracion": 0.867,
+        "desde": 102.9,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 50,
+      "texto": "",
+      "inicio": 103.767,
+      "fin": 105.933,
+      "ventana": 2.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-50.mp4",
+        "largoOriginal": 2.667,
+        "duracion": 2.167,
+        "desde": 103.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 51,
+      "texto": "",
+      "inicio": 105.933,
+      "fin": 106.9,
+      "ventana": 0.967,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-51.mp4",
+        "largoOriginal": 1.467,
+        "duracion": 0.967,
+        "desde": 105.933,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 52,
+      "texto": "",
+      "inicio": 106.9,
+      "fin": 108.4,
+      "ventana": 1.5,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-52.mp4",
+        "largoOriginal": 2,
+        "duracion": 1.5,
+        "desde": 106.9,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 53,
+      "texto": "",
+      "inicio": 108.4,
+      "fin": 109.8,
+      "ventana": 1.4,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-53.mp4",
+        "largoOriginal": 1.9,
+        "duracion": 1.4,
+        "desde": 108.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 54,
+      "texto": "",
+      "inicio": 109.8,
+      "fin": 112.933,
+      "ventana": 3.133,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-54.mp4",
+        "largoOriginal": 3.633,
+        "duracion": 3.133,
+        "desde": 109.8,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 55,
+      "texto": "",
+      "inicio": 112.933,
+      "fin": 117.967,
+      "ventana": 5.033,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-55.mp4",
+        "largoOriginal": 5.533,
+        "duracion": 5.033,
+        "desde": 112.933,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 56,
+      "texto": "",
+      "inicio": 117.967,
+      "fin": 119.2,
+      "ventana": 1.233,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-56.mp4",
+        "largoOriginal": 1.733,
+        "duracion": 1.233,
+        "desde": 117.967,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 57,
+      "texto": "",
+      "inicio": 119.2,
+      "fin": 120.667,
+      "ventana": 1.467,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-57.mp4",
+        "largoOriginal": 1.967,
+        "duracion": 1.467,
+        "desde": 119.2,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 58,
+      "texto": "",
+      "inicio": 120.667,
+      "fin": 121.6,
+      "ventana": 0.933,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-58.mp4",
+        "largoOriginal": 1.433,
+        "duracion": 0.933,
+        "desde": 120.667,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 59,
+      "texto": "",
+      "inicio": 121.6,
+      "fin": 122.267,
+      "ventana": 0.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-59.mp4",
+        "largoOriginal": 1.166,
+        "duracion": 0.667,
+        "desde": 121.6,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 60,
+      "texto": "",
+      "inicio": 122.267,
+      "fin": 124.6,
+      "ventana": 2.333,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-60.mp4",
+        "largoOriginal": 2.833,
+        "duracion": 2.333,
+        "desde": 122.267,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 61,
+      "texto": "",
+      "inicio": 124.6,
+      "fin": 126.733,
+      "ventana": 2.133,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-61.mp4",
+        "largoOriginal": 2.633,
+        "duracion": 2.133,
+        "desde": 124.6,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 62,
+      "texto": "",
+      "inicio": 126.733,
+      "fin": 127.567,
+      "ventana": 0.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-62.mp4",
+        "largoOriginal": 1.333,
+        "duracion": 0.833,
+        "desde": 126.733,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 63,
+      "texto": "",
+      "inicio": 127.567,
+      "fin": 129.067,
+      "ventana": 1.5,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-63.mp4",
+        "largoOriginal": 2,
+        "duracion": 1.5,
+        "desde": 127.567,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 64,
+      "texto": "",
+      "inicio": 129.067,
+      "fin": 130.4,
+      "ventana": 1.333,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-64.mp4",
+        "largoOriginal": 1.833,
+        "duracion": 1.333,
+        "desde": 129.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 65,
+      "texto": "",
+      "inicio": 130.4,
+      "fin": 131.9,
+      "ventana": 1.5,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-65.mp4",
+        "largoOriginal": 2,
+        "duracion": 1.5,
+        "desde": 130.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 66,
+      "texto": "",
+      "inicio": 131.9,
+      "fin": 132.7,
+      "ventana": 0.8,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-66.mp4",
+        "largoOriginal": 1.3,
+        "duracion": 0.8,
+        "desde": 131.9,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 67,
+      "texto": "",
+      "inicio": 132.7,
+      "fin": 135.767,
+      "ventana": 3.067,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-67.mp4",
+        "largoOriginal": 3.566,
+        "duracion": 3.067,
+        "desde": 132.7,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 68,
+      "texto": "",
+      "inicio": 135.767,
+      "fin": 140.267,
+      "ventana": 4.5,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-68.mp4",
+        "largoOriginal": 5,
+        "duracion": 4.5,
+        "desde": 135.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 69,
+      "texto": "",
+      "inicio": 140.267,
+      "fin": 142.4,
+      "ventana": 2.133,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-69.mp4",
+        "largoOriginal": 2.633,
+        "duracion": 2.133,
+        "desde": 140.267,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 70,
+      "texto": "",
+      "inicio": 142.4,
+      "fin": 143.4,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-70.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 142.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 71,
+      "texto": "",
+      "inicio": 143.4,
+      "fin": 145.433,
+      "ventana": 2.033,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-71.mp4",
+        "largoOriginal": 2.533,
+        "duracion": 2.033,
+        "desde": 143.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 72,
+      "texto": "",
+      "inicio": 145.433,
+      "fin": 146.567,
+      "ventana": 1.133,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-72.mp4",
+        "largoOriginal": 1.633,
+        "duracion": 1.133,
+        "desde": 145.433,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 73,
+      "texto": "",
+      "inicio": 146.567,
+      "fin": 151.333,
+      "ventana": 4.767,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-73.mp4",
+        "largoOriginal": 5.267,
+        "duracion": 4.767,
+        "desde": 146.567,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 74,
+      "texto": "",
+      "inicio": 151.333,
+      "fin": 153.5,
+      "ventana": 2.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-74.mp4",
+        "largoOriginal": 2.667,
+        "duracion": 2.167,
+        "desde": 151.333,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 75,
+      "texto": "",
+      "inicio": 153.5,
+      "fin": 154.933,
+      "ventana": 1.433,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-75.mp4",
+        "largoOriginal": 1.933,
+        "duracion": 1.433,
+        "desde": 153.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 76,
+      "texto": "",
+      "inicio": 154.933,
+      "fin": 158.5,
+      "ventana": 3.567,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-76.mp4",
+        "largoOriginal": 4.067,
+        "duracion": 3.567,
+        "desde": 154.933,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 77,
+      "texto": "",
+      "inicio": 158.5,
+      "fin": 162.167,
+      "ventana": 3.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-77.mp4",
+        "largoOriginal": 4.166,
+        "duracion": 3.667,
+        "desde": 158.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 78,
+      "texto": "",
+      "inicio": 162.167,
+      "fin": 163.167,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-78.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 162.167,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 79,
+      "texto": "",
+      "inicio": 163.167,
+      "fin": 166,
+      "ventana": 2.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-79.mp4",
+        "largoOriginal": 3.333,
+        "duracion": 2.833,
+        "desde": 163.167,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 80,
+      "texto": "",
+      "inicio": 166,
+      "fin": 167.833,
+      "ventana": 1.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-80.mp4",
+        "largoOriginal": 2.333,
+        "duracion": 1.833,
+        "desde": 166,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 81,
+      "texto": "",
+      "inicio": 167.833,
+      "fin": 170,
+      "ventana": 2.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-81.mp4",
+        "largoOriginal": 2.666,
+        "duracion": 2.167,
+        "desde": 167.833,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 82,
+      "texto": "",
+      "inicio": 170,
+      "fin": 173.067,
+      "ventana": 3.067,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-82.mp4",
+        "largoOriginal": 3.566,
+        "duracion": 3.067,
+        "desde": 170,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 83,
+      "texto": "",
+      "inicio": 173.067,
+      "fin": 176.367,
+      "ventana": 3.3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-83.mp4",
+        "largoOriginal": 3.8,
+        "duracion": 3.3,
+        "desde": 173.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 84,
+      "texto": "",
+      "inicio": 176.367,
+      "fin": 178.033,
+      "ventana": 1.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-84.mp4",
+        "largoOriginal": 2.167,
+        "duracion": 1.667,
+        "desde": 176.367,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 85,
+      "texto": "",
+      "inicio": 178.033,
+      "fin": 179.1,
+      "ventana": 1.067,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-85.mp4",
+        "largoOriginal": 1.566,
+        "duracion": 1.067,
+        "desde": 178.033,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 86,
+      "texto": "",
+      "inicio": 179.1,
+      "fin": 180.267,
+      "ventana": 1.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-86.mp4",
+        "largoOriginal": 1.667,
+        "duracion": 1.167,
+        "desde": 179.1,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 87,
+      "texto": "",
+      "inicio": 180.267,
+      "fin": 183.8,
+      "ventana": 3.533,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-87.mp4",
+        "largoOriginal": 4.033,
+        "duracion": 3.533,
+        "desde": 180.267,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 88,
+      "texto": "",
+      "inicio": 183.8,
+      "fin": 185,
+      "ventana": 1.2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-88.mp4",
+        "largoOriginal": 1.7,
+        "duracion": 1.2,
+        "desde": 183.8,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 89,
+      "texto": "",
+      "inicio": 185,
+      "fin": 188.167,
+      "ventana": 3.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-89.mp4",
+        "largoOriginal": 3.666,
+        "duracion": 3.167,
+        "desde": 185,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 90,
+      "texto": "",
+      "inicio": 188.167,
+      "fin": 189.633,
+      "ventana": 1.467,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-90.mp4",
+        "largoOriginal": 1.966,
+        "duracion": 1.467,
+        "desde": 188.167,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 91,
+      "texto": "",
+      "inicio": 189.633,
+      "fin": 190.633,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-91.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 189.633,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 92,
+      "texto": "",
+      "inicio": 190.633,
+      "fin": 191.7,
+      "ventana": 1.067,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-92.mp4",
+        "largoOriginal": 1.566,
+        "duracion": 1.067,
+        "desde": 190.633,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 93,
+      "texto": "",
+      "inicio": 191.7,
+      "fin": 193.133,
+      "ventana": 1.433,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-93.mp4",
+        "largoOriginal": 1.933,
+        "duracion": 1.433,
+        "desde": 191.7,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 94,
+      "texto": "",
+      "inicio": 193.133,
+      "fin": 193.833,
+      "ventana": 0.7,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-94.mp4",
+        "largoOriginal": 1.2,
+        "duracion": 0.7,
+        "desde": 193.133,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 95,
+      "texto": "",
+      "inicio": 193.833,
+      "fin": 194.833,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-95.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 193.833,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 96,
+      "texto": "",
+      "inicio": 194.833,
+      "fin": 195.733,
+      "ventana": 0.9,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-96.mp4",
+        "largoOriginal": 1.4,
+        "duracion": 0.9,
+        "desde": 194.833,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 97,
+      "texto": "",
+      "inicio": 195.733,
+      "fin": 196.367,
+      "ventana": 0.633,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-97.mp4",
+        "largoOriginal": 1.133,
+        "duracion": 0.633,
+        "desde": 195.733,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 98,
+      "texto": "",
+      "inicio": 196.367,
+      "fin": 198.2,
+      "ventana": 1.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-98.mp4",
+        "largoOriginal": 2.333,
+        "duracion": 1.833,
+        "desde": 196.367,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 99,
+      "texto": "",
+      "inicio": 198.2,
+      "fin": 199.033,
+      "ventana": 0.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-99.mp4",
+        "largoOriginal": 1.333,
+        "duracion": 0.833,
+        "desde": 198.2,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 100,
+      "texto": "",
+      "inicio": 199.033,
+      "fin": 200.7,
+      "ventana": 1.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-100.mp4",
+        "largoOriginal": 2.166,
+        "duracion": 1.667,
+        "desde": 199.033,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 101,
+      "texto": "",
+      "inicio": 200.7,
+      "fin": 202.267,
+      "ventana": 1.567,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-101.mp4",
+        "largoOriginal": 2.066,
+        "duracion": 1.567,
+        "desde": 200.7,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 102,
+      "texto": "",
+      "inicio": 202.267,
+      "fin": 204.467,
+      "ventana": 2.2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-102.mp4",
+        "largoOriginal": 2.7,
+        "duracion": 2.2,
+        "desde": 202.267,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 103,
+      "texto": "",
+      "inicio": 204.467,
+      "fin": 205.767,
+      "ventana": 1.3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-103.mp4",
+        "largoOriginal": 1.8,
+        "duracion": 1.3,
+        "desde": 204.467,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 104,
+      "texto": "",
+      "inicio": 205.767,
+      "fin": 207.433,
+      "ventana": 1.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-104.mp4",
+        "largoOriginal": 2.166,
+        "duracion": 1.667,
+        "desde": 205.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 105,
+      "texto": "",
+      "inicio": 207.433,
+      "fin": 208.767,
+      "ventana": 1.333,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-105.mp4",
+        "largoOriginal": 1.833,
+        "duracion": 1.333,
+        "desde": 207.433,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 106,
+      "texto": "",
+      "inicio": 208.767,
+      "fin": 212.5,
+      "ventana": 3.733,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-106.mp4",
+        "largoOriginal": 4.233,
+        "duracion": 3.733,
+        "desde": 208.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 107,
+      "texto": "",
+      "inicio": 212.5,
+      "fin": 213.733,
+      "ventana": 1.233,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-107.mp4",
+        "largoOriginal": 1.733,
+        "duracion": 1.233,
+        "desde": 212.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 108,
+      "texto": "",
+      "inicio": 213.733,
+      "fin": 214.967,
+      "ventana": 1.233,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-108.mp4",
+        "largoOriginal": 1.733,
+        "duracion": 1.233,
+        "desde": 213.733,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 109,
+      "texto": "",
+      "inicio": 214.967,
+      "fin": 216.4,
+      "ventana": 1.433,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-109.mp4",
+        "largoOriginal": 1.933,
+        "duracion": 1.433,
+        "desde": 214.967,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 110,
+      "texto": "",
+      "inicio": 216.4,
+      "fin": 217.9,
+      "ventana": 1.5,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-110.mp4",
+        "largoOriginal": 2,
+        "duracion": 1.5,
+        "desde": 216.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 111,
+      "texto": "",
+      "inicio": 217.9,
+      "fin": 218.9,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-111.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 217.9,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 112,
+      "texto": "",
+      "inicio": 218.9,
+      "fin": 220.067,
+      "ventana": 1.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-112.mp4",
+        "largoOriginal": 1.667,
+        "duracion": 1.167,
+        "desde": 218.9,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 113,
+      "texto": "",
+      "inicio": 220.067,
+      "fin": 220.733,
+      "ventana": 0.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-113.mp4",
+        "largoOriginal": 1.167,
+        "duracion": 0.667,
+        "desde": 220.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 114,
+      "texto": "",
+      "inicio": 220.733,
+      "fin": 222.667,
+      "ventana": 1.933,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-114.mp4",
+        "largoOriginal": 2.433,
+        "duracion": 1.933,
+        "desde": 220.733,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 115,
+      "texto": "",
+      "inicio": 222.667,
+      "fin": 223.8,
+      "ventana": 1.133,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-115.mp4",
+        "largoOriginal": 1.633,
+        "duracion": 1.133,
+        "desde": 222.667,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 116,
+      "texto": "",
+      "inicio": 223.8,
+      "fin": 225.2,
+      "ventana": 1.4,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-116.mp4",
+        "largoOriginal": 1.9,
+        "duracion": 1.4,
+        "desde": 223.8,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 117,
+      "texto": "",
+      "inicio": 225.2,
+      "fin": 226,
+      "ventana": 0.8,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-117.mp4",
+        "largoOriginal": 1.3,
+        "duracion": 0.8,
+        "desde": 225.2,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 118,
+      "texto": "",
+      "inicio": 226,
+      "fin": 229.767,
+      "ventana": 3.767,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-118.mp4",
+        "largoOriginal": 4.266,
+        "duracion": 3.767,
+        "desde": 226,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 119,
+      "texto": "",
+      "inicio": 229.767,
+      "fin": 230.567,
+      "ventana": 0.8,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-119.mp4",
+        "largoOriginal": 1.3,
+        "duracion": 0.8,
+        "desde": 229.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 120,
+      "texto": "",
+      "inicio": 230.567,
+      "fin": 232.2,
+      "ventana": 1.633,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-120.mp4",
+        "largoOriginal": 2.133,
+        "duracion": 1.633,
+        "desde": 230.567,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 121,
+      "texto": "",
+      "inicio": 232.2,
+      "fin": 233.767,
+      "ventana": 1.567,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-121.mp4",
+        "largoOriginal": 2.067,
+        "duracion": 1.567,
+        "desde": 232.2,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 122,
+      "texto": "",
+      "inicio": 233.767,
+      "fin": 234.767,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-122.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 233.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 123,
+      "texto": "",
+      "inicio": 234.767,
+      "fin": 237,
+      "ventana": 2.233,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-123.mp4",
+        "largoOriginal": 2.733,
+        "duracion": 2.233,
+        "desde": 234.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 124,
+      "texto": "",
+      "inicio": 237,
+      "fin": 238.567,
+      "ventana": 1.567,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-124.mp4",
+        "largoOriginal": 2.067,
+        "duracion": 1.567,
+        "desde": 237,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 125,
+      "texto": "",
+      "inicio": 238.567,
+      "fin": 240.167,
+      "ventana": 1.6,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-125.mp4",
+        "largoOriginal": 2.1,
+        "duracion": 1.6,
+        "desde": 238.567,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 126,
+      "texto": "",
+      "inicio": 240.167,
+      "fin": 242.7,
+      "ventana": 2.533,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-126.mp4",
+        "largoOriginal": 3.033,
+        "duracion": 2.533,
+        "desde": 240.167,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 127,
+      "texto": "",
+      "inicio": 242.7,
+      "fin": 244.867,
+      "ventana": 2.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-127.mp4",
+        "largoOriginal": 2.666,
+        "duracion": 2.167,
+        "desde": 242.7,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 128,
+      "texto": "",
+      "inicio": 244.867,
+      "fin": 246.933,
+      "ventana": 2.067,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-128.mp4",
+        "largoOriginal": 2.566,
+        "duracion": 2.067,
+        "desde": 244.867,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 129,
+      "texto": "",
+      "inicio": 246.933,
+      "fin": 248.4,
+      "ventana": 1.467,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-129.mp4",
+        "largoOriginal": 1.967,
+        "duracion": 1.467,
+        "desde": 246.933,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 130,
+      "texto": "",
+      "inicio": 248.4,
+      "fin": 249.267,
+      "ventana": 0.867,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-130.mp4",
+        "largoOriginal": 1.367,
+        "duracion": 0.867,
+        "desde": 248.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 131,
+      "texto": "",
+      "inicio": 249.267,
+      "fin": 250.167,
+      "ventana": 0.9,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-131.mp4",
+        "largoOriginal": 1.4,
+        "duracion": 0.9,
+        "desde": 249.267,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 132,
+      "texto": "",
+      "inicio": 250.167,
+      "fin": 251.6,
+      "ventana": 1.433,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-132.mp4",
+        "largoOriginal": 1.933,
+        "duracion": 1.433,
+        "desde": 250.167,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 133,
+      "texto": "",
+      "inicio": 251.6,
+      "fin": 253.4,
+      "ventana": 1.8,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-133.mp4",
+        "largoOriginal": 2.3,
+        "duracion": 1.8,
+        "desde": 251.6,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 134,
+      "texto": "",
+      "inicio": 253.4,
+      "fin": 254.233,
+      "ventana": 0.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-134.mp4",
+        "largoOriginal": 1.333,
+        "duracion": 0.833,
+        "desde": 253.4,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 135,
+      "texto": "",
+      "inicio": 254.233,
+      "fin": 255.067,
+      "ventana": 0.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-135.mp4",
+        "largoOriginal": 1.333,
+        "duracion": 0.833,
+        "desde": 254.233,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 136,
+      "texto": "",
+      "inicio": 255.067,
+      "fin": 256.233,
+      "ventana": 1.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-136.mp4",
+        "largoOriginal": 1.666,
+        "duracion": 1.167,
+        "desde": 255.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 137,
+      "texto": "",
+      "inicio": 256.233,
+      "fin": 257.067,
+      "ventana": 0.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-137.mp4",
+        "largoOriginal": 1.333,
+        "duracion": 0.833,
+        "desde": 256.233,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 138,
+      "texto": "",
+      "inicio": 257.067,
+      "fin": 258.967,
+      "ventana": 1.9,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-138.mp4",
+        "largoOriginal": 2.4,
+        "duracion": 1.9,
+        "desde": 257.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 139,
+      "texto": "",
+      "inicio": 258.967,
+      "fin": 261.6,
+      "ventana": 2.633,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-139.mp4",
+        "largoOriginal": 3.133,
+        "duracion": 2.633,
+        "desde": 258.967,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 140,
+      "texto": "",
+      "inicio": 261.6,
+      "fin": 263.433,
+      "ventana": 1.833,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-140.mp4",
+        "largoOriginal": 2.333,
+        "duracion": 1.833,
+        "desde": 261.6,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 141,
+      "texto": "",
+      "inicio": 263.433,
+      "fin": 265.733,
+      "ventana": 2.3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-141.mp4",
+        "largoOriginal": 2.8,
+        "duracion": 2.3,
+        "desde": 263.433,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 142,
+      "texto": "",
+      "inicio": 265.733,
+      "fin": 266.733,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-142.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 265.733,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 143,
+      "texto": "",
+      "inicio": 266.733,
+      "fin": 267.6,
+      "ventana": 0.867,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-143.mp4",
+        "largoOriginal": 1.366,
+        "duracion": 0.867,
+        "desde": 266.733,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 144,
+      "texto": "",
+      "inicio": 267.6,
+      "fin": 268.8,
+      "ventana": 1.2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-144.mp4",
+        "largoOriginal": 1.7,
+        "duracion": 1.2,
+        "desde": 267.6,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 145,
+      "texto": "",
+      "inicio": 268.8,
+      "fin": 270.033,
+      "ventana": 1.233,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-145.mp4",
+        "largoOriginal": 1.733,
+        "duracion": 1.233,
+        "desde": 268.8,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 146,
+      "texto": "",
+      "inicio": 270.033,
+      "fin": 272.2,
+      "ventana": 2.167,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-146.mp4",
+        "largoOriginal": 2.667,
+        "duracion": 2.167,
+        "desde": 270.033,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 147,
+      "texto": "",
+      "inicio": 272.2,
+      "fin": 281.5,
+      "ventana": 9.3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-147.mp4",
+        "largoOriginal": 9.8,
+        "duracion": 9.3,
+        "desde": 272.2,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 148,
+      "texto": "",
+      "inicio": 281.5,
+      "fin": 285.167,
+      "ventana": 3.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-148.mp4",
+        "largoOriginal": 4.166,
+        "duracion": 3.667,
+        "desde": 281.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 149,
+      "texto": "",
+      "inicio": 285.167,
+      "fin": 285.933,
+      "ventana": 0.767,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-149.mp4",
+        "largoOriginal": 1.266,
+        "duracion": 0.767,
+        "desde": 285.167,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 150,
+      "texto": "",
+      "inicio": 285.933,
+      "fin": 287.233,
+      "ventana": 1.3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-150.mp4",
+        "largoOriginal": 1.8,
+        "duracion": 1.3,
+        "desde": 285.933,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 151,
+      "texto": "",
+      "inicio": 287.233,
+      "fin": 290.233,
+      "ventana": 3,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-151.mp4",
+        "largoOriginal": 3.5,
+        "duracion": 3,
+        "desde": 287.233,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 152,
+      "texto": "",
+      "inicio": 290.233,
+      "fin": 290.9,
+      "ventana": 0.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-152.mp4",
+        "largoOriginal": 1.166,
+        "duracion": 0.667,
+        "desde": 290.233,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 153,
+      "texto": "",
+      "inicio": 290.9,
+      "fin": 291.833,
+      "ventana": 0.933,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-153.mp4",
+        "largoOriginal": 1.433,
+        "duracion": 0.933,
+        "desde": 290.9,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 154,
+      "texto": "",
+      "inicio": 291.833,
+      "fin": 292.5,
+      "ventana": 0.667,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-154.mp4",
+        "largoOriginal": 1.167,
+        "duracion": 0.667,
+        "desde": 291.833,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 155,
+      "texto": "",
+      "inicio": 292.5,
+      "fin": 294.067,
+      "ventana": 1.567,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-155.mp4",
+        "largoOriginal": 2.066,
+        "duracion": 1.567,
+        "desde": 292.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 156,
+      "texto": "",
+      "inicio": 294.067,
+      "fin": 295.833,
+      "ventana": 1.767,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-156.mp4",
+        "largoOriginal": 2.266,
+        "duracion": 1.767,
+        "desde": 294.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 157,
+      "texto": "",
+      "inicio": 295.833,
+      "fin": 296.833,
+      "ventana": 1,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-157.mp4",
+        "largoOriginal": 1.5,
+        "duracion": 1,
+        "desde": 295.833,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 158,
+      "texto": "",
+      "inicio": 296.833,
+      "fin": 298.3,
+      "ventana": 1.467,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-158.mp4",
+        "largoOriginal": 1.967,
+        "duracion": 1.467,
+        "desde": 296.833,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 159,
+      "texto": "",
+      "inicio": 298.3,
+      "fin": 300.5,
+      "ventana": 2.2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-159.mp4",
+        "largoOriginal": 2.7,
+        "duracion": 2.2,
+        "desde": 298.3,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 160,
+      "texto": "",
+      "inicio": 300.5,
+      "fin": 304.767,
+      "ventana": 4.267,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-160.mp4",
+        "largoOriginal": 4.766,
+        "duracion": 4.267,
+        "desde": 300.5,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 161,
+      "texto": "",
+      "inicio": 304.767,
+      "fin": 306,
+      "ventana": 1.233,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-161.mp4",
+        "largoOriginal": 1.733,
+        "duracion": 1.233,
+        "desde": 304.767,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 162,
+      "texto": "",
+      "inicio": 306,
+      "fin": 308,
+      "ventana": 2,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-162.mp4",
+        "largoOriginal": 2.5,
+        "duracion": 2,
+        "desde": 306,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 163,
+      "texto": "",
+      "inicio": 308,
+      "fin": 309.067,
+      "ventana": 1.067,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-163.mp4",
+        "largoOriginal": 1.567,
+        "duracion": 1.067,
+        "desde": 308,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    },
+    {
+      "linea": 164,
+      "texto": "",
+      "inicio": 309.067,
+      "fin": 309.767,
+      "ventana": 0.7,
+      "tipo": "B",
+      "toma": {
+        "archivo": "toma-164.mp4",
+        "largoOriginal": 0.7,
+        "duracion": 0.7,
+        "desde": 309.067,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0
+      }
+    }
+  ],
+  "subtitulos": [],
+  "estiloSubtitulos": {
+    "tamano": 0.06137,
+    "interlineado": 1.1,
+    "contornoRespectoTamano": 0.135,
+    "desdeAbajo": 0.26,
+    "coloresResaltado": [
+      "#E8442A",
+      "#F5A524",
+      "#2F7DE1",
+      "#159A5B",
+      "#B5279B",
+      "#E01E5A",
+      "#7B3FE4",
+      "#0FA3B1",
+      "#D64500",
+      "#3B7A2A"
+    ],
+    "cajaPadding": 0.12,
+    "cajaRedondeo": 0.1,
+    "colorResaltado": "#0FA3B1"
+  },
+  "transiciones": [],
+  "brollFuera": [],
+  "avisos": []
+}

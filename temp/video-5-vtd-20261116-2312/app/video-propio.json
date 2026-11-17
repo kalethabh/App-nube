@@ -2,9 +2,12 @@
   "slug": "video-5-vtd-20261116-2312",
   "nombre": "5 - VTD ❌.mp4",
   "creado": "2026-11-17T04:12:09.879Z",
-  "etapa": "preparando",
-  "texto": "Cortando la escena 18 de 164",
-  "valor": 49,
+  "etapa": "listo",
+  "texto": null,
+  "valor": 100,
   "subtitulosPedidos": false,
-  "actualizado": "2026-11-17T04:12:41.360Z"
+  "actualizado": "2026-11-17T04:13:23.586Z",
+  "aviso": null,
+  "escenas": 164,
+  "subtitulos": 0
 }
