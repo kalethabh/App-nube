@@ -167,7 +167,8 @@ export default function rutasInspiracion(app) {
   app.get('/api/inspiracion/chrome/media/:archivo', (req, res) => {
     const ruta = rutaMedioChrome(req.params.archivo);
     if (!ruta) return res.status(404).end();
-    res.set('Cache-Control', 'private, max-age=86400').set('X-Content-Type-Options', 'nosniff').sendFile(ruta, (err) => {
+    // (el nombre ya está validado: dotfiles 'allow' solo para que ande aunque la app viva dentro de una carpeta oculta)
+    res.set('Cache-Control', 'private, max-age=86400').set('X-Content-Type-Options', 'nosniff').sendFile(ruta, { dotfiles: 'allow' }, (err) => {
       if (err && !res.headersSent) res.status(404).end();
     });
   });

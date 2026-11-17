@@ -40,7 +40,7 @@ const IMPRESCINDIBLES = ['VERSION', ...LANZADORES, 'app/server/index.js', 'app/p
 export const LISTA_DEL_PAQUETE = 'app/archivos-del-paquete.json';
 
 /** Donde se puede quitar lo que la version nueva ya no trae. */
-const ZONAS_DEL_SISTEMA = ['app/', 'produccion/', 'remotion/src/', 'recursos/', '.claude/skills/'];
+const ZONAS_DEL_SISTEMA = ['app/', 'produccion/', 'remotion/src/', 'recursos/', '.claude/skills/', 'extension-chrome/'];
 
 const TRABAJO = '.actualizando';
 const RESPALDOS = 'respaldos';
@@ -67,6 +67,8 @@ export function delAlumno(rel) {
   const r2 = bajo(r);
   if (r2 === 'app/config.json' || r2.startsWith('app/.cache/') || r2 === 'app/.cache') return true;
   if (r2 === 'app/.guardado-config.json' || r2 === 'app/.guardado.json') return true;
+  // el código del botón de Chrome (Inspiración): se queda aunque se actualice
+  if (r2 === 'app/.extension-chrome.json') return true;
   if (r2.startsWith('app/capturas/') || r2 === 'app/capturas') return true;
   if (r2.startsWith('remotion/out/') || r2 === 'remotion/out') return true;
   if (r2 === 'app/server/ocultos.json' || r2 === 'app/server/muestras-estilos.json') return true;
