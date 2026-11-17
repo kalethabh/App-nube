@@ -1,5 +1,5 @@
 {
-  "pid": 65170,
+  "pid": 66580,
   "paso": "exportar",
   "script": "exportar-edicion.js",
   "args": [
@@ -8,6 +8,6 @@
     "temp/video-5-vtd-20261116-2312/app/exportes/pedido-1.json"
   ],
   "comando": "node produccion/exportar-edicion.js temp/video-5-vtd-20261116-2312 --pedido temp/video-5-vtd-20261116-2312/app/exportes/pedido-1.json",
-  "inicio": "2026-11-17T04:29:55.677Z",
-  "app": 58099
+  "inicio": "2026-11-17T04:43:20.198Z",
+  "app": 66573
 }
