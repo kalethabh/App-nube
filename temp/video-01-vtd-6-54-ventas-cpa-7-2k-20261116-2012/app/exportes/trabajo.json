@@ -1,6 +1,6 @@
 {
   "n": 1,
-  "estado": "exportando",
+  "estado": "listo",
   "calidad": "1080",
   "version": "completa",
   "subtitulos": "sin",
@@ -8,11 +8,21 @@
   "srt": false,
   "guardar": false,
   "creado": "2026-11-17T04:46:21.935Z",
-  "actualizado": "2026-11-17T04:58:24.423Z",
+  "actualizado": "2026-11-17T04:59:22.231Z",
   "avance": {
-    "etapa": "revisar",
-    "valor": 91,
+    "etapa": "guardar",
+    "valor": 100,
     "cuadro": 7225,
     "total": 7225
-  }
+  },
+  "control": {
+    "limpio": true,
+    "codigo": 0,
+    "motivo": null,
+    "defectos": [],
+    "avisos": []
+  },
+  "archivo": "video-01-vtd-6-54-ventas-cpa-7-2k-20261116-2012_editado-1.mp4",
+  "srtArchivo": null,
+  "terminado": "2026-11-17T04:59:21.842Z"
 }
