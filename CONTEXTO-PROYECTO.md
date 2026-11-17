@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17b` (archivo `VERSION`): Editar con IA en el editor (lenguaje natural).
-  Antes: `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
+- **Versión actual:** `2026-11-17c` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+  Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +136,17 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Ángulo, gancho y antes/después en los anuncios de imagen (2026-11-17, versión 2026-11-17c)
+
+- Pedido: «debe detectar el ángulo, el hook; el VitalDrops es para glúteos; si hay antes y después debe verse el cambio
+  notorio». En `produccion/imagen-ads.js`: `LEER_REFERENCIA` (el modelo lee ángulo, gancho y formato de la referencia y
+  los conserva) y `ANTES_DESPUES` (cambio dramático en la misma zona del cuerpo, misma persona/pose/ropa/cámara/luz,
+  rótulos ANTES/DESPUÉS, con ropa). Van en `RAPIDO_COPIAR`, `RAPIDO_INSPIRAR` y al copiar una referencia
+  (`COPIAR_REFERENCIA`). En rápido, el titular de la app se usa si dice lo mismo que el gancho; si no, el modelo escribe
+  el gancho de la referencia adaptado. `rapido.js`: el ángulo de la biblioteca solo vale si la referencia no tiene uno.
+- Es un cambio de prompt sin medir con imágenes reales (generar cobra): conviene un lote de prueba con una referencia de
+  antes y después de VitalDrops para confirmar. Pruebas: imagen 147/147, ChatGPT 4/4, `probar-imagen-ads.js` 173.
 
 ### Editar con IA en el editor (2026-11-17, versión 2026-11-17b)
 
