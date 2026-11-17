@@ -239,11 +239,13 @@ function Flujo({ consulta }) {
 
   // ---------------------------------------------------------------- bloque 1: el producto
   const productoUrl = consulta?.get('producto') || null;
-  // «Adaptar a mi producto» desde Mejores anuncios (#/ganadores): llega el video del ganador ya bajado, como uno subido
+  // «Replicar» desde Inspiración (#/inspiracion): llega el video del anuncio ya bajado, como uno subido, y a veces lo que
+  // se le pide a «Agregar» (?pedido=: el estilo de la app que se parece al del anuncio)
   const referenciaUrl = useMemo(() => {
     const r = consulta?.get('referencia') || '';
     return !productoUrl && /^subido:[a-z0-9]{6,30}\|/.test(r) ? r.slice(0, 700) : null;
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const pedidoUrl = useRef(referenciaUrl ? String(consulta?.get('pedido') || '').slice(0, 400) : '');
   const [productoId, setProductoId] = useState(productoUrl);
   const [borrador, setBorradorCrudo] = useState(() =>
     productoUrl ? BORRADOR_VACIO : { ...BORRADOR_VACIO, ...recordado('borrador', {}), fotos: [], ...(referenciaUrl ? { referencia: referenciaUrl } : {}) }
@@ -410,13 +412,19 @@ function Flujo({ consulta }) {
   useEffect(() => {
     const ref = borrador.referencia;
     if (paso !== 2 || !ref) return;
+    const pedido = pedidoUrl.current; // una sola vez: si después lo borras, no vuelve
+    pedidoUrl.current = '';
     setAjustes((a) => {
       let cambio = false;
       const nuevo = { ...a };
       for (const [c, x] of Object.entries(a)) {
+        if (c === 'agregar' && pedido && !x?.preguntas?.pedido) {
+          cambio = true;
+          nuevo[c] = { ...x, preguntas: { ...x.preguntas, pedido } };
+        }
         if (x?.preguntas?.clonar || !preguntasDe(c).some((p) => p.id === 'clonar')) continue;
         cambio = true;
-        nuevo[c] = { ...x, preguntas: { ...x.preguntas, clonar: ref } };
+        nuevo[c] = { ...nuevo[c], preguntas: { ...nuevo[c].preguntas, clonar: ref } };
       }
       return cambio ? nuevo : a;
     });

@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-17.
+Última actualización: 2026-11-17 (Inspiración, 2026-11-17m).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,8 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17l1` (archivo `VERSION`): estilo «Agregar» (subir un video y decir lo que quieres; la IA
-  elige el estilo, la duración y el modelo de cada escena). Antes: `2026-11-17k` (editor con el audio como en CapCut),
+- **Versión actual:** `2026-11-17m` (archivo `VERSION`): «Inspiración» (los anuncios de TrendTrack como en Starpop, con
+  formato, sonido, marcas que sigues y Replicar). Antes: `2026-11-17l1` (Agregar y Clonar no pierden la esencia),
+  `2026-11-17l` (estilo «Agregar»: subir un video y decir lo que quieres), `2026-11-17k` (editor con el audio como en CapCut),
   `2026-11-17j2` (lo último arriba y eliminar lotes de imágenes), `2026-11-17j1` (exportar más rápido), `2026-11-17i` (las imágenes respetan el ángulo y el gancho de la referencia), `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -137,6 +138,55 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Inspiración: los anuncios que funcionan, como en Starpop (2026-11-17, versión 2026-11-17m)
+
+Pedido: «Necesito agregar una extensión de Inspiración así como en esta app: https://starpop.ai/inspiration» (con la
+captura de Starpop › Inspiration › Meta ads). Rama `inspiracion`.
+
+- **Decisión:** «Mejores anuncios» (#/ganadores) evolucionó a **Inspiración** (#/inspiracion, menú Crear, ícono
+  bombilla). `#/ganadores` abre la misma pantalla (enlaces viejos) y `rutas.ganadores()` lleva a `/inspiracion`. Se borró
+  `app/src/pantallas/ganadores/`; la pantalla nueva es `app/src/pantallas/inspiracion/` (`index.jsx`, `Tarjeta.jsx`,
+  `Detalles.jsx`, `Marcas.jsx`, `datos.js`, `inspiracion.css`).
+- **Servidor:** `lib/ganadores.js` sigue con la búsqueda (caché 12 h, guardados, video, «adaptar»); ahora la sesión con el
+  conector es genérica (`consultarConector`: una herramienta de lectura de TrendTrack más `check_credits`, solo
+  `search_ads`, `search_advertisers` y `list_tracked_brands`), lee el **total** y el **costo** que devuelve `search_ads`
+  (`pagination.total`, `credits.costUnits`), el puesto (`rank`) y el alcance de 7 días, y el filtro `rango` (7/30/90 días
+  → `created_after`). Nuevo `lib/inspiracion.js` + `rutas/inspiracion.js` (`/api/inspiracion/*`): formatos y sonidos,
+  marcas que sigues (`mis_archivos/ganadores/marcas.json`; búsqueda de marcas en caché 7 días en `temp/_ganadores/marcas/`),
+  Replicar imagen (`temp/_ganadores/imagenes/<sha1>.jpg`, servida por `/api/inspiracion/imagenes/`).
+- **Formato y sonido:** (a) `clasificarPorTexto` (palabras clave en título, copy, transcripción, página y marca; UGC por
+  frases de testimonio; sonido: imagen = sin audio, transcripción = voz, ♪ o una frase de 3+ palabras repetida 3+ veces =
+  canción; lo demás null). (b) `clasificarConIA`: la IA elegida (`motor-ia.js` `lanzarSesion`, sin terminal, lee solo
+  `temp/_ganadores/miniaturas/`, escribe un JSON en `temp/_ganadores/clasificar/`) mira las miniaturas de a 12 por sesión;
+  el resultado queda para siempre en `temp/_ganadores/clasificacion.json` por id de anuncio. El formato de la IA manda; el
+  sonido de la transcripción manda (la IA no escucha: solo dice voz/canción con evidencia visual). Se prende/apaga en
+  «Más filtros» (por defecto prendido, recordado en el navegador). Cuesta cuota del plan de la IA, no créditos.
+  Formatos → estilos de la app: Realista→realista-narrado, UGC→ugc, Animación 3D→zack-d-films, Pixar→estilo-pixar,
+  Crochet, Esqueleto→skeleton, Claymation, Lego→estilo-lego; 2D, Acuarela, Pixel art y Papel no tienen estilo.
+- **Replicar:** video → `bajarParaReferencia` (como «Adaptar») → `#/nuevo?inicio=1&estilo=agregar&referencia=subido:…`
+  y, si el formato tiene estilo de la app (no Realista/UGC), `&pedido=` («El mismo video… en el estilo «Claymation» de la
+  app…»): `pantallas/nuevo/index.jsx` lo pone una sola vez en la pregunta «pedido» de Agregar al llegar al paso 2.
+  Imagen → `#/imagenes/nuevo?referencia=/api/inspiracion/imagenes/<id>.jpg` y `Formulario.jsx` la suma como referencia
+  (modo Nuevos). «Analizar estructura» en Detalles **no** se hizo: el análisis que existe (clonar.js) cuesta ElevenLabs y
+  IA; Replicar con Agregar ya lo hace.
+- **Créditos:** costo antes de buscar (`/api/inspiracion/costo`: ~30 por 20); si la búsqueda está en caché se abre sola y
+  gratis; «Cargar 20 más» solo al tocarlo (cada página es su propia entrada de caché; la caché guarda ahora 120); créditos
+  restantes arriba. Buscar marcas: TrendTrack no publica su costo, la app muestra cuánto bajó el saldo.
+- **Modo prueba:** nada de TrendTrack ni IA: 12 anuncios simulados con las muestras de `app/muestras/` (video e imagen
+  servidos por `/archivos/muestra/…`, solo aceptados en modo prueba), 3 páginas; marcas simuladas; una «IA» simulada que
+  reconoce la muestra; Replicar copia la muestra.
+- **Pruebas (sin gastar):** `node app/herramientas/probar-inspiracion.mjs` (nuevo, 44/44: pasada de texto, lectura de
+  search_ads y de marcas, filtros, URLs ajenas); Playwright en modo prueba 34/34 (pantalla, #/ganadores, costo, 20
+  tarjetas, total, IA simulada, chips de formato/grupo/sonido, pestañas, guardar y que siga al recargar, caché gratis,
+  Detalles, seguir y buscar marcas, filtrar por marca, otro orden pide buscar, Cargar más hasta 36, teléfono sin scroll
+  horizontal, Replicar imagen → Anuncios de imagen con la referencia, Replicar video → Nuevo anuncio con Agregar, el pedido
+  y el video, el video se reproduce en la tarjeta, sin errores); `vite build`; humo rápido 85/85; `probar-imagen-ads`
+  147/147. Capturas a 1440 y 390.
+- **Sin verificar (falta probar en la Mac con TrendTrack de verdad):** la forma exacta de lo que devuelven
+  `search_advertisers` y `list_tracked_brands` (el lector acepta varias formas; si responde en Markdown sin JSON, la
+  búsqueda de marcas da error claro); la pasada visual con Claude/ChatGPT de verdad (prompt, permisos y verificación
+  hechos como en `titulos.js`, pero no corridos); que `ad_countries` vacío + dominio encuentre los anuncios de una marca.
 
 ### La esencia del video en «Agregar» y «Clonar» (2026-11-17, versión 2026-11-17l1)
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Repeat, Trophy, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
+import { CirclePause, Clapperboard, Scissors, GraduationCap, Images, LayoutGrid, Library, Lightbulb, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -19,7 +19,7 @@ const GRUPOS = [
   {
     titulo: 'Crear',
     items: [
-      { id: 'ganadores', texto: 'Mejores anuncios', icono: Trophy, href: enlace.ganadores() },
+      { id: 'inspiracion', texto: 'Inspiración', icono: Lightbulb, href: enlace.inspiracion() },
       { id: 'imagenes', texto: 'Anuncios de imagen', icono: Images, href: enlace.imagenes() },
       { id: 'investigacion', texto: 'Investigación de mercado', icono: Telescope, href: enlace.investigacion() },
       { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },

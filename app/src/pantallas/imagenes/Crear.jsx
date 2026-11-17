@@ -2,6 +2,7 @@
 // la derecha (fijo al bajar; en pantallas angostas, abajo). Al tocar «Generar» va a la pantalla del lote. Arriba,
 // «← Anuncios de imagen» para volver (igual que en la pantalla de un lote: en el celular las migas no muestran la sección).
 //   #/imagenes/nuevo?producto=<id>   ("Hacer otro lote", «Crear más») el formulario con ese producto elegido
+//   #/imagenes/nuevo?referencia=/api/inspiracion/imagenes/<id>.jpg   («Replicar» en Inspiración) con esa imagen de referencia
 //   #/imagenes/nuevo?simular=1       la vista previa del diseño, con productos de ejemplo (no se guarda nada)
 import { ArrowLeft } from 'lucide-react';
 import { Boton, CabeceraPagina, VistaPrevia, useBarraSuperior } from '../../componentes/index.js';
@@ -33,7 +34,7 @@ export default function PantallaCrearImagenes({ consulta }) {
           }
         />
       </div>
-      <Formulario simulando={simulando} productoPedido={consulta?.get('producto') || null} />
+      <Formulario simulando={simulando} productoPedido={consulta?.get('producto') || null} referenciaPedida={consulta?.get('referencia') || null} />
     </div>
   );
 }
