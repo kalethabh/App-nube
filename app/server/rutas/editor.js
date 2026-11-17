@@ -519,7 +519,16 @@ function lanzarExportacion(slug) {
           }
           if (m[1] === 'avance') {
             t.estado = 'exportando';
-            t.avance = { etapa: datos.etapa, valor: Number(datos.valor) || 0, cuadro: datos.cuadro ?? t.avance?.cuadro ?? null, total: datos.total ?? t.avance?.total ?? null };
+            // (nota: lo que se está haciendo, en palabras, p. ej. «Rehaciendo 2 de 10 tramos (lo demás ya estaba)»;
+            // tramos: { rehacer, total, sonido } de la exportación por tramos)
+            t.avance = {
+              etapa: datos.etapa,
+              valor: Number(datos.valor) || 0,
+              cuadro: datos.cuadro ?? t.avance?.cuadro ?? null,
+              total: datos.total ?? t.avance?.total ?? null,
+              nota: typeof datos.nota === 'string' ? datos.nota.slice(0, 200) : datos.etapa === t.avance?.etapa ? t.avance?.nota ?? null : null,
+              tramos: datos.tramos && typeof datos.tramos === 'object' ? datos.tramos : t.avance?.tramos ?? null,
+            };
           } else {
             t.control = datos.control || null;
             t.archivo = datos.archivo || null;
@@ -527,7 +536,7 @@ function lanzarExportacion(slug) {
             if (t.archivo && existe(path.join(OUTPUT, t.archivo))) {
               t.estado = 'listo';
               t.terminado = ahora();
-              t.avance = { etapa: 'guardar', valor: 100, cuadro: t.avance?.cuadro ?? null, total: t.avance?.total ?? null };
+              t.avance = { etapa: 'guardar', valor: 100, cuadro: t.avance?.cuadro ?? null, total: t.avance?.total ?? null, nota: null, tramos: t.avance?.tramos ?? null };
               // «Guardar»: este video pasa a ser el del anuncio en todas las secciones
               if (t.guardar) marcarPrincipal(slug, t.archivo, t.n);
               cerrarSolo ||= setTimeout(() => procesos.cancelar(slug), 30000);

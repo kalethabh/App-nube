@@ -2,6 +2,21 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17o · Exportar del editor: solo se rehace lo que cambiaste
+
+- **Un ajuste chico sale en segundos.** El video se arma en partes de 4 segundos («tramos») que quedan guardadas. Cuando vuelves a exportar, solo se rehacen los tramos que tocaste; lo demás se reutiliza y se junta sin volver a procesarlo.
+- **Si solo cambiaste el sonido** (silenciar una palabra, el volumen de la voz o de la música, un efecto de sonido), no se rehace ninguna imagen: solo el sonido, en unos segundos.
+- **Mientras exporta, la ventana te dice qué hace:** «Rehaciendo 2 de 10 tramos (lo demás ya estaba)», «Solo cambió el sonido: armando en segundos» o, la primera vez, «Armando los 10 tramos del video».
+- **Medido en un anuncio de prueba de 38 s (720p, en una PC de 4 núcleos):**
+  - primera exportación: 69 s (antes 66 a 83 s; la primera vez cuesta casi lo mismo);
+  - cambiar un texto en la mitad: **19 s** (antes 65 s);
+  - silenciar una palabra: **11 s** (antes 68 s);
+  - exportar otra vez sin cambios: al instante (igual que antes).
+  - en 1080p: primera vez 91 s, cambiar un texto 26 s.
+- **Mismo resultado:** el video sale con los mismos cuadros, el mismo largo y exactamente el mismo sonido que armándolo entero (comparado cuadro a cuadro y el sonido muestra a muestra), y pasa la misma revisión final (que ahora también mide solo lo nuevo).
+- **En la Mac usa el codificador de video de la Mac** (VideoToolbox), más rápido. Si en tu Mac no anda, sigue solo con el de siempre.
+- Lo guardado vive dentro de la carpeta de cada anuncio (`app/exportes/.tramos`), no se sube a GitHub ni a Drive, se borra solo lo más viejo (como mucho unas dos veces el video o 500 MB por anuncio) y se va con el anuncio cuando lo eliminas. Si algo no se puede armar por tramos, el video se exporta entero como antes.
+
 ## 2026-11-17n · Inspiración: los anuncios salen de Meta mismo
 
 - **Arriba del feed eliges de dónde salen:** «Meta (oficial)», «Desde Chrome» o «TrendTrack». Las tres tienen las mismas tarjetas, el formato y el sonido, los guardados, Detalles y Replicar, y nunca muestran tus marcas.
