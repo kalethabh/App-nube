@@ -8,6 +8,8 @@ import {
   Bone,
   Camera,
   BookAudio,
+  Clapperboard,
+  FilePlus2,
   Infinity as Infinito,
   LampDesk,
   MessageCircle,
@@ -28,6 +30,7 @@ export const ICONO_FAMILIA = {
   hablado: MessagesSquare,
   cantado: Music,
   efecto: Infinito,
+  referencia: Clapperboard,
 };
 
 /** Un icono propio por estilo: así se reconoce cada uno sin mostrar a nadie de otro anuncio. */
@@ -46,6 +49,7 @@ export const ICONO_ESTILO = {
   musical: Music,
   'historias-musicales': BookAudio,
   continuidad: Infinito,
+  agregar: FilePlus2,
 };
 
 export const iconoDe = (clave, familia) => ICONO_ESTILO[clave] || ICONO_FAMILIA[familia] || Sparkles;
@@ -53,8 +57,8 @@ export const iconoDe = (clave, familia) => ICONO_ESTILO[clave] || ICONO_FAMILIA[
 /** Los 6 estilos con narrador: son los únicos donde se puede pedir continuidad. */
 export const CON_CONTINUIDAD = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'estilo-lego', 'skeleton'];
 
-/** Los estilos que la app produce de punta a punta (del producto a los MP4, sin terminal): los 12. */
-export const DISPONIBLES = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'realista-narrado', 'skeleton', 'estilo-lego', 'ugc', 'talking-object-pixar', 'podcast', 'entrevista', 'musical', 'historias-musicales'];
+/** Los estilos que la app produce de punta a punta (del producto a los MP4, sin terminal): los 13 y Agregar. */
+export const DISPONIBLES = ['agregar', 'claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'realista-narrado', 'skeleton', 'estilo-lego', 'ugc', 'talking-object-pixar', 'podcast', 'entrevista', 'musical', 'historias-musicales'];
 export const disponible = (clave) => DISPONIBLES.includes(clave);
 
 /** El efecto continuidad se pide en los 6 estilos con narrador. */
@@ -136,6 +140,38 @@ const PREGUNTAS = {
     { id: 'genero', texto: 'Género musical', ayudaIA: 'Con «Que decida la IA», lo elige según tu público.', opciones: ['Pop', 'Pop latino', 'Reggaetón', 'Bachata', 'Country', 'Hip-hop', 'R&B', 'Otro'], escribir: 'Otro', placeholder: 'Ej.: cumbia' },
     { id: 'canta', texto: 'Quién canta', ayudaIA: 'Con «Que decida la IA», la voz la elige la canción.', opciones: ['Voz femenina', 'Voz masculina'] },
   ],
+  // «Agregar»: el video es lo principal (obligatorio). Lo demás lo decide la IA mirando el video, salvo que lo digas.
+  agregar: [
+    {
+      id: 'clonar',
+      tipo: 'video',
+      texto: 'Tu video',
+      ayuda: 'Sube el video que quieres rehacer para tu producto, o pega su link (Biblioteca de anuncios de Meta, TikTok, Instagram, YouTube). Se copia cómo está armado y cómo se ve; no las caras, la marca ni la música.',
+      ia: false,
+      obligatoria: true,
+    },
+    {
+      id: 'formato',
+      texto: 'Cómo está hecho tu video',
+      ayudaIA: 'Con «Que decida la IA», lo mira y elige: si alguien habla a cámara, sale con su propia voz; si una voz cuenta sobre escenas, sale con narrador.',
+      opciones: ['Una persona habla a cámara', 'Una voz cuenta sobre escenas'],
+    },
+    {
+      id: 'angulo',
+      texto: 'Qué tiene que notarse',
+      ayudaIA: 'Con «Que decida la IA», lo saca del video y de tu producto.',
+      escrita: true,
+      opciones: ['Glúteos y piernas más levantados y firmes', 'Abdomen más plano', 'Piel más lisa y luminosa', 'Más energía'],
+      placeholder: 'Ej.: glúteos más redondos y levantados, piernas tonificadas',
+    },
+    {
+      id: 'antes_despues',
+      texto: 'Antes y después',
+      ayudaIA: 'Con «Que decida la IA», va si tu video lo tiene o si el cambio es del cuerpo.',
+      opciones: ['Sí, con el cambio bien visible', 'No'],
+    },
+    { id: 'clonar_gancho', texto: '¿Adapto el gancho y el ángulo a tu producto?', opciones: ['Sí, adáptalo a mi producto', 'No, conserva el del original'], ia: false, porDefecto: 'Sí, adáptalo a mi producto' },
+  ],
   'historias-musicales': [
     { id: 'cuenta', texto: 'Quién cuenta la historia', escrita: true, placeholder: 'Ej.: mamá soltera de 32 que trabaja de noche' },
     { id: 'villano', texto: 'Quién la hizo dudar', ayuda: 'Una suegra, un ex, un jefe… Con «Que decida la IA», propone uno.', escrita: true, placeholder: 'Ej.: su suegra, frente a toda la familia' },
@@ -180,6 +216,8 @@ const PREGUNTAS_CLONAR = [
 
 export function preguntasDe(clave) {
   const base = PREGUNTAS[clave] || [];
+  // «Agregar» ya trae su video (obligatorio) y su pregunta del gancho: no lleva la sección «Clonar un video»
+  if (clave === 'agregar') return base;
   const conSub = SUBESTILOS[clave]?.length ? [...base, preguntaSubestilo(clave)] : base;
   return PREGUNTAS[clave] && !esCantado(clave) ? [...conSub, ...PREGUNTAS_CLONAR] : conSub;
 }
@@ -260,6 +298,13 @@ export const DETALLES = {
     paradas: 'Apruebas la historia y, antes de las imágenes, eliges la versión de la canción, de oído; después se hace solo',
     voz: 'canto',
   },
+  agregar: {
+    quienHabla: 'Como en tu video: la persona a cámara con su voz, o un narrador',
+    idealPara: 'Rehacer para tu producto un video que ya funciona, con su misma gente, su look y su antes y después',
+    tono: 'El de tu video',
+    paradas: 'Se hace solo: la IA mira tu video, elige el formato y el mejor modelo para cada escena',
+    voz: 'narrador',
+  },
   continuidad: { quienHabla: 'Se suma a un estilo con narrador', idealPara: 'Anuncios que se ven de corrido, sin un solo corte', tono: 'Fluido, hipnótico', paradas: SOLO, voz: 'narrador' },
 };
 
@@ -268,6 +313,7 @@ export function queDiceElGuion(clave) {
   if (clave === 'podcast') return 'lo que dice cada anfitrión';
   if (clave === 'entrevista') return 'las preguntas y lo que contesta la persona';
   if (clave === 'ugc') return 'lo que dice la persona a cámara';
+  if (clave === 'agregar') return 'lo que se dice en cada escena, como en tu video';
   if (clave === 'talking-object-pixar') return 'lo que dice cada personaje';
   if (clave === 'musical') return '2 o 3 letras para que elijas una';
   if (clave === 'historias-musicales') return 'la historia que se canta, línea por línea';
@@ -279,6 +325,7 @@ export function queSaleDe(clave, { continuidad = false } = {}) {
   if (esCantado(clave)) return 'Primero se hace la canción: la escuchas, eliges la versión que más te gusta y desde ahí se hace solo hasta el video, con subtítulos.';
   if (clave === 'podcast' || clave === 'entrevista') return 'Sale completo, con las voces del video y subtítulos, y lo retocas en el editor de la app.';
   if (clave === 'ugc' || clave === 'talking-object-pixar') return 'Sale completo, con las voces del video, música y subtítulos, y lo retocas en el editor de la app.';
+  if (clave === 'agregar') return 'Sale completo, como tu video pero con tu producto: con su voz (o la del narrador), música y subtítulos, y lo retocas en el editor de la app.';
   return `Sale completo${continuidad ? ' y sin cortes' : ''}, con voz, música y subtítulos, y lo retocas en el editor de la app.`;
 }
 

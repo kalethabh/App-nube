@@ -150,9 +150,14 @@ function Pie({ guion, letras }) {
     .map((x) => (x.como_es ? `${x.nombre}: ${x.como_es}` : x.nombre));
   const cambios = textos(letras?.cambios_hechos?.length ? letras.cambios_hechos : guion?.cambiosHechos || guion?.cambios_hechos);
   const decisiones = textos(letras?.decisiones?.length ? letras.decisiones : guion?.decisiones);
+  // «Agregar»: qué modelo hace cada escena y por qué (lo arma el servidor desde el manifiesto)
+  const modelos = (Array.isArray(guion?.modelos) ? guion.modelos : [])
+    .filter((x) => x?.modelo && x?.para)
+    .map((x) => `${x.modelo} · ${x.para}${x.porque ? `: ${x.porque}` : ''}`);
   return (
     <>
       <Lista titulo="Quién aparece" icono={Users} items={personajes} clase="nv-decisiones--personajes" />
+      <Lista titulo="El modelo de cada escena" icono={Sparkles} items={modelos} clase="nv-decisiones--modelos" />
       <Lista titulo="Lo que cambió" icono={PenLine} items={cambios} clase="nv-decisiones--cambios" />
       <Lista titulo="Lo que decidió la IA" icono={Lightbulb} items={decisiones} />
     </>

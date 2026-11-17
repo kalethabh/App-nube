@@ -1,4 +1,4 @@
-// ESTILOS (#/estilos): los 13 estilos, la continuidad y los especiales, en una cuadrícula limpia. Cada tarjeta
+// ESTILOS (#/estilos): los 13 estilos y Agregar, la continuidad y los especiales, en una cuadrícula limpia. Cada tarjeta
 // reproduce su anuncio de muestra al pasar el mouse; al tocarla se abre el detalle (video grande, para qué sirve y
 // «Usar este estilo»). Filtros por familia. #/estilos?estilo=<clave> abre ese estilo.
 // Los especiales (Clonar, Más ganchos, Sketch) no tienen muestra propia: usan un anuncio que ya hiciste, de tu GitHub.
@@ -15,6 +15,7 @@ const FILTROS = [
   { id: 'voz-en-off', nombre: 'Con narrador', icono: Mic },
   { id: 'hablado', nombre: 'Alguien habla', icono: Users },
   { id: 'cantado', nombre: 'Cantados', icono: Music },
+  { id: 'referencia', nombre: 'Desde tu video', icono: Clapperboard },
   { id: 'especiales', nombre: 'Especiales', icono: Layers },
 ];
 

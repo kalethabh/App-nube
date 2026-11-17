@@ -97,6 +97,9 @@ export const esperarFamilias = () => familiasListas;
 /** Con que familia se produce el anuncio de este brief, o null si la app todavia no lo produce. */
 export function familiaDe(brief) {
   if (!brief?.estilo) return null;
+  // «Agregar»: lo produce la familia que salio del video (UGC o voz en off), que la app dejo en brief.produccion al
+  // revisar el guion (lib/anuncios-nuevos.js, verificarGuion). Antes de eso, todavia no se puede producir.
+  if (brief.estilo === 'agregar') return ['ugc', 'voz-en-off'].includes(brief.produccion) && FAMILIAS[brief.produccion] ? brief.produccion : null;
   // La continuidad es solo para los estilos de voz en off: en los demas no aplica y se produce como siempre.
   if (brief.continuidad === true) {
     const f = FAMILIAS[CONTINUIDAD];

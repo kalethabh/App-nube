@@ -62,6 +62,9 @@ import {
   modeloParaClip,
   primerModeloQueSirve,
   usaReferencias,
+  MODELOS_POR_PIEZA,
+  modeloDePieza,
+  motivoParaSaltar,
 } from './modelos-elegidos.js';
 
 const MODOS_AUDIO = ['voz_en_off', 'dialogo_nativo', 'musica'];
@@ -2124,6 +2127,24 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false, eleccion = 
       const g = x.guardar_en_biblioteca;
       if (g !== undefined && (typeof g !== 'object' || g === null || !esTexto(g.nombre))) E(`${id}: "guardar_en_biblioteca" es { "tipo": "...", "nombre": "...", "producto": "..." } y necesita "nombre".`);
       if (g && (pideQuieto || x.desde_biblioteca)) A(`${id}: "guardar_en_biblioteca" en un clip que no se genera: no hay nada nuevo que guardar.`);
+      // El modelo propio de esta toma o B-roll (estilo Agregar): va primero y despues la cascada de siempre.
+      if (x.modelo_video !== undefined && x.modelo_video !== null) {
+        const pedido = modeloDePieza(x.modelo_video);
+        if (!pedido) {
+          E(`${id}: "modelo_video" tiene que ser uno de ${Object.keys(MODELOS_POR_PIEZA).join(', ')} (dice ${JSON.stringify(x.modelo_video)})`);
+        } else if (!pideQuieto && !x.desde_biblioteca) {
+          const ref = toma && usaReferencias(x);
+          const motivo = motivoParaSaltar(pedido, { referencias: ref, frameFinal: toma && x.tipo === 'B' });
+          if (motivo) A(`${id}: "modelo_video" ${x.modelo_video} no puede hacer este clip (${motivo}); sale del siguiente modelo de la cascada.`);
+          else {
+            const tope = creditosClip(pedido, Number(x.duracion) || 0, RESOLUCION_VIDEO, { conFinal: toma && x.tipo === 'B' });
+            if (tope.excedeTope) A(`${id}: dura ${x.duracion}s y ${x.modelo_video} no llega a ese largo; parte la toma o elige otro modelo.`);
+          }
+          const hablaEnElClip = toma && (x.tipo === 'R' || x.tipo === 'H' || m.modo_audio === 'dialogo_nativo');
+          if (hablaEnElClip && !MODELOS_VIDEO[pedido]?.dialogo) A(`${id}: alguien habla dentro de este clip y ${x.modelo_video} no genera el diálogo.`);
+        }
+        if (x.modelo_porque !== undefined && !esTexto(x.modelo_porque)) A(`${id}: "modelo_porque" es una frase corta (por qué ese modelo).`);
+      }
     }
   }
 

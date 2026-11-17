@@ -1,0 +1,163 @@
+---
+name: anuncios-agregar
+description: Estilo «Agregar». El usuario sube un video (suyo, de la competencia o uno que le gusta) y se rehace para su producto con la MISMA estructura y el MISMO look: cómo está armado toma por toma, cómo se ven las personas (edad, cuerpo, ropa, lugar, cámara, realismo), el ritmo, los textos, el gancho y el ángulo de venta, con el antes y después bien visible en la zona del cuerpo que vende. Decide si se produce como UGC (alguien habla a cámara) o con voz en off (una voz sobre escenas) y elige el mejor modelo de video para CADA escena (las que hablan, el B-roll, el antes y después). Usar cuando el usuario elige «Agregar» en la app, o pide "rehazme este video para mi producto", "hazlo igual a este video", "que se vea como este video".
+---
+
+# Agregar — un anuncio rehecho a partir del video del usuario
+
+El video que sube el usuario **manda**. No se mete en el look de otro estilo (Pixar, crochet,
+plastilina): se rehace **como se ve el original**, con su gente, sus lugares, su cámara y su ritmo,
+pero para el producto del usuario y con personas nuevas. Interactúa siempre en español sencillo.
+
+Esta skill se apoya en tres que ya existen y no se copian aquí:
+
+- `.claude/skills/anuncios-clonacion/SKILL.md` — el análisis del video (Pasos 1 y 2), el ADN toma
+  por toma (Paso 3) y el guion clonado (Paso 5). Lo que nunca se copia del original también vale aquí.
+- `.claude/skills/anuncios-ugc/SKILL.md` — si el video es **una persona hablando a cámara**.
+- `.claude/skills/anuncios-realista-narrado/SKILL.md` (que sigue `anuncios-estilo-pixar`) — si el
+  video es **una voz que cuenta sobre escenas** (antes y después, B-roll, producto).
+
+Las reglas de `CLAUDE.md` siguen igual: **nada que cobre se genera sin mostrar antes el costo y
+esperar un sí** (en la app, la tarjeta del costo antes de «Me gusta, producir»).
+
+## Paso 1 — El video
+
+En la app ya está hecho: el video quedó en `temp/<slug>/referencia/original.<ext>` y analizado.
+Por chat: cópialo ahí y corre el análisis de la skill de clonación (su Paso 2, gratis en kie.ai;
+la transcripción de ElevenLabs cuesta centavos):
+
+```
+node .claude/skills/anuncios-clonacion/scripts/analizar-referencia.mjs temp/<slug>/referencia/original.mp4 temp/<slug>/referencia
+```
+
+## Paso 2 — Mirarlo entero (entenderlo de verdad)
+
+Mira con Read `referencia/hoja-tomas.jpg` y **cada fotograma** de `referencia/tomas/`, y lee
+`adn-base.json` (tomas, tiempos y lo que se dice en cada una) y `transcripcion.json`. Corrige los
+cortes que el análisis haya hecho mal (dos tomas casi iguales que quedaron en una, un movimiento
+brusco que partió una toma en dos). No sigas hasta poder contar qué pasa en cada segundo y **por qué
+vende**.
+
+## Paso 3 — El ADN visual (`referencia/adn.md`)
+
+Todo lo de la skill de clonación (lo general y la tabla toma por toma) y, además, lo que hace que se
+vea igual. Escríbelo concreto, como se lo dirías a un camarógrafo:
+
+1. **Las personas**, una por una: edad aparente, sexo, origen y tono de piel, **tipo de cuerpo**
+   (contextura, cómo es la zona que vende: piernas, glúteos, abdomen, brazos, cara, piel, pelo),
+   pelo, maquillaje, **ropa exacta** (prenda, color, ajuste: "leggings grises ajustados de tiro alto
+   y top deportivo negro"), postura, actitud y cómo mira a la cámara. Si alguien se repite, que se
+   note que es la misma persona.
+2. **El lugar y la luz**: dónde está (gimnasio, habitación, baño con espejo, calle), qué hay
+   alrededor, de dónde viene la luz y a qué hora parece.
+3. **La cámara y el realismo**: selfie con la cámara frontal, celular apoyado, alguien que la
+   filma, reflejo en el espejo o cámara de cine; plano (cuerpo entero, medio, detalle) y movimiento;
+   si se ve casero (celular, sin retoque) o producido. **Ese mismo nivel de realismo es el del anuncio.**
+4. **El ritmo**: cuánto dura cada toma en promedio, cómo corta (corte seco, zoom, giro, pasar la
+   mano por la cámara), si acelera hacia el final.
+5. **Textos en pantalla y subtítulos**: qué dicen, dónde van, cómo se ven.
+6. **El gancho**: qué se ve y qué se dice en los primeros 1 a 3 segundos, y su mecánica (una
+   pregunta, un resultado de golpe, un antes y después, algo raro).
+7. **El ángulo de venta**: el deseo o el dolor que ataca, **la zona del cuerpo** o el resultado que
+   promete (por ejemplo: "levantar y redondear glúteos y tonificar piernas") y cómo lo prueba.
+8. **El antes y después**, si lo hay: cómo se muestra (lado a lado, corte de uno al otro, giro,
+   pantalla partida), en qué zona y cuánto cambia.
+
+Si el producto del usuario es para otra cosa que el del video, el ángulo sale de **su** producto
+(su ficha y su investigación), con la misma mecánica del original. Si `ajustes_del_estilo.angulo`
+trae lo que tiene que notarse, eso manda.
+
+## Paso 4 — El formato de producción
+
+| Lo que pasa en el video | Formato | Cómo se escribe el manifiesto |
+|---|---|---|
+| una persona habla a cámara la mayor parte del tiempo (testimonio, reseña, rutina, "get ready with me") | **UGC** | `anuncios-ugc`: bloques `R`, `"modo_audio": "dialogo_nativo"`, la voz sale del clip, sin B-roll aparte |
+| una voz cuenta sobre escenas, nadie habla con la boca a cámara (antes y después, B-roll, producto, textos con música) | **Voz en off** | `anuncios-realista-narrado` (proceso de Pixar): tomas A/B, B-roll y `"modo_audio": "voz_en_off"`; la voz la pone ElevenLabs |
+
+- **Si el formulario trae `formato`**, ese manda. Con "que decida la IA", decides tú con la tabla.
+- **Mezclado** (alguien habla y hay muchos cortes a detalles): si la persona habla a cámara más de
+  la mitad del tiempo, es UGC y los cortes a detalles van como tramos dentro de cada bloque ("corte a:
+  plano de detalle de…"). Si no, es voz en off y lo que decía la persona pasa a ser la voz.
+- **Si el video vende con un antes y después del cuerpo**, la voz en off lo muestra mucho mejor
+  (cada imagen se controla: la misma persona, la misma pose): prefiérela salvo que la persona hable
+  a cámara casi todo el video.
+- Cuenta el formato elegido y por qué en "decisiones".
+
+## Paso 5 — El guion
+
+El Paso 5 de la skill de clonación: **mismo número de tomas y misma duración por toma (±15 %)**, la
+misma función en cada frase, el mismo camino del ángulo y el ritmo del original (palabras por
+segundo). Guárdalo en `referencia/guion-clonado.md`, con el original al lado. Si el usuario trajo su
+propio guion, ese va palabra por palabra y el video solo guía lo visual. La duración "que decida la
+IA" es la del video original.
+
+## Paso 6 — El manifiesto, con el look del video
+
+Escribe el manifiesto con la skill del formato elegido (UGC o realista con narrador), con **todas
+sus reglas técnicas y sus chequeos**, cambiando solo esto:
+
+- `"estilo": "agregar"` (siempre, en los dos formatos).
+- **El ADN visual es el de la referencia** (Paso 3), no el de esa skill. En voz en off, lo de
+  realista con narrador sobre el look (celular, anatomía médica 3D para el mecanismo, quién narra)
+  vale **solo si el video lo tiene**: si el original no muestra un mecanismo en 3D, no se inventa.
+  Quién narra y cómo suena la voz salen del video.
+- **Las personas**: cada hoja de personaje describe lo del Paso 3 al detalle (edad, cuerpo, piel,
+  pelo, ropa, lugar, cámara). Es **una persona nueva del mismo tipo**: nunca la cara de alguien real
+  del video. Las tomas repiten la ropa y el lugar del original.
+- **En UGC** los dos ganchos alternativos son opcionales (`ganchos_alternativos` puede no ir) y
+  `notas-paquete.md` lleva el ADN resumido. **En voz en off**, el B-roll sale de los cortes a detalles
+  del original, en su mismo lugar del guion.
+
+### El antes y después (cuando el ángulo es un cambio del cuerpo)
+
+- **Misma persona, misma pose, misma ropa, mismo encuadre, misma cámara, misma luz y mismo lugar.**
+  Solo cambia el resultado, en la zona del ángulo. Así el ojo va directo a lo que cambió.
+- **El cambio se tiene que notar a primera vista, en un celular, sin explicarlo**: escríbelo
+  concreto y fuerte en el prompt del después (por ejemplo, para glúteos y piernas: "visibly lifted,
+  rounder and firmer glutes, toned and defined thighs, smoother skin on the back of the legs"; y en
+  el antes, lo contrario igual de concreto). Un cambio tímido no vende y no es lo que pidió el usuario.
+- En voz en off: `protagonista_antes` y `protagonista_despues` como en realista con narrador (el
+  después con `"referencias": ["protagonista_antes"]`, así sale la misma cara). El paso de uno al otro
+  puede ir como **toma B** (imagen inicial = antes, final = después) o como dos tomas seguidas, como
+  lo haga el original.
+- Respeta el ángulo del video y del usuario **tal cual**: no lo suavices, no cambies la zona del
+  cuerpo ni bajes el cambio a algo "más seguro". Lo único que no va es prometer lo que el producto no
+  hace (cifras o plazos inventados): eso vale para todos los estilos.
+- **Si un generador rechaza una toma** por sus políticas, la app pasa sola al siguiente modelo de la
+  cascada. **Nunca** escribas prompts con trucos para que un filtro no lo note (palabras disfrazadas,
+  faltas de ortografía a propósito, otro idioma para esconder algo): eso no se hace.
+
+### El modelo de cada escena (`modelo_video`)
+
+En **cada toma y cada B-roll** escribe `"modelo_video"` (uno de la tabla) y `"modelo_porque"` (una
+frase corta). Ese modelo va primero; si falla o no puede hacer ese clip, la app sigue sola con la
+cascada de siempre (Ajustes › Modelos). Usa solo estos (costo aproximado de un clip de 10 s):
+
+| `modelo_video` | Modelo | Para qué | ≈ 10 s |
+|---|---|---|---|
+| `omni` | Omni Flash 1.2 (1080p) | **alguien habla con la boca** (labios sincronizados), el gancho, las tomas con persona que más venden; acepta imagen inicial y final hasta 10 s, y los bloques de UGC | US$ 0,50 |
+| `grok15` | Grok Imagine 1.5 (720p) | **B-roll** barato: el producto, detalles, ambiente, manos, lugares; tomas cortas donde 720p no se nota | US$ 0,23 |
+| `pixverse` | PixVerse V6 (720p, mudo) | **el paso del antes al después** en una toma B (necesita imagen inicial Y final) | US$ 0,36 |
+| `kling` | Kling 3.0 (1080p) | el cuerpo en movimiento cuando el realismo del movimiento es la prueba (caminar, girar frente al espejo, una sentadilla); no habla. Es el más caro: 1 o 2 tomas como mucho | US$ 1,51 |
+| `grok` | Grok Imagine (720p) | solo bloques de UGC sencillos, si conviene ahorrar; habla, con menos calidad que Omni | US$ 0,23 |
+
+- **Gratis**: un plano que se entiende quieto (el producto sobre la mesa, el antes y el después
+  como fotos fijas lado a lado) va con `"quieto"` y no lleva `modelo_video` (ver la sección «Ahorro»).
+- Alguien que habla dentro del clip (bloques R, o tomas con diálogo) **solo** con `omni` o `grok`.
+- En UGC no hay B-roll aparte: el modelo se elige por bloque (`omni` casi siempre).
+- El costo total lo muestra la app antes de cobrar, con cuántas escenas van con cada modelo. No
+  digas precios en el guion.
+
+## Paso 7 — Chequeo y entrega
+
+- `node produccion/validar-manifiesto.js temp/<slug>/manifiesto.json` hasta que no quede ningún
+  ERROR (un AVISO de `modelo_video` dice que ese clip saldrá del siguiente modelo: corrígelo si no era
+  la idea).
+- Las transiciones (`transiciones.json`) como en el formato elegido.
+- `app/guion.json` como dice la tarea de la app, con `"modelos"`: qué modelo hace qué escenas y por
+  qué, en palabras sencillas.
+- En "decisiones": el formato (UGC o voz en off) y por qué, el ángulo y la zona del cuerpo, quién es
+  la persona en una frase, y cómo va el antes y después.
+
+Por chat, cierra como la skill del formato elegido (resumen corto y las opciones A, B y C), con una
+línea más: **"Rehecho de: [video] · [N] tomas · [duración] s · formato [UGC/voz en off]"**.

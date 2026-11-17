@@ -145,6 +145,8 @@ async function guion(texto, modo, intento) {
     return 'LISTO';
   }
 
+  if (skill === 'anuncios-agregar') return guionAgregar(texto, slug, brief, mal);
+
   let muestra = MUESTRA[skill];
   const a = brief.ajustes_del_estilo || {};
   if (skill === 'anuncios-entrevista' && /^\s*b|completa/i.test(a.variante || '')) muestra = 'befem-entrevista-b';
@@ -175,6 +177,94 @@ async function guion(texto, modo, intento) {
     if (man.estilo === 'ugc') g.personajes = [{ nombre: 'Vale', como_es: 'mujer de 30 en su oficina' }];
   }
   if (mal) delete g.partes[0].dice;
+  escribir(`temp/${slug}/app/guion.json`, g);
+  await usar('Write', { file_path: path.join(RAIZ, 'temp', slug, 'app', 'guion.json') });
+  return 'LISTO';
+}
+
+/**
+ * «Agregar» (skill anuncios-agregar), sin muestra de temp/: mira lo que dejo el analisis del video (adn-base.json) y
+ * escribe un anuncio corto con VOZ EN OFF, el look del video, un antes y despues y el modelo de cada escena
+ * ("modelo_video"), que el motor de verdad produce con los simuladores. Si el formulario pidio "Una persona habla a
+ * camara", escribe dos bloques UGC (R).
+ */
+function manifiestoAgregar(foto, { ugc = false } = {}) {
+  const look = 'Photorealistic vertical 9:16 smartphone video look, real gym with mirrors and black rubber floor, natural window light, real skin texture, slight handheld framing. No text, captions or watermarks.';
+  const ella = 'a Latina woman in her late twenties, athletic slim build, long dark hair in a high ponytail, light grey high-waisted fitted leggings and a black sports top';
+  const producto = foto ? ['producto'] : [];
+  if (ugc) {
+    const bloque = (n, [a, b], accion) => ({
+      n, tipo: 'R', duracion: 6, fase: n === 1 ? 'gancho + problema' : 'producto + cierre', linea: `${a} ${b}`,
+      tramos: [{ desde: 0, hasta: 3, linea: a }, { desde: 3, hasta: 6, linea: b }],
+      prompt_imagen_inicial: null, prompt_imagen_final: null,
+      prompt_video: `Duración: 6s.\nVideo vertical 9:16 grabado con la cámara frontal de un celular. Habla en español latino.\nREFERENCIAS: Imagen 1 es la persona.${foto ? ' Imagen 2 es el producto.' : ''}\n${accion}.\n[0.0–3.0s] DIÁLOGO: “${a}”\n[3.0–6.0s] DIÁLOGO: “${b}”`,
+      referencias: ['persona', ...producto], modelo_video: 'omni', modelo_porque: 'habla a cámara: Omni mueve bien los labios',
+    });
+    return {
+      estilo: 'agregar', modo_audio: 'dialogo_nativo', mercado: 'LatAm', idioma: 'es', aspect_ratio: '9:16',
+      referencias: [{ id: 'persona', tipo: 'personaje', prompt: `Foto vertical 9:16 con la cámara frontal de un celular: ${ella}, de pie frente a una pared lisa, mira a cámara. Sin texto.` }, ...(foto ? [{ id: 'producto', tipo: 'producto', archivo: foto, nota: 'conservar forma, colores y etiqueta exactos' }] : [])],
+      tomas: [
+        bloque(1, ['Mira cómo cambiaron mis piernas.', 'Y no fue solo el gimnasio.'], 'Ella en el gimnasio, de espaldas al espejo, se gira y mira a cámara'),
+        bloque(2, ['Esto es lo que uso cada mañana.', 'Pídelo en el botón de abajo.'], 'Ella muestra el producto a cámara y sonríe'),
+      ],
+      broll: [], overlays: [],
+    };
+  }
+  const lineas = ['Así se veían mis piernas hace dos meses: por más que entrenaba todos los días y cuidaba lo que comía, en el espejo del gimnasio no cambiaba absolutamente nada.', 'Y así se ven ahora, con la misma ropa y el mismo espejo.', 'Esto es lo único que agregué a mi rutina.'];
+  const video = (seg, mov) => `Vertical 9:16 smartphone video, ${seg}s. Camera: slight handheld, like the reference. Motion: ${mov}. Real people, real gym, natural light.`;
+  const m = {
+    estilo: 'agregar', modo_audio: 'voz_en_off', mercado: 'LatAm', idioma: 'es', aspect_ratio: '9:16',
+    referencias: [
+      { id: 'protagonista_antes', tipo: 'personaje', prompt: `Full body, standing relaxed in front of the gym mirror, seen from behind: ${ella}; glutes flat and soft, thighs without tone. ${look}` },
+      { id: 'protagonista_despues', tipo: 'personaje', referencias: ['protagonista_antes'], prompt: `The same woman, same pose, same leggings and top, same mirror, same light: visibly lifted, rounder and firmer glutes, toned and defined thighs. ${look}` },
+    ],
+    tomas: [
+      { n: 1, tipo: 'A', duracion: 9, linea: lineas[0], prompt_imagen_inicial: `The woman from behind in front of the gym mirror, before. ${look}`, prompt_imagen_final: null, prompt_video: video(9, 'she turns slightly to show her legs'), referencias: ['protagonista_antes'], modelo_video: 'omni', modelo_porque: 'el gancho con persona: la mejor calidad' },
+      { n: 2, tipo: 'B', duracion: 4, linea: lineas[1], prompt_imagen_inicial: `The woman from behind in front of the gym mirror, before. ${look}`, prompt_imagen_final: `The same woman, same pose and outfit, after: lifted, rounder and firmer glutes, toned thighs. ${look}`, prompt_video: video(4, 'smooth transformation from before to after, same pose and camera'), referencias: ['protagonista_antes', 'protagonista_despues'], modelo_video: 'pixverse', modelo_porque: 'el paso del antes al después, de una imagen a la otra' },
+      { n: 3, tipo: 'A', duracion: 3.6, linea: lineas[2], prompt_imagen_inicial: `The woman holds the product jar toward the camera in the gym, smiling. ${look}`, prompt_imagen_final: null, prompt_video: video(3.6, 'she lifts the jar a little toward the camera'), referencias: ['protagonista_despues', ...producto], modelo_video: 'omni', modelo_porque: 'persona con el producto en la mano' },
+    ],
+    broll: [
+      { n: 1, despues_de_toma: 1, sincroniza_con: 'hace dos meses', duracion: 3, prompt_imagen: `Close-up of sneakers on the black rubber gym floor, a water bottle beside them. ${look}`, prompt_video: video(3, 'she ties her shoelace'), referencias: [], modelo_video: 'grok15', modelo_porque: 'B-roll de detalle: barato y en 720p no se nota' },
+      { n: 2, despues_de_toma: 3, sincroniza_con: 'rutina', duracion: 3, prompt_imagen: `The product jar on a gym bench next to a towel, soft window light. ${look}`, prompt_video: video(3, 'slow push-in on the jar'), referencias: producto, quieto: true },
+    ],
+    voz_en_off: lineas.join(' '),
+    overlays: [],
+  };
+  if (foto) m.referencias.push({ id: 'producto', tipo: 'producto', archivo: foto, nota: 'la foto real del producto' });
+  return m;
+}
+
+async function guionAgregar(texto, slug, brief, mal) {
+  const ref = `temp/${slug}/referencia`;
+  let adn = null;
+  try {
+    adn = leer(`${ref}/adn-base.json`);
+  } catch {
+    /* sin analisis: igual se escribe (la app ya habria parado antes) */
+  }
+  await usar('Read', { file_path: path.join(RAIZ, ref, 'hoja-tomas.jpg') });
+  const foto = fs.readdirSync(path.join(RAIZ, 'temp', slug)).find((n) => /^producto\.(jpg|jpeg|png|webp)$/i.test(n));
+  const ugc = /habla a c[aá]mara/i.test(brief.ajustes_del_estilo?.formato || '');
+  escribir(`${ref}/adn.md`, `# ADN visual (prueba)\n\n- Tomas del original: ${adn?.tomas?.length ?? '?'} · ${adn?.duracion ?? '?'} s\n- Personas: mujer de 28, atlética, leggings grises y top negro, gimnasio con espejo.\n- Ángulo: glúteos y piernas más levantados y firmes, con antes y después.\n`);
+  escribir(`${ref}/guion-clonado.md`, '# Guion clonado (prueba)\n');
+  const man = manifiestoAgregar(foto, { ugc });
+  if (mal) man.estilo = 'ugc';
+  escribir(`temp/${slug}/manifiesto.json`, man);
+  await usar('Write', { file_path: path.join(RAIZ, 'temp', slug, 'manifiesto.json'), content: '{…}' });
+  escribir(`temp/${slug}/transiciones.json`, { efectos: { woosh: 'efectos/woosh.mp3', 'deep-woosh': 'efectos/deep-woosh.mp3' }, puntos: [{ toma: 2, animacion: 'deslizar-derecha', efecto: 'woosh', porque: 'el después' }] });
+  if (ugc) escribir(`temp/${slug}/notas-paquete.md`, '# Notas (prueba)\n\nADN resumido: mujer de 28 en el gimnasio.\n');
+  await usar('PowerShell', { command: `node produccion/validar-manifiesto.js temp/${slug}/manifiesto.json` });
+  const g = {
+    titulo: 'Zeta: piernas de antes y de ahora',
+    idioma: 'es',
+    mercado: 'LatAm',
+    duracionEstimada: 17,
+    de_que_va: 'Rehecho del video subido: el antes y después de sus piernas en el mismo espejo.',
+    personajes: [{ nombre: 'Vale', como_es: 'mujer de 28, atlética, en el gimnasio' }],
+    partes: man.tomas.map((t, i) => ({ n: t.n, momento: i === 0 ? 'gancho' : i === 1 ? 'prueba' : 'cierre', dice: t.linea, se_ve: 'Como en el video original' })),
+    decisiones: [`Rehecho de: el video subido · ${adn?.tomas?.length ?? '?'} tomas · ${adn?.duracion ?? '?'} s · formato ${ugc ? 'UGC' : 'voz en off'}`, 'El ángulo: glúteos y piernas más levantados y firmes.'],
+    modelos: [{ modelo: 'Omni Flash 1.2', para: 'las tomas con persona', porque: 'la mejor calidad' }],
+  };
   escribir(`temp/${slug}/app/guion.json`, g);
   await usar('Write', { file_path: path.join(RAIZ, 'temp', slug, 'app', 'guion.json') });
   return 'LISTO';

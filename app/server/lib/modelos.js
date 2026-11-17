@@ -235,9 +235,26 @@ export function cascadaVideo(eleccion, idCategoria, { referencias = false } = {}
   return [...(referencias ? REFERENCIAS_DE_SIEMPRE : FRAMES_DE_SIEMPRE)];
 }
 
-/** La cascada de una pieza del manifiesto (toma o B-roll). */
-export const cascadaDeLaPieza = (eleccion, manifiesto, pieza) =>
-  cascadaVideo(eleccion, categoriaDeVideo(manifiesto, pieza), { referencias: usaReferencias(pieza) });
+/**
+ * El modelo propio de una toma o un B-roll ("modelo_video" del manifiesto, lo escribe el estilo Agregar), como id de
+ * kie, o null. Los valores posibles son los de catalogo-modelos.json -> "porPieza" (o el id de uno de ellos): el mismo
+ * criterio que modeloPedido del motor (produccion/modelos-elegidos.js).
+ */
+export function modeloDeLaPieza(pieza) {
+  const v = String(pieza?.modelo_video ?? '').trim();
+  if (!v || pieza?.clase === 'gancho' || pieza?.clase === 'paso') return null;
+  const lista = Object.entries(catalogo().porPieza || {}).filter(([k, id]) => !k.startsWith('_') && typeof id === 'string' && MODELOS_VIDEO[id]);
+  const porClave = lista.find(([k]) => k === v);
+  if (porClave) return porClave[1];
+  return lista.some(([, id]) => id === v) ? v : null;
+}
+
+/** La cascada de una pieza del manifiesto (toma o B-roll), con su modelo propio primero si lo pide. */
+export function cascadaDeLaPieza(eleccion, manifiesto, pieza) {
+  const base = cascadaVideo(eleccion, categoriaDeVideo(manifiesto, pieza), { referencias: usaReferencias(pieza) });
+  const propio = modeloDeLaPieza(pieza);
+  return propio ? [propio, ...base.filter((x) => x !== propio)] : base;
+}
 
 /** El modelo que hace los clips de una categoria (el primero de su cascada), con su nombre. */
 export function modeloPrincipal(eleccion, idCategoria, opciones) {

@@ -12,6 +12,14 @@
     "nano-banana-2-1": { "nombre": "Nano Banana 2.1", "dialogo": false, "tipo": "imagen" },
     "gpt-image-2": { "nombre": "GPT Image 2", "dialogo": false, "tipo": "imagen" }
   },
+  "porPieza": {
+    "_nota": "Modelo de video por toma o B-roll (campo \"modelo_video\" del manifiesto, lo usa el estilo Agregar): ese modelo va primero y despues sigue la cascada de su categoria. Lo leen produccion/modelos-elegidos.js y app/server/lib/modelos.js.",
+    "omni": "google/gemini-omni-flash-1-2",
+    "kling": "kling-3.0/video",
+    "grok15": "grok-imagine-video-1-5-preview",
+    "pixverse": "pixverse-v6/transition",
+    "grok": "grok-imagine/image-to-video"
+  },
   "categorias": [
     {
       "id": "vozEnOff",

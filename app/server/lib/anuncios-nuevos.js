@@ -54,7 +54,7 @@ import { audioPorId, avatarPorId, carpetaDeEstilo, prepararAvatar, prepararMusic
 import { prepararReferencia, referenciaPedida, textoClonar } from './clonar.js';
 import { textoEstructuras, textoInvestigacion, textoTendencias } from './estructuras.js';
 import { conDuracion, entenderDuracion, leerDuracion, duracionAprox, segundosPedidos } from './duracion.js';
-import { copiarModelosAlAnuncio } from './modelos.js';
+import { copiarModelosAlAnuncio, modeloDeLaPieza, nombreDeModelo } from './modelos.js';
 
 // ---------------------------------------------------------------- los estilos
 
@@ -79,17 +79,58 @@ export const ESTILOS = {
   entrevista: { skill: 'anuncios-entrevista', nombre: 'Entrevista callejera', familia: 'hablado', faseGuion: 'guion', transiciones: false },
   musical: { skill: 'anuncios-musicales', nombre: 'Musical', familia: 'musical', faseGuion: 'letras', transiciones: false },
   'historias-musicales': { skill: 'anuncios-historias-musicales', nombre: 'Historia musical', familia: 'historia-musical', faseGuion: 'letras', transiciones: false },
+  // Agregar: el video del usuario manda. `familia` queda en 'agregar' hasta que la IA mira el video y escribe el
+  // manifiesto: ahi la app sabe si se produce como UGC (alguien habla a camara) o con voz en off (familiaDelAnuncio).
+  // Lleva la voz del narrador por si sale con voz en off (si sale UGC, la voz la hace el video).
+  agregar: { skill: 'anuncios-agregar', nombre: 'Agregar', familia: 'agregar', faseGuion: 'guion', transiciones: true, narrador: true, sinContinuidad: true, segunReferencia: true },
 };
+/** Las skills que sigue «Agregar» segun el formato del video (la de UGC, o la de realista con narrador y su base Pixar). */
+const SKILLS_DE_AGREGAR = ['anuncios-ugc', 'anuncios-realista-narrado', 'anuncios-estilo-pixar'];
+/** Las familias con las que se puede producir un anuncio «Agregar». */
+export const FAMILIAS_DE_AGREGAR = ['ugc', 'voz-en-off'];
 /** El nombre de la etapa 1 (cuando solo estaba claymation). */
 export const ESTILOS_ACTIVOS = ESTILOS;
 /** Los 6 de voz en off: los unicos donde se puede pedir continuidad. */
 export const CON_CONTINUIDAD = Object.keys(ESTILOS).filter((k) => ESTILOS[k].narrador && !ESTILOS[k].sinContinuidad);
 
-/** La familia que produce este anuncio: la del estilo, o "continuidad" si la pidio en uno de voz en off. */
+/**
+ * La familia que produce este anuncio: la del estilo, o "continuidad" si la pidio en uno de voz en off. En «Agregar», la
+ * que salio del video (brief.produccion: 'ugc' | 'voz-en-off'), o null mientras la IA todavia no lo miro.
+ */
 export function familiaDe(brief) {
   const def = ESTILOS[brief?.estilo];
   if (!def) return null;
+  if (def.segunReferencia) return FAMILIAS_DE_AGREGAR.includes(brief.produccion) ? brief.produccion : null;
   return brief.continuidad && def.narrador && !def.sinContinuidad ? 'continuidad' : def.familia;
+}
+
+/** La definicion del estilo para ESTE anuncio: en «Agregar», con la familia que salio del video (si ya se sabe). */
+function defDe(brief) {
+  const def = ESTILOS[brief?.estilo];
+  if (!def?.segunReferencia) return def;
+  return { ...def, familia: FAMILIAS_DE_AGREGAR.includes(brief.produccion) ? brief.produccion : 'agregar' };
+}
+
+/** Lo que se eligio en el formulario de «Agregar» sobre como esta hecho el video: 'ugc' | 'voz-en-off' | null (la IA). */
+export function formatoPedidoDeAgregar(brief) {
+  const t = String(brief?.respuestas?.formato || '');
+  if (/habla a c[aá]mara|persona habla/i.test(t)) return 'ugc';
+  if (/voz (en off|cuenta)|narrador|sobre escenas/i.test(t)) return 'voz-en-off';
+  return null;
+}
+
+/**
+ * «Agregar»: la familia que sale del manifiesto que escribio la IA. Bloques R -> 'ugc'; voz en off -> 'voz-en-off'.
+ * { familia } o { error } (en palabras para la IA, que lo corrige).
+ */
+export function familiaDelManifiesto(m) {
+  const tomas = Array.isArray(m?.tomas) ? m.tomas : [];
+  if (tomas.some((t) => t?.tipo === 'R')) {
+    if (!tomas.every((t) => t?.tipo === 'R')) return { error: 'manifiesto.json → en el formato UGC todas las tomas son bloques R (la persona habla a cámara): no mezcles bloques R con tomas A o B.' };
+    return { familia: 'ugc' };
+  }
+  if (m?.modo_audio === 'voz_en_off') return { familia: 'voz-en-off' };
+  return { error: 'manifiesto.json → «Agregar» se produce de dos formas: como UGC (bloques R, "modo_audio": "dialogo_nativo", la skill anuncios-ugc) o con voz en off ("modo_audio": "voz_en_off", tomas A/B y B-roll, el proceso de anuncios-realista-narrado). Este manifiesto no es ninguna de las dos.' };
 }
 
 /**
@@ -146,6 +187,14 @@ const AJUSTES = {
     pronunciacion: { dice: 'se lee como se escribe' },
     variante: { valor: (t) => de(t, [[/^\s*a\b|callejero/i, 'A'], [/^\s*b\b|completa/i, 'B']]), porDefecto: null },
   },
+  // «Agregar»: el video es obligatorio (va en `clonar`, como Clonar un video: un archivo subido o un link)
+  agregar: {
+    clonar: { falta: 'Sube tu video (o pega su link): «Agregar» se arma a partir de él.' },
+    formato: {},
+    angulo: {},
+    antes_despues: {},
+    clonar_gancho: { dice: 'Sí, adáptalo a mi producto' },
+  },
   // (las de los cantados las leen tambien familias/musical.js y server/claude/estilos/musical.md)
   musical: {
     visual: { falta: 'Elige con qué estilo visual se hace el video de la canción.', valor: (t) => de(t, [[/crochet|tejid/i, 'crochet'], [/clay|plastilina/i, 'claymation'], [/zack|3d/i, 'zack-d-films']]) },
@@ -168,8 +217,8 @@ for (const [clave, def] of Object.entries(ESTILOS)) {
 // Clonar un video (lib/clonar.js): en todos los estilos menos los cantados. Se responde con un archivo subido o un link.
 for (const [clave, def] of Object.entries(ESTILOS)) {
   if (!AJUSTES[clave] || def.faseGuion === 'letras') continue;
-  AJUSTES[clave].clonar = { dice: 'sin video de referencia' };
-  AJUSTES[clave].clonar_gancho = { dice: 'Sí, adáptalo a mi producto' };
+  AJUSTES[clave].clonar ??= { dice: 'sin video de referencia' };
+  AJUSTES[clave].clonar_gancho ??= { dice: 'Sí, adáptalo a mi producto' };
 }
 
 const GUIA_SUBESTILO =
@@ -452,6 +501,8 @@ const GUIA_AJUSTES = {
     'Las dos pausas ya están contestadas. Briefing (Paso 1): las preguntas 1 a 4 con la ficha; la 5 con `persona`, `ciudad`, `brazos` (color de piel de los brazos del entrevistador) y `lado` (del micrófono); la 6 con `cta` (el texto del llamado a la acción, tal cual) e `idioma`; `pronunciacion` es cómo se pronuncia la marca. Variante (Paso 2): `variante`; con "que decida la IA", eliges con las reglas para recomendar del Paso 2 y lo cuentas en "decisiones". Persona, ciudad, idioma y CTA vienen del usuario: nunca los cambies ni los inventes.',
   musical:
     'Las pausas de los Pasos 1 a 3 ya están contestadas: la ficha es el brief (si no hay página ni investigación, sigue con la ficha: el usuario ya la revisó). `genero` es el 2.1 (con "que decida la IA", lo eliges con el mapa del 2.1 según el público de la ficha); `canta` es la voz del 2.3 ("Voz femenina" = "f", "Voz masculina" = "m", "que decida la IA" = que elija Suno, null); `visual` es el estilo visual del 2.4 (Crochet = `crochet`, Claymation = `claymation`, Zack D Films = `zack-d-films`). El ángulo y la etapa de consciencia del Paso 3 los decides tú con su regla y los cuentas en "decisiones". La duración no se pregunta ni se pide (2.2).',
+  agregar:
+    '`clonar` es el video del usuario (ya analizado: abajo dice dónde). `formato` es cómo está hecho ese video: "Una persona habla a cámara" = formato UGC, "Una voz cuenta sobre escenas" = formato voz en off; con "que decida la IA", lo decides tú mirando el video (Paso 4 de la skill). `angulo` es lo que tiene que notarse (la zona del cuerpo, el deseo o el resultado, por ejemplo "glúteos y piernas más levantados y firmes"); con "que decida la IA", lo sacas del video y de la ficha. `antes_despues`: "Sí" = va un antes y después con el cambio bien visible en esa zona; "No" = sin antes y después; con "que decida la IA", va si el video lo tiene o si el ángulo es un cambio del cuerpo. `clonar_gancho` dice si el gancho y el ángulo se adaptan al producto o se conservan del original.',
   'historias-musicales':
     'El briefing del Paso 1 ya está contestado: la ficha (producto, dolor y mecanismo, mercado, oferta), `duracion` y `ajustes_del_estilo`: `cuenta` es quién cuenta la historia, `villano` el detonante, `cierre` el tipo de cierre ("Cantado dentro de la canción" o "Solo tarjeta final"), `genero` el género musical y `canta` la voz ("Voz femenina" = "f", "Voz masculina" = "m"; con "que decida la IA", el género de quien cuenta la historia). Donde diga "que decida la IA", decides tú con la skill: nunca dejes un dato inventado sin contarlo en "decisiones".',
 };
@@ -494,6 +545,12 @@ function formatoGuion(def, brief) {
       'Una parte por clip, con el mismo `n` que `tomas[].n` y en el mismo orden. `dice` es `tomas[].linea` copiado carácter por carácter.',
       'Agrega en cada parte `"dialogo"`: el `tomas[].dialogo` del manifiesto, línea por línea, como `{ "quien": "Entrevistador" o el nombre de la persona, "dice": "su texto, copiado" }`.',
       'Agrega `"personajes"`: la persona que paran, `[{ "nombre": "…", "como_es": "una frase" }]`, y `"variante"`: "A" o "B".',
+      '`duracionEstimada` es la suma de `tomas[].duracion`, en segundos.',
+    );
+  } else if (fam === 'agregar') {
+    r.push(
+      'Depende del formato que elegiste (Paso 4 de la skill). **UGC:** una parte por bloque, con el mismo `n` que `tomas[].n` y en el mismo orden; `dice` es `tomas[].linea` copiado carácter por carácter; agrega `"personajes"`: la persona que habla a cámara, `[{ "nombre": "…", "como_es": "una frase" }]`. **Voz en off:** una parte por toma, con el mismo `n` que `tomas[].n` y en el mismo orden; `dice` es `tomas[].linea` copiado del manifiesto carácter por carácter; si hay una persona que se repite (el antes y el después), agrega `"personajes"`.',
+      'Agrega `"modelos"`: una línea por modelo que elegiste, en palabras sencillas, `[{ "modelo": "Omni Flash 1.2", "para": "las tomas donde ella habla", "porque": "mueve bien los labios" }]` (aquí sí va el nombre del modelo).',
       '`duracionEstimada` es la suma de `tomas[].duracion`, en segundos.',
     );
   } else if (fam === 'ugc') {
@@ -601,7 +658,7 @@ function piezasDeLaTarea(slug, brief, def) {
   }
   const conTransiciones = def.transiciones && !brief.continuidad;
   const transiciones = conTransiciones
-    ? TEXTO_TRANSICIONES.replace(/\{\{slug\}\}/g, slug).replace('{{bloques}}', fam === 'ugc' ? ' Aquí "toma" es el número del bloque que empieza con esa parte.' : '')
+    ? TEXTO_TRANSICIONES.replace(/\{\{slug\}\}/g, slug).replace('{{bloques}}', fam === 'ugc' ? ' Aquí "toma" es el número del bloque que empieza con esa parte.' : fam === 'agregar' ? ' Si lo haces en formato UGC, "toma" es el número del bloque que empieza con esa parte, y solo van en el corte entre dos bloques.' : '')
     : brief.continuidad
       ? 'Este anuncio lleva el efecto continuidad (cada escena pasa a la siguiente sin cortes, lo arma la app después): escribe el anuncio del estilo como siempre, sin cambios, pero no escribas `transiciones.json`.'
       : 'Este estilo no lleva transiciones: no escribas `transiciones.json`.';
@@ -667,7 +724,7 @@ function tieneGuionPropio(brief) {
 }
 
 function promptGuion(slug, brief, foto, prepClonar = null) {
-  const def = ESTILOS[brief.estilo];
+  const def = defDe(brief);
   const t = piezasDeLaTarea(slug, brief, def);
   return textoClaude('tarea-guion', {
     slug,
@@ -685,10 +742,10 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
     foto: textoFoto(slug, brief, foto),
     pasos: lista(t.pasos),
     delEstilo: [
-      textoClonar(slug, brief, prepClonar, { guionPropio: tieneGuionPropio(brief) }),
+      textoClonar(slug, brief, prepClonar, { guionPropio: tieneGuionPropio(brief), agregar: Boolean(def.segunReferencia) }),
       // la investigación del producto (deseo, beneficio, dolores, objeciones) y la estructura más adecuada (2026-11-16)
       textoInvestigacion({ slug, brief }).texto,
-      esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
+      esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia === 'agregar' ? 'voz-en-off' : def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
       textoTendencias(brief.estilo),
       textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
@@ -697,7 +754,7 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
 }
 
 function promptCambios(slug, brief, pedido, { reintento = false } = {}) {
-  const def = ESTILOS[brief.estilo];
+  const def = defDe(brief);
   const fam = def.familia;
   const validarTxt = `Valida con este comando, escrito exactamente así:\n\n   node produccion/validar-manifiesto.js temp/${slug}/manifiesto.json\n\n   y corrige hasta que no quede ningún ERROR.`;
   let queLeyo = 'el guion';
@@ -758,6 +815,8 @@ function permisosGuion(slug, brief) {
       ...(brief.estilo === 'skeleton' ? ['Read(./recursos/esqueletos/**)'] : []),
       // realista con narrador sigue la skill de Pixar entera (su "proceso"): la lee tambien
       ...(brief.estilo === 'realista-narrado' ? ['Read(./.claude/skills/anuncios-estilo-pixar/**)'] : []),
+      // Agregar produce con el proceso de UGC o con el de realista con narrador (que sigue el de Pixar): las lee
+      ...(ESTILOS[brief.estilo]?.segunReferencia ? SKILLS_DE_AGREGAR.map((k) => `Read(./.claude/skills/${k}/**)`) : []),
       // clonar un video: la skill de la clonacion (sus Pasos 3 y 5)
       ...(referenciaPedida(brief) ? ['Read(./.claude/skills/anuncios-clonacion/**)'] : []),
       `Read(${c}/**)`,
@@ -801,6 +860,7 @@ function materialPropio(slug, brief) {
   const esImagen = (f) => /\.(png|jpe?g|webp|gif)$/i.test(f);
   const skill = `.claude/skills/${ESTILOS[brief.estilo].skill}`;
   if (brief.estilo === 'realista-narrado') textos.push('.claude/skills/anuncios-estilo-pixar/SKILL.md');
+  if (ESTILOS[brief.estilo]?.segunReferencia) textos.push(...SKILLS_DE_AGREGAR.map((k) => `.claude/skills/${k}/SKILL.md`));
   const subestilo = brief.opciones?.subestilo;
   // La ficha se lee al principio; los fotogramas y movimientos quedan disponibles para pedirlos por su ruta.
   for (const f of archivos(`${skill}/subestilos`)) {
@@ -825,7 +885,7 @@ function materialPropio(slug, brief) {
  * de continuidad para decir que ahora no se sigue (estilos/continuidad.md): esa no se lee.
  */
 function materialGuion(slug, brief, { foto = null, deAntes = false } = {}) {
-  const def = ESTILOS[brief.estilo];
+  const def = defDe(brief);
   const c = `temp/${slug}`;
   const prod = relProducto(brief.productoId);
   const p = leerProducto(brief.productoId) || {};
@@ -850,13 +910,13 @@ function materialGuion(slug, brief, { foto = null, deAntes = false } = {}) {
 
 /** Lo que el cambio puede tocar: el archivo del que sale lo que se dice (el manifiesto, la letra o la peticion). */
 function archivosDelCambio(slug, brief) {
-  const fam = ESTILOS[brief.estilo].familia;
+  const fam = defDe(brief).familia;
   return [`temp/${slug}/${fam === 'musical' ? 'app/letras.json' : fam === 'historia-musical' ? 'cancion/peticion.json' : 'manifiesto.json'}`];
 }
 
 /** Lo que lee la IA en un cambio: la skill y lo escrito (lo que nombra la tarea de cambios de esa fase). */
 function materialCambios(slug, brief) {
-  const def = ESTILOS[brief.estilo];
+  const def = defDe(brief);
   const c = `temp/${slug}`;
   const deLaFase =
     def.familia === 'musical'
@@ -933,7 +993,7 @@ const r1 = (x) => Math.round(Number(x) * 10) / 10;
  */
 export async function verificarGuion(slug) {
   const brief = leerBrief(slug);
-  const def = ESTILOS[brief?.estilo];
+  let def = ESTILOS[brief?.estilo];
   if (!def) return { ok: false, final: true, error: 'Este anuncio es de un estilo que la app no conoce.' };
 
   const bloqueo = path.join(appDe(slug), 'bloqueo.json');
@@ -944,6 +1004,30 @@ export async function verificarGuion(slug) {
   }
   if (def.familia === 'musical') return verificarLetras(slug, brief);
   if (def.familia === 'historia-musical') return verificarHistoria(slug, brief);
+  if (def.segunReferencia) {
+    // «Agregar»: la IA miro el video y escribio el manifiesto en el formato que calza (UGC o voz en off). Desde aca la
+    // app sabe con que familia se produce y lo deja en el brief (lo lee el conductor y el costo estimado).
+    const m = leerJSON(path.join(dirDe(slug), 'manifiesto.json'));
+    if (m) {
+      const f = familiaDelManifiesto(m);
+      if (f.error) return { ok: false, errores: [f.error] };
+      const pedido = formatoPedidoDeAgregar(brief);
+      if (pedido && pedido !== f.familia) {
+        return {
+          ok: false,
+          errores: [
+            pedido === 'ugc'
+              ? 'El usuario eligió que su video es una persona que habla a cámara: el manifiesto va en bloques R (formato UGC, la skill anuncios-ugc), no con voz en off.'
+              : 'El usuario eligió que su video es una voz que cuenta sobre escenas: el manifiesto va con "modo_audio": "voz_en_off" (el proceso de anuncios-realista-narrado), no en bloques R.',
+          ],
+        };
+      }
+      if (brief.produccion !== f.familia || brief.familia !== f.familia) escribirJSON(path.join(appDe(slug), 'brief.json'), { ...brief, produccion: f.familia, familia: f.familia });
+      brief.produccion = f.familia;
+      brief.familia = f.familia;
+      def = defDe(brief);
+    }
+  }
   return verificarManifiesto(slug, brief, def);
 }
 
@@ -1006,6 +1090,30 @@ async function verificarManifiesto(slug, brief, def) {
   return { ok: true, ...normalizarGuion(slug, brief, g.datos, m) };
 }
 
+/**
+ * Las escenas que piden su propio modelo ("modelo_video", estilo Agregar), agrupadas por modelo para la pantalla:
+ * [{ modelo: 'Grok Imagine 1.5', para: 'B-roll 2 y 4', porque: '…' }]. Vacio si ninguna lo pide.
+ */
+export function modelosPorEscena(m) {
+  const grupos = new Map();
+  const piezas = [...(m?.tomas || []).map((t) => ({ t, que: 'toma' })), ...(m?.broll || []).map((t) => ({ t, que: 'broll' }))];
+  for (const { t, que } of piezas) {
+    const id = t && !t.quieto && !t.desde_biblioteca ? modeloDeLaPieza(t) : null;
+    if (!id) continue;
+    const g = grupos.get(id) || { tomas: [], broll: [], porque: [] };
+    g[que === 'toma' ? 'tomas' : 'broll'].push(t.n);
+    const p = texto(t.modelo_porque).trim();
+    if (p && !g.porque.includes(p)) g.porque.push(p);
+    grupos.set(id, g);
+  }
+  const y = (xs) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} y ${xs.at(-1)}` : String(xs[0]));
+  return [...grupos].map(([id, g]) => ({
+    modelo: nombreDeModelo(id) || id,
+    para: [g.tomas.length ? `${g.tomas.length === 1 ? 'toma' : 'tomas'} ${y(g.tomas)}` : '', g.broll.length ? `B-roll ${y(g.broll)}` : ''].filter(Boolean).join(' · '),
+    ...(g.porque.length ? { porque: g.porque.slice(0, 2).join(' ').slice(0, 300) } : {}),
+  }));
+}
+
 /** guion.json con lo que se dice copiado del manifiesto (la fuente de verdad), parte por parte y en orden. */
 function normalizarGuion(slug, brief, g, m) {
   const porN = new Map(g.partes.map((p) => [brief.estilo === 'podcast' ? p.orden ?? p.n : p.n, p]));
@@ -1014,7 +1122,7 @@ function normalizarGuion(slug, brief, g, m) {
   const personajes = Array.isArray(g.personajes) ? g.personajes.filter((x) => x && typeof x === 'object') : [];
   let partes;
   let faltaban;
-  const fam = ESTILOS[brief.estilo].familia;
+  const fam = defDe(brief).familia;
 
   if (brief.estilo === 'podcast') {
     // la conversacion en el orden en que se oye (las tomas son bloques por anfitrion: no van en ese orden)
@@ -1069,6 +1177,9 @@ function normalizarGuion(slug, brief, g, m) {
     if (m.entrevista?.variante) limpio.variante = m.entrevista.variante;
   }
   if (Object.keys(extras).length) limpio.extras = extras;
+  // «Agregar»: el modelo de cada escena, contado desde el manifiesto (lo que de verdad se va a pedir), con el porque
+  const porModelo = modelosPorEscena(m);
+  if (porModelo.length) limpio.modelos = porModelo;
   if (personajes.length) limpio.personajes = personajes.map((x) => ({ ...(x.id ? { id: texto(x.id) } : {}), nombre: texto(x.nombre).slice(0, 80), ...(x.como_es ? { como_es: texto(x.como_es).slice(0, 300) } : {}) }));
   escribirJSON(path.join(appDe(slug), 'guion.json'), limpio);
   return { ajustados, faltaban };
@@ -1230,6 +1341,10 @@ async function trabajar(slug, { tipo, pedido = null, retomar = false, reintento 
     avanzar('Preparando la foto de tu producto');
     const foto = await prepararFoto(slug, brief);
     const prepClonar = referenciaPedida(brief) ? await prepararReferencia(slug, brief, avanzar) : null;
+    // «Agregar» no tiene guion sin su video: si no se pudo preparar, se para aca (sin gastar la sesion de la IA)
+    if (ESTILOS[brief.estilo]?.segunReferencia && !prepClonar?.ok) {
+      throw Object.assign(new Error('referencia'), { publico: { mensaje: prepClonar?.aviso || 'Falta tu video: súbelo (o pega su link) en los ajustes del anuncio y toca "Reintentar".', tipo: 'otro' } });
+    }
     sesion = armarSesionGuion(slug, { brief, foto, retomar, reintento, prepClonar });
     fs.rmSync(path.join(appDe(slug), 'bloqueo.json'), { force: true });
   }

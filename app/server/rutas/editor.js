@@ -1187,7 +1187,7 @@ function creditosEstimados(slug, pieza, conImagen, manifiesto, modo = 'tal-cual'
   if (modo === 'subido' || modo === 'original') return 0;
   const dur = Math.max(3, Number(pieza.duracion) || 6);
   const eleccion = eleccionDelAnuncio(slug);
-  const deLaPieza = pieza.clase === 'broll' ? { clase: 'broll' } : pieza.clase === 'paso' ? { clase: 'paso', tipo: 'paso' } : pieza.clase === 'gancho' ? { ...promptsActuales(pieza, manifiesto), clase: 'gancho', tipo: 'R' } : { ...((manifiesto?.tomas || []).find((x) => x.n === pieza.n) || {}), tipo: pieza.tipo };
+  const deLaPieza = pieza.clase === 'broll' ? { ...((manifiesto?.broll || []).find((x) => x.n === pieza.n) || {}), clase: 'broll' } : pieza.clase === 'paso' ? { clase: 'paso', tipo: 'paso' } : pieza.clase === 'gancho' ? { ...promptsActuales(pieza, manifiesto), clase: 'gancho', tipo: 'R' } : { ...((manifiesto?.tomas || []).find((x) => x.n === pieza.n) || {}), tipo: pieza.tipo };
   const cascada = cascadaDeLaPieza(eleccion, manifiesto, deLaPieza);
   // un largo que ningun modelo de su cascada hace: el de 10 s (el clip se divide o se recorta)
   const c = creditosDeCascada(cascada, dur, { sonido: sonidoDeLaPieza(manifiesto, deLaPieza) }) || creditosDeCascada(cascada, 10);
