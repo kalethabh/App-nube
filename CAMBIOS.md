@@ -2,7 +2,7 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
-## 2026-11-17p2 · Plantillas de ángulos ganadores (sin oferta)
+## 2026-11-17q · Plantillas de ángulos ganadores (sin oferta) y «Actualizar» vuelve a traer las versiones nuevas
 
 - **8 formatos nuevos en «Ángulos ganadores»**, sacados de anuncios ya validados de la categoría (sin copiar marcas ni textos):
   - **Silueta con zonas (neón):** fondo negro, la silueta en línea de neón con tu color y las zonas rotuladas («+ caderas», «cintura pequeña»).
@@ -15,6 +15,7 @@ Cada versión nueva va arriba. La versión que tienes está en el archivo VERSIO
   - **Foto grande con íconos:** la zona del resultado en una foto, el titular, 3 íconos y el producto (en noviembre y diciembre, a veces «Esta Navidad regálate…»).
 - **Ya no hay plantillas de oferta** en el formulario ni en «Que la app elija»: la mezcla empieza por los ángulos ganadores. Los lotes viejos con oferta se siguen viendo igual.
 - Los textos salen de tu ficha, sin precios ni descuentos, y los cambias gratis con «Editar textos».
+- **«Actualizar» en una copia instalada con el comando:** las versiones con número al final (2026-11-17p1, p2…) no las reconocía, y no se publicaba ninguna desde el 16. La versión vuelve al formato de fecha con una letra y la app ahora entiende los dos.
 
 ## 2026-11-17p1 · Las imágenes siguen las fórmulas de los anuncios ganadores
 

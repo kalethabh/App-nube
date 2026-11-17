@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17p2` (archivo `VERSION`): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
+- **Versión actual:** `2026-11-17q` (archivo `VERSION`; antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
   la pantalla y de la mezcla. Antes: `2026-11-17p1` (referencia interna de ganadores) y `2026-11-17p`: anuncios de imagen con plantillas (la app dibuja los textos y
   los gráficos con Remotion en 0,3-1 s por imagen; el modelo solo hace escenas sin texto; 12 de 17 formatos gratis; kit de
   marca; «Editar textos» gratis) y «De un video, imágenes» (rama `plantillas-imagen`, sin PR). Antes: `2026-11-17o`: exportar del editor por tramos (solo se rehace lo que cambió;
@@ -143,6 +143,21 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### «Actualizar» no traía nada a las copias instaladas (2026-11-17, versión 2026-11-17q)
+
+- Síntoma: alguien instaló con el comando, tocó «Actualizar» y no cambió nada.
+- Causa 1: la última versión publicada en `kalethabh/kads-studio` es `v2026-11-16a` (`git ls-remote --tags`). El flujo
+  «Publicar sola la versión nueva» de kads-studio falla desde entonces (le falta la llave `APP_NUBE_LLAVE`) y no se
+  corrió `npm run publicar`.
+- Causa 2: las versiones `2026-11-17p1`, `p2`, `j2`, `m1`, `l1` no cumplen `RE_VERSION` / `RE_ETIQUETA`
+  (fecha + una letra): una copia instalada no las reconocería aunque se publicaran.
+- Arreglo: `RE_VERSION` y `RE_ETIQUETA` aceptan un número final, `esMasNueva` compara con números (q10 > q9);
+  `publicar-version.mjs` se niega a publicar una VERSION que no sea fecha + una letra (las copias viejas solo leen
+  esa). **Regla desde ahora: VERSION siempre fecha + una letra** (siguiente: `2026-11-17r`).
+- Falta del usuario: publicar (`npm run publicar` en su Mac, con `gh auth login`) o arreglar el flujo automático de
+  kads-studio (llave de despliegue de solo lectura en App-nube + secreto `APP_NUBE_LLAVE` en kads-studio). Esta
+  sesión no tiene acceso a kads-studio.
 
 ### Plantillas de «Ángulos ganadores», sin oferta (2026-11-17, versión 2026-11-17p2)
 

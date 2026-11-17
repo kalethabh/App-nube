@@ -13,14 +13,14 @@ import { Readable, Transform } from 'node:stream';
 
 export const REPO_PUBLICO = process.env.KADS_REPO_PUBLICO || 'kalethabh/kads-studio';
 const ZIP = 'anuncios-con-ia-app.zip';
-const RE_ETIQUETA = /^v(\d{4}-\d{2}-\d{2}[a-z]?)$/;
+const RE_ETIQUETA = /^v(\d{4}-\d{2}-\d{2}[a-z]?\d*)$/;
 const CADA_MS = 10 * 60000;
 
 let recordada = null; // { cuando, valor }
 let bajando = null; // { bytes, total }
 
-/** ¿`a` es una versión más nueva que `b`? (2026-11-15 > 2026-11-11b > 2026-11-11) */
-export const esMasNueva = (a, b) => Boolean(a) && (!b || String(a) > String(b));
+/** ¿`a` es una versión más nueva que `b`? (2026-11-15 > 2026-11-11b > 2026-11-11; 2026-11-17q10 > 2026-11-17q9) */
+export const esMasNueva = (a, b) => Boolean(a) && (!b || String(a).localeCompare(String(b), 'en', { numeric: true }) > 0);
 
 export async function ultimaPublicada({ fresca = false } = {}) {
   if (!fresca && recordada && Date.now() - recordada.cuando < CADA_MS) return recordada.valor;
