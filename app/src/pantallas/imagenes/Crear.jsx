@@ -34,7 +34,7 @@ export default function PantallaCrearImagenes({ consulta }) {
           }
         />
       </div>
-      <Formulario simulando={simulando} productoPedido={consulta?.get('producto') || null} referenciaPedida={consulta?.get('referencia') || null} />
+      <Formulario simulando={simulando} productoPedido={consulta?.get('producto') || null} referenciaPedida={consulta?.get('referencia') || null} videoPedido={consulta?.get('video') || null} />
     </div>
   );
 }

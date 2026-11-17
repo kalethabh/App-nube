@@ -340,6 +340,20 @@ export async function prepararLogo(carpeta, bytes, ext) {
  * WEBP y GIF pasan a PNG (pueden tener transparencia); lo demas, a JPG. `destinoSinExt`: la ruta sin la extension.
  * Devuelve la ruta final.
  */
+/**
+ * Los píxeles de una imagen achicada a ancho×alto (RGBA, un Buffer de ancho*alto*4), o null si no se pudo leer. Lo usan
+ * los colores del kit de marca y saber si la foto del producto ya viene sin fondo (plantillas.js).
+ */
+export async function pixeles(abs, ancho = 48, alto = 48) {
+  try {
+    const bin = await binFfmpeg();
+    const r = await ejecutar(bin, ['-hide_banner', '-loglevel', 'error', '-i', abs, '-frames:v', '1', '-vf', `scale=${ancho}:${alto}:flags=area,format=rgba`, '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], { binario: true, maxBuffer: ancho * alto * 4 + 4096, timeout: 30000 });
+    return r.ok && Buffer.isBuffer(r.stdout) && r.stdout.length >= ancho * alto * 4 ? r.stdout : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function normalizarImagen(bytes, destinoSinExt, formato) {
   const ext = ['png', 'webp', 'gif'].includes(formato) ? 'png' : 'jpg';
   const dir = path.dirname(destinoSinExt);
