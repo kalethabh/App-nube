@@ -40,6 +40,8 @@ import crypto from 'node:crypto';
 import express from 'express';
 import { TIPOS_MEDIO, dentroDe, stat, listar, existe } from '../lib/archivos.js';
 import { ErrorApp, soloDesdeLaApp, formatoDeBytes, rutaFoto } from '../lib/productos.js';
+import { aLaPapelera } from '../lib/papelera.js';
+import { TEMP } from '../lib/rutas.js';
 import { iniciarProduccion, continuar, detener, leerConductor, esperarFamilias, reabrir, estadoDeLaFila, tomarElMando } from '../lib/conductor.js';
 import { modoPrueba } from '../lib/procesos.js';
 import { miniatura, anchoPermitido } from '../lib/miniaturas.js';
@@ -484,12 +486,19 @@ export default function rutasImagenAds(app) {
     await enviarZip(res, plan); // si algo falla a mitad, corta la respuesta: la descarga sale fallida, nunca colgada
   }));
 
-  // ------------------------------------------------------------ borrar un borrador
+  // ------------------------------------------------------------ eliminar un lote
+  // Un borrador (no se hizo ni se pagó nada) se borra. Un lote que ya tiene imágenes no se borra: pasa a
+  // temp/_descartados/ (lib/papelera.js), por si lo necesitas recuperar. Mientras se crea, primero hay que detenerlo.
   app.delete('/api/imagen-ads/:lote', soloDesdeLaApp, conErrores((req, res) => {
     const { lote, carpeta } = elLote(req);
-    if (!enBorrador(lote) || enMarcha(lote)) throw new ErrorApp(409, 'Este lote ya empezó: no se puede borrar desde aquí.');
-    fs.rmSync(carpeta, { recursive: true, force: true });
-    res.json({ ok: true });
+    if (enMarcha(lote)) throw new ErrorApp(409, 'Este lote se está creando: detenlo primero y después elimínalo.');
+    if (enBorrador(lote)) {
+      fs.rmSync(carpeta, { recursive: true, force: true });
+      return res.json({ ok: true, borrado: true });
+    }
+    const destino = aLaPapelera(carpeta);
+    console.log(`[papelera] lote ${lote} -> ${path.relative(TEMP, destino)}`);
+    res.json({ ok: true, papelera: path.relative(path.dirname(TEMP), destino) });
   }));
 
   // ------------------------------------------------------------ los archivos

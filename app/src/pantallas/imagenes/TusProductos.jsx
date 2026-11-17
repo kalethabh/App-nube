@@ -26,7 +26,7 @@ function useCelular() {
     () => false
   );
 }
-const fechaDe = (l) => Date.parse(l.terminado || l.creado) || 0;
+const fechaDe = (l) => Date.parse(l.actualizado || l.terminado || l.creado) || 0;
 const normal = (s) => String(s || '').trim().toLocaleLowerCase('es');
 
 /**

@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17j2 · Lo último arriba y eliminar lotes de imágenes
+
+- **Lo más reciente arriba:** en Anuncios, el Editor y Anuncios de imagen, lo último que creaste **o cambiaste** (un cambio en el editor, una imagen nueva, una corrección) sube al primer lugar.
+- **Eliminar lotes en Anuncios de imagen:** cada lote que no se esté creando tiene **Eliminar**. Pregunta antes y no borra nada: el lote y sus imágenes quedan guardados aparte (temp/_descartados) por si los necesitas. Los borradores (sin nada hecho) se siguen borrando del todo.
+
 ## 2026-11-17j1 · Descargar y guardar del editor, más rápido
 
 - **Exportar es más rápido:** en la Mac la app armaba el video de a un cuadro por vez porque la Mac informa poca memoria libre; ahora usa varios a la vez según tu equipo (si falta memoria, baja sola). También codifica más rápido, con la misma calidad. En la prueba, un video de 38 s pasó de 76 a 57 s, y en una Mac la mejora debería ser mayor.
