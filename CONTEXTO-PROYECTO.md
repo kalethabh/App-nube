@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17d` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+- **Versión actual:** `2026-11-17e` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
   Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -136,6 +136,16 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Eliminar anuncios y marcarlos como ganadores (2026-11-17, versión 2026-11-17e)
+
+- `componentes/AccionesAnuncio.jsx` (trofeo `BotonFunciona` tipo video + Eliminar con confirmación) debajo de cada
+  miniatura en `pantallas/editor-videos` y en la rejilla local de `pantallas/anuncios`.
+- `lib/papelera.js` + `rutas/papelera.js` (`POST /api/anuncios/:slug/eliminar`): mueve `temp/<slug>` a
+  `temp/_descartados/<slug>` y sus archivos de `output/` a `temp/_descartados/<slug>/output/`. Se niega si el anuncio
+  está produciéndose o en la fila. Para recuperarlo: mover la carpeta de vuelta.
+- Prueba (modo prueba, copia de un video propio): trofeo marcado, Eliminar con confirmación, la tarjeta desaparece y
+  la carpeta y el MP4 quedan en `_descartados`. Compilación correcta.
 
 ### Editor sin avisos de «Deshacer» al borrar (2026-11-17, versión 2026-11-17d)
 

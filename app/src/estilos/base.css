@@ -390,3 +390,7 @@ kbd {
     animation: girar 0.9s linear infinite !important;
   }
 }
+
+/* una miniatura con sus acciones debajo (AccionesAnuncio): «Me funciona» y Eliminar */
+.con-acciones { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.acciones-anuncio { display: flex; justify-content: flex-end; align-items: center; gap: 2px; }
