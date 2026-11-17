@@ -633,7 +633,7 @@ async function medirPedazo(ruta, desde = null, dur = null) {
  * unión con la de sus dos tramos. Solo se mide lo nuevo; si casi todo es nuevo, se mide el video entero una vez y se
  * reparte. Devuelve lo mismo que medirVideo: { negros, congelados } (o { error }).
  */
-async function medirPorTramos({ archivo, tramos, dirCache, fps }) {
+export async function medirPorTramos({ archivo, tramos, dirCache, fps }) {
   const rutaMedida = (t) => path.join(dirCache, `${t.huella}.json`);
   const rutaUnion = (a, b) => path.join(dirCache, `union-${a.huella}-${b.huella}.json`);
   const medidas = tramos.map((t) => {

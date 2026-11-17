@@ -27,8 +27,8 @@ import crypto from 'node:crypto';
 export const CUADROS_POR_TRAMO = 120;
 /** Cambia este número si cambia la forma de armar o de medir los tramos: invalida todo lo guardado. */
 export const VERSION_TRAMOS = 1;
-/** Margen (en cuadros) alrededor de lo que va por segundos: textos, subtítulos y fundidos. */
-const MARGEN = 2;
+/** Margen (en cuadros) alrededor de lo que va por segundos (textos, subtítulos): la cuenta es exacta, así que 0. */
+const MARGEN = 0;
 
 // Lo que en las capas (capasDeEdicion) solo suena: no cambia ningún cuadro.
 const CAPAS_SONIDO = new Set(['voz', 'audios', 'pitidos', 'musica']);
@@ -95,8 +95,23 @@ function piezasDelPlan(plan, fps, total) {
   return piezas;
 }
 
-/** De segundos a cuadros, con margen (lo que se ve de `inicio` a `fin`). */
-const ventana = (inicio, fin, fps) => ({ desde: Math.floor(num(inicio) * fps) - MARGEN, hasta: Math.ceil(num(fin) * fps) + MARGEN });
+/**
+ * Los cuadros donde se dibuja algo que se ve de `inicio` a `fin` (segundos): los f con inicio <= f / fps < fin, con
+ * LA MISMA cuenta que hacen las capas (t = cuadro / fps), así un texto de 10 a 12 s no toca el tramo que empieza en 12.
+ */
+export function cuadrosEntre(inicio, fin, fps) {
+  const a = num(inicio);
+  const z = num(fin);
+  let desde = Math.max(0, Math.floor(a * fps) - 1);
+  while (desde / fps < a) desde++;
+  let hasta = Math.max(desde, Math.ceil(z * fps) + 1);
+  while (hasta > desde && !((hasta - 1) / fps < z)) hasta--;
+  return { desde, hasta };
+}
+const ventana = (inicio, fin, fps) => {
+  const v = cuadrosEntre(inicio, fin, fps);
+  return { desde: v.desde - MARGEN, hasta: v.hasta + MARGEN };
+};
 
 /**
  * Lo que se ve, separado en lo general y lo que va por tiempos.
@@ -144,8 +159,9 @@ export function partesVisibles({ capas, estado, inicial, fps, total }) {
 
   // el fundido a negro: el del comienzo y el del final
   const f = capas?.fundido;
-  if (f?.entrada > 0) items.push({ desde: 0, hasta: Math.ceil(f.entrada * fps) + MARGEN, dato: { capa: 'fundido-entrada', entrada: f.entrada } });
-  if (f?.salida > 0) items.push({ desde: Math.floor(total - f.salida * fps) - MARGEN, hasta: total, dato: { capa: 'fundido-salida', salida: f.salida, total } });
+  // (FundidoNegro: se ve mientras t < entrada y mientras total - t < salida; un cuadro de más a cada lado, por las dudas)
+  if (f?.entrada > 0) items.push({ desde: 0, hasta: cuadrosEntre(0, f.entrada, fps).hasta + 1, dato: { capa: 'fundido-entrada', entrada: f.entrada } });
+  if (f?.salida > 0) items.push({ desde: Math.floor(total - f.salida * fps) - 1, hasta: total, dato: { capa: 'fundido-salida', salida: f.salida, total } });
   return { general, items };
 }
 
@@ -226,7 +242,8 @@ export function podarCache(dir, { enUso = new Set(), maxArchivos = 60, maxBytes 
       }
     })
     .filter(Boolean)
-    .sort((a, b) => b.t - a.t);
+    // (lo que usa este video primero: siempre queda y cuenta para el tope; después lo más reciente)
+    .sort((a, b) => Number(enUso.has(b.n)) - Number(enUso.has(a.n)) || b.t - a.t);
   let cuenta = 0;
   let bytes = 0;
   let borrados = 0;
