@@ -14,7 +14,8 @@
     "ocultos": [],
     "voz": {
       "volumen": 1,
-      "silenciada": false
+      "silenciada": false,
+      "tramos": null
     },
     "musica": {
       "fuente": "original",
@@ -125,14 +126,25 @@
     "clips": {},
     "corte": null,
     "censuras": [],
-    "encuadres": {},
-    "ajustesEscena": {}
+    "encuadres": {
+      "toma-1": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      }
+    },
+    "ajustesEscena": {},
+    "audios": [],
+    "fundido": {
+      "entrada": 0,
+      "salida": 0
+    }
   },
-  "t": 1794889939319,
+  "t": 1794892957610,
   "contexto": {
     "titulo": "01   VTD 6   54 ventas CPA 7.2k",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-17T04:32:20.267Z"
+  "guardado": "2026-11-17T05:22:38.224Z"
 }
