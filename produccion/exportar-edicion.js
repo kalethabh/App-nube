@@ -35,6 +35,7 @@
 // trabajo: Remotion busca ahi su navegador (remotion/node_modules/.remotion).
 import fs from 'node:fs';
 import os from 'node:os';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { createRequire } from 'node:module';
@@ -198,9 +199,65 @@ function enlazar(origen, final) {
 // ---------------------------------------------------------------- memoria (como ensamblar.js)
 
 function concurrenciaSegunMemoria() {
-  const libresGB = os.freemem() / 1024 ** 3;
-  const techo = Math.round(Math.min(8, Math.max(1, os.cpus().length / 2)));
+  // En la Mac, os.freemem() cuenta solo la memoria sin usar (no la que el sistema libera al momento), así que casi
+  // siempre da 1-2 GB y la exportación iba de a UN cuadro: 3-4 veces más lenta de lo que la PC puede. Se estima con la
+  // memoria total (cada cuadro a la vez usa ~1 GB) y, si igual falta, renderConReintentos baja a la mitad y a 1.
+  const totalGB = os.totalmem() / 1024 ** 3;
+  const libresGB = process.platform === 'darwin' ? Math.max(os.freemem() / 1024 ** 3, totalGB * 0.6) : os.freemem() / 1024 ** 3;
+  // (con 4 núcleos, 4 a la vez fue 27 % más rápido que 2 en la prueba: el navegador espera mucho a los videos)
+  const techo = Math.round(Math.min(8, Math.max(1, os.cpus().length * 0.75)));
   return Math.max(1, Math.min(techo, Math.floor(libresGB - 2)));
+}
+
+// ---------------------------------------------------------------- volver a usar una exportación idéntica
+
+/**
+ * La huella de lo que se va a exportar: los cambios, el plan, la calidad, la versión de la app y cada archivo que el
+ * render va a leer (su tamaño y fecha). Si coincide con la de una exportación limpia que sigue en output/, el video ya
+ * está hecho: se reutiliza al instante (p. ej. «Guardar» después de «Descargar» con los mismos cambios).
+ */
+function huellaDe(props, extra, publico) {
+  const archivos = [];
+  const visitar = (dir) => {
+    for (const n of fs.readdirSync(dir, { withFileTypes: true })) {
+      const abs = path.join(dir, n.name);
+      if (n.isDirectory()) visitar(abs);
+      else {
+        const st = fs.statSync(abs);
+        archivos.push([path.relative(publico, abs), st.size, Math.round(st.mtimeMs)]);
+      }
+    }
+  };
+  if (fs.existsSync(publico)) visitar(publico);
+  let version = '';
+  try {
+    version = fs.readFileSync(path.join(RAIZ, 'VERSION'), 'utf8').trim();
+  } catch {
+    // sin VERSION: la huella igual sirve
+  }
+  return crypto.createHash('sha1').update(JSON.stringify({ v: 1, version, props, extra, archivos: archivos.sort() })).digest('hex');
+}
+
+/** Una exportación limpia de este anuncio con esa huella cuyo MP4 sigue igual: { archivo, control } o null. */
+function exportacionIgual(carpeta, slug, huella) {
+  const qa = path.join(carpeta, 'qa');
+  let nombres = [];
+  try {
+    nombres = fs.readdirSync(qa).filter((x) => /^control-editado-\d+\.json$/.test(x));
+  } catch {
+    return null;
+  }
+  for (const x of nombres) {
+    const c = leerJSON(path.join(qa, x));
+    if (!c || c.huella !== huella || c.codigo !== 0) continue;
+    const mp4 = path.join(DIR_OUTPUT, `${slug}_editado-${x.match(/(\d+)/)[1]}.mp4`);
+    try {
+      if (fs.statSync(mp4).size === c.bytes) return { archivo: mp4, control: c };
+    } catch {
+      // ya no está
+    }
+  }
+  return null;
 }
 const FIRMA_SIN_MEMORIA = /No frame found|Target closed|Page crashed|ENOMEM|out of memory|allocation failed/i;
 // Con la PC muy cargada (otro render, otros programas) un cuadro puede tardar mas de lo que Remotion espera por
@@ -562,6 +619,38 @@ async function principal() {
   // (si el usuario silencio la voz y no hay musica, un video sin pista de sonido no es un defecto)
   const conSonido = Boolean((plan.audio?.voz && !edicion.voz.silenciada) || (musica && !edicion.musica.silenciada) || (capas.modoVoz(plan) === 'en-clips' && !edicion.voz.silenciada));
 
+  // lo mismo ya exportado (y limpio): se reutiliza, sin volver a dibujar ningún cuadro
+  const huella = huellaDe(props, { calidad, sinMusica, conSonido }, publico);
+  const igual = exportacionIgual(carpeta, slug, huella);
+  if (igual && igual.archivo !== salidaMp4) {
+    avance('guardar', 95);
+    fs.mkdirSync(DIR_OUTPUT, { recursive: true });
+    const temporalCopia = `${salidaMp4}.copiando`;
+    try {
+      fs.rmSync(temporalCopia, { force: true });
+      fs.copyFileSync(igual.archivo, temporalCopia);
+    } catch {
+      fs.rmSync(temporalCopia, { force: true });
+    }
+    if (fs.existsSync(temporalCopia) && reemplazar(temporalCopia, salidaMp4)) {
+      let srt = null;
+      if (pedido.srt) {
+        const texto = capas.hacerSrt(capas.subtitulosEditados(plan, estado));
+        if (texto.trim()) {
+          fs.writeFileSync(salidaSrt, '\ufeff' + texto, 'utf8');
+          srt = path.basename(salidaSrt);
+        }
+      }
+      const control = { ...igual.control, generado: new Date().toISOString(), archivo: nombre, reutilizado: path.basename(igual.archivo) };
+      fs.writeFileSync(path.join(carpeta, 'qa', `control-editado-${n}.json`), JSON.stringify(control, null, 2) + '\n', 'utf8');
+      console.log(`\n  OK  ${nombre}: es igual a ${path.basename(igual.archivo)} (mismos cambios), así que no se vuelve a armar.`);
+      avance('guardar', 100);
+      avisar('listo', { archivo: nombre, srt, calidad, n, reutilizado: true, control: { limpio: true, codigo: 0, motivo: null, defectos: [], avisos: [] } });
+      console.log(`\n  Listo: output/${nombre}\n`);
+      return;
+    }
+  }
+
   // Remotion: el navegador lo busca en remotion/node_modules/.remotion segun la carpeta de trabajo
   process.chdir(DIR_REMOTION);
   const req = createRequire(path.join(DIR_REMOTION, 'package.json'));
@@ -617,6 +706,8 @@ async function principal() {
       serveUrl,
       codec: 'h264',
       crf: CRF,
+      // (veryfast: el mismo CRF, 10 % menos de tiempo y el archivo hasta un poco más liviano en la prueba)
+      x264Preset: 'veryfast',
       scale: calidad === '1080' ? 1.5 : 1,
       outputLocation: temporal,
       inputProps: props,
@@ -705,6 +796,9 @@ async function principal() {
   }
   fs.mkdirSync(path.join(carpeta, 'qa'), { recursive: true });
   const rutaControl = path.join(carpeta, 'qa', `control-editado-${n}.json`);
+  // (la huella y el tamaño: así la próxima exportación con los mismos cambios lo reutiliza)
+  control.huella = huella;
+  control.bytes = fs.statSync(salidaMp4).size;
   fs.writeFileSync(rutaControl, JSON.stringify(control, null, 2) + '\n', 'utf8');
   for (const d of control.defectos) console.log(`  DEFECTO  ${d.detalle}`);
   for (const x of control.avisos) console.log(`  aviso    ${x.detalle}`);

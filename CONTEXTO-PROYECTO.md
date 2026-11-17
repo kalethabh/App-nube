@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17i` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+- **Versión actual:** `2026-11-17j1` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
   Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -136,6 +136,20 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Exportar del editor más rápido (2026-11-17, versión 2026-11-17j1)
+
+- Medido con un anuncio sintético de 38,6 s a 720 (4 núcleos): armar 2 s, dibujar 66 s, control 8 s. El dibujo manda.
+- `produccion/exportar-edicion.js`: `concurrenciaSegunMemoria` usaba `os.freemem()`, que en macOS casi siempre da 1-2 GB
+  (no cuenta la memoria que el sistema libera), así que en la Mac exportaba de a 1 cuadro. Ahora en darwin usa
+  max(freemem, 60 % de la total) y el techo es 0,75 × núcleos (máx. 8); `renderConReintentos` sigue bajando a la mitad
+  y a 1 si falta memoria. `x264Preset: 'veryfast'` (mismo CRF 21: −10 % de tiempo, archivo algo más liviano).
+- Reutilizar: `huellaDe(props, {calidad, sinMusica, conSonido}, publico)` = sha1 de las props del render, VERSION y
+  cada archivo de la carpeta pública (tamaño y fecha). Se guarda en `qa/control-editado-N.json` (`huella`, `bytes`). Si
+  hay una exportación limpia con la misma huella y su MP4 sigue igual, se copia como la nueva N y se avisa `@@listo`
+  con `reutilizado: true`, sin armar ni dibujar.
+- Resultado: 76 → 57 s (3 a la vez en 4 núcleos); repetir con los mismos cambios: 0,1 s. El control final (8 s) se
+  mantiene. `.claude/worktrees/` va al .gitignore (copias de los agentes; el guardado automático no las sube).
 
 ### Alargar un texto que sigue al video (2026-11-17, versión 2026-11-17i)
 
