@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-17 (Inspiración, 2026-11-17m).
+Última actualización: 2026-11-17 (Inspiración desde Meta: API oficial + botón de Chrome, 2026-11-17n).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,8 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17m1` (archivo `VERSION`): «Inspiración» (los anuncios de TrendTrack como en Starpop, con
-  formato, sonido, marcas que sigues y Replicar). Antes: `2026-11-17l1` (Agregar y Clonar no pierden la esencia),
+- **Versión actual:** `2026-11-17n` (archivo `VERSION`): Inspiración con los anuncios de Meta mismo (fuentes «Meta
+  (oficial)» con la API de la Biblioteca de anuncios, solo Europa, y «Desde Chrome» con el botón «Guardar en Kads»;
+  TrendTrack sigue como tercera fuente). Antes: `2026-11-17m1` (Inspiración: solo validados y nunca tus marcas), `2026-11-17l1` (Agregar y Clonar no pierden la esencia),
   `2026-11-17l` (estilo «Agregar»: subir un video y decir lo que quieres), `2026-11-17k` (editor con el audio como en CapCut),
   `2026-11-17j2` (lo último arriba y eliminar lotes de imágenes), `2026-11-17j1` (exportar más rápido), `2026-11-17i` (las imágenes respetan el ángulo y el gancho de la referencia), `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
@@ -138,6 +139,74 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Inspiración desde Meta: API oficial + botón de Chrome (2026-11-17, versión 2026-11-17n)
+
+Pedido: que los anuncios salgan de Meta mismo, como starpop.ai/inspiration. El usuario eligió «API oficial + botón de
+Chrome». Rama `inspiracion-meta` (sin PR todavía). TrendTrack sigue como tercera fuente.
+
+- **Selector de fuente** arriba del feed: «Meta (oficial)», «Desde Chrome», «TrendTrack» (recordado en localStorage
+  `inspiracion-fuente`). Las tres usan la misma forma de anuncio (`normalizarAnuncio` de `lib/ganadores.js`, ahora con
+  `fuente`, `metaId`, `plataformas`, `descripcion`, `creativos`, `medioPendiente`, `guardadoEn`), las mismas tarjetas,
+  formato/sonido, guardados, Detalles, Replicar y `paraInspiracion` (nunca tus marcas). UI: `fuentes.js` (hooks
+  `useFuenteMeta`, `useFuenteChrome`, `useMediosMeta`), `BotonChrome.jsx`, cambios en `index.jsx`, `Tarjeta.jsx`,
+  `Detalles.jsx`, `datos.js`.
+- **Meta (oficial)** (`app/server/lib/meta-biblioteca.js`, `VERSION_GRAPH = 'v21.0'` en un solo lugar): `GET
+  graph.facebook.com/v21.0/ads_archive` con search_terms / search_page_ids, ad_reached_countries (solo UE + GB,
+  `PAISES_META`), ad_active_status=ACTIVE, ad_delivery_date_max = hoy − 30 (validado), media_type, languages y los
+  campos id, page_id, page_name, ad_creative_*, ad_delivery_start_time, ad_snapshot_url, publisher_platforms, languages,
+  eu_total_reach. «Cargar más» con `paging.cursors.after` (el `paging.next` trae el token: nunca va al navegador).
+  Caché 12 h en `temp/_ganadores/meta/busquedas/`. Errores: 190 → «Tu token de Meta venció»; 4/17/32/613/80004 → «Meta
+  pidió esperar»; 10/200-299/2332002 → explica la verificación de identidad. **Límite**: para anuncios no políticos la
+  API solo devuelve lo que se mostró en la UE (y Reino Unido): la pantalla lo dice y manda a «Desde Chrome».
+  **Medios**: la API no da video; el servidor abre el snapshot (`/ads/archive/render_ad/?id=…&access_token=…`, solo
+  redirecciones dentro de facebook.com), saca video/imagen/miniatura .fbcdn.net (`extraerMediosSnapshot`) y lo guarda
+  12 h en `temp/_ganadores/meta/<id>.json`; se pide solo para las tarjetas visibles (IntersectionObserver), de a 2
+  (servidor y pantalla). Si falla: «Ver en Meta» (facebook.com/ads/library/?id=…). Al guardar un anuncio de Meta se
+  guarda sin la dirección del video (vence) y se vuelve a sacar.
+- **Token**: `META_ADS_TOKEN` en el `.env` (`lib/claves.js` CLAVES.meta, acepta 40-1000 caracteres, limpia «Bearer» y
+  `?access_token=`), Ajustes › Conexiones › «Inspiración: Biblioteca de anuncios de Meta» con «Probar» y 5 pasos
+  (facebook.com/ID, ads/library/api, crear app, Graph API Explorer, extender a ~60 días en el depurador de tokens).
+  Opcional: no cuenta en «Faltan».
+- **Botón de Chrome** (`extension-chrome/`, Manifest V3): content script solo en facebook.com/ads/library/*
+  (`leer-tarjeta.js` busca el texto «Library ID / Identificador de la biblioteca», sube al contenedor con un solo ID y
+  lee página, id de página, fecha «Circulando desde / Started running on», activo, copy, título, dominio, CTA, video +
+  poster o imagen, «N anuncios usan este contenido»; `contenido.js` pone el botón y un aviso; solo lee al tocar, sin
+  clics ni desplazamientos), `fondo.js` (service worker) hace el POST con el código, `opciones.html` (código + dirección,
+  solo 127.0.0.1/localhost; «Probar conexión»). Íconos desde `app/public/kads-icono-512.png`.
+- **Importar** (`lib/desde-chrome.js`, `porteroImportar` montado en `index.js` ANTES del filtro CSRF general y solo
+  para `/api/inspiracion/importar`): Origin `chrome-extension://<32 a-p>` (o sin Origin), preflight CORS solo ahí
+  (también Private Network), 30 pedidos/min por IP y freno con 20 códigos malos en 10 min, cuerpo ≤ 64 KB (413), código
+  en `X-Kads-Codigo` comparado con `timingSafeEqual` sobre sha256 (401). Cada campo validado y recortado; medios solo
+  https .fbcdn.net / facebook.com (400). Se baja enseguida (video ≤ 300 MB, imagen ≤ 25 MB, en streaming) a
+  `temp/_ganadores/chrome/<id>.<ext>` (+ `<id>-p.jpg` miniatura) y se guarda en `mis_archivos/ganadores/desde-chrome.json`
+  (máx. 500). El código vive en `app/.extension-chrome.json` (0600, fuera de git, y `delAlumno` lo conserva al actualizar;
+  la app de prueba usa `temp/_modo-prueba-<puerto>/`). En «Desde Chrome» lo validado es una insignia (no esconde nada);
+  tus marcas sí se quitan. Se puede borrar (también sus archivos). `GET /api/inspiracion/chrome/extension.zip` arma el
+  zip al momento con `app/herramientas/zip.mjs`.
+- **Proxy de medios** `/api/ganadores/media`: ahora también `deFacebook` (https, host que termina en `.fbcdn.net` o
+  `facebook.com`/`www.facebook.com`), con `traerMedio` (redirecciones manuales, cada salto revisado; TrendTrack sigue como
+  antes). Toda respuesta del proxy sale como video/imagen o `application/octet-stream`, con `nosniff` y CSP sandbox.
+- `.gitignore`: `app/.extension-chrome.json`, `temp/_ganadores/chrome/`, `temp/_ganadores/meta/`. `actualizar.js`:
+  `extension-chrome/` es zona del sistema. El paquete para compartir la incluye solo (va por `git ls-files`).
+- **Modo prueba**: nunca se llama a Meta (respuestas simuladas con 3 páginas y medios de las muestras; uno de cada 9
+  «falla» para ver «Ver en Meta»); el importar copia una muestra en lugar de bajar de Facebook.
+- **Pruebas** (todas sin gastar): `vite build` OK; `probar-inspiracion.mjs` 133/133 (Graph API falso: parámetros,
+  lectura, páginas con cursor, 190/4/17/613, el token nunca en la caché ni en la respuesta; snapshot falso
+  `app/herramientas/datos-prueba/snapshot-meta.html`; proxy y redirecciones; importar 401 sin código y con código malo,
+  403 otro origen, 413 grande, 400 host malo, 201 bien → listado → video servido → borrado; zip de la extensión);
+  `probar-extension-chrome.mjs` 12/12 (Chromium de Playwright con la extensión, manifiesto de prueba que también entra
+  en 127.0.0.1, `datos-prueba/biblioteca-falsa.html` con una tarjeta en español y otra en inglés: el botón aparece,
+  Opciones rechaza un código malo y conecta con el bueno, los dos anuncios llegan con página, fecha, copy, dominio,
+  título, CTA, creativos y medio); prueba de humo `HUMO_SIN_ANUNCIO=1` 85/85; `probar-imagen-ads.mjs` 147/147;
+  capturas a 1440 y 390 px (sin errores de consola ni scroll horizontal).
+- **Sin verificar (falta lo real):** un token de Meta de verdad (forma exacta de los errores de permiso, si
+  `eu_total_reach` llega en anuncios comerciales y si el snapshot con `access_token` sigue entregando el JSON con
+  `video_hd_url`/`original_image_url`; si no, todas las tarjetas mostrarán «Ver en Meta»), y la Biblioteca de anuncios
+  real en Chrome (Facebook cambia su HTML: los selectores se apoyan en el texto visible; si algo no se lee, el aviso lo
+  dice; el `<video>` podría venir como `blob:` y entonces solo se guarda la imagen/miniatura).
+- **Siguiente paso:** el usuario carga la extensión en su Chrome (Inspiración › Botón de Chrome), pega su token en
+  Conexiones y prueba con anuncios reales; ajustar `leer-tarjeta.js` / `extraerMediosSnapshot` con lo que se vea.
 
 ### Inspiración: solo validados y nunca tus marcas (2026-11-17, versión 2026-11-17m1)
 
