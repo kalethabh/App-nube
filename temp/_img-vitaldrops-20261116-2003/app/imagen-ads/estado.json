@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 8,
+    "R": 9,
     "A": 1,
     "T": 3
   },
@@ -131,6 +131,20 @@
         {
           "pieza": "V09_1x1",
           "firma": "1758095-1794878758172",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R008": {
+      "tipo": "revision",
+      "uuid": "01901781-3128-446e-96dd-f4e507a604ee",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "1732357-1794878891310",
           "ronda": 1
         }
       ],
@@ -393,24 +407,26 @@
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1732357-1794878891310",
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R008",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1732357-1794878891310"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-17T01:28:12.586Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}
