@@ -187,7 +187,7 @@ Pedido: «necesito descargar más rápido los creativos del editor a los que les
   el sonido); (d) igual otra vez: instantáneo (como antes). Contra el render entero: mismos 1158 cuadros y 38,6 s, SSIM
   0,9968 de promedio (mínimo 0,991, en una transición; en las uniones 0,991–0,994; un cuadro corrido da 0,94), PSNR 46,8
   dB, y el sonido idéntico muestra a muestra (voz por tomas 260–560 Hz, música 110 Hz, pitido de 1000 Hz y la voz callada
-  en la censura).
+  en la censura). En 1080p (mismo anuncio): primera vez 91 s, cambiar un texto 26 s (2 de 10 tramos), 1080x1920 y 1158 cuadros.
 - **Pruebas:** `node app/herramientas/probar-exportar-tramos.mjs` (67 comprobaciones: qué tramos cambian con cada
   ajuste, la medición por tramos con un congelado que cruza una unión, la poda); `vite build`; prueba de humo sin
   anuncio 85/85; `probar-imagen-ads.mjs` 147/147; una exportación pedida por la app (modo prueba) mostró la nota.

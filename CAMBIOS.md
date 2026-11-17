@@ -12,6 +12,7 @@ Cada versión nueva va arriba. La versión que tienes está en el archivo VERSIO
   - cambiar un texto en la mitad: **19 s** (antes 65 s);
   - silenciar una palabra: **11 s** (antes 68 s);
   - exportar otra vez sin cambios: al instante (igual que antes).
+  - en 1080p: primera vez 91 s, cambiar un texto 26 s.
 - **Mismo resultado:** el video sale con los mismos cuadros, el mismo largo y exactamente el mismo sonido que armándolo entero (comparado cuadro a cuadro y el sonido muestra a muestra), y pasa la misma revisión final (que ahora también mide solo lo nuevo).
 - **En la Mac usa el codificador de video de la Mac** (VideoToolbox), más rápido. Si en tu Mac no anda, sigue solo con el de siempre.
 - Lo guardado vive dentro de la carpeta de cada anuncio (`app/exportes/.tramos`), no se sube a GitHub ni a Drive, se borra solo lo más viejo (como mucho unas dos veces el video o 500 MB por anuncio) y se va con el anuncio cuando lo eliminas. Si algo no se puede armar por tramos, el video se exporta entero como antes.
