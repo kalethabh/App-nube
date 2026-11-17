@@ -204,6 +204,27 @@ function titularDe(ctx, k, { dolor = false } = {}) {
   return elegir(candidatos, k) || elegir([...ctx.ganchos, ...ctx.hooks, ...ctx.beneficios], k) || ctx.nombre;
 }
 
+// ---------------------------------------------------------------- las fórmulas de los ganadores
+// (referencia interna: .claude/skills/anuncios-imagen-ads/referencias-ganadoras.md; nunca se muestra ni se copia)
+
+/** «Día 1 · Día 7 · Día 14» -> «en 14 días»; «Semana 1/3/6» -> «en 6 semanas»; o '' si no hay plazo. */
+export function plazoDe(etapas = []) {
+  const u = String(etapas[etapas.length - 1] || '');
+  const n = (/(\d+)/.exec(u) || [])[1];
+  if (!n || n === '1') return '';
+  return /semana/i.test(u) ? `en ${n} semanas` : /mes/i.test(u) ? `en ${n} meses` : `en ${n} días`;
+}
+
+/** Línea de tiempo: «resultado + plazo» («Piernas más ligeras en 20 días»), con un beneficio corto de la ficha. */
+function resultadoConPlazo(ctx, k) {
+  const plazo = plazoDe(ctx.etapas);
+  const res = elegir(ctx.beneficios.filter((x) => palabras(x) >= 2 && palabras(x) <= 5 && !/\d/.test(x)), k);
+  return plazo && res ? `${res.replace(/[.!]+$/, '')} ${plazo}` : '';
+}
+
+/** Pizarra: «¿Tomas diuréticos? Prueba esto.» con lo que ya probó la clienta. */
+const objecionVsEsto = (probo) => (probo ? `¿${probo.replace(/[¿?.]+/g, '').trim()}? Prueba esto.` : '');
+
 /** El primer beneficio que no dice lo mismo que el titular. */
 const beneficio = (ctx, k = 0) => elegir(ctx.beneficios, k) || ctx.queEs || ctx.nombre;
 
@@ -215,10 +236,11 @@ export function textosPara(id, ctx, k = 0) {
     case 'antes-despues':
       return { titular: titularDe(ctx, k, { dolor: true }), antes: 'Antes', despues: 'Después', legal: legal || 'Resultados individuales.' };
     case 'linea-tiempo':
-      return { titular: titularDe(ctx, k + 1, { dolor: true }), etapas: ctx.etapas, legal: legal || 'Resultados individuales.' };
+      // como los ganadores: el resultado con su plazo («Curvas más definidas en 21 días»)
+      return { titular: (k % 2 === 0 && resultadoConPlazo(ctx, k)) || titularDe(ctx, k + 1, { dolor: true }), etapas: ctx.etapas, legal: legal || 'Resultados individuales.' };
     case 'pizarra':
       return {
-        titular: ctx.probo ? `¿${ctx.probo}?` : titularDe(ctx, k, { dolor: true }),
+        titular: objecionVsEsto(ctx.probo) || titularDe(ctx, k, { dolor: true }),
         antes: ctx.probo || 'Lo de siempre',
         despues: nombreCorto(ctx.nombre),
         puntos: b.slice(0, 4).length ? b.slice(0, 4) : ctx.dolores.slice(0, 4),
@@ -226,7 +248,7 @@ export function textosPara(id, ctx, k = 0) {
       };
     case 'mapa-cuerpo':
       return {
-        titular: titularDe(ctx, k + 2, { dolor: true }),
+        titular: k % 2 === 0 ? 'La diferencia se nota' : titularDe(ctx, k + 2, { dolor: true }),
         sin: 'Antes',
         con: 'Después',
         izquierda: ctx.dolores.filter((x) => palabras(x) <= 6).slice(0, 3).length ? ctx.dolores.filter((x) => palabras(x) <= 6).slice(0, 3) : ctx.dolores.slice(0, 3),

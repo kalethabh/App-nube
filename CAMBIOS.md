@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17p1 · Las imágenes siguen las fórmulas de los anuncios ganadores
+
+- La app usa por dentro (sin mostrarlo) lo que aprendimos de anuncios de imagen ganadores: cómo comunican el ángulo, qué título usan y qué muestra la imagen.
+- **Títulos con la fórmula ganadora:** la línea de tiempo dice el resultado con su plazo («Piernas más ligeras en 20 días»), la pizarra ataca lo que la clienta ya probó («¿Tomas diuréticos? Prueba esto.») y el mapa del cuerpo dice «La diferencia se nota».
+- **Escenas como las ganadoras:** en el antes y después, foto real de celular en casa con la zona del cuerpo llenando el cuadro; en la línea de tiempo, fondo limpio y de perfil o de espaldas para que el cambio se lea de un vistazo.
+- La IA usa las mismas reglas al elegir cuadros de un video y al hacer imágenes desde una referencia: una sola idea por imagen, el ángulo se ve antes de leerse y la oferta nunca va en el título.
+
 ## 2026-11-17p · Anuncios de imagen con plantillas: la app dibuja los textos (limpios, sin errores y en segundos)
 
 - **La app dibuja los textos y los gráficos, no el modelo de imagen.** Titular enorme, letra a mano, flechas dibujadas a mano, sticker girado, burbujas de chat, tuit con verificado y estrellas, subtítulos blancos de TikTok, filas con íconos, barra de datos, franja de oferta y la línea legal chiquita: perfectos, con tildes, con tus colores y tus letras. El modelo de imagen solo hace la escena (una persona, un antes y después), **sin ningún texto**.
