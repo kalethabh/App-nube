@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17f` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+- **Versión actual:** `2026-11-17g` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
   Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -136,6 +136,17 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Editor: barra de herramientas junto al video (2026-11-17, versión 2026-11-17g)
+
+- `pantallas/editor/HerramientasLienzo.jsx`: barra vertical a la derecha de la vista previa (vidrio, separadores,
+  indicador lima del activo). Zona segura Meta/TikTok (menú; `GuiasLienzo`, que reemplaza a `ZonaMeta`), cuadrícula
+  de tercios con centro, pincel para censurar (antes un chip abajo), guardar el cuadro actual
+  (`GET /api/anuncios/:slug/cuadro?t=` en `rutas/seguimiento.js`, JPG del video sin las capas del editor) y velocidad de
+  la vista previa (`playbackRate` del Player). Los atajos de teclado ya tenían su botón en la barra de arriba.
+- Pruebas (modo prueba): capturas del editor con TikTok, cuadrícula y 1,5×; el cuadro se descarga como JPG.
+  Compilación correcta.
+- Pendiente si el usuario lo pide: pulir otras pantallas con el mismo criterio.
 
 ### Pincel para censurar en el editor (2026-11-17, versión 2026-11-17f)
 
