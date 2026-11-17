@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17b · Edita tus videos con tus palabras
+
+- **Editar con IA, debajo del video en el editor:** escribe lo que quieres y la IA lo hace. Por ejemplo:
+  - «Todo lo que diga AMUA se censura»: la voz calla en esa palabra y suena un pitido, cada vez que se dice. Con «silencia» solo calla, sin pitido.
+  - «Donde diga AMUA coloca VITALABH»: un texto nuevo que sigue al de la pantalla y lo tapa.
+  - «Donde diga AMUA pon algo que lo siga y no lo deje ver»: una caja (del color que digas) que sigue a ese texto.
+  - «Recorta las escenas donde sale el frasco»: la IA mira un cuadro de cada escena y quita las que lo muestran. En tus videos subidos el corte es de verdad (imagen y sonido).
+  - Y textos nuevos en un lugar o momento («ENVÍO GRATIS arriba en todo el video»).
+- Todo entra de una vez: **Ctrl+Z lo deshace**. Las censuras se quitan con un toque en «N censuras».
+- Si el pedido es sobre un texto de la pantalla y todavía no se leyó, la app lo lee sola (gratis, en tu computador) y sigue.
+- Límites: censurar necesita las palabras de la voz (los anuncios de la app las tienen; tus videos, si los subiste con «Subtítulos»). En los estilos podcast y entrevista todavía no se puede censurar, y donde la voz va dentro de las escenas (UGC) no se quitan escenas, solo imágenes de apoyo.
+
 ## 2026-11-17a · Solo referencias ganadoras, y las tuyas se agregan pegando o subiendo
 
 - **Solo ganadoras (validadas):** en «Elegir de tu biblioteca», la pestaña ahora se llama **Ganadoras** y solo tiene anuncios que funcionaron: más de 100.000 personas alcanzadas o activos hace 30 días o más. Se quitaron 22 que no cumplían (todas las de aguaje de antes y las de Amua que duraron un día). Se sumaron 6 de Amua/VitalDrops activas hace más de 110 días y 2 de aguaje activas hace más de 80 (Peguero Market y Le Monet). Quedan 53.
