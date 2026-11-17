@@ -845,6 +845,9 @@ export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
     texto: String(a.texto ?? '') || (a.archivo ? 'Imagen' : a.caja ? 'Tapa' : ''),
     // una caja que tapa un texto del video (Editar con IA: «que algo lo siga y no lo deje ver»): sin letra, solo el fondo
     caja: a.caja === true && !a.archivo,
+    // y por defecto no es un recuadro: difumina lo de abajo, con los bordes que se funden con el video. Solo si se
+    // pidió un color («una caja roja») queda sólida.
+    difuminar: a.caja === true && !a.archivo && a.solido !== true,
     visible: true,
     editado: true,
     estilo: estilo(a, { color: '#FFFFFF', fondo: color, giro: j % 2 ? 2 : -2 }),

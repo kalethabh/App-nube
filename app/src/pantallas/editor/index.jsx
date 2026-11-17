@@ -1464,7 +1464,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
                 const c = cambiosParaSeguir(pistasVideo, x.pistas, x.siempre, total);
                 if (!c) continue;
                 const n = textoNuevo(plan, e, { t: c.inicio || 0, color: colorAnuncio });
-                e = cambiarTexto(n.ed, n.nuevo, { ...c, texto: `Tapa «${String(c.sigue.texto).slice(0, 30)}»`, caja: true, fondo: x.color || colorAnuncio }).ed;
+                e = cambiarTexto(n.ed, n.nuevo, { ...c, texto: `Difumina «${String(c.sigue.texto).slice(0, 30)}»`, caja: true, fondo: x.color || colorAnuncio, ...(x.color ? { solido: true } : {}) }).ed;
                 cuenta.tapados += 1;
               }
               // las tomas y las imágenes de apoyo, de la última a la primera (borrar una alarga la de al lado)

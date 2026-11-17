@@ -130,13 +130,56 @@ function MusicaEntera({ musica }) {
 }
 
 /**
- * Un texto tuyo que sigue a un texto del video (seguimiento): centrado encima de él y, con fondo, al menos de su tamaño
- * (así lo tapa). Sin el pop de entrada: aparece y se va con un fundido corto.
+ * La censura de un texto del video: no un recuadro, sino un difuminado de lo que hay debajo, un poco más grande que el
+ * texto y con los bordes que se desvanecen (así no se nota el corte). El centro, que cubre todo el texto, va con todo
+ * el difuminado: no se puede leer. Sirve igual en la vista previa (navegador) y en el MP4 (el Chrome de Remotion).
  */
-function TextoSeguido({ id, texto, t, inicio, fin, e, sigue, ancho, alto }) {
+export function Difuminado({ l, ancho, alto, opacidad, capa }) {
+  const tw = l.w * ancho;
+  const th = Math.max(8, l.h * alto);
+  const borde = th * 0.5; // lo que se desvanece a cada lado (fuera del texto)
+  const radio = Math.max(8, th * 0.38);
+  const mascara = `linear-gradient(to right, transparent 0, #000 ${borde}px, #000 calc(100% - ${borde}px), transparent 100%), linear-gradient(to bottom, transparent 0, #000 ${borde}px, #000 calc(100% - ${borde}px), transparent 100%)`;
+  return (
+    <div
+      data-capa={capa}
+      style={{
+        position: 'absolute',
+        left: ancho * l.x,
+        top: alto * l.y,
+        width: tw + 2 * borde + th * 0.35,
+        height: th + 2 * borde + th * 0.15,
+        transform: 'translate(-50%, -50%)',
+        backdropFilter: `blur(${radio.toFixed(1)}px)`,
+        WebkitBackdropFilter: `blur(${radio.toFixed(1)}px)`,
+        maskImage: mascara,
+        WebkitMaskImage: mascara,
+        maskComposite: 'intersect',
+        WebkitMaskComposite: 'source-in',
+        opacity: opacidad,
+      }}
+    />
+  );
+}
+
+/**
+ * Un texto tuyo que sigue a un texto del video (seguimiento): centrado encima de él y, con fondo, al menos de su tamaño
+ * (así lo tapa). Sin el pop de entrada: aparece y se va con un fundido corto. Una tapa difuminada (difuminar) no
+ * lleva letra ni caja: solo el difuminado.
+ */
+function TextoSeguido({ id, texto, t, inicio, fin, e, sigue, ancho, alto, difuminar }) {
   const lugares = lugaresSeguidos(sigue, t);
   if (!lugares.length) return null;
   const opacidad = Math.min(interpolate(t, [inicio, inicio + 0.12], [0, 1], CLAMP), interpolate(t, [fin - 0.12, fin], [1, 0], CLAMP));
+  if (difuminar) {
+    return (
+      <AbsoluteFill style={{ pointerEvents: 'none' }}>
+        {lugares.map((l, n) => (
+          <Difuminado key={n} capa={n === 0 ? id : undefined} l={l} ancho={ancho} alto={alto} opacidad={opacidad} />
+        ))}
+      </AbsoluteFill>
+    );
+  }
   const sinFondo = !e.fondo;
   return (
     <AbsoluteFill style={{ pointerEvents: 'none' }}>
@@ -187,13 +230,13 @@ function TextoSeguido({ id, texto, t, inicio, fin, e, sigue, ancho, alto }) {
  * fundido. Su aspecto ya viene resuelto (textosEnPantalla en capas.mjs): color de letra, fondo (o sin fondo),
  * tamaño, lugar y tipo de letra. Sin cambios se ve exactamente como siempre.
  */
-function TextoEnPantalla({ id, texto, inicio, fin, estilo, sigue }) {
+function TextoEnPantalla({ id, texto, inicio, fin, estilo, sigue, difuminar = false }) {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
   if (t < inicio || t >= fin) return null;
   const e = estilo || {};
-  if (sigue) return <TextoSeguido id={id} texto={texto} t={t} inicio={inicio} fin={fin} e={e} sigue={sigue} ancho={width} alto={height} />;
+  if (sigue) return <TextoSeguido id={id} texto={texto} t={t} inicio={inicio} fin={fin} e={e} sigue={sigue} ancho={width} alto={height} difuminar={difuminar} />;
   const dt = t - inicio;
   const k = dt <= 0 ? 0 : 1 - Math.exp(-dt * 10) * Math.cos(dt * 20);
   const salida = interpolate(t, [fin - 0.18, fin], [1, 0], CLAMP);
@@ -312,7 +355,7 @@ export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color, pi
         x.archivo ? (
           <ImagenEnPantalla key={x.id} id={x.id} archivo={x.archivo} inicio={x.inicio} fin={x.fin} estilo={x.imagenEstilo} sigue={x.sigue} />
         ) : (
-          <TextoEnPantalla key={x.id} id={x.id} texto={x.caja ? '' : x.texto} inicio={x.inicio} fin={x.fin} estilo={x.estilo} sigue={x.sigue} />
+          <TextoEnPantalla key={x.id} id={x.id} texto={x.caja ? '' : x.texto} inicio={x.inicio} fin={x.fin} estilo={x.estilo} sigue={x.sigue} difuminar={Boolean(x.difuminar)} />
         )
       )}
       {subtitulos ? <CapaSubtitulos ajustes={subtitulos} /> : null}

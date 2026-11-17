@@ -354,8 +354,8 @@ Cada acción es una de estas (usa solo las que el pedido necesita, en el orden e
 2. Un texto nuevo en la pantalla: { "tipo": "texto", "texto": "VITALABH", "desde": 0, "hasta": ${dur.toFixed(1)}, "x": 0.5, "y": 0.12, "color": null, "fondo": null, "tamano": 1, "pistas": [], "siempre": false }
    Para REEMPLAZAR un texto de la pantalla («donde diga AMUA coloca VITALABH»): texto = el nuevo y pistas = los id de TODAS las apariciones del texto viejo (lo sigue y lo tapa; x, y no importan). siempre: true solo si pidió que esté en todo el video.
    Si no va encima de un texto: desde/hasta en segundos (todo el video si no dijo cuándo), x de 0 a 1 (0,5 centro) e y el borde de arriba de 0 a 1 (0,1 arriba, 0,4 medio, 0,62 abajo). color y fondo: hex ("#FFFFFF") solo si los dijo; fondo "transparente" = sin caja. tamano 1 normal, 1,4 grande, 0,75 chico.
-3. Tapar un texto de la pantalla con una caja que lo sigue: { "tipo": "tapar", "pistas": ["t3", "t7"], "color": null, "siempre": false }
-   Para «que algo lo siga y no lo deje ver», «tápalo», «bórralo», «que no se vea AMUA». pistas: los id de TODAS sus apariciones. color: hex si lo dijo (null = el color del anuncio).
+3. Censurar un texto de la pantalla: { "tipo": "tapar", "pistas": ["t3", "t7"], "color": null, "siempre": false }
+   Lo sigue y lo DIFUMINA (un desenfoque discreto con los bordes suaves: no se lee y no se ve un recuadro). Para «censúralo», «difumínalo», «que algo lo siga y no lo deje ver», «tápalo», «bórralo», «que no se vea AMUA». pistas: los id de TODAS sus apariciones. color: null (difuminado), salvo que pidió expresamente una caja o un recuadro de un color: entonces ese hex y va sólida.
 4. Quitar escenas por lo que se ve: { "tipo": "quitar", "ids": ["v3", "b2"] }
    Solo los id de la lista de escenas cuyo cuadro muestra lo que el usuario quiere quitar. Si no estás seguro de una, déjala y dilo en el mensaje.
 Si algo no se puede hacer con estas acciones (por ejemplo cambiar la voz o generar video nuevo), no inventes: dilo en el mensaje.

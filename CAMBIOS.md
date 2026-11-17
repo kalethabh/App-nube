@@ -84,6 +84,11 @@ Cada versión nueva va arriba. La versión que tienes está en el archivo VERSIO
 - **La pantalla consulta menos**: con la pestaña oculta deja de preguntar al servidor y no repite el mismo pedido desde el menú, la barra y el tablero.
 - **La guía de producción** (`COMO-PRODUCIR.md`) ya no nombra comandos que no existen (`arrancar`, `revisar:imagenes`) y los topes de velocidad (`CONCURRENCIA_IMAGENES`, `CONCURRENCIA_VIDEOS` en el `.env`) ahora sí se leen.
 
+## 2026-11-17a · Censura difuminada en el editor
+
+- Cuando pides en el editor «censura», «tapa» o «difumina» un texto del video (por ejemplo una marca), ya no sale un recuadro de color: sale un difuminado discreto que sigue al texto, con los bordes suaves que se funden con el video. No se lee y no se ve feo. Las censuras que ya tenías también pasan a verse así.
+- Si quieres una caja de color, pídela con su color («una caja roja que tape AMUA») y sale sólida como antes.
+
 ## 2026-11-16e · Anuncios de imagen: Nuevos, Variantes y «Me funciona»
 
 - **Menos preguntas:** el formulario ya no pide precio, moneda, llamado a la acción, idioma (siempre en español), ángulo principal ni logo.
