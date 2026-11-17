@@ -29,22 +29,32 @@
     },
     "V03_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 2,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null,
-      "ultimoMotivo": "contenido-chatgpt"
+      "intentoAbierto": false,
+      "taskId": "01a1eb9c-1e79-7ad2-ac9c-02d0e7a540b9",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1744133-1794954347802",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     },
     "V04_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a1eb9b-d0f9-7632-a071-9235db2f473d",
+      "firma": "1739040-1794954327252",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     }
   },
-  "actualizado": "2026-11-17T22:23:59.513Z",
-  "terminado": false
+  "actualizado": "2026-11-17T22:25:47.804Z",
+  "terminado": true
 }
