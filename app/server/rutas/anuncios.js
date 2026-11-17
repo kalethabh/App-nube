@@ -60,6 +60,8 @@ function todos() {
       continuidad: Boolean(n.continuidad || m.continuidad),
       // un musical lleva el estilo visual en su manifiesto (Crochet): se ve como lo que es
       ...(n.estilo === 'musical' ? { estiloNombre: `Musical · ${m.estiloNombre}` } : {}),
+      // «Agregar» que tu pedido paso a otro estilo: «Agregar · Estilo Pixar»
+      ...(/^Agregar · /.test(n.estiloNombre || '') ? { estiloNombre: n.estiloNombre } : {}),
       modoPrueba: n.modoPrueba,
       teNecesita: n.teNecesita,
       enGuion: n.enGuion,
@@ -109,6 +111,7 @@ export default function rutasAnuncios(app) {
         produccion: nuevo.produccion,
         continuidad: Boolean(nuevo.continuidad || detalle.continuidad),
         ...(nuevo.estilo === 'musical' ? { estiloNombre: `Musical · ${detalle.estiloNombre}` } : {}),
+        ...(/^Agregar · /.test(nuevo.estiloNombre || '') ? { estiloNombre: nuevo.estiloNombre } : {}),
         modoPrueba: nuevo.modoPrueba,
         enGuion: nuevo.enGuion,
         error: nuevo.error,

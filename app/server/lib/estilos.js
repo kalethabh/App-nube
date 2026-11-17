@@ -1,4 +1,4 @@
-// Los 13 estilos, en palabras de la app. La skill de cada uno vive en .claude/skills/<skill>/SKILL.md
+// Los 14 estilos (13 + Agregar), en palabras de la app. La skill de cada uno vive en .claude/skills/<skill>/SKILL.md
 // y no se toca: aca solo esta como se le presenta al usuario.
 //
 // clave   = como aparece en manifiesto.json ("estilo")
@@ -57,6 +57,7 @@ export const FAMILIAS = {
   hablado: { nombre: 'Hablado', descripcion: 'Los personajes hablan a cámara con su propia voz.' },
   cantado: { nombre: 'Cantado', descripcion: 'El anuncio entero es una canción.' },
   efecto: { nombre: 'Efecto', descripcion: 'Se suma a un estilo con narrador.' },
+  referencia: { nombre: 'Desde tu video', descripcion: 'Subes un video y se rehace para tu producto, con su misma estructura y su mismo look.' },
 };
 
 const BASE = [
@@ -163,6 +164,17 @@ const BASE = [
     lema: 'Una historia cantada larga',
     descripcion: 'Una historia de 4 a 10 minutos cantada de principio a fin sobre animación 3D, como una carta de ventas.',
     familia: 'cantado',
+  },
+  {
+    // «Agregar» (2026-11-17): el usuario sube un video y se rehace con su misma estructura, su misma gente y su mismo
+    // look, para su producto. Lo produce la familia que calza con el video (UGC si alguien habla a cámara; voz en off
+    // si una voz cuenta sobre escenas): lo decide la IA mirando el video (lib/anuncios-nuevos.js, familiaDelAnuncio).
+    skill: 'anuncios-agregar',
+    clave: 'agregar',
+    nombre: 'Agregar',
+    lema: 'Sube un video y di lo que quieres',
+    descripcion: 'Subes un video y escribes lo que quieres («este mismo, pero estilo Pixar y de 1:30»). La IA lo mira entero (cómo está armado, las personas, el ángulo de venta y el antes y después) y lo rehace para tu producto: con su mismo look o en el estilo que pidas, eligiendo el mejor modelo para cada escena.',
+    familia: 'referencia',
   },
   {
     skill: 'anuncios-continuidad',

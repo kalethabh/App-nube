@@ -15,9 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17k` (archivo `VERSION`): editor con el audio como en CapCut (pestaña Audio, censurar o
-  silenciar palabras sin la IA, pista Censuras, la voz por partes, tus audios, duplicar, congelar, color y fundidos).
-  Antes: `2026-11-17j2` (lo último arriba y eliminar lotes de imágenes), `2026-11-17j1` (exportar más rápido), `2026-11-17i` (las imágenes respetan el ángulo y el gancho de la referencia), `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
+- **Versión actual:** `2026-11-17l` (archivo `VERSION`): estilo «Agregar» (subir un video y decir lo que quieres; la IA
+  elige el estilo, la duración y el modelo de cada escena). Antes: `2026-11-17k` (editor con el audio como en CapCut),
+  `2026-11-17j2` (lo último arriba y eliminar lotes de imágenes), `2026-11-17j1` (exportar más rápido), `2026-11-17i` (las imágenes respetan el ángulo y el gancho de la referencia), `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -137,6 +137,61 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Estilo «Agregar»: sube un video y di lo que quieres (2026-11-17, versión 2026-11-17l)
+
+Pedido: «En Estilos uno nuevo, "Agregar": subo un video, analiza la estructura, cómo se ven las personas, entiende el
+ángulo de venta (si es un producto para glúteos y piernas, que se note, sobre todo en un antes y después), piensa el
+mejor modelo y, si unas escenas son mejores con otro (el B-roll), también». Y después: «subir un video y no elegir un
+estilo, solo decirle lo que quiero: "este mismo video pero estilo Pixar narrado estilo musical, de 1:30 y no 5 minutos,
+manteniendo el guion, ángulos…"». «Que no se limite por ninguna plataforma» se aplicó así: la app no suaviza el ángulo
+ni el antes y después por su cuenta; **nunca** se escriben prompts para engañar los filtros de los proveedores (la
+skill lo prohíbe); si un modelo rechaza una toma, la cascada de siempre pasa al siguiente. Rama `estilo-agregar`.
+
+- **Registro del estilo:** `app/server/lib/estilos.js` (clave `agregar`, familia de pantalla nueva `referencia`,
+  «Desde tu video»), `anuncios-nuevos.js` (`ESTILOS.agregar` con `segunReferencia`, `narrador` y `sinContinuidad`;
+  `AJUSTES.agregar`: `clonar` obligatorio = el video, `pedido`, `formato`, `angulo`, `antes_despues`, `clonar_gancho`),
+  `app/src/pantallas/estilos/catalogo.js` (sus preguntas, ícono, detalle; en `DISPONIBLES`), filtros de Estilos y de
+  Nuevo anuncio. Skill nueva `.claude/skills/anuncios-agregar/SKILL.md` y la parte de la tarea
+  `app/server/claude/estilos/agregar.md`. Reusa el análisis de Clonar (`lib/clonar.js` + `analizar-referencia.mjs`);
+  sin video el guion no arranca (error claro, sin gastar la sesión de la IA). En modo prueba el análisis usa los
+  simuladores (`entornoMotor`), como el motor.
+- **El flujo:** la sesión del guion de «Agregar» mira el video y el pedido y escribe `referencia/adn.md`,
+  `referencia/guion-clonado.md` (ya condensado a la duración pedida) y `app/plan.json` (estilo, formato, duración,
+  idioma, respuestas del estilo, resumen, conserva, cambia, porque; lo revisa `revisarPlanDeAgregar`).
+  · Plan `"agregar"` (el look del video): sigue en la misma sesión hasta el manifiesto con `"estilo": "agregar"`, en
+    formato UGC (bloques R → `familias/ugc.js`) o con voz en off (`modo_audio: voz_en_off` → `familias/voz-en-off.js`,
+    con `DEL_ESTILO.agregar`). `verificarGuion` deduce la familia del manifiesto (`familiaDelManifiesto`) y la deja en
+    `brief.produccion`/`brief.familia`; `conductor.familiaDe` produce `agregar` con esa familia.
+  · Plan con otro estilo (Pixar, musical…): `trabajar` llama a `pasarAlEstiloDelPlan`, que cambia `brief.estilo` a ese
+    estilo (duración, respuestas y opciones del plan; el video sigue en `respuestas.clonar`; `brief.agregar` guarda el
+    pedido y el plan) y lanza una sesión nueva con la skill de ese estilo (`textoClonar(..., { desdeAgregar })`: el
+    guion clonado es el guion ganador, condensar sin cortar el final, `modelo_video` por escena). Desde ahí el anuncio
+    es de ese estilo con su producción de siempre (los cantados: letra → Suno → tomas).
+  · La revisión muestra «Lo que entendió de tu video y tu pedido» (`estadoGuion().plan`, `PlanDelPedido` en
+    `Guiones.jsx`), «El modelo de cada escena» (`guion.json.modelos`, contado del manifiesto por `modelosPorEscena`) y
+    el costo de siempre antes de «Me gusta, producir». En Mis anuncios: «Agregar · Estilo Pixar».
+- **Modelo por escena (diseño):** campo opcional `"modelo_video"` (+ `"modelo_porque"`) en cada toma o B-roll. Los
+  valores son `catalogo-modelos.json → porPieza` (`omni`, `kling`, `grok15`, `pixverse`, `grok`). `cascadaDelTrabajo`
+  (motor, `modelos-elegidos.js`: `modeloPedido`, `piezaDelTrabajo`, `conModeloPedido`) y `cascadaDeLaPieza` (app,
+  `lib/modelos.js`) ponen ese modelo **primero** y después la cascada de Ajustes › Modelos de su categoría: si falla o no
+  puede hacer el clip (`motivoParaSaltar`: PixVerse sin imagen final, Kling en un bloque R…) sigue el siguiente. Lo
+  usan generar-videos, estimar-video, estimar-costo (nota «Modelo elegido por escena: …»), gasto.js y el editor.
+  `validar-manifiesto` da ERROR con un valor desconocido y AVISO si ese modelo no puede hacer el clip, no llega a su
+  largo o no habla donde hay diálogo. Sin el campo, todo igual que antes.
+- **Pruebas (sin gastar):** `node app/herramientas/probar-agregar.mjs` (nueva; app en modo prueba con el Claude falso):
+  sin video da 400; voz en off de punta a punta hasta el MP4 (análisis, plan, familia, modelos en guion.json, costo con
+  la nota, PixVerse/Grok 1.5/Omni en `log-modelos.json`, B-roll quieto sin cobro); pedido «estilo Pixar, 1:30» pasa a
+  `estilo-pixar` con duración 90 s, segunda sesión con su skill, plan y costo a la vista; pedido «musical» pasa a
+  `musical` con `visual: zack-d-films` y fase de letras; con `AGREGAR_UGC=1`, también UGC hasta el MP4.
+  `produccion/pruebas/probar-modelos.js` suma la sección «8 bis» (modelo por escena). Resultados en el informe del PR.
+- **Límites:** no se probó con una IA real ni con kie.ai/ElevenLabs reales: la calidad del análisis, del antes y
+  después y de cada modelo por escena no está medida. En los cantados el `modelo_video` se pide en el texto, pero las
+  tomas las escribe después la sesión visual del musical (no se verificó que lo ponga). En voz en off, el costo antes de
+  aprobar puede quedar algo por debajo del cobrado cuando la voz real alarga una toma (ventanas, igual que en los demás
+  estilos de narrador): en la prueba, 264 estimado contra 288 créditos simulados. Sin muestra de video propia en Estilos
+  (aviso de la humo). En este entorno la interfaz no se sirve desde una carpeta oculta (`.claude/worktrees/…`): las
+  pruebas con interfaz se corrieron desde una copia.
 
 ### Editor: el audio como en CapCut y lo básico que faltaba (2026-11-17, versión 2026-11-17k)
 

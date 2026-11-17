@@ -83,6 +83,8 @@ export function leerGuion(r) {
     puedeAprobar: r.puedeAprobar !== false,
     productoId: r.productoId || r.brief?.productoId || null,
     brief: r.brief || null,
+    // «Agregar»: lo que entendió la IA del video y del pedido
+    plan: r.plan || null,
     inicio: r.inicio || null,
   };
 }

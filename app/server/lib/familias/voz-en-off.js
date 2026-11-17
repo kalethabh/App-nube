@@ -38,6 +38,7 @@ import { CREDITOS_SUNO } from '../../../../produccion/config.js'; // la unica fu
 
 export const FAMILIA = 'voz-en-off';
 export const ESTILOS = ['claymation', 'crochet', 'zack-d-films', 'estilo-pixar', 'realista-narrado', 'skeleton', 'estilo-lego'];
+// («Agregar» con voz en off tambien se produce aca, pero no va en ESTILOS: el conductor lo elige por brief.produccion.)
 
 // ---------------------------------------------------------------- lo propio de cada estilo
 
@@ -141,6 +142,23 @@ export const DEL_ESTILO = {
       DEFECTO.linea,
     ],
     simulada: { imagen: 'Photorealistic smartphone look, real skin texture, natural light of the place.', video: 'Slight handheld movement, one simple action.' },
+  },
+  // «Agregar» con voz en off (el video del usuario era una voz sobre escenas): el look es el del video de referencia
+  agregar: {
+    skill: 'anuncios-agregar',
+    que: 'un anuncio rehecho a partir de un video del usuario, con voz en off (las mismas personas, lugares, cámara y ritmo que su video de referencia, en temp/<slug>/referencia/)',
+    musica: 'suno',
+    defectos: [
+      DEFECTO.productoEtiqueta,
+      DEFECTO.textosAgregados,
+      DEFECTO.cuerpos,
+      'la persona no es la misma de su hoja (otra cara, otro pelo, otra edad), o el después no es la misma persona del antes;',
+      'no se parece al video de referencia: otra edad, otro tipo de cuerpo, otra ropa, otro lugar, u otro look (de estudio, 3D o dibujo cuando el original es casero y real);',
+      'en el antes y después, el cambio no se nota a primera vista en la zona del ángulo, o cambian la pose, la ropa, la cámara o la luz entre el antes y el después;',
+      DEFECTO.marco,
+      DEFECTO.linea,
+    ],
+    simulada: { imagen: 'Same look as the reference video: real people, real places, phone camera.', video: 'Slight handheld movement, one simple action, like the reference.' },
   },
   skeleton: {
     skill: 'anuncios-skeleton-ads',
