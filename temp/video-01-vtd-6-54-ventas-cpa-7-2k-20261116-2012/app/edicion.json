@@ -35,9 +35,9 @@
     "ajustesTextos": {},
     "textosNuevos": [
       {
-        "id": "tmwk28of61",
-        "texto": "VITALABH Vital Drops",
-        "inicio": 235.4,
+        "id": "tmwk74ktz0",
+        "texto": "Difumina «A-M-U-A · Amua Vital Drops»",
+        "inicio": 183.4,
         "fin": 237.7,
         "color": "#FFFFFF",
         "fondo": "#0FA3B1",
@@ -46,55 +46,7 @@
         "y": 0.17,
         "fuente": "titulo",
         "sigue": {
-          "texto": "Amua Vital Drops",
-          "siempre": false,
-          "pistas": [
-            [
-              [
-                236,
-                0.4986,
-                0.6695,
-                0.5083,
-                0.0391
-              ],
-              [
-                236.333,
-                0.4986,
-                0.6695,
-                0.5083,
-                0.0391
-              ],
-              [
-                236.667,
-                0.4986,
-                0.6695,
-                0.5028,
-                0.0359
-              ],
-              [
-                237,
-                0.4986,
-                0.6695,
-                0.5083,
-                0.0391
-              ]
-            ]
-          ]
-        }
-      },
-      {
-        "id": "tmwk5lvob0",
-        "texto": "V-I-T-A-L-A-B-H",
-        "inicio": 183.4,
-        "fin": 188.5812,
-        "color": "#FFFFFF",
-        "fondo": "#0FA3B1",
-        "tamano": 1,
-        "x": 0.5,
-        "y": 0.17,
-        "fuente": "titulo",
-        "sigue": {
-          "texto": "A-M-U-A",
+          "texto": "A-M-U-A · Amua Vital Drops",
           "siempre": false,
           "pistas": [
             [
@@ -133,25 +85,7 @@
                 0.275,
                 0.0344
               ]
-            ]
-          ]
-        }
-      },
-      {
-        "id": "tmwk5lvoc1",
-        "texto": "Vitalabh Vital Drops",
-        "inicio": 235.4,
-        "fin": 237.7,
-        "color": "#FFFFFF",
-        "fondo": "#0FA3B1",
-        "tamano": 1,
-        "x": 0.5,
-        "y": 0.17,
-        "fuente": "titulo",
-        "sigue": {
-          "texto": "Amua Vital Drops",
-          "siempre": false,
-          "pistas": [
+            ],
             [
               [
                 236,
@@ -183,7 +117,8 @@
               ]
             ]
           ]
-        }
+        },
+        "caja": true
       }
     ],
     "reemplazos": {},
@@ -193,11 +128,11 @@
     "encuadres": {},
     "ajustesEscena": {}
   },
-  "t": 1794887409380,
+  "t": 1794889939319,
   "contexto": {
     "titulo": "01   VTD 6   54 ventas CPA 7.2k",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-17T03:50:09.986Z"
+  "guardado": "2026-11-17T04:32:20.267Z"
 }
