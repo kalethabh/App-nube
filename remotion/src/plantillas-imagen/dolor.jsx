@@ -38,11 +38,7 @@ export function AntesDespues({ t, kit, producto, escena, formato }) {
         <div style={{ position: 'absolute', left: W * 0.75 - 150, top: 34, width: 300 }}>
           <Pildora texto={t.despues || 'DESPUÉS'} kit={kit} fondo={p.secundario} color={p.sobreSecundario} ancho={300} alto={78} />
         </div>
-        {!banda && t.titular ? (
-          <div style={{ position: 'absolute', left: 40, right: prod + 50, bottom: 60, height: 170 }}>
-            <Titular texto={t.titular} kit={kit} color="#FFFFFF" sombra max={110} />
-          </div>
-        ) : null}
+        {/* (en el cuadrado, sin titular sobre la foto: el antes y después habla solo) */}
       </div>
       {t.conProducto !== false ? (
         <div style={banda ? { position: 'absolute', left: W / 2 - prod / 2, top: top + alto - prod * 0.62, width: prod, height: prod } : { position: 'absolute', right: 28, bottom: 44, width: prod, height: prod }}>

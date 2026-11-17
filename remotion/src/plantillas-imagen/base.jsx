@@ -199,7 +199,7 @@ export function Escena({ escena, kit, posicion = 'center' }) {
       <div style={{ position: 'absolute', inset: 0, opacity: 0.35, backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.7) 0 18px, rgba(255,255,255,0) 18px 44px)' }} />
       <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', display: 'flex', alignItems: 'center', gap: 14, padding: '14px 26px', borderRadius: 999, background: 'rgba(255,255,255,0.85)', fontFamily: FUENTE_TEXTO, fontWeight: 600, fontSize: 30, color: '#333' }}>
         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /><circle cx="12" cy="13" r="3" /></svg>
-        Creando la escena…
+        {escena?.espera || 'Creando la escena…'}
       </div>
     </div>
   );

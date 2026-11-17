@@ -518,12 +518,12 @@ export default function rutasImagenAds(app) {
     const archivo = foto || muestra;
     const ficha = idValido(productoId) ? leerJSON(path.join(TEMP, '_productos', productoId, 'ficha.json')) : null;
     const textos = plantillas.textosDeMuestra(id, productoId, ficha);
-    const clave = crypto.createHash('sha1').update(JSON.stringify({ id, archivo, f: firma(archivo), kit, textos, v: 3 })).digest('hex').slice(0, 20);
+    const clave = crypto.createHash('sha1').update(JSON.stringify({ id, archivo, f: firma(archivo), kit, textos, v: 4 })).digest('hex').slice(0, 20);
     const salida = path.join(RAIZ, '.cache', 'plantillas-muestras', `${clave}.png`);
     if (!existe(salida)) {
-      await renderizar({ composicion: composicionDe('1:1'), props: { plantilla: id, formato: '1:1', textos, kit, producto: { archivo, recortado: archivo === muestra }, escena: null, logo: null }, salida });
+      await renderizar({ composicion: composicionDe('1:1'), props: { plantilla: id, formato: '1:1', textos, kit, producto: { archivo, recortado: archivo === muestra }, escena: cat.escena ? { espera: 'Aquí va la escena (sin texto)' } : null, logo: null }, salida });
     }
-    res.set({ 'Cache-Control': 'private, max-age=600', 'X-Content-Type-Options': 'nosniff' }).type('image/png').sendFile(salida);
+    res.set({ 'Cache-Control': 'private, max-age=600', 'X-Content-Type-Options': 'nosniff' }).type('image/png').sendFile(salida, { dotfiles: 'allow' });
   }));
 
   // ------------------------------------------------------------ el zip

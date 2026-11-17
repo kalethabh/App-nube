@@ -112,9 +112,11 @@ export async function kitAutomatico(foto) {
     if (px[i + 3] < 128) continue;
     const [h, s, l] = rgbAHsl(px[i], px[i + 1], px[i + 2]);
     if (s < 0.28 || l < 0.14 || l > 0.86) continue;
+    // la piel, la madera y el cartón (naranjas apagados) casi nunca son el color de la marca: pesan poco
+    const piel = h >= 5 && h <= 45 && s < 0.7;
     const k = Math.floor(h / 20);
     const b = bins.get(k) || { peso: 0, h: 0, s: 0, l: 0 };
-    const w = s;
+    const w = s * s * (piel ? 0.15 : 1);
     b.peso += w;
     b.h += h * w;
     b.s += s * w;
@@ -122,13 +124,15 @@ export async function kitAutomatico(foto) {
     bins.set(k, b);
   }
   const lista = [...bins.entries()].map(([k, b]) => ({ k, peso: b.peso, h: b.h / b.peso, s: b.s / b.peso, l: b.l / b.peso })).sort((a, b) => b.peso - a.peso);
-  if (!lista.length || lista[0].peso < 8) return { ...KIT_POR_DEFECTO, automatico: true, neutro: true };
+  if (!lista.length || lista[0].peso < 3) return { ...KIT_POR_DEFECTO, automatico: true, neutro: true };
   const a = lista[0];
   const distancia = (x, y) => Math.min(Math.abs(x - y), 360 - Math.abs(x - y));
   const b = lista.find((x) => distancia(x.h, a.h) >= 40 && x.peso >= a.peso * 0.08);
   const primario = hslAHex(a.h, Math.min(0.85, Math.max(0.5, a.s)), Math.min(0.42, Math.max(0.3, a.l)));
   // sin un segundo color en la foto: un acento cálido que contraste con el primero
-  const secundario = b ? hslAHex(b.h, Math.min(0.9, Math.max(0.6, b.s)), Math.min(0.68, Math.max(0.52, b.l))) : hslAHex((a.h + 180) % 360 < 30 || (a.h + 180) % 360 > 300 ? 45 : (a.h + 180) % 360, 0.85, 0.6);
+  // sin un segundo color en la foto: un amarillo cálido (el acento que mejor resalta sobre casi cualquier fondo); si el
+  // fondo ya es amarillo o naranja, un azul profundo
+  const secundario = b ? hslAHex(b.h, Math.min(0.9, Math.max(0.6, b.s)), Math.min(0.68, Math.max(0.52, b.l))) : a.h >= 25 && a.h <= 75 ? hslAHex(222, 0.55, 0.24) : hslAHex(46, 0.95, 0.62);
   return { ...KIT_POR_DEFECTO, primario, secundario, automatico: true };
 }
 
