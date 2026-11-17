@@ -1,0 +1,36 @@
+{
+  "generado": "2026-11-17T00:20:07.748Z",
+  "segundos": 110,
+  "imagenes": [
+    {
+      "id": "V02_1x1",
+      "archivo": "V02_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 1,
+      "creditos": 0,
+      "taskId": "01a1e6de-6942-7be1-b92a-d42af8eaf1f2"
+    },
+    {
+      "id": "V01_1x1",
+      "archivo": "V01_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 1,
+      "creditos": 0,
+      "taskId": "01a1e6de-6942-7433-98b6-716da6f4e86b"
+    },
+    {
+      "id": "V03_1x1",
+      "archivo": "V03_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 1,
+      "creditos": 0,
+      "taskId": "01a1e6de-6942-7801-be6e-46b0ab0f0f3b"
+    }
+  ]
+}

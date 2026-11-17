@@ -1,0 +1,182 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "uploaded reference (R05)",
+    "reference_style": "Long-copy confessional static ad: a centered column of plain honest text with a bullet list and the product on the left, two stacked casual phone photos on the right",
+    "angle_used": "Objeción de confianza (la versión honesta: no es magia, es un ritual diario con comida y ejercicio)",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC fading softly to a slightly deeper warm cream-beige toward the lower third; near-black #111111 for all text; lemon yellow #F2DC4A and metallic gold #C9A441 only as small accents inside the photos (a mug, a towel, a bottle cap) and on the product label; amber brown #8A4B14 (bottle glass); soft white #FFFFFF highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad. Plain text layout plus two natural, casual smartphone photos. The woman is shown from the waist up, fully dressed, never as a body close-up.",
+    "visual_atmosphere": "Light, warm, feminine, honest and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Flat cream canvas with a soft vertical gradient, no panels and no decorations; two rectangular photos with square corners stacked with a thin cream gap; soft contact shadow under the product.",
+    "text_typography": "All copy in a clean geometric sans-serif, regular weight, sentence case, centered, solid near-black, comfortable line spacing. One single line in extra-bold geometric sans, sentence case, clearly larger. No uppercase headline, no outlines and no drop shadows on the text."
+  },
+  "creative_objective": "Disarm the woman who already bought gummies and pills and saw nothing by agreeing with her doubt first: this is not magic, it is a daily ritual that goes with food and exercise. Preserve the exact structure of the source: a left column with a long centered confessional text, a four-bullet list, a closing paragraph, one bold line and the large bottle underneath; a right column with two casual phone photos stacked one above the other. The photos show the ritual (her drops and breakfast, her gym routine), never a body comparison.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The two stacked casual photos on the right, which look like real content. 2) The first line of the long text on the left. 3) The bold line and the large bottle at the bottom left. 4) The bullet list and the closing paragraph.",
+    "composition_style": "Two columns. Left column (about 4% to 46% of the width): centered text stacked from top to bottom, then the bold line, then the bottle. Right column (about 48% to 96% of the width): two equal rectangular photos stacked vertically with a thin gap, filling almost the full height.",
+    "spacing_and_structure": "Top margin about 8% left empty as plain background. Opening paragraph y 9-21%, bullet list y 23-36%, closing paragraph y 38-55%, bold line y 57-62%, bottle y 63-96%. Right photos: top photo y 8-51%, bottom photo y 52-96%. Even line spacing; small gaps separate the three text groups.",
+    "lighting_and_depth": "Flat cream gradient canvas. The photos have natural indoor light and a casual smartphone look. The bottle is rendered photorealistically with soft studio light and a soft contact shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Light background with a soft vertical gradient. Top center: a brand logo (removed, left as plain background). Left column: a centered four-line opening paragraph in regular dark text that concedes an objection; below it a centered list of four bullet lines starting with a small dot; below it a centered closing paragraph of several short lines; below it one bold, larger line; and under it the product bottle, large, front view, standing at the bottom left. Right column: two casual phone photos of the same woman stacked one above the other, rectangular with square corners, separated by a thin gap.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Neutral light base that keeps the long text readable",
+        "adaptation_rule": "Warm cream with a soft vertical gradient, slightly deeper toward the lower third. No pure white.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "opening paragraph",
+        "position": "Left column, top, centered",
+        "visual_function": "Concedes the objection and hooks with honesty",
+        "adaptation_rule": "Same four short centered lines in regular weight; the objection becomes 'it is not magic'.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "four-bullet list",
+        "position": "Left column, below the opening paragraph, centered",
+        "visual_function": "Lists the honest limits one by one",
+        "adaptation_rule": "Four centered single lines, each starting with a small round dot bullet; plain text, no icons.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "closing paragraph",
+        "position": "Left column, below the bullet list, centered",
+        "visual_function": "Turns the concession into the reason to believe",
+        "adaptation_rule": "Seven short centered lines in regular weight about the daily ritual.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "bold call line",
+        "position": "Left column, below the closing paragraph, centered above the bottle",
+        "visual_function": "Plain-text invitation, not a button",
+        "adaptation_rule": "One extra-bold line of plain text, no button shape, no box.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "Bottom of the left column, centered in the column, large, front view",
+        "visual_function": "Shows what the text is about",
+        "adaptation_rule": "The user's amber dropper bottle exactly as in the attached photo, about 32% of the canvas height.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "top casual photo",
+        "position": "Right column, upper half",
+        "visual_function": "Real-life credibility",
+        "adaptation_rule": "Casual phone photo of the woman in her kitchen in the morning, waist up, with a small amber dropper bottle and her served breakfast.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "bottom casual photo",
+        "position": "Right column, lower half",
+        "visual_function": "Real-life credibility, second moment",
+        "adaptation_rule": "Casual mirror selfie of the same woman at the gym, waist up, holding her phone and a water tumbler. Same body as in the top photo; it is a second moment of her day, not a result.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Brand logo or wordmark outside the product label",
+      "Price, offer, discount or urgency badge",
+      "CTA button shape or box around the bold line",
+      "Rating stars, testimonials, trust seals",
+      "Icons, checkmarks or emojis in the bullet list",
+      "'Antes' / 'Después' labels or any text over the photos",
+      "Bare back, bare torso or body close-up photos",
+      "Any difference in body shape between the two photos"
+    ]
+  },
+  "visual_prompt": "Square 1:1 static ad on a warm cream background (#FBF3DC) with a soft vertical gradient that gets slightly deeper cream-beige toward the lower third. The top 8% of the canvas is empty plain background. The layout has two columns. LEFT COLUMN (from 4% to 46% of the width), everything centered in the column, all text in a clean geometric sans-serif, regular weight, sentence case, solid near-black (#111111): first, an opening paragraph of four short lines; a small gap; then a list of four single lines, each starting with a small round dot bullet; a small gap; then a closing paragraph of seven short lines; a small gap; then ONE line of plain text in extra-bold weight, clearly larger than the rest, with no button, no box and no underline. Directly below the bold line, at the bottom of the left column, the product stands large, front view, at eye level, about 32% of the canvas height, with a soft contact shadow, its base near the bottom edge. RIGHT COLUMN (from 48% to 96% of the width): two rectangular photos with square corners, the same size, stacked one above the other with a thin cream gap between them, together filling from 8% to 96% of the height. Both are casual, slightly imperfect smartphone photos, eye-level, home-style framing, natural light, of the same Colombian woman of about 26 with long dark-brown hair in a ponytail, shown from the waist up and fully dressed. TOP PHOTO: she is in her kitchen in the morning, wearing a loose cream t-shirt, smiling softly at the camera, holding a small amber glass dropper bottle with a black dropper cap near her chest; on the counter beside her a served breakfast (a plate with arepa, scrambled eggs and fruit) and a glass of orange juice; a lemon-yellow mug in the background. BOTTOM PHOTO: a mirror selfie in a gym, the same woman with the same body, wearing a modest cream athletic t-shirt, holding her phone at chest height in one hand and a lemon-yellow water tumbler in the other, relaxed and proud expression, gym equipment softly out of focus behind her. The two photos are two moments of the same day, not a before and after: her body shape and size are identical in both. No text inside the photos. THE PRODUCT in the left column is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No logo at the top, no price, no button, no badges, no stars, no icons, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "opening paragraph (concedes the objection)",
+      "reference_position": "Left column, top, centered, four lines",
+      "text_style": "Geometric sans-serif, regular weight, sentence case, near-black, centered, four lines, medium size",
+      "text": "No, no es magia.\nPodríamos decirte que sí,\npero entonces sería...\nbueno, otra promesa más."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "bullet 1",
+      "reference_position": "Left column, bullet list, first line, centered",
+      "text_style": "Same regular sans, near-black, centered, one line, starts with a small round dot bullet",
+      "text": "• No reemplaza un buen desayuno"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "bullet 2",
+      "reference_position": "Left column, bullet list, second line, centered",
+      "text_style": "Same as bullet 1",
+      "text": "• No hace la rutina de pierna por ti"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "bullet 3",
+      "reference_position": "Left column, bullet list, third line, centered",
+      "text_style": "Same as bullet 1",
+      "text": "• No es para tomar un día y olvidarlo"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "bullet 4",
+      "reference_position": "Left column, bullet list, fourth line, centered",
+      "text_style": "Same as bullet 1",
+      "text": "• No promete cambios de un día para otro"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "closing paragraph",
+      "reference_position": "Left column, below the bullet list, centered, seven short lines",
+      "text_style": "Geometric sans-serif, regular weight, sentence case, near-black, centered, seven lines, same size as the opening paragraph",
+      "text": "Sí es un ritual diario:\ntus gotas, tu plato lleno\ny tu rutina.\nAsí que VitalDrops\nnunca será magia,\ny eso es algo bueno.\nPorque mereces la verdad."
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "bold call line (plain text, not a button)",
+      "reference_position": "Left column, centered, between the closing paragraph and the bottle",
+      "text_style": "Geometric sans-serif, extra-bold, sentence case, near-black, centered, one line, about 1.5 times the size of the body text",
+      "text": "Más información"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Warm cream background with a soft vertical gradient and an empty top band",
+    "Left column of centered plain text: opening paragraph, four dot-bullet lines, closing paragraph and one bold line",
+    "The amber dropper bottle, large, front view, at the bottom of the left column, exactly as in the attached photo",
+    "Two casual smartphone photos stacked in the right column: the woman in her kitchen with the small dropper bottle and her breakfast (top) and the same woman in a gym mirror selfie with a water tumbler (bottom), waist up, fully dressed, same body in both"
+  ],
+  "final_generation_exclusions": [
+    "No brand logo or wordmark at the top or anywhere outside the product label.",
+    "No price, offer, discount or urgency text.",
+    "No button shape, pill or box around 'Más información'.",
+    "No bare back, bare torso, underwear or body close-ups; no before/after; no difference in body shape between the two photos.",
+    "No text, labels or dates over the photos.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The copy states what the product does not do and frames it as a daily ritual with food and exercise; the photos show moments of the ritual, not a body before/after.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
