@@ -26,7 +26,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-17T00:11:56.654Z",
-      "detalle": "Anotando lo que sabe de tu producto",
+      "detalle": "Escribiendo cada anuncio",
       "uuid": "7cbbb73c-791c-417f-94da-18c19e9002b3"
     },
     {
@@ -46,5 +46,5 @@
   "modoPrueba": false,
   "creado": "2026-11-17T00:11:56.594Z",
   "aprobado": "2026-11-17T00:11:56.594Z",
-  "actualizado": "2026-11-17T00:14:20.098Z"
+  "actualizado": "2026-11-17T00:15:39.912Z"
 }

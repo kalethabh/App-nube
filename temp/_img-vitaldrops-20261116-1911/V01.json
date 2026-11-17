@@ -1,0 +1,186 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "uploaded reference (R01)",
+    "reference_style": "Dark neon-glow infographic ad: three glowing line-art silhouettes in a staged progression over a black canvas, product and bordered info box below",
+    "angle_used": "Transformación / resultado (del hábito: de saltarse comidas a un ritual de tres pasos)",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Deep near-black canvas #111111; glowing lemon yellow #F2DC4A and metallic gold #C9A441 with lighter gold highlight #E6CF7A for the headline, silhouettes, arrows, divider and info box; soft white #FFFFFF for the script line and the step labels; amber brown #8A4B14 for the bottle glass; warm cream #FBF3DC only inside the product label highlights.",
+    "visual_style": "Clean, premium beauty-supplement ad. The woman is shown in action (taking the drops, eating, training), never as a body close-up. Tidy, warm and premium.",
+    "visual_atmosphere": "Deep near-black canvas with a warm lemon-gold neon glow; feminine, optimistic and trustworthy.",
+    "graphic_language": "Glowing thin-line outline silhouettes, thin dashed connector arrows, a hairline gold divider, a rounded-corner box with a glowing thin gold border, soft golden glow under the product.",
+    "text_typography": "Headline in a geometric sans-serif, extra-bold, all uppercase, tight leading (Montserrat ExtraBold / Gotham Black style), glowing lemon-gold. Script line in a flowing white handwritten neon script. Step labels in bold italic white sans. Box text in bold uppercase geometric sans, gold. No outlines and no drop shadows other than the neon glow."
+  },
+  "creative_objective": "Stop the scroll with a black-and-gold neon layout and show, in three simple steps, the daily ritual that replaces skipped meals: your drops, your full plate, your routine. Preserve the exact block logic of the source: script line + giant headline, three linked silhouettes with labels, divider, bottle at bottom left and a bordered info box at bottom right. No body-shape comparison of any kind.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant glowing gold headline. 2) The three glowing silhouettes linked by dashed arrows. 3) The bordered info box with its giant figure, then the bottle.",
+    "composition_style": "Symmetrical, centered infographic stacked in three horizontal bands: headline band on top, silhouette row in the middle, product + info box band at the bottom, separated by a thin gold horizontal line.",
+    "spacing_and_structure": "Generous black negative space around every block; the three silhouettes are evenly spaced in three columns at the same scale; labels centered under each silhouette; bottom band split roughly 35% (bottle) / 65% (box).",
+    "lighting_and_depth": "Neon glow lighting only: soft golden bloom around lines and letters, a warm pool of light under the bottle with a subtle reflection on a glossy black floor.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Black canvas. Top center: a short white handwritten script line; directly below it, a giant glowing gold uppercase headline spanning almost the full width. Middle: three glowing gold line-art silhouettes of the same woman in side profile, side by side, linked by two dashed gold arrows pointing right; a white bold italic label centered under each silhouette. A thin gold horizontal line separates the bottom band. Bottom left: the product bottle standing with a warm glow beneath. Bottom right: a rounded rectangular box with a glowing thin gold border containing a small outlined label pill at the top, a giant gold figure with a small stacked word beside it, a thin divider, and a final bold gold line with a small outline icon at its right.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "script pre-headline",
+        "position": "Top center, above the headline",
+        "visual_function": "Casual spoken lead-in that sets a friendly tone",
+        "adaptation_rule": "Same white neon handwritten script, with the user's Spanish lead-in",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top, full width, below the script line",
+        "visual_function": "Names the problem being left behind",
+        "adaptation_rule": "Same giant glowing gold uppercase treatment; names the habit of skipped meals, not a body part",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "three-stage silhouette progression with dashed arrows",
+        "position": "Middle band, three evenly spaced columns",
+        "visual_function": "Shows a simple three-step progression read left to right",
+        "adaptation_rule": "Same glowing line-art silhouettes of one woman with a ponytail, in side profile, but each one performs a ritual step (taking the drops, eating a meal, doing a squat). Body proportions are identical in all three.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "stage labels",
+        "position": "Centered under each silhouette",
+        "visual_function": "Names each stage",
+        "adaptation_rule": "Same white bold italic labels, naming each ritual step",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "divider line",
+        "position": "Full-width thin horizontal line between the middle band and the bottom band",
+        "visual_function": "Separates the story from the product area",
+        "adaptation_rule": "Keep as a thin gold line",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "Bottom left, standing, front view",
+        "visual_function": "Shows what is being sold",
+        "adaptation_rule": "The user's amber dropper bottle exactly as in the attached photo, with a warm glow beneath",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "bordered info box (offer box in the source)",
+        "position": "Bottom right, wide rounded rectangle with glowing gold border",
+        "visual_function": "Closes the ad with a big figure and a short supporting line",
+        "adaptation_rule": "The user gave no price or offer, so the same visual structure (label pill, giant figure with small stacked word, divider, final line with icon) carries truthful product facts. The gift icon becomes a small outline drop icon.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Price, discount, percentage off, free gift or urgency text",
+      "CTA button",
+      "Brand logo or wordmark outside the product label",
+      "Rating stars, testimonials, trust seals",
+      "Any before/after body comparison or silhouettes whose body shape changes",
+      "Extra benefit lists or icons"
+    ]
+  },
+  "visual_prompt": "Square 1:1 ad on a deep near-black canvas (#111111) with a premium neon-glow look in lemon yellow (#F2DC4A) and metallic gold (#C9A441, highlights #E6CF7A). Layout in three stacked bands. TOP BAND: at top center a short handwritten white neon script line; directly below it a giant, extra-bold, uppercase geometric sans headline in glowing lemon-gold that spans almost the full width on one line. MIDDLE BAND: three glowing gold thin-line outline silhouettes (line art only, no fill, soft golden bloom) of the same young woman with a ponytail, all in side profile facing right, same height, same slim athletic body proportions in all three, evenly spaced in three columns. Left silhouette: she stands holding a small dropper bottle in one hand and lifts the dropper toward her mouth. Center silhouette: she sits at a small table eating with a spoon from a full bowl. Right silhouette: she performs a squat holding a dumbbell at her chest. Two short dashed gold arrows point right between the silhouettes. Centered under each silhouette, a short white bold italic label. A thin gold horizontal line runs across the canvas below the labels. BOTTOM BAND: at bottom left stands the product, front view at eye level, with a warm golden glow pooled under it and a faint reflection on a glossy black floor. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. At bottom right, a wide rounded rectangle with a glowing thin gold border on black: at its top a small outlined pill label with bold uppercase gold text; below it a giant heavy gold figure-and-word with a small stacked two-word line at its right; a thin gold divider; and a final bold uppercase gold line with a small gold outline water-drop icon at its right end. The three silhouettes show actions only: the body shape and size are exactly the same in all three, with no enlargement or emphasis of any body part. No price, no discount, no gift, no CTA button, no logos outside the product label, no stars, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "script pre-headline",
+      "reference_position": "Top center, above the main headline",
+      "text_style": "Flowing handwritten neon script, white with a soft white glow, medium size, centered",
+      "text": "Chao, chao"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "main headline",
+      "reference_position": "Top, full width, directly below the script line",
+      "text_style": "Giant extra-bold uppercase geometric sans, glowing lemon-gold, one line, centered, tight tracking",
+      "text": "COMIDAS SALTADAS"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "stage label 1",
+      "reference_position": "Centered under the left silhouette",
+      "text_style": "Bold italic sans, white, small-medium",
+      "text": "Tus gotas"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "stage label 2",
+      "reference_position": "Centered under the center silhouette",
+      "text_style": "Bold italic sans, white, small-medium",
+      "text": "Tu plato lleno"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "stage label 3",
+      "reference_position": "Centered under the right silhouette",
+      "text_style": "Bold italic sans, white, small-medium",
+      "text": "Tu rutina"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "box label pill",
+      "reference_position": "Top of the bordered box, bottom right",
+      "text_style": "Bold uppercase geometric sans, gold, inside a thin outlined rounded pill",
+      "text": "TU RITUAL DIARIO"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "giant figure of the box",
+      "reference_position": "Center of the bordered box",
+      "text_style": "Giant heavy uppercase sans, glossy gold, dominant element of the box",
+      "text": "1 TOMA"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "small stacked word beside the giant figure",
+      "reference_position": "Right of the giant figure, stacked in two short lines",
+      "text_style": "Bold uppercase sans, gold, much smaller than the figure",
+      "text": "AL DÍA"
+    },
+    {
+      "block_id": "text_block_09",
+      "reference_function": "final line of the box",
+      "reference_position": "Bottom of the bordered box, below the thin divider, with a small drop icon at its right",
+      "text_style": "Bold uppercase geometric sans, gold, medium",
+      "text": "5 INGREDIENTES EN GOTAS"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Deep near-black canvas with lemon-gold neon glow",
+    "Three glowing gold line-art silhouettes of the same woman in side profile (taking drops, eating, squatting) with identical body proportions",
+    "Two dashed gold arrows pointing right between the silhouettes",
+    "Thin gold horizontal divider line above the bottom band",
+    "The amber dropper bottle at bottom left, exactly as in the attached photo, with a warm glow beneath",
+    "Rounded box with glowing thin gold border at bottom right, with label pill, giant figure, divider and final line with a small outline drop icon"
+  ],
+  "final_generation_exclusions": [
+    "No silhouettes whose hips, glutes or any body part grow or change between stages; no before/after body comparison.",
+    "No price, percentage, discount, free gift, urgency or offer text.",
+    "No brand logo or wordmark outside the product label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The progression shows habits, not body changes.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

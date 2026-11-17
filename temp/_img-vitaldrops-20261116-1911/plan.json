@@ -1,0 +1,152 @@
+{
+  "producto": "vitaldrops",
+  "lote": "_img-vitaldrops-20261116-1911",
+  "cantidad": 10,
+  "proporciones": ["1:1"],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1911/entrada/referencias/R01.jpg",
+      "analisis_referencia": {
+        "formato": "Progresión en tres etapas con siluetas de neón sobre fondo negro, más frasco y caja de oferta",
+        "estructura": "Arriba, una línea manuscrita blanca y debajo un titular gigante dorado brillante. En el centro, tres siluetas de contorno luminoso de la misma mujer, de perfil, unidas por flechas punteadas, cada una con su etiqueta en cursiva blanca debajo. Una línea dorada fina separa la franja inferior: frasco a la izquierda y, a la derecha, una caja con borde luminoso con una pastilla de rótulo, una cifra gigante, un divisor y una línea final con ícono.",
+        "por_que_funciona": "El contraste negro y dorado frena el scroll, y la secuencia de tres pasos se entiende en un segundo. El titular es corto y despide un problema que la clienta reconoce."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El cambio no es del cuerpo sino del hábito: de saltarse las comidas a un ritual de tres pasos (tus gotas, tu plato lleno, tu rutina).",
+      "titular": "Chao, chao COMIDAS SALTADAS",
+      "escena": "Lienzo negro profundo con brillo amarillo limón y dorado. Tres siluetas de contorno luminoso de la misma mujer con cola de caballo: tomando sus gotas, comiendo sentada y haciendo una sentadilla. Sin precio ni descuento: la caja lleva datos del producto.",
+      "camara": "Vista lateral plana, de perfil, las tres siluetas a la misma escala; frasco de frente a nivel de los ojos"
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1911/entrada/referencias/R02.jpg",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo fotográfica de tres momentos sobre fondo liso",
+        "estructura": "Fondo liso y claro. Arriba, solo el nombre de la marca (se quita). Tres fotos recortadas de la misma mujer, con la misma ropa, una al lado de la otra, cada una con su etiqueta de día en negro y en negrita debajo. Abajo al centro, el frasco solo, de frente.",
+        "por_que_funciona": "Es mínimo y se lee como una prueba: la misma persona en tres fechas. Sin adornos, el ojo compara las tres fotos y termina en el frasco."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "La misma mujer en tres días de su ritual: el día 1 con sus gotas, el día 14 comiendo con ganas, el día 30 lista para entrenar. Ataca «se me olvida comer y me lleno con nada».",
+      "titular": "DÍA 1 · DÍA 14 · DÍA 30",
+      "escena": "Fondo crema liso de estudio. Mujer colombiana de unos 26 años, camiseta crema y leggings terracota, en tres momentos: sosteniendo el gotero, comiendo de un plato lleno y con una mancuerna, sonriente. El mismo cuerpo en las tres.",
+      "camara": "Fotografía de estudio frontal a la altura del pecho, plano medio de las rodillas hacia arriba, luz suave pareja"
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1911/entrada/referencias/R03.jpg",
+      "analisis_referencia": {
+        "formato": "Cuadrícula de cuatro paneles con el día marcado, titular arriba, producto y placa dorada abajo",
+        "estructura": "Titular negro de dos líneas, centrado, arriba. Debajo, cuadrícula de 2x2 paneles de esquinas redondeadas y borde dorado fino, cada uno con su etiqueta de día en dorado arriba a la izquierda y la misma mujer ilustrada a lápiz. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás; abajo a la derecha, una placa dorada de tres líneas. El nombre de la marca al pie (se quita).",
+        "por_que_funciona": "Es la misma estructura de tu anuncio ganador: el titular promete, los cuatro paneles lo muestran paso a paso y la placa dorada cierra junto al producto."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Cuatro momentos del ritual en tres semanas: gotas en el jugo, desayuno completo, lista para el gym y entrenando. Promete el beneficio principal: apetito y energía para trabajar tus curvas.",
+      "titular": "APETITO Y ENERGÍA PARA TRABAJAR TUS CURVAS",
+      "escena": "Lienzo crema. Paneles ilustrados a lápiz con color suave: la misma mujer de la cintura para arriba en la cocina, en la mesa del desayuno, alistándose y entrenando. La placa dorada lleva datos del producto, sin oferta.",
+      "camara": "Plano medio frontal dentro de cada panel; producto de frente a nivel de los ojos"
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1911/entrada/referencias/R04.jpg",
+      "analisis_referencia": {
+        "formato": "Comparación ilustrada de dos figuras con notas a mano y líneas punteadas",
+        "estructura": "Titular negro de una línea, muy grueso, arriba. Dos figuras de la misma mujer dibujadas a lápiz, de frente, lado a lado: la izquierda con tinte rojizo y gesto apagado, la derecha con tinte dorado y gesto alegre. A cada lado, tres notas escritas a mano (palabra de color y segunda línea en negro) unidas a la figura por líneas punteadas; la última nota de cada lado lleva rayitas o destellos. El frasco abajo al centro, entre las dos figuras.",
+        "por_que_funciona": "El dibujo a mano parece contenido y no anuncio. Las notas se leen como un diagnóstico rápido y el frasco queda como el puente entre los dos lados."
+      },
+      "angulo_id": "comparacion",
+      "angulo": "Comparación con la alternativa",
+      "concepto": "Lo primero que muchas notan no está en el espejo: cabeza despejada, apetito despierto y pila para entrenar. Las dos figuras tienen el mismo cuerpo; cambia cómo se sienten.",
+      "titular": "LO PRIMERO QUE SE NOTA",
+      "escena": "Papel crema. Dos dibujos a lápiz de la misma mujer con top deportivo y leggings, con el mismo cuerpo: a la izquierda encorvada y cansada, en tono terracota; a la derecha erguida y sonriente, en tono dorado.",
+      "camara": "Vista frontal plana de ilustración, figuras de cuerpo casi entero a la misma escala"
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1911/entrada/referencias/R05.jpg",
+      "analisis_referencia": {
+        "formato": "Texto largo confesional junto a dos fotos caseras apiladas",
+        "estructura": "Fondo claro en degradado. Arriba, el logo de la marca (se quita). Columna izquierda: un texto largo centrado que admite una objeción, una lista de cuatro viñetas, un cierre de varias líneas, una línea de llamado en negrita y el frasco grande debajo. Columna derecha: dos fotos caseras de espejo, una sobre otra.",
+        "por_que_funciona": "Empieza dándole la razón al cliente en su objeción y eso desarma. El texto largo filtra a quien sí está interesada y las fotos caseras lo hacen creíble."
+      },
+      "angulo_id": "objecion-confianza",
+      "angulo": "Objeción de confianza",
+      "concepto": "La versión honesta para la que ya compró gomitas y pastillas y no vio nada: no es magia, es un ritual diario con comida y ejercicio.",
+      "titular": "No, no es magia.",
+      "escena": "Fondo crema en degradado suave. A la derecha, dos fotos caseras de la misma mujer de la cintura para arriba: en la cocina con su gotero y su desayuno, y frente al espejo del gimnasio con su termo. Sin precio.",
+      "camara": "Fotos de celular a la altura de los ojos, encuadre casero; frasco de frente abajo a la izquierda"
+    },
+    {
+      "id": "V06",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1911/entrada/referencias/R06.jpg",
+      "analisis_referencia": {
+        "formato": "Cuadrícula de cuatro viñetas ilustradas con etiquetas negras de tiempo",
+        "estructura": "Lienzo claro dividido en 2x2 por líneas negras gruesas. En cada cuadrante, una viñeta de ilustración plana con borde negro y, montada sobre su esquina superior derecha, una etiqueta negra redondeada con texto blanco de dos líneas (antes y tres tiempos con el producto). El frasco se monta sobre la esquina inferior derecha del último cuadrante.",
+        "por_que_funciona": "La ilustración plana parece una historieta y no un anuncio. Las etiquetas negras se leen en orden y el frasco aparece justo en el último paso."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "La historia contada con el plato del desayuno: antes queda casi lleno; con el ritual, semana a semana, se va quedando vacío. Ataca «se me olvida comer y me lleno con nada».",
+      "titular": "Antes de VitalDrops",
+      "escena": "Ilustración plana en tonos crema, amarillo y dorado: la misma mesa de desayuno vista desde arriba en cuatro momentos, con las manos de ella, el plato y el vaso de jugo.",
+      "camara": "Vista cenital de la mesa, igual en las cuatro viñetas"
+    },
+    {
+      "id": "V07",
+      "fuente": "biblioteca",
+      "formato_id": "F02",
+      "formato": "Titular gigante",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "La frase que toda flaca ha oído en una reunión familiar, en letras enormes. El frasco firma abajo.",
+      "titular": "«MIJA, ¿USTED SÍ ESTÁ COMIENDO?»",
+      "escena": "Fondo plano amarillo limón, titular negro enorme a la izquierda con la palabra COMIENDO resaltada, frasco pequeño abajo a la derecha y una línea de apoyo corta abajo a la izquierda.",
+      "camara": "Composición gráfica plana; frasco de frente con sombra suave"
+    },
+    {
+      "id": "V08",
+      "fuente": "biblioteca",
+      "formato_id": "F08",
+      "formato": "Beneficios con íconos",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "El ritual diario explicado en cuatro beneficios con íconos, junto al frasco grande.",
+      "titular": "TU RITUAL DIARIO PARA TRABAJAR TUS CURVAS",
+      "escena": "Fondo crema, frasco grande a la izquierda delante de un arco dorado, columna de cuatro beneficios con íconos en baldosas amarillas a la derecha.",
+      "camara": "Producto de frente, ligeramente desde abajo, luz de estudio suave"
+    },
+    {
+      "id": "V09",
+      "fuente": "biblioteca",
+      "formato_id": "F16",
+      "formato": "Lifestyle en uso",
+      "angulo_id": "promesa-emocional",
+      "angulo": "Promesa emocional",
+      "concepto": "Diciembre está cerca: empezar hoy el ritual para llegar con el hábito andando, sin prometer nada para la fecha.",
+      "titular": "LLEGA A DICIEMBRE CON TU RITUAL ANDANDO",
+      "escena": "Foto de una mujer de unos 26 años en su cocina, en la mañana, echando las gotas en su jugo junto a un desayuno servido; luces cálidas de fin de año desenfocadas al fondo. Titular sobre la pared limpia, sin cajas.",
+      "camara": "Plano medio a tres cuartos, a la altura de los ojos, fondo desenfocado, luz de ventana"
+    },
+    {
+      "id": "V10",
+      "fuente": "biblioteca",
+      "formato_id": "F11",
+      "formato": "Captura de notas",
+      "angulo_id": "curiosidad",
+      "angulo": "Curiosidad",
+      "concepto": "La nota del celular de una mujer que decidió subir de peso sana: su lista de la mañana, con las gotas resaltadas y una foto casera del frasco.",
+      "titular": "Lo que hago cada mañana desde que decidí subir de peso sana",
+      "escena": "Captura de una nota personal con fondo crema claro, lista corta de cinco ítems, un trazo de resaltador amarillo sobre el ítem de las gotas y una foto casera del frasco en la mesa de noche.",
+      "camara": "Captura de pantalla frontal; la foto adjunta, tomada con celular desde arriba en ángulo"
+    }
+  ]
+}
