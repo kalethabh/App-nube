@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17c` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+- **Versión actual:** `2026-11-17d` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
   Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -136,6 +136,13 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Editor sin avisos de «Deshacer» al borrar (2026-11-17, versión 2026-11-17d)
+
+- Pedido del usuario: al borrar no debe salir el aviso con el botón Deshacer; se deshace con Cmd/Ctrl+Z o la flecha
+  de la barra. En `app/src/pantallas/editor/index.jsx` se quitaron los avisos de borrar texto/escena, quitar la
+  música, quitar un tramo del video, volver al clip original y volver al anuncio entregado. El historial (deshacer y
+  rehacer) no cambió. Compilación correcta.
 
 ### Censura difuminada en el editor (2026-11-17, versión 2026-11-17a)
 
