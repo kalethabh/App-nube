@@ -161,6 +161,16 @@ y marcas de salud muy buenas, agrégalas como referencia y que me permita selecc
   ~10 MB, a 1080 px, con marca, alcance, crecimiento a 7 días). `biblioteca-referencias.js → listarTendencias()` y
   `rutaTendencia()`; `GET /api/imagen-ads/tendencias` y `/api/imagen-ads/tendencias/:categoria/:archivo`.
   `BibliotecaReferencias.jsx`: pestañas Tendencias / Tuyas, filtro por categoría, marca y alcance en cada una.
+- 2026-11-17a, **solo ganadoras**: criterio alcance ≥ 100.000 o activa ≥ 30 días (`indice.json → criterio`). 53
+  referencias (amua 7, aguaje 2, drenaje 12, mullein 18, salud 14). Para aguaje casi no hay ganadoras en TrendTrack
+  (búsqueda «aguaje» activa ≥ 30 días: 0 en el texto; con palabras de curvas salieron Peguero Market y Le Monet, sin
+  dato de alcance porque son de Latinoamérica). `agregarTendencia(abs, { categoria, marca })` (id «u» + sha1, categoría
+  existente o nueva por su nombre, `propia: true`) y `borrarTendencia(id)`; `POST /api/imagen-ads/tendencias?categoria=&marca=`
+  (binario, normalizado con `normalizarImagen`, JPG o PNG) y `DELETE /api/imagen-ads/tendencias/:id`, ambas con
+  `soloDesdeLaApp`. UI: pestaña «Ganadoras», fila Agregar a / Marca / Subir, pegar con Ctrl/Cmd+V (escucha `paste` en
+  `document` con captura y `stopPropagation`, para que no llegue a la zona de referencias del formulario detrás),
+  borrar con dos toques. Probado con curl (subir, repetida, sin categoría, no imagen, borrar, origen ajeno 403) y en
+  Chromium (pegar → 54 y no entra al lote; borrar → 53). Pruebas: imagen 147/147, humo rápido 82/82.
 - TrendTrack: Amua = la marca de VitalDrops (shopamua.com, 555 anuncios activos). Búsquedas de imágenes: dominio
   shopamua.com, «aguaje», «drenaje linfático», «suplemento natural» (es) y «mullein». Créditos de TrendTrack al final:
   3.134 (algunos se gastaron fuera de esta sesión).

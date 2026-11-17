@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17a · Solo referencias ganadoras, y las tuyas se agregan pegando o subiendo
+
+- **Solo ganadoras (validadas):** en «Elegir de tu biblioteca», la pestaña ahora se llama **Ganadoras** y solo tiene anuncios que funcionaron: más de 100.000 personas alcanzadas o activos hace 30 días o más. Se quitaron 22 que no cumplían (todas las de aguaje de antes y las de Amua que duraron un día). Se sumaron 6 de Amua/VitalDrops activas hace más de 110 días y 2 de aguaje activas hace más de 80 (Peguero Market y Le Monet). Quedan 53.
+- **Agrega las tuyas:** elige la categoría (o crea una nueva), opcionalmente la marca, y sube imágenes o **pega lo copiado** (Ctrl+V, ⌘V en Mac). Las tuyas salen primero.
+- **Borra las que no quieras:** el botón de la papelera en cada una; se toca dos veces para confirmar.
+
 ## 2026-11-16m · Anuncios de imagen rápidos, sin elegir títulos, y referencias de marcas que están funcionando
 
 - **Rápido, como pedirle a ChatGPT que te las varíe:** cada imagen sale de tu referencia y la foto de tu producto, con un título distinto, sin esperar a la IA de texto. Antes un lote de 5 tardaba 15-20 minutos (títulos, estrategia y revisión de cada imagen); ahora solo lo que tarda en hacerse cada imagen. Si quieres lo de antes, activa «Más elaborado (más lento)».
