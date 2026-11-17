@@ -98,6 +98,8 @@ const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransicion
           adelantado para que su golpe caiga en el corte. Ver EfectosDeTransicion.
           Aqui no puede ir porque una Sequence no puede sonar antes de empezar. */}
       <AbsoluteFill style={{ transform: entrada }}>
+      {/* el encuadre que se arrastró en el editor (moverlo y acercarlo): sin él, nada cambia */}
+      <AbsoluteFill style={pieza.encuadre ? { transform: `translate(${(pieza.encuadre.x * 100).toFixed(3)}%, ${(pieza.encuadre.y * 100).toFixed(3)}%) scale(${pieza.encuadre.zoom})` } : undefined}>
       <AbsoluteFill style={{ transform: `scale(${escala})` }}>
         <OffthreadVideo
           src={staticFile(`video/${pieza.archivo}`)}
@@ -110,6 +112,7 @@ const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransicion
           volume={(f) => (silencios?.length && callaEn(((pieza.desdeFrames || 0) + f) / fps, silencios) ? 0 : volumen)}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
+      </AbsoluteFill>
       </AbsoluteFill>
       </AbsoluteFill>
     </AbsoluteFill>

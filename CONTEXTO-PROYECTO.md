@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17g` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+- **Versión actual:** `2026-11-17h` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
   Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -136,6 +136,25 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Mover todo libremente en el editor (2026-11-17, versión 2026-11-17h)
+
+- **Encuadre por pieza** (`remotion/src/edicion/capas.mjs`): `ed.encuadres['toma-3'|'broll-2'] = { x, y, zoom }`;
+  `planAjustado → conEncuadres` lo pone en cada toma/B-roll (las tomas cortadas llevan `pieza` del plan original) y
+  `Anuncio.jsx → Clip` lo aplica con `translate(%) scale()`. `piezaEnTiempo(plan, t)` dice qué se ve (el B-roll encima
+  manda). No aplica a continuidad ni a podcast/entrevista (su video va fijo).
+- **Mouse** (`pantallas/editor/arrastrar.js`): donde no hay capa, arrastrar mueve el encuadre; el clic lo maneja el
+  editor (`stopPropagation` y `player.toggle()` si no se movió) porque el Player reproducía 200 ms después de soltar.
+  Se ignoran el pincel, la barra de avance y los botones. Ctrl/⌘ + rueda = zoom. Textos sin topes (y 0–1), imágenes
+  −0,1–1,1, subtítulos altura hasta 0,95 y lado ±0,45. Lo que sigue a algo (`sigue`, censuras) guarda `dx`, `dy` en su
+  estilo y `AnuncioEditado.jsx` los suma a cada lugar. Íconos y textos de escena (`fijo`): `ed.ajustesEscena[e<n>]`,
+  `planAjustado` pone `idEditor` y `mover`, `Escena.jsx` los envuelve con `data-capa` y el corrimiento.
+- `HerramientasLienzo.jsx`: acercar, alejar y centrar el video de la escena. Tras «Censurar» con el pincel se vuelve a
+  dibujar el cuadro actual.
+- **Pruebas (modo prueba):** arrastrar movió el video (queda negro el borde libre), Ctrl+rueda lo acercó, centrar lo
+  restableció, el clic sigue reproduciendo/pausando, la censura del pincel se arrastró (dx/dy guardados) y el plan de
+  exportación lleva el encuadre. Compilación correcta. **No probado:** mover íconos de un podcast o entrevista real y
+  un MP4 exportado con encuadre (es la misma composición que la vista previa).
 
 ### Editor: barra de herramientas junto al video (2026-11-17, versión 2026-11-17g)
 
