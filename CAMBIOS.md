@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17h · Mueve todo libremente en el editor
+
+- **El video de cada escena:** arrástralo en la vista previa para moverlo, y acércalo o aléjalo con Ctrl/⌘ + rueda del mouse (o pellizcando en el trackpad), o con los botones de lupa de la barra de herramientas. El botón de centrar lo deja como estaba. También sirve con las imágenes de apoyo.
+- **Textos e imágenes** van a cualquier parte del cuadro, sin topes; los **subtítulos** también llegan más arriba y más a los lados.
+- **Las censuras** y lo que sigue a algo del video también se arrastran: se corren respecto de lo que siguen.
+- En podcast y entrevista, los **íconos y textos** de la escena también se pueden mover.
+- Un clic sobre el video sigue reproduciendo o pausando; solo se mueve si arrastras.
+
 ## 2026-11-17g · Editor: barra de herramientas junto al video
 
 - A la derecha del video, una barra de herramientas limpia, como en los editores profesionales:

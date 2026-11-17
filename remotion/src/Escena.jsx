@@ -745,6 +745,14 @@ export const Escena = ({ piezas, plan, fadeFrames, ducking }) => {
         else if (p.tipo === 'icono') contenido = <IconoEscena pieza={p} medidas={medidas} />;
         else if (p.tipo === 'texto') contenido = <TextoEscena pieza={p} medidas={medidas} />;
         if (!contenido) return null;
+        // los íconos y textos se pueden mover en el editor (data-capa para el mouse; mover = cuánto se corrieron)
+        if (p.idEditor && (p.tipo === 'icono' || p.tipo === 'texto')) {
+          contenido = (
+            <AbsoluteFill data-capa={p.idEditor} data-capa-contenido="" style={p.mover ? { transform: `translate(${(p.mover.dx * 100).toFixed(3)}%, ${(p.mover.dy * 100).toFixed(3)}%)` } : undefined}>
+              {contenido}
+            </AbsoluteFill>
+          );
+        }
         return (
           <Sequence key={`${p.tipo}-${p.archivo || 'texto'}-${i}`} from={p.desdeFrames} durationInFrames={p.largoFrames}>
             {contenido}

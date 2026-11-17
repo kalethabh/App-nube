@@ -52,6 +52,12 @@ export const INICIAL = Object.freeze({
   // Palabras de la voz tapadas (Editar con IA: «todo lo que diga AMUA se censura»): [{ id, desde, hasta, modo, palabra }]
   // en segundos del anuncio. modo 'pitido' (la voz calla y suena un pitido) o 'silencio' (solo calla).
   censuras: [],
+  // El encuadre del video de cada escena o imagen de apoyo (arrastrarlo en la vista previa): por pieza del plan
+  // ORIGINAL ('toma-3', 'broll-2') -> { x, y, zoom }. x, y corren el video (fracción del cuadro, -1 a 1) y zoom lo
+  // acerca (0,5 a 4). Lo que queda al descubierto se ve negro.
+  encuadres: {},
+  // Los íconos y textos de podcast y entrevista corridos con el mouse: id del editor ('e3') -> { dx, dy }
+  ajustesEscena: {},
 });
 
 /** El pitido de las censuras (lo copia el servidor al anuncio: recursos/efectos-transiciones/pitido.mp3). */
@@ -140,6 +146,8 @@ export function completarEdicion(guardado) {
     clips: limpiarClips(guardado.clips),
     corte: typeof guardado.corte === 'string' && /^v[a-z0-9]{1,24}$/.test(guardado.corte) ? guardado.corte : null,
     censuras: limpiarCensuras(guardado.censuras),
+    encuadres: { ...obj(guardado.encuadres) },
+    ajustesEscena: { ...obj(guardado.ajustesEscena) },
   };
 }
 
@@ -469,6 +477,21 @@ export function planAjustado(plan, ed) {
     }
   }
 
+  if (fam === 'escena') {
+    // los íconos y textos de podcast y entrevista se pueden correr con el mouse: cada pieza lleva su id del editor
+    // (e<índice>) y, si se movió, su corrimiento (ed.ajustesEscena[id] = { dx, dy }, fracción del cuadro)
+    const aj = ed.ajustesEscena || {};
+    p.escena = {
+      ...(p.escena || plan.escena),
+      piezas: (p.escena || plan.escena).piezas.map((x, idx) => {
+        const m = aj[`e${idx}`];
+        const dx = Math.max(-1, Math.min(1, num(m?.dx, 0)));
+        const dy = Math.max(-1, Math.min(1, num(m?.dy, 0)));
+        return { ...x, idEditor: `e${idx}`, ...(dx || dy ? { mover: { dx, dy } } : {}) };
+      }),
+    };
+  }
+
   const quitados = new Set(ed.quitados);
   if (fam === 'bloques' && (ed.tomas || ed.brolls)) {
     // Con cortes: las tomas en su nuevo orden y largo, y TODOS los B-roll encima. Cada B-roll va en un bloque
@@ -486,11 +509,11 @@ export function planAjustado(plan, ed) {
     const bloques = segs.map((s) => {
       const o = plan.bloques[s.b];
       const tipo = partes.get(s.b) > 1 && (o.tipo === 'A' || o.tipo === 'C') ? 'B' : o.tipo;
-      return { ...o, tipo, linea: s.cabeza ? o.linea : null, inicio: s.inicio, fin: s.fin, toma: { ...o.toma, ...delClip(s), desde: s.inicio, recorteInicio: s.entradaVista, duracion: s.duracion }, broll: null };
+      return { ...o, tipo, linea: s.cabeza ? o.linea : null, inicio: s.inicio, fin: s.fin, toma: { ...o.toma, ...delClip(s), pieza: piezaDeArchivo(o.toma.archivo), desde: s.inicio, recorteInicio: s.entradaVista, duracion: s.duracion }, broll: null };
     });
     const ancla = plan.bloques.find((b) => b.toma)?.toma.archivo || segs[segs.length - 1]?.archivo;
     for (const x of brolls) {
-      bloques.push({ tipo: 'broll', linea: null, inicio: dur, fin: dur, texto: '', toma: { archivo: ancla, desde: dur }, broll: { ...plan.bloques[x.b].broll, ...delClip(x), desde: x.desde, duracion: x.fin - x.desde, recorteInicio: x.entradaVista } });
+      bloques.push({ tipo: 'broll', linea: null, inicio: dur, fin: dur, texto: '', toma: { archivo: ancla, desde: dur }, broll: { ...plan.bloques[x.b].broll, ...delClip(x), pieza: piezaDeArchivo(plan.bloques[x.b].broll.archivo), desde: x.desde, duracion: x.fin - x.desde, recorteInicio: x.entradaVista } });
     }
     p.bloques = bloques;
     // la animación y el sonido de entrada siguen a su toma (si se borró el comienzo de la toma, se van con él)
@@ -549,7 +572,48 @@ export function planAjustado(plan, ed) {
     });
     p.escena = { ...(p.escena || plan.escena), piezas: (p.escena || plan.escena).piezas.filter((_, idx) => !fuera.has(idx)) };
   }
+  return conEncuadres(p, ed);
+}
+
+/** Un encuadre guardado, limpio (o null si no se movió nada). */
+export function encuadreLimpio(e) {
+  if (!e || typeof e !== 'object') return null;
+  const x = Math.max(-1, Math.min(1, num(e.x, 0)));
+  const y = Math.max(-1, Math.min(1, num(e.y, 0)));
+  const zoom = Math.max(0.5, Math.min(4, num(e.zoom, 1)));
+  return Math.abs(x) < 1e-4 && Math.abs(y) < 1e-4 && Math.abs(zoom - 1) < 1e-4 ? null : { x, y, zoom };
+}
+
+/** Pone en cada toma e imagen de apoyo su encuadre (Anuncio.jsx → Clip lo aplica). */
+function conEncuadres(p, ed) {
+  const enc = ed?.encuadres || {};
+  if (!Object.keys(enc).length || !Array.isArray(p.bloques)) return p;
+  const con = (x) => {
+    if (!x) return x;
+    const pieza = x.pieza || piezaDeArchivo(x.archivo);
+    const e = encuadreLimpio(enc[pieza]);
+    return e ? { ...x, pieza, encuadre: e } : x;
+  };
+  p.bloques = p.bloques.map((b) => ({ ...b, toma: con(b.toma), broll: con(b.broll) }));
   return p;
+}
+
+/**
+ * La pieza que se ve en el segundo t (para moverla con el mouse): la imagen de apoyo si hay una encima, si no la toma.
+ * { pieza, encuadre, tipo } o null (los estilos hablados y la continuidad no se encuadran).
+ */
+export function piezaEnTiempo(p, t) {
+  if (!Array.isArray(p?.bloques) || p.continuidad?.clips || p.escena?.piezas) return null;
+  let toma = null;
+  for (const b of p.bloques) {
+    if (b.broll && t >= num(b.broll.desde) && t < num(b.broll.desde) + num(b.broll.duracion)) {
+      const pieza = b.broll.pieza || piezaDeArchivo(b.broll.archivo);
+      if (pieza) return { pieza, encuadre: b.broll.encuadre || null, tipo: 'broll' };
+    }
+    if (b.toma && b.tipo !== 'broll' && num(b.toma.desde ?? b.inicio) <= t + 1e-3) toma = b.toma;
+  }
+  const pieza = toma ? toma.pieza || piezaDeArchivo(toma.archivo) : null;
+  return pieza ? { pieza, encuadre: toma.encuadre || null, tipo: 'toma' } : null;
 }
 
 // ---------------------------------------------------------------- música
@@ -817,6 +881,9 @@ export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
     y: num(a.y ?? LUGAR_TEXTO.y, LUGAR_TEXTO.y),
     fuente: FUENTES_TEXTO.some((f) => f.id === a.fuente) ? a.fuente : 'titulo',
     giro: porDefecto.giro,
+    // lo que sigue a algo del video, corrido a mano (arrastrado): fracción del cuadro
+    dx: Math.max(-1, Math.min(1, num(a.dx, 0))),
+    dy: Math.max(-1, Math.min(1, num(a.dy, 0))),
   });
   let k = 0;
   const sugeridos = textosSugeridos(plan, ed, overlays).map((x) => {
@@ -838,6 +905,8 @@ export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
             x: Math.max(0, Math.min(1, num(a.x ?? LUGAR_IMAGEN.x, LUGAR_IMAGEN.x))),
             y: Math.max(0, Math.min(1, num(a.y ?? LUGAR_IMAGEN.y, LUGAR_IMAGEN.y))),
             ancho: Math.max(0.08, Math.min(1.2, num(a.ancho ?? LUGAR_IMAGEN.ancho, LUGAR_IMAGEN.ancho))),
+            dx: Math.max(-1, Math.min(1, num(a.dx, 0))),
+            dy: Math.max(-1, Math.min(1, num(a.dy, 0))),
           },
         }
       : {}),

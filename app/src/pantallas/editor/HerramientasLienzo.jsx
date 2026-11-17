@@ -2,7 +2,7 @@
 // profesionales. Zona segura (Meta o TikTok), cuadrícula para centrar, pincel para censurar, velocidad de la vista
 // previa y guardar el cuadro actual como imagen. (Los atajos de teclado están arriba, en la barra del editor.)
 import { useEffect, useRef, useState } from 'react';
-import { Brush, Camera, Gauge, Grid3x3, ScanLine } from 'lucide-react';
+import { Brush, Camera, Gauge, Grid3x3, Move, ScanLine, ZoomIn, ZoomOut } from 'lucide-react';
 import { Tooltip, useAvisos } from '../../componentes/index.js';
 
 export const VELOCIDADES = [1, 1.5, 2, 0.5];
@@ -76,7 +76,7 @@ export function GuiasLienzo({ zona, cuadricula }) {
 }
 
 
-export function HerramientasLienzo({ slug, playerRef, fps, zona, onZona, cuadricula, onCuadricula, pincel, onPincel, velocidad, onVelocidad }) {
+export function HerramientasLienzo({ slug, playerRef, fps, zona, onZona, cuadricula, onCuadricula, pincel, onPincel, velocidad, onVelocidad, piezaAhora, onEncuadre }) {
   const { aviso } = useAvisos();
   const [menuZona, setMenuZona] = useState(false);
   const caja = useRef(null);
@@ -99,6 +99,18 @@ export function HerramientasLienzo({ slug, playerRef, fps, zona, onZona, cuadric
     a.click();
     a.remove();
     aviso({ tipo: 'ok', titulo: 'Cuadro guardado', texto: 'Se descargó como imagen (el video tal cual, sin los textos que agregaste aquí).' });
+  };
+
+  // el video de la escena que se ve ahora: acercar, alejar y volver a centrar (también se arrastra con el mouse)
+  const encuadre = (cambio, etiqueta) => {
+    const p = piezaAhora?.();
+    if (!p) {
+      aviso({ tipo: 'info', titulo: 'Aquí no se puede', texto: 'En este estilo el video de cada escena va fijo. Mueve los textos, las imágenes y los íconos.' });
+      return;
+    }
+    playerRef.current?.pause();
+    const e0 = p.encuadre || { x: 0, y: 0, zoom: 1 };
+    onEncuadre(p.pieza, cambio(e0), { etiqueta });
   };
 
   const siguiente = VELOCIDADES[(VELOCIDADES.indexOf(velocidad) + 1) % VELOCIDADES.length];
@@ -127,6 +139,12 @@ export function HerramientasLienzo({ slug, playerRef, fps, zona, onZona, cuadric
           </div>
         ) : null}
         <Herramienta icono={Grid3x3} texto="Cuadrícula para centrar" activo={cuadricula} onClick={() => onCuadricula(!cuadricula)} />
+      </div>
+      <span className="ed-herr__separador" aria-hidden="true" />
+      <div className="ed-herr__grupo" aria-label="El video de esta escena">
+        <Herramienta icono={ZoomIn} texto="Acercar el video de esta escena (o Ctrl/⌘ + rueda)" onClick={() => encuadre((e) => ({ ...e, zoom: Math.min(4, Math.round(e.zoom * 1.1 * 1000) / 1000) }), 'Acercar el video de la escena')} />
+        <Herramienta icono={ZoomOut} texto="Alejar el video de esta escena" onClick={() => encuadre((e) => ({ ...e, zoom: Math.max(0.5, Math.round((e.zoom / 1.1) * 1000) / 1000) }), 'Alejar el video de la escena')} />
+        <Herramienta icono={Move} texto="Volver a centrar el video de esta escena (arrástralo para moverlo)" onClick={() => encuadre(() => ({ x: 0, y: 0, zoom: 1 }), 'Centrar el video de la escena')} />
       </div>
       <span className="ed-herr__separador" aria-hidden="true" />
       <div className="ed-herr__grupo">
