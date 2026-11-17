@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 4,
+    "R": 6,
     "A": 1,
     "T": 3
   },
@@ -95,6 +95,34 @@
         {
           "pieza": "V08_1x1",
           "firma": "1585376-1794875170122",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "eee8f60d-dd27-4236-b5eb-1985f356fb89",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V09_1x1",
+          "firma": "2307314-1794875197526",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "914cb6dc-28a8-4cd6-91ff-302c317c8f9a",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "1684961-1794875201312",
           "ronda": 1
         }
       ],
@@ -345,46 +373,50 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2307314-1794875197526",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2307314-1794875197526"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-17T00:26:39.288Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1684961-1794875201312",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1684961-1794875201312"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-17T00:26:41.617Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

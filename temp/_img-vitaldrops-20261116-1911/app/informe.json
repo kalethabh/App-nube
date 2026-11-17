@@ -1,0 +1,36 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-17T00:27:09.052Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 8,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V05_1x1",
+        "problemas": [
+          "En el párrafo final dice «tu plato lieno»: debe decir «lleno», con doble L."
+        ]
+      },
+      {
+        "pieza": "V07_1x1",
+        "problemas": [
+          "La coma de «MIJA,» baja hasta tocar la palabra «USTED» y parece una tilde sobre la E («USTÉD»)."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
