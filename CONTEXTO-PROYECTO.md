@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-17 (Exportar del editor por tramos: solo se rehace lo que cambió, 2026-11-17o).
+Última actualización: 2026-11-17 (Plantillas de imagen: la app dibuja los textos, y «De un video, imágenes», 2026-11-17p).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,7 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17o` (archivo `VERSION`): exportar del editor por tramos (solo se rehace lo que cambió;
+- **Versión actual:** `2026-11-17p` (archivo `VERSION`): anuncios de imagen con plantillas (la app dibuja los textos y
+  los gráficos con Remotion en 0,3-1 s por imagen; el modelo solo hace escenas sin texto; 12 de 17 formatos gratis; kit de
+  marca; «Editar textos» gratis) y «De un video, imágenes» (rama `plantillas-imagen`, sin PR). Antes: `2026-11-17o`: exportar del editor por tramos (solo se rehace lo que cambió;
   solo sonido sin rehacer imagen; VideoToolbox en la Mac). Antes: `2026-11-17n`: Inspiración con los anuncios de Meta mismo (fuentes «Meta
   (oficial)» con la API de la Biblioteca de anuncios, solo Europa, y «Desde Chrome» con el botón «Guardar en Kads»;
   TrendTrack sigue como tercera fuente). Antes: `2026-11-17m1` (Inspiración: solo validados y nunca tus marcas), `2026-11-17l1` (Agregar y Clonar no pierden la esencia),
@@ -140,6 +142,85 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Plantillas de imagen y «De un video, imágenes» (2026-11-17, versión 2026-11-17p)
+
+Pedido (tras analizar los anuncios ganadores de Grüns, Sonvital, Amua y BlockFusion): «que las imágenes se vean limpias y
+llamativas como Grüns, y que no se tarde en generar». Después: «de un video, varias imágenes listas con ángulos distintos».
+Rama `plantillas-imagen` (sin PR).
+
+- **Plantillas en Remotion** (`remotion/src/plantillas-imagen/`, entrada propia `entrada.jsx`: 3 composiciones de un
+  cuadro, `Plantilla-1x1` 1080×1080, `-4x5` 1080×1350, `-9x16` 1080×1920). `base.jsx`: `Ajustado` (búsqueda binaria del
+  tamaño de letra hasta que entra; nunca parte palabras; `text-wrap: balance`; aire arriba para las tildes), `Titular`,
+  `Mano`, `Producto` (recortado con sombra o sobre tarjeta), `Escena` (la del modelo o un fondo de espera), `Flecha`
+  a mano, `Sticker`, `FranjaOferta`, `Legal`, `Estrellas`, `Verificado`, paleta del kit. 17 plantillas en `dolor.jsx`,
+  `beneficio.jsx`, `nativo.jsx`, `oferta.jsx`. Fuentes OFL/Apache con sus licencias en `publico/fuentes/` (Anton, Bebas
+  Neue, Archivo Black, Caveat, Permanent Marker, Inter), cargadas con `FontFace` + `delayRender`.
+- **Dibujante rápido** (`app/server/lib/plantillas/render.js` + `trabajador.mjs`): proceso hijo de larga vida con
+  `cwd=remotion/` (ahí busca su navegador). `bundle()` una vez, guardado en `.cache/plantillas-imagen/<huella del código
+  + versión de Remotion>/`; un `openBrowser` reutilizado (`puppeteerInstance`), `getCompositions` una vez, `renderStill`
+  a PNG (temporal + renombre), hasta `os.cpus()` a la vez (máx. 8, `PLANTILLAS_A_LA_VEZ`), servidor local con ficha
+  para las imágenes (solo dentro de la carpeta de la app), navegador cerrado tras 15 min sin trabajo. Se calienta 4 s
+  después de arrancar la app (`ANUNCIOS_SIN_CALENTAR_PLANTILLAS=1` lo apaga) y en `preparar` de cada lote.
+- **Catálogo y textos** (`imagen-ads/catalogo-plantillas.js`, `textos-plantillas.js`): `CATALOGO` (id, familia,
+  `escena`, `campos` editables), `ORDEN_AUTO`, `asignar(cantidad, elegidas)` y `escenasDe` (el formulario repite la
+  cuenta con `planDePlantillas`). `contextoDelLote` junta ficha (beneficios, `ingredientesDe` con los mg de la etiqueta,
+  dolor en primera persona, probo, comoSeUsa → `etapasDe`), investigación (los dos formatos: puntos de dolor, objeciones
+  con «?», citas, deseo) y ganchos validados (`ganchosValidados` o `entrada/ganchos.json`). `textosPara(id, ctx, k)`:
+  reglas fijas por formato, sin inventar números ni testimonios (el tuit lo firma la marca, 0 estrellas por defecto).
+  `limpiarTextos` valida lo que llega de la pantalla contra los campos.
+- **El lote** (`imagen-ads/plantillas.js`): `brief.plantillas = { elegidas, kit, asignadas }`, `rapido: true`,
+  `fiel: false`. `prepararPlantillas` (en `estrategia`, sin la IA) escribe producto/estrategia/plan y cada V##.json con
+  `app_plantilla: { id, escena, textos, k, escenaFija?, angulo? }`. En `cargarYNormalizar` lo que dibuja solo la app
+  (plantillas sin escena y TODOS los verticales) queda `fase: final, local: true`: al motor van solo los cuadrados con
+  escena (todos en una orden, `topeKie` 12 o 4 a la vez con ChatGPT). `construirPrompt` con `app_plantilla.escena` →
+  `construirPromptEscena` (`ESCENA_SIN_TEXTO`: sin letras/logos/UI, zonas libres para los textos, misma persona/pose/
+  ropa/cámara/luz). Lo dibujado: `final/<pieza>.png` + `final/<pieza>.json { huella, completa }` (huella = código de las
+  plantillas + textos + kit + firmas de producto/escena/logo). El bucle `anuncios` lanza `componerPendientes` en cada
+  vuelta (nunca dentro de `Promise.race`: una pasada vacía se resuelve con microtareas y dejaba sin turno al resto) y
+  termina cuando una pasada empezada con todo quieto no dibujó nada. `pasosDelPedido` no rehace el vertical local.
+  Costo: `imagenesDeLaAccion` cuenta solo escenas (0 si todo es local o de video).
+- **Kit de marca**: `temp/_productos/<id>/kit-marca.json` (`kitAutomatico`: tonos dominantes no neutros con peso s²,
+  la piel/madera pesa 0,15; primario oscurecido para texto blanco; sin segundo color, amarillo cálido). `GET/PUT
+  /api/imagen-ads/kit/:producto`. Recorte gratis del producto solo si ya hay rembg con un modelo bajado
+  (`recorte-producto.js`, `ANUNCIOS_SIN_RECORTE=1` lo apaga); si no, tarjeta.
+- **Rutas**: `POST /:lote/textos { v, textos }` (redibuja la variación), regenerar de una sin escena = `otraVersion`
+  (gratis, 200 `{ gratis: true }`), de una con escena = otra escena del cuadrado (la nota va a `visual_prompt`, sin la
+  IA), `GET /plantillas/muestra/:id?producto&foto&p&s&ft&fs&st` (PNG en `.cache/plantillas-muestras/`, `sendFile` con
+  `dotfiles: 'allow'`), ZIP con `final/` solo si `completa`. La vista manda `plantilla` por variación y
+  `imagenesRegenerar`, `local`, `pulible` por pieza; `armarInforme` con `plantillas: true`.
+- **Pantallas**: formulario (interruptor «Con plantillas», `ElegirPlantillas.jsx` con muestras, `KitMarca.jsx`, costo
+  «Sin costo» o solo escenas), lote («Editar textos» → `ModalTextos.jsx`; `ModalRegenerar` gratis para las locales;
+  textos del avance y del informe), Inspiración (botón de imagen en videos → `ganadores.adaptar` →
+  `#/imagenes/nuevo?video=subido:…`).
+- **De un video, imágenes** (`imagen-ads/video-imagenes.js`, `DeUnVideo.jsx`, modo «De un video»): trabajo en
+  `temp/_video-imagenes/<id>/`. Cortes con `select='gt(scene,0.3)',showinfo`; barrido gris a 4 cps y 256 px: varianza
+  del laplaciano ÷ (1 + movimiento/6); por toma el mejor cuadro lejos de los cortes (12 %), sacado a 1080 (lanczos si
+  es chico). Subtítulos: `franjaDeTexto` (filas con bordes letra clara/contorno oscuro > 3 %); con `cv2` inpainting
+  Telea, sin él recorte de la franja. Elección sin IA (`eleccionSinIA`: más nítidos repartidos + antes y después con el
+  primero y el último) o con la IA (`lanzarSesion` con los cuadros en `material`, hojas 2×2 si son más de 8;
+  validada). `POST /api/imagen-ads/video { subido | anuncio }`, `GET /video/:id`, `POST /video/:id/elegir`,
+  `GET /archivos/video-imagenes/:id/cuadros/T##.png`; `POST /api/imagen-ads` con `video` copia los cuadros al lote
+  (`entrada/cuadros/V##.png`, el antes y después lado a lado) → `app_plantilla.escenaFija`. «Pulir con IA»
+  (`POST /:lote/pulir`, 1 imagen con costo confirmado): `prepararPulido` pasa el cuadro a `entrada/referencias/R##` y
+  `fiel: true`, y un pedido normal pide la escena con la referencia.
+- **Pruebas (sin gastar)**: `probar-imagen-ads.mjs` 163/163 (16 nuevas: lote sin escenas en 2,4 s sin llamar al
+  proveedor y costo 0; editar un texto redibuja solo esa variación en 0,5 s; escenas en una sola orden y solo
+  cuadrados; prompt sin texto; vista previa antes de la escena; regenerar una escena con nota; kit). Nueva
+  `probar-video-imagenes.mjs` 19/19 (video sintético de 72 s con 8 tomas y subtítulos: tomas, cuadro nítido aunque la
+  toma empiece borrosa, subtítulos recortados, elección sin IA y con una IA de mentira, lote en 3 s con costo 0,
+  pulir). Humo rápido (`HUMO_SIN_ANUNCIO=1`, desde una copia fuera de `.claude`) 85/85 y compilación Vite sin errores. Navegador (copia fuera de `.claude`, modo prueba):
+  formulario con las 16 muestras en 1,6 s, lote de 4 anuncios × 2 tamaños en pantalla 5,4 s después de «Generar»,
+  «Editar textos» 0,9 s; «De un video» con un video de 60 s: cuadros elegidos 3,9 s, lote en pantalla 5,1 s; sin
+  errores JS. Capturas revisadas de las 17 plantillas en 1:1, 4:5 y 9:16 (tildes, nada encimado).
+- **Límites / sin verificar sin gastar**: la calidad real de las escenas sin texto de kie o ChatGPT (que respeten
+  «sin texto», las zonas libres y la misma persona en las dos mitades o los paneles), la elección con una IA real, el
+  pulido real y los tiempos de kie. En este contenedor no hay OpenCV (se probó el recorte de la franja, no el borrado) ni
+  el modelo de rembg (se probó la tarjeta). La transcripción de ElevenLabs no se usa: solo los subtítulos de tus anuncios
+  (gratis). «Mejorar textos con mi IA» no se hizo (los textos se editan a mano). Un tuit/comentario es contenido de
+  ejemplo editable: revisa que lo que diga sea cierto antes de publicar.
+- **Siguiente paso**: en la Mac, «Actualizar», un lote «Que la app elija» de 10 con un producto con investigación (3
+  escenas pagadas) y un «De un video» con un anuncio propio; mirar las escenas y ajustar las descripciones si hace falta.
 
 ### Exportar del editor por tramos: solo se rehace lo que cambió (2026-11-17, versión 2026-11-17o)
 
