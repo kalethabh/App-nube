@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17m` (archivo `VERSION`): «Inspiración» (los anuncios de TrendTrack como en Starpop, con
+- **Versión actual:** `2026-11-17m1` (archivo `VERSION`): «Inspiración» (los anuncios de TrendTrack como en Starpop, con
   formato, sonido, marcas que sigues y Replicar). Antes: `2026-11-17l1` (Agregar y Clonar no pierden la esencia),
   `2026-11-17l` (estilo «Agregar»: subir un video y decir lo que quieres), `2026-11-17k` (editor con el audio como en CapCut),
   `2026-11-17j2` (lo último arriba y eliminar lotes de imágenes), `2026-11-17j1` (exportar más rápido), `2026-11-17i` (las imágenes respetan el ángulo y el gancho de la referencia), `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
@@ -138,6 +138,22 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Inspiración: solo validados y nunca tus marcas (2026-11-17, versión 2026-11-17m1)
+
+- Pedido: «la inspiración debe ser de tiendas con creativos ya validados, no los míos». Antes el feed buscaba sin días
+  mínimos y mostraba marcas propias (Vitalabh).
+- `lib/ganadores.js filtrosLimpios`: `soloValidados` (por defecto true) sube `diasMin` a 30 (min_days_running en
+  TrendTrack: no se pagan créditos por anuncios sin probar). La pantalla arranca con `diasMin: 30`, orden «Más alcance».
+- `lib/inspiracion.js`: `esValidado` (≥ 30 días o ≥ 100.000 de alcance), `claveMarca`, `listarMisMarcas`/`agregarMiMarca`/
+  `quitarMiMarca` (`mis_archivos/ganadores/mis-marcas.json`, del usuario: la marca no va en el código que se publica),
+  `esDeMisMarcas` (nombre del anunciante o dominio de la landing) y `paraInspiracion` → `{ anuncios, quitados }`.
+  `rutas/ganadores.js` lo aplica a buscar y a una búsqueda guardada (`recibidos` = lo que devolvió TrendTrack, para
+  «Cargar más»). `POST/DELETE /api/inspiracion/mis-marcas`. Simulador: «Vitalabh» pasa a «Curvas Naturales».
+- UI: «Tus marcas (no salen aquí)» en la columna izquierda, interruptor «Solo creativos validados» en Más filtros,
+  días < 30 deshabilitados con él, y el resumen dice lo que dejó afuera.
+- Pruebas: cuenta a mano (Vitalabh y vita-labh.co fuera, 3 días fuera, 5 días con 200.000 de alcance adentro),
+  probar-inspiracion 44/44, Chromium en modo prueba (15 de 20, «no muestro 4 de tus marcas ni 1 sin validar»).
 
 ### Inspiración: los anuncios que funcionan, como en Starpop (2026-11-17, versión 2026-11-17m)
 

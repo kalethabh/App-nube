@@ -18,7 +18,7 @@ import { PAIS, contar, filtrosConMarca, ganadores, inspiracion, miles, pedidoPar
 import './inspiracion.css';
 
 const PAISES_PRINCIPALES = ['CO', 'EC', 'GT', 'MX', 'PE', 'CL', 'AR', 'US'];
-const FILTROS_INICIALES = { paises: ['CO'], idioma: 'es', texto: '', buscarEn: 'ad_copy', nichos: [], formato: '', diasMin: 0, orden: 'alcance', rango: 0, unoPorMarca: false, cantidad: 20 };
+const FILTROS_INICIALES = { paises: ['CO'], idioma: 'es', texto: '', buscarEn: 'ad_copy', nichos: [], formato: '', diasMin: 30, orden: 'alcance', rango: 0, unoPorMarca: false, cantidad: 20, soloValidados: true };
 const RANGOS = [
   { valor: '0', etiqueta: 'Todo el tiempo' },
   { valor: '7', etiqueta: 'Salieron en los últimos 7 días' },
@@ -130,7 +130,7 @@ export default function Inspiracion() {
   }, [paginas]);
   const ultima = paginas[paginas.length - 1]?.r || null;
   const total = ultima?.total ?? null;
-  const hayMas = ultima && ultima.anuncios.length >= (ultima.filtros?.cantidad || efectivos.cantidad) && (total == null || cargados.length < total);
+  const hayMas = ultima && (ultima.recibidos ?? ultima.anuncios.length) >= (ultima.filtros?.cantidad || efectivos.cantidad) && (total == null || cargados.length < total);
   const creditosBusqueda = costo?.creditos ?? Math.ceil(efectivos.cantidad * (opciones?.creditosPorAnuncio || 1.5));
   const creditos = ultima?.creditos || g.datos?.creditos || null;
 
@@ -256,7 +256,7 @@ export default function Inspiracion() {
     <div className="pagina insp">
       <CabeceraPagina
         titulo="Inspiración"
-        descripcion="Los anuncios de Meta que están funcionando, sacados de TrendTrack. Filtra por formato y sonido, sigue marcas y replica el que te guste para tu producto."
+        descripcion="Creativos ya validados de otras tiendas en Meta (activos hace 30 días o más), sacados de TrendTrack. Filtra por formato y sonido, sigue marcas y replica el que te guste para tu producto."
         extra={
           creditos?.restantes != null ? (
             <div className="insp__creditos">
@@ -270,6 +270,7 @@ export default function Inspiracion() {
 
       <div className="insp__cuerpo">
         <Marcas
+          misMarcas={ins.datos?.misMarcas || []}
           marcas={marcas}
           activa={marca}
           onElegir={elegirMarca}
@@ -386,6 +387,12 @@ export default function Inspiracion() {
                 <span>
                   <strong>{miles(cargados.length)}</strong> anuncios cargados
                   {total != null ? ` de ~${miles(total)} en TrendTrack` : ''}
+                  {(() => {
+                    // lo que no se muestra: tus marcas y, con «Solo validados», lo que todavía no probó nada
+                    const q = paginas.reduce((acc, p) => ({ tuyos: acc.tuyos + (p.r.quitados?.tuyos || 0), sinValidar: acc.sinValidar + (p.r.quitados?.sinValidar || 0) }), { tuyos: 0, sinValidar: 0 });
+                    const partes = [q.tuyos ? `${q.tuyos} de tus marcas` : '', q.sinValidar ? `${q.sinValidar} sin validar` : ''].filter(Boolean);
+                    return partes.length ? ` · no muestro ${partes.join(' ni ')}` : '';
+                  })()}
                   {ultima?.simulado ? ' · simulados (modo prueba)' : paginas[0].r.desdeCache ? ` · guardada el ${fechaHora(paginas[0].r.fecha)} (gratis)` : ' · recién buscada'}
                 </span>
               ) : (
@@ -523,7 +530,12 @@ function MasFiltros({ filtros, setFiltros, opciones, iaAuto, setIaAuto }) {
             { valor: 'domain', etiqueta: 'La página (dominio)' },
           ]}
         />
-        <Selector etiqueta="Activo hace al menos" value={String(filtros.diasMin)} onChange={(e) => setFiltros({ diasMin: Number(e.target.value) })} opciones={DIAS.map((d) => ({ valor: String(d), etiqueta: d ? `${d} días` : 'Sin mínimo' }))} />
+        <Selector
+          etiqueta="Activo hace al menos"
+          value={String(filtros.soloValidados ? Math.max(30, filtros.diasMin) : filtros.diasMin)}
+          onChange={(e) => setFiltros({ diasMin: Number(e.target.value) })}
+          opciones={DIAS.map((d) => ({ valor: String(d), etiqueta: d ? `${d} días` : 'Sin mínimo', deshabilitada: filtros.soloValidados && d < 30 }))}
+        />
         <Selector
           etiqueta="Traer de TrendTrack"
           value={filtros.formato}
@@ -536,6 +548,13 @@ function MasFiltros({ filtros, setFiltros, opciones, iaAuto, setIaAuto }) {
         />
       </div>
       <div className="insp-filtros__interruptores">
+        <Interruptor
+          tamano="chico"
+          activado={filtros.soloValidados !== false}
+          onCambio={(v) => setFiltros({ soloValidados: v, ...(v ? { diasMin: Math.max(30, filtros.diasMin) } : {}) })}
+          etiqueta="Solo creativos validados"
+          descripcion="Activos hace 30 días o más (o con más de 100.000 personas alcanzadas): los que ya probaron que venden. Tus marcas nunca salen."
+        />
         <Interruptor tamano="chico" activado={filtros.unoPorMarca} onCambio={(v) => setFiltros({ unoPorMarca: v })} etiqueta="Uno por marca" descripcion="Un solo anuncio de cada marca en cada página (más variedad)." />
         <Interruptor
           tamano="chico"

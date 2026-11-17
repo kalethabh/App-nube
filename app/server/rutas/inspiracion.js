@@ -23,6 +23,9 @@ import {
   dejarDeSeguir,
   estadoClasificacion,
   listarMarcas,
+  listarMisMarcas,
+  agregarMiMarca,
+  quitarMiMarca,
   rutaImagen,
   seguirMarca,
 } from '../lib/inspiracion.js';
@@ -37,7 +40,19 @@ const responderError = (res, e, porDefecto) => {
 
 export default function rutasInspiracion(app) {
   app.get('/api/inspiracion', (req, res) => {
-    res.set('Cache-Control', 'no-store').json({ formatos: FORMATOS, sonidos: SONIDOS, marcas: listarMarcas(), clasificacion: estadoClasificacion() });
+    res.set('Cache-Control', 'no-store').json({ formatos: FORMATOS, sonidos: SONIDOS, marcas: listarMarcas(), misMarcas: listarMisMarcas(), clasificacion: estadoClasificacion() });
+  });
+
+  // tus marcas: nunca salen en Inspiración (lib/inspiracion.js, mis_archivos/ganadores/mis-marcas.json)
+  app.post('/api/inspiracion/mis-marcas', soloDesdeLaApp, json, (req, res) => {
+    try {
+      res.status(201).json({ misMarcas: agregarMiMarca(req.body?.nombre) });
+    } catch (e) {
+      responderError(res, e, 'No pude guardar tu marca.');
+    }
+  });
+  app.delete('/api/inspiracion/mis-marcas/:nombre', soloDesdeLaApp, (req, res) => {
+    res.json({ misMarcas: quitarMiMarca(req.params.nombre) });
   });
 
   app.post('/api/inspiracion/costo', soloDesdeLaApp, json, (req, res) => {

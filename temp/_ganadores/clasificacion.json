@@ -1,0 +1,95 @@
+{
+  "v": 1,
+  "anuncios": {
+    "simulado_sim_tejidos_2": {
+      "formato": "crochet",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_huesos_4": {
+      "formato": "esqueleto",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_bloques_5": {
+      "formato": "lego",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_amua_6": {
+      "formato": "pixar",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_ciencia_7": {
+      "formato": "animacion-3d",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_bloques_9": {
+      "formato": "crochet",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_tejidos_10": {
+      "formato": "claymation",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_amua_11": {
+      "formato": "ugc",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_huesos_12": {
+      "formato": "realista",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_amua_13": {
+      "formato": "claymation",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_tejidos_14": {
+      "formato": "crochet",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_huesos_16": {
+      "formato": "esqueleto",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:35.679Z"
+    },
+    "simulado_sim_bloques_17": {
+      "formato": "lego",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:36.480Z"
+    },
+    "simulado_sim_amua_18": {
+      "formato": "pixar",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:36.480Z"
+    },
+    "simulado_sim_ciencia_19": {
+      "formato": "animacion-3d",
+      "sonido": null,
+      "motor": "simulado",
+      "fecha": "2026-11-17T06:00:36.480Z"
+    }
+  }
+}

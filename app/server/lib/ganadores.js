@@ -98,14 +98,18 @@ export function filtrosLimpios(f = {}) {
     .filter((n) => NICHOS.some((x) => x.id === n))
     .slice(0, 6);
   const texto = String(f.texto || '').replace(/\s+/g, ' ').trim().slice(0, 120);
+  // solo creativos ya validados (por defecto): TrendTrack devuelve solo los activos hace 30 días o más (inspiracion.js
+  // esValidado; así no se pagan créditos por anuncios que todavía no probaron nada)
+  const soloValidados = f.soloValidados !== false;
   return {
+    soloValidados,
     paises: [...new Set(paises)],
     idioma: /^[a-z]{2}$/.test(String(f.idioma || '')) ? String(f.idioma) : 'es',
     texto,
     buscarEn: ['ad_copy', 'brand', 'domain'].includes(f.buscarEn) ? f.buscarEn : 'ad_copy',
     nichos: [...new Set(nichos)],
     formato: ['video', 'image'].includes(f.formato) ? f.formato : '',
-    diasMin: entero(f.diasMin, 0, 365, 14),
+    diasMin: Math.max(soloValidados ? 30 : 0, entero(f.diasMin, 0, 365, soloValidados ? 30 : 14)),
     // desde cuándo se vio por primera vez: 0 = todo el tiempo; 7, 30 o 90 = los de esos últimos días
     rango: [7, 30, 90].includes(Number(f.rango)) ? Number(f.rango) : 0,
     orden: Object.hasOwn(ORDENES, f.orden) ? f.orden : 'escalando',
