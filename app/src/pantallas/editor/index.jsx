@@ -31,6 +31,7 @@ import {
   RotateCcw,
   Save,
   ScanLine,
+  Brush,
   SlidersHorizontal,
   SkipBack,
   SkipForward,
@@ -68,6 +69,7 @@ import { edicionSinTramo, quitarTramo as quitarTramoApi, ponerVersion } from './
 import { cambiosParaSeguir } from './seguimiento.js';
 import { EditarConIA } from './EditarConIA.jsx';
 import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRegenerar } from './trabajos.js';
+import { PincelCensura } from './PincelCensura.jsx';
 import { operar, agregarTexto as textoNuevo, agregarImagen as imagenNueva, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
 import { servidor } from './servidor.js';
 import { useArrastrarEnVideo } from './arrastrar.js';
@@ -688,6 +690,9 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   // en ventanas de menos de 1366 de ancho el panel izquierdo es una columna de iconos y se abre encima
   const [panelAbierto, setPanelAbierto] = useState(false);
   const [zonaMeta, setZonaMeta] = useState(false);
+  // el pincel para censurar: pintas encima del video en pausa y la censura sigue lo pintado en la escena
+  const [pincel, setPincel] = useState(false);
+  const [barraPincel, setBarraPincel] = useState(null); // dónde va su barra (debajo del video)
   const [enfoque, setEnfoque] = useState(null);
   const [soltando, setSoltando] = useState(false);
   const [atajos, setAtajos] = useState(null);
@@ -1969,21 +1974,61 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
               )}
             />
             {zonaMeta ? <ZonaMeta /> : null}
+            {pincel ? (
+              <PincelCensura
+                slug={a.slug}
+                barraEn={barraPincel}
+                t={() => (playerRef.current?.getCurrentFrame() || 0) / FPS}
+                onCerrar={() => setPincel(false)}
+                alListo={(r) => {
+                  setPincel(false);
+                  cambiar(
+                    (s) => {
+                      const n = textoNuevo(plan, s, { t: r.desde, color: colorAnuncio });
+                      return cambiarTexto(n.ed, n.nuevo, {
+                        texto: 'Censura con pincel',
+                        caja: true,
+                        fondo: colorAnuncio,
+                        inicio: Math.max(0, Math.round((r.desde - 0.05) * 100) / 100),
+                        fin: Math.min(plan.duracion, Math.round((r.hasta + 0.15) * 100) / 100),
+                        sigue: { texto: 'Zona pintada', siempre: false, pistas: [r.apariciones] },
+                      }).ed;
+                    },
+                    { etiqueta: 'Censurar con pincel' }
+                  );
+                }}
+              />
+            ) : null}
             <BarraTiempo playerRef={playerRef} listo={playerListo} duracion={plan.duracion} />
           </div>
         </div>
-        <EditarConIA acciones={acciones} ed={ed} cambiar={cambiar} />
+        {pincel ? <div className="ed-pincel-zona" ref={setBarraPincel} /> : <EditarConIA acciones={acciones} ed={ed} cambiar={cambiar} />}
         <Transporte
           playerRef={playerRef}
           listo={playerListo}
           duracion={plan.duracion}
           precarga={precarga}
           extra={
+            <>
             <Tooltip texto="Muestra dónde pone Meta el nombre, el texto y el botón">
               <Chip tamano="chico" icono={ScanLine} activo={zonaMeta} onClick={() => setZonaMeta((v) => !v)}>
                 Zona de Meta
               </Chip>
             </Tooltip>
+            <Tooltip texto="Pinta encima de lo que quieres tapar: lo sigue solo en la escena y lo difumina">
+              <Chip
+                tamano="chico"
+                icono={Brush}
+                activo={pincel}
+                onClick={() => {
+                  playerRef.current?.pause();
+                  setPincel((v) => !v);
+                }}
+              >
+                Pincel para censurar
+              </Chip>
+            </Tooltip>
+            </>
           }
         />
       </main>
