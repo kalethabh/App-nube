@@ -145,8 +145,8 @@
         "color": "#FFFFFF",
         "fondo": "#0FA3B1",
         "tamano": 1,
-        "x": 0.5,
-        "y": 0.17,
+        "x": 0.532,
+        "y": 0.177,
         "fuente": "titulo",
         "sigue": {
           "texto": "A-M-U-A",
@@ -246,11 +246,11 @@
     "corte": null,
     "censuras": []
   },
-  "t": 1794882770857,
+  "t": 1794884451418,
   "contexto": {
     "titulo": "01   VTD 6   54 ventas CPA 7.2k",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-17T02:32:51.475Z"
+  "guardado": "2026-11-17T03:00:52.023Z"
 }
