@@ -169,7 +169,7 @@ export function Difuminado({ l, ancho, alto, opacidad, capa }) {
  */
 function TextoSeguido({ id, texto, t, inicio, fin, e, sigue, ancho, alto, difuminar }) {
   // (corrido a mano si lo arrastraste: e.dx, e.dy)
-  const lugares = lugaresSeguidos(sigue, t).map((l) => ({ ...l, x: l.x + (e.dx || 0), y: l.y + (e.dy || 0) }));
+  const lugares = lugaresSeguidos(sigue, t, { inicio, fin }).map((l) => ({ ...l, x: l.x + (e.dx || 0), y: l.y + (e.dy || 0) }));
   if (!lugares.length) return null;
   const opacidad = Math.min(interpolate(t, [inicio, inicio + 0.12], [0, 1], CLAMP), interpolate(t, [fin - 0.12, fin], [1, 0], CLAMP));
   if (difuminar) {
@@ -302,7 +302,7 @@ function ImagenEnPantalla({ id, archivo, inicio, fin, estilo, sigue }) {
   const k = dt <= 0 ? 0 : 1 - Math.exp(-dt * 10) * Math.cos(dt * 20);
   const salida = interpolate(t, [fin - 0.18, fin], [1, 0], CLAMP);
   // siguiendo un texto del video: una copia encima de cada aparición, al menos de su ancho (lo tapa), sin el pop
-  const lugares = sigue ? lugaresSeguidos(sigue, t).map((l) => ({ ...l, x: l.x + (e0.dx || 0), y: l.y + (e0.dy || 0) })) : null;
+  const lugares = sigue ? lugaresSeguidos(sigue, t, { inicio, fin }).map((l) => ({ ...l, x: l.x + (e0.dx || 0), y: l.y + (e0.dy || 0) })) : null;
   if (sigue && !lugares.length) return null;
   const copias = lugares ? lugares.map((l) => ({ x: l.x, y: l.y, ancho: Math.max(e0.ancho ?? 0.2, l.w * 1.12) })) : [{ x: e0.x ?? 0.5, y: e0.y ?? 0.42, ancho: e0.ancho ?? 0.5 }];
   return (

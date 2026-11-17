@@ -848,10 +848,11 @@ function lugarEnPista(ps, t, cortes) {
  * Dónde va en el segundo t: una posición { x, y, w, h } por cada aparición que está en pantalla. Con «siempre», si no
  * hay ninguna, una sola donde se vio por última vez (o donde se verá primero).
  */
-export function lugaresSeguidos(sigue, t) {
+export function lugaresSeguidos(sigue, t, ventana = null) {
   const pistas = sigue?.pistas || [];
   const ahora = pistas.map((ps) => lugarEnPista(ps, t, sigue.cortes)).filter(Boolean);
-  if (ahora.length || !sigue?.siempre) return ahora;
+  if (ahora.length) return ahora;
+  if (!sigue?.siempre) return quietoEnLosBordes(pistas, t, ventana);
   let antes = null;
   let despues = null;
   for (const ps of pistas) {
@@ -862,6 +863,23 @@ export function lugaresSeguidos(sigue, t) {
   }
   const p = antes || despues;
   return p ? [como(p)] : [];
+}
+
+/**
+ * Lo alargaste a mano en la línea de tiempo (ventana = { inicio, fin } del texto, la imagen o la censura): pasado el
+ * último lugar donde se vio lo que sigue (el lector a veces lo pierde antes de que se vaya), se queda quieto ahí hasta
+ * el final que elegiste; y antes del primero, desde el comienzo que elegiste. Entre dos apariciones no se inventa nada.
+ */
+function quietoEnLosBordes(pistas, t, ventana) {
+  if (!ventana || !(t >= ventana.inicio && t < ventana.fin)) return [];
+  const conPuntos = pistas.filter((ps) => ps?.length);
+  if (!conPuntos.length) return [];
+  const ultimo = Math.max(...conPuntos.map((ps) => ps[ps.length - 1][0]));
+  const primero = Math.min(...conPuntos.map((ps) => ps[0][0]));
+  // (las copias que terminan juntas, cuando el texto salía dos veces a la vez, se quedan las dos)
+  if (t > ultimo) return conPuntos.filter((ps) => ps[ps.length - 1][0] >= ultimo - 0.6).map((ps) => como(ps[ps.length - 1]));
+  if (t < primero) return conPuntos.filter((ps) => ps[0][0] <= primero + 0.6).map((ps) => como(ps[0]));
+  return [];
 }
 
 export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
