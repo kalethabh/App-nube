@@ -579,6 +579,7 @@ export const ESTILO_EJEMPLO = 'claymation';
 export const ENLACES_CLAVE = {
   kie: 'https://kie.ai/api-key',
   elevenlabs: 'https://elevenlabs.io/app/settings/api-keys',
+  meta: 'https://developers.facebook.com/tools/explorer/',
 };
 
 /** Donde se recarga el saldo de kie (su página oficial). */

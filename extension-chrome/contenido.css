@@ -1,0 +1,51 @@
+/* El botón «Guardar en Kads» y su aviso, con los colores de Kads (negro y verde lima). */
+.kads-boton {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #9df626;
+  color: #0b0b0c;
+  font: 600 12px/1.2 Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.kads-boton:hover {
+  filter: brightness(1.05);
+}
+.kads-boton:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+.kads-boton--hecho {
+  background: #0b0b0c;
+  color: #9df626;
+}
+.kads-aviso {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483647;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #0b0b0c;
+  color: #f4f4f5;
+  border: 1px solid #9df626;
+  font: 500 13px/1.4 Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.4s;
+}
+.kads-aviso--aviso {
+  border-color: #f5b83d;
+}
+.kads-aviso--error {
+  border-color: #f87171;
+}
+.kads-aviso--sale {
+  opacity: 0;
+}

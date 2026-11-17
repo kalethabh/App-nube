@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guardar en Kads · Opciones</title>
+    <link rel="stylesheet" href="opciones.css" />
+  </head>
+  <body>
+    <main>
+      <h1><span class="k">K</span> Guardar en Kads</h1>
+      <p class="lema">Pega aquí el código de tu Kads Studio. Lo encuentras en la app: <strong>Inspiración › Botón de Chrome</strong>.</p>
+      <form id="form" autocomplete="off">
+        <label for="codigo">Código de emparejamiento</label>
+        <input id="codigo" name="codigo" type="password" placeholder="ABCDEF-GHJKLM-NPQRST-UVWXYZ" spellcheck="false" />
+        <label for="direccion">Dirección de la app</label>
+        <input id="direccion" name="direccion" type="text" placeholder="http://127.0.0.1:4455" spellcheck="false" />
+        <p class="nota">Déjala así salvo que tu app se abra en otro puerto. Solo puede ser de este computador.</p>
+        <div class="botones">
+          <button type="submit" class="primario">Guardar</button>
+          <button type="button" id="probar">Probar conexión</button>
+        </div>
+        <p id="estado" role="status" aria-live="polite"></p>
+      </form>
+      <section class="como">
+        <h2>Cómo se usa</h2>
+        <ol>
+          <li>Abre la <a href="https://www.facebook.com/ads/library/" target="_blank" rel="noopener noreferrer">Biblioteca de anuncios de Meta</a> y busca lo que quieras.</li>
+          <li>En cada anuncio aparece el botón verde <strong>Guardar en Kads</strong>.</li>
+          <li>Tócalo en los que te gusten: quedan en Kads › Inspiración › <strong>Desde Chrome</strong>, con su video o su imagen.</li>
+        </ol>
+        <p class="nota">La extensión solo lee el anuncio que tocas. No hace clic por ti, no se desplaza sola y no guarda nada de Facebook por su cuenta.</p>
+      </section>
+    </main>
+    <script src="opciones.js"></script>
+  </body>
+</html>

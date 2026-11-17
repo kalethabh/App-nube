@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17n · Inspiración: los anuncios salen de Meta mismo
+
+- **Arriba del feed eliges de dónde salen:** «Meta (oficial)», «Desde Chrome» o «TrendTrack». Las tres tienen las mismas tarjetas, el formato y el sonido, los guardados, Detalles y Replicar, y nunca muestran tus marcas.
+- **Meta (oficial), gratis:** busca una palabra (o toca una marca) y ves los anuncios de la Biblioteca de anuncios de Meta, sin créditos. Primero pega tu token de Meta en **Ajustes › Conexiones › Inspiración: Biblioteca de anuncios de Meta**: ahí están los 5 pasos (Meta te pide verificar tu identidad una sola vez; el token dura un par de horas y lo puedes extender a unos 60 días; cuando vence, la app te avisa).
+- **El límite de Meta, sin vueltas:** la API oficial solo entrega anuncios que se mostraron en **Europa** (Unión Europea y Reino Unido). Los que corren solo en Latinoamérica no salen por ahí: para esos está el botón de Chrome. Los países que puedes elegir en esta fuente son los de Europa.
+- El video de cada anuncio de Meta se trae recién cuando la tarjeta aparece en tu pantalla. Si Meta no deja sacarlo, la tarjeta te ofrece **«Ver en Meta»**.
+- **Botón de Chrome «Guardar en Kads»:** en la Biblioteca de anuncios de Meta (también la de Latinoamérica) cada anuncio tiene un botón verde. Al tocarlo, ese anuncio llega a **Inspiración › Desde Chrome** con su video o su imagen ya guardados en tu computador. Solo se guarda el que tocas: la extensión no hace clic ni se desplaza por ti. Puedes borrar lo que guardaste; si todavía no cumple 30 días activo, lo ves igual con la insignia «Sin validar».
+- **Cómo instalar el botón:** en Inspiración toca **«Botón de Chrome»** › «Descargar la extensión» y descomprime el zip. En Chrome abre `chrome://extensions`, prende el **Modo de desarrollador**, toca **«Cargar descomprimida»** y elige la carpeta «kads-guardar-en-chrome». En sus **Opciones** pega el código que te muestra Kads, toca Guardar y luego «Probar conexión». Kads tiene que estar abierta.
+- TrendTrack sigue igual que antes, como tercera fuente.
+
 ## 2026-11-17m1 · Inspiración: solo creativos validados de otras tiendas
 
 - **Solo lo que ya funcionó:** por defecto Inspiración trae creativos **activos hace 30 días o más** (o con más de 100.000 personas alcanzadas), ordenados por alcance, como Starpop. Se puede apagar en «Más filtros» › «Solo creativos validados».

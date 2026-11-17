@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Guardar en Kads",
+  "short_name": "Kads",
+  "version": "1.0.0",
+  "description": "Agrega el botón «Guardar en Kads» a los anuncios de la Biblioteca de anuncios de Meta y los manda a tu Kads Studio (Inspiración › Desde Chrome).",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.facebook.com/ads/library/*", "http://127.0.0.1/*", "http://localhost/*"],
+  "background": { "service_worker": "fondo.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/ads/library/*"],
+      "js": ["leer-tarjeta.js", "contenido.js"],
+      "css": ["contenido.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "opciones.html",
+  "action": { "default_title": "Guardar en Kads: abre las opciones", "default_icon": { "16": "iconos/16.png", "48": "iconos/48.png" } },
+  "icons": { "16": "iconos/16.png", "48": "iconos/48.png", "128": "iconos/128.png" }
+}

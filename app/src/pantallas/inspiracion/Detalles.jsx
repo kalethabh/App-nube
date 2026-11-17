@@ -3,12 +3,15 @@
 import { Bookmark, BookmarkCheck, Copy, ExternalLink, Info, UserCheck, UserPlus, Wand2 } from 'lucide-react';
 import { Boton, Modal } from '../../componentes/index.js';
 import { Insignias, Medio } from './Tarjeta.jsx';
-import { PAIS, corto, fechaCorta, miles } from './datos.js';
+import { PAIS, PAIS_UE, corto, enlaceMeta, fechaCorta, miles } from './datos.js';
 
-export function Detalles({ a, c, formatos, sonidos, abierto, onCerrar, guardado, onGuardar, onReplicar, replicando, onCopiar, siguiendo, onSeguir, onVerMarca }) {
+export function Detalles({ a, c, formatos, sonidos, abierto, onCerrar, guardado, onGuardar, onReplicar, replicando, onCopiar, siguiendo, onSeguir, onVerMarca, onPedirMedio }) {
   if (!a) return null;
   const cifras = [
-    ['Personas que lo vieron', a.alcance != null ? miles(a.alcance) : null],
+    ['De dónde salió', a.fuente === 'meta' ? 'Biblioteca de anuncios de Meta (oficial)' : a.fuente === 'chrome' ? `Guardado desde Chrome${a.guardadoEn ? ` el ${fechaCorta(a.guardadoEn)}` : ''}` : 'TrendTrack'],
+    [a.fuente === 'meta' ? 'Personas alcanzadas en Europa' : 'Personas que lo vieron', a.alcance != null ? miles(a.alcance) : null],
+    ['Anuncios con este creativo', a.creativos != null ? miles(a.creativos) : null],
+    ['Dónde sale', a.plataformas?.length ? a.plataformas.map((p) => ({ facebook: 'Facebook', instagram: 'Instagram', messenger: 'Messenger', audience_network: 'Audience Network', threads: 'Threads' })[p] || p).join(', ') : null],
     ['Más en los últimos 7 días', a.alcance7d ? `+${miles(a.alcance7d)}` : null],
     ['Gasto estimado', a.gasto != null ? `${corto(a.gasto)} USD` : null],
     ['Días activo', a.dias != null ? `${a.dias} (desde el ${fechaCorta(a.desde)})` : null],
@@ -16,7 +19,7 @@ export function Detalles({ a, c, formatos, sonidos, abierto, onCerrar, guardado,
     ['Puesto en su marca', a.puesto ? `Nº${a.puesto}${a.puestoCambio ? ` (${a.puestoCambio > 0 ? 'subió' : 'bajó'} ${Math.abs(a.puestoCambio)})` : ''}` : null],
     ['Anuncios activos de la marca', a.anunciante.activos != null ? miles(a.anunciante.activos) : null],
     ['Botón', a.cta ? a.cta.replace(/_/g, ' ').toLowerCase() : null],
-    ['Países', a.paises?.length ? `${a.paises.map((p) => PAIS[p] || p).join(', ')}${a.totalPaises > a.paises.length ? ` y ${a.totalPaises - a.paises.length} más` : ''}` : null],
+    ['Países', a.paises?.length ? `${a.paises.map((p) => PAIS[p] || PAIS_UE[p] || p).join(', ')}${a.totalPaises > a.paises.length ? ` y ${a.totalPaises - a.paises.length} más` : ''}` : null],
   ].filter(([, v]) => v);
   return (
     <Modal
@@ -44,7 +47,7 @@ export function Detalles({ a, c, formatos, sonidos, abierto, onCerrar, guardado,
       }
     >
       <div className="insp-detalles__rejilla">
-        <Medio a={a} grande />
+        <Medio a={a} grande onPedirMedio={onPedirMedio} />
         <div className="insp-detalles__info">
           <Insignias a={a} c={c} formatos={formatos} sonidos={sonidos} />
           <div className="insp-detalles__marca">
@@ -77,6 +80,12 @@ export function Detalles({ a, c, formatos, sonidos, abierto, onCerrar, guardado,
               ))}
             </dl>
           ) : null}
+          {a.descripcion ? <p className="insp-detalles__texto">{a.descripcion}</p> : null}
+          {a.metaId ? (
+            <a className="insp-detalles__landing" href={enlaceMeta(a.metaId)} target="_blank" rel="noreferrer noopener">
+              <ExternalLink size={13} aria-hidden="true" /> Ver en la Biblioteca de anuncios de Meta
+            </a>
+          ) : null}
           {a.landing ? (
             <a className="insp-detalles__landing" href={a.landing} target="_blank" rel="noreferrer noopener">
               <ExternalLink size={13} aria-hidden="true" /> {a.dominio || 'Ver la página'}
@@ -88,7 +97,7 @@ export function Detalles({ a, c, formatos, sonidos, abierto, onCerrar, guardado,
               : c?.formatoFuente === 'texto'
                 ? 'El formato sale de las palabras del anuncio.'
                 : 'Todavía no se sabe el formato de este anuncio.'}{' '}
-            {c?.sonidoFuente === 'texto' ? 'El sonido sale de la transcripción de TrendTrack.' : ''}
+            {c?.sonidoFuente === 'texto' ? (a.fuente === 'trendtrack' ? 'El sonido sale de la transcripción de TrendTrack.' : 'El sonido sale del texto del anuncio.') : ''}
           </p>
         </div>
       </div>
