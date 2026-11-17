@@ -201,47 +201,54 @@ export function ResenaTuit({ t, kit, producto, formato }) {
 
 // ---------------------------------------------------------------- captura de un comentario
 
-export function Comentario({ t, kit, producto, formato }) {
-  const { width: W, height: H } = useVideoConfig();
-  const p = paleta(kit);
-  const z = zona(W, H, formato);
-  const vertical = formato === '9:16';
-  const bloque = z.alto * (vertical ? 0.5 : 0.62);
-  const Burbuja = ({ nombre, texto, avatar, verificado, ancho, alto, x, y }) => (
-    <div style={{ position: 'absolute', left: x, top: y, width: ancho, height: alto, display: 'flex', gap: 16 }}>
+/** Un comentario como en Facebook: la burbuja crece con su texto (como una captura de verdad). */
+function BurbujaComentario({ nombre, texto, avatar, verificado, tamLetra }) {
+  return (
+    <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
       {avatar}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0 }}>
-        <div style={{ flex: 1, minHeight: 0, background: '#FFFFFF', borderRadius: 30, padding: '18px 26px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', boxShadow: '0 2px 6px rgba(0,0,0,0.05)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: FUENTE_TEXTO, fontWeight: 750, fontSize: 30, color: '#050505', height: 40, flexShrink: 0 }}>
+        <div style={{ alignSelf: 'flex-start', maxWidth: '100%', background: '#FFFFFF', borderRadius: 30, padding: '18px 26px', boxSizing: 'border-box', boxShadow: '0 2px 6px rgba(0,0,0,0.05)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: FUENTE_TEXTO, fontWeight: 750, fontSize: tamLetra * 0.72, color: '#050505', marginBottom: 6 }}>
             {nombre}
-            {verificado ? <Verificado tam={28} color="#0866FF" /> : null}
+            {verificado ? <Verificado tam={tamLetra * 0.66} color="#0866FF" /> : null}
           </div>
-          <div style={{ flex: 1, minHeight: 0 }}>
-            <Ajustado max={44} min={14} alineado="left" vertical="start" balance={false} estilo={{ fontFamily: FUENTE_TEXTO, fontWeight: 450, color: '#050505', lineHeight: 1.28 }}>
-              {texto}
-            </Ajustado>
-          </div>
+          <div style={{ fontFamily: FUENTE_TEXTO, fontWeight: 450, fontSize: tamLetra, color: '#050505', lineHeight: 1.28, whiteSpace: 'pre-line', overflowWrap: 'break-word' }}>{texto}</div>
         </div>
-        <div style={{ fontFamily: FUENTE_TEXTO, fontSize: 24, fontWeight: 700, color: '#65676B', display: 'flex', gap: 28, paddingLeft: 22, height: 30 }}>
+        <div style={{ fontFamily: FUENTE_TEXTO, fontSize: tamLetra * 0.58, fontWeight: 700, color: '#65676B', display: 'flex', gap: 28, paddingLeft: 22 }}>
           <span>Me gusta</span>
           <span>Responder</span>
         </div>
       </div>
     </div>
   );
-  const altoPregunta = bloque * 0.46;
+}
+
+export function Comentario({ t, kit, producto, formato }) {
+  const { width: W, height: H } = useVideoConfig();
+  const p = paleta(kit);
+  const z = zona(W, H, formato);
+  const vertical = formato === '9:16';
+  // la letra según lo largo de los textos (topes: 160 y 200 letras)
+  const largo = String(t.comentario || '').length + String(t.respuesta || '').length;
+  const tamLetra = Math.round((vertical ? 50 : 44) * (largo > 260 ? 0.82 : largo > 180 ? 0.9 : 1));
   return (
     <AbsoluteFill style={{ background: '#F0F2F5' }}>
-      <Burbuja x={36} y={z.top} ancho={W - 72} alto={altoPregunta} nombre={t.nombre} texto={t.comentario} avatar={<Avatar tam={78} nombre={t.nombre} color="#8C939D" />} />
-      <Burbuja x={120} y={z.top + altoPregunta + 26} ancho={W - 156} alto={bloque - altoPregunta - 26} nombre={t.marca} texto={t.respuesta} verificado avatar={<Avatar tam={70} producto={producto} />} />
-      <div style={{ position: 'absolute', left: W * 0.2, width: W * 0.6, top: z.top + bloque + 24, bottom: H - z.bottom + 40 }}>
-        <Producto producto={producto} />
-      </div>
-      {t.nota ? (
-        <div style={{ position: 'absolute', left: 30, width: W * 0.26, top: z.top + bloque + 60, height: 160 }}>
-          <Mano texto={t.nota} kit={kit} color={p.profundo} max={46} giro={-6} />
+      <div style={{ position: 'absolute', left: 36, right: 36, top: z.top, bottom: H - z.bottom + 36, display: 'flex', flexDirection: 'column', gap: 22 }}>
+        <BurbujaComentario nombre={t.nombre} texto={t.comentario} avatar={<Avatar tam={78} nombre={t.nombre} color="#8C939D" />} tamLetra={tamLetra} />
+        <div style={{ paddingLeft: 84 }}>
+          <BurbujaComentario nombre={t.marca} texto={t.respuesta} verificado avatar={<Avatar tam={70} producto={producto} />} tamLetra={tamLetra} />
         </div>
-      ) : null}
+        <div style={{ flex: 1, minHeight: 0, position: 'relative' }}>
+          <div style={{ position: 'absolute', left: '18%', right: '18%', top: 10, bottom: 0 }}>
+            <Producto producto={producto} />
+          </div>
+          {t.nota ? (
+            <div style={{ position: 'absolute', left: 0, width: '26%', top: '20%', height: 160 }}>
+              <Mano texto={t.nota} kit={kit} color={p.profundo} max={46} giro={-6} />
+            </div>
+          ) : null}
+        </div>
+      </div>
       <div style={{ position: 'absolute', left: 0, right: 0, top: z.bottom - 32 }}>
         <Legal texto={t.legal} />
       </div>

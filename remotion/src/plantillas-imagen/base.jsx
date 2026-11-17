@@ -130,13 +130,15 @@ export function Titular({ texto, kit, color, max = 190, min = 28, alineado = 'ce
   const e = escalaTitulo(kit);
   // una palabra entre *asteriscos* va con el color de acento (resaltado)
   const partes = String(texto || '').split(/(\*[^*]+\*)/g).filter(Boolean);
+  // apretado como en los anuncios que funcionan, pero con aire si hay tildes (la Á de abajo no toca la línea de arriba)
+  const conTildes = /[ÁÉÍÓÚÑÜáéíóúñü]/.test(String(texto || ''));
   return (
     <Ajustado
       max={max * e}
       min={min}
       alineado={alineado}
       vertical={vertical}
-      estilo={{ fontFamily: fuenteTitulo(kit), color, textTransform: 'uppercase', lineHeight: 0.93, letterSpacing: kit?.fuenteTitulo === 'Bebas Neue' ? '0.01em' : '0', ...(sombra ? { textShadow: '0 6px 24px rgba(0,0,0,0.35)' } : {}) }}
+      estilo={{ fontFamily: fuenteTitulo(kit), color, textTransform: 'uppercase', lineHeight: conTildes ? 1.06 : 0.95, letterSpacing: kit?.fuenteTitulo === 'Bebas Neue' ? '0.01em' : '0', ...(sombra ? { textShadow: '0 6px 24px rgba(0,0,0,0.35)' } : {}) }}
     >
       {partes.map((p, i) => (p.startsWith('*') && p.endsWith('*') ? <span key={i} style={{ color: resaltado || color }}>{p.slice(1, -1)}</span> : <span key={i}>{p}</span>))}
     </Ajustado>
