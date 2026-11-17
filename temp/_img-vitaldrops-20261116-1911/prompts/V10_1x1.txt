@@ -1,0 +1,51 @@
+Square 1:1 image that is a flat, full-bleed screenshot of a generic smartphone notes app in light mode, with no device frame, no hands and no perspective: the canvas itself is the phone screen. BACKGROUND: flat light warm-cream paper tone (#FBF3DC, slightly lighter), with at most an ultra-subtle paper grain; no gradients. STATUS BAR (y 0-4%): a small dark-grey semibold time at the top left; small generic dark-grey signal, wifi and battery glyphs at the top right; no carrier name, no notch. NAVIGATION BAR (y 4-10%): at the left, a back chevron followed by the word for the notes list, both in metallic gold (#C9A441), regular weight; at the right, two generic thin line icons in the same gold: a share icon and a three-dot 'more' icon. No app name or real app logo. NOTE BODY, everything aligned to one common left margin at 6%: a bold near-black (#111111) system sans-serif note title in two lines (y 12-22%); directly under it, a small mid-grey date line (y 23-26%); then a list of five single-line items in regular near-black system sans-serif with even, airy line spacing (y 28-56%), each preceded by a small round checkbox filled in gold with a white checkmark. Over the text of the SECOND list item only, a single translucent lemon-yellow (#F2DC4A) highlighter stroke, slightly uneven like a finger or stylus mark, with the text under it fully legible. No numbers, emojis or icons beside the items, no keyboard, no text cursor. ATTACHED PHOTO (x 6-94%, y 59-95%), with rounded corners: a casual but well-lit smartphone photo taken from above at an angle, in soft morning window light with mild depth of field, of the product standing on a light wooden nightstand, centered in the photo with its label clearly visible, filling about 65% of the photo's height; beside it a glass of water and a cream hair tie, and the edge of cream bed linen softly out of focus behind. No text or graphics inside the photo other than the product's own label. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. Nothing else on the canvas: no ad headline outside the note, no button, no price, no stars, no stickers, no second photo, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- UI label: status bar time (Status bar, top left): "6:52" — System sans-serif, semibold, about 2.2% of the canvas height, dark grey, 1 line
+- UI label: back label of the navigation bar (Navigation bar, left, right after the back chevron): "Notas" — System sans-serif, regular, about 2.6% of the canvas height, metallic gold, 1 line
+- note title (Top of the note body, left-aligned at the 6% margin, two lines): 2 stacked lines: line 1: "Lo que hago cada mañana desde"; line 2: "que decidí subir de peso sana" — Bold system sans-serif, about 4.2% of the canvas height per line, near-black, left-aligned, 2 lines
+- date line (Directly under the title, left-aligned): "16 de noviembre, 6:48" — Regular system sans-serif, about 2.2% of the canvas height, mid grey, left-aligned, 1 line
+- list item 1 (with round checked checkbox) (List, first line): "Un vaso de agua al despertar" — Regular system sans-serif, about 3.6% of the canvas height, near-black, left-aligned, one line, preceded by a round gold checkbox with a white checkmark
+- list item 2 (key item, under the lemon-yellow highlighter stroke) (List, second line): "Mis gotas en el jugo" — Same as item 1, with the translucent lemon-yellow highlighter stroke over the text
+- list item 3 (with round checked checkbox) (List, third line): "Desayuno completo, sin afán" — Same as item 1
+- list item 4 (with round checked checkbox) (List, fourth line): "Empacar el almuerzo" — Same as item 1
+- list item 5 (with round checked checkbox) (List, fifth line): "Dejar lista la ropa del gym" — Same as item 1
+
+BRAND IDENTITY:
+- color_palette: Native interface colors: light warm cream paper background #FBF3DC; near-black #111111 for the title and list; mid grey for the date; metallic gold #C9A441 for the back chevron, the 'Notas' label, the bar icons and the checkmarks; translucent lemon yellow #F2DC4A for the highlighter stroke; amber brown #8A4B14 (bottle glass) and warm wood and cream tones inside the attached photo.
+- text_typography: System sans-serif throughout (San Francisco / Roboto style): bold for the note title, regular for the list, small regular grey for the date, small semibold for the status-bar time. Sentence case, left-aligned. No uppercase headline, no outlines and no drop shadows.
+
+MANDATORY ELEMENTS:
+- Generic status bar and notes-app navigation bar with no real branding
+- Flat light-cream note background with a screenshot look (no device frame)
+- Left-aligned list of five items with round gold checkboxes
+- One hand-drawn translucent lemon-yellow highlighter stroke over the second item only
+- One rounded-corner casual photo of the amber dropper bottle on a nightstand attached at the bottom of the note, exactly as in the attached product photo
+
+STRICT EXCLUSIONS:
+- No phone frame, no hands, no perspective mockup.
+- No real app names, logos or platform-specific interface elements.
+- No ad headline or graphic text outside the note.
+- No emojis, icons or numbers next to the list items; no keyboard or text cursor.
+- No price, offer, CTA button, stars or testimonials.
+- No people, no scales, no weight figures, no before/after, no second photo.
+- No brand logo or wordmark outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Phone device frame, hands holding a phone or perspective mockup
+- Do not add: Real app names, logos or platform-specific interface elements
+- Do not add: Ad headline or graphic text outside the note
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonial cards
+- Do not add: Icons, emojis or illustrations next to the list items
+- Do not add: On-screen keyboard or text cursor
+- Do not add: Logos or brand marks outside the product label
+- Do not add: Bottom bar or banner
+- Do not add: Stickers, arrows or decorative graphics
+- Do not add: Before/after images, weight figures or scales
+- Do not add: A second photo or a collage
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

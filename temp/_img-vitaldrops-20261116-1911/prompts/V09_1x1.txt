@@ -1,0 +1,42 @@
+Square 1:1 full-bleed editorial lifestyle photograph, natural and believable, shot at eye level with a 50mm lens look at f/2.8. SCENE: a bright home kitchen in the morning with a clean warm-cream wall (#FBF3DC). Soft natural window light comes from the left. THE LEFT 40% of the frame is only the clean, softly lit cream wall, calm and free of objects, reserved for the text. ON THE RIGHT 55-60%: a Colombian woman of about 26, medium-brown skin, dark hair in a loose low bun, wearing a cozy cream knit sweater, framed in a three-quarter medium shot from the waist up, her head between 10% and 45% of the canvas height. She stands at a light wooden counter, caught mid-action with a serene small smile and her eyes on what she is doing: in her left hand she holds the open amber dropper bottle with its label facing the camera, and with her right hand she holds the bottle's black rubber-bulb dropper with its glass pipette just above a glass of orange juice, letting one drop fall into it. On the counter beside the glass, a served breakfast: a plate with arepa, scrambled eggs and avocado, a small bowl of fruit and a lemon-yellow cloth napkin. In the background on the right, softly out of focus, a string of small warm golden fairy lights along a shelf gives a subtle end-of-year mood as round bokeh. Woman and bottle are sharp; the background is softly blurred. Warm, true-to-life color grading with gentle contrast and real skin texture. TEXT, set directly on the clean wall with no box or panel: at the upper left (x 6-46%, y 8-30%) a bold left-aligned headline in three lines, extra-bold uppercase geometric sans-serif, solid near-black (#111111); directly below it (about y 32-40%) a short subtitle in two lines, regular-weight sentence-case geometric sans, near-black. No text over her face or over the product. THE PRODUCT, about 20-24% of the canvas height in her hand, is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck; its cap is a black ribbed screw collar with a glossy black rubber bulb dropper and a glass pipette, which in this scene is unscrewed and held in her other hand. A wraparound label covers most of the bottle body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No boxes behind the text, no button, no price, no badges, no icons, no Christmas tree, no gifts, no second person, no logo outside the product label, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Upper left, on the clean wall, x 6-46% and y 8-30%, 3 lines): 3 stacked lines: line 1: "LLEGA A DICIEMBRE"; line 2: "CON TU RITUAL"; line 3: "ANDANDO" — Extra-bold uppercase geometric sans-serif, each line about 6% of the canvas height, left-aligned, 3 lines, solid near-black on the bright cream wall
+- subtitle (Directly below the headline, left-aligned, within x 6-46%): 2 stacked lines: line 1: "Gotas diarias que acompañan"; line 2: "tu apetito y tu energía." — Regular-weight geometric sans-serif, sentence case, about 3.2% of the canvas height, left-aligned, 2 lines, near-black
+
+BRAND IDENTITY:
+- color_palette: Natural photo colors graded toward the brand: warm cream wall #FBF3DC, lemon yellow #F2DC4A in props (napkin, mug, orange juice tone), metallic gold #C9A441 / #E6CF7A in the warm blurred lights, near-black #111111 for the text, amber brown #8A4B14 (bottle glass), soft white #FFFFFF highlights.
+- text_typography: Headline in a geometric sans-serif, extra-bold, all uppercase, tight leading (Montserrat ExtraBold / Gotham Black style), solid near-black, left-aligned. Subtitle in the same geometric sans, regular weight, sentence case, near-black. No outlines and no drop shadows on the text.
+
+MANDATORY ELEMENTS:
+- One real-looking woman of about 26, waist up, in her kitchen in the morning, putting drops from the dropper into a glass of orange juice
+- The amber bottle with its yellow-to-white label, sharp and facing the camera in her hand, exactly as in the attached photo
+- A served breakfast on the counter beside the glass
+- Clean, calm cream wall on the left of the photo holding the text
+- Soft window light from the left, shallow depth of field and warm golden fairy lights out of focus in the right background
+
+STRICT EXCLUSIONS:
+- No boxes, panels or color blocks behind the text.
+- No CTA button, price, offer, discount or urgency badge.
+- No body close-ups and no revealing outfit; she is shown from the waist up in a sweater.
+- No Christmas tree, Santa hat, gift boxes or festive lettering; only soft blurred warm lights.
+- No second person, no collage, no before/after.
+- No brand logo or wordmark outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Boxes, panels, cards or solid color blocks behind the text
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonial quotes
+- Do not add: Benefit list, checkmarks or icons
+- Do not add: Split screen, collage or before/after
+- Do not add: Stickers, arrows or doodles
+- Do not add: Additional people
+- Do not add: Studio backdrop or isolated product cut-out
+- Do not add: Bottom bar or banner
+- Do not add: Christmas trees, Santa hats, gift boxes or any festive text
+- Do not add: Logos or brand marks outside the product label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

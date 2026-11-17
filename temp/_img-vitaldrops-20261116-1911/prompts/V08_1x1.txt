@@ -1,0 +1,45 @@
+Square 1:1 clean benefits ad on a smooth warm-cream gradient background (#FBF3DC to a slightly lighter cream), no patterns or textures. TOP: a bold centered headline in two lines, extra-bold uppercase geometric sans-serif, solid near-black (#111111), tight leading, occupying from 6% to 21% of the canvas height and up to 88% of the width. LEFT HALF: a tall arch-shaped panel (a rectangle with a fully rounded, semicircular top) in solid metallic gold (#C9A441) with a very subtle vertical gradient toward lighter gold (#E6CF7A) and a faint soft shadow, running from about 10% to 46% of the canvas width and from about 28% to 94% of the height; flat shape, no texture, no text on it. In front of the arch, centered on it, the product stands large and upright, front view photographed from slightly below its midline with soft studio light from the upper left, about 54% of the canvas height, its base resting at about 90% of the canvas height with a soft contact shadow; a band of gold arch remains visible above and around the bottle. RIGHT HALF (from 54% to 94% of the width): four benefit rows stacked vertically with equal spacing between about 28% and 92% of the height. Each row starts with a solid lemon-yellow (#F2DC4A) rounded-square tile, about 9% of the canvas on each side with generously rounded corners, holding one simple near-black monoline icon; to the right of each tile, vertically centered on it, a short benefit text in bold sentence-case geometric sans, near-black, left-aligned, max 2 lines. Icons from top to bottom: 1) a plate with a fork and knife, 2) a lightning bolt, 3) a small leaf sprig, 4) a dumbbell. All four icons share the same line style, stroke weight and size. No cards, boxes or divider lines behind the rows; about 4% of empty cream space between the arch and the benefit column. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No people, no button, no price, no badges, no stars, no numbers on the rows, no logo outside the product label, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, spanning up to 88% of the width, 2 lines): 2 stacked lines: line 1: "TU RITUAL DIARIO PARA"; line 2: "TRABAJAR TUS CURVAS" — Extra-bold uppercase geometric sans-serif, each line about 7% of the canvas height, centered, solid near-black
+- benefit 1 (plate icon) (Right column, first row, right of the first icon tile): 2 stacked lines: line 1: "Acompaña"; line 2: "tu apetito" — Bold geometric sans-serif, sentence case, about 3.6% of the canvas height, max 2 lines, left-aligned, near-black
+- benefit 2 (lightning icon) (Right column, second row, right of the second icon tile): 2 stacked lines: line 1: "Energía"; line 2: "para entrenar" — Same style as benefit 1
+- benefit 3 (leaf icon) (Right column, third row, right of the third icon tile): 2 stacked lines: line 1: "Contigo en los"; line 2: "días pesados" — Same style as benefit 1
+- benefit 4 (dumbbell icon) (Right column, fourth row, right of the fourth icon tile): 2 stacked lines: line 1: "Complemento"; line 2: "de tu rutina" — Same style as benefit 1
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC in a soft gradient to a slightly lighter cream; metallic gold #C9A441 with lighter gold highlight #E6CF7A for the arch panel; lemon yellow #F2DC4A for the icon tiles; near-black #111111 for the headline, benefit texts and line icons; amber brown #8A4B14 (bottle glass); soft white #FFFFFF highlights.
+- text_typography: Headline in a geometric sans-serif, extra-bold, all uppercase, tight leading (Montserrat ExtraBold / Gotham Black style), solid near-black, centered. Benefit texts in the same geometric sans, bold, sentence case, near-black, left-aligned. No outlines and no drop shadows on the text.
+
+MANDATORY ELEMENTS:
+- Soft warm-cream gradient background
+- Tall metallic-gold arch panel with a fully rounded top in the left half
+- The amber dropper bottle, large, standing in front of the arch with a soft contact shadow, exactly as in the attached photo
+- Four benefit rows stacked in the right half with equal spacing
+- A solid lemon-yellow rounded-square tile with a simple near-black line icon at the start of each row (plate with cutlery, lightning bolt, leaf sprig, dumbbell)
+
+STRICT EXCLUSIONS:
+- No people, body silhouettes or lifestyle scenes.
+- No CTA button, price, offer, discount or urgency badge.
+- No trust seals, certification badges, stars or testimonials.
+- No numbers, cards, boxes or divider lines on the benefit rows; no more than four benefits.
+- No brand logo or wordmark outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price, discount, offer or urgency badge
+- Do not add: Trust seals, guarantee or certification badges
+- Do not add: Callout lines or arrows pointing at the product
+- Do not add: Numbers or numbering on the benefit rows
+- Do not add: Divider lines, boxes or cards behind each benefit
+- Do not add: Round pedestal or circular backdrop shape
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Subheadline or paragraph text
+- Do not add: People or lifestyle scenes
+- Do not add: More than 4 benefits
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the product label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
