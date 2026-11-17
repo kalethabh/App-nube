@@ -4,8 +4,8 @@
   "version": "completa",
   "subtitulos": "sin",
   "sinMusica": false,
-  "srt": true,
-  "guardar": true,
+  "srt": false,
+  "guardar": false,
   "estado": {
     "subtitulos": {
       "visible": true,
@@ -20,7 +20,8 @@
     "ocultos": [],
     "voz": {
       "volumen": 1,
-      "silenciada": false
+      "silenciada": false,
+      "tramos": null
     },
     "musica": {
       "fuente": "original",
@@ -453,7 +454,12 @@
     "corte": null,
     "censuras": [],
     "encuadres": {},
-    "ajustesEscena": {}
+    "ajustesEscena": {},
+    "audios": [],
+    "fundido": {
+      "entrada": 0,
+      "salida": 0
+    }
   },
   "contexto": {
     "titulo": "5   VTD ❌",

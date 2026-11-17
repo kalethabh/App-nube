@@ -14,7 +14,8 @@
     "ocultos": [],
     "voz": {
       "volumen": 1,
-      "silenciada": false
+      "silenciada": false,
+      "tramos": null
     },
     "musica": {
       "fuente": "original",
@@ -447,13 +448,18 @@
     "corte": null,
     "censuras": [],
     "encuadres": {},
-    "ajustesEscena": {}
+    "ajustesEscena": {},
+    "audios": [],
+    "fundido": {
+      "entrada": 0,
+      "salida": 0
+    }
   },
-  "t": 1794889188876,
+  "t": 1794893830256,
   "contexto": {
     "titulo": "5   VTD ❌",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-17T04:19:49.498Z"
+  "guardado": "2026-11-17T05:37:10.256Z"
 }
