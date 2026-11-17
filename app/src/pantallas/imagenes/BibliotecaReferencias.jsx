@@ -1,16 +1,21 @@
-// Tu biblioteca de referencias (Anuncios de imagen): los anuncios que ya subiste como referencia, guardados para usarlos
-// otra vez con cualquier producto. Cada referencia que subes a un lote queda aquí sola (lib/imagen-ads/biblioteca-referencias.js).
+// Tu biblioteca de referencias (Anuncios de imagen), en dos pestañas:
+//   Tendencias  creativos de marcas de salud que están funcionando (TrendTrack), por categoría (aguaje, drenaje…)
+//   Tuyas       los anuncios que ya subiste como referencia (cada referencia que subes a un lote queda aquí sola)
+// (lib/imagen-ads/biblioteca-referencias.js)
 //
 //   <BibliotecaReferencias abierta={x} onCerrar={…} lugar={cuantasCaben} onElegir={(archivos) => …} />
 // onElegir recibe los File de las elegidas (se suben al lote como cualquier referencia).
 import { useEffect, useState } from 'react';
 import { Check, Images, Trash2 } from 'lucide-react';
-import { Boton, EstadoVacio, Modal, useAvisos } from '../../componentes/index.js';
+import { Boton, Chip, EstadoVacio, Modal, Pestanas, useAvisos } from '../../componentes/index.js';
 import { apiImagenes } from '../../datos/imagenes.js';
 
 export function BibliotecaReferencias({ abierta, onCerrar, lugar = 10, onElegir }) {
   const { aviso } = useAvisos();
   const [lista, setLista] = useState(null);
+  const [tendencias, setTendencias] = useState(null); // { categorias, referencias, fecha }
+  const [pestana, setPestana] = useState('tendencias');
+  const [categoria, setCategoria] = useState('todas');
   const [elegidas, setElegidas] = useState([]);
   const [ocupado, setOcupado] = useState(false);
 
@@ -19,14 +24,20 @@ export function BibliotecaReferencias({ abierta, onCerrar, lugar = 10, onElegir 
     let vigente = true;
     setElegidas([]);
     setLista(null);
+    setTendencias(null);
     apiImagenes
       .biblioteca()
       .then((r) => vigente && setLista(r?.referencias || []))
       .catch(() => vigente && setLista([]));
+    apiImagenes
+      .tendencias()
+      .then((r) => vigente && setTendencias(r || { categorias: [], referencias: [] }))
+      .catch(() => vigente && setTendencias({ categorias: [], referencias: [] }));
     return () => {
       vigente = false;
     };
   }, [abierta]);
+  const todas = [...(lista || []), ...(tendencias?.referencias || [])];
 
   if (!abierta) return null;
 
@@ -55,7 +66,7 @@ export function BibliotecaReferencias({ abierta, onCerrar, lugar = 10, onElegir 
     try {
       const archivos = [];
       for (const id of elegidas) {
-        const r = (lista || []).find((x) => x.id === id);
+        const r = todas.find((x) => x.id === id);
         if (!r) continue;
         const resp = await fetch(r.url);
         if (!resp.ok) throw new Error('No pude abrir una de las referencias.');
@@ -78,8 +89,8 @@ export function BibliotecaReferencias({ abierta, onCerrar, lugar = 10, onElegir 
       onCerrar={onCerrar}
       tamano="grande"
       icono={Images}
-      titulo="Tu biblioteca de referencias"
-      descripcion="Los anuncios que ya usaste como referencia. Elige los que quieras adaptar a este producto."
+      titulo="Referencias"
+      descripcion="Elige anuncios que están funcionando (Tendencias) o los que ya usaste (Tuyas) para variarlos con tu producto."
       className="img-bib"
       pie={
         <>
@@ -92,7 +103,62 @@ export function BibliotecaReferencias({ abierta, onCerrar, lugar = 10, onElegir 
         </>
       }
     >
-      {lista === null ? (
+      <Pestanas
+        variante="segmentado"
+        etiqueta="Qué referencias ver"
+        items={[
+          { id: 'tendencias', etiqueta: `Tendencias${tendencias?.referencias?.length ? ` (${tendencias.referencias.length})` : ''}` },
+          { id: 'tuyas', etiqueta: `Tuyas${lista?.length ? ` (${lista.length})` : ''}` },
+        ]}
+        activa={pestana}
+        onCambio={setPestana}
+        className="img-bib__pestanas"
+      />
+      {pestana === 'tendencias' ? (
+        tendencias === null ? (
+          <p className="t-chico t-3">Cargando las tendencias…</p>
+        ) : !tendencias.referencias.length ? (
+          <EstadoVacio icono={Images} titulo="Todavía no hay tendencias" descripcion="Aquí aparecen los creativos de marcas de salud que están funcionando en TrendTrack." />
+        ) : (
+          <>
+            <div className="img-bib__categorias" role="group" aria-label="Categorías">
+              <Chip activo={categoria === 'todas'} onClick={() => setCategoria('todas')}>
+                Todas
+              </Chip>
+              {tendencias.categorias.map((c) => (
+                <Chip key={c.id} activo={categoria === c.id} onClick={() => setCategoria(c.id)}>
+                  {c.nombre} ({c.cuantas})
+                </Chip>
+              ))}
+            </div>
+            <p className="t-chico t-3">
+              Anuncios de marcas de salud que están funcionando en Meta{tendencias.fecha ? ` (TrendTrack, ${tendencias.fecha})` : ''}. Al usarlos, la IA hace tu versión: nunca copia la marca, el producto ni los textos.
+            </p>
+            <ul className="img-bib__lista" aria-label="Referencias de tendencia">
+              {tendencias.referencias
+                .filter((r) => categoria === 'todas' || r.categoria === categoria)
+                .map((r) => {
+                  const activa = elegidas.includes(r.id);
+                  return (
+                    <li key={r.id} className={`img-bib__item${activa ? ' img-bib__item--activa' : ''}`}>
+                      <button type="button" className="img-bib__elegir" onClick={() => alternar(r.id)} aria-pressed={activa} aria-label={`${activa ? 'Quitar' : 'Elegir'}: ${r.marca}`}>
+                        <img src={r.miniatura} alt="" loading="lazy" draggable="false" />
+                        {activa ? (
+                          <span className="img-bib__marca" aria-hidden="true">
+                            <Check size={14} strokeWidth={3} />
+                          </span>
+                        ) : null}
+                      </button>
+                      <span className="img-bib__pie" title={r.marca}>
+                        {r.marca} · {r.alcance >= 1000 ? `${Math.round(r.alcance / 1000)} mil` : r.alcance} de alcance
+                      </span>
+                    </li>
+                  );
+                })}
+            </ul>
+          </>
+        )
+      ) : lista === null ? (
         <p className="t-chico t-3">Cargando tu biblioteca…</p>
       ) : !lista.length ? (
         <EstadoVacio icono={Images} titulo="Tu biblioteca está vacía" descripcion="Cada anuncio que subas como referencia queda guardado aquí para usarlo con otros productos." />

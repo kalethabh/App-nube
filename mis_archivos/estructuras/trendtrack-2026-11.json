@@ -6,18 +6,49 @@
       "id": "una-dosis-72-horas",
       "nombre": "Una sola dosis: lo que pasa en las próximas 72 horas",
       "origen": "Aprendida de TrendTrack (suplementos: NAC para el hígado, aceite de comino negro, cáscara de granada, gotas de mullein)",
-      "familias": ["voz-en-off", "objeto-parlante", "ugc", "hablado"],
+      "familias": [
+        "voz-en-off",
+        "objeto-parlante",
+        "ugc",
+        "hablado"
+      ],
       "ideal_para": "Suplementos, gotas o cápsulas con un mecanismo que se puede seguir por dentro del cuerpo (absorción → órgano → efecto). Muy fuerte en salud de 40+ años.",
       "consciencia": "consciente del problema; desconfía de los suplementos que «no llegan»",
-      "de_la_investigacion": ["mecanismo y absorción (por qué este formato sí llega)", "puntos de dolor con síntomas concretos", "tiempo de transformación", "objeción: «los suplementos no sirven»"],
+      "de_la_investigacion": [
+        "mecanismo y absorción (por qué este formato sí llega)",
+        "puntos de dolor con síntomas concretos",
+        "tiempo de transformación",
+        "objeción: «los suplementos no sirven»"
+      ],
       "momentos": [
-        { "momento": "Gancho", "que_pasa": "«Te tomaste UNA [cápsula / dos goteros] de [ingrediente]. En las próximas 72 horas le pasa esto a tu [órgano]. Veamos qué pasa de verdad.»" },
-        { "momento": "Segundo 1 / minuto 1", "que_pasa": "El trayecto: baja por la garganta o se absorbe bajo la lengua; por qué este formato llega y otros no (sale de la ficha)." },
-        { "momento": "Hora 2 → hora 12", "que_pasa": "Entra a la sangre y llega al órgano; se nombra el villano (la grasa atrapada, el moco, la inflamación) con las palabras del cliente." },
-        { "momento": "Hora 24 → hora 48", "que_pasa": "El villano empieza a ceder; cada hora deja algo abierto para la siguiente." },
-        { "momento": "Hora 72", "que_pasa": "El primer resultado que el cliente sentiría (dormir de corrido, respirar mejor), sin prometer curas." },
-        { "momento": "«Y eso con una sola»", "que_pasa": "«Imagina lo que hacen 21/30 días»: marcadores Día 3, 7, 14, 21 con cambios cotidianos." },
-        { "momento": "Oferta", "que_pasa": "Dosis concreta, prueba (tercero, origen), garantía real y escasez solo si es verdad." }
+        {
+          "momento": "Gancho",
+          "que_pasa": "«Te tomaste UNA [cápsula / dos goteros] de [ingrediente]. En las próximas 72 horas le pasa esto a tu [órgano]. Veamos qué pasa de verdad.»"
+        },
+        {
+          "momento": "Segundo 1 / minuto 1",
+          "que_pasa": "El trayecto: baja por la garganta o se absorbe bajo la lengua; por qué este formato llega y otros no (sale de la ficha)."
+        },
+        {
+          "momento": "Hora 2 → hora 12",
+          "que_pasa": "Entra a la sangre y llega al órgano; se nombra el villano (la grasa atrapada, el moco, la inflamación) con las palabras del cliente."
+        },
+        {
+          "momento": "Hora 24 → hora 48",
+          "que_pasa": "El villano empieza a ceder; cada hora deja algo abierto para la siguiente."
+        },
+        {
+          "momento": "Hora 72",
+          "que_pasa": "El primer resultado que el cliente sentiría (dormir de corrido, respirar mejor), sin prometer curas."
+        },
+        {
+          "momento": "«Y eso con una sola»",
+          "que_pasa": "«Imagina lo que hacen 21/30 días»: marcadores Día 3, 7, 14, 21 con cambios cotidianos."
+        },
+        {
+          "momento": "Oferta",
+          "que_pasa": "Dosis concreta, prueba (tercero, origen), garantía real y escasez solo si es verdad."
+        }
       ],
       "gancho_ejemplo": "«Te tomaste una sola cápsula. En las próximas 72 horas, esto le pasa a tu hígado.»",
       "evidencia": "Liver Health Forum (NAC + NAD+): 142.235 de alcance, +73.457 en 7 días. Ancient Herbal Remedies (comino negro, próstata): 170.158. Lung Health Guide / Mullevia (gotas de mullein, pulmones): 165.170, +61.185 en 7 días. Vital Signs Daily (cáscara de granada, glucosa). Todos activos en nov. 2026.",
@@ -27,16 +58,40 @@
       "id": "regla-de-las-72-horas",
       "nombre": "«No lo tomes hasta que conozcas la regla de…» (gancho de autoridad)",
       "origen": "Aprendida de TrendTrack (Ancient Herbal Remedies, Better Health Journal, True Nutra Pure)",
-      "familias": ["voz-en-off", "ugc", "hablado", "objeto-parlante"],
+      "familias": [
+        "voz-en-off",
+        "ugc",
+        "hablado",
+        "objeto-parlante"
+      ],
       "ideal_para": "Ingredientes conocidos que la gente ya toma «mal» (aceites, hierbas, colágeno, magnesio): el anuncio corrige cómo tomarlo y por qué este producto lo hace bien.",
       "consciencia": "consciente de la solución; ya la probó o la conoce",
-      "de_la_investigacion": ["errores comunes del mercado", "objeciones", "diferenciador del producto (dosis, formato, origen)"],
+      "de_la_investigacion": [
+        "errores comunes del mercado",
+        "objeciones",
+        "diferenciador del producto (dosis, formato, origen)"
+      ],
       "momentos": [
-        { "momento": "La advertencia", "que_pasa": "«No tomes [ingrediente] hasta que conozcas la regla de [X]» / «9 de cada 10 lo toman mal»." },
-        { "momento": "La autoridad", "que_pasa": "Quién lo dice y por qué saberlo (años de experiencia, oficio). Solo si el producto o la investigación lo respaldan." },
-        { "momento": "La regla", "que_pasa": "El error, explicado simple, y qué pasa por dentro cuando se hace bien." },
-        { "momento": "Cómo hacerlo bien", "que_pasa": "El producto como la forma correcta (dosis, formato, pureza)." },
-        { "momento": "CTA", "que_pasa": "La oferta con su garantía." }
+        {
+          "momento": "La advertencia",
+          "que_pasa": "«No tomes [ingrediente] hasta que conozcas la regla de [X]» / «9 de cada 10 lo toman mal»."
+        },
+        {
+          "momento": "La autoridad",
+          "que_pasa": "Quién lo dice y por qué saberlo (años de experiencia, oficio). Solo si el producto o la investigación lo respaldan."
+        },
+        {
+          "momento": "La regla",
+          "que_pasa": "El error, explicado simple, y qué pasa por dentro cuando se hace bien."
+        },
+        {
+          "momento": "Cómo hacerlo bien",
+          "que_pasa": "El producto como la forma correcta (dosis, formato, pureza)."
+        },
+        {
+          "momento": "CTA",
+          "que_pasa": "La oferta con su garantía."
+        }
       ],
       "gancho_ejemplo": "«No tomes aceite de comino negro hasta que conozcas la regla de las 72 horas.»",
       "evidencia": "Better Health Journal: +4.851 de alcance en 7 días con 8 días al aire. True Nutra Pure: 109 días activo. Nov. 2026."
@@ -45,15 +100,35 @@
       "id": "gancho-3d-tres-senales-y-experto",
       "nombre": "Personaje 3D con tres señales → experto que explica",
       "origen": "Aprendida de TrendTrack (Liver Health Forum, NAC para el hígado graso)",
-      "familias": ["voz-en-off", "ugc", "hablado"],
+      "familias": [
+        "voz-en-off",
+        "ugc",
+        "hablado"
+      ],
       "ideal_para": "Problemas de salud que dan varias señales en partes distintas del cuerpo; anuncios largos (1-3 min) que educan.",
       "consciencia": "consciente de los síntomas, no de que vienen de un mismo problema",
-      "de_la_investigacion": ["síntomas en distintas partes del cuerpo", "mecanismo", "objeciones («ya hice dieta»)"],
+      "de_la_investigacion": [
+        "síntomas en distintas partes del cuerpo",
+        "mecanismo",
+        "objeciones («ya hice dieta»)"
+      ],
       "momentos": [
-        { "momento": "0-8 s: el personaje 3D", "que_pasa": "Un esqueleto o cuerpo transparente muestra TRES señales en TRES lugares (piel, cuello, barriga) con los órganos marcados; «es un solo problema que aparece en tres lugares»." },
-        { "momento": "El producto en su mundo", "que_pasa": "El empaque entre sus ingredientes naturales: «esto es lo que les doy a mis pacientes»." },
-        { "momento": "El experto explica", "que_pasa": "Por qué lo obvio (dieta, alcohol, jugos) no alcanza, con B-roll 3D del órgano y las células." },
-        { "momento": "Prueba + garantía", "que_pasa": "La dosis, la prueba de calidad y la garantía de devolución." }
+        {
+          "momento": "0-8 s: el personaje 3D",
+          "que_pasa": "Un esqueleto o cuerpo transparente muestra TRES señales en TRES lugares (piel, cuello, barriga) con los órganos marcados; «es un solo problema que aparece en tres lugares»."
+        },
+        {
+          "momento": "El producto en su mundo",
+          "que_pasa": "El empaque entre sus ingredientes naturales: «esto es lo que les doy a mis pacientes»."
+        },
+        {
+          "momento": "El experto explica",
+          "que_pasa": "Por qué lo obvio (dieta, alcohol, jugos) no alcanza, con B-roll 3D del órgano y las células."
+        },
+        {
+          "momento": "Prueba + garantía",
+          "que_pasa": "La dosis, la prueba de calidad y la garantía de devolución."
+        }
       ],
       "gancho_ejemplo": "«¿Puntitos rojos en el pecho, verrugas en el cuello y una barriga que no baja? Es un solo problema en tres lugares.»",
       "evidencia": "Liver Health Forum: 142.235 de alcance, +73.457 en 7 días, 25 días activo (nov. 2026). Titular fijo en franja roja todo el video: «¿Barriga dura que no baja? Así evitas la cirrosis».",
@@ -63,15 +138,36 @@
       "id": "una-senal-y-tres-mas",
       "nombre": "«Ese dolor no es lo que crees… y hay tres señales más»",
       "origen": "Aprendida de TrendTrack (Liver Health Forum, en inglés y español)",
-      "familias": ["voz-en-off", "objeto-parlante", "ugc", "hablado"],
+      "familias": [
+        "voz-en-off",
+        "objeto-parlante",
+        "ugc",
+        "hablado"
+      ],
       "ideal_para": "Problemas silenciosos que la gente confunde con otra cosa (gases, espalda, cansancio).",
       "consciencia": "siente el síntoma pero lo atribuye a otra cosa",
-      "de_la_investigacion": ["síntomas confundidos", "lenguaje del cliente", "culpa que siente el cliente"],
+      "de_la_investigacion": [
+        "síntomas confundidos",
+        "lenguaje del cliente",
+        "culpa que siente el cliente"
+      ],
       "momentos": [
-        { "momento": "La señal mal entendida", "que_pasa": "«Ese [dolor/síntoma] no son gases ni es tu espalda.»" },
-        { "momento": "Lo que de verdad es", "que_pasa": "La explicación física simple de por qué se siente así." },
-        { "momento": "Tres señales más", "que_pasa": "Una por toma; la última es «por la que casi todos se culpan a sí mismos»." },
-        { "momento": "La salida + CTA", "que_pasa": "El producto contra la causa común de todas las señales." }
+        {
+          "momento": "La señal mal entendida",
+          "que_pasa": "«Ese [dolor/síntoma] no son gases ni es tu espalda.»"
+        },
+        {
+          "momento": "Lo que de verdad es",
+          "que_pasa": "La explicación física simple de por qué se siente así."
+        },
+        {
+          "momento": "Tres señales más",
+          "que_pasa": "Una por toma; la última es «por la que casi todos se culpan a sí mismos»."
+        },
+        {
+          "momento": "La salida + CTA",
+          "que_pasa": "El producto contra la causa común de todas las señales."
+        }
       ],
       "gancho_ejemplo": "«Ese dolor debajo de las costillas del lado derecho no son gases.»",
       "evidencia": "Liver Health Forum: versión en español al aire en oct. 2026 (6.089 de alcance en 30 días con 5 días)."
@@ -80,16 +176,39 @@
       "id": "lo-que-pasa-si-lo-usas-60-dias",
       "nombre": "«Esto es lo que pasa si lo usas 60 días» (con dudas y alguien que lo nota)",
       "origen": "Aprendida de TrendTrack (Revolt, Leonie & Co, Sassy Saints, Climber's Gift)",
-      "familias": ["voz-en-off", "objeto-parlante", "ugc"],
+      "familias": [
+        "voz-en-off",
+        "objeto-parlante",
+        "ugc"
+      ],
       "ideal_para": "Productos de uso diario cuyo cambio es gradual (ropa, belleza, hábitos, suplementos).",
       "consciencia": "consciente del producto, escéptico",
-      "de_la_investigacion": ["deseo principal", "tiempo de transformación", "quién nota el cambio (pareja, amigas)"],
+      "de_la_investigacion": [
+        "deseo principal",
+        "tiempo de transformación",
+        "quién nota el cambio (pareja, amigas)"
+      ],
       "momentos": [
-        { "momento": "La promesa del experimento", "que_pasa": "«Esto es lo que pasa si usas [producto] durante 60 días.»" },
-        { "momento": "Día 1: no estás convencido", "que_pasa": "Lo sientes distinto, pero dudas (la objeción, dicha por el propio cliente)." },
-        { "momento": "Día 7 y 14: alguien lo nota", "que_pasa": "Un cambio chico que te dices que «no es nada»; tu pareja o una amiga lo nota." },
-        { "momento": "Día 30-60: ya no piensas en el problema", "que_pasa": "El deseo cumplido como ausencia del dolor." },
-        { "momento": "CTA", "que_pasa": "La oferta." }
+        {
+          "momento": "La promesa del experimento",
+          "que_pasa": "«Esto es lo que pasa si usas [producto] durante 60 días.»"
+        },
+        {
+          "momento": "Día 1: no estás convencido",
+          "que_pasa": "Lo sientes distinto, pero dudas (la objeción, dicha por el propio cliente)."
+        },
+        {
+          "momento": "Día 7 y 14: alguien lo nota",
+          "que_pasa": "Un cambio chico que te dices que «no es nada»; tu pareja o una amiga lo nota."
+        },
+        {
+          "momento": "Día 30-60: ya no piensas en el problema",
+          "que_pasa": "El deseo cumplido como ausencia del dolor."
+        },
+        {
+          "momento": "CTA",
+          "que_pasa": "La oferta."
+        }
       ],
       "gancho_ejemplo": "«Esto es lo que pasa si usas estos leggings 60 días. Día 1: te los pones y no te convences.»",
       "evidencia": "Climber's Gift: 4.780.484 de alcance, +506.001 en 7 días. Revolt: +98.158 en 7 días con 10 días al aire. Leonie & Co: +52.641. Nov. 2026."
@@ -98,18 +217,155 @@
       "id": "honestidad-primero",
       "nombre": "«Ningún suplemento cura esto» (honestidad primero)",
       "origen": "Aprendida de TrendTrack (Liver Health Forum, colesterol)",
-      "familias": ["voz-en-off", "ugc", "hablado", "objeto-parlante"],
+      "familias": [
+        "voz-en-off",
+        "ugc",
+        "hablado",
+        "objeto-parlante"
+      ],
       "ideal_para": "Categorías saturadas de promesas exageradas; públicos que ya desconfían.",
       "consciencia": "muy consciente, muy escéptico",
-      "de_la_investigacion": ["objeciones", "mecanismo", "tratamientos que ya usan"],
+      "de_la_investigacion": [
+        "objeciones",
+        "mecanismo",
+        "tratamientos que ya usan"
+      ],
       "momentos": [
-        { "momento": "La verdad incómoda", "que_pasa": "«Ningún suplemento cura [X]. Lo digo en los primeros diez segundos.»" },
-        { "momento": "Lo que sí pasa por dentro", "que_pasa": "Qué órgano o proceso decide el problema y por qué se traba." },
-        { "momento": "Lo que el producto sí hace", "que_pasa": "Apoyar ese proceso, dicho con prudencia." },
-        { "momento": "CTA sin riesgo", "que_pasa": "Garantía y «consúltalo con tu médico» si aplica." }
+        {
+          "momento": "La verdad incómoda",
+          "que_pasa": "«Ningún suplemento cura [X]. Lo digo en los primeros diez segundos.»"
+        },
+        {
+          "momento": "Lo que sí pasa por dentro",
+          "que_pasa": "Qué órgano o proceso decide el problema y por qué se traba."
+        },
+        {
+          "momento": "Lo que el producto sí hace",
+          "que_pasa": "Apoyar ese proceso, dicho con prudencia."
+        },
+        {
+          "momento": "CTA sin riesgo",
+          "que_pasa": "Garantía y «consúltalo con tu médico» si aplica."
+        }
       ],
       "gancho_ejemplo": "«Ningún suplemento cura el colesterol alto. Pero tu hígado sí puede ayudar.»",
       "evidencia": "Liver Health Forum: 9.336 de alcance en 30 días (oct. 2026)."
+    },
+    {
+      "id": "el-problema-arruina-la-relacion",
+      "nombre": "«Roncar mata matrimonios»: el problema daña a la pareja",
+      "origen": "Aprendida de TrendTrack (Lignosus, pulmones y ronquidos; imágenes, nov. 2026)",
+      "familias": [
+        "voz-en-off",
+        "objeto-parlante",
+        "ugc",
+        "hablado"
+      ],
+      "ideal_para": "Problemas que la otra persona sufre también (ronquidos, tos de noche, mal aliento, cansancio, hinchazón que quita las ganas).",
+      "consciencia": "consciente del problema, lo minimiza",
+      "de_la_investigacion": [
+        "cómo afecta el problema a la pareja o la familia",
+        "lenguaje del cliente",
+        "tiempo de resultado"
+      ],
+      "momentos": [
+        {
+          "momento": "La pareja sufre",
+          "que_pasa": "Escena con humor: la pareja despierta, molesta o se va al sofá por el síntoma."
+        },
+        {
+          "momento": "El costo real",
+          "que_pasa": "No es solo el síntoma: es la relación, el descanso, las ganas."
+        },
+        {
+          "momento": "La solución sencilla",
+          "que_pasa": "El producto y cómo se usa (concreto)."
+        },
+        {
+          "momento": "La pareja de vuelta",
+          "que_pasa": "El resultado en «X días» (solo lo que dice la ficha) y la oferta."
+        }
+      ],
+      "gancho_ejemplo": "«Roncar mata matrimonios. Tu solución está aquí.»",
+      "evidencia": "Lignosus: varias versiones en inglés y español, 274.068 y 329.191 de alcance (nov. 2026)."
+    },
+    {
+      "id": "aviso-oficial-original",
+      "nombre": "«Aviso oficial: no lo compres en…» (confianza y original)",
+      "origen": "Aprendida de TrendTrack (Sonvital, drenaje linfático; Amua)",
+      "familias": [
+        "voz-en-off",
+        "objeto-parlante",
+        "ugc",
+        "hablado"
+      ],
+      "ideal_para": "Productos que ya tienen copias o reventas; mercados donde la gente teme estafas (pago contra entrega).",
+      "consciencia": "conoce el producto, desconfía de dónde comprarlo",
+      "de_la_investigacion": [
+        "objeción de confianza",
+        "canal de compra (contra entrega, envío)",
+        "garantía"
+      ],
+      "momentos": [
+        {
+          "momento": "El aviso",
+          "que_pasa": "«Aviso oficial: hay copias de [producto]» / «No vendemos en Amazon»."
+        },
+        {
+          "momento": "Cómo reconocer el original",
+          "que_pasa": "El empaque real, el sello, el único lugar donde se compra."
+        },
+        {
+          "momento": "Por qué importa",
+          "que_pasa": "Lo que hace el original (beneficio principal)."
+        },
+        {
+          "momento": "Comprar seguro",
+          "que_pasa": "Pago contra entrega, garantía, envío; la oferta."
+        }
+      ],
+      "gancho_ejemplo": "«Aviso oficial: no vendemos en Amazon.»",
+      "evidencia": "Sonvital: 555.103 de alcance (nov. 2026).",
+      "cuidado": "Solo si es verdad para la marca del usuario (que de verdad no venda en ese canal o tenga copias)."
+    },
+    {
+      "id": "tendencia-del-momento",
+      "nombre": "Subirse a lo que todos están hablando (GLP-1 / Ozempic + producto)",
+      "origen": "Aprendida de TrendTrack (Amua / VitalDrops: pizarra «On GLP-1 vs GLP-1 + Amua»)",
+      "familias": [
+        "voz-en-off",
+        "objeto-parlante",
+        "ugc",
+        "hablado"
+      ],
+      "ideal_para": "Cuando el público ya habla de un tratamiento o moda (GLP-1, Ozempic, ayuno) y el producto resuelve el efecto que esa moda deja (pierdes curvas, flacidez, cansancio).",
+      "consciencia": "consciente de la moda, preocupado por su efecto",
+      "de_la_investigacion": [
+        "tendencias y tratamientos que usa el público",
+        "dolor que deja esa tendencia",
+        "beneficio principal"
+      ],
+      "momentos": [
+        {
+          "momento": "La comparación",
+          "que_pasa": "Lado a lado: la tendencia sola (lo que se pierde) contra la tendencia + el producto (lo que se conserva)."
+        },
+        {
+          "momento": "Por qué pasa",
+          "que_pasa": "El mecanismo simple, dibujado (pizarra, flechas)."
+        },
+        {
+          "momento": "El producto",
+          "que_pasa": "Cómo acompaña sin reemplazar nada."
+        },
+        {
+          "momento": "CTA sin riesgo",
+          "que_pasa": "Garantía."
+        }
+      ],
+      "gancho_ejemplo": "«Bajas la panza, no tus curvas.»",
+      "evidencia": "Amua (VitalDrops): pizarra «Lose the belly, not your booty», 5.040 de alcance; la marca tiene 555 anuncios activos (nov. 2026).",
+      "cuidado": "Nunca decir que reemplaza un medicamento ni dar consejos médicos; «consulta con tu médico» si aplica."
     }
   ]
 }

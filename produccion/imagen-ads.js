@@ -99,6 +99,24 @@ const COPIAR_REFERENCIA =
   'each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. ' +
   "Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.";
 
+// MODO RÁPIDO («como pedirle a ChatGPT que me las varíe», 2026-11-16): la app arma cada V##.json sin la IA de texto.
+// El modelo ve la referencia (primera imagen) y el producto (segunda); el titular va exacto y los demás textos los
+// escribe el modelo, cortos y en español, con los beneficios del producto (app_rapido: 'copiar' | 'inspirar').
+const RAPIDO_COPIAR =
+  'The FIRST attached image is a REFERENCE AD that already works. Make a variation of it for a different product, the way a designer would: ' +
+  'keep its layout, composition, block structure, visual hierarchy, spacing, background treatment, graphic style and typography ' +
+  '(same font style, weight, casing, relative sizes, text effects and text placement). ' +
+  'Replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle. ' +
+  'The main headline must be EXACTLY the one listed below, in the place and style of the main headline of the reference. ' +
+  'Rewrite every other text of the reference (subtitles, bullets, badges, buttons) in short, natural Spanish for this product, using only the benefits listed below, with perfect spelling and accents. ' +
+  "Never keep the reference's brand, logo, product, prices, claims or wording.";
+const RAPIDO_INSPIRAR =
+  'The FIRST attached image is a WINNING AD, used only as inspiration. Create a NEW ad for the product of the SECOND attached image ' +
+  'with the same kind of format (type of layout, visual hierarchy, amount of text, photographic or graphic style), but with a fresh composition of its own. ' +
+  'The main headline must be EXACTLY the one listed below and must be the biggest text. ' +
+  'Any other text (one short subtitle, two or three benefit bullets, a button) is written by you in short, natural Spanish for this product, using only the benefits listed below, with perfect spelling and accents. ' +
+  "Never copy the reference's brand, logo, product, prices, claims or wording.";
+
 // De extender_vertical.py (:110-112): con la foto del producto como segunda imagen.
 const PRODUCTO_SEGUNDA =
   'The SECOND attached image is the real product: keep the product and its label ' +
@@ -268,11 +286,17 @@ export function bloqueCorreccion(correccion) {
 export function construirPrompt(ad, { logo = null, correccion = null, referencia = false } = {}) {
   const pos = posicionDe(logo);
   // «Más de lo mismo» (referencia: true): la PRIMERA imagen adjunta es el anuncio de referencia y la SEGUNDA, el producto
-  const partes = referencia ? [COPIAR_REFERENCIA, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)] : [strPy(ad.visual_prompt)];
+  const rapido = referencia && (ad?.app_rapido === 'copiar' || ad?.app_rapido === 'inspirar') ? ad.app_rapido : null;
+  const partes = rapido
+    ? [rapido === 'copiar' ? RAPIDO_COPIAR : RAPIDO_INSPIRAR, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
+    : referencia
+      ? [COPIAR_REFERENCIA, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)]
+      : [strPy(ad.visual_prompt)];
 
   const capas = oPy(getPy(ad, 'text_layers', undefined), []);
   if (!vacioPy(capas)) {
-    const lineas = [TITULO_TEXTOS_CUADRADO];
+    // (rápido: solo el titular va exacto; el resto lo escribe el modelo)
+    const lineas = [rapido ? 'MAIN HEADLINE (render exactly, no spelling changes; the other texts are yours, as said above):' : TITULO_TEXTOS_CUADRADO];
     for (const t of listaPy(capas)) {
       lineas.push(
         `- ${strPy(getPy(t, 'reference_function', 'text'))} ` +

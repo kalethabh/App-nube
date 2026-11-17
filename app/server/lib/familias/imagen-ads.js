@@ -42,6 +42,7 @@ import { revisionSimulada, revisionDeLaTanda } from '../imagen-ads/revision-simu
 import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador } from '../imagen-ads/lotes.js';
 import { nombreIA, datosIA, alPreguntarLotesOcupados } from '../motor-ia.js';
 import { motorDeImagenes, entornoParaImagenes, codexParaImagenes } from '../motor-imagenes.js';
+import { prepararRapido } from '../imagen-ads/rapido.js';
 
 export const FAMILIA = 'imagen-ads';
 export const ESTILOS = ['imagen-ads'];
@@ -84,7 +85,7 @@ const NombreIA = (motor) => {
 /** Cuando el modulo de la IA no se pudo cargar: "No encuentro Claude Code en esta computadora." */
 const sinProgramaDeLaIA = () => `No encuentro ${datosIA().programa} en esta computadora.`;
 /** La nota de una imagen que quedo sin revisar porque se acabo el plan de la IA (la ve el usuario en esa imagen). */
-const notaSinRevision = (r) => `Se acabó por ahora el uso de tu plan de ${r?.motor ? nombreIA(r.motor) : nombreIA()} y la revisión no llegó a mirarla: revísala tú antes de publicarla.`;
+const notaSinRevision = (r) => r === 'rapido' ? null : `Se acabó por ahora el uso de tu plan de ${r?.motor ? nombreIA(r.motor) : nombreIA()} y la revisión no llegó a mirarla: revísala tú antes de publicarla.`;
 
 /** El error del limite de uso (el conductor espera a que se renueve), con la IA que trabajo si se sabe. */
 function errorDeLimite(r) {
@@ -192,6 +193,29 @@ async function saldo(ctx) {
 async function estrategia(ctx) {
   const c = ctx.carpeta;
   const b = ctx.brief;
+  // Modo rápido («como pedirle a ChatGPT que me las varíe»): la app arma el lote en segundos, sin la IA de texto
+  // (imagen-ads/rapido.js). Sin referencias ni titulares para variar, sigue el camino de siempre.
+  if (b.rapido && !existe(R.bloqueo(c))) {
+    ctx.avance('Preparando tus variaciones');
+    const r = prepararRapido(c, b);
+    if (r.ok) {
+      const lote = leerJSON(R.lote(c));
+      if (lote && !lote.fiel) guardarJSON(R.lote(c), { ...lote, fiel: true }); // el motor adjunta la referencia de cada una
+      ctx.brief = leerJSON(R.brief(c)) || b;
+      const ids = idsDelLoteRapido(ctx.brief);
+      const v = verificarSesion({ carpeta: c, brief: ctx.brief, tipo: 'estrategia', ids });
+      if (v.ok) {
+        anotarRegistro(c, 'E001', { rapido: true, referencias: r.referencias, titulares: r.titulares, modo: r.modo });
+        return { ok: true };
+      }
+      anotarRegistro(c, 'E001', { rapido: true, errores: v.errores.slice(0, 10) });
+    } else anotarRegistro(c, 'E001', { rapido: false, motivo: r.motivo });
+    // no se pudo: el lote sigue como siempre, con la estrategia de la IA
+    b.rapido = false;
+    b.fiel = b.modo === 'variantes';
+    guardarJSON(R.brief(c), b);
+    ctx.brief = b;
+  }
   const s = sesionEstrategia({ carpeta: c, lote: ctx.slug, brief: b });
   // ya esta (se cerro la app justo despues): no se repite
   if (!existe(R.bloqueo(c)) && verificarSesion({ carpeta: c, brief: b, tipo: 'estrategia', ids: s.ids }).ok) return { ok: true };
@@ -249,6 +273,11 @@ async function estrategia(ctx) {
   } finally {
     turnoClaude.soltar(ctx.slug);
   }
+}
+
+/** Todas las variaciones del lote (el modo rápido escribe todas de una vez). */
+function idsDelLoteRapido(brief) {
+  return Array.from({ length: Number(brief?.cantidad) || 0 }, (_, i) => `V${String(i + 1).padStart(2, '0')}`);
 }
 
 // ---------------------------------------------------------------- 4. los anuncios: el bucle de tres carriles
@@ -608,7 +637,8 @@ async function anuncios(ctx) {
   // nunca vuelve con algo vivo escribiendo, ni siquiera si se cae).
   const corte = new AbortController();
   const senal = AbortSignal.any([ctx.senal, corte.signal]);
-  const run = { fallosMotor: 0, fallosLocal: 0, intentos: new Map(), limite: null, sinRevision: null, duro: null, frase: null, tanda: null, cache: new Map(), senal, cerrado: false };
+  // (modo rápido: sin la revisión de la IA; las imágenes quedan listas apenas salen)
+  const run = { fallosMotor: 0, fallosLocal: 0, intentos: new Map(), limite: null, sinRevision: ctx.brief?.rapido ? 'rapido' : null, duro: null, frase: null, tanda: null, cache: new Map(), senal, cerrado: false };
   let claude = null;
   let motor = null;
   let locales = null;
@@ -634,7 +664,7 @@ async function anuncios(ctx) {
       const hechos = mirarDisco(c, est, brief, run);
       // sin plan para revisar (una revision ya choco con el limite en esta vuelta): lo que espera revision queda «sin
       // revisar» con su nota y no frena el lote (la revision es solo un aviso)
-      if (run.sinRevision) for (const p of plan.dejarSinRevisar(est, plan.piezasPorRevisar(est), { mensaje: notaSinRevision(run.sinRevision) })) local.borrarRecortes(c, p);
+      if (run.sinRevision) for (const p of plan.dejarSinRevisar(est, plan.piezasPorRevisar(est), { mensaje: notaSinRevision(run.sinRevision), resultado: run.sinRevision === 'rapido' ? 'listo' : 'sin-revisar' })) local.borrarRecortes(c, p);
       const d = plan.decidir(est, hechos, { claudeLibre: !claude && !run.limite && !run.duro, motorLibre: !run.duro, localLibre: !locales, simulada });
       if (d.orden) escribirOrden(c, est, d.orden);
       if (!motor && !run.duro && (d.orden || hechos.ordenesVivas.length)) motor = lanzarMotor(ctx, run).finally(() => (motor = null));

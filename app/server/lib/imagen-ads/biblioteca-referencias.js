@@ -12,6 +12,7 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { DIR_BIBLIOTECA } from '../biblioteca.js';
+import { RAIZ } from '../rutas.js';
 import { abrirZip } from '../actualizar.js';
 
 export const DIR_REFERENCIAS = path.join(DIR_BIBLIOTECA, 'referencias-imagen');
@@ -116,4 +117,47 @@ export function investigacionATexto(bytes, nombre = '') {
   if (bytes.includes(0)) return null;
   const limpio = limpiar(bytes.toString('utf8'));
   return limpio.length >= 20 ? { texto: limpio } : null;
+}
+
+// ---------------------------------------------------------------- referencias de TENDENCIA (TrendTrack)
+// Creativos de imagen de marcas de salud que están funcionando, bajados de TrendTrack y guardados en
+// mis_archivos/referencias-tendencia/<categoria>/<id>.jpg con su indice.json (marca, alcance, crecimiento a 7 días).
+// Son de solo lectura: se eligen como cualquier referencia, pero no se borran desde la app.
+export const DIR_TENDENCIAS = path.join(RAIZ, 'mis_archivos', 'referencias-tendencia');
+const RE_CATEGORIA = /^[a-z0-9-]{2,40}$/;
+const RE_ARCHIVO_TENDENCIA = /^[0-9a-z_-]{4,40}\.jpg$/i;
+
+/** { categorias: [{ id, nombre, cuantas }], referencias: [{ id, categoria, marca, alcance, alcance7d, dias, url, miniatura }] } */
+export function listarTendencias() {
+  let indice = null;
+  try {
+    indice = JSON.parse(fs.readFileSync(path.join(DIR_TENDENCIAS, 'indice.json'), 'utf8'));
+  } catch {
+    return { categorias: [], referencias: [], fecha: null };
+  }
+  const refs = (Array.isArray(indice?.referencias) ? indice.referencias : []).filter((r) => {
+    const [cat, archivo] = String(r?.archivo || '').split('/');
+    return RE_CATEGORIA.test(cat || '') && RE_ARCHIVO_TENDENCIA.test(archivo || '') && fs.existsSync(path.join(DIR_TENDENCIAS, cat, archivo));
+  });
+  const nombres = indice?.categorias && typeof indice.categorias === 'object' ? indice.categorias : {};
+  const cuenta = new Map();
+  for (const r of refs) cuenta.set(r.categoria, (cuenta.get(r.categoria) || 0) + 1);
+  return {
+    fecha: indice?.fecha || null,
+    categorias: [...cuenta.keys()].map((id) => ({ id, nombre: String(nombres[id] || id), cuantas: cuenta.get(id) })),
+    referencias: refs
+      .sort((a, b) => (Number(b.alcance) || 0) - (Number(a.alcance) || 0))
+      .map((r) => {
+        const [cat, archivo] = r.archivo.split('/');
+        const url = `/api/imagen-ads/tendencias/${encodeURIComponent(cat)}/${encodeURIComponent(archivo)}`;
+        return { id: `t-${r.id}`, categoria: r.categoria, marca: String(r.marca || ''), alcance: Number(r.alcance) || 0, alcance7d: Number(r.alcance_7d) || 0, dias: Number(r.dias) || 0, url, miniatura: url };
+      }),
+  };
+}
+
+/** La ruta en disco de una referencia de tendencia (validada), o null. */
+export function rutaTendencia(categoria, archivo) {
+  if (!RE_CATEGORIA.test(String(categoria || '')) || !RE_ARCHIVO_TENDENCIA.test(String(archivo || ''))) return null;
+  const abs = path.join(DIR_TENDENCIAS, categoria, archivo);
+  return fs.existsSync(abs) ? abs : null;
 }
