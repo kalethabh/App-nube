@@ -1,5 +1,5 @@
 {
-  "n": 1,
+  "n": 2,
   "estado": "listo",
   "calidad": "1080",
   "version": "completa",
@@ -7,13 +7,13 @@
   "sinMusica": false,
   "srt": false,
   "guardar": false,
-  "creado": "2026-11-17T04:46:21.935Z",
-  "actualizado": "2026-11-17T04:59:22.231Z",
+  "creado": "2026-11-17T05:10:02.736Z",
+  "actualizado": "2026-11-17T05:10:04.308Z",
   "avance": {
     "etapa": "guardar",
     "valor": 100,
-    "cuadro": 7225,
-    "total": 7225
+    "cuadro": null,
+    "total": null
   },
   "control": {
     "limpio": true,
@@ -22,7 +22,7 @@
     "defectos": [],
     "avisos": []
   },
-  "archivo": "video-01-vtd-6-54-ventas-cpa-7-2k-20261116-2012_editado-1.mp4",
+  "archivo": "video-01-vtd-6-54-ventas-cpa-7-2k-20261116-2012_editado-2.mp4",
   "srtArchivo": null,
-  "terminado": "2026-11-17T04:59:21.842Z"
+  "terminado": "2026-11-17T05:10:04.301Z"
 }
