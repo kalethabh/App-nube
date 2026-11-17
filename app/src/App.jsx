@@ -35,7 +35,7 @@ const Aprendizajes = lazy(() => import('./pantallas/aprendizajes/index.jsx'));
 const Imagenes = lazy(() => import('./pantallas/imagenes/index.jsx'));
 const CrearImagenes = lazy(() => import('./pantallas/imagenes/Crear.jsx'));
 const LoteImagenes = lazy(() => import('./pantallas/imagenes-lote/index.jsx'));
-const Ganadores = lazy(() => import('./pantallas/ganadores/index.jsx'));
+const Inspiracion = lazy(() => import('./pantallas/inspiracion/index.jsx'));
 const Investigaciones = lazy(() => import('./pantallas/investigacion/index.jsx'));
 const InformeInvestigacion = lazy(() => import('./pantallas/investigacion/Informe.jsx'));
 const Componentes = lazy(() => import('./pantallas/componentes/index.jsx'));
@@ -105,8 +105,10 @@ export const RUTAS = [
     titulo: 'Tu lote de imágenes',
     migas: () => [{ texto: 'Anuncios de imagen', href: enlace.imagenes() }, { texto: 'Tu lote' }],
   },
-  // Mejores anuncios: los que están funcionando en Meta, de TrendTrack (con el conector de la cuenta de Claude)
-  { patron: '/ganadores', Pantalla: Ganadores, menu: 'ganadores', titulo: 'Mejores anuncios', migas: () => [{ texto: 'Mejores anuncios' }] },
+  // Inspiración: los anuncios que están funcionando en Meta, de TrendTrack (con el conector de la cuenta de Claude).
+  // #/ganadores (la antigua «Mejores anuncios») abre la misma pantalla, para que los enlaces viejos sigan andando
+  { patron: '/inspiracion', Pantalla: Inspiracion, menu: 'inspiracion', titulo: 'Inspiración', migas: () => [{ texto: 'Inspiración' }] },
+  { patron: '/ganadores', Pantalla: Inspiracion, menu: 'inspiracion', titulo: 'Inspiración', migas: () => [{ texto: 'Inspiración' }] },
   { patron: '/componentes', Pantalla: Componentes, menu: null, titulo: 'Guía de diseño', migas: () => [{ texto: 'Guía de diseño' }] },
 ];
 

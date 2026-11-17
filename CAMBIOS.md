@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17m · Inspiración: los anuncios que funcionan, como en Starpop
+
+- **«Mejores anuncios» ahora se llama «Inspiración»** (menú Crear) y se ve como Starpop: a la izquierda las marcas que sigues; arriba **Todo / Video / Imagen**, **Guardados**, desde cuándo salieron y el orden (más alcance, más tiempo activos, escalando esta semana, más duplicados, los más nuevos); y una rejilla de tarjetas. Los enlaces viejos a «Mejores anuncios» abren esta pantalla.
+- **Cada tarjeta:** la marca, cuándo salió y cuántos días lleva, el marcador para guardarlo, el video que se reproduce ahí mismo (o la imagen), insignias (su puesto en la marca, cuánto creció esta semana, cuántas variantes tiene, el formato y el sonido), el título, el texto en 2 líneas y los botones **Replicar**, copiar el texto y **Detalles**.
+- **Formato y sonido con chips y cuántos hay:** Animación / Realista y luego Realista, UGC, Animación 3D, 2D, Pixar, Crochet, Esqueleto, Claymation, Lego, Acuarela, Pixel art y Papel; sonido: Voz, Canción, Instrumental, Sin audio y Otro. TrendTrack no dice el formato: la app lo saca gratis de las palabras del anuncio y, si lo dejas prendido, **tu IA mira la miniatura de cada anuncio una sola vez** (usa tu plan de Claude o ChatGPT, no créditos de TrendTrack) y lo recuerda para siempre. El sonido sale de lo que TrendTrack transcribió (con voz = Voz; con ♪ o un coro que se repite = Canción; una imagen = Sin audio). Lo que no se sabe queda en «Sin dato»: nunca se inventa. Los números son de **los anuncios cargados**, y así lo dice la pantalla.
+- **Replicar:** en un video abre **Nuevo anuncio con el estilo «Agregar» y ese video ya puesto**; si el anuncio es de un formato que la app tiene (Claymation, Crochet, Pixar, Lego, Esqueleto, Animación 3D), además le pide ese estilo. En una imagen abre **Anuncios de imagen** con esa imagen como referencia.
+- **Detalles:** el video en grande, todo el texto, lo que dice, las cifras (personas que lo vieron, cuánto creció, gasto estimado, días, variantes, puesto, anuncios de la marca, países), la página a la que lleva, y «Seguir esta marca» o «Ver sus anuncios».
+- **Cuentas que sigues:** sigue una marca desde Detalles, búscala en TrendTrack o tráela de tu Brandtracker. Al tocarla ves sus anuncios. Sus anuncios activos se ponen al día solos cada vez que una búsqueda trae uno suyo (gratis).
+- **Cuidado de los créditos de TrendTrack:** antes de buscar ves cuánto cuesta (unos 30 créditos por 20 anuncios); lo que ya buscaste en las últimas 12 horas se abre solo y gratis; «Cargar 20 más» trae la página siguiente solo cuando lo tocas; y arriba ves cuántos créditos te quedan.
+
 ## 2026-11-17l1 · «Agregar» y «Clonar» no pierden la esencia del video
 
 - **Mira cada escena en movimiento:** de tu video ahora se sacan tres fotogramas por escena (comienzo, mitad y final), más grandes, para ver los movimientos de la cámara, los gestos, cómo se mueve la persona y si cambia la luz. También se mide la luz, el color y el movimiento de cada escena.

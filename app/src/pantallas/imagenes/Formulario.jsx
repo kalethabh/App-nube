@@ -118,7 +118,7 @@ function Grupo({ n, id, titulo, opcional, children }) {
 
 // ---------------------------------------------------------------- el formulario
 
-export function Formulario({ simulando = false, productoPedido = null }) {
+export function Formulario({ simulando = false, productoPedido = null, referenciaPedida = null }) {
   const { aviso } = useAvisos();
   const motor = useMotor();
   const modoPrueba = Boolean(useEstado().datos?.modoPrueba?.activo);
@@ -158,6 +158,22 @@ export function Formulario({ simulando = false, productoPedido = null }) {
   useEffect(() => {
     if (!simulando) guardarBorrador(f);
   }, [f, simulando]);
+
+  // «Replicar» desde Inspiración: la imagen del anuncio llega ya bajada y entra como referencia (en «Nuevos»)
+  const referenciaAplicada = useRef(null);
+  useEffect(() => {
+    if (!referenciaPedida || referenciaAplicada.current === referenciaPedida || !/^\/api\/inspiracion\/imagenes\/[0-9a-f]{16}\.jpg$/.test(referenciaPedida)) return;
+    referenciaAplicada.current = referenciaPedida;
+    fetch(referenciaPedida)
+      .then((r) => (r.ok ? r.blob() : Promise.reject(new Error('sin imagen'))))
+      .then((blob) => {
+        if (!montado.current) return;
+        const archivo = new File([blob], `inspiracion-${referenciaPedida.slice(-20)}`, { type: blob.type || 'image/jpeg' });
+        setReferencias((r) => [...r, { id: `insp-${referenciaPedida.slice(-20)}`, archivo, nombre: 'Anuncio de Inspiración', heic: false, url: URL.createObjectURL(archivo) }].slice(0, maxRefs));
+        setF((x) => ({ ...x, modo: 'nuevos' }));
+      })
+      .catch(() => aviso({ tipo: 'error', titulo: 'No pude traer la imagen', texto: 'Vuelve a tocar «Replicar» en Inspiración.' }));
+  }, [referenciaPedida]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // las vistas previas locales se liberan al salir de la pantalla
   const vistas = useRef([]);

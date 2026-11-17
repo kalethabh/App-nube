@@ -1,4 +1,5 @@
-// MEJORES ANUNCIOS (lib/ganadores.js): buscar en TrendTrack con el conector de claude.ai del usuario.
+// MEJORES ANUNCIOS / INSPIRACIÓN (lib/ganadores.js): buscar en TrendTrack con el conector de claude.ai del usuario.
+// Lo propio de Inspiración (formatos, marcas, replicar imágenes) está en rutas/inspiracion.js.
 //
 //   GET    /api/ganadores                 -> { opciones: { nichos, paises, ordenes, creditosPorAnuncio }, creditos,
 //                                             recientes, guardados, buscando }
@@ -30,6 +31,7 @@ import {
   quitarGuardado,
   ultimosCreditos,
 } from '../lib/ganadores.js';
+import { actualizarMarcasDesde } from '../lib/inspiracion.js';
 
 const json = express.json({ limit: '1mb' });
 
@@ -53,6 +55,7 @@ export default function rutasGanadores(app) {
   app.post('/api/ganadores/buscar', soloDesdeLaApp, json, async (req, res) => {
     try {
       const r = await buscarGanadores(req.body?.filtros || {}, { forzar: req.body?.forzar === true });
+      actualizarMarcasDesde(r.anuncios); // las marcas que sigues se ponen al día gratis
       res.json(r);
     } catch (e) {
       responderError(res, e, 'La búsqueda no terminó bien. Vuelve a intentar.');
