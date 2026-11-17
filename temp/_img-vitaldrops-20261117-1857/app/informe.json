@@ -1,0 +1,25 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-17T23:58:47.609Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "plantillas": true,
+  "deVideo": false,
+  "revision": {
+    "aLaPrimera": 5,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

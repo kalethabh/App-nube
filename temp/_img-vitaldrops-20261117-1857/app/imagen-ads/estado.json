@@ -48,68 +48,56 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "460597-1794959895568",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-17T23:58:15.690Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1691392-1794959906961",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-17T23:58:27.132Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2283613-1794959905548",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-17T23:58:25.925Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
@@ -132,24 +120,20 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1731947-1794959906393",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-17T23:58:26.528Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}
