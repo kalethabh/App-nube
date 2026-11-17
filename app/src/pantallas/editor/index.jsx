@@ -62,7 +62,7 @@ import { EditorSubtitulo } from './EditorSubtitulo.jsx';
 import { Globo } from './piezas.jsx';
 import { picosDe } from './ondas.js';
 import { INICIAL, guardarCancionPropia, leerCancionPropia, registrarUrlMusica, tieneCambios, urlMusica, useEdicion } from './estado.js';
-import { ALTO, ANCHO, FPS, construirPistas, contextoDeVista, mediosDelPlan, modoVoz, muestraDeGaleria, subtitulosEditados, completarEdicion } from './modelo.js';
+import { ALTO, ANCHO, FPS, construirPistas, contextoDeVista, mediosDelPlan, modoVoz, muestraDeGaleria, subtitulosEditados, completarEdicion, planAjustado, piezaEnTiempo } from './modelo.js';
 import { edicionSinTramo, quitarTramo as quitarTramoApi, ponerVersion } from './video-propio.js';
 import { cambiosParaSeguir } from './seguimiento.js';
 import { EditarConIA } from './EditarConIA.jsx';
@@ -1584,7 +1584,17 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   const alturaBaseSub = plan.estiloSubtitulos?.desdeAbajo ?? 0.26;
   // (el estilo «Una palabra gigante» nunca baja del 30 %: el arrastre arranca desde donde se ve)
   const lugarSubs = { piso: ed.subtitulos.estilo === 'gigante' ? 0.3 : 0.04, altura: ed.subtitulos.altura ?? alturaBaseSub, lado: Number(ed.subtitulos.lado) || 0, porBloque: ed.lugaresSubtitulos || {}, soloEste: moverSoloEste };
-  const manejadoresArrastre = useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos: pistas.textos, seleccion, setSeleccion, ajustar: acciones.ajustarTexto, subtitulos: lugarSubs, moverSubtitulo: lugarSubtitulo });
+  // mover libremente: el video de la escena que se ve ahora (su encuadre) y los íconos y textos de podcast y entrevista
+  const piezaAhora = useCallback(() => piezaEnTiempo(planAjustado(plan, completarEdicion(ed)), (playerRef.current?.getCurrentFrame() || 0) / FPS), [plan, ed]);
+  const encuadrar = useCallback(
+    (pieza, e, op = {}) => cambiar((s) => ({ ...s, encuadres: { ...(s.encuadres || {}), [pieza]: e } }), { etiqueta: op.etiqueta || 'Mover el video', grupo: op.grupo }),
+    [cambiar]
+  );
+  const moverFijo = useCallback(
+    (id, m, op = {}) => cambiar((s) => ({ ...s, ajustesEscena: { ...(s.ajustesEscena || {}), [id]: m } }), { etiqueta: op.etiqueta || 'Mover', grupo: op.grupo }),
+    [cambiar]
+  );
+  const manejadoresArrastre = useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos: pistas.textos, seleccion, setSeleccion, ajustar: acciones.ajustarTexto, subtitulos: lugarSubs, moverSubtitulo: lugarSubtitulo, piezaAhora, encuadrar, moverFijo, ajustesEscena: ed.ajustesEscena });
 
   const irA = useCallback((pista, item) => {
     const p = playerRef.current;
@@ -1980,6 +1990,9 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
                     },
                     { etiqueta: 'Censurar con pincel' }
                   );
+                  // la vista previa en pausa se vuelve a dibujar en el mismo cuadro, ya con la censura
+                  const f = playerRef.current?.getCurrentFrame() || 0;
+                  setTimeout(() => playerRef.current?.seekTo(f), 60);
                 }}
               />
             ) : null}
@@ -2000,6 +2013,8 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
             }}
             velocidad={velocidad}
             onVelocidad={setVelocidad}
+            piezaAhora={piezaAhora}
+            onEncuadre={encuadrar}
           />
         </div>
         {pincel ? <div className="ed-pincel-zona" ref={setBarraPincel} /> : <EditarConIA acciones={acciones} ed={ed} cambiar={cambiar} />}

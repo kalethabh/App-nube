@@ -45,6 +45,8 @@ export {
   queSePuedeConElClip,
   ajusteDeClip,
   completarEdicion,
+  piezaEnTiempo,
+  encuadreLimpio,
 } from '@composicion/edicion/capas.mjs';
 
 const codificar = (rel) => String(rel).split('/').map(encodeURIComponent).join('/');

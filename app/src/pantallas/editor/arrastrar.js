@@ -8,6 +8,10 @@
 //   - un subtítulo (data-capa="sub:<bloque>"): la altura (desde abajo) y el lado (corrimiento a lo ancho) de todos,
 //     o solo de ese si está prendida «Mover solo el subtítulo que arrastro» (lugaresSubtitulos).
 // Tocar uno lo elige (sin pausar ni reproducir el video); el elegido lleva un marco que lo sigue.
+//   - lo que sigue a algo del video (una censura, un texto encima de otro): se corre respecto de lo que sigue (dx, dy).
+//   - el video mismo (donde no hay nada encima): arrastrarlo mueve el video de esa escena o imagen de apoyo, y
+//     Ctrl/Cmd + rueda (o pellizcar en el trackpad) lo acerca o lo aleja (encuadre de la pieza; un clic sin mover
+//     sigue reproduciendo o pausando).
 import { useEffect, useMemo, useRef } from 'react';
 
 const entre = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -26,7 +30,7 @@ function rectDe(el) {
 }
 
 /** ¿Se puede arrastrar? Los textos e imágenes editables y los subtítulos. */
-const sirve = (id, textos) => String(id).startsWith('sub:') || textos.some((t) => t.id === id && !t.fijo);
+const sirve = (id, textos) => String(id).startsWith('sub:') || textos.some((t) => t.id === id);
 
 /** El texto, la imagen o el subtítulo bajo el puntero (el de más arriba), o null. */
 function capaEn(lienzo, cx, cy) {
@@ -39,9 +43,9 @@ function capaEn(lienzo, cx, cy) {
   return null;
 }
 
-export function useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos, seleccion, setSeleccion, ajustar, subtitulos, moverSubtitulo }) {
+export function useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos, seleccion, setSeleccion, ajustar, subtitulos, moverSubtitulo, piezaAhora, encuadrar, moverFijo, ajustesEscena }) {
   const datos = useRef({});
-  datos.current = { textos, ajustar, setSeleccion, subtitulos, moverSubtitulo };
+  datos.current = { textos, ajustar, setSeleccion, subtitulos, moverSubtitulo, piezaAhora, encuadrar, moverFijo, ajustesEscena };
   const tocado = useRef(false);
 
   // el marco del elegido: lo sigue en cada cuadro (el texto entra con un pop y se mueve con el video)
@@ -94,7 +98,7 @@ export function useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos, se
       if (!movio && Math.hypot(dx, dy) < 3) return;
       movio = true;
       // la altura se cuenta desde abajo: bajar el mouse la achica
-      const cambios = { altura: r3(entre(inicio.altura - dy / l.height, piso, 0.78)), lado: r3(entre(inicio.lado + dx / l.width, -0.35, 0.35)) };
+      const cambios = { altura: r3(entre(inicio.altura - dy / l.height, piso, 0.95)), lado: r3(entre(inicio.lado + dx / l.width, -0.45, 0.45)) };
       datos.current.moverSubtitulo(solo ? bloque : null, cambios, { etiqueta: solo ? `Mover el subtítulo ${bloque + 1}` : 'Mover los subtítulos', grupo });
     };
     const soltar = () => {
@@ -110,18 +114,82 @@ export function useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos, se
   const arrastrarSubRef = useRef(arrastrarSubtitulo);
   arrastrarSubRef.current = arrastrarSubtitulo;
 
+  /** El video de la escena (donde no hay nada encima): se mueve solo si de verdad se arrastra (un clic sigue siendo play). */
+  function arrastrarVideo(e, lienzo) {
+    const p = datos.current.piezaAhora?.();
+    if (!p || !datos.current.encuadrar) return;
+    // el clic lo maneja esto (no el reproductor): soltar sin mover reproduce o pausa, arrastrar mueve el video
+    e.stopPropagation();
+    const l = lienzo.getBoundingClientRect();
+    const e0 = p.encuadre || { x: 0, y: 0, zoom: 1 };
+    const inicio = { cx: e.clientX, cy: e.clientY };
+    const grupo = `encuadre-${p.pieza}-${Date.now()}`;
+    let movio = false;
+    const mover = (ev) => {
+      const dx = ev.clientX - inicio.cx;
+      const dy = ev.clientY - inicio.cy;
+      if (!movio) {
+        if (Math.hypot(dx, dy) < 6) return;
+        movio = true;
+        tocado.current = true; // el clic que sigue no reproduce
+        playerRef.current?.pause();
+        lienzo.classList.add('es-arrastrando', 'es-encuadrando');
+      }
+      datos.current.encuadrar(p.pieza, { x: r3(entre(e0.x + dx / l.width, -1, 1)), y: r3(entre(e0.y + dy / l.height, -1, 1)), zoom: e0.zoom }, { etiqueta: p.tipo === 'broll' ? 'Mover la imagen de apoyo' : 'Mover el video de la escena', grupo });
+    };
+    const soltar = () => {
+      window.removeEventListener('pointermove', mover);
+      window.removeEventListener('pointerup', soltar);
+      window.removeEventListener('pointercancel', soltar);
+      lienzo.classList.remove('es-arrastrando', 'es-encuadrando');
+      // sin arrastrar fue un clic: reproducir o pausar, como siempre
+      if (!movio) playerRef.current?.toggle();
+      tocado.current = true; // (el clic que sigue ya se manejó aquí)
+    };
+    window.addEventListener('pointermove', mover);
+    window.addEventListener('pointerup', soltar);
+    window.addEventListener('pointercancel', soltar);
+  }
+  const arrastrarVideoRef = useRef(arrastrarVideo);
+  arrastrarVideoRef.current = arrastrarVideo;
+
+  // Ctrl/Cmd + rueda (o pellizcar en el trackpad) sobre el video: acerca o aleja el video de esa escena
+  useEffect(() => {
+    const lienzo = lienzoRef.current;
+    if (!lienzo) return undefined;
+    let grupo = null;
+    let pausa = 0;
+    const rueda = (e) => {
+      if (!(e.ctrlKey || e.metaKey)) return;
+      const p = datos.current.piezaAhora?.();
+      if (!p || !datos.current.encuadrar) return;
+      e.preventDefault();
+      clearTimeout(pausa);
+      if (!grupo) grupo = `zoom-${p.pieza}-${Date.now()}`;
+      pausa = setTimeout(() => (grupo = null), 600);
+      const e0 = p.encuadre || { x: 0, y: 0, zoom: 1 };
+      const zoom = r3(entre(e0.zoom * Math.exp(-e.deltaY * 0.004), 0.5, 4));
+      datos.current.encuadrar(p.pieza, { ...e0, zoom }, { etiqueta: 'Acercar el video de la escena', grupo });
+    };
+    lienzo.addEventListener('wheel', rueda, { passive: false });
+    return () => lienzo.removeEventListener('wheel', rueda);
+  }, [lienzoRef]);
+
   return useMemo(
     () => ({
       onPointerDownCapture: (e) => {
         tocado.current = false;
         if (e.button !== 0) return;
+        // lo que va encima del video y tiene su propio mouse: el pincel, la barra de avance, botones
+        if (e.target?.closest?.('.ed-pincel, .ed-avance, button, a, input, [role="slider"]')) return;
         const lienzo = lienzoRef.current;
         const el = capaEn(lienzo, e.clientX, e.clientY);
-        if (!el) return;
+        if (!el) return arrastrarVideoRef.current(e, lienzo);
         const id = el.dataset.capa;
         if (id.startsWith('sub:')) return arrastrarSubRef.current(e, lienzo, Number(id.slice(4)));
-        const x = datos.current.textos.find((t) => t.id === id && !t.fijo);
+        const x = datos.current.textos.find((t) => t.id === id);
         if (!x) return;
+        if (x.fijo && !datos.current.moverFijo) return;
         // es nuestro: el Player no lo toma (ni pausa ni reproduce)
         e.preventDefault();
         e.stopPropagation();
@@ -131,11 +199,14 @@ export function useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos, se
 
         const imagen = Boolean(x.archivo);
         const est = imagen ? x.imagenEstilo || {} : x.estilo || {};
+        const seguido = Boolean(x.sigue);
         const l = lienzo.getBoundingClientRect();
         const caja = el.getBoundingClientRect();
         // lo que el texto se puede correr a lo ancho (el espacio libre dentro del margen de 4 % a cada lado)
         const libre = Math.max(1, l.width * 0.92 - caja.width);
-        const inicio = { cx: e.clientX, cy: e.clientY, x: est.x ?? 0.5, y: est.y ?? (imagen ? 0.42 : 0.17) };
+        const fijo = Boolean(x.fijo); // un ícono o un texto de podcast / entrevista: se corre (ed.ajustesEscena)
+        const m0 = fijo ? datos.current.ajustesEscena?.[id] || {} : est;
+        const inicio = { cx: e.clientX, cy: e.clientY, x: est.x ?? 0.5, y: est.y ?? (imagen ? 0.42 : 0.17), dx: m0.dx || 0, dy: m0.dy || 0 };
         const grupo = `arrastrar-${id}-${Date.now()}`;
         let movio = false;
         const objetivo = e.target;
@@ -151,10 +222,17 @@ export function useArrastrarEnVideo({ lienzoRef, marcoRef, playerRef, textos, se
           const dy = ev.clientY - inicio.cy;
           if (!movio && Math.hypot(dx, dy) < 3) return;
           movio = true;
-          const cambios = imagen
-            ? { x: r3(entre(inicio.x + dx / l.width, 0, 1)), y: r3(entre(inicio.y + dy / l.height, 0, 1)) }
-            : { x: r3(entre(inicio.x + (0.6 * dx) / libre, 0.2, 0.8)), y: r3(entre(inicio.y + dy / l.height, 0.05, 0.85)) };
-          datos.current.ajustar(id, cambios, { etiqueta: imagen ? 'Mover la imagen' : 'Mover el texto', grupo });
+          // lo que sigue a algo del video se corre respecto de eso; lo demás va a cualquier lugar del cuadro
+          if (fijo) {
+            datos.current.moverFijo(id, { dx: r3(entre(inicio.dx + dx / l.width, -1, 1)), dy: r3(entre(inicio.dy + dy / l.height, -1, 1)) }, { etiqueta: 'Mover el ícono o el texto', grupo });
+            return;
+          }
+          const cambios = seguido
+            ? { dx: r3(entre(inicio.dx + dx / l.width, -1, 1)), dy: r3(entre(inicio.dy + dy / l.height, -1, 1)) }
+            : imagen
+              ? { x: r3(entre(inicio.x + dx / l.width, -0.1, 1.1)), y: r3(entre(inicio.y + dy / l.height, -0.1, 1.1)) }
+              : { x: r3(entre(inicio.x + (0.6 * dx) / libre, 0.2, 0.8)), y: r3(entre(inicio.y + dy / l.height, 0, 1)) };
+          datos.current.ajustar(id, cambios, { etiqueta: x.caja ? 'Mover la censura' : imagen ? 'Mover la imagen' : 'Mover el texto', grupo });
         };
         const soltar = () => {
           window.removeEventListener('pointermove', mover);
