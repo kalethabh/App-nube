@@ -10,7 +10,7 @@ import { Boton, useAvisos } from '../../componentes/index.js';
 import { pedirNuevo } from '../../datos/api.js';
 import { useTextosVideo } from './seguimiento.js';
 
-const EJEMPLOS = ['Todo lo que diga AMUA se censura', 'Donde diga AMUA coloca VITALABH', 'Donde diga AMUA pon una caja que lo siga y lo tape', 'Recorta las escenas donde sale el frasco'];
+const EJEMPLOS = ['Todo lo que diga AMUA se censura', 'Donde diga AMUA coloca VITALABH', 'Donde diga AMUA difumínalo para que no se lea', 'Recorta las escenas donde sale el frasco'];
 
 export function EditarConIA({ acciones, ed, cambiar }) {
   const { aviso } = useAvisos();
@@ -39,7 +39,7 @@ export function EditarConIA({ acciones, ed, cambiar }) {
       const partes = [];
       if (hecho.censuras) partes.push(`${hecho.censuras} ${hecho.censuras === 1 ? 'palabra censurada' : 'palabras censuradas'}`);
       if (hecho.textos) partes.push(`${hecho.textos} ${hecho.textos === 1 ? 'texto' : 'textos'}`);
-      if (hecho.tapados) partes.push(`${hecho.tapados} ${hecho.tapados === 1 ? 'texto tapado' : 'textos tapados'}`);
+      if (hecho.tapados) partes.push(`${hecho.tapados} ${hecho.tapados === 1 ? 'texto difuminado' : 'textos difuminados'}`);
       if (hecho.quitadas) partes.push(`${hecho.quitadas} ${hecho.quitadas === 1 ? 'escena quitada' : 'escenas quitadas'}`);
       const extra = [r.mensaje, ...(r.avisos || [])].filter(Boolean).join(' ');
       if (!partes.length) {

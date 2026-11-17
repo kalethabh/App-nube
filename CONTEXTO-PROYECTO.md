@@ -137,6 +137,18 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
 
 ## Últimas actualizaciones terminadas
 
+### Censura difuminada en el editor (2026-11-17, versión 2026-11-17a)
+
+- «Tapar» de Editar con IA (`rutas/editar-ia.js`, acción `tapar`) ya no es una caja sólida por defecto. En
+  `remotion/src/edicion/capas.mjs` las tapas (`caja: true`) llevan `difuminar` salvo `solido: true`, y
+  `AnuncioEditado.jsx → Difuminado` dibuja un `backdrop-filter: blur()` un poco más grande que el texto seguido, con
+  una máscara de degradados (bordes que se desvanecen, sin tinte gris). Desenfoque ≈ 0,38 × alto del texto.
+  `editor/index.jsx` pone `solido: true` solo si la IA devolvió un color (el usuario pidió una caja de color). Las tapas
+  guardadas de antes pasan solas a difuminado.
+- **Prueba:** cuadro de Remotion (`remotion still`, el mismo Chrome que exporta) con textos grandes y chicos sobre
+  fondos con contraste: ilegibles y sin recuadro visible; compilación de la app correcta.
+- **Falta confirmar en la Mac:** una censura real en un video exportado.
+
 ### Ángulo, gancho y antes/después en los anuncios de imagen (2026-11-17, versión 2026-11-17c)
 
 - Pedido: «debe detectar el ángulo, el hook; el VitalDrops es para glúteos; si hay antes y después debe verse el cambio
