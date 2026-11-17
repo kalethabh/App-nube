@@ -186,8 +186,11 @@ async function productoDelLote(carpeta) {
 
 // ---------------------------------------------------------------- la escena (el prompt sin texto)
 
+/** El neón de la silueta: el acento del kit (como lo dibuja la plantilla). */
+const neonDe = (kit) => (/^#[0-9a-f]{6}$/i.test(kit?.secundario || '') ? kit.secundario : KIT_POR_DEFECTO.secundario);
+
 /** Lo que el modelo de imagen tiene que hacer para la escena de esa plantilla (en inglés; el contexto en español). */
-export function descripcionEscena(id, ctx, textos) {
+export function descripcionEscena(id, ctx, textos, kit = KIT_POR_DEFECTO) {
   const contexto =
     `Product context (Spanish, from the product sheet): product: «${ctx.nombre}»${ctx.queEs ? ` (${ctx.queEs})` : ''}; ` +
     `audience: «${ctx.publico || 'adults'}»; problem: «${ctx.dolor || ctx.dolores[0] || ''}»; result: «${ctx.beneficios.slice(0, 2).join('; ')}».`;
@@ -246,6 +249,68 @@ export function descripcionEscena(id, ctx, textos) {
         'The product of the attached photo may appear small and natural in the scene, exactly as in the photo.',
         'Keep the top 32% of the image calm and simple (sky, wall or soft background): the app puts a big headline there; keep the bottom-right corner free for the product card.',
         decente,
+        contexto,
+      ].join(' ');
+    // ---- Ángulos ganadores (referencias-ganadoras.md): la escena muestra el ángulo; el texto lo pone la app
+    case 'silueta-zonas':
+      return [
+        `A glowing neon line-art outline drawing of the full body of a person of the audience, standing, back three-quarter view, thin bright neon lines in the color ${neonDe(kit)} with a soft glow, on a PURE BLACK background, no fill, no facial details.`,
+        'The outline emphasizes the body area of the result (the shape clearly defined and attractive), sneakers on, sporty fitted outfit drawn as lines.',
+        'The figure is centered and occupies the central 45% of the width and 90% of the height; everything else is pure black #000000 (the app adds labels and lines on both sides).',
+        'Elegant, minimal, premium. Not explicit. Do NOT show the product.',
+        contexto,
+      ].join(' ');
+    case 'solo-vs-con':
+      return [
+        'A clean, modern medical-style illustration (soft painted, realistic proportions) on a warm cream background (#F7F1E6): the same body area of the problem shown twice side by side, split exactly in the vertical center.',
+        `LEFT half = only «${textos?.sin || 'without help'}»: the problem clearly visible (for example swelling shown as translucent blue fluid, or the area looking worse). RIGHT half = the result in the same area, clean and clearly better.`,
+        'Same framing, same scale and same lighting on both halves; the area fills 80% of the frame. Keep the bottom-right corner calm (the app places the product there).',
+        decente,
+        'Do NOT show the product.',
+        contexto,
+      ].join(' ');
+    case 'nosotros-vs-ellos': {
+      const alternativa = ctx.probo || 'the usual generic alternative of this category';
+      return [
+        `A close-up still life of the usual alternative the customer already tried: «${alternativa}», unbranded and generic, looking dull and unappealing, on a plain neutral grey background with soft studio light.`,
+        'The object is placed on the LEFT edge of the frame and fills the left 60%, cropped by the left edge (the app shows only that part); the rest is plain grey.',
+        'No brand names, no logos, no labels, no people. Do NOT show the product of the attached photo.',
+        contexto,
+      ].join(' ');
+    }
+    case 'no-compres':
+    case 'historia':
+      return [
+        'A single realistic smartphone photo split vertically into two equal halves side by side, with the split exactly in the center.',
+        'LEFT half = BEFORE: the problem clearly visible in the body area, a casual mirror selfie at home (bedroom or bathroom), ordinary clothes. RIGHT half = AFTER: the result clearly visible in the same body area, confident and happier; the change must be dramatic and obvious at first glance, never subtle.',
+        persona.replace('same outfit, ', ''),
+        id === 'historia' ? 'Keep the bottom 40% of both halves less important (the app covers it with a text panel): the face and the body area of the problem in the upper 60%.' : 'Keep the top 35% of both halves calm (wall or background: the app adds black caption boxes there) and the bottom-center free.',
+        ganador,
+        decente,
+        'Do NOT show the product in the photo.',
+        contexto,
+      ].join(' ');
+    case 'pregunta-revelacion':
+      return [
+        `A realistic studio photo of a real person of the audience on a plain solid background in the color ${kit.primario}, placed on the LEFT half of the frame: the body area of the problem clearly visible, a surprised or frustrated expression (hands on the head), tight simple clothing.`,
+        'The person occupies only the left 50% of the frame; the right half is the plain background color (the app adds the question, the product and the text there).',
+        ganador.replace('an ordinary real setting with nothing distracting, ', ''),
+        decente,
+        'Do NOT show the product.',
+        contexto,
+      ].join(' ');
+    case 'zonas-semanas':
+      return [
+        'A clean, minimal hand-drawn illustration on a warm cream background (#F5EFE3): the body areas of the problem shown as 2 or 3 small separate sketches side by side (for example thighs, glutes, arms, belly), soft skin tones, fine lines showing the problem (cellulite, swelling or sagging) subtly.',
+        'Wide composition, everything centered with generous empty cream margins. Elegant and tasteful, never explicit. No text, no labels, no product.',
+        contexto,
+      ].join(' ');
+    case 'foto-iconos':
+      return [
+        'A vertical, sharp, bright lifestyle photo of a real person of the audience seen from behind or in profile, the body area of the result filling 70% of the frame (tight leggings, shorts or jeans that show the shape), confident pose, real home or studio setting with a soft background.',
+        'Natural light, high quality, like a fitness or wellness brand photo. The person is centered (the app crops the photo to a tall card).',
+        decente,
+        'Do NOT show the product.',
         contexto,
       ].join(' ');
     default:
@@ -307,14 +372,14 @@ export async function prepararPlantillas(carpeta, brief) {
     const titular = textos.titular || textos.titulo || textos.buena || (textos.lineas || []).join(' ') || textos.texto || '';
     guardarJSON(R.v(carpeta, id), {
       ad_info: { variation_id: id },
-      visual_prompt: conEscena ? descripcionEscena(plantilla, ctx, textos) : cuadro ? 'Frame from the user video, composed by the app (no image model).' : 'Template-only ad: the app composes it from the product photo (no image model).',
+      visual_prompt: conEscena ? descripcionEscena(plantilla, ctx, textos, brief.plantillas.kit) : cuadro ? 'Frame from the user video, composed by the app (no image model).' : 'Template-only ad: the app composes it from the product photo (no image model).',
       text_layers: [],
       mandatory_visual_elements: [],
       final_generation_exclusions: [],
       language_rule: 'No visible text at all: the app adds every text.',
       app_plantilla: { id: plantilla, escena: conEscena, textos, k, fecha: ahora(), ...(cuadro ? { escenaFija: cuadro.archivo, angulo: cuadro.angulo } : {}) },
     });
-    const angulo = cuadro ? ANGULO_NOMBRE[cuadro.angulo] || cuadro.angulo : cat.familia === 'dolor' ? 'Dolor y resultado' : cat.familia === 'beneficio' ? 'Beneficio' : cat.familia === 'nativo' ? 'Nativo de redes' : 'Oferta';
+    const angulo = cuadro ? ANGULO_NOMBRE[cuadro.angulo] || cuadro.angulo : cat.familia === 'angulo' ? cat.nombre : cat.familia === 'dolor' ? 'Dolor y resultado' : cat.familia === 'beneficio' ? 'Beneficio' : cat.familia === 'nativo' ? 'Nativo de redes' : 'Oferta';
     return { id, fuente: 'plantilla', plantilla, angulo, formato: cat.nombre, titular: String(titular).replace(/\*/g, '').slice(0, 120), escena: conEscena, ...(cuadro ? { cuadro: cuadro.archivo } : {}) };
   });
   guardarJSON(R.plan(carpeta), { producto: ctx.nombre, lote: brief.slug || path.basename(carpeta), cantidad: n, proporciones: brief.formatos || ['1:1'], variaciones, plantillas: true });

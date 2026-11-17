@@ -25,3 +25,9 @@ Instrucción expresa del usuario del 2026-11-11: **«Sube siempre el contexto pa
   de un chat anterior. No guardes claves, contenido de `.env`, credenciales ni anuncios personales en el contexto.
 
 Para las demás reglas de producción, pruebas y Git, sigue `CLAUDE.md` y los acuerdos de `CONTEXTO-PROYECTO.md`.
+
+## Formato de VERSION (2026-11-17)
+
+`VERSION` es siempre la fecha con UNA letra como mucho (`2026-11-17q`, `2026-11-17r`…), nunca con números
+(`2026-11-17p2`): las copias instaladas antes de `2026-11-17q` solo reconocen ese formato y su botón «Actualizar» no
+vería la versión nueva. `npm run publicar` se niega a publicar otro formato.

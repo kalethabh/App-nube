@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-17 (Plantillas de imagen: la app dibuja los textos, y «De un video, imágenes», 2026-11-17p).
+Última actualización: 2026-11-17 (Plantillas de ángulos ganadores sin oferta, 2026-11-17p2).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,7 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17p1` (archivo `VERSION`): anuncios de imagen con plantillas (la app dibuja los textos y
+- **Versión actual:** `2026-11-17q` (archivo `VERSION`; antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
+  la pantalla y de la mezcla. Antes: `2026-11-17p1` (referencia interna de ganadores) y `2026-11-17p`: anuncios de imagen con plantillas (la app dibuja los textos y
   los gráficos con Remotion en 0,3-1 s por imagen; el modelo solo hace escenas sin texto; 12 de 17 formatos gratis; kit de
   marca; «Editar textos» gratis) y «De un video, imágenes» (rama `plantillas-imagen`, sin PR). Antes: `2026-11-17o`: exportar del editor por tramos (solo se rehace lo que cambió;
   solo sonido sin rehacer imagen; VideoToolbox en la Mac). Antes: `2026-11-17n`: Inspiración con los anuncios de Meta mismo (fuentes «Meta
@@ -142,6 +143,41 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### «Actualizar» no traía nada a las copias instaladas (2026-11-17, versión 2026-11-17q)
+
+- Síntoma: alguien instaló con el comando, tocó «Actualizar» y no cambió nada.
+- Causa 1: la última versión publicada en `kalethabh/kads-studio` es `v2026-11-16a` (`git ls-remote --tags`). El flujo
+  «Publicar sola la versión nueva» de kads-studio falla desde entonces (le falta la llave `APP_NUBE_LLAVE`) y no se
+  corrió `npm run publicar`.
+- Causa 2: las versiones `2026-11-17p1`, `p2`, `j2`, `m1`, `l1` no cumplen `RE_VERSION` / `RE_ETIQUETA`
+  (fecha + una letra): una copia instalada no las reconocería aunque se publicaran.
+- Arreglo: `RE_VERSION` y `RE_ETIQUETA` aceptan un número final, `esMasNueva` compara con números (q10 > q9);
+  `publicar-version.mjs` se niega a publicar una VERSION que no sea fecha + una letra (las copias viejas solo leen
+  esa). **Regla desde ahora: VERSION siempre fecha + una letra** (siguiente: `2026-11-17r`).
+- Falta del usuario: publicar (`npm run publicar` en su Mac, con `gh auth login`) o arreglar el flujo automático de
+  kads-studio (llave de despliegue de solo lectura en App-nube + secreto `APP_NUBE_LLAVE` en kads-studio). Esta
+  sesión no tiene acceso a kads-studio.
+
+### Plantillas de «Ángulos ganadores», sin oferta (2026-11-17, versión 2026-11-17p2)
+
+- Pedido: «que las plantillas no sean de oferta, sean de ángulos de venta», con 30 anuncios validados de ejemplo
+  (Muna/VitalDrops, Grüns, Sonvital, Vitaly, Lymphoria, Aurelys, Maya Verra, Natures Sunshine, Aguaje Complex).
+- `remotion/src/plantillas-imagen/angulos.jsx`: 8 plantillas nuevas, todas con escena: `silueta-zonas` (neón sobre negro,
+  la escena se funde con `mix-blend-mode: screen`), `solo-vs-con`, `nosotros-vs-ellos`, `no-compres` (recuadros negros
+  tipo TikTok y sirena en SVG, sin emojis), `pregunta-revelacion`, `historia`, `zonas-semanas`, `foto-iconos`.
+- `catalogo-plantillas.js`: familia nueva `angulo` («Ángulos ganadores», la primera). La familia `oferta` queda
+  `oculta`: sigue en el catálogo para dibujar lotes viejos, pero `catalogoParaLaPantalla` y `ORDEN_AUTO` ya no la usan.
+  Campo `etiquetas` opcional para los `pares` (ModalTextos: «Etapa / Lo que pasa»).
+- `textos-plantillas.js`: textos de cada uno desde la ficha, sin precio ni oferta (`comoPregunta` pasa el dolor de la
+  ficha a «¿Sientes que…?»; `foto-iconos` usa «Esta Navidad regálate…» en noviembre y diciembre, k impar). Lo de
+  «lo de siempre» en `nosotros-vs-ellos` es genérico y editable («No ataca la causa»…).
+- `plantillas.js descripcionEscena(id, ctx, textos, kit)`: la escena de cada ángulo (el neón usa el acento del kit; la
+  pregunta usa el color primario de fondo).
+- Pruebas: probar-imagen-ads 168/168 (sección 11f nueva: sin oferta en pantalla ni mezcla, textos sin precio, 16
+  imágenes de los 8 ángulos en 6,6 s), humo 85/85, video-imágenes 19/19, build de Vite. No probado con escenas reales
+  de kie (la silueta de neón y la persona sobre fondo de color dependen del modelo).
+- Pendiente posible: usar `historia` y `no-compres` también en «De un video, imágenes» (hoy solo antes-despues).
 
 ### Referencia interna de anuncios de imagen ganadores (2026-11-17, versión 2026-11-17p1)
 
