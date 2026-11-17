@@ -1,17 +1,19 @@
-// Panel izquierdo, como el de CapCut: los clips del anuncio, la música, los estilos de subtítulos y
-// los textos en pantalla.
+// Panel izquierdo, como el de CapCut: los clips del anuncio, la música, el audio (lo que dice la voz: silenciar o
+// ponerle pitido a una palabra, PanelAudio.jsx), los estilos de subtítulos y los textos en pantalla.
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { Archive, Captions, Check, Film, ImagePlus, Music, Pause, Play, Plus, Sparkles, Type, Upload, X } from 'lucide-react';
+import { Archive, AudioLines, Captions, Check, Film, ImagePlus, Music, Pause, Play, Plus, Sparkles, Type, Upload, X } from 'lucide-react';
 import { AreaTexto, BarraDeProgreso, Boton, EstadoVacio, Insignia, Interruptor, MiniaturaVideo, Tooltip, VistaPrevia, useAvisos } from '../../componentes/index.js';
 import { pedirNuevo as pedirApi } from '../../datos/api.js';
 import { cambiosParaSeguir, useTextosVideo } from './seguimiento.js';
 import { useDatos } from '../../datos/api.js';
 import { codigoDeTiempo, duracion as formatoDuracion } from '../../datos/formato.js';
 import { RejillaEstilos } from './Galeria.jsx';
+import { PanelAudio } from './PanelAudio.jsx';
 
 const HERRAMIENTAS = [
   { id: 'medios', etiqueta: 'Medios', icono: Film },
   { id: 'musica', etiqueta: 'Música', icono: Music },
+  { id: 'audio', etiqueta: 'Audio', icono: AudioLines },
   { id: 'subtitulos', etiqueta: 'Subtítulos', icono: Captions },
   { id: 'textos', etiqueta: 'Textos', icono: Type },
 ];
@@ -524,6 +526,7 @@ export function PanelMedios({ a, plan, pistas, ed, cambiar, acciones, pestana, o
             <EstadoVacio variante="compacto" icono={Captions} titulo="Sin subtítulos" descripcion="Este anuncio no trae subtítulos para cambiar." />
           )
         ) : null}
+        {pestana === 'audio' ? <PanelAudio plan={plan} pistas={pistas} ed={ed} acciones={acciones} /> : null}
         {pestana === 'textos' ? <PestanaTextos pistas={pistas} ed={ed} cambiar={cambiar} onIr={onIr} acciones={acciones} /> : null}
       </div>
     </aside>

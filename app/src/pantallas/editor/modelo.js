@@ -21,6 +21,8 @@ import {
   piezaDeArchivo,
   queSePuedeConElClip,
   ajusteDeClip,
+  tramosVoz,
+  audiosDeEdicion,
 } from '@composicion/edicion/capas.mjs';
 import { urlMusica } from './estado.js';
 
@@ -47,6 +49,16 @@ export {
   completarEdicion,
   piezaEnTiempo,
   encuadreLimpio,
+  buscarDichas,
+  palabrasDeLaVoz,
+  censurasDe,
+  normalPalabra,
+  tramosVoz,
+  datosNivelVoz,
+  nivelVoz,
+  FUNDIDO_MAX,
+  colorLimpio,
+  filtroDeColor,
 } from '@composicion/edicion/capas.mjs';
 
 const codificar = (rel) => String(rel).split('/').map(encodeURIComponent).join('/');
@@ -204,7 +216,8 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
         velocidadApp: s.reemplazado ? 1 : Number(o.toma?.velocidad) || 1,
         cubre: s.cubre,
         // segundos que se ve quieta al final (su clip no alcanza y ninguna imagen de apoyo la tapa)
-        quieto: quietoDeToma(s, visibles),
+        quieto: s.congelado ? 0 : quietoDeToma(s, visibles),
+        congelado: s.congelado,
         editable: cortes.tomas,
         ...foto(s.archivo, 0.5),
       });
@@ -367,6 +380,7 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
     if (x.pieza === undefined) x.pieza = piezaDeArchivo(x.archivo);
     x.puede = x.pieza ? queSePuedeConElClip(plan, x.pieza, ed) : { velocidad: false, deslizar: false, reemplazar: null, motivo: null };
     x.ajuste = x.pieza ? ajusteDeClip(plan, ed, x.pieza) : null;
+    x.conColor = Boolean(x.ajuste?.color);
     // la velocidad que elegiste tú (null: la que puso la app, o la de tu video tal cual)
     const propia = Number(ed?.clips?.[x.pieza]?.velocidad);
     x.velocidadPropia = x.pieza && x.puede.velocidad && Number.isFinite(propia) && propia > 0 ? x.ajuste?.velocidad ?? null : null;
@@ -390,8 +404,13 @@ export function construirPistas(a, plan, ed, subtitulos, colorAnuncio = null) {
     };
   }
 
+  // las partes de la voz (dividirla para darle a cada parte su volumen y sus fundidos; la voz no se mueve), las
+  // censuras (palabras con pitido o en silencio, y los tramos silenciados a mano) y tus audios
+  voz.tramos = tramosVoz(plan, ed);
+  const censuras = (ed.censuras || []).map((c) => ({ ...c, inicio: c.desde, fin: c.hasta }));
+  const audios = audiosDeEdicion(plan, ed).map((x) => ({ ...x, inicio: x.desde, fin: x.hasta, url: urlDe(a, x.archivo) }));
   const musica = musicaActual(a, plan, ed);
-  return { duracion: dur, familia: fam, cortes: cortesPosibles(plan), video, broll, efectos, textos, voz, musica, tramosMusica: musica ? tramosMusica(plan, ed, musica) : [], subtitulos };
+  return { duracion: dur, familia: fam, cortes: cortesPosibles(plan), video, broll, efectos, textos, voz, censuras, audios, musica, tramosMusica: musica ? tramosMusica(plan, ed, musica) : [], subtitulos };
 }
 
 // ---------------------------------------------------------------- precarga de la vista previa

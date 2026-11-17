@@ -9,6 +9,8 @@
 //   POST /api/videos-propios/:slug/quitar    { desde, hasta }  quita esos segundos (imagen y audio): el video queda
 //        más corto (produccion/video-propio.js quitarTramo). -> { version, mapa, desde, hasta, duracion }
 //   POST /api/videos-propios/:slug/version   { version }  pone el video en esa versión (deshacer y rehacer del editor)
+//   POST /api/videos-propios/:slug/transcribir   «Transcribir la voz» desde el editor (si se subió sin «Subtítulos»):
+//        ElevenLabs Scribe (centavos) -> { palabras, subtitulos }. Las palabras quedan en el plan y en sus versiones.
 //   VERSIONES: cada plan con cortes queda en app/video-propio/versiones/<version>.json (la de antes del primer corte es
 //   "v0"); el editor guarda en sus cambios cuál va (ed.corte) y, si deshaces o rehaces, pide esa. El audio de cada
 //   versión sigue en su propio archivo (audio/voz-<n>-<id>.mp3), así que volver a una es copiar su plan.
@@ -31,6 +33,7 @@ const EXT_VIDEO = /\.(mp4|m4v|mov|webm|mkv|avi|3gp|mpe?g)$/i;
 const MOTOR = path.join(RAIZ, 'produccion', 'video-propio.js');
 const SLUG = /^video-[a-z0-9-]{1,80}$/;
 const enMarcha = new Set();
+const transcribiendo = new Set();
 const MAX_DESHACER = 30;
 
 const dirVersiones = (slug) => path.join(dirDe(slug), 'app', 'video-propio', 'versiones');
@@ -231,6 +234,52 @@ export default function rutasVideoPropio(app) {
     } catch (e) {
       ponerPlan(slug, antes);
       res.status(400).json({ error: String(e?.message || e).slice(0, 200) || 'No pude quitar esa parte.' });
+    }
+  });
+
+  app.post('/api/videos-propios/:slug/transcribir', async (req, res) => {
+    const { slug } = req.params;
+    if (!desdeLaApp(req, res)) return;
+    if (!esVideoPropio(slug)) return res.status(404).json({ error: 'No encuentro ese video.' });
+    if (transcribiendo.has(slug)) return res.status(409).json({ error: 'Ya se está transcribiendo este video.' });
+    transcribiendo.add(slug);
+    try {
+      const env = await entornoDelMotor().catch(() => process.env);
+      const r = await new Promise((resolve) => {
+        const p = spawn(process.execPath, [MOTOR, path.join('temp', slug), '--transcribir'], { cwd: RAIZ, env, windowsHide: true });
+        let salida = '';
+        let errTexto = '';
+        p.stdout.on('data', (d) => (salida = (salida + String(d)).slice(-20000)));
+        p.stderr.on('data', (d) => (errTexto = (errTexto + String(d)).slice(-2000)));
+        const reloj = setTimeout(() => p.kill(), 10 * 60000);
+        p.on('error', (e) => resolve({ codigo: 1, error: e.message }));
+        p.on('close', (codigo) => {
+          clearTimeout(reloj);
+          const listo = /@@listo (.*)/.exec(salida);
+          const error = /@@error (.*)/.exec(salida);
+          let datos = null;
+          try {
+            datos = listo ? JSON.parse(listo[1]) : null;
+          } catch {
+            datos = null;
+          }
+          let mensaje = null;
+          try {
+            mensaje = error ? JSON.parse(error[1]).error : null;
+          } catch {
+            mensaje = null;
+          }
+          resolve({ codigo, datos, error: mensaje || (codigo ? errTexto.trim().split(/\r?\n/).pop() : null) });
+        });
+      });
+      if (r.codigo !== 0 || !r.datos) {
+        const t = String(r.error || '');
+        const claro = /ELEVENLABS_API_KEY|401|clave/i.test(t) ? 'Falta tu clave de ElevenLabs (Ajustes › Conexiones) o no es válida.' : `No pude transcribir la voz${t ? ` (${t.slice(0, 160)})` : ''}. No se cobró nada si no llegó a escucharla.`;
+        return res.status(502).json({ error: claro });
+      }
+      res.json(r.datos);
+    } finally {
+      transcribiendo.delete(slug);
     }
   });
 

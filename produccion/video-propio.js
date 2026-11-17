@@ -3,6 +3,7 @@
 // solo los subtítulos, si se piden, transcriben el audio con ElevenLabs (centavos).
 //
 //   node produccion/video-propio.js temp/<slug> [--subtitulos] [--idioma spa|eng|por]
+//   node produccion/video-propio.js temp/<slug> --transcribir    (después, desde el editor: transcribirVoz)
 //
 // Lee temp/<slug>/original.<ext> y deja la carpeta como la de un anuncio con voz en off:
 //   video/completo.mp4       el video entero, 720x1280 a 30 fps (si no es vertical, va entero sobre su fondo difuminado)
@@ -327,6 +328,93 @@ export function quitarTramo(carpeta, desde, hasta) {
 }
 const existeArchivo = (f) => fs.existsSync(f);
 
+// ---------------------------------------------------------------- transcribir la voz después (centavos)
+
+/**
+ * Las palabras del audio ORIGINAL llevadas al video de ahora: `fuente` dice qué partes del original quedan, en orden
+ * (quitarTramo las recorta). Una palabra va si su mitad cae en una parte que quedó. FUNCIÓN PURA.
+ *   palabras: [{ texto, inicio, fin }] en segundos del original -> las mismas en segundos del video de ahora
+ */
+export function palabrasEnElVideo(palabras, fuente) {
+  const partes = [];
+  let t = 0;
+  for (const f of fuente || []) {
+    partes.push({ desde: Number(f.desde), hasta: Number(f.hasta), t0: t });
+    t += Number(f.hasta) - Number(f.desde);
+  }
+  const salida = [];
+  for (const w of palabras || []) {
+    const medio = (w.inicio + w.fin) / 2;
+    const p = partes.find((x) => medio >= x.desde && medio < x.hasta);
+    if (!p) continue;
+    const llevar = (x) => r3(p.t0 + Math.max(p.desde, Math.min(p.hasta, x)) - p.desde);
+    salida.push({ texto: w.texto, inicio: llevar(w.inicio), fin: llevar(w.fin) });
+  }
+  return salida;
+}
+
+/**
+ * «Transcribir la voz» desde el editor (un video tuyo subido sin «Subtítulos»): transcribe el audio original con
+ * ElevenLabs una sola vez (centavos; queda en app/video-propio/palabras.json) y pone las palabras con sus tiempos en el
+ * plan de ahora y en cada versión guardada (deshacer y rehacer los cortes las conservan). Así se puede buscar y
+ * censurar lo que se dice, y se ven los subtítulos.
+ */
+export async function transcribirVoz(carpeta, { idioma = null } = {}) {
+  const c = path.resolve(RAIZ, carpeta);
+  const archivoPlan = path.join(c, 'plan-montaje.json');
+  const plan = JSON.parse(fs.readFileSync(archivoPlan, 'utf8'));
+  if (!plan.videoPropio) throw new Error('Solo se transcribe la voz de tus propios videos.');
+  const cache = path.join(c, 'app', 'video-propio', 'palabras.json');
+  let palabras = null;
+  try {
+    palabras = JSON.parse(fs.readFileSync(cache, 'utf8')).palabras;
+  } catch {
+    palabras = null;
+  }
+  if (!Array.isArray(palabras)) {
+    avance('transcribir', 'Escuchando lo que se dice', 20);
+    const original = existeArchivo(path.join(c, 'audio', 'voz-original.mp3')) ? path.join(c, 'audio', 'voz-original.mp3') : path.join(c, plan.audio?.voz || 'audio/voz.mp3');
+    cargarEnv();
+    const { transcribir } = await import('./subtitulos-dialogo.js');
+    const todo = await transcribir(original, idioma || null, { eventos: false });
+    palabras = todo.filter((w) => w.type === 'word' && String(w.text || '').trim()).map((w) => ({ texto: String(w.text).trim(), inicio: r3(w.start), fin: r3(w.end) }));
+    fs.mkdirSync(path.dirname(cache), { recursive: true });
+    fs.writeFileSync(cache, JSON.stringify({ generado: new Date().toISOString(), palabras }, null, 2));
+  }
+  avance('guardar', 'Poniendo las palabras en el video', 85);
+  const { bloquesDeSubtitulos } = await import('./subtitulos.js');
+  const conPalabras = (p) => {
+    const ws = palabrasEnElVideo(palabras, Array.isArray(p.fuente) && p.fuente.length ? p.fuente : [{ desde: 0, hasta: p.duracion }]);
+    const subtitulos = ws.length ? bloquesDeSubtitulos(ws) : [];
+    const bloques = (p.bloques || []).map((b) => ({ ...b, texto: ws.filter((w) => (w.inicio + w.fin) / 2 >= b.inicio && (w.inicio + w.fin) / 2 < b.fin).map((w) => w.texto).join(' ') }));
+    return { ...p, subtitulos, bloques };
+  };
+  const nuevo = conPalabras(plan);
+  fs.writeFileSync(archivoPlan, JSON.stringify(nuevo, null, 2));
+  fs.writeFileSync(path.join(c, 'subtitulos.json'), JSON.stringify(nuevo.subtitulos, null, 2));
+  // las versiones guardadas (deshacer y rehacer los cortes del editor)
+  const dirVersiones = path.join(c, 'app', 'video-propio', 'versiones');
+  for (const n of existeArchivo(dirVersiones) ? fs.readdirSync(dirVersiones) : []) {
+    if (!/\.json$/.test(n)) continue;
+    try {
+      const v = JSON.parse(fs.readFileSync(path.join(dirVersiones, n), 'utf8'));
+      fs.writeFileSync(path.join(dirVersiones, n), JSON.stringify(conPalabras(v)) + '\n');
+    } catch {
+      // una versión dañada se queda como estaba
+    }
+  }
+  try {
+    const m = JSON.parse(fs.readFileSync(path.join(c, 'manifiesto.json'), 'utf8'));
+    m.video_propio = { ...(m.video_propio || {}), subtitulos: nuevo.subtitulos.length > 0 };
+    fs.writeFileSync(path.join(c, 'manifiesto.json'), JSON.stringify(m, null, 2));
+  } catch {
+    // sin manifiesto: igual quedan en el plan
+  }
+  const listo = { palabras: palabras.length, subtitulos: nuevo.subtitulos.length };
+  avisar('listo', listo);
+  return listo;
+}
+
 const esPrincipal = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (esPrincipal) {
   const args = process.argv.slice(2);
@@ -336,7 +424,7 @@ if (esPrincipal) {
     console.error('Uso: node produccion/video-propio.js temp/<slug> [--subtitulos] [--idioma spa]');
     process.exit(1);
   }
-  preparar(carpeta, { subtitulos: args.includes('--subtitulos'), idioma }).catch((e) => {
+  (args.includes('--transcribir') ? transcribirVoz(carpeta, { idioma }) : preparar(carpeta, { subtitulos: args.includes('--subtitulos'), idioma })).catch((e) => {
     avisar('error', { error: String(e.message || e) });
     process.exit(1);
   });

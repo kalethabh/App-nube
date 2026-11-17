@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-16.
+Última actualización: 2026-11-17.
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,8 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17j2` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
-  Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
+- **Versión actual:** `2026-11-17k` (archivo `VERSION`): editor con el audio como en CapCut (pestaña Audio, censurar o
+  silenciar palabras sin la IA, pista Censuras, la voz por partes, tus audios, duplicar, congelar, color y fundidos).
+  Antes: `2026-11-17j2` (lo último arriba y eliminar lotes de imágenes), `2026-11-17j1` (exportar más rápido), `2026-11-17i` (las imágenes respetan el ángulo y el gancho de la referencia), `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -136,6 +137,77 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Editor: el audio como en CapCut y lo básico que faltaba (2026-11-17, versión 2026-11-17k)
+
+Pedido: «Implementa todo lo básico de CapCut, que me permita editar el audio así como censurar, por ejemplo: "Lo que diga
+AMUA mutearlo"». Rama `editor-audio-capcut`.
+
+- **Inventario antes de empezar.** Ya había: dividir/recortar/mover/borrar tomas y B-roll, velocidad y deslizar, tu
+  video en lugar de un clip, textos e imágenes (también siguiendo un texto del video), música por tramos con fundidos,
+  volumen y silencio globales de voz y música, subtítulos, difuminado y pincel de censura, mover/escalar, Editar con IA
+  (con `ed.censuras`, pero solo se veían como «N censuras» y se borraban todas juntas), deshacer/rehacer. Faltaba:
+  censurar sin la IA, ver y editar las censuras, silenciar un tramo, volumen por parte de la voz y fundidos de la voz,
+  volumen por clip, audios propios, transcribir tus videos, duplicar, congelar, color por clip y fundido del video.
+  Se dejó fuera (no pedido o riesgoso): reversa, keyframes de volumen, subir el volumen por encima del 100 %, mover la
+  voz, varias pistas de audio separadas (los audios que se pisan se dibujan en filas dentro de una sola pista).
+- **Modelo (`remotion/src/edicion/capas.mjs`, `completarEdicion` acepta todo `edicion.json` de antes):**
+  - `ed.voz.tramos`: `null` (como venía) o `[{ id, desde, hasta, volumen 0–1, fadeIn, fadeOut }]` de 0 al final, sin
+    huecos (`tramosVoz`). `datosNivelVoz(plan, ed)` → `{ tramos: [[a, b, vol, fi, fo]], censuras: [[a, b]] }` (datos,
+    viajan en las props del render) y `nivelVoz(t, datos)` → 0–1. Voz aparte: `AnuncioEditado` multiplica el volumen
+    de la voz por `nivelVoz`. Voz en los clips: `planAjustado` pone `plan.audio.nivelVoz` y lo aplican
+    `Anuncio.jsx → Clip` y **también `Escena.jsx → ClipEscena`** (antes las censuras no callaban en podcast/entrevista).
+  - `ed.censuras` (ya existía): también los tramos silenciados a mano (`palabra: ''`, modo `silencio`).
+  - `ed.audios`: `[{ id, archivo: 'app/edicion/audios/aud-<id>.<ext>', nombre, duracion, desde, hasta, entrada, volumen,
+    fadeIn, fadeOut }]` (`ARCHIVO_AUDIO`, `audiosDeEdicion`); `AnuncioEditado → AudiosPropios`.
+  - `ed.clips[pieza].volumen` (0–1) y `.color = { brillo, contraste, saturacion }` (`colorLimpio`, `filtroDeColor`):
+    `planAjustado → conAjustesDeClip` pone `volumenClip` y `filtro` (CSS) en tomas, B-roll, continuidad y piezas de
+    escena; los usan `Clip`, `piezasDeContinuidad` y `ClipEscena`. `queSePuedeConElClip` suma `volumen` y `color`
+    (siempre en clips; la pantalla oculta el volumen si el clip va mudo).
+  - `ed.tomas[].congelado`: la parte se ve quieta en su cuadro de entrada (`Freeze` en `Clip`, sin sonido, tipo B).
+  - `ed.fundido = { entrada, salida }` (s, máx. `FUNDIDO_MAX` = 5): `AnuncioEditado → FundidoNegro`.
+  - El buscador de lo que se dice se movió de `rutas/editar-ia.js` a capas: `normalPalabra`, `buscarDichas` (sin
+    tildes/mayúsculas, parecido, partida en dos, con sufijo, y ahora también «a mua» buscada contra «amua»),
+    `palabrasDeLaVoz(plan, ed)` (montaje + correcciones), `censurasDe`. `editar-ia.js` los reexporta.
+- **Operaciones puras (`pantallas/editor/cortes.js`)**, todas por `cambiar` (deshacer): pistas nuevas `voz` (dividir,
+  correr el borde entre partes, «borrar» = volumen 0), `censuras` (recortar, mover, borrar) y `audios` (dividir,
+  recortar con `entrada`, mover, borrar); `ajustarTramoVoz`, `fundidoVoz`, `agregarCensuras` (la que pisa otra la
+  reemplaza con el modo nuevo), `quitarCensurasEn`, `modoCensura`, `silenciarTramo` (1,5 s desde el cursor),
+  `agregarAudio`, `ajustarAudio`, `ajustarClip`, `duplicar` (textos, imágenes, audios), `congelar` (1,5 s, solo donde las
+  tomas se cortan; lo congelado se descuenta del final de la escena). `huella()` cuenta las pistas nuevas.
+- **Pantalla:** `PanelAudio.jsx` (pestaña Audio: buscar + «Silenciar todas»/«Pitido en todas», la transcripción
+  clicable, silenciar un tramo, fundidos de la voz, tus audios, «Transcribir la voz (unos centavos)»);
+  `pedido-voz.js` (`pedidoDeVoz`: «Lo que diga AMUA mutearlo» se resuelve en el navegador sin la IA; si habla de la
+  pantalla, de escenas o textos va a la IA); `LineaDeTiempo.jsx` (la voz en partes con su envolvente, censuras
+  tachadas encima, pistas Censuras y Audio con +, soltar audios); `PanelCambios.jsx` (paneles de la parte de la voz,
+  la censura y el audio; volumen, brillo, contraste, saturación y «Congelar imagen aquí» del clip; «Duplicar»; sección
+  «Fundido a negro»; «Censurar» en Sonido lleva a la pestaña Audio); `index.jsx` (acciones, Ctrl D, el pitido se pide
+  al servidor antes de usarlo). Tokens nuevos `--pista-censuras` y `--pista-audios`.
+- **Servidor:** `rutas/editor.js` `POST /api/anuncios/:slug/edicion/audio` (hasta 40 MB, `app/edicion/audios/`) y
+  `POST …/edicion/pitido` (`ponerPitido`, también al guardar con censuras de pitido); `rutas/editar-ia.js` usa el
+  buscador compartido y fuerza `silencio` si el pedido dice mutear/silenciar/callar (`pideSilencio`); el prompt lo
+  dice explícito. `rutas/video-propio.js` `POST /api/videos-propios/:slug/transcribir` corre
+  `node produccion/video-propio.js temp/<slug> --transcribir` (`transcribirVoz`: Scribe sobre `voz-original.mp3` una
+  sola vez, caché en `app/video-propio/palabras.json`; `palabrasEnElVideo` lleva las palabras a cada versión cortada,
+  así deshacer/rehacer cortes las conserva).
+- **Exportación (`produccion/exportar-edicion.js`):** enlaza los audios propios (los que faltan se avisan y no van);
+  el control final no marca como defecto el negro del fundido ni lo quieto de una toma congelada.
+- **Pruebas:** build de Vite correcto; prueba de humo `HUMO_SIN_ANUNCIO=1` **85/85** (3 revisiones nuevas del audio;
+  corrida desde una copia de la carpeta sin «.claude» en la ruta: en el worktree `send` no sirve `index.html` porque la
+  ruta tiene un punto, y daba «La app arranca» en falso igual antes del cambio); `probar-imagen-ads` **147/147**;
+  33 pruebas puras de cortes/capas/`pedidoDeVoz`; los 10 `edicion.json` guardados en `temp/` dan el mismo plan que
+  antes. **Anuncio de prueba** UGC (6 clips testsrc2 con un tono por clip, 260–560 Hz, música 110 Hz) en la interfaz
+  real con Playwright: buscar «TRES» (4 veces) → Silenciar todas, pitido en «frasco», «Lo que diga ATRÁS mutearlo» por
+  Editar con IA (gratis), dividir la voz en 20 s y silenciar la segunda parte, deshacer/rehacer, subir un efecto (1500
+  Hz), censura a pitido y vuelta a silencio, panel del clip con volumen y color; sin errores en la página. **Exportación
+  real** (720) con además el clip 2 al 50 %, el clip 4 en blanco y negro y fundido a negro de 1 s: control final
+  limpio, y medido con FFT: las 3 palabras silenciadas a −61/−95/−85 dB (voz normal −18 dB), la segunda parte de la voz
+  a −133 dB, el pitido de «frasco» a −31 dB solo ahí, el efecto a −18 dB solo de 2 a 4 s, el clip 2 a −5,9 dB, la
+  música sigue (−40 dB), saturación 0,4 en el clip 4 y luz 4 en el último cuadro. Video propio: «Lo que diga AMUA
+  mutearlo» con palabras de prueba, y «Transcribir» sin clave responde «Falta tu clave de ElevenLabs» (sin cobrar).
+- **No probado:** una transcripción real con ElevenLabs (cuesta; probado con palabras falsas en la caché), el
+  arrastre fino de bordes de censuras y audios con el mouse (probado por las operaciones puras y los botones), un
+  podcast/entrevista exportado con censuras, y en la Mac.
 
 ### Lo último arriba y eliminar lotes de imágenes (2026-11-17, versión 2026-11-17j2)
 
