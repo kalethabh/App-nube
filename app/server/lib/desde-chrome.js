@@ -21,6 +21,8 @@ import express from 'express';
 import { APP, RAIZ, PUERTO_DE_PRUEBA, TEMP } from './rutas.js';
 import { leerJSON, escribirJSONSeguro } from './archivos.js';
 import { DIR_CHROME, ErrorGanadores, deFacebook, normalizarAnuncio, traerMedio } from './ganadores.js';
+import { modoPrueba } from './modo-prueba.js';
+import { rutaDeArchivoDeMuestra } from './muestras.js';
 
 const ARCHIVO = path.join(RAIZ, 'mis_archivos', 'ganadores', 'desde-chrome.json');
 // (una app de prueba tiene su propio código: no toca el de verdad)
@@ -242,6 +244,16 @@ async function bajar(url, nombre, { video }) {
   return archivo;
 }
 
+/** (modo prueba) nunca se llama a Facebook: se copia una muestra del paquete como si fuera lo bajado. */
+function bajarSimulado(url, nombre, { video }) {
+  const origen = rutaDeArchivoDeMuestra(video ? 'ugc' : 'claymation', video ? 'video.mp4' : 'imagen.jpg');
+  if (!origen || !fs.existsSync(origen) || /no-existe/.test(url)) return null;
+  fs.mkdirSync(DIR_CHROME, { recursive: true });
+  const archivo = `${nombre}.${video ? 'mp4' : 'jpg'}`;
+  fs.copyFileSync(origen, path.join(DIR_CHROME, archivo));
+  return archivo;
+}
+
 const URL_LOCAL = (archivo) => (archivo ? `/api/inspiracion/chrome/media/${archivo}` : null);
 
 // ---------------------------------------------------------------- guardar, listar, borrar
@@ -256,7 +268,7 @@ const guardarLista = (lista) => escribirJSONSeguro(ARCHIVO, { v: 1, anuncios: li
  * Guarda un anuncio que mandó la extensión: baja el video / la imagen enseguida y lo deja en «Desde Chrome».
  * -> { anuncio, avisos: [texto] } (avisos: lo que no se pudo, para el aviso de la extensión)
  */
-export async function importarAnuncio(crudo, { bajarMedios = bajar } = {}) {
+export async function importarAnuncio(crudo, { bajarMedios = modoPrueba() ? bajarSimulado : bajar } = {}) {
   const c = validarImportacion(crudo);
   const avisos = [];
   let media = null;

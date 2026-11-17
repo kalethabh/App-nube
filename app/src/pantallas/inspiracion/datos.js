@@ -1,5 +1,6 @@
-// Los pedidos de Inspiración: la búsqueda, los guardados y el video siguen en /api/ganadores (server/rutas/ganadores.js);
-// los formatos, las marcas y replicar una imagen, en /api/inspiracion (server/rutas/inspiracion.js).
+// Los pedidos de Inspiración: la búsqueda en TrendTrack, los guardados y el video siguen en /api/ganadores
+// (server/rutas/ganadores.js); los formatos, las marcas, replicar una imagen y las otras dos fuentes (Meta oficial y
+// Desde Chrome), en /api/inspiracion (server/rutas/inspiracion.js).
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 
 const enc = encodeURIComponent;
@@ -32,6 +33,37 @@ export const inspiracion = {
   quitarMiMarca: (nombre) => pedirNuevo(`/api/inspiracion/mis-marcas/${enc(nombre)}`, { metodo: 'DELETE' }),
   /** { archivo, url, nombre } */
   replicarImagen: (anuncio) => pedirNuevo('/api/inspiracion/replicar-imagen', { metodo: 'POST', cuerpo: { anuncio } }),
+
+  // ---- «Meta (oficial)»: la Biblioteca de anuncios con la API de Meta (solo lo que se mostró en Europa)
+  /** { anuncios, siguiente, quitados, recibidos, fecha, desdeCache, simulado? } */
+  buscarMeta: (filtros, { despues = null, forzar = false } = {}) => pedirNuevo('/api/inspiracion/meta/buscar', { metodo: 'POST', cuerpo: { filtros, despues, forzar } }),
+  /** { tipo, media, miniatura } | { error } */
+  medioMeta: (metaId) => pedirNuevo(`/api/inspiracion/meta/media/${enc(metaId)}`),
+
+  // ---- «Desde Chrome»: lo que guardaste con el botón de Chrome
+  /** { anuncios, quitados } */
+  chrome: () => pedirNuevo('/api/inspiracion/chrome'),
+  borrarChrome: (id) => pedirNuevo(`/api/inspiracion/chrome/${enc(id)}`, { metodo: 'DELETE' }),
+  /** { codigo } */
+  codigoChrome: () => pedirNuevo('/api/inspiracion/chrome/codigo'),
+  nuevoCodigoChrome: () => pedirNuevo('/api/inspiracion/chrome/codigo', { metodo: 'POST' }),
+};
+
+/** Las fuentes del feed (2026-11-17n). */
+export const FUENTES = [
+  { id: 'meta', etiqueta: 'Meta (oficial)' },
+  { id: 'chrome', etiqueta: 'Desde Chrome' },
+  { id: 'trendtrack', etiqueta: 'TrendTrack' },
+];
+
+/** El anuncio en la Biblioteca de anuncios de Meta (se abre en Facebook). */
+export const enlaceMeta = (metaId) => (metaId ? `https://www.facebook.com/ads/library/?id=${encodeURIComponent(metaId)}` : null);
+
+/** Los países de Europa que acepta la API de Meta (Unión Europea + Reino Unido). */
+export const PAIS_UE = {
+  ES: 'España', PT: 'Portugal', FR: 'Francia', IT: 'Italia', DE: 'Alemania', NL: 'Países Bajos', BE: 'Bélgica', IE: 'Irlanda', AT: 'Austria',
+  PL: 'Polonia', SE: 'Suecia', DK: 'Dinamarca', FI: 'Finlandia', GR: 'Grecia', CZ: 'Chequia', RO: 'Rumania', HU: 'Hungría', BG: 'Bulgaria',
+  HR: 'Croacia', SK: 'Eslovaquia', SI: 'Eslovenia', LT: 'Lituania', LV: 'Letonia', EE: 'Estonia', LU: 'Luxemburgo', MT: 'Malta', CY: 'Chipre', GB: 'Reino Unido',
 };
 
 export const useGanadores = () => useDatos('ganadores', ganadores.estado);

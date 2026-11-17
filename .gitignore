@@ -43,6 +43,11 @@ temp/_referencias/
 temp/*/historial/
 temp/*/app/registro/
 temp/.conductor-mando*
+# Inspiración (2026-11-17n): el código del botón de Chrome (secreto), lo que bajó ese botón y lo sacado de Meta
+# (direcciones que vencen): se queda en este computador. La lista de lo guardado sí va (mis_archivos/ganadores/).
+app/.extension-chrome.json
+temp/_ganadores/chrome/
+temp/_ganadores/meta/
 app/.guardado.json
 app/.guardado-config.json
 app/.guardado-config.json.*.tmp
