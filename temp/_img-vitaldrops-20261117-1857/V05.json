@@ -1,0 +1,24 @@
+{
+  "ad_info": {
+    "variation_id": "V05"
+  },
+  "visual_prompt": "A single realistic smartphone photo split vertically into two equal halves side by side, with the split exactly in the center. LEFT half = BEFORE: the problem clearly visible in the body area, a casual mirror selfie at home (bedroom or bathroom), ordinary clothes. RIGHT half = AFTER: the result clearly visible in the same body area, confident and happier; the change must be dramatic and obvious at first glance, never subtle. Same person (same face, hair, body type and skin tone), same pose, same camera angle, same framing and same lighting in every part, so the ONLY difference is the result in the body area of the problem. Keep the bottom 40% of both halves less important (the app covers it with a text panel): the face and the body area of the problem in the upper 60%. Like the winning ads of this category: the body area of the problem fills 60-70% of the frame, tight clothing that shows the shape, an ordinary real setting with nothing distracting, no props, no text. Realistic and tasteful: fully clothed (leggings, jeans or a fitted dress), never explicit. Do NOT show the product in the photo. Product context (Spanish, from the product sheet): product: «VITALDROPS»; audience: «18 a 55»; problem: «Como y como y no me engorda nada»; result: «».",
+  "text_layers": [],
+  "mandatory_visual_elements": [],
+  "final_generation_exclusions": [],
+  "language_rule": "No visible text at all: the app adds every text.",
+  "app_plantilla": {
+    "id": "historia",
+    "escena": true,
+    "textos": {
+      "antes": "Antes",
+      "despues": "Después",
+      "frase": "Siempre decía: «Como y como y no me engorda nada»",
+      "remate": "Hasta que descubrí *VITALDROPS*",
+      "iconos": [],
+      "legal": "Resultados individuales."
+    },
+    "k": 0,
+    "fecha": "2026-11-17T23:57:36.973Z"
+  }
+}

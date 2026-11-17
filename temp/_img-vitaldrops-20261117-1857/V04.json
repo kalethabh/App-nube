@@ -1,0 +1,21 @@
+{
+  "ad_info": {
+    "variation_id": "V04"
+  },
+  "visual_prompt": "Template-only ad: the app composes it from the product photo (no image model).",
+  "text_layers": [],
+  "mandatory_visual_elements": [],
+  "final_generation_exclusions": [],
+  "language_rule": "No visible text at all: the app adds every text.",
+  "app_plantilla": {
+    "id": "producto-flechas",
+    "escena": false,
+    "textos": {
+      "titular": "¿Piernas flacas aunque entrenas? Revisa primero cuánto estás comiendo.",
+      "flechas": [],
+      "legal": ""
+    },
+    "k": 0,
+    "fecha": "2026-11-17T23:57:36.973Z"
+  }
+}
