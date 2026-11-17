@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17g · Editor: barra de herramientas junto al video
+
+- A la derecha del video, una barra de herramientas limpia, como en los editores profesionales:
+  - **Zona segura** de **Meta** o de **TikTok**: muestra lo que tapan los botones y textos de cada app, para que tus textos no queden debajo.
+  - **Cuadrícula** de tercios con el centro marcado, para acomodar textos y logos.
+  - **Pincel para censurar.**
+  - **Guardar este cuadro** como imagen (para una portada o como referencia de un anuncio de imagen).
+  - **Velocidad de la vista previa:** 1×, 1,5×, 2× o 0,5×. Solo cambia cómo la ves, no el video.
+- La barra de abajo del video queda más despejada.
+
 ## 2026-11-17f · Pincel para censurar en el editor
 
 - Debajo del video, **«Pincel para censurar»**: el video se pausa, pintas encima de lo que quieres tapar (un logo, una marca, un texto, una cara) y tocas **Censurar**. La app lo busca y lo sigue sola, hacia adelante y hacia atrás, mientras dure esa escena, y lo difumina de forma discreta. Es gratis: se hace en tu computador.

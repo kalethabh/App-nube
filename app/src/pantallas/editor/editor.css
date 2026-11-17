@@ -2761,3 +2761,79 @@ html:has(.ed) .avisos {
 .ed-pincel__ayuda { display: inline-flex; align-items: center; gap: 6px; flex: 1 1 auto; font-size: var(--t-chico); font-weight: 600; }
 .ed-pincel__tamanos { display: inline-flex; gap: 4px; }
 .ed-pincel__botones { display: inline-flex; gap: 4px; margin-left: auto; }
+
+/* ---------------------------------------------------------------- herramientas de la vista previa (HerramientasLienzo.jsx) */
+.ed-herr {
+  position: absolute;
+  right: var(--e-4);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  border-radius: var(--r-l);
+  border: 1px solid var(--borde-2);
+  background: var(--vidrio);
+  backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: var(--sombra-2);
+}
+.ed-herr__grupo { position: relative; display: flex; flex-direction: column; gap: 2px; }
+.ed-herr__separador { width: 20px; height: 1px; margin: 2px 0; background: var(--borde-2); }
+.ed-herr__boton {
+  position: relative;
+  width: 38px;
+  min-height: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border: 0;
+  border-radius: var(--r-m);
+  background: transparent;
+  color: var(--texto-2);
+  cursor: pointer;
+  transition: background var(--dur-rapido) var(--curva-suave), color var(--dur-rapido) var(--curva-suave);
+}
+.ed-herr__boton:hover { background: rgba(var(--tinte-rgb), 0.07); color: var(--texto-1); }
+.ed-herr__boton:focus-visible { outline: 2px solid var(--acento); outline-offset: 1px; }
+.ed-herr__boton.es-activo { background: var(--acento-suave); color: var(--acento); }
+.ed-herr__boton.es-activo::before { content: ''; position: absolute; left: -6px; top: 9px; bottom: 9px; width: 3px; border-radius: 0 3px 3px 0; background: var(--acento-fondo); }
+.ed-herr__valor { font-size: 9.5px; font-weight: 700; line-height: 1; }
+.ed-herr__menu {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 0;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  border-radius: var(--r-m);
+  border: 1px solid var(--borde-2);
+  background: var(--superficie-2);
+  box-shadow: var(--sombra-flotante);
+  animation: aparecer var(--dur-rapido) var(--curva-salida) both;
+}
+.ed-herr__opcion { padding: 8px 10px; border: 0; border-radius: var(--r-s); background: transparent; color: var(--texto-2); font-size: var(--t-chico); text-align: left; cursor: pointer; }
+.ed-herr__opcion:hover { background: rgba(var(--tinte-rgb), 0.06); color: var(--texto-1); }
+.ed-herr__opcion.es-activo { color: var(--acento); font-weight: 600; }
+@media (max-width: 1100px) { .ed-herr { right: var(--e-2); } }
+
+/* la cuadrícula para centrar: tercios y el centro */
+.ed-cuadricula { position: absolute; inset: 0; z-index: 3; pointer-events: none; animation: aparecer var(--dur-medio) var(--curva-salida) both; }
+.ed-cuadricula i, .ed-cuadricula b { position: absolute; background: rgba(255, 255, 255, 0.35); box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.25); }
+.ed-cuadricula .v1, .ed-cuadricula .v2 { top: 0; bottom: 0; width: 1px; }
+.ed-cuadricula .h1, .ed-cuadricula .h2 { left: 0; right: 0; height: 1px; }
+.ed-cuadricula .v1 { left: 33.333%; } .ed-cuadricula .v2 { left: 66.666%; }
+.ed-cuadricula .h1 { top: 33.333%; } .ed-cuadricula .h2 { top: 66.666%; }
+.ed-cuadricula .cv { left: 50%; top: 46%; width: 1px; height: 8%; background: rgba(157, 246, 38, 0.8); }
+.ed-cuadricula .ch { top: 50%; left: 46%; height: 1px; width: 8%; background: rgba(157, 246, 38, 0.8); }
+
+/* TikTok: arriba las pestañas, a la derecha los botones (más abajo) y abajo el usuario y el texto */
+.ed-meta--tiktok .ed-meta__arriba { height: 9%; }
+.ed-meta--tiktok .ed-meta__abajo { height: 22%; }
+.ed-meta--tiktok .ed-meta__lado { bottom: 24%; }
+

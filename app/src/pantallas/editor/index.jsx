@@ -30,8 +30,6 @@ import {
   RefreshCw,
   RotateCcw,
   Save,
-  ScanLine,
-  Brush,
   SlidersHorizontal,
   SkipBack,
   SkipForward,
@@ -70,6 +68,7 @@ import { cambiosParaSeguir } from './seguimiento.js';
 import { EditarConIA } from './EditarConIA.jsx';
 import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRegenerar } from './trabajos.js';
 import { PincelCensura } from './PincelCensura.jsx';
+import { GuiasLienzo, HerramientasLienzo } from './HerramientasLienzo.jsx';
 import { operar, agregarTexto as textoNuevo, agregarImagen as imagenNueva, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
 import { servidor } from './servidor.js';
 import { useArrastrarEnVideo } from './arrastrar.js';
@@ -231,25 +230,6 @@ function BarraTiempo({ playerRef, listo, duracion }) {
       <span className="ed-avance__pista">
         <span ref={relleno} className="ed-avance__relleno" />
       </span>
-    </div>
-  );
-}
-
-function ZonaMeta() {
-  return (
-    <div className="ed-meta" aria-hidden="true">
-      <div className="ed-meta__arriba">
-        <span>Nombre de la cuenta</span>
-      </div>
-      <div className="ed-meta__lado">
-        <i />
-        <i />
-        <i />
-        <i />
-      </div>
-      <div className="ed-meta__abajo">
-        <span>Texto del anuncio y botón</span>
-      </div>
     </div>
   );
 }
@@ -689,7 +669,10 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
   const [pestana, setPestana] = useState('medios');
   // en ventanas de menos de 1366 de ancho el panel izquierdo es una columna de iconos y se abre encima
   const [panelAbierto, setPanelAbierto] = useState(false);
-  const [zonaMeta, setZonaMeta] = useState(false);
+  // herramientas de la vista previa (HerramientasLienzo): zona segura ('', 'meta', 'tiktok'), cuadrícula y velocidad
+  const [zonaSegura, setZonaSegura] = useState('');
+  const [cuadricula, setCuadricula] = useState(false);
+  const [velocidad, setVelocidad] = useState(1);
   // el pincel para censurar: pintas encima del video en pausa y la censura sigue lo pintado en la escena
   const [pincel, setPincel] = useState(false);
   const [barraPincel, setBarraPincel] = useState(null); // dónde va su barra (debajo del video)
@@ -1964,6 +1947,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
               style={{ width: '100%', height: '100%' }}
               clickToPlay
               doubleClickToFullscreen
+              playbackRate={velocidad}
               spaceKeyToPlayOrPause={false}
               numberOfSharedAudioTags={12}
               errorFallback={() => (
@@ -1973,7 +1957,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
                 </div>
               )}
             />
-            {zonaMeta ? <ZonaMeta /> : null}
+            <GuiasLienzo zona={zonaSegura} cuadricula={cuadricula} />
             {pincel ? (
               <PincelCensura
                 slug={a.slug}
@@ -2001,6 +1985,22 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
             ) : null}
             <BarraTiempo playerRef={playerRef} listo={playerListo} duracion={plan.duracion} />
           </div>
+          <HerramientasLienzo
+            slug={a.slug}
+            playerRef={playerRef}
+            fps={FPS}
+            zona={zonaSegura}
+            onZona={setZonaSegura}
+            cuadricula={cuadricula}
+            onCuadricula={setCuadricula}
+            pincel={pincel}
+            onPincel={() => {
+              playerRef.current?.pause();
+              setPincel((v) => !v);
+            }}
+            velocidad={velocidad}
+            onVelocidad={setVelocidad}
+          />
         </div>
         {pincel ? <div className="ed-pincel-zona" ref={setBarraPincel} /> : <EditarConIA acciones={acciones} ed={ed} cambiar={cambiar} />}
         <Transporte
@@ -2008,28 +2008,6 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
           listo={playerListo}
           duracion={plan.duracion}
           precarga={precarga}
-          extra={
-            <>
-            <Tooltip texto="Muestra dónde pone Meta el nombre, el texto y el botón">
-              <Chip tamano="chico" icono={ScanLine} activo={zonaMeta} onClick={() => setZonaMeta((v) => !v)}>
-                Zona de Meta
-              </Chip>
-            </Tooltip>
-            <Tooltip texto="Pinta encima de lo que quieres tapar: lo sigue solo en la escena y lo difumina">
-              <Chip
-                tamano="chico"
-                icono={Brush}
-                activo={pincel}
-                onClick={() => {
-                  playerRef.current?.pause();
-                  setPincel((v) => !v);
-                }}
-              >
-                Pincel para censurar
-              </Chip>
-            </Tooltip>
-            </>
-          }
         />
       </main>
 
