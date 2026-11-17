@@ -1,0 +1,41 @@
+Square 1:1 ad on a deep near-black canvas (#111111) with a premium neon-glow look in lemon yellow (#F2DC4A) and metallic gold (#C9A441, highlights #E6CF7A). Layout in three stacked bands. TOP BAND: at top center a short handwritten white neon script line; directly below it a giant, extra-bold, uppercase geometric sans headline in glowing lemon-gold that spans almost the full width on one line. MIDDLE BAND: three glowing gold thin-line outline silhouettes (line art only, no fill, soft golden bloom) of the same young woman with a ponytail, all in side profile facing right, same height, same slim athletic body proportions in all three, evenly spaced in three columns. Left silhouette: she stands holding a small dropper bottle in one hand and lifts the dropper toward her mouth. Center silhouette: she sits at a small table eating with a spoon from a full bowl. Right silhouette: she performs a squat holding a dumbbell at her chest. Two short dashed gold arrows point right between the silhouettes. Centered under each silhouette, a short white bold italic label. A thin gold horizontal line runs across the canvas below the labels. BOTTOM BAND: at bottom left stands the product, front view at eye level, with a warm golden glow pooled under it and a faint reflection on a glossy black floor. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. At bottom right, a wide rounded rectangle with a glowing thin gold border on black: at its top a small outlined pill label with bold uppercase gold text; below it a giant heavy gold figure-and-word with a small stacked two-word line at its right; a thin gold divider; and a final bold uppercase gold line with a small gold outline water-drop icon at its right end. The three silhouettes show actions only: the body shape and size are exactly the same in all three, with no enlargement or emphasis of any body part. No price, no discount, no gift, no CTA button, no logos outside the product label, no stars, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- script pre-headline (Top center, above the main headline): "Chao, chao" — Flowing handwritten neon script, white with a soft white glow, medium size, centered
+- main headline (Top, full width, directly below the script line): "COMIDAS SALTADAS" — Giant extra-bold uppercase geometric sans, glowing lemon-gold, one line, centered, tight tracking
+- stage label 1 (Centered under the left silhouette): "Tus gotas" — Bold italic sans, white, small-medium
+- stage label 2 (Centered under the center silhouette): "Tu plato lleno" — Bold italic sans, white, small-medium
+- stage label 3 (Centered under the right silhouette): "Tu rutina" — Bold italic sans, white, small-medium
+- box label pill (Top of the bordered box, bottom right): "TU RITUAL DIARIO" — Bold uppercase geometric sans, gold, inside a thin outlined rounded pill
+- giant figure of the box (Center of the bordered box): "1 TOMA" — Giant heavy uppercase sans, glossy gold, dominant element of the box
+- small stacked word beside the giant figure (Right of the giant figure, stacked in two short lines): "AL DÍA" — Bold uppercase sans, gold, much smaller than the figure
+- final line of the box (Bottom of the bordered box, below the thin divider, with a small drop icon at its right): "5 INGREDIENTES EN GOTAS" — Bold uppercase geometric sans, gold, medium
+
+BRAND IDENTITY:
+- color_palette: Deep near-black canvas #111111; glowing lemon yellow #F2DC4A and metallic gold #C9A441 with lighter gold highlight #E6CF7A for the headline, silhouettes, arrows, divider and info box; soft white #FFFFFF for the script line and the step labels; amber brown #8A4B14 for the bottle glass; warm cream #FBF3DC only inside the product label highlights.
+- text_typography: Headline in a geometric sans-serif, extra-bold, all uppercase, tight leading (Montserrat ExtraBold / Gotham Black style), glowing lemon-gold. Script line in a flowing white handwritten neon script. Step labels in bold italic white sans. Box text in bold uppercase geometric sans, gold. No outlines and no drop shadows other than the neon glow.
+
+MANDATORY ELEMENTS:
+- Deep near-black canvas with lemon-gold neon glow
+- Three glowing gold line-art silhouettes of the same woman in side profile (taking drops, eating, squatting) with identical body proportions
+- Two dashed gold arrows pointing right between the silhouettes
+- Thin gold horizontal divider line above the bottom band
+- The amber dropper bottle at bottom left, exactly as in the attached photo, with a warm glow beneath
+- Rounded box with glowing thin gold border at bottom right, with label pill, giant figure, divider and final line with a small outline drop icon
+
+STRICT EXCLUSIONS:
+- No silhouettes whose hips, glutes or any body part grow or change between stages; no before/after body comparison.
+- No price, percentage, discount, free gift, urgency or offer text.
+- No brand logo or wordmark outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Price, discount, percentage off, free gift or urgency text
+- Do not add: CTA button
+- Do not add: Brand logo or wordmark outside the product label
+- Do not add: Rating stars, testimonials, trust seals
+- Do not add: Any before/after body comparison or silhouettes whose body shape changes
+- Do not add: Extra benefit lists or icons
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

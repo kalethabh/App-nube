@@ -1,0 +1,39 @@
+Square 1:1 ad on a warm cream canvas (#FBF3DC), clean and bright. TOP: a big, extra-bold, uppercase geometric sans headline in solid near-black, centered, in two lines with tight leading. MIDDLE: a tidy 2x2 grid of four equal landscape panels with rounded corners, a hairline pale-gold border and a slightly lighter cream fill, with narrow equal gutters. Each panel has a small bold uppercase metallic-gold day label in its top-left corner and a fine pencil-sketch illustration with soft color (realistic proportions, delicate hatching) of the same young Colombian woman, curly dark hair in a high puff, wearing the same beige tank top in all four panels, shown from the waist up, facing the viewer with a gentle smile. Her body is exactly the same in all four panels; only her action changes. Top-left panel: she squeezes a dropper over a glass of orange juice on a kitchen counter, the small amber dropper bottle beside the glass. Top-right panel: she sits at a table eating a full breakfast plate (eggs, arepa, fruit) with a fork, looking pleased. Bottom-left panel: she ties her hair up with a sports water bottle and a gym bag strap on her shoulder, looking energetic. Bottom-right panel: she lifts two small dumbbells in a shoulder press, smiling with energy. BOTTOM STRIP: at the bottom left, a tall rectangular lemon-yellow carton, slightly taller than the bottle, with the lowercase black wordmark 'amua' at the top and 'VITALDROPS' in white uppercase letters running vertically along the front face, standing next to and slightly behind the product bottle, both front view with soft contact shadows; behind them a delicate pale-gold botanical sprig line drawing. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. At the bottom right, a wide brushed metallic gold plaque (#C9A441 with lighter #E6CF7A sheen) with rounded corners and a thin inner border, holding three centered lines of black text: a small bold uppercase line, a much larger heavy condensed uppercase line, a thin divider and a regular-weight uppercase line with wide letter spacing. The area under the plaque stays empty cream. No price, no discount, no gift, no CTA button, no logo outside the product label and carton, no stars, no icons, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top, centered, two lines): 2 stacked lines: line 1: "APETITO Y ENERGÍA"; line 2: "PARA TRABAJAR TUS CURVAS" — Extra-bold uppercase geometric sans, solid near-black, very large, centered, tight leading; line break after 'ENERGÍA'
+- day label, top-left panel (Top-left corner inside the top-left panel): "DÍA 1" — Bold uppercase geometric sans, metallic gold, small
+- day label, top-right panel (Top-left corner inside the top-right panel): "DÍA 7" — Bold uppercase geometric sans, metallic gold, small
+- day label, bottom-left panel (Top-left corner inside the bottom-left panel): "DÍA 14" — Bold uppercase geometric sans, metallic gold, small
+- day label, bottom-right panel (Top-left corner inside the bottom-right panel): "DÍA 21" — Bold uppercase geometric sans, metallic gold, small
+- plaque line 1 (Top line of the gold plaque, bottom right): "TU RITUAL DE CADA MAÑANA" — Bold uppercase sans, black, small-medium, centered
+- plaque line 2 (dominant) (Middle line of the gold plaque): "5 INGREDIENTES EN GOTAS" — Heavy condensed uppercase sans, black, much larger than the other two lines, centered
+- plaque line 3 (Bottom line of the gold plaque, below a thin divider): "LOS RESULTADOS VARÍAN" — Regular-weight uppercase sans with wide letter spacing, black, small-medium, centered
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, carton, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, plaque); near-black #111111 (headline and plaque text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel fills and highlights.
+- text_typography: Headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, centered, two lines, tight leading (Montserrat ExtraBold / Gotham Black style). Panel labels in the same geometric sans, bold, uppercase, metallic gold, small. Plaque: first line bold uppercase sans in black; middle line much larger, heavy condensed uppercase sans in black; third line regular-weight uppercase sans with wide letter spacing in black. No outlines, no shadows, no gradients on the text.
+
+MANDATORY ELEMENTS:
+- Warm cream canvas
+- 2x2 grid of rounded panels with hairline pale-gold borders
+- The same pencil-sketch illustrated woman, waist up, same outfit and identical body in all four panels: drops in juice, eating breakfast, getting ready with gym bag, lifting dumbbells
+- Lemon-yellow carton and the amber dropper bottle at bottom left, the bottle exactly as in the attached photo
+- Pale-gold botanical sprig line drawing behind the product
+- Brushed metallic gold plaque with rounded corners and thin inner border at bottom right
+
+STRICT EXCLUSIONS:
+- No change in the woman's body shape between panels; no views from behind; no body close-ups; no before/after body comparison.
+- No price, percentage, discount, free gift, urgency or offer text.
+- No brand logo or wordmark outside the product label and carton.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Price, discount, percentage, free gift or urgency text
+- Do not add: CTA button
+- Do not add: Brand logo or wordmark outside the product label and carton (the bottom wordmark of the source is removed)
+- Do not add: Rating stars, testimonials, trust seals, icons, arrows
+- Do not add: Any before/after body comparison, views from behind or body-shape change between panels
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

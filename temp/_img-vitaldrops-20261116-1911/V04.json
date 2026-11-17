@@ -1,0 +1,164 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "uploaded reference (R04)",
+    "reference_style": "Hand-drawn pencil-sketch comparison ad: two figures side by side with handwritten callouts and dashed pointer lines, product at bottom center",
+    "angle_used": "Comparación con la alternativa (un día sin ritual frente a un día con ritual: cómo se siente, no cómo se ve)",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream paper background #FBF3DC; near-black #111111 (headline, sketch lines, second line of each callout); muted terracotta red #B5452C for the left figure tint and left callout keywords; metallic gold #C9A441 with lighter gold highlight #E6CF7A and lemon yellow #F2DC4A for the right figure tint, right callout keywords and sparkles; amber brown #8A4B14 (bottle glass); soft white #FFFFFF highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a hand-drawn pencil-sketch illustration (crosshatch shading, loose confident lines, realistic proportions). No body comparison: both figures have the same body.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; looks like a page from a personal sketchbook.",
+    "graphic_language": "Textured cream paper, pencil crosshatching, thin dashed pointer lines, small hand-drawn dash rays and four-point sparkles, soft contact shadow under the product.",
+    "text_typography": "Headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, one line (Montserrat ExtraBold / Gotham Black style). Callouts in a neat casual handwritten marker font: first word larger and colored, second line smaller in near-black. No outlines and no drop shadows on the text."
+  },
+  "creative_objective": "Show what many women notice first, which is not in the mirror: a clearer head, a woken-up appetite and energy to train. Preserve the exact structure of the source: one-line bold headline, two sketched figures of the same woman side by side (left muted and tired, right golden and bright), three handwritten callouts per side joined by dashed lines, and the bottle at bottom center between them. Both figures must have exactly the same body shape and size; only posture, expression and color tint differ.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The bold black one-line headline. 2) The two sketched figures and their contrast of mood and color. 3) The handwritten callouts, then the bottle at bottom center.",
+    "composition_style": "Symmetrical two-figure comparison: left figure with callouts on the far left, right figure with callouts on the far right, product centered at the bottom overlapping the space between the figures.",
+    "spacing_and_structure": "Headline across the top; figures occupy the central 60% of the width; three callouts stacked on each outer margin at head, stomach and leg height; clear paper margins.",
+    "lighting_and_depth": "Flat sketchbook look with pencil shading; the bottle is rendered realistically with a soft contact shadow so it pops over the drawing.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Off-white paper background. Top: a very bold black uppercase headline on one line across the full width. Center: two pencil-sketch figures of the same woman standing front view side by side, hair in a bun, wearing a sports top and shorts; the left one tinted in reddish hatching with a tired expression, the right one tinted in golden hatching with a pleasant expression. On the far left, three handwritten callouts (colored keyword on the first line, black second line) each joined to the left figure by a dashed line at head, stomach and leg height; mirrored on the far right for the right figure. The last callout on each side has small hand-drawn rays (left) or sparkles (right). Bottom center: the product bottle, realistic, standing between and slightly in front of the two figures.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "headline",
+        "position": "Top, one line, full width",
+        "visual_function": "Frames the comparison",
+        "adaptation_rule": "Same extra-bold black uppercase one-line treatment with the user's own headline",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "left sketched figure (muted state)",
+        "position": "Center-left, standing front view",
+        "visual_function": "Shows the day without the ritual",
+        "adaptation_rule": "Same woman, slightly slouched with a tired expression, terracotta hatching. Same body shape and size as the right figure. Modest fitted tank top and full-length leggings.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "right sketched figure (bright state)",
+        "position": "Center-right, standing front view",
+        "visual_function": "Shows the day with the ritual",
+        "adaptation_rule": "Same woman, upright with a relaxed smile, golden hatching. Same body shape and size as the left figure, same outfit.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "three handwritten callouts with dashed lines, left side",
+        "position": "Far left margin at head, stomach and leg height",
+        "visual_function": "Names how she feels without the ritual",
+        "adaptation_rule": "Same two-line handwritten callouts (terracotta keyword + black second line) about feelings, not body shape; small dash rays around the third one",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "three handwritten callouts with dashed lines, right side",
+        "position": "Far right margin at head, stomach and leg height",
+        "visual_function": "Names how she feels with the ritual",
+        "adaptation_rule": "Same two-line handwritten callouts (gold keyword + black second line); small sparkles around the third one",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "Bottom center, between and slightly in front of the two figures",
+        "visual_function": "The bridge between the two states",
+        "adaptation_rule": "The user's amber dropper bottle exactly as in the attached photo, photorealistic over the sketch",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Any difference in body shape, weight or size between the two figures",
+      "Callouts about body parts looking bad or good, clothing sizes or weight",
+      "Price, offer, discount, CTA button",
+      "Brand logo or wordmark outside the product label",
+      "Rating stars, testimonials, trust seals, bottom bars",
+      "'Antes' / 'Después' labels"
+    ]
+  },
+  "visual_prompt": "Square 1:1 ad that looks like a page from a sketchbook, on warm cream textured paper (#FBF3DC). TOP: a very bold, extra-bold uppercase geometric sans headline in solid near-black on one line across the full width. CENTER: two hand-drawn pencil-sketch illustrations (loose confident lines, crosshatch shading, realistic proportions) of the same young woman standing front view side by side, shown from the head to just below the knees, dark hair in a messy bun, wearing the same modest fitted dark tank top and full-length dark leggings. The two figures have exactly the same body shape, size and proportions; only posture, facial expression and tint color differ. LEFT FIGURE: shoulders slightly slouched, tired half-closed eyes, flat low-energy expression, skin shaded with muted terracotta-red hatching (#B5452C). RIGHT FIGURE: upright relaxed posture, bright eyes, soft confident smile, skin shaded with warm golden-yellow hatching (#C9A441 / #F2DC4A). CALLOUTS: on the far left margin, three handwritten two-line notes in a neat casual marker font, each with a larger terracotta-red keyword on the first line and a smaller near-black second line, joined to the left figure by thin dashed terracotta lines: the first points to her head, the second to her stomach, the third to her legs and has small hand-drawn dash rays around it. Mirrored on the far right margin, three handwritten two-line notes with a larger gold keyword and a smaller near-black second line, joined to the right figure by thin dashed gold lines at head, stomach and legs; the third has small hand-drawn four-point sparkles around it. BOTTOM CENTER: the product, rendered photorealistically, standing front view between and slightly in front of the two figures, with a soft contact shadow, its base near the bottom edge. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No price, no CTA button, no logo outside the product label, no stars, no 'before/after' labels, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top, one line, full width",
+      "text_style": "Extra-bold uppercase geometric sans, solid near-black, very large, one line",
+      "text": "LO PRIMERO QUE SE NOTA"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "left callout 1 (points to the head of the left figure)",
+      "reference_position": "Far left, head height",
+      "text_style": "Handwritten marker font; first line larger in terracotta red, second line smaller in near-black",
+      "text": "Cabeza\nembotada"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "left callout 2 (points to the stomach of the left figure)",
+      "reference_position": "Far left, stomach height",
+      "text_style": "Handwritten marker font; first line larger in terracotta red, second line smaller in near-black",
+      "text": "Apetito\ndormido"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "left callout 3 (points to the legs of the left figure, with dash rays)",
+      "reference_position": "Far left, leg height",
+      "text_style": "Handwritten marker font; first line larger in terracotta red, second line smaller in near-black",
+      "text": "Pila\nen cero"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "right callout 1 (points to the head of the right figure)",
+      "reference_position": "Far right, head height",
+      "text_style": "Handwritten marker font; first line larger in gold, second line smaller in near-black",
+      "text": "Cabeza\ndespejada"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "right callout 2 (points to the stomach of the right figure)",
+      "reference_position": "Far right, stomach height",
+      "text_style": "Handwritten marker font; first line larger in gold, second line smaller in near-black",
+      "text": "Apetito\ndespierto"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "right callout 3 (points to the legs of the right figure, with sparkles)",
+      "reference_position": "Far right, leg height",
+      "text_style": "Handwritten marker font; first line larger in gold, second line smaller in near-black",
+      "text": "Pila\npara entrenar"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Warm cream textured paper background",
+    "Two pencil-sketch figures of the same woman, front view, side by side, with identical body shape and size: left slouched and tired in terracotta hatching, right upright and smiling in golden hatching",
+    "Thin dashed pointer lines from each callout to head, stomach and legs of its figure",
+    "Small hand-drawn dash rays by the third left callout and small sparkles by the third right callout",
+    "The amber dropper bottle at bottom center, photorealistic, exactly as in the attached photo"
+  ],
+  "final_generation_exclusions": [
+    "No difference in body shape, weight, curves or size between the two figures; no enlarged or emphasized body parts; no revealing outfit.",
+    "No 'antes' / 'después' labels, no clothing sizes, no weight figures.",
+    "No price, offer, discount or CTA.",
+    "No brand logo or wordmark outside the product label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The comparison is about how she feels, with identical bodies, not a before/after of the body.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
