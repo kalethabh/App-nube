@@ -27,6 +27,8 @@ import { ENV } from './rutas.js';
 export const CLAVES = {
   kie: { variable: 'KIE_API_KEY', nombre: 'kie.ai' },
   elevenlabs: { variable: 'ELEVENLABS_API_KEY', nombre: 'ElevenLabs' },
+  // el token de la Biblioteca de anuncios de Meta (Inspiración › «Meta (oficial)», lib/meta-biblioteca.js)
+  meta: { variable: 'META_ADS_TOKEN', nombre: 'Meta (Biblioteca de anuncios)' },
 };
 
 const BASES = {
@@ -109,6 +111,8 @@ export const hayArchivoEnv = () => leerEnv().existe;
 // kie da 32 letras y numeros; ElevenLabs, "sk_" y 48 mas. Se acepta un poco mas por si cambian el
 // formato, pero nunca nada que rompa el .env.
 const FORMA_CLAVE = /^[A-Za-z0-9_\-.+/=:]{8,300}$/;
+// los tokens de Meta son más largos (EAA… de 150 a 500 letras y números)
+const FORMA_TOKEN_META = /^[A-Za-z0-9_\-.|]{40,1000}$/;
 
 /** Limpia lo que se pego (espacios, comillas, "KIE_API_KEY=" delante). null si no sirve como clave. */
 export function limpiarClave(cual, valor) {
@@ -117,7 +121,13 @@ export function limpiarClave(cual, valor) {
   const prefijo = `${CLAVES[cual].variable}=`;
   if (v.startsWith(prefijo)) v = v.slice(prefijo.length).trim();
   if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1).trim();
-  if (cual === 'kie' && /^bearer\s+/i.test(v)) v = v.replace(/^bearer\s+/i, '');
+  if ((cual === 'kie' || cual === 'meta') && /^bearer\s+/i.test(v)) v = v.replace(/^bearer\s+/i, '');
+  if (cual === 'meta') {
+    // si pegaron la dirección entera con ?access_token=…, se toma solo el token
+    const m = v.match(/[?&]access_token=([^&\s]+)/);
+    if (m) v = decodeURIComponent(m[1]);
+    return FORMA_TOKEN_META.test(v) && !PARECE_EJEMPLO.test(v) ? v : null;
+  }
   return FORMA_CLAVE.test(v) && !PARECE_EJEMPLO.test(v) ? v : null;
 }
 
@@ -361,6 +371,10 @@ export async function probarClave(cual, { valor } = {}) {
     return { ok: true, mensaje: 'Tu clave de kie.ai funciona.', saldoKie: v.creditos };
   }
   if (cual === 'elevenlabs') return usuarioElevenLabs(valor || leerClave(CLAVES.elevenlabs.variable));
+  if (cual === 'meta') {
+    const { probarToken } = await import('./meta-biblioteca.js');
+    return probarToken(valor || null);
+  }
   return { ok: false, motivo: 'desconocida', mensaje: 'Esa conexión no existe.' };
 }
 

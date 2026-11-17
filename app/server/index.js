@@ -26,6 +26,7 @@ import { APP, DIST, RUTAS_API, HOST, PUERTO } from './lib/rutas.js';
 import { hostsPermitidos, origenesPermitidos } from './lib/servidor.js';
 import { migrarMotor, motorElegido } from './lib/motor-ia.js';
 import { vigilarInterfaz } from './lib/interfaz.js';
+import { porteroImportar } from './lib/desde-chrome.js';
 
 const DEV = process.argv.includes('--dev');
 
@@ -77,8 +78,13 @@ app.use((req, res, next) => {
 // misma (su origen o el dominio del servidor) o de este equipo sin navegador (sin Origin). Antes cada ruta lo revisaba
 // por su cuenta, con listas copiadas que olvidaban el dominio del servidor; ahora hay un solo filtro para todas.
 const ORIGENES = origenesPermitidos(PUERTO);
+// La ÚNICA excepción: el botón de Chrome (extension-chrome/) guarda anuncios con POST /api/inspiracion/importar desde
+// su propio origen (chrome-extension://…), con el código de emparejamiento, tope de tamaño y de pedidos por minuto
+// (lib/desde-chrome.js). Lo que pasa ese portero queda marcado y el filtro de abajo lo deja seguir.
+app.use('/api/inspiracion/importar', porteroImportar);
 app.use((req, res, next) => {
   if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return next();
+  if (req.desdeExtension === true) return next();
   const origen = req.headers.origin;
   const sitio = String(req.headers['sec-fetch-site'] || '');
   if ((origen && !ORIGENES.has(String(origen).toLowerCase())) || sitio === 'cross-site') {
