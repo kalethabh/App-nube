@@ -363,7 +363,8 @@ function piezasVisibles(plan) {
     const hasta = Math.min(i + 1 < inicios.length ? inicios[i + 1] : fin, fin);
     if (b.toma?.archivo && hasta - desde > 1e-3) {
       // origen: donde arranca la Sequence de la toma (su clip va desde ahi, a su velocidad)
-      const toma = { archivo: b.toma.archivo, origen: desde, velocidad: Number(b.toma.velocidad) || 1, recorteInicio: Number(b.toma.recorteInicio) || 0, capa: 0, etiqueta: etiqueta(b.toma.archivo) };
+      // (congelada en el editor: se ve quieta a proposito)
+      const toma = { archivo: b.toma.archivo, origen: desde, velocidad: Number(b.toma.velocidad) || 1, recorteInicio: Number(b.toma.recorteInicio) || 0, capa: 0, etiqueta: etiqueta(b.toma.archivo), ...(b.toma.congelado ? { congelado: true } : {}) };
       // la ventana de la toma menos lo que le tapan los B-roll de encima
       let tramos = [[desde, hasta]];
       for (const x of tapas) {
@@ -396,7 +397,10 @@ const enLaFuente = (p, t) => p.recorteInicio + (t - (p.origen ?? p.desde)) * p.v
  * pedido y sonido, que ningun clip quede quieto porque no alcanza su momento, y negros y congelados contra el
  * clip fuente (como control-final.js). Cada defecto dice si exportar otra vez lo arregla.
  */
-async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido }) {
+async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido, fundido = null }) {
+  // el fundido a negro que pidio el usuario (comienzo y final): ahi el negro es a proposito
+  const durP = Number(planP.duracion) || 0;
+  const enFundido = (a, z) => Boolean(fundido && ((fundido.entrada > 0 && z <= fundido.entrada + 0.1) || (fundido.salida > 0 && a >= durP - fundido.salida - 0.1)));
   // las tomas que quedaron a la vista porque el usuario les saco el B-roll de encima
   const brollsQueQuedan = new Set((planP.bloques || []).filter((b) => b.broll?.archivo).map((b) => b.broll.archivo));
   const sinSuBroll = new Set((plan.bloques || []).filter((b) => b.broll?.archivo && !brollsQueQuedan.has(b.broll.archivo) && b.toma?.archivo).map((b) => b.toma.archivo));
@@ -438,6 +442,7 @@ async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido }) 
 
   // cada clip alcanza su momento (en los cambios: sobre todo una toma que quedo a la vista sin su B-roll)
   for (const p of piezas) {
+    if (p.congelado) continue;
     const largo = await largoDe(p.archivo);
     if (largo === null) {
       salida.defectos.push({ tipo: 'falta-clip', pieza: p.etiqueta, detalle: `no encuentro el clip ${p.archivo}`, rerender: false });
@@ -470,6 +475,7 @@ async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido }) 
     return terminar(2, `no se pudo medir el video: ${m.error}`);
   }
   for (const n of m.negros) {
+    if (enFundido(n.desde, n.hasta)) continue;
     const medio = (n.desde + n.hasta) / 2;
     const p = piezaEn(piezas, medio);
     const item = { tipo: 'negro', desde: n.desde, hasta: n.hasta, pieza: p?.etiqueta ?? null, rerender: false, detalle: '' };
@@ -496,6 +502,8 @@ async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido }) 
     const hasta = f.hasta ?? info.duracion;
     const dur = f.duracion ?? hasta - f.desde;
     const p = piezaEn(piezas, (f.desde + hasta) / 2);
+    // una toma congelada en el editor, o el negro del fundido, se ven quietos a proposito
+    if (p?.congelado || enFundido(f.desde, hasta)) continue;
     const item = { tipo: 'congelado', desde: r3(f.desde), hasta: r3(hasta), pieza: p?.etiqueta ?? null, rerender: false, detalle: '' };
     let defecto = true;
     if (!p) item.detalle = `${r1(dur)} s de imagen quieta desde ${r1(f.desde)} s donde no hay ninguna pieza`;
@@ -557,8 +565,12 @@ async function principal() {
   // las imagenes que el usuario puso encima del video: las que ya no estan en la carpeta no van (y se avisa)
   const sinImagen = (estado.textosNuevos || []).filter((x) => x.archivo && !fs.existsSync(path.join(carpeta, x.archivo)));
   for (const x of sinImagen) console.log(`  AVISO: no encuentro la imagen ${x.archivo}: el video sale sin ella.`);
+  // tus audios: los que ya no estan en la carpeta no van (y se avisa)
+  const sinAudio = (estado.audios || []).filter((x) => !fs.existsSync(path.join(carpeta, x.archivo)));
+  for (const x of sinAudio) console.log(`  AVISO: no encuentro el audio ${x.archivo}: el video sale sin el.`);
   const edicion = {
     ...estado,
+    audios: (estado.audios || []).filter((x) => !sinAudio.includes(x)),
     textosNuevos: (estado.textosNuevos || []).filter((x) => !sinImagen.includes(x)),
     subtitulos: { ...estado.subtitulos, visible: pedido.subtitulos !== 'sin' },
     ...(sinMusica ? { musica: { ...estado.musica, silenciada: true } } : {}),
@@ -596,7 +608,11 @@ async function principal() {
   for (const rel of archivos) enlazar(path.join(carpeta, rel), path.join(publico, rel));
   if (relMusica) enlazar(musicaElegida.ruta, path.join(publico, relMusica));
   for (const x of edicion.textosNuevos) if (x.archivo) enlazar(path.join(carpeta, x.archivo), path.join(publico, x.archivo));
-  // el pitido de las palabras censuradas (Editar con IA)
+  // tus audios (efectos de sonido): los que ya no estan en la carpeta no suenan (y se avisa)
+  for (const x of edicion.audios || []) {
+    if (fs.existsSync(path.join(carpeta, x.archivo))) enlazar(path.join(carpeta, x.archivo), path.join(publico, x.archivo));
+  }
+  // el pitido de las palabras censuradas (Editar con IA y la pestaña Audio)
   if ((edicion.censuras || []).some((c) => c.modo === 'pitido')) enlazar(path.join(RAIZ, 'recursos', 'efectos-transiciones', 'pitido.mp3'), path.join(publico, capas.ARCHIVO_PITIDO));
   process.on('exit', () => {
     try {
@@ -617,7 +633,7 @@ async function principal() {
     },
   };
   // (si el usuario silencio la voz y no hay musica, un video sin pista de sonido no es un defecto)
-  const conSonido = Boolean((plan.audio?.voz && !edicion.voz.silenciada) || (musica && !edicion.musica.silenciada) || (capas.modoVoz(plan) === 'en-clips' && !edicion.voz.silenciada));
+  const conSonido = Boolean((plan.audio?.voz && !edicion.voz.silenciada) || (musica && !edicion.musica.silenciada) || (capas.modoVoz(plan) === 'en-clips' && !edicion.voz.silenciada) || edicion.audios.length);
 
   // lo mismo ya exportado (y limpio): se reutiliza, sin volver a dibujar ningún cuadro
   const huella = huellaDe(props, { calidad, sinMusica, conSonido }, publico);
@@ -782,14 +798,14 @@ async function principal() {
   // el control final (y una segunda exportacion si lo que encontro se arregla exportando otra vez)
   avance('revisar', 91);
   console.log('\n  Revisando el video terminado...');
-  let control = await controlar({ archivo: salidaMp4, plan, planP, carpeta, calidad, conSonido });
+  let control = await controlar({ archivo: salidaMp4, plan, planP, carpeta, calidad, conSonido, fundido: edicion.fundido });
   if (control.codigo === 1 && control.rerenderAyuda) {
     console.log(`  !  Encontre ${control.defectos.length} detalle(s) que se arreglan exportando otra vez: exporto de nuevo.`);
     for (const d of control.defectos) console.log(`       ${d.detalle}`);
     const primero = control;
     if ((await renderConReintentos(1)) && reemplazar(temporal, salidaMp4)) {
       avance('revisar', 97);
-      control = await controlar({ archivo: salidaMp4, plan, planP, carpeta, calidad, conSonido });
+      control = await controlar({ archivo: salidaMp4, plan, planP, carpeta, calidad, conSonido, fundido: edicion.fundido });
       control.primerIntento = { defectos: primero.defectos };
       control.segundaExportacion = true;
     }

@@ -6,6 +6,8 @@
 //   PUT  /api/anuncios/:slug/edicion            { estado, t, contexto } -> { ok, t }
 //   POST /api/anuncios/:slug/edicion/musica     (el archivo) ?id=&nombre= -> { ok, id, url }
 //   POST /api/anuncios/:slug/edicion/imagen     (el archivo) ?id=&nombre= -> { ok, id, archivo, url }
+//   POST /api/anuncios/:slug/edicion/audio      (el archivo) ?id=&nombre= -> { ok, id, archivo, url }  (tus audios)
+//   POST /api/anuncios/:slug/edicion/pitido     -> { ok }  (el pitido de las censuras, para la vista previa)
 //   GET  /api/anuncios/:slug/exportar           -> { trabajo, hechos, desactualizada }
 //   POST /api/anuncios/:slug/exportar           { calidad, version, subtitulos, srt, estado, contexto } -> { trabajo }
 //   POST /api/anuncios/:slug/exportar/cancelar  -> { trabajo }
@@ -46,6 +48,8 @@ export const servidor = {
   leerEdicion: (slug) => pedir(`${base(slug)}/edicion`),
   guardarEdicion: (slug, datos) => pedir(`${base(slug)}/edicion`, { metodo: 'PUT', cuerpo: datos }),
   subirImagen: (slug, { id, nombre, archivo }) => pedir(`${base(slug)}/edicion/imagen?${new URLSearchParams({ id, nombre: nombre || '' })}`, { metodo: 'POST', archivo }),
+  subirAudio: (slug, { id, nombre, archivo }) => pedir(`${base(slug)}/edicion/audio?${new URLSearchParams({ id, nombre: nombre || '' })}`, { metodo: 'POST', archivo }),
+  ponerPitido: (slug) => pedir(`${base(slug)}/edicion/pitido`, { metodo: 'POST', cuerpo: {} }),
   subirCancion: (slug, { id, nombre, archivo }) => pedir(`${base(slug)}/edicion/musica?${new URLSearchParams({ id, nombre: nombre || '' })}`, { metodo: 'POST', archivo }),
   exportacion: (slug) => pedir(`${base(slug)}/exportar`),
   exportar: (slug, datos) => pedir(`${base(slug)}/exportar`, { metodo: 'POST', cuerpo: datos }),

@@ -29,6 +29,10 @@ import {
   queSePuedeConElClip,
   VELOCIDAD_MIN,
   VELOCIDAD_MAX,
+  tramosVoz,
+  audiosDeEdicion,
+  limpiarCensuras,
+  FUNDIDO_MAX,
 } from '@composicion/edicion/capas.mjs';
 
 const r4 = (x) => Math.round(x * 10000) / 10000;
@@ -36,13 +40,23 @@ const entre = (x, a, b) => Math.max(a, Math.min(b, x));
 let serie = 0;
 const nuevoId = (prefijo) => `${prefijo}${Date.now().toString(36)}${(serie++).toString(36)}`;
 
-const datosTomas = (segs) => segs.map(({ id, b, entrada, duracion, cabeza }) => ({ id, b, entrada: r4(entrada), duracion: r4(duracion), cabeza }));
+const datosTomas = (segs) => segs.map(({ id, b, entrada, duracion, cabeza, congelado }) => ({ id, b, entrada: r4(entrada), duracion: r4(duracion), cabeza, ...(congelado ? { congelado: true } : {}) }));
 const datosBrolls = (lista) => lista.map(({ id, b, desde, duracion, entrada }) => ({ id, b, desde: r4(desde), duracion: r4(duracion), entrada: r4(entrada) }));
 const datosTramos = (lista) => lista.map(({ id, desde, hasta, entrada, fadeIn, fadeOut }) => ({ id, desde: r4(desde), hasta: r4(hasta), entrada: r4(entrada), fadeIn: r4(fadeIn), fadeOut: r4(fadeOut) }));
 
 const conTomas = (ed, segs) => ({ ed: { ...ed, tomas: datosTomas(segs) } });
 const conBrolls = (ed, lista) => ({ ed: { ...ed, brolls: datosBrolls(lista) } });
 const conTramos = (ed, lista) => ({ ed: { ...ed, musica: { ...ed.musica, tramos: datosTramos(lista) } } });
+// las partes de la voz: una sola al 100 % sin fundidos es la voz como venía (null)
+const datosVoz = (lista) => lista.map(({ id, desde, hasta, volumen, fadeIn, fadeOut }) => ({ id, desde: r4(desde), hasta: r4(hasta), volumen: r4(volumen), fadeIn: r4(fadeIn), fadeOut: r4(fadeOut) }));
+const conVoz = (ed, lista) => {
+  const sola = lista.length === 1 && lista[0].volumen === 1 && !lista[0].fadeIn && !lista[0].fadeOut;
+  return { ed: { ...ed, voz: { ...ed.voz, tramos: sola ? null : datosVoz(lista) } } };
+};
+const datosCensura = (c) => ({ id: c.id, desde: r4(c.desde), hasta: r4(c.hasta), modo: c.modo, palabra: c.palabra || '' });
+const conCensuras = (ed, lista) => ({ ed: { ...ed, censuras: limpiarCensuras(lista.map(datosCensura)) } });
+const datosAudio = (a) => ({ id: a.id, archivo: a.archivo, nombre: a.nombre, duracion: a.duracion, desde: r4(a.desde), hasta: r4(a.hasta), entrada: r4(a.entrada), volumen: r4(a.volumen), fadeIn: r4(a.fadeIn), fadeOut: r4(a.fadeOut) });
+const conAudios = (ed, lista) => ({ ed: { ...ed, audios: lista.map(datosAudio) } });
 
 // El corte cae en un cuadro justo contado desde el comienzo de la pieza: así la segunda parte sigue en el cuadro
 // siguiente del clip (sin repetir ni saltar uno) y dividir no cambia nada de lo que se ve ni se oye.
@@ -63,7 +77,7 @@ export function dividir(plan, ed, { pista, id, t, musica }) {
     if (t <= s.inicio + MINIMO || t >= s.fin - MINIMO) return { error: 'Pon el cursor dentro de la toma, un poco más lejos de sus bordes.' };
     const d1 = t - s.inicio;
     const a = { ...s, duracion: d1 };
-    const z = { ...s, id: nuevoId('v'), entrada: s.entrada + d1 * s.velocidad, duracion: s.duracion - d1, cabeza: false };
+    const z = { ...s, id: nuevoId('v'), entrada: s.congelado ? s.entrada : s.entrada + d1 * s.velocidad, duracion: s.duracion - d1, cabeza: false };
     return { ...conTomas(ed, [...segs.slice(0, k), a, z, ...segs.slice(k + 1)]), nuevo: z.id };
   }
   if (pista === 'broll') {
@@ -94,6 +108,29 @@ export function dividir(plan, ed, { pista, id, t, musica }) {
     const z = { ...x, id: nuevoId('m'), desde: t, entrada: entradaEnLaCancion(x.entrada + (t - x.desde), musica), fadeIn: 0 };
     return { ...conTramos(ed, [...tramos.slice(0, k), a, z, ...tramos.slice(k + 1)]), nuevo: z.id };
   }
+  if (pista === 'voz') {
+    const tramos = tramosVoz(plan, ed);
+    const k = tramos.findIndex((x) => x.id === id);
+    if (k < 0) return { error: 'No encuentro esa parte de la voz.' };
+    const x = tramos[k];
+    t = enCuadro(x.desde, t);
+    if (t <= x.desde + 0.1 || t >= x.hasta - 0.1) return { error: 'Pon el cursor dentro de la voz, un poco más lejos de los bordes de esta parte.' };
+    // el corte no se oye: sin fundido de un lado ni del otro, con el mismo volumen
+    const a = { ...x, hasta: t, fadeOut: 0 };
+    const z = { ...x, id: nuevoId('z'), desde: t, fadeIn: 0 };
+    return { ...conVoz(ed, [...tramos.slice(0, k), a, z, ...tramos.slice(k + 1)]), nuevo: z.id };
+  }
+  if (pista === 'audios') {
+    const lista = audiosDeEdicion(plan, ed);
+    const x = lista.find((y) => y.id === id);
+    if (!x) return { error: 'No encuentro ese audio.' };
+    t = enCuadro(x.desde, t);
+    if (t <= x.desde + MINIMO || t >= x.hasta - MINIMO) return { error: 'Pon el cursor dentro del audio, un poco más lejos de sus bordes.' };
+    const a = { ...x, hasta: t, fadeOut: 0 };
+    const z = { ...x, id: nuevoId('a'), desde: t, entrada: x.entrada + (t - x.desde), fadeIn: 0 };
+    return { ...conAudios(ed, [...(ed.audios || []).filter((y) => y.id !== id), a, z]), nuevo: z.id };
+  }
+  if (pista === 'censuras') return { error: 'Las censuras no se dividen: arrastra sus bordes para acortarlas.' };
   if (pista === 'textos') return { error: 'Los textos no se dividen: arrastra sus bordes para acortarlos.' };
   return { error: 'Eso no se puede dividir.' };
 }
@@ -116,7 +153,7 @@ export function recortar(plan, ed, { pista, id, borde, dt, musica, overlays }) {
       const d = entre(dt, Math.max(MINIMO - p.duracion, -s.entrada / s.velocidad), s.duracion - MINIMO);
       p.duracion += d;
       s.duracion -= d;
-      s.entrada += d * s.velocidad;
+      if (!s.congelado) s.entrada += d * s.velocidad;
       return conTomas(ed, segs);
     }
     if (k === segs.length - 1) return { error: 'La última toma llega siempre hasta el final de la voz.' };
@@ -163,6 +200,46 @@ export function recortar(plan, ed, { pista, id, borde, dt, musica, overlays }) {
     }
     return conTramos(ed, tramos);
   }
+  if (pista === 'voz') {
+    // la voz no se mueve: arrastrar el borde entre dos partes cambia dónde termina una y empieza la otra
+    const tramos = tramosVoz(plan, ed).map((x) => ({ ...x }));
+    const k = tramos.findIndex((x) => x.id === id);
+    if (k < 0) return { error: 'No encuentro esa parte de la voz.' };
+    const j = borde === 'inicio' ? k - 1 : k + 1;
+    if (j < 0 || j >= tramos.length) return { error: borde === 'inicio' ? 'La voz empieza siempre al comienzo del anuncio. Divídela para silenciar o bajar una parte.' : 'La voz llega siempre hasta el final del anuncio. Divídela para silenciar o bajar una parte.' };
+    const [p, q] = borde === 'inicio' ? [tramos[j], tramos[k]] : [tramos[k], tramos[j]];
+    const corte = entre(q.desde + dt, p.desde + 0.1, q.hasta - 0.1);
+    p.hasta = corte;
+    q.desde = corte;
+    return conVoz(ed, tramos);
+  }
+  if (pista === 'censuras') {
+    const lista = (ed.censuras || []).map((c) => ({ ...c }));
+    const k = lista.findIndex((c) => c.id === id);
+    if (k < 0) return { error: 'No encuentro esa censura.' };
+    const c = lista[k];
+    const piso = k > 0 ? lista[k - 1].hasta : 0;
+    const techo = k + 1 < lista.length ? lista[k + 1].desde : dur;
+    if (borde === 'inicio') c.desde = entre(c.desde + dt, piso, c.hasta - 0.05);
+    else c.hasta = entre(c.hasta + dt, c.desde + 0.05, techo);
+    return conCensuras(ed, lista);
+  }
+  if (pista === 'audios') {
+    const lista = (ed.audios || []).map((a) => ({ ...a }));
+    const x = lista.find((a) => a.id === id);
+    if (!x) return { error: 'No encuentro ese audio.' };
+    if (borde === 'inicio') {
+      // a la izquierda solo si el audio tiene de dónde sonar más (si se le había recortado el comienzo)
+      const d = entre(dt, Math.max(-x.desde, -x.entrada), x.hasta - x.desde - MINIMO);
+      x.desde += d;
+      x.entrada += d;
+    } else {
+      let techo = dur;
+      if (x.duracion > 0) techo = Math.min(techo, x.desde + x.duracion - x.entrada);
+      x.hasta = entre(x.hasta + dt, x.desde + MINIMO, Math.max(x.desde + MINIMO, techo));
+    }
+    return conAudios(ed, lista);
+  }
   return { error: 'Eso no se puede recortar.' };
 }
 
@@ -208,6 +285,29 @@ export function mover(plan, ed, { pista, id, dt, musica, overlays }) {
     x.hasta = desde + largo;
     return conTramos(ed, tramos);
   }
+  if (pista === 'voz') return { error: 'La voz no se mueve: todo el anuncio la sigue. Divídela para silenciar o bajar una parte.' };
+  if (pista === 'censuras') {
+    const lista = (ed.censuras || []).map((c) => ({ ...c }));
+    const k = lista.findIndex((c) => c.id === id);
+    if (k < 0) return { error: 'No encuentro esa censura.' };
+    const c = lista[k];
+    const largo = c.hasta - c.desde;
+    const piso = k > 0 ? lista[k - 1].hasta : 0;
+    const techo = (k + 1 < lista.length ? lista[k + 1].desde : dur) - largo;
+    c.desde = entre(c.desde + dt, piso, Math.max(piso, techo));
+    c.hasta = c.desde + largo;
+    return conCensuras(ed, lista);
+  }
+  if (pista === 'audios') {
+    // los audios pueden sonar uno encima del otro (como dos efectos a la vez)
+    const lista = (ed.audios || []).map((a) => {
+      if (a.id !== id) return a;
+      const largo = a.hasta - a.desde;
+      const desde = entre(a.desde + dt, 0, Math.max(0, dur - largo));
+      return { ...a, desde, hasta: desde + largo };
+    });
+    return conAudios(ed, lista);
+  }
   return { error: 'Eso no se puede mover.' };
 }
 
@@ -242,6 +342,20 @@ export function borrar(plan, ed, { pista, id, musica }) {
     const tramos = tramosMusica(plan, ed, musica);
     if (tramos.length <= 1) return { ed: { ...ed, musica: { ...ed.musica, fuente: 'ninguna', silenciada: false, tramos: null } }, sinMusica: true };
     return conTramos(ed, tramos.filter((x) => x.id !== id));
+  }
+  if (pista === 'voz') {
+    // la voz no se borra (todo el anuncio la sigue): esa parte calla, como en CapCut al borrar un trozo de audio
+    const tramos = tramosVoz(plan, ed);
+    if (!tramos.some((x) => x.id === id)) return { error: 'No encuentro esa parte de la voz.' };
+    return conVoz(ed, tramos.map((x) => (x.id === id ? { ...x, volumen: 0 } : x)));
+  }
+  if (pista === 'censuras') {
+    if (!(ed.censuras || []).some((c) => c.id === id)) return { error: 'No encuentro esa censura.' };
+    return { ed: { ...ed, censuras: ed.censuras.filter((c) => c.id !== id) } };
+  }
+  if (pista === 'audios') {
+    if (!(ed.audios || []).some((a) => a.id === id)) return { error: 'No encuentro ese audio.' };
+    return { ed: { ...ed, audios: ed.audios.filter((a) => a.id !== id) } };
   }
   return { error: 'Eso no se puede borrar.' };
 }
@@ -291,6 +405,181 @@ export function agregarImagen(plan, ed, { t, archivo, nombre, id: idDado = null 
 export function ajustarTramo(plan, ed, { id, cambios, musica }) {
   const tramos = tramosMusica(plan, ed, musica).map((x) => (x.id === id ? { ...x, ...cambios } : x));
   return conTramos(ed, tramos);
+}
+
+// ---------------------------------------------------------------- la voz, las censuras y tus audios
+
+/** Un cambio de una parte de la voz: { volumen, fadeIn, fadeOut }. */
+export function ajustarTramoVoz(plan, ed, { id, cambios }) {
+  const tramos = tramosVoz(plan, ed);
+  if (!tramos.some((x) => x.id === id)) return { error: 'No encuentro esa parte de la voz.' };
+  return conVoz(
+    ed,
+    tramos.map((x) => {
+      if (x.id !== id) return x;
+      const y = { ...x, ...cambios };
+      const tope = Math.min(FUNDIDO_MAX, (y.hasta - y.desde) / 2);
+      return { ...y, volumen: entre(Number(y.volumen) || 0, 0, 1), fadeIn: entre(Number(y.fadeIn) || 0, 0, tope), fadeOut: entre(Number(y.fadeOut) || 0, 0, tope) };
+    })
+  );
+}
+
+/** El fundido de entrada de la voz (su primera parte) o el de salida (la última). */
+export function fundidoVoz(plan, ed, { lado, segundos }) {
+  const tramos = tramosVoz(plan, ed);
+  const x = lado === 'entrada' ? tramos[0] : tramos[tramos.length - 1];
+  return ajustarTramoVoz(plan, ed, { id: x.id, cambios: lado === 'entrada' ? { fadeIn: segundos } : { fadeOut: segundos } });
+}
+
+/**
+ * Censuras nuevas ({ desde, hasta, modo, palabra }): las que pisan una que ya está la reemplazan con el modo nuevo
+ * (así «Pitido en todas» cambia las que estaban en silencio). -> { ed, nuevas }
+ */
+export function agregarCensuras(ed, lista) {
+  let censuras = [...(ed.censuras || [])];
+  let nuevas = 0;
+  for (const c of lista) {
+    const pisadas = censuras.filter((x) => x.desde < c.hasta && c.desde < x.hasta);
+    if (pisadas.length && pisadas.every((x) => x.modo === c.modo && x.desde <= c.desde + 0.001 && x.hasta >= c.hasta - 0.001)) continue;
+    censuras = censuras.filter((x) => !pisadas.includes(x));
+    const desde = Math.min(c.desde, ...pisadas.map((x) => x.desde));
+    const hasta = Math.max(c.hasta, ...pisadas.map((x) => x.hasta));
+    censuras.push({ id: c.id || nuevoId('c'), desde: r4(desde), hasta: r4(hasta), modo: c.modo === 'silencio' ? 'silencio' : 'pitido', palabra: String(c.palabra || pisadas[0]?.palabra || '').slice(0, 80) });
+    nuevas += 1;
+  }
+  return { ed: { ...ed, censuras: limpiarCensuras(censuras) }, nuevas };
+}
+
+/** Quita las censuras que tocan [desde, hasta] (la palabra vuelve a sonar). */
+export function quitarCensurasEn(ed, desde, hasta) {
+  return { ed: { ...ed, censuras: (ed.censuras || []).filter((c) => !(c.desde < hasta && desde < c.hasta)) } };
+}
+
+/** Pitido o silencio en una censura. */
+export function modoCensura(ed, id, modo) {
+  return { ed: { ...ed, censuras: (ed.censuras || []).map((c) => (c.id === id ? { ...c, modo: modo === 'silencio' ? 'silencio' : 'pitido' } : c)) } };
+}
+
+/** Silenciar un tramo de la voz desde el cursor (1,5 s, o lo que quede): una censura en silencio que se arrastra. */
+export function silenciarTramo(plan, ed, { t, largo = 1.5 }) {
+  const dur = plan.duracion || 1;
+  const desde = r4(entre(t, 0, Math.max(0, dur - 0.3)));
+  const hasta = r4(Math.min(dur, desde + largo));
+  const id = nuevoId('c');
+  const r = agregarCensuras(ed, [{ id, desde, hasta, modo: 'silencio', palabra: '' }]);
+  return { ed: r.ed, nuevo: (r.ed.censuras || []).find((c) => c.desde <= desde + 0.001 && c.hasta >= hasta - 0.001)?.id || id };
+}
+
+/** Un audio tuyo nuevo en el cursor (ya subido: `archivo`), entero si cabe. */
+export function agregarAudio(plan, ed, { t, archivo, nombre, duracion, id: idDado = null }) {
+  const dur = plan.duracion || 1;
+  const largo = Math.min(Number(duracion) > 0 ? Number(duracion) : 3, dur);
+  const desde = r4(entre(t, 0, Math.max(0, dur - Math.min(largo, 0.5))));
+  const id = idDado || nuevoId('a');
+  const x = {
+    id,
+    archivo,
+    nombre: String(nombre || 'Audio').replace(/\.[a-z0-9]+$/i, '').slice(0, 60) || 'Audio',
+    duracion: Number(duracion) > 0 ? r4(Number(duracion)) : null,
+    desde,
+    hasta: r4(Math.min(dur, desde + largo)),
+    entrada: 0,
+    volumen: 1,
+    fadeIn: 0,
+    fadeOut: 0,
+  };
+  return { ed: { ...ed, audios: [...(ed.audios || []), x] }, nuevo: id };
+}
+
+/** Un cambio de un audio tuyo: { volumen, fadeIn, fadeOut }. */
+export function ajustarAudio(ed, id, cambios) {
+  return {
+    ed: {
+      ...ed,
+      audios: (ed.audios || []).map((a) => {
+        if (a.id !== id) return a;
+        const y = { ...a, ...cambios };
+        const tope = Math.min(FUNDIDO_MAX, (y.hasta - y.desde) / 2);
+        return { ...y, volumen: r4(entre(Number(y.volumen) || 0, 0, 1)), fadeIn: r4(entre(Number(y.fadeIn) || 0, 0, tope)), fadeOut: r4(entre(Number(y.fadeOut) || 0, 0, tope)) };
+      }),
+    },
+  };
+}
+
+/** El volumen o el color del clip de una pieza (ed.clips): volumen 0 a 1, color { brillo, contraste, saturacion }. */
+export function ajustarClip(plan, ed, { pieza, volumen, color }) {
+  if (!pieza) return { error: 'Elige un clip.' };
+  const puede = queSePuedeConElClip(plan, pieza, ed);
+  const cambios = {};
+  if (volumen !== undefined) {
+    if (!puede.volumen) return { error: puede.motivo || 'Este clip no cambia de volumen.' };
+    cambios.volumen = volumen === null || Math.abs(Number(volumen) - 1) < 0.001 ? null : r4(entre(Number(volumen) || 0, 0, 1));
+  }
+  if (color !== undefined) {
+    if (!puede.color) return { error: puede.motivo || 'Este clip no cambia de color.' };
+    const c = color ? { brillo: r4(Number(color.brillo ?? 1)), contraste: r4(Number(color.contraste ?? 1)), saturacion: r4(Number(color.saturacion ?? 1)) } : null;
+    cambios.color = c && Object.values(c).some((x) => Math.abs(x - 1) > 0.004) ? c : null;
+  }
+  return { ed: conClip(ed, pieza, cambios) };
+}
+
+// ---------------------------------------------------------------- duplicar y congelar
+
+/**
+ * Duplicar lo elegido (como en CapCut): un texto o una imagen tuya, o un audio tuyo. La copia va justo después del
+ * original (o lo más cerca que se pueda del final). -> { ed, nuevo } | { error }
+ */
+export function duplicar(plan, ed, { pista, id, overlays = [] }) {
+  const dur = plan.duracion || 1;
+  const despues = (inicio, fin) => {
+    const largo = fin - inicio;
+    const desde = entre(fin, 0, Math.max(0, dur - largo));
+    return [r4(desde), r4(Math.min(dur, desde + largo))];
+  };
+  if (pista === 'textos') {
+    const propio = (ed.textosNuevos || []).find((x) => x.id === id);
+    const visto = textosEnPantalla(plan, ed, overlays, null).find((x) => x.id === id);
+    if (!visto) return { error: 'No encuentro ese texto.' };
+    if (visto.tipo !== 'propio' && visto.tipo !== 'sugerido') return { error: 'Ese texto lo pone el estilo: no se duplica.' };
+    const [inicio, fin] = despues(visto.inicio, visto.fin);
+    const nuevo = nuevoId(propio?.archivo ? 'i' : 't');
+    const { giro, ...estilo } = visto.estilo || {}; // eslint-disable-line no-unused-vars
+    const base = propio || { texto: visto.texto, ...estilo };
+    return { ed: { ...ed, textosNuevos: [...(ed.textosNuevos || []), { ...base, id: nuevo, inicio, fin }] }, nuevo };
+  }
+  if (pista === 'audios') {
+    const a = (ed.audios || []).find((x) => x.id === id);
+    if (!a) return { error: 'No encuentro ese audio.' };
+    const [desde, hasta] = despues(a.desde, a.hasta);
+    const nuevo = nuevoId('a');
+    return { ed: { ...ed, audios: [...ed.audios, { ...a, id: nuevo, desde, hasta }] }, nuevo };
+  }
+  return { error: 'Eso no se duplica. Puedes duplicar un texto, una imagen tuya o un audio tuyo.' };
+}
+
+/**
+ * Congelar imagen (como en CapCut) en el cursor: la escena se queda quieta `largo` segundos en ese cuadro y después
+ * sigue desde ahí. La voz no se mueve, así que lo congelado se descuenta del final de la escena (si su clip no alcanza,
+ * se avisa como siempre). Solo en las escenas que se cortan (los anuncios con la voz aparte).
+ */
+export function congelar(plan, ed, { id, t, largo = 1.5 }) {
+  if (!cortesPosibles(plan).tomas) return NO_TOMAS(plan);
+  const segs = tomasDeEdicion(plan, ed);
+  const k = segs.findIndex((s) => s.id === id);
+  if (k < 0) return { error: 'Elige una escena del video.' };
+  const s = segs[k];
+  if (s.congelado) return { error: 'Esa parte ya está congelada.' };
+  t = enCuadro(s.inicio, t);
+  if (t < s.inicio || t >= s.fin - 0.2) return { error: 'Pon el cursor dentro de la escena, un poco antes de su final.' };
+  const quieto = Math.min(largo, s.fin - t);
+  const enClip = s.entrada + (t - s.inicio) * s.velocidad; // el cuadro del clip que se congela (sin el deslizar)
+  const partes = [];
+  if (t - s.inicio >= 1 / FPS) partes.push({ ...s, duracion: t - s.inicio });
+  const helada = { ...s, id: nuevoId('v'), entrada: enClip, duracion: quieto, cabeza: partes.length ? false : s.cabeza, congelado: true };
+  partes.push(helada);
+  const resto = s.fin - t - quieto;
+  if (resto >= 1 / FPS) partes.push({ ...s, id: nuevoId('v'), entrada: enClip, duracion: resto, cabeza: false, congelado: false });
+  return { ...conTomas(ed, [...segs.slice(0, k), ...partes, ...segs.slice(k + 1)]), nuevo: helada.id };
 }
 
 // ---------------------------------------------------------------- deslizar y velocidad (por pieza)
@@ -343,6 +632,9 @@ function huella(plan, ed, { musica, overlays }) {
     brollsDeEdicion(plan, ed).map((x) => [x.id, x.b, r(x.desde), r(x.fin), r(x.entrada)]),
     tramosMusica(plan, ed, musica).map((x) => [x.id, r(x.desde), r(x.hasta), r(x.entrada), r(x.fadeIn), r(x.fadeOut)]),
     textosEnPantalla(plan, ed, overlays || [], null).map((x) => [x.id, r(x.inicio), r(x.fin)]),
+    tramosVoz(plan, ed).map((x) => [x.id, r(x.desde), r(x.hasta)]),
+    (ed.censuras || []).map((c) => [c.id, r(c.desde), r(c.hasta)]),
+    (ed.audios || []).map((a) => [a.id, r(a.desde), r(a.hasta), r(a.entrada)]),
   ]);
 }
 
@@ -352,6 +644,8 @@ export function operar(plan, ed, op) {
   if (op.tipo === 'borrar') return borrar(plan, ed, op);
   if (op.tipo === 'deslizar') return deslizar(plan, ed, op);
   if (op.tipo === 'velocidad') return cambiarVelocidad(plan, ed, op);
+  if (op.tipo === 'duplicar') return duplicar(plan, ed, op);
+  if (op.tipo === 'congelar') return congelar(plan, ed, op);
   if (op.tipo !== 'recortar' && op.tipo !== 'mover') return { error: 'No sé hacer eso.' };
   const r = op.tipo === 'recortar' ? recortar(plan, ed, op) : mover(plan, ed, op);
   // arrastrar hasta un tope (o soltar donde estaba) no es un cambio: no entra al historial

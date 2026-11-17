@@ -1,6 +1,7 @@
 import {
   AbsoluteFill,
   Audio,
+  Freeze,
   OffthreadVideo,
   Sequence,
   staticFile,
@@ -9,6 +10,7 @@ import {
   useVideoConfig,
 } from 'remotion';
 import { Escena, piezasDeEscena } from './Escena.jsx';
+import { nivelVoz } from './edicion/capas.mjs';
 
 const dbALineal = (db) => Math.pow(10, db / 20);
 
@@ -61,11 +63,12 @@ const transformDeEntrada = (animacion, avance, zoomDesde) => {
 // ¿El segundo t cae en una palabra censurada? (plan.audio.silencios: [[desde, hasta]], solo del editor)
 const callaEn = (t, silencios) => (silencios || []).some(([a, b]) => t >= a && t < b);
 
-const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransiciones, silencios }) => {
+const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransiciones, silencios, nivel }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const volumenBase = pieza.mudo ? 0 : dbALineal(ducking);
+  // (volumenClip: el volumen que el usuario le dio a este clip en el editor; una toma congelada no suena)
+  const volumenBase = pieza.mudo || pieza.congelado ? 0 : dbALineal(ducking) * (pieza.volumenClip ?? 1);
   const volumen =
     volumenBase === 0
       ? 0
@@ -101,6 +104,8 @@ const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransicion
       {/* el encuadre que se arrastró en el editor (moverlo y acercarlo): sin él, nada cambia */}
       <AbsoluteFill style={pieza.encuadre ? { transform: `translate(${(pieza.encuadre.x * 100).toFixed(3)}%, ${(pieza.encuadre.y * 100).toFixed(3)}%) scale(${pieza.encuadre.zoom})` } : undefined}>
       <AbsoluteFill style={{ transform: `scale(${escala})` }}>
+        {/* congelada (el editor: «Congelar imagen»): se queda en el primer cuadro de su parte, sin sonido */}
+        <Freeze frame={0} active={Boolean(pieza.congelado)}>
         <OffthreadVideo
           src={staticFile(`video/${pieza.archivo}`)}
           playbackRate={pieza.velocidad || 1}
@@ -109,9 +114,18 @@ const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransicion
           // La cola la corta la Sequence, que dura exactamente lo util.
           // Nunca se corta por DENTRO: ahi esta el lip-sync.
           trimBefore={pieza.recorteInicio ? Math.round(pieza.recorteInicio * fps) : undefined}
-          volume={(f) => (silencios?.length && callaEn(((pieza.desdeFrames || 0) + f) / fps, silencios) ? 0 : volumen)}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          muted={Boolean(pieza.congelado)}
+          // las partes de la voz, sus fundidos y las censuras del editor (nivel), o solo las censuras (silencios)
+          volume={(f) => {
+            if (volumen === 0) return 0;
+            const t = ((pieza.desdeFrames || 0) + f) / fps;
+            if (nivel) return volumen * nivelVoz(t, nivel);
+            return silencios?.length && callaEn(t, silencios) ? 0 : volumen;
+          }}
+          // el color que se le ajustó en el editor (brillo, contraste, saturación)
+          style={{ width: '100%', height: '100%', objectFit: 'cover', ...(pieza.filtro ? { filter: pieza.filtro } : {}) }}
         />
+        </Freeze>
       </AbsoluteFill>
       </AbsoluteFill>
       </AbsoluteFill>
@@ -281,6 +295,9 @@ const piezasDeContinuidad = (clips, fps, durationInFrames) => {
       ...(fija && c.recorteInicio ? { recorteInicio: c.recorteInicio } : {}),
       pushIn: false,
       mudo: Boolean(c.mudo),
+      // el volumen y el color que se le dieron en el editor (capas.mjs)
+      ...(c.volumenClip !== undefined ? { volumenClip: c.volumenClip } : {}),
+      ...(c.filtro ? { filtro: c.filtro } : {}),
       desdeFrames,
       largoFrames,
       transicion: null,
@@ -402,6 +419,7 @@ export const Anuncio = ({ plan, sinSubtitulos = false, sinMusica = false }) => {
               transicion={p.transicion}
               reglasTransiciones={plan.reglasTransiciones}
               silencios={plan.audio?.silencios}
+              nivel={plan.audio?.nivelVoz || null}
             />
           </Sequence>
         );

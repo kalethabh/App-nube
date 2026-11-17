@@ -2,6 +2,20 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17k · Editor: el audio como en CapCut (silenciar o ponerle pitido a una palabra)
+
+- **Nueva pestaña «Audio»** (panel de la izquierda): ves todo lo que dice la voz, palabra por palabra. **Toca una palabra** y elige **Silenciar** o **Pitido** solo para esa. Es gratis y no usa la IA.
+- **Buscar una palabra:** escribe, por ejemplo, **AMUA** y la app la encuentra todas las veces que se dice (aunque tenga tilde, mayúsculas o el reconocedor la haya partido en «a mua»). Con un toque: **«Silenciar todas»** o **«Pitido en todas»**.
+- **Editar con IA** entiende «**Lo que diga AMUA mutearlo**» (mutear, silenciar, callar = silencio; censurar, pitido, bip = pitido) y lo hace al instante, gratis, sin gastar tu IA.
+- **Pista «Censuras»** en la línea de tiempo: cada palabra censurada o tramo silenciado se ve ahí (y tachado sobre la voz). Arrastra sus bordes para alargarla o acortarla, muévela, bórrala, o cámbiala entre **pitido y silencio** en el panel de la derecha.
+- **Silenciar un tramo a mano:** el botón **+** de la pista Censuras (o «Silenciar un tramo» en la pestaña Audio) calla la voz desde donde está el cursor; después ajustas sus bordes.
+- **La voz por partes:** elige la voz y **divídela** (Ctrl B) para darle a cada parte su propio **volumen** (o silenciarla), con **fundido de entrada y de salida**. La voz no se mueve: todo el anuncio la sigue.
+- **Volumen de cada clip** que tiene sonido (tu video, o las escenas de UGC y estilos hablados, donde la voz va dentro del clip).
+- **Tus audios:** arrastra un **efecto de sonido** o cualquier audio (MP3, WAV, M4A) a la nueva pista «Audio»: lo mueves, lo recortas, lo divides, lo duplicas y le cambias el volumen y los fundidos.
+- **Tus videos subidos sin «Subtítulos»:** en la pestaña Audio aparece **«Transcribir la voz (unos centavos)»**: la escucha ElevenLabs una sola vez y ya puedes buscar y censurar lo que se dice.
+- Además, lo básico que faltaba: **duplicar** un texto, una imagen o un audio (botón o Ctrl D), **congelar la imagen** de una escena 1,5 s donde está el cursor, **brillo, contraste y saturación** de cada clip (hasta blanco y negro) y **fundido a negro** al comenzar y al terminar el video.
+- Todo se deshace con Cmd/Ctrl+Z y lo que ves en la vista previa es lo que sale en el video descargado.
+
 ## 2026-11-17j2 · Lo último arriba y eliminar lotes de imágenes
 
 - **Lo más reciente arriba:** en Anuncios, el Editor y Anuncios de imagen, lo último que creaste **o cambiaste** (un cambio en el editor, una imagen nueva, una corrección) sube al primer lugar.

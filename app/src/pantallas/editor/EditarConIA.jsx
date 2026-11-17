@@ -9,10 +9,12 @@ import { Sparkles, VolumeX, X } from 'lucide-react';
 import { Boton, useAvisos } from '../../componentes/index.js';
 import { pedirNuevo } from '../../datos/api.js';
 import { useTextosVideo } from './seguimiento.js';
+import { buscarDichas, palabrasDeLaVoz } from './modelo.js';
+import { pedidoDeVoz } from './pedido-voz.js';
 
-const EJEMPLOS = ['Todo lo que diga AMUA se censura', 'Donde diga AMUA coloca VITALABH', 'Donde diga AMUA difumínalo para que no se lea', 'Recorta las escenas donde sale el frasco'];
+const EJEMPLOS = ['Lo que diga AMUA mutearlo', 'Todo lo que diga AMUA se censura', 'Donde diga AMUA coloca VITALABH', 'Donde diga AMUA difumínalo para que no se lea', 'Recorta las escenas donde sale el frasco'];
 
-export function EditarConIA({ acciones, ed, cambiar }) {
+export function EditarConIA({ acciones, ed, cambiar, plan }) {
   const { aviso } = useAvisos();
   const tv = useTextosVideo(acciones.slug);
   const [pedido, setPedido] = useState('');
@@ -70,9 +72,32 @@ export function EditarConIA({ acciones, ed, cambiar }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tv.estado, ocupado]);
 
-  const enviar = () => {
+  const enviar = async () => {
     const texto = pedido.trim();
     if (!texto || ocupado) return;
+    // callar o ponerle pitido a lo que se dice: aquí mismo, gratis, sin la IA
+    const voz = plan ? pedidoDeVoz(texto) : null;
+    if (voz) {
+      const palabras = palabrasDeLaVoz(plan, ed);
+      if (!palabras.length) {
+        setNota({ error: true, texto: plan.videoPropio ? 'Este video todavía no tiene las palabras de la voz. Ve a la pestaña Audio y toca «Transcribir la voz».' : 'Este anuncio no trae las palabras de la voz con sus tiempos.' });
+        return;
+      }
+      const halladas = buscarDichas(palabras, voz.palabras);
+      if (!halladas.length) {
+        setNota({ error: true, texto: `No encontré ${voz.palabras.map((x) => `«${x}»`).join(', ')} en la voz. Escríbela como suena o búscala en la pestaña Audio.` });
+        return;
+      }
+      setOcupado('aplicar');
+      try {
+        await acciones.censurar(halladas, voz.modo, `${voz.modo === 'pitido' ? 'Pitido' : 'Silenciar'} ${voz.palabras.map((x) => `«${x}»`).join(', ')}`);
+        setNota({ texto: `Listo: ${halladas.length === 1 ? 'la palabra queda' : `las ${halladas.length} veces quedan`} ${voz.modo === 'pitido' ? 'con pitido' : 'en silencio'} (gratis, sin la IA). Las ves en la pista Censuras; Deshacer (Ctrl+Z) lo quita.` });
+        setPedido('');
+      } finally {
+        setOcupado(null);
+      }
+      return;
+    }
     pedir(texto);
   };
 

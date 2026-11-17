@@ -25,7 +25,10 @@ export const INICIAL = Object.freeze({
   lugaresSubtitulos: {}, // un subtítulo movido solo: índice del bloque -> { altura, lado } (mandan sobre los de todos)
   correcciones: {}, // índice del bloque de subtítulos -> texto corregido
   ocultos: [], // índices de bloques de subtítulos ocultos
-  voz: { volumen: 1, silenciada: false },
+  // tramos: null = la voz entera con un solo volumen; o [{ id, desde, hasta, volumen, fadeIn, fadeOut }] (segundos del
+  // anuncio, uno detrás de otro de 0 al final: la voz no se mueve, solo se divide para darle a cada parte su volumen y
+  // sus fundidos, como en CapCut). volumen 0 = esa parte calla.
+  voz: { volumen: 1, silenciada: false, tramos: null },
   // fuente: original | propia | biblioteca | ninguna
   // tramos: null = la canción entera, de punta a punta; o [{ id, desde, hasta, entrada, fadeIn, fadeOut }] (en
   // segundos del anuncio; entrada = el segundo de la canción que suena en `desde`)
@@ -58,7 +61,45 @@ export const INICIAL = Object.freeze({
   encuadres: {},
   // Los íconos y textos de podcast y entrevista corridos con el mouse: id del editor ('e3') -> { dx, dy }
   ajustesEscena: {},
+  // Tus audios (efectos de sonido o cualquier audio que subas), en su propia pista, encima de la voz y la música:
+  //   [{ id, archivo: 'app/edicion/audios/aud-<id>.<ext>', nombre, duracion, desde, hasta, entrada, volumen, fadeIn, fadeOut }]
+  //   desde/hasta: segundos del anuncio; entrada: el segundo del audio que suena en `desde`.
+  audios: [],
+  // Fundido a negro del video al comienzo y al final (segundos; 0 = sin fundido).
+  fundido: { entrada: 0, salida: 0 },
 });
+
+/** Los audios que sube el usuario en el editor (rutas dentro de la carpeta del anuncio). */
+export const ARCHIVO_AUDIO = /^app\/edicion\/audios\/aud-[a-z0-9]{2,40}\.(mp3|wav|m4a|aac|ogg)$/i;
+/** Lo más que dura un fundido (de la voz, de un audio o del video), en segundos. */
+export const FUNDIDO_MAX = 5;
+
+const entre01 = (x, d = 1) => (Number.isFinite(Number(x)) ? Math.max(0, Math.min(1, Number(x))) : d);
+const noNeg = (x, d = 0) => (Number.isFinite(Number(x)) ? Math.max(0, Number(x)) : d);
+
+/** Tus audios guardados que sirven (archivo de app/edicion/audios/ y tiempos con sentido). */
+function limpiarAudios(x) {
+  return (Array.isArray(x) ? x : [])
+    .filter((a) => a && typeof a === 'object' && a.id && ARCHIVO_AUDIO.test(String(a.archivo || '')))
+    .map((a) => {
+      const desde = noNeg(a.desde);
+      const hasta = Math.max(desde, Number.isFinite(Number(a.hasta)) ? Number(a.hasta) : desde + noNeg(a.duracion, 1));
+      return {
+        id: String(a.id).slice(0, 40),
+        archivo: String(a.archivo),
+        nombre: String(a.nombre || 'Audio').slice(0, 120),
+        duracion: Number(a.duracion) > 0 ? Number(a.duracion) : null,
+        desde,
+        hasta,
+        entrada: noNeg(a.entrada),
+        volumen: entre01(a.volumen),
+        fadeIn: Math.min(FUNDIDO_MAX, noNeg(a.fadeIn)),
+        fadeOut: Math.min(FUNDIDO_MAX, noNeg(a.fadeOut)),
+      };
+    })
+    .filter((a) => a.hasta - a.desde > 0.05)
+    .slice(0, 200);
+}
 
 /** El pitido de las censuras (lo copia el servidor al anuncio: recursos/efectos-transiciones/pitido.mp3). */
 export const ARCHIVO_PITIDO = 'app/edicion/pitido.mp3';
@@ -88,6 +129,165 @@ export function enCensura(t, censuras) {
   return false;
 }
 
+// ---------------------------------------------------------------- la voz: sus partes, sus fundidos y lo que calla
+
+/**
+ * Las partes de la voz: [{ id, desde, hasta, volumen, fadeIn, fadeOut }], una detrás de otra de 0 al final del anuncio
+ * (la voz no se mueve). Sin cambios, una sola de punta a punta al 100 %.
+ */
+export function tramosVoz(plan, ed) {
+  const dur = num(plan?.duracion, 1);
+  const guardados = Array.isArray(ed?.voz?.tramos) ? ed.voz.tramos.filter((x) => x && typeof x === 'object' && Number.isFinite(Number(x.desde))) : [];
+  const base = guardados.length ? [...guardados].sort((a, b) => num(a.desde) - num(b.desde)) : [{ id: 'z0', desde: 0, hasta: dur }];
+  const salida = [];
+  base.forEach((x, i) => {
+    const desde = i === 0 ? 0 : Math.max(salida[salida.length - 1]?.hasta ?? 0, Math.min(dur, num(x.desde)));
+    const hasta = i === base.length - 1 ? dur : Math.max(desde, Math.min(dur, num(base[i + 1].desde)));
+    if (hasta - desde < 0.01 && i !== base.length - 1) return;
+    const largo = Math.max(0, hasta - desde);
+    salida.push({
+      id: String(x.id ?? `z${i}`).slice(0, 40),
+      desde,
+      hasta,
+      volumen: entre01(x.volumen),
+      fadeIn: Math.min(largo / 2, FUNDIDO_MAX, noNeg(x.fadeIn)),
+      fadeOut: Math.min(largo / 2, FUNDIDO_MAX, noNeg(x.fadeOut)),
+    });
+  });
+  if (salida.length) salida[salida.length - 1].hasta = dur;
+  return salida;
+}
+
+/**
+ * Lo que la composición necesita para el volumen de la voz en cada segundo (datos, sin funciones: viajan en las props
+ * del render): { tramos, censuras }. null si la voz suena entera, sin partes, sin fundidos ni censuras.
+ */
+export function datosNivelVoz(plan, ed) {
+  const tramos = tramosVoz(plan, ed);
+  const sinTramos = tramos.length === 1 && tramos[0].volumen === 1 && !tramos[0].fadeIn && !tramos[0].fadeOut;
+  const censuras = (ed?.censuras || []).map((c) => [c.desde, c.hasta]);
+  if (sinTramos && !censuras.length) return null;
+  return { tramos: sinTramos ? [] : tramos.map((x) => [x.desde, x.hasta, x.volumen, x.fadeIn, x.fadeOut]), censuras };
+}
+
+/** Cuánto suena la voz en el segundo t (0 a 1): su parte, sus fundidos y las censuras (ahí calla). */
+export function nivelVoz(t, datos) {
+  if (!datos) return 1;
+  for (const [a, b] of datos.censuras || []) if (t >= a && t < b) return 0;
+  const ts = datos.tramos || [];
+  if (!ts.length) return 1;
+  let k = ts.length - 1;
+  for (let i = 0; i < ts.length; i++) {
+    if (t < ts[i][1]) {
+      k = i;
+      break;
+    }
+  }
+  const [a, b, v, fi, fo] = ts[k];
+  if (v <= 0) return 0;
+  const entra = fi > 0 ? (t - a) / fi : 1;
+  const sale = fo > 0 ? (b - t) / fo : 1;
+  return Math.max(0, Math.min(1, v * Math.min(1, entra, sale)));
+}
+
+// ---------------------------------------------------------------- buscar lo que se dice (censurar sin la IA)
+
+/** Para comparar palabras: sin tildes, sin signos, en minúscula. */
+export const normalPalabra = (t) =>
+  String(t || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9ñ]/g, '');
+
+/** Distancia de edición (para «amua» ≈ «amúa», «a mua»): solo para palabras cortas. */
+function distancia(a, b) {
+  if (Math.abs(a.length - b.length) > 2) return 9;
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+}
+
+const parecida = (dicha, buscada) => dicha === buscada || (buscada.length >= 5 && distancia(dicha, buscada) <= 1);
+const r3 = (x) => Math.round(x * 1000) / 1000;
+
+/**
+ * Dónde se dice cada palabra o frase (en segundos del anuncio): [{ desde, hasta, palabra }], con un margen corto para
+ * que no se escuche el comienzo ni el final. palabras = [{ texto, inicio, fin }] en orden. Sin tildes ni mayúsculas, y
+ * parecido: «amua» encuentra «Amúa», «AMUA?», «a mua» (partida en dos) y «amuas». Lo usan la pestaña Audio (sin la IA,
+ * gratis) y Editar con IA (rutas/editar-ia.js).
+ */
+export function buscarDichas(palabras, buscadas, margen = 0.04) {
+  const lista = (palabras || []).map((w) => ({ ...w, n: normalPalabra(w.texto) })).filter((w) => w.n && Number.isFinite(w.inicio) && Number.isFinite(w.fin));
+  const salida = [];
+  for (const frase of buscadas || []) {
+    const partes = String(frase || '')
+      .split(/\s+/)
+      .map(normalPalabra)
+      .filter(Boolean);
+    if (!partes.length) continue;
+    const juntas = partes.join('');
+    for (let i = 0; i < lista.length; i++) {
+      // la frase palabra por palabra, o pegada en una sola («a mua» dicho «amua» y al revés)
+      let k = 0;
+      while (k < partes.length && i + k < lista.length && parecida(lista[i + k].n, partes[k])) k++;
+      let fin = k === partes.length ? i + k - 1 : -1;
+      if (fin < 0 && partes.length === 1) {
+        // una palabra que el reconocedor partió en dos: «a» + «mua»
+        if (i + 1 < lista.length && parecida(lista[i].n + lista[i + 1].n, juntas)) fin = i + 1;
+        // o dentro de una palabra pegada a un signo («AMUA?» ya sale sin signos) o con un sufijo («amuas»)
+        else if (juntas.length >= 4 && lista[i].n.startsWith(juntas) && lista[i].n.length - juntas.length <= 2) fin = i;
+      } else if (fin < 0 && partes.length > 1 && parecida(lista[i].n, juntas)) fin = i; // «amua» buscada como «a mua»
+      if (fin < 0) continue;
+      salida.push({ desde: Math.max(0, lista[i].inicio - margen), hasta: lista[fin].fin + margen, palabra: String(frase).slice(0, 80) });
+      i = fin;
+    }
+  }
+  // en orden y sin pisarse (dos que se tocan quedan en una)
+  salida.sort((a, b) => a.desde - b.desde);
+  const unidas = [];
+  for (const c of salida) {
+    const u = unidas[unidas.length - 1];
+    if (u && c.desde <= u.hasta + 0.02) u.hasta = Math.max(u.hasta, c.hasta);
+    else unidas.push({ ...c });
+  }
+  return unidas.map((c) => ({ ...c, desde: r3(c.desde), hasta: r3(c.hasta) }));
+}
+
+/** Las palabras de la voz con sus tiempos: las del montaje y, si corregiste un subtítulo, también las corregidas. */
+export function palabrasDeLaVoz(plan, ed) {
+  const originales = (plan?.subtitulos || []).flatMap((b) => (Array.isArray(b.palabras) ? b.palabras : []));
+  const corregidas = subtitulosEditados(plan || {}, completarEdicion(ed))
+    .filter((b) => b.corregido)
+    .flatMap((b) => (Array.isArray(b.palabras) ? b.palabras : []));
+  return [...originales, ...corregidas]
+    .map((w) => ({ texto: String(w.texto ?? w.palabra ?? ''), inicio: Number(w.inicio), fin: Number(w.fin) }))
+    .filter((w) => w.texto && Number.isFinite(w.inicio) && Number.isFinite(w.fin))
+    .sort((a, b) => a.inicio - b.inicio);
+}
+
+/** Las censuras que tapan la palabra que va de `desde` a `hasta` (se tocan). */
+export const censurasDe = (censuras, desde, hasta) => (censuras || []).filter((c) => c.desde < hasta && desde < c.hasta);
+
+// ---------------------------------------------------------------- tus audios
+
+/** Tus audios con sus tiempos dentro del anuncio (ordenados): los que arrastraste fuera del final no suenan. */
+export function audiosDeEdicion(plan, ed) {
+  const dur = num(plan?.duracion, 1);
+  return (ed?.audios || [])
+    .map((a) => {
+      const desde = Math.max(0, Math.min(dur, num(a.desde)));
+      let hasta = Math.max(desde, Math.min(dur, num(a.hasta, desde + 1)));
+      // no más largo que lo que queda del archivo desde su entrada
+      if (a.duracion > 0) hasta = Math.min(hasta, desde + Math.max(0.05, a.duracion - num(a.entrada)));
+      const largo = hasta - desde;
+      return { ...a, desde, hasta, fadeIn: Math.min(largo / 2, a.fadeIn || 0), fadeOut: Math.min(largo / 2, a.fadeOut || 0) };
+    })
+    .filter((a) => a.hasta - a.desde > 0.05)
+    .sort((x, y) => x.desde - y.desde);
+}
+
 /** Las velocidades que ofrece el editor (cualquier número entre VELOCIDAD_MIN y VELOCIDAD_MAX también vale). */
 export const VELOCIDADES = Object.freeze([0.5, 0.75, 1, 1.25, 1.5, 2]);
 export const VELOCIDAD_MIN = 0.5;
@@ -115,9 +315,29 @@ function limpiarClips(x) {
     const limpio = {};
     if (Number.isFinite(v) && v > 0) limpio.velocidad = Math.min(VELOCIDAD_MAX, Math.max(VELOCIDAD_MIN, v));
     if (Number.isFinite(d) && d !== 0) limpio.desliza = d;
+    // el volumen del sonido del clip (0 a 1) y su color (brillo, contraste y saturación: 1 = como viene)
+    if (Number.isFinite(Number(c.volumen)) && Math.abs(Number(c.volumen) - 1) > 0.001) limpio.volumen = entre01(c.volumen);
+    const color = colorLimpio(c.color);
+    if (color) limpio.color = color;
     if (Object.keys(limpio).length) salida[pieza] = limpio;
   }
   return salida;
+}
+
+/** El color de un clip: { brillo, contraste, saturacion } de 0,3 a 2 (la saturación desde 0: blanco y negro; 1 = como viene), o null si no cambió nada. */
+export function colorLimpio(c) {
+  if (!c || typeof c !== 'object') return null;
+  const v = (x, piso = 0.3) => (Number.isFinite(Number(x)) ? Math.max(piso, Math.min(2, Number(x))) : 1);
+  const salida = { brillo: v(c.brillo), contraste: v(c.contraste), saturacion: v(c.saturacion, 0) };
+  return Object.values(salida).every((x) => Math.abs(x - 1) < 0.005) ? null : salida;
+}
+
+/** El filtro CSS del color de un clip (o null). La misma cuenta en la vista previa y en el MP4. */
+export function filtroDeColor(c) {
+  const k = colorLimpio(c);
+  if (!k) return null;
+  const r = (x) => Math.round(x * 1000) / 1000;
+  return `brightness(${r(k.brillo)}) contrast(${r(k.contraste)}) saturate(${r(k.saturacion)})`;
 }
 
 /** Une lo guardado con el estado inicial (si mañana se agrega un campo, lo viejo sigue sirviendo). */
@@ -129,7 +349,7 @@ export function completarEdicion(guardado) {
     ...INICIAL,
     ...guardado,
     subtitulos: { ...INICIAL.subtitulos, ...obj(guardado.subtitulos) },
-    voz: { ...INICIAL.voz, ...obj(guardado.voz) },
+    voz: { ...INICIAL.voz, ...obj(guardado.voz), tramos: Array.isArray(obj(guardado.voz).tramos) ? obj(guardado.voz).tramos.filter((x) => x && typeof x === 'object') : null },
     musica: { ...INICIAL.musica, ...obj(guardado.musica) },
     correcciones: { ...obj(guardado.correcciones) },
     ocultos: lista(guardado.ocultos),
@@ -148,6 +368,8 @@ export function completarEdicion(guardado) {
     censuras: limpiarCensuras(guardado.censuras),
     encuadres: { ...obj(guardado.encuadres) },
     ajustesEscena: { ...obj(guardado.ajustesEscena) },
+    audios: limpiarAudios(guardado.audios),
+    fundido: { entrada: Math.min(FUNDIDO_MAX, noNeg(obj(guardado.fundido).entrada)), salida: Math.min(FUNDIDO_MAX, noNeg(obj(guardado.fundido).salida)) },
   };
 }
 
@@ -192,21 +414,22 @@ export function queSePuedeConElClip(plan, pieza, ed = null) {
   const fam = familia(plan);
   const esBroll = /^broll-/.test(String(pieza));
   const reemplazado = Boolean(ed?.reemplazos?.[pieza]);
-  const todo = { velocidad: true, deslizar: true, reemplazar: 'edicion', motivo: null };
-  if (!/^(toma|broll|paso)-\d+$/.test(String(pieza))) return { velocidad: false, deslizar: false, reemplazar: null, motivo: 'Esta parte no es un clip.' };
+  // volumen (el sonido del clip, si tiene) y color: en cualquier clip, no desarman nada
+  const todo = { velocidad: true, deslizar: true, reemplazar: 'edicion', motivo: null, volumen: true, color: true };
+  if (!/^(toma|broll|paso)-\d+$/.test(String(pieza))) return { velocidad: false, deslizar: false, reemplazar: null, motivo: 'Esta parte no es un clip.', volumen: false, color: false };
   if (esBroll) return todo;
   if (fam === 'continuidad') {
-    return reemplazado ? todo : { velocidad: false, deslizar: false, reemplazar: 'edicion', motivo: 'Con continuidad cada clip va justo de una escena a la siguiente: su velocidad la pone la app. Si lo reemplazas con tu video, sí puedes cambiarla.' };
+    return reemplazado ? todo : { ...todo, velocidad: false, deslizar: false, motivo: 'Con continuidad cada clip va justo de una escena a la siguiente: su velocidad la pone la app. Si lo reemplazas con tu video, sí puedes cambiarla.' };
   }
   if (fam === 'escena' || modoVoz(plan) === 'en-clips') {
-    return { velocidad: false, deslizar: false, reemplazar: 'anuncio', motivo: 'La voz va dentro de este clip: acelerarlo o moverlo desarmaría la voz y los subtítulos. Si lo reemplazas con tu video, la app vuelve a medir la voz.' };
+    return { ...todo, velocidad: false, deslizar: false, reemplazar: 'anuncio', motivo: 'La voz va dentro de este clip: acelerarlo o moverlo desarmaría la voz y los subtítulos. Si lo reemplazas con tu video, la app vuelve a medir la voz.' };
   }
   return todo;
 }
 
 /** Lo que el usuario cambió en el clip de una pieza: { reemplazo (o null), velocidad (o null = la del plan), desliza }. */
 export function ajusteDeClip(plan, ed, pieza) {
-  if (!pieza) return { reemplazo: null, velocidad: null, desliza: 0 };
+  if (!pieza) return { reemplazo: null, velocidad: null, desliza: 0, volumen: 1, color: null };
   const puede = queSePuedeConElClip(plan, pieza, ed);
   const reemplazo = puede.reemplazar === 'edicion' ? ed?.reemplazos?.[pieza] || null : null;
   const c = ed?.clips?.[pieza] || {};
@@ -215,6 +438,9 @@ export function ajusteDeClip(plan, ed, pieza) {
     reemplazo,
     velocidad: puede.velocidad && Number.isFinite(v) && v > 0 ? Math.min(VELOCIDAD_MAX, Math.max(VELOCIDAD_MIN, v)) : reemplazo ? 1 : null,
     desliza: puede.deslizar && Number.isFinite(Number(c.desliza)) ? Number(c.desliza) : 0,
+    // el volumen de su sonido (1 = como viene) y su color (null = como viene)
+    volumen: puede.volumen && Number.isFinite(Number(c.volumen)) ? entre01(c.volumen) : 1,
+    color: puede.color ? colorLimpio(c.color) : null,
   };
 }
 
@@ -233,7 +459,7 @@ function clipAjustado(o, aj, { base = null } = {}) {
   const desde = base ?? (r ? 0 : num(o.recorteInicio));
   const salida = { ...o, recorteInicio: dentroDelClip(desde + aj.desliza, largo) };
   if (aj.velocidad !== null) salida.velocidad = aj.velocidad;
-  if (r) Object.assign(salida, { archivo: r.archivo, largoOriginal: r.largo, largo: r.largo, mudo: r.mudo !== false, audioDeformado: false, reemplazo: true });
+  if (r) Object.assign(salida, { pieza: o.pieza || piezaDeArchivo(o.archivo), archivo: r.archivo, largoOriginal: r.largo, largo: r.largo, mudo: r.mudo !== false, audioDeformado: false, reemplazo: true });
   return salida;
 }
 
@@ -310,7 +536,9 @@ export function tomasDeEdicion(plan, ed) {
       mudo: r ? r.mudo !== false : Boolean(o.audioDeformado || o.mudo),
       velocidad,
       largo,
-      cubre: largo ? Math.max(0, (largo - entradaVista) / velocidad) : null,
+      // congelada: se ve quieta en el cuadro de su entrada (CapCut «Congelar»), así que siempre alcanza
+      congelado: s.congelado === true,
+      cubre: s.congelado === true ? null : largo ? Math.max(0, (largo - entradaVista) / velocidad) : null,
     });
   });
   if (salida.length && salida[salida.length - 1].fin < dur) {
@@ -472,6 +700,9 @@ export function planAjustado(plan, ed) {
     p.audio.ducking = (plan.audio?.ducking ?? 0) + extra;
     // las palabras censuradas: los clips callan ahí (Anuncio.jsx, Clip)
     if (ed.censuras?.length) p.audio.silencios = ed.censuras.map((c) => [c.desde, c.hasta]);
+    // y las partes de la voz con su volumen y sus fundidos (y otra vez las censuras): Clip y Escena las aplican
+    const nivel = datosNivelVoz(plan, ed);
+    if (nivel) p.audio.nivelVoz = nivel;
     if (fam === 'escena') {
       p.escena = { ...plan.escena, piezas: plan.escena.piezas.map((x) => (typeof x.volumenDb === 'number' ? { ...x, volumenDb: x.volumenDb + extra } : x)) };
     }
@@ -509,7 +740,7 @@ export function planAjustado(plan, ed) {
     const bloques = segs.map((s) => {
       const o = plan.bloques[s.b];
       const tipo = partes.get(s.b) > 1 && (o.tipo === 'A' || o.tipo === 'C') ? 'B' : o.tipo;
-      return { ...o, tipo, linea: s.cabeza ? o.linea : null, inicio: s.inicio, fin: s.fin, toma: { ...o.toma, ...delClip(s), pieza: piezaDeArchivo(o.toma.archivo), desde: s.inicio, recorteInicio: s.entradaVista, duracion: s.duracion }, broll: null };
+      return { ...o, tipo: s.congelado ? 'B' : tipo, linea: s.cabeza ? o.linea : null, inicio: s.inicio, fin: s.fin, toma: { ...o.toma, ...delClip(s), pieza: piezaDeArchivo(o.toma.archivo), desde: s.inicio, recorteInicio: s.entradaVista, duracion: s.duracion, ...(s.congelado ? { congelado: true } : {}) }, broll: null };
     });
     const ancla = plan.bloques.find((b) => b.toma)?.toma.archivo || segs[segs.length - 1]?.archivo;
     for (const x of brolls) {
@@ -572,7 +803,33 @@ export function planAjustado(plan, ed) {
     });
     p.escena = { ...(p.escena || plan.escena), piezas: (p.escena || plan.escena).piezas.filter((_, idx) => !fuera.has(idx)) };
   }
-  return conEncuadres(p, ed);
+  return conAjustesDeClip(conEncuadres(p, ed), ed);
+}
+
+/**
+ * El volumen del sonido de cada clip (volumenClip, 0 a 1) y su color (filtro CSS), por pieza del plan ORIGINAL: en las
+ * tomas y B-roll, en los clips de continuidad y en las piezas de podcast y entrevista (Anuncio.jsx y Escena.jsx los
+ * aplican). Sin cambios, el mismo plan.
+ */
+function conAjustesDeClip(p, ed) {
+  const clips = ed?.clips || {};
+  const hay = Object.values(clips).some((c) => c && (c.volumen !== undefined || c.color));
+  if (!hay) return p;
+  const con = (x) => {
+    if (!x || !x.archivo) return x;
+    const pieza = x.pieza || piezaDeArchivo(x.archivo);
+    const c = pieza ? clips[pieza] : null;
+    if (!c) return x;
+    const extra = {};
+    if (c.volumen !== undefined && Math.abs(entre01(c.volumen) - 1) > 0.001) extra.volumenClip = entre01(c.volumen);
+    const filtro = filtroDeColor(c.color);
+    if (filtro) extra.filtro = filtro;
+    return Object.keys(extra).length ? { ...x, ...extra } : x;
+  };
+  if (Array.isArray(p.bloques)) p.bloques = p.bloques.map((b) => ({ ...b, toma: con(b.toma), broll: con(b.broll) }));
+  if (p.continuidad?.clips) p.continuidad = { ...p.continuidad, clips: p.continuidad.clips.map(con) };
+  if (p.escena?.piezas) p.escena = { ...p.escena, piezas: p.escena.piezas.map((x) => (x.tipo === 'clip' ? con(x) : x)) };
+  return p;
 }
 
 /** Un encuadre guardado, limpio (o null si no se movió nada). */
@@ -960,7 +1217,12 @@ export function capasDeEdicion(plan, edicion, contexto = {}) {
   const color = contexto.color || plan.estiloSubtitulos?.colorResaltado || '#E8442A';
   return {
     plan: planAjustado(plan, ed),
-    voz: mv !== 'en-clips' && plan.audio?.voz ? { archivo: plan.audio.voz, volumen: ed.voz.silenciada ? 0 : ed.voz.volumen, censuras: ed.censuras } : null,
+    // (nivel: las partes de la voz con su volumen y sus fundidos, y las censuras; lo calcula nivelVoz cuadro a cuadro)
+    voz: mv !== 'en-clips' && plan.audio?.voz ? { archivo: plan.audio.voz, volumen: ed.voz.silenciada ? 0 : ed.voz.volumen, censuras: ed.censuras, nivel: datosNivelVoz(plan, ed) } : null,
+    // tus audios (efectos de sonido): cada uno en su lugar, con su recorte, volumen y fundidos
+    audios: audiosDeEdicion(plan, ed),
+    // el fundido a negro del comienzo y del final
+    fundido: ed.fundido && (ed.fundido.entrada > 0 || ed.fundido.salida > 0) ? { entrada: ed.fundido.entrada, salida: ed.fundido.salida } : null,
     // los pitidos suenan aunque la voz vaya dentro de los clips (ahí los clips callan con plan.audio.silencios)
     pitidos: ed.censuras.filter((c) => c.modo === 'pitido').map((c) => ({ id: c.id, desde: c.desde, hasta: c.hasta, archivo: ARCHIVO_PITIDO })),
     musica: ajustesMusica(plan, ed, contexto.musica || null),

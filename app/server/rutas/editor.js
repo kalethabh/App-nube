@@ -12,6 +12,10 @@
 //        la cancion que el usuario arrastro: temp/<slug>/app/edicion/musica-<id>.<ext> (de ahi la toma la exportacion)
 //   POST /api/anuncios/:slug/edicion/imagen?id=&nombre=   (la imagen) -> { ok, id, archivo, url }
 //        una imagen que el usuario pone encima del video: temp/<slug>/app/edicion/imagenes/img-<id>.<ext>
+//   POST /api/anuncios/:slug/edicion/audio?id=&nombre=    (el audio) -> { ok, id, archivo, url }
+//        un audio tuyo (efecto de sonido) en su propia pista: temp/<slug>/app/edicion/audios/aud-<id>.<ext>
+//   POST /api/anuncios/:slug/edicion/pitido   -> { ok, archivo, url }  deja el pitido de las censuras en el anuncio
+//        (app/edicion/pitido.mp3) para la vista previa; la exportación lo enlaza sola
 //
 // EXPORTAR (gratis: Remotion y ffmpeg en esta PC). Un trabajo por anuncio, en temp/<slug>/app/exportes/:
 //   GET  /api/anuncios/:slug/exportar          -> { trabajo, siguiente, hechos: [{ n, archivo, srt, url, control }] }
@@ -217,6 +221,24 @@ const TIPOS_IMAGEN = { 'image/png': '.png', 'image/jpeg': '.jpg', 'image/jpg': '
 const EXT_IMAGEN = /\.(png|jpe?g|webp|gif)$/i;
 const MAX_IMAGEN = 15 * 1024 * 1024;
 
+const MAX_AUDIO = 40 * 1024 * 1024;
+const PITIDO = path.join(RAIZ, 'recursos', 'efectos-transiciones', 'pitido.mp3');
+const ARCHIVO_PITIDO = 'app/edicion/pitido.mp3'; // el mismo de capas.mjs (ARCHIVO_PITIDO)
+
+/** Copia el pitido de las censuras al anuncio (si falta). -> true si quedó. */
+export function ponerPitido(slug) {
+  const destino = path.join(dirAnuncio(slug), ARCHIVO_PITIDO);
+  try {
+    if (!existe(destino)) {
+      fs.mkdirSync(path.dirname(destino), { recursive: true });
+      fs.copyFileSync(PITIDO, destino);
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function cancionesGuardadas(slug) {
   return listar(dirCanciones(slug))
     .map((n) => ({ n, m: n.match(/^musica-([a-z0-9]+)\.(mp3|wav|m4a|aac|ogg)$/i) }))
@@ -244,6 +266,8 @@ function rutasEdicion(app) {
     // otra pestaña con cambios mas viejos no pisa los nuevos
     if (Number(antes?.t) > tiempo) return res.json({ ok: false, viejo: true, t: Number(antes.t) });
     escribirJSON(rutaEdicion(slug), { v: 1, estado, t: tiempo, contexto: limpiarContexto(contexto), guardado: ahora() });
+    // las censuras con pitido suenan en la vista previa con el archivo del anuncio
+    if (Array.isArray(estado.censuras) && estado.censuras.some((c) => c?.modo === 'pitido')) ponerPitido(slug);
     res.json({ ok: true, t: tiempo });
   });
 
@@ -272,6 +296,37 @@ function rutasEdicion(app) {
       .slice(5);
     for (const c of viejas) fs.rmSync(path.join(dir, c.archivo), { force: true });
     res.json({ ok: true, id, url: urlAnuncio(slug, `app/edicion/musica-${id}${ext}`) });
+  });
+
+  app.post('/api/anuncios/:slug/edicion/pitido', (req, res) => {
+    const { slug } = req.params;
+    if (!desdeLaApp(req, res)) return;
+    if (!anuncioConPlan(slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
+    if (!ponerPitido(slug)) return res.status(500).json({ error: 'No pude preparar el pitido.' });
+    res.json({ ok: true, archivo: ARCHIVO_PITIDO, url: urlAnuncio(slug, ARCHIVO_PITIDO) });
+  });
+
+  // Un audio tuyo (un efecto de sonido o cualquier audio) para su propia pista. Se guarda en la carpeta del anuncio: de
+  // ahi lo toma la exportacion. No se borran los viejos: deshacer puede volver a uno que ya no esta en la edicion.
+  app.post('/api/anuncios/:slug/edicion/audio', express.raw({ type: () => true, limit: MAX_AUDIO + 1024 }), (req, res) => {
+    const { slug } = req.params;
+    if (!desdeLaApp(req, res)) return;
+    if (!anuncioConPlan(slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
+    const id = String(req.query.id || '');
+    if (!/^[a-z0-9]{2,40}$/i.test(id)) return res.status(400).json({ error: 'Falta el id del audio.' });
+    const nombre = String(req.query.nombre || '');
+    const tipo = String(req.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
+    const ext = TIPOS_CANCION[tipo] || (EXT_CANCION.test(nombre) ? nombre.match(EXT_CANCION)[0].toLowerCase() : null);
+    if (!ext) return res.status(400).json({ error: 'Ese archivo no es un audio. Usa un MP3, WAV o M4A.' });
+    const cuerpo = req.body;
+    if (!Buffer.isBuffer(cuerpo) || !cuerpo.length) return res.status(400).json({ error: 'El audio llegó vacío.' });
+    if (cuerpo.length > MAX_AUDIO) return res.status(413).json({ error: 'Ese audio pesa demasiado: usa uno de menos de 40 MB.' });
+    const rel = `app/edicion/audios/aud-${id.toLowerCase()}${ext}`;
+    const final = path.join(dirAnuncio(slug), rel);
+    fs.mkdirSync(path.dirname(final), { recursive: true });
+    fs.writeFileSync(`${final}.tmp`, cuerpo);
+    fs.renameSync(`${final}.tmp`, final);
+    res.json({ ok: true, id, archivo: rel, url: urlAnuncio(slug, rel) });
   });
 
   // Una imagen para poner encima del video (la pista de textos del editor). Se guarda en la carpeta del anuncio: de

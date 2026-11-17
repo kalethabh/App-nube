@@ -26,6 +26,7 @@ import {
   useVideoConfig,
 } from 'remotion';
 import { useLayoutEffect, useState } from 'react';
+import { nivelVoz } from './edicion/capas.mjs';
 
 // Misma cuenta que en Anuncio.jsx. Se repite aqui (una linea) para no importar de
 // Anuncio.jsx, que importa este archivo: un ciclo de imports por una formula no vale.
@@ -343,7 +344,7 @@ const marcoDe = (marco, medidas, width, height, proporcion) => {
  *   ultimo fotograma que se vio. Congelado va mudo: con Freeze el audio
  *   registraria siempre el mismo fotograma y sonaria mal.
  */
-const ClipEscena = ({ pieza, fadeFrames, ducking, medidas }) => {
+const ClipEscena = ({ pieza, fadeFrames, ducking, medidas, nivel = null }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const frames = pieza.largoFrames;
@@ -355,7 +356,10 @@ const ClipEscena = ({ pieza, fadeFrames, ducking, medidas }) => {
   const audioFrames = Math.max(1, frames - (pieza.solapeFrames || 0));
   // volumenDb: la pieza puede sonar por debajo de la voz (podcast: el sonido de
   // las reacciones, para que no pise las palabras de quien habla).
-  const volumenBase = pieza.mudo ? 0 : dbALineal(pieza.volumenDb ?? ducking);
+  // (volumenClip: el volumen que el usuario le dio a este clip en el editor)
+  const volumenBase = pieza.mudo ? 0 : dbALineal(pieza.volumenDb ?? ducking) * (pieza.volumenClip ?? 1);
+  // las partes de la voz, sus fundidos y las censuras del editor (capas.mjs: nivelVoz), en segundos del anuncio
+  const conNivel = (f, v) => (nivel && v > 0 ? v * nivelVoz((pieza.desdeFrames + f) / fps, nivel) : v);
   const volumen =
     volumenBase === 0
       ? 0
@@ -379,7 +383,7 @@ const ClipEscena = ({ pieza, fadeFrames, ducking, medidas }) => {
 
   if (pieza.marco === 'oculto') {
     if (volumenBase === 0) return null;
-    return <Audio src={src} trimBefore={trimBefore} playbackRate={velocidad} volume={() => volumen} />;
+    return <Audio src={src} trimBefore={trimBefore} playbackRate={velocidad} volume={(f) => conNivel(f, volumen)} />;
   }
 
   // frame + 1: el primer fotograma del doble ya deja ver algo (1/n) y el ultimo
@@ -404,9 +408,9 @@ const ClipEscena = ({ pieza, fadeFrames, ducking, medidas }) => {
               playbackRate={velocidad}
               trimBefore={trimBefore}
               muted={volumenBase === 0 || congelado}
-              volume={() => volumen}
+              volume={(f) => conNivel(f, volumen)}
               transparent={Boolean(marco.transparente)}
-              style={marco.video}
+              style={pieza.filtro ? { ...marco.video, filter: pieza.filtro } : marco.video}
             />
           </Freeze>
         </div>
@@ -740,7 +744,7 @@ export const Escena = ({ piezas, plan, fadeFrames, ducking }) => {
           );
         }
         let contenido = null;
-        if (p.tipo === 'clip') contenido = <ClipEscena pieza={p} fadeFrames={fadeFrames} ducking={ducking} medidas={medidas} />;
+        if (p.tipo === 'clip') contenido = <ClipEscena pieza={p} fadeFrames={fadeFrames} ducking={ducking} medidas={medidas} nivel={plan?.audio?.nivelVoz || null} />;
         else if (p.tipo === 'imagen') contenido = <ImagenEscena pieza={p} medidas={medidas} />;
         else if (p.tipo === 'icono') contenido = <IconoEscena pieza={p} medidas={medidas} />;
         else if (p.tipo === 'texto') contenido = <TextoEscena pieza={p} medidas={medidas} />;
