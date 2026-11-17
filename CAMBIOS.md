@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17i · Alargar un texto que sigue al video ahora se ve
+
+- Si un texto, una imagen o una censura sigue a algo del video (por ejemplo «VITALABH» encima de «AMUA») y lo alargas en la línea de tiempo porque le faltó un poco, ahora **también se ve en el video**: pasado el último lugar donde se vio lo de abajo, se queda quieto ahí hasta el final que elegiste (y lo mismo si lo alargas hacia el comienzo). Antes se alargaba en la línea de tiempo pero desaparecía en el video.
+
 ## 2026-11-17h · Mueve todo libremente en el editor
 
 - **El video de cada escena:** arrástralo en la vista previa para moverlo, y acércalo o aléjalo con Ctrl/⌘ + rueda del mouse (o pellizcando en el trackpad), o con los botones de lupa de la barra de herramientas. El botón de centrar lo deja como estaba. También sirve con las imágenes de apoyo.
