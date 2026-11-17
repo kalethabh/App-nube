@@ -64,7 +64,7 @@ function aLinea(t, fuente) {
   return null;
 }
 
-function pistasDe(slug) {
+export function pistasDe(slug) {
   const v = videoDe(slug);
   const leido = leerJSON(path.join(dirSeg(slug), 'textos.json'));
   // (una lectura con el lector de antes, que juntaba en una pista apariciones en lugares distintos, se vuelve a hacer)

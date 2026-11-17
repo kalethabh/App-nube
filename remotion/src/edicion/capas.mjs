@@ -49,7 +49,38 @@ export const INICIAL = Object.freeze({
   // deshacer y rehacer en el editor también ponen y quitan los cortes (rutas/video-propio.js: versiones). null = el
   // video tal como entró.
   corte: null,
+  // Palabras de la voz tapadas (Editar con IA: «todo lo que diga AMUA se censura»): [{ id, desde, hasta, modo, palabra }]
+  // en segundos del anuncio. modo 'pitido' (la voz calla y suena un pitido) o 'silencio' (solo calla).
+  censuras: [],
 });
+
+/** El pitido de las censuras (lo copia el servidor al anuncio: recursos/efectos-transiciones/pitido.mp3). */
+export const ARCHIVO_PITIDO = 'app/edicion/pitido.mp3';
+
+/** Las censuras guardadas que sirven, en orden y sin pisarse. */
+export function limpiarCensuras(x) {
+  const lista = (Array.isArray(x) ? x : [])
+    .filter((c) => c && typeof c === 'object' && Number.isFinite(Number(c.desde)) && Number.isFinite(Number(c.hasta)) && Number(c.hasta) - Number(c.desde) > 0.02)
+    .map((c) => ({
+      id: String(c.id || `c${Math.round(Number(c.desde) * 1000)}`).slice(0, 40),
+      desde: Math.max(0, Number(c.desde)),
+      hasta: Number(c.hasta),
+      modo: c.modo === 'silencio' ? 'silencio' : 'pitido',
+      palabra: String(c.palabra || '').slice(0, 80),
+    }))
+    .sort((a, b) => a.desde - b.desde)
+    .slice(0, 500);
+  return lista;
+}
+
+/** ¿El segundo t cae en una censura? (la voz calla ahí) */
+export function enCensura(t, censuras) {
+  for (const c of censuras || []) {
+    if (t < c.desde) return false;
+    if (t < c.hasta) return true;
+  }
+  return false;
+}
 
 /** Las velocidades que ofrece el editor (cualquier número entre VELOCIDAD_MIN y VELOCIDAD_MAX también vale). */
 export const VELOCIDADES = Object.freeze([0.5, 0.75, 1, 1.25, 1.5, 2]);
@@ -108,6 +139,7 @@ export function completarEdicion(guardado) {
     reemplazos: limpiarReemplazos(guardado.reemplazos),
     clips: limpiarClips(guardado.clips),
     corte: typeof guardado.corte === 'string' && /^v[a-z0-9]{1,24}$/.test(guardado.corte) ? guardado.corte : null,
+    censuras: limpiarCensuras(guardado.censuras),
   };
 }
 
@@ -430,6 +462,8 @@ export function planAjustado(plan, ed) {
     const vol = ed.voz.silenciada ? 0 : ed.voz.volumen;
     const extra = vol <= 0.001 ? -90 : 20 * Math.log10(vol);
     p.audio.ducking = (plan.audio?.ducking ?? 0) + extra;
+    // las palabras censuradas: los clips callan ahí (Anuncio.jsx, Clip)
+    if (ed.censuras?.length) p.audio.silencios = ed.censuras.map((c) => [c.desde, c.hasta]);
     if (fam === 'escena') {
       p.escena = { ...plan.escena, piezas: plan.escena.piezas.map((x) => (typeof x.volumenDb === 'number' ? { ...x, volumenDb: x.volumenDb + extra } : x)) };
     }
@@ -808,7 +842,9 @@ export function textosEnPantalla(plan, ed, overlays, colorAnuncio) {
         }
       : {}),
     ...tiempo(a, { inicio: 0, fin: Math.min(dur, 2.5) }),
-    texto: String(a.texto ?? '') || (a.archivo ? 'Imagen' : ''),
+    texto: String(a.texto ?? '') || (a.archivo ? 'Imagen' : a.caja ? 'Tapa' : ''),
+    // una caja que tapa un texto del video (Editar con IA: «que algo lo siga y no lo deje ver»): sin letra, solo el fondo
+    caja: a.caja === true && !a.archivo,
     visible: true,
     editado: true,
     estilo: estilo(a, { color: '#FFFFFF', fondo: color, giro: j % 2 ? 2 : -2 }),
@@ -834,10 +870,12 @@ export function capasDeEdicion(plan, edicion, contexto = {}) {
   const color = contexto.color || plan.estiloSubtitulos?.colorResaltado || '#E8442A';
   return {
     plan: planAjustado(plan, ed),
-    voz: mv !== 'en-clips' && plan.audio?.voz ? { archivo: plan.audio.voz, volumen: ed.voz.silenciada ? 0 : ed.voz.volumen } : null,
+    voz: mv !== 'en-clips' && plan.audio?.voz ? { archivo: plan.audio.voz, volumen: ed.voz.silenciada ? 0 : ed.voz.volumen, censuras: ed.censuras } : null,
+    // los pitidos suenan aunque la voz vaya dentro de los clips (ahí los clips callan con plan.audio.silencios)
+    pitidos: ed.censuras.filter((c) => c.modo === 'pitido').map((c) => ({ id: c.id, desde: c.desde, hasta: c.hasta, archivo: ARCHIVO_PITIDO })),
     musica: ajustesMusica(plan, ed, contexto.musica || null),
     subtitulos: ajustesSubtitulos(plan, ed, subs, contexto.titulo || ''),
-    textos: textosEnPantalla(plan, ed, contexto.overlays, color).filter((x) => x.visible && String(x.texto).trim()),
+    textos: textosEnPantalla(plan, ed, contexto.overlays, color).filter((x) => x.visible && (String(x.texto).trim() || x.caja)),
     color,
   };
 }
