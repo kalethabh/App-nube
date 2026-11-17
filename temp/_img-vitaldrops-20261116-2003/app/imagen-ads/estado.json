@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 3,
+    "R": 1,
+    "A": 1,
+    "T": 2
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04"
+      ],
+      "uuid": "70ba3a9f-fd6d-4353-a759-c93d44c776c1",
+      "motor": "claude",
+      "estado": "hecha"
+    },
+    "E002": {
+      "tipo": "prompts",
+      "uuid": "f93b60f4-530c-4f70-8a99-712a98535ec9",
+      "estado": "en-curso",
+      "ids": [
+        "V05",
+        "V06",
+        "V07",
+        "V08",
+        "V09",
+        "V10"
+      ]
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V02": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V03": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V04": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V05": {
+      "prompt": "en-tanda",
+      "tanda": "E002"
+    },
+    "V06": {
+      "prompt": "en-tanda",
+      "tanda": "E002"
+    },
+    "V07": {
+      "prompt": "en-tanda",
+      "tanda": "E002"
+    },
+    "V08": {
+      "prompt": "en-tanda",
+      "tanda": "E002"
+    },
+    "V09": {
+      "prompt": "en-tanda",
+      "tanda": "E002"
+    },
+    "V10": {
+      "prompt": "en-tanda",
+      "tanda": "E002"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T001"
+      },
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V02_1x1": {
+      "v": "V02",
+      "formato": "1:1",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T001"
+      },
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T001"
+      },
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "pedida",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T001"
+      },
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "espera-prompt",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V06_1x1": {
+      "v": "V06",
+      "formato": "1:1",
+      "fase": "espera-prompt",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V07_1x1": {
+      "v": "V07",
+      "formato": "1:1",
+      "fase": "espera-prompt",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V08_1x1": {
+      "v": "V08",
+      "formato": "1:1",
+      "fase": "espera-prompt",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V09_1x1": {
+      "v": "V09",
+      "formato": "1:1",
+      "fase": "espera-prompt",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    },
+    "V10_1x1": {
+      "v": "V10",
+      "formato": "1:1",
+      "fase": "espera-prompt",
+      "resultado": null,
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 0,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": null,
+      "pedido": null
+    }
+  },
+  "pedidos": {}
+}
