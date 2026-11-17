@@ -128,7 +128,7 @@ export function textoClonar(slug, brief, prep, { guionPropio = false, agregar = 
     return [
       '## Tu video (lo primero)',
       '',
-      `El anuncio sale de este video. **Lo que dejó la app** en \`${c}/\`: \`adn-base.json\` (las tomas con sus tiempos y lo que se dice), \`hoja-tomas.jpg\` y \`tomas/\` (un fotograma por toma). La app ya hizo el análisis (Pasos 1 y 2 de la skill de clonación): sigue la skill \`anuncios-agregar\` desde su Paso 2.`,
+      `El anuncio sale de este video. **Lo que dejó la app** en \`${c}/\`: \`adn-base.json\` (las tomas con sus tiempos y lo que se dice), \`hoja-tomas.jpg\`, \`tomas/\` (un fotograma por toma) y \`tomas/movimiento/\` (comienzo, mitad y final de cada toma: los movimientos, los gestos y la luz). La app ya hizo el análisis (Pasos 1 y 2 de la skill de clonación): sigue la skill \`anuncios-agregar\` desde su Paso 2.`,
       `- Mira la hoja y **cada fotograma** con Read: las personas (edad, cuerpo, ropa), el lugar, la cámara y el antes y después se ven ahí. Corrige los cortes que estén mal.`,
       `- Escribe \`${c}/adn.md\` (el ADN visual completo, Paso 3 de la skill) y \`${c}/guion-clonado.md\` antes del manifiesto.`,
       `- ${/^\s*no/i.test(String(brief?.respuestas?.clonar_gancho || '')) ? 'El gancho y el ángulo **se conservan** del original (cambia solo lo que es del producto).' : 'El gancho y el ángulo **se adaptan** a este producto, con la misma mecánica del original.'}`,
@@ -149,7 +149,7 @@ export function textoClonar(slug, brief, prep, { guionPropio = false, agregar = 
       'El usuario trajo **su propio guion** (`guion_del_usuario`) y además subió un video de referencia. El texto del anuncio es su guion, palabra por palabra (Paso 0 de la skill del estilo). El video sirve **solo** para cómo se ve: los planos, las acciones y el ritmo de sus tomas.',
       '',
       `- **No sigas la skill de clonación**: no escribas \`${c}/adn.md\` ni \`${c}/guion-clonado.md\`, no leas ni compares lo que se dice en el video (\`transcripcion.json\`) y no adaptes ni reescribas el gancho: el gancho es la primera línea de su guion.`,
-      `- Mira \`${c}/hoja-tomas.jpg\` y los fotogramas de \`${c}/tomas/\` con Read, y usa sus planos y acciones como guía visual para las tomas de su guion, con el look del estilo. Las tomas salen de su guion (una o más por línea), no del video.`,
+      `- Mira \`${c}/hoja-tomas.jpg\` los fotogramas de \`${c}/tomas/\` y las tiras de \`${c}/tomas/movimiento/\` con Read, y usa sus planos y acciones como guía visual para las tomas de su guion, con el look del estilo. Las tomas salen de su guion (una o más por línea), no del video.`,
       '- De la referencia nunca se copian marcas, logos, precios, caras ni la música.',
       '- En "decisiones", la primera línea: "Tu guion tal cual · lo visual, guiado por <nombre o link del video>".',
     ].join('\n');
@@ -159,7 +159,7 @@ export function textoClonar(slug, brief, prep, { guionPropio = false, agregar = 
     '',
     `Este anuncio se clona de un video de referencia. Lee \`.claude/skills/anuncios-clonacion/SKILL.md\` y sigue sus Pasos 3 y 5 (el 1 y el 2 ya los hizo la app; el 4 ya está contestado) y después la skill del estilo, con el guion clonado como guion ganador (su Paso 0).`,
     '',
-    `- **Lo que dejó la app** en \`${c}/\`: \`adn-base.json\` (las tomas con sus tiempos y lo que se dice), \`hoja-tomas.jpg\` y \`tomas/\` (un fotograma por toma). Mira la hoja y cada fotograma con Read y corrige los cortes que estén mal.`,
+    `- **Lo que dejó la app** en \`${c}/\`: \`adn-base.json\` (las tomas con sus tiempos y lo que se dice), \`hoja-tomas.jpg\`, \`tomas/\` (un fotograma por toma) y \`tomas/movimiento/\` (comienzo, mitad y final de cada toma: los movimientos, los gestos y la luz). Mira la hoja, cada fotograma y cada tira con Read y corrige los cortes que estén mal.`,
     `- **Paso 4, contestado:** el modo es "Clonar para mi producto"; ${adaptarGancho(brief) ? 'el gancho y el ángulo **se adaptan** a este producto' : 'el gancho y el ángulo **se conservan** del original (cambia solo lo que es del producto)'}; el estilo es el de esta tarea.`,
     `- Escribe \`${c}/adn.md\` (Paso 3) y \`${c}/guion-clonado.md\` (Paso 5).`,
     '- Con el guion clonado: mismo número de tomas y la misma duración por toma (±15 %), cada toma con su plano y su acción del original pero con el look del estilo. Si el estilo arma bloques (UGC), agrúpalas respetando los cortes.',

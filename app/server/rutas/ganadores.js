@@ -1,4 +1,5 @@
-// MEJORES ANUNCIOS (lib/ganadores.js): buscar en TrendTrack con el conector de claude.ai del usuario.
+// MEJORES ANUNCIOS / INSPIRACIÓN (lib/ganadores.js): buscar en TrendTrack con el conector de claude.ai del usuario.
+// Lo propio de Inspiración (formatos, marcas, replicar imágenes) está en rutas/inspiracion.js.
 //
 //   GET    /api/ganadores                 -> { opciones: { nichos, paises, ordenes, creditosPorAnuncio }, creditos,
 //                                             recientes, guardados, buscando }
@@ -30,6 +31,7 @@ import {
   quitarGuardado,
   ultimosCreditos,
 } from '../lib/ganadores.js';
+import { actualizarMarcasDesde, paraInspiracion } from '../lib/inspiracion.js';
 
 const json = express.json({ limit: '1mb' });
 
@@ -38,6 +40,15 @@ const responderError = (res, e, porDefecto) => {
   if (status >= 500 && !e?.status) console.error('[ganadores]', e);
   res.status(status).json({ error: e?.status ? e.message : porDefecto });
 };
+
+/**
+ * Inspiración es de OTRAS tiendas con creativos ya validados: fuera tus marcas y, con soloValidados, lo no validado.
+ * `recibidos` es cuántos devolvió TrendTrack en la página (para saber si hay más aunque se hayan quitado algunos).
+ */
+function conFiltroDeInspiracion(r) {
+  const { anuncios, quitados } = paraInspiracion(r.anuncios || [], { soloValidados: r.filtros?.soloValidados !== false });
+  return { ...r, anuncios, quitados, recibidos: (r.anuncios || []).length };
+}
 
 export default function rutasGanadores(app) {
   app.get('/api/ganadores', (req, res) => {
@@ -53,7 +64,8 @@ export default function rutasGanadores(app) {
   app.post('/api/ganadores/buscar', soloDesdeLaApp, json, async (req, res) => {
     try {
       const r = await buscarGanadores(req.body?.filtros || {}, { forzar: req.body?.forzar === true });
-      res.json(r);
+      actualizarMarcasDesde(r.anuncios); // las marcas que sigues se ponen al día gratis
+      res.json(conFiltroDeInspiracion(r));
     } catch (e) {
       responderError(res, e, 'La búsqueda no terminó bien. Vuelve a intentar.');
     }
@@ -62,7 +74,7 @@ export default function rutasGanadores(app) {
   app.get('/api/ganadores/busquedas/:clave', (req, res) => {
     const r = busquedaGuardada(req.params.clave);
     if (!r) return res.status(404).json({ error: 'Esa búsqueda ya no está guardada. Búscala de nuevo.' });
-    res.set('Cache-Control', 'no-store').json(r);
+    res.set('Cache-Control', 'no-store').json(conFiltroDeInspiracion(r));
   });
 
   app.post('/api/ganadores/guardados', soloDesdeLaApp, json, (req, res) => {

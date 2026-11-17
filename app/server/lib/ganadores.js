@@ -19,6 +19,10 @@
 //   temp/_referencias/<id>.mp4               el video de un ganador para «Adaptar a mi producto» (como uno subido)
 //
 // En modo prueba no se gasta: la búsqueda devuelve anuncios simulados y no se abre Claude.
+//
+// Desde 2026-11-17m la pantalla es «Inspiración» (#/inspiracion; #/ganadores sigue andando): este módulo pone la
+// búsqueda, la caché, los guardados y la sesión con el conector (consultarConector, también para buscar marcas);
+// lib/inspiracion.js pone el formato y el sonido de cada anuncio, las marcas que sigues y Replicar.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -27,6 +31,7 @@ import { leerJSON, escribirJSONSeguro } from './archivos.js';
 import { lanzarSesion } from './claude.js';
 import { modoPrueba } from './modo-prueba.js';
 import { DIR_REFERENCIAS } from '../rutas/referencias.js';
+import { rutaDeArchivoDeMuestra } from './muestras.js';
 
 export const DIR_GANADORES = path.join(TEMP, '_ganadores');
 const DIR_BUSQUEDAS = path.join(DIR_GANADORES, 'busquedas');
@@ -35,7 +40,6 @@ const DIR_REGISTRO = path.join(DIR_GANADORES, 'registro');
 const ARCHIVO_CREDITOS = path.join(DIR_GANADORES, 'creditos.json');
 const ARCHIVO_GUARDADOS = path.join(RAIZ, 'mis_archivos', 'ganadores', 'guardados.json');
 
-const HERRAMIENTA_BUSCAR = 'mcp__claude_ai_TrendTrack__search_ads';
 const HERRAMIENTA_CREDITOS = 'mcp__claude_ai_TrendTrack__check_credits';
 export const CREDITOS_POR_ANUNCIO = 1.5;
 const CACHE_MS = 12 * 3600000;
@@ -94,14 +98,20 @@ export function filtrosLimpios(f = {}) {
     .filter((n) => NICHOS.some((x) => x.id === n))
     .slice(0, 6);
   const texto = String(f.texto || '').replace(/\s+/g, ' ').trim().slice(0, 120);
+  // solo creativos ya validados (por defecto): TrendTrack devuelve solo los activos hace 30 días o más (inspiracion.js
+  // esValidado; así no se pagan créditos por anuncios que todavía no probaron nada)
+  const soloValidados = f.soloValidados !== false;
   return {
+    soloValidados,
     paises: [...new Set(paises)],
     idioma: /^[a-z]{2}$/.test(String(f.idioma || '')) ? String(f.idioma) : 'es',
     texto,
     buscarEn: ['ad_copy', 'brand', 'domain'].includes(f.buscarEn) ? f.buscarEn : 'ad_copy',
     nichos: [...new Set(nichos)],
     formato: ['video', 'image'].includes(f.formato) ? f.formato : '',
-    diasMin: entero(f.diasMin, 0, 365, 14),
+    diasMin: Math.max(soloValidados ? 30 : 0, entero(f.diasMin, 0, 365, soloValidados ? 30 : 14)),
+    // desde cuándo se vio por primera vez: 0 = todo el tiempo; 7, 30 o 90 = los de esos últimos días
+    rango: [7, 30, 90].includes(Number(f.rango)) ? Number(f.rango) : 0,
     orden: Object.hasOwn(ORDENES, f.orden) ? f.orden : 'escalando',
     unoPorMarca: f.unoPorMarca !== false,
     cantidad: entero(f.cantidad, 1, MAX_POR_BUSQUEDA, 12),
@@ -127,6 +137,7 @@ export function argumentosBusqueda(f) {
   if (f.nichos.length) a.category_ids = f.nichos;
   if (f.formato) a.media_type = f.formato;
   if (f.diasMin > 0) a.min_days_running = f.diasMin;
+  if (f.rango) a.created_after = new Date(Date.now() - f.rango * 86400000).toISOString().slice(0, 10);
   if (f.unoPorMarca) a.max_ads_per_brand = 1;
   return a;
 }
@@ -147,6 +158,15 @@ export const deTrendtrack = (u) => {
   const x = urlSegura(u);
   return x && /(^|\.)trendtrack\.io$/i.test(new URL(x).hostname) ? x : null;
 };
+// En modo prueba los anuncios simulados usan las muestras del paquete (app/muestras/<clave>/), servidas por la app.
+const MUESTRA_LOCAL = /^\/archivos\/muestra\/[a-z0-9-]{2,40}\/(imagen\.jpg|video\.mp4)$/;
+export const medioPermitido = (u) => deTrendtrack(u) || (modoPrueba() && MUESTRA_LOCAL.test(String(u || '')) ? String(u) : null);
+/** (modo prueba) la ruta en disco de una muestra local, o null. */
+export function rutaDeMuestraLocal(u) {
+  const m = String(u || '').match(/^\/archivos\/muestra\/([^/]+)\/([^/]+)$/);
+  const r = m && MUESTRA_LOCAL.test(u) ? rutaDeArchivoDeMuestra(m[1], m[2]) : null;
+  return r && fs.existsSync(r) ? r : null;
+}
 const texto = (v, max) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, max) : null);
 const numero = (v) => (Number.isFinite(Number(v)) && v !== null && v !== '' ? Number(v) : null);
 
@@ -168,11 +188,11 @@ export function normalizarAnuncio(a) {
     desde: texto(a.firstSeenAt, 40),
     visto: texto(a.lastSeenAt, 40),
     tipo,
-    miniatura: deTrendtrack(media.thumbnailUrl),
-    media: deTrendtrack(media.mediaUrl),
+    miniatura: medioPermitido(media.thumbnailUrl),
+    media: medioPermitido(media.mediaUrl),
     anunciante: {
       nombre: texto(ad.name, 120) || 'Anunciante',
-      logo: deTrendtrack(ad.logoUrl),
+      logo: medioPermitido(ad.logoUrl),
       activos: numero(ad.liveAdsCount),
       pagina: texto(ad.facebookPageId, 40),
     },
@@ -184,31 +204,49 @@ export function normalizarAnuncio(a) {
     dominio: texto(c.landingPageDomain, 120),
     duplicados: numero(m.duplicates),
     alcance: numero(m.reach),
+    alcance7d: numero(m.reachDelta7d),
     gasto: numero(m.estimatedSpend),
+    // el puesto del anuncio dentro de su página (1 = el que más empuja la marca) y cuánto subió o bajó
+    puesto: numero(a.rank?.currentRank),
+    puestoCambio: numero(a.rank?.rankDelta),
     paises: Array.isArray(a.audience?.targetedCountries) ? a.audience.targetedCountries.filter((p) => typeof p === 'string').slice(0, 8) : [],
     totalPaises: Array.isArray(a.audience?.targetedCountries) ? a.audience.targetedCountries.length : 0,
   };
 }
 
-/** El texto de search_ads -> { anuncios } (null si no se entiende). */
-export function leerRespuestaBusqueda(textoCrudo) {
+/** El JSON que devuelve un conector (a veces con texto alrededor), o null. */
+export function leerJSONDeConector(textoCrudo) {
   const t = String(textoCrudo || '');
-  let j = null;
   try {
-    j = JSON.parse(t);
+    return JSON.parse(t);
   } catch {
     const i = t.indexOf('{');
     const k = t.lastIndexOf('}');
     if (i >= 0 && k > i) {
       try {
-        j = JSON.parse(t.slice(i, k + 1));
+        return JSON.parse(t.slice(i, k + 1));
       } catch {
-        j = null;
+        return null;
       }
     }
+    return null;
   }
+}
+
+/**
+ * El texto de search_ads -> { anuncios, total, costo, restantes } (null si no se entiende). total: cuántos anuncios
+ * tiene TrendTrack con esos filtros (aproximado, lo dice TrendTrack); costo: los créditos que cobró esta página.
+ */
+export function leerRespuestaBusqueda(textoCrudo) {
+  const j = leerJSONDeConector(textoCrudo);
   if (!j || !Array.isArray(j.data)) return null;
-  return { anuncios: j.data.map(normalizarAnuncio).filter(Boolean) };
+  return {
+    anuncios: j.data.map(normalizarAnuncio).filter(Boolean),
+    total: numero(j.pagination?.total),
+    paginas: numero(j.pagination?.totalPages),
+    costo: numero(j.credits?.costUnits),
+    restantes: numero(j.credits?.creditsRemaining),
+  };
 }
 
 /** El texto de check_credits -> { plan, restantes, limite, fin } (null si no se entiende). */
@@ -226,12 +264,15 @@ export function leerRespuestaCreditos(textoCrudo) {
 // ---------------------------------------------------------------- la búsqueda
 
 const PROHIBIDAS = ['Bash', 'PowerShell', 'Edit', 'MultiEdit', 'Write', 'NotebookEdit', 'Read', 'Glob', 'Grep', 'WebFetch', 'WebSearch', 'Agent', 'Task', 'Skill'];
+const TT = (corto) => `mcp__claude_ai_TrendTrack__${corto}`;
+// las únicas herramientas de TrendTrack que la app llama así (todas de lectura)
+const DE_LECTURA = ['search_ads', 'search_advertisers', 'list_tracked_brands'];
 
-function promptBusqueda(args) {
+function promptConector(nombre, args) {
   return [
-    'Tarea de la app Kads Studio: una búsqueda en TrendTrack. Haz exactamente esto, en este orden, y nada más:',
-    `1. Carga las herramientas con ToolSearch usando exactamente la consulta "select:${HERRAMIENTA_BUSCAR},${HERRAMIENTA_CREDITOS}". Si todavía no aparecen, vuelve a buscarlas una vez con la consulta "TrendTrack search_ads".`,
-    `2. Llama ${HERRAMIENTA_BUSCAR} UNA sola vez con exactamente estos argumentos (no agregues, quites ni cambies ninguno):`,
+    'Tarea de la app Kads Studio: una consulta en TrendTrack. Haz exactamente esto, en este orden, y nada más:',
+    `1. Carga las herramientas con ToolSearch usando exactamente la consulta "select:${nombre},${HERRAMIENTA_CREDITOS}". Si todavía no aparecen, vuelve a buscarlas una vez con la consulta "TrendTrack ${nombre.split('__').pop()}".`,
+    `2. Llama ${nombre} UNA sola vez con exactamente estos argumentos (no agregues, quites ni cambies ninguno):`,
     JSON.stringify(args),
     `3. Llama ${HERRAMIENTA_CREDITOS} una vez, sin argumentos.`,
     '4. Responde solo LISTO. No resumas ni copies los resultados: la app los lee directamente.',
@@ -239,27 +280,19 @@ function promptBusqueda(args) {
   ].join('\n');
 }
 
-let enCurso = null; // una búsqueda a la vez (cada una abre una sesión de Claude)
+let enCurso = null; // una consulta a la vez (cada una abre una sesión de Claude)
 
 /**
- * Busca (o devuelve de la caché) los mejores anuncios con esos filtros.
- * -> { clave, filtros, fecha, anuncios, creditos, desdeCache, simulado? }
+ * Llama UNA herramienta de lectura de TrendTrack (más check_credits) con el conector de claude.ai del usuario, en una
+ * sesión headless de Claude, y devuelve lo que respondió leído con `leer(texto)`.
+ * -> { datos, creditos }   o tira ErrorGanadores (409 si ya hay otra consulta; 502/503 si no se pudo)
+ * No mira la caché ni el modo prueba: eso lo hace quien la llama.
  */
-export async function buscarGanadores(filtrosCrudos, { forzar = false, alProgreso = () => {} } = {}) {
-  const filtros = filtrosLimpios(filtrosCrudos);
-  const args = argumentosBusqueda(filtros);
-  const clave = claveDe(args);
-  const archivo = path.join(DIR_BUSQUEDAS, `${clave}.json`);
-  const guardada = leerJSON(archivo);
-  if (!forzar && guardada && Date.now() - Date.parse(guardada.fecha) < CACHE_MS) return { ...guardada, desdeCache: true };
-  if (modoPrueba()) {
-    const r = { clave, filtros, args, fecha: new Date().toISOString(), anuncios: anunciosSimulados(filtros), creditos: null, simulado: true };
-    escribirJSONSeguro(archivo, r);
-    return { ...r, desdeCache: false };
-  }
-  if (enCurso) throw new ErrorGanadores(409, 'Ya hay una búsqueda en curso. Espera a que termine.');
-
-  let respuesta = null;
+export async function consultarConector({ herramienta, args, clave, leer, frase = 'Consultando TrendTrack', alProgreso = () => {} }) {
+  if (!DE_LECTURA.includes(herramienta)) throw new ErrorGanadores(400, 'Esa consulta de TrendTrack no está permitida.');
+  if (enCurso) throw new ErrorGanadores(409, 'Ya hay una búsqueda en TrendTrack en curso. Espera a que termine.');
+  const nombre = TT(herramienta);
+  let datos = null;
   let creditos = null;
   let errorHerramienta = null;
   enCurso = clave;
@@ -269,9 +302,9 @@ export async function buscarGanadores(filtrosCrudos, { forzar = false, alProgres
       tipo: 'ganadores',
       uuid: crypto.randomUUID(),
       cwd: DIR_SESION,
-      prompt: promptBusqueda(args),
+      prompt: promptConector(nombre, args),
       conectores: true,
-      permitidas: ['ToolSearch', HERRAMIENTA_BUSCAR, HERRAMIENTA_CREDITOS],
+      permitidas: ['ToolSearch', nombre, HERRAMIENTA_CREDITOS],
       prohibidas: PROHIBIDAS,
       maxTurnos: 8,
       timeoutMs: 4 * 60000,
@@ -279,18 +312,18 @@ export async function buscarGanadores(filtrosCrudos, { forzar = false, alProgres
       // 20 anuncios con su transcripción pueden pasar el tope normal de lo que devuelve un conector
       entorno: { MAX_MCP_OUTPUT_TOKENS: '80000' },
       registro: path.join(DIR_REGISTRO, `${clave}.jsonl`),
-      fraseInicio: 'Buscando en TrendTrack',
+      fraseInicio: frase,
       alProgreso,
-      alResultadoHerramienta: (nombre, t, { error }) => {
-        if (nombre === HERRAMIENTA_BUSCAR) {
+      alResultadoHerramienta: (n, t, { error }) => {
+        if (n === nombre) {
           if (error) errorHerramienta = t.slice(0, 400);
-          else respuesta = leerRespuestaBusqueda(t) || respuesta;
-        } else if (nombre === HERRAMIENTA_CREDITOS && !error) {
+          else datos = leer(t) || datos;
+        } else if (n === HERRAMIENTA_CREDITOS && !error) {
           creditos = leerRespuestaCreditos(t) || creditos;
         }
       },
     });
-    if (!respuesta) {
+    if (!datos) {
       if (r.limite || r.sinSesion || r.sinClaude) throw new ErrorGanadores(503, r.error);
       if (errorHerramienta) throw new ErrorGanadores(502, `TrendTrack no respondió bien: ${errorHerramienta}`);
       const sinConector = /no (está|tengo|encuentro|aparece)|not available|unavailable|connect/i.test(`${r.resultado || ''} ${r.detalle || ''}`);
@@ -298,14 +331,42 @@ export async function buscarGanadores(filtrosCrudos, { forzar = false, alProgres
         502,
         sinConector
           ? 'No encontré TrendTrack en tu cuenta de Claude. Revisa en claude.ai → Ajustes → Conectores que TrendTrack esté conectado y vuelve a intentar.'
-          : r.error || 'La búsqueda no terminó bien. Vuelve a intentar.'
+          : r.error || 'La consulta a TrendTrack no terminó bien. Vuelve a intentar.'
       );
     }
   } finally {
     enCurso = null;
   }
   if (creditos) escribirJSONSeguro(ARCHIVO_CREDITOS, creditos);
-  const resultado = { clave, filtros, args, fecha: new Date().toISOString(), anuncios: respuesta.anuncios, creditos: creditos || leerJSON(ARCHIVO_CREDITOS) };
+  return { datos, creditos: creditos || leerJSON(ARCHIVO_CREDITOS) };
+}
+
+/** Si esta búsqueda ya está guardada y vigente (sale gratis). */
+export function busquedaEnCache(filtrosCrudos) {
+  const args = argumentosBusqueda(filtrosLimpios(filtrosCrudos));
+  const guardada = leerJSON(path.join(DIR_BUSQUEDAS, `${claveDe(args)}.json`));
+  return Boolean(guardada && Date.now() - Date.parse(guardada.fecha) < CACHE_MS);
+}
+
+/**
+ * Busca (o devuelve de la caché) los mejores anuncios con esos filtros.
+ * -> { clave, filtros, fecha, anuncios, total, costo, creditos, desdeCache, simulado? }
+ */
+export async function buscarGanadores(filtrosCrudos, { forzar = false, alProgreso = () => {} } = {}) {
+  const filtros = filtrosLimpios(filtrosCrudos);
+  const args = argumentosBusqueda(filtros);
+  const clave = claveDe(args);
+  const archivo = path.join(DIR_BUSQUEDAS, `${clave}.json`);
+  const guardada = leerJSON(archivo);
+  if (!forzar && guardada && Date.now() - Date.parse(guardada.fecha) < CACHE_MS) return { ...guardada, desdeCache: true };
+  if (modoPrueba()) {
+    const sim = anunciosSimulados(filtros);
+    const r = { clave, filtros, args, fecha: new Date().toISOString(), anuncios: sim.anuncios, total: sim.total, costo: null, creditos: null, simulado: true };
+    escribirJSONSeguro(archivo, r);
+    return { ...r, desdeCache: false };
+  }
+  const { datos, creditos } = await consultarConector({ herramienta: 'search_ads', args, clave, leer: leerRespuestaBusqueda, frase: 'Buscando en TrendTrack', alProgreso });
+  const resultado = { clave, filtros, args, fecha: new Date().toISOString(), anuncios: datos.anuncios, total: datos.total, costo: datos.costo, creditos };
   escribirJSONSeguro(archivo, resultado);
   limpiarCache();
   return { ...resultado, desdeCache: false };
@@ -336,7 +397,7 @@ export function busquedasRecientes(max = 8) {
     .map((r) => ({ clave: r.clave, filtros: r.filtros, fecha: r.fecha, cantidad: r.anuncios?.length || 0, vigente: Date.now() - Date.parse(r.fecha) < CACHE_MS, simulado: Boolean(r.simulado) }));
 }
 
-/** La caché guarda las últimas 40 búsquedas y nada de más de 7 días. */
+/** La caché guarda las últimas 120 búsquedas (cada página cuenta como una) y nada de más de 7 días. */
 function limpiarCache() {
   try {
     const lista = fs
@@ -344,7 +405,7 @@ function limpiarCache() {
       .filter((f) => f.endsWith('.json'))
       .map((f) => ({ f, t: fs.statSync(path.join(DIR_BUSQUEDAS, f)).mtimeMs }))
       .sort((a, b) => b.t - a.t);
-    for (const [i, x] of lista.entries()) if (i >= 40 || Date.now() - x.t > 7 * 86400000) fs.rmSync(path.join(DIR_BUSQUEDAS, x.f), { force: true });
+    for (const [i, x] of lista.entries()) if (i >= 120 || Date.now() - x.t > 7 * 86400000) fs.rmSync(path.join(DIR_BUSQUEDAS, x.f), { force: true });
   } catch {
     /* nada que limpiar */
   }
@@ -375,7 +436,7 @@ export function quitarGuardado(id) {
 }
 
 /** Un anuncio que vuelve de la pantalla: se rearma con las mismas reglas (nada de URLs de otros sitios). */
-function normalizarDeVuelta(a) {
+export function normalizarDeVuelta(a) {
   if (!a || typeof a !== 'object' || !texto(a.id, 80)) return null;
   return normalizarAnuncio({
     id: a.id,
@@ -388,7 +449,8 @@ function normalizarDeVuelta(a) {
     media: { type: a.tipo === 'imagen' ? 'image' : a.tipo === 'video' ? 'video' : 'other', thumbnailUrl: a.miniatura, mediaUrl: a.media },
     advertiser: { name: a.anunciante?.nombre, logoUrl: a.anunciante?.logo, liveAdsCount: a.anunciante?.activos, facebookPageId: a.anunciante?.pagina },
     content: { title: a.titulo, body: a.copy, transcript: a.transcripcion, callToAction: a.cta, landingPageUrl: a.landing, landingPageDomain: a.dominio },
-    metrics: { duplicates: a.duplicados, reach: a.alcance, estimatedSpend: a.gasto },
+    metrics: { duplicates: a.duplicados, reach: a.alcance, reachDelta7d: a.alcance7d, estimatedSpend: a.gasto },
+    rank: { currentRank: a.puesto, rankDelta: a.puestoCambio },
     audience: { targetedCountries: a.paises },
   });
 }
@@ -400,9 +462,18 @@ function normalizarDeVuelta(a) {
  * producto»: el formulario de Nuevo anuncio lo recibe como "subido:<id>|<nombre>" y la app lo clona (lib/clonar.js).
  */
 export async function bajarParaReferencia(anuncio) {
-  const url = deTrendtrack(anuncio?.media);
+  const url = medioPermitido(anuncio?.media);
   if (!url || anuncio?.tipo !== 'video') throw new ErrorGanadores(400, 'Ese anuncio no tiene un video para adaptar.');
   const nombre = `${String(anuncio?.anunciante?.nombre || 'ganador').replace(/[^\p{L}\p{N} ._-]/gu, '').trim().slice(0, 60) || 'ganador'} (TrendTrack).mp4`;
+  if (url.startsWith('/')) {
+    // (modo prueba) el video simulado es una muestra del paquete: se copia, sin internet
+    const origen = rutaDeMuestraLocal(url);
+    if (!origen) throw new ErrorGanadores(404, 'Esa muestra no está en esta app.');
+    const id = `${Date.now().toString(36)}${crypto.randomBytes(3).toString('hex')}`;
+    fs.mkdirSync(DIR_REFERENCIAS, { recursive: true });
+    fs.copyFileSync(origen, path.join(DIR_REFERENCIAS, `${id}.mp4`));
+    return { id, nombre, valor: `subido:${id}|${nombre}` };
+  }
   let r;
   try {
     r = await fetch(url, { signal: AbortSignal.timeout(120000) });
@@ -422,23 +493,50 @@ export async function bajarParaReferencia(anuncio) {
 
 // ---------------------------------------------------------------- modo prueba
 
+// Anuncios simulados (sin TrendTrack): con las muestras de los estilos del paquete como video o imagen, para probar la
+// pantalla Inspiración entera (formatos, sonidos, marcas, páginas, Replicar) sin gastar. 3 páginas como mucho.
+const SIMULADOS = [
+  { muestra: 'claymation', tipo: 'video', marca: 'AMUA', pagina: 'sim_amua', copy: 'Así se va la hinchazón en 7 días 🌿 Pago contra entrega en toda Colombia.', voz: 'Mira lo que pasa dentro de tu cuerpo cuando tomas esto cada mañana.', titulo: 'Desinflama en 7 días' },
+  { muestra: 'crochet', tipo: 'video', marca: 'Tejidos Felices', pagina: 'sim_tejidos', copy: 'La historia de Lupita y su rodilla 🧶 Envío gratis hoy.', voz: 'Lupita no podía subir las escaleras hasta que probó esto.', titulo: 'Lupita volvió a caminar' },
+  { muestra: 'ugc', tipo: 'video', marca: 'Vitalabh', pagina: 'sim_vitalabh', copy: 'Chicas, les cuento mi experiencia con este colágeno 💕', voz: 'Hola chicas, les cuento mi experiencia: yo probé de todo y nada me funcionaba hasta que encontré esto.', titulo: 'Mi experiencia real' },
+  { muestra: 'skeleton', tipo: 'video', marca: 'Huesos Fuertes', pagina: 'sim_huesos', copy: 'Tu esqueleto te está pidiendo ayuda 💀 Calcio + D3.', voz: 'Soy tu esqueleto y necesito que me escuches.', titulo: 'Tu esqueleto habla' },
+  { muestra: 'estilo-lego', tipo: 'video', marca: 'Bloques Pro', pagina: 'sim_bloques', copy: 'Armamos tu rutina pieza por pieza.', voz: null, titulo: 'Pieza por pieza' },
+  { muestra: 'estilo-pixar', tipo: 'video', marca: 'AMUA', pagina: 'sim_amua', copy: 'Doña Rosa descubrió el secreto de su abuela ✨ Contra entrega.', voz: 'Doña Rosa nunca imaginó que el secreto estaba en la cocina de su abuela.', titulo: 'El secreto de la abuela' },
+  { muestra: 'zack-d-films', tipo: 'video', marca: 'Ciencia Natural', pagina: 'sim_ciencia', copy: 'Esto es lo que pasa en tus venas cuando comes azúcar 🫀', voz: 'Esto es lo que pasa dentro de tus venas cuando comes azúcar.', titulo: 'Dentro de tus venas' },
+  { muestra: 'realista-narrado', tipo: 'video', marca: 'Vitalabh', pagina: 'sim_vitalabh', copy: 'Les debemos una disculpa: la oferta se acaba hoy.', voz: 'Les debemos una disculpa. Nos quedamos sin unidades dos veces.', titulo: 'Les debemos una disculpa' },
+  { muestra: 'musical', tipo: 'video', marca: 'Bloques Pro', pagina: 'sim_bloques', copy: 'La canción que todos están cantando 🎵', voz: '♪ Desinflama, desinflama, toma tu té por la mañana ♪ Desinflama, desinflama ♪', titulo: 'La canción del té' },
+  { muestra: 'claymation', tipo: 'imagen', marca: 'Tejidos Felices', pagina: 'sim_tejidos', copy: 'Tu piel 10 años más joven en 30 días. Envío gratis y pagas al recibir.', voz: null, titulo: '10 años más joven' },
+  { muestra: 'ugc', tipo: 'imagen', marca: 'AMUA', pagina: 'sim_amua', copy: 'Antes y después real de nuestra clienta 😍 Pago contra entrega.', voz: null, titulo: 'Antes y después' },
+  { muestra: 'entrevista', tipo: 'video', marca: 'Huesos Fuertes', pagina: 'sim_huesos', copy: 'Le preguntamos a la gente en la calle qué toman para las rodillas 🎤', voz: 'Disculpa, ¿qué tomas tú para el dolor de rodillas? Yo tomo esto desde hace tres meses.', titulo: 'Preguntamos en la calle' },
+];
+
 function anunciosSimulados(f) {
-  const base = [
-    { tipo: 'video', nombre: 'Marca de prueba 1', copy: '¿Sientes el cuerpo hinchado aunque comas poco? Esto le pasó a María… ✅ Pago contra entrega', dias: 64, duplicados: 128 },
-    { tipo: 'imagen', nombre: 'Marca de prueba 2', copy: 'Tu piel 10 años más joven en 30 días. Envío gratis y pagas al recibir.', dias: 41, duplicados: 36 },
-    { tipo: 'video', nombre: 'Marca de prueba 3', copy: 'El médico me dijo que no era grasa, era retención de líquidos.', dias: 23, duplicados: 12 },
-  ];
-  return base.slice(0, Math.min(3, f.cantidad)).map((b, i) =>
-    normalizarAnuncio({
-      id: `simulado_${i + 1}`,
-      platform: 'facebook',
-      status: 'active',
-      daysRunning: b.dias,
-      media: { type: b.tipo === 'imagen' ? 'image' : 'video' },
-      advertiser: { name: b.nombre, liveAdsCount: 10 + i },
-      content: { body: b.copy, callToAction: 'SHOP_NOW', landingPageDomain: 'ejemplo.com' },
-      metrics: { duplicates: b.duplicados, reach: 1000 * (i + 1) },
-      audience: { targetedCountries: f.paises },
-    })
+  const marca = f.texto && f.buscarEn !== 'ad_copy' ? f.texto.toLowerCase() : '';
+  const base = SIMULADOS.filter(
+    (b) => (!f.formato || (f.formato === 'image' ? b.tipo === 'imagen' : b.tipo === 'video')) && (!marca || b.marca.toLowerCase().includes(marca) || b.pagina === marca)
   );
+  const total = base.length * 3;
+  const anuncios = [];
+  for (let k = 0; k < f.cantidad; k++) {
+    const n = (f.pagina - 1) * f.cantidad + k + 1; // el número del anuncio en toda la búsqueda
+    if (n > total) break;
+    const b = base[(n - 1) % base.length];
+    const dias = 5 + ((n * 17) % 120);
+    anuncios.push(
+      normalizarAnuncio({
+        id: `simulado_${b.pagina}_${n}`,
+        platform: 'facebook',
+        status: 'active',
+        daysRunning: dias,
+        firstSeenAt: new Date(Date.now() - dias * 86400000).toISOString(),
+        media: { type: b.tipo === 'imagen' ? 'image' : 'video', thumbnailUrl: `/archivos/muestra/${b.muestra}/imagen.jpg`, mediaUrl: `/archivos/muestra/${b.muestra}/${b.tipo === 'imagen' ? 'imagen.jpg' : 'video.mp4'}` },
+        advertiser: { name: b.marca, liveAdsCount: 10 + (n % 40), facebookPageId: b.pagina },
+        content: { title: b.titulo, body: b.copy, transcript: b.voz, callToAction: 'SHOP_NOW', landingPageUrl: 'https://ejemplo.com/oferta', landingPageDomain: 'ejemplo.com' },
+        metrics: { duplicates: (n * 7) % 90, reach: 1000 * (((n * 37) % 500) + 10), reachDelta7d: 100 * ((n * 13) % 300) },
+        rank: { currentRank: 1 + (n % 5), rankDelta: (n % 3) - 1 },
+        audience: { targetedCountries: f.paises.length ? f.paises : ['CO'] },
+      })
+    );
+  }
+  return { anuncios: anuncios.filter(Boolean), total };
 }
