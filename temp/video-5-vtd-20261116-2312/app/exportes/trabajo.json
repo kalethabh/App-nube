@@ -1,6 +1,6 @@
 {
   "n": 1,
-  "estado": "exportando",
+  "estado": "error",
   "calidad": "1080",
   "version": "completa",
   "subtitulos": "sin",
@@ -8,11 +8,15 @@
   "srt": true,
   "guardar": true,
   "creado": "2026-11-17T04:29:55.666Z",
-  "actualizado": "2026-11-17T04:51:17.206Z",
+  "actualizado": "2026-11-17T04:52:44.720Z",
   "avance": {
     "etapa": "render",
-    "valor": 81.5,
-    "cuadro": 8999,
+    "valor": 90,
+    "cuadro": 9293,
     "total": 9293
+  },
+  "error": {
+    "mensaje": "No pude exportar el video.",
+    "detalle": "  Calidad:    1080x1920, h264, CRF 21\n  Subtitulos: no\n  Musica:     ninguna\n  Preparando la composicion...\n  Cuadros:    9293 (309.8 s), 7 a la vez\n  Armando el video...\n  El render fallo: Error: Command failed with exit code 228: /Users/kalethabh/Anuncios con IA/remotion/node_modules/@remotion/compositor-darwin-arm64/ffmpeg -hide_banner -i /var/folders/1d/ctx5xfxx3t541xjkfn8bv0840000gn/T/remotion-v4.0.519-assets5pizhzlco2/remotion-stitch-temp-dir/fast-start-intermediate.remotion-in-progress -c copy -movflags faststart -y -f mp4 /Users/kalethabh/Anuncios con IA/output/video-5-vtd-20261116-2312_editado-1.armando.mp4.ce7918e0-3470-4bcf-9e97-5f5b247f71aa.remotion-in-progress Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/var/folders/1d/ctx5xfxx3t541xjkfn8bv0840000gn/T/remotion-v4.0.519-assets5pizhzlco2/remotion-stitch-temp-dir/fast-start-intermediate.remotion-in-progress':   Metadata:     major_brand     : isom\n  No pude exportar el video."
   }
 }
