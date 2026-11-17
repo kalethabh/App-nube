@@ -1,0 +1,126 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V07",
+    "structure_source": "library format F02 (Titular gigante)",
+    "reference_style": "Bold editorial typographic ad: an oversized, tightly set headline on a flat brand-colored background, with the product as a small sign-off in the corner",
+    "angle_used": "Dolor / problema (la frase que siempre le dicen en las reuniones familiares)",
+    "ad_format": "Typographic Statement Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Flat lemon yellow background #F2DC4A; near-black #111111 for all text; soft white #FFFFFF only for the marker swipe behind the key word. Maximum three colors on the canvas, not counting the product (amber brown #8A4B14 glass, black dropper, yellow-to-white label).",
+    "visual_style": "Clean, bright, very graphic typographic ad. No people, no photos, no decorations.",
+    "visual_atmosphere": "Light, warm, direct and a little cheeky; trustworthy.",
+    "graphic_language": "One flat color field, one giant block of type, one hand-drawn marker swipe, soft contact shadow under the product.",
+    "text_typography": "Headline in a geometric sans-serif, extra-bold / black weight, all uppercase, tight letter-spacing and tight leading (Montserrat ExtraBold / Gotham Black style), solid near-black. Support line in the same geometric sans, medium weight, sentence case, near-black. No outlines and no drop shadows on the text."
+  },
+  "creative_objective": "Stop the scroll with the sentence every naturally thin woman has heard at a family gathering, set in enormous letters, and let the bottle sign off quietly. Preserve the exact structure of the format: giant left-aligned headline filling about two thirds of a flat brand-colored canvas, one highlighted key word, a short support line at the bottom left and the small product at the bottom right.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant headline, read as one solid block of type that dominates the canvas. 2) The highlighted word COMIENDO inside the headline. 3) The small product in the bottom-right corner. 4) The short support line at the bottom left.",
+    "composition_style": "Left-aligned, top-weighted typographic composition. The headline block runs from the 7% top margin down to about 67% of the canvas height and spans about 86% of the width (from 7% to 93%), set in 4 stacked lines. Below it, a footer zone from about 72% to 93% of the canvas height: support line on the left, product on the right, both bottom-aligned at about 93%.",
+    "spacing_and_structure": "Safe margins of about 7% on every side. Tight line spacing in the headline so the four lines read as one block. A clear gap of about 4-5% of the canvas height between the last headline line and the footer zone. Nothing else on the canvas; the empty background is part of the design.",
+    "lighting_and_depth": "Flat graphic design: solid lemon yellow with at most a barely visible paper grain. The only depth is on the product: soft studio light, a crisp contact shadow and a faint drop shadow so it sits on the flat color like a real object.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a flat lemon-yellow background. A huge left-aligned near-black headline in 4 stacked lines fills the top and middle of the canvas (from the 7% top margin to about 67% of the height, between the side margins), with the single word COMIENDO sitting on a hand-drawn soft-white marker swipe. In the bottom footer zone (about 72-93% of the height): a short two-line support text at the bottom left and the product, small (about 20% of the canvas height), standing in the bottom-right corner with a soft shadow. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Flat, bold color field that leaves the giant type as the only thing to look at",
+        "adaptation_rule": "Solid lemon yellow #F2DC4A with at most a barely visible grain. No photos, no patterns, no multi-color gradients.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top-left, from the 7% top margin down to about 67% of the canvas height, spanning about 86% of the canvas width",
+        "visual_function": "The scroll-stopper itself: the statement is the visual",
+        "adaptation_rule": "The quoted family phrase set in 4 stacked lines of huge near-black type, broken by meaning, including the Spanish angle quotes and question marks.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "key-word highlight",
+        "position": "Inside the headline, behind the word COMIENDO on the last line",
+        "visual_function": "Directs the eye to the word that carries the emotion",
+        "adaptation_rule": "One hand-drawn soft-white marker / brush swipe behind the word COMIENDO only, slightly uneven, with the black letters fully legible on top.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "support line",
+        "position": "Bottom-left footer zone, aligned with the headline's left edge, ending at about 92% of the canvas height, within the left 50% of the width",
+        "visual_function": "Connects the phrase to the product in a quiet second read",
+        "adaptation_rule": "One short sentence in two lines about what the product is.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "product",
+        "position": "Bottom-right corner inside the safe margin, base at about 93% of the canvas height; about 20% of the canvas height",
+        "visual_function": "Signs off the statement without competing with the type",
+        "adaptation_rule": "The user's amber dropper bottle exactly as in the attached photo, front view, upright, with a crisp contact shadow. Small; it never overlaps the headline.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Large or centered product",
+      "Subheadline block directly under the headline",
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Trust seals, guarantee or certification badges",
+      "Benefit list or icons",
+      "Rating stars, reviews or testimonials",
+      "People, lifestyle scenes or background photos",
+      "Decorative shapes, stickers, arrows, speech bubbles or emojis",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the product label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 bold typographic ad on a completely flat, solid lemon-yellow background (#F2DC4A) with at most a barely visible paper grain; no photo, no pattern, no gradient. HEADLINE: a huge left-aligned headline in an extra-bold / black-weight uppercase geometric sans-serif, solid near-black (#111111), tight letter-spacing and tight leading, set in exactly 4 stacked lines that read as one solid block. The block starts at the 7% top margin, ends at about 67% of the canvas height and runs from the 7% left margin toward the 93% right margin; each line is about 13% of the canvas height. The headline includes its Spanish angle quotation marks (« ») and its opening and closing question marks (¿ ?) and the comma, all in the same heavy black type. KEY WORD: only the word COMIENDO, on the fourth line, sits on a single hand-drawn soft-white marker / brush swipe, slightly uneven at the edges, placed behind the word so the black letters stay fully legible; nothing else is highlighted. FOOTER ZONE (from about 72% to 93% of the canvas height): at the bottom left, aligned with the headline's left edge and kept within the left 50% of the width, a short support sentence in two lines, medium-weight geometric sans, sentence case, near-black, about 3.2% of the canvas height per line. At the bottom right, inside the safe margin, the product stands upright, front view, small, about 20% of the canvas height, its base at about 93% of the canvas height, with soft studio light, a crisp contact shadow and a faint drop shadow so it separates clearly from the yellow background. The product never touches the headline or the support line. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. Nothing else on the canvas: no people, no speech bubble, no shapes, no button, no price, no logo, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top-left, from the 7% top margin to about 67% of the height, filling about 86% of the width, 4 stacked lines",
+      "text_style": "Extra-bold / black uppercase geometric sans-serif, tight letter-spacing, huge (each line about 13% of the canvas height), left-aligned, solid near-black on lemon yellow; the word COMIENDO on a soft-white marker swipe",
+      "text": "«MIJA,\n¿USTED SÍ\nESTÁ\nCOMIENDO?»"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "support line",
+      "reference_position": "Bottom-left footer zone, aligned with the headline's left edge, max 50% of the width",
+      "text_style": "Medium-weight geometric sans-serif, sentence case, about 3.2% of the canvas height, 2 lines, left-aligned, near-black",
+      "text": "Gotas diarias que acompañan\ntu apetito y tu energía."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Flat solid lemon-yellow background",
+    "Giant left-aligned near-black headline filling about two thirds of the canvas in 4 stacked lines",
+    "One soft-white hand-drawn marker swipe behind the word COMIENDO only",
+    "The amber dropper bottle, small, in the bottom-right corner with a crisp contact shadow, exactly as in the attached photo"
+  ],
+  "final_generation_exclusions": [
+    "No people, faces, hands, speech bubbles or background photos.",
+    "No large or centered product; the bottle stays small in the bottom-right corner.",
+    "No second highlighted word; only COMIENDO has the marker swipe.",
+    "No price, offer, discount, CTA button, badges or icons.",
+    "No brand logo or wordmark outside the product label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims and no false guarantees. The headline is a quoted phrase said by a relative (in angle quotes), not a question addressed to the viewer about her body; the support line only says the drops accompany appetite and energy.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
