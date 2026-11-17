@@ -159,7 +159,7 @@ export default function rutasEstado(app) {
     res.json({
       // la marca de esta app: los lanzadores la miran para saber que lo que responde en el puerto es Anuncios con IA
       app: 'anuncios-con-ia',
-      claves: { archivoEnv: hayArchivoEnv(), kie: claves.kie, elevenlabs: claves.elevenlabs },
+      claves: { archivoEnv: hayArchivoEnv(), kie: claves.kie, elevenlabs: claves.elevenlabs, meta: claves.meta },
       claudeCode: claude,
       // la IA elegida (null: todavia no se eligio) y si su programa esta en esta PC
       motor: { elegido, nombre: ia.nombre, programa: ia.programa, instalado: delMotor.instalado === true, version: delMotor.version ?? null },

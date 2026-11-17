@@ -12,6 +12,7 @@ import {
   Clapperboard,
   Copy,
   Download,
+  Library,
   LogIn,
   MessageCircle,
   PenLine,
@@ -82,6 +83,23 @@ export function ClaveElevenLabs({ estado, compacto = false, alCambiar }) {
       tono="ok"
       guardada={estado ? Boolean(estado.claves?.elevenlabs) : null}
       enlace={ENLACES_CLAVE.elevenlabs}
+      compacto={compacto}
+      alCambiar={alCambiar}
+    />
+  );
+}
+
+/** El token de la Biblioteca de anuncios de Meta (Inspiración › «Meta (oficial)»). */
+export function ClaveMeta({ estado, compacto = false, alCambiar }) {
+  return (
+    <CampoClave
+      id="meta"
+      nombre="Meta (Biblioteca de anuncios)"
+      para={compacto ? undefined : 'Los anuncios de Inspiración, directo de Meta'}
+      icono={Library}
+      tono="cian"
+      guardada={estado ? Boolean(estado.claves?.meta) : null}
+      enlace={ENLACES_CLAVE.meta}
       compacto={compacto}
       alCambiar={alCambiar}
     />
@@ -726,6 +744,61 @@ export function Conexiones({ estado, recargar, alElegirModelos }) {
           </div>
         </div>
         <ClaveElevenLabs estado={e} alCambiar={recargar} />
+      </Tarjeta>
+
+      {/* Inspiración: la Biblioteca de anuncios de Meta (opcional) */}
+      <Tarjeta className="conexion-bloque">
+        <div className="conexion-bloque__cabecera">
+          <div className="pila" style={{ '--hueco': '4px' }}>
+            <h3 className="conexion-bloque__titulo">Inspiración: Biblioteca de anuncios de Meta</h3>
+            <p className="conexion-bloque__texto">
+              Opcional y gratis. Con tu token, Inspiración trae los anuncios directo de Meta. Ojo: la API oficial solo entrega anuncios que se mostraron en Europa (Unión Europea y Reino Unido); los de
+              Latinoamérica se guardan con el botón de Chrome.
+            </p>
+          </div>
+        </div>
+        <ClaveMeta estado={e} alCambiar={recargar} />
+        <details className="conexion-ayuda">
+          <summary>Cómo saco mi token de Meta (5 pasos)</summary>
+          <ol>
+            <li>
+              Verifica tu identidad en{' '}
+              <a href="https://www.facebook.com/ID" target="_blank" rel="noopener noreferrer">
+                facebook.com/ID
+              </a>
+              . Meta lo pide una sola vez para usar la Biblioteca de anuncios y puede tardar uno o dos días.
+            </li>
+            <li>
+              Acepta las condiciones en{' '}
+              <a href="https://www.facebook.com/ads/library/api" target="_blank" rel="noopener noreferrer">
+                facebook.com/ads/library/api
+              </a>{' '}
+              (botón «Comenzar»).
+            </li>
+            <li>
+              En{' '}
+              <a href="https://developers.facebook.com/apps" target="_blank" rel="noopener noreferrer">
+                Meta for Developers
+              </a>{' '}
+              crea una app gratis (tipo «Otro» y luego «Empresa»).
+            </li>
+            <li>
+              Abre el{' '}
+              <a href={ENLACES_CLAVE.meta} target="_blank" rel="noopener noreferrer">
+                Explorador de la Graph API
+              </a>
+              , elige tu app y toca «Generate Access Token». Copia el token (empieza con EAA).
+            </li>
+            <li>
+              Ese token vence en una o dos horas. Para uno de unos 60 días, pégalo en el{' '}
+              <a href="https://developers.facebook.com/tools/debug/accesstoken/" target="_blank" rel="noopener noreferrer">
+                Depurador de tokens
+              </a>{' '}
+              y toca «Extender token de acceso». Pega aquí el largo y toca Guardar. Cuando venza, Inspiración te avisa: repite los pasos 4 y 5.
+            </li>
+          </ol>
+          <p>Tu token queda solo en este computador (en el archivo .env) y nunca se muestra en la app.</p>
+        </details>
       </Tarjeta>
     </Seccion>
   );

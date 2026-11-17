@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- Una página que IMITA dos tarjetas de la Biblioteca de anuncios de Meta (clases ofuscadas, textos en español y en
+     inglés), para probar la extensión «Guardar en Kads» sin abrir Facebook (probar-extension-chrome.mjs). Ninguna
+     dirección es real: la prueba responde las de .fbcdn.net con archivos de la app. -->
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Biblioteca de anuncios (imitación para pruebas)</title>
+    <style>
+      body { margin: 0; background: #f0f2f5; font: 14px/1.4 Helvetica, Arial, sans-serif; color: #1c1e21; }
+      .x1q0g3np { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; padding: 16px; max-width: 1000px; margin: auto; }
+      .xh8yej3 { background: #fff; border-radius: 8px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.2); }
+      .x6s0dn4 { display: flex; align-items: center; gap: 8px; margin: 10px 0; }
+      .x1lliihq { color: #65676b; font-size: 12px; }
+      .x8t9es0 { font-weight: 600; color: #1c1e21; text-decoration: none; }
+      .xdj266r { width: 100%; height: 360px; object-fit: cover; background: #000; display: block; }
+      .x1n2onr6 { display: flex; justify-content: space-between; align-items: center; background: #f0f2f5; padding: 8px; }
+      .x1y1aw1k { background: #e4e6eb; border-radius: 6px; padding: 6px 10px; font-weight: 600; }
+      .x2b8uid { color: #31a24c; font-weight: 600; font-size: 12px; }
+      .x1a2b3c { color: #65676b; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="x1q0g3np">
+      <!-- tarjeta 1: video, en español -->
+      <div class="xh8yej3">
+        <div class="x1cy8zhl"><span class="x2b8uid">Activo</span></div>
+        <div class="x1cy8zhl"><span class="x1lliihq">Identificador de la biblioteca: 987650000000001</span></div>
+        <div class="x1cy8zhl"><span class="x1lliihq">Circulando desde el 2 sept 2026</span></div>
+        <div class="x1cy8zhl"><span class="x1lliihq">Plataformas</span></div>
+        <div class="x1cy8zhl"><span class="x1lliihq"><strong>3 anuncios</strong> usan este contenido y texto</span></div>
+        <div class="x1cy8zhl" role="button"><span>Ver detalles del anuncio</span></div>
+        <hr />
+        <div class="x6s0dn4">
+          <a href="https://www.facebook.com/profile.php?id=100064000000001"><img src="https://scontent.xx.fbcdn.net/v/t39/p60x60/logo-prueba.jpg" width="32" height="32" alt="" /></a>
+          <div>
+            <a class="x8t9es0" href="https://www.facebook.com/profile.php?id=100064000000001"><span>Natura Clay Prueba</span></a>
+            <div class="x1a2b3c">Publicidad</div>
+          </div>
+        </div>
+        <div class="x1cy8zhl" style="white-space: pre-wrap"><span>Así se va la hinchazón en 7 días 🌿
+Pago contra entrega en toda Colombia. Miles de clientas ya lo probaron.</span></div>
+        <video class="xdj266r" src="https://video.xx.fbcdn.net/v/t42.1790-2/prueba-video.mp4?oe=1" poster="https://scontent.xx.fbcdn.net/v/t15/poster-prueba.jpg?oe=1" muted playsinline></video>
+        <div class="x1n2onr6">
+          <div>
+            <div class="x1a2b3c">NATURACLAY.CO</div>
+            <div><strong>Desinflama en 7 días</strong></div>
+          </div>
+          <div class="x1y1aw1k" role="button">Comprar</div>
+        </div>
+      </div>
+
+      <!-- tarjeta 2: imagen, en inglés -->
+      <div class="xh8yej3">
+        <div class="x1cy8zhl"><span class="x2b8uid">Active</span></div>
+        <div class="x1cy8zhl"><span class="x1lliihq">Library ID: 987650000000002</span></div>
+        <div class="x1cy8zhl"><span class="x1lliihq">Started running on Oct 30, 2026</span></div>
+        <div class="x1cy8zhl" role="button"><span>See ad details</span></div>
+        <hr />
+        <div class="x6s0dn4">
+          <img src="https://scontent.xx.fbcdn.net/v/t39/p60x60/logo-dos.jpg" width="32" height="32" alt="" />
+          <div>
+            <a class="x8t9es0" href="https://www.facebook.com/huesosfuertesprueba"><span>Huesos Fuertes Prueba</span></a>
+            <div class="x1a2b3c">Sponsored</div>
+          </div>
+        </div>
+        <div class="x1cy8zhl" style="white-space: pre-wrap"><span>Your skeleton is asking for help 💀 Calcium + D3 that actually works.</span></div>
+        <img class="xdj266r" src="https://scontent.xx.fbcdn.net/v/t39.35426-6/imagen-prueba.jpg?oe=1" alt="" />
+        <div class="x1n2onr6">
+          <div>
+            <div class="x1a2b3c">HUESOSFUERTES.COM</div>
+            <div><strong>Your skeleton talks</strong></div>
+          </div>
+          <div class="x1y1aw1k" role="button">Shop now</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

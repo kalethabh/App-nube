@@ -26,7 +26,7 @@ import { RAIZ } from './rutas.js';
 import { leerJSON, escribirJSONSeguro } from './archivos.js';
 import { modoPrueba } from './modo-prueba.js';
 import { lanzarSesion, prohibidasComunes } from './motor-ia.js';
-import { DIR_GANADORES, ErrorGanadores, consultarConector, deTrendtrack, leerJSONDeConector, medioPermitido, rutaDeMuestraLocal, ultimosCreditos } from './ganadores.js';
+import { DIR_GANADORES, ErrorGanadores, consultarConector, deFacebook, deTrendtrack, leerJSONDeConector, medioPermitido, rutaDeMuestraLocal, traerMedio, ultimosCreditos } from './ganadores.js';
 
 const ARCHIVO_CLASIFICACION = path.join(DIR_GANADORES, 'clasificacion.json');
 const DIR_MINIATURAS = path.join(DIR_GANADORES, 'miniaturas');
@@ -207,12 +207,20 @@ async function trabajar() {
 }
 
 async function bajarMiniatura(a) {
-  const url = deTrendtrack(a.miniatura) || (a.tipo === 'imagen' ? deTrendtrack(a.media) : null);
-  if (!url) return null;
   const abs = path.join(DIR_MINIATURAS, `${crypto.createHash('sha1').update(a.id).digest('hex').slice(0, 20)}.jpg`);
   if (fs.existsSync(abs)) return abs;
+  // lo del botón de Chrome ya está en esta app: se copia (si es imagen)
+  const local = [a.miniatura, a.tipo === 'imagen' ? a.media : null].map((u) => (String(u || '').startsWith('/') ? rutaDeMuestraLocal(u) : null)).find((r) => r && /\.(jpe?g|png|webp)$/i.test(r));
+  if (local) {
+    fs.mkdirSync(DIR_MINIATURAS, { recursive: true });
+    fs.copyFileSync(local, abs);
+    return abs;
+  }
+  const de = (u) => deTrendtrack(u) || deFacebook(u);
+  const url = de(a.miniatura) || (a.tipo === 'imagen' ? de(a.media) : null);
+  if (!url) return null;
   try {
-    const r = await fetch(url, { signal: AbortSignal.timeout(30000) });
+    const r = await traerMedio(url, { signal: AbortSignal.timeout(30000) });
     const tipo = String(r.headers.get('content-type') || '');
     if (!r.ok || !/^image\/(jpe?g|png|webp)/.test(tipo)) return null;
     const datos = Buffer.from(await r.arrayBuffer());
@@ -453,15 +461,16 @@ export async function bajarImagenParaReplicar(anuncio) {
       if (!origen) throw new ErrorGanadores(404, 'Esa muestra no está en esta app.');
       fs.copyFileSync(origen, abs);
     } else {
+      const de = anuncio?.fuente === 'meta' ? 'Meta' : 'TrendTrack';
       let r;
       try {
-        r = await fetch(url, { signal: AbortSignal.timeout(60000) });
+        r = await traerMedio(url, { signal: AbortSignal.timeout(60000) });
       } catch {
-        throw new ErrorGanadores(502, 'No pude bajar la imagen de TrendTrack. Revisa tu internet y vuelve a intentar.');
+        throw new ErrorGanadores(502, `No pude bajar la imagen de ${de}. Revisa tu internet y vuelve a intentar.`);
       }
-      if (!r.ok || !/^image\//.test(String(r.headers.get('content-type') || ''))) throw new ErrorGanadores(502, `TrendTrack no entregó la imagen (${r.status}).`);
+      if (!r.ok || !/^image\//.test(String(r.headers.get('content-type') || ''))) throw new ErrorGanadores(502, `${de} no entregó la imagen (${r.status}).`);
       const datos = Buffer.from(await r.arrayBuffer());
-      if (datos.length < 500 || datos.length > 25 * 1024 * 1024) throw new ErrorGanadores(502, 'La imagen que llegó de TrendTrack no sirve.');
+      if (datos.length < 500 || datos.length > 25 * 1024 * 1024) throw new ErrorGanadores(502, `La imagen que llegó de ${de} no sirve.`);
       fs.writeFileSync(abs, datos);
     }
   }

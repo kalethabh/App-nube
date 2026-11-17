@@ -9,7 +9,8 @@
 //   POST   /api/ganadores/guardados       { anuncio, nota? } -> { anuncio }
 //   DELETE /api/ganadores/guardados/:id
 //   GET    /api/ganadores/media?u=<url>   el video de un anuncio servido por la app (TrendTrack lo redirige a su
-//                                             almacenamiento y algunos navegadores no lo reproducen así); con Range
+//                                             almacenamiento y algunos navegadores no lo reproducen así); con Range.
+//                                             También los de Meta (2026-11-17n): https y .fbcdn.net / facebook.com
 //   POST   /api/ganadores/adaptar         { anuncio } -> { id, nombre, valor: "subido:<id>|<nombre>" } (baja el video
 //                                             para «Adaptar a mi producto» en Nuevo anuncio)
 import { Readable } from 'node:stream';
@@ -21,7 +22,9 @@ import {
   ORDENES,
   PAISES,
   bajarParaReferencia,
+  deFacebook,
   deTrendtrack,
+  traerMedio,
   buscarGanadores,
   busquedaEnCurso,
   busquedaGuardada,
@@ -91,22 +94,28 @@ export default function rutasGanadores(app) {
   });
 
   app.get('/api/ganadores/media', async (req, res) => {
-    const url = deTrendtrack(req.query.u);
-    if (!url) return res.status(400).json({ error: 'Ese archivo no es de TrendTrack.' });
+    // solo TrendTrack, o los medios de Meta (https, .fbcdn.net o facebook.com; sin redirecciones a otro sitio)
+    const url = deTrendtrack(req.query.u) || deFacebook(req.query.u);
+    if (!url) return res.status(400).json({ error: 'Ese archivo no es de TrendTrack ni de Meta.' });
     const corte = new AbortController();
     res.on('close', () => corte.abort());
     try {
-      const r = await fetch(url, { headers: req.headers.range ? { Range: String(req.headers.range) } : {}, redirect: 'follow', signal: corte.signal });
+      const r = await traerMedio(url, { headers: req.headers.range ? { Range: String(req.headers.range) } : {}, signal: corte.signal });
       res.status(r.status);
-      for (const h of ['content-type', 'content-length', 'content-range', 'accept-ranges', 'last-modified', 'etag']) {
+      for (const h of ['content-length', 'content-range', 'accept-ranges', 'last-modified', 'etag']) {
         const v = r.headers.get(h);
         if (v) res.set(h, v);
       }
+      // solo videos e imágenes: una página (HTML) nunca se muestra como si fuera de la app
+      const tipo = String(r.headers.get('content-type') || '');
+      res.set('Content-Type', /^(video|image)\/[a-z0-9.+-]+$/i.test(tipo.split(';')[0].trim()) ? tipo : 'application/octet-stream');
+      res.set('X-Content-Type-Options', 'nosniff');
+      res.set('Content-Security-Policy', "default-src 'none'; sandbox");
       res.set('Cache-Control', 'private, max-age=86400');
       if (!r.body) return res.end();
       Readable.fromWeb(r.body).on('error', () => res.destroy()).pipe(res);
     } catch {
-      if (!res.headersSent) res.status(502).json({ error: 'No pude traer ese video de TrendTrack.' });
+      if (!res.headersSent) res.status(502).json({ error: 'No pude traer ese video.' });
       else res.destroy();
     }
   });

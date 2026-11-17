@@ -158,14 +158,54 @@ export const deTrendtrack = (u) => {
   const x = urlSegura(u);
   return x && /(^|\.)trendtrack\.io$/i.test(new URL(x).hostname) ? x : null;
 };
+/**
+ * Los videos e imágenes de Meta (2026-11-17n: la Biblioteca de anuncios oficial y el botón de Chrome): solo https, y el
+ * host tiene que terminar en .fbcdn.net (donde Meta guarda los medios) o ser facebook.com / www.facebook.com.
+ */
+export const deFacebook = (u) => {
+  const x = urlSegura(u);
+  if (!x) return null;
+  const h = new URL(x).hostname.toLowerCase();
+  return h.endsWith('.fbcdn.net') || h === 'facebook.com' || h === 'www.facebook.com' ? x : null;
+};
+// Lo que el botón de Chrome ya bajó a esta app (temp/_ganadores/chrome/<id de la biblioteca>.<ext>).
+export const DIR_CHROME = path.join(DIR_GANADORES, 'chrome');
+const MEDIO_CHROME = /^\/api\/inspiracion\/chrome\/media\/(\d{5,25}(?:-p)?\.(?:mp4|jpg|png|webp))$/;
+/** El archivo de un medio bajado por el botón de Chrome (solo el nombre exacto que deja la app), o null. */
+export function rutaMedioChrome(archivo) {
+  return /^\d{5,25}(?:-p)?\.(?:mp4|jpg|png|webp)$/.test(String(archivo || '')) ? path.join(DIR_CHROME, archivo) : null;
+}
 // En modo prueba los anuncios simulados usan las muestras del paquete (app/muestras/<clave>/), servidas por la app.
 const MUESTRA_LOCAL = /^\/archivos\/muestra\/[a-z0-9-]{2,40}\/(imagen\.jpg|video\.mp4)$/;
-export const medioPermitido = (u) => deTrendtrack(u) || (modoPrueba() && MUESTRA_LOCAL.test(String(u || '')) ? String(u) : null);
-/** (modo prueba) la ruta en disco de una muestra local, o null. */
+export const medioPermitido = (u) =>
+  deTrendtrack(u) || deFacebook(u) || (MEDIO_CHROME.test(String(u || '')) ? String(u) : null) || (modoPrueba() && MUESTRA_LOCAL.test(String(u || '')) ? String(u) : null);
+/** La ruta en disco de un medio local: lo bajado por el botón de Chrome o (modo prueba) una muestra. null si no está. */
 export function rutaDeMuestraLocal(u) {
+  const c = String(u || '').match(MEDIO_CHROME);
+  if (c) {
+    const r = rutaMedioChrome(c[1]);
+    return r && fs.existsSync(r) ? r : null;
+  }
   const m = String(u || '').match(/^\/archivos\/muestra\/([^/]+)\/([^/]+)$/);
   const r = m && MUESTRA_LOCAL.test(u) ? rutaDeArchivoDeMuestra(m[1], m[2]) : null;
   return r && fs.existsSync(r) ? r : null;
+}
+
+/**
+ * Trae un medio de Meta o de TrendTrack sin dejar que una redirección lo lleve a otro sitio: con un medio de Facebook
+ * cada salto tiene que seguir en .fbcdn.net / facebook.com (TrendTrack redirige a su almacenamiento: ahí se sigue
+ * como siempre). -> Response (o tira).
+ */
+export async function traerMedio(url, { headers = {}, signal, saltos = 4 } = {}) {
+  if (deTrendtrack(url)) return fetch(url, { headers, redirect: 'follow', signal });
+  let actual = deFacebook(url);
+  for (let i = 0; actual && i <= saltos; i++) {
+    const r = await fetch(actual, { headers, redirect: 'manual', signal });
+    if (r.status < 300 || r.status >= 400) return r;
+    const destino = r.headers.get('location');
+    actual = destino ? deFacebook(new URL(destino, actual).toString()) : null;
+  }
+  throw new ErrorGanadores(502, 'Ese medio intentó llevarme a otro sitio: no lo traje.');
 }
 const texto = (v, max) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, max) : null);
 const numero = (v) => (Number.isFinite(Number(v)) && v !== null && v !== '' ? Number(v) : null);
@@ -211,6 +251,17 @@ export function normalizarAnuncio(a) {
     puestoCambio: numero(a.rank?.rankDelta),
     paises: Array.isArray(a.audience?.targetedCountries) ? a.audience.targetedCountries.filter((p) => typeof p === 'string').slice(0, 8) : [],
     totalPaises: Array.isArray(a.audience?.targetedCountries) ? a.audience.targetedCountries.length : 0,
+    // de dónde salió (2026-11-17n): 'trendtrack', 'meta' (la Biblioteca de anuncios oficial) o 'chrome' (el botón)
+    fuente: ['meta', 'chrome'].includes(a.fuente) ? a.fuente : 'trendtrack',
+    // el identificador de la Biblioteca de anuncios de Meta (para «Ver en Meta»)
+    metaId: /^\d{5,25}$/.test(String(a.metaId ?? '')) ? String(a.metaId) : null,
+    plataformas: Array.isArray(a.platforms) ? a.platforms.filter((p) => typeof p === 'string' && /^[a-z_]{2,30}$/i.test(p)).slice(0, 6) : [],
+    descripcion: texto(c.description, 600),
+    // cuántos anuncios usan este mismo creativo (lo dice la Biblioteca de anuncios)
+    creativos: numero(m.creatives),
+    // (Meta oficial) el video o la imagen todavía no se sacó del snapshot: la tarjeta lo pide cuando se ve
+    medioPendiente: a.fuente === 'meta' && a.mediaPending === true ? true : undefined,
+    guardadoEn: a.fuente === 'chrome' ? texto(a.importedAt, 40) : undefined,
   };
 }
 
@@ -448,10 +499,15 @@ export function normalizarDeVuelta(a) {
     lastSeenAt: a.visto,
     media: { type: a.tipo === 'imagen' ? 'image' : a.tipo === 'video' ? 'video' : 'other', thumbnailUrl: a.miniatura, mediaUrl: a.media },
     advertiser: { name: a.anunciante?.nombre, logoUrl: a.anunciante?.logo, liveAdsCount: a.anunciante?.activos, facebookPageId: a.anunciante?.pagina },
-    content: { title: a.titulo, body: a.copy, transcript: a.transcripcion, callToAction: a.cta, landingPageUrl: a.landing, landingPageDomain: a.dominio },
-    metrics: { duplicates: a.duplicados, reach: a.alcance, reachDelta7d: a.alcance7d, estimatedSpend: a.gasto },
+    content: { title: a.titulo, body: a.copy, transcript: a.transcripcion, callToAction: a.cta, landingPageUrl: a.landing, landingPageDomain: a.dominio, description: a.descripcion },
+    metrics: { duplicates: a.duplicados, reach: a.alcance, reachDelta7d: a.alcance7d, estimatedSpend: a.gasto, creatives: a.creativos },
     rank: { currentRank: a.puesto, rankDelta: a.puestoCambio },
     audience: { targetedCountries: a.paises },
+    fuente: a.fuente,
+    metaId: a.metaId,
+    platforms: a.plataformas,
+    mediaPending: a.medioPendiente,
+    importedAt: a.guardadoEn,
   });
 }
 
@@ -464,9 +520,10 @@ export function normalizarDeVuelta(a) {
 export async function bajarParaReferencia(anuncio) {
   const url = medioPermitido(anuncio?.media);
   if (!url || anuncio?.tipo !== 'video') throw new ErrorGanadores(400, 'Ese anuncio no tiene un video para adaptar.');
-  const nombre = `${String(anuncio?.anunciante?.nombre || 'ganador').replace(/[^\p{L}\p{N} ._-]/gu, '').trim().slice(0, 60) || 'ganador'} (TrendTrack).mp4`;
+  const origenNombre = anuncio?.fuente === 'meta' ? 'Meta' : anuncio?.fuente === 'chrome' ? 'Chrome' : 'TrendTrack';
+  const nombre = `${String(anuncio?.anunciante?.nombre || 'ganador').replace(/[^\p{L}\p{N} ._-]/gu, '').trim().slice(0, 60) || 'ganador'} (${origenNombre}).mp4`;
   if (url.startsWith('/')) {
-    // (modo prueba) el video simulado es una muestra del paquete: se copia, sin internet
+    // lo que bajó el botón de Chrome (o, en modo prueba, una muestra del paquete): se copia, sin internet
     const origen = rutaDeMuestraLocal(url);
     if (!origen) throw new ErrorGanadores(404, 'Esa muestra no está en esta app.');
     const id = `${Date.now().toString(36)}${crypto.randomBytes(3).toString('hex')}`;
@@ -476,15 +533,15 @@ export async function bajarParaReferencia(anuncio) {
   }
   let r;
   try {
-    r = await fetch(url, { signal: AbortSignal.timeout(120000) });
+    r = await traerMedio(url, { signal: AbortSignal.timeout(120000) });
   } catch {
-    throw new ErrorGanadores(502, 'No pude bajar el video de TrendTrack. Revisa tu internet y vuelve a intentar.');
+    throw new ErrorGanadores(502, `No pude bajar el video de ${origenNombre}. Revisa tu internet y vuelve a intentar.`);
   }
-  if (!r.ok) throw new ErrorGanadores(502, `TrendTrack no entregó el video (${r.status}).`);
+  if (!r.ok) throw new ErrorGanadores(502, `${origenNombre} no entregó el video (${r.status}).`);
   const largo = Number(r.headers.get('content-length') || 0);
   if (largo > 400 * 1024 * 1024) throw new ErrorGanadores(413, 'Ese video pesa demasiado.');
   const datos = Buffer.from(await r.arrayBuffer());
-  if (datos.length < 1000) throw new ErrorGanadores(502, 'El video que llegó de TrendTrack está vacío.');
+  if (datos.length < 1000) throw new ErrorGanadores(502, `El video que llegó de ${origenNombre} está vacío.`);
   const id = `${Date.now().toString(36)}${crypto.randomBytes(3).toString('hex')}`;
   fs.mkdirSync(DIR_REFERENCIAS, { recursive: true });
   fs.writeFileSync(path.join(DIR_REFERENCIAS, `${id}.mp4`), datos);
