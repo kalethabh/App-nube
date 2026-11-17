@@ -193,6 +193,8 @@ export function descripcionEscena(id, ctx, textos) {
     `audience: «${ctx.publico || 'adults'}»; problem: «${ctx.dolor || ctx.dolores[0] || ''}»; result: «${ctx.beneficios.slice(0, 2).join('; ')}».`;
   const persona = 'Same person (same face, hair, body type and skin tone), same pose, same outfit, same camera angle, same framing and same lighting in every part, so the ONLY difference is the result in the body area of the problem.';
   const decente = 'Realistic and tasteful: fully clothed (leggings, jeans or a fitted dress), never explicit.';
+  // como los ganadores (referencias-ganadoras.md): el ángulo se ve antes de leerse
+  const ganador = 'Like the winning ads of this category: the body area of the problem fills 60-70% of the frame, tight clothing that shows the shape, an ordinary real setting with nothing distracting, no props, no text.';
   switch (id) {
     case 'antes-despues':
       return [
@@ -200,6 +202,8 @@ export function descripcionEscena(id, ctx, textos) {
         'LEFT half = BEFORE: the problem clearly visible in the body area. RIGHT half = AFTER: the result clearly visible in the same body area; the change must be dramatic and obvious at first glance, never subtle.',
         persona,
         'The BEFORE looks a bit worse (posture, slightly duller light); the AFTER looks better and confident.',
+        'Shot like a real phone photo at home (plain wall or mirror, ordinary floor), front or side view, nothing staged.',
+        ganador,
         decente,
         'Do NOT show the product in the photo (the app places the real product photo later).',
         'Keep the top 15% of both halves calm and plain (wall or background), and the bottom-right corner free.',
@@ -209,6 +213,8 @@ export function descripcionEscena(id, ctx, textos) {
       const n = (textos?.etapas || []).length || 3;
       return [
         `A single realistic photo divided into ${n} vertical panels of equal width, side by side, separated by thin straight gaps.`,
+        'Clean plain light background (white or warm beige), side profile or back three-quarter view so the body area reads at a glance.',
+        ganador,
         `Each panel shows the same person at a different moment (${(textos?.etapas || []).join(', ') || 'day 1, day 7, day 14'}), from left to right, with the result growing gradually panel by panel in the body area of the problem; the last panel shows the clearest result.`,
         persona,
         decente,

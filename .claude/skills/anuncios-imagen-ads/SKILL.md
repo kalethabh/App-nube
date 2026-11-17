@@ -140,7 +140,7 @@ Sea **N** la cantidad de variaciones pedidas y **K** la cantidad de imágenes de
 
 1. **Variaciones desde referencias (K):** cada referencia subida es una variación. Analízala (tipo de formato, estructura, jerarquía visual y por qué es efectiva desde la psicología de un media buyer) y detecta qué ángulo ataca: esa variación usa ese mismo ángulo, adaptado al producto. Si hay más referencias que la cantidad pedida, usa las primeras N y avísalo.
 2. **Variaciones desde la biblioteca (N − K):**
-   - Lee `angulos.json` y `formatos/indice.json`.
+   - Lee `angulos.json`, `formatos/indice.json` y `referencias-ganadoras.md` (referencia interna de cómo comunican el ángulo los anuncios ganadores: imita la mecánica, nunca la marca ni los textos).
    - Ordena los ángulos por relevancia para este producto y su público. Si el usuario dio un ángulo principal (`angulo_preferido`), va primero. **No repitas los ángulos que ya cubren las referencias.**
    - Asigna un ángulo distinto a cada variación. Solo si la cantidad supera los ángulos relevantes, repite ángulos, y cada repetición lleva otro formato y otro mensaje.
    - Para cada ángulo elige un formato compatible (campos `angulos_compatibles` y `tipos_producto` del índice). No repitas formato dentro del lote mientras queden formatos compatibles sin usar.
@@ -292,6 +292,7 @@ ARCHIVOS DE ESTA SKILL
 | Archivo | Para qué |
 |---|---|
 | `angulos.json` | Catálogo de 24 ángulos de venta |
+| `referencias-ganadoras.md` | Referencia interna: fórmulas de los anuncios de imagen ganadores (VitalDrops, drenaje linfático, Grüns) |
 | `formatos/indice.json` | Índice de los 56 formatos con sus ángulos y tipos de producto compatibles |
 | `formatos/F##-*.json`, `formatos/G##-*.json` | Esqueleto estructural de cada formato (la ruta exacta está en el campo `archivo` del índice) |
 | `proporciones.md` | Cómo se obtiene el vertical 9:16 a partir del cuadrado |

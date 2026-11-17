@@ -119,10 +119,15 @@ const ANTES_DESPUES =
   'Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; ' +
   'the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). ' +
   'Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.';
+// Lo que hacen los ganadores (referencia interna: .claude/skills/anuncios-imagen-ads/referencias-ganadoras.md).
+const COMO_GANADORES =
+  'Like winning ads: one single idea per image; the angle is understood before reading (the body area or the result fills most of the frame); ' +
+  'the headline names the pain or the result in the customer\'s words (with a timeframe only if listed below); never a price or discount in the headline of a pain or result image (an offer goes only in a small bottom strip). ';
 const RAPIDO_COPIAR =
   'The FIRST attached image is a REFERENCE AD that already works. Make a variation of it for a different product, the way a designer would. ' +
   LEER_REFERENCIA +
-  ' Keep its layout, composition, block structure, visual hierarchy, spacing, background treatment, graphic style and typography ' +
+  ' ' + COMO_GANADORES +
+  'Keep its layout, composition, block structure, visual hierarchy, spacing, background treatment, graphic style and typography ' +
   '(same font style, weight, casing, relative sizes, text effects and text placement). ' +
   'Replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle. ' +
   'MAIN HEADLINE: use the one listed below if it says the same thing as the hook of the reference (same angle); if it does not, write instead the hook of the reference rewritten for this product, in short Spanish, same idea and same structure (for example the same number, timeline or question). Put it in the place and style of the main headline of the reference. ' +
@@ -132,7 +137,8 @@ const RAPIDO_COPIAR =
 const RAPIDO_INSPIRAR =
   'The FIRST attached image is a WINNING AD, used as inspiration. Create a NEW ad for the product of the SECOND attached image. ' +
   LEER_REFERENCIA +
-  ' Use the same kind of format (type of layout, visual hierarchy, amount of text, photographic or graphic style), but with a fresh composition of its own. ' +
+  ' ' + COMO_GANADORES +
+  'Use the same kind of format (type of layout, visual hierarchy, amount of text, photographic or graphic style), but with a fresh composition of its own. ' +
   'MAIN HEADLINE (the biggest text): use the one listed below if it fits that same angle; if it does not, write a new one in short Spanish with the same hook idea as the reference, for this product. ' +
   'Any other text (one short subtitle, two or three benefit bullets, a button) is written by you in short, natural Spanish for this product, keeping the same angle and using only the benefits listed below, with perfect spelling and accents. ' +
   "Never copy the reference's brand, logo, product, prices, claims or wording. " +
