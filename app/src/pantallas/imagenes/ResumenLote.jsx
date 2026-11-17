@@ -33,7 +33,7 @@ function Fila({ etiqueta, children }) {
  * producto: { nombre, foto, nueva } · cantidad: { valida, n, maximo } · conVertical · logo: { url, posicion } | null
  * referencias: [{ id, url, heic }] · costo: { rango, etiqueta, chica } | null · motor (useMotor) · fase · textoBoton
  */
-export function ResumenLote({ producto, cantidad, conVertical, logo, referencias, costo, motor, ocupado, fase, textoBoton, onGenerar }) {
+export function ResumenLote({ producto, cantidad, conVertical, logo, referencias, plantillas = null, costo, motor, ocupado, fase, textoBoton, onGenerar }) {
   const { valida, n, maximo } = cantidad;
   const usadas = valida ? Math.min(n, referencias.length) : referencias.length;
   const sobran = referencias.length - VISIBLES;
@@ -81,6 +81,12 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
             )}
           </Fila>
           ) : null}
+          {plantillas ? (
+            <Fila etiqueta="Formatos">
+              <span>{plantillas.video ? 'Cuadros de tu video' : plantillas.elegidas ? `${plantillas.elegidas} ${plantillas.elegidas === 1 ? 'elegido' : 'elegidos'}` : 'Que la app elija (mezcla)'}</span>
+              {plantillas.escenas !== null ? <span className="img-resumen__nota t-num">{plantillas.escenas ? `${plantillas.escenas} con escena` : 'Todos gratis'}</span> : null}
+            </Fila>
+          ) : (
           <Fila etiqueta="Referencias">
             {referencias.length ? (
               <span className="img-resumen__con-vista">
@@ -98,6 +104,7 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
               <span className="img-resumen__falta">Ninguna: la IA elige los formatos</span>
             )}
           </Fila>
+          )}
         </dl>
 
         <div className="img-resumen__accion">
@@ -111,7 +118,7 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
           <Boton variante="marca" tamano="grande" bloque cargando={ocupado} disabled={!costo} onClick={onGenerar}>
             {fase || textoBoton}
           </Boton>
-          <p className="img-resumen__pie">Al generar confirmas el costo mostrado. Cada imagen sale de tu referencia y la foto de tu producto, con un título distinto.</p>
+          <p className="img-resumen__pie">{plantillas ? 'Al generar confirmas el costo mostrado. La app dibuja los textos con tus colores y tus letras; después puedes cambiar cualquier texto gratis.' : 'Al generar confirmas el costo mostrado. Cada imagen sale de tu referencia y la foto de tu producto, con un título distinto.'}</p>
         </div>
       </Tarjeta>
     </aside>

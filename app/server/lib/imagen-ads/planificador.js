@@ -143,7 +143,8 @@ export function pasosDelPedido(est, ped, { instruccionEn = null, cambiaTextos = 
   const v = vDe(ped.pieza);
   const cuadrado = piezaId(v, '1:1');
   const vertical = piezaId(v, '9:16');
-  const hayVertical = Boolean(est.piezas[vertical]);
+  // (plantillas: el vertical lo dibuja la app con la misma escena: no se pide otro)
+  const hayVertical = Boolean(est.piezas[vertical]) && !est.piezas[vertical].local;
   const modo = instruccionEn ? 'editar' : 'generar';
   const extra = instruccionEn ? { instruccion_en: instruccionEn, textos: Boolean(cambiaTextos) } : {};
   const delVertical = { pieza: vertical, orden: `${ped.id}-v`, modo: 'generar', motivo: 'cuadrado-nuevo' };

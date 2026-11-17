@@ -35,8 +35,10 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
   if (!p) return null;
   const { nombre, formato } = partesDePieza(p.pieza);
   const vertical = formato === '9:16';
-  const cantidad = conVertical && (!vertical || texto.trim()) ? 2 : 1;
-  const costo = costoDelLote(precio, cantidad);
+  // (plantillas: el servidor dice cuántas imágenes cobra: 0 si la dibuja la app, 1 si pide otra escena)
+  const deServidor = typeof p.imagenesRegenerar === 'number' ? p.imagenesRegenerar : null;
+  const cantidad = deServidor !== null ? deServidor : conVertical && (!vertical || texto.trim()) ? 2 : 1;
+  const costo = deServidor === 0 ? { min: 0, max: 0, gratis: true } : costoDelLote(precio, cantidad);
 
   const corregirEsto = () => {
     setTexto(textoCorregir(problemas));
@@ -77,7 +79,11 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
     }
   };
 
-  const nota = vertical
+  const nota = deServidor === 1
+    ? 'Se pide otra escena, sin texto (lo que escribas va a la escena). El cuadrado y el vertical se vuelven a dibujar con ella y con los mismos textos; para cambiar un texto usa «Editar textos», gratis.'
+    : deServidor === 0
+      ? null
+      : vertical
     ? 'Solo cambia el vertical. Si cambias un texto, también se cambia el cuadrado, para que sigan siendo el mismo anuncio.'
     : conVertical
       ? 'También se regenera su vertical.'
@@ -103,7 +109,7 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
     >
       <div className="pila" style={{ '--hueco': '12px' }}>
         <p className="t-chico" role="status">
-          {costo?.conChatGPT ? 'Sin costo: la hace tu suscripción de ChatGPT (usa un poco de tu cupo).' : costo ? `Costo estimado${cantidad > 1 ? ' máximo' : ''}: ${dinero(costo.max)}. Al confirmar autorizas esta generación.` : 'Calculando el costo antes de regenerar…'}
+          {costo?.gratis ? 'Sin costo: la dibuja la app con otros textos, en un segundo. Para cambiar un texto puntual, usa «Editar textos».' : costo?.conChatGPT ? 'Sin costo: la hace tu suscripción de ChatGPT (usa un poco de tu cupo).' : costo ? `Costo estimado${cantidad > 1 ? ' máximo' : ''}: ${dinero(costo.max)}. Al confirmar autorizas esta generación.` : 'Calculando el costo antes de regenerar…'}
         </p>
         {problemas.length ? (
           <div className="lote-regenerar__revision">
@@ -124,6 +130,8 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
             </div>
           </div>
         ) : null}
+        {deServidor === 0 ? null : (
+        <>
         <AreaTexto
           ref={area}
           etiqueta="¿Qué quieres cambiar?"
@@ -147,6 +155,8 @@ export function ModalRegenerar({ pieza: p, conVertical, precio, onCerrar, onConf
             </Chip>
           ))}
         </div>
+        </>
+        )}
         {nota ? <p className="t-chico t-3">{nota}</p> : null}
         {error ? (
           <p className="lote-regenerar__error" role="alert">

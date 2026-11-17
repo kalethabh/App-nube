@@ -2,6 +2,32 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17p · Anuncios de imagen con plantillas: la app dibuja los textos (limpios, sin errores y en segundos)
+
+- **La app dibuja los textos y los gráficos, no el modelo de imagen.** Titular enorme, letra a mano, flechas dibujadas a mano, sticker girado, burbujas de chat, tuit con verificado y estrellas, subtítulos blancos de TikTok, filas con íconos, barra de datos, franja de oferta y la línea legal chiquita: perfectos, con tildes, con tus colores y tus letras. El modelo de imagen solo hace la escena (una persona, un antes y después), **sin ningún texto**.
+- **17 formatos en 4 familias** (Anuncios de imagen › Nuevos › «Formato», con una muestra de cada uno hecha con la foto de TU producto):
+  - Dolor y resultado: Antes y después · Línea de tiempo (Día 1/7/14 o Mes 1/2/3) · Pizarra «tu objeción vs. esto» · Mapa del cuerpo.
+  - Beneficio explicado: Producto con flechas (ingrediente → beneficio) · Lista de beneficios con íconos · Producto protagonista + datos («200 mg aguaje») · Mecanismo con flecha · Foto con titular.
+  - Nativo de redes: Nota de texto · Burbujas «tus problemas / nuestro consejo» · Foto casera con subtítulos · Reseña tipo tuit · Captura de un comentario.
+  - Oferta (siempre aparte de las de dolor): Sticker · Casi agotado · Buena noticia / mala noticia.
+  - Sin elegir ninguno, **«Que la app elija»** mezcla las familias (de cada 4, una con escena).
+- **Gratis y al instante** los que no necesitan escena (12 de los 17): salen de la foto de tu producto, sin llamar a kie ni a ChatGPT. La pantalla del costo lo dice: «Sin costo · Todo en tu computadora». Los de escena (antes y después, línea de tiempo, mapa del cuerpo, foto casera, foto con titular) cuestan **una imagen por anuncio**: el vertical usa la misma escena (antes eran dos).
+- **No esperas a la escena:** el anuncio aparece enseguida con sus textos y un fondo de espera; la escena llega sola (todas a la vez) y se vuelve a dibujar.
+- **Los textos salen sin esperar a la IA**: de los ganchos validados de TrendTrack, la ficha del producto y tu investigación (las palabras de tu cliente para las burbujas, las dudas para el comentario, los ingredientes y sus mg de la etiqueta para las flechas y la barra). Nunca inventa números ni promesas médicas: si un número no está en la ficha, no aparece. Un tuit sin una reseña real lo firma tu marca (nunca una clienta inventada) y va sin estrellas: las pones tú si quieres.
+- **«Editar textos»** en cada anuncio del lote: cambias cualquier texto y se vuelve a dibujar en un segundo, sin IA y sin costo. «Regenerar» en uno sin escena saca otra versión de los textos, también gratis.
+- **Tu marca** (en el formulario): 2 colores sacados solos de la foto del producto (los fuertes, no la piel ni el fondo), la letra de los titulares (Anton, Bebas Neue o Archivo Black), la letra a mano (Caveat o Permanent Marker) y el estilo del sticker. Queda guardada con el producto. Las letras vienen con la app (licencias libres, sin internet).
+- **Medido (PC de 4 núcleos, modo prueba):** cada imagen se dibuja en **0,3 a 1 s** con el dibujante ya abierto (la primera vez que se abre la app, armarlo tarda unos 15 s y queda guardado; las siguientes, medio segundo). Un lote de 4 anuncios en cuadrado y vertical (8 imágenes) sin escenas: **2,4 s**. Del clic en «Generar» a ver las 8 imágenes en la pantalla: **5,4 s**. Cambiar un texto: **0,5 s** (0,9 s con la pantalla).
+- Si ya tienes en la computadora lo del podcast en esquina (rembg con su modelo), la app le quita el fondo a la foto del producto una vez y gratis; si no, la pone sobre una tarjeta limpia.
+- Lo de antes sigue igual: apaga «Con plantillas» para el diseño libre con tus referencias, y «Variantes» sigue copiando lo que ya te funciona.
+
+### De un video, imágenes
+
+- **Anuncios de imagen › «De un video»**: subes un video, eliges uno de tus anuncios o tocas el botón de imagen en un video de **Inspiración**. La app saca el **cuadro más nítido de cada toma** (nunca uno borroso ni de una transición), le **quita los subtítulos** (los borra si tienes OpenCV; si no, recorta su franja), lo agranda si es chico y propone varias imágenes con **ángulos distintos**: dolor, antes y después (el primer cuadro y el último), mecanismo, prueba social, ingrediente, objeción, estatus y producto.
+- **Gratis y en tu computadora**: un video de 72 s se analiza en **4 s** y sus 12 imágenes (6 anuncios × 2 tamaños) se arman en **3 s**: **7 s en total**.
+- **«Elegir con mi IA»** (opcional): tu IA mira los cuadros y escribe los textos con tu plan de Claude o ChatGPT (sin costo por imagen). Sin ella, la app elige los más nítidos repartidos en el video.
+- **«Pulir con IA»** (opcional, en cada anuncio del lote): el modelo de imagen rehace ese cuadro limpio y nítido, sin texto, y la app le vuelve a poner tus textos. Cuesta una imagen y te muestra el costo antes.
+- El lote es uno normal: descargas, ZIP, «Editar textos», «Me funciona».
+
 ## 2026-11-17o · Exportar del editor: solo se rehace lo que cambiaste
 
 - **Un ajuste chico sale en segundos.** El video se arma en partes de 4 segundos («tramos») que quedan guardadas. Cuando vuelves a exportar, solo se rehacen los tramos que tocaste; lo demás se reutiliza y se junta sin volver a procesarlo.

@@ -129,7 +129,7 @@ function DescargarTodo({ conLogo, conSuLogo = 0, conImagen = 0, deshabilitado, u
   );
 }
 
-export function Galeria({ vista, variaciones, filtro, onFiltro, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, enlaceOtro, urlDescarga, onDescargarSimulado }) {
+export function Galeria({ vista, variaciones, filtro, onFiltro, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, enlaceOtro, urlDescarga, onDescargarSimulado, onEditarTextos, onPulir }) {
   // la IA que escribe los anuncios de este lote: la que lo hizo (si el servidor la manda) o la elegida
   const elegida = mayuscula(useMotor().nombre);
   const ia = MOTORES[motorDelLote(vista)]?.nombre || elegida;
@@ -167,7 +167,7 @@ export function Galeria({ vista, variaciones, filtro, onFiltro, onAbrir, onRegen
     contenido = (
       <div className={`rejilla lote-rejilla${conVertical ? ' lote-rejilla--doble' : ''}`}>
         {variaciones.map((x) => (
-          <Variacion key={x.v} x={x} ia={ia} conVertical={conVertical} onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} onEscribir={onEscribir} escribiendo={escribiendo} />
+          <Variacion key={x.v} x={x} ia={ia} conVertical={conVertical} onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} onEscribir={onEscribir} escribiendo={escribiendo} onEditarTextos={onEditarTextos} onPulir={onPulir} />
         ))}
       </div>
     );

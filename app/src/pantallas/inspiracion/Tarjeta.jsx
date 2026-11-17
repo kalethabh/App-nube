@@ -167,7 +167,7 @@ export function Insignias({ a, c, formatos, sonidos }) {
   );
 }
 
-export function Tarjeta({ a, c, formatos, sonidos, guardado, onGuardar, onReplicar, replicando, onCopiar, onDetalles, onMarca, onPedirMedio, onBorrar }) {
+export function Tarjeta({ a, c, formatos, sonidos, guardado, onGuardar, onReplicar, replicando, onCopiar, onDetalles, onMarca, onPedirMedio, onBorrar, onImagenes, sacandoImagenes }) {
   return (
     <article className="insp-tarjeta" data-id={a.id}>
       <header className="insp-tarjeta__cabeza">
@@ -201,6 +201,12 @@ export function Tarjeta({ a, c, formatos, sonidos, guardado, onGuardar, onReplic
           <Boton variante="primario" tamano="chico" icono={Wand2} onClick={onReplicar} cargando={replicando} disabled={!a.media && !a.miniatura}>
             Replicar
           </Boton>
+          {/* «De un video, imágenes»: los cuadros de este video, armados con las plantillas (gratis) */}
+          {onImagenes && a.tipo === 'video' && a.media ? (
+            <Tooltip texto="Imágenes de este video (gratis)">
+              <Boton variante="secundario" tamano="chico" soloIcono icono={IconoImagen} etiqueta="Hacer imágenes de este video" onClick={onImagenes} cargando={sacandoImagenes} />
+            </Tooltip>
+          ) : null}
           {a.copy || a.transcripcion ? <Boton variante="secundario" tamano="chico" soloIcono icono={Copy} etiqueta="Copiar el texto" onClick={onCopiar} /> : null}
           <Boton variante="secundario" tamano="chico" icono={Info} onClick={onDetalles}>
             Detalles

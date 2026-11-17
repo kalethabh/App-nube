@@ -1088,6 +1088,122 @@ try {
   process.env.AIA_MOTOR = 'claude';
 }
 
+// =====================================================================================================================
+seccion('11. Plantillas: la app dibuja los textos; el modelo solo hace la escena (sin texto)');
+try {
+  const plantillas = await import('../server/lib/imagen-ads/plantillas.js');
+  const render = await import('../server/lib/plantillas/render.js');
+  const costoMod = await import('../server/lib/imagen-ads/costo.js');
+  const lotesMod = await import('../server/lib/imagen-ads/lotes.js');
+  process.env.ANUNCIOS_MOTOR_IMAGEN_ADS = MOTOR_FALSO;
+  process.env.ANUNCIOS_MODO_PRUEBA = '1';
+  process.env.ANUNCIOS_SIN_RECORTE = '1';
+  turno.reiniciarTurno();
+  // (dentro de la carpeta de la app: el dibujante solo sirve imágenes de ahí)
+  const BASE = path.join(RAIZ, 'temp', `_prueba-plantillas-${process.pid}`);
+  const FICHA = {
+    nombre: 'Crème Luna Colágeno',
+    queEs: 'Suplemento en cápsulas a base de colágeno, biotina y vitamina C.',
+    beneficios: ['Piel más firme', 'Uñas más fuertes', 'Cabello con brillo', 'Fácil de tomar', 'Sin azúcar añadida', 'Para todos los días'],
+    dolor: 'Siente que la piel se le ve apagada, que se le quiebran las uñas y que el cabello no tiene brillo.',
+    ingredientes: '500 mg de colágeno hidrolizado, 30 mcg de biotina y 80 mg de vitamina C.',
+    comoSeUsa: 'Tomar 2 cápsulas al día durante 3 meses.',
+    probo: 'Cremas caras y tratamientos',
+  };
+  const crearDePlantillas = (nombre, elegidas, n, formatos = ['1:1', '9:16']) => {
+    const carpeta = path.join(BASE, nombre);
+    fs.rmSync(carpeta, { recursive: true, force: true });
+    const brief = { slug: nombre, estilo: 'imagen-ads', familia: 'imagen-ads', titulo: 'Crème Luna', productoId: 'prueba-0000', fotoProducto: 1, datos: { nombre: 'Crème Luna Colágeno', publico: 'Mujeres de 30 a 50', pais: 'Perú', idioma: 'es' }, cantidad: n, formatos, referencias: [], logo: null, rapido: true, plantillas: { elegidas }, creado: new Date().toISOString() };
+    escribir(R.brief(carpeta), brief);
+    fs.mkdirSync(path.join(carpeta, 'entrada'), { recursive: true });
+    fs.copyFileSync(path.join(APP, 'muestras', 'plantillas', 'producto-muestra.png'), path.join(carpeta, 'entrada', 'producto.png'));
+    escribir(path.join(carpeta, 'entrada', 'ficha-producto.json'), FICHA);
+    escribir(R.lote(carpeta), { version: 1, modelo: 'gpt-image-2-5-sunburst', resolucion: '2K', fondo: 'opaco', producto: 'entrada/producto.png', formatos, logo: null, fiel: false });
+    return { carpeta, brief };
+  };
+  const claude = claudeDePrueba({ carpetas: new Map() });
+
+  // el dibujante: frío (arma o lee el armado guardado y abre el navegador) y caliente
+  let t = Date.now();
+  const cal = await render.calentar();
+  const msFrio = Date.now() - t;
+  check(`El dibujante arranca (${cal.armado === 'nuevo' ? 'armado nuevo' : 'armado guardado'}: ${msFrio} ms, ${cal.aLaVez} a la vez)`, cal.ok !== false && msFrio < 120000, cal);
+
+  // ---- 11a. un lote solo de plantillas sin escena: costo 0, sin el modelo de imagen
+  const soloApp = ['producto-flechas', 'lista-iconos', 'burbujas', 'sticker-oferta'];
+  const a = crearDePlantillas('_img-plantillas-gratis-20261117-1200', soloApp, 4);
+  check('Plantillas sin escena: 0 imágenes por pagar y costo 0 (aunque haya precio por imagen)', lotesMod.piezasPorHacer(a.carpeta, a.brief) === 0 && costoMod.costoMaximoDeLaAccion({ dolaresPorImagen: 0.05 }, a.brief) === 0, { n: lotesMod.piezasPorHacer(a.carpeta, a.brief) });
+  let ctx = ctxDe(a.brief.slug, a.carpeta, a.brief, claude);
+  t = Date.now();
+  let r = await familia._pruebas.estrategia(ctx);
+  const msEstrategia = Date.now() - t;
+  ctx.brief = leer(R.brief(a.carpeta));
+  r = r?.ok ? await promesa2(familia._pruebas.anuncios(ctx), 90000) : r;
+  const msLoteGratis = Date.now() - t;
+  const ordenesA = fs.existsSync(R.motor(a.carpeta)) ? fs.readdirSync(R.motor(a.carpeta)).filter((n) => /^T\d+\.json$/.test(n)) : [];
+  const finalesA = ['V01', 'V02', 'V03', 'V04'].flatMap((v) => ['1x1', '9x16'].map((f) => `${v}_${f}`)).filter((p) => plantillas.estadoComposicion(a.carpeta, p).completa);
+  check(`Lote de 4 anuncios × 2 tamaños solo con la app: listo en ${msLoteGratis} ms (textos en ${msEstrategia} ms), sin llamar al proveedor`, r?.ok === true && ordenesA.length === 0 && finalesA.length === 8, { r, ordenesA, finalesA });
+  const vA = leer(R.v(a.carpeta, 'V01'));
+  check('Los textos salen de la ficha sin la IA (flechas: ingrediente → beneficio, con los mg solo si están en la ficha)', vA?.app_plantilla?.id === 'producto-flechas' && vA.app_plantilla.textos.flechas[0].ingrediente === 'Colágeno hidrolizado' && vA.app_plantilla.textos.flechas[0].beneficio === 'Piel más firme', vA?.app_plantilla?.textos);
+  const vistaA = estadoMod.vistaDelLote({ lote: a.brief.slug, carpeta: a.carpeta, brief: leer(R.brief(a.carpeta)), conductor: { estado: 'listo', paso: 'informe', pasos: [] } });
+  const pA = vistaA.variaciones[0].piezas['1:1'];
+  check('La vista: lista, la imagen es la dibujada (final/), con sus campos para editar y regenerar gratis', pA.estado === 'listo' && /\/final\/V01_1x1\.png\?v=/.test(pA.url) && pA.imagenesRegenerar === 0 && pA.puedeRegenerar && vistaA.variaciones[0].plantilla?.campos?.length > 1, { pA, plantilla: vistaA.variaciones[0].plantilla });
+
+  // ---- 11b. editar un texto: se vuelve a dibujar solo esa variación, en 1-2 s
+  const antes = Object.fromEntries(['V01_1x1', 'V02_1x1', 'V02_9x16'].map((p) => [p, fs.statSync(R.final(a.carpeta, p)).mtimeMs]));
+  t = Date.now();
+  const ed = await plantillas.editarTextos(a.carpeta, 'V02', { titular: 'Así de fácil: piel más firme', beneficios: ['Piel más firme', 'Uñas más fuertes', 'Cabello con brillo'], sticker: 'no va' });
+  const msEditar = Date.now() - t;
+  const despues = Object.fromEntries(['V01_1x1', 'V02_1x1', 'V02_9x16'].map((p) => [p, fs.statSync(R.final(a.carpeta, p)).mtimeMs]));
+  check(`Editar un texto vuelve a dibujar solo esa variación (2 imágenes en ${msEditar} ms), sin IA y sin costo`, msEditar < 6000 && despues.V01_1x1 === antes.V01_1x1 && despues.V02_1x1 > antes.V02_1x1 && despues.V02_9x16 > antes.V02_9x16 && leer(R.v(a.carpeta, 'V02')).app_plantilla.textos.titular === 'Así de fácil: piel más firme', { ed, antes, despues });
+  check('Lo que llega de la pantalla se limpia (un campo de otra plantilla no entra)', !('sticker' in leer(R.v(a.carpeta, 'V02')).app_plantilla.textos), leer(R.v(a.carpeta, 'V02')).app_plantilla.textos);
+  t = Date.now();
+  await plantillas.otraVersion(a.carpeta, 'V01');
+  check(`«Otra versión» de una plantilla sin escena: gratis y al instante (${Date.now() - t} ms)`, costoMod.costoMaximoDeLaAccion({ dolaresPorImagen: 0.05 }, a.brief, { pieza: 'V01_1x1', carpeta: a.carpeta }) === 0);
+
+  // ---- 11c. un lote con escenas: sin texto, una sola escena por variación (el vertical la reutiliza), en paralelo
+  const conEscena = ['antes-despues', 'linea-tiempo', 'foto-tiktok', 'lista-iconos'];
+  const b = crearDePlantillas('_img-plantillas-escenas-20261117-1200', conEscena, 4);
+  check('Con escenas: se cobran solo 3 escenas (una por variación con escena, sin el vertical)', lotesMod.piezasPorHacer(b.carpeta, b.brief) === 3 && costoMod.costoMaximoDeLaAccion({ dolaresPorImagen: 0.05 }, b.brief) === 0.15, { n: lotesMod.piezasPorHacer(b.carpeta, b.brief) });
+  ctx = ctxDe(b.brief.slug, b.carpeta, b.brief, claude);
+  t = Date.now();
+  r = await familia._pruebas.estrategia(ctx);
+  ctx.brief = leer(R.brief(b.carpeta));
+  await plantillas.componerPendientes(b.carpeta, ctx.brief);
+  const msVistaPrevia = Date.now() - t;
+  const previas = ['V01_1x1', 'V01_9x16', 'V04_1x1'].map((p) => plantillas.estadoComposicion(b.carpeta, p));
+  check(`La vista previa con los textos sale antes de la escena (${msVistaPrevia} ms): V01 dibujado e incompleto, V04 completo`, previas[0].existe && !previas[0].completa && previas[1].existe && previas[2].completa, previas);
+  r = await promesa2(familia._pruebas.anuncios(ctx), 90000);
+  const msLoteEscenas = Date.now() - t;
+  const pedidas = listarResultados(b.carpeta).map((x) => x.pieza).sort();
+  check(`Las escenas van al modelo todas en una orden, solo los cuadrados (${pedidas.join(', ')}); lote listo en ${msLoteEscenas} ms`, r?.ok === true && pedidas.join() === 'V01_1x1,V02_1x1,V03_1x1' && fs.readdirSync(R.motor(b.carpeta)).filter((n) => /^T\d+\.json$/.test(n)).length === 1, { r, pedidas });
+  const prompt1 = fs.readFileSync(R.prompt(b.carpeta, 'V01_1x1'), 'utf8');
+  check('El prompt de la escena pide CERO texto y deja libres las zonas de la plantilla (sin titulares ni textos exactos)', /ABSOLUTELY NO TEXT/.test(prompt1) && /no letters/.test(prompt1) && /no logos/.test(prompt1) && !/EXACT VISIBLE TEXT|MAIN HEADLINE/.test(prompt1) && /split vertically into two equal halves/.test(prompt1) && /Same person/.test(prompt1) && !prompt1.includes(leer(R.v(b.carpeta, 'V01')).app_plantilla.textos.titular), prompt1.slice(0, 600));
+  const finalesB = ['V01', 'V02', 'V03', 'V04'].flatMap((v) => ['1x1', '9x16'].map((f) => `${v}_${f}`)).map((p) => [p, plantillas.estadoComposicion(b.carpeta, p).completa]);
+  check('Al llegar cada escena se vuelve a dibujar (cuadrado y vertical con la misma escena): las 8 completas', finalesB.every(([, c]) => c), finalesB);
+  const vistaB = estadoMod.vistaDelLote({ lote: b.brief.slug, carpeta: b.carpeta, brief: leer(R.brief(b.carpeta)), conductor: { estado: 'listo', paso: 'informe', pasos: [] } });
+  check('La vista: todas listas; regenerar una con escena pide 1 imagen y una sin escena, 0', vistaB.variaciones.every((x) => Object.values(x.piezas).every((p) => p.estado === 'listo' && p.url)) && vistaB.variaciones[0].piezas['9:16'].imagenesRegenerar === 1 && vistaB.variaciones[3].piezas['1:1'].imagenesRegenerar === 0, vistaB.variaciones.map((x) => Object.values(x.piezas).map((p) => p.estado)));
+
+  // ---- 11d. regenerar una escena: solo el cuadrado va al modelo, el vertical se vuelve a dibujar con la nueva
+  const marcaV = fs.statSync(R.final(b.carpeta, 'V01_9x16')).mtimeMs;
+  plantillas.notaParaEscena(b.carpeta, 'V01', 'Otra persona, más luz');
+  escribir(R.pedidos(b.carpeta), { pedidos: [{ id: 'U0001', pieza: 'V01_1x1', instruccion: '', fecha: new Date().toISOString() }] });
+  ctx = ctxDe(b.brief.slug, b.carpeta, leer(R.brief(b.carpeta)), claude);
+  r = await promesa2(familia._pruebas.anuncios(ctx), 90000);
+  const u = listarResultados(b.carpeta).filter((x) => String(x.orden).startsWith('U0001')).map((x) => `${x.pieza}:${x.orden}`);
+  check('Regenerar la escena: una sola orden (el cuadrado), con la nota del usuario en el prompt; el vertical se redibuja', r?.ok === true && u.join() === 'V01_1x1:U0001' && /Otra persona, más luz/.test(fs.readFileSync(R.prompt(b.carpeta, 'V01_1x1'), 'utf8')) && fs.statSync(R.final(b.carpeta, 'V01_9x16')).mtimeMs > marcaV, { r, u });
+
+  // ---- 11e. el kit de marca y los tiempos del dibujante
+  const kit = await plantillas.kitAutomatico(path.join(APP, 'muestras', 'plantillas', 'producto-muestra.png'));
+  check(`El kit de marca sale de la foto (colores dominantes no neutros: ${kit.primario} y ${kit.secundario})`, /^#[0-9A-F]{6}$/.test(kit.primario) && /^#[0-9A-F]{6}$/.test(kit.secundario) && kit.primario !== kit.secundario, kit);
+  const med = render.medidas();
+  console.log(`   Tiempos: dibujante frío ${msFrio} ms; por imagen ${med.msPromedio} ms en promedio (${med.renders} imágenes, con ${cal.aLaVez} a la vez); lote gratis de 8 imágenes ${msLoteGratis} ms; vista previa ${msVistaPrevia} ms; lote con 3 escenas simuladas ${msLoteEscenas} ms; editar un texto ${msEditar} ms.`);
+  fs.rmSync(BASE, { recursive: true, force: true });
+  render.cerrar();
+} catch (e) {
+  check('La sección 11 corre entera', false, String(e?.stack || e));
+}
+
 function listarResultados(carpeta) {
   const dir = R.motor(carpeta);
   const salida = [];

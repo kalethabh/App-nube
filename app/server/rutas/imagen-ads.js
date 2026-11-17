@@ -41,7 +41,7 @@ import express from 'express';
 import { TIPOS_MEDIO, dentroDe, stat, listar, existe } from '../lib/archivos.js';
 import { ErrorApp, soloDesdeLaApp, formatoDeBytes, rutaFoto } from '../lib/productos.js';
 import { aLaPapelera } from '../lib/papelera.js';
-import { TEMP } from '../lib/rutas.js';
+import { TEMP, RAIZ } from '../lib/rutas.js';
 import { iniciarProduccion, continuar, detener, leerConductor, esperarFamilias, reabrir, estadoDeLaFila, tomarElMando } from '../lib/conductor.js';
 import { modoPrueba } from '../lib/procesos.js';
 import { miniatura, anchoPermitido } from '../lib/miniaturas.js';
@@ -55,6 +55,13 @@ import { costoDeImagenAds } from '../lib/costo-estimado.js';
 import { costoMaximoDeLaAccion, costoAprobado } from '../lib/imagen-ads/costo.js';
 import * as biblioteca from '../lib/imagen-ads/biblioteca-referencias.js';
 import { estadoTitulos, proponerTitulos, seleccionarTitulos, titulosEnCurso } from '../lib/imagen-ads/titulos.js';
+import * as plantillas from '../lib/imagen-ads/plantillas.js';
+import { POR_ID as PLANTILLA_POR_ID } from '../lib/imagen-ads/catalogo-plantillas.js';
+import { renderizar, composicionDe, calentar as calentarPlantillas } from '../lib/plantillas/render.js';
+import { leerJSON } from '../lib/archivos.js';
+import { idValido } from '../lib/productos.js';
+import * as videoImagenes from '../lib/imagen-ads/video-imagenes.js';
+import { rutaDeReferencia } from './referencias.js';
 
 // ---------------------------------------------------------------- utilidades
 
@@ -247,8 +254,26 @@ export default function rutasImagenAds(app) {
     res.set('Cache-Control', 'no-store').json({ lotes: lotes.listarLotes(), sesionesDeLotes: { ahora: t.enCurso, maximo: t.maximo } });
   });
 
-  app.post('/api/imagen-ads', soloDesdeLaApp, conErrores((req, res) => {
-    res.status(201).json(lotes.crearLote(req.body || {}));
+  app.post('/api/imagen-ads', soloDesdeLaApp, conErrores(async (req, res) => {
+    const cuerpo = req.body || {};
+    // «De un video, imágenes»: la cantidad es la de los cuadros elegidos y el lote va con plantillas
+    const v = cuerpo.video && typeof cuerpo.video === 'object' ? cuerpo.video : null;
+    if (!v) return res.status(201).json(lotes.crearLote(cuerpo));
+    const e = videoImagenes.estadoTrabajo(String(v.id || ''));
+    if (!e) throw new ErrorApp(404, 'No encuentro ese video. Súbelo otra vez.');
+    if (e.estado !== 'listo') throw new ErrorApp(409, 'Espera a que termine de analizar tu video.');
+    const seleccion = (Array.isArray(v.seleccion) && v.seleccion.length ? v.seleccion : e.seleccion || videoImagenes.eleccionSinIA(e.cuadros, Number(cuerpo.cantidad) || 6))
+      .filter((x) => Array.isArray(x?.cuadros) && x.cuadros.length)
+      .slice(0, 10);
+    if (!seleccion.length) throw new ErrorApp(400, 'Elige al menos un cuadro de tu video.');
+    const r = lotes.crearLote({ ...cuerpo, cantidad: seleccion.length, modo: 'nuevos', rapido: true, plantillas: { elegidas: [], ...(cuerpo.plantillas?.kit ? { kit: cuerpo.plantillas.kit } : {}) } });
+    const carpeta = carpetaDe(r.lote);
+    const cuadros = await videoImagenes.copiarAlLote(e.id, carpeta, seleccion);
+    const brief = lotes.leerBrief(carpeta);
+    brief.cantidad = cuadros.length;
+    brief.video = { id: e.id, cuadros };
+    guardarBrief(carpeta, brief);
+    res.status(201).json({ lote: r.lote, brief });
   }));
 
   // ------------------------------------------------------------ referencias (solo en borrador)
@@ -400,6 +425,9 @@ export default function rutasImagenAds(app) {
     res.set('ETag', etag);
     if (req.headers['if-none-match'] === etag) return res.status(304).end();
     const conductor = paraLaPantalla(leerConductor(lote));
+    // (plantillas con el lote quieto: si algo quedó sin dibujar o cambió —el producto ya sin fondo, otra escena—, se
+    // dibuja de fondo y la pantalla lo ve en la próxima vuelta)
+    if (brief.plantillas && conductor && !enMarcha(lote)) plantillas.componerPendientes(carpeta, brief).catch(() => {});
     res.json(vistaDelLote({ lote, carpeta, brief, conductor, fila: conductor?.estado === 'esperando' ? filaDe(lote) : null, modoPrueba: conductor ? Boolean(conductor.modoPrueba) : modoPrueba() }));
   }));
 
@@ -432,14 +460,29 @@ export default function rutasImagenAds(app) {
 
   // ------------------------------------------------------------ regenerar
   app.post('/api/imagen-ads/:lote/regenerar', soloDesdeLaApp, conErrores(async (req, res) => {
-    const { lote, brief } = elLote(req);
+    const { lote, carpeta, brief } = elLote(req);
     const c = leerConductor(lote);
     if (!c) throw new ErrorApp(409, 'Este lote todavía no empezó.');
     if (Boolean(c.modoPrueba) !== modoPrueba()) {
       throw new ErrorApp(409, c.modoPrueba ? 'Este lote se empezó en modo prueba. Abre la app en modo prueba para cambiarlo (así no se gasta nada).' : 'Este lote se empezó de verdad. Abre la app sin el modo prueba para cambiarlo.');
     }
     if (!tomarElMando()) throw new ErrorApp(409, 'La app ya está abierta en otra ventana, y es esa la que produce. Usa esa ventana.');
-    await comprobarCostoConfirmado(brief, req.body);
+    // PLANTILLAS: una que dibuja solo la app sale otra versión de sus textos, gratis y al instante; una con escena pide
+    // otra escena (la del cuadrado: el vertical la reutiliza) y la nota del usuario va a la escena, sin la IA de texto.
+    if (brief.plantillas && req.body?.tipo !== 'prompt') {
+      const pieza = String(req.body?.pieza || '');
+      const v = pieza.split('_')[0];
+      const ap = plantillas.plantillaDe(carpeta, v);
+      if (!ap) throw new ErrorApp(404, 'No encuentro esa imagen en el lote.');
+      if (!ap.escena) {
+        const r = await plantillas.otraVersion(carpeta, v);
+        return res.json({ pedido: { id: null, estado: 'listo' }, gratis: true, ms: r.ms });
+      }
+      const instruccion = typeof req.body?.instruccion === 'string' ? req.body.instruccion.trim().slice(0, 600) : '';
+      await comprobarCostoConfirmado(brief, { ...req.body, carpeta });
+      plantillas.notaParaEscena(carpeta, v, instruccion);
+      req.body = { pieza: piezaId(v, '1:1') };
+    } else await comprobarCostoConfirmado(brief, req.body);
     const pedido = lotes.agregarPedido(lote, req.body || {});
     // Lo detuviste: el pedido queda guardado y se hace al tocar "Continuar" (reabrir lo continuaria entero, con todo lo
     // que faltaba). Terminado, en pausa por saldo o por el plan de Claude, o con error: se reabre o sigue ya; en
@@ -453,10 +496,137 @@ export default function rutasImagenAds(app) {
     res.status(202).json({ pedido: { id: pedido.id, estado: 'pendiente' } });
   }));
 
+  // ------------------------------------------------------------ plantillas: editar los textos (sin IA y sin costo)
+  // POST /api/imagen-ads/:lote/textos { v, textos } -> { ms, piezas }: guarda y vuelve a dibujar esa variación (1-2 s)
+  app.post('/api/imagen-ads/:lote/textos', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { carpeta, brief } = elLote(req);
+    if (!brief.plantillas) throw new ErrorApp(409, 'Este lote no es de plantillas: sus textos los dibuja el modelo de imagen.');
+    const v = String(req.body?.v || '');
+    if (!/^V\d{2,3}$/.test(v) || !idsDelLote(brief.cantidad).includes(v)) throw new ErrorApp(404, 'No encuentro ese anuncio en el lote.');
+    try {
+      res.json(await plantillas.editarTextos(carpeta, v, req.body?.textos));
+    } catch (e) {
+      if (e?.status) throw new ErrorApp(e.status, e.message);
+      throw e;
+    }
+  }));
+
+  // ------------------------------------------------------------ el kit de marca de un producto
+  app.get('/api/imagen-ads/kit/:producto', conErrores(async (req, res) => {
+    const id = String(req.params.producto || '');
+    if (!idValido(id)) throw new ErrorApp(404, 'No encuentro ese producto.');
+    res.set('Cache-Control', 'no-store').json({ kit: await plantillas.kitDe(id), fuentesTitulo: plantillas.FUENTES_TITULO, fuentesMano: plantillas.FUENTES_MANO, stickers: plantillas.STICKERS });
+  }));
+  app.put('/api/imagen-ads/kit/:producto', soloDesdeLaApp, conErrores((req, res) => {
+    const id = String(req.params.producto || '');
+    if (!idValido(id)) throw new ErrorApp(404, 'No encuentro ese producto.');
+    res.json({ kit: plantillas.guardarKit(id, req.body?.kit || req.body || {}) });
+  }));
+
+  // ------------------------------------------------------------ la muestra de cada plantilla (con tu producto y tu kit)
+  // GET /api/imagen-ads/plantillas/muestra/:id?producto=<id>&foto=<n>&p=#hex&s=#hex&ft=&fs=&st=  -> PNG (guardado)
+  app.get('/api/imagen-ads/plantillas/muestra/:id', conErrores(async (req, res) => {
+    const id = String(req.params.id || '');
+    const cat = PLANTILLA_POR_ID.get(id);
+    if (!cat) throw new ErrorApp(404, 'No existe esa plantilla.');
+    const productoId = String(req.query.producto || '');
+    const n = Number(req.query.foto) || 1;
+    const foto = idValido(productoId) ? rutaFoto(productoId, n) : null;
+    const muestra = path.join(RAIZ, 'app', 'muestras', 'plantillas', 'producto-muestra.png');
+    const kitBase = idValido(productoId) ? await plantillas.kitDe(productoId) : {};
+    const kit = plantillas.limpiarKit({ ...kitBase, ...(req.query.p ? { primario: String(req.query.p) } : {}), ...(req.query.s ? { secundario: String(req.query.s) } : {}), ...(req.query.ft ? { fuenteTitulo: String(req.query.ft) } : {}), ...(req.query.fs ? { fuenteScript: String(req.query.fs) } : {}), ...(req.query.st ? { sticker: String(req.query.st) } : {}) });
+    const archivo = foto || muestra;
+    const ficha = idValido(productoId) ? leerJSON(path.join(TEMP, '_productos', productoId, 'ficha.json')) : null;
+    const textos = plantillas.textosDeMuestra(id, productoId, ficha);
+    const clave = crypto.createHash('sha1').update(JSON.stringify({ id, archivo, f: firma(archivo), kit, textos, v: 4 })).digest('hex').slice(0, 20);
+    const salida = path.join(RAIZ, '.cache', 'plantillas-muestras', `${clave}.png`);
+    if (!existe(salida)) {
+      await renderizar({ composicion: composicionDe('1:1'), props: { plantilla: id, formato: '1:1', textos, kit, producto: { archivo, recortado: archivo === muestra }, escena: cat.escena ? { espera: 'Aquí va la escena (sin texto)' } : null, logo: null }, salida });
+    }
+    res.set({ 'Cache-Control': 'private, max-age=600', 'X-Content-Type-Options': 'nosniff' }).type('image/png').sendFile(salida, { dotfiles: 'allow' });
+  }));
+
+  // ------------------------------------------------------------ «De un video, imágenes» (gratis salvo la IA y «Pulir con IA»)
+  // POST /api/imagen-ads/video { subido: 'subido:<id>|<nombre>' } | { anuncio: <slug> }  -> 201 { id } (analiza de fondo)
+  app.post('/api/imagen-ads/video', soloDesdeLaApp, conErrores(async (req, res) => {
+    const b = req.body || {};
+    let video = null;
+    let transcripcion = '';
+    let origen = null;
+    const subido = typeof b.subido === 'string' ? /^subido:([a-z0-9]{6,30})\|/.exec(b.subido)?.[1] : null;
+    if (subido) {
+      video = rutaDeReferencia(subido);
+      origen = { tipo: 'subido', id: subido };
+    } else if (typeof b.anuncio === 'string') {
+      const a = await videoImagenes.videoDeAnuncio(b.anuncio);
+      video = a?.video || null;
+      transcripcion = a?.transcripcion || '';
+      origen = { tipo: 'anuncio', slug: b.anuncio };
+    }
+    if (!video) throw new ErrorApp(404, 'No encuentro ese video. Súbelo otra vez.');
+    res.status(201).json(videoImagenes.crearTrabajo({ video, origen, transcripcion }));
+  }));
+  app.get('/api/imagen-ads/video/:id', conErrores((req, res) => {
+    const e = videoImagenes.estadoTrabajo(String(req.params.id || ''));
+    if (!e) throw new ErrorApp(404, 'No encuentro ese video.');
+    res.set('Cache-Control', 'no-store').json(e);
+  }));
+  // POST /api/imagen-ads/video/:id/elegir { cantidad, conIA, productoId } -> { seleccion, conIA, ms, motivo? }
+  app.post('/api/imagen-ads/video/:id/elegir', soloDesdeLaApp, conErrores(async (req, res) => {
+    const id = String(req.params.id || '');
+    if (!videoImagenes.estadoTrabajo(id)) throw new ErrorApp(404, 'No encuentro ese video.');
+    const productoId = String(req.body?.productoId || '');
+    let contexto = null;
+    if (idValido(productoId)) {
+      try {
+        const { contextoDelLote } = await import('../lib/imagen-ads/textos-plantillas.js');
+        contexto = contextoDelLote(path.join(TEMP, '_productos', productoId), { productoId, datos: {} });
+      } catch {
+        contexto = null;
+      }
+    }
+    try {
+      res.json(await videoImagenes.elegir(id, { cantidad: Number(req.body?.cantidad) || 6, conIA: req.body?.conIA === true, contexto }));
+    } catch (e) {
+      if (e?.status) throw new ErrorApp(e.status, e.message);
+      throw e;
+    }
+  }));
+  app.get('/archivos/video-imagenes/:id/cuadros/:archivo', (req, res) => {
+    const abs = videoImagenes.rutaArchivo(String(req.params.id || ''), `cuadros/${String(req.params.archivo || '')}`);
+    if (!abs) return res.status(404).json({ error: 'No encuentro ese cuadro.' });
+    res.set({ 'Cache-Control': 'private, max-age=600', 'X-Content-Type-Options': 'nosniff' }).type('image/png').sendFile(abs, { dotfiles: 'allow' });
+  });
+
+  // «Pulir con IA» un cuadro del video: el modelo de imagen lo rehace limpio y nítido (sin texto). Cuesta 1 imagen.
+  app.post('/api/imagen-ads/:lote/pulir', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    const c = leerConductor(lote);
+    if (!c) throw new ErrorApp(409, 'Este lote todavía no empezó.');
+    if (Boolean(c.modoPrueba) !== modoPrueba()) throw new ErrorApp(409, c.modoPrueba ? 'Este lote se empezó en modo prueba. Abre la app en modo prueba para cambiarlo.' : 'Este lote se empezó de verdad. Abre la app sin el modo prueba para cambiarlo.');
+    if (!tomarElMando()) throw new ErrorApp(409, 'La app ya está abierta en otra ventana, y es esa la que produce. Usa esa ventana.');
+    const v = String(req.body?.v || '');
+    if (!/^V\d{2,3}$/.test(v) || !idsDelLote(brief.cantidad).includes(v)) throw new ErrorApp(404, 'No encuentro ese anuncio en el lote.');
+    await comprobarCostoConfirmado(brief, { ...req.body, pulir: true, carpeta });
+    try {
+      plantillas.prepararPulido(carpeta, v);
+    } catch (e) {
+      if (e?.status) throw new ErrorApp(e.status, e.message);
+      throw e;
+    }
+    const pedido = lotes.agregarPedido(lote, { pieza: piezaId(v, '1:1') });
+    try {
+      reabrir(lote, 'anuncios');
+    } catch (e) {
+      console.error(`[imagen-ads] ${lote}: no pude reabrir el lote para pulir ${v}: ${e?.message || e}`);
+    }
+    res.status(202).json({ pedido: { id: pedido.id, estado: 'pendiente' } });
+  }));
+
   // ------------------------------------------------------------ el zip
   app.get('/api/imagen-ads/:lote/descargar', conErrores(async (req, res) => {
     const { lote, carpeta, brief } = elLote(req);
-    const conLogo = req.query.logo !== '0' && Boolean(brief.logo?.posicion && existe(R.logo(carpeta)));
+    const conLogo = !brief.plantillas && req.query.logo !== '0' && Boolean(brief.logo?.posicion && existe(R.logo(carpeta)));
     const conPrompts = req.query.prompts === '1';
     const titulo = nombreSeguro(brief.titulo || brief.datos?.nombre, 'Anuncios');
     const shaLogo = conLogo ? local.sha1DelLogo(carpeta) : null;
@@ -464,6 +634,12 @@ export default function rutasImagenAds(app) {
     for (const v of idsDelLote(brief.cantidad)) {
       for (const f of brief.formatos || ['1:1']) {
         const p = piezaId(v, f);
+        // (plantillas: la imagen dibujada, y solo si ya tiene su escena: nunca una vista previa)
+        if (brief.plantillas) {
+          const e = plantillas.estadoComposicion(carpeta, p);
+          if (e.existe && e.completa) entradas.push({ nombre: `${titulo}/${v}-${nombreFormato(f)}.png`, origen: R.final(carpeta, p) });
+          continue;
+        }
         if (!existe(R.img(carpeta, p))) continue;
         // "Con logo" lleva solo las que ya tienen su logo pegado (las que todavia se revisan o se rehacen, todavia no):
         // nunca una mezcla con y sin logo. La pantalla dice cuantas van.
@@ -518,6 +694,10 @@ export default function rutasImagenAds(app) {
       res.redirect(302, `/archivos/imagen-ads/${encodeURIComponent(a.lote)}/${a.rel}`);
     }
   });
+
+  // El dibujante de las plantillas se calienta al arrancar (arma o lee el armado guardado y abre su navegador): así la
+  // primera imagen de un lote ya sale en 1-2 s.
+  if (!process.env.ANUNCIOS_SIN_CALENTAR_PLANTILLAS) setTimeout(() => calentarPlantillas().catch((e) => console.error('[plantillas] no pude calentar:', e?.message || e)), 4000).unref();
 
   // Los pedidos que quedaron colgados (la app se cerro justo despues de un "Regenerar"): un barrido al arrancar.
   if (!process.env.ANUNCIOS_NO_RETOMAR) {

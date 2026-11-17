@@ -265,13 +265,17 @@ export function Avance({ vista, onContinuar, onDetener, ocupado, enlaceOtro }) {
     <Insignia estado="generando" texto={enCamino && c.estado === 'listo' ? 'Regenerando' : 'Creándose'} />
   );
 
+  // (lote de plantillas: sus variaciones traen la plantilla)
+  const conPlantillas = (vista?.variaciones || []).some((x) => x.plantilla);
   const detalle = alto
     ? null
     : enFila
       ? detrasDe.length
         ? `En la fila detrás de «${detrasDe[0]}»${detrasDe.length > 1 ? ` y ${detrasDe.length - 1 === 1 ? 'otro más' : `otros ${detrasDe.length - 1}`}` : ''}: empieza solo apenas termine. No tienes que hacer nada.`
         : 'Empieza solo apenas haya lugar. No tienes que hacer nada.'
-      : conImagen
+      : conPlantillas
+        ? 'La app dibuja cada anuncio con tus textos en segundos; los que usan una escena se ven ya con sus textos y la escena llega sola, sin texto. Puedes cambiar cualquier texto gratis con «Editar textos».'
+        : conImagen
         ? 'Cada imagen aparece abajo apenas existe; la IA la revisa y, si ve algo, te deja una nota en esa imagen (no la rehace sola: tú decides).'
         : 'Las primeras imágenes suelen aparecer a los 10 o 15 minutos. No tienes que hacer nada.';
 
