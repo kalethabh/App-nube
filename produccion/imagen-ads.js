@@ -306,12 +306,14 @@ export const ESCENA_SIN_TEXTO =
   'Photorealistic (or clean illustration when asked), high quality, sharp, well lit, natural colors.';
 
 /** El prompt de la escena de una plantilla (V##.json con app_plantilla.escena): la descripción + sin texto + el producto. */
-export function construirPromptEscena(ad, { correccion = null } = {}) {
+export function construirPromptEscena(ad, { correccion = null, referencia = false } = {}) {
   const partes = [`SCENE FOR AN AD TEMPLATE:\n${strPy(ad.visual_prompt)}`, ESCENA_SIN_TEXTO];
   const fix = bloqueCorreccion(correccion);
   if (fix) partes.push(fix);
   partes.push(
-    'The attached image is the real product. Only if the scene shows the product, reproduce it with total fidelity (same shape, packaging, cap, label, colors and proportions); otherwise, do not show it.'
+    referencia
+      ? 'The SECOND attached image is the real product: if it appears, keep it identical (same shape, packaging, cap, label, colors and proportions).'
+      : 'The attached image is the real product. Only if the scene shows the product, reproduce it with total fidelity (same shape, packaging, cap, label, colors and proportions); otherwise, do not show it.'
   );
   return partes.join('\n\n');
 }
@@ -324,7 +326,7 @@ export function construirPromptEscena(ad, { correccion = null } = {}) {
  * del logo.
  */
 export function construirPrompt(ad, { logo = null, correccion = null, referencia = false } = {}) {
-  if (ad?.app_plantilla?.escena) return construirPromptEscena(ad, { correccion });
+  if (ad?.app_plantilla?.escena) return construirPromptEscena(ad, { correccion, referencia });
   const pos = posicionDe(logo);
   // «Más de lo mismo» (referencia: true): la PRIMERA imagen adjunta es el anuncio de referencia y la SEGUNDA, el producto
   const rapido = referencia && (ad?.app_rapido === 'copiar' || ad?.app_rapido === 'inspirar') ? ad.app_rapido : null;

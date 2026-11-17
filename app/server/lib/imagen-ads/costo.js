@@ -6,7 +6,7 @@ export function imagenesDeLaAccion(brief, cuerpo = null) {
   // plantillas: solo las escenas cuestan (una por variación con escena); lo que dibuja la app es gratis
   if (brief?.plantillas) {
     if (!cuerpo) return escenasDe(brief.cantidad, brief.plantillas.elegidas);
-    if (cuerpo.tipo === 'prompt') return 1;
+    if (cuerpo.tipo === 'prompt' || cuerpo.pulir === true) return 1;
     const v = String(cuerpo.pieza || '').split('_')[0];
     return cuerpo.carpeta && plantillaDe(cuerpo.carpeta, v)?.escena ? 1 : 0;
   }

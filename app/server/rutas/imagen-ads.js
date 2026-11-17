@@ -60,6 +60,8 @@ import { POR_ID as PLANTILLA_POR_ID } from '../lib/imagen-ads/catalogo-plantilla
 import { renderizar, composicionDe, calentar as calentarPlantillas } from '../lib/plantillas/render.js';
 import { leerJSON } from '../lib/archivos.js';
 import { idValido } from '../lib/productos.js';
+import * as videoImagenes from '../lib/imagen-ads/video-imagenes.js';
+import { rutaDeReferencia } from './referencias.js';
 
 // ---------------------------------------------------------------- utilidades
 
@@ -252,8 +254,26 @@ export default function rutasImagenAds(app) {
     res.set('Cache-Control', 'no-store').json({ lotes: lotes.listarLotes(), sesionesDeLotes: { ahora: t.enCurso, maximo: t.maximo } });
   });
 
-  app.post('/api/imagen-ads', soloDesdeLaApp, conErrores((req, res) => {
-    res.status(201).json(lotes.crearLote(req.body || {}));
+  app.post('/api/imagen-ads', soloDesdeLaApp, conErrores(async (req, res) => {
+    const cuerpo = req.body || {};
+    // «De un video, imágenes»: la cantidad es la de los cuadros elegidos y el lote va con plantillas
+    const v = cuerpo.video && typeof cuerpo.video === 'object' ? cuerpo.video : null;
+    if (!v) return res.status(201).json(lotes.crearLote(cuerpo));
+    const e = videoImagenes.estadoTrabajo(String(v.id || ''));
+    if (!e) throw new ErrorApp(404, 'No encuentro ese video. Súbelo otra vez.');
+    if (e.estado !== 'listo') throw new ErrorApp(409, 'Espera a que termine de analizar tu video.');
+    const seleccion = (Array.isArray(v.seleccion) && v.seleccion.length ? v.seleccion : e.seleccion || videoImagenes.eleccionSinIA(e.cuadros, Number(cuerpo.cantidad) || 6))
+      .filter((x) => Array.isArray(x?.cuadros) && x.cuadros.length)
+      .slice(0, 10);
+    if (!seleccion.length) throw new ErrorApp(400, 'Elige al menos un cuadro de tu video.');
+    const r = lotes.crearLote({ ...cuerpo, cantidad: seleccion.length, modo: 'nuevos', rapido: true, plantillas: { elegidas: [], ...(cuerpo.plantillas?.kit ? { kit: cuerpo.plantillas.kit } : {}) } });
+    const carpeta = carpetaDe(r.lote);
+    const cuadros = await videoImagenes.copiarAlLote(e.id, carpeta, seleccion);
+    const brief = lotes.leerBrief(carpeta);
+    brief.cantidad = cuadros.length;
+    brief.video = { id: e.id, cuadros };
+    guardarBrief(carpeta, brief);
+    res.status(201).json({ lote: r.lote, brief });
   }));
 
   // ------------------------------------------------------------ referencias (solo en borrador)
@@ -524,6 +544,83 @@ export default function rutasImagenAds(app) {
       await renderizar({ composicion: composicionDe('1:1'), props: { plantilla: id, formato: '1:1', textos, kit, producto: { archivo, recortado: archivo === muestra }, escena: cat.escena ? { espera: 'Aquí va la escena (sin texto)' } : null, logo: null }, salida });
     }
     res.set({ 'Cache-Control': 'private, max-age=600', 'X-Content-Type-Options': 'nosniff' }).type('image/png').sendFile(salida, { dotfiles: 'allow' });
+  }));
+
+  // ------------------------------------------------------------ «De un video, imágenes» (gratis salvo la IA y «Pulir con IA»)
+  // POST /api/imagen-ads/video { subido: 'subido:<id>|<nombre>' } | { anuncio: <slug> }  -> 201 { id } (analiza de fondo)
+  app.post('/api/imagen-ads/video', soloDesdeLaApp, conErrores(async (req, res) => {
+    const b = req.body || {};
+    let video = null;
+    let transcripcion = '';
+    let origen = null;
+    const subido = typeof b.subido === 'string' ? /^subido:([a-z0-9]{6,30})\|/.exec(b.subido)?.[1] : null;
+    if (subido) {
+      video = rutaDeReferencia(subido);
+      origen = { tipo: 'subido', id: subido };
+    } else if (typeof b.anuncio === 'string') {
+      const a = await videoImagenes.videoDeAnuncio(b.anuncio);
+      video = a?.video || null;
+      transcripcion = a?.transcripcion || '';
+      origen = { tipo: 'anuncio', slug: b.anuncio };
+    }
+    if (!video) throw new ErrorApp(404, 'No encuentro ese video. Súbelo otra vez.');
+    res.status(201).json(videoImagenes.crearTrabajo({ video, origen, transcripcion }));
+  }));
+  app.get('/api/imagen-ads/video/:id', conErrores((req, res) => {
+    const e = videoImagenes.estadoTrabajo(String(req.params.id || ''));
+    if (!e) throw new ErrorApp(404, 'No encuentro ese video.');
+    res.set('Cache-Control', 'no-store').json(e);
+  }));
+  // POST /api/imagen-ads/video/:id/elegir { cantidad, conIA, productoId } -> { seleccion, conIA, ms, motivo? }
+  app.post('/api/imagen-ads/video/:id/elegir', soloDesdeLaApp, conErrores(async (req, res) => {
+    const id = String(req.params.id || '');
+    if (!videoImagenes.estadoTrabajo(id)) throw new ErrorApp(404, 'No encuentro ese video.');
+    const productoId = String(req.body?.productoId || '');
+    let contexto = null;
+    if (idValido(productoId)) {
+      try {
+        const { contextoDelLote } = await import('../lib/imagen-ads/textos-plantillas.js');
+        contexto = contextoDelLote(path.join(TEMP, '_productos', productoId), { productoId, datos: {} });
+      } catch {
+        contexto = null;
+      }
+    }
+    try {
+      res.json(await videoImagenes.elegir(id, { cantidad: Number(req.body?.cantidad) || 6, conIA: req.body?.conIA === true, contexto }));
+    } catch (e) {
+      if (e?.status) throw new ErrorApp(e.status, e.message);
+      throw e;
+    }
+  }));
+  app.get('/archivos/video-imagenes/:id/cuadros/:archivo', (req, res) => {
+    const abs = videoImagenes.rutaArchivo(String(req.params.id || ''), `cuadros/${String(req.params.archivo || '')}`);
+    if (!abs) return res.status(404).json({ error: 'No encuentro ese cuadro.' });
+    res.set({ 'Cache-Control': 'private, max-age=600', 'X-Content-Type-Options': 'nosniff' }).type('image/png').sendFile(abs, { dotfiles: 'allow' });
+  });
+
+  // «Pulir con IA» un cuadro del video: el modelo de imagen lo rehace limpio y nítido (sin texto). Cuesta 1 imagen.
+  app.post('/api/imagen-ads/:lote/pulir', soloDesdeLaApp, conErrores(async (req, res) => {
+    const { lote, carpeta, brief } = elLote(req);
+    const c = leerConductor(lote);
+    if (!c) throw new ErrorApp(409, 'Este lote todavía no empezó.');
+    if (Boolean(c.modoPrueba) !== modoPrueba()) throw new ErrorApp(409, c.modoPrueba ? 'Este lote se empezó en modo prueba. Abre la app en modo prueba para cambiarlo.' : 'Este lote se empezó de verdad. Abre la app sin el modo prueba para cambiarlo.');
+    if (!tomarElMando()) throw new ErrorApp(409, 'La app ya está abierta en otra ventana, y es esa la que produce. Usa esa ventana.');
+    const v = String(req.body?.v || '');
+    if (!/^V\d{2,3}$/.test(v) || !idsDelLote(brief.cantidad).includes(v)) throw new ErrorApp(404, 'No encuentro ese anuncio en el lote.');
+    await comprobarCostoConfirmado(brief, { ...req.body, pulir: true, carpeta });
+    try {
+      plantillas.prepararPulido(carpeta, v);
+    } catch (e) {
+      if (e?.status) throw new ErrorApp(e.status, e.message);
+      throw e;
+    }
+    const pedido = lotes.agregarPedido(lote, { pieza: piezaId(v, '1:1') });
+    try {
+      reabrir(lote, 'anuncios');
+    } catch (e) {
+      console.error(`[imagen-ads] ${lote}: no pude reabrir el lote para pulir ${v}: ${e?.message || e}`);
+    }
+    res.status(202).json({ pedido: { id: pedido.id, estado: 'pendiente' } });
   }));
 
   // ------------------------------------------------------------ el zip

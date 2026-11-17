@@ -283,6 +283,8 @@ export function textosPara(id, ctx, k = 0) {
         respuesta: [ctx.queEs, ctx.comoSeUsa.split('.')[0]].filter(Boolean).join(' ').slice(0, 200) || b.slice(0, 2).join('. '),
         legal,
       };
+    case 'foto-titular':
+      return { titular: titularDe(ctx, k + 1, { dolor: true }), nota: '', legal };
     case 'sticker-oferta':
       return { titular: titularDe(ctx, k + 2), sticker: ctx.precio || (/\b\d+\s*frascos?\b/i.exec(ctx.oferta)?.[0] ?? 'Nuevo'), franja: ctx.cta || 'Pídelo hoy', legal };
     case 'casi-agotado':
@@ -292,6 +294,37 @@ export function textosPara(id, ctx, k = 0) {
     default:
       return { titular: titularDe(ctx, k), legal };
   }
+}
+
+/** Renglones cortos de subtítulo (2 o 3) a partir de una frase. */
+function renglones(t) {
+  const p = limpio(t).split(' ').filter(Boolean);
+  const n = p.length <= 5 ? 1 : p.length <= 10 ? 2 : 3;
+  const tam = Math.ceil(p.length / n);
+  return Array.from({ length: n }, (_, i) => p.slice(i * tam, (i + 1) * tam).join(' ')).filter(Boolean);
+}
+
+/**
+ * «De un video, imágenes»: los textos de un cuadro según su ÁNGULO (sin la IA): dolor y objeción con las palabras del
+ * cliente, prueba social con los ganchos validados, mecanismo e ingrediente con la ficha, estatus con el deseo.
+ */
+export function textosPorAngulo(angulo, plantilla, ctx, k = 0) {
+  const base = textosPara(plantilla, ctx, k);
+  const ing = ctx.ingredientes.map((x) => x.nombre.toLowerCase());
+  const conIng = ing.length ? `Con ${ing.length > 1 ? `${ing.slice(0, -1).join(', ')} y ${ing[ing.length - 1]}` : ing[0]}` : '';
+  const frase = {
+    dolor: elegir(ctx.dolores, k),
+    objecion: elegir(ctx.objeciones, k) || (ctx.probo ? `¿Ya probaste ${ctx.probo.toLowerCase()}?` : ''),
+    'prueba-social': elegir(ctx.ganchos, k) || elegir(ctx.hooks, k),
+    mecanismo: 'Así funciona',
+    ingrediente: conIng && palabras(conIng) <= 8 ? conIng : beneficio(ctx, k),
+    estatus: ctx.deseo && palabras(ctx.deseo) <= 9 ? ctx.deseo : beneficio(ctx, k + 1),
+    producto: `${nombreCorto(ctx.nombre)}: ${beneficio(ctx, k).replace(/^[A-ZÁÉÍÓÚ](?![A-ZÁÉÍÓÚ])/, (c) => c.toLowerCase())}`,
+  }[angulo];
+  if (!frase) return base;
+  if (plantilla === 'foto-tiktok') return { ...base, lineas: renglones(frase) };
+  if (plantilla === 'foto-titular') return { ...base, titular: frase, nota: angulo === 'mecanismo' ? beneficio(ctx, k) : '' };
+  return base;
 }
 
 const recortar = (t, max) => limpio(t, 2000).slice(0, max);

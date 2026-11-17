@@ -2,7 +2,7 @@
 // burbujas de chat «tus problemas / nuestro consejo», foto casera con subtítulos de TikTok, reseña tipo tuit con 3
 // íconos y captura de un comentario con su respuesta. Solo la foto casera necesita una escena.
 import { AbsoluteFill, Img, useVideoConfig } from 'remotion';
-import { Ajustado, Escena, Estrellas, Legal, Mano, Producto, Verificado, margenes, paleta, FUENTE_TEXTO, mezclar, fuenteTitulo } from './base.jsx';
+import { Ajustado, Escena, Estrellas, Legal, Mano, Producto, Titular, Verificado, margenes, paleta, FUENTE_TEXTO, mezclar } from './base.jsx';
 import { Icono, iconoPara } from './iconos.jsx';
 
 function zona(W, H, formato) {
@@ -244,6 +244,38 @@ export function Comentario({ t, kit, producto, formato }) {
       ) : null}
       <div style={{ position: 'absolute', left: 0, right: 0, top: z.bottom - 32 }}>
         <Legal texto={t.legal} />
+      </div>
+    </AbsoluteFill>
+  );
+}
+
+// ---------------------------------------------------------------- foto con titular (una foto real a sangre)
+
+export function FotoTitular({ t, kit, escena, producto, formato }) {
+  const { width: W, height: H } = useVideoConfig();
+  const p = paleta(kit);
+  const z = zona(W, H, formato);
+  const vertical = formato === '9:16';
+  const prod = W * (vertical ? 0.3 : 0.24);
+  return (
+    <AbsoluteFill style={{ background: '#111' }}>
+      <Escena escena={escena} kit={kit} />
+      <AbsoluteFill style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.25) 34%, rgba(0,0,0,0) 52%, rgba(0,0,0,0) 74%, rgba(0,0,0,0.45) 100%)' }} />
+      <div style={{ position: 'absolute', left: 48, right: 48, top: z.top, height: z.alto * (vertical ? 0.24 : 0.3) }}>
+        <Titular texto={t.titular} kit={kit} color="#FFFFFF" resaltado={p.secundario} max={150} sombra />
+      </div>
+      {t.nota ? (
+        <div style={{ position: 'absolute', left: 48, width: W * 0.55, top: z.top + z.alto * (vertical ? 0.25 : 0.31), height: z.alto * 0.1 }}>
+          <Mano texto={t.nota} kit={kit} color={p.secundario} max={60} alineado="left" giro={-3} />
+        </div>
+      ) : null}
+      {t.conProducto !== false ? (
+        <div style={{ position: 'absolute', right: 34, top: z.bottom - prod - 40, width: prod, height: prod }}>
+          <Producto producto={producto} tarjeta base={false} />
+        </div>
+      ) : null}
+      <div style={{ position: 'absolute', left: 0, width: W * 0.66, top: z.bottom - 34 }}>
+        <Legal texto={t.legal} color="rgba(255,255,255,0.85)" />
       </div>
     </AbsoluteFill>
   );

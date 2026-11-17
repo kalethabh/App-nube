@@ -272,6 +272,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       // regenerar: las que dibuja la app salen gratis (otros textos); las de escena piden otra escena (1 imagen)
       imagenesRegenerar: ap?.escena ? 1 : 0,
       vistaPrevia: Boolean(ap?.escena && comp.existe && !comp.completa),
+      // un cuadro del video: se puede «Pulir con IA» (cuesta 1 imagen); solo desde el cuadrado (el vertical lo sigue)
+      pulible: Boolean(ap?.escenaFija && !ap?.escena && f === '1:1' && comp.existe),
       local,
       pedido: pedido ? { id: pedido.id, estado: pedido.estado } : null,
     };

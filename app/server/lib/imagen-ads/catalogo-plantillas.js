@@ -82,6 +82,14 @@ export const CATALOGO = [
     campos: [titular, { clave: 'problema', etiqueta: 'El problema', tipo: 'parrafo', max: 90 }, { clave: 'resultado', etiqueta: 'El resultado', tipo: 'parrafo', max: 90 }, { clave: 'nota', etiqueta: 'Nota a mano', tipo: 'texto', max: 30 }, legal],
   },
   {
+    id: 'foto-titular',
+    nombre: 'Foto con titular',
+    familia: 'beneficio',
+    escena: true,
+    descripcion: 'Una foto real a sangre (una escena o un cuadro de tu video) con el titular grande arriba y el producto.',
+    campos: [titular, { clave: 'nota', etiqueta: 'Nota a mano', tipo: 'texto', max: 40 }, legal],
+  },
+  {
     id: 'nota-texto',
     nombre: 'Nota de texto plano',
     familia: 'nativo',

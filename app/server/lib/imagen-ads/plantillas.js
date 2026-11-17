@@ -26,11 +26,12 @@ import { PRODUCTOS, idValido, rutaFoto, fotoPrincipal } from '../productos.js';
 import { R, guardarJSON, idsDelLote, fotoDelLote, firma, piezaId, vDe, formatoDe } from './disco.js';
 import { leerEstado } from './estado.js';
 import { asignar, POR_ID } from './catalogo-plantillas.js';
-import { contextoDelLote, textosPara, limpiarTextos } from './textos-plantillas.js';
+import { contextoDelLote, textosPara, textosPorAngulo, limpiarTextos } from './textos-plantillas.js';
 import { renderizar, composicionDe } from '../plantillas/render.js';
 import { pixeles } from './local.js';
 
 const ahora = () => new Date().toISOString();
+const ANGULO_NOMBRE = { dolor: 'Dolor', 'antes-despues': 'Antes y después', mecanismo: 'Mecanismo', 'prueba-social': 'Prueba social', estatus: 'Estatus', objecion: 'Objeción', ingrediente: 'Ingrediente', producto: 'Producto' };
 export const esLoteDePlantillas = (brief) => Boolean(brief?.plantillas);
 export const plantillaDe = (carpeta, v) => leerJSON(R.v(carpeta, v))?.app_plantilla || null;
 
@@ -233,6 +234,14 @@ export function descripcionEscena(id, ctx, textos) {
         decente,
         contexto,
       ].join(' ');
+    case 'foto-titular':
+      return [
+        'A clean, bright lifestyle photo (real, natural light, sharp) of a real person of the audience in a everyday moment related to the result of the product, confident and natural.',
+        'The product of the attached photo may appear small and natural in the scene, exactly as in the photo.',
+        'Keep the top 32% of the image calm and simple (sky, wall or soft background): the app puts a big headline there; keep the bottom-right corner free for the product card.',
+        decente,
+        contexto,
+      ].join(' ');
     default:
       return contexto;
   }
@@ -245,7 +254,9 @@ export async function prepararPlantillas(carpeta, brief) {
   const n = Number(brief?.cantidad) || 0;
   if (!n) return { ok: false, motivo: 'sin cantidad' };
   const ids = idsDelLote(n);
-  const asignadas = asignar(n, brief.plantillas?.elegidas);
+  // «De un video, imágenes»: cada variación es un cuadro del video con su ángulo y su plantilla (el cuadro es la escena)
+  const deVideo = Array.isArray(brief.video?.cuadros) && brief.video.cuadros.length ? brief.video.cuadros : null;
+  const asignadas = deVideo ? ids.map((_, i) => deVideo[i]?.plantilla || 'foto-titular') : asignar(n, brief.plantillas?.elegidas);
   const ctx = contextoDelLote(carpeta, brief);
   const kit = brief.productoId ? await kitDe(brief.productoId) : limpiarKit(brief.plantillas?.kit);
   brief.plantillas = { ...(brief.plantillas || {}), kit: limpiarKit(brief.plantillas?.kitElegido || kit), asignadas };
@@ -282,19 +293,23 @@ export async function prepararPlantillas(carpeta, brief) {
     const plantilla = asignadas[i];
     const k = veces.get(plantilla) || 0;
     veces.set(plantilla, k + 1);
-    const textos = textosPara(plantilla, ctx, k);
+    const cuadro = deVideo?.[i] || null;
+    const textos = cuadro ? { ...textosPorAngulo(cuadro.angulo, plantilla, ctx, k), ...(cuadro.textos || {}) } : textosPara(plantilla, ctx, k);
     const cat = POR_ID.get(plantilla);
+    // (con un cuadro del video, la escena ya está: no se le pide nada al modelo de imagen)
+    const conEscena = Boolean(cat.escena && !cuadro);
     const titular = textos.titular || textos.titulo || textos.buena || (textos.lineas || []).join(' ') || textos.texto || '';
     guardarJSON(R.v(carpeta, id), {
       ad_info: { variation_id: id },
-      visual_prompt: cat.escena ? descripcionEscena(plantilla, ctx, textos) : 'Template-only ad: the app composes it from the product photo (no image model).',
+      visual_prompt: conEscena ? descripcionEscena(plantilla, ctx, textos) : cuadro ? 'Frame from the user video, composed by the app (no image model).' : 'Template-only ad: the app composes it from the product photo (no image model).',
       text_layers: [],
       mandatory_visual_elements: [],
       final_generation_exclusions: [],
       language_rule: 'No visible text at all: the app adds every text.',
-      app_plantilla: { id: plantilla, escena: cat.escena, textos, k, fecha: ahora() },
+      app_plantilla: { id: plantilla, escena: conEscena, textos, k, fecha: ahora(), ...(cuadro ? { escenaFija: cuadro.archivo, angulo: cuadro.angulo } : {}) },
     });
-    return { id, fuente: 'plantilla', plantilla, angulo: cat.familia === 'dolor' ? 'Dolor y resultado' : cat.familia === 'beneficio' ? 'Beneficio' : cat.familia === 'nativo' ? 'Nativo de redes' : 'Oferta', formato: cat.nombre, titular: String(titular).replace(/\*/g, '').slice(0, 120), escena: cat.escena };
+    const angulo = cuadro ? ANGULO_NOMBRE[cuadro.angulo] || cuadro.angulo : cat.familia === 'dolor' ? 'Dolor y resultado' : cat.familia === 'beneficio' ? 'Beneficio' : cat.familia === 'nativo' ? 'Nativo de redes' : 'Oferta';
+    return { id, fuente: 'plantilla', plantilla, angulo, formato: cat.nombre, titular: String(titular).replace(/\*/g, '').slice(0, 120), escena: conEscena, ...(cuadro ? { cuadro: cuadro.archivo } : {}) };
   });
   guardarJSON(R.plan(carpeta), { producto: ctx.nombre, lote: brief.slug || path.basename(carpeta), cantidad: n, proporciones: brief.formatos || ['1:1'], variaciones, plantillas: true });
   return { ok: true, escenas: variaciones.filter((x) => x.escena).length, plantillas: asignadas };
@@ -362,7 +377,9 @@ async function propsDe(carpeta, pieza, { brief, est, producto }) {
   const v = vDe(pieza);
   const ap = plantillaDe(carpeta, v);
   if (!ap) return null;
-  const escena = ap.escena ? escenaDe(carpeta, v, est) : null;
+  // la escena: la del modelo (si la usa y ya salió) o el cuadro del video (escenaFija)
+  const fija = ap.escenaFija && existe(path.join(carpeta, ap.escenaFija)) ? path.join(carpeta, ap.escenaFija) : null;
+  const escena = (ap.escena ? escenaDe(carpeta, v, est) : null) || fija;
   const kit = limpiarKit(brief?.plantillas?.kit);
   const logo = brief?.logo?.posicion && existe(R.logo(carpeta)) ? R.logo(carpeta) : null;
   const formato = formatoDe(pieza);
@@ -379,7 +396,7 @@ async function propsDe(carpeta, pieza, { brief, est, producto }) {
     .createHash('sha1')
     .update(JSON.stringify({ c: codigo(), plantilla: ap.id, formato, textos: props.textos, kit, producto: producto ? [producto.archivo, firma(producto.archivo), producto.recortado] : null, escena: escena ? firma(escena) : null, logo: logo ? firma(logo) : null }))
     .digest('hex');
-  return { props, huella, completa: !ap.escena || Boolean(escena) };
+  return { props, huella, completa: (!ap.escena && (!ap.escenaFija || Boolean(fija))) || Boolean(escena) };
 }
 
 /** { existe, alDia, completa } de la imagen dibujada de una pieza (sin dibujar nada). */
@@ -519,6 +536,42 @@ export function notaParaEscena(carpeta, v, nota) {
   ad.visual_prompt = nota ? `${base} User note for this new version (Spanish): «${String(nota).slice(0, 600)}».` : base;
   guardarJSON(ruta, ad);
   return true;
+}
+
+// ---------------------------------------------------------------- «Pulir con IA» un cuadro del video (opcional, cuesta)
+
+const PULIR =
+  'The FIRST attached image is a frame taken from a video ad. Recreate it as a clean, polished, sharp, high-quality photo: ' +
+  'the same person (same face, hair, body and outfit), the same pose, the same place and the same composition and framing, ' +
+  'with better light, focus and detail. Remove every text, subtitle, caption, sticker, watermark and user interface from it. ' +
+  'If the product appears, it must look exactly like the product of the SECOND attached image.';
+
+/**
+ * Prepara una variación de un cuadro del video para pulirla con el modelo de imagen: el cuadro pasa a ser la referencia
+ * (entrada/referencias/R##.png) y la escena se pide como siempre (sin texto). Después la pide un pedido normal.
+ */
+export function prepararPulido(carpeta, v) {
+  const ruta = R.v(carpeta, v);
+  const ad = leerJSON(ruta);
+  const ap = ad?.app_plantilla;
+  if (!ap?.escenaFija || !existe(path.join(carpeta, ap.escenaFija))) throw Object.assign(new Error('Esta imagen no sale de un cuadro de tu video.'), { status: 409 });
+  const n = Number(String(v).slice(1));
+  if (!(n >= 1 && n <= 99)) throw Object.assign(new Error('Esa imagen no se puede pulir.'), { status: 400 });
+  const ref = `entrada/referencias/R${String(n).padStart(2, '0')}.png`;
+  fs.mkdirSync(R.referencias(carpeta), { recursive: true });
+  fs.copyFileSync(path.join(carpeta, ap.escenaFija), path.join(carpeta, ref));
+  ad.visual_prompt = PULIR;
+  ad.app_plantilla = { ...ap, escena: true, pulir: true, fecha: ahora() };
+  guardarJSON(ruta, ad);
+  const plan = leerJSON(R.plan(carpeta));
+  const x = plan?.variaciones?.find((y) => y.id === v);
+  if (x) {
+    Object.assign(x, { fuente: 'referencia', referencia: ref, escena: true });
+    guardarJSON(R.plan(carpeta), plan);
+  }
+  const lote = leerJSON(R.lote(carpeta));
+  if (lote && !lote.fiel) guardarJSON(R.lote(carpeta), { ...lote, fiel: true });
+  return { referencia: ref };
 }
 
 // ---------------------------------------------------------------- quitar el fondo del producto (gratis, si se puede)

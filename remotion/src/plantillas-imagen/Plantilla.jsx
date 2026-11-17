@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { AbsoluteFill, continueRender, delayRender, staticFile } from 'remotion';
 import { AntesDespues, LineaTiempo, MapaCuerpo, Pizarra } from './dolor.jsx';
 import { BarraDatos, ListaIconos, Mecanismo, ProductoFlechas } from './beneficio.jsx';
-import { Burbujas, Comentario, FotoTiktok, NotaTexto, ResenaTuit } from './nativo.jsx';
+import { Burbujas, Comentario, FotoTiktok, FotoTitular, NotaTexto, ResenaTuit } from './nativo.jsx';
 import { BuenaMala, CasiAgotado, StickerOferta } from './oferta.jsx';
 import { Logo } from './base.jsx';
 
@@ -26,6 +26,7 @@ export const PLANTILLAS = {
   burbujas: Burbujas,
   'foto-tiktok': FotoTiktok,
   'resena-tuit': ResenaTuit,
+  'foto-titular': FotoTitular,
   comentario: Comentario,
   'sticker-oferta': StickerOferta,
   'casi-agotado': CasiAgotado,
