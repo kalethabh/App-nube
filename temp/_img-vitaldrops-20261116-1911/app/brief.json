@@ -1,0 +1,66 @@
+{
+  "slug": "_img-vitaldrops-20261116-1911",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "VITALDROPS",
+  "productoId": "vitaldrops-d183",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.jpg",
+    "entrada/referencias/R02.jpg",
+    "entrada/referencias/R03.jpg",
+    "entrada/referencias/R04.jpg",
+    "entrada/referencias/R05.jpg",
+    "entrada/referencias/R06.jpg"
+  ],
+  "modo": "nuevos",
+  "referenciasPropias": [],
+  "fiel": false,
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-17T00:11:56.171Z",
+  "investigacionDelProducto": true,
+  "validados": [
+    {
+      "archivo": "entrada/validados/A01.png",
+      "origen": "me-funciona",
+      "mismoProducto": true,
+      "producto": "VITALDROPS",
+      "titulo": "CURVAS MÁS LLENAS EN 21 DÍAS",
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "entrada/validados/A02.png",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A03.png",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A04.png",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    }
+  ],
+  "ganchos": "entrada/ganchos.json"
+}

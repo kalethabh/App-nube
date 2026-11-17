@@ -1,0 +1,22 @@
+[
+  {
+    "angulo_id": "transformacion",
+    "formato_id": "F26"
+  },
+  {
+    "angulo_id": "rutina-uso",
+    "formato_id": "F18"
+  },
+  {
+    "angulo_id": "oferta",
+    "formato_id": "G08"
+  },
+  {
+    "angulo_id": "dolor",
+    "formato_id": "F05"
+  },
+  {
+    "angulo_id": "beneficio-sin-sacrificio",
+    "formato_id": "G17"
+  }
+]
