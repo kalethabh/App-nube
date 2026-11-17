@@ -1,0 +1,379 @@
+{
+  "titulo": "01   VTD 6   54 ventas CPA 7.2k",
+  "estilo": "video-propio",
+  "modo_audio": "voz_en_off",
+  "idioma": "es",
+  "aspect_ratio": "9:16",
+  "video_propio": {
+    "archivo": "original.mp4",
+    "duracion": 240.833,
+    "escenas": 91,
+    "subtitulos": false
+  },
+  "tomas": [
+    {
+      "n": 1,
+      "duracion": 0.667
+    },
+    {
+      "n": 2,
+      "duracion": 1.067
+    },
+    {
+      "n": 3,
+      "duracion": 1.2
+    },
+    {
+      "n": 4,
+      "duracion": 1.3
+    },
+    {
+      "n": 5,
+      "duracion": 3.067
+    },
+    {
+      "n": 6,
+      "duracion": 1.767
+    },
+    {
+      "n": 7,
+      "duracion": 2.767
+    },
+    {
+      "n": 8,
+      "duracion": 1.567
+    },
+    {
+      "n": 9,
+      "duracion": 3.5
+    },
+    {
+      "n": 10,
+      "duracion": 2.867
+    },
+    {
+      "n": 11,
+      "duracion": 1.3
+    },
+    {
+      "n": 12,
+      "duracion": 0.867
+    },
+    {
+      "n": 13,
+      "duracion": 0.7
+    },
+    {
+      "n": 14,
+      "duracion": 0.967
+    },
+    {
+      "n": 15,
+      "duracion": 1.667
+    },
+    {
+      "n": 16,
+      "duracion": 0.867
+    },
+    {
+      "n": 17,
+      "duracion": 1
+    },
+    {
+      "n": 18,
+      "duracion": 0.6
+    },
+    {
+      "n": 19,
+      "duracion": 1.333
+    },
+    {
+      "n": 20,
+      "duracion": 1.033
+    },
+    {
+      "n": 21,
+      "duracion": 1.533
+    },
+    {
+      "n": 22,
+      "duracion": 2.433
+    },
+    {
+      "n": 23,
+      "duracion": 1.5
+    },
+    {
+      "n": 24,
+      "duracion": 3.333
+    },
+    {
+      "n": 25,
+      "duracion": 1
+    },
+    {
+      "n": 26,
+      "duracion": 1.9
+    },
+    {
+      "n": 27,
+      "duracion": 2.2
+    },
+    {
+      "n": 28,
+      "duracion": 0.667
+    },
+    {
+      "n": 29,
+      "duracion": 1.1
+    },
+    {
+      "n": 30,
+      "duracion": 1.367
+    },
+    {
+      "n": 31,
+      "duracion": 0.8
+    },
+    {
+      "n": 32,
+      "duracion": 2.333
+    },
+    {
+      "n": 33,
+      "duracion": 1.233
+    },
+    {
+      "n": 34,
+      "duracion": 1.967
+    },
+    {
+      "n": 35,
+      "duracion": 4.233
+    },
+    {
+      "n": 36,
+      "duracion": 2.333
+    },
+    {
+      "n": 37,
+      "duracion": 0.933
+    },
+    {
+      "n": 38,
+      "duracion": 6.6
+    },
+    {
+      "n": 39,
+      "duracion": 0.933
+    },
+    {
+      "n": 40,
+      "duracion": 4.1
+    },
+    {
+      "n": 41,
+      "duracion": 1.067
+    },
+    {
+      "n": 42,
+      "duracion": 1.433
+    },
+    {
+      "n": 43,
+      "duracion": 1.233
+    },
+    {
+      "n": 44,
+      "duracion": 1.533
+    },
+    {
+      "n": 45,
+      "duracion": 1.133
+    },
+    {
+      "n": 46,
+      "duracion": 1.133
+    },
+    {
+      "n": 47,
+      "duracion": 2.3
+    },
+    {
+      "n": 48,
+      "duracion": 2
+    },
+    {
+      "n": 49,
+      "duracion": 2.4
+    },
+    {
+      "n": 50,
+      "duracion": 3.633
+    },
+    {
+      "n": 51,
+      "duracion": 2
+    },
+    {
+      "n": 52,
+      "duracion": 11.9
+    },
+    {
+      "n": 53,
+      "duracion": 1.1
+    },
+    {
+      "n": 54,
+      "duracion": 1.133
+    },
+    {
+      "n": 55,
+      "duracion": 2.767
+    },
+    {
+      "n": 56,
+      "duracion": 0.933
+    },
+    {
+      "n": 57,
+      "duracion": 1.033
+    },
+    {
+      "n": 58,
+      "duracion": 1.333
+    },
+    {
+      "n": 59,
+      "duracion": 6.1
+    },
+    {
+      "n": 60,
+      "duracion": 3.333
+    },
+    {
+      "n": 61,
+      "duracion": 1.067
+    },
+    {
+      "n": 62,
+      "duracion": 10.533
+    },
+    {
+      "n": 63,
+      "duracion": 1.867
+    },
+    {
+      "n": 64,
+      "duracion": 3.767
+    },
+    {
+      "n": 65,
+      "duracion": 1
+    },
+    {
+      "n": 66,
+      "duracion": 4.033
+    },
+    {
+      "n": 67,
+      "duracion": 2.133
+    },
+    {
+      "n": 68,
+      "duracion": 7.067
+    },
+    {
+      "n": 69,
+      "duracion": 0.967
+    },
+    {
+      "n": 70,
+      "duracion": 6.667
+    },
+    {
+      "n": 71,
+      "duracion": 0.633
+    },
+    {
+      "n": 72,
+      "duracion": 6.467
+    },
+    {
+      "n": 73,
+      "duracion": 1.2
+    },
+    {
+      "n": 74,
+      "duracion": 4.667
+    },
+    {
+      "n": 75,
+      "duracion": 6.467
+    },
+    {
+      "n": 76,
+      "duracion": 1.067
+    },
+    {
+      "n": 77,
+      "duracion": 1.933
+    },
+    {
+      "n": 78,
+      "duracion": 0.933
+    },
+    {
+      "n": 79,
+      "duracion": 1.133
+    },
+    {
+      "n": 80,
+      "duracion": 2.2
+    },
+    {
+      "n": 81,
+      "duracion": 1.233
+    },
+    {
+      "n": 82,
+      "duracion": 2.667
+    },
+    {
+      "n": 83,
+      "duracion": 0.867
+    },
+    {
+      "n": 84,
+      "duracion": 1.067
+    },
+    {
+      "n": 85,
+      "duracion": 3.9
+    },
+    {
+      "n": 86,
+      "duracion": 1.167
+    },
+    {
+      "n": 87,
+      "duracion": 8.5
+    },
+    {
+      "n": 88,
+      "duracion": 1.333
+    },
+    {
+      "n": 89,
+      "duracion": 10.733
+    },
+    {
+      "n": 90,
+      "duracion": 10.733
+    },
+    {
+      "n": 91,
+      "duracion": 10.733
+    }
+  ]
+}
