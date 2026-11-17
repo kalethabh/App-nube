@@ -1,0 +1,53 @@
+{
+  "generado": "2026-11-17T06:02:40.515Z",
+  "archivo": "video-5-vtd-20261116-2312_editado-1.mp4",
+  "calidad": "1080",
+  "limpio": false,
+  "codigo": 1,
+  "defectos": [
+    {
+      "tipo": "negro",
+      "desde": 72.933,
+      "hasta": 73.167,
+      "pieza": "toma 40",
+      "rerender": true,
+      "detalle": "7 cuadro(s) negro(s) en 72.9 s y el clip original se ve bien ahi"
+    },
+    {
+      "tipo": "negro",
+      "desde": 198.133,
+      "hasta": 198.2,
+      "pieza": "toma 98",
+      "rerender": true,
+      "detalle": "2 cuadro(s) negro(s) en 198.1 s y el clip original se ve bien ahi"
+    }
+  ],
+  "avisos": [],
+  "noMedido": [],
+  "duracion": 309.824,
+  "tamano": "1080x1920",
+  "rerenderAyuda": true,
+  "primerIntento": {
+    "defectos": [
+      {
+        "tipo": "negro",
+        "desde": 72.933,
+        "hasta": 73.167,
+        "pieza": "toma 40",
+        "rerender": true,
+        "detalle": "7 cuadro(s) negro(s) en 72.9 s y el clip original se ve bien ahi"
+      },
+      {
+        "tipo": "negro",
+        "desde": 198.133,
+        "hasta": 198.2,
+        "pieza": "toma 98",
+        "rerender": true,
+        "detalle": "2 cuadro(s) negro(s) en 198.1 s y el clip original se ve bien ahi"
+      }
+    ]
+  },
+  "segundaExportacion": true,
+  "huella": "f01eab223ff29a317b046625e77235c24414d9ef",
+  "bytes": 159542014
+}
