@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17d · El editor ya no avisa «Deshacer» al borrar
+
+- Al borrar un texto, una escena, la música o un pedazo del video en el editor, ya no sale el aviso «Borraste… toca Deshacer». Para deshacer usa Cmd+Z (Ctrl+Z en Windows) o la flecha de arriba.
+
 ## 2026-11-17c · Las imágenes respetan el ángulo y el gancho de la referencia
 
 - **Lee el ángulo y el gancho de cada referencia antes de diseñar:** qué zona del cuerpo o qué deseo vende (glúteos y curvas, barriga, piernas hinchadas, tos…), qué la hace parar el scroll (antes y después, promesa, número o días, pregunta, testimonio) y cómo lo muestra. Tu imagen vende **lo mismo y de la misma forma**: si la referencia de VitalDrops es de glúteos, la tuya es de glúteos.
