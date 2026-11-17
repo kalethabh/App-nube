@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-17 (Inspiración desde Meta: API oficial + botón de Chrome, 2026-11-17n).
+Última actualización: 2026-11-17 (Exportar del editor por tramos: solo se rehace lo que cambió, 2026-11-17o).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,7 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17n` (archivo `VERSION`): Inspiración con los anuncios de Meta mismo (fuentes «Meta
+- **Versión actual:** `2026-11-17o` (archivo `VERSION`): exportar del editor por tramos (solo se rehace lo que cambió;
+  solo sonido sin rehacer imagen; VideoToolbox en la Mac). Antes: `2026-11-17n`: Inspiración con los anuncios de Meta mismo (fuentes «Meta
   (oficial)» con la API de la Biblioteca de anuncios, solo Europa, y «Desde Chrome» con el botón «Guardar en Kads»;
   TrendTrack sigue como tercera fuente). Antes: `2026-11-17m1` (Inspiración: solo validados y nunca tus marcas), `2026-11-17l1` (Agregar y Clonar no pierden la esencia),
   `2026-11-17l` (estilo «Agregar»: subir un video y decir lo que quieres), `2026-11-17k` (editor con el audio como en CapCut),
@@ -139,6 +140,59 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Exportar del editor por tramos: solo se rehace lo que cambió (2026-11-17, versión 2026-11-17o)
+
+Pedido: «necesito descargar más rápido los creativos del editor a los que les hago pequeños ajustes». Rama
+`exportar-por-tramos` (sin PR). Antes cada exportación volvía a dibujar todos los cuadros con Remotion.
+
+- **Cómo funciona** (`produccion/exportar-edicion.js`, `produccion/exportar-tramos.js`): el video se divide en tramos
+  fijos de 120 cuadros (0, 120, 240…; un resto de menos de 1 s va pegado al último). Cada tramo se guarda en
+  `temp/<slug>/app/exportes/.tramos/<calidad>/<huella>.mp4` (carpeta con punto: el respaldo a Drive la salta; en
+  `.gitignore`). Los que faltan se dibujan TODOS en un solo `renderMedia` con `frameRange` de varios rangos, mudo, con
+  `-force_key_frames` cada 120 cuadros (`ffmpegOverride`, `-forced-idr 1` en x264, `-bf 0` en VideoToolbox) y se cortan
+  con `ffmpeg -ss … -c copy -frames:v`. Se juntan con el concat de ffmpeg por copia directa (antes se comprueba que
+  todos tengan el mismo formato y extradata, y después que el total de cuadros sea el del montaje). ffmpeg/ffprobe:
+  los de Remotion (`RenderInternals.getExecutablePath`, tienen concat/mp4/aac) o los del sistema. Si algo falla:
+  export entero como antes (`EXPORTAR_SIN_TRAMOS=1` o `--sin-tramos` lo fuerzan; `EXPORTAR_TRAMOS_DETALLE=1` muestra
+  la huella de cada tramo).
+- **Huella de cada tramo** (`huellasDeTramos`): lo general (código de `remotion/src` + `exportar-edicion.js` +
+  `exportar-tramos.js`, VERSION, versión de Remotion, calidad, codificador y ajustes, color, estilo de subtítulos, la
+  parte del plan que no va por tiempos, y cualquier campo de la edición o de las capas que la cuenta no conoce) más lo
+  que se ve dentro del tramo: tomas/B-roll/pasos con su ventana en cuadros (la misma cuenta de `Anuncio.jsx`) y su
+  transición, cada texto/imagen/tapa y cada bloque de subtítulos en sus cuadros exactos (`cuadrosEntre`, la misma
+  comparación `t = cuadro / fps` de las capas), los fundidos, y tamaño+fecha de cada archivo que leen. Lo que solo
+  suena (`volumenClip`, `volumenDb`, `mudo`, `audioDeformado`, `plan.audio`, `plan.musica`, voz, música, pitidos, tus
+  audios) no entra. Podcast/entrevista (`plan.escena`): todo el plan es general.
+- **Sonido aparte** (`huellaDeSonido`, `sonido-<huella>.aac`): la primera vez sale en el mismo render
+  (`separateAudioTo`); después, si solo cambió el sonido, una pasada «solo sonido» (`contexto.soloSonido`:
+  `remotion/src/edicion/soloSonido.jsx` cambia cada `OffthreadVideo` de `Anuncio.jsx`/`Escena.jsx` por un `<Audio>`
+  con las mismas opciones; sin eso la pasada tardaba lo mismo que el video). OJO: `renderMedia` usa las props de
+  `composition.props`, por eso la pasada lleva `{ ...composicion, props: propsSonido }`. El AAC se copia tal cual al MP4.
+- **Control final por tramos** (`medirPorTramos`): mide solo los tramos nuevos (guardado en `<huella>.json`) y las
+  uniones que los tocan (±1,3 s, `union-<a>-<b>.json`); si casi todo es nuevo mide el video entero y lo reparte. Los
+  congelados se juntan entre tramos y uniones. Si la revisión pide exportar otra vez, se borran solo los tramos con el
+  defecto.
+- **Mac:** `hardwareAcceleration: 'if-possible'` + `videoBitrate` 12M (1080) / 6M (720) solo en darwin (en Linux y
+  Windows Remotion pediría NVENC). Si VideoToolbox falla, se rehace todo con x264 (los tramos no se mezclan: el
+  codificador va en la huella).
+- **Limpieza:** `podarCache` deja lo de este video y lo más reciente (máx. 2× los tramos + 4, mínimo 24 archivos, y
+  500 MB); se va con el anuncio al eliminarlo (la papelera mueve la carpeta).
+- **Pantalla:** el avance lleva `nota` y `tramos` (`app/server/rutas/editor.js` los guarda en el trabajo) y
+  `ModalExportar.jsx` muestra la nota («Rehaciendo 2 de 10 tramos (lo demás ya estaba)», «Solo cambió el sonido:
+  armando en segundos»).
+- **Medido** en un anuncio sintético de 38,6 s (copia del UGC de VITALABH con clips testsrc2 + un seno por toma), 720p,
+  4 núcleos, Linux: (a) primera vez 69 s (antes 83 s; otra corrida entera en las mismas condiciones, 66 s); (b) cambiar un
+  texto de 18–21 s 19 s (antes 65 s: rehízo 2 de 10 tramos); (c) silenciar una palabra 11 s (antes 68 s: 0 tramos, solo
+  el sonido); (d) igual otra vez: instantáneo (como antes). Contra el render entero: mismos 1158 cuadros y 38,6 s, SSIM
+  0,9968 de promedio (mínimo 0,991, en una transición; en las uniones 0,991–0,994; un cuadro corrido da 0,94), PSNR 46,8
+  dB, y el sonido idéntico muestra a muestra (voz por tomas 260–560 Hz, música 110 Hz, pitido de 1000 Hz y la voz callada
+  en la censura). En 1080p (mismo anuncio): primera vez 91 s, cambiar un texto 26 s (2 de 10 tramos), 1080x1920 y 1158 cuadros.
+- **Pruebas:** `node app/herramientas/probar-exportar-tramos.mjs` (67 comprobaciones: qué tramos cambian con cada
+  ajuste, la medición por tramos con un congelado que cruza una unión, la poda); `vite build`; prueba de humo sin
+  anuncio 85/85; `probar-imagen-ads.mjs` 147/147; una exportación pedida por la app (modo prueba) mostró la nota.
+- **No probado:** VideoToolbox en una Mac real (bitrate, `-bf 0`, cuadros clave forzados); Windows; anuncios de
+  podcast/entrevista y de continuidad exportados por tramos (la cuenta está, sin prueba de punta a punta).
 
 ### Inspiración desde Meta: API oficial + botón de Chrome (2026-11-17, versión 2026-11-17n)
 

@@ -29,6 +29,16 @@
 // Codigos de salida: 0 listo y limpio · 1 listo con defectos (el archivo queda: estan en el control) ·
 // 2 listo pero no se pudo revisar · 3 no se pudo exportar (no queda archivo).
 //
+// POR TRAMOS (2026-11-17o): el video se arma en tramos de 4 s (120 cuadros) que quedan guardados en
+// temp/<slug>/app/exportes/.tramos/<calidad>/ con su huella (produccion/exportar-tramos.js dice qué entra en cada
+// una). Cada vez solo se dibujan los tramos que cambiaron (todos juntos en UN render con varios rangos de cuadros y un
+// cuadro clave al comienzo de cada tramo, que después se corta sin volver a codificar), el sonido aparte solo si
+// cambió (la composición «solo sonido», remotion/src/edicion/soloSonido.jsx; la primera vez sale en el mismo render
+// con separateAudioTo) y se junta todo con ffmpeg concat por copia directa. El control final también mide solo los
+// tramos nuevos y sus uniones. En la Mac la imagen se codifica con VideoToolbox (si falla, x264 para todos los
+// tramos). Si algo de esto no se puede (sin ffmpeg para juntar, tramos que no coinciden), se exporta entero como
+// siempre. EXPORTAR_SIN_TRAMOS=1 o --sin-tramos: siempre entero.
+//
 // Igual que ensamblar.js: los archivos que usa el render van como ENLACES DUROS en <carpeta>/.render-edicion/
 // (Remotion copia la carpeta publica entera en cada render), la concurrencia sale de la memoria libre y un
 // render que se cae por memoria se reintenta con menos. Se corre con la carpeta de remotion/ como carpeta de
@@ -42,6 +52,7 @@ import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { RAIZ, DIR_TEMP, DIR_OUTPUT } from './config.js';
 import { UMBRALES, leerCongelados, leerYavg, tramosOscuros, piezasDelPlan, piezaEn } from './control-final.js';
+import { CUADROS_POR_TRAMO, huellaDeSonido, huellaDelCodigo, huellasDeTramos, juntarCongelados, podarCache, sha1, tocar } from './exportar-tramos.js';
 
 const DIR_REMOTION = path.join(RAIZ, 'remotion');
 const DIR_PUBLICO = '.render-edicion';
@@ -85,6 +96,7 @@ function leerArgs(argv) {
     sinSubtitulos: args.includes('--sin-subtitulos'),
     sinMusica: args.includes('--sin-musica'),
     srt: args.includes('--srt'),
+    sinTramos: args.includes('--sin-tramos'),
   };
 }
 
@@ -267,13 +279,13 @@ const FIRMA_DEMORA = /delayRender\(\)[^\n]*not cleared|Timeout exceeded|timed ou
 
 // ---------------------------------------------------------------- ffmpeg (las mismas mediciones de control-final.js)
 
-function correr(bin, args) {
+function correr(bin, args, opciones = {}) {
   return new Promise((resolve) => {
     const out = [];
     const err = [];
     let p;
     try {
-      p = spawn(bin, args, { stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true });
+      p = spawn(bin, args, { stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true, ...opciones });
     } catch (e) {
       return resolve({ codigo: -1, out: '', err: e.message });
     }
@@ -397,7 +409,7 @@ const enLaFuente = (p, t) => p.recorteInicio + (t - (p.origen ?? p.desde)) * p.v
  * pedido y sonido, que ningun clip quede quieto porque no alcanza su momento, y negros y congelados contra el
  * clip fuente (como control-final.js). Cada defecto dice si exportar otra vez lo arregla.
  */
-async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido, fundido = null }) {
+async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido, fundido = null, medir = null }) {
   // el fundido a negro que pidio el usuario (comienzo y final): ahi el negro es a proposito
   const durP = Number(planP.duracion) || 0;
   const enFundido = (a, z) => Boolean(fundido && ((fundido.entrada > 0 && z <= fundido.entrada + 0.1) || (fundido.salida > 0 && a >= durP - fundido.salida - 0.1)));
@@ -469,7 +481,8 @@ async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido, fu
     }
   }
 
-  const m = await medirVideo(archivo, info.fps);
+  // (por tramos: solo se miden los tramos nuevos y sus uniones; lo demás ya estaba medido)
+  const m = medir ? await medir(info.fps) : await medirVideo(archivo, info.fps);
   if (m.error) {
     salida.noMedido.push(m.error);
     return terminar(2, `no se pudo medir el video: ${m.error}`);
@@ -530,6 +543,460 @@ async function controlar({ archivo, plan, planP, carpeta, calidad, conSonido, fu
   return terminar(salida.defectos.length ? 1 : 0);
 }
 
+// ---------------------------------------------------------------- por tramos (solo se rehace lo que cambió)
+
+// La calidad de la imagen con el codificador de la Mac (VideoToolbox): no acepta CRF, va por bitrate. Alto para que
+// se vea como con CRF 21 (un anuncio de 1080x1920 con CRF 21 suele quedar entre 5 y 9 Mb/s).
+const BITRATE_HARDWARE = { 1080: '12M', 720: '6M' };
+const VENTANA_UNION = 1.3; // segundos a cada lado de una unión que se vuelven a medir (el congelado se mide con d=1,2)
+
+/**
+ * El ffmpeg y el ffprobe para juntar los tramos: los de Remotion (siempre están: vienen con Remotion; tienen el
+ * concat, el mp4 y el aac) o, si no arrancan, los del sistema. null si ninguno sirve.
+ */
+async function herramientasParaJuntar(req) {
+  const candidatos = [];
+  try {
+    const { RenderInternals } = req('@remotion/renderer');
+    const exe = (type) => RenderInternals.getExecutablePath({ indent: false, logLevel: 'error', type, binariesDirectory: null });
+    const ffm = exe('ffmpeg');
+    const ffp = exe('ffprobe');
+    const dir = path.dirname(ffm);
+    const env = { ...process.env, DYLD_LIBRARY_PATH: dir, LD_LIBRARY_PATH: dir };
+    candidatos.push({ ffmpeg: ffm, ffprobe: ffp, opciones: { cwd: dir, env }, nombre: 'Remotion' });
+  } catch {
+    // versión de Remotion sin esa función: el del sistema
+  }
+  candidatos.push({ ffmpeg: 'ffmpeg', ffprobe: 'ffprobe', opciones: {}, nombre: 'sistema' });
+  for (const c of candidatos) {
+    const a = await correr(c.ffmpeg, ['-hide_banner', '-version'], c.opciones);
+    const b = await correr(c.ffprobe, ['-hide_banner', '-version'], c.opciones);
+    if (a.codigo === 0 && b.codigo === 0) return c;
+  }
+  return null;
+}
+
+/** Lo que importa de un tramo para juntarlo con los demás sin volver a codificar (todos tienen que coincidir). */
+async function sondaDeTramo(ff, ruta, { clave = false } = {}) {
+  const r = await correr(ff.ffprobe, ['-v', 'error', '-select_streams', 'v:0', '-show_data_hash', 'SHA256', '-show_entries', 'stream=codec_name,profile,width,height,pix_fmt,r_frame_rate,time_base,nb_frames,extradata_hash', '-of', 'json', ruta], ff.opciones);
+  if (r.codigo !== 0) return null;
+  let salida;
+  try {
+    const v = (JSON.parse(r.out).streams || [])[0];
+    if (!v) return null;
+    salida = { cuadros: Number(v.nb_frames) || 0, formato: [v.codec_name, v.profile, v.width, v.height, v.pix_fmt, v.r_frame_rate, v.time_base, v.extradata_hash].join('|') };
+  } catch {
+    return null;
+  }
+  if (clave) {
+    // el primer paquete tiene que ser un cuadro clave (si no, la copia directa no se puede cortar ni juntar ahí)
+    const k = await correr(ff.ffprobe, ['-v', 'error', '-select_streams', 'v:0', '-read_intervals', '%+#1', '-show_entries', 'packet=flags', '-of', 'csv=p=0', ruta], ff.opciones);
+    salida.empiezaEnClave = k.codigo === 0 && /^K/.test(k.out.trim());
+  }
+  return salida;
+}
+
+/**
+ * Un cuadro clave al comienzo de cada tramo dentro de la tanda (todos los tramos menos el último del video duran
+ * CUADROS_POR_TRAMO, así que caen en los múltiplos). Solo en el paso que codifica (no en el que copia).
+ */
+function forzarCuadrosClave({ args }) {
+  const i = args.indexOf('-c:v');
+  if (i === -1 || args[i + 1] === 'copy') return args;
+  const extra = ['-force_key_frames', `expr:eq(mod(n,${CUADROS_POR_TRAMO}),0)`];
+  // (x264: que el cuadro clave sea IDR; VideoToolbox: sin cuadros B, así cada tramo se decodifica solo)
+  if (args[i + 1] === 'libx264') extra.push('-forced-idr', '1');
+  if (/videotoolbox/.test(String(args[i + 1]))) extra.push('-bf', '0');
+  return [...args.slice(0, -1), ...extra, args[args.length - 1]];
+}
+
+/** Junta los tramos (copia directa, sin volver a codificar) y les pone el sonido. */
+async function juntar(ff, { tramos, sonido, salida, dirTrabajo }) {
+  const lista = path.join(dirTrabajo, `lista-${process.pid}.txt`);
+  // (las comillas simples de una ruta se escriben '\'' en la lista del concat)
+  fs.writeFileSync(lista, tramos.map((t) => `file '${t.archivo.replace(/'/g, "'\\''")}'`).join('\n') + '\n', 'utf8');
+  try {
+    const args = ['-hide_banner', '-nostats', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lista];
+    // (el sonido ya viene en AAC, el mismo que Remotion pone en el render entero: se copia tal cual)
+    if (sonido) args.push('-i', sonido, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'copy');
+    else args.push('-map', '0:v:0', '-c:v', 'copy');
+    args.push('-movflags', '+faststart', '-f', 'mp4', salida);
+    return await correr(ff.ffmpeg, args, ff.opciones);
+  } finally {
+    fs.rmSync(lista, { force: true });
+  }
+}
+
+/** Una medición de imagen (oscuros y congelados) de un archivo o de un pedazo: { yavg: [{ t, yavg }], congelados }. */
+async function medirPedazo(ruta, desde = null, dur = null) {
+  const args = [];
+  if (desde !== null) args.push('-ss', String(Math.max(0, desde)));
+  if (dur !== null) args.push('-t', String(dur));
+  args.push('-i', ruta, '-map', '0:v:0', '-vf', `${UMBRALES.freeze},signalstats,metadata=mode=print:key=lavfi.signalstats.YAVG:file=-`, '-f', 'null', '-');
+  const r = await ffmpeg(args);
+  if (r.codigo !== 0) return { error: r.err.trim().split(/\r?\n/).slice(-3).join(' ') || `ffmpeg salio con ${r.codigo}` };
+  return { yavg: leerYavg(r.out), congelados: leerCongelados(r.err) };
+}
+
+/**
+ * La medición del control final por tramos: la de cada tramo se guarda con su huella (<huella>.json) y la de cada
+ * unión con la de sus dos tramos. Solo se mide lo nuevo; si casi todo es nuevo, se mide el video entero una vez y se
+ * reparte. Devuelve lo mismo que medirVideo: { negros, congelados } (o { error }).
+ */
+export async function medirPorTramos({ archivo, tramos, dirCache, fps }) {
+  const rutaMedida = (t) => path.join(dirCache, `${t.huella}.json`);
+  const rutaUnion = (a, b) => path.join(dirCache, `union-${a.huella}-${b.huella}.json`);
+  const medidas = tramos.map((t) => {
+    const m = leerJSON(rutaMedida(t));
+    return m && Array.isArray(m.yavg) && m.yavg.length === t.hasta - t.desde && Array.isArray(m.congelados) ? m : null;
+  });
+  const faltan = medidas.filter((m) => !m).length;
+  const congelados = [];
+  const enSeg = (c, base, fin) => ({ desde: base + c.desde, hasta: c.hasta === null || c.hasta === undefined ? fin : base + c.hasta });
+  if (faltan > tramos.length / 2) {
+    // casi todo es nuevo: una pasada por el video entero (lo de siempre) y se reparte por tramos
+    const m = await medirPedazo(archivo);
+    if (m.error) return m;
+    const total = tramos[tramos.length - 1].hasta;
+    const duracion = total / fps;
+    const enteros = m.congelados.map((c) => enSeg(c, 0, duracion));
+    if (m.yavg.length === total) {
+      tramos.forEach((t, i) => {
+        const a = t.desde / fps;
+        const z = t.hasta / fps;
+        medidas[i] = {
+          yavg: m.yavg.slice(t.desde, t.hasta).map((c) => Math.round(c.yavg * 100) / 100),
+          // (lo quieto que toca este tramo, recortado a él: al juntar los de los tramos vecinos vuelve a ser uno)
+          congelados: enteros.filter((c) => c.desde < z && c.hasta > a).map((c) => ({ desde: r3(Math.max(a, c.desde) - a), hasta: r3(Math.min(z, c.hasta) - a) })),
+        };
+        fs.writeFileSync(rutaMedida(t), JSON.stringify(medidas[i]), 'utf8');
+      });
+      for (let i = 1; i < tramos.length; i++) fs.writeFileSync(rutaUnion(tramos[i - 1], tramos[i]), JSON.stringify({ congelados: [] }), 'utf8');
+    }
+    return { negros: tramosOscuros(m.yavg, fps), congelados: enteros.map((c) => ({ desde: r3(c.desde), hasta: r3(c.hasta), duracion: r3(c.hasta - c.desde) })) };
+  }
+  // pocos tramos nuevos: se mide cada uno (su archivo) y las uniones que los tocan (en el video ya juntado)
+  for (let i = 0; i < tramos.length; i++) {
+    if (medidas[i]) continue;
+    const t = tramos[i];
+    const m = await medirPedazo(t.archivo);
+    if (m.error) return m;
+    if (m.yavg.length !== t.hasta - t.desde) return { error: `el tramo ${i + 1} tiene ${m.yavg.length} cuadros y debía tener ${t.hasta - t.desde}` };
+    const largo = (t.hasta - t.desde) / fps;
+    medidas[i] = { yavg: m.yavg.map((c) => Math.round(c.yavg * 100) / 100), congelados: m.congelados.map((c) => enSeg(c, 0, largo)).map((c) => ({ desde: r3(c.desde), hasta: r3(c.hasta) })) };
+    fs.writeFileSync(rutaMedida(t), JSON.stringify(medidas[i]), 'utf8');
+  }
+  for (let i = 1; i < tramos.length; i++) {
+    const ruta = rutaUnion(tramos[i - 1], tramos[i]);
+    let u = leerJSON(ruta);
+    if (!u || !Array.isArray(u.congelados)) {
+      const union = tramos[i].desde / fps;
+      const desde = Math.max(0, union - VENTANA_UNION);
+      const m = await medirPedazo(archivo, desde, 2 * VENTANA_UNION);
+      if (m.error) return m;
+      // (relativo a la unión, así sirve igual si los dos tramos aparecen en otro lugar)
+      u = { congelados: m.congelados.map((c) => enSeg(c, desde, desde + 2 * VENTANA_UNION)).map((c) => ({ desde: r3(c.desde - union), hasta: r3(c.hasta - union) })) };
+      fs.writeFileSync(ruta, JSON.stringify(u), 'utf8');
+    }
+    const union = tramos[i].desde / fps;
+    for (const c of u.congelados) congelados.push({ desde: union + c.desde, hasta: union + c.hasta });
+  }
+  const cuadros = [];
+  tramos.forEach((t, i) => {
+    medidas[i].yavg.forEach((y, k) => cuadros.push({ t: (t.desde + k) / fps, yavg: y }));
+    for (const c of medidas[i].congelados) congelados.push({ desde: t.desde / fps + c.desde, hasta: t.desde / fps + c.hasta });
+  });
+  // lo quieto de los tramos y de las uniones, juntado; queda lo que dura lo que pide el filtro (d=1,2 s)
+  const d = Number(UMBRALES.freeze.match(/d=([\d.]+)/)?.[1] ?? 1.2);
+  const juntos = juntarCongelados(congelados, fps).filter((c) => c.hasta - c.desde >= d - 0.5 / fps);
+  return { negros: tramosOscuros(cuadros, fps), congelados: juntos.map((c) => ({ desde: r3(c.desde), hasta: r3(c.hasta), duracion: r3(c.hasta - c.desde) })) };
+}
+
+/**
+ * Exporta por tramos. Devuelve { control } si salió (el MP4 ya está en su lugar) o null si no se pudo por tramos
+ * (sin ffmpeg para juntar, tramos que no coinciden…): entonces se exporta entero como siempre.
+ */
+async function exportarPorTramos(x) {
+  const { carpeta, calidad, composicion, serveUrl, props, capasMod, edicion, plan, salidaMp4, publico, req, cancelSignal, estaCortado } = x;
+  // la barra: la primera vez de 12 a 88; si la revisión pide rehacer algún tramo, de 91 a 97
+  const [etapa, base0, ancho0] = x.vuelta ? ['repetir', 91, 6] : ['render', 12, 76];
+  const { renderMedia, openBrowser } = req('@remotion/renderer');
+  const ff = await herramientasParaJuntar(req);
+  if (!ff) {
+    console.log('  !  No encontré con qué juntar los tramos: exporto el video entero.');
+    return null;
+  }
+  const total = composicion.durationInFrames;
+  const fps = composicion.fps || FPS;
+  const dirCache = path.join(carpeta, 'app', 'exportes', '.tramos', calidad);
+  fs.mkdirSync(dirCache, { recursive: true });
+  const capas = capasMod.capasDeEdicion(plan, edicion, props.contexto);
+  let versionApp = '';
+  try {
+    versionApp = fs.readFileSync(path.join(RAIZ, 'VERSION'), 'utf8').trim();
+  } catch {
+    // sin VERSION
+  }
+  let versionRemotion = '';
+  try {
+    versionRemotion = JSON.parse(fs.readFileSync(req.resolve('@remotion/renderer/package.json'), 'utf8')).version;
+  } catch {
+    // sin versión
+  }
+  // (el código que dibuja, remotion/src, y el que arma y junta los tramos: si cambia cualquiera, nada guardado sirve)
+  const codigo = huellaDelCodigo(path.join(DIR_REMOTION, 'src'), {
+    versionApp,
+    versionRemotion,
+    armado: sha1(['exportar-edicion.js', 'exportar-tramos.js'].map((n) => fs.readFileSync(path.join(RAIZ, 'produccion', n), 'utf8')).join('\n')),
+  });
+  const firmas = new Map();
+  const firmaArchivo = (rel) => {
+    if (!firmas.has(rel)) {
+      const abs = path.resolve(publico, rel);
+      let f = null;
+      if (abs.startsWith(path.resolve(publico) + path.sep)) {
+        try {
+          const st = fs.statSync(abs);
+          if (st.isFile()) f = [st.size, Math.round(st.mtimeMs)];
+        } catch {
+          // no es un archivo del render
+        }
+      }
+      firmas.set(rel, f);
+    }
+    return firmas.get(rel);
+  };
+  const todosLosArchivos = [];
+  const visitar = (dir) => {
+    for (const n of fs.readdirSync(dir, { withFileTypes: true })) {
+      const abs = path.join(dir, n.name);
+      if (n.isDirectory()) visitar(abs);
+      else {
+        const st = fs.statSync(abs);
+        todosLosArchivos.push([path.relative(publico, abs), st.size, Math.round(st.mtimeMs)]);
+      }
+    }
+  };
+  if (fs.existsSync(publico)) visitar(publico);
+  todosLosArchivos.sort();
+  const inicial = capasMod.INICIAL;
+  const scale = calidad === '1080' ? 1.5 : 1;
+  const sonidoHuella = huellaDeSonido({ capas, estado: edicion, inicial, total, base: { codigo, calidad, scale, fps }, archivos: todosLosArchivos });
+  const rutaSonido = path.join(dirCache, `sonido-${sonidoHuella}.aac`);
+
+  // el codificador: el de la Mac (VideoToolbox) si se puede; si falla, x264 para TODOS los tramos (no se mezclan)
+  const codificadores = process.platform === 'darwin' && process.env.EXPORTAR_SIN_HARDWARE !== '1' ? ['videotoolbox', 'x264'] : ['x264'];
+  let concurrencia = x.concurrencia;
+  let navegador = null;
+  const abrir = async () => {
+    if (!navegador) navegador = await openBrowser('chrome', { logLevel: 'error' });
+    return navegador;
+  };
+  const cerrar = async () => {
+    const n = navegador;
+    navegador = null;
+    if (n) await n.close({ silent: true }).catch(() => {});
+  };
+
+  try {
+    for (const cod of codificadores) {
+      const ajustes = cod === 'videotoolbox' ? { hardwareAcceleration: 'if-possible', videoBitrate: BITRATE_HARDWARE[calidad] } : { crf: CRF, x264Preset: 'veryfast' };
+      const base = { codigo, calidad, scale, fps, codificador: cod, ajustes, contenedor: 'mp4' };
+      const tramos = huellasDeTramos({ capas, estado: edicion, inicial, fps, total, base, firmaArchivo }).map((t) => ({ ...t, archivo: path.join(dirCache, `${t.huella}.mp4`) }));
+      const faltan = tramos.filter((t) => !fs.existsSync(t.archivo));
+      // (EXPORTAR_TRAMOS_DETALLE=1: la huella de cada tramo y si ya estaba, para ver qué se rehace y por qué)
+      if (process.env.EXPORTAR_TRAMOS_DETALLE === '1') for (const t of tramos) console.log(`    tramo ${t.i + 1} (${t.desde}-${t.hasta - 1}) ${t.huella.slice(0, 10)} ${faltan.includes(t) ? 'se rehace' : 'ya estaba'} ${JSON.stringify(t.archivos)}`);
+      const faltaSonido = !fs.existsSync(rutaSonido);
+      const cuadrosPorHacer = faltan.reduce((s, t) => s + t.hasta - t.desde, 0);
+      let nota;
+      if (!faltan.length && faltaSonido) nota = 'Solo cambió el sonido: armando en segundos';
+      else if (!faltan.length) nota = 'La imagen y el sonido ya estaban: solo se junta';
+      else if (faltan.length === tramos.length) nota = `Armando los ${tramos.length} tramos del video (la próxima vez solo se rehace lo que cambies)`;
+      else nota = `Rehaciendo ${faltan.length} de ${tramos.length} tramos (lo demás ya estaba)${faltaSonido ? ', y el sonido' : ''}`;
+      console.log(`  Por tramos: ${tramos.length} tramos de ${r1(CUADROS_POR_TRAMO / fps)} s; faltan ${faltan.length}${faltaSonido ? ' y el sonido' : ' (el sonido ya estaba)'} · ${cod === 'videotoolbox' ? 'VideoToolbox (la Mac)' : 'x264'}`);
+      avance(etapa, base0, { nota, tramos: { rehacer: faltan.length, total: tramos.length, sonido: faltaSonido }, cuadro: 0, total: cuadrosPorHacer });
+
+      // todo nuevo (la primera vez): el sonido sale en el mismo render de la imagen (separateAudioTo), sin pasada aparte
+      const conTodo = faltaSonido && faltan.length === tramos.length;
+      // el peso de cada parte en la barra: la pasada del sonido pesa como unos 150 cuadros
+      const pesoSonido = faltaSonido && !conTodo ? 150 : 0;
+      const pesoTotal = Math.max(1, cuadrosPorHacer + pesoSonido);
+      let hechos = 0;
+      const avanzar = (extra, cuadrosHechos) => avance(etapa, base0 + ancho0 * Math.min(1, (hechos + extra) / pesoTotal), { nota, cuadro: Math.min(cuadrosPorHacer, cuadrosHechos), total: cuadrosPorHacer });
+
+      // un render con reintentos: falta de memoria -> menos cuadros a la vez; una demora -> otra vez
+      const conReintentos = async (hacer) => {
+        const intentos = x.pedida ? [concurrencia] : [...new Set([concurrencia, Math.max(1, Math.floor(concurrencia / 2)), 1])];
+        let demoras = 0;
+        for (let i = 0; i < intentos.length; i++) {
+          try {
+            await hacer(intentos[i], await abrir());
+            concurrencia = intentos[i];
+            return null;
+          } catch (e) {
+            const texto = String(e?.stack || e);
+            if (estaCortado()) throw e;
+            await cerrar();
+            if (FIRMA_DEMORA.test(texto) && !FIRMA_SIN_MEMORIA.test(texto) && demoras < 1) {
+              demoras++;
+              console.log('\n  !  Un cuadro tardo demasiado (la PC esta muy cargada): pruebo otra vez.');
+              i--;
+              continue;
+            }
+            if (!FIRMA_SIN_MEMORIA.test(texto) || i === intentos.length - 1) return texto;
+            console.log(`\n  !  Fallo por falta de memoria con ${intentos[i]} cuadros a la vez: pruebo con ${intentos[i + 1]}.`);
+          }
+        }
+        return 'sin intentos';
+      };
+
+      // 1) el sonido (solo si cambió): la misma composición «solo sonido», sin sacar ningún cuadro
+      let tPaso = Date.now();
+      const cuanto = () => {
+        const seg = Math.round((Date.now() - tPaso) / 100) / 10;
+        tPaso = Date.now();
+        return `${seg} s`;
+      };
+      if (faltaSonido && !conTodo) {
+        const propsSonido = { ...props, contexto: { ...props.contexto, soloSonido: true } };
+        const tmp = rutaSonido.replace(/\.aac$/, `.${process.pid}.armando.aac`);
+        const fallo = await conReintentos((conc, browser) =>
+          renderMedia({
+            // (la composición lleva sus props resueltas: las «solo sonido» van en las dos)
+            composition: { ...composicion, props: propsSonido },
+            serveUrl,
+            codec: 'aac',
+            audioBitrate: '320k',
+            outputLocation: tmp,
+            inputProps: propsSonido,
+            concurrency: conc,
+            overwrite: true,
+            enforceAudioTrack: true,
+            logLevel: 'error',
+            timeoutInMilliseconds: ESPERA_CUADRO_MS,
+            cancelSignal,
+            puppeteerInstance: browser,
+            onProgress: ({ renderedFrames }) => avanzar((pesoSonido * renderedFrames) / Math.max(1, total), 0),
+          })
+        );
+        if (fallo) {
+          fs.rmSync(tmp, { force: true });
+          console.log(`  !  No pude armar el sonido aparte (${fallo.split('\n')[0]}): exporto el video entero.`);
+          return null;
+        }
+        fs.renameSync(tmp, rutaSonido);
+        hechos += pesoSonido;
+        console.log(`  OK  sonido (${cuanto()})`);
+      } else if (!faltaSonido) tocar(rutaSonido);
+
+      // 2) los tramos que faltan, TODOS EN UN SOLO RENDER (frameRange con varios rangos: abrir el navegador, sus
+      //    pestañas y los clips una sola vez), con un cuadro clave forzado al comienzo de cada tramo. Después se
+      //    corta en tramos sin volver a codificar (cada uno empieza en su cuadro clave).
+      let fallo = null;
+      if (faltan.length) {
+        const tanda = path.join(dirCache, `tanda.${process.pid}.armando.mp4`);
+        process.on('exit', () => fs.rmSync(tanda, { force: true }));
+        const rangos = conTodo ? [[0, total - 1]] : faltan.map((t) => [t.desde, t.hasta - 1]);
+        const tmpSonido = rutaSonido.replace(/\.aac$/, `.${process.pid}.armando.aac`);
+        fallo = await conReintentos((conc, browser) =>
+          renderMedia({
+            composition: composicion,
+            serveUrl,
+            codec: 'h264',
+            ...ajustes,
+            scale,
+            frameRange: rangos.length === 1 ? rangos[0] : rangos,
+            // (la primera vez el sonido sale aparte en este mismo render; las demás, la imagen va sin sonido)
+            ...(conTodo ? { separateAudioTo: tmpSonido, audioBitrate: '320k', enforceAudioTrack: true } : { muted: true }),
+            outputLocation: tanda,
+            inputProps: props,
+            concurrency: conc,
+            overwrite: true,
+            logLevel: 'error',
+            timeoutInMilliseconds: ESPERA_CUADRO_MS,
+            cancelSignal,
+            puppeteerInstance: browser,
+            ffmpegOverride: forzarCuadrosClave,
+            onProgress: ({ renderedFrames, encodedFrames }) => avanzar(renderedFrames * 0.92 + encodedFrames * 0.08, renderedFrames),
+          })
+        );
+        if (!fallo && conTodo) {
+          if (fs.existsSync(tmpSonido)) fs.renameSync(tmpSonido, rutaSonido);
+          else fallo = 'el render no dejó el sonido aparte';
+        }
+        fs.rmSync(tmpSonido, { force: true });
+        if (!fallo) console.log(`  OK  ${faltan.length} tramo(s) dibujados${conTodo ? ' con el sonido' : ''} (${cuanto()})`);
+        // cortar la tanda en sus tramos (copia directa: -ss cae justo en el cuadro clave de cada uno)
+        let enTanda = 0;
+        for (const t of fallo ? [] : faltan) {
+          const largo = t.hasta - t.desde;
+          const tmp = t.archivo.replace(/\.mp4$/, `.${process.pid}.armando.mp4`);
+          const r = await correr(
+            ff.ffmpeg,
+            ['-hide_banner', '-nostats', '-v', 'error', '-y', '-ss', String(enTanda / fps), '-i', tanda, '-map', '0:v:0', '-c', 'copy', '-frames:v', String(largo), '-video_track_timescale', '90000', '-movflags', '+faststart', '-f', 'mp4', tmp],
+            ff.opciones
+          );
+          const s = r.codigo === 0 ? await sondaDeTramo(ff, tmp, { clave: true }) : null;
+          if (!s || s.cuadros !== largo || !s.empiezaEnClave) {
+            fs.rmSync(tmp, { force: true });
+            fallo = `el tramo ${t.i + 1} salió con ${s?.cuadros ?? '?'} cuadros (debía tener ${largo})${s && !s.empiezaEnClave ? ' y sin cuadro clave al comienzo' : ''}`;
+            break;
+          }
+          fs.renameSync(tmp, t.archivo);
+          enTanda += largo;
+        }
+        fs.rmSync(tanda, { force: true });
+      }
+      if (fallo) {
+        if (cod === 'videotoolbox') {
+          console.log(`  !  El codificador de la Mac fallo (${fallo.split('\n')[0]}): sigo con x264.`);
+          continue;
+        }
+        console.error(`\n  El render de un tramo fallo: ${fallo.split('\n').slice(0, 4).join(' ')}`);
+        return null;
+      }
+      await cerrar();
+
+      // 3) juntar: todos los tramos tienen que tener el mismo formato (si no, la copia directa no sirve)
+      avance(etapa, base0 + ancho0 + (x.vuelta ? 0 : 1), { nota: 'Juntando los tramos (sin volver a codificar)' });
+      const formatos = new Set();
+      for (const t of tramos) {
+        const s = await sondaDeTramo(ff, t.archivo);
+        if (!s || s.cuadros !== t.hasta - t.desde) {
+          // uno guardado que no sirve: se borra y se exporta entero esta vez
+          fs.rmSync(t.archivo, { force: true });
+          console.log(`  !  El tramo ${t.i + 1} guardado no sirve: exporto el video entero.`);
+          return null;
+        }
+        formatos.add(s.formato);
+      }
+      if (formatos.size !== 1) {
+        console.log('  !  Los tramos guardados no tienen el mismo formato: exporto el video entero.');
+        return null;
+      }
+      const temporal = salidaMp4.replace(/\.mp4$/i, '.juntando.mp4');
+      process.on('exit', () => fs.rmSync(temporal, { force: true }));
+      const r = await juntar(ff, { tramos, sonido: rutaSonido, salida: temporal, dirTrabajo: dirCache });
+      const final = r.codigo === 0 ? await sondaDeTramo(ff, temporal) : null;
+      if (!final || final.cuadros !== total) {
+        fs.rmSync(temporal, { force: true });
+        console.log(`  !  Al juntar los tramos no salió bien (${r.codigo !== 0 ? r.err.trim().split(/\r?\n/).pop() : `${final?.cuadros ?? '?'} cuadros de ${total}`}): exporto el video entero.`);
+        return null;
+      }
+      console.log(`  OK  tramos cortados y juntados con el sonido (${cuanto()})`);
+      fs.mkdirSync(DIR_OUTPUT, { recursive: true });
+      if (!reemplazar(temporal, salidaMp4)) salir(3, `No pude guardar output/${path.basename(salidaMp4)}: puede que este abierto en un reproductor. Ciérralo y exporta otra vez.`);
+      for (const t of tramos) tocar(t.archivo);
+      // lo guardado no crece sin fin: lo de este video y lo más reciente (hasta ~2 veces el video y 500 MB)
+      podarCache(dirCache, { enUso: new Set([...tramos.map((t) => path.basename(t.archivo)), path.basename(rutaSonido)]), maxArchivos: Math.max(24, tramos.length * 2 + 4), maxBytes: 500 * 1024 * 1024 });
+      return { tramos, dirCache, fps, rehechos: faltan.length, sonidoRehecho: faltaSonido, codificador: cod };
+    }
+    return null;
+  } finally {
+    await cerrar();
+  }
+}
+
 // ---------------------------------------------------------------- la corrida
 
 async function principal() {
@@ -579,7 +1046,7 @@ async function principal() {
 
   console.log(`\n=== Exportar la version editada — ${slug} ===\n`);
   console.log(`  Archivo:    output/${nombre}`);
-  console.log(`  Calidad:    ${calidad === '1080' ? '1080x1920' : '720x1280'}, h264, CRF ${CRF}`);
+  console.log(`  Calidad:    ${calidad === '1080' ? '1080x1920' : '720x1280'}, h264 (CRF ${CRF}, o VideoToolbox en la Mac)`);
   console.log(`  Subtitulos: ${edicion.subtitulos.visible ? `si (estilo ${edicion.subtitulos.estilo})` : 'no'}`);
   avance('preparar', 1);
 
@@ -775,14 +1242,30 @@ async function principal() {
     return false;
   };
 
-  console.log('\n  Armando el video...');
   const t0 = Date.now();
-  if (!(await renderConReintentos())) {
-    salir(3, porDemora ? 'No pude exportar el video: la PC estaba muy ocupada y un cuadro tardo demasiado. Vuelve a intentarlo (no cuesta nada).' : 'No pude exportar el video.');
+  // Por tramos: solo se arman los tramos de ~4 s que cambiaron (y el sonido, si cambió) y se juntan sin volver a
+  // codificar. Si no se puede (sin ffmpeg para juntar, tramos que no coinciden…), el video entero como siempre.
+  // (EXPORTAR_SIN_TRAMOS=1 o --sin-tramos: siempre entero)
+  const datosTramos = {
+    carpeta, calidad, composicion, serveUrl, props, capasMod: capas, edicion, plan, salidaMp4, publico, req, cancelSignal,
+    estaCortado: () => cortado,
+    concurrencia,
+    pedida,
+  };
+  let porTramos = null;
+  if (process.env.EXPORTAR_SIN_TRAMOS !== '1' && !a.sinTramos) {
+    console.log('\n  Armando el video por tramos...');
+    porTramos = await exportarPorTramos(datosTramos);
   }
-  fs.mkdirSync(DIR_OUTPUT, { recursive: true });
-  if (!reemplazar(temporal, salidaMp4)) salir(3, `No pude guardar output/${nombre}: puede que este abierto en un reproductor. Ciérralo y exporta otra vez.`);
-  console.log(`  OK  ${nombre} en ${Math.round((Date.now() - t0) / 1000)} s (${r1(fs.statSync(salidaMp4).size / 1024 / 1024)} MB)`);
+  if (!porTramos) {
+    console.log('\n  Armando el video...');
+    if (!(await renderConReintentos())) {
+      salir(3, porDemora ? 'No pude exportar el video: la PC estaba muy ocupada y un cuadro tardo demasiado. Vuelve a intentarlo (no cuesta nada).' : 'No pude exportar el video.');
+    }
+    fs.mkdirSync(DIR_OUTPUT, { recursive: true });
+    if (!reemplazar(temporal, salidaMp4)) salir(3, `No pude guardar output/${nombre}: puede que este abierto en un reproductor. Ciérralo y exporta otra vez.`);
+  }
+  console.log(`  OK  ${nombre} en ${Math.round((Date.now() - t0) / 1000)} s (${r1(fs.statSync(salidaMp4).size / 1024 / 1024)} MB)${porTramos ? ` · ${porTramos.rehechos} de ${porTramos.tramos.length} tramos rehechos${porTramos.sonidoRehecho ? ' y el sonido' : ''}` : ''}`);
 
   // el .srt: los mismos bloques que se ven, con las correcciones (vaya o no el subtitulado dentro del video)
   let srt = null;
@@ -798,18 +1281,38 @@ async function principal() {
   // el control final (y una segunda exportacion si lo que encontro se arregla exportando otra vez)
   avance('revisar', 91);
   console.log('\n  Revisando el video terminado...');
-  let control = await controlar({ archivo: salidaMp4, plan, planP, carpeta, calidad, conSonido, fundido: edicion.fundido });
+  // (por tramos: solo se miden los tramos nuevos y las uniones que los tocan)
+  const medirCon = (pt) => (pt ? (fps) => medirPorTramos({ archivo: salidaMp4, tramos: pt.tramos, dirCache: pt.dirCache, fps }) : null);
+  let control = await controlar({ archivo: salidaMp4, plan, planP, carpeta, calidad, conSonido, fundido: edicion.fundido, medir: medirCon(porTramos) });
   if (control.codigo === 1 && control.rerenderAyuda) {
     console.log(`  !  Encontre ${control.defectos.length} detalle(s) que se arreglan exportando otra vez: exporto de nuevo.`);
     for (const d of control.defectos) console.log(`       ${d.detalle}`);
     const primero = control;
-    if ((await renderConReintentos(1)) && reemplazar(temporal, salidaMp4)) {
+    let otra = false;
+    if (porTramos) {
+      // solo los tramos donde cayó lo que se arregla exportando otra vez (con su medición)
+      const fps = porTramos.fps;
+      for (const d of control.defectos.filter((x) => x.rerender)) {
+        const a0 = Number.isFinite(d.desde) ? d.desde * fps : 0;
+        const z0 = Number.isFinite(d.hasta) ? d.hasta * fps : Infinity;
+        for (const t of porTramos.tramos) {
+          if (t.desde <= z0 && t.hasta >= a0) for (const ext of ['.mp4', '.json']) fs.rmSync(t.archivo.replace(/\.mp4$/, ext), { force: true });
+        }
+      }
+      const pt = await exportarPorTramos({ ...datosTramos, vuelta: 1 });
+      if (pt) {
+        porTramos = pt;
+        otra = true;
+      }
+    } else otra = (await renderConReintentos(1)) && reemplazar(temporal, salidaMp4);
+    if (otra) {
       avance('revisar', 97);
-      control = await controlar({ archivo: salidaMp4, plan, planP, carpeta, calidad, conSonido, fundido: edicion.fundido });
+      control = await controlar({ archivo: salidaMp4, plan, planP, carpeta, calidad, conSonido, fundido: edicion.fundido, medir: medirCon(porTramos) });
       control.primerIntento = { defectos: primero.defectos };
       control.segundaExportacion = true;
     }
   }
+  if (porTramos) control.porTramos = { tramos: porTramos.tramos.length, rehechos: porTramos.rehechos, sonidoRehecho: porTramos.sonidoRehecho, codificador: porTramos.codificador };
   fs.mkdirSync(path.join(carpeta, 'qa'), { recursive: true });
   const rutaControl = path.join(carpeta, 'qa', `control-editado-${n}.json`);
   // (la huella y el tamaño: así la próxima exportación con los mismos cambios lo reutiliza)
