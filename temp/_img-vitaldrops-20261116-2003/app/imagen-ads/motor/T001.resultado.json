@@ -4,7 +4,7 @@
     "V01_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 2,
+      "intentosApi": 3,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null,
@@ -39,14 +39,19 @@
     },
     "V04_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 2,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null,
-      "ultimoMotivo": "contenido-chatgpt"
+      "intentoAbierto": false,
+      "taskId": "01a1e710-8ea8-7a32-887d-e99e348c9c07",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1726024-1794878106270",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     }
   },
-  "actualizado": "2026-11-17T01:13:05.044Z",
+  "actualizado": "2026-11-17T01:15:07.368Z",
   "terminado": false
 }
