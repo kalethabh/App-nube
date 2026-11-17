@@ -79,6 +79,14 @@ export const apiImagenes = {
     const s = q.toString();
     return `${BASE}/plantillas/muestra/${enc(id)}${s ? `?${s}` : ''}`;
   },
+  /** «De un video, imágenes»: { subido } | { anuncio } -> { id } (la app analiza de fondo, gratis) */
+  videoCrear: (cuerpo) => pedirNuevo(`${BASE}/video`, { metodo: 'POST', cuerpo }),
+  /** { estado, avance, tomas, duracion, ms, cuadros: [{ n, t, url, limpieza }], seleccion } */
+  video: (id) => pedirNuevo(`${BASE}/video/${enc(id)}`),
+  /** { cantidad, conIA, productoId } -> { seleccion: [{ cuadros, angulo, plantilla, textos }], conIA, ms, motivo } */
+  videoElegir: (id, cuerpo) => pedirNuevo(`${BASE}/video/${enc(id)}/elegir`, { metodo: 'POST', cuerpo }),
+  /** «Pulir con IA» un cuadro del video (cuesta 1 imagen) */
+  pulir: (lote, v, costoMaximoConfirmado) => pedirNuevo(`${BASE}/${enc(lote)}/pulir`, { metodo: 'POST', cuerpo: { v, costoMaximoConfirmado } }),
   /** El zip con todo: con o sin logo, y con los prompts si se piden. */
   urlDescarga: (lote, { logo = true, prompts = false } = {}) => `${BASE}/${enc(lote)}/descargar?logo=${logo ? 1 : 0}&prompts=${prompts ? 1 : 0}`,
 };

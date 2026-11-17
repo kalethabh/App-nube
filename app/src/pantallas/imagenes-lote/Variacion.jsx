@@ -107,7 +107,7 @@ export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, on
   );
 });
 
-export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, onEditarTextos }) {
+export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, onEditarTextos, onPulir }) {
   const cuadrado = x.piezas?.['1:1'];
   const vertical = conVertical ? x.piezas?.['9:16'] : null;
   const datos = [x.angulo, x.formato].filter(Boolean).join(' · ');
@@ -148,6 +148,12 @@ export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical,
             Editar textos
           </Boton>
           <span className="t-mini t-3">{x.plantilla.escena ? 'Gratis: no cambia la escena' : 'Gratis, en un segundo'}</span>
+          {/* un cuadro de tu video: «Pulir con IA» lo rehace limpio y nítido (cuesta 1 imagen, con su costo antes) */}
+          {cuadrado?.pulible && onPulir ? (
+            <Boton variante="fantasma" tamano="chico" icono={WandSparkles} onClick={() => onPulir(x)} disabled={Boolean(cuadrado.pedido)}>
+              Pulir con IA
+            </Boton>
+          ) : null}
         </div>
       ) : null}
       <div className="lote-var__par">

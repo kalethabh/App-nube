@@ -244,6 +244,20 @@ export default function Inspiracion() {
       setReplicando(null);
     }
   };
+  // «De un video, imágenes»: el video se baja como para «Agregar» y abre Anuncios de imagen en «De un video»
+  const [sacando, setSacando] = useState(null);
+  const imagenesDe = async (a) => {
+    setSacando(a.id);
+    try {
+      const r = await ganadores.adaptar(a);
+      aviso({ tipo: 'ok', titulo: 'Video listo', texto: 'Se abre Anuncios de imagen: la app saca los mejores cuadros y los arma con tus plantillas, gratis.' });
+      ir(rutas.crearImagenes({ video: r.valor }));
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude traer el video', texto: e.message });
+    } finally {
+      setSacando(null);
+    }
+  };
   const marcaDe = (a) => ({ nombre: a.anunciante.nombre, pagina: a.anunciante.pagina, logo: a.anunciante.logo, activos: a.anunciante.activos, dominio: a.dominio });
   const idMarca = (a) => (a.anunciante.pagina ? `p${a.anunciante.pagina}` : null);
   const verMarca = (a) => {
@@ -525,6 +539,8 @@ export default function Inspiracion() {
                   onGuardar={() => alternarGuardado(a)}
                   onReplicar={() => replicar(a)}
                   replicando={replicando === a.id}
+                  onImagenes={() => imagenesDe(a)}
+                  sacandoImagenes={sacando === a.id}
                   onCopiar={() => copiar(a)}
                   onDetalles={() => setDetalle(a)}
                   onMarca={() => verMarca(a)}

@@ -121,7 +121,7 @@ try {
   const brief = { slug: '_img-video-20261117-1200', familia: 'imagen-ads', estilo: 'imagen-ads', titulo: 'Crème Luna', productoId: 'prueba-0000', datos: { nombre: 'Crème Luna Colágeno', pais: 'Perú', idioma: 'es' }, cantidad: cuadros.length, formatos: ['1:1', '9:16'], referencias: [], logo: null, rapido: true, plantillas: { elegidas: [] }, video: { id, cuadros } };
   escribir(R.brief(carpeta), brief);
   escribir(R.lote(carpeta), { version: 1, modelo: 'gpt-image-2-5-sunburst', resolucion: '2K', fondo: 'opaco', producto: 'entrada/producto.png', formatos: ['1:1', '9:16'], logo: null });
-  check('Del video: 0 imágenes por pagar y costo 0', lotes.piezasPorHacer(carpeta, brief) === 0 || brief.plantillas.elegidas.length === 0, lotes.piezasPorHacer(carpeta, brief));
+  check('Del video: 0 imágenes por pagar y costo 0 (aunque haya precio por imagen)', lotes.piezasPorHacer(carpeta, brief) === 0 && costo.costoMaximoDeLaAccion({ dolaresPorImagen: 0.05 }, brief) === 0, { n: lotes.piezasPorHacer(carpeta, brief), costo: costo.costoMaximoDeLaAccion({ dolaresPorImagen: 0.05 }, brief) });
   const hijos = new Set();
   const ctx = {
     slug: brief.slug, carpeta, carpetaArg: carpeta, brief, conductor: { pasos: [] }, paso: { id: 'anuncios' }, senal: new AbortController().signal, frases: [],

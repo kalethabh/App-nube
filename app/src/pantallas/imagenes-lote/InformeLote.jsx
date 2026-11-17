@@ -56,11 +56,15 @@ export function InformeLote({ vista, onRegenerar, onAbrir, onEscribir, escribien
     <Seccion titulo="Tu informe" icono={ScanEye} className="lote-informe">
       <div className="lote-informe__rejilla">
         <Tarjeta variante="elevada" className="lote-inf">
-          <TarjetaCabecera icono={ScanEye} titulo="La revisión" subtitulo="La IA miró cada imagen contra tu producto y sus textos, letra por letra." />
+          {inf.plantillas ? (
+            <TarjetaCabecera icono={ScanEye} titulo="Tus imágenes" subtitulo={inf.deVideo ? 'Los cuadros salen de tu video y la app dibuja los textos: sin errores de letras. Cambia cualquier texto con «Editar textos», gratis.' : 'La app dibuja los textos con tus letras y tus colores: sin errores de letras. Cambia cualquier texto con «Editar textos», gratis.'} />
+          ) : (
+            <TarjetaCabecera icono={ScanEye} titulo="La revisión" subtitulo="La IA miró cada imagen contra tu producto y sus textos, letra por letra." />
+          )}
           <div className="lote-inf__resumen">
             <span className="lote-inf__grande t-num">{Number(r.aLaPrimera) || 0}</span>
             <span className="lote-inf__de">
-              de {plural(archivos, 'imagen', 'imágenes')} pasaron la revisión
+              de {plural(archivos, 'imagen', 'imágenes')} {inf.plantillas ? "listas para publicar" : "pasaron la revisión"}
             </span>
           </div>
 

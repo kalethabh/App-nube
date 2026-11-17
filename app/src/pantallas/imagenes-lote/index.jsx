@@ -75,6 +75,7 @@ export default function PantallaLote({ params, consulta }) {
         : {
             regenerar: (cuerpo) => apiImagenes.regenerar(lote, cuerpo),
             textos: (v, textos) => apiImagenes.textos(lote, v, textos),
+            pulir: (v, costo) => apiImagenes.pulir(lote, v, costo),
             continuar: () => apiImagenes.continuar(lote),
             detener: () => apiImagenes.detener(lote),
             prompt: (pieza, op) => apiImagenes.prompt(lote, pieza, op),
@@ -405,6 +406,11 @@ export default function PantallaLote({ params, consulta }) {
         urlDescarga={simulando ? null : (op) => apiImagenes.urlDescarga(lote, op)}
         onDescargarSimulado={descargarSimulado}
         onEditarTextos={(x) => setAEditar(x)}
+        onPulir={(x) =>
+          confirmarCosto(`Pulir ${x.v} con IA`, 1, (costoMaximoConfirmado) =>
+            hacer('pulir', () => acciones.pulir(x.v, costoMaximoConfirmado), { ok: { titulo: `Puliendo ${x.v}`, texto: 'El modelo rehace el cuadro limpio y nítido (sin texto); la app le vuelve a poner tus textos.' }, error: 'No pude pedirlo' })
+          )
+        }
       />
       {vista.informe ? <InformeLote vista={vista} onRegenerar={(p) => setARegenerar(p)} onAbrir={abrir} onEscribir={escribirDeNuevo} escribiendo={ocupado === 'escribir'} /> : null}
 

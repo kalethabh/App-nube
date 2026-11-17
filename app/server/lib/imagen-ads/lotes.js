@@ -461,7 +461,7 @@ export function usadosDe(productoId, excepto) {
 export function piezasPorHacer(carpeta, brief) {
   const est = leerEstado(carpeta);
   // plantillas: solo las escenas cuestan (una por variación con escena: el vertical reutiliza la del cuadrado)
-  const total = brief?.plantillas ? escenasDe(brief.cantidad, brief.plantillas.elegidas) : (Number(brief?.cantidad) || 0) * (brief?.formatos?.length || 1);
+  const total = brief?.plantillas ? (brief.video ? 0 : escenasDe(brief.cantidad, brief.plantillas.elegidas)) : (Number(brief?.cantidad) || 0) * (brief?.formatos?.length || 1);
   if (!est) return total;
   let n = 0;
   for (const p of Object.values(est.piezas || {})) if (p.fase !== 'final' && est.variaciones?.[p.v]?.prompt !== 'sin-prompt') n++;
@@ -485,10 +485,12 @@ export function armarInforme(carpeta, brief) {
     variaciones: Object.keys(est?.variaciones || {}).filter((v) => est.variaciones[v].prompt === 'listo').length,
     archivos: conImagen.length,
     modoPrueba: modoPrueba(),
+    // plantillas: los textos los dibuja la app (no hay revisión de la IA ni nada «regenerado por ti» al empezar)
+    ...(brief?.plantillas ? { plantillas: true, deVideo: Boolean(brief.video) } : {}),
     revision: {
       // bien a la primera = bien en la ronda 1 de la revision; las que quedaron bien despues de un cambio tuyo van aparte
-      aLaPrimera: de('listo').filter((p) => est.piezas[p].revision?.ronda === 1).length,
-      rehechasPorTi: de('listo').filter((p) => est.piezas[p].revision?.ronda !== 1),
+      aLaPrimera: brief?.plantillas ? de('listo').length : de('listo').filter((p) => est.piezas[p].revision?.ronda === 1).length,
+      rehechasPorTi: brief?.plantillas ? de('listo').filter((p) => est.piezas[p].pedido || est.piezas[p].ronda === 'u') : de('listo').filter((p) => est.piezas[p].revision?.ronda !== 1),
       arregladas: de('arreglado'), // (solo en lotes de antes del 2026-11-09: ya no hay reintento automatico)
       // las que la revision marco: quedan con su nota (todo al primer intento) para que el usuario decida
       conDetalles: de('con-detalles').map((p) => ({ pieza: p, problemas: est.piezas[p].revision?.problemas || [] })),

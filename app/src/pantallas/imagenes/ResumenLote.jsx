@@ -83,7 +83,7 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
           ) : null}
           {plantillas ? (
             <Fila etiqueta="Formatos">
-              <span>{plantillas.elegidas ? `${plantillas.elegidas} ${plantillas.elegidas === 1 ? 'elegido' : 'elegidos'}` : 'Que la app elija (mezcla)'}</span>
+              <span>{plantillas.video ? 'Cuadros de tu video' : plantillas.elegidas ? `${plantillas.elegidas} ${plantillas.elegidas === 1 ? 'elegido' : 'elegidos'}` : 'Que la app elija (mezcla)'}</span>
               {plantillas.escenas !== null ? <span className="img-resumen__nota t-num">{plantillas.escenas ? `${plantillas.escenas} con escena` : 'Todos gratis'}</span> : null}
             </Fila>
           ) : (
