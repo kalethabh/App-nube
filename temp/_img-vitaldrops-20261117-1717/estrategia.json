@@ -1,0 +1,41 @@
+{
+  "resumen": "Tomamos tu anuncio que ya funciona y lo repetimos igual: el mismo diseño, las mismas fotos por días, el mismo frasco con su caja y la misma placa dorada con la oferta. Solo cambia el titular en cada versión, y cada uno sale de tu investigación: uno promete apetito y energía para tus curvas, y los otros tocan lo que más le duele a tu clienta. Creemos que este anuncio puede vender porque muestra el proceso paso a paso, se entiende en un segundo y cierra con una oferta clara por tres frascos. Es una hipótesis, no una garantía.",
+  "paleta": [
+    { "hex": "#FBF3DC", "nombre": "Crema cálido" },
+    { "hex": "#F2DC4A", "nombre": "Amarillo limón" },
+    { "hex": "#C9A441", "nombre": "Dorado" },
+    { "hex": "#E6CF7A", "nombre": "Dorado claro" },
+    { "hex": "#111111", "nombre": "Negro" },
+    { "hex": "#8A4B14", "nombre": "Ámbar" }
+  ],
+  "tipografia": "La misma de tu anuncio: titular en letra gruesa, redonda y en mayúsculas, de color negro. Los días van en dorado. En la placa, la oferta va en letra alta y apretada, y la última línea en letra fina y espaciada.",
+  "estilo": "Igual a tu anuncio: fondo crema, cuatro fotos claras en un cuarto con luz suave, el frasco con su caja amarilla abajo a la izquierda y la placa dorada con la oferta abajo a la derecha. Limpio, cálido y femenino.",
+  "beneficios": [
+    "Acompaña tu apetito desde las primeras semanas",
+    "Más energía para trabajar, estudiar y entrenar",
+    "Un apoyo natural para tus curvas, sin agujas ni quirófano",
+    "El complemento diario de tu comida y tu rutina de pierna y cola"
+  ],
+  "caracteristicas": [
+    "5 ingredientes vegetales: ashwagandha, maca, L-arginina, fenogreco y remolacha",
+    "En gotas: una sola toma al día",
+    "Frasco de vidrio con gotero de 60 ml",
+    "Líquido y fácil de tomar, sin pastillas"
+  ],
+  "deseo_central": "Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo.",
+  "beneficio_principal": "Un ritual diario de gotas que acompaña tu apetito y tu energía mientras trabajas tus curvas con comida y ejercicio.",
+  "puntos_dolor": [
+    "Como y como y no me engorda nada",
+    "Los jeans me quedan bailando en la cola",
+    "Voy al gym y no veo cambios en la pierna ni en la cola",
+    "Me da miedo el quirófano y más los biopolímeros",
+    "Se me olvida comer y me lleno con nada",
+    "Ya compré gomitas y pastillas y no vi nada"
+  ],
+  "decisiones": [
+    "El ángulo lo elegimos nosotros: es el mismo de tu anuncio, el cambio paso a paso en 21 días.",
+    "La oferta de la placa (tratamiento completo, 3 unidades por $139,900, sin efecto rebote) se copió tal cual de tu anuncio, porque no escribiste precio en el formulario.",
+    "Los titulares nuevos no prometen un resultado fijo en el cuerpo: hablan de apetito, energía y de lo que vive tu clienta, para que sea más fácil que te aprueben el anuncio.",
+    "Tu investigación avisa que las fotos de comparación del cuerpo y la frase «sin efecto rebote» pueden traer rechazos al pautar. Las dejamos porque pediste copiar tu anuncio igual. Tenlo presente."
+  ]
+}

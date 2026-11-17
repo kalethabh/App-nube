@@ -1,0 +1,88 @@
+{
+  "producto": "vitaldrops",
+  "lote": "_img-vitaldrops-20261117-1717",
+  "cantidad": 5,
+  "proporciones": ["1:1"],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261117-1717/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1 / 7 / 14 / 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro centrado en dos líneas, en mayúsculas muy gruesas. En el centro, cuadrícula 2x2 de paneles redondeados con borde dorado fino: la misma mujer en un cuarto claro, de tres cuartos de espalda mirando por encima del hombro, con una etiqueta dorada de día arriba a la izquierda de cada panel (DÍA 1, DÍA 7, DÍA 14, DÍA 21). Abajo a la izquierda, la caja amarilla y el frasco gotero con una ramita dorada dibujada detrás. Abajo a la derecha, placa dorada cepillada con tres líneas: rótulo, oferta x3 con precio en letra condensada grande, línea fina y cierre espaciado.",
+        "por_que_funciona": "Hipótesis: el proceso por días se entiende en un segundo y hace creíble el titular; la misma mujer y el mismo cuarto dan orden y confianza; el producto firma abajo y la placa dorada cierra con una oferta concreta por tres frascos, que es como se compra un proceso de varias semanas."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio que ya funciona, con el titular que promete el beneficio principal: apetito y energía para trabajar las curvas.",
+      "titular": "MÁS APETITO Y ENERGÍA PARA TUS CURVAS",
+      "escena": "Igual a la referencia: cuatro paneles del mismo cuarto claro con cortinas, cama a la izquierda y planta a la derecha; la misma mujer de cola de caballo, top blanco y leggings terracota; caja amarilla y frasco abajo a la izquierda; placa dorada de oferta abajo a la derecha.",
+      "camara": "Igual a la referencia: en cada panel, plano medio de tres cuartos de espalda, a la altura de los ojos, de la cabeza a la parte alta del muslo; producto de frente a la altura de los ojos."
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261117-1717/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1 / 7 / 14 / 21) con producto y placa de oferta",
+        "estructura": "La misma de V01: titular negro centrado en dos líneas, cuadrícula 2x2 de paneles con etiqueta dorada de día, caja y frasco abajo a la izquierda con ramita dorada, placa dorada de oferta abajo a la derecha.",
+        "por_que_funciona": "Hipótesis: el proceso por días se entiende en un segundo, el producto firma abajo y la placa cierra con una oferta concreta por tres frascos. Con un titular de dolor, la clienta se reconoce antes de ver el proceso."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio, con el titular que nombra el dolor número uno: come y come y no sube.",
+      "titular": "¿COMES Y COMES Y NO SUBES?",
+      "escena": "Igual a la referencia: cuatro paneles del mismo cuarto claro con cortinas, cama a la izquierda y planta a la derecha; la misma mujer de cola de caballo, top blanco y leggings terracota; caja amarilla y frasco abajo a la izquierda; placa dorada de oferta abajo a la derecha.",
+      "camara": "Igual a la referencia: en cada panel, plano medio de tres cuartos de espalda, a la altura de los ojos, de la cabeza a la parte alta del muslo; producto de frente a la altura de los ojos."
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261117-1717/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1 / 7 / 14 / 21) con producto y placa de oferta",
+        "estructura": "La misma de V01: titular negro centrado en dos líneas, cuadrícula 2x2 de paneles con etiqueta dorada de día, caja y frasco abajo a la izquierda con ramita dorada, placa dorada de oferta abajo a la derecha.",
+        "por_que_funciona": "Hipótesis: el proceso por días se entiende en un segundo, el producto firma abajo y la placa cierra con una oferta concreta por tres frascos. El titular suma la tranquilidad de un camino natural, sin agujas."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio, con el titular que responde al miedo al quirófano y a las inyecciones.",
+      "titular": "TUS CURVAS, SIN AGUJAS NI QUIRÓFANO",
+      "escena": "Igual a la referencia: cuatro paneles del mismo cuarto claro con cortinas, cama a la izquierda y planta a la derecha; la misma mujer de cola de caballo, top blanco y leggings terracota; caja amarilla y frasco abajo a la izquierda; placa dorada de oferta abajo a la derecha.",
+      "camara": "Igual a la referencia: en cada panel, plano medio de tres cuartos de espalda, a la altura de los ojos, de la cabeza a la parte alta del muslo; producto de frente a la altura de los ojos."
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261117-1717/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1 / 7 / 14 / 21) con producto y placa de oferta",
+        "estructura": "La misma de V01: titular negro centrado en dos líneas, cuadrícula 2x2 de paneles con etiqueta dorada de día, caja y frasco abajo a la izquierda con ramita dorada, placa dorada de oferta abajo a la derecha.",
+        "por_que_funciona": "Hipótesis: el proceso por días se entiende en un segundo, el producto firma abajo y la placa cierra con una oferta concreta por tres frascos. El titular usa la frase exacta de la clienta sobre el jean."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio, con el titular del jean que queda bailando, dicho con las palabras de la clienta.",
+      "titular": "QUE EL JEAN DEJE DE QUEDARTE BAILANDO",
+      "escena": "Igual a la referencia: cuatro paneles del mismo cuarto claro con cortinas, cama a la izquierda y planta a la derecha; la misma mujer de cola de caballo, top blanco y leggings terracota; caja amarilla y frasco abajo a la izquierda; placa dorada de oferta abajo a la derecha.",
+      "camara": "Igual a la referencia: en cada panel, plano medio de tres cuartos de espalda, a la altura de los ojos, de la cabeza a la parte alta del muslo; producto de frente a la altura de los ojos."
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261117-1717/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1 / 7 / 14 / 21) con producto y placa de oferta",
+        "estructura": "La misma de V01: titular negro centrado en dos líneas, cuadrícula 2x2 de paneles con etiqueta dorada de día, caja y frasco abajo a la izquierda con ramita dorada, placa dorada de oferta abajo a la derecha.",
+        "por_que_funciona": "Hipótesis: el proceso por días se entiende en un segundo, el producto firma abajo y la placa cierra con una oferta concreta por tres frascos. El titular le habla a la que ya entrena y no ve cambios."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio, con el titular para la que entrena pierna y cola y no ve el cambio.",
+      "titular": "¿ENTRENAS Y NO VES EL CAMBIO?",
+      "escena": "Igual a la referencia: cuatro paneles del mismo cuarto claro con cortinas, cama a la izquierda y planta a la derecha; la misma mujer de cola de caballo, top blanco y leggings terracota; caja amarilla y frasco abajo a la izquierda; placa dorada de oferta abajo a la derecha.",
+      "camara": "Igual a la referencia: en cada panel, plano medio de tres cuartos de espalda, a la altura de los ojos, de la cabeza a la parte alta del muslo; producto de frente a la altura de los ojos."
+    }
+  ]
+}

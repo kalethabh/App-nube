@@ -1,0 +1,183 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "uploaded reference (R01.png, the brand's own winning creative for this same product)",
+    "reference_style": "Clean, bright beauty-supplement timeline ad: 2x2 grid of day panels, product with carton and a gold offer plaque on a warm cream canvas",
+    "angle_used": "Transformación / resultado (day-by-day process), headline on the main benefit: appetite and energy for her curves",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, carton, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A (day labels, plaque, panel borders, botanical sprig); near-black #111111 (headline and plaque text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for panel highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a soft, polished semi-illustrated photographic rendering, tidy, warm and premium, exactly as in the reference creative.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Rounded-corner rectangular panels with a hairline pale-gold border, generous cream margins, a brushed metallic gold plaque with a thin inner border and rounded corners, a delicate pale-gold botanical sprig line drawing behind the product, soft contact shadows under the product.",
+    "text_typography": "Headline in a geometric sans-serif, extra-bold, all uppercase, tight leading (Montserrat ExtraBold / Gotham Black style), solid near-black, centered, two lines. Day labels in the same geometric sans, bold, uppercase, metallic gold, small. Plaque text: first line bold uppercase geometric sans; middle line much larger heavy condensed uppercase sans (Impact / Bebas style); third line regular-weight uppercase sans with wide letter spacing. No outlines and no drop shadows on the text."
+  },
+  "creative_objective": "Recreate the attached reference creative exactly (same composition, framing, typography, positions, palette, background and photo style) and change only the headline to the new main-benefit headline, so the ad keeps the selling logic that already works: a day-by-day process, the product signing below and a concrete three-unit offer.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "First the big black two-line headline at the top; second the 2x2 grid of day panels with the woman; third the gold offer plaque bottom right and the product with its carton bottom left.",
+    "composition_style": "Symmetrical stacked layout on a cream canvas: headline band on top (about 14% of the height), 2x2 panel grid in the middle (about 52%), bottom band (about 32%) split into product group on the left third and wide gold plaque on the right two thirds.",
+    "spacing_and_structure": "Even cream margins on all sides, a narrow cream gutter between the four panels, panels with softly rounded corners and a hairline pale-gold border, plaque vertically centered in the bottom band.",
+    "lighting_and_depth": "Soft diffused daylight inside the panels coming through sheer curtains, bright airy low-contrast look; soft contact shadow under the carton and the bottle; subtle brushed-metal sheen with a light bevel on the gold plaque.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Warm cream canvas. Top: centered two-line extra-bold black uppercase headline. Middle: 2x2 grid of four equal landscape panels with rounded corners and hairline gold border; each shows the same woman in the same bright bedroom in a three-quarter back view looking over her shoulder, with a small gold day label in the upper-left corner of each panel (DÍA 1 top left, DÍA 7 top right, DÍA 14 bottom left, DÍA 21 bottom right). Bottom left: tall lemon-yellow carton with the amber dropper bottle standing in front of it at its right, and a pale-gold botanical sprig line drawing behind the bottle on the right. Bottom right: wide brushed-gold plaque with rounded corners and thin inner border holding three centered text lines separated by a hairline rule above the third line.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "headline",
+        "position": "Top band, centered, two lines, spanning about 75% of the width",
+        "visual_function": "Main promise that stops the scroll and frames the day-by-day process",
+        "adaptation_rule": "Same typography, size, color and position as the reference; only the wording changes to the new headline",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "2x2 timeline panel grid with person",
+        "position": "Middle of the canvas, full width inside the margins, two rows of two panels",
+        "visual_function": "Shows the process over 21 days with the same woman, room and framing",
+        "adaptation_rule": "Reproduce exactly as in the reference: same woman, outfit, pose, bedroom, framing and gradual progression across the four panels",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "day labels",
+        "position": "Upper-left corner inside each panel",
+        "visual_function": "Mark each stage of the timeline",
+        "adaptation_rule": "Keep the same four labels, gold color, size and place",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product with carton",
+        "position": "Bottom left, carton on the left and bottle in front at its right, both standing on the cream canvas",
+        "visual_function": "Presents the product as the signature of the process",
+        "adaptation_rule": "Use the attached product image as the only source of truth for the bottle; carton as in the reference",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "decorative element (botanical sprig line drawing)",
+        "position": "Behind and to the right of the bottle, bottom left area",
+        "visual_function": "Natural, plant-based cue",
+        "adaptation_rule": "Keep the same thin pale-gold sprig drawing",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "offer plaque with price",
+        "position": "Bottom right, occupying about the right 50% of the width, vertically centered in the bottom band",
+        "visual_function": "Closes with the concrete three-unit offer",
+        "adaptation_rule": "Keep the brushed-gold plaque and its three text lines exactly as in the reference (the user's own offer)",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Warm, clean brand canvas",
+        "adaptation_rule": "Same flat warm cream with a very subtle soft vignette",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA buttons",
+      "Rating stars, reviews or testimonials",
+      "Trust seals, guarantee badges or shipping icons",
+      "Benefit lists or icons",
+      "Discount stickers or crossed-out prices",
+      "Subheadline under the headline",
+      "Arrows between panels",
+      "Isolated brand logos outside the product packaging",
+      "Bottom bars or extra text lines"
+    ]
+  },
+  "visual_prompt": "Recreate the attached reference ad exactly: same composition, framing, typography, text positions, color palette, background and photo style. The only change is the headline wording. Square 1:1 beauty-supplement ad on a flat warm cream background (#FBF3DC) with a very subtle soft vignette. TOP: a centered two-line headline in extra-bold geometric sans-serif uppercase, solid near-black, tight leading, spanning about 75% of the width. MIDDLE: a 2x2 grid of four equal landscape panels with softly rounded corners and a hairline pale-gold border, separated by a narrow cream gutter and filling the width inside even margins. Every panel shows the same scene: a bright airy cream-white bedroom with tall sheer white curtains glowing with soft daylight, a bed with white and beige linen at the left edge, and a green potted palm in a white pot at the right. In each panel the same young Latina woman with dark brown hair in a high ponytail, wearing a white racerback sports top and terracotta-brown high-waisted leggings, stands slightly right of the panel center in a three-quarter back view, looking over her left shoulder toward the camera with a soft confident smile, framed from head to upper thigh at eye level. Identical woman, outfit, pose, room and light in all four panels; exactly as in the reference, from the first to the fourth panel her hip and glute silhouette looks gradually and gently fuller. In the upper-left corner inside each panel there is a small bold uppercase metallic-gold day label: top-left panel, top-right panel, bottom-left panel, bottom-right panel in timeline order. BOTTOM LEFT: the product group standing on the cream canvas with soft contact shadows: a tall rectangular lemon-yellow carton with the lowercase black wordmark at the top and the product name in white uppercase letters running vertically on its front face; in front of it at its right, the user's product, a 60 ml amber-brown glass dropper bottle with rounded shoulders, a black ribbed screw collar and a glossy black rubber bulb dropper, with a wraparound label that fades from bright lemon yellow at the top to white at the bottom, carrying the lowercase black wordmark, the large white uppercase product name, a small dark descriptor line and five small thin-outlined circular ingredient badges in two rows. Use the attached product image as the only source of truth for the bottle and its label; do not redesign, replace or reinterpret it. Behind and to the right of the bottle, a delicate thin pale-gold botanical sprig line drawing. BOTTOM RIGHT: a wide horizontal brushed metallic gold plaque with rounded corners, a thin lighter inner border and a subtle bevel sheen, vertically centered in the bottom band and covering about the right half of the width. Inside it, three centered lines of near-black text: a first line in bold uppercase geometric sans; a second, much larger line in heavy condensed uppercase sans; a thin dark hairline rule; and a third line in regular-weight uppercase sans with wide letter spacing. Soft diffused light, clean, warm, feminine, premium look. No other text, badges, buttons, icons, stars or logos anywhere.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top band, centered, two lines (line break after 'ENERGÍA')",
+      "text_style": "Geometric sans-serif, extra-bold, all uppercase, tight leading, solid near-black #111111 on cream, centered, the largest text of the ad, no outline and no shadow",
+      "text": "MÁS APETITO Y ENERGÍA PARA TUS CURVAS"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "other (timeline label)",
+      "reference_position": "Upper-left corner inside the top-left panel",
+      "text_style": "Geometric sans-serif, bold, uppercase, small, metallic gold #C9A441, left-aligned",
+      "text": "DÍA 1"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "other (timeline label)",
+      "reference_position": "Upper-left corner inside the top-right panel",
+      "text_style": "Geometric sans-serif, bold, uppercase, small, metallic gold #C9A441, left-aligned",
+      "text": "DÍA 7"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "other (timeline label)",
+      "reference_position": "Upper-left corner inside the bottom-left panel",
+      "text_style": "Geometric sans-serif, bold, uppercase, small, metallic gold #C9A441, left-aligned",
+      "text": "DÍA 14"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "other (timeline label)",
+      "reference_position": "Upper-left corner inside the bottom-right panel",
+      "text_style": "Geometric sans-serif, bold, uppercase, small, metallic gold #C9A441, left-aligned",
+      "text": "DÍA 21"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "badge (offer title)",
+      "reference_position": "First line inside the gold plaque, bottom right, centered",
+      "text_style": "Geometric sans-serif, bold, uppercase, medium size, near-black on brushed gold, centered",
+      "text": "TRATAMIENTO COMPLETO"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "price",
+      "reference_position": "Second line inside the gold plaque, bottom right, centered, above the hairline rule",
+      "text_style": "Heavy condensed sans-serif (Impact / Bebas style), uppercase, the largest text of the plaque, near-black on brushed gold, centered",
+      "text": "X3 UNIDADES $139,900"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "other (closing claim)",
+      "reference_position": "Third line inside the gold plaque, bottom right, centered, below the hairline rule",
+      "text_style": "Geometric sans-serif, regular weight, uppercase, wide letter spacing, medium-small, near-black on brushed gold, centered",
+      "text": "SIN EFECTO REBOTE"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Flat warm cream background",
+    "2x2 grid of four rounded panels with hairline gold border",
+    "The same woman (dark ponytail, white sports top, terracotta leggings) in a three-quarter back view looking over her shoulder in all four panels",
+    "Bright bedroom with sheer curtains, bed at left and potted palm at right in every panel",
+    "Lemon-yellow carton with the amber dropper bottle in front, bottom left",
+    "Thin pale-gold botanical sprig line drawing behind the bottle",
+    "Wide brushed-gold plaque with rounded corners and thin inner border, bottom right, with a hairline rule above its third line"
+  ],
+  "final_generation_exclusions": [
+    "Do not change the layout, the framing, the scene, the woman, the outfit or the colors of the reference.",
+    "Do not add a subheadline, arrows, icons, stars, seals, buttons or logos.",
+    "Do not redesign the bottle or its label; use the attached product image.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "The new headline has been sanitized for Facebook/Instagram Ads compliance: no guaranteed body result, no false guarantee and no direct personal attribute callout. The day panels and the plaque texts are kept from the user's own reference creative at the user's request.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
