@@ -28,8 +28,12 @@ import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 import { RAIZ } from './rutas.js';
 
-/** Lo que dice VERSION: la fecha, con una letra si es el segundo paquete del dia (2026-11-06, 2026-11-06b). */
-export const RE_VERSION = /^\d{4}-\d{2}-\d{2}[a-z]?$/;
+/**
+ * Lo que dice VERSION: la fecha, con una letra si es el segundo paquete del dia (2026-11-06, 2026-11-06b) y, desde
+ * 2026-11-17q, un número opcional (2026-11-17q1). OJO: las copias instaladas antes de 2026-11-17q solo leen la fecha con
+ * UNA letra; por eso lo que se publica para instalar usa ese formato (ver publicar-version.mjs).
+ */
+export const RE_VERSION = /^\d{4}-\d{2}-\d{2}[a-z]?\d*$/;
 
 export const LANZADORES = ['Abrir Anuncios con IA.bat', 'Abrir Anuncios con IA.command'];
 

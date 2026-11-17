@@ -52,6 +52,12 @@ function principal() {
   }
   const version = fs.readFileSync(path.join(RAIZ, 'VERSION'), 'utf8').trim();
   const etiqueta = `v${version}`;
+  // las copias instaladas antes de 2026-11-17q solo reconocen la fecha con UNA letra (2026-11-17q): con otro formato,
+  // su botón «Actualizar» no vería la versión nueva
+  if (!/^\d{4}-\d{2}-\d{2}[a-z]?$/.test(version)) {
+    console.error(`\n  VERSION dice «${version}»: para publicar tiene que ser la fecha con una letra como mucho (por ejemplo 2026-11-17q), o las copias ya instaladas no la ven.\n`);
+    process.exit(1);
+  }
 
   if (!existe(['repo', 'view', REPO])) {
     console.log(`  Creando el repositorio público ${REPO} (solo el instalador y los zips de cada versión)...`);
