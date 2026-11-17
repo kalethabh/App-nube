@@ -32,6 +32,7 @@ import { lanzarSesion, prohibidasComunes, nombreIA } from '../lib/motor-ia.js';
 const Mayus = (t) => String(t).charAt(0).toUpperCase() + String(t).slice(1);
 import { desdeLaApp, anuncioConPlan } from './editor.js';
 import { seguirZona } from '../lib/seguir-zona.js';
+import { rutaFfmpeg } from '../lib/miniaturas.js';
 
 const SCRIPT = path.join(RAIZ, 'produccion', 'leer-textos-video.py');
 const PY = process.platform === 'win32' ? path.join(RAIZ, '.venv-limpio', 'Scripts', 'python.exe') : path.join(RAIZ, '.venv-limpio', 'bin', 'python');
@@ -179,6 +180,28 @@ function adivinar(pedido, pistas) {
 }
 
 export default function rutasSeguimiento(app) {
+  // GUARDAR ESTE CUADRO (herramientas del editor): una imagen del video en el segundo t (del video tal como está; sin
+  // los textos que agregaste en el editor). Sirve de portada, de referencia para un anuncio de imagen o para revisar.
+  //   GET /api/anuncios/:slug/cuadro?t=<segundos>  -> image/jpeg (descarga)
+  app.get('/api/anuncios/:slug/cuadro', (req, res) => {
+    const { slug } = req.params;
+    if (!anuncioConPlan(slug)) return res.status(404).json({ error: 'No encuentro ese anuncio.' });
+    const v = videoDe(slug);
+    if (!v) return res.status(409).json({ error: 'Este anuncio todavía no tiene video.' });
+    const t = Math.max(0, Number(req.query.t) || 0);
+    const to = aOriginal(t, v.plan?.videoPropio ? v.plan.fuente : null);
+    const p = spawn(rutaFfmpeg(), ['-v', 'error', '-ss', String(to), '-i', v.abs, '-frames:v', '1', '-q:v', '2', '-c:v', 'mjpeg', '-f', 'image2pipe', '-'], { windowsHide: true });
+    const partes = [];
+    p.stdout.on('data', (d) => partes.push(d));
+    p.on('error', () => !res.headersSent && res.status(500).json({ error: 'No pude sacar ese cuadro.' }));
+    p.on('close', (c) => {
+      if (res.headersSent) return;
+      if (c !== 0 || !partes.length) return res.status(500).json({ error: 'No pude sacar ese cuadro.' });
+      const nombre = `${slug}_${t.toFixed(2).replace('.', '-')}s.jpg`;
+      res.set({ 'Content-Type': 'image/jpeg', 'Content-Disposition': `attachment; filename="${nombre}"`, 'Cache-Control': 'no-store' }).send(Buffer.concat(partes));
+    });
+  });
+
   // EL PINCEL PARA CENSURAR: lo que pintaste en el momento t se sigue en su escena -> { apariciones, desde, hasta, ... }
   //   POST /api/anuncios/:slug/censura/seguir  { t, x, y, w, h }  (x, y el centro y w, h el tamaño, de 0 a 1)
   app.post('/api/anuncios/:slug/censura/seguir', async (req, res) => {
