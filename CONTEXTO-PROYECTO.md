@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17p` (archivo `VERSION`): anuncios de imagen con plantillas (la app dibuja los textos y
+- **Versión actual:** `2026-11-17p1` (archivo `VERSION`): anuncios de imagen con plantillas (la app dibuja los textos y
   los gráficos con Remotion en 0,3-1 s por imagen; el modelo solo hace escenas sin texto; 12 de 17 formatos gratis; kit de
   marca; «Editar textos» gratis) y «De un video, imágenes» (rama `plantillas-imagen`, sin PR). Antes: `2026-11-17o`: exportar del editor por tramos (solo se rehace lo que cambió;
   solo sonido sin rehacer imagen; VideoToolbox en la Mac). Antes: `2026-11-17n`: Inspiración con los anuncios de Meta mismo (fuentes «Meta
@@ -142,6 +142,20 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Referencia interna de anuncios de imagen ganadores (2026-11-17, versión 2026-11-17p1)
+
+- Pedido: tomar como referencia interna, sin mostrarla, los análisis de VitalDrops (Amua, Muna, Dorphix), drenaje
+  linfático (Sonvital y su red, BlockFusion/Erlona) y Grüns, para replicar cómo comunican el ángulo.
+- `.claude/skills/anuncios-imagen-ads/referencias-ganadoras.md`: reglas comunes, fórmula por formato (con su plantilla),
+  ángulos que se repiten y lo que no se hace. La skill la lee en el Paso 4 (modo elaborado).
+- `textos-plantillas.js`: `plazoDe(etapas)`, línea de tiempo «resultado + plazo» (k par), pizarra «¿{probó}? Prueba
+  esto.», mapa del cuerpo «La diferencia se nota» (k par). El antes/después cuadrado ya iba sin título sobre la foto.
+- `plantillas.js descripcionEscena`: regla `ganador` (zona del cuerpo 60–70 % del cuadro, ropa ajustada, lugar real
+  sin distracciones) en antes/después (foto de celular en casa) y línea de tiempo (fondo claro, perfil o espalda 3/4).
+- `video-imagenes.js` (elección con IA) y `produccion/imagen-ads.js` (`COMO_GANADORES` en RAPIDO_COPIAR/INSPIRAR):
+  una idea por imagen, el ángulo antes de leerse, título con el dolor o resultado, oferta nunca en el título.
+- Pruebas: imagen 163/163, video-imágenes 19/19, humo 85/85, probar-imagen-ads 173, ChatGPT 0 fallas.
 
 ### Plantillas de imagen y «De un video, imágenes» (2026-11-17, versión 2026-11-17p)
 
