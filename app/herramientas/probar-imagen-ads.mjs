@@ -1193,6 +1193,36 @@ try {
   const u = listarResultados(b.carpeta).filter((x) => String(x.orden).startsWith('U0001')).map((x) => `${x.pieza}:${x.orden}`);
   check('Regenerar la escena: una sola orden (el cuadrado), con la nota del usuario en el prompt; el vertical se redibuja', r?.ok === true && u.join() === 'V01_1x1:U0001' && /Otra persona, más luz/.test(fs.readFileSync(R.prompt(b.carpeta, 'V01_1x1'), 'utf8')) && fs.statSync(R.final(b.carpeta, 'V01_9x16')).mtimeMs > marcaV, { r, u });
 
+  // ---- 11f. los ángulos ganadores (sin oferta): en la pantalla y en la mezcla de la app, y se dibujan en los 2 tamaños
+  const cat = await import('../server/lib/imagen-ads/catalogo-plantillas.js');
+  const textosMod = await import('../server/lib/imagen-ads/textos-plantillas.js');
+  const pantalla = cat.catalogoParaLaPantalla();
+  const ANGULOS = ['silueta-zonas', 'solo-vs-con', 'nosotros-vs-ellos', 'no-compres', 'pregunta-revelacion', 'historia', 'zonas-semanas', 'foto-iconos'];
+  check(
+    'Sin plantillas de oferta en la pantalla ni en «Que la app elija»; los 8 ángulos ganadores sí (y abren la mezcla)',
+    !pantalla.familias.some((x) => x.id === 'oferta') && !pantalla.plantillas.some((x) => x.familia === 'oferta') && !cat.ORDEN_AUTO.some((x) => cat.POR_ID.get(x)?.familia === 'oferta') && ANGULOS.every((x) => pantalla.plantillas.some((y) => y.id === x)) && cat.ORDEN_AUTO[0] === 'silueta-zonas' && cat.POR_ID.has('sticker-oferta'),
+    { familias: pantalla.familias.map((x) => x.id), orden: cat.ORDEN_AUTO }
+  );
+  const ctxA = textosMod.contextoDelLote(a.carpeta, a.brief);
+  const sinOferta = ANGULOS.every((id) => !/\$|%|descuento|oferta|2x1|gratis/i.test(JSON.stringify(textosMod.textosPara(id, ctxA, 0))));
+  check('Los textos de los ángulos salen de la ficha y nunca traen oferta ni precio', sinOferta, ANGULOS.map((id) => textosMod.textosPara(id, ctxA, 0)));
+  check('La pregunta sale del dolor de la ficha, dicha a la clienta («¿Sientes que…?»)', textosMod.textosPara('pregunta-revelacion', ctxA, 0).pregunta === '¿Sientes que la piel se te ve apagada?', textosMod.textosPara('pregunta-revelacion', ctxA, 0));
+  const promptsSinTexto = ANGULOS.every((id) => {
+    const d = plantillas.descripcionEscena(id, ctxA, textosMod.textosPara(id, ctxA, 0), { primario: '#1F6F4A', secundario: '#F2C14E' });
+    return d.length > 200 && !/MAIN HEADLINE|EXACT VISIBLE TEXT/.test(d);
+  });
+  check('Cada ángulo pide su propia escena al modelo (sin texto)', promptsSinTexto);
+  t = Date.now();
+  const dibujos = [];
+  for (const id of ANGULOS) {
+    for (const f of ['1:1', '9:16']) {
+      const salida = path.join(BASE, 'angulos', `${id}_${f.replace(':', 'x')}.png`);
+      await render.renderizar({ composicion: render.composicionDe(f), props: { plantilla: id, formato: f, textos: textosMod.textosPara(id, ctxA, 0), kit: plantillas.limpiarKit({}), producto: { archivo: path.join(APP, 'muestras', 'plantillas', 'producto-muestra.png'), recortado: true }, escena: { espera: 'Escena' }, logo: null }, salida });
+      dibujos.push(fs.existsSync(salida) && fs.statSync(salida).size > 20000);
+    }
+  }
+  check(`Los 8 ángulos se dibujan en cuadrado y vertical (${dibujos.length} imágenes en ${Date.now() - t} ms)`, dibujos.length === 16 && dibujos.every(Boolean), dibujos);
+
   // ---- 11e. el kit de marca y los tiempos del dibujante
   const kit = await plantillas.kitAutomatico(path.join(APP, 'muestras', 'plantillas', 'producto-muestra.png'));
   check(`El kit de marca sale de la foto (colores dominantes no neutros: ${kit.primario} y ${kit.secundario})`, /^#[0-9A-F]{6}$/.test(kit.primario) && /^#[0-9A-F]{6}$/.test(kit.secundario) && kit.primario !== kit.secundario, kit);
