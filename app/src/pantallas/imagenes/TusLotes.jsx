@@ -19,7 +19,8 @@ export const loteTeNecesita = (l) => l.estado === 'error' || (l.estado === 'paus
 /** Lo que se está creando primero, después lo que te necesita y después el resto (del más nuevo al más viejo). */
 export function ordenarLotes(lotes) {
   const prioridad = (l) => (loteEnMarcha(l) ? 0 : loteTeNecesita(l) ? 1 : 2);
-  return [...(lotes || [])].sort((a, b) => prioridad(a) - prioridad(b) || (Date.parse(b.creado) || 0) - (Date.parse(a.creado) || 0));
+  const reciente = (l) => Date.parse(l.actualizado || l.terminado || l.creado) || 0;
+  return [...(lotes || [])].sort((a, b) => prioridad(a) - prioridad(b) || reciente(b) - reciente(a));
 }
 
 /**
@@ -129,7 +130,7 @@ export function TusLotes({ lotes, ia, simulando = false, filtro = null, crearMas
       await apiImagenes.borrar(borrar.lote);
       invalidar(CLAVE_LOTES);
       await recargar?.();
-      aviso({ tipo: 'ok', titulo: 'Borrador borrado' });
+      aviso({ tipo: 'ok', titulo: borrar.estado === 'borrador' ? 'Borrador borrado' : 'Lote eliminado' });
       setBorrar(null);
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude borrarlo', texto: e.message });
@@ -171,9 +172,9 @@ export function TusLotes({ lotes, ia, simulando = false, filtro = null, crearMas
                 </span>
               </span>
             </a>
-            {l.estado === 'borrador' ? (
+            {!loteEnMarcha(l) ? (
               <Boton variante="fantasma" tamano="chico" icono={Trash2} onClick={() => setBorrar(l)} className="img-lote__borrar">
-                Borrar
+                {l.estado === 'borrador' ? 'Borrar' : 'Eliminar'}
               </Boton>
             ) : null}
           </article>
@@ -185,15 +186,19 @@ export function TusLotes({ lotes, ia, simulando = false, filtro = null, crearMas
         tamano="chico"
         icono={Trash2}
         tono="error"
-        titulo="¿Borrar este borrador?"
-        descripcion="Este lote no llegó a empezar: no se hizo ni se pagó nada. Se borra su carpeta y no se puede deshacer."
+        titulo={borrar?.estado === 'borrador' ? '¿Borrar este borrador?' : '¿Eliminar este lote?'}
+        descripcion={
+          borrar?.estado === 'borrador'
+            ? 'Este lote no llegó a empezar: no se hizo ni se pagó nada. Se borra su carpeta y no se puede deshacer.'
+            : `Sale de tus lotes${borrar?.listas ? ` con sus ${borrar.listas} ${borrar.listas === 1 ? 'imagen' : 'imágenes'}` : ''}. No se borra nada: queda guardado aparte (temp/_descartados) por si lo necesitas recuperar.`
+        }
         pie={
           <>
             <Boton variante="fantasma" onClick={() => setBorrar(null)} disabled={borrando}>
               Cancelar
             </Boton>
             <Boton variante="peligro" icono={Trash2} cargando={borrando} onClick={confirmarBorrar}>
-              Sí, borrarlo
+              {borrar?.estado === 'borrador' ? 'Sí, borrarlo' : 'Sí, eliminarlo'}
             </Boton>
           </>
         }

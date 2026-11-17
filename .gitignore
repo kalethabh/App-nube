@@ -71,3 +71,6 @@ mis_archivos/.anuncios-github-cache/
 .venv-limpio/
 produccion/video-limpio/**/__pycache__/
 .venv-sketch/
+
+# copias de trabajo de los agentes de Claude Code
+.claude/worktrees/

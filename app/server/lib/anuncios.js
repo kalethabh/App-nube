@@ -367,6 +367,8 @@ function firmaDe(slug) {
     stat(path.join(dir, 'audio', 'voz.mp3'))?.mtimeMs,
     // «Guardar» del editor cambia la version principal
     stat(path.join(dir, 'app', 'version-principal.json'))?.mtimeMs,
+    // un cambio en el editor sube el anuncio en las listas
+    stat(path.join(dir, 'app', 'edicion.json'))?.mtimeMs,
   ];
   return partes.join('|');
 }
@@ -401,7 +403,13 @@ export function resumenAnuncio(slug, archivosOutput = listar(OUTPUT)) {
   const duracion = duracionPlan ?? principal?.duracion ?? duracionEstimada;
 
   const stManifiesto = stat(path.join(c.dir, 'manifiesto.json'));
-  const fechas = [stManifiesto?.mtimeMs || 0, ...videosListos.map((v) => Date.parse(v.fecha))];
+  // lo último que le pasó: creado, un video nuevo, un cambio en el editor o en el plan (las listas van del más reciente)
+  const fechas = [
+    stManifiesto?.mtimeMs || 0,
+    stat(path.join(c.dir, 'plan-montaje.json'))?.mtimeMs || 0,
+    stat(path.join(c.dir, 'app', 'edicion.json'))?.mtimeMs || 0,
+    ...videosListos.map((v) => Date.parse(v.fecha) || 0),
+  ];
   const primerClip = ['toma-1.mp4', 'paso-1.mp4'].find((n) => c.videoSet.has(n)) || c.video.slice().sort((a, b) => numDe(a) - numDe(b))[0];
 
   const valor = {
