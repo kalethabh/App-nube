@@ -383,6 +383,9 @@ try {
   check('Meta simulada en modo prueba (sin llamar a Meta), con página siguiente', metaSim.simulado === true && metaSim.anuncios.length > 0 && metaSim.siguiente === 'sim2', JSON.stringify(metaSim).slice(0, 200));
   const medioSim = await fetch(`${BASE}/api/inspiracion/meta/media/${metaSim.anuncios[0].metaId}`, { headers: DE_APP }).then((r) => r.json());
   check('el medio simulado de Meta', Boolean(medioSim.media || medioSim.error));
+  const zip = await fetch(`${BASE}/api/inspiracion/chrome/extension.zip`);
+  const bytesZip = Buffer.from(await zip.arrayBuffer());
+  check('«Descargar la extensión» entrega un zip con el manifiesto', zip.status === 200 && bytesZip.subarray(0, 2).toString() === 'PK' && bytesZip.includes(Buffer.from('kads-guardar-en-chrome/manifest.json')));
   const borrar = await fetch(`${BASE}/api/inspiracion/chrome/${idImportado}`, { method: 'DELETE', headers: DE_APP });
   const despues = await fetch(`${BASE}/api/inspiracion/chrome`).then((r) => r.json());
   check('se puede borrar (y sus archivos)', borrar.status === 200 && !despues.anuncios.some((x) => x.id === idImportado) && !fs.existsSync(path.join(RAIZ, 'temp', '_ganadores', 'chrome', '987654321012345.mp4')));

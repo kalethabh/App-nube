@@ -1,6 +1,7 @@
 /* El botón «Guardar en Kads» y su aviso, con los colores de Kads (negro y verde lima). */
 .kads-boton {
-  display: inline-flex;
+  display: flex;
+  width: max-content;
   align-items: center;
   gap: 6px;
   margin: 6px 0;

@@ -144,8 +144,8 @@
     var caption = null;
     var titulo = null;
     var cta = null;
-    var hojas = Array.prototype.slice.call(c.querySelectorAll('div, span, a'))
-      .filter(function (e) { return e.children.length === 0; })
+    var hojas = Array.prototype.slice.call(c.querySelectorAll('*'))
+      .filter(function (e) { return e.children.length === 0 && !/^(SCRIPT|STYLE|SVG|PATH|IMG|VIDEO|SOURCE|BUTTON|HR|BR)$/i.test(e.tagName) && !e.hasAttribute('data-kads-boton'); })
       .map(function (e) { return { el: e, t: textoDe(e).trim() }; })
       .filter(function (x) { return x.t; });
     for (var h = 0; h < hojas.length; h++) {

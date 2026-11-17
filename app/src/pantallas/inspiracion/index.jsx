@@ -78,6 +78,7 @@ export default function Inspiracion() {
     setVista('feed');
   };
   const [chromeAbierto, setChromeAbierto] = useState(false);
+  const angosta = typeof window !== 'undefined' && window.matchMedia?.('(max-width: 640px)').matches;
 
   // ---------------------------------------------------------------- lo que va a TrendTrack
   const [filtros, setFiltrosCrudo] = useState(() => ({ ...FILTROS_INICIALES, ...leer('inspiracion-filtros', {}) }));
@@ -324,8 +325,9 @@ export default function Inspiracion() {
             <span className="insp-chips__etiqueta">Fuente</span>
             <Pestanas
               variante="segmentado"
+              tamano={angosta ? 'chico' : 'normal'}
               etiqueta="De dónde salen los anuncios"
-              items={FUENTES.map((f) => ({ ...f, contador: f.id === 'chrome' ? (fuente === 'chrome' ? chrome.anuncios.length : ins.datos?.chrome?.cantidad) : undefined }))}
+              items={FUENTES.map((f) => ({ ...f, etiqueta: angosta ? f.corta : f.etiqueta, contador: f.id === 'chrome' ? (fuente === 'chrome' ? chrome.anuncios.length : ins.datos?.chrome?.cantidad) : undefined }))}
               activa={fuente}
               onCambio={setFuente}
             />

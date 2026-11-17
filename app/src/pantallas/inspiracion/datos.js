@@ -51,9 +51,9 @@ export const inspiracion = {
 
 /** Las fuentes del feed (2026-11-17n). */
 export const FUENTES = [
-  { id: 'meta', etiqueta: 'Meta (oficial)' },
-  { id: 'chrome', etiqueta: 'Desde Chrome' },
-  { id: 'trendtrack', etiqueta: 'TrendTrack' },
+  { id: 'meta', etiqueta: 'Meta (oficial)', corta: 'Meta' },
+  { id: 'chrome', etiqueta: 'Desde Chrome', corta: 'Chrome' },
+  { id: 'trendtrack', etiqueta: 'TrendTrack', corta: 'TrendTrack' },
 ];
 
 /** El anuncio en la Biblioteca de anuncios de Meta (se abre en Facebook). */
