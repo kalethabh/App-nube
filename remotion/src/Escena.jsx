@@ -15,7 +15,6 @@ import {
   Easing,
   Freeze,
   Img,
-  OffthreadVideo,
   Sequence,
   continueRender,
   delayRender,
@@ -27,6 +26,7 @@ import {
 } from 'remotion';
 import { useLayoutEffect, useState } from 'react';
 import { nivelVoz } from './edicion/capas.mjs';
+import { VideoOSonido } from './edicion/soloSonido.jsx';
 
 // Misma cuenta que en Anuncio.jsx. Se repite aqui (una linea) para no importar de
 // Anuncio.jsx, que importa este archivo: un ciclo de imports por una formula no vale.
@@ -403,7 +403,7 @@ const ClipEscena = ({ pieza, fadeFrames, ducking, medidas, nivel = null }) => {
       <div style={marco.caja}>
         <div style={{ width: '100%', height: '100%', transform: `scale(${pushIn})` }}>
           <Freeze frame={Math.max(0, (framesDeVideo ?? 1) - 1)} active={congelado}>
-            <OffthreadVideo
+            <VideoOSonido
               src={src}
               playbackRate={velocidad}
               trimBefore={trimBefore}

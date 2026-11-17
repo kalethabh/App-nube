@@ -27,6 +27,7 @@ import { Anuncio } from '../Anuncio.jsx';
 import { FPS as FPS_VOZ, capasDeEdicion, enCensura, lugaresSeguidos, nivelVoz } from './capas.mjs';
 import { Subtitulos } from './subtitulos/estilos.jsx';
 import { FUENTES, cargarFuentesSubtitulos } from './subtitulos/fuentes.js';
+import { SoloSonido } from './soloSonido.jsx';
 
 const dbALineal = (db) => Math.pow(10, db / 20);
 const CLAMP = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' };
@@ -386,10 +387,19 @@ function FundidoNegro({ fundido }) {
   return <AbsoluteFill style={{ backgroundColor: 'black', opacity: opacidad, pointerEvents: 'none' }} />;
 }
 
-export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color, pitidos, audios, fundido }) {
+export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color, pitidos, audios, fundido, soloSonido = false }) {
+  // «solo sonido» (la pasada del sonido de la exportación por tramos): los clips van como <Audio> y no se dibujan
+  // los textos, los subtítulos ni el fundido (no suenan)
+  if (soloSonido) {
+    textos = null;
+    subtitulos = null;
+    fundido = null;
+  }
   return (
     <AbsoluteFill style={{ backgroundColor: 'black' }}>
-      <Anuncio plan={plan} sinSubtitulos sinMusica />
+      <SoloSonido.Provider value={Boolean(soloSonido)}>
+        <Anuncio plan={plan} sinSubtitulos sinMusica />
+      </SoloSonido.Provider>
       {(textos || []).map((x) =>
         x.archivo ? (
           <ImagenEnPantalla key={x.id} id={x.id} archivo={x.archivo} inicio={x.inicio} fin={x.fin} estilo={x.imagenEstilo} sigue={x.sigue} />
@@ -436,5 +446,6 @@ function useFuentes() {
 export function AnuncioEditado({ plan, edicion, contexto }) {
   useFuentes();
   const capas = useMemo(() => capasDeEdicion(plan, edicion, contexto || {}), [plan, edicion, contexto]);
-  return <CapasEditadas {...capas} />;
+  // (contexto.soloSonido: solo lo pide produccion/exportar-edicion.js para armar el sonido aparte)
+  return <CapasEditadas {...capas} soloSonido={Boolean(contexto?.soloSonido)} />;
 }

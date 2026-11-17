@@ -42,6 +42,8 @@ temp/_modo-prueba-*/
 temp/_referencias/
 temp/*/historial/
 temp/*/app/registro/
+# Los tramos ya armados de cada exportación del editor (produccion/exportar-tramos.js): se rehacen solos, no se suben
+temp/*/app/exportes/.tramos/
 temp/.conductor-mando*
 # Inspiración (2026-11-17n): el código del botón de Chrome (secreto), lo que bajó ese botón y lo sacado de Meta
 # (direcciones que vencen): se queda en este computador. La lista de lo guardado sí va (mis_archivos/ganadores/).

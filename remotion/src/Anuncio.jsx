@@ -2,7 +2,6 @@ import {
   AbsoluteFill,
   Audio,
   Freeze,
-  OffthreadVideo,
   Sequence,
   staticFile,
   interpolate,
@@ -11,6 +10,7 @@ import {
 } from 'remotion';
 import { Escena, piezasDeEscena } from './Escena.jsx';
 import { nivelVoz } from './edicion/capas.mjs';
+import { VideoOSonido } from './edicion/soloSonido.jsx';
 
 const dbALineal = (db) => Math.pow(10, db / 20);
 
@@ -106,7 +106,7 @@ const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransicion
       <AbsoluteFill style={{ transform: `scale(${escala})` }}>
         {/* congelada (el editor: «Congelar imagen»): se queda en el primer cuadro de su parte, sin sonido */}
         <Freeze frame={0} active={Boolean(pieza.congelado)}>
-        <OffthreadVideo
+        <VideoOSonido
           src={staticFile(`video/${pieza.archivo}`)}
           playbackRate={pieza.velocidad || 1}
           // Recorte del borde de entrada (solo dialogo_nativo): el clip no
