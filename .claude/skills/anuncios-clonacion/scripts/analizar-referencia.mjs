@@ -7,9 +7,12 @@
 //
 // Deja en <carpeta-salida>:
 //   tomas/toma-01.jpg ...   un fotograma por toma (a la mitad de la toma)
+//   tomas/movimiento/tira-01.jpg ...  tres fotogramas de cada toma (comienzo, mitad, final) lado a lado: el
+//                           movimiento, los gestos y cómo cambia la luz dentro de la toma
 //   hoja-tomas.jpg          todas las tomas en una sola imagen, en orden
 //   transcripcion.json      las palabras con sus tiempos (y eventos: música, risas...)
-//   adn-base.json           las tomas con sus tiempos, su fotograma y lo que se dice en cada una
+//   adn-base.json           las tomas con sus tiempos, su fotograma, su tira, lo que se dice en cada una y lo medido
+//                           de su imagen (luz, color, movimiento) y de su voz (palabras por segundo)
 //
 // Es de la skill anuncios-clonacion (propia del usuario, no del sistema): vive
 // en su carpeta para que las actualizaciones no la toquen.
@@ -49,12 +52,21 @@ if (duracion - limites[limites.length - 1] < TOMA_MINIMA && limites.length > 1) 
 limites.push(duracion);
 const tomas = limites.slice(0, -1).map((desde, i) => ({ n: i + 1, desde: +desde.toFixed(2), hasta: +limites[i + 1].toFixed(2) }));
 
-// 3. Un fotograma por toma y la hoja con todas
+// 3. Un fotograma por toma (más grande: se leen la piel, las telas y la luz), la tira de su movimiento y lo medido
+fs.mkdirSync(path.join(salida, 'tomas', 'movimiento'), { recursive: true });
 for (const t of tomas) {
-  const archivo = path.join(salida, 'tomas', `toma-${String(t.n).padStart(2, '0')}.jpg`);
-  execFileSync('ffmpeg', ['-v', 'error', '-y', '-ss', String((t.desde + t.hasta) / 2), '-i', video, '-frames:v', '1', '-vf', 'scale=480:-2', archivo]);
+  const nn = String(t.n).padStart(2, '0');
+  const archivo = path.join(salida, 'tomas', `toma-${nn}.jpg`);
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-ss', String((t.desde + t.hasta) / 2), '-i', video, '-frames:v', '1', '-vf', 'scale=720:-2', '-q:v', '3', archivo]);
   t.duracion = +(t.hasta - t.desde).toFixed(2);
   t.fotograma = path.relative(salida, archivo).replace(/\\/g, '/');
+  // la tira: comienzo, mitad y final de la toma, lado a lado (si la toma es muy corta, igual salen tres)
+  const tira = path.join(salida, 'tomas', 'movimiento', `tira-${nn}.jpg`);
+  const momentos = [0.12, 0.5, 0.88].map((f) => t.desde + (t.hasta - t.desde) * f);
+  const entradas = momentos.flatMap((m) => ['-ss', m.toFixed(2), '-i', video]);
+  const r3 = spawnSync('ffmpeg', ['-v', 'error', '-y', ...entradas, '-filter_complex', '[0:v]scale=360:-2[a];[1:v]scale=360:-2[b];[2:v]scale=360:-2[c];[a][b][c]hstack=inputs=3', '-frames:v', '1', '-q:v', '4', tira]);
+  if (r3.status === 0 && fs.existsSync(tira)) t.tira = path.relative(salida, tira).replace(/\\/g, '/');
+  t.imagen = medirImagen(video, t.desde, t.hasta);
 }
 const columnas = Math.min(6, tomas.length);
 const filas = Math.ceil(tomas.length / columnas);
@@ -62,6 +74,35 @@ spawnSync('ffmpeg', [
   '-v', 'error', '-y', '-framerate', '1', '-i', path.join(salida, 'tomas', 'toma-%02d.jpg'),
   '-vf', `scale=240:-2,pad=iw+8:ih+8:4:4:white,tile=${columnas}x${filas}:color=white`, '-frames:v', '1', path.join(salida, 'hoja-tomas.jpg'),
 ]);
+
+/**
+ * Lo que se mide de la imagen de una toma (ffmpeg signalstats, 4 cuadros por segundo): ayuda a describir la luz, el
+ * color y el movimiento con palabras justas. brillo 0-255 (oscuro < 70, claro > 160), saturacion 0-~180 (apagado
+ * < 25, muy vivo > 70), temperatura (cálida si el rojo domina al azul), movimiento (cambio medio entre cuadros: casi
+ * quieto < 2, cámara en mano o gestos 2-8, mucho > 8).
+ */
+function medirImagen(video, desde, hasta) {
+  const r = spawnSync('ffmpeg', ['-v', 'error', '-ss', String(desde), '-t', String(Math.max(0.2, hasta - desde)), '-i', video, '-vf', 'fps=4,scale=320:-2,signalstats,metadata=mode=print:file=-', '-f', 'null', '-'], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+  const valores = (clave) => [...String(r.stdout || '').matchAll(new RegExp(`lavfi\\.signalstats\\.${clave}=([\\d.]+)`, 'g'))].map((m) => Number(m[1]));
+  const media = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
+  const brillo = media(valores('YAVG'));
+  const saturacion = media(valores('SATAVG'));
+  const u = media(valores('UAVG'));
+  const v = media(valores('VAVG'));
+  const dif = valores('YDIF').slice(1);
+  const movimiento = media(dif);
+  if (brillo === null) return null;
+  const redondo = (x) => (x === null ? null : Math.round(x * 10) / 10);
+  return {
+    brillo: redondo(brillo),
+    luz: brillo < 70 ? 'oscura' : brillo > 160 ? 'muy clara' : 'media',
+    saturacion: redondo(saturacion),
+    color: saturacion === null ? null : saturacion < 25 ? 'apagado' : saturacion > 70 ? 'muy vivo' : 'natural',
+    temperatura: u === null || v === null ? null : v - u > 6 ? 'cálida' : u - v > 6 ? 'fría' : 'neutra',
+    movimiento: redondo(movimiento),
+    se_mueve: movimiento === null ? null : movimiento < 2 ? 'casi quieta' : movimiento > 8 ? 'mucho movimiento' : 'movimiento suave (cámara en mano o gestos)',
+  };
+}
 
 // 4. Transcripción con tiempos (ElevenLabs, la misma función que usan los subtítulos del motor)
 let palabras = [];
@@ -94,6 +135,9 @@ for (const t of tomas) {
     .replace(/\s+([,.;:!?])/g, '$1')
     .trim();
   t.eventos = eventos.filter((e) => e.desde < t.hasta && e.hasta > t.desde).map((e) => e.texto);
+  // el ritmo de la voz en esa toma (rápido > 3,2 palabras por segundo; pausado < 2)
+  const n = t.dice ? t.dice.split(/\s+/).filter(Boolean).length : 0;
+  t.palabras_por_segundo = n && t.duracion ? +(n / t.duracion).toFixed(2) : 0;
 }
 const texto = palabras.map((p) => p.texto).join(' ').replace(/\s+([,.;:!?])/g, '$1');
 const ritmo = palabras.length && duracion ? +(palabras.length / duracion).toFixed(2) : 0;
@@ -119,4 +163,4 @@ if (adn.eventos_de_audio.length) console.log(`  Sonidos:    ${adn.eventos_de_aud
 if (avisoAudio) console.log(`  OJO:        ${avisoAudio}`);
 console.log('');
 for (const t of tomas) console.log(`  ${String(t.n).padStart(2)}  ${t.desde.toFixed(1).padStart(5)}–${t.hasta.toFixed(1).padEnd(5)} ${t.dice ? `"${t.dice}"` : '(sin voz)'}`);
-console.log(`\n  Mira ${path.join(salida, 'hoja-tomas.jpg')} y los fotogramas de tomas/ para ver qué pasa en cada toma.\n`);
+console.log(`\n  Mira ${path.join(salida, 'hoja-tomas.jpg')}, los fotogramas de tomas/ y las tiras de tomas/movimiento/ (comienzo, mitad y final de cada toma) para ver qué pasa en cada una.\n`);
