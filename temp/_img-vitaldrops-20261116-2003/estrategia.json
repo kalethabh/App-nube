@@ -1,0 +1,42 @@
+{
+  "resumen": "Hacemos 10 anuncios iguales a tu anuncio de referencia: el mismo diseño, las mismas fotos de avance por días, tu frasco con su caja y la misma placa dorada con la oferta. Lo único que cambia es el titular, escrito con las palabras de tus clientas. Creemos que tu referencia vende porque muestra el avance paso a paso hasta el día 21, se entiende en un segundo y cierra con una oferta clara por tres frascos (es una hipótesis, no una garantía).",
+  "paleta": [
+    { "hex": "#FBF3DC", "nombre": "Crema cálido" },
+    { "hex": "#F2DC4A", "nombre": "Amarillo limón" },
+    { "hex": "#C9A441", "nombre": "Dorado" },
+    { "hex": "#E6CF7A", "nombre": "Dorado claro" },
+    { "hex": "#111111", "nombre": "Negro" },
+    { "hex": "#8A4B14", "nombre": "Ámbar" }
+  ],
+  "tipografia": "La misma de tu referencia: letra recta y muy gruesa, toda en mayúsculas y en negro para el titular. Los días van en dorado. En la placa dorada, la oferta va en una letra más grande y apretada, y la última línea en letra fina y espaciada.",
+  "estilo": "Fondo crema limpio, cuatro fotos con esquinas redondeadas que muestran a la misma mujer en su cuarto del día 1 al día 21, tu frasco con su caja abajo a la izquierda y una placa dorada con la oferta abajo a la derecha. Luz suave y cálida, aspecto cuidado y femenino.",
+  "beneficios": [
+    "Acompaña tu apetito desde las primeras semanas",
+    "Energía para trabajar, estudiar y entrenar",
+    "Un apoyo diario mientras trabajas tus curvas con comida y ejercicio",
+    "Natural y sin agujas: gotas que tomas por la boca"
+  ],
+  "caracteristicas": [
+    "Gotero de 60 ml en frasco de vidrio ámbar",
+    "5 ingredientes vegetales: ashwagandha, maca, L-arginina, fenogreco y remolacha",
+    "Líquido en gotas, sin pastillas",
+    "Fácil de llevar y de tomar cada día"
+  ],
+  "deseo_central": "Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo.",
+  "beneficio_principal": "Un ritual diario de gotas que acompaña tu apetito y tu energía mientras trabajas tus curvas con comida y ejercicio.",
+  "puntos_dolor": [
+    "Como y como y no me engorda nada",
+    "Los jeans me quedan bailando en la cola",
+    "Voy al gym y no veo cambios en la pierna ni en la cola",
+    "Me da miedo el quirófano y más los biopolímeros",
+    "Ya compré gomitas y pastillas y no vi nada",
+    "Me da pena ponerme vestido de baño"
+  ],
+  "decisiones": [
+    "El formulario no trae precio. Dejamos la oferta que ya muestra tu anuncio (X3 unidades $139,900). Si tu oferta cambió, corrígela antes de publicar.",
+    "Entre un anuncio y otro solo cambia el titular. Los días, la placa dorada, las fotos y el producto quedan iguales a tu referencia.",
+    "Todos los titulares conservan la idea de tu referencia: curvas en 21 días. Cada uno toca un dolor distinto de tu investigación (el jean que queda bailando, el miedo a las agujas, el gym sin cambios, el apetito, lo que ya probó).",
+    "No agregamos botón ni llamado a la acción, porque tu referencia no lo tiene.",
+    "Ten en cuenta: tu investigación avisa que las fotos de avance del cuerpo y las promesas con días pueden ser rechazadas por Meta, y que debes confirmar el registro sanitario. Lo dejamos igual a tu referencia porque así lo pediste."
+  ]
+}

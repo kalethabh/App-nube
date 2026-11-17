@@ -1,0 +1,175 @@
+{
+  "producto": "vitaldrops",
+  "lote": "_img-vitaldrops-20261116-2003",
+  "cantidad": 10,
+  "proporciones": ["1:1"],
+  "decisiones": [
+    "Las 10 variaciones salen de la misma referencia (R01), que es un anuncio de este mismo producto. Se copia tal cual y solo cambia el titular.",
+    "El formulario no trae precio. Se conserva la oferta que ya muestra la referencia: X3 unidades $139,900.",
+    "No se agrega llamado a la acción porque la referencia no lo tiene.",
+    "La escena y la cámara son las mismas en todas, porque así lo pide el modo «más de lo mismo».",
+    "La investigación avisa que las fotos de avance del cuerpo y las promesas con días pueden ser rechazadas por Meta. Se mantiene la idea de la referencia porque el usuario pidió copiarla."
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular puesto en el dolor del jean que queda bailando.",
+      "titular": "LLENA TU JEAN EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular puesto en el miedo al quirófano y a las inyecciones.",
+      "titular": "CURVAS SIN AGUJAS EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular para la que entrena y no ve cambios.",
+      "titular": "QUE EL GYM SE NOTE EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular puesto en el apetito: la que come poco y no sube.",
+      "titular": "MÁS APETITO, MÁS CURVAS EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular para la que busca «algo natural».",
+      "titular": "CURVAS NATURALES EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V06",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular para la que se mira al espejo y se ve igual.",
+      "titular": "CURVAS QUE SE NOTAN EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V07",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular en las palabras de la clienta: el jean que queda bailando.",
+      "titular": "ADIÓS AL JEAN BAILANDO EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V08",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular para la que ya probó gomitas y pastillas y no vio nada.",
+      "titular": "POR FIN TUS CURVAS EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V09",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el plazo adelante: el deseo de verse con curvas.",
+      "titular": "21 DÍAS PARA VERTE CON MÁS CURVAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    },
+    {
+      "id": "V10",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-2003/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula 2x2 (Día 1, 7, 14 y 21) con producto y placa de oferta",
+        "estructura": "Fondo crema. Arriba, titular negro muy grueso en dos líneas, centrado. En el centro, cuatro fotos con esquinas redondeadas en cuadrícula 2x2, cada una con su día en dorado arriba a la izquierda y la misma mujer en su cuarto. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas: tratamiento completo, oferta por tres unidades con precio y una frase de cierre.",
+        "por_que_funciona": "Hipótesis: el avance por días se entiende en un segundo y hace creíble la promesa; el titular dice el deseo con un plazo corto; la oferta por tres frascos cierra con un precio claro y la frase final calma el miedo a perder lo ganado."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio de la referencia con el titular puesto en la energía: la que llega sin pila para entrenar.",
+      "titular": "TUS CURVAS CON MÁS PILA EN 21 DÍAS",
+      "escena": "La de la referencia: cuarto claro con cama blanca, cortinas con luz de día y una planta; la misma mujer con top deportivo claro y leggings terracota en las cuatro fotos.",
+      "camara": "La de la referencia: plano medio a la altura de los ojos, ella de espaldas en tres cuartos mirando por encima del hombro."
+    }
+  ]
+}
