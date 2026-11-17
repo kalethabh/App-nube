@@ -7,6 +7,8 @@
 // La arma la app en esta PC (produccion/exportar-edicion.js, gratis) con LA MISMA composición que la vista
 // previa, y antes de dársela por buena pasa su revisión final. Sale como un archivo nuevo en tu carpeta de
 // videos (output/<anuncio>_editado-N.mp4): lo que ya te entregamos no se toca. El avance que se ve es el real.
+// Se arma por tramos de 4 s y solo se rehace lo que cambió (produccion/exportar-tramos.js): la nota del avance dice
+// cuántos tramos se rehacen o si solo cambió el sonido.
 // Se puede cerrar esta ventana mientras exporta: el editor avisa cuando termina.
 import { useEffect, useMemo, useState } from 'react';
 import { CaptionsOff, Check, CircleCheck, Download, Eraser, FileText, FileVideo, Film, LoaderCircle, MonitorPlay, Play, RefreshCw, ShieldCheck, Sparkles, TriangleAlert, VolumeX, Zap } from 'lucide-react';
@@ -18,7 +20,7 @@ import { exportacionEnMarcha } from './trabajos.js';
 
 const ETAPAS = [
   { id: 'preparar', etapas: ['preparar', 'armar'], titulo: 'Preparando tus cambios', detalle: 'Junto el montaje con lo que tocaste en el editor.' },
-  { id: 'render', etapas: ['render'], titulo: 'Armando el video', detalle: 'Cuadro por cuadro, con el mismo montaje de la vista previa.' },
+  { id: 'render', etapas: ['render'], titulo: 'Armando el video', detalle: 'Por tramos de 4 segundos, con el mismo montaje de la vista previa: solo se rehace lo que cambiaste.' },
   { id: 'revisar', etapas: ['revisar', 'repetir'], titulo: 'Revisión final', detalle: 'Que no haya cuadros negros ni imágenes congeladas de más de un segundo, y que dure y se vea como debe.' },
   { id: 'guardar', etapas: ['guardar'], titulo: 'Guardando', detalle: 'Sale como un archivo nuevo, junto a tus otras versiones.' },
 ];
@@ -310,7 +312,8 @@ export function ModalExportar({ abierto, onCerrar, a, duracion, subs, cambios, s
             </span>
             <div className="ed-exportando__textos">
               <span className="ed-exportando__etapa">{t.frase}</span>
-              <span className="ed-exportando__detalle">{etapaActual >= 0 ? ETAPAS[etapaActual].detalle : 'Empieza apenas termine el otro: de a uno, para no trabar la PC.'}</span>
+              {/* (nota: lo que hace la exportación por tramos, p. ej. «Rehaciendo 2 de 10 tramos (lo demás ya estaba)») */}
+              <span className="ed-exportando__detalle">{t.estado !== 'esperando' && t.avance?.nota ? t.avance.nota : etapaActual >= 0 ? ETAPAS[etapaActual].detalle : 'Empieza apenas termine el otro: de a uno, para no trabar la PC.'}</span>
               <BarraDeProgreso
                 valor={avance}
                 tono="cian"

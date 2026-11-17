@@ -185,7 +185,8 @@ export function huellasDeTramos({ capas, estado, inicial, fps, total, base, firm
   const huellaGeneral = sha1({ v: VERSION_TRAMOS, base, general, archivos: firmas(general) });
   return cortesDeTramos(total, largo).map((t) => {
     const dentro = items.filter((x) => x.desde < t.hasta && x.hasta > t.desde).map((x) => x.dato);
-    return { ...t, huella: sha1({ g: huellaGeneral, desde: t.desde, hasta: t.hasta, dentro, archivos: firmas(dentro) }) };
+    const archivos = firmas(dentro);
+    return { ...t, huella: sha1({ g: huellaGeneral, desde: t.desde, hasta: t.hasta, dentro, archivos }), archivos };
   });
 }
 

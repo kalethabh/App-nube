@@ -29,6 +29,16 @@
 // Codigos de salida: 0 listo y limpio · 1 listo con defectos (el archivo queda: estan en el control) ·
 // 2 listo pero no se pudo revisar · 3 no se pudo exportar (no queda archivo).
 //
+// POR TRAMOS (2026-11-17o): el video se arma en tramos de 4 s (120 cuadros) que quedan guardados en
+// temp/<slug>/app/exportes/.tramos/<calidad>/ con su huella (produccion/exportar-tramos.js dice qué entra en cada
+// una). Cada vez solo se dibujan los tramos que cambiaron (todos juntos en UN render con varios rangos de cuadros y un
+// cuadro clave al comienzo de cada tramo, que después se corta sin volver a codificar), el sonido aparte solo si
+// cambió (la composición «solo sonido», remotion/src/edicion/soloSonido.jsx; la primera vez sale en el mismo render
+// con separateAudioTo) y se junta todo con ffmpeg concat por copia directa. El control final también mide solo los
+// tramos nuevos y sus uniones. En la Mac la imagen se codifica con VideoToolbox (si falla, x264 para todos los
+// tramos). Si algo de esto no se puede (sin ffmpeg para juntar, tramos que no coinciden), se exporta entero como
+// siempre. EXPORTAR_SIN_TRAMOS=1 o --sin-tramos: siempre entero.
+//
 // Igual que ensamblar.js: los archivos que usa el render van como ENLACES DUROS en <carpeta>/.render-edicion/
 // (Remotion copia la carpeta publica entera en cada render), la concurrencia sale de la memoria libre y un
 // render que se cae por memoria se reintenta con menos. Se corre con la carpeta de remotion/ como carpeta de
@@ -42,7 +52,7 @@ import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { RAIZ, DIR_TEMP, DIR_OUTPUT } from './config.js';
 import { UMBRALES, leerCongelados, leerYavg, tramosOscuros, piezasDelPlan, piezaEn } from './control-final.js';
-import { CUADROS_POR_TRAMO, huellaDeSonido, huellaDelCodigo, huellasDeTramos, juntarCongelados, podarCache, tocar } from './exportar-tramos.js';
+import { CUADROS_POR_TRAMO, huellaDeSonido, huellaDelCodigo, huellasDeTramos, juntarCongelados, podarCache, sha1, tocar } from './exportar-tramos.js';
 
 const DIR_REMOTION = path.join(RAIZ, 'remotion');
 const DIR_PUBLICO = '.render-edicion';
@@ -733,7 +743,12 @@ async function exportarPorTramos(x) {
   } catch {
     // sin versión
   }
-  const codigo = huellaDelCodigo(path.join(DIR_REMOTION, 'src'), { versionApp, versionRemotion });
+  // (el código que dibuja, remotion/src, y el que arma y junta los tramos: si cambia cualquiera, nada guardado sirve)
+  const codigo = huellaDelCodigo(path.join(DIR_REMOTION, 'src'), {
+    versionApp,
+    versionRemotion,
+    armado: sha1(['exportar-edicion.js', 'exportar-tramos.js'].map((n) => fs.readFileSync(path.join(RAIZ, 'produccion', n), 'utf8')).join('\n')),
+  });
   const firmas = new Map();
   const firmaArchivo = (rel) => {
     if (!firmas.has(rel)) {
@@ -789,6 +804,8 @@ async function exportarPorTramos(x) {
       const base = { codigo, calidad, scale, fps, codificador: cod, ajustes, contenedor: 'mp4' };
       const tramos = huellasDeTramos({ capas, estado: edicion, inicial, fps, total, base, firmaArchivo }).map((t) => ({ ...t, archivo: path.join(dirCache, `${t.huella}.mp4`) }));
       const faltan = tramos.filter((t) => !fs.existsSync(t.archivo));
+      // (EXPORTAR_TRAMOS_DETALLE=1: la huella de cada tramo y si ya estaba, para ver qué se rehace y por qué)
+      if (process.env.EXPORTAR_TRAMOS_DETALLE === '1') for (const t of tramos) console.log(`    tramo ${t.i + 1} (${t.desde}-${t.hasta - 1}) ${t.huella.slice(0, 10)} ${faltan.includes(t) ? 'se rehace' : 'ya estaba'} ${JSON.stringify(t.archivos)}`);
       const faltaSonido = !fs.existsSync(rutaSonido);
       const cuadrosPorHacer = faltan.reduce((s, t) => s + t.hasta - t.desde, 0);
       let nota;
@@ -1029,7 +1046,7 @@ async function principal() {
 
   console.log(`\n=== Exportar la version editada — ${slug} ===\n`);
   console.log(`  Archivo:    output/${nombre}`);
-  console.log(`  Calidad:    ${calidad === '1080' ? '1080x1920' : '720x1280'}, h264, CRF ${CRF}`);
+  console.log(`  Calidad:    ${calidad === '1080' ? '1080x1920' : '720x1280'}, h264 (CRF ${CRF}, o VideoToolbox en la Mac)`);
   console.log(`  Subtitulos: ${edicion.subtitulos.visible ? `si (estilo ${edicion.subtitulos.estilo})` : 'no'}`);
   avance('preparar', 1);
 
