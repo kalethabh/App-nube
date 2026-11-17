@@ -1,5 +1,5 @@
 {
-  "pid": 50870,
+  "pid": 52796,
   "paso": "anuncios",
   "script": "generar-imagen-ads.js",
   "args": [
@@ -11,6 +11,6 @@
     "--heredar-log"
   ],
   "comando": "node produccion/generar-imagen-ads.js temp/_img-vitaldrops-20261116-2003 --motor chatgpt --concurrencia 3 --heredar-log",
-  "inicio": "2026-11-17T01:10:59.270Z",
-  "app": 50697
+  "inicio": "2026-11-17T01:21:51.305Z",
+  "app": 52524
 }

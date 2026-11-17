@@ -35,10 +35,10 @@
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
       "estado": "corriendo",
-      "intentos": 2,
+      "intentos": 3,
       "inicio": "2026-11-17T01:08:54.447Z",
       "retomado": true,
-      "detalle": "Creando 2 imágenes · Claude está revisando 1 imagen: mirando las fotos de tu producto · 6 de 10 listas"
+      "detalle": "Creando 2 imágenes · 8 de 10 listas"
     },
     {
       "id": "informe",
@@ -51,5 +51,5 @@
   "modoPrueba": false,
   "creado": "2026-11-17T01:03:45.779Z",
   "aprobado": "2026-11-17T01:03:45.779Z",
-  "actualizado": "2026-11-17T01:21:29.769Z"
+  "actualizado": "2026-11-17T01:22:06.994Z"
 }

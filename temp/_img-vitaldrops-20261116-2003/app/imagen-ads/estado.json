@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 6,
+    "R": 7,
     "A": 1,
     "T": 3
   },
@@ -97,7 +97,7 @@
     "R005": {
       "tipo": "revision",
       "uuid": "bf5d8fe0-249b-4861-bfa1-1b30242e76ba",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -105,7 +105,22 @@
           "firma": "1743173-1794878457587",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
+    },
+    "R006": {
+      "tipo": "revision",
+      "uuid": "2a293ca1-965a-45b2-9eb5-7bdaf4f8bf3f",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1742279-1794878488130",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -244,15 +259,21 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1742279-1794878488130",
       "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1742279-1794878488130"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-17T01:21:29.768Z",
@@ -286,21 +307,26 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "1743173-1794878457587",
       "orden": null,
       "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1743173-1794878457587"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-17T01:20:59.410Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R005"
+      "ultimaOrden": "g"
     },
     "V08_1x1": {
       "v": "V08",
