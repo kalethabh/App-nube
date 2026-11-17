@@ -11,6 +11,7 @@
 // PUT    /api/imagen-ads/:lote/investigacion         la investigación de mercado (texto pegado, .txt, .md, .docx o .pdf;
 //                                                    solo en borrador) -> { tipo: 'texto'|'pdf', caracteres }
 // DELETE /api/imagen-ads/:lote/investigacion
+// POST   /api/imagen-ads/tendencias?categoria=&marca=  una ganadora tuya (binario)  ·  DELETE /api/imagen-ads/tendencias/:id
 // GET    /api/imagen-ads/biblioteca                  { referencias: [{ id, url, miniatura, fecha }] }: tu biblioteca de
 //                                                    referencias (cada una que subes a un lote queda guardada sola)
 // POST   /api/imagen-ads/biblioteca                  guarda una imagen (binario) -> { id, nueva }
@@ -195,8 +196,30 @@ export default function rutasImagenAds(app) {
   app.get('/api/imagen-ads/tendencias/:categoria/:archivo', (req, res) => {
     const abs = biblioteca.rutaTendencia(req.params.categoria, req.params.archivo);
     if (!abs) return res.status(404).json({ error: 'No encuentro esa referencia.' });
-    res.set({ 'Cache-Control': 'private, max-age=86400', 'X-Content-Type-Options': 'nosniff' }).type('image/jpeg').sendFile(abs);
+    res.set({ 'Cache-Control': 'private, max-age=86400', 'X-Content-Type-Options': 'nosniff' }).type(abs.endsWith('.png') ? 'image/png' : 'image/jpeg').sendFile(abs);
   });
+
+  // agregar una ganadora tuya (subida o pegada; ?categoria=<id o nombre nuevo>&marca=) y borrar cualquiera
+  app.post('/api/imagen-ads/tendencias', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
+    const bytes = Buffer.isBuffer(req.body) ? req.body : null;
+    if (!bytes?.length) throw new ErrorApp(400, 'No llegó ninguna imagen.');
+    const formato = formatoDeBytes(bytes);
+    if (!formato) throw new ErrorApp(400, 'Eso no parece una imagen. Sube una JPG, PNG o WEBP.');
+    const categoria = String(req.query.categoria || '').trim();
+    if (!categoria) throw new ErrorApp(400, 'Elige la categoría de esta ganadora.');
+    const dir = path.join(biblioteca.DIR_TENDENCIAS, '.subiendo');
+    const abs = await local.normalizarImagen(bytes, path.join(dir, `g-${process.pid}-${Date.now()}`), formato);
+    try {
+      res.status(201).json(biblioteca.agregarTendencia(abs, { categoria, marca: String(req.query.marca || '') }));
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }));
+
+  app.delete('/api/imagen-ads/tendencias/:id', soloDesdeLaApp, conErrores((req, res) => {
+    if (!biblioteca.borrarTendencia(req.params.id)) throw new ErrorApp(404, 'Esa ganadora ya no está.');
+    res.json({ ok: true });
+  }));
 
   app.post('/api/imagen-ads/biblioteca', soloDesdeLaApp, leerBinario, conErrores(async (req, res) => {
     const bytes = Buffer.isBuffer(req.body) ? req.body : null;

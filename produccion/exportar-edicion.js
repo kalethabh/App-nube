@@ -539,6 +539,8 @@ async function principal() {
   for (const rel of archivos) enlazar(path.join(carpeta, rel), path.join(publico, rel));
   if (relMusica) enlazar(musicaElegida.ruta, path.join(publico, relMusica));
   for (const x of edicion.textosNuevos) if (x.archivo) enlazar(path.join(carpeta, x.archivo), path.join(publico, x.archivo));
+  // el pitido de las palabras censuradas (Editar con IA)
+  if ((edicion.censuras || []).some((c) => c.modo === 'pitido')) enlazar(path.join(RAIZ, 'recursos', 'efectos-transiciones', 'pitido.mp3'), path.join(publico, capas.ARCHIVO_PITIDO));
   process.on('exit', () => {
     try {
       fs.rmSync(publico, { recursive: true, force: true });

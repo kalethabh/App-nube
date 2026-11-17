@@ -15,8 +15,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-16m` (archivo `VERSION`): anuncios de imagen rápidos y referencias de tendencia.
-  Antes en `main`: `2026-11-16l` (PR #68 a #75).
+- **Versión actual:** `2026-11-17b` (archivo `VERSION`): Editar con IA en el editor (lenguaje natural).
+  Antes: `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
 - **Carpeta de guardado configurable:** [PR #34](https://github.com/kalethabh/App-nube/pull/34), integrado el mismo día.
@@ -137,6 +137,34 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
 
 ## Últimas actualizaciones terminadas
 
+### Editar con IA en el editor (2026-11-17, versión 2026-11-17b)
+
+- Campo «Edita con tus palabras» debajo de la vista previa (`app/src/pantallas/editor/EditarConIA.jsx`), que llama a
+  `POST /api/anuncios/:slug/editar/ia { pedido, estado }` (`app/server/rutas/editar-ia.js`). La IA elegida
+  (`lanzarSesion` de `motor-ia.js`) solo escribe `acciones` (`censurar` · `texto` · `tapar` · `quitar`); el servidor
+  calcula los tiempos: palabras de `plan.subtitulos[].palabras` (más las corregidas) con `buscarDichas` (sin tildes,
+  distancia ≤ 1 en palabras de 5+ letras, palabra partida en dos, margen 0,04 s); textos de pantalla con `pistasDe`
+  (exportada de `seguimiento.js`); escenas con `escenasDe` (tomas y B-roll de `tomasDeEdicion`/`brollsDeEdicion`, o
+  los bloques de un video propio).
+- Cuadros de escenas solo si `pideQuitarEscenas(pedido)`: el ffmpeg de Remotion viene recortado (sin pad, hstack ni
+  video crudo), así que cada cuadro sale como PNG por la tubería (270×480), y con más de 24 escenas se juntan en hojas
+  de 2×2 armadas en memoria (`leerPng`/`escribirPng` con zlib). Hasta 160 escenas.
+- La pantalla aplica todo en un paso del historial (`acciones.aplicarIA(r, pistas, ed)`, calculado sobre el estado de
+  ahora para contar lo que entró): censuras a `ed.censuras`, textos y cajas con `cambiosParaSeguir` (caja = texto nuevo con
+  `caja: true` y fondo; se dibuja sin letra), tomas y B-roll con `operar(... 'borrar')` del último al primero. En videos
+  propios: `quitarTramoApi` por tramo (los que se tocan, juntos), un paso por tramo. Con `necesitaLeer` lee los textos
+  de la pantalla y vuelve a pedirlo solo.
+- Modelo (`capas.mjs`): `censuras: [{ id, desde, hasta, modo: 'pitido'|'silencio', palabra }]`, `limpiarCensuras`,
+  `enCensura`, `ARCHIVO_PITIDO = 'app/edicion/pitido.mp3'`. Voz aparte: `AnuncioEditado` le baja el volumen a 0 en esos
+  tramos y suma `<Pitidos>`. Voz dentro de los clips: `planAjustado` pone `plan.audio.silencios` y `Clip` (Anuncio.jsx)
+  calla ahí. `pitido.mp3` (1 kHz, 4 s) en `recursos/efectos-transiciones/`: el servidor lo copia al anuncio para la vista
+  previa y `exportar-edicion.js` lo enlaza al exportar. Falta la familia `escena` (podcast/entrevista).
+- Pruebas: `buscarDichas` y `pideQuitarEscenas` a mano; hoja 2×2 con clips sintéticos; en Chromium con un anuncio de
+  prueba (clips sintéticos, la respuesta de la IA simulada con datos reales de las palabras): censura y 2 textos
+  guardados, Ctrl+Z los quita juntos; exportación real a MP4: en 10,85 s solo suena 1 kHz (la voz calla) y antes y
+  después vuelve la voz; «VITALABH» sigue a su texto y la caja negra tapa el otro. Imagen 147/147, humo rápido 82/82.
+  Sin IA conectada en la nube no se probó una respuesta real de Claude o ChatGPT.
+
 ### Anuncios de imagen rápidos, sin títulos, y referencias de tendencia (2026-11-16, versión 2026-11-16m)
 
 Pedido: «el generador de imágenes se demora mucho, debe ser así como en una conversación en GPT. Elimina lo de
@@ -161,6 +189,16 @@ y marcas de salud muy buenas, agrégalas como referencia y que me permita selecc
   ~10 MB, a 1080 px, con marca, alcance, crecimiento a 7 días). `biblioteca-referencias.js → listarTendencias()` y
   `rutaTendencia()`; `GET /api/imagen-ads/tendencias` y `/api/imagen-ads/tendencias/:categoria/:archivo`.
   `BibliotecaReferencias.jsx`: pestañas Tendencias / Tuyas, filtro por categoría, marca y alcance en cada una.
+- 2026-11-17a, **solo ganadoras**: criterio alcance ≥ 100.000 o activa ≥ 30 días (`indice.json → criterio`). 53
+  referencias (amua 7, aguaje 2, drenaje 12, mullein 18, salud 14). Para aguaje casi no hay ganadoras en TrendTrack
+  (búsqueda «aguaje» activa ≥ 30 días: 0 en el texto; con palabras de curvas salieron Peguero Market y Le Monet, sin
+  dato de alcance porque son de Latinoamérica). `agregarTendencia(abs, { categoria, marca })` (id «u» + sha1, categoría
+  existente o nueva por su nombre, `propia: true`) y `borrarTendencia(id)`; `POST /api/imagen-ads/tendencias?categoria=&marca=`
+  (binario, normalizado con `normalizarImagen`, JPG o PNG) y `DELETE /api/imagen-ads/tendencias/:id`, ambas con
+  `soloDesdeLaApp`. UI: pestaña «Ganadoras», fila Agregar a / Marca / Subir, pegar con Ctrl/Cmd+V (escucha `paste` en
+  `document` con captura y `stopPropagation`, para que no llegue a la zona de referencias del formulario detrás),
+  borrar con dos toques. Probado con curl (subir, repetida, sin categoría, no imagen, borrar, origen ajeno 403) y en
+  Chromium (pegar → 54 y no entra al lote; borrar → 53). Pruebas: imagen 147/147, humo rápido 82/82.
 - TrendTrack: Amua = la marca de VitalDrops (shopamua.com, 555 anuncios activos). Búsquedas de imágenes: dominio
   shopamua.com, «aguaje», «drenaje linfático», «suplemento natural» (es) y «mullein». Créditos de TrendTrack al final:
   3.134 (algunos se gastaron fuera de esta sesión).

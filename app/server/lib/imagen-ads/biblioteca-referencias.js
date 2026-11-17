@@ -119,22 +119,51 @@ export function investigacionATexto(bytes, nombre = '') {
   return limpio.length >= 20 ? { texto: limpio } : null;
 }
 
-// ---------------------------------------------------------------- referencias de TENDENCIA (TrendTrack)
-// Creativos de imagen de marcas de salud que están funcionando, bajados de TrendTrack y guardados en
-// mis_archivos/referencias-tendencia/<categoria>/<id>.jpg con su indice.json (marca, alcance, crecimiento a 7 días).
-// Son de solo lectura: se eligen como cualquier referencia, pero no se borran desde la app.
+// ---------------------------------------------------------------- referencias GANADORAS (TrendTrack y las tuyas)
+// Solo anuncios ganadores (validados): más de 100.000 personas alcanzadas o activos hace 30 días o más (TrendTrack), o
+// los que tú subes porque te funcionan. Viven en mis_archivos/referencias-tendencia/<categoria>/<id>.<jpg|png> con su
+// indice.json (marca, alcance, días activo). Desde la app se agregan (subir o pegar lo copiado) y se borran.
+//
+//   listarTendencias()                                      -> { fecha, categorias, referencias }
+//   agregarTendencia(abs, { categoria, marca })             -> { id, categoria, nueva }
+//   borrarTendencia(id)                                     -> true si estaba   (id con o sin el prefijo «t-»)
 export const DIR_TENDENCIAS = path.join(RAIZ, 'mis_archivos', 'referencias-tendencia');
 const RE_CATEGORIA = /^[a-z0-9-]{2,40}$/;
-const RE_ARCHIVO_TENDENCIA = /^[0-9a-z_-]{4,40}\.jpg$/i;
+const RE_ARCHIVO_TENDENCIA = /^[0-9a-z_-]{4,40}\.(jpg|png)$/i;
+const RE_ID_TENDENCIA = /^[0-9a-z_-]{4,40}$/i;
+const INDICE_TENDENCIAS = () => path.join(DIR_TENDENCIAS, 'indice.json');
 
-/** { categorias: [{ id, nombre, cuantas }], referencias: [{ id, categoria, marca, alcance, alcance7d, dias, url, miniatura }] } */
-export function listarTendencias() {
-  let indice = null;
+function leerIndice() {
   try {
-    indice = JSON.parse(fs.readFileSync(path.join(DIR_TENDENCIAS, 'indice.json'), 'utf8'));
+    const x = JSON.parse(fs.readFileSync(INDICE_TENDENCIAS(), 'utf8'));
+    return x && typeof x === 'object' ? x : null;
   } catch {
-    return { categorias: [], referencias: [], fecha: null };
+    return null;
   }
+}
+
+function escribirIndice(indice) {
+  fs.mkdirSync(DIR_TENDENCIAS, { recursive: true });
+  const tmp = `${INDICE_TENDENCIAS()}.${process.pid}.tmp`;
+  fs.writeFileSync(tmp, `${JSON.stringify(indice, null, 1)}\n`);
+  fs.renameSync(tmp, INDICE_TENDENCIAS());
+}
+
+/** «Pulmones y tos» -> «pulmones-y-tos» (el id de una categoría nueva). */
+export function idDeCategoria(nombre) {
+  return String(nombre || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 40);
+}
+
+/** { categorias: [{ id, nombre, cuantas }], referencias: [{ id, categoria, marca, alcance, alcance7d, dias, propia, url, miniatura }] } */
+export function listarTendencias() {
+  const indice = leerIndice();
+  if (!indice) return { categorias: [], referencias: [], fecha: null };
   const refs = (Array.isArray(indice?.referencias) ? indice.referencias : []).filter((r) => {
     const [cat, archivo] = String(r?.archivo || '').split('/');
     return RE_CATEGORIA.test(cat || '') && RE_ARCHIVO_TENDENCIA.test(archivo || '') && fs.existsSync(path.join(DIR_TENDENCIAS, cat, archivo));
@@ -144,15 +173,61 @@ export function listarTendencias() {
   for (const r of refs) cuenta.set(r.categoria, (cuenta.get(r.categoria) || 0) + 1);
   return {
     fecha: indice?.fecha || null,
-    categorias: [...cuenta.keys()].map((id) => ({ id, nombre: String(nombres[id] || id), cuantas: cuenta.get(id) })),
+    // las categorías: las del índice (también vacías, para elegirlas al subir) y las que solo aparecen en referencias
+    categorias: [...new Set([...Object.keys(nombres), ...cuenta.keys()])].filter((id) => RE_CATEGORIA.test(id)).map((id) => ({ id, nombre: String(nombres[id] || id), cuantas: cuenta.get(id) || 0 })),
+    // las tuyas primero (lo más nuevo arriba), después las de TrendTrack por alcance
     referencias: refs
-      .sort((a, b) => (Number(b.alcance) || 0) - (Number(a.alcance) || 0))
+      .sort((a, b) => Number(Boolean(b.propia)) - Number(Boolean(a.propia)) || (a.propia ? String(b.fecha || '').localeCompare(String(a.fecha || '')) : (Number(b.alcance) || 0) - (Number(a.alcance) || 0)))
       .map((r) => {
         const [cat, archivo] = r.archivo.split('/');
         const url = `/api/imagen-ads/tendencias/${encodeURIComponent(cat)}/${encodeURIComponent(archivo)}`;
-        return { id: `t-${r.id}`, categoria: r.categoria, marca: String(r.marca || ''), alcance: Number(r.alcance) || 0, alcance7d: Number(r.alcance_7d) || 0, dias: Number(r.dias) || 0, url, miniatura: url };
+        return { id: `t-${r.id}`, categoria: r.categoria, marca: String(r.marca || ''), alcance: Number(r.alcance) || 0, alcance7d: Number(r.alcance_7d) || 0, dias: Number(r.dias) || 0, propia: Boolean(r.propia), url, miniatura: url };
       }),
   };
+}
+
+/**
+ * Agrega una ganadora tuya (la imagen ya normalizada, JPG o PNG) a una categoría (existente o nueva, por su nombre).
+ * La misma imagen nunca queda dos veces (id = «u» + el comienzo de su sha1).
+ */
+export function agregarTendencia(abs, { categoria, marca = '' } = {}) {
+  const indice = leerIndice() || { _nota: 'Anuncios de imagen ganadores (validados) para usar como referencia.', fuente: 'TrendTrack y tus ganadoras', categorias: {}, referencias: [] };
+  if (!indice.categorias || typeof indice.categorias !== 'object') indice.categorias = {};
+  if (!Array.isArray(indice.referencias)) indice.referencias = [];
+  const texto = String(categoria || '').trim();
+  let cat = RE_CATEGORIA.test(texto) && indice.categorias[texto] ? texto : Object.keys(indice.categorias).find((k) => String(indice.categorias[k]).toLowerCase() === texto.toLowerCase());
+  if (!cat) {
+    cat = idDeCategoria(texto);
+    if (!RE_CATEGORIA.test(cat)) throw Object.assign(new Error('Escribe el nombre de la categoría (por ejemplo «Aguaje»).'), { status: 400 });
+    indice.categorias[cat] = texto.slice(0, 60);
+  }
+  const ext = path.extname(abs).toLowerCase() === '.png' ? 'png' : 'jpg';
+  const id = `u${crypto.createHash('sha1').update(fs.readFileSync(abs)).digest('hex').slice(0, 16)}`;
+  const ya = indice.referencias.find((r) => r?.id === id);
+  if (ya) return { id: `t-${id}`, categoria: ya.categoria, nueva: false };
+  const rel = `${cat}/${id}.${ext}`;
+  fs.mkdirSync(path.join(DIR_TENDENCIAS, cat), { recursive: true });
+  const destino = path.join(DIR_TENDENCIAS, rel);
+  const tmp = `${destino}.${process.pid}.tmp`;
+  fs.copyFileSync(abs, tmp);
+  fs.renameSync(tmp, destino);
+  indice.referencias.push({ id, categoria: cat, archivo: rel, marca: String(marca || '').trim().slice(0, 60), alcance: 0, alcance_7d: 0, dias: 0, estado: 'validada por ti', propia: true, fecha: new Date().toISOString() });
+  escribirIndice(indice);
+  return { id: `t-${id}`, categoria: cat, nueva: true };
+}
+
+/** Borra una ganadora (de TrendTrack o tuya): su imagen y su renglón del índice. */
+export function borrarTendencia(idConPrefijo) {
+  const id = String(idConPrefijo || '').replace(/^t-/, '');
+  if (!RE_ID_TENDENCIA.test(id)) return false;
+  const indice = leerIndice();
+  const r = indice?.referencias?.find?.((x) => x?.id === id);
+  if (!r) return false;
+  const [cat, archivo] = String(r.archivo || '').split('/');
+  if (RE_CATEGORIA.test(cat || '') && RE_ARCHIVO_TENDENCIA.test(archivo || '')) fs.rmSync(path.join(DIR_TENDENCIAS, cat, archivo), { force: true });
+  indice.referencias = indice.referencias.filter((x) => x?.id !== id);
+  escribirIndice(indice);
+  return true;
 }
 
 /** La ruta en disco de una referencia de tendencia (validada), o null. */
