@@ -10,7 +10,7 @@ import { inspiracion, miles, urlMedia } from './datos.js';
 
 const sinTildes = (t) => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
-export function Marcas({ marcas = [], activa, onElegir, onCambio }) {
+export function Marcas({ marcas = [], misMarcas = [], activa, onElegir, onCambio }) {
   const { aviso } = useAvisos();
   const [texto, setTexto] = useState('');
   const [buscando, setBuscando] = useState(null); // 'texto' | 'brandtracker'
@@ -104,6 +104,8 @@ export function Marcas({ marcas = [], activa, onElegir, onCambio }) {
         <p className="insp-marcas__nota">Buscar marcas gasta pocos créditos de TrendTrack; la misma búsqueda sale gratis por 7 días.</p>
       </div>
 
+      <MisMarcas lista={misMarcas} onCambio={onCambio} />
+
       {encontradas ? (
         <div className="insp-marcas__encontradas">
           <div className="insp-marcas__titulo">
@@ -134,5 +136,58 @@ export function Marcas({ marcas = [], activa, onElegir, onCambio }) {
         </div>
       ) : null}
     </aside>
+  );
+}
+
+/** Tus marcas: lo tuyo nunca sale en Inspiración (la inspiración es de otras tiendas con creativos validados). */
+function MisMarcas({ lista, onCambio }) {
+  const { aviso } = useAvisos();
+  const [nombre, setNombre] = useState('');
+  const agregar = async () => {
+    if (nombre.trim().length < 3) return;
+    try {
+      await inspiracion.agregarMiMarca(nombre.trim());
+      setNombre('');
+      onCambio();
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude guardarla', texto: e.message });
+    }
+  };
+  const quitar = async (n) => {
+    try {
+      await inspiracion.quitarMiMarca(n);
+      onCambio();
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No se pudo', texto: e.message });
+    }
+  };
+  return (
+    <div className="insp-mias">
+      <div className="insp-marcas__titulo">
+        <span>Tus marcas (no salen aquí)</span>
+        <span className="insp-marcas__cuenta">{lista.length}</span>
+      </div>
+      {lista.length ? (
+        <div className="insp-mias__chips">
+          {lista.map((n) => (
+            <span key={n} className="insp-mias__chip">
+              {n}
+              <button type="button" onClick={() => quitar(n)} aria-label={`Quitar ${n} de tus marcas`}>
+                <X size={11} />
+              </button>
+            </span>
+          ))}
+        </div>
+      ) : null}
+      <form
+        className="insp-marcas__buscar"
+        onSubmit={(e) => {
+          e.preventDefault();
+          agregar();
+        }}
+      >
+        <input value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Agregar tu marca o tu tienda…" maxLength={80} aria-label="Agregar tu marca" />
+      </form>
+    </div>
   );
 }

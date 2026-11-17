@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17m1 · Inspiración: solo creativos validados de otras tiendas
+
+- **Solo lo que ya funcionó:** por defecto Inspiración trae creativos **activos hace 30 días o más** (o con más de 100.000 personas alcanzadas), ordenados por alcance, como Starpop. Se puede apagar en «Más filtros» › «Solo creativos validados».
+- **Nunca tus marcas:** en la columna de la izquierda, **«Tus marcas (no salen aquí)»**. Ahí está Vitalabh y puedes agregar o quitar otras (tu tienda, tu página). Sus anuncios no aparecen aunque coincidan con la búsqueda.
+- Arriba del feed dice cuántos dejó afuera («no muestro 4 de tus marcas ni 1 sin validar»).
+
 ## 2026-11-17m · Inspiración: los anuncios que funcionan, como en Starpop
 
 - **«Mejores anuncios» ahora se llama «Inspiración»** (menú Crear) y se ve como Starpop: a la izquierda las marcas que sigues; arriba **Todo / Video / Imagen**, **Guardados**, desde cuándo salieron y el orden (más alcance, más tiempo activos, escalando esta semana, más duplicados, los más nuevos); y una rejilla de tarjetas. Los enlaces viejos a «Mejores anuncios» abren esta pantalla.

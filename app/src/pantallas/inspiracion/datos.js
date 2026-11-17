@@ -27,6 +27,9 @@ export const inspiracion = {
   /** { marcas, desdeCache, gastados, creditos } */
   buscarMarcas: (texto) => pedirNuevo('/api/inspiracion/marcas/buscar', { metodo: 'POST', cuerpo: { texto } }),
   brandtracker: () => pedirNuevo('/api/inspiracion/marcas/buscar', { metodo: 'POST', cuerpo: { brandtracker: true } }),
+  /** tus marcas (nunca salen en Inspiración): { misMarcas } */
+  agregarMiMarca: (nombre) => pedirNuevo('/api/inspiracion/mis-marcas', { metodo: 'POST', cuerpo: { nombre } }),
+  quitarMiMarca: (nombre) => pedirNuevo(`/api/inspiracion/mis-marcas/${enc(nombre)}`, { metodo: 'DELETE' }),
   /** { archivo, url, nombre } */
   replicarImagen: (anuncio) => pedirNuevo('/api/inspiracion/replicar-imagen', { metodo: 'POST', cuerpo: { anuncio } }),
 };

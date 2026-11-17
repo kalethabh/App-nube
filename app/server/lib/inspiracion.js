@@ -402,7 +402,7 @@ export function actualizarMarcasDesde(anuncios = []) {
 
 const MARCAS_SIMULADAS = [
   { name: 'AMUA', facebookPageId: 'sim_amua', liveAdsCount: 142 },
-  { name: 'Vitalabh', facebookPageId: 'sim_vitalabh', liveAdsCount: 58 },
+  { name: 'Curvas Naturales', facebookPageId: 'sim_curvas', liveAdsCount: 58 },
   { name: 'Tejidos Felices', facebookPageId: 'sim_tejidos', liveAdsCount: 23 },
   { name: 'Huesos Fuertes', facebookPageId: 'sim_huesos', liveAdsCount: 17 },
   { name: 'Bloques Pro', facebookPageId: 'sim_bloques', liveAdsCount: 9 },
@@ -470,4 +470,78 @@ export async function bajarImagenParaReplicar(anuncio) {
 
 export function rutaImagen(archivo) {
   return /^[0-9a-f]{16}\.jpg$/.test(String(archivo || '')) ? path.join(DIR_IMAGENES, archivo) : null;
+}
+
+// ---------------------------------------------------------------- solo validados y nunca tus marcas
+// La inspiración es de OTRAS tiendas con creativos ya validados (2026-11-17, pedido del usuario: «debe ser de tiendas con
+// creativos ya validados, no los míos»). Validado: activo hace 30 días o más, o más de 100.000 personas alcanzadas (el
+// mismo criterio de las referencias ganadoras de Anuncios de imagen). Tus marcas viven en
+// mis_archivos/ganadores/mis-marcas.json (las editas en la pantalla) y nunca salen en el feed.
+
+export const DIAS_VALIDADO = 30;
+export const ALCANCE_VALIDADO = 100000;
+const ARCHIVO_MIS_MARCAS = path.join(path.dirname(ARCHIVO_MARCAS), 'mis-marcas.json');
+
+/** «Vita Labh», «vitalabh.com» -> «vitalabh» (para comparar sin espacios, tildes ni mayúsculas). */
+export const claveMarca = (t) =>
+  String(t || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/^https?:\/\//, '')
+    .replace(/^www\./, '')
+    .replace(/\.(com|co|net|shop|store|pe|mx|cl|ec|es)(\/.*)?$/, '')
+    .replace(/[^a-z0-9]/g, '');
+
+export function listarMisMarcas() {
+  const j = leerJSON(ARCHIVO_MIS_MARCAS);
+  return Array.isArray(j?.marcas) ? j.marcas.filter((x) => typeof x === 'string' && claveMarca(x).length >= 3) : [];
+}
+
+export function agregarMiMarca(texto) {
+  const nombre = String(texto || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+  if (claveMarca(nombre).length < 3) throw new ErrorGanadores(400, 'Escribe el nombre de tu marca o tu tienda (3 letras o más).');
+  const lista = listarMisMarcas();
+  if (!lista.some((x) => claveMarca(x) === claveMarca(nombre))) lista.push(nombre);
+  escribirJSONSeguro(ARCHIVO_MIS_MARCAS, { v: 1, marcas: lista.slice(0, 50) });
+  return lista;
+}
+
+export function quitarMiMarca(texto) {
+  const lista = listarMisMarcas().filter((x) => claveMarca(x) !== claveMarca(texto));
+  escribirJSONSeguro(ARCHIVO_MIS_MARCAS, { v: 1, marcas: lista });
+  return lista;
+}
+
+/** ¿Es un anuncio tuyo? (su página, su nombre o el dominio de su landing tiene el nombre de una de tus marcas) */
+export function esDeMisMarcas(a, mias = listarMisMarcas().map(claveMarca)) {
+  if (!mias.length) return false;
+  const de = [a?.anunciante?.nombre, a?.dominio].map(claveMarca).filter(Boolean);
+  return de.some((x) => mias.some((m) => x.includes(m)));
+}
+
+export const esValidado = (a) => (Number(a?.dias) || 0) >= DIAS_VALIDADO || (Number(a?.alcance) || 0) >= ALCANCE_VALIDADO;
+
+/**
+ * Lo que llega a la pantalla: sin tus marcas y, con soloValidados, solo los validados. Cada anuncio dice si es validado.
+ * -> { anuncios, quitados: { tuyos, sinValidar } }
+ */
+export function paraInspiracion(anuncios = [], { soloValidados = true } = {}) {
+  const mias = listarMisMarcas().map(claveMarca);
+  let tuyos = 0;
+  let sinValidar = 0;
+  const salida = [];
+  for (const a of anuncios) {
+    if (esDeMisMarcas(a, mias)) {
+      tuyos++;
+      continue;
+    }
+    const validado = esValidado(a);
+    if (soloValidados && !validado) {
+      sinValidar++;
+      continue;
+    }
+    salida.push({ ...a, validado });
+  }
+  return { anuncios: salida, quitados: { tuyos, sinValidar } };
 }
