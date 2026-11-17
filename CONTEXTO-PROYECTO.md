@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17h` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+- **Versión actual:** `2026-11-17i` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
   Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -136,6 +136,17 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Alargar un texto que sigue al video (2026-11-17, versión 2026-11-17i)
+
+- Problema: un texto, imagen o censura con `sigue` alargado en la línea de tiempo no se veía en la parte alargada,
+  porque `lugaresSeguidos` solo devuelve lugar donde el lector vio el texto (más los márgenes de 0,4/0,5 s).
+- `capas.mjs`: `lugaresSeguidos(sigue, t, ventana)` con `ventana = { inicio, fin }` del elemento; sin lugar y sin
+  `siempre`, `quietoEnLosBordes` lo deja quieto en el último punto (después de la última aparición, hasta `fin`) o en el
+  primero (antes de la primera, desde `inicio`); entre dos apariciones no inventa nada. `AnuncioEditado.jsx`: lo pasan
+  `TextoSeguido` e `ImagenEnPantalla` (vista previa y exportación iguales).
+- Límite: si UN solo texto sigue dos apariciones lejanas (seg. 184 y 236), alargar solo cubre los bordes del conjunto
+  (antes de la primera y después de la última). Pruebas: cuenta a mano, build, humo 82/82, imagen 147/147.
 
 ### Mover todo libremente en el editor (2026-11-17, versión 2026-11-17h)
 
