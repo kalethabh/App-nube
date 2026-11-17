@@ -152,7 +152,9 @@ export function prepararRapido(carpeta, brief) {
     const visual = [
       `Product: ${nombre}${publico ? `, for ${publico}` : ''}${pais ? ` (market: ${pais})` : ''}.`,
       beneficios.length ? `Benefits to use in the secondary texts (Spanish, short): ${beneficios.join('; ')}.` : 'Secondary texts: short and about the main benefit of the product.',
-      `Angle of this variation: ${x.angulo}.`,
+      // el ángulo es el de la referencia (el modelo lo lee: LEER_REFERENCIA en produccion/imagen-ads.js); el de la
+      // biblioteca solo sugiere el tono del texto si la referencia no tiene uno claro
+      `Angle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: ${x.angulo}.`,
       modo === 'copiar'
         ? deEsteProducto
           ? 'This reference is an ad of this same product: keep everything (also its colors); change only the texts.'
