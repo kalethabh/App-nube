@@ -43,6 +43,8 @@ import { loteAnterior, usadosDe, armarInforme, piezasPorHacer, faltaDelBorrador 
 import { nombreIA, datosIA, alPreguntarLotesOcupados } from '../motor-ia.js';
 import { motorDeImagenes, entornoParaImagenes, codexParaImagenes } from '../motor-imagenes.js';
 import { prepararRapido } from '../imagen-ads/rapido.js';
+import * as plantillas from '../imagen-ads/plantillas.js';
+import { calentar as calentarPlantillas } from '../plantillas/render.js';
 
 export const FAMILIA = 'imagen-ads';
 export const ESTILOS = ['imagen-ads'];
@@ -125,6 +127,8 @@ async function preparar(ctx) {
   if (!b || b.familia !== FAMILIA || !Number.isInteger(b.cantidad) || b.cantidad < 1 || b.cantidad > 100 || !Array.isArray(b.formatos) || !b.formatos.includes('1:1')) {
     return error('Este lote quedó incompleto y así no lo puedo hacer. Crea uno nuevo desde «Anuncios de imagen».', 'brief', 'app/brief.json');
   }
+  // (plantillas: el dibujante se calienta ya, mientras se prepara lo demás)
+  if (plantillas.esLoteDePlantillas(b)) calentarPlantillas().catch((e) => console.error(`[plantillas] no pude calentar: ${e?.message || e}`));
   // ffmpeg arma la revision y pega el logo: sin el, no se paga nada
   const ff = await local.comprobarFfmpeg({ otraVez: true });
   if (!ff.ok) {
@@ -193,6 +197,21 @@ async function saldo(ctx) {
 async function estrategia(ctx) {
   const c = ctx.carpeta;
   const b = ctx.brief;
+  // PLANTILLAS (2026-11-17p): la app arma los textos sola (de los ganchos, la ficha y la investigación) y dibuja la
+  // vista previa enseguida; el modelo de imagen solo hace las escenas (sin texto) de las plantillas que las usan.
+  if (plantillas.esLoteDePlantillas(b)) {
+    ctx.avance('Armando tus anuncios con las plantillas');
+    if (!existe(R.plan(c)) || !leerJSON(R.plan(c))?.plantillas) {
+      const r = await plantillas.prepararPlantillas(c, b);
+      if (!r.ok) return error('No pude armar tus anuncios con las plantillas. Toca “Continuar” para intentarlo otra vez.', 'plantillas', r.motivo);
+      anotarRegistro(c, 'E001', { plantillas: r.plantillas, escenas: r.escenas });
+    }
+    ctx.brief = leerJSON(R.brief(c)) || b;
+    plantillas.recortarProductoDeFondo(c, ctx.brief);
+    // la vista previa (con la escena en camino) sale ya, sin esperar al paso siguiente
+    plantillas.componerPendientes(c, ctx.brief).catch(() => {});
+    return { ok: true };
+  }
   // Modo rápido («como pedirle a ChatGPT que me las varíe»): la app arma el lote en segundos, sin la IA de texto
   // (imagen-ads/rapido.js). Sin referencias ni titulares para variar, sigue el camino de siempre.
   if (b.rapido && !existe(R.bloqueo(c))) {
@@ -345,7 +364,8 @@ function absorber(est, carpeta, run) {
 
 /** Lo que se ve en disco (firmas de img/, recortes listos, vistas, finales con el logo al dia, ordenes vivas). */
 function mirarDisco(carpeta, est, brief, run) {
-  const conLogo = Boolean(brief?.logo?.posicion && existe(R.logo(carpeta)));
+  // (en un lote de plantillas el logo lo dibuja la plantilla: ffmpeg no lo pega)
+  const conLogo = Boolean(!brief?.plantillas && brief?.logo?.posicion && existe(R.logo(carpeta)));
   const shaLogo = conLogo ? local.sha1DelLogo(carpeta) : null;
   const imagenes = {};
   const recortes = {};
@@ -394,8 +414,11 @@ async function lanzarMotor(ctx, run) {
   let r;
   try {
     const conChatGPT = script === MOTOR && motorDeImagenes() === 'chatgpt';
-    const args = [ctx.carpetaArg, ...(conChatGPT ? ['--motor', 'chatgpt', '--concurrencia', '3'] : []), ...(cortada ? ['--heredar-log'] : [])];
-    r = await ctx.correr(script, args, conChatGPT ? { que: ['imagenes'], env: entornoParaImagenes() } : { que: ['imagenes'], topeKie: 6 });
+    // (plantillas: solo escenas, pocas y todas a la vez: más pedidos en paralelo, dentro del límite de kie de 18 cada
+    // 10 s para toda la app y de 4 a la vez con ChatGPT)
+    const conPlantillas = plantillas.esLoteDePlantillas(ctx.brief);
+    const args = [ctx.carpetaArg, ...(conChatGPT ? ['--motor', 'chatgpt', '--concurrencia', conPlantillas ? '4' : '3'] : []), ...(cortada ? ['--heredar-log'] : [])];
+    r = await ctx.correr(script, args, conChatGPT ? { que: ['imagenes'], env: entornoParaImagenes() } : { que: ['imagenes'], topeKie: conPlantillas ? 12 : 6 });
   } catch (e) {
     if (e?.sinModoPrueba) {
       run.duro = error('El modo prueba no está listo: no se corrió nada para no gastar.', 'modo-prueba', String(e.message || e));
@@ -611,6 +634,15 @@ function fraseDelLote(est, run, { claude }) {
   return partes.join(' · ');
 }
 
+/** «Creando 3 escenas · 12 de 20 listas» (plantillas: lo demás lo dibuja la app al instante). */
+function fraseConPlantillas(est) {
+  const c = plan.cuentas(est);
+  const partes = [];
+  if (c.enMotor) partes.push(`Creando ${c.enMotor} ${c.enMotor === 1 ? 'escena' : 'escenas'} (sin texto)`);
+  partes.push(`${c.listas} de ${c.total} listas`);
+  return partes.join(' · ');
+}
+
 /**
  * Corta los carriles que siguen vivos y espera a que terminen (el bucle se cayo por un error): Claude y lo local ya
  * vieron su senal; el motor se corta por su proceso (y otra vez si justo lo relanzaba un reintento de red).
@@ -639,6 +671,9 @@ async function anuncios(ctx) {
   const senal = AbortSignal.any([ctx.senal, corte.signal]);
   // (modo rápido: sin la revisión de la IA; las imágenes quedan listas apenas salen)
   const run = { fallosMotor: 0, fallosLocal: 0, intentos: new Map(), limite: null, sinRevision: ctx.brief?.rapido ? 'rapido' : null, duro: null, frase: null, tanda: null, cache: new Map(), senal, cerrado: false };
+  // plantillas: el dibujo de las imágenes (vista previa al instante y otra vez cuando llega cada escena)
+  const conPlantillas = plantillas.esLoteDePlantillas(ctx.brief);
+  const dibujo = { corriendo: null, ultimo: null, fallasSeguidas: 0 };
   let claude = null;
   let motor = null;
   let locales = null;
@@ -685,8 +720,25 @@ async function anuncios(ctx) {
       } else if (!claude) turnoClaude.retirar(lote);
       if (d.local.length && !locales) locales = correrLocal(ctx, d.local, brief, run).finally(() => (locales = null));
       guardar(c, est);
-      ctx.avance(fraseDelLote(est, run, { claude: Boolean(claude) }));
-      if (d.terminado && !claude && !motor && !locales) {
+      // (plantillas: termina cuando una pasada del dibujo, empezada con todo lo demás quieto, no tuvo nada que dibujar)
+      const dibujoAlDia = !conPlantillas || (!dibujo.corriendo && dibujo.ultimo && dibujo.ultimo.dibujadas === 0 && !dibujo.ultimo.fallas && dibujo.ultimo.desdeQuieto);
+      if (conPlantillas && !dibujo.corriendo && !run.duro && !(dibujoAlDia && d.terminado && !claude && !motor && !locales)) {
+        const quieto = d.terminado && !claude && !motor && !locales;
+        dibujo.corriendo = plantillas
+          .componerPendientes(c, brief)
+          .then((r) => {
+            dibujo.ultimo = { ...r, desdeQuieto: quieto };
+            dibujo.fallasSeguidas = r.fallas ? dibujo.fallasSeguidas + 1 : 0;
+            if (dibujo.fallasSeguidas >= 3) run.duro = error('No pude dibujar tus anuncios en la computadora. Toca “Continuar” para probar de nuevo.', 'plantillas', 'el dibujante de las plantillas falló 3 veces seguidas');
+          })
+          .catch((e) => {
+            dibujo.fallasSeguidas++;
+            if (dibujo.fallasSeguidas >= 3) run.duro = error('No pude dibujar tus anuncios en la computadora. Toca “Continuar” para probar de nuevo.', 'plantillas', String(e?.message || e));
+          })
+          .finally(() => (dibujo.corriendo = null));
+      }
+      ctx.avance(conPlantillas ? fraseConPlantillas(est) : fraseDelLote(est, run, { claude: Boolean(claude) }));
+      if (d.terminado && !claude && !motor && !locales && dibujoAlDia) {
         turnoClaude.retirar(lote);
         guardar(c, est);
         return { ok: true };
@@ -697,7 +749,7 @@ async function anuncios(ctx) {
         if (run.duro) return run.duro; // { pausa: { motivo: 'saldo' } } · { ok: false, error }
         return errorDeLimite(run.limite); // el conductor espera a que se renueve
       }
-      await Promise.race([claude, motor, locales, dormir(2000, ctx.senal)].filter(Boolean));
+      await Promise.race([claude, motor, locales, dormir(conPlantillas ? 600 : 2000, ctx.senal)].filter(Boolean));
     }
     await Promise.allSettled([claude, motor, locales].filter(Boolean)); // nunca vuelve con algo vivo escribiendo
     turnoClaude.retirar(lote);

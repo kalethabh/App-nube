@@ -15,7 +15,7 @@
 // precio por imagen lo manda el servidor (GET /api/imagen-ads/opciones → costo; el modelo de los lotes es fijo) y se
 // recalcula con la cantidad y el formato (costoDelLote). La pantalla del lote sigue sin precios hasta su informe.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, CircleCheck, Copy, Globe, Images, Sparkles, Tag, Telescope, Trophy, Users } from 'lucide-react';
+import { CircleAlert, CircleCheck, Copy, Globe, Images, LayoutTemplate, Sparkles, Tag, Telescope, Trophy, Users } from 'lucide-react';
 import { AreaTexto, Boton, CampoTexto, Chip, Interruptor, Pestanas, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useEstado } from '../../datos/api.js';
 import { dinero } from '../../datos/formato.js';
@@ -24,6 +24,7 @@ import {
   CLAVE_PRODUCTOS,
   apiImagenes,
   costoDelLote,
+  planDePlantillas,
   textoDeCantidad,
   useOpcionesImagen,
   useProductosImagen,
@@ -37,6 +38,8 @@ import { ElegirFunciona, comoArchivos } from './ElegirFunciona.jsx';
 import { ResumenLote } from './ResumenLote.jsx';
 import { ZonaImagenes, liberarVistas } from './ZonaImagenes.jsx';
 import { BibliotecaReferencias } from './BibliotecaReferencias.jsx';
+import { ElegirPlantillas } from './ElegirPlantillas.jsx';
+import { KitMarca, KIT_INICIAL } from './KitMarca.jsx';
 
 // «Nuevos»: de cero, con los ganchos validados de tu investigación. «Variantes»: de algo que ya te funciona.
 const MODOS = [
@@ -61,6 +64,10 @@ const VACIO = {
   modo: 'nuevos',
   // false = rápido, como pedirle a ChatGPT que te las varíe (por defecto); true = con la estrategia de la IA (más lento)
   elaborado: false,
+  // PLANTILLAS (2026-11-17p): la app dibuja los textos y el modelo solo hace las escenas, sin texto (por defecto en «Nuevos»)
+  plantillas: true,
+  // los formatos elegidos ([] = «Que la app elija»)
+  elegidas: [],
 };
 
 // ---------------------------------------------------------------- el borrador en este navegador (sin imágenes)
@@ -139,6 +146,12 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   const [elegidos, setElegidos] = useState([]);
   const [itemsElegidos, setItemsElegidos] = useState([]);
   const variantes = f.modo === 'variantes';
+  // con plantillas: solo en «Nuevos» (en «Variantes» se copia el diseño de lo que ya te funciona)
+  const conPlantillas = !variantes && f.plantillas !== false && Boolean(opciones?.plantillas?.plantillas?.length);
+  // el kit de marca del producto (colores sacados solos de la foto, letras y sticker)
+  const [kit, setKit] = useState(KIT_INICIAL);
+  const [kitAuto, setKitAuto] = useState(false);
+  const [kitTocado, setKitTocado] = useState(false);
   const [errores, setErrores] = useState({});
   const [fase, setFase] = useState(null);
   const [nota, setNota] = useState(null);
@@ -244,11 +257,43 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
     if (nuevos.length) setReferencias((r) => [...r, ...nuevos]);
   };
 
+  // el kit del producto elegido (el servidor lo saca de la foto la primera vez y lo guarda)
+  useEffect(() => {
+    if (simulando || !f.productoId) {
+      setKit(KIT_INICIAL);
+      setKitAuto(false);
+      setKitTocado(false);
+      return;
+    }
+    let vivo = true;
+    apiImagenes
+      .kit(f.productoId)
+      .then((r) => {
+        if (!vivo || !r?.kit) return;
+        const { automatico, ...k } = r.kit;
+        setKit({ ...KIT_INICIAL, ...k });
+        setKitAuto(Boolean(automatico));
+        setKitTocado(false);
+      })
+      .catch(() => {});
+    return () => {
+      vivo = false;
+    };
+  }, [f.productoId, simulando]);
+
   const formatos = f.conVertical ? ['1:1', '9:16'] : ['1:1'];
+  // plantillas: solo las escenas cuestan (una por anuncio con escena: el vertical usa la misma)
+  const planPlantillas = conPlantillas && cantidadValida ? planDePlantillas(opciones.plantillas, n, f.elegidas) : null;
   // el costo estimado: cada imagen (cuadrada o vertical) al precio que manda el servidor (un solo número: la revisión
   // ya no rehace nada sola)
   const precio = opciones?.costo || null;
-  const costoLote = cantidadValida ? costoDelLote(precio, n * formatos.length) : null;
+  const costoLote = !cantidadValida
+    ? null
+    : planPlantillas
+      ? planPlantillas.escenas
+        ? costoDelLote(precio, planPlantillas.escenas)
+        : { min: 0, max: 0, gratis: true }
+      : costoDelLote(precio, n * formatos.length);
   const datosDelLote = () => ({
     nombre: f.nombre.trim(),
     publico: f.publico.trim(),
@@ -269,7 +314,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
       return;
     }
     // (el modo rápido no necesita la IA de texto para arrancar: solo el modo «Más elaborado»)
-    if (f.elaborado && motor.falta) {
+    if (f.elaborado && !conPlantillas && motor.falta) {
       aviso(
         !motor.elegido
           ? { tipo: 'aviso', titulo: 'Elige tu IA', texto: 'Para armar la estrategia y revisar tus imágenes, la app usa tu cuenta de Claude o de ChatGPT. Elige una y vuelve a tocar Generar.' }
@@ -315,7 +360,22 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
       const propias = variantes ? itemsElegidos.map((x, i) => (x.productoId && x.productoId === productoId ? i + 1 : null)).filter(Boolean) : [];
 
       // 2. el lote (borrador). Si cambiaste algo que va en él desde el intento anterior, se arma otro.
-      const cuerpo = { productoId, fotoProducto, datos: datosDelLote(), cantidad: n, formatos, logo: null, modo: variantes ? 'variantes' : 'nuevos', referenciasPropias: propias, fiel: variantes, rapido: !f.elaborado, refs: refs.map((x) => x.id) };
+      // el kit que cambiaste queda guardado con el producto (si el producto es nuevo, va con el lote)
+      if (conPlantillas && kitTocado && f.productoId) await apiImagenes.guardarKit(f.productoId, kit).catch(() => {});
+      const cuerpo = {
+        productoId,
+        fotoProducto,
+        datos: datosDelLote(),
+        cantidad: n,
+        formatos,
+        logo: null,
+        modo: variantes ? 'variantes' : 'nuevos',
+        referenciasPropias: propias,
+        fiel: variantes,
+        rapido: conPlantillas ? true : !f.elaborado,
+        refs: conPlantillas ? [] : refs.map((x) => x.id),
+        ...(conPlantillas ? { plantillas: { elegidas: f.elegidas, ...(kitTocado ? { kit } : {}) } } : {}),
+      };
       const firma = JSON.stringify(cuerpo);
       if (creado.current && creado.current.firma !== firma) {
         apiImagenes.borrar(creado.current.lote).catch(() => {});
@@ -331,16 +391,17 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
       const c = creado.current;
 
       // 3. las referencias y el logo, de a una
-      for (let i = 0; i < refs.length; i++) {
-        const ref = refs[i];
+      const refsDelLote = conPlantillas ? [] : refs;
+      for (let i = 0; i < refsDelLote.length; i++) {
+        const ref = refsDelLote[i];
         if (c.refs[i + 1] === ref.id) continue;
-        setFase(refs.length === 1 ? 'Subiendo tu referencia' : `Subiendo tus referencias (${i + 1} de ${refs.length})`);
+        setFase(refsDelLote.length === 1 ? 'Subiendo tu referencia' : `Subiendo tus referencias (${i + 1} de ${refsDelLote.length})`);
         await apiImagenes.subirReferencia(c.lote, i + 1, ref.archivo);
         c.refs[i + 1] = ref.id;
       }
       for (const sobra of Object.keys(c.refs)
         .map(Number)
-        .filter((k) => k > refs.length)) {
+        .filter((k) => k > refsDelLote.length)) {
         await apiImagenes.quitarReferencia(c.lote, sobra);
         delete c.refs[sobra];
       }
@@ -390,6 +451,21 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
               </>
             )}
           </p>
+          {!variantes && opciones?.plantillas?.plantillas?.length ? (
+            <Interruptor
+              activado={conPlantillas}
+              onCambio={(v) => poner({ plantillas: v })}
+              etiqueta="Con plantillas (rápido y limpio)"
+              descripcion={
+                conPlantillas
+                  ? 'La app dibuja los textos perfectos, con tus colores y tus letras, sobre la foto de tu producto. El modelo de imagen solo hace la escena (sin texto) de los formatos que la usan. Salen en segundos.'
+                  : 'Diseño libre: el modelo de imagen hace todo el anuncio a partir de tus referencias (textos incluidos). Más lento.'
+              }
+              deshabilitado={ocupado}
+              className="img-fiel"
+            />
+          ) : null}
+          {conPlantillas ? null : (
           <Interruptor
             activado={Boolean(f.elaborado)}
             onCambio={(v) => poner({ elaborado: v })}
@@ -402,6 +478,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
             deshabilitado={ocupado}
             className="img-fiel"
           />
+          )}
         </div>
         <Grupo n={1} id="grupo-producto" titulo="Tu producto">
           <ElegirProducto
@@ -557,7 +634,41 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
           <p className="t-chico t-3">{cantidadValida ? textoDeCantidad(n, f.conVertical) : `Elige de 1 a ${maximo} anuncios.`}</p>
         </Grupo>
 
-        {variantes ? (
+        {conPlantillas ? (
+          <>
+            <Grupo n={5} id="grupo-formato" titulo="Formato">
+              <ElegirPlantillas
+                catalogo={opciones.plantillas}
+                elegidas={f.elegidas}
+                onCambiar={(ids) => poner({ elegidas: ids })}
+                producto={f.productoId ? { id: f.productoId, foto: f.fotoProducto } : null}
+                kit={kit}
+                bloqueado={ocupado}
+              />
+              {planPlantillas ? (
+                <p className="img-nota" role="status">
+                  <LayoutTemplate size={14} strokeWidth={2} aria-hidden="true" />
+                  <span>
+                    {planPlantillas.escenas
+                      ? `${n - planPlantillas.escenas} de tus ${n} anuncios salen gratis y al instante; ${planPlantillas.escenas === 1 ? '1 usa' : `${planPlantillas.escenas} usan`} una escena del modelo de imagen (sin texto), todas a la vez. Mientras llega, ya ves el anuncio con sus textos.`
+                      : `Tus ${n} anuncios salen gratis y en segundos: la app los arma con la foto de tu producto, sin llamar al modelo de imagen.`}
+                  </span>
+                </p>
+              ) : null}
+            </Grupo>
+            <Grupo n={6} id="grupo-marca" titulo="Tu marca">
+              <KitMarca
+                kit={kit}
+                automatico={kitAuto && !kitTocado}
+                onCambiar={(k) => {
+                  setKit(k);
+                  setKitTocado(true);
+                }}
+                bloqueado={ocupado}
+              />
+            </Grupo>
+          </>
+        ) : variantes ? (
           <Grupo n={5} id="grupo-referencias" titulo="Lo que te funciona">
             <ElegirFunciona
               elegidos={elegidos}
@@ -615,9 +726,22 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
         cantidad={{ valida: cantidadValida, n, maximo }}
         conVertical={f.conVertical}
         logo={null}
-        referencias={variantes ? itemsElegidos.map((x) => ({ id: x.id, url: x.url })) : referencias}
+        referencias={conPlantillas ? [] : variantes ? itemsElegidos.map((x) => ({ id: x.id, url: x.url })) : referencias}
+        plantillas={conPlantillas ? { elegidas: f.elegidas.length, escenas: planPlantillas?.escenas ?? null } : null}
         costo={
-          costoLote?.conChatGPT
+          costoLote?.gratis
+            ? {
+                rango: 'Sin costo',
+                etiqueta: 'Todo en tu computadora',
+                chica: 'Estos formatos los arma la app con la foto de tu producto: no se llama al modelo de imagen. Cambiar un texto después también es gratis.',
+              }
+            : costoLote && planPlantillas
+            ? {
+                rango: costoLote.conChatGPT ? 'Sin costo por imagen' : rangoDinero(costoLote),
+                etiqueta: costoLote.conChatGPT ? 'Con tu ChatGPT' : modoPrueba ? 'Lo que costaría' : 'Costo estimado',
+                chica: `Solo ${planPlantillas.escenas === 1 ? 'la escena de 1 anuncio usa' : `las escenas de ${planPlantillas.escenas} anuncios usan`} el modelo de imagen (sin texto${f.conVertical ? '; el vertical usa la misma escena' : ''})${costoLote.conChatGPT ? ', con tu suscripción de ChatGPT' : `, a ${dinero(precio.dolaresPorImagen)} cada una`}. Lo demás lo arma la app gratis.`,
+              }
+            : costoLote?.conChatGPT
             ? {
                 rango: 'Sin costo por imagen',
                 etiqueta: 'Con tu ChatGPT',
@@ -631,7 +755,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
               }
             : null
         }
-        motor={f.elaborado ? motor : { ...motor, falta: false }} // el modo rápido no necesita la IA de texto
+        motor={f.elaborado && !conPlantillas ? motor : { ...motor, falta: false }} // el modo rápido y las plantillas no necesitan la IA de texto
         ocupado={ocupado}
         fase={fase}
         textoBoton={textoBoton}

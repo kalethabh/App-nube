@@ -20,6 +20,8 @@ import { nuevoEstado, asegurarPiezas, aplicarRevision, listaDePiezas, cuentas, P
 import { verificarRevision, leerSkill } from './verificar.js';
 import { borrarRecortes, finalAlDia, sha1DelLogo } from './local.js';
 import { R, firma, guardarJSON, siguienteEnDisco, idsDelLote, piezaId, vDe, formatoDe, nombreFormato, kebab, ordenDeV, fotoDelLote } from './disco.js';
+import { plantillaDe, piezaLocal, estadoComposicion } from './plantillas.js';
+import { POR_ID, CATALOGO } from './catalogo-plantillas.js';
 
 const ultimoGuardado = new Map(); // carpeta -> el texto que se guardo la ultima vez
 const MOTORES_VALIDOS = new Set(['claude', 'codex']);
@@ -85,6 +87,14 @@ export function cargarYNormalizar(carpeta, brief, { uuidEstrategia = null, motor
     asegurarPiezas(est, { cantidad, formatos });
     // (un estado de antes, sin la IA de la estrategia: se completa con la del paso, si se sabe)
     if (est.tandas?.E001 && !est.tandas.E001.motor && motor) est.tandas.E001.motor = motor;
+  }
+  // PLANTILLAS: lo que dibuja solo la app (las plantillas sin escena y los verticales, que reutilizan la escena del
+  // cuadrado) nunca va al motor: queda «final» de entrada y la pantalla lo muestra cuando está dibujado.
+  if (brief?.plantillas) {
+    for (const [pieza, p] of Object.entries(est.piezas)) {
+      if (p.local || !piezaLocal(plantillaDe(carpeta, vDe(pieza)), pieza)) continue;
+      Object.assign(p, { fase: 'final', resultado: 'listo', version: Math.max(1, p.version || 0), orden: null, local: true });
+    }
   }
   // Solo antes de arrancar piezas: los títulos comparten una plantilla validada por referencia.
   if (!leerEstado(carpeta)) {
@@ -221,7 +231,53 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
   const nombre = kebab(brief?.titulo || brief?.datos?.nombre || 'anuncio', 30);
   const delPlan = new Map((plan?.variaciones || []).map((x) => [x.id, x]));
 
-  const vistaDePieza = (v, f) => {
+  const vistaDePieza = (v, f) => (brief?.plantillas ? vistaDePiezaPlantilla(v, f) : vistaDePiezaComun(v, f));
+
+  // PLANTILLAS: la imagen que se ve es la dibujada (final/), con la vista previa apenas existe; el estado es el de su
+  // escena (si la usa) y, si no, «listo» cuando está dibujada al día.
+  const vistaDePiezaPlantilla = (v, f) => {
+    const id = piezaId(v, f);
+    const ap = plantillaDe(carpeta, v);
+    const cuadrado = piezaId(v, '1:1');
+    const pc = est?.piezas?.[cuadrado] || null;
+    const p = est?.piezas?.[id] || null;
+    const pedido = pedidoDe(pedidos, id);
+    const comp = estadoComposicion(carpeta, id);
+    const fFinal = comp.existe ? firma(R.final(carpeta, id)) : null;
+    let estado;
+    if (!ap) estado = 'en-cola';
+    else if (ap.escena) {
+      estado = estadoEnPantalla(pc, { pedido: pedidoDe(pedidos, cuadrado) });
+      if (estado === 'listo' && !comp.completa) estado = 'generando';
+    } else estado = pedido && !PEDIDO_TERMINADO.has(pedido.estado) ? 'regenerando' : comp.existe ? 'listo' : 'generando';
+    const local = Boolean(ap && piezaLocal(ap, id));
+    const versiones = (indice[cuadrado] || []).filter(() => f === '1:1' && ap?.escena).filter((x) => x && existe(R.versionPng(carpeta, cuadrado, x.n))).map((x) => {
+      const f2 = firma(R.versionPng(carpeta, cuadrado, x.n));
+      return { n: Number(x.n), url: `${base}/versiones/${cuadrado}.v${x.n}.png?v=${f2}`, miniatura: `${mini}/versiones/${cuadrado}.v${x.n}.png?ancho=480&v=${f2}`, fecha: x.fecha || null, motivo: x.motivo || null, escena: true };
+    });
+    const libre = !pedido && (ap?.escena ? pc?.fase === 'final' : true);
+    return {
+      pieza: id,
+      estado,
+      url: fFinal ? `${base}/final/${id}.png?v=${fFinal}` : null,
+      urlSinLogo: fFinal ? `${base}/final/${id}.png?v=${fFinal}` : null,
+      miniatura: fFinal ? `${mini}/final/${id}.png?ancho=480&v=${fFinal}` : null,
+      descarga: `${nombre}-${v}-${nombreFormato(f)}.png`,
+      version: p?.version || 0,
+      versiones,
+      problemas: [],
+      motivo: estado === 'sin-imagen' ? pc?.mensaje || 'No se pudo hacer la escena de esta imagen' : null,
+      hayPrompt: Boolean(ap?.escena) && existe(R.prompt(carpeta, cuadrado)),
+      puedeRegenerar: Boolean(ap) && libre && (ap.escena || comp.existe),
+      // regenerar: las que dibuja la app salen gratis (otros textos); las de escena piden otra escena (1 imagen)
+      imagenesRegenerar: ap?.escena ? 1 : 0,
+      vistaPrevia: Boolean(ap?.escena && comp.existe && !comp.completa),
+      local,
+      pedido: pedido ? { id: pedido.id, estado: pedido.estado } : null,
+    };
+  };
+
+  const vistaDePiezaComun = (v, f) => {
     const id = piezaId(v, f);
     const p = est?.piezas?.[id] || null;
     const sinPrompt = est?.variaciones?.[v]?.prompt === 'sin-prompt';
@@ -266,10 +322,12 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
   const variaciones = ids.map((v) => {
     const x = delPlan.get(v);
     const sinPrompt = est?.variaciones?.[v]?.prompt === 'sin-prompt';
+    const ap = brief?.plantillas ? plantillaDe(carpeta, v) : null;
     return {
       v,
+      ...(ap ? { plantilla: { id: ap.id, nombre: POR_ID.get(ap.id)?.nombre || ap.id, escena: Boolean(ap.escena), textos: ap.textos || {}, campos: POR_ID.get(ap.id)?.campos || [] } } : {}),
       angulo: x ? angulos.get(x.angulo_id)?.nombre || x.angulo || '' : '',
-      formato: x ? (x.fuente === 'referencia' ? 'Tu referencia' : catalogo.get(x.formato_id)?.nombre || x.formato || '') : '',
+      formato: x ? (x.fuente === 'referencia' ? 'Tu referencia' : x.fuente === 'plantilla' ? POR_ID.get(x.plantilla)?.nombre || x.formato || '' : catalogo.get(x.formato_id)?.nombre || x.formato || '') : '',
       titular: x?.titular || '',
       estado: sinPrompt ? 'sin-prompt' : 'ok',
       piezas: Object.fromEntries(formatos.map((f) => [f, vistaDePieza(v, f)])),
@@ -340,7 +398,12 @@ export function resumenDelLote({ lote, carpeta, brief, conductor }) {
   const c = est ? cuentas(est) : { total: (Number(brief?.cantidad) || 0) * (brief?.formatos?.length || 1), listas: 0 };
   const conLogo = Boolean(brief?.logo?.posicion) && existe(R.logo(carpeta));
   // el cuadrado de una variación como se ve (con el logo si lo lleva), o null si todavía no existe
-  const cuadrado = (v) => [`final/${v}_1x1.png`, `img/${v}_1x1.png`].find((rel) => existe(`${carpeta}/${rel}`) && (rel.startsWith('img/') || conLogo)) || null;
+  const cuadrado = (v) =>
+    brief?.plantillas
+      ? existe(`${carpeta}/final/${v}_1x1.png`)
+        ? `final/${v}_1x1.png`
+        : null
+      : [`final/${v}_1x1.png`, `img/${v}_1x1.png`].find((rel) => existe(`${carpeta}/${rel}`) && (rel.startsWith('img/') || conLogo)) || null;
   const miniaturaDe = (rel, ancho) => `/archivos/miniatura/imagen-ads/${enc(lote)}/${rel}?ancho=${ancho}&v=${firma(`${carpeta}/${rel}`)}`;
   const portada = cuadrado('V01');
   const marca = portada ? firma(`${carpeta}/${portada}`) : null;

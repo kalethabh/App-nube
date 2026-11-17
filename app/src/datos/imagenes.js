@@ -61,6 +61,24 @@ export const apiImagenes = {
   detener: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/detener`, { metodo: 'POST' }),
   /** Solo un borrador (nada pagado). */
   borrar: (lote) => pedirNuevo(`${BASE}/${enc(lote)}`, { metodo: 'DELETE' }),
+  /** PLANTILLAS: guarda los textos de una variación y la vuelve a dibujar (1-2 s, sin IA y sin costo) -> { ms, piezas } */
+  textos: (lote, v, textos) => pedirNuevo(`${BASE}/${enc(lote)}/textos`, { metodo: 'POST', cuerpo: { v, textos } }),
+  /** El kit de marca de un producto: { kit: { primario, secundario, fuenteTitulo, fuenteScript, sticker, automatico }, fuentesTitulo, fuentesMano, stickers } */
+  kit: (productoId) => pedirNuevo(`${BASE}/kit/${enc(productoId)}`),
+  guardarKit: (productoId, kit) => pedirNuevo(`${BASE}/kit/${enc(productoId)}`, { metodo: 'PUT', cuerpo: { kit } }),
+  /** La muestra de una plantilla con tu producto y tu kit (una imagen 1:1 que arma el servidor y guarda). */
+  urlMuestra: (id, { producto = null, foto = null, kit = null } = {}) => {
+    const q = new URLSearchParams();
+    if (producto) q.set('producto', producto);
+    if (foto) q.set('foto', String(foto));
+    if (kit?.primario) q.set('p', kit.primario);
+    if (kit?.secundario) q.set('s', kit.secundario);
+    if (kit?.fuenteTitulo) q.set('ft', kit.fuenteTitulo);
+    if (kit?.fuenteScript) q.set('fs', kit.fuenteScript);
+    if (kit?.sticker) q.set('st', kit.sticker);
+    const s = q.toString();
+    return `${BASE}/plantillas/muestra/${enc(id)}${s ? `?${s}` : ''}`;
+  },
   /** El zip con todo: con o sin logo, y con los prompts si se piden. */
   urlDescarga: (lote, { logo = true, prompts = false } = {}) => `${BASE}/${enc(lote)}/descargar?logo=${logo ? 1 : 0}&prompts=${prompts ? 1 : 0}`,
 };
@@ -235,6 +253,19 @@ export function textoDeCantidad(n, conVertical) {
  * o null (datos/costo-lote.js, sin dependencias: así lo prueba la humo).
  */
 export { costoDelLote } from './costo-lote.js';
+
+/**
+ * PLANTILLAS: la plantilla de cada variación (las elegidas, una tras otra; sin elegidas, la mezcla de la app) y cuántas
+ * necesitan una escena del modelo de imagen (lo único que cuesta). Lo mismo que asignar() del servidor
+ * (catalogo-plantillas.js), con el catálogo que manda /opciones.
+ */
+export function planDePlantillas(catalogo, cantidad, elegidas = []) {
+  const porId = new Map((catalogo?.plantillas || []).map((x) => [x.id, x]));
+  const lista = (elegidas || []).filter((x) => porId.has(x));
+  const orden = lista.length ? lista : catalogo?.ordenAuto || [];
+  const ids = orden.length ? Array.from({ length: Math.max(0, Number(cantidad) || 0) }, (_, i) => orden[i % orden.length]) : [];
+  return { ids, escenas: ids.filter((id) => porId.get(id)?.escena).length };
+}
 
 // ---------------------------------------------------------------- avance y etapas
 

@@ -18,6 +18,7 @@ import { Avance } from './Avance.jsx';
 import { Galeria } from './Galeria.jsx';
 import { InformeLote } from './InformeLote.jsx';
 import { ModalRegenerar } from './ModalRegenerar.jsx';
+import { ModalTextos } from './ModalTextos.jsx';
 import { PanelEstrategia } from './PanelEstrategia.jsx';
 import { Visor } from './Visor.jsx';
 import { LoteFunciona } from '../../datos/funcionan.js';
@@ -59,6 +60,7 @@ export default function PantallaLote({ params, consulta }) {
   const [filtro, setFiltro] = useState('juntos');
   const [visor, setVisor] = useState(null); // { v, formato }
   const [aRegenerar, setARegenerar] = useState(null); // la pieza
+  const [aEditar, setAEditar] = useState(null); // la variación de una plantilla (Editar textos)
   const [verEstrategia, setVerEstrategia] = useState(false);
   const [ocupado, setOcupado] = useState(null); // 'continuar' | 'detener' | 'generar' | 'borrar'
   const [borrar, setBorrar] = useState(false);
@@ -72,6 +74,7 @@ export default function PantallaLote({ params, consulta }) {
         ? sim.acciones
         : {
             regenerar: (cuerpo) => apiImagenes.regenerar(lote, cuerpo),
+            textos: (v, textos) => apiImagenes.textos(lote, v, textos),
             continuar: () => apiImagenes.continuar(lote),
             detener: () => apiImagenes.detener(lote),
             prompt: (pieza, op) => apiImagenes.prompt(lote, pieza, op),
@@ -133,13 +136,24 @@ export default function PantallaLote({ params, consulta }) {
   /** El pedido de "Regenerar": lo tira de vuelta si falla (el modal muestra por qué, p. ej. el 409). */
   const pedirRegenerar = async (p, instruccion, costoMaximoConfirmado) => {
     const r = await acciones.regenerar({ pieza: p.pieza, ...(instruccion ? { instruccion } : {}), costoMaximoConfirmado });
-    if (r?.pedido?.estado === 'en-espera') {
+    if (r?.gratis) {
+      aviso({ tipo: 'ok', titulo: 'Otra versión lista', texto: `La app la dibujó con otros textos${r.ms ? ` en ${(r.ms / 1000).toFixed(1)} s` : ''}, sin costo.`, duracion: 5000 });
+    } else if (r?.pedido?.estado === 'en-espera') {
       aviso({ tipo: 'info', titulo: 'Pedido guardado', texto: 'El lote está detenido: se hace cuando toques «Continuar».', duracion: 6500 });
     } else {
       aviso({ tipo: 'ok', titulo: 'Pedido enviado', texto: 'La IA lo prepara y aquí te aviso cómo quedó. Si la imagen cambia, la anterior queda en Versiones anteriores.', duracion: 6500 });
     }
     setARegenerar(null);
     alCambiar();
+  };
+
+  /** «Editar textos» de una plantilla: la app la vuelve a dibujar (1-2 s, sin IA y sin costo). */
+  const guardarTextos = async (v, textos) => {
+    if (!acciones.textos) throw new Error('En la vista de ejemplo no se guarda nada.');
+    const r = await acciones.textos(v, textos);
+    setAEditar(null);
+    aviso({ tipo: 'ok', titulo: `Listo: ${v}`, texto: `Dibujada de nuevo${r?.ms ? ` en ${(r.ms / 1000).toFixed(1)} s` : ''}, sin costo.`, duracion: 5000 });
+    await alCambiar();
   };
 
   // Cuando un pedido que viste en camino termina, te aviso cómo quedó (sobre todo si no se pudo hacer, y por qué).
@@ -390,6 +404,7 @@ export default function PantallaLote({ params, consulta }) {
         enlaceOtro={enlaceOtro}
         urlDescarga={simulando ? null : (op) => apiImagenes.urlDescarga(lote, op)}
         onDescargarSimulado={descargarSimulado}
+        onEditarTextos={(x) => setAEditar(x)}
       />
       {vista.informe ? <InformeLote vista={vista} onRegenerar={(p) => setARegenerar(p)} onAbrir={abrir} onEscribir={escribirDeNuevo} escribiendo={ocupado === 'escribir'} /> : null}
 
@@ -409,6 +424,7 @@ export default function PantallaLote({ params, consulta }) {
         simulando={simulando}
       />
       {confirmacionCosto}
+      <ModalTextos variacion={aEditar} onGuardar={guardarTextos} onCerrar={() => setAEditar(null)} />
       <ModalRegenerar pieza={aRegenerar} conVertical={conVertical} precio={precio} onCerrar={() => setARegenerar(null)} onConfirmar={pedirRegenerar} />
       <PanelEstrategia estrategia={vista.estrategia} abierto={verEstrategia && Boolean(vista.estrategia)} onCerrar={() => setVerEstrategia(false)} />
     </div>

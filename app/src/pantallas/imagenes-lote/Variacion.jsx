@@ -95,7 +95,7 @@ export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, on
           <Boton variante="fantasma" tamano="chico" soloIcono icono={Download} etiqueta={`Descargar ${quien}`} href={p.url || undefined} download={p.descarga || true} disabled={!p.url} />
         </Tooltip>
         <Tooltip texto={p.hayPrompt ? 'Copiar prompt' : 'Todavía no se escribió'}>
-          <Boton variante="fantasma" tamano="chico" soloIcono icono={Copy} etiqueta={`Copiar el prompt de ${quien}`} onClick={() => onCopiar(p)} disabled={!p.hayPrompt} />
+          <Boton variante="fantasma" tamano="chico" soloIcono icono={Copy} etiqueta={`Copiar el prompt de ${quien}`} onClick={() => onCopiar(p.local && p.hayPrompt ? { ...p, pieza: p.pieza.replace('_9x16', '_1x1') } : p)} disabled={!p.hayPrompt} />
         </Tooltip>
         <Tooltip texto={p.puedeRegenerar ? 'Regenerar' : porQueNo(p, { cuadrado })}>
           <Boton variante="fantasma" tamano="chico" soloIcono icono={RefreshCw} etiqueta={`Regenerar ${quien}`} onClick={() => onRegenerar(p)} disabled={!p.puedeRegenerar} />
@@ -107,7 +107,7 @@ export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, on
   );
 });
 
-export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo }) {
+export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical, onAbrir, onRegenerar, onCopiar, onEscribir, escribiendo, onEditarTextos }) {
   const cuadrado = x.piezas?.['1:1'];
   const vertical = conVertical ? x.piezas?.['9:16'] : null;
   const datos = [x.angulo, x.formato].filter(Boolean).join(' · ');
@@ -142,6 +142,14 @@ export const Variacion = memo(function Variacion({ x, ia = 'tu IA', conVertical,
         ) : null}
       </header>
       {x.titular ? <p className="lote-var__titular t-dos-lineas">{x.titular}</p> : null}
+      {x.plantilla && onEditarTextos ? (
+        <div className="lote-var__plantilla">
+          <Boton variante="secundario" tamano="chico" icono={PenLine} onClick={() => onEditarTextos(x)}>
+            Editar textos
+          </Boton>
+          <span className="t-mini t-3">{x.plantilla.escena ? 'Gratis: no cambia la escena' : 'Gratis, en un segundo'}</span>
+        </div>
+      ) : null}
       <div className="lote-var__par">
         <TarjetaPieza p={cuadrado} formato="1:1" onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} />
         {vertical ? <TarjetaPieza p={vertical} formato="9:16" cuadrado={cuadrado} onAbrir={onAbrir} onRegenerar={onRegenerar} onCopiar={onCopiar} /> : null}

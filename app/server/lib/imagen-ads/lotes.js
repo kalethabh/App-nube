@@ -23,6 +23,7 @@ import * as gasto from '../gasto.js';
 import { leerSkill } from './verificar.js';
 import { leerEstado, resumenDelLote } from './estado.js';
 import { PEDIDO_TERMINADO } from './planificador.js';
+import { POR_ID, escenasDe, catalogoParaLaPantalla } from './catalogo-plantillas.js';
 import {
   FAMILIA, RE_LOTE, RE_PIEZA, RE_V, R, POSICIONES, NOMBRE_POSICION, MAXIMO_VARIACIONES, MAXIMO_REFERENCIAS, carpetaDe, guardarJSON, idsDelLote,
   vDe, formatoDe, piezaId, ordenDePiezas, ordenDeV, fotoDelLote,
@@ -49,6 +50,8 @@ export function opciones() {
     maximo: MAXIMO_VARIACIONES,
     maxReferencias: MAXIMO_REFERENCIAS,
     idiomaPorDefecto: idioma,
+    // las plantillas (la app dibuja los textos; solo las de escena usan el modelo de imagen)
+    plantillas: catalogoParaLaPantalla(),
   };
 }
 
@@ -188,6 +191,7 @@ export function crearLote(cuerpo = {}) {
   if (!(f.length === 1 && f[0] === '1:1') && !(f.length === 2 && f.includes('1:1') && f.includes('9:16'))) throw new ErrorApp(400, 'Elige «Solo cuadrado 1:1» o «Cuadrado + vertical 9:16».');
   const formatos = f.length === 2 ? ['1:1', '9:16'] : ['1:1'];
   let logo = null;
+  // (con plantillas, «Variantes» no aplica: las plantillas son diseños propios)
   if (cuerpo.logo && typeof cuerpo.logo === 'object') {
     const posicion = cuerpo.logo.posicion || 'arriba-centro';
     if (!POSICIONES.includes(posicion)) throw new ErrorApp(400, 'Elige dónde va el logo.');
@@ -233,6 +237,8 @@ export function crearLote(cuerpo = {}) {
     rapido: cuerpo.rapido !== false,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
+    // PLANTILLAS (2026-11-17p): la app dibuja los textos; solo las de escena usan el modelo de imagen (sin texto)
+    ...(plantillasDelCuerpo(cuerpo) ? { plantillas: plantillasDelCuerpo(cuerpo), fiel: false, modo: 'nuevos' } : {}),
     logo,
     creado: ahora(),
     ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}),
@@ -261,6 +267,15 @@ export function crearLote(cuerpo = {}) {
   }
   guardarJSON(R.brief(carpeta), brief);
   return { lote, brief };
+}
+
+/** { elegidas: [ids], kitElegido? } si el formulario pidió plantillas (cuerpo.plantillas), o null. */
+function plantillasDelCuerpo(cuerpo) {
+  const p = cuerpo?.plantillas;
+  if (!p || typeof p !== 'object') return null;
+  const elegidas = (Array.isArray(p.elegidas) ? p.elegidas : []).map(String).filter((x) => POR_ID.has(x));
+  const kit = p.kit && typeof p.kit === 'object' ? p.kit : null;
+  return { elegidas: [...new Set(elegidas)], ...(kit ? { kitElegido: kit } : {}) };
 }
 
 // Cuántos anuncios validados van a un lote de «Nuevos»: los de «Me funciona» hasta MAX_FUNCIONAN (los del mismo
@@ -445,11 +460,12 @@ export function usadosDe(productoId, excepto) {
 /** Cuantas imagenes faltan por hacer (para el paso del saldo: cada una a 10 creditos con GPT Image 2.5 a 2K). */
 export function piezasPorHacer(carpeta, brief) {
   const est = leerEstado(carpeta);
-  const total = (Number(brief?.cantidad) || 0) * (brief?.formatos?.length || 1);
+  // plantillas: solo las escenas cuestan (una por variación con escena: el vertical reutiliza la del cuadrado)
+  const total = brief?.plantillas ? escenasDe(brief.cantidad, brief.plantillas.elegidas) : (Number(brief?.cantidad) || 0) * (brief?.formatos?.length || 1);
   if (!est) return total;
   let n = 0;
   for (const p of Object.values(est.piezas || {})) if (p.fase !== 'final' && est.variaciones?.[p.v]?.prompt !== 'sin-prompt') n++;
-  for (const x of pedidosSinTerminar(carpeta)) n += x.tipo === 'prompt' ? brief.formatos.length : formatoDe(x.pieza) === '1:1' ? brief.formatos.length : 1;
+  for (const x of pedidosSinTerminar(carpeta)) n += brief?.plantillas ? 1 : x.tipo === 'prompt' ? brief.formatos.length : formatoDe(x.pieza) === '1:1' ? brief.formatos.length : 1;
   return n;
 }
 
@@ -462,7 +478,7 @@ export function armarInforme(carpeta, brief) {
   const sinPrompt = Object.keys(est?.variaciones || {})
     .filter((v) => est.variaciones[v].prompt === 'sin-prompt')
     .sort(ordenDeV);
-  const conImagen = piezas.filter((p) => existe(R.img(carpeta, p)));
+  const conImagen = piezas.filter((p) => existe(brief?.plantillas ? R.final(carpeta, p) : R.img(carpeta, p)));
   const informe = {
     tipo: FAMILIA,
     fecha: ahora(),
