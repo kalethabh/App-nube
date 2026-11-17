@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17f · Pincel para censurar en el editor
+
+- Debajo del video, **«Pincel para censurar»**: el video se pausa, pintas encima de lo que quieres tapar (un logo, una marca, un texto, una cara) y tocas **Censurar**. La app lo busca y lo sigue sola, hacia adelante y hacia atrás, mientras dure esa escena, y lo difumina de forma discreta. Es gratis: se hace en tu computador.
+- Queda como una capa más en la línea de tiempo: puedes moverla, alargarla o borrarla, y deshacerla con Cmd+Z.
+
 ## 2026-11-17e · Eliminar anuncios y marcarlos como ganadores
 
 - En **Editor** y en **Anuncios**, debajo de cada anuncio: el trofeo **«Me funciona»** (para hacer variantes ganadoras en Anuncios de imagen) y **Eliminar**. Eliminar pregunta antes y no borra nada: el anuncio y sus videos quedan guardados aparte por si los necesitas recuperar.

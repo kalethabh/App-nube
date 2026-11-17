@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17e` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+- **Versión actual:** `2026-11-17f` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
   Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -136,6 +136,23 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Pincel para censurar en el editor (2026-11-17, versión 2026-11-17f)
+
+- `pantallas/editor/PincelCensura.jsx`: chip «Pincel para censurar» en el Transporte; pausa, un `<canvas>` encima de la
+  vista previa (grosor Fino/Medio/Grueso) y su barra (Borrar, Cancelar, Censurar) va debajo del video, en el lugar de
+  «Edita con tus palabras». Con lo pintado (su rectángulo) llama a `POST /api/anuncios/:slug/censura/seguir`
+  `{ t, x, y, w, h }` y agrega un texto `caja: true` con `sigue.pistas = [apariciones]` → se dibuja con el
+  `Difuminado` (la censura difuminada de la versión 2026-11-17a).
+- Servidor: `rutas/seguimiento.js` (exporta `videoDe`/`aLinea`, agrega `aOriginal` y `escenaDe`) y
+  `lib/seguir-zona.js`: ffmpeg (el de Remotion: sin `fps` ni `rawvideo`, así que `scale` + `-r 10` + PNG gris por
+  `image2pipe`, leídos con un decodificador PNG propio) y seguimiento por correlación (NCC) alrededor de la posición
+  anterior, en las dos direcciones, dentro de la escena (corta en un cambio de plano o si lo pierde). Plantilla que se
+  adapta de a poco; zona lisa → queda fija en la escena; posiciones suavizadas.
+- Pruebas: video sintético con un «logo» que se mueve: lo siguió de 0 a 6 s con pocos píxeles de error en ~0,35 s;
+  en el editor (modo prueba) se pintó, se censuró y el difuminado lo siguió a los 0,3, 2, 4 y 5,5 s. Compilación correcta.
+- Límites: no sigue cambios grandes de tamaño (acercamientos fuertes) ni objetos que salen y vuelven a entrar; en
+  esos casos se ajusta la capa en la línea de tiempo o se pinta de nuevo.
 
 ### Eliminar anuncios y marcarlos como ganadores (2026-11-17, versión 2026-11-17e)
 
