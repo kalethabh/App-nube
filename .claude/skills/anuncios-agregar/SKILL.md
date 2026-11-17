@@ -1,6 +1,6 @@
 ---
 name: anuncios-agregar
-description: Estilo «Agregar». El usuario sube un video (suyo, de la competencia o uno que le gusta) y se rehace para su producto con la MISMA estructura y el MISMO look: cómo está armado toma por toma, cómo se ven las personas (edad, cuerpo, ropa, lugar, cámara, realismo), el ritmo, los textos, el gancho y el ángulo de venta, con el antes y después bien visible en la zona del cuerpo que vende. Decide si se produce como UGC (alguien habla a cámara) o con voz en off (una voz sobre escenas) y elige el mejor modelo de video para CADA escena (las que hablan, el B-roll, el antes y después). Usar cuando el usuario elige «Agregar» en la app, o pide "rehazme este video para mi producto", "hazlo igual a este video", "que se vea como este video".
+description: Estilo «Agregar». El usuario sube un video (suyo, de la competencia o uno que le gusta), escribe lo que quiere con sus palabras ("este mismo pero estilo Pixar narrado y musical, de 1:30, manteniendo el guion") y se rehace para su producto: en el estilo que pide (uno de los de la app) o, si no pide ninguno, con la MISMA estructura y el MISMO look: cómo está armado toma por toma, cómo se ven las personas (edad, cuerpo, ropa, lugar, cámara, realismo), el ritmo, los textos, el gancho y el ángulo de venta, con el antes y después bien visible en la zona del cuerpo que vende. Decide si se produce como UGC (alguien habla a cámara) o con voz en off (una voz sobre escenas) y elige el mejor modelo de video para CADA escena (las que hablan, el B-roll, el antes y después). Usar cuando el usuario elige «Agregar» en la app, o pide "rehazme este video para mi producto", "hazlo igual a este video", "que se vea como este video".
 ---
 
 # Agregar — un anuncio rehecho a partir del video del usuario
@@ -20,9 +20,38 @@ Esta skill se apoya en tres que ya existen y no se copian aquí:
 Las reglas de `CLAUDE.md` siguen igual: **nada que cobre se genera sin mostrar antes el costo y
 esperar un sí** (en la app, la tarjeta del costo antes de «Me gusta, producir»).
 
-## Paso 1 — El video
+## Paso 1 — El video, el pedido y el plan
 
-En la app ya está hecho: el video quedó en `temp/<slug>/referencia/original.<ext>` y analizado.
+El usuario escribe lo que quiere en `pedido` (con sus palabras). **El pedido manda** sobre lo demás del
+formulario y sobre lo que harías tú. De ahí y del video sale el plan, en `app/plan.json` (la tarea da
+el formato), que el usuario ve junto con el guion y el costo antes de gastar nada:
+
+- **El estilo.** Si el pedido no nombra ninguno: `"agregar"`, el mismo look del video (Pasos 2 a 7).
+  Si nombra uno, su clave, y ese estilo produce el anuncio con **su skill de siempre** (no se
+  reimplementa nada aquí):
+
+  | Lo que dice el pedido | `estilo` |
+  |---|---|
+  | "Pixar", "animado 3D con narrador" | `estilo-pixar` |
+  | "Pixar narrado y musical", "cantado", "como canción" | `musical` (corto: con `visual` "Zack D Films" para el 3D tipo Pixar) o `historias-musicales` si es una historia larga cantada en 3D |
+  | "plastilina", "tejido", "Lego", "esqueleto", "Zack D", "explicador 3D" | `claymation`, `crochet`, `estilo-lego`, `skeleton`, `zack-d-films` |
+  | "real con narrador", "testimonio de transformación" | `realista-narrado` |
+  | "una persona a cámara", "UGC", "podcast", "entrevista en la calle", "que hable el producto" | `ugc`, `podcast`, `entrevista`, `talking-object-pixar` |
+
+  En `respuestas` van las preguntas de ese estilo que el pedido ya contesta (en el musical, `visual`
+  es obligatorio). Lo que no dice, lo decide después la skill de ese estilo.
+- **La duración.** La que pide ("1:30", "1 minuto") o null = la del video. **Acortar es condensar**:
+  se conservan la estructura, el gancho, el ángulo, las objeciones y las frases clave, cada momento
+  más corto; **nunca se corta el final** (la prueba, la oferta y el llamado a la acción van siempre).
+  El `guion-clonado.md` ya va condensado a esa duración.
+- **El idioma** y cualquier otra cosa que diga (lo que se mantiene, lo que cambia).
+- `conserva` y `cambia` lo dicen en español sencillo; `resumen`, en una o dos frases.
+
+Con otro estilo, esta skill termina en el plan (con `adn.md` y `guion-clonado.md` escritos): la app
+pasa el anuncio a ese estilo y otra sesión escribe su guion o su letra con el guion clonado como guion
+ganador. Con `"agregar"`, sigue con los Pasos 2 a 7.
+
+**El video** ya está en la app: el video quedó en `temp/<slug>/referencia/original.<ext>` y analizado.
 Por chat: cópialo ahí y corre el análisis de la skill de clonación (su Paso 2, gratis en kie.ai;
 la transcripción de ElevenLabs cuesta centavos):
 
@@ -88,8 +117,8 @@ trae lo que tiene que notarse, eso manda.
 El Paso 5 de la skill de clonación: **mismo número de tomas y misma duración por toma (±15 %)**, la
 misma función en cada frase, el mismo camino del ángulo y el ritmo del original (palabras por
 segundo). Guárdalo en `referencia/guion-clonado.md`, con el original al lado. Si el usuario trajo su
-propio guion, ese va palabra por palabra y el video solo guía lo visual. La duración "que decida la
-IA" es la del video original.
+propio guion, ese va palabra por palabra y el video solo guía lo visual. La duración es la del plan (sin
+duración pedida, la del video original).
 
 ## Paso 6 — El manifiesto, con el look del video
 

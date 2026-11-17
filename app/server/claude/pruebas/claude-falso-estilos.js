@@ -146,6 +146,8 @@ async function guion(texto, modo, intento) {
   }
 
   if (skill === 'anuncios-agregar') return guionAgregar(texto, slug, brief, mal);
+  // «Agregar» que el pedido paso a otro estilo con voz en off: el mismo anuncio corto, con el estilo de destino
+  if (/## El video y el pedido del usuario \(Agregar\)/.test(texto) && !['anuncios-musicales', 'anuncios-historias-musicales'].includes(skill)) return guionDesdeAgregar(texto, slug, brief);
 
   let muestra = MUESTRA[skill];
   const a = brief.ajustes_del_estilo || {};
@@ -234,6 +236,24 @@ function manifiestoAgregar(foto, { ugc = false } = {}) {
   return m;
 }
 
+async function guionDesdeAgregar(texto, slug, brief) {
+  await usar('Read', { file_path: path.join(RAIZ, 'temp', slug, 'referencia', 'guion-clonado.md') });
+  const foto = fs.readdirSync(path.join(RAIZ, 'temp', slug)).find((n) => /^producto\.(jpg|jpeg|png|webp)$/i.test(n));
+  const man = { ...manifiestoAgregar(foto), estilo: brief.estilo };
+  escribir(`temp/${slug}/manifiesto.json`, man);
+  escribir(`temp/${slug}/transiciones.json`, { efectos: { woosh: 'efectos/woosh.mp3', 'deep-woosh': 'efectos/deep-woosh.mp3' }, puntos: [{ toma: 2, animacion: 'deslizar-derecha', efecto: 'woosh', porque: 'el después' }] });
+  await usar('PowerShell', { command: `node produccion/validar-manifiesto.js temp/${slug}/manifiesto.json` });
+  escribir(`temp/${slug}/app/guion.json`, {
+    titulo: `Zeta (${brief.estilo}, desde Agregar)`,
+    idioma: 'es',
+    mercado: 'LatAm',
+    duracionEstimada: 17,
+    partes: man.tomas.map((t, i) => ({ n: t.n, momento: i === 0 ? 'gancho' : 'historia', dice: t.linea, se_ve: 'Una escena del estilo' })),
+    decisiones: [`Tu pedido: ${brief.estilo} · se conserva la estructura del video`],
+  });
+  return 'LISTO';
+}
+
 async function guionAgregar(texto, slug, brief, mal) {
   const ref = `temp/${slug}/referencia`;
   let adn = null;
@@ -247,6 +267,24 @@ async function guionAgregar(texto, slug, brief, mal) {
   const ugc = /habla a c[aá]mara/i.test(brief.ajustes_del_estilo?.formato || '');
   escribir(`${ref}/adn.md`, `# ADN visual (prueba)\n\n- Tomas del original: ${adn?.tomas?.length ?? '?'} · ${adn?.duracion ?? '?'} s\n- Personas: mujer de 28, atlética, leggings grises y top negro, gimnasio con espejo.\n- Ángulo: glúteos y piernas más levantados y firmes, con antes y después.\n`);
   escribir(`${ref}/guion-clonado.md`, '# Guion clonado (prueba)\n');
+  // el plan: el pedido manda (Pixar -> estilo-pixar; musical -> musical en Zack D Films; nada -> el look del video)
+  const pedido = String(brief.ajustes_del_estilo?.pedido || '');
+  const duracion = pedido.match(/\b(\d{1,2}:\d{2}|\d+\s*(?:s|segundos|minutos?))\b/)?.[1] || null;
+  const estilo = /musical|cantad|canci[oó]n/i.test(pedido) ? 'musical' : /pixar/i.test(pedido) ? 'estilo-pixar' : 'agregar';
+  const plan = {
+    estilo,
+    ...(estilo === 'agregar' ? { formato: ugc ? 'ugc' : 'voz-en-off' } : {}),
+    duracion,
+    idioma: 'es',
+    respuestas: estilo === 'musical' && !mal ? { visual: 'Zack D Films' } : {},
+    resumen: estilo === 'agregar' ? 'Tu video, con su mismo look, para tu producto.' : `Tu video hecho en ${estilo}${duracion ? `, de ${duracion}` : ''}.`,
+    conserva: ['la estructura: gancho, antes y después, producto y oferta', 'el ángulo: glúteos y piernas más firmes'],
+    cambia: ['el producto es el tuyo'],
+    porque: 'lo pediste así',
+  };
+  escribir(`temp/${slug}/app/plan.json`, plan);
+  await usar('Write', { file_path: path.join(RAIZ, 'temp', slug, 'app', 'plan.json') });
+  if (estilo !== 'agregar') return 'LISTO';
   const man = manifiestoAgregar(foto, { ugc });
   if (mal) man.estilo = 'ugc';
   escribir(`temp/${slug}/manifiesto.json`, man);

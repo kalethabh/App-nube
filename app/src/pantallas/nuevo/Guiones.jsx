@@ -143,6 +143,35 @@ function Lista({ titulo, icono: Icono, items, clase = '' }) {
   );
 }
 
+/** «Agregar»: lo que entendió la IA de tu video y tu pedido (el estilo, la duración y lo que se conserva). */
+function PlanDelPedido({ plan }) {
+  const datos = [
+    plan.estiloNombre ? `Estilo: ${plan.estiloNombre}${plan.formato ? ` (${plan.formato.toLowerCase()})` : ''}` : null,
+    `Duración: ${plan.duracion || 'la de tu video'}`,
+    plan.idioma ? `Idioma: ${plan.idioma}` : null,
+  ].filter(Boolean);
+  return (
+    <div className="nv-decisiones nv-decisiones--plan">
+      <h4 className="nv-decisiones__titulo">
+        <Sparkles size={14} strokeWidth={2.2} aria-hidden="true" /> Lo que entendió de tu video y tu pedido
+      </h4>
+      {plan.pedido ? <p className="nv-decisiones__nota">Pediste: «{plan.pedido}»</p> : null}
+      {plan.resumen ? <p className="nv-decisiones__nota">{plan.resumen}</p> : null}
+      <ul>
+        {datos.map((d) => (
+          <li key={d}>{d}</li>
+        ))}
+        {(plan.conserva || []).map((d, i) => (
+          <li key={`c${i}`}>Se mantiene: {d}</li>
+        ))}
+        {(plan.cambia || []).map((d, i) => (
+          <li key={`x${i}`}>Cambia: {d}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 /** Lo que va debajo de toda hoja: quién aparece, lo que cambió y lo que decidió la IA. */
 function Pie({ guion, letras }) {
   const personajes = (Array.isArray(guion?.personajes) ? guion.personajes : [])
@@ -517,11 +546,14 @@ function useLateralPegado() {
   return ref;
 }
 
-function GuionVivo({ estilo, ajuste, slug, motor, onEscribirDeNuevo, onVolverAlProducto, onBrief }) {
+function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNuevo, onVolverAlProducto, onBrief }) {
   const { aviso } = useAvisos();
   const [sondear, setSondear] = useState(true);
   const g = useGuion(slug, { cadaMs: sondear ? 2000 : undefined });
   const leido = leerGuion(g.datos);
+  // «Agregar» que tu pedido pasó a otro estilo (Pixar, musical…): la hoja es la de ese estilo
+  const destino = leido.brief?.estilo;
+  const estilo = destino && destino !== estiloPestana.clave ? { ...estiloPestana, clave: destino } : estiloPestana;
   const tipo = tipoDeHoja(estilo.clave);
 
   // después de pedir un cambio, el servidor tarda un instante en marcarlo: se sigue mirando unos segundos
@@ -713,6 +745,7 @@ function GuionVivo({ estilo, ajuste, slug, motor, onEscribirDeNuevo, onVolverAlP
   const lateral = useLateralPegado();
   return (
     <div className="nv-guion nv-aparece">
+      {leido.plan && mostrarHoja ? <PlanDelPedido plan={leido.plan} /> : null}
       {tipo === 'musical' ? (
         <HojaLetras
           estilo={estilo}

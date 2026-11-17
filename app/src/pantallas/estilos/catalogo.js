@@ -151,6 +151,15 @@ const PREGUNTAS = {
       obligatoria: true,
     },
     {
+      id: 'pedido',
+      texto: 'Qué quieres (con tus palabras)',
+      ayuda: 'Puedes pedir otro estilo, otra duración u otro idioma, y qué se mantiene. Si no escribes nada, sale con el mismo look de tu video. Antes de gastar ves lo que entendió, el guion y el costo.',
+      escrita: true,
+      ia: false,
+      opciones: ['El mismo video para mi producto', 'Estilo Pixar con narrador, de 1:30, manteniendo el guion y los ángulos', 'Como musical, que dure 1 minuto'],
+      placeholder: 'Ej.: quiero este mismo video pero estilo Pixar narrado y musical, que dure 1:30 y no 5 minutos, manteniendo el guion y los ángulos',
+    },
+    {
       id: 'formato',
       texto: 'Cómo está hecho tu video',
       ayudaIA: 'Con «Que decida la IA», lo mira y elige: si alguien habla a cámara, sale con su propia voz; si una voz cuenta sobre escenas, sale con narrador.',

@@ -172,8 +172,8 @@ const BASE = [
     skill: 'anuncios-agregar',
     clave: 'agregar',
     nombre: 'Agregar',
-    lema: 'Sube un video y se rehace para tu producto',
-    descripcion: 'Subes un video que te gusta: la IA lo mira entero (cómo está armado, cómo se ven las personas, el ángulo de venta y el antes y después) y lo rehace para tu producto, eligiendo el mejor modelo para cada escena.',
+    lema: 'Sube un video y di lo que quieres',
+    descripcion: 'Subes un video y escribes lo que quieres («este mismo, pero estilo Pixar y de 1:30»). La IA lo mira entero (cómo está armado, las personas, el ángulo de venta y el antes y después) y lo rehace para tu producto: con su mismo look o en el estilo que pidas, eligiendo el mejor modelo para cada escena.',
     familia: 'referencia',
   },
   {

@@ -2,6 +2,7 @@
 ## Lo propio de Agregar
 
 - **El video del usuario manda.** Sigue `.claude/skills/anuncios-agregar/SKILL.md` en orden: mira el video entero (Paso 2), escribe el ADN visual (Paso 3), elige el formato (Paso 4), el guion (Paso 5) y el manifiesto con el look del video y el modelo de cada escena (Paso 6).
+- **El pedido del usuario (`ajustes_del_estilo.pedido`) manda.** Primero el plan (`app/plan.json`, Paso 1 de la skill): si pide otro estilo de la app, terminas en el plan (con `adn.md` y `guion-clonado.md`, ya condensado a la duración pedida) y la app sigue con la skill de ese estilo. Si no pide estilo, el mismo look del video.
 - **Sin pausas.** No preguntes nada: lo que el formulario dejó en "que decida la IA" lo decides tú con la skill y lo cuentas en "decisiones". La app muestra el costo antes de gastar: no lo menciones.
 - **El formato decide qué skill sigues para lo técnico**: UGC → `anuncios-ugc` (léela entera; su Paso 1 y su Paso final no van: el briefing ya está contestado y la app produce sola); voz en off → `anuncios-realista-narrado` y `anuncios-estilo-pixar` (léelas enteras). En los dos, `"estilo": "agregar"`. La app sabe con cuál producirlo mirando tu manifiesto: bloques `R` = UGC; `"modo_audio": "voz_en_off"` = voz en off. No mezcles.
 - **UGC**: `notas-paquete.md` va con el ADN resumido; los ganchos alternativos no hacen falta. **Voz en off**: la voz la elige el usuario en la app; quién narra y el tono salen del video.

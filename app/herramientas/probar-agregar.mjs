@@ -140,6 +140,40 @@ async function principal() {
   const casos = [{ nombre: 'voz en off', respuestas: { clonar, angulo: 'Glúteos y piernas más levantados y firmes' }, familia: 'voz-en-off', producir: true }];
   if (process.env.AGREGAR_UGC === '1') casos.push({ nombre: 'UGC', respuestas: { clonar, formato: 'Una persona habla a cámara' }, familia: 'ugc', producir: true });
 
+  // ------------------------------------------------------------ con un pedido que nombra otro estilo
+  const pedidos = [
+    { pedido: 'Quiero este mismo video pero estilo Pixar narrado, que dure 1:30, manteniendo el guion y los ángulos', estilo: 'estilo-pixar', skill: 'anuncios-estilo-pixar', duracion: '1:30', guion: true },
+    // (el musical sigue con su letra: el Claude falso no tiene letra de muestra aqui, asi que solo se mira el paso al estilo)
+    { pedido: 'Hazlo como musical, de 1 minuto', estilo: 'musical', skill: 'anuncios-musicales', duracion: null, guion: false },
+  ];
+  for (const x of pedidos) {
+    console.log(`\n  — «Agregar» con tu pedido: «${x.pedido}»`);
+    r = await pedir('/api/anuncios', { json: { productoId: id, estilo: 'agregar', voz: { id: 'sim-narrador', nombre: 'Narrador de prueba' }, respuestas: { clonar, pedido: x.pedido } } });
+    const slug = r.datos?.slug;
+    if (!check('Se crea el anuncio «Agregar» con el pedido escrito', r.st === 201 && slug, r)) continue;
+    creados.slugs.push(slug);
+    const dir = path.join(RAIZ, 'temp', slug);
+    const pasado = await esperar(6, async () => leerJSON(path.join(dir, 'app', 'brief.json')), (b) => b?.estilo === x.estilo);
+    check(`El plan pasa el anuncio a ${x.estilo} (brief.estilo, con el pedido y el plan en brief.agregar)`, pasado?.estilo === x.estilo && pasado?.agregar?.plan?.estilo === x.estilo && /1:30|1 minuto|musical/.test(pasado?.agregar?.pedido || ''), { estilo: pasado?.estilo, agregar: pasado?.agregar });
+    if (x.duracion) check(`La duración del pedido queda en el anuncio (${x.duracion})`, pasado?.duracion?.decide === 'usuario' && pasado?.duracion?.segundos === 90, pasado?.duracion);
+    if (x.estilo === 'musical') check('El musical se lleva lo que el pedido contesta (visual: Zack D Films)', pasado?.opciones?.visual === 'zack-d-films' && pasado?.faseGuion === 'letras', pasado?.opciones);
+    const tarea = await esperar(1, async () => {
+      const d = path.join(TMP, 'tareas');
+      return (fs.existsSync(d) ? fs.readdirSync(d) : []).map((f) => fs.readFileSync(path.join(d, f), 'utf8')).find((t) => t.includes(`temp/${slug}`) && t.includes(`skills/${x.skill}/SKILL.md`) && /TAREA: guion/.test(t)) || '';
+    }, (t) => Boolean(t));
+    check(`La segunda sesión sigue la skill de ese estilo (${x.skill}) con el video y el pedido`, /## El video y el pedido del usuario \(Agregar\)/.test(tarea) && /guion-clonado\.md/.test(tarea) && /nunca se corta el final/.test(tarea) && /modelo_video/.test(tarea));
+    if (!x.guion) continue;
+    const g = await esperar(6, async () => (await pedir(`/api/anuncios/${slug}/guion`)).datos, (d) => ['listo', 'error', 'bloqueado'].includes(d?.estado));
+    if (!check('El guion de ese estilo queda listo', g?.estado === 'listo', { estado: g?.estado, error: g?.error, progreso: g?.progreso })) continue;
+    check('En la revisión se ve lo que entendió: estilo, duración y lo que se conserva', g.plan?.estiloNombre === 'Estilo Pixar' && g.plan?.duracion === '1:30' && g.plan?.conserva?.length > 0 && g.brief?.estilo === 'estilo-pixar', g.plan);
+    check('El progreso cuenta el paso al estilo pedido', (g.progreso || []).some((p) => /Tu pedido: Estilo Pixar/.test(p)), g.progreso);
+    const costo = await esperar(1, async () => (await pedir(`/api/anuncios/${slug}/costo`)).datos, (d) => d?.disponible === true || d?.motivo === 'no-se-pudo');
+    check('El costo se muestra antes de aprobar, con el modelo de cada escena', costo?.disponible === true && costo?.familia === 'voz-en-off' && (costo?.notas || []).some((n) => /Modelo elegido por escena/.test(n)), costo);
+    const lista = (await pedir('/api/anuncios')).datos;
+    const enLista = JSON.stringify(lista || '').includes('Agregar · Estilo Pixar');
+    check('En Mis anuncios se ve «Agregar · Estilo Pixar»', enLista);
+  }
+
   for (const caso of casos) {
     console.log(`\n  — «Agregar» (${caso.nombre})`);
     r = await pedir('/api/anuncios', { json: { productoId: id, estilo: 'agregar', voz: { id: 'sim-narrador', nombre: 'Narrador de prueba' }, respuestas: caso.respuestas } });
@@ -156,6 +190,7 @@ async function principal() {
     check('guion.json trae el modelo de cada escena («modelos», contado del manifiesto)', modelos.length >= 1 && modelos.every((x) => x.modelo && x.para), modelos);
     const dirTareas = path.join(TMP, 'tareas');
     const tarea = (fs.existsSync(dirTareas) ? fs.readdirSync(dirTareas) : []).map((f) => fs.readFileSync(path.join(dirTareas, f), 'utf8')).find((t) => t.includes(`temp/${slug}`) && /TAREA: guion/.test(t)) || '';
+    check('El plan de tu pedido se muestra (el mismo look del video)', g.plan?.estilo === 'agregar' && g.plan?.conserva?.length > 0, g.plan);
     check('La tarea del guion nombra la skill anuncios-agregar y «Tu video»', /anuncios-agregar\/SKILL\.md/.test(tarea) && /Tu video/.test(tarea));
 
     const costo = await esperar(1, async () => (await pedir(`/api/anuncios/${slug}/costo`)).datos, (d) => d?.disponible === true || d?.motivo === 'no-se-pudo');
