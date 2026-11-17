@@ -80,3 +80,5 @@ opción elegida, que el plan busca siempre después de la pregunta). Para reempl
 archivo nuevo con el mismo nombre: el siguiente `npm run plan` compara el de aquí con el
 de `efectos/` del anuncio (tamaño y contenido), lo vuelve a copiar si cambió y avisa. Así
 el reemplazo llega también a los anuncios ya planeados.
+
+`pitido.mp3` (1 kHz, 4 s) no es una transición: es el pitido con que el editor tapa una palabra de la voz («Editar con IA», `ed.censuras`). Suena lo que dura cada palabra.

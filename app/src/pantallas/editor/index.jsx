@@ -65,6 +65,8 @@ import { picosDe } from './ondas.js';
 import { INICIAL, guardarCancionPropia, leerCancionPropia, registrarUrlMusica, tieneCambios, urlMusica, useEdicion } from './estado.js';
 import { ALTO, ANCHO, FPS, construirPistas, contextoDeVista, mediosDelPlan, modoVoz, muestraDeGaleria, subtitulosEditados, completarEdicion } from './modelo.js';
 import { edicionSinTramo, quitarTramo as quitarTramoApi, ponerVersion } from './video-propio.js';
+import { cambiosParaSeguir } from './seguimiento.js';
+import { EditarConIA } from './EditarConIA.jsx';
 import { exportacionEnMarcha, rehacerEnMarcha, useExportacion, useRegenerar } from './trabajos.js';
 import { operar, agregarTexto as textoNuevo, agregarImagen as imagenNueva, ajustarTexto as cambiarTexto, ajustarTramo as cambiarTramo } from './cortes.js';
 import { servidor } from './servidor.js';
@@ -1428,6 +1430,75 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
           },
           { etiqueta: lista.length === 1 ? `Agregar «${lista[0].texto.slice(0, 24)}»` : `Agregar ${lista.length} textos` }
         ),
+      // EDITAR CON IA (EditarConIA.jsx, rutas/editar-ia.js): censuras de la voz, textos nuevos, cajas que tapan un texto
+      // de la pantalla y escenas quitadas, todo en UN paso del historial. En tus videos subidos, quitar escenas corta
+      // el video de verdad (como «Quitar»): un paso por cada tramo, del último al primero.
+      // -> { censuras, textos, tapados, quitadas } (cuántos de cada uno entraron)
+      aplicarIA: async (r, pistasVideo = [], edActual) => {
+        const total = plan.duracion;
+        const cuenta = { censuras: 0, textos: 0, tapados: 0, quitadas: 0 };
+        const deTomas = (r.quitar || []).filter((q) => q.pista === 'video' || q.pista === 'broll');
+        const hayAlgo = (r.censuras || []).length || (r.textos || []).length || (r.tapar || []).length || deTomas.length;
+        if (hayAlgo) {
+          // (se calcula aquí, sobre el estado de ahora, para contar lo que de verdad entró)
+          const nuevo = ((s) => {
+              let e = s;
+              const nuevas = (r.censuras || []).filter((c) => !(e.censuras || []).some((x) => x.desde < c.hasta && c.desde < x.hasta));
+              if (nuevas.length) e = { ...e, censuras: [...(e.censuras || []), ...nuevas] };
+              cuenta.censuras = nuevas.length;
+              const modelo = [...(e.textosNuevos || [])].reverse().find((x) => x.sigue && !x.archivo && !x.caja) || null;
+              const aspecto = modelo ? { color: modelo.color, fondo: modelo.fondo, tamano: modelo.tamano, fuente: modelo.fuente } : {};
+              const conColor = (x) => ({ ...(x.color ? { color: x.color } : {}), ...(x.fondo ? { fondo: x.fondo === 'transparente' ? null : x.fondo } : {}) });
+              for (const x of r.textos || []) {
+                let cambios;
+                if (x.pistas?.length) {
+                  const c = cambiosParaSeguir(pistasVideo, x.pistas, x.siempre, total);
+                  if (!c) continue;
+                  cambios = { ...aspecto, ...c, ...conColor(x) };
+                } else cambios = { inicio: x.inicio, fin: x.fin, x: x.x, y: x.y, tamano: x.tamano, ...conColor(x) };
+                const n = textoNuevo(plan, e, { t: cambios.inicio || 0, color: colorAnuncio });
+                e = cambiarTexto(n.ed, n.nuevo, { texto: x.texto, ...cambios }).ed;
+                cuenta.textos += 1;
+              }
+              for (const x of r.tapar || []) {
+                const c = cambiosParaSeguir(pistasVideo, x.pistas, x.siempre, total);
+                if (!c) continue;
+                const n = textoNuevo(plan, e, { t: c.inicio || 0, color: colorAnuncio });
+                e = cambiarTexto(n.ed, n.nuevo, { ...c, texto: `Tapa «${String(c.sigue.texto).slice(0, 30)}»`, caja: true, fondo: x.color || colorAnuncio }).ed;
+                cuenta.tapados += 1;
+              }
+              // las tomas y las imágenes de apoyo, de la última a la primera (borrar una alarga la de al lado)
+              for (const q of [...deTomas].sort((a, b) => b.desde - a.desde)) {
+                const o = operar(plan, e, { tipo: 'borrar', pista: q.pista, id: q.id });
+                if (o.ed) {
+                  e = o.ed;
+                  cuenta.quitadas += 1;
+                }
+              }
+              return e;
+            })(edActual);
+          if (nuevo !== edActual) cambiar(() => nuevo, { etiqueta: 'Editar con IA' });
+        }
+        // tus videos: cada tramo se quita de verdad (los que se tocan, juntos), del último al primero
+        const tramos = [];
+        for (const q of (r.quitar || []).filter((x) => x.pista === 'tramo').sort((a, b) => a.desde - b.desde)) {
+          const u = tramos[tramos.length - 1];
+          if (u && q.desde <= u.hasta + 0.05) u.hasta = Math.max(u.hasta, q.hasta);
+          else tramos.push({ desde: q.desde, hasta: q.hasta, n: 0 });
+          tramos[tramos.length - 1].n += 1;
+        }
+        if (tramos.length) {
+          playerRef.current?.pause();
+          for (const q of tramos.reverse()) {
+            const rr = await quitarTramoApi(a.slug, q.desde, q.hasta);
+            cambiar((s) => ({ ...edicionSinTramo(s, rr.desde, rr.hasta, rr.mapa || {}), corte: rr.version }), { etiqueta: 'Quitar escena (IA)' });
+            cuenta.quitadas += q.n;
+          }
+          setSeleccion(null);
+          await recargar();
+        }
+        return cuenta;
+      },
       ajustarTexto: (id, cambios, opciones = {}) => cambiar((s) => cambiarTexto(s, id, cambios).ed, { etiqueta: opciones.etiqueta || 'Cambiar texto', grupo: opciones.grupo }),
       restablecerTexto: (id) =>
         cambiar(
@@ -1526,6 +1597,8 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
       ed.reemplazos,
       cambiarVelocidad,
       deslizarClip,
+      colorAnuncio,
+      recargar,
     ]
   );
   // Arrastrar los textos y las imágenes en la vista previa (arrastrar.js): se mueven con el mouse y el elegido lleva
@@ -1911,6 +1984,7 @@ function EditorListo({ a, recargar, pedidoExportar = null }) {
             <BarraTiempo playerRef={playerRef} listo={playerListo} duracion={plan.duracion} />
           </div>
         </div>
+        <EditarConIA acciones={acciones} ed={ed} cambiar={cambiar} />
         <Transporte
           playerRef={playerRef}
           listo={playerListo}

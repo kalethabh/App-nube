@@ -23,7 +23,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AbsoluteFill, Audio, Img, Loop, Sequence, continueRender, delayRender, getRemotionEnvironment, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Anuncio } from '../Anuncio.jsx';
-import { capasDeEdicion, lugaresSeguidos } from './capas.mjs';
+import { FPS as FPS_VOZ, capasDeEdicion, enCensura, lugaresSeguidos } from './capas.mjs';
 import { Subtitulos } from './subtitulos/estilos.jsx';
 import { FUENTES, cargarFuentesSubtitulos } from './subtitulos/fuentes.js';
 
@@ -294,7 +294,17 @@ function CapaSubtitulos({ ajustes }) {
 }
 
 /** Las capas ya calculadas (capasDeEdicion): el anuncio de siempre y lo del editor encima. */
-export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color }) {
+/** Los pitidos de las palabras censuradas: cada uno suena lo que dura su palabra. */
+function Pitidos({ pitidos }) {
+  const { fps } = useVideoConfig();
+  return (pitidos || []).map((p) => (
+    <Sequence key={p.id} from={Math.max(0, Math.round(p.desde * fps))} durationInFrames={Math.max(1, Math.round((p.hasta - p.desde) * fps))}>
+      <Audio src={staticFile(p.archivo)} volume={0.45} />
+    </Sequence>
+  ));
+}
+
+export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color, pitidos }) {
   return (
     <AbsoluteFill style={{ backgroundColor: 'black' }}>
       <Anuncio plan={plan} sinSubtitulos sinMusica />
@@ -302,11 +312,18 @@ export function CapasEditadas({ plan, voz, musica, subtitulos, textos, color }) 
         x.archivo ? (
           <ImagenEnPantalla key={x.id} id={x.id} archivo={x.archivo} inicio={x.inicio} fin={x.fin} estilo={x.imagenEstilo} sigue={x.sigue} />
         ) : (
-          <TextoEnPantalla key={x.id} id={x.id} texto={x.texto} inicio={x.inicio} fin={x.fin} estilo={x.estilo} sigue={x.sigue} />
+          <TextoEnPantalla key={x.id} id={x.id} texto={x.caja ? '' : x.texto} inicio={x.inicio} fin={x.fin} estilo={x.estilo} sigue={x.sigue} />
         )
       )}
       {subtitulos ? <CapaSubtitulos ajustes={subtitulos} /> : null}
-      {voz?.archivo ? <Audio src={staticFile(voz.archivo)} volume={() => Math.max(0, Math.min(1, voz.volumen))} /> : null}
+      {voz?.archivo ? (
+        <Audio
+          src={staticFile(voz.archivo)}
+          // (la voz empieza en el cuadro 0: el cuadro de la voz es el del anuncio)
+          volume={(f) => (voz.censuras?.length && enCensura(f / FPS_VOZ, voz.censuras) ? 0 : Math.max(0, Math.min(1, voz.volumen)))}
+        />
+      ) : null}
+      {pitidos?.length ? <Pitidos pitidos={pitidos} /> : null}
       {musica?.src ? <Musica musica={musica} /> : null}
     </AbsoluteFill>
   );

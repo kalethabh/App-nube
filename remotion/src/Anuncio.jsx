@@ -58,7 +58,10 @@ const transformDeEntrada = (animacion, avance, zoomDesde) => {
   return 'none';
 };
 
-const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransiciones }) => {
+// ¿El segundo t cae en una palabra censurada? (plan.audio.silencios: [[desde, hasta]], solo del editor)
+const callaEn = (t, silencios) => (silencios || []).some(([a, b]) => t >= a && t < b);
+
+const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransiciones, silencios }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -104,7 +107,7 @@ const Clip = ({ pieza, frames, fadeFrames, ducking, transicion, reglasTransicion
           // La cola la corta la Sequence, que dura exactamente lo util.
           // Nunca se corta por DENTRO: ahi esta el lip-sync.
           trimBefore={pieza.recorteInicio ? Math.round(pieza.recorteInicio * fps) : undefined}
-          volume={() => volumen}
+          volume={(f) => (silencios?.length && callaEn(((pieza.desdeFrames || 0) + f) / fps, silencios) ? 0 : volumen)}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </AbsoluteFill>
@@ -395,6 +398,7 @@ export const Anuncio = ({ plan, sinSubtitulos = false, sinMusica = false }) => {
               ducking={ducking}
               transicion={p.transicion}
               reglasTransiciones={plan.reglasTransiciones}
+              silencios={plan.audio?.silencios}
             />
           </Sequence>
         );
