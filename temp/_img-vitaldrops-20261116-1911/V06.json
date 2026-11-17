@@ -1,0 +1,152 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V06",
+    "structure_source": "uploaded reference (R06)",
+    "reference_style": "Comic-style 2x2 grid of flat illustrated vignettes with black rounded time labels, product photo overlapping the last panel",
+    "angle_used": "Transformación / resultado (contada con el plato del desayuno: de casi lleno a vacío, semana a semana)",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream canvas #FBF3DC; near-black #111111 for the grid lines, vignette borders, illustration outlines and label fills; soft white #FFFFFF for the label text and the plate; lemon yellow #F2DC4A (tablecloth accents, juice, egg yolk); metallic gold #C9A441 and lighter gold #E6CF7A (arepa, toast, cutlery tint); amber brown #8A4B14 (bottle glass).",
+    "visual_style": "Clean flat vector-style illustration with even dark outlines and soft flat fills, like a simple comic strip. No people's bodies: only her hands, the plate and the glass, seen from above.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; calm morning mood.",
+    "graphic_language": "Thick near-black cross lines dividing the canvas in four, square vignettes with a medium near-black border, solid near-black rounded-rectangle labels overlapping the top-right corner of each vignette, soft contact shadow under the product.",
+    "text_typography": "Label text in a rounded geometric sans-serif, bold, sentence case, white on near-black, centered, two lines. No headline. No outlines and no drop shadows on the text."
+  },
+  "creative_objective": "Tell the story with the breakfast plate instead of a body: before, the plate stays almost full; with the daily ritual, week after week, it ends up empty. Preserve the exact structure of the source: a light canvas split 2x2 by thick black lines, one bordered flat-illustration vignette per quadrant, a black rounded label with two lines of white text overlapping the top-right corner of each vignette, and the real bottle overlapping the bottom-right corner of the last quadrant.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The four vignettes read as a sequence, left to right and top to bottom. 2) The black labels with white text. 3) The real bottle at the bottom right of the last quadrant.",
+    "composition_style": "Strict 2x2 grid. Each quadrant holds one square vignette placed slightly low and left inside it, with its black label riding over the vignette's top-right corner. The same top-down framing is repeated in the four vignettes so only the food on the plate changes.",
+    "spacing_and_structure": "One thick vertical and one thick horizontal near-black line cross at the center of the canvas, edge to edge. Each vignette is about 37% of the canvas wide, with a cream margin around it inside its quadrant. Each label is about 23% of the canvas wide and 7% tall, with rounded corners, half over the vignette's top-right corner and half above it. The bottle is about 36% of the canvas height, its base near the bottom edge, covering the bottom-right corner of the fourth vignette.",
+    "lighting_and_depth": "Completely flat illustration with no shading gradients. Only the bottle is photorealistic, with soft studio light and a soft contact shadow, so it pops over the drawing.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Light canvas divided into four equal quadrants by one thick black vertical line and one thick black horizontal line. In each quadrant, a square vignette with a medium black border containing a flat, outlined illustration of the same subject in the same framing, changing gradually from panel to panel. Overlapping the top-right corner of each vignette, a solid black rounded-rectangle label with two centered lines of bold white text: the first panel says 'before the product', the other three say a time with the product. In the fourth quadrant, a realistic photo of the dropper bottle stands over the bottom-right corner of the vignette.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background with thick cross dividers",
+        "position": "Full canvas; lines cross at the center",
+        "visual_function": "Makes the ad read as a four-panel comic",
+        "adaptation_rule": "Warm cream canvas instead of white; same thick near-black vertical and horizontal lines.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "vignette 1 (before)",
+        "position": "Top-left quadrant",
+        "visual_function": "Starting point",
+        "adaptation_rule": "Top-down view of the breakfast table: plate almost untouched and full, full glass of juice, her hands resting away from the plate, fork lying beside it.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "vignette 2",
+        "position": "Top-right quadrant",
+        "visual_function": "First step of the sequence",
+        "adaptation_rule": "Same table and framing: about a third of the food eaten, one hand holding the fork over the plate, juice slightly lower.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "vignette 3",
+        "position": "Bottom-left quadrant",
+        "visual_function": "Second step of the sequence",
+        "adaptation_rule": "Same table and framing: most of the food eaten, only a few bites left, one hand holding the fork, the other holding the half-empty glass.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "vignette 4",
+        "position": "Bottom-right quadrant",
+        "visual_function": "End of the sequence",
+        "adaptation_rule": "Same table and framing: clean empty plate with fork and knife resting together on it, empty glass, her hands relaxed beside the plate.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "four black time labels",
+        "position": "Over the top-right corner of each vignette",
+        "visual_function": "Names each moment in order",
+        "adaptation_rule": "Same solid near-black rounded rectangles with two centered lines of bold white text, with the user's product name.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "product",
+        "position": "Fourth quadrant, standing over the bottom-right corner of its vignette, base near the bottom edge",
+        "visual_function": "Appears exactly at the last step",
+        "adaptation_rule": "The user's amber dropper bottle exactly as in the attached photo, photorealistic over the illustration.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Any body, torso or silhouette of a person; only hands are shown",
+      "Headline, subheadline or any text outside the four labels",
+      "Price, offer, discount, CTA button",
+      "Brand logo or wordmark outside the product label",
+      "Rating stars, testimonials, trust seals, bottom bars",
+      "Arrows between the panels, numbers, weight figures or scales"
+    ]
+  },
+  "visual_prompt": "Square 1:1 ad that looks like a four-panel comic, on a warm cream canvas (#FBF3DC). One thick near-black vertical line and one thick near-black horizontal line cross at the exact center and run edge to edge, dividing the canvas into four equal quadrants. Inside each quadrant there is one square vignette, about 37% of the canvas wide, placed slightly low and left within its quadrant, with a medium near-black border and a pale cream interior. All four vignettes show the SAME scene in the SAME framing, drawn as a clean flat vector-style illustration with even dark outlines and soft flat fills in cream, lemon yellow (#F2DC4A) and gold (#C9A441): a strict top-down (overhead) view of a breakfast table with a pale cream tablecloth with thin lemon-yellow stripes, a round white plate in the center, a glass of orange juice at the top right of the plate, and the two hands of a young woman with light-brown skin and short natural nails entering from the bottom edge. Only the food and the hands change. VIGNETTE 1 (top-left): the plate is almost full and untouched (a golden arepa, scrambled eggs, slices of avocado and fruit), the glass of juice is full, the fork lies beside the plate and her hands rest on the table away from the plate. VIGNETTE 2 (top-right): about a third of the food is gone, her right hand holds the fork over the plate, the juice is a little lower. VIGNETTE 3 (bottom-left): most of the food is gone and only a few bites remain, her right hand holds the fork and her left hand holds the half-empty glass. VIGNETTE 4 (bottom-right): the plate is clean and empty with the fork and knife resting together on it, the glass is empty, her hands rest relaxed beside the plate. LABELS: overlapping the top-right corner of each vignette (half over the vignette, half above it), a solid near-black rounded-rectangle label about 23% of the canvas wide, with two centered lines of bold white rounded sans-serif text. PRODUCT: in the bottom-right quadrant, the real product stands photorealistically over the bottom-right corner of the fourth vignette, front view, about 36% of the canvas height, its base near the bottom edge of the canvas, with a soft contact shadow; it does not cover the label of that quadrant or the empty plate. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No bodies or silhouettes, no headline, no price, no button, no logo outside the product label, no arrows, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "label of panel 1 (before)",
+      "reference_position": "Top-left quadrant, over the top-right corner of its vignette",
+      "text_style": "Bold rounded geometric sans-serif, white on a solid near-black rounded rectangle, centered, two lines",
+      "text": "Antes de\nVitalDrops"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "label of panel 2",
+      "reference_position": "Top-right quadrant, over the top-right corner of its vignette",
+      "text_style": "Same as label 1",
+      "text": "1 semana con\nVitalDrops"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "label of panel 3",
+      "reference_position": "Bottom-left quadrant, over the top-right corner of its vignette",
+      "text_style": "Same as label 1",
+      "text": "2 semanas con\nVitalDrops"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "label of panel 4",
+      "reference_position": "Bottom-right quadrant, over the top-right corner of its vignette",
+      "text_style": "Same as label 1",
+      "text": "4 semanas con\nVitalDrops"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Warm cream canvas divided 2x2 by one thick near-black vertical line and one thick near-black horizontal line",
+    "Four square black-bordered vignettes with the same top-down flat illustration of a breakfast table: plate, glass of juice and her hands",
+    "The plate goes from almost full (panel 1) to clean and empty (panel 4)",
+    "A solid near-black rounded label with white two-line text over the top-right corner of each vignette",
+    "The amber dropper bottle, photorealistic, over the bottom-right corner of the fourth vignette, exactly as in the attached photo"
+  ],
+  "final_generation_exclusions": [
+    "No human body, torso, belly, profile or silhouette anywhere; only hands seen from above.",
+    "No headline or any text outside the four black labels.",
+    "No price, offer, discount or CTA.",
+    "No brand logo or wordmark outside the product label.",
+    "No illustrated version of the bottle inside the vignettes; the bottle appears only once, as the real product.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The sequence shows a breakfast plate, not a body before/after, and the labels only mark moments of the ritual.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

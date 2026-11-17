@@ -1,0 +1,48 @@
+{
+  "resumen": "Hice variaciones de tu anuncio que ya funciona: el mismo diseño, las mismas fotos del día 1 al día 21 y la misma oferta. Solo cambia el titular, con los títulos que elegiste y las palabras de tu clienta (sacar cola, llenar el jean, la flaquita). Creo que tu anuncio vende porque promete un deseo muy claro, con un plazo exacto y un avance que se ve de un vistazo; es una hipótesis, no una garantía.",
+  "paleta": [
+    { "hex": "#FBF3DC", "nombre": "Crema cálido" },
+    { "hex": "#F2DC4A", "nombre": "Amarillo limón" },
+    { "hex": "#C9A441", "nombre": "Dorado" },
+    { "hex": "#E6CF7A", "nombre": "Dorado claro" },
+    { "hex": "#111111", "nombre": "Negro" },
+    { "hex": "#8A4B14", "nombre": "Ámbar" }
+  ],
+  "tipografia": "La misma de tu anuncio: titular en letra gruesa, recta y en mayúsculas, de color negro y en dos líneas. Los días van en dorado. La oferta va en negro sobre la placa dorada, con el precio en letra más alta y apretada.",
+  "estilo": "Igual a tu anuncio: fondo crema claro, cuatro fotos de la misma mujer en su cuarto (día 1, 7, 14 y 21), la caja y el frasco abajo a la izquierda y la placa dorada con la oferta abajo a la derecha. Luz suave, limpio y femenino.",
+  "beneficios": [
+    "Acompaña tu apetito desde las primeras semanas",
+    "Energía para trabajar, estudiar y entrenar",
+    "Un apoyo diario mientras trabajas tus curvas con comida y ejercicio",
+    "Natural y sin agujas: gotas que tomas por la boca"
+  ],
+  "caracteristicas": [
+    "Gotero de 60 ml en frasco de vidrio ámbar",
+    "5 ingredientes: ashwagandha, maca, L-arginina, fenogreco y remolacha",
+    "En gotas, sin tragar pastillas",
+    "Una sola toma al día"
+  ],
+  "deseo_central": "Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo.",
+  "beneficio_principal": "Un ritual diario de gotas que acompaña tu apetito y tu energía mientras trabajas tus curvas con comida y ejercicio.",
+  "puntos_dolor": [
+    "Como y como y no me engorda nada",
+    "Los jeans me quedan bailando en la cola",
+    "Me dicen que parezco una tabla",
+    "Voy al gym y no veo cambios en la pierna ni en la cola",
+    "Me da miedo el quirófano y más los biopolímeros",
+    "Ya compré gomitas y pastillas y no vi nada"
+  ],
+  "por_que_podria_vender": [
+    "Tu anuncio promete lo que tu clienta más quiere (verse con curvas) en una frase corta y segura.",
+    "El plazo de 21 días y las cuatro fotos por día hacen que el avance se entienda en un segundo.",
+    "La oferta de 3 unidades con su precio cierra la venta en la misma imagen.",
+    "Es una hipótesis: no garantiza ventas."
+  ],
+  "decisiones": [
+    "Copié tu anuncio tal cual: mismo diseño, mismas fotos, mismos colores y misma letra. Solo cambia el titular.",
+    "Usé los cinco títulos que elegiste, sin cambiarles una palabra.",
+    "Dejé la oferta igual a la de tu anuncio (tratamiento completo, 3 unidades a $139,900, sin efecto rebote). No venía en el formulario: la tomé de tu propio anuncio. Revisa que el precio siga vigente.",
+    "Ojo: tu investigación advierte que prometer cambios del cuerpo en días y mostrar fotos de avance del cuerpo puede traer problemas con las reglas de anuncios. Lo mantuve porque pediste conservar tu anuncio; tenlo presente al pautar.",
+    "No agregué cifras, testimonios ni resultados nuevos."
+  ]
+}

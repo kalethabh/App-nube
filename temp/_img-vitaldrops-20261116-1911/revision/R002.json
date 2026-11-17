@@ -1,0 +1,25 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V05_1x1",
+      "ok": false,
+      "problemas": [
+        "En el párrafo final dice «tu plato lieno»: debe decir «lleno», con doble L."
+      ],
+      "correccion_en": "In the closing paragraph, write the second line exactly as \"tus gotas, tu plato lleno\": the word is \"lleno\" with a double L (l-l-e-n-o), not \"lieno\". Keep every other text unchanged."
+    },
+    {
+      "pieza": "V06_1x1",
+      "ok": true,
+      "problemas": []
+    },
+    {
+      "pieza": "V07_1x1",
+      "ok": false,
+      "problemas": [
+        "La coma de «MIJA,» baja hasta tocar la palabra «USTED» y parece una tilde sobre la E («USTÉD»)."
+      ],
+      "correccion_en": "Add a little more space between the first and second headline lines so the comma after \"MIJA,\" does not touch or overlap the letters of \"USTED\" below it. The second line must read exactly \"¿USTED SÍ\": no accent on the E of USTED, the only accent is on the Í of SÍ."
+    }
+  ]
+}

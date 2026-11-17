@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 3,
+    "R": 9,
+    "A": 1,
+    "T": 3
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04"
+      ],
+      "uuid": "70ba3a9f-fd6d-4353-a759-c93d44c776c1",
+      "motor": "claude",
+      "estado": "hecha"
+    },
+    "E002": {
+      "tipo": "prompts",
+      "uuid": "f93b60f4-530c-4f70-8a99-712a98535ec9",
+      "estado": "hecha",
+      "ids": [
+        "V05",
+        "V06",
+        "V07",
+        "V08",
+        "V09",
+        "V10"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "4d76ce48-52fa-4669-b9a9-96f14d928921",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V02_1x1",
+          "firma": "1729235-1794877844667",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "1728215-1794877981317",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "746f53f6-2572-4f56-ad67-2c0418710f8d",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "1726024-1794878106270",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "3ef82066-6ea4-4db0-8c80-0bf952d51459",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V06_1x1",
+          "firma": "1727383-1794878227857",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "2430bf73-259e-4f5e-8b40-cd30c5bce7af",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "1699378-1794878344628",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "bf5d8fe0-249b-4861-bfa1-1b30242e76ba",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V07_1x1",
+          "firma": "1743173-1794878457587",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R006": {
+      "tipo": "revision",
+      "uuid": "2a293ca1-965a-45b2-9eb5-7bdaf4f8bf3f",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1742279-1794878488130",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R007": {
+      "tipo": "revision",
+      "uuid": "6a3ea3fb-fec9-4b96-b9e9-0812b1f46b6c",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V09_1x1",
+          "firma": "1758095-1794878758172",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R008": {
+      "tipo": "revision",
+      "uuid": "01901781-3128-446e-96dd-f4e507a604ee",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "1732357-1794878891310",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V02": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V03": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V04": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V05": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V06": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V07": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V08": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V09": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V10": {
+      "prompt": "listo",
+      "tanda": "E002"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "sin-imagen",
+      "version": 0,
+      "firma": null,
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "desde": null,
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V02_1x1": {
+      "v": "V02",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1729235-1794877844667",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1729235-1794877844667"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:10:46.530Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1728215-1794877981317",
+      "orden": null,
+      "intentosApi": 2,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1728215-1794877981317"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:13:01.372Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1726024-1794878106270",
+      "orden": null,
+      "intentosApi": 2,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1726024-1794878106270"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:15:07.386Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1742279-1794878488130",
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1742279-1794878488130"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:21:29.768Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V06_1x1": {
+      "v": "V06",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1727383-1794878227857",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1727383-1794878227857"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:17:08.608Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V07_1x1": {
+      "v": "V07",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1743173-1794878457587",
+      "orden": null,
+      "intentosApi": 2,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1743173-1794878457587"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:20:59.410Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V08_1x1": {
+      "v": "V08",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1699378-1794878344628",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1699378-1794878344628"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:19:06.350Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V09_1x1": {
+      "v": "V09",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1758095-1794878758172",
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R007",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1758095-1794878758172"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:25:59.222Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V10_1x1": {
+      "v": "V10",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1732357-1794878891310",
+      "orden": null,
+      "intentosApi": 3,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R008",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1732357-1794878891310"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T01:28:12.586Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    }
+  },
+  "pedidos": {}
+}

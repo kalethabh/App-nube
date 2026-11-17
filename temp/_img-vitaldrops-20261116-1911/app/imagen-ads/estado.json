@@ -1,0 +1,423 @@
+{
+  "version": 1,
+  "siguiente": {
+    "E": 3,
+    "R": 6,
+    "A": 1,
+    "T": 3
+  },
+  "tandas": {
+    "E001": {
+      "tipo": "estrategia",
+      "ids": [
+        "V01",
+        "V02",
+        "V03",
+        "V04"
+      ],
+      "uuid": "7cbbb73c-791c-417f-94da-18c19e9002b3",
+      "motor": "claude",
+      "estado": "hecha"
+    },
+    "E002": {
+      "tipo": "prompts",
+      "uuid": "cfc59f09-c7e9-4c81-87ba-99f8495120e9",
+      "estado": "hecha",
+      "ids": [
+        "V05",
+        "V06",
+        "V07",
+        "V08",
+        "V09",
+        "V10"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "4aa45307-1c90-4581-9827-4882206bdf14",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "1726474-1794874802306",
+          "ronda": 1
+        },
+        {
+          "pieza": "V02_1x1",
+          "firma": "1589409-1794874788470",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2294410-1794874807746",
+          "ronda": 1
+        },
+        {
+          "pieza": "V04_1x1",
+          "firma": "3009546-1794874895609",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "baa886de-85be-47ee-978e-1a5100307753",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "1999153-1794875100058",
+          "ronda": 1
+        },
+        {
+          "pieza": "V06_1x1",
+          "firma": "1770176-1794875098154",
+          "ronda": 1
+        },
+        {
+          "pieza": "V07_1x1",
+          "firma": "1394269-1794875077680",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "d9f5354c-8b09-4302-978b-6eced5e157e2",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "1585376-1794875170122",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "eee8f60d-dd27-4236-b5eb-1985f356fb89",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V09_1x1",
+          "firma": "2307314-1794875197526",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "914cb6dc-28a8-4cd6-91ff-302c317c8f9a",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "1684961-1794875201312",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    }
+  },
+  "variaciones": {
+    "V01": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V02": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V03": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V04": {
+      "prompt": "listo",
+      "tanda": "E001"
+    },
+    "V05": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V06": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V07": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V08": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V09": {
+      "prompt": "listo",
+      "tanda": "E002"
+    },
+    "V10": {
+      "prompt": "listo",
+      "tanda": "E002"
+    }
+  },
+  "piezas": {
+    "V01_1x1": {
+      "v": "V01",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1726474-1794874802306",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1726474-1794874802306"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:20:03.686Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V02_1x1": {
+      "v": "V02",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1589409-1794874788470",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1589409-1794874788470"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:19:49.385Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V03_1x1": {
+      "v": "V03",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2294410-1794874807746",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2294410-1794874807746"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:20:08.004Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V04_1x1": {
+      "v": "V04",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "3009546-1794874895609",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "3009546-1794874895609"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:21:36.315Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V05_1x1": {
+      "v": "V05",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1999153-1794875100058",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el párrafo final dice «tu plato lieno»: debe decir «lleno», con doble L."
+        ],
+        "firma": "1999153-1794875100058",
+        "correccion_en": "In the closing paragraph, write the second line exactly as \"tus gotas, tu plato lleno\": the word is \"lleno\" with a double L (l-l-e-n-o), not \"lieno\". Keep every other text unchanged."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:25:01.254Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V06_1x1": {
+      "v": "V06",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1770176-1794875098154",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1770176-1794875098154"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:24:58.922Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V07_1x1": {
+      "v": "V07",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1394269-1794875077680",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "La coma de «MIJA,» baja hasta tocar la palabra «USTED» y parece una tilde sobre la E («USTÉD»)."
+        ],
+        "firma": "1394269-1794875077680",
+        "correccion_en": "Add a little more space between the first and second headline lines so the comma after \"MIJA,\" does not touch or overlap the letters of \"USTED\" below it. The second line must read exactly \"¿USTED SÍ\": no accent on the E of USTED, the only accent is on the Í of SÍ."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:24:38.596Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V08_1x1": {
+      "v": "V08",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1585376-1794875170122",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1585376-1794875170122"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:26:11.683Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V09_1x1": {
+      "v": "V09",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2307314-1794875197526",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2307314-1794875197526"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:26:39.288Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V10_1x1": {
+      "v": "V10",
+      "formato": "1:1",
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1684961-1794875201312",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1684961-1794875201312"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-17T00:26:41.617Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    }
+  },
+  "pedidos": {}
+}

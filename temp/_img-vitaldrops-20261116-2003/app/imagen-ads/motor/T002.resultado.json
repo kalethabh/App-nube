@@ -1,0 +1,89 @@
+{
+  "id": "T002",
+  "piezas": {
+    "V05_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 3,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1e716-7703-7be3-976d-02f221c14b5e",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1742279-1794878488130",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V06_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1e712-730c-7cf0-afe5-7db7c830938e",
+      "firma": "1727383-1794878227857",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V07_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 2,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1e716-061e-7831-b905-560db731120b",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1743173-1794878457587",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V08_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1e714-45a6-7f62-9661-79e0c3f01a64",
+      "firma": "1699378-1794878344628",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V09_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 3,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1e71a-848e-7a71-87f8-952ceeb8f48a",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1758095-1794878758172",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V10_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 3,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1e71c-9b12-7420-aac0-bb22bf1d4bd7",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "1732357-1794878891310",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    }
+  },
+  "actualizado": "2026-11-17T01:28:11.311Z",
+  "terminado": true
+}

@@ -1,0 +1,37 @@
+Square 1:1 ad that looks like a four-panel comic, on a warm cream canvas (#FBF3DC). One thick near-black vertical line and one thick near-black horizontal line cross at the exact center and run edge to edge, dividing the canvas into four equal quadrants. Inside each quadrant there is one square vignette, about 37% of the canvas wide, placed slightly low and left within its quadrant, with a medium near-black border and a pale cream interior. All four vignettes show the SAME scene in the SAME framing, drawn as a clean flat vector-style illustration with even dark outlines and soft flat fills in cream, lemon yellow (#F2DC4A) and gold (#C9A441): a strict top-down (overhead) view of a breakfast table with a pale cream tablecloth with thin lemon-yellow stripes, a round white plate in the center, a glass of orange juice at the top right of the plate, and the two hands of a young woman with light-brown skin and short natural nails entering from the bottom edge. Only the food and the hands change. VIGNETTE 1 (top-left): the plate is almost full and untouched (a golden arepa, scrambled eggs, slices of avocado and fruit), the glass of juice is full, the fork lies beside the plate and her hands rest on the table away from the plate. VIGNETTE 2 (top-right): about a third of the food is gone, her right hand holds the fork over the plate, the juice is a little lower. VIGNETTE 3 (bottom-left): most of the food is gone and only a few bites remain, her right hand holds the fork and her left hand holds the half-empty glass. VIGNETTE 4 (bottom-right): the plate is clean and empty with the fork and knife resting together on it, the glass is empty, her hands rest relaxed beside the plate. LABELS: overlapping the top-right corner of each vignette (half over the vignette, half above it), a solid near-black rounded-rectangle label about 23% of the canvas wide, with two centered lines of bold white rounded sans-serif text. PRODUCT: in the bottom-right quadrant, the real product stands photorealistically over the bottom-right corner of the fourth vignette, front view, about 36% of the canvas height, its base near the bottom edge of the canvas, with a soft contact shadow; it does not cover the label of that quadrant or the empty plate. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No bodies or silhouettes, no headline, no price, no button, no logo outside the product label, no arrows, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- label of panel 1 (before) (Top-left quadrant, over the top-right corner of its vignette): 2 stacked lines: line 1: "Antes de"; line 2: "VitalDrops" — Bold rounded geometric sans-serif, white on a solid near-black rounded rectangle, centered, two lines
+- label of panel 2 (Top-right quadrant, over the top-right corner of its vignette): 2 stacked lines: line 1: "1 semana con"; line 2: "VitalDrops" — Same as label 1
+- label of panel 3 (Bottom-left quadrant, over the top-right corner of its vignette): 2 stacked lines: line 1: "2 semanas con"; line 2: "VitalDrops" — Same as label 1
+- label of panel 4 (Bottom-right quadrant, over the top-right corner of its vignette): 2 stacked lines: line 1: "4 semanas con"; line 2: "VitalDrops" — Same as label 1
+
+BRAND IDENTITY:
+- color_palette: Warm cream canvas #FBF3DC; near-black #111111 for the grid lines, vignette borders, illustration outlines and label fills; soft white #FFFFFF for the label text and the plate; lemon yellow #F2DC4A (tablecloth accents, juice, egg yolk); metallic gold #C9A441 and lighter gold #E6CF7A (arepa, toast, cutlery tint); amber brown #8A4B14 (bottle glass).
+- text_typography: Label text in a rounded geometric sans-serif, bold, sentence case, white on near-black, centered, two lines. No headline. No outlines and no drop shadows on the text.
+
+MANDATORY ELEMENTS:
+- Warm cream canvas divided 2x2 by one thick near-black vertical line and one thick near-black horizontal line
+- Four square black-bordered vignettes with the same top-down flat illustration of a breakfast table: plate, glass of juice and her hands
+- The plate goes from almost full (panel 1) to clean and empty (panel 4)
+- A solid near-black rounded label with white two-line text over the top-right corner of each vignette
+- The amber dropper bottle, photorealistic, over the bottom-right corner of the fourth vignette, exactly as in the attached photo
+
+STRICT EXCLUSIONS:
+- No human body, torso, belly, profile or silhouette anywhere; only hands seen from above.
+- No headline or any text outside the four black labels.
+- No price, offer, discount or CTA.
+- No brand logo or wordmark outside the product label.
+- No illustrated version of the bottle inside the vignettes; the bottle appears only once, as the real product.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any body, torso or silhouette of a person; only hands are shown
+- Do not add: Headline, subheadline or any text outside the four labels
+- Do not add: Price, offer, discount, CTA button
+- Do not add: Brand logo or wordmark outside the product label
+- Do not add: Rating stars, testimonials, trust seals, bottom bars
+- Do not add: Arrows between the panels, numbers, weight figures or scales
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

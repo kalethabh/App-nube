@@ -1,0 +1,88 @@
+{
+  "producto": "vitaldrops",
+  "lote": "_img-vitaldrops-20261116-1757",
+  "cantidad": 5,
+  "proporciones": ["1:1"],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1757/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula de 2x2 (día 1, 7, 14 y 21) con titular arriba, producto abajo a la izquierda y placa de oferta abajo a la derecha",
+        "estructura": "Fondo crema. Arriba, titular negro centrado en dos líneas, en mayúsculas gruesas. En el centro, cuatro paneles con esquinas redondeadas en cuadrícula de 2x2: la misma mujer de espaldas en tres cuartos, mirando sobre el hombro, en un cuarto claro; cada panel lleva su etiqueta de día en dorado arriba a la izquierda. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas de oferta y una línea fina entre la segunda y la tercera.",
+        "por_que_funciona": "Hipótesis: promete el deseo central (verse con curvas) con un plazo exacto, la cuadrícula por días hace visible el avance en un segundo y la placa dorada cierra con la oferta de tres unidades. Es un creativo propio que ya le funciona al usuario."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio ganador de la línea de tiempo de 21 días, con el titular llevado al formato del producto: las gotas.",
+      "titular": "21 DÍAS DE GOTAS, CURVAS MÁS LLENAS",
+      "escena": "Igual a la referencia: cuarto claro con cortinas blancas translúcidas, cama blanca a la izquierda y una planta en maceta blanca a la derecha; mujer de cola de caballo castaña, top deportivo blanco y leggings terracota. Sin bloques opcionales: se conservan todos los de la referencia.",
+      "camara": "Plano medio a la altura de la cadera, la mujer de espaldas en tres cuartos mirando a cámara sobre el hombro izquierdo; mismo encuadre en los cuatro paneles."
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1757/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula de 2x2 (día 1, 7, 14 y 21) con titular arriba, producto abajo a la izquierda y placa de oferta abajo a la derecha",
+        "estructura": "Fondo crema. Arriba, titular negro centrado en dos líneas, en mayúsculas gruesas. En el centro, cuatro paneles con esquinas redondeadas en cuadrícula de 2x2: la misma mujer de espaldas en tres cuartos, mirando sobre el hombro, en un cuarto claro; cada panel lleva su etiqueta de día en dorado arriba a la izquierda. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas de oferta y una línea fina entre la segunda y la tercera.",
+        "por_que_funciona": "Hipótesis: promete el deseo central (verse con curvas) con un plazo exacto, la cuadrícula por días hace visible el avance en un segundo y la placa dorada cierra con la oferta de tres unidades. Es un creativo propio que ya le funciona al usuario."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio ganador de la línea de tiempo de 21 días, con el titular que nombra el dolor de sentirse «la flaquita» del grupo.",
+      "titular": "DE «LA FLAQUITA» A CURVAS EN 21 DÍAS",
+      "escena": "Igual a la referencia: cuarto claro con cortinas blancas translúcidas, cama blanca a la izquierda y una planta en maceta blanca a la derecha; mujer de cola de caballo castaña, top deportivo blanco y leggings terracota. Sin bloques opcionales: se conservan todos los de la referencia.",
+      "camara": "Plano medio a la altura de la cadera, la mujer de espaldas en tres cuartos mirando a cámara sobre el hombro izquierdo; mismo encuadre en los cuatro paneles."
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1757/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula de 2x2 (día 1, 7, 14 y 21) con titular arriba, producto abajo a la izquierda y placa de oferta abajo a la derecha",
+        "estructura": "Fondo crema. Arriba, titular negro centrado en dos líneas, en mayúsculas gruesas. En el centro, cuatro paneles con esquinas redondeadas en cuadrícula de 2x2: la misma mujer de espaldas en tres cuartos, mirando sobre el hombro, en un cuarto claro; cada panel lleva su etiqueta de día en dorado arriba a la izquierda. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas de oferta y una línea fina entre la segunda y la tercera.",
+        "por_que_funciona": "Hipótesis: promete el deseo central (verse con curvas) con un plazo exacto, la cuadrícula por días hace visible el avance en un segundo y la placa dorada cierra con la oferta de tres unidades. Es un creativo propio que ya le funciona al usuario."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio ganador de la línea de tiempo de 21 días, con el titular en las palabras de la clienta colombiana: «sacar cola».",
+      "titular": "21 DÍAS PARA SACAR COLA",
+      "escena": "Igual a la referencia: cuarto claro con cortinas blancas translúcidas, cama blanca a la izquierda y una planta en maceta blanca a la derecha; mujer de cola de caballo castaña, top deportivo blanco y leggings terracota. Sin bloques opcionales: se conservan todos los de la referencia.",
+      "camara": "Plano medio a la altura de la cadera, la mujer de espaldas en tres cuartos mirando a cámara sobre el hombro izquierdo; mismo encuadre en los cuatro paneles."
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1757/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula de 2x2 (día 1, 7, 14 y 21) con titular arriba, producto abajo a la izquierda y placa de oferta abajo a la derecha",
+        "estructura": "Fondo crema. Arriba, titular negro centrado en dos líneas, en mayúsculas gruesas. En el centro, cuatro paneles con esquinas redondeadas en cuadrícula de 2x2: la misma mujer de espaldas en tres cuartos, mirando sobre el hombro, en un cuarto claro; cada panel lleva su etiqueta de día en dorado arriba a la izquierda. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas de oferta y una línea fina entre la segunda y la tercera.",
+        "por_que_funciona": "Hipótesis: promete el deseo central (verse con curvas) con un plazo exacto, la cuadrícula por días hace visible el avance en un segundo y la placa dorada cierra con la oferta de tres unidades. Es un creativo propio que ya le funciona al usuario."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio ganador de la línea de tiempo de 21 días, con el titular que responde al dolor «los jeans me quedan bailando».",
+      "titular": "LLENA EL JEAN EN 21 DÍAS",
+      "escena": "Igual a la referencia: cuarto claro con cortinas blancas translúcidas, cama blanca a la izquierda y una planta en maceta blanca a la derecha; mujer de cola de caballo castaña, top deportivo blanco y leggings terracota. Sin bloques opcionales: se conservan todos los de la referencia.",
+      "camara": "Plano medio a la altura de la cadera, la mujer de espaldas en tres cuartos mirando a cámara sobre el hombro izquierdo; mismo encuadre en los cuatro paneles."
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "temp/_img-vitaldrops-20261116-1757/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Línea de tiempo en cuadrícula de 2x2 (día 1, 7, 14 y 21) con titular arriba, producto abajo a la izquierda y placa de oferta abajo a la derecha",
+        "estructura": "Fondo crema. Arriba, titular negro centrado en dos líneas, en mayúsculas gruesas. En el centro, cuatro paneles con esquinas redondeadas en cuadrícula de 2x2: la misma mujer de espaldas en tres cuartos, mirando sobre el hombro, en un cuarto claro; cada panel lleva su etiqueta de día en dorado arriba a la izquierda. Abajo a la izquierda, la caja amarilla y el frasco con una ramita dorada detrás. Abajo a la derecha, una placa dorada con tres líneas de oferta y una línea fina entre la segunda y la tercera.",
+        "por_que_funciona": "Hipótesis: promete el deseo central (verse con curvas) con un plazo exacto, la cuadrícula por días hace visible el avance en un segundo y la placa dorada cierra con la oferta de tres unidades. Es un creativo propio que ya le funciona al usuario."
+      },
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "El mismo anuncio ganador de la línea de tiempo de 21 días, con el titular más directo sobre el deseo central: más curvas.",
+      "titular": "MÁS CURVAS EN SOLO 21 DÍAS",
+      "escena": "Igual a la referencia: cuarto claro con cortinas blancas translúcidas, cama blanca a la izquierda y una planta en maceta blanca a la derecha; mujer de cola de caballo castaña, top deportivo blanco y leggings terracota. Sin bloques opcionales: se conservan todos los de la referencia.",
+      "camara": "Plano medio a la altura de la cadera, la mujer de espaldas en tres cuartos mirando a cámara sobre el hombro izquierdo; mismo encuadre en los cuatro paneles."
+    }
+  ]
+}

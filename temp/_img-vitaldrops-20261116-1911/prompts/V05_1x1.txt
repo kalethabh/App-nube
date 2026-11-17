@@ -1,0 +1,41 @@
+Square 1:1 static ad on a warm cream background (#FBF3DC) with a soft vertical gradient that gets slightly deeper cream-beige toward the lower third. The top 8% of the canvas is empty plain background. The layout has two columns. LEFT COLUMN (from 4% to 46% of the width), everything centered in the column, all text in a clean geometric sans-serif, regular weight, sentence case, solid near-black (#111111): first, an opening paragraph of four short lines; a small gap; then a list of four single lines, each starting with a small round dot bullet; a small gap; then a closing paragraph of seven short lines; a small gap; then ONE line of plain text in extra-bold weight, clearly larger than the rest, with no button, no box and no underline. Directly below the bold line, at the bottom of the left column, the product stands large, front view, at eye level, about 32% of the canvas height, with a soft contact shadow, its base near the bottom edge. RIGHT COLUMN (from 48% to 96% of the width): two rectangular photos with square corners, the same size, stacked one above the other with a thin cream gap between them, together filling from 8% to 96% of the height. Both are casual, slightly imperfect smartphone photos, eye-level, home-style framing, natural light, of the same Colombian woman of about 26 with long dark-brown hair in a ponytail, shown from the waist up and fully dressed. TOP PHOTO: she is in her kitchen in the morning, wearing a loose cream t-shirt, smiling softly at the camera, holding a small amber glass dropper bottle with a black dropper cap near her chest; on the counter beside her a served breakfast (a plate with arepa, scrambled eggs and fruit) and a glass of orange juice; a lemon-yellow mug in the background. BOTTOM PHOTO: a mirror selfie in a gym, the same woman with the same body, wearing a modest cream athletic t-shirt, holding her phone at chest height in one hand and a lemon-yellow water tumbler in the other, relaxed and proud expression, gym equipment softly out of focus behind her. The two photos are two moments of the same day, not a before and after: her body shape and size are identical in both. No text inside the photos. THE PRODUCT in the left column is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No logo at the top, no price, no button, no badges, no stars, no icons, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- opening paragraph (concedes the objection) (Left column, top, centered, four lines): 4 stacked lines: line 1: "No, no es magia."; line 2: "Podríamos decirte que sí,"; line 3: "pero entonces sería..."; line 4: "bueno, otra promesa más." — Geometric sans-serif, regular weight, sentence case, near-black, centered, four lines, medium size
+- bullet 1 (Left column, bullet list, first line, centered): "• No reemplaza un buen desayuno" — Same regular sans, near-black, centered, one line, starts with a small round dot bullet
+- bullet 2 (Left column, bullet list, second line, centered): "• No hace la rutina de pierna por ti" — Same as bullet 1
+- bullet 3 (Left column, bullet list, third line, centered): "• No es para tomar un día y olvidarlo" — Same as bullet 1
+- bullet 4 (Left column, bullet list, fourth line, centered): "• No promete cambios de un día para otro" — Same as bullet 1
+- closing paragraph (Left column, below the bullet list, centered, seven short lines): 7 stacked lines: line 1: "Sí es un ritual diario:"; line 2: "tus gotas, tu plato lleno"; line 3: "y tu rutina."; line 4: "Así que VitalDrops"; line 5: "nunca será magia,"; line 6: "y eso es algo bueno."; line 7: "Porque mereces la verdad." — Geometric sans-serif, regular weight, sentence case, near-black, centered, seven lines, same size as the opening paragraph
+- bold call line (plain text, not a button) (Left column, centered, between the closing paragraph and the bottle): "Más información" — Geometric sans-serif, extra-bold, sentence case, near-black, centered, one line, about 1.5 times the size of the body text
+
+BRAND IDENTITY:
+- color_palette: Warm cream background #FBF3DC fading softly to a slightly deeper warm cream-beige toward the lower third; near-black #111111 for all text; lemon yellow #F2DC4A and metallic gold #C9A441 only as small accents inside the photos (a mug, a towel, a bottle cap) and on the product label; amber brown #8A4B14 (bottle glass); soft white #FFFFFF highlights.
+- text_typography: All copy in a clean geometric sans-serif, regular weight, sentence case, centered, solid near-black, comfortable line spacing. One single line in extra-bold geometric sans, sentence case, clearly larger. No uppercase headline, no outlines and no drop shadows on the text.
+
+MANDATORY ELEMENTS:
+- Warm cream background with a soft vertical gradient and an empty top band
+- Left column of centered plain text: opening paragraph, four dot-bullet lines, closing paragraph and one bold line
+- The amber dropper bottle, large, front view, at the bottom of the left column, exactly as in the attached photo
+- Two casual smartphone photos stacked in the right column: the woman in her kitchen with the small dropper bottle and her breakfast (top) and the same woman in a gym mirror selfie with a water tumbler (bottom), waist up, fully dressed, same body in both
+
+STRICT EXCLUSIONS:
+- No brand logo or wordmark at the top or anywhere outside the product label.
+- No price, offer, discount or urgency text.
+- No button shape, pill or box around 'Más información'.
+- No bare back, bare torso, underwear or body close-ups; no before/after; no difference in body shape between the two photos.
+- No text, labels or dates over the photos.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Brand logo or wordmark outside the product label
+- Do not add: Price, offer, discount or urgency badge
+- Do not add: CTA button shape or box around the bold line
+- Do not add: Rating stars, testimonials, trust seals
+- Do not add: Icons, checkmarks or emojis in the bullet list
+- Do not add: 'Antes' / 'Después' labels or any text over the photos
+- Do not add: Bare back, bare torso or body close-up photos
+- Do not add: Any difference in body shape between the two photos
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

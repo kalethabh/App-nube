@@ -1,0 +1,129 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V09",
+    "structure_source": "library format F16 (Lifestyle en uso)",
+    "reference_style": "Editorial lifestyle photograph of a real person using the product in its natural context, with a clean headline integrated into a calm area of the photo; aspirational yet believable",
+    "angle_used": "Promesa emocional (empezar hoy para llegar a diciembre con el hábito andando)",
+    "ad_format": "Lifestyle In-Use Photo Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Natural photo colors graded toward the brand: warm cream wall #FBF3DC, lemon yellow #F2DC4A in props (napkin, mug, orange juice tone), metallic gold #C9A441 / #E6CF7A in the warm blurred lights, near-black #111111 for the text, amber brown #8A4B14 (bottle glass), soft white #FFFFFF highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad in natural editorial photography. The woman is shown from the waist up, in action, fully dressed, never as a body close-up.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft morning window light with a cozy end-of-year feeling.",
+    "graphic_language": "Full-bleed photograph with text set directly on the clean wall; no boxes, panels or graphics.",
+    "text_typography": "Headline in a geometric sans-serif, extra-bold, all uppercase, tight leading (Montserrat ExtraBold / Gotham Black style), solid near-black, left-aligned. Subtitle in the same geometric sans, regular weight, sentence case, near-black. No outlines and no drop shadows on the text."
+  },
+  "creative_objective": "Make her feel that December is close and that today is a good day to start her ritual, so she arrives with the habit already running, without promising any result for that date. Preserve the exact structure of the format: a full-bleed lifestyle photo with the person and the product in use on the right, and a bold headline with a short subtitle directly on the clean area of the photo on the left.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The woman putting the drops into her juice (emotion + action). 2) The headline on the clean wall. 3) The bottle in her hand, sharp, label to the camera. 4) The short subtitle.",
+    "composition_style": "Full-bleed photograph, rule of thirds. The woman and the product occupy the right 55-60% of the frame in a three-quarter medium shot from the waist up at eye level. The left 40% is a clean, softly lit cream kitchen wall that holds the text. Her gaze goes down to the glass, leading the eye to the product.",
+    "spacing_and_structure": "Headline block x 6-46% and y 8-30%, left-aligned, 3 lines; subtitle directly below it (about y 32-40%), never past x 46%. Bottle visible at about 20-24% of the canvas height, around x 55-75% and y 40-70%, label facing the camera, not cut by the frame. Her head within y 10-45%. Nothing important in the outer 5% margin. No text over her face or the product.",
+    "lighting_and_depth": "Soft natural window light from the left, so the wall is bright and airy and she is lit with soft wraparound light. Shallow depth of field (f/2-2.8 look, 50mm lens): woman and bottle sharp, background softly blurred with small warm golden bokeh lights on the right. Warm, true-to-life color grading with gentle contrast; real skin texture.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square full-bleed lifestyle photograph. On the right side, a woman of about 26 is caught mid-action in her kitchen in the morning, putting her drops into a glass of juice next to a served breakfast, lit by soft window light from the left. The bottle is sharp and clearly visible in her hand. Warm end-of-year string lights glow out of focus behind her on the right. The left side of the photo is a calm, clean cream wall where a bold left-aligned headline and a short subtitle sit directly on the image. No boxes, panels or other graphics.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "photographic scene",
+        "position": "Full canvas",
+        "visual_function": "The real context where the product is used; sets the mood",
+        "adaptation_rule": "A bright home kitchen in the morning with a cream wall; a warm string of fairy lights softly out of focus in the right background for a subtle end-of-year mood. The left 40% is a clean, low-detail wall for the text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "person",
+        "position": "Right 55-60% of the canvas, head within y 10-45%",
+        "visual_function": "Embodies the target customer and the calm of having a ritual",
+        "adaptation_rule": "Colombian woman of about 26, dark hair in a loose low bun, cream knit sweater, serene small smile, eyes on the glass, candid and mid-action. One person only.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "In her hands, around x 55-75% and y 40-70%",
+        "visual_function": "Shows exactly what is being sold while it is being used",
+        "adaptation_rule": "She holds the open amber bottle in one hand, label facing the camera, and with the other hand holds its black dropper just above a glass of orange juice, letting a drop fall. The bottle body and label are exactly as in the attached photo, sharp, at realistic scale.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "headline",
+        "position": "Left clean area, x 6-46% and y 8-30%, left-aligned",
+        "visual_function": "States the emotional hook the photo is showing",
+        "adaptation_rule": "The December hook in three uppercase lines, directly on the wall, no box.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "subheadline",
+        "position": "Directly below the headline, left-aligned, within x 6-46%",
+        "visual_function": "Grounds the emotion in what the product is",
+        "adaptation_rule": "One short supporting line in two lines.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Boxes, panels, cards or solid color blocks behind the text",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonial quotes",
+      "Benefit list, checkmarks or icons",
+      "Split screen, collage or before/after",
+      "Stickers, arrows or doodles",
+      "Additional people",
+      "Studio backdrop or isolated product cut-out",
+      "Bottom bar or banner",
+      "Christmas trees, Santa hats, gift boxes or any festive text",
+      "Logos or brand marks outside the product label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 full-bleed editorial lifestyle photograph, natural and believable, shot at eye level with a 50mm lens look at f/2.8. SCENE: a bright home kitchen in the morning with a clean warm-cream wall (#FBF3DC). Soft natural window light comes from the left. THE LEFT 40% of the frame is only the clean, softly lit cream wall, calm and free of objects, reserved for the text. ON THE RIGHT 55-60%: a Colombian woman of about 26, medium-brown skin, dark hair in a loose low bun, wearing a cozy cream knit sweater, framed in a three-quarter medium shot from the waist up, her head between 10% and 45% of the canvas height. She stands at a light wooden counter, caught mid-action with a serene small smile and her eyes on what she is doing: in her left hand she holds the open amber dropper bottle with its label facing the camera, and with her right hand she holds the bottle's black rubber-bulb dropper with its glass pipette just above a glass of orange juice, letting one drop fall into it. On the counter beside the glass, a served breakfast: a plate with arepa, scrambled eggs and avocado, a small bowl of fruit and a lemon-yellow cloth napkin. In the background on the right, softly out of focus, a string of small warm golden fairy lights along a shelf gives a subtle end-of-year mood as round bokeh. Woman and bottle are sharp; the background is softly blurred. Warm, true-to-life color grading with gentle contrast and real skin texture. TEXT, set directly on the clean wall with no box or panel: at the upper left (x 6-46%, y 8-30%) a bold left-aligned headline in three lines, extra-bold uppercase geometric sans-serif, solid near-black (#111111); directly below it (about y 32-40%) a short subtitle in two lines, regular-weight sentence-case geometric sans, near-black. No text over her face or over the product. THE PRODUCT, about 20-24% of the canvas height in her hand, is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck; its cap is a black ribbed screw collar with a glossy black rubber bulb dropper and a glass pipette, which in this scene is unscrewed and held in her other hand. A wraparound label covers most of the bottle body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No boxes behind the text, no button, no price, no badges, no icons, no Christmas tree, no gifts, no second person, no logo outside the product label, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Upper left, on the clean wall, x 6-46% and y 8-30%, 3 lines",
+      "text_style": "Extra-bold uppercase geometric sans-serif, each line about 6% of the canvas height, left-aligned, 3 lines, solid near-black on the bright cream wall",
+      "text": "LLEGA A DICIEMBRE\nCON TU RITUAL\nANDANDO"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, left-aligned, within x 6-46%",
+      "text_style": "Regular-weight geometric sans-serif, sentence case, about 3.2% of the canvas height, left-aligned, 2 lines, near-black",
+      "text": "Gotas diarias que acompañan\ntu apetito y tu energía."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One real-looking woman of about 26, waist up, in her kitchen in the morning, putting drops from the dropper into a glass of orange juice",
+    "The amber bottle with its yellow-to-white label, sharp and facing the camera in her hand, exactly as in the attached photo",
+    "A served breakfast on the counter beside the glass",
+    "Clean, calm cream wall on the left of the photo holding the text",
+    "Soft window light from the left, shallow depth of field and warm golden fairy lights out of focus in the right background"
+  ],
+  "final_generation_exclusions": [
+    "No boxes, panels or color blocks behind the text.",
+    "No CTA button, price, offer, discount or urgency badge.",
+    "No body close-ups and no revealing outfit; she is shown from the waist up in a sweater.",
+    "No Christmas tree, Santa hat, gift boxes or festive lettering; only soft blurred warm lights.",
+    "No second person, no collage, no before/after.",
+    "No brand logo or wordmark outside the product label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The headline invites her to have the habit running by December and promises no result for that date.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

@@ -1,0 +1,39 @@
+Square 1:1 ad that looks like a page from a sketchbook, on warm cream textured paper (#FBF3DC). TOP: a very bold, extra-bold uppercase geometric sans headline in solid near-black on one line across the full width. CENTER: two hand-drawn pencil-sketch illustrations (loose confident lines, crosshatch shading, realistic proportions) of the same young woman standing front view side by side, shown from the head to just below the knees, dark hair in a messy bun, wearing the same modest fitted dark tank top and full-length dark leggings. The two figures have exactly the same body shape, size and proportions; only posture, facial expression and tint color differ. LEFT FIGURE: shoulders slightly slouched, tired half-closed eyes, flat low-energy expression, skin shaded with muted terracotta-red hatching (#B5452C). RIGHT FIGURE: upright relaxed posture, bright eyes, soft confident smile, skin shaded with warm golden-yellow hatching (#C9A441 / #F2DC4A). CALLOUTS: on the far left margin, three handwritten two-line notes in a neat casual marker font, each with a larger terracotta-red keyword on the first line and a smaller near-black second line, joined to the left figure by thin dashed terracotta lines: the first points to her head, the second to her stomach, the third to her legs and has small hand-drawn dash rays around it. Mirrored on the far right margin, three handwritten two-line notes with a larger gold keyword and a smaller near-black second line, joined to the right figure by thin dashed gold lines at head, stomach and legs; the third has small hand-drawn four-point sparkles around it. BOTTOM CENTER: the product, rendered photorealistically, standing front view between and slightly in front of the two figures, with a soft contact shadow, its base near the bottom edge. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No price, no CTA button, no logo outside the product label, no stars, no 'before/after' labels, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top, one line, full width): "LO PRIMERO QUE SE NOTA" — Extra-bold uppercase geometric sans, solid near-black, very large, one line
+- left callout 1 (points to the head of the left figure) (Far left, head height): 2 stacked lines: line 1: "Cabeza"; line 2: "embotada" — Handwritten marker font; first line larger in terracotta red, second line smaller in near-black
+- left callout 2 (points to the stomach of the left figure) (Far left, stomach height): 2 stacked lines: line 1: "Apetito"; line 2: "dormido" — Handwritten marker font; first line larger in terracotta red, second line smaller in near-black
+- left callout 3 (points to the legs of the left figure, with dash rays) (Far left, leg height): 2 stacked lines: line 1: "Pila"; line 2: "en cero" — Handwritten marker font; first line larger in terracotta red, second line smaller in near-black
+- right callout 1 (points to the head of the right figure) (Far right, head height): 2 stacked lines: line 1: "Cabeza"; line 2: "despejada" — Handwritten marker font; first line larger in gold, second line smaller in near-black
+- right callout 2 (points to the stomach of the right figure) (Far right, stomach height): 2 stacked lines: line 1: "Apetito"; line 2: "despierto" — Handwritten marker font; first line larger in gold, second line smaller in near-black
+- right callout 3 (points to the legs of the right figure, with sparkles) (Far right, leg height): 2 stacked lines: line 1: "Pila"; line 2: "para entrenar" — Handwritten marker font; first line larger in gold, second line smaller in near-black
+
+BRAND IDENTITY:
+- color_palette: Warm cream paper background #FBF3DC; near-black #111111 (headline, sketch lines, second line of each callout); muted terracotta red #B5452C for the left figure tint and left callout keywords; metallic gold #C9A441 with lighter gold highlight #E6CF7A and lemon yellow #F2DC4A for the right figure tint, right callout keywords and sparkles; amber brown #8A4B14 (bottle glass); soft white #FFFFFF highlights.
+- text_typography: Headline in a geometric sans-serif, extra-bold, all uppercase, solid near-black, one line (Montserrat ExtraBold / Gotham Black style). Callouts in a neat casual handwritten marker font: first word larger and colored, second line smaller in near-black. No outlines and no drop shadows on the text.
+
+MANDATORY ELEMENTS:
+- Warm cream textured paper background
+- Two pencil-sketch figures of the same woman, front view, side by side, with identical body shape and size: left slouched and tired in terracotta hatching, right upright and smiling in golden hatching
+- Thin dashed pointer lines from each callout to head, stomach and legs of its figure
+- Small hand-drawn dash rays by the third left callout and small sparkles by the third right callout
+- The amber dropper bottle at bottom center, photorealistic, exactly as in the attached photo
+
+STRICT EXCLUSIONS:
+- No difference in body shape, weight, curves or size between the two figures; no enlarged or emphasized body parts; no revealing outfit.
+- No 'antes' / 'después' labels, no clothing sizes, no weight figures.
+- No price, offer, discount or CTA.
+- No brand logo or wordmark outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any difference in body shape, weight or size between the two figures
+- Do not add: Callouts about body parts looking bad or good, clothing sizes or weight
+- Do not add: Price, offer, discount, CTA button
+- Do not add: Brand logo or wordmark outside the product label
+- Do not add: Rating stars, testimonials, trust seals, bottom bars
+- Do not add: 'Antes' / 'Después' labels
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

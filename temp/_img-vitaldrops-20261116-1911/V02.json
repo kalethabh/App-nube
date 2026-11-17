@@ -1,0 +1,116 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "uploaded reference (R02)",
+    "reference_style": "Minimalist photographic timeline ad: three cut-out studio photos of the same woman on a plain light background with day labels and the product below",
+    "angle_used": "Transformación / resultado (del hábito: tres días del ritual)",
+    "ad_format": "Single Image Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC; lemon yellow #F2DC4A (product label, accents); metallic gold #C9A441 with lighter gold highlight #E6CF7A; near-black #111111 (label text); amber brown #8A4B14 (bottle glass); soft white #FFFFFF for highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with natural studio photography. The woman is shown in action (holding the drops, eating, ready to train), never as a body close-up.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused daylight, no harsh shadows.",
+    "graphic_language": "Plain seamless cream backdrop, generous margins, soft contact shadows under the people and the product, no panels and no decorations.",
+    "text_typography": "Labels in a geometric sans-serif, extra-bold, all uppercase, solid near-black (Montserrat ExtraBold / Gotham Black style). No outlines, no shadows, no gradients on the text."
+  },
+  "creative_objective": "Show, with almost no text, the same woman on three dates of her daily ritual: day 1 with her drops, day 14 eating with appetite, day 30 ready to train with energy. Preserve the minimal structure of the source: three photos side by side, one day label under each, the bottle alone at bottom center. Her body is identical in all three photos; only what she does and her expression change.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The three photos of the woman, read left to right. 2) The three bold black day labels. 3) The bottle at bottom center.",
+    "composition_style": "Three equal columns with one cut-out photo each in the upper two thirds; labels aligned on one baseline; the product centered alone in the lower third.",
+    "spacing_and_structure": "Wide clean cream margins, equal gaps between the three figures, clear empty space on both sides of the bottle.",
+    "lighting_and_depth": "Soft even studio light from the front, gentle contact shadows on the cream floor, no dramatic contrast.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Plain light background. Upper two thirds: three studio photos of the same woman in the same outfit standing side by side in three equal columns. Directly under each photo, a bold black uppercase day label. Lower third, centered: the product bottle alone, front view, with a soft contact shadow. The source also has a brand wordmark at the top center, which is removed and left as background.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "three photos of the same person",
+        "position": "Upper two thirds, three equal columns",
+        "visual_function": "Timeline read from left to right",
+        "adaptation_rule": "Same woman, same outfit and same body in all three; shown facing the camera from the knees up doing a ritual step in each (holding the dropper, eating from a full bowl, holding a dumbbell and smiling). No body-shape change.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "day labels",
+        "position": "Centered under each photo, on one baseline",
+        "visual_function": "Dates each moment of the timeline",
+        "adaptation_rule": "Same bold black uppercase labels, in Spanish",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "Lower third, centered",
+        "visual_function": "Signs the timeline as the constant of the ritual",
+        "adaptation_rule": "The user's amber dropper bottle exactly as in the attached photo",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Clean, distraction-free stage",
+        "adaptation_rule": "Plain seamless warm cream (#FBF3DC) instead of white",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Headline, subtitle or any text besides the three day labels",
+      "Brand logo or wordmark outside the product label (the top wordmark of the source is removed)",
+      "Price, offer, discount, CTA button",
+      "Benefit lists, icons, arrows, badges, stars, testimonials",
+      "Any before/after body comparison or change in the woman's body shape between photos"
+    ]
+  },
+  "visual_prompt": "Square 1:1 minimalist ad on a plain seamless warm cream background (#FBF3DC), no panels, no decorations, the top area left as empty cream space. UPPER TWO THIRDS: three natural, photorealistic studio photos of the same Colombian woman, about 26 years old, light-brown skin, dark hair in a high ponytail, wearing the same outfit in all three (a fitted cream short-sleeve t-shirt and terracotta high-waist leggings), standing side by side in three equal columns, each framed from the knees up, facing the camera, at the same scale, with soft contact shadows. Her body shape, size and proportions are exactly the same in all three photos; only her action and expression change. Left photo: she holds the amber dropper bottle in one hand and the dropper in the other, calm neutral expression. Center photo: she holds a full bowl of breakfast (fruit, oats, eggs) and lifts a spoon to her mouth, smiling with appetite. Right photo: she holds a small dumbbell in one hand with the other hand on her hip, a big energetic smile, a small towel over her shoulder. Directly under each photo, on one shared baseline, a bold black uppercase day label. LOWER THIRD, centered and alone: the product standing front view at eye level with a soft contact shadow. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. The small bottle she holds in the left photo is the same product. Soft even studio lighting, light and warm mood. The only text in the image is the three day labels. No headline, no logo, no price, no CTA button, no icons, no arrows, no badges, no stars.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "day label 1",
+      "reference_position": "Centered under the left photo",
+      "text_style": "Extra-bold uppercase geometric sans, solid near-black, medium-large",
+      "text": "DÍA 1"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "day label 2",
+      "reference_position": "Centered under the center photo",
+      "text_style": "Extra-bold uppercase geometric sans, solid near-black, medium-large",
+      "text": "DÍA 14"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "day label 3",
+      "reference_position": "Centered under the right photo",
+      "text_style": "Extra-bold uppercase geometric sans, solid near-black, medium-large",
+      "text": "DÍA 30"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Plain seamless warm cream background",
+    "Three photos of the same woman, same outfit and identical body, side by side from the knees up: holding the dropper bottle, eating from a full bowl, holding a dumbbell and smiling",
+    "The amber dropper bottle alone at bottom center, exactly as in the attached photo, with a soft contact shadow"
+  ],
+  "final_generation_exclusions": [
+    "No change in the woman's body shape between photos; no views from behind; no body close-ups; no before/after body comparison.",
+    "No brand logo or wordmark at the top or anywhere outside the product label.",
+    "No headline, subtitle, price, offer or CTA.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The timeline shows habits, not body changes.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "T003",
+  "creado": "2026-11-16T23:43:11.468Z",
+  "piezas": [
+    {
+      "pieza": "V02_1x1",
+      "orden": "U0002",
+      "modo": "generar",
+      "version": 1
+    }
+  ]
+}

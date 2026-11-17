@@ -1,0 +1,39 @@
+Square 1:1 bold typographic ad on a completely flat, solid lemon-yellow background (#F2DC4A) with at most a barely visible paper grain; no photo, no pattern, no gradient. HEADLINE: a huge left-aligned headline in an extra-bold / black-weight uppercase geometric sans-serif, solid near-black (#111111), tight letter-spacing and tight leading, set in exactly 4 stacked lines that read as one solid block. The block starts at the 7% top margin, ends at about 67% of the canvas height and runs from the 7% left margin toward the 93% right margin; each line is about 13% of the canvas height. The headline includes its Spanish angle quotation marks (« ») and its opening and closing question marks (¿ ?) and the comma, all in the same heavy black type. KEY WORD: only the word COMIENDO, on the fourth line, sits on a single hand-drawn soft-white marker / brush swipe, slightly uneven at the edges, placed behind the word so the black letters stay fully legible; nothing else is highlighted. FOOTER ZONE (from about 72% to 93% of the canvas height): at the bottom left, aligned with the headline's left edge and kept within the left 50% of the width, a short support sentence in two lines, medium-weight geometric sans, sentence case, near-black, about 3.2% of the canvas height per line. At the bottom right, inside the safe margin, the product stands upright, front view, small, about 20% of the canvas height, its base at about 93% of the canvas height, with soft studio light, a crisp contact shadow and a faint drop shadow so it separates clearly from the yellow background. The product never touches the headline or the support line. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. Nothing else on the canvas: no people, no speech bubble, no shapes, no button, no price, no logo, no extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top-left, from the 7% top margin to about 67% of the height, filling about 86% of the width, 4 stacked lines): 4 stacked lines: line 1: "«MIJA,"; line 2: "¿USTED SÍ"; line 3: "ESTÁ"; line 4: "COMIENDO?»" — Extra-bold / black uppercase geometric sans-serif, tight letter-spacing, huge (each line about 13% of the canvas height), left-aligned, solid near-black on lemon yellow; the word COMIENDO on a soft-white marker swipe
+- support line (Bottom-left footer zone, aligned with the headline's left edge, max 50% of the width): 2 stacked lines: line 1: "Gotas diarias que acompañan"; line 2: "tu apetito y tu energía." — Medium-weight geometric sans-serif, sentence case, about 3.2% of the canvas height, 2 lines, left-aligned, near-black
+
+BRAND IDENTITY:
+- color_palette: Flat lemon yellow background #F2DC4A; near-black #111111 for all text; soft white #FFFFFF only for the marker swipe behind the key word. Maximum three colors on the canvas, not counting the product (amber brown #8A4B14 glass, black dropper, yellow-to-white label).
+- text_typography: Headline in a geometric sans-serif, extra-bold / black weight, all uppercase, tight letter-spacing and tight leading (Montserrat ExtraBold / Gotham Black style), solid near-black. Support line in the same geometric sans, medium weight, sentence case, near-black. No outlines and no drop shadows on the text.
+
+MANDATORY ELEMENTS:
+- Flat solid lemon-yellow background
+- Giant left-aligned near-black headline filling about two thirds of the canvas in 4 stacked lines
+- One soft-white hand-drawn marker swipe behind the word COMIENDO only
+- The amber dropper bottle, small, in the bottom-right corner with a crisp contact shadow, exactly as in the attached photo
+
+STRICT EXCLUSIONS:
+- No people, faces, hands, speech bubbles or background photos.
+- No large or centered product; the bottle stays small in the bottom-right corner.
+- No second highlighted word; only COMIENDO has the marker swipe.
+- No price, offer, discount, CTA button, badges or icons.
+- No brand logo or wordmark outside the product label.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Large or centered product
+- Do not add: Subheadline block directly under the headline
+- Do not add: CTA button
+- Do not add: Price, discount, offer or urgency badge
+- Do not add: Trust seals, guarantee or certification badges
+- Do not add: Benefit list or icons
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: People, lifestyle scenes or background photos
+- Do not add: Decorative shapes, stickers, arrows, speech bubbles or emojis
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks outside the product label
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

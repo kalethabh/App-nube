@@ -1,0 +1,158 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V08",
+    "structure_source": "library format F08 (Beneficios con íconos)",
+    "reference_style": "Clean two-column benefits ad: a large product standing in front of a tall brand-colored arch on the left and a vertical stack of icon-tile-plus-text benefits on the right, under a centered headline",
+    "angle_used": "Beneficio principal (el ritual diario explicado en cuatro beneficios)",
+    "ad_format": "Benefit Icons Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Warm cream background #FBF3DC in a soft gradient to a slightly lighter cream; metallic gold #C9A441 with lighter gold highlight #E6CF7A for the arch panel; lemon yellow #F2DC4A for the icon tiles; near-black #111111 for the headline, benefit texts and line icons; amber brown #8A4B14 (bottle glass); soft white #FFFFFF highlights.",
+    "visual_style": "Clean, bright beauty-supplement ad with a studio product shot and flat graphic elements. No people.",
+    "visual_atmosphere": "Light, warm, feminine, optimistic and trustworthy; soft diffused studio light, no harsh shadows.",
+    "graphic_language": "One tall arch panel with a fully rounded top, solid rounded-square tiles with simple monoline icons, generous cream margins, soft contact shadow under the product.",
+    "text_typography": "Headline in a geometric sans-serif, extra-bold, all uppercase, tight leading (Montserrat ExtraBold / Gotham Black style), solid near-black, centered. Benefit texts in the same geometric sans, bold, sentence case, near-black, left-aligned. No outlines and no drop shadows on the text."
+  },
+  "creative_objective": "Make the main benefit clear in three seconds: a daily ritual to work on your curves, proven by four short benefits. Preserve the exact structure of the format: centered headline on top, the large bottle in front of a tall arch on the left, and a column of four icon tiles with short texts on the right.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline. 2) The product framed by the gold arch on the left. 3) The benefit stack on the right, read top to bottom, with the yellow icon tiles as visual anchors.",
+    "composition_style": "Asymmetric two-column grid under a centered, full-width headline. The left column (6% to 50% of the width) holds the tall arch with the product standing in front of it; the right column (54% to 94% of the width) holds the benefit stack. Both share the same vertical band below the headline.",
+    "spacing_and_structure": "Headline zone: 6-21% of the canvas height, centered, up to 88% of the width, 2 lines. Arch panel: from about 10% to 46% of the width and from about 28% to 94% of the height, fully rounded top. Product: centered on the arch, base at about 90% of the height, about 54% of the canvas height. Benefit column: four rows evenly spaced between about 28% and 92% of the height, each about 13-14% tall; icon tile on the left of each row, text to its right, vertically centered. About 4% of empty space between the arch and the benefit column.",
+    "lighting_and_depth": "Soft studio light from the upper left; camera slightly below the product's midline so the bottle looks tall and confident. Soft contact shadow at the base of the arch. The arch has a very subtle vertical gradient and a faint soft shadow. Icon tiles and text are flat, with no shadows.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a soft warm-cream gradient background. A bold centered near-black headline in two lines spans the top. Below it, in the left half, a tall arch-shaped panel (rectangle with a fully rounded top) in metallic gold, with the user's bottle standing large in front of it, its base near the bottom of the arch. In the right half, four benefit rows are stacked with equal spacing; each row has a solid lemon-yellow rounded-square tile with a simple near-black line icon, followed by a short bold benefit text. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Calm brand-colored base that keeps the layout clean and scannable",
+        "adaptation_rule": "Soft warm-cream gradient (#FBF3DC to a slightly lighter cream). Smooth, no patterns or textures.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, 6-21% of the canvas height, up to 88% of the width",
+        "visual_function": "States the main promise that the benefits below support",
+        "adaptation_rule": "The promise of the daily ritual in two centered uppercase lines.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "arch backdrop panel",
+        "position": "Left column, from about 10% to 46% of the width and from about 28% to 94% of the height, fully rounded top",
+        "visual_function": "Frames the product like a showcase niche",
+        "adaptation_rule": "Solid arch in metallic gold #C9A441 with a very subtle vertical gradient toward #E6CF7A and a faint soft shadow. Flat shape, no texture, no text on it.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "In front of the arch, centered on it, base at about 90% of the canvas height; about 54% of the canvas height",
+        "visual_function": "Main visual anchor; shows what the ritual is",
+        "adaptation_rule": "The user's amber dropper bottle exactly as in the attached photo, front view seen from slightly below, upright, with a soft contact shadow and a visible band of gold arch above and around it.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "benefit icon tiles (4)",
+        "position": "Right column, at the left edge of each row (starting at about 54% of the width), four tiles stacked with equal spacing",
+        "visual_function": "Visual anchors that make each benefit scannable",
+        "adaptation_rule": "Solid lemon-yellow rounded-square tiles about 9% of the canvas on each side, each with one simple near-black monoline icon (near-black instead of white so it reads on yellow): 1) a plate with fork and knife, 2) a lightning bolt, 3) a small leaf sprig, 4) a dumbbell. Same style, stroke and size.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "benefit texts (4)",
+        "position": "Right column, to the right of each tile (from about 66% to 94% of the width), vertically centered on it",
+        "visual_function": "Names each benefit in a few words",
+        "adaptation_rule": "One short benefit per row, max 2 lines, from the saved benefits of the product.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Trust seals, guarantee or certification badges",
+      "Callout lines or arrows pointing at the product",
+      "Numbers or numbering on the benefit rows",
+      "Divider lines, boxes or cards behind each benefit",
+      "Round pedestal or circular backdrop shape",
+      "Rating stars, reviews or testimonials",
+      "Subheadline or paragraph text",
+      "People or lifestyle scenes",
+      "More than 4 benefits",
+      "Bottom bar or banner",
+      "Logos or brand marks outside the product label"
+    ]
+  },
+  "visual_prompt": "Square 1:1 clean benefits ad on a smooth warm-cream gradient background (#FBF3DC to a slightly lighter cream), no patterns or textures. TOP: a bold centered headline in two lines, extra-bold uppercase geometric sans-serif, solid near-black (#111111), tight leading, occupying from 6% to 21% of the canvas height and up to 88% of the width. LEFT HALF: a tall arch-shaped panel (a rectangle with a fully rounded, semicircular top) in solid metallic gold (#C9A441) with a very subtle vertical gradient toward lighter gold (#E6CF7A) and a faint soft shadow, running from about 10% to 46% of the canvas width and from about 28% to 94% of the height; flat shape, no texture, no text on it. In front of the arch, centered on it, the product stands large and upright, front view photographed from slightly below its midline with soft studio light from the upper left, about 54% of the canvas height, its base resting at about 90% of the canvas height with a soft contact shadow; a band of gold arch remains visible above and around the bottle. RIGHT HALF (from 54% to 94% of the width): four benefit rows stacked vertically with equal spacing between about 28% and 92% of the height. Each row starts with a solid lemon-yellow (#F2DC4A) rounded-square tile, about 9% of the canvas on each side with generously rounded corners, holding one simple near-black monoline icon; to the right of each tile, vertically centered on it, a short benefit text in bold sentence-case geometric sans, near-black, left-aligned, max 2 lines. Icons from top to bottom: 1) a plate with a fork and knife, 2) a lightning bolt, 3) a small leaf sprig, 4) a dumbbell. All four icons share the same line style, stroke weight and size. No cards, boxes or divider lines behind the rows; about 4% of empty cream space between the arch and the benefit column. The product is a 60 ml (2 fl oz) amber-brown glass dropper bottle with rounded shoulders and a short neck, topped with a black ribbed screw collar and a glossy black rubber bulb dropper; the glass pipette is visible inside the amber liquid. A wraparound label covers most of the body with a smooth vertical gradient from bright lemon yellow at the top to white / pale silver at the bottom. On the label, from top to bottom: the lowercase black wordmark 'amua', the large white uppercase name 'VITALDROPS', a small dark line 'All-In-One Multi-Herbal Supplement', five small thin-outlined circular ingredient badges in two rows (A, MA, L on the first row; F, BR on the second) with tiny captions, and 'Dietary Supplement 2 fl. oz. (60mL)' at the bottom. The bottle is roughly 2.6 times taller than wide including the dropper. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret the bottle or its label. No people, no button, no price, no badges, no stars, no numbers on the rows, no logo outside the product label, no extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, spanning up to 88% of the width, 2 lines",
+      "text_style": "Extra-bold uppercase geometric sans-serif, each line about 7% of the canvas height, centered, solid near-black",
+      "text": "TU RITUAL DIARIO PARA\nTRABAJAR TUS CURVAS"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "benefit 1 (plate icon)",
+      "reference_position": "Right column, first row, right of the first icon tile",
+      "text_style": "Bold geometric sans-serif, sentence case, about 3.6% of the canvas height, max 2 lines, left-aligned, near-black",
+      "text": "Acompaña\ntu apetito"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 2 (lightning icon)",
+      "reference_position": "Right column, second row, right of the second icon tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Energía\npara entrenar"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 3 (leaf icon)",
+      "reference_position": "Right column, third row, right of the third icon tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Contigo en los\ndías pesados"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 4 (dumbbell icon)",
+      "reference_position": "Right column, fourth row, right of the fourth icon tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Complemento\nde tu rutina"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Soft warm-cream gradient background",
+    "Tall metallic-gold arch panel with a fully rounded top in the left half",
+    "The amber dropper bottle, large, standing in front of the arch with a soft contact shadow, exactly as in the attached photo",
+    "Four benefit rows stacked in the right half with equal spacing",
+    "A solid lemon-yellow rounded-square tile with a simple near-black line icon at the start of each row (plate with cutlery, lightning bolt, leaf sprig, dumbbell)"
+  ],
+  "final_generation_exclusions": [
+    "No people, body silhouettes or lifestyle scenes.",
+    "No CTA button, price, offer, discount or urgency badge.",
+    "No trust seals, certification badges, stars or testimonials.",
+    "No numbers, cards, boxes or divider lines on the benefit rows; no more than four benefits.",
+    "No brand logo or wordmark outside the product label.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The benefits use 'acompaña' and 'complemento' and promise no measurable body change.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
