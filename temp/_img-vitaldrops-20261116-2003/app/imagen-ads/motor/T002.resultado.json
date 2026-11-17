@@ -4,12 +4,26 @@
     "V05_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 1,
+      "intentosApi": 2,
       "version": 1,
       "intentoAbierto": true,
-      "taskId": null
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
     },
     "V06_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1e712-730c-7cf0-afe5-7db7c830938e",
+      "firma": "1727383-1794878227857",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V07_1x1": {
       "orden": "g",
       "estado": "generando",
       "intentosApi": 1,
@@ -17,17 +31,13 @@
       "intentoAbierto": true,
       "taskId": null
     },
-    "V07_1x1": {
-      "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
-    },
     "V08_1x1": {
       "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
     },
     "V09_1x1": {
       "orden": "g",
@@ -42,6 +52,6 @@
       "version": 1
     }
   },
-  "actualizado": "2026-11-17T01:15:08.301Z",
+  "actualizado": "2026-11-17T01:17:12.804Z",
   "terminado": false
 }

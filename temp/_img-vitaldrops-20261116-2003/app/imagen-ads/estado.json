@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 3,
+    "R": 4,
     "A": 1,
     "T": 3
   },
@@ -65,6 +65,20 @@
         }
       ],
       "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "3ef82066-6ea4-4db0-8c80-0bf952d51459",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V06_1x1",
+          "firma": "1727383-1794878227857",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -113,24 +127,20 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": null,
-      "mensaje": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
@@ -217,7 +227,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -229,24 +239,26 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "1727383-1794878227857",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "1727383-1794878227857"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-17T01:17:08.608Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V07_1x1": {
       "v": "V07",
@@ -261,7 +273,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -283,7 +295,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
