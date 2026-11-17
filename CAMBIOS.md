@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17l · Nuevo estilo «Agregar»: sube un video y di lo que quieres
+
+- **En Estilos y en Nuevo anuncio hay un estilo nuevo, «Agregar»** (grupo «Desde tu video»). Subes un video (o pegas su link) y, si quieres, escribes con tus palabras lo que quieres: por ejemplo «este mismo video pero estilo Pixar narrado, que dure 1:30 y no 5 minutos, manteniendo el guion y los ángulos».
+- **La IA mira tu video entero:** cómo está armado escena por escena, cómo se ven las personas (edad, cuerpo, ropa, lugar, cámara), el gancho, el ángulo de venta y el antes y después. Si vende un cambio del cuerpo (por ejemplo glúteos y piernas), el antes y después se hace con la misma persona, la misma pose y la misma ropa, y el cambio se nota a primera vista.
+- **Si no pides otro estilo**, sale con el mismo look de tu video: como UGC si alguien habla a cámara, o con narrador si una voz cuenta sobre escenas. **Si pides uno** (Pixar, musical, plastilina, UGC…), se hace con ese estilo de siempre, con el guion de tu video condensado a la duración que pediste (se mantienen la estructura, el gancho, el ángulo y las frases clave; nunca se corta el final).
+- **El mejor modelo para cada escena:** las escenas donde alguien habla con Omni, el B-roll con uno más barato (Grok Imagine 1.5), el paso del antes al después con PixVerse… Si un modelo falla, sigue solo con el siguiente.
+- **Antes de gastar ves todo:** lo que entendió de tu video y tu pedido (estilo, duración, lo que se mantiene y lo que cambia), el guion, qué modelo hace cada escena y el costo. Nada se genera hasta que tocas «Me gusta, producir».
+
 ## 2026-11-17k · Editor: el audio como en CapCut (silenciar o ponerle pitido a una palabra)
 
 - **Nueva pestaña «Audio»** (panel de la izquierda): ves todo lo que dice la voz, palabra por palabra. **Toca una palabra** y elige **Silenciar** o **Pitido** solo para esa. Es gratis y no usa la IA.

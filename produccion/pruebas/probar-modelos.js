@@ -41,7 +41,10 @@ import {
   categoriaDeVideo,
   esModeloConDialogo,
   leerEleccion,
+  MODELOS_POR_PIEZA,
+  modeloDePieza,
   modeloParaClip,
+  modeloPedido,
   nombreModelo,
   normalizarEleccion,
 } from '../modelos-elegidos.js';
@@ -609,6 +612,58 @@ bloque('modeloParaClip', () => {
   caso('PixVerse con imagen final -> PixVerse', () => assert.equal(modeloParaClip(pv, { frameFinal: true }, 6, { deSiempre }), PIXVERSE));
   // Sin segundos, el primero que sirve.
   caso('sin segundos', () => assert.equal(modeloParaClip(brollOmni, {}, null, { deSiempre: brollDeSiempre }), OMNI));
+});
+
+// ------------------------------------------------------------------ 8 bis
+seccion('8 bis. El modelo de cada escena ("modelo_video", estilo Agregar)');
+bloque('modelo_video por toma y por B-roll', () => {
+  const m = {
+    estilo: 'agregar',
+    modo_audio: 'voz_en_off',
+    tomas: [
+      { n: 1, tipo: 'A', duracion: 5, modelo_video: 'omni' },
+      { n: 2, tipo: 'B', duracion: 6, modelo_video: 'pixverse' },
+      { n: 3, tipo: 'A', duracion: 4, modelo_video: 'nada' },
+      { n: 4, tipo: 'A', duracion: 4 },
+    ],
+    broll: [{ n: 1, duracion: 3, modelo_video: 'grok15' }, { n: 2, duracion: 3, modelo_video: 'kling-3.0/video' }, { n: 3, duracion: 3 }],
+  };
+  const e = ELECCION_POR_DEFECTO;
+  caso('la lista sale del catalogo (porPieza)', () => assert.deepEqual(Object.keys(MODELOS_POR_PIEZA).sort(), ['grok', 'grok15', 'kling', 'omni', 'pixverse']));
+  caso('modeloDePieza: clave, id de kie y desconocido', () => {
+    assert.equal(modeloDePieza('grok15'), GROK15);
+    assert.equal(modeloDePieza(KLING), KLING);
+    assert.equal(modeloDePieza('veo9'), null);
+    assert.equal(modeloDePieza(''), null);
+  });
+  caso('toma B con pixverse: va primero y despues la de siempre', () => assert.deepEqual(cascadaDelTrabajo(e, m, { clase: 'toma', n: 2, tipo: 'B' }), [PIXVERSE, OMNI, KLING]));
+  caso('toma con omni (ya es el primero): igual que siempre', () => assert.deepEqual(cascadaDelTrabajo(e, m, { clase: 'toma', n: 1, tipo: 'A' }), [OMNI, KLING]));
+  caso('B-roll con grok15, por clase y n', () => assert.deepEqual(cascadaDelTrabajo(e, m, { clase: 'broll', n: 1 }), [GROK15, OMNI, KLING]));
+  caso('B-roll con grok15, por su id (estimar-video)', () => assert.deepEqual(cascadaDelTrabajo(e, m, { id: 'broll-1', tipo: 'broll' }), [GROK15, OMNI, KLING]));
+  caso('B-roll con el id de kie de Kling: sin repetir', () => assert.deepEqual(cascadaDelTrabajo(e, m, { clase: 'broll', n: 2 }), [KLING, OMNI]));
+  caso('un valor desconocido no cambia nada', () => assert.deepEqual(cascadaDelTrabajo(e, m, { clase: 'toma', n: 3, tipo: 'A' }), [OMNI, KLING]));
+  caso('sin modelo_video: la de siempre', () => {
+    assert.deepEqual(cascadaDelTrabajo(e, m, { clase: 'toma', n: 4, tipo: 'A' }), [OMNI, KLING]);
+    assert.deepEqual(cascadaDelTrabajo(e, m, { clase: 'broll', n: 3 }), [OMNI, KLING]);
+  });
+  caso('los ganchos y los pasos de continuidad no lo usan', () => {
+    assert.equal(modeloPedido(m, { clase: 'gancho', n: 1, modelo_video: 'kling' }), null);
+    assert.equal(modeloPedido(m, { clase: 'paso', n: 2 }), null);
+  });
+  caso('con la eleccion de Ajustes, el pedido va primero sobre esa cascada', () =>
+    assert.deepEqual(cascadaDelTrabajo({ ...e, vozEnOff: 'grok15' }, m, { clase: 'broll', n: 2 }), [KLING, GROK15, OMNI]));
+  caso('pixverse en una toma sin imagen final: el clip sale del siguiente', () =>
+    assert.equal(modeloParaClip(cascadaDelTrabajo(e, { ...m, tomas: [{ n: 9, tipo: 'A', duracion: 5, modelo_video: 'pixverse' }] }, { clase: 'toma', n: 9, tipo: 'A' }), { frameFinal: false }, 5), OMNI));
+  caso('un bloque R con grok (v1, referencias) lo hace grok', () => {
+    const u = { estilo: 'agregar', modo_audio: 'dialogo_nativo', tomas: [{ n: 1, tipo: 'R', duracion: 6, modelo_video: 'grok' }] };
+    const c = cascadaDelTrabajo(e, u, { clase: 'toma', n: 1, tipo: 'R' });
+    assert.deepEqual(c, [GROK1, OMNI]);
+    assert.equal(modeloParaClip(c, { referencias: true }, 6), GROK1);
+  });
+  caso('un bloque R con kling (no recibe referencias) sale con Omni', () => {
+    const u = { estilo: 'agregar', modo_audio: 'dialogo_nativo', tomas: [{ n: 1, tipo: 'R', duracion: 6, modelo_video: 'kling' }] };
+    assert.equal(modeloParaClip(cascadaDelTrabajo(e, u, { clase: 'toma', n: 1, tipo: 'R' }), { referencias: true }, 6), OMNI);
+  });
 });
 
 // ------------------------------------------------------------------ 9

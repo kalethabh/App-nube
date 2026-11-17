@@ -30,6 +30,7 @@ function GaleriaEstilos({ estilos, elegidos, alternar, fijos }) {
     { id: 'voz-en-off', nombre: 'Voz en off' },
     { id: 'hablado', nombre: 'Hablados' },
     { id: 'cantado', nombre: 'Cantados' },
+    { id: 'referencia', nombre: 'Desde tu video' },
   ];
   // los que ya se pueden producir van primero
   const lista = estilos
@@ -271,6 +272,7 @@ function Voz({ estilo, ajuste, onCambio, bloqueado }) {
           </Tooltip>
         </div>
       )}
+      {estilo.clave === 'agregar' ? <p className="nv-preg-estilo__ayuda">Se usa si tu video es con narrador. Si alguien habla a cámara, sale con su propia voz.</p> : null}
     </div>
   );
 }
@@ -323,10 +325,11 @@ function CampoVideo({ valor, onCambio, bloqueado }) {
 function Pregunta({ p, valor, onCambio, bloqueado }) {
   if (p.tipo === 'video') {
     return (
-      <div className="nv-preg-estilo__item nv-preg-estilo__item--ancho">
+      <div className={`nv-preg-estilo__item nv-preg-estilo__item--ancho${p.obligatoria && !String(valor || '').trim() ? ' nv-preg-estilo__item--falta' : ''}`}>
         <div className="nv-preg-estilo__cabecera">
           <span className="nv-preg-estilo__texto">
             {p.texto}
+            {p.obligatoria ? <span className="nv-preg-estilo__marca">Obligatorio</span> : null}
           </span>
         </div>
         {p.ayuda ? <p className="nv-preg-estilo__ayuda">{p.ayuda}</p> : null}

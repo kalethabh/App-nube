@@ -80,6 +80,7 @@ import {
   cascadaVideo,
   leerEleccion,
   modeloParaClip,
+  modeloPedido,
   motivoParaSaltar,
   nombreModelo,
   normalizarEleccion,
@@ -363,7 +364,8 @@ function infoDelClip(m, d) {
 function cascadaDelClip(m, d, eleccion) {
   if (d.rol) return cascadaVideo(eleccion, 'vozEnOff');
   const info = infoDelClip(m, d);
-  const trabajo = info.clase === 'broll' ? { clase: 'broll', tipo: 'broll' } : { ...info.toma };
+  // (con su id: un B-roll o una toma con "modelo_video" propio lo lleva primero, como en generar-videos)
+  const trabajo = info.clase === 'broll' ? { id: d.id, clase: 'broll', tipo: 'broll' } : { ...info.toma };
   return cascadaDelTrabajo(eleccion, m, trabajo);
 }
 
@@ -429,6 +431,21 @@ export function costoVideos(m, { eleccion, reglaBroll = { aplica: false }, tiemp
     categorias.add(categoriaDelClip(m, c));
   }
   const notasModelo = [];
+  // El modelo elegido por escena (estilo Agregar, "modelo_video"): cuantas escenas van con cada uno, a la vista.
+  const propios = new Map(); // nombre del modelo -> { tomas, broll }
+  for (const d of est.detalle) {
+    const pedido = modeloPedido(m, { id: d.id, ...(String(d.id).startsWith('broll-') ? { clase: 'broll' } : {}) });
+    if (!pedido || d.rol) continue;
+    const nombre = nombreModelo(d.modelo ?? pedido) ?? d.modelo ?? pedido;
+    const x = propios.get(nombre) || { tomas: 0, broll: 0 };
+    if (String(d.id).startsWith('broll-')) x.broll++;
+    else x.tomas++;
+    propios.set(nombre, x);
+  }
+  if (propios.size) {
+    const partes = [...propios].map(([nombre, x]) => `${[x.tomas ? `${x.tomas} ${x.tomas === 1 ? 'toma' : 'tomas'}` : '', x.broll ? `${x.broll} B-roll` : ''].filter(Boolean).join(' y ')} con ${nombre}`);
+    notasModelo.push(`Modelo elegido por escena: ${partes.join('; ')}.`);
+  }
   for (const [k, n] of otros) {
     const [modelo, porque] = k.split('|');
     notasModelo.push(`${escenas(n)} ${porque} se ${n === 1 ? 'hace' : 'hacen'} con ${nombreModelo(modelo) ?? modelo}.`);

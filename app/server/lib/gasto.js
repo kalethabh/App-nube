@@ -98,7 +98,8 @@ function estimarPieza(carpeta, rel) {
   if (!d) return tipicos.clip;
   const m = leerJSON(path.join(carpeta, 'manifiesto.json'));
   const nombre = path.basename(rel).match(/^(toma|broll)-(\d+)/);
-  const pieza = nombre?.[1] === 'broll' ? { clase: 'broll' } : (m?.tomas || []).find((t) => t.n === Number(nombre?.[2])) || null;
+  // (el B-roll con su entrada del manifiesto: si pide su propio modelo, "modelo_video", se cobra con ese)
+  const pieza = nombre?.[1] === 'broll' ? { ...((m?.broll || []).find((b) => b.n === Number(nombre?.[2])) || {}), clase: 'broll' } : (m?.tomas || []).find((t) => t.n === Number(nombre?.[2])) || null;
   const cascada = cascadaDeLaPieza(eleccionDeCarpeta(carpeta), m, pieza);
   // el largo medido del mp4 pasa un poco del pedido: 0,15 s de margen
   return creditosDeCascada(cascada, Math.max(0, d - 0.15), { sonido: sonidoDeLaPieza(m, pieza) })?.primero ?? tipicos.clip;

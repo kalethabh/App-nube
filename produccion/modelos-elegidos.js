@@ -137,9 +137,57 @@ export function cascadaVideo(eleccion, idCategoria, { referencias = false } = {}
   return [...(referencias ? CASCADA_REFERENCIAS_DE_SIEMPRE : CASCADA_FRAMES_DE_SIEMPRE)];
 }
 
-/** Atajo: la cascada de un trabajo del plan (categoria + camino). */
+// ---------------------------------------------------------------- el modelo de UNA toma o UN B-roll
+//
+// Una toma o un B-roll del manifiesto puede pedir su propio modelo con "modelo_video" (lo escribe el estilo Agregar:
+// las tomas donde alguien habla con Omni, el B-roll barato con Grok Imagine 1.5, el antes y despues con PixVerse...).
+// Ese modelo va PRIMERO y despues sigue la cascada de siempre de su categoria (sin repetirlo): si falla o no puede
+// hacer ese clip (motivoParaSaltar), el clip sale del siguiente, como siempre. Los valores posibles son los de
+// catalogo-modelos.json -> "porPieza" (o el id de kie de uno de ellos). Sin el campo, nada cambia.
+
+/** { omni: 'google/gemini-omni-flash-1-2', kling: 'kling-3.0/video', ... }: lo que se puede pedir por toma. */
+export const MODELOS_POR_PIEZA = Object.freeze(
+  Object.fromEntries(Object.entries(CATALOGO.porPieza || {}).filter(([k, v]) => !k.startsWith('_') && typeof v === 'string' && MODELOS_VIDEO[v]))
+);
+
+/** El id de kie de un valor de "modelo_video" ('grok15' o el id completo), o null si no es uno de la lista. */
+export function modeloDePieza(valor) {
+  const v = String(valor ?? '').trim();
+  if (!v) return null;
+  if (Object.hasOwn(MODELOS_POR_PIEZA, v)) return MODELOS_POR_PIEZA[v];
+  return Object.values(MODELOS_POR_PIEZA).includes(v) ? v : null;
+}
+
+/**
+ * La entrada del manifiesto de un trabajo: una toma o un B-roll, por su clase/tipo y su n, o por su id ('toma-3',
+ * 'broll-2'). Los ganchos y los pasos de continuidad no tienen (null).
+ */
+export function piezaDelTrabajo(manifiesto, trabajo) {
+  const t = trabajo || {};
+  if (t.clase === 'gancho' || t.clase === 'paso' || t.rol) return null;
+  const id = String(t.id ?? '');
+  const esBroll = t.clase === 'broll' || t.tipo === 'broll' || id.startsWith('broll-');
+  const n = Number.isFinite(Number(t.n)) && t.n !== null && t.n !== undefined ? Number(t.n) : Number(id.replace(/^(toma|broll)-/, ''));
+  if (!Number.isFinite(n)) return null;
+  const lista = esBroll ? manifiesto?.broll : manifiesto?.tomas;
+  return (Array.isArray(lista) ? lista : []).find((x) => x && Number(x.n) === n) || null;
+}
+
+/** El modelo pedido para ese trabajo (su "modelo_video" o el de su entrada del manifiesto), como id de kie, o null. */
+export function modeloPedido(manifiesto, trabajo) {
+  const t = trabajo || {};
+  if (t.clase === 'gancho' || t.clase === 'paso' || t.rol) return null;
+  if (t.modelo_video !== undefined && t.modelo_video !== null) return modeloDePieza(t.modelo_video);
+  return modeloDePieza(piezaDelTrabajo(manifiesto, t)?.modelo_video);
+}
+
+/** La cascada con el modelo pedido primero (sin repetirlo). Sin modelo pedido, la misma. */
+export const conModeloPedido = (cascada, modelo) => (modelo ? [modelo, ...cascada.filter((x) => x !== modelo)] : [...cascada]);
+
+/** Atajo: la cascada de un trabajo del plan (categoria + camino), con el modelo propio de su toma si lo pide. */
 export function cascadaDelTrabajo(eleccion, manifiesto, trabajo) {
-  return cascadaVideo(eleccion, categoriaDeVideo(manifiesto, trabajo), { referencias: usaReferencias(trabajo) });
+  const base = cascadaVideo(eleccion, categoriaDeVideo(manifiesto, trabajo), { referencias: usaReferencias(trabajo) });
+  return conModeloPedido(base, modeloPedido(manifiesto, trabajo));
 }
 
 /** Si la eleccion es la de siempre en todas las categorias. */

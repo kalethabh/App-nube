@@ -80,6 +80,20 @@
         "porque": { "type": "string", "minLength": 1, "maxLength": 500 }
       }
     },
-    "cambios_hechos": { "type": "array", "items": { "type": "string", "maxLength": 500 } }
+    "cambios_hechos": { "type": "array", "items": { "type": "string", "maxLength": 500 } },
+    "modelos": {
+      "description": "Estilo Agregar: qué modelo de video hace cada tipo de escena y por qué, en palabras sencillas (lo ve el usuario al aprobar).",
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["modelo", "para"],
+        "properties": {
+          "modelo": { "type": "string", "minLength": 1, "maxLength": 60 },
+          "para": { "type": "string", "minLength": 1, "maxLength": 200 },
+          "porque": { "type": "string", "maxLength": 300 }
+        }
+      }
+    }
   }
 }

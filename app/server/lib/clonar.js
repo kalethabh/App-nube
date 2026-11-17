@@ -26,9 +26,26 @@ export function referenciaPedida(brief) {
 
 const adaptarGancho = (brief) => !/^\s*no\b/i.test(String(brief?.respuestas?.clonar_gancho || ''));
 
-function correr(args, { cwd = RAIZ, timeoutMs = 20 * 60000 } = {}) {
+/**
+ * El entorno de los scripts: el de siempre o, en modo prueba, el de los simuladores (la transcripcion va al ElevenLabs
+ * simulado y nada sale a internet, como el motor).
+ */
+async function entorno() {
+  try {
+    const m = await import('./modo-prueba.js');
+    if (m.modoPrueba()) return await m.entornoMotor();
+  } catch (e) {
+    console.warn(`[clonar] sin el entorno de modo prueba: ${e?.message || e}`);
+    return null;
+  }
+  return process.env;
+}
+
+async function correr(args, { cwd = RAIZ, timeoutMs = 20 * 60000 } = {}) {
+  const env = await entorno();
+  if (!env) return { codigo: -1, texto: 'modo prueba sin simuladores' };
   return new Promise((ok) => {
-    const p = spawn(process.execPath, args, { cwd, windowsHide: true, env: process.env });
+    const p = spawn(process.execPath, args, { cwd, windowsHide: true, env });
     let texto = '';
     const t = setTimeout(() => p.kill(), timeoutMs);
     p.stdout.on('data', (d) => (texto += d));
@@ -83,10 +100,44 @@ export async function prepararReferencia(slug, brief, avanzar = () => {}) {
 }
 
 /** Lo que va en la tarea del guion cuando el anuncio se clona de un video. */
-export function textoClonar(slug, brief, prep, { guionPropio = false } = {}) {
+export function textoClonar(slug, brief, prep, { guionPropio = false, agregar = false, desdeAgregar = null } = {}) {
   const pedida = referenciaPedida(brief);
   if (!pedida) return '';
   const c = `temp/${slug}/referencia`;
+  // «Agregar» que el pedido paso a otro estilo: el video ya esta entendido y el plan escrito; este estilo lo produce
+  if (desdeAgregar && prep?.ok) {
+    const p = desdeAgregar.plan || {};
+    const lista = (xs) => (Array.isArray(xs) && xs.length ? xs.map((x) => `  - ${x}`).join('\n') : '  - (nada en especial)');
+    return [
+      '## El video y el pedido del usuario (Agregar) — lo primero',
+      '',
+      `El usuario subió un video y pidió: «${String(desdeAgregar.pedido || 'el mismo video para su producto').replace(/»/g, '"')}». Otra sesión ya miró el video y escribió el plan: **este anuncio es de este estilo**, hecho con el ADN de ese video.`,
+      `- **Ya está escrito** en \`${c}/\`: \`adn.md\` (el ADN: estructura toma por toma, personas, ritmo, gancho y ángulo), \`guion-clonado.md\` (el guion del video para este producto${p.duracion ? `, ya condensado a ${p.duracion}` : ''}), \`adn-base.json\`, \`hoja-tomas.jpg\` y \`tomas/\`. Léelos con Read antes de escribir; **no los reescribas** ni sigas la skill de clonación.`,
+      `- **El guion clonado es el guion ganador** (Paso 0 de la skill de este estilo; en los cantados, el material de la letra): conserva su estructura, su gancho, su ángulo, sus objeciones y sus frases clave. Si hay que acortarlo, se condensa parte por parte (cada momento más corto), **nunca se corta el final** (la oferta y el llamado a la acción van siempre).`,
+      `- **El plan**: ${p.resumen || ''}`,
+      `  Se conserva:\n${lista(p.conserva)}`,
+      `  Cambia:\n${lista(p.cambia)}`,
+      p.duracion ? `- **La duración** es la del plan: ${p.duracion} (aproximada).` : '- **La duración** es la del video original.',
+      '- **El look es el de este estilo** (su skill manda en todo lo técnico); del video se toman los planos, las acciones y el ritmo. De la referencia nunca se copian marcas, logos, precios, caras ni la música.',
+      '- **El modelo de cada escena**: en el manifiesto, cada toma y cada B-roll lleva `"modelo_video"` y `"modelo_porque"`, con la tabla de `.claude/skills/anuncios-agregar/SKILL.md` (Paso 6, «El modelo de cada escena»). En los cantados, cuando se escriban las tomas.',
+      '- En "decisiones", la primera línea: "Tu pedido: <estilo> · <duración> · se conserva <lo principal>".',
+    ].join('\n');
+  }
+  // «Agregar» (skill anuncios-agregar): el video del usuario es el anuncio; la skill dice todo lo demas
+  if (agregar && prep?.ok) {
+    return [
+      '## Tu video (lo primero)',
+      '',
+      `El anuncio sale de este video. **Lo que dejó la app** en \`${c}/\`: \`adn-base.json\` (las tomas con sus tiempos y lo que se dice), \`hoja-tomas.jpg\` y \`tomas/\` (un fotograma por toma). La app ya hizo el análisis (Pasos 1 y 2 de la skill de clonación): sigue la skill \`anuncios-agregar\` desde su Paso 2.`,
+      `- Mira la hoja y **cada fotograma** con Read: las personas (edad, cuerpo, ropa), el lugar, la cámara y el antes y después se ven ahí. Corrige los cortes que estén mal.`,
+      `- Escribe \`${c}/adn.md\` (el ADN visual completo, Paso 3 de la skill) y \`${c}/guion-clonado.md\` antes del manifiesto.`,
+      `- ${/^\s*no/i.test(String(brief?.respuestas?.clonar_gancho || '')) ? 'El gancho y el ángulo **se conservan** del original (cambia solo lo que es del producto).' : 'El gancho y el ángulo **se adaptan** a este producto, con la misma mecánica del original.'}`,
+      '- En "decisiones", la primera línea: "Rehecho de: <nombre o link del video> · <N> tomas · <duración> s · formato <UGC o voz en off>".',
+    ].join('\n');
+  }
+  if (agregar) {
+    return `## Tu video\n\nNo se pudo preparar el video del usuario (${String(prep?.aviso || 'sin motivo').replace(/\.$/, '')}). Sin el video, «Agregar» no tiene guion: escribe \`temp/${slug}/app/bloqueo.json\` con ese motivo y responde BLOQUEADO.`;
+  }
   if (!prep?.ok) {
     return `## Clonar un video\n\nEl usuario pidió clonar un video, pero ${String(prep?.aviso || 'no se pudo preparar').replace(/\.$/, '').toLowerCase()}. Escribe el anuncio como siempre y anótalo en "decisiones".`;
   }
