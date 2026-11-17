@@ -2,7 +2,7 @@
 // Terminados, En producción, Con clips, Solo guion), buscador y orden. Cada uno abre su entrega (o su producción).
 import { useEffect, useMemo, useState } from 'react';
 import { Clapperboard, Cloud, Copy, Download, Package, Plus, Scissors, Search, SearchX, X } from 'lucide-react';
-import { Boton, CabeceraPagina, Chip, EsqueletoMiniaturas, EstadoVacio, MiniaturaVideo, Modal, Selector } from '../../componentes/index.js';
+import { AccionesAnuncio, Boton, CabeceraPagina, Chip, EsqueletoMiniaturas, EstadoVacio, MiniaturaVideo, Modal, Selector } from '../../componentes/index.js';
 import { useAnuncios, useDatos, miniatura, invalidar } from '../../datos/api.js';
 import { enlace, ir, rutas } from '../../datos/rutas.js';
 import { normalizar } from '../tablero/datos.js';
@@ -143,7 +143,7 @@ function PorProducto({ productos, q }) {
 }
 
 export default function Anuncios() {
-  const { datos, cargando } = useAnuncios({ cadaMs: 10000 });
+  const { datos, cargando, recargar } = useAnuncios({ cadaMs: 10000 });
   const [pestana, setPestana] = useState('todos');
   const [busqueda, setBusqueda] = useState('');
   const [orden, setOrden] = useState('recientes');
@@ -248,10 +248,8 @@ export default function Anuncios() {
       ) : visibles.length ? (
         <div className="rejilla-videos tb-rejilla" style={{ '--min': '196px' }} key={`${pestana}-${orden}`}>
           {visibles.map((a, i) => (
+            <div key={a.slug} className="con-acciones tb-listo" style={{ animationDelay: `${Math.min(i, 12) * 35}ms` }}>
             <MiniaturaVideo
-              key={a.slug}
-              className="tb-listo"
-              style={{ animationDelay: `${Math.min(i, 12) * 35}ms` }}
               imagen={a.miniatura}
               video={a.estado === 'listo' ? a.video : null}
               duracion={a.duracion}
@@ -262,6 +260,9 @@ export default function Anuncios() {
               aria-label={`Abrir ${a.titulo}`}
               href={a.estado === 'listo' || a.etapa === 'guion' ? enlace.anuncio(a.slug) : enlace.produccion(a.slug)}
             />
+            {/* «Me funciona» (con el video terminado) y Eliminar */}
+            <AccionesAnuncio slug={a.slug} titulo={a.titulo} funciona={a.estado === 'listo'} onEliminado={recargar} />
+            </div>
           ))}
         </div>
       ) : (
