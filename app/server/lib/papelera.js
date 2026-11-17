@@ -30,6 +30,20 @@ function mover(de, a) {
   }
 }
 
+/**
+ * Mueve una carpeta de temp/ a temp/_descartados/ (sin pisar otra con el mismo nombre). Devuelve su destino.
+ * Lo usan eliminarAnuncio y los lotes de «Anuncios de imagen» (rutas/imagen-ads.js).
+ */
+export function aLaPapelera(carpeta) {
+  const papelera = path.join(TEMP, '_descartados');
+  fs.mkdirSync(papelera, { recursive: true });
+  const nombre = path.basename(carpeta);
+  let destino = path.join(papelera, nombre);
+  for (let i = 2; existe(destino); i++) destino = path.join(papelera, `${nombre}-${i}`);
+  mover(carpeta, destino);
+  return destino;
+}
+
 export function eliminarAnuncio(slug) {
   slug = String(slug || '');
   if (!/^[a-z0-9][a-z0-9._-]*$/i.test(slug) || slug.includes('..')) throw new ErrorApp(400, 'Ese anuncio no existe.');
@@ -37,11 +51,7 @@ export function eliminarAnuncio(slug) {
   if (!existe(carpeta)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
   const fila = estadoDeLaFila();
   if (fila.activos.includes(slug) || fila.fila.includes(slug)) throw new ErrorApp(409, 'Este anuncio se está produciendo. Detenlo primero y después elimínalo.');
-  const papelera = path.join(TEMP, '_descartados');
-  fs.mkdirSync(papelera, { recursive: true });
-  let destino = path.join(papelera, slug);
-  for (let i = 2; existe(destino); i++) destino = path.join(papelera, `${slug}-${i}`);
-  mover(carpeta, destino);
+  const destino = aLaPapelera(carpeta);
   // sus videos y subtítulos terminados (output/<slug>_... o <slug>.mp4)
   const suyos = listar(OUTPUT).filter((n) => n.startsWith(`${slug}_`) || n.startsWith(`${slug}.`));
   if (suyos.length) {

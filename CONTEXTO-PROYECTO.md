@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17j1` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
+- **Versión actual:** `2026-11-17j2` (archivo `VERSION`): las imágenes respetan el ángulo y el gancho de la referencia.
   Antes: `2026-11-17b` (Editar con IA, PR #78), `2026-11-17a` (solo referencias ganadoras, PR #77) y `2026-11-16m` (imágenes rápidas).
 - **Actualización funcional sin cambiar la apariencia:** [PR #33](https://github.com/kalethabh/App-nube/pull/33),
   integrado el 2026-11-11. Incluye Claude/ChatGPT, anuncios de imagen, modelos/costos y mejoras del editor.
@@ -136,6 +136,19 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Lo último arriba y eliminar lotes de imágenes (2026-11-17, versión 2026-11-17j2)
+
+- Anuncios: `resumenAnuncio.fecha` = máx. de manifiesto, `plan-montaje.json`, `app/edicion.json` y los videos listos;
+  `firmaDe` suma `app/edicion.json` (si no, la caché no veía el cambio). Las pantallas ya ordenaban por `fecha`.
+- Lotes de imagen: `resumenDelLote.actualizado` (`ultimaModificacion`: creado, terminado y la fecha de la carpeta, `img/`,
+  `final/`, `app/`, brief y estado). `ordenarLotes` (TusLotes) y `fechaDe` (TusProductos) lo usan; lo que se está creando
+  y lo que te necesita sigue primero.
+- `DELETE /api/imagen-ads/:lote`: borrador → se borra; con algo hecho → `aLaPapelera(carpeta)` (nuevo en
+  `lib/papelera.js`, lo usa también `eliminarAnuncio`) a `temp/_descartados/`; creándose → 409 «detenlo primero».
+  UI: «Eliminar» en cada lote que no está en marcha, con modal que lo explica.
+- Pruebas: con una copia de un lote terminado (curl y Chromium: modal, eliminar, desaparece y queda en _descartados;
+  segundo DELETE 404), humo 82/82, imagen 147/147.
 
 ### Exportar del editor más rápido (2026-11-17, versión 2026-11-17j1)
 

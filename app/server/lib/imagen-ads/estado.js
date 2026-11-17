@@ -13,6 +13,7 @@
 //
 // La sesion de la estrategia (tandas.E001) guarda `motor`: la IA que la hizo ('claude' o 'codex'). La vista la manda
 // como `motor` (el informe dice quien hizo el lote).
+import fs from 'node:fs';
 import { completarVariacionesFieles } from './variaciones-fieles.js';
 import { leerJSON, existe, listar } from '../archivos.js';
 import { nuevoEstado, asegurarPiezas, aplicarRevision, listaDePiezas, cuentas, PEDIDO_TERMINADO } from './planificador.js';
@@ -372,7 +373,23 @@ export function resumenDelLote({ lote, carpeta, brief, conductor }) {
     foto: foto ? miniaturaDe(foto, 240) : null,
     creado: brief?.creado || null,
     terminado: conductor?.terminado || null,
+    // lo último que le pasó (creado, armándose, una imagen nueva, una corrección): «Tus lotes» va del más reciente
+    actualizado: ultimaModificacion(carpeta, [brief?.creado, conductor?.terminado]),
   };
+}
+
+/** La fecha más reciente entre las dadas y las de los archivos que cambian cuando el lote avanza (ISO o null). */
+function ultimaModificacion(carpeta, fechas) {
+  const ms = fechas.map((x) => Date.parse(x) || 0);
+  for (const rel of ['', 'img', 'final', 'app', 'brief.json', 'estado.json']) {
+    try {
+      ms.push(fs.statSync(rel ? `${carpeta}/${rel}` : carpeta).mtimeMs);
+    } catch {
+      // ese no está
+    }
+  }
+  const max = Math.max(0, ...ms);
+  return max ? new Date(max).toISOString() : null;
 }
 
 export { listaDePiezas, ordenDeV };
