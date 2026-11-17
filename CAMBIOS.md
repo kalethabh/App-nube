@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-17c · Las imágenes respetan el ángulo y el gancho de la referencia
+
+- **Lee el ángulo y el gancho de cada referencia antes de diseñar:** qué zona del cuerpo o qué deseo vende (glúteos y curvas, barriga, piernas hinchadas, tos…), qué la hace parar el scroll (antes y después, promesa, número o días, pregunta, testimonio) y cómo lo muestra. Tu imagen vende **lo mismo y de la misma forma**: si la referencia de VitalDrops es de glúteos, la tuya es de glúteos.
+- **Antes y después que se note:** el cambio es grande y se ve de un vistazo, en la misma zona del cuerpo (en glúteos: plano antes, más redondo y levantado después), con la misma persona, pose, ropa, cámara y luz, para que lo único distinto sea el resultado. Siempre con ropa (leggings, jeans o vestido).
+- **El título va con el gancho:** si el título de tu investigación no dice lo mismo que la referencia, se escribe el gancho de la referencia adaptado a tu producto (la misma idea, el mismo número o los mismos días).
+- Ya no se le asigna a cada imagen un ángulo distinto que podía chocar con el de la referencia.
+
 ## 2026-11-17b · Edita tus videos con tus palabras
 
 - **Editar con IA, debajo del video en el editor:** escribe lo que quieres y la IA lo hace. Por ejemplo:

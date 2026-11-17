@@ -102,20 +102,41 @@ const COPIAR_REFERENCIA =
 // MODO RÁPIDO («como pedirle a ChatGPT que me las varíe», 2026-11-16): la app arma cada V##.json sin la IA de texto.
 // El modelo ve la referencia (primera imagen) y el producto (segunda); el titular va exacto y los demás textos los
 // escribe el modelo, cortos y en español, con los beneficios del producto (app_rapido: 'copiar' | 'inspirar').
+// Lo primero que hace el modelo con la referencia (2026-11-17, pedido del usuario: «debe detectar el ángulo, el hook;
+// por ejemplo el VitalDrops es para glúteos; si hay antes y después debe verse el cambio notorio»): leer su ángulo, su
+// gancho y su formato, y conservarlos. Va en los dos modos rápidos y al copiar una referencia.
+const LEER_REFERENCIA =
+  'FIRST, READ THE REFERENCE AD before designing anything: ' +
+  '(a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); ' +
+  '(b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); ' +
+  '(c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). ' +
+  'Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; ' +
+  'never switch to another body area or another benefit.';
+// El antes y después: que el cambio se vea de un vistazo, en la misma zona del cuerpo.
+const ANTES_DESPUES =
+  'IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, ' +
+  'and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). ' +
+  'Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; ' +
+  'the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). ' +
+  'Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.';
 const RAPIDO_COPIAR =
-  'The FIRST attached image is a REFERENCE AD that already works. Make a variation of it for a different product, the way a designer would: ' +
-  'keep its layout, composition, block structure, visual hierarchy, spacing, background treatment, graphic style and typography ' +
+  'The FIRST attached image is a REFERENCE AD that already works. Make a variation of it for a different product, the way a designer would. ' +
+  LEER_REFERENCIA +
+  ' Keep its layout, composition, block structure, visual hierarchy, spacing, background treatment, graphic style and typography ' +
   '(same font style, weight, casing, relative sizes, text effects and text placement). ' +
   'Replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle. ' +
-  'The main headline must be EXACTLY the one listed below, in the place and style of the main headline of the reference. ' +
-  'Rewrite every other text of the reference (subtitles, bullets, badges, buttons) in short, natural Spanish for this product, using only the benefits listed below, with perfect spelling and accents. ' +
-  "Never keep the reference's brand, logo, product, prices, claims or wording.";
+  'MAIN HEADLINE: use the one listed below if it says the same thing as the hook of the reference (same angle); if it does not, write instead the hook of the reference rewritten for this product, in short Spanish, same idea and same structure (for example the same number, timeline or question). Put it in the place and style of the main headline of the reference. ' +
+  'Rewrite every other text of the reference (subtitles, bullets, badges, buttons) in short, natural Spanish for this product, keeping the same angle and using only the benefits listed below, with perfect spelling and accents. ' +
+  "Never keep the reference's brand, logo, product, prices, claims or wording. " +
+  ANTES_DESPUES;
 const RAPIDO_INSPIRAR =
-  'The FIRST attached image is a WINNING AD, used only as inspiration. Create a NEW ad for the product of the SECOND attached image ' +
-  'with the same kind of format (type of layout, visual hierarchy, amount of text, photographic or graphic style), but with a fresh composition of its own. ' +
-  'The main headline must be EXACTLY the one listed below and must be the biggest text. ' +
-  'Any other text (one short subtitle, two or three benefit bullets, a button) is written by you in short, natural Spanish for this product, using only the benefits listed below, with perfect spelling and accents. ' +
-  "Never copy the reference's brand, logo, product, prices, claims or wording.";
+  'The FIRST attached image is a WINNING AD, used as inspiration. Create a NEW ad for the product of the SECOND attached image. ' +
+  LEER_REFERENCIA +
+  ' Use the same kind of format (type of layout, visual hierarchy, amount of text, photographic or graphic style), but with a fresh composition of its own. ' +
+  'MAIN HEADLINE (the biggest text): use the one listed below if it fits that same angle; if it does not, write a new one in short Spanish with the same hook idea as the reference, for this product. ' +
+  'Any other text (one short subtitle, two or three benefit bullets, a button) is written by you in short, natural Spanish for this product, keeping the same angle and using only the benefits listed below, with perfect spelling and accents. ' +
+  "Never copy the reference's brand, logo, product, prices, claims or wording. " +
+  ANTES_DESPUES;
 
 // De extender_vertical.py (:110-112): con la foto del producto como segunda imagen.
 const PRODUCTO_SEGUNDA =
@@ -290,13 +311,13 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   const partes = rapido
     ? [rapido === 'copiar' ? RAPIDO_COPIAR : RAPIDO_INSPIRAR, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : referencia
-      ? [COPIAR_REFERENCIA, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)]
+      ? [COPIAR_REFERENCIA, LEER_REFERENCIA, ANTES_DESPUES, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)]
       : [strPy(ad.visual_prompt)];
 
   const capas = oPy(getPy(ad, 'text_layers', undefined), []);
   if (!vacioPy(capas)) {
     // (rápido: solo el titular va exacto; el resto lo escribe el modelo)
-    const lineas = [rapido ? 'MAIN HEADLINE (render exactly, no spelling changes; the other texts are yours, as said above):' : TITULO_TEXTOS_CUADRADO];
+    const lineas = [rapido ? 'MAIN HEADLINE (if it fits the angle and hook of the reference, render it exactly, no spelling changes; if not, follow the rule above; the other texts are yours):' : TITULO_TEXTOS_CUADRADO];
     for (const t of listaPy(capas)) {
       lineas.push(
         `- ${strPy(getPy(t, 'reference_function', 'text'))} ` +
