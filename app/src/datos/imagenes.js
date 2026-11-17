@@ -35,6 +35,9 @@ export const apiImagenes = {
   // los creativos de tendencia (TrendTrack): solo lectura, se eligen como cualquier referencia
   tendencias: () => pedirNuevo(`${BASE}/tendencias`),
   quitarDeBiblioteca: (id) => pedirNuevo(`${BASE}/biblioteca/${enc(id)}`, { metodo: 'DELETE' }),
+  /** Una ganadora tuya (subida o pegada) a una categoría (id existente o el nombre de una nueva). */
+  agregarGanadora: (archivo, categoria, marca = '') => pedirNuevo(`${BASE}/tendencias?categoria=${enc(categoria)}&marca=${enc(marca)}`, { metodo: 'POST', binario: archivo }),
+  borrarGanadora: (id) => pedirNuevo(`${BASE}/tendencias/${enc(id)}`, { metodo: 'DELETE' }),
   /** -> { url, ancho, alto, transparente }. En un lote ya generado cambia el archivo y rehace las imágenes con logo. */
   subirLogo: (lote, archivo) => pedirNuevo(`${BASE}/${enc(lote)}/logo`, { metodo: 'PUT', binario: archivo }),
   quitarLogo: (lote) => pedirNuevo(`${BASE}/${enc(lote)}/logo`, { metodo: 'DELETE' }),
