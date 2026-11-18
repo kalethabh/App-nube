@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18z · Editar el guion con lo que se ve, partes nuevas, y portadas en Estilos
+
+- En **«Editar a mano»**, debajo de lo que se dice está **«Lo que se ve»** (la escena). Cuando terminas de escribir una parte, la IA escribe sola lo que se ve, en segundos, siguiendo tu texto, los personajes y el estilo del anuncio. Lo puedes cambiar a mano o pedir otra versión con ✨.
+- **«Agregar parte aquí»** debajo de cada parte: escribes lo que se dice y lo que se ve se escribe solo. Una parte nueva se puede quitar con la ✕ antes de guardar.
+- Al **Guardar**, la IA pone tus textos tal cual y rehace las escenas (imagen y video) de esas partes para que muestren lo nuevo. Si solo cambiaste el texto de un anuncio con narrador, sigue siendo al instante y gratis.
+- **Cambiar el producto** ahora vive en **Estilos** (en «Especiales») y ya no está en el menú.
+- **Portadas que faltaban** en Estilos (Agregar, Cambiar el producto, Clonar un video, Más ganchos y Sketch de comedia): la app las hace sola con **ChatGPT Imágenes**, gratis con tu plan, un rato después de abrirla. Necesitas ChatGPT conectado en Ajustes → Conexiones; si no lo está, lo intenta de nuevo al otro día.
+
 ## 2026-11-18y · Lo que viene en el menú
 
 - En «Crear», con la marca «Pronto»: **Embudo WhatsApp**, **Landings** (el Generador de Landings) y **S.E.P**. Cada uno abre su pantalla de «Próximamente».

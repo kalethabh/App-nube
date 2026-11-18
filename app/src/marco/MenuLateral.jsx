@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
+import { CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -29,7 +29,7 @@ const GRUPOS = [
       { id: 'imagenes', texto: 'Anuncios de imagen', icono: Images, href: enlace.imagenes() },
       { id: 'investigacion', texto: 'Investigación de mercado', icono: Telescope, href: enlace.investigacion() },
       { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
-      { id: 'cambiar', texto: 'Cambiar el producto', icono: Repeat, href: enlace.cambiar() },
+      // (Cambiar el producto vive en Estilos, como un especial: 2026-11-18z)
       { id: 'whatsapp', texto: 'Embudo WhatsApp', icono: MessageCircle, href: enlace.embudoWhatsapp(), pronto: true },
       { id: 'landings', texto: 'Landings', icono: LayoutTemplate, href: enlace.landings(), pronto: true },
       { id: 'sep', texto: 'S.E.P', icono: Rocket, href: enlace.sep(), pronto: true },

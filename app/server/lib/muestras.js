@@ -25,7 +25,9 @@ export const ARCHIVO_DE_MUESTRA = /^(video\.mp4|imagen\.(jpe?g|png|webp))$/i;
 const IMAGENES = ['imagen.jpg', 'imagen.jpeg', 'imagen.png', 'imagen.webp'];
 
 const POR_CLAVE = new Map(ESTILOS.map((e) => [e.clave, e]));
-const claveValida = (clave) => typeof clave === 'string' && POR_CLAVE.has(clave);
+// (los especiales de la pantalla Estilos también tienen portada: la hace lib/portadas-estilos.js)
+const NOMBRE_ESPECIAL = { cambiar: 'Cambiar el producto', clonacion: 'Clonar un video', ganchos: 'Más ganchos', sketch: 'Sketch de comedia' };
+const claveValida = (clave) => typeof clave === 'string' && (POR_CLAVE.has(clave) || Object.hasOwn(NOMBRE_ESPECIAL, clave));
 
 export const urlMuestra = (clave, archivo) => `/archivos/muestra/${encodeURIComponent(clave)}/${encodeURIComponent(archivo)}`;
 
@@ -55,7 +57,7 @@ export function muestraDelPaquete(clave) {
   const imagen = IMAGENES.find((n) => esArchivo(path.join(dir, n))) || null;
   if (!video && !imagen) return null;
   const j = leerMuestraJSON(dir);
-  const estilo = POR_CLAVE.get(clave);
+  const estilo = POR_CLAVE.get(clave) || { nombre: NOMBRE_ESPECIAL[clave] };
   const titulo = typeof j.titulo === 'string' && j.titulo.trim() ? j.titulo.trim().slice(0, 120) : estilo.nombre;
   const duracion = Number(j.duracion);
   return {
