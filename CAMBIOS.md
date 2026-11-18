@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18f · Editar el guion a mano
+
+- En la hoja del guion, un botón **«Editar a mano»**: cada parte se vuelve un cuadro de texto, la escribes como la quieres y tocas **Guardar**.
+- **Con narrador** (Claymation, Pixar, Lego, Zack D Films, Realista con narrador, Agregar con voz en off…): tu texto se aplica al instante y sin costo a lo que lee la voz. La app revisa que el guion siga bien y, si algo no cuadra, lo deja como estaba.
+- **Cuando alguien habla en el video** (UGC, podcast, entrevista, objeto que habla): la frase va dentro de las indicaciones del video con sus tiempos, así que tu IA pone tus palabras tal cual y ajusta los tiempos y el video de esas partes.
+- Queda anotado en «Lo que cambió». Se puede editar hasta aprobar el guion; después, los textos se cambian en el editor.
+
 ## 2026-11-18e · La voz de ElevenLabs se ve, se escucha y se cambia en la pantalla del guion
 
 - En la pantalla del guion, al lado, una tarjeta nueva **«Voz del narrador»**: la voz de tu cuenta de ElevenLabs que se va a usar, con **Escuchar** y una lista para **cambiarla** (o volver a «Que la elija la app») hasta que se genera la voz.

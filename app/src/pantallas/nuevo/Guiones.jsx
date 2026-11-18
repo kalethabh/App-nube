@@ -98,8 +98,9 @@ const textos = (lista) => (Array.isArray(lista) ? lista : []).map((d) => (typeof
 
 // ---------------------------------------------------------------- piezas de la hoja
 
-function Parte({ p }) {
+function Parte({ p, edicion = null }) {
   const dialogo = Array.isArray(p.dialogo) ? p.dialogo.filter((d) => d && String(d.dice || '').trim()) : [];
+  const editando = Boolean(edicion) && !dialogo.length;
   return (
     <li className="nv-linea">
       <div className="nv-linea__marca">
@@ -116,6 +117,18 @@ function Parte({ p }) {
               </li>
             ))}
           </ul>
+        ) : editando ? (
+          <div className="nv-linea__editar">
+            {p.quien ? <span className={`nv-quien${p.lado === 'B' ? ' nv-quien--b' : ''}`}>{p.quien}</span> : null}
+            <AreaTexto
+              aria-label={`Lo que se dice en la parte ${p.n}`}
+              filas={Math.min(6, Math.max(2, Math.ceil(String(edicion.valor(p) || '').length / 70)))}
+              maxLength={600}
+              value={edicion.valor(p)}
+              onChange={(e) => edicion.cambiar(p.n, e.target.value)}
+              disabled={edicion.guardando}
+            />
+          </div>
         ) : (
           <p className="nv-linea__texto">
             {p.quien ? <span className={`nv-quien${p.lado === 'B' ? ' nv-quien--b' : ''}`}>{p.quien}</span> : null}
@@ -214,8 +227,29 @@ function Cabecera({ estilo, datos }) {
 
 // ---------------------------------------------------------------- la hoja de un guion hablado o con narrador
 
-function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false }) {
+function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null }) {
   const [todas, setTodas] = useState(false);
+  // editar a mano lo que se dice (cada parte en su cuadro); se guarda todo junto
+  const [editando, setEditando] = useState(false);
+  const [valores, setValores] = useState({});
+  const [guardando, setGuardando] = useState(false);
+  const empezar = () => {
+    setValores({});
+    setEditando(true);
+    setTodas(true);
+  };
+  const guardar = async () => {
+    const lineas = Object.entries(valores).map(([n, dice]) => ({ n: Number(n), dice }));
+    setGuardando(true);
+    try {
+      const ok = await onGuardarLineas?.(lineas);
+      if (ok !== false) setEditando(false);
+    } finally {
+      setGuardando(false);
+    }
+  };
+  const edicion = editando ? { valor: (p) => (valores[p.n] ?? p.dice ?? ''), cambiar: (n, v) => setValores((x) => ({ ...x, [n]: v })), guardando } : null;
+  const tocadas = Object.entries(valores).filter(([n, v]) => v !== (guion?.partes || []).find((p) => String(p.n) === n)?.dice).length;
   const partes = Array.isArray(guion?.partes) ? guion.partes.filter((p) => p && String(p.dice || '').trim()) : [];
   const mostradas = todas || partes.length <= LARGO_SIN_PLEGAR ? partes : partes.slice(0, VISIBLES);
   const faltan = partes.length - mostradas.length;
@@ -252,9 +286,30 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
               <Mic size={13} strokeWidth={2.2} /> {ENCABEZADO[estilo.clave] || 'Lo que se dice'}
             </span>
           </div>
+          {onGuardarLineas && !cambiando ? (
+            <div className="nv-editar-mano">
+              {editando ? (
+                <>
+                  <span className="t-chico t-2">{tocadas ? `${tocadas} ${tocadas === 1 ? 'parte cambiada' : 'partes cambiadas'}` : 'Toca un texto y escríbelo como lo quieres.'}</span>
+                  <div className="fila" style={{ '--hueco': '6px' }}>
+                    <Boton variante="fantasma" tamano="chico" onClick={() => setEditando(false)} disabled={guardando}>
+                      Cancelar
+                    </Boton>
+                    <Boton variante="primario" tamano="chico" icono={Check} onClick={guardar} cargando={guardando} disabled={!tocadas}>
+                      Guardar
+                    </Boton>
+                  </div>
+                </>
+              ) : (
+                <Boton variante="secundario" tamano="chico" icono={PenLine} onClick={empezar}>
+                  Editar a mano
+                </Boton>
+              )}
+            </div>
+          ) : null}
           <ol className="nv-lineas">
             {mostradas.map((p, i) => (
-              <Parte key={`${p.n}-${i}`} p={p} />
+              <Parte key={`${p.n}-${i}`} p={p} edicion={edicion} />
             ))}
           </ol>
           {faltan > 0 ? (
@@ -613,6 +668,26 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
     g.recargar();
   };
 
+  // editar a mano: con narrador se aplica al instante (gratis); si alguien habla en el video, lo ajusta la IA
+  const guardarLineas = async (lineas) => {
+    try {
+      const r = await apiNuevo.editarLineas(slug, lineas);
+      if (r?.conIA) {
+        setUltimoPedido('Tus textos, tal cual: ajustando los tiempos y el video de esas partes');
+        seguirMirando();
+        aviso({ tipo: 'info', titulo: 'Aplicando tus textos', texto: `${mayuscula(motor.nombre)} pone tus frases tal cual y ajusta los tiempos y el video de esas partes.` });
+      } else {
+        invalidar(`guion:${slug}`);
+        await g.recargar();
+        if (r?.cambiadas) aviso({ tipo: 'exito', titulo: 'Guion actualizado', texto: 'Tus textos ya son los que lee la voz. Sin costo.' });
+      }
+      return true;
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude guardar tus textos', texto: e?.message || 'Vuelve a intentarlo.', duracion: 9000 });
+      return false;
+    }
+  };
+
   const pedirCambio = async (pedidoNuevo) => {
     setEnviando(true);
     try {
@@ -762,7 +837,7 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
       ) : tipo === 'historia' ? (
         <HojaHistoria estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} />
       ) : (
-        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} />
+        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} />
       )}
       <aside className="nv-guion__lado" ref={lateral}>
         {leido.aprobado || cargando ? null : (

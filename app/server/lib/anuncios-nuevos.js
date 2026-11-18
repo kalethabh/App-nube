@@ -1598,6 +1598,81 @@ export function pedirCambios(slug, pedido) {
   return { ok: true };
 }
 
+/**
+ * PUT /api/anuncios/:slug/guion/lineas { lineas: [{ n, dice }] }: el usuario edita A MANO lo que se dice (2026-11-18).
+ * - Con narrador (voz en off, la voz todavía no generada): se aplica directo y gratis al manifiesto (la línea de la
+ *   toma, el texto de voz_en_off y donde la toma la repita) y a guion.json; se valida el manifiesto y, si no pasa,
+ *   vuelve todo como estaba. -> { directo: true, cambiadas }
+ * - Donde alguien habla en el video (UGC, podcast, entrevista, objeto parlante…), la frase va dentro de los prompts
+ *   de video con sus tiempos: se lo pide a la IA (la misma conversación del guion) con el texto exacto. -> { conIA: true }
+ */
+export async function editarLineas(slug, lineas) {
+  if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  const brief = leerBrief(slug);
+  const def = defDe(brief);
+  if (def?.familia === 'musical' || def?.familia === 'historia-musical') throw new ErrorApp(409, 'Las letras se cambian pidiéndolo con tus palabras.');
+  const s = leerSesion(slug);
+  if (enMarcha.has(slug) || sesionActiva(s?.uuid)) throw new ErrorApp(409, `${laIA()} todavía está trabajando en este guion. Espera a que termine.`);
+  if (aprobadoYProduciendo(slug, s)) throw new ErrorApp(409, 'Este guion ya se aprobó y está en producción: los textos se cambian en el editor.');
+  if (s?.estado !== 'listo') throw new ErrorApp(409, 'El guion todavía no está listo para editarlo.');
+  const g = leerJSON(path.join(appDe(slug), 'guion.json'));
+  const antes = new Map((g?.partes || []).map((p) => [p.n, String(p.dice || '')]));
+  const pedidas = (Array.isArray(lineas) ? lineas : [])
+    .map((x) => ({ n: Number(x?.n), dice: String(x?.dice ?? '').replace(/\s+/g, ' ').trim() }))
+    .filter((x) => Number.isInteger(x.n) && antes.has(x.n));
+  if (pedidas.some((x) => !x.dice)) throw new ErrorApp(400, 'Una parte quedó vacía: escribe lo que se dice o deja el texto que tenía.');
+  if (pedidas.some((x) => x.dice.length > 600)) throw new ErrorApp(400, 'Una parte es muy larga (más de 600 letras): pártela en dos o acórtala.');
+  const cambios = pedidas.filter((x) => x.dice !== antes.get(x.n));
+  if (!cambios.length) return { directo: true, cambiadas: 0 };
+
+  const m = leerJSON(path.join(dirDe(slug), 'manifiesto.json'));
+  const conNarrador = m?.modo_audio === 'voz_en_off' && Array.isArray(m.tomas) && !existe(path.join(TEMP, slug, 'audio', 'voz.mp3'));
+  if (!conNarrador) {
+    const pedido = [
+      'El usuario editó A MANO lo que se dice. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. No cambies las otras tomas.',
+      ...cambios.map((x) => `- Parte ${x.n}: «${x.dice}»`),
+    ].join('\n');
+    const respaldo = respaldar(slug);
+    guardarSesion(slug, { ...s, estado: 'cambiando', pedido, respaldo, cambios: [...(s.cambios || []), { pedido: `Editaste a mano ${cambios.length === 1 ? 'la parte' : 'las partes'} ${cambios.map((x) => x.n).join(', ')}`, aMano: true, fecha: ahora() }] });
+    lanzar(slug, { tipo: 'cambios', pedido });
+    return { conIA: true };
+  }
+
+  // con narrador: directo al manifiesto (lo que de verdad se produce) y a la hoja. Lo que ya no validaba antes (por
+  // ejemplo, una foto que quedó en la nube) no cuenta: solo se deshace si la edición agrega un error nuevo.
+  const yaHabia = new Set((await validar(slug)).errores);
+  const respaldo = respaldar(slug);
+  let vozEnOff = String(m.voz_en_off || '');
+  let rehacer = false;
+  for (const x of cambios) {
+    const t = m.tomas.find((y) => y?.n === x.n);
+    if (!t) continue;
+    const viejo = String(t.linea || '');
+    t.linea = x.dice;
+    if (viejo && vozEnOff.includes(viejo)) vozEnOff = vozEnOff.replace(viejo, x.dice);
+    else rehacer = true;
+    // donde la toma repite la frase (el prompt de video entre comillas, los subtítulos): la nueva
+    if (viejo) for (const [k, v] of Object.entries(t)) if (k !== 'linea' && typeof v === 'string' && v.includes(viejo)) t[k] = v.split(viejo).join(x.dice);
+  }
+  m.voz_en_off = rehacer ? m.tomas.map((t) => String(t.linea || '').trim()).filter(Boolean).join(' ') : vozEnOff;
+  escribirJSON(path.join(dirDe(slug), 'manifiesto.json'), m);
+  const v = await validar(slug);
+  const nuevos = v.errores.filter((e) => !yaHabia.has(e));
+  if (v.codigo !== 0 && nuevos.length) {
+    restaurar(slug, respaldo);
+    throw new ErrorApp(409, `No pude aplicar el cambio sin romper el guion: ${nuevos.slice(0, 2).join(' · ')}. Quedó como estaba.`);
+  }
+  const nuevo = new Map(cambios.map((x) => [x.n, x.dice]));
+  const hechos = Array.isArray(g.cambios_hechos) ? g.cambios_hechos : [];
+  escribirJSON(path.join(appDe(slug), 'guion.json'), {
+    ...g,
+    partes: g.partes.map((p) => (nuevo.has(p.n) ? { ...p, dice: nuevo.get(p.n) } : p)),
+    cambios_hechos: [...hechos, `Editaste a mano ${cambios.length === 1 ? 'la parte' : 'las partes'} ${cambios.map((x) => x.n).join(', ')}.`].slice(-20),
+  });
+  guardarSesion(slug, { ...s, cambios: [...(s.cambios || []), { pedido: `Editaste a mano ${cambios.length === 1 ? 'la parte' : 'las partes'} ${cambios.map((x) => x.n).join(', ')}`, aMano: true, ok: true, fecha: ahora() }] });
+  return { directo: true, cambiadas: cambios.length };
+}
+
 /** POST /api/anuncios/:slug/guion/reintentar: vuelve a correr lo que fallo (o lo que quedo a medias). */
 export function reintentarGuion(slug) {
   if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
