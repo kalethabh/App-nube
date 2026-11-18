@@ -18,8 +18,11 @@ const deTexto = (c, v) => {
   return v;
 };
 
-/** variacion: { v, plantilla: { id, nombre, campos, textos } } · onGuardar(v, textos) -> Promise · onCerrar */
-export function ModalTextos({ variacion, onGuardar, onCerrar }) {
+/**
+ * variacion: { v, plantilla: { id, nombre, campos, textos } } · onGuardar(v, textos) -> Promise · onCerrar
+ * titulo, descripcion, textoBoton: para usarlo fuera del lote (los textos de la investigación de mercado)
+ */
+export function ModalTextos({ variacion, onGuardar, onCerrar, titulo = null, descripcion = null, textoBoton = null }) {
   const p = variacion?.plantilla;
   const [valores, setValores] = useState({});
   const [enviando, setEnviando] = useState(false);
@@ -48,15 +51,15 @@ export function ModalTextos({ variacion, onGuardar, onCerrar }) {
       abierto
       onCerrar={enviando ? undefined : onCerrar}
       icono={PenLine}
-      titulo={`Editar textos · ${variacion.v}`}
-      descripcion={`${p.nombre}. Se vuelve a dibujar en un segundo, sin IA y sin costo.`}
+      titulo={titulo || `Editar textos · ${variacion.v}`}
+      descripcion={descripcion || `${p.nombre}. Se vuelve a dibujar en un segundo, sin IA y sin costo.`}
       pie={
         <>
           <Boton variante="fantasma" onClick={onCerrar} disabled={enviando}>
             Cancelar
           </Boton>
           <Boton variante="primario" icono={PenLine} cargando={enviando} onClick={guardar}>
-            Guardar y dibujar
+            {textoBoton || 'Guardar y dibujar'}
           </Boton>
         </>
       }

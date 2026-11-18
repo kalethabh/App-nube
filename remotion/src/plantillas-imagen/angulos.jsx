@@ -393,7 +393,7 @@ export function Historia({ t, kit, producto, escena, formato }) {
         <path d={`M0 70 C ${W * 0.3} 0, ${W * 0.62} 110, ${W} 30 L ${W} ${H} L 0 ${H} Z`} fill={crema} />
       </svg>
       <div style={{ position: 'absolute', left: izqTexto, right: 44, top: panelTop + 70, height: (z.bottom - panelTop) * 0.42 }}>
-        <Ajustado max={86} min={20} alineado="left" estilo={{ fontFamily: FUENTE_TEXTO, fontWeight: 800, color: '#1A1A1A', lineHeight: 1.04, letterSpacing: '-0.03em' }}>
+        <Ajustado max={92} min={20} alineado="left" estilo={{ fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400, color: '#1A1A1A', lineHeight: 1.02, letterSpacing: '-0.01em' }}>
           {t.frase}
         </Ajustado>
       </div>

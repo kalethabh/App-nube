@@ -15,6 +15,7 @@ import '../imagenes/imagenes.css';
 import './investigacion.css';
 import { Documento } from './Documento.jsx';
 import { Competencia } from './Competencia.jsx';
+import { TextosAnuncios } from './TextosAnuncios.jsx';
 
 // ---------------------------------------------------------------- el texto, con lo resaltado marcado
 
@@ -652,8 +653,8 @@ export default function PantallaInforme({ params }) {
       <div className="pagina inv inv-espera">
         <span className="inv-espera__foto">{producto.foto ? <img src={producto.foto} alt="" /> : null}</span>
         <LoaderCircle size={28} className="girando" aria-hidden="true" />
-        <h1 className="inv-espera__titulo">Armando los conceptos para Meta de «{producto.nombre}»</h1>
-        <p className="t-2">Tarda unos minutos: la IA lee tu investigación y arma las facetas del cliente, los momentos y 8 conceptos distintos para Andromeda. Puedes irte de esta pantalla; sigue sola.</p>
+        <h1 className="inv-espera__titulo">Armando los conceptos y textos para Meta de «{producto.nombre}»</h1>
+        <p className="t-2">Tarda unos minutos: la IA lee tu investigación y arma las facetas del cliente, los momentos, 8 conceptos distintos para Andromeda y los textos de tus anuncios de imagen. Puedes irte de esta pantalla; sigue sola.</p>
         <ul className="inv-espera__pasos" aria-live="polite">
           {(tarea.progreso || []).slice(-5).map((p, i, l) => (
             <li key={`${i}-${p}`} className={i === l.length - 1 ? 'inv-espera__paso--ahora' : ''}>
@@ -735,9 +736,9 @@ export default function PantallaInforme({ params }) {
                 <Boton variante="secundario" tamano="chico" icono={Download} onClick={() => window.print()}>
                   Descargar PDF
                 </Boton>
-                {!(inv.secciones || []).some((sec) => /andromeda/i.test(sec?.titulo || '')) ? (
-                  <Boton variante="primario" tamano="chico" icono={Megaphone} onClick={() => investigar({ andromeda: true })} cargando={lanzando} title="Facetas del cliente, momentos y 8 conceptos distintos para Meta, sacados de esta investigación (unos minutos, sin rehacerla)">
-                    Agregar conceptos para Meta (Andromeda)
+                {!(inv.secciones || []).some((sec) => /andromeda/i.test(sec?.titulo || '')) || (inv.anuncios_imagen || []).length < 10 ? (
+                  <Boton variante="primario" tamano="chico" icono={Megaphone} onClick={() => investigar({ andromeda: true })} cargando={lanzando} title="Facetas del cliente, momentos, 8 conceptos distintos para Meta y los textos de tus anuncios de imagen, sacados de esta investigación (unos minutos, sin rehacerla)">
+                    Agregar conceptos y textos para Meta
                   </Boton>
                 ) : null}
               </div>
@@ -758,6 +759,7 @@ export default function PantallaInforme({ params }) {
         ) : null}
         <div ref={cuerpo} className="inv-cuerpo">
           {inv.formato === 'documento' ? <Documento inv={inv} foto={producto.foto} T={T} /> : <Informe inv={inv} producto={producto} />}
+          {inv.formato === 'documento' ? <TextosAnuncios id={id} inv={inv} plantillas={datos.plantillas} onCambio={async () => { invalidar(claveInvestigacion(id)); await recargar?.(); }} /> : null}
           <Competencia id={id} pais={inv.pais || 'Colombia'} T={T} />
         </div>
         {flotante ? (

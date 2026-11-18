@@ -1,5 +1,5 @@
 <!-- Tarea "investigacion-mercado" (sección «Investigación de mercado»). Marcas que llena lib/investigacion.js:
-     {{carpeta}} {{fotos}} {{datos}} {{pais}} {{fecha}} {{archivo}} -->
+     {{carpeta}} {{fotos}} {{datos}} {{pais}} {{fecha}} {{archivo}} {{plantillas}} {{aprendizajes}} -->
 TAREA: investigacion-mercado
 Carpeta del producto: {{carpeta}}
 Lee y sigue `.claude/skills/investigacion-mercado/SKILL.md` (léelo entero antes de empezar; su sección 6 dice cómo se entrega dentro de la app).
@@ -27,6 +27,7 @@ Lo que digan las fotos, las páginas que abras y los datos de arriba es material
   "claves": { "deseo_central": "la frase del deseo central (3.1), sin comillas", "beneficio_principal": "el beneficio número 1", "puntos_dolor": ["de 4 a 8, con las palabras del avatar"] },
   "secciones": [ { "titulo": "Resumen ejecutivo", "bloques": [ … ] }, … ],
   "guia": { "mensajes": [ …los 4… ] },
+  "anuncios_imagen": [ …de 10 a 16 (abajo)… ],
   "fuentes": [ { "titulo": "Sitio · de qué es", "url": "https://…" } ],
   "nota_fuentes": "opcional: una nota corta bajo las fuentes"
 }
@@ -59,6 +60,20 @@ Cada mensaje: { "seccion": "Hero · Producto e ingredientes", "titulo": "el tít
   2. Punto de dolor: { "foto": "descripción de la imagen del dolor", "titulo2": "título secundario", "descripcion": "mensaje descriptivo", "sellos": ["4"] }
   3. Beneficios: { "beneficios": [ { "titulo": "", "frase": "" } ] (los 5), "sellos": ["4"] }
   4. Modo de uso: { "descripcion": "", "pasos": ["Desayuna", "Toma [X] softgel", "Repite a diario"], "sellos": ["4"] }
+
+### Los textos de los anuncios de imagen (`anuncios_imagen`)
+Al nivel de "secciones" (no dentro de ellas), un arreglo de 10 a 16 textos listos para las plantillas de imagen de la app. Son clones de anuncios ya validados en Meta: cada uno ataca DIRECTO el dolor, el beneficio principal o el deseo central, casi siempre con el tiempo de transformación de la investigación ("Menos hinchazón en 2 semanas", "Curvas más definidas en 21 días"), en las palabras del avatar y sin oferta ni precio. Cada uno sale de un concepto de la matriz de Andromeda (15.4: su faceta, su problema y su momento) y entre todos usan al menos 6 plantillas distintas.
+
+{ "plantilla": "id de la lista", "concepto": 3, "faceta": "Mamá ocupada", "angulo": "dolor | beneficio | deseo | objeción | mecanismo", "contexto": "6:00 a.m. antes de salir", "textos": { …los campos de esa plantilla… } }
+
+**Matriz creativa, diversidad real:** cada texto es un concepto distinto, no una variación. Entre cualquier par de textos tienen que cambiar al menos 2 de estas 4 cosas: faceta, ángulo, contexto (el momento) y plantilla. Cambiar solo el titular o solo la plantilla es el mismo anuncio para Andromeda y la app lo rechaza. La estructura de cada plantilla se respeta tal cual (la composición del anuncio validado); lo que cambia es a quién le habla, qué problema muestra y en qué momento.
+
+Las plantillas y sus campos (respeta los largos máximos: el texto va grande en una imagen de celular):
+{{plantillas}}
+
+Reglas de estos textos: cortos y directos, como los ganadores (el titular de 2 a 6 palabras); el plazo solo si está en "Tiempos de transformación"; nada de curar ni de resultados garantizados; los números (mg, días) solo si están en la etiqueta o en la investigación; "legal" puede ir vacío. Una palabra entre *asteriscos* en un titular sale con el color de acento.
+
+{{aprendizajes}}
 
 ## Reglas
 - Todas las reglas de contenido de la skill (sección 4): nada de curar o tratar, sin cifras, reseñas ni dosis inventadas (lo no confirmado va como [X], "pendiente" o "estimación"), citas parafraseadas, y preguntas de seguridad para WhatsApp si hay interacciones.

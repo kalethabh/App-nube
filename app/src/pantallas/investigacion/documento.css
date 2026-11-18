@@ -59,6 +59,18 @@
 .doc-tabla--ficha th { width: 24%; background: var(--clave); font-weight: 700; }
 .doc-tabla--ficha tbody tr:nth-child(even) td { background: #fff; }
 .doc-tabla tr { break-inside: avoid; }
+/* en el celular, una tabla de muchas columnas se desliza de lado dentro de su hoja (no estira la página) */
+.doc-tabla-caja { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.doc-hoja__cuerpo > *, .doc-junto > * { min-width: 0; }
+@media (max-width: 600px) {
+  .doc-tabla-caja .doc-tabla { min-width: 520px; }
+  .doc-hoja__cuerpo { padding: 20pt 14pt 18pt; }
+  .doc-portada { min-height: 0; padding: 48pt 20pt 36pt; overflow: hidden; }
+  .doc-portada__titulo { font-size: 26pt; overflow-wrap: anywhere; }
+  .doc-portada__pais { margin-top: 60pt; }
+  .doc-portada__linea { margin: 32pt -20pt 0; }
+}
+@media print { .doc-tabla-caja { overflow: visible; } .doc-tabla-caja .doc-tabla { min-width: 0; } }
 
 /* ---- cajas */
 .doc-caja { display: flex; flex-direction: column; gap: 4pt; padding: 9pt 11pt; border: 0.8pt solid var(--borde); background: var(--fila); break-inside: avoid; }

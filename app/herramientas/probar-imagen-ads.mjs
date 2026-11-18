@@ -1197,9 +1197,9 @@ try {
   const cat = await import('../server/lib/imagen-ads/catalogo-plantillas.js');
   const textosMod = await import('../server/lib/imagen-ads/textos-plantillas.js');
   const pantalla = cat.catalogoParaLaPantalla();
-  const ANGULOS = ['silueta-zonas', 'solo-vs-con', 'nosotros-vs-ellos', 'no-compres', 'pregunta-revelacion', 'historia', 'zonas-semanas', 'foto-iconos'];
+  const ANGULOS = ['silueta-zonas', 'solo-vs-con', 'nosotros-vs-ellos', 'no-compres', 'pregunta-revelacion', 'historia', 'zonas-semanas', 'foto-iconos', 'etapas-neon', 'antes-despues-plazo', 'dos-mitades', 'rotulos-anatomia', 'estado-vs-estado', 'cuadricula-tiempo', 'beneficios-lados', 'dias-producto'];
   check(
-    'Sin plantillas de oferta en la pantalla ni en «Que la app elija»; los 8 ángulos ganadores sí (y abren la mezcla)',
+    'Sin plantillas de oferta en la pantalla ni en «Que la app elija»; los 16 ángulos ganadores sí (y abren la mezcla)',
     !pantalla.familias.some((x) => x.id === 'oferta') && !pantalla.plantillas.some((x) => x.familia === 'oferta') && !cat.ORDEN_AUTO.some((x) => cat.POR_ID.get(x)?.familia === 'oferta') && ANGULOS.every((x) => pantalla.plantillas.some((y) => y.id === x)) && cat.ORDEN_AUTO[0] === 'silueta-zonas' && cat.POR_ID.has('sticker-oferta'),
     { familias: pantalla.familias.map((x) => x.id), orden: cat.ORDEN_AUTO }
   );
@@ -1221,7 +1221,7 @@ try {
       dibujos.push(fs.existsSync(salida) && fs.statSync(salida).size > 20000);
     }
   }
-  check(`Los 8 ángulos se dibujan en cuadrado y vertical (${dibujos.length} imágenes en ${Date.now() - t} ms)`, dibujos.length === 16 && dibujos.every(Boolean), dibujos);
+  check(`Los 16 ángulos se dibujan en cuadrado y vertical (${dibujos.length} imágenes en ${Date.now() - t} ms)`, dibujos.length === 32 && dibujos.every(Boolean), dibujos);
 
   // ---- 11e. el kit de marca y los tiempos del dibujante
   const kit = await plantillas.kitAutomatico(path.join(APP, 'muestras', 'plantillas', 'producto-muestra.png'));

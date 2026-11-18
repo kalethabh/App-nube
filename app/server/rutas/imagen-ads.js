@@ -537,7 +537,8 @@ export default function rutasImagenAds(app) {
     const kit = plantillas.limpiarKit({ ...kitBase, ...(req.query.p ? { primario: String(req.query.p) } : {}), ...(req.query.s ? { secundario: String(req.query.s) } : {}), ...(req.query.ft ? { fuenteTitulo: String(req.query.ft) } : {}), ...(req.query.fs ? { fuenteScript: String(req.query.fs) } : {}), ...(req.query.st ? { sticker: String(req.query.st) } : {}) });
     const archivo = foto || muestra;
     const ficha = idValido(productoId) ? leerJSON(path.join(TEMP, '_productos', productoId, 'ficha.json')) : null;
-    const textos = plantillas.textosDeMuestra(id, productoId, ficha);
+    const anuncio = /^\d{1,2}$/.test(String(req.query.anuncio || '')) ? Number(req.query.anuncio) : null;
+    const textos = plantillas.textosDeMuestra(id, productoId, ficha, anuncio);
     const clave = crypto.createHash('sha1').update(JSON.stringify({ id, archivo, f: firma(archivo), kit, textos, v: 4 })).digest('hex').slice(0, 20);
     const salida = path.join(RAIZ, '.cache', 'plantillas-muestras', `${clave}.png`);
     if (!existe(salida)) {
