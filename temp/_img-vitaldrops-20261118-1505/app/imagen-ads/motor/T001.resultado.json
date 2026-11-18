@@ -1,0 +1,73 @@
+{
+  "id": "T001",
+  "piezas": {
+    "V01_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V02_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V03_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V04_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V05_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V06_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V07_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V08_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V09_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V10_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    }
+  },
+  "actualizado": "2026-11-18T20:05:01.503Z",
+  "terminado": false
+}
