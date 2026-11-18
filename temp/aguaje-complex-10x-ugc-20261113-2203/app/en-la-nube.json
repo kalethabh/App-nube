@@ -54,7 +54,10 @@
     "video/toma-8.mp4",
     "video/toma-9.mp4"
   ],
-  "finales": [],
+  "finales": [
+    "aguaje-complex-10x-ugc-20261113-2203_9x16_con-subtitulos.mp4",
+    "aguaje-complex-10x-ugc-20261113-2203_editado-1.mp4"
+  ],
   "ubicaciones": {
     "app/rehacer/respaldo-7c62b727860e/video/toma-2.mp4": {
       "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-10x-ugc-20261113-2203/app/rehacer/respaldo-7c62b727860e/video/toma-2.mp4",
@@ -317,6 +320,17 @@
       "sha256": "0a5614f6b29a8f3fadfab1624e97a29b78399a5be27a670457b87ce37e35e9d9"
     }
   },
-  "ubicacionesFinales": {},
-  "fecha": "2026-11-18T23:42:43.205Z"
+  "ubicacionesFinales": {
+    "aguaje-complex-10x-ugc-20261113-2203_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/videos-finales/aguaje-complex-10x-ugc-20261113-2203_9x16_con-subtitulos.mp4",
+      "bytes": 53595614,
+      "sha256": "13b788bb32ec66f9b1743838469e0dff7cf6911e15bebb58ce7b992b830daea9"
+    },
+    "aguaje-complex-10x-ugc-20261113-2203_editado-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/videos-finales/aguaje-complex-10x-ugc-20261113-2203_editado-1.mp4",
+      "bytes": 55311827,
+      "sha256": "0596b6857163793c558fe821965bd7ec14edb83f49995e7342864407e4156f02"
+    }
+  },
+  "fecha": "2026-11-18T23:45:41.785Z"
 }

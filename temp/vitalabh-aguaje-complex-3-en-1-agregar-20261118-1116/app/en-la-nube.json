@@ -56,9 +56,12 @@
     "video/toma-5.mp4",
     "video/toma-6.mp4",
     "video/toma-7.mp4",
-    "video/toma-8.mp4"
+    "video/toma-8.mp4",
+    "video/toma-9.mp4"
   ],
-  "finales": [],
+  "finales": [
+    "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116_9x16_con-subtitulos.mp4"
+  ],
   "ubicaciones": {
     "audio/voz.mp3": {
       "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/audio/voz.mp3",
@@ -339,8 +342,19 @@
       "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-8.mp4",
       "bytes": 11286186,
       "sha256": "a73aef2fbeb2ee58a98fcf226deee066d324f478827c2eb151776ddf63441ed4"
+    },
+    "video/toma-9.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-9.mp4",
+      "bytes": 7506413,
+      "sha256": "8847b47ece012910dae71080cf2fe4f87b1ddd993e954e03b026ea80c8309001"
     }
   },
-  "ubicacionesFinales": {},
-  "fecha": "2026-11-18T23:44:46.747Z"
+  "ubicacionesFinales": {
+    "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/videos-finales/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116_9x16_con-subtitulos.mp4",
+      "bytes": 58012903,
+      "sha256": "5936ae915d2c4ea62d7adbe31c4952be2e32ae24d502d09e0eb3bdd9230dff45"
+    }
+  },
+  "fecha": "2026-11-18T23:45:55.743Z"
 }
