@@ -1,0 +1,314 @@
+{
+  "numero": 2,
+  "paso": "imagenes-y-videos",
+  "comando": "node produccion/producir.js temp/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116 --si",
+  "inicio": "2026-11-18T22:54:28.643Z",
+  "fin": "2026-11-18T23:06:34.395Z",
+  "codigo": 0,
+  "creditos": 1624.9,
+  "dolares": 8.12,
+  "imagenes": [
+    {
+      "archivo": "producto.png",
+      "id": "producto",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "bodega.png",
+      "id": "bodega",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-1-inicial.png",
+      "id": "toma-1-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-2-inicial.png",
+      "id": "toma-2-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-3-inicial.png",
+      "id": "toma-3-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-4-inicial.png",
+      "id": "toma-4-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-5-inicial.png",
+      "id": "toma-5-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-6-inicial.png",
+      "id": "toma-6-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-7-inicial.png",
+      "id": "toma-7-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-8-inicial.png",
+      "id": "toma-8-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-9-inicial.png",
+      "id": "toma-9-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-9-final.png",
+      "id": "toma-9-final",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-10-inicial.png",
+      "id": "toma-10-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "toma-11-inicial.png",
+      "id": "toma-11-inicial",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "broll-1.png",
+      "id": "broll-1",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "broll-2.png",
+      "id": "broll-2",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "broll-3.png",
+      "id": "broll-3",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "broll-4.png",
+      "id": "broll-4",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "broll-5.png",
+      "id": "broll-5",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    },
+    {
+      "archivo": "broll-8.png",
+      "id": "broll-8",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 0
+    }
+  ],
+  "videos": [
+    {
+      "archivo": "toma-1.mp4",
+      "id": "toma-1",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 181.2
+    },
+    {
+      "archivo": "toma-2.mp4",
+      "id": "toma-2",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 271.8
+    },
+    {
+      "archivo": "toma-3.mp4",
+      "id": "toma-3",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 2,
+      "creditos": 80
+    },
+    {
+      "archivo": "toma-4.mp4",
+      "id": "toma-4",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 2,
+      "creditos": 80
+    },
+    {
+      "archivo": "toma-5.mp4",
+      "id": "toma-5",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 70
+    },
+    {
+      "archivo": "toma-6.mp4",
+      "id": "toma-6",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 241.6
+    },
+    {
+      "archivo": "toma-7.mp4",
+      "id": "toma-7",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 120.8
+    },
+    {
+      "archivo": "toma-8.mp4",
+      "id": "toma-8",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 181.2
+    },
+    {
+      "archivo": "toma-9.mp4",
+      "id": "toma-9",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 271.8
+    },
+    {
+      "archivo": "toma-10.mp4",
+      "id": "toma-10",
+      "modelo": "grok-imagine-video-1-5-preview",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 13.5
+    },
+    {
+      "archivo": "toma-11.mp4",
+      "id": "toma-11",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 3,
+      "creditos": 50
+    },
+    {
+      "archivo": "broll-1.mp4",
+      "id": "broll-1",
+      "modelo": "grok-imagine-video-1-5-preview",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 13.5
+    },
+    {
+      "archivo": "broll-2.mp4",
+      "id": "broll-2",
+      "modelo": "grok-imagine-video-1-5-preview",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 27
+    },
+    {
+      "archivo": "broll-3.mp4",
+      "id": "broll-3",
+      "modelo": "grok-imagine-video-1-5-preview",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 22.5
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [
+    {
+      "archivo": "img/broll-6.png",
+      "creditosEstimados": 10
+    },
+    {
+      "archivo": "img/revisora.png",
+      "creditosEstimados": 10
+    },
+    {
+      "archivo": "video/broll-4.mp4",
+      "creditosEstimados": 40
+    },
+    {
+      "archivo": "video/broll-5.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/broll-6.mp4",
+      "creditosEstimados": 50
+    },
+    {
+      "archivo": "video/broll-8.mp4",
+      "creditosEstimados": 40
+    }
+  ],
+  "elevenlabs": null
+}

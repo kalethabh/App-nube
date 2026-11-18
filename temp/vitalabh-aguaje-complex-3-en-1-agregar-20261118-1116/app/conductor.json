@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "imagenes-y-videos",
+  "paso": "voces",
   "pasos": [
     {
       "id": "validar",
@@ -40,22 +40,27 @@
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
       "inicio": "2026-11-18T22:54:28.643Z",
-      "retomado": true
+      "retomado": true,
+      "fin": "2026-11-18T23:06:34.399Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:06:34.399Z",
+      "fin": "2026-11-18T23:07:06.684Z",
+      "nota": "Las imágenes pasaron la revisión."
     },
     {
       "id": "voces",
       "nombre": "Buscar voces que no van",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:07:06.684Z"
     },
     {
       "id": "musica",
@@ -92,7 +97,7 @@
   "modoPrueba": false,
   "creado": "2026-11-18T22:54:19.505Z",
   "aprobado": "2026-11-18T22:54:19.505Z",
-  "actualizado": "2026-11-18T22:55:47.253Z",
+  "actualizado": "2026-11-18T23:07:06.684Z",
   "saldoInicial": {
     "creditos": 2657,
     "fecha": "2026-11-18T22:54:20.920Z"

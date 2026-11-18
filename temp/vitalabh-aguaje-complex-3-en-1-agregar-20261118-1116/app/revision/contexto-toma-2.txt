@@ -1,0 +1,44 @@
+
+=== Contexto para rehacer la toma 2 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        A
+    duracion:    8.4s
+    referencias: revisora, producto, bodega
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "Aquí te mostramos lo que de verdad hará con el aguaje, el fenogreco y la maca juntos en sus extractos puros:"
+    viene de:    "Aquí no te vendemos el nombre de una marca como lo hacen con Vitalcom."
+    lleva a:     "Aguaje, fenogreco y maca negra: los tres extractos puros, los culpables de que tengas los resultados de verdad."
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Vertical 9:16. Photorealistic frame from a handheld phone video, macro close-up at shelf height of one bottle held upright in the right hand of the woman from the character reference image (white cotton lab coat cuff, two thin woven bracelets on her wrist, warm medium-brown skin with visible pores, short unpainted nails), her fingers around its sides without covering the label, the bottle turned three quarters toward the camera: the exact product from the product reference image: a closed supplement bottle with a glossy black cylindrical body and rounded shoulders, about twice as tall as it is wide, a wide hot-pink screw cap about three quarters as wide as the body, a hot-pink band around its base and a black front label with big white letters 'AGUAJE COMPLEX 3 EN 1' and pink 'TRIPLE ACCIÓN', neither a slim bottle nor a squat tub. The lower half of the front label fills most of the frame and is the sharpest part of the image: under the pink words 'TRIPLE ACCIÓN', three small pink-outlined boxes joined by plus signs read '200 mg AGUAJE', '400 mg FENOGRECO' and '200 mg MACA NEGRA', copied exactly from the product reference image. Behind it, out of focus, the warehouse aisle from the scenery reference image: gray metal shelving filled shelf after shelf with tidy rows of identical closed bottles of the same product, black bodies and hot-pink caps. Her face and her other hand are not in the frame. Lit only by cool-neutral overhead fluorescent tubes from above and slightly in front, soft flat light with faint diffuse shadows under each shelf, small white highlights on the glossy black bottles, muted desaturated colors where the hot-pink caps are the only strong color. Real skin texture with pores, cotton fabric with wrinkles, natural mild sharpness, slight digital noise, slight handheld framing, shot on a phone, no studio lighting, no beauty filter. Matte light, no rainbow, no prism light, no lens flare. Every bottle is closed: no loose capsules, no pills, no open bottle. No added text, captions, logos or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, captions, subtitles, watermark, loose capsules, pills, open bottle, mirrored label, altered label text, misspelled words
+
+  --- video ---
+Photorealistic handheld phone footage, image-to-video from the shot above, 8.4s. Vertical 9:16.
+Camera: static macro with a very slight natural shake, no zoom, no push-in.
+Motion: her hand keeps turning the bottle very slowly toward the camera until the front label faces it flat, then holds it perfectly still so the three boxes with the three ingredients can be read; her thumb moves a little down the side so it does not cover them. The bottle stays at the same distance from the camera. Only this one hand is in the frame; no other hand enters. The rows of bottles behind do not move.
+Lighting: cool-neutral overhead fluorescent light, soft and flat, small white highlights sliding over the glossy black bottle as it turns.
+No speech, nobody talks. The bottle stays closed, no loose capsules and no open bottle are ever seen (no se ven cápsulas sueltas ni el frasco abierto). The label always reads the right way round, never mirrored.
+
+  --- referencia "revisora" (personaje) — repetir palabra por palabra ---
+Vertical 9:16. Photorealistic full-body smartphone photo, candid and unposed, of a Colombian woman in her early 30s with warm medium-brown skin with visible pores and a few small moles, an oval face, thick soft dark eyebrows, dark brown eyes, no visible makeup, dark brown wavy hair pulled back into a low loose bun with loose strands and slight frizz at the temples, thin round gold-wire glasses, slim build, wearing a slightly wrinkled white cotton lab coat with a small round black badge on the left lapel over a black crew-neck t-shirt, dark gray trousers and white sneakers, a black smartwatch on her left wrist and two thin woven bracelets on her right wrist, short unpainted nails. She stands relaxed facing the camera in a three-quarter view, arms at her sides, hands empty, calm confident look with a slight closed-mouth smile, full body visible from head to feet. Plain light-gray painted wall behind her, lit by cool-neutral overhead fluorescent tubes from above and slightly in front, soft flat light with faint diffuse shadows. Real skin texture with pores, cotton fabric with wrinkles, natural mild sharpness, slight digital noise, shot on a phone, no studio lighting, no beauty filter. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no diorama box, no border, no inset panel, no vignette. No text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  --- referencia "producto" (producto) — repetir palabra por palabra ---
+Vertical 9:16. Photorealistic product photo of the exact product in the reference photo, the bottle alone: a closed supplement bottle with a glossy black cylindrical body and rounded shoulders, about twice as tall as it is wide, a wide hot-pink screw cap about three quarters as wide as the body, a hot-pink band around its base and a black front label; neither a slim bottle nor a squat tub. Same shape, same proportions, same label design, colors and text as the photo. The label text must be copied exactly, letter for letter, from the photo, with no words changed, added or removed: small white logo text "VITALABH" at the top, big white letters "AGUAJE", below it white "COMPLEX" and pink "3 EN 1", a pink strip with white text "SUPLEMENTO ALIMENTICIO EN CÁPSULAS", white text "A base de Aguaje, Fenogreco y Maca Negra", big pink italic letters "TRIPLE ACCIÓN", three small pink-outlined boxes joined by plus signs reading "200 mg AGUAJE" "400 mg FENOGRECO" "200 mg MACA NEGRA", and at the bottom white text "60 CAPSULAS". Remove the hand, the fingers and the video player bar from the photo: the bottle stands alone, upright, seen straight from the front at eye level, resting naturally on a plain gray metal shelf with a soft contact shadow, against a plain light-gray wall. Soft neutral overhead light, matte, no rainbow, no prism light, no lens flare. The bottle is closed: no capsules, no pills, nothing else next to it. The label text must be sharp and legible. The image is full-bleed and fills the entire frame edge to edge: no frame, no border, no vignette. No additional text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, studio lighting, captions, subtitles, watermark, hand, fingers, loose capsules, pills, open bottle, mirrored label, altered label text, misspelled words, invented ingredients
+
+  --- referencia "bodega" (escenario) — repetir palabra por palabra ---
+Vertical 9:16. Photorealistic smartphone photo of an empty supplement warehouse aisle with no people: gray metal shelving on the left side and at the back, filled shelf after shelf with tidy rows of identical closed bottles of the exact product from the product reference image (glossy black cylindrical bodies about twice as tall as wide, wide hot-pink screw caps, hot-pink band at the base, black front labels facing forward), five shelves visible from top to bottom, a plain gray concrete floor. Lit only by cool-neutral overhead fluorescent tubes from above and slightly in front, soft flat light with faint diffuse shadows under each shelf, small white highlights on the glossy black bottles, muted desaturated colors where the hot-pink caps are the only strong color. Natural mild sharpness, slight digital noise, deep focus, shot on a phone at chest height, no studio lighting. Matte light, no rainbow, no prism light, no lens flare. Every bottle is closed: no loose capsules, no pills, no open bottle. The image is full-bleed and fills the entire frame edge to edge: no frame, no border, no vignette. No added text, captions, logos or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, studio lighting, people, captions, subtitles, watermark, loose capsules, pills, open bottle, mirrored label
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+
