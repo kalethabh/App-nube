@@ -1,0 +1,286 @@
+{
+  "generado": "2026-11-18T23:03:45.826Z",
+  "segundos": 477,
+  "imagenes": [
+    {
+      "id": "producto",
+      "archivo": "producto.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "bodega",
+      "archivo": "bodega.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-1-inicial",
+      "archivo": "toma-1-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-2-inicial",
+      "archivo": "toma-2-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-3-inicial",
+      "archivo": "toma-3-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-4-inicial",
+      "archivo": "toma-4-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-5-inicial",
+      "archivo": "toma-5-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-6-inicial",
+      "archivo": "toma-6-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-7-inicial",
+      "archivo": "toma-7-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-8-inicial",
+      "archivo": "toma-8-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-9-inicial",
+      "archivo": "toma-9-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-9-final",
+      "archivo": "toma-9-final.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "frame inicial"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-10-inicial",
+      "archivo": "toma-10-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-11-inicial",
+      "archivo": "toma-11-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "broll-1",
+      "archivo": "broll-1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "broll-2",
+      "archivo": "broll-2.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "broll-3",
+      "archivo": "broll-3.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "revisora",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "broll-4",
+      "archivo": "broll-4.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "producto",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "broll-5",
+      "archivo": "broll-5.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "broll-8",
+      "archivo": "broll-8.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "producto",
+        "bodega"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    }
+  ]
+}
