@@ -61,6 +61,7 @@ const s = (slug) => encodeURIComponent(slug);
 export const rutas = {
   inicio: () => '/inicio',
   productos: () => '/productos',
+  landings: () => '/landings',
   tablero: () => '/tablero',
   nuevo: (consulta) => `/nuevo${consulta ? `?${new URLSearchParams(consulta)}` : ''}`,
   anuncio: (slug) => `/anuncio/${s(slug)}`,
