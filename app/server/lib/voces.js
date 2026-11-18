@@ -9,19 +9,44 @@
 // en el servidor; nunca sale al navegador ni a un registro). Antes se pedía en un proceso aparte, y cualquier aviso
 // que ese proceso escribiera, o que tardara más de 30 s, salía como «No pude conectar con ElevenLabs» aunque la clave
 // y el internet estuvieran bien. Siempre va a ElevenLabs de verdad, también en modo prueba (listar no cobra).
+import fs from 'node:fs';
+import path from 'node:path';
 import { leerClave } from './claves.js';
+import { RAIZ } from './rutas.js';
 
 const BASE = 'https://api.elevenlabs.io';
-const ESPERA_MS = 25000;
+// (la lista puede tardar con muchas voces: 45 s por página; si la nueva (v2) no llega, la de siempre (v1))
+const ESPERA_MS = 45000;
 const DURA_MS = 5 * 60000;
+// la última lista que llegó bien, en disco: se muestra al instante y sirve si ElevenLabs no responde (no es secreta:
+// ids, nombres, etiquetas y muestras)
+let archivoCache = path.join(RAIZ, '.cache', 'voces-elevenlabs.json');
 const CATEGORIAS_PROPIAS = ['cloned', 'professional', 'generated'];
 let base = BASE;
 let cache = null; // { t, voces, promesa }
 
 /** Solo las pruebas: otro servidor (un ElevenLabs simulado). */
-export function _paraPruebas({ servidor = null } = {}) {
+export function _paraPruebas({ servidor = null, archivo = null } = {}) {
   base = servidor || BASE;
   cache = null;
+  if (archivo) archivoCache = archivo;
+}
+
+function leerGuardada() {
+  try {
+    const j = JSON.parse(fs.readFileSync(archivoCache, 'utf8'));
+    return Array.isArray(j?.voces) && j.voces.length ? j : null;
+  } catch {
+    return null;
+  }
+}
+function guardar(voces) {
+  try {
+    fs.mkdirSync(path.dirname(archivoCache), { recursive: true });
+    fs.writeFileSync(archivoCache, JSON.stringify({ fecha: new Date().toISOString(), voces }));
+  } catch {
+    /* solo era para la próxima vez */
+  }
 }
 
 class ErrorVoces extends Error {
@@ -56,7 +81,8 @@ async function listar() {
     let token = null;
     let vueltas = 0;
     do {
-      const q = new URLSearchParams({ page_size: '100' });
+      // include_total_count=false: contar todas las voces de la cuenta es lo que hace lenta la respuesta (ElevenLabs)
+      const q = new URLSearchParams({ page_size: '100', include_total_count: 'false' });
       if (token) q.set('next_page_token', token);
       const j = await pedir(`/v2/voices?${q}`, clave);
       crudas.push(...(j.voices || []));
@@ -100,12 +126,12 @@ export function mensajeSimple(m) {
   return 'No pude traer tus voces de ElevenLabs. Vuelve a intentar en un momento.';
 }
 
-export async function voces({ fresco = false } = {}) {
-  if (!fresco && cache?.voces && Date.now() - cache.t < DURA_MS) return { ok: true, voces: cache.voces };
+function pedirDeNuevo() {
   if (cache?.promesa) return cache.promesa;
   const promesa = listar()
     .then((lista) => {
       cache = { t: Date.now(), voces: lista, promesa: null };
+      guardar(lista);
       return { ok: true, voces: lista };
     })
     .catch((e) => {
@@ -116,6 +142,22 @@ export async function voces({ fresco = false } = {}) {
     });
   cache = { ...(cache || {}), promesa };
   return promesa;
+}
+
+/**
+ * Las voces: las de hace menos de 5 minutos; si no, la última lista guardada al instante (y se pide la nueva por detrás);
+ * sin lista guardada, se espera a ElevenLabs. Si ElevenLabs falla y hay una guardada, se usa la guardada.
+ */
+export async function voces({ fresco = false } = {}) {
+  if (!fresco && cache?.voces && Date.now() - cache.t < DURA_MS) return { ok: true, voces: cache.voces };
+  const guardada = cache?.voces ? { voces: cache.voces } : leerGuardada();
+  if (!fresco && guardada) {
+    pedirDeNuevo();
+    return { ok: true, voces: guardada.voces, guardada: true };
+  }
+  const r = await pedirDeNuevo();
+  if (!r.ok && guardada && r.motivo !== 'clave' && r.motivo !== 'sin-clave') return { ok: true, voces: guardada.voces, guardada: true };
+  return r;
 }
 
 export const VOZ_DE_PRUEBA = { id: 'voz-de-prueba', nombre: 'Voz de prueba', muestra: null, etiquetas: {}, categoria: 'prueba', propia: false, descripcion: 'Solo para el modo prueba: no habla de verdad.' };

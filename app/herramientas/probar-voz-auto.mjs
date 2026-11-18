@@ -90,8 +90,10 @@ try {
   const http = await import('node:http');
   const vocesMod = await import('../server/lib/voces.js');
   let modo = 'ok';
+  let sinConteo = true;
   const servidor = http.createServer((req, res) => {
     const u = new URL(req.url, 'http://x');
+    if (u.pathname === '/v2/voices' && u.searchParams.get('include_total_count') !== 'false') sinConteo = false;
     if (modo === 'clave' || req.headers['xi-api-key'] !== 'sk_prueba_123456789') return res.writeHead(401).end('{}');
     if (modo === 'v2-cae' && u.pathname === '/v2/voices') return res.writeHead(500).end('{}');
     const pagina = u.searchParams.get('next_page_token') ? 2 : 1;
@@ -108,9 +110,13 @@ try {
   clavesMod._paraPruebas({ archivo: envPrueba });
   const anterior = process.env.ELEVENLABS_API_KEY;
   delete process.env.ELEVENLABS_API_KEY;
-  vocesMod._paraPruebas({ servidor: `http://127.0.0.1:${servidor.address().port}` });
+  const guardada = path.join(TMP, 'voces-guardadas.json');
+  const puerto = servidor.address().port;
+  vocesMod._paraPruebas({ servidor: `http://127.0.0.1:${puerto}`, archivo: guardada });
   const l1 = await vocesMod.voces({ fresco: true });
   check('Trae las voces de ElevenLabs desde la app, todas las páginas, con su muestra y etiquetas', l1.ok && l1.voces.map((v) => v.id).join() === 'pag1aaaa,pag2bbbb' && l1.voces[0].muestra && l1.voces[0].etiquetas.gender === 'female' && l1.voces[0].propia, l1);
+  check('Pide la lista sin el conteo total (lo que la hace lenta)', sinConteo);
+  check('Guarda la última lista que llegó bien', JSON.parse(fs.readFileSync(guardada, 'utf8')).voces.length === 2);
   modo = 'v2-cae';
   const l2 = await vocesMod.voces({ fresco: true });
   check('Si la lista nueva (v2) falla, usa la de siempre (v1)', l2.ok && l2.voces[0]?.id === 'v1aaaa01', l2);
@@ -119,14 +125,23 @@ try {
   check('Clave rechazada: lo dice así (no como «error de conexión»)', !l3.ok && l3.motivo === 'clave' && /rechazó tu clave/.test(vocesMod.mensajeSimple(l3.mensaje)), l3);
   await new Promise((r) => servidor.close(r));
   modo = 'ok';
+  const l4b = await vocesMod.voces({ fresco: true });
+  check('ElevenLabs caído pero con una lista guardada: sigue con la guardada', l4b.ok && l4b.guardada && l4b.voces.length >= 1, l4b);
+  vocesMod._paraPruebas({ servidor: `http://127.0.0.1:${puerto}`, archivo: guardada });
+  const t0 = Date.now();
+  const l4c = await vocesMod.voces({});
+  check('Al abrir la app (sin la lista en memoria) muestra la guardada al instante y pide la nueva por detrás', l4c.ok && l4c.guardada && Date.now() - t0 < 200, { l4c, ms: Date.now() - t0 });
+  await new Promise((r) => setTimeout(r, 300));
+  fs.rmSync(guardada, { force: true });
+  vocesMod._paraPruebas({ servidor: `http://127.0.0.1:${puerto}`, archivo: guardada });
   const l4 = await vocesMod.voces({ fresco: true });
-  check('Servidor caído: «No pude conectar con ElevenLabs»', !l4.ok && l4.motivo === 'sin-conexion' && /No pude conectar/.test(vocesMod.mensajeSimple(l4.mensaje)), l4);
+  check('Servidor caído y sin lista guardada: «No pude conectar con ElevenLabs»', !l4.ok && l4.motivo === 'sin-conexion' && /No pude conectar/.test(vocesMod.mensajeSimple(l4.mensaje)), l4);
   fs.writeFileSync(envPrueba, '# sin clave\n');
-  vocesMod._paraPruebas({ servidor: 'http://127.0.0.1:9' });
+  vocesMod._paraPruebas({ servidor: 'http://127.0.0.1:9', archivo: guardada });
   const l5 = await vocesMod.voces({ fresco: true });
   check('Sin clave: pide pegarla en Ajustes', !l5.ok && /Falta tu clave/.test(vocesMod.mensajeSimple(l5.mensaje)), l5);
   if (anterior) process.env.ELEVENLABS_API_KEY = anterior;
-  vocesMod._paraPruebas({});
+  vocesMod._paraPruebas({ archivo: path.join(path.dirname(new URL(import.meta.url).pathname), '..', '..', '.cache', 'voces-elevenlabs.json') });
 } catch (e) {
   check('La prueba corre entera', false, String(e?.stack || e));
 } finally {
