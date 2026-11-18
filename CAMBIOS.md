@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18g · Regenerar con IA una parte del guion
+
+- En «Editar a mano», cada cuadro tiene arriba a la derecha un ícono ✨ **Regenerar con IA**: tu IA escribe otra versión de esa parte (con el guion completo como contexto: misma función, que enganche con la anterior y la siguiente, el mismo largo para que entre en el mismo tiempo y las palabras de tu público).
+- El texto nuevo aparece en el cuadro sin guardarse: tócalo otra vez para otra opción, corrígelo a mano o guárdalo con **Guardar** (con narrador queda al instante y gratis).
+- Es una consulta corta aparte del guion: tarda segundos y no espera en la fila.
+
 ## 2026-11-18f · Editar el guion a mano
 
 - En la hoja del guion, un botón **«Editar a mano»**: cada parte se vuelve un cuadro de texto, la escribes como la quieres y tocas **Guardar**.

@@ -44,7 +44,7 @@ import { sesionActiva, prohibidasComunes, enTerminales, textoClaude, leerYValida
 // la IA elegida (Claude o ChatGPT) con la pausa compartida: si su plan se acabo, no se abre otra sesion hasta que se
 // renueve
 import { lanzarSesion } from './colas.js';
-import { nombreIA } from './motor-ia.js';
+import { nombreIA, lanzarSesion as preguntarIA, prohibidasComunes as prohibidasIA } from './motor-ia.js';
 import { prohibidasDeAnuncio } from './ia/reglas.js';
 import { ErrorApp, escribirJSON, aKebab, idValido as productoValido, leerProducto, leerFicha, fotoPrincipal, relProducto, detalleDelProducto, errorPublico, urlFoto } from './productos.js';
 import { ESTILOS as PRESENTACION } from './estilos.js';
@@ -1671,6 +1671,67 @@ export async function editarLineas(slug, lineas) {
   });
   guardarSesion(slug, { ...s, cambios: [...(s.cambios || []), { pedido: `Editaste a mano ${cambios.length === 1 ? 'la parte' : 'las partes'} ${cambios.map((x) => x.n).join(', ')}`, aMano: true, ok: true, fecha: ahora() }] });
   return { directo: true, cambiadas: cambios.length };
+}
+
+/**
+ * POST /api/anuncios/:slug/guion/regenerar-linea { n, actual?, idea? } -> { dice }: otra versión de lo que se dice en
+ * UNA parte, escrita por la IA con el guion completo como contexto (2026-11-18). No guarda nada: la pantalla la pone en
+ * el cuadro de «Editar a mano» y el usuario la guarda (editarLineas) o pide otra. Es una consulta corta, aparte de la
+ * sesión del guion (no la toca) y fuera de la cola, para que tarde segundos.
+ */
+export async function regenerarLinea(slug, { n, actual = '', idea = '' } = {}) {
+  if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  const brief = leerBrief(slug);
+  const s = leerSesion(slug);
+  if (aprobadoYProduciendo(slug, s)) throw new ErrorApp(409, 'Este guion ya se aprobó y está en producción.');
+  const g = leerJSON(path.join(appDe(slug), 'guion.json'));
+  const partes = Array.isArray(g?.partes) ? g.partes : [];
+  const parte = partes.find((p) => p.n === Number(n));
+  if (!parte) throw new ErrorApp(404, 'No encuentro esa parte del guion.');
+  const ficha = leerFicha(brief.productoId) || {};
+  const def = defDe(brief);
+  const id = crypto.randomBytes(4).toString('hex');
+  const salida = path.join(appDe(slug), `linea-${parte.n}-${id}.json`);
+  const rel = path.relative(RAIZ, salida).replace(/\\/g, '/');
+  const largo = String(parte.dice || '').split(/\s+/).filter(Boolean).length;
+  const enPantalla = String(actual || '').replace(/\s+/g, ' ').trim().slice(0, 600);
+  const prompt = `TAREA: regenerar una línea del guion de un anuncio (${def?.nombre || brief.estilo}). Te ejecuta la app Kads Studio, sin chat: no preguntes nada.
+
+El producto: ${ficha.nombre || ''}${ficha.queEs ? ` (${ficha.queEs})` : ''}. Público: ${ficha.publico || 'el de la ficha'}. País e idioma: ${[ficha.pais, ficha.idioma, g.idioma].filter(Boolean).join(', ') || 'Colombia, español'}.
+${g.de_que_va ? `De qué va el anuncio: ${g.de_que_va}\n` : ''}
+El guion completo, parte por parte (n | momento | lo que se dice | lo que se ve):
+${partes.map((p) => `${p.n} | ${p.momento || ''} | ${String(p.dice || '').replace(/\n/g, ' ')} | ${String(p.se_ve || '').slice(0, 160)}`).join('\n')}
+
+Reescribe SOLO lo que se dice en la parte ${parte.n} («${parte.momento || 'sin momento'}»): una versión distinta y mejor que la actual, que cumpla la misma función en esa parte del anuncio, enganche con la parte anterior y lleve a la siguiente, en el mismo idioma y con las mismas palabras del público. Más o menos el mismo largo (unas ${largo} palabras, para que entre en el mismo tiempo), sin repetir frases de otras partes.${enPantalla && enPantalla !== parte.dice ? `\nAhora en el cuadro dice: «${enPantalla}» (da otra opción, distinta también de esa).` : ''}${idea ? `\nLo que pidió el usuario para esta parte: ${String(idea).slice(0, 300)}` : ''}
+Reglas: nada de curar, tratar ni resultados garantizados; sin cifras, precios ni reseñas que no estén en el guion; sin comillas ni etiquetas, solo lo que se dice.
+
+Escribe ${rel} con este JSON y nada más: { "dice": "…" }
+Tu respuesta final: solo LISTO.`;
+  let r = { ok: false };
+  try {
+    r = await preguntarIA({
+      tipo: 'guion',
+      uuid: crypto.randomUUID(),
+      prompt,
+      herramientas: ['Write'],
+      permitidas: [`Write(./${rel})`, `Edit(./${rel})`],
+      prohibidas: prohibidasIA({ terminal: false }),
+      registro: path.join(appDe(slug), 'registro', `regenerar-linea-${parte.n}.log`),
+      timeoutMs: 3 * 60000,
+      maxTurnos: 4,
+      verificar: async () => {
+        const d = leerJSON(salida);
+        return typeof d?.dice === 'string' && d.dice.trim() ? { ok: true } : { ok: false, errores: [`Escribe ${rel} con { "dice": "…" }.`] };
+      },
+    });
+  } catch (e) {
+    r = { ok: false, error: e.message };
+  }
+  const d = leerJSON(salida);
+  fs.rmSync(salida, { force: true });
+  const dice = String(d?.dice || '').replace(/\s+/g, ' ').replace(/^["«“]+|["»”]+$/g, '').trim().slice(0, 600);
+  if (!dice) throw new ErrorApp(502, r?.sinMotor ? 'Elige tu IA en Ajustes › Conexiones.' : r?.limite ? `Se acabó el uso de tu plan de ${nombreIA(r.motor)} por ahora.` : `${laIA()} no pudo escribir otra versión. Vuelve a intentarlo.`);
+  return { dice };
 }
 
 /** POST /api/anuncios/:slug/guion/reintentar: vuelve a correr lo que fallo (o lo que quedo a medias). */

@@ -240,6 +240,13 @@ async function alMensaje(texto) {
     return emitir({ type: 'result', subtype: 'success', is_error: true, result: 'Not logged in · Please run /login', num_turns: 0 });
   }
   let r = 'LISTO';
+  // «regenerar una línea» (el ícono ✨ de «Editar a mano»): escribe otra versión de esa parte
+  const linea = /TAREA: regenerar una l[ií]nea/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
+  if (linea) {
+    const n = (/Reescribe SOLO lo que se dice en la parte (\d+)/.exec(textoTarea) || [])[1] || '?';
+    fs.writeFileSync(path.join(RAIZ, linea[1]), JSON.stringify({ dice: `Otra versión de prueba de la parte ${n}, escrita por la IA.` }));
+    return resultado({ result: 'LISTO' });
+  }
   if (tareaActual === 'ficha') await ficha(textoTarea, m, intento);
   else if (tareaActual === 'guion') r = await guion(textoTarea, m, intento);
   else if (tareaActual === 'cambios') r = await cambios(textoTarea, m);
@@ -283,7 +290,7 @@ function familiaDelTexto(texto) {
 function especialista(texto) {
   if (process.env.FALSO_DESPACHADO) return null;
   const tarea = (String(texto).match(/^TAREA: ([^\n]+)/m) || [])[1] || '';
-  if (!tarea || /^ficha\b/.test(tarea)) return null;
+  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea)) return null;
   if (/^imagen-ads-/.test(tarea)) return 'claude-falso-imagen-ads.js';
   if (/^(guion|cambios)\b/.test(tarea)) return MODOS_DE_ESTILOS.has(modo(tarea.split(/\s/)[0])) ? 'claude-falso-estilos.js' : null;
   if (/^continuidad-/.test(tarea)) return 'claude-falso-continuidad.js';
