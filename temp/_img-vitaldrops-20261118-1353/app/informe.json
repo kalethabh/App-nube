@@ -1,0 +1,38 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-18T19:01:07.221Z",
+  "variaciones": 10,
+  "archivos": 9,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 0,
+    "rehechasPorTi": [
+      "V01_1x1",
+      "V02_1x1",
+      "V03_1x1",
+      "V04_1x1",
+      "V05_1x1",
+      "V06_1x1",
+      "V08_1x1",
+      "V09_1x1",
+      "V10_1x1"
+    ],
+    "arregladas": [],
+    "conDetalles": [],
+    "sinRevisar": [],
+    "sinImagen": [
+      {
+        "pieza": "V07_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    ],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
