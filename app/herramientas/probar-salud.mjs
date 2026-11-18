@@ -54,6 +54,8 @@ try {
   check('Biblioteca de anuncios: solo cuenta la Ad Library (Branded Content caído no la pone en rojo)', s['meta-biblioteca'].estado === 'operativo', s['meta-biblioteca']);
   check('WhatsApp Business: Cloud API con «Major disruptions» -> rojo', s['meta-whatsapp'].estado === 'caido' && /Cloud API/.test(s['meta-whatsapp'].detalle), s['meta-whatsapp']);
   check('Un producto de Meta que no usas (Audience Network) no aparece', !Object.values(s).some((x) => /Revenue/.test(x.detalle || '')));
+  const uno = await salud.revisarServicio('meta-whatsapp');
+  check('El ↻ de una fila revisa solo esa y devuelve todo armado', uno.grupos.flatMap((g) => g.servicios).find((x) => x.id === 'meta-whatsapp')?.estado === 'caido' && uno.grupos.length >= 4, uno);
   check('El general es el peor de los que se pudieron revisar (caído)', d.general === 'caido', d.general);
   salud._paraPruebas({ claude: `${base}/no-existe`, openai: `${base}/no-existe`, elevenlabs: `${base}/no-existe`, meta: `${base}/no-existe` });
   const d2 = await salud.salud({ fresco: true });
