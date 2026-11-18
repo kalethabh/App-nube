@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18v · 24 plantillas ganadoras nuevas
+
+- **54 plantillas** (antes 30): 24 nuevas, sacadas de TrendTrack. Son anuncios de imagen en español con meses activos y alcance real, por ejemplo: foto real apilada, lupa sobre el problema, nota escrita a mano, selfie en el espejo, «Pensado para…», «Señales de que necesitas…», pierna partida con deslizador, «Pasé de la talla L a la S», «Programa de 50 días», calendario de 21 días, «No dejes que… + El 86%» y mecanismo en rayos X. Cada una trae la fórmula de su titular.
+- **Filtros por tipo** en el selector de plantillas (dolor y deseo, antes y después, línea de tiempo, comparación, beneficios, nativo), y en las nuevas, cuántos **días lleva activo** el anuncio original.
+
 ## 2026-11-18u · Titulares con la estructura de cada plantilla y productos organizados
 
 - **Titulares que atacan el deseo principal**: cada plantilla tiene la fórmula de su titular («Bye bye + el problema», «Menos X en N semanas», «¿Tu zona todavía se ve así?», «No solo X, también tus Y», «Esta Navidad regálate…», los días…). El modelo la llena con el deseo o beneficio principal de tu producto, en las palabras de tu cliente y conectado con lo que se ve.
