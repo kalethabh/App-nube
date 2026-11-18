@@ -1,0 +1,198 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F26 (Línea de tiempo)",
+    "reference_style": "Clean, modern progress ad: three circular photo frames of increasing size threaded on one horizontal timeline, showing the same woman at three moments of her first month, with the product anchoring the bottom",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Growing Circles Timeline Progression Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "#C0B116 and #1C305F",
+    "visual_style": "Clean, bold and modern direct-response wellness ad: flat or softly graded brand-colored backgrounds, thick condensed headlines, natural warm photography of young Colombian women in everyday moments, shown from the waist up or in action",
+    "visual_atmosphere": "Warm, honest, feminine and close: morning light, home breakfast table, the calm feeling of a small daily ritual. Confident and optimistic, never clinical and never body-shaming",
+    "graphic_language": "Flat mustard-yellow (#C0B116) color fields and deep navy (#1C305F) graphic elements, rounded pills, thin lines, strong contrast, generous margins, no foliage clutter",
+    "text_typography": "Anton + Caveat"
+  },
+  "creative_objective": "Tell the first month of the daily ritual as a three-stage progression (start, more energy, more appetite) that the viewer reads left to right in one second. The progress is shown through the woman's face, mood and breakfast, never through her body. It must feel honest: these are experiences many women report, not guarantees.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Bold headline at the top. 2) The three circular photos read left to right as growth: small, medium, large, with the largest circle ringed in deep navy. 3) The product centered in the bottom band. 4) The small time-label pills on top of each circle and the short caption under each one.",
+    "composition_style": "Horizontal left-to-right progression with deliberate size growth. Headline centered in the top band. Three circular photo frames side by side with their centers on the same horizontal line at about 46% of the canvas height: circle 1 about 20% of the canvas width in diameter (centered at about 17% of the width), circle 2 about 25% (centered at about 43%), circle 3 about 32% (centered at about 75%). A thin timeline track runs behind the circles through their centers, with a small chevron arrow pointing right in each gap. A rounded time-label pill straddles the top edge of each circle. A one-line caption sits centered under each circle on a shared baseline. The product stands centered in the bottom band, about 20-22% of the canvas height.",
+    "spacing_and_structure": "Vertical bands: headline from about 6% to 19% of the canvas height; circles between about 30% and 62%; captions on one shared baseline from about 65% to 71%; product band from about 74% to 95%. Safe margins of about 6-7% on every side. Nothing touches the canvas edges and nothing overlaps the photos except the label pills on their top edge.",
+    "lighting_and_depth": "Inside the circles: identical camera angle, crop and window-light setup across all three stages so only the mood and the breakfast change; stage 1 slightly cooler and more muted, stage 2 neutral, stage 3 warmest and most vibrant. Each circle has a thin white outline and a soft drop shadow; circle 3 adds a deep navy ring and a faint glow. The product gets a soft studio key light from the upper left and a soft contact shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a flat mustard-yellow background. Headline centered at the top. Across the middle, three circular photos of the same young woman at her breakfast table grow in size from left to right (small, medium, large) along a thin horizontal timeline track that runs through their centers, with a small chevron arrow in each gap. A small rounded time-label pill sits on the top edge of each circle, and the largest circle is ringed in deep navy. A short caption sits under each circle on a shared baseline. The product stands centered in the bottom band with a soft shadow.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Calm brand-colored backdrop that keeps the progression clean and readable",
+        "adaptation_rule": "Flat mustard-yellow #C0B116 with a very subtle gradient, slightly lighter toward the top. Low detail, no patterns.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, from about 6% to 19% of the canvas height",
+        "visual_function": "Frames the image as a progress story and stops the scroll",
+        "adaptation_rule": "Two centered lines in Anton, deep navy #1C305F; the words EL PRIMER MES in white for emphasis.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "timeline track with chevron arrows",
+        "position": "Thin horizontal line at about 46% of the canvas height, behind the three circles, from about 6% to 94% of the width; one small chevron arrow in each of the two gaps",
+        "visual_function": "Threads the three photos into one readable sequence and signals forward progress",
+        "adaptation_rule": "Thin line that shifts from a soft white on the left to deep navy #1C305F on the right, with two small chevrons pointing right. Hidden behind the circles, visible only in the gaps and at both ends.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "stage circle 1 (starting point, smallest)",
+        "position": "Left, circular photo about 20% of the canvas width in diameter, spanning about 7-27% of the width and 36-56% of the height",
+        "visual_function": "Shows the starting point the audience recognizes: a rushed morning with no appetite and low energy",
+        "adaptation_rule": "Shoulders-up portrait of a young Colombian woman (about 26, slim face, long dark hair in a loose bun, simple white t-shirt) sitting at a breakfast table, looking sleepy and low on energy, chin resting on her hand, only a small cup of coffee in front of her. Muted, slightly cooler tones. No product inside the circle. No body shown below the shoulders.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "stage circle 2 (first change, medium)",
+        "position": "Center, circular photo about 25% of the canvas width in diameter, spanning about 30.5-55.5% of the width and 33.5-58.5% of the height",
+        "visual_function": "Shows a first noticeable, believable change: more energy",
+        "adaptation_rule": "Exactly the same woman, crop, angle and light as circle 1, scaled up: now awake and upright with a soft smile, a glass of orange juice and a small bowl of fruit in front of her. Neutral natural tones. No product inside the circle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "stage circle 3 (result, largest)",
+        "position": "Right, circular photo about 32% of the canvas width in diameter, spanning about 59-91% of the width and 30-62% of the height",
+        "visual_function": "Shows the desired end of the first month: she eats with appetite and feels good",
+        "adaptation_rule": "Same woman, crop and light, scaled up again: a big genuine smile, fork in hand, in front of a full Colombian breakfast (arepa, scrambled eggs, fruit, juice). Warmest and most vibrant tones. Ringed with a deep navy #1C305F outline and a faint glow. Her face and body shape stay the same in all three circles: only mood, energy and breakfast change. No product inside the circle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "time-label pills (3)",
+        "position": "One rounded pill straddling the top edge of each circle, centered horizontally on it",
+        "visual_function": "Dates each stage so the sequence reads as time passing",
+        "adaptation_rule": "Small rounded pills of equal height. Pills 1 and 2 white with navy text; pill 3 filled with deep navy #1C305F with white text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "stage captions (3)",
+        "position": "Centered under each circle on one shared baseline, from about 65% to 71% of the canvas height",
+        "visual_function": "Names what is happening at each stage in a few words",
+        "adaptation_rule": "One short caption per circle in deep navy, all three on the same baseline.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "product",
+        "position": "Bottom center, from about 74% to 95% of the canvas height",
+        "visual_function": "Connects the whole progression to what is being sold",
+        "adaptation_rule": "The product exactly as in the attached product photo, front view, standing on an implied surface with a soft contact shadow, about 20-22% of the canvas height.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonials",
+      "A fourth stage or extra circles",
+      "Rectangular photo panels or a two-panel before/after split",
+      "Number badges (1, 2, 3) instead of time labels",
+      "Charts, graphs, percentages or numeric data overlays",
+      "Benefit list or icons",
+      "The product repeated inside the circles",
+      "Body, weight or medical before/after comparisons",
+      "Bottom bar or banner",
+      "Logos or brand marks",
+      "Clinical or certification seals",
+      "The yellow circle with 60ml from the product photo"
+    ]
+  },
+  "visual_prompt": "Square 1:1 static ad, clean modern timeline layout on a flat mustard-yellow (#C0B116) background with a very subtle gradient that is slightly lighter at the top. TOP BAND (about 6% to 19% of the height): a bold centered two-line headline in a thick condensed sans-serif (Anton), deep navy (#1C305F), with the last three words in white. MIDDLE (about 30% to 62% of the height): three circular photographs side by side whose centers share one horizontal line at about 46% of the height and that GROW from left to right: the first circle is small (about 20% of the canvas width, centered at about 17% of the width), the second is medium (about 25%, centered at about 43%), the third is large (about 32%, centered at about 75%). A thin timeline line runs behind the circles through their centers from the left margin to the right margin, soft white on the left turning deep navy on the right, with one small chevron arrow pointing right in each gap between circles. All three circles show the SAME young Colombian woman (about 26 years old, slim face, long dark hair in a loose bun, plain white t-shirt), photographed from the shoulders up, seated at the same breakfast table by a window, same frontal eye-level camera angle, same crop, same morning window light. Circle 1 (smallest, slightly cool and muted tones): she looks sleepy and low on energy, chin resting on her hand, with only a small cup of coffee in front of her. Circle 2 (medium, neutral natural tones): she is awake and sitting upright with a soft smile, a glass of orange juice and a small bowl of fruit in front of her. Circle 3 (largest, warm and vibrant tones): she has a big genuine smile and holds a fork in front of a full Colombian breakfast with an arepa, scrambled eggs, fruit and juice. Her face and body shape are identical in the three circles; only her mood, her energy and the breakfast change. Each circle has a thin white outline and a soft drop shadow; the third circle also has a deep navy (#1C305F) ring about 1% of the canvas width thick and a faint glow. A small rounded pill label straddles the top edge of each circle, centered on it: the first two pills are white with navy text, the third pill is solid deep navy with white text. Under each circle, on one shared baseline at about 65% to 71% of the height, a short one-line caption in deep navy, in a friendly handwritten font (Caveat, bold). BOTTOM BAND (about 74% to 95% of the height): the product stands centered, front view, about 21% of the canvas height, with soft studio light from the upper left and a soft contact shadow. The product is the amber glass dropper bottle with a black rubber-bulb dropper cap and a yellow-to-white label shown in the attached product image: use the attached product image as the only source of truth for the product and reproduce it exactly as it is, same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. Generous margins of about 6-7% on every side; nothing touches the edges and nothing overlaps the photos except the pill labels. No product inside the circles. No body or weight comparisons, no before/after split, no CTA button, no price, no badges, no stars, no icons, no benefit list, no bottom bar, no logos.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, first element of the canvas, 2 centered lines",
+      "text_style": "Anton, extra bold condensed uppercase, each line about 7% of the canvas height, centered, deep navy #1C305F on the yellow background; the words EL PRIMER MES in white. Line break after NOTAN.",
+      "text": "LO QUE MUCHAS NOTAN EN EL PRIMER MES"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "stage label 1",
+      "reference_position": "Inside the pill on the top edge of circle 1",
+      "text_style": "Anton, uppercase, about 2.8% of the canvas height, 1 line, centered inside a white rounded pill, deep navy text",
+      "text": "DÍA 1"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "stage label 2",
+      "reference_position": "Inside the pill on the top edge of circle 2",
+      "text_style": "Anton, uppercase, about 2.8% of the canvas height, 1 line, centered inside a white rounded pill, deep navy text",
+      "text": "SEMANA 2"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "stage label 3",
+      "reference_position": "Inside the pill on the top edge of circle 3",
+      "text_style": "Anton, uppercase, about 3.2% of the canvas height, 1 line, centered inside a rounded pill filled with deep navy #1C305F, white text",
+      "text": "MES 1"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "caption stage 1",
+      "reference_position": "Centered under circle 1, on the shared caption baseline",
+      "text_style": "Caveat bold, about 3.4% of the canvas height, 1 line, centered, deep navy",
+      "text": "Empiezas tu ritual"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "caption stage 2",
+      "reference_position": "Centered under circle 2, on the shared caption baseline",
+      "text_style": "Caveat bold, about 3.4% of the canvas height, 1 line, centered, deep navy",
+      "text": "Más energía"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "caption stage 3",
+      "reference_position": "Centered under circle 3, on the shared caption baseline",
+      "text_style": "Caveat bold, about 3.6% of the canvas height, 1 line, centered, deep navy",
+      "text": "Más ganas de comer"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Three circular photo frames growing in size from left to right (about 20%, 25% and 32% of the canvas width)",
+    "The same woman, crop and lighting in all three circles, shoulders up at a breakfast table, with a believable progression in mood and breakfast from cool and muted to warm and vibrant",
+    "Thin horizontal timeline track through the circle centers with a chevron arrow in each gap",
+    "Deep navy ring and faint glow on the largest circle",
+    "Rounded time-label pill on the top edge of each circle",
+    "The product from the attached photo centered in the bottom band with a soft contact shadow",
+    "Flat mustard-yellow brand background"
+  ],
+  "final_generation_exclusions": [
+    "No body, weight or figure comparisons; never show the woman below the shoulders",
+    "No fourth circle and no rectangular panels",
+    "No product inside the circles",
+    "No yellow 60ml circle copied from the product photo",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The progression shows energy and appetite as experiences many women report, with no body-change promise and no body before/after.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
