@@ -101,3 +101,9 @@
   gap: var(--e-2);
   flex: none;
 }
+
+/* en el celular la cabecera de una sección baja sus acciones a otra línea (no estira la página) */
+@media (max-width: 600px) {
+  .seccion__cabecera { flex-wrap: wrap; }
+  .seccion__acciones { flex: 1 1 100%; flex-wrap: wrap; margin-left: 0; min-width: 0; }
+}

@@ -1705,6 +1705,19 @@
   gap: var(--e-6);
   align-items: start;
 }
+/* «Agregar»: lo que entendió de tu video va ARRIBA de la hoja, en la columna ancha; el lateral (pedir cambios, la voz,
+   producir) se queda a la derecha desde arriba. Sin esto el plan ocupaba la columna ancha y la hoja caía al lateral. */
+.nv-guion > .nv-decisiones--plan,
+.nv-guion > .nv-guion__hoja {
+  grid-column: 1;
+}
+.nv-guion > .nv-decisiones--plan {
+  margin: 0 0 calc(var(--e-6) * -0.5);
+}
+.nv-guion > .nv-guion__lado {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
 .nv-guion__hoja {
   min-width: 0;
   border-radius: var(--r-xl);
@@ -2264,6 +2277,10 @@
   }
   .nv-guion {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .nv-guion > .nv-guion__lado {
+    grid-column: 1;
+    grid-row: auto;
   }
   .nv-guion__lado {
     position: static;
@@ -2894,7 +2911,7 @@
 .nv-voz-guion__nota--error { color: var(--peligro, #e5484d); }
 
 /* ---- editar a mano lo que se dice (Guiones.jsx) */
-.nv-editar-mano { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--e-2); margin: var(--e-2) 0; }
+.nv-editar-mano { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--e-2); margin: var(--e-3) 0 var(--e-1); padding: 0 var(--e-5); }
 .nv-linea__editar { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .nv-linea__editar textarea { font-size: var(--t-destacado, 16px); line-height: 1.4; }
 /* el ícono ✨ arriba a la derecha del cuadro: regenerar esa parte con IA */
@@ -2906,3 +2923,8 @@
 .nv-linea__regenerar--girando { opacity: 1 !important; }
 .nv-linea__regenerar--girando svg { animation: nv-girar 0.9s linear infinite; }
 @keyframes nv-girar { to { transform: rotate(360deg); } }
+
+/* en el celular la barra de pasos se desliza de lado dentro de su caja */
+@media (max-width: 600px) {
+  .nv-pasos { overflow-x: auto; gap: var(--e-3); -webkit-overflow-scrolling: touch; }
+}

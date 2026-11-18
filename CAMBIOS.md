@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18h · Arreglo: el guion de «Agregar» vuelve a su lugar
+
+- En los anuncios de «Agregar», el bloque «Lo que entendió de tu video y tu pedido» ocupaba la columna ancha y empujaba el guion a la columna angosta de la derecha. Ahora el plan va arriba del guion, los dos en la columna ancha, y a la derecha quedan «Pedir cambios», la voz del narrador y «Me gusta, producir», desde arriba.
+- El botón «Editar a mano» ya no queda pegado al borde de la hoja.
+
 ## 2026-11-18g · Regenerar con IA una parte del guion
 
 - En «Editar a mano», cada cuadro tiene arriba a la derecha un ícono ✨ **Regenerar con IA**: tu IA escribe otra versión de esa parte (con el guion completo como contexto: misma función, que enganche con la anterior y la siguiente, el mismo largo para que entre en el mismo tiempo y las palabras de tu público).
