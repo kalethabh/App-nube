@@ -15,6 +15,7 @@ import path from 'node:path';
 import { leerJSON } from './archivos.js';
 import { voces as vocesDeLaCuenta, mensajeSimple, VOZ_DE_PRUEBA } from './voces.js';
 import { leerConfig } from './config.js';
+import { fallaReportada } from './estado-servicios.js';
 import { spawn } from 'node:child_process';
 import { RAIZ } from './rutas.js';
 
@@ -258,7 +259,10 @@ export async function asegurarVoz({ carpeta, brief, ficha = {}, voces = null }) 
   const r = voces ? { ok: true, voces } : await vocesDeLaCuenta();
   let lista = r.ok ? r.voces : null;
   if (!lista && process.env.ANUNCIOS_MODO_PRUEBA === '1') lista = [VOZ_DE_PRUEBA];
-  if (!lista) return { ok: false, mensaje: `No pude elegir la voz del narrador: ${mensajeSimple(r.mensaje)}` };
+  if (!lista) {
+    const falla = r.motivo === 'clave' || r.motivo === 'sin-clave' ? '' : await fallaReportada('elevenlabs');
+    return { ok: false, mensaje: `No pude elegir la voz del narrador: ${falla || mensajeSimple(r.mensaje)}` };
+  }
   const buscada = await vozBuscada({ carpeta, brief, ficha });
   const ultima = (() => {
     const x = leerConfig().vozPorEstilo?.[brief?.estilo];

@@ -24,6 +24,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { ENV } from './rutas.js';
 import { ocupadaDesde } from './ocupada.js';
+import { fallaReportada } from './estado-servicios.js';
 
 export const CLAVES = {
   kie: { variable: 'KIE_API_KEY', nombre: 'kie.ai' },
@@ -381,7 +382,15 @@ export async function probarClave(cual, { valor } = {}) {
     if (!v.ok) return v;
     return { ok: true, mensaje: 'Tu clave de kie.ai funciona.', saldoKie: v.creditos };
   }
-  if (cual === 'elevenlabs') return usuarioElevenLabs(valor || leerClave(CLAVES.elevenlabs.variable));
+  if (cual === 'elevenlabs') {
+    const r = await usuarioElevenLabs(valor || leerClave(CLAVES.elevenlabs.variable));
+    // si no respondió, ¿ElevenLabs tiene una falla reportada? (así se sabe que no es la clave ni la app)
+    if (!r.ok && (r.motivo === 'sin-conexion' || r.motivo === 'servicio')) {
+      const f = await fallaReportada('elevenlabs');
+      if (f) return { ...r, motivo: 'falla-del-servicio', mensaje: f };
+    }
+    return r;
+  }
   if (cual === 'meta') {
     const { probarToken } = await import('./meta-biblioteca.js');
     return probarToken(valor || null);
