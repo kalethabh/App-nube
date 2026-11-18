@@ -60,6 +60,7 @@ const s = (slug) => encodeURIComponent(slug);
 /** Las rutas de la app. En un <a> usa href={enlace.anuncio(slug)}; para navegar desde código, ir(rutas.anuncio(slug)). */
 export const rutas = {
   inicio: () => '/inicio',
+  productos: () => '/productos',
   tablero: () => '/tablero',
   nuevo: (consulta) => `/nuevo${consulta ? `?${new URLSearchParams(consulta)}` : ''}`,
   anuncio: (slug) => `/anuncio/${s(slug)}`,

@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18u · Titulares con la estructura de cada plantilla y productos organizados
+
+- **Titulares que atacan el deseo principal**: cada plantilla tiene la fórmula de su titular («Bye bye + el problema», «Menos X en N semanas», «¿Tu zona todavía se ve así?», «No solo X, también tus Y», «Esta Navidad regálate…», los días…). El modelo la llena con el deseo o beneficio principal de tu producto, en las palabras de tu cliente y conectado con lo que se ve.
+- **El resultado se ve grande**: si el deseo es más volumen (glúteos, caderas, piernas), el después, el último panel o la persona muestran claramente más volumen y forma, con la zona ocupando la mayor parte del cuadro.
+- **Productos** (menú «Tu contenido»): todo lo generado, por producto (videos, lotes de imágenes, investigación e inversión). Si hay productos con el mismo nombre, avisa y los **unes en uno** con un toque. También puedes elegir varios a mano con «Unir productos». Nada se borra: los otros se guardan aparte.
+
 ## 2026-11-18t · Plantillas: la forma de la plantilla, el ángulo de tu producto
 
 - La plantilla pone la **forma** y tu producto pone el **ángulo**. Por ejemplo, un antes y después de piernas hinchadas, para un producto de glúteos, caderas y piernas, sale como antes y después de glúteos, caderas y piernas, con la misma división y los mismos rótulos. Un «Día 1 · 14 · 30» muestra el cambio de tu producto, paso a paso. Una plantilla con una sola persona muestra tu resultado en ella, para que el ángulo se entienda antes de leer.

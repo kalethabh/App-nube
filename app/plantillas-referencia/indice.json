@@ -1,43 +1,271 @@
 {
   "nota": "Las PLANTILLAS de los anuncios de imagen (2026-11-18s): 30 anuncios validados de la categoría que el usuario pasó como ejemplo. No se dibujan: cada una va al modelo de imagen como referencia, con la foto del producto, y el modelo mantiene la estructura, la composición y la tipografía y cambia el producto, los textos y la paleta (app/server/lib/imagen-ads/plantillas-referencia.js). familia = el tipo de ángulo (para que «Que la app elija» reparta ideas distintas); grupo = las que son casi la misma (nunca dos del mismo grupo en una elección automática).",
   "familias": [
-    { "id": "dolor", "nombre": "Dolor y deseo" },
-    { "id": "antes-despues", "nombre": "Antes y después" },
-    { "id": "tiempo", "nombre": "Línea de tiempo" },
-    { "id": "comparacion", "nombre": "Comparación" },
-    { "id": "beneficios", "nombre": "Beneficios" },
-    { "id": "nativo", "nombre": "Nativo y temporada" }
+    {
+      "id": "dolor",
+      "nombre": "Dolor y deseo"
+    },
+    {
+      "id": "antes-despues",
+      "nombre": "Antes y después"
+    },
+    {
+      "id": "tiempo",
+      "nombre": "Línea de tiempo"
+    },
+    {
+      "id": "comparacion",
+      "nombre": "Comparación"
+    },
+    {
+      "id": "beneficios",
+      "nombre": "Beneficios"
+    },
+    {
+      "id": "nativo",
+      "nombre": "Nativo y temporada"
+    }
   ],
   "plantillas": [
-    { "id": "p01", "nombre": "Silueta neón con zonas", "familia": "dolor", "grupo": "neon" },
-    { "id": "p02", "nombre": "Historia antes y después", "familia": "antes-despues", "grupo": "historia" },
-    { "id": "p03", "nombre": "Etapas en neón", "familia": "tiempo", "grupo": "neon-etapas" },
-    { "id": "p04", "nombre": "Día 1 · 14 · 30", "familia": "tiempo", "grupo": "dias" },
-    { "id": "p05", "nombre": "Sin vs. con el producto", "familia": "comparacion", "grupo": "sin-con" },
-    { "id": "p06", "nombre": "Tu producto vs. el otro", "familia": "comparacion", "grupo": "vs" },
-    { "id": "p07", "nombre": "No compres esto si…", "familia": "nativo", "grupo": "no-compres" },
-    { "id": "p08", "nombre": "Resultado en 2 semanas", "familia": "antes-despues", "grupo": "ad-blanco-negro" },
-    { "id": "p09", "nombre": "Solo X vs. X + producto", "familia": "comparacion", "grupo": "solo-con" },
-    { "id": "p10", "nombre": "Antes y después partido", "familia": "antes-despues", "grupo": "partido" },
-    { "id": "p11", "nombre": "Pregunta y revelación", "familia": "dolor", "grupo": "pregunta" },
-    { "id": "p12", "nombre": "¿Todavía se ve así?", "familia": "antes-despues", "grupo": "diagrama" },
-    { "id": "p13", "nombre": "Estado vs. estado", "familia": "comparacion", "grupo": "ilustrado" },
-    { "id": "p14", "nombre": "3 zonas, 3 semanas", "familia": "tiempo", "grupo": "zonas" },
-    { "id": "p15", "nombre": "Antes y después en cuadrícula", "familia": "antes-despues", "grupo": "cuadricula" },
-    { "id": "p16", "nombre": "Beneficios con íconos", "familia": "beneficios", "grupo": "iconos-lista" },
-    { "id": "p17", "nombre": "Este año vs. el próximo", "familia": "comparacion", "grupo": "anios" },
-    { "id": "p18", "nombre": "Antes y después con rótulos", "familia": "antes-despues", "grupo": "rotulos" },
-    { "id": "p19", "nombre": "Día 0 vs. día 90", "familia": "tiempo", "grupo": "dia-0-90" },
-    { "id": "p20", "nombre": "Beneficios a los lados", "familia": "beneficios", "grupo": "lados" },
-    { "id": "p21", "nombre": "Temporada: regálate", "familia": "nativo", "grupo": "navidad" },
-    { "id": "p22", "nombre": "No solo X: también Y", "familia": "dolor", "grupo": "no-solo" },
-    { "id": "p23", "nombre": "Producto héroe", "familia": "beneficios", "grupo": "heroe" },
-    { "id": "p24", "nombre": "No solo X (con persona)", "familia": "dolor", "grupo": "no-solo" },
-    { "id": "p25", "nombre": "No solo X (de espalda)", "familia": "dolor", "grupo": "no-solo" },
-    { "id": "p26", "nombre": "Invierte en ti", "familia": "nativo", "grupo": "invierte" },
-    { "id": "p27", "nombre": "Deseo con beneficios", "familia": "beneficios", "grupo": "deseo" },
-    { "id": "p28", "nombre": "Temporada con persona", "familia": "nativo", "grupo": "navidad" },
-    { "id": "p29", "nombre": "Antes y después lado a lado", "familia": "antes-despues", "grupo": "lado-a-lado" },
-    { "id": "p30", "nombre": "Día 0 · 7 · 21", "familia": "tiempo", "grupo": "dias-3" }
+    {
+      "id": "p01",
+      "nombre": "Silueta neón con zonas",
+      "familia": "dolor",
+      "grupo": "neon",
+      "titular": "«Bye bye» + EL PROBLEMA VISIBLE en 2 palabras, enorme; alrededor del cuerpo, rótulos cortos «+ [zona que gana]»",
+      "ejemplo": "Bye bye glúteos planos · + caderas · + pompis · cintura pequeña"
+    },
+    {
+      "id": "p02",
+      "nombre": "Historia antes y después",
+      "familia": "antes-despues",
+      "grupo": "historia",
+      "titular": "Testimonio de identidad en primera persona: «Toda mi vida fui \"[la etiqueta que le dolía]\"» + «Hasta que descubrí [producto]»",
+      "ejemplo": "Toda mi vida fui \"la amiga flaquita\". Hasta que descubrí Muna"
+    },
+    {
+      "id": "p03",
+      "nombre": "Etapas en neón",
+      "familia": "tiempo",
+      "grupo": "neon-etapas",
+      "titular": "«Bye bye» + EL PROBLEMA VISIBLE; las etapas (Etapa 1, 2, 3) muestran el cambio creciente",
+      "ejemplo": "Bye bye glúteos planos · Etapa 1 · Etapa 2 · Etapa 3"
+    },
+    {
+      "id": "p04",
+      "nombre": "Día 1 · 14 · 30",
+      "familia": "tiempo",
+      "grupo": "dias",
+      "titular": "Casi sin texto: el mensaje son los rótulos de días (Día 1 · Día 14 · Día 30) bajo cada foto, con el cambio cada vez mayor",
+      "ejemplo": "Día 1 · Día 14 · Día 30"
+    },
+    {
+      "id": "p05",
+      "nombre": "Sin vs. con el producto",
+      "familia": "comparacion",
+      "grupo": "sin-con",
+      "titular": "Dos rótulos que comparan: «[lo que ya hace]» vs. «[lo que ya hace] + [producto]», y abajo una frase a quién le habla: «[Quiénes], [la zona] necesita más que [lo que ya hace]»",
+      "ejemplo": "On a GLP-1 · On a GLP-1 + micronutrientes · Chicos, sus músculos necesitan más que proteína"
+    },
+    {
+      "id": "p06",
+      "nombre": "Tu producto vs. el otro",
+      "familia": "comparacion",
+      "grupo": "vs",
+      "titular": "Pregunta del dolor en sus palabras + respuesta corta: «¿[Problema]?» + «[Solución en 4 palabras]»",
+      "ejemplo": "¿No puedes ir al baño? La fibra es la clave"
+    },
+    {
+      "id": "p07",
+      "nombre": "No compres esto si…",
+      "familia": "nativo",
+      "grupo": "no-compres",
+      "titular": "Anti-titular nativo: «No compres esto si [situación del cliente]…» y el giro: «a menos que quieras [resultado]»",
+      "ejemplo": "No compres estas gomitas si estás bajando de peso… a menos que quieras resultados"
+    },
+    {
+      "id": "p08",
+      "nombre": "Resultado en 2 semanas",
+      "familia": "antes-despues",
+      "grupo": "ad-blanco-negro",
+      "titular": "«Menos [PROBLEMA] en [TIEMPO]» (o «Más [RESULTADO] en [TIEMPO]»), en dos líneas grandes",
+      "ejemplo": "Menos hinchazón en 2 semanas"
+    },
+    {
+      "id": "p09",
+      "nombre": "Solo X vs. X + producto",
+      "familia": "comparacion",
+      "grupo": "solo-con",
+      "titular": "Dos rótulos: «Solo [lo que ya hace]» vs. «[lo que ya hace] + [producto]»; abajo «[Quiénes], tu [zona] necesita más que [lo que ya hace]»",
+      "ejemplo": "Solo ejercicio · Ejercicio + drenaje · Tu hinchazón necesita más que ejercicio"
+    },
+    {
+      "id": "p10",
+      "nombre": "Antes y después partido",
+      "familia": "antes-despues",
+      "grupo": "partido",
+      "titular": "«Menos/Más [RESULTADO] en [ZONA]», con la palabra clave resaltada, y una franja «Resultados en [tiempo]»",
+      "ejemplo": "Menos hinchazón en pies y tobillos · Resultados en solo 14 días"
+    },
+    {
+      "id": "p11",
+      "nombre": "Pregunta y revelación",
+      "familia": "dolor",
+      "grupo": "pregunta",
+      "titular": "Síntoma + pregunta + causa revelada: «Tu [síntoma] ¿[pregunta]?» + «¡Es tu [causa]!», y abajo «[verbo] de raíz [problema]»",
+      "ejemplo": "Tu peso ¿sube y baja? ¡Es tu sistema linfático!"
+    },
+    {
+      "id": "p12",
+      "nombre": "¿Todavía se ve así?",
+      "familia": "antes-despues",
+      "grupo": "diagrama",
+      "titular": "Pregunta que señala la zona: «¿Tu [ZONA] todavía se ve así?», con el antes y el después rotulados",
+      "ejemplo": "¿Tu pecho todavía se ve así?"
+    },
+    {
+      "id": "p13",
+      "nombre": "Estado vs. estado",
+      "familia": "comparacion",
+      "grupo": "ilustrado",
+      "titular": "Dos estados enfrentados de la misma zona, en mayúsculas: «[ZONA] [ESTADO MALO]» vs. «[ZONA] [ESTADO BUENO]», con una línea corta bajo cada uno",
+      "ejemplo": "Barriga hinchada · Barriga drenada"
+    },
+    {
+      "id": "p14",
+      "nombre": "3 zonas, 3 semanas",
+      "familia": "tiempo",
+      "grupo": "zonas",
+      "titular": "«[Problema] en [N] zonas: una solución», y en la lista «Semana 1 / 2 / 3: [lo que cambia]»",
+      "ejemplo": "Celulitis en 3 zonas, una solución"
+    },
+    {
+      "id": "p15",
+      "nombre": "Antes y después en cuadrícula",
+      "familia": "antes-despues",
+      "grupo": "cuadricula",
+      "titular": "«[El problema con su nombre popular] finalmente desaparece» (o «finalmente aparece» para un deseo), con rótulos de tiempo en la cuadrícula",
+      "ejemplo": "La barriga de cerveza finalmente desaparece"
+    },
+    {
+      "id": "p16",
+      "nombre": "Beneficios con íconos",
+      "familia": "beneficios",
+      "grupo": "iconos-lista",
+      "titular": "«[Resultado principal] mientras [beneficio que se siente]», y los beneficios en íconos con 2 palabras cada uno",
+      "ejemplo": "Baja de peso mientras te sientes ligero"
+    },
+    {
+      "id": "p17",
+      "nombre": "Este año vs. el próximo",
+      "familia": "comparacion",
+      "grupo": "anios",
+      "titular": "Comparación de años: «[Año] con [problema]» vs. «[Año siguiente] con [producto]», y el gancho «[Resultado] en solo [tiempo]»",
+      "ejemplo": "2025 con retención · 2026 con drenaje · Despierta con un abdomen plano"
+    },
+    {
+      "id": "p18",
+      "nombre": "Antes y después con rótulos",
+      "familia": "antes-despues",
+      "grupo": "rotulos",
+      "titular": "«[Verbo de resultado] [el problema] — sin [la renuncia que teme]»",
+      "ejemplo": "Desinfla la panza de la cerveza sin dejar de tomarla"
+    },
+    {
+      "id": "p19",
+      "nombre": "Día 0 vs. día 90",
+      "familia": "tiempo",
+      "grupo": "dia-0-90",
+      "titular": "«El [tipo de producto] natural que transforma tu [zona]», con los días (Día 0 vs. Día 90) en el centro",
+      "ejemplo": "El drenaje natural que transforma tu cuerpo"
+    },
+    {
+      "id": "p20",
+      "nombre": "Beneficios a los lados",
+      "familia": "beneficios",
+      "grupo": "lados",
+      "titular": "Verbo directo + causa + estado: «[Verbo] [lo que causa el problema] que te tiene [estado]», con beneficios cortos a los dos lados",
+      "ejemplo": "Suelta el líquido que te tiene hinchada"
+    },
+    {
+      "id": "p21",
+      "nombre": "Temporada: regálate",
+      "familia": "nativo",
+      "grupo": "navidad",
+      "titular": "Temporada + deseo: «Esta [temporada] regálate [el deseo central]»",
+      "ejemplo": "Esta Navidad regálate la figura que sueñas"
+    },
+    {
+      "id": "p22",
+      "nombre": "No solo X: también Y",
+      "familia": "dolor",
+      "grupo": "no-solo",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]», con «Tu mejor versión» a mano",
+      "ejemplo": "No solo glúteos, también tus piernas"
+    },
+    {
+      "id": "p23",
+      "nombre": "Producto héroe",
+      "familia": "beneficios",
+      "grupo": "heroe",
+      "titular": "«Descubre el poder de [producto]» + el resultado principal en 3 a 5 palabras + íconos de ingredientes",
+      "ejemplo": "Descubre el poder del Aguaje Complex · Glúteos y piernas firmes"
+    },
+    {
+      "id": "p24",
+      "nombre": "No solo X (con persona)",
+      "familia": "dolor",
+      "grupo": "no-solo",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]»",
+      "ejemplo": "No solo glúteos, también tus piernas"
+    },
+    {
+      "id": "p25",
+      "nombre": "No solo X (de espalda)",
+      "familia": "dolor",
+      "grupo": "no-solo",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]»",
+      "ejemplo": "No solo glúteos, también tus piernas"
+    },
+    {
+      "id": "p26",
+      "nombre": "Invierte en ti",
+      "familia": "nativo",
+      "grupo": "invierte",
+      "titular": "Momento + invitación: «Este [momento] invierte en ti» + «[zona] más [adjetivos del deseo]»",
+      "ejemplo": "Este fin de año invierte en ti · Glúteos y piernas más firmes"
+    },
+    {
+      "id": "p27",
+      "nombre": "Deseo con beneficios",
+      "familia": "beneficios",
+      "grupo": "deseo",
+      "titular": "El deseo con adjetivos: «[Zona] más [adjetivo 1] y [adjetivo 2]» + «Tu mejor versión sin [renuncia]»",
+      "ejemplo": "Glúteos y piernas más firmes y naturales"
+    },
+    {
+      "id": "p28",
+      "nombre": "Temporada con persona",
+      "familia": "nativo",
+      "grupo": "navidad",
+      "titular": "Temporada + deseo: «Esta [temporada] regálate [el deseo central]»",
+      "ejemplo": "Esta Navidad regálate la figura que siempre has querido"
+    },
+    {
+      "id": "p29",
+      "nombre": "Antes y después lado a lado",
+      "familia": "antes-despues",
+      "grupo": "lado-a-lado",
+      "titular": "«[Zona] [resultado] así de fácil» (o «en el mismo lugar»), con el antes y el después",
+      "ejemplo": "Glúteos y piernas en el mismo lugar, así de fácil"
+    },
+    {
+      "id": "p30",
+      "nombre": "Día 0 · 7 · 21",
+      "familia": "tiempo",
+      "grupo": "dias-3",
+      "titular": "Los días (Día 0 · 7 · 21) + el nombre del producto + 2 resultados concretos en sus palabras («Empiezas a [resultado visible]»)",
+      "ejemplo": "Empiezas a llenar jeans · Piernas con más volumen natural"
+    }
   ]
 }

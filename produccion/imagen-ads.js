@@ -164,7 +164,7 @@ const RAPIDO_PLANTILLA =
   'The person is a real Latin-American customer that matches the CONCEPT below (age, look, situation and place): with Meta Andromeda the creative IS the targeting, ' +
   'so the image must show clearly WHO it is for, WHAT problem or desire and WHEN (the moment). ' +
   'Replace the product of the template with the product of the SECOND attached image. ' +
-  'TEXTS: put the MAIN HEADLINE listed below in the place and style of the template\'s main headline. Rewrite every other text of the template (labels, subtitles, bullets, badges, buttons) ' +
+  'TEXTS: the MAIN HEADLINE goes in the place and style of the template\'s main headline and follows the template\'s HEADLINE STRUCTURE given below, attacking directly the main desire or benefit of this product and connected to what the image shows. Rewrite every other text of the template (labels, subtitles, bullets, badges, buttons) ' +
   'for this product in short, natural Spanish, in the customer\'s words: concrete, at most 6 words per label, each one about this product\'s angle and benefits, perfect spelling and accents. ' +
   'Panel labels (ANTES / DESPUÉS, days or weeks) only with the timeframes allowed below. ' +
   "Never keep the template's brand, logo, product, claims, prices, discounts or wording; where it has an offer badge, put a short benefit instead. " +
@@ -371,7 +371,13 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   const capas = oPy(getPy(ad, 'text_layers', undefined), []);
   if (!vacioPy(capas)) {
     // (rápido: solo el titular va exacto; el resto lo escribe el modelo)
-    const lineas = [rapido ? 'MAIN HEADLINE (if it fits the angle and hook of the reference, render it exactly, no spelling changes; if not, follow the rule above; the other texts are yours):' : TITULO_TEXTOS_CUADRADO];
+    const lineas = [
+      rapido === 'plantilla'
+        ? 'MAIN HEADLINE (write it with the HEADLINE STRUCTURE given above, about this product\'s main desire or benefit; the text below is the idea: render it exactly when it already fits that structure; the other texts are yours, all perfectly spelled):'
+        : rapido
+          ? 'MAIN HEADLINE (if it fits the angle and hook of the reference, render it exactly, no spelling changes; if not, follow the rule above; the other texts are yours):'
+          : TITULO_TEXTOS_CUADRADO,
+    ];
     for (const t of listaPy(capas)) {
       lineas.push(
         `- ${strPy(getPy(t, 'reference_function', 'text'))} ` +

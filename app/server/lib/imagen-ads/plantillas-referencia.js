@@ -39,6 +39,9 @@ export function catalogo() {
 
 export const esPlantilla = (id) => leerIndice().porId.has(String(id));
 
+/** { id, nombre, familia, titular (la estructura de su titular), ejemplo } o null. */
+export const fichaDe = (id) => leerIndice().porId.get(String(id)) || null;
+
 /**
  * Las plantillas del lote. Con elegidas: esas (sin repetir, hasta MAXIMO). Sin ninguna: `n` repartidas entre las
  * familias (una de cada familia por vuelta) y nunca dos del mismo grupo, así cada imagen trae una idea distinta
