@@ -1,15 +1,12 @@
 {
   "uuid": "160e7a7f-c983-4074-9c4e-56aa4ada4697",
-  "estado": "listo",
+  "estado": "cambiando",
   "tipo": "cambios",
-  "intentos": 2,
+  "intentos": 3,
   "progreso": [
     "Claude está leyendo tu pedido",
     "Repasando el guion",
-    "Repasando las transiciones",
-    "Ajustando el guion",
-    "Pasando el guion en limpio",
-    "Revisando que el guion esté completo"
+    "Ajustando el guion"
   ],
   "inicio": "2026-11-18T16:16:03.360Z",
   "cambios": [
@@ -17,11 +14,16 @@
       "pedido": "01\ngancho\nAquí no te vendemos el nombre. Aquí te mostramos lo que trae el frasco:\n\nUna mano con bata blanca toma un frasco de la estantería llena de frascos y lo gira hacia la cámara.\n\n02\nsolución\nAguaje, fenogreco y maca negra: los tres componentes puros.\n\nElla de perfil, con su planilla, lee la etiqueta de un frasco frente a las estanterías. Corte a los tres ingredientes junto al frasco.\n\n03\nsolución\nEso es lo que te da resultados rápidos en glúteos y piernas, sin efecto rebote. No la marca VITALCOM.\n\nElla anota en la planilla, mira los frascos y marca un visto bueno.\n\n04\nproblema\nDecir que son el original lo hace cualquiera. Por eso muchas compran y no ven cambios.\n\nElla de frente entre las estanterías, abrazando la planilla, niega con la cabeza y levanta una ceja.\n\n05\ngiro\nY lo que no te cuentan: para mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses.\n\nElla detrás de la mesa de empaque acomoda tres frascos en fila y mira a la cámara.\n\n06\ngiro\nLes conviene que compres de a uno y te salga más caro.\n\nUn solo frasco, solito, en medio de la mesa vacía.\n\n07\ncierre\nPero con tu cuerpo no se juega.\n\nElla mete un frasco en una caja llena de frascos, con una sonrisa tranquila.\n\n08\ncierre\nEste aguaje tres en uno de Vitalabh: componentes puros y triple acción.\n\nElla de frente, en la zona de despacho, sonríe y muestra el frasco junto a su cara.",
       "fecha": "2026-11-18T16:29:41.485Z",
       "ok": true
+    },
+    {
+      "pedido": "Editaste a mano las partes 5, 6",
+      "aMano": true,
+      "fecha": "2026-11-18T22:25:31.986Z"
     }
   ],
-  "actualizado": "2026-11-18T16:30:33.713Z",
+  "actualizado": "2026-11-18T22:26:22.459Z",
   "error": null,
-  "inicioIntento": "2026-11-18T16:29:41.485Z",
+  "inicioIntento": "2026-11-18T22:25:31.987Z",
   "fin": "2026-11-18T16:30:33.713Z",
   "limite": false,
   "reinicio": null,
@@ -134,6 +136,6 @@
     }
   ],
   "ajustados": 0,
-  "pedido": "01\ngancho\nAquí no te vendemos el nombre. Aquí te mostramos lo que trae el frasco:\n\nUna mano con bata blanca toma un frasco de la estantería llena de frascos y lo gira hacia la cámara.\n\n02\nsolución\nAguaje, fenogreco y maca negra: los tres componentes puros.\n\nElla de perfil, con su planilla, lee la etiqueta de un frasco frente a las estanterías. Corte a los tres ingredientes junto al frasco.\n\n03\nsolución\nEso es lo que te da resultados rápidos en glúteos y piernas, sin efecto rebote. No la marca VITALCOM.\n\nElla anota en la planilla, mira los frascos y marca un visto bueno.\n\n04\nproblema\nDecir que son el original lo hace cualquiera. Por eso muchas compran y no ven cambios.\n\nElla de frente entre las estanterías, abrazando la planilla, niega con la cabeza y levanta una ceja.\n\n05\ngiro\nY lo que no te cuentan: para mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses.\n\nElla detrás de la mesa de empaque acomoda tres frascos en fila y mira a la cámara.\n\n06\ngiro\nLes conviene que compres de a uno y te salga más caro.\n\nUn solo frasco, solito, en medio de la mesa vacía.\n\n07\ncierre\nPero con tu cuerpo no se juega.\n\nElla mete un frasco en una caja llena de frascos, con una sonrisa tranquila.\n\n08\ncierre\nEste aguaje tres en uno de Vitalabh: componentes puros y triple acción.\n\nElla de frente, en la zona de despacho, sonríe y muestra el frasco junto a su cara.",
-  "respaldo": null
+  "pedido": "El usuario editó A MANO el guion. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. Donde trae «se ve», esa es la escena: rehaz el prompt de imagen y de video de esa toma para mostrar eso (con los mismos personajes, el mismo estilo y la misma continuidad del anuncio) y pon ese texto en `se_ve` de la hoja. No cambies las otras tomas.\n- Parte 5: dice «Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses.»; se ve: Ella, detrás de la mesa de empaque, pone tres frascos en fila, uno por uno, los señala con el lapicero de su planilla y mira a la cámara.\n- Parte 6: dice «Les conviene que compres de a uno y te salga más caro para ellos ganar más, por eso solo te meten lo de la marca Vitalcom y no te habla de lo que de verdad hace que tengas los resultados.»; se ve: Un solo frasco, solito, en medio de la mesa vacía. Ella lo gira despacio: de un lado solo se ve un nombre grande; del otro, casi nada sobre lo que trae.",
+  "respaldo": "historial-guion/02"
 }
