@@ -27,6 +27,7 @@ import { useMotor } from '../ajustes/datos.js';
 import { Producir } from './Producir.jsx';
 import { BotonDescartar } from './Descartar.jsx';
 import { SelloEstilo } from './SelloEstilo.jsx';
+import { VozDelGuion } from './VozDelGuion.jsx';
 
 /** Sugerencias para pedir cambios en palabras normales, según lo que se lee. */
 const CAMBIOS_RAPIDOS = {
@@ -564,7 +565,9 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
   const enGracia = lanzadoEn > 0 && !vio.current && Date.now() - lanzadoEn < 15000;
   const sinRuta = g.error?.estado === 404 && !g.datos; // el anuncio no existe (o el servidor no tiene la ruta)
   const escribiendo = !sinRuta && (corre || enGracia);
-  useEffect(() => setSondear(escribiendo), [escribiendo]);
+  // (también mientras la app elige la voz del narrador, para mostrarla apenas la tiene)
+  const eligiendoVoz = Boolean(leido.voz?.eligiendo);
+  useEffect(() => setSondear(escribiendo || eligiendoVoz), [escribiendo, eligiendoVoz]);
   // al volver a abrir, los ajustes de la tarjeta son los del anuncio (duración, voz y lo que eligió)
   useEffect(() => {
     if (leido.brief) onBrief?.(leido.brief);
@@ -767,6 +770,17 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
             <PedirCambios estilo={estilo} activo={listo} enviando={enviando} onPedir={pedirCambio} aprobado={leido.aprobado} terminado={leido.terminado} />
           </Tarjeta>
         )}
+        {leido.voz && !leido.aprobado && hay ? (
+          <VozDelGuion
+            slug={slug}
+            estilo={estilo.clave}
+            voz={leido.voz}
+            onCambio={async () => {
+              invalidar(`guion:${slug}`);
+              await g.recargar();
+            }}
+          />
+        ) : null}
         <Producir
           estilo={estilo}
           ajuste={ajuste}

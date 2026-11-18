@@ -7,11 +7,13 @@
 // POST /api/anuncios/:slug/guion/cambios      { pedido } -> la misma conversacion de Claude (--resume)
 // POST /api/anuncios/:slug/guion/reintentar   vuelve a correr lo que fallo (sigue desde donde quedo)
 // POST /api/anuncios/:slug/guion/letra        { n } el musical: elige una de las letras (se puede cambiar hasta producir)
+// PUT  /api/anuncios/:slug/voz                { id, nombre } | { auto: true } la voz del narrador (antes de generarla) -> { voz }
+// PUT  /api/anuncios/:slug/voz                { id, nombre } | { auto: true }: la voz del narrador, antes de generarla
 // DELETE /api/anuncios/:slug                  descarta un anuncio que todavia no se produce (va a temp/_descartados/)
 //
 // POST /api/anuncios/:slug/producir (aprobar y arrancar) lo atiende rutas/produccion.js con el conductor.
 import { ErrorApp, soloDesdeLaApp } from '../lib/productos.js';
-import { crearAnuncio, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
+import { cambiarVoz, crearAnuncio, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
 
 const conErrores = (fn) => async (req, res, next) => {
   try {
@@ -43,6 +45,10 @@ export default function rutasGuion(app) {
 
   app.post('/api/anuncios/:slug/guion/letra', soloDesdeLaApp, conErrores((req, res) => {
     res.json(elegirLetra(req.params.slug, req.body?.n));
+  }));
+
+  app.put('/api/anuncios/:slug/voz', soloDesdeLaApp, conErrores(async (req, res) => {
+    res.json(await cambiarVoz(req.params.slug, req.body || {}));
   }));
 
   app.delete('/api/anuncios/:slug', soloDesdeLaApp, conErrores((req, res) => {

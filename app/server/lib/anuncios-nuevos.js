@@ -1758,6 +1758,36 @@ function leerHoja(slug, brief) {
 }
 
 /** GET /api/anuncios/:slug/guion */
+/**
+ * PUT /api/anuncios/:slug/voz: la voz del narrador de un anuncio ya creado, antes de que se genere la voz.
+ *   { id, nombre }  la que elige el usuario de su cuenta de ElevenLabs
+ *   { auto: true }  que la elija la app ya (la más parecida al video de referencia o la más indicada)
+ * -> { voz }
+ */
+export async function cambiarVoz(slug, cuerpo = {}) {
+  const ruta = path.join(appDe(slug), 'brief.json');
+  const brief = leerJSON(ruta);
+  if (!brief) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  if (!defDe(brief)?.narrador) throw new ErrorApp(409, 'Este anuncio no lleva narrador: la voz sale del video o de la canción.');
+  if (existe(path.join(TEMP, slug, 'audio', 'voz.mp3'))) throw new ErrorApp(409, 'La voz de este anuncio ya se generó. Para cambiarla, pídelo en el editor o crea el anuncio de nuevo.');
+  if (cuerpo.auto === true) {
+    const b = { ...brief, voz: { auto: true } };
+    escribirJSON(ruta, b);
+    const v = await asegurarVoz({ carpeta: path.join(TEMP, slug), brief: b, ficha: leerFicha(b.productoId) || {} });
+    if (!v.ok) throw new ErrorApp(502, v.mensaje);
+    return { voz: v.voz };
+  }
+  if (!/^[A-Za-z0-9_-]{8,60}$/.test(String(cuerpo.id || ''))) throw new ErrorApp(400, 'Elige una voz de la lista.');
+  const voz = { id: String(cuerpo.id), nombre: String(cuerpo.nombre || cuerpo.id).slice(0, 80) };
+  escribirJSON(ruta, { ...brief, voz });
+  if (configApp.recordarVoz) configApp.recordarVoz(brief.estilo, voz);
+  return { voz };
+}
+
+// las voces que la app está eligiendo ahora (para no pedirlas dos veces mientras la pantalla pregunta cada 2 s)
+const eligiendoVoz = new Set();
+const vozQueFallo = new Map(); // slug -> el mensaje (para la tarjeta de la voz)
+
 export function estadoGuion(slug) {
   if (!esAnuncioNuevo(slug)) return null;
   const brief = leerBrief(slug);
@@ -1785,6 +1815,18 @@ export function estadoGuion(slug) {
         clips: (m.tomas || []).length + brollQueSePide,
       }
     : null;
+  // la voz que elige la app: si el guion ya está y todavía no la eligió (o falló al terminar el guion), se elige ahora,
+  // de fondo, para que la pantalla la muestre (la próxima consulta ya la trae)
+  if (estado === 'listo' && brief && defDe(brief)?.narrador && faltaVoz(brief) && !eligiendoVoz.has(slug) && !existe(path.join(TEMP, slug, 'audio', 'voz.mp3'))) {
+    eligiendoVoz.add(slug);
+    asegurarVoz({ carpeta: path.join(TEMP, slug), brief: { ...brief }, ficha: leerFicha(brief.productoId) || {} })
+      .then((v) => {
+        if (!v.ok) vozQueFallo.set(slug, v.mensaje);
+        else vozQueFallo.delete(slug);
+      })
+      .catch((e) => vozQueFallo.set(slug, String(e.message || e)))
+      .finally(() => setTimeout(() => eligiendoVoz.delete(slug), 30000));
+  }
   // un guion reabierto (la produccion se freno en su primer paso por el guion) se aprueba otra vez despues del cambio
   const listoParaAprobar = estado === 'listo' && s.estado === 'listo' && !enProduccion;
   const reabierto = !enProduccion && guionReabierto(slug);
@@ -1812,6 +1854,8 @@ export function estadoGuion(slug) {
     productoId: brief?.productoId || null,
     // duracion: null (el musical) | { decide: 'ia' } | { decide: 'usuario', texto, segundos }, tambien de un anuncio de antes
     brief: brief ? { estilo: brief.estilo, duracion: leerDuracion(brief.duracion, brief.estilo), voz: brief.voz, productoId: brief.productoId, continuidad: Boolean(brief.continuidad), respuestas: brief.respuestas || {} } : null,
+    // la tarjeta «Voz del narrador»: si lleva narrador, si ya se generó (no se cambia) y si la app no pudo elegirla
+    voz: brief && defDe(brief)?.narrador ? { ...(brief.voz || {}), generada: existe(path.join(TEMP, slug, 'audio', 'voz.mp3')), eligiendo: eligiendoVoz.has(slug) && faltaVoz(brief), error: faltaVoz(brief) ? vozQueFallo.get(slug) || null : null, produccion: brief.produccion || null } : null,
     // «Agregar»: lo que entendio la IA del video y del pedido (el estilo, la duracion y lo que se conserva)
     plan: brief?.agregar?.plan || null,
     inicio: s.inicioIntento || s.inicio || null,
