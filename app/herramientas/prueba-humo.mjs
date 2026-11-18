@@ -273,7 +273,7 @@ async function claudeFalso() {
     const img = material.find((x) => x.tipo === 'imagen');
     const vid = material.find((x) => x.tipo === 'video');
     if (img && man.tomas?.[0]) man.tomas[0].imagen_propia = `temp/${slug}/material/${img.archivo}`;
-    if (vid && man.broll?.[0]) man.broll[0].desde_biblioteca = `temp/${slug}/material/${vid.archivo}`;
+    if (vid && Array.isArray(man.broll)) man.broll.push({ n: man.broll.length + 1, despues_de_toma: 3, sincroniza_con: 'el final', duracion: 2, prompt_imagen: null, prompt_video: 'tu video', referencias: [], desde_biblioteca: `temp/${slug}/material/${vid.archivo}` });
     escribir(`temp/${slug}/manifiesto.json`, man);
     escribir(`temp/${slug}/transiciones.json`, {
       efectos: { woosh: 'efectos/woosh.mp3', 'deep-woosh': 'efectos/deep-woosh.mp3' },
@@ -1141,7 +1141,7 @@ async function producirAnuncio({ pedir, check, aviso, salio, t0 }) {
     };
     const man = leerJSONSeguro(path.join(dirA, 'manifiesto.json'));
     const lista = leerJSONSeguro(path.join(dirA, 'material', 'material.json')) || [];
-    check('Tus videos e imágenes: quedaron en el anuncio y la IA los usó en el manifiesto', lista.length === 2 && /material\/M01\.png$/.test(man?.tomas?.[0]?.imagen_propia || '') && /material\/M02\.mp4$/.test(man?.broll?.[0]?.desde_biblioteca || ''), { lista, toma1: man?.tomas?.[0]?.imagen_propia, broll1: man?.broll?.[0]?.desde_biblioteca });
+    check('Tus videos e imágenes: quedaron en el anuncio y la IA los usó en el manifiesto', lista.length === 2 && /material\/M01\.png$/.test(man?.tomas?.[0]?.imagen_propia || '') && /material\/M02\.mp4$/.test(man?.broll?.[1]?.desde_biblioteca || ''), { lista, toma1: man?.tomas?.[0]?.imagen_propia, broll2: man?.broll?.[1]?.desde_biblioteca });
     check('Tus videos e imágenes: la toma 1 tiene tu imagen (vertical) y no se generó', fs.existsSync(path.join(dirA, 'img', 'toma-1-inicial.png')) && !/toma-1-inicial/.test(fs.existsSync(path.join(dirA, 'app', 'gasto')) ? fs.readdirSync(path.join(dirA, 'app', 'gasto')).map((f) => fs.readFileSync(path.join(dirA, 'app', 'gasto', f), 'utf8')).join(' ') : ''), {});
   }
   resumen.listo = true;
@@ -1658,15 +1658,18 @@ async function probarPrimerIntento({ pedir, check, aviso, salio, t0, slug, regis
     reh = (await pedir(`/api/anuncios/${slug}/rehacer?esperar=5000`)).datos;
   }
   const pz = reh?.porPieza || {};
+  // (con tu material: la escena 1 es tu imagen, su clip se regenera pero la imagen no; la imagen de apoyo 2 es tu video
+  // y no se regenera)
+  const conMaterial = Boolean(pz['broll-2']);
   const REGENERABLES = ['toma-1', 'toma-2', 'toma-3', 'broll-1'];
   check(
-    'GET /rehacer: se pueden regenerar las escenas 1 a 3 y la imagen de apoyo 1; la hoja del personaje y la foto del producto no, con su porqué',
-    reh?.disponible === true && Array.isArray(reh.piezas) && REGENERABLES.every((id) => pz[id] && !pz[id].motivoNo) && pz['toma-1'].nombre === 'Escena 1' && pz['broll-1'].nombre === 'Imagen de apoyo 1' && Boolean(pz['hoja-mujer']?.motivoNo) && /foto de tu producto/.test(pz['hoja-producto']?.motivoNo || ''),
+    'GET /rehacer: se pueden regenerar las escenas 1 a 3 y la imagen de apoyo 1 (si es tu video, no); la hoja del personaje y la foto del producto no, con su porqué',
+    reh?.disponible === true && Array.isArray(reh.piezas) && REGENERABLES.every((id) => pz[id] && !pz[id].motivoNo) && pz['toma-1'].nombre === 'Escena 1' && pz['broll-1'].nombre === 'Imagen de apoyo 1' && Boolean(pz['hoja-mujer']?.motivoNo) && /foto de tu producto/.test(pz['hoja-producto']?.motivoNo || '') && (!conMaterial || (/Es tu video/.test(pz['broll-2'].motivoNo || '') && pz['broll-2'].costo === null && pz['toma-1'].imagen === false)),
     reh && { disponible: reh.disponible, motivo: reh.motivo, piezas: (reh.piezas || []).map((p) => [p.pieza, p.nombre, p.motivoNo || 'sí']) }
   );
   check(
     `GET /rehacer: cada pieza con su costo (solo el clip y con su imagen: ${REGENERABLES.map((id) => `${id} US$ ${coma(pz[id]?.costo?.clip?.dolares)} / ${coma(pz[id]?.costo?.conImagen?.dolares)}`).join(', ')}), el aviso de la Escena 2 y nada de prompts`,
-    REGENERABLES.every((id) => pz[id]?.costo?.clip?.dolares > 0 && pz[id].costo.conImagen?.dolares > pz[id].costo.clip.dolares) && pz['toma-2'].aviso?.sugerencia === true && pz['toma-2'].aviso.clave === 'img:toma-2-inicial' && !pz['toma-1'].aviso && sinPrompts(reh),
+    REGENERABLES.every((id) => pz[id]?.costo?.clip?.dolares > 0 && ((conMaterial && id === 'toma-1') || pz[id].costo.conImagen?.dolares > pz[id].costo.clip.dolares)) && pz['toma-2'].aviso?.sugerencia === true && pz['toma-2'].aviso.clave === 'img:toma-2-inicial' && !pz['toma-1'].aviso && sinPrompts(reh),
     REGENERABLES.map((id) => [id, pz[id]?.costo, pz[id]?.aviso])
   );
   const env = { ...process.env };

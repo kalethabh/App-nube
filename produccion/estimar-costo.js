@@ -68,7 +68,7 @@ import { construirPlan as planDeVideos } from './generar-videos.js';
 import { tieneContinuidad, VERSION_CONTINUIDAD } from './continuidad.js';
 import { repartirVentana, brollQueEntranEnCarpeta } from './planear-montaje.js';
 import { tomaDelBroll } from './referencias.js';
-import { itemDeTrabajo, modoSinCobro } from './clips-sin-cobro.js';
+import { imagenPropia, itemDeTrabajo, modoSinCobro } from './clips-sin-cobro.js';
 import { repetidas } from './imagenes-repetidas.js';
 import { MUSICA } from './generar-musica.js';
 import { pistaFijaDe } from './pista-fija.js';
@@ -302,7 +302,9 @@ function imagenesPagadas(m, { eleccion, brollFuera = [], deduplicar = true } = {
   const plan = planDeImagenes(m, { eleccion: normalizarEleccion(eleccion) }).filter(
     (t) =>
       !(t.clase === 'broll' && fuera.has(t.n)) &&
-      !((t.clase === 'toma' || t.clase === 'broll') && modoSinCobro(itemDeTrabajo(m, t)) === 'biblioteca')
+      !((t.clase === 'toma' || t.clase === 'broll') && modoSinCobro(itemDeTrabajo(m, t)) === 'biblioteca') &&
+      // (2026-11-19) la imagen inicial que es una imagen tuya no se genera ni se paga
+      !((t.clase === 'toma' || t.clase === 'broll') && !String(t.archivo || '').endsWith('-final.png') && imagenPropia(itemDeTrabajo(m, t)))
   );
   // Igual que generar-imagenes: primero biblioteca/B-roll fuera, despues las
   // imagenes identicas que se copian sin cobro. Al regenerar UNA pieza la
