@@ -11,6 +11,7 @@ import { AntesDespues, LineaTiempo, MapaCuerpo, Pizarra } from './dolor.jsx';
 import { BarraDatos, ListaIconos, Mecanismo, ProductoFlechas } from './beneficio.jsx';
 import { Burbujas, Comentario, FotoTiktok, FotoTitular, NotaTexto, ResenaTuit } from './nativo.jsx';
 import { BuenaMala, CasiAgotado, StickerOferta } from './oferta.jsx';
+import { AntesDespuesPlazo, BeneficiosLados, CuadriculaTiempo, DiasProducto, DosMitades, EstadoVsEstado, EtapasNeon, RotulosAnatomia } from './clones.jsx';
 import { FotoIconos, Historia, NoCompres, NosotrosVsEllos, PreguntaRevelacion, SiluetaZonas, SoloVsCon, ZonasSemanas } from './angulos.jsx';
 import { Logo } from './base.jsx';
 
@@ -40,6 +41,14 @@ export const PLANTILLAS = {
   historia: Historia,
   'zonas-semanas': ZonasSemanas,
   'foto-iconos': FotoIconos,
+  'etapas-neon': EtapasNeon,
+  'antes-despues-plazo': AntesDespuesPlazo,
+  'dos-mitades': DosMitades,
+  'rotulos-anatomia': RotulosAnatomia,
+  'estado-vs-estado': EstadoVsEstado,
+  'cuadricula-tiempo': CuadriculaTiempo,
+  'beneficios-lados': BeneficiosLados,
+  'dias-producto': DiasProducto,
 };
 
 const FUENTES = [
@@ -49,6 +58,13 @@ const FUENTES = [
   ['Caveat', 'Caveat.ttf', { weight: '400 700' }],
   ['Permanent Marker', 'PermanentMarker-Regular.ttf', {}],
   ['Inter', 'Inter.ttf', { weight: '100 900' }],
+  // (la letra redonda de Sonvital, Grüns y Muna, y la serif de las historias de Muna)
+  ['Poppins', 'Poppins-400.woff2', { weight: '300 500' }],
+  ['Poppins', 'Poppins-600.woff2', { weight: '600' }],
+  ['Poppins', 'Poppins-700.woff2', { weight: '700' }],
+  ['Poppins', 'Poppins-800.woff2', { weight: '800' }],
+  ['Poppins', 'Poppins-900.woff2', { weight: '900' }],
+  ['DM Serif Display', 'DMSerifDisplay-Regular.woff2', {}],
 ];
 
 // Las fuentes se cargan una vez por página (todas: son pocas y locales).

@@ -51,6 +51,7 @@
 .tt-lanzar__costo svg, .tt-aviso svg { flex: none; margin-top: 2pt; }
 .tt-aviso { color: var(--rojo); }
 .tt-lanzar__botones { display: flex; flex-wrap: wrap; gap: 8pt; }
+.tt-lanzar__botones .boton { max-width: 100%; white-space: normal; height: auto; min-height: 40px; }
 .tt-espera { display: flex; gap: 12pt; padding: 14pt; border-radius: 12px; border: 1px solid var(--azul-b); background: var(--azul-s); color: var(--tinta); }
 .tt-espera svg { flex: none; color: var(--azul); }
 .tt-espera p { margin: 3pt 0 6pt; font-size: 9.5pt; color: var(--tinta-2); }

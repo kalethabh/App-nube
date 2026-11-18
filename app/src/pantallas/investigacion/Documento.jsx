@@ -35,6 +35,7 @@ function Bloque({ b, T, guia }) {
       const cols = Array.isArray(b.columnas) ? b.columnas : [];
       return (
         <div className="doc-junto">
+          <div className="doc-tabla-caja">
           <table className={`doc-tabla doc-tabla--${['evita', 'azul'].includes(b.estilo) ? b.estilo : 'normal'}`}>
             <thead>
               <tr>{cols.map((c, i) => <th key={i}><R>{c}</R></th>)}</tr>
@@ -45,6 +46,7 @@ function Bloque({ b, T, guia }) {
               ))}
             </tbody>
           </table>
+          </div>
           {b.nota ? <p className="doc-nota"><R>{b.nota}</R></p> : null}
         </div>
       );

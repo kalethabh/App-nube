@@ -252,6 +252,9 @@ export function crearLote(cuerpo = {}) {
       brief.investigacion = 'entrada/investigacion.md';
       brief.investigacionDelProducto = true;
     }
+    // con plantillas y sin formatos elegidos: los que propuso la investigación, con sus textos (el costo cuenta esos)
+    const propuestas = resumenDe(productoId)?.propuestas || [];
+    if (brief.plantillas && !brief.video && !brief.plantillas.elegidas.length && propuestas.length) brief.plantillas = { ...brief.plantillas, elegidas: propuestas, deLaInvestigacion: true };
   }
   // «Nuevos»: tus anuncios ya validados («Me funciona», los de este producto primero, y tu biblioteca de referencias)
   // van al lote como guía de lo que funciona. La IA los estudia; no los copia (eso es «Variantes»).

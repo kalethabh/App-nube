@@ -313,6 +313,76 @@ export function descripcionEscena(id, ctx, textos, kit = KIT_POR_DEFECTO) {
         'Do NOT show the product.',
         contexto,
       ].join(' ');
+    // ---- los clones de los validados (clones.jsx)
+    case 'etapas-neon':
+      return [
+        `Three glowing neon line-art outlines of the same person of the audience walking in side profile, in a row from left to right: small and dim on the left, medium in the middle, large and bright on the right, the result in the body area of the problem growing stage by stage (the last one clearly the best).`,
+        `Thin bright neon lines in the color ${neonDe(kit)} with a soft glow, no fill, no facial details, on a PURE BLACK background; sporty fitted outfit and sneakers drawn as lines. Leave the bottom-left 25% black and empty.`,
+        'Elegant and premium, never explicit. No text, no labels, no product.',
+        contexto,
+      ].join(' ');
+    case 'antes-despues-plazo':
+      return [
+        'A dramatic, high-contrast black and white studio photo split exactly in the vertical center into two halves: LEFT = BEFORE, RIGHT = AFTER of the body area of the problem (for example the legs from the knees down, the belly or the glutes), front view, filling the frame.',
+        persona,
+        'The change must be dramatic and obvious at first glance. Dark seamless background; the top 25% dark and empty (the app puts the headline there) and the center bottom free (the product goes there on a pedestal).',
+        decente,
+        'No text, no labels, do NOT show the product.',
+        contexto,
+      ].join(' ');
+    case 'dos-mitades':
+      return [
+        `A flat, modern vector illustration with the background split vertically in two equal halves: LEFT half solid color ${kit.primario}, RIGHT half solid color ${kit.secundario}.`,
+        'LEFT: the body area of the problem looking bad (swollen, tired, heavy; cool tones and small motion lines). RIGHT: the same body area healthy, light and defined (warm tones, small sparkle lines).',
+        'The body areas fill the lower 75% of each half; keep the center vertical strip (20% of the width) and the top 22% free (the app puts the product and the headline there).',
+        decente,
+        'No text, no labels, no product.',
+        contexto,
+      ].join(' ');
+    case 'rotulos-anatomia':
+      return [
+        'A realistic medical-style illustration on a pure white background, split in two halves: LEFT the body area of the problem with the issue clearly visible (swelling, trapped fluid, redness or sagging, shown in a tasteful medical way); RIGHT the same body area healthy and defined.',
+        'Same scale, framing and skin tone on both halves; the body area fills each half; the center vertical strip (25% of the width) stays plain white (the product goes there).',
+        decente,
+        'No text, no labels, no arrows, no product.',
+        contexto,
+      ].join(' ');
+    case 'estado-vs-estado':
+      return [
+        'A hand-drawn colored sketch illustration (ink lines with pencil and watercolor shading) on a pure white background: the same person of the audience twice, waist up or full body.',
+        'LEFT: with the problem in the body area, sad and tired, slouched. RIGHT: with the result in the same body area, smiling and confident. Each figure centered in its half; the center vertical strip (20% of the width) stays plain white.',
+        decente,
+        'No text, no labels, no product.',
+        contexto,
+      ].join(' ');
+    case 'cuadricula-tiempo':
+      return [
+        'A single image divided into a 2x2 grid of four equal panels separated by thin white lines: the same person in side profile, same pose and same framing on the body area of the problem, painted-realistic illustration on a light grey-blue background.',
+        'Top-left = before (problem clearly visible), top-right = a little better, bottom-left = better, bottom-right = the clearest result. The change grows panel by panel.',
+        persona,
+        decente,
+        'No text, no labels, no product.',
+        contexto,
+      ].join(' ');
+    case 'beneficios-lados':
+      return [
+        'A realistic photo split in two halves in the same real home room: LEFT = BEFORE, the same person with the problem visible in the body area, worried; RIGHT = AFTER, the result clearly visible, happy and confident.',
+        persona,
+        'The people stand in the central 50% of the width; the left 25% and the right 25% of the image are calm background (the app puts icon lists there); the center bottom stays free for the product.',
+        ganador,
+        decente,
+        'No text, do NOT show the product.',
+        contexto,
+      ].join(' ');
+    case 'dias-producto':
+      return [
+        'A single clean photo with 3 vertical panels on a pure white seamless studio background, separated by white gaps: the same person of the audience seen from the back (three-quarter back view), same pose, black tight sportswear and white sneakers, full body.',
+        'From left to right the result in the body area grows (left = start, right = clearest result).',
+        persona,
+        decente,
+        'No text, no labels, no product. Keep the bottom 6% white.',
+        contexto,
+      ].join(' ');
     default:
       return contexto;
   }
@@ -327,8 +397,11 @@ export async function prepararPlantillas(carpeta, brief) {
   const ids = idsDelLote(n);
   // «De un video, imágenes»: cada variación es un cuadro del video con su ángulo y su plantilla (el cuadro es la escena)
   const deVideo = Array.isArray(brief.video?.cuadros) && brief.video.cuadros.length ? brief.video.cuadros : null;
-  const asignadas = deVideo ? ids.map((_, i) => deVideo[i]?.plantilla || 'foto-titular') : asignar(n, brief.plantillas?.elegidas);
   const ctx = contextoDelLote(carpeta, brief);
+  // sin formatos elegidos y con textos de la investigación de mercado: las plantillas que propuso la investigación
+  const propuestas = (ctx.anuncios || []).map((x) => x.plantilla);
+  const elegidas = brief.plantillas?.elegidas?.length ? brief.plantillas.elegidas : propuestas;
+  const asignadas = deVideo ? ids.map((_, i) => deVideo[i]?.plantilla || 'foto-titular') : asignar(n, elegidas);
   const kit = brief.productoId ? await kitDe(brief.productoId) : limpiarKit(brief.plantillas?.kit);
   brief.plantillas = { ...(brief.plantillas || {}), kit: limpiarKit(brief.plantillas?.kitElegido || kit), asignadas };
   brief.fiel = false;
@@ -412,9 +485,12 @@ const CONTEXTO_DE_EJEMPLO = {
 };
 
 /** Los textos de la muestra de una plantilla: los del producto elegido o, sin producto, unos de ejemplo. */
-export function textosDeMuestra(id, productoId, ficha) {
+export function textosDeMuestra(id, productoId, ficha, anuncio = null) {
   if (!productoId || !idValido(productoId)) return textosPara(id, CONTEXTO_DE_EJEMPLO, 0);
   const ctx = contextoDelLote(path.join(PRODUCTOS, productoId), { productoId, datos: { nombre: ficha?.nombre || '' } });
+  // (el texto número `anuncio` de la investigación de mercado, para verlo dibujado en la pantalla de la investigación)
+  const elegido = Number.isInteger(anuncio) ? (ctx.anuncios || []).find((x) => x.indice === anuncio) : null;
+  if (elegido?.plantilla === id) return { ...textosPara(id, { ...ctx, anuncios: [] }, 0), ...elegido.textos };
   return textosPara(id, ctx, 0);
 }
 

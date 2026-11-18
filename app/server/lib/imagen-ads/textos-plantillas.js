@@ -10,9 +10,9 @@
 import path from 'node:path';
 import { leerJSON } from '../archivos.js';
 import { leerFicha } from '../productos.js';
-import { estado as estadoInvestigacion } from '../investigacion.js';
+import { estado as estadoInvestigacion, anunciosDe } from '../investigacion.js';
 import { titularesDelLote } from './rapido.js';
-import { POR_ID } from './catalogo-plantillas.js';
+import { POR_ID, limpiarTextos } from './catalogo-plantillas.js';
 import { ganchosValidados } from '../competencia.js';
 
 const limpio = (t, max = 400) =>
@@ -69,7 +69,7 @@ export function etapasDe(...textos) {
 
 /** Lo de la investigación de mercado que sirve para los textos (los dos formatos de investigación). */
 function deLaInvestigacion(productoId) {
-  const vacio = { dolores: [], objeciones: [], citas: [], deseo: '', titulos: [] };
+  const vacio = { dolores: [], objeciones: [], citas: [], deseo: '', titulos: [], anuncios: [] };
   if (!productoId) return vacio;
   let inv = null;
   try {
@@ -92,6 +92,8 @@ function deLaInvestigacion(productoId) {
       citas: bloques.filter((b) => b?.tipo === 'cita' && b.texto).map((b) => ({ texto: limpio(b.texto, 240), estilo: b.estilo || '' })),
       deseo: limpio(inv.claves?.deseo_central, 200),
       titulos: [],
+      // los textos que la investigación dejó escritos para las plantillas (y el usuario corrigió): mandan
+      anuncios: anunciosDe(inv),
     };
   }
   return {
@@ -176,6 +178,7 @@ export function contextoDelLote(carpeta, brief) {
     objeciones: inv.objeciones,
     citas: inv.citas,
     deseo: inv.deseo,
+    anuncios: inv.anuncios || [],
     etapas: etapasDe(ficha.comoSeUsa, ficha.oferta, brief?.datos?.adicional),
     legal: suplemento ? 'Suplemento alimenticio. No es un medicamento. Resultados individuales.' : '',
   };
@@ -257,8 +260,17 @@ const conY = (l) => (l.length > 1 ? `${l.slice(0, -1).join(', ')} y ${l[l.length
 /** El primer beneficio que no dice lo mismo que el titular. */
 const beneficio = (ctx, k = 0) => elegir(ctx.beneficios, k) || ctx.queEs || ctx.nombre;
 
-/** Los textos de la plantilla `id` para la k-ésima vez que aparece en el lote. */
+/**
+ * Los textos de la plantilla `id` para la k-ésima vez que aparece en el lote. Si la investigación de mercado dejó
+ * textos para esa plantilla (anuncios_imagen, con lo que corrigió el usuario), van esos; lo que no traen, de la ficha.
+ */
 export function textosPara(id, ctx, k = 0) {
+  const base = textosDeLaFicha(id, ctx, k);
+  const de = (ctx?.anuncios || []).filter((a) => a.plantilla === id);
+  return de.length ? { ...base, ...de[k % de.length].textos } : base;
+}
+
+function textosDeLaFicha(id, ctx, k = 0) {
   const legal = ctx.legal;
   const b = ctx.beneficios;
   switch (id) {
@@ -397,6 +409,57 @@ export function textosPara(id, ctx, k = 0) {
         nota: 'Tu mejor versión',
         legal,
       };
+    // ---- los clones de los validados (clones.jsx): el dolor o el resultado directo, con su plazo si la ficha lo trae
+    case 'etapas-neon': {
+      const titular = elegir(b.filter((x) => palabras(x) >= 2 && palabras(x) <= 4), k) || titularDe(ctx, k, { dolor: true });
+      return { arriba: 'Por fin', titular, etapas: ['Etapa 1', 'Etapa 2', 'Etapa 3'], caja: resultadoConPlazo(ctx, k + 1) || beneficio(ctx, k + 1), legal: legal || 'Ilustración.' };
+    }
+    case 'antes-despues-plazo': {
+      const plazo = plazoDe(ctx.etapas);
+      const n = (/(\d+)/.exec(plazo) || [])[1];
+      return { titular: elegir(b.filter((x) => palabras(x) <= 4), k) || titularDe(ctx, k, { dolor: true }), plazo: mayus(plazo), marca: ctx.marca, antes: 'Antes', despues: n ? `${plazo.replace(/^en /, '')} después` : 'Después', legal: legal || 'Resultados individuales.' };
+    }
+    case 'dos-mitades': {
+      const plazo = plazoDe(ctx.etapas);
+      return { titular: elegir(b.filter((x) => palabras(x) <= 6), k) || titularDe(ctx, k, { dolor: true }), pildora: plazo ? `Resultados ${plazo}` : beneficio(ctx, k + 1), boton: `Prueba ${nombreCorto(ctx.nombre)}`, marca: ctx.marca, legal: legal || 'Ilustración.' };
+    }
+    case 'rotulos-anatomia': {
+      const plazo = plazoDe(ctx.etapas);
+      const malos = ctx.dolores.filter((x) => palabras(x) <= 6);
+      return {
+        titular: comoPregunta(primerDolor(ctx.dolor)) || titularDe(ctx, k, { dolor: true }),
+        subtitulo: ctx.queEs || beneficio(ctx, k),
+        ahora: 'Cómo te ves ahora',
+        despues: plazo ? `Después ${plazo.replace(/^en /, 'de ')}` : 'Después',
+        izquierda: (malos.length >= 2 ? malos : ctx.dolores).slice(0, 2),
+        derecha: cortos(b, 2, 4),
+        iconos: cortos(b.slice(2), 3, 3),
+        legal: legal || 'Ilustración.',
+      };
+    }
+    case 'estado-vs-estado': {
+      const nc = nombreCorto(ctx.nombre);
+      const zona = (String(b[0] || '').split(' ')[0] || nc).replace(/[.,]/g, '');
+      return { zona, mal: 'Sin ayuda', bien: `Con ${nc}`, sub_mal: elegir(ctx.dolores.filter((x) => palabras(x) <= 7), k) || 'Lo de siempre', sub_bien: beneficio(ctx, k), legal: legal || 'Ilustración.' };
+    }
+    case 'cuadricula-tiempo':
+      return { titular: resultadoConPlazo(ctx, k) || titularDe(ctx, k, { dolor: true }), etapas: ['Antes', ...(ctx.etapas || [])].slice(0, 4), legal: legal || 'Ilustración. Resultados individuales.' };
+    case 'beneficios-lados': {
+      const plazo = plazoDe(ctx.etapas);
+      return {
+        titular: elegir(b.filter((x) => palabras(x) <= 5), k) || titularDe(ctx, k, { dolor: true }),
+        subtitulo: plazo ? `Notarás el cambio ${plazo}` : ctx.deseo && palabras(ctx.deseo) <= 8 ? ctx.deseo : '',
+        antes: 'Antes',
+        despues: 'Después',
+        males: ctx.dolores.filter((x) => palabras(x) <= 6).slice(0, 4).length >= 2 ? ctx.dolores.filter((x) => palabras(x) <= 6).slice(0, 4) : ctx.dolores.slice(0, 4),
+        bienes: cortos(b, 4, 5),
+        sello: plazo ? `Cambios visibles ${plazo}` : '',
+        atributos: cortos(b.slice(4), 3, 3),
+        legal: legal || 'Resultados individuales.',
+      };
+    }
+    case 'dias-producto':
+      return { marca: ctx.marca, etapas: (ctx.etapas || []).slice(0, 3), legal: legal || 'Resultados individuales.' };
     case 'foto-titular':
       return { titular: titularDe(ctx, k + 1, { dolor: true }), nota: '', legal };
     case 'sticker-oferta':
@@ -441,22 +504,4 @@ export function textosPorAngulo(angulo, plantilla, ctx, k = 0) {
   return base;
 }
 
-const recortar = (t, max) => limpio(t, 2000).slice(0, max);
-
-/** Lo que llega de la pantalla, solo con los campos de la plantilla y sus topes. */
-export function limpiarTextos(id, textos) {
-  const p = POR_ID.get(id);
-  if (!p || !textos || typeof textos !== 'object') return null;
-  const salida = {};
-  for (const c of p.campos) {
-    const v = textos[c.clave];
-    if (v === undefined) continue;
-    if (c.tipo === 'lista') salida[c.clave] = (Array.isArray(v) ? v : String(v).split('\n')).map((x) => recortar(x, c.max)).filter(Boolean).slice(0, c.cuantos || 6);
-    else if (c.tipo === 'pares') salida[c.clave] = (Array.isArray(v) ? v : []).slice(0, c.cuantos || 4).map((x) => ({ ingrediente: recortar(x?.ingrediente, 30), beneficio: recortar(x?.beneficio, c.max) })).filter((x) => x.ingrediente || x.beneficio);
-    else if (c.tipo === 'datos') salida[c.clave] = (Array.isArray(v) ? v : []).slice(0, c.cuantos || 3).map((x) => ({ valor: recortar(x?.valor, 14), etiqueta: recortar(x?.etiqueta, c.max) })).filter((x) => x.valor || x.etiqueta);
-    else if (c.tipo === 'numero') salida[c.clave] = Math.max(0, Math.min(c.max || 5, Math.round(Number(v) || 0)));
-    else if (c.tipo === 'parrafo') salida[c.clave] = String(v ?? '').replace(/\r/g, '').slice(0, c.max).trim();
-    else salida[c.clave] = recortar(v, c.max);
-  }
-  return salida;
-}
+export { limpiarTextos };

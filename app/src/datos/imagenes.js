@@ -67,9 +67,12 @@ export const apiImagenes = {
   kit: (productoId) => pedirNuevo(`${BASE}/kit/${enc(productoId)}`),
   guardarKit: (productoId, kit) => pedirNuevo(`${BASE}/kit/${enc(productoId)}`, { metodo: 'PUT', cuerpo: { kit } }),
   /** La muestra de una plantilla con tu producto y tu kit (una imagen 1:1 que arma el servidor y guarda). */
-  urlMuestra: (id, { producto = null, foto = null, kit = null } = {}) => {
+  urlMuestra: (id, { producto = null, foto = null, kit = null, anuncio = null, version = null } = {}) => {
     const q = new URLSearchParams();
     if (producto) q.set('producto', producto);
+    // (el texto número `anuncio` de la investigación de mercado; `version` cambia cuando se corrige, para no ver el viejo)
+    if (Number.isInteger(anuncio)) q.set('anuncio', String(anuncio));
+    if (version) q.set('v', String(version));
     if (foto) q.set('foto', String(foto));
     if (kit?.primario) q.set('p', kit.primario);
     if (kit?.secundario) q.set('s', kit.secundario);

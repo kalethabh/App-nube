@@ -2,6 +2,17 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18a · Plantillas clonadas de anuncios validados y la investigación escribe sus textos
+
+- **8 plantillas nuevas clonadas de los anuncios que mandaste**, con su misma composición y su misma letra (llegaron Poppins y DM Serif Display, como en Sonvital, Grüns y Muna); solo cambian tus colores y tu producto. Todas atacan directo el dolor, el beneficio o el deseo, casi siempre con el tiempo de transformación, y ninguna lleva oferta:
+  - Etapas en neón (Muna) · Antes y después con plazo (Sonvital, B/N con pedestal) · Dos mitades de color (Sonvital, el titular cambia de color en la mitad) · Ahora → después con rótulos (Lymphoria) · Hinchada vs. drenada (Aurelys) · Cuadrícula de tiempos 2×2 (Aurelys) · Antes y después con íconos a los lados (Natures Sunshine, sin la oferta) · Día 1 · 14 · 30 en blanco (Muna).
+  - La «Historia con antes y después» ahora usa la letra serif de Muna.
+- **La investigación de mercado escribe los textos de tus anuncios de imagen**: 10 a 16, uno por concepto de la matriz de Andromeda, cada uno en su plantilla. **Matriz creativa, diversidad real:** entre dos anuncios cambian al menos 2 de estas cosas: a quién le habla, el ángulo, el momento y la plantilla; si no, la app se los devuelve a la IA.
+- **En la investigación, «Textos para tus anuncios de imagen»**: cada uno dibujado con la foto de tu producto y un botón **Editar**. Lo que corrijas queda guardado, lo usan tus anuncios de ese producto y **se anota como aprendizaje**: la próxima investigación escribe como tú lo quieres.
+- **Anuncios de imagen:** si no eliges formatos, van los que propuso la investigación con sus textos (el formulario lo dice y el costo cuenta esos).
+- Las investigaciones ya hechas: «Agregar conceptos y textos para Meta» arma la sección de Andromeda y los textos sin rehacer la investigación.
+- **Revisión del diseño:** la investigación ya no se sale de la pantalla en el celular (las tablas anchas se deslizan de lado dentro de su hoja, la portada se ajusta y el botón de la competencia baja de línea). Revisé las 33 plantillas en cuadrado y vertical, las 22 hojas de la investigación y la guía de 4 mensajes.
+
 ## 2026-11-18 · La investigación de mercado trae los conceptos para Meta (Andromeda)
 
 - **Sección nueva al final de la investigación: «Conceptos para Meta (Andromeda)».** Convierte la investigación en anuncios distintos para Meta, como pide su sistema nuevo:
