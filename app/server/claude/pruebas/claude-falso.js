@@ -244,7 +244,19 @@ async function alMensaje(texto) {
   const linea = /TAREA: regenerar una l[ií]nea/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
   if (linea) {
     const n = (/Reescribe SOLO lo que se dice en la parte (\d+)/.exec(textoTarea) || [])[1] || '?';
-    fs.writeFileSync(path.join(RAIZ, linea[1]), JSON.stringify({ dice: `Otra versión de prueba de la parte ${n}, escrita por la IA.` }));
+    const nueva = /Escribe lo que se dice en una parte NUEVA/.test(textoTarea);
+    fs.writeFileSync(path.join(RAIZ, linea[1]), JSON.stringify({ dice: nueva ? 'Una parte nueva de prueba, escrita por la IA.' : `Otra versión de prueba de la parte ${n}, escrita por la IA.` }));
+    return resultado({ result: 'LISTO' });
+  }
+  // «De un video»: el ángulo del video y N conceptos de prueba para el producto
+  const anguloVideo = /analizar el ÁNGULO de un video/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
+  if (anguloVideo) {
+    const n = Number((/Propón (\d+) anuncios/.exec(textoTarea) || [])[1]) || 4;
+    const facetas = ['La que va a la playa', 'La mamá ocupada', 'La que trabaja', 'La que se prepara para diciembre', 'La del jean', 'La que se toma fotos'];
+    fs.writeFileSync(path.join(RAIZ, anguloVideo[1]), JSON.stringify({
+      video: { angulo: 'Glúteos más llenos sin gimnasio', gancho: 'Una pregunta a cámara', dolor: 'Se siente plana', deseo: 'Llenar el jean', promesa: 'Curvas naturales', publico: 'Mujeres de 20 a 40', formato: 'Una persona a cámara', por_que_funciona: 'Habla del dolor en sus palabras' },
+      conceptos: Array.from({ length: n }, (_, i) => ({ titular: `Titular de prueba ${i + 1}: por fin lleno el jean`, angulo: ['dolor', 'deseo', 'beneficio', 'objecion'][i % 4], faceta: facetas[i % facetas.length], momento: 'Un sábado', escena: `Escena de prueba ${i + 1}` })),
+    }));
     return resultado({ result: 'LISTO' });
   }
   // «lo que se ve» (debajo de lo que escribiste en «Editar a mano»): una escena de prueba con ese texto

@@ -328,6 +328,8 @@ export const apiNuevo = {
   /** Lo que se ve (el contexto visual) para lo que escribiste: { n } de una parte, o { despuesDe } de una nueva. */
   contextoVisual: (slug, donde, dice) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/se-ve`, { metodo: 'POST', cuerpo: { ...donde, dice } }),
   regenerarLinea: (slug, n, actual) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/regenerar-linea`, { metodo: 'POST', cuerpo: { n, actual } }),
+  /** Lo que se dice en una parte NUEVA (va después de la parte `despuesDe`; 0 = al comienzo), escrito por la IA. */
+  lineaNueva: (slug, despuesDe, actual) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/regenerar-linea`, { metodo: 'POST', cuerpo: { nueva: true, despuesDe, actual } }),
   /** Editar a mano lo que se dice: [{ n, dice }] -> { directo, cambiadas } | { conIA } */
   editarLineas: (slug, lineas) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/lineas`, { metodo: 'PUT', cuerpo: { lineas } }),
   /** La voz del narrador de un anuncio ya creado: { id, nombre } o { auto: true } -> { voz } */

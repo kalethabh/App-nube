@@ -1057,6 +1057,10 @@ async function producirAnuncio({ pedir, check, aviso, salio, t0 }) {
   check('Editar a mano: «lo que se ve» se escribe solo para lo que escribiste', r.st === 200 && /Escena de prueba/.test(r.datos?.se_ve || '') && /brilla/.test(r.datos?.se_ve || ''), r);
   r = await pedir(`/api/anuncios/${slug}/guion/se-ve`, { json: { despuesDe: 3, dice: 'Y al final, todos felices' } });
   check('Editar a mano: también para una parte nueva', r.st === 200 && /Escena de prueba/.test(r.datos?.se_ve || ''), r);
+  r = await pedir(`/api/anuncios/${slug}/guion/regenerar-linea`, { json: { nueva: true, despuesDe: 3 } });
+  check('Editar a mano: ✨ en una parte nueva la escribe la IA', r.st === 200 && /parte nueva de prueba/.test(r.datos?.dice || ''), r);
+  r = await pedir(`/api/anuncios/${slug}/guion/regenerar-linea`, { json: { nueva: true, despuesDe: 99 } });
+  check('Editar a mano: parte nueva después de una que no existe (404)', r.st === 404, r);
   r = await pedir(`/api/anuncios/${slug}/guion/se-ve`, { json: { n: 1, dice: '   ' } });
   check('Editar a mano: sin texto, «lo que se ve» no se pide (400)', r.st === 400, r);
   r = await pedir(`/api/anuncios/${slug}/guion/lineas`, { metodo: 'PUT', json: { lineas: Array.from({ length: 11 }, () => ({ nueva: true, despuesDe: 1, dice: 'Otra parte' })) } });

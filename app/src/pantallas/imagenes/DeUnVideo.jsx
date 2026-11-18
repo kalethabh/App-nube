@@ -1,39 +1,37 @@
-// «De un video, imágenes» (2026-11-17p): eliges un video (lo subes, uno de tus anuncios o uno de Inspiración) y la app
-// saca, en la computadora y gratis, el cuadro más nítido de cada toma, le quita los subtítulos y propone varias imágenes
-// con ángulos distintos (dolor, antes y después, mecanismo, prueba social…). Con «Elegir con mi IA» (opcional: usa tu
-// plan de Claude o ChatGPT) tu IA mira los cuadros y elige los textos. Cada imagen sale con las plantillas, sin costo.
+// «De un video, imágenes» (2026-11-19, pedido: «no es tomar fotogramas, sino analizar el ángulo y hacer las imágenes,
+// títulos, etc.»): eliges un video (lo subes, uno de tus anuncios o uno de Inspiración); la app mira sus tomas y escucha
+// lo que dice, y tu IA saca su ángulo (gancho, dolor, deseo, promesa, a quién le habla) y propone anuncios PARA TU
+// PRODUCTO, cada uno un concepto distinto con su titular. Puedes editar o quitar cada uno. Las imágenes salen de las
+// plantillas ganadoras con el modelo de imagen, como cualquier lote con plantillas.
 import { useEffect, useRef, useState } from 'react';
-import { Clapperboard, Film, LoaderCircle, Sparkles, Trash2 } from 'lucide-react';
-import { Boton, Chip, Selector, SubirVideo } from '../../componentes/index.js';
+import { Film, LoaderCircle, RefreshCw, Sparkles, X } from 'lucide-react';
+import { AreaTexto, Boton, CampoTexto, Chip, Selector, SubirVideo } from '../../componentes/index.js';
 import { apiImagenes } from '../../datos/imagenes.js';
 import { pedirNuevo } from '../../datos/api.js';
 
-export const ANGULOS = [
-  { id: 'dolor', nombre: 'Dolor', plantilla: 'foto-tiktok' },
-  { id: 'antes-despues', nombre: 'Antes y después', plantilla: 'antes-despues' },
-  { id: 'mecanismo', nombre: 'Mecanismo', plantilla: 'foto-titular' },
-  { id: 'prueba-social', nombre: 'Prueba social', plantilla: 'foto-tiktok' },
-  { id: 'estatus', nombre: 'Estatus', plantilla: 'foto-titular' },
-  { id: 'objecion', nombre: 'Objeción', plantilla: 'foto-tiktok' },
-  { id: 'ingrediente', nombre: 'Ingrediente', plantilla: 'foto-titular' },
-  { id: 'producto', nombre: 'Producto', plantilla: 'foto-titular' },
-];
-const NOMBRE_PLANTILLA = { 'foto-tiktok': 'Foto con subtítulos de TikTok', 'foto-titular': 'Foto con titular', 'antes-despues': 'Antes y después' };
 const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
+const NOMBRE_ANGULO = { dolor: 'Dolor', deseo: 'Deseo', beneficio: 'Beneficio', objecion: 'Objeción', mecanismo: 'Mecanismo', prueba: 'Prueba social' };
+const DEL_VIDEO = [
+  ['angulo', 'Ángulo'],
+  ['gancho', 'Gancho'],
+  ['dolor', 'Dolor'],
+  ['deseo', 'Deseo'],
+  ['publico', 'A quién le habla'],
+  ['por_que_funciona', 'Por qué funciona'],
+];
 
 /**
  * videoPedido: 'subido:<id>|<nombre>' (de Inspiración) · productoId · bloqueado
- * onCambiar({ id, seleccion }) cada vez que cambia lo elegido (null si todavía no hay)
+ * onCambiar({ id, conceptos }) cada vez que cambian los anuncios propuestos (null si todavía no hay)
  */
 export function DeUnVideo({ videoPedido = null, productoId, bloqueado, onCambiar }) {
   const [subido, setSubido] = useState(videoPedido);
   const [anuncios, setAnuncios] = useState([]);
   const [trabajo, setTrabajo] = useState(null); // la respuesta de GET /video/:id
-  const [seleccion, setSeleccion] = useState([]);
+  const [conceptos, setConceptos] = useState([]);
   const [cantidad, setCantidad] = useState(6);
-  const [ocupado, setOcupado] = useState(null); // 'analizando' | 'eligiendo' | 'ia'
+  const [ocupado, setOcupado] = useState(null); // 'video' | 'angulo'
   const [error, setError] = useState(null);
-  const [nota, setNota] = useState(null);
   const vivo = useRef(true);
   useEffect(() => () => (vivo.current = false), []);
 
@@ -45,83 +43,92 @@ export function DeUnVideo({ videoPedido = null, productoId, bloqueado, onCambiar
   }, []);
 
   useEffect(() => {
-    onCambiar(trabajo?.estado === 'listo' && seleccion.length ? { id: trabajo.id, seleccion } : null);
-  }, [trabajo?.id, trabajo?.estado, seleccion]); // eslint-disable-line react-hooks/exhaustive-deps
+    const listos = conceptos.filter((c) => c.titular.trim());
+    onCambiar(trabajo?.angulo?.estado === 'listo' && listos.length ? { id: trabajo.id, conceptos: listos } : null);
+  }, [trabajo?.id, trabajo?.angulo?.estado, conceptos]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const elegir = async (id, { conIA = false, n = cantidad } = {}) => {
-    setOcupado(conIA ? 'ia' : 'eligiendo');
+  /** Sigue el trabajo hasta que se cumpla `hasta` (o falle). */
+  const seguir = async (id, hasta) => {
+    for (let i = 0; i < 900 && vivo.current; i++) {
+      const e = await apiImagenes.video(id);
+      if (!vivo.current) return null;
+      setTrabajo(e);
+      if (e.estado === 'error') throw new Error(e.error || 'No pude ver ese video.');
+      const r = hasta(e);
+      if (r) return e;
+      await esperar(i < 10 ? 600 : 1500);
+    }
+    return null;
+  };
+
+  const analizarAngulo = async (id, n = cantidad) => {
+    if (!productoId) return;
+    setOcupado('angulo');
     setError(null);
+    setConceptos([]);
     try {
-      const r = await apiImagenes.videoElegir(id, { cantidad: n, conIA, productoId });
-      if (!vivo.current) return;
-      setSeleccion(r.seleccion || []);
-      setNota(conIA ? (r.conIA ? `Tu IA eligió ${r.seleccion.length} en ${(r.ms / 1000).toFixed(0)} s.` : `Tu IA no pudo elegir${r.motivo ? ` (${r.motivo})` : ''}: quedó la elección de la app.`) : null);
-    } catch (e) {
-      setError(e.message);
+      await apiImagenes.videoAngulo(id, { productoId, cantidad: n });
+      const e = await seguir(id, (x) => x.angulo && x.angulo.estado !== 'analizando');
+      if (e?.angulo?.estado === 'error') throw new Error(e.angulo.error || 'Tu IA no pudo analizar el video.');
+      if (e?.angulo?.estado === 'listo') setConceptos(e.angulo.conceptos || []);
+    } catch (x) {
+      if (vivo.current) setError(x.message);
     } finally {
       if (vivo.current) setOcupado(null);
     }
   };
 
-  const analizar = async (cuerpo) => {
-    setOcupado('analizando');
+  const empezar = async (cuerpo) => {
+    setOcupado('video');
     setError(null);
     setTrabajo(null);
-    setSeleccion([]);
-    setNota(null);
+    setConceptos([]);
     try {
       const { id } = await apiImagenes.videoCrear(cuerpo);
-      for (let i = 0; i < 600 && vivo.current; i++) {
-        const e = await apiImagenes.video(id);
-        setTrabajo(e);
-        if (e.estado === 'listo') {
-          await elegir(id);
-          return;
-        }
-        if (e.estado === 'error') throw new Error(e.error || 'No pude analizar ese video.');
-        await esperar(i < 10 ? 500 : 1000);
-      }
-    } catch (e) {
-      if (vivo.current) setError(e.message);
+      const e = await seguir(id, (x) => x.estado === 'listo');
+      if (e && productoId) await analizarAngulo(id);
+    } catch (x) {
+      if (vivo.current) setError(x.message);
     } finally {
-      if (vivo.current) setOcupado((o) => (o === 'analizando' ? null : o));
+      if (vivo.current) setOcupado((o) => (o === 'video' ? null : o));
     }
   };
 
   // un video nuevo (subido o de Inspiración): se analiza solo
   useEffect(() => {
-    if (subido && /^subido:/.test(subido)) analizar({ subido });
+    if (subido && /^subido:/.test(subido)) empezar({ subido });
   }, [subido]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const cuadro = (n) => trabajo?.cuadros?.find((c) => c.n === n);
-  const cambiarAngulo = (i, angulo) => {
-    const a = ANGULOS.find((x) => x.id === angulo);
-    setSeleccion((s) =>
-      s.map((x, k) => {
-        if (k !== i) return x;
-        // un antes y después necesita dos cuadros: se suma el último del video
-        const cuadros = a.plantilla === 'antes-despues' ? (x.cuadros.length >= 2 ? x.cuadros : [x.cuadros[0], trabajo.cuadros[trabajo.cuadros.length - 1].n]) : [x.cuadros[0]];
-        return { ...x, angulo, plantilla: a.plantilla, cuadros, textos: {} };
-      })
-    );
-  };
+  // elegiste el producto después del video: ahora sí, el ángulo para él
+  useEffect(() => {
+    if (productoId && trabajo?.estado === 'listo' && !trabajo.angulo && !ocupado) analizarAngulo(trabajo.id);
+  }, [productoId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const analisis = trabajo?.angulo?.estado === 'listo' ? trabajo.angulo.video : null;
+  const avance = ocupado === 'video' ? trabajo?.avance || 'Mirando tu video' : ocupado === 'angulo' ? trabajo?.angulo?.avance || 'Tu IA está analizando el ángulo del video' : null;
 
   return (
     <div className="img-video">
-      <SubirVideo valor={subido} onCambio={setSubido} deshabilitado={bloqueado || ocupado === 'analizando'} conLink={false} />
+      <SubirVideo valor={subido} onCambio={setSubido} deshabilitado={bloqueado || Boolean(ocupado)} conLink={false} />
       {anuncios.length ? (
         <Selector
           etiqueta="O uno de tus anuncios"
           value=""
-          onChange={(e) => e.target.value && analizar({ anuncio: e.target.value })}
-          disabled={bloqueado || ocupado === 'analizando'}
+          onChange={(e) => e.target.value && empezar({ anuncio: e.target.value })}
+          disabled={bloqueado || Boolean(ocupado)}
           opciones={[{ valor: '', etiqueta: 'Elige uno de tus anuncios…' }, ...anuncios.map((a) => ({ valor: a.slug, etiqueta: a.titulo || a.slug }))]}
         />
       ) : null}
-      {ocupado === 'analizando' ? (
+      {avance ? (
         <p className="img-nota" role="status">
           <LoaderCircle size={14} strokeWidth={2} className="girando" aria-hidden="true" />
-          <span>{trabajo?.avance || 'Preparando tu video'}… (en tu computadora, gratis)</span>
+          <span>{avance}…</span>
+        </p>
+      ) : null}
+      {trabajo?.estado === 'listo' && !productoId && !ocupado ? (
+        <p className="img-nota" role="status">
+          <Film size={14} strokeWidth={2} aria-hidden="true" />
+          <span>Elige tu producto arriba: tu IA analiza el video para hacer los anuncios de tu producto.</span>
         </p>
       ) : null}
       {error ? (
@@ -130,43 +137,59 @@ export function DeUnVideo({ videoPedido = null, productoId, bloqueado, onCambiar
           <span>{error}</span>
         </p>
       ) : null}
-      {trabajo?.estado === 'listo' ? (
+
+      {analisis ? (
         <>
-          <p className="img-nota img-nota--ok" role="status">
-            <Clapperboard size={14} strokeWidth={2} aria-hidden="true" />
-            <span>
-              {trabajo.tomas} {trabajo.tomas === 1 ? 'toma' : 'tomas'} en {Math.round(trabajo.duracion || 0)} s de video, analizadas en {((trabajo.ms || 0) / 1000).toFixed(1)} s: de cada una, el cuadro más nítido y sin subtítulos.
-              {nota ? ` ${nota}` : ''}
-            </span>
-          </p>
+          <div className="img-video__analisis">
+            <h4 className="img-video__titulo">
+              <Sparkles size={14} strokeWidth={2.2} aria-hidden="true" /> Lo que encontró tu IA en el video
+            </h4>
+            <dl>
+              {DEL_VIDEO.filter(([k]) => analisis[k]).map(([k, nombre]) => (
+                <div key={k} className="img-video__dato">
+                  <dt>{nombre}</dt>
+                  <dd>{analisis[k]}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
           <div className="img-video__acciones">
-            <span className="t-chico t-3">Cuántas</span>
+            <span className="t-chico t-3">Cuántos anuncios</span>
             {[4, 6, 8, 10].map((k) => (
-              <Chip key={k} activo={cantidad === k} onClick={() => { setCantidad(k); elegir(trabajo.id, { n: k }); }} disabled={bloqueado || Boolean(ocupado)}>
+              <Chip key={k} activo={cantidad === k} onClick={() => setCantidad(k)} disabled={bloqueado || Boolean(ocupado)}>
                 {k}
               </Chip>
             ))}
-            <Boton variante="secundario" tamano="chico" icono={Sparkles} cargando={ocupado === 'ia'} onClick={() => elegir(trabajo.id, { conIA: true })} disabled={bloqueado || Boolean(ocupado)}>
-              Elegir con mi IA
+            <Boton variante="secundario" tamano="chico" icono={RefreshCw} onClick={() => analizarAngulo(trabajo.id, cantidad)} disabled={bloqueado || Boolean(ocupado)}>
+              {cantidad !== (trabajo.angulo.conceptos || []).length ? `Proponer ${cantidad}` : 'Otras ideas'}
             </Boton>
           </div>
-          <p className="img-ayuda">«Elegir con mi IA» es opcional: mira los cuadros y escribe los textos con tu plan de Claude o ChatGPT (sin costo por imagen). Sin ella, la app elige los más nítidos repartidos en el video.</p>
-          <div className="img-video__rejilla">
-            {seleccion.map((x, i) => (
-              <div key={`${i}-${x.cuadros.join('-')}`} className="img-video__item">
-                <div className={`img-video__fotos${x.cuadros.length > 1 ? ' img-video__fotos--dos' : ''}`}>
-                  {x.cuadros.map((n) => (cuadro(n) ? <img key={n} src={cuadro(n).url} alt={`Toma ${n}`} loading="lazy" draggable="false" /> : null))}
+          <ol className="img-video__conceptos">
+            {conceptos.map((c, i) => (
+              <li key={i} className="img-video__concepto">
+                <div className="img-video__concepto-cabeza">
+                  <span className="img-video__chip">{NOMBRE_ANGULO[c.angulo] || c.angulo}</span>
+                  <span className="t-mini t-3">{[c.faceta, c.momento].filter(Boolean).join(' · ')}</span>
+                  <button type="button" className="img-video__quitar" onClick={() => setConceptos((l) => l.filter((_, k) => k !== i))} disabled={bloqueado || conceptos.length <= 1} aria-label={`Quitar el anuncio ${i + 1}`}>
+                    <X size={13} strokeWidth={2.4} aria-hidden="true" />
+                  </button>
                 </div>
-                <Selector etiqueta={`Imagen ${i + 1}`} value={x.angulo} onChange={(e) => cambiarAngulo(i, e.target.value)} disabled={bloqueado} opciones={ANGULOS.map((a) => ({ valor: a.id, etiqueta: a.nombre }))} />
-                <span className="t-mini t-3">
-                  {NOMBRE_PLANTILLA[x.plantilla] || x.plantilla} · toma {x.cuadros.join(' y ')}
-                </span>
-                <Boton variante="fantasma" tamano="chico" icono={Trash2} onClick={() => setSeleccion((s) => s.filter((_, k) => k !== i))} disabled={bloqueado || seleccion.length <= 1}>
-                  Quitar
-                </Boton>
-              </div>
+                <CampoTexto aria-label={`Titular del anuncio ${i + 1}`} value={c.titular} maxLength={90} onChange={(e) => setConceptos((l) => l.map((x, k) => (k === i ? { ...x, titular: e.target.value } : x)))} disabled={bloqueado} />
+                <AreaTexto
+                  etiqueta="Lo que se ve"
+                  aria-label={`Lo que se ve en el anuncio ${i + 1}`}
+                  filas={3}
+                  maxLength={600}
+                  value={c.escena || ''}
+                  placeholder="Describe la escena: quién aparece, dónde, qué se ve del resultado, la luz y los colores."
+                  onChange={(e) => setConceptos((l) => l.map((x, k) => (k === i ? { ...x, escena: e.target.value } : x)))}
+                  disabled={bloqueado}
+                  className="img-video__escena"
+                />
+              </li>
             ))}
-          </div>
+          </ol>
+          <p className="img-ayuda">Cada uno sale con una plantilla ganadora distinta, tu producto, tus colores, este titular y esta escena (puedes cambiar los dos).</p>
         </>
       ) : null}
     </div>

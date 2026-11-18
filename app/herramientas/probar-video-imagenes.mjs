@@ -111,6 +111,30 @@ try {
   const sinPlan = await video.elegir(id, { cantidad: 6, conIA: true, lanzarSesion: async () => ({ ok: false, limite: true }) });
   check('Si la IA no puede (sin plan), queda la elección de la app y dice por qué', !sinPlan.conIA && sinPlan.seleccion.length === 6 && /plan/.test(sinPlan.motivo || ''), sinPlan);
 
+  // ---- 3b. el ÁNGULO del video (2026-11-19): tu IA lo analiza y propone conceptos para tu producto
+  {
+    const tj = leer(path.join(video.DIR_TRABAJOS, id, 'trabajo.json'));
+    escribir(path.join(video.DIR_TRABAJOS, id, 'trabajo.json'), { ...tj, transcripcion: 'Me sentía plana y nada me funcionaba hasta que encontré esto.' });
+    let vistoPrompt = '';
+    let imagenesIA = 0;
+    const iaAngulo = async (o) => {
+      vistoPrompt = o.prompt;
+      imagenesIA = o.material?.imagenes?.length || 0;
+      const salida = /Escribe (\S+angulo-ia\.json)/.exec(o.prompt)?.[1];
+      escribir(path.join(RAIZ, salida), { video: { angulo: 'Glúteos más llenos', gancho: 'Pregunta a cámara', dolor: 'Se siente plana', deseo: 'Llenar el jean', promesa: 'Curvas', publico: 'Mujeres', formato: 'Una persona', por_que_funciona: 'Habla en sus palabras' }, conceptos: [{ titular: 'Por fin lleno el jean', angulo: 'deseo', faceta: 'La del jean', momento: 'Sábado de compras', escena: 'Se mira en el probador' }, { titular: '', angulo: 'dolor' }, { titular: 'Adiós cola plana', angulo: 'inventado', faceta: 'La de la playa', momento: 'Antes del viaje', escena: 'Con el vestido de baño' }] });
+      return { ok: true };
+    };
+    const inicio = video.analizarAngulo(id, { productoId: null, cantidad: 4, lanzarSesion: iaAngulo });
+    let e = video.estadoTrabajo(id);
+    for (let i = 0; i < 100 && e.angulo?.estado === 'analizando'; i++) {
+      await new Promise((r) => setTimeout(r, 100));
+      e = video.estadoTrabajo(id);
+    }
+    check('Ángulo del video: arranca de fondo y la pantalla lo sigue', inicio.estado === 'analizando' && e.angulo?.estado === 'listo', e.angulo);
+    check('… tu IA recibe lo que se dice, las tomas y lo pide para tu producto, distintos (Andromeda)', /Me sentía plana/.test(vistoPrompt) && imagenesIA >= 1 && /Propón 4 anuncios/.test(vistoPrompt) && /Andromeda/.test(vistoPrompt) && /nunca copies la marca/.test(vistoPrompt), { imagenesIA });
+    check('… queda el análisis (ángulo, gancho, dolor, deseo) y solo los conceptos con titular, con el ángulo válido', e.angulo.video.angulo === 'Glúteos más llenos' && e.angulo.conceptos.length === 2 && e.angulo.conceptos[1].angulo === 'deseo', e.angulo);
+  }
+
   // ---- 4. el lote: con las plantillas, sin el proveedor y sin costo
   const carpeta = path.join(BASE, '_img-video-20261117-1200');
   fs.mkdirSync(path.join(carpeta, 'entrada'), { recursive: true });

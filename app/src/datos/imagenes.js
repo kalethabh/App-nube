@@ -87,6 +87,8 @@ export const apiImagenes = {
   /** { estado, avance, tomas, duracion, ms, cuadros: [{ n, t, url, limpieza }], seleccion } */
   video: (id) => pedirNuevo(`${BASE}/video/${enc(id)}`),
   /** { cantidad, conIA, productoId } -> { seleccion: [{ cuadros, angulo, plantilla, textos }], conIA, ms, motivo } */
+  /** Tu IA analiza el ángulo del video y propone anuncios para tu producto (de fondo): { productoId, cantidad } */
+  videoAngulo: (id, cuerpo) => pedirNuevo(`${BASE}/video/${enc(id)}/angulo`, { metodo: 'POST', cuerpo }),
   videoElegir: (id, cuerpo) => pedirNuevo(`${BASE}/video/${enc(id)}/elegir`, { metodo: 'POST', cuerpo }),
   /** «Pulir con IA» un cuadro del video (cuesta 1 imagen) */
   pulir: (lote, v, costoMaximoConfirmado) => pedirNuevo(`${BASE}/${enc(lote)}/pulir`, { metodo: 'POST', cuerpo: { v, costoMaximoConfirmado } }),
