@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18d · Las voces de ElevenLabs se traen como el saldo (sin «error de conexión» falso)
+
+- La lista de tus voces de ElevenLabs (en «Voz del narrador» y para la voz que elige la app) ahora se pide directo desde la app, igual que el saldo de ElevenLabs que ves abajo a la izquierda. Antes se pedía en un proceso aparte que, si escribía cualquier aviso o tardaba más de 30 segundos, salía como «No pude conectar con ElevenLabs» aunque tu clave y tu internet estuvieran bien.
+- El error ahora dice la causa real: falta la clave, ElevenLabs la rechazó (por ejemplo, si no tiene permiso para leer las voces), no hay conexión, o ElevenLabs tardó demasiado.
+
 ## 2026-11-18c · Si no eliges la voz del narrador, la elige la app
 
 - En la voz del narrador, la primera opción ahora es **«Que la elija la app»** (ya no hace falta elegir una para escribir el guion).
