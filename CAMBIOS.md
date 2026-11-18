@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18y · Lo que viene en el menú
+
+- En «Crear», con la marca «Pronto»: **Embudo WhatsApp**, **Landings** (el Generador de Landings) y **S.E.P**. Cada uno abre su pantalla de «Próximamente».
+- **Inspiración** ya no aparece en el menú.
+
 ## 2026-11-18x · Anuncios en la nube que se ven y se reproducen, y «Landings» (próximamente)
 
 - **Anuncios en la nube**: cuando un anuncio se guarda en tu nube y se borra de tu computador para liberar espacio, sigue apareciendo como terminado, con su video, sus imágenes y sus miniaturas. Lo ves, lo reproduces (y lo adelantas) y lo descargas directo desde tu carpeta de nube, sin traerlo de vuelta. Para editarlo, exportar, rehacer algo o sacar más ganchos, se trae solo. En «Anuncios» llevan la marca **«En la nube»**.
