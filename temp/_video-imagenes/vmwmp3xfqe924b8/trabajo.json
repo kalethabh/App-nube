@@ -1,0 +1,491 @@
+{
+  "id": "vmwmp3xfqe924b8",
+  "origen": {
+    "tipo": "subido",
+    "id": "mwmp3xfd47ba2a"
+  },
+  "estado": "listo",
+  "avance": null,
+  "creado": "2026-11-18T22:31:14.514Z",
+  "transcripcion": "",
+  "medidas": {
+    "ancho": 720,
+    "alto": 1280,
+    "duracion": 240.952063
+  },
+  "tomas": 30,
+  "cuadros": [
+    {
+      "n": 1,
+      "t": 3.25,
+      "desde": 0,
+      "hasta": 9.066667,
+      "nitidez": 796,
+      "movimiento": 9,
+      "archivo": "cuadros/T01.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 2,
+      "t": 16.25,
+      "desde": 9.066667,
+      "hasta": 16.9,
+      "nitidez": 539,
+      "movimiento": 3.6,
+      "archivo": "cuadros/T02.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 3,
+      "t": 19.5,
+      "desde": 16.9,
+      "hasta": 23.6,
+      "nitidez": 493,
+      "movimiento": 4.2,
+      "archivo": "cuadros/T03.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6440625,
+        "y1": 0.698125
+      }
+    },
+    {
+      "n": 4,
+      "t": 28.75,
+      "desde": 23.6,
+      "hasta": 35.566667,
+      "nitidez": 786,
+      "movimiento": 6.1,
+      "archivo": "cuadros/T04.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 5,
+      "t": 37.75,
+      "desde": 35.566667,
+      "hasta": 42.333333,
+      "nitidez": 430,
+      "movimiento": 5.4,
+      "archivo": "cuadros/T05.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 6,
+      "t": 47,
+      "desde": 42.333333,
+      "hasta": 47.933333,
+      "nitidez": 496,
+      "movimiento": 2.4,
+      "archivo": "cuadros/T06.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 7,
+      "t": 52.75,
+      "desde": 47.933333,
+      "hasta": 53.466667,
+      "nitidez": 781,
+      "movimiento": 3,
+      "archivo": "cuadros/T07.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 8,
+      "t": 54.5,
+      "desde": 53.466667,
+      "hasta": 60.966667,
+      "nitidez": 757,
+      "movimiento": 0.8,
+      "archivo": "cuadros/T08.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 9,
+      "t": 63.5,
+      "desde": 60.966667,
+      "hasta": 68.5,
+      "nitidez": 697,
+      "movimiento": 0.7,
+      "archivo": "cuadros/T09.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 10,
+      "t": 74.5,
+      "desde": 68.5,
+      "hasta": 76.333333,
+      "nitidez": 650,
+      "movimiento": 4.2,
+      "archivo": "cuadros/T10.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 11,
+      "t": 78.75,
+      "desde": 76.333333,
+      "hasta": 80.7,
+      "nitidez": 553,
+      "movimiento": 2.3,
+      "archivo": "cuadros/T11.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 12,
+      "t": 82,
+      "desde": 80.7,
+      "hasta": 86.833333,
+      "nitidez": 635,
+      "movimiento": 4.6,
+      "archivo": "cuadros/T12.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 13,
+      "t": 90,
+      "desde": 86.833333,
+      "hasta": 92.466667,
+      "nitidez": 606,
+      "movimiento": 6.6,
+      "archivo": "cuadros/T13.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 14,
+      "t": 94,
+      "desde": 92.466667,
+      "hasta": 106.6,
+      "nitidez": 827,
+      "movimiento": 6,
+      "archivo": "cuadros/T14.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 15,
+      "t": 110,
+      "desde": 106.6,
+      "hasta": 112.666667,
+      "nitidez": 458,
+      "movimiento": 3.9,
+      "archivo": "cuadros/T15.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6440625,
+        "y1": 0.698125
+      }
+    },
+    {
+      "n": 16,
+      "t": 118,
+      "desde": 112.666667,
+      "hasta": 118.766667,
+      "nitidez": 635,
+      "movimiento": 3.2,
+      "archivo": "cuadros/T16.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 17,
+      "t": 121.75,
+      "desde": 118.766667,
+      "hasta": 123.7,
+      "nitidez": 726,
+      "movimiento": 3.6,
+      "archivo": "cuadros/T17.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 18,
+      "t": 126,
+      "desde": 123.7,
+      "hasta": 135.566667,
+      "nitidez": 751,
+      "movimiento": 4.6,
+      "archivo": "cuadros/T18.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 19,
+      "t": 139,
+      "desde": 135.566667,
+      "hasta": 140.333333,
+      "nitidez": 577,
+      "movimiento": 3.4,
+      "archivo": "cuadros/T19.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 20,
+      "t": 145.5,
+      "desde": 140.333333,
+      "hasta": 146.5,
+      "nitidez": 743,
+      "movimiento": 1.8,
+      "archivo": "cuadros/T20.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 21,
+      "t": 150,
+      "desde": 146.5,
+      "hasta": 154.533333,
+      "nitidez": 724,
+      "movimiento": 3.2,
+      "archivo": "cuadros/T21.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 22,
+      "t": 159.5,
+      "desde": 154.533333,
+      "hasta": 161.833333,
+      "nitidez": 594,
+      "movimiento": 1.4,
+      "archivo": "cuadros/T22.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 23,
+      "t": 165,
+      "desde": 161.833333,
+      "hasta": 169.5,
+      "nitidez": 707,
+      "movimiento": 5.6,
+      "archivo": "cuadros/T23.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 24,
+      "t": 173.5,
+      "desde": 169.5,
+      "hasta": 174.166667,
+      "nitidez": 791,
+      "movimiento": 2.4,
+      "archivo": "cuadros/T24.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 25,
+      "t": 177.75,
+      "desde": 174.166667,
+      "hasta": 181.7,
+      "nitidez": 737,
+      "movimiento": 2.9,
+      "archivo": "cuadros/T25.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6378125,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 26,
+      "t": 187.25,
+      "desde": 181.7,
+      "hasta": 189.133333,
+      "nitidez": 496,
+      "movimiento": 1.5,
+      "archivo": "cuadros/T26.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6965625
+      }
+    },
+    {
+      "n": 27,
+      "t": 191.25,
+      "desde": 189.133333,
+      "hasta": 193.733333,
+      "nitidez": 411,
+      "movimiento": 5.5,
+      "archivo": "cuadros/T27.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6440625,
+        "y1": 0.698125
+      }
+    },
+    {
+      "n": 28,
+      "t": 195.75,
+      "desde": 193.733333,
+      "hasta": 198.8,
+      "nitidez": 414,
+      "movimiento": 2.1,
+      "archivo": "cuadros/T28.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6440625,
+        "y1": 0.698125
+      }
+    },
+    {
+      "n": 29,
+      "t": 206.5,
+      "desde": 198.8,
+      "hasta": 208.633333,
+      "nitidez": 560,
+      "movimiento": 2.1,
+      "archivo": "cuadros/T29.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    },
+    {
+      "n": 30,
+      "t": 233.25,
+      "desde": 208.633333,
+      "hasta": 240.952063,
+      "nitidez": 685,
+      "movimiento": 1.1,
+      "archivo": "cuadros/T30.png",
+      "limpieza": "recortado",
+      "franja": {
+        "y0": 0.6425,
+        "y1": 0.6996875
+      }
+    }
+  ],
+  "ms": 12611,
+  "terminado": "2026-11-18T22:31:27.126Z",
+  "seleccion": [
+    {
+      "cuadros": [
+        1
+      ],
+      "angulo": "dolor",
+      "plantilla": "foto-tiktok"
+    },
+    {
+      "cuadros": [
+        1,
+        25
+      ],
+      "angulo": "antes-despues",
+      "plantilla": "antes-despues"
+    },
+    {
+      "cuadros": [
+        7
+      ],
+      "angulo": "mecanismo",
+      "plantilla": "foto-titular"
+    },
+    {
+      "cuadros": [
+        14
+      ],
+      "angulo": "prueba-social",
+      "plantilla": "foto-tiktok"
+    },
+    {
+      "cuadros": [
+        24
+      ],
+      "angulo": "ingrediente",
+      "plantilla": "foto-titular"
+    },
+    {
+      "cuadros": [
+        25
+      ],
+      "angulo": "producto",
+      "plantilla": "foto-titular"
+    }
+  ],
+  "eleccion": {
+    "conIA": false,
+    "ms": 0,
+    "motivo": null
+  }
+}

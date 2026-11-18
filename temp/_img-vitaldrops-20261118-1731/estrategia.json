@@ -1,0 +1,26 @@
+{
+  "resumen": "Plantillas: 6 anuncios armados por la app con tus textos y tu kit de marca; 6 con una escena del modelo de imagen (sin texto).",
+  "paleta": [
+    {
+      "hex": "#C0B116",
+      "nombre": "fondo"
+    },
+    {
+      "hex": "#1C305F",
+      "nombre": "acento"
+    }
+  ],
+  "tipografia": "Anton + Caveat",
+  "estilo": "Plantillas limpias: una idea por imagen, titular enorme, el producto real y grande.",
+  "beneficios": [],
+  "caracteristicas": [],
+  "puntos_dolor": [
+    "Como y como y no me engorda nada",
+    "Los jeans me quedan bailando en la cola",
+    "Me dicen que parezco una tabla",
+    "Se me olvida comer y me lleno con nada",
+    "Voy al gym y no veo cambios en la pierna ni en la cola",
+    "Me da miedo el quirófano y más los biopolímeros"
+  ],
+  "plantillas": true
+}

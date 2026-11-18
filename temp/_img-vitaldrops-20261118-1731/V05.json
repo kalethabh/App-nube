@@ -1,0 +1,23 @@
+{
+  "ad_info": {
+    "variation_id": "V05"
+  },
+  "visual_prompt": "Frame from the user video, composed by the app (no image model).",
+  "text_layers": [],
+  "mandatory_visual_elements": [],
+  "final_generation_exclusions": [],
+  "language_rule": "No visible text at all: the app adds every text.",
+  "app_plantilla": {
+    "id": "foto-titular",
+    "escena": false,
+    "textos": {
+      "titular": "VITALDROPS",
+      "nota": "",
+      "legal": ""
+    },
+    "k": 1,
+    "fecha": "2026-11-18T22:31:45.158Z",
+    "escenaFija": "entrada/cuadros/V05.png",
+    "angulo": "ingrediente"
+  }
+}

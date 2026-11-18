@@ -1,0 +1,25 @@
+{
+  "slug": "_img-vitaldrops-20261118-1731",
+  "nombre": "VITALDROPS",
+  "analisis": "VITALDROPS",
+  "tipo_producto": "producto físico",
+  "descripcion_visual_en": "Use the attached product photo exactly as it is.",
+  "foto_producto": "entrada/producto.jpg",
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "identidad_visual": {
+    "color_palette": "#C0B116 and #1C305F",
+    "text_typography": "Anton + Caveat"
+  },
+  "beneficios": [],
+  "caracteristicas": []
+}

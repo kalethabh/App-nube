@@ -1,0 +1,26 @@
+{
+  "ad_info": {
+    "variation_id": "V04"
+  },
+  "visual_prompt": "Frame from the user video, composed by the app (no image model).",
+  "text_layers": [],
+  "mandatory_visual_elements": [],
+  "final_generation_exclusions": [],
+  "language_rule": "No visible text at all: the app adds every text.",
+  "app_plantilla": {
+    "id": "foto-tiktok",
+    "escena": false,
+    "textos": {
+      "lineas": [
+        "—Tenemos que hablar. —¿De qué?",
+        "—De por qué ya no",
+        "me miras igual. (Diálogo actuado)"
+      ],
+      "legal": ""
+    },
+    "k": 1,
+    "fecha": "2026-11-18T22:31:45.158Z",
+    "escenaFija": "entrada/cuadros/V04.png",
+    "angulo": "prueba-social"
+  }
+}

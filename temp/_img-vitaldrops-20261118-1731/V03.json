@@ -1,0 +1,23 @@
+{
+  "ad_info": {
+    "variation_id": "V03"
+  },
+  "visual_prompt": "Frame from the user video, composed by the app (no image model).",
+  "text_layers": [],
+  "mandatory_visual_elements": [],
+  "final_generation_exclusions": [],
+  "language_rule": "No visible text at all: the app adds every text.",
+  "app_plantilla": {
+    "id": "foto-titular",
+    "escena": false,
+    "textos": {
+      "titular": "Así funciona",
+      "nota": "VITALDROPS",
+      "legal": ""
+    },
+    "k": 0,
+    "fecha": "2026-11-18T22:31:45.157Z",
+    "escenaFija": "entrada/cuadros/V03.png",
+    "angulo": "mecanismo"
+  }
+}
