@@ -2,7 +2,7 @@
   "slug": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "voces",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -58,27 +58,41 @@
     {
       "id": "voces",
       "nombre": "Buscar voces que no van",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-18T23:07:06.684Z"
+      "inicio": "2026-11-18T23:07:06.684Z",
+      "fin": "2026-11-18T23:09:32.097Z"
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:09:32.098Z",
+      "fin": "2026-11-18T23:10:07.226Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:10:07.227Z",
+      "fin": "2026-11-18T23:10:26.529Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:10:26.530Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 93,
+        "total": 1920,
+        "restante": 826,
+        "en": "2026-11-18T23:11:18.882Z"
+      }
     },
     {
       "id": "control-final",
@@ -97,7 +111,7 @@
   "modoPrueba": false,
   "creado": "2026-11-18T22:54:19.505Z",
   "aprobado": "2026-11-18T22:54:19.505Z",
-  "actualizado": "2026-11-18T23:07:06.684Z",
+  "actualizado": "2026-11-18T23:11:18.882Z",
   "saldoInicial": {
     "creditos": 2657,
     "fecha": "2026-11-18T22:54:20.920Z"

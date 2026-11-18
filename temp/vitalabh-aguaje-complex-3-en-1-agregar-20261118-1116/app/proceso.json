@@ -1,12 +1,12 @@
 {
-  "pid": 35874,
-  "paso": "voces",
-  "script": "revisar-voces.js",
+  "pid": 36512,
+  "paso": "render",
+  "script": "ensamblar.js",
   "args": [
     "temp/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
-    "--silenciar"
+    "--solo-completa"
   ],
-  "comando": "node produccion/revisar-voces.js temp/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116 --silenciar",
-  "inicio": "2026-11-18T23:07:06.687Z",
+  "comando": "node produccion/ensamblar.js temp/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116 --solo-completa",
+  "inicio": "2026-11-18T23:10:26.536Z",
   "app": 34683
 }

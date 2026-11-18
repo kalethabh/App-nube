@@ -1,0 +1,17 @@
+{
+  "numero": 4,
+  "paso": "musica",
+  "comando": "node produccion/suno-retomable.js generar-musica.js temp/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116 --si",
+  "inicio": "2026-11-18T23:09:32.101Z",
+  "fin": "2026-11-18T23:10:07.222Z",
+  "codigo": 0,
+  "creditos": 12,
+  "dolares": 0.06,
+  "imagenes": [],
+  "videos": [],
+  "musica": {
+    "creditos": 12
+  },
+  "sinRegistro": [],
+  "elevenlabs": null
+}

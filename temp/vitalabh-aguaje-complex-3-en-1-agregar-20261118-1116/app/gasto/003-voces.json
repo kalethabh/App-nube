@@ -1,0 +1,20 @@
+{
+  "numero": 3,
+  "paso": "voces",
+  "comando": "node produccion/revisar-voces.js temp/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116 --silenciar",
+  "inicio": "2026-11-18T23:07:06.685Z",
+  "fin": "2026-11-18T23:09:32.093Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 18,
+      "segundos": 102.4
+    }
+  }
+}
