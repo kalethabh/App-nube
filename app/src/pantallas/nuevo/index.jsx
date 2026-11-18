@@ -537,7 +537,7 @@ function Flujo({ consulta }) {
           estilo: clave,
           // null = la decide la IA; un texto = lo que escribió (el servidor lo entiende igual que la pantalla)
           ...(conDuracion(clave) ? { duracion: a.duracion ?? null } : {}),
-          voz: a.voz ? { id: a.voz, nombre: a.vozNombre || '' } : null,
+          voz: a.voz ? { id: a.voz, nombre: a.vozNombre || '' } : { auto: true },
           continuidad: CON_CONTINUIDAD.includes(clave) && Boolean(a.continuidad),
           respuestas: respuestasDe(clave, a.preguntas),
           // de la biblioteca: "<carpeta>/<id>" (vacío = nuevas)

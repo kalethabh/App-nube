@@ -12,7 +12,8 @@
 //   hoja-tomas.jpg          todas las tomas en una sola imagen, en orden
 //   transcripcion.json      las palabras con sus tiempos (y eventos: música, risas...)
 //   adn-base.json           las tomas con sus tiempos, su fotograma, su tira, lo que se dice en cada una y lo medido
-//                           de su imagen (luz, color, movimiento) y de su voz (palabras por segundo)
+//                           de su imagen (luz, color, movimiento) y de su voz (palabras por segundo; y `voz`: el tono
+//                           del narrador, grave o agudo, y si es expresiva)
 //
 // Es de la skill anuncios-clonacion (propia del usuario, no del sistema): vive
 // en su carpeta para que las actualizaciones no la toquen.
@@ -108,6 +109,7 @@ function medirImagen(video, desde, hasta) {
 let palabras = [];
 let eventos = [];
 let avisoAudio = null;
+let vozMedida = null;
 if (tieneAudio && !args.includes('--sin-audio')) {
   const mp3 = path.join(salida, 'audio-referencia.mp3');
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', video, '-vn', '-ac', '1', '-ar', '44100', '-b:a', '128k', mp3]);
@@ -120,6 +122,14 @@ if (tieneAudio && !args.includes('--sin-audio')) {
     eventos = todo.filter((w) => w.type === 'audio_event').map((w) => ({ texto: w.text, desde: w.start, hasta: w.end }));
   } catch (e) {
     avisoAudio = `No pude transcribir el audio: ${e.message}`;
+  }
+  // la voz del narrador medida (grave o aguda, expresiva o plana): la app elige con esto la voz más parecida de
+  // ElevenLabs cuando el usuario no eligió una (app/server/lib/voz-auto.js)
+  try {
+    const { medirVoz } = await import(pathToFileURL(path.join(RAIZ, 'produccion', 'medir-voz.js')).href);
+    vozMedida = medirVoz(mp3, palabras.length ? palabras : null);
+  } catch {
+    vozMedida = null;
   }
 } else if (!tieneAudio) {
   avisoAudio = 'El video no tiene audio.';
@@ -150,6 +160,8 @@ const adn = {
   texto,
   palabras_por_segundo: ritmo,
   eventos_de_audio: [...new Set(eventos.map((e) => e.texto))],
+  // { f0 (Hz), genero: 'masculina' | 'femenina' | null, variacion (semitonos), expresiva, ritmo } o null
+  voz: vozMedida,
   aviso: avisoAudio,
 };
 fs.writeFileSync(path.join(salida, 'adn-base.json'), JSON.stringify(adn, null, 2));
