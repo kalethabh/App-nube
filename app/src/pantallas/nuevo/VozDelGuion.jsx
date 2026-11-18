@@ -46,7 +46,7 @@ export function VozDelGuion({ slug, estilo, voz, onCambio }) {
           <div className="nv-voz nv-voz--falla" role="alert">
             <p>No pude traer tus voces de ElevenLabs. {error.message}</p>
             <div className="fila fila--envolver" style={{ '--hueco': '6px' }}>
-              <Boton variante="secundario" tamano="chico" icono={RotateCcw} onClick={recargar}>
+              <Boton variante="secundario" tamano="chico" icono={RotateCcw} onClick={async () => { await apiNuevo.voces(estilo?.clave || estilo, true).catch(() => {}); recargar(); }}>
                 Reintentar
               </Boton>
               <Boton variante="fantasma" tamano="chico" href={enlace.ajustes()}>

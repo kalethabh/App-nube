@@ -11,7 +11,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ArrowDown, ArrowLeft, Check, CircleHelp, Hourglass, Library, Lock, Package, PenLine, RotateCcw, Sparkles, X } from 'lucide-react';
 import { Boton, CampoTexto, Chip, EsqueletoMiniaturas, EstadoVacio, Interruptor, MiniaturaVideo, Seccion, Selector, Tarjeta, Tooltip } from '../../componentes/index.js';
-import { miniatura, useEstilos, useVoces } from '../../datos/api.js';
+import { apiNuevo, miniatura, useEstilos, useVoces } from '../../datos/api.js';
 import { useBiblioteca } from '../biblioteca/datos.js';
 import { enlace } from '../../datos/rutas.js';
 import { CONTINUIDAD_DISPONIBLE, CON_CONTINUIDAD, DETALLES, ICONO_FAMILIA, disponible, partirEscrito, preguntasDe } from '../estilos/catalogo.js';
@@ -219,7 +219,7 @@ function Voz({ estilo, ajuste, onCambio, bloqueado }) {
         <div className="nv-voz nv-voz--falla" role="alert">
           <p>No pude traer tus voces de ElevenLabs. {error.message}</p>
           <div className="fila fila--envolver" style={{ '--hueco': '6px' }}>
-            <Boton variante="secundario" tamano="chico" icono={RotateCcw} onClick={recargar}>
+            <Boton variante="secundario" tamano="chico" icono={RotateCcw} onClick={async () => { await apiNuevo.voces(estilo?.clave || estilo, true).catch(() => {}); recargar(); }}>
               Reintentar
             </Boton>
             <Boton variante="fantasma" tamano="chico" href={enlace.ajustes()}>

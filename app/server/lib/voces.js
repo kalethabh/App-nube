@@ -130,12 +130,12 @@ function pedirDeNuevo() {
   if (cache?.promesa) return cache.promesa;
   const promesa = listar()
     .then((lista) => {
-      cache = { t: Date.now(), voces: lista, promesa: null };
+      cache = { t: Date.now(), voces: lista, promesa: null, fallo: null };
       guardar(lista);
       return { ok: true, voces: lista };
     })
     .catch((e) => {
-      cache = { ...(cache || {}), promesa: null };
+      cache = { ...(cache || {}), promesa: null, fallo: { t: Date.now(), motivo: e.motivo || 'otro', mensaje: e.motivo || e.message } };
       // (el detalle técnico va a la consola del servidor, sin la clave; la pantalla recibe el mensaje simple)
       console.warn(`[voces] ElevenLabs: ${e.motivo || 'error'} (${String(e.message).slice(0, 120)})`);
       return { ok: false, motivo: e.motivo || 'otro', mensaje: e.motivo || e.message };
@@ -155,6 +155,9 @@ export async function voces({ fresco = false } = {}) {
     pedirDeNuevo();
     return { ok: true, voces: guardada.voces, guardada: true };
   }
+  // (si acaba de fallar, no se vuelve a pedir antes de 2 minutos salvo que el usuario toque «Reintentar»: pedirle a
+  // ElevenLabs una y otra vez puede hacer que frene la cuenta)
+  if (!fresco && cache?.fallo && Date.now() - cache.fallo.t < 2 * 60000) return { ok: false, motivo: cache.fallo.motivo, mensaje: cache.fallo.mensaje };
   const r = await pedirDeNuevo();
   if (!r.ok && guardada && r.motivo !== 'clave' && r.motivo !== 'sin-clave') return { ok: true, voces: guardada.voces, guardada: true };
   return r;
