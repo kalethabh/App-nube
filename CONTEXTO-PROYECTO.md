@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-18a` (archivo `VERSION`): 8 clones de anuncios validados y `anuncios_imagen` en la investigación (editables, con aprendizaje). Antes: `2026-11-18`: investigación de mercado con «Conceptos para Meta (Andromeda)». Antes: `2026-11-17q` (antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
+- **Versión actual:** `2026-11-18b` (archivo `VERSION`): arreglo de «Crear anuncios de imagen» (en 18a, `productoElegido` se usaba antes de declararse: error de zona muerta temporal que el build no detecta). Revisión nueva: `node app/herramientas/abrir-pantallas.cjs` con la app de prueba en el puerto 4471 (abre 11 pantallas en Chromium y falla si alguna se rompe); correrla después de tocar pantallas. Antes: `2026-11-18a`: 8 clones de anuncios validados y `anuncios_imagen` en la investigación (editables, con aprendizaje). Antes: `2026-11-18`: investigación de mercado con «Conceptos para Meta (Andromeda)». Antes: `2026-11-17q` (antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
   la pantalla y de la mezcla. Antes: `2026-11-17p1` (referencia interna de ganadores) y `2026-11-17p`: anuncios de imagen con plantillas (la app dibuja los textos y
   los gráficos con Remotion en 0,3-1 s por imagen; el modelo solo hace escenas sin texto; 12 de 17 formatos gratis; kit de
   marca; «Editar textos» gratis) y «De un video, imágenes» (rama `plantillas-imagen`, sin PR). Antes: `2026-11-17o`: exportar del editor por tramos (solo se rehace lo que cambió;

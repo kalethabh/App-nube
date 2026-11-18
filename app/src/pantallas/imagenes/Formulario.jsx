@@ -296,6 +296,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   const formatos = f.conVertical ? ['1:1', '9:16'] : ['1:1'];
   // plantillas: solo las escenas cuestan (una por anuncio con escena: el vertical usa la misma)
   // sin formatos elegidos, los que propuso la investigación de mercado del producto (con sus textos), si los tiene
+  const productoElegido = !fotoNueva.length && f.productoId ? (productos || []).find((x) => x.id === f.productoId) || null : null;
   const propuestas = productoElegido?.investigacion?.propuestas || [];
   const planPlantillas = conPlantillas && cantidadValida ? planDePlantillas(opciones.plantillas, n, f.elegidas.length ? f.elegidas : propuestas) : null;
   // el costo estimado: cada imagen (cuadrada o vertical) al precio que manda el servidor (un solo número: la revisión
@@ -443,7 +444,6 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   const textoBoton = cantidadValida ? `Generar ${n} ${n === 1 ? 'anuncio' : 'anuncios'}` : 'Generar anuncios';
 
   // lo que muestra el panel «Tu lote»: la foto elegida (o la nueva), el logo con su posición y el costo
-  const productoElegido = !fotoNueva.length && f.productoId ? (productos || []).find((x) => x.id === f.productoId) || null : null;
   const fotoElegida = productoElegido ? (productoElegido.fotos || []).find((x) => Number(x.n) === Number(f.fotoProducto)) || productoElegido.fotos?.[0] : null;
 
   return (
