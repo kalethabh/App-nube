@@ -76,6 +76,48 @@ try {
   check('Si el usuario eligió una voz, se respeta', eleg.voz.id === 'rach0005');
   const sin = await va.asegurarVoz({ carpeta, brief: { voz: { auto: true } }, ficha, voces: [] });
   check('Sin voces en la cuenta, lo dice claro', !sin.ok && /no tiene voces/.test(sin.mensaje), sin);
+
+  // la lista de voces de ElevenLabs, pedida desde la app (como el saldo), contra un ElevenLabs simulado
+  const http = await import('node:http');
+  const vocesMod = await import('../server/lib/voces.js');
+  let modo = 'ok';
+  const servidor = http.createServer((req, res) => {
+    const u = new URL(req.url, 'http://x');
+    if (modo === 'clave' || req.headers['xi-api-key'] !== 'sk_prueba_123456789') return res.writeHead(401).end('{}');
+    if (modo === 'v2-cae' && u.pathname === '/v2/voices') return res.writeHead(500).end('{}');
+    const pagina = u.searchParams.get('next_page_token') ? 2 : 1;
+    const voz = (id, n) => ({ voice_id: id, name: n, category: 'cloned', labels: { gender: 'female', accent: 'latin american' }, preview_url: `https://x/${id}.mp3` });
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    if (u.pathname === '/v1/voices') return res.end(JSON.stringify({ voices: [voz('v1aaaa01', 'Legado')] }));
+    res.end(JSON.stringify(pagina === 1 ? { voices: [voz('pag1aaaa', 'Uno')], has_more: true, next_page_token: 't2' } : { voices: [voz('pag2bbbb', 'Dos')], has_more: false }));
+  });
+  await new Promise((r) => servidor.listen(0, '127.0.0.1', r));
+  // (un .env de prueba: en tu computadora la clave de verdad nunca va al servidor simulado)
+  const clavesMod = await import('../server/lib/claves.js');
+  const envPrueba = path.join(TMP, '.env');
+  fs.writeFileSync(envPrueba, 'ELEVENLABS_API_KEY=sk_prueba_123456789\n');
+  clavesMod._paraPruebas({ archivo: envPrueba });
+  const anterior = process.env.ELEVENLABS_API_KEY;
+  delete process.env.ELEVENLABS_API_KEY;
+  vocesMod._paraPruebas({ servidor: `http://127.0.0.1:${servidor.address().port}` });
+  const l1 = await vocesMod.voces({ fresco: true });
+  check('Trae las voces de ElevenLabs desde la app, todas las páginas, con su muestra y etiquetas', l1.ok && l1.voces.map((v) => v.id).join() === 'pag1aaaa,pag2bbbb' && l1.voces[0].muestra && l1.voces[0].etiquetas.gender === 'female' && l1.voces[0].propia, l1);
+  modo = 'v2-cae';
+  const l2 = await vocesMod.voces({ fresco: true });
+  check('Si la lista nueva (v2) falla, usa la de siempre (v1)', l2.ok && l2.voces[0]?.id === 'v1aaaa01', l2);
+  modo = 'clave';
+  const l3 = await vocesMod.voces({ fresco: true });
+  check('Clave rechazada: lo dice así (no como «error de conexión»)', !l3.ok && l3.motivo === 'clave' && /rechazó tu clave/.test(vocesMod.mensajeSimple(l3.mensaje)), l3);
+  await new Promise((r) => servidor.close(r));
+  modo = 'ok';
+  const l4 = await vocesMod.voces({ fresco: true });
+  check('Servidor caído: «No pude conectar con ElevenLabs»', !l4.ok && l4.motivo === 'sin-conexion' && /No pude conectar/.test(vocesMod.mensajeSimple(l4.mensaje)), l4);
+  fs.writeFileSync(envPrueba, '# sin clave\n');
+  vocesMod._paraPruebas({ servidor: 'http://127.0.0.1:9' });
+  const l5 = await vocesMod.voces({ fresco: true });
+  check('Sin clave: pide pegarla en Ajustes', !l5.ok && /Falta tu clave/.test(vocesMod.mensajeSimple(l5.mensaje)), l5);
+  if (anterior) process.env.ELEVENLABS_API_KEY = anterior;
+  vocesMod._paraPruebas({});
 } catch (e) {
   check('La prueba corre entera', false, String(e?.stack || e));
 } finally {
