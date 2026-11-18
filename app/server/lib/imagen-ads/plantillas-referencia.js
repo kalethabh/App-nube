@@ -33,7 +33,7 @@ export function catalogo() {
   const { familias, plantillas } = leerIndice();
   return {
     familias,
-    plantillas: plantillas.map((p) => ({ id: p.id, nombre: p.nombre, familia: p.familia, url: `/api/imagen-ads/plantillas-referencia/${p.id}.jpg`, miniatura: `/api/imagen-ads/plantillas-referencia/mini/${p.id}.jpg` })),
+    plantillas: plantillas.map((p) => ({ id: p.id, nombre: p.nombre, familia: p.familia, ...(p.fuente?.dias ? { dias: p.fuente.dias } : {}), url: `/api/imagen-ads/plantillas-referencia/${p.id}.jpg`, miniatura: `/api/imagen-ads/plantillas-referencia/mini/${p.id}.jpg` })),
   };
 }
 

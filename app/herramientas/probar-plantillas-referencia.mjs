@@ -16,7 +16,7 @@ const check = (nombre, ok, detalle) => {
 
 // 1. el catálogo
 const cat = ref.catalogo();
-check('30 plantillas con su imagen y su miniatura', cat.plantillas.length === 30 && cat.plantillas.every((p) => ref.rutaDeArchivo(`${p.id}.jpg`) && ref.rutaDeArchivo(`${p.id}.jpg`, true)), cat.plantillas.length);
+check('las plantillas (30 validadas + las de TrendTrack) con su imagen y su miniatura', cat.plantillas.length >= 54 && cat.plantillas.every((p) => ref.rutaDeArchivo(`${p.id}.jpg`) && ref.rutaDeArchivo(`${p.id}.jpg`, true)), cat.plantillas.length);
 check('cada plantilla en una familia conocida', cat.plantillas.every((p) => cat.familias.some((f) => f.id === p.familia)));
 check('nombres de archivo raros no se sirven', !ref.rutaDeArchivo('../indice.json') && !ref.rutaDeArchivo('p99.jpg') && !ref.rutaDeArchivo('p01.png'));
 
@@ -84,7 +84,7 @@ check('el titular sale de la investigación (con la corrección del usuario)', v
 const plantillaV1 = ref.fichaDe(brief.plantillasReferencia?.[0] || ids[0]);
 check('el titular sigue la estructura de su plantilla y ataca el deseo principal', /HEADLINE STRUCTURE of this template/.test(v1.visual_prompt) && v1.visual_prompt.includes(plantillaV1.ejemplo) && /main desire or benefit \(Verme con curvas/.test(v1.visual_prompt), v1.visual_prompt);
 check('el resultado se ve grande (más volumen si el deseo es volumen)', /MORE volume, roundness and lift/.test(v1.visual_prompt));
-check('las 30 plantillas tienen la fórmula de su titular', JSON.parse(fs.readFileSync(path.join(ref.DIR, 'indice.json'), 'utf8')).plantillas.every((p) => p.titular && p.ejemplo));
+check('todas las plantillas tienen la fórmula de su titular', JSON.parse(fs.readFileSync(path.join(ref.DIR, 'indice.json'), 'utf8')).plantillas.every((p) => p.titular && p.ejemplo));
 check('solo los tiempos de la investigación, con su regla', /Desde la semana 4/.test(v1.visual_prompt) && /never with invented days/.test(v1.visual_prompt));
 check('sin precios ni la marca de la plantilla', v1.final_generation_exclusions.some((x) => /prices/.test(x)) && v1.final_generation_exclusions.some((x) => /body area/.test(x)));
 let prompt = '';

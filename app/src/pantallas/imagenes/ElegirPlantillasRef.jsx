@@ -3,7 +3,7 @@
 // tipografía, y cambia el producto, los textos y los colores. Sin ninguna elegida, «Que la app elija»: una mezcla de
 // ideas distintas (una por imagen).
 import { useState } from 'react';
-import { Check, Sparkles } from 'lucide-react';
+import { Check, Flame, Sparkles } from 'lucide-react';
 import { Chip } from '../../componentes/index.js';
 
 const MAXIMO = 10;
@@ -19,6 +19,8 @@ function Muestra({ url, nombre }) {
 
 /** catalogo: { familias, plantillas: [{ id, nombre, familia, miniatura }] } · elegidas: [ids] · onCambiar(ids) */
 export function ElegirPlantillasRef({ catalogo, elegidas, onCambiar, bloqueado }) {
+  // (con tantas plantillas, un filtro por tipo: «Todas» o una familia)
+  const [familia, setFamilia] = useState(null);
   if (!catalogo?.plantillas?.length) return null;
   const auto = !elegidas.length;
   const lleno = elegidas.length >= MAXIMO;
@@ -33,7 +35,20 @@ export function ElegirPlantillasRef({ catalogo, elegidas, onCambiar, bloqueado }
           {auto ? 'Una mezcla con ideas distintas, una por imagen.' : `${elegidas.length} ${elegidas.length === 1 ? 'plantilla elegida' : 'plantillas elegidas'}${lleno ? ' (máximo 10)' : ''}: se reparten entre tus anuncios.`}
         </span>
       </div>
-      {catalogo.familias.map((f) => {
+      <div className="img-plantillas__filtros" role="group" aria-label="Tipo de plantilla">
+        <Chip tamano="chico" activo={!familia} onClick={() => setFamilia(null)}>
+          Todas
+        </Chip>
+        {catalogo.familias.map((f) => {
+          const n = catalogo.plantillas.filter((p) => p.familia === f.id).length;
+          return n ? (
+            <Chip key={f.id} tamano="chico" activo={familia === f.id} contador={n} onClick={() => setFamilia(familia === f.id ? null : f.id)}>
+              {f.nombre}
+            </Chip>
+          ) : null;
+        })}
+      </div>
+      {catalogo.familias.filter((f) => !familia || f.id === familia).map((f) => {
         const de = catalogo.plantillas.filter((p) => p.familia === f.id);
         if (!de.length) return null;
         return (
@@ -58,6 +73,12 @@ export function ElegirPlantillasRef({ catalogo, elegidas, onCambiar, bloqueado }
                       </span>
                     ) : null}
                     <span className="img-plantilla__nombre">{p.nombre}</span>
+                    {p.dias ? (
+                      <span className="img-plantilla__costo" title="Días que lleva activo este anuncio en Meta (TrendTrack)">
+                        <Flame size={12} strokeWidth={2.2} aria-hidden="true" />
+                        {p.dias} días activo
+                      </span>
+                    ) : null}
                   </button>
                 );
               })}
