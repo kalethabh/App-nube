@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18i · Las voces de ElevenLabs llegan rápido (y aunque ElevenLabs tarde)
+
+- La lista de voces se pide sin el conteo total de voces de la cuenta, que según ElevenLabs es lo que la hace lenta («ElevenLabs tardó demasiado en mandar tus voces»).
+- Más tiempo de espera (45 s), y si la lista nueva no llega, la app prueba la de siempre.
+- La app guarda en tu computador la última lista que llegó bien: la muestra al instante y la actualiza por detrás. Si un día ElevenLabs no responde, sigue con la guardada (la voz, la muestra y la elección automática funcionan igual).
+- En la tarjeta «Voz del narrador», si no pudo elegirla, un botón **Volver a intentar**.
+
 ## 2026-11-18h · Arreglo: el guion de «Agregar» vuelve a su lugar
 
 - En los anuncios de «Agregar», el bloque «Lo que entendió de tu video y tu pedido» ocupaba la columna ancha y empujaba el guion a la columna angosta de la derecha. Ahora el plan va arriba del guion, los dos en la columna ancha, y a la derecha quedan «Pedir cambios», la voz del narrador y «Me gusta, producir», desde arriba.
