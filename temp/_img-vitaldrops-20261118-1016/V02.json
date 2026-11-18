@@ -1,0 +1,198 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format G20 (Mapa de causas del problema sobre la persona)",
+    "reference_style": "Bright, washed-out lifestyle diagnosis ad: a big two-line headline, a woman with no appetite on a white sofa, a left column of five icon circles with bold labels linked to her by dotted lines, the product large in the right foreground with a few drops at its base, and a two-tone pill at the bottom",
+    "angle_used": "Dolor / problema",
+    "ad_format": "Problem Causes Map Ad (Callouts on the Person)",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "#C0B116 and #1C305F",
+    "visual_style": "Clean, bold and modern direct-response wellness ad: natural warm photography of a young Colombian woman in an everyday moment at home, shown from the waist up, with flat brand-colored graphics on top",
+    "visual_atmosphere": "Warm, honest, feminine and close. Relatable and empathetic, never clinical and never body-shaming",
+    "graphic_language": "Deep navy (#1C305F) circles, dotted lines and headline; mustard-yellow (#C0B116) accent on the pill; simple white monoline icons; strong contrast and generous margins",
+    "text_typography": "Anton + Caveat"
+  },
+  "creative_objective": "Make the woman who eats and eats and does not gain weight recognize her own day in five everyday habits (skipping breakfast, forgetting to eat, getting full fast, living in a rush, arriving with no energy), and present the dropper bottle next to her as her daily support. It takes the blame off her without pointing at her body.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The big navy headline. 2) The woman with no appetite at the center. 3) The product in the right foreground as the answer. 4) The five habits in the left column, read top to bottom, with the dotted lines that tie each one to her. 5) The two-tone pill at the bottom.",
+    "composition_style": "Full-width centered headline at the top. Below it, a three-zone body: the habit column on the left (about 5-35% of the width), the woman in the center (about 38-68% of the width) and the product in the right foreground (about 67-94% of the width), overlapping her side so it reads as being in front of her. Five dotted lines run from the habit column to different points along her left contour, like a map. A centered horizontal pill closes the bottom.",
+    "spacing_and_structure": "Headline: 2 lines from about 7% to 23% of the height, about 10-90% of the width, centered. Habit column: five rows evenly spaced with centers at about 33%, 44.5%, 56%, 67% and 78.5% of the height; each row has a navy circle icon about 7% of the canvas in diameter at about 5.5-12.5% of the width and a 2-line label from about 13.5% to 34% of the width. Dotted lines start with a small solid navy dot right after each label and end on the woman at about 38-47% of the width: head, shoulder, arm, the plate, her lap. Woman: about 38-68% of the width, top of the head at about 27% of the height. Product: about 67-94% of the width and 35-87% of the height. Drops in front of its base. Pill: about 10-90% of the width and 91-96% of the height.",
+    "lighting_and_depth": "Very bright, high-key, slightly overexposed daylight; the room is washed-out white and cream with soft shadows, so the navy graphics pop. The woman is lit softly and naturally, sharp, with a believable low-appetite expression. The product is crisp and saturated, sharper than the background, with a soft contact shadow. Icons, lines, text and pill are flat graphics with no shadows.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a bright, washed-out white living room as background. A large, extra bold navy headline in 2 lines is centered at the top. Below, at the center, a young woman sits on a white sofa, seen from the waist up, with an almost full plate on her lap and a no-appetite expression. On the left, a column of five habits: each one has a solid navy circle with a thin inner white ring and a white line icon, followed by a bold 2-line dark label; from each label a navy dotted line, starting with a small dot, runs with one bend to a different point on the woman. On the right, in the foreground, the product stands large and sharp, partly in front of her, with a few amber drops in front of its base. At the bottom, a centered horizontal pill split in two colors: the left part navy with white uppercase text, the right part mustard yellow with dark uppercase text.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "lifestyle background",
+        "position": "Full canvas, behind every element",
+        "visual_function": "A clean, everyday home setting that makes the situation relatable and lets the graphics stand out",
+        "adaptation_rule": "A bright, airy, almost white living room (white sofa, light cushions, pale walls, soft window light), slightly overexposed and low in contrast. The top area and the left column stay calm and light.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, 2 lines from about 7% to 23% of the height, about 10-90% of the width",
+        "visual_function": "Names the pain in the client's own words and announces that the ad maps what is behind it",
+        "adaptation_rule": "Two centered lines in Anton, deep navy #1C305F.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "person in discomfort",
+        "position": "Center, from about 38% to 68% of the width, top of the head at about 27% of the height",
+        "visual_function": "Embodies the problem so the viewer recognizes herself; the target of every line",
+        "adaptation_rule": "A realistic young Colombian woman (about 26, slim, long dark hair, loose cream sweater), sitting on the sofa, seen from the waist up, holding a fork over an almost untouched plate of food on her lap, her other hand supporting her cheek, looking at the plate with a tired, no-appetite expression (believable, never grotesque). Loose clothing, no emphasis on her body. The product is not in her hands.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "cause icon circles (5)",
+        "position": "Left column, about 5.5-12.5% of the width, centers at about 33%, 44.5%, 56%, 67% and 78.5% of the height",
+        "visual_function": "Visual anchors that make each habit scannable",
+        "adaptation_rule": "Solid deep navy #1C305F circles about 7% of the canvas in diameter, each with a thin white inner ring and a simple white line icon: a coffee cup with a small croissant crossed by a line (skipped breakfast), a clock (forgetting to eat), a small plate with a fork (getting full fast), a running shoe with motion lines (living in a rush), a low battery (no energy). One style and stroke weight.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "dotted callout lines with start dots (5)",
+        "position": "From the end of each label (about 31-36% of the width) to points on the woman (about 38-47% of the width), from head to lap",
+        "visual_function": "Connects every habit to the woman, turning the image into a map",
+        "adaptation_rule": "Deep navy dashed lines, each starting with a small solid navy dot and running horizontally then bending once to end on a different point: her head, her shoulder, her arm, the plate and her lap. Lines never cross each other or the product.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "Right foreground, from about 67% to 94% of the width and from about 35% to 87% of the height, partly overlapping the woman's side",
+        "visual_function": "Presents the daily support right next to the problem",
+        "adaptation_rule": "The product exactly as in the attached product photo, front view, upright, label facing the camera, sharper and more saturated than the background, with a soft contact shadow.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "spilled dose",
+        "position": "In front of the product's base, from about 58% to 81% of the width and from about 79% to 89% of the height",
+        "visual_function": "Shows that the product is taken as drops and adds tangible detail",
+        "adaptation_rule": "A few small glossy amber liquid drops on the light surface in front of the base, realistic and crisp, with tiny soft shadows.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "two-tone pill",
+        "position": "Bottom center, from about 10% to 90% of the width and from about 91% to 96% of the height",
+        "visual_function": "Removes friction: the user gave no shipping or payment data, so the pill carries two truthful ease-of-use facts with the same visual function",
+        "adaptation_rule": "A horizontal fully rounded pill with a thin dark outline, split by a slightly slanted edge into two segments: the left one (about 41% of the pill) solid deep navy #1C305F with white text, the right one solid mustard yellow #C0B116 with dark navy text.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price figures, strikethrough prices or discount badges",
+      "Shipping or payment claims",
+      "Trust seals, guarantee or certification badges",
+      "Rating stars, reviews or testimonials",
+      "Benefit list or check icons",
+      "Callout lines pointing at the product",
+      "More than one person",
+      "Product in the person's hands",
+      "Before / after split",
+      "Subheadline or paragraph text",
+      "Cards or panels behind the cause column",
+      "Logos or brand marks",
+      "Close-ups of the body or tight clothing",
+      "The yellow circle with 60ml from the product photo"
+    ]
+  },
+  "visual_prompt": "Square 1:1 static ad in the style of a bright lifestyle diagnosis map. BACKGROUND: a full-bleed photo of a bright, airy, almost white living room (white sofa, light cushions, pale walls, soft window daylight), high-key, slightly overexposed and low in contrast. TOP (about 7% to 23% of the height, centered, spanning about 10-90% of the width): a large extra bold two-line headline in a thick condensed sans-serif (Anton), solid deep navy (#1C305F). CENTER (about 38-68% of the width, top of her head at about 27% of the height): a realistic young Colombian woman, about 26, slim, long dark hair, wearing a loose cream sweater, sitting on the white sofa and seen from the waist up; she holds a fork over an almost untouched plate of food on her lap while her other hand supports her cheek, and she looks at the plate with a tired, no-appetite expression that feels real and relatable, not dramatic. Her clothing is loose and the framing does not emphasize her body. LEFT COLUMN (about 5-35% of the width): five rows evenly spaced, with centers at about 33%, 44.5%, 56%, 67% and 78.5% of the height. Each row starts with a solid deep navy (#1C305F) circle about 7% of the canvas in diameter with a thin white inner ring and a simple white line icon, followed by a bold two-line dark navy label in Anton. The icons, top to bottom: a coffee cup crossed by a diagonal line, a clock, a small plate with a fork, a running shoe with motion lines, a low battery. From the end of each label a thin deep navy dashed line begins with a small solid navy dot, runs horizontally, bends once and ends on a different point of the woman: her head, her shoulder, her arm, the plate and her lap. The lines never cross each other and never touch the product. RIGHT FOREGROUND (about 67-94% of the width, about 35-87% of the height, roughly 50% of the canvas height): the product stands upright, front view, label facing the camera, sharper and more saturated than the background, partly overlapping the woman's side so it reads as being in front of her, with a soft contact shadow; in front of its base, a few small glossy amber liquid drops on the light surface. The product is the amber glass dropper bottle with a black rubber-bulb dropper cap and a yellow-to-white label shown in the attached product image: use the attached product image as the only source of truth for the product and reproduce it exactly as it is, same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. BOTTOM (about 10-90% of the width, about 91-96% of the height): a centered horizontal fully rounded pill with a thin dark outline, split by a slightly slanted edge into two segments: the left segment (about 41% of the pill) is solid deep navy with white uppercase text, the right segment is solid mustard yellow (#C0B116) with dark navy uppercase text. Icons, lines, labels and pill are flat graphics without shadows. Only one person. No product in her hands, no before/after, no subheadline, no cards behind the labels, no CTA button, no price, no shipping or payment text, no badges, no stars, no logos.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, 2 lines",
+      "text_style": "Anton, extra bold condensed uppercase, each line about 8% of the canvas height, 2 lines, centered, solid deep navy #1C305F on the light background. Line break after the second COMES.",
+      "text": "¿COMES Y COMES Y NO SUBES?"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "cause label 1",
+      "reference_position": "Left column, first row, right of the first icon circle",
+      "text_style": "Anton, about 3.2% of the canvas height per line, max 2 lines, left-aligned, dark navy",
+      "text": "Te saltas el desayuno"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "cause label 2",
+      "reference_position": "Left column, second row, right of the second icon circle",
+      "text_style": "Same style as cause label 1",
+      "text": "Se te olvida comer"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "cause label 3",
+      "reference_position": "Left column, third row, right of the third icon circle",
+      "text_style": "Same style as cause label 1",
+      "text": "Te llenas con nada"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "cause label 4",
+      "reference_position": "Left column, fourth row, right of the fourth icon circle",
+      "text_style": "Same style as cause label 1",
+      "text": "Vives de afán"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "cause label 5",
+      "reference_position": "Left column, fifth row, right of the fifth icon circle",
+      "text_style": "Same style as cause label 1",
+      "text": "Llegas sin energía"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "ease-of-use fact (in place of the shipping condition, which the user did not give)",
+      "reference_position": "Centered in the navy left segment of the pill",
+      "text_style": "Anton, uppercase, about 3% of the canvas height, 1 line, white on deep navy, with opening and closing exclamation marks",
+      "text": "¡SIN AGUJAS!"
+    },
+    {
+      "block_id": "text_block_08",
+      "reference_function": "ease-of-use fact (in place of the payment condition, which the user did not give)",
+      "reference_position": "Centered in the mustard-yellow right segment of the pill",
+      "text_style": "Anton, uppercase, about 3% of the canvas height, 1 line, dark navy on mustard yellow",
+      "text": "SIN PASTILLAS"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Bright, washed-out white living-room background",
+    "Large deep navy two-line headline at the top",
+    "One young woman sitting on a sofa, waist up, with an almost untouched plate and a no-appetite expression, at the center",
+    "Left column of five habits, each with a white line icon in a deep navy circle and a bold two-line label",
+    "Deep navy dotted lines with start dots from each habit to a different point on the woman",
+    "The product from the attached photo, large, in the right foreground with a few amber drops in front of its base",
+    "Two-tone navy / mustard-yellow pill at the bottom"
+  ],
+  "final_generation_exclusions": [
+    "No close-ups of the body, no tight clothing and no body comparison",
+    "No shipping, payment, price or offer text",
+    "No lines pointing at the product",
+    "No yellow 60ml circle copied from the product photo",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The headline describes a situation and the labels are everyday habits, not conditions; the image does not single out the body.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

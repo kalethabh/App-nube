@@ -1,0 +1,51 @@
+Square 1:1 static ad in the style of a bright lifestyle diagnosis map. BACKGROUND: a full-bleed photo of a bright, airy, almost white living room (white sofa, light cushions, pale walls, soft window daylight), high-key, slightly overexposed and low in contrast. TOP (about 7% to 23% of the height, centered, spanning about 10-90% of the width): a large extra bold two-line headline in a thick condensed sans-serif (Anton), solid deep navy (#1C305F). CENTER (about 38-68% of the width, top of her head at about 27% of the height): a realistic young Colombian woman, about 26, slim, long dark hair, wearing a loose cream sweater, sitting on the white sofa and seen from the waist up; she holds a fork over an almost untouched plate of food on her lap while her other hand supports her cheek, and she looks at the plate with a tired, no-appetite expression that feels real and relatable, not dramatic. Her clothing is loose and the framing does not emphasize her body. LEFT COLUMN (about 5-35% of the width): five rows evenly spaced, with centers at about 33%, 44.5%, 56%, 67% and 78.5% of the height. Each row starts with a solid deep navy (#1C305F) circle about 7% of the canvas in diameter with a thin white inner ring and a simple white line icon, followed by a bold two-line dark navy label in Anton. The icons, top to bottom: a coffee cup crossed by a diagonal line, a clock, a small plate with a fork, a running shoe with motion lines, a low battery. From the end of each label a thin deep navy dashed line begins with a small solid navy dot, runs horizontally, bends once and ends on a different point of the woman: her head, her shoulder, her arm, the plate and her lap. The lines never cross each other and never touch the product. RIGHT FOREGROUND (about 67-94% of the width, about 35-87% of the height, roughly 50% of the canvas height): the product stands upright, front view, label facing the camera, sharper and more saturated than the background, partly overlapping the woman's side so it reads as being in front of her, with a soft contact shadow; in front of its base, a few small glossy amber liquid drops on the light surface. The product is the amber glass dropper bottle with a black rubber-bulb dropper cap and a yellow-to-white label shown in the attached product image: use the attached product image as the only source of truth for the product and reproduce it exactly as it is, same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. BOTTOM (about 10-90% of the width, about 91-96% of the height): a centered horizontal fully rounded pill with a thin dark outline, split by a slightly slanted edge into two segments: the left segment (about 41% of the pill) is solid deep navy with white uppercase text, the right segment is solid mustard yellow (#C0B116) with dark navy uppercase text. Icons, lines, labels and pill are flat graphics without shadows. Only one person. No product in her hands, no before/after, no subheadline, no cards behind the labels, no CTA button, no price, no shipping or payment text, no badges, no stars, no logos.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, 2 lines): "¿COMES Y COMES Y NO SUBES?" — Anton, extra bold condensed uppercase, each line about 8% of the canvas height, 2 lines, centered, solid deep navy #1C305F on the light background. Line break after the second COMES.
+- cause label 1 (Left column, first row, right of the first icon circle): "Te saltas el desayuno" — Anton, about 3.2% of the canvas height per line, max 2 lines, left-aligned, dark navy
+- cause label 2 (Left column, second row, right of the second icon circle): "Se te olvida comer" — Same style as cause label 1
+- cause label 3 (Left column, third row, right of the third icon circle): "Te llenas con nada" — Same style as cause label 1
+- cause label 4 (Left column, fourth row, right of the fourth icon circle): "Vives de afán" — Same style as cause label 1
+- cause label 5 (Left column, fifth row, right of the fifth icon circle): "Llegas sin energía" — Same style as cause label 1
+- ease-of-use fact (in place of the shipping condition, which the user did not give) (Centered in the navy left segment of the pill): "¡SIN AGUJAS!" — Anton, uppercase, about 3% of the canvas height, 1 line, white on deep navy, with opening and closing exclamation marks
+- ease-of-use fact (in place of the payment condition, which the user did not give) (Centered in the mustard-yellow right segment of the pill): "SIN PASTILLAS" — Anton, uppercase, about 3% of the canvas height, 1 line, dark navy on mustard yellow
+
+BRAND IDENTITY:
+- color_palette: #C0B116 and #1C305F
+- text_typography: Anton + Caveat
+
+MANDATORY ELEMENTS:
+- Bright, washed-out white living-room background
+- Large deep navy two-line headline at the top
+- One young woman sitting on a sofa, waist up, with an almost untouched plate and a no-appetite expression, at the center
+- Left column of five habits, each with a white line icon in a deep navy circle and a bold two-line label
+- Deep navy dotted lines with start dots from each habit to a different point on the woman
+- The product from the attached photo, large, in the right foreground with a few amber drops in front of its base
+- Two-tone navy / mustard-yellow pill at the bottom
+
+STRICT EXCLUSIONS:
+- No close-ups of the body, no tight clothing and no body comparison
+- No shipping, payment, price or offer text
+- No lines pointing at the product
+- No yellow 60ml circle copied from the product photo
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: CTA button
+- Do not add: Price figures, strikethrough prices or discount badges
+- Do not add: Shipping or payment claims
+- Do not add: Trust seals, guarantee or certification badges
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit list or check icons
+- Do not add: Callout lines pointing at the product
+- Do not add: More than one person
+- Do not add: Product in the person's hands
+- Do not add: Before / after split
+- Do not add: Subheadline or paragraph text
+- Do not add: Cards or panels behind the cause column
+- Do not add: Logos or brand marks
+- Do not add: Close-ups of the body or tight clothing
+- Do not add: The yellow circle with 60ml from the product photo
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

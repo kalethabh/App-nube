@@ -1,0 +1,125 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F02 (Titular gigante)",
+    "reference_style": "Bold editorial typographic ad: an oversized, tightly set headline on a flat brand-colored background, with the product as a small sign-off in the corner",
+    "angle_used": "Identidad / aspiración",
+    "ad_format": "Typographic Statement Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "#C0B116 and #1C305F",
+    "visual_style": "Clean, bold and modern direct-response ad: one flat brand color, one giant condensed headline and the product as a small signature",
+    "visual_atmosphere": "Honest, close and a little cheeky: the voice of a friend who has heard the same comment at every family gathering. Confident, never body-shaming",
+    "graphic_language": "Flat deep navy (#1C305F) color field, white type, a single mustard-yellow (#C0B116) key word, generous margins, nothing decorative",
+    "text_typography": "Anton + Caveat"
+  },
+  "creative_objective": "Stop the scroll with a sentence every slim woman in Colombia has lived: everybody has an opinion about her body. The statement creates instant identification without pointing at the viewer, and the small support line connects it to the daily ritual of drops that she does her own way.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The giant headline, read as one solid block of type that dominates the canvas. 2) The single highlighted key word OPINA. 3) The small product in the bottom-right corner. 4) The short support line at the bottom left.",
+    "composition_style": "Left-aligned, top-weighted typographic composition. The headline block runs from the 7% top margin down to about 66-68% of the canvas height and spans about 86% of the width (from 7% to 93%), set in 4 stacked lines, so the type mass fills roughly two thirds of the canvas. Below it, a footer zone from about 72% to 93% of the height: support line on the left, product on the right, both bottom-aligned at about 93%.",
+    "spacing_and_structure": "Safe margins of about 7% on every side. Tight line spacing in the headline so the lines read as one block. A clear gap of about 4-5% of the canvas height between the last headline line and the top of the footer zone. Nothing else on the canvas; the empty background is part of the design.",
+    "lighting_and_depth": "Flat graphic design. The background is solid deep navy with at most a barely visible paper grain. The only depth is on the product: soft studio light, a crisp contact shadow and a faint drop shadow so it sits on the flat color like a real object.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a flat deep navy background. A huge left-aligned white headline in 4 stacked lines fills the top and middle of the canvas (from the 7% top margin to about 67% of the height, edge to edge between the side margins), with the last word highlighted in mustard yellow. In the bottom footer zone (about 72-93% of the height): a short support text at the bottom left and the product, small (about 20% of the canvas height), standing in the bottom-right corner with a soft shadow. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Flat, bold color field that leaves the giant type as the only thing to look at",
+        "adaptation_rule": "Solid deep navy #1C305F with at most a barely visible grain. No photos, no patterns, no multi-color gradients.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top-left, from the 7% top margin down to about 66-68% of the height, spanning about 86% of the width",
+        "visual_function": "The scroll-stopper itself: the statement is the visual",
+        "adaptation_rule": "Four stacked lines of huge white Anton type that fill the block edge to edge, broken by meaning: A LA FLACA / TODO EL / MUNDO LE / OPINA.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "key-word highlight",
+        "position": "Inside the headline, on its last line",
+        "visual_function": "Directs the eye to the word that carries the emotion of the angle",
+        "adaptation_rule": "Only the word OPINA (with its period) is recolored in mustard yellow #C0B116. Nothing else is highlighted.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "support line",
+        "position": "Bottom-left footer zone, aligned with the headline's left edge, its last line ending at about 91-93% of the height",
+        "visual_function": "Connects the statement to the product in a quiet second read",
+        "adaptation_rule": "One short sentence in 2 lines, in white handwritten Caveat, within the left 50% of the canvas so it never touches the product.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "product",
+        "position": "Bottom-right corner inside the safe margin, base at about 93% of the height; about 20% of the canvas height and no more than 25% of the width",
+        "visual_function": "Signs off the statement and shows what is being sold without competing with the type",
+        "adaptation_rule": "The product exactly as in the attached product photo, standing upright, front view, with a crisp contact shadow on the flat navy background. Small; it never overlaps the headline.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Large or centered product",
+      "Subheadline block directly under the headline",
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Trust seals, guarantee or certification badges",
+      "Benefit list or icons",
+      "Rating stars, reviews or testimonials",
+      "People, lifestyle scenes or background photos",
+      "Decorative shapes, stickers, arrows or emojis",
+      "Bottom bar or banner",
+      "Logos or brand marks",
+      "The yellow circle with 60ml from the product photo"
+    ]
+  },
+  "visual_prompt": "Square 1:1 static ad, bold editorial typographic design. BACKGROUND: one flat, solid deep navy color (#1C305F) across the full canvas, with at most a barely visible paper grain; no photos, no patterns, no gradients. HEADLINE: a huge left-aligned headline in a thick condensed ultra-bold sans-serif (Anton), uppercase, pure white, set in four tightly stacked lines that start at the 7% top margin and end at about 67% of the canvas height, spanning from 7% to 93% of the width, so the type mass fills about two thirds of the canvas and reads as one solid block. The lines break by meaning, one punch per line. Only the last word of the headline, on the fourth line, is recolored in mustard yellow (#C0B116); everything else in the headline is white. FOOTER ZONE (about 72% to 93% of the height), separated from the headline by a clear empty gap of about 4-5% of the height: at the bottom left, aligned with the headline's left edge and kept within the left half of the canvas, a short two-line support sentence in white in a friendly handwritten font (Caveat, bold), its last line ending at about 92% of the height. At the bottom right, inside the margin, the product stands upright, front view, small, about 20% of the canvas height and less than 25% of the width, with its base at about 93% of the height, lit by soft studio light, with a crisp contact shadow and a faint drop shadow so it sits on the flat navy like a real object. The product is the amber glass dropper bottle with a black rubber-bulb dropper cap and a yellow-to-white label shown in the attached product image: use the attached product image as the only source of truth for the product and reproduce it exactly as it is, same shape, cap, label, colors and proportions; do not redesign, replace or reinterpret it. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. The product never overlaps the headline or the support line. Nothing else on the canvas: the empty navy background is part of the design. No people, no photos, no decorative shapes, no stickers, no arrows, no emojis, no icons, no CTA button, no price, no badges, no stars, no bottom bar, no logos.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top-left, from the 7% top margin to about 67% of the height, filling about 86% of the width",
+      "text_style": "Anton, ultra-bold condensed uppercase with tight letter-spacing, huge: each line about 13-14% of the canvas height, 4 stacked lines, left-aligned, pure white on deep navy. Line breaks: A LA FLACA / TODO EL / MUNDO LE / OPINA. The key word OPINA with its final period in mustard yellow #C0B116.",
+      "text": "A LA FLACA TODO EL MUNDO LE OPINA."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "support line",
+      "reference_position": "Bottom-left footer zone, aligned with the headline's left edge",
+      "text_style": "Caveat bold, about 4% of the canvas height, 2 lines, left-aligned, max about 50% of the canvas width, white",
+      "text": "Gotas diarias que acompañan tu apetito y tu energía."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Giant left-aligned white headline filling 60-70% of the canvas in 4 stacked lines",
+    "The single word OPINA highlighted in mustard yellow",
+    "Flat solid deep navy background",
+    "The product from the attached photo, small, in the bottom-right corner with a soft contact shadow"
+  ],
+  "final_generation_exclusions": [
+    "No people, no photos and no lifestyle scene",
+    "No second highlighted word",
+    "No yellow 60ml circle copied from the product photo",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts: the headline is a general statement in third person and does not address the viewer's body.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
