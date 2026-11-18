@@ -51,14 +51,14 @@ try {
   fs.mkdirSync(path.join(carpeta, 'app'), { recursive: true });
   fs.mkdirSync(path.join(carpeta, 'referencia'), { recursive: true });
   const ficha = { publico: 'Mujeres de 30 a 50', pais: 'Colombia', idioma: 'español' };
-  check('Sin video ni pedido de la IA, manda la ficha (público de mujeres -> femenina, Colombia -> latino)', (() => { const x = va.vozBuscada({ carpeta, ficha }); return x.genero === 'femenina' && x.acento === 'latino'; })(), va.vozBuscada({ carpeta, ficha }));
+  { const x = await va.vozBuscada({ carpeta, ficha }); check('Sin video ni pedido de la IA, manda la ficha (público de mujeres -> femenina, Colombia -> latino)', x.genero === 'femenina' && x.acento === 'latino', x); }
   fs.writeFileSync(path.join(carpeta, 'voz-buscada.json'), JSON.stringify({ genero: 'masculina', edad: 'adulta', acento: 'colombiano', tono: ['calmada'], motivo: 'un médico que explica' }));
-  check('Con voz-buscada.json, manda lo que pidió la IA', (() => { const x = va.vozBuscada({ carpeta, ficha }); return x.genero === 'masculina' && x.acento === 'colombiano' && x.edad === 'adulta'; })(), va.vozBuscada({ carpeta, ficha }));
+  { const x = await va.vozBuscada({ carpeta, ficha }); check('Con voz-buscada.json, manda lo que pidió la IA', x.genero === 'masculina' && x.acento === 'colombiano' && x.edad === 'adulta', x); }
   if (hayFfmpeg) {
     fs.copyFileSync(tono(215), path.join(carpeta, 'referencia', 'audio-referencia.mp3'));
     fs.writeFileSync(path.join(carpeta, 'referencia', 'transcripcion.json'), JSON.stringify({ palabras: [{ texto: 'hola', desde: 0, hasta: 3 }] }));
     fs.writeFileSync(path.join(carpeta, 'referencia', 'adn-base.json'), JSON.stringify({ video: 'v.mp4' }));
-    const x = va.vozBuscada({ carpeta, ficha });
+    const x = await va.vozBuscada({ carpeta, ficha });
     check('Con video de referencia (voz aguda medida), manda el video aunque la IA pidiera masculina', x.genero === 'femenina' && x.deReferencia && /video de referencia/.test(x.motivo.join(' ')), x);
     check('La medida queda guardada en adn-base.json (no se mide dos veces)', JSON.parse(fs.readFileSync(path.join(carpeta, 'referencia', 'adn-base.json'), 'utf8')).voz?.genero === 'femenina');
   }
@@ -70,7 +70,25 @@ try {
   const p = va.vozDelPlan(conPlan, {});
   check('Lee la voz del plan de «Agregar» (mujer joven, cercana, colombiana)', p.genero === 'femenina' && p.edad === 'joven' && p.acento === 'colombiano' && p.tono.includes('cercana'), p);
   const medellin = [...VOCES, { id: 'mede0006', nombre: 'Valentina - Conversational Medellin', etiquetas: { gender: 'female', age: 'young', language: 'es' } }];
-  check('… y elige la voz de Medellín de tu cuenta (la ciudad cuenta como acento colombiano)', va.elegirVoz(medellin, va.vozBuscada({ carpeta: conPlan, ficha: { pais: 'Colombia' } }))?.voz.id === 'mede0006', va.elegirVoz(medellin, va.vozBuscada({ carpeta: conPlan, ficha: { pais: 'Colombia' } })));
+  { const bp = await va.vozBuscada({ carpeta: conPlan, ficha: { pais: 'Colombia' } }); check('… y elige la voz de Medellín de tu cuenta (la ciudad cuenta como acento colombiano)', va.elegirVoz(medellin, bp)?.voz.id === 'mede0006', va.elegirVoz(medellin, bp)); }
+
+  // la app no se queda ocupada mientras mide la voz de un video largo (antes congelaba las consultas a ElevenLabs)
+  if (hayFfmpeg) {
+    const largo = path.join(TMP, 'largo');
+    fs.mkdirSync(path.join(largo, 'referencia'), { recursive: true });
+    spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', "aevalsrc='0.5*sin(2*PI*120*t)+0.3*sin(4*PI*120*t)':s=44100:d=300", path.join(largo, 'referencia', 'audio-referencia.mp3')]);
+    fs.writeFileSync(path.join(largo, 'referencia', 'adn-base.json'), '{}');
+    let peor = 0;
+    let antes = Date.now();
+    const reloj = setInterval(() => {
+      peor = Math.max(peor, Date.now() - antes);
+      antes = Date.now();
+    }, 20);
+    const t0 = Date.now();
+    const medida = await va.vozDeLaReferencia(largo);
+    clearInterval(reloj);
+    check(`Mide la voz de un video de 5 minutos sin congelar la app (${Date.now() - t0} ms; la app esperó como mucho ${peor} ms)`, medida?.genero === 'masculina' && peor < 300 && Date.now() - t0 < 20000, { medida, peor });
+  }
 
   // en el anuncio: la elige una vez, la guarda en el brief y no la cambia
   const brief = { slug: 'x', estilo: 'estilo-pixar', productoId: null, voz: { auto: true } };
