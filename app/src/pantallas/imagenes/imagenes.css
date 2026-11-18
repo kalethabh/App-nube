@@ -1450,6 +1450,9 @@
     flex: none;
   }
 }
+.img-plantilla__costo--relacionada {
+  color: var(--acento);
+}
 .img-plantillas__titulo {
   margin: 0 0 var(--e-2);
   font-size: var(--t-chico);

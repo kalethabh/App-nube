@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18w · Plantillas de productos relacionados
+
+- La app reconoce de qué trata tu producto (glúteos, curvas, piernas, abdomen, hinchazón, celulitis, piel, peso, detox…) leyendo su ficha y su investigación, y sabe de qué producto viene cada plantilla.
+- En el selector aparece **«Para tu producto»** (lo primero que ves) con las plantillas de productos como el tuyo, de la más cercana a la menos. En «Todas», esas plantillas llevan la marca «Para tu producto».
+- **«Que la app elija»** toma primero las de productos relacionados, sin repetir la misma forma. Si tu producto es de otra cosa (por ejemplo, respiratorio), no toma plantillas que no le correspondan.
+
 ## 2026-11-18v · 24 plantillas ganadoras nuevas
 
 - **54 plantillas** (antes 30): 24 nuevas, sacadas de TrendTrack. Son anuncios de imagen en español con meses activos y alcance real, por ejemplo: foto real apilada, lupa sobre el problema, nota escrita a mano, selfie en el espejo, «Pensado para…», «Señales de que necesitas…», pierna partida con deslizador, «Pasé de la talla L a la S», «Programa de 50 días», calendario de 21 días, «No dejes que… + El 86%» y mecanismo en rayos X. Cada una trae la fórmula de su titular.

@@ -199,6 +199,8 @@ export default function rutasImagenAds(app) {
   app.get('/api/imagen-ads/productos', (req, res) => res.set('Cache-Control', 'no-store').json({ productos: lotes.productosConFoto() }));
 
   // las plantillas (anuncios validados que van al modelo como referencia, lib/imagen-ads/plantillas-referencia.js)
+  // GET /api/imagen-ads/plantillas-relacionadas/:producto -> { temas, ids }  las de productos como el tuyo
+  app.get('/api/imagen-ads/plantillas-relacionadas/:producto', (req, res) => res.set('Cache-Control', 'no-store').json(plantillasRef.relacionadas(String(req.params.producto))));
   app.get(['/api/imagen-ads/plantillas-referencia/:archivo', '/api/imagen-ads/plantillas-referencia/mini/:archivo'], (req, res) => {
     const abs = plantillasRef.rutaDeArchivo(req.params.archivo, req.path.includes('/mini/'));
     if (!abs) return res.status(404).json({ error: 'No encuentro esa plantilla.' });
