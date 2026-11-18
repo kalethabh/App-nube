@@ -1,0 +1,23 @@
+{
+  "estilo": "agregar",
+  "formato": "voz-en-off",
+  "duracion": "0:42",
+  "idioma": "es",
+  "respuestas": {},
+  "resumen": "Voy a rehacer ese video para tu Aguaje Complex: la misma bodega llena de frascos y una mujer de bata que los revisa, con una voz que explica que lo que da resultados son los tres componentes puros y el tratamiento completo de tres frascos, no la marca.",
+  "conserva": [
+    "la estructura: gancho → lo que trae el frasco → el giro contra \"el original\" → remate → cierre con la marca",
+    "el gancho: la mano que toma un frasco de la estantería y la frase \"Aquí no… Aquí…\"",
+    "el look: bodega con estanterías llenas, bata blanca, planilla, la caja que se llena y el frasco hacia la cámara al final",
+    "la frase clave del remate, adaptada: \"con tu cuerpo no se juega\"",
+    "la voz: mujer joven, firme y cercana, con acento colombiano"
+  ],
+  "cambia": [
+    "el producto: todos los frascos son tu Aguaje Complex 3 en 1, siempre cerrados",
+    "el ángulo: en vez de \"somos el original\", lo que importa son los componentes puros (aguaje, fenogreco y maca negra)",
+    "se agrega lo del tratamiento completo de tres frascos, y por eso dura unos 42 segundos en vez de 28",
+    "la persona es nueva (no se copia la cara del video) y no se nombra a la otra marca",
+    "no lleva precio ni forma de compra porque no los tengo"
+  ],
+  "porque": "No pediste otro estilo, así que va con el mismo look del video. En el original casi todo el tiempo habla una voz sobre las escenas, por eso lo hago con voz en off."
+}
