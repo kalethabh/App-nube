@@ -1,7 +1,8 @@
 // «Salud de plataformas» (2026-11-18, pedido del usuario después de la falla de ElevenLabs de ese día): el estado de
 // los servicios que usa la app, para saber de un vistazo si algo que falla es de ellos y no de la app.
 //
-//   salud({ fresco }) -> { general, revisado, grupos: [{ titulo, servicios: [{ id, nombre, para, estado, detalle,
+//   salud({ fresco }) -> { general, revisado, grupos: [{ titulo, servicios: [{ id, nombre, para, estado, detalle,   (Claude,
+//                          ChatGPT, ElevenLabs, kie.ai y Meta: Ads Manager, Biblioteca de anuncios y WhatsApp Business)
 //                          fuente, enlace }] }] }      (se recuerda 60 s; todo gratis)
 //
 // estado: 'operativo' | 'lento' | 'degradado' | 'caido' | 'desconocido'. Dos fuentes:
@@ -20,6 +21,7 @@ let PAGINAS = {
   claude: 'https://status.claude.com/api/v2/summary.json',
   openai: 'https://status.openai.com/api/v2/summary.json',
   elevenlabs: 'https://status.elevenlabs.io/api/v2/summary.json',
+  meta: 'https://metastatus.com/data/orgs.json',
 };
 export function _paraPruebas(paginas) {
   PAGINAS = { ...PAGINAS, ...paginas };
@@ -68,6 +70,44 @@ async function deLaPagina(url, partes) {
   return { estado, detalle, ...(otros ? { otros: `${otros} aviso${otros === 1 ? '' : 's'} en partes que la app no usa` } : {}) };
 }
 
+// ---------------------------------------------------------------- Meta (metastatus.com)
+// Meta no usa Statuspage: su página (metastatus.com) lee /data/orgs.json, con cada producto y sus partes, y un estado
+// por parte: «No known issues», «Low/Some/Medium disruptions» (fallas) o «High/Major disruptions» (graves).
+const DE_META = (t) => {
+  const x = String(t || '').toLowerCase();
+  if (!x || /no known issues/.test(x)) return 'operativo';
+  if (/high|major/.test(x)) return 'caido';
+  return 'degradado';
+};
+
+/** Lee orgs.json de Meta una vez. -> [{ id, name, services }] | null */
+async function orgsDeMeta() {
+  try {
+    const r = await fetch(PAGINAS.meta, { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(ESPERA_PAGINA) });
+    if (!r.ok) return null;
+    const d = await r.json();
+    return Array.isArray(d) ? d : null;
+  } catch {
+    return null;
+  }
+}
+
+/** El estado de unos productos de Meta (ids de orgs.json; `partes`: regex de las partes que cuentan). */
+function deMeta(orgs, ids, partes = null) {
+  if (!orgs) return null;
+  const servicios = orgs.filter((o) => ids.includes(o.id)).flatMap((o) => (o.services || []).filter((x) => !partes || partes.test(x.name || '')).map((x) => ({ ...x, producto: o.name })));
+  if (!servicios.length) return null;
+  const malos = servicios.filter((x) => DE_META(x.status) !== 'operativo');
+  const estado = peor('operativo', ...malos.map((x) => DE_META(x.status)));
+  const detalle = malos.length
+    ? malos
+        .slice(0, 2)
+        .map((x) => `${x.name}: ${x.status}${x.time ? ` (desde las ${hora(typeof x.time === 'number' && x.time < 1e12 ? x.time * 1000 : x.time)})` : ''}`)
+        .join(' · ')
+    : '';
+  return { estado, detalle };
+}
+
 /** Una comprobación propia: lo que tardó y si respondió. -> { estado, detalle } */
 async function propia(fn, nombre) {
   const t0 = Date.now();
@@ -94,12 +134,13 @@ function juntar(pagina, mia) {
 }
 
 async function revisar() {
-  const [claude, openai, eleven, elevenMia, kieMia] = await Promise.all([
+  const [claude, openai, eleven, elevenMia, kieMia, meta] = await Promise.all([
     deLaPagina(PAGINAS.claude, /claude code|claude api|api\.anthropic/i),
     deLaPagina(PAGINAS.openai, /codex|responses|chat completions|login/i),
     deLaPagina(PAGINAS.elevenlabs, null),
     leerClave('ELEVENLABS_API_KEY') ? propia(() => saldoElevenLabs({ fresco: true }), 'ElevenLabs') : null,
     leerClave('KIE_API_KEY') ? propia(() => saldoKie({ fresco: true }), 'kie.ai') : null,
+    orgsDeMeta(),
   ]);
   const grupos = [
     {
@@ -116,6 +157,14 @@ async function revisar() {
     {
       titulo: 'Imágenes, videos y música',
       servicios: [{ id: 'kie', nombre: 'kie.ai', para: 'GPT Image, Seedream, Kling, Seedance, Veo y Suno', ...juntar(null, kieMia), enlace: 'https://kie.ai' }],
+    },
+    {
+      titulo: 'Meta',
+      servicios: [
+        { id: 'meta-ads', nombre: 'Ads Manager', para: 'Crear, publicar y medir tus anuncios', ...juntar(deMeta(meta, ['ads-manager', 'marketing-api']), null), enlace: 'https://metastatus.com' },
+        { id: 'meta-biblioteca', nombre: 'Biblioteca de anuncios', para: 'Inspiración «Meta (oficial)»', ...juntar(deMeta(meta, ['ads-transparency'], /ad library/i), null), enlace: 'https://metastatus.com' },
+        { id: 'meta-whatsapp', nombre: 'WhatsApp Business', para: 'Anuncios «Clic a WhatsApp» y tus ventas por WhatsApp', ...juntar(deMeta(meta, ['whatsapp-business-api', 'ctx'], /cloud api$|business account|click to whatsapp|marketing messages/i), null), enlace: 'https://metastatus.com' },
+      ],
     },
   ];
   const todos = grupos.flatMap((g) => g.servicios);
