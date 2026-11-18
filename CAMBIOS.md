@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19 · Generar con IA una parte nueva del guion
+
+- Al **agregar una parte** en «Editar a mano», el cuadro trae su ✨: la IA escribe lo que se dice en esa parte, enganchada con la de antes y la de después, y en seguida escribe lo que se ve. Lo puedes corregir antes de guardar, o tocar ✨ otra vez para otra versión.
+
 ## 2026-11-18z · Editar el guion con lo que se ve, partes nuevas, y portadas en Estilos
 
 - En **«Editar a mano»**, debajo de lo que se dice está **«Lo que se ve»** (la escena). Cuando terminas de escribir una parte, la IA escribe sola lo que se ve, en segundos, siguiendo tu texto, los personajes y el estilo del anuncio. Lo puedes cambiar a mano o pedir otra versión con ✨.
