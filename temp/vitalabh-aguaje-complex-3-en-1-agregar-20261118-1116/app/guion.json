@@ -2,7 +2,7 @@
   "titulo": "Aguaje Complex 3 en 1 — Aquí no te vendemos el nombre",
   "idioma": "es",
   "mercado": "LatAm",
-  "duracionEstimada": 44.4,
+  "duracionEstimada": 57.2,
   "de_que_va": "Una mujer de bata revisa frascos en la bodega mientras una voz explica que lo que da resultados no es la marca que dice ser \"la original\", sino los tres componentes puros y el tratamiento completo de tres meses.",
   "estructura": {
     "id": "de-la-referencia",
@@ -47,26 +47,40 @@
     {
       "n": 5,
       "momento": "giro",
-      "dice": "Y lo que no te cuentan: para mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses.",
-      "se_ve": "Ella detrás de la mesa de empaque acomoda tres frascos en fila y mira a la cámara.",
-      "segundos": 9.2
+      "dice": "Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote,",
+      "se_ve": "Ella, detrás de la mesa de empaque, pone tres frascos en fila, uno por uno.",
+      "segundos": 8
     },
     {
       "n": 6,
       "momento": "giro",
-      "dice": "Les conviene que compres de a uno y te salga más caro.",
-      "se_ve": "Un solo frasco, solito, en medio de la mesa vacía.",
-      "segundos": 4.4
+      "dice": "lo ideal es el tratamiento completo de tres meses.",
+      "se_ve": "Ella señala los tres frascos con el lapicero de su planilla y mira a la cámara.",
+      "segundos": 3.6
     },
     {
       "n": 7,
+      "momento": "giro",
+      "dice": "Les conviene que compres de a uno y te salga más caro para ellos ganar más,",
+      "se_ve": "Un solo frasco, solito, en medio de la mesa vacía.",
+      "segundos": 6
+    },
+    {
+      "n": 8,
+      "momento": "giro",
+      "dice": "por eso solo te meten lo de la marca Vitalcom y no te habla de lo que de verdad hace que tengas los resultados.",
+      "se_ve": "Ella lo gira despacio: de un lado solo se ve un nombre grande; del otro, casi nada sobre lo que trae.",
+      "segundos": 8.8
+    },
+    {
+      "n": 9,
       "momento": "cierre",
       "dice": "Pero con tu cuerpo no se juega.",
       "se_ve": "Ella mete un frasco en una caja llena de frascos, con una sonrisa tranquila.",
       "segundos": 2.8
     },
     {
-      "n": 8,
+      "n": 10,
       "momento": "cierre",
       "dice": "Este aguaje tres en uno de Vitalabh: componentes puros y triple acción.",
       "se_ve": "Ella de frente, en la zona de despacho, sonríe y muestra el frasco junto a su cara.",
@@ -74,29 +88,29 @@
     }
   ],
   "decisiones": [
-    "Rehecho de: tu video subido · 8 tomas · 44 s · formato voz en off · estructura: la del video. En el original casi todo el tiempo habla una voz sobre las escenas, por eso va con voz en off. Dura más que el original (28 s) para que quepa lo del tratamiento completo de tres meses.",
-    "El ángulo: lo que da resultados en glúteos y piernas son los tres componentes puros y el tratamiento completo, no la marca. Ahora se nombra a VITALCOM, como pediste. Ten en cuenta que nombrar a otra marca puede traer un reclamo de ellos o que la plataforma revise el anuncio.",
-    "La persona es nueva (no se copia la cara del video) y va siempre de frente o de perfil. No lleva antes y después porque el video no lo tiene y aquí lo que convence es la explicación. El frasco sale siempre cerrado, sin cápsulas a la vista.",
+    "Rehecho de: tu video subido · 10 tomas · 57 s · formato voz en off · estructura: la del video. En el original casi todo el tiempo habla una voz sobre las escenas, por eso va con voz en off. Dura más que el original (28 s) por todo lo que pediste explicar.",
+    "El ángulo: lo que da resultados en glúteos y piernas son los tres componentes puros y el tratamiento completo, no la marca. Se nombra a VITALCOM, como pediste. Ten en cuenta que nombrar a otra marca y decir por qué vende así puede traer un reclamo de ellos o que la plataforma revise el anuncio.",
+    "La persona es nueva (no se copia la cara del video) y va siempre de frente o de perfil. No lleva antes y después porque el video no lo tiene y aquí lo que convence es la explicación. Tu frasco sale siempre cerrado, sin cápsulas a la vista.",
     "No tengo investigación de mercado, precio ni forma de compra: saqué todo de tu ficha y de lo que contaste, sin cifras ni testimonios inventados. El cierre va con la marca, como en el original, sin oferta. Tampoco dije \"con registro\" porque no está confirmado en tu ficha; si lo tienes, dímelo y lo agrego.",
-    "Para ahorrar, 4 de los 8 planos de detalle y la toma del frasco solo van como imagen fija con un movimiento suave. La voz la pedí femenina, joven y con acento colombiano."
+    "Para ahorrar, 5 de los 8 planos de detalle y la toma del frasco solito van como imagen fija con un movimiento suave. La voz la pedí femenina, joven y con acento colombiano."
   ],
   "modelos": [
     {
       "modelo": "Omni Flash 1.2",
-      "para": "tomas 1, 3, 4, 5 y 8",
+      "para": "tomas 1, 3, 4, 5, 6, 8 y 10",
       "porque": "Es el gancho y lleva el frasco en primer plano: necesita la mejor calidad. Es una toma larga con ella y sus gestos: aquí se nota la calidad."
     },
     {
       "modelo": "Grok Imagine 1.5",
-      "para": "tomas 2 y 7 · B-roll 1, 3, 6 y 7",
+      "para": "tomas 2 y 9 · B-roll 1, 3 y 7",
       "porque": "Toma corta de perfil, sin acción difícil: sale bien con el modelo económico. Toma muy corta con un solo movimiento: el modelo económico alcanza."
     }
   ],
   "cambios_hechos": [
-    "Cambié el gancho: ahora dice \"Aquí no te vendemos el nombre\".",
-    "En la parte 3 ahora se nombra a la otra marca: \"No la marca VITALCOM\". Ojo: nombrarla puede traer un reclamo o una revisión del anuncio; si prefieres, la quito.",
-    "En la parte 5 ahora dice \"para mantener el resultado y sin efecto rebote\" y \"tratamiento completo de tres meses\". En pantalla siguen los tres frascos, uno por mes, y el texto dice \"Tratamiento completo: 3 meses\".",
-    "Cambié el cierre: ahora dice \"Este aguaje tres en uno de Vitalabh\".",
-    "Las imágenes quedan iguales. El anuncio pasa de 42 a unos 44 segundos porque dos frases son más largas."
+    "Puse tus dos textos tal cual, palabra por palabra.",
+    "La parte 5 quedó en dos tomas seguidas (5 y 6) porque la frase es más larga de lo que puede durar un solo clip. En la 5 ella pone los tres frascos uno por uno; en la 6 los señala con el lapicero y mira a la cámara.",
+    "La parte 6 también quedó en dos tomas (7 y 8) por lo mismo. En la 7 se ve el frasco solito en la mesa vacía; en la 8 ella lo gira despacio: de un lado un nombre grande, del otro casi nada.",
+    "Ese frasco solito es uno genérico, blanco y sin marca real. No puede ser el tuyo (hablaría mal de tu producto) ni se puede copiar el frasco o el logo de otra marca.",
+    "Por las dos tomas nuevas, el cierre pasó a ser las tomas 9 y 10 (sin cambios) y el anuncio dura unos 57 segundos. Ojo: nombrar a Vitalcom y decir por qué vende así puede traerte un reclamo o una revisión del anuncio."
   ]
 }

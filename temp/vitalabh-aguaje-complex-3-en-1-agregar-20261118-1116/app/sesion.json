@@ -1,12 +1,15 @@
 {
   "uuid": "160e7a7f-c983-4074-9c4e-56aa4ada4697",
-  "estado": "cambiando",
+  "estado": "listo",
   "tipo": "cambios",
   "intentos": 3,
   "progreso": [
     "Claude está leyendo tu pedido",
     "Repasando el guion",
-    "Ajustando el guion"
+    "Ajustando el guion",
+    "Marcando las transiciones",
+    "Revisando que el guion esté completo",
+    "Pasando el guion en limpio"
   ],
   "inicio": "2026-11-18T16:16:03.360Z",
   "cambios": [
@@ -18,13 +21,14 @@
     {
       "pedido": "Editaste a mano las partes 5, 6",
       "aMano": true,
-      "fecha": "2026-11-18T22:25:31.986Z"
+      "fecha": "2026-11-18T22:25:31.986Z",
+      "ok": true
     }
   ],
-  "actualizado": "2026-11-18T22:26:22.459Z",
+  "actualizado": "2026-11-18T22:27:55.462Z",
   "error": null,
   "inicioIntento": "2026-11-18T22:25:31.987Z",
-  "fin": "2026-11-18T16:30:33.713Z",
+  "fin": "2026-11-18T22:27:55.462Z",
   "limite": false,
   "reinicio": null,
   "medidas": [
@@ -133,9 +137,62 @@
       ],
       "denegados": 0,
       "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-18T22:27:55.462Z",
+      "ok": true,
+      "turnos": 23,
+      "duracionMs": 143470,
+      "uso": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 196721,
+        "cache_read_input_tokens": 368041,
+        "output_tokens": 16863,
+        "output_tokens_details": {
+          "thinking_tokens": 4800
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 196721,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 47,
+            "cache_read_input_tokens": 193050,
+            "cache_creation_input_tokens": 3671,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3671
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 8.8993512,
+      "modelo": "claude-fable-5-2",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
     }
   ],
   "ajustados": 0,
   "pedido": "El usuario editó A MANO el guion. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. Donde trae «se ve», esa es la escena: rehaz el prompt de imagen y de video de esa toma para mostrar eso (con los mismos personajes, el mismo estilo y la misma continuidad del anuncio) y pon ese texto en `se_ve` de la hoja. No cambies las otras tomas.\n- Parte 5: dice «Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses.»; se ve: Ella, detrás de la mesa de empaque, pone tres frascos en fila, uno por uno, los señala con el lapicero de su planilla y mira a la cámara.\n- Parte 6: dice «Les conviene que compres de a uno y te salga más caro para ellos ganar más, por eso solo te meten lo de la marca Vitalcom y no te habla de lo que de verdad hace que tengas los resultados.»; se ve: Un solo frasco, solito, en medio de la mesa vacía. Ella lo gira despacio: de un lado solo se ve un nombre grande; del otro, casi nada sobre lo que trae.",
-  "respaldo": "historial-guion/02"
+  "respaldo": null
 }

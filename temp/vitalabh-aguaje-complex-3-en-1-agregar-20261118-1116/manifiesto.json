@@ -221,7 +221,7 @@
     },
     {
       "n": 8,
-      "despues_de_toma": 8,
+      "despues_de_toma": 10,
       "sincroniza_con": "componentes puros y triple acción",
       "duracion": 2.5,
       "quieto": true,
@@ -230,9 +230,9 @@
       "referencias": ["producto", "bodega"]
     }
   ],
-  "voz_en_off": "Aquí no te vendemos el nombre. Aquí te mostramos lo que trae el frasco: Aguaje, fenogreco y maca negra: los tres componentes puros. Eso es lo que te da resultados rápidos en glúteos y piernas, sin efecto rebote. No la marca VITALCOM. Decir que son el original lo hace cualquiera. Por eso muchas compran y no ven cambios. Y lo que no te cuentan: para mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses. Les conviene que compres de a uno y te salga más caro. Pero con tu cuerpo no se juega. Este aguaje tres en uno de Vitalabh: componentes puros y triple acción.",
+  "voz_en_off": "Aquí no te vendemos el nombre. Aquí te mostramos lo que trae el frasco: Aguaje, fenogreco y maca negra: los tres componentes puros. Eso es lo que te da resultados rápidos en glúteos y piernas, sin efecto rebote. No la marca VITALCOM. Decir que son el original lo hace cualquiera. Por eso muchas compran y no ven cambios. Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses. Les conviene que compres de a uno y te salga más caro para ellos ganar más, por eso solo te meten lo de la marca Vitalcom y no te habla de lo que de verdad hace que tengas los resultados. Pero con tu cuerpo no se juega. Este aguaje tres en uno de Vitalabh: componentes puros y triple acción.",
   "overlays": [
     { "texto": "Aguaje + Fenogreco + Maca negra", "toma": 2, "momento": "inicio" },
-    { "texto": "Tratamiento completo: 3 meses", "toma": 5, "momento": "mitad" }
+    { "texto": "Tratamiento completo: 3 meses", "toma": 6, "momento": "inicio" }
   ]
 }
