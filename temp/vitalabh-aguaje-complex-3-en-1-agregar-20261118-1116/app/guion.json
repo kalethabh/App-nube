@@ -1,9 +1,9 @@
 {
-  "titulo": "Aguaje Complex 3 en 1 — Aquí no te vendemos el nombre",
+  "titulo": "Aguaje Complex 3 en 1 — Aquí no te vendemos el nombre de una marca",
   "idioma": "es",
   "mercado": "LatAm",
-  "duracionEstimada": 57.2,
-  "de_que_va": "Una mujer de bata revisa frascos en la bodega mientras una voz explica que lo que da resultados no es la marca que dice ser \"la original\", sino los tres componentes puros y el tratamiento completo de tres meses.",
+  "duracionEstimada": 69.6,
+  "de_que_va": "Una mujer de bata revisa frascos en la bodega mientras una voz explica que lo que da resultados no es la marca que dice ser \"la original\", sino los tres extractos puros y el tratamiento completo de tres meses.",
   "estructura": {
     "id": "de-la-referencia",
     "nombre": "La del video que subiste",
@@ -19,68 +19,75 @@
     {
       "n": 1,
       "momento": "gancho",
-      "dice": "Aquí no te vendemos el nombre. Aquí te mostramos lo que trae el frasco:",
-      "se_ve": "Una mano con bata blanca toma un frasco de la estantería llena de frascos y lo gira hacia la cámara.",
+      "dice": "Aquí no te vendemos el nombre de una marca como lo hacen con Vitalcom.",
+      "se_ve": "Una mano con bata blanca toma un frasco de la estantería llena de frascos y lo gira despacio hacia la cámara,",
       "segundos": 5.6
     },
     {
       "n": 2,
-      "momento": "solución",
-      "dice": "Aguaje, fenogreco y maca negra: los tres componentes puros.",
-      "se_ve": "Ella de perfil, con su planilla, lee la etiqueta de un frasco frente a las estanterías. Corte a los tres ingredientes junto al frasco.",
-      "segundos": 3.6
+      "momento": "gancho",
+      "dice": "Aquí te mostramos lo que de verdad hará con el aguaje, el fenogreco y la maca juntos en sus extractos puros:",
+      "se_ve": "hasta que se ve de cerca la parte de la etiqueta con los tres ingredientes.",
+      "segundos": 8.4
     },
     {
       "n": 3,
+      "momento": "solución",
+      "dice": "Aguaje, fenogreco y maca negra: los tres extractos puros, los culpables de que tengas los resultados de verdad.",
+      "se_ve": "Ella de perfil, con su planilla, lee la etiqueta del frasco frente a las estanterías. Corte al aguaje, el fenogreco y la maca negra junto al frasco, y ella los señala uno por uno con el lapicero.",
+      "segundos": 7.2
+    },
+    {
+      "n": 4,
       "momento": "solución",
       "dice": "Eso es lo que te da resultados rápidos en glúteos y piernas, sin efecto rebote. No la marca VITALCOM.",
       "se_ve": "Ella anota en la planilla, mira los frascos y marca un visto bueno.",
       "segundos": 7.6
     },
     {
-      "n": 4,
-      "momento": "problema",
-      "dice": "Decir que son el original lo hace cualquiera. Por eso muchas compran y no ven cambios.",
-      "se_ve": "Ella de frente entre las estanterías, abrazando la planilla, niega con la cabeza y levanta una ceja.",
-      "segundos": 6.4
-    },
-    {
       "n": 5,
-      "momento": "giro",
-      "dice": "Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote,",
-      "se_ve": "Ella, detrás de la mesa de empaque, pone tres frascos en fila, uno por uno.",
-      "segundos": 8
+      "momento": "problema",
+      "dice": "Decir que son el original lo hace cualquiera. Por eso muchas compran y no ven los cambios.",
+      "se_ve": "Ella de frente entre las estanterías, con la planilla abrazada, mira un frasco cualquiera que tiene en la mano, niega con la cabeza y lo deja a un lado.",
+      "segundos": 6.8
     },
     {
       "n": 6,
+      "momento": "giro",
+      "dice": "Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote.",
+      "se_ve": "Ella, detrás de la mesa de empaque, deja la planilla a un lado y pone tres frascos en fila, uno por uno, mirándolos con calma.",
+      "segundos": 8
+    },
+    {
+      "n": 7,
       "momento": "giro",
       "dice": "lo ideal es el tratamiento completo de tres meses.",
       "se_ve": "Ella señala los tres frascos con el lapicero de su planilla y mira a la cámara.",
       "segundos": 3.6
     },
     {
-      "n": 7,
+      "n": 8,
       "momento": "giro",
-      "dice": "Les conviene que compres de a uno y te salga más caro para ellos ganar más,",
-      "se_ve": "Un solo frasco, solito, en medio de la mesa vacía.",
+      "dice": "Les conviene que compres de a uno y te salga más caro para ellos ganar más.",
+      "se_ve": "Ella aparta dos de los tres frascos y deja uno solo, solito, en medio de la mesa de empaque. Lo mira con desconfianza y niega despacio con la cabeza.",
       "segundos": 6
     },
     {
-      "n": 8,
+      "n": 9,
       "momento": "giro",
       "dice": "por eso solo te meten lo de la marca Vitalcom y no te habla de lo que de verdad hace que tengas los resultados.",
       "se_ve": "Ella lo gira despacio: de un lado solo se ve un nombre grande; del otro, casi nada sobre lo que trae.",
       "segundos": 8.8
     },
     {
-      "n": 9,
+      "n": 10,
       "momento": "cierre",
       "dice": "Pero con tu cuerpo no se juega.",
       "se_ve": "Ella mete un frasco en una caja llena de frascos, con una sonrisa tranquila.",
       "segundos": 2.8
     },
     {
-      "n": 10,
+      "n": 11,
       "momento": "cierre",
       "dice": "Este aguaje tres en uno de Vitalabh: componentes puros y triple acción.",
       "se_ve": "Ella de frente, en la zona de despacho, sonríe y muestra el frasco junto a su cara.",
@@ -88,29 +95,31 @@
     }
   ],
   "decisiones": [
-    "Rehecho de: tu video subido · 10 tomas · 57 s · formato voz en off · estructura: la del video. En el original casi todo el tiempo habla una voz sobre las escenas, por eso va con voz en off. Dura más que el original (28 s) por todo lo que pediste explicar.",
-    "El ángulo: lo que da resultados en glúteos y piernas son los tres componentes puros y el tratamiento completo, no la marca. Se nombra a VITALCOM, como pediste. Ten en cuenta que nombrar a otra marca y decir por qué vende así puede traer un reclamo de ellos o que la plataforma revise el anuncio.",
+    "Rehecho de: tu video subido · 11 tomas · 70 s · formato voz en off · estructura: la del video. En el original casi todo el tiempo habla una voz sobre las escenas, por eso va con voz en off. Dura bastante más que el original (28 s) por todo lo que pediste explicar.",
+    "El ángulo: lo que da resultados en glúteos y piernas son los tres extractos puros y el tratamiento completo, no la marca. Se nombra a Vitalcom tres veces, como pediste. Ten en cuenta que nombrar a otra marca y decir cómo vende puede traer un reclamo de ellos o que la plataforma revise el anuncio.",
     "La persona es nueva (no se copia la cara del video) y va siempre de frente o de perfil. No lleva antes y después porque el video no lo tiene y aquí lo que convence es la explicación. Tu frasco sale siempre cerrado, sin cápsulas a la vista.",
     "No tengo investigación de mercado, precio ni forma de compra: saqué todo de tu ficha y de lo que contaste, sin cifras ni testimonios inventados. El cierre va con la marca, como en el original, sin oferta. Tampoco dije \"con registro\" porque no está confirmado en tu ficha; si lo tienes, dímelo y lo agrego.",
-    "Para ahorrar, 5 de los 8 planos de detalle y la toma del frasco solito van como imagen fija con un movimiento suave. La voz la pedí femenina, joven y con acento colombiano."
+    "Para ahorrar, 4 de los 8 planos de detalle van como imagen fija con un movimiento suave. La voz la pedí femenina, joven y con acento colombiano."
   ],
   "modelos": [
     {
       "modelo": "Omni Flash 1.2",
-      "para": "tomas 1, 3, 4, 5, 6, 8 y 10",
-      "porque": "Es el gancho y lleva el frasco en primer plano: necesita la mejor calidad. Es una toma larga con ella y sus gestos: aquí se nota la calidad."
+      "para": "tomas 1, 2, 3, 4, 5, 6, 7, 8, 9 y 11",
+      "porque": "Es el gancho y lleva el frasco en primer plano: necesita la mejor calidad. Sigue el gancho y la etiqueta tiene que leerse de cerca: necesita la mejor nitidez."
     },
     {
       "modelo": "Grok Imagine 1.5",
-      "para": "tomas 2 y 9 · B-roll 1, 3 y 7",
-      "porque": "Toma corta de perfil, sin acción difícil: sale bien con el modelo económico. Toma muy corta con un solo movimiento: el modelo económico alcanza."
+      "para": "toma 10 · B-roll 1, 2, 3 y 7",
+      "porque": "Toma muy corta con un solo movimiento: el modelo económico alcanza. Detalle corto del frasco en la mano: el modelo económico lo hace bien."
     }
   ],
   "cambios_hechos": [
-    "Puse tus dos textos tal cual, palabra por palabra.",
-    "La parte 5 quedó en dos tomas seguidas (5 y 6) porque la frase es más larga de lo que puede durar un solo clip. En la 5 ella pone los tres frascos uno por uno; en la 6 los señala con el lapicero y mira a la cámara.",
-    "La parte 6 también quedó en dos tomas (7 y 8) por lo mismo. En la 7 se ve el frasco solito en la mesa vacía; en la 8 ella lo gira despacio: de un lado un nombre grande, del otro casi nada.",
-    "Ese frasco solito es uno genérico, blanco y sin marca real. No puede ser el tuyo (hablaría mal de tu producto) ni se puede copiar el frasco o el logo de otra marca.",
-    "Por las dos tomas nuevas, el cierre pasó a ser las tomas 9 y 10 (sin cambios) y el anuncio dura unos 57 segundos. Ojo: nombrar a Vitalcom y decir por qué vende así puede traerte un reclamo o una revisión del anuncio."
+    "Puse tus textos tal cual. Solo corregí \"camn\" por \"cambios\" en la parte del problema, porque era un error de tecleo y la voz lo habría leído mal.",
+    "El gancho quedó en dos tomas seguidas (1 y 2) porque la frase es más larga de lo que puede durar un solo clip: en la 1 la mano toma el frasco y lo empieza a girar; en la 2 se ve de cerca la etiqueta con los tres ingredientes. Por eso las demás partes se corrieron un número.",
+    "Parte 3: ahora dice lo de \"los culpables de que tengas los resultados de verdad\", y en el plano de los ingredientes ella los señala uno por uno con el lapicero.",
+    "Parte 5 (el problema): ahora ella mira un frasco cualquiera, niega con la cabeza y lo deja a un lado. Ese frasco es uno genérico, blanco y sin marca, para que no parezca el tuyo ni se copie el de otra marca.",
+    "Parte 6: ahora ella deja la planilla a un lado y pone los tres frascos uno por uno, con calma. Parte 8: ella aparta dos frascos, deja uno solo, lo mira con desconfianza y niega con la cabeza.",
+    "Ojo con el paso de la parte 8 a la 9: en la 8 el frasco que queda solo es el tuyo, y en la 9 el que ella gira es el genérico blanco. Puede notarse el cambio de frasco; si quieres, dime cuál prefieres en las dos y lo dejo igual.",
+    "El anuncio ahora dura cerca de 70 segundos."
   ]
 }
