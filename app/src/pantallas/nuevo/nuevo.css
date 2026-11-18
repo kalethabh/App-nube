@@ -2892,3 +2892,8 @@
 .nv-voz-guion__nota { margin: 0; display: flex; gap: 6px; align-items: flex-start; font-size: var(--t-mini); color: var(--texto-2); line-height: 1.4; overflow-wrap: anywhere; }
 .nv-voz-guion__nota svg { flex-shrink: 0; margin-top: 2px; color: var(--acento); }
 .nv-voz-guion__nota--error { color: var(--peligro, #e5484d); }
+
+/* ---- editar a mano lo que se dice (Guiones.jsx) */
+.nv-editar-mano { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--e-2); margin: var(--e-2) 0; }
+.nv-linea__editar { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.nv-linea__editar textarea { font-size: var(--t-destacado, 16px); line-height: 1.4; }
