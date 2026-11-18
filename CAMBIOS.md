@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18e · La voz de ElevenLabs se ve, se escucha y se cambia en la pantalla del guion
+
+- En la pantalla del guion, al lado, una tarjeta nueva **«Voz del narrador»**: la voz de tu cuenta de ElevenLabs que se va a usar, con **Escuchar** y una lista para **cambiarla** (o volver a «Que la elija la app») hasta que se genera la voz.
+- Si la eligió la app, dice por qué (por ejemplo: «como pide el plan: mujer joven, firme y cercana, con acento colombiano · Valentina - Conversational Medellin: voz femenina, acento colombiano, joven, cercana»).
+- Si el guion ya está y la app todavía no la había elegido (o no pudo), la elige al abrir esa pantalla. En «Agregar», usa también lo que dice el plan sobre la voz del video. Reconoce las ciudades en el nombre de la voz (Medellín, Bogotá) como acento.
+- Si ElevenLabs no responde, la tarjeta lo dice con el motivo y un botón para reintentar.
+
 ## 2026-11-18d · Las voces de ElevenLabs se traen como el saldo (sin «error de conexión» falso)
 
 - La lista de tus voces de ElevenLabs (en «Voz del narrador» y para la voz que elige la app) ahora se pide directo desde la app, igual que el saldo de ElevenLabs que ves abajo a la izquierda. Antes se pedía en un proceso aparte que, si escribía cualquier aviso o tardaba más de 30 segundos, salía como «No pude conectar con ElevenLabs» aunque tu clave y tu internet estuvieran bien.

@@ -59,9 +59,30 @@ function generoDelPublico(publico) {
 
 const PAISES_LATAM = /colombia|mexic|peru|chile|argentin|ecuador|guatemala|salvador|hondur|nicaragu|costa rica|panama|venezuel|bolivia|paragu|urugu|dominican|puerto rico|latam|latinoam/;
 
+/**
+ * Lo que dice de la voz el plan de «Agregar» («Se mantiene: la voz: mujer joven, firme y cercana, con acento
+ * colombiano»): para los anuncios que se escribieron sin voz-buscada.json. -> { genero, edad, acento, tono, motivo } | {}
+ */
+export function vozDelPlan(carpeta, brief = {}) {
+  const plan = leerJSON(path.join(carpeta, 'app', 'plan.json')) || brief?.agregar?.plan || {};
+  const lineas = [...(plan.conserva || []), ...(plan.cambia || [])].map(String).filter((l) => /\bvoz\b|narrador|narradora|narra\b/i.test(l));
+  if (!lineas.length) return {};
+  const t = sinTildes(lineas.join(' · '));
+  const acento = Object.keys(ACENTOS).find((k) => new RegExp(`\\b${k}`).test(t)) || (/latin/.test(t) ? 'latino' : /espana|madrid/.test(t) ? 'espanol' : '');
+  const tono = Object.keys(TONOS).filter((k) => t.includes(k.slice(0, -1)));
+  if (/firme|segur/.test(t)) tono.push('confiable');
+  return {
+    genero: /\b(mujer|femenin|chica|senora|ella)\b/.test(t) ? 'femenina' : /\b(hombre|masculin|chico|senor|el narrador)\b/.test(t) ? 'masculina' : '',
+    edad: /joven/.test(t) ? 'joven' : /mayor|anciano|abuel/.test(t) ? 'mayor' : /adult|media/.test(t) ? 'adulta' : '',
+    acento,
+    tono,
+    motivo: `como pide el plan: ${lineas[0].replace(/^.*?voz:?\s*/i, '').slice(0, 120)}`,
+  };
+}
+
 export function vozBuscada({ carpeta, brief = {}, ficha = {} }) {
   const ref = vozDeLaReferencia(carpeta);
-  const ia = leerJSON(path.join(carpeta, 'voz-buscada.json')) || {};
+  const ia = leerJSON(path.join(carpeta, 'voz-buscada.json')) || vozDelPlan(carpeta, brief);
   const idiomaFicha = sinTildes(ficha.idioma || '');
   const idioma = /ingl|english|^en/.test(idiomaFicha) ? 'en' : /portug|^pt/.test(idiomaFicha) ? 'pt' : 'es';
   const pais = sinTildes(`${ficha.pais || ''} ${ficha.mercado || ''}`);
@@ -104,8 +125,8 @@ const TONOS = {
   narradora: ['narration', 'narrative', 'storytelling'],
 };
 const ACENTOS = {
-  latino: /latin|mexic|colombi|argentin|venezuel|peru|chile|ecuador|caribbean|neutral spanish/,
-  colombiano: /colombi/,
+  latino: /latin|mexic|colombi|argentin|venezuel|peru|chile|ecuador|caribbean|neutral spanish|medellin|bogota|paisa/,
+  colombiano: /colombi|medellin|bogota|paisa|barranquill|caleñ|calen/,
   mexicano: /mexic/,
   argentino: /argentin/,
   espanol: /spain|castil|peninsular|european spanish|accent:spanish\b/,

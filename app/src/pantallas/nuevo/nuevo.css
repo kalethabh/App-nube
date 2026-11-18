@@ -2885,3 +2885,10 @@
   background: var(--superficie-1); border: 1px solid var(--borde-2); color: var(--texto-2); font-size: var(--t-mini);
 }
 .nv-tarjeta-cambiar__chips svg { color: var(--acento); }
+
+/* ---- «Voz del narrador» en la pantalla del guion (VozDelGuion.jsx) */
+.nv-voz-guion { display: flex; flex-direction: column; gap: var(--e-2); min-width: 0; }
+.nv-voz-guion__titulo { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-chico); font-weight: var(--peso-semi); color: var(--texto-1); }
+.nv-voz-guion__nota { margin: 0; display: flex; gap: 6px; align-items: flex-start; font-size: var(--t-mini); color: var(--texto-2); line-height: 1.4; overflow-wrap: anywhere; }
+.nv-voz-guion__nota svg { flex-shrink: 0; margin-top: 2px; color: var(--acento); }
+.nv-voz-guion__nota--error { color: var(--peligro, #e5484d); }

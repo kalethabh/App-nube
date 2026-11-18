@@ -63,6 +63,15 @@ try {
     check('La medida queda guardada en adn-base.json (no se mide dos veces)', JSON.parse(fs.readFileSync(path.join(carpeta, 'referencia', 'adn-base.json'), 'utf8')).voz?.genero === 'femenina');
   }
 
+  // «Agregar» escrito antes de voz-buscada.json: lo que dice el plan de la voz
+  const conPlan = path.join(TMP, 'con-plan');
+  fs.mkdirSync(path.join(conPlan, 'app'), { recursive: true });
+  fs.writeFileSync(path.join(conPlan, 'app', 'plan.json'), JSON.stringify({ conserva: ['la estructura: gancho y remate', 'la voz: mujer joven, firme y cercana, con acento colombiano'] }));
+  const p = va.vozDelPlan(conPlan, {});
+  check('Lee la voz del plan de «Agregar» (mujer joven, cercana, colombiana)', p.genero === 'femenina' && p.edad === 'joven' && p.acento === 'colombiano' && p.tono.includes('cercana'), p);
+  const medellin = [...VOCES, { id: 'mede0006', nombre: 'Valentina - Conversational Medellin', etiquetas: { gender: 'female', age: 'young', language: 'es' } }];
+  check('… y elige la voz de Medellín de tu cuenta (la ciudad cuenta como acento colombiano)', va.elegirVoz(medellin, va.vozBuscada({ carpeta: conPlan, ficha: { pais: 'Colombia' } }))?.voz.id === 'mede0006', va.elegirVoz(medellin, va.vozBuscada({ carpeta: conPlan, ficha: { pais: 'Colombia' } })));
+
   // en el anuncio: la elige una vez, la guarda en el brief y no la cambia
   const brief = { slug: 'x', estilo: 'estilo-pixar', productoId: null, voz: { auto: true } };
   fs.writeFileSync(path.join(carpeta, 'app', 'brief.json'), JSON.stringify(brief));
