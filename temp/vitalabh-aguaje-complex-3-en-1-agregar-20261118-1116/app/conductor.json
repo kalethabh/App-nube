@@ -1,8 +1,8 @@
 {
   "slug": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
   "familia": "voz-en-off",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -82,36 +82,33 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-18T23:10:26.530Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 1909,
-        "total": 1920,
-        "restante": 1,
-        "en": "2026-11-18T23:17:08.986Z"
-      }
+      "fin": "2026-11-18T23:18:06.860Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:18:06.861Z",
+      "fin": "2026-11-18T23:18:27.326Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T23:18:27.326Z",
+      "fin": "2026-11-18T23:18:27.610Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-18T22:54:19.505Z",
   "aprobado": "2026-11-18T22:54:19.505Z",
-  "actualizado": "2026-11-18T23:17:08.986Z",
+  "actualizado": "2026-11-18T23:18:27.610Z",
   "saldoInicial": {
     "creditos": 2657,
     "fecha": "2026-11-18T22:54:20.920Z"
@@ -119,5 +116,10 @@
   "costoPlan": {
     "creditos": 779.5,
     "fecha": "2026-11-18T22:54:20.921Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 1020.1,
+    "fecha": "2026-11-18T23:18:27.581Z"
+  },
+  "terminado": "2026-11-18T23:18:27.610Z"
 }

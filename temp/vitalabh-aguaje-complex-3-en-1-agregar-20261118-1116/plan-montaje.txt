@@ -1,0 +1,136 @@
+==============================================================================
+PLAN DE MONTAJE — vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+VOZ EN OFF:  audio/voz.mp3        duracion 63.99s
+             voz: Lina - Carefree & Fresh
+
+REGLA MADRE: manda el audio. Pon el mp3 en la linea de tiempo primero
+y calza cada clip en su ventana. El video se adapta a la voz, nunca al reves.
+
+------------------------------------------------------------------------------
+
+TOMA 1   (tipo A)
+  Cuando:   00:00.00 -> 00:04.49   (4.49s de ventana)
+  Dice:     "Aquí no te vendemos el nombre de una marca como lo hacen con Vitalcom."
+  Clip:     video/toma-1.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-1.mp4   (2.5s)
+            va DESPUES de esta toma, sincronizado con: "el nombre de una marca"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 2   (tipo A)
+  Cuando:   00:04.49 -> 00:12.45   (7.95s de ventana)
+  Dice:     "Aquí te mostramos lo que de verdad hará con el aguaje, el fenogreco y la maca juntos en sus extractos puros:"
+  Clip:     video/toma-2.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 3   (tipo A)
+  Cuando:   00:12.45 -> 00:20.27   (7.83s de ventana)
+  Dice:     "Aguaje, fenogreco y maca negra: los tres extractos puros, los culpables de que tengas los resultados de verdad."
+  Clip:     video/toma-3.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-2.mp4   (5.4s)
+            va DESPUES de esta toma, sincronizado con: "aguaje, fenogreco y maca negra: los tres extractos puros"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+  Texto:    "Aguaje + Fenogreco + Maca negra"  (inicio)
+
+TOMA 4   (tipo A)
+  Cuando:   00:20.27 -> 00:27.50   (7.23s de ventana)
+  Dice:     "Eso es lo que te da resultados rápidos en glúteos y piernas, sin efecto rebote. No la marca VITALCOM."
+  Clip:     video/toma-4.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-3.mp4   (4.8s)
+            va DESPUES de esta toma, sincronizado con: "sin efecto rebote. No la marca VITALCOM"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 5   (tipo A)
+  Cuando:   00:27.50 -> 00:33.49   (5.99s de ventana)
+  Dice:     "Decir que son el original lo hace cualquiera. Por eso muchas compran y no ven los cambios."
+  Clip:     video/toma-5.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-4.mp4   (3.6s)
+            va DESPUES de esta toma, sincronizado con: "muchas compran y no ven los cambios"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 6   (tipo A)
+  Cuando:   00:33.49 -> 00:40.37   (6.87s de ventana)
+  Dice:     "Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote."
+  Clip:     video/toma-6.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 7   (tipo A)
+  Cuando:   00:40.37 -> 00:43.79   (3.42s de ventana)
+  Dice:     "lo ideal es el tratamiento completo de tres meses."
+  Clip:     video/toma-7.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-5.mp4   (3s)
+            va DESPUES de esta toma, sincronizado con: "el tratamiento completo de tres meses"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+  Texto:    "Tratamiento completo: 3 meses"  (inicio)
+
+TOMA 8   (tipo A)
+  Cuando:   00:43.79 -> 00:48.32   (4.53s de ventana)
+  Dice:     "Les conviene que compres de a uno y te salga más caro para ellos ganar más."
+  Clip:     video/toma-8.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 9   (tipo B)
+  Cuando:   00:48.32 -> 00:55.47   (7.15s de ventana)
+  Dice:     "por eso solo te meten lo de la marca Vitalcom y no te habla de lo que de verdad hace que tengas los resultados."
+  Clip:     video/toma-9.mp4
+            Tipo B: empieza y termina en estados distintos.
+            Si sobra metraje ACELERALO, no le cortes el final: perderias la segunda accion.
+  B-roll:   video/broll-6.mp4   (4.8s)
+            va DESPUES de esta toma, sincronizado con: "no te habla de lo que de verdad hace que tengas los resultados"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+TOMA 10   (tipo A)
+  Cuando:   00:55.47 -> 00:57.85   (2.38s de ventana)
+  Dice:     "Pero con tu cuerpo no se juega."
+  Clip:     video/toma-10.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   broll-7 no se genera
+            NO entra: su frase dura 2.38s y una toma de tipo A aguanta sola hasta 3.0 s.
+
+TOMA 11   (tipo A)
+  Cuando:   00:57.85 -> 01:03.99   (6.14s de ventana)
+  Dice:     "Este aguaje tres en uno de Vitalabh: componentes puros y triple acción."
+  Clip:     video/toma-11.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   video/broll-8.mp4   (3.7s)
+            va DESPUES de esta toma, sincronizado con: "componentes puros y triple acción"
+            Entra: la ventana es larga y la toma sola se estiraria. La toma 2-2.5s y el B-roll el resto.
+
+------------------------------------------------------------------------------
+
+B-ROLL
+Con esta voz entran 7 de 8: solo esos se generan. Los que no entran
+(su frase es corta y la toma aguanta sola) se dicen toma por toma, arriba.
+
+SUBTITULOS
+  audio/tiempos.json trae el tiempo exacto de cada caracter de la narracion.
+  De ahi salen subtitulos de 2-4 palabras perfectamente sincronizados.
+
+AUDIO DE LOS CLIPS
+  Los clips traen ambiente y efectos, sin voces. Mezclalos por debajo de la
+  narracion (unos -18/-20 dB) y ponles un fade corto de ~80ms en cada corte
+  para que no suenen secos.
+
+==============================================================================
