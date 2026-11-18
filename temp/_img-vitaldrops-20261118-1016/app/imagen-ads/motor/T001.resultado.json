@@ -42,13 +42,18 @@
     },
     "V04_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a1ef41-42c1-7db3-87c5-2919e4415635",
+      "firma": "1368871-1795015465104",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     }
   },
-  "actualizado": "2026-11-18T15:23:30.892Z",
-  "terminado": false
+  "actualizado": "2026-11-18T15:24:25.104Z",
+  "terminado": true
 }
