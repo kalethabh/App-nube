@@ -267,6 +267,13 @@ async function claudeFalso() {
     usar('Read', { file_path: path.join(RAIZ, '.claude', 'skills', objeto ? 'anuncios-talking-object-pixar' : 'anuncios-claymation', 'SKILL.md') });
     const foto = fs.readdirSync(path.join(RAIZ, 'temp', slug)).find((x) => /^producto\.(jpg|jpeg|png|webp)$/i.test(x)) || null;
     const man = objeto ? manifiestoObjetoParlante(foto) : manifiestoClaymation(foto);
+    // «Tus videos e imágenes» (2026-11-19): lo que subió el usuario, como lo usaría la IA: la imagen es la de la toma 1
+    // y el video, la escena del primer B-roll (sin generar ni pagar)
+    const material = leerJSON(path.join(RAIZ, 'temp', slug, 'material', 'material.json')) || [];
+    const img = material.find((x) => x.tipo === 'imagen');
+    const vid = material.find((x) => x.tipo === 'video');
+    if (img && man.tomas?.[0]) man.tomas[0].imagen_propia = `temp/${slug}/material/${img.archivo}`;
+    if (vid && man.broll?.[0]) man.broll[0].desde_biblioteca = `temp/${slug}/material/${vid.archivo}`;
     escribir(`temp/${slug}/manifiesto.json`, man);
     escribir(`temp/${slug}/transiciones.json`, {
       efectos: { woosh: 'efectos/woosh.mp3', 'deep-woosh': 'efectos/deep-woosh.mp3' },
