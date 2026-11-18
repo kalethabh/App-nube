@@ -1,0 +1,346 @@
+{
+  "carpeta": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
+  "archivos": [
+    "audio/voz.mp3",
+    "efectos/deep-woosh.mp3",
+    "efectos/woosh.mp3",
+    "img/bodega.png",
+    "img/broll-1.png",
+    "img/broll-2.png",
+    "img/broll-3.png",
+    "img/broll-4.png",
+    "img/broll-5.png",
+    "img/broll-6.png",
+    "img/broll-8.png",
+    "img/producto.png",
+    "img/revisora.png",
+    "img/toma-1-inicial.png",
+    "img/toma-10-inicial.png",
+    "img/toma-11-inicial.png",
+    "img/toma-2-inicial.png",
+    "img/toma-3-inicial.png",
+    "img/toma-4-inicial.png",
+    "img/toma-5-inicial.png",
+    "img/toma-6-inicial.png",
+    "img/toma-7-inicial.png",
+    "img/toma-8-inicial.png",
+    "img/toma-9-final.png",
+    "img/toma-9-inicial.png",
+    "musica/fondo-alternativa.mp3",
+    "musica/fondo.mp3",
+    "producto.png",
+    "referencia/audio-referencia.mp3",
+    "referencia/hoja-tomas.jpg",
+    "referencia/original.mp4",
+    "referencia/tomas/movimiento/tira-01.jpg",
+    "referencia/tomas/movimiento/tira-02.jpg",
+    "referencia/tomas/movimiento/tira-03.jpg",
+    "referencia/tomas/movimiento/tira-04.jpg",
+    "referencia/tomas/toma-01.jpg",
+    "referencia/tomas/toma-02.jpg",
+    "referencia/tomas/toma-03.jpg",
+    "referencia/tomas/toma-04.jpg",
+    "video/broll-1.mp4",
+    "video/broll-2.mp4",
+    "video/broll-3.mp4",
+    "video/broll-4.mp4",
+    "video/broll-5.mp4",
+    "video/broll-6.mp4",
+    "video/broll-8.mp4",
+    "video/toma-1.mp4",
+    "video/toma-10.mp4",
+    "video/toma-11.mp4",
+    "video/toma-2.mp4",
+    "video/toma-3.mp4",
+    "video/toma-4.mp4",
+    "video/toma-5.mp4",
+    "video/toma-6.mp4",
+    "video/toma-7.mp4",
+    "video/toma-8.mp4"
+  ],
+  "finales": [],
+  "ubicaciones": {
+    "audio/voz.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/audio/voz.mp3",
+      "bytes": 1024878,
+      "sha256": "aaf689f07670d360ad58e9dd8a3fc823efbad1009783f4084f05b70d2b0076f8"
+    },
+    "efectos/deep-woosh.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/efectos/deep-woosh.mp3",
+      "bytes": 32023,
+      "sha256": "0e667f4e4254f61ddb1101189fc2abd2293222293d88981c7fffaca558d4b00f"
+    },
+    "efectos/woosh.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/efectos/woosh.mp3",
+      "bytes": 6946,
+      "sha256": "1f508a90d70fadf6870deebf65984994d1ef62090a616d0c7a7eeecd57ce1f0c"
+    },
+    "img/bodega.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/bodega.png",
+      "bytes": 2724434,
+      "sha256": "c99539a8041bee73b258f798cf42448b8430966cdc4f19bbeac93835a91bf61a"
+    },
+    "img/broll-1.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/broll-1.png",
+      "bytes": 2405247,
+      "sha256": "48414002a18d5dd2f5bfc7cbb8b914b9685cff70c5253afd32dd35ea1f910002"
+    },
+    "img/broll-2.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/broll-2.png",
+      "bytes": 2241692,
+      "sha256": "bf4d7bba48f782b1610d242483db159bc3c15c0f1e7ab8881e1afe6cbedb18c1"
+    },
+    "img/broll-3.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/broll-3.png",
+      "bytes": 2315704,
+      "sha256": "c2e08e38763b7f84bdb8e6b1d7273e5f20a9c73d0c5f1539ffc07db9f1f14397"
+    },
+    "img/broll-4.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/broll-4.png",
+      "bytes": 2708746,
+      "sha256": "98445cfb9ee3ec071b419b35fd003073f010efce5a6593a2ffdabaa1ff1a32a1"
+    },
+    "img/broll-5.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/broll-5.png",
+      "bytes": 2146448,
+      "sha256": "29ed28c13f81890e2495e43729752d0b1e9aa8e6966743edb1ef1b5ad1113754"
+    },
+    "img/broll-6.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/broll-6.png",
+      "bytes": 1852528,
+      "sha256": "ef866bd30f4b6f3f5a3645107bd4d840f49fb42b49c40f6feb3fb9836cf77ec9"
+    },
+    "img/broll-8.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/broll-8.png",
+      "bytes": 2275453,
+      "sha256": "b9aef1c6f3f4ed326b7f3ba5f62d064387d0ffe334979b9d6eabccc94cdeceab"
+    },
+    "img/producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/producto.png",
+      "bytes": 2043251,
+      "sha256": "1d0b36a0400310a0db1c9240cca5ee3c2a7c1847ed981aa5f9af99fc2f572a41"
+    },
+    "img/revisora.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/revisora.png",
+      "bytes": 2208934,
+      "sha256": "3ef4487cfbc8ea6b36247726737e4244fc8eb4db935c44d954e15841f5f8f44b"
+    },
+    "img/toma-1-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-1-inicial.png",
+      "bytes": 2353256,
+      "sha256": "59d4a7e7dbeaa2b426e21a5dc35a42d5b39bdf20825a43542d9f63b797c259d1"
+    },
+    "img/toma-10-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-10-inicial.png",
+      "bytes": 2361502,
+      "sha256": "29145ddd973a39bf7299fd412b3336a653c88bfa50653f8a3d0c8d19ceb15309"
+    },
+    "img/toma-11-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-11-inicial.png",
+      "bytes": 2467496,
+      "sha256": "cec8664c044ed4855cbc5c9d4ccf9c2572799062c6c48967894a85938c42229f"
+    },
+    "img/toma-2-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-2-inicial.png",
+      "bytes": 2258014,
+      "sha256": "4c125a6ebe83e1b0b5ed7e8cbeabce2a4409f5dac574fd7e69562702a7b95c07"
+    },
+    "img/toma-3-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-3-inicial.png",
+      "bytes": 2627508,
+      "sha256": "3f285e7679365c82f6e4a18ff646f116336a1c80f9e70a8cc8ffcbf7416851b4"
+    },
+    "img/toma-4-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-4-inicial.png",
+      "bytes": 2611606,
+      "sha256": "cee5bc985a1db5f722b5f0828d43857c9735d7d4a5b0dde8099df145c10a469f"
+    },
+    "img/toma-5-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-5-inicial.png",
+      "bytes": 2486356,
+      "sha256": "2b83a3a78a49444ea5c34c330505a8bede3b5e20574d069c05bcb78cbda9f1e9"
+    },
+    "img/toma-6-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-6-inicial.png",
+      "bytes": 2153597,
+      "sha256": "aaf706ca91f0c14b9f1095bffcea1e0222af10191f66b4712821d91ad2b4e818"
+    },
+    "img/toma-7-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-7-inicial.png",
+      "bytes": 2277510,
+      "sha256": "722250bc123bcbb6199aea6545303bc18afee203a20fda7e9e7adfba906ddda2"
+    },
+    "img/toma-8-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-8-inicial.png",
+      "bytes": 2326752,
+      "sha256": "c8c22d6c0d3ea9e6d339d1f995e98f6bcb3c352e2939bf43005716eedd37c8e8"
+    },
+    "img/toma-9-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-9-final.png",
+      "bytes": 2024491,
+      "sha256": "bb12ef54ffd786161e04bfb47f1c72f9b5d3e50a2b992fd3082647c7b17cc47e"
+    },
+    "img/toma-9-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/img/toma-9-inicial.png",
+      "bytes": 1993014,
+      "sha256": "637866e1d30d4502e37227c95d001e4aacdb49cd2a56cf80c6ed90c95ecb5989"
+    },
+    "musica/fondo-alternativa.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/musica/fondo-alternativa.mp3",
+      "bytes": 1561024,
+      "sha256": "2d116b2619d38451a74a960a2c5a65363cfb5c536c1a7b8bc65f94a80238aeb9"
+    },
+    "musica/fondo.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/musica/fondo.mp3",
+      "bytes": 1581712,
+      "sha256": "c51f7bb2802cd1fd9dbc97d8e23621651d6c14dde88396d3ec4ee2f414f38a33"
+    },
+    "producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/producto.png",
+      "bytes": 718914,
+      "sha256": "724767856b82a67d008eccb847dc0f19d4dd6ccf45edd6f6e0258ea2174be1ca"
+    },
+    "referencia/audio-referencia.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/audio-referencia.mp3",
+      "bytes": 446526,
+      "sha256": "4e8c849bae9476211cde635e30194b04dbb7008795ffade3f3100fd9c7561a7c"
+    },
+    "referencia/hoja-tomas.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/hoja-tomas.jpg",
+      "bytes": 56131,
+      "sha256": "2c6fed8030520f73dd106c99c1ffefd79976d9337355f29be785d8d3e55be964"
+    },
+    "referencia/original.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/original.mp4",
+      "bytes": 4890909,
+      "sha256": "21d8261733bea893d33faa8314cbd2952ab0e439fe920c51a16e8d0f66df86de"
+    },
+    "referencia/tomas/movimiento/tira-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/tomas/movimiento/tira-01.jpg",
+      "bytes": 138126,
+      "sha256": "25dec3ce8b06be1901721eb8b9481f6b09e1c9a2ffc363d3051b7dcee6c806de"
+    },
+    "referencia/tomas/movimiento/tira-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/tomas/movimiento/tira-02.jpg",
+      "bytes": 145365,
+      "sha256": "95e63476a12b7c340699a5ccb27985dc1c33db34d4e3434d49092a8c775a0488"
+    },
+    "referencia/tomas/movimiento/tira-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/tomas/movimiento/tira-03.jpg",
+      "bytes": 69124,
+      "sha256": "e82fd7cb2d0aa6cb9e0e25af10a796308e46d08f8bb0e72d8daa8c4acb8a9a23"
+    },
+    "referencia/tomas/movimiento/tira-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/tomas/movimiento/tira-04.jpg",
+      "bytes": 83391,
+      "sha256": "9711d64a0adc5b3ed8ae7d5a5cda33580a9464cfc80a184028b28ccfda6b3b8c"
+    },
+    "referencia/tomas/toma-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/tomas/toma-01.jpg",
+      "bytes": 122463,
+      "sha256": "92a9169afa03e799025ace2a622ed62800534f94ccc185cf34819d8ab37d3dd2"
+    },
+    "referencia/tomas/toma-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/tomas/toma-02.jpg",
+      "bytes": 158223,
+      "sha256": "c32f5b29e43173f8439aa2cc9b47d038d5e00774a2f527a21b72edd92667953c"
+    },
+    "referencia/tomas/toma-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/tomas/toma-03.jpg",
+      "bytes": 75736,
+      "sha256": "aff59b50e4f370e880bff9c03c2e943a6ae54ef0fff3153528bf339a56e037eb"
+    },
+    "referencia/tomas/toma-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/referencia/tomas/toma-04.jpg",
+      "bytes": 79296,
+      "sha256": "8bba8eb58c9c2e00653a355c81d8fbbd458e0f996093c7004221eae09500aaaa"
+    },
+    "video/broll-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/broll-1.mp4",
+      "bytes": 3747947,
+      "sha256": "0d9ad802f0caf3ee3954993390609b79a9f3e43cb10e2ca85505830a9d3b311e"
+    },
+    "video/broll-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/broll-2.mp4",
+      "bytes": 6029364,
+      "sha256": "94da86030b462f3e9e62618b19c0a7a5935e99f2436165665d02faed3b8fe610"
+    },
+    "video/broll-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/broll-3.mp4",
+      "bytes": 4663573,
+      "sha256": "d807362a95b7c3183c7f2c97e3bf555a51a57bcf3589de0ec65212821affe1a6"
+    },
+    "video/broll-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/broll-4.mp4",
+      "bytes": 1591591,
+      "sha256": "b1bd14709bfe02b4c56383183b3d46af3ed1c19bd436c879083af1335353a0be"
+    },
+    "video/broll-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/broll-5.mp4",
+      "bytes": 1262495,
+      "sha256": "15848749a4b90e891156df9378afe72f026156787b813a84eee49bcad1abdc14"
+    },
+    "video/broll-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/broll-6.mp4",
+      "bytes": 843127,
+      "sha256": "3532db9f2ca096d9adcb43402a93ed3cf43e926aac5815dceb592c4ad3f50311"
+    },
+    "video/broll-8.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/broll-8.mp4",
+      "bytes": 1284965,
+      "sha256": "d3436e6994c503a4ab04e5373057b28b235735a6351bb7cd7b657ad1b56f0abc"
+    },
+    "video/toma-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-1.mp4",
+      "bytes": 16523734,
+      "sha256": "65b6dbba5ae1f1539c69885e9752a7e01c6eb3039741b6f935dcfb173b412782"
+    },
+    "video/toma-10.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-10.mp4",
+      "bytes": 2711847,
+      "sha256": "a762a51c4b8213f04e3fd3309e871ed4dbe4d2b817f7640b7330483f5d8290b9"
+    },
+    "video/toma-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-11.mp4",
+      "bytes": 5320830,
+      "sha256": "76575535379144accccbddfb3b72403d9abdd8bdae41c1ccfe17e338c2289a64"
+    },
+    "video/toma-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-2.mp4",
+      "bytes": 18268472,
+      "sha256": "12bce6bce1226989e5b0349209e4c25719d69186915ec9cb94ddcc7d8ba2ab49"
+    },
+    "video/toma-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-3.mp4",
+      "bytes": 8786073,
+      "sha256": "b40d5b6baa00b71a4e49c60858967312737a6c1afc821e0cfa85042890eccdde"
+    },
+    "video/toma-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-4.mp4",
+      "bytes": 9546293,
+      "sha256": "87735d999cb3901841919c9471cdccf73e6e5d28d48154b2e1d225a118e76e0a"
+    },
+    "video/toma-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-5.mp4",
+      "bytes": 8161204,
+      "sha256": "6edcb6defcee7e398d912d02ac316bc561dbfb560595717fbeb1fd625a728902"
+    },
+    "video/toma-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-6.mp4",
+      "bytes": 13159350,
+      "sha256": "529cea0f039a4547d3234d435885852dd665ba93d50bb708d6a51c0a13224599"
+    },
+    "video/toma-7.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-7.mp4",
+      "bytes": 7781188,
+      "sha256": "7fc5b2b8937f42dfdc6beee45e67cb070a34a911563819a72e1f29141007acb8"
+    },
+    "video/toma-8.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116/video/toma-8.mp4",
+      "bytes": 11286186,
+      "sha256": "a73aef2fbeb2ee58a98fcf226deee066d324f478827c2eb151776ddf63441ed4"
+    }
+  },
+  "ubicacionesFinales": {},
+  "fecha": "2026-11-18T23:44:46.747Z"
+}
