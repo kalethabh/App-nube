@@ -1,15 +1,12 @@
 {
   "uuid": "160e7a7f-c983-4074-9c4e-56aa4ada4697",
-  "estado": "listo",
+  "estado": "cambiando",
   "tipo": "cambios",
-  "intentos": 3,
+  "intentos": 4,
   "progreso": [
     "Claude está leyendo tu pedido",
     "Repasando el guion",
-    "Ajustando el guion",
-    "Marcando las transiciones",
-    "Revisando que el guion esté completo",
-    "Pasando el guion en limpio"
+    "Ajustando el guion"
   ],
   "inicio": "2026-11-18T16:16:03.360Z",
   "cambios": [
@@ -23,11 +20,16 @@
       "aMano": true,
       "fecha": "2026-11-18T22:25:31.986Z",
       "ok": true
+    },
+    {
+      "pedido": "Editaste a mano las partes 1, 2, 4, 5, 7",
+      "aMano": true,
+      "fecha": "2026-11-18T22:41:43.018Z"
     }
   ],
-  "actualizado": "2026-11-18T22:27:55.462Z",
+  "actualizado": "2026-11-18T22:43:11.599Z",
   "error": null,
-  "inicioIntento": "2026-11-18T22:25:31.987Z",
+  "inicioIntento": "2026-11-18T22:41:43.019Z",
   "fin": "2026-11-18T22:27:55.462Z",
   "limite": false,
   "reinicio": null,
@@ -193,6 +195,6 @@
     }
   ],
   "ajustados": 0,
-  "pedido": "El usuario editó A MANO el guion. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. Donde trae «se ve», esa es la escena: rehaz el prompt de imagen y de video de esa toma para mostrar eso (con los mismos personajes, el mismo estilo y la misma continuidad del anuncio) y pon ese texto en `se_ve` de la hoja. No cambies las otras tomas.\n- Parte 5: dice «Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote, lo ideal es el tratamiento completo de tres meses.»; se ve: Ella, detrás de la mesa de empaque, pone tres frascos en fila, uno por uno, los señala con el lapicero de su planilla y mira a la cámara.\n- Parte 6: dice «Les conviene que compres de a uno y te salga más caro para ellos ganar más, por eso solo te meten lo de la marca Vitalcom y no te habla de lo que de verdad hace que tengas los resultados.»; se ve: Un solo frasco, solito, en medio de la mesa vacía. Ella lo gira despacio: de un lado solo se ve un nombre grande; del otro, casi nada sobre lo que trae.",
-  "respaldo": null
+  "pedido": "El usuario editó A MANO el guion. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. Donde trae «se ve», esa es la escena: rehaz el prompt de imagen y de video de esa toma para mostrar eso (con los mismos personajes, el mismo estilo y la misma continuidad del anuncio) y pon ese texto en `se_ve` de la hoja. No cambies las otras tomas.\n- Parte 1: dice «Aquí no te vendemos el nombre de una marca como lo hacen con Vitalcom. Aquí te mostramos lo que de verdad hará con el aguaje, el fenogreco y la maca juntos en sus extractos puros:»; se ve: Una mano con bata blanca toma un frasco de la estantería llena de frascos y lo gira despacio hacia la cámara, hasta que se ve de cerca la parte de la etiqueta con los tres ingredientes.\n- Parte 2: dice «Aguaje, fenogreco y maca negra: los tres extractos puros, los culpables de que tengas los resultados de verdad.»; se ve: Ella de perfil, con su planilla, lee la etiqueta del frasco frente a las estanterías. Corte al aguaje, el fenogreco y la maca negra junto al frasco, y ella los señala uno por uno con el lapicero.\n- Parte 4: dice «Decir que son el original lo hace cualquiera. Por eso muchas compran y no ven los camn.»; se ve: Ella de frente entre las estanterías, con la planilla abrazada, mira un frasco cualquiera que tiene en la mano, niega con la cabeza y lo deja a un lado.\n- Parte 5: dice «Y lo que no te cuentan: para que de verdad se vean rápidos, mantener el resultado y sin efecto rebote.»; se ve: Ella, detrás de la mesa de empaque, deja la planilla a un lado y pone tres frascos en fila, uno por uno, mirándolos con calma.\n- Parte 7: dice «Les conviene que compres de a uno y te salga más caro para ellos ganar más.»; se ve: Ella aparta dos de los tres frascos y deja uno solo, solito, en medio de la mesa de empaque. Lo mira con desconfianza y niega despacio con la cabeza.",
+  "respaldo": "historial-guion/03"
 }

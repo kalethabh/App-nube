@@ -98,18 +98,19 @@
       "modelo_porque": "Ella mira a cámara con los tres frascos y sus etiquetas: necesita la mejor nitidez."
     },
     {
-      "n": 7,
+      "n": 8,
       "tipo": "A",
       "duracion": 6.0,
-      "linea": "Les conviene que compres de a uno y te salga más caro para ellos ganar más,",
-      "quieto": "alejar",
+      "linea": "Les conviene que compres de a uno y te salga más caro para ellos ganar más.",
       "prompt_imagen_inicial": "Vertical 9:16. Photorealistic frame from a handheld phone video, close shot at table height of one single bottle standing alone at the center of a wide, empty, plain light-gray table, with a lot of empty table around it. It is a plain generic supplement bottle of no real brand, clearly different from the black and pink bottles of the rest of the video: a matte white cylindrical plastic bottle with a plain white screw cap, about twice as tall as it is wide, with a simple pale-gray paper label whose front shows only one very large bold dark-gray word made of blurred, illegible letter shapes and nothing else; no real brand name, no logo, no readable text. The bottle fills about one third of the frame height, upright, label facing the camera, with a soft contact shadow. Behind it, a small bright packing room with plain white walls, a cork board with pinned papers on the left wall and a frosted glass window on the right behind the table. No people and no hands in the frame, nothing else on the table. Lit by soft diffuse cool daylight from that frosted window mixed with neutral ceiling light from above, gentle soft shadows, slightly bright whites, muted colors where the hot-pink caps are the only strong color. Natural mild sharpness, slight digital noise, deep focus, slight handheld framing, shot on a phone, no studio lighting. Matte light, no rainbow, no prism light, no lens flare. The bottle is closed: no loose capsules, no pills, no open bottle. No added text, captions, logos or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, studio lighting, captions, subtitles, watermark, hands, loose capsules, pills, open bottle, mirrored label, second bottle",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic handheld phone footage, image-to-video from the shot above, 6.0s. Vertical 9:16.\nCamera: very slow pull-back that leaves the single bottle smaller and more alone on the empty table.\nMotion: nothing moves; the single bottle stands still.\nLighting: soft diffuse cool daylight from the frosted window mixed with neutral ceiling light.\nNo speech. The bottle stays closed, no loose capsules and no open bottle are ever seen (no se ven cápsulas sueltas ni el frasco abierto). The label always reads the right way round, never mirrored.",
-      "referencias": []
+      "referencias": ["revisora", "producto"],
+      "modelo_video": "omni",
+      "modelo_porque": "Ella mueve los frascos y hace un gesto con la cara: necesita la mejor calidad."
     },
     {
-      "n": 8,
+      "n": 9,
       "tipo": "B",
       "duracion": 8.8,
       "linea": "por eso solo te meten lo de la marca Vitalcom y no te habla de lo que de verdad hace que tengas los resultados.",
@@ -121,7 +122,7 @@
       "modelo_porque": "El frasco gira de un lado al otro: este modelo acepta la imagen del comienzo y la del final."
     },
     {
-      "n": 9,
+      "n": 10,
       "tipo": "A",
       "duracion": 2.8,
       "linea": "Pero con tu cuerpo no se juega.",
@@ -133,7 +134,7 @@
       "modelo_porque": "Toma muy corta con un solo movimiento: el modelo económico alcanza."
     },
     {
-      "n": 10,
+      "n": 11,
       "tipo": "A",
       "duracion": 4.8,
       "linea": "Este aguaje tres en uno de Vitalabh: componentes puros y triple acción.",
