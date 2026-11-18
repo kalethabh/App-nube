@@ -144,6 +144,32 @@ const RAPIDO_INSPIRAR =
   "Never copy the reference's brand, logo, product, prices, claims or wording. " +
   ANTES_DESPUES;
 
+// PLANTILLA (2026-11-18t, app_rapido 'plantilla'): la referencia pone la FORMA y el producto el ÁNGULO. «Si la
+// plantilla es un antes y después de hinchazón en las piernas y el producto es para caderas, glúteos y piernas, debe
+// verse así como lo plasma la plantilla; lo mismo con día 1, día 14, día 30; si sale una persona, debe verse el ángulo.»
+// Cada imagen trae además su concepto de Andromeda (a quién le habla, qué problema muestra y en qué momento).
+const RAPIDO_PLANTILLA =
+  'The FIRST attached image is a TEMPLATE: a winning ad of ANOTHER brand, often about ANOTHER body area or problem. Use it for its FORM, never for its topic. ' +
+  'STEP 1, read the template: (a) its VISUAL MECHANISM: a before/after split, a day-by-day or week-by-week progression (count the panels and read their labels), ' +
+  'one person whose body or face shows a result, a comparison of two states, a labeled body diagram or illustration, a product hero with benefit icons, a native social post or screenshot; ' +
+  '(b) its BLOCKS: where the headline, the person or body, the product, the labels, the icons, the badges and the small texts are, and how big each one is; ' +
+  '(c) its LOOK: typography style (weight, casing, effects), backgrounds, graphic elements, photo or illustration style. ' +
+  'STEP 2, transpose it to THIS product: keep the same mechanism, the same number of panels, the same framing, positions, sizes, hierarchy and look, ' +
+  'but SHOW THIS PRODUCT\'S ANGLE described below: change the body area, the problem, the result and the person to the ones of this product. ' +
+  'Examples: a template with a before/after of swollen legs, for a product that gives fuller glutes, hips and legs, becomes a before/after of the SAME woman with a flat, small butt, narrow hips and thin legs BEFORE ' +
+  'and a rounder, fuller, lifted butt, wider hips and toned legs AFTER, in the same split, the same pose type and with the same kind of labels; ' +
+  'a template «Day 1 / Day 14 / Day 30» becomes the same panels showing the progressive change of THIS product\'s body area, one step more in each panel; ' +
+  'a template with one single person becomes one person whose body, pose or expression shows THIS product\'s result, so the angle is understood before reading a word; ' +
+  'a diagram of one organ becomes a diagram of this product\'s area; a comparison keeps its two sides with this product\'s two states. ' +
+  'The person is a real Latin-American customer that matches the CONCEPT below (age, look, situation and place): with Meta Andromeda the creative IS the targeting, ' +
+  'so the image must show clearly WHO it is for, WHAT problem or desire and WHEN (the moment). ' +
+  'Replace the product of the template with the product of the SECOND attached image. ' +
+  'TEXTS: put the MAIN HEADLINE listed below in the place and style of the template\'s main headline. Rewrite every other text of the template (labels, subtitles, bullets, badges, buttons) ' +
+  'for this product in short, natural Spanish, in the customer\'s words: concrete, at most 6 words per label, each one about this product\'s angle and benefits, perfect spelling and accents. ' +
+  'Panel labels (ANTES / DESPUÉS, days or weeks) only with the timeframes allowed below. ' +
+  "Never keep the template's brand, logo, product, claims, prices, discounts or wording; where it has an offer badge, put a short benefit instead. " +
+  ANTES_DESPUES;
+
 // De extender_vertical.py (:110-112): con la foto del producto como segunda imagen.
 const PRODUCTO_SEGUNDA =
   'The SECOND attached image is the real product: keep the product and its label ' +
@@ -335,9 +361,9 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   if (ad?.app_plantilla?.escena) return construirPromptEscena(ad, { correccion, referencia });
   const pos = posicionDe(logo);
   // «Más de lo mismo» (referencia: true): la PRIMERA imagen adjunta es el anuncio de referencia y la SEGUNDA, el producto
-  const rapido = referencia && (ad?.app_rapido === 'copiar' || ad?.app_rapido === 'inspirar') ? ad.app_rapido : null;
+  const rapido = referencia && ['copiar', 'inspirar', 'plantilla'].includes(ad?.app_rapido) ? ad.app_rapido : null;
   const partes = rapido
-    ? [rapido === 'copiar' ? RAPIDO_COPIAR : RAPIDO_INSPIRAR, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
+    ? [{ copiar: RAPIDO_COPIAR, inspirar: RAPIDO_INSPIRAR, plantilla: RAPIDO_PLANTILLA }[rapido], 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : referencia
       ? [COPIAR_REFERENCIA, LEER_REFERENCIA, ANTES_DESPUES, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)]
       : [strPy(ad.visual_prompt)];
