@@ -236,7 +236,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
     setNota(datos ? `Completé el formulario con tu último lote de «${p.nombre}». Cambia lo que quieras.` : null);
   }
 
-  const n = deVideo ? video?.seleccion?.length || 0 : Number(f.cantidad);
+  const n = deVideo ? video?.conceptos?.length || 0 : Number(f.cantidad);
   const cantidadValida = Number.isInteger(n) && n >= 1 && n <= maximo;
 
   function validar() {
@@ -246,7 +246,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
     if (!f.pais.trim()) e.pais = 'Escribe el país donde vendes.';
     if (!cantidadValida) e.cantidad = `Elige de 1 a ${maximo} anuncios.`;
     if (variantes && !elegidos.length) e.funciona = 'Elige al menos un creativo que te funcione.';
-    if (deVideo && !video?.seleccion?.length) e.video = 'Sube o elige un video y espera a que salgan sus cuadros.';
+    if (deVideo && !video?.conceptos?.length) e.video = 'Sube o elige un video y espera a que tu IA proponga los anuncios.';
     return e;
   }
 
@@ -308,9 +308,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   const precio = opciones?.costo || null;
   const costoLote = !cantidadValida
     ? null
-    : deVideo
-      ? { min: 0, max: 0, gratis: true }
-      : planPlantillas
+    : planPlantillas
       ? planPlantillas.escenas
         ? costoDelLote(precio, planPlantillas.escenas)
         : { min: 0, max: 0, gratis: true }
@@ -396,7 +394,8 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
         rapido: conPlantillas ? true : !f.elaborado,
         refs: conPlantillas ? [] : refs.map((x) => x.id),
         ...(conPlantillas ? { plantillasReferencia: { elegidas: refElegidas } } : {}),
-        ...(deVideo ? { video, modo: 'nuevos', fiel: false, rapido: true, refs: [], plantillas: { elegidas: [], ...(kitTocado ? { kit } : {}) } } : {}),
+        // (de un video: los anuncios que propuso tu IA con su ángulo, con las plantillas ganadoras)
+        ...(deVideo ? { video: { id: video?.id, conceptos: video?.conceptos || [] }, modo: 'nuevos', rapido: true, refs: [], plantillasReferencia: { elegidas: refElegidas } } : {}),
       };
       const firma = JSON.stringify(cuerpo);
       if (creado.current && creado.current.firma !== firma) {
@@ -476,7 +475,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
             <p className="img-modo__texto">
               <Film size={14} strokeWidth={2} aria-hidden="true" />
               <span>
-                De <strong>un video</strong>, varias imágenes con ángulos distintos: la app saca el cuadro más nítido de cada toma, le quita los subtítulos y lo arma con las plantillas. En tu computadora y gratis.
+                De <strong>un video</strong>, anuncios de imagen con su mismo ángulo: tu IA lo mira y lo escucha, saca el gancho, el dolor y el deseo, y propone anuncios para tu producto con sus titulares. Salen con las plantillas ganadoras.
               </span>
             </p>
           ) : null}
@@ -675,26 +674,9 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
                   {errores.video}
                 </p>
               ) : null}
-              {!f.elegidas.length && propuestas.length ? (
-                <p className="img-nota" role="status">
-                  <Telescope size={14} strokeWidth={2} aria-hidden="true" />
-                  <span>
-                    Sin formatos elegidos, van los {propuestas.length} anuncios que dejó escritos tu investigación de mercado (sus títulos y textos, con tus correcciones).{' '}
-                    <a href={enlace.investigacion(productoElegido.id)}>Verlos y editarlos</a>
-                  </span>
-                </p>
-              ) : null}
             </Grupo>
-            <Grupo n={6} id="grupo-marca" titulo="Tu marca">
-              <KitMarca
-                kit={kit}
-                automatico={kitAuto && !kitTocado}
-                onCambiar={(k) => {
-                  setKit(k);
-                  setKitTocado(true);
-                }}
-                bloqueado={ocupado}
-              />
+            <Grupo n={6} id="grupo-formato" titulo="Plantillas">
+              <ElegirPlantillasRef catalogo={opciones.plantillasReferencia} elegidas={refElegidas} onCambiar={(ids) => poner({ plantillasRef: ids })} bloqueado={ocupado} productoId={productoElegido?.id || null} />
             </Grupo>
           </>
         ) : conPlantillas ? (
@@ -764,7 +746,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
         conVertical={f.conVertical}
         logo={null}
         referencias={conPlantillas || deVideo ? [] : variantes ? itemsElegidos.map((x) => ({ id: x.id, url: x.url })) : referencias}
-        plantillas={conPlantillas ? { elegidas: refElegidas.length, escenas: null, referencia: true } : deVideo ? { video: true, elegidas: 0, escenas: 0 } : null}
+        plantillas={conPlantillas || deVideo ? { elegidas: refElegidas.length, escenas: null, referencia: true } : null}
         costo={
           costoLote?.gratis && deVideo
             ? {

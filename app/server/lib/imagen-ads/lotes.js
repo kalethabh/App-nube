@@ -264,7 +264,9 @@ export function crearLote(cuerpo = {}) {
   }
   if (brief.desdePlantillas) {
     // (sin elegidas: una mezcla variada, con las de productos relacionados primero)
-    const ids = plantillasRef.elegir(cantidad, cuerpo.plantillasReferencia?.elegidas, { temas: plantillasRef.temasDeProducto(productoId) });
+    // (los temas del video, si el lote sale de un video, van primero)
+    const temas = [...new Set([...(Array.isArray(cuerpo.temasExtra) ? cuerpo.temasExtra.map(String) : []), ...plantillasRef.temasDeProducto(productoId)])];
+    const ids = plantillasRef.elegir(cantidad, cuerpo.plantillasReferencia?.elegidas, { temas });
     brief.plantillasReferencia = ids;
     brief.referencias = plantillasRef.copiarAlLote(carpeta, ids);
   }

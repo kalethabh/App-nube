@@ -97,6 +97,13 @@ export function prepararRapido(carpeta, brief) {
   const ids = idsDelLote(n);
   // con plantillas: el ángulo del producto y los conceptos de Andromeda (angulo-producto.js)
   const creativo = brief.desdePlantillas ? contextoCreativo(brief.productoId) : null;
+  // «De un video» (2026-11-19): el ángulo y los conceptos salen del análisis del video (video-imagenes.js)
+  if (creativo && brief.desdeVideo?.conceptos?.length) {
+    const v = brief.desdeVideo.video || {};
+    creativo.deseo = v.deseo || v.promesa || creativo.deseo;
+    if (v.dolor) creativo.dolor = v.dolor;
+    creativo.conceptos = brief.desdeVideo.conceptos.map((c) => ({ faceta: c.faceta, problema: c.angulo, contexto: c.momento, escenario: c.escena, dolor: '', hook: v.gancho ? `con la mecánica del gancho del video: ${v.gancho}` : '', titular: c.titular }));
+  }
   // (si hay menos conceptos que imágenes, el que se repite cambia de momento y de titular: para Andromeda, dos anuncios
   // que cambian menos de 2 de faceta, momento y plantilla son el mismo)
   const L = creativo?.conceptos?.length || 0;
@@ -222,8 +229,10 @@ export function variacionDePlantilla({ id, i, titular, nombre, publico, pais, be
     c.dolor ? `The pain in the customer's words: ${c.dolor}` : null,
     c.avatar || publico ? `Customer: ${c.avatar || publico}` : null,
     concepto
-      ? `CONCEPT of this image (one of the Andromeda matrix, different from the other images of the batch): facet «${concepto.faceta}»${concepto.problema ? `; problem «${concepto.problema}»` : ''}${concepto.contexto ? `; moment «${concepto.contexto}»` : ''}${concepto.escenario ? `; scene «${concepto.escenario}»` : ''}${concepto.dolor ? `; the customer says «${concepto.dolor}»` : ''}${concepto.hook ? `; hook «${concepto.hook}»` : ''}. Show that person in that moment, inside the template's form.`
+      ? `CONCEPT of this image (one of the Andromeda matrix, different from the other images of the batch): facet «${concepto.faceta}»${concepto.problema ? `; problem «${concepto.problema}»` : ''}${concepto.contexto ? `; moment «${concepto.contexto}»` : ''}${concepto.dolor ? `; the customer says «${concepto.dolor}»` : ''}${concepto.hook ? `; hook «${concepto.hook}»` : ''}. Show that person in that moment, inside the template's form.`
       : `CONCEPT of this image (different from the other images of the batch): the customer ${MOMENTOS[i % MOMENTOS.length]}. Show that person in that moment, inside the template's form.`,
+    // la escena (la que escribió la IA o el usuario): lo que la imagen tiene que mostrar, con detalle
+    concepto?.escenario ? `WHAT THE IMAGE SHOWS (follow this scene closely, inside the template's form; make it vivid, eye-catching and scroll-stopping): ${concepto.escenario}` : null,
     // el TITULAR con la estructura de la plantilla, atacando el deseo o beneficio principal (2026-11-18u)
     plantilla?.titular
       ? `HEADLINE STRUCTURE of this template: ${plantilla.titular} (the template, for another product, says: «${plantilla.ejemplo}»). Write THIS image's main headline and labels with exactly that structure, filled with THIS product's main desire or benefit (${deseo || 'its main result'}), in the customer's words, so the headline names the very result the image shows. Idea from the research: «${titular}» (use its words when they fit the structure).`
