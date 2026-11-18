@@ -1,4 +1,4 @@
-// Enrutador mínimo con hash: #/tablero, #/anuncio/<slug>/editor, #/nuevo?estilo=crochet
+// Enrutador mínimo con hash: #/inicio, #/tablero, #/anuncio/<slug>/editor, #/nuevo?estilo=crochet
 // Sin librerías: useRuta() devuelve la ruta actual y cambia sola con el hash.
 import { useSyncExternalStore } from 'react';
 
@@ -59,6 +59,7 @@ const s = (slug) => encodeURIComponent(slug);
 
 /** Las rutas de la app. En un <a> usa href={enlace.anuncio(slug)}; para navegar desde código, ir(rutas.anuncio(slug)). */
 export const rutas = {
+  inicio: () => '/inicio',
   tablero: () => '/tablero',
   nuevo: (consulta) => `/nuevo${consulta ? `?${new URLSearchParams(consulta)}` : ''}`,
   anuncio: (slug) => `/anuncio/${s(slug)}`,

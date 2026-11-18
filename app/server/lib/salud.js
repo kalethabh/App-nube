@@ -192,6 +192,7 @@ export function modelosDeKie() {
       const mal = g.hoy >= 2 && g.hoyReintento / g.hoy >= 0.5;
       return {
         nombre: g.nombre,
+        piezas: g.total,
         estado: mal ? 'degradado' : g.hoy ? 'operativo' : 'operativo',
         detalle: mal ? `${g.hoyReintento} de ${g.hoy} piezas hoy necesitaron reintentos` : g.hoy ? `${g.hoy} ${g.hoy === 1 ? 'pieza' : 'piezas'} hoy` : `Última vez: hace ${Math.max(1, Math.round((Date.now() - g.ultima) / DIA))} ${Math.round((Date.now() - g.ultima) / DIA) <= 1 ? 'día' : 'días'}`,
       };

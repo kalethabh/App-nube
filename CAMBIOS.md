@@ -2,6 +2,15 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18r · Inicio: el dashboard principal
+
+- Pantalla nueva **Inicio**, la primera del menú y la que abre al entrar (el logo también lleva ahí).
+- Arriba, cuatro cifras del mes: **anuncios** y **imágenes** hechos (contra el mes anterior), lo que **te necesita** o está **en producción**, y lo **invertido**.
+- **Últimos 14 días** en un gráfico: gasto, anuncios o imágenes por día (pasa el mouse por una barra para ver el detalle).
+- **Ahora**: lo que te necesita y lo que se está produciendo, con su avance.
+- **Saldo** (kie.ai y ElevenLabs), **Plataformas** (la salud de cada servicio) y **Modelos de la semana** (cuántas piezas hizo cada uno).
+- **Por producto** (videos, lotes de imágenes, investigación e inversión) y **Lo último** que terminó.
+
 ## 2026-11-18q · Salud de plataformas más simple, con kie por modelo y revisión por servicio
 
 - Cada servicio en una sola línea: nombre, estado y, solo si hay falla, una línea corta con cuál.
