@@ -16,6 +16,8 @@ export const apiInvestigacion = {
   competencia: (id) => pedirNuevo(`${BASE}/${enc(id)}/competencia`),
   /** { enlace, producto?, pais?, brandtracker?, retomar? } lanza sus 6 etapas de una vez (gasta créditos de TrendTrack) */
   competir: (id, cuerpo) => pedirNuevo(`${BASE}/${enc(id)}/competencia`, { metodo: 'POST', cuerpo }),
+  /** Corrige un texto de anuncio de la investigación (queda como aprendizaje): { anuncio } */
+  editarAnuncio: (id, i, textos) => pedirNuevo(`${BASE}/${enc(id)}/anuncios/${i}`, { metodo: 'PUT', cuerpo: { textos } }),
   resaltar: (id, resaltados) => pedirNuevo(`${BASE}/${enc(id)}/resaltados`, { metodo: 'PUT', cuerpo: { resaltados } }),
 };
 

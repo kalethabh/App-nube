@@ -24,6 +24,9 @@ import { sesionActiva, prohibidasComunes, textoClaude, leerYValidar } from './cl
 import { lanzarSesion } from './colas.js';
 import { motorElegido, nombreIA } from './motor-ia.js';
 import { PRODUCTOS, ErrorApp, escribirJSON, idValido, leerProducto, leerFicha, relProducto, urlFoto, errorPublico } from './productos.js';
+import { POR_ID as PLANTILLA_POR_ID, PLANTILLAS_ANGULO, limpiarTextos, plantillasParaLaIA } from './imagen-ads/catalogo-plantillas.js';
+import { DIR_APRENDIZAJES } from './aprendizajes.js';
+import { pedirSincronizacion } from './biblioteca.js';
 
 export const SKILL = 'investigacion-mercado';
 const dir = (id) => path.join(PRODUCTOS, id, 'investigacion');
@@ -68,7 +71,7 @@ function validarInvestigacion(id) {
 export const TITULO_ANDROMEDA = 'Conceptos para Meta (Andromeda)';
 const esAndromeda = (sec) => /andromeda/i.test(String(sec?.titulo || ''));
 /** ¿La investigación ya trae la sección de Andromeda? */
-export const tieneAndromeda = (inv) => inv?.formato === 'documento' && (inv.secciones || []).some(esAndromeda);
+export const tieneAndromeda = (inv) => inv?.formato === 'documento' && (inv.secciones || []).some(esAndromeda) && anunciosDe(inv).length >= MIN_ANUNCIOS;
 
 /** Lo que le falta a la sección de Andromeda (la tabla de facetas y la matriz de 6 conceptos o más). */
 export function erroresAndromeda(inv) {
@@ -84,6 +87,111 @@ export function erroresAndromeda(inv) {
   return errores;
 }
 
+// ---------------------------------------------------------------- los textos de las plantillas de imagen (2026-11-18)
+// La investigación deja escritos los textos de las plantillas de «Ángulos ganadores» (`anuncios_imagen`), uno por
+// concepto de la matriz de Andromeda: los lotes de imágenes del producto los usan tal cual. El usuario los corrige en la
+// pantalla y cada corrección queda como aprendizaje (aprendizajes/investigacion-textos.md) para las siguientes.
+
+export const MIN_ANUNCIOS = 10;
+// (las pruebas lo apuntan a una carpeta temporal con ANUNCIOS_APRENDIZAJE_TEXTOS)
+const APRENDIZAJE_TEXTOS = process.env.ANUNCIOS_APRENDIZAJE_TEXTOS || path.join(DIR_APRENDIZAJES, 'investigacion-textos.md');
+
+/** Los textos de anuncios de una investigación, limpios: [{ indice, plantilla, concepto, angulo, faceta, textos, editado? }]
+ *  (indice: su lugar en anuncios_imagen, el que usa la pantalla para corregirlo). */
+export function anunciosDe(inv) {
+  return (Array.isArray(inv?.anuncios_imagen) ? inv.anuncios_imagen : [])
+    .map((a, indice) => ({ a, indice }))
+    .filter(({ a }) => PLANTILLA_POR_ID.has(a?.plantilla))
+    .map(({ a, indice }) => ({
+      indice,
+      plantilla: a.plantilla,
+      concepto: Number.isInteger(a.concepto) ? a.concepto : null,
+      angulo: txt(a.angulo).slice(0, 40),
+      faceta: txt(a.faceta).slice(0, 80),
+      contexto: txt(a.contexto).slice(0, 80),
+      textos: limpiarTextos(a.plantilla, a.textos) || {},
+      ...(a.editado ? { editado: a.editado } : {}),
+    }));
+}
+
+/** Lo que le falta a `anuncios_imagen` (en las investigaciones nuevas y al agregar los conceptos para Meta). */
+export function erroresAnuncios(inv) {
+  const l = Array.isArray(inv?.anuncios_imagen) ? inv.anuncios_imagen : [];
+  const errores = [];
+  if (l.length < MIN_ANUNCIOS) errores.push(`"anuncios_imagen": van de ${MIN_ANUNCIOS} a 16 textos de plantillas (hay ${l.length}).`);
+  l.forEach((a, i) => {
+    const p = PLANTILLA_POR_ID.get(a?.plantilla);
+    if (!p || !PLANTILLAS_ANGULO.includes(a.plantilla)) errores.push(`anuncios_imagen[${i}].plantilla: "${a?.plantilla}" no es una de las plantillas de ángulo de la lista.`);
+    else if (!a.textos || typeof a.textos !== 'object') errores.push(`anuncios_imagen[${i}].textos: falta.`);
+    else {
+      const faltan = p.campos.filter((c) => c.clave !== 'legal' && (a.textos[c.clave] === undefined || a.textos[c.clave] === '' || (Array.isArray(a.textos[c.clave]) && !a.textos[c.clave].length)));
+      if (faltan.length > 1) errores.push(`anuncios_imagen[${i}] (${a.plantilla}): faltan ${faltan.map((c) => c.clave).join(', ')}.`);
+    }
+  });
+  if (new Set(l.map((a) => a?.plantilla)).size < Math.min(6, l.length)) errores.push('"anuncios_imagen": usa al menos 6 plantillas distintas.');
+  // la matriz creativa de Andromeda: cada texto es un CONCEPTO distinto (cambia al menos 2 de faceta, ángulo, momento
+  // y plantilla respecto de cada uno de los demás); si solo cambia una cosa, para Meta es el mismo anuncio
+  const clave = (a, k) => String(a?.[k] || '').trim().toLowerCase();
+  const ejes = ['faceta', 'angulo', 'contexto', 'plantilla'];
+  if (l.some((a) => !clave(a, 'faceta') || !clave(a, 'contexto'))) errores.push('"anuncios_imagen": cada texto lleva su "faceta" y su "contexto" (el momento), de la matriz de conceptos.');
+  const parecidos = [];
+  l.forEach((a, i) => l.forEach((b, j) => {
+    if (j > i && ejes.filter((k) => clave(a, k) !== clave(b, k)).length < 2) parecidos.push(`${i} y ${j}`);
+  }));
+  if (parecidos.length) errores.push(`"anuncios_imagen": ${parecidos.slice(0, 5).join(', ')} son el mismo concepto (cambian menos de 2 de faceta, ángulo, contexto y plantilla). Matriz creativa: cada uno distinto en al menos 2.`);
+  return errores.slice(0, 10);
+}
+
+/** Lo último que corrigió el usuario en los textos (para la tarea de la IA): el texto del archivo, o ''. */
+export function aprendizajesDeTextos(max = 30) {
+  try {
+    const lineas = fs.readFileSync(APRENDIZAJE_TEXTOS, 'utf8').split(/\r?\n/).filter((l) => l.startsWith('- '));
+    return lineas.slice(-max).join('\n');
+  } catch {
+    return '';
+  }
+}
+
+const aTexto = (v) => (Array.isArray(v) ? v.map((x) => (typeof x === 'object' ? Object.values(x || {}).filter(Boolean).join(' → ') : x)).join(' · ') : typeof v === 'string' ? v : String(v ?? ''));
+
+/** PUT /api/investigacion/:id/anuncios/:i { textos }: guarda la corrección y la anota como aprendizaje. */
+export function editarAnuncio(id, indice, textos) {
+  if (!idValido(id)) throw new ErrorApp(404, 'No encuentro ese producto.');
+  if (leerTarea(id)?.estado === 'investigando') throw new ErrorApp(409, 'Espera a que termine la investigación.');
+  const crudo = leerJSON(rutaInv(id));
+  const lista = Array.isArray(crudo?.anuncios_imagen) ? crudo.anuncios_imagen : null;
+  const i = Number(indice);
+  if (!lista || !Number.isInteger(i) || !lista[i]) throw new ErrorApp(404, 'No encuentro ese texto.');
+  const a = lista[i];
+  const antes = limpiarTextos(a.plantilla, a.textos) || {};
+  const nuevos = { ...antes, ...(limpiarTextos(a.plantilla, textos) || {}) };
+  const cambios = PLANTILLA_POR_ID.get(a.plantilla).campos.filter((c) => aTexto(antes[c.clave]) !== aTexto(nuevos[c.clave]));
+  if (!cambios.length) return anunciosDe(crudo).find((x) => x.indice === i) || null;
+  lista[i] = { ...a, textos: nuevos, ...(a.original ? {} : { original: antes }), editado: ahora() };
+  escribirJSON(rutaInv(id), crudo);
+  // el aprendizaje: qué escribió la IA y cómo lo quiere el usuario (para las próximas investigaciones)
+  try {
+    fs.mkdirSync(path.dirname(APRENDIZAJE_TEXTOS), { recursive: true });
+    if (!existe(APRENDIZAJE_TEXTOS)) fs.writeFileSync(APRENDIZAJE_TEXTOS, '# Cómo quiere el usuario los textos de los anuncios de imagen\n\nLo anota la app cada vez que el usuario corrige un texto que escribió la investigación de mercado (pantalla de la investigación). Lo leen las investigaciones siguientes.\n\n');
+    const producto = crudo.producto || id;
+    const lineas = cambios.map((c) => `- ${new Date().toISOString().slice(0, 10)} · ${producto} · ${PLANTILLA_POR_ID.get(a.plantilla).nombre} · ${c.etiqueta}: «${aTexto(antes[c.clave]).slice(0, 200)}» → «${aTexto(nuevos[c.clave]).slice(0, 200)}»`);
+    fs.appendFileSync(APRENDIZAJE_TEXTOS, `${lineas.join('\n')}\n`);
+    if (!process.env.ANUNCIOS_APRENDIZAJE_TEXTOS) pedirSincronizacion();
+  } catch (e) {
+    console.error('[investigacion] no pude anotar el aprendizaje', e.message);
+  }
+  return anunciosDe(crudo).find((x) => x.indice === i) || null;
+}
+
+/** Lo de la tarea de la IA sobre los textos de las plantillas (con lo que el usuario ya corrigió antes). */
+function marcasDeTextos() {
+  const a = aprendizajesDeTextos();
+  return {
+    plantillas: plantillasParaLaIA(),
+    aprendizajes: a ? `Lo que el usuario corrigió antes en estos textos (escríbelos como él los quiere: mismo tono, largo y forma):\n${a}` : 'Todavía no hay correcciones del usuario.',
+  };
+}
+
 function leerInvestigacion(id) {
   const v = existe(rutaInv(id)) ? validarInvestigacion(id) : null;
   return v?.ok ? v.datos : null;
@@ -94,7 +202,8 @@ export function resumenDe(id) {
   const t = leerTarea(id);
   if (t?.estado === 'investigando') return null;
   const inv = leerInvestigacion(id);
-  return inv ? { fecha: t?.fin || null, pais: inv.pais || null } : null;
+  // propuestas: las plantillas de los textos que dejó la investigación (el formulario las usa si no eliges otras)
+  return inv ? { fecha: t?.fin || null, pais: inv.pais || null, propuestas: anunciosDe(inv).map((x) => x.plantilla) } : null;
 }
 
 const vistaDeTarea = (t) =>
@@ -112,6 +221,8 @@ export function estado(id) {
     tarea: vistaDeTarea(t),
     investigacion: t?.estado === 'investigando' ? null : leerInvestigacion(id),
     resaltados: leerResaltados(id),
+    // las plantillas de los textos de anuncios, con sus campos (para editarlos en la pantalla)
+    plantillas: Object.fromEntries(PLANTILLAS_ANGULO.map((p) => [p, { id: p, nombre: PLANTILLA_POR_ID.get(p).nombre, campos: PLANTILLA_POR_ID.get(p).campos }])),
   };
 }
 
@@ -148,6 +259,7 @@ function armarSesionAndromeda(id, { pais, retomar }) {
   const rel = relProducto(id);
   const archivo = `${rel}/investigacion/investigacion.json`;
   const prompt = textoClaude('tarea-investigacion-andromeda', {
+    ...marcasDeTextos(),
     carpeta: rel,
     pais: pais || leerInvestigacion(id)?.pais || 'Colombia',
     fecha: new Intl.DateTimeFormat('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Bogota' }).format(new Date()),
@@ -168,7 +280,7 @@ function armarSesionAndromeda(id, { pais, retomar }) {
     verificar: async () => {
       const v = validarInvestigacion(id);
       if (!v.ok) return { ok: false, errores: v.errores.slice(0, 15) };
-      const e = erroresAndromeda(v.datos);
+      const e = [...erroresAndromeda(v.datos), ...erroresAnuncios(v.datos)];
       return e.length ? { ok: false, errores: e } : { ok: true };
     },
   };
@@ -182,6 +294,7 @@ function armarSesion(id, { pais, retomar }) {
   const datos = { nombre: ficha?.nombre || p.nombre || '', que_es: ficha?.queEs || p.descripcion || '', pagina: p.url || '', oferta: ficha?.oferta || '' };
   const fotos = (p.fotos || []).slice(0, 4).map((f, i) => `  - ${rel}/${f}${i === 0 ? ' (la principal)' : ''}`).join('\n');
   const prompt = textoClaude('tarea-investigacion-mercado', {
+    ...marcasDeTextos(),
     carpeta: rel,
     fotos,
     datos: JSON.stringify(datos, null, 2),
@@ -208,7 +321,7 @@ function armarSesion(id, { pais, retomar }) {
       if (crudo && crudo.formato !== 'documento') return { ok: false, errores: ['"formato" tiene que ser "documento" (el formato de la tarea).'] };
       const v = validarInvestigacion(id);
       if (!v.ok) return { ok: false, errores: v.errores.slice(0, 15) };
-      const e = erroresAndromeda(v.datos);
+      const e = [...erroresAndromeda(v.datos), ...erroresAnuncios(v.datos)];
       return e.length ? { ok: false, errores: e } : { ok: true };
     },
   };
@@ -350,6 +463,7 @@ function documentoAMarkdown(inv, res) {
     res.length ? `\n## LO QUE EL USUARIO RESALTÓ (tenlo en cuenta primero: es lo que más le importa)\n${res.map((r) => `- ${r.texto}${r.nota ? ` — nota del usuario: ${r.nota}` : ''}`).join('\n')}` : '',
     `\n## Lo más importante\n- Deseo central: ${inv.claves.deseo_central}\n- Beneficio principal: ${inv.claves.beneficio_principal}\n- Puntos de dolor:\n${inv.claves.puntos_dolor.map((d) => `  - ${d}`).join('\n')}\n- Avatar: ${inv.portada.avatar}`,
     ...inv.secciones.map((sec, i) => `\n## ${i + 1}. ${sec.titulo}\n${(sec.bloques || []).map(bloqueATexto).filter(Boolean).join('\n')}`),
+    anunciosDe(inv).length ? `\n## Textos para las plantillas de imagen (los aprobó el usuario: úsalos tal cual)\n${anunciosDe(inv).map((a) => `- ${PLANTILLA_POR_ID.get(a.plantilla).nombre}${a.faceta ? ` (${a.faceta})` : ''}: ${Object.values(a.textos).map((v) => (Array.isArray(v) ? v.map((x) => (typeof x === 'object' ? Object.values(x).join(' → ') : x)).join(' · ') : v)).filter(Boolean).join(' | ')}`).join('\n')}` : '',
   ];
   return partes.filter(Boolean).join('\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, 90000) + '\n';
 }

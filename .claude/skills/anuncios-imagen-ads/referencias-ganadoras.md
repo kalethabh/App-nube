@@ -46,6 +46,14 @@ textos ni sus personajes con licencia.
 | Historia + antes/después | `historia` | Muna «Toda mi vida fui "la amiga flaquita". Hasta que descubrí MUNA» | Antes/después arriba, la frase en primera persona y 3 íconos abajo |
 | Zonas y semanas | `zonas-semanas` | Maya Verra «Celulitis en 3 zonas – una solución» (Semana 1/2/3), Aurelys 2×2 «Antes / 24 h / 1 semana / 4 semanas» | Las zonas dibujadas y lo que cambia en cada etapa |
 | Foto grande con íconos | `foto-iconos` | Aguaje Complex «No solo glúteos, también tus piernas», «Esta Navidad regálate la figura» | La zona del resultado en una foto real grande, 3 íconos y el producto; ángulo de temporada sin precio |
+| Etapas en neón | `etapas-neon` | Muna «Bye bye GLÚTEOS PLANOS» Etapa 1/2/3 | Tres siluetas que crecen de izquierda a derecha |
+| Antes/después con plazo | `antes-despues-plazo` | Sonvital «MENOS HINCHAZÓN / EN 2 SEMANAS» (piernas en B/N) | Resultado en blanco + plazo en color; producto en un pedestal al centro |
+| Dos mitades de color | `dos-mitades` | Sonvital «Menos hinchazón en pies y tobillos · Resultados en SOLO 14 días» | Fondo partido; el titular cambia de color en la mitad |
+| Ahora → después con rótulos | `rotulos-anatomia` | Lymphoria «¿TU PECHO TODAVÍA SE VE ASÍ?» | Pregunta + revelación («no es grasa…»), rótulos con flechas, franja de 3 íconos |
+| Estado vs. estado | `estado-vs-estado` | Aurelys «BARRIGA HINCHADA / BARRIGA DRENADA» | Dos figuras dibujadas, la palabra del cambio en rojo |
+| Cuadrícula de tiempos | `cuadricula-tiempo` | Aurelys «La barriga de cerveza finalmente desaparece» (Antes/24 h/1 semana/4 semanas) | 2×2 con el producto grande al lado |
+| Antes/después con íconos a los lados | `beneficios-lados` | Natures Sunshine «Desinflama la panza hinchada por la cerveza — sin dejar de tomarla» | 4 dolores a la izquierda, 4 beneficios a la derecha (sin la oferta) |
+| Día 1 · 14 · 30 en blanco | `dias-producto` | Muna Día 1/14/30 | Sin titular: la marca arriba, la misma persona de espaldas, el producto abajo |
 | Oferta (oculta) | `sticker-oferta`, `casi-agotado`, `buena-mala` | 2x1, «últimas unidades» | Ya no se ofrecen ni entran en la mezcla (pedido del usuario): las plantillas son de ángulo |
 
 ## Ángulos que se repiten (para elegir y escribir)
@@ -66,6 +74,13 @@ Esos anuncios mezclan el ángulo con el precio. Lo que se replica es solo la par
 hinchada por la cerveza — sin dejar de tomarla» (objeción derribada), «2025 con retención / 2026 con drenaje activo»
 (antes y después por año), «Día 0 / Día 7 / Día 21: empiezas a llenar jeans» (resultado concreto por etapa), íconos
 de cada beneficio a los lados del antes y después. El precio, el envío y el «pago contraentrega» nunca entran.
+
+## La matriz creativa (Andromeda): diversidad real
+
+Para Meta, cambiar el titular o el color es el mismo anuncio. Cada imagen de un lote es un concepto distinto: entre
+dos anuncios cambian al menos 2 de faceta (a quién le habla), ángulo (dolor, beneficio, deseo, objeción), contexto (el
+momento) y plantilla. La estructura de la plantilla se respeta tal cual; lo que cambia es el concepto. La investigación
+de mercado deja escritos esos textos (`anuncios_imagen`) y el usuario los corrige: sus correcciones mandan.
 
 ## Lo que no se hace
 

@@ -295,7 +295,9 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
 
   const formatos = f.conVertical ? ['1:1', '9:16'] : ['1:1'];
   // plantillas: solo las escenas cuestan (una por anuncio con escena: el vertical usa la misma)
-  const planPlantillas = conPlantillas && cantidadValida ? planDePlantillas(opciones.plantillas, n, f.elegidas) : null;
+  // sin formatos elegidos, los que propuso la investigación de mercado del producto (con sus textos), si los tiene
+  const propuestas = productoElegido?.investigacion?.propuestas || [];
+  const planPlantillas = conPlantillas && cantidadValida ? planDePlantillas(opciones.plantillas, n, f.elegidas.length ? f.elegidas : propuestas) : null;
   // el costo estimado: cada imagen (cuadrada o vertical) al precio que manda el servidor (un solo número: la revisión
   // ya no rehace nada sola)
   const precio = opciones?.costo || null;
@@ -669,6 +671,15 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
                   {errores.video}
                 </p>
               ) : null}
+              {!f.elegidas.length && propuestas.length ? (
+                <p className="img-nota" role="status">
+                  <Telescope size={14} strokeWidth={2} aria-hidden="true" />
+                  <span>
+                    Sin formatos elegidos, van los {propuestas.length} anuncios que dejó escritos tu investigación de mercado (sus títulos y textos, con tus correcciones).{' '}
+                    <a href={enlace.investigacion(productoElegido.id)}>Verlos y editarlos</a>
+                  </span>
+                </p>
+              ) : null}
             </Grupo>
             <Grupo n={6} id="grupo-marca" titulo="Tu marca">
               <KitMarca
@@ -700,6 +711,15 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
                     {planPlantillas.escenas
                       ? `${n - planPlantillas.escenas} de tus ${n} anuncios salen gratis y al instante; ${planPlantillas.escenas === 1 ? '1 usa' : `${planPlantillas.escenas} usan`} una escena del modelo de imagen (sin texto), todas a la vez. Mientras llega, ya ves el anuncio con sus textos.`
                       : `Tus ${n} anuncios salen gratis y en segundos: la app los arma con la foto de tu producto, sin llamar al modelo de imagen.`}
+                  </span>
+                </p>
+              ) : null}
+              {!f.elegidas.length && propuestas.length ? (
+                <p className="img-nota" role="status">
+                  <Telescope size={14} strokeWidth={2} aria-hidden="true" />
+                  <span>
+                    Sin formatos elegidos, van los {propuestas.length} anuncios que dejó escritos tu investigación de mercado (sus títulos y textos, con tus correcciones).{' '}
+                    <a href={enlace.investigacion(productoElegido.id)}>Verlos y editarlos</a>
                   </span>
                 </p>
               ) : null}

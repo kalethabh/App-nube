@@ -5,6 +5,7 @@
 //   POST /api/investigacion/:id  { pais?, soloAndromeda? }  lanza la investigación (10 a 30 minutos; no espera) -> { tarea }
 //                                                 (soloAndromeda: le agrega a la hecha los conceptos para Meta, unos minutos)
 //   PUT  /api/investigacion/:id/resaltados { resaltados: [{ id?, texto, seccion?, nota? }] } -> { resaltados }
+//   PUT  /api/investigacion/:id/anuncios/:i { textos }  corrige un texto de anuncio (queda como aprendizaje) -> { anuncio }
 //   GET  /api/investigacion/:id/competencia      -> { tarea, competencia }   la investigación competitiva con TrendTrack
 //   POST /api/investigacion/:id/competencia { enlace, producto?, pais?, brandtracker?, retomar? }   lanza sus 6 etapas
 //        de una vez (gasta créditos de TrendTrack del usuario; no espera) -> { tarea }
@@ -53,6 +54,10 @@ export default function rutasInvestigacion(app) {
   app.post('/api/investigacion/:id/competencia', soloDesdeLaApp, conErrores((req, res) => {
     const c = req.body || {};
     res.status(202).json(competencia.investigar(elId(req), { enlace: c.enlace, producto: c.producto, pais: c.pais, brandtracker: c.brandtracker === true, retomar: c.retomar === true }));
+  }));
+
+  app.put('/api/investigacion/:id/anuncios/:i', soloDesdeLaApp, conErrores((req, res) => {
+    res.json({ anuncio: inv.editarAnuncio(elId(req), Number(req.params.i), req.body?.textos) });
   }));
 
   app.put('/api/investigacion/:id/resaltados', soloDesdeLaApp, conErrores((req, res) => {

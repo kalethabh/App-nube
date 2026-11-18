@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-18 (Investigación de mercado con los conceptos para Meta Andromeda, versión 2026-11-18).
+Última actualización: 2026-11-18 (Plantillas clonadas de validados y textos de anuncios en la investigación, versión 2026-11-18a).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-18` (archivo `VERSION`): investigación de mercado con «Conceptos para Meta (Andromeda)». Antes: `2026-11-17q` (antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
+- **Versión actual:** `2026-11-18a` (archivo `VERSION`): 8 clones de anuncios validados y `anuncios_imagen` en la investigación (editables, con aprendizaje). Antes: `2026-11-18`: investigación de mercado con «Conceptos para Meta (Andromeda)». Antes: `2026-11-17q` (antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
   la pantalla y de la mezcla. Antes: `2026-11-17p1` (referencia interna de ganadores) y `2026-11-17p`: anuncios de imagen con plantillas (la app dibuja los textos y
   los gráficos con Remotion en 0,3-1 s por imagen; el modelo solo hace escenas sin texto; 12 de 17 formatos gratis; kit de
   marca; «Editar textos» gratis) y «De un video, imágenes» (rama `plantillas-imagen`, sin PR). Antes: `2026-11-17o`: exportar del editor por tramos (solo se rehace lo que cambió;
@@ -143,6 +143,32 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Plantillas clonadas y textos de anuncios en la investigación (2026-11-18, versión 2026-11-18a)
+
+- Pedido: usar las ~30 imágenes validadas (Muna, Grüns, Sonvital, Vitaly, Lymphoria, Aurelys, Maya Verra, Natures
+  Sunshine, Aguaje) como plantillas (misma estructura y tipografía, otra paleta y producto), con lo de Andromeda y la
+  matriz creativa (diversidad real); que la investigación dé los textos y se puedan editar para que aprenda; verificar
+  el diseño de todas las secciones.
+- `remotion/src/plantillas-imagen/clones.jsx`: etapas-neon, antes-despues-plazo, dos-mitades (titular recortado con
+  clip-path en 2 colores), rotulos-anatomia, estado-vs-estado, cuadricula-tiempo (una escena 2×2 recortada en 4
+  celdas), beneficios-lados, dias-producto. Fuentes nuevas en `publico/fuentes/`: Poppins 400–900 y DM Serif Display
+  (woff2 de @fontsource, OFL). Historia usa la serif. 33 plantillas en total (25 visibles).
+- `catalogo-plantillas.js`: `limpiarTextos` vive aquí ahora (lo re-exporta textos-plantillas; evita el ciclo con
+  investigacion.js), `PLANTILLAS_ANGULO`, `plantillasParaLaIA()` (la lista con campos para la tarea).
+- `lib/investigacion.js`: `anuncios_imagen` [{ plantilla, concepto, faceta, angulo, contexto, textos }];
+  `erroresAnuncios` (10–16, 6+ plantillas, faceta y contexto, cada par distinto en 2+ de faceta/ángulo/contexto/
+  plantilla) en `verificar` de la investigación nueva y de «Agregar conceptos y textos»; `anunciosDe`, `editarAnuncio`
+  (guarda `original` y `editado`, anota en `mis_archivos/biblioteca/aprendizajes/investigacion-textos.md`; las pruebas
+  usan `ANUNCIOS_APRENDIZAJE_TEXTOS`), `aprendizajesDeTextos` (van a las 2 tareas con `{{plantillas}}` y
+  `{{aprendizajes}}`); `resumenDe().propuestas`; `estado().plantillas` (campos para editar).
+- Lotes: `textosPara` usa primero los textos de la investigación (k-ésimo por plantilla); `lotes.js` pone las
+  propuestas como `elegidas` si no hay (costo coherente); el formulario lo muestra. Muestra de plantilla con `?anuncio=i`.
+- Pantalla: `TextosAnuncios.jsx` (rejilla con muestra, Editar con `ModalTextos` reutilizado). Diseño: tablas del
+  documento en `.doc-tabla-caja` (deslizan en el celular), portada y padding para <600 px, botón de competencia.
+- Pruebas: probar-investigacion-andromeda 17/17, probar-imagen-ads 168/168 (32 imágenes de 16 ángulos), humo 85/85,
+  video-imágenes 19/19, build; revisión visual con Playwright (escritorio y 390 px) con una copia de la investigación
+  real de VitalDrops y 12 textos de prueba. No probado con una sesión real de la IA ni con escenas reales de kie.
 
 ### Investigación de mercado: Conceptos para Meta (Andromeda) (2026-11-18, versión 2026-11-18)
 

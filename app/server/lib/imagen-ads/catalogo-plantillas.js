@@ -85,6 +85,71 @@ export const CATALOGO = [
     descripcion: 'La zona del resultado en una foto grande, el titular («No solo glúteos, también tus piernas»), 3 íconos y el producto.',
     campos: [titular, { clave: 'iconos', etiqueta: 'Íconos (uno por línea)', tipo: 'lista', max: 30, cuantos: 3 }, { clave: 'nota', etiqueta: 'Nota a mano', tipo: 'texto', max: 30 }, legal],
   },
+  // ---- Ángulos ganadores (2): clones con la misma composición y tipografía de los validados (clones.jsx)
+  {
+    id: 'etapas-neon',
+    nombre: 'Etapas en neón',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'Tres siluetas de neón que crecen (Etapa 1, 2, 3) sobre negro, con «Bye bye» + el dolor.',
+    campos: [{ clave: 'arriba', etiqueta: 'Frase a mano (arriba)', tipo: 'texto', max: 30 }, titular, { clave: 'etapas', etiqueta: 'Etapas (una por línea)', tipo: 'lista', max: 14, cuantos: 3 }, { clave: 'caja', etiqueta: 'Recuadro (resultado o deseo)', tipo: 'texto', max: 40 }, legal],
+  },
+  {
+    id: 'antes-despues-plazo',
+    nombre: 'Antes y después con plazo',
+    familia: 'angulo',
+    escena: true,
+    descripcion: '«MENOS HINCHAZÓN / EN 2 SEMANAS»: la zona en blanco y negro, el producto al centro en un pedestal y ANTES · 2 SEMANAS DESPUÉS abajo.',
+    campos: [{ ...titular, etiqueta: 'Titular (el resultado)', max: 40 }, { clave: 'plazo', etiqueta: 'El plazo (en color)', tipo: 'texto', max: 30 }, { clave: 'marca', etiqueta: 'Marca (debajo)', tipo: 'texto', max: 24 }, { clave: 'antes', etiqueta: 'Rótulo izquierdo', tipo: 'texto', max: 20 }, { clave: 'despues', etiqueta: 'Rótulo derecho', tipo: 'texto', max: 28 }, legal],
+  },
+  {
+    id: 'dos-mitades',
+    nombre: 'Dos mitades de color',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'Fondo partido en dos colores (el problema | el resultado), el titular cambia de color en la mitad, una píldora con el plazo y un botón.',
+    campos: [{ ...titular, max: 60 }, { clave: 'pildora', etiqueta: 'Píldora (el plazo)', tipo: 'texto', max: 40 }, { clave: 'boton', etiqueta: 'Botón', tipo: 'texto', max: 30 }, { clave: 'marca', etiqueta: 'Marca (abajo)', tipo: 'texto', max: 24 }, legal],
+  },
+  {
+    id: 'rotulos-anatomia',
+    nombre: 'Ahora → después, con rótulos',
+    familia: 'angulo',
+    escena: true,
+    descripcion: '«¿Tu pecho todavía se ve así?»: cómo se ve ahora → después de N días, rótulos con flechas, el producto al centro y una franja de 3 íconos.',
+    campos: [{ ...titular, max: 60 }, { clave: 'subtitulo', etiqueta: 'Subtítulo (la revelación)', tipo: 'parrafo', max: 140 }, { clave: 'ahora', etiqueta: 'Encabezado izquierdo', tipo: 'texto', max: 40 }, { clave: 'despues', etiqueta: 'Encabezado derecho', tipo: 'texto', max: 30 }, { clave: 'izquierda', etiqueta: 'Rótulos del problema (uno por línea)', tipo: 'lista', max: 40, cuantos: 2 }, { clave: 'derecha', etiqueta: 'Rótulos del resultado (uno por línea)', tipo: 'lista', max: 40, cuantos: 2 }, { clave: 'iconos', etiqueta: 'Franja de íconos (uno por línea)', tipo: 'lista', max: 30, cuantos: 3 }, legal],
+  },
+  {
+    id: 'estado-vs-estado',
+    nombre: 'Hinchada vs. drenada',
+    familia: 'angulo',
+    escena: true,
+    descripcion: '«BARRIGA HINCHADA | BARRIGA DRENADA»: dos figuras ilustradas, la palabra del cambio en rojo y el producto en medio.',
+    campos: [{ clave: 'zona', etiqueta: 'La zona (arriba en los dos lados)', tipo: 'texto', max: 16 }, { clave: 'mal', etiqueta: 'Cómo está (izquierda)', tipo: 'texto', max: 24 }, { clave: 'bien', etiqueta: 'Cómo queda (derecha)', tipo: 'texto', max: 24 }, { clave: 'sub_mal', etiqueta: 'Frase izquierda', tipo: 'texto', max: 40 }, { clave: 'sub_bien', etiqueta: 'Frase derecha', tipo: 'texto', max: 40 }, legal],
+  },
+  {
+    id: 'cuadricula-tiempo',
+    nombre: 'Cuadrícula de tiempos',
+    familia: 'angulo',
+    escena: true,
+    descripcion: '«La barriga de cerveza finalmente desaparece»: 4 cuadros (Antes · 24 horas · 1 semana · 4 semanas) y el producto grande al lado.',
+    campos: [{ ...titular, max: 60 }, { clave: 'etapas', etiqueta: 'Etapas (una por línea)', tipo: 'lista', max: 14, cuantos: 4 }, legal],
+  },
+  {
+    id: 'beneficios-lados',
+    nombre: 'Antes y después con íconos a los lados',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'El antes y después con 4 dolores a la izquierda y 4 beneficios a la derecha, un sello con el plazo, el producto al centro y una franja de atributos.',
+    campos: [{ ...titular, max: 50 }, { clave: 'subtitulo', etiqueta: 'Segunda línea', tipo: 'texto', max: 50 }, { clave: 'antes', etiqueta: 'Rótulo izquierdo', tipo: 'texto', max: 14 }, { clave: 'despues', etiqueta: 'Rótulo derecho', tipo: 'texto', max: 14 }, { clave: 'males', etiqueta: 'Dolores (uno por línea)', tipo: 'lista', max: 40, cuantos: 4 }, { clave: 'bienes', etiqueta: 'Beneficios (uno por línea)', tipo: 'lista', max: 40, cuantos: 4 }, { clave: 'sello', etiqueta: 'Sello (el plazo)', tipo: 'texto', max: 40 }, { clave: 'atributos', etiqueta: 'Franja de atributos (uno por línea)', tipo: 'lista', max: 24, cuantos: 3 }, legal],
+  },
+  {
+    id: 'dias-producto',
+    nombre: 'Día 1 · 14 · 30 en blanco',
+    familia: 'angulo',
+    escena: true,
+    descripcion: 'Fondo blanco, la marca arriba, la misma persona de espaldas en 3 días y el producto abajo al centro. Sin titular: el cambio habla solo.',
+    campos: [{ clave: 'marca', etiqueta: 'Marca (arriba)', tipo: 'texto', max: 24 }, { clave: 'etapas', etiqueta: 'Etapas (una por línea)', tipo: 'lista', max: 14, cuantos: 3 }, legal],
+  },
   {
     id: 'antes-despues',
     nombre: 'Antes y después',
@@ -235,18 +300,26 @@ export const esOculta = (id) => OCULTAS.has(POR_ID.get(id)?.familia);
  */
 export const ORDEN_AUTO = [
   'silueta-zonas',
-  'antes-despues',
+  'antes-despues-plazo',
   'solo-vs-con',
-  'producto-flechas',
   'historia',
-  'linea-tiempo',
+  'rotulos-anatomia',
+  'dias-producto',
   'nosotros-vs-ellos',
-  'burbujas',
+  'dos-mitades',
+  'producto-flechas',
+  'estado-vs-estado',
   'foto-iconos',
-  'mapa-cuerpo',
+  'cuadricula-tiempo',
   'no-compres',
-  'pizarra',
+  'etapas-neon',
+  'beneficios-lados',
   'pregunta-revelacion',
+  'antes-despues',
+  'linea-tiempo',
+  'burbujas',
+  'mapa-cuerpo',
+  'pizarra',
   'lista-iconos',
   'zonas-semanas',
   'mecanismo',
@@ -273,3 +346,36 @@ export const catalogoParaLaPantalla = () => ({
   plantillas: CATALOGO.filter((x) => !OCULTAS.has(x.familia)).map(({ id, nombre, familia, escena, descripcion }) => ({ id, nombre, familia, escena, descripcion })),
   ordenAuto: ORDEN_AUTO,
 });
+
+// ---------------------------------------------------------------- los textos que llegan de afuera
+
+const limpio = (t) => String(t ?? '').replace(/\s+/g, ' ').replace(/^["«“'\s]+|["»”'\s]+$/g, '').trim();
+const recortar = (t, max) => limpio(t).slice(0, max);
+
+/** Lo que llega de la pantalla, solo con los campos de la plantilla y sus topes. */
+export function limpiarTextos(id, textos) {
+  const p = POR_ID.get(id);
+  if (!p || !textos || typeof textos !== 'object') return null;
+  const salida = {};
+  for (const c of p.campos) {
+    const v = textos[c.clave];
+    if (v === undefined) continue;
+    if (c.tipo === 'lista') salida[c.clave] = (Array.isArray(v) ? v : String(v).split('\n')).map((x) => recortar(x, c.max)).filter(Boolean).slice(0, c.cuantos || 6);
+    else if (c.tipo === 'pares') salida[c.clave] = (Array.isArray(v) ? v : []).slice(0, c.cuantos || 4).map((x) => ({ ingrediente: recortar(x?.ingrediente, 30), beneficio: recortar(x?.beneficio, c.max) })).filter((x) => x.ingrediente || x.beneficio);
+    else if (c.tipo === 'datos') salida[c.clave] = (Array.isArray(v) ? v : []).slice(0, c.cuantos || 3).map((x) => ({ valor: recortar(x?.valor, 14), etiqueta: recortar(x?.etiqueta, c.max) })).filter((x) => x.valor || x.etiqueta);
+    else if (c.tipo === 'numero') salida[c.clave] = Math.max(0, Math.min(c.max || 5, Math.round(Number(v) || 0)));
+    else if (c.tipo === 'parrafo') salida[c.clave] = String(v ?? '').replace(/\r/g, '').slice(0, c.max).trim();
+    else salida[c.clave] = recortar(v, c.max);
+  }
+  return salida;
+}
+
+/** Las plantillas de «Ángulos ganadores» (las que llena la investigación de mercado). */
+export const PLANTILLAS_ANGULO = CATALOGO.filter((x) => x.familia === 'angulo').map((x) => x.id);
+
+/** Las plantillas de ángulo con sus campos, como texto para la tarea de la IA. */
+export function plantillasParaLaIA() {
+  return CATALOGO.filter((x) => x.familia === 'angulo')
+    .map((x) => `- \`${x.id}\` (${x.nombre}): ${x.descripcion}\n  textos: { ${x.campos.map((c) => `"${c.clave}": ${c.tipo === 'lista' ? `[hasta ${c.cuantos}, de ${c.max} letras máx.]` : c.tipo === 'pares' ? `[hasta ${c.cuantos} { "ingrediente": "${c.etiquetas?.[0] || 'ingrediente'}", "beneficio": "${c.etiquetas?.[1] || 'beneficio'}" }]` : `"${c.etiqueta}, ${c.max} letras máx."`}`).join(', ')} }`)
+    .join('\n');
+}
