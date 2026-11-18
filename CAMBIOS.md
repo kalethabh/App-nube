@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18k · Arreglo: la app ya no se congela al elegir la voz (y ElevenLabs vuelve a responder)
+
+- La causa de «ElevenLabs no respondió a tiempo» (en las voces y hasta en «Probar» la clave) era de la app, no de tu red ni de ElevenLabs: para elegir la voz parecida a la del video de referencia, la app medía su audio de una forma que la dejaba ocupada, y con un video de varios minutos todo lo demás se pasaba de tiempo.
+- Ahora esa medición corre en un proceso aparte y es mucho más rápida: un video de 5 minutos se mide en menos de 1 segundo, y la app sigue respondiendo mientras tanto.
+
 ## 2026-11-18j · La app conecta con ElevenLabs y kie como el navegador
 
 - Con algunas redes (IPv6 a medias), la app se quedaba esperando a ElevenLabs aunque en Chrome todo anduviera: «ElevenLabs no respondió a tiempo» al probar la clave o al traer las voces. Ahora la app y los procesos que generan la voz y las imágenes conectan primero por IPv4 y, si una dirección no contesta, prueban la otra enseguida, como el navegador.

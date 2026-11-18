@@ -15,14 +15,42 @@ import path from 'node:path';
 import { leerJSON } from './archivos.js';
 import { voces as vocesDeLaCuenta, mensajeSimple, VOZ_DE_PRUEBA } from './voces.js';
 import { leerConfig } from './config.js';
-import { medirVoz } from '../../../produccion/medir-voz.js';
+import { spawn } from 'node:child_process';
+import { RAIZ } from './rutas.js';
 
 const sinTildes = (t) => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
 // ---------------------------------------------------------------- la voz que se busca
 
+/**
+ * Mide la voz de un audio en un proceso aparte (produccion/medir-voz.js), para que la app no se quede ocupada mientras
+ * mide (antes, con un video largo, todo lo demás —las voces, «Probar» la clave— se pasaba de tiempo). -> medida | null
+ */
+function medirAparte(audio, rutaPalabras) {
+  return new Promise((resolve) => {
+    let salida = '';
+    let hijo;
+    try {
+      hijo = spawn(process.execPath, [path.join(RAIZ, 'produccion', 'medir-voz.js'), audio, ...(rutaPalabras ? [rutaPalabras] : [])], { cwd: RAIZ, stdio: ['ignore', 'pipe', 'ignore'], windowsHide: true });
+    } catch {
+      return resolve(null);
+    }
+    const reloj = setTimeout(() => hijo.kill(), 60000);
+    hijo.stdout.on('data', (d) => (salida += d));
+    hijo.on('error', () => resolve(null));
+    hijo.on('close', () => {
+      clearTimeout(reloj);
+      try {
+        resolve(JSON.parse(salida) || null);
+      } catch {
+        resolve(null);
+      }
+    });
+  });
+}
+
 /** La medida de la voz del video de referencia (la guarda en adn-base.json para no medirla dos veces). */
-export function vozDeLaReferencia(carpeta) {
+export async function vozDeLaReferencia(carpeta) {
   for (const dir of [path.join(carpeta, 'referencia'), path.join(carpeta, 'material', 'referencia', 'ref01')]) {
     const rutaAdn = path.join(dir, 'adn-base.json');
     const adn = leerJSON(rutaAdn);
@@ -30,10 +58,10 @@ export function vozDeLaReferencia(carpeta) {
     if (adn.voz !== undefined) return adn.voz;
     const audio = path.join(dir, 'audio-referencia.mp3');
     if (!fs.existsSync(audio)) return null;
-    const palabras = (leerJSON(path.join(dir, 'transcripcion.json'))?.palabras || []).filter((p) => Number.isFinite(p.desde));
-    const voz = palabras.length ? medirVoz(audio, palabras) : null;
+    const rutaPalabras = path.join(dir, 'transcripcion.json');
+    const voz = await medirAparte(audio, fs.existsSync(rutaPalabras) ? rutaPalabras : null);
     try {
-      fs.writeFileSync(rutaAdn, JSON.stringify({ ...adn, voz }, null, 2));
+      fs.writeFileSync(rutaAdn, JSON.stringify({ ...(leerJSON(rutaAdn) || adn), voz }, null, 2));
     } catch {
       /* solo era para no medirla dos veces */
     }
@@ -80,8 +108,8 @@ export function vozDelPlan(carpeta, brief = {}) {
   };
 }
 
-export function vozBuscada({ carpeta, brief = {}, ficha = {} }) {
-  const ref = vozDeLaReferencia(carpeta);
+export async function vozBuscada({ carpeta, brief = {}, ficha = {} }) {
+  const ref = await vozDeLaReferencia(carpeta);
   const ia = leerJSON(path.join(carpeta, 'voz-buscada.json')) || vozDelPlan(carpeta, brief);
   const idiomaFicha = sinTildes(ficha.idioma || '');
   const idioma = /ingl|english|^en/.test(idiomaFicha) ? 'en' : /portug|^pt/.test(idiomaFicha) ? 'pt' : 'es';
@@ -231,7 +259,7 @@ export async function asegurarVoz({ carpeta, brief, ficha = {}, voces = null }) 
   let lista = r.ok ? r.voces : null;
   if (!lista && process.env.ANUNCIOS_MODO_PRUEBA === '1') lista = [VOZ_DE_PRUEBA];
   if (!lista) return { ok: false, mensaje: `No pude elegir la voz del narrador: ${mensajeSimple(r.mensaje)}` };
-  const buscada = vozBuscada({ carpeta, brief, ficha });
+  const buscada = await vozBuscada({ carpeta, brief, ficha });
   const ultima = (() => {
     const x = leerConfig().vozPorEstilo?.[brief?.estilo];
     return x?.id || x || null;
