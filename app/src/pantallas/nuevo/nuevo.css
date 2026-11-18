@@ -2897,3 +2897,12 @@
 .nv-editar-mano { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--e-2); margin: var(--e-2) 0; }
 .nv-linea__editar { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .nv-linea__editar textarea { font-size: var(--t-destacado, 16px); line-height: 1.4; }
+/* el ícono ✨ arriba a la derecha del cuadro: regenerar esa parte con IA */
+.nv-linea__editar { position: relative; }
+.nv-linea__editar textarea { padding-right: 44px; }
+.nv-linea__regenerar { position: absolute; top: 8px; right: 8px; z-index: 1; width: 30px; height: 30px; border-radius: var(--r-pill, 999px); border: 1px solid var(--borde-2); background: var(--superficie-2); color: var(--acento); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background var(--dur-rapido, 0.15s), transform var(--dur-rapido, 0.15s); }
+.nv-linea__regenerar:hover:not(:disabled) { background: var(--acento-suave); transform: scale(1.06); }
+.nv-linea__regenerar:disabled { opacity: 0.5; cursor: default; }
+.nv-linea__regenerar--girando { opacity: 1 !important; }
+.nv-linea__regenerar--girando svg { animation: nv-girar 0.9s linear infinite; }
+@keyframes nv-girar { to { transform: rotate(360deg); } }

@@ -14,7 +14,7 @@
 //   musical         las 2 o 3 letras: el usuario elige una (POST …/guion/letra) y la produce, o pide cambios
 //   historia        la historia que se canta, acto por acto, y cómo va a sonar
 import { useEffect, useRef, useState } from 'react';
-import { Check, ChevronDown, Eye, FileText, Lightbulb, MessageSquareText, Mic, Music, PenLine, Send, Sparkles, Users } from 'lucide-react';
+import { Check, ChevronDown, Eye, FileText, Lightbulb, LoaderCircle, MessageSquareText, Mic, Music, PenLine, Send, Sparkles, Users } from 'lucide-react';
 import { AreaTexto, Boton, Chip, Esqueleto, Pestanas, Seccion, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useGuion, useSaldoKie } from '../../datos/api.js';
 import { duracionEnPalabras } from '../../datos/formato.js';
@@ -120,13 +120,25 @@ function Parte({ p, edicion = null }) {
         ) : editando ? (
           <div className="nv-linea__editar">
             {p.quien ? <span className={`nv-quien${p.lado === 'B' ? ' nv-quien--b' : ''}`}>{p.quien}</span> : null}
+            {edicion.regenerar ? (
+              <button
+                type="button"
+                className={`nv-linea__regenerar${edicion.regenerando === p.n ? ' nv-linea__regenerar--girando' : ''}`}
+                onClick={() => edicion.regenerar(p.n, edicion.valor(p))}
+                disabled={edicion.guardando || edicion.regenerando !== null}
+                title="Regenerar con IA: otra versión de esta parte"
+                aria-label={`Regenerar con IA la parte ${p.n}`}
+              >
+                {edicion.regenerando === p.n ? <LoaderCircle size={15} strokeWidth={2.2} aria-hidden="true" /> : <Sparkles size={15} strokeWidth={2.2} aria-hidden="true" />}
+              </button>
+            ) : null}
             <AreaTexto
               aria-label={`Lo que se dice en la parte ${p.n}`}
               filas={Math.min(6, Math.max(2, Math.ceil(String(edicion.valor(p) || '').length / 70)))}
               maxLength={600}
               value={edicion.valor(p)}
               onChange={(e) => edicion.cambiar(p.n, e.target.value)}
-              disabled={edicion.guardando}
+              disabled={edicion.guardando || edicion.regenerando === p.n}
             />
           </div>
         ) : (
@@ -227,12 +239,22 @@ function Cabecera({ estilo, datos }) {
 
 // ---------------------------------------------------------------- la hoja de un guion hablado o con narrador
 
-function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null }) {
+function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null, onRegenerarLinea = null }) {
   const [todas, setTodas] = useState(false);
   // editar a mano lo que se dice (cada parte en su cuadro); se guarda todo junto
   const [editando, setEditando] = useState(false);
   const [valores, setValores] = useState({});
   const [guardando, setGuardando] = useState(false);
+  const [regenerando, setRegenerando] = useState(null); // la parte que la IA está reescribiendo
+  const regenerar = async (n, actual) => {
+    setRegenerando(n);
+    try {
+      const dice = await onRegenerarLinea?.(n, actual);
+      if (dice) setValores((x) => ({ ...x, [n]: dice }));
+    } finally {
+      setRegenerando(null);
+    }
+  };
   const empezar = () => {
     setValores({});
     setEditando(true);
@@ -248,7 +270,7 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
       setGuardando(false);
     }
   };
-  const edicion = editando ? { valor: (p) => (valores[p.n] ?? p.dice ?? ''), cambiar: (n, v) => setValores((x) => ({ ...x, [n]: v })), guardando } : null;
+  const edicion = editando ? { valor: (p) => (valores[p.n] ?? p.dice ?? ''), cambiar: (n, v) => setValores((x) => ({ ...x, [n]: v })), guardando, regenerar: onRegenerarLinea ? regenerar : null, regenerando } : null;
   const tocadas = Object.entries(valores).filter(([n, v]) => v !== (guion?.partes || []).find((p) => String(p.n) === n)?.dice).length;
   const partes = Array.isArray(guion?.partes) ? guion.partes.filter((p) => p && String(p.dice || '').trim()) : [];
   const mostradas = todas || partes.length <= LARGO_SIN_PLEGAR ? partes : partes.slice(0, VISIBLES);
@@ -668,6 +690,17 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
     g.recargar();
   };
 
+  // el ícono ✨ de cada cuadro: otra versión de esa parte, de la IA (no guarda: la guarda el usuario con «Guardar»)
+  const regenerarLinea = async (n, actual) => {
+    try {
+      const r = await apiNuevo.regenerarLinea(slug, n, actual);
+      return r?.dice || null;
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude regenerar esa parte', texto: e?.message || 'Vuelve a intentarlo.', duracion: 9000 });
+      return null;
+    }
+  };
+
   // editar a mano: con narrador se aplica al instante (gratis); si alguien habla en el video, lo ajusta la IA
   const guardarLineas = async (lineas) => {
     try {
@@ -837,7 +870,7 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
       ) : tipo === 'historia' ? (
         <HojaHistoria estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} />
       ) : (
-        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} />
+        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} onRegenerarLinea={listo ? regenerarLinea : null} />
       )}
       <aside className="nv-guion__lado" ref={lateral}>
         {leido.aprobado || cargando ? null : (
