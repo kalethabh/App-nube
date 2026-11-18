@@ -761,12 +761,18 @@
 /* «Pronto» en el menú (lo que todavía no está: Generador de Landings) */
 .nav__pronto {
   margin-left: auto;
-  padding: 1px 7px;
+  flex: none;
+  padding: 1px 5px;
   border-radius: var(--r-pill);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: var(--peso-semi);
   letter-spacing: 0.02em;
   color: var(--texto-3);
   background: var(--superficie-3);
   white-space: nowrap;
+}
+/* (los que vienen: la letra un poco más chica para que el nombre entre completo junto a «Pronto») */
+.nav__item--pronto .nav__texto {
+  font-size: 13px;
+  letter-spacing: -0.01em;
 }

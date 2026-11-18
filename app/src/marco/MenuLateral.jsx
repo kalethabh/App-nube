@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, House, LayoutTemplate, Package, Scissors, GraduationCap, Images, LayoutGrid, Library, Lightbulb, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
+import { CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -25,12 +25,14 @@ const GRUPOS = [
   {
     titulo: 'Crear',
     items: [
-      { id: 'inspiracion', texto: 'Inspiración', icono: Lightbulb, href: enlace.inspiracion() },
+      // (Inspiración, oculta a pedido del usuario el 2026-11-18: la pantalla sigue en #/inspiracion)
       { id: 'imagenes', texto: 'Anuncios de imagen', icono: Images, href: enlace.imagenes() },
       { id: 'investigacion', texto: 'Investigación de mercado', icono: Telescope, href: enlace.investigacion() },
       { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
       { id: 'cambiar', texto: 'Cambiar el producto', icono: Repeat, href: enlace.cambiar() },
+      { id: 'whatsapp', texto: 'Embudo WhatsApp', icono: MessageCircle, href: enlace.embudoWhatsapp(), pronto: true },
       { id: 'landings', texto: 'Landings', icono: LayoutTemplate, href: enlace.landings(), pronto: true },
+      { id: 'sep', texto: 'S.E.P', icono: Rocket, href: enlace.sep(), pronto: true },
     ],
   },
   {
@@ -125,7 +127,7 @@ function FilaProduccion({ slug, titulo, imagen, etapa, avance, plegado }) {
 function ItemMenu({ item, activo, plegado, extra }) {
   const Icono = item.icono;
   const contenido = (
-    <a href={item.href} className={`nav__item${activo ? ' nav__item--activo' : ''}${item.especial ? ' nav__item--especial' : ''}`} aria-current={activo ? 'page' : undefined}>
+    <a href={item.href} className={`nav__item${activo ? ' nav__item--activo' : ''}${item.especial ? ' nav__item--especial' : ''}${item.pronto ? ' nav__item--pronto' : ''}`} aria-current={activo ? 'page' : undefined}>
       <span className="nav__icono" aria-hidden="true">
         <Icono size={item.especial ? 15 : 18} strokeWidth={item.especial ? 2.6 : 2} />
       </span>
