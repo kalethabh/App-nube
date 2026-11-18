@@ -4,20 +4,27 @@
 //
 //   medirVoz(audio, palabras?) -> { f0, genero: 'masculina' | 'femenina' | null, variacion, expresiva, ritmo, muestras }
 //                                 | null (sin audio, sin voz o sin ffmpeg)
+//   node produccion/medir-voz.js <audio> [palabras.json]   lo mismo, en un proceso aparte (imprime el JSON): así lo
+//                                 usa la app, para no quedarse ocupada mientras mide (app/server/lib/voz-auto.js)
 //
+// Es rápido aunque el video sea largo: el audio se baja a 8 kHz y se miden como mucho 800 cuadros con voz repartidos a
+// lo largo del audio (sobra para la mediana).
 // palabras: [{ desde, hasta }] de la transcripción; si vienen, solo se mide donde se habla (sin la música de las
 // pausas). El tono sale por autocorrelación de cuadros de 40 ms con voz; la mediana es robusta a la música de fondo.
 // Un tono medio de 165 Hz o menos es una voz grave (casi siempre masculina); 185 Hz o más, aguda (casi siempre
 // femenina); entre los dos, dudosa (null).
+import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const TASA = 16000;
-const CUADRO = 640; // 40 ms
-const PASO = 320; // 20 ms
+const TASA = 8000;
+const CUADRO = 320; // 40 ms
+const PASO = 160; // 20 ms
+const MAX_CUADROS = 800;
 const LAG_MIN = Math.floor(TASA / 400); // 400 Hz
 const LAG_MAX = Math.ceil(TASA / 70); // 70 Hz
 
-/** El audio como muestras mono de 16 kHz (Float32Array), o null. */
+/** El audio como muestras mono de 8 kHz (Float32Array), o null. */
 export function muestrasDe(audio, ffmpeg = process.env.FFMPEG_BIN || 'ffmpeg') {
   const r = spawnSync(ffmpeg, ['-v', 'error', '-i', audio, '-vn', '-ac', '1', '-ar', String(TASA), '-f', 'f32le', '-'], { maxBuffer: 400 * 1024 * 1024 });
   if (r.status !== 0 || !r.stdout?.length) return null;
@@ -59,7 +66,7 @@ const mediana = (l) => {
   return o.length ? o[Math.floor(o.length / 2)] : 0;
 };
 
-/** Mide la voz de unas muestras (Float32Array de 16 kHz). */
+/** Mide la voz de unas muestras (Float32Array de 8 kHz). */
 export function medirMuestras(x, palabras = null) {
   if (!x?.length) return null;
   let maxRms = 0;
@@ -71,12 +78,21 @@ export function medirMuestras(x, palabras = null) {
     rms.push(v);
     if (v > maxRms) maxRms = v;
   }
-  const hablaEn = (t) => !palabras?.length || palabras.some((p) => t >= p.desde && t <= p.hasta);
+  // los cuadros con voz (con energía y, si hay transcripción, donde se habla); como mucho MAX_CUADROS, repartidos
+  const enPalabra = new Uint8Array(rms.length);
+  if (palabras?.length) {
+    for (const p of palabras) {
+      const a = Math.max(0, Math.floor((p.desde * TASA) / PASO));
+      const b = Math.min(rms.length - 1, Math.ceil((p.hasta * TASA) / PASO));
+      for (let k = a; k <= b; k++) enPalabra[k] = 1;
+    }
+  }
+  const candidatos = [];
+  for (let k = 0; k < rms.length; k++) if (rms[k] >= maxRms * 0.12 && (!palabras?.length || enPalabra[k])) candidatos.push(k);
+  const paso = Math.max(1, candidatos.length / MAX_CUADROS);
   const tonos = [];
-  for (let k = 0, i = 0; i + CUADRO <= x.length; k++, i += PASO) {
-    if (rms[k] < maxRms * 0.12) continue;
-    if (!hablaEn((i + CUADRO / 2) / TASA)) continue;
-    const f = tonoDelCuadro(x, i);
+  for (let j = 0; j < candidatos.length; j += paso) {
+    const f = tonoDelCuadro(x, candidatos[Math.floor(j)] * PASO);
     if (f >= 70 && f <= 400) tonos.push(f);
   }
   if (tonos.length < 15) return null;
@@ -102,4 +118,17 @@ export function medirVoz(audio, palabras = null) {
   } catch {
     return null;
   }
+}
+
+// ---------------------------------------------------------------- en un proceso aparte (lo usa la app)
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === fs.realpathSync(process.argv[1])) {
+  const [audio, rutaPalabras] = process.argv.slice(2);
+  let palabras = null;
+  try {
+    palabras = rutaPalabras ? JSON.parse(fs.readFileSync(rutaPalabras, 'utf8'))?.palabras || null : null;
+  } catch {
+    palabras = null;
+  }
+  process.stdout.write(JSON.stringify(audio ? medirVoz(audio, palabras) : null));
 }
