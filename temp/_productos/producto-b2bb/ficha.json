@@ -1,0 +1,53 @@
+{
+  "nombre": "VITALABH Aguaje Complex 3 en 1",
+  "queEs": "Suplemento en cápsulas a base de aguaje, fenogreco y maca negra, de triple acción.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio",
+    "Resultados rápidos y duraderos con el tratamiento completo de 3 frascos",
+    "Trae los tres componentes puros: aguaje, fenogreco y maca negra"
+  ],
+  "publico": "Mujeres adultas que quieren aumentar glúteos y piernas, y que ya vieron o compraron aguaje de otras marcas.",
+  "dolor": "Compró aguaje de una marca que dice ser \"la original\" y no vio resultados, o los perdió al terminar. Nadie le explicó que lo que importa son los componentes puros y hacer el tratamiento completo.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "Aguaje de marcas que dicen ser \"la original\" (como VITALCOM) y no le dio resultados. También comprar de a un solo frasco, que sale más caro y no alcanza para mantener los resultados.",
+  "prueba": "",
+  "ingredientes": "Por porción de 2 cápsulas: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg. También trae vitamina A y vitamina E. Frasco de 60 cápsulas (30 porciones).",
+  "comoSeUsa": "Tomar 2 cápsulas al día, preferiblemente con las comidas principales. Un frasco dura 30 días. Lo ideal es el tratamiento completo de 3 frascos, para resultados rápidos, duraderos y sin efecto rebote.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "El frasco en la mano, con la etiqueta de frente. Es una captura de un video y abajo se ve la barra del reproductor."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": false,
+      "nota": "Es el diseño plano de la etiqueta con medidas, no el frasco. Sirvió para leer los datos del producto."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado",
+    "pais"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta un frasco y cuánto el tratamiento completo de 3? ¿Tienes envío gratis o alguna promo?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo te compran: por WhatsApp, en una página, pago contra entrega?"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "video": "original.mp4",
+  "duracion": 27.95,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 4.43,
+      "duracion": 4.43,
+      "fotograma": "tomas/toma-01.jpg",
+      "tira": "tomas/movimiento/tira-01.jpg",
+      "imagen": {
+        "brillo": 94,
+        "luz": "media",
+        "saturacion": 8.7,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 10.6,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Aquí no empacamos por salir del paso. Aquí revisamos tarro por tarro,",
+      "eventos": [],
+      "palabras_por_segundo": 2.71
+    },
+    {
+      "n": 2,
+      "desde": 4.43,
+      "hasta": 22.03,
+      "duracion": 17.6,
+      "fotograma": "tomas/toma-02.jpg",
+      "tira": "tomas/movimiento/tira-02.jpg",
+      "imagen": {
+        "brillo": 111,
+        "luz": "media",
+        "saturacion": 9.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 14.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "garantizando pureza absoluta, fitoestrógenos reales y resultados seguros para ti. Somos el único aguaje del mercado con registro Invima y con los estándares de calidad más altos del país. Hoy en día, un video con IA lo hace cualquiera en segundos, pero cuando se trata de tu cuerpo,",
+      "eventos": [],
+      "palabras_por_segundo": 2.73
+    },
+    {
+      "n": 3,
+      "desde": 22.03,
+      "hasta": 24.07,
+      "duracion": 2.04,
+      "fotograma": "tomas/toma-03.jpg",
+      "tira": "tomas/movimiento/tira-03.jpg",
+      "imagen": {
+        "brillo": 156.8,
+        "luz": "media",
+        "saturacion": 13.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 13.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "la salud no es un juego.",
+      "eventos": [],
+      "palabras_por_segundo": 2.94
+    },
+    {
+      "n": 4,
+      "desde": 24.07,
+      "hasta": 27.95,
+      "duracion": 3.88,
+      "fotograma": "tomas/toma-04.jpg",
+      "tira": "tomas/movimiento/tira-04.jpg",
+      "imagen": {
+        "brillo": 108.4,
+        "luz": "media",
+        "saturacion": 8.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 10.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "El Aguaje, original y con registro Invima.",
+      "eventos": [],
+      "palabras_por_segundo": 1.8
+    }
+  ],
+  "texto": "Aquí no empacamos por salir del paso. Aquí revisamos tarro por tarro, garantizando pureza absoluta, fitoestrógenos reales y resultados seguros para ti. Somos el único aguaje del mercado con registro Invima y con los estándares de calidad más altos del país. Hoy en día, un video con IA lo hace cualquiera en segundos, pero cuando se trata de tu cuerpo, la salud no es un juego. El Aguaje, original y con registro Invima.",
+  "palabras_por_segundo": 2.61,
+  "eventos_de_audio": [],
+  "voz": {
+    "f0": 211,
+    "genero": "femenina",
+    "variacion": 4.46,
+    "expresiva": true,
+    "ritmo": 2.62,
+    "muestras": 730
+  },
+  "aviso": null
+}

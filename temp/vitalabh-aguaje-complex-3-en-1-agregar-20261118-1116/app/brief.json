@@ -1,0 +1,21 @@
+{
+  "slug": "vitalabh-aguaje-complex-3-en-1-agregar-20261118-1116",
+  "productoId": "producto-b2bb",
+  "estilo": "agregar",
+  "familia": null,
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "auto": true
+  },
+  "continuidad": false,
+  "respuestas": {
+    "clonar": "subido:mwmbof4zdaa43d|AQNNGKDYc5vuJ2hWAwJZ2F8FKffXp11fl9enNJCHInbmbW7-47_TQxXL1T15gJ9EA5t79mPzncVewlbI",
+    "pedido": "El mismo video para mi producto",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {},
+  "creado": "2026-11-18T16:16:03.359Z"
+}
