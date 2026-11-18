@@ -49,7 +49,7 @@ import {
 import { brollQueEntranEnCarpeta } from './planear-montaje.js';
 import { problemaConFotograma } from './fotogramas.js';
 import { repetidas } from './imagenes-repetidas.js';
-import { MOVIMIENTOS_QUIETO, clipDeBiblioteca, duracionDe, modoSinCobro, movimientoQuieto, problemaConClipDeBiblioteca } from './clips-sin-cobro.js';
+import { MOVIMIENTOS_QUIETO, clipDeBiblioteca, duracionDe, modoSinCobro, movimientoQuieto, problemaConClipDeBiblioteca, problemaConImagenPropia } from './clips-sin-cobro.js';
 // Los modelos de cada anuncio (temp/<slug>/modelos.json): los costos del resumen
 // salen con ellos. Sin ese archivo, los de siempre.
 import {
@@ -2113,6 +2113,11 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false, eleccion = 
     for (const { x, id, toma } of items) {
       const pideQuieto = x.quieto !== undefined && x.quieto !== false && x.quieto !== null;
       if (pideQuieto && !movimientoQuieto(x)) E(`${id}: "quieto" es true o uno de ${MOVIMIENTOS_QUIETO.join(', ')} (dice ${JSON.stringify(x.quieto)})`);
+      // (2026-11-19) la imagen que subió el usuario para esta toma o B-roll
+      if (x.imagen_propia !== undefined) {
+        const pIP = problemaConImagenPropia(x);
+        if (pIP) E(`${id}: ${pIP}`);
+      }
       if ((pideQuieto || x.desde_biblioteca) && conContinuidadSC) E(`${id}: con continuidad cada video va de una toma a la siguiente: no puede ser "quieto" ni venir "desde_biblioteca".`);
       if ((pideQuieto || x.desde_biblioteca) && toma && (x.tipo === 'R' || x.tipo === 'H')) E(`${id}: una toma ${x.tipo} habla dentro del clip: no puede ser "quieto" ni venir "desde_biblioteca".`);
       if ((pideQuieto || x.desde_biblioteca) && toma && m.modo_audio === 'dialogo_nativo') E(`${id}: en un anuncio con diálogo la toma habla dentro del clip: solo el B-roll puede ser "quieto" o venir "desde_biblioteca".`);

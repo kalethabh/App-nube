@@ -779,6 +779,11 @@ const conFrame = (t) => typeof t?.frame_inicial === 'string' && t.frame_inicial.
  * motivoNo = por que esa no (se explica en la pantalla en vez de ofrecerla). Sin el B-roll que no entra en el video
  * con la voz del anuncio (lib/broll.js): no se genera, y regenerarlo no pondria nada en el video.
  */
+// «Tus videos e imágenes» (lib/material-propio.js): un video tuyo usado como escena se usa tal cual (con una imagen
+// tuya, en cambio, el clip sí se regenera; la imagen no)
+const MOTIVO_MATERIAL = 'Es tu video: se usa tal cual y no se regenera.';
+const esMaterialDelUsuario = (item) => /(^|\/)temp\/[^/]+\/material\//.test(String(item?.desde_biblioteca || '').replace(/\\/g, '/'));
+
 function piezasDe(manifiesto, slug) {
   const regla = brollDe(dirAnuncio(slug), manifiesto);
   const continuidad = Boolean(manifiesto?.continuidad);
@@ -800,10 +805,11 @@ function piezasDe(manifiesto, slug) {
       n: t.n,
       tipo: t.tipo,
       nombre: t.tipo === 'R' ? `Bloque ${t.n}` : t.tipo === 'H' ? `Clip ${t.n}` : `Escena ${t.n}`,
-      imagen: t.tipo !== 'R' && !conFrame(t) && Boolean(t.prompt_imagen_inicial),
+      imagen: t.tipo !== 'R' && !conFrame(t) && !t.imagen_propia && Boolean(t.prompt_imagen_inicial),
       clip: true,
       duracion: Number(t.duracion) || null,
       linea: t.linea || null,
+      ...(esMaterialDelUsuario(t) ? { motivoNo: MOTIVO_MATERIAL } : {}),
     };
   }
   for (const b of continuidad ? [] : manifiesto?.broll || []) {
@@ -814,10 +820,11 @@ function piezasDe(manifiesto, slug) {
       n: b.n,
       toma: b.encima_de_toma ?? b.despues_de_toma ?? null,
       nombre: `Imagen de apoyo ${b.n}`,
-      imagen: Boolean(b.prompt_imagen),
+      imagen: Boolean(b.prompt_imagen) && !b.imagen_propia,
       clip: true,
       duracion: Number(b.duracion) || null,
       linea: b.sincroniza_con || null,
+      ...(esMaterialDelUsuario(b) ? { motivoNo: MOTIVO_MATERIAL } : {}),
     };
   }
   for (const p of continuidad && Array.isArray(manifiesto.continuidad?.pasos) ? manifiesto.continuidad.pasos : []) {

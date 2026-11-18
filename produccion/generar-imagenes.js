@@ -87,7 +87,7 @@ import {
   tomaDelBroll,
 } from './referencias.js';
 import { problemaConFotograma, promptConFotograma, rutaLimpia } from './fotogramas.js';
-import { clipDeBiblioteca, fotogramaDe, itemDeTrabajo, modoSinCobro } from './clips-sin-cobro.js';
+import { clipDeBiblioteca, fotogramaDe, imagenPropia, imagenPropiaA, itemDeTrabajo, modoSinCobro, problemaConImagenPropia } from './clips-sin-cobro.js';
 import { anotarHojaDeReferencia } from './estado.js';
 import { archivarSiExiste } from './historial.js';
 import { repetidas } from './imagenes-repetidas.js';
@@ -1494,6 +1494,31 @@ async function cli() {
           fotogramaDe(clipDeBiblioteca(itemDeTrabajo(manifiesto, t)), path.join(dirImg, t.archivo), t.archivo.endsWith('-final.png') ? 'ultimo' : 'primero');
         } catch (e) {
           console.log(`  !!  no pude sacar ${t.archivo} del clip de la biblioteca (${e.message.slice(0, 120)})`);
+        }
+      }
+    }
+  }
+
+  // IMAGEN PROPIA (2026-11-19): una toma o un B-roll con "imagen_propia" (una imagen que subió el usuario) usa esa
+  // imagen tal cual como su imagen (la inicial; el frame final de una B se genera como siempre). No se genera ni se paga.
+  const propias = plan.filter((t) => (t.clase === 'toma' || t.clase === 'broll') && !t.archivo.endsWith('-final.png') && imagenPropia(itemDeTrabajo(manifiesto, t)));
+  if (propias.length) {
+    plan = plan.filter((t) => !propias.includes(t));
+    console.log(`\n  Con tu imagen (no se generan, no se pagan): ${propias.map((t) => t.archivo).join(', ')}`);
+    if (!args.includes('--solo-plan')) {
+      fs.mkdirSync(dirImg, { recursive: true });
+      for (const t of propias) {
+        const item = itemDeTrabajo(manifiesto, t);
+        const problema = problemaConImagenPropia(item);
+        if (problema) {
+          console.log(`  !!  ${t.archivo}: ${problema}`);
+          continue;
+        }
+        if (fs.existsSync(path.join(dirImg, t.archivo)) && !args.includes('--rehacer')) continue;
+        try {
+          imagenPropiaA(imagenPropia(item), path.join(dirImg, t.archivo));
+        } catch (e) {
+          console.log(`  !!  no pude poner tu imagen en ${t.archivo} (${e.message.slice(0, 120)})`);
         }
       }
     }

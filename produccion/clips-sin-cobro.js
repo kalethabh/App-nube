@@ -17,6 +17,13 @@
 //
 //         "desde_biblioteca": "mis_archivos/biblioteca/clips/estilo-pixar/drenaje-linfatico-1a2b.mp4"
 //
+//      (2026-11-19) también un VIDEO DEL USUARIO que subió al crear el anuncio (temp/<slug>/material/):
+//         "desde_biblioteca": "temp/<slug>/material/M01.mp4"
+//
+//   3. "imagen_propia" (2026-11-19): una IMAGEN del usuario es la imagen de esa toma o B-roll tal cual (no se genera
+//      ni se paga; el video se anima desde ella, o va "quieto"). Solo de temp/<slug>/material/:
+//         "imagen_propia": "temp/<slug>/material/M02.jpg"
+//
 // Y para llenar la biblioteca, una toma o un B-roll puede pedir que su clip,
 // una vez generado, se guarde para otros anuncios:
 //
@@ -70,12 +77,40 @@ export function itemDeTrabajo(m, trabajo) {
   return null;
 }
 
-/** Dentro de RAIZ/mis_archivos/biblioteca/clips, y que exista. */
+/** ¿Está en el material que subió el usuario a un anuncio (temp/<slug>/material/<archivo>)? */
+export function esDeMaterial(ruta) {
+  const rel = path.relative(path.join(RAIZ, 'temp'), ruta).split(path.sep);
+  return rel.length === 3 && rel[0] !== '..' && !path.isAbsolute(rel.join('/')) && rel[1] === 'material' && !rel.includes('..');
+}
+
+/** La imagen del usuario que es la imagen de este item (toma o B-roll), o null. */
+export function imagenPropia(item) {
+  if (!item || typeof item.imagen_propia !== 'string' || !item.imagen_propia.trim()) return null;
+  return path.resolve(RAIZ, item.imagen_propia.trim());
+}
+
+/** null si está bien; si no, el motivo (validador y motor). */
+export function problemaConImagenPropia(item) {
+  const ruta = imagenPropia(item);
+  if (!ruta) return null;
+  if (!esDeMaterial(ruta)) return `"imagen_propia" tiene que ser una imagen de temp/<slug>/material/ (dice ${item.imagen_propia})`;
+  if (!/\.(png|jpe?g|webp)$/i.test(ruta)) return `"imagen_propia" tiene que ser una imagen (png, jpg o webp): ${item.imagen_propia}`;
+  if (!fs.existsSync(ruta)) return `no encuentro la imagen ${item.imagen_propia}`;
+  return null;
+}
+
+/** La imagen del usuario a la imagen de la toma (vertical, del tamaño del anuncio, recortada al centro). */
+export function imagenPropiaA(origen, destino, { ancho = 1080, alto = 1920 } = {}) {
+  fs.mkdirSync(path.dirname(destino), { recursive: true });
+  execFileSync(FFMPEG, ['-hide_banner', '-loglevel', 'error', '-y', '-i', origen, '-vf', `scale=${ancho}:${alto}:force_original_aspect_ratio=increase,crop=${ancho}:${alto}`, '-frames:v', '1', destino]);
+}
+
+/** Dentro de RAIZ/mis_archivos/biblioteca/clips (o el material del usuario del anuncio), y que exista. */
 export function problemaConClipDeBiblioteca(item) {
   const ruta = clipDeBiblioteca(item);
   if (!ruta) return null;
   const rel = path.relative(DIR_CLIPS, ruta);
-  if (rel.startsWith('..') || path.isAbsolute(rel)) return `"desde_biblioteca" tiene que estar dentro de mis_archivos/biblioteca/clips/ (dice ${item.desde_biblioteca})`;
+  if ((rel.startsWith('..') || path.isAbsolute(rel)) && !esDeMaterial(ruta)) return `"desde_biblioteca" tiene que estar dentro de mis_archivos/biblioteca/clips/ o ser un video tuyo de temp/<slug>/material/ (dice ${item.desde_biblioteca})`;
   if (!fs.existsSync(ruta)) return `no encuentro el clip de la biblioteca ${item.desde_biblioteca}`;
   return null;
 }

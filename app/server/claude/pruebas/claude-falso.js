@@ -156,6 +156,19 @@ async function guion(texto, m, intento) {
     return 'BLOQUEADO';
   }
   const man = manifiestoDePrueba(slug);
+  // «Tus videos e imágenes» (2026-11-19): si el usuario subió material, la imagen va como la imagen exacta de la toma 1
+  // y el video como la escena del primer B-roll (sin generar ni pagar)
+  const material = (() => {
+    try {
+      return JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', slug, 'material', 'material.json'), 'utf8'));
+    } catch {
+      return [];
+    }
+  })();
+  const img = material.find((x) => x.tipo === 'imagen');
+  const vid = material.find((x) => x.tipo === 'video');
+  if (img && man.tomas[0]) man.tomas[0].imagen_propia = `temp/${slug}/material/${img.archivo}`;
+  if (vid && man.broll?.[0]) man.broll[0].desde_biblioteca = `temp/${slug}/material/${vid.archivo}`;
   await usarConParciales('Write', { file_path: path.join(RAIZ, 'temp', slug, 'manifiesto.json'), content: JSON.stringify(man).slice(0, 2000) });
   escribir(`temp/${slug}/manifiesto.json`, man);
   const trans = JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', 'befen-regulador-apetito', 'transiciones.json'), 'utf8'));
