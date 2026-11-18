@@ -142,6 +142,16 @@ function PorProducto({ productos, q }) {
   );
 }
 
+/** En la nube: lo pesado está en tu carpeta de nube (se ve desde allí; para editar se trae solo). */
+function MarcaNube() {
+  return (
+    <span className="marca-nube" title="En tu nube: se ve desde allí y se trae solo al editar">
+      <Cloud size={12} strokeWidth={2.4} aria-hidden="true" />
+      En la nube
+    </span>
+  );
+}
+
 export default function Anuncios() {
   const { datos, cargando, recargar } = useAnuncios({ cadaMs: 10000 });
   const [pestana, setPestana] = useState('todos');
@@ -256,7 +266,7 @@ export default function Anuncios() {
               estilo={a.continuidad ? `${a.estiloNombre} · Continuidad` : a.estiloNombre}
               etiqueta={a.estado === 'listo' ? 'Terminado' : ETAPA[a.etapa] || 'En producción'}
               titulo={a.titulo}
-              insignia={a.modoPrueba ? <MarcaModoPrueba /> : null}
+              insignia={a.modoPrueba ? <MarcaModoPrueba /> : a.enLaNube ? <MarcaNube /> : null}
               aria-label={`Abrir ${a.titulo}`}
               href={a.estado === 'listo' || a.etapa === 'guion' ? enlace.anuncio(a.slug) : enlace.produccion(a.slug)}
             />

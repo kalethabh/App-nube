@@ -1,5 +1,6 @@
-// Aviso en la entrega: este anuncio ya está en tu Google Drive (lo pesado se borró de la Mac para liberar espacio).
-// "Traer de vuelta" lo baja otra vez para verlo aquí (para editar, rehacer o sacar ganchos se trae solo).
+// Aviso en la entrega: este anuncio ya está en tu nube (lo pesado se borró del computador para liberar espacio). Se ve,
+// se reproduce y se descarga desde la copia (lib/en-la-nube.js); «Traer de vuelta» lo baja otra vez (para editar,
+// rehacer o sacar ganchos se trae solo).
 import { useEffect, useState } from 'react';
 import { CloudDownload } from 'lucide-react';
 import { Boton } from '../../componentes/index.js';
@@ -36,7 +37,7 @@ export function EnLaNube({ slug, alTraer }) {
   return (
     <div className="ent-nube">
       <p className="ent-nube__texto">
-        <strong>Este anuncio está en tu Google Drive.</strong> Para liberar espacio, sus videos e imágenes se borraron de este computador. Para editarlo, rehacer algo o sacar más ganchos, se trae solo.
+        <strong>Está en tu nube.</strong> Lo ves, lo reproduces y lo descargas desde aquí. Para editarlo, rehacer algo o sacar más ganchos, se trae solo.
       </p>
       <Boton variante="secundario" tamano="chico" icono={CloudDownload} onClick={traer} cargando={trayendo}>
         Traer de vuelta

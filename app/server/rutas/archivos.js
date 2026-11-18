@@ -5,12 +5,16 @@
 // GET /archivos/muestra/<clave>/<arch> -> la muestra de un estilo que trae el paquete (app/muestras/<clave>/video.mp4
 //                                         o imagen.jpg): solo esos archivos, de solo lectura
 //
+// Si el anuncio ya está en la nube (lo pesado se borró de este computador), se sirve la copia de la carpeta de nube
+// (lib/en-la-nube.js): se ve y se reproduce sin traerlo de vuelta.
+//
 // Solo medios (ver TIPOS_MEDIO). Los JSON del motor nunca salen por aca. Ninguna ruta puede salirse de su carpeta.
 import path from 'node:path';
 import { TEMP, OUTPUT } from '../lib/rutas.js';
 import { dentroDe, segmentoValido, stat, TIPOS_MEDIO } from '../lib/archivos.js';
 import { slugValido } from '../lib/anuncios.js';
 import { rutaDeArchivoDeMuestra } from '../lib/muestras.js';
+import { archivoEnNube, finalEnNube } from '../lib/en-la-nube.js';
 
 export function enviar(res, abs) {
   const tipo = TIPOS_MEDIO[path.extname(abs).toLowerCase()];
@@ -34,7 +38,7 @@ export default function rutasArchivos(app) {
     const partes = Array.isArray(req.params.ruta) ? req.params.ruta : String(req.params.ruta || '').split('/');
     const abs = dentroDe(path.join(TEMP, slug), partes);
     if (!abs) return res.status(400).json({ error: 'Ruta no válida.' });
-    enviar(res, abs);
+    enviar(res, stat(abs)?.isFile() ? abs : archivoEnNube(slug, partes.join('/')) || abs);
   });
 
   app.get('/archivos/salida/:archivo', (req, res) => {
@@ -42,7 +46,7 @@ export default function rutasArchivos(app) {
     if (!segmentoValido(archivo)) return res.status(400).json({ error: 'Ruta no válida.' });
     const abs = dentroDe(OUTPUT, [archivo]);
     if (!abs) return res.status(400).json({ error: 'Ruta no válida.' });
-    enviar(res, abs);
+    enviar(res, stat(abs)?.isFile() ? abs : finalEnNube(archivo) || abs);
   });
 
   app.get('/archivos/muestra/:clave/:archivo', (req, res) => {

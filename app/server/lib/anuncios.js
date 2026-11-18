@@ -7,6 +7,12 @@ import path from 'node:path';
 import { APP, TEMP, OUTPUT, DOLARES_POR_CREDITO } from './rutas.js';
 import { leerJSON, existe, stat, listar, segmentoValido, esImagen, esVideo } from './archivos.js';
 import { duracionMp4 } from './mp4.js';
+import { finalesEnNube, marca as marcaNube } from './en-la-nube.js';
+
+const enLaNubeArchivos = (slug) => {
+  const m = marcaNube(slug);
+  return m ? [...new Set([...(m.archivos || []), ...Object.keys(m.ubicaciones || {})])] : null;
+};
 import { estiloDeManifiesto, FAMILIAS, muestrasDeEstilos } from './estilos.js';
 import { brollDe } from './broll.js';
 import { creditosTipicos } from './modelos.js';
@@ -172,8 +178,10 @@ function buscarVideo(archivosVideo, base) {
 
 function leerCarpeta(slug) {
   const dir = path.join(TEMP, slug);
-  const img = listar(path.join(dir, 'img')).filter(esImagen);
-  const video = listar(path.join(dir, 'video')).filter(esVideo);
+  // (con lo que se fue a la nube: se sigue viendo, desde su copia; lib/en-la-nube.js)
+  const deNube = (sub) => (enLaNubeArchivos(slug) || []).filter((r) => r.startsWith(`${sub}/`) && !r.slice(sub.length + 1).includes('/')).map((r) => r.slice(sub.length + 1));
+  const img = [...new Set([...listar(path.join(dir, 'img')), ...deNube('img')])].filter(esImagen);
+  const video = [...new Set([...listar(path.join(dir, 'video')), ...deNube('video')])].filter(esVideo);
   return { dir, raiz: listar(dir), img, video, imgSet: new Set(img), videoSet: new Set(video) };
 }
 
@@ -234,11 +242,14 @@ function descripcionDeEdicion(slug, n) {
 function versionesDe(slug, archivosOutput) {
   const re = new RegExp(`^${escaparRe(slug)}_(?:(\\d+x\\d+)_)?(.+)\\.(mp4|srt)$`, 'i');
   const versiones = [];
-  for (const archivo of archivosOutput) {
+  // (los finales que ya están solo en la nube también cuentan: se ven y se descargan desde su copia, lib/en-la-nube.js)
+  const enNube = new Map(finalesEnNube(slug).map((x) => [x.archivo, x.abs]));
+  for (const archivo of [...archivosOutput, ...[...enNube.keys()].filter((a) => !archivosOutput.includes(a))]) {
     const r = archivo.match(re);
     if (!r) continue;
     const [, formato, tipoCrudo, ext] = r;
-    const st = stat(path.join(OUTPUT, archivo));
+    const ruta = enNube.get(archivo) || path.join(OUTPUT, archivo);
+    const st = stat(ruta);
     if (!st?.isFile()) continue;
     // (las del editor se llaman <slug>_editado-N; "edit-N" es como se llamaban antes)
     const edicion = tipoCrudo.match(/^edit(?:ado)?-(\d+)$/i);
@@ -258,7 +269,8 @@ function versionesDe(slug, archivosOutput) {
       url: urlSalida(archivo),
       tamano: st.size,
       fecha: st.mtime.toISOString(),
-      duracion: esMp4 ? duracionMp4(path.join(OUTPUT, archivo)) : null,
+      duracion: esMp4 ? duracionMp4(ruta) : null,
+      ...(enNube.has(archivo) ? { enLaNube: true } : {}),
       _orden: info.orden + (esMp4 ? 0 : 0.5),
     });
   }
@@ -367,6 +379,8 @@ function firmaDe(slug) {
     stat(path.join(dir, 'audio', 'voz.mp3'))?.mtimeMs,
     // «Guardar» del editor cambia la version principal
     stat(path.join(dir, 'app', 'version-principal.json'))?.mtimeMs,
+    // lo que se fue a la nube (lib/en-la-nube.js)
+    stat(path.join(dir, 'app', 'en-la-nube.json'))?.mtimeMs,
     // un cambio en el editor sube el anuncio en las listas
     stat(path.join(dir, 'app', 'edicion.json'))?.mtimeMs,
   ];
@@ -427,6 +441,8 @@ export function resumenAnuncio(slug, archivosOutput = listar(OUTPUT)) {
     duracion: duracion !== null ? redondear(duracion, 2) : null,
     duracionOrigen: duracionPlan !== null ? 'montaje' : principal?.duracion ? 'video' : duracionEstimada ? 'estimada' : null,
     miniatura: miniaturaDe(slug, m, c),
+    // lo pesado está en la nube (se ve desde allí; para editar se trae solo)
+    ...(enLaNubeArchivos(slug) ? { enLaNube: true } : {}),
     video: principal ? principal.url : primerClip ? urlAnuncio(slug, `video/${primerClip}`) : null,
     estado,
     etapa,
