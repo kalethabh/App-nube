@@ -1,0 +1,127 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format F16 (Lifestyle en uso)",
+    "reference_style": "Editorial lifestyle photograph of a real young woman using the product in her kitchen during breakfast, with a clean headline and a short subheadline integrated into the calm, blurred wall area of the photo; aspirational yet believable",
+    "angle_used": "Beneficio sin sacrificio",
+    "ad_format": "Lifestyle In-Use Photo Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "#C0B116 and #1C305F",
+    "visual_style": "Clean, bold and modern direct-response wellness ad: natural warm photography of a young Colombian woman in an everyday morning moment in her kitchen, shown from the waist up and in action, with a thick condensed headline set directly on the photo",
+    "visual_atmosphere": "Warm, honest, feminine and close: morning light, home breakfast, the calm feeling of a small daily ritual. Confident and optimistic, never clinical and never body-shaming",
+    "graphic_language": "No graphic shapes: the brand lives inside the photo. Mustard yellow (#C0B116) in her blouse, deep navy (#1C305F) in the headline and in small props (a ceramic mug, a cloth napkin), warm cream wall, generous margins, strong contrast between the navy text and the light wall",
+    "text_typography": "Anton + Caveat"
+  },
+  "creative_objective": "Speak to the woman who wants curves but is afraid of surgery and injections: show that her way is a calm morning ritual of a few drops in her orange juice, with no needles. The photo must make the ritual look easy, real and pleasant, and the headline must say the benefit and the sacrifice she avoids in one glance, preserving the exact structure of the lifestyle in-use format: one photo, one person, the product in use, a headline and a short subheadline on the clean area, nothing else.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The woman putting her drops into the glass of orange juice (emotion + action). 2) The big navy headline on the clean wall area. 3) The product, sharp and clearly identifiable in her hand, label facing the camera. 4) The short handwritten-style subheadline.",
+    "composition_style": "Full-bleed photograph, rule of thirds. The woman and the product occupy the right 55-60% of the frame, in a three-quarter medium shot from the waist up, camera at chest height. Her body is turned slightly toward the left of the frame and her eyes are on the glass, so her gesture leads toward the text and never out of the frame. The left 40% is a calm, low-detail, softly blurred light kitchen wall that holds the headline and the subheadline directly on the photo, with no box behind them.",
+    "spacing_and_structure": "Headline block within about 6-46% of the width and 8-31% of the height, left-aligned, 3 lines. Subheadline directly below, at about 33-41% of the height, never past 46% of the width. Woman's head within about 10-40% of the height, at about 58-80% of the width. Product in her hand at about 62-78% of the width and 40-64% of the height, about 22-24% of the canvas height, label facing the camera, not cut by the frame. Glass of orange juice on the counter at about 44-58% of the width and 62-86% of the height, below the text area. Breakfast plate at the bottom right, partly visible. Nothing important in the outer 5% margin. No text over her face, her hands, the glass or the product.",
+    "lighting_and_depth": "Soft natural morning window light coming from the left side, so the wall on the left is bright and airy and the woman is lit with soft wraparound light. Shallow depth of field (50mm lens, f/2.2 look): the woman, her hands, the product and the glass are sharp; the kitchen behind her is softly blurred. Warm, true-to-life color grading with gentle contrast, leaning toward warm cream and mustard tones; real skin texture, no heavy retouching.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square full-bleed lifestyle photograph taken in a Colombian home kitchen with morning light. On the right side, a young woman seen from the waist up is caught mid-action: she holds the product in one hand, label facing the camera, and with the other hand she lets a few drops fall from the dropper into a glass of orange juice that stands on the counter next to her breakfast. The left side of the photo is a calm, softly blurred light cream wall where a bold, left-aligned, three-line headline and a short subheadline sit directly on the image. No boxes, panels or other graphics.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "photographic scene",
+        "position": "Full canvas",
+        "visual_function": "The real context where the product is used; sets the mood of a calm morning ritual at home",
+        "adaptation_rule": "A real, modest and tidy Colombian home kitchen in the morning: light counter, a warm cream wall, a window out of frame on the left, a few blurred everyday details behind her on the right (a shelf with a clay pot, a small plant, a hanging dish towel). The left 40% of the photo is only the plain, softly blurred cream wall, calm and low-detail, for the text."
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "person",
+        "position": "Right 55-60% of the canvas, head within about 10-40% of the height",
+        "visual_function": "Embodies the target customer and the calm, confident feeling of taking care of herself without anything invasive",
+        "adaptation_rule": "One realistic young Colombian woman, about 27, slim, warm brown skin, long dark hair loosely tied back, wearing a loose mustard-yellow (#C0B116) blouse. Three-quarter medium shot from the waist up, camera at chest height. Candid pose caught mid-action, not posing for the camera: her eyes are on the glass and she has a small, relaxed smile. Loose clothing, no emphasis on her body."
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "product",
+        "position": "In her hand at chest height, about 62-78% of the width and 40-64% of the height; the dropper in her other hand above the glass at about 46-56% of the width",
+        "visual_function": "Shows exactly what is being sold while it delivers the moment: drops, not needles",
+        "adaptation_rule": "The product exactly as in the attached product photo (same geometry, glass, label and colors), sharp, upright, label facing the camera, realistic scale, about 22-24% of the canvas height, held slightly toward the camera. It is open because she is using it: its black rubber-bulb dropper with the glass pipette is in her other hand, held vertically a few centimeters above the glass of orange juice, with one small amber drop falling into the juice."
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "headline",
+        "position": "Left clean area, about 6-46% of the width and 8-31% of the height, left-aligned",
+        "visual_function": "States the hook the photo is showing: the benefit and the sacrifice she avoids",
+        "adaptation_rule": "Three left-aligned lines in Anton, solid deep navy #1C305F, placed directly on the light wall, no box."
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "subheadline",
+        "position": "Directly below the headline, left-aligned, within about 6-46% of the width and 33-41% of the height",
+        "visual_function": "Grounds the hook in what the product is: a few drops a day in her juice",
+        "adaptation_rule": "One short supporting line in Caveat (clean handwritten style), deep navy, in at most 2 lines."
+      }
+    ],
+    "forbidden_additions": [
+      "Boxes, panels, cards or solid color blocks behind the text",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonial quotes",
+      "Benefit list, checkmarks or icons",
+      "Split screen, collage or before/after",
+      "Stickers, arrows or doodles",
+      "Additional people as main subjects",
+      "Studio backdrop or isolated product cut-out",
+      "Bottom bar or banner",
+      "Logos or brand marks",
+      "Needles, syringes, pills or any medical object",
+      "Close-ups of the body or tight clothing",
+      "The yellow circle with 60ml from the product photo"
+    ]
+  },
+  "visual_prompt": "Square 1:1 static ad: one full-bleed editorial lifestyle photograph, natural and believable, with text set directly on the photo. SCENE: a real, modest and tidy Colombian home kitchen in the morning, with soft natural window light coming from the left. Shot with a 50mm lens look at f/2.2, shallow depth of field, warm true-to-life color grading with gentle contrast leaning toward warm cream and mustard tones. RIGHT 55-60% OF THE FRAME: one realistic young Colombian woman, about 27, slim, warm brown skin, long dark hair loosely tied back, wearing a loose mustard-yellow (#C0B116) blouse, in a three-quarter medium shot from the waist up, camera at chest height. Her head sits at about 58-80% of the width and 10-40% of the height. She stands at a light kitchen counter, her body turned slightly toward the left of the frame, caught mid-action and not posing: in one hand, at chest height (about 62-78% of the width, 40-64% of the height), she holds the product upright with its label facing the camera, about 22-24% of the canvas height, sharp and fully inside the frame; with her other hand she holds the product's black rubber-bulb dropper with its glass pipette vertically a few centimeters above a tall clear glass of fresh orange juice, and one small amber drop is falling into the juice. Her eyes are on the glass and she has a small, relaxed, confident smile. Real skin texture, loose clothing, the framing does not emphasize her body. ON THE COUNTER: the glass of orange juice at about 44-58% of the width and 62-86% of the height; at the bottom right, partly visible, a simple homemade breakfast on a white plate (a round white arepa with scrambled eggs and a few slices of papaya), a deep navy (#1C305F) ceramic mug and a folded deep navy cloth napkin. Behind her on the right, softly blurred: a shelf with a clay pot, a small plant and a hanging dish towel. LEFT 40% OF THE FRAME: only a plain, bright, warm cream kitchen wall, softly blurred, calm and low in detail, lit by the window light. On this clean area, directly on the photo with no box, panel or shape behind it: a large left-aligned three-line headline in a thick condensed uppercase sans-serif (Anton), solid deep navy (#1C305F), within about 6-46% of the width and 8-31% of the height, each line about 6.5% of the canvas height; directly below it, at about 33-41% of the height and never past 46% of the width, a short left-aligned subheadline in a clean handwritten font (Caveat), deep navy, in two lines. No text touches her face, her hands, the glass or the product. Keep a 5% empty margin around the canvas. PRODUCT: it is the amber glass dropper bottle with a yellow-to-white label shown in the attached product image. Use the attached product image as the only source of truth for the product and reproduce it exactly as it is: same bottle shape, glass color, label design, colors and proportions; do not redesign, replace or reinterpret it. The only difference is that the bottle is open, because its black rubber-bulb dropper cap is in her other hand. Do not reproduce the yellow circle with the text 60ml from the corner of the product photo. Only one person. No needles, no syringes, no pills, no medical objects. No boxes behind the text, no CTA button, no price, no badges, no stars, no icons, no arrows or doodles, no split screen, no before/after, no bottom bar, no logos.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Upper left, in the clean wall area of the photo, about 6-46% of the width and 8-31% of the height",
+      "text_style": "Anton, extra bold condensed uppercase, each line about 6.5% of the canvas height, 3 lines, left-aligned, solid deep navy #1C305F on the bright cream wall. Line breaks: line 1 TRABAJA, line 2 TUS CURVAS. and line 3 SIN AGUJAS. Both periods are visible.",
+      "text": "TRABAJA TUS CURVAS. SIN AGUJAS."
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, left-aligned, about 33-41% of the height, within 6-46% of the width",
+      "text_style": "Caveat, clean and legible handwritten style, bold weight, about 4.2% of the canvas height per line, 2 lines, left-aligned, deep navy #1C305F. Line break after the word día.",
+      "text": "Unas gotas al día en tu jugo."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "One real-looking young Colombian woman, waist up, mid-action, putting drops into a glass of orange juice",
+    "The product from the attached photo, sharp, in her hand, label facing the camera",
+    "The product's black dropper in her other hand above the glass, with one amber drop falling",
+    "A glass of orange juice and a simple breakfast on the kitchen counter",
+    "Clean, calm, softly blurred cream wall area on the left of the photo for the text",
+    "Natural morning window light from the left and shallow depth of field",
+    "Brand colors inside the photo: mustard-yellow blouse, deep navy mug and napkin"
+  ],
+  "final_generation_exclusions": [
+    "No needles, syringes, pills or medical objects, even as a comparison",
+    "No close-ups of the body, no tight clothing and no body comparison",
+    "No box, panel or color block behind the headline or the subheadline",
+    "No second bottle and no isolated product cut-out",
+    "No yellow 60ml circle copied from the product photo",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts. The headline invites an action (work on your curves) and states a true product fact (drops, no needles); it promises no result, and the image does not single out the body.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
