@@ -1,0 +1,40 @@
+{
+  "fecha": "2026-11-18T14:19:33.973Z",
+  "marcas": [
+    {
+      "id": "n-naturashoppy",
+      "nombre": "Naturashoppy",
+      "pagina": null,
+      "dominio": "whatsapp.com",
+      "logo": null,
+      "activos": null,
+      "alcance": null
+    },
+    {
+      "id": "n-eleveit-mex",
+      "nombre": "Eleveit Mex",
+      "pagina": null,
+      "dominio": "eleveitmx.shop",
+      "logo": null,
+      "activos": null,
+      "alcance": null
+    },
+    {
+      "id": "n-hair-bond",
+      "nombre": "Hair Bond",
+      "pagina": null,
+      "dominio": "fb.com",
+      "logo": null,
+      "activos": null,
+      "alcance": null
+    }
+  ],
+  "gastados": 3014,
+  "creditos": {
+    "plan": "professional",
+    "restantes": 2868,
+    "limite": 10000,
+    "fin": "2026-11-26T14:18:24.000Z",
+    "fecha": "2026-11-18T14:19:33.101Z"
+  }
+}
