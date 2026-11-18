@@ -1,43 +1,840 @@
 {
-  "nota": "Las PLANTILLAS de los anuncios de imagen (2026-11-18s): 30 anuncios validados de la categoría que el usuario pasó como ejemplo. No se dibujan: cada una va al modelo de imagen como referencia, con la foto del producto, y el modelo mantiene la estructura, la composición y la tipografía y cambia el producto, los textos y la paleta (app/server/lib/imagen-ads/plantillas-referencia.js). familia = el tipo de ángulo (para que «Que la app elija» reparta ideas distintas); grupo = las que son casi la misma (nunca dos del mismo grupo en una elección automática).",
+  "nota": "Las PLANTILLAS de los anuncios de imagen (2026-11-18s): 30 anuncios validados de la categoría que el usuario pasó como ejemplo. No se dibujan: cada una va al modelo de imagen como referencia, con la foto del producto, y el modelo mantiene la estructura, la composición y la tipografía y cambia el producto, los textos y la paleta (app/server/lib/imagen-ads/plantillas-referencia.js). familia = el tipo de ángulo (para que «Que la app elija» reparta ideas distintas); grupo = las que son casi la misma (nunca dos del mismo grupo en una elección automática). Las p31 en adelante salieron de TrendTrack (anuncios de imagen en español activos hace meses, con alcance real): `fuente` dice de qué marca, cuántos días lleva y su alcance.",
   "familias": [
-    { "id": "dolor", "nombre": "Dolor y deseo" },
-    { "id": "antes-despues", "nombre": "Antes y después" },
-    { "id": "tiempo", "nombre": "Línea de tiempo" },
-    { "id": "comparacion", "nombre": "Comparación" },
-    { "id": "beneficios", "nombre": "Beneficios" },
-    { "id": "nativo", "nombre": "Nativo y temporada" }
+    {
+      "id": "dolor",
+      "nombre": "Dolor y deseo"
+    },
+    {
+      "id": "antes-despues",
+      "nombre": "Antes y después"
+    },
+    {
+      "id": "tiempo",
+      "nombre": "Línea de tiempo"
+    },
+    {
+      "id": "comparacion",
+      "nombre": "Comparación"
+    },
+    {
+      "id": "beneficios",
+      "nombre": "Beneficios"
+    },
+    {
+      "id": "nativo",
+      "nombre": "Nativo y temporada"
+    }
   ],
   "plantillas": [
-    { "id": "p01", "nombre": "Silueta neón con zonas", "familia": "dolor", "grupo": "neon" },
-    { "id": "p02", "nombre": "Historia antes y después", "familia": "antes-despues", "grupo": "historia" },
-    { "id": "p03", "nombre": "Etapas en neón", "familia": "tiempo", "grupo": "neon-etapas" },
-    { "id": "p04", "nombre": "Día 1 · 14 · 30", "familia": "tiempo", "grupo": "dias" },
-    { "id": "p05", "nombre": "Sin vs. con el producto", "familia": "comparacion", "grupo": "sin-con" },
-    { "id": "p06", "nombre": "Tu producto vs. el otro", "familia": "comparacion", "grupo": "vs" },
-    { "id": "p07", "nombre": "No compres esto si…", "familia": "nativo", "grupo": "no-compres" },
-    { "id": "p08", "nombre": "Resultado en 2 semanas", "familia": "antes-despues", "grupo": "ad-blanco-negro" },
-    { "id": "p09", "nombre": "Solo X vs. X + producto", "familia": "comparacion", "grupo": "solo-con" },
-    { "id": "p10", "nombre": "Antes y después partido", "familia": "antes-despues", "grupo": "partido" },
-    { "id": "p11", "nombre": "Pregunta y revelación", "familia": "dolor", "grupo": "pregunta" },
-    { "id": "p12", "nombre": "¿Todavía se ve así?", "familia": "antes-despues", "grupo": "diagrama" },
-    { "id": "p13", "nombre": "Estado vs. estado", "familia": "comparacion", "grupo": "ilustrado" },
-    { "id": "p14", "nombre": "3 zonas, 3 semanas", "familia": "tiempo", "grupo": "zonas" },
-    { "id": "p15", "nombre": "Antes y después en cuadrícula", "familia": "antes-despues", "grupo": "cuadricula" },
-    { "id": "p16", "nombre": "Beneficios con íconos", "familia": "beneficios", "grupo": "iconos-lista" },
-    { "id": "p17", "nombre": "Este año vs. el próximo", "familia": "comparacion", "grupo": "anios" },
-    { "id": "p18", "nombre": "Antes y después con rótulos", "familia": "antes-despues", "grupo": "rotulos" },
-    { "id": "p19", "nombre": "Día 0 vs. día 90", "familia": "tiempo", "grupo": "dia-0-90" },
-    { "id": "p20", "nombre": "Beneficios a los lados", "familia": "beneficios", "grupo": "lados" },
-    { "id": "p21", "nombre": "Temporada: regálate", "familia": "nativo", "grupo": "navidad" },
-    { "id": "p22", "nombre": "No solo X: también Y", "familia": "dolor", "grupo": "no-solo" },
-    { "id": "p23", "nombre": "Producto héroe", "familia": "beneficios", "grupo": "heroe" },
-    { "id": "p24", "nombre": "No solo X (con persona)", "familia": "dolor", "grupo": "no-solo" },
-    { "id": "p25", "nombre": "No solo X (de espalda)", "familia": "dolor", "grupo": "no-solo" },
-    { "id": "p26", "nombre": "Invierte en ti", "familia": "nativo", "grupo": "invierte" },
-    { "id": "p27", "nombre": "Deseo con beneficios", "familia": "beneficios", "grupo": "deseo" },
-    { "id": "p28", "nombre": "Temporada con persona", "familia": "nativo", "grupo": "navidad" },
-    { "id": "p29", "nombre": "Antes y después lado a lado", "familia": "antes-despues", "grupo": "lado-a-lado" },
-    { "id": "p30", "nombre": "Día 0 · 7 · 21", "familia": "tiempo", "grupo": "dias-3" }
-  ]
+    {
+      "id": "p01",
+      "nombre": "Silueta neón con zonas",
+      "familia": "dolor",
+      "grupo": "neon",
+      "titular": "«Bye bye» + EL PROBLEMA VISIBLE en 2 palabras, enorme; alrededor del cuerpo, rótulos cortos «+ [zona que gana]»",
+      "ejemplo": "Bye bye glúteos planos · + caderas · + pompis · cintura pequeña",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p02",
+      "nombre": "Historia antes y después",
+      "familia": "antes-despues",
+      "grupo": "historia",
+      "titular": "Testimonio de identidad en primera persona: «Toda mi vida fui \"[la etiqueta que le dolía]\"» + «Hasta que descubrí [producto]»",
+      "ejemplo": "Toda mi vida fui \"la amiga flaquita\". Hasta que descubrí Muna",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p03",
+      "nombre": "Etapas en neón",
+      "familia": "tiempo",
+      "grupo": "neon-etapas",
+      "titular": "«Bye bye» + EL PROBLEMA VISIBLE; las etapas (Etapa 1, 2, 3) muestran el cambio creciente",
+      "ejemplo": "Bye bye glúteos planos · Etapa 1 · Etapa 2 · Etapa 3",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p04",
+      "nombre": "Día 1 · 14 · 30",
+      "familia": "tiempo",
+      "grupo": "dias",
+      "titular": "Casi sin texto: el mensaje son los rótulos de días (Día 1 · Día 14 · Día 30) bajo cada foto, con el cambio cada vez mayor",
+      "ejemplo": "Día 1 · Día 14 · Día 30",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p05",
+      "nombre": "Sin vs. con el producto",
+      "familia": "comparacion",
+      "grupo": "sin-con",
+      "titular": "Dos rótulos que comparan: «[lo que ya hace]» vs. «[lo que ya hace] + [producto]», y abajo una frase a quién le habla: «[Quiénes], [la zona] necesita más que [lo que ya hace]»",
+      "ejemplo": "On a GLP-1 · On a GLP-1 + micronutrientes · Chicos, sus músculos necesitan más que proteína",
+      "temas": [
+        "musculo",
+        "hombres"
+      ]
+    },
+    {
+      "id": "p06",
+      "nombre": "Tu producto vs. el otro",
+      "familia": "comparacion",
+      "grupo": "vs",
+      "titular": "Pregunta del dolor en sus palabras + respuesta corta: «¿[Problema]?» + «[Solución en 4 palabras]»",
+      "ejemplo": "¿No puedes ir al baño? La fibra es la clave",
+      "temas": [
+        "digestion"
+      ]
+    },
+    {
+      "id": "p07",
+      "nombre": "No compres esto si…",
+      "familia": "nativo",
+      "grupo": "no-compres",
+      "titular": "Anti-titular nativo: «No compres esto si [situación del cliente]…» y el giro: «a menos que quieras [resultado]»",
+      "ejemplo": "No compres estas gomitas si estás bajando de peso… a menos que quieras resultados",
+      "temas": [
+        "peso"
+      ]
+    },
+    {
+      "id": "p08",
+      "nombre": "Resultado en 2 semanas",
+      "familia": "antes-despues",
+      "grupo": "ad-blanco-negro",
+      "titular": "«Menos [PROBLEMA] en [TIEMPO]» (o «Más [RESULTADO] en [TIEMPO]»), en dos líneas grandes",
+      "ejemplo": "Menos hinchazón en 2 semanas",
+      "temas": [
+        "hinchazon",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p09",
+      "nombre": "Solo X vs. X + producto",
+      "familia": "comparacion",
+      "grupo": "solo-con",
+      "titular": "Dos rótulos: «Solo [lo que ya hace]» vs. «[lo que ya hace] + [producto]»; abajo «[Quiénes], tu [zona] necesita más que [lo que ya hace]»",
+      "ejemplo": "Solo ejercicio · Ejercicio + drenaje · Tu hinchazón necesita más que ejercicio",
+      "temas": [
+        "hinchazon",
+        "hombres"
+      ]
+    },
+    {
+      "id": "p10",
+      "nombre": "Antes y después partido",
+      "familia": "antes-despues",
+      "grupo": "partido",
+      "titular": "«Menos/Más [RESULTADO] en [ZONA]», con la palabra clave resaltada, y una franja «Resultados en [tiempo]»",
+      "ejemplo": "Menos hinchazón en pies y tobillos · Resultados en solo 14 días",
+      "temas": [
+        "hinchazon",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p11",
+      "nombre": "Pregunta y revelación",
+      "familia": "dolor",
+      "grupo": "pregunta",
+      "titular": "Síntoma + pregunta + causa revelada: «Tu [síntoma] ¿[pregunta]?» + «¡Es tu [causa]!», y abajo «[verbo] de raíz [problema]»",
+      "ejemplo": "Tu peso ¿sube y baja? ¡Es tu sistema linfático!",
+      "temas": [
+        "hinchazon",
+        "peso"
+      ]
+    },
+    {
+      "id": "p12",
+      "nombre": "¿Todavía se ve así?",
+      "familia": "antes-despues",
+      "grupo": "diagrama",
+      "titular": "Pregunta que señala la zona: «¿Tu [ZONA] todavía se ve así?», con el antes y el después rotulados",
+      "ejemplo": "¿Tu pecho todavía se ve así?",
+      "temas": [
+        "hinchazon"
+      ]
+    },
+    {
+      "id": "p13",
+      "nombre": "Estado vs. estado",
+      "familia": "comparacion",
+      "grupo": "ilustrado",
+      "titular": "Dos estados enfrentados de la misma zona, en mayúsculas: «[ZONA] [ESTADO MALO]» vs. «[ZONA] [ESTADO BUENO]», con una línea corta bajo cada uno",
+      "ejemplo": "Barriga hinchada · Barriga drenada",
+      "temas": [
+        "hinchazon",
+        "abdomen",
+        "hombres"
+      ]
+    },
+    {
+      "id": "p14",
+      "nombre": "3 zonas, 3 semanas",
+      "familia": "tiempo",
+      "grupo": "zonas",
+      "titular": "«[Problema] en [N] zonas: una solución», y en la lista «Semana 1 / 2 / 3: [lo que cambia]»",
+      "ejemplo": "Celulitis en 3 zonas, una solución",
+      "temas": [
+        "celulitis",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p15",
+      "nombre": "Antes y después en cuadrícula",
+      "familia": "antes-despues",
+      "grupo": "cuadricula",
+      "titular": "«[El problema con su nombre popular] finalmente desaparece» (o «finalmente aparece» para un deseo), con rótulos de tiempo en la cuadrícula",
+      "ejemplo": "La barriga de cerveza finalmente desaparece",
+      "temas": [
+        "abdomen",
+        "hinchazon",
+        "hombres"
+      ]
+    },
+    {
+      "id": "p16",
+      "nombre": "Beneficios con íconos",
+      "familia": "beneficios",
+      "grupo": "iconos-lista",
+      "titular": "«[Resultado principal] mientras [beneficio que se siente]», y los beneficios en íconos con 2 palabras cada uno",
+      "ejemplo": "Baja de peso mientras te sientes ligero",
+      "temas": [
+        "peso",
+        "hinchazon"
+      ]
+    },
+    {
+      "id": "p17",
+      "nombre": "Este año vs. el próximo",
+      "familia": "comparacion",
+      "grupo": "anios",
+      "titular": "Comparación de años: «[Año] con [problema]» vs. «[Año siguiente] con [producto]», y el gancho «[Resultado] en solo [tiempo]»",
+      "ejemplo": "2025 con retención · 2026 con drenaje · Despierta con un abdomen plano",
+      "temas": [
+        "abdomen",
+        "hinchazon"
+      ]
+    },
+    {
+      "id": "p18",
+      "nombre": "Antes y después con rótulos",
+      "familia": "antes-despues",
+      "grupo": "rotulos",
+      "titular": "«[Verbo de resultado] [el problema] — sin [la renuncia que teme]»",
+      "ejemplo": "Desinfla la panza de la cerveza sin dejar de tomarla",
+      "temas": [
+        "abdomen",
+        "hinchazon",
+        "hombres"
+      ]
+    },
+    {
+      "id": "p19",
+      "nombre": "Día 0 vs. día 90",
+      "familia": "tiempo",
+      "grupo": "dia-0-90",
+      "titular": "«El [tipo de producto] natural que transforma tu [zona]», con los días (Día 0 vs. Día 90) en el centro",
+      "ejemplo": "El drenaje natural que transforma tu cuerpo",
+      "temas": [
+        "abdomen",
+        "hinchazon",
+        "peso"
+      ]
+    },
+    {
+      "id": "p20",
+      "nombre": "Beneficios a los lados",
+      "familia": "beneficios",
+      "grupo": "lados",
+      "titular": "Verbo directo + causa + estado: «[Verbo] [lo que causa el problema] que te tiene [estado]», con beneficios cortos a los dos lados",
+      "ejemplo": "Suelta el líquido que te tiene hinchada",
+      "temas": [
+        "hinchazon",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p21",
+      "nombre": "Temporada: regálate",
+      "familia": "nativo",
+      "grupo": "navidad",
+      "titular": "Temporada + deseo: «Esta [temporada] regálate [el deseo central]»",
+      "ejemplo": "Esta Navidad regálate la figura que sueñas",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p22",
+      "nombre": "No solo X: también Y",
+      "familia": "dolor",
+      "grupo": "no-solo",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]», con «Tu mejor versión» a mano",
+      "ejemplo": "No solo glúteos, también tus piernas",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p23",
+      "nombre": "Producto héroe",
+      "familia": "beneficios",
+      "grupo": "heroe",
+      "titular": "«Descubre el poder de [producto]» + el resultado principal en 3 a 5 palabras + íconos de ingredientes",
+      "ejemplo": "Descubre el poder del Aguaje Complex · Glúteos y piernas firmes",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p24",
+      "nombre": "No solo X (con persona)",
+      "familia": "dolor",
+      "grupo": "no-solo",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]»",
+      "ejemplo": "No solo glúteos, también tus piernas",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p25",
+      "nombre": "No solo X (de espalda)",
+      "familia": "dolor",
+      "grupo": "no-solo",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]»",
+      "ejemplo": "No solo glúteos, también tus piernas",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p26",
+      "nombre": "Invierte en ti",
+      "familia": "nativo",
+      "grupo": "invierte",
+      "titular": "Momento + invitación: «Este [momento] invierte en ti» + «[zona] más [adjetivos del deseo]»",
+      "ejemplo": "Este fin de año invierte en ti · Glúteos y piernas más firmes",
+      "temas": [
+        "gluteos",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p27",
+      "nombre": "Deseo con beneficios",
+      "familia": "beneficios",
+      "grupo": "deseo",
+      "titular": "El deseo con adjetivos: «[Zona] más [adjetivo 1] y [adjetivo 2]» + «Tu mejor versión sin [renuncia]»",
+      "ejemplo": "Glúteos y piernas más firmes y naturales",
+      "temas": [
+        "gluteos",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p28",
+      "nombre": "Temporada con persona",
+      "familia": "nativo",
+      "grupo": "navidad",
+      "titular": "Temporada + deseo: «Esta [temporada] regálate [el deseo central]»",
+      "ejemplo": "Esta Navidad regálate la figura que siempre has querido",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p29",
+      "nombre": "Antes y después lado a lado",
+      "familia": "antes-despues",
+      "grupo": "lado-a-lado",
+      "titular": "«[Zona] [resultado] así de fácil» (o «en el mismo lugar»), con el antes y el después",
+      "ejemplo": "Glúteos y piernas en el mismo lugar, así de fácil",
+      "temas": [
+        "gluteos",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p30",
+      "nombre": "Día 0 · 7 · 21",
+      "familia": "tiempo",
+      "grupo": "dias-3",
+      "titular": "Los días (Día 0 · 7 · 21) + el nombre del producto + 2 resultados concretos en sus palabras («Empiezas a [resultado visible]»)",
+      "ejemplo": "Empiezas a llenar jeans · Piernas con más volumen natural",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
+    },
+    {
+      "id": "p31",
+      "nombre": "Foto real apilada",
+      "familia": "antes-despues",
+      "grupo": "foto-real",
+      "titular": "Sin titular grande: dos fotos reales de celular de la MISMA zona apiladas (antes arriba, después abajo); como mucho una línea corta con el resultado",
+      "ejemplo": "(solo las dos fotos)",
+      "fuente": {
+        "marca": "Australian Bodycare",
+        "dias": 450,
+        "alcance": 358016,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "gluteos",
+        "piel"
+      ]
+    },
+    {
+      "id": "p32",
+      "nombre": "Producto con zonas de uso",
+      "familia": "beneficios",
+      "grupo": "zonas-uso",
+      "titular": "«¡[Resultado] en [todas las zonas]!» arriba, el producto al centro y rótulos cortos hacia cada zona del cuerpo donde actúa",
+      "ejemplo": "¡Solo algunas botellas disponibles! · brazos · pecho · muslos · estómago",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 253,
+        "alcance": 9188,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "piel",
+        "celulitis"
+      ]
+    },
+    {
+      "id": "p33",
+      "nombre": "Testimonio sobre la textura",
+      "familia": "nativo",
+      "grupo": "testimonio-textura",
+      "titular": "Cita de cliente entre comillas sobre el fondo de la zona en primer plano: «Es como [comparación], mi [zona] se siente [resultado]», con 5 estrellas",
+      "ejemplo": "«Es como una botella de seguridad, mi piel se siente más suave y firme»",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 253,
+        "alcance": 12329,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "piel"
+      ]
+    },
+    {
+      "id": "p34",
+      "nombre": "Producto con flechas a mano",
+      "familia": "beneficios",
+      "grupo": "flechas",
+      "titular": "Dos o tres problemas tachados o señalados con flechas a mano («[Problema 1] · [Problema 2]») y la llamada «[Resultado] empieza aquí» apuntando al producto",
+      "ejemplo": "Piel seca · Piel efecto crepé · Empieza aquí",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 252,
+        "alcance": 63991,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "piel"
+      ]
+    },
+    {
+      "id": "p35",
+      "nombre": "Características con persona",
+      "familia": "beneficios",
+      "grupo": "caracteristicas",
+      "titular": "«[Lo que hace el producto]» como título de ficha + lista de 4 a 5 beneficios con check + un sello con la promesa de uso («Solo [N] minutos al día»)",
+      "ejemplo": "Características del producto · Favorece la quema de grasa · Solo 30 minutos al día",
+      "fuente": {
+        "marca": "Elmejorr shop",
+        "dias": 189,
+        "alcance": 2737,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "peso",
+        "abdomen"
+      ]
+    },
+    {
+      "id": "p36",
+      "nombre": "Pierna partida con deslizador",
+      "familia": "antes-despues",
+      "grupo": "slider",
+      "titular": "«[Tipo de solución] que va más allá de [lo que ya probó]», con la zona partida en antes / después por un deslizador",
+      "ejemplo": "Soporte anticelulitis que va más allá de las cremas",
+      "fuente": {
+        "marca": "Loods Essentials",
+        "dias": 181,
+        "alcance": 1575,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "celulitis",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p37",
+      "nombre": "Libérate de…",
+      "familia": "dolor",
+      "grupo": "liberate",
+      "titular": "«Libérate de [el problema]» en grande, la persona mostrando la zona ya mejorada y 2 sellos redondos con beneficios de 3 palabras",
+      "ejemplo": "Libérate de la celulitis · Suavidad todo el día · Realza y reafirma",
+      "fuente": {
+        "marca": "Loods Essentials",
+        "dias": 177,
+        "alcance": 1283,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "celulitis",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p38",
+      "nombre": "Rutina con ingredientes",
+      "familia": "beneficios",
+      "grupo": "rutina",
+      "titular": "«[Beneficio 1] + [beneficio 2]» como título y «Apoyo desde dentro para tu rutina»; cada ingrediente rotulado con lo que hace",
+      "ejemplo": "Firmeza muscular + piel más tersa · Apoyo desde dentro para tu rutina",
+      "fuente": {
+        "marca": "Biocenti",
+        "dias": 134,
+        "alcance": 568,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "musculo",
+        "piel"
+      ]
+    },
+    {
+      "id": "p39",
+      "nombre": "Mecanismo en rayos X",
+      "familia": "beneficios",
+      "grupo": "rayosx",
+      "titular": "Rótulo corto «Soporte [tipo]» y el cuerpo con una capa tipo rayos X que muestra CÓMO actúa en la zona; un recuadro pequeño con el detalle del mecanismo",
+      "ejemplo": "Soporte premium · Separación abdominal antes del soporte",
+      "fuente": {
+        "marca": "María Torres Ruiz",
+        "dias": 170,
+        "alcance": 46155,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "abdomen"
+      ]
+    },
+    {
+      "id": "p40",
+      "nombre": "Pensado para…",
+      "familia": "dolor",
+      "grupo": "pensado",
+      "titular": "«Pensado para…» + lista de 4 a 5 situaciones del cliente en sus palabras («[zona] que [problema]»), junto a la persona que las vive",
+      "ejemplo": "Pensada para… barriga en menopausia · vientre protuberante · cintura que se ha perdido",
+      "fuente": {
+        "marca": "María Torres Ruiz",
+        "dias": 152,
+        "alcance": 136440,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "abdomen",
+        "menopausia"
+      ]
+    },
+    {
+      "id": "p41",
+      "nombre": "Nota a mano sobre el producto",
+      "familia": "nativo",
+      "grupo": "nota",
+      "titular": "Foto casera del producto con una nota adhesiva escrita a mano: «Se buscan [quiénes] para probar [producto]» o una frase de amiga",
+      "ejemplo": "Se buscan mamás después de la cesárea para probar nuestra braguita",
+      "fuente": {
+        "marca": "María Torres Ruiz",
+        "dias": 152,
+        "alcance": 103831,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "abdomen"
+      ]
+    },
+    {
+      "id": "p42",
+      "nombre": "Pregunta + semanas 1 · 3 · 6",
+      "familia": "tiempo",
+      "grupo": "semanas-pregunta",
+      "titular": "«¿[Problema] en [momento de vida]?» + «Descubre [solución]», y tres paneles Semana 1 / Semana 3 / Semana 6 con una línea bajo cada uno",
+      "ejemplo": "¿Barriga en menopausia? Descubre el soporte 360°",
+      "fuente": {
+        "marca": "María Torres Ruiz",
+        "dias": 133,
+        "alcance": 248367,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "abdomen",
+        "menopausia"
+      ]
+    },
+    {
+      "id": "p43",
+      "nombre": "Corrige … en N minutos",
+      "familia": "dolor",
+      "grupo": "corrige",
+      "titular": "«Corrige [problema] en [tiempo]» grande abajo sobre una foto oscura de la zona, con una línea pequeña de prueba social",
+      "ejemplo": "Corrige brazos flácidos en 20 minutos",
+      "fuente": {
+        "marca": "Armivia",
+        "dias": 105,
+        "alcance": 145976,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "brazos"
+      ]
+    },
+    {
+      "id": "p44",
+      "nombre": "Tarjeta escrita a mano",
+      "familia": "nativo",
+      "grupo": "nota-tarjeta",
+      "titular": "Foto real del producto en casa con una tarjeta escrita a mano: «[Zona] más [resultado]. [Tiempo]. [Sin lo que teme]»",
+      "ejemplo": "Brazos más firmes. Ocho semanas. Sin cirugía",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 75,
+        "alcance": 42,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "brazos",
+        "piel"
+      ]
+    },
+    {
+      "id": "p45",
+      "nombre": "Selfie en el espejo",
+      "familia": "nativo",
+      "grupo": "selfie",
+      "titular": "Sin titular: una selfie real en el espejo que muestra el resultado en la zona; si hay texto, una sola línea tipo comentario",
+      "ejemplo": "(la foto habla sola)",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 75,
+        "alcance": 1227,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "abdomen",
+        "peso"
+      ]
+    },
+    {
+      "id": "p46",
+      "nombre": "Lupa sobre el problema",
+      "familia": "dolor",
+      "grupo": "lupa",
+      "titular": "Foto real de la zona con un círculo de lupa que agranda el problema; como mucho una pregunta corta «¿Te pasa esto?»",
+      "ejemplo": "(lupa sobre la celulitis del muslo)",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 75,
+        "alcance": 19,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "celulitis",
+        "piernas"
+      ]
+    },
+    {
+      "id": "p47",
+      "nombre": "Redescubre el placer…",
+      "familia": "antes-despues",
+      "grupo": "redescubre",
+      "titular": "«Redescubre finalmente el placer de [el deseo emocional]… desde hoy» con el antes y después de la zona y el producto",
+      "ejemplo": "Redescubre finalmente el placer de sentirte a gusto con tu cuerpo",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 252,
+        "alcance": 14883,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "celulitis",
+        "piernas",
+        "piel"
+      ]
+    },
+    {
+      "id": "p48",
+      "nombre": "No dejes que … + estadística",
+      "familia": "dolor",
+      "grupo": "estadistica",
+      "titular": "«No dejes que [el problema] arruine [lo que le importa]» + una cifra grande «El [N]% de [quiénes] notó [resultado]» y la valoración",
+      "ejemplo": "No dejes que la piel en menopausia arruine tu vida · El 86%",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 253,
+        "alcance": 10456,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "menopausia",
+        "piel"
+      ]
+    },
+    {
+      "id": "p49",
+      "nombre": "Aplicándolo en la zona + reseña",
+      "familia": "beneficios",
+      "grupo": "aplicando",
+      "titular": "La mano usando el producto sobre la zona; abajo «Una solución [beneficio] que llega a [dónde]» y una reseña corta de cliente",
+      "ejemplo": "Una solución reafirmante que llega a las capas profundas de la piel",
+      "fuente": {
+        "marca": "Maria Nieto Cp",
+        "dias": 252,
+        "alcance": 5683,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "abdomen",
+        "piel"
+      ]
+    },
+    {
+      "id": "p50",
+      "nombre": "Señales de que necesitas…",
+      "familia": "dolor",
+      "grupo": "senales",
+      "titular": "«Señales de que necesitas [solución]» + 4 síntomas con ícono, de 2 palabras cada uno, junto al producto",
+      "ejemplo": "Señales de que necesitas un detox · Retención de líquidos · Piernas pesadas",
+      "fuente": {
+        "marca": "NIAM detox",
+        "dias": 307,
+        "alcance": 476470,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "detox",
+        "hinchazon"
+      ]
+    },
+    {
+      "id": "p51",
+      "nombre": "Pasé de la talla L a la S",
+      "familia": "tiempo",
+      "grupo": "talla",
+      "titular": "«Pasé de [antes medible] a [después]» y dos fotos tipo polaroid Día 1 / Día [N] con el producto",
+      "ejemplo": "Pasé de la talla L a la S · Día 1 · Día 60",
+      "fuente": {
+        "marca": "Hormone Fat Reset EU",
+        "dias": 292,
+        "alcance": 396085,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "peso",
+        "abdomen"
+      ]
+    },
+    {
+      "id": "p52",
+      "nombre": "Programa de N días",
+      "familia": "tiempo",
+      "grupo": "programa",
+      "titular": "«Programa de [N] días para [resultado]» en un recuadro, con el producto y la zona ya mejorada",
+      "ejemplo": "Programa de 50 días para un vientre más plano",
+      "fuente": {
+        "marca": "Detox Belly 50 días",
+        "dias": 609,
+        "alcance": 27598,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "abdomen",
+        "peso"
+      ]
+    },
+    {
+      "id": "p53",
+      "nombre": "Adiós … (ilustración)",
+      "familia": "dolor",
+      "grupo": "adios",
+      "titular": "«Adiós [problema]» con una ilustración simple de la zona u órgano con un check verde y el producto",
+      "ejemplo": "Adiós hígado graso",
+      "fuente": {
+        "marca": "Liver detox abdomen",
+        "dias": 585,
+        "alcance": 289163,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "detox"
+      ]
+    },
+    {
+      "id": "p54",
+      "nombre": "N días para tu mejor forma",
+      "familia": "tiempo",
+      "grupo": "calendario",
+      "titular": "«[N] días para tu mejor [resultado]» con un calendario y una flecha hacia el producto",
+      "ejemplo": "21 días para tu mejor forma",
+      "fuente": {
+        "marca": "WOW TEA 21 días",
+        "dias": 310,
+        "alcance": 6606,
+        "de": "TrendTrack 2026-11-18"
+      },
+      "temas": [
+        "peso",
+        "abdomen"
+      ]
+    }
+  ],
+  "temas": {
+    "gluteos": "Glúteos",
+    "curvas": "Curvas y caderas",
+    "piernas": "Piernas",
+    "abdomen": "Abdomen",
+    "hinchazon": "Hinchazón y retención",
+    "celulitis": "Celulitis",
+    "piel": "Piel y firmeza",
+    "peso": "Peso",
+    "detox": "Detox",
+    "digestion": "Digestión",
+    "menopausia": "Menopausia",
+    "musculo": "Músculo",
+    "brazos": "Brazos",
+    "hombres": "Hombres"
+  }
 }

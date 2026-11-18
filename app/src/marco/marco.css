@@ -757,3 +757,16 @@
 .salud__modelos .salud__modelos-nota { display: block; font-size: var(--t-micro); color: var(--texto-4, var(--texto-3)); margin-top: 2px; }
 .salud__pie { margin: 0; padding: 10px 16px 12px; font-size: var(--t-mini); color: var(--texto-3); }
 @media (max-width: 700px) { .salud__texto { display: none; } }
+
+/* «Pronto» en el menú (lo que todavía no está: Generador de Landings) */
+.nav__pronto {
+  margin-left: auto;
+  padding: 1px 7px;
+  border-radius: var(--r-pill);
+  font-size: 10px;
+  font-weight: var(--peso-semi);
+  letter-spacing: 0.02em;
+  color: var(--texto-3);
+  background: var(--superficie-3);
+  white-space: nowrap;
+}

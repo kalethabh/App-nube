@@ -94,3 +94,18 @@
 
 .an-ver__acciones { display: flex; flex-wrap: wrap; gap: var(--e-3); }
 .an-ver__nota--error { color: var(--error); }
+
+/* «En la nube» en la miniatura (2026-11-18x) */
+.marca-nube {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  color: var(--cian);
+  background: var(--cian-suave);
+  box-shadow: inset 0 0 0 1px var(--cian-borde);
+  white-space: nowrap;
+}

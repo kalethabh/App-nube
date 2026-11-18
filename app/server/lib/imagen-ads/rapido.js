@@ -22,6 +22,7 @@ import { leerFicha } from '../productos.js';
 import { R, guardarJSON, idsDelLote, fotoDelLote } from './disco.js';
 import { leerSkill } from './verificar.js';
 import { contextoCreativo, MOMENTOS } from './angulo-producto.js';
+import { fichaDe } from './plantillas-referencia.js';
 
 const corto = (t, max) => String(t || '').replace(/\s+/g, ' ').trim().slice(0, max);
 const sinComillas = (t) => corto(t, 200).replace(/^["«“']+|["»”']+$/g, '').trim();
@@ -163,7 +164,9 @@ export function prepararRapido(carpeta, brief) {
     const k = (refs.indexOf(x.referencia) + 1) || 1;
     const deEsteProducto = modo === 'copiar' && propias.has(k);
     if (creativo) {
-      guardarJSON(R.v(carpeta, x.id), variacionDePlantilla({ id: x.id, i, titular: x.titular, nombre, publico, pais, beneficios, creativo, concepto: conceptoDe(i) }));
+      // (la plantilla de esta imagen: la referencia R0k es la k-ésima elegida)
+      const plantilla = fichaDe((brief.plantillasReferencia || [])[refs.indexOf(x.referencia)]);
+      guardarJSON(R.v(carpeta, x.id), variacionDePlantilla({ id: x.id, i, titular: x.titular, nombre, publico, pais, beneficios, creativo, concepto: conceptoDe(i), plantilla }));
       return;
     }
     const visual = [
@@ -208,7 +211,7 @@ export function prepararRapido(carpeta, brief) {
  * el modelo tiene que mostrar con la forma de la plantilla. El ÁNGULO es el del producto (deseo central, resultados,
  * zona del cuerpo); el CONCEPTO (faceta, problema, momento y escenario) cambia en cada imagen, como pide Andromeda.
  */
-export function variacionDePlantilla({ id, i, titular, nombre, publico, pais, beneficios, creativo, concepto }) {
+export function variacionDePlantilla({ id, i, titular, nombre, publico, pais, beneficios, creativo, concepto, plantilla = null }) {
   const c = creativo;
   const deseo = c.deseo || c.resultados[0] || beneficios[0] || '';
   const lineas = [
@@ -221,6 +224,11 @@ export function variacionDePlantilla({ id, i, titular, nombre, publico, pais, be
     concepto
       ? `CONCEPT of this image (one of the Andromeda matrix, different from the other images of the batch): facet «${concepto.faceta}»${concepto.problema ? `; problem «${concepto.problema}»` : ''}${concepto.contexto ? `; moment «${concepto.contexto}»` : ''}${concepto.escenario ? `; scene «${concepto.escenario}»` : ''}${concepto.dolor ? `; the customer says «${concepto.dolor}»` : ''}${concepto.hook ? `; hook «${concepto.hook}»` : ''}. Show that person in that moment, inside the template's form.`
       : `CONCEPT of this image (different from the other images of the batch): the customer ${MOMENTOS[i % MOMENTOS.length]}. Show that person in that moment, inside the template's form.`,
+    // el TITULAR con la estructura de la plantilla, atacando el deseo o beneficio principal (2026-11-18u)
+    plantilla?.titular
+      ? `HEADLINE STRUCTURE of this template: ${plantilla.titular} (the template, for another product, says: «${plantilla.ejemplo}»). Write THIS image's main headline and labels with exactly that structure, filled with THIS product's main desire or benefit (${deseo || 'its main result'}), in the customer's words, so the headline names the very result the image shows. Idea from the research: «${titular}» (use its words when they fit the structure).`
+      : `HEADLINE: attack directly the product's main desire or benefit (${deseo || 'its main result'}), in the customer's words, naming the very result the image shows. Idea: «${titular}».`,
+    'THE RESULT MUST BE BIG AND OBVIOUS, even as a small thumbnail: if the desire is MORE volume or shape (glutes, hips, legs, bust, curves), the AFTER, the last panel or the single person shows clearly MORE volume, roundness and lift, with the body area filling 60 to 70 % of its panel, in fitted clothes (leggings, jeans, a fitted dress), seen from the side or 3/4 back; if the desire is LESS of something (belly, swelling, cellulite, fat), show it clearly reduced. The headline and the labels name that same result.',
     c.tiempos.length
       ? `Allowed timeframes (for the panel labels and the headline): ${c.tiempos.map((t) => `${t.que}: ${t.cuando}`).join(' · ')}.${c.notaTiempos ? ` Rule: ${c.notaTiempos}` : ''} If the template has more panels than allowed timeframes, label them ANTES / DESPUÉS or with the steps, never with invented days.`
       : 'Timeframes: keep the template\'s panel labels (days or weeks) only if they make sense for this product; never invent a number.',

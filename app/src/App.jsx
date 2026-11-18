@@ -19,6 +19,8 @@ import { BandaActualizacion } from './marco/BandaActualizacion.jsx';
 import './marco/marco.css';
 
 const Inicio = lazy(() => import('./pantallas/inicio/index.jsx'));
+const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
+const Landings = lazy(() => import('./pantallas/landings/index.jsx'));
 const Tablero = lazy(() => import('./pantallas/tablero/index.jsx'));
 const Nuevo = lazy(() => import('./pantallas/nuevo/index.jsx'));
 const Entrega = lazy(() => import('./pantallas/entrega/index.jsx'));
@@ -53,6 +55,8 @@ const MIS_ANUNCIOS = { texto: 'Mis anuncios', href: enlace.tablero() };
  */
 export const RUTAS = [
   { patron: '/inicio', Pantalla: Inicio, menu: 'inicio', titulo: 'Inicio', migas: () => [{ texto: 'Inicio' }] },
+  { patron: '/landings', Pantalla: Landings, menu: 'landings', titulo: 'Generador de Landings', migas: () => [{ texto: 'Generador de Landings' }] },
+  { patron: '/productos', Pantalla: Productos, menu: 'productos', titulo: 'Productos', migas: () => [{ texto: 'Productos' }] },
   { patron: '/tablero', Pantalla: Tablero, menu: 'tablero', titulo: 'Mis anuncios', migas: () => [{ texto: 'Mis anuncios' }] },
   { patron: '/nuevo', Pantalla: Nuevo, menu: 'nuevo', titulo: 'Nuevo anuncio', migas: () => [MIS_ANUNCIOS, { texto: 'Nuevo anuncio' }] },
   {

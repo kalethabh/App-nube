@@ -263,7 +263,8 @@ export function crearLote(cuerpo = {}) {
     if (brief.plantillas && !brief.video && !brief.plantillas.elegidas.length && propuestas.length) brief.plantillas = { ...brief.plantillas, elegidas: propuestas, deLaInvestigacion: true };
   }
   if (brief.desdePlantillas) {
-    const ids = plantillasRef.elegir(cantidad, cuerpo.plantillasReferencia?.elegidas);
+    // (sin elegidas: una mezcla variada, con las de productos relacionados primero)
+    const ids = plantillasRef.elegir(cantidad, cuerpo.plantillasReferencia?.elegidas, { temas: plantillasRef.temasDeProducto(productoId) });
     brief.plantillasReferencia = ids;
     brief.referencias = plantillasRef.copiarAlLote(carpeta, ids);
   }

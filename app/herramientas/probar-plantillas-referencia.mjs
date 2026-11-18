@@ -16,7 +16,7 @@ const check = (nombre, ok, detalle) => {
 
 // 1. el catálogo
 const cat = ref.catalogo();
-check('30 plantillas con su imagen y su miniatura', cat.plantillas.length === 30 && cat.plantillas.every((p) => ref.rutaDeArchivo(`${p.id}.jpg`) && ref.rutaDeArchivo(`${p.id}.jpg`, true)), cat.plantillas.length);
+check('las plantillas (30 validadas + las de TrendTrack) con su imagen y su miniatura', cat.plantillas.length >= 54 && cat.plantillas.every((p) => ref.rutaDeArchivo(`${p.id}.jpg`) && ref.rutaDeArchivo(`${p.id}.jpg`, true)), cat.plantillas.length);
 check('cada plantilla en una familia conocida', cat.plantillas.every((p) => cat.familias.some((f) => f.id === p.familia)));
 check('nombres de archivo raros no se sirven', !ref.rutaDeArchivo('../indice.json') && !ref.rutaDeArchivo('p99.jpg') && !ref.rutaDeArchivo('p01.png'));
 
@@ -60,11 +60,19 @@ const { contextoCreativo } = await import('../server/lib/imagen-ads/angulo-produ
 const ctx = contextoCreativo(ID);
 check('lee el deseo central, los tiempos y la matriz de Andromeda', /curvas/.test(ctx.deseo) && ctx.tiempos[0]?.cuando === 'Desde la semana 4' && ctx.conceptos.length === 2 && ctx.conceptos[0].escenario === 'Playa de Cartagena' && ctx.conceptos[1].titular === 'Por fin el jean me queda perfecto', ctx);
 
+// productos relacionados: el de prueba es de glúteos, caderas y piernas
+const rel = ref.relacionadas(ID);
+const temasDe = new Map(JSON.parse(fs.readFileSync(path.join(ref.DIR, 'indice.json'), 'utf8')).plantillas.map((p) => [p.id, p.temas || []]));
+check('reconoce de qué trata el producto (glúteos, curvas, piernas)', ['gluteos', 'curvas', 'piernas'].every((t) => rel.temas.includes(t)), rel.temas);
+check('las relacionadas son de glúteos, curvas o piernas, la más cercana primero', rel.ids.length >= 10 && rel.ids.every((id) => temasDe.get(id).some((t) => rel.temas.includes(t))) && temasDe.get(rel.ids[0]).includes(rel.temas[0]), rel);
+const auto = ref.elegir(4, [], { temas: rel.temas });
+check('«Que la app elija» toma primero las de productos relacionados (sin repetir forma)', auto.every((id) => rel.ids.includes(id)) && new Set(auto.map((id) => grupoDe.get(id))).size === 4, auto);
+check('«hombres» solo no hace relacionado (un producto para la tos elige como si no hubiera temas)', ref.temasDeTexto('Gotas para la tos y la flema, para hombres y mujeres').includes('respiratorio') && ref.elegir(3, [], { temas: ['respiratorio', 'hombres'] }).join() === ref.elegir(3, []).join());
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'plantillas-ref-'));
 fs.mkdirSync(path.join(TMP, 'entrada'), { recursive: true });
 fs.copyFileSync(path.join(ref.DIR, 'mini', 'p01.jpg'), path.join(TMP, 'entrada', 'producto.png'));
 const ids = ref.elegir(4, []);
-const brief = { slug: '_img-prueba', productoId: ID, cantidad: 6, formatos: ['1:1'], modo: 'nuevos', desdePlantillas: true, fiel: true, rapido: true, datos: { nombre: 'Curvas Plus', pais: 'Colombia' }, fotoProducto: 1 };
+const brief = { slug: '_img-prueba', plantillasReferencia: ids, productoId: ID, cantidad: 6, formatos: ['1:1'], modo: 'nuevos', desdePlantillas: true, fiel: true, rapido: true, datos: { nombre: 'Curvas Plus', pais: 'Colombia' }, fotoProducto: 1 };
 brief.referencias = ref.copiarAlLote(TMP, ids);
 fs.mkdirSync(path.join(TMP, 'app'), { recursive: true });
 fs.writeFileSync(path.join(TMP, 'app', 'brief.json'), JSON.stringify(brief));
@@ -81,6 +89,10 @@ check('cada imagen, un concepto distinto de Andromeda (faceta, momento y escenar
 const v3 = leerV(3);
 check('un concepto que se repite cambia de momento y de titular', /La que va a la playa/.test(v3.visual_prompt) && !/Antes del viaje de diciembre/.test(v3.visual_prompt) && v3.text_layers[0].text !== v1.text_layers[0].text, [v3.visual_prompt, v3.text_layers, v1.text_layers]);
 check('el titular sale de la investigación (con la corrección del usuario)', v2.text_layers[0].text === 'Por fin el jean me queda perfecto', v2.text_layers);
+const plantillaV1 = ref.fichaDe(brief.plantillasReferencia?.[0] || ids[0]);
+check('el titular sigue la estructura de su plantilla y ataca el deseo principal', /HEADLINE STRUCTURE of this template/.test(v1.visual_prompt) && v1.visual_prompt.includes(plantillaV1.ejemplo) && /main desire or benefit \(Verme con curvas/.test(v1.visual_prompt), v1.visual_prompt);
+check('el resultado se ve grande (más volumen si el deseo es volumen)', /MORE volume, roundness and lift/.test(v1.visual_prompt));
+check('todas las plantillas tienen la fórmula de su titular', JSON.parse(fs.readFileSync(path.join(ref.DIR, 'indice.json'), 'utf8')).plantillas.every((p) => p.titular && p.ejemplo));
 check('solo los tiempos de la investigación, con su regla', /Desde la semana 4/.test(v1.visual_prompt) && /never with invented days/.test(v1.visual_prompt));
 check('sin precios ni la marca de la plantilla', v1.final_generation_exclusions.some((x) => /prices/.test(x)) && v1.final_generation_exclusions.some((x) => /body area/.test(x)));
 let prompt = '';

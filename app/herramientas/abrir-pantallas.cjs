@@ -4,7 +4,7 @@
 //   node app/herramientas/abrir-pantallas.cjs                     (las de siempre; o pasa rutas: /imagenes/nuevo …)
 //   PUERTO_PANTALLAS=4471 cambia el puerto
 const { chromium } = require('playwright');
-const LAS_DE_SIEMPRE = ['/inicio', '/tablero', '/nuevo', '/imagenes', '/imagenes/nuevo', '/investigacion', '/inspiracion', '/anuncios', '/editor', '/biblioteca', '/ajustes', '/aprendizajes'];
+const LAS_DE_SIEMPRE = ['/inicio', '/productos', '/landings', '/tablero', '/nuevo', '/imagenes', '/imagenes/nuevo', '/investigacion', '/inspiracion', '/anuncios', '/editor', '/biblioteca', '/ajustes', '/aprendizajes'];
 const RUTAS = process.argv.length > 2 ? process.argv.slice(2) : LAS_DE_SIEMPRE;
 const PUERTO = process.env.PUERTO_PANTALLAS || '4471';
 (async () => {

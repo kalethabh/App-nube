@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, House, Scissors, GraduationCap, Images, LayoutGrid, Library, Lightbulb, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
+import { CirclePause, Clapperboard, House, LayoutTemplate, Package, Scissors, GraduationCap, Images, LayoutGrid, Library, Lightbulb, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -30,11 +30,13 @@ const GRUPOS = [
       { id: 'investigacion', texto: 'Investigación de mercado', icono: Telescope, href: enlace.investigacion() },
       { id: 'estilos', texto: 'Estilos', icono: Palette, href: enlace.estilos() },
       { id: 'cambiar', texto: 'Cambiar el producto', icono: Repeat, href: enlace.cambiar() },
+      { id: 'landings', texto: 'Landings', icono: LayoutTemplate, href: enlace.landings(), pronto: true },
     ],
   },
   {
     titulo: 'Tu contenido',
     items: [
+      { id: 'productos', texto: 'Productos', icono: Package, href: enlace.productos() },
       { id: 'anuncios', texto: 'Anuncios', icono: Clapperboard, href: enlace.anuncios() },
       { id: 'editor', texto: 'Editor', icono: Scissors, href: enlace.editorVideos() },
       { id: 'biblioteca', texto: 'Biblioteca', icono: Library, href: enlace.biblioteca() },
@@ -128,11 +130,11 @@ function ItemMenu({ item, activo, plegado, extra }) {
         <Icono size={item.especial ? 15 : 18} strokeWidth={item.especial ? 2.6 : 2} />
       </span>
       <span className="nav__texto">{item.texto}</span>
-      {extra ? <span className="nav__extra">{extra}</span> : null}
+      {extra ? <span className="nav__extra">{extra}</span> : item.pronto ? <span className="nav__pronto">Pronto</span> : null}
     </a>
   );
   return plegado ? (
-    <Tooltip texto={item.texto} lado="derecha" retraso={80}>
+    <Tooltip texto={item.pronto ? `${item.texto} (próximamente)` : item.texto} lado="derecha" retraso={80}>
       {contenido}
     </Tooltip>
   ) : (

@@ -2,6 +2,28 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18x · Anuncios en la nube que se ven y se reproducen, y «Landings» (próximamente)
+
+- **Anuncios en la nube**: cuando un anuncio se guarda en tu nube y se borra de tu computador para liberar espacio, sigue apareciendo como terminado, con su video, sus imágenes y sus miniaturas. Lo ves, lo reproduces (y lo adelantas) y lo descargas directo desde tu carpeta de nube, sin traerlo de vuelta. Para editarlo, exportar, rehacer algo o sacar más ganchos, se trae solo. En «Anuncios» llevan la marca **«En la nube»**.
+- **Landings** en el menú (Crear), con la marca «Pronto»: el Generador de Landings viene próximamente.
+
+## 2026-11-18w · Plantillas de productos relacionados
+
+- La app reconoce de qué trata tu producto (glúteos, curvas, piernas, abdomen, hinchazón, celulitis, piel, peso, detox…) leyendo su ficha y su investigación, y sabe de qué producto viene cada plantilla.
+- En el selector aparece **«Para tu producto»** (lo primero que ves) con las plantillas de productos como el tuyo, de la más cercana a la menos. En «Todas», esas plantillas llevan la marca «Para tu producto».
+- **«Que la app elija»** toma primero las de productos relacionados, sin repetir la misma forma. Si tu producto es de otra cosa (por ejemplo, respiratorio), no toma plantillas que no le correspondan.
+
+## 2026-11-18v · 24 plantillas ganadoras nuevas
+
+- **54 plantillas** (antes 30): 24 nuevas, sacadas de TrendTrack. Son anuncios de imagen en español con meses activos y alcance real, por ejemplo: foto real apilada, lupa sobre el problema, nota escrita a mano, selfie en el espejo, «Pensado para…», «Señales de que necesitas…», pierna partida con deslizador, «Pasé de la talla L a la S», «Programa de 50 días», calendario de 21 días, «No dejes que… + El 86%» y mecanismo en rayos X. Cada una trae la fórmula de su titular.
+- **Filtros por tipo** en el selector de plantillas (dolor y deseo, antes y después, línea de tiempo, comparación, beneficios, nativo), y en las nuevas, cuántos **días lleva activo** el anuncio original.
+
+## 2026-11-18u · Titulares con la estructura de cada plantilla y productos organizados
+
+- **Titulares que atacan el deseo principal**: cada plantilla tiene la fórmula de su titular («Bye bye + el problema», «Menos X en N semanas», «¿Tu zona todavía se ve así?», «No solo X, también tus Y», «Esta Navidad regálate…», los días…). El modelo la llena con el deseo o beneficio principal de tu producto, en las palabras de tu cliente y conectado con lo que se ve.
+- **El resultado se ve grande**: si el deseo es más volumen (glúteos, caderas, piernas), el después, el último panel o la persona muestran claramente más volumen y forma, con la zona ocupando la mayor parte del cuadro.
+- **Productos** (menú «Tu contenido»): todo lo generado, por producto (videos, lotes de imágenes, investigación e inversión). Si hay productos con el mismo nombre, avisa y los **unes en uno** con un toque. También puedes elegir varios a mano con «Unir productos». Nada se borra: los otros se guardan aparte.
+
 ## 2026-11-18t · Plantillas: la forma de la plantilla, el ángulo de tu producto
 
 - La plantilla pone la **forma** y tu producto pone el **ángulo**. Por ejemplo, un antes y después de piernas hinchadas, para un producto de glúteos, caderas y piernas, sale como antes y después de glúteos, caderas y piernas, con la misma división y los mismos rótulos. Un «Día 1 · 14 · 30» muestra el cambio de tu producto, paso a paso. Una plantilla con una sola persona muestra tu resultado en ella, para que el ángulo se entienda antes de leer.

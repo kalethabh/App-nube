@@ -13,6 +13,7 @@ import { dentroDe, segmentoValido, stat, esImagen, esVideo } from '../lib/archiv
 import { slugValido, urlAnuncio, urlSalida } from '../lib/anuncios.js';
 import { miniatura, anchoPermitido } from '../lib/miniaturas.js';
 import { rutaDeArchivoDeMuestra, urlMuestra } from '../lib/muestras.js';
+import { archivoEnNube, finalEnNube } from '../lib/en-la-nube.js';
 
 async function responder(req, res, abs, original) {
   const st = stat(abs);
@@ -37,7 +38,8 @@ export default function rutasMiniaturas(app) {
     const partes = Array.isArray(req.params.ruta) ? req.params.ruta : String(req.params.ruta || '').split('/');
     const abs = dentroDe(path.join(TEMP, slug), partes);
     if (!abs) return res.status(400).json({ error: 'Ruta no válida.' });
-    return responder(req, res, abs, urlAnuncio(slug, partes.join('/')));
+    // (si ya está en la nube, de su copia)
+    return responder(req, res, stat(abs)?.isFile() ? abs : archivoEnNube(slug, partes.join('/')) || abs, urlAnuncio(slug, partes.join('/')));
   });
 
   app.get('/archivos/miniatura/salida/:archivo', (req, res) => {
@@ -45,7 +47,7 @@ export default function rutasMiniaturas(app) {
     if (!segmentoValido(archivo)) return res.status(400).json({ error: 'Ruta no válida.' });
     const abs = dentroDe(OUTPUT, [archivo]);
     if (!abs) return res.status(400).json({ error: 'Ruta no válida.' });
-    return responder(req, res, abs, urlSalida(archivo));
+    return responder(req, res, stat(abs)?.isFile() ? abs : finalEnNube(archivo) || abs, urlSalida(archivo));
   });
 
   app.get('/archivos/miniatura/muestra/:clave/:archivo', (req, res) => {
