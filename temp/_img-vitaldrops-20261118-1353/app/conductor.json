@@ -1,0 +1,51 @@
+{
+  "slug": "_img-vitaldrops-20261118-1353",
+  "familia": "imagen-ads",
+  "estado": "corriendo",
+  "paso": "anuncios",
+  "pasos": [
+    {
+      "id": "preparar",
+      "nombre": "Preparando tu lote",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T18:53:57.158Z",
+      "fin": "2026-11-18T18:53:57.218Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Revisando con qué se hacen tus imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T18:53:57.218Z",
+      "fin": "2026-11-18T18:53:57.218Z"
+    },
+    {
+      "id": "estrategia",
+      "nombre": "La IA arma la estrategia",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-18T18:53:57.219Z",
+      "fin": "2026-11-18T18:53:57.226Z"
+    },
+    {
+      "id": "anuncios",
+      "nombre": "Creando tus anuncios",
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-18T18:53:57.226Z",
+      "detalle": "Creando 10 imágenes · 0 de 10 listas"
+    },
+    {
+      "id": "informe",
+      "nombre": "Armando tu informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-18T18:53:57.157Z",
+  "aprobado": "2026-11-18T18:53:57.157Z",
+  "actualizado": "2026-11-18T18:53:57.231Z"
+}

@@ -1,0 +1,131 @@
+{
+  "producto": "VITALDROPS",
+  "lote": "_img-vitaldrops-20261118-1353",
+  "cantidad": 10,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.jpg",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "En mi familia, si eres flaca, todo el mundo opina.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G1 · investigación con TrendTrack: Frase interna del texto largo de 126 días"
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R02.jpg",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "—Tenemos que hablar. —¿De qué? —De por qué ya no me miras igual. (Diálogo actuado)",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G2 · investigación con TrendTrack: 6 copias · 35 días · activo · solo Estados Unidos (sin alcance visible) · desde el 12 de octubre de 2026"
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R03.jpg",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Hazlo por ti. Que te lo noten es lo de menos.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G3 · investigación con TrendTrack: Cierre del sketch de la hermana (6 copias, 35 días)"
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R04.jpg",
+      "angulo_id": "prueba-social",
+      "angulo": "Prueba social",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Mi ex me dijo que parecía una tabla. Hoy me escribe cada diciembre.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G4 · investigación con TrendTrack: 3 copias · 11 días · alcance 87.220, el mayor de un estático · 14 al 25 de agosto de 2026 · segmentado a 120 países, Col"
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R05.jpg",
+      "angulo_id": "curiosidad",
+      "angulo": "Curiosidad",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Me encontré a mi ex en la puerta del colegio. Con la nueva. Y esta vez no me escondí.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G5 · investigación con TrendTrack: 3 copias · 1 día · alcance 62.177 · 6 de agosto de 2026 · solo Reino Unido"
+    },
+    {
+      "id": "V06",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R06.jpg",
+      "angulo_id": "mecanismo-unico",
+      "angulo": "Mecanismo único",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Me encontré a mi ex en una fiesta. La que me buscó en el baño fue la novia.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G6 · investigación con TrendTrack: 5 copias · 10 días · alcance 28.267 (21.043 en 7 días) · desde el 6 de noviembre de 2026"
+    },
+    {
+      "id": "V07",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R07.jpg",
+      "angulo_id": "objecion-confianza",
+      "angulo": "Objeción de confianza",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Mi prima me pidió ser su madrina en marzo. El matrimonio era en diciembre. Y entonces…",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G7 · investigación con TrendTrack: 1 copia · 5 días · solo Estados Unidos · desde el 11 de noviembre de 2026"
+    },
+    {
+      "id": "V08",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R08.jpg",
+      "angulo_id": "promesa-emocional",
+      "angulo": "Promesa emocional",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "¿Piernas flacas aunque entrenas? Revisa primero cuánto estás comiendo.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G8 · investigación con TrendTrack: 7 días · alcance 1.114 (821 en 7 días) · desde el 9 de noviembre de 2026 · página con 1.720 anuncios activos"
+    },
+    {
+      "id": "V09",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R09.jpg",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Bajaste de peso y con los kilos se te fue la cola. Nadie te avisó de esa parte.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G9 · investigación con TrendTrack: 5 copias · 93 días · solo Estados Unidos · desde el 15 de agosto de 2026 · titular: «1/3 Of Your Loss Is Your Curves» (u"
+    },
+    {
+      "id": "V10",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R10.jpg",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Si comes de todo y la báscula no se mueve, no es tu cuerpo. Es que comes sin horario.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "G10 · investigación con TrendTrack: 10 copias · 91 días · Nigeria y Ghana · desde el 17 de agosto de 2026"
+    }
+  ],
+  "rapido": true
+}

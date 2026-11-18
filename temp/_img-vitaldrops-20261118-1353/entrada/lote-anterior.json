@@ -1,0 +1,22 @@
+{
+  "lote": "_img-vitaldrops-20261118-1016",
+  "identidad_visual": {
+    "color_palette": "#C0B116 and #1C305F",
+    "visual_style": "Clean, bold and modern direct-response wellness ad: flat or softly graded brand-colored backgrounds, thick condensed headlines, natural warm photography of young Colombian women in everyday moments (breakfast, kitchen, living room), shown from the waist up or in action",
+    "visual_atmosphere": "Warm, honest, feminine and close: morning light, home breakfast table, the calm feeling of a small daily ritual. Confident and optimistic, never clinical and never body-shaming",
+    "graphic_language": "Flat mustard-yellow (#C0B116) color fields and deep navy (#1C305F) graphic elements, rounded pills and tiles, thin lines and simple monoline icons, one hand-drawn marker accent at most, strong contrast, generous margins, no foliage clutter",
+    "text_typography": "Anton + Caveat",
+    "art_direction": "One idea per image. Huge Anton headline in 2-4 words per line, Caveat only for small handwritten accents. The product always rendered exactly as in the attached photo. People from the waist up or in action (having breakfast, taking their drops), never close-ups of the body and never body before/after comparisons."
+  },
+  "descripcion_visual_en": "Use the attached product photo exactly as it is.",
+  "paleta": [
+    {
+      "hex": "#C0B116",
+      "nombre": "Amarillo mostaza"
+    },
+    {
+      "hex": "#1C305F",
+      "nombre": "Azul noche"
+    }
+  ]
+}
