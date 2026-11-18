@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18o · Salud de plataformas
+
+- En la barra de arriba, un botón **«Salud de plataformas»** con un punto de color: verde (todo bien), amarillo (algo va lento o tiene fallas) o rojo (un servicio no responde).
+- Al tocarlo, el estado de cada servicio que usa la app: **Claude** y **ChatGPT** (la IA que escribe), **ElevenLabs** (la voz y las transcripciones) y **kie.ai** (imágenes, videos y música: GPT Image, Seedream, Kling, Seedance, Veo y Suno), con el nombre de la falla, desde qué hora y el enlace a su página de estado.
+- Mira las páginas de estado oficiales, pero solo lo que usa la app (por ejemplo, de Claude mira «Claude Code» y la API, no «Claude no puede unirse a reuniones»), y además prueba gratis tus claves de kie y ElevenLabs: así nota también una falla que el servicio todavía no reportó, o si va lento.
+- Se revisa solo cada 2 minutos y al abrirlo (con el botón ↻, al instante).
+
+## 2026-11-18n · Si ElevenLabs tiene una falla, la app te lo dice
+
+- El 18 de noviembre ElevenLabs tuvo una falla («Increased latency and API errors», desde las 10:34 a. m.): las consultas con clave se quedaban esperando. No era tu clave, ni tu internet, ni la app (comprobado desde otra red con tu misma clave).
+- Ahora, si «Probar», la lista de voces o la elección de la voz fallan, la app mira la página de estado de ElevenLabs y, si hay una falla reportada, te lo dice: «ElevenLabs reporta una falla ahora: … No es tu clave ni la app: hay que esperar a que la arreglen».
+
 ## 2026-11-18m · La app no insiste con ElevenLabs cuando falla
 
 - Si traer tus voces o elegir la voz falla, la app ya no vuelve a pedírselo a ElevenLabs sola cada 30 segundos: espera 2 minutos para la lista de voces y 10 minutos para elegir la voz. Pedírselo una y otra vez puede hacer que ElevenLabs frene la cuenta. Los botones **Reintentar** y **Volver a intentar** lo piden enseguida.

@@ -10,6 +10,7 @@
 // Siempre va a ElevenLabs de verdad, tambien en modo prueba (listar no cobra).
 import { leerConfig } from '../lib/config.js';
 import { voces, mensajeSimple, VOZ_DE_PRUEBA } from '../lib/voces.js';
+import { fallaReportada } from '../lib/estado-servicios.js';
 
 export default function rutasVoces(app) {
   app.get('/api/voces/por-estilo', (req, res) => {
@@ -24,7 +25,10 @@ export default function rutasVoces(app) {
     let lista;
     if (r.ok) lista = r.voces;
     else if (process.env.ANUNCIOS_MODO_PRUEBA === '1') lista = [VOZ_DE_PRUEBA];
-    else return res.status(502).json({ error: mensajeSimple(r.mensaje) });
+    else {
+      const falla = r.motivo === 'clave' || r.motivo === 'sin-clave' ? '' : await fallaReportada('elevenlabs');
+      return res.status(502).json({ error: falla || mensajeSimple(r.mensaje) });
+    }
     const salida = lista
       .map(({ ajustes, ...v }) => {
         const ultimaEn = Object.entries(porEstilo).filter(([, x]) => x && (x.id || x) === v.id).map(([e]) => e);

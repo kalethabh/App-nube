@@ -713,3 +713,41 @@
 .actualizar-gh__linea--error svg {
   color: var(--error);
 }
+
+/* ---------------------------------------------------------------- salud de plataformas (SaludPlataformas.jsx) */
+.salud { position: relative; }
+.salud__boton { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: var(--r-pill); border: 0; cursor: pointer; font: inherit; font-size: var(--t-chico); font-weight: var(--peso-medio); color: var(--texto-2); background: var(--superficie-2); box-shadow: inset 0 0 0 1px var(--borde-1); transition: color var(--dur-rapido), box-shadow var(--dur-rapido); }
+.salud__boton:hover, .salud__boton[aria-expanded='true'] { color: var(--texto-1); box-shadow: inset 0 0 0 1px var(--borde-2); }
+.salud__boton--aviso { box-shadow: inset 0 0 0 1px var(--aviso-borde); }
+.salud__boton--error { color: var(--texto-1); box-shadow: inset 0 0 0 1px var(--error-borde); }
+.salud__caja { position: absolute; right: 0; top: calc(100% + 8px); z-index: 60; width: min(380px, calc(100vw - 24px)); max-height: min(70vh, 560px); overflow: auto; border-radius: var(--r-l); background: var(--superficie-2); border: 1px solid var(--borde-2); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35); }
+.salud__cabeza { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; padding: 14px 16px 10px; border-bottom: 1px solid var(--borde-1); }
+.salud__cabeza > div { display: flex; flex-direction: column; gap: 2px; }
+.salud__cabeza strong { font-size: var(--t-chico); color: var(--texto-1); }
+.salud__general { font-size: var(--t-mini); font-weight: var(--peso-semi); }
+.salud__general--ok { color: var(--ok); }
+.salud__general--aviso { color: var(--aviso); }
+.salud__general--error { color: var(--error); }
+.salud__general--neutro { color: var(--texto-3); }
+.salud__revisar { width: 28px; height: 28px; border-radius: var(--r-pill); border: 1px solid var(--borde-2); background: transparent; color: var(--texto-2); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.salud__revisar:hover:not(:disabled) { color: var(--texto-1); background: var(--superficie-3); }
+.salud__grupo { padding: 8px 16px 6px; border-bottom: 1px solid var(--borde-1); }
+.salud__grupo-titulo { margin: 4px 0 6px; font-size: var(--t-micro); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--texto-3); }
+.salud__servicio { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: start; gap: 4px 10px; padding: 6px 0; }
+.salud__servicio > .punto { margin-top: 6px; }
+.salud__servicio-textos { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.salud__nombre { font-size: var(--t-chico); font-weight: var(--peso-semi); color: var(--texto-1); }
+.salud__para, .salud__fuente { font-size: var(--t-mini); color: var(--texto-3); overflow-wrap: anywhere; }
+.salud__detalle { font-size: var(--t-mini); overflow-wrap: anywhere; }
+.salud__detalle--aviso { color: var(--aviso); }
+.salud__detalle--error { color: var(--error); }
+.salud__detalle--neutro, .salud__detalle--ok { color: var(--texto-2); }
+.salud__estado { font-size: var(--t-mini); font-weight: var(--peso-semi); white-space: nowrap; margin-top: 2px; }
+.salud__estado--ok { color: var(--ok); }
+.salud__estado--aviso { color: var(--aviso); }
+.salud__estado--error { color: var(--error); }
+.salud__estado--neutro { color: var(--texto-3); }
+.salud__enlace { color: var(--texto-3); margin-top: 3px; }
+.salud__enlace:hover { color: var(--texto-1); }
+.salud__pie { margin: 0; padding: 10px 16px 12px; font-size: var(--t-mini); color: var(--texto-3); }
+@media (max-width: 700px) { .salud__texto { display: none; } }
