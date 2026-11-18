@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18q · Salud de plataformas más simple, con kie por modelo y revisión por servicio
+
+- Cada servicio en una sola línea: nombre, estado y, solo si hay falla, una línea corta con cuál.
+- **kie.ai con desplegable**: toca su nombre y ves cada modelo que usas (GPT Image, Omni Flash, Kling, Seedance, Veo, Suno…) con su estado, según tus generaciones de los últimos 7 días (amarillo si hoy la mitad de sus piezas necesitaron reintentos).
+- Cada servicio tiene su **↻** para revisarlo solo, al instante.
+
+## 2026-11-18p · Salud de plataformas: también Meta
+
+- En «Salud de plataformas», un grupo nuevo **Meta**, con lo que usas para vender: **Ads Manager** (crear, publicar y medir tus anuncios, y su API), **Biblioteca de anuncios** (la Inspiración «Meta (oficial)») y **WhatsApp Business** (anuncios «Clic a WhatsApp» y tus ventas). Sale de metastatus.com, la página de estado oficial de Meta: verde sin problemas, amarillo con fallas leves o medias, rojo con fallas graves, con la parte afectada y desde qué hora. Los productos de Meta que no usas no cuentan.
+
 ## 2026-11-18o · Salud de plataformas
 
 - En la barra de arriba, un botón **«Salud de plataformas»** con un punto de color: verde (todo bien), amarillo (algo va lento o tiene fallas) o rojo (un servicio no responde).

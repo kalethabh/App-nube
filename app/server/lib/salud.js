@@ -1,7 +1,8 @@
 // «Salud de plataformas» (2026-11-18, pedido del usuario después de la falla de ElevenLabs de ese día): el estado de
 // los servicios que usa la app, para saber de un vistazo si algo que falla es de ellos y no de la app.
 //
-//   salud({ fresco }) -> { general, revisado, grupos: [{ titulo, servicios: [{ id, nombre, para, estado, detalle,
+//   salud({ fresco }) -> { general, revisado, grupos: [{ titulo, servicios: [{ id, nombre, para, estado, detalle,   (Claude,
+//                          ChatGPT, ElevenLabs, kie.ai y Meta: Ads Manager, Biblioteca de anuncios y WhatsApp Business)
 //                          fuente, enlace }] }] }      (se recuerda 60 s; todo gratis)
 //
 // estado: 'operativo' | 'lento' | 'degradado' | 'caido' | 'desconocido'. Dos fuentes:
@@ -9,7 +10,11 @@
 //     Claude, «Claude Code» y la API; no «Claude no puede unirse a reuniones»);
 //   - una comprobación propia con la clave del usuario cuando no cuesta nada (el saldo de kie y el de ElevenLabs):
 //     nota una falla que el servicio todavía no reportó. Lenta (más de 6 s) cuenta como «lento».
+import fs from 'node:fs';
+import path from 'node:path';
 import { saldoKie, saldoElevenLabs, leerClave } from './claves.js';
+import { TEMP } from './rutas.js';
+import { nombreDeModelo } from './modelos.js';
 
 const ESPERA_PAGINA = 7000;
 const ESPERA_PROPIA = 12000;
@@ -20,6 +25,7 @@ let PAGINAS = {
   claude: 'https://status.claude.com/api/v2/summary.json',
   openai: 'https://status.openai.com/api/v2/summary.json',
   elevenlabs: 'https://status.elevenlabs.io/api/v2/summary.json',
+  meta: 'https://metastatus.com/data/orgs.json',
 };
 export function _paraPruebas(paginas) {
   PAGINAS = { ...PAGINAS, ...paginas };
@@ -68,6 +74,130 @@ async function deLaPagina(url, partes) {
   return { estado, detalle, ...(otros ? { otros: `${otros} aviso${otros === 1 ? '' : 's'} en partes que la app no usa` } : {}) };
 }
 
+// ---------------------------------------------------------------- Meta (metastatus.com)
+// Meta no usa Statuspage: su página (metastatus.com) lee /data/orgs.json, con cada producto y sus partes, y un estado
+// por parte: «No known issues», «Low/Some/Medium disruptions» (fallas) o «High/Major disruptions» (graves).
+const DE_META = (t) => {
+  const x = String(t || '').toLowerCase();
+  if (!x || /no known issues/.test(x)) return 'operativo';
+  if (/high|major/.test(x)) return 'caido';
+  return 'degradado';
+};
+
+/** Lee orgs.json de Meta una vez. -> [{ id, name, services }] | null */
+async function orgsDeMeta() {
+  try {
+    const r = await fetch(PAGINAS.meta, { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(ESPERA_PAGINA) });
+    if (!r.ok) return null;
+    const d = await r.json();
+    return Array.isArray(d) ? d : null;
+  } catch {
+    return null;
+  }
+}
+
+/** El estado de unos productos de Meta (ids de orgs.json; `partes`: regex de las partes que cuentan). */
+function deMeta(orgs, ids, partes = null) {
+  if (!orgs) return null;
+  const servicios = orgs.filter((o) => ids.includes(o.id)).flatMap((o) => (o.services || []).filter((x) => !partes || partes.test(x.name || '')).map((x) => ({ ...x, producto: o.name })));
+  if (!servicios.length) return null;
+  const malos = servicios.filter((x) => DE_META(x.status) !== 'operativo');
+  const estado = peor('operativo', ...malos.map((x) => DE_META(x.status)));
+  const detalle = malos.length
+    ? malos
+        .slice(0, 2)
+        .map((x) => `${x.name}: ${x.status}${x.time ? ` (desde las ${hora(typeof x.time === 'number' && x.time < 1e12 ? x.time * 1000 : x.time)})` : ''}`)
+        .join(' · ')
+    : '';
+  return { estado, detalle };
+}
+
+// ---------------------------------------------------------------- kie.ai, modelo por modelo
+// kie no tiene página de estado: el estado de cada modelo sale de TUS generaciones de los últimos 7 días (el registro de
+// cada corrida, temp/*/app/gasto/*.json, y el de los lotes de imágenes, temp/_img-*/img/log-modelos.json): cuántas
+// piezas salieron y cuántas necesitaron reintentos o pasar a otro modelo. Amarillo si en las últimas 24 h la mitad o
+// más de sus piezas necesitaron reintentos.
+const SEMANA = 7 * 24 * 3600000;
+const DIA = 24 * 3600000;
+
+function piezasDeKie() {
+  const piezas = [];
+  const agregar = (lista, cuando) => {
+    for (const x of Array.isArray(lista) ? lista : []) {
+      const m = String(x?.modelo || '');
+      if (!m || /chatgpt/i.test(m)) continue; // (las de ChatGPT no van por kie)
+      piezas.push({ modelo: m, cuando, reintento: (Number(x.intentos) || 1) > 1 || Boolean(x.respaldo) });
+    }
+  };
+  let carpetas = [];
+  try {
+    carpetas = fs.readdirSync(TEMP);
+  } catch {
+    return piezas;
+  }
+  const ahora = Date.now();
+  for (const c of carpetas) {
+    const dirGasto = path.join(TEMP, c, 'app', 'gasto');
+    let archivos = [];
+    try {
+      archivos = fs.readdirSync(dirGasto).filter((n) => n.endsWith('.json'));
+    } catch {
+      archivos = [];
+    }
+    for (const n of archivos) {
+      try {
+        const ruta = path.join(dirGasto, n);
+        if (ahora - fs.statSync(ruta).mtimeMs > SEMANA) continue;
+        const d = JSON.parse(fs.readFileSync(ruta, 'utf8'));
+        const cuando = Date.parse(d.fin || d.inicio) || fs.statSync(ruta).mtimeMs;
+        agregar(d.imagenes, cuando);
+        agregar(d.videos, cuando);
+        if (d.musica) piezas.push({ modelo: 'suno', cuando, reintento: false });
+      } catch {
+        /* un registro roto no frena el resto */
+      }
+    }
+    if (c.startsWith('_img-')) {
+      try {
+        const ruta = path.join(TEMP, c, 'img', 'log-modelos.json');
+        if (ahora - fs.statSync(ruta).mtimeMs <= SEMANA) {
+          const d = JSON.parse(fs.readFileSync(ruta, 'utf8'));
+          agregar(d.imagenes, Date.parse(d.generado) || fs.statSync(ruta).mtimeMs);
+        }
+      } catch {
+        /* sin registro */
+      }
+    }
+  }
+  return piezas;
+}
+
+/** -> [{ nombre, estado, detalle }] por modelo (el más usado primero). */
+export function modelosDeKie() {
+  const porNombre = new Map();
+  for (const p of piezasDeKie()) {
+    const nombre = p.modelo === 'suno' ? 'Suno (música)' : nombreDeModelo(p.modelo) || p.modelo;
+    const g = porNombre.get(nombre) || { nombre, total: 0, hoy: 0, hoyReintento: 0, ultima: 0 };
+    g.total++;
+    if (Date.now() - p.cuando <= DIA) {
+      g.hoy++;
+      if (p.reintento) g.hoyReintento++;
+    }
+    g.ultima = Math.max(g.ultima, p.cuando);
+    porNombre.set(nombre, g);
+  }
+  return [...porNombre.values()]
+    .sort((a, b) => b.total - a.total)
+    .map((g) => {
+      const mal = g.hoy >= 2 && g.hoyReintento / g.hoy >= 0.5;
+      return {
+        nombre: g.nombre,
+        estado: mal ? 'degradado' : g.hoy ? 'operativo' : 'operativo',
+        detalle: mal ? `${g.hoyReintento} de ${g.hoy} piezas hoy necesitaron reintentos` : g.hoy ? `${g.hoy} ${g.hoy === 1 ? 'pieza' : 'piezas'} hoy` : `Última vez: hace ${Math.max(1, Math.round((Date.now() - g.ultima) / DIA))} ${Math.round((Date.now() - g.ultima) / DIA) <= 1 ? 'día' : 'días'}`,
+      };
+    });
+}
+
 /** Una comprobación propia: lo que tardó y si respondió. -> { estado, detalle } */
 async function propia(fn, nombre) {
   const t0 = Date.now();
@@ -93,35 +223,58 @@ function juntar(pagina, mia) {
   return { estado: pagina || mia ? estado : 'desconocido', detalle, fuente, ...(pagina?.otros ? { otros: pagina.otros } : {}) };
 }
 
-async function revisar() {
-  const [claude, openai, eleven, elevenMia, kieMia] = await Promise.all([
-    deLaPagina(PAGINAS.claude, /claude code|claude api|api\.anthropic/i),
-    deLaPagina(PAGINAS.openai, /codex|responses|chat completions|login/i),
-    deLaPagina(PAGINAS.elevenlabs, null),
-    leerClave('ELEVENLABS_API_KEY') ? propia(() => saldoElevenLabs({ fresco: true }), 'ElevenLabs') : null,
-    leerClave('KIE_API_KEY') ? propia(() => saldoKie({ fresco: true }), 'kie.ai') : null,
-  ]);
-  const grupos = [
-    {
-      titulo: 'IA que escribe',
-      servicios: [
-        { id: 'claude', nombre: 'Claude', para: 'Guiones, ideas y revisiones', ...juntar(claude, null), enlace: 'https://status.claude.com' },
-        { id: 'chatgpt', nombre: 'ChatGPT (Codex)', para: 'Guiones, ideas y revisiones', ...juntar(openai, null), enlace: 'https://status.openai.com' },
-      ],
-    },
-    {
-      titulo: 'Voz',
-      servicios: [{ id: 'elevenlabs', nombre: 'ElevenLabs', para: 'La voz del narrador y las transcripciones', ...juntar(eleven, elevenMia), enlace: 'https://status.elevenlabs.io' }],
-    },
-    {
-      titulo: 'Imágenes, videos y música',
-      servicios: [{ id: 'kie', nombre: 'kie.ai', para: 'GPT Image, Seedream, Kling, Seedance, Veo y Suno', ...juntar(null, kieMia), enlace: 'https://kie.ai' }],
-    },
-  ];
-  const todos = grupos.flatMap((g) => g.servicios);
-  // el general no cuenta los «desconocido» (por ejemplo, ChatGPT si no lo usas y su página no cargó)
-  const general = peor(...todos.map((s) => (s.estado === 'desconocido' ? 'operativo' : s.estado)));
+// cada servicio sabe revisarse solo (para el ↻ de cada fila)
+const REVISAR = {
+  claude: async () => ({ id: 'claude', nombre: 'Claude', grupo: 'IA que escribe', ...juntar(await deLaPagina(PAGINAS.claude, /claude code|claude api|api\.anthropic/i), null), enlace: 'https://status.claude.com' }),
+  chatgpt: async () => ({ id: 'chatgpt', nombre: 'ChatGPT (Codex)', grupo: 'IA que escribe', ...juntar(await deLaPagina(PAGINAS.openai, /codex|responses|chat completions|login/i), null), enlace: 'https://status.openai.com' }),
+  elevenlabs: async () => {
+    const [pagina, mia] = await Promise.all([deLaPagina(PAGINAS.elevenlabs, null), leerClave('ELEVENLABS_API_KEY') ? propia(() => saldoElevenLabs({ fresco: true }), 'ElevenLabs') : null]);
+    return { id: 'elevenlabs', nombre: 'ElevenLabs', grupo: 'Voz', ...juntar(pagina, mia), enlace: 'https://status.elevenlabs.io' };
+  },
+  kie: async () => {
+    const mia = leerClave('KIE_API_KEY') ? await propia(() => saldoKie({ fresco: true }), 'kie.ai') : null;
+    const modelos = modelosDeKie();
+    const base = juntar(null, mia);
+    // si la clave responde pero algún modelo viene fallando hoy: amarillo
+    // (sin la clave no se sabe si kie responde: el historial solo puede avisar de reintentos, no confirmar que anda)
+    const conReintentos = modelos.some((m) => m.estado !== 'operativo');
+    const estado = base.estado === 'desconocido' ? (conReintentos ? 'degradado' : 'desconocido') : peor(base.estado, ...modelos.map((m) => m.estado));
+    const flojos = modelos.filter((m) => m.estado !== 'operativo').map((m) => m.nombre);
+    return { id: 'kie', nombre: 'kie.ai', grupo: 'Imágenes, videos y música', ...base, estado, detalle: base.detalle || (flojos.length ? `Con reintentos hoy: ${flojos.join(', ')}` : ''), modelos, enlace: 'https://kie.ai' };
+  },
+};
+const META = [
+  ['meta-ads', 'Ads Manager', ['ads-manager', 'marketing-api'], null],
+  ['meta-biblioteca', 'Biblioteca de anuncios', ['ads-transparency'], /ad library/i],
+  ['meta-whatsapp', 'WhatsApp Business', ['whatsapp-business-api', 'ctx'], /cloud api$|business account|click to whatsapp|marketing messages/i],
+];
+for (const [id, nombre, ids, partes] of META) REVISAR[id] = async () => ({ id, nombre, grupo: 'Meta', ...juntar(deMeta(await orgsDeMeta(), ids, partes), null), enlace: 'https://metastatus.com' });
+
+const GRUPOS = ['IA que escribe', 'Voz', 'Imágenes, videos y música', 'Meta'];
+function armar(servicios) {
+  const grupos = GRUPOS.map((titulo) => ({ titulo, servicios: servicios.filter((x) => x.grupo === titulo).map(({ grupo, ...x }) => x) })).filter((g) => g.servicios.length);
+  // el general no cuenta los «desconocido» (por ejemplo, una página de estado que no cargó)
+  const general = peor(...servicios.map((x) => (x.estado === 'desconocido' ? 'operativo' : x.estado)));
   return { general, revisado: new Date().toISOString(), grupos };
+}
+
+async function revisar() {
+  return armar(await Promise.all(Object.values(REVISAR).map((fn) => fn().catch(() => null))).then((l) => l.filter(Boolean)));
+}
+
+/** Revisa de nuevo UN servicio (el ↻ de su fila) y lo pone en lo recordado. */
+export async function revisarServicio(id) {
+  const fn = REVISAR[id];
+  if (!fn) return null;
+  const nuevo = await fn().catch(() => null);
+  const actual = recordado?.valor || (await salud());
+  if (!nuevo) return actual;
+  const todos = actual.grupos.flatMap((g) => g.servicios.map((x) => ({ ...x, grupo: g.titulo })));
+  const grupo = GRUPOS.find((g) => g === nuevo.grupo);
+  const lista = todos.some((x) => x.id === id) ? todos.map((x) => (x.id === id ? nuevo : x)) : [...todos, { ...nuevo, grupo }];
+  const valor = armar(lista);
+  recordado = { t: Date.now(), valor, promesa: null };
+  return valor;
 }
 
 export function salud({ fresco = false } = {}) {
