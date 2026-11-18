@@ -2941,3 +2941,17 @@
 .nv-linea--nueva .nv-linea__n { color: var(--acento); }
 .nv-linea--nueva .nv-linea__dice { padding: var(--e-2) var(--e-3); border: 1px dashed var(--acento-borde); border-radius: var(--r-m); background: var(--acento-suave); }
 .nv-linea__quitar { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 6px; border: 0; border-radius: var(--r-pill); background: var(--superficie-3); color: var(--texto-2); cursor: pointer; vertical-align: middle; }
+
+/* «Tus videos e imágenes» (2026-11-19) */
+.nv-archivos { display: flex; flex-direction: column; gap: var(--e-2); padding-top: var(--e-4); border-top: 1px solid var(--borde-1); }
+.nv-archivos .nv-ajuste__etiqueta svg:first-child { color: var(--acento); }
+.nv-archivos__lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--e-2); }
+.nv-archivos__item { display: flex; align-items: center; gap: var(--e-3); padding: var(--e-2); border: 1px solid var(--borde-1); border-radius: var(--r-m); background: var(--superficie-1); }
+.nv-archivos__vista { flex: none; display: grid; place-items: center; width: 44px; height: 56px; border-radius: var(--r-s); background: var(--superficie-3); color: var(--texto-3); overflow: hidden; }
+.nv-archivos__vista img { width: 100%; height: 100%; object-fit: cover; }
+.nv-archivos__textos { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.nv-archivos__nombre { font-size: var(--t-mini); color: var(--texto-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nv-archivos__quitar { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 0; border-radius: var(--r-pill); background: var(--superficie-3); color: var(--texto-2); cursor: pointer; }
+.nv-archivos__agregar { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: var(--e-3); border: 1px dashed var(--borde-3, var(--borde-2)); border-radius: var(--r-m); background: transparent; color: var(--texto-2); font: inherit; font-size: var(--t-chico); cursor: pointer; }
+.nv-archivos__agregar:hover:not(:disabled) { color: var(--acento); border-color: var(--acento-borde); }
+.nv-archivos__error { margin: 0; font-size: var(--t-mini); color: var(--error); }

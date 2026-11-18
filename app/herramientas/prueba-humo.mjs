@@ -267,6 +267,13 @@ async function claudeFalso() {
     usar('Read', { file_path: path.join(RAIZ, '.claude', 'skills', objeto ? 'anuncios-talking-object-pixar' : 'anuncios-claymation', 'SKILL.md') });
     const foto = fs.readdirSync(path.join(RAIZ, 'temp', slug)).find((x) => /^producto\.(jpg|jpeg|png|webp)$/i.test(x)) || null;
     const man = objeto ? manifiestoObjetoParlante(foto) : manifiestoClaymation(foto);
+    // «Tus videos e imágenes» (2026-11-19): lo que subió el usuario, como lo usaría la IA: la imagen es la de la toma 1
+    // y el video, la escena del primer B-roll (sin generar ni pagar)
+    const material = leerJSON(path.join(RAIZ, 'temp', slug, 'material', 'material.json')) || [];
+    const img = material.find((x) => x.tipo === 'imagen');
+    const vid = material.find((x) => x.tipo === 'video');
+    if (img && man.tomas?.[0]) man.tomas[0].imagen_propia = `temp/${slug}/material/${img.archivo}`;
+    if (vid && Array.isArray(man.broll)) man.broll.push({ n: man.broll.length + 1, despues_de_toma: 3, sincroniza_con: 'el final', duracion: 2, prompt_imagen: 'Vertical 9:16. The user video: a plain colored scene.', prompt_video: 'the user video as it is', referencias: [], desde_biblioteca: `temp/${slug}/material/${vid.archivo}` });
     escribir(`temp/${slug}/manifiesto.json`, man);
     escribir(`temp/${slug}/transiciones.json`, {
       efectos: { woosh: 'efectos/woosh.mp3', 'deep-woosh': 'efectos/deep-woosh.mp3' },
@@ -1038,7 +1045,14 @@ async function producirAnuncio({ pedir, check, aviso, salio, t0 }) {
   if (!check('La ficha queda lista', ficha?.tarea?.estado === 'lista' && ficha?.ficha, ficha?.tarea || ficha)) return resumen;
 
   // ------------------------------------------------------------ el anuncio y su guion
-  r = await pedir('/api/anuncios', { json: { productoId: id, estilo: 'claymation', voz: { id: 'sim-narrador', nombre: 'Narrador de prueba' }, continuidad: false, respuestas: {} } });
+  // «Tus videos e imágenes» (2026-11-19): una imagen y un video del usuario para el anuncio
+  const subirMaterial = async (bytes, tipo, nombre) => (await pedir('/api/material', { metodo: 'POST', cuerpo: bytes, headers: { 'Content-Type': tipo, 'X-Nombre': nombre } })).datos;
+  const matImagen = await subirMaterial(pngFrasco(), 'image/png', 'antes.png');
+  const videoMat = path.join(os.tmpdir(), `humo-material-${process.pid}.mp4`);
+  cp.spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=green:s=360x640:d=4', '-pix_fmt', 'yuv420p', videoMat]);
+  const matVideo = fs.existsSync(videoMat) ? await subirMaterial(fs.readFileSync(videoMat), 'video/mp4', 'escena.mp4') : null;
+  check('Tus videos e imágenes: se suben una imagen y un video', matImagen?.tipo === 'imagen' && matVideo?.tipo === 'video', { matImagen, matVideo });
+  r = await pedir('/api/anuncios', { json: { productoId: id, estilo: 'claymation', voz: { id: 'sim-narrador', nombre: 'Narrador de prueba' }, continuidad: false, respuestas: {}, material: [matImagen, matVideo].filter(Boolean).map((x, i) => ({ id: x.id, nota: i ? 'como escena' : 'en la primera toma' })) } });
   const slug = r.datos?.slug;
   resumen.slug = slug;
   if (!check('Se crea el anuncio claymation (POST /api/anuncios)', r.st === 201 && slug, r)) return resumen;
@@ -1114,6 +1128,22 @@ async function producirAnuncio({ pedir, check, aviso, salio, t0 }) {
   }
   resumen.pasos = (c?.pasos || []).map((p) => `${p.id}=${p.estado}`);
   if (!check('La producción termina («listo») sin errores', c?.estado === 'listo', { estado: c?.estado, paso: c?.paso, error: c?.error, mensaje: c?.mensaje, pasos: resumen.pasos, tiempo: c?._seAcaboElTiempo })) return resumen;
+  {
+    // «Tus videos e imágenes»: el anuncio los usó (la imagen como la de la toma 1, el video como el primer B-roll) y
+    // salió listo igual
+    const dirA = path.join(RAIZ, 'temp', slug);
+    const leerJSONSeguro = (f) => {
+      try {
+        return JSON.parse(fs.readFileSync(f, 'utf8'));
+      } catch {
+        return null;
+      }
+    };
+    const man = leerJSONSeguro(path.join(dirA, 'manifiesto.json'));
+    const lista = leerJSONSeguro(path.join(dirA, 'material', 'material.json')) || [];
+    check('Tus videos e imágenes: quedaron en el anuncio y la IA los usó en el manifiesto', lista.length === 2 && /material\/M01\.png$/.test(man?.tomas?.[0]?.imagen_propia || '') && /material\/M02\.mp4$/.test(man?.broll?.[1]?.desde_biblioteca || ''), { lista, toma1: man?.tomas?.[0]?.imagen_propia, broll2: man?.broll?.[1]?.desde_biblioteca });
+    check('Tus videos e imágenes: la toma 1 tiene tu imagen (vertical) y no se generó', fs.existsSync(path.join(dirA, 'img', 'toma-1-inicial.png')) && !/toma-1-inicial/.test(fs.existsSync(path.join(dirA, 'app', 'gasto')) ? fs.readdirSync(path.join(dirA, 'app', 'gasto')).map((f) => fs.readFileSync(path.join(dirA, 'app', 'gasto', f), 'utf8')).join(' ') : ''), {});
+  }
   resumen.listo = true;
 
   // ------------------------------------------------------------ lo cobrado contra el estimado
@@ -1628,15 +1658,18 @@ async function probarPrimerIntento({ pedir, check, aviso, salio, t0, slug, regis
     reh = (await pedir(`/api/anuncios/${slug}/rehacer?esperar=5000`)).datos;
   }
   const pz = reh?.porPieza || {};
+  // (con tu material: la escena 1 es tu imagen, su clip se regenera pero la imagen no; la imagen de apoyo 2 es tu video
+  // y no se regenera)
+  const conMaterial = Boolean(pz['broll-2']);
   const REGENERABLES = ['toma-1', 'toma-2', 'toma-3', 'broll-1'];
   check(
-    'GET /rehacer: se pueden regenerar las escenas 1 a 3 y la imagen de apoyo 1; la hoja del personaje y la foto del producto no, con su porqué',
-    reh?.disponible === true && Array.isArray(reh.piezas) && REGENERABLES.every((id) => pz[id] && !pz[id].motivoNo) && pz['toma-1'].nombre === 'Escena 1' && pz['broll-1'].nombre === 'Imagen de apoyo 1' && Boolean(pz['hoja-mujer']?.motivoNo) && /foto de tu producto/.test(pz['hoja-producto']?.motivoNo || ''),
+    'GET /rehacer: se pueden regenerar las escenas 1 a 3 y la imagen de apoyo 1 (si es tu video, no); la hoja del personaje y la foto del producto no, con su porqué',
+    reh?.disponible === true && Array.isArray(reh.piezas) && REGENERABLES.every((id) => pz[id] && !pz[id].motivoNo) && pz['toma-1'].nombre === 'Escena 1' && pz['broll-1'].nombre === 'Imagen de apoyo 1' && Boolean(pz['hoja-mujer']?.motivoNo) && /foto de tu producto/.test(pz['hoja-producto']?.motivoNo || '') && (!conMaterial || (/Es tu video/.test(pz['broll-2'].motivoNo || '') && pz['broll-2'].costo === null && pz['toma-1'].imagen === false)),
     reh && { disponible: reh.disponible, motivo: reh.motivo, piezas: (reh.piezas || []).map((p) => [p.pieza, p.nombre, p.motivoNo || 'sí']) }
   );
   check(
     `GET /rehacer: cada pieza con su costo (solo el clip y con su imagen: ${REGENERABLES.map((id) => `${id} US$ ${coma(pz[id]?.costo?.clip?.dolares)} / ${coma(pz[id]?.costo?.conImagen?.dolares)}`).join(', ')}), el aviso de la Escena 2 y nada de prompts`,
-    REGENERABLES.every((id) => pz[id]?.costo?.clip?.dolares > 0 && pz[id].costo.conImagen?.dolares > pz[id].costo.clip.dolares) && pz['toma-2'].aviso?.sugerencia === true && pz['toma-2'].aviso.clave === 'img:toma-2-inicial' && !pz['toma-1'].aviso && sinPrompts(reh),
+    REGENERABLES.every((id) => pz[id]?.costo?.clip?.dolares > 0 && ((conMaterial && id === 'toma-1') || pz[id].costo.conImagen?.dolares > pz[id].costo.clip.dolares)) && pz['toma-2'].aviso?.sugerencia === true && pz['toma-2'].aviso.clave === 'img:toma-2-inicial' && !pz['toma-1'].aviso && sinPrompts(reh),
     REGENERABLES.map((id) => [id, pz[id]?.costo, pz[id]?.aviso])
   );
   const env = { ...process.env };

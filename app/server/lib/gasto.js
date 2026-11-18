@@ -91,6 +91,22 @@ export function cerrarCorrida(carpeta, datos) {
 // Precio de hoy de lo que quedo sin registro, con los modelos del anuncio (temp/<slug>/modelos.json, o los de
 // siempre): una imagen con el modelo de imagen elegido; un clip con el primer modelo de su cascada que hace ese largo
 // (con los de siempre: Omni por tramo y, mas largo, Kling por segundo).
+/** Las piezas en disco que no se cobran: la imagen y el clip de lo que viene de la biblioteca o de tus archivos. */
+export function sinCobro(carpeta, manifiesto = null) {
+  const m = manifiesto || leerJSON(path.join(carpeta, 'manifiesto.json'));
+  const salida = [];
+  const conTexto = (v) => typeof v === 'string' && v.trim();
+  for (const t of m?.tomas || []) {
+    if (conTexto(t.desde_biblioteca)) salida.push(`video/toma-${t.n}.mp4`, `img/toma-${t.n}-inicial.png`, `img/toma-${t.n}-final.png`);
+    if (conTexto(t.imagen_propia)) salida.push(`img/toma-${t.n}-inicial.png`);
+  }
+  for (const b of m?.broll || []) {
+    if (conTexto(b.desde_biblioteca)) salida.push(`video/broll-${b.n}.mp4`, `img/broll-${b.n}.png`);
+    if (conTexto(b.imagen_propia)) salida.push(`img/broll-${b.n}.png`);
+  }
+  return salida;
+}
+
 function estimarPieza(carpeta, rel) {
   const tipicos = creditosTipicos(carpeta);
   if (!rel.startsWith('video/')) return tipicos.imagen;
@@ -147,6 +163,8 @@ export function registrarCorrida(carpeta, { paso, comando, inicio, fin = Date.no
 
   // Piezas nuevas en disco que ningun log nombra (la corrida se corto antes de escribirlo).
   const nombradas = new Set([...imagenes.map((x) => `img/${x.archivo}`), ...videos.map((x) => `video/${x.archivo}`)]);
+  // (2026-11-19) lo que no se genera: un clip de la biblioteca o un video tuyo (y sus cuadros), o una imagen tuya
+  for (const rel of sinCobro(carpeta, manifiesto)) nombradas.add(rel);
   const sinRegistro = [];
   for (const sub of [...(que.includes('imagenes') ? ['img'] : []), ...(que.includes('videos') ? ['video'] : [])]) {
     for (const n of listar(path.join(carpeta, sub))) {

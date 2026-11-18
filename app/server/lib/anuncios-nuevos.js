@@ -56,6 +56,7 @@ import { prepararReferencia, referenciaPedida, textoClonar } from './clonar.js';
 import { textoEstructuras, textoInvestigacion, textoTendencias } from './estructuras.js';
 import { conDuracion, entenderDuracion, leerDuracion, duracionAprox, segundosPedidos } from './duracion.js';
 import { copiarModelosAlAnuncio, modeloDeLaPieza, nombreDeModelo } from './modelos.js';
+import { copiarAlAnuncio as copiarMaterial, textoMaterial } from './material-propio.js';
 
 // ---------------------------------------------------------------- los estilos
 
@@ -404,6 +405,15 @@ export function crearAnuncio(datos = {}) {
   fs.mkdirSync(appDe(slug), { recursive: true });
   const brief = { slug, productoId, estilo, familia: null, faseGuion: def.faseGuion, duracion, voz, continuidad, respuestas, opciones: opcionesDe(estilo, respuestas), ...(avatar ? { avatar } : {}), ...(musicaBiblioteca ? { musicaBiblioteca } : {}), creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
   brief.familia = familiaDe(brief);
+  // tus videos e imágenes (opcional, 2026-11-19): se copian al anuncio antes del guion (lib/material-propio.js)
+  if (Array.isArray(datos.material) && datos.material.length) {
+    try {
+      const material = copiarMaterial(slug, datos.material);
+      if (material.length) brief.material = material.length;
+    } catch (e) {
+      console.warn(`[guion] ${slug}: no pude copiar tus archivos (${e.message})`);
+    }
+  }
   escribirJSON(path.join(appDe(slug), 'brief.json'), brief);
   // los modelos de IA que eligio en Ajustes › Modelos (el motor los lee de temp/<slug>/modelos.json)
   copiarModelosAlAnuncio(slug);
@@ -884,7 +894,7 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
       textoVozAuto(slug, brief, def),
       esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia === 'agregar' ? 'voz-en-off' : def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
       textoTendencias(brief.estilo),
-      textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
+      textoBiblioteca(slug, brief), textoMaterial(slug), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
   });
