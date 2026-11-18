@@ -24,7 +24,6 @@ import {
   CLAVE_PRODUCTOS,
   apiImagenes,
   costoDelLote,
-  planDePlantillas,
   textoDeCantidad,
   useOpcionesImagen,
   useProductosImagen,
@@ -38,7 +37,7 @@ import { ElegirFunciona, comoArchivos } from './ElegirFunciona.jsx';
 import { ResumenLote } from './ResumenLote.jsx';
 import { ZonaImagenes, liberarVistas } from './ZonaImagenes.jsx';
 import { BibliotecaReferencias } from './BibliotecaReferencias.jsx';
-import { ElegirPlantillas } from './ElegirPlantillas.jsx';
+import { ElegirPlantillasRef } from './ElegirPlantillasRef.jsx';
 import { KitMarca, KIT_INICIAL } from './KitMarca.jsx';
 import { DeUnVideo } from './DeUnVideo.jsx';
 
@@ -70,6 +69,8 @@ const VACIO = {
   plantillas: true,
   // los formatos elegidos ([] = «Que la app elija»)
   elegidas: [],
+  // las plantillas de referencia elegidas (2026-11-18s)
+  plantillasRef: [],
 };
 
 // ---------------------------------------------------------------- el borrador en este navegador (sin imágenes)
@@ -151,8 +152,10 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   // «De un video, imágenes»: los cuadros de un video, armados con las plantillas (gratis)
   const deVideo = f.modo === 'video';
   const [video, setVideo] = useState(null); // { id, seleccion } cuando ya hay cuadros elegidos
-  // con plantillas: en «Nuevos» (en «Variantes» se copia el diseño de lo que ya te funciona); «De un video», siempre
-  const conPlantillas = !variantes && !deVideo && f.plantillas !== false && Boolean(opciones?.plantillas?.plantillas?.length);
+  // con plantillas (2026-11-18s: anuncios validados que van al modelo como referencia, con tu producto y tus textos):
+  // en «Nuevos» (en «Variantes» se copia el diseño de lo que ya te funciona)
+  const conPlantillas = !variantes && !deVideo && f.plantillas !== false && Boolean(opciones?.plantillasReferencia?.plantillas?.length);
+  const refElegidas = (Array.isArray(f.plantillasRef) ? f.plantillasRef : []).filter((id) => opciones?.plantillasReferencia?.plantillas?.some((p) => p.id === id));
   // el kit de marca del producto (colores sacados solos de la foto, letras y sticker)
   const [kit, setKit] = useState(KIT_INICIAL);
   const [kitAuto, setKitAuto] = useState(false);
@@ -298,7 +301,8 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   // sin formatos elegidos, los que propuso la investigación de mercado del producto (con sus textos), si los tiene
   const productoElegido = !fotoNueva.length && f.productoId ? (productos || []).find((x) => x.id === f.productoId) || null : null;
   const propuestas = productoElegido?.investigacion?.propuestas || [];
-  const planPlantillas = conPlantillas && cantidadValida ? planDePlantillas(opciones.plantillas, n, f.elegidas.length ? f.elegidas : propuestas) : null;
+  // (las plantillas de dibujo de la app quedan para «De un video»; con las de referencia cada imagen cuesta como siempre)
+  const planPlantillas = null;
   // el costo estimado: cada imagen (cuadrada o vertical) al precio que manda el servidor (un solo número: la revisión
   // ya no rehace nada sola)
   const precio = opciones?.costo || null;
@@ -378,7 +382,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
 
       // 2. el lote (borrador). Si cambiaste algo que va en él desde el intento anterior, se arma otro.
       // el kit que cambiaste queda guardado con el producto (si el producto es nuevo, va con el lote)
-      if ((conPlantillas || deVideo) && kitTocado && f.productoId) await apiImagenes.guardarKit(f.productoId, kit).catch(() => {});
+      if (deVideo && kitTocado && f.productoId) await apiImagenes.guardarKit(f.productoId, kit).catch(() => {});
       const cuerpo = {
         productoId,
         fotoProducto,
@@ -391,7 +395,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
         fiel: variantes,
         rapido: conPlantillas ? true : !f.elaborado,
         refs: conPlantillas ? [] : refs.map((x) => x.id),
-        ...(conPlantillas ? { plantillas: { elegidas: f.elegidas, ...(kitTocado ? { kit } : {}) } } : {}),
+        ...(conPlantillas ? { plantillasReferencia: { elegidas: refElegidas } } : {}),
         ...(deVideo ? { video, modo: 'nuevos', fiel: false, rapido: true, refs: [], plantillas: { elegidas: [], ...(kitTocado ? { kit } : {}) } } : {}),
       };
       const firma = JSON.stringify(cuerpo);
@@ -480,10 +484,10 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
             <Interruptor
               activado={conPlantillas}
               onCambio={(v) => poner({ plantillas: v })}
-              etiqueta="Con plantillas (rápido y limpio)"
+              etiqueta="Con plantillas de anuncios validados"
               descripcion={
                 conPlantillas
-                  ? 'La app dibuja los textos perfectos, con tus colores y tus letras, sobre la foto de tu producto. El modelo de imagen solo hace la escena (sin texto) de los formatos que la usan. Salen en segundos.'
+                  ? 'Cada plantilla va al modelo de imagen como referencia: mantiene su estructura, composición y letras, y cambia el producto, los textos y los colores por los tuyos.'
                   : 'Diseño libre: el modelo de imagen hace todo el anuncio a partir de tus referencias (textos incluidos). Más lento.'
               }
               deshabilitado={ocupado}
@@ -694,48 +698,13 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
             </Grupo>
           </>
         ) : conPlantillas ? (
-          <>
-            <Grupo n={5} id="grupo-formato" titulo="Formato">
-              <ElegirPlantillas
-                catalogo={opciones.plantillas}
-                elegidas={f.elegidas}
-                onCambiar={(ids) => poner({ elegidas: ids })}
-                producto={f.productoId ? { id: f.productoId, foto: f.fotoProducto } : null}
-                kit={kit}
-                bloqueado={ocupado}
-              />
-              {planPlantillas ? (
-                <p className="img-nota" role="status">
-                  <LayoutTemplate size={14} strokeWidth={2} aria-hidden="true" />
-                  <span>
-                    {planPlantillas.escenas
-                      ? `${n - planPlantillas.escenas} de tus ${n} anuncios salen gratis y al instante; ${planPlantillas.escenas === 1 ? '1 usa' : `${planPlantillas.escenas} usan`} una escena del modelo de imagen (sin texto), todas a la vez. Mientras llega, ya ves el anuncio con sus textos.`
-                      : `Tus ${n} anuncios salen gratis y en segundos: la app los arma con la foto de tu producto, sin llamar al modelo de imagen.`}
-                  </span>
-                </p>
-              ) : null}
-              {!f.elegidas.length && propuestas.length ? (
-                <p className="img-nota" role="status">
-                  <Telescope size={14} strokeWidth={2} aria-hidden="true" />
-                  <span>
-                    Sin formatos elegidos, van los {propuestas.length} anuncios que dejó escritos tu investigación de mercado (sus títulos y textos, con tus correcciones).{' '}
-                    <a href={enlace.investigacion(productoElegido.id)}>Verlos y editarlos</a>
-                  </span>
-                </p>
-              ) : null}
-            </Grupo>
-            <Grupo n={6} id="grupo-marca" titulo="Tu marca">
-              <KitMarca
-                kit={kit}
-                automatico={kitAuto && !kitTocado}
-                onCambiar={(k) => {
-                  setKit(k);
-                  setKitTocado(true);
-                }}
-                bloqueado={ocupado}
-              />
-            </Grupo>
-          </>
+          <Grupo n={5} id="grupo-formato" titulo="Plantillas">
+            <ElegirPlantillasRef catalogo={opciones.plantillasReferencia} elegidas={refElegidas} onCambiar={(ids) => poner({ plantillasRef: ids })} bloqueado={ocupado} />
+            <p className="img-nota" role="status">
+              <LayoutTemplate size={14} strokeWidth={2} aria-hidden="true" />
+              <span>Misma estructura de la plantilla; tu producto, tus textos (sin precios) y tus colores.</span>
+            </p>
+          </Grupo>
         ) : variantes ? (
           <Grupo n={5} id="grupo-referencias" titulo="Lo que te funciona">
             <ElegirFunciona
@@ -795,7 +764,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
         conVertical={f.conVertical}
         logo={null}
         referencias={conPlantillas || deVideo ? [] : variantes ? itemsElegidos.map((x) => ({ id: x.id, url: x.url })) : referencias}
-        plantillas={conPlantillas ? { elegidas: f.elegidas.length, escenas: planPlantillas?.escenas ?? null } : deVideo ? { video: true, elegidas: 0, escenas: 0 } : null}
+        plantillas={conPlantillas ? { elegidas: refElegidas.length, escenas: null, referencia: true } : deVideo ? { video: true, elegidas: 0, escenas: 0 } : null}
         costo={
           costoLote?.gratis && deVideo
             ? {

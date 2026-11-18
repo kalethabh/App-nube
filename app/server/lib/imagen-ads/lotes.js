@@ -24,6 +24,7 @@ import { leerSkill } from './verificar.js';
 import { leerEstado, resumenDelLote } from './estado.js';
 import { PEDIDO_TERMINADO } from './planificador.js';
 import { POR_ID, escenasDe, catalogoParaLaPantalla } from './catalogo-plantillas.js';
+import * as plantillasRef from './plantillas-referencia.js';
 import {
   FAMILIA, RE_LOTE, RE_PIEZA, RE_V, R, POSICIONES, NOMBRE_POSICION, MAXIMO_VARIACIONES, MAXIMO_REFERENCIAS, carpetaDe, guardarJSON, idsDelLote,
   vDe, formatoDe, piezaId, ordenDePiezas, ordenDeV, fotoDelLote,
@@ -52,6 +53,8 @@ export function opciones() {
     idiomaPorDefecto: idioma,
     // las plantillas (la app dibuja los textos; solo las de escena usan el modelo de imagen)
     plantillas: catalogoParaLaPantalla(),
+    // las PLANTILLAS de imagen (2026-11-18s): anuncios validados que van al modelo como referencia
+    plantillasReferencia: plantillasRef.catalogo(),
   };
 }
 
@@ -239,6 +242,9 @@ export function crearLote(cuerpo = {}) {
     investigacion: null,
     // PLANTILLAS (2026-11-17p): la app dibuja los textos; solo las de escena usan el modelo de imagen (sin texto)
     ...(plantillasDelCuerpo(cuerpo) ? { plantillas: plantillasDelCuerpo(cuerpo), fiel: false, modo: 'nuevos' } : {}),
+    // PLANTILLAS DE REFERENCIA (2026-11-18s): las elegidas (o una mezcla variada) van al modelo como referencia; el
+    // modelo mantiene su diseño y cambia el producto, los textos y la paleta (rapido.js, modo «copiar»)
+    ...(cuerpo.plantillasReferencia && !plantillasDelCuerpo(cuerpo) ? { desdePlantillas: true, fiel: true, rapido: true, modo: 'nuevos' } : {}),
     logo,
     creado: ahora(),
     ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}),
@@ -256,9 +262,14 @@ export function crearLote(cuerpo = {}) {
     const propuestas = resumenDe(productoId)?.propuestas || [];
     if (brief.plantillas && !brief.video && !brief.plantillas.elegidas.length && propuestas.length) brief.plantillas = { ...brief.plantillas, elegidas: propuestas, deLaInvestigacion: true };
   }
+  if (brief.desdePlantillas) {
+    const ids = plantillasRef.elegir(cantidad, cuerpo.plantillasReferencia?.elegidas);
+    brief.plantillasReferencia = ids;
+    brief.referencias = plantillasRef.copiarAlLote(carpeta, ids);
+  }
   // «Nuevos»: tus anuncios ya validados («Me funciona», los de este producto primero, y tu biblioteca de referencias)
   // van al lote como guía de lo que funciona. La IA los estudia; no los copia (eso es «Variantes»).
-  if (brief.modo === 'nuevos') {
+  if (brief.modo === 'nuevos' && !brief.desdePlantillas) {
     const validados = prepararValidados(carpeta, productoId);
     if (validados.length) brief.validados = validados;
   }

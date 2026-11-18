@@ -88,7 +88,8 @@ export function prepararRapido(carpeta, brief) {
   const almenos4 = (lista, relleno) => [...lista, ...relleno].slice(0, Math.max(4, lista.length));
   const publico = corto(brief.datos?.publico || ficha.publico || '', 200);
   const pais = corto(brief.datos?.pais || ficha.pais || '', 60);
-  const modo = brief.modo === 'variantes' ? 'copiar' : 'inspirar';
+  // (las plantillas de referencia se copian como Variantes: mismo diseño, otro producto, textos y paleta)
+  const modo = brief.modo === 'variantes' || brief.desdePlantillas ? 'copiar' : 'inspirar';
   const propias = new Set(brief.referenciasPropias || []);
   const { angulos } = leerSkill();
   const ids = idsDelLote(n);
@@ -160,8 +161,13 @@ export function prepararRapido(carpeta, brief) {
           ? 'This reference is an ad of this same product: keep everything (also its colors); change only the texts.'
           : "Adapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference."
         : 'Use a color palette that matches the product packaging. Make it look like a premium, scroll-stopping social media ad.',
+      brief.desdePlantillas
+        ? 'The reference is a TEMPLATE from another brand: keep its structure, composition, visual hierarchy, typography and the kind of image (person, body area, illustration or diagram), but nothing of its brand. If it shows a price, a discount, a quantity offer or an offer badge, put there a short benefit or call to action instead (no prices, no percentages, no "2 x"). Before and after, days and timelines only as the reference shows them, for this product.'
+        : null,
       'All visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.',
-    ].join('\n');
+    ]
+      .filter(Boolean)
+      .join('\n');
     guardarJSON(R.v(carpeta, x.id), {
       ad_info: { variation_id: x.id },
       global_identity: { color_palette: deEsteProducto ? 'the same colors as the reference' : "the colors of the product's packaging", text_typography: 'the typography of the reference ad' },

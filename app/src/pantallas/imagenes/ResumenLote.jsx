@@ -82,8 +82,8 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
           </Fila>
           ) : null}
           {plantillas ? (
-            <Fila etiqueta="Formatos">
-              <span>{plantillas.video ? 'Cuadros de tu video' : plantillas.elegidas ? `${plantillas.elegidas} ${plantillas.elegidas === 1 ? 'elegido' : 'elegidos'}` : 'Que la app elija (mezcla)'}</span>
+            <Fila etiqueta={plantillas.referencia ? 'Plantillas' : 'Formatos'}>
+              <span>{plantillas.video ? 'Cuadros de tu video' : plantillas.elegidas ? `${plantillas.elegidas} ${plantillas.elegidas === 1 ? (plantillas.referencia ? 'elegida' : 'elegido') : plantillas.referencia ? 'elegidas' : 'elegidos'}` : 'Que la app elija (mezcla)'}</span>
               {plantillas.escenas !== null ? <span className="img-resumen__nota t-num">{plantillas.escenas ? `${plantillas.escenas} con escena` : 'Todos gratis'}</span> : null}
             </Fila>
           ) : (
@@ -118,7 +118,7 @@ export function ResumenLote({ producto, cantidad, conVertical, logo, referencias
           <Boton variante="marca" tamano="grande" bloque cargando={ocupado} disabled={!costo} onClick={onGenerar}>
             {fase || textoBoton}
           </Boton>
-          <p className="img-resumen__pie">{plantillas ? 'Al generar confirmas el costo mostrado. La app dibuja los textos con tus colores y tus letras; después puedes cambiar cualquier texto gratis.' : 'Al generar confirmas el costo mostrado. Cada imagen sale de tu referencia y la foto de tu producto, con un título distinto.'}</p>
+          <p className="img-resumen__pie">{plantillas?.referencia ? 'Al generar confirmas el costo mostrado. Cada imagen sale de una plantilla y la foto de tu producto, con tus textos y tus colores.' : plantillas ? 'Al generar confirmas el costo mostrado. La app dibuja los textos con tus colores y tus letras; después puedes cambiar cualquier texto gratis.' : 'Al generar confirmas el costo mostrado. Cada imagen sale de tu referencia y la foto de tu producto, con un título distinto.'}</p>
         </div>
       </Tarjeta>
     </aside>
