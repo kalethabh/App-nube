@@ -26,6 +26,7 @@ import { execFileSync } from 'node:child_process';
 import { cargarEnv } from './config.js';
 import { transcribir } from './subtitulos-dialogo.js';
 import { tieneContinuidad, cadenaDeClips } from './continuidad.js';
+import { modoSinCobro } from './clips-sin-cobro.js';
 
 /**
  * Que clips hay que revisar, segun el modo de audio.
@@ -94,7 +95,17 @@ if (process.argv[1] && process.argv[1].endsWith('revisar-voces.js')) {
   const manifiesto = JSON.parse(fs.readFileSync(rutaManifiesto, 'utf8'));
   const modo = manifiesto.modo_audio;
   const archivos = fs.readdirSync(dirVideo).filter((f) => f.endsWith('.mp4'));
-  const { revisar, saltadas, fuera, faltan } = clipsARevisar(modo, archivos, manifiesto);
+  const todos = clipsARevisar(modo, archivos, manifiesto);
+  const { saltadas, fuera, faltan } = todos;
+  // (2026-11-19) los clips que no se generaron (un video tuyo o de la biblioteca) no se revisan: no hay nada que rehacer
+  const itemDeClip = (clip) => {
+    const t = /^toma-(\d+)\.mp4$/.exec(clip);
+    const b = /^broll-(\d+)\.mp4$/.exec(clip);
+    return t ? (manifiesto.tomas || []).find((x) => x.n === Number(t[1])) : b ? (manifiesto.broll || []).find((x) => x.n === Number(b[1])) : null;
+  };
+  const propios = todos.revisar.filter((clip) => modoSinCobro(itemDeClip(clip)) === 'biblioteca');
+  const revisar = todos.revisar.filter((clip) => !propios.includes(clip));
+  if (propios.length) console.log(`  tuyos:      ${propios.join(', ')} (tus videos o de la biblioteca: no se revisan)`);
 
   console.log(`\n=== Voces coladas — ${path.basename(carpeta)} ===\n`);
   console.log(`  modo_audio: ${modo}`);
@@ -122,7 +133,13 @@ if (process.argv[1] && process.argv[1].endsWith('revisar-voces.js')) {
   try {
     for (const clip of revisar) {
       const mp3 = path.join(tmp, clip.replace('.mp4', '.mp3'));
-      execFileSync('ffmpeg', ['-v', 'error', '-i', path.join(dirVideo, clip), '-vn', '-ac', '1', '-ar', '16000', '-b:a', '64k', '-y', mp3]);
+      try {
+        execFileSync('ffmpeg', ['-v', 'error', '-i', path.join(dirVideo, clip), '-vn', '-ac', '1', '-ar', '16000', '-b:a', '64k', '-y', mp3]);
+      } catch {
+        // (un clip sin sonido no tiene voces que revisar)
+        console.log(`  ok   ${clip} (sin sonido)`);
+        continue;
+      }
       let palabras = [];
       try {
         palabras = await transcribir(mp3, 'spa');
