@@ -1,0 +1,95 @@
+{
+  "titulo": "Aguaje Complex 3 en 1 — Aquí no te vendemos un nombre",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 42.4,
+  "de_que_va": "Una mujer de bata revisa frascos en la bodega mientras una voz explica que lo que da resultados no es la marca que dice ser \"la original\", sino los tres componentes puros y el tratamiento completo de tres frascos.",
+  "estructura": {
+    "id": "de-la-referencia",
+    "nombre": "La del video que subiste",
+    "porque": "Sigue los momentos de tu video en su orden: el gancho \"Aquí no… Aquí…\", lo que trae el frasco, el giro contra \"el original\", el remate \"con tu cuerpo no se juega\" y el cierre con la marca. Se suma lo del tratamiento completo, que pediste."
+  },
+  "personajes": [
+    {
+      "nombre": "La revisora",
+      "como_es": "Una mujer colombiana de unos 30 años, de bata blanca, lentes redondos finos y pelo recogido, que revisa cada frasco con su planilla."
+    }
+  ],
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "Aquí no te vendemos un nombre. Aquí te mostramos lo que trae el frasco:",
+      "se_ve": "Una mano con bata blanca toma un frasco de la estantería llena de frascos y lo gira hacia la cámara.",
+      "segundos": 5.6
+    },
+    {
+      "n": 2,
+      "momento": "solución",
+      "dice": "Aguaje, fenogreco y maca negra: los tres componentes puros.",
+      "se_ve": "Ella de perfil, con su planilla, lee la etiqueta de un frasco frente a las estanterías. Corte a los tres ingredientes junto al frasco.",
+      "segundos": 3.6
+    },
+    {
+      "n": 3,
+      "momento": "solución",
+      "dice": "Eso es lo que te da resultados rápidos en glúteos y piernas, sin efecto rebote. No la marca.",
+      "se_ve": "Ella anota en la planilla, mira los frascos y marca un visto bueno.",
+      "segundos": 7.2
+    },
+    {
+      "n": 4,
+      "momento": "problema",
+      "dice": "Decir que son el original lo hace cualquiera. Por eso muchas compran y no ven cambios.",
+      "se_ve": "Ella de frente entre las estanterías, abrazando la planilla, niega con la cabeza y levanta una ceja.",
+      "segundos": 6.4
+    },
+    {
+      "n": 5,
+      "momento": "giro",
+      "dice": "Y lo que no te cuentan: para mantener el resultado, lo ideal es el tratamiento completo de tres frascos.",
+      "se_ve": "Ella detrás de la mesa de empaque acomoda tres frascos en fila y mira a la cámara.",
+      "segundos": 7.6
+    },
+    {
+      "n": 6,
+      "momento": "giro",
+      "dice": "Les conviene que compres de a uno y te salga más caro.",
+      "se_ve": "Un solo frasco, solito, en medio de la mesa vacía.",
+      "segundos": 4.4
+    },
+    {
+      "n": 7,
+      "momento": "cierre",
+      "dice": "Pero con tu cuerpo no se juega.",
+      "se_ve": "Ella mete un frasco en una caja llena de frascos, con una sonrisa tranquila.",
+      "segundos": 2.8
+    },
+    {
+      "n": 8,
+      "momento": "cierre",
+      "dice": "Aguaje Complex tres en uno de Vitalabh: componentes puros y triple acción.",
+      "se_ve": "Ella de frente, en la zona de despacho, sonríe y muestra el frasco junto a su cara.",
+      "segundos": 4.8
+    }
+  ],
+  "decisiones": [
+    "Rehecho de: tu video subido · 8 tomas · 42 s · formato voz en off · estructura: la del video. En el original casi todo el tiempo habla una voz sobre las escenas, por eso va con voz en off. Dura más que el original (28 s) para que quepa lo del tratamiento completo de tres frascos.",
+    "El ángulo: lo que da resultados en glúteos y piernas son los tres componentes puros y el tratamiento completo, no la marca. No nombré a la otra marca: se dice \"decir que son el original lo hace cualquiera\", que da el mismo mensaje sin riesgo de que te bajen el anuncio o te reclamen.",
+    "La persona es nueva (no se copia la cara del video) y va siempre de frente o de perfil. No lleva antes y después porque el video no lo tiene y aquí lo que convence es la explicación. El frasco sale siempre cerrado, sin cápsulas a la vista.",
+    "No tengo investigación de mercado, precio ni forma de compra: saqué todo de tu ficha y de lo que contaste, sin cifras ni testimonios inventados. El cierre va con la marca, como en el original, sin oferta. Tampoco dije \"con registro\" porque no está confirmado en tu ficha; si lo tienes, dímelo y lo agrego.",
+    "Para ahorrar, 4 de los 8 planos de detalle y la toma del frasco solo van como imagen fija con un movimiento suave. La voz la pedí femenina, joven y con acento colombiano."
+  ],
+  "modelos": [
+    {
+      "modelo": "Omni Flash 1.2",
+      "para": "tomas 1, 3, 4, 5 y 8",
+      "porque": "Es el gancho y lleva el frasco en primer plano: necesita la mejor calidad. Es una toma larga con ella y sus gestos: aquí se nota la calidad."
+    },
+    {
+      "modelo": "Grok Imagine 1.5",
+      "para": "tomas 2 y 7 · B-roll 1, 3, 6 y 7",
+      "porque": "Toma corta de perfil, sin acción difícil: sale bien con el modelo económico. Toma muy corta con un solo movimiento: el modelo económico alcanza."
+    }
+  ]
+}
