@@ -273,7 +273,7 @@ async function claudeFalso() {
     const img = material.find((x) => x.tipo === 'imagen');
     const vid = material.find((x) => x.tipo === 'video');
     if (img && man.tomas?.[0]) man.tomas[0].imagen_propia = `temp/${slug}/material/${img.archivo}`;
-    if (vid && Array.isArray(man.broll)) man.broll.push({ n: man.broll.length + 1, despues_de_toma: 3, sincroniza_con: 'el final', duracion: 2, prompt_imagen: null, prompt_video: 'tu video', referencias: [], desde_biblioteca: `temp/${slug}/material/${vid.archivo}` });
+    if (vid && Array.isArray(man.broll)) man.broll.push({ n: man.broll.length + 1, despues_de_toma: 3, sincroniza_con: 'el final', duracion: 2, prompt_imagen: 'Vertical 9:16. The user video: a plain colored scene.', prompt_video: 'the user video as it is', referencias: [], desde_biblioteca: `temp/${slug}/material/${vid.archivo}` });
     escribir(`temp/${slug}/manifiesto.json`, man);
     escribir(`temp/${slug}/transiciones.json`, {
       efectos: { woosh: 'efectos/woosh.mp3', 'deep-woosh': 'efectos/deep-woosh.mp3' },
