@@ -2,6 +2,15 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19b · Tus videos e imágenes en el anuncio
+
+- En **Nuevo anuncio**, en los ajustes de cada estilo, un apartado opcional **«Tus videos e imágenes»**: subes (o arrastras) hasta 10 videos e imágenes y, si quieres, escribes dónde usar cada uno («en el antes y después», «como escena del producto al final»).
+- Tu IA los mira al escribir el guion y los pone donde encajan:
+  - un **video** como una escena (B-roll o una toma sin diálogo), tal cual;
+  - una **imagen** como la imagen exacta de una escena (el video se anima desde ella);
+  - una **imagen** como referencia: la persona, el lugar o el objeto de la foto, en una escena nueva.
+- Las escenas hechas con tus archivos **no se generan ni se pagan**.
+
 ## 2026-11-19a · De un video: el ángulo, no los cuadros
 
 - **«De un video»** ya no saca cuadros del video. Tu IA **mira y escucha** el video (las tomas y lo que se dice) y encuentra su **ángulo, gancho, dolor, deseo, a quién le habla y por qué funciona**. Con eso propone **anuncios para tu producto**: cada uno es un concepto distinto (faceta, momento y forma, como pide Andromeda), con su **titular** y su **escena**.

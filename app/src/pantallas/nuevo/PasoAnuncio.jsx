@@ -20,6 +20,7 @@ import { leerVoces } from './datos.js';
 import { BotonEscuchar } from './BotonEscuchar.jsx';
 import { Guiones } from './Guiones.jsx';
 import { SelloEstilo } from './SelloEstilo.jsx';
+import { TusArchivos } from './TusArchivos.jsx';
 
 // ---------------------------------------------------------------- galería de estilos
 
@@ -538,6 +539,7 @@ function AjustesEstilo({ estilo, ajuste, onCambio, onQuitar, bloqueado, puedeQui
       ) : null}
 
       <DeLaBiblioteca estilo={estilo} ajuste={ajuste} onCambio={onCambio} bloqueado={bloqueado} />
+      <TusArchivos lista={ajuste.material || []} onCambio={(material) => onCambio({ material })} bloqueado={bloqueado} />
 
       <PreguntasEstilo clave={estilo.clave} valores={ajuste.preguntas || {}} onCambio={(p) => onCambio({ preguntas: { ...ajuste.preguntas, ...p } })} bloqueado={bloqueado} />
     </Tarjeta>

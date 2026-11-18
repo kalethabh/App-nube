@@ -45,6 +45,7 @@ export function ajustesIniciales(clave, { idioma, ...extra } = {}) {
     continuidad: false,
     avatar: '', // "<carpeta>/<id>" de un avatar de la biblioteca, o vacío (personas nuevas)
     musica: '', // "<carpeta>/<id>" de una música de la biblioteca, o vacío (la del estilo)
+    material: [], // tus videos e imágenes (opcional): [{ id, nombre, tipo, nota, vista? }] (TusArchivos.jsx)
     preguntas: preguntasIniciales(clave, { idioma }),
     ...extra,
   };
@@ -543,6 +544,8 @@ function Flujo({ consulta }) {
           // de la biblioteca: "<carpeta>/<id>" (vacío = nuevas)
           ...(a.avatar ? { avatar: { estilo: a.avatar.split('/')[0], id: a.avatar.split('/')[1] } } : {}),
           ...(a.musica ? { musica: { estilo: a.musica.split('/')[0], id: a.musica.split('/')[1] } } : {}),
+          // tus videos e imágenes (opcional): la IA los usa en el guion
+          ...(a.material?.length ? { material: a.material.map((m) => ({ id: m.id, nota: m.nota || '' })) } : {}),
         });
         if (!r?.slug) throw new Error('La app no devolvió el anuncio. Vuelve a intentarlo.');
         mapa[clave] = r.slug;
