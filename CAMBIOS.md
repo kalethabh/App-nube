@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19a · De un video: el ángulo, no los cuadros
+
+- **«De un video»** ya no saca cuadros del video. Tu IA **mira y escucha** el video (las tomas y lo que se dice) y encuentra su **ángulo, gancho, dolor, deseo, a quién le habla y por qué funciona**. Con eso propone **anuncios para tu producto**: cada uno es un concepto distinto (faceta, momento y forma, como pide Andromeda), con su **titular** y su **escena**.
+- Puedes **editar el titular y lo que se ve** de cada uno, quitar los que no te sirvan o pedir otras ideas (4, 6, 8 o 10).
+- Las imágenes salen con las **plantillas ganadoras** (primero las de productos como el tuyo), tu producto y tus colores, con el modelo de imagen. Cuestan como cualquier lote (te muestra el costo antes).
+- **Lo que se ve**, más detallado y llamativo: la IA describe la escena con quién aparece, dónde, la pose, el resultado bien visible, la luz, los colores y el encuadre (también en «Editar a mano» del guion), y el modelo de imagen la sigue de cerca.
+
 ## 2026-11-19 · Generar con IA una parte nueva del guion
 
 - Al **agregar una parte** en «Editar a mano», el cuadro trae su ✨: la IA escribe lo que se dice en esa parte, enganchada con la de antes y la de después, y en seguida escribe lo que se ve. Lo puedes corregir antes de guardar, o tocar ✨ otra vez para otra versión.

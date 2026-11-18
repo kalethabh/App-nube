@@ -1629,3 +1629,19 @@
   object-fit: cover;
   display: block;
 }
+
+/* «De un video»: lo que encontró tu IA y los anuncios propuestos (2026-11-19) */
+.img-video__analisis { padding: var(--e-3) var(--e-4); border: 1px solid var(--borde-1); border-radius: var(--r-m); background: var(--superficie-2); }
+.img-video__titulo { display: flex; align-items: center; gap: 6px; margin: 0 0 var(--e-2); font-size: var(--t-micro); font-weight: var(--peso-semi); letter-spacing: var(--tracking-etiqueta); text-transform: uppercase; color: var(--acento); }
+.img-video__analisis dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--e-2) var(--e-4); margin: 0; }
+.img-video__dato dt { font-size: var(--t-micro); color: var(--texto-3); text-transform: uppercase; letter-spacing: var(--tracking-etiqueta); }
+.img-video__dato dd { margin: 2px 0 0; font-size: var(--t-chico); color: var(--texto-1); line-height: 1.4; }
+.img-video__conceptos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--e-3); }
+.img-video__concepto { display: flex; flex-direction: column; gap: 6px; padding: var(--e-3); border: 1px solid var(--borde-1); border-radius: var(--r-m); background: var(--superficie-1); min-width: 0; }
+.img-video__concepto-cabeza { display: flex; align-items: center; gap: var(--e-2); min-width: 0; }
+.img-video__concepto-cabeza .t-mini { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.img-video__chip { flex: none; padding: 1px 8px; border-radius: var(--r-pill); font-size: var(--t-micro); font-weight: var(--peso-semi); color: var(--acento); background: var(--acento-suave); }
+.img-video__quitar { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border: 0; border-radius: var(--r-pill); background: var(--superficie-3); color: var(--texto-2); cursor: pointer; }
+.img-video__quitar:disabled { opacity: 0.4; cursor: default; }
+.img-video__escena { margin: 0; }
+.img-video__escena textarea { font-size: var(--t-chico); line-height: 1.45; }

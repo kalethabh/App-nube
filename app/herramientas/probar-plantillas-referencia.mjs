@@ -103,6 +103,11 @@ try {
 }
 check('al modelo le llega «la forma de la plantilla, el ángulo del producto»', /TEMPLATE/.test(prompt) && /VISUAL MECHANISM/.test(prompt) && /swollen legs/.test(prompt) && /Day 1 \/ Day 14 \/ Day 30/.test(prompt) && /Andromeda/.test(prompt) && /THIS PRODUCT'S ANGLE/.test(prompt), prompt.slice(0, 400));
 
+// «De un video» (2026-11-19): los conceptos y el ángulo salen del análisis del video
+prepararRapido(TMP, { ...brief, desdeVideo: { video: { deseo: 'Llenar el jean sin cirugía', gancho: 'Pregunta a cámara', dolor: 'Me siento plana' }, conceptos: [{ titular: 'Por fin lleno el jean', angulo: 'deseo', faceta: 'La del jean', momento: 'Sábado de compras', escena: 'Se mira en el probador' }] } });
+const dv = leerV(1);
+check('del video: el ángulo, el concepto y el titular son los del análisis del video', /Llenar el jean sin cirugía/.test(dv.visual_prompt) && /La del jean/.test(dv.visual_prompt) && /Se mira en el probador/.test(dv.visual_prompt) && dv.text_layers[0].text === 'Por fin lleno el jean', dv.visual_prompt);
+
 // sin investigación: igual cada imagen a otro momento
 fs.rmSync(path.join(DIR_P, 'investigacion'), { recursive: true, force: true });
 const r2 = prepararRapido(TMP, { ...brief });

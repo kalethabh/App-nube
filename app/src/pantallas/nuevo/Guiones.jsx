@@ -182,8 +182,8 @@ function SeVeEditable({ n, valor, generando, onCambiar, onGenerar, bloqueado }) 
       </span>
       <AreaTexto
         aria-label={`Lo que se ve en la parte ${n}`}
-        filas={2}
-        maxLength={300}
+        filas={3}
+        maxLength={600}
         value={generando && !valor ? '' : valor}
         placeholder={generando ? 'Escribiendo lo que se ve…' : 'Se escribe solo cuando terminas de escribir lo que se dice.'}
         onChange={(e) => onCambiar(e.target.value)}

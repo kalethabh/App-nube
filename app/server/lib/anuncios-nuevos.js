@@ -1622,12 +1622,12 @@ export async function editarLineas(slug, lineas) {
   const lista = Array.isArray(lineas) ? lineas : [];
   const pedidas = lista
     .filter((x) => !x?.nueva)
-    .map((x) => ({ n: Number(x?.n), dice: limpio(x?.dice), ...(x?.se_ve !== undefined ? { se_ve: limpio(x.se_ve).slice(0, 300) } : {}) }))
+    .map((x) => ({ n: Number(x?.n), dice: limpio(x?.dice), ...(x?.se_ve !== undefined ? { se_ve: limpio(x.se_ve).slice(0, 600) } : {}) }))
     .filter((x) => Number.isInteger(x.n) && antes.has(x.n));
   // (2026-11-18z) partes NUEVAS: { nueva: true, despuesDe: n (0 = al comienzo), dice, se_ve? }
   const nuevas = lista
     .filter((x) => x?.nueva)
-    .map((x) => ({ despuesDe: Number(x?.despuesDe) || 0, dice: limpio(x?.dice), se_ve: limpio(x?.se_ve).slice(0, 300) }))
+    .map((x) => ({ despuesDe: Number(x?.despuesDe) || 0, dice: limpio(x?.dice), se_ve: limpio(x?.se_ve).slice(0, 600) }))
     .filter((x) => x.dice);
   if (nuevas.length > 10) throw new ErrorApp(400, 'Agrega como mucho 10 partes nuevas a la vez.');
   if (pedidas.some((x) => !x.dice)) throw new ErrorApp(400, 'Una parte quedó vacía: escribe lo que se dice o deja el texto que tenía.');
@@ -1790,7 +1790,7 @@ El guion completo, parte por parte (n | momento | lo que se dice | lo que se ve)
 ${partes.map((p) => `${p.n} | ${p.momento || ''} | ${String(p.dice || '').replace(/\n/g, ' ')} | ${String(p.se_ve || '').slice(0, 160)}`).join('\n')}
 
 El usuario escribió para ${donde}: «${texto}»
-Escribe LO QUE SE VE en esa parte mientras se dice eso: una escena que lo muestre, con los mismos personajes, el mismo estilo (${def?.nombre || brief.estilo}) y la continuidad de las partes de al lado. Una o dos frases sencillas en español, de todos los días (nunca un prompt, ni en inglés), de unas 12 a 30 palabras.
+Escribe LO QUE SE VE en esa parte mientras se dice eso: una escena MUY VISUAL Y LLAMATIVA que lo muestre y frene el scroll, con los mismos personajes, el mismo estilo (${def?.nombre || brief.estilo}) y la continuidad de las partes de al lado. Detállala bien: quién aparece y cómo se ve (expresión, ropa, pose), dónde está, qué hace, qué se ve en primer plano (el problema o el resultado bien visible, el producto si va), la luz, los colores y el encuadre de la cámara. En español sencillo, de todos los días (nunca un prompt técnico, ni en inglés), de unas 35 a 70 palabras.
 
 Escribe ${rel} con este JSON y nada más: { "se_ve": "…" }
 Tu respuesta final: solo LISTO.`;
@@ -1816,7 +1816,7 @@ Tu respuesta final: solo LISTO.`;
   }
   const d = leerJSON(salida);
   fs.rmSync(salida, { force: true });
-  const seVe = String(d?.se_ve || '').replace(/\s+/g, ' ').replace(/^["«“]+|["»”]+$/g, '').trim().slice(0, 300);
+  const seVe = String(d?.se_ve || '').replace(/\s+/g, ' ').replace(/^["«“]+|["»”]+$/g, '').trim().slice(0, 600);
   if (!seVe) throw new ErrorApp(502, r?.sinMotor ? 'Elige tu IA en Ajustes › Conexiones.' : r?.limite ? `Se acabó el uso de tu plan de ${nombreIA(r.motor)} por ahora.` : `${laIA()} no pudo escribir lo que se ve. Escríbelo tú o vuelve a intentarlo.`);
   return { se_ve: seVe };
 }

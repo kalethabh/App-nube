@@ -271,6 +271,29 @@ export default function rutasImagenAds(app) {
     if (!v) return res.status(201).json(lotes.crearLote(cuerpo));
     const e = videoImagenes.estadoTrabajo(String(v.id || ''));
     if (!e) throw new ErrorApp(404, 'No encuentro ese video. Súbelo otra vez.');
+    // (2026-11-19) con el ÁNGULO del video: los conceptos (con lo que editó el usuario) van a un lote con las plantillas
+    // ganadoras y el modelo de imagen (rapido.js lee brief.desdeVideo)
+    if (Array.isArray(v.conceptos)) {
+      if (e.angulo?.estado !== 'listo') throw new ErrorApp(409, 'Espera a que tu IA termine de analizar el video.');
+      const analisis = videoImagenes.limpiarAnalisis({ video: e.angulo.video, conceptos: v.conceptos });
+      if (!analisis.conceptos.length) throw new ErrorApp(400, 'Deja al menos un anuncio con su titular.');
+      const { temasDeTexto } = await import('../lib/imagen-ads/plantillas-referencia.js');
+      const r = lotes.crearLote({
+        ...cuerpo,
+        video: undefined,
+        cantidad: analisis.conceptos.length,
+        modo: 'nuevos',
+        rapido: true,
+        plantillas: undefined,
+        plantillasReferencia: { elegidas: cuerpo.plantillasReferencia?.elegidas || [] },
+        temasExtra: temasDeTexto(Object.values(analisis.video).join(' ')),
+      });
+      const carpeta = carpetaDe(r.lote);
+      const brief = lotes.leerBrief(carpeta);
+      brief.desdeVideo = { id: e.id, ...analisis };
+      guardarBrief(carpeta, brief);
+      return res.status(201).json({ lote: r.lote, brief });
+    }
     if (e.estado !== 'listo') throw new ErrorApp(409, 'Espera a que termine de analizar tu video.');
     const seleccion = (Array.isArray(v.seleccion) && v.seleccion.length ? v.seleccion : e.seleccion || videoImagenes.eleccionSinIA(e.cuadros, Number(cuerpo.cantidad) || 6))
       .filter((x) => Array.isArray(x?.cuadros) && x.cuadros.length)
@@ -581,6 +604,15 @@ export default function rutasImagenAds(app) {
     const e = videoImagenes.estadoTrabajo(String(req.params.id || ''));
     if (!e) throw new ErrorApp(404, 'No encuentro ese video.');
     res.set('Cache-Control', 'no-store').json(e);
+  }));
+  // POST /api/imagen-ads/video/:id/angulo { productoId, cantidad } -> { estado }: tu IA analiza el ángulo del video y
+  // propone conceptos para tu producto (de fondo: la pantalla lo sigue con GET /video/:id, campo angulo)
+  app.post('/api/imagen-ads/video/:id/angulo', soloDesdeLaApp, conErrores((req, res) => {
+    const id = String(req.params.id || '');
+    if (!videoImagenes.estadoTrabajo(id)) throw new ErrorApp(404, 'No encuentro ese video.');
+    const productoId = String(req.body?.productoId || '');
+    if (!idValido(productoId)) throw new ErrorApp(400, 'Elige primero tu producto: los anuncios se hacen para él.');
+    res.json(videoImagenes.analizarAngulo(id, { productoId, cantidad: Number(req.body?.cantidad) || 6 }));
   }));
   // POST /api/imagen-ads/video/:id/elegir { cantidad, conIA, productoId } -> { seleccion, conIA, ms, motivo? }
   app.post('/api/imagen-ads/video/:id/elegir', soloDesdeLaApp, conErrores(async (req, res) => {
