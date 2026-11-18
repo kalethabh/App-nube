@@ -63,6 +63,27 @@ function validarInvestigacion(id) {
   return errores.length ? { ok: false, errores: errores.slice(0, 15) } : v;
 }
 
+// ---------------------------------------------------------------- Conceptos para Meta (Andromeda), 2026-11-18
+
+export const TITULO_ANDROMEDA = 'Conceptos para Meta (Andromeda)';
+const esAndromeda = (sec) => /andromeda/i.test(String(sec?.titulo || ''));
+/** ¿La investigación ya trae la sección de Andromeda? */
+export const tieneAndromeda = (inv) => inv?.formato === 'documento' && (inv.secciones || []).some(esAndromeda);
+
+/** Lo que le falta a la sección de Andromeda (la tabla de facetas y la matriz de 6 conceptos o más). */
+export function erroresAndromeda(inv) {
+  const sec = (inv?.secciones || []).find(esAndromeda);
+  if (!sec) return [`Falta la sección «${TITULO_ANDROMEDA}» al final de "secciones" (sección 3b de la skill).`];
+  const tablas = (sec.bloques || []).filter((b) => b?.tipo === 'tabla');
+  const conColumna = (re) => tablas.find((t) => (t.columnas || []).some((c) => re.test(String(c))));
+  const errores = [];
+  if (!conColumna(/faceta/i)) errores.push(`«${TITULO_ANDROMEDA}»: falta la tabla de facetas (Persona base / Faceta / Dolor en sus palabras / Escenario visual).`);
+  const matriz = tablas.find((t) => (t.columnas || []).some((c) => /hook/i.test(String(c))) && (t.columnas || []).some((c) => /formato/i.test(String(c))));
+  if (!matriz || (matriz.filas || []).length < 6) errores.push(`«${TITULO_ANDROMEDA}»: la matriz de conceptos (# / Faceta / Problema / Contexto / Formato / Hook) lleva 8 filas.`);
+  if (!conColumna(/momento/i)) errores.push(`«${TITULO_ANDROMEDA}»: falta la tabla de momentos y contexto.`);
+  return errores;
+}
+
 function leerInvestigacion(id) {
   const v = existe(rutaInv(id)) ? validarInvestigacion(id) : null;
   return v?.ok ? v.datos : null;
@@ -78,7 +99,7 @@ export function resumenDe(id) {
 
 const vistaDeTarea = (t) =>
   t
-    ? { estado: t.estado, progreso: (t.progreso || []).slice(-12), error: t.error || null, limite: Boolean(t.limite), reinicio: t.reinicio || null, inicio: t.inicio || null, fin: t.fin || null, pais: t.pais || null }
+    ? { estado: t.estado, modo: t.modo || null, progreso: (t.progreso || []).slice(-12), error: t.error || null, limite: Boolean(t.limite), reinicio: t.reinicio || null, inicio: t.inicio || null, fin: t.fin || null, pais: t.pais || null }
     : { estado: 'sin', progreso: [], error: null };
 
 export function estado(id) {
@@ -122,6 +143,37 @@ export function listar() {
 
 // ---------------------------------------------------------------- la sesión
 
+/** La sesión corta que agrega la sección de Andromeda a una investigación ya hecha (sin internet, sin rehacer nada). */
+function armarSesionAndromeda(id, { pais, retomar }) {
+  const rel = relProducto(id);
+  const archivo = `${rel}/investigacion/investigacion.json`;
+  const prompt = textoClaude('tarea-investigacion-andromeda', {
+    carpeta: rel,
+    pais: pais || leerInvestigacion(id)?.pais || 'Colombia',
+    fecha: new Intl.DateTimeFormat('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Bogota' }).format(new Date()),
+    archivo,
+  });
+  return {
+    tipo: 'ficha',
+    resume: retomar,
+    prompt: retomar ? `${prompt}\n\n(La app se cerró mientras trabajabas: mira lo que ya escribiste y termina.)` : prompt,
+    herramientas: ['Read', 'Glob', 'Grep', 'Edit'],
+    permitidas: [`Read(./${rel}/**)`, `Read(./.claude/skills/${SKILL}/**)`, 'Glob', 'Grep', `Edit(./${archivo})`],
+    prohibidas: prohibidasComunes({ terminal: false }),
+    fraseInicio: `${nombreIA()} está armando los conceptos para Meta`,
+    timeoutMs: 25 * 60000,
+    silencioMs: 8 * 60000,
+    maxTurnos: 60,
+    correcciones: 3,
+    verificar: async () => {
+      const v = validarInvestigacion(id);
+      if (!v.ok) return { ok: false, errores: v.errores.slice(0, 15) };
+      const e = erroresAndromeda(v.datos);
+      return e.length ? { ok: false, errores: e } : { ok: true };
+    },
+  };
+}
+
 function armarSesion(id, { pais, retomar }) {
   const p = leerProducto(id);
   const rel = relProducto(id);
@@ -155,22 +207,33 @@ function armarSesion(id, { pais, retomar }) {
       const crudo = leerJSON(rutaInv(id));
       if (crudo && crudo.formato !== 'documento') return { ok: false, errores: ['"formato" tiene que ser "documento" (el formato de la tarea).'] };
       const v = validarInvestigacion(id);
-      return v.ok ? { ok: true } : { ok: false, errores: v.errores.slice(0, 15) };
+      if (!v.ok) return { ok: false, errores: v.errores.slice(0, 15) };
+      const e = erroresAndromeda(v.datos);
+      return e.length ? { ok: false, errores: e } : { ok: true };
     },
   };
 }
 
-/** POST /api/investigacion/:id: lanza la investigación (no espera). */
-export function investigar(id, { pais = null, retomar = false } = {}) {
+/** POST /api/investigacion/:id: lanza la investigación (no espera). Con `soloAndromeda`, solo le agrega a la que ya
+ *  está hecha la sección «Conceptos para Meta (Andromeda)» (unos minutos, sin internet). */
+export function investigar(id, { pais = null, retomar = false, soloAndromeda = false } = {}) {
   const p = leerProducto(id);
   if (!p) throw new ErrorApp(404, 'No encuentro ese producto.');
   if (!(p.fotos || []).length) throw new ErrorApp(400, 'Sube la foto del producto para investigarlo.');
-  if (motorElegido() !== 'claude') throw new ErrorApp(409, 'La investigación de mercado busca en internet y por ahora solo funciona con Claude. Elige Claude en Ajustes › Conexiones.');
   const previa = leerTarea(id);
+  // (los conceptos para Meta salen de la investigación hecha, sin internet: también con ChatGPT)
+  const soloConceptos = retomar ? previa?.modo === 'andromeda' : soloAndromeda;
+  if (!soloConceptos && motorElegido() !== 'claude') throw new ErrorApp(409, 'La investigación de mercado busca en internet y por ahora solo funciona con Claude. Elige Claude en Ajustes › Conexiones.');
   if (enMarcha.has(id) || (previa?.estado === 'investigando' && previa?.uuid && sesionActiva(previa.uuid))) return { tarea: previa?.id || null, yaEstaba: true };
   const paisLimpio = String(pais || '').replace(/[^\p{L} .-]/gu, '').trim().slice(0, 60) || null;
+  const modo = soloConceptos ? 'andromeda' : null;
+  if (modo === 'andromeda') {
+    const actual = leerInvestigacion(id);
+    if (actual?.formato !== 'documento') throw new ErrorApp(409, 'Esta investigación es del formato anterior: vuelve a investigar el producto y ya trae los conceptos para Meta.');
+    if (!retomar && tieneAndromeda(actual)) throw new ErrorApp(409, 'Esta investigación ya tiene los conceptos para Meta.');
+  }
   const uuid = retomar && previa?.uuid ? previa.uuid : crypto.randomUUID();
-  const tarea = { id: uuid, uuid, estado: 'investigando', pais: retomar ? previa?.pais || paisLimpio : paisLimpio, progreso: [], intentos: (previa?.intentos || 0) + 1, inicio: ahora(), error: null };
+  const tarea = { id: uuid, uuid, estado: 'investigando', ...(modo ? { modo } : {}), pais: retomar ? previa?.pais || paisLimpio : modo === 'andromeda' ? previa?.pais || paisLimpio : paisLimpio, progreso: [], intentos: (previa?.intentos || 0) + 1, inicio: ahora(), error: null };
   fs.mkdirSync(path.join(dir(id), 'registro'), { recursive: true });
   guardarTarea(id, tarea);
   const promesa = correr(id, tarea, { retomar })
@@ -190,17 +253,20 @@ async function correr(id, tarea, { retomar }) {
     tarea.progreso = tarea.progreso.slice(-30);
     guardarTarea(id, tarea);
   };
-  // la anterior queda de respaldo hasta que la nueva salga bien
+  // la anterior queda de respaldo hasta que la nueva salga bien (con Andromeda, se copia: la sesión edita la misma)
   const anterior = path.join(dir(id), 'investigacion-anterior.json');
-  if (!retomar && existe(rutaInv(id))) fs.renameSync(rutaInv(id), anterior);
-  const r = await lanzarSesion({ ...armarSesion(id, { pais: tarea.pais, retomar }), uuid: tarea.uuid, alProgreso: avanzar, registro: path.join(dir(id), 'registro', 'investigacion.log') });
+  const andromeda = tarea.modo === 'andromeda';
+  if (!retomar && existe(rutaInv(id))) (andromeda ? fs.copyFileSync : fs.renameSync)(rutaInv(id), anterior);
+  const sesion = andromeda ? armarSesionAndromeda(id, { pais: tarea.pais, retomar }) : armarSesion(id, { pais: tarea.pais, retomar });
+  const r = await lanzarSesion({ ...sesion, uuid: tarea.uuid, alProgreso: avanzar, registro: path.join(dir(id), 'registro', andromeda ? 'andromeda.log' : 'investigacion.log') });
   const fin = { ...tarea, fin: ahora(), medida: { turnos: r.turnos, duracionMs: r.duracionMs, motor: r.motor || null } };
-  if (r.ok && leerInvestigacion(id)) {
+  if (r.ok && leerInvestigacion(id) && (!andromeda || tieneAndromeda(leerInvestigacion(id)))) {
     fs.rmSync(anterior, { force: true });
     guardarTarea(id, { ...fin, estado: 'lista', error: null });
     return;
   }
-  if (existe(rutaInv(id)) && !leerInvestigacion(id)) fs.renameSync(rutaInv(id), path.join(dir(id), 'investigacion-incompleta.json'));
+  // (con Andromeda, si no salió, vuelve la investigación tal como estaba)
+  if (existe(rutaInv(id)) && (!leerInvestigacion(id) || (andromeda && existe(anterior)))) fs.renameSync(rutaInv(id), path.join(dir(id), 'investigacion-incompleta.json'));
   if (!existe(rutaInv(id)) && existe(anterior)) fs.renameSync(anterior, rutaInv(id));
   guardarTarea(id, { ...fin, estado: 'error', error: errorPublico(r), limite: Boolean(r.limite), reinicio: r.reinicio || null });
 }

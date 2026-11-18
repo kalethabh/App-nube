@@ -278,8 +278,12 @@ export function Documento({ inv, foto = null, T = SinResaltar }) {
   );
   const secciones = inv.secciones || [];
   const p = inv.portada || {};
-  // (en pantalla cada sección es una hoja; al imprimir, el navegador reparte las páginas y numera solo)
-  const hojaGuia = secciones.length + 2;
+  // (en pantalla cada sección es una hoja; al imprimir, el navegador reparte las páginas y numera solo). La guía va
+  // después de la sección que la trae (la 14) y ocupa 5 hojas: las secciones que siguen (Andromeda) corren su número.
+  const iGuia = secciones.findIndex((sec) => (sec.bloques || []).some((b) => b?.tipo === 'guia-visual'));
+  const hojasGuia = iGuia >= 0 && inv.guia?.mensajes?.length ? 5 : 0;
+  const hojaGuia = iGuia >= 0 ? iGuia + 3 : secciones.length + 2;
+  const hojaDe = (i) => i + 2 + (iGuia >= 0 && i > iGuia ? hojasGuia : 0);
   return (
     <div className="doc" style={{ '--marca': color }}>
       <style>{`@media print { @page { @top-left { content: "${cabecera.replace(/["\\]/g, '')}"; background: ${color}; } @top-center { background: ${color}; } @top-right { content: "${String(inv.fecha || '').replace(/["\\]/g, '')}"; background: ${color}; } } }`}</style>
@@ -314,7 +318,7 @@ export function Documento({ inv, foto = null, T = SinResaltar }) {
         const conGuia = bloques.some((b) => b?.tipo === 'guia-visual');
         return (
           <Fragment key={i}>
-            <Hoja n={i + 2} seccion={sec.titulo}>
+            <Hoja n={hojaDe(i)} seccion={sec.titulo}>
               <h2 className="doc-h2">{i + 1}. {sec.titulo}</h2>
               {bloques.filter((b) => b?.tipo !== 'guia-visual').map((b, k) => <Bloque key={k} b={b} T={T} />)}
             </Hoja>
@@ -323,7 +327,7 @@ export function Documento({ inv, foto = null, T = SinResaltar }) {
         );
       })}
 
-      <Hoja n={secciones.length + 2 + (inv.guia?.mensajes?.length ? 5 : 0)} seccion="Fuentes">
+      <Hoja n={secciones.length + 2 + hojasGuia} seccion="Fuentes">
         <h2 className="doc-h2">{secciones.length + 1}. Fuentes consultadas</h2>
         <ul className="doc-fuentes">
           {(inv.fuentes || []).map((f, i) => (

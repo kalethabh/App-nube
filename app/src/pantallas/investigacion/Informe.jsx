@@ -5,7 +5,7 @@
 // RESALTAR: selecciona cualquier texto del informe y toca «Resaltar». Queda marcado, se junta en «Lo que resaltaste»
 // (arriba a la derecha, junto al botón «Crear anuncios de imagen») y es lo primero que leen tus anuncios de imagen de este producto.
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, CircleCheck, Copy, Download, ExternalLink, Highlighter, Images, LoaderCircle, RotateCcw, Star, Telescope, TriangleAlert, X } from 'lucide-react';
+import { CircleAlert, CircleCheck, Copy, Download, ExternalLink, Highlighter, Images, LoaderCircle, Megaphone, RotateCcw, Star, Telescope, TriangleAlert, X } from 'lucide-react';
 import { Boton, CampoTexto, Esqueleto, EstadoVacio, useAvisos } from '../../componentes/index.js';
 import { invalidar } from '../../datos/api.js';
 import { CLAVE_INVESTIGACIONES, apiInvestigacion, claveInvestigacion, useInvestigacion } from '../../datos/investigacion.js';
@@ -629,15 +629,15 @@ export default function PantallaInforme({ params }) {
     setFlotante(null);
   };
 
-  const investigar = async () => {
+  const investigar = async ({ andromeda = false } = {}) => {
     setLanzando(true);
     try {
-      await apiInvestigacion.investigar(id, pais.trim());
+      await (andromeda ? apiInvestigacion.agregarAndromeda(id) : apiInvestigacion.investigar(id, pais.trim()));
       invalidar(claveInvestigacion(id));
       invalidar(CLAVE_INVESTIGACIONES);
       await recargar?.();
     } catch (e) {
-      aviso({ tipo: 'error', titulo: 'No pude empezar la investigación', texto: e?.message || 'Vuelve a intentarlo.' });
+      aviso({ tipo: 'error', titulo: andromeda ? 'No pude agregar los conceptos para Meta' : 'No pude empezar la investigación', texto: e?.message || 'Vuelve a intentarlo.' });
     } finally {
       setLanzando(false);
     }
@@ -646,6 +646,24 @@ export default function PantallaInforme({ params }) {
   if (cargando && !datos) return <Esqueleto alto={320} />;
   if (!datos) return <EstadoVacio icono={Telescope} titulo="No encuentro ese producto" acciones={<Boton variante="secundario" href={enlace.investigacion()}>Volver</Boton>} />;
   const { producto, tarea, investigacion: inv } = datos;
+
+  if (tarea.estado === 'investigando' && tarea.modo === 'andromeda') {
+    return (
+      <div className="pagina inv inv-espera">
+        <span className="inv-espera__foto">{producto.foto ? <img src={producto.foto} alt="" /> : null}</span>
+        <LoaderCircle size={28} className="girando" aria-hidden="true" />
+        <h1 className="inv-espera__titulo">Armando los conceptos para Meta de «{producto.nombre}»</h1>
+        <p className="t-2">Tarda unos minutos: la IA lee tu investigación y arma las facetas del cliente, los momentos y 8 conceptos distintos para Andromeda. Puedes irte de esta pantalla; sigue sola.</p>
+        <ul className="inv-espera__pasos" aria-live="polite">
+          {(tarea.progreso || []).slice(-5).map((p, i, l) => (
+            <li key={`${i}-${p}`} className={i === l.length - 1 ? 'inv-espera__paso--ahora' : ''}>
+              {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 
   if (tarea.estado === 'investigando') {
     return (
@@ -669,7 +687,7 @@ export default function PantallaInforme({ params }) {
   const formulario = (
     <div className="inv-empezar__campos">
       <CampoTexto etiqueta="País" opcional placeholder="Colombia" maxLength={60} value={pais} onChange={(e) => setPais(e.target.value)} disabled={lanzando} ayuda="Sin país, la investigación es general." />
-      <Boton variante="primario" icono={inv ? RotateCcw : Telescope} onClick={investigar} cargando={lanzando}>
+      <Boton variante="primario" icono={inv ? RotateCcw : Telescope} onClick={() => investigar()} cargando={lanzando}>
         {inv ? 'Volver a investigar' : tarea.estado === 'error' ? 'Reintentar' : 'Investigar este producto'}
       </Boton>
     </div>
@@ -713,10 +731,15 @@ export default function PantallaInforme({ params }) {
             </div>
             <p className="inv-cabeza__desc">{tarea.fin ? `Hecha ${fechaRelativa(tarea.fin)}. ` : ''}Selecciona cualquier texto para resaltarlo.</p>
             {inv.formato === 'documento' ? (
-              <div>
+              <div className="inv-cabeza__acciones">
                 <Boton variante="secundario" tamano="chico" icono={Download} onClick={() => window.print()}>
                   Descargar PDF
                 </Boton>
+                {!(inv.secciones || []).some((sec) => /andromeda/i.test(sec?.titulo || '')) ? (
+                  <Boton variante="primario" tamano="chico" icono={Megaphone} onClick={() => investigar({ andromeda: true })} cargando={lanzando} title="Facetas del cliente, momentos y 8 conceptos distintos para Meta, sacados de esta investigación (unos minutos, sin rehacerla)">
+                    Agregar conceptos para Meta (Andromeda)
+                  </Boton>
+                ) : null}
               </div>
             ) : null}
           </div>
