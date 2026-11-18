@@ -18,6 +18,8 @@
 // Al arrancar, antes de las rutas: la IA elegida (migrarMotor, lib/motor-ia.js). Ya escuchando, en segundo plano:
 // lo de Codex (su config.toml, la carpeta de trabajo vacia y las conversaciones viejas), si se usa o esta instalado.
 import http from 'node:http';
+import dns from 'node:dns';
+import net from 'node:net';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -27,6 +29,12 @@ import { hostsPermitidos, origenesPermitidos } from './lib/servidor.js';
 import { migrarMotor, motorElegido } from './lib/motor-ia.js';
 import { vigilarInterfaz } from './lib/interfaz.js';
 import { porteroImportar } from './lib/desde-chrome.js';
+
+// IPv4 primero (2026-11-18): con una red con IPv6 a medias, Node intenta primero la dirección IPv6 de ElevenLabs o kie y
+// se queda esperando (Chrome cambia solo a IPv4 y anda). Con esto la app conecta como el navegador.
+dns.setDefaultResultOrder('ipv4first');
+// y si una dirección no contesta, que pruebe la otra enseguida (como el navegador)
+net.setDefaultAutoSelectFamily?.(true);
 
 const DEV = process.argv.includes('--dev');
 

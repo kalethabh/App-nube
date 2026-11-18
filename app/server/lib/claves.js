@@ -36,7 +36,8 @@ const BASES = {
   elevenlabs: 'https://api.elevenlabs.io',
 };
 
-const ESPERA_MS = 15000;
+// (30 s: con la red lenta, 15 s no alcanzaban para que ElevenLabs contestara la prueba de la clave)
+const ESPERA_MS = 30000;
 
 // Para las pruebas sin tocar el .env de verdad: otro archivo y otros servidores (p. ej. el kie
 // simulado). La app nunca llama a esto.
