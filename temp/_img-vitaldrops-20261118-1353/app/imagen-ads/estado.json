@@ -127,24 +127,20 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2143031-1795028205802",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-18T18:56:47.646Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V05_1x1": {
       "v": "V05",
@@ -159,7 +155,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -171,24 +167,20 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "874000-1795028193821",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-18T18:56:35.623Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V07_1x1": {
       "v": "V07",
@@ -203,7 +195,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -225,7 +217,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
