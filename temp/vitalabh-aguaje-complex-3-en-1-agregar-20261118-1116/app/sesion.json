@@ -9,11 +9,21 @@
     "Claude empezó a escribir tu guion",
     "Leyendo las instrucciones del estilo",
     "Leyendo",
-    "Mirando las imágenes del anuncio"
+    "Mirando las imágenes del anuncio",
+    "Mirando las fotos de tu producto",
+    "Buscando en los archivos",
+    "Mirando las imágenes del anuncio",
+    "Leyendo",
+    "Leyendo las instrucciones del estilo",
+    "Repasando la ficha de tu producto",
+    "Mirando las fotos de tu producto",
+    "Leyendo",
+    "Leyendo las instrucciones del estilo",
+    "Buscando en los archivos"
   ],
   "inicio": "2026-11-18T16:16:03.360Z",
   "cambios": [],
-  "actualizado": "2026-11-18T16:16:48.197Z",
+  "actualizado": "2026-11-18T16:17:45.386Z",
   "error": null,
   "inicioIntento": "2026-11-18T16:16:03.360Z"
 }
