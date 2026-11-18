@@ -6,7 +6,10 @@
   "progreso": [
     "Claude está leyendo tu pedido",
     "Repasando el guion",
-    "Ajustando el guion"
+    "Ajustando el guion",
+    "Marcando las transiciones",
+    "Revisando que el guion esté completo",
+    "Pasando el guion en limpio"
   ],
   "inicio": "2026-11-18T16:16:03.360Z",
   "cambios": [
@@ -27,7 +30,7 @@
       "fecha": "2026-11-18T22:41:43.018Z"
     }
   ],
-  "actualizado": "2026-11-18T22:43:11.599Z",
+  "actualizado": "2026-11-18T22:44:59.660Z",
   "error": null,
   "inicioIntento": "2026-11-18T22:41:43.019Z",
   "fin": "2026-11-18T22:27:55.462Z",
