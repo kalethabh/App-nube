@@ -6,6 +6,7 @@ import { useEnProduccion } from '../datos/produccion.js';
 import { enlace } from '../datos/rutas.js';
 import { BotonActualizar } from './BotonActualizar.jsx';
 import { BotonTema } from './BotonTema.jsx';
+import { SaludPlataformas } from './SaludPlataformas.jsx';
 
 /**
  * Barra de arriba: migas a la izquierda; a la derecha lo que está en producción y "Nuevo anuncio".
@@ -62,6 +63,7 @@ export function BarraArriba({ migas = [], ocultarNuevo = false }) {
         ) : (
           pildora
         )}
+        <SaludPlataformas />
         <BotonTema />
         <BotonActualizar />
         {/* «Nuevo anuncio» vive una sola vez: en el menú (el botón lima de arriba) */}

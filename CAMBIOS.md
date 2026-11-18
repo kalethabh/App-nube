@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18o · Salud de plataformas
+
+- En la barra de arriba, un botón **«Salud de plataformas»** con un punto de color: verde (todo bien), amarillo (algo va lento o tiene fallas) o rojo (un servicio no responde).
+- Al tocarlo, el estado de cada servicio que usa la app: **Claude** y **ChatGPT** (la IA que escribe), **ElevenLabs** (la voz y las transcripciones) y **kie.ai** (imágenes, videos y música: GPT Image, Seedream, Kling, Seedance, Veo y Suno), con el nombre de la falla, desde qué hora y el enlace a su página de estado.
+- Mira las páginas de estado oficiales, pero solo lo que usa la app (por ejemplo, de Claude mira «Claude Code» y la API, no «Claude no puede unirse a reuniones»), y además prueba gratis tus claves de kie y ElevenLabs: así nota también una falla que el servicio todavía no reportó, o si va lento.
+- Se revisa solo cada 2 minutos y al abrirlo (con el botón ↻, al instante).
+
 ## 2026-11-18n · Si ElevenLabs tiene una falla, la app te lo dice
 
 - El 18 de noviembre ElevenLabs tuvo una falla («Increased latency and API errors», desde las 10:34 a. m.): las consultas con clave se quedaban esperando. No era tu clave, ni tu internet, ni la app (comprobado desde otra red con tu misma clave).
