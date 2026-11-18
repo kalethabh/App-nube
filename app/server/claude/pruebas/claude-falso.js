@@ -247,6 +247,13 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, linea[1]), JSON.stringify({ dice: `Otra versión de prueba de la parte ${n}, escrita por la IA.` }));
     return resultado({ result: 'LISTO' });
   }
+  // «lo que se ve» (debajo de lo que escribiste en «Editar a mano»): una escena de prueba con ese texto
+  const seVe = /TAREA: lo que se ve en una parte/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
+  if (seVe) {
+    const dijo = (/El usuario escribió para .*?: «(.*?)»/.exec(textoTarea) || [])[1] || '';
+    fs.writeFileSync(path.join(RAIZ, seVe[1]), JSON.stringify({ se_ve: `Escena de prueba que muestra: ${dijo.slice(0, 60)}` }));
+    return resultado({ result: 'LISTO' });
+  }
   if (tareaActual === 'ficha') await ficha(textoTarea, m, intento);
   else if (tareaActual === 'guion') r = await guion(textoTarea, m, intento);
   else if (tareaActual === 'cambios') r = await cambios(textoTarea, m);
@@ -290,7 +297,7 @@ function familiaDelTexto(texto) {
 function especialista(texto) {
   if (process.env.FALSO_DESPACHADO) return null;
   const tarea = (String(texto).match(/^TAREA: ([^\n]+)/m) || [])[1] || '';
-  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea)) return null;
+  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea) || /^lo que se ve en una parte/.test(tarea)) return null;
   if (/^imagen-ads-/.test(tarea)) return 'claude-falso-imagen-ads.js';
   if (/^(guion|cambios)\b/.test(tarea)) return MODOS_DE_ESTILOS.has(modo(tarea.split(/\s/)[0])) ? 'claude-falso-estilos.js' : null;
   if (/^continuidad-/.test(tarea)) return 'claude-falso-continuidad.js';

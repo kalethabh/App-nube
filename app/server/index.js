@@ -29,6 +29,7 @@ import { hostsPermitidos, origenesPermitidos } from './lib/servidor.js';
 import { migrarMotor, motorElegido } from './lib/motor-ia.js';
 import { vigilarInterfaz } from './lib/interfaz.js';
 import { porteroImportar } from './lib/desde-chrome.js';
+import { programarPortadas } from './lib/portadas-estilos.js';
 
 // IPv4 primero (2026-11-18): con una red con IPv6 a medias, Node intenta primero la dirección IPv6 de ElevenLabs o kie y
 // se queda esperando (Chrome cambia solo a IPv4 y anda). Con esto la app conecta como el navegador.
@@ -161,4 +162,5 @@ servidor.listen(PUERTO, HOST, () => {
   console.log(`  Rutas cargadas: ${cargadas.join(', ')}\n`);
   prepararCodex().catch((e) => console.error(`  [codex] ${e?.message || e}`));
   if (!DEV) vigilarInterfaz(); // pantallas nuevas sin armar (p. ej. traídas por el guardado automático)
+  programarPortadas(); // las portadas que faltan en Estilos, con ChatGPT Imágenes (lib/portadas-estilos.js)
 });

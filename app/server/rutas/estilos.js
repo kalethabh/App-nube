@@ -7,6 +7,8 @@ import { SKILLS } from '../lib/rutas.js';
 import { ESTILOS, FAMILIAS } from '../lib/estilos.js';
 import { muestraDeEstilo } from '../lib/muestras.js';
 import { subestilosDe } from '../lib/subestilos.js';
+import { ESPECIALES, estado as estadoPortadas, generarFaltantes } from '../lib/portadas-estilos.js';
+import { muestraDelPaquete } from '../lib/muestras.js';
 
 // Solo el "name" del encabezado de la skill, para confirmar que esta instalada.
 function nombreDeSkill(skill) {
@@ -20,7 +22,13 @@ function nombreDeSkill(skill) {
   }
 }
 
+// las portadas que faltan (con ChatGPT Imágenes): GET el estado, POST las hace ya (no espera)
 export default function rutasEstilos(app) {
+  app.get('/api/estilos/portadas', (req, res) => res.set('Cache-Control', 'no-store').json(estadoPortadas()));
+  app.post('/api/estilos/portadas', (req, res) => {
+    generarFaltantes({ forzar: true }).catch(() => {});
+    res.json(estadoPortadas());
+  });
   app.get('/api/estilos', (req, res) => {
     const estilos = ESTILOS.map((e) => {
       const instalado = nombreDeSkill(e.skill) !== null;
@@ -40,6 +48,8 @@ export default function rutasEstilos(app) {
     });
     res.json({
       estilos,
+      // la portada de los especiales (Cambiar el producto, Clonar, Más ganchos, Sketch), si ya se hizo
+      especiales: Object.fromEntries(ESPECIALES.map((c) => [c, muestraDelPaquete(c)])),
       familias: Object.entries(FAMILIAS).map(([id, f]) => ({ id, ...f, cantidad: estilos.filter((e) => e.familia === id).length })),
     });
   });

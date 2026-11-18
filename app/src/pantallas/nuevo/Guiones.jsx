@@ -13,8 +13,8 @@
 //   entrevista      clip por clip, con su diálogo y el llamado a la acción del final
 //   musical         las 2 o 3 letras: el usuario elige una (POST …/guion/letra) y la produce, o pide cambios
 //   historia        la historia que se canta, acto por acto, y cómo va a sonar
-import { useEffect, useRef, useState } from 'react';
-import { Check, ChevronDown, Eye, FileText, Lightbulb, LoaderCircle, MessageSquareText, Mic, Music, PenLine, Send, Sparkles, Users } from 'lucide-react';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { Check, ChevronDown, Eye, FileText, Lightbulb, LoaderCircle, MessageSquareText, Mic, Music, PenLine, Plus, Send, Sparkles, Users, X } from 'lucide-react';
 import { AreaTexto, Boton, Chip, Esqueleto, Pestanas, Seccion, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useGuion, useSaldoKie } from '../../datos/api.js';
 import { duracionEnPalabras } from '../../datos/formato.js';
@@ -138,7 +138,16 @@ function Parte({ p, edicion = null }) {
               maxLength={600}
               value={edicion.valor(p)}
               onChange={(e) => edicion.cambiar(p.n, e.target.value)}
+              onBlur={() => edicion.alTerminar(p.n)}
               disabled={edicion.guardando || edicion.regenerando === p.n}
+            />
+            <SeVeEditable
+              n={p.n}
+              valor={edicion.vista(p)}
+              generando={edicion.generandoVista(p.n)}
+              onCambiar={(v) => edicion.cambiarVista(p.n, v)}
+              onGenerar={() => edicion.generarVista(p.n)}
+              bloqueado={edicion.guardando}
             />
           </div>
         ) : (
@@ -147,9 +156,40 @@ function Parte({ p, edicion = null }) {
             {p.dice}
           </p>
         )}
-        {p.se_ve || p.seVe ? <p className="nv-linea__se-ve">{p.se_ve || p.seVe}</p> : null}
+        {!editando && (p.se_ve || p.seVe) ? <p className="nv-linea__se-ve">{p.se_ve || p.seVe}</p> : null}
+        {edicion?.agregar && !dialogo.length ? (
+          <button type="button" className="nv-linea__agregar" onClick={() => edicion.agregar(p.n)} disabled={edicion.guardando}>
+            <Plus size={13} strokeWidth={2.4} aria-hidden="true" /> Agregar parte aquí
+          </button>
+        ) : null}
       </div>
     </li>
+  );
+}
+
+/**
+ * «Lo que se ve» al editar a mano (2026-11-18z): la app lo escribe sola cuando terminas de escribir lo que se dice
+ * (o con el ✨), y lo puedes cambiar. Al guardar, la IA rehace esa escena para mostrar eso.
+ */
+function SeVeEditable({ n, valor, generando, onCambiar, onGenerar, bloqueado }) {
+  return (
+    <div className="nv-se-ve">
+      <span className="nv-se-ve__etiqueta">
+        <Eye size={12} strokeWidth={2.2} aria-hidden="true" /> Lo que se ve
+        <button type="button" className="nv-se-ve__generar" onClick={onGenerar} disabled={bloqueado || generando} title="Escribirlo con IA según lo que se dice" aria-label={`Escribir con IA lo que se ve en la parte ${n}`}>
+          {generando ? <LoaderCircle size={13} strokeWidth={2.2} aria-hidden="true" className="nv-se-ve__girando" /> : <Sparkles size={13} strokeWidth={2.2} aria-hidden="true" />}
+        </button>
+      </span>
+      <AreaTexto
+        aria-label={`Lo que se ve en la parte ${n}`}
+        filas={2}
+        maxLength={300}
+        value={generando && !valor ? '' : valor}
+        placeholder={generando ? 'Escribiendo lo que se ve…' : 'Se escribe solo cuando terminas de escribir lo que se dice.'}
+        onChange={(e) => onCambiar(e.target.value)}
+        disabled={bloqueado || generando}
+      />
+    </div>
   );
 }
 
@@ -239,13 +279,66 @@ function Cabecera({ estilo, datos }) {
 
 // ---------------------------------------------------------------- la hoja de un guion hablado o con narrador
 
-function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null, onRegenerarLinea = null }) {
+/** Una parte NUEVA al editar a mano: lo que se dice y, debajo, lo que se ve (se escribe solo). */
+function ParteNueva({ x, guardando, generando, onCambiar, onTerminar, onGenerar, onQuitar }) {
+  return (
+    <li className="nv-linea nv-linea--nueva">
+      <div className="nv-linea__marca">
+        <span className="nv-linea__n t-mono">+</span>
+      </div>
+      <div className="nv-linea__dice">
+        <span className="nv-linea__momento">
+          Parte nueva
+          <button type="button" className="nv-linea__quitar" onClick={onQuitar} disabled={guardando} aria-label="Quitar esta parte nueva">
+            <X size={12} strokeWidth={2.4} aria-hidden="true" />
+          </button>
+        </span>
+        <div className="nv-linea__editar">
+          <AreaTexto aria-label="Lo que se dice en la parte nueva" filas={2} maxLength={600} value={x.dice} placeholder="Escribe lo que se dice en esta parte…" onChange={(e) => onCambiar({ dice: e.target.value })} onBlur={onTerminar} disabled={guardando} autoFocus />
+          <SeVeEditable n="nueva" valor={x.se_ve} generando={generando} onCambiar={(v) => onCambiar({ se_ve: v })} onGenerar={onGenerar} bloqueado={guardando || !x.dice.trim()} />
+        </div>
+      </div>
+    </li>
+  );
+}
+
+function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null, onRegenerarLinea = null, onSeVe = null }) {
   const [todas, setTodas] = useState(false);
   // editar a mano lo que se dice (cada parte en su cuadro); se guarda todo junto
   const [editando, setEditando] = useState(false);
   const [valores, setValores] = useState({});
   const [guardando, setGuardando] = useState(false);
   const [regenerando, setRegenerando] = useState(null); // la parte que la IA está reescribiendo
+  // lo que se ve, por parte (lo escribe la IA al terminar de escribir, o el usuario) y las partes nuevas
+  const [vistas, setVistas] = useState({});
+  const [generandoVistas, setGenerandoVistas] = useState({});
+  const [nuevas, setNuevas] = useState([]); // [{ id, despuesDe, dice, se_ve }]
+  const pedidoVista = useRef({});
+  const original = (n) => (guion?.partes || []).find((x) => String(x.n) === String(n));
+  const generarVista = async (clave, donde, dice) => {
+    const texto = String(dice || '').trim();
+    if (!texto || !onSeVe) return;
+    const turno = (pedidoVista.current[clave] || 0) + 1;
+    pedidoVista.current[clave] = turno;
+    setGenerandoVistas((x) => ({ ...x, [clave]: true }));
+    try {
+      const seVe = await onSeVe(donde, texto);
+      // (si mientras tanto se pidió otra, gana la última)
+      if (seVe && pedidoVista.current[clave] === turno) {
+        if (String(clave).startsWith('nueva-')) setNuevas((l) => l.map((x) => (`nueva-${x.id}` === clave ? { ...x, se_ve: seVe } : x)));
+        else setVistas((x) => ({ ...x, [clave]: seVe }));
+      }
+    } finally {
+      if (pedidoVista.current[clave] === turno) setGenerandoVistas((x) => ({ ...x, [clave]: false }));
+    }
+  };
+  // al terminar de escribir una parte (sale del cuadro) con un texto distinto: lo que se ve, solo
+  const alTerminar = (n) => {
+    const v = valores[n];
+    if (v === undefined || v.trim() === String(original(n)?.dice || '').trim() || vistas[n] !== undefined) return;
+    generarVista(n, { n }, v);
+  };
+  const agregar = (despuesDe) => setNuevas((l) => [...l, { id: `${Date.now()}${Math.random().toString(36).slice(2, 5)}`, despuesDe, dice: '', se_ve: '' }]);
   const regenerar = async (n, actual) => {
     setRegenerando(n);
     try {
@@ -257,11 +350,16 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
   };
   const empezar = () => {
     setValores({});
+    setVistas({});
+    setNuevas([]);
     setEditando(true);
     setTodas(true);
   };
   const guardar = async () => {
-    const lineas = Object.entries(valores).map(([n, dice]) => ({ n: Number(n), dice }));
+    const lineas = [
+      ...[...new Set([...Object.keys(valores), ...Object.keys(vistas)])].map((n) => ({ n: Number(n), dice: valores[n] ?? original(n)?.dice ?? '', ...(vistas[n] !== undefined ? { se_ve: vistas[n] } : {}) })),
+      ...nuevas.filter((x) => x.dice.trim()).map((x) => ({ nueva: true, despuesDe: x.despuesDe, dice: x.dice, se_ve: x.se_ve })),
+    ];
     setGuardando(true);
     try {
       const ok = await onGuardarLineas?.(lineas);
@@ -270,8 +368,26 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
       setGuardando(false);
     }
   };
-  const edicion = editando ? { valor: (p) => (valores[p.n] ?? p.dice ?? ''), cambiar: (n, v) => setValores((x) => ({ ...x, [n]: v })), guardando, regenerar: onRegenerarLinea ? regenerar : null, regenerando } : null;
-  const tocadas = Object.entries(valores).filter(([n, v]) => v !== (guion?.partes || []).find((p) => String(p.n) === n)?.dice).length;
+  const edicion = editando
+    ? {
+        valor: (p) => valores[p.n] ?? p.dice ?? '',
+        cambiar: (n, v) => setValores((x) => ({ ...x, [n]: v })),
+        guardando,
+        regenerar: onRegenerarLinea ? regenerar : null,
+        regenerando,
+        vista: (p) => vistas[p.n] ?? p.se_ve ?? p.seVe ?? '',
+        cambiarVista: (n, v) => setVistas((x) => ({ ...x, [n]: v })),
+        generarVista: (n) => generarVista(n, { n }, valores[n] ?? original(n)?.dice),
+        generandoVista: (n) => Boolean(generandoVistas[n]),
+        alTerminar,
+        agregar: onSeVe ? agregar : null,
+      }
+    : null;
+  const tocadas =
+    new Set([
+      ...Object.entries(valores).filter(([n, v]) => v !== original(n)?.dice).map(([n]) => n),
+      ...Object.entries(vistas).filter(([n, v]) => v.trim() && v.trim() !== String(original(n)?.se_ve || '').trim()).map(([n]) => n),
+    ]).size + nuevas.filter((x) => x.dice.trim()).length;
   const partes = Array.isArray(guion?.partes) ? guion.partes.filter((p) => p && String(p.dice || '').trim()) : [];
   const mostradas = todas || partes.length <= LARGO_SIN_PLEGAR ? partes : partes.slice(0, VISIBLES);
   const faltan = partes.length - mostradas.length;
@@ -331,7 +447,25 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
           ) : null}
           <ol className="nv-lineas">
             {mostradas.map((p, i) => (
-              <Parte key={`${p.n}-${i}`} p={p} edicion={edicion} />
+              <Fragment key={`${p.n}-${i}`}>
+                <Parte p={p} edicion={edicion} />
+                {editando
+                  ? nuevas
+                      .filter((x) => x.despuesDe === p.n)
+                      .map((x) => (
+                        <ParteNueva
+                          key={x.id}
+                          x={x}
+                          guardando={guardando}
+                          generando={Boolean(generandoVistas[`nueva-${x.id}`])}
+                          onCambiar={(cambio) => setNuevas((l) => l.map((y) => (y.id === x.id ? { ...y, ...cambio } : y)))}
+                          onTerminar={() => x.dice.trim() && !x.se_ve && generarVista(`nueva-${x.id}`, { despuesDe: x.despuesDe }, x.dice)}
+                          onGenerar={() => generarVista(`nueva-${x.id}`, { despuesDe: x.despuesDe }, x.dice)}
+                          onQuitar={() => setNuevas((l) => l.filter((y) => y.id !== x.id))}
+                        />
+                      ))
+                  : null}
+              </Fragment>
             ))}
           </ol>
           {faltan > 0 ? (
@@ -701,14 +835,25 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
     }
   };
 
+  // lo que se ve (debajo de lo que escribiste): lo escribe la IA en segundos; no guarda (se guarda con «Guardar»)
+  const seVe = async (donde, dice) => {
+    try {
+      const r = await apiNuevo.contextoVisual(slug, donde, dice);
+      return r?.se_ve || null;
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude escribir lo que se ve', texto: e?.message || 'Escríbelo tú o vuelve a intentarlo.', duracion: 9000 });
+      return null;
+    }
+  };
+
   // editar a mano: con narrador se aplica al instante (gratis); si alguien habla en el video, lo ajusta la IA
   const guardarLineas = async (lineas) => {
     try {
       const r = await apiNuevo.editarLineas(slug, lineas);
       if (r?.conIA) {
-        setUltimoPedido('Tus textos, tal cual: ajustando los tiempos y el video de esas partes');
+        setUltimoPedido('Tus textos, tal cual: ajustando las escenas, los tiempos y el video de esas partes');
         seguirMirando();
-        aviso({ tipo: 'info', titulo: 'Aplicando tus textos', texto: `${mayuscula(motor.nombre)} pone tus frases tal cual y ajusta los tiempos y el video de esas partes.` });
+        aviso({ tipo: 'info', titulo: 'Aplicando tus cambios', texto: `${mayuscula(motor.nombre)} pone tus frases tal cual y ajusta lo que se ve, los tiempos y el video de esas partes.` });
       } else {
         invalidar(`guion:${slug}`);
         await g.recargar();
@@ -870,7 +1015,7 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
       ) : tipo === 'historia' ? (
         <HojaHistoria estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} />
       ) : (
-        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} onRegenerarLinea={listo ? regenerarLinea : null} />
+        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} onRegenerarLinea={listo ? regenerarLinea : null} onSeVe={listo ? seVe : null} />
       )}
       <aside className="nv-guion__lado" ref={lateral}>
         {leido.aprobado || cargando ? null : (

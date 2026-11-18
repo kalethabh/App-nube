@@ -132,7 +132,11 @@ export default function Estilos() {
         href: e.clave === 'continuidad' ? () => enlace.nuevo({ estilo: 'estilo-pixar', continuidad: '1' }) : undefined,
       };
     });
-    const especiales = ESPECIALES.map((x) => ({ ...x, familia: 'especiales', familiaNombre: 'Especial', listo: true, ...videoDe(deGithub.find(x.buscar)) }));
+    // (sin un anuncio tuyo de GitHub, la portada que hizo la app con ChatGPT: lib/portadas-estilos.js)
+    const especiales = ESPECIALES.map((x) => {
+      const propio = videoDe(deGithub.find(x.buscar));
+      return { ...x, familia: 'especiales', familiaNombre: 'Especial', listo: true, ...propio, imagen: propio.imagen || datos?.especiales?.[x.clave]?.imagen || null };
+    });
     return [...estilos, ...especiales];
   }, [datos, deGithub]);
 

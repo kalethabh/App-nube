@@ -5,8 +5,10 @@
 //                                             -> { slug } (crea el brief, prepara la foto y lanza la sesion "guion")
 // GET  /api/anuncios/:slug/guion              -> { estado: escribiendo|listo|error, guion?, progreso: [frases], error?, limite, ... }
 // POST /api/anuncios/:slug/guion/cambios      { pedido } -> la misma conversacion de Claude (--resume)
-// PUT  /api/anuncios/:slug/guion/lineas      { lineas: [{ n, dice }] } editar a mano lo que se dice -> { directo } | { conIA }
+// PUT  /api/anuncios/:slug/guion/lineas      { lineas: [{ n, dice, se_ve? } | { nueva: true, despuesDe, dice, se_ve? }] } editar a mano
+//                                             lo que se dice, lo que se ve y partes nuevas -> { directo } | { conIA }
 // POST /api/anuncios/:slug/guion/regenerar-linea { n, actual?, idea? } otra versión de una parte (no guarda) -> { dice }
+// POST /api/anuncios/:slug/guion/se-ve { n? | despuesDe?, dice }  lo que se ve para ese texto (no guarda) -> { se_ve }
 // POST /api/anuncios/:slug/guion/reintentar   vuelve a correr lo que fallo (sigue desde donde quedo)
 // POST /api/anuncios/:slug/guion/letra        { n } el musical: elige una de las letras (se puede cambiar hasta producir)
 // PUT  /api/anuncios/:slug/voz                { id, nombre } | { auto: true } la voz del narrador (antes de generarla) -> { voz }
@@ -15,7 +17,7 @@
 //
 // POST /api/anuncios/:slug/producir (aprobar y arrancar) lo atiende rutas/produccion.js con el conductor.
 import { ErrorApp, soloDesdeLaApp } from '../lib/productos.js';
-import { cambiarVoz, crearAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
+import { cambiarVoz, contextoVisual, crearAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
 
 const conErrores = (fn) => async (req, res, next) => {
   try {
@@ -45,6 +47,10 @@ export default function rutasGuion(app) {
     res.json(await editarLineas(req.params.slug, req.body?.lineas));
   }));
 
+  // lo que se ve (el contexto visual) para lo que escribiste en una parte, o en una nueva (no guarda) -> { se_ve }
+  app.post('/api/anuncios/:slug/guion/se-ve', soloDesdeLaApp, conErrores(async (req, res) => {
+    res.json(await contextoVisual(req.params.slug, req.body || {}));
+  }));
   app.post('/api/anuncios/:slug/guion/regenerar-linea', soloDesdeLaApp, conErrores(async (req, res) => {
     res.json(await regenerarLinea(req.params.slug, req.body || {}));
   }));
