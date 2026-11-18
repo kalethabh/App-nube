@@ -1,0 +1,43 @@
+{
+  "nota": "Las PLANTILLAS de los anuncios de imagen (2026-11-18s): 30 anuncios validados de la categoría que el usuario pasó como ejemplo. No se dibujan: cada una va al modelo de imagen como referencia, con la foto del producto, y el modelo mantiene la estructura, la composición y la tipografía y cambia el producto, los textos y la paleta (app/server/lib/imagen-ads/plantillas-referencia.js). familia = el tipo de ángulo (para que «Que la app elija» reparta ideas distintas); grupo = las que son casi la misma (nunca dos del mismo grupo en una elección automática).",
+  "familias": [
+    { "id": "dolor", "nombre": "Dolor y deseo" },
+    { "id": "antes-despues", "nombre": "Antes y después" },
+    { "id": "tiempo", "nombre": "Línea de tiempo" },
+    { "id": "comparacion", "nombre": "Comparación" },
+    { "id": "beneficios", "nombre": "Beneficios" },
+    { "id": "nativo", "nombre": "Nativo y temporada" }
+  ],
+  "plantillas": [
+    { "id": "p01", "nombre": "Silueta neón con zonas", "familia": "dolor", "grupo": "neon" },
+    { "id": "p02", "nombre": "Historia antes y después", "familia": "antes-despues", "grupo": "historia" },
+    { "id": "p03", "nombre": "Etapas en neón", "familia": "tiempo", "grupo": "neon-etapas" },
+    { "id": "p04", "nombre": "Día 1 · 14 · 30", "familia": "tiempo", "grupo": "dias" },
+    { "id": "p05", "nombre": "Sin vs. con el producto", "familia": "comparacion", "grupo": "sin-con" },
+    { "id": "p06", "nombre": "Tu producto vs. el otro", "familia": "comparacion", "grupo": "vs" },
+    { "id": "p07", "nombre": "No compres esto si…", "familia": "nativo", "grupo": "no-compres" },
+    { "id": "p08", "nombre": "Resultado en 2 semanas", "familia": "antes-despues", "grupo": "ad-blanco-negro" },
+    { "id": "p09", "nombre": "Solo X vs. X + producto", "familia": "comparacion", "grupo": "solo-con" },
+    { "id": "p10", "nombre": "Antes y después partido", "familia": "antes-despues", "grupo": "partido" },
+    { "id": "p11", "nombre": "Pregunta y revelación", "familia": "dolor", "grupo": "pregunta" },
+    { "id": "p12", "nombre": "¿Todavía se ve así?", "familia": "antes-despues", "grupo": "diagrama" },
+    { "id": "p13", "nombre": "Estado vs. estado", "familia": "comparacion", "grupo": "ilustrado" },
+    { "id": "p14", "nombre": "3 zonas, 3 semanas", "familia": "tiempo", "grupo": "zonas" },
+    { "id": "p15", "nombre": "Antes y después en cuadrícula", "familia": "antes-despues", "grupo": "cuadricula" },
+    { "id": "p16", "nombre": "Beneficios con íconos", "familia": "beneficios", "grupo": "iconos-lista" },
+    { "id": "p17", "nombre": "Este año vs. el próximo", "familia": "comparacion", "grupo": "anios" },
+    { "id": "p18", "nombre": "Antes y después con rótulos", "familia": "antes-despues", "grupo": "rotulos" },
+    { "id": "p19", "nombre": "Día 0 vs. día 90", "familia": "tiempo", "grupo": "dia-0-90" },
+    { "id": "p20", "nombre": "Beneficios a los lados", "familia": "beneficios", "grupo": "lados" },
+    { "id": "p21", "nombre": "Temporada: regálate", "familia": "nativo", "grupo": "navidad" },
+    { "id": "p22", "nombre": "No solo X: también Y", "familia": "dolor", "grupo": "no-solo" },
+    { "id": "p23", "nombre": "Producto héroe", "familia": "beneficios", "grupo": "heroe" },
+    { "id": "p24", "nombre": "No solo X (con persona)", "familia": "dolor", "grupo": "no-solo" },
+    { "id": "p25", "nombre": "No solo X (de espalda)", "familia": "dolor", "grupo": "no-solo" },
+    { "id": "p26", "nombre": "Invierte en ti", "familia": "nativo", "grupo": "invierte" },
+    { "id": "p27", "nombre": "Deseo con beneficios", "familia": "beneficios", "grupo": "deseo" },
+    { "id": "p28", "nombre": "Temporada con persona", "familia": "nativo", "grupo": "navidad" },
+    { "id": "p29", "nombre": "Antes y después lado a lado", "familia": "antes-despues", "grupo": "lado-a-lado" },
+    { "id": "p30", "nombre": "Día 0 · 7 · 21", "familia": "tiempo", "grupo": "dias-3" }
+  ]
+}

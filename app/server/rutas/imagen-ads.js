@@ -54,6 +54,7 @@ import { estadoDelTurno } from '../lib/imagen-ads/turno-claude.js';
 import { costoDeImagenAds } from '../lib/costo-estimado.js';
 import { costoMaximoDeLaAccion, costoAprobado } from '../lib/imagen-ads/costo.js';
 import * as biblioteca from '../lib/imagen-ads/biblioteca-referencias.js';
+import * as plantillasRef from '../lib/imagen-ads/plantillas-referencia.js';
 import { estadoTitulos, proponerTitulos, seleccionarTitulos, titulosEnCurso } from '../lib/imagen-ads/titulos.js';
 import * as plantillas from '../lib/imagen-ads/plantillas.js';
 import { POR_ID as PLANTILLA_POR_ID } from '../lib/imagen-ads/catalogo-plantillas.js';
@@ -196,6 +197,13 @@ export default function rutasImagenAds(app) {
   app.get('/api/imagen-ads/opciones', async (req, res) => res.json({ ...lotes.opciones(), costo: await costoDeImagenAds() }));
 
   app.get('/api/imagen-ads/productos', (req, res) => res.set('Cache-Control', 'no-store').json({ productos: lotes.productosConFoto() }));
+
+  // las plantillas (anuncios validados que van al modelo como referencia, lib/imagen-ads/plantillas-referencia.js)
+  app.get(['/api/imagen-ads/plantillas-referencia/:archivo', '/api/imagen-ads/plantillas-referencia/mini/:archivo'], (req, res) => {
+    const abs = plantillasRef.rutaDeArchivo(req.params.archivo, req.path.includes('/mini/'));
+    if (!abs) return res.status(404).json({ error: 'No encuentro esa plantilla.' });
+    res.set({ 'Cache-Control': 'private, max-age=604800', 'X-Content-Type-Options': 'nosniff' }).type('image/jpeg').sendFile(abs);
+  });
 
   // ------------------------------------------------------------ tu biblioteca de referencias
   app.get('/api/imagen-ads/biblioteca', (req, res) => res.set('Cache-Control', 'no-store').json({ referencias: biblioteca.listar() }));

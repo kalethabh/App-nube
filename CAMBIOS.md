@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18s · Plantillas: tus anuncios validados como referencia
+
+- En «Crear anuncios de imagen», **«Con plantillas de anuncios validados»** ahora muestra los 30 anuncios validados que pasaste (Muna, Grüns, Sonvital, Vitaly, Lymphoria, Aurelys, Natures Sunshine, Aguaje…), por tipo: dolor y deseo, antes y después, línea de tiempo, comparación, beneficios, nativo y temporada.
+- Ya no se rehacen a mano: cada plantilla va **al modelo de imagen como referencia**, con la foto de tu producto. Sale con la misma estructura, composición y letras, y con **tu producto, tus textos y tus colores**. Sin precios ni ofertas.
+- Eliges hasta 10, o **«Que la app elija»**, que mezcla ideas distintas (una por imagen, nunca dos casi iguales).
+
 ## 2026-11-18r · Inicio: el dashboard principal
 
 - Pantalla nueva **Inicio**, la primera del menú y la que abre al entrar (el logo también lleva ahí).
