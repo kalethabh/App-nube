@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, House, Scissors, GraduationCap, Images, LayoutGrid, Library, Lightbulb, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
+import { CirclePause, Clapperboard, House, Package, Scissors, GraduationCap, Images, LayoutGrid, Library, Lightbulb, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -35,6 +35,7 @@ const GRUPOS = [
   {
     titulo: 'Tu contenido',
     items: [
+      { id: 'productos', texto: 'Productos', icono: Package, href: enlace.productos() },
       { id: 'anuncios', texto: 'Anuncios', icono: Clapperboard, href: enlace.anuncios() },
       { id: 'editor', texto: 'Editor', icono: Scissors, href: enlace.editorVideos() },
       { id: 'biblioteca', texto: 'Biblioteca', icono: Library, href: enlace.biblioteca() },

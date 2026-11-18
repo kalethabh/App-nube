@@ -1,0 +1,310 @@
+/* PRODUCTOS (pantallas/productos): por producto, y unir los repetidos. */
+.pr {
+  gap: var(--e-5);
+}
+.pr-acciones {
+  display: flex;
+  gap: var(--e-2);
+}
+.pr-nota {
+  margin: 0;
+  font-size: var(--t-chico);
+  color: var(--texto-3);
+}
+
+/* los repetidos */
+.pr-repetidos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+.pr-repetido {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  padding: var(--e-3) var(--e-4);
+  background: var(--aviso-suave);
+  border: 1px solid var(--aviso-borde);
+  border-radius: var(--r-l);
+}
+.pr-repetido__fotos {
+  display: flex;
+  flex: none;
+}
+.pr-repetido__fotos > * + * {
+  margin-left: -10px;
+}
+.pr-repetido__texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--t-chico);
+  color: var(--texto-2);
+}
+.pr-repetido__texto strong {
+  color: var(--texto-1);
+  font-weight: var(--peso-semi);
+}
+
+/* la foto */
+.pr-foto {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-m);
+  background: var(--superficie-3);
+  color: var(--texto-3);
+  overflow: hidden;
+  border: 2px solid var(--superficie-1);
+}
+.pr-foto--chica {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-s);
+}
+.pr-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* la lista */
+.pr-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+.pr-producto {
+  background: var(--superficie-1);
+  border: 1px solid var(--borde-1);
+  border-radius: var(--r-l);
+  overflow: hidden;
+}
+.pr-producto--marcado {
+  border-color: var(--acento-borde);
+  background: var(--acento-suave);
+}
+.pr-producto__cabeza {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  width: 100%;
+  padding: var(--e-3) var(--e-4);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.pr-producto__cabeza:hover {
+  background: var(--superficie-2);
+}
+.pr-producto--marcado .pr-producto__cabeza:hover {
+  background: transparent;
+}
+.pr-producto__cabeza:focus-visible {
+  outline: none;
+  box-shadow: inset var(--anillo-foco);
+}
+.pr-producto__textos {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pr-producto__nombre {
+  font-weight: var(--peso-semi);
+  color: var(--texto-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pr-producto__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px var(--e-3);
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+}
+.pr-producto__dinero {
+  font-size: var(--t-chico);
+  color: var(--texto-2);
+  white-space: nowrap;
+}
+.pr-producto__flecha {
+  flex: none;
+  color: var(--texto-3);
+  transition: transform 0.15s ease;
+}
+.pr-producto__flecha--abierta {
+  transform: rotate(180deg);
+}
+.pr-producto__cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  padding: var(--e-2) var(--e-4) var(--e-4);
+  border-top: 1px solid var(--borde-1);
+}
+.pr-producto__atajos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  padding-top: var(--e-2);
+}
+.pr-etiqueta {
+  padding: 1px 8px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--borde-2);
+}
+.pr-etiqueta--lista {
+  color: var(--ok);
+  border-color: var(--ok-borde);
+  background: var(--ok-suave);
+}
+.pr-etiqueta--investigando {
+  color: var(--cian);
+  border-color: var(--cian-borde);
+}
+.pr-etiqueta--error {
+  color: var(--error);
+  border-color: var(--error-borde);
+}
+.pr-check {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1.5px solid var(--borde-3);
+}
+.pr-check--si {
+  background: var(--acento-fondo);
+  border-color: var(--acento-fondo);
+  color: var(--texto-sobre-acento);
+}
+
+/* lo generado */
+.pr-generado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+.pr-generado__titulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 var(--e-2);
+  font-size: var(--t-micro);
+  font-weight: var(--peso-semi);
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  color: var(--texto-3);
+}
+.pr-rejilla {
+  display: grid;
+  gap: var(--e-2);
+}
+.pr-rejilla--videos {
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+}
+.pr-rejilla--lotes {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+.pr-pieza {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--r-m);
+  background: var(--superficie-3);
+  overflow: hidden;
+  text-decoration: none;
+}
+.pr-pieza--cuadrada {
+  aspect-ratio: 1;
+}
+.pr-pieza img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+.pr-pieza:hover img {
+  transform: scale(1.04);
+}
+.pr-pieza__texto {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 18px 6px 5px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  color: #fff;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pr-vacio {
+  margin: 0;
+  font-size: var(--t-chico);
+  color: var(--texto-3);
+}
+
+/* el modal: con cuál te quedas */
+.pr-elegir {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+.pr-elegir__op {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  padding: var(--e-2) var(--e-3);
+  border: 1px solid var(--borde-2);
+  border-radius: var(--r-m);
+  background: var(--superficie-2);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.pr-elegir__op--activa {
+  border-color: var(--acento-borde);
+  background: var(--acento-suave);
+}
+.pr-elegir__textos {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pr-elegir__nombre {
+  font-weight: var(--peso-semi);
+  color: var(--texto-1);
+}
+.pr-elegir__meta {
+  font-size: var(--t-mini);
+  color: var(--texto-3);
+}
+.pr-elegir__marca {
+  color: var(--acento);
+  flex: none;
+}
+
+@media (max-width: 640px) {
+  .pr-repetido {
+    flex-wrap: wrap;
+  }
+  .pr-producto__dinero {
+    display: none;
+  }
+}
