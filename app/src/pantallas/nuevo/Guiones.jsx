@@ -798,7 +798,8 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
 
 function Escribir({ estilos, ajustes, creando, sinProducto, motor, onEscribir, onVolverAlProducto }) {
   const n = estilos.length;
-  const sinVoz = estilos.filter((e) => DETALLES[e.clave]?.voz === 'narrador' && !ajustes[e.clave]?.voz);
+  // (sin voz elegida la elige la app: ya no frena el guion)
+  const sinVoz = [];
   const faltan = estilos.map((e) => ({ e, p: faltaDe(e.clave, ajustes[e.clave]?.preguntas) })).filter((x) => x.p);
   // "Yo digo cuánto" con el campo vacío o con algo que no se entiende ("45": ¿segundos o minutos?)
   const largos = estilos

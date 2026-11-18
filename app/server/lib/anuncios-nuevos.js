@@ -38,6 +38,7 @@ import crypto from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { TEMP, RAIZ, APP, PUERTO_DE_PRUEBA, esDeEstaApp } from './rutas.js';
 import { leerJSON, existe, listar, stat, segmentoValido } from './archivos.js';
+import { asegurarVoz, faltaVoz } from './voz-auto.js';
 import * as configApp from './config.js';
 import { sesionActiva, prohibidasComunes, enTerminales, textoClaude, leerYValidar, matar } from './claude.js';
 // la IA elegida (Claude o ChatGPT) con la pausa compartida: si su plan se acabo, no se abre otra sesion hasta que se
@@ -377,12 +378,12 @@ export function crearAnuncio(datos = {}) {
 
   const duracion = duracionPedida(estilo, datos.duracion);
 
+  // la voz del narrador: la que eligió el usuario o, si no eligió (o pidió «que la elija la app»), { auto: true }: la
+  // elige la app después del guion, la más parecida a la del video de referencia o la más indicada (lib/voz-auto.js)
   let voz = null;
   if (def.narrador) {
-    voz = datos.voz && typeof datos.voz === 'object' ? datos.voz : typeof datos.voz === 'string' ? { id: datos.voz } : null;
-    if (!voz) voz = configApp.vozDeEstilo?.(estilo) || null;
-    if (!voz || !ID_VOZ.test(String(voz.id || ''))) throw new ErrorApp(400, 'Elige la voz del narrador.');
-    voz = { id: String(voz.id), nombre: String(voz.nombre || voz.id).slice(0, 80) };
+    const pedida = datos.voz && typeof datos.voz === 'object' ? datos.voz : typeof datos.voz === 'string' ? { id: datos.voz } : null;
+    voz = pedida && pedida.id !== 'auto' && ID_VOZ.test(String(pedida.id || '')) ? { id: String(pedida.id), nombre: String(pedida.nombre || pedida.id).slice(0, 80) } : { auto: true };
   }
 
   const respuestas = datos.respuestas && typeof datos.respuestas === 'object' && !Array.isArray(datos.respuestas) ? limpiarRespuestas(estilo, datos.respuestas) : {};
@@ -406,8 +407,8 @@ export function crearAnuncio(datos = {}) {
   escribirJSON(path.join(appDe(slug), 'brief.json'), brief);
   // los modelos de IA que eligio en Ajustes › Modelos (el motor los lee de temp/<slug>/modelos.json)
   copiarModelosAlAnuncio(slug);
-  // la proxima vez, este estilo sugiere la misma voz
-  if (voz) {
+  // la proxima vez, este estilo sugiere la misma voz (solo si la eligió el usuario)
+  if (voz?.id) {
     if (configApp.recordarVoz) configApp.recordarVoz(estilo, voz);
     else configApp.guardarConfig({ vozPorEstilo: { ...(configApp.leerConfig().vozPorEstilo || {}), [estilo]: voz } });
   }
@@ -846,6 +847,18 @@ function tieneGuionPropio(brief) {
   return Boolean(String(leerProducto(brief.productoId)?.guionPropio || '').trim());
 }
 
+/** Si la voz del narrador la elige la app: la IA describe la voz ideal en voz-buscada.json (lib/voz-auto.js la busca). */
+function textoVozAuto(slug, brief, def) {
+  if (!def?.narrador || brief?.voz?.id) return '';
+  return [
+    '## La voz del narrador (la elige la app)',
+    '',
+    `El usuario no eligió la voz: la app elige la de su cuenta de ElevenLabs que más se parece a la que describas. Al terminar el guion, escribe \`temp/${slug}/voz-buscada.json\`:`,
+    '`{ "genero": "femenina" | "masculina", "edad": "joven" | "adulta" | "mayor", "acento": "latino" | "colombiano" | "mexicano" | "argentino" | "espanol" | "neutro", "tono": ["cálida", "cercana"], "motivo": "una línea" }`',
+    'Si hay video de referencia, describe la voz de su narrador (la escuchas en la transcripción y la ves en las tomas: quién habla, su edad, su energía); la app además mide su audio. Si no hay, la más indicada para el estilo, el guion y el público de la ficha (por ejemplo, una voz femenina cálida para un producto de mujeres que cuenta una historia; una masculina y segura para un explicador). Tonos que se reconocen: cálida, calmada, enérgica, alegre, profunda, suave, seria, confiable, amigable, cercana, natural, dramática, divertida, narradora.',
+  ].join('\n');
+}
+
 function promptGuion(slug, brief, foto, prepClonar = null) {
   const def = defDe(brief);
   const t = piezasDeLaTarea(slug, brief, def);
@@ -868,6 +881,7 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
       textoClonar(slug, brief, prepClonar, { guionPropio: tieneGuionPropio(brief), agregar: Boolean(def.segunReferencia), desdeAgregar: !def.segunReferencia && brief.agregar ? brief.agregar : null }),
       // la investigación del producto (deseo, beneficio, dolores, objeciones) y la estructura más adecuada (2026-11-16)
       textoInvestigacion({ slug, brief }).texto,
+      textoVozAuto(slug, brief, def),
       esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia === 'agregar' ? 'voz-en-off' : def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
       textoTendencias(brief.estilo),
       textoBiblioteca(slug, brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
@@ -1496,6 +1510,16 @@ async function trabajar(slug, { tipo, pedido = null, retomar = false, reintento 
     s = guardarSesion(slug, { ...s, uuid: crypto.randomUUID(), medidas: [...(s.medidas || []), medida].slice(-20), intentos: 0 });
     avanzar(`Tu pedido: ${ESTILOS[nuevo.estilo].nombre}${nuevo.duracion?.texto ? ` · ${nuevo.duracion.texto}` : ''}. ${laIA()} escribe ${esLetras(nuevo) ? 'la letra' : 'el guion'} de ese estilo`);
     return trabajar(slug, { tipo: 'guion', seguir: true });
+  }
+  if (r.ok && tipo === 'guion' && defDe(brief)?.narrador && faltaVoz(leerJSON(path.join(appDe(slug), 'brief.json')) || brief)) {
+    // la voz que eligió la app (la más parecida a la del video de referencia o la más indicada): ya, para verla en el plan
+    try {
+      const b = leerJSON(path.join(appDe(slug), 'brief.json')) || brief;
+      const v = await asegurarVoz({ carpeta: path.join(TEMP, slug), brief: b, ficha: leerFicha(b.productoId) || {} });
+      if (v.ok) avanzar(`La voz del narrador: ${v.voz.nombre} (la eligió la app)`);
+    } catch (e) {
+      console.warn(`[guion] ${slug}: no pude elegir la voz todavía (${e.message}); se elige al producir`);
+    }
   }
   if (r.ok) {
     const cambios = (s.cambios || []).map((c, i, a) => (i === a.length - 1 && tipo === 'cambios' ? { ...c, ok: true } : c));
