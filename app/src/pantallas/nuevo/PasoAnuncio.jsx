@@ -207,16 +207,16 @@ function Voz({ estilo, ajuste, onCambio, bloqueado }) {
   const { datos, cargando, error, recargar } = useVoces(narrador ? estilo.clave : null);
   const { voces, porDefecto } = useMemo(() => leerVoces(datos, estilo.clave), [datos, estilo.clave]);
 
-  // la última voz de este estilo viene marcada; una voz que ya no está en la cuenta se suelta
+  // sin elegir, la elige la app (la más parecida a la del video de referencia o la más indicada); una voz que ya no
+  // está en la cuenta se suelta
   useEffect(() => {
-    if (!narrador || bloqueado || !datos) return;
+    if (!narrador || bloqueado || !datos || !ajuste.voz) return;
     const sigue = voces.find((v) => v.id === ajuste.voz);
     if (sigue) {
       if (sigue.nombre !== ajuste.vozNombre) onCambio({ vozNombre: sigue.nombre });
       return;
     }
-    const v = voces.find((x) => x.id === porDefecto);
-    onCambio({ voz: v?.id || '', vozNombre: v?.nombre || '' });
+    onCambio({ voz: '', vozNombre: '' });
   }, [datos]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!narrador) {
@@ -236,7 +236,7 @@ function Voz({ estilo, ajuste, onCambio, bloqueado }) {
     <div className="nv-ajuste">
       <span className="nv-ajuste__etiqueta">
         Voz del narrador
-        <Tooltip texto="Las voces de tu cuenta de ElevenLabs. La app recuerda la última que usaste en cada estilo.">
+        <Tooltip texto="Las voces de tu cuenta de ElevenLabs. Si no eliges una, la app elige la más parecida a la del video de referencia o, sin video, la más indicada para tu anuncio (te dice cuál y por qué).">
           <CircleHelp size={13} strokeWidth={2} className="nv-ayuda" aria-label="Qué es esto" />
         </Tooltip>
       </span>
@@ -263,16 +263,16 @@ function Voz({ estilo, ajuste, onCambio, bloqueado }) {
               onCambio({ voz: v?.id || '', vozNombre: v?.nombre || '' });
             }}
             opciones={[
-              { valor: '', etiqueta: cargando && !voces.length ? 'Cargando tus voces…' : voces.length ? 'Elige una voz' : 'Tu cuenta no tiene voces' },
-              ...voces.map((v) => ({ valor: v.id, etiqueta: v.detalle ? `${v.nombre} · ${v.detalle}` : v.nombre })),
+              { valor: '', etiqueta: cargando && !voces.length ? 'Cargando tus voces…' : estilo.clave === 'agregar' ? 'Que la elija la app (la más parecida al video)' : 'Que la elija la app (la más indicada)' },
+              ...voces.map((v) => ({ valor: v.id, etiqueta: `${v.nombre}${v.detalle ? ` · ${v.detalle}` : ''}${v.id === porDefecto ? ' · la última que usaste' : ''}` })),
             ]}
           />
-          <Tooltip texto={elegida ? (elegida.muestra ? null : 'Esta voz no tiene muestra para escuchar') : 'Elige una voz para escucharla'}>
+          <Tooltip texto={elegida ? (elegida.muestra ? null : 'Esta voz no tiene muestra para escuchar') : 'La elige la app: elige una para escucharla'}>
             <BotonEscuchar id={`voz-${estilo.clave}-${ajuste.voz || 'ninguna'}`} url={elegida?.muestra} disabled={!elegida?.muestra} />
           </Tooltip>
         </div>
       )}
-      {estilo.clave === 'agregar' ? <p className="nv-preg-estilo__ayuda">Se usa si tu video es con narrador. Si alguien habla a cámara, sale con su propia voz.</p> : null}
+      {estilo.clave === 'agregar' ? <p className="nv-preg-estilo__ayuda">Se usa si tu video es con narrador. Si alguien habla a cámara, sale con su propia voz. Sin elegir, la app busca en tu cuenta la voz más parecida a la del video.</p> : null}
     </div>
   );
 }
@@ -599,7 +599,7 @@ export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambi
     // la duración: { decide: 'ia' } o { decide: 'usuario', texto } (o el número de un anuncio de antes)
     const largo = leerDuracion(b?.duracion, clave);
     if (largo) c.duracion = largo.decide === 'usuario' ? largo.texto : null;
-    if (b?.voz?.id) Object.assign(c, { voz: b.voz.id, vozNombre: b.voz.nombre || '' });
+    if (b?.voz?.id && !b.voz.auto) Object.assign(c, { voz: b.voz.id, vozNombre: b.voz.nombre || '' });
     if (typeof b?.continuidad === 'boolean') c.continuidad = b.continuidad;
     if (b?.respuestas && typeof b.respuestas === 'object') c.preguntas = { ...b.respuestas };
     if (b?.avatar?.id) c.avatar = `${b.avatar.estilo}/${b.avatar.id}`;

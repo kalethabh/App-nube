@@ -2,6 +2,19 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18c · Si no eliges la voz del narrador, la elige la app
+
+- En la voz del narrador, la primera opción ahora es **«Que la elija la app»** (ya no hace falta elegir una para escribir el guion).
+- **Con video de referencia** (Agregar o Clonar): la app mide la voz del narrador del video en tu computadora, gratis (si es grave o aguda, qué tan expresiva es y su ritmo) y busca en tu cuenta de ElevenLabs la más parecida.
+- **Sin video:** la IA que escribe el guion describe la voz ideal para ese anuncio (género, edad, acento y tono) y la app elige la de tu cuenta que más se le parece. Si no hay nada más, usa a quién le habla tu producto y tu país (por ejemplo, femenina y latina para un producto de mujeres en Colombia).
+- La compara con las etiquetas de tus voces (género, edad, acento, idioma, uso) y prefiere las que hablan español y las hechas para narrar. Ya elegida, no cambia: el anuncio suena siempre igual.
+- Te dice cuál eligió y por qué, mientras se escribe el guion y en el informe del anuncio. Si eliges una voz, se respeta como siempre.
+
+## 2026-11-18b · Arreglo: «Crear anuncios de imagen» volvía a abrir
+
+- La pantalla «Crear anuncios de imagen» mostraba «Esta pantalla tuvo un problema» desde la versión 2026-11-18a: buscaba los formatos que propone la investigación antes de saber qué producto elegiste. Ya abre bien.
+- Nueva revisión automática que abre cada pantalla en el navegador y avisa si alguna se rompe (`app/herramientas/abrir-pantallas.cjs`).
+
 ## 2026-11-18a · Plantillas clonadas de anuncios validados y la investigación escribe sus textos
 
 - **8 plantillas nuevas clonadas de los anuncios que mandaste**, con su misma composición y su misma letra (llegaron Poppins y DM Serif Display, como en Sonvital, Grüns y Muna); solo cambian tus colores y tu producto. Todas atacan directo el dolor, el beneficio o el deseo, casi siempre con el tiempo de transformación, y ninguna lleva oferta:

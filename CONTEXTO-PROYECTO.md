@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-18 (Plantillas clonadas de validados y textos de anuncios en la investigación, versión 2026-11-18a).
+Última actualización: 2026-11-18 (La voz del narrador la elige la app si no la eliges, versión 2026-11-18c).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-18a` (archivo `VERSION`): 8 clones de anuncios validados y `anuncios_imagen` en la investigación (editables, con aprendizaje). Antes: `2026-11-18`: investigación de mercado con «Conceptos para Meta (Andromeda)». Antes: `2026-11-17q` (antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
+- **Versión actual:** `2026-11-18c` (archivo `VERSION`): voz del narrador automática (`lib/voz-auto.js`). Antes: `2026-11-18b`: arreglo de «Crear anuncios de imagen» (en 18a, `productoElegido` se usaba antes de declararse: error de zona muerta temporal que el build no detecta). Revisión nueva: `node app/herramientas/abrir-pantallas.cjs` con la app de prueba en el puerto 4471 (abre 11 pantallas en Chromium y falla si alguna se rompe); correrla después de tocar pantallas. Antes: `2026-11-18a`: 8 clones de anuncios validados y `anuncios_imagen` en la investigación (editables, con aprendizaje). Antes: `2026-11-18`: investigación de mercado con «Conceptos para Meta (Andromeda)». Antes: `2026-11-17q` (antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
   la pantalla y de la mezcla. Antes: `2026-11-17p1` (referencia interna de ganadores) y `2026-11-17p`: anuncios de imagen con plantillas (la app dibuja los textos y
   los gráficos con Remotion en 0,3-1 s por imagen; el modelo solo hace escenas sin texto; 12 de 17 formatos gratis; kit de
   marca; «Editar textos» gratis) y «De un video, imágenes» (rama `plantillas-imagen`, sin PR). Antes: `2026-11-17o`: exportar del editor por tramos (solo se rehace lo que cambió;
@@ -143,6 +143,26 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### La voz del narrador la elige la app (2026-11-18, versión 2026-11-18c)
+
+- Pedido: «si no selecciono la voz del narrador, que tome la más indicada o la más parecida a la del video de referencia».
+- `produccion/medir-voz.js`: tono medio (F0) por autocorrelación en cuadros de 40 ms con voz (solo donde hay palabras;
+  el primer pico ≥ 90 % del mejor evita el error de octava), género (≤165 Hz masculina, ≥185 femenina), variación en
+  semitonos (expresiva ≥ 3) y ritmo. Lo usa `analizar-referencia.mjs` (`adn-base.json` → `voz`).
+- `app/server/lib/voces.js`: la lista de voces de ElevenLabs (antes dentro de `rutas/voces.js`), compartida.
+- `app/server/lib/voz-auto.js`: `vozBuscada` (referencia medida > `temp/<slug>/voz-buscada.json` de la IA > ficha:
+  público y país), `elegirVoz` (puntos por género, español, acento, edad, tono, narración, propia, última usada) y
+  `asegurarVoz` (la guarda una vez en `app/brief.json` como `{ id, nombre, auto: true, motivo }`).
+- `crearAnuncio`: sin voz o `id: 'auto'` → `voz: { auto: true }` (ya no da 400; solo recuerda la voz si la eligió el
+  usuario). Tarea del guion: bloque «La voz del narrador (la elige la app)» que pide `voz-buscada.json`. Al terminar el
+  guion se elige ya (se ve en el avance); si falla, se elige en el paso de la voz (voz-en-off.js y continuidad.js).
+  Informe: «La eligió la app porque no elegiste una: …».
+- Pantalla: «Que la elija la app» como primera opción (sin precargar la última voz; la marca «la última que usaste»),
+  y Guiones ya no frena sin voz.
+- Pruebas: `probar-voz-auto.mjs` 15/15 (nuevo; tonos sintéticos, elección, prioridades, idempotencia), probar-agregar
+  35/35, humo 85/85, abrir-pantallas 11/11, build. No probado con voces ni audio reales (sin clave de ElevenLabs ni
+  grabaciones de voz en esta copia): la medición se probó con tonos sintéticos.
 
 ### Plantillas clonadas y textos de anuncios en la investigación (2026-11-18, versión 2026-11-18a)
 

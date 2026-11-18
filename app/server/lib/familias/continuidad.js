@@ -38,6 +38,8 @@
 //   continuidad/cadena.json        lo que escribe Claude al revisar la cadena: [{ clip, motivo, prompt_video, forma? }]
 //   continuidad/cadena-estado.json los pedidos y lo que paso con cada uno (desde 2026-11-09: 'aviso')
 //   continuidad/respaldo/          los clips que una version anterior aparto para rehacerlos
+import { asegurarVoz, faltaVoz } from '../voz-auto.js';
+import { leerFicha } from '../productos.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -444,6 +446,12 @@ async function saldo(ctx) {
 // ---------------------------------------------------------------- 4. voz
 
 async function voz(ctx) {
+  // sin voz elegida por el usuario, la elige la app (la más parecida a la del video de referencia o la más indicada)
+  if (faltaVoz(ctx.brief)) {
+    ctx.avance('Eligiendo la voz del narrador');
+    const v = await asegurarVoz({ carpeta: ctx.carpeta, brief: ctx.brief, ficha: leerFicha(ctx.brief?.productoId) || {} });
+    if (!v.ok) return { ok: false, error: { mensaje: v.mensaje, motivo: 'voz', detalle: 'voz-auto' } };
+  }
   const id = ctx.brief?.voz?.id;
   if (!id) return { ok: false, error: { mensaje: 'Falta elegir la voz del anuncio.', motivo: 'voz', detalle: 'brief.json no trae voz.id' } };
   // La voz va por el entorno de ESTE proceso: el .env no se toca. Si audio/voz.mp3 ya esta, el motor no la repite.

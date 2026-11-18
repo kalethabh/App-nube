@@ -96,7 +96,7 @@ function decisionesDe({ carpeta, plan, manifiesto, brief, ventanas, conductor })
         `El video se adaptó a los ${tiempo(dur)} de la voz en off: ninguna frase se recortó para cuadrar.${notaPedida(brief)}`,
     });
   }
-  if (brief?.voz?.nombre) d.push({ id: 'voz', icono: 'voz', titulo: `La voz: ${brief.voz.nombre}`, detalle: 'Es la que elegiste para este estilo.' });
+  if (brief?.voz?.nombre) d.push({ id: 'voz', icono: 'voz', titulo: `La voz: ${brief.voz.nombre}`, detalle: brief.voz.auto ? `La eligió la app porque no elegiste una: ${brief.voz.motivo || 'la más indicada de tu cuenta'}.` : 'Es la que elegiste para este estilo.' });
 
   const cambios = Array.isArray(ventanas?.cambios) ? ventanas.cambios : [];
   if (cambios.length) {
