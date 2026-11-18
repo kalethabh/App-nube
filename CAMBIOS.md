@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18j · La app conecta con ElevenLabs y kie como el navegador
+
+- Con algunas redes (IPv6 a medias), la app se quedaba esperando a ElevenLabs aunque en Chrome todo anduviera: «ElevenLabs no respondió a tiempo» al probar la clave o al traer las voces. Ahora la app y los procesos que generan la voz y las imágenes conectan primero por IPv4 y, si una dirección no contesta, prueban la otra enseguida, como el navegador.
+- La prueba de la clave espera hasta 30 segundos (antes 15).
+
 ## 2026-11-18i · Las voces de ElevenLabs llegan rápido (y aunque ElevenLabs tarde)
 
 - La lista de voces se pide sin el conteo total de voces de la cuenta, que según ElevenLabs es lo que la hace lenta («ElevenLabs tardó demasiado en mandar tus voces»).

@@ -4,6 +4,13 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import dns from 'node:dns';
+import net from 'node:net';
+
+// IPv4 primero: con IPv6 a medias en la red, Node se queda esperando a ElevenLabs o kie (ver app/server/index.js).
+dns.setDefaultResultOrder('ipv4first');
+// y si una dirección no contesta, que pruebe la otra enseguida (como el navegador)
+net.setDefaultAutoSelectFamily?.(true);
 
 export const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const DIR_TEMP = path.join(RAIZ, 'temp');
