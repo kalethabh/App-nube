@@ -1052,6 +1052,16 @@ async function producirAnuncio({ pedir, check, aviso, salio, t0 }) {
   const guion = await esperar('el guion', 5, async () => (await pedir(`/api/anuncios/${slug}/guion`)).datos, (d) => ['listo', 'error', 'bloqueado'].includes(d?.estado));
   if (!check('El guion queda listo', guion?.estado === 'listo' && guion?.guion?.partes?.length === 3, { estado: guion?.estado, error: guion?.error, progreso: guion?.progreso?.slice?.(-5), tiempo: guion?._seAcaboElTiempo })) return resumen;
 
+  // ------------------------------------------------------------ «Editar a mano»: lo que se ve, solo (2026-11-18z)
+  r = await pedir(`/api/anuncios/${slug}/guion/se-ve`, { json: { n: 1, dice: 'Mira cómo brilla mi frasco nuevo' } });
+  check('Editar a mano: «lo que se ve» se escribe solo para lo que escribiste', r.st === 200 && /Escena de prueba/.test(r.datos?.se_ve || '') && /brilla/.test(r.datos?.se_ve || ''), r);
+  r = await pedir(`/api/anuncios/${slug}/guion/se-ve`, { json: { despuesDe: 3, dice: 'Y al final, todos felices' } });
+  check('Editar a mano: también para una parte nueva', r.st === 200 && /Escena de prueba/.test(r.datos?.se_ve || ''), r);
+  r = await pedir(`/api/anuncios/${slug}/guion/se-ve`, { json: { n: 1, dice: '   ' } });
+  check('Editar a mano: sin texto, «lo que se ve» no se pide (400)', r.st === 400, r);
+  r = await pedir(`/api/anuncios/${slug}/guion/lineas`, { metodo: 'PUT', json: { lineas: Array.from({ length: 11 }, () => ({ nueva: true, despuesDe: 1, dice: 'Otra parte' })) } });
+  check('Editar a mano: más de 10 partes nuevas a la vez se rechaza sin tocar el guion', r.st === 400 && (await pedir(`/api/anuncios/${slug}/guion`)).datos?.guion?.partes?.length === 3, r);
+
   // ------------------------------------------------------------ el costo estimado antes de aprobar
   const estimado = await probarCostoAntesDeAprobar({ pedir, check, slug });
 

@@ -2928,3 +2928,16 @@
 @media (max-width: 600px) {
   .nv-pasos { overflow-x: auto; gap: var(--e-3); -webkit-overflow-scrolling: touch; }
 }
+
+/* «Lo que se ve» al editar a mano y las partes nuevas (2026-11-18z) */
+.nv-se-ve { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.nv-se-ve__etiqueta { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-micro); font-weight: var(--peso-semi); letter-spacing: var(--tracking-etiqueta); text-transform: uppercase; color: var(--texto-3); }
+.nv-se-ve__generar { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: var(--r-pill); border: 1px solid var(--borde-2); background: var(--superficie-2); color: var(--acento); cursor: pointer; }
+.nv-se-ve__generar:disabled { opacity: 0.6; cursor: default; }
+.nv-se-ve__girando { animation: girar 0.9s linear infinite; }
+.nv-se-ve textarea { font-size: var(--t-chico); line-height: 1.45; color: var(--texto-2); padding-right: 12px; background: var(--superficie-1); }
+.nv-linea__agregar { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; padding: 3px 10px; border: 1px dashed var(--borde-3, var(--borde-2)); border-radius: var(--r-pill); background: transparent; color: var(--texto-3); font: inherit; font-size: var(--t-mini); cursor: pointer; }
+.nv-linea__agregar:hover:not(:disabled) { color: var(--acento); border-color: var(--acento-borde); }
+.nv-linea--nueva .nv-linea__n { color: var(--acento); }
+.nv-linea--nueva .nv-linea__dice { padding: var(--e-2) var(--e-3); border: 1px dashed var(--acento-borde); border-radius: var(--r-m); background: var(--acento-suave); }
+.nv-linea__quitar { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 6px; border: 0; border-radius: var(--r-pill); background: var(--superficie-3); color: var(--texto-2); cursor: pointer; vertical-align: middle; }
