@@ -18,6 +18,7 @@ import { BandaVersionNueva } from './marco/BandaVersionNueva.jsx';
 import { BandaActualizacion } from './marco/BandaActualizacion.jsx';
 import './marco/marco.css';
 
+const Inicio = lazy(() => import('./pantallas/inicio/index.jsx'));
 const Tablero = lazy(() => import('./pantallas/tablero/index.jsx'));
 const Nuevo = lazy(() => import('./pantallas/nuevo/index.jsx'));
 const Entrega = lazy(() => import('./pantallas/entrega/index.jsx'));
@@ -51,6 +52,7 @@ const MIS_ANUNCIOS = { texto: 'Mis anuncios', href: enlace.tablero() };
  * completa -> la pantalla usa toda la ventana (sin menú ni barra): el editor
  */
 export const RUTAS = [
+  { patron: '/inicio', Pantalla: Inicio, menu: 'inicio', titulo: 'Inicio', migas: () => [{ texto: 'Inicio' }] },
   { patron: '/tablero', Pantalla: Tablero, menu: 'tablero', titulo: 'Mis anuncios', migas: () => [{ texto: 'Mis anuncios' }] },
   { patron: '/nuevo', Pantalla: Nuevo, menu: 'nuevo', titulo: 'Nuevo anuncio', migas: () => [MIS_ANUNCIOS, { texto: 'Nuevo anuncio' }] },
   {
@@ -231,9 +233,9 @@ export default function App() {
   const angosta = usePantallaAngosta();
   const plegado = plegadoElegido || angosta;
 
-  // "#/" o sin hash -> el tablero
+  // "#/" o sin hash -> el inicio (el dashboard)
   useEffect(() => {
-    if (camino === '/' || camino === '') ir('/tablero', { reemplazar: true });
+    if (camino === '/' || camino === '') ir('/inicio', { reemplazar: true });
   }, [camino]);
 
   const actual = useMemo(() => {
@@ -286,7 +288,7 @@ export default function App() {
         <MenuLateral activo={actual?.ruta.menu} plegado={plegado} onPlegar={plegar} />
         <div className="principal">
           {/* en el tablero el gran "Nuevo anuncio" ya está en la portada: no se repite arriba */}
-          <BarraArriba migas={migas} ocultarNuevo={actual?.ruta.menu === 'nuevo' || actual?.ruta.patron === '/tablero' || actual?.ruta.patron === '/imagenes' || actual?.ruta.patron === '/imagenes/nuevo'} />
+          <BarraArriba migas={migas} ocultarNuevo={actual?.ruta.menu === 'nuevo' || actual?.ruta.patron === '/tablero' || actual?.ruta.patron === '/inicio' || actual?.ruta.patron === '/imagenes' || actual?.ruta.patron === '/imagenes/nuevo'} />
           <main className="principal__contenido" id="contenido">
             <BandaVersionNueva />
             <BandaActualizacion />

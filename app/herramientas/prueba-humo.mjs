@@ -723,7 +723,7 @@ async function prueba() {
       r = await pedir('/#/ajustes');
       check('Una pantalla interna (#/ajustes) da la interfaz', r.st === 200 && /<title>Kads Studio by Kalethabh<\/title>/.test(String(r.datos)));
       const rutas = {};
-      for (const ruta of ['/api/estado', '/api/ajustes', '/api/estilos', '/api/anuncios', '/api/productos', '/api/claves', '/api/tablero', '/api/produccion/fila', '/api/ia/estado', '/api/claude/estado', '/api/voces/por-estilo', '/api/imagen-ads', '/api/imagen-ads/opciones']) {
+      for (const ruta of ['/api/estado', '/api/ajustes', '/api/estilos', '/api/anuncios', '/api/productos', '/api/claves', '/api/tablero', '/api/produccion/fila', '/api/ia/estado', '/api/claude/estado', '/api/voces/por-estilo', '/api/imagen-ads', '/api/imagen-ads/opciones', '/api/dashboard']) {
         try {
           r = await pedir(ruta);
         } catch (e) {

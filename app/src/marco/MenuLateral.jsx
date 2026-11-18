@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CirclePause, Clapperboard, Scissors, GraduationCap, Images, LayoutGrid, Library, Lightbulb, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
+import { CirclePause, Clapperboard, House, Scissors, GraduationCap, Images, LayoutGrid, Library, Lightbulb, Palette, Repeat, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -15,7 +15,13 @@ import { useMotorImagenes } from '../pantallas/ajustes/ChatGPTImagenes.jsx';
 
 // El menú, en grupos como en IA-VID-AUTOMATIC: "Nuevo anuncio" arriba, en grande; después lo que se hace primero.
 const GRUPOS = [
-  { titulo: null, items: [{ id: 'nuevo', texto: 'Nuevo anuncio', icono: Plus, href: enlace.nuevo(), especial: true }] },
+  {
+    titulo: null,
+    items: [
+      { id: 'nuevo', texto: 'Nuevo anuncio', icono: Plus, href: enlace.nuevo(), especial: true },
+      { id: 'inicio', texto: 'Inicio', icono: House, href: enlace.inicio() },
+    ],
+  },
   {
     titulo: 'Crear',
     items: [
@@ -221,7 +227,7 @@ export function MenuLateral({ activo, plegado, onPlegar }) {
   return (
     <aside className={`menu${plegado ? ' menu--plegado' : ''}`} aria-label="Menú principal">
       <div className="menu__cabecera">
-        <a href={enlace.tablero()} className="menu__marca" aria-label="Kads Studio by Kalethabh, ir a Mis anuncios">
+        <a href={enlace.inicio()} className="menu__marca" aria-label="Kads Studio by Kalethabh, ir al inicio">
           <Logo tamano={30} />
           <span className="menu__marca-textos">
             <span className="menu__nombre">
