@@ -10,6 +10,8 @@ export const apiInvestigacion = {
   /** { producto, tarea: { estado, progreso, error }, investigacion, resaltados } */
   una: (id) => pedirNuevo(`${BASE}/${enc(id)}`),
   investigar: (id, pais) => pedirNuevo(`${BASE}/${enc(id)}`, { metodo: 'POST', cuerpo: { pais: pais || null } }),
+  /** Le agrega a la investigación hecha los conceptos para Meta (Andromeda), sin rehacerla (unos minutos). */
+  agregarAndromeda: (id) => pedirNuevo(`${BASE}/${enc(id)}`, { metodo: 'POST', cuerpo: { soloAndromeda: true } }),
   /** La investigación competitiva con TrendTrack: { tarea, competencia } */
   competencia: (id) => pedirNuevo(`${BASE}/${enc(id)}/competencia`),
   /** { enlace, producto?, pais?, brandtracker?, retomar? } lanza sus 6 etapas de una vez (gasta créditos de TrendTrack) */

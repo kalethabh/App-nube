@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-17 (Plantillas de ángulos ganadores sin oferta, 2026-11-17p2).
+Última actualización: 2026-11-18 (Investigación de mercado con los conceptos para Meta Andromeda, versión 2026-11-18).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -15,7 +15,7 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Estado para retomar
 
-- **Versión actual:** `2026-11-17q` (archivo `VERSION`; antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
+- **Versión actual:** `2026-11-18` (archivo `VERSION`): investigación de mercado con «Conceptos para Meta (Andromeda)». Antes: `2026-11-17q` (antes `2026-11-17p2`, mismo contenido): 8 plantillas de «Ángulos ganadores» y las de oferta fuera de
   la pantalla y de la mezcla. Antes: `2026-11-17p1` (referencia interna de ganadores) y `2026-11-17p`: anuncios de imagen con plantillas (la app dibuja los textos y
   los gráficos con Remotion en 0,3-1 s por imagen; el modelo solo hace escenas sin texto; 12 de 17 formatos gratis; kit de
   marca; «Editar textos» gratis) y «De un video, imágenes» (rama `plantillas-imagen`, sin PR). Antes: `2026-11-17o`: exportar del editor por tramos (solo se rehace lo que cambió;
@@ -143,6 +143,23 @@ mostrar propuestas antes para seleccionar y acelerar la preparación.
   pedir títulos y seleccionarlos; solo generar tras revisar el presupuesto.
 
 ## Últimas actualizaciones terminadas
+
+### Investigación de mercado: Conceptos para Meta (Andromeda) (2026-11-18, versión 2026-11-18)
+
+- Pedido: agregar a la investigación de mercado lo de la clase «Meta Andromeda aplicado a Colombia» (el creativo es la
+  segmentación, facetas del cliente, contexto y momento, matriz creativa de 4 variables, IA con contexto, estructura y
+  señal contraentrega).
+- Skill `investigacion-mercado`: sección 3b nueva y parte 16 de la estructura (fuentes pasa a 17). En la app es la
+  sección 15 del JSON «documento», después de la de copy/guía visual: 15.1 caja, 15.2 tabla de facetas, 15.3 tabla de
+  momentos, 15.4 matriz # / Faceta / Problema / Contexto / Formato / Hook (8 filas), 15.5 ficha estructura y señal,
+  15.6 prompt con contexto, caja de cuidado. `tarea-investigacion-mercado.md` la pide.
+- `lib/investigacion.js`: `erroresAndromeda` (facetas, momentos y matriz de 6+ filas) se exige en `verificar` de las
+  investigaciones nuevas, no al leer (las viejas se siguen viendo). `investigar(id, { soloAndromeda })` lanza
+  `tarea-investigacion-andromeda.md`: solo Read/Edit del JSON, sin internet, 25 min máx., también con ChatGPT; copia de
+  respaldo y vuelta atrás si falla. `tarea.modo = 'andromeda'`.
+- Pantalla: botón «Agregar conceptos para Meta (Andromeda)» en la cabecera de una investigación «documento» que no la
+  tiene, y su pantalla de espera. `Documento.jsx` numera bien las hojas de las secciones que van después de la guía.
+- Pruebas: `probar-investigacion-andromeda.mjs` 9/9 (nuevo), humo 85/85, build. No probado con una sesión real de la IA.
 
 ### «Actualizar» no traía nada a las copias instaladas (2026-11-17, versión 2026-11-17q)
 

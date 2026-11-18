@@ -50,6 +50,8 @@
 .inv-cabeza__fila { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-4); }
 .inv-cabeza__titulo { margin: 0; font-size: var(--t-h1); line-height: 1.1; color: var(--texto-1); }
 .inv-cabeza__desc { margin: 0; font-size: var(--t-destacado); color: var(--texto-2); }
+.inv-cabeza__acciones { display: flex; flex-wrap: wrap; gap: var(--e-2); }
+@media print { .inv-cabeza__acciones { display: none; } }
 @media (max-width: 900px) { .inv-cabeza { flex-direction: column; } }
 
 /* ---- el cuerpo: el informe, a todo el ancho */

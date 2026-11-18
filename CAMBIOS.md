@@ -2,6 +2,17 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18 · La investigación de mercado trae los conceptos para Meta (Andromeda)
+
+- **Sección nueva al final de la investigación: «Conceptos para Meta (Andromeda)».** Convierte la investigación en anuncios distintos para Meta, como pide su sistema nuevo:
+  - **Facetas del cliente:** la misma persona como mamá, trabajadora, la que se cuida para diciembre o la hija que compra para su mamá, cada una con su dolor en sus palabras y una escena del país.
+  - **Momentos y contexto:** madrugada, almuerzo, noche, quincena, mitad de mes y la próxima temporada, con el mensaje y el formato de cada uno.
+  - **Matriz de 8 conceptos:** faceta × problema × contexto × formato, cada uno distinto en al menos 2 cosas, con su hook. Dice cuáles 3 probar primero.
+  - **Estructura y señal:** segmentación amplia, 6 a 10 conceptos por conjunto, no forzar el gasto, enviar a Meta la compra confirmada y medir confirmación y entrega por anuncio.
+  - **Prompt con contexto** listo para pedirle anuncios a la IA.
+- **Las investigaciones que ya tenías:** botón **«Agregar conceptos para Meta (Andromeda)»** arriba de la investigación. Tarda unos minutos, no la rehace ni busca en internet (funciona también con ChatGPT); si algo falla, la investigación queda como estaba.
+- Los lotes de anuncios de imagen de ese producto leen también esta sección.
+
 ## 2026-11-17q · Plantillas de ángulos ganadores (sin oferta) y «Actualizar» vuelve a traer las versiones nuevas
 
 - **8 formatos nuevos en «Ángulos ganadores»**, sacados de anuncios ya validados de la categoría (sin copiar marcas ni textos):

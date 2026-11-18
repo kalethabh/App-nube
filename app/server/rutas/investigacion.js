@@ -2,7 +2,8 @@
 //
 //   GET  /api/investigacion                      -> { productos: [{ id, nombre, foto, estado, fecha, veredicto, pais, resaltados }], motor }
 //   GET  /api/investigacion/:id                  -> { producto, tarea, investigacion, resaltados }
-//   POST /api/investigacion/:id  { pais? }       lanza la investigación (10 a 30 minutos; no espera) -> { tarea }
+//   POST /api/investigacion/:id  { pais?, soloAndromeda? }  lanza la investigación (10 a 30 minutos; no espera) -> { tarea }
+//                                                 (soloAndromeda: le agrega a la hecha los conceptos para Meta, unos minutos)
 //   PUT  /api/investigacion/:id/resaltados { resaltados: [{ id?, texto, seccion?, nota? }] } -> { resaltados }
 //   GET  /api/investigacion/:id/competencia      -> { tarea, competencia }   la investigación competitiva con TrendTrack
 //   POST /api/investigacion/:id/competencia { enlace, producto?, pais?, brandtracker?, retomar? }   lanza sus 6 etapas
@@ -40,7 +41,7 @@ export default function rutasInvestigacion(app) {
   }));
 
   app.post('/api/investigacion/:id', soloDesdeLaApp, conErrores((req, res) => {
-    res.status(202).json(inv.investigar(elId(req), { pais: req.body?.pais || null }));
+    res.status(202).json(inv.investigar(elId(req), { pais: req.body?.pais || null, soloAndromeda: req.body?.soloAndromeda === true }));
   }));
 
   app.get('/api/investigacion/:id/competencia', conErrores((req, res) => {

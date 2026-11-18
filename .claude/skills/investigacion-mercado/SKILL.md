@@ -39,7 +39,8 @@ Apunta a 12–20 búsquedas. Prioriza fuentes originales. Revisa la memoria de J
 13. Avatar principal con nombre propio típico del país y apodo (ej. "Diana Marcela, la que se siente inflada todo el día"; "Don Hernando, el de la tos de las mañanas"): demografía completa en tabla (edad, sexo, ciudades, estrato, estado civil, hijos, ocupación, ingresos, educación, hábitos o momento de vida, historial, medios, cómo compra). Si quien compra es otra persona (ej. la esposa), agrégala como columna en la tabla. Luego: dolor masivo que no lo deja dormir, puntos de dolor, puntos débiles y objeciones, motivaciones, resultado deseado en sus palabras, lenguaje que usa, y 2–3 avatares secundarios.
 14. Recomendaciones estratégicas: posicionamiento (promesa, mecanismo único, diferenciador), oferta escalonada en moneda local (aclarar que se ajusta al costo real), plan de entrada de 30 días, canales (Meta Ads, WhatsApp, TikTok, Mercado Libre, alianzas), 5 hooks, tabla de cumplimiento "evita / usa en su lugar" y advertencias de seguridad.
 15. Deseo central, propuestas de valor y copy para la landing, incluida la guía visual (ver sección 3).
-16. Fuentes consultadas.
+16. Conceptos para Meta (Andromeda): facetas del cliente, momentos, matriz de conceptos y señal de compra (ver sección 3b).
+17. Fuentes consultadas.
 
 ## 3. Deseo central, propuestas de valor y copy para la landing
 Esta sección va siempre en el PDF, antes de las fuentes, y sigue exactamente este formato:
@@ -102,6 +103,23 @@ Cómo construir la guía visual:
 
 Si Joaquín pide cualquiera de estas partes después de entregar el PDF, dáselas también en el chat con el mismo formato y agrégalas al PDF existente.
 
+## 3b. Conceptos para Meta (Andromeda)
+Desde 2026, Meta elige qué anuncios entran en la «lista corta» de cada persona con Andromeda, su sistema de recuperación con IA, antes de la subasta. Lo que se ve en las cuentas de Joaquín: **el creativo es la nueva segmentación** (quién aparece, qué dice y qué problema muestra le dice a Meta a quién mostrarlo); cambiar color, texto o hook es **el mismo anuncio** para Andromeda; y el sistema aprende de lo que se le reporta. Esta sección convierte la investigación en conceptos distintos para pautar. Va después de la sección 3 (antes de las fuentes), con estos subtítulos:
+
+**3b.1 Lo que cambió.** Una caja corta de 3 viñetas: el creativo es la segmentación (segmentación amplia y que el anuncio filtre), diversidad real de conceptos (6–10 por conjunto, no variaciones de un ganador) y la señal de compra real (en contraentrega, reportar la compra confirmada y la entrega, no solo el mensaje).
+
+**3b.2 Facetas del cliente.** Una misma persona tiene varias facetas (es mamá, es trabajadora, es la hija que cuida a su mamá, es la que quiere verse bien en diciembre) y Andromeda le muestra anuncios según la faceta activa. Tabla Persona base / Faceta / Dolor en sus palabras / Escenario visual, con 6 a 9 filas repartidas en 2–3 personas base (el avatar principal y los secundarios, con su nombre). El dolor sale de lo investigado (reseñas, comentarios, foros), parafraseado y en el lenguaje del país; el escenario es una escena concreta y local (ej. "TransMilenio a las 6 a.m.", "almuerzo corrientazo", "novena de diciembre"). Debajo, una nota: las facetas reales se confirman con los chats de WhatsApp de las asesoras (exportar 100 chats cerrados como venta y clasificar para quién compraba, qué frase usó y qué objeción puso: salen de 4 a 7 facetas).
+
+**3b.3 Momentos y contexto.** Andromeda también tiene en cuenta el momento del día y el estado de la persona: no hay que programar por hora, hay que tener un anuncio para cada momento. Tabla Momento / Cómo está la persona / Mensaje que conecta / Formato, solo con los momentos que tengan sentido para este producto: madrugada antes de salir, almuerzo, noche (scroll largo, historias emocionales), quincena (15 y 30: combos), mitad de mes (plata apretada: "pagas cuando te llegue") y la próxima temporada según la fecha (diciembre: fotos, fiestas y regalos; enero: propósitos; Día de la Madre en mayo; Semana Santa…).
+
+**3b.4 Matriz de conceptos.** Cada concepto cruza 4 variables: faceta (¿quién?), problema (síntoma visible, consecuencia social, miedo a futuro, frustración con lo que ya probó, no tiene tiempo), contexto (¿dónde y cuándo?) y formato (¿cómo se ve?). Si cambian al menos 2 variables, es un concepto nuevo; si solo cambia el texto, es una variación. Tabla # / Faceta / Problema / Contexto / Formato / Hook con **8 conceptos**, cada uno distinto de los demás en al menos 2 variables, con el hook en las palabras del avatar. Los formatos son los que Joaquín produce: UGC selfie, testimonio, realista con narrador, antes y después, demostración, historia narrada, animado (Pixar, esqueleto, Lego), sketch de comedia, imagen estática (antes y después, línea de tiempo, silueta con zonas, solo X vs. X + producto, pregunta y revelación, historia, no compres esto si…). Debajo, una nota: los 3 para probar primero y por qué.
+
+**3b.5 Estructura y señal.** Una ficha (dato / qué hacer): Estructura (menos campañas y conjuntos, segmentación amplia por país y edad, 6–10 conceptos por conjunto, escalar el conjunto que funciona en vez de duplicarlo); Leer el gasto (si Meta no le invierte a un anuncio es un veredicto: no apagar el que gasta ni sacar el olvidado a otro conjunto; mirar a qué faceta y situación le habla el que se lleva más del 50 % del gasto y crear conceptos vecinos); Señal (enviar a Meta la compra cuando el pedido se confirma en WhatsApp, con la API de Conversiones, e idealmente marcar los entregados; en la landing, píxel + CAPI con el pedido confirmado); Qué medir por anuncio (% de confirmación y % de entrega, no solo el costo por mensaje).
+
+**3b.6 Prompt con contexto para la IA.** Una caja con la plantilla llena para este producto (rol de copywriter de respuesta directa para el país, venta contraentrega con cierre por WhatsApp; producto; faceta; 5–10 frases reales de clientes; contexto o momento; objeción principal; formato; reglas: lenguaje natural del país, sin promesas de cura, beneficios como experiencia, mencionar el pago contraentrega, CTA a WhatsApp; entrega: 3 hooks + guion + texto principal). Las frases de clientes van parafraseadas de lo investigado y con una nota de que se reemplazan por las de los chats.
+
+Cierra con una caja de cuidado: los conceptos hablan de bienestar, rutina y experiencia, nunca de curar enfermedades ni de resultados garantizados (además del riesgo legal, Meta rechaza o limita esos anuncios).
+
 ## 4. Reglas de contenido
 - Nunca prometas curar, tratar ni aliviar enfermedades; usa "ayuda a la sensación de", "apoya", "muchas personas notan".
 - Señala si el creativo actual de Joaquín tiene datos de otro país (bandera, moneda, "envío a todo el Ecuador"), términos que no son del país (ej. "suplemento alimenticio" en vez de "suplemento dietario" en Colombia) o claims riesgosos o que debe poder demostrar ("probado por terceros", garantías).
@@ -113,11 +131,12 @@ Si Joaquín pide cualquiera de estas partes después de entregar el PDF, dásela
 - Usa reportlab (Platypus) con fuentes DejaVu para tildes y ñ. Paleta sobria acorde al producto; encabezado y pie con número de página.
 - Tablas con encabezado de color y filas alternas; cajas destacadas para la recomendación central, el deseo central, la propuesta encapsulada y las alertas. Las propuestas de valor van en cajas con filas Dolor / Propuesta / Tiempo; los títulos del hero, de beneficios y de modo de uso en cajas blancas con borde del color de la marca; los títulos de dolor en cajas blancas con borde rojizo; el bloque "¿Te pasa esto?" y las franjas de atributos en cajas de color claro; los 5 beneficios y el modo de uso en tablas de tres columnas.
 - Evita subtítulos sueltos al final de una página y tablas separadas de su título (usa CondPageBreak o KeepTogether).
+- La sección 16 (Andromeda) va en tablas de cuatro a seis columnas con encabezado de color; la matriz de conceptos con una fila por concepto; la ficha de estructura y señal como las demás fichas.
 - Renderiza las páginas a PNG y revísalas antes de entregar (texto cortado, tablas desbordadas, portada, textos que se salen de las maquetas).
 - Entrega el PDF con SendUserFile y cierra con 2–3 líneas: hallazgo principal, avatar y siguiente paso.
 
 ## 6. Dentro de la app Kads Studio
-Cuando la tarea viene de la app (dice en qué archivo escribir), cambia solo la entrega; la investigación, la estructura (sección 2), el copy (sección 3) y las reglas (sección 4) son los mismos:
+Cuando la tarea viene de la app (dice en qué archivo escribir), cambia solo la entrega; la investigación, la estructura (sección 2), el copy (sección 3), los conceptos para Meta (sección 3b) y las reglas (sección 4) son los mismos:
 - No uses reportlab, pypdf ni SendUserFile, y no corras comandos: la app dibuja el PDF con el mismo diseño de la sección 5 y de la guía visual (3.8). Tú escribes el CONTENIDO en el archivo JSON que indica la tarea, con sus bloques (tablas, cajas, citas, propuestas, opciones de título y los 4 mensajes de la guía).
 - La foto del producto ya la tiene la app: no la recortes; en las maquetas se pone sola.
 - No hay memoria de Joaquín ni chat: no preguntes nada. Si falta el país, es Colombia.
