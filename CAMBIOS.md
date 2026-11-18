@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18l · «Probar» la clave de ElevenLabs ya no se pasa de tiempo, y dice por qué si falla
+
+- Con una clave sin el permiso «User» (por ejemplo, una clave nueva con permisos recortados), «Probar» comprobaba la clave pidiendo la lista de voces con el conteo total de la cuenta, que es lento con muchas voces: «ElevenLabs no respondió a tiempo». Ahora la pide sin ese conteo. Lo mismo en el motor que genera la voz.
+- Si una consulta falla, el mensaje dice si la app estaba ocupada (no fue ElevenLabs ni tu internet) o el detalle de la conexión, y la consola lo anota.
+- Nueva prueba para la Terminal: `node app/herramientas/diagnostico-elevenlabs.mjs` mide, con tu clave y sin mostrarla, cuánto tarda cada consulta que hace la app.
+
 ## 2026-11-18k · Arreglo: la app ya no se congela al elegir la voz (y ElevenLabs vuelve a responder)
 
 - La causa de «ElevenLabs no respondió a tiempo» (en las voces y hasta en «Probar» la clave) era de la app, no de tu red ni de ElevenLabs: para elegir la voz parecida a la del video de referencia, la app medía su audio de una forma que la dejaba ocupada, y con un video de varios minutos todo lo demás se pasaba de tiempo.
