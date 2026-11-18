@@ -1,0 +1,18 @@
+{
+  "lote": "_img-vitaldrops-20261117-1857",
+  "identidad_visual": {
+    "color_palette": "#C0B116 and #1C305F",
+    "text_typography": "Anton + Caveat"
+  },
+  "descripcion_visual_en": "Use the attached product photo exactly as it is.",
+  "paleta": [
+    {
+      "hex": "#C0B116",
+      "nombre": "fondo"
+    },
+    {
+      "hex": "#1C305F",
+      "nombre": "acento"
+    }
+  ]
+}
