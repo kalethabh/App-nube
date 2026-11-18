@@ -26,7 +26,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-18T15:16:27.444Z",
-      "detalle": "Mirando las fotos de tu producto",
+      "detalle": "Buscando en los archivos",
       "uuid": "4757bd49-5bcd-447a-99ad-42ea46bbcfa4"
     },
     {
@@ -46,5 +46,5 @@
   "modoPrueba": false,
   "creado": "2026-11-18T15:16:27.345Z",
   "aprobado": "2026-11-18T15:16:27.345Z",
-  "actualizado": "2026-11-18T15:16:32.262Z"
+  "actualizado": "2026-11-18T15:17:14.840Z"
 }
