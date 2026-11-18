@@ -33,7 +33,11 @@
       "familia": "dolor",
       "grupo": "neon",
       "titular": "«Bye bye» + EL PROBLEMA VISIBLE en 2 palabras, enorme; alrededor del cuerpo, rótulos cortos «+ [zona que gana]»",
-      "ejemplo": "Bye bye glúteos planos · + caderas · + pompis · cintura pequeña"
+      "ejemplo": "Bye bye glúteos planos · + caderas · + pompis · cintura pequeña",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
     },
     {
       "id": "p02",
@@ -41,7 +45,11 @@
       "familia": "antes-despues",
       "grupo": "historia",
       "titular": "Testimonio de identidad en primera persona: «Toda mi vida fui \"[la etiqueta que le dolía]\"» + «Hasta que descubrí [producto]»",
-      "ejemplo": "Toda mi vida fui \"la amiga flaquita\". Hasta que descubrí Muna"
+      "ejemplo": "Toda mi vida fui \"la amiga flaquita\". Hasta que descubrí Muna",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
     },
     {
       "id": "p03",
@@ -49,7 +57,11 @@
       "familia": "tiempo",
       "grupo": "neon-etapas",
       "titular": "«Bye bye» + EL PROBLEMA VISIBLE; las etapas (Etapa 1, 2, 3) muestran el cambio creciente",
-      "ejemplo": "Bye bye glúteos planos · Etapa 1 · Etapa 2 · Etapa 3"
+      "ejemplo": "Bye bye glúteos planos · Etapa 1 · Etapa 2 · Etapa 3",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
     },
     {
       "id": "p04",
@@ -57,7 +69,11 @@
       "familia": "tiempo",
       "grupo": "dias",
       "titular": "Casi sin texto: el mensaje son los rótulos de días (Día 1 · Día 14 · Día 30) bajo cada foto, con el cambio cada vez mayor",
-      "ejemplo": "Día 1 · Día 14 · Día 30"
+      "ejemplo": "Día 1 · Día 14 · Día 30",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
     },
     {
       "id": "p05",
@@ -65,7 +81,11 @@
       "familia": "comparacion",
       "grupo": "sin-con",
       "titular": "Dos rótulos que comparan: «[lo que ya hace]» vs. «[lo que ya hace] + [producto]», y abajo una frase a quién le habla: «[Quiénes], [la zona] necesita más que [lo que ya hace]»",
-      "ejemplo": "On a GLP-1 · On a GLP-1 + micronutrientes · Chicos, sus músculos necesitan más que proteína"
+      "ejemplo": "On a GLP-1 · On a GLP-1 + micronutrientes · Chicos, sus músculos necesitan más que proteína",
+      "temas": [
+        "musculo",
+        "hombres"
+      ]
     },
     {
       "id": "p06",
@@ -73,7 +93,10 @@
       "familia": "comparacion",
       "grupo": "vs",
       "titular": "Pregunta del dolor en sus palabras + respuesta corta: «¿[Problema]?» + «[Solución en 4 palabras]»",
-      "ejemplo": "¿No puedes ir al baño? La fibra es la clave"
+      "ejemplo": "¿No puedes ir al baño? La fibra es la clave",
+      "temas": [
+        "digestion"
+      ]
     },
     {
       "id": "p07",
@@ -81,7 +104,10 @@
       "familia": "nativo",
       "grupo": "no-compres",
       "titular": "Anti-titular nativo: «No compres esto si [situación del cliente]…» y el giro: «a menos que quieras [resultado]»",
-      "ejemplo": "No compres estas gomitas si estás bajando de peso… a menos que quieras resultados"
+      "ejemplo": "No compres estas gomitas si estás bajando de peso… a menos que quieras resultados",
+      "temas": [
+        "peso"
+      ]
     },
     {
       "id": "p08",
@@ -89,7 +115,11 @@
       "familia": "antes-despues",
       "grupo": "ad-blanco-negro",
       "titular": "«Menos [PROBLEMA] en [TIEMPO]» (o «Más [RESULTADO] en [TIEMPO]»), en dos líneas grandes",
-      "ejemplo": "Menos hinchazón en 2 semanas"
+      "ejemplo": "Menos hinchazón en 2 semanas",
+      "temas": [
+        "hinchazon",
+        "piernas"
+      ]
     },
     {
       "id": "p09",
@@ -97,7 +127,11 @@
       "familia": "comparacion",
       "grupo": "solo-con",
       "titular": "Dos rótulos: «Solo [lo que ya hace]» vs. «[lo que ya hace] + [producto]»; abajo «[Quiénes], tu [zona] necesita más que [lo que ya hace]»",
-      "ejemplo": "Solo ejercicio · Ejercicio + drenaje · Tu hinchazón necesita más que ejercicio"
+      "ejemplo": "Solo ejercicio · Ejercicio + drenaje · Tu hinchazón necesita más que ejercicio",
+      "temas": [
+        "hinchazon",
+        "hombres"
+      ]
     },
     {
       "id": "p10",
@@ -105,7 +139,11 @@
       "familia": "antes-despues",
       "grupo": "partido",
       "titular": "«Menos/Más [RESULTADO] en [ZONA]», con la palabra clave resaltada, y una franja «Resultados en [tiempo]»",
-      "ejemplo": "Menos hinchazón en pies y tobillos · Resultados en solo 14 días"
+      "ejemplo": "Menos hinchazón en pies y tobillos · Resultados en solo 14 días",
+      "temas": [
+        "hinchazon",
+        "piernas"
+      ]
     },
     {
       "id": "p11",
@@ -113,7 +151,11 @@
       "familia": "dolor",
       "grupo": "pregunta",
       "titular": "Síntoma + pregunta + causa revelada: «Tu [síntoma] ¿[pregunta]?» + «¡Es tu [causa]!», y abajo «[verbo] de raíz [problema]»",
-      "ejemplo": "Tu peso ¿sube y baja? ¡Es tu sistema linfático!"
+      "ejemplo": "Tu peso ¿sube y baja? ¡Es tu sistema linfático!",
+      "temas": [
+        "hinchazon",
+        "peso"
+      ]
     },
     {
       "id": "p12",
@@ -121,7 +163,10 @@
       "familia": "antes-despues",
       "grupo": "diagrama",
       "titular": "Pregunta que señala la zona: «¿Tu [ZONA] todavía se ve así?», con el antes y el después rotulados",
-      "ejemplo": "¿Tu pecho todavía se ve así?"
+      "ejemplo": "¿Tu pecho todavía se ve así?",
+      "temas": [
+        "hinchazon"
+      ]
     },
     {
       "id": "p13",
@@ -129,7 +174,12 @@
       "familia": "comparacion",
       "grupo": "ilustrado",
       "titular": "Dos estados enfrentados de la misma zona, en mayúsculas: «[ZONA] [ESTADO MALO]» vs. «[ZONA] [ESTADO BUENO]», con una línea corta bajo cada uno",
-      "ejemplo": "Barriga hinchada · Barriga drenada"
+      "ejemplo": "Barriga hinchada · Barriga drenada",
+      "temas": [
+        "hinchazon",
+        "abdomen",
+        "hombres"
+      ]
     },
     {
       "id": "p14",
@@ -137,7 +187,11 @@
       "familia": "tiempo",
       "grupo": "zonas",
       "titular": "«[Problema] en [N] zonas: una solución», y en la lista «Semana 1 / 2 / 3: [lo que cambia]»",
-      "ejemplo": "Celulitis en 3 zonas, una solución"
+      "ejemplo": "Celulitis en 3 zonas, una solución",
+      "temas": [
+        "celulitis",
+        "piernas"
+      ]
     },
     {
       "id": "p15",
@@ -145,7 +199,12 @@
       "familia": "antes-despues",
       "grupo": "cuadricula",
       "titular": "«[El problema con su nombre popular] finalmente desaparece» (o «finalmente aparece» para un deseo), con rótulos de tiempo en la cuadrícula",
-      "ejemplo": "La barriga de cerveza finalmente desaparece"
+      "ejemplo": "La barriga de cerveza finalmente desaparece",
+      "temas": [
+        "abdomen",
+        "hinchazon",
+        "hombres"
+      ]
     },
     {
       "id": "p16",
@@ -153,7 +212,11 @@
       "familia": "beneficios",
       "grupo": "iconos-lista",
       "titular": "«[Resultado principal] mientras [beneficio que se siente]», y los beneficios en íconos con 2 palabras cada uno",
-      "ejemplo": "Baja de peso mientras te sientes ligero"
+      "ejemplo": "Baja de peso mientras te sientes ligero",
+      "temas": [
+        "peso",
+        "hinchazon"
+      ]
     },
     {
       "id": "p17",
@@ -161,7 +224,11 @@
       "familia": "comparacion",
       "grupo": "anios",
       "titular": "Comparación de años: «[Año] con [problema]» vs. «[Año siguiente] con [producto]», y el gancho «[Resultado] en solo [tiempo]»",
-      "ejemplo": "2025 con retención · 2026 con drenaje · Despierta con un abdomen plano"
+      "ejemplo": "2025 con retención · 2026 con drenaje · Despierta con un abdomen plano",
+      "temas": [
+        "abdomen",
+        "hinchazon"
+      ]
     },
     {
       "id": "p18",
@@ -169,7 +236,12 @@
       "familia": "antes-despues",
       "grupo": "rotulos",
       "titular": "«[Verbo de resultado] [el problema] — sin [la renuncia que teme]»",
-      "ejemplo": "Desinfla la panza de la cerveza sin dejar de tomarla"
+      "ejemplo": "Desinfla la panza de la cerveza sin dejar de tomarla",
+      "temas": [
+        "abdomen",
+        "hinchazon",
+        "hombres"
+      ]
     },
     {
       "id": "p19",
@@ -177,7 +249,12 @@
       "familia": "tiempo",
       "grupo": "dia-0-90",
       "titular": "«El [tipo de producto] natural que transforma tu [zona]», con los días (Día 0 vs. Día 90) en el centro",
-      "ejemplo": "El drenaje natural que transforma tu cuerpo"
+      "ejemplo": "El drenaje natural que transforma tu cuerpo",
+      "temas": [
+        "abdomen",
+        "hinchazon",
+        "peso"
+      ]
     },
     {
       "id": "p20",
@@ -185,7 +262,11 @@
       "familia": "beneficios",
       "grupo": "lados",
       "titular": "Verbo directo + causa + estado: «[Verbo] [lo que causa el problema] que te tiene [estado]», con beneficios cortos a los dos lados",
-      "ejemplo": "Suelta el líquido que te tiene hinchada"
+      "ejemplo": "Suelta el líquido que te tiene hinchada",
+      "temas": [
+        "hinchazon",
+        "piernas"
+      ]
     },
     {
       "id": "p21",
@@ -193,7 +274,11 @@
       "familia": "nativo",
       "grupo": "navidad",
       "titular": "Temporada + deseo: «Esta [temporada] regálate [el deseo central]»",
-      "ejemplo": "Esta Navidad regálate la figura que sueñas"
+      "ejemplo": "Esta Navidad regálate la figura que sueñas",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
     },
     {
       "id": "p22",
@@ -201,7 +286,12 @@
       "familia": "dolor",
       "grupo": "no-solo",
       "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]», con «Tu mejor versión» a mano",
-      "ejemplo": "No solo glúteos, también tus piernas"
+      "ejemplo": "No solo glúteos, también tus piernas",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
     },
     {
       "id": "p23",
@@ -209,7 +299,12 @@
       "familia": "beneficios",
       "grupo": "heroe",
       "titular": "«Descubre el poder de [producto]» + el resultado principal en 3 a 5 palabras + íconos de ingredientes",
-      "ejemplo": "Descubre el poder del Aguaje Complex · Glúteos y piernas firmes"
+      "ejemplo": "Descubre el poder del Aguaje Complex · Glúteos y piernas firmes",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
     },
     {
       "id": "p24",
@@ -217,7 +312,12 @@
       "familia": "dolor",
       "grupo": "no-solo",
       "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]»",
-      "ejemplo": "No solo glúteos, también tus piernas"
+      "ejemplo": "No solo glúteos, también tus piernas",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
     },
     {
       "id": "p25",
@@ -225,7 +325,12 @@
       "familia": "dolor",
       "grupo": "no-solo",
       "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]»",
-      "ejemplo": "No solo glúteos, también tus piernas"
+      "ejemplo": "No solo glúteos, también tus piernas",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
     },
     {
       "id": "p26",
@@ -233,7 +338,11 @@
       "familia": "nativo",
       "grupo": "invierte",
       "titular": "Momento + invitación: «Este [momento] invierte en ti» + «[zona] más [adjetivos del deseo]»",
-      "ejemplo": "Este fin de año invierte en ti · Glúteos y piernas más firmes"
+      "ejemplo": "Este fin de año invierte en ti · Glúteos y piernas más firmes",
+      "temas": [
+        "gluteos",
+        "piernas"
+      ]
     },
     {
       "id": "p27",
@@ -241,7 +350,11 @@
       "familia": "beneficios",
       "grupo": "deseo",
       "titular": "El deseo con adjetivos: «[Zona] más [adjetivo 1] y [adjetivo 2]» + «Tu mejor versión sin [renuncia]»",
-      "ejemplo": "Glúteos y piernas más firmes y naturales"
+      "ejemplo": "Glúteos y piernas más firmes y naturales",
+      "temas": [
+        "gluteos",
+        "piernas"
+      ]
     },
     {
       "id": "p28",
@@ -249,7 +362,11 @@
       "familia": "nativo",
       "grupo": "navidad",
       "titular": "Temporada + deseo: «Esta [temporada] regálate [el deseo central]»",
-      "ejemplo": "Esta Navidad regálate la figura que siempre has querido"
+      "ejemplo": "Esta Navidad regálate la figura que siempre has querido",
+      "temas": [
+        "gluteos",
+        "curvas"
+      ]
     },
     {
       "id": "p29",
@@ -257,7 +374,11 @@
       "familia": "antes-despues",
       "grupo": "lado-a-lado",
       "titular": "«[Zona] [resultado] así de fácil» (o «en el mismo lugar»), con el antes y el después",
-      "ejemplo": "Glúteos y piernas en el mismo lugar, así de fácil"
+      "ejemplo": "Glúteos y piernas en el mismo lugar, así de fácil",
+      "temas": [
+        "gluteos",
+        "piernas"
+      ]
     },
     {
       "id": "p30",
@@ -265,7 +386,12 @@
       "familia": "tiempo",
       "grupo": "dias-3",
       "titular": "Los días (Día 0 · 7 · 21) + el nombre del producto + 2 resultados concretos en sus palabras («Empiezas a [resultado visible]»)",
-      "ejemplo": "Empiezas a llenar jeans · Piernas con más volumen natural"
+      "ejemplo": "Empiezas a llenar jeans · Piernas con más volumen natural",
+      "temas": [
+        "gluteos",
+        "piernas",
+        "curvas"
+      ]
     },
     {
       "id": "p31",
@@ -279,7 +405,11 @@
         "dias": 450,
         "alcance": 358016,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "gluteos",
+        "piel"
+      ]
     },
     {
       "id": "p32",
@@ -293,7 +423,11 @@
         "dias": 253,
         "alcance": 9188,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "piel",
+        "celulitis"
+      ]
     },
     {
       "id": "p33",
@@ -307,7 +441,10 @@
         "dias": 253,
         "alcance": 12329,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "piel"
+      ]
     },
     {
       "id": "p34",
@@ -321,7 +458,10 @@
         "dias": 252,
         "alcance": 63991,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "piel"
+      ]
     },
     {
       "id": "p35",
@@ -335,7 +475,11 @@
         "dias": 189,
         "alcance": 2737,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "peso",
+        "abdomen"
+      ]
     },
     {
       "id": "p36",
@@ -349,7 +493,11 @@
         "dias": 181,
         "alcance": 1575,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "celulitis",
+        "piernas"
+      ]
     },
     {
       "id": "p37",
@@ -363,7 +511,11 @@
         "dias": 177,
         "alcance": 1283,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "celulitis",
+        "piernas"
+      ]
     },
     {
       "id": "p38",
@@ -377,7 +529,11 @@
         "dias": 134,
         "alcance": 568,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "musculo",
+        "piel"
+      ]
     },
     {
       "id": "p39",
@@ -391,7 +547,10 @@
         "dias": 170,
         "alcance": 46155,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "abdomen"
+      ]
     },
     {
       "id": "p40",
@@ -405,7 +564,11 @@
         "dias": 152,
         "alcance": 136440,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "abdomen",
+        "menopausia"
+      ]
     },
     {
       "id": "p41",
@@ -419,7 +582,10 @@
         "dias": 152,
         "alcance": 103831,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "abdomen"
+      ]
     },
     {
       "id": "p42",
@@ -433,7 +599,11 @@
         "dias": 133,
         "alcance": 248367,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "abdomen",
+        "menopausia"
+      ]
     },
     {
       "id": "p43",
@@ -447,7 +617,10 @@
         "dias": 105,
         "alcance": 145976,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "brazos"
+      ]
     },
     {
       "id": "p44",
@@ -461,7 +634,11 @@
         "dias": 75,
         "alcance": 42,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "brazos",
+        "piel"
+      ]
     },
     {
       "id": "p45",
@@ -475,7 +652,11 @@
         "dias": 75,
         "alcance": 1227,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "abdomen",
+        "peso"
+      ]
     },
     {
       "id": "p46",
@@ -489,7 +670,11 @@
         "dias": 75,
         "alcance": 19,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "celulitis",
+        "piernas"
+      ]
     },
     {
       "id": "p47",
@@ -503,7 +688,12 @@
         "dias": 252,
         "alcance": 14883,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "celulitis",
+        "piernas",
+        "piel"
+      ]
     },
     {
       "id": "p48",
@@ -517,7 +707,11 @@
         "dias": 253,
         "alcance": 10456,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "menopausia",
+        "piel"
+      ]
     },
     {
       "id": "p49",
@@ -531,7 +725,11 @@
         "dias": 252,
         "alcance": 5683,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "abdomen",
+        "piel"
+      ]
     },
     {
       "id": "p50",
@@ -545,7 +743,11 @@
         "dias": 307,
         "alcance": 476470,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "detox",
+        "hinchazon"
+      ]
     },
     {
       "id": "p51",
@@ -559,7 +761,11 @@
         "dias": 292,
         "alcance": 396085,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "peso",
+        "abdomen"
+      ]
     },
     {
       "id": "p52",
@@ -573,7 +779,11 @@
         "dias": 609,
         "alcance": 27598,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "abdomen",
+        "peso"
+      ]
     },
     {
       "id": "p53",
@@ -587,7 +797,10 @@
         "dias": 585,
         "alcance": 289163,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "detox"
+      ]
     },
     {
       "id": "p54",
@@ -601,7 +814,27 @@
         "dias": 310,
         "alcance": 6606,
         "de": "TrendTrack 2026-11-18"
-      }
+      },
+      "temas": [
+        "peso",
+        "abdomen"
+      ]
     }
-  ]
+  ],
+  "temas": {
+    "gluteos": "Glúteos",
+    "curvas": "Curvas y caderas",
+    "piernas": "Piernas",
+    "abdomen": "Abdomen",
+    "hinchazon": "Hinchazón y retención",
+    "celulitis": "Celulitis",
+    "piel": "Piel y firmeza",
+    "peso": "Peso",
+    "detox": "Detox",
+    "digestion": "Digestión",
+    "menopausia": "Menopausia",
+    "musculo": "Músculo",
+    "brazos": "Brazos",
+    "hombres": "Hombres"
+  }
 }

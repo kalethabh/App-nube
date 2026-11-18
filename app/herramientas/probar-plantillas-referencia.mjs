@@ -60,6 +60,14 @@ const { contextoCreativo } = await import('../server/lib/imagen-ads/angulo-produ
 const ctx = contextoCreativo(ID);
 check('lee el deseo central, los tiempos y la matriz de Andromeda', /curvas/.test(ctx.deseo) && ctx.tiempos[0]?.cuando === 'Desde la semana 4' && ctx.conceptos.length === 2 && ctx.conceptos[0].escenario === 'Playa de Cartagena' && ctx.conceptos[1].titular === 'Por fin el jean me queda perfecto', ctx);
 
+// productos relacionados: el de prueba es de glúteos, caderas y piernas
+const rel = ref.relacionadas(ID);
+const temasDe = new Map(JSON.parse(fs.readFileSync(path.join(ref.DIR, 'indice.json'), 'utf8')).plantillas.map((p) => [p.id, p.temas || []]));
+check('reconoce de qué trata el producto (glúteos, curvas, piernas)', ['gluteos', 'curvas', 'piernas'].every((t) => rel.temas.includes(t)), rel.temas);
+check('las relacionadas son de glúteos, curvas o piernas, la más cercana primero', rel.ids.length >= 10 && rel.ids.every((id) => temasDe.get(id).some((t) => rel.temas.includes(t))) && temasDe.get(rel.ids[0]).includes(rel.temas[0]), rel);
+const auto = ref.elegir(4, [], { temas: rel.temas });
+check('«Que la app elija» toma primero las de productos relacionados (sin repetir forma)', auto.every((id) => rel.ids.includes(id)) && new Set(auto.map((id) => grupoDe.get(id))).size === 4, auto);
+check('«hombres» solo no hace relacionado (un producto para la tos elige como si no hubiera temas)', ref.temasDeTexto('Gotas para la tos y la flema, para hombres y mujeres').includes('respiratorio') && ref.elegir(3, [], { temas: ['respiratorio', 'hombres'] }).join() === ref.elegir(3, []).join());
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'plantillas-ref-'));
 fs.mkdirSync(path.join(TMP, 'entrada'), { recursive: true });
 fs.copyFileSync(path.join(ref.DIR, 'mini', 'p01.jpg'), path.join(TMP, 'entrada', 'producto.png'));
