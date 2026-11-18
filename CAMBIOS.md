@@ -2,6 +2,26 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18g · Regenerar con IA una parte del guion
+
+- En «Editar a mano», cada cuadro tiene arriba a la derecha un ícono ✨ **Regenerar con IA**: tu IA escribe otra versión de esa parte (con el guion completo como contexto: misma función, que enganche con la anterior y la siguiente, el mismo largo para que entre en el mismo tiempo y las palabras de tu público).
+- El texto nuevo aparece en el cuadro sin guardarse: tócalo otra vez para otra opción, corrígelo a mano o guárdalo con **Guardar** (con narrador queda al instante y gratis).
+- Es una consulta corta aparte del guion: tarda segundos y no espera en la fila.
+
+## 2026-11-18f · Editar el guion a mano
+
+- En la hoja del guion, un botón **«Editar a mano»**: cada parte se vuelve un cuadro de texto, la escribes como la quieres y tocas **Guardar**.
+- **Con narrador** (Claymation, Pixar, Lego, Zack D Films, Realista con narrador, Agregar con voz en off…): tu texto se aplica al instante y sin costo a lo que lee la voz. La app revisa que el guion siga bien y, si algo no cuadra, lo deja como estaba.
+- **Cuando alguien habla en el video** (UGC, podcast, entrevista, objeto que habla): la frase va dentro de las indicaciones del video con sus tiempos, así que tu IA pone tus palabras tal cual y ajusta los tiempos y el video de esas partes.
+- Queda anotado en «Lo que cambió». Se puede editar hasta aprobar el guion; después, los textos se cambian en el editor.
+
+## 2026-11-18e · La voz de ElevenLabs se ve, se escucha y se cambia en la pantalla del guion
+
+- En la pantalla del guion, al lado, una tarjeta nueva **«Voz del narrador»**: la voz de tu cuenta de ElevenLabs que se va a usar, con **Escuchar** y una lista para **cambiarla** (o volver a «Que la elija la app») hasta que se genera la voz.
+- Si la eligió la app, dice por qué (por ejemplo: «como pide el plan: mujer joven, firme y cercana, con acento colombiano · Valentina - Conversational Medellin: voz femenina, acento colombiano, joven, cercana»).
+- Si el guion ya está y la app todavía no la había elegido (o no pudo), la elige al abrir esa pantalla. En «Agregar», usa también lo que dice el plan sobre la voz del video. Reconoce las ciudades en el nombre de la voz (Medellín, Bogotá) como acento.
+- Si ElevenLabs no responde, la tarjeta lo dice con el motivo y un botón para reintentar.
+
 ## 2026-11-18d · Las voces de ElevenLabs se traen como el saldo (sin «error de conexión» falso)
 
 - La lista de tus voces de ElevenLabs (en «Voz del narrador» y para la voz que elige la app) ahora se pide directo desde la app, igual que el saldo de ElevenLabs que ves abajo a la izquierda. Antes se pedía en un proceso aparte que, si escribía cualquier aviso o tardaba más de 30 segundos, salía como «No pude conectar con ElevenLabs» aunque tu clave y tu internet estuvieran bien.

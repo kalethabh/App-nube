@@ -323,6 +323,12 @@ export const apiNuevo = {
    */
   producir: (slug, datos) => pedirNuevo(`/api/anuncios/${enc(slug)}/producir`, { metodo: 'POST', ...(datos ? { cuerpo: datos } : {}) }),
   /** Musical: el usuario elige una de las 2 o 3 letras (queda en app/letras.json como "elegida"; se puede cambiar hasta producir). */
+  /** Otra versión (de la IA) de lo que se dice en una parte; no guarda nada -> { dice } */
+  regenerarLinea: (slug, n, actual) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/regenerar-linea`, { metodo: 'POST', cuerpo: { n, actual } }),
+  /** Editar a mano lo que se dice: [{ n, dice }] -> { directo, cambiadas } | { conIA } */
+  editarLineas: (slug, lineas) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/lineas`, { metodo: 'PUT', cuerpo: { lineas } }),
+  /** La voz del narrador de un anuncio ya creado: { id, nombre } o { auto: true } -> { voz } */
+  cambiarVoz: (slug, voz) => pedirNuevo(`/api/anuncios/${enc(slug)}/voz`, { metodo: 'PUT', cuerpo: voz }),
   elegirLetra: (slug, n) => pedirNuevo(`/api/anuncios/${enc(slug)}/guion/letra`, { metodo: 'POST', cuerpo: { n } }),
   /**
    * El costo estimado antes de producir (server/rutas/costo.js): { disponible: false, motivo } o { disponible: true,

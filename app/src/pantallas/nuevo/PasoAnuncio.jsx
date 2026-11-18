@@ -9,7 +9,7 @@
 // decidir sola, y obligatorias donde la skill prohíbe inventarlo (el fondo de Zack D Films, a quién paran en la
 // entrevista…).
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowDown, ArrowLeft, Check, CircleHelp, Hourglass, Library, Lock, Package, Pause, PenLine, Play, RotateCcw, Sparkles, X } from 'lucide-react';
+import { ArrowDown, ArrowLeft, Check, CircleHelp, Hourglass, Library, Lock, Package, PenLine, RotateCcw, Sparkles, X } from 'lucide-react';
 import { Boton, CampoTexto, Chip, EsqueletoMiniaturas, EstadoVacio, Interruptor, MiniaturaVideo, Seccion, Selector, Tarjeta, Tooltip } from '../../componentes/index.js';
 import { miniatura, useEstilos, useVoces } from '../../datos/api.js';
 import { useBiblioteca } from '../biblioteca/datos.js';
@@ -17,7 +17,7 @@ import { enlace } from '../../datos/rutas.js';
 import { CONTINUIDAD_DISPONIBLE, CON_CONTINUIDAD, DETALLES, ICONO_FAMILIA, disponible, partirEscrito, preguntasDe } from '../estilos/catalogo.js';
 import { conDuracion, duracionCorta, duracionDeAjuste, leerDuracion } from '../../datos/duracion.js';
 import { leerVoces } from './datos.js';
-import { useMuestraDeAudio } from './reproductor.js';
+import { BotonEscuchar } from './BotonEscuchar.jsx';
 import { Guiones } from './Guiones.jsx';
 import { SelloEstilo } from './SelloEstilo.jsx';
 
@@ -158,31 +158,6 @@ function Duracion({ estilo, valor, onCambio, bloqueado }) {
         </p>
       )}
     </div>
-  );
-}
-
-function BotonEscuchar({ id, url, desde, segundos = 12, etiqueta = 'Escuchar', disabled = false }) {
-  const { sonando, alternar } = useMuestraDeAudio();
-  const suena = !disabled && sonando === id;
-  return (
-    <button
-      type="button"
-      className={`nv-escuchar${suena ? ' nv-escuchar--suena' : ''}`}
-      onClick={() => url && alternar(id, url, { desde, segundos })}
-      aria-pressed={suena}
-      disabled={disabled}
-    >
-      {suena ? <Pause size={14} strokeWidth={2.4} fill="currentColor" aria-hidden="true" /> : <Play size={14} strokeWidth={2.4} fill="currentColor" aria-hidden="true" />}
-      <span>{suena ? 'Pausar' : etiqueta}</span>
-      {suena ? (
-        <span className="nv-ondas" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-          <i />
-        </span>
-      ) : null}
-    </button>
   );
 }
 

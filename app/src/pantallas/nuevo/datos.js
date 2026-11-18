@@ -83,6 +83,8 @@ export function leerGuion(r) {
     puedeAprobar: r.puedeAprobar !== false,
     productoId: r.productoId || r.brief?.productoId || null,
     brief: r.brief || null,
+    // la voz del narrador (tarjeta del guion): { id?, nombre?, auto?, motivo?, generada, eligiendo, error } | null
+    voz: r.voz || null,
     // «Agregar»: lo que entendió la IA del video y del pedido
     plan: r.plan || null,
     inicio: r.inicio || null,

@@ -44,7 +44,7 @@ import { sesionActiva, prohibidasComunes, enTerminales, textoClaude, leerYValida
 // la IA elegida (Claude o ChatGPT) con la pausa compartida: si su plan se acabo, no se abre otra sesion hasta que se
 // renueve
 import { lanzarSesion } from './colas.js';
-import { nombreIA } from './motor-ia.js';
+import { nombreIA, lanzarSesion as preguntarIA, prohibidasComunes as prohibidasIA } from './motor-ia.js';
 import { prohibidasDeAnuncio } from './ia/reglas.js';
 import { ErrorApp, escribirJSON, aKebab, idValido as productoValido, leerProducto, leerFicha, fotoPrincipal, relProducto, detalleDelProducto, errorPublico, urlFoto } from './productos.js';
 import { ESTILOS as PRESENTACION } from './estilos.js';
@@ -1598,6 +1598,142 @@ export function pedirCambios(slug, pedido) {
   return { ok: true };
 }
 
+/**
+ * PUT /api/anuncios/:slug/guion/lineas { lineas: [{ n, dice }] }: el usuario edita A MANO lo que se dice (2026-11-18).
+ * - Con narrador (voz en off, la voz todavía no generada): se aplica directo y gratis al manifiesto (la línea de la
+ *   toma, el texto de voz_en_off y donde la toma la repita) y a guion.json; se valida el manifiesto y, si no pasa,
+ *   vuelve todo como estaba. -> { directo: true, cambiadas }
+ * - Donde alguien habla en el video (UGC, podcast, entrevista, objeto parlante…), la frase va dentro de los prompts
+ *   de video con sus tiempos: se lo pide a la IA (la misma conversación del guion) con el texto exacto. -> { conIA: true }
+ */
+export async function editarLineas(slug, lineas) {
+  if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  const brief = leerBrief(slug);
+  const def = defDe(brief);
+  if (def?.familia === 'musical' || def?.familia === 'historia-musical') throw new ErrorApp(409, 'Las letras se cambian pidiéndolo con tus palabras.');
+  const s = leerSesion(slug);
+  if (enMarcha.has(slug) || sesionActiva(s?.uuid)) throw new ErrorApp(409, `${laIA()} todavía está trabajando en este guion. Espera a que termine.`);
+  if (aprobadoYProduciendo(slug, s)) throw new ErrorApp(409, 'Este guion ya se aprobó y está en producción: los textos se cambian en el editor.');
+  if (s?.estado !== 'listo') throw new ErrorApp(409, 'El guion todavía no está listo para editarlo.');
+  const g = leerJSON(path.join(appDe(slug), 'guion.json'));
+  const antes = new Map((g?.partes || []).map((p) => [p.n, String(p.dice || '')]));
+  const pedidas = (Array.isArray(lineas) ? lineas : [])
+    .map((x) => ({ n: Number(x?.n), dice: String(x?.dice ?? '').replace(/\s+/g, ' ').trim() }))
+    .filter((x) => Number.isInteger(x.n) && antes.has(x.n));
+  if (pedidas.some((x) => !x.dice)) throw new ErrorApp(400, 'Una parte quedó vacía: escribe lo que se dice o deja el texto que tenía.');
+  if (pedidas.some((x) => x.dice.length > 600)) throw new ErrorApp(400, 'Una parte es muy larga (más de 600 letras): pártela en dos o acórtala.');
+  const cambios = pedidas.filter((x) => x.dice !== antes.get(x.n));
+  if (!cambios.length) return { directo: true, cambiadas: 0 };
+
+  const m = leerJSON(path.join(dirDe(slug), 'manifiesto.json'));
+  const conNarrador = m?.modo_audio === 'voz_en_off' && Array.isArray(m.tomas) && !existe(path.join(TEMP, slug, 'audio', 'voz.mp3'));
+  if (!conNarrador) {
+    const pedido = [
+      'El usuario editó A MANO lo que se dice. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. No cambies las otras tomas.',
+      ...cambios.map((x) => `- Parte ${x.n}: «${x.dice}»`),
+    ].join('\n');
+    const respaldo = respaldar(slug);
+    guardarSesion(slug, { ...s, estado: 'cambiando', pedido, respaldo, cambios: [...(s.cambios || []), { pedido: `Editaste a mano ${cambios.length === 1 ? 'la parte' : 'las partes'} ${cambios.map((x) => x.n).join(', ')}`, aMano: true, fecha: ahora() }] });
+    lanzar(slug, { tipo: 'cambios', pedido });
+    return { conIA: true };
+  }
+
+  // con narrador: directo al manifiesto (lo que de verdad se produce) y a la hoja. Lo que ya no validaba antes (por
+  // ejemplo, una foto que quedó en la nube) no cuenta: solo se deshace si la edición agrega un error nuevo.
+  const yaHabia = new Set((await validar(slug)).errores);
+  const respaldo = respaldar(slug);
+  let vozEnOff = String(m.voz_en_off || '');
+  let rehacer = false;
+  for (const x of cambios) {
+    const t = m.tomas.find((y) => y?.n === x.n);
+    if (!t) continue;
+    const viejo = String(t.linea || '');
+    t.linea = x.dice;
+    if (viejo && vozEnOff.includes(viejo)) vozEnOff = vozEnOff.replace(viejo, x.dice);
+    else rehacer = true;
+    // donde la toma repite la frase (el prompt de video entre comillas, los subtítulos): la nueva
+    if (viejo) for (const [k, v] of Object.entries(t)) if (k !== 'linea' && typeof v === 'string' && v.includes(viejo)) t[k] = v.split(viejo).join(x.dice);
+  }
+  m.voz_en_off = rehacer ? m.tomas.map((t) => String(t.linea || '').trim()).filter(Boolean).join(' ') : vozEnOff;
+  escribirJSON(path.join(dirDe(slug), 'manifiesto.json'), m);
+  const v = await validar(slug);
+  const nuevos = v.errores.filter((e) => !yaHabia.has(e));
+  if (v.codigo !== 0 && nuevos.length) {
+    restaurar(slug, respaldo);
+    throw new ErrorApp(409, `No pude aplicar el cambio sin romper el guion: ${nuevos.slice(0, 2).join(' · ')}. Quedó como estaba.`);
+  }
+  const nuevo = new Map(cambios.map((x) => [x.n, x.dice]));
+  const hechos = Array.isArray(g.cambios_hechos) ? g.cambios_hechos : [];
+  escribirJSON(path.join(appDe(slug), 'guion.json'), {
+    ...g,
+    partes: g.partes.map((p) => (nuevo.has(p.n) ? { ...p, dice: nuevo.get(p.n) } : p)),
+    cambios_hechos: [...hechos, `Editaste a mano ${cambios.length === 1 ? 'la parte' : 'las partes'} ${cambios.map((x) => x.n).join(', ')}.`].slice(-20),
+  });
+  guardarSesion(slug, { ...s, cambios: [...(s.cambios || []), { pedido: `Editaste a mano ${cambios.length === 1 ? 'la parte' : 'las partes'} ${cambios.map((x) => x.n).join(', ')}`, aMano: true, ok: true, fecha: ahora() }] });
+  return { directo: true, cambiadas: cambios.length };
+}
+
+/**
+ * POST /api/anuncios/:slug/guion/regenerar-linea { n, actual?, idea? } -> { dice }: otra versión de lo que se dice en
+ * UNA parte, escrita por la IA con el guion completo como contexto (2026-11-18). No guarda nada: la pantalla la pone en
+ * el cuadro de «Editar a mano» y el usuario la guarda (editarLineas) o pide otra. Es una consulta corta, aparte de la
+ * sesión del guion (no la toca) y fuera de la cola, para que tarde segundos.
+ */
+export async function regenerarLinea(slug, { n, actual = '', idea = '' } = {}) {
+  if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  const brief = leerBrief(slug);
+  const s = leerSesion(slug);
+  if (aprobadoYProduciendo(slug, s)) throw new ErrorApp(409, 'Este guion ya se aprobó y está en producción.');
+  const g = leerJSON(path.join(appDe(slug), 'guion.json'));
+  const partes = Array.isArray(g?.partes) ? g.partes : [];
+  const parte = partes.find((p) => p.n === Number(n));
+  if (!parte) throw new ErrorApp(404, 'No encuentro esa parte del guion.');
+  const ficha = leerFicha(brief.productoId) || {};
+  const def = defDe(brief);
+  const id = crypto.randomBytes(4).toString('hex');
+  const salida = path.join(appDe(slug), `linea-${parte.n}-${id}.json`);
+  const rel = path.relative(RAIZ, salida).replace(/\\/g, '/');
+  const largo = String(parte.dice || '').split(/\s+/).filter(Boolean).length;
+  const enPantalla = String(actual || '').replace(/\s+/g, ' ').trim().slice(0, 600);
+  const prompt = `TAREA: regenerar una línea del guion de un anuncio (${def?.nombre || brief.estilo}). Te ejecuta la app Kads Studio, sin chat: no preguntes nada.
+
+El producto: ${ficha.nombre || ''}${ficha.queEs ? ` (${ficha.queEs})` : ''}. Público: ${ficha.publico || 'el de la ficha'}. País e idioma: ${[ficha.pais, ficha.idioma, g.idioma].filter(Boolean).join(', ') || 'Colombia, español'}.
+${g.de_que_va ? `De qué va el anuncio: ${g.de_que_va}\n` : ''}
+El guion completo, parte por parte (n | momento | lo que se dice | lo que se ve):
+${partes.map((p) => `${p.n} | ${p.momento || ''} | ${String(p.dice || '').replace(/\n/g, ' ')} | ${String(p.se_ve || '').slice(0, 160)}`).join('\n')}
+
+Reescribe SOLO lo que se dice en la parte ${parte.n} («${parte.momento || 'sin momento'}»): una versión distinta y mejor que la actual, que cumpla la misma función en esa parte del anuncio, enganche con la parte anterior y lleve a la siguiente, en el mismo idioma y con las mismas palabras del público. Más o menos el mismo largo (unas ${largo} palabras, para que entre en el mismo tiempo), sin repetir frases de otras partes.${enPantalla && enPantalla !== parte.dice ? `\nAhora en el cuadro dice: «${enPantalla}» (da otra opción, distinta también de esa).` : ''}${idea ? `\nLo que pidió el usuario para esta parte: ${String(idea).slice(0, 300)}` : ''}
+Reglas: nada de curar, tratar ni resultados garantizados; sin cifras, precios ni reseñas que no estén en el guion; sin comillas ni etiquetas, solo lo que se dice.
+
+Escribe ${rel} con este JSON y nada más: { "dice": "…" }
+Tu respuesta final: solo LISTO.`;
+  let r = { ok: false };
+  try {
+    r = await preguntarIA({
+      tipo: 'guion',
+      uuid: crypto.randomUUID(),
+      prompt,
+      herramientas: ['Write'],
+      permitidas: [`Write(./${rel})`, `Edit(./${rel})`],
+      prohibidas: prohibidasIA({ terminal: false }),
+      registro: path.join(appDe(slug), 'registro', `regenerar-linea-${parte.n}.log`),
+      timeoutMs: 3 * 60000,
+      maxTurnos: 4,
+      verificar: async () => {
+        const d = leerJSON(salida);
+        return typeof d?.dice === 'string' && d.dice.trim() ? { ok: true } : { ok: false, errores: [`Escribe ${rel} con { "dice": "…" }.`] };
+      },
+    });
+  } catch (e) {
+    r = { ok: false, error: e.message };
+  }
+  const d = leerJSON(salida);
+  fs.rmSync(salida, { force: true });
+  const dice = String(d?.dice || '').replace(/\s+/g, ' ').replace(/^["«“]+|["»”]+$/g, '').trim().slice(0, 600);
+  if (!dice) throw new ErrorApp(502, r?.sinMotor ? 'Elige tu IA en Ajustes › Conexiones.' : r?.limite ? `Se acabó el uso de tu plan de ${nombreIA(r.motor)} por ahora.` : `${laIA()} no pudo escribir otra versión. Vuelve a intentarlo.`);
+  return { dice };
+}
+
 /** POST /api/anuncios/:slug/guion/reintentar: vuelve a correr lo que fallo (o lo que quedo a medias). */
 export function reintentarGuion(slug) {
   if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
@@ -1758,6 +1894,36 @@ function leerHoja(slug, brief) {
 }
 
 /** GET /api/anuncios/:slug/guion */
+/**
+ * PUT /api/anuncios/:slug/voz: la voz del narrador de un anuncio ya creado, antes de que se genere la voz.
+ *   { id, nombre }  la que elige el usuario de su cuenta de ElevenLabs
+ *   { auto: true }  que la elija la app ya (la más parecida al video de referencia o la más indicada)
+ * -> { voz }
+ */
+export async function cambiarVoz(slug, cuerpo = {}) {
+  const ruta = path.join(appDe(slug), 'brief.json');
+  const brief = leerJSON(ruta);
+  if (!brief) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  if (!defDe(brief)?.narrador) throw new ErrorApp(409, 'Este anuncio no lleva narrador: la voz sale del video o de la canción.');
+  if (existe(path.join(TEMP, slug, 'audio', 'voz.mp3'))) throw new ErrorApp(409, 'La voz de este anuncio ya se generó. Para cambiarla, pídelo en el editor o crea el anuncio de nuevo.');
+  if (cuerpo.auto === true) {
+    const b = { ...brief, voz: { auto: true } };
+    escribirJSON(ruta, b);
+    const v = await asegurarVoz({ carpeta: path.join(TEMP, slug), brief: b, ficha: leerFicha(b.productoId) || {} });
+    if (!v.ok) throw new ErrorApp(502, v.mensaje);
+    return { voz: v.voz };
+  }
+  if (!/^[A-Za-z0-9_-]{8,60}$/.test(String(cuerpo.id || ''))) throw new ErrorApp(400, 'Elige una voz de la lista.');
+  const voz = { id: String(cuerpo.id), nombre: String(cuerpo.nombre || cuerpo.id).slice(0, 80) };
+  escribirJSON(ruta, { ...brief, voz });
+  if (configApp.recordarVoz) configApp.recordarVoz(brief.estilo, voz);
+  return { voz };
+}
+
+// las voces que la app está eligiendo ahora (para no pedirlas dos veces mientras la pantalla pregunta cada 2 s)
+const eligiendoVoz = new Set();
+const vozQueFallo = new Map(); // slug -> el mensaje (para la tarjeta de la voz)
+
 export function estadoGuion(slug) {
   if (!esAnuncioNuevo(slug)) return null;
   const brief = leerBrief(slug);
@@ -1785,6 +1951,18 @@ export function estadoGuion(slug) {
         clips: (m.tomas || []).length + brollQueSePide,
       }
     : null;
+  // la voz que elige la app: si el guion ya está y todavía no la eligió (o falló al terminar el guion), se elige ahora,
+  // de fondo, para que la pantalla la muestre (la próxima consulta ya la trae)
+  if (estado === 'listo' && brief && defDe(brief)?.narrador && faltaVoz(brief) && !eligiendoVoz.has(slug) && !existe(path.join(TEMP, slug, 'audio', 'voz.mp3'))) {
+    eligiendoVoz.add(slug);
+    asegurarVoz({ carpeta: path.join(TEMP, slug), brief: { ...brief }, ficha: leerFicha(brief.productoId) || {} })
+      .then((v) => {
+        if (!v.ok) vozQueFallo.set(slug, v.mensaje);
+        else vozQueFallo.delete(slug);
+      })
+      .catch((e) => vozQueFallo.set(slug, String(e.message || e)))
+      .finally(() => setTimeout(() => eligiendoVoz.delete(slug), 30000));
+  }
   // un guion reabierto (la produccion se freno en su primer paso por el guion) se aprueba otra vez despues del cambio
   const listoParaAprobar = estado === 'listo' && s.estado === 'listo' && !enProduccion;
   const reabierto = !enProduccion && guionReabierto(slug);
@@ -1812,6 +1990,8 @@ export function estadoGuion(slug) {
     productoId: brief?.productoId || null,
     // duracion: null (el musical) | { decide: 'ia' } | { decide: 'usuario', texto, segundos }, tambien de un anuncio de antes
     brief: brief ? { estilo: brief.estilo, duracion: leerDuracion(brief.duracion, brief.estilo), voz: brief.voz, productoId: brief.productoId, continuidad: Boolean(brief.continuidad), respuestas: brief.respuestas || {} } : null,
+    // la tarjeta «Voz del narrador»: si lleva narrador, si ya se generó (no se cambia) y si la app no pudo elegirla
+    voz: brief && defDe(brief)?.narrador ? { ...(brief.voz || {}), generada: existe(path.join(TEMP, slug, 'audio', 'voz.mp3')), eligiendo: eligiendoVoz.has(slug) && faltaVoz(brief), error: faltaVoz(brief) ? vozQueFallo.get(slug) || null : null, produccion: brief.produccion || null } : null,
     // «Agregar»: lo que entendio la IA del video y del pedido (el estilo, la duracion y lo que se conserva)
     plan: brief?.agregar?.plan || null,
     inicio: s.inicioIntento || s.inicio || null,
