@@ -244,7 +244,8 @@ async function alMensaje(texto) {
   const linea = /TAREA: regenerar una l[ií]nea/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
   if (linea) {
     const n = (/Reescribe SOLO lo que se dice en la parte (\d+)/.exec(textoTarea) || [])[1] || '?';
-    fs.writeFileSync(path.join(RAIZ, linea[1]), JSON.stringify({ dice: `Otra versión de prueba de la parte ${n}, escrita por la IA.` }));
+    const nueva = /Escribe lo que se dice en una parte NUEVA/.test(textoTarea);
+    fs.writeFileSync(path.join(RAIZ, linea[1]), JSON.stringify({ dice: nueva ? 'Una parte nueva de prueba, escrita por la IA.' : `Otra versión de prueba de la parte ${n}, escrita por la IA.` }));
     return resultado({ result: 'LISTO' });
   }
   // «lo que se ve» (debajo de lo que escribiste en «Editar a mano»): una escena de prueba con ese texto

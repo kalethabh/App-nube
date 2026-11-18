@@ -1699,21 +1699,25 @@ export async function editarLineas(slug, lineas) {
  * el cuadro de «Editar a mano» y el usuario la guarda (editarLineas) o pide otra. Es una consulta corta, aparte de la
  * sesión del guion (no la toca) y fuera de la cola, para que tarde segundos.
  */
-export async function regenerarLinea(slug, { n, actual = '', idea = '' } = {}) {
+export async function regenerarLinea(slug, { n, actual = '', idea = '', nueva = false, despuesDe = 0 } = {}) {
   if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
   const brief = leerBrief(slug);
   const s = leerSesion(slug);
   if (aprobadoYProduciendo(slug, s)) throw new ErrorApp(409, 'Este guion ya se aprobó y está en producción.');
   const g = leerJSON(path.join(appDe(slug), 'guion.json'));
   const partes = Array.isArray(g?.partes) ? g.partes : [];
-  const parte = partes.find((p) => p.n === Number(n));
+  // (2026-11-18 · 2026-11-19) una parte NUEVA que el usuario agrega al editar: { nueva: true, despuesDe }
+  const despues = Number(despuesDe) || 0;
+  if (nueva && despues && !partes.some((p) => p.n === despues)) throw new ErrorApp(404, 'No encuentro esa parte del guion.');
+  const vecina = nueva ? partes.find((p) => p.n === despues) || partes[0] : null;
+  const parte = nueva ? { n: despues ? despues + 0.5 : 0.5, momento: 'parte nueva', dice: '' } : partes.find((p) => p.n === Number(n));
   if (!parte) throw new ErrorApp(404, 'No encuentro esa parte del guion.');
   const ficha = leerFicha(brief.productoId) || {};
   const def = defDe(brief);
   const id = crypto.randomBytes(4).toString('hex');
-  const salida = path.join(appDe(slug), `linea-${parte.n}-${id}.json`);
+  const salida = path.join(appDe(slug), `linea-${nueva ? 'nueva' : parte.n}-${id}.json`);
   const rel = path.relative(RAIZ, salida).replace(/\\/g, '/');
-  const largo = String(parte.dice || '').split(/\s+/).filter(Boolean).length;
+  const largo = String((nueva ? vecina?.dice : parte.dice) || '').split(/\s+/).filter(Boolean).length || 12;
   const enPantalla = String(actual || '').replace(/\s+/g, ' ').trim().slice(0, 600);
   const prompt = `TAREA: regenerar una línea del guion de un anuncio (${def?.nombre || brief.estilo}). Te ejecuta la app Kads Studio, sin chat: no preguntes nada.
 
@@ -1722,7 +1726,7 @@ ${g.de_que_va ? `De qué va el anuncio: ${g.de_que_va}\n` : ''}
 El guion completo, parte por parte (n | momento | lo que se dice | lo que se ve):
 ${partes.map((p) => `${p.n} | ${p.momento || ''} | ${String(p.dice || '').replace(/\n/g, ' ')} | ${String(p.se_ve || '').slice(0, 160)}`).join('\n')}
 
-Reescribe SOLO lo que se dice en la parte ${parte.n} («${parte.momento || 'sin momento'}»): una versión distinta y mejor que la actual, que cumpla la misma función en esa parte del anuncio, enganche con la parte anterior y lleve a la siguiente, en el mismo idioma y con las mismas palabras del público. Más o menos el mismo largo (unas ${largo} palabras, para que entre en el mismo tiempo), sin repetir frases de otras partes.${enPantalla && enPantalla !== parte.dice ? `\nAhora en el cuadro dice: «${enPantalla}» (da otra opción, distinta también de esa).` : ''}${idea ? `\nLo que pidió el usuario para esta parte: ${String(idea).slice(0, 300)}` : ''}
+${nueva ? `Escribe lo que se dice en una parte NUEVA que va ${despues ? `justo después de la parte ${despues}` : 'al comienzo, antes de la parte 1'}: que enganche con la parte de antes y lleve a la de después, que sume algo que el anuncio todavía no dice (sin repetir frases de otras partes), en el mismo idioma, con las mismas palabras del público y el mismo tono. Más o menos del largo de las partes de al lado (unas ${largo} palabras).` : `Reescribe SOLO lo que se dice en la parte ${parte.n} («${parte.momento || 'sin momento'}»): una versión distinta y mejor que la actual, que cumpla la misma función en esa parte del anuncio, enganche con la parte anterior y lleve a la siguiente, en el mismo idioma y con las mismas palabras del público. Más o menos el mismo largo (unas ${largo} palabras, para que entre en el mismo tiempo), sin repetir frases de otras partes.`}${enPantalla && enPantalla !== parte.dice ? `\nAhora en el cuadro dice: «${enPantalla}» (da otra opción, distinta también de esa).` : ''}${idea ? `\nLo que pidió el usuario para esta parte: ${String(idea).slice(0, 300)}` : ''}
 Reglas: nada de curar, tratar ni resultados garantizados; sin cifras, precios ni reseñas que no estén en el guion; sin comillas ni etiquetas, solo lo que se dice.
 
 Escribe ${rel} con este JSON y nada más: { "dice": "…" }
@@ -1736,7 +1740,7 @@ Tu respuesta final: solo LISTO.`;
       herramientas: ['Write'],
       permitidas: [`Write(./${rel})`, `Edit(./${rel})`],
       prohibidas: prohibidasIA({ terminal: false }),
-      registro: path.join(appDe(slug), 'registro', `regenerar-linea-${parte.n}.log`),
+      registro: path.join(appDe(slug), 'registro', `regenerar-linea-${nueva ? 'nueva' : parte.n}.log`),
       timeoutMs: 3 * 60000,
       maxTurnos: 4,
       verificar: async () => {

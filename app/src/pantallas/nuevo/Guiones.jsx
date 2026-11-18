@@ -280,7 +280,7 @@ function Cabecera({ estilo, datos }) {
 // ---------------------------------------------------------------- la hoja de un guion hablado o con narrador
 
 /** Una parte NUEVA al editar a mano: lo que se dice y, debajo, lo que se ve (se escribe solo). */
-function ParteNueva({ x, guardando, generando, onCambiar, onTerminar, onGenerar, onQuitar }) {
+function ParteNueva({ x, guardando, generando, escribiendo = false, onCambiar, onTerminar, onGenerar, onEscribirConIA = null, onQuitar }) {
   return (
     <li className="nv-linea nv-linea--nueva">
       <div className="nv-linea__marca">
@@ -294,7 +294,19 @@ function ParteNueva({ x, guardando, generando, onCambiar, onTerminar, onGenerar,
           </button>
         </span>
         <div className="nv-linea__editar">
-          <AreaTexto aria-label="Lo que se dice en la parte nueva" filas={2} maxLength={600} value={x.dice} placeholder="Escribe lo que se dice en esta parte…" onChange={(e) => onCambiar({ dice: e.target.value })} onBlur={onTerminar} disabled={guardando} autoFocus />
+          {onEscribirConIA ? (
+            <button
+              type="button"
+              className={`nv-linea__regenerar${escribiendo ? ' nv-linea__regenerar--girando' : ''}`}
+              onClick={onEscribirConIA}
+              disabled={guardando || escribiendo}
+              title="Generar con IA lo que se dice en esta parte"
+              aria-label="Generar con IA la parte nueva"
+            >
+              {escribiendo ? <LoaderCircle size={15} strokeWidth={2.2} aria-hidden="true" /> : <Sparkles size={15} strokeWidth={2.2} aria-hidden="true" />}
+            </button>
+          ) : null}
+          <AreaTexto aria-label="Lo que se dice en la parte nueva" filas={2} maxLength={600} value={x.dice} placeholder="Escribe lo que se dice, o tócale ✨ para que lo escriba la IA…" onChange={(e) => onCambiar({ dice: e.target.value })} onBlur={onTerminar} disabled={guardando || escribiendo} autoFocus />
           <SeVeEditable n="nueva" valor={x.se_ve} generando={generando} onCambiar={(v) => onCambiar({ se_ve: v })} onGenerar={onGenerar} bloqueado={guardando || !x.dice.trim()} />
         </div>
       </div>
@@ -302,7 +314,7 @@ function ParteNueva({ x, guardando, generando, onCambiar, onTerminar, onGenerar,
   );
 }
 
-function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null, onRegenerarLinea = null, onSeVe = null }) {
+function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null, onRegenerarLinea = null, onSeVe = null, onLineaNueva = null }) {
   const [todas, setTodas] = useState(false);
   // editar a mano lo que se dice (cada parte en su cuadro); se guarda todo junto
   const [editando, setEditando] = useState(false);
@@ -337,6 +349,20 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
     const v = valores[n];
     if (v === undefined || v.trim() === String(original(n)?.dice || '').trim() || vistas[n] !== undefined) return;
     generarVista(n, { n }, v);
+  };
+  // ✨ en una parte nueva: la IA escribe lo que se dice y, en seguida, lo que se ve
+  const [escribiendoNueva, setEscribiendoNueva] = useState(null);
+  const escribirNueva = async (x) => {
+    setEscribiendoNueva(x.id);
+    try {
+      const dice = await onLineaNueva?.(x.despuesDe, x.dice);
+      if (dice) {
+        setNuevas((l) => l.map((y) => (y.id === x.id ? { ...y, dice, se_ve: '' } : y)));
+        generarVista(`nueva-${x.id}`, { despuesDe: x.despuesDe }, dice);
+      }
+    } finally {
+      setEscribiendoNueva(null);
+    }
   };
   const agregar = (despuesDe) => setNuevas((l) => [...l, { id: `${Date.now()}${Math.random().toString(36).slice(2, 5)}`, despuesDe, dice: '', se_ve: '' }]);
   const regenerar = async (n, actual) => {
@@ -458,6 +484,8 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
                           x={x}
                           guardando={guardando}
                           generando={Boolean(generandoVistas[`nueva-${x.id}`])}
+                          escribiendo={escribiendoNueva === x.id}
+                          onEscribirConIA={onLineaNueva ? () => escribirNueva(x) : null}
                           onCambiar={(cambio) => setNuevas((l) => l.map((y) => (y.id === x.id ? { ...y, ...cambio } : y)))}
                           onTerminar={() => x.dice.trim() && !x.se_ve && generarVista(`nueva-${x.id}`, { despuesDe: x.despuesDe }, x.dice)}
                           onGenerar={() => generarVista(`nueva-${x.id}`, { despuesDe: x.despuesDe }, x.dice)}
@@ -835,6 +863,17 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
     }
   };
 
+  // ✨ en una parte nueva: lo que se dice, de la IA (no guarda: se guarda con «Guardar»)
+  const lineaNueva = async (despuesDe, actual) => {
+    try {
+      const r = await apiNuevo.lineaNueva(slug, despuesDe, actual);
+      return r?.dice || null;
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude escribir la parte nueva', texto: e?.message || 'Escríbela tú o vuelve a intentarlo.', duracion: 9000 });
+      return null;
+    }
+  };
+
   // lo que se ve (debajo de lo que escribiste): lo escribe la IA en segundos; no guarda (se guarda con «Guardar»)
   const seVe = async (donde, dice) => {
     try {
@@ -1015,7 +1054,7 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
       ) : tipo === 'historia' ? (
         <HojaHistoria estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} />
       ) : (
-        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} onRegenerarLinea={listo ? regenerarLinea : null} onSeVe={listo ? seVe : null} />
+        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} onRegenerarLinea={listo ? regenerarLinea : null} onSeVe={listo ? seVe : null} onLineaNueva={listo ? lineaNueva : null} />
       )}
       <aside className="nv-guion__lado" ref={lateral}>
         {leido.aprobado || cargando ? null : (
