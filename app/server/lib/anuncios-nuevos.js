@@ -1907,6 +1907,8 @@ export async function cambiarVoz(slug, cuerpo = {}) {
   if (!defDe(brief)?.narrador) throw new ErrorApp(409, 'Este anuncio no lleva narrador: la voz sale del video o de la canción.');
   if (existe(path.join(TEMP, slug, 'audio', 'voz.mp3'))) throw new ErrorApp(409, 'La voz de este anuncio ya se generó. Para cambiarla, pídelo en el editor o crea el anuncio de nuevo.');
   if (cuerpo.auto === true) {
+    vozQueFallo.delete(slug);
+    vozQueFalloEn.delete(slug);
     const b = { ...brief, voz: { auto: true } };
     escribirJSON(ruta, b);
     const v = await asegurarVoz({ carpeta: path.join(TEMP, slug), brief: b, ficha: leerFicha(b.productoId) || {} });
@@ -1923,6 +1925,7 @@ export async function cambiarVoz(slug, cuerpo = {}) {
 // las voces que la app está eligiendo ahora (para no pedirlas dos veces mientras la pantalla pregunta cada 2 s)
 const eligiendoVoz = new Set();
 const vozQueFallo = new Map(); // slug -> el mensaje (para la tarjeta de la voz)
+const vozQueFalloEn = new Map(); // slug -> cuándo falló (para no reintentar solo enseguida)
 
 export function estadoGuion(slug) {
   if (!esAnuncioNuevo(slug)) return null;
@@ -1953,15 +1956,23 @@ export function estadoGuion(slug) {
     : null;
   // la voz que elige la app: si el guion ya está y todavía no la eligió (o falló al terminar el guion), se elige ahora,
   // de fondo, para que la pantalla la muestre (la próxima consulta ya la trae)
-  if (estado === 'listo' && brief && defDe(brief)?.narrador && faltaVoz(brief) && !eligiendoVoz.has(slug) && !existe(path.join(TEMP, slug, 'audio', 'voz.mp3'))) {
+  // (si falló, no se reintenta solo antes de 10 minutos: pedirle a ElevenLabs una y otra vez puede hacer que frene la
+  // cuenta; el usuario reintenta cuando quiera con «Volver a intentar»)
+  const falloReciente = vozQueFallo.has(slug) && Date.now() - (vozQueFalloEn.get(slug) || 0) < 10 * 60000;
+  if (estado === 'listo' && brief && defDe(brief)?.narrador && faltaVoz(brief) && !eligiendoVoz.has(slug) && !falloReciente && !existe(path.join(TEMP, slug, 'audio', 'voz.mp3'))) {
     eligiendoVoz.add(slug);
     asegurarVoz({ carpeta: path.join(TEMP, slug), brief: { ...brief }, ficha: leerFicha(brief.productoId) || {} })
       .then((v) => {
-        if (!v.ok) vozQueFallo.set(slug, v.mensaje);
-        else vozQueFallo.delete(slug);
+        if (!v.ok) {
+          vozQueFallo.set(slug, v.mensaje);
+          vozQueFalloEn.set(slug, Date.now());
+        } else vozQueFallo.delete(slug);
       })
-      .catch((e) => vozQueFallo.set(slug, String(e.message || e)))
-      .finally(() => setTimeout(() => eligiendoVoz.delete(slug), 30000));
+      .catch((e) => {
+        vozQueFallo.set(slug, String(e.message || e));
+        vozQueFalloEn.set(slug, Date.now());
+      })
+      .finally(() => eligiendoVoz.delete(slug));
   }
   // un guion reabierto (la produccion se freno en su primer paso por el guion) se aprueba otra vez despues del cambio
   const listoParaAprobar = estado === 'listo' && s.estado === 'listo' && !enProduccion;

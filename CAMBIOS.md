@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18m · La app no insiste con ElevenLabs cuando falla
+
+- Si traer tus voces o elegir la voz falla, la app ya no vuelve a pedírselo a ElevenLabs sola cada 30 segundos: espera 2 minutos para la lista de voces y 10 minutos para elegir la voz. Pedírselo una y otra vez puede hacer que ElevenLabs frene la cuenta. Los botones **Reintentar** y **Volver a intentar** lo piden enseguida.
+
 ## 2026-11-18l · «Probar» la clave de ElevenLabs ya no se pasa de tiempo, y dice por qué si falla
 
 - Con una clave sin el permiso «User» (por ejemplo, una clave nueva con permisos recortados), «Probar» comprobaba la clave pidiendo la lista de voces con el conteo total de la cuenta, que es lento con muchas voces: «ElevenLabs no respondió a tiempo». Ahora la pide sin ese conteo. Lo mismo en el motor que genera la voz.

@@ -290,7 +290,8 @@ export const apiNuevo = {
   /** { kie: { creditos, alcanza? } }. Con slug, el servidor puede decir si alcanza para ESE anuncio. Nunca se muestran los números. */
   saldo: (slug) => pedirNuevo(`/api/saldo${slug ? `?slug=${enc(slug)}` : ''}`),
   /** [{ id, nombre, muestra, etiquetas }] (o { voces, vozPorEstilo }). */
-  voces: (estilo) => pedirNuevo(`/api/voces${estilo ? `?estilo=${enc(estilo)}` : ''}`),
+  // (fresco: pedirla de nuevo a ElevenLabs aunque acabe de fallar; solo con «Reintentar»)
+  voces: (estilo, fresco = false) => pedirNuevo(`/api/voces?${new URLSearchParams({ ...(estilo ? { estilo } : {}), ...(fresco ? { fresco: '1' } : {}) })}`),
 
   // ---- el producto (temp/_productos/<id>/)
   /** { nombre?, tipo, url?, descripcion?, guionPropio? } -> { id } */
