@@ -23,6 +23,7 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { ENV } from './rutas.js';
+import { ocupadaDesde } from './ocupada.js';
 
 export const CLAVES = {
   kie: { variable: 'KIE_API_KEY', nombre: 'kie.ai' },
@@ -224,6 +225,7 @@ export async function repararEnv() {
 
 /** fetch con plazo; los errores de red vuelven como { red: true } (nunca tira). */
 async function consultar(url, cabeceras) {
+  const t0 = Date.now();
   try {
     const r = await fetch(url, { headers: { Accept: 'application/json', ...cabeceras }, signal: AbortSignal.timeout(ESPERA_MS) });
     let json = null;
@@ -234,21 +236,28 @@ async function consultar(url, cabeceras) {
     }
     return { estado: r.status, json };
   } catch (err) {
-    return { red: true, plazo: err?.name === 'TimeoutError' };
+    // (para saber qué pasó: si la app estuvo ocupada, no fue el servicio; si no, el código de la conexión)
+    const ocupada = ocupadaDesde(t0);
+    const codigo = String(err?.cause?.code || err?.cause?.errors?.[0]?.code || err?.cause?.name || err?.name || '').slice(0, 40);
+    console.warn(`[claves] ${new URL(url).host}: ${codigo || 'error'} en ${Date.now() - t0} ms${ocupada > 1000 ? ` (la app estuvo ocupada ${(ocupada / 1000).toFixed(1)} s)` : ''}`);
+    return { red: true, plazo: err?.name === 'TimeoutError', ocupada, codigo, ms: Date.now() - t0 };
   }
 }
 
-const sinConexion = (nombre, plazo) => ({
+const sinConexion = (nombre, plazo, r = {}) => ({
   ok: false,
-  motivo: 'sin-conexion',
-  mensaje: plazo ? `${nombre} no respondió a tiempo. Vuelve a probar en un rato.` : `No pude conectar con ${nombre}. Revisa tu internet y vuelve a probar.`,
+  motivo: r.ocupada > 1000 ? 'app-ocupada' : 'sin-conexion',
+  mensaje:
+    r.ocupada > 1000
+      ? `La app estuvo ocupada ${Math.round(r.ocupada / 1000)} s haciendo otra cosa y la respuesta de ${nombre} no alcanzó a llegar (no fue ${nombre} ni tu internet). Vuelve a probar; si se repite, avísame qué estaba haciendo la app.`
+      : `${plazo ? `${nombre} no respondió a tiempo.` : `No pude conectar con ${nombre}.`} Vuelve a probar en un rato.${r.codigo ? ` (detalle: ${r.codigo}, ${Math.round((r.ms || 0) / 1000)} s)` : ''}`,
 });
 
 /** El saldo de kie con una clave dada. { ok, creditos } o { ok: false, motivo, mensaje }. */
 async function creditosKie(clave) {
   if (!clave) return { ok: false, motivo: 'sin-clave', mensaje: 'Todavía no guardaste tu clave de kie.ai.' };
   const r = await consultar(`${bases.kie}/api/v1/chat/credit`, { Authorization: `Bearer ${clave}` });
-  if (r.red) return sinConexion('kie.ai', r.plazo);
+  if (r.red) return sinConexion('kie.ai', r.plazo, r);
   const codigo = Number(r.json?.code ?? r.estado);
   if (r.estado === 401 || r.estado === 403 || codigo === 401 || codigo === 403) {
     return { ok: false, motivo: 'clave-invalida', mensaje: 'kie.ai no reconoce esta clave. Revisa que la hayas copiado entera.' };
@@ -310,7 +319,7 @@ export async function saldoElevenLabs({ fresco = false, base = null, clave: clav
   if (!clave) return { ok: false, motivo: 'sin-clave', mensaje: 'Todavía no guardaste tu clave de ElevenLabs.' };
   const r = await consultar(`${base || bases.elevenlabs}/v1/user/subscription`, { 'xi-api-key': clave });
   let res;
-  if (r.red) res = sinConexion('ElevenLabs', r.plazo);
+  if (r.red) res = sinConexion('ElevenLabs', r.plazo, r);
   else if (r.estado >= 200 && r.estado < 300 && r.json) {
     const tier = String(r.json.tier || '').toLowerCase();
     res = {
@@ -332,7 +341,7 @@ async function usuarioElevenLabs(clave) {
   if (!clave) return { ok: false, motivo: 'sin-clave', mensaje: 'Todavía no guardaste tu clave de ElevenLabs.' };
   const cab = { 'xi-api-key': clave };
   const r = await consultar(`${bases.elevenlabs}/v1/user`, cab);
-  if (r.red) return sinConexion('ElevenLabs', r.plazo);
+  if (r.red) return sinConexion('ElevenLabs', r.plazo, r);
   if (r.estado >= 200 && r.estado < 300) {
     // solo el nombre del plan: la respuesta trae otros datos de la cuenta que no salen de aca
     const tier = String(r.json?.subscription?.tier || '').toLowerCase();
@@ -345,8 +354,9 @@ async function usuarioElevenLabs(clave) {
   const detalle = [d.status, d.code, d.type].filter(Boolean).join(' ');
   if (/missing_permissions/i.test(detalle)) {
     // Clave con permisos recortados: lo que usa la app es ver las voces y hacer la voz.
-    const v = await consultar(`${bases.elevenlabs}/v2/voices?page_size=1`, cab);
-    if (v.red) return sinConexion('ElevenLabs', v.plazo);
+    // (sin el conteo total de voces: según ElevenLabs es lo que la hace lenta, y con muchas voces se pasaba de tiempo)
+    const v = await consultar(`${bases.elevenlabs}/v2/voices?page_size=1&include_total_count=false`, cab);
+    if (v.red) return sinConexion('ElevenLabs', v.plazo, v);
     if (v.estado >= 200 && v.estado < 300) return { ok: true, mensaje: 'Tu clave de ElevenLabs funciona.' };
     return {
       ok: false,

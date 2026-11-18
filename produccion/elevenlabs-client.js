@@ -66,7 +66,8 @@ export async function listarVoces() {
 
   try {
     do {
-      const q = new URLSearchParams({ page_size: '100' });
+      // include_total_count=false: contar todas las voces es lo que hace lenta la respuesta (ElevenLabs)
+      const q = new URLSearchParams({ page_size: '100', include_total_count: 'false' });
       if (token) q.set('next_page_token', token);
       const json = await pedir(`${ELEVENLABS.listarVoces}?${q}`);
       voces.push(...(json.voices || []));
