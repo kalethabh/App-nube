@@ -24,6 +24,14 @@ const PAGINAS = {
     incidents: [{ name: 'Claude unable to join meetings', status: 'investigating', impact: 'minor', components: [{ name: 'claude.ai' }] }],
   },
   '/openai': { status: { indicator: 'major' }, components: [{ name: 'Codex', status: 'major_outage' }, { name: 'Responses', status: 'operational' }], incidents: [{ name: 'Codex is down', status: 'identified', impact: 'major', components: [{ name: 'Codex' }], created_at: '2026-11-18T15:00:00Z' }] },
+  '/meta': [
+    { id: 'ads-manager', name: 'Facebook Ads Manager', services: [{ name: 'Ads Delivery', status: 'Some disruptions', time: 1763478000 }, { name: 'Ads Reporting', status: 'No known issues' }] },
+    { id: 'marketing-api', name: 'Marketing API', services: [{ name: 'Ads Insights API', status: 'No known issues' }] },
+    { id: 'ads-transparency', name: 'Ads Transparency', services: [{ name: 'Ad Library', status: 'No known issues' }, { name: 'Branded Content', status: 'Major disruptions' }] },
+    { id: 'whatsapp-business-api', name: 'WhatsApp Business Platform', services: [{ name: 'Cloud API', status: 'Major disruptions' }] },
+    { id: 'ctx', name: 'Messaging Ads', services: [{ name: 'Click to WhatsApp', status: 'No known issues' }] },
+    { id: 'audience-network', name: 'Meta Audience Network', services: [{ name: 'Revenue Reporting', status: 'High disruptions' }] },
+  ],
   '/eleven': { status: { indicator: 'minor', description: 'Partial System Degradation' }, components: [], incidents: [{ name: 'Increased latency and API errors', status: 'investigating', impact: 'minor', components: [], created_at: '2026-11-18T15:34:42Z' }] },
 };
 const servidor = http.createServer((req, res) => {
@@ -35,15 +43,19 @@ await new Promise((r) => servidor.listen(0, '127.0.0.1', r));
 const base = `http://127.0.0.1:${servidor.address().port}`;
 
 try {
-  salud._paraPruebas({ claude: `${base}/claude`, openai: `${base}/openai`, elevenlabs: `${base}/eleven` });
+  salud._paraPruebas({ claude: `${base}/claude`, openai: `${base}/openai`, elevenlabs: `${base}/eleven`, meta: `${base}/meta` });
   const d = await salud.salud({ fresco: true });
   const s = Object.fromEntries(d.grupos.flatMap((g) => g.servicios).map((x) => [x.id, x]));
   check('Claude: una falla en una parte que la app no usa (reuniones) no la pone en amarillo', s.claude.estado === 'operativo' && /1 aviso/.test(s.claude.otros || ''), s.claude);
   check('ChatGPT: Codex caído -> «caido», con el nombre de la falla y desde cuándo', s.chatgpt.estado === 'caido' && /Codex is down/.test(s.chatgpt.detalle) && /desde las/.test(s.chatgpt.detalle), s.chatgpt);
   check('ElevenLabs: falla abierta sin partes -> «degradado» con su nombre', s.elevenlabs.estado === 'degradado' && /Increased latency/.test(s.elevenlabs.detalle), s.elevenlabs);
   check('kie.ai sin clave: «desconocido» (no alarma)', s.kie.estado === 'desconocido', s.kie);
+  check('Meta Ads Manager: «Some disruptions» en la entrega -> amarillo, con la parte y la hora', s['meta-ads'].estado === 'degradado' && /Ads Delivery: Some disruptions \(desde las/.test(s['meta-ads'].detalle), s['meta-ads']);
+  check('Biblioteca de anuncios: solo cuenta la Ad Library (Branded Content caído no la pone en rojo)', s['meta-biblioteca'].estado === 'operativo', s['meta-biblioteca']);
+  check('WhatsApp Business: Cloud API con «Major disruptions» -> rojo', s['meta-whatsapp'].estado === 'caido' && /Cloud API/.test(s['meta-whatsapp'].detalle), s['meta-whatsapp']);
+  check('Un producto de Meta que no usas (Audience Network) no aparece', !Object.values(s).some((x) => /Revenue/.test(x.detalle || '')));
   check('El general es el peor de los que se pudieron revisar (caído)', d.general === 'caido', d.general);
-  salud._paraPruebas({ claude: `${base}/no-existe`, openai: `${base}/no-existe`, elevenlabs: `${base}/no-existe` });
+  salud._paraPruebas({ claude: `${base}/no-existe`, openai: `${base}/no-existe`, elevenlabs: `${base}/no-existe`, meta: `${base}/no-existe` });
   const d2 = await salud.salud({ fresco: true });
   check('Si una página de estado no carga: «desconocido», y el general no se pone rojo por eso', d2.grupos.flatMap((g) => g.servicios).every((x) => x.estado === 'desconocido') && d2.general === 'operativo', d2);
   const t0 = Date.now();
