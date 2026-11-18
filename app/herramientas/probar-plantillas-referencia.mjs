@@ -33,30 +33,71 @@ for (const n of [1, 4, 6, 10, 25]) {
 check('otro día, otra mezcla', ref.elegir(6, [], { dia: 1 }).join() !== ref.elegir(6, [], { dia: 2 }).join());
 check('las elegidas, en su orden y sin repetir', ref.elegir(3, ['p05', 'p01', 'p05', 'x']).join() === 'p05,p01');
 
-// 3. el lote: las referencias y lo que recibe el modelo
+// 3. el lote: las referencias y lo que recibe el modelo. Un producto de prueba (glúteos, caderas y piernas) con su
+// investigación y la matriz de Andromeda; se borra al final.
+const { PRODUCTOS } = await import('../server/lib/productos.js');
+const ID = `prueba-plantillas-${process.pid}`;
+const DIR_P = path.join(PRODUCTOS, ID);
+fs.mkdirSync(path.join(DIR_P, 'investigacion'), { recursive: true });
+fs.writeFileSync(path.join(DIR_P, 'producto.json'), JSON.stringify({ id: ID, nombre: 'Curvas Plus' }));
+fs.writeFileSync(path.join(DIR_P, 'ficha.json'), JSON.stringify({ nombre: 'Curvas Plus', beneficios: ['Más volumen en glúteos', 'Caderas más anchas', 'Piernas tonificadas'], dolor: 'Siento la cola plana y que no lleno el jean.', publico: 'Mujeres de 20 a 40 años', pais: 'Colombia' }));
+const tabla = (columnas, filas, nota = '') => ({ tipo: 'tabla', columnas, filas, nota });
+fs.writeFileSync(path.join(DIR_P, 'investigacion', 'investigacion.json'), JSON.stringify({
+  formato: 'documento', pais: 'Colombia',
+  secciones: [
+    { titulo: 'Los 5 resultados deseados', bloques: [{ tipo: 'numerada', items: ['**Verse con curvas.** Llenar el jean.', '**Natural.** Sin cirugía.'] }] },
+    { titulo: 'Tiempos de transformación', bloques: [tabla(['Prioridad', 'Qué notan', 'Cuándo', 'De dónde sale'], [['1', 'El jean le queda mejor', 'Desde la semana 4', 'Reseñas']], 'Usa solo «desde la semana 4».')] },
+    { titulo: 'Avatar principal', bloques: [{ tipo: 'caja', estilo: 'avatar', titulo: 'Yuliana, la flaca del grupo', texto: 'Tiene 26 años.' }] },
+    { titulo: 'Deseo central, propuestas de valor y copy para la landing', bloques: [{ tipo: 'cita', estilo: 'central', texto: 'Verme con curvas y llenar el jean sin operarme.' }] },
+    { titulo: 'Conceptos para Meta (Andromeda)', bloques: [
+      tabla(['Persona base', 'Faceta', 'Dolor en sus palabras', 'Escenario visual'], [['Yuliana, 26', 'La que va a la playa', 'Me da pena el vestido de baño', 'Playa de Cartagena'], ['Yuliana, 26', 'La del jean', 'El jean me queda flojo atrás', 'Probador de un centro comercial']]),
+      tabla(['#', 'Faceta', 'Problema', 'Contexto', 'Formato', 'Hook'], [['1', 'La que va a la playa', 'Cola plana', 'Antes del viaje de diciembre', 'Antes y después', 'Lista para la playa'], ['2', 'La del jean', 'No llena el jean', 'Sábado de compras', 'Una persona', 'Por fin lleno el jean']]),
+    ] },
+  ],
+  anuncios_imagen: [{ plantilla: 'historia', concepto: 2, faceta: 'La del jean', angulo: 'deseo', contexto: 'Sábado de compras', textos: { titular: 'Por fin el jean me queda perfecto' } }],
+}));
+const { contextoCreativo } = await import('../server/lib/imagen-ads/angulo-producto.js');
+const ctx = contextoCreativo(ID);
+check('lee el deseo central, los tiempos y la matriz de Andromeda', /curvas/.test(ctx.deseo) && ctx.tiempos[0]?.cuando === 'Desde la semana 4' && ctx.conceptos.length === 2 && ctx.conceptos[0].escenario === 'Playa de Cartagena' && ctx.conceptos[1].titular === 'Por fin el jean me queda perfecto', ctx);
+
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'plantillas-ref-'));
 fs.mkdirSync(path.join(TMP, 'entrada'), { recursive: true });
 fs.copyFileSync(path.join(ref.DIR, 'mini', 'p01.jpg'), path.join(TMP, 'entrada', 'producto.png'));
 const ids = ref.elegir(4, []);
-const brief = { slug: '_img-prueba', cantidad: 6, formatos: ['1:1'], modo: 'nuevos', desdePlantillas: true, fiel: true, rapido: true, datos: { nombre: 'Crema Luna', pais: 'Colombia' }, fotoProducto: 1 };
+const brief = { slug: '_img-prueba', productoId: ID, cantidad: 6, formatos: ['1:1'], modo: 'nuevos', desdePlantillas: true, fiel: true, rapido: true, datos: { nombre: 'Curvas Plus', pais: 'Colombia' }, fotoProducto: 1 };
 brief.referencias = ref.copiarAlLote(TMP, ids);
 fs.mkdirSync(path.join(TMP, 'app'), { recursive: true });
 fs.writeFileSync(path.join(TMP, 'app', 'brief.json'), JSON.stringify(brief));
 check('las plantillas quedan como referencias R01…R04', brief.referencias.join() === 'entrada/referencias/R01.jpg,entrada/referencias/R02.jpg,entrada/referencias/R03.jpg,entrada/referencias/R04.jpg' && brief.referencias.every((r) => fs.existsSync(path.join(TMP, r))));
 const r = prepararRapido(TMP, brief);
-check('el modo rápido las arma en modo «copiar»', r.ok && r.modo === 'copiar' && r.referencias === 4, r);
+check('el modo rápido las arma', r.ok && r.referencias === 4, r);
 const plan = JSON.parse(fs.readFileSync(path.join(TMP, 'plan.json'), 'utf8'));
 check('6 anuncios repartidos entre las 4 plantillas', plan.variaciones.length === 6 && new Set(plan.variaciones.map((v) => v.referencia)).size === 4, plan.variaciones.map((v) => v.referencia));
-const v1 = JSON.parse(fs.readFileSync(path.join(TMP, 'V01.json'), 'utf8'));
-check('cada anuncio pide la paleta del producto, sin precios ni ofertas', v1.app_rapido === 'copiar' && /color palette to the product/i.test(v1.visual_prompt) && /no prices/i.test(v1.visual_prompt), v1.visual_prompt);
+const leerV = (k) => JSON.parse(fs.readFileSync(path.join(TMP, `V0${k}.json`), 'utf8'));
+const v1 = leerV(1);
+const v2 = leerV(2);
+check('cada anuncio va en modo «plantilla» con el ángulo del producto', v1.app_rapido === 'plantilla' && /THIS PRODUCT'S ANGLE: Verme con curvas/.test(v1.visual_prompt.replace(' (what the image must SHOW, in the template\'s form)', '')), v1.visual_prompt);
+check('cada imagen, un concepto distinto de Andromeda (faceta, momento y escenario)', /La que va a la playa/.test(v1.visual_prompt) && /Playa de Cartagena/.test(v1.visual_prompt) && /La del jean/.test(v2.visual_prompt) && !/La del jean/.test(v1.visual_prompt), [v1.visual_prompt, v2.visual_prompt]);
+const v3 = leerV(3);
+check('un concepto que se repite cambia de momento y de titular', /La que va a la playa/.test(v3.visual_prompt) && !/Antes del viaje de diciembre/.test(v3.visual_prompt) && v3.text_layers[0].text !== v1.text_layers[0].text, [v3.visual_prompt, v3.text_layers, v1.text_layers]);
+check('el titular sale de la investigación (con la corrección del usuario)', v2.text_layers[0].text === 'Por fin el jean me queda perfecto', v2.text_layers);
+check('solo los tiempos de la investigación, con su regla', /Desde la semana 4/.test(v1.visual_prompt) && /never with invented days/.test(v1.visual_prompt));
+check('sin precios ni la marca de la plantilla', v1.final_generation_exclusions.some((x) => /prices/.test(x)) && v1.final_generation_exclusions.some((x) => /body area/.test(x)));
 let prompt = '';
 try {
-  prompt = construirPrompt(v1, { formato: '1:1', referencia: true, producto: true });
+  prompt = construirPrompt(v1, { referencia: true });
 } catch (e) {
   prompt = String(e.message);
 }
-check('al modelo le llega «mantén el diseño y cambia producto y textos»', /REFERENCE AD/.test(prompt) && /Replace the product/.test(prompt) && /Rewrite every other text/.test(prompt), prompt.slice(0, 300));
+check('al modelo le llega «la forma de la plantilla, el ángulo del producto»', /TEMPLATE/.test(prompt) && /VISUAL MECHANISM/.test(prompt) && /swollen legs/.test(prompt) && /Day 1 \/ Day 14 \/ Day 30/.test(prompt) && /Andromeda/.test(prompt) && /THIS PRODUCT'S ANGLE/.test(prompt), prompt.slice(0, 400));
 
+// sin investigación: igual cada imagen a otro momento
+fs.rmSync(path.join(DIR_P, 'investigacion'), { recursive: true, force: true });
+const r2 = prepararRapido(TMP, { ...brief });
+const a = leerV(1).visual_prompt;
+const b = leerV(2).visual_prompt;
+check('sin investigación: el ángulo de la ficha y un momento distinto en cada imagen', r2.ok && /Más volumen en glúteos/.test(a) && /CONCEPT of this image/.test(a) && a.split('CONCEPT')[1] !== b.split('CONCEPT')[1], [a, b]);
+fs.rmSync(DIR_P, { recursive: true, force: true });
 fs.rmSync(TMP, { recursive: true, force: true });
 const ok = resultados.filter(Boolean).length;
 console.log(`\n${ok}/${resultados.length} OK`);

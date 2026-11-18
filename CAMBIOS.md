@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-18t · Plantillas: la forma de la plantilla, el ángulo de tu producto
+
+- La plantilla pone la **forma** y tu producto pone el **ángulo**. Por ejemplo, un antes y después de piernas hinchadas, para un producto de glúteos, caderas y piernas, sale como antes y después de glúteos, caderas y piernas, con la misma división y los mismos rótulos. Un «Día 1 · 14 · 30» muestra el cambio de tu producto, paso a paso. Una plantilla con una sola persona muestra tu resultado en ella, para que el ángulo se entienda antes de leer.
+- **Andromeda en cada imagen**: cada una lleva un concepto distinto de tu investigación (la faceta, el problema, el momento y el escenario), con una persona de tu país que se ve como tu cliente. Sin investigación, cada imagen se ubica en un momento distinto.
+- **Mejores textos**: el titular sale de los textos de tu investigación (con tus correcciones). Los rótulos son cortos y en las palabras de tu cliente. Los días o semanas, solo los que permite tu investigación, sin inventar números.
+
 ## 2026-11-18s · Plantillas: tus anuncios validados como referencia
 
 - En «Crear anuncios de imagen», **«Con plantillas de anuncios validados»** ahora muestra los 30 anuncios validados que pasaste (Muna, Grüns, Sonvital, Vitaly, Lymphoria, Aurelys, Natures Sunshine, Aguaje…), por tipo: dolor y deseo, antes y después, línea de tiempo, comparación, beneficios, nativo y temporada.

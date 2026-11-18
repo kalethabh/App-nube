@@ -21,6 +21,7 @@ import { leerJSON, existe } from '../archivos.js';
 import { leerFicha } from '../productos.js';
 import { R, guardarJSON, idsDelLote, fotoDelLote } from './disco.js';
 import { leerSkill } from './verificar.js';
+import { contextoCreativo, MOMENTOS } from './angulo-producto.js';
 
 const corto = (t, max) => String(t || '').replace(/\s+/g, ' ').trim().slice(0, max);
 const sinComillas = (t) => corto(t, 200).replace(/^["«“']+|["»”']+$/g, '').trim();
@@ -93,6 +94,17 @@ export function prepararRapido(carpeta, brief) {
   const propias = new Set(brief.referenciasPropias || []);
   const { angulos } = leerSkill();
   const ids = idsDelLote(n);
+  // con plantillas: el ángulo del producto y los conceptos de Andromeda (angulo-producto.js)
+  const creativo = brief.desdePlantillas ? contextoCreativo(brief.productoId) : null;
+  // (si hay menos conceptos que imágenes, el que se repite cambia de momento y de titular: para Andromeda, dos anuncios
+  // que cambian menos de 2 de faceta, momento y plantilla son el mismo)
+  const L = creativo?.conceptos?.length || 0;
+  const conceptoDe = (i) => {
+    if (!L) return null;
+    const c = creativo.conceptos[i % L];
+    return i < L ? c : { ...c, contexto: MOMENTOS[i % MOMENTOS.length], escenario: '', hook: '', titular: '' };
+  };
+  const titularDe = (i) => (i < L ? conceptoDe(i).titular || conceptoDe(i).hook || '' : '');
 
   // el brief: las referencias que se usan (en Nuevos pueden ser las validadas) y «fiel» para que el motor las adjunte
   brief.referencias = refs;
@@ -139,7 +151,7 @@ export function prepararRapido(carpeta, brief) {
       angulo_id: angulos.has(angulo_id) ? angulo_id : [...angulos.keys()][0] || 'beneficio-principal',
       angulo: angulos.get(angulo_id)?.nombre || angulo_id,
       concepto: modo === 'copiar' ? 'Variación del creativo que ya funciona' : 'Anuncio nuevo inspirado en un anuncio validado',
-      titular: titulares[i].titulo,
+      titular: corto(titularDe(i), 90) || titulares[i].titulo,
       escena: modo === 'copiar' ? 'la de la referencia' : 'nueva, del mismo tipo que la referencia',
       camara: 'la de la referencia',
       base_titular: titulares[i].base,
@@ -150,6 +162,10 @@ export function prepararRapido(carpeta, brief) {
   variaciones.forEach((x, i) => {
     const k = (refs.indexOf(x.referencia) + 1) || 1;
     const deEsteProducto = modo === 'copiar' && propias.has(k);
+    if (creativo) {
+      guardarJSON(R.v(carpeta, x.id), variacionDePlantilla({ id: x.id, i, titular: x.titular, nombre, publico, pais, beneficios, creativo, concepto: conceptoDe(i) }));
+      return;
+    }
     const visual = [
       `Product: ${nombre}${publico ? `, for ${publico}` : ''}${pais ? ` (market: ${pais})` : ''}.`,
       beneficios.length ? `Benefits to use in the secondary texts (Spanish, short): ${beneficios.join('; ')}.` : 'Secondary texts: short and about the main benefit of the product.',
@@ -161,9 +177,6 @@ export function prepararRapido(carpeta, brief) {
           ? 'This reference is an ad of this same product: keep everything (also its colors); change only the texts.'
           : "Adapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference."
         : 'Use a color palette that matches the product packaging. Make it look like a premium, scroll-stopping social media ad.',
-      brief.desdePlantillas
-        ? 'The reference is a TEMPLATE from another brand: keep its structure, composition, visual hierarchy, typography and the kind of image (person, body area, illustration or diagram), but nothing of its brand. If it shows a price, a discount, a quantity offer or an offer badge, put there a short benefit or call to action instead (no prices, no percentages, no "2 x"). Before and after, days and timelines only as the reference shows them, for this product.'
-        : null,
       'All visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.',
     ]
       .filter(Boolean)
@@ -188,4 +201,42 @@ export function prepararRapido(carpeta, brief) {
     });
   });
   return { ok: true, referencias: refs.length, titulares: titulares.length, modo };
+}
+
+/**
+ * Una variación de un lote con PLANTILLAS (app_rapido 'plantilla', produccion/imagen-ads.js RAPIDO_PLANTILLA): lo que
+ * el modelo tiene que mostrar con la forma de la plantilla. El ÁNGULO es el del producto (deseo central, resultados,
+ * zona del cuerpo); el CONCEPTO (faceta, problema, momento y escenario) cambia en cada imagen, como pide Andromeda.
+ */
+export function variacionDePlantilla({ id, i, titular, nombre, publico, pais, beneficios, creativo, concepto }) {
+  const c = creativo;
+  const deseo = c.deseo || c.resultados[0] || beneficios[0] || '';
+  const lineas = [
+    `PRODUCT: ${nombre}${pais ? ` (market: ${pais}, Spanish of ${pais})` : ''}.`,
+    `THIS PRODUCT'S ANGLE (what the image must SHOW, in the template's form): ${deseo || 'the main result of the product'}.`,
+    c.resultados.length ? `Desired results, most important first: ${c.resultados.slice(0, 3).join(' · ')}.` : null,
+    beneficios.length ? `Benefits (for the secondary texts): ${beneficios.join('; ')}.` : null,
+    c.dolor ? `The pain in the customer's words: ${c.dolor}` : null,
+    c.avatar || publico ? `Customer: ${c.avatar || publico}` : null,
+    concepto
+      ? `CONCEPT of this image (one of the Andromeda matrix, different from the other images of the batch): facet «${concepto.faceta}»${concepto.problema ? `; problem «${concepto.problema}»` : ''}${concepto.contexto ? `; moment «${concepto.contexto}»` : ''}${concepto.escenario ? `; scene «${concepto.escenario}»` : ''}${concepto.dolor ? `; the customer says «${concepto.dolor}»` : ''}${concepto.hook ? `; hook «${concepto.hook}»` : ''}. Show that person in that moment, inside the template's form.`
+      : `CONCEPT of this image (different from the other images of the batch): the customer ${MOMENTOS[i % MOMENTOS.length]}. Show that person in that moment, inside the template's form.`,
+    c.tiempos.length
+      ? `Allowed timeframes (for the panel labels and the headline): ${c.tiempos.map((t) => `${t.que}: ${t.cuando}`).join(' · ')}.${c.notaTiempos ? ` Rule: ${c.notaTiempos}` : ''} If the template has more panels than allowed timeframes, label them ANTES / DESPUÉS or with the steps, never with invented days.`
+      : 'Timeframes: keep the template\'s panel labels (days or weeks) only if they make sense for this product; never invent a number.',
+    "Color palette: the colors of the product's packaging, with the same contrast and hierarchy as the template.",
+    'All visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.',
+  ].filter(Boolean);
+  return {
+    ad_info: { variation_id: id },
+    global_identity: { color_palette: "the colors of the product's packaging", text_typography: 'the typography of the template' },
+    visual_prompt: lineas.join('\n'),
+    text_layers: [{ reference_function: 'main headline', reference_position: 'same place as the main headline of the template', text: titular, text_style: 'same style as the main headline of the template' }],
+    mandatory_visual_elements: ['the real product from the attached product photo', "this product's angle shown in the template's visual mechanism"],
+    final_generation_exclusions: ['any logo, brand name or text from the template', "the template's body area or problem when it is not this product's", 'prices, discounts or offers', 'misspelled words'],
+    reference_structure_analysis: { forbidden_additions: ["the template's brand, prices or claims"], detected_visual_blocks: [] },
+    language_rule: 'All visible text in Spanish.',
+    app_rapido: 'plantilla',
+    app_concepto: concepto ? { faceta: concepto.faceta, contexto: concepto.contexto } : { momento: MOMENTOS[i % MOMENTOS.length] },
+  };
 }
