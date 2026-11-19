@@ -1,0 +1,379 @@
+{
+  "titulo": "62   VTD TT",
+  "estilo": "video-propio",
+  "modo_audio": "voz_en_off",
+  "idioma": "es",
+  "aspect_ratio": "9:16",
+  "video_propio": {
+    "archivo": "original.mp4",
+    "duracion": 173.633,
+    "escenas": 91,
+    "subtitulos": false
+  },
+  "tomas": [
+    {
+      "n": 1,
+      "duracion": 2.867
+    },
+    {
+      "n": 2,
+      "duracion": 1.733
+    },
+    {
+      "n": 3,
+      "duracion": 1.267
+    },
+    {
+      "n": 4,
+      "duracion": 1.333
+    },
+    {
+      "n": 5,
+      "duracion": 1.6
+    },
+    {
+      "n": 6,
+      "duracion": 1.4
+    },
+    {
+      "n": 7,
+      "duracion": 0.6
+    },
+    {
+      "n": 8,
+      "duracion": 4.967
+    },
+    {
+      "n": 9,
+      "duracion": 2.067
+    },
+    {
+      "n": 10,
+      "duracion": 0.867
+    },
+    {
+      "n": 11,
+      "duracion": 1.733
+    },
+    {
+      "n": 12,
+      "duracion": 0.667
+    },
+    {
+      "n": 13,
+      "duracion": 1.233
+    },
+    {
+      "n": 14,
+      "duracion": 3.6
+    },
+    {
+      "n": 15,
+      "duracion": 1.1
+    },
+    {
+      "n": 16,
+      "duracion": 1.333
+    },
+    {
+      "n": 17,
+      "duracion": 0.833
+    },
+    {
+      "n": 18,
+      "duracion": 1.1
+    },
+    {
+      "n": 19,
+      "duracion": 0.8
+    },
+    {
+      "n": 20,
+      "duracion": 1.567
+    },
+    {
+      "n": 21,
+      "duracion": 1.533
+    },
+    {
+      "n": 22,
+      "duracion": 1.667
+    },
+    {
+      "n": 23,
+      "duracion": 0.633
+    },
+    {
+      "n": 24,
+      "duracion": 2.833
+    },
+    {
+      "n": 25,
+      "duracion": 1.133
+    },
+    {
+      "n": 26,
+      "duracion": 1.033
+    },
+    {
+      "n": 27,
+      "duracion": 5.7
+    },
+    {
+      "n": 28,
+      "duracion": 4.067
+    },
+    {
+      "n": 29,
+      "duracion": 3.667
+    },
+    {
+      "n": 30,
+      "duracion": 1.567
+    },
+    {
+      "n": 31,
+      "duracion": 1.133
+    },
+    {
+      "n": 32,
+      "duracion": 1.633
+    },
+    {
+      "n": 33,
+      "duracion": 1.067
+    },
+    {
+      "n": 34,
+      "duracion": 0.833
+    },
+    {
+      "n": 35,
+      "duracion": 1.033
+    },
+    {
+      "n": 36,
+      "duracion": 1
+    },
+    {
+      "n": 37,
+      "duracion": 0.767
+    },
+    {
+      "n": 38,
+      "duracion": 0.7
+    },
+    {
+      "n": 39,
+      "duracion": 1.367
+    },
+    {
+      "n": 40,
+      "duracion": 1.233
+    },
+    {
+      "n": 41,
+      "duracion": 1.5
+    },
+    {
+      "n": 42,
+      "duracion": 2.433
+    },
+    {
+      "n": 43,
+      "duracion": 1.8
+    },
+    {
+      "n": 44,
+      "duracion": 1.033
+    },
+    {
+      "n": 45,
+      "duracion": 0.9
+    },
+    {
+      "n": 46,
+      "duracion": 0.9
+    },
+    {
+      "n": 47,
+      "duracion": 1.333
+    },
+    {
+      "n": 48,
+      "duracion": 1.167
+    },
+    {
+      "n": 49,
+      "duracion": 1.367
+    },
+    {
+      "n": 50,
+      "duracion": 1.8
+    },
+    {
+      "n": 51,
+      "duracion": 1.5
+    },
+    {
+      "n": 52,
+      "duracion": 1.1
+    },
+    {
+      "n": 53,
+      "duracion": 1.567
+    },
+    {
+      "n": 54,
+      "duracion": 6.367
+    },
+    {
+      "n": 55,
+      "duracion": 1.4
+    },
+    {
+      "n": 56,
+      "duracion": 5.033
+    },
+    {
+      "n": 57,
+      "duracion": 1.2
+    },
+    {
+      "n": 58,
+      "duracion": 1.033
+    },
+    {
+      "n": 59,
+      "duracion": 0.9
+    },
+    {
+      "n": 60,
+      "duracion": 3.167
+    },
+    {
+      "n": 61,
+      "duracion": 0.767
+    },
+    {
+      "n": 62,
+      "duracion": 2.133
+    },
+    {
+      "n": 63,
+      "duracion": 0.767
+    },
+    {
+      "n": 64,
+      "duracion": 4.7
+    },
+    {
+      "n": 65,
+      "duracion": 3.567
+    },
+    {
+      "n": 66,
+      "duracion": 1.433
+    },
+    {
+      "n": 67,
+      "duracion": 1.333
+    },
+    {
+      "n": 68,
+      "duracion": 1.5
+    },
+    {
+      "n": 69,
+      "duracion": 0.9
+    },
+    {
+      "n": 70,
+      "duracion": 2.433
+    },
+    {
+      "n": 71,
+      "duracion": 1.067
+    },
+    {
+      "n": 72,
+      "duracion": 4.067
+    },
+    {
+      "n": 73,
+      "duracion": 1
+    },
+    {
+      "n": 74,
+      "duracion": 1.833
+    },
+    {
+      "n": 75,
+      "duracion": 0.667
+    },
+    {
+      "n": 76,
+      "duracion": 2.433
+    },
+    {
+      "n": 77,
+      "duracion": 1
+    },
+    {
+      "n": 78,
+      "duracion": 6.233
+    },
+    {
+      "n": 79,
+      "duracion": 1.2
+    },
+    {
+      "n": 80,
+      "duracion": 3.333
+    },
+    {
+      "n": 81,
+      "duracion": 0.9
+    },
+    {
+      "n": 82,
+      "duracion": 1.9
+    },
+    {
+      "n": 83,
+      "duracion": 1.1
+    },
+    {
+      "n": 84,
+      "duracion": 2.333
+    },
+    {
+      "n": 85,
+      "duracion": 1.3
+    },
+    {
+      "n": 86,
+      "duracion": 0.633
+    },
+    {
+      "n": 87,
+      "duracion": 1.3
+    },
+    {
+      "n": 88,
+      "duracion": 6.033
+    },
+    {
+      "n": 89,
+      "duracion": 6.033
+    },
+    {
+      "n": 90,
+      "duracion": 1.167
+    },
+    {
+      "n": 91,
+      "duracion": 3.8
+    }
+  ]
+}
