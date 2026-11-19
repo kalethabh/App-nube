@@ -1,0 +1,564 @@
+{
+  "carpeta": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624",
+  "archivos": [
+    "audio/voz.mp3",
+    "historial/protagonista-curvas--2026-11-19T23-02-04.png",
+    "img/fibras.png",
+    "img/ingredientes.png",
+    "img/protagonista-curvas.png",
+    "img/protagonista.png",
+    "img/toma-1-inicial.png",
+    "img/toma-10-inicial.png",
+    "img/toma-11-final.png",
+    "img/toma-11-inicial.png",
+    "img/toma-12-inicial.png",
+    "img/toma-13-inicial.png",
+    "img/toma-14-inicial.png",
+    "img/toma-15-inicial.png",
+    "img/toma-16-inicial.png",
+    "img/toma-17-inicial.png",
+    "img/toma-2-inicial.png",
+    "img/toma-3-inicial.png",
+    "img/toma-4-inicial.png",
+    "img/toma-5-inicial.png",
+    "img/toma-6-inicial.png",
+    "img/toma-7-inicial.png",
+    "img/toma-8-inicial.png",
+    "img/toma-9-inicial.png",
+    "musica/fondo-alternativa.mp3",
+    "musica/fondo.mp3",
+    "producto.png",
+    "qa/paso-1.jpg",
+    "qa/paso-10.jpg",
+    "qa/paso-11.jpg",
+    "qa/paso-12.jpg",
+    "qa/paso-13.jpg",
+    "qa/paso-14.jpg",
+    "qa/paso-15.jpg",
+    "qa/paso-16.jpg",
+    "qa/paso-2.jpg",
+    "qa/paso-3.jpg",
+    "qa/paso-4.jpg",
+    "qa/paso-5.jpg",
+    "qa/paso-6.jpg",
+    "qa/paso-7.jpg",
+    "qa/paso-8.jpg",
+    "qa/paso-9.jpg",
+    "qa/toma-11.jpg",
+    "qa/toma-17.jpg",
+    "qa/uniones/00-inicio-paso-1.jpg",
+    "qa/uniones/01-paso-1--paso-2.jpg",
+    "qa/uniones/02-paso-2--paso-3.jpg",
+    "qa/uniones/03-paso-3--paso-4.jpg",
+    "qa/uniones/04-paso-4--paso-5.jpg",
+    "qa/uniones/05-paso-5--paso-6.jpg",
+    "qa/uniones/06-paso-6--paso-7.jpg",
+    "qa/uniones/07-paso-7--paso-8.jpg",
+    "qa/uniones/08-paso-8--paso-9.jpg",
+    "qa/uniones/09-paso-9--paso-10.jpg",
+    "qa/uniones/10-paso-10--toma-11.jpg",
+    "qa/uniones/11-toma-11--paso-11.jpg",
+    "qa/uniones/12-paso-11--paso-12.jpg",
+    "qa/uniones/13-paso-12--paso-13.jpg",
+    "qa/uniones/14-paso-13--paso-14.jpg",
+    "qa/uniones/15-paso-14--paso-15.jpg",
+    "qa/uniones/16-paso-15--paso-16.jpg",
+    "qa/uniones/17-paso-16--toma-17.jpg",
+    "qa/uniones/18-toma-17-final.jpg",
+    "referencia/audio-referencia.mp3",
+    "referencia/hoja-tomas.jpg",
+    "referencia/original.mp4",
+    "referencia/tomas/movimiento/tira-01.jpg",
+    "referencia/tomas/movimiento/tira-02.jpg",
+    "referencia/tomas/movimiento/tira-03.jpg",
+    "referencia/tomas/toma-01.jpg",
+    "referencia/tomas/toma-02.jpg",
+    "referencia/tomas/toma-03.jpg",
+    "video/paso-1.mp4",
+    "video/paso-10.mp4",
+    "video/paso-11.mp4",
+    "video/paso-12.mp4",
+    "video/paso-13.mp4",
+    "video/paso-14.mp4",
+    "video/paso-15.mp4",
+    "video/paso-16.mp4",
+    "video/paso-2.mp4",
+    "video/paso-3.mp4",
+    "video/paso-4.mp4",
+    "video/paso-5.mp4",
+    "video/paso-6.mp4",
+    "video/paso-7.mp4",
+    "video/paso-8.mp4",
+    "video/paso-9.mp4",
+    "video/toma-11.mp4",
+    "video/toma-17.mp4"
+  ],
+  "finales": [
+    "aguaje-complex-3-en-1-claymation-20261119-1624_9x16_con-subtitulos.mp4"
+  ],
+  "ubicaciones": {
+    "audio/voz.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/audio/voz.mp3",
+      "bytes": 959677,
+      "sha256": "4d4e13c0be91eccf4d5e8a2e6fafa3ec02501a375e21c9a0284bfb41aecd2ba2"
+    },
+    "historial/protagonista-curvas--2026-11-19T23-02-04.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/historial/protagonista-curvas--2026-11-19T23-02-04.png",
+      "bytes": 1969426,
+      "sha256": "92d4d2c263261132d8907a03ee8f087248a341d01fbf88332d53c9357a751020"
+    },
+    "img/fibras.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/fibras.png",
+      "bytes": 2160283,
+      "sha256": "dc1ee3a2fd1e320a8c00e6e7f587dfac73d54261fa5a79d4003b72973ad170e1"
+    },
+    "img/ingredientes.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/ingredientes.png",
+      "bytes": 2092853,
+      "sha256": "15cbe0e8ab7a413669f41194ef09c63e36841a06f8fc5062012e29614f3ec7cb"
+    },
+    "img/protagonista-curvas.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/protagonista-curvas.png",
+      "bytes": 6275590,
+      "sha256": "b449c083ad2d1e96fa6727d58670fbc4abf5357d06203c4061d32ca8bd924018"
+    },
+    "img/protagonista.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/protagonista.png",
+      "bytes": 2002012,
+      "sha256": "774bd084bc4e4a91ed6564449dddd0e9c3ab742fbb9457e16e8fe8d70ef9a1dc"
+    },
+    "img/toma-1-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-1-inicial.png",
+      "bytes": 6061358,
+      "sha256": "218a89035ec7265cad4fe706bfe56cdace95dfc3f92451d54a22680c93035eb8"
+    },
+    "img/toma-10-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-10-inicial.png",
+      "bytes": 5995662,
+      "sha256": "13b5c9102ba049719d8d18647a9243fc3671d4fd17afa9c8b3aedf68fa6a9363"
+    },
+    "img/toma-11-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-11-final.png",
+      "bytes": 5817045,
+      "sha256": "1f8a4ef86fb7fb2c835a4a6f9d5261b2edd6a46fedf978270cc103d9995a6562"
+    },
+    "img/toma-11-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-11-inicial.png",
+      "bytes": 5837258,
+      "sha256": "bbadeaedc8d7541cb4a6530c1c7b58797628748f64c7f0d80dde278a7f1fd8b0"
+    },
+    "img/toma-12-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-12-inicial.png",
+      "bytes": 2218592,
+      "sha256": "38b881c816a16851555caadb01fa563d832e4802831efe157fc6d214b2b6b56f"
+    },
+    "img/toma-13-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-13-inicial.png",
+      "bytes": 5557829,
+      "sha256": "d75d27baee09f8d8a53f588794bb0be281bddf875aec218da6028810b0dd210d"
+    },
+    "img/toma-14-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-14-inicial.png",
+      "bytes": 6775764,
+      "sha256": "2afb4557e222a6da5b8de36971359be93e3322fec9470f76f090fd02267940f2"
+    },
+    "img/toma-15-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-15-inicial.png",
+      "bytes": 6301533,
+      "sha256": "72a7cdde3068448bcb51e8ac1b864dd8d0914a9439af43cf1cfb6a91cab6206d"
+    },
+    "img/toma-16-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-16-inicial.png",
+      "bytes": 5404586,
+      "sha256": "beca5475be88a48d40db77d614500be5463ff85ffeeb5a988fd9af2973e98049"
+    },
+    "img/toma-17-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-17-inicial.png",
+      "bytes": 5543961,
+      "sha256": "3de3cba6e717732a242a36b53adc314e4240fe8c31fda794467aa013e74261fe"
+    },
+    "img/toma-2-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-2-inicial.png",
+      "bytes": 5859264,
+      "sha256": "1867d20208c1ffe502f384c76b0a4a594f79692855af19a790f826037f92b10e"
+    },
+    "img/toma-3-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-3-inicial.png",
+      "bytes": 5288856,
+      "sha256": "cc9f17038f4e2a404d95a7ff28e476db1162d0869749806ef76797b7635ef51a"
+    },
+    "img/toma-4-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-4-inicial.png",
+      "bytes": 5707910,
+      "sha256": "a8d8a87abc5540f25076292b14fb417a03231fe0006bfcd2b59519be28a982bc"
+    },
+    "img/toma-5-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-5-inicial.png",
+      "bytes": 3208371,
+      "sha256": "d32042f493b3d7833c8be158a9e3ee77261e6560326de48394d241f583c25017"
+    },
+    "img/toma-6-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-6-inicial.png",
+      "bytes": 5504077,
+      "sha256": "0b74246b96f7d989adb4818e64e238b0b4a7e9e5926eed16fc3a36411858a8dc"
+    },
+    "img/toma-7-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-7-inicial.png",
+      "bytes": 5194119,
+      "sha256": "bafff5e3f90246247ef4bde6b477f9bab13fc056f7993ad346db55533dcf2cad"
+    },
+    "img/toma-8-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-8-inicial.png",
+      "bytes": 5877720,
+      "sha256": "1f016fbd9b79c8b54c6a625b5e00b88977afb1553de6eb84314034701a5d289c"
+    },
+    "img/toma-9-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/img/toma-9-inicial.png",
+      "bytes": 6259368,
+      "sha256": "94e6da7bb5b6fe0f23a4f2278232f2da711da0daff2943623b445a3f4f2c45cb"
+    },
+    "musica/fondo-alternativa.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/musica/fondo-alternativa.mp3",
+      "bytes": 1500970,
+      "sha256": "b45cd7151dae71b612e737be38b6fd2fbb3bca2290d0389846a0181e5663700d"
+    },
+    "musica/fondo.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/musica/fondo.mp3",
+      "bytes": 1533226,
+      "sha256": "45ab3a1fa97fff28d34aa95981a4c6f6eab00726c39f904d595eb179518f00f3"
+    },
+    "producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/producto.png",
+      "bytes": 718914,
+      "sha256": "724767856b82a67d008eccb847dc0f19d4dd6ccf45edd6f6e0258ea2174be1ca"
+    },
+    "qa/paso-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-1.jpg",
+      "bytes": 281090,
+      "sha256": "5ff243af8d298d3ac246760c4a12271089b4af2198e4c0ae6340a776b5601962"
+    },
+    "qa/paso-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-10.jpg",
+      "bytes": 333634,
+      "sha256": "6d1bd22c25da65cb62030b438a1ac09421f3edd7d68370b5c6d9f7c70f0435e7"
+    },
+    "qa/paso-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-11.jpg",
+      "bytes": 292767,
+      "sha256": "aeddb1e15c0b99d99fcb891bc9e5eb8adf49ab88242688b3c63e62cbe493e993"
+    },
+    "qa/paso-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-12.jpg",
+      "bytes": 211619,
+      "sha256": "ddaa693c84f9b3d2c16919b698b38d0c1fa15efb93bc0e2b5348f9aa38790bd9"
+    },
+    "qa/paso-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-13.jpg",
+      "bytes": 296643,
+      "sha256": "3aedcbb40ebd7a89ae31b963bd5cf5efc3104e8a117673bf79487290fadebc1d"
+    },
+    "qa/paso-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-14.jpg",
+      "bytes": 282961,
+      "sha256": "2c7a4b1fd4cf36525d4feddbf2df824d0fb3aa4e14e43e5c9fd9fc7ee33c5000"
+    },
+    "qa/paso-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-15.jpg",
+      "bytes": 274751,
+      "sha256": "21448fc2a7f5587263b8a42729ce58983dc2ee4ac567864e22af7835a7bc9006"
+    },
+    "qa/paso-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-16.jpg",
+      "bytes": 284619,
+      "sha256": "e39bd486e8858489b6469def96128cc1b3323f961e883f17c3713389b56ee474"
+    },
+    "qa/paso-2.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-2.jpg",
+      "bytes": 214867,
+      "sha256": "3139edbe10811237a2cd8c62d61d657b0c95e2810c6acf7d16464d5436503e51"
+    },
+    "qa/paso-3.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-3.jpg",
+      "bytes": 203471,
+      "sha256": "252dc7c88d3cb42abe7cc4c8639af13b775603f40699a6b82ce76fdb58b7389e"
+    },
+    "qa/paso-4.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-4.jpg",
+      "bytes": 327104,
+      "sha256": "277944d775cd4d94781ea2506573fec2078a80a76ab713cf7bb7f220f72e8b0e"
+    },
+    "qa/paso-5.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-5.jpg",
+      "bytes": 348640,
+      "sha256": "eae1c2457ce2a5ad812c472ee2c80b7d92252e72b76b1bffc0888cdde88af290"
+    },
+    "qa/paso-6.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-6.jpg",
+      "bytes": 288527,
+      "sha256": "c0e86a0649bbe5fca115c780111b7573268c1c8e40037d9c911ce385dc9c3b52"
+    },
+    "qa/paso-7.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-7.jpg",
+      "bytes": 265271,
+      "sha256": "813844f00fb1e7edba19c703b788c098c8be47b97cda0b0aaa15e189f8a91dae"
+    },
+    "qa/paso-8.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-8.jpg",
+      "bytes": 267809,
+      "sha256": "ad0ac4affb531180a711c3f379af65cc91a9e4538e87f25b6c49d80a0d470274"
+    },
+    "qa/paso-9.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/paso-9.jpg",
+      "bytes": 274132,
+      "sha256": "c1a040d5fcc838667ec95dcf9bcd0bf26541210aaa2c34fbb99cc2a6c2525916"
+    },
+    "qa/toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/toma-11.jpg",
+      "bytes": 347361,
+      "sha256": "e0408578159ffdcf04b05ea15dfa9f1ef4cb9906fb925acab3b3975c2e8c626e"
+    },
+    "qa/toma-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/toma-17.jpg",
+      "bytes": 344801,
+      "sha256": "62a74b13871579b1edda7d2d3aafb3c176a7cc0b1f5d627743c9a1360a81b285"
+    },
+    "qa/uniones/00-inicio-paso-1.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/00-inicio-paso-1.jpg",
+      "bytes": 132792,
+      "sha256": "019e3c2b1e13932103ff773e4e0789780a9e9d5c772ba88c87d43fe9f4c80f49"
+    },
+    "qa/uniones/01-paso-1--paso-2.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/01-paso-1--paso-2.jpg",
+      "bytes": 170952,
+      "sha256": "12d62e7eba3c84c856171419f3bafc9a1d70af8d788e09cb1eabc06dc48ca07c"
+    },
+    "qa/uniones/02-paso-2--paso-3.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/02-paso-2--paso-3.jpg",
+      "bytes": 108795,
+      "sha256": "7e20d3d68325e5e121197fc642fb8bcbf11dbbf80655dec8cf4576f65f8b3d55"
+    },
+    "qa/uniones/03-paso-3--paso-4.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/03-paso-3--paso-4.jpg",
+      "bytes": 163810,
+      "sha256": "a980a75089cc48e52b46e83cd3391ad49b0dbe832c6eb7cf8f866c06a181175e"
+    },
+    "qa/uniones/04-paso-4--paso-5.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/04-paso-4--paso-5.jpg",
+      "bytes": 254443,
+      "sha256": "c7364a83166eeee68d187ae724f3e546cb95dfdf77e3b8c78a278aae24acd1bd"
+    },
+    "qa/uniones/05-paso-5--paso-6.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/05-paso-5--paso-6.jpg",
+      "bytes": 223440,
+      "sha256": "fad124efbb111f2e9614cd15cfe3516a3dbee68ca96ae119242130fb9bd8f6e1"
+    },
+    "qa/uniones/06-paso-6--paso-7.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/06-paso-6--paso-7.jpg",
+      "bytes": 182194,
+      "sha256": "42f247b56bd641292f8e3a4859de2cbdafe491ed7cb41aadee7d0feea298f661"
+    },
+    "qa/uniones/07-paso-7--paso-8.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/07-paso-7--paso-8.jpg",
+      "bytes": 185671,
+      "sha256": "22b80038944a07bf783353ccd81ec2f39c8039e3165346aa0af01666ba435684"
+    },
+    "qa/uniones/08-paso-8--paso-9.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/08-paso-8--paso-9.jpg",
+      "bytes": 169111,
+      "sha256": "8f98ee5699a72824253a8b70a6368bb6dbd5718a70f23cb4757884b97d3863da"
+    },
+    "qa/uniones/09-paso-9--paso-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/09-paso-9--paso-10.jpg",
+      "bytes": 266079,
+      "sha256": "87de99014a6d9784a9a7577c9d25af06cb0fd80c56cf042252fe72b0a083429e"
+    },
+    "qa/uniones/10-paso-10--toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/10-paso-10--toma-11.jpg",
+      "bytes": 240350,
+      "sha256": "c4a61b2638d4a6827816ca6d74461ca784f7309aeacd715668c6147f678448f1"
+    },
+    "qa/uniones/11-toma-11--paso-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/11-toma-11--paso-11.jpg",
+      "bytes": 256700,
+      "sha256": "2a073b1d9d69743c1a637703d8dc16af736e4f606aac34e1928850d4f631c0b9"
+    },
+    "qa/uniones/12-paso-11--paso-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/12-paso-11--paso-12.jpg",
+      "bytes": 163558,
+      "sha256": "e1780045320b94cf3a92a30de402ae6379f4373ae3af76efcaf1c9657999bd6d"
+    },
+    "qa/uniones/13-paso-12--paso-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/13-paso-12--paso-13.jpg",
+      "bytes": 152570,
+      "sha256": "02a6de9d7cd376f786198fae73d3eab31f18920bfa2e99baf6791043195a0a28"
+    },
+    "qa/uniones/14-paso-13--paso-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/14-paso-13--paso-14.jpg",
+      "bytes": 284184,
+      "sha256": "4011c8eb52b845ddf5d7713035074693fbade4caa0b5c5fe9d8eb9563b2a2862"
+    },
+    "qa/uniones/15-paso-14--paso-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/15-paso-14--paso-15.jpg",
+      "bytes": 245919,
+      "sha256": "e1caff424ad581981f2e05ce03673669676d35e7505f5181bf32a0e3f7b12b75"
+    },
+    "qa/uniones/16-paso-15--paso-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/16-paso-15--paso-16.jpg",
+      "bytes": 158600,
+      "sha256": "5c8daa4af9a7e8aeffe542ec3d127ce15abe0f798dbe0744033d286ae36a0530"
+    },
+    "qa/uniones/17-paso-16--toma-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/17-paso-16--toma-17.jpg",
+      "bytes": 234852,
+      "sha256": "a94ee1b8d785e2d422c73da146ec57b96a52e9e2d08408d6ddf12df9d17237d6"
+    },
+    "qa/uniones/18-toma-17-final.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/qa/uniones/18-toma-17-final.jpg",
+      "bytes": 72604,
+      "sha256": "5b1506adbd93018e1c732015086cfac9833a53dda93d8d030ccf97b1e09071f1"
+    },
+    "referencia/audio-referencia.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/audio-referencia.mp3",
+      "bytes": 735336,
+      "sha256": "1264836175296235c0930b3661a575a48518137c2c494fcf68ff1f7b32be3402"
+    },
+    "referencia/hoja-tomas.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/hoja-tomas.jpg",
+      "bytes": 37830,
+      "sha256": "4168ef7721bee14da6b61d15f2df43eb8faa3312c2e82c0637fc165ae2a6d31f"
+    },
+    "referencia/original.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/original.mp4",
+      "bytes": 10141235,
+      "sha256": "257c87deb1a3056efaba684faa72d3841f560513d826dfd7735e8dea6b9839df"
+    },
+    "referencia/tomas/movimiento/tira-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/tomas/movimiento/tira-01.jpg",
+      "bytes": 81852,
+      "sha256": "4d6962fe454d5d677cbf8581b03ab26e425e2fcd581da5863cb11dfe2c336bd2"
+    },
+    "referencia/tomas/movimiento/tira-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/tomas/movimiento/tira-02.jpg",
+      "bytes": 73184,
+      "sha256": "4939ec7742c844ec320b664cd6a9f4fca14e8690c5a3fd5ae1c261a5c6ddc28d"
+    },
+    "referencia/tomas/movimiento/tira-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/tomas/movimiento/tira-03.jpg",
+      "bytes": 82611,
+      "sha256": "117965ad5288532adfc16259e9a1209567e79a7ce0da1af487c78a098d510b37"
+    },
+    "referencia/tomas/toma-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/tomas/toma-01.jpg",
+      "bytes": 40224,
+      "sha256": "a269a6f065542c4582a424fc376d76006695e5fed9f391a69b86c54d8e52c128"
+    },
+    "referencia/tomas/toma-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/tomas/toma-02.jpg",
+      "bytes": 76394,
+      "sha256": "0ee70a19b0e7fcfd179120e0593ae23ef22d6d1177c03ff7f0caf5f8732c6ac9"
+    },
+    "referencia/tomas/toma-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/referencia/tomas/toma-03.jpg",
+      "bytes": 75591,
+      "sha256": "c799cfa276b9af880ba172d621bc5c43458ab78a31491b64f02ea422e0ecdc24"
+    },
+    "video/paso-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-1.mp4",
+      "bytes": 3927001,
+      "sha256": "61c11407e6f7251bac84f4f71caf018c908c4ef1755b8c09cb8f1e3d90985c15"
+    },
+    "video/paso-10.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-10.mp4",
+      "bytes": 6930219,
+      "sha256": "b8c606283b86c081b1eb5e1c15f4bdbb120b7af679c0de33b448eec08c24cbef"
+    },
+    "video/paso-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-11.mp4",
+      "bytes": 5547712,
+      "sha256": "ce349a670c064f52b6ddf20c9756d4e7751de648222e31525900a476436472ee"
+    },
+    "video/paso-12.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-12.mp4",
+      "bytes": 3124992,
+      "sha256": "d70f68a5d1a2bc07693a16f63a4586602fa55c25a5e57f4d7bdc12a9fd9763cd"
+    },
+    "video/paso-13.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-13.mp4",
+      "bytes": 7244904,
+      "sha256": "0ef079fd1ca3c9d1eff6b66fce78131cef88a0b950da434ba72696a06b005cf8"
+    },
+    "video/paso-14.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-14.mp4",
+      "bytes": 17999012,
+      "sha256": "25b30a923b292b630f12c13ae9e9b2e3b07553bb886800b16d6dd087cacfd1be"
+    },
+    "video/paso-15.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-15.mp4",
+      "bytes": 5427146,
+      "sha256": "626c1bfb8981998349e466862aede280b49d737be75785af80a5002dc55e290a"
+    },
+    "video/paso-16.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-16.mp4",
+      "bytes": 5381768,
+      "sha256": "a28bc9b41e6ef65da379e1e6fc1844c5ad01e2366cceeb7afaa69f10fcd8fc83"
+    },
+    "video/paso-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-2.mp4",
+      "bytes": 4959350,
+      "sha256": "ea79a02f96bbe419b3d47e6f736aec96468537278521c79baba47cf796526f58"
+    },
+    "video/paso-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-3.mp4",
+      "bytes": 4614358,
+      "sha256": "71f9499eeefa00f3b08a97660d6637304332c7d59beba915859fed1894510bee"
+    },
+    "video/paso-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-4.mp4",
+      "bytes": 5727935,
+      "sha256": "9bd95530f1004d8fe67d1e5cea3a1819e35afb285e84a4483f0c8fd142beaed5"
+    },
+    "video/paso-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-5.mp4",
+      "bytes": 4504503,
+      "sha256": "67f56b1b375710c64095320641ab18120a2482905f58b14235c24972124e5511"
+    },
+    "video/paso-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-6.mp4",
+      "bytes": 2780076,
+      "sha256": "d062fff607958b880ef8776dbd0e3ad45036b7801e8de6c72443d37c1955b57f"
+    },
+    "video/paso-7.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-7.mp4",
+      "bytes": 3004303,
+      "sha256": "7f9f724a8e3f994bede79979be6b51f60e65a3b708769579d52d1ce0f54f9b85"
+    },
+    "video/paso-8.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-8.mp4",
+      "bytes": 5220351,
+      "sha256": "82eca65a2818e4fdc8e97ede490b3434f270686b7b79ef0695b80f9bd36ecbbe"
+    },
+    "video/paso-9.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/paso-9.mp4",
+      "bytes": 5033718,
+      "sha256": "86db258f6981d4cd0836cdda309d4e3375e3f03ff98fc71c53d293890e1e2e68"
+    },
+    "video/toma-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/toma-11.mp4",
+      "bytes": 6226612,
+      "sha256": "c688f988e8ed1a9b77c94d627d35e321dddbd11f77d5a3598ca6dd35744531f5"
+    },
+    "video/toma-17.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-claymation-20261119-1624/video/toma-17.mp4",
+      "bytes": 7203874,
+      "sha256": "e9327ead28b60f9e45ba6128030d2a100aff046b024d23acb47d184507f14319"
+    }
+  },
+  "ubicacionesFinales": {
+    "aguaje-complex-3-en-1-claymation-20261119-1624_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/videos-finales/aguaje-complex-3-en-1-claymation-20261119-1624_9x16_con-subtitulos.mp4",
+      "bytes": 88545637,
+      "sha256": "5fa0d2737ddd37415dd4b6fb681c7cac6ae70d30f68f858202b22c0f113f3d94"
+    }
+  },
+  "fecha": "2026-11-19T23:25:02.483Z"
+}
