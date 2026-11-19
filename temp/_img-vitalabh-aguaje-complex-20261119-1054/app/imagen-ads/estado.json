@@ -294,24 +294,20 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": null,
-      "mensaje": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
