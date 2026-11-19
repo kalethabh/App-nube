@@ -676,12 +676,12 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
               ) : null}
             </Grupo>
             <Grupo n={6} id="grupo-formato" titulo="Plantillas">
-              <ElegirPlantillasRef catalogo={opciones.plantillasReferencia} elegidas={refElegidas} onCambiar={(ids) => poner({ plantillasRef: ids })} bloqueado={ocupado} productoId={productoElegido?.id || null} />
+              <ElegirPlantillasRef catalogo={opciones?.plantillasReferencia} elegidas={refElegidas} onCambiar={(ids) => poner({ plantillasRef: ids })} bloqueado={ocupado} productoId={productoElegido?.id || null} />
             </Grupo>
           </>
         ) : conPlantillas ? (
           <Grupo n={5} id="grupo-formato" titulo="Plantillas">
-            <ElegirPlantillasRef catalogo={opciones.plantillasReferencia} elegidas={refElegidas} onCambiar={(ids) => poner({ plantillasRef: ids })} bloqueado={ocupado} productoId={productoElegido?.id || null} />
+            <ElegirPlantillasRef catalogo={opciones?.plantillasReferencia} elegidas={refElegidas} onCambiar={(ids) => poner({ plantillasRef: ids })} bloqueado={ocupado} productoId={productoElegido?.id || null} />
             <p className="img-nota" role="status">
               <LayoutTemplate size={14} strokeWidth={2} aria-hidden="true" />
               <span>Misma estructura de la plantilla; tu producto, tus textos (sin precios) y tus colores.</span>
