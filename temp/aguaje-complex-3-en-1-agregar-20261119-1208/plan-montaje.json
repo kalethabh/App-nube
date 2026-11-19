@@ -1,0 +1,291 @@
+{
+  "generado": "2026-11-19T19:05:09.046Z",
+  "aprobado": false,
+  "duracion": 59.102,
+  "reglas": {
+    "umbralBroll": {
+      "B": 3.5,
+      "A": 3,
+      "C": 3
+    },
+    "tomaConBroll": {
+      "preferido": 2.5,
+      "minimo": 2
+    },
+    "brollMinimo": 1.2,
+    "velocidadMaxima": 1.6,
+    "velocidadQueDeformaAudio": null,
+    "fadeAudioMs": 80,
+    "duckingDb": -10,
+    "subtitulos": {
+      "tamano": 0.06137,
+      "interlineado": 1.1,
+      "contornoRespectoTamano": 0.135,
+      "desdeAbajo": 0.26,
+      "coloresResaltado": [
+        "#E8442A",
+        "#F5A524",
+        "#2F7DE1",
+        "#159A5B",
+        "#B5279B",
+        "#E01E5A",
+        "#7B3FE4",
+        "#0FA3B1",
+        "#D64500",
+        "#3B7A2A"
+      ],
+      "cajaPadding": 0.12,
+      "cajaRedondeo": 0.1
+    },
+    "transiciones": {
+      "duracionSeg": 0.45,
+      "duracionZoomSeg": 0.5,
+      "efectoDb": 0,
+      "zoomDesde": 1.35
+    },
+    "musica": {
+      "db": -26,
+      "subeEnPayoffDb": 4,
+      "fadeInSeg": 1.2,
+      "fadeOutSeg": 1.5
+    },
+    "dialogoNativo": {
+      "duckingDb": 0,
+      "broll": {
+        "duracionObjetivo": 2,
+        "margenSegundos": 1,
+        "margenMinimo": 0.5,
+        "duracionMinima": 1.2,
+        "anclaEnFraccion": 0.35,
+        "mudo": true
+      },
+      "musica": {
+        "db": -22,
+        "subeEnPayoffDb": 4,
+        "fadeInSeg": 1.2,
+        "fadeOutSeg": 1.5
+      }
+    }
+  },
+  "audio": {
+    "voz": null,
+    "ducking": 0,
+    "fadeMs": 80
+  },
+  "musica": {
+    "archivo": "musica/fondo.mp3",
+    "db": -22,
+    "subeEnPayoffDb": 4,
+    "payoffDesdeSeg": 19.697,
+    "fadeInSeg": 1.2,
+    "fadeOutSeg": 1.5,
+    "loop": false,
+    "duracionPista": 61.032
+  },
+  "bloques": [
+    {
+      "linea": 1,
+      "texto": "O sea, yo me ponía un jean y por detrás, Dios mío!. Plana, plana, plana. Y ya no sabía ni qué ponerme, le juro.",
+      "inicio": 0,
+      "fin": 9.697,
+      "ventana": 9.697,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-1.mp4",
+        "largoOriginal": 10,
+        "duracion": 9.697,
+        "desde": 0,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0.303,
+        "pausasInteriores": 3,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 2,
+      "texto": "Ay, no me digas, yo estaba igualita. Hasta que mi tía me dijo que tomara aguaje, fenogreco y maca negra y me dijo: antes del bisturí, prueba lo natural.",
+      "inicio": 9.697,
+      "fin": 19.697,
+      "ventana": 10,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-2.mp4",
+        "largoOriginal": 10,
+        "duracion": 10,
+        "desde": 9.697,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0,
+        "pausasInteriores": 1,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 3,
+      "texto": "Me pasó el Aguaje Complex 3 en 1 de Vitalabh. Dos cápsulas al día, con las comidas. ¿Y eso no engorda, o qué?",
+      "inicio": 19.697,
+      "fin": 27.627,
+      "ventana": 7.93,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-3.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 7.93,
+        "desde": 19.697,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0,
+        "pausasInteriores": 1,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 4,
+      "texto": "Yo probé unas pastillas de Vitalcom, las verdes que según son \"las originales\". y cuando las dejé, rebote total y ni ví resultados.",
+      "inicio": 27.627,
+      "fin": 35.557,
+      "ventana": 7.93,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-4.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 7.93,
+        "desde": 27.627,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0,
+        "pausasInteriores": 1,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 5,
+      "texto": "No, a mí no me pasó con las de Vitalabh. Eso era lo que más miedo me daba.",
+      "inicio": 35.557,
+      "fin": 41.172,
+      "ventana": 5.615,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-5.mp4",
+        "largoOriginal": 5.97,
+        "duracion": 5.615,
+        "desde": 35.557,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0.142,
+        "recorteFin": 0.213,
+        "pausasInteriores": 1,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 6,
+      "texto": "Y trae sesenta cápsulas, te dura el mes completo. Ahora me pongo el jean y me miro de lado y uff, un nalgaje. ¿Sí me entiendes? La diferencia.",
+      "inicio": 41.172,
+      "fin": 51.172,
+      "ventana": 10,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-6.mp4",
+        "largoOriginal": 10,
+        "duracion": 10,
+        "desde": 41.172,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0,
+        "pausasInteriores": 2,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    },
+    {
+      "linea": 7,
+      "texto": "¿Y dónde lo consigo? Ahí abajito, en el botón de este video. Ay, no, yo lo pido hoy mismo, en serio.",
+      "inicio": 51.172,
+      "fin": 59.102,
+      "ventana": 7.93,
+      "tipo": "R",
+      "toma": {
+        "archivo": "toma-7.mp4",
+        "largoOriginal": 7.93,
+        "duracion": 7.93,
+        "desde": 51.172,
+        "metodo": "sin-ajuste",
+        "velocidad": 1,
+        "recorte": 0,
+        "recorteInicio": 0,
+        "recorteFin": 0,
+        "pausasInteriores": 3,
+        "problema": false
+      },
+      "motivoBroll": "no hay B-roll para esta toma"
+    }
+  ],
+  "subtitulos": [],
+  "estiloSubtitulos": {
+    "tamano": 0.06137,
+    "interlineado": 1.1,
+    "contornoRespectoTamano": 0.135,
+    "desdeAbajo": 0.26,
+    "coloresResaltado": [
+      "#E8442A",
+      "#F5A524",
+      "#2F7DE1",
+      "#159A5B",
+      "#B5279B",
+      "#E01E5A",
+      "#7B3FE4",
+      "#0FA3B1",
+      "#D64500",
+      "#3B7A2A"
+    ],
+    "cajaPadding": 0.12,
+    "cajaRedondeo": 0.1,
+    "colorResaltado": "#D64500"
+  },
+  "transiciones": [
+    {
+      "toma": 3,
+      "desde": 19.697,
+      "animacion": "zoom",
+      "efecto": "deep-woosh",
+      "archivo": "efectos/deep-woosh.mp3",
+      "adelantoSeg": 0.2,
+      "porque": "entrada de la solución: la amiga muestra el frasco y dice cómo se toma"
+    },
+    {
+      "toma": 6,
+      "desde": 41.172,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh",
+      "archivo": "efectos/woosh.mp3",
+      "adelantoSeg": 0.05,
+      "porque": "entrada de la prueba: cuánto dura el frasco y su después en el espejo"
+    }
+  ],
+  "reglasTransiciones": {
+    "duracionSeg": 0.45,
+    "duracionZoomSeg": 0.5,
+    "efectoDb": 0,
+    "zoomDesde": 1.35
+  },
+  "brollFuera": [],
+  "avisos": []
+}

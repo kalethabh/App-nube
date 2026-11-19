@@ -1,0 +1,11 @@
+{
+  "pid": 26130,
+  "paso": "montaje",
+  "script": "planear-montaje.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-agregar-20261119-1208"
+  ],
+  "comando": "node produccion/planear-montaje.js temp/aguaje-complex-3-en-1-agregar-20261119-1208",
+  "inicio": "2026-11-19T19:05:15.572Z",
+  "app": 24060
+}

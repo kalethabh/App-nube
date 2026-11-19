@@ -23,7 +23,7 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-19T19:03:06.542Z",
+  "actualizado": "2026-11-19T19:03:37.574Z",
   "sesionRechazo": {
     "uuid": "a712ab28-e2f2-40ad-8e6c-e2aea5f2d4ef",
     "usada": true
@@ -75,38 +75,51 @@
       }
     },
     "vistos": {},
-    "piezas": {},
+    "piezas": {
+      "toma-1": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-2": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-3": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-4": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-5": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-6": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-7": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      }
+    },
     "pendientes": [],
     "revisarTambien": [],
     "sinRevisar": [],
     "lugares": {},
-    "vuelta": {
-      "ronda": 1,
-      "medir": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ],
-      "mirar": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ],
-      "mirarGanchos": [],
-      "hablaMal": {},
-      "medido": true,
-      "visual": null
-    },
+    "vuelta": null,
     "sesion": {
-      "uuid": "7075b342-73e9-49f0-bfc0-230a162bbd7b"
+      "uuid": "7075b342-73e9-49f0-bfc0-230a162bbd7b",
+      "usada": true
     }
   }
 }

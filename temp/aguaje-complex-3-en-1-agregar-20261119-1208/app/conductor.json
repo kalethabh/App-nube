@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261119-1208",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "revision-bloques",
+  "paso": "montaje",
   "pasos": [
     {
       "id": "validar",
@@ -49,22 +49,26 @@
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-19T19:02:29.785Z",
-      "detalle": "Mirando los cuadros de los clips"
+      "fin": "2026-11-19T19:03:37.633Z",
+      "nota": "Todos los bloques pasaron la revisión."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:03:37.636Z",
+      "fin": "2026-11-19T19:04:14.779Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:04:14.780Z"
     },
     {
       "id": "render",
@@ -95,7 +99,7 @@
   "modoPrueba": false,
   "creado": "2026-11-19T18:48:32.604Z",
   "aprobado": "2026-11-19T18:48:32.604Z",
-  "actualizado": "2026-11-19T19:03:25.135Z",
+  "actualizado": "2026-11-19T19:04:14.780Z",
   "saldoInicial": {
     "creditos": 2628.1,
     "fecha": "2026-11-19T18:48:33.539Z"

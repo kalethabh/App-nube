@@ -3,11 +3,14 @@
   "piezas": {
     "V07_1x1": {
       "orden": "U0004",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
+      "estado": "generando",
+      "intentosApi": 2,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
     }
   },
-  "actualizado": "2026-11-19T18:58:22.375Z",
+  "actualizado": "2026-11-19T19:05:17.904Z",
   "terminado": false
 }
