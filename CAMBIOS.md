@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19t · Personajes mejor hechos y oficinas que se ven desde cualquier lado
+
+- **Personajes nuevos**: cuerpo con forma (hombros, pecho, cintura y cadera), cuello, codos y rodillas que se doblan al sentarse y al caminar, manos, zapatos y una cara con ojos que parpadean, cejas, nariz, boca y orejas.
+- **Mujer u hombre**: las mujeres con pelo largo (suelto, cola de caballo o moño), pestañas, labios y aretes; los hombres con hombros más anchos, pelo corto (algunos con barba) y cinturón. Lo eliges para cada agente en «Nombres y personajes». Además, el productor de video lleva audífonos y los de calidad e investigación, lentes.
+- **Oficinas con más detalle**: escritorios con mouse, cuaderno, lápices y cajonera; lámparas de pie, cuadros, papeleras, una pizarra con notas en Calidad, archivadores e impresora en Investigación, una luz de estudio y cables en Producción, estantes con libros y trofeo, un sillón en Edición, el dispensador de agua y bancas en el pasillo.
+- **Desde cualquier vista**: cuando giras la oficina, las paredes que quedan entre tú y una sala se vuelven transparentes, así siempre ves lo que pasa adentro.
+
 ## 2026-11-19s · Editar y regenerar las escenas de apoyo
 
 - En el guion, cada **imagen de apoyo** (B-roll) tiene ahora **«Editar»** y **«Otra escena»**. Con «Editar» escribes la escena como la quieres; con el ✨ tu IA te propone otra escena distinta (con su cámara), en segundos y sin gastar. Al tocar **Guardar**, tu IA rehace la imagen y el video de esa escena de apoyo para mostrar eso, sin cambiar dónde entra ni cuánto dura.

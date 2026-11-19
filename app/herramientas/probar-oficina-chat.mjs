@@ -147,6 +147,11 @@ async function principal() {
   const coord = of.agentes.find((a) => a.id === 'coordinacion');
   check('El productor de video (clips) y el guionista cuentan el 👎 y lo aprendido esta semana', video.opiniones.mal === 1 && video.semana.some((s) => /oscuros/.test(s.regla)) && guion.opiniones.mal === 1, { video, guion: guion.opiniones });
   check('La coordinadora muestra la regla del chat', coord.semana.some((s) => /3 segundos/.test(s.regla)), coord.semana);
+  // ------------------------------------------------------------ mujer u hombre (lo elige el usuario)
+  r = await pedir('/api/oficina/agentes', { metodo: 'PUT', json: { agentes: { guion: { genero: 'mujer' }, arte: { genero: 'otro' } } } });
+  check('Se guarda si el agente se ve como mujer u hombre (y un valor raro no cambia nada)', r.st === 200 && r.datos.agentes.find((a) => a.id === 'guion').genero === 'mujer' && r.datos.agentes.find((a) => a.id === 'arte').genero === 'mujer', r.datos?.agentes?.map((a) => [a.id, a.genero]));
+  await pedir('/api/oficina/agentes', { metodo: 'PUT', json: { agentes: { guion: { genero: 'hombre' } } } });
+
   // ------------------------------------------------------------ diseñar la oficina
   let d = (await pedir('/api/oficina')).datos;
   const base = d.zonas.map((z) => ({ id: z.id, lugar: z.lugar, nombre: z.nombre, color: z.color, tipo: z.tipo }));
