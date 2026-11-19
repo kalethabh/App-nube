@@ -240,6 +240,8 @@ function Flujo({ consulta }) {
 
   // ---------------------------------------------------------------- bloque 1: el producto
   const productoUrl = consulta?.get('producto') || null;
+  // «Clonar un video» (desde Estilos: #/nuevo?clonar=1): el video a clonar va primero y se pide antes de seguir
+  const clonando = consulta?.get('clonar') === '1';
   // «Replicar» desde Inspiración (#/inspiracion): llega el video del anuncio ya bajado, como uno subido, y a veces lo que
   // se le pide a «Agregar» (?pedido=: el estilo de la app que se parece al del anuncio)
   const referenciaUrl = useMemo(() => {
@@ -407,7 +409,14 @@ function Flujo({ consulta }) {
   const alternarEstilo = (clave) => {
     if (!disponible(clave) || anuncios[clave]) return;
     setElegidos((l) => (l.includes(clave) ? l.filter((x) => x !== clave) : [...l, clave]));
-    setAjustes((a) => (a[clave] ? a : { ...a, [clave]: ajustesIniciales(clave, { idioma: idiomaFicha }) }));
+    setAjustes((a) => {
+      if (a[clave]) return a;
+      const base = ajustesIniciales(clave, { idioma: idiomaFicha });
+      // (el video de referencia del paso 1 ya va puesto en «Clonar un video», también en un estilo elegido después)
+      const ref = borrador.referencia;
+      const conRef = ref && preguntasDe(clave).some((p) => p.id === 'clonar') && !base.preguntas?.clonar ? { ...base, preguntas: { ...base.preguntas, clonar: ref } } : base;
+      return { ...a, [clave]: conRef };
+    });
   };
   // el video de referencia del paso 1 se ve ya puesto en «Clonar un video» de cada estilo que lo tiene
   useEffect(() => {
@@ -571,9 +580,13 @@ function Flujo({ consulta }) {
     <div className="pagina nv">
       <CabeceraPagina
         sobretitulo="Nuevo anuncio"
-        titulo={paso === 1 ? 'Tu producto' : 'Elige cómo contarlo'}
+        titulo={clonando ? (paso === 1 ? 'Clonar un video' : 'Elige en qué estilo se rehace') : paso === 1 ? 'Tu producto' : 'Elige cómo contarlo'}
         descripcion={
-          paso === 1
+          clonando && paso === 1
+            ? 'Sube el video que quieres clonar y tu producto: la app copia cómo está armado, toma por toma, y lo rehace para tu producto.'
+            : clonando
+              ? 'Elige el estilo (o varios, para tener variaciones). «Agregar» lo rehace con el mismo look del original. Tu video ya va puesto en «Clonar un video» de cada uno.'
+              : paso === 1
             ? 'La foto, lo que quieras que la IA tenga en cuenta y, si tienes, un video de referencia.'
             : `Elige el estilo, lee el guion que escribe ${motor.elegido ? motor.nombre : 'tu IA'} y das un solo «Sí»: lo demás lo hace la app sola, hasta el video.`
         }
@@ -596,6 +609,7 @@ function Flujo({ consulta }) {
           onAnalizado={alAnalizar}
           onOtroProducto={otroProducto}
           estiloElegido={desdeUrl?.clave}
+          clonando={clonando}
           estiloPronto={desdeUrl?.pronto}
           estiloConContinuidad={desdeUrl?.continuidad}
           motor={motor}

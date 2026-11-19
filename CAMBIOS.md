@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19f · «Clonar un video» a la vista
+
+- En **Estilos**, «Clonar un video» aparece junto a «Agregar» (filtro «Desde tu video») y su botón lleva directo a clonar.
+- **Nuevo anuncio en modo clonar**: lo primero es «El video que quieres clonar» (súbelo o pega su link); sin el video no sigue. En el paso 2 eliges el estilo en que se rehace, o varios para tener variaciones, y tu video ya va puesto en cada uno (también en los que eliges después). Puedes decidir si se adapta el gancho y el ángulo a tu producto.
+
 ## 2026-11-19e · Salud de plataformas: naranja solo cuando de verdad pasa algo
 
 - Ya no se queda en naranja todo el día por reintentos viejos: solo cuentan los de las **últimas 2 horas**, y solo si la última generación también los necesitó.
