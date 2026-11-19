@@ -805,7 +805,8 @@ function piezasDe(manifiesto, slug) {
       n: t.n,
       tipo: t.tipo,
       nombre: t.tipo === 'R' ? `Bloque ${t.n}` : t.tipo === 'H' ? `Clip ${t.n}` : `Escena ${t.n}`,
-      imagen: t.tipo !== 'R' && !conFrame(t) && !t.imagen_propia && Boolean(t.prompt_imagen_inicial),
+      // (un bloque R con la imagen de su escena también la regenera, 2026-11-19n)
+      imagen: !conFrame(t) && !t.imagen_propia && Boolean(t.prompt_imagen_inicial),
       clip: true,
       duracion: Number(t.duracion) || null,
       linea: t.linea || null,

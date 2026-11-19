@@ -139,7 +139,7 @@ function Producto({ foto, grande, texto = 'Foto real del producto' }) {
 }
 
 /** La maqueta 9:16 de un mensaje (lo que va dentro del celular). */
-function Maqueta({ m, n, foto, marcas = false }) {
+export function Maqueta({ m, n, foto, marcas = false }) {
   const q = m.maqueta || {};
   const f = m.franja || {};
   const Marca = ({ k }) => (marcas ? <span className="doc-maq__marca">{k}</span> : null);

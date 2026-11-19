@@ -2,6 +2,22 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19o · Investigación de mercado: todo de una y con el mismo estilo
+
+- **La primera parte** (la de mercado) ya no se ve como hojas de PDF: tiene el **mismo estilo que la segunda** (la de la competencia), con una pestaña por sección, tarjetas, tablas y cajas de colores, y la guía visual de los 4 mensajes con su maqueta. «Descargar PDF» sigue sacando el PDF de siempre.
+- **Todo de una:** al tocar «Investigar» arrancan **a la vez** la investigación de mercado y la de tu competencia en TrendTrack. Puedes pegar la tienda de la competencia; si no, la IA busca sola la que más vende algo como tu producto.
+- **Más rápida:** las dos buscan en paralelo y sin repetir búsquedas, sin recortar nada del contenido.
+
+## 2026-11-19n · Imagen de cada escena en los anuncios por bloques
+
+- En los anuncios donde una persona habla por bloques (UGC y «Agregar» con alguien que habla a cámara), **cada escena tiene ahora su imagen**: se hace primero, el clip sale usándola y en **Producción** la ves como «Inicio», con **«Editar esta imagen»** (y rehacer el clip con la imagen nueva) y «Regenerar con su imagen». Cuesta una imagen más por escena.
+
+## 2026-11-19m · Podcast con dos voces distintas, y el cierre de los videos de prueba social
+
+- **Podcast: cada host con su propia voz.** Después de hacer los clips, la app le pone a cada host una voz fija de tu cuenta de ElevenLabs, distinta para cada uno y según si es mujer u hombre («cambiar voz»: mismas palabras y mismos tiempos, la boca sigue sincronizada). Lo regenerado recibe su voz otra vez; tu propio video conserva la tuya. Si no se puede (sin clave o con una sola voz en tu cuenta), sigue con las voces del video y lo avisa. Usa créditos de tu ElevenLabs.
+- **Podcast: dos personas que no se parecen.** Tu IA describe a la segunda persona con al menos cinco rasgos distintos (piel, pelo, cara, contextura y ropa) y las dos voces bien diferentes.
+- **Prueba social (todos los estilos):** cuando el anuncio se apoya en un médico, un experto, un testimonio, un podcast o una entrevista, el cierre ya no es de venta: es una **recomendación** que convence, como la diría esa persona.
+
 ## 2026-11-19l · Las imágenes de apoyo (B-roll), detalladas en el guion
 
 - En el guion, cada **imagen de apoyo** (B-roll) aparece debajo de la parte donde entra (en el podcast, todas juntas al final), con:

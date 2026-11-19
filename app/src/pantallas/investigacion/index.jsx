@@ -25,6 +25,7 @@ export default function Investigaciones() {
   const [foto, setFoto] = useState([]);
   const [nombre, setNombre] = useState('');
   const [pais, setPais] = useState('');
+  const [competencia, setCompetencia] = useState('');
   const [ocupado, setOcupado] = useState(false);
   const productos = datos?.productos || [];
   const sinClaude = datos && datos.motor !== 'claude';
@@ -36,7 +37,7 @@ export default function Investigaciones() {
       const r = await apiNuevo.crearProducto({ nombre: nombre.trim(), tipo: 'fisico' });
       if (!r?.id) throw new Error('La app no devolvió tu producto.');
       await apiNuevo.subirFoto(r.id, 1, foto[0].archivo);
-      await apiInvestigacion.investigar(r.id, pais.trim());
+      await apiInvestigacion.investigar(r.id, pais.trim(), competencia.trim());
       liberarVistas(foto);
       invalidar(CLAVE_INVESTIGACIONES);
       ir(rutas.investigacion(r.id));
@@ -62,10 +63,11 @@ export default function Investigaciones() {
           <div className="inv-nueva__campos">
             <CampoTexto etiqueta="Nombre" opcional placeholder="Si no lo pones, lo lee de la foto" maxLength={120} value={nombre} onChange={(e) => setNombre(e.target.value)} disabled={ocupado} />
             <CampoTexto etiqueta="País" opcional placeholder="Colombia" maxLength={60} value={pais} onChange={(e) => setPais(e.target.value)} disabled={ocupado} ayuda="Sin país, la investigación es general. Con país, suma precios, entidad sanitaria y lenguaje de ese país." />
+            <CampoTexto etiqueta="Competencia a investigar" opcional placeholder="Link de TrendTrack o dominio de la tienda" maxLength={400} value={competencia} onChange={(e) => setCompetencia(e.target.value)} disabled={ocupado} ayuda="Va a la vez, en TrendTrack. Vacío: la IA busca la tienda que más vende algo como tu producto." />
             <Boton variante="primario" icono={Telescope} onClick={empezar} cargando={ocupado} disabled={!foto.length || sinClaude}>
               Investigar
             </Boton>
-            <p className="img-ayuda">Tarda de 10 a 30 minutos y usa tu cuenta de Claude (busca en internet). Puedes seguir usando la app mientras tanto.</p>
+            <p className="img-ayuda">Hace todo de una: el mercado y tu competencia en TrendTrack, a la vez. Usa tu cuenta de Claude (busca en internet). Puedes seguir usando la app mientras tanto.</p>
             {sinClaude ? (
               <p className="img-nota img-nota--aviso">
                 <CircleAlert size={14} strokeWidth={2} aria-hidden="true" />

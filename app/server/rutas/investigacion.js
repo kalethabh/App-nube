@@ -42,7 +42,20 @@ export default function rutasInvestigacion(app) {
   }));
 
   app.post('/api/investigacion/:id', soloDesdeLaApp, conErrores((req, res) => {
-    res.status(202).json(inv.investigar(elId(req), { pais: req.body?.pais || null, soloAndromeda: req.body?.soloAndromeda === true }));
+    const b = req.body || {};
+    const r = inv.investigar(elId(req), { pais: b.pais || null, soloAndromeda: b.soloAndromeda === true });
+    // (2026-11-19o) «que haga todo de una»: con la investigación de mercado arranca a la vez la de la competencia en
+    // TrendTrack (la marca que pegaste o, sin marca, la que más vende algo como tu producto). Si no se puede (sin
+    // Claude o ya en marcha), la de mercado sigue igual.
+    let comp = null;
+    if (b.soloAndromeda !== true && b.conCompetencia !== false) {
+      try {
+        comp = competencia.investigar(elId(req), { enlace: String(b.competencia || ''), pais: b.pais || '', buscar: true });
+      } catch (e) {
+        comp = { error: e.message };
+      }
+    }
+    res.status(202).json({ ...r, competencia: comp });
   }));
 
   app.get('/api/investigacion/:id/competencia', conErrores((req, res) => {

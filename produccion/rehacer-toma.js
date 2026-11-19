@@ -681,6 +681,11 @@ export function regenerarTomaTalCual(carpeta, n, { conImagen = false } = {}) {
   if (!toma) throw new Error(`La toma ${n} no existe.`);
   if (toma.tipo === 'R') {
     const { sacados, lugares } = rehacerBloque(carpeta, n);
+    // (2026-11-19n) con la imagen de su escena y «con su imagen»: también la imagen (se hace otra antes del bloque)
+    if (conImagen && typeof toma.prompt_imagen_inicial === 'string' && toma.prompt_imagen_inicial.trim()) {
+      const img = path.join(carpeta, 'img', `toma-${n}-inicial.png`);
+      if (archivarSiExiste(img, carpeta)) sacados.push(path.basename(img));
+    }
     return { borrados: sacados, lugares };
   }
   const errores = erroresDe(manifiesto, carpeta);

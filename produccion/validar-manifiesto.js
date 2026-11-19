@@ -245,13 +245,18 @@ const unirLineas = (tramos) =>
  * `chequearIds`: las tomas ya pasan por validarReferencias(), que avisa de un
  * id que no existe; los ganchos no, asi que para ellos se comprueba aqui.
  */
-function validarBloqueR(b, id, { idsLista, tipoDe, E, A, chequearIds = false }) {
+function validarBloqueR(b, id, { idsLista, tipoDe, E, A, chequearIds = false, permitirEscena = false }) {
   if (typeof b.duracion === 'number' && !DURACIONES_R.includes(b.duracion)) {
     E(`${id}: es un bloque R y dura ${b.duracion}s. Omni solo genera bloques de ${DURACIONES_R.join(', ')} s: elige la que le calce a sus palabras.`);
   }
 
-  // Cero frames: el video sale solo de las referencias.
-  if (b.prompt_imagen_inicial != null) E(`${id}: es un bloque R (solo referencias, sin frames): "prompt_imagen_inicial" debe ser null`);
+  // Sin frames: el video sale de las referencias. (2026-11-19n) Con la IMAGEN DE SU ESCENA: "prompt_imagen_inicial" la
+  // describe (se genera con las referencias del bloque, se revisa y se edita en Producción) y va al modelo como una
+  // referencia más, pedida como "imagen" en "referencias" (no como frame: Omni no acepta frame y referencias juntos).
+  const conEscena = Array.isArray(b.referencias) && b.referencias.includes(INGREDIENTE_IMAGEN);
+  if (conEscena && !permitirEscena) E(`${id}: un gancho no lleva imagen de escena: quita "${INGREDIENTE_IMAGEN}" de sus referencias`);
+  else if (b.prompt_imagen_inicial != null && !conEscena) E(`${id}: es un bloque R con la imagen de su escena ("prompt_imagen_inicial"): pídela en "referencias" como "${INGREDIENTE_IMAGEN}" y nómbrala en el prompt de video (o deja "prompt_imagen_inicial" en null)`);
+  else if (conEscena && !esTextoR(b.prompt_imagen_inicial)) E(`${id}: pide "${INGREDIENTE_IMAGEN}" en sus referencias y no trae "prompt_imagen_inicial" (la imagen de su escena)`);
   if (b.prompt_imagen_final != null) E(`${id}: es un bloque R (solo referencias, sin frames): "prompt_imagen_final" debe ser null`);
   if (b.frame_inicial !== undefined) E(`${id}: es un bloque R y no lleva "frame_inicial": no hay frames que heredar`);
 
@@ -266,6 +271,11 @@ function validarBloqueR(b, id, { idsLista, tipoDe, E, A, chequearIds = false }) 
     }
     const vistas = new Set();
     for (const r of b.referencias) {
+      if (r === INGREDIENTE_IMAGEN && permitirEscena) {
+        if (vistas.has(r)) E(`${id}: "${INGREDIENTE_IMAGEN}" esta repetida`);
+        vistas.add(r);
+        continue;
+      }
       if (RESERVADAS.includes(r)) {
         E(`${id}: un bloque R no tiene frames, asi que no puede pedir "${r}"`);
       } else if (chequearIds && !idsLista.has(r)) {
@@ -1891,7 +1901,7 @@ export function validarManifiesto(m, { carpeta, exigirPasos = false, eleccion = 
       if (!Array.isArray(t.referencias)) {
         E(`${id}: "referencias" debe ser un array de ids, en el orden en que el prompt nombra las imagenes`);
       }
-      validarBloqueR(t, id, { idsLista, tipoDe, E, A });
+      validarBloqueR(t, id, { idsLista, tipoDe, E, A, permitirEscena: true });
       continue;
     }
 

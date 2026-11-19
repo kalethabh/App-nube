@@ -14,6 +14,7 @@ import { enlace } from '../../datos/rutas.js';
 import '../imagenes/imagenes.css';
 import './investigacion.css';
 import { Documento } from './Documento.jsx';
+import { MercadoApp } from './MercadoApp.jsx';
 import { Competencia } from './Competencia.jsx';
 import { TextosAnuncios } from './TextosAnuncios.jsx';
 
@@ -582,6 +583,7 @@ export default function PantallaInforme({ params }) {
   const estado = datos?.tarea?.estado || null;
   useEffect(() => setCadaMs(estado === 'investigando' ? 4000 : undefined), [estado]);
   const [pais, setPais] = useState('');
+  const [competencia, setCompetencia] = useState('');
   const [lanzando, setLanzando] = useState(false);
   const [resaltados, setResaltados] = useState(null);
   useEffect(() => {
@@ -633,7 +635,7 @@ export default function PantallaInforme({ params }) {
   const investigar = async ({ andromeda = false } = {}) => {
     setLanzando(true);
     try {
-      await (andromeda ? apiInvestigacion.agregarAndromeda(id) : apiInvestigacion.investigar(id, pais.trim()));
+      await (andromeda ? apiInvestigacion.agregarAndromeda(id) : apiInvestigacion.investigar(id, pais.trim(), competencia.trim()));
       invalidar(claveInvestigacion(id));
       invalidar(CLAVE_INVESTIGACIONES);
       await recargar?.();
@@ -672,7 +674,7 @@ export default function PantallaInforme({ params }) {
         <span className="inv-espera__foto">{producto.foto ? <img src={producto.foto} alt="" /> : null}</span>
         <LoaderCircle size={28} className="girando" aria-hidden="true" />
         <h1 className="inv-espera__titulo">Investigando el mercado de «{producto.nombre}»</h1>
-        <p className="t-2">Tarda de 10 a 30 minutos: la IA lee la foto, busca tu producto y tu competencia, y revisa lo que dicen los compradores. Puedes irte de esta pantalla; sigue sola.</p>
+        <p className="t-2">Las dos partes van a la vez: el mercado (la IA lee la foto, busca tu producto y revisa lo que dicen los compradores) y tu competencia en TrendTrack. Puedes irte de esta pantalla; sigue sola.</p>
         <ul className="inv-espera__pasos" aria-live="polite">
           {(tarea.progreso || []).slice(-5).map((p, i, l) => (
             <li key={`${i}-${p}`} className={i === l.length - 1 ? 'inv-espera__paso--ahora' : ''}>
@@ -688,6 +690,7 @@ export default function PantallaInforme({ params }) {
   const formulario = (
     <div className="inv-empezar__campos">
       <CampoTexto etiqueta="País" opcional placeholder="Colombia" maxLength={60} value={pais} onChange={(e) => setPais(e.target.value)} disabled={lanzando} ayuda="Sin país, la investigación es general." />
+      <CampoTexto etiqueta="Competencia a investigar" opcional placeholder="Link de TrendTrack o dominio de la tienda" maxLength={400} value={competencia} onChange={(e) => setCompetencia(e.target.value)} disabled={lanzando} ayuda="Se investiga a la vez, en TrendTrack. Si la dejas vacía, la IA busca la tienda que más vende algo como tu producto." />
       <Boton variante="primario" icono={inv ? RotateCcw : Telescope} onClick={() => investigar()} cargando={lanzando}>
         {inv ? 'Volver a investigar' : tarea.estado === 'error' ? 'Reintentar' : 'Investigar este producto'}
       </Boton>
@@ -758,7 +761,19 @@ export default function PantallaInforme({ params }) {
           </p>
         ) : null}
         <div ref={cuerpo} className="inv-cuerpo">
-          {inv.formato === 'documento' ? <Documento inv={inv} foto={producto.foto} T={T} /> : <Informe inv={inv} producto={producto} />}
+          {/* (2026-11-19o) la primera parte con el mismo estilo que la segunda; el PDF de siempre solo al imprimir */}
+          {inv.formato === 'documento' ? (
+            <>
+              <div className="inv-solo-pantalla">
+                <MercadoApp inv={inv} foto={producto.foto} T={T} />
+              </div>
+              <div className="inv-solo-impresion">
+                <Documento inv={inv} foto={producto.foto} T={T} />
+              </div>
+            </>
+          ) : (
+            <Informe inv={inv} producto={producto} />
+          )}
           {inv.formato === 'documento' ? <TextosAnuncios id={id} inv={inv} plantillas={datos.plantillas} onCambio={async () => { invalidar(claveInvestigacion(id)); await recargar?.(); }} /> : null}
           <Competencia id={id} pais={inv.pais || 'Colombia'} T={T} />
         </div>
