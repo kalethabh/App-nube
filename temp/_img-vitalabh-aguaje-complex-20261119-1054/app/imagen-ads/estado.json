@@ -310,16 +310,11 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "U0005",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T007"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -327,9 +322,12 @@
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": "U0005",
-      "ultimaOrden": "g",
-      "fallo": null
+      "pedido": null,
+      "ultimaOrden": "U0005",
+      "fallo": {
+        "orden": "U0005",
+        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
     },
     "V09_1x1": {
       "v": "V09",
@@ -450,7 +448,7 @@
       "pieza": "V08_1x1",
       "instruccion": "",
       "fecha": "2026-11-19T18:59:09.099Z",
-      "estado": "generando",
+      "estado": "no-aplicado",
       "pasos": [
         {
           "pieza": "V08_1x1",
@@ -458,7 +456,8 @@
           "modo": "generar"
         }
       ],
-      "paso": 0
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
     }
   }
 }
