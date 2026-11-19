@@ -1,6 +1,6 @@
 {
   "uuid": "9caf6604-529c-452e-985b-65f5347c5b9a",
-  "estado": "escribiendo",
+  "estado": "listo",
   "tipo": "guion",
   "intentos": 1,
   "progreso": [
@@ -20,11 +20,78 @@
     "Repasando la ficha de tu producto",
     "Buscando en los archivos",
     "Guardando",
-    "Escribiendo el guion y cada escena"
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Ajustando el guion",
+    "Revisando que el guion esté completo",
+    "Guardando",
+    "Marcando las transiciones",
+    "Guardando",
+    "Pasando el guion en limpio",
+    "La voz del narrador: Martin Alvarez - Soothing and Hopeful (la eligió la app)"
   ],
   "inicio": "2026-11-19T16:12:32.508Z",
   "cambios": [],
-  "actualizado": "2026-11-19T16:17:01.363Z",
+  "actualizado": "2026-11-19T16:19:23.532Z",
   "error": null,
-  "inicioIntento": "2026-11-19T16:12:32.508Z"
+  "inicioIntento": "2026-11-19T16:12:32.508Z",
+  "fin": "2026-11-19T16:19:23.532Z",
+  "limite": false,
+  "reinicio": null,
+  "medidas": [
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-19T16:19:23.527Z",
+      "ok": true,
+      "turnos": 32,
+      "duracionMs": 405828,
+      "uso": {
+        "input_tokens": 30,
+        "cache_creation_input_tokens": 145259,
+        "cache_read_input_tokens": 1355667,
+        "output_tokens": 47427,
+        "output_tokens_details": {
+          "thinking_tokens": 21226
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 145259,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 143310,
+            "cache_creation_input_tokens": 1949,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1949
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 2.3818654,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 2,
+      "motor": "claude"
+    }
+  ],
+  "ajustados": 0
 }
