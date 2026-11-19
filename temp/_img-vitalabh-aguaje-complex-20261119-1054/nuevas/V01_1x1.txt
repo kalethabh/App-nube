@@ -1,0 +1,47 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+FIRST, READ THE REFERENCE AD before designing anything: (a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); (b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); (c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; never switch to another body area or another benefit.
+
+IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 premium supplement ad on a glossy pink background (bubblegum pink #FF8CC0 fading to pale blush #FBE3EE) with very soft, large translucent petal shapes. TOP-LEFT, stacked headline aligned left: a deep magenta (#B0105E) rounded pill with white bold uppercase text 'NO SOLO GLÚTEOS'; below it a big white bold uppercase line 'TAMBIÉN TUS' with a subtle shadow; below it the giant deep-magenta bold uppercase line 'PIERNAS Y CADERAS', the largest text in the ad. Under the headline, a fuchsia (#E6177F) handwritten script 'Tu mejor versión' with a small heart. LEFT EDGE, below the script, a vertical column of three fuchsia circles with thin white line icons (a rounded glutes silhouette, a leg silhouette, a leaf), each with a short bold uppercase label in deep magenta below it. CENTER-LEFT, large and upright, overlapping between the icon column and the woman: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', the line 'A base de Aguaje, Fenogreco y Maca Negra', italic pink 'TRIPLE ACCIÓN' with a swoosh, three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom; glossy highlight and a soft shadow. RIGHT HALF, from the top edge down to the bottom bar: an ultra-photorealistic real Latina woman in her mid-20s standing seen from behind, weight on one leg, long dark wavy hair down her back, black sports crop top, very short fitted sand-beige cotton shorts. Her glutes are clearly full, round and lifted, her hips wide and her thighs thick and toned, visibly voluminous yet natural and believable, not exaggerated; the glutes-and-thighs area fills about 60 percent of her half. Maximum realism: real skin texture with visible pores, fine natural creases, tiny moles, subtle natural skin tone variation, realistic fabric folds and stitching, soft natural daylight, shot on a full-frame camera with an 85mm lens; no plastic or airbrushed skin; tasteful, non-explicit fitness-fashion styling. BOTTOM, full width: a wide deep-magenta rounded bar split by a thin white vertical divider into two cells; left cell a white shopping-bag icon with white bold uppercase 'PÍDELO HOY', right cell a white house icon with white bold uppercase 'TE LLEGA A CASA'. Below it, centered: a fuchsia rounded pill with a white leaf icon at the left, the two-line text in white (first line Poppins Regular, second line bold) and a white outline heart at the right. Clean, high-contrast, scroll-stopping. Include only these elements and texts.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- headline pill (top-left, first line): "NO SOLO GLÚTEOS" — Poppins Bold uppercase, white on deep magenta rounded pill
+- main headline (top-left, second line): "TAMBIÉN TUS" — Poppins Bold uppercase, large, white with subtle shadow
+- main headline (top-left, third line, the biggest): "PIERNAS Y CADERAS" — Poppins Bold uppercase, giant, deep magenta
+- handwritten accent (below headline, left): "Tu mejor versión" — Handwritten script, fuchsia, with small heart
+- benefit label (under first icon circle): "GLÚTEOS CON MÁS VOLUMEN" — Poppins Bold uppercase, small, deep magenta, two lines
+- benefit label (under second icon circle): "PIERNAS MÁS LLENAS" — Poppins Bold uppercase, small, deep magenta, two lines
+- benefit label (under third icon circle): "3 EXTRACTOS NATURALES" — Poppins Bold uppercase, small, deep magenta, two lines
+- trust item (bottom bar, left cell): "PÍDELO HOY" — Poppins Bold uppercase, white
+- trust item (bottom bar, right cell): "TE LLEGA A CASA" — Poppins Bold uppercase, white, two lines
+- emotional tagline (bottom pill, centered): "Curvas que se notan, naturalmente" — Poppins Regular first line, Poppins Bold second line, white, two lines
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, aguaje orange #D9572B only for fruit accents.
+
+MANDATORY ELEMENTS:
+- Pink background with soft petal shapes
+- Deep magenta headline pill
+- Three fuchsia circles with white line icons in a left column
+- The real product bottle from the attached photo, large at center-left
+- Ultra-realistic woman from behind in very short fitted shorts on the right half, with visibly fuller glutes, hips and thighs
+- Deep magenta two-cell bottom bar with white icons and a thin divider
+- Fuchsia closing pill with leaf icon and outline heart
+
+STRICT EXCLUSIONS:
+- No brand logos other than the label on the bottle; no other supplement brands
+- No prices, discounts, stars, ratings or testimonials
+- No cartoonish, exaggerated or surgical-looking body proportions; no nudity
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any brand logo other than the label printed on the bottle
+- Do not add: Price, discount, stars, ratings, testimonials or extra badges
+- Do not add: CTA buttons beyond the existing bottom bar
+- Do not add: Extra icons or benefit lines beyond the three in the column
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
