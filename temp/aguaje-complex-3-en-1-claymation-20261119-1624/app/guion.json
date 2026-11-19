@@ -1,0 +1,278 @@
+{
+  "titulo": "Aguaje Complex · Tus glúteos están dormidos (versión nueva)",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 46.2,
+  "de_que_va": "Una mujer nueva, en escenarios nuevos, que ya probó de todo y sigue plana descubre que el problema está adentro: sus glúteos están dormidos. Aguaje Complex los despierta y su figura cambia paso a paso.",
+  "estructura": {
+    "id": "de-la-referencia",
+    "nombre": "La de tu video de referencia",
+    "porque": "Mantiene los momentos de tu video en su orden: gancho con pregunta, lo que ya probó, la cirugía, el problema está adentro, los glúteos dormidos, llega el producto y los despierta, el cambio paso a paso, sin bisturí y el cierre."
+  },
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "¿Ya probaste de todo y tus glúteos siguen planos?",
+      "se_ve": "En su sala, de lado frente a un espejo de arco, se mira el jean plano por encima del hombro y frunce la cara.",
+      "segundos": 3.1
+    },
+    {
+      "n": 2,
+      "momento": "problema",
+      "dice": "Sentadillas todos los días, cremas, pastillas…",
+      "se_ve": "Hace sentadillas en una colchoneta morada, sudando, con un tubo de crema y un frasco cerrado al lado.",
+      "segundos": 3.6
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "dice": "y el jean sigue flojo.",
+      "se_ve": "De cerca y de lado, pellizca la tela que le sobra atrás al jean y la suelta: sigue flojo.",
+      "segundos": 1.7
+    },
+    {
+      "n": 4,
+      "momento": "problema",
+      "dice": "Y ya hasta mirabas cirugías de millones.",
+      "se_ve": "De noche en el sofá, con una calculadora que bota papel sin parar hasta el piso; ella queda boquiabierta.",
+      "segundos": 2.4
+    },
+    {
+      "n": 5,
+      "momento": "giro",
+      "dice": "Pero el problema no está afuera. Está adentro.",
+      "se_ve": "Muy de cerca, el remache del bolsillo del jean es una puertita que se abre y sale una luz dorada.",
+      "segundos": 2.9
+    },
+    {
+      "n": 6,
+      "momento": "problema",
+      "dice": "Tus glúteos están dormidos, y dormidos no crecen.",
+      "se_ve": "Adentro, en una cuevita tibia, cinco fibras de músculo con gorro de dormir roncan en hamaquitas.",
+      "segundos": 3
+    },
+    {
+      "n": 7,
+      "momento": "problema",
+      "dice": "Sin lo que necesitan, no se llenan ni suben.",
+      "se_ve": "Una fibra flaquita voltea un platito vacío; las repisas están vacías.",
+      "segundos": 3
+    },
+    {
+      "n": 8,
+      "momento": "problema",
+      "dice": "Y ninguna crema llega hasta allá.",
+      "se_ve": "Como un pastel por capas: una gota de crema se queda arriba del jean y no baja; abajo siguen dormidas.",
+      "segundos": 2.1
+    },
+    {
+      "n": 9,
+      "momento": "solución",
+      "dice": "Hasta que llega Aguaje Complex.",
+      "se_ve": "En su cocina, con arepa y jugo, sostiene el frasco cerrado junto a la cara y sonríe esperanzada.",
+      "segundos": 2.1
+    },
+    {
+      "n": 10,
+      "momento": "solución",
+      "dice": "Aguaje, fenogreco y maca negra: triple acción.",
+      "se_ve": "El aguaje, un saquito de fenogreco y una maca negra bajan por la escalerita con faroles e iluminan la cueva.",
+      "segundos": 3.2
+    },
+    {
+      "n": 11,
+      "momento": "solución",
+      "dice": "Llegan directo al músculo y lo despiertan.",
+      "se_ve": "Sacuden a las fibras, que se despiertan, se ponen gruesas y brillantes y sacan bíceps.",
+      "segundos": 2.9
+    },
+    {
+      "n": 12,
+      "momento": "prueba",
+      "dice": "Primero, el jean ya no queda flojo.",
+      "se_ve": "En su cuarto se sube el jean y ya le ajusta; se lo alisa y sonríe sorprendida.",
+      "segundos": 2.5
+    },
+    {
+      "n": 13,
+      "momento": "prueba",
+      "dice": "Después, te miras de lado y hay curva.",
+      "se_ve": "En el espejo de un ascensor, de lado, la curva se nota y ella sonríe orgullosa.",
+      "segundos": 2.7
+    },
+    {
+      "n": 14,
+      "momento": "prueba",
+      "dice": "Y luego todos voltean a verte en la calle.",
+      "se_ve": "Camina segura por una calle colonial colorida y un frutero y una señora voltean a mirarla.",
+      "segundos": 3
+    },
+    {
+      "n": 15,
+      "momento": "solución",
+      "dice": "Sin bisturí, sin rebote, sin vivir en el gym.",
+      "se_ve": "Descansa en una hamaca en la terraza con un jugo; las pesas quedaron olvidadas con telaraña.",
+      "segundos": 2.8
+    },
+    {
+      "n": 16,
+      "momento": "cierre",
+      "dice": "Ese es el que necesitas: Aguaje Complex, tres en uno.",
+      "se_ve": "En su sala, sostiene el frasco cerrado junto a la cara, segura y sonriente.",
+      "segundos": 2.8
+    },
+    {
+      "n": 17,
+      "momento": "cierre",
+      "dice": "Búscalo aquí abajo y despierta tus glúteos.",
+      "se_ve": "Baila un pasito de salsa en su sala, feliz y de frente.",
+      "segundos": 2.4
+    }
+  ],
+  "broll": [
+    {
+      "n": 1,
+      "despues": 1,
+      "con": "tus glúteos siguen planos",
+      "segundos": 2,
+      "se_ve": "Su cara reflejada en el espejo de arco de la sala, con la luz de la mañana. Frunce las cejas y aprieta los labios, frustrada. Deja la sensación de 'otra vez igual'.",
+      "camara": "primer plano, cámara quieta"
+    },
+    {
+      "n": 2,
+      "despues": 2,
+      "con": "cremas, pastillas",
+      "segundos": 2,
+      "se_ve": "Visto desde arriba, sobre la colchoneta morada: un tubo de crema, un frasco blanco cerrado, un metro amarillo enrollado y una toallita. El metro se desenrolla un poquito solo. Todo lo que ya probó, sin resultado.",
+      "camara": "cenital, la cámara se acerca despacio"
+    },
+    {
+      "n": 3,
+      "despues": 3,
+      "con": "el jean sigue flojo",
+      "segundos": 2,
+      "se_ve": "Sentada en el sofá mostaza, abraza un cojín a rayas con un puchero y mira hacia abajo. Suelta un suspiro y se le caen los hombros. Tristeza tierna.",
+      "camara": "plano medio, cámara quieta"
+    },
+    {
+      "n": 4,
+      "despues": 4,
+      "con": "cirugías de millones",
+      "segundos": 2,
+      "se_ve": "La calculadora sobre la mesita de centro, de noche, con la luz cálida de una lámpara. El papel en blanco sigue saliendo y cae en un montón sobre la alfombra. Lo exagerado de lo que cuesta una cirugía.",
+      "camara": "a ras de mesa, cámara quieta"
+    },
+    {
+      "n": 5,
+      "despues": 5,
+      "con": "está adentro",
+      "segundos": 2,
+      "se_ve": "Mirando hacia abajo por la puertita redonda: un túnel de plastilina tibia con una escalera de caracol que baja hacia una luz dorada que late. Da curiosidad por ver qué hay adentro.",
+      "camara": "la cámara baja despacio por la escalera"
+    },
+    {
+      "n": 6,
+      "despues": 6,
+      "con": "están dormidos",
+      "segundos": 2,
+      "se_ve": "Una sola fibra dormida en su hamaquita, con el gorro tapándole un ojo. Ronca y la burbuja crece y se achica. Ternura y gracia.",
+      "camara": "primer plano, cámara quieta"
+    },
+    {
+      "n": 7,
+      "despues": 7,
+      "con": "sin lo que necesitan",
+      "segundos": 2,
+      "se_ve": "Una repisa de madera en la pared de la cueva, con platitos y ollitas vacías y una telaraña en la esquina. Un platito se tambalea. Se nota que ahí no hay nada que comer.",
+      "camara": "plano detalle, paneo lento a la derecha"
+    },
+    {
+      "n": 8,
+      "despues": 8,
+      "con": "ninguna crema llega",
+      "segundos": 2,
+      "se_ve": "Una gota grande de crema blanca encima de una superficie de jean azul con costuras. Se tambalea y resbala de lado sin entrar. Queda claro que por fuera no llega.",
+      "camara": "macro, cámara quieta"
+    },
+    {
+      "n": 9,
+      "despues": 9,
+      "con": "Aguaje Complex",
+      "segundos": 2,
+      "se_ve": "El frasco cerrado de Aguaje Complex en el mesón de madera de la cocina, del alto del vaso de jugo, junto a un plato con arepa. La luz del sol va iluminando el mesón. Se ve la etiqueta clara.",
+      "camara": "primer plano a la altura del mesón, la cámara se acerca despacio"
+    },
+    {
+      "n": 10,
+      "despues": 10,
+      "con": "aguaje, fenogreco y maca negra",
+      "segundos": 2,
+      "se_ve": "Sobre una tabla de madera: un aguaje partido con su pulpa naranja, un montoncito de semillas doradas de fenogreco y una maca negra. Unas semillas ruedan. Los tres ingredientes, juntos.",
+      "camara": "primer plano, la cámara gira despacio alrededor"
+    },
+    {
+      "n": 11,
+      "despues": 11,
+      "con": "lo despiertan",
+      "segundos": 2,
+      "se_ve": "Una fibra ya despierta, gruesa y brillante, sin gorro, saca bíceps dos veces y da un saltito orgulloso en la cueva iluminada. Energía y alegría.",
+      "camara": "primer plano, cámara quieta"
+    },
+    {
+      "n": 12,
+      "despues": 12,
+      "con": "el jean ya no queda flojo",
+      "segundos": 2,
+      "se_ve": "De lado, de la cintura a medio muslo, en su cuarto verde: el jean cerrado le queda ajustado y ella pasa la mano por el costado de la cadera. Ya no sobra tela.",
+      "camara": "plano medio corto, cámara quieta"
+    },
+    {
+      "n": 13,
+      "despues": 13,
+      "con": "hay curva",
+      "segundos": 2,
+      "se_ve": "En el probador de una tienda, con cortina verde azulada y un espejo alto, se prueba un vestido mostaza ajustado. De lado, la curva se ve clarísima y sonríe encantada por encima del hombro.",
+      "camara": "plano entero, cámara quieta"
+    },
+    {
+      "n": 14,
+      "despues": 14,
+      "con": "todos voltean a verte",
+      "segundos": 2,
+      "se_ve": "El frutero de sombrero en la calle colorida, con un mango en la mano, voltea de golpe, levanta las cejas y casi se le cae el mango; después sonríe. Remate cómico.",
+      "camara": "plano medio corto, cámara quieta"
+    },
+    {
+      "n": 15,
+      "despues": 15,
+      "con": "sin vivir en el gym",
+      "segundos": 2,
+      "se_ve": "En la esquina de la terraza soleada, una colchoneta enrollada y dos pesas olvidadas con una telaraña. La brisa mueve la telaraña. Ya no tiene que vivir en el gym.",
+      "camara": "primer plano, cámara quieta"
+    },
+    {
+      "n": 16,
+      "despues": 16,
+      "con": "Aguaje Complex, tres en uno",
+      "segundos": 2,
+      "se_ve": "El frasco cerrado sobre una cómoda de madera junto a una ventana con cortinas blancas, del alto de una matica. La cortina se mueve con la brisa y la luz se pone más cálida.",
+      "camara": "primer plano, la cámara se acerca despacio"
+    },
+    {
+      "n": 17,
+      "despues": 17,
+      "con": "despierta tus glúteos",
+      "segundos": 2,
+      "se_ve": "Solo sus tenis blancos y el borde del jean sobre la alfombra de la sala, haciendo un pasito de salsa de lado a lado. Alegría pura para cerrar.",
+      "camara": "plano bajo, cámara quieta"
+    }
+  ],
+  "decisiones": [
+    "Clonado de: AGUAJE 02 - CLAYMATION.mp4 · 17 tomas · 46 s. Estructura: la de tu video de referencia, con los mismos momentos y el mismo ritmo.",
+    "Es otro video: protagonista nueva (pelo negro liso con flequillo, camiseta lila) y escenarios nuevos (sala, cocina, ascensor, calle colonial, terraza). Mantuve la esencia: los glúteos dormidos que el producto despierta. El gancho ahora pregunta directo por lo que ya probó.",
+    "Quité los días 10, 20 y 30: tu ficha dice que se usa varios meses y no hay dato de cuándo se nota. Lo cambié por 'primero, después, luego'.",
+    "No hay oferta ni forma de compra en tu ficha: quité los tres frascos y el pago al recibir. El cierre dice que ese es el que necesita y que lo busque aquí abajo. 'Sin pagar millones' pasó a 'sin vivir en el gym', un beneficio de tu ficha.",
+    "Sin investigación de mercado: el dolor (sentirse plana, el jean flojo, pensar en cirugía) y los beneficios salen de tu ficha y de tu video. Nunca se ven cápsulas ni el frasco abierto, solo el frasco cerrado."
+  ]
+}
