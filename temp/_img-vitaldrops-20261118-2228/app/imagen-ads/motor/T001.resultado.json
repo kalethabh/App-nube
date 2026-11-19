@@ -1,0 +1,94 @@
+{
+  "id": "T001",
+  "piezas": {
+    "V01_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1f1d9-b5e9-7a43-922b-fad8d5cb3a00",
+      "firma": "1581954-1795059038432",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V02_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1f1d9-b5e9-7741-88f0-5274b0827270",
+      "firma": "1772163-1795059040842",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V03_1x1": {
+      "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a1f1d9-b5e9-7852-83d6-0ded60904821",
+      "firma": "1266085-1795059031839",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V04_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V05_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V06_1x1": {
+      "orden": "g",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    },
+    "V07_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V08_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V09_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    },
+    "V10_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    }
+  },
+  "actualizado": "2026-11-19T03:30:40.847Z",
+  "terminado": false
+}

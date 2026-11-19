@@ -1,0 +1,39 @@
+{
+  "ad_info": {
+    "variation_id": "V01"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "the typography of the template"
+  },
+  "visual_prompt": "PRODUCT: VITALDROPS (market: Colombia, Spanish of Colombia).\nTHIS PRODUCT'S ANGLE (what the image must SHOW, in the template's form): Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo..\nDesired results, most important first: Verse con curvas. Llenar el jean, tener caderas y cola, que la ropa horme · Lograrlo de forma natural. Sin cirugía, sin inyecciones, sin riesgos que la asusten. · Comer con ganas y tener energía. Dejar de saltarse comidas y tener fuerzas para entrenar..\nCustomer: Yuliana, la flaca que come y come y no le sale cola. Tiene 26 años, trabaja todo el día y lleva años oyendo que le falta carnita. Quiere curvas, pero le tiene pavor al quirófano.\nCONCEPT of this image (different from the other images of the batch): the customer getting dressed in the morning, in front of the mirror at home. Show that person in that moment, inside the template's form.\nHEADLINE STRUCTURE of this template: Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]» (the template, for another product, says: «No solo glúteos, también tus piernas»). Write THIS image's main headline and labels with exactly that structure, filled with THIS product's main desire or benefit (Verme con curvas y llenar el jean sin operarme ni inyectarme nada, y dejar de sentirme la flaca del grupo.), in the customer's words, so the headline names the very result the image shows. Idea from the research: «En mi familia, si eres flaca, todo el mundo opina.» (use its words when they fit the structure).\nTHE RESULT MUST BE BIG AND OBVIOUS, even as a small thumbnail: if the desire is MORE volume or shape (glutes, hips, legs, bust, curves), the AFTER, the last panel or the single person shows clearly MORE volume, roundness and lift, with the body area filling 60 to 70 % of its panel, in fitted clothes (leggings, jeans, a fitted dress), seen from the side or 3/4 back; if the desire is LESS of something (belly, swelling, cellulite, fat), show it clearly reduced. The headline and the labels name that same result.\nAllowed timeframes (for the panel labels and the headline): Más energía y cabeza más despejada: Primeros días a dos semanas · Más ganas de comer: Primeras semanas · Días más tranquilos, mejor manejo del estrés: De dos a ocho semanas · Hábito instalado: come mejor y entrena con más constancia: Desde el primer mes · Cambios visibles en el cuerpo: Sin dato confirmado. Depende de la comida y el ejercicio, y se mide en meses.. Rule: Para los anuncios usa solo «desde las primeras semanas» y siempre ligado a energía y apetito, no a medidas del cuerpo. If the template has more panels than allowed timeframes, label them ANTES / DESPUÉS or with the steps, never with invented days.\nColor palette: the colors of the product's packaging, with the same contrast and hierarchy as the template.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.",
+  "text_layers": [
+    {
+      "reference_function": "main headline",
+      "reference_position": "same place as the main headline of the template",
+      "text": "En mi familia, si eres flaca, todo el mundo opina.",
+      "text_style": "same style as the main headline of the template"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo",
+    "this product's angle shown in the template's visual mechanism"
+  ],
+  "final_generation_exclusions": [
+    "any logo, brand name or text from the template",
+    "the template's body area or problem when it is not this product's",
+    "prices, discounts or offers",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "the template's brand, prices or claims"
+    ],
+    "detected_visual_blocks": []
+  },
+  "language_rule": "All visible text in Spanish.",
+  "app_rapido": "plantilla",
+  "app_concepto": {
+    "momento": "getting dressed in the morning, in front of the mirror at home"
+  }
+}
