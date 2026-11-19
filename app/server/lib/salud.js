@@ -18,7 +18,11 @@ import { nombreDeModelo } from './modelos.js';
 
 const ESPERA_PAGINA = 7000;
 const ESPERA_PROPIA = 12000;
-const LENTO_MS = 6000;
+const LENTO_MS = 8000;
+// (2026-11-19d: se quedaba en naranja todo el día) los reintentos de tus generaciones solo cuentan en las últimas 2
+// horas y si la última pieza también los necesitó; una comprobación lenta o sin respuesta solo cuenta si se repite
+const RECIENTE = 2 * 3600000;
+const seguidas = new Map(); // nombre -> cuántas comprobaciones malas seguidas
 let recordado = null; // { t, valor, promesa }
 // EN VIVO (2026-11-19c, «que se actualice en tiempo real»): mientras alguna pantalla escucha (GET /api/salud/en-vivo),
 // se revisa todo cada 30 s y cada resultado nuevo (también el ↻ de una fila) se manda al instante a todas
@@ -65,6 +69,7 @@ let PAGINAS = {
 };
 export function _paraPruebas(paginas, { cadaVivo } = {}) {
   PAGINAS = { ...PAGINAS, ...paginas };
+  seguidas.clear();
   if (cadaVivo) CADA_VIVO = cadaVivo;
   recordado = null;
 }
@@ -212,32 +217,39 @@ function piezasDeKie() {
 /** -> [{ nombre, estado, detalle }] por modelo (el más usado primero). */
 export function modelosDeKie() {
   const porNombre = new Map();
+  const ahora = Date.now();
   for (const p of piezasDeKie()) {
     const nombre = p.modelo === 'suno' ? 'Suno (música)' : nombreDeModelo(p.modelo) || p.modelo;
-    const g = porNombre.get(nombre) || { nombre, total: 0, hoy: 0, hoyReintento: 0, ultima: 0 };
+    const g = porNombre.get(nombre) || { nombre, total: 0, hoy: 0, recientes: 0, conReintento: 0, ultima: 0, ultimaConReintento: false };
     g.total++;
-    if (Date.now() - p.cuando <= DIA) {
-      g.hoy++;
-      if (p.reintento) g.hoyReintento++;
+    if (ahora - p.cuando <= DIA) g.hoy++;
+    if (ahora - p.cuando <= RECIENTE) {
+      g.recientes++;
+      if (p.reintento) g.conReintento++;
     }
-    g.ultima = Math.max(g.ultima, p.cuando);
+    if (p.cuando >= g.ultima) {
+      g.ultima = p.cuando;
+      g.ultimaConReintento = p.reintento;
+    }
     porNombre.set(nombre, g);
   }
+  const dias = (g) => Math.max(1, Math.round((ahora - g.ultima) / DIA));
   return [...porNombre.values()]
     .sort((a, b) => b.total - a.total)
     .map((g) => {
-      const mal = g.hoy >= 2 && g.hoyReintento / g.hoy >= 0.5;
+      // amarillo solo si AHORA viene fallando: varias piezas de las últimas 2 h con reintentos y la última también
+      const mal = g.recientes >= 2 && g.conReintento / g.recientes >= 0.5 && g.ultimaConReintento;
       return {
         nombre: g.nombre,
         piezas: g.total,
-        estado: mal ? 'degradado' : g.hoy ? 'operativo' : 'operativo',
-        detalle: mal ? `${g.hoyReintento} de ${g.hoy} piezas hoy necesitaron reintentos` : g.hoy ? `${g.hoy} ${g.hoy === 1 ? 'pieza' : 'piezas'} hoy` : `Última vez: hace ${Math.max(1, Math.round((Date.now() - g.ultima) / DIA))} ${Math.round((Date.now() - g.ultima) / DIA) <= 1 ? 'día' : 'días'}`,
+        estado: mal ? 'degradado' : 'operativo',
+        detalle: mal ? `${g.conReintento} de ${g.recientes} piezas en las últimas 2 horas necesitaron reintentos` : g.hoy ? `${g.hoy} ${g.hoy === 1 ? 'pieza' : 'piezas'} hoy` : `Última vez: hace ${dias(g)} ${dias(g) === 1 ? 'día' : 'días'}`,
       };
     });
 }
 
 /** Una comprobación propia: lo que tardó y si respondió. -> { estado, detalle } */
-async function propia(fn, nombre) {
+export async function propia(fn, nombre) {
   const t0 = Date.now();
   let r;
   try {
@@ -246,8 +258,13 @@ async function propia(fn, nombre) {
     r = { ok: false };
   }
   const ms = Date.now() - t0;
-  if (r?.tarde) return { estado: 'caido', detalle: `${nombre} no respondió en ${ESPERA_PROPIA / 1000} s con tu clave` };
-  if (r?.ok) return ms > LENTO_MS ? { estado: 'lento', detalle: `Respondió con tu clave, pero tardó ${Math.round(ms / 1000)} s` } : { estado: 'operativo', detalle: '' };
+  const malo = r?.tarde || (r?.ok && ms > LENTO_MS) || (r && !r.ok && !['sin-clave', 'clave-invalida', 'sin-permisos'].includes(r.motivo));
+  const veces = malo ? (seguidas.get(nombre) || 0) + 1 : 0;
+  seguidas.set(nombre, veces);
+  // una sola vez lento o sin respuesta: verde, con la nota (se vuelve a revisar en 30 s)
+  if (veces === 1) return { estado: 'operativo', detalle: r?.ok ? `Tardó ${Math.round(ms / 1000)} s en responder; lo vuelvo a revisar` : 'No respondió una vez; lo vuelvo a revisar' };
+  if (r?.tarde) return { estado: 'caido', detalle: `${nombre} no respondió en ${ESPERA_PROPIA / 1000} s con tu clave, dos veces seguidas` };
+  if (r?.ok) return ms > LENTO_MS ? { estado: 'lento', detalle: `Funciona, pero tardó ${Math.round(ms / 1000)} s en responder (dos veces seguidas)` } : { estado: 'operativo', detalle: '' };
   if (r?.motivo === 'sin-clave') return { estado: 'desconocido', detalle: 'Falta tu clave (Ajustes → Conexiones)' };
   if (r?.motivo === 'clave-invalida' || r?.motivo === 'sin-permisos') return { estado: 'desconocido', detalle: 'Revisa tu clave en Ajustes → Conexiones' };
   return { estado: 'caido', detalle: r?.mensaje ? String(r.mensaje).slice(0, 140) : `${nombre} no respondió con tu clave` };

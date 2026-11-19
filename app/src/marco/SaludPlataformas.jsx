@@ -106,6 +106,17 @@ export function SaludPlataformas() {
   }, [abierto]);
 
   const general = datos?.general || 'desconocido';
+  // cuál lo pone en naranja o rojo (y si igual se puede usar): «kie.ai va lento: se puede usar»
+  const todos = (datos?.grupos || []).flatMap((g) => g.servicios);
+  const culpables = todos.filter((s) => s.estado === general && general !== 'operativo' && general !== 'desconocido');
+  const nombres = culpables.map((s) => s.nombre).join(', ');
+  const resumen = !culpables.length
+    ? GENERAL[general]
+    : general === 'caido'
+      ? `${nombres}: no responde`
+      : general === 'degradado'
+        ? `${nombres}: con fallas (puede fallar algo)`
+        : `${nombres}: va lento, pero se puede usar`;
   return (
     <div className="salud" ref={caja}>
       <button
@@ -113,6 +124,7 @@ export function SaludPlataformas() {
         className={`salud__boton salud__boton--${TONO[general]}`}
         aria-expanded={abierto}
         aria-haspopup="dialog"
+        title={resumen}
         onClick={() => {
           setAbierto((x) => !x);
           if (!abierto) revisar();
@@ -126,7 +138,7 @@ export function SaludPlataformas() {
           <div className="salud__cabeza">
             <div>
               <strong>Estado de las plataformas</strong>
-              <span className={`salud__general salud__general--${TONO[general]}`}>{GENERAL[general]}</span>
+              <span className={`salud__general salud__general--${TONO[general]}`}>{resumen}</span>
             </div>
             <button type="button" className="salud__revisar" onClick={() => revisar(true)} disabled={revisando} title="Revisar ahora" aria-label="Revisar ahora">
               <RotateCcw size={14} strokeWidth={2.2} className={revisando ? 'girando' : ''} aria-hidden="true" />
