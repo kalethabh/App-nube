@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-3-en-1-agregar-20261119-1112",
   "familia": "ugc",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -73,42 +73,41 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-19T17:11:44.983Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 949,
-        "total": 1118,
-        "restante": 24,
-        "en": "2026-11-19T17:14:22.166Z"
-      }
+      "fin": "2026-11-19T17:15:20.665Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T17:15:20.666Z",
+      "fin": "2026-11-19T17:15:33.312Z"
     },
     {
       "id": "ganchos",
       "nombre": "Armar las versiones con otro gancho",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "saltado",
+      "intentos": 1,
+      "inicio": "2026-11-19T17:15:33.312Z",
+      "fin": "2026-11-19T17:15:33.314Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T17:15:33.314Z",
+      "fin": "2026-11-19T17:15:33.495Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-19T17:02:30.776Z",
   "aprobado": "2026-11-19T17:02:30.776Z",
-  "actualizado": "2026-11-19T17:14:22.166Z",
+  "actualizado": "2026-11-19T17:15:33.495Z",
   "saldoInicial": {
     "creditos": 1020.1,
     "fecha": "2026-11-19T17:02:31.640Z"
@@ -116,5 +115,10 @@
   "costoPlan": {
     "creditos": 412,
     "fecha": "2026-11-19T17:02:31.640Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 2628.1,
+    "fecha": "2026-11-19T17:15:33.484Z"
+  },
+  "terminado": "2026-11-19T17:15:33.495Z"
 }

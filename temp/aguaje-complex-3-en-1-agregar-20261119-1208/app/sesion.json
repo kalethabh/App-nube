@@ -20,11 +20,14 @@
     "Leyendo las instrucciones del estilo",
     "Buscando en los archivos",
     "Guardando",
-    "Escribiendo el guion y cada escena"
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Revisando",
+    "Ajustando el guion"
   ],
   "inicio": "2026-11-19T17:08:14.580Z",
   "cambios": [],
-  "actualizado": "2026-11-19T17:13:59.904Z",
+  "actualizado": "2026-11-19T17:16:11.357Z",
   "error": null,
   "inicioIntento": "2026-11-19T17:08:14.580Z"
 }

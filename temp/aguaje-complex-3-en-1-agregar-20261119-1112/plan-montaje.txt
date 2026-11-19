@@ -1,0 +1,119 @@
+==============================================================================
+PLAN DE MONTAJE — aguaje-complex-3-en-1-agregar-20261119-1112
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+ANUNCIO POR BLOQUES (UGC). Cada bloque es un clip de 4 a 10 s donde la persona
+habla con su propia voz, con lip-sync. No hay voz en off ni B-roll.
+
+REGLA MADRE: manda el clip. Los bloques van en orden y en corte seco; la
+duracion del anuncio es la suma de los bloques ya recortados.
+
+LO QUE NO SE HACE, NUNCA:
+  - No aceleres un bloque hablado: deforma la voz y desincroniza la boca.
+  - No cortes por DENTRO del dialogo: ahi vive el lip-sync.
+  Si un bloque no sirve, se REGENERA (npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261119-1112 N). No se ajusta.
+
+LO QUE SI: recorta el silencio del principio y del final de cada bloque. Si al
+final repite palabras que ya dijo, cortalas (abajo se indica donde, si se midio).
+
+------------------------------------------------------------------------------
+
+BLOQUE 1   (8 s, tipo R)   — gancho
+  Cuando:   00:00.00 -> 00:07.64   (7.64s de ventana)
+  Clip:     video/toma-1.mp4
+  Tramos:
+            [0.0–2.4s]  "Mire, para ganar glúteo hay dos caminos."
+            [2.4–5.4s]  "Uno es el quirófano, caro y con riesgos."
+            [5.4–8.0s]  "Y el otro, de forma natural."
+  Dice:     "Mire, para ganar glúteo hay dos caminos. Uno es el quirófano, caro y con riesgos. Y el otro, de forma natural."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+  Recorte:  0.00s del INICIO y 0.28s del FINAL.
+            Quedan 7.64s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 2   (8 s, tipo R)   — problema + antes
+  Cuando:   00:07.64 -> 00:15.57   (7.93s de ventana)
+  Clip:     video/toma-2.mp4
+  Tramos:
+            [0.0–2.6s] [personaje]  "Muchas me dicen: hago de todo y nada."
+            [2.6–4.2s]  (sin dialogo)
+            [4.2–5.8s] [personaje]  "Las piernas siguen flaquitas."
+            [5.8–8.0s] [personaje]  "Les falta darle al cuerpo el empujón."
+  Dice:     "Muchas me dicen: hago de todo y nada. Las piernas siguen flaquitas. Les falta darle al cuerpo el empujón."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) lugar-consultorio -> img/lugar-consultorio.png   (fotograma del bloque 1, segundo 3.9)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 3   (8 s, tipo R)   — solución
+  Cuando:   00:15.57 -> 00:23.50   (7.93s de ventana)
+  Clip:     video/toma-3.mp4
+  Tramos:
+            [0.0–2.6s]  "Por eso yo le recomiendo Aguaje Complex tres en uno."
+            [2.6–5.4s]  "Trae aguaje, fenogreco y maca negra juntos."
+            [5.4–8.0s]  "Dos cápsulas al día, con la comida."
+  Dice:     "Por eso yo le recomiendo Aguaje Complex tres en uno. Trae aguaje, fenogreco y maca negra juntos. Dos cápsulas al día, con la comida."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-consultorio -> img/lugar-consultorio.png   (fotograma del bloque 1, segundo 3.9)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 4   (8 s, tipo R)   — beneficios + después
+  Cuando:   00:23.50 -> 00:31.29   (7.78s de ventana)
+  Clip:     video/toma-4.mp4
+  Tramos:
+            [0.0–2.6s] [personaje]  "Le ayuda a ganar volumen en glúteos, piernas y caderas."
+            [2.6–4.2s]  (sin dialogo)
+            [4.2–6.0s] [personaje]  "Sin efecto rebote, no engorda."
+            [6.0–8.0s] [personaje]  "Y se ve natural."
+  Dice:     "Le ayuda a ganar volumen en glúteos, piernas y caderas. Sin efecto rebote, no engorda. Y se ve natural."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) producto       -> producto.png
+            4) lugar-consultorio -> img/lugar-consultorio.png   (fotograma del bloque 1, segundo 3.9)
+  Recorte:  0.00s del INICIO y 0.15s del FINAL.
+            Quedan 7.78s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 5   (6 s, tipo R)   — llamado a la acción
+  Cuando:   00:31.29 -> 00:37.26   (5.97s de ventana)
+  Clip:     video/toma-5.mp4
+  Tramos:
+            [0.0–3.0s]  "Si quiere probarlo, el suyo está en el botón de abajo."
+            [3.0–6.0s]  "Fíjese que sea el de tapa rosada."
+  Dice:     "Si quiere probarlo, el suyo está en el botón de abajo. Fíjese que sea el de tapa rosada."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) lugar-consultorio -> img/lugar-consultorio.png   (fotograma del bloque 1, segundo 3.9)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 5.97s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+------------------------------------------------------------------------------
+
+SUBTITULOS, TEXTO EN PANTALLA Y MUSICA
+  Van en el montaje, nunca dentro de los clips. Musica baja, unos -22 dB por
+  debajo de la voz.
+
+AUDIO DE LOS CLIPS
+  La voz viene DENTRO de cada clip, con el ambiente del lugar. No se le agrega
+  narracion. Un fade corto (~80ms) en cada corte evita que suene seco.
+
+==============================================================================
