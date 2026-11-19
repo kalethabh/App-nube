@@ -5,11 +5,23 @@
   "intentos": 1,
   "progreso": [
     "Preparando la foto de tu producto",
-    "Analizando el video de referencia"
+    "Analizando el video de referencia",
+    "Claude empezó a escribir tu guion",
+    "Leyendo las instrucciones del estilo",
+    "Revisando",
+    "Buscando en los archivos",
+    "Leyendo",
+    "Mirando las imágenes del anuncio",
+    "Mirando las fotos de tu producto",
+    "Leyendo",
+    "Mirando las imágenes del anuncio",
+    "Leyendo las instrucciones del estilo",
+    "Leyendo",
+    "Leyendo las instrucciones del estilo"
   ],
   "inicio": "2026-11-19T17:08:14.580Z",
   "cambios": [],
-  "actualizado": "2026-11-19T17:08:15.169Z",
+  "actualizado": "2026-11-19T17:09:33.325Z",
   "error": null,
   "inicioIntento": "2026-11-19T17:08:14.580Z"
 }

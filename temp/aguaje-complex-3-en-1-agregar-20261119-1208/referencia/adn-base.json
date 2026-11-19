@@ -1,0 +1,268 @@
+{
+  "video": "original.mp4",
+  "duracion": 38.91,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 4.13,
+      "duracion": 4.13,
+      "fotograma": "tomas/toma-01.jpg",
+      "tira": "tomas/movimiento/tira-01.jpg",
+      "imagen": {
+        "brillo": 112.3,
+        "luz": "media",
+        "saturacion": 21.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "O sea, yo me ponía un jean y por detrás nada, plana,",
+      "eventos": [],
+      "palabras_por_segundo": 2.91
+    },
+    {
+      "n": 2,
+      "desde": 4.13,
+      "hasta": 5.13,
+      "duracion": 1,
+      "fotograma": "tomas/toma-02.jpg",
+      "tira": "tomas/movimiento/tira-02.jpg",
+      "imagen": {
+        "brillo": 104.7,
+        "luz": "media",
+        "saturacion": 16.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 16,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "plana Plana",
+      "eventos": [],
+      "palabras_por_segundo": 2
+    },
+    {
+      "n": 3,
+      "desde": 5.13,
+      "hasta": 8.03,
+      "duracion": 2.9,
+      "fotograma": "tomas/toma-03.jpg",
+      "tira": "tomas/movimiento/tira-03.jpg",
+      "imagen": {
+        "brillo": 110.9,
+        "luz": "media",
+        "saturacion": 22.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Y ya estaba ahorrando pa' operarme, le juro.",
+      "eventos": [
+        "[ríe]"
+      ],
+      "palabras_por_segundo": 2.76
+    },
+    {
+      "n": 4,
+      "desde": 8.03,
+      "hasta": 13.13,
+      "duracion": 5.1,
+      "fotograma": "tomas/toma-04.jpg",
+      "tira": "tomas/movimiento/tira-04.jpg",
+      "imagen": {
+        "brillo": 89.7,
+        "luz": "media",
+        "saturacion": 19.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 11.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Ay, no, no me digas, yo estaba igualita Igualita Hasta que mi tía me dijo: \"Antes del bisturí, prueba lo natural\" Ya",
+      "eventos": [],
+      "palabras_por_segundo": 4.31
+    },
+    {
+      "n": 5,
+      "desde": 13.13,
+      "hasta": 14.13,
+      "duracion": 1,
+      "fotograma": "tomas/toma-05.jpg",
+      "tira": "tomas/movimiento/tira-05.jpg",
+      "imagen": {
+        "brillo": 112.1,
+        "luz": "media",
+        "saturacion": 22,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.5,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Me pasó el AguaChe Complex,",
+      "eventos": [],
+      "palabras_por_segundo": 5
+    },
+    {
+      "n": 6,
+      "desde": 14.13,
+      "hasta": 17.1,
+      "duracion": 2.97,
+      "fotograma": "tomas/toma-06.jpg",
+      "tira": "tomas/movimiento/tira-06.jpg",
+      "imagen": {
+        "brillo": 110.8,
+        "luz": "media",
+        "saturacion": 15,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 17.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "dos al día con las comidas. Y eso no engorda. Yo",
+      "eventos": [],
+      "palabras_por_segundo": 3.7
+    },
+    {
+      "n": 7,
+      "desde": 17.1,
+      "hasta": 18.73,
+      "duracion": 1.63,
+      "fotograma": "tomas/toma-07.jpg",
+      "tira": "tomas/movimiento/tira-07.jpg",
+      "imagen": {
+        "brillo": 89.7,
+        "luz": "media",
+        "saturacion": 20,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "probé unas pastillas y cuando las dejé,",
+      "eventos": [],
+      "palabras_por_segundo": 4.29
+    },
+    {
+      "n": 8,
+      "desde": 18.73,
+      "hasta": 20.77,
+      "duracion": 2.04,
+      "fotograma": "tomas/toma-08.jpg",
+      "tira": "tomas/movimiento/tira-08.jpg",
+      "imagen": {
+        "brillo": 110.2,
+        "luz": "media",
+        "saturacion": 21.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "rebote total",
+      "eventos": [
+        "[ríe]"
+      ],
+      "palabras_por_segundo": 0.98
+    },
+    {
+      "n": 9,
+      "desde": 20.77,
+      "hasta": 30.77,
+      "duracion": 10,
+      "fotograma": "tomas/toma-09.jpg",
+      "tira": "tomas/movimiento/tira-09.jpg",
+      "imagen": {
+        "brillo": 88.8,
+        "luz": "media",
+        "saturacion": 19.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": ". No, a mí no me pasó. Eso era lo que más miedo me daba Mhm. Y trae sesenta cápsulas, te dura el mes completo. Y ahora me pongo el jean y me miro de lado,",
+      "eventos": [
+        "[ríe]"
+      ],
+      "palabras_por_segundo": 3.6
+    },
+    {
+      "n": 10,
+      "desde": 30.77,
+      "hasta": 32.13,
+      "duracion": 1.36,
+      "fotograma": "tomas/toma-10.jpg",
+      "tira": "tomas/movimiento/tira-10.jpg",
+      "imagen": {
+        "brillo": 110.5,
+        "luz": "media",
+        "saturacion": 19.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 27.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "¿sí me entiendes? Los difre.",
+      "eventos": [],
+      "palabras_por_segundo": 3.68
+    },
+    {
+      "n": 11,
+      "desde": 32.13,
+      "hasta": 36.63,
+      "duracion": 4.5,
+      "fotograma": "tomas/toma-11.jpg",
+      "tira": "tomas/movimiento/tira-11.jpg",
+      "imagen": {
+        "brillo": 89,
+        "luz": "media",
+        "saturacion": 19.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Por WhatsApp. Te llega en tres a cinco días y lo pagas cuando llega Mhm.",
+      "eventos": [],
+      "palabras_por_segundo": 3.33
+    },
+    {
+      "n": 12,
+      "desde": 36.63,
+      "hasta": 38.91,
+      "duracion": 2.28,
+      "fotograma": "tomas/toma-12.jpg",
+      "tira": "tomas/movimiento/tira-12.jpg",
+      "imagen": {
+        "brillo": 106.8,
+        "luz": "media",
+        "saturacion": 20.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 14.5,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Ay, no, yo les escribo hoy mismo, en serio",
+      "eventos": [],
+      "palabras_por_segundo": 3.95
+    }
+  ],
+  "texto": "O sea, yo me ponía un jean y por detrás nada, plana, plana Plana Y ya estaba ahorrando pa' operarme, le juro. Ay, no, no me digas, yo estaba igualita Igualita Hasta que mi tía me dijo: \"Antes del bisturí, prueba lo natural\" Ya Me pasó el AguaChe Complex, dos al día con las comidas. Y eso no engorda. Yo probé unas pastillas y cuando las dejé, rebote total. No, a mí no me pasó. Eso era lo que más miedo me daba Mhm. Y trae sesenta cápsulas, te dura el mes completo. Y ahora me pongo el jean y me miro de lado, ¿sí me entiendes? Los difre. Por WhatsApp. Te llega en tres a cinco días y lo pagas cuando llega Mhm. Ay, no, yo les escribo hoy mismo, en serio",
+  "palabras_por_segundo": 3.47,
+  "eventos_de_audio": [
+    "[ríe]"
+  ],
+  "voz": {
+    "f0": 235,
+    "genero": "femenina",
+    "variacion": 4.48,
+    "expresiva": true,
+    "ritmo": 3.48,
+    "muestras": 749
+  },
+  "aviso": null
+}
