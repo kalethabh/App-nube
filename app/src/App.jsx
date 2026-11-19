@@ -19,6 +19,7 @@ import { BandaActualizacion } from './marco/BandaActualizacion.jsx';
 import './marco/marco.css';
 
 const Inicio = lazy(() => import('./pantallas/inicio/index.jsx'));
+const Oficina = lazy(() => import('./pantallas/oficina/index.jsx'));
 const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
 // (lo que viene: una pantalla de «Próximamente» cada uno)
 const EmbudoWhatsapp = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.EmbudoWhatsapp })));
@@ -58,6 +59,7 @@ const MIS_ANUNCIOS = { texto: 'Mis anuncios', href: enlace.tablero() };
  */
 export const RUTAS = [
   { patron: '/inicio', Pantalla: Inicio, menu: 'inicio', titulo: 'Inicio', migas: () => [{ texto: 'Inicio' }] },
+  { patron: '/oficina', Pantalla: Oficina, menu: 'oficina', titulo: 'Oficina virtual', migas: () => [{ texto: 'Oficina virtual' }] },
   { patron: '/embudo-whatsapp', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Embudo WhatsApp', migas: () => [{ texto: 'Embudo WhatsApp' }] },
   { patron: '/landings', Pantalla: Landings, menu: 'landings', titulo: 'Generador de Landings', migas: () => [{ texto: 'Generador de Landings' }] },
   { patron: '/sep', Pantalla: Sep, menu: 'sep', titulo: 'S.E.P', migas: () => [{ texto: 'S.E.P' }] },
