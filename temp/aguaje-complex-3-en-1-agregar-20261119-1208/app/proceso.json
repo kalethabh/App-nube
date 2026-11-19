@@ -1,0 +1,12 @@
+{
+  "pid": 24529,
+  "paso": "persona",
+  "script": "producir.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-agregar-20261119-1208",
+    "--si"
+  ],
+  "comando": "node produccion/producir.js temp/aguaje-complex-3-en-1-agregar-20261119-1208 --si",
+  "inicio": "2026-11-19T18:48:33.541Z",
+  "app": 24060
+}
