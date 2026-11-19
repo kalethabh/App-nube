@@ -1,0 +1,79 @@
+
+=== Contexto para rehacer el bloque 2 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    8s
+    referencias: 1) personaje  2) personaje-2  3) lugar-consultorio (fotograma del bloque 1, segundo 3.9)   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        problema + antes
+    linea:       "Muchas me dicen: hago de todo y nada. Las piernas siguen flaquitas. Les falta darle al cuerpo el empujón."
+    viene de:    "Mire, para ganar glúteo hay dos caminos. Uno es el quirófano, caro y con riesgos. Y el otro, de forma natural."
+    lleva a:     "Por eso yo le recomiendo Aguaje Complex tres en uno. Trae aguaje, fenogreco y maca negra juntos. Dos cápsulas al día, con la comida."
+
+  TRAMOS:
+    [0.0–2.6s] [personaje]  "Muchas me dicen: hago de todo y nada."
+    [2.6–4.2s]  (sin dialogo)
+    [4.2–5.8s] [personaje]  "Las piernas siguen flaquitas."
+    [5.8–8.0s] [personaje]  "Les falta darle al cuerpo el empujón."
+
+  --- video ---
+Duración: 8s.
+
+REFERENCIAS:
+Imagen 1: the doctor. Use it only as an identity reference (same face, same hair, same beard, same glasses, same features and skin tone). It is not the first frame of the video: do not copy its background, its clothes or its pose.
+Imagen 2: the patient. Use it only as an identity reference for her face, hair and skin tone, never for her body. It is not the first frame of the video: do not copy its background or its pose.
+Imagen 3: the office. It is the same medical office where he recorded at the start: use it only as a reference of the place (white vertical blinds, monitor with the blue molecule graphic, framed diplomas on the beige wall, wooden desk, daylight). Do not copy the person who appears, his clothes, his pose, or what is on the desk.
+
+STYLE / MOOD:
+Realistic direct-response UGC: a doctor talking straight to the viewer with calm authority and warmth, like a short clip he posts for his patients. Vertical 9:16 video recorded with a phone on a small tripod at chest height across the desk, slight micro-shake, hard cuts between shots like a video he edited on the phone: tight close-ups where he leans in toward the lens alternate with medium shots of him seated at the desk. Homemade and authentic, not a polished commercial.
+
+LANGUAGE / VOICE:
+Colombian Spanish with a natural Colombian accent (not neutral, not Mexican, not from Spain); he addresses the viewer as «usted». Male voice of a man about 48 years old, warm medium-low timbre, clear, confident and expressive, like a trusted doctor advising a patient in his office, not an announcer. Brisk conversational pace, about three words per second, with energy and short natural pauses, never slow or dragging, not memorized. Habla en español de Colombia.
+
+MAIN CHARACTER:
+The man in image 1, the doctor: a Latin American man about 48 years old, light olive skin with real texture, visible pores, fine lines on the forehead and around the eyes, a slightly shiny T-zone, no studio retouching; a rounded square face with a strong jaw, thick dark eyebrows, dark brown eyes, a straight medium nose; dark brown hair with grey at the temples, short on the sides, slightly wavy and swept back on top with a few loose strands falling on the forehead; a short salt-and-pepper boxed beard with a full mustache, grey on the chin; black rectangular thick-frame prescription glasses; average build; no visible tattoos. In this video he wears a white cotton lab coat with soft wrinkles at the elbows and lapels, a light-blue dress shirt, a plain dark navy tie, a black stethoscope around his neck with its silver chest piece resting on his chest, a silver wristwatch on his left wrist and a thin brown leather bracelet on his right wrist.
+
+SECOND CHARACTER:
+The woman in image 2, his patient. She appears only in one short cut and never speaks. A Colombian woman about 28 years old, warm medium-tan skin with real texture and visible pores, a few small moles, no studio makeup, only a little mascara and natural lip color; an oval face, full dark eyebrows, dark brown eyes; long dark brown wavy hair worn loose with flyaway strands; no visible tattoos. In this video she wears a plain fitted white cotton crew-neck t-shirt with small wrinkles, tucked in at the waist, light-blue denim short shorts with a frayed hem at mid-thigh, and white sneakers.
+
+SETTING:
+His medical office in the daytime. Behind him, a window with closed white vertical blinds lets in soft, even daylight, and a soft daylight fill comes from in front of him, so his face, his coat and anything he holds are evenly lit with soft-edged shadows, neutral white balance, no backlight. Behind him on the left, a computer monitor shows a glowing blue 3D molecule graphic with no readable text; on the right, a beige wall with two framed diplomas in dark wood frames and a small green potted plant; a small silver desk lamp and a second monitor softly out of focus in the background. He sits behind a warm wooden desk; on the desk there are only: a printed sheet with a red anatomical muscle-figure illustration, a black-and-silver pen and a small silver stethoscope; there is nothing else. Muted, low-saturation colors, clean and bright, slight phone-camera grain, the background softly out of focus as a phone camera does. Everything looks real and lived-in, not a set.
+
+PERFORMANCE:
+He talks to the camera the whole time with calm authority and warmth and uses his hands constantly: pointing at the lens, open palms, counting on his fingers, clasping his hands on the desk. Natural eyebrow and head movement, small nods, real expressions, nothing stiff. No overacting. In her cut, the patient moves naturally and briefly, without exaggeration.
+
+TIMESTAMPS:
+[0.0–2.6s]
+Medium shot, seated at the desk: the doctor leans sideways toward the lens and stretches his open right hand, palm up, toward the camera, with a tired, knowing look and raised eyebrows.
+DIÁLOGO: “Muchas me dicen: hago de todo y nada.”
+[2.6–4.2s]
+Corte a the same office; the doctor is not in the shot. His patient stands in front of the white vertical blinds, lit by the same soft daylight from the front. Locked-off static camera at waist height, no zoom, framed from her head to her knees. Her body is turned in three-quarter side profile to the left and her face turns toward the camera over her shoulder, so her silhouette reads clearly. Her figure BEFORE: a flat backside that barely projects behind her lower back, one straight flat vertical line from her lower back to her legs, narrow straight hips the same width as her waist, thin straight thighs with a clear gap between them; the denim shorts hang loose and baggy at the back, with a fold of extra denim below the seat. She tugs at the back of the shorts with one hand and looks at the camera disappointed, lips pressed. Sin diálogo; se oye solo el roce suave del jean.
+[4.2–5.8s]
+Corte a a close chest-up shot of the doctor at the desk: he looks at the camera and nods slowly, serious, his right hand flat on the desk.
+DIÁLOGO: “Las piernas siguen flaquitas.”
+[5.8–8.0s]
+Corte a medium shot of the doctor: he raises his right index finger, firm and sure; when he finishes speaking he lowers his hand and stays still, looking at the camera, in silence.
+DIÁLOGO: “Les falta darle al cuerpo el empujón.”
+
+AUDIO:
+Only his voice and the ambient sound of a small medical office: closed, soft acoustics with no echo, the faint rustle of his coat and the soft hum of the computer; during her cut, only the soft rustle of denim. No other voice. No music.
+
+*No agregues subtítulos, letreros ni textos sobreimpresos en pantalla; los tiempos entre corchetes son indicaciones de edición y no se escriben. No debe verse ningún texto. No debe aparecer ninguna persona además del médico y su paciente; solo habla el médico, y la cara de cada uno no cambia entre planos. No se ven cápsulas sueltas ni el frasco abierto.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot from the waist up. A Latin American man about 48 years old, light olive skin with real texture, visible pores, fine lines on the forehead and around the eyes, a slightly shiny T-zone, no studio retouching; a rounded square face with a strong jaw, thick dark eyebrows, dark brown eyes, a straight medium nose; dark brown hair with grey at the temples, short on the sides, slightly wavy and swept back on top with a few loose strands falling on the forehead; a short salt-and-pepper boxed beard with a full mustache, grey on the chin; black rectangular thick-frame prescription glasses; average build; no visible tattoos. He wears a plain light-blue dress shirt with no logos. He stands in front of a plain light-grey wall at home, looks straight at the camera with a calm slight smile and his mouth closed, arms relaxed at his sides and hands empty. Soft natural light from a window in front of him. Authentic UGC look, phone image, no studio retouching. A single frozen instant. No text, no logos, no watermarks, no objects in his hands.
+
+  --- referencia "personaje-2" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with the front camera of a phone, like a casual reference selfie. Medium shot from the waist up. A Colombian woman about 28 years old, warm medium-tan skin with real texture and visible pores, a few small moles, no studio makeup, only a little mascara and natural lip color; an oval face, full dark eyebrows, dark brown eyes, a soft rounded nose; long dark brown wavy hair worn loose with flyaway strands; slim build; no visible tattoos. She wears a plain fitted white cotton crew-neck t-shirt with no logos. She stands in front of a plain light-grey wall at home, looks straight at the camera with a soft slight smile and her mouth closed, arms relaxed at her sides and hands empty. Soft natural light from a window in front of her. Authentic UGC look, phone image, no studio retouching. A single frozen instant. No text, no logos, no watermarks, no objects in her hands.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261119-1112 2
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/aguaje-complex-3-en-1-agregar-20261119-1112 --toma 2 --aplicar nuevos.json
+

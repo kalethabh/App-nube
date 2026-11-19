@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261119-1112",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "bloques",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -40,33 +40,50 @@
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-19T17:03:27.021Z"
+      "inicio": "2026-11-19T17:03:27.021Z",
+      "fin": "2026-11-19T17:10:44.123Z"
     },
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T17:10:44.123Z",
+      "fin": "2026-11-19T17:11:05.842Z",
+      "nota": "Todos los bloques pasaron la revisión."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T17:11:05.842Z",
+      "fin": "2026-11-19T17:11:33.995Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T17:11:33.995Z",
+      "fin": "2026-11-19T17:11:44.982Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-19T17:11:44.983Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 209,
+        "total": 1118,
+        "restante": 130,
+        "en": "2026-11-19T17:12:19.448Z"
+      }
     },
     {
       "id": "control-final",
@@ -91,7 +108,7 @@
   "modoPrueba": false,
   "creado": "2026-11-19T17:02:30.776Z",
   "aprobado": "2026-11-19T17:02:30.776Z",
-  "actualizado": "2026-11-19T17:03:27.021Z",
+  "actualizado": "2026-11-19T17:12:19.448Z",
   "saldoInicial": {
     "creditos": 1020.1,
     "fecha": "2026-11-19T17:02:31.640Z"

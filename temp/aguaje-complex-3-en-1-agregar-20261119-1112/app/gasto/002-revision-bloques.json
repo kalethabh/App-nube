@@ -1,0 +1,20 @@
+{
+  "numero": 2,
+  "paso": "revision-bloques",
+  "comando": "node produccion/cortar-cola-ugc.js temp/aguaje-complex-3-en-1-agregar-20261119-1112 --tomas 1,2,3,4,5",
+  "inicio": "2026-11-19T17:10:44.127Z",
+  "fin": "2026-11-19T17:10:49.722Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 5,
+      "segundos": 37.7
+    }
+  }
+}

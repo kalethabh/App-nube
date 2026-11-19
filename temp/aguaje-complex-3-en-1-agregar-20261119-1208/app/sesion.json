@@ -17,11 +17,13 @@
     "Mirando las imágenes del anuncio",
     "Leyendo las instrucciones del estilo",
     "Leyendo",
-    "Leyendo las instrucciones del estilo"
+    "Leyendo las instrucciones del estilo",
+    "Buscando en los archivos",
+    "Guardando"
   ],
   "inicio": "2026-11-19T17:08:14.580Z",
   "cambios": [],
-  "actualizado": "2026-11-19T17:09:33.325Z",
+  "actualizado": "2026-11-19T17:11:37.656Z",
   "error": null,
   "inicioIntento": "2026-11-19T17:08:14.580Z"
 }
