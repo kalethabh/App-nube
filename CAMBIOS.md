@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19k · Arreglo: en Producción las escenas quedaban «En espera»
+
+- En anuncios hechos por bloques (por ejemplo «Agregar» con una persona que habla), Producción esperaba una «imagen de inicio» por escena que ese tipo de anuncio no lleva: las escenas se veían «En espera», sin miniatura, y decía «faltan 5» aunque el anuncio estaba terminado. Ahora cada escena muestra su clip y el conteo es el real.
+
 ## 2026-11-19j · Podcast y entrevista: el guion de cada persona
 
 - En el guion de un **podcast** o una **entrevista**, además de «La conversación», una pestaña por persona: **«Guion de Carla»**, **«Guion de Tomás»** (o del entrevistador y la persona). Cada una muestra solo las líneas de esa persona, a qué responde cada una y **cómo la dice** (emoción, tono, expresión, gesto, mirada), con **«Copiar su guion»**.
