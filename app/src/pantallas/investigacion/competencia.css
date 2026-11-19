@@ -187,3 +187,23 @@
 .tt-caja--veredicto .tt-p { font-size: 11.5pt; color: var(--tinta); }
 
 @media print { .tt { display: none !important; } }
+
+/* La primera parte (la investigación de mercado) con este mismo estilo (MercadoApp.jsx, 2026-11-19o) */
+.mc .tt-cuerpo > * + * { margin-top: var(--e-3, 12px); }
+.mc-cita { border-left-width: 3px; }
+.mc-cita--rojo { border-left-color: #f87171; }
+.mc-cita--verde { border-left-color: #4ade80; }
+.mc-cita--ambar { border-left-color: #fbbf24; }
+.mc-cita .tt-gancho__original { font-size: 1.05em; font-weight: 600; font-style: italic; }
+.mc-opcion { margin: 0; font-size: 1.05em; font-weight: 700; color: var(--texto-1); }
+.tt-tabla--ficha th { width: 34%; text-align: left; }
+.mc-guia { display: flex; flex-direction: column; gap: var(--e-4, 16px); }
+.mc-mensaje { display: grid; grid-template-columns: 220px 1fr; gap: var(--e-4, 16px); align-items: start; }
+.mc-mensaje__maqueta { width: 220px; container-type: inline-size; }
+.mc-mensaje__maqueta .doc-maq { font-size: 2.2cqw; }
+.mc-mensaje__texto { display: flex; flex-direction: column; gap: var(--e-2, 8px); min-width: 0; }
+.mc-fuentes a { word-break: break-all; }
+@media (max-width: 720px) { .mc-mensaje { grid-template-columns: 1fr; } .mc-mensaje__maqueta { width: 100%; max-width: 260px; } }
+/* «Descargar PDF» imprime el documento de siempre (oculto en pantalla); esta vista no va al PDF */
+.inv-solo-impresion { display: none; }
+@media print { .inv-solo-impresion { display: block !important; } .inv-solo-pantalla { display: none !important; } }
