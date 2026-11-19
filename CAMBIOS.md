@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19c · Arreglo: «Crear anuncios de imagen» no abría
+
+- Si la última vez dejaste elegido **«De un video»**, al volver a **Crear anuncios de imagen** salía «Esta pantalla tuvo un problema». Ya abre bien.
+
 ## 2026-11-19b · Tus videos e imágenes en el anuncio
 
 - En **Nuevo anuncio**, en los ajustes de cada estilo, un apartado opcional **«Tus videos e imágenes»**: subes (o arrastras) hasta 10 videos e imágenes y, si quieres, escribes dónde usar cada uno («en el antes y después», «como escena del producto al final»).
