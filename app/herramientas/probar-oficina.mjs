@@ -1,6 +1,9 @@
 // Prueba de la oficina virtual (lib/oficina.js): qué agente hace cada paso y lo que arma para la pantalla.
 //   node app/herramientas/probar-oficina.mjs
-import { agenteDelPaso, oficina, AGENTES } from '../server/lib/oficina.js';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { agenteDelPaso, oficina, AGENTES, LUGARES, _ultimoMedio } from '../server/lib/oficina.js';
 
 const resultados = [];
 const check = (nombre, ok, detalle) => {
@@ -14,6 +17,23 @@ const d = await oficina();
 check('La oficina trae los 7 agentes con su nombre, personaje, color, estado y listas', d.agentes.length === AGENTES.length && d.agentes.every((a) => a.nombre && a.avatar && /^#/.test(a.color) && ['libre', 'trabajando', 'te-necesita'].includes(a.estado) && Array.isArray(a.ahora) && Array.isArray(a.necesita) && Array.isArray(a.hechos)), d.agentes.map((a) => [a.id, a.estado]));
 check('El estado sale de su trabajo: «te necesita» manda sobre «trabajando»', d.agentes.every((a) => (a.necesita.length ? a.estado === 'te-necesita' : a.ahora.length ? a.estado === 'trabajando' : a.estado === 'libre')));
 check('El resumen cuenta lo mismo que los agentes', d.resumen.trabajando === d.agentes.filter((a) => a.estado === 'trabajando').length && typeof d.resumen.aprendizajes === 'number', d.resumen);
+const lugares = d.zonas.map((z) => z.lugar);
+check('Las salas traen su lugar (sin repetir), las 3 de «Próximamente» y los tipos para crear', d.zonas.length >= 12 && new Set(lugares).size === lugares.length && lugares.every((n) => n >= 0 && n < LUGARES) && d.zonas.filter((z) => z.pronto).length === 3 && d.tipos?.creativos && Array.isArray(d.ias), d.zonas);
+check('Cada agente trae su sala y su aviso de IA caída (o null)', d.agentes.every((a) => d.zonas.some((z) => z.id === a.id && z.agente) && 'caida' in a));
+// la pantalla grande: el último clip o imagen (el más nuevo, sin los vacíos)
+const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'oficina-'));
+fs.mkdirSync(path.join(dir, 'img'));
+fs.mkdirSync(path.join(dir, 'video'));
+fs.writeFileSync(path.join(dir, 'img', 'toma-1.png'), Buffer.alloc(5000));
+fs.writeFileSync(path.join(dir, 'video', 'vacio.mp4'), Buffer.alloc(10));
+const ahora = Date.now() / 1000;
+fs.utimesSync(path.join(dir, 'img', 'toma-1.png'), ahora - 60, ahora - 60);
+let v = _ultimoMedio(dir, ['video', 'img'], '/archivos/anuncio/x');
+check('La pantalla muestra la última imagen (un archivo vacío no cuenta)', v?.tipo === 'imagen' && /\/img\/toma-1\.png\?v=/.test(v.url), v);
+fs.writeFileSync(path.join(dir, 'video', 'clip-2.mp4'), Buffer.alloc(5000));
+v = _ultimoMedio(dir, ['video', 'img'], '/archivos/anuncio/x');
+check('…y el clip cuando hay uno más nuevo', v?.tipo === 'video' && /clip-2\.mp4/.test(v.url), v);
+fs.rmSync(dir, { recursive: true, force: true });
 const ok = resultados.filter(Boolean).length;
 console.log(`\n${ok}/${resultados.length} OK`);
 process.exit(ok === resultados.length ? 0 : 1);

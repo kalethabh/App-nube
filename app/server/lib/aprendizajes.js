@@ -225,3 +225,25 @@ export function textoAhorro(estilo, { continuidad = false, hablado = false } = {
   }
   return lineas.join('\n');
 }
+
+/**
+ * Suma una regla (2026-11-19r, el 👍/👎 y lo que le dices a la coordinadora): una línea "- …" en <estilo>.md (con la
+ * carpeta del estilo: skeleton-ads, ugc…) o en general.md si es para todos. No repite una regla igual. Devuelve
+ * { archivo, regla, nueva } o null si el texto está vacío.
+ */
+export function agregarRegla(texto, { estilo = null } = {}) {
+  const regla = String(texto || '').replace(/\s+/g, ' ').replace(/^[-*\s]+/, '').trim().slice(0, 400);
+  if (!regla) return null;
+  asegurar();
+  const carpeta = estilo ? carpetaDeEstilo(estilo) : null;
+  const archivo = carpeta ? `${carpeta}.md` : 'general.md';
+  const ruta = path.join(DIR_APRENDIZAJES, archivo);
+  let actual = leer(ruta);
+  if (!actual) actual = `# Aprendizajes de ${carpeta}\n\nReglas de este estilo. Una por línea, sin el producto ni la marca.\n\n`;
+  const ya = actual.split('\n').some((l) => l.replace(/^[-*\s]+/, '').trim().toLowerCase() === regla.toLowerCase());
+  if (!ya) {
+    fs.writeFileSync(ruta, `${actual.replace(/\s*$/, '\n')}- ${regla}\n`, 'utf8');
+    pedirSincronizacion();
+  }
+  return { archivo, regla, nueva: !ya };
+}

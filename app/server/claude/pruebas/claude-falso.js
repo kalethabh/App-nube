@@ -279,6 +279,24 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, seVe[1]), JSON.stringify({ se_ve: `Escena de prueba que muestra: ${dijo.slice(0, 60)}` }));
     return resultado({ result: 'LISTO' });
   }
+  // la coordinadora de la oficina (chat): «anuncio» crea uno de Claymation del primer producto con ficha, «regla:» anota una regla
+  const coord = /TAREA: coordinadora de la oficina/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
+  if (coord) {
+    const ultimo = (textoTarea.match(/^USUARIO: (.*)$/gm) || []).pop()?.slice(9) || '';
+    const prod = (/^(\S+) \| .*? \| sí$/m.exec(textoTarea) || [])[1];
+    const acciones = [];
+    let respuesta = `Hola, soy la coordinadora de prueba. Me dijiste: ${ultimo.slice(0, 80)}`;
+    if (/anuncio/i.test(ultimo) && prod) {
+      const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 1;
+      acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'claymation', cantidad: n, duracion: null, respuestas: {}, idea: 'ángulo de prueba' });
+      respuesta = `Listo, le pedí a Mateo ${n} guion${n > 1 ? 'es' : ''} de Claymation. Te aviso cuando esperen tu aprobación.`;
+    } else if (/regla:/i.test(ultimo)) {
+      acciones.push({ tipo: 'regla', texto: ultimo.split(/regla:/i)[1].trim(), estilo: null });
+      respuesta = 'Anotado: lo aplicamos de ahora en adelante.';
+    }
+    fs.writeFileSync(path.join(RAIZ, coord[1]), JSON.stringify({ respuesta, acciones }));
+    return resultado({ result: 'LISTO' });
+  }
   if (tareaActual === 'ficha') await ficha(textoTarea, m, intento);
   else if (tareaActual === 'guion') r = await guion(textoTarea, m, intento);
   else if (tareaActual === 'cambios') r = await cambios(textoTarea, m);
