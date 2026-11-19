@@ -401,7 +401,8 @@ export function horaDe(iso) {
   return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
 }
 
-const mensajeDePausa = (p, motor = p?.motor) => `Se acabó por ahora el uso de tu plan de ${nombreIA(motorDePausa(motor))}. Toca "Reintentar" cuando se renueve${p?.conHora ? ` (a las ${horaDe(p.hasta)})` : ''}: lo ya hecho no se repite.`;
+const mensajeDePausa = (p, motor = p?.motor) =>
+  `Se acabó por ahora el uso de tu plan de ${nombreIA(motorDePausa(motor))}. Toca "Reintentar" cuando se renueve${p?.conHora ? ` (a las ${horaDe(p.hasta)})` : ''}${motorDePausa(motor) === 'claude' ? ', o entra con otra cuenta en Ajustes › Conexiones › «Cambiar de cuenta» (sigue sola)' : ''}: lo ya hecho no se repite.`;
 
 /**
  * El lanzador de la IA (motor-ia.js, o el de las pruebas) con la pausa de la fila: con la IA de antes de lanzar en

@@ -173,6 +173,33 @@ let cacheEstado = null; // { t, valor, promesa }
 export const olvidarEstadoClaude = () => {
   cacheEstado = null;
 };
+// CAMBIAR DE CUENTA (2026-11-19g): después de abrir el inicio de sesión, la cuenta se vuelve a mirar cada pocos
+// segundos durante 10 min (no cada 10: así se nota enseguida la cuenta nueva), y cuando entra OTRA cuenta se avisa
+// (el conductor saca la pausa por límite de uso y sigue con los anuncios que esperaban)
+const MIRAR_DESPUES_DEL_LOGIN_MS = 10 * 60000;
+let loginAbierto = 0;
+let ultimoEmail = null;
+const alCambiarCuenta = new Set();
+/** fn({ antes, ahora }) cuando la cuenta de Claude Code pasa a ser otra. Devuelve la función para dejar de escuchar. */
+export function alCambiarCuentaClaude(fn) {
+  alCambiarCuenta.add(fn);
+  return () => alCambiarCuenta.delete(fn);
+}
+function anotarCuenta(valor) {
+  const email = valor?.sesion === 'ok' ? valor.cuenta?.email || null : null;
+  if (!email) return;
+  const antes = ultimoEmail;
+  ultimoEmail = email;
+  if (!antes || antes === email) return;
+  console.log('[claude] Entró otra cuenta de Claude.');
+  for (const fn of alCambiarCuenta) {
+    try {
+      fn({ antes, ahora: email });
+    } catch {
+      /* quien escucha no frena */
+    }
+  }
+}
 
 /**
  * { instalado, version, sesion: "ok" | "sin-sesion" | "desconocido", cuenta?: { email, plan }, actualizar?, motivo? }
@@ -185,12 +212,14 @@ export const olvidarEstadoClaude = () => {
 export function estadoClaude() {
   if (cacheEstado?.promesa) return cacheEstado.promesa;
   const conSesion = cacheEstado?.valor?.sesion === 'ok';
-  if (cacheEstado && conSesion && enCurso > 0) return Promise.resolve(cacheEstado.valor);
-  if (cacheEstado && Date.now() - cacheEstado.t < (conSesion ? 10 * 60000 : 10000)) return Promise.resolve(cacheEstado.valor);
+  const recienLogin = Date.now() - loginAbierto < MIRAR_DESPUES_DEL_LOGIN_MS;
+  if (cacheEstado && conSesion && enCurso > 0 && !recienLogin) return Promise.resolve(cacheEstado.valor);
+  if (cacheEstado && Date.now() - cacheEstado.t < (recienLogin ? 4000 : conSesion ? 10 * 60000 : 10000)) return Promise.resolve(cacheEstado.valor);
   const promesa = consultarEstado().catch(() => ({ instalado: false, version: null, sesion: 'desconocido' }));
   cacheEstado = { t: 0, valor: null, promesa };
   promesa.then((valor) => {
     if (cacheEstado?.promesa === promesa) cacheEstado = { t: Date.now(), valor, promesa: null };
+    anotarCuenta(valor);
   });
   return promesa;
 }
@@ -221,20 +250,34 @@ async function consultarEstado() {
   return { ...base, sesion: 'sin-sesion' };
 }
 
-/** Abre el inicio de sesion oficial de Anthropic en una ventana de terminal (la app no toca tokens). */
-export function abrirLogin() {
+/**
+ * Abre el inicio de sesion oficial de Anthropic en una ventana de terminal (la app no toca tokens). Con
+ * `cambiar`, primero cierra la sesion que tiene Claude Code (`claude auth logout`) para entrar con OTRA cuenta (la del
+ * programa de escritorio de Claude es aparte: Claude Code guarda la suya).
+ */
+export function abrirLogin({ cambiar = false } = {}) {
   olvidarEstadoClaude();
+  loginAbierto = Date.now();
   const env = entornoHijo();
   const bin = resolverClaude();
   if (bin?.via === 'prueba') {
-    spawn(bin.cmd, [...bin.pre, 'auth', 'login'], { env, detached: true, stdio: 'ignore' }).on('error', () => {}).unref();
+    const pasos = cambiar ? [['auth', 'logout'], ['auth', 'login']] : [['auth', 'login']];
+    const correr = (i) => {
+      if (i >= pasos.length) return;
+      const h = spawn(bin.cmd, [...bin.pre, ...pasos[i]], { env, detached: true, stdio: 'ignore' });
+      h.on('error', () => {});
+      h.on('exit', () => correr(i + 1));
+      h.unref();
+    };
+    correr(0);
     return true;
   }
   if (WIN) {
     // Una ventana de consola que queda abierta (cmd /k) con el login oficial. La linea se arma a mano
     // (windowsVerbatimArguments): Node escaparia las comillas con \" y cmd no las entiende. Con claude.exe va su ruta
     // entera entre comillas (puede no estar en el PATH, o tener espacios); con el claude.cmd de npm, por su nombre.
-    const comando = bin?.via === 'exe' ? `"${bin.cmd}" auth login` : 'claude auth login';
+    const claudeWin = bin?.via === 'exe' ? `"${bin.cmd}"` : 'claude';
+    const comando = cambiar ? `${claudeWin} auth logout & ${claudeWin} auth login` : `${claudeWin} auth login`;
     spawn(process.env.ComSpec || 'cmd.exe', ['/d', '/c', 'start', '""', 'cmd', '/k', comando], { env, detached: true, stdio: 'ignore', windowsHide: false, windowsVerbatimArguments: true })
       .on('error', () => {})
       .unref();
@@ -245,7 +288,15 @@ export function abrirLogin() {
     try {
       const archivo = path.join(os.tmpdir(), 'anuncios-ia-iniciar-sesion.command');
       const q = (t) => `'${String(t).replace(/'/g, "'\\''")}'`;
-      const texto = ['#!/bin/bash', 'unset ANTHROPIC_API_KEY ANTHROPIC_AUTH_TOKEN ANTHROPIC_BASE_URL CLAUDE_CODE_OAUTH_TOKEN CLAUDE_CODE_SIMPLE', `${q(bin?.cmd || 'claude')} auth login`, 'echo', 'echo "Listo. Vuelve a Anuncios con IA; ya puedes cerrar esta ventana."', ''].join('\n');
+      const texto = [
+        '#!/bin/bash',
+        'unset ANTHROPIC_API_KEY ANTHROPIC_AUTH_TOKEN ANTHROPIC_BASE_URL CLAUDE_CODE_OAUTH_TOKEN CLAUDE_CODE_SIMPLE',
+        ...(cambiar ? ['echo "Cerrando la sesión de la cuenta anterior en Claude Code..."', `${q(bin?.cmd || 'claude')} auth logout`, 'echo', 'echo "Ahora entra con la otra cuenta de Claude:"'] : []),
+        `${q(bin?.cmd || 'claude')} auth login`,
+        'echo',
+        'echo "Listo. Vuelve a Kads Studio; ya puedes cerrar esta ventana."',
+        '',
+      ].join('\n');
       fs.writeFileSync(archivo, texto, { encoding: 'utf8', mode: 0o755 });
       spawn('open', ['-a', 'Terminal', archivo], { detached: true, stdio: 'ignore' }).on('error', () => {}).unref();
       return true;
@@ -254,6 +305,12 @@ export function abrirLogin() {
     }
   }
   if (!bin) return false;
+  if (cambiar) {
+    const h = spawn(bin.cmd, [...bin.pre, 'auth', 'logout'], { env, stdio: 'ignore' });
+    h.on('error', () => {});
+    h.on('exit', () => spawn(bin.cmd, [...bin.pre, 'auth', 'login'], { env, detached: true, stdio: 'ignore' }).on('error', () => {}).unref());
+    return true;
+  }
   spawn(bin.cmd, [...bin.pre, 'auth', 'login'], { env, detached: true, stdio: 'ignore' }).on('error', () => {}).unref();
   return true;
 }

@@ -2,6 +2,24 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19i · Pega tus anuncios ganadores
+
+- En **Variantes → «Lo que te funciona»** y en **Biblioteca → «Lo que me funciona»**, además de subirlos: **pégalos**. Copia la imagen del anuncio (clic derecho → Copiar imagen, o una captura de pantalla) y toca **«Pegar»** o pulsa **Cmd+V** (Ctrl+V en Windows) con el mouse encima. También puedes **arrastrarlos** a esa zona.
+- En Variantes, lo que pegas va a «Lo que te funciona» (no a la foto del producto) y queda elegido.
+
+## 2026-11-19h · Sube lo que ya te funciona (Variantes)
+
+- En **Anuncios de imagen → Variantes → «Lo que te funciona»**: botón **«Subir lo que te funciona»**. Subes imágenes (JPG, PNG, WEBP o HEIC) o videos de tus anuncios que ya venden, y quedan elegidos.
+- Todo lo que subes queda guardado en **Biblioteca → «Lo que me funciona»**: ahí los ves (los videos se reproducen), les cambias el producto, los quitas o tocas «Hacer variantes».
+- **El concepto creativo**: en cada uno escribes por qué vende (el gancho, la idea, a quién le habla). La variante **conserva ese concepto** y cambia la ejecución y el título.
+
+## 2026-11-19g · Cambiar de cuenta de Claude
+
+- En **Ajustes › Conexiones**, debajo de tu cuenta de Claude: **«Cambiar de cuenta»**. Se abre una ventana que cierra la cuenta anterior en Claude Code y te deja entrar con otra (Pro o Max).
+- Ojo: entrar con otra cuenta en la aplicación de Claude de tu Mac no cambia la de la app; la app usa Claude Code, que tiene su propio inicio de sesión. Por eso hace falta este botón.
+- La app nota la cuenta nueva en segundos, y lo que estaba esperando porque se acabó el uso **sigue solo** con la cuenta nueva.
+- El aviso de «se acabó el uso de tu plan» ahora también te dice que puedes cambiar de cuenta.
+
 ## 2026-11-19f · «Clonar un video» a la vista
 
 - En **Estilos**, «Clonar un video» aparece junto a «Agregar» (filtro «Desde tu video») y su botón lleva directo a clonar.

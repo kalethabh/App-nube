@@ -93,6 +93,7 @@ export function prepararRapido(carpeta, brief) {
   // (las plantillas de referencia se copian como Variantes: mismo diseño, otro producto, textos y paleta)
   const modo = brief.modo === 'variantes' || brief.desdePlantillas ? 'copiar' : 'inspirar';
   const propias = new Set(brief.referenciasPropias || []);
+  const conceptoDeRef = (k) => (brief.modo === 'variantes' && Array.isArray(brief.conceptosReferencias) ? String(brief.conceptosReferencias[k - 1] || '').trim() : '');
   const { angulos } = leerSkill();
   const ids = idsDelLote(n);
   // con plantillas: el ángulo del producto y los conceptos de Andromeda (angulo-producto.js)
@@ -182,6 +183,10 @@ export function prepararRapido(carpeta, brief) {
       // el ángulo es el de la referencia (el modelo lo lee: LEER_REFERENCIA en produccion/imagen-ads.js); el de la
       // biblioteca solo sugiere el tono del texto si la referencia no tiene uno claro
       `Angle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: ${x.angulo}.`,
+      // (2026-11-19h) una variante parte de lo que ya funciona: su CONCEPTO creativo se conserva
+      modo === 'copiar' && conceptoDeRef(k)
+        ? `WINNING CREATIVE CONCEPT of this reference (why it sells, in the owner's words; KEEP this concept, change only the execution details and the headline): ${conceptoDeRef(k)}`
+        : null,
       modo === 'copiar'
         ? deEsteProducto
           ? 'This reference is an ad of this same product: keep everything (also its colors); change only the texts.'

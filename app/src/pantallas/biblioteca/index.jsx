@@ -7,11 +7,13 @@
 // GitHub, el mismo de IA-VID-AUTOMATIC (server/lib/biblioteca.js). #/biblioteca?desde=<slug> abre "Nuevo avatar"
 // con los personajes de ese anuncio.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CircleAlert, CircleCheck, Copy, Film, Image as ImageIcon, ImagePlus, Library, Music, Pencil, Plus, RefreshCw, Trash2, Upload, Users } from 'lucide-react';
+import { CircleAlert, CircleCheck, Copy, Film, Image as ImageIcon, ImagePlus, Library, Music, Pencil, Plus, RefreshCw, Trash2, Trophy, Upload, Users } from 'lucide-react';
 import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Insignia, Modal, Pestanas, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { miniatura, useDatos } from '../../datos/api.js';
 import { partirRuta, useHash } from '../../datos/rutas.js';
 import { ESTILOS_BIBLIOTECA, biblioteca, claveDeCarpeta, nombreDeCarpeta, useBiblioteca } from './datos.js';
+import { useFuncionan } from '../../datos/funcionan.js';
+import { LoQueFunciona } from './LoQueFunciona.jsx';
 import './biblioteca.css';
 
 // ---------------------------------------------------------------- el estado de la sincronización
@@ -519,6 +521,7 @@ export default function Biblioteca() {
 
   const { datos: datosImagenes, recargar: recargarImagenes } = useDatos('biblioteca:imagenes', biblioteca.imagenes, { cadaMs: 30000 });
   const { datos: datosClips, recargar: recargarClips } = useDatos('biblioteca:clips', biblioteca.clips, { cadaMs: 30000 });
+  const { datos: datosFunciona } = useFuncionan();
   const delFiltro = (x) => !filtro || claveDeCarpeta(x.estilo) === filtro || x.estilo === 'general';
   const avatares = (datos?.avatares || []).filter(delFiltro);
   const audios = (datos?.audios || []).filter(delFiltro);
@@ -575,10 +578,12 @@ export default function Biblioteca() {
             { id: 'musica', etiqueta: 'Música', icono: Music, contador: datos?.audios?.length },
             { id: 'imagenes', etiqueta: 'Imágenes', icono: ImageIcon, contador: datosImagenes?.imagenes?.length },
             { id: 'clips', etiqueta: 'Clips', icono: Film, contador: datosClips?.clips?.length },
+            { id: 'funciona', etiqueta: 'Lo que me funciona', icono: Trophy, contador: datosFunciona?.items?.length },
           ]}
           activa={pestana}
           onCambio={setPestana}
         />
+        {pestana === 'funciona' ? null : (
         <Selector
           className="bib-filtro"
           value={filtro}
@@ -586,9 +591,12 @@ export default function Biblioteca() {
           opciones={[{ valor: '', etiqueta: 'Todos los estilos' }, ...ESTILOS_BIBLIOTECA.map((e) => ({ valor: e.clave, etiqueta: e.nombre }))]}
           aria-label="Filtrar por estilo"
         />
+        )}
       </div>
 
-      {cargando && !datos ? null : pestana === 'avatares' ? (
+      {pestana === 'funciona' ? (
+        <LoQueFunciona />
+      ) : cargando && !datos ? null : pestana === 'avatares' ? (
         avatares.length ? (
           <PorEstilo lista={avatares} clase="bib-rejilla">
             {(a) => <TarjetaAvatar key={`${a.estilo}/${a.id}`} a={a} onBorrar={(x) => setABorrar({ tipo: 'avatar', x })} onRenombrar={setRenombrar} />}
