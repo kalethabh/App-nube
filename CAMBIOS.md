@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19g · Cambiar de cuenta de Claude
+
+- En **Ajustes › Conexiones**, debajo de tu cuenta de Claude: **«Cambiar de cuenta»**. Se abre una ventana que cierra la cuenta anterior en Claude Code y te deja entrar con otra (Pro o Max).
+- Ojo: entrar con otra cuenta en la aplicación de Claude de tu Mac no cambia la de la app; la app usa Claude Code, que tiene su propio inicio de sesión. Por eso hace falta este botón.
+- La app nota la cuenta nueva en segundos, y lo que estaba esperando porque se acabó el uso **sigue solo** con la cuenta nueva.
+- El aviso de «se acabó el uso de tu plan» ahora también te dice que puedes cambiar de cuenta.
+
 ## 2026-11-19f · «Clonar un video» a la vista
 
 - En **Estilos**, «Clonar un video» aparece junto a «Agregar» (filtro «Desde tu video») y su botón lleva directo a clonar.

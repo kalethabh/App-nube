@@ -11,6 +11,8 @@
 //                                    ChatGPT: { ok, login } (el navegador, o un codigo con conCodigo).
 // POST /api/ia/login/cancelar     -> { ok }: corta el inicio de sesion de ChatGPT.
 // POST /api/ia/salir { motor: 'codex' } -> { ok }: cierra la sesion de ChatGPT de la app.
+// POST /api/ia/cambiar-cuenta { motor: 'claude' } -> { ok, mensaje }: cierra la sesion de Claude Code y abre el
+//   inicio de sesion para entrar con OTRA cuenta (409 si Claude esta escribiendo algo en este momento)
 //
 // instalando = { motor, fase, porcentaje?, desde, error?, hasta? } | null
 //   fase: la ultima frase de instalar-motor.js («Bajando Codex (unos 180 MB)…», «Preparando Codex…»…); porcentaje solo
@@ -194,6 +196,17 @@ export default function rutasIA(app) {
       console.error(`[ia] cancelar login: ${e?.message || e}`);
     }
     res.json({ ok: true });
+  });
+
+  app.post('/api/ia/cambiar-cuenta', soloDesdeLaApp, (req, res) => {
+    const motor = valido(String(req.body?.motor ?? 'claude').trim().toLowerCase());
+    if (motor !== 'claude') return res.status(400).json({ error: 'Para cambiar la cuenta de ChatGPT, cierra la sesión y vuelve a iniciarla.' });
+    // (cerrar la sesion corta lo que Claude este escribiendo: primero que termine)
+    if (motorElegido() === 'claude' && activas.size > 0 && !req.body?.igual) {
+      return res.status(409).json({ error: `Claude está escribiendo ${activas.size === 1 ? 'algo' : `${activas.size} cosas`} ahora mismo: si cambias de cuenta se corta. Espera a que termine o vuelve a tocar «Cambiar de cuenta» para cortarlo.`, enUso: activas.size });
+    }
+    if (!abrirLogin({ cambiar: true })) return res.status(503).json({ error: NO_ABRE_LOGIN_CLAUDE });
+    res.json({ ok: true, mensaje: 'Se abrió una ventana: primero se cierra la cuenta anterior y después entras con la otra.' });
   });
 
   app.post('/api/ia/salir', soloDesdeLaApp, async (req, res) => {

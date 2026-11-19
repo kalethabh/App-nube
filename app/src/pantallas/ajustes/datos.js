@@ -181,6 +181,7 @@ const ia = {
   fallos: 0, // las veces seguidas que no respondió sin haber respondido nunca (para espaciar los reintentos)
   version: 0,
   esperaClaude: 0, // cuándo se abrió la ventana de Claude (0 = no se espera)
+  cambiandoDe: null, // «Cambiar de cuenta»: el correo de la cuenta de antes (hasta que entre otra)
   anterior: null, // la IA de antes, después de "Cambiar de IA": el enlace "Volver a …"
   porPuerto: false, // el navegador no pudo abrir el inicio de sesión de ChatGPT: se entra con un código
   sinCodigo: false, // ChatGPT no deja entrar con un código: queda solo el navegador
@@ -202,7 +203,7 @@ function hayQueMirar() {
   if (instalacionEnMarcha(d.instalando) || d.login?.enCurso) return true;
   if (ia.esperaClaude && Date.now() - ia.esperaClaude < ESPERA_CLAUDE_MS) {
     const c = d.motores?.claude;
-    return !(c?.instalado && c?.sesion === 'ok');
+    return !(c?.instalado && c?.sesion === 'ok') || (ia.cambiandoDe && c?.cuenta?.email === ia.cambiandoDe);
   }
   return false;
 }
@@ -315,8 +316,10 @@ export function useMotor() {
   const revisando = !d || Boolean(elegido && instalado === null);
   const ins = d?.instalando && (!d.instalando.motor || d.instalando.motor === elegido) ? d.instalando : null;
   const login = elegido === 'codex' && d?.login && typeof d.login === 'object' ? d.login : null;
-  const esperandoClaude = elegido === 'claude' && ia.esperaClaude > 0 && Date.now() - ia.esperaClaude < ESPERA_CLAUDE_MS && sesion !== 'ok';
   const datosCuenta = m?.cuenta && typeof m.cuenta === 'object' ? m.cuenta : null;
+  // (cambiando de cuenta: sigue esperando mientras Claude Code tenga la de antes)
+  const todaviaLaDeAntes = Boolean(ia.cambiandoDe && datosCuenta?.email === ia.cambiandoDe);
+  const esperandoClaude = elegido === 'claude' && ia.esperaClaude > 0 && Date.now() - ia.esperaClaude < ESPERA_CLAUDE_MS && (sesion !== 'ok' || todaviaLaDeAntes);
   const avisoPlan = elegido === 'codex' && sesion === 'ok' && m?.avisoPlan ? nombrePlan(typeof m.avisoPlan === 'string' ? m.avisoPlan : datosCuenta?.plan) || 'Free' : '';
 
   const iniciarSesion = useCallback(
@@ -350,11 +353,13 @@ export function useMotor() {
   useEffect(() => {
     const id = pidio.current;
     if (!id || id !== elegido) return;
-    if (conectado) {
+    if (conectado && !todaviaLaDeAntes) {
+      const cambio = Boolean(ia.cambiandoDe);
       pidio.current = null;
       ia.esperaClaude = 0;
+      ia.cambiandoDe = null;
       ia.porPuerto = false;
-      aviso({ tipo: 'ok', titulo: `${MOTORES[id].nombre} quedó conectado`, texto: 'Tus guiones se escriben con tu cuenta.' });
+      aviso({ tipo: 'ok', titulo: cambio ? 'Entró tu otra cuenta de Claude' : `${MOTORES[id].nombre} quedó conectado`, texto: cambio ? `Desde ahora la app escribe con ${datosCuenta?.email || 'la cuenta nueva'}. Lo que esperaba por el límite de uso sigue solo.` : 'Tus guiones se escriben con tu cuenta.' });
       avisarConexiones();
       return;
     }
@@ -366,7 +371,27 @@ export function useMotor() {
       ia.sinCodigo = true;
       cambio();
     }
-  }, [conectado, elegido, errorLogin, aviso, iniciarSesion]);
+  }, [conectado, elegido, errorLogin, aviso, iniciarSesion, todaviaLaDeAntes, datosCuenta?.email]);
+
+  /** Claude: entrar con OTRA cuenta (cierra la de Claude Code y abre el inicio de sesión). */
+  const cambiarCuenta = useCallback(
+    async ({ igual = false } = {}) => {
+      if (ia.datos?.elegido !== 'claude') return;
+      try {
+        await apiNuevo.ia.cambiarCuenta('claude', { igual });
+      } catch (e) {
+        if (e.estado === 409 && !igual && window.confirm(`${e.message}\n\n¿Cambiar de cuenta igual?`)) return cambiarCuenta({ igual: true });
+        if (e.estado !== 409) aviso({ tipo: 'error', titulo: 'No pude abrir el cambio de cuenta', texto: e.message });
+        return;
+      }
+      pidio.current = 'claude';
+      ia.cambiandoDe = ia.datos?.motores?.claude?.cuenta?.email || null;
+      ia.esperaClaude = Date.now();
+      aviso({ tipo: 'info', titulo: 'Se abrió la ventana de Claude', texto: 'Primero se cierra la cuenta anterior; después entra con la otra (Pro o Max) y vuelve aquí.', duracion: 10000 });
+      await refrescarIA();
+    },
+    [aviso]
+  );
 
   /** Guarda otra IA. Tira el error del servidor (409: tu IA está escribiendo algo ahora). */
   const elegir = useCallback(async (nueva, { recordar = false } = {}) => {
@@ -419,6 +444,7 @@ export function useMotor() {
     const id = ia.datos?.elegido;
     pidio.current = null;
     ia.esperaClaude = 0;
+    ia.cambiandoDe = null;
     ia.porPuerto = false;
     if (id === 'codex') {
       try {
@@ -472,6 +498,7 @@ export function useMotor() {
     porPuerto: ia.porPuerto,
     sinCodigo: ia.sinCodigo,
     esperandoClaude,
+    cambiandoCuenta: esperandoClaude && Boolean(ia.cambiandoDe),
     esperando: esperandoClaude || Boolean(login?.enCurso),
     anterior,
     // un servidor de antes, sin /api/ia (solo Claude, sin "Instalar")
@@ -481,6 +508,7 @@ export function useMotor() {
     conectarCon,
     instalar,
     iniciarSesion,
+    cambiarCuenta,
     cancelarLogin,
     salir,
     recargar: () => refrescarIA(),

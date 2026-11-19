@@ -286,6 +286,8 @@ export const apiNuevo = {
     cancelarLogin: () => pedirNuevo('/api/ia/login/cancelar', { metodo: 'POST', cuerpo: {} }),
     /** Cierra la sesión de ChatGPT en la app (solo la de la app). */
     salir: (motor) => pedirNuevo('/api/ia/salir', { metodo: 'POST', cuerpo: { motor } }),
+    /** Claude: cierra la sesión de Claude Code y abre el inicio de sesión para entrar con OTRA cuenta (409 si está escribiendo; con igual, lo corta). */
+    cambiarCuenta: (motor, { igual = false } = {}) => pedirNuevo('/api/ia/cambiar-cuenta', { metodo: 'POST', cuerpo: { motor, igual } }),
   },
   /** { kie: { creditos, alcanza? } }. Con slug, el servidor puede decir si alcanza para ESE anuncio. Nunca se muestran los números. */
   saldo: (slug) => pedirNuevo(`/api/saldo${slug ? `?slug=${enc(slug)}` : ''}`),

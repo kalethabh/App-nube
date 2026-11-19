@@ -482,6 +482,12 @@ function FilaCuenta({ motor, revisar, revisando }) {
     await motor.salir();
     setSaliendo(false);
   };
+  const [cambiando, setCambiando] = useState(false);
+  const cambiar = async () => {
+    setCambiando(true);
+    await motor.cambiarCuenta();
+    setCambiando(false);
+  };
   const sinPrograma = !motor.instalado || motor.otraVersion || motor.instalandoAhora;
   const botonIniciar = (variante = 'primario') => (
     <Boton variante={variante} tamano="chico" icono={LogIn} cargando={abriendo} disabled={sinPrograma} onClick={iniciar}>
@@ -499,9 +505,26 @@ function FilaCuenta({ motor, revisar, revisando }) {
   } else if (motor.sesion === null) {
     detalle = 'Revisando…';
     acciones = <Esqueleto ancho={110} alto={32} />;
+  } else if (motor.cambiandoCuenta) {
+    detalle = 'Se abrió la ventana de Claude: primero se cierra la cuenta anterior y después entras con la otra (Pro o Max). Vuelve aquí cuando termines.';
+    acciones = (
+      <Boton variante="primario" tamano="chico" icono={LogIn} cargando onClick={() => motor.cambiarCuenta()}>
+        Esperando…
+      </Boton>
+    );
   } else if (motor.conectado) {
     detalle = `Sesión iniciada con ${motor.cuenta}${motor.email ? ` (${motor.email})` : ''}.`;
     acciones = <Insignia estado="listo" texto="Conectada" />;
+    if (!esCodex) {
+      // (2026-11-19g) otra cuenta de Claude: la del programa de escritorio de Claude es aparte, Claude Code tiene la suya
+      notas = (
+        <>
+          <button type="button" className="ia-enlace ia-enlace--chico" disabled={cambiando} onClick={cambiar} title="¿Se acabó el uso de esta cuenta? Entra con otra: lo que esperaba por el límite sigue solo.">
+            Cambiar de cuenta
+          </button>
+        </>
+      );
+    }
     if (esCodex) {
       notas = (
         <>

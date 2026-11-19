@@ -52,6 +52,7 @@ import * as colas from './colas.js';
 import { olvidarSaldo } from './claves.js';
 import { guardarMusicaDelAnuncio, guardarPersonajesDelAnuncio } from './biblioteca.js';
 import { motorActual, nombreIA, alCambiarDeMotor } from './motor-ia.js';
+import { alCambiarCuentaClaude } from './claude.js';
 
 // ---------------------------------------------------------------- las familias
 
@@ -423,6 +424,22 @@ alCambiarDeMotor(({ motor, anterior } = {}) => {
       console.log(`[conductor] ${slug}: sigue con ${nombreIA(motor)} (esperaba el plan de ${nombreIA(motorDeLaEspera(c))}).`);
     } catch (e) {
       console.error(`[conductor] ${slug}: no pude seguir con ${nombreIA(motor)}: ${e?.message || e}`);
+    }
+  }
+});
+
+// Entró OTRA cuenta de Claude (Ajustes → «Cambiar de cuenta», 2026-11-19g): se saca la pausa por límite de uso de
+// Claude y cada anuncio que esperaba que se renovara ese plan sigue ya, con la cuenta nueva (como «Continuar»)
+alCambiarCuentaClaude(() => {
+  colas.reanudarClaude('claude');
+  for (const slug of [...retomasClaude.keys()]) {
+    const c = leerConductor(slug);
+    if (!c || c.estado !== 'esperando' || c.motivo !== MOTIVO_CLAUDE || motorDeLaEspera(c) !== 'claude') continue;
+    try {
+      continuar(slug);
+      console.log(`[conductor] ${slug}: sigue con la otra cuenta de Claude.`);
+    } catch (e) {
+      console.error(`[conductor] ${slug}: no pude seguir con la otra cuenta de Claude: ${e?.message || e}`);
     }
   }
 });
