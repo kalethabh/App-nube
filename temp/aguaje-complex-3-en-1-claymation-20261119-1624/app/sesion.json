@@ -4,7 +4,11 @@
   "tipo": "cambios",
   "intentos": 2,
   "progreso": [
-    "Claude está leyendo tu pedido"
+    "Claude está leyendo tu pedido",
+    "Repasando el guion",
+    "Buscando en los archivos",
+    "Repasando el guion",
+    "Ajustando el guion"
   ],
   "inicio": "2026-11-19T21:24:54.444Z",
   "cambios": [
@@ -14,7 +18,7 @@
       "fecha": "2026-11-19T22:20:23.978Z"
     }
   ],
-  "actualizado": "2026-11-19T22:20:24.685Z",
+  "actualizado": "2026-11-19T22:21:51.974Z",
   "error": null,
   "inicioIntento": "2026-11-19T22:20:23.979Z",
   "fin": "2026-11-19T21:33:50.116Z",
