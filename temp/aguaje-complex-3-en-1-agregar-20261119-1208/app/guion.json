@@ -1,9 +1,9 @@
 {
-  "titulo": "Aguaje Complex — «Por detrás, nada», podcast de amigas",
+  "titulo": "Aguaje Complex — «Por detrás, Dios mío», podcast de amigas",
   "idioma": "es",
   "mercado": "LatAm",
-  "duracionEstimada": 50,
-  "de_que_va": "Dos amigas en un podcast casero: una confiesa que es plana atrás y ya ahorraba para operarse; la otra estaba igual, probó Aguaje Complex por consejo de su tía y muestra su después en el espejo.",
+  "duracionEstimada": 60,
+  "de_que_va": "Dos amigas en un podcast casero: una confiesa que es plana atrás y ya ahorraba para operarse; la otra estaba igual, probó Aguaje Complex 3 en 1 de Vitalabh por consejo de su tía y muestra su después en el espejo.",
   "estructura": {
     "id": "de-la-referencia",
     "nombre": "La de tu video",
@@ -23,40 +23,47 @@
     {
       "n": 1,
       "momento": "gancho",
-      "dice": "O sea, yo me ponía un jean y por detrás, nada. Plana, plana, plana. Y ya estaba ahorrando pa' operarme, le juro.",
-      "se_ve": "La de camiseta blanca, en su micrófono, abre las manos; corte a su selfie en el espejo con el jean flojo atrás; vuelve y se ríe con la mano en el pecho.",
+      "dice": "O sea, yo me ponía un jean y por detrás, Dios mío!. Plana, plana, plana. Y ya estaba ahorrando pa' operarme, le juro.",
+      "se_ve": "La de camiseta blanca, con el pelo ondulado suelto, habla al micrófono de un podcast casero con luz cálida y una planta detrás. Abre los ojos grandes y se lleva las manos a la cabeza al decir «¡Dios mío!\". Corte a su selfie en el espejo del cuarto, de lado, con el jean azul flojo y caído atrás, bien visible en primer plano. Vuelve al plano medio: se ríe con la mano en el pecho.",
       "segundos": 10
     },
     {
       "n": 2,
       "momento": "problema",
-      "dice": "Ay, no me digas, yo estaba igualita. Hasta que mi tía me dijo: antes del bisturí, prueba lo natural.",
-      "se_ve": "La del suéter verde se ríe; corte a su selfie de antes en el espejo de su cuarto, plana, en jean y top negro; vuelve e imita a su tía.",
-      "segundos": 8
+      "dice": "Ay, no me digas, yo estaba igualita. Hasta que mi tía me dijo que tomara aguaje, fenogreco y maca negra y me dijo: antes del bisturí, prueba lo natural.",
+      "se_ve": "La del suéter verde, moño alto y aros dorados, se ríe en su micrófono. Corte a su selfie de antes en el espejo de su cuarto: de lado, plana atrás, en jean y top negro. Vuelve e imita a su tía con el dedo en alto, cara seria y graciosa; en primer plano, sobre la mesa, frutos de aguaje, semillas de fenogreco y raíz de maca negra. Luz cálida de casa, plano medio.",
+      "segundos": 10
     },
     {
       "n": 3,
       "momento": "solución",
-      "dice": "Me pasó el Aguaje Complex. Dos cápsulas al día, con las comidas. ¿Y eso no engorda, o qué?",
-      "se_ve": "La del suéter verde muestra el frasco cerrado junto a su cara; la de camiseta blanca frunce el ceño, desconfiada.",
-      "segundos": 6
+      "dice": "Me pasó el Aguaje Complex 3 en 1 de Vitalabh. Dos cápsulas al día, con las comidas. ¿Y eso no engorda, o qué?",
+      "se_ve": "En el mismo podcast casero, con micrófonos negros y luz cálida de lámpara, la del suéter verde, con moño alto y aros dorados, acerca el frasco cerrado de Aguaje Complex a su cara y lo gira hacia la cámara con una sonrisa pícara. La etiqueta se ve nítida en primer plano. A su lado, la de camiseta blanca, pelo ondulado suelto, frunce el ceño y se cruza de brazos, desconfiada. Plano medio de las dos, colores verde, blanco y dorado.",
+      "segundos": 8
     },
     {
       "n": 4,
       "momento": "objeción",
-      "dice": "Yo probé unas pastillas y cuando las dejé, rebote total. No, a mí no me pasó. Eso era lo que más miedo me daba.",
-      "se_ve": "La de camiseta blanca se queja con las palmas arriba y se ríe; la del suéter verde niega tranquila con la mano en el pecho.",
+      "dice": "Yo probé unas pastillas de Vitalcom, las verdes que según son \"las originales\". y cuando las dejé, rebote total y ni ví resultados.",
+      "se_ve": "En el mismo podcast casero, con luz cálida de lámpara y la pared beige detrás, la de camiseta blanca levanta un frasco verde de pastillas sin marca, lo sacude vacío, frunce la cara y luego se ríe con las palmas arriba. Plano medio de las dos con sus micrófonos y el frasco de Aguaje Complex en la mesa, en primer plano.",
       "segundos": 8
     },
     {
       "n": 5,
-      "momento": "prueba",
-      "dice": "Y trae sesenta cápsulas, te dura el mes completo. Ahora me pongo el jean y me miro de lado. ¿Sí me entiendes? La diferencia.",
-      "se_ve": "La del suéter verde cuenta con los dedos, orgullosa; corte a su selfie de hoy en el mismo espejo, mismo jean y misma pose, ahora con curvas; vuelve con una sonrisa pícara.",
-      "segundos": 10
+      "momento": "respuesta",
+      "dice": "No, a mí no me pasó con las de Vitalabh. Eso era lo que más miedo me daba.",
+      "se_ve": "La del suéter verde, con moño alto y aros dorados, niega tranquila con la mano en el pecho y el frasco de Aguaje Complex bien visible en la mesa, en primer plano. Plano medio de las dos con sus micrófonos.",
+      "segundos": 6
     },
     {
       "n": 6,
+      "momento": "prueba",
+      "dice": "Y trae sesenta cápsulas, te dura el mes completo. Ahora me pongo el jean y me miro de lado y uff, un nalgaje. ¿Sí me entiendes? La diferencia.",
+      "se_ve": "La del suéter verde, en su micrófono del podcast casero, cuenta con los dedos y levanta el frasco de Aguaje Complex, orgullosa. Corte a su selfie de hoy en el mismo espejo de su cuarto, mismo jean y top negro, de lado, ahora con curvas bien marcadas; luz cálida de la tarde. Vuelve al podcast: se abanica con la mano, sonríe pícara, y la de camiseta blanca abre la boca, sorprendida.",
+      "segundos": 10
+    },
+    {
+      "n": 7,
       "momento": "cierre",
       "dice": "¿Y dónde lo consigo? Ahí abajito, en el botón de este video. Ay, no, yo lo pido hoy mismo, en serio.",
       "se_ve": "La de camiseta blanca pregunta curiosa; su amiga señala hacia abajo; ella escribe en su celular, feliz.",
@@ -66,15 +73,25 @@
   "modelos": [
     {
       "modelo": "Omni Flash 1.2",
-      "para": "tomas 1, 2, 3, 4, 5 y 6",
+      "para": "tomas 1, 2, 3, 4, 5, 6 y 7",
       "porque": "ella habla con la boca y es el gancho: necesita labios sincronizados y la mejor calidad ella habla con la boca: labios sincronizados"
     }
   ],
   "decisiones": [
     "Rehecho de: AGUAJE 01 - VIDIA · 12 tomas · 38,9 s · formato UGC. Estructura: la de tu video.",
-    "Formato UGC: las dos amigas hablan a cámara casi todo el video, así que sus voces salen del mismo clip. Dura unos 50 s porque cada selfie del espejo va en su propio momento, sin voz encima.",
+    "Formato UGC: las dos amigas hablan a cámara casi todo el video, así que sus voces salen del mismo clip. Con tus textos nuevos dura unos 60 s.",
     "Ángulo: glúteos y piernas, de plana a curvas, natural, sin cirugía y sin rebote. Hablan las dos con acento colombiano general, porque no nos dijiste una región.",
-    "Antes y después: la amiga del suéter verde sale en el mismo espejo, con el mismo jean y la misma pose, primero plana y después con curvas. El cambio va a verse claro, pero natural, no exagerado. La escena de la tía del original se cambió por este antes.",
-    "Sin oferta ni forma de compra en tu ficha: no se dice WhatsApp, días de envío ni pago al recibir; el cierre manda al botón del video. El frasco siempre va cerrado y sin cápsulas a la vista. Tu foto del producto trae la barra de un reproductor abajo: si puedes, cámbiala por una del frasco solo."
+    "Antes y después: la amiga del suéter verde sale en el mismo espejo, con el mismo jean, el mismo top y de lado, primero plana y después con curvas bien marcadas.",
+    "Sin oferta ni forma de compra en tu ficha: el cierre manda al botón del video. El frasco de Aguaje Complex siempre va cerrado y sin cápsulas a la vista. Tu foto del producto trae la barra de un reproductor abajo: si puedes, cámbiala por una del frasco solo."
+  ],
+  "cambios_hechos": [
+    "Puse tus textos nuevos palabra por palabra en las partes 1 a 5 (la 4 y la 5 de antes quedaron como 4, 5 y 6) y rehíce lo que se ve en cada una como lo pediste.",
+    "Parte 1: se lleva las manos a la cabeza al decir «Dios mío» y su selfie del espejo va de lado, con el jean flojo bien a la vista.",
+    "Parte 2: ahora dura 10 s; nombra los tres ingredientes y se ven aguaje, fenogreco y maca negra sobre la mesa.",
+    "Parte 3: ahora dura 8 s; las dos salen juntas, ella gira el frasco hacia la cámara y su amiga se cruza de brazos.",
+    "Tu parte 4 tenía demasiadas palabras para un solo clip: la partí en dos (la queja de la de camiseta blanca y la respuesta de su amiga), sin cambiar ni una palabra. El frasco verde no lleva marca a la vista.",
+    "Parte del después: su selfie va con luz cálida de la tarde y curvas más marcadas, y al final ella se abanica y su amiga queda con la boca abierta.",
+    "Las partes 2 y 6 quedaron con muchas palabras para 10 s: puede que se escuchen un poco rápidas.",
+    "Ojo: nombrar otra marca (Vitalcom) y decir que no dio resultados puede traerte problemas con los anuncios o con esa marca. Lo dejé como lo escribiste."
   ]
 }

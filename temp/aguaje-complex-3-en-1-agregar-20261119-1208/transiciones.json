@@ -5,6 +5,6 @@
   },
   "puntos": [
     { "toma": 3, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada de la solución: la amiga muestra el frasco y dice cómo se toma" },
-    { "toma": 5, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "entrada de la prueba: cuánto dura el frasco y su después en el espejo" }
+    { "toma": 6, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "entrada de la prueba: cuánto dura el frasco y su después en el espejo" }
   ]
 }
