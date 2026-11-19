@@ -427,7 +427,109 @@
         ]
       }
     ],
-    "pasos": []
+    "pasos": [
+      {
+        "de": 1,
+        "a": 2,
+        "ventana": 2.94,
+        "duracion": 3
+      },
+      {
+        "de": 2,
+        "a": 3,
+        "ventana": 3.46,
+        "duracion": 4
+      },
+      {
+        "de": 3,
+        "a": 4,
+        "ventana": 1.63,
+        "duracion": 3
+      },
+      {
+        "de": 4,
+        "a": 5,
+        "ventana": 2.28,
+        "duracion": 3
+      },
+      {
+        "de": 5,
+        "a": 6,
+        "ventana": 2.86,
+        "duracion": 3
+      },
+      {
+        "de": 6,
+        "a": 7,
+        "ventana": 3.22,
+        "duracion": 4
+      },
+      {
+        "de": 7,
+        "a": 8,
+        "ventana": 2.43,
+        "duracion": 3
+      },
+      {
+        "de": 8,
+        "a": 9,
+        "ventana": 1.86,
+        "duracion": 3
+      },
+      {
+        "de": 9,
+        "a": 10,
+        "ventana": 2.79,
+        "duracion": 3
+      },
+      {
+        "de": 10,
+        "a": 11,
+        "ventana": 5.26,
+        "duracion": 6
+      },
+      {
+        "de": 11,
+        "a": 12,
+        "ventana": 6.05,
+        "duracion": 3
+      },
+      {
+        "de": 12,
+        "a": 13,
+        "ventana": 2.57,
+        "duracion": 3
+      },
+      {
+        "de": 13,
+        "a": 14,
+        "ventana": 3.6,
+        "duracion": 4
+      },
+      {
+        "de": 14,
+        "a": 15,
+        "ventana": 4.67,
+        "duracion": 5
+      },
+      {
+        "de": 15,
+        "a": 16,
+        "ventana": 2.56,
+        "duracion": 3
+      },
+      {
+        "de": 16,
+        "a": 17,
+        "ventana": 3.98,
+        "duracion": 4
+      }
+    ],
+    "cierre": {
+      "toma": 17,
+      "ventana": 7.78,
+      "duracion": 8
+    }
   },
   "voz_en_off": "¿Ya probaste de todo y tus glúteos siguen planos? Sentadillas todos los días, cremas, pastillas… y el jean sigue flojo. Y ya hasta mirabas cirugías de millones. Pero el problema no está afuera. Está adentro. Tus glúteos están dormidos, y dormidos no crecen. Sin lo que necesitan, no se llenan ni suben. Y ninguna crema llega hasta allá. Hasta que llega Aguaje Complex 3 en 1. Aguaje, fenogreco y maca negra: Extractos puros, triple acción. Es lo que realmente hace que tengas resultados, no una marca. Llegan directo al músculo y lo despiertan. Primero notas que el jean ya te ajusta atrás. Después, te miras de lado y hay muy buenas curvas. Y luego todos los hombres y hasta las mujeres con envídia voltean a verte en la calle. Sin bisturí, sin rebote, sin vivir en el gym. Ese es el que necesitas: Aguaje Complex de Vitalabh, tres en uno. Si quieres resultados rápidos, sin efecto rebote y que te duren los resultados después... el tratamiento completo de 3 unidades es la mejor opción.",
   "overlays": []

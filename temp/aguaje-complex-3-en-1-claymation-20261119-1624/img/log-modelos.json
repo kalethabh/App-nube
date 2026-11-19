@@ -1,0 +1,274 @@
+{
+  "generado": "2026-11-19T23:03:14.641Z",
+  "segundos": 200,
+  "imagenes": [
+    {
+      "id": "protagonista",
+      "archivo": "protagonista.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "protagonista-curvas",
+      "archivo": "protagonista-curvas.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "fibras",
+      "archivo": "fibras.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "ingredientes",
+      "archivo": "ingredientes.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-1-inicial",
+      "archivo": "toma-1-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 10,
+      "taskId": "665fcef4610930954a5f7d37931cce16"
+    },
+    {
+      "id": "toma-2-inicial",
+      "archivo": "toma-2-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 10,
+      "taskId": "839487a61aed59fd369984bdad536332"
+    },
+    {
+      "id": "toma-3-inicial",
+      "archivo": "toma-3-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 10,
+      "taskId": "ad2e564a8b1f2946f09e943e5643304c"
+    },
+    {
+      "id": "toma-4-inicial",
+      "archivo": "toma-4-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista"
+      ],
+      "creditos": 10,
+      "taskId": "4df864d8fb4d89c7da25a76f004e092b"
+    },
+    {
+      "id": "toma-5-inicial",
+      "archivo": "toma-5-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-6-inicial",
+      "archivo": "toma-6-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "fibras"
+      ],
+      "creditos": 10,
+      "taskId": "7362573a55c8d4e0eccc0cb9da25aade"
+    },
+    {
+      "id": "toma-7-inicial",
+      "archivo": "toma-7-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "fibras"
+      ],
+      "creditos": 10,
+      "taskId": "e5c913cdb68fe0cda3d562d0e8a671bb"
+    },
+    {
+      "id": "toma-8-inicial",
+      "archivo": "toma-8-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "fibras"
+      ],
+      "creditos": 10,
+      "taskId": "e2eebbb1b7f8180b88e1175f8d9cc452"
+    },
+    {
+      "id": "toma-9-inicial",
+      "archivo": "toma-9-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista",
+        "producto"
+      ],
+      "creditos": 10,
+      "taskId": "0f9c9742f6e77cedc7d7d539de082cf4"
+    },
+    {
+      "id": "toma-10-inicial",
+      "archivo": "toma-10-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "ingredientes",
+        "fibras"
+      ],
+      "creditos": 10,
+      "taskId": "a539878a148610ba8b4099d379fc73ea"
+    },
+    {
+      "id": "toma-11-inicial",
+      "archivo": "toma-11-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "ingredientes",
+        "fibras"
+      ],
+      "creditos": 10,
+      "taskId": "5388fee22996689a2b5e935baeff10d5"
+    },
+    {
+      "id": "toma-11-final",
+      "archivo": "toma-11-final.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "ingredientes",
+        "fibras",
+        "frame inicial"
+      ],
+      "creditos": 10,
+      "taskId": "8f89531066207a7e138f52fe55ee8526"
+    },
+    {
+      "id": "toma-12-inicial",
+      "archivo": "toma-12-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-13-inicial",
+      "archivo": "toma-13-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas"
+      ],
+      "creditos": 10,
+      "taskId": "1c7ab95cb7e3f7deb9d4a49cdb254993"
+    },
+    {
+      "id": "toma-14-inicial",
+      "archivo": "toma-14-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas"
+      ],
+      "creditos": 10,
+      "taskId": "12beaa16d7df4d5013ab4f9f83467b10"
+    },
+    {
+      "id": "toma-15-inicial",
+      "archivo": "toma-15-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas"
+      ],
+      "creditos": 10,
+      "taskId": "6cd7f68b911b1f43fd2621dd5043a919"
+    },
+    {
+      "id": "toma-16-inicial",
+      "archivo": "toma-16-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas",
+        "producto"
+      ],
+      "creditos": 10,
+      "taskId": "03d1170c7bab12569c2ea5e9bebd5f2f"
+    },
+    {
+      "id": "toma-17-inicial",
+      "archivo": "toma-17-inicial.png",
+      "modelo": "gpt-image-2-5-sunburst-image-to-image",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista-curvas",
+        "producto"
+      ],
+      "creditos": 10,
+      "taskId": "6035eaa4cf07b608c7c5f9bb412ec89a"
+    }
+  ]
+}
