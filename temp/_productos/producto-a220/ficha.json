@@ -1,0 +1,51 @@
+{
+  "nombre": "Aguaje Complex 3 en 1",
+  "queEs": "Suplemento en cápsulas de aguaje, fenogreco y maca negra para aumentar glúteos y piernas.",
+  "tipo": "fisico",
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio",
+    "Triple acción"
+  ],
+  "publico": "Mujeres de 20 a 45 años que quieren más glúteos y piernas más llenas sin cirugía ni horas de gimnasio.",
+  "dolor": "Se siente plana atrás y con piernas delgadas; la ropa no le luce y le da inseguridad mostrarse.",
+  "oferta": "",
+  "comoCompra": "",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "pais": "Colombia",
+  "probo": "",
+  "prueba": "",
+  "ingredientes": "Por porción de 2 cápsulas: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg, más vitamina A y vitamina E. 60 cápsulas por frasco.",
+  "comoSeUsa": "Tomar 2 cápsulas al día, de preferencia con las comidas principales. Uso continuo por varios meses para resultados duraderos y sin efecto rebote.",
+  "fotos": [
+    {
+      "archivo": "fotos/1.png",
+      "sirve": true,
+      "nota": "Frasco rosado y negro en la mano, de frente. Es una captura de video y abajo se ve la barra de reproducción."
+    },
+    {
+      "archivo": "fotos/2.jpg",
+      "sirve": true,
+      "nota": "Diseño completo de la etiqueta extendida, con beneficios, modo de uso e información nutricional."
+    }
+  ],
+  "deducido": [
+    "publico",
+    "dolor",
+    "idioma",
+    "mercado"
+  ],
+  "falta": [
+    {
+      "campo": "oferta",
+      "pregunta": "¿Cuánto cuesta y tienes alguna oferta o promoción?"
+    },
+    {
+      "campo": "comoCompra",
+      "pregunta": "¿Cómo compra el cliente: pago contra entrega, WhatsApp o web?"
+    }
+  ]
+}
