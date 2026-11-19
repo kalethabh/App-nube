@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19r · Oficina con tu diseño, a tu medida, y una coordinadora que te escucha
+
+- **La oficina en 3D con el diseño que mandaste**: planta abierta de noche con piso de madera cálida, el logo K al centro sobre una jardinera con luz verde, líneas de neón en el piso, sala de reuniones de vidrio con la pared de listones, biblioteca, pared de datos con el mapa y las gráficas, estudio de video con aro de luz y cámara, zona de revisión, oficina de vidrio, barra de café con taburetes y sala de estar con sofá y sillones verdes. Plantas por todas partes.
+- **Las pantallas muestran lo que se está haciendo de verdad**: en Arte, tres pantallas grandes (la del medio con la última imagen generada); en el estudio de video, la pantalla grande con el último clip; en Edición, el último video entregado.
+- **Las secciones «Próximamente»** (Landings, Embudo WhatsApp y S.E.P) salen como oficinas en construcción (cinta, conos, escalera). Tocando su etiqueta vas a su sección.
+- **Diseñar oficina**: un plano con todos los lugares. Tocas una oficina y después otro lugar para moverla (si está ocupado, se intercambian), le cambias el nombre y el color, y **creas las tuyas** eligiendo el tipo de sala (escritorios, creativos con pantallas grandes, estudio de video, reuniones, pared de datos, biblioteca, oficina de vidrio, café o sala de estar).
+- **Si una IA se cae** (Claude, ChatGPT, kie.ai o ElevenLabs, según Salud de plataformas), la oficina lo dice arriba y los agentes que la usan se ponen en naranja con el aviso.
+- En la **Oficina virtual**, el botón **«Hablar con Valentina»** (o el nombre que le pusiste) abre un chat con tu coordinadora. Escríbele lo que necesitas: «hazme 3 anuncios UGC de Aguaje», «investiga el mercado de mi producto en Colombia», «¿cómo va el trabajo?». Ella reparte el trabajo y te deja el enlace de cada cosa, con su estado en vivo (escribiendo el guion, espera tu aprobación…). **Nada se cobra sin tu sí**: los guiones te esperan para aprobarlos con su costo, como siempre. Si falta algo (el producto, el estilo o lo obligatorio de un estilo), te lo pregunta.
+- Dile cómo quieres las cosas de ahora en adelante («los ganchos más cortos», «nunca uses fondos oscuros») y lo anota como regla para todos los guiones.
+- En cada anuncio terminado, **«¿Cómo quedó?»**: 👍 o 👎, qué parte (guion, imágenes, clips, voces, montaje) y qué te gustó o no. Se vuelve una regla de ese estilo (o de todos) que tu equipo usa la próxima vez.
+- En el panel de cada agente ves **lo que aprendió esta semana** y cuántos 👍/👎 recibió su trabajo.
+
 ## 2026-11-19q · Oficina virtual en 3D
 
 - Nueva sección **Oficina virtual** (en el menú, debajo de Inicio): tu equipo de agentes trabajando en una **oficina en 3D**, hecha desde cero. Un piso flotante de noche con una sala por departamento (Dirección, Guiones, Arte, Producción, Edición, Calidad, Investigación y el Café), cada una con sus muebles y sus objetos: pantallas que se mueven, biblioteca, caballete con su cuadro, cámara en trípode con su luz roja, aro de luz, tablero de control, telescopio y globo terráqueo, pizarra con notas, reloj con la hora real, cafetera con vapor, un robot aspiradora por los pasillos y motas de luz.
