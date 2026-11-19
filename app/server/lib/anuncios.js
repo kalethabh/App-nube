@@ -537,6 +537,9 @@ export function detalleAnuncio(slug) {
       clase: t.clase || null,
       imagenInicial: img(ini),
       imagenFinal: img(fin),
+      // (2026-11-19k) si esta escena lleva imagen de inicio: un bloque R (sale de las hojas) no; sin esto, la pantalla
+      // de producción la esperaba para siempre («En espera» y «faltan 5» en un anuncio ya terminado)
+      llevaImagenInicial: Boolean(t.prompt_imagen_inicial || t.frame_inicial || t.imagen_propia),
       llevaImagenFinal: llevaFinal,
       clip: vid(clip),
       duracionClip: durClip(clip),

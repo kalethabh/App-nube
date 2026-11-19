@@ -2955,3 +2955,26 @@
 .nv-archivos__agregar { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: var(--e-3); border: 1px dashed var(--borde-3, var(--borde-2)); border-radius: var(--r-m); background: transparent; color: var(--texto-2); font: inherit; font-size: var(--t-chico); cursor: pointer; }
 .nv-archivos__agregar:hover:not(:disabled) { color: var(--acento); border-color: var(--acento-borde); }
 .nv-archivos__error { margin: 0; font-size: var(--t-mini); color: var(--error); }
+
+/* El guion de cada persona y cómo dice cada línea (2026-11-19j) */
+.nv-actuacion { display: block; margin: 4px 0 0; font-size: var(--t-chico, 13px); font-style: italic; color: var(--texto-3); }
+.nv-actuacion::before { content: '🎭 '; font-style: normal; }
+.nv-persona { display: flex; flex-direction: column; gap: var(--e-3); margin-top: var(--e-3); }
+.nv-persona__ficha { display: flex; gap: var(--e-3); justify-content: space-between; align-items: flex-start; padding: var(--e-3); border-radius: var(--r-m, 10px); border: 1px solid var(--borde-2); border-left: 3px solid var(--acento, #a3e635); background: var(--superficie-1); }
+.nv-persona__ficha--b { border-left-color: var(--acento-2, #60a5fa); }
+.nv-persona__dato { margin: 4px 0 0; font-size: var(--t-chico, 13px); color: var(--texto-2); }
+.nv-persona__etiqueta { font-weight: 600; color: var(--texto-1); }
+.nv-persona__lineas { list-style: decimal; margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: var(--e-3); }
+.nv-persona__linea::marker { color: var(--texto-3); font-variant-numeric: tabular-nums; }
+.nv-persona__responde { margin: 0 0 2px; font-size: var(--t-mini, 12px); color: var(--texto-3); }
+.nv-persona__dice { margin: 0; font-size: var(--t-cuerpo, 15px); color: var(--texto-1); line-height: 1.45; }
+
+/* Las imágenes de apoyo (B-roll) con su escena (2026-11-19k) */
+.nv-broll { display: flex; flex-direction: column; gap: 4px; padding: var(--e-2) var(--e-3); border-radius: var(--r-m, 10px); border: 1px dashed var(--borde-2); background: var(--superficie-1); }
+.nv-decisiones--broll .nv-broll + .nv-broll { margin-top: var(--e-2); }
+.nv-broll__etiqueta { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-mini, 12px); font-weight: 600; color: var(--texto-2); }
+.nv-broll__con { font-size: var(--t-mini, 12px); color: var(--texto-3); }
+.nv-broll__se-ve { margin: 0; font-size: var(--t-chico, 14px); line-height: 1.5; color: var(--texto-1); }
+.nv-broll__se-ve--sin { color: var(--texto-3); font-style: italic; }
+.nv-broll__camara { font-size: var(--t-mini, 12px); color: var(--texto-3); }
+.nv-linea--broll { padding-top: 0; }

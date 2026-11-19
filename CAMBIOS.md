@@ -2,6 +2,24 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19l · Las imágenes de apoyo (B-roll), detalladas en el guion
+
+- En el guion, cada **imagen de apoyo** (B-roll) aparece debajo de la parte donde entra (en el podcast, todas juntas al final), con:
+  - **lo que se ve**, en 2 o 3 frases muy visuales: quién y qué, dónde y con qué luz, la acción de principio a fin, el detalle que engancha y la emoción;
+  - 🎥 **la cámara**: el encuadre y el movimiento;
+  - con qué frase entra y cuánto dura.
+- Tu IA escribe esa escena primero y la misma va a las instrucciones de la imagen y del video.
+
+## 2026-11-19k · Arreglo: en Producción las escenas quedaban «En espera»
+
+- En anuncios hechos por bloques (por ejemplo «Agregar» con una persona que habla), Producción esperaba una «imagen de inicio» por escena que ese tipo de anuncio no lleva: las escenas se veían «En espera», sin miniatura, y decía «faltan 5» aunque el anuncio estaba terminado. Ahora cada escena muestra su clip y el conteo es el real.
+
+## 2026-11-19j · Podcast y entrevista: el guion de cada persona
+
+- En el guion de un **podcast** o una **entrevista**, además de «La conversación», una pestaña por persona: **«Guion de Carla»**, **«Guion de Tomás»** (o del entrevistador y la persona). Cada una muestra solo las líneas de esa persona, a qué responde cada una y **cómo la dice** (emoción, tono, expresión, gesto, mirada), con **«Copiar su guion»**.
+- En la conversación, debajo de cada línea, 🎭 cómo la dice esa persona.
+- Tu IA escribe a cada persona distinta: su carácter y su **forma de hablar** («Cómo habla», también en «Quién aparece»), y la misma actuación va al video de cada bloque.
+
 ## 2026-11-19i · Pega tus anuncios ganadores
 
 - En **Variantes → «Lo que te funciona»** y en **Biblioteca → «Lo que me funciona»**, además de subirlos: **pégalos**. Copia la imagen del anuncio (clic derecho → Copiar imagen, o una captura de pantalla) y toca **«Pegar»** o pulsa **Cmd+V** (Ctrl+V en Windows) con el mouse encima. También puedes **arrastrarlos** a esa zona.
