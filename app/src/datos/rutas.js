@@ -60,6 +60,7 @@ const s = (slug) => encodeURIComponent(slug);
 /** Las rutas de la app. En un <a> usa href={enlace.anuncio(slug)}; para navegar desde código, ir(rutas.anuncio(slug)). */
 export const rutas = {
   inicio: () => '/inicio',
+  oficina: () => '/oficina',
   productos: () => '/productos',
   landings: () => '/landings',
   embudoWhatsapp: () => '/embudo-whatsapp',

@@ -4,7 +4,7 @@
 //   node app/herramientas/abrir-pantallas.cjs                     (las de siempre; o pasa rutas: /imagenes/nuevo …)
 //   PUERTO_PANTALLAS=4471 cambia el puerto
 const { chromium } = require('playwright');
-const LAS_DE_SIEMPRE = ['/inicio', '/productos', '/embudo-whatsapp', '/landings', '/sep', '/tablero', '/nuevo', '/imagenes', '/imagenes/nuevo', '/investigacion', '/inspiracion', '/anuncios', '/editor', '/biblioteca', '/ajustes', '/aprendizajes'];
+const LAS_DE_SIEMPRE = ['/inicio', '/oficina', '/productos', '/embudo-whatsapp', '/landings', '/sep', '/tablero', '/nuevo', '/imagenes', '/imagenes/nuevo', '/investigacion', '/inspiracion', '/anuncios', '/editor', '/biblioteca', '/ajustes', '/aprendizajes'];
 // y «Crear anuncios de imagen» con lo que dejaste la última vez (el borrador de ese navegador): con «De un video»
 // se rompía antes de cargar las opciones (2026-11-19c)
 const CON_BORRADOR = ['video', 'variantes', 'nuevos'].map((modo) => ({ ruta: '/imagenes/nuevo', borrador: { modo, plantillasRef: ['x'] } }));

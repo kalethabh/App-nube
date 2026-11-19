@@ -19,6 +19,7 @@ import { BandaActualizacion } from './marco/BandaActualizacion.jsx';
 import './marco/marco.css';
 
 const Inicio = lazy(() => import('./pantallas/inicio/index.jsx'));
+const Oficina = lazy(() => import('./pantallas/oficina/index.jsx'));
 const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
 // (lo que viene: una pantalla de «Próximamente» cada uno)
 const EmbudoWhatsapp = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.EmbudoWhatsapp })));
@@ -58,6 +59,7 @@ const MIS_ANUNCIOS = { texto: 'Mis anuncios', href: enlace.tablero() };
  */
 export const RUTAS = [
   { patron: '/inicio', Pantalla: Inicio, menu: 'inicio', titulo: 'Inicio', migas: () => [{ texto: 'Inicio' }] },
+  { patron: '/oficina', Pantalla: Oficina, menu: 'oficina', titulo: 'Oficina virtual', migas: () => [{ texto: 'Oficina virtual' }] },
   { patron: '/embudo-whatsapp', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Embudo WhatsApp', migas: () => [{ texto: 'Embudo WhatsApp' }] },
   { patron: '/landings', Pantalla: Landings, menu: 'landings', titulo: 'Generador de Landings', migas: () => [{ texto: 'Generador de Landings' }] },
   { patron: '/sep', Pantalla: Sep, menu: 'sep', titulo: 'S.E.P', migas: () => [{ texto: 'S.E.P' }] },
@@ -85,9 +87,9 @@ export const RUTAS = [
   { patron: '/aprendizajes', Pantalla: Aprendizajes, menu: 'aprendizajes', titulo: 'Aprendizajes', migas: () => [{ texto: 'Aprendizajes' }] },
   { patron: '/sketch', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia' }] },
   { patron: '/sketch/:slug', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia', href: enlace.sketch() }, { texto: 'Tu sketch' }] },
-  // (Cambiar el producto es un especial de Estilos: se ilumina «Estilos» y las migas empiezan ahí)
-  { patron: '/cambiar', Pantalla: Cambiar, menu: 'estilos', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Estilos', href: enlace.estilos() }, { texto: 'Cambiar el producto' }] },
-  { patron: '/cambiar/:slug', Pantalla: Cambiar, menu: 'estilos', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Estilos', href: enlace.estilos() }, { texto: 'Cambiar el producto', href: enlace.cambiar() }, { texto: 'Revisar' }] },
+  // (Cambiar el producto vive en el Editor desde el 2026-11-19p: se ilumina «Editor» y las migas empiezan ahí)
+  { patron: '/cambiar', Pantalla: Cambiar, menu: 'editor', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Editor', href: enlace.editorVideos() }, { texto: 'Cambiar el producto' }] },
+  { patron: '/cambiar/:slug', Pantalla: Cambiar, menu: 'editor', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Editor', href: enlace.editorVideos() }, { texto: 'Cambiar el producto', href: enlace.cambiar() }, { texto: 'Revisar' }] },
   { patron: '/saldo', Pantalla: Saldo, menu: 'saldo', titulo: 'Saldo y costos', migas: () => [{ texto: 'Saldo y costos' }] },
   { patron: '/biblioteca', Pantalla: Biblioteca, menu: 'biblioteca', titulo: 'Biblioteca', migas: () => [{ texto: 'Biblioteca' }] },
   { patron: '/ajustes', Pantalla: Ajustes, menu: 'ajustes', titulo: 'Ajustes', migas: () => [{ texto: 'Ajustes' }] },

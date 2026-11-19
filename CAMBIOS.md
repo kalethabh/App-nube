@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19q · Oficina virtual en 3D
+
+- Nueva sección **Oficina virtual** (en el menú, debajo de Inicio): tu equipo de agentes trabajando en una **oficina en 3D**, hecha desde cero. Un piso flotante de noche con una sala por departamento (Dirección, Guiones, Arte, Producción, Edición, Calidad, Investigación y el Café), cada una con sus muebles y sus objetos: pantallas que se mueven, biblioteca, caballete con su cuadro, cámara en trípode con su luz roja, aro de luz, tablero de control, telescopio y globo terráqueo, pizarra con notas, reloj con la hora real, cafetera con vapor, un robot aspiradora por los pasillos y motas de luz.
+- **Los agentes hacen el trabajo real de la app**: los que están trabajando se sientan y escriben en su computador; los libres caminan por su sala y a veces van al café; los que **te necesitan** se paran, saludan y tienen una alerta roja. La coordinadora les reparte paquetes de luz a quienes trabajan.
+- **La primera vez** te pide ponerle nombre y personaje a cada agente (lo cambias cuando quieras en «Nombres y personajes»).
+- Al tocar un agente, la cámara se acerca y ves **qué hace ahora, qué te necesita, qué terminó hoy** y lo que aprendió (con enlaces para ir a cada cosa). La oficina se gira y se acerca con el mouse.
+
+## 2026-11-19p · Recrear un anuncio para otro producto, y «Cambiar el producto» en el Editor
+
+- **Recrear para otro producto** (en la entrega de cada anuncio): eliges otro de tus productos y tu IA hace el mismo anuncio con el **mismo guion tal cual**, cambiando solo lo del producto («estas son las gotas» → «estas son las pastillas», cómo se usa, su envase en las imágenes) y lo que no encaje con él. Mismo estilo, misma voz, **mismas personas** (sus fotos se reutilizan sin pagarlas otra vez). Ves el guion y el costo antes de producir. (No en los cantados: su canción es de otro producto.)
+- **«Cambiar el producto»** ahora está en **Editor** (botón arriba). Sigue igual: la IA encuentra las escenas donde sale el otro producto, las rehace con el tuyo y te muestra la propuesta para revisarla antes de producir.
+
 ## 2026-11-19o · Investigación de mercado: todo de una y con el mismo estilo
 
 - **La primera parte** (la de mercado) ya no se ve como hojas de PDF: tiene el **mismo estilo que la segunda** (la de la competencia), con una pestaña por sección, tarjetas, tablas y cajas de colores, y la guía visual de los 4 mensajes con su maqueta. «Descargar PDF» sigue sacando el PDF de siempre.

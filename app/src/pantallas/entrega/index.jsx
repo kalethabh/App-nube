@@ -32,6 +32,7 @@ import { BandaModoPrueba } from '../produccion/ModoPrueba.jsx';
 import { Reproductor } from './Reproductor.jsx';
 import { Versiones } from './Versiones.jsx';
 import { MasGanchos } from './MasGanchos.jsx';
+import { Recrear } from './Recrear.jsx';
 import { EnLaNube } from './EnLaNube.jsx';
 import { Informe, normalizarInforme } from './Informe.jsx';
 import { AvisosRevision } from './Avisos.jsx';
@@ -235,6 +236,8 @@ export default function Entrega({ params }) {
           ) : null}
           <EnLaNube slug={a.slug} alTraer={recargar} />
           {version ? <MasGanchos slug={a.slug} /> : null}
+          {/* (2026-11-19p) el mismo anuncio, con el mismo guion, para otro de tus productos */}
+          {a.estado !== 'guion' ? <Recrear slug={a.slug} productoId={a.productoId} estilo={a.estilo} /> : null}
 
         </div>
 
