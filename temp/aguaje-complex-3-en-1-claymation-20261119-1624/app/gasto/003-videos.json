@@ -1,0 +1,113 @@
+{
+  "numero": 3,
+  "paso": "videos",
+  "comando": "node produccion/generar-videos.js temp/aguaje-complex-3-en-1-claymation-20261119-1624 --si",
+  "inicio": "2026-11-19T23:07:35.113Z",
+  "fin": "2026-11-19T23:14:28.590Z",
+  "codigo": 0,
+  "creditos": 401,
+  "dolares": 2.01,
+  "imagenes": [],
+  "videos": [
+    {
+      "archivo": "toma-11.mp4",
+      "id": "toma-11",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 70
+    },
+    {
+      "archivo": "paso-11.mp4",
+      "id": "paso-11",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-14.mp4",
+      "id": "paso-14",
+      "modelo": "kling-3.0/video",
+      "respaldo": true,
+      "intentos": 1,
+      "creditos": 151
+    },
+    {
+      "archivo": "paso-15.mp4",
+      "id": "paso-15",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 30
+    },
+    {
+      "archivo": "paso-16.mp4",
+      "id": "paso-16",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 40
+    },
+    {
+      "archivo": "toma-17.mp4",
+      "id": "toma-17",
+      "modelo": "google/gemini-omni-flash-1-2",
+      "respaldo": false,
+      "intentos": 1,
+      "creditos": 80
+    }
+  ],
+  "musica": null,
+  "sinRegistro": [
+    {
+      "archivo": "video/paso-1.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-10.mp4",
+      "creditosEstimados": 60
+    },
+    {
+      "archivo": "video/paso-12.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-13.mp4",
+      "creditosEstimados": 40
+    },
+    {
+      "archivo": "video/paso-2.mp4",
+      "creditosEstimados": 40
+    },
+    {
+      "archivo": "video/paso-3.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-4.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-5.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-6.mp4",
+      "creditosEstimados": 40
+    },
+    {
+      "archivo": "video/paso-7.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-8.mp4",
+      "creditosEstimados": 30
+    },
+    {
+      "archivo": "video/paso-9.mp4",
+      "creditosEstimados": 30
+    }
+  ],
+  "elevenlabs": null
+}

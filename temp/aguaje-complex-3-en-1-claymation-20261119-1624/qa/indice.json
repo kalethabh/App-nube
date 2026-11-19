@@ -1,0 +1,387 @@
+{
+  "generado": "2026-11-19T23:14:43.789Z",
+  "nota": "Fotogramas fijos. NO sirven para juzgar la fluidez del movimiento ni el audio.",
+  "frames": 5,
+  "clips": [
+    {
+      "clip": "paso-1.mp4",
+      "tira": "qa/paso-1.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 1,
+      "a": 2,
+      "linea": "¿Ya probaste de todo y tus glúteos siguen planos?",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-1-inicial.png",
+        "imagenFinal": "img/toma-2-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-2.mp4",
+      "tira": "qa/paso-2.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 2,
+      "a": 3,
+      "linea": "Sentadillas todos los días, cremas, pastillas…",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-2-inicial.png",
+        "imagenFinal": "img/toma-3-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-3.mp4",
+      "tira": "qa/paso-3.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 3,
+      "a": 4,
+      "linea": "y el jean sigue flojo.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-3-inicial.png",
+        "imagenFinal": "img/toma-4-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-4.mp4",
+      "tira": "qa/paso-4.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 4,
+      "a": 5,
+      "linea": "Y ya hasta mirabas cirugías de millones.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-4-inicial.png",
+        "imagenFinal": "img/toma-5-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-5.mp4",
+      "tira": "qa/paso-5.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 5,
+      "a": 6,
+      "linea": "Pero el problema no está afuera. Está adentro.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-5-inicial.png",
+        "imagenFinal": "img/toma-6-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-6.mp4",
+      "tira": "qa/paso-6.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 6,
+      "a": 7,
+      "linea": "Tus glúteos están dormidos, y dormidos no crecen.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-6-inicial.png",
+        "imagenFinal": "img/toma-7-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-7.mp4",
+      "tira": "qa/paso-7.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 7,
+      "a": 8,
+      "linea": "Sin lo que necesitan, no se llenan ni suben.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-7-inicial.png",
+        "imagenFinal": "img/toma-8-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-8.mp4",
+      "tira": "qa/paso-8.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 8,
+      "a": 9,
+      "linea": "Y ninguna crema llega hasta allá.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-8-inicial.png",
+        "imagenFinal": "img/toma-9-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-9.mp4",
+      "tira": "qa/paso-9.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 9,
+      "a": 10,
+      "linea": "Hasta que llega Aguaje Complex 3 en 1.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-9-inicial.png",
+        "imagenFinal": "img/toma-10-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-10.mp4",
+      "tira": "qa/paso-10.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        0.12,
+        1.61,
+        2.98,
+        4.48,
+        5.79
+      ],
+      "tipo": "paso",
+      "de": 10,
+      "a": 11,
+      "linea": "Aguaje, fenogreco y maca negra: Extractos puros, triple acción.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-10-inicial.png",
+        "imagenFinal": "img/toma-11-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-11.mp4",
+      "tira": "qa/toma-11.jpg",
+      "duracion": 7,
+      "segundos": [
+        0.14,
+        1.89,
+        3.5,
+        5.25,
+        6.79
+      ],
+      "tipo": "B",
+      "linea": "Es lo que realmente hace que tengas resultados, no una marca. Llegan directo al músculo y lo despiertan.",
+      "referencias": [
+        "ingredientes",
+        "fibras"
+      ],
+      "esperado": {
+        "inicial": "Vertical 9:16. THREE INGREDIENT HEROES: three small cheerful claymation characters: an aguaje fruit, an oval palm fruit covered in matte reddish-brown overlapping scales like a tiny pinecone, with a peeled patch showing bright orange flesh; a small burlap-textured clay sack of golden-yellow fenugreek seeds with a few seeds at its open top; and a black maca root, a round dark purple-black turnip-shaped root with a short thin tail; each with two tiny black bead eyes, a small smile and short stubby clay arms holding a tiny glowing lantern, no leaves, tactile plasticine material with refined subtle sculpting marks, matte surface finish. SLEEPY MUSCLE FIBERS: a small group of five cute claymation muscle-fiber characters, each one a short thick rope-like bundle of coral-red and warm orange striped clay strands twisted together, rounded ends, two tiny black bead eyes and a tiny curved mouth near the top, small stubby clay arms, each wearing a tiny teal nightcap made of clay, never skin-colored, never shaped like a human body, tactile plasticine material with refined subtle sculpting marks, matte surface finish. Medium-wide shot facing the fibers, camera at their height, inside the cozy warm underground clay chamber with warm amber walls of smooth sculpted clay, little wooden shelves with tiny clay pots, small lit lanterns and warm golden light: the aguaje, the fenugreek sack and the maca root stand beside the five hammocks and shake them, while the thin fibers still sleep with their eyes closed and their nightcaps on, handmade clay texture with refined subtle sculpting marks, soft diffused lighting, tactile plasticine material, matte surface finish, no text no captions no watermark\n\nNegative prompt: amateur clay sculpture, messy fingerprints, excessive fingerprints, uneven childish proportions, crude modeling, malformed anatomy, real-world materials, realistic transparency, real glass, real metal, real fabric, photorealistic textures, flat lighting, stock photo look, CGI hyperrealism, generic 3D render, 2D illustration, anime style, harsh shadows, overly glossy plastic, cluttered composition, weak focal point, text artifacts, leaves, serrated leaves, skin-colored, human body shape",
+        "final": "Vertical 9:16. THREE INGREDIENT HEROES: three small cheerful claymation characters: an aguaje fruit, an oval palm fruit covered in matte reddish-brown overlapping scales like a tiny pinecone, with a peeled patch showing bright orange flesh; a small burlap-textured clay sack of golden-yellow fenugreek seeds with a few seeds at its open top; and a black maca root, a round dark purple-black turnip-shaped root with a short thin tail; each with two tiny black bead eyes, a small smile and short stubby clay arms holding a tiny glowing lantern, no leaves, tactile plasticine material with refined subtle sculpting marks, matte surface finish. SLEEPY MUSCLE FIBERS: a small group of five cute claymation muscle-fiber characters, each one a short thick rope-like bundle of coral-red and warm orange striped clay strands twisted together, rounded ends, two tiny black bead eyes and a tiny curved mouth near the top, small stubby clay arms, each wearing a tiny teal nightcap made of clay, never skin-colored, never shaped like a human body, tactile plasticine material with refined subtle sculpting marks, matte surface finish. Same medium-wide shot facing the fibers, camera at their height, same framing, same warm golden light, same lit lanterns and same chamber as the start frame, only the fibers have changed: now the five fibers are wide awake, standing tall out of their hammocks, twice as thick and plump, bright and glowing, eyes wide open and big happy smiles, flexing their tiny arms proudly, their teal nightcaps taken off and lying on the floor; in the foreground one fiber has grown huge, bright rosy coral-pink like watermelon flesh, clearly not skin-colored, doing a proud strongman pose with both tiny arms flexed; the three ingredient heroes cheer beside them, handmade clay texture with refined subtle sculpting marks, soft diffused lighting, tactile plasticine material, matte surface finish, no text no captions no watermark\n\nNegative prompt: amateur clay sculpture, messy fingerprints, excessive fingerprints, uneven childish proportions, crude modeling, malformed anatomy, real-world materials, realistic transparency, real glass, real metal, real fabric, photorealistic textures, flat lighting, stock photo look, CGI hyperrealism, generic 3D render, 2D illustration, anime style, harsh shadows, overly glossy plastic, cluttered composition, weak focal point, text artifacts, leaves, serrated leaves, skin-colored, human body shape"
+      }
+    },
+    {
+      "clip": "paso-11.mp4",
+      "tira": "qa/paso-11.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 11,
+      "a": 12,
+      "linea": "Es lo que realmente hace que tengas resultados, no una marca. Llegan directo al músculo y lo despiertan.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-11-final.png",
+        "imagenFinal": "img/toma-12-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-12.mp4",
+      "tira": "qa/paso-12.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 12,
+      "a": 13,
+      "linea": "Primero notas que el jean ya te ajusta atrás.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-12-inicial.png",
+        "imagenFinal": "img/toma-13-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-13.mp4",
+      "tira": "qa/paso-13.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 13,
+      "a": 14,
+      "linea": "Después, te miras de lado y hay muy buenas curvas.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-13-inicial.png",
+        "imagenFinal": "img/toma-14-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-14.mp4",
+      "tira": "qa/paso-14.jpg",
+      "duracion": 5.04,
+      "segundos": [
+        0.1,
+        1.36,
+        2.52,
+        3.78,
+        4.89
+      ],
+      "tipo": "paso",
+      "de": 14,
+      "a": 15,
+      "linea": "Y luego todos los hombres y hasta las mujeres con envídia voltean a verte en la calle.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-14-inicial.png",
+        "imagenFinal": "img/toma-15-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-15.mp4",
+      "tira": "qa/paso-15.jpg",
+      "duracion": 3,
+      "segundos": [
+        0.06,
+        0.81,
+        1.5,
+        2.25,
+        2.91
+      ],
+      "tipo": "paso",
+      "de": 15,
+      "a": 16,
+      "linea": "Sin bisturí, sin rebote, sin vivir en el gym.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-15-inicial.png",
+        "imagenFinal": "img/toma-16-inicial.png"
+      }
+    },
+    {
+      "clip": "paso-16.mp4",
+      "tira": "qa/paso-16.jpg",
+      "duracion": 3.92,
+      "segundos": [
+        0.08,
+        1.06,
+        1.96,
+        2.94,
+        3.8
+      ],
+      "tipo": "paso",
+      "de": 16,
+      "a": 17,
+      "linea": "Ese es el que necesitas: Aguaje Complex de Vitalabh, tres en uno.",
+      "referencias": [],
+      "esperado": {
+        "imagenInicial": "img/toma-16-inicial.png",
+        "imagenFinal": "img/toma-17-inicial.png"
+      }
+    },
+    {
+      "clip": "toma-17.mp4",
+      "tira": "qa/toma-17.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.16,
+        2.14,
+        3.96,
+        5.95,
+        7.69
+      ],
+      "tipo": "A",
+      "linea": "Si quieres resultados rápidos, sin efecto rebote y que te duren los resultados después... el tratamiento completo de 3 unidades es la mejor opción.",
+      "referencias": [
+        "protagonista-curvas",
+        "producto"
+      ],
+      "esperado": {
+        "inicial": "Vertical 9:16. CHARACTER: a claymation character, an adult woman in her late 20s with clearly adult features, rounded handmade clay body, warm medium-brown skin, oval face with defined cheekbones, small dark glossy bead eyes with short lashes, thick dark eyebrows, small rounded nose, soft coral lips, shoulder-length straight jet-black hair with blunt straight bangs and no hair accessories, small gold hoop earrings, a lavender short-sleeve fitted t-shirt tucked into high-waisted medium-blue denim jeans with white stitching, white low sneakers, tactile plasticine material with refined subtle sculpting marks, matte surface finish; curvy hourglass figure: small waist, hips about one and a half times wider than her waist, a full round lifted seat that projects well behind her lower back like a shelf, thick full thighs filling the jean legs and touching at the top, obvious at first glance, the same jeans now fit snug with no loose fabric. This time she wears a yellow short-sleeve blouse instead of the lavender t-shirt, with the same snug blue jeans (use the character reference only for her face, hair and figure). Camera facing her at waist height, in her sunny Colombian apartment living room with a terracotta tile floor, a woven beige rug, a mustard-yellow sofa and a window with white curtains, warm afternoon light, vivid colors: in the background, full body and facing the camera, she dances a happy little salsa step, both arms raised with empty hands, laughing, her curvy figure clearly marked by the jeans; in the foreground, on a low wooden coffee table, three closed Aguaje Complex bottles stand in a neat row in the center of the frame, never touching the frame edges, labels facing the camera, tied together with a golden ribbon bow, with a little colorful clay confetti scattered around them. Each bottle is modeled from matte plasticine, like a handmade stop-motion prop, not a real plastic bottle, with the exact shape and label of the attached product photo (use that photo only for the bottle, never for the hand or the background): a wide-mouth cylindrical bottle about 1.7 times taller than wide, straight sides with slightly rounded shoulders, a ribbed hot-pink screw cap almost as wide as the body, a black label with big white AGUAJE lettering, COMPLEX 3 EN 1 below it, a thin pink band, red TRIPLE ACCIÓN lettering, three small pink-bordered boxes and a hot-pink band at the bottom; not a slim bottle, not a flat jar; all three identical and closed with the cap on; the labels always read correctly, never mirrored; matte, no rainbow, no prism light, no lens flare. Handmade clay texture with refined subtle sculpting marks, soft diffused lighting, tactile plasticine material, matte surface finish, no captions no watermark, no text other than the bottle labels\n\nNegative prompt: amateur clay sculpture, messy fingerprints, excessive fingerprints, uneven childish proportions, crude modeling, malformed anatomy, real-world materials, realistic transparency, real glass, real metal, real fabric, photorealistic textures, flat lighting, stock photo look, CGI hyperrealism, generic 3D render, 2D illustration, anime style, harsh shadows, overly glossy plastic, cluttered composition, weak focal point, text artifacts, back view, photographic product shot, glossy reflective bottle, loose capsules, pills, open bottle, mirrored label, cut-off bottle",
+        "final": null
+      }
+    }
+  ]
+}

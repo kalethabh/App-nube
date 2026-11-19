@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-claymation-20261119-1624",
   "familia": "continuidad",
   "estado": "corriendo",
-  "paso": "videos",
+  "paso": "musica",
   "pasos": [
     {
       "id": "validar",
@@ -72,28 +72,36 @@
     {
       "id": "videos",
       "nombre": "Crear los videos encadenados",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 2,
       "inicio": "2026-11-19T23:07:34.587Z",
-      "retomado": true
+      "retomado": true,
+      "fin": "2026-11-19T23:14:28.601Z"
     },
     {
       "id": "revision-cadena",
       "nombre": "Revisar las uniones entre escenas",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:14:28.602Z",
+      "fin": "2026-11-19T23:15:46.296Z",
+      "nota": "Cada escena pasa bien a la siguiente."
     },
     {
       "id": "voces",
       "nombre": "Buscar voces que no van",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:15:46.296Z",
+      "fin": "2026-11-19T23:15:58.413Z",
+      "nota": "1 clip(s) traían una voz que no iba: van sin sonido."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-19T23:15:58.413Z"
     },
     {
       "id": "montaje",
@@ -124,7 +132,7 @@
   "modoPrueba": false,
   "creado": "2026-11-19T22:59:45.220Z",
   "aprobado": "2026-11-19T22:59:45.220Z",
-  "actualizado": "2026-11-19T23:12:56.044Z",
+  "actualizado": "2026-11-19T23:15:58.413Z",
   "saldoInicial": {
     "creditos": 2016.1,
     "fecha": "2026-11-19T22:59:46.274Z"
