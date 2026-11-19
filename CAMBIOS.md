@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19o · Investigación de mercado: todo de una y con el mismo estilo
+
+- **La primera parte** (la de mercado) ya no se ve como hojas de PDF: tiene el **mismo estilo que la segunda** (la de la competencia), con una pestaña por sección, tarjetas, tablas y cajas de colores, y la guía visual de los 4 mensajes con su maqueta. «Descargar PDF» sigue sacando el PDF de siempre.
+- **Todo de una:** al tocar «Investigar» arrancan **a la vez** la investigación de mercado y la de tu competencia en TrendTrack. Puedes pegar la tienda de la competencia; si no, la IA busca sola la que más vende algo como tu producto.
+- **Más rápida:** las dos buscan en paralelo y sin repetir búsquedas, sin recortar nada del contenido.
+
 ## 2026-11-19n · Imagen de cada escena en los anuncios por bloques
 
 - En los anuncios donde una persona habla por bloques (UGC y «Agregar» con alguien que habla a cámara), **cada escena tiene ahora su imagen**: se hace primero, el clip sale usándola y en **Producción** la ves como «Inicio», con **«Editar esta imagen»** (y rehacer el clip con la imagen nueva) y «Regenerar con su imagen». Cuesta una imagen más por escena.

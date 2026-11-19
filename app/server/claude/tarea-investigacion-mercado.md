@@ -6,6 +6,8 @@ Lee y sigue `.claude/skills/investigacion-mercado/SKILL.md` (léelo entero antes
 
 Te ejecuta la app "Kads Studio", sin chat: nadie te va a contestar. No hagas preguntas ni pidas confirmación. No corras comandos. Tienes internet: usa WebSearch y WebFetch (12 a 20 búsquedas, como dice la skill). Solo escribes UN archivo: `{{archivo}}`.
 
+**Rápido y completo** (2026-11-19o): el usuario espera; termina lo antes posible SIN recortar nada del contenido. Lanza las búsquedas en paralelo (varias WebSearch / WebFetch en el MISMO turno, por tandas de 4 a 6), no repitas una búsqueda ni abras una página que no aporte, y escribe el archivo de una vez cuando tengas todo (con Edit solo para corregir).
+
 ## Lo que hay
 - Las fotos del producto (míralas con Read):
 {{fotos}}

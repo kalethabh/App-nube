@@ -81,7 +81,9 @@ function armarSesion(id, t, { retomar }) {
   const mio = ficha?.nombre || p?.nombre || inv?.producto || '';
   const prompt = textoClaude('tarea-investigacion-trendtrack', {
     carpeta: rel,
-    enlace: t.enlace,
+    enlace: t.buscar && !t.enlace
+      ? `NINGUNA: búscala tú. Con search_products y search_shops de TrendTrack (y find_similar_shops si ayuda), busca la tienda que MÁS vende un producto como «${mio || 'el del usuario'}» (misma categoría y promesa: mira la foto y la investigación de mercado de la carpeta) en ${t.pais} o, si allí no hay, en Estados Unidos; elige la de más ventas o más anuncios activos, di en "advertencias" cuál elegiste y por qué, y sigue con las 6 etapas sobre esa tienda.`
+      : t.enlace,
     producto: t.producto || 'no se indicó: investiga la marca entera (o su producto principal).',
     pais: t.pais,
     fecha: new Intl.DateTimeFormat('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Bogota' }).format(new Date()),
@@ -133,7 +135,7 @@ export function ganchosValidados(id, max = 30) {
 }
 
 /** POST /api/investigacion/:id/competencia: lanza las 6 etapas (no espera). */
-export function investigar(id, { enlace = '', producto = '', pais = '', brandtracker = false, retomar = false } = {}) {
+export function investigar(id, { enlace = '', producto = '', pais = '', brandtracker = false, retomar = false, buscar = false } = {}) {
   if (!leerProducto(id)) throw new ErrorApp(404, 'No encuentro ese producto.');
   if (motorElegido() !== 'claude') throw new ErrorApp(409, 'La investigación con TrendTrack usa el conector de tu cuenta de Claude. Elige Claude en Ajustes › Conexiones.');
   const previa = leerTarea(id);
@@ -141,7 +143,9 @@ export function investigar(id, { enlace = '', producto = '', pais = '', brandtra
   const limpio = (x, n) => String(x || '').replace(/[\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, n);
   const t0 = retomar && previa ? previa : null;
   const datos = { enlace: t0?.enlace || limpio(enlace, 400), producto: t0?.producto ?? limpio(producto, 200), pais: t0?.pais || limpio(pais, 60) || 'Colombia', brandtracker: t0 ? Boolean(t0.brandtracker) : Boolean(brandtracker) };
-  if (datos.enlace.length < 3) throw new ErrorApp(400, 'Pega el link de TrendTrack de la marca que quieres investigar (o su dominio).');
+  // (2026-11-19o) sin marca, con `buscar`: la IA busca en TrendTrack la tienda que más vende algo como tu producto
+  if (datos.enlace.length < 3 && !buscar && !t0?.buscar) throw new ErrorApp(400, 'Pega el link de TrendTrack de la marca que quieres investigar (o su dominio).');
+  if (datos.enlace.length < 3) datos.buscar = true;
   const uuid = t0?.uuid || crypto.randomUUID();
   const tarea = { id: uuid, uuid, estado: 'investigando', ...datos, progreso: [], intentos: (previa?.intentos || 0) + 1, inicio: ahora(), error: null };
   fs.mkdirSync(path.join(dir(id), 'registro'), { recursive: true });
@@ -211,3 +215,6 @@ export function aMarkdown(id) {
   if (hooks.length) lineas.push(`\n### Ganchos del mercado, mejorados (poco saturados)\n${hooks.map((h) => `- ${t(h.mejorado)}`).join('\n')}`);
   return lineas.join('\n').slice(0, 12000) + '\n';
 }
+
+/** (solo las pruebas) la sesión que se armaría */
+export const _armarSesion = (id, t) => armarSesion(id, t, { retomar: false });
