@@ -1,7 +1,7 @@
 // Biblioteca → «Lo que me funciona» (2026-11-19h): tus anuncios ganadores (los que subiste y los que marcaste con el
 // trofeo en tus lotes y tus videos), con el concepto de cada uno (por qué vende). De aquí salen las Variantes de
 // Anuncios de imagen. Se suben, se les escribe el concepto, se les cambia el producto y se quitan.
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Clapperboard, Copy, Image as IconoImagen, Trash2, Trophy } from 'lucide-react';
 import { Boton, EstadoVacio, Selector, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { editarFunciona, quitarFunciona, useFuncionan } from '../../datos/funcionan.js';
@@ -11,6 +11,7 @@ import { ConceptoFunciona, SubirFunciona } from '../imagenes/SubirFunciona.jsx';
 
 export function LoQueFunciona() {
   const { datos, cargando, recargar } = useFuncionan();
+  const zona = useRef(null);
   const productos = useProductosImagen().datos?.productos || [];
   const [producto, setProducto] = useState('');
   const { aviso } = useAvisos();
@@ -35,20 +36,20 @@ export function LoQueFunciona() {
   const opcionesProducto = [{ valor: '', etiqueta: 'Sin producto' }, ...productos.map((p) => ({ valor: p.id, etiqueta: p.nombre }))];
 
   return (
-    <div className="bib-funciona">
+    <div className="bib-funciona" ref={zona}>
       <div className="bib-funciona__barra">
         <p className="t-chico t-3">Tus anuncios que ya venden. De aquí salen las <strong>Variantes</strong> de Anuncios de imagen: mismo concepto creativo, otra ejecución y otro título.</p>
         <div className="fila" style={{ '--hueco': '8px' }}>
           <Selector value={producto} onChange={(e) => setProducto(e.target.value)} opciones={[{ valor: '', etiqueta: 'Todos los productos' }, ...productos.map((p) => ({ valor: p.id, etiqueta: p.nombre }))]} aria-label="Filtrar por producto" />
-          <SubirFunciona productoId={producto || null} variante="primario" texto="Subir anuncios" onSubidos={() => recargar?.()} />
+          <SubirFunciona productoId={producto || null} variante="primario" texto="Subir anuncios" onSubidos={() => recargar?.()} zona={zona} pegarSiempre />
         </div>
       </div>
       {cargando && !datos ? null : !items.length ? (
         <EstadoVacio
           icono={Trophy}
           titulo={producto ? 'Nada de este producto todavía' : 'Todavía no hay nada aquí'}
-          descripcion="Sube las imágenes o los videos de tus anuncios que ya venden (o márcalos con el trofeo «Me funciona» en tus lotes y tus videos)."
-          acciones={<SubirFunciona productoId={producto || null} variante="primario" texto="Subir anuncios" onSubidos={() => recargar?.()} />}
+          descripcion="Sube, pega (Cmd+V / Ctrl+V) o arrastra aquí las imágenes o los videos de tus anuncios que ya venden (o márcalos con el trofeo «Me funciona» en tus lotes y tus videos)."
+          acciones={null}
         />
       ) : (
         <ul className="bib-funciona__rejilla">
