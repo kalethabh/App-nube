@@ -3,21 +3,25 @@
   "piezas": {
     "V01_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "sin-imagen",
       "intentosApi": 3,
       "version": 1,
-      "intentoAbierto": true,
+      "intentoAbierto": false,
       "taskId": null,
-      "ultimoMotivo": "contenido-chatgpt"
+      "ultimoMotivo": "contenido-chatgpt",
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
     },
     "V02_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "sin-imagen",
       "intentosApi": 3,
       "version": 1,
-      "intentoAbierto": true,
+      "intentoAbierto": false,
       "taskId": null,
-      "ultimoMotivo": "contenido-chatgpt"
+      "ultimoMotivo": "contenido-chatgpt",
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
     },
     "V03_1x1": {
       "orden": "g",
@@ -34,14 +38,19 @@
     },
     "V04_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 2,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null,
-      "ultimoMotivo": "contenido-chatgpt"
+      "intentoAbierto": false,
+      "taskId": "01a1f49a-b848-7cd0-8919-ef00efb8cff4",
+      "ultimoMotivo": "contenido-chatgpt",
+      "firma": "2121638-1795105252857",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     }
   },
-  "actualizado": "2026-11-19T16:19:03.986Z",
-  "terminado": false
+  "actualizado": "2026-11-19T16:20:52.861Z",
+  "terminado": true
 }
