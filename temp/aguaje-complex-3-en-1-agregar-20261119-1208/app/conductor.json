@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-3-en-1-agregar-20261119-1208",
   "familia": "ugc",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -74,43 +74,42 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-19T19:07:05.728Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 1620,
-        "total": 1773,
-        "restante": 16,
-        "en": "2026-11-19T19:34:08.832Z"
-      },
-      "renderLento": 1
+      "renderLento": 1,
+      "fin": "2026-11-19T19:35:10.827Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:35:10.827Z",
+      "fin": "2026-11-19T19:35:23.864Z"
     },
     {
       "id": "ganchos",
       "nombre": "Armar las versiones con otro gancho",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "saltado",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:35:23.865Z",
+      "fin": "2026-11-19T19:35:23.865Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:35:23.866Z",
+      "fin": "2026-11-19T19:35:24.056Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-19T18:48:32.604Z",
   "aprobado": "2026-11-19T18:48:32.604Z",
-  "actualizado": "2026-11-19T19:34:08.832Z",
+  "actualizado": "2026-11-19T19:35:24.057Z",
   "saldoInicial": {
     "creditos": 2628.1,
     "fecha": "2026-11-19T18:48:33.539Z"
@@ -118,5 +117,10 @@
   "costoPlan": {
     "creditos": 632,
     "fecha": "2026-11-19T18:48:33.539Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 2016.1,
+    "fecha": "2026-11-19T19:35:24.050Z"
+  },
+  "terminado": "2026-11-19T19:35:24.057Z"
 }

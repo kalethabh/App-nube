@@ -1,0 +1,143 @@
+{
+  "slug": "aguaje-complex-3-en-1-agregar-20261119-1208",
+  "generado": "2026-11-19T19:35:24.054Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 59.1,
+    "estimada": 60,
+    "pedida": null
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-agregar-20261119-1208_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda lo que dice la persona",
+      "detalle": "El video dura 0:59: 7 bloques donde la persona habla a cámara (pedidos, suman 1:00). Ninguna frase se recortó para cuadrar."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:20."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "2 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "62 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "Cada bloque a su velocidad",
+      "detalle": "Un bloque hablado nunca se acelera: le cambiaría la voz y los labios dejarían de ir con lo que dice."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 3,
+      "momento": 19.697,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 6,
+      "momento": 41.172,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "rechazos",
+      "tipo": "arreglado",
+      "titulo": "Se cambió una frase que el generador rechazó",
+      "detalle": "El generador de video no acepta algunas frases (sobre todo de salud): se cambió solo esa frase por otra que dice lo mismo, con el mismo largo. Es lo único del guion que se tocó.",
+      "piezas": [
+        {
+          "n": 1,
+          "unidad": "bloque",
+          "momento": 0,
+          "valor": "«Y ya estaba ahorrando pa' operarme, le juro.» pasó a «Y ya no sabía ni qué ponerme, le juro.»"
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 612,
+    "dolares": 3.06,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 0,
+      "creditos": 0,
+      "dolares": 0
+    },
+    "videos": {
+      "piezas": 7,
+      "creditos": 600,
+      "dolares": 3
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 0,
+      "creditosEstimados": 0
+    },
+    "estimado": false,
+    "elevenlabs": {
+      "caracteres": 0,
+      "scribeSegundos": 119.6
+    },
+    "corridas": 4,
+    "respaldo": [],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 0,
+        "creditos": 0,
+        "dolares": 0
+      },
+      {
+        "id": "videos",
+        "piezas": 7,
+        "creditos": 600,
+        "dolares": 3
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 0
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 2628.1,
+      "saldoDespues": 2016.1,
+      "diferencia": 612,
+      "coincide": true
+    },
+    "rehecho": false
+  },
+  "estilo": "ugc"
+}

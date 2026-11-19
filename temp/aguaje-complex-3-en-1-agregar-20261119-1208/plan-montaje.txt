@@ -1,0 +1,157 @@
+==============================================================================
+PLAN DE MONTAJE — aguaje-complex-3-en-1-agregar-20261119-1208
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+ANUNCIO POR BLOQUES (UGC). Cada bloque es un clip de 4 a 10 s donde la persona
+habla con su propia voz, con lip-sync. No hay voz en off ni B-roll.
+
+REGLA MADRE: manda el clip. Los bloques van en orden y en corte seco; la
+duracion del anuncio es la suma de los bloques ya recortados.
+
+LO QUE NO SE HACE, NUNCA:
+  - No aceleres un bloque hablado: deforma la voz y desincroniza la boca.
+  - No cortes por DENTRO del dialogo: ahi vive el lip-sync.
+  Si un bloque no sirve, se REGENERA (npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261119-1208 N). No se ajusta.
+
+LO QUE SI: recorta el silencio del principio y del final de cada bloque. Si al
+final repite palabras que ya dijo, cortalas (abajo se indica donde, si se midio).
+
+------------------------------------------------------------------------------
+
+BLOQUE 1   (10 s, tipo R)   — gancho + problema
+  Cuando:   00:00.00 -> 00:09.70   (9.70s de ventana)
+  Clip:     video/toma-1.mp4
+  Tramos:
+            [0.0–3.4s] [personaje]  "O sea, yo me ponía un jean y por detrás, Dios mío!."
+            [3.4–5.4s]  (sin dialogo)
+            [5.4–7.0s] [personaje]  "Plana, plana, plana."
+            [7.0–10.0s] [personaje]  "Y ya no sabía ni qué ponerme, le juro."
+  Dice:     "O sea, yo me ponía un jean y por detrás, Dios mío!. Plana, plana, plana. Y ya no sabía ni qué ponerme, le juro."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+  Recorte:  0.00s del INICIO y 0.30s del FINAL.
+            Quedan 9.70s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 2   (10 s, tipo R)   — problema compartido + giro
+  Cuando:   00:09.70 -> 00:19.70   (10.00s de ventana)
+  Clip:     video/toma-2.mp4
+  Tramos:
+            [0.0–2.2s] [personaje-2]  "Ay, no me digas, yo estaba igualita."
+            [2.2–3.6s]  (sin dialogo)
+            [3.6–7.6s] [personaje-2]  "Hasta que mi tía me dijo que tomara aguaje, fenogreco y maca negra y me dijo:"
+            [7.6–10.0s] [personaje-2]  "antes del bisturí, prueba lo natural."
+  Dice:     "Ay, no me digas, yo estaba igualita. Hasta que mi tía me dijo que tomara aguaje, fenogreco y maca negra y me dijo: antes del bisturí, prueba lo natural."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) lugar-podcast  -> img/lugar-podcast.png   (fotograma del bloque 1, segundo 1.7)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 10.00s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 3   (8 s, tipo R)   — solución
+  Cuando:   00:19.70 -> 00:27.63   (7.93s de ventana)
+  Clip:     video/toma-3.mp4
+  Tramos:
+            [0.0–3.2s] [personaje-2]  "Me pasó el Aguaje Complex 3 en 1 de Vitalabh."
+            [3.2–5.6s] [personaje-2]  "Dos cápsulas al día, con las comidas."
+            [5.6–8.0s] [personaje]  "¿Y eso no engorda, o qué?"
+  Dice:     "Me pasó el Aguaje Complex 3 en 1 de Vitalabh. Dos cápsulas al día, con las comidas. ¿Y eso no engorda, o qué?"
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) producto       -> producto.png
+            4) lugar-podcast  -> img/lugar-podcast.png   (fotograma del bloque 1, segundo 1.7)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 4   (8 s, tipo R)   — objeción
+  Cuando:   00:27.63 -> 00:35.56   (7.93s de ventana)
+  Clip:     video/toma-4.mp4
+  Tramos:
+            [0.0–4.2s] [personaje]  "Yo probé unas pastillas de Vitalcom, las verdes que según son "las originales"."
+            [4.2–8.0s] [personaje]  "y cuando las dejé, rebote total y ni ví resultados."
+  Dice:     "Yo probé unas pastillas de Vitalcom, las verdes que según son "las originales". y cuando las dejé, rebote total y ni ví resultados."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) producto       -> producto.png
+            4) lugar-podcast  -> img/lugar-podcast.png   (fotograma del bloque 1, segundo 1.7)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 5   (6 s, tipo R)   — respuesta a la objeción
+  Cuando:   00:35.56 -> 00:41.17   (5.61s de ventana)
+  Clip:     video/toma-5.mp4
+  Tramos:
+            [0.0–3.4s] [personaje-2]  "No, a mí no me pasó con las de Vitalabh."
+            [3.4–6.0s] [personaje-2]  "Eso era lo que más miedo me daba."
+  Dice:     "No, a mí no me pasó con las de Vitalabh. Eso era lo que más miedo me daba."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) producto       -> producto.png
+            4) lugar-podcast  -> img/lugar-podcast.png   (fotograma del bloque 1, segundo 1.7)
+  Recorte:  0.14s del INICIO y 0.21s del FINAL.
+            Quedan 5.62s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 6   (10 s, tipo R)   — prueba
+  Cuando:   00:41.17 -> 00:51.17   (10.00s de ventana)
+  Clip:     video/toma-6.mp4
+  Tramos:
+            [0.0–2.8s] [personaje-2]  "Y trae sesenta cápsulas, te dura el mes completo."
+            [2.8–6.4s] [personaje-2]  "Ahora me pongo el jean y me miro de lado y uff, un nalgaje."
+            [6.4–8.0s]  (sin dialogo)
+            [8.0–10.0s] [personaje-2]  "¿Sí me entiendes? La diferencia."
+  Dice:     "Y trae sesenta cápsulas, te dura el mes completo. Ahora me pongo el jean y me miro de lado y uff, un nalgaje. ¿Sí me entiendes? La diferencia."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) producto       -> producto.png
+            4) lugar-podcast  -> img/lugar-podcast.png   (fotograma del bloque 1, segundo 1.7)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 10.00s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 7   (8 s, tipo R)   — llamado a la acción
+  Cuando:   00:51.17 -> 00:59.10   (7.93s de ventana)
+  Clip:     video/toma-7.mp4
+  Tramos:
+            [0.0–1.8s] [personaje]  "¿Y dónde lo consigo?"
+            [1.8–4.6s] [personaje-2]  "Ahí abajito, en el botón de este video."
+            [4.6–8.0s] [personaje]  "Ay, no, yo lo pido hoy mismo, en serio."
+  Dice:     "¿Y dónde lo consigo? Ahí abajito, en el botón de este video. Ay, no, yo lo pido hoy mismo, en serio."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) lugar-podcast  -> img/lugar-podcast.png   (fotograma del bloque 1, segundo 1.7)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+------------------------------------------------------------------------------
+
+SUBTITULOS, TEXTO EN PANTALLA Y MUSICA
+  Van en el montaje, nunca dentro de los clips. Musica baja, unos -22 dB por
+  debajo de la voz.
+
+AUDIO DE LOS CLIPS
+  La voz viene DENTRO de cada clip, con el ambiente del lugar. No se le agrega
+  narracion. Un fade corto (~80ms) en cada corte evita que suene seco.
+
+==============================================================================
