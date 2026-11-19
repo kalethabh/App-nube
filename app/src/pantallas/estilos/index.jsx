@@ -21,7 +21,20 @@ const FILTROS = [
 
 const ESPECIALES = [
   { clave: 'cambiar', nombre: 'Cambiar el producto', lema: 'Un video que ya existe, con tu producto', icono: Repeat2, buscar: () => false, como: 'Subes el video: queda igual, pero con tu producto, la voz en español con la misma voz y subtítulos nuevos.', href: () => enlace.cambiar() },
-  { clave: 'clonacion', nombre: 'Clonar un video', lema: 'La estructura de un anuncio que ya vende', icono: Copy, buscar: (a) => a.estilo === 'entrevista' && a.referencias?.length, comparar: true, como: 'En los ajustes de cualquier estilo: «Clonar un video».', href: () => enlace.nuevo() },
+  {
+    clave: 'clonacion',
+    nombre: 'Clonar un video',
+    lema: 'La estructura de un anuncio que ya vende, con tu producto',
+    icono: Copy,
+    buscar: (a) => a.estilo === 'entrevista' && a.referencias?.length,
+    comparar: true,
+    // (2026-11-19f: «no veo en los estilos para clonar un video») va con «Desde tu video», junto a Agregar, y lleva
+    // directo a Nuevo anuncio en modo clonar
+    familia: 'referencia',
+    familiaNombre: 'Desde tu video',
+    como: 'Subes el video (tuyo, de la competencia o uno ganador): la app copia cómo está armado, toma por toma, y lo rehace para tu producto en el estilo que elijas. Elige varios estilos para tener variaciones.',
+    href: () => enlace.nuevo({ clonar: '1' }),
+  },
   { clave: 'ganchos', nombre: 'Más ganchos', lema: 'El mismo anuncio con otros inicios', icono: Repeat2, buscar: (a) => a.estilo === 'zack-d-films', como: 'En la entrega de un anuncio con narrador: «Más ganchos».', href: () => enlace.anuncios() },
   { clave: 'sketch', nombre: 'Sketch de comedia', lema: 'Telenovela que no parece anuncio', icono: Laugh, buscar: (a) => a.estilo === 'sketch', como: 'Una telenovela de 1 minuto con diálogo: se burlan del problema y alguien le pasa tu producto como un secreto.', href: () => enlace.sketch() },
 ];
@@ -64,7 +77,7 @@ function Detalle({ e, onCerrar }) {
         <div className="es2-detalle__texto">
           {e.descripcion ? <p className="es2-detalle__descripcion">{e.descripcion}</p> : null}
           <dl className="es2-datos">
-            {(e.como ? [['Dónde se usa', e.como, Target]] : [
+            {(e.como ? [[e.clave === 'clonacion' ? 'Cómo funciona' : 'Dónde se usa', e.como, Target]] : [
               ['Quién habla', d.quienHabla, Mic],
               ['Ideal para', d.idealPara, Target],
               ['Tono', d.tono, Sparkles],
@@ -95,7 +108,7 @@ function Detalle({ e, onCerrar }) {
           {CON_CONTINUIDAD.includes(e.clave) ? <p className="es2-nota">Se puede hacer con continuidad: sin un solo corte.</p> : null}
           {e.href !== null ? (
             <Boton variante="primario" tamano="grande" iconoDerecha={ArrowRight} href={e.href ? e.href() : enlace.nuevo({ estilo: e.clave })}>
-              {e.href ? 'Ir' : 'Usar este estilo'}
+              {e.clave === 'clonacion' ? 'Clonar un video' : e.href ? 'Ir' : 'Usar este estilo'}
             </Boton>
           ) : null}
         </div>
@@ -135,9 +148,13 @@ export default function Estilos() {
     // (sin un anuncio tuyo de GitHub, la portada que hizo la app con ChatGPT: lib/portadas-estilos.js)
     const especiales = ESPECIALES.map((x) => {
       const propio = videoDe(deGithub.find(x.buscar));
-      return { ...x, familia: 'especiales', familiaNombre: 'Especial', listo: true, ...propio, imagen: propio.imagen || datos?.especiales?.[x.clave]?.imagen || null };
+      return { familia: 'especiales', familiaNombre: 'Especial', ...x, listo: true, ...propio, imagen: propio.imagen || datos?.especiales?.[x.clave]?.imagen || null };
     });
-    return [...estilos, ...especiales];
+    // «Clonar un video» va justo después de «Agregar» (los dos parten de un video tuyo)
+    const clonar = especiales.filter((x) => x.clave === 'clonacion');
+    const i = estilos.findIndex((x) => x.clave === 'agregar');
+    const lista = i >= 0 ? [...estilos.slice(0, i + 1), ...clonar, ...estilos.slice(i + 1)] : [...clonar, ...estilos];
+    return [...lista, ...especiales.filter((x) => x.clave !== 'clonacion')];
   }, [datos, deGithub]);
 
   useEffect(() => {
