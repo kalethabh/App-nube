@@ -447,7 +447,28 @@
     "clips": {},
     "corte": null,
     "censuras": [],
-    "encuadres": {},
+    "encuadres": {
+      "toma-99": {
+        "x": 0,
+        "y": 0,
+        "zoom": 2.119
+      },
+      "toma-100": {
+        "x": 0,
+        "y": 0,
+        "zoom": 2.317
+      },
+      "toma-101": {
+        "x": 0,
+        "y": 0,
+        "zoom": 0.565
+      },
+      "toma-102": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1.373
+      }
+    },
     "ajustesEscena": {},
     "audios": [],
     "fundido": {
@@ -455,11 +476,11 @@
       "salida": 0
     }
   },
-  "t": 1794893830256,
+  "t": 1795115961937,
   "contexto": {
     "titulo": "5   VTD ❌",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-17T05:37:10.256Z"
+  "guardado": "2026-11-19T19:19:22.936Z"
 }
