@@ -84,6 +84,16 @@ try {
   const n = llegados.length;
   await new Promise((r) => setTimeout(r, 900));
   check('Sin nadie escuchando, deja de revisar', llegados.length === n, { antes: n, despues: llegados.length });
+
+  // que no se quede en naranja por una sola vez lenta o sin respuesta
+  const lenta = () => new Promise((r) => setTimeout(() => r({ ok: true }), 8200));
+  const a = await salud.propia(lenta, 'Prueba');
+  const b = await salud.propia(lenta, 'Prueba');
+  const c = await salud.propia(async () => ({ ok: true }), 'Prueba');
+  check('Una sola vez lenta: sigue verde (con la nota); dos seguidas: «lento»; responde bien: verde de nuevo', a.estado === 'operativo' && /vuelvo a revisar/.test(a.detalle) && b.estado === 'lento' && c.estado === 'operativo', { a, b, c });
+  const e1 = await salud.propia(async () => ({ ok: false, mensaje: 'error 500' }), 'Otra');
+  const e2 = await salud.propia(async () => ({ ok: false, mensaje: 'error 500' }), 'Otra');
+  check('Un error suelto: verde; dos seguidos: rojo', e1.estado === 'operativo' && e2.estado === 'caido', { e1, e2 });
 } catch (e) {
   check('La prueba corre entera', false, String(e?.stack || e));
 } finally {
