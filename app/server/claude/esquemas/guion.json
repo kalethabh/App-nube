@@ -2,24 +2,71 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "app/guion.json (temp/<slug>/app/guion.json, lo escribe Claude en las sesiones \"guion\" y \"cambios\"; la app copia lo que se dice del manifiesto, o de la letra en la historia musical)",
   "type": "object",
-  "required": ["titulo", "idioma", "duracionEstimada", "partes", "decisiones"],
+  "required": [
+    "titulo",
+    "idioma",
+    "duracionEstimada",
+    "partes",
+    "decisiones"
+  ],
   "properties": {
-    "titulo": { "type": "string", "minLength": 1, "maxLength": 160 },
-    "idioma": { "enum": ["es", "en", "pt"] },
-    "mercado": { "type": "string", "maxLength": 60 },
-    "duracionEstimada": { "type": "number", "minimum": 1, "maximum": 1200 },
-    "de_que_va": { "type": "string", "maxLength": 600 },
-    "variante": { "enum": ["A", "B"] },
+    "titulo": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "idioma": {
+      "enum": [
+        "es",
+        "en",
+        "pt"
+      ]
+    },
+    "mercado": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "duracionEstimada": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 1200
+    },
+    "de_que_va": {
+      "type": "string",
+      "maxLength": 600
+    },
+    "variante": {
+      "enum": [
+        "A",
+        "B"
+      ]
+    },
     "personajes": {
       "type": "array",
       "maxItems": 12,
       "items": {
         "type": "object",
-        "required": ["nombre"],
+        "required": [
+          "nombre"
+        ],
         "properties": {
-          "id": { "type": "string", "maxLength": 40 },
-          "nombre": { "type": "string", "minLength": 1, "maxLength": 80 },
-          "como_es": { "type": "string", "maxLength": 300 }
+          "id": {
+            "type": "string",
+            "maxLength": 40
+          },
+          "nombre": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "como_es": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "habla_asi": {
+            "type": "string",
+            "maxLength": 300
+          }
         }
       }
     },
@@ -28,24 +75,62 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["n", "dice"],
+        "required": [
+          "n",
+          "dice"
+        ],
         "properties": {
-          "n": { "type": "integer", "minimum": 1 },
-          "dice": { "type": "string", "minLength": 1 },
-          "se_ve": { "type": "string", "maxLength": 600 },
-          "momento": { "type": "string", "maxLength": 60 },
-          "quien": { "type": "string", "maxLength": 80 },
-          "segundos": { "type": "number" },
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "dice": {
+            "type": "string",
+            "minLength": 1
+          },
+          "se_ve": {
+            "type": "string",
+            "maxLength": 600
+          },
+          "momento": {
+            "type": "string",
+            "maxLength": 60
+          },
+          "quien": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "segundos": {
+            "type": "number"
+          },
           "dialogo": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["quien", "dice"],
+              "required": [
+                "quien",
+                "dice"
+              ],
               "properties": {
-                "quien": { "type": "string", "minLength": 1, "maxLength": 80 },
-                "dice": { "type": "string", "minLength": 1 }
+                "quien": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "dice": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "como": {
+                  "type": "string",
+                  "maxLength": 300
+                }
               }
             }
+          },
+          "actuacion": {
+            "type": "string",
+            "maxLength": 300
           }
         }
       }
@@ -58,40 +143,96 @@
           "maxItems": 4,
           "items": {
             "type": "object",
-            "required": ["id", "dice"],
+            "required": [
+              "id",
+              "dice"
+            ],
             "properties": {
-              "id": { "type": "string", "maxLength": 10 },
-              "idea": { "type": "string", "maxLength": 200 },
-              "dice": { "type": "string", "minLength": 1 }
+              "id": {
+                "type": "string",
+                "maxLength": 10
+              },
+              "idea": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "dice": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           }
         },
-        "cta": { "type": "string", "maxLength": 200 }
+        "cta": {
+          "type": "string",
+          "maxLength": 200
+        }
       }
     },
-    "decisiones": { "type": "array", "maxItems": 10, "items": { "type": "string", "minLength": 1, "maxLength": 500 } },
+    "decisiones": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    },
     "estructura": {
       "description": "La estructura del guion elegida del catálogo (recursos/estructuras/catalogo.json o mis_archivos/estructuras/): qué se cuenta y en qué orden. «de-la-referencia» si sale de un video de referencia.",
       "type": "object",
-      "required": ["id", "porque"],
+      "required": [
+        "id",
+        "porque"
+      ],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,60}$" },
-        "nombre": { "type": "string", "maxLength": 120 },
-        "porque": { "type": "string", "minLength": 1, "maxLength": 500 }
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,60}$"
+        },
+        "nombre": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "porque": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
       }
     },
-    "cambios_hechos": { "type": "array", "items": { "type": "string", "maxLength": 500 } },
+    "cambios_hechos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      }
+    },
     "modelos": {
       "description": "Estilo Agregar: qué modelo de video hace cada tipo de escena y por qué, en palabras sencillas (lo ve el usuario al aprobar).",
       "type": "array",
       "maxItems": 6,
       "items": {
         "type": "object",
-        "required": ["modelo", "para"],
+        "required": [
+          "modelo",
+          "para"
+        ],
         "properties": {
-          "modelo": { "type": "string", "minLength": 1, "maxLength": 60 },
-          "para": { "type": "string", "minLength": 1, "maxLength": 200 },
-          "porque": { "type": "string", "maxLength": 300 }
+          "modelo": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60
+          },
+          "para": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "porque": {
+            "type": "string",
+            "maxLength": 300
+          }
         }
       }
     }

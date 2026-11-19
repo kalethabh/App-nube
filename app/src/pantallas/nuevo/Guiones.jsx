@@ -114,6 +114,7 @@ function Parte({ p, edicion = null }) {
               <li key={i} className={`nv-dialogo__linea${d.lado === 'B' ? ' nv-dialogo__linea--b' : ''}`}>
                 <span className="nv-quien">{d.quien}</span>
                 {d.dice}
+                {d.como ? <span className="nv-actuacion">{d.como}</span> : null}
               </li>
             ))}
           </ul>
@@ -156,6 +157,7 @@ function Parte({ p, edicion = null }) {
             {p.dice}
           </p>
         )}
+        {!editando && p.actuacion ? <p className="nv-actuacion">{p.actuacion}</p> : null}
         {!editando && (p.se_ve || p.seVe) ? <p className="nv-linea__se-ve">{p.se_ve || p.seVe}</p> : null}
         {edicion?.agregar && !dialogo.length ? (
           <button type="button" className="nv-linea__agregar" onClick={() => edicion.agregar(p.n)} disabled={edicion.guardando}>
@@ -238,11 +240,93 @@ function PlanDelPedido({ plan }) {
   );
 }
 
+// ---------------------------------------------------------------- el guion de cada persona (podcast y entrevista)
+// (2026-11-19j) «cuando hay persona A y persona B, los guiones deben darse diferentes para cada una, también el
+// detalle, expresiones y demás»: además de la conversación, una pestaña por persona con SOLO sus líneas, cómo dice
+// cada una (emoción, tono, expresión, gesto), a qué responde y cómo es y habla esa persona; y «Copiar su guion».
+
+/** Las líneas de la conversación en orden: [{ n, quien, lado, dice, como }] (podcast: una por parte; entrevista: su diálogo). */
+export function lineasDeLaConversacion(partes) {
+  const salida = [];
+  for (const p of partes) {
+    const dialogo = Array.isArray(p.dialogo) ? p.dialogo.filter((d) => d && String(d.dice || '').trim()) : [];
+    if (dialogo.length) for (const d of dialogo) salida.push({ n: p.n, quien: d.quien, lado: d.lado, dice: d.dice, como: d.como || '' });
+    else if (p.quien) salida.push({ n: p.n, quien: p.quien, lado: p.lado, dice: p.dice, como: p.actuacion || '' });
+  }
+  return salida;
+}
+
+/** Las personas que hablan (en el orden en que aparecen), con lo que se sabe de cada una. */
+export function personasDelGuion(lineas, personajes = []) {
+  const vistas = [];
+  for (const l of lineas) if (l.quien && !vistas.includes(l.quien)) vistas.push(l.quien);
+  return vistas.map((quien) => {
+    const lado = lineas.find((l) => l.quien === quien)?.lado || 'A';
+    const ficha = personajes.find((x) => x?.nombre === quien) || personajes.find((x) => String(x?.id || '').toUpperCase() === lado && !/entrevistador/i.test(x?.nombre || '')) || (/entrevistador/i.test(quien) ? personajes.find((x) => /entrevistador/i.test(`${x?.id || ''} ${x?.nombre || ''}`)) : null);
+    return { quien, lado, como_es: ficha?.como_es || '', habla_asi: ficha?.habla_asi || '' };
+  });
+}
+
+/** El texto para copiar el guion de una persona: sus líneas numeradas, cada una con cómo la dice. */
+export function textoDelGuionDe(persona, lineas) {
+  const suyas = lineas.filter((l) => l.quien === persona.quien);
+  return [
+    `Guion de ${persona.quien}`,
+    persona.habla_asi ? `Cómo habla: ${persona.habla_asi}` : null,
+    '',
+    ...suyas.map((l, i) => `${i + 1}. ${l.dice}${l.como ? `\n   (${l.como})` : ''}`),
+  ]
+    .filter((x) => x !== null)
+    .join('\n');
+}
+
+function GuionDePersona({ persona, lineas }) {
+  const { aviso } = useAvisos();
+  // sus líneas y, si justo antes habló el otro, a qué responde
+  const suyas = lineas.map((l, i) => ({ ...l, responde: i > 0 && lineas[i - 1].quien !== persona.quien ? lineas[i - 1] : null })).filter((l) => l.quien === persona.quien);
+  const copiar = async () => {
+    try {
+      await navigator.clipboard.writeText(textoDelGuionDe(persona, lineas));
+      aviso({ tipo: 'ok', titulo: `Copiado el guion de ${persona.quien}` });
+    } catch {
+      aviso({ tipo: 'aviso', titulo: 'No pude copiarlo', texto: 'Selecciona el texto y cópialo a mano.' });
+    }
+  };
+  return (
+    <div className="nv-persona">
+      <div className={`nv-persona__ficha${persona.lado === 'B' ? ' nv-persona__ficha--b' : ''}`}>
+        <div>
+          <strong>{persona.quien}</strong>
+          <span className="t-chico t-3"> · {suyas.length} {suyas.length === 1 ? 'línea' : 'líneas'}</span>
+          {persona.como_es ? <p className="nv-persona__dato">{persona.como_es}</p> : null}
+          {persona.habla_asi ? (
+            <p className="nv-persona__dato">
+              <span className="nv-persona__etiqueta">Cómo habla</span> {persona.habla_asi}
+            </p>
+          ) : null}
+        </div>
+        <Boton variante="secundario" tamano="chico" icono={FileText} onClick={copiar}>
+          Copiar su guion
+        </Boton>
+      </div>
+      <ol className="nv-persona__lineas">
+        {suyas.map((l, i) => (
+          <li key={i} className="nv-persona__linea">
+            {l.responde ? <p className="nv-persona__responde">Responde a {l.responde.quien}: «{l.responde.dice}»</p> : null}
+            <p className="nv-persona__dice">{l.dice}</p>
+            {l.como ? <p className="nv-actuacion">{l.como}</p> : null}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 /** Lo que va debajo de toda hoja: quién aparece, lo que cambió y lo que decidió la IA. */
 function Pie({ guion, letras }) {
   const personajes = (Array.isArray(guion?.personajes) ? guion.personajes : [])
     .filter((x) => x?.nombre)
-    .map((x) => (x.como_es ? `${x.nombre}: ${x.como_es}` : x.nombre));
+    .map((x) => `${x.nombre}${x.como_es ? `: ${x.como_es}` : ''}${x.habla_asi ? `${x.como_es ? '.' : ':'} Habla así: ${x.habla_asi}` : ''}`);
   const cambios = textos(letras?.cambios_hechos?.length ? letras.cambios_hechos : guion?.cambiosHechos || guion?.cambios_hechos);
   const decisiones = textos(letras?.decisiones?.length ? letras.decisiones : guion?.decisiones);
   // «Agregar»: qué modelo hace cada escena y por qué (lo arma el servidor desde el manifiesto)
@@ -422,6 +506,12 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
   const ganchos = Array.isArray(guion?.extras?.ganchos) ? guion.extras.ganchos.filter((g) => g?.dice) : [];
   const cta = guion?.extras?.cta || null;
   const variante = guion?.variante ? `Variante ${guion.variante === 'A' ? 'A · Gancho callejero' : 'B · Entrevista completa'}` : null;
+  // el guion de cada persona (podcast y entrevista): una pestaña por persona además de la conversación
+  const lineasConv = lineasDeLaConversacion(partes);
+  const personas = personasDelGuion(lineasConv, Array.isArray(guion?.personajes) ? guion.personajes : []);
+  const porPersona = personas.length >= 2 && !editando;
+  const [vista, setVista] = useState('todo');
+  const personaVista = porPersona ? personas.find((x) => x.quien === vista) || null : null;
 
   return (
     <div className={`nv-guion__hoja${cambiando ? ' nv-guion__hoja--cambiando' : ''}`}>
@@ -471,7 +561,17 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
               )}
             </div>
           ) : null}
-          <ol className="nv-lineas">
+          {porPersona ? (
+            <Pestanas
+              variante="segmentado"
+              etiqueta="Ver el guion"
+              items={[{ id: 'todo', etiqueta: 'La conversación' }, ...personas.map((x) => ({ id: x.quien, etiqueta: `Guion de ${x.quien}` }))]}
+              activa={personaVista ? vista : 'todo'}
+              onCambio={setVista}
+            />
+          ) : null}
+          {personaVista ? <GuionDePersona persona={personaVista} lineas={lineasConv} /> : null}
+          <ol className="nv-lineas" hidden={Boolean(personaVista)}>
             {mostradas.map((p, i) => (
               <Fragment key={`${p.n}-${i}`}>
                 <Parte p={p} edicion={edicion} />
