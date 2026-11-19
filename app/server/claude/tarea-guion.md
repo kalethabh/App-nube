@@ -30,6 +30,8 @@ Estilo: {{estiloNombre}}. Lee y sigue `.claude/skills/{{skill}}/SKILL.md` (léel
 
 {{pasos}}
 
+**El cierre de un video de prueba social** (vale para todos los estilos): si el anuncio se apoya en alguien con autoridad o en una experiencia real —un médico, una nutricionista, un experto, un testimonio, una mamá que lo usó, un podcast o una entrevista— el llamado a la acción NO es de venta («compra ya», «aprovecha la oferta», «pide el tuyo hoy»). Es una **recomendación** que convence, dicha como la diría esa persona a alguien que aprecia: por qué lo recomienda, para quién sirve y qué haría ella en su lugar («yo se lo recomiendo a mis pacientes que…», «si te pasa lo mismo, pruébalo; a mí me cambió…», «el enlace está aquí abajo, míralo con calma»). Si la skill trae un cierre de venta para ese formato, cámbialo por uno de recomendación y anótalo en "decisiones".
+
 Si falta un dato que la skill prohíbe inventar y sin él no hay anuncio: escribe `temp/{{slug}}/app/bloqueo.json` (regla 11 del modo app) y responde BLOQUEADO.
 
 {{delEstilo}}

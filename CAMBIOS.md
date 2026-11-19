@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19m · Podcast con dos voces distintas, y el cierre de los videos de prueba social
+
+- **Podcast: cada host con su propia voz.** Después de hacer los clips, la app le pone a cada host una voz fija de tu cuenta de ElevenLabs, distinta para cada uno y según si es mujer u hombre («cambiar voz»: mismas palabras y mismos tiempos, la boca sigue sincronizada). Lo regenerado recibe su voz otra vez; tu propio video conserva la tuya. Si no se puede (sin clave o con una sola voz en tu cuenta), sigue con las voces del video y lo avisa. Usa créditos de tu ElevenLabs.
+- **Podcast: dos personas que no se parecen.** Tu IA describe a la segunda persona con al menos cinco rasgos distintos (piel, pelo, cara, contextura y ropa) y las dos voces bien diferentes.
+- **Prueba social (todos los estilos):** cuando el anuncio se apoya en un médico, un experto, un testimonio, un podcast o una entrevista, el cierre ya no es de venta: es una **recomendación** que convence, como la diría esa persona.
+
 ## 2026-11-19l · Las imágenes de apoyo (B-roll), detalladas en el guion
 
 - En el guion, cada **imagen de apoyo** (B-roll) aparece debajo de la parte donde entra (en el podcast, todas juntas al final), con:
