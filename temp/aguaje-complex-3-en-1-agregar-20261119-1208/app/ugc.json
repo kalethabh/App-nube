@@ -1,0 +1,14 @@
+{
+  "rechazos": {},
+  "extraRechazos": {},
+  "descartados": [],
+  "ganchos": {},
+  "persona": {
+    "sesion": {
+      "uuid": "9b1ac15c-5c69-4e06-9440-e552fb27c046",
+      "usada": true
+    },
+    "pedidos": []
+  },
+  "actualizado": "2026-11-19T18:54:53.206Z"
+}
