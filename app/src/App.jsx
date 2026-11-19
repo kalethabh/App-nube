@@ -85,9 +85,9 @@ export const RUTAS = [
   { patron: '/aprendizajes', Pantalla: Aprendizajes, menu: 'aprendizajes', titulo: 'Aprendizajes', migas: () => [{ texto: 'Aprendizajes' }] },
   { patron: '/sketch', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia' }] },
   { patron: '/sketch/:slug', Pantalla: Sketch, menu: 'nuevo', titulo: 'Sketch de comedia', migas: () => [{ texto: 'Sketch de comedia', href: enlace.sketch() }, { texto: 'Tu sketch' }] },
-  // (Cambiar el producto es un especial de Estilos: se ilumina «Estilos» y las migas empiezan ahí)
-  { patron: '/cambiar', Pantalla: Cambiar, menu: 'estilos', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Estilos', href: enlace.estilos() }, { texto: 'Cambiar el producto' }] },
-  { patron: '/cambiar/:slug', Pantalla: Cambiar, menu: 'estilos', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Estilos', href: enlace.estilos() }, { texto: 'Cambiar el producto', href: enlace.cambiar() }, { texto: 'Revisar' }] },
+  // (Cambiar el producto vive en el Editor desde el 2026-11-19p: se ilumina «Editor» y las migas empiezan ahí)
+  { patron: '/cambiar', Pantalla: Cambiar, menu: 'editor', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Editor', href: enlace.editorVideos() }, { texto: 'Cambiar el producto' }] },
+  { patron: '/cambiar/:slug', Pantalla: Cambiar, menu: 'editor', titulo: 'Cambiar el producto', migas: () => [{ texto: 'Editor', href: enlace.editorVideos() }, { texto: 'Cambiar el producto', href: enlace.cambiar() }, { texto: 'Revisar' }] },
   { patron: '/saldo', Pantalla: Saldo, menu: 'saldo', titulo: 'Saldo y costos', migas: () => [{ texto: 'Saldo y costos' }] },
   { patron: '/biblioteca', Pantalla: Biblioteca, menu: 'biblioteca', titulo: 'Biblioteca', migas: () => [{ texto: 'Biblioteca' }] },
   { patron: '/ajustes', Pantalla: Ajustes, menu: 'ajustes', titulo: 'Ajustes', migas: () => [{ texto: 'Ajustes' }] },

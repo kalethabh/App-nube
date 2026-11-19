@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19p · Recrear un anuncio para otro producto, y «Cambiar el producto» en el Editor
+
+- **Recrear para otro producto** (en la entrega de cada anuncio): eliges otro de tus productos y tu IA hace el mismo anuncio con el **mismo guion tal cual**, cambiando solo lo del producto («estas son las gotas» → «estas son las pastillas», cómo se usa, su envase en las imágenes) y lo que no encaje con él. Mismo estilo, misma voz, **mismas personas** (sus fotos se reutilizan sin pagarlas otra vez). Ves el guion y el costo antes de producir. (No en los cantados: su canción es de otro producto.)
+- **«Cambiar el producto»** ahora está en **Editor** (botón arriba). Sigue igual: la IA encuentra las escenas donde sale el otro producto, las rehace con el tuyo y te muestra la propuesta para revisarla antes de producir.
+
 ## 2026-11-19o · Investigación de mercado: todo de una y con el mismo estilo
 
 - **La primera parte** (la de mercado) ya no se ve como hojas de PDF: tiene el **mismo estilo que la segunda** (la de la competencia), con una pestaña por sección, tarjetas, tablas y cajas de colores, y la guía visual de los 4 mensajes con su maqueta. «Descargar PDF» sigue sacando el PDF de siempre.

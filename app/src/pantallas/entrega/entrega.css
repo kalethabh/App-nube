@@ -1017,3 +1017,13 @@ flex-direction: column;
 
 /* «Me funciona» debajo de Descargar / Abrir carpeta */
 .ent__funciona { display: flex; justify-content: center; margin-top: var(--e-2); }
+
+/* Recrear para otro producto (2026-11-19p) */
+.ent-recrear { display: flex; flex-direction: column; gap: var(--e-3); }
+.ent-recrear__lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--e-2); max-height: 50vh; overflow: auto; }
+.ent-recrear__producto { width: 100%; display: flex; align-items: center; gap: var(--e-2); padding: 6px; border-radius: var(--r-m, 10px); border: 1.5px solid var(--borde-2); background: var(--superficie-1); color: var(--texto-1); text-align: left; cursor: pointer; }
+.ent-recrear__producto img { width: 44px; height: 44px; object-fit: cover; border-radius: 8px; flex: none; }
+.ent-recrear__producto span { display: flex; flex-direction: column; min-width: 0; font-size: var(--t-chico, 13px); }
+.ent-recrear__producto small { color: var(--texto-3); }
+.ent-recrear__producto--elegido { border-color: var(--acento, #a3e635); box-shadow: 0 0 0 2px color-mix(in srgb, var(--acento, #a3e635) 30%, transparent); }
+.ent-recrear__producto:disabled { opacity: 0.5; cursor: not-allowed; }

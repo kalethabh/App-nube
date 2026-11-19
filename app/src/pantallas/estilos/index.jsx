@@ -20,7 +20,7 @@ const FILTROS = [
 ];
 
 const ESPECIALES = [
-  { clave: 'cambiar', nombre: 'Cambiar el producto', lema: 'Un video que ya existe, con tu producto', icono: Repeat2, buscar: () => false, como: 'Subes el video: queda igual, pero con tu producto, la voz en español con la misma voz y subtítulos nuevos.', href: () => enlace.cambiar() },
+  // (Cambiar el producto pasó al Editor, 2026-11-19p)
   {
     clave: 'clonacion',
     nombre: 'Clonar un video',
