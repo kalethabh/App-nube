@@ -1,19 +1,19 @@
 {
-  "id": "fbeb1fa7-f0dc-4f7f-8dae-bd083f07f7fc",
-  "uuid": "fbeb1fa7-f0dc-4f7f-8dae-bd083f07f7fc",
+  "id": "942cab12-2c23-4f94-a859-0d0e05fa16be",
+  "uuid": "942cab12-2c23-4f94-a859-0d0e05fa16be",
   "estado": "error",
   "paso": "claude",
   "progreso": [
     "Claude está en pausa hasta que se renueve tu plan"
   ],
-  "intentos": 2,
-  "inicio": "2026-11-19T15:19:16.392Z",
+  "intentos": 3,
+  "inicio": "2026-11-19T15:21:56.715Z",
   "error": {
     "mensaje": "Se acabó por ahora el uso de tu plan de Claude. Toca \"Reintentar\" cuando se renueve (a las 09:01): lo ya hecho no se repite.",
     "tipo": "limite",
     "motor": "claude"
   },
-  "fin": "2026-11-19T15:19:16.398Z",
+  "fin": "2026-11-19T15:21:56.716Z",
   "medida": {
     "turnos": 0,
     "duracionMs": 0,
@@ -24,5 +24,5 @@
   },
   "limite": true,
   "reinicio": "2026-11-20T14:01:00.000Z",
-  "actualizado": "2026-11-19T15:19:16.399Z"
+  "actualizado": "2026-11-19T15:21:56.716Z"
 }
