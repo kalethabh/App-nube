@@ -8,6 +8,8 @@
 // PUT  /api/anuncios/:slug/guion/lineas      { lineas: [{ n, dice, se_ve? } | { nueva: true, despuesDe, dice, se_ve? }] } editar a mano
 //                                             lo que se dice, lo que se ve y partes nuevas -> { directo } | { conIA }
 // POST /api/anuncios/:slug/guion/regenerar-linea { n, actual?, idea? } otra versión de una parte (no guarda) -> { dice }
+// POST /api/anuncios/:slug/guion/broll-escena { n, actual?, idea? }  ✨ otra escena de apoyo (no guarda) -> { se_ve, camara }
+// PUT lineas también lleva { broll: [{ n, se_ve }] } (las escenas de apoyo editadas)
 // POST /api/anuncios/:slug/guion/se-ve { n? | despuesDe?, dice }  lo que se ve para ese texto (no guarda) -> { se_ve }
 // POST /api/anuncios/:slug/guion/reintentar   vuelve a correr lo que fallo (sigue desde donde quedo)
 // POST /api/anuncios/:slug/guion/letra        { n } el musical: elige una de las letras (se puede cambiar hasta producir)
@@ -17,7 +19,7 @@
 //
 // POST /api/anuncios/:slug/producir (aprobar y arrancar) lo atiende rutas/produccion.js con el conductor.
 import { ErrorApp, soloDesdeLaApp } from '../lib/productos.js';
-import { cambiarVoz, contextoVisual, crearAnuncio, recrearAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
+import { cambiarVoz, contextoVisual, escenaBroll, crearAnuncio, recrearAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
 
 const conErrores = (fn) => async (req, res, next) => {
   try {
@@ -49,12 +51,16 @@ export default function rutasGuion(app) {
   }));
 
   app.put('/api/anuncios/:slug/guion/lineas', soloDesdeLaApp, conErrores(async (req, res) => {
-    res.json(await editarLineas(req.params.slug, req.body?.lineas));
+    res.json(await editarLineas(req.params.slug, req.body?.lineas, req.body?.broll));
   }));
 
   // lo que se ve (el contexto visual) para lo que escribiste en una parte, o en una nueva (no guarda) -> { se_ve }
   app.post('/api/anuncios/:slug/guion/se-ve', soloDesdeLaApp, conErrores(async (req, res) => {
     res.json(await contextoVisual(req.params.slug, req.body || {}));
+  }));
+  // ✨ otra escena para una imagen de apoyo (B-roll) (no guarda) -> { se_ve, camara }
+  app.post('/api/anuncios/:slug/guion/broll-escena', soloDesdeLaApp, conErrores(async (req, res) => {
+    res.json(await escenaBroll(req.params.slug, req.body || {}));
   }));
   app.post('/api/anuncios/:slug/guion/regenerar-linea', soloDesdeLaApp, conErrores(async (req, res) => {
     res.json(await regenerarLinea(req.params.slug, req.body || {}));
