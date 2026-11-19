@@ -1,0 +1,37 @@
+{
+  "generado": "2026-11-19T23:21:43.845Z",
+  "anuncio": "aguaje-complex-3-en-1-claymation-20261119-1624",
+  "limpio": true,
+  "codigo": 0,
+  "controles": {
+    "ok": true,
+    "motivo": null,
+    "congelado": true,
+    "movimiento": true,
+    "negro": true
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-claymation-20261119-1624_9x16_con-subtitulos.mp4",
+      "fecha": "2026-11-19T23:21:40.343Z",
+      "deEsteMontaje": true,
+      "duracion": 59.947,
+      "fps": 30,
+      "negros": [],
+      "congelados": []
+    }
+  ],
+  "musica": {
+    "medida": false,
+    "motivo": "se entrego solo la version completa: la version sin musica sale del editor"
+  },
+  "defectos": [],
+  "avisos": [],
+  "noMedido": [],
+  "soloCompleta": true,
+  "versionesEsperadas": [
+    "con-subtitulos"
+  ],
+  "rerenderAyuda": false
+}
