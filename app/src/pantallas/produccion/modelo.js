@@ -248,8 +248,10 @@ export function construirModelo(a, extras, { rehechos = null, regenerados = null
     };
     const prio = 10 + i;
     let ini = null;
-    // UGC no lleva imagen por toma: la persona es la hoja y cada bloque sale de ella.
-    if (t.imagenInicial || a.estilo !== 'ugc') {
+    // UGC no lleva imagen por toma: la persona es la hoja y cada bloque sale de ella. Tampoco un bloque R de otro estilo
+    // (Agregar hecho como UGC): manda lo que dice el servidor (llevaImagenInicial); sin ese dato, la regla de antes.
+    const llevaInicio = typeof t.llevaImagenInicial === 'boolean' ? t.llevaImagenInicial : a.estilo !== 'ugc' && t.tipo !== 'R';
+    if (t.imagenInicial || llevaInicio) {
       ini = nueva({
         id: `img:toma-${t.n}-inicial`,
         clase: 'imagen',
