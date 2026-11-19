@@ -235,6 +235,30 @@
           }
         }
       }
+    },
+    "broll": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "type": "object",
+        "required": [
+          "n"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "se_ve": {
+            "type": "string",
+            "maxLength": 700
+          },
+          "camara": {
+            "type": "string",
+            "maxLength": 200
+          }
+        }
+      }
     }
   }
 }

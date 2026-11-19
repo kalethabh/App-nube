@@ -299,6 +299,8 @@ async function claudeFalso() {
             duracionEstimada: 12,
             de_que_va: 'Una mujer sin energía por la tarde encuentra su pausa.',
             partes: man.tomas.map((t, i) => ({ n: t.n, momento: i === 0 ? 'gancho' : i === 2 ? 'producto' : 'historia', dice: t.linea, se_ve: 'Una escena de plastilina' })),
+            // (las imágenes de apoyo con su escena detallada, 2026-11-19k)
+            broll: (man.broll || []).map((b) => ({ n: b.n, se_ve: 'Una taza de té de plastilina humea sobre su plato en la mesa de la cocina, con la luz dorada de la tarde; el vapor sube en espiral y deja una sensación de calma.', camara: 'primerísimo plano, la cámara se acerca despacio' })),
             decisiones: ['Guion corto de la prueba de humo (Claude falso).'],
           }
     );
@@ -1065,6 +1067,10 @@ async function producirAnuncio({ pedir, check, aviso, salio, t0 }) {
   );
   const guion = await esperar('el guion', 5, async () => (await pedir(`/api/anuncios/${slug}/guion`)).datos, (d) => ['listo', 'error', 'bloqueado'].includes(d?.estado));
   if (!check('El guion queda listo', guion?.estado === 'listo' && guion?.guion?.partes?.length === 3, { estado: guion?.estado, error: guion?.error, progreso: guion?.progreso?.slice?.(-5), tiempo: guion?._seAcaboElTiempo })) return resumen;
+  {
+    const b1 = (guion?.guion?.broll || []).find((b) => b.n === 1);
+    check('El guion trae cada imagen de apoyo con su escena detallada, su cámara y dónde entra', b1 && /taza de té/.test(b1.se_ve || '') && /plano/.test(b1.camara || '') && b1.despues === 2, guion?.guion?.broll);
+  }
 
   // ------------------------------------------------------------ «Editar a mano»: lo que se ve, solo (2026-11-18z)
   r = await pedir(`/api/anuncios/${slug}/guion/se-ve`, { json: { n: 1, dice: 'Mira cómo brilla mi frasco nuevo' } });

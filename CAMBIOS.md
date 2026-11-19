@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19l · Las imágenes de apoyo (B-roll), detalladas en el guion
+
+- En el guion, cada **imagen de apoyo** (B-roll) aparece debajo de la parte donde entra (en el podcast, todas juntas al final), con:
+  - **lo que se ve**, en 2 o 3 frases muy visuales: quién y qué, dónde y con qué luz, la acción de principio a fin, el detalle que engancha y la emoción;
+  - 🎥 **la cámara**: el encuadre y el movimiento;
+  - con qué frase entra y cuánto dura.
+- Tu IA escribe esa escena primero y la misma va a las instrucciones de la imagen y del video.
+
 ## 2026-11-19k · Arreglo: en Producción las escenas quedaban «En espera»
 
 - En anuncios hechos por bloques (por ejemplo «Agregar» con una persona que habla), Producción esperaba una «imagen de inicio» por escena que ese tipo de anuncio no lleva: las escenas se veían «En espera», sin miniatura, y decía «faltan 5» aunque el anuncio estaba terminado. Ahora cada escena muestra su clip y el conteo es el real.

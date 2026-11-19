@@ -640,6 +640,8 @@ const REGLAS_GUION_COMUNES = [
   '`momento`: gancho, problema, giro, solución, prueba, oferta o cierre (una o dos palabras).',
   '`decisiones`: el ángulo que elegiste y por qué, lo que decidiste donde decía "que decida la IA", lo que dejaste fuera por falta de datos, lo que agregaste por la oferta o el pago… Entre 1 y 5, en español sencillo.',
   'Sin prompts, sin nombres de modelos, sin precios de producción y sin rutas.',
+  // (2026-11-19k) «las escenas B-roll también deben ser detalladas»
+  'Si el manifiesto trae B-roll (`broll[]`), agrega `"broll"`: uno por cada uno, con el mismo `n`, como `{ "n": 1, "se_ve": "…", "camara": "…" }`. `se_ve` es la escena en español, DETALLADA y muy visual, en 2 o 3 frases: qué se ve y quién, dónde y con qué luz, la acción que pasa de principio a fin, el detalle que engancha (el producto, la textura, la cara) y la emoción que deja; `camara` es el encuadre y el movimiento de cámara en pocas palabras ("primerísimo plano, la cámara se acerca despacio"). Es la misma escena que piden sus prompts de imagen y de video: escríbela primero aquí y pásala a los prompts (en inglés), sin contradecirla.',
 ];
 
 /** Como se escribe guion.json en cada familia (lo que se dice se copia del manifiesto; la app lo vuelve a copiar). */
@@ -1336,6 +1338,26 @@ function normalizarGuion(slug, brief, g, m) {
     if (m.entrevista?.variante) limpio.variante = m.entrevista.variante;
   }
   if (Object.keys(extras).length) limpio.extras = extras;
+  // (2026-11-19k) el B-roll, con su escena detallada: lo escribe la IA (`broll` de guion.json) y dónde va sale del
+  // manifiesto; uno sin escena escrita igual se ve, con lo que dice su línea de sincronía
+  const brollDeLaIA = new Map((Array.isArray(g.broll) ? g.broll : []).filter((x) => x && Number.isInteger(x.n)).map((x) => [x.n, x]));
+  const brollGuion = (Array.isArray(m.broll) ? m.broll : [])
+    .filter((b) => b && Number.isInteger(b.n))
+    .map((b) => {
+      const suyo = brollDeLaIA.get(b.n) || {};
+      const sv = texto(suyo.se_ve).replace(/\s+/g, ' ').trim();
+      return {
+        n: b.n,
+        ...(Number.isInteger(b.encima_de_toma) ? { encima: b.encima_de_toma } : Number.isInteger(b.despues_de_toma) ? { despues: b.despues_de_toma } : {}),
+        ...(b.sincroniza_con ? { con: texto(b.sincroniza_con).slice(0, 160) } : {}),
+        ...(typeof b.duracion === 'number' ? { segundos: b.duracion } : {}),
+        ...(sv ? { se_ve: sv.slice(0, 700) } : {}),
+        ...(suyo.camara ? { camara: texto(suyo.camara).replace(/\s+/g, ' ').trim().slice(0, 200) } : {}),
+        ...(b.desde_biblioteca && /\/material\//.test(String(b.desde_biblioteca)) ? { tuyo: true } : {}),
+      };
+    });
+  if (brollGuion.length) limpio.broll = brollGuion;
+  else delete limpio.broll;
   // «Agregar»: el modelo de cada escena, contado desde el manifiesto (lo que de verdad se va a pedir), con el porque
   const porModelo = modelosPorEscena(m);
   if (porModelo.length) limpio.modelos = porModelo;
