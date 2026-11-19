@@ -1,0 +1,126 @@
+{
+  "slug": "aguaje-complex-3-en-1-claymation-20261119-1624",
+  "familia": "continuidad",
+  "estado": "corriendo",
+  "paso": "imagenes",
+  "pasos": [
+    {
+      "id": "validar",
+      "nombre": "Revisar el guion",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:45.221Z",
+      "fin": "2026-11-19T22:59:45.345Z"
+    },
+    {
+      "id": "preparar-cadena",
+      "nombre": "Preparar el anuncio sin cortes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:45.345Z",
+      "fin": "2026-11-19T22:59:45.513Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:45.514Z",
+      "fin": "2026-11-19T22:59:46.274Z"
+    },
+    {
+      "id": "voz",
+      "nombre": "Grabar la voz",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:46.274Z",
+      "fin": "2026-11-19T22:59:53.634Z"
+    },
+    {
+      "id": "imagenes",
+      "nombre": "Crear las imágenes",
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-19T22:59:53.634Z"
+    },
+    {
+      "id": "revision-imagenes",
+      "nombre": "Revisar las imágenes",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "duraciones",
+      "nombre": "Medir cada paso con la voz",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "pares",
+      "nombre": "Escribir el paso entre cada escena",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "videos",
+      "nombre": "Crear los videos encadenados",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "revision-cadena",
+      "nombre": "Revisar las uniones entre escenas",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "voces",
+      "nombre": "Buscar voces que no van",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "musica",
+      "nombre": "Poner la música",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-19T22:59:45.220Z",
+  "aprobado": "2026-11-19T22:59:45.220Z",
+  "actualizado": "2026-11-19T22:59:53.634Z",
+  "saldoInicial": {
+    "creditos": 2016.1,
+    "fecha": "2026-11-19T22:59:46.274Z"
+  },
+  "costoPlan": {
+    "creditos": 752,
+    "fecha": "2026-11-19T22:59:46.274Z"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pid": 40456,
+  "paso": "imagenes",
+  "script": "producir.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-claymation-20261119-1624",
+    "--si"
+  ],
+  "comando": "node produccion/producir.js temp/aguaje-complex-3-en-1-claymation-20261119-1624 --si",
+  "inicio": "2026-11-19T22:59:53.635Z",
+  "app": 39106
+}
