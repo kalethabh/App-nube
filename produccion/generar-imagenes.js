@@ -72,6 +72,7 @@ import {
   creditosAUsd,
   cargarEnv,
   requerirClave,
+  INGREDIENTE_IMAGEN,
 } from './config.js';
 import { generarImagen, subirArchivo, consultarCreditos, esSigueEnKie, esPagadaSinBajar, esCreacionIncierta, clasificarFallo } from './kie-client.js';
 import { generarConChatGPT, codexDesdeEntorno, MODELO_CHATGPT } from './chatgpt-imagen.js';
@@ -238,7 +239,24 @@ export function construirPlan(m, { soloTomas, soloBroll = null, eleccion = ELECC
     // Bloque UGC tipo R: solo referencias, cero frames. El video se pide con
     // las hojas y la foto del producto como image_urls (generar-videos.js):
     // aqui no hay nada que generar para esta toma.
-    if (t.tipo === 'R') continue;
+    // (2026-11-19n) Salvo que lleve la IMAGEN DE SU ESCENA (prompt_imagen_inicial): se genera con las referencias del
+    // bloque y despues va al video como una referencia mas ("imagen").
+    if (t.tipo === 'R') {
+      if (typeof t.prompt_imagen_inicial === 'string' && t.prompt_imagen_inicial.trim()) {
+        trabajos.push({
+          id: `toma-${t.n}-inicial`,
+          clase: 'toma',
+          n: t.n,
+          archivo: `toma-${t.n}-inicial.png`,
+          prompt: t.prompt_imagen_inicial,
+          fotograma: t.fotograma || null,
+          referencias: (t.referencias || []).filter((r) => r !== INGREDIENTE_IMAGEN),
+          descripcion: `toma ${t.n} (R) la imagen de la escena`,
+          ...delEstilo,
+        });
+      }
+      continue;
+    }
 
     if (copiaSuFrame(t)) {
       // Toma hablada (H) con "frame_inicial": el frame inicial ES esa

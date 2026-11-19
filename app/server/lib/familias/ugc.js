@@ -1018,6 +1018,16 @@ async function reescribirRechazos(ctx, fallos) {
 // ---------------------------------------------------------------- 5. los bloques
 
 async function bloques(ctx) {
+  // (2026-11-19n) la imagen de la escena de cada bloque que la lleva: la que falte (la primera vez, o porque la
+  // regeneraste o la sacaste para rehacer el bloque con imagen nueva) se hace antes de los bloques
+  const m = leerManifiesto(ctx);
+  const sinImagen = bloquesDe(m).filter((t) => typeof t.prompt_imagen_inicial === 'string' && t.prompt_imagen_inicial.trim() && !existe(path.join(ctx.carpeta, 'img', `toma-${t.n}-inicial.png`)));
+  if (sinImagen.length) {
+    ctx.avance(sinImagen.length === 1 ? `Creando la imagen de la escena ${sinImagen[0].n}` : `Creando las imágenes de ${sinImagen.length} escenas`);
+    const ri = await ctx.correr('generar-imagenes.js', [ctx.carpetaArg, '--si'], { que: ['imagenes'] });
+    if (cortado(ctx, ri)) return { cancelado: true };
+    if (ri.codigo !== 0) return fallo(ri, { que: 'las imágenes de las escenas' });
+  }
   const r = await generarPiezas(ctx, { ganchos: pideGanchos(ctx.brief) });
   if (r.ok === false || r.cancelado || r.pausa) return r;
   const est = estado(ctx);

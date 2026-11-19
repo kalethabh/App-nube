@@ -2105,11 +2105,16 @@ async function cli() {
     if (t.tipo === 'R') {
       // Bloque R: lo que tiene que existir son sus referencias (la hoja del
       // personaje en img/ y la foto del producto en la carpeta), en su orden.
-      t.rutasReferencias = rutasDeReferencias(manifiesto, carpeta, t.referencias);
+      // (2026-11-19n) "imagen" = la imagen de la escena del bloque (img/toma-N-inicial.png), en su lugar del orden
+      t.rutasReferencias = t.clase === 'toma' && t.referencias.includes(INGREDIENTE_IMAGEN) ? rutasDeIngredientes(manifiesto, carpeta, t.n, t.referencias) : rutasDeReferencias(manifiesto, carpeta, t.referencias);
       for (const r of t.rutasReferencias) {
         // Un lugar repetido no "falta": su fotograma lo saca el motor de su
         // bloque de origen. Eso se resuelve abajo (ordenarPorLugares).
         if (r.como === 'fotograma de lugar') continue;
+        if (r.como === 'imagen del clip') {
+          if (!r.ruta || !fs.existsSync(r.ruta)) faltantes.push(`toma-${t.n}-inicial.png`);
+          continue;
+        }
         if (!r.ruta || !fs.existsSync(r.ruta)) faltanReferencias.push({ trabajo: t, ...r });
       }
       continue;

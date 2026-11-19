@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19n · Imagen de cada escena en los anuncios por bloques
+
+- En los anuncios donde una persona habla por bloques (UGC y «Agregar» con alguien que habla a cámara), **cada escena tiene ahora su imagen**: se hace primero, el clip sale usándola y en **Producción** la ves como «Inicio», con **«Editar esta imagen»** (y rehacer el clip con la imagen nueva) y «Regenerar con su imagen». Cuesta una imagen más por escena.
+
 ## 2026-11-19m · Podcast con dos voces distintas, y el cierre de los videos de prueba social
 
 - **Podcast: cada host con su propia voz.** Después de hacer los clips, la app le pone a cada host una voz fija de tu cuenta de ElevenLabs, distinta para cada uno y según si es mujer u hombre («cambiar voz»: mismas palabras y mismos tiempos, la boca sigue sincronizada). Lo regenerado recibe su voz otra vez; tu propio video conserva la tuya. Si no se puede (sin clave o con una sola voz en tu cuenta), sigue con las voces del video y lo avisa. Usa créditos de tu ElevenLabs.
