@@ -24,6 +24,9 @@
 //                         quedan como AVISOS en esa pieza, con el prompt como sugerencia; no se rehace nada por
 //                         calidad. Lo tecnico si: un clip de un modelo que no hace hablar (tomasSinDialogo) se vuelve a
 //                         generar solo, hasta 3 veces. Si el plan de la IA se acaba, se sigue sin mirar los fotogramas
+//   voces-hosts        D  SOLO podcast (2026-11-19m): a cada host una voz fija y distinta de tu ElevenLabs («cambiar voz»,
+//                         lib/voces-hosts.js): mismas palabras y tiempos, otro timbre. Si no se puede, sigue con las voces
+//                         del modelo y lo avisa
 //   voz-historia       D  SOLO entrevista A: recortar-voz (la historia sin silencios y a 1,2x) y lineas otra vez
 //   montaje            D  plan -> subtitulos-dialogo -> plan. Sin musica y sin transiciones
 //   recorte-host       D  SOLO podcast en esquina: recortar-host (lento, solo en la PC) -> plan
@@ -57,6 +60,7 @@ import { nombreIA, enTerminales, prohibidasComunes } from '../motor-ia.js';
 import { hojasDelManifiesto } from '../ia/material.js';
 import { anotarAviso, limpiarAvisos, limpiarAvisosDelPaso, notaDeAvisos, piezasConAviso, tieneAviso } from '../avisos.js';
 import { esSubida } from '../subidos.js';
+import { elegirVocesHosts, ponerVoces } from '../voces-hosts.js';
 
 export const FAMILIA = 'hablado';
 export const ESTILOS = ['podcast', 'entrevista'];
@@ -2321,6 +2325,28 @@ function marcasAlDiaTrasLaVoz(ctx, antes) {
   if (cambio) escribirJSON(ruta, estado);
 }
 
+// ---------------------------------------------------------------- 6b. la voz de cada host (solo podcast)
+
+async function vocesHosts(ctx) {
+  const m = leerManifiesto(ctx);
+  if (!esPodcast(m)) return { saltado: true, nota: 'Solo el podcast cambia la voz de cada host.' };
+  // (en modo prueba los clips son mudos hasta la revisión: no hay voz que cambiar)
+  if (modoPrueba() && process.env.ANUNCIOS_PRUEBA_VOCES_HOSTS !== '1') return { saltado: true, nota: 'Modo prueba: las voces de los hosts no se cambian.' };
+  const brief = leerJSON(path.join(ctx.carpeta, 'app', 'brief.json')) || {};
+  const ficha = brief.productoId ? leerJSON(path.join(TEMP, '_productos', brief.productoId, 'ficha.json')) || {} : {};
+  ctx.avance('Eligiendo una voz distinta para cada host');
+  const e = await elegirVocesHosts({ carpeta: ctx.carpeta, m, brief, ficha });
+  // sin las voces (sin clave, una sola voz en la cuenta…): sigue con las del modelo, y queda dicho
+  if (!e.ok) return { ok: true, nota: `Las voces quedaron como las hizo el video: ${e.error}` };
+  try {
+    const r = await ponerVoces({ carpeta: ctx.carpeta, m, voces: e.voces, avance: (t) => ctx.avance(t), saltar: (id) => esSubida(ctx.carpeta, id) });
+    const nota = `Host A con «${e.voces.A.nombre}» y host B con «${e.voces.B.nombre}»${r.hechas.length ? ` (${r.hechas.length} ${r.hechas.length === 1 ? 'clip' : 'clips'})` : ''}.`;
+    return { ok: true, nota };
+  } catch (err) {
+    return { ok: true, nota: `No pude cambiar las voces (${String(err?.message || err).slice(0, 160)}): quedaron como las hizo el video.` };
+  }
+}
+
 async function vozHistoria(ctx) {
   const m = leerManifiesto(ctx);
   if (!conVozDeHistoria(m)) return { saltado: true, nota: 'Este anuncio no lleva voz de historia.' };
@@ -2726,6 +2752,7 @@ export const PASOS = [
   { id: 'imagenes', nombre: 'Crear las imágenes', correr: imagenes },
   { id: 'revision-imagenes', nombre: 'Revisar las imágenes', correr: revisionImagenes },
   { id: 'videos', nombre: 'Crear los clips', correr: videos },
+  { id: 'voces-hosts', nombre: 'Darle a cada host su voz', correr: vocesHosts },
   { id: 'revision-habla', nombre: 'Revisar cada clip', correr: revisionHabla },
   { id: 'voz-historia', nombre: 'Preparar la voz de la historia', correr: vozHistoria },
   { id: 'montaje', nombre: 'Armar la conversación y los subtítulos', correr: montaje },
@@ -2740,5 +2767,5 @@ export function pasosPara(brief) {
   const slug = String(brief?.slug || '');
   const m = /^[a-z0-9_][a-z0-9._-]*$/i.test(slug) ? leerJSON(path.join(TEMP, slug, 'manifiesto.json')) : null;
   if (!m || !ESTILOS.includes(m.estilo)) return PASOS;
-  return PASOS.filter((p) => (p.id !== 'voz-historia' || conVozDeHistoria(m)) && (p.id !== 'recorte-host' || enEsquina(m)));
+  return PASOS.filter((p) => (p.id !== 'voz-historia' || conVozDeHistoria(m)) && (p.id !== 'recorte-host' || enEsquina(m)) && (p.id !== 'voces-hosts' || esPodcast(m)));
 }
