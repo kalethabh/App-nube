@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19e · Salud de plataformas: naranja solo cuando de verdad pasa algo
+
+- Ya no se queda en naranja todo el día por reintentos viejos: solo cuentan los de las **últimas 2 horas**, y solo si la última generación también los necesitó.
+- Una respuesta lenta o un error **suelto** ya no lo cambia de color: tiene que repetirse dos veces seguidas (se revisa cada 30 s).
+- Al pasar el mouse o abrirlo, dice **cuál** plataforma lo pone en naranja o rojo y si igual se puede usar («kie.ai: va lento, pero se puede usar»).
+
 ## 2026-11-19d · Salud de plataformas en vivo
 
 - El indicador **Salud de plataformas** (arriba a la derecha) ahora está **en vivo**: se revisa cada 30 segundos y cambia de color en cuanto una plataforma falla o vuelve, sin recargar. Al abrirlo dice «En vivo».
