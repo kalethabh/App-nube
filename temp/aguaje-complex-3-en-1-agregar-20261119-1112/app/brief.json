@@ -1,0 +1,21 @@
+{
+  "slug": "aguaje-complex-3-en-1-agregar-20261119-1112",
+  "productoId": "producto-edb1",
+  "estilo": "agregar",
+  "familia": null,
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "auto": true
+  },
+  "continuidad": false,
+  "respuestas": {
+    "clonar": "subido:mwnqxmma38da07|1035913686187832_video_0.mp4",
+    "pedido": "Quiero el mismo estilo guión pero es una variación",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {},
+  "creado": "2026-11-19T16:12:32.507Z"
+}

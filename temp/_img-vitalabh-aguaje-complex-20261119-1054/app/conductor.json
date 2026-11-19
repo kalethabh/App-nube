@@ -29,7 +29,7 @@
       "uuid": "d26f12f6-9ed5-4796-8091-8236a18c14fa",
       "empezada": true,
       "motor": "claude",
-      "detalle": "Armando el plan del lote"
+      "detalle": "Escribiendo cada anuncio"
     },
     {
       "id": "anuncios",
@@ -48,5 +48,5 @@
   "modoPrueba": false,
   "creado": "2026-11-19T15:54:35.971Z",
   "aprobado": "2026-11-19T15:54:35.971Z",
-  "actualizado": "2026-11-19T16:11:52.876Z"
+  "actualizado": "2026-11-19T16:12:40.303Z"
 }

@@ -1,0 +1,120 @@
+{
+  "video": "original.mp4",
+  "duracion": 35.99,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 7.73,
+      "duracion": 7.73,
+      "fotograma": "tomas/toma-01.jpg",
+      "tira": "tomas/movimiento/tira-01.jpg",
+      "imagen": {
+        "brillo": 137.5,
+        "luz": "media",
+        "saturacion": 10.8,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 14.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Mire, hay dos formas de sacar glúteos. Una es con cirugías bien riesgosas y costosas, y la otra es estimulando el volumen de forma natural.",
+      "eventos": [],
+      "palabras_por_segundo": 3.23
+    },
+    {
+      "n": 2,
+      "desde": 7.73,
+      "hasta": 15.47,
+      "duracion": 7.74,
+      "fotograma": "tomas/toma-02.jpg",
+      "tira": "tomas/movimiento/tira-02.jpg",
+      "imagen": {
+        "brillo": 137.7,
+        "luz": "media",
+        "saturacion": 9.5,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 8.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Muchas se matan haciendo ejercicio y nada, porque les falta lo más importante: fitoestrógenos que de verdad le ordenen al cuerpo crear curvas.",
+      "eventos": [],
+      "palabras_por_segundo": 2.97
+    },
+    {
+      "n": 3,
+      "desde": 15.47,
+      "hasta": 23.27,
+      "duracion": 7.8,
+      "fotograma": "tomas/toma-03.jpg",
+      "tira": "tomas/movimiento/tira-03.jpg",
+      "imagen": {
+        "brillo": 125.9,
+        "luz": "media",
+        "saturacion": 10.8,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 13.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Por eso yo le recomiendo este Aguaje Complex tres en uno. Viene con aguaje concentrado, fenogreco y maca negra en la dosis exacta.",
+      "eventos": [],
+      "palabras_por_segundo": 2.95
+    },
+    {
+      "n": 4,
+      "desde": 23.27,
+      "hasta": 30.9,
+      "duracion": 7.63,
+      "fotograma": "tomas/toma-04.jpg",
+      "tira": "tomas/movimiento/tira-04.jpg",
+      "imagen": {
+        "brillo": 131.4,
+        "luz": "media",
+        "saturacion": 10.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.4,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Le ayuda a ganar volumen en glúteos, piernas y caderas, le regula las hormonas, le afina la cintura y le mejora muchísimo la piel y el cabello.",
+      "eventos": [],
+      "palabras_por_segundo": 3.54
+    },
+    {
+      "n": 5,
+      "desde": 30.9,
+      "hasta": 35.99,
+      "duracion": 5.09,
+      "fotograma": "tomas/toma-05.jpg",
+      "tira": "tomas/movimiento/tira-05.jpg",
+      "imagen": {
+        "brillo": 134.4,
+        "luz": "media",
+        "saturacion": 11.1,
+        "color": "apagado",
+        "temperatura": "neutra",
+        "movimiento": 8.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Toque el botón de compra, pida el suyo original y págalo en la puerta de su casa cuando lo reciba",
+      "eventos": [],
+      "palabras_por_segundo": 3.93
+    }
+  ],
+  "texto": "Mire, hay dos formas de sacar glúteos. Una es con cirugías bien riesgosas y costosas, y la otra es estimulando el volumen de forma natural. Muchas se matan haciendo ejercicio y nada, porque les falta lo más importante: fitoestrógenos que de verdad le ordenen al cuerpo crear curvas. Por eso yo le recomiendo este Aguaje Complex tres en uno. Viene con aguaje concentrado, fenogreco y maca negra en la dosis exacta. Le ayuda a ganar volumen en glúteos, piernas y caderas, le regula las hormonas, le afina la cintura y le mejora muchísimo la piel y el cabello. Toque el botón de compra, pida el suyo original y págalo en la puerta de su casa cuando lo reciba",
+  "palabras_por_segundo": 3.28,
+  "eventos_de_audio": [],
+  "voz": {
+    "f0": 129,
+    "genero": "masculina",
+    "variacion": 3.86,
+    "expresiva": true,
+    "ritmo": 3.29,
+    "muestras": 686
+  },
+  "aviso": null
+}
