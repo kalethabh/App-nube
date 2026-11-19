@@ -2,7 +2,7 @@
   "slug": "_img-vitalabh-aguaje-complex-20261119-1054",
   "familia": "imagen-ads",
   "estado": "corriendo",
-  "paso": "estrategia",
+  "paso": "anuncios",
   "pasos": [
     {
       "id": "preparar",
@@ -23,19 +23,21 @@
     {
       "id": "estrategia",
       "nombre": "La IA arma la estrategia",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 3,
       "inicio": "2026-11-19T15:54:36.104Z",
       "uuid": "d26f12f6-9ed5-4796-8091-8236a18c14fa",
       "empezada": true,
       "motor": "claude",
-      "detalle": "Escribiendo cada anuncio"
+      "fin": "2026-11-19T16:15:18.191Z"
     },
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-19T16:15:18.192Z",
+      "detalle": "Creando 4 imágenes · Claude está escribiendo 6 anuncios: escribiendo cada anuncio · 0 de 10 listas"
     },
     {
       "id": "informe",
@@ -48,5 +50,5 @@
   "modoPrueba": false,
   "creado": "2026-11-19T15:54:35.971Z",
   "aprobado": "2026-11-19T15:54:35.971Z",
-  "actualizado": "2026-11-19T16:12:40.303Z"
+  "actualizado": "2026-11-19T16:16:00.226Z"
 }
