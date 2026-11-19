@@ -1,0 +1,37 @@
+Square 1:1 bold editorial supplement ad split horizontally into two flat solid colors by one clean straight line at 52 percent of the height: TOP ZONE deep magenta (#B0105E), BOTTOM ZONE pale blush pink (#FBE3EE), no gradient. TOP ZONE: behind everything on the right side (62-96 percent of the width, 2-50 percent of the height) a giant flat question mark glyph in a magenta only slightly lighter than the background, very low contrast, clipped at the split line. Top left, from 6 percent of the width and 6-11 percent of the height, a small rounded pill outlined in bubblegum pink (#FF8CC0) with semi-bold uppercase bubblegum pink text with wide letter spacing. Below it, left-aligned from 13 to 39 percent of the height, a very large extra bold white question in up to 3 lines with tight line spacing. BOTTOM ZONE: left column (6-55 percent of the width, 58-90 percent of the height), a short left-aligned answer in dark charcoal Poppins Regular, its first words in bold hot fuchsia (#E6177F). RIGHT, crossing the split line (58-94 percent of the width, 42-94 percent of the height), frontal at eye level, about half the canvas height, its cap and upper part over the magenta zone and its body over the blush zone, standing on the blush zone with a soft contact shadow, soft key light from the upper left and a subtle rim light separating its top from the dark zone: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN', three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS'. No other elements. Include only these elements and texts.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- kicker (Inside the small pill at the top left of the dark zone): "NOS PREGUNTAN" — Poppins SemiBold uppercase, wide letter spacing, about 2.5% of the canvas height, bubblegum pink
+- question (Dark top zone, left-aligned, 13-39% height): "¿Tomaste aguaje y no viste cambios?" — Poppins Black, very large (each line about 8% of the canvas height), max 3 lines, left-aligned, white
+- answer (Light bottom zone, left column): "Te faltaba el 3 en 1. Aguaje, fenogreco y maca negra juntos, en tratamiento de 3 frascos." — Poppins Regular, about 4.5% of the canvas height per line, max 5 lines, left-aligned, dark charcoal; 'Te faltaba el 3 en 1.' in bold hot fuchsia
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF.
+- text_typography: Poppins Bold (heavy) for the question and the verdict, Poppins Regular for the answer, Poppins SemiBold uppercase for the kicker.
+
+MANDATORY ELEMENTS:
+- Two-tone horizontal split: deep magenta top zone and pale blush bottom zone
+- Giant tone-on-tone question mark behind the right side of the top zone
+- Small outlined bubblegum pink kicker pill at the top left
+- The real product bottle from the attached photo, large, on the right, crossing the color split line
+
+STRICT EXCLUSIONS:
+- No people, fruits, capsules or props
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Chat bubbles, app or social media interface elements
+- Do not add: More than one question or answer
+- Do not add: Arrows or connectors between question and answer
+- Do not add: Subheadline or any text besides the kicker, question and answer
+- Do not add: Photo backgrounds or photo panels
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit list or icons
+- Do not add: People or faces
+- Do not add: Bottom bar or banner
+- Do not add: Logos or brand marks
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
