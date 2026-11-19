@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19i · Pega tus anuncios ganadores
+
+- En **Variantes → «Lo que te funciona»** y en **Biblioteca → «Lo que me funciona»**, además de subirlos: **pégalos**. Copia la imagen del anuncio (clic derecho → Copiar imagen, o una captura de pantalla) y toca **«Pegar»** o pulsa **Cmd+V** (Ctrl+V en Windows) con el mouse encima. También puedes **arrastrarlos** a esa zona.
+- En Variantes, lo que pegas va a «Lo que te funciona» (no a la foto del producto) y queda elegido.
+
 ## 2026-11-19h · Sube lo que ya te funciona (Variantes)
 
 - En **Anuncios de imagen → Variantes → «Lo que te funciona»**: botón **«Subir lo que te funciona»**. Subes imágenes (JPG, PNG, WEBP o HEIC) o videos de tus anuncios que ya venden, y quedan elegidos.
