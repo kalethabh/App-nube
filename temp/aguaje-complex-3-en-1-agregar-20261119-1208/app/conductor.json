@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261119-1208",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "bloques",
+  "paso": "revision-bloques",
   "pasos": [
     {
       "id": "validar",
@@ -40,16 +40,19 @@
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-19T18:54:53.212Z",
-      "detalle": "Buscando otra forma de decir la frase"
+      "fin": "2026-11-19T19:02:29.784Z",
+      "nota": "1 frase se cambió porque el generador las rechazó."
     },
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:02:29.785Z",
+      "detalle": "Mirando los cuadros de los clips"
     },
     {
       "id": "musica",
@@ -92,7 +95,7 @@
   "modoPrueba": false,
   "creado": "2026-11-19T18:48:32.604Z",
   "aprobado": "2026-11-19T18:48:32.604Z",
-  "actualizado": "2026-11-19T18:56:29.678Z",
+  "actualizado": "2026-11-19T19:03:25.135Z",
   "saldoInicial": {
     "creditos": 2628.1,
     "fecha": "2026-11-19T18:48:33.539Z"

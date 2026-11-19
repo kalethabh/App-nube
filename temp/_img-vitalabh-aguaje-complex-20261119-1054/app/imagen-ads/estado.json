@@ -160,7 +160,7 @@
         "version": 1,
         "trabajo": "T003"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -184,7 +184,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -280,7 +280,7 @@
         "version": 1,
         "trabajo": "T005"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,

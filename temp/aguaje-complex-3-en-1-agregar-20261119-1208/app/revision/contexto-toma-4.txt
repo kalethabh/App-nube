@@ -1,0 +1,74 @@
+
+=== Contexto para rehacer el bloque 4 (tipo R: solo referencias, sin frames) ===
+
+  NO SE TOCAN:
+    duracion:    8s
+    referencias: 1) personaje  2) personaje-2  3) producto  4) lugar-podcast (fotograma del bloque 1, segundo 1.7)   (Imagen 1, Imagen 2... del prompt)
+
+  QUE TIENE QUE TRANSMITIR ESTE BLOQUE:
+    fase:        objeción
+    linea:       "Yo probé unas pastillas de Vitalcom, las verdes que según son "las originales". y cuando las dejé, rebote total y ni ví resultados."
+    viene de:    "Me pasó el Aguaje Complex 3 en 1 de Vitalabh. Dos cápsulas al día, con las comidas. ¿Y eso no engorda, o qué?"
+    lleva a:     "No, a mí no me pasó con las de Vitalabh. Eso era lo que más miedo me daba."
+
+  TRAMOS:
+    [0.0–4.2s] [personaje]  "Yo probé unas pastillas de Vitalcom, las verdes que según son "las originales"."
+    [4.2–8.0s] [personaje]  "y cuando las dejé, rebote total y ni ví resultados."
+
+  --- video ---
+Duración: 8s.
+
+REFERENCIAS:
+Image 1: the woman in the white t-shirt. Use it only as an identity reference (same face, same hair, same features and skin tone). It is not the first frame of the video: do not copy its background, clothes or pose.
+Image 2: the woman in the olive-green sweater. Use it only as an identity reference (same face, same hair, same features and skin tone). It is not the first frame of the video: do not copy its background, clothes or pose.
+Image 3: the product. It is the exact reference of the bottle.
+Image 4: the podcast living room. It is the same living room where they record this podcast: use it only as a reference for the place (beige wall, framed painting, wooden shelf with photos and plants, tripod floor lamp, cream curtains, grey sofa, black microphones, warm light). Do not copy the person who appears in it, her clothes or her pose.
+
+STYLE / MOOD:
+Realistic UGC home podcast clip, honest and funny, like two friends confessing something that really happened to them. Vertical 9:16 video filmed with phones on small tripods, a slight natural micro-movement, dry cuts between shots like a clip edited on a phone. It feels homemade and authentic, not a polished commercial.
+
+LANGUAGE / VOICE:
+Colombian Spanish, natural and everyday, a casual chat between two friends on a home podcast. Voice of the woman in the white t-shirt: female, about 26, bright and slightly high-pitched, quick and expressive, a little dramatic and self-mocking, laughs at herself, natural Colombian Spanish accent. Voice of the woman in the olive-green sweater: female, about 31, warmer and slightly lower, relaxed, confident and knowing, laughs easily, natural Colombian Spanish accent. Two clearly different voices, never the same tone. Agile conversational pace, about three words per second, never slow, never like an announcer, never memorized. Habla en español de Colombia.
+
+MAIN CHARACTERS:
+The woman in the white t-shirt (image 1): Colombian woman about 26, light olive-tan skin with real texture, visible pores on the nose and cheeks, a slight shine on the forehead, a couple of tiny blemishes, no heavy makeup; oval face, thick dark eyebrows, dark brown eyes, straight nose, medium lips with nude balm; very long dark-brown wavy hair below the chest, center part, caramel balayage on the ends, loose strands and a little frizz; small thin gold hoop earrings; short nude nails; slim build; no visible tattoos. On the podcast she wears a fitted plain white short-sleeve crew-neck cotton t-shirt with soft wrinkles and light-blue jeans, hair loose.
+The woman in the olive-green sweater (image 2): Colombian woman about 31, warm medium-brown skin with real texture, visible pores and a soft shine on the nose bridge, minimal eyeliner; round face, thick dark eyebrows, brown eyes, full lips; black hair in a messy high bun with loose strands framing her face; large thin gold hoop earrings; no visible tattoos. On the podcast she wears an oversized chunky-knit olive-green crew-neck sweater and dark jeans. In this video both women are on screen, side by side on the sofa.
+
+SETTING:
+A cozy apartment living room set up as a small home podcast, late afternoon. Both women sit on the same grey fabric sofa with a beige cushion, each with her own black podcast microphone on a black boom arm with a black cable in front of her, to one side of her face. Behind them: a warm beige wall with a small framed painting of a colonial house, a wooden wall shelf with framed family photos and trailing pothos plants, a tall wooden tripod floor lamp with a cream drum shade switched on, and sheer cream curtains glowing with daylight. Light: warm soft light from the lamp and the curtained window, from the side and front, diffused soft shadows, golden glints on the hair and cheekbones, the faces evenly lit. Colors muted and slightly washed out, warm golden tone, low contrast, phone-camera sharpness with the background slightly soft, faint digital noise. Camera: a static phone on a small tripod in front of the sofa, medium two-shot of both women from the waist up, the microphones in the foreground, almost no movement, no zoom. On the low wooden coffee table in front of them, in the foreground, stands only the closed bottle of image 3, upright, label facing the camera; there is nothing else on the table. The woman in the white t-shirt already holds in her right hand a small plain green plastic pill bottle with a white cap, with no label, no brand and no text; it is empty. Everything looks real and lived-in, not a set.
+
+PERFORMANCE:
+The woman in the white t-shirt complains with humor: she lifts and shakes the empty green bottle, scrunches her face, then laughs with her palms up. The woman in the olive-green sweater listens beside her with a calm half-smile. Natural gestures of hands, eyebrows and head, nothing stiff. Not overacted.
+
+PRODUCT / VISUAL KEY:
+The product is exactly the bottle in image 3: a single cylindrical plastic supplement bottle, glossy black body, about one and two-thirds times taller than wide, straight sides with softly rounded shoulders, a short neck and a wide hot-pink screw cap almost as wide as the body, printed with the white «VITALABH» logo; the bottom of the bottle fades into a hot-pink band. Label on the black body: small «VITALABH» logo, big white «AGUAJE», below it «COMPLEX 3 EN 1» with «3 EN 1» in pink, a pink strip, «TRIPLE ACCIÓN» in pink italic letters, three pink-outlined boxes with «200 mg», «400 mg» and «200 mg» joined by plus signs, and «60 CÁPSULAS». About as tall as her hand. Not a slim bottle and not a flat jar. Matte look, no rainbow, no prism light, no glare. It must look identical to the reference in every shot: same shape, same colors, same proportions, same readable label; the label always reads correctly, never mirrored. Only one bottle. It stays closed the whole time: no se ven cápsulas sueltas ni el frasco abierto. When it appears, the light hits it from the front and the label is lit, never backlit. In this video it stands still on the coffee table in the foreground in both shots, sharp, label to the camera; nobody touches it.
+
+TIMESTAMPS:
+[0.0–4.2s]
+Medium two-shot of both women side by side on the sofa with their microphones, the closed bottle of image 3 sharp on the coffee table in the lower foreground. The woman in the white t-shirt raises the small plain green bottle and shakes it next to her ear: it is empty, nothing comes out. She rolls her eyes, sarcastic. The woman in the olive-green sweater watches her with a calm half-smile, hands empty on her lap.
+DIÁLOGO: “Yo probé unas pastillas de Vitalcom, las verdes que según son "las originales".”
+[4.2–8.0s]
+Cut to a closer shot of the woman in the white t-shirt at her microphone: she scrunches her face, lowers the green bottle onto her lap, then laughs with both palms up; after speaking she keeps laughing quietly with her palms up and stays still, in silence.
+DIÁLOGO: “y cuando las dejé, rebote total y ni ví resultados.”
+
+AUDIO:
+Only the voice of the woman in the white t-shirt and the room tone of a furnished living room: warm, soft, no echo; the dry hollow rattle of the empty plastic bottle and her short laugh. No other voice. No music.
+
+*Do not add subtitles, captions, signs or on-screen text; the times in brackets are editing notes and are not written. The only visible text is the text printed on the label of the bottle of image 3, identical to image 3; the green bottle has no text at all. No person may appear besides the woman in the white t-shirt and the woman in the olive-green sweater, there is no second black bottle, no pills or capsules are visible, no se ven cápsulas sueltas ni el frasco abierto, and their faces do not change between shots.
+
+  --- referencia "personaje" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with a phone front camera, like a casual reference selfie. Medium shot from the waist up. Colombian woman about 26, light olive-tan skin with real texture, visible pores on the nose and cheeks, a slight shine on the forehead, a couple of tiny blemishes, no heavy makeup; oval face, thick dark eyebrows, dark brown eyes, straight nose, medium lips with nude balm; very long dark-brown wavy hair below the chest, center part, caramel balayage on the ends, loose strands and a little frizz; small thin gold hoop earrings; short nude nails; slim build; no visible tattoos. She wears a fitted plain white short-sleeve crew-neck cotton t-shirt with soft wrinkles, no prints, no logos. She stands in front of a plain warm beige wall at home, looks straight at the camera with a slight relaxed smile and her mouth closed, arms relaxed at her sides, hands empty. Soft natural daylight from a window in front of her. Authentic UGC look, phone image, no studio retouching, real skin. A single frozen instant. No text, no logos, no watermarks, nothing in her hands.
+
+  --- referencia "personaje-2" (personaje) — repetir palabra por palabra ---
+Vertical 9:16 photo taken with a phone front camera, like a casual reference selfie. Medium shot from the waist up. Colombian woman about 31, warm medium-brown skin with real texture, visible pores and a soft shine on the nose bridge, minimal eyeliner, no heavy makeup; round face, thick dark eyebrows, brown eyes, full lips; black hair in a messy high bun with loose strands framing her face; large thin gold hoop earrings; no visible tattoos. She wears an oversized chunky-knit olive-green crew-neck sweater, no prints, no logos. She stands in front of a plain warm beige wall at home, looks straight at the camera with a slight knowing smile and her mouth closed, arms relaxed at her sides, hands empty. Soft natural daylight from a window in front of her. Authentic UGC look, phone image, no studio retouching, real skin. A single frozen instant. No text, no logos, no watermarks, nothing in her hands.
+
+  DOS CASOS:
+    a) Salio mal (otra cara, texto en pantalla, palabras cortadas, apurado):
+       se regenera SIN tocar el texto:
+           npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261119-1208 4
+    b) Omni lo rechazo (failMsg, casi siempre por politicas):
+       se reescribe SOLO el copy de este bloque, con su misma funcion y largo
+       (linea, tramos y prompt_video), y despues el mismo comando de arriba.
+       O con un archivo { "prompt_video", "linea", "tramos", "motivo" }:
+           node produccion/rehacer-toma.js temp/aguaje-complex-3-en-1-agregar-20261119-1208 --toma 4 --aplicar nuevos.json
+

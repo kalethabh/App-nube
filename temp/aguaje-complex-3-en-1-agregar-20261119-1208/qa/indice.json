@@ -1,0 +1,283 @@
+{
+  "generado": "2026-11-19T19:03:01.948Z",
+  "nota": "Fotogramas fijos. NO sirven para juzgar la fluidez del movimiento ni el audio.",
+  "frames": 5,
+  "clips": [
+    {
+      "clip": "toma-1.mp4",
+      "tira": "qa/toma-1.jpg",
+      "duracion": 10,
+      "segundos": [
+        1.7,
+        4.4,
+        6.2,
+        8.5
+      ],
+      "tipo": "R",
+      "linea": "O sea, yo me ponía un jean y por detrás, Dios mío!. Plana, plana, plana. Y ya no sabía ni qué ponerme, le juro.",
+      "referencias": [
+        "personaje",
+        "personaje-2"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 3.4,
+          "linea": "O sea, yo me ponía un jean y por detrás, Dios mío!.",
+          "fotograma": 1.7
+        },
+        {
+          "desde": 3.4,
+          "hasta": 5.4,
+          "linea": null,
+          "fotograma": 4.4
+        },
+        {
+          "desde": 5.4,
+          "hasta": 7,
+          "linea": "Plana, plana, plana.",
+          "fotograma": 6.2
+        },
+        {
+          "desde": 7,
+          "hasta": 10,
+          "linea": "Y ya no sabía ni qué ponerme, le juro.",
+          "fotograma": 8.5
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-2.mp4",
+      "tira": "qa/toma-2.jpg",
+      "duracion": 10,
+      "segundos": [
+        1.1,
+        2.9,
+        5.6,
+        8.8
+      ],
+      "tipo": "R",
+      "linea": "Ay, no me digas, yo estaba igualita. Hasta que mi tía me dijo que tomara aguaje, fenogreco y maca negra y me dijo: antes del bisturí, prueba lo natural.",
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "lugar-podcast"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.2,
+          "linea": "Ay, no me digas, yo estaba igualita.",
+          "fotograma": 1.1
+        },
+        {
+          "desde": 2.2,
+          "hasta": 3.6,
+          "linea": null,
+          "fotograma": 2.9
+        },
+        {
+          "desde": 3.6,
+          "hasta": 7.6,
+          "linea": "Hasta que mi tía me dijo que tomara aguaje, fenogreco y maca negra y me dijo:",
+          "fotograma": 5.6
+        },
+        {
+          "desde": 7.6,
+          "hasta": 10,
+          "linea": "antes del bisturí, prueba lo natural.",
+          "fotograma": 8.8
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-3.mp4",
+      "tira": "qa/toma-3.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        1.6,
+        4.4,
+        6.8
+      ],
+      "tipo": "R",
+      "linea": "Me pasó el Aguaje Complex 3 en 1 de Vitalabh. Dos cápsulas al día, con las comidas. ¿Y eso no engorda, o qué?",
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "producto",
+        "lugar-podcast"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 3.2,
+          "linea": "Me pasó el Aguaje Complex 3 en 1 de Vitalabh.",
+          "fotograma": 1.6
+        },
+        {
+          "desde": 3.2,
+          "hasta": 5.6,
+          "linea": "Dos cápsulas al día, con las comidas.",
+          "fotograma": 4.4
+        },
+        {
+          "desde": 5.6,
+          "hasta": 8,
+          "linea": "¿Y eso no engorda, o qué?",
+          "fotograma": 6.8
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-4.mp4",
+      "tira": "qa/toma-4.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        2.1,
+        6.1
+      ],
+      "tipo": "R",
+      "linea": "Yo probé unas pastillas de Vitalcom, las verdes que según son \"las originales\". y cuando las dejé, rebote total y ni ví resultados.",
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "producto",
+        "lugar-podcast"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 4.2,
+          "linea": "Yo probé unas pastillas de Vitalcom, las verdes que según son \"las originales\".",
+          "fotograma": 2.1
+        },
+        {
+          "desde": 4.2,
+          "hasta": 8,
+          "linea": "y cuando las dejé, rebote total y ni ví resultados.",
+          "fotograma": 6.1
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-5.mp4",
+      "tira": "qa/toma-5.jpg",
+      "duracion": 5.97,
+      "segundos": [
+        1.7,
+        4.7
+      ],
+      "tipo": "R",
+      "linea": "No, a mí no me pasó con las de Vitalabh. Eso era lo que más miedo me daba.",
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "producto",
+        "lugar-podcast"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 3.4,
+          "linea": "No, a mí no me pasó con las de Vitalabh.",
+          "fotograma": 1.7
+        },
+        {
+          "desde": 3.4,
+          "hasta": 6,
+          "linea": "Eso era lo que más miedo me daba.",
+          "fotograma": 4.7
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-6.mp4",
+      "tira": "qa/toma-6.jpg",
+      "duracion": 10,
+      "segundos": [
+        1.4,
+        4.6,
+        7.2,
+        9
+      ],
+      "tipo": "R",
+      "linea": "Y trae sesenta cápsulas, te dura el mes completo. Ahora me pongo el jean y me miro de lado y uff, un nalgaje. ¿Sí me entiendes? La diferencia.",
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "producto",
+        "lugar-podcast"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 2.8,
+          "linea": "Y trae sesenta cápsulas, te dura el mes completo.",
+          "fotograma": 1.4
+        },
+        {
+          "desde": 2.8,
+          "hasta": 6.4,
+          "linea": "Ahora me pongo el jean y me miro de lado y uff, un nalgaje.",
+          "fotograma": 4.6
+        },
+        {
+          "desde": 6.4,
+          "hasta": 8,
+          "linea": null,
+          "fotograma": 7.2
+        },
+        {
+          "desde": 8,
+          "hasta": 10,
+          "linea": "¿Sí me entiendes? La diferencia.",
+          "fotograma": 9
+        }
+      ],
+      "esperado": null
+    },
+    {
+      "clip": "toma-7.mp4",
+      "tira": "qa/toma-7.jpg",
+      "duracion": 7.93,
+      "segundos": [
+        0.9,
+        3.2,
+        6.3
+      ],
+      "tipo": "R",
+      "linea": "¿Y dónde lo consigo? Ahí abajito, en el botón de este video. Ay, no, yo lo pido hoy mismo, en serio.",
+      "referencias": [
+        "personaje",
+        "personaje-2",
+        "lugar-podcast"
+      ],
+      "tramos": [
+        {
+          "desde": 0,
+          "hasta": 1.8,
+          "linea": "¿Y dónde lo consigo?",
+          "fotograma": 0.9
+        },
+        {
+          "desde": 1.8,
+          "hasta": 4.6,
+          "linea": "Ahí abajito, en el botón de este video.",
+          "fotograma": 3.2
+        },
+        {
+          "desde": 4.6,
+          "hasta": 8,
+          "linea": "Ay, no, yo lo pido hoy mismo, en serio.",
+          "fotograma": 6.3
+        }
+      ],
+      "esperado": null
+    }
+  ]
+}

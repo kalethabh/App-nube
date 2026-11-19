@@ -23,9 +23,90 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-19T18:56:33.105Z",
+  "actualizado": "2026-11-19T19:03:06.542Z",
   "sesionRechazo": {
     "uuid": "a712ab28-e2f2-40ad-8e6c-e2aea5f2d4ef",
     "usada": true
+  },
+  "revision": {
+    "ronda": 1,
+    "medidas": {
+      "1": {
+        "huella": "10385824-1795114733198",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "2": {
+        "huella": "13961645-1795114927943",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "3": {
+        "huella": "8474981-1795114888853",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "4": {
+        "huella": "6916676-1795114949755",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "5": {
+        "huella": "6663916-1795114888386",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "6": {
+        "huella": "13413190-1795114890716",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "7": {
+        "huella": "9618134-1795114939038",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      }
+    },
+    "vistos": {},
+    "piezas": {},
+    "pendientes": [],
+    "revisarTambien": [],
+    "sinRevisar": [],
+    "lugares": {},
+    "vuelta": {
+      "ronda": 1,
+      "medir": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "mirar": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "mirarGanchos": [],
+      "hablaMal": {},
+      "medido": true,
+      "visual": null
+    },
+    "sesion": {
+      "uuid": "7075b342-73e9-49f0-bfc0-230a162bbd7b"
+    }
   }
 }
