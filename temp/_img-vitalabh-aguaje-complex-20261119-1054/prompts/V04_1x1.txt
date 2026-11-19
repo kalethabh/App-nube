@@ -1,0 +1,52 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+FIRST, READ THE REFERENCE AD before designing anything: (a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); (b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); (c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; never switch to another body area or another benefit.
+
+IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 premium supplement ad on a glossy pink background (bubblegum pink #FF8CC0 to pale blush #FBE3EE), with soft draped pink fabric across the bottom. TOP-LEFT: a giant two-line bold uppercase headline 'GLÚTEOS Y' / 'PIERNAS' in deep magenta (#B0105E) with a thick white outline and a 3D drop shadow; directly below it a deep magenta ribbon banner with white bold uppercase text 'CON MÁS VOLUMEN'; below the banner a black handwritten script 'así de fácil' followed by a small fuchsia heart. Under that, a row of three small square badges with rounded corners outlined in deep magenta on white, each with a small deep magenta line icon at left (a leaf, a vitamin capsule, a bottle) and two short bold uppercase lines in deep magenta. RIGHT HALF, top 70 percent: two tall rounded photo panels side by side showing the SAME ultra-photorealistic Latina woman in her early 20s taking a phone mirror selfie in a bedroom, seen from behind in a 3/4 rear view, hair in a high bun, phone raised. BEFORE panel (left): black sports bra and loose gray cotton short shorts; flat glutes and thin thighs. AFTER panel (right): white sports bra and very short fitted pink (#FF8CC0) shorts; her glutes are clearly fuller, rounder and lifted and her thighs thicker and toned, an obvious volume gain yet natural and believable. Same room, same light and same pose in both. Maximum realism: real skin texture with visible pores, natural creases, subtle skin tone variation, realistic fabric texture, real smartphone photo quality; no plastic or airbrushed skin; tasteful, non-explicit fitness styling. A white curved arrow between the panels points from before to after. Below the left panel a gray rounded pill with white bold uppercase 'ANTES'; below the right panel a fuchsia (#E6177F) rounded pill with white bold uppercase 'DESPUÉS'. BOTTOM-LEFT, large and slightly from below: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN', three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS'. Around its base: real aguaje fruits with shiny scaly reddish-brown skin, two cut in half showing orange flesh (#D9572B), green palm leaves behind, and three glossy fuchsia capsules on the fabric in front. BOTTOM-RIGHT, upper row: three benefits side by side, each a deep magenta circle with a thin white line icon (a rounded glutes silhouette, an hourglass body silhouette, an upward sparkle) and a short bold uppercase label in deep magenta to its right; a small orange flame icon after the last label. BOTTOM-RIGHT, lowest row: a white rounded pill with a fuchsia capsule icon at left, two-line bold uppercase text (first line deep magenta, second line fuchsia) and a deep magenta clock icon at right. Include only these elements and texts.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (top-left, first line): "GLÚTEOS Y" — Poppins Black uppercase, giant, deep magenta with thick white outline and 3D shadow
+- main headline (top-left, second line): "PIERNAS" — Poppins Black uppercase, giant, deep magenta with thick white outline and 3D shadow
+- subtitle banner (below headline): "CON MÁS VOLUMEN" — Poppins Bold uppercase, white on deep magenta ribbon
+- handwritten accent (below the banner): "así de fácil" — Handwritten script, black, with small fuchsia heart
+- badge (badge row, left): "3 EXTRACTOS" — Poppins Bold uppercase, small, deep magenta, two lines
+- badge (badge row, center): "VITAMINAS A Y E" — Poppins Bold uppercase, small, deep magenta, two lines
+- badge (badge row, right): "60 CÁPSULAS" — Poppins Bold uppercase, small, deep magenta, two lines
+- label (below left photo): "ANTES" — Poppins Bold uppercase, white on gray pill
+- label (below right photo): "DESPUÉS" — Poppins Bold uppercase, white on fuchsia pill
+- benefit (benefit row, left): "AYUDA A DAR VOLUMEN" — Poppins Bold uppercase, small, deep magenta, two lines
+- benefit (benefit row, center): "MOLDEA TU FIGURA" — Poppins Bold uppercase, small, deep magenta, two lines
+- benefit (benefit row, right): "RESULTADOS NATURALES" — Poppins Bold uppercase, small, deep magenta, two lines, followed by a small flame icon
+- usage instruction (white pill, bottom-right): "2 CÁPSULAS AL DÍA CON TUS COMIDAS" — Poppins Bold uppercase, two lines, first deep magenta, second fuchsia
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, aguaje orange #D9572B only for fruit accents.
+
+MANDATORY ELEMENTS:
+- Glossy pink background with soft pink fabric at the bottom
+- Giant 3D white-outlined headline with deep magenta ribbon banner and handwritten script with heart
+- Row of three square outlined badges with line icons
+- Two rounded mirror-selfie photo panels of the same ultra-realistic woman from behind in very short shorts, with an obvious but natural volume gain in the after
+- White curved arrow between the panels; gray ANTES pill and fuchsia DESPUÉS pill
+- The real product bottle from the attached photo with aguaje fruits, palm leaves and fuchsia capsules
+- Three deep magenta icon circles with labels and a small flame icon
+- White usage pill with capsule icon and clock icon
+
+STRICT EXCLUSIONS:
+- No 'gluten free', 'sugar free', 'envío gratis' or result timeframe claims
+- No brand logos other than the label on the bottle; no other supplement brands
+- No prices, discounts, stars, ratings or testimonials
+- No cartoonish, exaggerated or surgical-looking body proportions; no nudity
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any brand logo other than the label printed on the bottle
+- Do not add: Price, discount, stars, ratings or testimonials
+- Do not add: Claims like gluten free, sugar free, free shipping or a result timeframe
+- Do not add: Extra badges, icons or benefit lines beyond those listed
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.

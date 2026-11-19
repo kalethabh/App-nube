@@ -1,39 +1,90 @@
 {
+  "prompt_type": "ad_creative_generation",
   "ad_info": {
-    "variation_id": "V06"
+    "variation_id": "V06",
+    "structure_source": "uploaded reference R06",
+    "reference_style": "Lifestyle supplement ad with a woman from behind on the left half, the bottle in the center, an icon column and handwritten accents",
+    "angle_used": "Mecanismo único",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
   },
   "global_identity": {
-    "color_palette": "the colors of the product's packaging",
-    "text_typography": "the typography of the template"
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: ultra-photorealistic woman in short fitted shorts in a bright bedroom, the black-and-fuchsia bottle as hero, clean icon column.",
+    "visual_atmosphere": "Feminine, confident and warm; soft daylight.",
+    "graphic_language": "Fuchsia rounded pill, hot fuchsia circles with thin white line icons, a round pink brush-stroke seal with white handwritten script, soft pink petal shape in the corner, thin vertical dividers between bottom trust items, real aguaje fruits.",
+    "text_typography": "Poppins Bold (heavy, uppercase) for the headline, Poppins Regular for icon texts, casual handwritten script for the accents."
   },
-  "visual_prompt": "PRODUCT: VITALABH Aguaje Complex 3 en 1 (market: Colombia, Spanish of Colombia).\nTHIS PRODUCT'S ANGLE (what the image must SHOW, in the template's form): Aumento de glúteos.\nBenefits (for the secondary texts): Aumento de glúteos; Aumento de piernas; Sin efecto rebote (no engorda); Sin necesidad de hacer ejercicio; Resultados rápidos y duraderos con el tratamiento completo de 3 frascos; Trae los tres componentes puros: aguaje, fenogreco y maca negra.\nThe pain in the customer's words: Compró aguaje de una marca que dice ser \"la original\" y no vio resultados, o los perdió al terminar. Nadie le explicó que lo que importa son los componentes puros y hacer el tratamiento completo.\nCustomer: 18 a 55\nCONCEPT of this image (different from the other images of the batch): the customer taking a photo with friends on the weekend. Show that person in that moment, inside the template's form.\nHEADLINE STRUCTURE of this template: El deseo con adjetivos: «[Zona] más [adjetivo 1] y [adjetivo 2]» + «Tu mejor versión sin [renuncia]» (the template, for another product, says: «Glúteos y piernas más firmes y naturales»). Write THIS image's main headline and labels with exactly that structure, filled with THIS product's main desire or benefit (Aumento de glúteos), in the customer's words, so the headline names the very result the image shows. Idea from the research: «Trae los tres componentes puros: aguaje, fenogreco y maca negra» (use its words when they fit the structure).\nTHE RESULT MUST BE BIG AND OBVIOUS, even as a small thumbnail: if the desire is MORE volume or shape (glutes, hips, legs, bust, curves), the AFTER, the last panel or the single person shows clearly MORE volume, roundness and lift, with the body area filling 60 to 70 % of its panel, in fitted clothes (leggings, jeans, a fitted dress), seen from the side or 3/4 back; if the desire is LESS of something (belly, swelling, cellulite, fat), show it clearly reduced. The headline and the labels name that same result.\nTimeframes: keep the template's panel labels (days or weeks) only if they make sense for this product; never invent a number.\nColor palette: the colors of the product's packaging, with the same contrast and hierarchy as the template.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.",
+  "creative_objective": "Stop the scroll with a real body taking half the image and explain why it works: three extracts together (aguaje, fenogreco and maca negra) plus vitamins A and E.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The woman from behind on the left half. 2) The headline top-right. 3) The bottle in the center. 4) The icon column, seal, trust row and script accent.",
+    "composition_style": "Left half: the woman bleeding off the left edge. Top-right: headline block with pill. Center-right: the bottle large with capsules and fruits. Far right: vertical column of four icons with text. Left lower third: round seal overlapping the photo. Bottom: a row of three trust items on white; bottom-right corner: script accent on a pink petal shape.",
+    "spacing_and_structure": "Woman 0-52% width, 0-88% height. Headline 4-20% height on the right 52%; pill about 21-26%. Bottle about 35-80% height centered at 55% width. Icon column 72-97% width, 30-75% height, four evenly spaced rows. Seal about 3-25% width, 62-82% height. Trust row 88-98% height across the left 70%. Script accent bottom-right 75-98% width, 82-98% height.",
+    "lighting_and_depth": "Soft window daylight; the room is slightly blurred behind the woman; glossy highlight on the bottle with a soft shadow on the white surface.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Bright bedroom with a plant. Left half: a woman seen from behind from waist to upper thigh, in short fitted shorts and a white top, one hand on her hip, cropped by the left edge. Top-right: a two-line headline (bold uppercase line and a script line), then a fuchsia pill with white text. Center: the bottle large standing on a white surface with two pink capsules in front and aguaje fruits with leaves behind its right side. Right: a column of four fuchsia circles with white line icons, each with short text. Lower-left: a round pink brush-stroke seal with white handwritten text. Bottom: a row of three trust items (line icon plus two-line uppercase text) separated by thin dividers. Bottom-right corner: a pink petal shape with white handwritten text and a small heart.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "full canvas", "visual_function": "Real-life setting", "adaptation_rule": "Bright bedroom with a green plant, pale blush tones, soft blur", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "person", "position": "left half, bleeding off the left edge", "visual_function": "Desired result, stops the scroll", "adaptation_rule": "Ultra-realistic woman from behind in dusty rose shorts and white top, low camera at hip height", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "headline", "position": "top-right", "visual_function": "Main promise", "adaptation_rule": "Bold uppercase line in hot fuchsia plus a script line in deep magenta", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "pill", "position": "under the headline", "visual_function": "Mechanism hook", "adaptation_rule": "Hot fuchsia rounded pill with white text", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product with props", "position": "center", "visual_function": "Hero product", "adaptation_rule": "The user's bottle with two fuchsia capsules and aguaje fruits with leaves", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "icon column", "position": "right edge, four rows", "visual_function": "Explains the mechanism", "adaptation_rule": "Hot fuchsia circles with white line icons naming the three extracts and the vitamins", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "round seal", "position": "lower-left over the photo", "visual_function": "Emotional accent", "adaptation_rule": "Pink brush-stroke circle with white handwritten text", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "trust row", "position": "bottom, left 70%", "visual_function": "Quick facts", "adaptation_rule": "Three items with deep magenta line icons and two-line uppercase text, truthful product facts, thin dividers", "present_in_reference": true },
+      { "block_id": "block_09", "block_type": "script accent", "position": "bottom-right corner on a pink petal shape", "visual_function": "Closing emotional line", "adaptation_rule": "White handwritten text with a small white heart on a hot fuchsia petal shape", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Any brand logo other than the label printed on the bottle",
+      "Price, discount, stars, ratings or testimonials",
+      "Claims like free shipping, cash on delivery or original product",
+      "CTA button",
+      "Extra icons or benefit lines beyond those listed"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium supplement lifestyle ad in a bright bedroom with soft window daylight, pale blush pink walls, a green potted plant and a dresser softly blurred in the background. LEFT HALF, bleeding off the left edge, photographed from a low camera at hip height: an ultra-photorealistic Latina woman in her mid 20s seen from behind, from mid-back to mid-thigh, long dark hair falling on her back, wearing a fitted white crop top and very short fitted dusty rose cotton shorts, one hand resting on her hip; her glutes are full, round and lifted and her thighs toned, with natural, believable volume. Maximum realism: real skin texture with visible pores, natural creases, subtle skin tone variation, realistic fabric texture, real photo quality; no plastic or airbrushed skin; tasteful, non-explicit fitness styling. TOP-RIGHT: headline in two lines: a bold uppercase line in hot fuchsia (#E6177F) and below it a large handwritten script line in deep magenta (#B0105E); under it a hot fuchsia rounded pill with white text. CENTER, large, standing on a white surface: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN', three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS'. Two glossy fuchsia capsules lie in front of it and real aguaje fruits with shiny scaly reddish-brown skin, one cut in half showing orange flesh (#D9572B), with green leaves sit behind its right side. FAR RIGHT: a vertical column of four rows, each a hot fuchsia circle with a thin white line icon (an aguaje fruit, a small seed pod, a root, a vitamin capsule) and short two-line text in dark gray to its right. LOWER-LEFT, overlapping the photo: a round bubblegum pink brush-stroke seal with white handwritten script text in three lines. BOTTOM, across the left 70 percent on a white strip: a row of three trust items separated by thin gray vertical dividers, each a deep magenta line icon (a capsule, a bottle, a leaf) with two-line bold uppercase text in deep magenta. BOTTOM-RIGHT CORNER: a hot fuchsia soft petal shape with white handwritten script text in two lines and a small white heart below. Include only these elements and texts.",
   "text_layers": [
-    {
-      "reference_function": "main headline",
-      "reference_position": "same place as the main headline of the template",
-      "text": "Trae los tres componentes puros: aguaje, fenogreco y maca negra",
-      "text_style": "same style as the main headline of the template"
-    }
+    { "block_id": "text_block_01", "reference_function": "main headline", "reference_position": "top-right, first line", "text_style": "Poppins Black uppercase, large, hot fuchsia", "text": "GLÚTEOS Y PIERNAS" },
+    { "block_id": "text_block_02", "reference_function": "main headline", "reference_position": "top-right, second line", "text_style": "Handwritten script, large, deep magenta", "text": "con volumen natural" },
+    { "block_id": "text_block_03", "reference_function": "pill", "reference_position": "under the headline", "text_style": "Poppins Bold, white on hot fuchsia pill", "text": "El poder de 3 extractos en 1" },
+    { "block_id": "text_block_04", "reference_function": "icon text", "reference_position": "icon column, row 1", "text_style": "Poppins Regular, small, dark gray, two lines", "text": "Aguaje 200 mg" },
+    { "block_id": "text_block_05", "reference_function": "icon text", "reference_position": "icon column, row 2", "text_style": "Poppins Regular, small, dark gray, two lines", "text": "Fenogreco 400 mg" },
+    { "block_id": "text_block_06", "reference_function": "icon text", "reference_position": "icon column, row 3", "text_style": "Poppins Regular, small, dark gray, two lines", "text": "Maca negra 200 mg" },
+    { "block_id": "text_block_07", "reference_function": "icon text", "reference_position": "icon column, row 4", "text_style": "Poppins Regular, small, dark gray, two lines", "text": "Vitaminas A y E" },
+    { "block_id": "text_block_08", "reference_function": "seal", "reference_position": "round seal, lower-left", "text_style": "Handwritten script, white, three lines", "text": "Belleza natural que se nota" },
+    { "block_id": "text_block_09", "reference_function": "trust item", "reference_position": "bottom row, left", "text_style": "Poppins Bold uppercase, small, deep magenta, two lines", "text": "2 CÁPSULAS AL DÍA" },
+    { "block_id": "text_block_10", "reference_function": "trust item", "reference_position": "bottom row, center", "text_style": "Poppins Bold uppercase, small, deep magenta, two lines", "text": "60 CÁPSULAS" },
+    { "block_id": "text_block_11", "reference_function": "trust item", "reference_position": "bottom row, right", "text_style": "Poppins Bold uppercase, small, deep magenta, two lines", "text": "A BASE DE PLANTAS" },
+    { "block_id": "text_block_12", "reference_function": "script accent", "reference_position": "bottom-right corner petal shape", "text_style": "Handwritten script, white, two lines, small heart below", "text": "Cuida tu figura desde adentro" }
   ],
   "mandatory_visual_elements": [
-    "the real product from the attached product photo",
-    "this product's angle shown in the template's visual mechanism"
+    "Bright bedroom with a green plant",
+    "Ultra-realistic woman from behind on the left half in dusty rose short shorts and white top, low camera at hip height",
+    "Hot fuchsia pill under the headline",
+    "The real product bottle from the attached photo with two fuchsia capsules and aguaje fruits with leaves",
+    "Column of four hot fuchsia icon circles with white line icons",
+    "Round pink brush-stroke seal with handwritten text",
+    "Bottom row of three trust items with line icons and thin dividers",
+    "Hot fuchsia petal shape with handwritten text and small heart in the bottom-right corner"
   ],
   "final_generation_exclusions": [
-    "any logo, brand name or text from the template",
-    "the template's body area or problem when it is not this product's",
-    "prices, discounts or offers",
-    "misspelled words"
+    "No 'envío seguro', 'producto original' or 'pago contraentrega' texts",
+    "No brand logos other than the label on the bottle; no other supplement brands",
+    "No prices, discounts, stars, ratings or testimonials",
+    "No cartoonish, exaggerated or surgical-looking body proportions; no nudity",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
   ],
-  "reference_structure_analysis": {
-    "forbidden_additions": [
-      "the template's brand, prices or claims"
-    ],
-    "detected_visual_blocks": []
-  },
-  "language_rule": "All visible text in Spanish.",
-  "app_rapido": "plantilla",
-  "app_concepto": {
-    "momento": "taking a photo with friends on the weekend"
-  }
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia), perfectly spelled with accents."
 }

@@ -1,39 +1,92 @@
 {
+  "prompt_type": "ad_creative_generation",
   "ad_info": {
-    "variation_id": "V07"
+    "variation_id": "V07",
+    "structure_source": "uploaded reference R07",
+    "reference_style": "Christmas seasonal supplement ad with a model holding the bottle, benefit icons, a seal on the bottle, a mini before/after, a gift and a bottom pill bar",
+    "angle_used": "Ideal para regalar",
+    "ad_format": "Lifestyle Product Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
   },
   "global_identity": {
-    "color_palette": "the colors of the product's packaging",
-    "text_typography": "the typography of the template"
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, aguaje orange #D9572B only for fruit accents. Christmas red and green only in the scene props.",
+    "visual_style": "Premium Latin American beauty-supplement Christmas ad: ultra-photorealistic woman with a Santa hat in a cozy living room, the black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Festive, warm, feminine and confident; warm tree lights and soft daylight.",
+    "graphic_language": "Hot fuchsia circles with thin white line icons, small rounded photo panels with pill labels and a curved arrow, a round seal, handwritten script accents with small hearts, a fuchsia rounded pill bar at the bottom.",
+    "text_typography": "Poppins Bold (heavy, uppercase) for the headline, Poppins Regular for supporting text, casual handwritten script for the accents."
   },
-  "visual_prompt": "PRODUCT: VITALABH Aguaje Complex 3 en 1 (market: Colombia, Spanish of Colombia).\nTHIS PRODUCT'S ANGLE (what the image must SHOW, in the template's form): Aumento de glúteos.\nBenefits (for the secondary texts): Aumento de glúteos; Aumento de piernas; Sin efecto rebote (no engorda); Sin necesidad de hacer ejercicio; Resultados rápidos y duraderos con el tratamiento completo de 3 frascos; Trae los tres componentes puros: aguaje, fenogreco y maca negra.\nThe pain in the customer's words: Compró aguaje de una marca que dice ser \"la original\" y no vio resultados, o los perdió al terminar. Nadie le explicó que lo que importa son los componentes puros y hacer el tratamiento completo.\nCustomer: 18 a 55\nCONCEPT of this image (different from the other images of the batch): the customer on payday, choosing something for themselves. Show that person in that moment, inside the template's form.\nHEADLINE STRUCTURE of this template: Temporada + deseo: «Esta [temporada] regálate [el deseo central]» (the template, for another product, says: «Esta Navidad regálate la figura que sueñas»). Write THIS image's main headline and labels with exactly that structure, filled with THIS product's main desire or benefit (Aumento de glúteos), in the customer's words, so the headline names the very result the image shows. Idea from the research: «¿Compró aguaje de una marca que dice ser \"la original\" y no vio resulta?» (use its words when they fit the structure).\nTHE RESULT MUST BE BIG AND OBVIOUS, even as a small thumbnail: if the desire is MORE volume or shape (glutes, hips, legs, bust, curves), the AFTER, the last panel or the single person shows clearly MORE volume, roundness and lift, with the body area filling 60 to 70 % of its panel, in fitted clothes (leggings, jeans, a fitted dress), seen from the side or 3/4 back; if the desire is LESS of something (belly, swelling, cellulite, fat), show it clearly reduced. The headline and the labels name that same result.\nTimeframes: keep the template's panel labels (days or weeks) only if they make sense for this product; never invent a number.\nColor palette: the colors of the product's packaging, with the same contrast and hierarchy as the template.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.",
+  "creative_objective": "Turn the purchase into a Christmas gift for herself: the figure she dreams of, with a visible but natural gain in volume.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The woman with the Santa hat on the left. 2) The headline top-right ('REGÁLATE'). 3) The bottle with its seal. 4) Icons, mini before/after, gift tag, script and bottom bar.",
+    "composition_style": "Left 50%: the woman kneeling in 3/4 rear view on a white fluffy rug, looking over her shoulder, holding the bottle up near her face, Christmas tree and gifts behind. Top-right: script line, giant word, second line and a two-line subtitle. Middle-right: a column of four icons left of the large bottle with a round seal at its upper right. Lower-right: mini before/after panels. Bottom-right corner: a gift box with a hanging tag. Left edge, middle: a script accent. Bottom center: a pill bar.",
+    "spacing_and_structure": "Woman 0-55% width, 0-95% height. Headline block 4-30% height on the right 55%. Icon column 50-68% width, 33-65% height. Bottle 68-95% width, 35-75% height; seal over its upper-right edge. Mini before/after 50-72% width, 65-87% height. Gift with tag 82-100% width, 78-95% height. Script accent 0-18% width, 45-60% height. Bottom pill bar 37-82% width, 93-99% height.",
+    "lighting_and_depth": "Warm bokeh from the tree lights, soft daylight on the woman, glossy highlight on the bottle, soft shadows on the rug.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Cozy living room with a decorated Christmas tree and wrapped gifts on the left and a white fluffy rug. Left half: a woman kneeling in 3/4 rear view wearing a Santa hat, a red top and short white shorts with a red bow, holding the bottle up, looking at camera over her shoulder. Top-right: a script line, a giant bold word, a bold uppercase line and a two-line subtitle with a heart. Middle-right: four circular icons with short text in a column, and the bottle large to their right with a round seal. Lower-right: a mini before/after of two small rounded photos with labels and a curved arrow, a few capsules next to the bottle. Bottom-right: a gift box with a handwritten tag. Left edge: a handwritten script phrase with a heart. Bottom: a rounded pill bar with white uppercase text and a heart. A brand logo in the top-right corner (omitted).",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "full canvas", "visual_function": "Season setting", "adaptation_rule": "Cozy living room with decorated tree, wrapped gifts and white fluffy rug, warm bokeh", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "person", "position": "left half", "visual_function": "Aspiration and season", "adaptation_rule": "Ultra-realistic woman with Santa hat, red top and white short shorts, kneeling 3/4 rear view, holding the user's bottle, looking over her shoulder", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "headline", "position": "top-right", "visual_function": "Season promise", "adaptation_rule": "Script line, giant word in hot fuchsia, bold uppercase line in black, two-line subtitle with a heart", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "icon column", "position": "middle-right, left of the bottle", "visual_function": "Benefits", "adaptation_rule": "Four hot fuchsia circles with white line icons and short text", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "product with seal", "position": "middle-right", "visual_function": "Hero product", "adaptation_rule": "The user's bottle with a round deep magenta seal reading '3 EN 1' instead of 'premium'", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "mini before/after", "position": "lower-right", "visual_function": "Proof", "adaptation_rule": "Two small rounded photos of glutes from behind in shorts, gray and pink, with labels and a curved arrow", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "capsules", "position": "next to the bottle base", "visual_function": "Product detail", "adaptation_rule": "A few glossy fuchsia capsules", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "gift with tag", "position": "bottom-right corner", "visual_function": "Gift idea", "adaptation_rule": "Red gift box with a bow and a hanging cream tag with handwritten text", "present_in_reference": true },
+      { "block_id": "block_09", "block_type": "script accent", "position": "left edge, middle", "visual_function": "Emotional line", "adaptation_rule": "White handwritten text with a small heart", "present_in_reference": true },
+      { "block_id": "block_10", "block_type": "bottom pill bar", "position": "bottom center-right", "visual_function": "Closing line", "adaptation_rule": "Hot fuchsia rounded pill with white uppercase text and a small heart", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Any brand logo other than the label printed on the bottle (the reference corner logo is omitted)",
+      "A 'premium' seal or stars on the seal",
+      "Price, discount, stars, ratings or testimonials",
+      "CTA button",
+      "Extra icons or benefit lines beyond those listed"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium Christmas supplement ad in a cozy living room: a decorated Christmas tree with warm lights and red and gold ornaments on the left, wrapped red and gold gifts at its base, a white fluffy rug on the floor, warm bokeh, pale blush walls. LEFT HALF: an ultra-photorealistic Latina woman in her mid 20s with long straight dark hair and a red Santa hat, kneeling on the rug in a 3/4 rear view, looking at the camera over her shoulder with a soft smile, wearing a red bralette-style top and very short fitted white ribbed shorts with a small red bow, red and white knit socks; she holds the product up near her face with one hand. Her glutes are full, round and lifted and her thighs toned, with natural, believable volume. Maximum realism: real skin texture with visible pores, natural creases, subtle skin tone variation, realistic fabric texture, real photo quality; no plastic or airbrushed skin; tasteful, non-explicit styling. TOP-RIGHT: a black handwritten script line, below it a giant bold uppercase word in hot fuchsia (#E6177F), below it a bold uppercase line in black, and a two-line subtitle in dark gray Poppins Regular ending with a small fuchsia heart. MIDDLE-RIGHT: a column of four hot fuchsia circles with thin white line icons (a rounded glutes silhouette, legs, a sparkle, a leaf), each with short two-line dark gray text to its right; to the right of the column, large: the product. Use the attached product image as the only source of truth for the product, and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink screw cap printed with a repeating small white 'VITALABH' pattern and a hot-pink band around the bottom fifth; black label with the pink VITALABH emblem, huge white 'AGUAJE', 'COMPLEX' in white and '3 EN 1' in pink-red, a pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', italic pink 'TRIPLE ACCIÓN', three pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS'. The same bottle appears in the woman's hand. Over the bottle's upper-right edge, a round deep magenta (#B0105E) seal with a thin gold ring and white bold text. A few glossy fuchsia capsules next to the bottle base. LOWER-RIGHT: two small rounded photo panels side by side of the same woman's glutes from behind in short shorts: left in gray shorts, flatter; right in pink shorts, clearly fuller and rounder but natural; a small white curved arrow between them; a gray pill label above the left one and a fuchsia pill label above the right one. BOTTOM-RIGHT CORNER: a red gift box with a red satin bow and a hanging cream paper tag with black handwritten text. LEFT EDGE, middle, over the tree: white handwritten script text in four lines with a small heart. BOTTOM: a hot fuchsia rounded pill bar with white bold uppercase text and a small white heart. Include only these elements and texts.",
   "text_layers": [
-    {
-      "reference_function": "main headline",
-      "reference_position": "same place as the main headline of the template",
-      "text": "¿Compró aguaje de una marca que dice ser \"la original\" y no vio resulta?",
-      "text_style": "same style as the main headline of the template"
-    }
+    { "block_id": "text_block_01", "reference_function": "headline script", "reference_position": "top-right, first line", "text_style": "Handwritten script, large, black", "text": "Esta Navidad" },
+    { "block_id": "text_block_02", "reference_function": "main headline", "reference_position": "top-right, giant word", "text_style": "Poppins Black uppercase, giant, hot fuchsia", "text": "REGÁLATE" },
+    { "block_id": "text_block_03", "reference_function": "main headline", "reference_position": "top-right, line under the giant word", "text_style": "Poppins Bold uppercase, large, black", "text": "LA FIGURA QUE SUEÑAS" },
+    { "block_id": "text_block_04", "reference_function": "subtitle", "reference_position": "under the headline, two lines", "text_style": "Poppins Regular, dark gray, ends with a small fuchsia heart", "text": "Glúteos y piernas con más volumen y una versión más segura de ti" },
+    { "block_id": "text_block_05", "reference_function": "icon text", "reference_position": "icon column, row 1", "text_style": "Poppins Regular, small, dark gray, two lines", "text": "Ayuda a dar volumen a tus glúteos" },
+    { "block_id": "text_block_06", "reference_function": "icon text", "reference_position": "icon column, row 2", "text_style": "Poppins Regular, small, dark gray, two lines", "text": "Piernas y caderas con más forma" },
+    { "block_id": "text_block_07", "reference_function": "icon text", "reference_position": "icon column, row 3", "text_style": "Poppins Regular, small, dark gray, two lines", "text": "Resultados naturales" },
+    { "block_id": "text_block_08", "reference_function": "icon text", "reference_position": "icon column, row 4", "text_style": "Poppins Regular, small, dark gray, two lines", "text": "A base de plantas" },
+    { "block_id": "text_block_09", "reference_function": "seal", "reference_position": "round seal over the bottle", "text_style": "Poppins Black uppercase, white on deep magenta with thin gold ring", "text": "3 EN 1" },
+    { "block_id": "text_block_10", "reference_function": "label", "reference_position": "above the left mini photo", "text_style": "Poppins Bold uppercase, small, white on gray pill", "text": "ANTES" },
+    { "block_id": "text_block_11", "reference_function": "label", "reference_position": "above the right mini photo", "text_style": "Poppins Bold uppercase, small, white on fuchsia pill", "text": "DESPUÉS" },
+    { "block_id": "text_block_12", "reference_function": "script accent", "reference_position": "left edge, middle", "text_style": "Handwritten script, white, four lines, small heart", "text": "Tu mejor regalo también puede ser para ti" },
+    { "block_id": "text_block_13", "reference_function": "gift tag", "reference_position": "tag on the gift, bottom-right", "text_style": "Handwritten script, black, three lines", "text": "Disciplina hoy, resultados mañana" },
+    { "block_id": "text_block_14", "reference_function": "bottom bar", "reference_position": "bottom pill bar", "text_style": "Poppins Bold uppercase, white on hot fuchsia, small heart at the end", "text": "UNA NAVIDAD MÁS SEGURA, MÁS TÚ" }
   ],
   "mandatory_visual_elements": [
-    "the real product from the attached product photo",
-    "this product's angle shown in the template's visual mechanism"
+    "Cozy living room with decorated Christmas tree, wrapped gifts and white fluffy rug",
+    "Ultra-realistic woman with Santa hat, red top and very short white shorts, kneeling 3/4 rear view, looking over her shoulder, holding the real bottle",
+    "Column of four hot fuchsia icon circles with white line icons",
+    "The real product bottle from the attached photo with a round deep magenta '3 EN 1' seal and fuchsia capsules",
+    "Mini before/after with two rounded photos, labels and a curved arrow",
+    "Red gift box with a handwritten tag",
+    "Hot fuchsia bottom pill bar with a small heart"
   ],
   "final_generation_exclusions": [
-    "any logo, brand name or text from the template",
-    "the template's body area or problem when it is not this product's",
-    "prices, discounts or offers",
-    "misspelled words"
+    "No 'premium' text anywhere",
+    "No brand logos other than the label on the bottle; no other supplement brands",
+    "No prices, discounts, stars, ratings or testimonials",
+    "No cartoonish, exaggerated or surgical-looking body proportions; no nudity",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
   ],
-  "reference_structure_analysis": {
-    "forbidden_additions": [
-      "the template's brand, prices or claims"
-    ],
-    "detected_visual_blocks": []
-  },
-  "language_rule": "All visible text in Spanish.",
-  "app_rapido": "plantilla",
-  "app_concepto": {
-    "momento": "on payday, choosing something for themselves"
-  }
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish (Colombia), perfectly spelled with accents."
 }
