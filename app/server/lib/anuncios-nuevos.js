@@ -47,6 +47,7 @@ import { lanzarSesion } from './colas.js';
 import { nombreIA, lanzarSesion as preguntarIA, prohibidasComunes as prohibidasIA } from './motor-ia.js';
 import { prohibidasDeAnuncio } from './ia/reglas.js';
 import { ErrorApp, escribirJSON, aKebab, idValido as productoValido, leerProducto, leerFicha, fotoPrincipal, relProducto, detalleDelProducto, errorPublico, urlFoto } from './productos.js';
+import { slugValido } from './anuncios.js';
 import { ESTILOS as PRESENTACION } from './estilos.js';
 import { brollDe } from './broll.js';
 import { subestilosDe, idDeSubestilo } from './subestilos.js';
@@ -427,6 +428,98 @@ export function crearAnuncio(datos = {}) {
   guardarSesion(slug, sesion);
   lanzar(slug, { tipo: 'guion' });
   return { slug };
+}
+
+// ---------------------------------------------------------------- RECREAR para otro producto (2026-11-19p)
+// Pedido: «recrear el video para otro producto siguiendo el mismo guion tal cual, ya que queda muy bien para productos
+// que son parecidos: adaptar "Estas son las gotas" por "Estas son las pastillas", el diseño del producto y demás, y
+// adaptar las partes que no van con el producto nuevo». Un anuncio NUEVO con el mismo estilo, voz, ajustes y personas;
+// la IA parte del manifiesto del original y cambia solo lo del producto. Las hojas de personas y lugares del original
+// se copian (mismas caras, sin pagarlas otra vez). Después: el guion para aprobar y la producción de siempre.
+
+/** Lo que la tarea del guion dice cuando el anuncio es una copia de otro para un producto nuevo. */
+function textoRecrear(brief) {
+  const o = brief?.recrearDe;
+  if (!o || !slugValido(o)) return '';
+  const viejo = leerFicha(leerBrief(o)?.productoId || '') || {};
+  return [
+    '## Recrear un anuncio que ya funcionó, para OTRO producto',
+    '',
+    `Este anuncio es una copia de \`temp/${o}/\` (ya producido${viejo.nombre ? `, para «${viejo.nombre}»` : ''}) hecha para el producto de la ficha de arriba. NO escribes un guion nuevo: partes de ese.`,
+    '',
+    `1. Lee \`temp/${o}/manifiesto.json\` y \`temp/${o}/app/guion.json\` (y \`temp/${o}/transiciones.json\` y \`temp/${o}/notas-paquete.md\` si existen).`,
+    `2. Escribe el manifiesto de ESTE anuncio partiendo del de ese: las mismas tomas, en el mismo orden y con las mismas duraciones, el mismo estilo, los mismos B-roll y las mismas personas y lugares (sus hojas con el mismo \`id\` y el MISMO prompt: ya están en \`temp/<este anuncio>/img/\` y se usan sin pagarlas otra vez). La referencia del producto apunta a la foto de ESTE anuncio.`,
+    '3. **El guion va TAL CUAL, palabra por palabra**, salvo lo que es del producto: su nombre, qué es («estas son las gotas» → «estas son las pastillas»), cómo se toma o se usa, la dosis, los ingredientes, los beneficios y el envase. Y cualquier frase que con el producto nuevo no sea verdad o no encaje (un beneficio que no tiene, un ingrediente que no lleva, una forma de uso distinta): la adaptas con lo mínimo, con lo verdadero de su ficha, cuidando que dure lo mismo.',
+    '4. En los prompts de imagen y de video, el producto es el nuevo: su forma, su envase, sus colores y su etiqueta como en su foto, y las acciones con el producto cambian con él (poner gotas bajo la lengua → tomar una pastilla con agua). Lo que no tiene producto queda igual.',
+    '5. Si el anuncio trae `tramos`, `lineas`, `dialogo`, `guion[]`, `voz_en_off` o `ganchos_alternativos`, todos dicen el texto nuevo. Valida como siempre.',
+    '6. En "decisiones", la lista corta de lo que cambiaste respecto del original (frase por frase) y por qué.',
+  ].join('\n');
+}
+
+/** Las hojas de personas y lugares del original, copiadas al anuncio nuevo (mismas caras y lugares, sin pagarlas). */
+function copiarHojasDe(origen, slug) {
+  const m = leerJSON(path.join(dirDe(origen), 'manifiesto.json'));
+  const copiadas = [];
+  fs.mkdirSync(path.join(dirDe(slug), 'img'), { recursive: true });
+  for (const r of Array.isArray(m?.referencias) ? m.referencias : []) {
+    if (!r?.id || !/^[a-z0-9][a-z0-9_-]*$/i.test(String(r.id)) || r.tipo === 'producto' || r.id === 'producto' || !r.prompt) continue;
+    for (const ext of ['png', 'jpg', 'jpeg', 'webp']) {
+      const de = path.join(dirDe(origen), 'img', `${r.id}.${ext}`);
+      if (!existe(de)) continue;
+      fs.copyFileSync(de, path.join(dirDe(slug), 'img', `${r.id}.${ext}`));
+      copiadas.push(r.id);
+      break;
+    }
+  }
+  return copiadas;
+}
+
+/**
+ * POST /api/anuncios/:slug/recrear { productoId } -> { slug }: el mismo anuncio para otro producto (ver arriba).
+ * Se puede desde un anuncio con su guion escrito (manifiesto.json); no los cantados (su letra es de otro producto).
+ */
+export function recrearAnuncio(origen, { productoId } = {}) {
+  if (!slugValido(origen) || !existe(path.join(dirDe(origen), 'manifiesto.json'))) throw new ErrorApp(404, 'Ese anuncio todavía no tiene guion para recrearlo.');
+  const b = leerBrief(origen);
+  if (!b?.estilo || !ESTILOS[b.estilo]) throw new ErrorApp(409, 'Ese anuncio no se hizo con un estilo de la app.');
+  if (esLetras(b) || ['musical', 'historia-musical'].includes(defDe(b).familia)) throw new ErrorApp(409, 'Los anuncios cantados no se recrean: su canción es de otro producto. Haz uno nuevo para este producto.');
+  if (!productoValido(productoId)) throw new ErrorApp(404, 'No encuentro ese producto.');
+  if (productoId === b.productoId) throw new ErrorApp(409, 'Elige otro producto: este anuncio ya es de ese.');
+  const ficha = leerFicha(productoId);
+  if (!ficha) throw new ErrorApp(409, 'Primero arma la ficha de ese producto (Nuevo anuncio, paso 1).');
+  const producto = leerProducto(productoId);
+  if (!(producto?.fotos || []).length) throw new ErrorApp(409, 'Ese producto no tiene foto: súbela primero.');
+  const slug = slugNuevo(ficha.nombre || producto.nombre || productoId.replace(/-[a-z0-9]{4}$/, ''), b.estilo);
+  fs.mkdirSync(appDe(slug), { recursive: true });
+  const brief = {
+    slug,
+    productoId,
+    estilo: b.estilo,
+    familia: null,
+    faseGuion: defDe(b).faseGuion,
+    duracion: b.duracion,
+    // la misma voz del original (si se eligió sola, la misma que quedó)
+    voz: b.voz?.id ? { id: b.voz.id, nombre: b.voz.nombre || b.voz.id } : b.voz || null,
+    continuidad: Boolean(b.continuidad),
+    respuestas: b.respuestas || {},
+    opciones: b.opciones || opcionesDe(b.estilo, b.respuestas || {}),
+    ...(b.avatar ? { avatar: b.avatar } : {}),
+    ...(b.musicaBiblioteca ? { musicaBiblioteca: b.musicaBiblioteca } : {}),
+    ...(b.agregar ? { agregar: b.agregar } : {}),
+    recrearDe: origen,
+    creado: ahora(),
+    ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}),
+  };
+  brief.familia = familiaDe(brief);
+  escribirJSON(path.join(appDe(slug), 'brief.json'), brief);
+  copiarModelosAlAnuncio(slug);
+  const hojas = copiarHojasDe(origen, slug);
+  if (hojas.length) brief.hojasDelOriginal = hojas;
+  escribirJSON(path.join(appDe(slug), 'brief.json'), brief);
+  const sesion = { uuid: crypto.randomUUID(), estado: 'escribiendo', tipo: 'guion', intentos: 0, progreso: [], inicio: ahora(), cambios: [] };
+  guardarSesion(slug, sesion);
+  lanzar(slug, { tipo: 'guion' });
+  return { slug, productoId, hojas };
 }
 
 function limpiarRespuestas(estilo, r) {
@@ -896,7 +989,7 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
       textoVozAuto(slug, brief, def),
       esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia === 'agregar' ? 'voz-en-off' : def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
       textoTendencias(brief.estilo),
-      textoBiblioteca(slug, brief), textoMaterial(slug), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
+      textoBiblioteca(slug, brief), textoMaterial(slug), textoRecrear(brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
   });
@@ -972,6 +1065,8 @@ function permisosGuion(slug, brief) {
       ...(referenciaPedida(brief) ? ['Read(./.claude/skills/anuncios-clonacion/**)'] : []),
       `Read(${c}/**)`,
       `Read(./${relProducto(brief.productoId)}/**)`,
+      // recrear para otro producto: el anuncio original (solo lectura)
+      ...(brief.recrearDe && slugValido(brief.recrearDe) ? [`Read(./temp/${brief.recrearDe}/**)`] : []),
       `Write(${c}/**)`,
       `Edit(${c}/**)`,
       'Glob',
@@ -1050,6 +1145,7 @@ function materialGuion(slug, brief, { foto = null, deAntes = false } = {}) {
   }
   if (deAntes) textos.push(...GUARDADOS.map((rel) => `${c}/${rel}`));
   textos.push(`${c}/app/investigacion.md`); // si el producto tiene investigación (la copia textoInvestigacion)
+  if (brief.recrearDe && slugValido(brief.recrearDe)) textos.push(...['manifiesto.json', 'app/guion.json', 'transiciones.json', 'notas-paquete.md'].map((r) => `temp/${brief.recrearDe}/${r}`));
   const propios = materialPropio(slug, brief);
   return {
     textos: [...textos, ...propios.textos].filter(hayEnRaiz),

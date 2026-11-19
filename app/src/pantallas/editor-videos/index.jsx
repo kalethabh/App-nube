@@ -1,7 +1,8 @@
 // Editor (#/editor, 2026-11-14): tus propios videos para editar. Subes uno («Editar un video tuyo») y se abre en el
 // editor; los que ya preparaste quedan aquí para volver a abrirlos. Son los anuncios de estilo "video-propio".
 import { Clapperboard, Scissors } from 'lucide-react';
-import { AccionesAnuncio, CabeceraPagina, EsqueletoMiniaturas, EstadoVacio, MiniaturaVideo } from '../../componentes/index.js';
+import { Repeat2 } from 'lucide-react';
+import { AccionesAnuncio, Boton, CabeceraPagina, EsqueletoMiniaturas, EstadoVacio, MiniaturaVideo } from '../../componentes/index.js';
 import { useAnuncios } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
 import { BotonEditarVideo } from '../editor/EditarVideoPropio.jsx';
@@ -13,8 +14,16 @@ export default function EditorVideos() {
     <div className="pagina">
       <CabeceraPagina
         titulo="Editor"
-        descripcion="Sube cualquier video y edítalo: quita escenas, ponle textos, tu logo, subtítulos y música. Es gratis."
-        acciones={<BotonEditarVideo variante="primario" />}
+        descripcion="Sube cualquier video y edítalo: quita escenas, ponle textos, tu logo, subtítulos y música (gratis). O cámbiale el producto: la IA encuentra las escenas donde sale y las rehace con el tuyo."
+        acciones={
+          <>
+            {/* (2026-11-19p) «Cambiar el producto» vive aquí, en el Editor */}
+            <Boton variante="secundario" icono={Repeat2} href={enlace.cambiar()}>
+              Cambiar el producto
+            </Boton>
+            <BotonEditarVideo variante="primario" />
+          </>
+        }
       />
       {cargando && !datos ? (
         <EsqueletoMiniaturas cantidad={4} />

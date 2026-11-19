@@ -17,7 +17,7 @@
 //
 // POST /api/anuncios/:slug/producir (aprobar y arrancar) lo atiende rutas/produccion.js con el conductor.
 import { ErrorApp, soloDesdeLaApp } from '../lib/productos.js';
-import { cambiarVoz, contextoVisual, crearAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
+import { cambiarVoz, contextoVisual, crearAnuncio, recrearAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
 
 const conErrores = (fn) => async (req, res, next) => {
   try {
@@ -31,6 +31,11 @@ const conErrores = (fn) => async (req, res, next) => {
 export default function rutasGuion(app) {
   app.post('/api/anuncios', soloDesdeLaApp, conErrores((req, res) => {
     res.status(201).json(crearAnuncio(req.body || {}));
+  }));
+
+  // (2026-11-19p) el mismo anuncio para otro producto: mismo guion, cambia lo del producto
+  app.post('/api/anuncios/:slug/recrear', soloDesdeLaApp, conErrores((req, res) => {
+    res.status(201).json(recrearAnuncio(req.params.slug, { productoId: String(req.body?.productoId || '') }));
   }));
 
   app.get('/api/anuncios/:slug/guion', (req, res) => {
