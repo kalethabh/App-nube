@@ -5,7 +5,7 @@
 //
 //   oficina()                 -> { configurada, agentes: [{ id, rol, depto, nombre, avatar, color, estado, ahora, tareas,
 //                                  hechos, aprendizajes }], resumen }
-//   guardarAgentes(cambios)   { agentes: { [id]: { nombre, avatar } } }  (los nombres y personajes, en app/config.json)
+//   guardarAgentes(cambios)   { agentes: { [id]: { nombre, avatar, genero: 'mujer'|'hombre' } } }  (los nombres y personajes, en app/config.json)
 //
 // estado de un agente: 'te-necesita' (algo suyo espera tu decisión o falló) · 'trabajando' · 'libre'.
 //
@@ -26,13 +26,13 @@ import { OUTPUT } from './rutas.js';
 
 // Los agentes y su trabajo. `pasos`: los pasos de producción que hace (por su id: lib/familias/*.js PASOS).
 export const AGENTES = [
-  { id: 'coordinacion', rol: 'Coordinadora', depto: 'Dirección', nombre: 'Valentina', avatar: '👩‍💼', color: '#a3e635', hace: 'Reparte el trabajo, revisa el costo y te avisa lo que espera tu decisión.' },
-  { id: 'guion', rol: 'Guionista', depto: 'Guiones', nombre: 'Mateo', avatar: '✍️', color: '#fbbf24', hace: 'Escribe los guiones de cada estilo con tu investigación y tus aprendizajes.' },
-  { id: 'arte', rol: 'Directora de arte', depto: 'Arte', nombre: 'Lucía', avatar: '🎨', color: '#f472b6', hace: 'Crea las personas, los lugares y la imagen de cada escena, y los anuncios de imagen.' },
-  { id: 'video', rol: 'Productor de video', depto: 'Producción', nombre: 'Andrés', avatar: '🎬', color: '#60a5fa', hace: 'Genera los clips, las voces y la música de cada anuncio.' },
-  { id: 'edicion', rol: 'Editora', depto: 'Edición', nombre: 'Camila', avatar: '✂️', color: '#c084fc', hace: 'Arma el montaje, los subtítulos y exporta los videos.' },
-  { id: 'calidad', rol: 'Revisor de calidad', depto: 'Calidad', nombre: 'Tomás', avatar: '🔍', color: '#2dd4bf', hace: 'Revisa cada imagen y cada clip antes de entregar, y deja avisos.' },
-  { id: 'investigacion', rol: 'Investigadora', depto: 'Investigación', nombre: 'Sofía', avatar: '🔭', color: '#fb923c', hace: 'Investiga tu mercado y tu competencia en TrendTrack.' },
+  { id: 'coordinacion', genero: 'mujer', rol: 'Coordinadora', depto: 'Dirección', nombre: 'Valentina', avatar: '👩‍💼', color: '#a3e635', hace: 'Reparte el trabajo, revisa el costo y te avisa lo que espera tu decisión.' },
+  { id: 'guion', genero: 'hombre', rol: 'Guionista', depto: 'Guiones', nombre: 'Mateo', avatar: '✍️', color: '#fbbf24', hace: 'Escribe los guiones de cada estilo con tu investigación y tus aprendizajes.' },
+  { id: 'arte', genero: 'mujer', rol: 'Directora de arte', depto: 'Arte', nombre: 'Lucía', avatar: '🎨', color: '#f472b6', hace: 'Crea las personas, los lugares y la imagen de cada escena, y los anuncios de imagen.' },
+  { id: 'video', genero: 'hombre', rol: 'Productor de video', depto: 'Producción', nombre: 'Andrés', avatar: '🎬', color: '#60a5fa', hace: 'Genera los clips, las voces y la música de cada anuncio.' },
+  { id: 'edicion', genero: 'mujer', rol: 'Editora', depto: 'Edición', nombre: 'Camila', avatar: '✂️', color: '#c084fc', hace: 'Arma el montaje, los subtítulos y exporta los videos.' },
+  { id: 'calidad', genero: 'hombre', rol: 'Revisor de calidad', depto: 'Calidad', nombre: 'Tomás', avatar: '🔍', color: '#2dd4bf', hace: 'Revisa cada imagen y cada clip antes de entregar, y deja avisos.' },
+  { id: 'investigacion', genero: 'mujer', rol: 'Investigadora', depto: 'Investigación', nombre: 'Sofía', avatar: '🔭', color: '#fb923c', hace: 'Investiga tu mercado y tu competencia en TrendTrack.' },
 ];
 
 /** El agente que hace un paso de producción (por su id). */
@@ -194,7 +194,8 @@ export function guardarAgentes(cambios = {}) {
     if (!c || typeof c !== 'object') continue;
     const nombre = String(c.nombre ?? '').replace(/\s+/g, ' ').trim().slice(0, 40);
     const avatar = String(c.avatar ?? '').trim().slice(0, 16);
-    agentes[a.id] = { ...(agentes[a.id] || {}), ...(nombre ? { nombre } : {}), ...(avatar ? { avatar } : {}) };
+    const genero = c.genero === 'mujer' || c.genero === 'hombre' ? c.genero : null;
+    agentes[a.id] = { ...(agentes[a.id] || {}), ...(nombre ? { nombre } : {}), ...(avatar ? { avatar } : {}), ...(genero ? { genero } : {}) };
   }
   guardarConfig({ oficina: { ...actual, agentes, configurada: true, ...(cambios.nombreOficina ? { nombre: String(cambios.nombreOficina).trim().slice(0, 50) } : {}) } });
   return oficina();
@@ -310,6 +311,7 @@ export async function oficina() {
       hace: a.hace,
       nombre: x.nombre,
       avatar: x.avatar,
+      genero: x.genero === 'hombre' ? 'hombre' : 'mujer',
       color: a.color,
       estado,
       ahora: x.ahora.slice(0, 12),

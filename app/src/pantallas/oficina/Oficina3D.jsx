@@ -427,13 +427,232 @@ function escritorio(tipoPantalla, color, pantallas, id, { ancho = 1.9, dobleMoni
     g.add(caja(0.28, 0.02, 0.18, NEGRO(), mx, 0.82, -0.3));
   }
   g.add(caja(0.6, 0.03, 0.2, mat('#d4d4d4', { rugoso: 0.4 }), 0, 0.83, 0.16, { redondo: 0.01 }));
+  for (let k = 0; k < 4; k++) g.add(caja(0.54, 0.008, 0.03, mat('#9ca3af'), 0, 0.848, 0.09 + k * 0.045, { sombra: false }));
   g.add(cilindro(0.06, 0.05, 0.13, mat('#f5f5f4', { rugoso: 0.4 }), ancho / 2 - 0.3, 0.88, 0.12, 12));
+  // el mouse y su pad, un cuaderno con lápiz, el portalápices y la cajonera
+  g.add(caja(0.26, 0.006, 0.22, mat('#1f2937'), 0.48, 0.817, 0.18, { sombra: false }));
+  const raton = new THREE.Mesh(new THREE.SphereGeometry(0.04, 12, 8), mat('#e5e7eb', { rugoso: 0.3 }));
+  raton.scale.set(0.75, 0.45, 1.1);
+  raton.position.set(0.48, 0.83, 0.18);
+  g.add(raton);
+  const libreta = caja(0.24, 0.025, 0.32, mat(['#f59e0b', '#3b82f6', '#ef4444', '#10b981'][Math.floor(Math.random() * 4)], { rugoso: 0.8 }), -ancho / 2 + 0.32, 0.83, 0.12);
+  libreta.rotation.y = 0.3;
+  g.add(libreta);
+  const lapiz = cilindro(0.008, 0.008, 0.18, mat('#facc15'), -ancho / 2 + 0.36, 0.85, 0.1, 6);
+  lapiz.rotation.z = Math.PI / 2;
+  lapiz.rotation.y = 0.5;
+  g.add(lapiz);
+  g.add(cilindro(0.045, 0.04, 0.1, NEGRO(), ancho / 2 - 0.15, 0.86, -0.25, 12));
+  for (const [dx, c] of [[-0.015, '#ef4444'], [0.015, '#3b82f6'], [0, '#111827']]) g.add(cilindro(0.006, 0.006, 0.16, mat(c), ancho / 2 - 0.15 + dx, 0.93, -0.25 + dx, 6));
+  g.add(caja(0.42, 0.6, 0.55, mat('#2a2c2f', { rugoso: 0.6 }), -ancho / 2 + 0.36, 0.3, -0.12, { redondo: 0.02 }));
+  for (let k = 0; k < 3; k++) g.add(caja(0.12, 0.02, 0.02, mat('#9ca3af', { metal: 0.8 }), -ancho / 2 + 0.36, 0.48 - k * 0.18, 0.165, { sombra: false }));
   return g;
+}
+
+// ---------------------------------------------------------------- detalles (2026-11-19t: «oficinas con más detalle»)
+
+function papelera(x, z) {
+  const g = new THREE.Group();
+  g.add(cilindro(0.17, 0.13, 0.42, mat('#3f4246', { metal: 0.5, rugoso: 0.4 }), 0, 0.21, 0, 18));
+  g.add(caja(0.12, 0.03, 0.1, mat('#f5f5f4'), 0.02, 0.43, 0.02, { sombra: false }));
+  g.position.set(x, 0, z);
+  return g;
+}
+function lamparaPie(x, z, color = '#ffcf8a') {
+  const g = new THREE.Group();
+  g.add(cilindro(0.2, 0.22, 0.04, NEGRO(), 0, 0.02, 0, 20));
+  g.add(cilindro(0.02, 0.02, 1.7, NEGRO(), 0, 0.87, 0, 8));
+  g.add(cilindro(0.18, 0.28, 0.34, mat('#f5efe3', { emisivo: color, intensidad: 0.9, rugoso: 0.9 }), 0, 1.8, 0, 22));
+  const luz = new THREE.PointLight(color, 2.2, 4.5, 2);
+  luz.position.y = 1.7;
+  g.add(luz);
+  g.position.set(x, 0, z);
+  return g;
+}
+/** Un cuadro abstracto en la pared (mira hacia +z; rotY para las paredes de lado). */
+function cuadro(w, h, x, y, z, colores, rotY = 0) {
+  const g = new THREE.Group();
+  g.add(caja(w + 0.08, h + 0.08, 0.04, mat('#e7e1d6', { rugoso: 0.5 }), 0, 0, 0));
+  const t = lienzo(256, Math.round((256 * h) / w), (c, W, H) => {
+    c.fillStyle = colores[0];
+    c.fillRect(0, 0, W, H);
+    for (let k = 1; k < colores.length; k++) {
+      c.fillStyle = colores[k];
+      c.globalAlpha = 0.85;
+      c.beginPath();
+      if (k % 2) c.arc(W * (0.25 + 0.5 * Math.random()), H * (0.25 + 0.5 * Math.random()), W * (0.12 + 0.15 * Math.random()), 0, Math.PI * 2);
+      else c.rect(W * Math.random() * 0.6, H * Math.random() * 0.6, W * 0.4, H * 0.3);
+      c.fill();
+    }
+  });
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshStandardMaterial({ map: t, roughness: 0.8 }));
+  m.position.z = 0.025;
+  g.add(m);
+  g.position.set(x, y, z);
+  g.rotation.y = rotY;
+  return g;
+}
+function impresora(x, z) {
+  const g = new THREE.Group();
+  g.add(caja(0.9, 0.7, 0.6, mat('#2a2c2f'), 0, 0.35, 0, { redondo: 0.03 }));
+  g.add(caja(0.7, 0.32, 0.5, mat('#e5e7eb', { rugoso: 0.4 }), 0, 0.86, 0, { redondo: 0.04 }));
+  g.add(caja(0.5, 0.02, 0.3, mat('#ffffff'), 0, 1.03, 0.08, { sombra: false }));
+  const led = new THREE.Mesh(new THREE.SphereGeometry(0.02), new THREE.MeshBasicMaterial({ color: '#22c55e' }));
+  led.position.set(0.28, 0.95, 0.25);
+  g.add(led);
+  g.position.set(x, 0, z);
+  return g;
+}
+function dispensador(x, z) {
+  const g = new THREE.Group();
+  g.add(caja(0.42, 1.0, 0.4, mat('#e5e7eb', { rugoso: 0.4 }), 0, 0.5, 0, { redondo: 0.04 }));
+  g.add(cilindro(0.17, 0.17, 0.45, mat('#93c5fd', { opacidad: 0.6, rugoso: 0.05 }), 0, 1.25, 0, 20));
+  g.add(cilindro(0.06, 0.12, 0.08, mat('#93c5fd', { opacidad: 0.6 }), 0, 1.51, 0, 16));
+  g.add(caja(0.05, 0.05, 0.05, mat('#3b82f6'), -0.08, 0.78, 0.21));
+  g.add(caja(0.05, 0.05, 0.05, mat('#ef4444'), 0.08, 0.78, 0.21));
+  g.position.set(x, 0, z);
+  return g;
+}
+function archivador(x, z, rotY = 0) {
+  const g = new THREE.Group();
+  g.add(caja(0.5, 1.3, 0.6, mat('#4b5563', { metal: 0.4, rugoso: 0.5 }), 0, 0.65, 0));
+  for (let k = 0; k < 4; k++) {
+    g.add(caja(0.46, 0.005, 0.01, mat('#1f2937'), 0, 0.33 + k * 0.31, 0.305, { sombra: false }));
+    g.add(caja(0.14, 0.03, 0.03, mat('#d1d5db', { metal: 0.8 }), 0, 0.5 + k * 0.31 - 0.1, 0.31));
+  }
+  g.position.set(x, 0, z);
+  g.rotation.y = rotY;
+  return g;
+}
+/** Una pizarra blanca con notas de colores y líneas escritas. */
+function pizarraBlanca(w, h, x, y, z, rotY = 0) {
+  const g = new THREE.Group();
+  g.add(caja(w, h, 0.05, mat('#f8fafc', { rugoso: 0.25 }), 0, 0, 0));
+  g.add(caja(w + 0.06, 0.05, 0.08, mat('#9ca3af', { metal: 0.7 }), 0, -h / 2, 0.04));
+  const notas = ['#fde047', '#86efac', '#93c5fd', '#f9a8d4', '#fdba74'];
+  for (let k = 0; k < 7; k++) {
+    const n = caja(0.24, 0.22, 0.01, mat(notas[k % notas.length], { rugoso: 0.9 }), -w / 2 + 0.25 + (k % 4) * (w / 4.2), h / 2 - 0.25 - Math.floor(k / 4) * 0.32, 0.03, { sombra: false });
+    n.rotation.z = (Math.random() - 0.5) * 0.15;
+    g.add(n);
+  }
+  for (let k = 0; k < 3; k++) g.add(caja(w * (0.3 + Math.random() * 0.3), 0.015, 0.01, mat('#334155'), w * 0.1, -h / 2 + 0.25 + k * 0.12, 0.03, { sombra: false }));
+  g.position.set(x, y, z);
+  g.rotation.y = rotY;
+  return g;
+}
+/** Un estante de pared con libros, una matera pequeña y un trofeo. */
+function estantePared(x, y, z, rotY = 0) {
+  const g = new THREE.Group();
+  g.add(caja(1.6, 0.05, 0.3, MADERA(), 0, 0, 0));
+  for (let k = 0; k < 6; k++) g.add(caja(0.08, 0.28 + Math.random() * 0.06, 0.22, mat(['#7f1d1d', '#1e3a8a', '#14532d', '#a16207', '#4c1d95', '#d6d3d1'][k]), -0.65 + k * 0.09, 0.17, 0));
+  const p = planta(0.2, 0, 0.28);
+  p.position.y = 0.03;
+  g.add(p);
+  g.add(cilindro(0.05, 0.07, 0.05, mat('#d4af37', { metal: 0.9, rugoso: 0.25 }), 0.6, 0.05, 0, 12));
+  g.add(cilindro(0.025, 0.025, 0.12, mat('#d4af37', { metal: 0.9, rugoso: 0.25 }), 0.6, 0.13, 0, 8));
+  g.add(cilindro(0.08, 0.03, 0.1, mat('#d4af37', { metal: 0.9, rugoso: 0.25 }), 0.6, 0.24, 0, 14));
+  g.position.set(x, y, z);
+  g.rotation.y = rotY;
+  return g;
+}
+/** Una luz de estudio (softbox) en su trípode. */
+function softbox(x, z, rotY = 0) {
+  const g = new THREE.Group();
+  for (let k = 0; k < 3; k++) {
+    const a = (k / 3) * Math.PI * 2;
+    const p = cilindro(0.02, 0.02, 1.2, NEGRO(), Math.sin(a) * 0.22, 0.58, Math.cos(a) * 0.22, 6);
+    p.rotation.z = Math.sin(a) * 0.2;
+    p.rotation.x = -Math.cos(a) * 0.2;
+    g.add(p);
+  }
+  g.add(cilindro(0.02, 0.02, 0.9, NEGRO(), 0, 1.5, 0, 6));
+  const caja1 = caja(0.75, 0.75, 0.35, NEGRO(), 0, 2.0, 0);
+  g.add(caja1);
+  const frente = new THREE.Mesh(new THREE.PlaneGeometry(0.68, 0.68), new THREE.MeshBasicMaterial({ color: '#fff7e6', toneMapped: false }));
+  frente.position.set(0, 2.0, 0.18);
+  g.add(frente);
+  g.position.set(x, 0, z);
+  g.rotation.y = rotY;
+  return g;
+}
+function audifonos(x, y, z) {
+  const g = new THREE.Group();
+  const d = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.012, 6, 16, Math.PI), NEGRO());
+  g.add(d);
+  for (const lado of [-1, 1]) {
+    const c = cilindro(0.04, 0.04, 0.03, NEGRO(), lado * 0.09, 0, 0, 12);
+    c.rotation.z = Math.PI / 2;
+    g.add(c);
+  }
+  g.position.set(x, y, z);
+  g.rotation.x = -Math.PI / 2;
+  return g;
+}
+
+/** Lo que suma cada sala para verse viva (va al final de armarZona). */
+function detallesDe(tipo, g, W, D, color) {
+  const paleta = [color, '#f5f5f4', '#111827', '#fbbf24', '#38bdf8'];
+  if (tipo === 'coordinacion') {
+    g.add(caja(2.2, 0.75, 0.5, MADERA(), -W + 1.6, 0.37, -D + 0.75, { redondo: 0.02 }));
+    g.add(estantePared(-W + 1.6, 0.78, -D + 0.75));
+    g.add(cuadro(0.9, 1.2, -W + 0.17, 1.7, 0.6, paleta, Math.PI / 2));
+    g.add(papelera(W - 1.3, D - 1.3));
+    g.add(lamparaPie(W - 0.6, D - 2.4));
+  } else if (tipo === 'guion') {
+    g.add(lamparaPie(-W + 0.7, 0.8));
+    g.add(papelera(W - 0.8, 1.6));
+    g.add(cuadro(1.0, 0.7, W - 1.1, 2.3, -D + 0.14, paleta));
+    for (let k = 0; k < 5; k++) {
+      const hoja = caja(0.21, 0.004, 0.3, mat('#fafaf9', { rugoso: 0.95 }), -2 + Math.random() * 4, 0.022, 1.9 + Math.random() * 0.8, { sombra: false });
+      hoja.rotation.y = Math.random() * Math.PI;
+      g.add(hoja);
+    }
+  } else if (tipo === 'arte') {
+    g.add(lamparaPie(-W + 0.6, -D + 1.2, '#ffd6e8'));
+    g.add(papelera(W - 0.5, 0.4));
+    // la mesa de muestras: rollos de tela y frascos de pintura
+    g.add(caja(1.6, 0.7, 0.6, mat('#3a3c3f'), -W + 1.2, 0.35, D - 0.6));
+    for (let k = 0; k < 5; k++) g.add(cilindro(0.05, 0.05, 0.14, mat(['#f472b6', '#facc15', '#38bdf8', LIMA, '#fb923c'][k], { rugoso: 0.4 }), -W + 0.65 + k * 0.25, 0.77, D - 0.6, 10));
+  } else if (tipo === 'investigacion') {
+    g.add(archivador(-W + 0.5, D - 1.0));
+    g.add(archivador(-W + 1.05, D - 1.0));
+    g.add(impresora(-W + 2.1, D - 0.9));
+    g.add(papelera(W - 1.2, D - 0.7));
+  } else if (tipo === 'video') {
+    g.add(softbox(-W + 1.0, D - 1.0, 0.6));
+    g.add(papelera(W - 0.6, -0.2));
+    for (const x of [-2, 0]) g.add(audifonos(x + 0.55, 0.83, -0.05));
+    // los cables por el piso
+    for (let k = 0; k < 3; k++) {
+      const cable = new THREE.Mesh(new THREE.TorusGeometry(0.6 + k * 0.2, 0.012, 4, 24, Math.PI * 0.8), NEGRO());
+      cable.rotation.x = -Math.PI / 2;
+      cable.position.set(2.6, 0.02, 2.2);
+      g.add(cable);
+    }
+  } else if (tipo === 'calidad') {
+    g.add(pizarraBlanca(2.4, 1.3, 1.8, 1.7, -D + 0.16));
+    g.add(dispensador(W - 0.7, D - 1.0));
+    g.add(papelera(-W + 0.6, D - 0.7));
+    for (const x of [-2.8, 0, 2.4]) g.add(audifonos(x + 0.1, 0.83, 0.3));
+  } else if (tipo === 'edicion') {
+    g.add(estantePared(-1.6, 0.6, -D + 0.32));
+    g.add(cuadro(0.8, 1.0, W - 0.17, 1.6, -1.6, paleta, -Math.PI / 2));
+    g.add(papelera(2.4, 0.4));
+    // un sillón de lectura
+    const s = new THREE.Group();
+    const tela = mat('#7a9a1f', { rugoso: 0.9 });
+    s.add(caja(0.9, 0.42, 0.85, tela, 0, 0.28, 0, { redondo: 0.12 }));
+    s.add(caja(0.9, 0.65, 0.22, tela, 0, 0.65, -0.35, { redondo: 0.1 }));
+    s.position.set(-2.6, 0, 1.6);
+    s.rotation.y = 0.6;
+    g.add(s);
+  }
 }
 
 /** Una pared gris oscuro con una moldura de luz lima arriba. */
 function pared(w, h, x, z, { rotada = false, luz = true, color = '#2e3033' } = {}) {
   const g = new THREE.Group();
+  g.userData.muro = true;
   g.add(caja(w, h, 0.22, mat(color, { rugoso: 0.9 }), 0, h / 2, 0));
   if (luz) g.add(caja(w, 0.05, 0.05, neon(), 0, h - 0.06, 0.13, { sombra: false }));
   g.position.set(x, 0, z);
@@ -444,6 +663,7 @@ function pared(w, h, x, z, { rotada = false, luz = true, color = '#2e3033' } = {
 /** Un panel de vidrio con su marco negro. */
 function vidrio(w, h, x, z, { rotada = false } = {}) {
   const g = new THREE.Group();
+  g.userData.muro = true;
   g.add(caja(w, h, 0.05, mat('#a5c8c0', { opacidad: 0.16, rugoso: 0.05, metal: 0.2 }), 0, h / 2, 0, { sombra: false }));
   for (const px of [-w / 2, w / 2]) g.add(caja(0.08, h, 0.09, NEGRO(), px, h / 2, 0));
   g.add(caja(w, 0.08, 0.09, NEGRO(), 0, h, 0));
@@ -468,60 +688,248 @@ function nicho(x, y, z) {
 
 // ---------------------------------------------------------------- los agentes
 
+// (2026-11-19t) «que los muñecos tengan mejor forma y se diferencie si es hombre o mujer»: cuerpo con cadera, cintura,
+// pecho y hombros (torno), cuello, brazos y piernas con codo y rodilla, manos, zapatos, y una cara con ojos (que
+// parpadean), cejas, nariz, boca y orejas. Mujer: hombros más angostos, cintura marcada, pelo largo (suelto, cola o
+// moño), pestañas, labios y aretes. Hombre: hombros anchos, pelo corto (y barba en algunos), cinturón. Además, por
+// su trabajo: audífonos en Producción y lentes en Calidad e Investigación. `genero` lo elige el usuario.
+function torno(perfil, material) {
+  const m = new THREE.Mesh(new THREE.LatheGeometry(perfil.map(([r, y]) => new THREE.Vector2(r, y)), 28), material);
+  m.castShadow = true;
+  return m;
+}
+function capsula(r, largo, material, y) {
+  const m = new THREE.Mesh(new THREE.CapsuleGeometry(r, largo, 6, 14), material);
+  m.position.y = y;
+  m.castShadow = true;
+  return m;
+}
+const oscurecer = (hex, k) => `#${new THREE.Color(hex).multiplyScalar(k).getHexString()}`;
+
 function agente(datos, i) {
   const g = new THREE.Group();
+  const mujer = datos.genero !== 'hombre';
   const color = datos.color || '#94a3b8';
-  const piel = mat(PIELES[i % PIELES.length], { rugoso: 0.65 });
-  const ropa = mat(color, { rugoso: 0.55 });
-  const pantalon = mat('#1f2937', { rugoso: 0.8 });
+  const tonoPiel = PIELES[i % PIELES.length];
+  const piel = mat(tonoPiel, { rugoso: 0.6 });
+  const pielSombra = mat(oscurecer(tonoPiel, 0.85), { rugoso: 0.6 });
+  const ropa = mat(color, { rugoso: 0.6 });
+  const pantalon = mat(mujer ? ['#1f2937', '#3b2f4a', '#24324a'][i % 3] : ['#1f2937', '#2b3a4a', '#3a3328'][i % 3], { rugoso: 0.8 });
+  const zapato = mat(mujer ? '#2a1a14' : '#111316', { rugoso: 0.45 });
+  const pelo = mat(PELOS[i % PELOS.length], { rugoso: 0.85 });
   const partes = {};
-  // las piernas (giran desde la cadera)
+  const CADERA = 0.84;
+
+  // las piernas: cadera → muslo → rodilla → pantorrilla → zapato
   for (const lado of [-1, 1]) {
     const cadera = new THREE.Group();
-    cadera.position.set(lado * 0.13, 0.78, 0);
-    const pierna = new THREE.Mesh(new THREE.CapsuleGeometry(0.1, 0.5, 4, 10), pantalon);
-    pierna.position.y = -0.36;
-    pierna.castShadow = true;
-    cadera.add(pierna);
-    const zapato = caja(0.16, 0.08, 0.26, mat('#0f172a'), 0, -0.72, 0.05);
-    cadera.add(zapato);
+    cadera.position.set(lado * (mujer ? 0.105 : 0.115), CADERA, 0);
+    cadera.add(capsula(mujer ? 0.095 : 0.1, 0.3, pantalon, -0.2));
+    const rodilla = new THREE.Group();
+    rodilla.position.y = -0.42;
+    rodilla.add(capsula(mujer ? 0.075 : 0.082, 0.3, pantalon, -0.19));
+    const pie = caja(0.13, 0.08, 0.27, zapato, 0, -0.38, 0.05, { redondo: 0.035 });
+    rodilla.add(pie);
+    cadera.add(rodilla);
     g.add(cadera);
     partes[lado < 0 ? 'piernaI' : 'piernaD'] = cadera;
+    partes[lado < 0 ? 'rodillaI' : 'rodillaD'] = rodilla;
   }
-  const torso = new THREE.Mesh(new THREE.CapsuleGeometry(0.27, 0.5, 6, 16), ropa);
-  torso.position.y = 1.18;
-  torso.castShadow = true;
+
+  // el cuerpo (de la cadera a los hombros), con su forma
+  const perfil = mujer
+    ? [[0.001, 0], [0.205, 0.0], [0.225, 0.08], [0.2, 0.2], [0.17, 0.3], [0.2, 0.42], [0.215, 0.5], [0.19, 0.58], [0.12, 0.63], [0.001, 0.64]]
+    : [[0.001, 0], [0.2, 0.0], [0.21, 0.08], [0.215, 0.2], [0.225, 0.32], [0.255, 0.44], [0.27, 0.53], [0.24, 0.6], [0.13, 0.65], [0.001, 0.66]];
+  const torso = torno(perfil, ropa);
+  torso.position.y = CADERA - 0.04;
+  torso.scale.z = 0.72;
   g.add(torso);
   partes.torso = torso;
-  // los brazos (giran desde el hombro)
+  // la cintura del pantalón y, en los hombres, el cinturón
+  const cintura = torno([[0.001, 0], [0.21, 0], [0.215, 0.1], [0.001, 0.1]], pantalon);
+  cintura.position.y = CADERA - 0.06;
+  cintura.scale.z = 0.74;
+  g.add(cintura);
+  if (!mujer) {
+    const cinto = new THREE.Mesh(new THREE.TorusGeometry(0.212, 0.018, 6, 28), mat('#2a1d14', { rugoso: 0.5 }));
+    cinto.rotation.x = Math.PI / 2;
+    cinto.scale.y = 0.74;
+    cinto.position.y = CADERA + 0.04;
+    g.add(cinto);
+  }
+  // el cuello y el cuello de la camisa
+  g.add(cilindro(0.065, 0.075, 0.14, piel, 0, CADERA + 0.66, 0, 14));
+  const solapa = new THREE.Mesh(new THREE.TorusGeometry(0.085, 0.025, 8, 20), ropa);
+  solapa.rotation.x = Math.PI / 2;
+  solapa.position.y = CADERA + 0.6;
+  g.add(solapa);
+
+  // los brazos: hombro → brazo (manga) → codo → antebrazo → mano
+  const hombroX = mujer ? 0.215 : 0.275;
   for (const lado of [-1, 1]) {
     const hombro = new THREE.Group();
-    hombro.position.set(lado * 0.36, 1.42, 0);
-    const brazo = new THREE.Mesh(new THREE.CapsuleGeometry(0.08, 0.42, 4, 10), ropa);
-    brazo.position.y = -0.27;
-    brazo.castShadow = true;
-    hombro.add(brazo);
-    const mano = new THREE.Mesh(new THREE.SphereGeometry(0.085, 12, 10), piel);
-    mano.position.y = -0.55;
-    hombro.add(mano);
+    hombro.position.set(lado * hombroX, CADERA + 0.55, 0);
+    const bola = new THREE.Mesh(new THREE.SphereGeometry(mujer ? 0.066 : 0.078, 14, 10), ropa);
+    bola.position.x = -lado * 0.015;
+    bola.castShadow = true;
+    hombro.add(bola);
+    hombro.add(capsula(mujer ? 0.062 : 0.072, 0.2, ropa, -0.15));
+    const codo = new THREE.Group();
+    codo.position.y = -0.31;
+    codo.add(capsula(mujer ? 0.05 : 0.058, 0.2, piel, -0.13));
+    const mano = new THREE.Mesh(new THREE.SphereGeometry(mujer ? 0.055 : 0.062, 12, 10), piel);
+    mano.scale.set(0.85, 1.15, 0.7);
+    mano.position.y = -0.29;
+    codo.add(mano);
+    hombro.add(codo);
     g.add(hombro);
     partes[lado < 0 ? 'brazoI' : 'brazoD'] = hombro;
+    partes[lado < 0 ? 'codoI' : 'codoD'] = codo;
   }
+
+  // la cabeza
   const cabeza = new THREE.Group();
-  cabeza.position.y = 1.86;
-  const cara = new THREE.Mesh(new THREE.SphereGeometry(0.26, 24, 18), piel);
+  cabeza.position.y = CADERA + 0.93;
+  const R = mujer ? 0.2 : 0.21;
+  const cara = new THREE.Mesh(new THREE.SphereGeometry(R, 32, 24), piel);
+  cara.scale.set(0.95, 1.08, 1);
   cara.castShadow = true;
   cabeza.add(cara);
-  const pelo = new THREE.Mesh(new THREE.SphereGeometry(0.275, 24, 18, 0, Math.PI * 2, 0, Math.PI * 0.55), mat(PELOS[i % PELOS.length], { rugoso: 0.9 }));
-  pelo.rotation.x = -0.25;
-  cabeza.add(pelo);
+  // la quijada (más angulosa en los hombres)
+  const quijada = new THREE.Mesh(new THREE.SphereGeometry(R * 0.78, 20, 14), piel);
+  quijada.scale.set(mujer ? 0.92 : 1.02, 0.8, 0.95);
+  quijada.position.set(0, -R * 0.38, R * 0.08);
+  cabeza.add(quijada);
   for (const lado of [-1, 1]) {
-    const ojo = new THREE.Mesh(new THREE.SphereGeometry(0.035, 10, 8), mat('#111827'));
-    ojo.position.set(lado * 0.09, 0.03, 0.235);
+    const oreja = new THREE.Mesh(new THREE.SphereGeometry(0.045, 10, 8), pielSombra);
+    oreja.scale.set(0.5, 1, 0.8);
+    oreja.position.set(lado * R * 0.95, 0, 0);
+    cabeza.add(oreja);
+  }
+  // los ojos (blanco + iris), las cejas, la nariz y la boca
+  const blanco = mat('#f8fafc', { rugoso: 0.3 });
+  const iris = mat(['#3b2416', '#1d4ed8', '#14532d', '#111827'][i % 4], { rugoso: 0.2 });
+  partes.ojos = [];
+  for (const lado of [-1, 1]) {
+    const ojo = new THREE.Group();
+    ojo.position.set(lado * R * 0.38, R * 0.08, R * 0.86);
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.042, 14, 10), blanco);
+    b.scale.set(1.15, 1, 0.6);
+    ojo.add(b);
+    const n = new THREE.Mesh(new THREE.SphereGeometry(0.024, 12, 10), iris);
+    n.position.z = 0.022;
+    ojo.add(n);
+    const brillo = new THREE.Mesh(new THREE.SphereGeometry(0.007, 6, 6), new THREE.MeshBasicMaterial({ color: '#ffffff' }));
+    brillo.position.set(0.008, 0.01, 0.042);
+    ojo.add(brillo);
+    if (mujer) {
+      const pestana = caja(0.1, 0.014, 0.02, mat('#111111'), 0, 0.03, 0.012, { sombra: false });
+      pestana.rotation.z = lado * -0.12;
+      ojo.add(pestana);
+    }
     cabeza.add(ojo);
+    partes.ojos.push(ojo);
+    const ceja = caja(mujer ? 0.075 : 0.09, mujer ? 0.014 : 0.022, 0.02, pelo, lado * R * 0.38, R * 0.32, R * 0.9, { sombra: false });
+    ceja.rotation.z = lado * (mujer ? -0.18 : -0.08);
+    cabeza.add(ceja);
+  }
+  const nariz = new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 8), pielSombra);
+  nariz.scale.set(0.8, 1.1, 1.1);
+  nariz.position.set(0, -R * 0.12, R * 0.98);
+  cabeza.add(nariz);
+  const boca = new THREE.Mesh(new THREE.TorusGeometry(0.045, mujer ? 0.013 : 0.009, 6, 16, Math.PI), mat(mujer ? '#c2416b' : '#8b3a3a', { rugoso: 0.5 }));
+  boca.rotation.z = Math.PI;
+  boca.position.set(0, -R * 0.4, R * 0.9);
+  cabeza.add(boca);
+
+  // el pelo
+  const estilo = i % 3;
+  const casco = new THREE.Mesh(new THREE.SphereGeometry(R * 1.06, 32, 20, 0, Math.PI * 2, 0, Math.PI * (mujer ? 0.56 : 0.48)), pelo);
+  casco.rotation.x = -0.3;
+  casco.position.y = R * 0.05;
+  casco.castShadow = true;
+  cabeza.add(casco);
+  if (mujer) {
+    // atrás: pelo largo suelto, cola de caballo o moño
+    if (estilo === 0) {
+      const largo = new THREE.Mesh(new THREE.CapsuleGeometry(R * 0.9, 0.34, 8, 18), pelo);
+      largo.scale.z = 0.55;
+      largo.position.set(0, -R * 0.7, -R * 0.45);
+      largo.castShadow = true;
+      cabeza.add(largo);
+      for (const lado of [-1, 1]) {
+        const mecha = new THREE.Mesh(new THREE.CapsuleGeometry(0.06, 0.3, 6, 10), pelo);
+        mecha.position.set(lado * R * 0.88, -R * 0.55, -R * 0.05);
+        cabeza.add(mecha);
+      }
+    } else if (estilo === 1) {
+      const atado = new THREE.Mesh(new THREE.SphereGeometry(0.07, 12, 10), pelo);
+      atado.position.set(0, R * 0.25, -R * 1.0);
+      cabeza.add(atado);
+      const cola = new THREE.Mesh(new THREE.CapsuleGeometry(0.065, 0.3, 6, 12), pelo);
+      cola.position.set(0, -R * 0.45, -R * 1.12);
+      cola.rotation.x = 0.25;
+      cabeza.add(cola);
+      partes.cola = cola;
+    } else {
+      const mono = new THREE.Mesh(new THREE.SphereGeometry(0.11, 16, 12), pelo);
+      mono.position.set(0, R * 0.95, -R * 0.55);
+      cabeza.add(mono);
+      const atras = new THREE.Mesh(new THREE.SphereGeometry(R * 1.02, 24, 16, 0, Math.PI * 2, Math.PI * 0.4, Math.PI * 0.35), pelo);
+      atras.rotation.x = 0.5;
+      cabeza.add(atras);
+    }
+    // el flequillo de lado y los aretes
+    const fleco = new THREE.Mesh(new THREE.SphereGeometry(R * 0.6, 16, 10, 0, Math.PI * 2, 0, Math.PI * 0.4), pelo);
+    fleco.position.set(R * 0.25, R * 0.55, R * 0.45);
+    fleco.rotation.set(0.9, 0, -0.5);
+    cabeza.add(fleco);
+    for (const lado of [-1, 1]) {
+      const arete = new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 8), mat('#facc15', { metal: 0.9, rugoso: 0.2 }));
+      arete.position.set(lado * R * 0.98, -R * 0.32, 0);
+      cabeza.add(arete);
+    }
+  } else {
+    // corto: con copete o con raya, y barba en algunos
+    const copete = new THREE.Mesh(new THREE.SphereGeometry(R * 0.55, 16, 10), pelo);
+    copete.scale.set(1.5, 0.45, 0.9);
+    copete.position.set(estilo === 1 ? -R * 0.2 : 0, R * 0.82, R * 0.42);
+    copete.rotation.x = 0.3;
+    cabeza.add(copete);
+    for (const lado of [-1, 1]) {
+      const patilla = caja(0.03, 0.09, 0.07, pelo, lado * R * 0.93, -R * 0.05, R * 0.15, { sombra: false });
+      cabeza.add(patilla);
+    }
+    if (estilo === 2) {
+      const barba = new THREE.Mesh(new THREE.SphereGeometry(R * 0.8, 20, 12, 0, Math.PI * 2, Math.PI * 0.5, Math.PI * 0.5), pelo);
+      barba.scale.set(1.02, 0.9, 0.98);
+      barba.position.set(0, -R * 0.3, R * 0.1);
+      cabeza.add(barba);
+    }
+  }
+  // por su trabajo: audífonos (Producción) o lentes (Calidad, Investigación)
+  if (datos.id === 'video') {
+    const diadema = new THREE.Mesh(new THREE.TorusGeometry(R * 1.1, 0.018, 8, 28, Math.PI), mat('#111827', { metal: 0.5 }));
+    diadema.position.y = R * 0.1;
+    cabeza.add(diadema);
+    for (const lado of [-1, 1]) {
+      const copa = cilindro(0.07, 0.07, 0.06, mat('#111827', { metal: 0.4 }), lado * R * 1.08, R * 0.05, 0, 18);
+      copa.rotation.z = Math.PI / 2;
+      cabeza.add(copa);
+    }
+  }
+  if (datos.id === 'calidad' || datos.id === 'investigacion') {
+    const marco = mat('#111827', { metal: 0.6, rugoso: 0.3 });
+    for (const lado of [-1, 1]) {
+      const aro = new THREE.Mesh(new THREE.TorusGeometry(0.052, 0.009, 6, 20), marco);
+      aro.position.set(lado * R * 0.38, R * 0.08, R * 0.99);
+      cabeza.add(aro);
+    }
+    cabeza.add(caja(0.06, 0.012, 0.012, marco, 0, R * 0.1, R * 1.0, { sombra: false }));
   }
   g.add(cabeza);
   partes.cabeza = cabeza;
+
   // el anillo de estado en el piso
   const anillo = new THREE.Mesh(new THREE.RingGeometry(0.42, 0.55, 40), new THREE.MeshBasicMaterial({ color: '#64748b', transparent: true, opacity: 0.85, side: THREE.DoubleSide }));
   anillo.rotation.x = -Math.PI / 2;
@@ -534,7 +942,7 @@ function agente(datos, i) {
   alerta.visible = false;
   g.add(alerta);
   partes.alerta = alerta;
-  g.userData = { id: datos.id, partes, fase: i * 1.7 };
+  g.userData = { id: datos.id, partes, fase: i * 1.7, parpadeo: 2 + Math.random() * 3 };
   g.traverse((o) => (o.userData.agente = datos.id));
   return g;
 }
@@ -589,8 +997,11 @@ function armarZona(id, tipoSala, z, color, nombre, ctx) {
 
   if (tipo === 'coordinacion') {
     // la sala de reuniones de vidrio: pared de listones con el logo, mesa larga, televisor con las ventas y el reloj
-    g.add(caja(z.w, 3.2, 0.25, mat('#1b1c1d', { rugoso: 0.8 }), 0, 1.6, -D));
-    for (let i = 0; i < 26; i++) g.add(caja(0.12, 3.1, 0.12, mat('#2c2e30', { rugoso: 0.7 }), -W + 0.25 + i * 0.38, 1.6, -D + 0.18));
+    const listones = new THREE.Group();
+    listones.userData.muro = true;
+    listones.add(caja(z.w, 3.2, 0.25, mat('#1b1c1d', { rugoso: 0.8 }), 0, 1.6, -D));
+    for (let i = 0; i < 24; i++) listones.add(caja(0.12, 3.1, 0.12, mat('#2c2e30', { rugoso: 0.7 }), -W + 0.25 + i * 0.38, 1.6, -D + 0.18));
+    g.add(listones);
     const logo = new THREE.Mesh(new RoundedBoxGeometry(1.7, 1.7, 0.18, 3, 0.25), [NEGRO(), NEGRO(), NEGRO(), NEGRO(), new THREE.MeshBasicMaterial({ map: texturaLogo(), toneMapped: false }), NEGRO()]);
     logo.position.set(-W + 1.6, 1.8, -D + 0.38);
     g.add(logo);
@@ -848,7 +1259,9 @@ function armarZona(id, tipoSala, z, color, nombre, ctx) {
     g.add(holo);
     animados.push(holo);
   }
+  detallesDe(tipo, g, W, D, color);
   g.position.set(z.x, 0, z.z);
+  g.userData.zona = true;
   return { grupo: g, asiento };
 }
 
@@ -1129,6 +1542,63 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
     cafe ||= { punto: new THREE.Vector3(geoCafe.x, 0, geoCafe.z), boca: new THREE.Vector3(geoCafe.x, -5, geoCafe.z) };
     sala ||= { punto: new THREE.Vector3(0, 0, 9) };
     escena.add(armarCentro(animados));
+    escena.add(dispensador(-8.4, -4.6));
+    escena.add(papelera(-7.8, -4.5));
+    for (const [x, z, r] of [[8.4, 4.6, Math.PI], [-8.4, 4.8, Math.PI]]) {
+      const banca = new THREE.Group();
+      banca.add(caja(1.8, 0.08, 0.5, MADERA(), 0, 0.45, 0, { redondo: 0.02 }));
+      for (const px of [-0.75, 0.75]) banca.add(caja(0.06, 0.45, 0.45, NEGRO(), px, 0.22, 0));
+      banca.position.set(x, 0, z);
+      banca.rotation.y = r;
+      escena.add(banca);
+    }
+
+    // (2026-11-19t) «que se vean bien desde cualquier vista»: las paredes (y los vidrios) que quedan entre la cámara y
+    // su sala se vuelven casi transparentes, como en una casa de muñecas; las del fondo siguen sólidas.
+    const muros = [];
+    escena.updateMatrixWorld(true);
+    escena.traverse((o) => {
+      if (!o.userData?.muro) return;
+      const caja3 = new THREE.Box3().setFromObject(o);
+      const pos = caja3.getCenter(new THREE.Vector3());
+      let centro = new THREE.Vector3(0, 0, zCentro);
+      for (let x = o.parent; x; x = x.parent) if (x.userData?.zona) { centro = x.position.clone(); break; }
+      const mallas = [];
+      o.traverse((m) => {
+        if (!m.isMesh) return;
+        m.material = m.material.clone();
+        m.userData.op0 = m.material.transparent ? m.material.opacity : 1;
+        m.userData.dw0 = m.material.depthWrite;
+        mallas.push(m);
+      });
+      muros.push({ pos, centro, mallas, f: 1 });
+    });
+    const desvanecerMuros = (dt) => {
+      const alto = Math.atan2(camara.position.y - 0, Math.hypot(camara.position.x - controles.target.x, camara.position.z - controles.target.z));
+      for (const w of muros) {
+        const dx = w.pos.x - w.centro.x;
+        const dz = w.pos.z - w.centro.z;
+        const cx = camara.position.x - w.centro.x;
+        const cz = camara.position.z - w.centro.z;
+        const lw = Math.hypot(dx, dz) || 1;
+        const lc = Math.hypot(cx, cz) || 1;
+        // la pared está del lado de la cámara (y la cámara no mira casi desde arriba)
+        const tapa = (dx * cx + dz * cz) / (lw * lc) > 0.25 && alto < 1.25;
+        const meta = tapa ? 0.12 : 1;
+        if (Math.abs(w.f - meta) < 0.005) continue;
+        w.f += (meta - w.f) * Math.min(1, dt * 6);
+        for (const m of w.mallas) {
+          m.material.opacity = m.userData.op0 * w.f;
+          const transparente = w.f < 0.99 || m.userData.op0 < 1;
+          if (m.material.transparent !== transparente) {
+            m.material.transparent = transparente;
+            m.material.needsUpdate = true;
+          }
+          m.material.depthWrite = w.f > 0.99 ? m.userData.dw0 : false;
+          m.castShadow = w.f > 0.5;
+        }
+      }
+    };
     // plantas grandes en las esquinas y los pasillos
     for (const [x, z, e] of [[-ANCHO / 2 + 0.9, -1.8, 1.4], [ANCHO / 2 - 0.9, -4.6, 1.3], [-6.8, 5.2, 1.2], [6.8, 5.4, 1.2], [8.6, -5.4, 1.1], [-8.6, -5.0, 1.0], [ANCHO / 2 - 0.9, 6.4, 1.3]]) {
       const p = planta(x, z, e);
@@ -1186,6 +1656,8 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
       personajes.set(a.id, { g, el, destino: null, espera: Math.random() * 3 });
     });
 
+    // (para las capturas de prueba: mover la cámara desde fuera)
+    raiz.__o3 = { camara, controles, personajes, THREE };
     const rayos = new THREE.Raycaster();
     const puntero = new THREE.Vector2();
     const alTocar = (e) => {
@@ -1342,10 +1814,13 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
             g.rotation.y = Math.atan2(tmp.x - g.position.x, tmp.z - g.position.z);
           } else {
             g.rotation.y = THREE.MathUtils.lerp(g.rotation.y, Math.PI, dt * 6);
-            g.position.y = -0.32; // sentado
-            partes.piernaI.rotation.x = partes.piernaD.rotation.x = -1.35;
-            partes.brazoI.rotation.x = -1.2 + Math.sin(t * 14 + fase) * 0.12;
-            partes.brazoD.rotation.x = -1.2 + Math.sin(t * 14 + fase + 1.6) * 0.12;
+            g.position.y = -0.27; // sentado: muslos adelante, pantorrillas abajo
+            partes.piernaI.rotation.x = partes.piernaD.rotation.x = -1.5;
+            partes.rodillaI.rotation.x = partes.rodillaD.rotation.x = 1.45;
+            // escribiendo: los brazos hacia el teclado y los codos doblados
+            partes.brazoI.rotation.set(-0.55 + Math.sin(t * 14 + fase) * 0.06, 0, 0.12);
+            partes.brazoD.rotation.set(-0.55 + Math.sin(t * 14 + fase + 1.6) * 0.06, 0, -0.12);
+            partes.codoI.rotation.x = partes.codoD.rotation.x = -0.95;
             partes.cabeza.rotation.x = 0.12 + Math.sin(t * 2 + fase) * 0.04;
           }
         } else if (a.estado === 'te-necesita') {
@@ -1359,9 +1834,11 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
             g.rotation.y = THREE.MathUtils.lerp(g.rotation.y, 0.5, dt * 5);
             g.position.y = Math.abs(Math.sin(t * 4 + fase)) * 0.12;
             partes.piernaI.rotation.x = partes.piernaD.rotation.x = 0;
-            partes.brazoD.rotation.x = -2.8;
-            partes.brazoD.rotation.z = Math.sin(t * 8 + fase) * 0.5;
-            partes.brazoI.rotation.x = 0;
+            partes.rodillaI.rotation.x = partes.rodillaD.rotation.x = 0;
+            partes.brazoD.rotation.set(-2.75, 0, Math.sin(t * 8 + fase) * 0.45);
+            partes.codoD.rotation.x = -0.35;
+            partes.brazoI.rotation.set(0, 0, 0.08);
+            partes.codoI.rotation.x = 0;
             partes.cabeza.rotation.x = 0;
           }
           partes.alerta.position.y = 2.55 + Math.sin(t * 5) * 0.1;
@@ -1395,23 +1872,33 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
         if (a.estado !== 'trabajando') {
           if (andando) {
             g.position.y = Math.abs(Math.sin(t * 9 + fase)) * 0.05;
-            partes.piernaI.rotation.x = Math.sin(t * 9 + fase) * 0.6;
-            partes.piernaD.rotation.x = -Math.sin(t * 9 + fase) * 0.6;
+            partes.piernaI.rotation.x = Math.sin(t * 9 + fase) * 0.55;
+            partes.piernaD.rotation.x = -Math.sin(t * 9 + fase) * 0.55;
+            partes.rodillaI.rotation.x = Math.max(0, -Math.sin(t * 9 + fase)) * 0.7;
+            partes.rodillaD.rotation.x = Math.max(0, Math.sin(t * 9 + fase)) * 0.7;
             if (a.estado !== 'te-necesita') {
-              partes.brazoI.rotation.x = -Math.sin(t * 9 + fase) * 0.5;
-              partes.brazoD.rotation.x = Math.sin(t * 9 + fase) * 0.5;
-              partes.brazoD.rotation.z = 0;
+              partes.brazoI.rotation.set(-Math.sin(t * 9 + fase) * 0.45, 0, 0.06);
+              partes.brazoD.rotation.set(Math.sin(t * 9 + fase) * 0.45, 0, -0.06);
+              partes.codoI.rotation.x = partes.codoD.rotation.x = -0.25;
             }
           } else if (a.estado === 'libre') {
             g.position.y = 0;
             partes.piernaI.rotation.x = partes.piernaD.rotation.x = 0;
-            partes.brazoI.rotation.x = Math.sin(t * 1.5 + fase) * 0.05;
-            partes.brazoD.rotation.x = -Math.sin(t * 1.5 + fase) * 0.05;
+            partes.rodillaI.rotation.x = partes.rodillaD.rotation.x = 0;
+            partes.brazoI.rotation.set(Math.sin(t * 1.5 + fase) * 0.05, 0, 0.07);
+            partes.brazoD.rotation.set(-Math.sin(t * 1.5 + fase) * 0.05, 0, -0.07);
+            partes.codoI.rotation.x = partes.codoD.rotation.x = -0.12;
             partes.cabeza.rotation.y = Math.sin(t * 0.7 + fase) * 0.4;
           }
         }
         // la respiración
         partes.torso.scale.y = 1 + Math.sin(t * 2.4 + fase) * 0.015;
+        // el parpadeo (cada pocos segundos) y la cola de caballo que se mueve
+        p.g.userData.parpadeo -= dt;
+        const cerrado = p.g.userData.parpadeo < 0.12;
+        for (const ojo of partes.ojos || []) ojo.scale.y = cerrado ? 0.1 : 1;
+        if (p.g.userData.parpadeo < 0) p.g.userData.parpadeo = 2.5 + Math.random() * 3.5;
+        if (partes.cola) partes.cola.rotation.z = Math.sin(t * 3 + fase) * (andando ? 0.25 : 0.06);
       }
 
       // los paquetes: de la coordinadora a quien trabaja
@@ -1483,6 +1970,7 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
         if (camara.position.distanceTo(controles.userData.hacia) < 0.3) controles.userData = {};
       }
       controles.update();
+      desvanecerMuros(dt);
       renderer.render(escena, camara);
       etiquetas.render(escena, camara);
     };
@@ -1511,7 +1999,7 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
     };
     // (la escena se arma una vez con los agentes que hay; los cambios de estado se leen en cada cuadro)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [(agentes || []).map((a) => a.id).join(','), (zonas || []).map((z) => `${z.id}:${z.lugar}:${z.tipo}:${z.color}:${z.nombre}`).join('|')]);
+  }, [(agentes || []).map((a) => `${a.id}:${a.genero}`).join(','), (zonas || []).map((z) => `${z.id}:${z.lugar}:${z.tipo}:${z.color}:${z.nombre}`).join('|')]);
 
   return <div className="o3" ref={caja3d} />;
 }

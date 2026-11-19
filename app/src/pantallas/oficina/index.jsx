@@ -123,7 +123,7 @@ function Nombres({ abierto, datos, onCerrar, primera }) {
   useEffect(() => {
     if (!abierto || !datos) return;
     setNombreOficina(datos.nombre === 'Tu oficina' ? '' : datos.nombre);
-    setAgentes(Object.fromEntries(datos.agentes.map((a) => [a.id, { nombre: a.nombre, avatar: a.avatar }])));
+    setAgentes(Object.fromEntries(datos.agentes.map((a) => [a.id, { nombre: a.nombre, avatar: a.avatar, genero: a.genero }])));
   }, [abierto, datos]);
   const guardar = async () => {
     setGuardando(true);
@@ -153,6 +153,13 @@ function Nombres({ abierto, datos, onCerrar, primera }) {
                 <div className="of-nombres__textos">
                   <span className="of-nombres__rol">{a.rol}</span>
                   <CampoTexto aria-label={`Nombre de ${a.rol}`} maxLength={40} value={x.nombre ?? ''} onChange={(e) => setAgentes((s) => ({ ...s, [a.id]: { ...s[a.id], nombre: e.target.value } }))} />
+                  <span className="of-nombres__genero" role="group" aria-label={`Cómo se ve ${a.rol}`}>
+                    {[['mujer', 'Mujer'], ['hombre', 'Hombre']].map(([g, t]) => (
+                      <button key={g} type="button" className={(x.genero || a.genero) === g ? 'of-genero of-genero--activo' : 'of-genero'} aria-pressed={(x.genero || a.genero) === g} onClick={() => setAgentes((s) => ({ ...s, [a.id]: { ...s[a.id], genero: g } }))}>
+                        {t}
+                      </button>
+                    ))}
+                  </span>
                   <span className="of-nombres__hace">{a.hace}</span>
                 </div>
                 {eligiendo === a.id ? (
