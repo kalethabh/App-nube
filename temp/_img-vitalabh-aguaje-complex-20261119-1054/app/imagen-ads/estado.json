@@ -298,7 +298,7 @@
         "version": 1,
         "trabajo": "T006"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -322,7 +322,7 @@
         "version": 1,
         "trabajo": "T007"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,

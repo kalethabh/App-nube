@@ -1,11 +1,12 @@
 {
-  "pid": 26130,
-  "paso": "montaje",
-  "script": "planear-montaje.js",
+  "pid": 26461,
+  "paso": "render",
+  "script": "ensamblar.js",
   "args": [
-    "temp/aguaje-complex-3-en-1-agregar-20261119-1208"
+    "temp/aguaje-complex-3-en-1-agregar-20261119-1208",
+    "--solo-completa"
   ],
-  "comando": "node produccion/planear-montaje.js temp/aguaje-complex-3-en-1-agregar-20261119-1208",
-  "inicio": "2026-11-19T19:05:15.572Z",
+  "comando": "node produccion/ensamblar.js temp/aguaje-complex-3-en-1-agregar-20261119-1208 --solo-completa",
+  "inicio": "2026-11-19T19:07:05.740Z",
   "app": 24060
 }

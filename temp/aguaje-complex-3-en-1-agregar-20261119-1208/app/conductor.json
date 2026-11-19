@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261119-1208",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "montaje",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -66,15 +66,25 @@
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-19T19:04:14.780Z"
+      "inicio": "2026-11-19T19:04:14.780Z",
+      "fin": "2026-11-19T19:07:05.721Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-19T19:07:05.728Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 1,
+        "total": 1773,
+        "restante": 10321,
+        "en": "2026-11-19T19:07:31.612Z"
+      }
     },
     {
       "id": "control-final",
@@ -99,7 +109,7 @@
   "modoPrueba": false,
   "creado": "2026-11-19T18:48:32.604Z",
   "aprobado": "2026-11-19T18:48:32.604Z",
-  "actualizado": "2026-11-19T19:04:14.780Z",
+  "actualizado": "2026-11-19T19:07:31.612Z",
   "saldoInicial": {
     "creditos": 2628.1,
     "fecha": "2026-11-19T18:48:33.539Z"
