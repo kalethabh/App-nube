@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19s · Editar y regenerar las escenas de apoyo
+
+- En el guion, cada **imagen de apoyo** (B-roll) tiene ahora **«Editar»** y **«Otra escena»**. Con «Editar» escribes la escena como la quieres; con el ✨ tu IA te propone otra escena distinta (con su cámara), en segundos y sin gastar. Al tocar **Guardar**, tu IA rehace la imagen y el video de esa escena de apoyo para mostrar eso, sin cambiar dónde entra ni cuánto dura.
+- También funciona dentro de «Editar a mano», junto con los textos de cada parte. Los videos tuyos (los que subiste) no se tocan.
+
 ## 2026-11-19r · Oficina con tu diseño, a tu medida, y una coordinadora que te escucha
 
 - **La oficina en 3D con el diseño que mandaste**: planta abierta de noche con piso de madera cálida, el logo K al centro sobre una jardinera con luz verde, líneas de neón en el piso, sala de reuniones de vidrio con la pared de listones, biblioteca, pared de datos con el mapa y las gráficas, estudio de video con aro de luz y cámara, zona de revisión, oficina de vidrio, barra de café con taburetes y sala de estar con sofá y sillones verdes. Plantas por todas partes.

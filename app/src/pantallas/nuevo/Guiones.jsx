@@ -244,19 +244,60 @@ function PlanDelPedido({ plan }) {
 // (2026-11-19k) «así como el podcast, las escenas B-roll también deben ser detalladas»: cada imagen de apoyo con lo que
 // se ve (2 o 3 frases, muy visual), la cámara y dónde entra. Va debajo de su escena (o al final, en el podcast).
 
-function BrollDelGuion({ b, conDonde = false }) {
+// (2026-11-19s) «que me permita regenerar y poder editar las escenas de apoyo»: en «Editar a mano» cada una tiene su
+// cuadro y su ✨ (otra escena de la IA); fuera de él, «Editar» y «Otra escena» la abren ahí. Al guardar, la IA rehace
+// los prompts de imagen y de video de ese B-roll para mostrar la escena nueva (sin cambiar dónde entra ni su duración).
+function BrollDelGuion({ b, conDonde = false, edicion = null, acciones = null }) {
   const donde = b.encima ? `encima de la parte ${b.encima}` : b.despues ? `después de la parte ${b.despues}` : '';
+  const editable = Boolean(edicion) && !b.tuyo;
+  const generando = editable && edicion.generando(b.n);
   return (
-    <div className="nv-broll">
+    <div className={`nv-broll${editable ? ' nv-broll--editando' : ''}`}>
       <span className="nv-broll__etiqueta">
         <Film size={12} strokeWidth={2.2} aria-hidden="true" /> Imagen de apoyo {b.n}
         {b.tuyo ? ' · tu video' : ''}
         {conDonde && donde ? ` · ${donde}` : ''}
         {b.segundos ? ` · ${String(b.segundos).replace('.', ',')} s` : ''}
+        {acciones && !b.tuyo && !edicion ? (
+          <span className="nv-broll__acciones">
+            <button type="button" className="nv-broll__boton" onClick={() => acciones.editar(b.n)} aria-label={`Editar la imagen de apoyo ${b.n}`}>
+              <PenLine size={12} strokeWidth={2.2} aria-hidden="true" /> Editar
+            </button>
+            <button type="button" className="nv-broll__boton" onClick={() => acciones.regenerar(b.n)} aria-label={`Otra escena para la imagen de apoyo ${b.n}`}>
+              <Sparkles size={12} strokeWidth={2.2} aria-hidden="true" /> Otra escena
+            </button>
+          </span>
+        ) : null}
       </span>
       {b.con ? <span className="nv-broll__con">Con «{b.con}»</span> : null}
-      {b.se_ve ? <p className="nv-broll__se-ve">{b.se_ve}</p> : <p className="nv-broll__se-ve nv-broll__se-ve--sin">La escena la arma la IA al producir.</p>}
-      {b.camara ? <span className="nv-broll__camara">🎥 {b.camara}</span> : null}
+      {editable ? (
+        <div className="nv-broll__editar">
+          <AreaTexto
+            aria-label={`Lo que se ve en la imagen de apoyo ${b.n}`}
+            filas={3}
+            maxLength={700}
+            value={edicion.valor(b)}
+            placeholder="Escribe la escena: qué se ve, quién, dónde, la luz y lo que pasa…"
+            onChange={(e) => edicion.cambiar(b.n, e.target.value)}
+            disabled={edicion.guardando || generando}
+          />
+          <button
+            type="button"
+            className={`nv-linea__regenerar${generando ? ' nv-linea__regenerar--girando' : ''}`}
+            onClick={() => edicion.generar(b.n)}
+            disabled={edicion.guardando || generando}
+            title="Regenerar con IA: otra escena para esta imagen de apoyo"
+            aria-label={`Regenerar con IA la imagen de apoyo ${b.n}`}
+          >
+            {generando ? <LoaderCircle size={15} strokeWidth={2.2} aria-hidden="true" /> : <Sparkles size={15} strokeWidth={2.2} aria-hidden="true" />}
+          </button>
+        </div>
+      ) : b.se_ve ? (
+        <p className="nv-broll__se-ve">{b.se_ve}</p>
+      ) : (
+        <p className="nv-broll__se-ve nv-broll__se-ve--sin">La escena la arma la IA al producir.</p>
+      )}
+      {editable && edicion.camara(b) ? <span className="nv-broll__camara">🎥 {edicion.camara(b)}</span> : !editable && b.camara ? <span className="nv-broll__camara">🎥 {b.camara}</span> : null}
     </div>
   );
 }
@@ -419,7 +460,7 @@ function ParteNueva({ x, guardando, generando, escribiendo = false, onCambiar, o
   );
 }
 
-function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null, onRegenerarLinea = null, onSeVe = null, onLineaNueva = null }) {
+function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuidad = false, onGuardarLineas = null, onRegenerarLinea = null, onSeVe = null, onLineaNueva = null, onEscenaBroll = null }) {
   const [todas, setTodas] = useState(false);
   // editar a mano lo que se dice (cada parte en su cuadro); se guarda todo junto
   const [editando, setEditando] = useState(false);
@@ -430,6 +471,10 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
   const [vistas, setVistas] = useState({});
   const [generandoVistas, setGenerandoVistas] = useState({});
   const [nuevas, setNuevas] = useState([]); // [{ id, despuesDe, dice, se_ve }]
+  // las imágenes de apoyo (B-roll): lo que se ve (y la cámara que trae la ✨), por número
+  const [brollVals, setBrollVals] = useState({});
+  const [brollCamaras, setBrollCamaras] = useState({});
+  const [generandoBroll, setGenerandoBroll] = useState({});
   const pedidoVista = useRef({});
   const original = (n) => (guion?.partes || []).find((x) => String(x.n) === String(n));
   const generarVista = async (clave, donde, dice) => {
@@ -483,9 +528,38 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
     setValores({});
     setVistas({});
     setNuevas([]);
+    setBrollVals({});
+    setBrollCamaras({});
     setEditando(true);
     setTodas(true);
   };
+  const brollOriginal = (n) => (Array.isArray(guion?.broll) ? guion.broll : []).find((b) => b?.n === n);
+  const generarBroll = async (n) => {
+    if (!onEscenaBroll || generandoBroll[n]) return;
+    setGenerandoBroll((x) => ({ ...x, [n]: true }));
+    try {
+      const r = await onEscenaBroll(n, brollVals[n] ?? brollOriginal(n)?.se_ve ?? '');
+      if (r?.se_ve) {
+        setBrollVals((x) => ({ ...x, [n]: r.se_ve }));
+        if (r.camara) setBrollCamaras((x) => ({ ...x, [n]: r.camara }));
+      }
+    } finally {
+      setGenerandoBroll((x) => ({ ...x, [n]: false }));
+    }
+  };
+  // fuera de «Editar a mano»: «Editar» y «Otra escena» abren la edición (y la ✨ pide la escena enseguida)
+  const accionesBroll = onGuardarLineas && !cambiando && !editando ? { editar: () => empezar(), regenerar: (n) => { empezar(); generarBroll(n); } } : null;
+  const brollCambiados = Object.entries(brollVals).filter(([n, v]) => v.trim() && v.trim() !== String(brollOriginal(Number(n))?.se_ve || '').trim());
+  const edicionBroll = editando
+    ? {
+        valor: (b) => brollVals[b.n] ?? b.se_ve ?? '',
+        cambiar: (n, v) => setBrollVals((x) => ({ ...x, [n]: v })),
+        camara: (b) => brollCamaras[b.n] ?? b.camara ?? '',
+        generar: onEscenaBroll ? generarBroll : () => {},
+        generando: (n) => Boolean(generandoBroll[n]),
+        guardando,
+      }
+    : null;
   const guardar = async () => {
     const lineas = [
       ...[...new Set([...Object.keys(valores), ...Object.keys(vistas)])].map((n) => ({ n: Number(n), dice: valores[n] ?? original(n)?.dice ?? '', ...(vistas[n] !== undefined ? { se_ve: vistas[n] } : {}) })),
@@ -493,7 +567,7 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
     ];
     setGuardando(true);
     try {
-      const ok = await onGuardarLineas?.(lineas);
+      const ok = await onGuardarLineas?.(lineas, brollCambiados.map(([n, v]) => ({ n: Number(n), se_ve: v.trim() })));
       if (ok !== false) setEditando(false);
     } finally {
       setGuardando(false);
@@ -518,7 +592,7 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
     new Set([
       ...Object.entries(valores).filter(([n, v]) => v !== original(n)?.dice).map(([n]) => n),
       ...Object.entries(vistas).filter(([n, v]) => v.trim() && v.trim() !== String(original(n)?.se_ve || '').trim()).map(([n]) => n),
-    ]).size + nuevas.filter((x) => x.dice.trim()).length;
+    ]).size + nuevas.filter((x) => x.dice.trim()).length + brollCambiados.length;
   const partes = Array.isArray(guion?.partes) ? guion.partes.filter((p) => p && String(p.dice || '').trim()) : [];
   const mostradas = todas || partes.length <= LARGO_SIN_PLEGAR ? partes : partes.slice(0, VISIBLES);
   const faltan = partes.length - mostradas.length;
@@ -570,7 +644,7 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
             <div className="nv-editar-mano">
               {editando ? (
                 <>
-                  <span className="t-chico t-2">{tocadas ? `${tocadas} ${tocadas === 1 ? 'parte cambiada' : 'partes cambiadas'}` : 'Toca un texto y escríbelo como lo quieres.'}</span>
+                  <span className="t-chico t-2">{tocadas ? `${tocadas} ${tocadas === 1 ? 'cambio' : 'cambios'}` : 'Toca un texto o una escena de apoyo y escríbelo como lo quieres.'}</span>
                   <div className="fila" style={{ '--hueco': '6px' }}>
                     <Boton variante="fantasma" tamano="chico" onClick={() => setEditando(false)} disabled={guardando}>
                       Cancelar
@@ -608,7 +682,7 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
                         <li key={`broll-${b.n}`} className="nv-linea nv-linea--broll">
                           <div className="nv-linea__marca" />
                           <div className="nv-linea__dice">
-                            <BrollDelGuion b={b} />
+                            <BrollDelGuion b={b} edicion={edicionBroll} acciones={accionesBroll} />
                           </div>
                         </li>
                       ))
@@ -645,7 +719,7 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
                 <Film size={14} strokeWidth={2.2} aria-hidden="true" /> {brollSuelto.length === 1 ? 'La imagen de apoyo' : `Las ${brollSuelto.length} imágenes de apoyo`}
               </h4>
               {brollSuelto.map((b) => (
-                <BrollDelGuion key={b.n} b={b} conDonde={brollEnLinea} />
+                <BrollDelGuion key={b.n} b={b} conDonde={brollEnLinea} edicion={edicionBroll} acciones={accionesBroll} />
               ))}
             </div>
           ) : null}
@@ -1022,6 +1096,16 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
     }
   };
 
+  // ✨ otra escena para una imagen de apoyo (no guarda: se guarda con «Guardar»)
+  const escenaBroll = async (n, actual) => {
+    try {
+      return await apiNuevo.escenaBroll(slug, n, actual);
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude escribir otra escena', texto: e?.message || 'Escríbela tú o vuelve a intentarlo.', duracion: 9000 });
+      return null;
+    }
+  };
+
   // lo que se ve (debajo de lo que escribiste): lo escribe la IA en segundos; no guarda (se guarda con «Guardar»)
   const seVe = async (donde, dice) => {
     try {
@@ -1034,9 +1118,9 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
   };
 
   // editar a mano: con narrador se aplica al instante (gratis); si alguien habla en el video, lo ajusta la IA
-  const guardarLineas = async (lineas) => {
+  const guardarLineas = async (lineas, broll = []) => {
     try {
-      const r = await apiNuevo.editarLineas(slug, lineas);
+      const r = await apiNuevo.editarLineas(slug, lineas, broll);
       if (r?.conIA) {
         setUltimoPedido('Tus textos, tal cual: ajustando las escenas, los tiempos y el video de esas partes');
         seguirMirando();
@@ -1202,7 +1286,7 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
       ) : tipo === 'historia' ? (
         <HojaHistoria estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} />
       ) : (
-        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} onRegenerarLinea={listo ? regenerarLinea : null} onSeVe={listo ? seVe : null} onLineaNueva={listo ? lineaNueva : null} />
+        <HojaGuion estilo={estilo} ajuste={ajuste} guion={mostrarHoja ? leido.guion : null} encima={encima} cambiando={escribiendo && enCambio} continuidad={continuidad} onGuardarLineas={listo ? guardarLineas : null} onRegenerarLinea={listo ? regenerarLinea : null} onSeVe={listo ? seVe : null} onLineaNueva={listo ? lineaNueva : null} onEscenaBroll={listo ? escenaBroll : null} />
       )}
       <aside className="nv-guion__lado" ref={lateral}>
         {leido.aprobado || cargando ? null : (

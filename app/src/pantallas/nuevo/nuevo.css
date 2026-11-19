@@ -2978,3 +2978,11 @@
 .nv-broll__se-ve--sin { color: var(--texto-3); font-style: italic; }
 .nv-broll__camara { font-size: var(--t-mini, 12px); color: var(--texto-3); }
 .nv-linea--broll { padding-top: 0; }
+/* (2026-11-19s) editar y regenerar las imágenes de apoyo */
+.nv-broll__acciones { margin-left: auto; display: inline-flex; gap: 4px; }
+.nv-broll__boton { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--borde-2); background: none; color: var(--texto-2); font: inherit; font-size: 11.5px; font-weight: 600; cursor: pointer; }
+.nv-broll__boton:hover { color: var(--texto-1); border-color: var(--acento, #a3e635); }
+.nv-broll__etiqueta { width: 100%; }
+.nv-broll--editando { border-style: solid; border-color: color-mix(in srgb, var(--acento, #a3e635) 45%, var(--borde-2)); }
+.nv-broll__editar { position: relative; display: flex; gap: 6px; align-items: flex-start; }
+.nv-broll__editar > :first-child { flex: 1; }

@@ -1083,6 +1083,13 @@ async function producirAnuncio({ pedir, check, aviso, salio, t0 }) {
   check('Editar a mano: parte nueva después de una que no existe (404)', r.st === 404, r);
   r = await pedir(`/api/anuncios/${slug}/guion/se-ve`, { json: { n: 1, dice: '   ' } });
   check('Editar a mano: sin texto, «lo que se ve» no se pide (400)', r.st === 400, r);
+  // (2026-11-19s) las imágenes de apoyo: ✨ otra escena (no guarda) y, si no cambiaron, no se le pide nada a la IA
+  r = await pedir(`/api/anuncios/${slug}/guion/broll-escena`, { json: { n: 1, idea: 'con la abuela' } });
+  check('Imagen de apoyo: ✨ otra escena, con su cámara y lo que pediste (sin guardar)', r.st === 200 && /Escena de apoyo de prueba 1: con la abuela/.test(r.datos?.se_ve || '') && /plano/.test(r.datos?.camara || '') && /taza de té/.test((await pedir(`/api/anuncios/${slug}/guion`)).datos?.guion?.broll?.[0]?.se_ve || ''), r);
+  r = await pedir(`/api/anuncios/${slug}/guion/broll-escena`, { json: { n: 99 } });
+  check('Imagen de apoyo que no existe: 404', r.st === 404, r);
+  r = await pedir(`/api/anuncios/${slug}/guion/lineas`, { metodo: 'PUT', json: { lineas: [], broll: [{ n: 1, se_ve: (guion?.guion?.broll || [])[0]?.se_ve }, { n: 99, se_ve: 'otra' }] } });
+  check('Imagen de apoyo sin cambios (o una que no existe): no se le pide nada a la IA', r.st === 200 && r.datos?.directo && r.datos?.cambiadas === 0 && (await pedir(`/api/anuncios/${slug}/guion`)).datos?.estado === 'listo', r);
   r = await pedir(`/api/anuncios/${slug}/guion/lineas`, { metodo: 'PUT', json: { lineas: Array.from({ length: 11 }, () => ({ nueva: true, despuesDe: 1, dice: 'Otra parte' })) } });
   check('Editar a mano: más de 10 partes nuevas a la vez se rechaza sin tocar el guion', r.st === 400 && (await pedir(`/api/anuncios/${slug}/guion`)).datos?.guion?.partes?.length === 3, r);
 

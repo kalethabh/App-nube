@@ -279,6 +279,14 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, seVe[1]), JSON.stringify({ se_ve: `Escena de prueba que muestra: ${dijo.slice(0, 60)}` }));
     return resultado({ result: 'LISTO' });
   }
+  // ✨ otra escena para una imagen de apoyo (B-roll)
+  const escenaB = /TAREA: escena de apoyo/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
+  if (escenaB) {
+    const nb = (/La imagen de apoyo (\d+)/.exec(textoTarea) || [])[1] || '?';
+    const quiere = (/El usuario quiere: «(.*?)»/.exec(textoTarea) || [])[1] || '';
+    fs.writeFileSync(path.join(RAIZ, escenaB[1]), JSON.stringify({ se_ve: `Escena de apoyo de prueba ${nb}${quiere ? `: ${quiere.slice(0, 60)}` : ''}, con el producto en primer plano y luz cálida.`, camara: 'primer plano, la cámara se acerca despacio' }));
+    return resultado({ result: 'LISTO' });
+  }
   // la coordinadora de la oficina (chat): «anuncio» crea uno de Claymation del primer producto con ficha, «regla:» anota una regla
   const coord = /TAREA: coordinadora de la oficina/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
   if (coord) {
@@ -340,7 +348,7 @@ function familiaDelTexto(texto) {
 function especialista(texto) {
   if (process.env.FALSO_DESPACHADO) return null;
   const tarea = (String(texto).match(/^TAREA: ([^\n]+)/m) || [])[1] || '';
-  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea) || /^lo que se ve en una parte/.test(tarea)) return null;
+  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea) || /^lo que se ve en una parte/.test(tarea) || /^escena de apoyo/.test(tarea) || /^coordinadora/.test(tarea)) return null;
   if (/^imagen-ads-/.test(tarea)) return 'claude-falso-imagen-ads.js';
   if (/^(guion|cambios)\b/.test(tarea)) return MODOS_DE_ESTILOS.has(modo(tarea.split(/\s/)[0])) ? 'claude-falso-estilos.js' : null;
   if (/^continuidad-/.test(tarea)) return 'claude-falso-continuidad.js';
