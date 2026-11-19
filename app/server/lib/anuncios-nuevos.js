@@ -404,7 +404,9 @@ export function crearAnuncio(datos = {}) {
   const producto = leerProducto(productoId);
   const slug = slugNuevo(ficha.nombre || producto.nombre || productoId.replace(/-[a-z0-9]{4}$/, ''), estilo);
   fs.mkdirSync(appDe(slug), { recursive: true });
-  const brief = { slug, productoId, estilo, familia: null, faseGuion: def.faseGuion, duracion, voz, continuidad, respuestas, opciones: opcionesDe(estilo, respuestas), ...(avatar ? { avatar } : {}), ...(musicaBiblioteca ? { musicaBiblioteca } : {}), creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
+  // lo que pidió el usuario en el chat de la oficina (2026-11-19r): la idea o el ángulo, y si es una de varias versiones
+  const pedido = typeof datos.pedido === 'string' ? datos.pedido.replace(/\s+/g, ' ').trim().slice(0, 600) : '';
+  const brief = { slug, productoId, estilo, familia: null, faseGuion: def.faseGuion, duracion, voz, continuidad, respuestas, opciones: opcionesDe(estilo, respuestas), ...(avatar ? { avatar } : {}), ...(musicaBiblioteca ? { musicaBiblioteca } : {}), ...(pedido ? { pedido } : {}), creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
   brief.familia = familiaDe(brief);
   // tus videos e imágenes (opcional, 2026-11-19): se copian al anuncio antes del guion (lib/material-propio.js)
   if (Array.isArray(datos.material) && datos.material.length) {
@@ -438,6 +440,16 @@ export function crearAnuncio(datos = {}) {
 // se copian (mismas caras, sin pagarlas otra vez). Después: el guion para aprobar y la producción de siempre.
 
 /** Lo que la tarea del guion dice cuando el anuncio es una copia de otro para un producto nuevo. */
+/** Lo que pidió el usuario en el chat de la oficina (brief.pedido), para el guion. */
+function textoPedido(brief) {
+  return brief?.pedido ? `## Lo que pidió el usuario para este anuncio\n\n«${brief.pedido}». Respétalo en el ángulo, el gancho y el guion.` : '';
+}
+
+/** Lo obligatorio de un estilo: [{ campo, texto }] (lo que la coordinadora pregunta antes de crear). */
+export function AJUSTES_OBLIGATORIOS(estilo) {
+  return Object.entries(AJUSTES[estilo] || {}).filter(([, p]) => p.falta).map(([campo, p]) => ({ campo, texto: p.falta }));
+}
+
 function textoRecrear(brief) {
   const o = brief?.recrearDe;
   if (!o || !slugValido(o)) return '';
@@ -989,7 +1001,7 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
       textoVozAuto(slug, brief, def),
       esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia === 'agregar' ? 'voz-en-off' : def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
       textoTendencias(brief.estilo),
-      textoBiblioteca(slug, brief), textoMaterial(slug), textoRecrear(brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
+      textoBiblioteca(slug, brief), textoMaterial(slug), textoRecrear(brief), textoPedido(brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
   });

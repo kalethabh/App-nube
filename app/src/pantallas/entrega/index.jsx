@@ -33,6 +33,7 @@ import { Reproductor } from './Reproductor.jsx';
 import { Versiones } from './Versiones.jsx';
 import { MasGanchos } from './MasGanchos.jsx';
 import { Recrear } from './Recrear.jsx';
+import { Opinion } from './Opinion.jsx';
 import { EnLaNube } from './EnLaNube.jsx';
 import { Informe, normalizarInforme } from './Informe.jsx';
 import { AvisosRevision } from './Avisos.jsx';
@@ -235,6 +236,8 @@ export default function Entrega({ params }) {
             </Boton>
           ) : null}
           <EnLaNube slug={a.slug} alTraer={recargar} />
+          {/* (2026-11-19r) el 👍/👎 que enseña a tu equipo (la oficina virtual) */}
+          {version ? <Opinion slug={a.slug} /> : null}
           {version ? <MasGanchos slug={a.slug} /> : null}
           {/* (2026-11-19p) el mismo anuncio, con el mismo guion, para otro de tus productos */}
           {a.estado !== 'guion' ? <Recrear slug={a.slug} productoId={a.productoId} estilo={a.estilo} /> : null}
