@@ -205,7 +205,7 @@ function Grupo({ n, titulo, opcional, children, derecha }) {
   );
 }
 
-function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaFicha, hayProducto, onAnalizar, onOtro }) {
+function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaFicha, hayProducto, onAnalizar, onOtro, clonando = false }) {
   const p = borrador;
   const poner = (cambios) => setBorrador((x) => ({ ...x, ...cambios }));
   const puede = Boolean(p.fotos.length || p.cuentame.trim());
@@ -237,11 +237,18 @@ function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaF
         ) : null}
       </div>
 
-      <Grupo n={1} titulo="La foto de tu producto">
+      {clonando ? (
+        <Grupo n={1} titulo="El video que quieres clonar">
+          <SubirVideo valor={p.referencia || null} onCambio={(referencia) => poner({ referencia })} deshabilitado={ocupado} />
+          <p className="nv-form__nota">Tuyo, de la competencia o uno ganador (súbelo o pega su link de la Biblioteca de anuncios, TikTok, Instagram o YouTube). Se copia cómo está armado: no sus caras, su marca ni su música.</p>
+        </Grupo>
+      ) : null}
+
+      <Grupo n={clonando ? 2 : 1} titulo="La foto de tu producto">
         <ZonaFotos tipo="fisico" fotos={p.fotos} onCambiar={(fotos) => poner({ fotos })} bloqueada={ocupado} />
       </Grupo>
 
-      <Grupo n={2} titulo="Indicaciones a tener en cuenta" opcional>
+      <Grupo n={clonando ? 3 : 2} titulo="Indicaciones a tener en cuenta" opcional>
         <AreaTexto
           ref={cuentameRef}
           filas={4}
@@ -253,10 +260,12 @@ function Formulario({ borrador, setBorrador, ocupado, fichaLista, cambioDesdeLaF
         />
       </Grupo>
 
-      <Grupo n={3} titulo="Video de referencia" opcional>
-        <SubirVideo valor={p.referencia || null} onCambio={(referencia) => poner({ referencia })} deshabilitado={ocupado} />
-        <p className="nv-form__nota">Se copia cómo está armado: no sus caras, su marca ni su música.</p>
-      </Grupo>
+      {clonando ? null : (
+        <Grupo n={3} titulo="Video de referencia" opcional>
+          <SubirVideo valor={p.referencia || null} onCambio={(referencia) => poner({ referencia })} deshabilitado={ocupado} />
+          <p className="nv-form__nota">Se copia cómo está armado: no sus caras, su marca ni su música.</p>
+        </Grupo>
+      )}
 
       <Grupo n={4} titulo="¿Quién escribe el guion?">
         <div className="nv-segmentos" role="radiogroup" aria-label="¿Quién escribe el guion?">
@@ -669,6 +678,7 @@ export function PasoProducto({
   estiloConContinuidad,
   motor,
   onSeguir,
+  clonando = false,
 }) {
   const { aviso } = useAvisos();
   const [fase, setFase] = useState(null); // texto de lo que hace la app antes de tu IA (guardar, subir fotos)
@@ -685,6 +695,10 @@ export function PasoProducto({
   };
 
   const analizar = async () => {
+    if (clonando && !borrador.referencia) {
+      aviso({ tipo: 'aviso', titulo: 'Falta el video que quieres clonar', texto: 'Súbelo o pega su link arriba, en «El video que quieres clonar».' });
+      return;
+    }
     if (motor.falta) {
       aviso({ tipo: 'aviso', titulo: `Conecta ${motor.nombre || 'tu IA'}`, texto: 'Elige tu IA e inicia sesión en Ajustes para que pueda escribir tus guiones.' });
       return;
@@ -768,6 +782,7 @@ export function PasoProducto({
           hayProducto={Boolean(productoId)}
           onAnalizar={analizar}
           onOtro={onOtroProducto}
+          clonando={clonando}
         />
       </div>
       {derecha ? <div className="nv-paso1__der nv-paso1__der--fija">{derecha}</div> : null}
