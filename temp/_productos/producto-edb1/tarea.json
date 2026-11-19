@@ -1,0 +1,15 @@
+{
+  "id": "4862ceac-90e3-48bc-aafb-45a2ce5ecabc",
+  "uuid": "4862ceac-90e3-48bc-aafb-45a2ce5ecabc",
+  "estado": "analizando",
+  "paso": "claude",
+  "progreso": [
+    "Claude está leyendo tu producto",
+    "Mirando las fotos de tu producto",
+    "Armando la ficha de tu producto"
+  ],
+  "intentos": 1,
+  "inicio": "2026-11-19T16:10:10.693Z",
+  "error": null,
+  "actualizado": "2026-11-19T16:10:16.244Z"
+}
