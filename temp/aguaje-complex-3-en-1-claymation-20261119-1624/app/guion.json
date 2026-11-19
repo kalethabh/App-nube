@@ -2,7 +2,7 @@
   "titulo": "Aguaje Complex · Tus glúteos están dormidos (versión nueva)",
   "idioma": "es",
   "mercado": "LatAm",
-  "duracionEstimada": 62.2,
+  "duracionEstimada": 63.4,
   "de_que_va": "Una mujer nueva, en escenarios nuevos, que ya probó de todo y sigue plana descubre que el problema está adentro: sus glúteos están dormidos. Aguaje Complex 3 en 1 los despierta y su figura cambia paso a paso.",
   "estructura": {
     "id": "de-la-referencia",
@@ -118,9 +118,9 @@
     {
       "n": 16,
       "momento": "cierre",
-      "dice": "Ese es el que necesitas: Aguaje Complex, tres en uno.",
-      "se_ve": "En su sala, sostiene el frasco cerrado junto a la cara, segura y sonriente.",
-      "segundos": 2.8
+      "dice": "Ese es el que necesitas: Aguaje Complex de Vitalabh, tres en uno.",
+      "se_ve": "En su sala soleada de plastilina, la misma mujer, con su jean azul ya ajustado y blusa amarilla, sostiene el frasco cerrado de Aguaje Complex 3 en 1 junto a la cara y guiña un ojo, segura y sonriente. De lado se le marca la curva redonda. Detrás, el espejo de arco del principio refleja su figura nueva. Luz dorada de tarde, colores cálidos, plano medio de frente con el frasco bien grande en primer plano.",
+      "segundos": 4
     },
     {
       "n": 17,
@@ -200,39 +200,39 @@
       "despues": 9,
       "con": "Aguaje Complex 3 en 1",
       "segundos": 2,
-      "se_ve": "El frasco cerrado de Aguaje Complex en el mesón de madera de la cocina, del alto del vaso de jugo, junto a un plato con arepa. La luz del sol va iluminando el mesón. Se ve la etiqueta clara.",
-      "camara": "primer plano a la altura del mesón, la cámara se acerca despacio"
+      "se_ve": "En la cocina de plastilina, de mañana, la puerta de la alacena se abre de golpe y el frasco cerrado de Aguaje Complex 3 en 1 sale rodando sobre el mesón de madera, frena justo de frente y se para derechito con la etiqueta bien clara. Un rayo de sol dorado entra por la ventana, lo ilumina como a una estrella y unas chispitas brillan alrededor, mientras la mano de la mujer, con su manga rosada, entra a cuadro para tomarlo. Se siente como cuando por fin llega la solución que esperabas.",
+      "camara": "primer plano a la altura del mesón, cámara quieta"
     },
     {
       "n": 10,
       "despues": 10,
       "con": "extractos puros, triple acción",
       "segundos": 2,
-      "se_ve": "Sobre una tabla de madera: un aguaje partido con su pulpa naranja, un montoncito de semillas doradas de fenogreco y una maca negra. Unas semillas ruedan. Los tres ingredientes, juntos.",
-      "camara": "primer plano, la cámara gira despacio alrededor"
+      "se_ve": "En la cuevita tibia de plastilina, con luz dorada de faroles, tres frascos de vidrio se llenan solos al mismo tiempo: uno con pulpa naranja de aguaje, otro con semillitas doradas de fenogreco y otro con polvo oscuro de maca negra. Los tres chorros brillantes se juntan en el centro en un remolino de colores que gira y suelta chispitas, y las tres capas quedan trenzadas como una sola. Las fibras de músculo, al fondo, abren un ojo con sorpresa: se siente la fuerza de tres que trabajan juntos.",
+      "camara": "plano medio, cámara quieta"
     },
     {
       "n": 11,
       "despues": 11,
       "con": "lo despiertan",
       "segundos": 2,
-      "se_ve": "Una fibra ya despierta, gruesa y brillante, sin gorro, saca bíceps dos veces y da un saltito orgulloso en la cueva iluminada. Energía y alegría.",
-      "camara": "primer plano, cámara quieta"
+      "se_ve": "En la cuevita tibia de plastilina, iluminada de dorado por los faroles, las cinco fibras de músculo saltan de sus hamaquitas al mismo tiempo, tiran los gorros de dormir al aire y se inflan como globitos, gruesas y brillantes. Abajo, el aguaje, el saquito de fenogreco y la maca negra con capitas aplauden felices mientras los gorros caen sobre ellos. Las fibras sacan pecho, sonríen con los ojos bien abiertos, y todo el lugar se llena de energía y alegría.",
+      "camara": "plano medio, cámara quieta"
     },
     {
       "n": 12,
       "despues": 12,
       "con": "el jean ya te ajusta atrás",
       "segundos": 2,
-      "se_ve": "De lado, de la cintura a medio muslo, en su cuarto con la cama de cobija rosada al fondo: el jean cerrado le queda ajustado y ella pasa la mano por el costado de la cadera. Ya no sobra tela.",
-      "camara": "plano medio corto, cámara quieta"
+      "se_ve": "En su cuarto de plastilina, con luz cálida de mañana por la ventana, la misma mujer de jean azul se pone de espaldas y algo de lado frente al espejo. Mete la mano en el bolsillo de atrás y no le cabe: la tela está tan tensa que ni entran los dedos. Se mira por encima del hombro, abre los ojos y suelta una sonrisa pícara de sorpresa feliz.",
+      "camara": "plano entero, cámara quieta"
     },
     {
       "n": 13,
       "despues": 13,
       "con": "hay muy buenas curvas",
       "segundos": 2,
-      "se_ve": "En el probador de una tienda, con cortina verde azulada y un espejo alto, se prueba un vestido mostaza ajustado. De lado, la curva se ve clarísima y sonríe encantada por encima del hombro.",
+      "se_ve": "En una terraza de plastilina al atardecer, con luz naranja y plantas de hojas grandes, la misma mujer de jean azul y blusa amarilla se pone de lado y su sombra se proyecta enorme en la pared rosada. La sombra muestra una curva redonda y marcada atrás, y ella la mira por encima del hombro, sorprendida, se lleva la mano a la boca y luego sonríe orgullosa. Se nota la textura de la plastilina en el jean y en la pared, y queda una sensación de alegría y seguridad.",
       "camara": "plano entero, cámara quieta"
     },
     {
@@ -240,32 +240,32 @@
       "despues": 14,
       "con": "todos los hombres y hasta las mujeres voltean a verte",
       "segundos": 2,
-      "se_ve": "El frutero de sombrero en la calle de casas amarillas, azules y rosadas, con sol de tarde, sostiene una papaya. Voltea de golpe, levanta las cejas, abre la boca y se le cae la papaya sobre el carrito. Remate cómico.",
-      "camara": "plano medio corto, cámara quieta"
+      "se_ve": "En la misma calle colonial de plastilina, con casas amarillas, azules y rosadas y sol dorado de tarde, una fila de vecinos en la mesita de un café (un señor de bigote, una señora con rulos y un mesero con bandeja) voltean la cabeza todos a la vez siguiéndola mientras pasa. Al mesero se le resbala la bandeja y el café vuela en un chorrito de plastilina, y la señora de rulos se baja las gafas de sol con cara de envidia. Remate cómico que deja risa y orgullo.",
+      "camara": "plano medio, cámara quieta"
     },
     {
       "n": 15,
       "despues": 15,
       "con": "sin vivir en el gym",
       "segundos": 2,
-      "se_ve": "En la esquina de la terraza soleada, una colchoneta enrollada y dos pesas olvidadas con una telaraña. La brisa mueve la telaraña. Ya no tiene que vivir en el gym.",
-      "camara": "primer plano, cámara quieta"
+      "se_ve": "En un gimnasio de plastilina vacío y en penumbra, la máquina de sentadillas tiene un letrero colgado que dice «cerrado\" y una telaraña gruesa de hilo blanco. La puerta se abre y entra luz cálida de tarde: afuera, en la terraza soleada, se ve a la misma mujer en su hamaca, con su jean ajustado y su jugo, saludando feliz y despidiéndose del gym con la mano. Una mancuerna polvorienta suelta un suspiro de polvito y queda sola: alivio y libertad.",
+      "camara": "plano abierto, cámara quieta"
     },
     {
       "n": 16,
       "despues": 16,
       "con": "Aguaje Complex, tres en uno",
       "segundos": 2,
-      "se_ve": "El frasco cerrado sobre una cómoda de madera junto a una ventana con cortinas blancas, del alto de una matica. La cortina se mueve con la brisa y la luz se pone más cálida.",
-      "camara": "primer plano, la cámara se acerca despacio"
+      "se_ve": "En su sala de plastilina, con sol dorado de tarde, el frasco cerrado de Aguaje Complex 3 en 1 cae suave sobre la mesita de centro y aterriza con un rebotito. Junto a él brotan de la plastilina un aguaje rojo brillante, un saquito de fenogreco y una maca negra, con caritas felices y capitas, que saludan y lo rodean. Al fondo, borrosa, la misma mujer en blusa amarilla sonríe y le guiña un ojo a la cámara: se siente seguro y alegre.",
+      "camara": "primer plano a ras de mesa, cámara quieta"
     },
     {
       "n": 17,
       "despues": 17,
       "con": "el tratamiento completo de 3 unidades es la mejor opción",
       "segundos": 2,
-      "se_ve": "Solo sus tenis blancos y el borde del jean sobre la alfombra de la sala, haciendo un pasito de salsa de lado a lado. Alegría pura para cerrar.",
-      "camara": "plano bajo, cámara quieta"
+      "se_ve": "Sobre la mesita de su sala de plastilina, bañada por la luz dorada de la tarde, tres frascos cerrados de Aguaje Complex 3 en 1 caen uno tras otro con un rebotito y quedan en fila, brillando. Las manos de la misma mujer, con su blusa amarilla, los abrazan y los juntan contra el pecho mientras ella sonríe feliz, con los ojitos cerrados. Se notan las huellitas de los dedos en la plastilina y deja una sensación de \"esto es lo completo, lo tengo todo\".",
+      "camara": "plano medio de la cintura para arriba, cámara quieta"
     }
   ],
   "decisiones": [
@@ -276,10 +276,10 @@
     "Sin investigación de mercado: el dolor y los beneficios salen de tu ficha y de tu video. Nunca se ven cápsulas ni el frasco abierto, solo el frasco cerrado."
   ],
   "cambios_hechos": [
-    "Puse tus textos tal cual en las partes 9, 10, 11, 12, 13, 14 y 17, y rehíce sus escenas como las describiste.",
-    "Esas tomas ahora duran lo que tarda decir tu texto: el anuncio pasa de unos 46 a unos 62 segundos. La parte 17 dura unos 9 segundos.",
-    "La ropa cambia como pediste: camiseta rosada en la cocina y blusa amarilla en el ascensor y en el baile final. En las demás tomas sigue con su camiseta lila.",
-    "La fibra grande de la parte 11 va de un rosado fuerte, tipo sandía, para que no parezca color piel.",
-    "Agregué el frasco cerrado en la mesita del cuarto (parte 12) y los tres frascos con moño en el cierre. Ajusté el B-roll de esas partes: el frutero ahora suelta una papaya y el cuarto tiene la cobija rosada."
+    "Puse tu texto tal cual en la parte 16 y rehíce su escena: blusa amarilla, guiño, el frasco grande junto a la cara y el espejo de arco detrás. Ahora dura unos 4 segundos y el anuncio, unos 63.",
+    "Rehíce las imágenes de apoyo 9 a 17 como las describiste, sin cambiar dónde entran ni cuánto duran.",
+    "En la imagen de apoyo 15, el letrero del gimnasio lleva un candado en vez de la palabra «cerrado»: las imágenes no pueden llevar letras, porque salen deformes.",
+    "En la imagen de apoyo 12 queda de lado y mirando por encima del hombro, no del todo de espaldas, para que la publicidad no tenga problemas con las redes.",
+    "En las imágenes de apoyo 9 y 17, las manos ya aparecen en la imagen desde el principio, para que no salgan raras al moverse."
   ]
 }
