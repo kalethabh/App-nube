@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19j · Podcast y entrevista: el guion de cada persona
+
+- En el guion de un **podcast** o una **entrevista**, además de «La conversación», una pestaña por persona: **«Guion de Carla»**, **«Guion de Tomás»** (o del entrevistador y la persona). Cada una muestra solo las líneas de esa persona, a qué responde cada una y **cómo la dice** (emoción, tono, expresión, gesto, mirada), con **«Copiar su guion»**.
+- En la conversación, debajo de cada línea, 🎭 cómo la dice esa persona.
+- Tu IA escribe a cada persona distinta: su carácter y su **forma de hablar** («Cómo habla», también en «Quién aparece»), y la misma actuación va al video de cada bloque.
+
 ## 2026-11-19i · Pega tus anuncios ganadores
 
 - En **Variantes → «Lo que te funciona»** y en **Biblioteca → «Lo que me funciona»**, además de subirlos: **pégalos**. Copia la imagen del anuncio (clic derecho → Copiar imagen, o una captura de pantalla) y toca **«Pegar»** o pulsa **Cmd+V** (Ctrl+V en Windows) con el mouse encima. También puedes **arrastrarlos** a esa zona.

@@ -648,15 +648,15 @@ function formatoGuion(def, brief) {
   const r = [];
   if (fam === 'hablado' && brief.estilo === 'podcast') {
     r.push(
-      'Una parte por línea de la conversación (`guion[]` del manifiesto), en el orden en que se oye: `n` es `guion[].orden`, `dice` es `guion[].texto` copiado carácter por carácter y `quien` el nombre del anfitrión que la dice. Las tomas de reacción sin diálogo no van.',
-      'Agrega `"personajes"`: los dos anfitriones, `[{ "id": "A", "nombre": "…", "como_es": "una frase" }, { "id": "B", … }]` (A y B como en el manifiesto).',
+      'Una parte por línea de la conversación (`guion[]` del manifiesto), en el orden en que se oye: `n` es `guion[].orden`, `dice` es `guion[].texto` copiado carácter por carácter, `quien` el nombre del anfitrión que la dice y `actuacion` cómo la dice (emoción, tono, expresión, gesto, mirada; en español, una frase). Las tomas de reacción sin diálogo no van.',
+      'Agrega `"personajes"`: los dos anfitriones, `[{ "id": "A", "nombre": "…", "como_es": "cómo se ve, una frase", "habla_asi": "su carácter y su manera de hablar, distinta del otro" }, { "id": "B", … }]` (A y B como en el manifiesto).',
       '`duracionEstimada` es la suma de `tomas[].duracion`, en segundos.',
     );
   } else if (fam === 'hablado') {
     r.push(
       'Una parte por clip, con el mismo `n` que `tomas[].n` y en el mismo orden. `dice` es `tomas[].linea` copiado carácter por carácter.',
-      'Agrega en cada parte `"dialogo"`: el `tomas[].dialogo` del manifiesto, línea por línea, como `{ "quien": "Entrevistador" o el nombre de la persona, "dice": "su texto, copiado" }`.',
-      'Agrega `"personajes"`: la persona que paran, `[{ "nombre": "…", "como_es": "una frase" }]`, y `"variante"`: "A" o "B".',
+      'Agrega en cada parte `"dialogo"`: el `tomas[].dialogo` del manifiesto, línea por línea, como `{ "quien": "Entrevistador" o el nombre de la persona, "dice": "su texto, copiado", "como": "cómo lo dice: emoción, tono, expresión, gesto (en español, una frase)" }`.',
+      'Agrega `"personajes"`: la persona que paran, `[{ "nombre": "…", "como_es": "cómo se ve, una frase", "habla_asi": "su carácter y su manera de hablar" }]` (y el entrevistador con `"id": "entrevistador"`, `"nombre": "Entrevistador"` y su `habla_asi`), y `"variante"`: "A" o "B".',
       '`duracionEstimada` es la suma de `tomas[].duracion`, en segundos.',
     );
   } else if (fam === 'agregar') {
@@ -1268,6 +1268,9 @@ export function modelosPorEscena(m) {
   }));
 }
 
+// (2026-11-19j) cómo dice cada línea quien habla (podcast y entrevista): emoción, tono, expresión, gesto
+const actuacionDe = (a) => (typeof a === 'string' && a.trim() ? { actuacion: a.replace(/\s+/g, ' ').trim().slice(0, 300) } : {});
+
 /** guion.json con lo que se dice copiado del manifiesto (la fuente de verdad), parte por parte y en orden. */
 function normalizarGuion(slug, brief, g, m) {
   const porN = new Map(g.partes.map((p) => [brief.estilo === 'podcast' ? p.orden ?? p.n : p.n, p]));
@@ -1293,7 +1296,7 @@ function normalizarGuion(slug, brief, g, m) {
       if (p.dice !== undefined && p.dice !== dice) ajustados++;
       const suyo = typeof p.quien === 'string' && p.quien.trim() && !/^host[\s-]?[ab]$/i.test(p.quien.trim()) ? p.quien.trim().slice(0, 80) : null;
       const quien = nombreDe(l.habla) || suyo || `Anfitrión ${lado(l.habla)}`;
-      return { n: l.orden, ...extra(p), ...(!p.momento && l.beat ? { momento: l.beat } : {}), quien, lado: lado(l.habla), dice, ...(p.se_ve ? { se_ve: p.se_ve } : {}) };
+      return { n: l.orden, ...extra(p), ...(!p.momento && l.beat ? { momento: l.beat } : {}), quien, lado: lado(l.habla), dice, ...(p.se_ve ? { se_ve: p.se_ve } : {}), ...actuacionDe(p.actuacion) };
     });
     faltaban = lineas.length - g.partes.length;
   } else {
@@ -1304,10 +1307,12 @@ function normalizarGuion(slug, brief, g, m) {
       if (p.dice !== undefined && p.dice !== dice) ajustados++;
       const parte = { n: t.n, ...extra(p), ...(!p.momento && t.fase ? { momento: t.fase } : {}), dice, ...(p.se_ve ? { se_ve: p.se_ve } : {}), ...(typeof t.duracion === 'number' ? { segundos: t.duracion } : {}) };
       if (Array.isArray(t.dialogo) && t.dialogo.length) {
-        const persona = personajes[0]?.nombre || 'La persona';
-        parte.dialogo = t.dialogo.map((d) => {
+        const persona = personajes.find((x) => !/entrevistador/i.test(`${x.id || ''} ${x.nombre || ''}`))?.nombre || 'La persona';
+        // (cómo dice cada línea: lo que escribió la IA en esa misma línea de su guion, por orden)
+        const suyas = Array.isArray(p.dialogo) ? p.dialogo : [];
+        parte.dialogo = t.dialogo.map((d, i) => {
           const entrevistador = /entrevistador/i.test(texto(d.habla));
-          return { quien: entrevistador ? 'Entrevistador' : persona, lado: entrevistador ? 'A' : 'B', dice: texto(d.texto) };
+          return { quien: entrevistador ? 'Entrevistador' : persona, lado: entrevistador ? 'A' : 'B', dice: texto(d.texto), ...(suyas[i]?.como ? { como: texto(suyas[i].como).slice(0, 300) } : {}) };
         });
       }
       if (fam === 'objeto-parlante' && typeof p.quien === 'string' && p.quien.trim()) parte.quien = p.quien.trim().slice(0, 80);
@@ -1334,7 +1339,7 @@ function normalizarGuion(slug, brief, g, m) {
   // «Agregar»: el modelo de cada escena, contado desde el manifiesto (lo que de verdad se va a pedir), con el porque
   const porModelo = modelosPorEscena(m);
   if (porModelo.length) limpio.modelos = porModelo;
-  if (personajes.length) limpio.personajes = personajes.map((x) => ({ ...(x.id ? { id: texto(x.id) } : {}), nombre: texto(x.nombre).slice(0, 80), ...(x.como_es ? { como_es: texto(x.como_es).slice(0, 300) } : {}) }));
+  if (personajes.length) limpio.personajes = personajes.map((x) => ({ ...(x.id ? { id: texto(x.id) } : {}), nombre: texto(x.nombre).slice(0, 80), ...(x.como_es ? { como_es: texto(x.como_es).slice(0, 300) } : {}), ...(x.habla_asi ? { habla_asi: texto(x.habla_asi).slice(0, 300) } : {}) }));
   escribirJSON(path.join(appDe(slug), 'guion.json'), limpio);
   return { ajustados, faltaban };
 }
