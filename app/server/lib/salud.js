@@ -20,6 +20,42 @@ const ESPERA_PAGINA = 7000;
 const ESPERA_PROPIA = 12000;
 const LENTO_MS = 6000;
 let recordado = null; // { t, valor, promesa }
+// EN VIVO (2026-11-19c, «que se actualice en tiempo real»): mientras alguna pantalla escucha (GET /api/salud/en-vivo),
+// se revisa todo cada 30 s y cada resultado nuevo (también el ↻ de una fila) se manda al instante a todas
+let CADA_VIVO = 30000;
+const oyentes = new Set();
+let reloj = null;
+function avisar(valor) {
+  for (const fn of oyentes) {
+    try {
+      fn(valor);
+    } catch {
+      /* una pantalla que se cerró no frena a las otras */
+    }
+  }
+}
+function recordar(valor) {
+  recordado = { t: Date.now(), valor, promesa: null };
+  avisar(valor);
+  return valor;
+}
+/** Escucha cada resultado nuevo: fn(valor). Devuelve la función para dejar de escuchar. */
+export function escuchar(fn) {
+  oyentes.add(fn);
+  if (!reloj) {
+    reloj = setInterval(() => salud({ fresco: true }), CADA_VIVO);
+    reloj.unref?.();
+  }
+  if (recordado?.valor) fn(recordado.valor);
+  salud(); // (si lo recordado ya es viejo, revisa ya)
+  return () => {
+    oyentes.delete(fn);
+    if (!oyentes.size && reloj) {
+      clearInterval(reloj);
+      reloj = null;
+    }
+  };
+}
 // las páginas de estado (las pruebas las cambian por un servidor simulado)
 let PAGINAS = {
   claude: 'https://status.claude.com/api/v2/summary.json',
@@ -27,8 +63,9 @@ let PAGINAS = {
   elevenlabs: 'https://status.elevenlabs.io/api/v2/summary.json',
   meta: 'https://metastatus.com/data/orgs.json',
 };
-export function _paraPruebas(paginas) {
+export function _paraPruebas(paginas, { cadaVivo } = {}) {
   PAGINAS = { ...PAGINAS, ...paginas };
+  if (cadaVivo) CADA_VIVO = cadaVivo;
   recordado = null;
 }
 
@@ -273,19 +310,14 @@ export async function revisarServicio(id) {
   const todos = actual.grupos.flatMap((g) => g.servicios.map((x) => ({ ...x, grupo: g.titulo })));
   const grupo = GRUPOS.find((g) => g === nuevo.grupo);
   const lista = todos.some((x) => x.id === id) ? todos.map((x) => (x.id === id ? nuevo : x)) : [...todos, { ...nuevo, grupo }];
-  const valor = armar(lista);
-  recordado = { t: Date.now(), valor, promesa: null };
-  return valor;
+  return recordar(armar(lista));
 }
 
 export function salud({ fresco = false } = {}) {
   if (recordado?.promesa) return recordado.promesa;
   if (!fresco && recordado?.valor && Date.now() - recordado.t < 60000) return Promise.resolve(recordado.valor);
   const promesa = revisar()
-    .then((valor) => {
-      recordado = { t: Date.now(), valor, promesa: null };
-      return valor;
-    })
+    .then((valor) => recordar(valor))
     .catch(() => {
       recordado = { ...(recordado || {}), promesa: null };
       return recordado?.valor || { general: 'desconocido', revisado: new Date().toISOString(), grupos: [] };
