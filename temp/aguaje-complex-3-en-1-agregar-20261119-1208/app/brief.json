@@ -1,0 +1,21 @@
+{
+  "slug": "aguaje-complex-3-en-1-agregar-20261119-1208",
+  "productoId": "producto-3617",
+  "estilo": "agregar",
+  "familia": null,
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "ia"
+  },
+  "voz": {
+    "auto": true
+  },
+  "continuidad": false,
+  "respuestas": {
+    "clonar": "subido:mwnsz8wo34ad33|AGUAJE 01 - VIDIA.mp4",
+    "pedido": "El mismo video para mi producto",
+    "clonar_gancho": "Sí, adáptalo a mi producto"
+  },
+  "opciones": {},
+  "creado": "2026-11-19T17:08:14.579Z"
+}

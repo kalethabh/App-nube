@@ -1,0 +1,15 @@
+{
+  "uuid": "adeba5b0-9f63-46dd-ab1e-5fefbf5eb890",
+  "estado": "escribiendo",
+  "tipo": "guion",
+  "intentos": 1,
+  "progreso": [
+    "Preparando la foto de tu producto",
+    "Analizando el video de referencia"
+  ],
+  "inicio": "2026-11-19T17:08:14.580Z",
+  "cambios": [],
+  "actualizado": "2026-11-19T17:08:15.169Z",
+  "error": null,
+  "inicioIntento": "2026-11-19T17:08:14.580Z"
+}
