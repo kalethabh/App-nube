@@ -128,7 +128,7 @@ function Grupo({ n, id, titulo, opcional, children }) {
 
 // ---------------------------------------------------------------- el formulario
 
-export function Formulario({ simulando = false, productoPedido = null, referenciaPedida = null, videoPedido = null }) {
+export function Formulario({ simulando = false, productoPedido = null, referenciaPedida = null, videoPedido = null, modoPedido = null }) {
   const { aviso } = useAvisos();
   const motor = useMotor();
   const modoPrueba = Boolean(useEstado().datos?.modoPrueba?.activo);
@@ -200,6 +200,10 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   useEffect(() => {
     if (videoPedido) setF((x) => ({ ...x, modo: 'video' }));
   }, [videoPedido]);
+  // «Hacer variantes» desde Biblioteca → Lo que me funciona: abre en «Variantes»
+  useEffect(() => {
+    if (modoPedido === 'variantes') setF((x) => ({ ...x, modo: 'variantes' }));
+  }, [modoPedido]);
 
   // las vistas previas locales se liberan al salir de la pantalla
   const vistas = useRef([]);
@@ -390,6 +394,8 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
         logo: null,
         modo: variantes ? 'variantes' : 'nuevos',
         referenciasPropias: propias,
+        // (2026-11-19h) el concepto de cada creativo que funciona, en el mismo orden: la variante lo conserva
+        ...(variantes ? { conceptosReferencias: itemsElegidos.map((x) => x.concepto || '') } : {}),
         fiel: variantes,
         rapido: conPlantillas ? true : !f.elaborado,
         refs: conPlantillas ? [] : refs.map((x) => x.id),
@@ -459,7 +465,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
               <>
                 <Copy size={14} strokeWidth={2} aria-hidden="true" />
                 <span>
-                  Variantes de algo que <strong>ya te funciona</strong>: mismo diseño, tipografía, posición de los textos y enfoque; cambia el título por ganchos ya validados.
+                  Variantes de algo que <strong>ya te funciona</strong>: el mismo concepto creativo, diseño, tipografía y enfoque; cambia el título por ganchos ya validados. Sube aquí tus anuncios ganadores (quedan en tu biblioteca).
                 </span>
               </>
             ) : (

@@ -25,3 +25,24 @@ export async function quitarFunciona(idOClave) {
 
 /** El lote que se está mirando (para el botón de cada imagen); null en la simulación. */
 export const LoteFunciona = createContext(null);
+
+/** (2026-11-19h) Sube un anuncio tuyo que ya funciona (imagen o video). -> el creativo, ya en «Lo que me funciona». */
+export async function subirFunciona(archivo, { productoId = null, concepto = '' } = {}) {
+  const enc = (t) => encodeURIComponent(String(t || '').slice(0, 500));
+  const r = await fetch('/api/funcionan/subir', {
+    method: 'POST',
+    headers: { 'Content-Type': archivo.type || 'application/octet-stream', 'X-Nombre': enc(archivo.name), 'X-Producto': enc(productoId), 'X-Concepto': enc(concepto), Accept: 'application/json' },
+    body: archivo,
+  });
+  const d = await r.json().catch(() => null);
+  if (!r.ok) throw new Error(d?.error || `No pude subir «${archivo.name}».`);
+  invalidar(CLAVE_FUNCIONAN);
+  return d;
+}
+
+/** El concepto creativo (por qué vende), el título o el producto. -> el creativo */
+export async function editarFunciona(id, cambios) {
+  const r = await pedirNuevo(`/api/funcionan/${encodeURIComponent(id)}`, { metodo: 'PATCH', cuerpo: cambios });
+  invalidar(CLAVE_FUNCIONAN);
+  return r;
+}

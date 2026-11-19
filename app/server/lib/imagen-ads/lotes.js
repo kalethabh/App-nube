@@ -230,6 +230,9 @@ export function crearLote(cuerpo = {}) {
     modo: cuerpo.modo === 'variantes' ? 'variantes' : 'nuevos',
     // las referencias (por número) que son del MISMO producto (un creativo tuyo que funciona): conservan hasta la paleta
     referenciasPropias: Array.isArray(cuerpo.referenciasPropias) ? [...new Set(cuerpo.referenciasPropias.map(Number).filter((k) => Number.isInteger(k) && k >= 1 && k <= 50))] : [],
+    // (2026-11-19h) el CONCEPTO creativo de cada referencia de «Variantes» (por qué vende, lo escribiste en «Lo que me
+    // funciona»), en el mismo orden: la variante lo conserva y cambia la ejecución y el título
+    conceptosReferencias: Array.isArray(cuerpo.conceptosReferencias) ? cuerpo.conceptosReferencias.slice(0, 50).map((t) => String(t ?? '').replace(/\s+/g, ' ').trim().slice(0, 500)) : [],
     // Solo «Variantes» copia el diseño de sus referencias (y el modelo de imagen las ve). «Nuevos» siempre crea
     // diseños nuevos: la opción «Variar solo los títulos» de Nuevos hacía lo mismo que Variantes y se quitó (2026-11-16).
     fiel: cuerpo.modo === 'variantes' || cuerpo.rapido !== false,
