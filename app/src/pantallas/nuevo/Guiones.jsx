@@ -14,7 +14,7 @@
 //   musical         las 2 o 3 letras: el usuario elige una (POST …/guion/letra) y la produce, o pide cambios
 //   historia        la historia que se canta, acto por acto, y cómo va a sonar
 import { Fragment, useEffect, useRef, useState } from 'react';
-import { Check, ChevronDown, Eye, FileText, Lightbulb, LoaderCircle, MessageSquareText, Mic, Music, PenLine, Plus, Send, Sparkles, Users, X } from 'lucide-react';
+import { Check, ChevronDown, Eye, FileText, Film, Lightbulb, LoaderCircle, MessageSquareText, Mic, Music, PenLine, Plus, Send, Sparkles, Users, X } from 'lucide-react';
 import { AreaTexto, Boton, Chip, Esqueleto, Pestanas, Seccion, Tarjeta, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, useGuion, useSaldoKie } from '../../datos/api.js';
 import { duracionEnPalabras } from '../../datos/formato.js';
@@ -236,6 +236,27 @@ function PlanDelPedido({ plan }) {
           <li key={`x${i}`}>Cambia: {d}</li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------- las imágenes de apoyo (B-roll), con su escena
+// (2026-11-19k) «así como el podcast, las escenas B-roll también deben ser detalladas»: cada imagen de apoyo con lo que
+// se ve (2 o 3 frases, muy visual), la cámara y dónde entra. Va debajo de su escena (o al final, en el podcast).
+
+function BrollDelGuion({ b, conDonde = false }) {
+  const donde = b.encima ? `encima de la parte ${b.encima}` : b.despues ? `después de la parte ${b.despues}` : '';
+  return (
+    <div className="nv-broll">
+      <span className="nv-broll__etiqueta">
+        <Film size={12} strokeWidth={2.2} aria-hidden="true" /> Imagen de apoyo {b.n}
+        {b.tuyo ? ' · tu video' : ''}
+        {conDonde && donde ? ` · ${donde}` : ''}
+        {b.segundos ? ` · ${String(b.segundos).replace('.', ',')} s` : ''}
+      </span>
+      {b.con ? <span className="nv-broll__con">Con «{b.con}»</span> : null}
+      {b.se_ve ? <p className="nv-broll__se-ve">{b.se_ve}</p> : <p className="nv-broll__se-ve nv-broll__se-ve--sin">La escena la arma la IA al producir.</p>}
+      {b.camara ? <span className="nv-broll__camara">🎥 {b.camara}</span> : null}
     </div>
   );
 }
@@ -506,6 +527,11 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
   const ganchos = Array.isArray(guion?.extras?.ganchos) ? guion.extras.ganchos.filter((g) => g?.dice) : [];
   const cta = guion?.extras?.cta || null;
   const variante = guion?.variante ? `Variante ${guion.variante === 'A' ? 'A · Gancho callejero' : 'B · Entrevista completa'}` : null;
+  // las imágenes de apoyo con su escena: debajo de su parte (el podcast numera por línea, no por toma: van al final)
+  const brolls = Array.isArray(guion?.broll) ? guion.broll.filter((b) => b && Number.isInteger(b.n)) : [];
+  const brollEnLinea = estilo.clave !== 'podcast';
+  const numerosPartes = new Set(partes.map((p) => p.n));
+  const brollSuelto = brolls.filter((b) => !brollEnLinea || !numerosPartes.has(b.encima ?? b.despues));
   // el guion de cada persona (podcast y entrevista): una pestaña por persona además de la conversación
   const lineasConv = lineasDeLaConversacion(partes);
   const personas = personasDelGuion(lineasConv, Array.isArray(guion?.personajes) ? guion.personajes : []);
@@ -575,6 +601,18 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
             {mostradas.map((p, i) => (
               <Fragment key={`${p.n}-${i}`}>
                 <Parte p={p} edicion={edicion} />
+                {brollEnLinea
+                  ? brolls
+                      .filter((b) => (b.encima ?? b.despues) === p.n)
+                      .map((b) => (
+                        <li key={`broll-${b.n}`} className="nv-linea nv-linea--broll">
+                          <div className="nv-linea__marca" />
+                          <div className="nv-linea__dice">
+                            <BrollDelGuion b={b} />
+                          </div>
+                        </li>
+                      ))
+                  : null}
                 {editando
                   ? nuevas
                       .filter((x) => x.despuesDe === p.n)
@@ -600,6 +638,16 @@ function HojaGuion({ estilo, ajuste, guion, encima, cambiando = false, continuid
             <button type="button" className="nv-guion__mas" onClick={() => setTodas(true)}>
               <ChevronDown size={16} strokeWidth={2.2} aria-hidden="true" /> Ver {cuantas(estilo.clave, faltan)} más
             </button>
+          ) : null}
+          {brollSuelto.length && !personaVista ? (
+            <div className="nv-decisiones nv-decisiones--broll">
+              <h4 className="nv-decisiones__titulo">
+                <Film size={14} strokeWidth={2.2} aria-hidden="true" /> {brollSuelto.length === 1 ? 'La imagen de apoyo' : `Las ${brollSuelto.length} imágenes de apoyo`}
+              </h4>
+              {brollSuelto.map((b) => (
+                <BrollDelGuion key={b.n} b={b} conDonde={brollEnLinea} />
+              ))}
+            </div>
           ) : null}
           {cta ? (
             <p className="nv-guion__extra">

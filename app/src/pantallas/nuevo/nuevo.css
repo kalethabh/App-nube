@@ -2968,3 +2968,13 @@
 .nv-persona__linea::marker { color: var(--texto-3); font-variant-numeric: tabular-nums; }
 .nv-persona__responde { margin: 0 0 2px; font-size: var(--t-mini, 12px); color: var(--texto-3); }
 .nv-persona__dice { margin: 0; font-size: var(--t-cuerpo, 15px); color: var(--texto-1); line-height: 1.45; }
+
+/* Las imágenes de apoyo (B-roll) con su escena (2026-11-19k) */
+.nv-broll { display: flex; flex-direction: column; gap: 4px; padding: var(--e-2) var(--e-3); border-radius: var(--r-m, 10px); border: 1px dashed var(--borde-2); background: var(--superficie-1); }
+.nv-decisiones--broll .nv-broll + .nv-broll { margin-top: var(--e-2); }
+.nv-broll__etiqueta { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-mini, 12px); font-weight: 600; color: var(--texto-2); }
+.nv-broll__con { font-size: var(--t-mini, 12px); color: var(--texto-3); }
+.nv-broll__se-ve { margin: 0; font-size: var(--t-chico, 14px); line-height: 1.5; color: var(--texto-1); }
+.nv-broll__se-ve--sin { color: var(--texto-3); font-style: italic; }
+.nv-broll__camara { font-size: var(--t-mini, 12px); color: var(--texto-3); }
+.nv-linea--broll { padding-top: 0; }
