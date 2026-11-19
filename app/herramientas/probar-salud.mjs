@@ -63,6 +63,27 @@ try {
   const t0 = Date.now();
   await salud.salud();
   check('Se recuerda un minuto (no vuelve a preguntar cada vez)', Date.now() - t0 < 50);
+
+  // EN VIVO: quien escucha recibe lo recordado al instante y, cuando una plataforma cambia, el cambio solo
+  salud._paraPruebas({ claude: `${base}/claude`, openai: `${base}/openai`, elevenlabs: `${base}/eleven`, meta: `${base}/meta` }, { cadaVivo: 300 });
+  await salud.salud({ fresco: true });
+  const llegados = [];
+  const dejar = salud.escuchar((v) => llegados.push(v));
+  check('En vivo: al escuchar llega el estado de una vez', llegados.length >= 1 && llegados[0].general === 'caido', llegados.length);
+  PAGINAS['/openai'] = { status: { indicator: 'none' }, components: [{ name: 'Codex', status: 'operational' }], incidents: [] };
+  const vio = await new Promise((r) => {
+    const t = setInterval(() => {
+      const ult = llegados.at(-1);
+      const chat = ult?.grupos.flatMap((g) => g.servicios).find((x) => x.id === 'chatgpt');
+      if (chat?.estado === 'operativo') return clearInterval(t), r(true);
+    }, 50);
+    setTimeout(() => (clearInterval(t), r(false)), 5000);
+  });
+  check('En vivo: Codex se arregla y llega solo, sin pedirlo', vio, llegados.length);
+  dejar();
+  const n = llegados.length;
+  await new Promise((r) => setTimeout(r, 900));
+  check('Sin nadie escuchando, deja de revisar', llegados.length === n, { antes: n, despues: llegados.length });
 } catch (e) {
   check('La prueba corre entera', false, String(e?.stack || e));
 } finally {

@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19d · Salud de plataformas en vivo
+
+- El indicador **Salud de plataformas** (arriba a la derecha) ahora está **en vivo**: se revisa cada 30 segundos y cambia de color en cuanto una plataforma falla o vuelve, sin recargar. Al abrirlo dice «En vivo».
+
 ## 2026-11-19c · Arreglo: «Crear anuncios de imagen» no abría
 
 - Si la última vez dejaste elegido **«De un video»**, al volver a **Crear anuncios de imagen** salía «Esta pantalla tuvo un problema». Ya abre bien.

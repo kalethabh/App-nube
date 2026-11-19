@@ -1,13 +1,14 @@
 // «Salud de plataformas» (barra de arriba, 2026-11-18): un punto de color con el estado de los servicios que usa la
 // app (ElevenLabs, kie.ai, Claude, ChatGPT) y, al tocarlo, el detalle de cada uno con su página de estado. Lo arma el
 // servidor (GET /api/salud, lib/salud.js) leyendo las páginas de estado oficiales y probando las claves gratis.
-// Se revisa cada 2 minutos y al abrir la ventana.
+// EN VIVO (2026-11-19c): escucha GET /api/salud/en-vivo y cambia en cuanto el servidor nota algo (revisa cada 30 s);
+// si esa conexión no se puede, pregunta cada 30 s.
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, ExternalLink, RotateCcw } from 'lucide-react';
 import { PuntoEstado } from '../componentes/Insignia.jsx';
 import { fechaRelativa } from '../datos/formato.js';
 
-const CADA_MS = 2 * 60000;
+const CADA_MS = 30000;
 const TONO = { operativo: 'ok', lento: 'aviso', degradado: 'aviso', caido: 'error', desconocido: 'neutro' };
 const TEXTO = { operativo: 'Operativo', lento: 'Lento', degradado: 'Con fallas', caido: 'Sin respuesta', desconocido: 'Sin revisar' };
 const GENERAL = { operativo: 'Todo operativo', lento: 'Algo va lento', degradado: 'Un servicio tiene fallas', caido: 'Un servicio no responde', desconocido: 'Revisando…' };
@@ -47,11 +48,50 @@ export function SaludPlataformas() {
       setRevisando(false);
     }
   };
+  const [enVivo, setEnVivo] = useState(false);
   useEffect(() => {
-    revisar();
-    const t = setInterval(() => revisar(), CADA_MS);
-    return () => clearInterval(t);
+    let t = null;
+    let fuente = null;
+    const preguntar = () => {
+      if (t) return;
+      revisar();
+      t = setInterval(() => revisar(), CADA_MS);
+    };
+    if (typeof EventSource === 'function') {
+      fuente = new EventSource('/api/salud/en-vivo');
+      fuente.onmessage = (e) => {
+        try {
+          setDatos(JSON.parse(e.data));
+          setEnVivo(true);
+        } catch {
+          /* un mensaje roto: llega el siguiente */
+        }
+      };
+      fuente.onopen = () => {
+        setEnVivo(true);
+        if (t) clearInterval(t);
+        t = null;
+      };
+      // (se reconecta sola; mientras tanto, pregunta)
+      fuente.onerror = () => {
+        setEnVivo(false);
+        preguntar();
+      };
+    } else {
+      preguntar();
+    }
+    return () => {
+      fuente?.close();
+      if (t) clearInterval(t);
+    };
   }, []);
+  // «Revisado hace…» al día mientras la caja está abierta
+  const [, setTic] = useState(0);
+  useEffect(() => {
+    if (!abierto) return undefined;
+    const t = setInterval(() => setTic((x) => x + 1), 5000);
+    return () => clearInterval(t);
+  }, [abierto]);
   // se cierra tocando afuera o con Escape
   useEffect(() => {
     if (!abierto) return undefined;
@@ -138,7 +178,14 @@ export function SaludPlataformas() {
               })}
             </section>
           ))}
-          <p className="salud__pie">{datos ? `Revisado ${fechaRelativa(datos.revisado)}` : 'Revisando…'}</p>
+          <p className="salud__pie">
+            {enVivo ? (
+              <span className="salud__vivo">
+                <PuntoEstado tono="ok" latido /> En vivo
+              </span>
+            ) : null}
+            {datos ? `Revisado ${fechaRelativa(datos.revisado)}` : 'Revisando…'}
+          </p>
         </div>
       ) : null}
     </div>
