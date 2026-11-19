@@ -207,7 +207,13 @@ function manifiestoAgregar(foto, { ugc = false } = {}) {
       referencias: [{ id: 'persona', tipo: 'personaje', prompt: `Foto vertical 9:16 con la cámara frontal de un celular: ${ella}, de pie frente a una pared lisa, mira a cámara. Sin texto.` }, ...(foto ? [{ id: 'producto', tipo: 'producto', archivo: foto, nota: 'conservar forma, colores y etiqueta exactos' }] : [])],
       tomas: [
         bloque(1, ['Mira cómo cambiaron mis piernas.', 'Y no fue solo el gimnasio.'], 'Ella en el gimnasio, de espaldas al espejo, se gira y mira a cámara'),
-        bloque(2, ['Esto es lo que uso cada mañana.', 'Pídelo en el botón de abajo.'], 'Ella muestra el producto a cámara y sonríe'),
+        // (el bloque 2 con la imagen de su escena, 2026-11-19n: se genera antes y va como una referencia más)
+        ((b) => ({
+          ...b,
+          prompt_imagen_inicial: `Foto vertical 9:16 con la cámara frontal de un celular: ${ella}, en el gimnasio, sostiene el producto a la altura del pecho y sonríe a cámara. Sin texto.`,
+          referencias: [...b.referencias, 'imagen'],
+          prompt_video: b.prompt_video.replace(/^(REFERENCIAS: .*)$/m, (x) => `${x} Imagen ${foto ? 3 : 2}: la escena de este bloque — empieza así: mismo encuadre, lugar, ropa y posición del producto.`),
+        }))(bloque(2, ['Esto es lo que uso cada mañana.', 'Pídelo en el botón de abajo.'], 'Ella muestra el producto a cámara y sonríe')),
       ],
       broll: [], overlays: [],
     };

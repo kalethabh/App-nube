@@ -217,6 +217,15 @@ async function principal() {
     const usados = Object.fromEntries((log?.clips || log?.registros || []).map((x) => [x.id || x.clip || x.archivo, x.modelo]));
     const plano = JSON.stringify(log || {});
     if (caso.familia === 'ugc') check('Los bloques salieron con Omni Flash 1.2 (su modelo_video)', /gemini-omni-flash-1-2/.test(plano), log);
+    if (caso.familia === 'ugc') {
+      // (2026-11-19n) el bloque 2 lleva la imagen de su escena: se hizo antes y fue al modelo como una referencia más
+      const b2 = (log?.clips || []).find((x) => x.id === 'toma-2');
+      check('El bloque 2 tiene la imagen de su escena y su clip salió con ella', fs.existsSync(path.join(dir, 'img', 'toma-2-inicial.png')) && (b2?.referencias || []).includes('imagen') && !fs.existsSync(path.join(dir, 'img', 'toma-1-inicial.png')), b2);
+      const det = (await pedir(`/api/anuncios/${slug}`)).datos;
+      const t2 = (det?.tomas || []).find((t) => t.n === 2);
+      const t1 = (det?.tomas || []).find((t) => t.n === 1);
+      check('En Producción el bloque 2 muestra su imagen (para revisarla y editarla) y el 1 no espera ninguna', t2?.llevaImagenInicial === true && /toma-2-inicial\.png/.test(t2?.imagenInicial || '') && t1?.llevaImagenInicial === false, { t1, t2 });
+    }
     else check('Cada clip salió con su modelo (PixVerse en el antes y después, Grok Imagine 1.5 en el B-roll)', /pixverse-v6/.test(plano) && /grok-imagine-video-1-5/.test(plano) && /gemini-omni-flash-1-2/.test(plano), usados && Object.keys(usados).length ? usados : log);
     if (caso.familia !== 'ugc') check('El B-roll quieto no se le pidió a kie (sin clip generado por modelo)', !/broll-2[^}]*pixverse|broll-2[^}]*grok/.test(plano));
     const informe = leerJSON(path.join(dir, 'app', 'informe.json'));

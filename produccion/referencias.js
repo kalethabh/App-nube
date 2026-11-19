@@ -305,6 +305,8 @@ export function validarReferencias(manifiesto, { carpeta } = {}) {
   // Uso desde las tomas y los B-roll: cada id declarado tiene que existir.
   const declaradas = (bloque, etiqueta) => {
     for (const valor of bloque.referencias || []) {
+      // (2026-11-19n) un bloque R con la imagen de su escena la pide como "imagen" (img/toma-N-inicial.png)
+      if (valor === INGREDIENTE_IMAGEN && bloque.tipo === 'R' && etiqueta.startsWith('toma')) continue;
       if (RESERVADAS.includes(valor)) {
         if (valor === 'frame_anterior' && bloque.n === 1 && etiqueta.startsWith('toma')) {
           errores.push(`${etiqueta}: no puede pedir "frame_anterior", es la primera toma.`);
