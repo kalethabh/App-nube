@@ -1,6 +1,6 @@
 {
   "uuid": "cf4016bb-382a-446a-b59f-9f4f3a8f6ed4",
-  "estado": "cambiando",
+  "estado": "listo",
   "tipo": "cambios",
   "intentos": 2,
   "progreso": [
@@ -20,13 +20,14 @@
     {
       "pedido": "Editaste a mano las partes 9, 10, 11, 12, 13, 14, 17",
       "aMano": true,
-      "fecha": "2026-11-19T22:20:23.978Z"
+      "fecha": "2026-11-19T22:20:23.978Z",
+      "ok": true
     }
   ],
-  "actualizado": "2026-11-19T22:23:51.756Z",
+  "actualizado": "2026-11-19T22:24:34.246Z",
   "error": null,
   "inicioIntento": "2026-11-19T22:20:23.979Z",
-  "fin": "2026-11-19T21:33:50.116Z",
+  "fin": "2026-11-19T22:24:34.246Z",
   "limite": false,
   "reinicio": null,
   "medidas": [
@@ -82,9 +83,62 @@
       ],
       "denegados": 3,
       "motor": "claude"
+    },
+    {
+      "tipo": "cambios",
+      "fecha": "2026-11-19T22:24:34.246Z",
+      "ok": true,
+      "turnos": 43,
+      "duracionMs": 250263,
+      "uso": {
+        "input_tokens": 32,
+        "cache_creation_input_tokens": 62235,
+        "cache_read_input_tokens": 2662189,
+        "output_tokens": 26835,
+        "output_tokens_details": {
+          "thinking_tokens": 6289
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 62235,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 187582,
+            "cache_creation_input_tokens": 6578,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 6578
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 4.127212000000001,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
     }
   ],
   "ajustados": 0,
   "pedido": "El usuario editó A MANO el guion. Pon EXACTAMENTE estos textos, palabra por palabra (no los mejores ni los acortes), y ajusta todo lo demás de esas tomas para que digan eso mismo: los tramos y sus tiempos, la duración, el prompt de video y los subtítulos. Donde trae «se ve», esa es la escena: rehaz el prompt de imagen y de video de esa toma para mostrar eso (con los mismos personajes, el mismo estilo y la misma continuidad del anuncio) y pon ese texto en `se_ve` de la hoja. No cambies las otras tomas.\n- Parte 9: dice «Hasta que llega Aguaje Complex 3 en 1.»; se ve: En su cocina de plastilina, de mañana, la misma mujer en camiseta rosada y jean sostiene el frasco cerrado de Aguaje Complex 3 en 1 junto a la cara, con los ojos muy abiertos y una sonrisa esperanzada. Un rayo de sol dorado entra por la ventana y hace brillar el frasco en primer plano. Atrás, en la mesa, hay una arepa y un jugo de naranja. Colores cálidos, plano medio de frente.\n- Parte 10: dice «Aguaje, fenogreco y maca negra: Extractos puros, triple acción.»; se ve: Plano abierto de la cuevita tibia, todo en plastilina. Por la escalerita con faroles bajan tres héroes con caritas felices y capitas: un aguaje rojo brillante, un saquito de fenogreco dorado y una maca negra. Cada uno suelta un chorro de luz pura y dorada que llena la cueva. Al fondo, las cinco fibras siguen dormidas en sus hamaquitas, con gorro. Colores cálidos, rojo, dorado y ámbar, y destellos que brillan.\n- Parte 11: dice «Es lo que realmente hace que tengas resultados, no una marca. Llegan directo al músculo y lo despiertan.»; se ve: En la cuevita tibia de plastilina, el aguaje, el saquito de fenogreco y la maca negra sacuden las hamaquitas. Las cinco fibras de músculo se despiertan de un salto, se quitan el gorro de dormir, se inflan gruesas y brillantes y sacan bíceps, felices. En primer plano, una fibra enorme y rosada hace pose de fuerza. La luz es dorada y cálida, con faroles encendidos. Cámara de frente, a la altura de las fibras.\n- Parte 12: dice «Primero notas que el jean ya te ajusta atrás.»; se ve: En su cuarto de plastilina, con luz cálida de mañana por la ventana, la misma mujer se sube el jean azul de un tirón y le cierra justo. De lado, junto a la cama con cobija rosada, se alisa la tela atrás: ya no le sobra y se ve redondita, nada plana. Abre los ojos y sonríe sorprendida. En la mesita se ve el frasco cerrado. Cámara a la altura de la cadera, de lado.\n- Parte 13: dice «Después, te miras de lado y hay muy buenas curvas.»; se ve: La misma mujer de plastilina, con su jean azul y una blusa amarilla, se para de lado frente al espejo de un ascensor dorado. Mira por encima del hombro y en el reflejo se ve una curva redonda y alta que el jean marca perfecto. Abre los ojos, se pone una mano en la cadera y sonríe orgullosa. Brillitos salen de la curva, la luz es cálida y dorada, y la cámara la toma de cuerpo entero con el espejo bien visible.\n- Parte 14: dice «Y luego todos los hombres y hasta las mujeres con envídia voltean a verte en la calle.»; se ve: Muñequitos de plastilina en una calle colonial de casas amarillas, azules y rosadas, con sol de tarde dorado. Ella camina segura, de lado, con su jean ajustado y la curva bien marcada en primer plano, sonriendo. Detrás, un frutero se queda con la boca abierta y se le cae una papaya, un señor se baja las gafas, y dos señoras la miran de reojo, con los brazos cruzados y cara de envidia. Cámara baja, siguiéndola de lado.\n- Parte 17: dice «Si quieres resultados rápidos, sin efecto rebote y que te duren los resultados después... el tratamiento completo de 3 unidades es la mejor opción.»; se ve: En su sala soleada, la misma mujer de plastilina, con su jean ya ajustado y blusa amarilla, baila un pasito de salsa de frente, feliz, con la curva bien marcada. En primer plano, sobre la mesita, tres frascos cerrados de Aguaje Complex en fila brillan con un moño dorado y confeti alrededor. Luz cálida de tarde, colores vivos y cámara de frente, a la altura de la cintura.",
-  "respaldo": "historial-guion/01"
+  "respaldo": null
 }
