@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-19h · Sube lo que ya te funciona (Variantes)
+
+- En **Anuncios de imagen → Variantes → «Lo que te funciona»**: botón **«Subir lo que te funciona»**. Subes imágenes (JPG, PNG, WEBP o HEIC) o videos de tus anuncios que ya venden, y quedan elegidos.
+- Todo lo que subes queda guardado en **Biblioteca → «Lo que me funciona»**: ahí los ves (los videos se reproducen), les cambias el producto, los quitas o tocas «Hacer variantes».
+- **El concepto creativo**: en cada uno escribes por qué vende (el gancho, la idea, a quién le habla). La variante **conserva ese concepto** y cambia la ejecución y el título.
+
 ## 2026-11-19g · Cambiar de cuenta de Claude
 
 - En **Ajustes › Conexiones**, debajo de tu cuenta de Claude: **«Cambiar de cuenta»**. Se abre una ventana que cierra la cuenta anterior en Claude Code y te deja entrar con otra (Pro o Max).
