@@ -1,50 +1,28 @@
 {
-  "id": "57585906-0c82-46e6-990b-3aece2a379c1",
-  "uuid": "57585906-0c82-46e6-990b-3aece2a379c1",
+  "id": "fbeb1fa7-f0dc-4f7f-8dae-bd083f07f7fc",
+  "uuid": "fbeb1fa7-f0dc-4f7f-8dae-bd083f07f7fc",
   "estado": "error",
   "paso": "claude",
   "progreso": [
-    "Claude está leyendo tu producto"
+    "Claude está en pausa hasta que se renueve tu plan"
   ],
-  "intentos": 1,
-  "inicio": "2026-11-19T15:03:49.567Z",
+  "intentos": 2,
+  "inicio": "2026-11-19T15:19:16.392Z",
   "error": {
-    "mensaje": "Se acabó por ahora el uso de tu plan de Claude. Toca \"Reintentar\" cuando se renueve (se renueva a las 09:00): lo ya hecho no se repite.",
+    "mensaje": "Se acabó por ahora el uso de tu plan de Claude. Toca \"Reintentar\" cuando se renueve (a las 09:01): lo ya hecho no se repite.",
     "tipo": "limite",
-    "motor": "claude",
-    "detalle": "You've hit your weekly limit · resets 9am (America/Bogota)\n[claude-code:unrecognized_model] {\"model\":\"claude-fable-5-2\",\"query_source\":\"sdk\"}"
+    "motor": "claude"
   },
-  "fin": "2026-11-19T15:03:51.149Z",
+  "fin": "2026-11-19T15:19:16.398Z",
   "medida": {
-    "turnos": 1,
-    "duracionMs": 1573,
-    "uso": {
-      "output_tokens_details": {
-        "thinking_tokens": 0
-      },
-      "input_tokens": 0,
-      "cache_creation_input_tokens": 0,
-      "cache_read_input_tokens": 0,
-      "output_tokens": 0,
-      "server_tool_use": {
-        "web_search_requests": 0,
-        "web_fetch_requests": 0
-      },
-      "service_tier": "standard",
-      "cache_creation": {
-        "ephemeral_1h_input_tokens": 0,
-        "ephemeral_5m_input_tokens": 0
-      },
-      "inference_geo": "",
-      "iterations": [],
-      "speed": "standard",
-      "fallback_credit": null
-    },
+    "turnos": 0,
+    "duracionMs": 0,
+    "uso": null,
     "costoEstimado": 0,
-    "modelo": "claude-fable-5-2",
+    "modelo": null,
     "motor": "claude"
   },
   "limite": true,
-  "reinicio": "2026-11-20T14:00:00.000Z",
-  "actualizado": "2026-11-19T15:03:51.149Z"
+  "reinicio": "2026-11-20T14:01:00.000Z",
+  "actualizado": "2026-11-19T15:19:16.399Z"
 }
