@@ -164,10 +164,22 @@ async function estrategia(texto, intento) {
   const plan = elPlan(lote, brief);
   // (2026-11-20) el agente de variaciones: su análisis del ganador y el nivel, el cambio y la hipótesis de cada una
   if (/## Agente de variaciones creativas/.test(texto)) {
-    const reparto = (texto.match(/reparte las \d+ variaciones así: (\d+) de nivel A \(cercanas\), (\d+) de nivel B \(conceptos vecinos\) y (\d+) de nivel C/) || []).slice(1).map(Number);
+    const reparto = (texto.match(/reparte las \d+ variaciones así: (\d+) de nivel A [^,]*, (\d+) de nivel B .*? y (\d+) de nivel C/) || []).slice(1).map(Number);
+    const desdeInvestigacion = /DESDE LA INVESTIGACIÓN/.test(texto);
     const niveles = [...Array(reparto[0] || 0).fill('A'), ...Array(reparto[1] || 0).fill('B'), ...Array(reparto[2] || 0).fill('C')];
     const refs = (brief.referencias || []).map((_, i) => `R${String(i + 1).padStart(2, '0')}`);
-    await escribir(`${C}/analisis-ganador.json`, {
+    if (desdeInvestigacion)
+      await escribir(`${C}/analisis-ganador.json`, {
+        referencias: [],
+        angulo_central: { deseo: 'Verse bien sin esfuerzo (de la investigación)', problema: 'No tiene tiempo', beneficio: 'Resultado visible', beneficios_secundarios: ['Fácil de usar'], promesa: 'Lucir mejor', emocion: 'Confianza', conciencia: 'Consciente del problema', mecanismo: 'Ritual diario' },
+        invariables: ['El deseo central', 'El producto real'],
+        modificables: ['El titular', 'El contexto'],
+        experimentales: ['La objeción de precio'],
+        facetas: ['La que trabaja y no tiene tiempo', 'La que se prepara para una ocasión'],
+        objeciones: ['¿Funciona de verdad?'],
+        resumen: 'El ritual diario para verse bien (análisis de prueba desde la investigación).',
+      });
+    else await escribir(`${C}/analisis-ganador.json`, {
       resumen: 'El deseo de verse bien sin esfuerzo (análisis de prueba).',
       facetas: ['La que trabaja y no tiene tiempo', 'La que se prepara para una ocasión', 'La que desconfía de comprar por internet'],
       referencias: refs.map((ref) => ({ ref, angulo: { deseo: 'Verse bien sin esfuerzo', problema: 'No tiene tiempo', beneficio: 'Resultado visible', beneficios_secundarios: ['Fácil de usar'], promesa: 'Lucir mejor', emocion: 'Confianza', conciencia: 'Consciente del problema', mecanismo: 'Antes y después' }, estructura: 'Titular arriba, la persona y el producto al centro, la oferta abajo.', primeros_segundos: 'Se ve el resultado y el producto.', invariables: ['El deseo de verse bien', 'El producto al centro'], modificables: ['El titular', 'El encuadre'], experimentales: ['El contexto'] })),

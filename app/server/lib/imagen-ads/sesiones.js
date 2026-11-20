@@ -119,6 +119,7 @@ function textoAgenteEstrategia(lote, brief) {
   const n = Number(brief.cantidad) || 1;
   const niveles = nivelesDelAgente(n);
   const cuenta = (x) => niveles.filter((y) => y === x).length;
+  if (brief.modo !== 'variantes') return textoAgenteInvestigacion(lote, brief, n, cuenta);
   return `
 ## Agente de variaciones creativas (lo encargó el usuario desde su oficina)
 Sigue la guía \`${GUIA_AGENTE}\` de la skill (va pegada): eres su Director Creativo Senior. Tu misión no es hacer más anuncios por hacer: es convertir el anuncio ganador en una familia de conceptos que conserve su esencia comercial. REGLA DE ORO: no cambies lo que hace vender al anuncio; cambia la forma de presentarlo a otras personas y en otros contextos.
@@ -128,6 +129,20 @@ Sigue la guía \`${GUIA_AGENTE}\` de la skill (va pegada): eres su Director Crea
 2. Arma la matriz (puntos 4 y 5) y reparte las ${n} variaciones así: ${cuenta('A')} de nivel A (cercanas), ${cuenta('B')} de nivel B (conceptos vecinos) y ${cuenta('C')} de nivel C (expandidas), en ese orden (V01 las más cercanas). En las B y C cambia al menos DOS variables de la matriz sin abandonar el deseo principal.
 3. En \`plan.json\`, cada variación sigue saliendo de su referencia (\`"fuente": "referencia"\`) y agrega estos campos: \`"nivel"\` ("A" | "B" | "C"), \`"variables"\` (las que cambió: "faceta", "problema", "contexto", "formato", o "ejecucion" en las A), \`"faceta"\`, \`"contexto"\`, \`"formato_creativo"\`, \`"cambio"\` (qué cambió respecto del ganador, una frase) e \`"hipotesis"\` (qué se quiere probar con ella, una frase). Conserva SIEMPRE los invariables de su referencia.
 4. Dirección de arte limpia (punto 6), jerarquía (titular → imagen del deseo → producto → beneficios → oferta), composición (punto 9) y copy (punto 8): nada de testimonios, cifras, plazos ni certificaciones inventadas; el producto con su envase y etiqueta reales. Una variante por imagen: nunca collages ni «Variante 1» dentro de la pieza.
+`;
+}
+
+/** El agente SIN referencia: el ángulo ganador sale de la investigación de mercado del producto. */
+function textoAgenteInvestigacion(lote, brief, n, cuenta) {
+  return `
+## Agente de variaciones creativas, DESDE LA INVESTIGACIÓN (lo encargó el usuario: sin anuncio de referencia)
+Sigue la guía \`${GUIA_AGENTE}\` de la skill (va pegada): eres su Director Creativo Senior. Aquí no hay anuncio ganador: el ángulo sale de la INVESTIGACIÓN DE MERCADO del producto (léela entera; es la fuente principal). Nunca inventes datos, testimonios, cifras ni plazos que no estén en ella.
+
+1. ANTES del plan, escribe \`temp/${lote}/analisis-ganador.json\` con el ángulo central que sale de la investigación (punto 3 de la guía, como si fuera el ganador):
+   { "referencias": [], "angulo_central": { "deseo": "…", "problema": "…", "beneficio": "…", "beneficios_secundarios": ["…"], "promesa": "…", "emocion": "…", "conciencia": "…", "mecanismo": "…" }, "invariables": ["lo que todo anuncio debe conservar: el deseo, el producto real…"], "modificables": ["…"], "experimentales": ["…"], "facetas": ["…", "…", "…"], "objeciones": ["…"], "resumen": "el ángulo central en una frase" }
+2. Arma la matriz Andromeda (punto 4) con las facetas, los problemas, los contextos y los formatos de la investigación, y reparte las ${n} variaciones así: ${cuenta('A')} de nivel A (el deseo central dicho de forma directa), ${cuenta('B')} de nivel B (otra faceta o contexto, el mismo deseo) y ${cuenta('C')} de nivel C (una objeción, una demostración o un beneficio secundario), en ese orden. En las B y C cambia al menos DOS variables sin abandonar el deseo central.
+3. En \`plan.json\` cada variación agrega \`"nivel"\` ("A" | "B" | "C"), \`"variables"\`, \`"faceta"\`, \`"contexto"\`, \`"formato_creativo"\`, \`"cambio"\` (qué la distingue, una frase) e \`"hipotesis"\` (qué se quiere probar, una frase). Cada una sale de un formato de la biblioteca de la skill (\`"fuente": "biblioteca"\`), elegido por lo que pide su concepto: nunca de plantillas.
+4. Dirección de arte limpia (punto 6), jerarquía (titular → imagen del deseo → producto → beneficios → oferta), composición (punto 9) y copy (punto 8) con las palabras del cliente de la investigación. El producto con su envase y etiqueta reales. Una variante por imagen: nunca collages ni «Variante 1» dentro de la pieza.
 `;
 }
 
@@ -283,7 +298,11 @@ export function sesionEstrategia({ carpeta, lote, brief }) {
       // el agente: su análisis del ganador y el nivel, el cambio y la hipótesis de cada variación
       const errores = [];
       const a = leerJSON(path.join(carpeta, 'analisis-ganador.json'));
-      if (!Array.isArray(a?.referencias) || !a.referencias.length || !a.referencias.every((x) => Array.isArray(x?.invariables) && x.invariables.length && x?.angulo?.deseo)) errores.push(`Escribe temp/${lote}/analisis-ganador.json con el análisis de cada referencia (su ángulo con el deseo y sus invariables), como pide la tarea.`);
+      const conRefs = brief.modo === 'variantes';
+      const bien = conRefs
+        ? Array.isArray(a?.referencias) && a.referencias.length && a.referencias.every((x) => Array.isArray(x?.invariables) && x.invariables.length && x?.angulo?.deseo)
+        : Boolean(a?.angulo_central?.deseo) && Array.isArray(a?.invariables) && a.invariables.length > 0;
+      if (!bien) errores.push(conRefs ? `Escribe temp/${lote}/analisis-ganador.json con el análisis de cada referencia (su ángulo con el deseo y sus invariables), como pide la tarea.` : `Escribe temp/${lote}/analisis-ganador.json con el ángulo central de la investigación (angulo_central con su deseo) y sus invariables, como pide la tarea.`);
       const plan = leerJSON(R.plan(carpeta));
       const malas = (plan?.variaciones || []).filter((x) => !['A', 'B', 'C'].includes(x?.nivel) || !String(x?.hipotesis || '').trim() || !String(x?.cambio || '').trim());
       if (malas.length) errores.push(`En plan.json, ${malas.map((x) => x?.id).join(', ')}: falta "nivel" (A, B o C), "cambio" o "hipotesis".`);

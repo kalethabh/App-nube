@@ -73,7 +73,7 @@ export function LoQueFunciona() {
                 />
                 <ConceptoFunciona key={`${x.id}-${x.concepto || ''}`} item={x} filas={3} onGuardado={() => recargar?.()} />
                 <div className="fila" style={{ '--hueco': '6px', justifyContent: 'space-between' }}>
-                  <Boton variante="secundario" tamano="chico" icono={Copy} href={enlace.crearImagenes(x.productoId ? { modo: 'variantes', producto: x.productoId } : { modo: 'variantes' })}>
+                  <Boton variante="secundario" tamano="chico" icono={Copy} href={enlace.crearImagenes({ ...(x.productoId ? { producto: x.productoId } : {}), ...(x.tipo !== 'video' && x.url ? { referencia: x.url } : {}) })}>
                     Hacer variantes
                   </Boton>
                   <Boton variante="fantasma" tamano="chico" soloIcono icono={Trash2} etiqueta="Quitar" onClick={() => quitar(x)} />
