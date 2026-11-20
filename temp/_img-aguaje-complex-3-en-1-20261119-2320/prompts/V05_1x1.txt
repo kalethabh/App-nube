@@ -1,0 +1,47 @@
+Square 1:1 ingredients flatlay ad, one single photo. Strict top-down 90-degree overhead view of a pale blush-pink (#FBE3EE) matte plaster surface with a very subtle natural texture, like a painted home table; never pure white. In the center, about 32-68% of the width and 24-80% of the height, the product from the attached image lies flat on the surface, rotated about 15-20 degrees off vertical, its front label facing the camera and fully readable: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern and a solid hot-pink band wrapping the bottom fifth; the black label shows a small pink VITALABH emblem with the white word 'VITALABH', a huge bold white condensed word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a small white line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it. From the four corners, four abundant, loose, organic piles of the real ingredients spill in and are cropped by the canvas edges, framing a calm open area around the bottle: upper-left (about 0-28% of the width, 18-44% of the height) whole and halved aguaje fruits, small oval fruits with glossy reddish-brown scaly skin, the halves showing bright orange flesh; upper-right (about 72-100%, 18-44%) a loose mound of small angular golden-ochre fenugreek seeds; lower-left (about 0-30%, 66-100%) several rough round dark purplish-black maca roots beside a soft mound of fine beige-brown maca powder; lower-right (about 70-100%, 66-100%) a loose pile of plain opaque unprinted two-piece capsules. A few stray fenugreek seeds, a pinch of maca powder and two or three capsules drift toward the center, never touching the bottle label or the text. Four small rounded hot-fuchsia (#E6177F) pill labels with white Inter SemiBold text face the center: two just below the upper piles (about 45-50% of the height) and two just above the lower piles (about 59-64%), all within 4-28% or 72-96% of the width, never touching the bottle, same size and style, no leader lines. At the top center, on clear surface between 4% and 15% of the height, a single-line headline in Montserrat ExtraBold uppercase, bottle black #0E0E10 with the word 'TOMAS' in hot fuchsia #E6177F, centered. Soft diffused window daylight from the upper left; every object casts a short soft shadow toward the lower right; deep focus, everything sharp; true-to-life natural colors and textures. Clean and calm, with generous negative space: no glows, sparkles, flares, particles or petals. Do not add CTA buttons, price badges, benefit lists, icons, trust seals, rating stars, testimonials, hands, people, extra props, bottom bars or any extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- main headline (Top center, on clear surface): "SABES LO QUE TOMAS" — Montserrat ExtraBold, uppercase, about 7-7.5% of the canvas height, 1 line, centered, bottle black #0E0E10 with the word 'TOMAS' in hot fuchsia #E6177F
+- component label 1 (Inside the pill under the upper-left pile (aguaje fruits)): "Aguaje 200 mg" — Inter SemiBold, about 2.8% of the canvas height, 1 line, white, centered in a hot-fuchsia pill
+- component label 2 (Inside the pill under the upper-right pile (fenugreek seeds)): "Fenogreco 400 mg" — Same style as label 1: Inter SemiBold, about 2.8% of the canvas height, 1 line, white, centered
+- component label 3 (Inside the pill above the lower-left pile (black maca)): "Maca negra 200 mg" — Same style as label 1: Inter SemiBold, about 2.8% of the canvas height, 1 line, white, centered
+- component label 4 (Inside the pill above the lower-right pile (capsules)): "Vitaminas A y E" — Same style as label 1: Inter SemiBold, about 2.8% of the canvas height, 1 line, white, centered
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.
+- text_typography: Montserrat ExtraBold (uppercase, heavy) for the headline; Inter SemiBold for the four labels.
+
+MANDATORY ELEMENTS:
+- Strict top-down overhead camera angle
+- The real bottle lying in the center on a slight diagonal, front label facing the camera
+- Four abundant ingredient piles entering from the corners and cropped by the canvas edges: aguaje fruits, fenugreek seeds, black maca roots with powder, capsules
+- Four small hot-fuchsia pill labels facing the center
+- A few stray ingredient pieces drifting toward the bottle
+- Pale blush-pink textured surface with consistent soft shadows
+
+STRICT EXCLUSIONS:
+- No hands, people or faces; no extra props such as bowls, spoons, cups or plants.
+- No price, sanitary registration, certification seals, ratings or customer counts.
+- No glows, sparkles, flares, particles or petals.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Perspective, eye-level or angled camera views
+- Do not add: Boxes, packaging lids, tissue paper or unboxing elements
+- Do not add: Neat grid or knolling arrangement
+- Do not add: More than four labels or any leader lines and arrows
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Trust seals, guarantee, certification or sanitary registration badges
+- Do not add: Rating stars, reviews or testimonials
+- Do not add: Benefit icons or checklists
+- Do not add: Subheadline or any text besides the headline and the four labels
+- Do not add: Bottom bar or banner
+- Do not add: People, hands or faces
+- Do not add: Unrelated props (cups, phones, plants, notebooks, spoons, bowls) that are not part of the product
+- Do not add: Logos or brand marks other than the real bottle label
+- Do not add: Glows, sparkles, light flares, particles or petals
+- Do not add: Collage, split panels or 'variant' labels
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
