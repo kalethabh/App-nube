@@ -1,0 +1,37 @@
+{
+  "fecha": "2026-11-20T17:27:48.190Z",
+  "cambios": [],
+  "sinArreglo": [],
+  "brollFuera": [
+    {
+      "n": 10,
+      "toma": 10,
+      "porque": "no-cabe",
+      "razon": "pasa de 3.0 s, pero quedaria 1.10 s de B-roll y el minimo es 1.2 s"
+    },
+    {
+      "n": 29,
+      "toma": 29,
+      "porque": "corta",
+      "razon": "una toma de tipo A aguanta sola hasta 3.0 s"
+    },
+    {
+      "n": 31,
+      "toma": 31,
+      "porque": "corta",
+      "razon": "una toma de tipo B aguanta sola hasta 3.5 s"
+    },
+    {
+      "n": 76,
+      "toma": 76,
+      "porque": "corta",
+      "razon": "una toma de tipo B aguanta sola hasta 3.5 s"
+    },
+    {
+      "n": 87,
+      "toma": 87,
+      "porque": "no-cabe",
+      "razon": "pasa de 3.0 s, pero quedaria 1.08 s de B-roll y el minimo es 1.2 s"
+    }
+  ]
+}

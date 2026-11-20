@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-musical-20261120-1209",
   "familia": "musical",
   "estado": "corriendo",
-  "paso": "tomas",
+  "paso": "imagenes-y-videos",
   "pasos": [
     {
       "id": "letra",
@@ -42,34 +42,43 @@
     {
       "id": "tomas",
       "nombre": "Escribir las escenas sobre la canción",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-20T17:16:38.208Z",
-      "detalle": "Escribiendo el guion y cada escena"
+      "fin": "2026-11-20T17:27:48.031Z",
+      "nota": "93 escenas y 16 B-roll sobre la canción."
     },
     {
       "id": "tiempos",
       "nombre": "Medir cada escena en la canción",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:27:48.031Z",
+      "fin": "2026-11-20T17:27:48.187Z"
     },
     {
       "id": "ventanas",
       "nombre": "Ajustar el largo de cada escena",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:27:48.187Z",
+      "fin": "2026-11-20T17:27:48.190Z",
+      "nota": "5 B-roll no entran en el video con esta canción: no se generan."
     },
     {
       "id": "saldo",
       "nombre": "Mirar tu saldo de kie",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:27:48.190Z",
+      "fin": "2026-11-20T17:27:48.814Z"
     },
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:27:48.814Z"
     },
     {
       "id": "revision-imagenes",
@@ -112,9 +121,13 @@
   "modoPrueba": false,
   "creado": "2026-11-20T17:11:38.790Z",
   "aprobado": "2026-11-20T17:11:38.790Z",
-  "actualizado": "2026-11-20T17:19:03.699Z",
+  "actualizado": "2026-11-20T17:27:48.814Z",
   "saldoInicial": {
     "creditos": 9200.1,
     "fecha": "2026-11-20T17:11:39.063Z"
+  },
+  "costoPlan": {
+    "creditos": 3350,
+    "fecha": "2026-11-20T17:27:48.814Z"
   }
 }
