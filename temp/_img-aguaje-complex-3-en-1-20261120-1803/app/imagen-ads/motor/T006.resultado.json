@@ -1,0 +1,13 @@
+{
+  "id": "T006",
+  "piezas": {
+    "V06_1x1": {
+      "orden": "U0005",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    }
+  },
+  "actualizado": "2026-11-20T23:33:06.481Z",
+  "terminado": false
+}
