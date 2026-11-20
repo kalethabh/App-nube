@@ -374,6 +374,22 @@
       ],
       "aviso": true,
       "fecha": "2026-11-20T17:54:17.408Z"
+    },
+    {
+      "id": "a79b686b0e",
+      "de": "coordinadora",
+      "texto": "Ojo: «Aguaje Complex 3 en 1 — lo que nadie te dice del BBL» se frenó (El modelo de video rechazó una escena por su contenido.). Entra aquí y lo retomas, no se pierde lo que ya está hecho.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "«Aguaje Complex 3 en 1 — lo que nadie te dice del BBL»",
+          "href": "#/anuncio/aguaje-complex-3-en-1-musical-20261120-1209/produccion",
+          "slug": "aguaje-complex-3-en-1-musical-20261120-1209",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-20T19:51:45.650Z"
     }
   ],
   "encargos": [
@@ -406,7 +422,7 @@
       "error": "Pediste copiar el video de referencia tal cual, con la misma letra palabra por palabra. Pero no tengo esa letra: el video se subió sin su texto escrito y yo no puedo escucharlo. Si escribo una letra nueva ya no sería la del original, y eso es justo lo que no quieres. Además, este estilo se hace en crochet, plastilina o animación 3D, no en video real como el original."
     },
     {
-      "estado": "produciendo",
+      "estado": "error",
       "creado": "2026-11-20T17:09:39.296Z",
       "id": "aguaje-complex-3-en-1-musical-20261120-1209",
       "tipo": "video",

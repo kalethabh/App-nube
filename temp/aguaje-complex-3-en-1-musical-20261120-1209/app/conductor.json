@@ -1,7 +1,7 @@
 {
   "slug": "aguaje-complex-3-en-1-musical-20261120-1209",
   "familia": "musical",
-  "estado": "corriendo",
+  "estado": "error",
   "paso": "imagenes-y-videos",
   "pasos": [
     {
@@ -76,10 +76,23 @@
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "corriendo",
+      "estado": "error",
       "intentos": 2,
       "inicio": "2026-11-20T17:27:48.814Z",
-      "fin": "2026-11-20T17:54:11.492Z"
+      "fin": "2026-11-20T19:51:43.722Z",
+      "error": {
+        "mensaje": "El modelo de video rechazó una escena por su contenido.",
+        "motivo": "contenido",
+        "detalle": "[vid]   Genera primero sus imagenes (npm run imagenes -- temp/aguaje-complex-3-en-1-musical-20261120-1209); despues se generan con lo que falta (sin --rehacer):\n[vid]       npm run videos -- temp/aguaje-complex-3-en-1-musical-20261120-1209\n[vid]\n=== Produccion — aguaje-complex-3-en-1-musical-20261120-1209: resumen ===\n  Imagenes:    SE DETUVO (codigo 1), nada nuevo, en 45 s\n  Videos:      SE DETUVO (codigo 1), nada nuevo, en 47 s\n  Tiempo:      47 s\n  Algo no salio. El detalle esta arriba, en las lineas [img], [voz] o [vid] que dicen que paso.\n  Para retomar, el mismo comando:\n      npm run producir -- temp/aguaje-complex-3-en-1-musical-20261120-1209 --si\n  Lo ya hecho no se paga otra vez, y las tareas que seguian en kie se retoman.\n  Si el motivo es un rechazo por contenido, volver a correr no alcanza: ese mensaje dice que hacer.",
+        "causa": {
+          "porque": "Las tomas 7, 40 y 11 no salieron con ninguno de los dos modelos de video. El modelo de video rechazó una escena por su contenido (algo que su filtro considera sensible).",
+          "dijo": "400 The input or output was flagged as sensitive. Please try again with different inputs.",
+          "hacer": [
+            "Abre el anuncio en el editor y rehaz esa toma con otra descripción.",
+            "O toca «Continuar»: a veces la misma escena pasa en otro intento."
+          ]
+        }
+      }
     },
     {
       "id": "revision-imagenes",
@@ -122,7 +135,7 @@
   "modoPrueba": false,
   "creado": "2026-11-20T17:11:38.790Z",
   "aprobado": "2026-11-20T17:11:38.790Z",
-  "actualizado": "2026-11-20T19:50:56.796Z",
+  "actualizado": "2026-11-20T19:51:43.723Z",
   "saldoInicial": {
     "creditos": 9200.1,
     "fecha": "2026-11-20T17:11:39.063Z"
