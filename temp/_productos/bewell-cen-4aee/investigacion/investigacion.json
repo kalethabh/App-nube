@@ -374,7 +374,154 @@
         ], "pie": "Si responde sí a alguna: «Te recomendamos consultarlo primero con tu médico». En el caso de cáncer de mama o tamoxifeno, no se vende sin visto bueno médico." }
       ]
     },
-    { "titulo": "__CONTINUA2__", "bloques": [] }
+    {
+      "titulo": "Deseo central, propuestas de valor y copy para la landing",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "14.1 Deseo central" },
+        { "tipo": "cita", "estilo": "central", "texto": "Volver a sentirme yo: fresca, descansada y con ánimo, sin que los calorones, el mal genio y la barriga inflada manejen mi día" },
+        { "tipo": "parrafo", "texto": "El deseo de superficie es que se acaben los calorones, dormir y deshincharse. El deseo profundo es **no perderse a sí misma**: el miedo a volverse «otra», amargada, cansada y sin control de su cuerpo, justo cuando más la necesitan en la casa y en el trabajo. Cuando compra la hija, el deseo es ver a la mamá tranquila y contenta otra vez." },
+        { "tipo": "subtitulo", "texto": "14.2 Seis propuestas de valor" },
+        { "tipo": "propuesta", "titulo": "1. Los calorones en público", "dolor": "«Me da un calorón en plena reunión y quedo roja y sudando delante de todos.»", "propuesta": "«BeWell Cen trae las isoflavonas naturales de la soya en tu desayuno: una forma fácil de acompañar tu cuerpo en esta etapa para que los calorones no te tomen por sorpresa.»", "tiempo": "Muchas mujeres notan los calorones menos seguidos entre las 6 y las 12 semanas." },
+        { "tipo": "propuesta", "titulo": "2. Las noches empapadas", "dolor": "«Me despierto a las 3 de la mañana empapada y ya no vuelvo a dormir.»", "propuesta": "«Un batido al día con proteína de soya, isoflavonas, maca y magnesio, para que tu rutina te ayude a descansar mejor.»", "tiempo": "Muchas cuentan que descansan mejor entre la semana 3 y la 4." },
+        { "tipo": "propuesta", "titulo": "3. La barriga inflada", "dolor": "«Como lo mismo y la barriga sigue creciendo; el jean ya no me cierra.»", "propuesta": "«Cambia el pan y el tinto de la mañana por un batido con proteína vegetal y linaza que te deja llenita hasta el almuerzo y te ayuda a sentirte menos inflada.»", "tiempo": "Muchas notan menos antojos desde la primera semana y menos hinchazón entre 1 y 2 semanas." },
+        { "tipo": "propuesta", "titulo": "4. El mal genio y la culpa", "dolor": "«Exploto por todo con mi esposo y mis hijos y después me siento culpable.»", "propuesta": "«Regálate 1 minuto para ti cada mañana: un ritual rico que te acompaña en la etapa de cambio para que vuelvas a sentirte con más calma.»", "tiempo": "Muchas notan más ánimo entre la semana 3 y la 4." },
+        { "tipo": "propuesta", "titulo": "5. Sin pilas para el día", "dolor": "«Vivo cansada, sin fuerza, y se me olvida todo en el trabajo.»", "propuesta": "«Arranca el día con proteína vegetal, calcio y magnesio en un batido sabor vainilla, para que te rinda la mañana y cuides tu fuerza de los próximos años.»", "tiempo": "Muchas sienten más energía en las primeras 3 a 4 semanas." },
+        { "tipo": "propuesta", "titulo": "6. Ya probé de todo", "dolor": "«Me tomé de todo y nada me sirvió. No quiero botar más plata.»", "propuesta": "«Esta vez no es otra pastilla: es un desayuno rico, con registro INVIMA, y pagas solo cuando lo recibes en tu casa. Y una asesora te acompaña por WhatsApp.»", "tiempo": "Con el tratamiento x3 (unas 7 semanas) le das a tu cuerpo el tiempo para notar los cambios." },
+        { "tipo": "caja", "estilo": "recomendacion", "titulo": "Cómo usarlas", "items": [
+          "**Ángulos de prueba en Meta Ads:** la 1 (calorones en público, para la trabajadora de 47 a 55), la 2 (noches empapadas, anuncios de noche) y la 3 (barriga inflada, para la de 41 a 50).",
+          "**La 6 (desconfianza) va como cierre** de todos los anuncios y del guion de WhatsApp: pago al recibir, registro INVIMA y asesoría.",
+          "**Aviso legal:** «Los resultados varían. No reemplaza tratamiento médico.»"
+        ] },
+        { "tipo": "subtitulo", "texto": "14.3 Propuesta de valor encapsulada" },
+        { "tipo": "caja", "estilo": "encapsulada", "texto": "BeWell Cen es tu desayuno de la etapa de cambio para sentirte más fresca, descansar mejor y dejar de sentirte inflada, mientras vuelves a ser tú, con calma y energía para los tuyos. Sin azúcar añadida, con registro INVIMA y pagas al recibir." },
+        { "tipo": "vinetas", "items": [
+          "**«Más fresca»** → propuesta 1 (calorones).",
+          "**«Descansar mejor»** → propuesta 2 (noches empapadas).",
+          "**«Dejar de sentirte inflada»** → propuesta 3 (barriga).",
+          "**«Vuelves a ser tú, con calma»** → propuesta 4 (mal genio).",
+          "**«Energía para los tuyos»** → propuesta 5 (sin pilas).",
+          "**«Registro INVIMA y pagas al recibir»** → propuesta 6 (desconfianza)."
+        ] },
+        { "tipo": "subtitulo", "texto": "14.4 Títulos para el hero" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Vuelve a sentirte tú en 4 semanas: más fresca, descansada y sin sentirte inflada", "subtitulo": "El desayuno con proteína de soya e isoflavonas para tu etapa de cambio, sabor vainilla" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2 (más emocional)", "titulo": "En pocas semanas, vuelve la mujer alegre que eras antes de los calorones", "subtitulo": "Un ritual de 1 minuto cada mañana para acompañar tu cuerpo en esta etapa" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3 (para la hija que se lo regala)", "titulo": "Que tu mamá vuelva a dormir tranquila y se sienta ella misma en 4 semanas", "subtitulo": "El batido de su etapa de cambio, con isoflavonas de la soya y pago al recibir" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 4 (corta, para celular)", "titulo": "Más fresca y descansada en 4 semanas", "subtitulo": "Tu desayuno de la etapa de cambio" },
+        { "tipo": "nota", "texto": "Texto legal bajo el hero: «Muchas personas notan cambios desde las primeras semanas. Los resultados varían. No reemplaza tratamiento médico.»" },
+        { "tipo": "subtitulo", "texto": "14.5 Títulos para la sección de dolor (sección 2 de la landing)" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 1 (recomendada, identificación directa)", "titulo": "¿Te despiertas a las 3 de la mañana empapada y ya no vuelves a dormir?", "subtitulo": "No estás exagerando: es tu cuerpo pidiéndote apoyo en esta etapa" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 2 (la sensación física)", "titulo": "Ese calor que te sube de la nada y te deja roja y sudando", "subtitulo": "Los calorones no tienen por qué manejar tu día" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 3 (la hija que la ve mal)", "titulo": "¿Tu mamá anda cansada, acalorada y de mal genio?", "subtitulo": "No es mala actitud: está pasando por su etapa de cambio" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 4 (la culpa)", "titulo": "Explotas por todo y después te sientes culpable", "subtitulo": "No eres tú: es la etapa. Y puedes acompañarla mejor" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 5 (la limitación diaria)", "titulo": "El jean ya no cierra y vives inflada aunque comas lo mismo", "subtitulo": "Tu desayuno puede ser el primer cambio" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 6 (el entorno)", "titulo": "Un calorón en plena reunión, en el bus o en la fila del banco", "subtitulo": "Con el calor de la ciudad y el afán del día, todo se siente peor" },
+        { "tipo": "opcion", "estilo": "dolor", "etiqueta": "Opción 7 (lo que ya probó)", "titulo": "Ya te tomaste de todo y nada te sirvió", "subtitulo": "Esta vez no es otra pastilla: es un desayuno que te acompaña" },
+        { "tipo": "nota", "texto": "Cómo armar la sección: usa la opción 1 como título principal. Debajo va el bloque «¿Te pasa esto?», la frase puente y la caja de cuidado." },
+        { "tipo": "caja", "estilo": "te-pasa", "titulo": "¿Te pasa esto?", "items": [
+          "Te da un calorón de la nada y quedas sudando.",
+          "Te despiertas en la madrugada y ya no vuelves a dormir.",
+          "Andas de mal genio por todo.",
+          "Te sientes inflada todo el día.",
+          "Vives cansada, sin pilas.",
+          "Se te olvidan las cosas y la cabeza se te nubla."
+        ], "pie": "Si marcaste 2 o más, tu cuerpo te está pidiendo apoyo en esta etapa. Y la respuesta puede empezar en tu desayuno." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "No nombres enfermedades (osteoporosis, depresión, síndrome metabólico, cáncer) ni hables de hormonas o daños en órganos. Solo síntomas que ella siente: calor, sudor, sueño, ánimo, hinchazón, cansancio." },
+        { "tipo": "subtitulo", "texto": "14.6 Sección de beneficios (texto corto para la imagen)" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Vuelve a sentirte tú, mañana tras mañana", "subtitulo": "Proteína de soya con isoflavonas para tus días y tus noches" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "Un batido, cinco razones para sentirte mejor", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "Tu etapa de cambio, más fresca y tranquila", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["#", "Beneficio (grande)", "Frase (mediana)"], "filas": [
+          ["1", "Más fresca", "Te acompaña cuando llegan los calorones"],
+          ["2", "Noches tranquilas", "Para descansar mejor y amanecer con pilas"],
+          ["3", "Menos inflada", "Llenita hasta el almuerzo, sin antojos"],
+          ["4", "Más calma", "Un ritual para ti cada mañana"],
+          ["5", "Natural y rico", "Proteína vegetal, sin azúcar añadida, vainilla"]
+        ] },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Sin azúcar añadida · Proteína vegetal · Con calcio y magnesio · Pagas al recibir", "nota": "Si vendes la versión sin edulcorante, puedes agregar «Sin edulcorantes»; confírmalo primero." },
+        { "tipo": "nota", "texto": "Nota de diseño: título del beneficio grande y frase mediana. Si la imagen queda cargada, deja solo los 5 títulos con íconos. Fondo limpio lila claro, sin follaje." },
+        { "tipo": "subtitulo", "texto": "14.7 Modo de uso" },
+        { "tipo": "caja", "estilo": "pendiente", "titulo": "Pendiente", "texto": "La etiqueta muestra la porción (30 g) y 17 porciones por tarro, pero no la frecuencia ni el líquido. El modo de uso va con 1 porción al día en el desayuno; confírmalo con el manual de la marca." },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 1 (recomendada)", "titulo": "Solo 1 batido al día para sentirte más fresca de la mañana a la noche", "subtitulo": "Tu desayuno de la etapa de cambio, listo en 1 minuto" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 2", "titulo": "1 minuto en tu desayuno, todo el día sintiéndote tú", "subtitulo": "" },
+        { "tipo": "opcion", "estilo": "marca", "etiqueta": "Opción 3", "titulo": "Mezcla, toma y sigue tu día: así de fácil", "subtitulo": "" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo tomarlo", "Valor de cada toma"], "filas": [
+          ["☀️ En el desayuno", "1 porción de 30 g [confirmar] en un vaso de agua o leche [confirmar], bien mezclada", "Te deja llenita hasta el almuerzo y te acompaña con isoflavonas de la soya en tu etapa de cambio"],
+          ["📅 Todos los días, sin falta", "La misma hora cada mañana", "La constancia es la clave: muchas notan más descanso y ánimo entre la semana 3 y 4, y los calorones menos seguidos entre la 6 y la 12"]
+        ] },
+        { "tipo": "nota", "texto": "Nota legal para la imagen: «Para mujeres adultas. No recomendado en embarazo, lactancia ni para menores de edad. Si tienes alergia a la soya, una condición médica o tomas medicamentos, consulta a tu médico. No reemplaza tratamiento médico.»" },
+        { "tipo": "franja", "etiqueta": "Franja inferior:", "texto": "Sabor vainilla · Listo en 1 minuto · Sin azúcar añadida", "nota": "Confirma con el producto cómo se disuelve y si sabe bien con agua." },
+        { "tipo": "nota", "texto": "Variante: si el manual indica 2 porciones al día, agrega una toma en la merienda de la tarde («para llegar a la cena sin antojos») y cambia el título a «Solo 2 batidos al día…»." },
+        { "tipo": "subtitulo", "texto": "14.8 Guía visual de la estructura de 4 mensajes" },
+        { "tipo": "tabla", "estilo": "azul", "columnas": ["Mensaje", "Objetivo", "Título"], "filas": [
+          ["1 · Hero", "Qué es, para quién y su valor", "Vuelve a sentirte tú en 4 semanas: más fresca, descansada y sin sentirte inflada"],
+          ["2 · Punto de dolor", "Conectar y mostrar la solución", "¿Te despiertas a las 3 de la mañana empapada y ya no vuelves a dormir?"],
+          ["3 · Beneficios", "Mostrar el valor para su vida", "Vuelve a sentirte tú, mañana tras mañana"],
+          ["4 · Modo de uso", "Explicar cómo usarlo, sin dudas", "Solo 1 batido al día para sentirte más fresca de la mañana a la noche"]
+        ] },
+        { "tipo": "caja", "estilo": "alerta", "titulo": "Antes de diseñar", "items": [
+          "Confirma la lista completa de ingredientes: en el hero solo van los reales.",
+          "Calificación y número de reseñas: usa solo los reales; si no, déjalos como [calificación] y [N].",
+          "Confirma la porción y si va con agua o leche.",
+          "Usa la foto real del tarro y el vaso con el batido; fondo limpio lila claro, sin follaje.",
+          "Texto grande y legible en el celular."
+        ] },
+        { "tipo": "guia-visual" }
+      ]
+    },
+    {
+      "titulo": "Conceptos para Meta (Andromeda)",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "15.1 Lo que cambió" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Lo que cambió en Meta", "items": [
+          "**El creativo es la segmentación.** Segmentación amplia (mujeres de 40 a 60, Colombia) y que el anuncio filtre: quién aparece y qué problema muestra le dice a Meta a quién mostrarlo.",
+          "**Diversidad real de conceptos.** De 6 a 10 conceptos por conjunto, no variaciones de un ganador: cambiar el color o el hook es el mismo anuncio.",
+          "**Señal de compra real.** En contra entrega, reporta la compra confirmada y la entrega, no solo el mensaje."
+        ] },
+        { "tipo": "subtitulo", "texto": "15.2 Facetas del cliente" },
+        { "tipo": "tabla", "columnas": ["Persona base", "Faceta", "Dolor en sus palabras", "Escenario visual"], "filas": [
+          ["Gloria Patricia", "La trabajadora de oficina", "Me dio un calorón en plena reunión y todos me miraron", "Sala de juntas, 10 a.m., abanicándose con una carpeta"],
+          ["Gloria Patricia", "La que no duerme", "Me despierto empapada a las 3 a.m. y no vuelvo a dormir", "Cuarto oscuro, ventilador prendido, el celular en la mano"],
+          ["Gloria Patricia", "La esposa de mal genio", "Exploto por todo y después lloro de la culpa", "Cocina en la noche, después de una discusión"],
+          ["Gloria Patricia", "La que sale sin desayunar", "Salgo a las 6 con un tinto y a las 10 me como lo que sea", "Bus o TransMilenio a las 6 a.m., con el tinto en la mano"],
+          ["Sandra Milena", "La mamá del jean que no cierra", "Como lo mismo y la barriga sigue creciendo", "Frente al espejo en la mañana, peleando con el botón del jean"],
+          ["Sandra Milena", "La que ya probó de todo", "Me tomé de todo y nada me sirvió", "Cajón lleno de frascos de pastillas a medio usar"],
+          ["Doña Luz Marina", "La abuela que quiere seguir fuerte", "No quiero ser la abuela que no puede alzar a los nietos", "Almuerzo familiar del domingo, alzando al nieto"],
+          ["Daniela", "La hija que se lo regala a la mamá", "Mi mamá anda acalorada y brava todo el tiempo", "Visita a la mamá en diciembre, la mamá con el ventilador en la novena"]
+        ], "nota": "Las facetas reales se confirman con los chats de WhatsApp de las asesoras: exporta 100 chats cerrados como venta y clasifica para quién compraba, qué frase usó y qué objeción puso. Salen de 4 a 7 facetas." },
+        { "tipo": "subtitulo", "texto": "15.3 Momentos y contexto" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo está la persona", "Mensaje que conecta", "Formato"], "filas": [
+          ["Madrugada antes de salir (5 a 7 a.m.)", "Afanada, sin desayunar, cansada de la noche", "«Tu desayuno de 1 minuto para la etapa de cambio»", "Demostración, UGC selfie"],
+          ["Media mañana en el trabajo", "Acalorada, con hambre, con la cabeza nublada", "«¿Te pasa en plena reunión?»", "UGC, imagen estática"],
+          ["Almuerzo", "Comparando con las compañeras, pensando en la barriga", "«Llenita hasta el almuerzo, sin antojos»", "Antes y después, testimonio"],
+          ["Noche (scroll largo)", "Despierta, sudada, sola con su celular", "«Si estás viendo esto despierta a las 3 a.m.…»", "Historia narrada, realista con narrador"],
+          ["Quincena (15 y 30)", "Con plata para comprar", "«Tratamiento x3 con envío gratis»", "Imagen estática con la oferta"],
+          ["Mitad de mes", "Plata apretada", "«Pides hoy y pagas cuando te llegue»", "UGC con pago al recibir"],
+          ["Diciembre", "Fotos, novenas y regalos", "«Que en las fotos te veas como te sientes» · «Regálale a tu mamá»", "Sketch de comedia, historia, imagen de regalo"],
+          ["Enero", "Propósitos de año nuevo", "«Este año te cuidas tú primero»", "Testimonio, antes y después"]
+        ] },
+        { "tipo": "subtitulo", "texto": "15.4 Matriz de conceptos" },
+        { "tipo": "tabla", "columnas": ["#", "Faceta", "Problema", "Contexto", "Formato", "Hook"], "filas": [
+          ["1", "La trabajadora de oficina", "Síntoma visible: calorón en público", "Reunión de las 10 a.m.", "UGC selfie", "«Me dio un calorón en plena reunión y todos se quedaron mirándome»"],
+          ["2", "La que no duerme", "Síntoma: sudores e insomnio", "3 a.m. en la cama", "Realista con narrador", "«Otra vez despierta a las 3 de la mañana, empapada»"],
+          ["3", "La mamá del jean que no cierra", "Consecuencia social: la ropa, la barriga", "Vistiéndose en la mañana", "Antes y después (imagen)", "«El jean ya no me cierra y no he cambiado nada»"],
+          ["4", "La esposa de mal genio", "Consecuencia social: peleas y culpa", "Noche en la casa", "Historia narrada", "«Exploto por todo y después me siento culpable»"],
+          ["5", "La abuela que quiere seguir fuerte", "Miedo a futuro: perder fuerza", "Almuerzo familiar del domingo", "Testimonio", "«No quiero ser la abuela que no puede alzar a los nietos»"],
+          ["6", "La que ya probó de todo", "Frustración con lo que ya probó", "Mitad de mes, plata apretada", "Imagen estática (solo X vs. X + producto)", "«Ya me tomé de todo para la menopausia y nada»"],
+          ["7", "La hija que se lo regala a la mamá", "Consecuencia social: la mamá acalorada y brava", "Novena de diciembre", "Sketch de comedia", "«Mi mamá abre la nevera a las 2 a.m. para echarse fresco»"],
+          ["8", "La que sale sin desayunar", "No tiene tiempo", "Bus de las 6 a.m.", "Demostración", "«Salgo a las 6 sin desayunar y a las 10 me como lo que sea»"]
+        ], "nota": "Probar primero el 1, el 2 y el 3: son los tres dolores más frecuentes (calorones, noches, barriga), le hablan a facetas distintas y cubren mañana, noche y madrugada. El 7 se activa desde el 1 de diciembre." },
+        { "tipo": "subtitulo", "texto": "15.5 Estructura y señal" },
+        { "tipo": "ficha", "filas": [
+          ["Estructura", "Menos campañas y conjuntos. Segmentación amplia: Colombia, mujeres de 40 a 60. De 6 a 10 conceptos por conjunto. Escala el conjunto que funciona en vez de duplicarlo"],
+          ["Leer el gasto", "Si Meta no le invierte a un anuncio, es un veredicto: no apagues el que gasta ni saques el olvidado a otro conjunto. Mira a qué faceta y momento le habla el que se lleva más del 50 % del gasto y crea conceptos vecinos"],
+          ["Señal", "Envía a Meta la compra cuando el pedido se confirma en WhatsApp, con la API de Conversiones, y si puedes marca los entregados. En la landing, píxel + API de Conversiones con el pedido confirmado"],
+          ["Qué medir por anuncio", "El % de confirmación y el % de entrega, no solo el costo por mensaje"]
+        ] },
+        { "tipo": "subtitulo", "texto": "15.6 Prompt con contexto para la IA" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Plantilla llena para BeWell Cen", "texto": "Eres un copywriter de respuesta directa para Colombia. Vendes con pago contra entrega y el cierre es por WhatsApp. Producto: BeWell Cen, alimento en polvo con proteína de soya e isoflavonas, linaza, maca, calcio y magnesio, sabor vainilla, sin azúcar añadida, 500 g (17 porciones). Faceta: [elige una de la tabla 15.2]. Frases reales de clientas: «me da un calorón de la nada y quedo sopa»; «me despierto a las 3 a.m. empapada»; «ando de mal genio con todo el mundo»; «la barriga no me baja y el jean no me cierra»; «vivo sin pilas»; «ya me tomé de todo y nada»; «el médico me dijo que es normal». Contexto o momento: [de la tabla 15.3]. Objeción principal: «otro producto más que no sirve». Formato: [UGC, testimonio, historia…]. Reglas: lenguaje natural de Colombia; nada de curar ni de equilibrar hormonas; beneficios como experiencia («muchas mujeres notan»); menciona el pago contra entrega; CTA a WhatsApp. Entrega: 3 hooks + guion + texto principal.", "pie": "Las frases de clientas están parafraseadas de lo investigado: reemplázalas por las de los chats de WhatsApp." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "Los conceptos hablan de bienestar, rutina y experiencia, nunca de curar la menopausia, equilibrar hormonas ni de resultados garantizados. Además del riesgo legal, Meta rechaza o limita esos anuncios." }
+      ]
+    }
   ],
   "guia": { "mensajes": [] },
   "anuncios_imagen": [],
