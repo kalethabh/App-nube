@@ -1,8 +1,9 @@
 // S.E.P (lib/sep.js): tus anuncios de Meta que más venden y qué hacer con cada uno. Solo lee tu cuenta.
 //   GET /api/sep/cuentas                                         -> { cuentas, simulado? }
-//   GET /api/sep/informe?cuenta=act_…&rango=30d&roas=2&cpa=&forzar=1   -> el informe
+//   GET /api/sep/campanas?cuenta=act_…&rango=30d                  -> { campanas }
+//   GET /api/sep/informe?alcance=bm|cuenta|campana&bm=&cuenta=act_…&campana=&rango=30d&roas=2&cpa=&forzar=1   -> el informe
 //   GET /api/sep/imagen/:adId                                    -> la imagen del anuncio (guardada en la app)
-import { cuentas, informe, imagenDe, hayToken } from '../lib/sep.js';
+import { cuentas, campanas, informe, imagenDe, hayToken } from '../lib/sep.js';
 
 export default function rutasSep(app) {
   const conErrores = (fn) => async (req, res) => {
@@ -14,8 +15,9 @@ export default function rutasSep(app) {
       res.status(500).json({ error: 'Algo falló leyendo tus anuncios. Vuelve a intentar.' });
     }
   };
-  app.get('/api/sep/cuentas', conErrores(async () => (hayToken() ? cuentas() : { cuentas: [], sinToken: true })));
-  app.get('/api/sep/informe', conErrores((req) => informe({ cuenta: String(req.query.cuenta || ''), rango: String(req.query.rango || '30d'), roas: req.query.roas, cpa: req.query.cpa, forzar: req.query.forzar === '1' })));
+  app.get('/api/sep/cuentas', conErrores(async (req) => (hayToken() ? cuentas({ forzar: req.query.forzar === '1' }) : { bms: [], cuentas: [], sinToken: true })));
+  app.get('/api/sep/campanas', conErrores((req) => campanas({ cuenta: String(req.query.cuenta || ''), rango: String(req.query.rango || '30d') })));
+  app.get('/api/sep/informe', conErrores((req) => informe({ alcance: String(req.query.alcance || 'cuenta'), bm: String(req.query.bm || ''), cuenta: String(req.query.cuenta || ''), campana: String(req.query.campana || ''), rango: String(req.query.rango || '30d'), roas: req.query.roas, cpa: req.query.cpa, forzar: req.query.forzar === '1' })));
   app.get('/api/sep/imagen/:adId', async (req, res) => {
     try {
       res.sendFile(await imagenDe(String(req.params.adId)));

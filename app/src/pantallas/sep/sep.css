@@ -103,3 +103,12 @@
 
 @media (max-width: 1100px) { .sep-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } .sep-graficas { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .sep-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .sep-kpi { padding: 12px; } .sep-kpi__valor { font-size: 17px; overflow-wrap: anywhere; } .sep-fecha { margin-left: 0; } }
+
+/* (2026-11-20l) qué ver: BM completo, cuenta o campaña */
+.sep-alcance { display: flex; flex-direction: column; gap: 4px; }
+.sep-alcance__etiqueta { font-size: 12px; font-weight: 700; color: var(--texto-3); }
+.sep-campo select { max-width: 320px; }
+.sep-campo--ancho select { min-width: 260px; }
+.sep-card__campana b { font-weight: 700; color: var(--texto-2); }
+.sep-aviso { margin: 0; padding: 10px 14px; border-radius: 12px; border: 1px dashed color-mix(in srgb, var(--aviso) 60%, transparent); background: color-mix(in srgb, var(--aviso) 10%, transparent); color: var(--texto-1); font-size: 13px; }
+@media (max-width: 640px) { .sep-alcance .sep-segmento { width: 100%; } .sep-alcance .sep-segmento button { flex: 1; height: auto; min-height: 34px; padding: 4px 6px; font-size: 12px; line-height: 1.2; text-align: center; justify-content: center; } .sep-campo, .sep-campo select { width: 100%; max-width: none; } .sep-campo--ancho select { min-width: 0; } }

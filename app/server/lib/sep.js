@@ -14,8 +14,10 @@
 // Biblioteca (META_ADS_TOKEN) por si ya tiene ads_read. Solo LEE: nunca cambia nada en tu cuenta.
 // En modo prueba nunca se llama a Meta: datos simulados.
 //
-//   cuentas()                                        -> { cuentas: [{ id, nombre, moneda, activa }], simulado? }
-//   informe({ cuenta, rango, roas, cpa, forzar })    -> { cuenta, moneda, rango, totales, serie, anuncios, reglas, fecha }
+//   cuentas()                                        -> { bms: [{ id, nombre, cuentas }], cuentas: [{ id, nombre, moneda, activa, bm }] }
+//   campanas({ cuenta, rango })                      -> { campanas: [{ id, nombre, compras, gasto }] }
+//   informe({ alcance: 'bm'|'cuenta'|'campana', bm, cuenta, campana, rango, roas, cpa, forzar })
+//                                                    -> { alcance, cuentas, moneda (null si el BM mezcla monedas), totales, serie, anuncios, reglas, fecha }
 //   imagenDe(adId)                                    -> ruta local de su imagen (para hacer variaciones)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -84,10 +86,58 @@ function compras(lista) {
 
 // ---------------------------------------------------------------- las cuentas
 
-export async function cuentas() {
-  if (modoPrueba() && !process.env.SEP_GRAPH_BASE) return { cuentas: [{ id: 'act_100200300', nombre: 'Cuenta de prueba', moneda: 'USD', activa: true }], simulado: true };
-  const l = await todas('me/adaccounts', { fields: 'id,name,account_status,currency', limit: '100' }, 3);
-  return { cuentas: l.map((c) => ({ id: c.id, nombre: c.name || c.id, moneda: c.currency || 'USD', activa: c.account_status === 1 })) };
+const SIMULADAS = [
+  { id: 'act_100200300', nombre: 'Aguaje Colombia', moneda: 'USD', activa: true, bm: { id: '900100', nombre: 'BM Kads' } },
+  { id: 'act_100200301', nombre: 'VitalDrops Colombia', moneda: 'USD', activa: true, bm: { id: '900100', nombre: 'BM Kads' } },
+  { id: 'act_100200302', nombre: 'Cuenta personal', moneda: 'USD', activa: true, bm: null },
+];
+
+/** (2026-11-20l) Tus cuentas publicitarias con su Business Manager: { bms: [{ id, nombre, cuentas: [ids] }], cuentas }. */
+let memoCuentas = null; // { hasta, valor } (10 min: no se le pregunta a Meta en cada informe)
+export async function cuentas({ forzar = false } = {}) {
+  if (!forzar && memoCuentas && memoCuentas.hasta > Date.now() && memoCuentas.token === token()) return memoCuentas.valor;
+  const valor = await cuentasDeMeta();
+  memoCuentas = { hasta: Date.now() + 10 * 60000, valor, token: token() };
+  return valor;
+}
+async function cuentasDeMeta() {
+  let lista;
+  let simul = false;
+  if (modoPrueba() && !process.env.SEP_GRAPH_BASE) {
+    lista = SIMULADAS;
+    simul = true;
+  } else {
+    const l = await todas('me/adaccounts', { fields: 'id,name,account_status,currency,business{id,name}', limit: '100' }, 5);
+    lista = l.map((c) => ({ id: c.id, nombre: c.name || c.id, moneda: c.currency || 'USD', activa: c.account_status === 1, bm: c.business?.id ? { id: c.business.id, nombre: c.business.name || c.business.id } : null }));
+  }
+  const bms = new Map();
+  for (const c of lista) {
+    const k = c.bm?.id || 'sin-bm';
+    const b = bms.get(k) || { id: k, nombre: c.bm?.nombre || 'Sin Business Manager', cuentas: [] };
+    b.cuentas.push(c.id);
+    bms.set(k, b);
+  }
+  return { bms: [...bms.values()].sort((a, b) => (a.id === 'sin-bm') - (b.id === 'sin-bm') || a.nombre.localeCompare(b.nombre)), cuentas: lista, ...(simul ? { simulado: true } : {}) };
+}
+
+/** Las campañas de una cuenta con gasto en el rango (las que más venden primero): { campanas: [{ id, nombre, compras, gasto }] }. */
+export async function campanas({ cuenta, rango = '30d' } = {}) {
+  if (!RANGOS[rango]) rango = '30d';
+  if (modoPrueba() && !process.env.SEP_GRAPH_BASE) {
+    const por = new Map();
+    for (const a of simulado(rango, cuenta)) {
+      const x = por.get(a.campanaId) || { id: a.campanaId, nombre: a.campana, compras: 0, gasto: 0 };
+      for (const d of a.serie) {
+        x.compras += d.compras;
+        x.gasto = r2(x.gasto + d.gasto);
+      }
+      por.set(a.campanaId, x);
+    }
+    return { campanas: [...por.values()].sort((a, b) => b.compras - a.compras) };
+  }
+  if (!/^act_\d{3,30}$/.test(String(cuenta || ''))) throw new ErrorApp(400, 'Elige tu cuenta publicitaria.');
+  const filas = await todas(`${cuenta}/insights`, { level: 'campaign', date_preset: RANGOS[rango], fields: 'campaign_id,campaign_name,spend,actions', limit: '500' }, 4);
+  return { campanas: filas.map((f) => ({ id: f.campaign_id, nombre: f.campaign_name, compras: compras(f.actions), gasto: r2(num(f.spend)) })).filter((c) => c.gasto > 0).sort((a, b) => b.compras - a.compras || b.gasto - a.gasto) };
 }
 
 // ---------------------------------------------------------------- el sistema S.E.P
@@ -151,7 +201,7 @@ export function decidir(a, obj) {
 
 // ---------------------------------------------------------------- el informe
 
-function simulado(rango) {
+function simulado(rango, cuenta = 'act_100200300') {
   const n = { '7d': 7, '14d': 14, '30d': 30, '90d': 90 }[rango] || 30;
   const hoy = new Date();
   const fechas = Array.from({ length: n }, (_, i) => new Date(hoy.getTime() - (n - 1 - i) * 86400000).toISOString().slice(0, 10));
@@ -164,7 +214,9 @@ function simulado(rango) {
     ['Pixar · la flaca que come', 'VitalDrops · Pruebas', 0.1, 0.05, 1.2, 0.6],
     ['Gancho callejero nuevo', 'Aguaje · Pruebas', 0.3, 0.25, 1.0, 0.5],
   ];
-  return base.map(([nombre, campana, ventasDia, gastoDia, frec, ctr], k) => {
+  // cada cuenta simulada tiene sus anuncios (la de Aguaje, la de VitalDrops y la personal, con uno solo)
+  const de = { act_100200300: (c) => /Aguaje/.test(c), act_100200301: (c) => /VitalDrops/.test(c), act_100200302: (c, k) => k === 6 }[cuenta] || (() => true);
+  return base.map((x, k) => [x, k]).filter(([x, k]) => de(x[1], k)).map(([[nombre, campana, ventasDia, gastoDia, frec, ctr], k]) => {
     const serie = fechas.map((fecha, i) => {
       const ruido = 0.6 + ((Math.sin(i * 1.7 + k) + 1) / 2) * 0.8;
       const cansa = k === 1 ? Math.max(0.45, 1 - i / (n * 1.4)) : 1;
@@ -173,7 +225,7 @@ function simulado(rango) {
       const impresiones = Math.round(gasto * 85);
       return { fecha, compras: comprasDia, gasto, ingresos: r2(comprasDia * 39.9), impresiones, clics: Math.round(impresiones * (ctr / 100) * cansa) };
     });
-    return { id: `2385000000${k}`, nombre, campana, conjunto: `${campana} · conjunto ${k + 1}`, estado: k === 6 ? 'PAUSED' : 'ACTIVE', frecuencia: frec, serie, titulo: nombre, texto: 'Texto del anuncio de prueba.', miniatura: null };
+    return { id: `2385000000${k}`, nombre, campana, campanaId: `120${[...campana].reduce((t, c) => (t * 31 + c.charCodeAt(0)) % 1e8, 7)}`, conjunto: `${campana} · conjunto ${k + 1}`, estado: k === 6 ? 'PAUSED' : 'ACTIVE', frecuencia: frec, serie, titulo: nombre, texto: 'Texto del anuncio de prueba.', miniatura: null };
   });
 }
 
@@ -200,15 +252,17 @@ function metricas(a) {
   };
 }
 
-async function deMeta(cuenta, rango) {
+async function deMeta(cuenta, rango, { campana = null } = {}) {
   const preset = RANGOS[rango];
-  const campos = 'ad_id,ad_name,adset_name,campaign_name,spend,impressions,reach,frequency,inline_link_clicks,actions,action_values';
-  const filas = await todas(`${cuenta}/insights`, { level: 'ad', date_preset: preset, fields: campos, limit: '500' }, 4);
+  const campos = 'ad_id,ad_name,adset_name,campaign_id,campaign_name,spend,impressions,reach,frequency,inline_link_clicks,actions,action_values';
+  const deCampana = campana ? [{ field: 'campaign.id', operator: 'EQUAL', value: campana }] : null;
+  const filas = await todas(`${cuenta}/insights`, { level: 'ad', date_preset: preset, fields: campos, limit: '500', ...(deCampana ? { filtering: deCampana } : {}) }, 4);
   let anuncios = filas
     .map((f) => ({
       id: f.ad_id,
       nombre: f.ad_name,
       campana: f.campaign_name,
+      campanaId: f.campaign_id || null,
       conjunto: f.adset_name,
       gasto: num(f.spend),
       impresiones: num(f.impressions),
@@ -247,21 +301,55 @@ async function deMeta(cuenta, rango) {
   return anuncios;
 }
 
-export async function informe({ cuenta, rango = '30d', roas, cpa, forzar = false } = {}) {
+/**
+ * (2026-11-20l) El informe de lo que elijas ver: `alcance` 'bm' (todas las cuentas de un Business Manager, juntas),
+ * 'cuenta' (una cuenta publicitaria) o 'campana' (una campaña de una cuenta).
+ */
+export async function informe({ alcance = 'cuenta', bm = null, cuenta = null, campana = null, rango = '30d', roas, cpa, forzar = false } = {}) {
   if (!RANGOS[rango]) rango = '30d';
+  if (!['bm', 'cuenta', 'campana'].includes(alcance)) alcance = 'cuenta';
   const obj = reglas({ roas, cpa });
   const simul = modoPrueba() && !process.env.SEP_GRAPH_BASE;
-  if (!simul && !/^act_\d{3,30}$/.test(String(cuenta || ''))) throw new ErrorApp(400, 'Elige tu cuenta publicitaria.');
-  const id = simul ? 'act_100200300' : cuenta;
-  const archivo = path.join(DIR, `${crypto.createHash('sha1').update(`${id}|${rango}`).digest('hex').slice(0, 16)}.json`);
+  const todasLasCuentas = (await cuentas()).cuentas;
+  const porId = new Map(todasLasCuentas.map((c) => [c.id, c]));
+  let deCuentas;
+  if (alcance === 'bm') {
+    const b = (await cuentas()).bms.find((x) => x.id === String(bm || ''));
+    if (!b) throw new ErrorApp(400, 'Elige tu Business Manager.');
+    deCuentas = b.cuentas;
+  } else {
+    if (!/^act_\d{3,30}$/.test(String(cuenta || '')) || !porId.has(cuenta)) throw new ErrorApp(400, 'Elige tu cuenta publicitaria.');
+    deCuentas = [cuenta];
+  }
+  if (alcance === 'campana' && !/^\d{1,30}$/.test(String(campana || ''))) throw new ErrorApp(400, 'Elige la campaña.');
+  const clave = `${alcance}|${deCuentas.join(',')}|${alcance === 'campana' ? campana : ''}|${rango}`;
+  const archivo = path.join(DIR, `${crypto.createHash('sha1').update(clave).digest('hex').slice(0, 16)}.json`);
   let datos = leerJSON(archivo);
   if (forzar || !datos || Date.now() - Date.parse(datos.fecha) > CACHE_MS) {
-    const crudos = simul ? simulado(rango) : await deMeta(id, rango);
-    datos = { cuenta: id, rango, fecha: new Date().toISOString(), anuncios: crudos };
+    const juntos = [];
+    // de a 3 cuentas a la vez (un BM grande no satura a Meta)
+    for (let k = 0; k < deCuentas.length; k += 3) {
+      const tanda = await Promise.all(
+        deCuentas.slice(k, k + 3).map(async (c) => {
+          let l = simul ? simulado(rango, c) : await deMeta(c, rango, { campana: alcance === 'campana' ? campana : null });
+          if (simul && alcance === 'campana') l = l.filter((a) => a.campanaId === campana);
+          return l.map((a) => ({ ...a, cuenta: c, cuentaNombre: porId.get(c)?.nombre || c, moneda: porId.get(c)?.moneda || 'USD' }));
+        }),
+      );
+      juntos.push(...tanda.flat());
+    }
+    datos = { clave, rango, fecha: new Date().toISOString(), anuncios: juntos };
     fs.mkdirSync(DIR, { recursive: true });
     escribirJSON(archivo, datos);
   }
-  const anuncios = datos.anuncios.map(metricas).map((a) => ({ ...a, decision: decidir(a, obj) }));
+  const anuncios = datos.anuncios
+    .map(metricas)
+    .map((a) => ({ ...a, decision: decidir(a, obj) }))
+    .sort((a, b) => b.compras - a.compras || b.ingresos - a.ingresos || b.gasto - a.gasto)
+    .slice(0, 80);
+  // un BM con cuentas en monedas distintas: el dinero no se suma (las compras sí)
+  const monedas = [...new Set(anuncios.map((a) => a.moneda))];
+  const mezcla = monedas.length > 1;
   // la cuenta día por día (la suma de los anuncios) y los totales
   const porDia = new Map();
   for (const a of anuncios) for (const d of a.serie || []) {
@@ -275,15 +363,21 @@ export async function informe({ cuenta, rango = '30d', roas, cpa, forzar = false
   const tot = metricas({ gasto: anuncios.reduce((s, a) => s + a.gasto, 0), compras: anuncios.reduce((s, a) => s + a.compras, 0), ingresos: anuncios.reduce((s, a) => s + a.ingresos, 0), impresiones: anuncios.reduce((s, a) => s + a.impresiones, 0), clics: anuncios.reduce((s, a) => s + a.clics, 0) });
   const cuantos = {};
   for (const a of anuncios) cuantos[a.decision.tipo] = (cuantos[a.decision.tipo] || 0) + 1;
-  let moneda = 'USD';
-  if (!simul) {
-    try {
-      moneda = (await cuentas()).cuentas.find((c) => c.id === id)?.moneda || 'USD';
-    } catch {
-      /* se queda en USD */
-    }
-  }
-  return { cuenta: id, moneda, rango, fecha: datos.fecha, reglas: obj, totales: { gasto: tot.gasto, compras: tot.compras, ingresos: tot.ingresos, roas: tot.roas, cpa: tot.cpa, ctr: tot.ctr, cpm: tot.cpm }, serie, cuantos, anuncios, ...(simul ? { simulado: true } : {}) };
+  const sinDinero = (x) => (mezcla ? null : x);
+  return {
+    alcance,
+    cuentas: deCuentas.map((c) => ({ id: c, nombre: porId.get(c)?.nombre || c })),
+    moneda: mezcla ? null : monedas[0] || porId.get(deCuentas[0])?.moneda || 'USD',
+    mezclaDeMonedas: mezcla ? monedas : null,
+    rango,
+    fecha: datos.fecha,
+    reglas: obj,
+    totales: { gasto: sinDinero(tot.gasto), compras: tot.compras, ingresos: sinDinero(tot.ingresos), roas: sinDinero(tot.roas), cpa: sinDinero(tot.cpa), ctr: tot.ctr, cpm: sinDinero(tot.cpm) },
+    serie: mezcla ? serie.map((x) => ({ ...x, gasto: null, ingresos: null })) : serie,
+    cuantos,
+    anuncios,
+    ...(simul ? { simulado: true } : {}),
+  };
 }
 
 /** La imagen de un anuncio guardada en la app (para usarla como referencia del agente de variaciones). */

@@ -188,7 +188,8 @@ function Chispa({ serie }) {
 
 // ---------------------------------------------------------------- la tarjeta de un anuncio
 
-function Tarjeta({ a, f, objetivo }) {
+function Tarjeta({ a, f: fGeneral, objetivo, conCuenta = false }) {
+  const f = a.moneda ? fmt(a.moneda) : fGeneral;
   const d = DECISION[a.decision.tipo];
   const Icono = d.icono;
   const [abierta, setAbierta] = useState(a.decision.tipo === 'escalar' || a.decision.tipo === 'variar');
@@ -204,7 +205,10 @@ function Tarjeta({ a, f, objetivo }) {
       </div>
       <div className="sep-card__cuerpo">
         <h3 className="sep-card__nombre" title={a.nombre}>{a.nombre}</h3>
-        <p className="sep-card__campana" title={`${a.campana} · ${a.conjunto}`}>{a.campana}</p>
+        <p className="sep-card__campana" title={`${a.cuentaNombre ? `${a.cuentaNombre} · ` : ''}${a.campana} · ${a.conjunto}`}>
+          {conCuenta && a.cuentaNombre ? <b>{a.cuentaNombre} · </b> : null}
+          {a.campana}
+        </p>
         <dl className="sep-card__grandes">
           <div>
             <dt>Compras</dt>
@@ -264,16 +268,32 @@ export default function Sep() {
   const [roas, setRoas] = useState(pref.roas || '2');
   const [cpa, setCpa] = useState(pref.cpa || '');
   const [cuenta, setCuenta] = useState(pref.cuenta || '');
+  // (2026-11-20l) qué ver: el BM completo (todas sus cuentas), una cuenta o una campaña
+  const [alcance, setAlcance] = useState(pref.alcance || 'cuenta');
+  const [bm, setBm] = useState(pref.bm || '');
+  const [campana, setCampana] = useState(pref.campana || '');
   const [filtro, setFiltro] = useState('todos');
   const [tabla, setTabla] = useState(false);
   const [forzar, setForzar] = useState(0);
   const { datos: lasCuentas, error: errorCuentas } = useDatos('sep:cuentas', () => pedirNuevo('/api/sep/cuentas'));
-  const cuentas = lasCuentas?.cuentas || [];
+  const todasLasCuentas = lasCuentas?.cuentas || [];
+  const bms = lasCuentas?.bms || [];
+  // las cuentas del BM elegido (si hay más de un BM)
+  const cuentas = bm && bms.length > 1 ? todasLasCuentas.filter((c) => (c.bm?.id || 'sin-bm') === bm) : todasLasCuentas;
+  useEffect(() => {
+    if (bms.length && !bms.some((b) => b.id === bm)) setBm(bms[0].id);
+  }, [bms, bm]);
   useEffect(() => {
     if (cuentas.length && !cuentas.some((c) => c.id === cuenta)) setCuenta((cuentas.find((c) => c.activa) || cuentas[0]).id);
   }, [cuentas, cuenta]);
-  useEffect(() => guardarPref({ rango, roas, cpa, cuenta }), [rango, roas, cpa, cuenta]);
-  const consulta = cuenta ? `/api/sep/informe?${new URLSearchParams({ cuenta, rango, roas: String(Number(roas) || 2), cpa: String(Number(cpa) || ''), ...(forzar ? { forzar: '1' } : {}) })}` : null;
+  const { datos: lasCampanas } = useDatos(alcance === 'campana' && cuenta ? `sep:campanas:${cuenta}:${rango}` : 'sep:campanas:nada', () => (alcance === 'campana' && cuenta ? pedirNuevo(`/api/sep/campanas?${new URLSearchParams({ cuenta, rango })}`) : Promise.resolve(null)));
+  const campanas = lasCampanas?.campanas || [];
+  useEffect(() => {
+    if (alcance === 'campana' && campanas.length && !campanas.some((c) => c.id === campana)) setCampana(campanas[0].id);
+  }, [alcance, campanas, campana]);
+  useEffect(() => guardarPref({ rango, roas, cpa, cuenta, alcance, bm, campana }), [rango, roas, cpa, cuenta, alcance, bm, campana]);
+  const listo = alcance === 'bm' ? Boolean(bm) : alcance === 'campana' ? Boolean(cuenta && campana && campanas.some((c) => c.id === campana)) : Boolean(cuenta);
+  const consulta = listo ? `/api/sep/informe?${new URLSearchParams({ alcance, bm, cuenta, ...(alcance === 'campana' ? { campana } : {}), rango, roas: String(Number(roas) || 2), cpa: String(Number(cpa) || ''), ...(forzar ? { forzar: '1' } : {}) })}` : null;
   const { datos, cargando, error } = useDatos(consulta ? `sep:${consulta}` : 'sep:nada', () => (consulta ? pedirNuevo(consulta) : Promise.resolve(null)));
   // «Traer de Meta» pide datos frescos una vez; después vuelve a la consulta normal (que ya los encuentra guardados)
   useEffect(() => {
@@ -298,14 +318,41 @@ export default function Sep() {
     <div className="pagina sep pila" style={{ '--hueco': 'var(--e-5)' }}>
       {cabecera}
       <div className="sep-controles">
-        {cuentas.length > 1 ? (
+        <div className="sep-alcance">
+          <span className="sep-alcance__etiqueta">Ver</span>
+          <div className="sep-segmento" role="group" aria-label="Qué ver">
+            {[['bm', 'BM completo'], ['cuenta', 'Cuenta publicitaria'], ['campana', 'Campaña']].map(([k, t]) => (
+              <button key={k} type="button" className={alcance === k ? 'activo' : ''} aria-pressed={alcance === k} onClick={() => setAlcance(k)}>{t}</button>
+            ))}
+          </div>
+        </div>
+        {bms.length > 1 || alcance === 'bm' ? (
           <label className="sep-campo">
-            <span>Cuenta</span>
-            <select value={cuenta} onChange={(e) => setCuenta(e.target.value)}>
-              {cuentas.map((c) => <option key={c.id} value={c.id}>{c.nombre}</option>)}
+            <span>Business Manager</span>
+            <select value={bm} onChange={(e) => setBm(e.target.value)}>
+              {bms.map((b) => <option key={b.id} value={b.id}>{b.nombre} ({b.cuentas.length} {b.cuentas.length === 1 ? 'cuenta' : 'cuentas'})</option>)}
             </select>
           </label>
         ) : null}
+        {alcance !== 'bm' ? (
+          <label className="sep-campo">
+            <span>Cuenta publicitaria</span>
+            <select value={cuenta} onChange={(e) => setCuenta(e.target.value)}>
+              {cuentas.map((c) => <option key={c.id} value={c.id}>{c.nombre}{c.activa ? '' : ' (inactiva)'}</option>)}
+            </select>
+          </label>
+        ) : null}
+        {alcance === 'campana' ? (
+          <label className="sep-campo sep-campo--ancho">
+            <span>Campaña</span>
+            <select value={campana} onChange={(e) => setCampana(e.target.value)} disabled={!campanas.length}>
+              {!campanas.length ? <option value="">{lasCampanas ? 'Sin campañas con gasto en este rango' : 'Cargando campañas…'}</option> : null}
+              {campanas.map((c) => <option key={c.id} value={c.id}>{c.nombre} · {c.compras} compras</option>)}
+            </select>
+          </label>
+        ) : null}
+      </div>
+      <div className="sep-controles">
         <div className="sep-segmento" role="group" aria-label="Rango de fechas">
           {RANGOS.map(([k, t]) => (
             <button key={k} type="button" className={rango === k ? 'activo' : ''} aria-pressed={rango === k} onClick={() => setRango(k)}>{t}</button>
@@ -335,8 +382,8 @@ export default function Sep() {
               ['Gasto', f.dinero(datos.totales.gasto), null],
               ['Compras', entero(datos.totales.compras), null],
               ['Ingresos', f.dinero(datos.totales.ingresos), null],
-              ['ROAS', datos.totales.roas.toFixed(2), datos.totales.roas >= objetivo ? `sobre tu objetivo (${objetivo})` : `bajo tu objetivo (${objetivo})`],
-              ['CPA', f.dinero(datos.totales.cpa), Number(cpa) ? (datos.totales.cpa <= Number(cpa) ? `dentro de tu máximo` : 'sobre tu máximo') : null],
+              ['ROAS', datos.totales.roas === null ? '—' : datos.totales.roas.toFixed(2), datos.totales.roas === null ? null : datos.totales.roas >= objetivo ? `sobre tu objetivo (${objetivo})` : `bajo tu objetivo (${objetivo})`],
+              ['CPA', f.dinero(datos.totales.cpa), Number(cpa) && datos.totales.cpa !== null ? (datos.totales.cpa <= Number(cpa) ? `dentro de tu máximo` : 'sobre tu máximo') : null],
             ].map(([k, v, nota]) => (
               <div key={k} className="sep-kpi">
                 <span className="sep-kpi__etiqueta">{k}</span>
@@ -346,10 +393,11 @@ export default function Sep() {
             ))}
           </section>
 
+          {datos.mezclaDeMonedas ? <p className="sep-aviso">Las cuentas de este BM usan monedas distintas ({datos.mezclaDeMonedas.join(', ')}): el dinero no se suma entre ellas. Las compras sí; para ver gasto, ingresos y ROAS juntos, elige una cuenta.</p> : null}
           {datos.serie.length ? (
             <section className="sep-graficas">
               <Barras serie={datos.serie} campo="compras" titulo="Compras por día" formato={(v) => entero(v)} />
-              <Lineas serie={datos.serie} f={f} />
+              {datos.mezclaDeMonedas ? null : <Lineas serie={datos.serie} f={f} />}
             </section>
           ) : null}
 
@@ -386,13 +434,13 @@ export default function Sep() {
                 <tbody>
                   {lista.map((a) => (
                     <tr key={a.id}>
-                      <td><strong>{a.nombre}</strong><small>{a.campana}</small></td>
+                      <td><strong>{a.nombre}</strong><small>{datos.alcance === 'bm' && a.cuentaNombre ? `${a.cuentaNombre} · ` : ''}{a.campana}</small></td>
                       <td><span className={`sep-badge sep-badge--${DECISION[a.decision.tipo].tono}`}>{DECISION[a.decision.tipo].texto}</span></td>
                       <td>{entero(a.compras)}</td>
                       <td className={a.roas >= objetivo ? 'sep-ok' : 'sep-bajo'}>{a.roas.toFixed(2)}</td>
-                      <td>{f.dinero(a.cpa)}</td>
-                      <td>{f.dinero(a.gasto)}</td>
-                      <td>{f.dinero(a.ingresos)}</td>
+                      <td>{fmt(a.moneda || datos.moneda).dinero(a.cpa)}</td>
+                      <td>{fmt(a.moneda || datos.moneda).dinero(a.gasto)}</td>
+                      <td>{fmt(a.moneda || datos.moneda).dinero(a.ingresos)}</td>
                       <td>{a.ctr.toFixed(2)} %</td>
                       <td>{a.frecuencia.toFixed(2)}</td>
                     </tr>
@@ -402,7 +450,7 @@ export default function Sep() {
             </div>
           ) : (
             <div className="sep-grid">
-              {lista.map((a) => <Tarjeta key={a.id} a={a} f={f} objetivo={objetivo} />)}
+              {lista.map((a) => <Tarjeta key={a.id} a={a} f={f} objetivo={objetivo} conCuenta={datos.alcance === 'bm'} />)}
             </div>
           )}
           <p className="sep-nota">Cómo decide S.E.P: <b>Escalar</b> si el ROAS supera tu objetivo en 20 % o más, con 5 compras o más, frecuencia bajo 2,5 y ventas en los últimos 3 días. <b>Hacer variaciones</b> si rinde pero la frecuencia pasa de 2,5 o el CTR cayó más de 25 %. <b>Pausar</b> si gastó sin vender o el ROAS está bajo el 60 % de tu objetivo. <b>Probando</b> si tiene menos de 3 compras y poco gasto. El resto, <b>Sostener</b>. Las compras son las de tu píxel o tu API de conversiones (sin contarlas dos veces).</p>
