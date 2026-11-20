@@ -46,3 +46,5 @@
 .ld-celular { align-self: center; width: 412px; max-width: 100%; height: 760px; border-radius: 28px; border: 10px solid #111; overflow: hidden; background: #fff; box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.5); }
 .ld-celular iframe { width: 100%; height: 100%; border: 0; }
 @media (max-width: 760px) { .ld-datos { grid-template-columns: 1fr 1fr; } .ld-pesos { grid-column: 1 / -1; } .ld-celular { height: 640px; } }
+.ld-shopify { display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: 14px; background: var(--superficie-2); }
+.ld-shopify__campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }

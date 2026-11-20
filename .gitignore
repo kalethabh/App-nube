@@ -90,3 +90,8 @@ temp/_oficina/investigaciones/
 temp/_telegram/
 temp/_landings/*/assets/
 temp/_landings/*/original.html
+
+# (2026-11-20r) Shopify: las claves de tus tiendas (como el .env) y las copias de los temas
+.env.shopify.json
+.env.shopify.json.*.tmp
+temp/_shopify/

@@ -1,0 +1,46 @@
+/* Shopify (pantallas/shopify/index.jsx) */
+.sh-tiendas { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; }
+.sh-tienda { position: relative; display: flex; }
+.sh-tienda__elegir { display: flex; align-items: center; gap: 10px; padding: 10px 40px 10px 12px; border-radius: 14px; border: 1px solid var(--borde-1); background: var(--superficie-1); color: var(--texto-1); font: inherit; cursor: pointer; text-align: left; }
+.sh-tienda__elegir span:first-of-type { display: flex; flex-direction: column; }
+.sh-tienda__elegir small { font-size: 12px; color: var(--texto-3); }
+.sh-tienda--activa .sh-tienda__elegir { border-color: var(--acento, #84cc16); box-shadow: 0 0 0 1px var(--acento, #84cc16) inset; }
+.sh-tienda__quitar { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); border: 0; background: transparent; color: var(--texto-3); cursor: pointer; padding: 6px; border-radius: 8px; }
+.sh-tienda__quitar:hover { color: #ef4444; background: var(--superficie-2); }
+.sh-acceso { font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; background: var(--superficie-3); white-space: nowrap; }
+.sh-acceso--completo { background: rgba(34, 197, 94, 0.16); color: #16a34a; }
+.sh-conectar, .sh-pedido { display: flex; flex-direction: column; gap: 12px; width: 100%; padding: 16px; border-radius: 16px; border: 1px solid var(--borde-1); background: var(--superficie-1); }
+.sh-conectar h3, .sh-pedido h3 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 15px; }
+.sh-pasos { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.5; color: var(--texto-2); }
+.sh-pasos code, .sh-ayuda code { font-size: 12px; padding: 1px 5px; border-radius: 5px; background: var(--superficie-2); }
+.sh-conectar__campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.sh-pedido__opciones { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: flex-end; }
+.sh-pedido__opciones > .campo { min-width: 240px; }
+.sh-grupo { display: flex; flex-direction: column; gap: 5px; }
+.sh-grupo__etiqueta { font-size: 12px; font-weight: 700; color: var(--texto-3); }
+.sh-segmento { display: inline-flex; padding: 3px; border-radius: 11px; background: var(--superficie-2); border: 1px solid var(--borde-1); }
+.sh-segmento button { height: 30px; padding: 0 14px; border: 0; border-radius: 8px; background: transparent; color: var(--texto-2); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.sh-segmento button.activo { background: var(--superficie-1); color: var(--texto-1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18); }
+.sh-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.sh-ayuda { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--texto-3); }
+.sh-lista { display: flex; flex-direction: column; gap: 12px; }
+.sh-trabajo { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--borde-1); background: var(--superficie-1); }
+.sh-trabajo__cabeza { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.sh-trabajo__cabeza > div { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.sh-meta { font-size: 12px; color: var(--texto-3); }
+.sh-estado { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; background: var(--superficie-3); }
+.sh-estado--lista, .sh-estado--publicado { background: rgba(34, 197, 94, 0.16); color: #16a34a; }
+.sh-estado--error { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+.sh-progreso { margin: 0; padding-left: 18px; font-size: 12.5px; color: var(--texto-3); }
+.sh-progreso .ahora { color: var(--texto-1); font-weight: 600; }
+.sh-error { display: flex; gap: 6px; align-items: center; margin: 0; color: #ef4444; font-size: 13px; }
+.sh-ok { display: flex; gap: 6px; align-items: center; margin: 0; color: #16a34a; font-size: 13px; }
+.sh-resumen { margin: 0; font-size: 14px; line-height: 1.5; }
+.sh-archivos { font-size: 12.5px; color: var(--texto-3); }
+.sh-archivos ul { margin: 6px 0 0; padding-left: 18px; }
+.sh-admin { display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 12px; background: var(--superficie-2); }
+.sh-admin__titulo { font-size: 12px; font-weight: 800; color: var(--texto-2); }
+.sh-admin__fila { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px; }
+.sh-admin__fila--hecho small { color: #16a34a; font-weight: 700; }
+.sh-admin__fila--error small { color: #ef4444; }
+.sh-conectar .sh-segmento { align-self: flex-start; flex-wrap: wrap; }
