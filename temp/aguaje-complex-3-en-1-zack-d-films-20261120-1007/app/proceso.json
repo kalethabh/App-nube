@@ -1,0 +1,12 @@
+{
+  "pid": 10450,
+  "paso": "imagenes-y-videos",
+  "script": "producir.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+    "--si"
+  ],
+  "comando": "node produccion/producir.js temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007 --si",
+  "inicio": "2026-11-20T15:47:40.585Z",
+  "app": 10070
+}
