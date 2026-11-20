@@ -151,6 +151,13 @@ async function principal() {
   const chat1 = (await pedir('/api/oficina/chat')).datos;
   check('Un texto llega a la coordinadora (el mismo chat de la app) y su respuesta vuelve a Telegram', chat1.mensajes.some((m) => m.de === 'tu' && /ganchos de telegram/.test(m.texto)) && e.slice(n0).some((m) => /Anotado/.test(m.text)), e?.slice(n0));
 
+  // (2026-11-20u) un texto largo pegado en Telegram le llega entero, como documento
+  const nl = a555().length;
+  mensaje(555, { text: `PROMPT LARGO\n${'una línea del prompt. '.repeat(200)}` });
+  await esperar(60, async () => a555(), (l) => l.length > nl);
+  const largo = (await pedir('/api/oficina/chat')).datos.mensajes.filter((m) => m.de === 'tu').pop();
+  check('Un texto largo pegado en Telegram le llega entero como documento', largo?.adjuntos?.[0]?.tipo === 'documento' && /texto largo/.test(largo.texto), largo);
+
   const n1 = a555().length;
   mensaje(555, { voice: { file_id: 'voz1', duration: 3, mime_type: 'audio/ogg' } });
   e = await esperar(60, async () => a555(), (l) => l.slice(n1).some((m) => /dictado por voz/.test(m.text)));
