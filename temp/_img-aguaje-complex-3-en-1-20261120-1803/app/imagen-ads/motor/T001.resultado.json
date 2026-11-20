@@ -4,7 +4,7 @@
     "V01_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 2,
+      "intentosApi": 3,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null,
@@ -13,7 +13,7 @@
     "V02_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 2,
+      "intentosApi": 3,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null,
@@ -22,7 +22,7 @@
     "V03_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 2,
+      "intentosApi": 3,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null,
@@ -35,6 +35,6 @@
       "version": 1
     }
   },
-  "actualizado": "2026-11-20T23:12:02.569Z",
+  "actualizado": "2026-11-20T23:14:23.850Z",
   "terminado": false
 }
