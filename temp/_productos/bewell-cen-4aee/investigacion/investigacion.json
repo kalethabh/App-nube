@@ -523,7 +523,229 @@
       ]
     }
   ],
-  "guia": { "mensajes": [] },
-  "anuncios_imagen": [],
-  "fuentes": []
+  "guia": {
+    "mensajes": [
+      {
+        "seccion": "Hero · Producto e ingredientes",
+        "titulo": "Vuelve a sentirte tú en 4 semanas: más fresca, descansada y sin sentirte inflada",
+        "subtitulo": "El desayuno con proteína de soya e isoflavonas para tu etapa de cambio, sabor vainilla",
+        "franja": { "beneficio": "Más fresca y sin sentirte inflada", "tiempo": "4 semanas", "deseo": "Volver a sentirte tú" },
+        "objetivo": "Que en 3 segundos entienda qué es (un batido para el desayuno), para quién es (la mujer en su etapa de cambio) y qué gana.",
+        "elementos": [
+          { "titulo": "Título principal", "texto": "Vuelve a sentirte tú en 4 semanas: más fresca, descansada y sin sentirte inflada" },
+          { "titulo": "Subtítulo", "texto": "El desayuno con proteína de soya e isoflavonas para tu etapa de cambio, sabor vainilla" },
+          { "titulo": "Avatar", "texto": "Mujer colombiana de unos 50 años, sonriente y fresca, con el vaso del batido en la mano" },
+          { "titulo": "Producto + validación", "texto": "[calificación real] · [N] clientas, encima del tarro y el vaso" },
+          { "titulo": "Ingredientes", "texto": "Proteína de soya: proteína vegetal que llena · Isoflavonas de soya: te acompañan en la etapa de cambio · Linaza: fibra · Maca: raíz andina · Calcio y magnesio: para huesos y músculos · Stevia: dulce sin azúcar añadida" },
+          { "titulo": "4 sellos", "texto": "Registro INVIMA · Sin azúcar añadida · Proteína vegetal · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer colombiana de unos 50 años, sonriente y fresca, con el vaso del batido de vainilla en la mano, fondo lila claro",
+          "validacion": "[calificación] · [N] clientas",
+          "ingredientes": ["Proteína de soya", "Isoflavonas", "Linaza", "Maca", "Calcio", "Magnesio", "Stevia"],
+          "sellos": ["Registro INVIMA", "Sin azúcar añadida", "Proteína vegetal", "Pagas al recibir"],
+          "oferta": "Tratamiento completo x3 $219.900"
+        }
+      },
+      {
+        "seccion": "Punto de dolor",
+        "titulo": "¿Te despiertas a las 3 de la mañana empapada y ya no vuelves a dormir?",
+        "subtitulo": "Muchas mujeres notan noches más tranquilas entre la semana 3 y la 4",
+        "franja": { "beneficio": "Noches más tranquilas", "tiempo": "3 a 4 semanas", "deseo": "Dormir de corrido otra vez" },
+        "objetivo": "Que se sienta identificada con su peor momento (la madrugada) y vea que hay una salida fácil.",
+        "elementos": [
+          { "titulo": "Título", "texto": "¿Te despiertas a las 3 de la mañana empapada y ya no vuelves a dormir?" },
+          { "titulo": "Subtítulo", "texto": "Muchas mujeres notan noches más tranquilas entre la semana 3 y la 4" },
+          { "titulo": "Imagen del dolor", "texto": "Mujer de 50 años sentada en la cama de madrugada, sudada, con el ventilador prendido" },
+          { "titulo": "Título secundario", "texto": "No es estrés: es tu etapa de cambio" },
+          { "titulo": "Mensaje descriptivo", "texto": "BeWell Cen trae las isoflavonas naturales de la soya en un batido de vainilla para tu desayuno. Un ritual de 1 minuto que acompaña tu cuerpo de día y de noche." },
+          { "titulo": "Producto", "texto": "El tarro de BeWell Cen grande, con el vaso del batido al lado" },
+          { "titulo": "4 sellos", "texto": "Registro INVIMA · Sin azúcar añadida · Proteína vegetal · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer de 50 años sentada en la cama de madrugada, sudada, con el ventilador prendido y el reloj marcando las 3:00",
+          "titulo2": "No es estrés: es tu etapa de cambio",
+          "descripcion": "BeWell Cen trae las isoflavonas naturales de la soya en un batido de vainilla para tu desayuno. Un ritual de 1 minuto que acompaña tu cuerpo de día y de noche.",
+          "sellos": ["Registro INVIMA", "Sin azúcar añadida", "Proteína vegetal", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Beneficios",
+        "titulo": "Vuelve a sentirte tú, mañana tras mañana",
+        "subtitulo": "Proteína de soya con isoflavonas para tus días y tus noches",
+        "franja": { "beneficio": "Fresca, descansada y con calma", "tiempo": "Desde las primeras semanas", "deseo": "Volver a ser tú" },
+        "objetivo": "Mostrar cinco ventajas distintas para su vida diaria, no una lista de ingredientes.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Vuelve a sentirte tú, mañana tras mañana" },
+          { "titulo": "Subtítulo", "texto": "Proteína de soya con isoflavonas para tus días y tus noches" },
+          { "titulo": "Cinco beneficios", "texto": "1 Más fresca · 2 Noches tranquilas · 3 Menos inflada · 4 Más calma · 5 Natural y rico" },
+          { "titulo": "Imágenes de beneficios", "texto": "Mujer tranquila en una reunión · durmiendo de corrido · cerrando el jean · riendo con la familia · el vaso de batido de vainilla" },
+          { "titulo": "Producto central", "texto": "El tarro de BeWell Cen al centro, conectando los cinco beneficios" },
+          { "titulo": "4 sellos", "texto": "Registro INVIMA · Sin azúcar añadida · Proteína vegetal · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "beneficios": [
+            { "titulo": "Más fresca", "frase": "Te acompaña cuando llegan los calorones" },
+            { "titulo": "Noches tranquilas", "frase": "Para descansar mejor y amanecer con pilas" },
+            { "titulo": "Menos inflada", "frase": "Llenita hasta el almuerzo, sin antojos" },
+            { "titulo": "Más calma", "frase": "Un ritual para ti cada mañana" },
+            { "titulo": "Natural y rico", "frase": "Proteína vegetal, sin azúcar añadida, vainilla" }
+          ],
+          "sellos": ["Registro INVIMA", "Sin azúcar añadida", "Proteína vegetal", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Modo de uso",
+        "titulo": "Solo 1 batido al día para sentirte más fresca de la mañana a la noche",
+        "subtitulo": "Tu desayuno de la etapa de cambio, listo en 1 minuto",
+        "franja": { "beneficio": "Fácil y rico", "tiempo": "1 minuto al día", "deseo": "Cuidarte sin complicarte" },
+        "objetivo": "Que vea que es tan fácil como prepararse un café y que la constancia es la clave.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Solo 1 batido al día para sentirte más fresca de la mañana a la noche" },
+          { "titulo": "Subtítulo", "texto": "Tu desayuno de la etapa de cambio, listo en 1 minuto" },
+          { "titulo": "Mensaje descriptivo", "texto": "Mezcla tu porción en agua o leche, tómala en el desayuno y repite todos los días. La constancia es la clave para notar los cambios." },
+          { "titulo": "Tres pasos", "texto": "1 Mezcla 30 g [confirmar] en tu vaso · 2 Tómalo en el desayuno · 3 Repite todos los días" },
+          { "titulo": "Producto", "texto": "El tarro de BeWell Cen grande y el vaso con el batido" },
+          { "titulo": "4 sellos", "texto": "Registro INVIMA · Sin azúcar añadida · Sabor vainilla · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "descripcion": "Mezcla tu porción en agua o leche, tómala en el desayuno y repite todos los días. La constancia es la clave para notar los cambios.",
+          "pasos": ["Mezcla 30 g [confirmar] en tu vaso", "Tómalo en el desayuno", "Repite todos los días"],
+          "sellos": ["Registro INVIMA", "Sin azúcar añadida", "Sabor vainilla", "Pagas al recibir"]
+        }
+      }
+    ]
+  },
+  "anuncios_imagen": [
+    { "plantilla": "pregunta-revelacion", "concepto": 2, "faceta": "La que no duerme", "angulo": "dolor", "contexto": "3 a.m. en la cama", "textos": {
+      "pregunta": "¿Otra vez despierta a las 3 a.m., empapada?",
+      "revelacion": "No es estrés: es tu etapa de cambio",
+      "cierre": "Proteína de soya con isoflavonas en tu desayuno",
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "antes-despues-plazo", "concepto": 3, "faceta": "La mamá del jean que no cierra", "angulo": "beneficio", "contexto": "Vistiéndose en la mañana", "textos": {
+      "titular": "MENOS HINCHAZÓN",
+      "plazo": "EN 2 SEMANAS",
+      "marca": "BeWell Cen",
+      "antes": "ANTES",
+      "despues": "2 SEMANAS DESPUÉS",
+      "legal": "Experiencias de clientas. Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "solo-vs-con", "concepto": 8, "faceta": "La que sale sin desayunar", "angulo": "mecanismo", "contexto": "Bus de las 6 a.m.", "textos": {
+      "sin": "Solo tinto",
+      "con": "Tinto + BeWell Cen",
+      "titular": "Llega a las 10 sin *antojos*",
+      "subtitulo": "Proteína vegetal con isoflavonas de la soya en tu desayuno, sabor vainilla.",
+      "boton": "Quiero mi desayuno",
+      "legal": "Alimento en polvo a base de proteína de soya. Los resultados varían."
+    } },
+    { "plantilla": "nosotros-vs-ellos", "concepto": 6, "faceta": "La que ya probó de todo", "angulo": "objeción", "contexto": "Mitad de mes, plata apretada", "textos": {
+      "titular": "¿Ya probaste de *todo*?",
+      "subtitulo": "Esta vez es un desayuno, no otra pastilla",
+      "nuestro": "BeWell Cen",
+      "ellos": "Las pastillas de siempre",
+      "nuestros": ["Batido rico sabor vainilla", "Proteína vegetal + isoflavonas", "Con calcio y magnesio"],
+      "suyos": ["Otra pastilla más al día", "No te llena en el desayuno", "Sabor a remedio"],
+      "legal": "No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "historia", "concepto": 4, "faceta": "La esposa de mal genio", "angulo": "deseo", "contexto": "Noche en la casa", "textos": {
+      "antes": "Explotaba",
+      "despues": "Más tranquila",
+      "frase": "Peleaba por todo y luego lloraba de la culpa… hasta que descubrí BeWell Cen",
+      "remate": "Volví a ser yo",
+      "iconos": ["Proteína de soya", "Isoflavonas", "Maca y linaza"],
+      "legal": "Experiencia de una clienta. Los resultados varían."
+    } },
+    { "plantilla": "zonas-semanas", "concepto": 1, "faceta": "La trabajadora de oficina", "angulo": "beneficio", "contexto": "Reunión de las 10 a.m.", "textos": {
+      "titular": "Tu etapa de cambio, *semana a semana*",
+      "pasos": [
+        { "ingrediente": "Semana 1", "beneficio": "Menos antojos a media mañana" },
+        { "ingrediente": "Semana 4", "beneficio": "Mejor descanso y más ánimo" },
+        { "ingrediente": "Semana 6 a 12", "beneficio": "Calorones menos seguidos" }
+      ],
+      "legal": "Experiencias reportadas, no garantías. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "foto-iconos", "concepto": 5, "faceta": "La abuela que quiere seguir fuerte", "angulo": "deseo", "contexto": "Almuerzo familiar del domingo", "textos": {
+      "titular": "No solo calorones: también tu *fuerza*",
+      "iconos": ["Proteína vegetal", "Calcio y magnesio", "Sin azúcar añadida"],
+      "nota": "Para alzar a los nietos",
+      "legal": "Alimento a base de proteína de soya. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "estado-vs-estado", "concepto": 2, "faceta": "La que duerme con ventilador", "angulo": "beneficio", "contexto": "Antes de dormir, 10 p.m.", "textos": {
+      "zona": "TUS NOCHES",
+      "mal": "EMPAPADA",
+      "bien": "DESCANSADA",
+      "sub_mal": "Despierta a las 3 a.m. sin sueño",
+      "sub_bien": "Noches más frescas y tranquilas",
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "dos-mitades", "concepto": 7, "faceta": "La hija que se lo regala a la mamá", "angulo": "deseo", "contexto": "Novena de diciembre", "textos": {
+      "titular": "Para mamá: menos calorones, *más calma*",
+      "pildora": "Muchas lo notan en 6 a 12 semanas",
+      "boton": "Regalárselo a mamá",
+      "marca": "BeWell Cen",
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "no-compres", "concepto": 6, "faceta": "La que ya probó de todo", "angulo": "objeción", "contexto": "Quincena", "textos": {
+      "titular": "No compres esto si…",
+      "texto": "…te da igual seguir con calorones, antojos y el jean apretado. A menos que quieras un desayuno con proteína de soya e isoflavonas para tu etapa de cambio.",
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "cuadricula-tiempo", "concepto": 8, "faceta": "La que sale sin desayunar", "angulo": "beneficio", "contexto": "Toda la jornada", "textos": {
+      "titular": "Del calorón a volver a *sentirte tú*",
+      "etapas": ["Antes", "1 semana", "4 semanas", "12 semanas"],
+      "legal": "Experiencias reportadas, no garantías. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "silueta-zonas", "concepto": 3, "faceta": "La mamá del jean que no cierra", "angulo": "dolor", "contexto": "Fotos de diciembre", "textos": {
+      "arriba": "Para las fotos de diciembre",
+      "titular": "Bye bye *barriga inflada*",
+      "izquierda": ["menos hinchazón", "menos antojos", "más saciedad"],
+      "derecha": ["más energía", "mejor descanso"],
+      "legal": "Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "beneficios-lados", "concepto": 1, "faceta": "La trabajadora de oficina", "angulo": "deseo", "contexto": "Jornada laboral completa", "textos": {
+      "titular": "Vuelve a *sentirte tú*",
+      "subtitulo": "también en tu etapa de cambio",
+      "antes": "Antes",
+      "despues": "Después",
+      "males": ["Calorones en el trabajo", "Antojos a media mañana", "Noches cortadas", "Mal genio sin razón"],
+      "bienes": ["Te sientes más fresca", "Llenita hasta el almuerzo", "Descansas mejor", "Más calma y ánimo"],
+      "sello": "Muchas lo notan en 4 semanas",
+      "atributos": ["Proteína vegetal", "Sin azúcar añadida", "Sabor vainilla"],
+      "legal": "Experiencias reportadas. Los resultados varían. No reemplaza tratamiento médico."
+    } },
+    { "plantilla": "dias-producto", "concepto": 5, "faceta": "La abuela que quiere seguir fuerte", "angulo": "beneficio", "contexto": "Caminata de la mañana", "textos": {
+      "marca": "BeWell Cen",
+      "etapas": ["Día 1", "Día 14", "Día 30"],
+      "legal": "Experiencias reportadas. Los resultados varían."
+    } }
+  ],
+  "fuentes": [
+    { "titulo": "BeWell · tienda oficial: Cen, precio, envío, contra entrega y testimonios", "url": "https://www.colbewell.com/" },
+    { "titulo": "Universitas Medica (Javeriana) · síntomas de menopausia en el Eje Cafetero", "url": "https://revistas.javeriana.edu.co/index.php/vnimedica/article/view/34657/28609" },
+    { "titulo": "Alcaldía de Bogotá · cifras de menopausia en Bogotá", "url": "https://bogota.gov.co/mi-ciudad/mujer/bogota-presenta-cifras-sobre-la-menopausia-de-las-mujeres-en-la-ciudad" },
+    { "titulo": "El Tiempo · la menopausia, un reto invisible en la vida laboral", "url": "https://www.eltiempo.com/bogota/la-menopausia-un-reto-invisible-en-la-vida-laboral-una-de-cada-tres-mujeres-reduce-cambia-o-pausa-su-trabajo-en-esta-etapa-3552635" },
+    { "titulo": "Cambio · mitos y temores sobre la terapia hormonal (Ipsos)", "url": "https://cambiocolombia.com/salud-y-bienestar/articulo/2026/11/menopausia-sintomas-mitos-y-temores-sobre-la-terapia-hormonal-que-todavia-persisten" },
+    { "titulo": "Blu Radio · edad promedio de la menopausia en Colombia", "url": "https://www.bluradio.com/salud/esto-es-lo-que-no-se-habla-de-la-menopausia-y-podria-mejorar-la-calidad-de-vida-rs15" },
+    { "titulo": "Noticias RCN · inflamación y grasa abdominal en la menopausia", "url": "https://www.noticiasrcn.com/salud-y-bienestar/inflamacion-y-aumento-de-grasa-abdominal-los-efectos-metabolicos-de-la-menopausia-1001461" },
+    { "titulo": "PubMed · isoflavonas de soya frente a placebo en sofocos (metaanálisis)", "url": "https://pubmed.ncbi.nlm.nih.gov/20464785/" },
+    { "titulo": "PCRM · las isoflavonas de soya y los sofocos", "url": "https://pcrm.org/news/health-nutrition/soy-isoflavones-help-reduce-hot-flashes" },
+    { "titulo": "Osakidetza · resumen de evidencia de isoflavonas en la menopausia", "url": "https://www.euskadi.eus/contenidos/informacion/sanidad_alimentaria/es_1247/adjuntos/resumen isoflavonas-menopausia.pdf" },
+    { "titulo": "Breastcancer.org · compuestos de soya y cáncer de mama", "url": "https://www.breastcancer.org/es/research-news/compuestos-de-soja-recurrencia-del-cancer-de-mama" },
+    { "titulo": "IntraMed · la linaza no alivió los sofocos", "url": "https://www.intramed.net/content/semillas-de-lino-no-aplacarian-sofocos-en-menopausia" },
+    { "titulo": "PubMed · maca en mujeres posmenopáusicas", "url": "https://pubmed.ncbi.nlm.nih.gov/24931003/" },
+    { "titulo": "AARP · suplementos para la menopausia: ¿funcionan?", "url": "https://www.aarp.org/espanol/salud/farmacos-y-suplementos/info-2025/remedios-sintomas-menopausia.html" },
+    { "titulo": "Farmatodo · Isoretard, isoflavonas de soya en polvo", "url": "https://www.farmatodo.com.co/producto/500031703-isoflavones-de-soya-tarro-x-400-g-isoretard-tarro-x-400-g" },
+    { "titulo": "Farmatodo · Menop Fórmula Natural Systems", "url": "https://www.farmatodo.com.co/producto/500014296-menop-formula-x-60-natural-systems-frasco-x-60" },
+    { "titulo": "Farmatodo · Fembalance Vivein", "url": "https://www.farmatodo.com.co/producto/500029761-fembalance-x-60-discos-isoflavonas-de-soya--omega-3--carbonato-de-calcio--bisglicinato-de-magnesio-y-vitaminas-vivein-frasco-x-60-discos-x-60-discos" },
+    { "titulo": "Yaxa · Life Extension Soy Isoflavones en Colombia", "url": "https://store.yaxa.co/products/life-extension-soy-isoflavones-heart-bone-cellular-health-support-for-post-menopausal-women-gluten-free-non-gmo-vegetarian-30-capsules" },
+    { "titulo": "Reviews.io · reseñas de un batido para la menopausia (sabor y textura)", "url": "https://www.reviews.io/product-reviews/store/bomimo/MENOSHAKECHOCOLATE-500G-20SERV?page=2" },
+    { "titulo": "MyFitnessPal · comunidad de mujeres en menopausia", "url": "https://community.myfitnesspal.com/en/discussion/comment/46987789" },
+    { "titulo": "Observatorio eCommerce MinTIC · medios de pago", "url": "https://observatorioecommerce.mintic.gov.co/797/articles-428123_Article.pdf" },
+    { "titulo": "Bloomberg Línea · pagos digitales en Colombia (PSE)", "url": "https://www.bloomberglinea.com/latinoamerica/colombia/mas-del-60-de-pagos-digitales-que-se-hacen-en-colombia-son-via-pse/" },
+    { "titulo": "Portafolio · baja bancarización y preferencia por el contra entrega", "url": "https://www.portafolio.co/economia/baja-tasa-de-bancarizacion-un-desafio-del-e-commerce-550042" },
+    { "titulo": "INVIMA · Resolución 3096 de 2007 (rotulado y declaraciones)", "url": "https://normograma.invima.gov.co/compilacion/docs/resolucion_minproteccion_3096_2007.htm" },
+    { "titulo": "INVIMA · Resolución 333 de 2011 (derogada por la 2492 de 2022)", "url": "https://normograma.invima.gov.co/normograma/compilacion/docs/resolucion_minproteccion_0333_2011.htm" }
+  ],
+  "nota_fuentes": "Revisado el 19 de noviembre de 2026. Reddit, TikTok y Mercado Libre no mostraron reseñas de BeWell Cen; la ficha completa del producto en la web no cargó, por eso los ingredientes completos y la dosis quedan pendientes. Todas las frases de clientas están parafraseadas."
 }
