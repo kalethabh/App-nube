@@ -112,10 +112,38 @@ export async function subirAdjunto(bytes, nombre = '') {
   return paraLaPantallaAdjunto(meta);
 }
 
+/**
+ * (2026-11-20h) DICTAR POR VOZ, el respaldo: cuando el navegador no trae dictado propio, el chat graba el audio y aquí se
+ * transcribe con ElevenLabs (Scribe, centavos; la misma clave de las voces). En modo prueba no sale nada a internet.
+ */
+export async function transcribirVoz(bytes, tipo = 'audio/webm') {
+  if (!Buffer.isBuffer(bytes) || bytes.length < 500) throw new ErrorApp(400, 'No llegó el audio. Vuelve a intentarlo.');
+  const { modoPrueba } = await import('./procesos.js');
+  if (modoPrueba()) return { texto: 'hazme un video de prueba dictado por voz' };
+  const { leerClave } = await import('./claves.js');
+  const clave = leerClave('ELEVENLABS_API_KEY');
+  if (!clave) throw new ErrorApp(409, 'Para dictar por voz aquí falta tu clave de ElevenLabs (Ajustes › Conexiones). En Chrome o Safari el dictado funciona sin ella.');
+  const form = new FormData();
+  form.append('model_id', 'scribe_v1');
+  form.append('language_code', 'spa');
+  form.append('file', new Blob([bytes], { type: tipo }), `voz.${/mp4|m4a|aac/.test(tipo) ? 'm4a' : /ogg/.test(tipo) ? 'ogg' : 'webm'}`);
+  let r;
+  try {
+    r = await fetch('https://api.elevenlabs.io/v1/speech-to-text', { method: 'POST', headers: { 'xi-api-key': clave }, body: form, signal: AbortSignal.timeout(90000) });
+  } catch {
+    throw new ErrorApp(502, 'No pude conectar con ElevenLabs para pasar tu voz a texto. Revisa tu internet.');
+  }
+  if (!r.ok) throw new ErrorApp(502, `ElevenLabs no pudo pasar tu voz a texto (${r.status}).`);
+  const j = await r.json().catch(() => null);
+  const texto = String(j?.text || '').replace(/\s+/g, ' ').trim();
+  if (!texto) throw new ErrorApp(422, 'No te entendí. Habla un poco más cerca del micrófono.');
+  return { texto: texto.slice(0, 2000) };
+}
+
 /** Cómo ve la IA un archivo: la ruta que puede leer (el texto ya sacado de un Word). */
 function adjuntoParaLaIA(m) {
   const rel = (f) => path.relative(RAIZ, path.join(ADJUNTOS, m.id, f)).replace(/\\/g, '/');
-  if (m.tipo === 'video') return `«${m.nombre}» (un video: no lo puedes ver; si quiere rehacerlo o clonarlo, que lo suba en Nuevo anuncio › Agregar)`;
+  if (m.tipo === 'video') return `«${m.nombre}» (un VIDEO: tú no lo ves, pero la app sí lo analiza toma por toma —estructura, tiempos, lo que se dice— si lo pones en "video" de crear-anuncio) [id ${m.id}]`;
   if (m.tipo === 'documento') return `«${m.nombre}» (documento, su texto en ${rel('texto.md')}) [id ${m.id}]`;
   return `«${m.nombre}» (${m.tipo}, en ${rel(m.archivo)}) [id ${m.id}]`;
 }
@@ -257,7 +285,8 @@ ${historia.join('\n')}
 
 Contesta el ÚLTIMO mensaje del USUARIO. Si adjuntó archivos, LÉELOS con Read antes de contestar (imágenes y PDF también) y úsalos: es lo que te está pasando para que trabajes con eso.
 Puedes pedirle a la app estas acciones (la app las hace, le muestra el enlace y TÚ sigues el trabajo: cuando el guion esté listo le escribes con el costo, y cuando termine le entregas el resultado):
-- { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>" } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir.
+- { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió, ej. 1:50>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>", "video": "<id de un VIDEO que adjuntó>" | null, "conservar_gancho": false } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir. CON "video": la app CLONA ese video (lo analiza toma por toma y el guionista replica su estructura, ritmo y gancho en el estilo pedido, con la duración pedida). Úsalo cuando adjunta un video y pide «uno igual», «replica la estructura», «como este»: NO le digas que lo suba en otro lado, hazlo tú. "conservar_gancho": true solo si pide dejar el gancho y el ángulo tal cual.
+Lo obligatorio de un estilo: si falta, propón la opción más común y pregúntala en UNA frase («¿fondo de estudio limpio o con la grilla azul?»). Si dice «decide tú», «como quieras» o algo así, elige tú y créalo.
 - { "tipo": "producir", "id": "<id de lo que estás siguiendo>" } → SOLO si eso ESPERA EL SÍ y el usuario acaba de decir que sí (dale, hazlo, de una, ok, sí…) después de ver el costo. Aprueba y produce: ahí se cobra.
 - { "tipo": "imagenes", "productoId": "<id con foto>", "cantidad": 1-${MAX_IMAGENES}, "formato": "1:1" | "9:16" | "ambos", "referencia": "<id de una imagen que adjuntó>" | null, "pais": "<país>" | null, "publico": "<público>" | null, "idea": "<lo que pidió>" } → anuncios de imagen con el agente de variaciones: con su imagen de referencia (variaciones de ese anuncio) o, sin referencia, desde la investigación de mercado del producto (si no la tiene, primero investigar). La app le muestra el costo y espera su sí.
 - { "tipo": "investigar", "productoId": "<id>", "pais": "<país>" | null, "competencia": "<link de TrendTrack o tienda>" | null } → las DOS partes de la investigación a la vez: el mercado y la competencia en TrendTrack (sin costo de imágenes).
@@ -392,12 +421,30 @@ async function ejecutar(acciones, ctx) {
         if (!ESTILOS[a.estilo] || a.estilo === 'agregar') throw new Error('No conozco ese estilo.');
         const n = Math.max(1, Math.min(MAX_ANUNCIOS, Number(a.cantidad) || 1));
         const respuestas = a.respuestas && typeof a.respuestas === 'object' && !Array.isArray(a.respuestas) ? { ...a.respuestas } : {};
+        // (2026-11-20h) clonar el VIDEO que le pasó en el chat: va a temp/_referencias como un video subido en
+        // «Clonar un video» (lib/clonar.js lo analiza antes de escribir el guion)
+        if (a.video) {
+          const v = metaAdjunto(String(a.video));
+          if (!v || v.tipo !== 'video') throw new Error('No encuentro ese video entre lo que me pasaste.');
+          const { DIR_REFERENCIAS } = await import('../rutas/referencias.js');
+          fs.mkdirSync(DIR_REFERENCIAS, { recursive: true });
+          const destino = path.join(DIR_REFERENCIAS, `${v.id}${path.extname(v.archivo)}`);
+          if (!fs.existsSync(destino)) {
+            try {
+              fs.linkSync(path.join(ADJUNTOS, v.id, v.archivo), destino);
+            } catch {
+              fs.copyFileSync(path.join(ADJUNTOS, v.id, v.archivo), destino);
+            }
+          }
+          respuestas.clonar = `subido:${v.id}|${v.nombre.replace(/[|]/g, ' ').slice(0, 80)}`;
+          respuestas.clonar_gancho = a.conservar_gancho === true ? 'No, conserva el gancho y el ángulo del original' : 'Sí, adáptalo a mi producto';
+        }
         for (let i = 0; i < n; i++) {
           const idea = limpio(a.idea, 400);
           const extra = n > 1 ? ` (versión ${i + 1} de ${n}: un ángulo y un gancho DISTINTOS a las otras)` : '';
           const r = crearAnuncio({ productoId: a.productoId, estilo: a.estilo, duracion: a.duracion ? limpio(a.duracion, 60) : null, respuestas, pedido: `${idea}${extra}`.trim() });
           const titulo = `${ESTILOS[a.estilo].nombre} de ${nombreDe(a.productoId)}${n > 1 ? ` (${i + 1}/${n})` : ''}`;
-          hechas.push({ tipo: 'anuncio', titulo: `Guion ${titulo}`, href: `#/nuevo?producto=${encodeURIComponent(a.productoId)}&paso=2&anuncios=${r.slug}`, slug: r.slug, ok: true });
+          hechas.push({ tipo: 'anuncio', titulo: `Guion ${titulo}${a.video ? ' (clonando tu video)' : ''}`, href: `#/nuevo?producto=${encodeURIComponent(a.productoId)}&paso=2&anuncios=${r.slug}`, slug: r.slug, ok: true });
           encargar({ id: r.slug, tipo: 'video', slug: r.slug, productoId: a.productoId, titulo });
         }
       } else if (a.tipo === 'investigar') {

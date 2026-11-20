@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20h · La coordinadora clona tus videos y le puedes dictar por voz
+
+- **Le pasas un video y le dices «hazme uno igual en Zack, que dure 1:50»**: ella lo encarga sola. La app analiza tu video toma por toma (la estructura, los tiempos, lo que se dice) y el guionista lo replica en el estilo y la duración que pediste, con el gancho adaptado a tu producto (o el mismo, si se lo pides). Ya no te manda a «Clonar un video».
+- Si al estilo le falta algo obligatorio (por ejemplo, el fondo de Zack), te propone la opción más común en una sola pregunta, o la elige ella si le dices «decide tú».
+- **Dictar por voz**: toca el micrófono del chat, habla y toca el cuadrado al terminar. El texto queda en la caja para revisarlo antes de enviar. En Chrome y Safari usa el dictado del navegador; si no lo trae, graba y lo pasa a texto con tu ElevenLabs (centavos).
+- Los videos que le pasas pueden pesar hasta 400 MB.
+
 ## 2026-11-20g · El chat de la coordinadora se lee en el modo claro
 
 - Con la app en modo claro, los mensajes de la coordinadora salían en blanco sobre blanco y no se leían. Ahora el chat (y los demás paneles de la oficina) usa sus propios colores oscuros, con letra clara, en los dos modos.
