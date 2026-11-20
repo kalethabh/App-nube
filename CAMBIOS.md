@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20l · S.E.P: elige ver el BM completo, una cuenta publicitaria o una campaña
+
+- Arriba en S.E.P ahora eliges **qué ver**:
+  - **BM completo**: todas las cuentas publicitarias de tu Business Manager juntas, con los anuncios que más venden de todas. Cada tarjeta dice de qué cuenta es.
+  - **Cuenta publicitaria**: una sola cuenta (como antes).
+  - **Campaña**: una campaña de esa cuenta. Se elige de una lista ordenada por compras.
+- Si tienes varios BM, eliges cuál. Las cuentas que no están en ningún BM salen juntas como «Sin Business Manager».
+- Si un BM tiene cuentas en monedas distintas (por ejemplo COP y USD), las compras se suman pero el dinero no, y te lo avisa. Cada tarjeta muestra el dinero en la moneda de su cuenta.
+- La app recuerda lo último que elegiste.
+
 ## 2026-11-20k · S.E.P: tus anuncios de Meta que más venden y qué hacer con cada uno
 
 - **S.E.P ya funciona** (dejó de ser «Pronto»). Conecta tu cuenta publicitaria de Meta y trae, del rango que elijas (7, 14, 30 o 90 días), tus anuncios ordenados por **compras**, con su gasto, ingresos, ROAS, CPA, CTR, CPM, frecuencia e impresiones.
