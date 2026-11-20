@@ -1,0 +1,30 @@
+{
+  "mensajes": [
+    {
+      "id": "30008012ab",
+      "de": "tu",
+      "texto": "Quiero hacerle variaciones a un video que me está vendiendo muy bien",
+      "fecha": "2026-11-20T00:09:06.667Z"
+    },
+    {
+      "id": "c3678fb495",
+      "de": "coordinadora",
+      "texto": "¡Qué buena noticia que se esté vendiendo tan bien! 🎉 Cuéntame cuál es: ¿uno de tus anuncios recientes (dime el título) o un video que tienes aparte? Si es uno de los tuyos, Mateo le escribe variaciones con otros ganchos o ángulos, y si es con narrador también puedes usar «Más ganchos» en su entrega. Si es un video de afuera, súbelo en Nuevo anuncio → «Agregar» o en «Clonar un video», en los ajustes del estilo que quieras.",
+      "acciones": [],
+      "fecha": "2026-11-20T00:09:13.695Z"
+    },
+    {
+      "id": "82781063dc",
+      "de": "tu",
+      "texto": "tengo que subirlo, quiero pasartelo por aquí o te paso el link de la biblioteca de anuncios para que lo tomes",
+      "fecha": "2026-11-20T00:10:08.679Z"
+    },
+    {
+      "id": "cf50d5f295",
+      "de": "coordinadora",
+      "texto": "Por aquí no puedo recibir videos ni abrir enlaces, así que lo mejor es que lo subas tú en la app 🙌. Si viene de la biblioteca de anuncios, primero descárgalo a tu computadora. Después súbelo en Nuevo anuncio → «Agregar» y escribe que quieres variaciones con otros ganchos y ángulos. Si prefieres el mismo video en otro estilo, usa «Clonar un video» en los ajustes de ese estilo. Cuando lo subas, dime para cuál producto es y el equipo se pone con eso.",
+      "acciones": [],
+      "fecha": "2026-11-20T00:10:15.268Z"
+    }
+  ]
+}
