@@ -13,18 +13,17 @@ import { LUGAR } from './Oficina3D.jsx';
 export function pasosDelRecorrido(agentes, nombreOficina) {
   const n = (id) => agentes.find((a) => a.id === id)?.nombre || '';
   return [
-    { titulo: `Bienvenido a ${nombreOficina}`, texto: 'Aquí trabaja tu equipo de agentes de IA. Cada uno hace una parte REAL de tus anuncios: lo que ves aquí está pasando de verdad en la app.', vista: 'general' },
-    { titulo: `${n('coordinacion')}, tu coordinadora`, texto: `Reparte el trabajo y te avisa lo que espera tu decisión. Toca «Hablar con ${n('coordinacion')}» y pídele anuncios, investigaciones o pregúntale cómo va todo. Nada se cobra sin tu sí.`, agente: 'coordinacion' },
-    { titulo: `${n('guion')} escribe los guiones`, texto: 'Usa tu investigación y lo que aprendió de tus correcciones. Cuando un guion espera tu aprobación, se pone en rojo y te saluda.', agente: 'guion' },
-    { titulo: `${n('arte')}, dirección de arte`, texto: 'Crea las personas, las escenas y los anuncios de imagen. Sus pantallas grandes muestran la última imagen que se generó.', agente: 'arte' },
-    { titulo: `${n('video')} produce los videos`, texto: 'Genera los clips, las voces y la música. En la pantalla de su estudio ves el último clip que salió.', agente: 'video' },
-    { titulo: `${n('edicion')} arma el montaje`, texto: 'Junta todo, pone los subtítulos y exporta. En su oficina de vidrio ves lo último que entregó.', agente: 'edicion' },
-    { titulo: `${n('calidad')} revisa la calidad`, texto: 'Mira cada imagen y cada clip antes de entregar, y deja avisos si algo hay que rehacer.', agente: 'calidad' },
-    { titulo: `${n('investigacion')} investiga`, texto: 'Estudia tu mercado y tu competencia en TrendTrack. Lo que encuentra alimenta los guiones.', agente: 'investigacion' },
-    { titulo: 'Los colores te dicen todo', texto: 'Verde: está trabajando. Rojo: te necesita (tócalo y vas directo a lo que espera). Naranja: una IA que usa está caída. Gris: está libre, camina, toma café y conversa con los demás.', vista: 'general' },
-    { titulo: 'Diseña tu oficina', texto: 'Con «Diseñar oficina» mueves las salas, les cambias el nombre y el color, y creas las tuyas. Las de «Próximamente» están en construcción.', zona: 'landings' },
-    { titulo: 'Tu equipo aprende', texto: 'Cuando termines un anuncio, dale 👍 o 👎 y cuenta qué te gustó. Se vuelve una regla que tu equipo usa la próxima vez: lo ves en «Lo que aprendió» de cada agente.', vista: 'general' },
-    { titulo: 'Muévete por la oficina', texto: 'Arrastra para girar y usa la rueda para acercarte. Abajo tienes el minimapa (toca una sala y vas allá), la vista desde arriba, el modo cine y día o noche.', vista: 'cine' },
+    { titulo: `Bienvenido a ${nombreOficina}`, texto: 'Tu empresa digital: seis departamentos de agentes de IA alrededor del logo K. Cada agente hace una parte REAL del trabajo y se la entrega al siguiente. Lo que ves aquí está pasando de verdad en la app.', vista: 'general' },
+    { titulo: `${n('coordinacion')}, la coordinación`, texto: `Recibe tus pedidos, los manda al departamento que corresponde y te avisa lo que espera tu decisión. Háblale con «Hablar con ${n('coordinacion')}». Nada se cobra sin tu sí.`, agente: 'coordinacion' },
+    { titulo: 'Anuncios de video', texto: 'Seis agentes en cadena: guion → plan → imágenes → producción → edición → revisión. El revisor devuelve lo que hay que rehacer. Toca el departamento para ver su flujo y sus trabajos.', zona: 'video' },
+    { titulo: 'Anuncios de imagen', texto: 'Investigación → estrategia → prompts → generación → control de calidad → entrega. Si la revisión no aprueba una imagen, vuelve a los prompts para ajustarla.', zona: 'imagen' },
+    { titulo: 'Investigación de mercado', texto: 'Recopila tu mercado, investiga la competencia en TrendTrack, arma el avatar, saca las oportunidades y entrega el informe.', zona: 'investigacion' },
+    { titulo: 'Las líneas de producción', texto: 'Gris: en reposo. Verde: una parte pasa al siguiente agente (verás una luz viajar). Naranja: la revisión devuelve algo para corregir. Rojo: algo se frenó. Solo se mueven cuando de verdad pasa algo.', zona: 'video' },
+    { titulo: 'Los íconos de cada agente', texto: 'Cada agente tiene su ícono: lo que hace, o lo que le pasa (✓ revisando, ↩ corrigiendo, ⚠ error, 🕒 esperando). Su anillo en el piso se enciende con el color de su estado. Tócalo y ves su estación, de quién recibe y a quién entrega.', vista: 'general' },
+    { titulo: 'En construcción', texto: 'Landing pages, embudos de WhatsApp y análisis ya tienen su equipo sentado, pero todavía no tienen herramientas en la app: esperan quietos hasta que estén listos.', zona: 'landing' },
+    { titulo: 'Diseña tu oficina', texto: 'Con «Diseñar» cambias los departamentos de lugar, sus nombres y colores, y creas tus propias oficinas en la fila de adelante.', vista: 'general' },
+    { titulo: 'Tu equipo aprende', texto: 'Cuando termines un anuncio, dale 👍 o 👎 y cuenta qué te gustó: se vuelve una regla que tu equipo usa la próxima vez.', vista: 'general' },
+    { titulo: 'Muévete por la oficina', texto: 'Arrastra para girar, rueda para acercarte. Abajo tienes el minimapa (toca un departamento y vas allá), la vista desde arriba, el modo cine y día o noche.', vista: 'cine' },
   ];
 }
 
@@ -68,30 +67,30 @@ export function Recorrido({ pasos, paso, onPaso, onCerrar }) {
 // ---------------------------------------------------------------- el minimapa
 
 export function Minimapa({ zonas, agentes, posiciones, onZona }) {
-  const filaNueva = zonas.some((z) => z.lugar >= 9);
-  const zMax = filaNueva ? 25.4 : 15.2;
-  const alto = zMax + 15;
+  const filaNueva = zonas.some((z) => z.lugar >= 8);
+  const zMax = filaNueva ? 27.5 : 17.5;
+  const alto = zMax + 17.5;
   const color = Object.fromEntries(agentes.map((a) => [a.id, a]));
   return (
     <div className="of-minimapa of-vidrio">
       <span className="of-minimapa__titulo">
         <MapaIcono size={12} aria-hidden="true" /> Planta
       </span>
-      <svg viewBox={`-19 -15 38 ${alto}`} role="group" aria-label="El plano de la oficina: toca una sala para ir allá">
-        <rect x="-19" y="-15" width="38" height={alto} rx="1.2" className="of-minimapa__piso" />
-        <rect x="-3.7" y="-3" width="7.4" height="4.8" rx="1" className="of-minimapa__logo" />
+      <svg viewBox={`-23.5 -17.5 47 ${alto}`} role="group" aria-label="El plano de la oficina: toca un departamento para ir allá">
+        <rect x="-23.5" y="-17.5" width="47" height={alto} rx="1.2" className="of-minimapa__piso" />
+        <circle cx="0" cy="0" r="3.4" className="of-minimapa__logo" />
         {zonas.map((z) => {
           const g = LUGAR[z.lugar];
           if (!g) return null;
           return (
             <g key={z.id} className="of-minimapa__sala" onClick={() => onZona(z.id)} role="button" tabIndex={0} aria-label={`Ir a ${z.nombre}`} onKeyDown={(e) => (e.key === 'Enter' ? onZona(z.id) : null)}>
               <rect x={g.x - g.w / 2 + 0.3} y={g.z - g.d / 2 + 0.3} width={g.w - 0.6} height={g.d - 0.6} rx="0.8" style={{ '--color': z.color }} className={z.pronto ? 'pronto' : ''} />
-              <text x={g.x} y={g.z + 0.6} textAnchor="middle">{String(z.nombre).slice(0, 13)}</text>
+              <text x={g.x} y={g.z + 0.7} textAnchor="middle">{String(z.nombre).slice(0, 18)}</text>
             </g>
           );
         })}
         {Object.entries(posiciones || {}).map(([id, [x, z]]) => (
-          <circle key={id} cx={x} cy={z} r="0.75" className={`of-minimapa__agente of-minimapa__agente--${color[id]?.estado || 'libre'}`} style={{ '--color': color[id]?.color || '#94a3b8' }}>
+          <circle key={id} cx={x} cy={z} r="0.6" className={`of-minimapa__agente of-minimapa__agente--${color[id]?.estado || 'libre'}`} style={{ '--color': color[id]?.color || '#94a3b8' }}>
             <title>{color[id]?.nombre}</title>
           </circle>
         ))}
@@ -102,7 +101,7 @@ export function Minimapa({ zonas, agentes, posiciones, onZona }) {
 
 // ---------------------------------------------------------------- la actividad
 
-export function Actividad({ agentes, charlas, abierta, onAbrir, onAgente }) {
+export function Actividad({ agentes, eventos = [], departamentos = [], abierta, onAbrir, onAgente }) {
   const items = useMemo(() => {
     const l = [];
     for (const a of agentes) {
@@ -113,7 +112,9 @@ export function Actividad({ agentes, charlas, abierta, onAbrir, onAgente }) {
     l.sort((x, y) => (y.tipo === 'necesita') - (x.tipo === 'necesita') || String(y.cuando || '').localeCompare(String(x.cuando || '')));
     return l;
   }, [agentes]);
-  const vivo = [...charlas.map((c) => ({ tipo: 'charla', ...c })), ...items].slice(0, abierta ? 30 : 4);
+  // las transferencias reales que vio la oficina (verde: pasa, naranja: la revisión devuelve, rojo: se frenó)
+  const nombreEst = Object.fromEntries(departamentos.flatMap((d) => d.estaciones.map((e) => [e.id, e.nombre])));
+  const vivo = [...eventos.map((e) => ({ ...e, tipo: `evento-${e.tipo}` })), ...items].slice(0, abierta ? 30 : 4);
   return (
     <section className={`of-actividad of-vidrio${abierta ? ' of-actividad--abierta' : ''}`} aria-label="Lo que pasa en la oficina">
       <button type="button" className="of-actividad__cabeza" onClick={onAbrir} aria-expanded={abierta}>
@@ -123,11 +124,11 @@ export function Actividad({ agentes, charlas, abierta, onAbrir, onAgente }) {
       {vivo.length ? (
         <ul className="of-actividad__lista">
           {vivo.map((x, i) =>
-            x.tipo === 'charla' ? (
-              <li key={`c${x.t}`} className="of-actividad__item of-actividad__item--charla">
-                <span className="of-actividad__icono">💬</span>
+            x.tipo.startsWith('evento-') ? (
+              <li key={`e${x.t}${i}`} className={`of-actividad__item of-actividad__item--${x.tipo}`}>
+                <span className="of-actividad__icono" aria-hidden="true">{x.tipo === 'evento-pasa' ? '→' : x.tipo === 'evento-devuelve' ? '↩' : x.tipo === 'evento-listo' ? '🎉' : '!'}</span>
                 <span>
-                  <b>{x.nombres.join(' y ')}</b> conversan: «{x.texto}»
+                  {x.detalle} <small>· {nombreEst[x.de] || 'Coordinación'} → {nombreEst[x.a] || ''}</small>
                 </span>
               </li>
             ) : (

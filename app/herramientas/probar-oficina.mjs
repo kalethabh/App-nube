@@ -14,13 +14,15 @@ const casos = { imagenes: 'arte', persona: 'arte', 'revision-imagenes': 'calidad
 const mal = Object.entries(casos).filter(([p, a]) => agenteDelPaso(p === 'null' ? null : p) !== a);
 check('Cada paso de producción va a su agente', !mal.length, mal.map(([p, a]) => `${p}: ${agenteDelPaso(p)} (esperaba ${a})`));
 const d = await oficina();
-check('La oficina trae los 7 agentes con su nombre, personaje, color, estado y listas', d.agentes.length === AGENTES.length && d.agentes.every((a) => a.nombre && a.avatar && /^#/.test(a.color) && ['libre', 'trabajando', 'te-necesita'].includes(a.estado) && Array.isArray(a.ahora) && Array.isArray(a.necesita) && Array.isArray(a.hechos)), d.agentes.map((a) => [a.id, a.estado]));
+check('La oficina trae todos sus agentes con su nombre, personaje, color, estado y listas', d.agentes.length === AGENTES.length && d.agentes.every((a) => a.nombre && a.avatar && /^#/.test(a.color) && ['libre', 'trabajando', 'te-necesita'].includes(a.estado) && Array.isArray(a.ahora) && Array.isArray(a.necesita) && Array.isArray(a.hechos)), d.agentes.map((a) => [a.id, a.estado]));
 check('El estado sale de su trabajo: «te necesita» manda sobre «trabajando»', d.agentes.every((a) => (a.necesita.length ? a.estado === 'te-necesita' : a.ahora.length ? a.estado === 'trabajando' : a.estado === 'libre')));
 check('El resumen cuenta lo mismo que los agentes', d.resumen.trabajando === d.agentes.filter((a) => a.estado === 'trabajando').length && typeof d.resumen.aprendizajes === 'number', d.resumen);
 check('Cada agente trae si se ve como mujer u hombre (por defecto: Valentina, Lucía, Camila y Sofía mujer)', d.agentes.every((a) => ['mujer', 'hombre'].includes(a.genero)) && d.agentes.find((a) => a.id === 'guion').genero === 'hombre' || Boolean(d.configurada), d.agentes.map((a) => [a.id, a.genero]));
 const lugares = d.zonas.map((z) => z.lugar);
-check('Las salas traen su lugar (sin repetir), las 3 de «Próximamente» y los tipos para crear', d.zonas.length >= 12 && new Set(lugares).size === lugares.length && lugares.every((n) => n >= 0 && n < LUGARES) && d.zonas.filter((z) => z.pronto).length === 3 && d.tipos?.creativos && Array.isArray(d.ias), d.zonas);
-check('Cada agente trae su sala y su aviso de IA caída (o null)', d.agentes.every((a) => d.zonas.some((z) => z.id === a.id && z.agente) && 'caida' in a));
+check('Las salas traen su lugar (sin repetir), las 3 de «Próximamente» y los tipos para crear', d.zonas.length >= 8 && new Set(lugares).size === lugares.length && lugares.every((n) => n >= 0 && n < LUGARES) && d.zonas.filter((z) => z.pronto).length === 3 && d.tipos?.creativos && Array.isArray(d.ias), d.zonas);
+check('Cada agente está en un departamento de la planta, con su estación y su aviso de IA caída (o null)', d.agentes.every((a) => d.zonas.some((z) => z.id === a.dep) && (a.dep === 'coordinacion' || a.estacion) && 'caida' in a && a.enEstacion), d.agentes.filter((a) => !d.zonas.some((z) => z.id === a.dep)).map((a) => a.id));
+check('Las cadenas de producción: seis departamentos y cada estación con su agente', d.produccion.departamentos.length === 6 && d.produccion.departamentos.every((dep) => dep.estaciones.every((e) => d.agentes.some((a) => a.id === e.agente))));
+check('Los departamentos en construcción tienen a sus agentes quietos («pronto»)', d.agentes.filter((a) => ['landing', 'whatsapp', 'analisis'].includes(a.dep)).every((a) => a.enEstacion === 'pronto'));
 // la pantalla grande: el último clip o imagen (el más nuevo, sin los vacíos)
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'oficina-'));
 fs.mkdirSync(path.join(dir, 'img'));

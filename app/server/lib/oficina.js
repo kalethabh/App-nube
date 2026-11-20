@@ -25,14 +25,47 @@ import crypto from 'node:crypto';
 import { OUTPUT } from './rutas.js';
 
 // Los agentes y su trabajo. `pasos`: los pasos de producción que hace (por su id: lib/familias/*.js PASOS).
+const COLOR_DEP = { video: '#60a5fa', imagen: '#f472b6', investigacion: '#fb923c', landing: '#38bdf8', whatsapp: '#22c55e', analisis: '#c084fc', coordinacion: '#a3e635' };
+export const NOMBRE_DEP = { video: 'Anuncios de video', imagen: 'Anuncios de imagen', investigacion: 'Investigación de mercado', landing: 'Landing pages', whatsapp: 'Embudos de WhatsApp', analisis: 'Análisis y optimización', coordinacion: 'Coordinación' };
 export const AGENTES = [
-  { id: 'coordinacion', genero: 'mujer', rol: 'Coordinadora', depto: 'Dirección', nombre: 'Valentina', avatar: '👩‍💼', color: '#a3e635', hace: 'Reparte el trabajo, revisa el costo y te avisa lo que espera tu decisión.' },
-  { id: 'guion', genero: 'hombre', rol: 'Guionista', depto: 'Guiones', nombre: 'Mateo', avatar: '✍️', color: '#fbbf24', hace: 'Escribe los guiones de cada estilo con tu investigación y tus aprendizajes.' },
-  { id: 'arte', genero: 'mujer', rol: 'Directora de arte', depto: 'Arte', nombre: 'Lucía', avatar: '🎨', color: '#f472b6', hace: 'Crea las personas, los lugares y la imagen de cada escena, y los anuncios de imagen.' },
-  { id: 'video', genero: 'hombre', rol: 'Productor de video', depto: 'Producción', nombre: 'Andrés', avatar: '🎬', color: '#60a5fa', hace: 'Genera los clips, las voces y la música de cada anuncio.' },
-  { id: 'edicion', genero: 'mujer', rol: 'Editora', depto: 'Edición', nombre: 'Camila', avatar: '✂️', color: '#c084fc', hace: 'Arma el montaje, los subtítulos y exporta los videos.' },
-  { id: 'calidad', genero: 'hombre', rol: 'Revisor de calidad', depto: 'Calidad', nombre: 'Tomás', avatar: '🔍', color: '#2dd4bf', hace: 'Revisa cada imagen y cada clip antes de entregar, y deja avisos.' },
-  { id: 'investigacion', genero: 'mujer', rol: 'Investigadora', depto: 'Investigación', nombre: 'Sofía', avatar: '🔭', color: '#fb923c', hace: 'Investiga tu mercado y tu competencia en TrendTrack.' },
+  { id: 'coordinacion', dep: 'coordinacion', genero: 'mujer', rol: 'Coordinadora', depto: 'Dirección', nombre: 'Valentina', avatar: '👩‍💼', color: '#a3e635', hace: 'Reparte el trabajo, revisa el costo y te avisa lo que espera tu decisión.' },
+  { id: 'guion', dep: 'video', estacion: 'v-guion', genero: 'hombre', rol: 'Guionista', depto: 'Guiones', nombre: 'Mateo', avatar: '✍️', color: '#fbbf24', hace: 'Escribe los guiones de cada estilo con tu investigación y tus aprendizajes.' },
+  { id: 'arte', dep: 'video', estacion: 'v-imagenes', genero: 'mujer', rol: 'Directora de arte', depto: 'Arte', nombre: 'Lucía', avatar: '🎨', color: '#f472b6', hace: 'Crea las personas, los lugares y la imagen de cada escena, y los anuncios de imagen.' },
+  { id: 'video', dep: 'video', estacion: 'v-produccion', genero: 'hombre', rol: 'Productor de video', depto: 'Producción', nombre: 'Andrés', avatar: '🎬', color: '#60a5fa', hace: 'Genera los clips, las voces y la música de cada anuncio.' },
+  { id: 'edicion', dep: 'video', estacion: 'v-edicion', genero: 'mujer', rol: 'Editora', depto: 'Edición', nombre: 'Camila', avatar: '✂️', color: '#c084fc', hace: 'Arma el montaje, los subtítulos y exporta los videos.' },
+  { id: 'calidad', dep: 'video', estacion: 'v-revision', genero: 'hombre', rol: 'Revisor de calidad', depto: 'Calidad', nombre: 'Tomás', avatar: '🔍', color: '#2dd4bf', hace: 'Revisa cada imagen y cada clip antes de entregar, y deja avisos.' },
+  { id: 'investigacion', dep: 'investigacion', estacion: 'r-recopilacion', genero: 'mujer', rol: 'Investigadora', depto: 'Investigación', nombre: 'Sofía', avatar: '🔭', color: '#fb923c', hace: 'Investiga tu mercado y tu competencia en TrendTrack.' },
+  // (2026-11-20) los agentes de cada estación de las cadenas de producción (lib/oficina-produccion.js)
+  ...[
+    ['v-plan', 'video', 'Planificador de producción', 'Julián', 'hombre', '🗂️', 'Revisa el guion, tu saldo, la voz y los tiempos antes de gastar.'],
+    ['i-investigacion', 'imagen', 'Investigadora de producto', 'Daniela', 'mujer', '🔎', 'Prepara cada lote con tu producto, su investigación y las plantillas.'],
+    ['i-estrategia', 'imagen', 'Estratega creativa', 'Mariana', 'mujer', '🧠', 'Elige el ángulo, el dolor y la promesa de cada variación.'],
+    ['i-prompts', 'imagen', 'Ingeniero de prompts', 'Samuel', 'hombre', '⌨️', 'Escribe el prompt de cada imagen y lo ajusta si la revisión lo devuelve.'],
+    ['i-generacion', 'imagen', 'Generadora de imágenes', 'Isabella', 'mujer', '🖼️', 'Genera cada imagen con el modelo conectado.'],
+    ['i-revision', 'imagen', 'Revisor de imágenes', 'Martín', 'hombre', '✅', 'Revisa textos, producto y composición; devuelve lo que no pasa.'],
+    ['i-entrega', 'imagen', 'Entregas', 'Paula', 'mujer', '📦', 'Guarda las aprobadas y arma el informe con el costo.'],
+    ['r-competencia', 'investigacion', 'Analista de competencia', 'Felipe', 'hombre', '🕵️', 'Investiga en TrendTrack lo que más vende tu competencia.'],
+    ['r-publico', 'investigacion', 'Analista de público', 'Laura', 'mujer', '👥', 'Arma el avatar: quién compra, qué le duele y qué desea.'],
+    ['r-oportunidades', 'investigacion', 'Oportunidades', 'Nicolás', 'hombre', '💡', 'Saca los conceptos para Meta y los ángulos con más potencial.'],
+    ['r-sintesis', 'investigacion', 'Síntesis y validación', 'Gabriela', 'mujer', '📑', 'Valida y entrega el informe completo.'],
+    ['l-investigacion', 'landing', 'Investigación de producto', 'Emilio', 'hombre', '🔎', 'Próximamente: investigará el producto para su landing.'],
+    ['l-copy', 'landing', 'Copywriter', 'Valeria', 'mujer', '✍️', 'Próximamente: escribirá los textos que venden.'],
+    ['l-conversion', 'landing', 'Arquitecto de conversión', 'Simón', 'hombre', '📐', 'Próximamente: ordenará la página para que convierta.'],
+    ['l-diseno', 'landing', 'Diseñadora visual', 'Antonia', 'mujer', '🎨', 'Próximamente: diseñará la página.'],
+    ['l-desarrollo', 'landing', 'Desarrollador', 'Lucas', 'hombre', '💻', 'Próximamente: construirá la página.'],
+    ['l-pruebas', 'landing', 'Pruebas', 'Renata', 'mujer', '🧪', 'Próximamente: probará que todo funcione.'],
+    ['w-estrategia', 'whatsapp', 'Estratega conversacional', 'Carolina', 'mujer', '💬', 'Próximamente: diseñará la conversación de venta.'],
+    ['w-mensajes', 'whatsapp', 'Redactora de mensajes', 'Andrea', 'mujer', '✍️', 'Próximamente: escribirá cada mensaje.'],
+    ['w-flujos', 'whatsapp', 'Diseñador de flujos', 'Sebastián', 'hombre', '🔀', 'Próximamente: armará los flujos del embudo.'],
+    ['w-automatizacion', 'whatsapp', 'Automatización', 'Emiliano', 'hombre', '⚙️', 'Próximamente: conectará las automatizaciones.'],
+    ['w-pruebas', 'whatsapp', 'Pruebas', 'Juliana', 'mujer', '🧪', 'Próximamente: probará el embudo.'],
+    ['w-optimizacion', 'whatsapp', 'Optimización', 'Alejandro', 'hombre', '📈', 'Próximamente: mejorará lo que más convierte.'],
+    ['a-metricas', 'analisis', 'Métricas', 'Manuela', 'mujer', '📊', 'Próximamente: juntará las métricas reales de tus anuncios.'],
+    ['a-rendimiento', 'analisis', 'Rendimiento', 'Santiago', 'hombre', '📈', 'Próximamente: analizará qué rinde y qué no.'],
+    ['a-problemas', 'analisis', 'Diagnóstico', 'Ricardo', 'hombre', '🩺', 'Próximamente: encontrará los problemas.'],
+    ['a-propuestas', 'analisis', 'Propuestas', 'Elena', 'mujer', '💡', 'Próximamente: propondrá mejoras.'],
+    ['a-reporte', 'analisis', 'Reporte', 'Matías', 'hombre', '📑', 'Próximamente: te entregará el reporte.'],
+  ].map(([id, dep, rol, nombre, genero, avatar, hace]) => ({ id, dep, estacion: id, genero, rol, depto: dep, nombre, avatar, color: COLOR_DEP[dep], hace, extra: true })),
 ];
 
 /** El agente que hace un paso de producción (por su id). */
@@ -50,21 +83,19 @@ const leerOficina = () => leerConfig().oficina || {};
 
 // ---------------------------------------------------------------- las salas y su lugar en la planta
 
-export const LUGARES = 13; // 0-3 fondo · 4 izquierda · 5 derecha · 6-8 adelante (7 al medio) · 9-12 la fila nueva
-// las salas de siempre: las de los agentes, el café, la sala de estar y las de «Próximamente»
+// (2026-11-20) la planta de la imagen de referencia: seis departamentos alrededor del logo K, la coordinación arriba al
+// medio, la sala de estar abajo al medio y una fila nueva adelante (8-11) para tus oficinas propias.
+export const LUGARES = 12; // 0-5 departamentos (izq./der. en tres filas) · 6 coordinación · 7 sala de estar · 8-11 fila nueva
+const VERSION_PLANTA = 2; // los lugares guardados con la planta anterior no valen en esta
 const FIJAS = [
-  { id: 'coordinacion', tipo: 'coordinacion', lugar: 0 },
-  { id: 'guion', tipo: 'guion', lugar: 1 },
-  { id: 'arte', tipo: 'arte', lugar: 2 },
-  { id: 'investigacion', tipo: 'investigacion', lugar: 3 },
-  { id: 'video', tipo: 'video', lugar: 4 },
-  { id: 'calidad', tipo: 'calidad', lugar: 5 },
-  { id: 'cafe', tipo: 'cafe', lugar: 6, nombre: 'Café', color: '#f59e0b' },
+  { id: 'video', tipo: 'video', lugar: 0, dep: true },
+  { id: 'imagen', tipo: 'imagen', lugar: 1, dep: true },
+  { id: 'investigacion', tipo: 'investigacion', lugar: 2, dep: true },
+  { id: 'landing', tipo: 'landing', lugar: 3, dep: true, pronto: true, href: '#/landings' },
+  { id: 'whatsapp', tipo: 'whatsapp', lugar: 4, dep: true, pronto: true, href: '#/embudo-whatsapp' },
+  { id: 'analisis', tipo: 'analisis', lugar: 5, dep: true, pronto: true, href: '#/sep' },
+  { id: 'coordinacion', tipo: 'coordinacion', lugar: 6, dep: true },
   { id: 'sala', tipo: 'sala', lugar: 7, nombre: 'Sala de estar', color: '#a3e635' },
-  { id: 'edicion', tipo: 'edicion', lugar: 8 },
-  { id: 'landings', tipo: 'pronto', lugar: 9, nombre: 'Landings', color: '#38bdf8', pronto: true, href: '#/landings' },
-  { id: 'embudo-whatsapp', tipo: 'pronto', lugar: 10, nombre: 'Embudo WhatsApp', color: '#22c55e', pronto: true, href: '#/embudo-whatsapp' },
-  { id: 'sep', tipo: 'pronto', lugar: 11, nombre: 'S.E.P', color: '#e879f9', pronto: true, href: '#/sep' },
 ];
 // los tipos de sala para las oficinas que crea el usuario
 export const TIPOS = {
@@ -82,13 +113,14 @@ const COLOR = /^#[0-9a-f]{6}$/i;
 
 /** Las salas con su lugar, nombre y color (lo guardado encima de lo de siempre). */
 function zonasDe(cfg, porId = {}) {
+  const vale = cfg.planta === VERSION_PLANTA; // con la planta anterior, cada sala vuelve a su lugar de siempre
   const guardadas = cfg.zonas || {};
   const fijas = FIJAS.map((z) => {
-    const a = AGENTES.find((x) => x.id === z.id);
     const g = guardadas[z.id] || {};
-    return { ...z, nombre: g.nombre || z.nombre || a?.depto || z.id, color: g.color || z.color || a?.color || '#a3e635', lugar: Number.isInteger(g.lugar) ? g.lugar : z.lugar, agente: Boolean(a), ...(a ? { de: porId[a.id]?.nombre || a.nombre } : {}) };
+    const gente = AGENTES.filter((a) => (a.dep || 'coordinacion') === z.id).length;
+    return { ...z, nombre: (vale && g.nombre) || z.nombre || NOMBRE_DEP[z.id] || z.id, color: (vale && g.color) || z.color || COLOR_DEP[z.id] || '#a3e635', lugar: vale && Number.isInteger(g.lugar) ? g.lugar : z.lugar, agente: false, ...(gente ? { de: `${gente} ${gente === 1 ? 'agente' : 'agentes'}` } : {}), ...(z.id === 'coordinacion' ? { de: porId.coordinacion?.nombre || 'Valentina' } : {}) };
   });
-  const propias = (Array.isArray(cfg.propias) ? cfg.propias : []).map((z) => ({ id: z.id, tipo: TIPOS[z.tipo] ? z.tipo : 'escritorios', nombre: z.nombre, color: z.color, lugar: z.lugar, propia: true }));
+  const propias = (Array.isArray(cfg.propias) ? cfg.propias : []).map((z) => ({ id: z.id, tipo: TIPOS[z.tipo] ? z.tipo : 'escritorios', nombre: z.nombre, color: z.color, lugar: vale ? z.lugar : -1, propia: true }));
   // si dos quedaron en el mismo lugar (o fuera de la planta), la segunda va al primer lugar libre
   const usados = new Set();
   return [...fijas, ...propias].map((z) => {
@@ -124,8 +156,8 @@ export function guardarZonas(cuerpo = {}) {
     }
   }
   // las de siempre que no vinieron conservan su lugar si está libre
-  for (const f of FIJAS) if (!zonas[f.id] && actual.zonas?.[f.id]) zonas[f.id] = actual.zonas[f.id];
-  guardarConfig({ oficina: { ...actual, zonas, propias } });
+  if (actual.planta === VERSION_PLANTA) for (const f of FIJAS) if (!zonas[f.id] && actual.zonas?.[f.id]) zonas[f.id] = actual.zonas[f.id];
+  guardarConfig({ oficina: { ...actual, zonas, propias, planta: VERSION_PLANTA } });
   return oficina();
 }
 
@@ -299,6 +331,35 @@ export async function oficina() {
     deTi = {};
   }
   const ias = await iasConProblemas();
+  // las cadenas de producción (lib/oficina-produccion.js): el estado de cada estación sale de lo que registra la app
+  let prod = { departamentos: [] };
+  try {
+    prod = await (await import('./oficina-produccion.js')).produccion();
+  } catch (e) {
+    console.warn('[oficina] producción:', e.message);
+  }
+  const RANGO = { error: 5, corrigiendo: 4, revisando: 3, trabajando: 3, esperando: 2 };
+  const enEstacion = {}; // estación -> { estado, trabajos: [...] }
+  for (const d of prod.departamentos) {
+    for (const t of d.trabajos) {
+      if (t.estado === 'listo') continue;
+      for (const [e, v] of Object.entries(t.estaciones)) {
+        if (!RANGO[v]) continue;
+        const x = (enEstacion[e] ||= { estado: null, trabajos: [] });
+        if (!x.estado || RANGO[v] > RANGO[x.estado]) x.estado = v;
+        x.trabajos.push({ titulo: t.titulo, detalle: d.estaciones.find((s) => s.id === e)?.nombre || '', href: t.href, cuando: t.cuando, estado: v, error: t.error?.estacion === e ? t.error.mensaje : null });
+      }
+    }
+  }
+  // lo de las estaciones nuevas (las de los agentes de siempre ya lo cuentan arriba)
+  for (const a of AGENTES) {
+    if (!a.extra) continue;
+    for (const t of enEstacion[a.estacion]?.trabajos || []) {
+      if (t.estado === 'error') porId[a.id].necesita.push(tarea({ titulo: `«${t.titulo}» se frenó`, detalle: t.error || t.detalle, href: t.href, cuando: t.cuando }));
+      else porId[a.id].ahora.push(tarea({ titulo: t.titulo, detalle: t.detalle, href: t.href, cuando: t.cuando }));
+    }
+  }
+  const pronto = new Set(prod.departamentos.filter((d) => d.pronto).map((d) => d.id));
   const agentes = AGENTES.map((a) => {
     const x = porId[a.id];
     const caidas = ias.filter((i) => i.afecta.includes(a.id));
@@ -313,6 +374,10 @@ export async function oficina() {
       avatar: x.avatar,
       genero: x.genero === 'hombre' ? 'hombre' : 'mujer',
       color: a.color,
+      dep: a.dep || 'coordinacion',
+      estacion: a.estacion || null,
+      // lo que hace en su estación ahora: trabajando, revisando, corrigiendo, error, esperando, libre o pronto
+      enEstacion: pronto.has(a.dep) ? 'pronto' : enEstacion[a.estacion]?.estado || 'libre',
       estado,
       ahora: x.ahora.slice(0, 12),
       necesita: necesita.slice(0, 12),
@@ -331,6 +396,7 @@ export async function oficina() {
     tipos: TIPOS,
     lugares: LUGARES,
     ias,
+    produccion: prod,
     resumen: {
       trabajando: agentes.filter((a) => a.estado === 'trabajando').length,
       teNecesitan: todoLoQueNecesita.length,
