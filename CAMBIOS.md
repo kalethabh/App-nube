@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20 · La oficina cobra vida: pantalla completa, conversaciones y recorrido guiado
+
+- **Pantalla completa, diseño profesional**: la oficina ocupa todo el espacio y los controles flotan encima en paneles de vidrio. Arriba: tu oficina, cómo va todo y las acciones. A la derecha: tu equipo, el agente que tocaste o el chat (se oculta con un botón y la oficina se centra sola). Abajo: lo que pasa **en vivo**, el **minimapa** y las vistas.
+- **Los agentes caminan entre oficinas y conversan**: salen por la puerta de su sala, van al escritorio de un compañero o se juntan en el pasillo, el café o la sala, y conversan de su trabajo real (lo que hace cada uno, lo que terminó, lo que espera tu decisión). Ves el globo de lo que dice cada uno, con sus gestos, y la charla queda en «En vivo».
+- **Cómo funciona**: un recorrido guiado de 12 pasos. La cámara va a cada agente y te explica qué hace, qué significan los colores, cómo diseñar la oficina y cómo aprende tu equipo. Sale solo la primera vez y cuando quieras con «Cómo funciona».
+- **Minimapa**: la planta desde arriba con tus agentes moviéndose en vivo; tocas una sala y la cámara va allá.
+- **Vistas**: general, desde arriba, modo cine (la cámara gira sola) y de día o de noche.
+- **Más visual**: los neones, las pantallas y el logo brillan de verdad. En equipos lentos, la oficina baja sola la calidad para moverse fluida.
+- **Pedirle algo a un agente**: en el panel de cada uno, «Pedirle algo» abre el chat con tu coordinadora ya escrito para él.
+
 ## 2026-11-19t · Personajes mejor hechos y oficinas que se ven desde cualquier lado
 
 - **Personajes nuevos**: cuerpo con forma (hombros, pecho, cintura y cadera), cuello, codos y rodillas que se doblan al sentarse y al caminar, manos, zapatos y una cara con ojos que parpadean, cejas, nariz, boca y orejas.
