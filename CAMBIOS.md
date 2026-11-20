@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20c · El índice de la investigación ya no tapa la pantalla
+
+- En la investigación de mercado (y en la de la competencia), el índice de secciones que queda pegado arriba ahora es **una sola fila delgada** que se desliza de lado, con la sección en la que estás siempre centrada. Antes era una grilla de tres filas que ocupaba media pantalla.
+- En el celular, la investigación ya no se sale de la pantalla (el botón «Investigar otra marca», las tarjetas de anuncios y la escala se acomodan).
+
 ## 2026-11-20b · Agente de variaciones creativas y encargar desde la oficina
 
 - **Agente de variaciones para Meta Ads** (con tu prompt maestro): analiza tu anuncio ganador (deseo, problema, promesa, mecanismo, lo que NO se toca, lo que se puede cambiar y lo que se puede probar), arma la matriz de facetas del comprador y crea variaciones en tres niveles: **A cercanas**, **B conceptos vecinos** y **C expandidas** (cambiando al menos dos variables sin abandonar el deseo). Diseño limpio de alta conversión, una imagen por variación, nada inventado, y una revisión con las pruebas de 1, 3 y 5 segundos y tus 10 puntos de control: lo que no pasa, se corrige.
