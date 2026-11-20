@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20t · Los anuncios ganadores del catálogo, como guía en todo
+
+- El catálogo de anuncios de imagen validados (las plantillas ganadoras) ahora también guía, por dentro, las imágenes «Nuevos» que salen de tu investigación, las del agente de variaciones y las que le pides a la coordinadora.
+- Toma las de productos como el tuyo y de tipos distintos; la IA aprende cómo comunican el ángulo y la fórmula de su titular, sin copiarlas. Lo que ya te funciona sigue pesando más.
+- No se muestran: son una referencia interna.
+
 ## 2026-11-20s · ChatGPT Business ya funciona
 
 - Si tienes ChatGPT **Business** (o Team, Enterprise, Edu), la app ya no te dice que «no te queda uso»: en esos planes Codex usa los créditos del espacio de trabajo y la app ahora los tiene en cuenta.

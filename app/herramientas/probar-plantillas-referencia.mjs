@@ -108,6 +108,22 @@ prepararRapido(TMP, { ...brief, desdeVideo: { video: { deseo: 'Llenar el jean si
 const dv = leerV(1);
 check('del video: el ángulo, el concepto y el titular son los del análisis del video', /Llenar el jean sin cirugía/.test(dv.visual_prompt) && /La del jean/.test(dv.visual_prompt) && /Se mira en el probador/.test(dv.visual_prompt) && dv.text_layers[0].text === 'Por fin lleno el jean', dv.visual_prompt);
 
+// (2026-11-20t) el catálogo también va, como guía INTERNA, en «Nuevos» (investigación, agente de variaciones,
+// coordinadora): las de productos como el tuyo, de tipos distintos, sin mostrarse
+{
+  const { prepararValidados } = await import('../server/lib/imagen-ads/lotes.js');
+  const { textoValidados, validadosDelLote } = await import('../server/lib/imagen-ads/sesiones.js');
+  const T2 = fs.mkdtempSync(path.join(os.tmpdir(), 'kads-catalogo-'));
+  const val = prepararValidados(T2, ID);
+  const cat = val.filter((x) => x.origen === 'catalogo');
+  check('«Nuevos» recibe plantillas del catálogo como guía (hasta 4, de tipos distintos)', cat.length >= 3 && cat.length <= 4 && new Set(cat.map((x) => x.familia)).size >= 2 && cat.every((x) => fs.existsSync(path.join(T2, x.archivo))), cat);
+  check('…primero las de productos como el tuyo (glúteos/curvas)', cat[0]?.relacionada === true, cat.map((x) => [x.plantilla, x.relacionada]));
+  const txt = textoValidados('lote-x', validadosDelLote(T2, { modo: 'nuevos', validados: val }));
+  check('…y la IA sabe que son ganadores internos (con la fórmula del titular) que el usuario no ve', /catálogo interno de plantillas validadas/.test(txt) && /fórmula de su titular/.test(txt) && /el usuario no la ve/.test(txt) && /no copies la composición/.test(txt), txt.slice(0, 600));
+  check('…y en «Variantes» no (ahí se copian tus referencias)', validadosDelLote(T2, { modo: 'variantes', validados: val }).length === 0);
+  fs.rmSync(T2, { recursive: true, force: true });
+}
+
 // sin investigación: igual cada imagen a otro momento
 fs.rmSync(path.join(DIR_P, 'investigacion'), { recursive: true, force: true });
 const r2 = prepararRapido(TMP, { ...brief });
