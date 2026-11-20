@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20v · Arreglo: «Actualizar» decía que lo nuevo chocaba
+
+- En la versión anterior se coló, por error, un chat de prueba de la coordinadora. En tu computador ya tienes tu propio chat, así que al actualizar los dos chocaban y la app no bajaba nada (tu chat no se tocó).
+- Se quitó el de prueba: «Actualizar» vuelve a funcionar y tu chat con la coordinadora queda como estaba.
+
 ## 2026-11-20u · Pegar en el chat de la coordinadora
 
 - Ya puedes **pegar** (Ctrl+V o Cmd+V) en el chat de la coordinadora: imágenes, capturas de pantalla, archivos y textos.
