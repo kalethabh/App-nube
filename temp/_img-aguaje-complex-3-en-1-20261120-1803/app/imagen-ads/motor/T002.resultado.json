@@ -4,7 +4,7 @@
     "V05_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 2,
+      "intentosApi": 3,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null,
@@ -13,7 +13,7 @@
     "V06_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 2,
+      "intentosApi": 3,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null,
@@ -44,6 +44,6 @@
       "version": 1
     }
   },
-  "actualizado": "2026-11-20T23:19:02.262Z",
+  "actualizado": "2026-11-20T23:21:17.758Z",
   "terminado": false
 }
