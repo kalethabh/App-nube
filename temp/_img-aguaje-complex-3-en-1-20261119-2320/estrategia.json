@@ -1,0 +1,50 @@
+{
+  "resumen": "Vendemos el Aguaje Complex 3 en 1 como el apoyo natural de la mujer que quiere más curvas sin agujas ni quirófano: 2 cápsulas al día que acompañan su comida y su rutina. Dos anuncios dicen ese deseo de frente, dos se lo cuentan a otras mujeres en otros momentos (el gimnasio y el probador) y uno responde la duda de «¿eso sí sirve, qué trae?». Ninguno promete aumento ni plazos seguros, para cuidar tu cuenta publicitaria.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#D9572B", "nombre": "Naranja aguaje" }
+  ],
+  "tipografia": "Poppins Bold en mayúsculas para los titulares, Poppins Regular para el resto y una letra a mano solo para detalles cortos.",
+  "estilo": "La misma marca del lote anterior: rosa y negro, el frasco siempre igual a la foto, mujeres colombianas reales con luz natural. Esta vez con fondos más limpios y sin enfocar partes del cuerpo.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas junto con tu comida y tu rutina de pierna",
+    "Maca negra y vitaminas para sentirte activa y cumplirle a tu rutina",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas",
+    "Una opción natural, sin agujas, sin quirófano y sin recuperación"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg por porción",
+    "Con vitaminas A y E",
+    "Frasco de 60 cápsulas: rinde un mes",
+    "Plan completo de 3 frascos para 3 meses y pagas en efectivo al recibir"
+  ],
+  "deseo_central": "Verme con más curvas y sentirme segura con mi cuerpo, sin agujas, sin quirófano y sin arriesgar mi salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar tu proceso de curvas junto con tu comida y tu rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y nada de lo que como se me va ahí",
+    "Ya compré pastillas por internet y no vi nada",
+    "No sé si lo que venden por redes tiene registro o es chimbo"
+  ],
+  "aprendido_de_tus_anuncios": [
+    "Tu anuncio que funciona («Curvas más llenas en 21 días») y varios de tu biblioteca cuentan un avance por etapas con la misma mujer. Lo usé en V02 como línea de tiempo del plan de 3 meses, pero contada con energía, constancia y seguridad, sin comparar cuerpos: así lo pide la investigación para que Meta no lo rechace.",
+    "Todos llevan un titular corto, grueso y en mayúsculas arriba, y el frasco abajo. Lo apliqué en las cinco variaciones.",
+    "El de Aguaje con la modelo, los íconos y la franja de abajo mostró que la mujer real con el frasco y una franja de confianza funciona en tu categoría. Lo usé en V01, con «Pagas al recibir» en la franja.",
+    "Los de fondo claro y limpio se leen mejor en el celular. Por eso V02 y V05 van sobre rosa pálido, sin adornos."
+  ],
+  "decisiones": [
+    "Elegí el ángulo principal desde la investigación: más curvas sin quirófano, con 2 cápsulas al día.",
+    "No hay precio en ningún anuncio porque todavía no lo definiste. Usé «Pagas al recibir», que la investigación da como la oferta actual.",
+    "No puse «registro INVIMA», calificaciones ni número de clientas: la investigación dice que aún no están confirmados.",
+    "No hay antes y después de cuerpos ni promesas de aumento: la investigación advierte que Meta los rechaza.",
+    "Mantuve la paleta, la letra y la descripción del frasco del lote anterior. Solo suavicé el estilo para no enfocar el cuerpo.",
+    "Evité repetir lo que ya usaste: comparación con tabla y dolor con pregunta y respuesta."
+  ]
+}
