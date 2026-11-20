@@ -88,3 +88,5 @@ temp/_sep/
 temp/_oficina/adjuntos/
 temp/_oficina/investigaciones/
 temp/_telegram/
+temp/_landings/*/assets/
+temp/_landings/*/original.html

@@ -287,6 +287,16 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, escenaB[1]), JSON.stringify({ se_ve: `Escena de apoyo de prueba ${nb}${quiere ? `: ${quiere.slice(0, 60)}` : ''}, con el producto en primer plano y luz cálida.`, camara: 'primer plano, la cámara se acerca despacio' }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-20q) la landing adaptada: cambia los textos que nombran la marca de la original y pide la imagen 0
+  const landing = /TAREA: landing adaptada/.test(textoTarea) ? /Escribe (temp\/_landings\/\S+\/nuevos-textos\.json)/.exec(textoTarea) : null;
+  if (landing) {
+    const prod = (/^Su producto: (.+)$/m.exec(textoTarea) || [])[1] || 'Producto';
+    const nuevos = {};
+    for (const [, k, t] of textoTarea.matchAll(/^(\d+)\t(.*)$/gm)) if (/MARCAORIGINAL/.test(t)) nuevos[k] = t.replace(/MARCAORIGINAL/g, prod);
+    fs.writeFileSync(path.join(RAIZ, landing[1]), JSON.stringify(nuevos));
+    fs.writeFileSync(path.join(RAIZ, landing[1].replace('nuevos-textos', 'nuevas-imagenes')), JSON.stringify([{ id: 0, prompt: 'the product on a white table', aspecto: '1:1' }]));
+    return resultado({ result: 'LISTO' });
+  }
   // la coordinadora de la oficina (chat): «anuncio» crea uno de Claymation del primer producto con ficha, «regla:» anota una regla
   const coord = /TAREA: coordinadora de la oficina/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
   if (coord) {
