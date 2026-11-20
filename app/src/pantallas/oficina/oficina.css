@@ -139,7 +139,33 @@ a.of-accion:hover { border-color: var(--color); }
 .of-msg--pensando span:nth-child(2) { animation-delay: 0.15s; }
 .of-msg--pensando span:nth-child(3) { animation-delay: 0.3s; }
 @keyframes of-punto { 0%, 80%, 100% { opacity: 0.25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
-.of-chat__escribir { display: flex; gap: 8px; align-items: flex-end; padding: 10px; border-top: 1px solid var(--borde-2); }
+.of-chat { position: relative; }
+.of-chat__escribir { display: flex; flex-direction: column; gap: 8px; padding: 10px; border-top: 1px solid var(--borde-2); }
+.of-chat__fila { display: flex; gap: 8px; align-items: flex-end; }
+.of-chat__clip { display: grid; place-items: center; width: 36px; height: 40px; border-radius: 12px; border: 1px solid var(--borde-2); background: transparent; color: inherit; cursor: pointer; flex: none; opacity: 0.85; }
+.of-chat__clip:hover { opacity: 1; border-color: var(--color); }
+.of-chat__clip:disabled { opacity: 0.35; cursor: default; }
+.of-chat__adjuntos, .of-msg__adjuntos { display: flex; flex-wrap: wrap; gap: 6px; }
+.of-msg__adjuntos { margin-bottom: 6px; }
+.of-adj { display: inline-flex; align-items: center; gap: 6px; max-width: 200px; padding: 4px 8px 4px 4px; border-radius: 9px; border: 1px solid var(--borde-2); background: color-mix(in srgb, var(--color) 10%, transparent); font-size: 12px; color: inherit; }
+.of-adj img { width: 28px; height: 28px; border-radius: 6px; object-fit: cover; }
+.of-adj > svg { margin-left: 4px; flex: none; }
+.of-adj span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.of-adj button { display: grid; place-items: center; border: 0; background: none; color: inherit; cursor: pointer; padding: 0; opacity: 0.7; }
+.of-adj--subiendo { opacity: 0.6; }
+.of-msg__foto img { display: block; max-width: 180px; max-height: 160px; border-radius: 10px; object-fit: cover; }
+.of-msg__adjuntos a { color: inherit; text-decoration: none; }
+.of-entrega { margin-top: 8px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--color) 40%, var(--borde-2)); background: rgba(0, 0, 0, 0.18); overflow: hidden; }
+.of-entrega__cabeza { display: flex; align-items: center; gap: 4px; padding: 7px 8px 7px 11px; border-bottom: 1px solid var(--borde-2); }
+.of-entrega__cabeza strong { flex: 1; font-size: 12.5px; }
+.of-entrega__cabeza button { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.of-entrega__cabeza button:hover { background: color-mix(in srgb, var(--color) 20%, transparent); }
+.of-entrega pre { margin: 0; padding: 10px 11px; max-height: 280px; overflow: auto; white-space: pre-wrap; font: inherit; font-size: 12.5px; line-height: 1.5; }
+.of-chat__pendientes { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px 0; }
+.of-pendiente { display: flex; align-items: center; gap: 8px; padding: 7px 8px 7px 11px; border-radius: 11px; border: 1px dashed color-mix(in srgb, #f59e0b 60%, transparent); background: color-mix(in srgb, #f59e0b 10%, transparent); font-size: 12.5px; }
+.of-pendiente span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.of-pendiente button { border: 0; border-radius: 8px; padding: 6px 12px; background: var(--color); color: #0b1220; font-weight: 700; cursor: pointer; }
+.of-chat__soltar { position: absolute; inset: 0; display: grid; place-items: center; z-index: 3; background: color-mix(in srgb, var(--color) 18%, rgba(0, 0, 0, 0.6)); border: 2px dashed var(--color); border-radius: inherit; font-weight: 700; color: #fff; pointer-events: none; }
 .of-chat__escribir textarea { flex: 1; resize: none; padding: 9px 11px; border-radius: 12px; border: 1px solid var(--borde-2); background: var(--superficie-2, transparent); color: var(--texto-1); font: inherit; font-size: 13.5px; }
 .of-chat__escribir textarea:focus { outline: 2px solid color-mix(in srgb, var(--color) 60%, transparent); outline-offset: 0; }
 .of-chat__enviar { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; border: 0; background: var(--color); color: #0b1220; cursor: pointer; flex: none; }

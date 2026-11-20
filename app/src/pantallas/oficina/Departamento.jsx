@@ -102,7 +102,7 @@ export function PanelDepartamento({ dep, agentes, resaltar, onResaltar, onAgente
       </section>
       {dep.pronto ? (
         <p className="of-panel__vacio">
-          Este departamento todavía no tiene herramientas en la app: sus agentes esperan quietos. Cuando esté listo, su cadena va a funcionar igual que las demás.{' '}
+          Este departamento todavía no tiene herramientas en la app: sus agentes esperan sin trabajo (a ratos toman café o miran el celular). Cuando esté listo, su cadena va a funcionar igual que las demás.{' '}
           {dep.href ? <a href={dep.href}>Ver la sección</a> : null}
         </p>
       ) : (
@@ -198,7 +198,7 @@ export function EstacionDeAgente({ a, produccion, agentes }) {
         <span>{antes ? `Recibe de ${nombre(antes)} (${antes.nombre})` : 'Recibe de la coordinadora'}</span>
         <span>{despues ? `Entrega a ${nombre(despues)} (${despues.nombre})` : 'Entrega el resultado final'}</span>
       </div>
-      {dep.pronto ? <p className="of-panel__vacio">Departamento en construcción: espera quieto hasta que tenga sus herramientas.</p> : null}
+      {dep.pronto ? <p className="of-panel__vacio">Departamento en construcción: espera sin trabajo hasta que tenga sus herramientas.</p> : null}
       {actual ? (
         <a className="of-trabajo" href={actual.href}>
           <strong>{actual.titulo}</strong>
