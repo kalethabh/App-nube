@@ -5,14 +5,94 @@
 // (variaciones, revisiones, copies) llega como una «entrega» para copiar o descargar.
 // Servidor: GET/POST/DELETE /api/oficina/chat y POST /api/oficina/chat/adjuntos (lib/oficina-chat.js).
 import { useEffect, useRef, useState } from 'react';
-import { Check, Copy, Download, Eraser, FileText, Film, Loader2, Paperclip, Send, X } from 'lucide-react';
+import { Check, Copy, Download, Eraser, FileText, Film, Loader2, Mic, Paperclip, Send, Square, X } from 'lucide-react';
 import { useAvisos } from '../../componentes/index.js';
 import { invalidar, pedirNuevo, useDatos } from '../../datos/api.js';
 
 const CLAVE = 'oficina:chat';
 const ESTADO = { escribiendo: 'escribiendo el guion…', aprobar: 'espera tu sí', produciendo: 'produciéndose', listo: 'listo', error: 'se frenó', 'no-esta': 'ya no está' };
-const IDEAS = ['Hazme un video UGC de mi producto', 'Dame 10 variaciones de este texto', '5 anuncios de imagen desde la investigación', '¿Cómo va todo?'];
+const IDEAS = ['Hazme un video UGC de mi producto', 'Te paso un video: hazme uno igual en estilo Zack', 'Dame 10 variaciones de este texto', '5 anuncios de imagen desde la investigación', '¿Cómo va todo?'];
 const MAX_ADJ = 6;
+// (2026-11-20h) DICTAR POR VOZ: el dictado del navegador (Chrome, Edge, Safari) escribe mientras hablas; si no lo trae,
+// se graba y se pasa a texto con ElevenLabs (POST /api/oficina/chat/voz). El texto queda en la caja para revisarlo.
+const Dictado = typeof window !== 'undefined' ? window.SpeechRecognition || window.webkitSpeechRecognition : null;
+const idiomaVoz = () => (typeof navigator !== 'undefined' && /^es/i.test(navigator.language || '') ? navigator.language : 'es-CO');
+
+function useDictado({ texto, setTexto, aviso }) {
+  const [estado, setEstado] = useState('quieto'); // quieto | escuchando | grabando | transcribiendo
+  const rec = useRef(null);
+  const grab = useRef(null);
+  const juntar = (base, dicho) => `${base}${base && dicho && !/\s$/.test(base) ? ' ' : ''}${dicho}`;
+  useEffect(() => () => {
+    rec.current?.abort?.();
+    grab.current?.stream?.getTracks().forEach((t) => t.stop());
+  }, []);
+  const grabar = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mr = new MediaRecorder(stream);
+      const partes = [];
+      const base = texto;
+      mr.ondataavailable = (e) => e.data.size && partes.push(e.data);
+      mr.onstop = async () => {
+        stream.getTracks().forEach((t) => t.stop());
+        setEstado('transcribiendo');
+        try {
+          const blob = new Blob(partes, { type: mr.mimeType || 'audio/webm' });
+          const r = await pedirNuevo('/api/oficina/chat/voz', { metodo: 'POST', binario: blob });
+          setTexto(juntar(base, r.texto));
+        } catch (e) {
+          aviso({ tipo: 'error', titulo: 'No pude pasar tu voz a texto', texto: e.message });
+        } finally {
+          setEstado('quieto');
+        }
+      };
+      grab.current = { mr, stream };
+      mr.start();
+      setEstado('grabando');
+    } catch {
+      aviso({ tipo: 'error', titulo: 'No tengo permiso para el micrófono', texto: 'Permítelo en el candado de la barra de direcciones y vuelve a tocar el micrófono.' });
+      setEstado('quieto');
+    }
+  };
+  const empezar = () => {
+    if (!Dictado) return grabar();
+    const r = new Dictado();
+    r.lang = idiomaVoz();
+    r.continuous = true;
+    r.interimResults = true;
+    const base = texto;
+    r.onresult = (e) => {
+      let dicho = '';
+      for (let i = 0; i < e.results.length; i++) dicho += e.results[i][0].transcript;
+      setTexto(juntar(base, dicho.trim()));
+    };
+    r.onerror = (e) => {
+      if (e.error === 'not-allowed' || e.error === 'service-not-allowed') aviso({ tipo: 'error', titulo: 'No tengo permiso para el micrófono', texto: 'Permítelo en el candado de la barra de direcciones y vuelve a tocar el micrófono.' });
+      else if (e.error === 'network') {
+        // el dictado del navegador necesita internet de su lado: se graba y se transcribe en la app
+        rec.current = null;
+        grabar();
+        return;
+      } else if (e.error !== 'no-speech' && e.error !== 'aborted') aviso({ tipo: 'error', titulo: 'Se cortó el dictado', texto: 'Vuelve a tocar el micrófono.' });
+    };
+    r.onend = () => setEstado((x) => (x === 'escuchando' ? 'quieto' : x));
+    rec.current = r;
+    try {
+      r.start();
+      setEstado('escuchando');
+    } catch {
+      grabar();
+    }
+  };
+  const parar = () => {
+    if (estado === 'escuchando') rec.current?.stop();
+    if (estado === 'grabando') grab.current?.mr?.stop();
+    if (estado === 'escuchando') setEstado('quieto');
+  };
+  return { estado, alternar: () => (estado === 'quieto' ? empezar() : parar()) };
+}
+
 const dinero = (n) => `US$${(Math.round(Number(n) * 100) / 100).toFixed(2)}`;
 
 function Adjunto({ a, onQuitar }) {
@@ -83,13 +163,15 @@ export function Chat({ coordinadora, onCerrar, inicial = '' }) {
   }, [mensajes.length, pensando]);
   const nombre = coordinadora?.nombre || 'Coordinadora';
   const subiendo = adjuntos.some((a) => a.subiendo);
+  const voz = useDictado({ texto, setTexto, aviso });
+  const hablando = voz.estado !== 'quieto';
 
   const agregar = async (archivos) => {
     const lista = [...archivos].slice(0, MAX_ADJ - adjuntos.length);
     if (!lista.length) return;
     for (const f of lista) {
       const tmp = `t${Math.random().toString(36).slice(2)}`;
-      setAdjuntos((x) => [...x, { id: tmp, nombre: f.name || 'archivo', tipo: f.type.startsWith('image/') ? 'imagen' : 'documento', subiendo: true }]);
+      setAdjuntos((x) => [...x, { id: tmp, nombre: f.name || 'archivo', tipo: f.type.startsWith('image/') ? 'imagen' : f.type.startsWith('video/') ? 'video' : 'documento', subiendo: true }]);
       try {
         const r = await pedirNuevo('/api/oficina/chat/adjuntos', { metodo: 'POST', binario: f, encabezados: { 'x-nombre': encodeURIComponent(f.name || 'archivo') } });
         setAdjuntos((x) => x.map((a) => (a.id === tmp ? r : a)));
@@ -105,6 +187,7 @@ export function Chat({ coordinadora, onCerrar, inicial = '' }) {
     if ((!limpio && !adjuntos.length) || enviando || pensando || subiendo) return;
     setEnviando(true);
     try {
+      if (voz.estado === 'escuchando' || voz.estado === 'grabando') voz.alternar();
       await pedirNuevo('/api/oficina/chat', { metodo: 'POST', cuerpo: { texto: limpio, adjuntos: adjuntos.map((a) => a.id) } });
       setTexto('');
       setAdjuntos([]);
@@ -251,10 +334,21 @@ export function Chat({ coordinadora, onCerrar, inicial = '' }) {
           <button type="button" className="of-chat__clip" onClick={() => elegir.current?.click()} disabled={adjuntos.length >= MAX_ADJ} aria-label="Adjuntar un archivo" title="Adjuntar imagen, PDF o documento">
             <Paperclip size={16} />
           </button>
+          <button
+            type="button"
+            className={`of-chat__mic${hablando ? ' of-chat__mic--activo' : ''}`}
+            onClick={voz.alternar}
+            disabled={voz.estado === 'transcribiendo'}
+            aria-pressed={hablando}
+            aria-label={hablando ? 'Terminar de dictar' : 'Dictar por voz'}
+            title={hablando ? 'Terminar de dictar' : 'Dictar por voz'}
+          >
+            {voz.estado === 'transcribiendo' ? <Loader2 size={16} className="girando" /> : hablando ? <Square size={14} /> : <Mic size={16} />}
+          </button>
           <textarea
             rows={2}
             maxLength={2000}
-            placeholder={`Escríbele a ${nombre}…`}
+            placeholder={voz.estado === 'escuchando' || voz.estado === 'grabando' ? 'Te escucho… toca el cuadrado al terminar' : voz.estado === 'transcribiendo' ? 'Pasando tu voz a texto…' : `Escríbele o díctale a ${nombre}…`}
             value={texto}
             onChange={(e) => setTexto(e.target.value)}
             onPaste={(e) => {

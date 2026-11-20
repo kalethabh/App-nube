@@ -84,7 +84,7 @@ const app = cp.spawn(process.execPath, ['server/index.js'], { cwd: APP, env, std
 app.stdout.pipe(log);
 app.stderr.pipe(log);
 const t0 = Date.now();
-const creados = { slugs: [], producto: null, lotes: [] };
+const creados = { slugs: [], producto: null, lotes: [], referencias: [] };
 
 async function principal() {
   let arriba = false;
@@ -174,6 +174,26 @@ async function principal() {
   m = respuesta(c);
   const lineas = (m?.entrega?.texto || '').split('\n');
   check('Lee el texto y escribe ella misma las 10 variaciones (una entrega)', lineas.length === 10 && lineas.every((l) => /agradecer/.test(l)) && /aquí van/i.test(m.texto), m);
+  // (2026-11-20h) un VIDEO adjunto para clonar en otro estilo, y dictar por voz
+  const VIDEO = path.join(TMP, 'referencia.mp4');
+  cp.execFileSync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc=size=320x568:rate=24', '-t', '2', '-pix_fmt', 'yuv420p', VIDEO]);
+  const vid = await pedir('/api/oficina/chat/adjuntos', { cuerpo: fs.readFileSync(VIDEO), headers: { 'Content-Type': 'video/mp4', 'x-nombre': encodeURIComponent('2 - VTD TT.mp4') } });
+  check('Se adjunta un video (tipo video)', vid.st === 200 && vid.datos?.tipo === 'video', vid.datos);
+  r = await pedir('/api/oficina/chat', { json: { texto: 'Necesito un video tal cual este en formato Zack, replica la estructura y que dure 1:50', adjuntos: [vid.datos.id] } });
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  m = respuesta(c);
+  const accVid = m?.acciones?.find((a) => a.tipo === 'anuncio');
+  if (accVid?.slug) creados.slugs.push(accVid.slug);
+  const briefVid = accVid?.slug ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', accVid.slug, 'app', 'brief.json'), 'utf8')) : null;
+  check('Con el video, encarga el anuncio que lo CLONA en Zack (sin mandarte a otra pantalla)', accVid?.ok && /clonando tu video/.test(accVid.titulo) && briefVid?.estilo === 'zack-d-films' && briefVid.respuestas?.clonar === `subido:${vid.datos.id}|2 - VTD TT.mp4` && /Sí, adáptalo/.test(briefVid.respuestas?.clonar_gancho || ''), { m, brief: briefVid?.respuestas });
+  const refVid = path.join(RAIZ, 'temp', '_referencias', `${vid.datos.id}.mp4`);
+  creados.referencias.push(refVid);
+  check('…el video queda donde «Clonar un video» lo busca', fs.existsSync(refVid) && fs.statSync(refVid).size === fs.statSync(VIDEO).size);
+  r = await pedir('/api/oficina/chat/voz', { cuerpo: Buffer.alloc(2000, 1), headers: { 'Content-Type': 'audio/webm' } });
+  check('Dictar por voz (el respaldo grabado) devuelve el texto', r.st === 200 && /dictado por voz/.test(r.datos?.texto || ''), r);
+  r = await pedir('/api/oficina/chat/voz', { cuerpo: Buffer.alloc(10, 1), headers: { 'Content-Type': 'audio/webm' } });
+  check('Un audio vacío se rechaza (400)', r.st === 400, r);
+
   r = await pedir('/api/oficina/chat', { json: { texto: 'dale' } });
   c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
   check('Un «dale» sin nada esperando no produce nada', respuesta(c) && !respuesta(c).acciones?.some((a) => /Generando|Produciendo/.test(a.titulo)), respuesta(c));
@@ -231,6 +251,7 @@ try {
     /* ya cerró */
   }
   for (const slug of [...creados.slugs, ...creados.lotes]) if (slug) fs.rmSync(path.join(RAIZ, 'temp', slug), { recursive: true, force: true });
+  for (const f of creados.referencias) fs.rmSync(f, { force: true });
   if (creados.producto) fs.rmSync(path.join(RAIZ, 'temp', '_productos', creados.producto), { recursive: true, force: true });
   for (const [f, v] of antes) {
     if (v === null) fs.rmSync(f, { force: true });

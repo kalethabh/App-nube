@@ -5,14 +5,16 @@
 //   GET /api/oficina/chat · POST /api/oficina/chat { texto, adjuntos: [id] } · DELETE /api/oficina/chat   (lib/oficina-chat.js)
 //   POST /api/oficina/chat/adjuntos (el archivo en crudo, su nombre en x-nombre) -> { id, nombre, tipo, url }
 //   GET /archivos/oficina/adjuntos/:id/:archivo
+//   POST /api/oficina/chat/voz (el audio grabado, en crudo) -> { texto }   (dictar por voz, el respaldo)
 //   GET/POST /api/anuncios/:slug/opinion { voto: 'bien'|'mal', partes, texto, paraTodos }  (el 👍/👎 que enseña)
 import express from 'express';
 import { soloDesdeLaApp } from '../lib/productos.js';
 import { oficina, guardarAgentes, guardarZonas } from '../lib/oficina.js';
-import { chat, enviar, borrarChat, opinar, opinionDe, subirAdjunto, rutaAdjunto } from '../lib/oficina-chat.js';
+import { chat, enviar, borrarChat, opinar, opinionDe, subirAdjunto, rutaAdjunto, transcribirVoz } from '../lib/oficina-chat.js';
 
 const json = express.json({ limit: '32kb' });
-const crudo = express.raw({ type: () => true, limit: '25mb' });
+const crudo = express.raw({ type: () => true, limit: '400mb' }); // (los videos para clonar pesan)
+const audio = express.raw({ type: () => true, limit: '25mb' });
 
 export default function rutasOficina(app) {
   app.get('/api/oficina', async (req, res) => {
@@ -46,8 +48,14 @@ export default function rutasOficina(app) {
   app.post(
     '/api/oficina/chat/adjuntos',
     soloDesdeLaApp,
-    (req, res, next) => crudo(req, res, (err) => (err ? res.status(err.status === 413 ? 413 : 400).json({ error: err.status === 413 ? 'Ese archivo pesa más de 25 MB. Pásame uno más liviano.' : 'No pude leer ese archivo.' }) : next())),
+    (req, res, next) => crudo(req, res, (err) => (err ? res.status(err.status === 413 ? 413 : 400).json({ error: err.status === 413 ? 'Ese archivo pesa más de 400 MB. Pásame uno más liviano.' : 'No pude leer ese archivo.' }) : next())),
     conErrores((req) => subirAdjunto(Buffer.isBuffer(req.body) ? req.body : null, decodeURIComponent(String(req.headers['x-nombre'] || '')))),
+  );
+  app.post(
+    '/api/oficina/chat/voz',
+    soloDesdeLaApp,
+    (req, res, next) => audio(req, res, (err) => (err ? res.status(400).json({ error: 'No pude leer el audio.' }) : next())),
+    conErrores((req) => transcribirVoz(Buffer.isBuffer(req.body) ? req.body : null, String(req.headers['content-type'] || 'audio/webm').split(';')[0])),
   );
   app.get('/archivos/oficina/adjuntos/:id/:archivo', (req, res) => {
     const f = rutaAdjunto(String(req.params.id), String(req.params.archivo));
