@@ -1,0 +1,48 @@
+{
+  "slug": "aguaje-complex-3-en-1",
+  "nombre": "AGUAJE COMPLEX 3 EN 1",
+  "analisis": "Suplemento dietario en cápsulas (nutracéutico) de la marca Vitalabh. Trae aguaje, fenogreco y maca negra, más vitaminas A y E. Se toman 2 cápsulas al día y el frasco trae 60, o sea un mes. Es un frasco negro con tapa fucsia y una franja fucsia abajo, con la palabra AGUAJE grande en blanco y «Triple acción» en fucsia. Se vende a mujeres que quieren más curvas de forma natural, sin quirófano.",
+  "tipo_producto": "nutraceutico",
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type.",
+  "foto_producto": "temp/_img-aguaje-complex-3-en-1-20261120-1803/entrada/producto.png",
+  "datos": {
+    "angulo_preferido": "",
+    "publico": "Mujeres de 20 a 40 años en Colombia que quieren glúteos más grandes y piernas más firmes de forma natural",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Variaciones del anuncio navideño que ya le funciona al usuario: paleta fucsia, negro y blanco; frasco negro con tapa rosada protagonista con cápsulas rosadas; chica latina de espaldas en shorts ajustados; titular grande en mayúsculas en dos niveles; íconos circulares de beneficios."
+  },
+  "identidad_visual": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF. Small accents only: warm metallic gold #C9A227 for the round seal, and classic Christmas red #C8102E only on the Santa hat and the knitted socks.",
+    "visual_style": "Premium Latin American beauty-supplement Christmas ad: ultra-photorealistic Colombian woman photographed naturally, the black-and-fuchsia bottle as hero, clean fuchsia icon circles, soft cozy holiday living room kept clean and uncluttered.",
+    "visual_atmosphere": "Feminine, confident, warm and festive; soft warm daylight with gentle Christmas bokeh, believable real-life moment.",
+    "graphic_language": "Fuchsia circles with thin white line icons, rounded fuchsia pill labels and banner, one round gold seal, handwritten script accents used sparingly, soft blush-pink and white background with minimal decoration (no clutter, no excess sparkles or particles).",
+    "text_typography": "Same typography as the reference: a black casual slanted brush/marker script for the small opener; an extra-heavy geometric sans serif in uppercase (Montserrat Black / ExtraBold) for the huge first headline word; the same family in Bold uppercase for the second headline line; a clean sans serif (Montserrat / Inter Medium) in sentence case for the subtitle and icon labels; a white casual handwritten script for the emotional side note and a black handwritten script for the gift tag; white Medium uppercase sans for the bottom banner.",
+    "art_direction": "High-contrast pink-and-black look, the product always sharp and identical to the photo, the woman photographed with maximum realism (real skin texture, natural light), natural and believable body, tasteful full-body pose, never zooming in on or pointing at body parts."
+  },
+  "beneficios": [
+    "Acompaña tu proceso de curvas de forma natural, sin agujas ni quirófano",
+    "Es el apoyo diario que le faltaba a tu rutina de pierna y a tu alimentación",
+    "Con maca negra y vitaminas A y E para sentirte activa en tu día",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg por porción",
+    "Con vitaminas A y E",
+    "Frasco de 60 cápsulas: un mes de uso a 2 cápsulas al día",
+    "Plan recomendado de 3 meses de uso continuo"
+  ],
+  "deseo_central": "Verme con más curvas y sentirme segura con mi cuerpo, sin agujas, sin quirófano y sin arriesgar mi salud.",
+  "beneficio_principal": "Un apoyo natural y fácil (2 cápsulas al día) para acompañar tu proceso de curvas junto con tu comida y tu rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
+  ]
+}

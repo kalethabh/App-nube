@@ -1,0 +1,46 @@
+{
+  "referencias": [
+    {
+      "ref": "R01",
+      "angulo": {
+        "deseo": "Verse con más curvas y sentirse segura con su cuerpo para las fiestas",
+        "problema": "Siente que no tiene la figura que quiere y no quiere operarse",
+        "beneficio": "Un apoyo natural para acompañar sus curvas y su rutina",
+        "beneficios_secundarios": ["Apoyo para la rutina de pierna", "Vitaminas A y E", "Fácil: 2 cápsulas al día", "Sentirse más segura"],
+        "promesa": "Esta Navidad, regálate a ti misma el camino hacia la figura que sueñas",
+        "emocion": "Ilusión y permiso para consentirse",
+        "conciencia": "Consciente del problema y de la categoría; busca una opción natural",
+        "mecanismo": "Fecha especial más autoregalo, con una chica real que muestra el deseo y el producto en la mano"
+      },
+      "estructura": "Primero se lee «Esta Navidad» y la palabra gigante en fucsia, luego la línea negra y el subtítulo. Al mismo tiempo se ve a la chica de espaldas con el frasco en la mano, a la izquierda. Después los cuatro íconos, el frasco grande con cápsulas y el sello, el cuadrito de dos fotos, el regalo con su tarjeta y la franja fucsia de cierre.",
+      "primeros_segundos": "Es Navidad, es un regalo para ti, y el regalo es sentirte con la figura que quieres gracias a este frasco.",
+      "invariables": [
+        "Chica latina de espaldas, arrodillada, mirando por encima del hombro con el frasco en la mano",
+        "«Esta Navidad» en letra de pincel sobre un titular de dos niveles: palabra gigante fucsia y línea negra",
+        "Columna de cuatro íconos fucsia con texto",
+        "Frasco grande protagonista con cápsulas rosadas y sello dorado",
+        "Cuadrito de dos fotos con etiquetas y flecha",
+        "Regalo con tarjeta escrita a mano y franja fucsia abajo",
+        "Ambiente navideño: gorro, medias tejidas, árbol desenfocado"
+      ],
+      "modificables": [
+        "Las palabras del titular",
+        "El dolor o deseo que nombra el titular",
+        "La faceta de la clienta a la que le habla"
+      ],
+      "experimentales": [
+        "Titular de beneficio secundario (energía para entrenar)",
+        "Titular del plan de 3 meses"
+      ]
+    }
+  ],
+  "facetas": [
+    "La que quiere verse con más curvas para las fiestas",
+    "La que entrena pierna y no ve el cambio",
+    "La que le tiene miedo al quirófano",
+    "La mamá que quiere volver a sentirse ella",
+    "La flaquita de toda la vida",
+    "La inconstante que necesita algo fácil de cumplir"
+  ],
+  "resumen": "Esta Navidad, regálate a ti misma un apoyo natural para tus curvas, sin quirófano."
+}

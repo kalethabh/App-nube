@@ -1,0 +1,46 @@
+{
+  "resumen": "Las 10 piezas copian tu anuncio navideño que ya funciona: la chica de espaldas con el frasco, el titular grande en dos niveles, los cuatro íconos, el frasco grande con cápsulas y la franja de abajo. Entre una y otra solo cambia el titular, y cada titular habla de un dolor o un deseo distinto de tu clienta. Los textos dicen «acompaña tus curvas» y no «aumenta», para que Meta no rechace el anuncio.",
+  "paleta": [
+    { "hex": "#E6177F", "nombre": "Fucsia" },
+    { "hex": "#B0105E", "nombre": "Magenta profundo" },
+    { "hex": "#0E0E10", "nombre": "Negro frasco" },
+    { "hex": "#FF8CC0", "nombre": "Rosa chicle" },
+    { "hex": "#FBE3EE", "nombre": "Rosa pálido" },
+    { "hex": "#FFFFFF", "nombre": "Blanco" },
+    { "hex": "#C9A227", "nombre": "Dorado del sello" },
+    { "hex": "#C8102E", "nombre": "Rojo navideño" }
+  ],
+  "tipografia": "La misma de tu anuncio: «Esta Navidad» en letra de pincel negra, la primera palabra del titular enorme en fucsia y muy gruesa, la segunda línea en negro grueso y más pequeña, y notas a mano en blanco y en negro.",
+  "estilo": "Anuncio navideño limpio y femenino: sala acogedora con árbol desenfocado, la chica natural y de cuerpo entero, el frasco negro y fucsia grande y nítido, íconos fucsia y una franja fucsia abajo.",
+  "beneficios": [
+    "Acompaña tu proceso de curvas de forma natural, sin agujas ni quirófano",
+    "Es el apoyo diario que le faltaba a tu rutina de pierna",
+    "Con maca negra y vitaminas A y E para sentirte activa",
+    "Fácil de cumplir: solo 2 cápsulas al día"
+  ],
+  "caracteristicas": [
+    "Triple acción: aguaje, fenogreco y maca negra",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: un mes de uso",
+    "Plan recomendado de 3 meses"
+  ],
+  "deseo_central": "Verme con más curvas y sentirme segura con mi cuerpo, sin agujas, sin quirófano y sin arriesgar mi salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, para acompañar tu proceso de curvas junto con tu comida y tu rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
+  ],
+  "por_que_podria_vender": "Tu anuncio junta tres cosas que mueven a tu clienta: la fecha (Navidad, cuando quiere verse bien), el «regálate» que le da permiso de pensar en ella, y una chica real con el frasco en la mano, que muestra el deseo sin tener que explicarlo. Es una hipótesis, no una garantía: por eso cambiamos solo el titular, para saber qué mensaje le llega más.",
+  "decisiones": [
+    "El cuadrito de «antes y después» se queda en el mismo lugar y con la misma forma, pero ahora muestra «tu rutina» y «tu apoyo». Tu investigación dice que Meta rechaza los antes y después y que no se puede prometer un aumento.",
+    "Los íconos ya no dicen «aumenta glúteos» ni «100 % seguro». Dicen cosas que sí trae tu producto: acompaña tus curvas, apoyo para tu rutina, vitaminas A y E y 2 cápsulas al día.",
+    "El sello dorado decía «premium». Ahora dice «Triple acción», que sí está en tu etiqueta.",
+    "Quitamos el logo de la otra marca. Pusimos tu frasco real, con la ropa y los detalles en tus colores fucsia, negro y blanco.",
+    "No va precio ni botón de compra, porque tu anuncio no los tiene y no nos diste precio.",
+    "El ángulo lo elegimos nosotros: un regalo para ti misma esta Navidad, que es el de tu anuncio."
+  ]
+}
