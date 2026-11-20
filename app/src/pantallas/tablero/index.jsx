@@ -2,6 +2,7 @@
 //   1. Portada: saludo, cifras del momento y el gran "Nuevo anuncio".
 //   2. Te necesitan: los anuncios frenados (un paso falló o el saldo de kie no alcanza), con "Continuar".
 //   3. En producción: fichas con avance en palabras, piezas y tiempo.
+//   3b. Tu equipo trabajando ahora (EquipoTrabajando.jsx): lo que hacen los agentes de la oficina (imágenes, investigación…).
 //   4. Listos: los anuncios reales, con filtros y buscador.
 // "Te necesitan" y "En producción" salen de los conductor.json reales (useEnProduccion, src/datos/produccion.js):
 // nada de ejemplo. Sin nada, cada uno muestra su estado vacío.
@@ -15,6 +16,7 @@ import { TeNecesitan } from './TeNecesitan.jsx';
 import { EnProduccion } from './EnProduccion.jsx';
 import { Listos } from './Listos.jsx';
 import { Cambios } from './Cambios.jsx';
+import { EquipoTrabajando } from './EquipoTrabajando.jsx';
 import { AvisoMotor } from '../nuevo/piezas.jsx';
 import { useMotor } from '../ajustes/datos.js';
 import './tablero.css';
@@ -48,6 +50,7 @@ export default function Tablero() {
     return (
       <div className="pagina pagina--angosta">
         <Cambios />
+        <EquipoTrabajando />
         <EstadoVacio
           icono={Clapperboard}
           titulo="Todavía no tienes anuncios"
@@ -80,6 +83,7 @@ export default function Tablero() {
             <TeNecesitan p={produccion} alSeguir={recargar} />
             <EnProduccion p={produccion} />
           </div>
+          <EquipoTrabajando />
           <Cambios />
           <Listos anuncios={anuncios} />
         </>
