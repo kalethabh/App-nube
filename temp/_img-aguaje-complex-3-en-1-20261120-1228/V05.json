@@ -1,0 +1,181 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V05",
+    "structure_source": "library format F12 (Conversación de chat)",
+    "reference_style": "Native-looking messaging-app screenshot of a short conversation between two Colombian friends, where one answers the other's doubt and sends a real home photo of the product inside the chat",
+    "angle_used": "Objeción de confianza: she already lost money on pills bought online and asks if this really works or is just talk; her friend answers it is a 3-month plan with food and routine and that she paid on delivery",
+    "ad_format": "Native Chat Conversation Screenshot Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: clean pink and blush backgrounds, ultra-photorealistic Colombian women photographed naturally and respectfully, the black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight, believable real-life moments.",
+    "graphic_language": "Flat native chat interface with rounded bubbles in white and a light pink tint, thin-line grey and deep magenta UI icons, a very pale blush chat wallpaper, no decoration, no sparkles, particles or petals.",
+    "text_typography": "Inter (clean system-style sans-serif) for all chat text, exactly like a native messaging screenshot; no display headline outside the chat in this format."
+  },
+  "creative_objective": "Stop the scroll of the woman who already wasted money on pills bought online by showing her own doubt as the first message ('¿Eso sí sirve o es puro cuento?'), then resolve it in a believable, intimate way: her friend sends a real home photo of the bottle, explains it is a 3-month plan that goes with her food and routine, and that she paid on delivery. It must look like a real screenshot, not an ad, with no promised results and no numbers beyond the real plan.",
+  "art_direction": {
+    "design_quality": "Native, clean and credible: looks like a real screenshot while staying sharp and legible on mobile",
+    "visual_hierarchy": "1) The first incoming bubble with the doubt, read first at top-left. 2) The product photo bubble in the middle-right, the only large image. 3) The outgoing recommendation and plan/payment messages. 4) The friend's final reaction. 5) Discreet generic header and input bar.",
+    "composition_style": "Full-bleed flat UI screenshot with no device frame and no perspective: the canvas IS the phone screen, cropped to a square. Incoming bubbles on the left margin, outgoing bubbles on the right margin, alternating down the screen; the photo bubble on the right as part of the outgoing sequence, forming a strong block in the center.",
+    "spacing_and_structure": "Header y 0-11%. Chat area y 12-89%. Input bar y 90-100%. Side margins 5%. Text bubbles fitted to their text, never wider than 65% of the canvas. About 2% vertical gap between bubbles, about 1% between consecutive outgoing bubbles. Photo bubble about 50% of the canvas width and 30% of its height. Generous quiet wallpaper space around bubbles.",
+    "lighting_and_depth": "Flat evenly lit interface, bubbles as flat shapes with at most a hairline shadow, no gradients or 3D. Only the photo inside the chat has real-world light: soft natural kitchen daylight from a window, casual smartphone look, mild depth of field, believable and unstaged.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square crop of a generic messaging app. Header on top: thin status bar with time, signal and battery glyphs; back arrow, circular avatar of the friend (a Colombian woman about 30), her first name and 'en línea', and generic call and video line icons on the right. On a very pale blush wallpaper: an incoming white bubble on the left with the doubt; an outgoing light-pink bubble on the right with the reply; an outgoing photo bubble on the right with a casual home photo of the bottle on a kitchen table seen from a slight top-down angle, with a small heart-eyes emoji reaction on its bottom-left corner; another outgoing light-pink bubble about the 3-month plan and paying on delivery; and a final incoming white bubble on the left with the friend's reaction. A generic message input bar at the bottom.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas between the header and the input bar (y 11-90%)",
+        "visual_function": "Native chat wallpaper that makes the conversation read as a real screenshot",
+        "adaptation_rule": "Flat very pale blush pink #FBE3EE wallpaper with no pattern or an ultra-subtle generic pattern at very low contrast. Never the wallpaper, pattern or signature colors of a real messaging app.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "chat header",
+        "position": "Top, full width, y 0-11%",
+        "visual_function": "Establishes who is talking and sells the native look",
+        "adaptation_rule": "Light neutral off-white header with a thin generic status bar (time '21:08', signal and battery glyphs); back arrow, circular avatar (about 7% of the canvas width) with a realistic smiling Colombian woman about 30, medium-brown skin, dark hair; her first name and 'en línea' below; generic call and video line icons in deep magenta #B0105E on the right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "incoming message bubble",
+        "position": "Left, about x 5-68% and y 14-23%",
+        "visual_function": "Opens the conversation with the doubt (the objection)",
+        "adaptation_rule": "White bubble with a small tail on the left, corner radius about 2.5% of the canvas, width fitted to the text, 1-2 lines, tiny grey timestamp '21:02' at the bottom right inside the bubble.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "outgoing message bubble",
+        "position": "Right, about x 45-95% and y 25-32%",
+        "visual_function": "Direct, close reply that introduces the product",
+        "adaptation_rule": "Light pink tint bubble (about #FFD6E8) with dark text and a small tail on the right, width fitted to the text, 1 line, tiny timestamp '21:03' and double-check read ticks in hot fuchsia #E6177F at the bottom right.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "product photo message",
+        "position": "Right-aligned, about x 45-95% and y 34-64%",
+        "visual_function": "Shows the real product inside the conversation as proof; the visual anchor of the ad",
+        "adaptation_rule": "Outgoing photo bubble with a casual but well-lit home smartphone photo: the user's bottle exactly as in the attached product photo, standing on a light wooden Colombian kitchen table, seen from a slight top-down angle (about 20-30 degrees), label facing the camera and clearly visible, product about 65-75% of the photo's height; softly blurred everyday kitchen background (a mug, a window with daylight), nothing cluttered. Thin light-pink bubble border, corner radius about 2.5% of the canvas, tiny timestamp '21:03' overlaid at the bottom right. A small round heart-eyes emoji reaction overlaps its bottom-left corner.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "outgoing message bubble",
+        "position": "Right, about x 32-95% and y 66-75%",
+        "visual_function": "Answers the objection: it is a 3-month plan with food and routine, and she paid on delivery",
+        "adaptation_rule": "Same outgoing light-pink bubble style as block_04, up to 2 lines, with timestamp '21:04' and read ticks.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "incoming message bubble",
+        "position": "Left, about x 5-70% and y 77-87%",
+        "visual_function": "The friend's reaction: the objection is resolved and she wants it",
+        "adaptation_rule": "Same white incoming bubble style as block_03, 1-2 lines, timestamp '21:05'.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "input bar",
+        "position": "Bottom, full width, y 90-100%",
+        "visual_function": "Completes the native screenshot look",
+        "adaptation_rule": "Off-white bar with a rounded white text field showing the grey placeholder 'Mensaje', plus generic grey emoji, camera and microphone line icons. No real-app send button design.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "Real messaging-app names, logos, wallpapers or signature colors (no green or blue of real apps)",
+      "Phone device frame, hands holding a phone or perspective mockup",
+      "On-screen keyboard",
+      "Ad headline or graphic text outside the chat",
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, review cards or testimonial graphics",
+      "Link previews, voice-note bubbles or a second photo",
+      "Group chat names or more than two participants",
+      "Benefit list, icons or arrows",
+      "Logos or brand marks other than those printed on the product label",
+      "Notification banners or stickers",
+      "Body photos, before/after images or any promised result or number",
+      "Sparkles, glows, particles or petals"
+    ]
+  },
+  "visual_prompt": "Square 1:1 flat screenshot of a generic messaging app, full-bleed with no phone frame, no perspective and no keyboard: the canvas is the phone screen. TOP (y 0-11%): light off-white header with a thin generic status bar (time '21:08' at top left, signal and battery glyphs at top right); below it a back arrow, a small circular avatar (about 7% of the canvas width) of a realistic smiling Colombian woman about 30 with medium-brown skin and dark hair, her first name 'Caro' in semibold dark sans-serif and 'en línea' in small grey text below, and generic call and video line icons in deep magenta #B0105E on the right. CHAT AREA (y 12-89%) on a flat very pale blush pink #FBE3EE wallpaper with no pattern, 5% side margins, plenty of quiet space: (1) at top-left (about x 5-68%, y 14-23%) a white incoming bubble with a small left tail and dark Inter-style text, tiny grey timestamp '21:02'; (2) on the right (about x 45-95%, y 25-32%) an outgoing light pink (#FFD6E8) bubble with a small right tail, dark text in one line, tiny timestamp '21:03' and double-check read ticks in hot fuchsia #E6177F; (3) right-aligned below it (about x 45-95%, y 34-64%) an outgoing photo bubble with a thin light-pink border and rounded corners containing a casual home smartphone photo: the product bottle standing on a light wooden Colombian kitchen table, shot from a slight top-down angle (about 20-30 degrees), label facing the camera and clearly visible, the bottle filling about 70% of the photo's height, soft natural window daylight, a softly blurred everyday kitchen background with a mug and a window, uncluttered and believable; tiny timestamp '21:03' overlaid at its bottom right and a small round heart-eyes emoji reaction overlapping its bottom-left corner; (4) on the right (about x 32-95%, y 66-75%) another outgoing light pink bubble in two lines with timestamp '21:04' and fuchsia read ticks; (5) at bottom-left (about x 5-70%, y 77-87%) a white incoming bubble with the reaction, timestamp '21:05'. BOTTOM (y 90-100%): off-white input bar with a rounded white text field showing the grey placeholder 'Mensaje' and generic grey emoji, camera and microphone line icons. Bubbles are flat with at most a hairline shadow, corner radius about 2.5% of the canvas, fitted to their text and never wider than 65% of the canvas. THE PRODUCT inside the photo must be reproduced exactly from the attached product image, which is the only source of truth (do not redesign, replace or reinterpret it): a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Only two participants. No ad headline outside the chat, no CTA button, no price, no badges, no stars, no benefit icons, no arrows, no body photos, no results or numbers, no real-app logos or colors, no sparkles or particles.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "contact name + online status",
+      "reference_position": "Chat header, right of the avatar",
+      "text_style": "Name in semibold dark system sans-serif about 3% of the canvas height; status below in regular grey about 2% of the canvas height; both left-aligned, 1 line each",
+      "text": "Caro / en línea"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "incoming message 1 (the doubt / objection)",
+      "reference_position": "First bubble, left",
+      "text_style": "Regular Inter-style sans-serif, about 3.4% of the canvas height, dark text, left-aligned inside the white bubble, max 2 lines; tiny grey timestamp '21:02'",
+      "text": "¿Eso sí sirve o es puro cuento? 🤔"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "outgoing message 2 (reply / recommendation)",
+      "reference_position": "Second bubble, right, above the photo",
+      "text_style": "Regular Inter-style sans-serif, about 3.3% of the canvas height, dark text on the light pink bubble, left-aligned, 1 line; tiny timestamp '21:03' and fuchsia read ticks",
+      "text": "Mira, este es el que estoy tomando"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "outgoing message 3 (answer: plan and payment on delivery)",
+      "reference_position": "Bubble right, below the photo",
+      "text_style": "Same style as text_block_03, 2 lines; timestamp '21:04' and fuchsia read ticks",
+      "text": "Es un plan de 3 meses con comida y rutina. Pagué al recibirlo 🙌"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "incoming message 4 (reaction)",
+      "reference_position": "Last bubble, left",
+      "text_style": "Same style as text_block_02, max 2 lines; timestamp '21:05'",
+      "text": "¿Pagas cuando te llega? Pásame el dato 😍"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "UI micro-labels (status bar time and input placeholder)",
+      "reference_position": "Status bar top left and inside the input field",
+      "text_style": "System sans-serif, about 2% of the canvas height, grey, 1 line each",
+      "text": "21:08 / Mensaje"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Generic chat header with a circular avatar of a Colombian woman and generic line icons",
+    "Flat very pale blush chat wallpaper (screenshot look, no device frame)",
+    "Incoming white bubbles on the left",
+    "Outgoing light pink bubbles on the right, with timestamps and fuchsia read ticks",
+    "Photo bubble with a casual home photo of the real bottle on a kitchen table at a slight top-down angle, with a small heart-eyes emoji reaction on its corner",
+    "Generic message input bar at the bottom"
+  ],
+  "final_generation_exclusions": [
+    "No real messaging-app logos, names, wallpapers or signature green/blue colors.",
+    "No phone frame, no hands holding a phone and no on-screen keyboard.",
+    "No body photos, before/after images or result numbers anywhere.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

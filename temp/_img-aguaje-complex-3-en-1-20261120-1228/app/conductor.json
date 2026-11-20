@@ -1,7 +1,7 @@
 {
   "slug": "_img-aguaje-complex-3-en-1-20261120-1228",
   "familia": "imagen-ads",
-  "estado": "corriendo",
+  "estado": "error",
   "paso": "anuncios",
   "pasos": [
     {
@@ -34,10 +34,15 @@
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "corriendo",
+      "estado": "error",
       "intentos": 1,
       "inicio": "2026-11-20T17:33:50.345Z",
-      "detalle": "Creando 4 imágenes · Claude está escribiendo 1 anuncio: repasando cada anuncio · 0 de 5 listas"
+      "fin": "2026-11-20T17:35:03.315Z",
+      "error": {
+        "mensaje": "Se acabó por ahora el uso de imágenes de tu ChatGPT (se renueva cada 5 horas). Cuando se renueve, toca «Continuar»: sigue desde donde quedó, sin repetir nada.",
+        "motivo": "limite",
+        "detalle": "=== Anuncios de imagen — _img-aguaje-complex-3-en-1-20261120-1228 ===\n  Modelo: gpt-image (ChatGPT), con tu suscripcion (sin costo por imagen)\n  Hasta 3 a la vez; sale tras 20 s sin trabajo.\n  !!  Se deja de pedir: CHATGPT_LIMITE Se acabó el uso de ChatGPT por ahora: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/settings/usage to purchase more credits or\n      Las que ya estaban en marcha se esperan hasta que terminen.\n  Listo en 9 s: 0 listas, 0 sin imagen, 0 ya estaban.\n  SE DETUVO\n  CHATGPT_LIMITE Se acabó el uso de ChatGPT por ahora: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/settings/usage to purchase more credits or try again at 4"
+      }
     },
     {
       "id": "informe",
@@ -50,5 +55,5 @@
   "modoPrueba": false,
   "creado": "2026-11-20T17:28:15.715Z",
   "aprobado": "2026-11-20T17:28:15.715Z",
-  "actualizado": "2026-11-20T17:34:01.459Z"
+  "actualizado": "2026-11-20T17:35:03.316Z"
 }
