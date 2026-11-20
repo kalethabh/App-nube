@@ -1,0 +1,18 @@
+{
+  "uuid": "dba66698-1753-4d7a-ad91-291d1efbc2e9",
+  "estado": "escribiendo",
+  "tipo": "guion",
+  "intentos": 1,
+  "progreso": [
+    "Preparando la foto de tu producto",
+    "Claude empezó a escribir la letra",
+    "Leyendo las instrucciones del estilo",
+    "Leyendo",
+    "Mirando las fotos de tu producto"
+  ],
+  "inicio": "2026-11-20T17:09:39.295Z",
+  "cambios": [],
+  "actualizado": "2026-11-20T17:09:42.509Z",
+  "error": null,
+  "inicioIntento": "2026-11-20T17:09:39.295Z"
+}
