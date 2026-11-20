@@ -1,0 +1,26 @@
+{
+  "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+  "productoId": "producto-edb1",
+  "estilo": "zack-d-films",
+  "familia": "voz-en-off",
+  "faseGuion": "guion",
+  "duracion": {
+    "decide": "usuario",
+    "texto": "1:50",
+    "segundos": 110
+  },
+  "voz": {
+    "auto": true
+  },
+  "continuidad": false,
+  "respuestas": {
+    "fondo": "Igual que en el video original: mismos escenarios y ambientes de cada toma",
+    "clonar": "subido:c570f0d47f74|2 - VTD TT.mp4",
+    "clonar_gancho": "No, conserva el gancho y el ángulo del original"
+  },
+  "opciones": {
+    "subestilo": null
+  },
+  "pedido": "Clonar el video adjunto TAL CUAL: misma estructura, mismo orden de escenas, mismo gancho, mismo ángulo, mismos tiempos y lo mismo que se dice, solo reemplazando el producto por AGUAJE COMPLEX 3 EN 1 (usar su investigación de mercado para adaptar los datos del producto). Lo único que cambia del estilo son los personajes, que van al estilo Zack D Films; los escenarios, encuadres y acciones se mantie",
+  "creado": "2026-11-20T15:07:50.450Z"
+}

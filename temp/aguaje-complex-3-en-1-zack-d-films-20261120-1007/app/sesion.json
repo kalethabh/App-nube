@@ -1,0 +1,23 @@
+{
+  "uuid": "7c25871d-d319-4cf4-88f8-c5497581bf2b",
+  "estado": "escribiendo",
+  "tipo": "guion",
+  "intentos": 1,
+  "progreso": [
+    "Preparando la foto de tu producto",
+    "Analizando el video de referencia",
+    "Claude empezó a escribir tu guion",
+    "Leyendo las instrucciones del estilo",
+    "Revisando",
+    "Buscando en los archivos",
+    "Leyendo",
+    "Mirando las imágenes del anuncio",
+    "Mirando las fotos de tu producto",
+    "Leyendo"
+  ],
+  "inicio": "2026-11-20T15:07:50.452Z",
+  "cambios": [],
+  "actualizado": "2026-11-20T15:08:58.058Z",
+  "error": null,
+  "inicioIntento": "2026-11-20T15:07:50.454Z"
+}

@@ -15,7 +15,38 @@
       "texto": "¡De una! Lo clono con el AGUAJE COMPLEX 3 EN 1 (el de la investigación), en estilo Zack D Films, con la misma estructura y el mismo ángulo, y máximo 1:50. Solo me falta una cosa: para las tomas que explican cómo funciona por dentro, ¿te va un fondo de estudio limpio o prefieres que lo decida yo?",
       "acciones": [],
       "fecha": "2026-11-20T15:05:55.529Z"
+    },
+    {
+      "id": "494cca6fe1",
+      "de": "tu",
+      "texto": "QUIERO QUE SOLO LOS PERSONAJES SEAN DEL ESTILO ZACK D FILM, PERO Q EL VIDEO SEA TAL CUÁL PERO PARA EL AGUAJE",
+      "fecha": "2026-11-20T15:07:40.499Z"
+    },
+    {
+      "id": "545b6dc73b",
+      "de": "coordinadora",
+      "texto": "Entendido 👌 Lo dejo tal cual: misma estructura, mismo gancho, mismo ángulo y las mismas escenas, solo cambio el producto por el Aguaje y los personajes al estilo Zack D Films. Ya lo puse en marcha; cuando el guion esté listo te paso el costo antes de producir.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Guion Zack D Films de AGUAJE COMPLEX 3 EN 1 (clonando tu video)",
+          "href": "#/nuevo?producto=producto-edb1&paso=2&anuncios=aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+          "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-20T15:07:50.459Z"
     }
   ],
-  "encargos": []
+  "encargos": [
+    {
+      "estado": "escribiendo",
+      "creado": "2026-11-20T15:07:50.459Z",
+      "id": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+      "tipo": "video",
+      "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+      "productoId": "producto-edb1",
+      "titulo": "Zack D Films de AGUAJE COMPLEX 3 EN 1"
+    }
+  ]
 }
