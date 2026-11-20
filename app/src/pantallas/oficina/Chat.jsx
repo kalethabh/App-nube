@@ -13,6 +13,8 @@ const CLAVE = 'oficina:chat';
 const ESTADO = { escribiendo: 'escribiendo el guion…', aprobar: 'espera tu sí', produciendo: 'produciéndose', listo: 'listo', error: 'se frenó', 'no-esta': 'ya no está' };
 const IDEAS = ['Hazme un video UGC de mi producto', 'Te paso un video: hazme uno igual en estilo Zack', 'Dame 10 variaciones de este texto', '5 anuncios de imagen desde la investigación', '¿Cómo va todo?'];
 const MAX_ADJ = 6;
+const LARGO_MENSAJE = 2000; // (lo que guarda el servidor por mensaje: oficina-chat.js)
+const LARGO_PEGADO = 1500; // un texto pegado más largo va como documento adjunto, entero
 // (2026-11-20h) DICTAR POR VOZ: el dictado del navegador (Chrome, Edge, Safari) escribe mientras hablas; si no lo trae,
 // se graba y se pasa a texto con ElevenLabs (POST /api/oficina/chat/voz). El texto queda en la caja para revisarlo.
 const Dictado = typeof window !== 'undefined' ? window.SpeechRecognition || window.webkitSpeechRecognition : null;
@@ -189,6 +191,32 @@ export function Chat({ coordinadora, onCerrar, inicial = '' }) {
     }
   };
 
+  // (2026-11-20u) PEGAR: imágenes y archivos (también los que el navegador da solo como «items», p. ej. una captura o
+  // una imagen copiada de una página) y textos largos (un prompt, un documento, una tabla): lo que no cabe en el
+  // mensaje (o es muy largo) llega entero como un documento adjunto que ella lee.
+  const pegar = (e) => {
+    const cd = e.clipboardData;
+    if (!cd) return;
+    const archivos = [...(cd.files || [])];
+    if (!archivos.length) for (const it of cd.items || []) if (it.kind === 'file') {
+      const f = it.getAsFile();
+      if (f) archivos.push(f);
+    }
+    if (archivos.length) {
+      e.preventDefault();
+      agregar(archivos.map((f, i) => (f.name && f.name !== 'image.png' ? f : new File([f], `pegado-${Date.now()}-${i + 1}.${(f.type.split('/')[1] || 'png').replace('jpeg', 'jpg')}`, { type: f.type }))));
+      return;
+    }
+    const t = cd.getData('text/plain') || '';
+    const cabe = LARGO_MENSAJE - texto.length;
+    if (t.length > LARGO_PEGADO || t.length > cabe) {
+      e.preventDefault();
+      const primera = t.trim().split('\n')[0].replace(/[^\p{L}\p{N} ]/gu, '').trim().slice(0, 40) || 'texto';
+      agregar([new File([t], `${primera.replace(/\s+/g, '-')}.md`, { type: 'text/markdown' })]);
+      aviso({ tipo: 'info', titulo: 'Lo adjunté completo', texto: `El texto pegado (${t.length.toLocaleString('es')} caracteres) va como documento para que le llegue entero.` });
+    }
+  };
+
   const enviar = async (t = texto) => {
     const limpio = t.trim();
     if ((!limpio && !adjuntos.length) || enviando || pensando || subiendo) return;
@@ -233,6 +261,9 @@ export function Chat({ coordinadora, onCerrar, inicial = '' }) {
         e.preventDefault();
         setEncima(false);
         agregar(e.dataTransfer.files);
+      }}
+      onPaste={(e) => {
+        if (e.target?.tagName !== 'TEXTAREA') pegar(e);
       }}
     >
       <header className="of-chat__cabeza">
@@ -354,17 +385,11 @@ export function Chat({ coordinadora, onCerrar, inicial = '' }) {
           </button>
           <textarea
             rows={2}
-            maxLength={2000}
+            maxLength={LARGO_MENSAJE}
             placeholder={voz.estado === 'escuchando' || voz.estado === 'grabando' ? 'Te escucho… toca el cuadrado al terminar' : voz.estado === 'transcribiendo' ? 'Pasando tu voz a texto…' : `Escríbele o díctale a ${nombre}…`}
             value={texto}
             onChange={(e) => setTexto(e.target.value)}
-            onPaste={(e) => {
-              const files = [...(e.clipboardData?.files || [])];
-              if (files.length) {
-                e.preventDefault();
-                agregar(files);
-              }
-            }}
+            onPaste={pegar}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();

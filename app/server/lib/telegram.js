@@ -175,6 +175,16 @@ async function atender(u, c) {
   } catch (e) {
     return mandar(chatId, `No pude recibir eso: ${e.message}`);
   }
+  // (2026-11-20u) un texto pegado largo (más de lo que guarda un mensaje): le llega entero como documento
+  if (dicho.length > 2000) {
+    try {
+      const sub = await oc.subirAdjunto(Buffer.from(dicho, 'utf8'), 'texto-de-telegram.md');
+      adjuntos.push(sub.id);
+      dicho = 'Te pasé este texto largo como documento.';
+    } catch {
+      /* va recortado */
+    }
+  }
   if (!dicho && !adjuntos.length) return;
   try {
     await api('sendChatAction', { chat_id: chatId, action: 'typing' }).catch(() => {});
