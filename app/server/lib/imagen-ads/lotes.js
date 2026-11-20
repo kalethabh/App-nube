@@ -236,11 +236,14 @@ export function crearLote(cuerpo = {}) {
     // Solo «Variantes» copia el diseño de sus referencias (y el modelo de imagen las ve). «Nuevos» siempre crea
     // diseños nuevos: la opción «Variar solo los títulos» de Nuevos hacía lo mismo que Variantes y se quitó (2026-11-16).
     fiel: cuerpo.modo === 'variantes' || cuerpo.rapido !== false,
+    // (2026-11-20) el AGENTE DE VARIACIONES (el prompt maestro del usuario, skill agente-variaciones.md): solo en
+    // «Variantes» y siempre con la estrategia de la IA (el modo rápido no analiza el ganador)
+    ...(cuerpo.agente === 'variaciones' && cuerpo.modo === 'variantes' ? { agente: 'variaciones' } : {}),
     // Ya no se eligen títulos antes (2026-11-16: «elimina lo de seleccionar títulos»): los pone la app o la IA.
     elegirTitulos: false,
     // Modo rápido por defecto («como pedirle a ChatGPT que me las varíe», imagen-ads/rapido.js); rapido: false = con
     // la estrategia de la IA (más lento).
-    rapido: cuerpo.rapido !== false,
+    rapido: cuerpo.agente === 'variaciones' && cuerpo.modo === 'variantes' ? false : cuerpo.rapido !== false,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
     // PLANTILLAS (2026-11-17p): la app dibuja los textos; solo las de escena usan el modelo de imagen (sin texto)

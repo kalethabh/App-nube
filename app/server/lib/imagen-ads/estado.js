@@ -14,6 +14,7 @@
 // La sesion de la estrategia (tandas.E001) guarda `motor`: la IA que la hizo ('claude' o 'codex'). La vista la manda
 // como `motor` (el informe dice quien hizo el lote).
 import fs from 'node:fs';
+import path from 'node:path';
 import { completarVariacionesFieles } from './variaciones-fieles.js';
 import { leerJSON, existe, listar } from '../archivos.js';
 import { nuevoEstado, asegurarPiezas, aplicarRevision, listaDePiezas, cuentas, PEDIDO_TERMINADO } from './planificador.js';
@@ -214,6 +215,18 @@ function pedidoDe(pedidos, pieza) {
  * La vista de un lote para la pantalla (§9.2). Sin precios (el costo va solo en `informe`, y solo con el lote terminado)
  * y sin prompts. Las miniaturas las arma el servidor (la URL ya lleva su ?ancho=).
  */
+/** Lo que se muestra del análisis del ganador (analisis-ganador.json del agente de variaciones). */
+function resumenAnalisis(a) {
+  if (!a || !Array.isArray(a.referencias)) return null;
+  const t = (x, n = 300) => (typeof x === 'string' ? x.slice(0, n) : '');
+  const l = (x) => (Array.isArray(x) ? x.filter((y) => typeof y === 'string').slice(0, 8).map((y) => y.slice(0, 160)) : []);
+  return {
+    resumen: t(a.resumen),
+    facetas: l(a.facetas),
+    referencias: a.referencias.slice(0, 10).map((r) => ({ ref: t(r?.ref, 10), deseo: t(r?.angulo?.deseo), problema: t(r?.angulo?.problema), promesa: t(r?.angulo?.promesa), mecanismo: t(r?.angulo?.mecanismo), invariables: l(r?.invariables), modificables: l(r?.modificables), experimentales: l(r?.experimentales) })),
+  };
+}
+
 export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = null, modoPrueba = false }) {
   const est = leerEstado(carpeta);
   const plan = leerJSON(R.plan(carpeta));
@@ -331,6 +344,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
       angulo: x ? angulos.get(x.angulo_id)?.nombre || x.angulo || '' : '',
       formato: x ? (x.fuente === 'referencia' ? 'Tu referencia' : x.fuente === 'plantilla' ? POR_ID.get(x.plantilla)?.nombre || x.formato || '' : catalogo.get(x.formato_id)?.nombre || x.formato || '') : '',
       titular: x?.titular || '',
+      // (agente de variaciones) qué nivel es, qué cambió respecto del ganador y qué se quiere probar
+      ...(x?.nivel ? { nivel: String(x.nivel).slice(0, 1), cambio: String(x.cambio || '').slice(0, 300), hipotesis: String(x.hipotesis || '').slice(0, 300), faceta: String(x.faceta || '').slice(0, 120) } : {}),
       estado: sinPrompt ? 'sin-prompt' : 'ok',
       piezas: Object.fromEntries(formatos.map((f) => [f, vistaDePieza(v, f)])),
     };
@@ -357,6 +372,8 @@ export function vistaDelLote({ lote, carpeta, brief, conductor = null, fila = nu
     lote,
     titulo: brief?.titulo || brief?.datos?.nombre || 'Anuncios de imagen',
     modoPrueba: Boolean(modoPrueba),
+    // (2026-11-20) hecho por el agente de variaciones: su análisis del anuncio ganador
+    ...(brief?.agente === 'variaciones' ? { agente: 'variaciones', analisis: resumenAnalisis(leerJSON(path.join(carpeta, 'analisis-ganador.json'))) } : {}),
     // la IA que hizo la estrategia del lote, 'claude' | 'codex' (null si todavia no la hizo ninguna): «… los hizo
     // {Claude|ChatGPT} con tu plan» (la pantalla la lee con motorDelLote de datos/imagenes.js)
     motor: motorDelLote(est, conductor),
