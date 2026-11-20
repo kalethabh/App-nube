@@ -65,6 +65,7 @@ export const rutas = {
   landings: () => '/landings',
   embudoWhatsapp: () => '/embudo-whatsapp',
   sep: () => '/sep',
+  shopify: () => '/shopify',
   tablero: () => '/tablero',
   nuevo: (consulta) => `/nuevo${consulta ? `?${new URLSearchParams(consulta)}` : ''}`,
   anuncio: (slug) => `/anuncio/${s(slug)}`,

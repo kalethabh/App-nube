@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Building2, CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, Telescope } from 'lucide-react';
+import { Building2, CirclePause, Clapperboard, House, LayoutTemplate, MessageCircle, Package, Rocket, Scissors, GraduationCap, Images, LayoutGrid, Library, Palette, Wallet, PanelLeftClose, PanelLeftOpen, Plus, Settings, ShoppingBag, Telescope } from 'lucide-react';
 import { Logo } from '../componentes/Logo.jsx';
 import { Tooltip } from '../componentes/Tooltip.jsx';
 import { VistaPrevia } from '../componentes/VistaPrevia.jsx';
@@ -44,6 +44,7 @@ const GRUPOS = [
       { id: 'anuncios', texto: 'Anuncios', icono: Clapperboard, href: enlace.anuncios() },
       { id: 'editor', texto: 'Editor', icono: Scissors, href: enlace.editorVideos() },
       { id: 'biblioteca', texto: 'Biblioteca', icono: Library, href: enlace.biblioteca() },
+      { id: 'shopify', texto: 'Shopify', icono: ShoppingBag, href: enlace.shopify() },
     ],
   },
   {
