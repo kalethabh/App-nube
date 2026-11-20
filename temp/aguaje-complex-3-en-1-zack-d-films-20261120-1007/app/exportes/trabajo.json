@@ -1,6 +1,6 @@
 {
   "n": 1,
-  "estado": "exportando",
+  "estado": "listo",
   "calidad": "1080",
   "version": "completa",
   "subtitulos": "con",
@@ -8,17 +8,29 @@
   "srt": true,
   "guardar": false,
   "creado": "2026-11-20T16:18:22.087Z",
-  "actualizado": "2026-11-20T16:31:54.643Z",
+  "actualizado": "2026-11-20T16:32:36.853Z",
   "avance": {
-    "etapa": "render",
-    "valor": 83.5,
+    "etapa": "guardar",
+    "valor": 100,
     "cuadro": 2997,
     "total": 2997,
-    "nota": "Armando los 25 tramos del video (la próxima vez solo se rehace lo que cambies)",
+    "nota": null,
     "tramos": {
       "rehacer": 25,
       "total": 25,
       "sonido": true
     }
-  }
+  },
+  "control": {
+    "limpio": true,
+    "codigo": 0,
+    "motivo": null,
+    "defectos": [],
+    "avisos": [
+      "toma 33: se ve quieta 0.3 s al final (desde el segundo 94.5): su clip no alcanza"
+    ]
+  },
+  "archivo": "aguaje-complex-3-en-1-zack-d-films-20261120-1007_editado-1.mp4",
+  "srtArchivo": "aguaje-complex-3-en-1-zack-d-films-20261120-1007_editado-1.srt",
+  "terminado": "2026-11-20T16:32:36.702Z"
 }

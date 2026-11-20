@@ -1,0 +1,31 @@
+{
+  "generado": "2026-11-20T16:32:12.505Z",
+  "archivo": "aguaje-complex-3-en-1-zack-d-films-20261120-1007_editado-1.mp4",
+  "calidad": "1080",
+  "limpio": true,
+  "codigo": 0,
+  "defectos": [],
+  "avisos": [
+    {
+      "tipo": "corto",
+      "pieza": "toma 33",
+      "desde": 94.528,
+      "hasta": 94.796,
+      "rerender": false,
+      "detalle": "toma 33: se ve quieta 0.3 s al final (desde el segundo 94.5): su clip no alcanza",
+      "porQuitarBroll": false
+    }
+  ],
+  "noMedido": [],
+  "duracion": 99.947,
+  "tamano": "1080x1920",
+  "rerenderAyuda": false,
+  "porTramos": {
+    "tramos": 25,
+    "rehechos": 25,
+    "sonidoRehecho": true,
+    "codificador": "videotoolbox"
+  },
+  "huella": "fff5b2e01d457a81e66dd39e907dc23b8c9aa14c",
+  "bytes": 154563133
+}
