@@ -1,0 +1,273 @@
+{
+  "titulo": "Aguaje Complex 3 en 1 — «La mayoría no tiene idea de lo bien que funciona el aguaje» (Zack D Films)",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 110,
+  "de_que_va": "Tu video, escena por escena, en animación 3D: una narradora cuenta mes a mes lo que pasa en el cuerpo con el aguaje, el fenogreco y la maca negra, desde los jeans que ya aprietan hasta la amiga que pregunta si se operó. Cierra con el tratamiento de tres frascos y el pago al recibir.",
+  "estructura": {
+    "id": "de-la-referencia",
+    "nombre": "La de tu video",
+    "porque": "Es tu video clonado tal cual: gancho de curiosidad, lo que pasa dentro del cuerpo, cambios mes a mes, la reacción de los demás (amigas, hombres, el ex) y la oferta al final."
+  },
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "La mayoría no tiene idea de lo bien que funciona el aguaje.",
+      "se_ve": "Ella camina por la orilla de una playa en short de jean y la gente voltea a mirarla.",
+      "segundos": 4.3
+    },
+    {
+      "n": 2,
+      "momento": "gancho",
+      "dice": "Esto es lo que pasa dentro de tu cuerpo en los primeros tres meses.",
+      "se_ve": "Sobre un fondo azul oscuro, unas enredaderas de luz dorada se encienden en sus piernas y su figura pasa de plana a con curvas.",
+      "segundos": 5
+    },
+    {
+      "n": 3,
+      "momento": "solución",
+      "dice": "Desde tu primera cápsula, el aguaje,",
+      "se_ve": "Primer plano de su cara, emocionada, con el frasco cerrado junto a la mejilla.",
+      "segundos": 2.1
+    },
+    {
+      "n": 4,
+      "momento": "solución",
+      "dice": "el fenogreco y la maca negra se ponen a trabajar",
+      "se_ve": "Camina por un invernadero lleno de plantas y tres aros de luz dorada giran en su cadera.",
+      "segundos": 3.6
+    },
+    {
+      "n": 5,
+      "momento": "solución",
+      "dice": "y activan la señal que le dice",
+      "se_ve": "El mismo invernadero de noche, con luces moradas; una cinta dorada baja de su cintura a su cadera.",
+      "segundos": 2.5
+    },
+    {
+      "n": 6,
+      "momento": "solución",
+      "dice": "a tu cuerpo dónde guardar las curvas.",
+      "se_ve": "De perfil junto a una mesa con macetas, con la mano en la cadera y un brillo dorado que se queda ahí.",
+      "segundos": 2.5
+    },
+    {
+      "n": 7,
+      "momento": "prueba",
+      "dice": "Al primer mes tus jeans ya te quedan apretadísimos",
+      "se_ve": "En una tienda de jeans se mira el jean, que ya le queda apretado, y sonríe sorprendida.",
+      "segundos": 3.2
+    },
+    {
+      "n": 8,
+      "momento": "prueba",
+      "dice": "y te das cuenta de que ya te toca comprarte unos nuevos.",
+      "se_ve": "En un centro comercial saca un jean nuevo del perchero y da una vuelta feliz.",
+      "segundos": 4.3
+    },
+    {
+      "n": 9,
+      "momento": "prueba",
+      "dice": "Esa es la señal haciendo efecto.",
+      "se_ve": "Camina por un malecón al atardecer en short blanco, con un aro dorado girando en la cadera.",
+      "segundos": 2.1
+    },
+    {
+      "n": 10,
+      "momento": "problema",
+      "dice": "Lo que antes se te iba directico a la barriga,",
+      "se_ve": "Primer plano de su abdomen en la playa: una flecha de luz baja hasta la barriga.",
+      "segundos": 3.6
+    },
+    {
+      "n": 11,
+      "momento": "giro",
+      "dice": "ahora se te empieza a ir a la cola.",
+      "se_ve": "Camina hacia la cámara por una calle con árboles y el aro dorado baja de la cintura a la cadera.",
+      "segundos": 3.2
+    },
+    {
+      "n": 12,
+      "momento": "prueba",
+      "dice": "A los dos meses los cambios ya se notan.",
+      "se_ve": "Empuja un carrito por el supermercado y otros clientes voltean a verla.",
+      "segundos": 3.2
+    },
+    {
+      "n": 13,
+      "momento": "prueba",
+      "dice": "Ya no se te va a la barriga,",
+      "se_ve": "De frente en el supermercado, muestra que el jean le queda suelto en la cintura.",
+      "segundos": 2.9
+    },
+    {
+      "n": 14,
+      "momento": "prueba",
+      "dice": "se te va a las caderas, a las piernas y a la cola,",
+      "se_ve": "Junto a las frutas, mirando por encima del hombro: su cadera, sus piernas y su cola se llenan hasta que el jean le horma.",
+      "segundos": 4.6
+    },
+    {
+      "n": 15,
+      "momento": "prueba",
+      "dice": "justo donde lo querías.",
+      "se_ve": "Sigue con el carrito y un señor de camisa verde se queda mirándola.",
+      "segundos": 1.5
+    },
+    {
+      "n": 16,
+      "momento": "prueba",
+      "dice": "Tu cintura se queda pequeñita",
+      "se_ve": "De frente, con un aro de luz que se ajusta a su cintura pequeña.",
+      "segundos": 2
+    },
+    {
+      "n": 17,
+      "momento": "solución",
+      "dice": "porque tu cuerpo ya no recibe la señal de guárdalo todo en la barriga. Ahora",
+      "se_ve": "Entre las frutas, con las manos en la cintura, se balancea y le guiña el ojo a la cámara.",
+      "segundos": 5.4
+    },
+    {
+      "n": 18,
+      "momento": "solución",
+      "dice": "recibe la señal de curvas. A",
+      "se_ve": "En una boutique, el aro dorado de su cadera se enciende y su figura pasa de plana a con curvas.",
+      "segundos": 2.1
+    },
+    {
+      "n": 19,
+      "momento": "prueba",
+      "dice": "los tres meses tu amiga ya te está echando el ojo. ¿Te",
+      "se_ve": "Pasa frente a un café y su amiga, sentada en una mesa, se queda con la boca abierta.",
+      "segundos": 4.3
+    },
+    {
+      "n": 20,
+      "momento": "prueba",
+      "dice": "hiciste un BBL? No, te ves en el espejo y sí, es real. Y",
+      "se_ve": "En el sofá, la amiga le pregunta asombrada y ella se ríe a carcajadas.",
+      "segundos": 5
+    },
+    {
+      "n": 21,
+      "momento": "prueba",
+      "dice": "tu seguridad cambia junto con tu cuerpo.",
+      "se_ve": "Se mira en un espejo de cuerpo entero y sonríe segura.",
+      "segundos": 2.5
+    },
+    {
+      "n": 22,
+      "momento": "prueba",
+      "dice": "Con el tratamiento completo, tus curvas ya no se van.",
+      "se_ve": "Camina hacia la cámara por una calle empedrada, segura, moviendo el pelo.",
+      "segundos": 3.6
+    },
+    {
+      "n": 23,
+      "momento": "prueba",
+      "dice": "Esto no es algo temporal.",
+      "se_ve": "En una boutique elegante, con los ojos cerrados y una sonrisa orgullosa.",
+      "segundos": 1.8
+    },
+    {
+      "n": 24,
+      "momento": "solución",
+      "dice": "Cuando tu cuerpo recibe sus tres extractos cada día, la",
+      "se_ve": "Con la mano en la cadera; tres puntitos de luz dorada giran en su cintura y se quedan en la cadera.",
+      "segundos": 3.6
+    },
+    {
+      "n": 25,
+      "momento": "solución",
+      "dice": "grasa se va donde tiene que ir. Los",
+      "se_ve": "Pasea entre percheros de ropa y mira a la cámara con picardía.",
+      "segundos": 2.9
+    },
+    {
+      "n": 26,
+      "momento": "prueba",
+      "dice": "hombres voltean a verte apenas entras a un lugar.",
+      "se_ve": "Entra al lobby de un hotel y dos señores de traje voltean a mirarla.",
+      "segundos": 3.2
+    },
+    {
+      "n": 27,
+      "momento": "prueba",
+      "dice": "Tu ex, de la nada,",
+      "se_ve": "En su carro de noche, mira el celular con una ceja levantada.",
+      "segundos": 1.8
+    },
+    {
+      "n": 28,
+      "momento": "prueba",
+      "dice": "encuentra un pretexto para escribirte.",
+      "se_ve": "Primer plano del celular con un mensaje nuevo en el chat.",
+      "segundos": 2.4
+    },
+    {
+      "n": 29,
+      "momento": "prueba",
+      "dice": "Tus amigas te preguntan qué hiciste diferente y",
+      "se_ve": "En un café colorido, sus amigas se inclinan curiosas y ella se encoge de hombros con una sonrisa.",
+      "segundos": 3.2
+    },
+    {
+      "n": 30,
+      "momento": "cierre",
+      "dice": "te sientes otra persona.",
+      "se_ve": "Camina feliz por una calle soleada.",
+      "segundos": 1.7
+    },
+    {
+      "n": 31,
+      "momento": "oferta",
+      "dice": "Ahorita puedes pedir tu tratamiento de tres frascos",
+      "se_ve": "Unas manos con el celular tocan el botón rosado de una tienda con los tres frascos.",
+      "segundos": 2.9
+    },
+    {
+      "n": 32,
+      "momento": "oferta",
+      "dice": "y tomar solo dos cápsulas al día",
+      "se_ve": "Primer plano de ella con los ojos cerrados, tranquila, con el frasco cerrado junto a la cara.",
+      "segundos": 2.5
+    },
+    {
+      "n": 33,
+      "momento": "oferta",
+      "dice": "con aguaje, fenogreco y maca negra.",
+      "se_ve": "El frasco sobre una mesa de cocina con tres burbujas: el fruto del aguaje, las semillas de fenogreco y la maca negra.",
+      "segundos": 2.6
+    },
+    {
+      "n": 34,
+      "momento": "cierre",
+      "dice": "Así que no lo dejes pasar:",
+      "se_ve": "En su sala, muestra el frasco junto a la cara y le guiña el ojo a la cámara.",
+      "segundos": 2.5
+    },
+    {
+      "n": 35,
+      "momento": "oferta",
+      "dice": "lo pagas cuando te llega a la casa.",
+      "se_ve": "Un pasillo lleno de frascos y muchas mujeres felices que corren con ellos en los brazos.",
+      "segundos": 3.4
+    },
+    {
+      "n": 36,
+      "momento": "cierre",
+      "dice": "Pídelo hoy.",
+      "se_ve": "Camina hacia la cámara por la calle, sonriendo, con el frasco en la mano.",
+      "segundos": 2
+    }
+  ],
+  "decisiones": [
+    "Clonado de: 2 - VTD TT.mp4 · 36 tomas · 92 s. Estructura: la de tu video. Mismas escenas, mismo orden y lo mismo que se dice, con personajes en 3D estilo Zack D Films. Con la voz colombiana dura unos 110 s, cerca de lo que pediste.",
+    "Cambié lo del otro producto por lo tuyo: la «gota» es la cápsula, los fitoestrógenos son tus tres extractos y quité lo de las hormonas. Pasé de semanas a meses, porque tu producto es para tomarlo varios meses. Cambié palabras de México por las de Colombia («panza» por «barriga», «pompis» por «cola»).",
+    "La oferta del original (90 días sin riesgo, 75 % de descuento, «se agota») no la tienes, así que no va. Cierra con lo que sí hay: el tratamiento de tres frascos y el pago al recibir. No hay precio porque no lo diste.",
+    "Ángulo: el mismo de tu video, lo que pasa dentro del cuerpo mes a mes. Fondo: los mismos lugares del original, sin cuadrícula azul ni estudio. No usé un estilo de referencia de la biblioteca porque cambiaría tus escenarios.",
+    "El antes y después se ve en tres momentos (tomas 2, 14 y 18): la misma mujer pasa de plana a con curvas en el mismo encuadre. Ella va casi siempre de lado, con la cara hacia la cámara, y en short o jean en vez de bikini. Nunca se ven cápsulas: solo el frasco cerrado. No hay escenas extra entre tomas porque tu video no las tiene. 2 tomas van como imagen con movimiento suave (el chat y el frasco con los ingredientes)."
+  ]
+}

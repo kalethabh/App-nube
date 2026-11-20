@@ -1,6 +1,6 @@
 {
   "uuid": "7c25871d-d319-4cf4-88f8-c5497581bf2b",
-  "estado": "escribiendo",
+  "estado": "listo",
   "tipo": "guion",
   "intentos": 1,
   "progreso": [
@@ -17,11 +17,77 @@
     "Buscando en los archivos",
     "Mirando las imágenes del anuncio",
     "Guardando",
-    "Escribiendo el guion y cada escena"
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Ajustando el guion",
+    "Marcando las transiciones",
+    "Guardando",
+    "Revisando que el guion esté completo",
+    "Pasando el guion en limpio",
+    "La voz del narrador: Lina - Carefree & Fresh (la eligió la app)"
   ],
   "inicio": "2026-11-20T15:07:50.452Z",
   "cambios": [],
-  "actualizado": "2026-11-20T15:12:40.007Z",
+  "actualizado": "2026-11-20T15:16:49.418Z",
   "error": null,
-  "inicioIntento": "2026-11-20T15:07:50.454Z"
+  "inicioIntento": "2026-11-20T15:07:50.454Z",
+  "fin": "2026-11-20T15:16:49.418Z",
+  "limite": false,
+  "reinicio": null,
+  "medidas": [
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-20T15:16:49.414Z",
+      "ok": true,
+      "turnos": 28,
+      "duracionMs": 482355,
+      "uso": {
+        "input_tokens": 26,
+        "cache_creation_input_tokens": 172983,
+        "cache_read_input_tokens": 1259094,
+        "output_tokens": 58871,
+        "output_tokens_details": {
+          "thinking_tokens": 16745
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 172983,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 6,
+            "cache_read_input_tokens": 168743,
+            "cache_creation_input_tokens": 4240,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 4240
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 2.8132067999999997,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Bash",
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 2,
+      "motor": "claude"
+    }
+  ],
+  "ajustados": 0
 }

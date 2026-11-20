@@ -10,7 +10,11 @@
     "segundos": 110
   },
   "voz": {
-    "auto": true
+    "id": "VmejBeYhbrcTPwDniox7",
+    "nombre": "Lina - Carefree & Fresh",
+    "auto": true,
+    "motivo": "voz femenina como la del video de referencia (tono medio de 286 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, hecha para narrar",
+    "elegida": "2026-11-20T15:16:49.418Z"
   },
   "continuidad": false,
   "respuestas": {
