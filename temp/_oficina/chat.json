@@ -79,6 +79,58 @@
       "texto": "¡Dale! El guion del Aguaje ya está listo y con tus dos cositas confirmadas 👌 Apenas tenga el costo de producción te lo paso, y con tu sí arrancamos a producir.",
       "acciones": [],
       "fecha": "2026-11-20T15:44:43.810Z"
+    },
+    {
+      "id": "1d8a811b46",
+      "de": "tu",
+      "texto": "q se setá haciendo ?",
+      "fecha": "2026-11-20T15:47:43.731Z"
+    },
+    {
+      "id": "35707eae76",
+      "de": "coordinadora",
+      "texto": "Ahora mismo se está produciendo tu clon del Aguaje en Zack D Films 🎬 Va en las imágenes y los videos de las tomas, y apenas quede listo te lo paso. Ojo: los anuncios de imagen del Aguaje que tenían Lucía e Isabella se frenaron. ¿Quieres que los vuelva a lanzar?",
+      "acciones": [],
+      "fecha": "2026-11-20T15:47:49.686Z"
+    },
+    {
+      "id": "f3c3660cff",
+      "de": "tu",
+      "texto": "te refieres a los anuncios de imagen ?",
+      "fecha": "2026-11-20T15:48:29.713Z"
+    },
+    {
+      "id": "90b5c7b672",
+      "de": "coordinadora",
+      "texto": "Sí, esos mismos 😊 Lucía e Isabella estaban armando unos anuncios de imagen del Aguaje y se frenaron a mitad de camino. Tu video no se ve afectado, ese sigue produciéndose normal. ¿Quieres que los vuelva a lanzar? Si me dices cuántos y en qué formato (cuadrado, vertical o los dos), lo armo y te paso el costo antes.",
+      "acciones": [],
+      "fecha": "2026-11-20T15:48:34.021Z"
+    },
+    {
+      "id": "fd170a100a",
+      "de": "tu",
+      "texto": "no no, vuelv a intentar a las 11:15",
+      "fecha": "2026-11-20T15:48:53.561Z"
+    },
+    {
+      "id": "897faeeac5",
+      "de": "coordinadora",
+      "texto": "Dale, a las 11:15 lo volvemos a intentar 👌 Eso sí, yo no puedo dejarlo programado a una hora, así que escríbeme a esa hora y lo lanzo enseguida. Ahí te paso el costo antes de arrancar.",
+      "acciones": [],
+      "fecha": "2026-11-20T15:48:57.869Z"
+    },
+    {
+      "id": "98a367e0ad",
+      "de": "tu",
+      "texto": "ok",
+      "fecha": "2026-11-20T15:49:08.245Z"
+    },
+    {
+      "id": "6029bf67c7",
+      "de": "coordinadora",
+      "texto": "Perfecto 👌 Te espero a las 11:15. Mientras, sigo pendiente de tu video del Aguaje y te aviso apenas esté listo.",
+      "acciones": [],
+      "fecha": "2026-11-20T15:49:11.418Z"
     }
   ],
   "encargos": [
