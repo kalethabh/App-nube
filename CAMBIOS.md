@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20m · «Hazme un musical igual a este video» ya funciona
+
+- Antes, si le pasabas un video a la coordinadora y pedías un **Musical** (o una Historia musical) igual, el guion se trababa: los estilos cantados no podían clonar un video y nadie escuchaba tu video, así que no había letra que copiar.
+- Ahora la app **saca la letra de tu video** (la transcribe con tu ElevenLabs, centavos, una sola vez por video) y el guionista la usa: la **opción 1 de la letra es la del original palabra por palabra, con su estructura y sus rimas, cambiando solo el producto**. Las otras opciones cambian lo mínimo.
+- Lo mismo en los demás estilos: además de analizar tu video toma por toma, el guionista recibe lo que se dice en él para copiarlo si se lo pides.
+- Ojo: los estilos cantados se hacen animados (crochet, plastilina o 3D), no en video real. Si tu original es video real, la coordinadora te lo dice.
+- El guion que se trabó antes no tiene la letra: pídeselo de nuevo a la coordinadora con el video.
+
 ## 2026-11-20l · S.E.P: elige ver el BM completo, una cuenta publicitaria o una campaña
 
 - Arriba en S.E.P ahora eliges **qué ver**:
