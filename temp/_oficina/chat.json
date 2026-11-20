@@ -425,6 +425,35 @@
         }
       ],
       "fecha": "2026-11-20T20:32:46.487Z"
+    },
+    {
+      "id": "c792e82bca",
+      "de": "tu",
+      "texto": "Dame 10 variaciones de estAS IMAGENES, mira como son las variantes hacer más",
+      "adjuntos": [
+        "28073db12494",
+        "29cadb021da0",
+        "ab8dab3930e5",
+        "bb1c42d46f29",
+        "e01b87e9c67f",
+        "9428f308eda8"
+      ],
+      "fecha": "2026-11-20T23:03:14.726Z"
+    },
+    {
+      "id": "c0276c2176",
+      "de": "coordinadora",
+      "texto": "¡Me encantan! Ya lancé las 10 variaciones del Aguaje siguiendo esa misma línea: fondo rosado, el frasco grande, la chica de espaldas o el antes y después, íconos de beneficios y envío gratis con pago al recibir. Las hago cuadradas para el feed; apenas la app te muestre el costo me dices y arrancan 🙌",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Generando 10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu referencia) (sin costo por imagen)",
+          "href": "#/imagenes/_img-aguaje-complex-3-en-1-20261120-1803",
+          "lote": "_img-aguaje-complex-3-en-1-20261120-1803",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-20T23:03:38.731Z"
     }
   ],
   "encargos": [
@@ -465,6 +494,17 @@
       "productoId": "producto-edb1",
       "titulo": "Musical de AGUAJE COMPLEX 3 EN 1",
       "error": "El modelo de video rechazó una escena por su contenido."
+    },
+    {
+      "estado": "produciendo",
+      "creado": "2026-11-20T23:03:38.728Z",
+      "id": "_img-aguaje-complex-3-en-1-20261120-1803",
+      "tipo": "imagenes",
+      "lote": "_img-aguaje-complex-3-en-1-20261120-1803",
+      "productoId": "producto-edb1",
+      "titulo": "10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu referencia)",
+      "costo": 0,
+      "aprobado": "2026-11-20T23:03:38.730Z"
     }
   ]
 }
