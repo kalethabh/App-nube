@@ -45,7 +45,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-20T17:16:38.208Z",
-      "detalle": "Buscando en los archivos"
+      "detalle": "Escribiendo el guion y cada escena"
     },
     {
       "id": "tiempos",
@@ -112,7 +112,7 @@
   "modoPrueba": false,
   "creado": "2026-11-20T17:11:38.790Z",
   "aprobado": "2026-11-20T17:11:38.790Z",
-  "actualizado": "2026-11-20T17:17:00.282Z",
+  "actualizado": "2026-11-20T17:19:03.699Z",
   "saldoInicial": {
     "creditos": 9200.1,
     "fecha": "2026-11-20T17:11:39.063Z"
