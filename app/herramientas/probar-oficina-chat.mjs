@@ -155,18 +155,18 @@ async function principal() {
   // ------------------------------------------------------------ diseñar la oficina
   let d = (await pedir('/api/oficina')).datos;
   const base = d.zonas.map((z) => ({ id: z.id, lugar: z.lugar, nombre: z.nombre, color: z.color, tipo: z.tipo }));
-  const cafe = base.find((z) => z.id === 'cafe');
-  const guionZ = base.find((z) => z.id === 'guion');
+  const cafe = base.find((z) => z.id === 'sala');
+  const guionZ = base.find((z) => z.id === 'imagen');
   const libre = [...Array(d.lugares).keys()].find((n) => !base.some((z) => z.lugar === n));
-  const cambiada = base.map((z) => (z.id === 'cafe' ? { ...z, lugar: guionZ.lugar } : z.id === 'guion' ? { ...z, lugar: cafe.lugar, nombre: 'Guionistas', color: '#38bdf8' } : z));
+  const cambiada = base.map((z) => (z.id === 'sala' ? { ...z, lugar: guionZ.lugar } : z.id === 'imagen' ? { ...z, lugar: cafe.lugar, nombre: 'Creativos', color: '#38bdf8' } : z));
   r = await pedir('/api/oficina/zonas', { metodo: 'PUT', json: { zonas: [...cambiada, { nueva: true, nombre: 'Tráfico pago', tipo: 'datos', color: '#fb923c', lugar: libre }] } });
   const z2 = r.datos?.zonas || [];
   const propia = z2.find((z) => z.propia);
-  check('Se intercambian dos salas, se renombra una y se crea una propia en el lugar libre', r.st === 200 && z2.find((z) => z.id === 'cafe')?.lugar === guionZ.lugar && z2.find((z) => z.id === 'guion')?.nombre === 'Guionistas' && propia?.nombre === 'Tráfico pago' && propia.tipo === 'datos' && propia.lugar === libre, r);
+  check('Se intercambian dos salas, se renombra una y se crea una propia en el lugar libre', r.st === 200 && z2.find((z) => z.id === 'sala')?.lugar === guionZ.lugar && z2.find((z) => z.id === 'imagen')?.nombre === 'Creativos' && propia?.nombre === 'Tráfico pago' && propia.tipo === 'datos' && propia.lugar === libre, r);
   r = await pedir('/api/oficina/zonas', { metodo: 'PUT', json: { zonas: [...cambiada, { nueva: true, nombre: 'Otra', tipo: 'datos', lugar: cafe.lugar }] } });
   check('Dos salas en el mismo lugar se rechazan (400)', r.st === 400, r);
   r = await pedir('/api/oficina/zonas', { metodo: 'PUT', json: { zonas: base } });
-  check('Guardar sin la propia la borra y todo vuelve a su lugar', r.st === 200 && !r.datos.zonas.some((z) => z.propia) && r.datos.zonas.find((z) => z.id === 'cafe')?.lugar === cafe.lugar, r.datos?.zonas);
+  check('Guardar sin la propia la borra y todo vuelve a su lugar', r.st === 200 && !r.datos.zonas.some((z) => z.propia) && r.datos.zonas.find((z) => z.id === 'sala')?.lugar === cafe.lugar, r.datos?.zonas);
   r = await pedir(`/api/anuncios/no-existe/opinion`, { json: { voto: 'bien' } });
   check('Opinar de un anuncio que no existe da 404', r.st === 404, r);
 }
