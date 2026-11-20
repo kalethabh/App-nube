@@ -25,7 +25,7 @@ const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
 // (lo que viene: una pantalla de «Próximamente» cada uno)
 const EmbudoWhatsapp = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.EmbudoWhatsapp })));
 const Landings = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.Landings })));
-const Sep = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.Sep })));
+const Sep = lazy(() => import('./pantallas/sep/index.jsx'));
 const Tablero = lazy(() => import('./pantallas/tablero/index.jsx'));
 const Nuevo = lazy(() => import('./pantallas/nuevo/index.jsx'));
 const Entrega = lazy(() => import('./pantallas/entrega/index.jsx'));

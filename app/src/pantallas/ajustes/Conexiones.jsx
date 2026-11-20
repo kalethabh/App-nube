@@ -106,6 +106,23 @@ export function ClaveMeta({ estado, compacto = false, alCambiar }) {
   );
 }
 
+/** El token de tu cuenta publicitaria de Meta (S.E.P: tus anuncios con sus compras y métricas). */
+export function ClaveMetaAds({ estado, compacto = false, alCambiar }) {
+  return (
+    <CampoClave
+      id="metaAds"
+      nombre="Meta (tu cuenta publicitaria)"
+      para={compacto ? undefined : 'S.E.P: tus anuncios que más venden'}
+      icono={Library}
+      tono="cian"
+      guardada={estado ? Boolean(estado.claves?.metaAds) : null}
+      enlace={ENLACES_CLAVE.meta}
+      compacto={compacto}
+      alCambiar={alCambiar}
+    />
+  );
+}
+
 /**
  * El saldo real de kie, junto a su clave (GET /api/saldo, una consulta gratis).
  * Junto con el costo aproximado de cada modelo (Ajustes › Modelos), es el único dinero fuera del informe de la entrega.
@@ -821,6 +838,31 @@ export function Conexiones({ estado, recargar, alElegirModelos }) {
             </li>
           </ol>
           <p>Tu token queda solo en este computador (en el archivo .env) y nunca se muestra en la app.</p>
+        </details>
+        <div className="pila" style={{ '--hueco': '4px', marginTop: 'var(--e-4)' }}>
+          <h3 className="conexion-bloque__titulo">S.E.P: tu cuenta publicitaria de Meta</h3>
+          <p className="conexion-bloque__texto">Opcional y gratis. Con este token, S.E.P lee tus anuncios con sus compras y métricas, y te dice cuáles escalar y a cuáles hacerles variaciones. Solo lee: nunca cambia nada en tu cuenta. Si tu token de arriba ya tiene el permiso ads_read, no hace falta.</p>
+        </div>
+        <ClaveMetaAds estado={e} alCambiar={recargar} />
+        <details className="conexion-ayuda">
+          <summary>Cómo saco el token de mi cuenta publicitaria (3 pasos)</summary>
+          <ol>
+            <li>
+              En el{' '}
+              <a href={ENLACES_CLAVE.meta} target="_blank" rel="noopener noreferrer">
+                Explorador de la Graph API
+              </a>
+              , elige tu app (la misma de arriba sirve) y en «Permissions» agrega <strong>ads_read</strong> (y read_insights).
+            </li>
+            <li>Toca «Generate Access Token», entra con la cuenta que administra tus anuncios y acepta. Copia el token (empieza con EAA).</li>
+            <li>
+              Para que dure unos 60 días, extiéndelo en el{' '}
+              <a href="https://developers.facebook.com/tools/debug/accesstoken/" target="_blank" rel="noopener noreferrer">
+                Depurador de tokens
+              </a>{' '}
+              y pega aquí el largo. Cuando venza, S.E.P te avisa.
+            </li>
+          </ol>
         </details>
       </Tarjeta>
     </Seccion>
