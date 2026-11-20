@@ -140,6 +140,44 @@ export async function transcribirVoz(bytes, tipo = 'audio/webm') {
   return { texto: texto.slice(0, 2000) };
 }
 
+/**
+ * (2026-11-20m) Lo que se dice o se canta en un VIDEO que pasó el usuario (ElevenLabs Scribe, centavos; se guarda en su
+ * carpeta para no pagarlo dos veces). '' si no tiene voz o falta la clave. En modo prueba, un texto fijo.
+ */
+export async function letraDelVideo(m) {
+  if (!m || m.tipo !== 'video') return '';
+  const guardada = path.join(ADJUNTOS, m.id, 'transcripcion.txt');
+  if (fs.existsSync(guardada)) return fs.readFileSync(guardada, 'utf8');
+  const { modoPrueba } = await import('./procesos.js');
+  let texto = '';
+  if (modoPrueba()) texto = 'Yo tenía las piernas flacas y nada me funcionaba, / hasta que probé Aguaje y mi cuerpo cambiaba.';
+  else {
+    const { leerClave } = await import('./claves.js');
+    const clave = leerClave('ELEVENLABS_API_KEY');
+    if (!clave) return '';
+    const { comprobarFfmpeg } = await import('./imagen-ads/local.js');
+    const ff = await comprobarFfmpeg();
+    if (!ff?.bin) return '';
+    const mp3 = path.join(ADJUNTOS, m.id, 'audio.mp3');
+    const { spawnSync } = await import('node:child_process');
+    spawnSync(ff.bin, ['-hide_banner', '-loglevel', 'error', '-y', '-i', path.join(ADJUNTOS, m.id, m.archivo), '-vn', '-ac', '1', '-ar', '16000', '-b:a', '48k', mp3], { timeout: 300000, windowsHide: true });
+    if (!fs.existsSync(mp3)) return '';
+    try {
+      const form = new FormData();
+      form.append('model_id', 'scribe_v1');
+      form.append('file', new Blob([fs.readFileSync(mp3)], { type: 'audio/mpeg' }), 'audio.mp3');
+      const r = await fetch('https://api.elevenlabs.io/v1/speech-to-text', { method: 'POST', headers: { 'xi-api-key': clave }, body: form, signal: AbortSignal.timeout(180000) });
+      if (r.ok) texto = String((await r.json())?.text || '').trim();
+    } catch {
+      texto = '';
+    } finally {
+      fs.rmSync(mp3, { force: true });
+    }
+  }
+  if (texto) fs.writeFileSync(guardada, texto.slice(0, 8000));
+  return texto.slice(0, 8000);
+}
+
 /** Cómo ve la IA un archivo: la ruta que puede leer (el texto ya sacado de un Word). */
 function adjuntoParaLaIA(m) {
   const rel = (f) => path.relative(RAIZ, path.join(ADJUNTOS, m.id, f)).replace(/\\/g, '/');
@@ -291,7 +329,7 @@ ${historia.join('\n')}
 
 Contesta el ÚLTIMO mensaje del USUARIO. Si adjuntó archivos, LÉELOS con Read antes de contestar (imágenes y PDF también) y úsalos: es lo que te está pasando para que trabajes con eso.
 Puedes pedirle a la app estas acciones (la app las hace, le muestra el enlace y TÚ sigues el trabajo: cuando el guion esté listo le escribes con el costo, y cuando termine le entregas el resultado):
-- { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió, ej. 1:50>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>", "video": "<id de un VIDEO que adjuntó>" | null, "conservar_gancho": false } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir. CON "video": la app CLONA ese video (lo analiza toma por toma y el guionista replica su estructura, ritmo y gancho en el estilo pedido, con la duración pedida). Úsalo cuando adjunta un video y pide «uno igual», «replica la estructura», «como este»: NO le digas que lo suba en otro lado, hazlo tú. "conservar_gancho": true solo si pide dejar el gancho y el ángulo tal cual.
+- { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió, ej. 1:50>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>", "video": "<id de un VIDEO que adjuntó>" | null, "conservar_gancho": false } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir. CON "video": la app CLONA ese video (lo analiza toma por toma, transcribe lo que se dice y el guionista replica su estructura, ritmo y gancho en el estilo pedido, con la duración pedida). En los estilos CANTADOS (musical, historias-musicales) también funciona: la app transcribe la LETRA del video y el guionista la copia palabra por palabra cambiando solo el producto (la opción 1 de la letra); la imagen de esos estilos es animada (crochet, plastilina o 3D), no video real: si el original es video real, díselo en una frase y sigue. Úsalo cuando adjunta un video y pide «uno igual», «replica la estructura», «como este»: NO le digas que lo suba en otro lado, hazlo tú. "conservar_gancho": true solo si pide dejar el gancho y el ángulo tal cual.
 Lo obligatorio de un estilo: si falta, propón la opción más común y pregúntala en UNA frase («¿fondo de estudio limpio o con la grilla azul?»). Si dice «decide tú», «como quieras» o algo así, elige tú y créalo.
 - { "tipo": "producir", "id": "<id de lo que estás siguiendo>" } → SOLO si eso ESPERA EL SÍ y el usuario acaba de decir que sí (dale, hazlo, de una, ok, sí, está bien, apruébalo, me gusta…) después de ver el costo. Es APROBAR: el guion queda aprobado, se lo pasas al equipo y arranca la producción (ahí se cobra). Si hay varias cosas esperando y no queda claro cuál aprueba, pregunta cuál. Si aprueba algo que todavía no le dijiste cuánto cuesta (un guion que no estás siguiendo), usa "seguir" con su slug: tú le dices el costo enseguida y espera su sí.
 - { "tipo": "imagenes", "productoId": "<id con foto>", "cantidad": 1-${MAX_IMAGENES}, "formato": "1:1" | "9:16" | "ambos", "referencia": "<id de una imagen que adjuntó>" | null, "pais": "<país>" | null, "publico": "<público>" | null, "idea": "<lo que pidió>" } → anuncios de imagen con el agente de variaciones: con su imagen de referencia (variaciones de ese anuncio) o, sin referencia, desde la investigación de mercado del producto (si no la tiene, primero investigar). La app le muestra el costo y espera su sí.
@@ -429,9 +467,15 @@ async function ejecutar(acciones, ctx) {
         const respuestas = a.respuestas && typeof a.respuestas === 'object' && !Array.isArray(a.respuestas) ? { ...a.respuestas } : {};
         // (2026-11-20h) clonar el VIDEO que le pasó en el chat: va a temp/_referencias como un video subido en
         // «Clonar un video» (lib/clonar.js lo analiza antes de escribir el guion)
+        let letraOriginal = '';
         if (a.video) {
           const v = metaAdjunto(String(a.video));
           if (!v || v.tipo !== 'video') throw new Error('No encuentro ese video entre lo que me pasaste.');
+          letraOriginal = await letraDelVideo(v);
+          // los cantados (Musical, Historias musicales) no clonan el video: van con su letra transcrita
+          if (ESTILOS[a.estilo].faseGuion === 'letras') {
+            if (!letraOriginal) throw new Error('No pude sacar la letra de tu video (no tiene voz, o falta tu clave de ElevenLabs en Ajustes › Conexiones).');
+          } else {
           const { DIR_REFERENCIAS } = await import('../rutas/referencias.js');
           fs.mkdirSync(DIR_REFERENCIAS, { recursive: true });
           const destino = path.join(DIR_REFERENCIAS, `${v.id}${path.extname(v.archivo)}`);
@@ -444,11 +488,12 @@ async function ejecutar(acciones, ctx) {
           }
           respuestas.clonar = `subido:${v.id}|${v.nombre.replace(/[|]/g, ' ').slice(0, 80)}`;
           respuestas.clonar_gancho = a.conservar_gancho === true ? 'No, conserva el gancho y el ángulo del original' : 'Sí, adáptalo a mi producto';
+          }
         }
         for (let i = 0; i < n; i++) {
           const idea = limpio(a.idea, 400);
           const extra = n > 1 ? ` (versión ${i + 1} de ${n}: un ángulo y un gancho DISTINTOS a las otras)` : '';
-          const r = crearAnuncio({ productoId: a.productoId, estilo: a.estilo, duracion: a.duracion ? limpio(a.duracion, 60) : null, respuestas, pedido: `${idea}${extra}`.trim() });
+          const r = crearAnuncio({ productoId: a.productoId, estilo: a.estilo, duracion: a.duracion ? limpio(a.duracion, 60) : null, respuestas, pedido: `${idea}${extra}`.trim(), ...(letraOriginal ? { letraOriginal } : {}) });
           const titulo = `${ESTILOS[a.estilo].nombre} de ${nombreDe(a.productoId)}${n > 1 ? ` (${i + 1}/${n})` : ''}`;
           hechas.push({ tipo: 'anuncio', titulo: `Guion ${titulo}${a.video ? ' (clonando tu video)' : ''}`, href: `#/nuevo?producto=${encodeURIComponent(a.productoId)}&paso=2&anuncios=${r.slug}`, slug: r.slug, ok: true });
           encargar({ id: r.slug, tipo: 'video', slug: r.slug, productoId: a.productoId, titulo });
@@ -664,7 +709,10 @@ export async function seguimiento() {
     siguiendo = false;
   }
 }
-if (!process.env.OFICINA_SIN_SEGUIMIENTO) setInterval(() => seguimiento().catch(() => {}), Number(process.env.OFICINA_SEGUIMIENTO_MS) || 15000).unref();
+// (en las apps de prueba de las herramientas, ANUNCIOS_PRUEBA_LIMPIO, solo si la prueba lo pide con OFICINA_SEGUIMIENTO_MS:
+// si no, anotaba en el chat de verdad los anuncios que crean esas pruebas)
+const seguimientoPrendido = !process.env.OFICINA_SIN_SEGUIMIENTO && (process.env.ANUNCIOS_PRUEBA_LIMPIO !== '1' || Boolean(process.env.OFICINA_SEGUIMIENTO_MS));
+if (seguimientoPrendido) setInterval(() => seguimiento().catch(() => {}), Number(process.env.OFICINA_SEGUIMIENTO_MS) || 15000).unref();
 
 // ---------------------------------------------------------------- aprender: el 👍/👎
 

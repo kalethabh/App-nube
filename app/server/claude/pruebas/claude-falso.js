@@ -301,7 +301,10 @@ async function alMensaje(texto) {
     const docAdj = (/su texto en (temp\/_oficina\/adjuntos\/\S+?)\)/.exec(ultimo) || [])[1];
     const esperaSi = (/^(\S+) \| [^\n]* \| ESPERA EL SÍ/m.exec(textoTarea) || [])[1];
     const videoAdj = (/\(un VIDEO: [^)]*\) \[id ([a-f0-9]{12})\]/.exec(ultimo) || [])[1];
-    if (videoAdj && /igual|replic|clon|estructura/i.test(ultimo) && prod) {
+    if (videoAdj && /musical/i.test(ultimo) && prod) {
+      acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'musical', cantidad: 1, duracion: null, respuestas: { visual: 'crochet' }, idea: 'copiar la letra del video palabra por palabra cambiando solo el producto', video: videoAdj });
+      respuesta = 'Listo: saco la letra de tu video y el guionista la copia tal cual con tu producto.';
+    } else if (videoAdj && /igual|replic|clon|estructura/i.test(ultimo) && prod) {
       acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'zack-d-films', cantidad: 1, duracion: '1:50', respuestas: { fondo: 'estudio' }, idea: 'replicar la estructura del video', video: videoAdj, conservar_gancho: false });
       respuesta = 'Va, le paso tu video al guionista para que lo replique en Zack de 1:50.';
     } else if (/^dale/i.test(ultimo) && esperaSi) {

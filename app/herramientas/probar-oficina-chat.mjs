@@ -189,6 +189,20 @@ async function principal() {
   const refVid = path.join(RAIZ, 'temp', '_referencias', `${vid.datos.id}.mp4`);
   creados.referencias.push(refVid);
   check('…el video queda donde «Clonar un video» lo busca', fs.existsSync(refVid) && fs.statSync(refVid).size === fs.statSync(VIDEO).size);
+  // (2026-11-20m) un cantado (Musical) con video: no clona, va con la LETRA transcrita del video
+  r = await pedir('/api/oficina/chat', { json: { texto: 'Hazme un musical igual a este, copia la letra palabra por palabra', adjuntos: [vid.datos.id] } });
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  m = respuesta(c);
+  const accMus = m?.acciones?.find((a) => a.tipo === 'anuncio');
+  if (accMus?.slug) creados.slugs.push(accMus.slug);
+  const briefMus = accMus?.slug ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', accMus.slug, 'app', 'brief.json'), 'utf8')) : null;
+  check('Musical con video: lleva la letra transcrita del video (y no intenta clonarlo)', accMus?.ok && briefMus?.estilo === 'musical' && /piernas flacas/.test(briefMus.letraOriginal || '') && !briefMus.respuestas?.clonar, { m, brief: briefMus });
+  check('…y la transcripción queda guardada para no pagarla dos veces', fs.existsSync(path.join(RAIZ, 'temp', '_oficina', 'adjuntos', vid.datos.id, 'transcripcion.txt')));
+  if (briefMus) {
+    const { armarSesionGuion } = await import(path.join(APP, 'server', 'lib', 'anuncios-nuevos.js'));
+    const ses = armarSesionGuion(accMus.slug);
+    check('…y la tarea del guion trae la letra y pide la opción 1 palabra por palabra', /La letra del video original/.test(ses.prompt) && /piernas flacas/.test(ses.prompt) && /OPCIÓN 1/.test(ses.prompt));
+  }
   r = await pedir('/api/oficina/chat/voz', { cuerpo: Buffer.alloc(2000, 1), headers: { 'Content-Type': 'audio/webm' } });
   check('Dictar por voz (el respaldo grabado) devuelve el texto', r.st === 200 && /dictado por voz/.test(r.datos?.texto || ''), r);
   r = await pedir('/api/oficina/chat/voz', { cuerpo: Buffer.alloc(10, 1), headers: { 'Content-Type': 'audio/webm' } });
