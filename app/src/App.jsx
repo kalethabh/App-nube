@@ -26,6 +26,7 @@ const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
 const EmbudoWhatsapp = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.EmbudoWhatsapp })));
 const Landings = lazy(() => import('./pantallas/landings/index.jsx'));
 const Sep = lazy(() => import('./pantallas/sep/index.jsx'));
+const Shopify = lazy(() => import('./pantallas/shopify/index.jsx'));
 const Tablero = lazy(() => import('./pantallas/tablero/index.jsx'));
 const Nuevo = lazy(() => import('./pantallas/nuevo/index.jsx'));
 const Entrega = lazy(() => import('./pantallas/entrega/index.jsx'));
@@ -64,6 +65,7 @@ export const RUTAS = [
   { patron: '/embudo-whatsapp', Pantalla: EmbudoWhatsapp, menu: 'whatsapp', titulo: 'Embudo WhatsApp', migas: () => [{ texto: 'Embudo WhatsApp' }] },
   { patron: '/landings', Pantalla: Landings, menu: 'landings', titulo: 'Generador de Landings', migas: () => [{ texto: 'Generador de Landings' }] },
   { patron: '/sep', Pantalla: Sep, menu: 'sep', titulo: 'S.E.P', migas: () => [{ texto: 'S.E.P' }] },
+  { patron: '/shopify', Pantalla: Shopify, menu: 'shopify', titulo: 'Shopify', migas: () => [{ texto: 'Shopify' }] },
   { patron: '/productos', Pantalla: Productos, menu: 'productos', titulo: 'Productos', migas: () => [{ texto: 'Productos' }] },
   { patron: '/tablero', Pantalla: Tablero, menu: 'tablero', titulo: 'Mis anuncios', migas: () => [{ texto: 'Mis anuncios' }] },
   { patron: '/nuevo', Pantalla: Nuevo, menu: 'nuevo', titulo: 'Nuevo anuncio', migas: () => [MIS_ANUNCIOS, { texto: 'Nuevo anuncio' }] },

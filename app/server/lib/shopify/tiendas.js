@@ -1,0 +1,133 @@
+// TUS TIENDAS DE SHOPIFY (2026-11-20r): conectas una o varias (como en ChatGPT) y la app trabaja en cualquiera.
+// Cada tienda se conecta con su dirección (<algo>.myshopify.com) y una de estas formas:
+//   - Client ID + secreto de una app del Dev Dashboard (dev.shopify.com) instalada en tu tienda: ACCESO COMPLETO. Es la
+//     forma de 2026 (desde el 1-ene-2026 Shopify no deja crear «apps propias» con token fijo en el admin). La app los
+//     cambia por un token (client credentials, dura ~24 h) y lo RENUEVA sola antes de que venza (renovar()).
+//   - shpat_…  el token de una app propia creada antes de 2026: ACCESO COMPLETO (API de administración y Shopify CLI).
+//   - shptka_… la contraseña de la app «Theme Access»: solo los temas (Shopify CLI).
+// Las claves viven en <raíz>/.env.shopify.json (permisos 600; fuera de git, del paquete y de las actualizaciones, como
+// el .env) y NUNCA salen por la API de la app ni se muestran.
+//
+//   listarTiendas() -> [{ id, nombre, dominio, tipo: 'completo'|'temas', agregada, tienda }]   (sin las claves)
+//   agregarTienda({ dominio, token, nombre }) -> la tienda (la prueba antes de guardarla)
+//   quitarTienda(id) · tiendaConClave(id) y renovar(tienda) (solo para lib/shopify) · normalizarDominio(texto)
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { RAIZ } from '../rutas.js';
+import { ErrorApp } from '../productos.js';
+
+const ARCHIVO = () => process.env.SHOPIFY_TIENDAS_ARCHIVO || path.join(RAIZ, '.env.shopify.json');
+
+function leer() {
+  try {
+    const d = JSON.parse(fs.readFileSync(ARCHIVO(), 'utf8'));
+    return Array.isArray(d?.tiendas) ? d : { tiendas: [] };
+  } catch {
+    return { tiendas: [] };
+  }
+}
+function guardar(d) {
+  const f = ARCHIVO();
+  const tmp = `${f}.${process.pid}.tmp`;
+  fs.writeFileSync(tmp, JSON.stringify(d, null, 2), { mode: 0o600 });
+  fs.renameSync(tmp, f);
+  try {
+    fs.chmodSync(f, 0o600);
+  } catch {
+    /* Windows */
+  }
+}
+
+/** «mitienda», «mitienda.myshopify.com», «https://admin.shopify.com/store/mitienda/…» -> «mitienda.myshopify.com». */
+export function normalizarDominio(texto) {
+  const t = String(texto || '').trim().toLowerCase();
+  const admin = /admin\.shopify\.com\/store\/([a-z0-9][a-z0-9-]*)/.exec(t);
+  if (admin) return `${admin[1]}.myshopify.com`;
+  const host = t.replace(/^https?:\/\//, '').split(/[/?#]/)[0];
+  if (/^[a-z0-9][a-z0-9-]*\.myshopify\.com$/.test(host)) return host;
+  if (/^[a-z0-9][a-z0-9-]*$/.test(host)) return `${host}.myshopify.com`;
+  return null;
+}
+
+export const tipoDeToken = (t) => (/^(shpat|shpca)_[A-Za-z0-9]{20,}$/.test(t) ? 'completo' : /^shptka_[A-Za-z0-9]{20,}$/.test(t) ? 'temas' : null);
+const publica = ({ token: _t, clientSecret: _s, clientId: _c, vence: _v, ...t }) => ({ ...t, forma: _c ? 'dev-dashboard' : 'token' });
+
+export const listarTiendas = () => leer().tiendas.map(publica);
+
+/** Solo para lib/shopify: la tienda con su clave. */
+export function tiendaConClave(idONombre) {
+  const q = String(idONombre || '').trim().toLowerCase();
+  const ts = leer().tiendas;
+  const t = ts.find((x) => x.id === q) || ts.find((x) => x.dominio === q || x.dominio === normalizarDominio(q)) || ts.find((x) => String(x.nombre || '').toLowerCase() === q) || (ts.length === 1 && !q ? ts[0] : null);
+  if (!t) throw new ErrorApp(404, 'No encuentro esa tienda: conéctala en Shopify › Tiendas.');
+  return t;
+}
+
+const baseOauth = (dominio) => process.env.SHOPIFY_ADMIN_BASE || `https://${dominio}`;
+
+/** Client ID + secreto -> { token, vence } (client credentials grant de Shopify). */
+async function pedirToken(dominio, clientId, clientSecret) {
+  let r;
+  try {
+    r = await fetch(`${baseOauth(dominio)}/admin/oauth/access_token`, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' }, body: new URLSearchParams({ grant_type: 'client_credentials', client_id: clientId, client_secret: clientSecret }), signal: AbortSignal.timeout(30000) });
+  } catch {
+    throw new ErrorApp(400, 'No pude conectar con la tienda (revisa la dirección y tu internet).');
+  }
+  const d = await r.json().catch(() => null);
+  if (!r.ok || !d?.access_token) {
+    const e = String(d?.error_description || d?.error || d?.errors || '');
+    if (/shop_not_permitted|not.*organization/i.test(e)) throw new ErrorApp(400, 'Shopify no deja usar esa app en esta tienda: la app y la tienda tienen que ser de la MISMA organización en el Dev Dashboard, y la app tiene que estar instalada en la tienda.');
+    throw new ErrorApp(400, `Shopify no aceptó el Client ID y el secreto${e ? ` (${e.slice(0, 160)})` : ''}. Revisa que la app esté instalada en esta tienda.`);
+  }
+  const seg = Number(d.expires_in) || 86399;
+  return { token: d.access_token, vence: new Date(Date.now() + seg * 1000).toISOString() };
+}
+
+/** La tienda con un token vigente (lo renueva si es del Dev Dashboard y vence en menos de 10 minutos). */
+export async function renovar(t) {
+  if (!t?.clientId || (t.vence && Date.parse(t.vence) - Date.now() > 10 * 60000)) return t;
+  const nuevo = await pedirToken(t.dominio, t.clientId, t.clientSecret);
+  const datos = leer();
+  const i = datos.tiendas.findIndex((x) => x.id === t.id);
+  if (i >= 0) {
+    datos.tiendas[i] = { ...datos.tiendas[i], ...nuevo };
+    guardar(datos);
+  }
+  return { ...t, ...nuevo };
+}
+
+export async function agregarTienda({ dominio, token, nombre, clientId, clientSecret } = {}) {
+  const d = normalizarDominio(dominio);
+  if (!d) throw new ErrorApp(400, 'Pon la dirección de la tienda que termina en .myshopify.com (la ves en Configuración › Dominios).');
+  let tk = String(token || '').trim();
+  let extra = {};
+  const cid = String(clientId || '').trim();
+  const csec = String(clientSecret || '').trim();
+  if (cid || csec) {
+    if (!/^[A-Za-z0-9_-]{16,}$/.test(cid) || csec.length < 16) throw new ErrorApp(400, 'Copia el Client ID y el secreto (Client secret) de tu app en el Dev Dashboard › Configuración.');
+    const n = await pedirToken(d, cid, csec);
+    tk = n.token;
+    extra = { clientId: cid, clientSecret: csec, vence: n.vence };
+  }
+  const tipo = extra.clientId ? 'completo' : tipoDeToken(tk);
+  if (!tipo) throw new ErrorApp(400, 'Esa clave no parece de Shopify: usa el Client ID y el secreto de tu app del Dev Dashboard, un token shpat_ (app creada antes de 2026) o la contraseña shptka_ de Theme Access (solo temas).');
+  const { probarTienda } = await import('./api.js');
+  const prueba = await probarTienda({ dominio: d, token: tk, tipo });
+  if (!prueba.ok) throw new ErrorApp(400, prueba.error);
+  const datos = leer();
+  const antes = datos.tiendas.find((x) => x.dominio === d);
+  const t = { id: antes?.id || `${d.split('.')[0]}-${crypto.randomBytes(2).toString('hex')}`, nombre: String(nombre || '').trim().slice(0, 60) || prueba.nombre || d.split('.')[0], dominio: d, tipo, token: tk, ...extra, agregada: antes?.agregada || new Date().toISOString(), tienda: prueba.url || `https://${d}` };
+  datos.tiendas = [...datos.tiendas.filter((x) => x.dominio !== d), t];
+  guardar(datos);
+  return publica(t);
+}
+
+export function quitarTienda(id) {
+  const datos = leer();
+  const antes = datos.tiendas.length;
+  datos.tiendas = datos.tiendas.filter((x) => x.id !== id);
+  if (datos.tiendas.length === antes) throw new ErrorApp(404, 'No encuentro esa tienda.');
+  guardar(datos);
+  return { ok: true };
+}

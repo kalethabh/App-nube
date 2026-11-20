@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20r · Tus tiendas de Shopify conectadas (las que quieras)
+
+- Menú nuevo **Shopify**: conectas una o varias tiendas y eliges en cuál trabajar. Se conectan con el **Client ID y el secreto** de una app del Dev Dashboard de Shopify (la forma nueva; la app renueva el permiso sola cada día), con un token `shpat_` de una app vieja o con la contraseña de **Theme Access** (solo temas). Las claves quedan solo en tu computador y nunca se muestran.
+- **Pídele a la IA**: escribes lo que quieres cambiar («el botón en verde y que diga Pídelo ya», «agrega preguntas frecuentes al producto»…) y eliges quién lo hace (**Claude Code** o **Codex**). Edita el código del tema en una copia y lo sube como **tema nuevo sin publicar**: lo ves en la vista previa y lo publicas con un botón (o lo descartas). Tu tienda no cambia hasta que tú digas.
+- Con acceso completo también puede proponer cambios en páginas, productos, colecciones…: cada uno espera tu «Aplicar».
+- **Subir una landing a Shopify** (botón en cada landing): queda como página de tu tienda, con sus imágenes, y los botones de comprar van a tu producto.
+- La **coordinadora** también puede: «en mi tienda X cambia…».
+
 ## 2026-11-20q · Landings: clona cualquier landing y déjala volando
 
 - **Crear › Landings** ya funciona: pegas la dirección de una landing y la app la clona.

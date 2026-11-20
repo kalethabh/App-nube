@@ -4,8 +4,9 @@
 // tu producto. Cada landing se ve (en un celular de muestra), se mide y se descarga en zip.
 // Servidor: /api/landings (lib/landings/).
 import { useEffect, useState } from 'react';
-import { CircleAlert, Copy, Download, ExternalLink, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, Smartphone, Trash2 } from 'lucide-react';
-import { Boton, CabeceraPagina, CampoTexto, EstadoVacio, useAvisos } from '../../componentes/index.js';
+import { CircleAlert, Copy, Download, ExternalLink, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, ShoppingBag, Smartphone, Trash2 } from 'lucide-react';
+import { Boton, CabeceraPagina, CampoTexto, EstadoVacio, Selector, useAvisos } from '../../componentes/index.js';
+import { enlace } from '../../datos/rutas.js';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { fechaRelativa } from '../../datos/formato.js';
 import './landings.css';
@@ -33,8 +34,55 @@ function Medidor({ titulo, p, meta = 80 }) {
   );
 }
 
-function Landing({ l, abierta, onAbrir, onCambio }) {
+function SubirAShopify({ l, tiendas, alCerrar }) {
   const { aviso } = useAvisos();
+  const [tiendaId, setTiendaId] = useState(tiendas[0]?.id || '');
+  const [titulo, setTitulo] = useState(l.titulo || '');
+  const [producto, setProducto] = useState('');
+  const [ocupado, setOcupado] = useState(false);
+  const tienda = tiendas.find((t) => t.id === tiendaId);
+  if (!tiendas.length) {
+    return (
+      <div className="ld-shopify">
+        <p className="ld-ayuda">Primero conecta tu tienda en el menú <a href={enlace.shopify()}>Shopify</a> (puedes conectar varias).</p>
+      </div>
+    );
+  }
+  const subir = async () => {
+    setOcupado(true);
+    try {
+      await pedirNuevo('/api/shopify/landing', { metodo: 'POST', cuerpo: { landingId: l.id, tiendaId, titulo, direccion: titulo, producto: producto.trim() || null } });
+      aviso({ tipo: 'exito', titulo: 'Subiéndola a Shopify', texto: 'Mira cómo va en el menú Shopify.' });
+      alCerrar();
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude subirla', texto: e.message });
+    } finally {
+      setOcupado(false);
+    }
+  };
+  return (
+    <div className="ld-shopify">
+      <div className="ld-shopify__campos">
+        <Selector etiqueta="Tienda" value={tiendaId} onChange={(e) => setTiendaId(e.target.value)} opciones={tiendas.map((t) => ({ valor: t.id, etiqueta: `${t.nombre} (${t.dominio})` }))} />
+        <CampoTexto etiqueta="Título de la página" value={titulo} onChange={(e) => setTitulo(e.target.value)} maxLength={120} />
+        {tienda?.tipo === 'completo' ? <CampoTexto etiqueta="Producto de tu tienda (su dirección)" opcional placeholder="mi-producto" value={producto} onChange={(e) => setProducto(e.target.value)} ayuda="Los botones de comprar irán a ese producto." /> : null}
+      </div>
+      <p className="ld-ayuda">
+        {tienda?.tipo === 'completo'
+          ? 'Se sube como plantilla en tu tema publicado (solo archivos nuevos: no cambia nada de lo que ya tienes) y se crea la página publicada.'
+          : 'Se sube como plantilla en tu tema publicado (solo archivos nuevos). Con «solo temas» la página la creas tú en Shopify eligiendo esa plantilla.'}
+      </p>
+      <div className="ld-botones">
+        <Boton variante="primario" tamano="chico" icono={ShoppingBag} cargando={ocupado} disabled={!tiendaId || !titulo.trim()} onClick={subir}>Subir</Boton>
+        <Boton variante="fantasma" tamano="chico" onClick={alCerrar}>Cancelar</Boton>
+      </div>
+    </div>
+  );
+}
+
+function Landing({ l, abierta, onAbrir, onCambio, tiendas }) {
+  const { aviso } = useAvisos();
+  const [subiendo, setSubiendo] = useState(false);
   const vista = `/landing/${l.id}/index.html`;
   const ocupado = l.trabajando || l.estado === 'trabajando' || l.estado === 'midiendo';
   const accion = async (fn, ok) => {
@@ -97,10 +145,12 @@ function Landing({ l, abierta, onAbrir, onCambio }) {
           <Boton variante="primario" tamano="chico" icono={Smartphone} onClick={onAbrir}>{abierta ? 'Cerrar la vista' : 'Ver en celular'}</Boton>
           <Boton variante="secundario" tamano="chico" icono={ExternalLink} href={vista} target="_blank">Abrir</Boton>
           <Boton variante="secundario" tamano="chico" icono={Download} href={`/api/landings/${l.id}/descargar`}>Descargar (.zip)</Boton>
+          <Boton variante="secundario" tamano="chico" icono={ShoppingBag} onClick={() => setSubiendo(!subiendo)}>Subir a Shopify</Boton>
           <Boton variante="fantasma" tamano="chico" icono={Gauge} onClick={() => accion(() => pedirNuevo(`/api/landings/${l.id}/medir`, { metodo: 'POST' }))}>Medir otra vez</Boton>
           <Boton variante="fantasma" tamano="chico" icono={Trash2} onClick={() => accion(() => pedirNuevo(`/api/landings/${l.id}`, { metodo: 'DELETE' }), 'Borrada')}>Borrar</Boton>
         </div>
       ) : null}
+      {subiendo ? <SubirAShopify l={l} tiendas={tiendas} alCerrar={() => setSubiendo(false)} /> : null}
       {abierta ? (
         <div className="ld-celular">
           <iframe title={`Vista de ${l.titulo}`} src={vista} loading="lazy" />
@@ -121,6 +171,8 @@ export default function Landings() {
   const { datos, recargar } = useDatos('landings', () => pedirNuevo('/api/landings'), { cadaMs: 3000 });
   const { datos: prods } = useDatos('productos:lista-landings', () => pedirNuevo('/api/productos'));
   const productos = prods?.productos || [];
+  const { datos: dt } = useDatos('shopify:tiendas', () => pedirNuevo('/api/shopify/tiendas'));
+  const tiendas = dt?.tiendas || [];
   useEffect(() => {
     if (!productoId && productos.length) setProductoId(productos[0].id);
   }, [productos, productoId]);
@@ -182,7 +234,7 @@ export default function Landings() {
       ) : (
         <div className="ld-lista">
           {landings.map((l) => (
-            <Landing key={l.id} l={l} abierta={abierta === l.id} onAbrir={() => setAbierta(abierta === l.id ? null : l.id)} onCambio={recargar} />
+            <Landing key={l.id} l={l} abierta={abierta === l.id} onAbrir={() => setAbierta(abierta === l.id ? null : l.id)} onCambio={recargar} tiendas={tiendas} />
           ))}
         </div>
       )}

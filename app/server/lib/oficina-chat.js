@@ -264,6 +264,12 @@ export async function investigacionesParaLeer(productos) {
 async function contexto() {
   const { ESTILOS, AJUSTES_OBLIGATORIOS, listarAnunciosNuevos } = await import('./anuncios-nuevos.js');
   const productos = listarProductos().slice(0, 40);
+  let tiendas = '';
+  try {
+    tiendas = (await import('./shopify/trabajos.js')).tiendasEnTexto();
+  } catch {
+    /* sin tiendas */
+  }
   const estilos = Object.entries(ESTILOS)
     .filter(([k]) => k !== 'agregar') // «Agregar» necesita un video subido: se hace desde Nuevo anuncio
     .map(([k, d]) => {
@@ -288,10 +294,10 @@ async function contexto() {
   } catch {
     /* sin fotos */
   }
-  return { productos, estilos, anuncios, oficina, conFoto, encargos: leerChat().encargos, invs: await investigacionesParaLeer(productos) };
+  return { productos, estilos, anuncios, oficina, conFoto, encargos: leerChat().encargos, invs: await investigacionesParaLeer(productos), tiendas };
 }
 
-function textoPrompt({ productos, estilos, anuncios, oficina, conFoto, encargos, invs }, mensajes, rel) {
+function textoPrompt({ productos, estilos, anuncios, oficina, conFoto, encargos, invs, tiendas }, mensajes, rel) {
   const coord = oficina?.agentes?.find((a) => a.id === 'coordinacion');
   const equipo = (oficina?.agentes || []).filter((a) => a.estado !== 'libre').map((a) => `${a.nombre} (${a.rol}): ${a.estado}${a.ahora.length ? ` — ahora: ${a.ahora.map((t) => t.titulo).join(', ')}` : ''}${a.necesita.length && a.id !== 'coordinacion' ? ` — te necesita: ${a.necesita.map((t) => t.titulo).join(', ')}` : ''}`);
   const fotos = new Map((conFoto || []).map((p) => [p.id, p]));
@@ -312,6 +318,7 @@ Eres ${coord?.nombre || 'Valentina'}, la asistente y coordinadora de ${oficina?.
 Tus productos (id | nombre | ficha lista para video | foto para imágenes | investigación de mercado):
 ${productos.map((p) => `${p.id} | ${p.nombre} | ${p.fichaLista ? 'sí' : 'no'} | ${fotos.has(p.id) ? 'sí' : 'no'} | ${fotos.get(p.id)?.investigacion ? 'sí' : 'no'}`).join('\n') || '(todavía ninguno: que cree uno en Productos o en Nuevo anuncio, paso 1)'}
 
+${tiendas ? `Sus tiendas de Shopify conectadas (id | nombre | dirección | acceso):\n${tiendas}\n` : 'Tiendas de Shopify: ninguna conectada (se conectan en el menú Shopify).\n'}
 Los estilos de video (clave | nombre | lo que hay que preguntar antes):
 ${estilos.join('\n')}
 
@@ -340,6 +347,7 @@ ${(invs || []).map((x) => `${x.id} | ${x.nombre} | ${x.ruta}`).join('\n') || '(n
 - { "tipo": "recrear", "slug": "<slug>", "productoId": "<id del otro producto>" } → el mismo guion para otro producto.
 - { "tipo": "seguir", "slug": "<slug de un anuncio de video>" } → empiezas a seguir un anuncio que ya existe (te encargas de avisarle el costo y producirlo).
 - { "tipo": "cancelar", "id": "<id de lo que estás siguiendo>" } → si ya no lo quiere.
+- { "tipo": "shopify", "tienda": "<id de la tienda>", "pedido": "<lo que quiere cambiar en la tienda, con sus palabras y lo que sacaste de sus archivos>", "motor": "claude" | "codex" } → un cambio en el CÓDIGO de su tienda (tema: colores, botones, secciones, textos, estilos…) o, con acceso completo, páginas y productos. La IA lo hace en una copia del tema y la app lo sube como tema NUEVO SIN PUBLICAR, con vista previa; él lo publica desde el menú Shopify (dile eso). Si tiene varias tiendas y no queda claro cuál, pregunta. Sin tiendas conectadas, dile que la conecte en el menú Shopify.
 - { "tipo": "regla", "texto": "<la regla, general, sin producto ni marca>", "estilo": "<clave>" | null } → cuando dice cómo quiere las cosas de ahora en adelante.
 Y si te pide algo que puedes ESCRIBIR tú misma (variaciones de un texto o de un copy, títulos, ganchos, una revisión de algo que te pasó, un resumen, un guion corto para revisar…), hazlo de verdad y ponlo en "entrega": { "titulo": "<corto>", "texto": "<el contenido completo, bien hecho, con las variaciones numeradas>", "criterios": { "interes": 0-10, "claridad": 0-10, "credibilidad": 0-10, "valor": 0-10, "conversacion": 0-10, "narrativa": 0-10 } }. Ahí sí puede ser largo; tu "respuesta" sigue siendo corta («Listo, aquí van las 10 👇»).
 AUTOEVALUACIÓN (obligatoria en cada entrega): antes de entregarla, califícala con honestidad de 0 a 10 en esos 6 criterios (interés: ¿frena el scroll?; claridad: ¿se entiende en 3 segundos?; credibilidad: ¿nada inventado ni exagerado?; valor: ¿le sirve al cliente?; conversación: ¿invita a comentar o responder?; narrativa: ¿tiene un hilo?). Si el promedio no llega a 8.5, REESCRÍBELA y vuelve a calificar (hasta 2 veces). En "criterios" van las notas de la versión final.
@@ -541,6 +549,10 @@ async function ejecutar(acciones, ctx) {
         const e = cambiarEncargo(String(a.id || ''), { estado: 'cancelado' });
         if (!e) throw new Error('No encuentro eso entre lo que sigo.');
         hechas.push({ tipo: 'cancelar', titulo: `Ya no sigo: ${e.titulo}`, ok: true });
+      } else if (a.tipo === 'shopify') {
+        const { crearTrabajo } = await import('./shopify/trabajos.js');
+        const t = await crearTrabajo({ tiendaId: String(a.tienda || ''), pedido: String(a.pedido || ''), motor: a.motor === 'codex' ? 'codex' : 'claude' });
+        hechas.push({ tipo: 'shopify', titulo: `Trabajando en ${t.tiendaNombre}: ${t.pedido.slice(0, 80)}`, href: '#/shopify', ok: true });
       } else if (a.tipo === 'regla') {
         const { ESTILOS } = await import('./anuncios-nuevos.js');
         const estilo = ESTILOS[a.estilo] ? a.estilo : null;
@@ -550,7 +562,7 @@ async function ejecutar(acciones, ctx) {
         hechas.push({ tipo: 'regla', titulo: `Aprendido${estilo ? ` (${ESTILOS[estilo].nombre})` : ' (todos los estilos)'}: ${r.regla}`, href: '#/aprendizajes', ok: true });
       }
     } catch (e) {
-      const que = { 'crear-anuncio': 'Crear el anuncio', investigar: 'Investigar', recrear: 'Recrear', regla: 'Anotar la regla', imagenes: 'Las imágenes', producir: 'Producir', seguir: 'Seguirlo', cancelar: 'Cancelar' }[a.tipo] || 'Una acción';
+      const que = { 'crear-anuncio': 'Crear el anuncio', investigar: 'Investigar', recrear: 'Recrear', regla: 'Anotar la regla', shopify: 'En Shopify', imagenes: 'Las imágenes', producir: 'Producir', seguir: 'Seguirlo', cancelar: 'Cancelar' }[a.tipo] || 'Una acción';
       hechas.push({ tipo: a.tipo, titulo: `${que}: ${e.message}`, ok: false });
     }
   }

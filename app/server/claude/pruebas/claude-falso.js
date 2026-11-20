@@ -287,6 +287,17 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, escenaB[1]), JSON.stringify({ se_ve: `Escena de apoyo de prueba ${nb}${quiere ? `: ${quiere.slice(0, 60)}` : ''}, con el producto en primer plano y luz cálida.`, camara: 'primer plano, la cámara se acerca despacio' }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-20r) la IA en una tienda de Shopify: cambia el botón del tema y, si le piden una página, propone crearla
+  const tiendaShop = /TAREA: tienda shopify/.test(textoTarea) ? /(temp\/_shopify\/trabajos\/[a-z0-9-]+)\/tema\//.exec(textoTarea) : null;
+  if (tiendaShop) {
+    const dir = path.join(RAIZ, tiendaShop[1]);
+    const pedido = (/te pide, sobre su tienda[^\n]*\n«([^»]*)»/.exec(textoTarea) || [])[1] || '';
+    const boton = path.join(dir, 'tema', 'sections', 'boton.liquid');
+    if (/bot[oó]n/i.test(pedido) && fs.existsSync(boton)) fs.writeFileSync(boton, fs.readFileSync(boton, 'utf8').replace('Comprar', 'Pídelo ya').replace('#000', '#16a34a'));
+    const admin = /p[aá]gina/i.test(pedido) && /mutación GraphQL/.test(textoTarea) ? [{ titulo: 'Crear la página «Preguntas frecuentes»', query: 'mutation($p:PageCreateInput!){ pageCreate(page:$p){ page{ id handle } userErrors{ message } } }', variables: { p: { title: 'Preguntas frecuentes', handle: 'preguntas', isPublished: true } } }] : [];
+    fs.writeFileSync(path.join(dir, 'resumen.json'), JSON.stringify({ resumen: /bot[oó]n/i.test(pedido) ? 'Cambié el botón de comprar a verde y ahora dice «Pídelo ya».' : 'No hizo falta tocar el tema.', admin }));
+    return resultado({ result: 'LISTO' });
+  }
   // (2026-11-20q) la landing adaptada: cambia los textos que nombran la marca de la original y pide la imagen 0
   const landing = /TAREA: landing adaptada/.test(textoTarea) ? /Escribe (temp\/_landings\/\S+\/nuevos-textos\.json)/.exec(textoTarea) : null;
   if (landing) {
@@ -333,6 +344,10 @@ async function alMensaje(texto) {
       const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 1;
       acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'claymation', cantidad: n, duracion: null, respuestas: {}, idea: 'ángulo de prueba' });
       respuesta = `Listo, le pedí a Mateo ${n} guion${n > 1 ? 'es' : ''} de Claymation. Te aviso cuando esperen tu aprobación.`;
+    } else if (/tienda/i.test(ultimo) && /^(\S+) \| [^|\n]+ \| \S+\.myshopify\.com \|/m.test(textoTarea)) {
+      const tienda = /^(\S+) \| [^|\n]+ \| \S+\.myshopify\.com \|/m.exec(textoTarea)[1];
+      acciones.push({ tipo: 'shopify', tienda, pedido: ultimo, motor: 'claude' });
+      respuesta = 'Va, le pido al equipo el cambio en tu tienda. Te queda como tema sin publicar para que lo revises.';
     } else if (/regla:/i.test(ultimo)) {
       acciones.push({ tipo: 'regla', texto: ultimo.split(/regla:/i)[1].trim(), estilo: null });
       respuesta = 'Anotado: lo aplicamos de ahora en adelante.';

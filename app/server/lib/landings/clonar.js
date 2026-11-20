@@ -292,7 +292,7 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
             fs.rmSync(crudo, { force: true });
             const m = medidas(bytes);
             pesos.imagenes += fs.statSync(mp4).size;
-            return { src: `assets/${path.basename(mp4)}`, video: true, w: m?.w || null, h: m?.h || null };
+            return { src: `assets/${path.basename(mp4)}`, video: true, origen: u, w: m?.w || null, h: m?.h || null };
           }
           pesos.imagenes += bytes.length;
           const m = medidas(bytes);
@@ -438,7 +438,7 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
     }
     if (r.video) {
       const atributos = Object.entries(img.attributes).filter(([k]) => !/^(src|srcset|sizes|loading|decoding|fetchpriority|data-src|data-srcset|alt)$/i.test(k)).map(([k, v]) => ` ${k}="${String(v).replace(/"/g, '&quot;')}"`).join('');
-      img.replaceWith(parse(`<video src="${r.src}" autoplay muted loop playsinline preload="metadata"${r.w && r.h ? ` width="${r.w}" height="${r.h}"` : ''}${atributos} aria-label="${(img.getAttribute('alt') || '').replace(/"/g, '&quot;')}"></video>`));
+      img.replaceWith(parse(`<video src="${r.src}"${r.origen ? ` data-kc-origen="${r.origen.replace(/"/g, '&quot;')}"` : ''} autoplay muted loop playsinline preload="metadata"${r.w && r.h ? ` width="${r.w}" height="${r.h}"` : ''}${atributos} aria-label="${(img.getAttribute('alt') || '').replace(/"/g, '&quot;')}"></video>`));
       return;
     }
     img.setAttribute('src', r.src);
