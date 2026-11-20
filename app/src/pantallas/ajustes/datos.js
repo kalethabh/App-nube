@@ -482,6 +482,9 @@ export function useMotor() {
     otraVersion,
     sesion,
     email: datosCuenta?.email || datosCuenta?.correo || null,
+    // (2026-11-20s) el plan de ChatGPT y el espacio de trabajo con el que está la sesión de Codex
+    plan: elegido === 'codex' && datosCuenta?.plan ? nombrePlan(String(datosCuenta.plan).replace(/^self_serve_business.*/, 'business').replace(/_/g, ' ')) : null,
+    espacio: elegido === 'codex' ? datosCuenta?.espacio || null : null,
     otraCuenta: Boolean(m?.otraCuenta),
     // lo que dice el servidor en palabras simples (p. ej. "entró con una clave de API, no con tu cuenta")
     motivo: typeof m?.motivo === 'string' ? m.motivo : null,

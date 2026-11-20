@@ -189,7 +189,7 @@ async function prueba() {
   if (fs.existsSync(DIR)) fs.rmSync(DIR, { recursive: true, force: true }); // (de una corrida anterior de esta prueba)
   fs.mkdirSync(REG, { recursive: true });
   const HUELLA_CODEX_USUARIO = huella(path.join(os.homedir(), '.codex'));
-  for (const k of ['HUMO_REGISTRO', 'FALSO_CODEX_MODO', 'FALSO_CODEX_CONFIG', 'FALSO_CODEX_LEER', 'FALSO_CODEX_LIMITE', 'FALSO_CODEX_TOKENS', 'FALSO_CODEX_DEMORA', 'FALSO_CODEX_LOGIN', 'FALSO_CODEX_PLAN', 'CODEX_HOME', 'AIA_MOTOR']) delete process.env[k];
+  for (const k of ['HUMO_REGISTRO', 'FALSO_CODEX_MODO', 'FALSO_CODEX_CONFIG', 'FALSO_CODEX_LEER', 'FALSO_CODEX_LIMITE', 'FALSO_CODEX_TOKENS', 'FALSO_CODEX_DEMORA', 'FALSO_CODEX_LOGIN', 'FALSO_CODEX_PLAN', 'FALSO_CODEX_PLAN_VIEJO', 'FALSO_CODEX_CREDITOS', 'CODEX_HOME', 'AIA_MOTOR']) delete process.env[k];
   Object.assign(process.env, {
     ANUNCIOS_MODO_PRUEBA: '1',
     ANUNCIOS_CODEX_BIN: path.join(APP, 'server', 'claude', 'pruebas', 'codex-falso.js'),
@@ -426,7 +426,7 @@ async function prueba() {
   check('tarea-resultado-codex.md, tarea-correccion-codex.md y tarea-cortada-codex.md existen', ['tarea-resultado-codex.md', 'tarea-correccion-codex.md', 'tarea-cortada-codex.md'].every((n) => fs.existsSync(path.join(DC, n))));
   const esq = JSON.parse(fs.readFileSync(path.join(DC, 'esquemas', 'codex-respuesta.json'), 'utf8'));
   check('El esquema pide los 6 campos, sin campos de más, y el enum de estado', esq.additionalProperties === false && ['estado', 'respuesta', 'archivos', 'ediciones', 'leer', 'comandos'].every((k) => esq.required.includes(k)) && esq.properties.estado.enum.join() === 'LISTO,BLOQUEADO,SEGUIR' && esq.properties.ediciones.items.additionalProperties === false);
-  check('MENSAJES tiene los 12 textos de §2.21 y el del plan sin Codex en un paso de la producción', Object.keys(M).length === 13 && M.limite.startsWith('Se acabó por ahora el uso de tu plan de ChatGPT.') && M.cancelado === 'Se canceló.' && M.planSinCodex.includes('"Reintentar"') && M.planSinCodexPaso.startsWith('Tu plan de ChatGPT no incluye Codex') && !/Reintentar/.test(M.planSinCodexPaso), Object.keys(M));
+  check('MENSAJES tiene los 12 textos de §2.21, el del plan sin Codex en un paso de la producción y los 2 del espacio de trabajo', Object.keys(M).length === 15 && M.espacioSinCreditos.includes('créditos') && M.limite.startsWith('Se acabó por ahora el uso de tu plan de ChatGPT.') && M.cancelado === 'Se canceló.' && M.planSinCodex.includes('"Reintentar"') && M.planSinCodexPaso.startsWith('Tu plan de ChatGPT no incluye Codex') && !/Reintentar/.test(M.planSinCodexPaso), Object.keys(M));
   check('Vuelve a exportar VERSION_CODEX, resolverCodex y olvidarCodex', codex.VERSION_CODEX === '0.167.0' && typeof codex.resolverCodex === 'function' && typeof codex.olvidarCodex === 'function');
   check('Ningún texto de pantalla dice «beta», «experimental» ni «motor»', !Object.values(M).some((t) => /\bbeta\b|experimental|\bmotor\b/i.test(t)));
 
@@ -688,6 +688,24 @@ async function prueba() {
   const lm = await correr('limite-a-mitad', { modo: 'limite-a-mitad' });
   check('limite-a-mitad: no manda el segundo mensaje y pausa con la hora', lm.r.ok === false && lm.r.limite === true && Boolean(lm.r.reinicio) && mensajes(lm.notas).length === 1 && !lm.notas.some((n) => (n.problemas || []).some((p) => /uso ordinario/.test(p))), resumen(lm));
   check('limite-a-mitad: lo que ya llegó quedó guardado', ['a', 'a2', 'a3'].some((x) => leer(`${D}/app/${x}.json`) === contenidoA(x, DATOS)));
+  // (2026-11-20s) pagó Business: el token guardado todavía dice «free» sin uso hasta pedir uno nuevo
+  const renovado = path.join(HOME, 'falso-codex', 'token-renovado.json');
+  fs.rmSync(renovado, { force: true });
+  limpiarA();
+  codex.olvidarEstadoCodex();
+  const pv = await correr('plan-viejo', { env: { FALSO_CODEX_PLAN_VIEJO: 'free', FALSO_CODEX_PLAN: 'business', FALSO_CODEX_CREDITOS: 'espacio' } });
+  check('plan recién pagado (token viejo «free» sin uso): pide un token nuevo y trabaja con el Business', pv.r.ok === true && fs.existsSync(renovado), resumen(pv));
+  fs.rmSync(renovado, { force: true });
+  codex.olvidarEstadoCodex();
+  est = await conEntorno({ FALSO_CODEX_PLAN_VIEJO: 'free', FALSO_CODEX_PLAN: 'business', FALSO_CODEX_CREDITOS: 'espacio' }, () => codex.estadoCodex());
+  check('…y Ajustes ve el plan nuevo y el espacio de trabajo (sin el aviso de plan gratis)', est.cuenta?.plan === 'business' && est.cuenta.espacio === 'Mi Empresa' && !est.avisoPlan, est.cuenta);
+  fs.rmSync(renovado, { force: true });
+  limpiarA();
+  const be = await correr('business-creditos', { env: { FALSO_CODEX_PLAN: 'business', FALSO_CODEX_CREDITOS: 'espacio' } });
+  check('Business por uso (sin uso «ordinario», con créditos del espacio): trabaja, no dice «sin uso»', be.r.ok === true && !be.r.limite, resumen(be));
+  const pl = await correr('plus-sin-uso', { modo: 'limite-a-mitad', env: { FALSO_CODEX_PLAN: 'plus' } });
+  check('Un plan PERSONAL sin uso ordinario sigue frenando (no gasta créditos comprados)', pl.r.ok === false && pl.r.limite === true, resumen(pl));
+  codex.olvidarEstadoCodex();
   codex.olvidarEstadoCodex();
   fs.writeFileSync(path.join(HOME, 'falso-sesion.json'), '{"falso":true}');
   const ss = await correr('sin-sesion', { modo: 'sin-sesion', env: { FALSO_CODEX_SESION: null } });

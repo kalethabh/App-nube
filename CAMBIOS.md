@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20s · ChatGPT Business ya funciona
+
+- Si tienes ChatGPT **Business** (o Team, Enterprise, Edu), la app ya no te dice que «no te queda uso»: en esos planes Codex usa los créditos del espacio de trabajo y la app ahora los tiene en cuenta.
+- Si acabas de pagar un plan o cambiaste de espacio de trabajo, la app le pide a ChatGPT el plan al día ella sola (antes seguía viendo el plan viejo por días).
+- En **Ajustes › Conexiones** ves con qué plan y en qué espacio de trabajo está tu sesión. Si no sale tu espacio, cierra sesión ahí y vuelve a entrar eligiéndolo en la página de ChatGPT.
+- Si el espacio se queda sin créditos, te lo dice claro (lo arregla el dueño del espacio en chatgpt.com).
+
 ## 2026-11-20r · Tus tiendas de Shopify conectadas (las que quieras)
 
 - Menú nuevo **Shopify**: conectas una o varias tiendas y eliges en cuál trabajar. Se conectan con el **Client ID y el secreto** de una app del Dev Dashboard de Shopify (la forma nueva; la app renueva el permiso sola cada día), con un token `shpat_` de una app vieja o con la contraseña de **Theme Access** (solo temas). Las claves quedan solo en tu computador y nunca se muestran.
