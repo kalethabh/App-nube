@@ -1,0 +1,28 @@
+/* La coordinadora flotante en cualquier pantalla (AvisoCoordinadora.jsx) */
+.avc { position: fixed; right: 20px; bottom: 20px; z-index: 900; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; pointer-events: none; }
+.avc > * { pointer-events: auto; }
+.avc__burbuja { position: relative; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--color); background: radial-gradient(circle at 35% 30%, #fff, color-mix(in srgb, var(--color) 45%, #fff)); color: #0b0b0b; font-size: 28px; cursor: pointer; box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.55), 0 0 0 4px color-mix(in srgb, var(--color) 18%, transparent); transition: transform 0.15s; }
+.avc__burbuja:hover { transform: scale(1.06); }
+.avc__burbuja--abierta { background: #111311; color: #f5f5f5; }
+.avc__burbuja--avisa { animation: avc-llama 2s ease-in-out infinite; }
+.avc__numero { position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; display: grid; place-items: center; background: #ef4444; color: #fff; font-size: 12px; font-weight: 800; border: 2px solid var(--superficie-0, #0b0b0b); }
+.avc__pensando { position: absolute; bottom: -2px; left: -2px; width: 16px; height: 16px; border-radius: 50%; background: var(--color); border: 2px solid #0b0b0b; animation: avc-late 1s ease-in-out infinite; }
+.avc__tarjeta { position: relative; width: min(340px, calc(100vw - 40px)); padding: 14px 14px 12px; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--color) 50%, rgba(255, 255, 255, 0.1)); background: rgba(14, 16, 14, 0.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #f1f5f9; box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.6); animation: avc-entra 0.25s ease-out; }
+.avc__quien { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 800; color: color-mix(in srgb, var(--color) 80%, #fff); }
+.avc__quien span { font-size: 18px; }
+.avc__tarjeta p { margin: 6px 0 10px; font-size: 13.5px; line-height: 1.45; white-space: pre-wrap; }
+.avc__botones { display: flex; gap: 8px; justify-content: flex-end; }
+.avc__dale, .avc__responder { border: 0; border-radius: 10px; padding: 8px 14px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.avc__dale { background: var(--color); color: #0b1220; }
+.avc__responder { background: rgba(255, 255, 255, 0.09); color: #f1f5f9; }
+.avc__dale:disabled { opacity: 0.5; }
+.avc__cerrar { position: absolute; top: 8px; right: 8px; display: grid; place-items: center; width: 26px; height: 26px; border: 0; border-radius: 8px; background: none; color: #9aa192; cursor: pointer; }
+.avc__cerrar:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.avc__panel { width: min(400px, calc(100vw - 24px)); animation: avc-entra 0.2s ease-out; }
+.avc__panel .of-chat { height: min(70vh, 620px); min-height: 380px; }
+@keyframes avc-llama { 0%, 100% { box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.55), 0 0 0 4px color-mix(in srgb, var(--color) 18%, transparent); } 50% { box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.55), 0 0 0 10px color-mix(in srgb, var(--color) 0%, transparent); } }
+@keyframes avc-late { 50% { opacity: 0.35; } }
+@keyframes avc-entra { from { opacity: 0; transform: translateY(8px); } }
+@media (max-width: 640px) { .avc { right: 12px; bottom: 12px; } .avc__panel .of-chat { height: calc(100vh - 110px); } }
+@media (prefers-reduced-motion: reduce) { .avc__burbuja--avisa, .avc__pensando, .avc__tarjeta, .avc__panel { animation: none; } }
+@media print { .avc { display: none; } }

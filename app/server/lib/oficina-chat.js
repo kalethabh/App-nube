@@ -183,7 +183,13 @@ export async function chat() {
     })
   );
   const pendientes = c.encargos.filter((e) => e.estado === 'espera-si').map((e) => ({ id: e.id, titulo: e.titulo, costo: e.costo }));
-  return { mensajes, pensando, pendientes };
+  let quien = null;
+  try {
+    quien = (await import('./oficina.js')).coordinadora();
+  } catch {
+    /* sin oficina */
+  }
+  return { mensajes, pensando, pendientes, coordinadora: quien };
 }
 
 export function borrarChat() {
@@ -287,7 +293,7 @@ Contesta el ÚLTIMO mensaje del USUARIO. Si adjuntó archivos, LÉELOS con Read 
 Puedes pedirle a la app estas acciones (la app las hace, le muestra el enlace y TÚ sigues el trabajo: cuando el guion esté listo le escribes con el costo, y cuando termine le entregas el resultado):
 - { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió, ej. 1:50>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>", "video": "<id de un VIDEO que adjuntó>" | null, "conservar_gancho": false } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir. CON "video": la app CLONA ese video (lo analiza toma por toma y el guionista replica su estructura, ritmo y gancho en el estilo pedido, con la duración pedida). Úsalo cuando adjunta un video y pide «uno igual», «replica la estructura», «como este»: NO le digas que lo suba en otro lado, hazlo tú. "conservar_gancho": true solo si pide dejar el gancho y el ángulo tal cual.
 Lo obligatorio de un estilo: si falta, propón la opción más común y pregúntala en UNA frase («¿fondo de estudio limpio o con la grilla azul?»). Si dice «decide tú», «como quieras» o algo así, elige tú y créalo.
-- { "tipo": "producir", "id": "<id de lo que estás siguiendo>" } → SOLO si eso ESPERA EL SÍ y el usuario acaba de decir que sí (dale, hazlo, de una, ok, sí…) después de ver el costo. Aprueba y produce: ahí se cobra.
+- { "tipo": "producir", "id": "<id de lo que estás siguiendo>" } → SOLO si eso ESPERA EL SÍ y el usuario acaba de decir que sí (dale, hazlo, de una, ok, sí, está bien, apruébalo, me gusta…) después de ver el costo. Es APROBAR: el guion queda aprobado, se lo pasas al equipo y arranca la producción (ahí se cobra). Si hay varias cosas esperando y no queda claro cuál aprueba, pregunta cuál. Si aprueba algo que todavía no le dijiste cuánto cuesta (un guion que no estás siguiendo), usa "seguir" con su slug: tú le dices el costo enseguida y espera su sí.
 - { "tipo": "imagenes", "productoId": "<id con foto>", "cantidad": 1-${MAX_IMAGENES}, "formato": "1:1" | "9:16" | "ambos", "referencia": "<id de una imagen que adjuntó>" | null, "pais": "<país>" | null, "publico": "<público>" | null, "idea": "<lo que pidió>" } → anuncios de imagen con el agente de variaciones: con su imagen de referencia (variaciones de ese anuncio) o, sin referencia, desde la investigación de mercado del producto (si no la tiene, primero investigar). La app le muestra el costo y espera su sí.
 - { "tipo": "investigar", "productoId": "<id>", "pais": "<país>" | null, "competencia": "<link de TrendTrack o tienda>" | null } → las DOS partes de la investigación a la vez: el mercado y la competencia en TrendTrack (sin costo de imágenes).
 Si te pide ANALIZAR o revisar una investigación (qué ángulo usar, qué dice del cliente, ideas de anuncios…), lee con Read su archivo (abajo) y contesta con lo que dice de verdad, sin inventar; si el análisis es largo, va en "entrega".
@@ -584,6 +590,24 @@ export async function seguimiento() {
   if (siguiendo) return;
   siguiendo = true;
   try {
+    // (2026-11-20j) cualquier guion RECIÉN listo para aprobar (de las últimas 24 h, hecho en Nuevo anuncio, la oficina
+    // o el conector) también lo sigue ella: te avisa con el costo y lo produce con tu sí desde el chat
+    try {
+      const an = await import('./anuncios-nuevos.js');
+      const { leerConductor } = await import('./conductor.js');
+      const c0 = leerChat();
+      const ya = new Set(c0.encargos.map((e) => e.id));
+      const desde = Date.now() - 24 * 3600000;
+      let nuevos0 = 0;
+      for (const x of an.listarAnunciosNuevos().slice(0, 40)) {
+        if (ya.has(x.slug) || x.estado !== 'guion' || x.etapa !== 'aprobar' || !(Date.parse(x.fecha || x.creado || 0) > desde) || leerConductor(x.slug)) continue;
+        c0.encargos.push({ id: x.slug, tipo: 'video', slug: x.slug, productoId: x.productoId, titulo: x.tituloGuion ? `«${x.tituloGuion}»` : x.titulo || x.slug, estado: 'escribiendo', creado: ahora(), adoptado: true });
+        nuevos0++;
+      }
+      if (nuevos0) guardarChat(c0);
+    } catch (e) {
+      console.error('[oficina-chat] guiones por aprobar', e?.message || e);
+    }
     const activos = leerChat().encargos.filter((e) => !['listo', 'cancelado'].includes(e.estado));
     if (!activos.length) return;
     const { leerConductor } = await import('./conductor.js');
