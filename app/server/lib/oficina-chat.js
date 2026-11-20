@@ -341,7 +341,8 @@ ${(invs || []).map((x) => `${x.id} | ${x.nombre} | ${x.ruta}`).join('\n') || '(n
 - { "tipo": "seguir", "slug": "<slug de un anuncio de video>" } → empiezas a seguir un anuncio que ya existe (te encargas de avisarle el costo y producirlo).
 - { "tipo": "cancelar", "id": "<id de lo que estás siguiendo>" } → si ya no lo quiere.
 - { "tipo": "regla", "texto": "<la regla, general, sin producto ni marca>", "estilo": "<clave>" | null } → cuando dice cómo quiere las cosas de ahora en adelante.
-Y si te pide algo que puedes ESCRIBIR tú misma (variaciones de un texto o de un copy, títulos, ganchos, una revisión de algo que te pasó, un resumen, un guion corto para revisar…), hazlo de verdad y ponlo en "entrega": { "titulo": "<corto>", "texto": "<el contenido completo, bien hecho, con las variaciones numeradas>" }. Ahí sí puede ser largo; tu "respuesta" sigue siendo corta («Listo, aquí van las 10 👇»).
+Y si te pide algo que puedes ESCRIBIR tú misma (variaciones de un texto o de un copy, títulos, ganchos, una revisión de algo que te pasó, un resumen, un guion corto para revisar…), hazlo de verdad y ponlo en "entrega": { "titulo": "<corto>", "texto": "<el contenido completo, bien hecho, con las variaciones numeradas>", "criterios": { "interes": 0-10, "claridad": 0-10, "credibilidad": 0-10, "valor": 0-10, "conversacion": 0-10, "narrativa": 0-10 } }. Ahí sí puede ser largo; tu "respuesta" sigue siendo corta («Listo, aquí van las 10 👇»).
+AUTOEVALUACIÓN (obligatoria en cada entrega): antes de entregarla, califícala con honestidad de 0 a 10 en esos 6 criterios (interés: ¿frena el scroll?; claridad: ¿se entiende en 3 segundos?; credibilidad: ¿nada inventado ni exagerado?; valor: ¿le sirve al cliente?; conversación: ¿invita a comentar o responder?; narrativa: ¿tiene un hilo?). Si el promedio no llega a 8.5, REESCRÍBELA y vuelve a calificar (hasta 2 veces). En "criterios" van las notas de la versión final.
 Reglas: usa SOLO ids, claves y slugs de las listas de arriba. Si falta algo obligatorio (el producto, el estilo o lo que su estilo pide preguntar), NO crees la acción: pregúntalo. Si no dice estilo y el pedido es claro, propón uno y pregunta. Nunca produzcas ni gastes sin que haya visto el costo y dicho que sí. Si te pregunta cómo va algo, contesta con lo que estás siguiendo y lo de tu equipo. Si pide algo que la app no hace desde aquí, dile dónde hacerlo.
 
 Escribe ${rel} con este JSON y nada más: { "respuesta": "…", "acciones": [ … ], "entrega": null | { "titulo": "…", "texto": "…" } }
@@ -556,6 +557,18 @@ async function ejecutar(acciones, ctx) {
   return { hechas, avisos };
 }
 
+// ---------------------------------------------------------------- la autoevaluación de una entrega
+
+const CRITERIOS = ['interes', 'claridad', 'credibilidad', 'valor', 'conversacion', 'narrativa'];
+/** { criterios, nota } (la nota, el promedio con un decimal) o {} si no vinieron bien. */
+export function notaDe(c) {
+  if (!c || typeof c !== 'object') return {};
+  const v = Object.fromEntries(CRITERIOS.map((k) => [k, Number(c[k])]).filter(([, n]) => Number.isFinite(n) && n >= 0 && n <= 10));
+  const ns = Object.values(v);
+  if (ns.length < 4) return {};
+  return { criterios: v, nota: Math.round((ns.reduce((a, b) => a + b, 0) / ns.length) * 10) / 10 };
+}
+
 // ---------------------------------------------------------------- contestar
 
 async function responder() {
@@ -596,7 +609,7 @@ async function responder() {
       const r2 = await ejecutar(d?.acciones, ctx);
       acciones = r2.hechas;
       if (r2.avisos.length) texto = `${texto} ${r2.avisos.join(' ')}`;
-      const e = d?.entrega && typeof d.entrega === 'object' ? { titulo: limpio(d.entrega.titulo, 120) || 'Entrega', texto: limpio(d.entrega.texto, 30000) } : null;
+      const e = d?.entrega && typeof d.entrega === 'object' ? { titulo: limpio(d.entrega.titulo, 120) || 'Entrega', texto: limpio(d.entrega.texto, 30000), ...notaDe(d.entrega.criterios) } : null;
       if (e?.texto) entrega = e;
     }
     else texto = r?.sinMotor ? 'Todavía no elegiste tu IA: ve a Ajustes › Conexiones y vuelve a escribirme.' : r?.limite ? `Se acabó el uso de tu plan de ${nombreIA(r.motor)} por ahora. Escríbeme cuando se renueve.` : 'No pude contestarte esta vez. ¿Me lo escribes de nuevo?';

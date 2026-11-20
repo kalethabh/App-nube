@@ -33,6 +33,8 @@ export const CLAVES = {
   meta: { variable: 'META_ADS_TOKEN', nombre: 'Meta (Biblioteca de anuncios)' },
   // (2026-11-20k) tu cuenta publicitaria de Meta, para S.E.P (lib/sep.js): un token con ads_read. Solo lee.
   metaAds: { variable: 'META_MARKETING_TOKEN', nombre: 'Meta (tu cuenta publicitaria)' },
+  // (2026-11-20p) tu bot de Telegram (@BotFather), para hablar con la coordinadora desde el celular (lib/telegram.js)
+  telegram: { variable: 'TELEGRAM_BOT_TOKEN', nombre: 'Telegram (tu bot)' },
 };
 
 const BASES = {
@@ -127,6 +129,7 @@ export function limpiarClave(cual, valor) {
   if (v.startsWith(prefijo)) v = v.slice(prefijo.length).trim();
   if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1).trim();
   if ((cual === 'kie' || cual === 'meta' || cual === 'metaAds') && /^bearer\s+/i.test(v)) v = v.replace(/^bearer\s+/i, '');
+  if (cual === 'telegram') return /^\d{5,15}:[A-Za-z0-9_-]{30,60}$/.test(v) ? v : null;
   if (cual === 'meta' || cual === 'metaAds') {
     // si pegaron la dirección entera con ?access_token=…, se toma solo el token
     const m = v.match(/[?&]access_token=([^&\s]+)/);
@@ -398,7 +401,22 @@ export async function probarClave(cual, { valor } = {}) {
     return probarToken(valor || null);
   }
   if (cual === 'metaAds') return probarTokenCuenta(valor || leerClave(CLAVES.metaAds.variable));
+  if (cual === 'telegram') return probarBotTelegram(valor || leerClave(CLAVES.telegram.variable));
   return { ok: false, motivo: 'desconocida', mensaje: 'Esa conexión no existe.' };
+}
+
+/** El token de tu bot de Telegram: getMe. */
+async function probarBotTelegram(token) {
+  if (!token) return { ok: false, motivo: 'sin-clave', mensaje: 'Todavía no guardaste el token de tu bot.' };
+  if (process.env.ANUNCIOS_MODO_PRUEBA === '1' && !process.env.TELEGRAM_API_BASE) return { ok: true, mensaje: 'Tu bot funciona (simulado: en modo prueba no se llama a Telegram).' };
+  try {
+    const r = await fetch(`${process.env.TELEGRAM_API_BASE || 'https://api.telegram.org'}/bot${token}/getMe`, { signal: AbortSignal.timeout(ESPERA_MS) });
+    const j = await r.json().catch(() => null);
+    if (!j?.ok) return { ok: false, motivo: 'clave-invalida', mensaje: 'Ese token de Telegram no es válido.' };
+    return { ok: true, mensaje: `Tu bot @${j.result?.username} funciona. Ahora vincúlalo en Ajustes › Telegram.` };
+  } catch {
+    return { ok: false, motivo: 'sin-conexion', mensaje: 'No pude conectar con Telegram para probar el token.' };
+  }
 }
 
 /** El token de tu cuenta publicitaria: ¿ve alguna cuenta (ads_read)? Gratis. */

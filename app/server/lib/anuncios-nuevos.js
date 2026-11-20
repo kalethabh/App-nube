@@ -442,6 +442,14 @@ export function crearAnuncio(datos = {}) {
 // se copian (mismas caras, sin pagarlas otra vez). Después: el guion para aprobar y la producción de siempre.
 
 /** Lo que la tarea del guion dice cuando el anuncio es una copia de otro para un producto nuevo. */
+/**
+ * (2026-11-20p) La autoevaluación antes de entregar (del video de @ai.office.builder: «se pone nota y si no llega a 8,5
+ * lo reescribe»): la IA se califica en 6 criterios y, si no llega, mejora el guion antes de darlo por terminado.
+ */
+const TEXTO_AUTOEVALUACION = `## Antes de terminar: tu autoevaluación (obligatoria)
+
+Cuando el guion (o la letra) esté escrito y antes de darlo por terminado, califícalo con honestidad de 0 a 10 en: **interés** (¿el gancho frena el scroll en 1 a 3 segundos?), **claridad** (¿se entiende sin esfuerzo?), **credibilidad** (¿nada inventado, exagerado ni prohibido?), **valor** (¿el cliente entiende qué gana?), **conversación** (¿da ganas de comentar o compartir?) y **narrativa** (¿tiene un hilo que lleva hasta la compra?). Si el promedio no llega a **8.5**, mejora las partes más flojas (casi siempre el gancho y el cierre) y vuelve a calificar, hasta 2 veces. No escribas la nota en ningún archivo: solo sirve para que entregues la mejor versión.`;
+
 /** Lo que pidió el usuario en el chat de la oficina (brief.pedido), para el guion. */
 function textoPedido(brief) {
   const pedido = brief?.pedido ? `## Lo que pidió el usuario para este anuncio\n\n«${brief.pedido}». Respétalo en el ángulo, el gancho y el guion.` : '';
@@ -1006,7 +1014,7 @@ function promptGuion(slug, brief, foto, prepClonar = null) {
       textoVozAuto(slug, brief, def),
       esLetras(brief) ? '' : textoEstructuras({ slug, brief, familia: def.familia === 'agregar' ? 'voz-en-off' : def.familia, conReferencia: referenciaPedida(brief), guionPropio: tieneGuionPropio(brief) }),
       textoTendencias(brief.estilo),
-      textoBiblioteca(slug, brief), textoMaterial(slug), textoRecrear(brief), textoPedido(brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) })].filter(Boolean).join('\n\n'),
+      textoBiblioteca(slug, brief), textoMaterial(slug), textoRecrear(brief), textoPedido(brief), t.delEstilo, esLetras(brief) ? '' : textoAhorro(brief.estilo, { continuidad: Boolean(brief.continuidad), hablado: ['hablado', 'ugc', 'objeto-parlante'].includes(def.familia) }), textoAprendizajes(carpetaDeEstilo(brief.estilo), { conSubestilo: Boolean(AJUSTES[brief.estilo]?.subestilo) }), TEXTO_AUTOEVALUACION].filter(Boolean).join('\n\n'),
     archivo: t.archivo,
     formato: t.formato,
   });

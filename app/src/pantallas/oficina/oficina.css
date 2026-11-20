@@ -485,3 +485,4 @@ a.o3-zona:hover { background: #000; }
 /* mientras presenta: solo la oficina, la tarjeta y los botones de vista (para salir) */
 .of--presentando .of-hud-arriba, .of--presentando .of-minimapa, .of--presentando .of-actividad, .of--presentando .of-lateral, .of--presentando .o3-icono__nombre { display: none !important; }
 .of--presentando .o3-icono { opacity: 0.55; }
+.of-entrega__nota { padding: 2px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 800; background: rgba(245, 158, 11, 0.18); color: #fcd34d; } .of-entrega__nota--bien { background: rgba(163, 230, 53, 0.18); color: #d9f99d; }

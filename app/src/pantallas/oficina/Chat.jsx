@@ -110,6 +110,8 @@ function Adjunto({ a, onQuitar }) {
   );
 }
 
+const NOMBRE_CRITERIO = { interes: 'interés', claridad: 'claridad', credibilidad: 'credibilidad', valor: 'valor', conversacion: 'conversación', narrativa: 'narrativa' };
+
 function Entrega({ e }) {
   const { aviso } = useAvisos();
   const copiar = async () => {
@@ -132,6 +134,11 @@ function Entrega({ e }) {
     <div className="of-entrega">
       <div className="of-entrega__cabeza">
         <strong>{e.titulo}</strong>
+        {e.nota ? (
+          <span className={`of-entrega__nota${e.nota >= 8.5 ? ' of-entrega__nota--bien' : ''}`} title={`Su autoevaluación: ${Object.entries(e.criterios || {}).map(([k, v]) => `${NOMBRE_CRITERIO[k] || k} ${v}`).join(' · ')}`}>
+            {e.nota.toFixed(1)}/10
+          </span>
+        ) : null}
         <button type="button" onClick={copiar} aria-label="Copiar" title="Copiar">
           <Copy size={14} />
         </button>
