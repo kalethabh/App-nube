@@ -22,10 +22,11 @@
     "E002": {
       "tipo": "prompts",
       "uuid": "2e3ebbcf-f7b3-4dcc-bc2e-5e46d87934b8",
-      "estado": "en-curso",
+      "estado": "hecha",
       "ids": [
         "V05"
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -46,7 +47,7 @@
       "tanda": "E001"
     },
     "V05": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     }
   },
@@ -142,11 +143,15 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "por-pedir",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
