@@ -174,6 +174,7 @@ async function principal() {
   m = respuesta(c);
   const lineas = (m?.entrega?.texto || '').split('\n');
   check('Lee el texto y escribe ella misma las 10 variaciones (una entrega)', lineas.length === 10 && lineas.every((l) => /agradecer/.test(l)) && /aquí van/i.test(m.texto), m);
+  check('…con su autoevaluación (6 criterios y la nota, el promedio)', m?.entrega?.nota === 8.7 && Object.keys(m.entrega.criterios || {}).length === 6, m?.entrega);
   // (2026-11-20h) un VIDEO adjunto para clonar en otro estilo, y dictar por voz
   const VIDEO = path.join(TMP, 'referencia.mp4');
   cp.execFileSync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc=size=320x568:rate=24', '-t', '2', '-pix_fmt', 'yuv420p', VIDEO]);

@@ -2,6 +2,22 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20p · Tu coordinadora por Telegram y la autoevaluación con nota
+
+- **Telegram**: crea tu bot gratis con @BotFather, pega su token en **Ajustes › Telegram**, prende el interruptor y mándale a tu bot el código que te muestra la app (`/start CÓDIGO`). Desde ahí:
+  - lo que le escribes le llega a tu coordinadora (el mismo chat de la oficina) y ella te contesta ahí;
+  - le puedes mandar **audios** (los pasa a texto), **fotos**, **documentos** o **videos** (como si los adjuntaras en la app);
+  - todo lo que ella te escribe te llega a Telegram, y lo que espera tu aprobación trae el botón **«✅ Dale · US$…»**.
+  - Es privado: solo responde a tu chat. Funciona con la app abierta en tu computador (no necesita servidor).
+- **Autoevaluación con nota**: lo que escribe tu coordinadora (variaciones, copies, revisiones) se califica de 0 a 10 en interés, claridad, credibilidad, valor, conversación y narrativa; si no llega a 8,5, lo reescribe antes de entregártelo. La nota se ve en la entrega. Los guiones también pasan por esa autoevaluación antes de quedar listos para tu aprobación.
+
+## 2026-11-20o · La oficina como la de los videos: personajes de verdad, ciudad y «Presentar»
+
+- **Personajes humanos de verdad**: los agentes ahora son personajes 3D con esqueleto (de traje, casuales, de trabajo; mujeres y hombres, con distintos tonos de piel), sentados en su silla. Mueven brazos y cabeza según lo que hacen: teclean, usan el mouse, revisan con la mano en la barbilla, se agarran la cabeza si algo se frena; y cuando están libres miran el celular, toman café, se estiran, conversan o se echan atrás con las manos en la nuca.
+- **Un piso alto en la ciudad**: alrededor de la oficina hay edificios; de noche se encienden sus ventanas. Persianas en los ventanales y lámparas colgantes sobre los escritorios.
+- **Botón «Presentar»** (abajo, junto a General, Arriba y Cine): un recorrido de cine por tu oficina para grabar un video. Vista aérea, tu coordinadora, cada departamento con sus agentes y un primer plano de uno de ellos (gira la silla, mira a la cámara y saluda), con tarjetas de nombre como en televisión («Julián · Planificador de producción · AGENTE DE IA · …») y el cierre «Nada se gasta sin tu aprobación». Mientras presenta se esconden los paneles. «Salir» o cualquier otra vista lo termina.
+- Los archivos que le pasas a la coordinadora y lo que S.E.P trae de Meta quedan solo en tu computador (no se suben a GitHub).
+
 ## 2026-11-20n · Arreglo interno de las pruebas
 
 - Las pruebas automáticas de la app ya no dejan anotados en el chat de la coordinadora los anuncios de prueba que crean. No cambia nada de lo que ves.

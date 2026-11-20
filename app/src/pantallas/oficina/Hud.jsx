@@ -4,7 +4,7 @@
 //   <Actividad>  lo que pasa en la oficina: lo que te necesita, lo que se está haciendo, lo terminado y las charlas
 //   <Vistas>     general, desde arriba, modo cine y de día o de noche
 import { useMemo } from 'react';
-import { ArrowLeft, ArrowRight, Clapperboard, Compass, Map as MapaIcono, Moon, Orbit, Sun, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clapperboard, Compass, Map as MapaIcono, Moon, Orbit, Presentation, Sun, X } from 'lucide-react';
 import { fechaRelativa } from '../../datos/formato.js';
 import { LUGAR } from './Oficina3D.jsx';
 
@@ -154,6 +154,23 @@ export function Actividad({ agentes, eventos = [], departamentos = [], abierta, 
 
 // ---------------------------------------------------------------- las vistas
 
+/** (2026-11-20o) La tarjeta de nombre de cada toma de «Presentar» (como en los videos de oficinas de IA). */
+export function TarjetaEscena({ escena, onSalir }) {
+  if (!escena) return null;
+  return (
+    <div className="of-escena" key={`${escena.n}-${escena.titulo}`}>
+      <span className="of-escena__sobre">● {escena.sobre}</span>
+      <strong className="of-escena__titulo">{escena.titulo}</strong>
+      {escena.texto ? <span className="of-escena__texto">{escena.texto}</span> : null}
+      {escena.etiqueta ? <span className="of-escena__etiqueta">● {escena.etiqueta}</span> : null}
+      <span className="of-escena__pie">
+        {escena.n}/{escena.de}
+        <button type="button" onClick={onSalir}>Salir</button>
+      </span>
+    </div>
+  );
+}
+
 export function Vistas({ vista, onVista, modo, onModo }) {
   const b = (id, Icono, texto) => (
     <button type="button" className={`of-vista${vista === id ? ' of-vista--activa' : ''}`} onClick={() => onVista(id)} aria-pressed={vista === id} title={texto}>
@@ -165,6 +182,7 @@ export function Vistas({ vista, onVista, modo, onModo }) {
       {b('general', Orbit, 'General')}
       {b('arriba', MapaIcono, 'Arriba')}
       {b('cine', Clapperboard, 'Cine')}
+      {b('presentar', Presentation, 'Presentar')}
       <button type="button" className="of-vista" onClick={() => onModo(modo === 'dia' ? 'noche' : 'dia')} title={modo === 'dia' ? 'Pasar a la noche' : 'Pasar al día'}>
         {modo === 'dia' ? <Moon size={15} aria-hidden="true" /> : <Sun size={15} aria-hidden="true" />} <span>{modo === 'dia' ? 'Noche' : 'Día'}</span>
       </button>

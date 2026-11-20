@@ -1,0 +1,5 @@
+Personajes 3D de la oficina virtual
+
+Ultimate Animated Character Pack, de Quaternius (https://quaternius.com)
+Licencia CC0 1.0 Universal (dominio público): se pueden usar, cambiar y distribuir sin pedir permiso ni pagar.
+Copia en GLB tomada de https://github.com/Yametech12/ghostname-3d-assets (misma licencia CC0).

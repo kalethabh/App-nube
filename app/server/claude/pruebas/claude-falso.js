@@ -317,7 +317,7 @@ async function alMensaje(texto) {
     } else if (/variaciones/i.test(ultimo) && docAdj) {
       const base = fs.readFileSync(path.join(RAIZ, docAdj), 'utf8').trim().split('\n')[0];
       const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 10;
-      entrega = { titulo: `${n} variaciones`, texto: Array.from({ length: n }, (_, k) => `${k + 1}. ${base} (versión ${k + 1})`).join('\n') };
+      entrega = { titulo: `${n} variaciones`, texto: Array.from({ length: n }, (_, k) => `${k + 1}. ${base} (versión ${k + 1})`).join('\n'), criterios: { interes: 9, claridad: 9, credibilidad: 8.5, valor: 9, conversacion: 8, narrativa: 8.5 } };
       respuesta = `Listo, aquí van las ${n} 👇`;
     } else if (/anuncio/i.test(ultimo) && prod) {
       const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 1;
