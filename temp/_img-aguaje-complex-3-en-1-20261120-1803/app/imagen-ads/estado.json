@@ -4,7 +4,7 @@
     "E": 3,
     "R": 1,
     "A": 1,
-    "T": 2
+    "T": 3
   },
   "tandas": {
     "E001": {
@@ -22,7 +22,7 @@
     "E002": {
       "tipo": "prompts",
       "uuid": "7dfc705a-9d04-433a-83a2-edb48f0de186",
-      "estado": "en-curso",
+      "estado": "hecha",
       "ids": [
         "V05",
         "V06",
@@ -30,7 +30,8 @@
         "V08",
         "V09",
         "V10"
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -51,27 +52,27 @@
       "tanda": "E001"
     },
     "V05": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V06": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V07": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V08": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V09": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V10": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     }
   },
@@ -79,24 +80,20 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": null,
-      "mensaje": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
@@ -123,24 +120,20 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": null,
-      "mensaje": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
@@ -155,7 +148,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -167,12 +160,17 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 0,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -184,11 +182,16 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -201,11 +204,16 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -218,11 +226,16 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -235,11 +248,16 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -252,11 +270,16 @@
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
