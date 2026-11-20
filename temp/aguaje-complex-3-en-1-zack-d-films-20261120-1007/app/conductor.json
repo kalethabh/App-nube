@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "imagenes-y-videos",
+  "paso": "voces",
   "pasos": [
     {
       "id": "validar",
@@ -40,21 +40,26 @@
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-20T15:47:40.584Z"
+      "inicio": "2026-11-20T15:47:40.584Z",
+      "fin": "2026-11-20T15:59:58.614Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T15:59:58.614Z",
+      "fin": "2026-11-20T16:01:30.876Z",
+      "nota": "La revisión dejó 3 avisos: míralos en el proceso."
     },
     {
       "id": "voces",
       "nombre": "Buscar voces que no van",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:01:30.876Z"
     },
     {
       "id": "musica",
@@ -91,7 +96,7 @@
   "modoPrueba": false,
   "creado": "2026-11-20T15:47:29.610Z",
   "aprobado": "2026-11-20T15:47:29.610Z",
-  "actualizado": "2026-11-20T15:47:40.584Z",
+  "actualizado": "2026-11-20T16:01:30.876Z",
   "saldoInicial": {
     "creditos": 11011.1,
     "fecha": "2026-11-20T15:47:30.350Z"

@@ -1,12 +1,12 @@
 {
-  "pid": 10450,
-  "paso": "imagenes-y-videos",
-  "script": "producir.js",
+  "pid": 12199,
+  "paso": "voces",
+  "script": "revisar-voces.js",
   "args": [
     "temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007",
-    "--si"
+    "--silenciar"
   ],
-  "comando": "node produccion/producir.js temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007 --si",
-  "inicio": "2026-11-20T15:47:40.585Z",
+  "comando": "node produccion/revisar-voces.js temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007 --silenciar",
+  "inicio": "2026-11-20T16:01:30.879Z",
   "app": 10070
 }
