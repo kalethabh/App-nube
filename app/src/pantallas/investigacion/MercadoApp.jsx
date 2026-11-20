@@ -5,9 +5,10 @@
 // PDF de antes (Documento.jsx, que va oculto y solo se imprime).
 //
 //   <MercadoApp inv={investigacion} foto={urlDeLaFoto} T={ComponenteDeTexto} />
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Boton } from '../../componentes/index.js';
 import { Maqueta } from './Documento.jsx';
+import { Indice } from './Indice.jsx';
 import './competencia.css';
 
 const lista = (x) => (Array.isArray(x) ? x.filter((v) => typeof v === 'string' && v.trim()) : []);
@@ -165,13 +166,6 @@ export function MercadoApp({ inv, foto = null, T = SinResaltar }) {
   const pestañas = [...secciones.map((s) => s?.titulo || 'Sección'), ...(inv?.fuentes?.length ? ['Fuentes'] : [])];
   const [actual, setActual] = useState(0);
   const i = Math.min(actual, Math.max(0, pestañas.length - 1));
-  // (2026-11-20) el índice es una fila que se desliza: la sección elegida queda siempre a la vista
-  const indice = useRef(null);
-  useEffect(() => {
-    const b = indice.current?.querySelector('.tt-etapa--activa');
-    const nav = indice.current;
-    if (b && nav) nav.scrollTo({ left: b.offsetLeft - nav.clientWidth / 2 + b.offsetWidth / 2, behavior: 'smooth' });
-  }, [i]);
   const sec = secciones[i] || null;
   const color = /^#[0-9a-f]{6}$/i.test(inv?.color || '') ? inv.color : '#A8431F';
   const p = inv?.portada || {};
@@ -202,14 +196,7 @@ export function MercadoApp({ inv, foto = null, T = SinResaltar }) {
           ))}
         </div>
       ) : null}
-      <nav ref={indice} className="tt-etapas" aria-label="Secciones de la investigación de mercado">
-        {pestañas.map((t, k) => (
-          <button key={k} type="button" className={`tt-etapa${k === i ? ' tt-etapa--activa' : ''}`} onClick={() => setActual(k)} aria-current={k === i ? 'step' : undefined}>
-            <b>{k + 1}</b>
-            {t}
-          </button>
-        ))}
-      </nav>
+      <Indice titulos={pestañas} actual={i} onElegir={setActual} etiqueta="Secciones de la investigación de mercado" />
       <div className="tt-cuerpo" key={i}>
         {sec ? (
           (sec.bloques || []).map((b, k) => <Bloque key={k} b={b} T={T} guia={<Guia inv={inv} foto={foto} color={color} />} />)

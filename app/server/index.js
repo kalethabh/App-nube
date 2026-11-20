@@ -91,6 +91,24 @@ const ORIGENES = origenesPermitidos(PUERTO);
 // su propio origen (chrome-extension://…), con el código de emparejamiento, tope de tamaño y de pedidos por minuto
 // (lib/desde-chrome.js). Lo que pasa ese portero queda marcado y el filtro de abajo lo deja seguir.
 app.use('/api/inspiracion/importar', porteroImportar);
+// (2026-11-20e) EL CONECTOR PARA CLAUDE (lib/conector.js): un servidor MCP en /mcp/<clave>. Lo llama Claude desde sus
+// servidores (sin Origin de la app), así que se atiende ANTES del filtro de abajo, solo con la clave secreta correcta y
+// el conector prendido en Ajustes. Con cualquier otra cosa: 404, como si no existiera.
+app.all('/mcp/:clave', async (req, res, next) => {
+  const conector = await import('./lib/conector.js');
+  if (!conector.claveValida(req.params.clave)) return res.status(404).json({ error: 'No existe esa ruta.' });
+  if (req.method !== 'POST') return res.status(405).set('Allow', 'POST').json({ error: 'Usa POST (MCP por HTTP).' });
+  express.json({ limit: '25mb' })(req, res, async (err) => {
+    if (err) return res.status(400).json({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'JSON inválido' } });
+    try {
+      const r = await conector.atender(req.body);
+      if (r === null) return res.status(202).end();
+      res.set('Cache-Control', 'no-store').json(r);
+    } catch (e) {
+      next(e);
+    }
+  });
+});
 app.use((req, res, next) => {
   if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return next();
   if (req.desdeExtension === true) return next();
