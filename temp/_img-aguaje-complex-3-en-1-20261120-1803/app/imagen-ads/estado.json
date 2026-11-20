@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 1,
+    "R": 2,
     "A": 1,
     "T": 3
   },
@@ -30,6 +30,20 @@
         "V08",
         "V09",
         "V10"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "7ff57644-50c6-4bad-a67f-b757ef254656",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V07_1x1",
+          "firma": "2441685-1795217120474",
+          "ronda": 1
+        }
       ],
       "empezada": true
     }
@@ -188,24 +202,26 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2441685-1795217120474",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2441685-1795217120474"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-20T23:25:21.749Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V08_1x1": {
       "v": "V08",
@@ -220,7 +236,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -242,7 +258,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -264,7 +280,7 @@
         "version": 1,
         "trabajo": "T002"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
