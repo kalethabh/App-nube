@@ -1,0 +1,24 @@
+{
+  "n": 1,
+  "estado": "exportando",
+  "calidad": "1080",
+  "version": "completa",
+  "subtitulos": "con",
+  "sinMusica": false,
+  "srt": true,
+  "guardar": false,
+  "creado": "2026-11-20T16:18:22.087Z",
+  "actualizado": "2026-11-20T16:25:32.502Z",
+  "avance": {
+    "etapa": "render",
+    "valor": 15.4,
+    "cuadro": 145,
+    "total": 2997,
+    "nota": "Armando los 25 tramos del video (la próxima vez solo se rehace lo que cambies)",
+    "tramos": {
+      "rehacer": 25,
+      "total": 25,
+      "sonido": true
+    }
+  }
+}

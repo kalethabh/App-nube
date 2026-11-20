@@ -1,0 +1,13 @@
+{
+  "pid": 1264,
+  "paso": "exportar",
+  "script": "exportar-edicion.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+    "--pedido",
+    "temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007/app/exportes/pedido-1.json"
+  ],
+  "comando": "node produccion/exportar-edicion.js temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007 --pedido temp/aguaje-complex-3-en-1-zack-d-films-20261120-1007/app/exportes/pedido-1.json",
+  "inicio": "2026-11-20T16:25:04.593Z",
+  "app": 1233
+}
