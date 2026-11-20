@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20g · El chat de la coordinadora se lee en el modo claro
+
+- Con la app en modo claro, los mensajes de la coordinadora salían en blanco sobre blanco y no se leían. Ahora el chat (y los demás paneles de la oficina) usa sus propios colores oscuros, con letra clara, en los dos modos.
+- En «En vivo» de la oficina, cuando un lote de anuncios de imagen se frena, ahora se ve **por qué** (el mensaje del error), sin tener que abrirlo.
+
 ## 2026-11-20f · Conector para Claude, las dos partes de la investigación y un índice más claro
 
 - **Conector para Claude**: con la app en un servidor, la agregas a Claude (claude.ai o la app del celular) y desde ese chat le pides: tus productos, **analizar tu investigación de mercado (las dos partes)**, lanzar una investigación, crear anuncios de video e imagen, ver su costo y producirlos con tu sí, y cómo va la oficina. Se prende en **Ajustes › Conector para Claude**; la guía paso a paso está en `CONECTOR-CLAUDE.md`. Todo lo de antes sigue igual: es una puerta más.

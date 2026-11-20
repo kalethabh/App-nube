@@ -105,7 +105,7 @@ export function Actividad({ agentes, eventos = [], departamentos = [], abierta, 
   const items = useMemo(() => {
     const l = [];
     for (const a of agentes) {
-      for (const t of a.necesita || []) if (a.id !== 'coordinacion') l.push({ tipo: 'necesita', a, texto: t.titulo, href: t.href, cuando: t.cuando });
+      for (const t of a.necesita || []) if (a.id !== 'coordinacion') l.push({ tipo: 'necesita', a, texto: t.detalle && /se frenó|espera/.test(t.titulo) ? `${t.titulo}: ${t.detalle}` : t.titulo, href: t.href, cuando: t.cuando });
       for (const t of (a.ahora || []).slice(0, 2)) l.push({ tipo: 'ahora', a, texto: t.titulo, href: t.href, cuando: t.cuando });
       for (const t of (a.hechos || []).slice(0, 3)) l.push({ tipo: 'hecho', a, texto: t.titulo, href: t.href, cuando: t.cuando });
     }
