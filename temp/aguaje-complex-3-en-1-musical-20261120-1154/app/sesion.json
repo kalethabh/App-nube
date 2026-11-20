@@ -1,8 +1,8 @@
 {
-  "uuid": "9dd0155f-4383-4343-9ccd-f6bea484d02f",
+  "uuid": "ba782fed-cf9b-4b2a-a2e5-df1f20cff9db",
   "estado": "bloqueado",
   "tipo": "guion",
-  "intentos": 1,
+  "intentos": 2,
   "progreso": [
     "Preparando la foto de tu producto",
     "Claude empezó a escribir la letra",
@@ -10,31 +10,28 @@
     "Leyendo",
     "Buscando en los archivos",
     "Leyendo",
-    "Mirando las fotos de tu producto",
-    "Buscando en los archivos",
-    "Leyendo lo que contaste de tu producto",
     "Buscando en los archivos",
     "Anotando lo que falta"
   ],
   "inicio": "2026-11-20T16:54:37.336Z",
   "cambios": [],
-  "actualizado": "2026-11-20T16:54:59.922Z",
+  "actualizado": "2026-11-20T17:17:44.556Z",
   "error": {
-    "mensaje": "Pediste copiar el video de referencia tal cual, con la misma letra palabra por palabra. Pero no tengo esa letra: el video se subió sin su texto escrito y yo no puedo escucharlo. Si escribo una letra nueva ya no sería la del original, y eso es justo lo que no quieres. Además, este estilo se hace en crochet, plastilina o animación 3D, no en video real como el original.",
+    "mensaje": "Pediste copiar la canción del video de referencia palabra por palabra, pero esa letra no me llegó. No la puedo inventar: saldría otra canción, no la del video. Además, el estilo musical solo se hace en crochet, plastilina o animación 3D; no se hace con personas reales.",
     "tipo": "bloqueo",
     "motor": "claude",
     "faltan": [
-      "La letra completa del video de referencia, escrita tal como se canta, en orden (pégala en «guion propio» o en tu pedido).",
+      "La letra completa del video de referencia, tal como se canta y en orden. Pégala en «guion propio» o en tu pedido.",
       "El estilo visual: crochet, plastilina o animación 3D. Si quieres que se vea real, como el original, elige otro estilo que use personas reales."
     ]
   },
-  "inicioIntento": "2026-11-20T16:54:37.336Z",
-  "fin": "2026-11-20T16:54:59.922Z",
+  "inicioIntento": "2026-11-20T17:17:25.053Z",
+  "fin": "2026-11-20T17:17:44.556Z",
   "limite": false,
   "reinicio": null,
   "bloqueado": true,
   "faltan": [
-    "La letra completa del video de referencia, escrita tal como se canta, en orden (pégala en «guion propio» o en tu pedido).",
+    "La letra completa del video de referencia, tal como se canta y en orden. Pégala en «guion propio» o en tu pedido.",
     "El estilo visual: crochet, plastilina o animación 3D. Si quieres que se vea real, como el original, elige otro estilo que use personas reales."
   ],
   "medidas": [
@@ -79,6 +76,58 @@
         "fallback_credit": null
       },
       "costoEstimado": 0.6807127999999999,
+      "modelo": "claude-opus-5-5",
+      "herramientas": [
+        "Edit",
+        "Glob",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "denegados": 0,
+      "motor": "claude"
+    },
+    {
+      "tipo": "guion",
+      "fecha": "2026-11-20T17:17:44.556Z",
+      "ok": false,
+      "turnos": 11,
+      "duracionMs": 19487,
+      "uso": {
+        "input_tokens": 12,
+        "cache_creation_input_tokens": 67245,
+        "cache_read_input_tokens": 312438,
+        "output_tokens": 1924,
+        "output_tokens_details": {
+          "thinking_tokens": 615
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 67245,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 10,
+            "cache_read_input_tokens": 73995,
+            "cache_creation_input_tokens": 487,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 487
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "costoEstimado": 0.6389756000000001,
       "modelo": "claude-opus-5-5",
       "herramientas": [
         "Edit",

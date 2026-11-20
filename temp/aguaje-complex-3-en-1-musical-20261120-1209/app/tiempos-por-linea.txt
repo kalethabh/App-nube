@@ -1,0 +1,104 @@
+=== Tiempos por linea — aguaje-complex-3-en-1-musical-20261120-1209 ===
+
+  Cancion:   Lo que nadie te dice del BBL   224.83s
+  Palabras:  440 (medidas con Scribe)
+  Lineas:    93
+
+  toma   inicio      fin  ventana  palabras  linea
+  ----  -------  -------  -------  --------  ---------------------------------
+     1    0.00s    2.80s    2.8s         0  [intro]  ~
+     2    2.80s    5.58s    2.8s         5  Cuando te hacen un BBL,
+     3    5.58s    7.74s    2.2s         3  los doctores literalmente
+     4    7.74s    9.72s    2.0s         5  toman grasa de tu estómago,
+     5    9.72s   13.26s    3.5s         4  tu espalda, tu espalda.
+     6   13.26s   14.78s    1.5s         3  Luego la reinyectan
+     7   14.78s   17.54s    2.8s         5  en tu trasero y caderas.
+     8   17.54s   18.52s    1.0s         6  Pero esto es de lo que
+     9   18.52s   19.98s    1.5s         2  nadie habla.
+    10   19.98s   23.08s    3.1s         7  El BBL no te da curvas, nena.
+    11   23.08s   24.90s    1.8s         7  Solo fuerza la grasa a un lugar
+    12   24.90s   26.12s    1.2s         4  donde tu cuerpo nunca
+    13   26.12s   28.52s    2.4s         2  aceptó naturalmente.
+    14   28.52s   30.24s    1.7s         6  Entonces, tu cuerpo ve esa grasa
+    15   30.24s   32.66s    2.4s         6  y dice: "Esto no va aquí".
+    16   32.66s   34.82s    2.2s         4  Y empieza a descomponerla,
+    17   34.82s   39.60s    4.8s         2  reabsorberla, eliminarla.
+    18   39.60s   41.02s    1.4s         5  Y cuando subes de peso
+    19   41.02s   43.14s    2.1s         4  después de un BBL,
+    20   43.14s   44.46s    1.3s         6  no va a tus nuevas curvas.
+    21   44.46s   46.38s    1.9s         6  Regresa a tu estómago, tus brazos,
+    22   46.38s   48.74s    2.4s         5  los mismos lugares de antes.
+    23   48.74s   50.18s    1.4s         3  Estás pagando millones
+    24   50.18s   52.10s    1.9s         3  para reacomodar grasa
+    25   52.10s   54.86s    2.8s         5  que tu cuerpo ya está
+    26   54.86s   57.36s    2.5s         3  tratando de devolver.
+    27   57.36s   59.94s    2.6s         7  Pero esto es lo que los científicos
+    28   59.94s   62.84s    2.9s         4  descubrieron hace mucho tiempo.
+    29   62.84s   65.80s    3.0s         9  ¿Qué tal si en lugar de mover la grasa,
+    30   65.80s   67.48s    1.7s         5  le dijeras a tu cuerpo
+    31   67.48s   70.84s    3.4s         2  dónde almacenarla
+    32   70.84s   72.06s    1.2s         3  desde el principio?
+    33   72.06s   74.28s    2.2s         5  Esos son los fitoestrógenos, nena.
+    34   74.28s   77.54s    3.3s         6  Extraídos de la raíz de maca,
+    35   77.54s   78.94s    1.4s         3  fenogreco y aguaje.
+    36   78.94s   80.92s    2.0s         4  Estas plantas contienen compuestos
+    37   80.92s   83.40s    2.5s         5  que imitan tu estrógeno natural.
+    38   83.40s   86.02s    2.6s         8  Y el estrógeno es la hormona que decide
+    39   86.02s   88.02s    2.0s         6  dónde el cuerpo de una mujer
+    40   88.02s   89.92s    1.9s         3  almacena su peso,
+    41   89.92s   93.68s    3.8s         6  tus caderas, tus muslos, tu trasero.
+    42   93.68s   95.82s    2.1s         5  Los fitoestrógenos no mueven nada,
+    43   95.82s   97.10s    1.3s         1  señalizan.
+    44   97.10s   98.40s    1.3s         5  Le dicen a tu cuerpo:
+    45   98.40s  102.34s    3.9s         4  "Almacénalo aquí, no allá".
+    46  102.34s  104.12s    1.8s         4  Y tu cuerpo escucha.
+    47  104.12s  106.70s    2.6s         8  Y creo que eso es lo más hermoso
+    48  106.70s  108.88s    2.2s         7  que alguien ha dicho sobre una planta.
+    49  108.88s  112.30s    3.4s         6  Los, los mejores especialistas en hormon
+    50  112.30s  114.26s    2.0s         5  cobraban una fortuna por sesión
+    51  114.26s  116.40s    2.1s         3  para recetar esto.
+    52  116.40s  118.30s    1.9s         6  Luego los doctores tuvieron esta idea.
+    53  118.30s  120.94s    2.6s         6  ¿Qué, qué, qué tal si tomáramos
+    54  120.94s  123.14s    2.2s         5  los mismos compuestos de fitoestrógenos
+    55  123.14s  124.68s    1.5s         3  de alta potencia
+    56  124.68s  129.70s    5.0s         9  y los concentráramos en Aguaje Complex 3
+    57  129.70s  131.38s    1.7s         4  dos cápsulas al día?
+    58  131.38s  133.00s    1.6s         4  Mismo ingrediente, sin agujas,
+    59  133.00s  134.94s    1.9s         4  sin gimnasio, sin cirugía.
+    60  134.94s  139.48s    4.5s         6  Solo tú y una pequeña botella
+    61  139.48s  140.18s    0.7s         2  cada mañana.
+    62  140.18s  142.92s    2.7s         8  El momento en que entra a tu sistema,
+    63  142.92s  145.52s    2.6s         5  tus receptores de estrógeno despiertan
+    64  145.52s  148.46s    2.9s         7  y empiezan a señalizar a tu cuerpo
+    65  148.46s  151.04s    2.6s         6  que envíe grasa a tu trasero.
+    66  151.04s  152.52s    1.5s         5  Y aquí está la parte
+    67  152.52s  154.02s    1.5s         5  que me emociona cada vez.
+    68  154.02s  156.00s    2.0s         5  Mujeres que nunca tuvieron curvas
+    69  156.00s  157.80s    1.8s         4  en toda su vida,
+    70  157.80s  160.04s    2.2s         4  en semanas sus jeans
+    71  160.04s  162.80s    2.8s         6  dejan de abrocharse pasando sus muslos.
+    72  162.80s  164.74s    1.9s         5  Los mismos jeans que antes
+    73  164.74s  167.26s    2.5s         5  se deslizaban sobre sus caderas.
+    74  167.26s  169.88s    2.6s         6  Eso no es grasa siendo forzada
+    75  169.88s  172.12s    2.2s         4  a donde no pertenece.
+    76  172.12s  175.36s    3.2s         6  Es tu cuerpo finalmente almacenando peso
+    77  175.36s  177.48s    2.1s         4  donde siempre debió ir.
+    78  177.48s  181.06s    3.6s         8  Tu cuerpo construye las curvas por sí mi
+    79  181.06s  183.16s    2.1s         5  y los resultados no desaparecen
+    80  183.16s  185.16s    2.0s         4  cuando dejas de tomarlas,
+    81  185.16s  189.26s    4.1s         7  porque el cambio ya sucedió desde adentr
+    82  189.26s  192.12s    2.9s         6  Las mujeres empiezan a ver cambios
+    83  192.12s  194.50s    2.4s         5  en tan solo noventa días.
+    84  194.50s  198.06s    3.6s         5  Aguaje Complex 3 en 1
+    85  198.06s  200.80s    2.7s         3  está disponible actualmente,
+    86  200.80s  203.30s    2.5s         4  pero no durará mucho,
+    87  203.30s  206.38s    3.1s         5  así que abastécete mientras puedas.
+    88  206.38s  209.28s    2.9s         6  Si todavía ves el enlace abajo,
+    89  209.28s  211.54s    2.3s         3  todavía hay stock.
+    90  211.54s  214.32s    2.8s         3  Consigue las tuyas
+    91  214.32s  216.42s    2.1s         7  antes de que se agote este lote.
+    92  216.42s  220.63s    4.2s         0  [cierre]  ~
+    93  220.63s  224.83s    4.2s         0  [cierre]  ~
+
+  Con esta tabla se escribe el manifiesto: "duracion" de cada toma = su ventana.
+  Despues:  npm run tiempos -- temp/aguaje-complex-3-en-1-musical-20261120-1209

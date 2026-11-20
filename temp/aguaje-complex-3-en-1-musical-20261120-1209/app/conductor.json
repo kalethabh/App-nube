@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-3-en-1-musical-20261120-1209",
   "familia": "musical",
-  "estado": "pausado",
-  "paso": "elegir-cancion",
+  "estado": "corriendo",
+  "paso": "tomas",
   "pasos": [
     {
       "id": "letra",
@@ -33,19 +33,19 @@
     {
       "id": "elegir-cancion",
       "nombre": "Elegir tu canción",
-      "estado": "pendiente",
-      "intentos": 1,
+      "estado": "hecho",
+      "intentos": 2,
       "inicio": "2026-11-20T17:12:38.346Z",
-      "error": {
-        "mensaje": "Escucha las versiones de tu canción y quédate con una: apenas elijas, sigo sola.",
-        "motivo": "elegir-cancion"
-      }
+      "fin": "2026-11-20T17:16:38.208Z",
+      "nota": "Elegiste la versión 1: dura 3:45."
     },
     {
       "id": "tomas",
       "nombre": "Escribir las escenas sobre la canción",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:16:38.208Z",
+      "detalle": "Buscando en los archivos"
     },
     {
       "id": "tiempos",
@@ -112,10 +112,9 @@
   "modoPrueba": false,
   "creado": "2026-11-20T17:11:38.790Z",
   "aprobado": "2026-11-20T17:11:38.790Z",
-  "actualizado": "2026-11-20T17:12:38.347Z",
+  "actualizado": "2026-11-20T17:17:00.282Z",
   "saldoInicial": {
     "creditos": 9200.1,
     "fecha": "2026-11-20T17:11:39.063Z"
-  },
-  "motivo": "elegir-cancion"
+  }
 }

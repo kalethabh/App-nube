@@ -1,0 +1,21 @@
+{
+  "numero": 2,
+  "paso": "elegir-cancion",
+  "comando": "node produccion/suno-retomable.js generar-cancion.js temp/aguaje-complex-3-en-1-musical-20261120-1209 --elegir 1",
+  "inicio": "2026-11-20T17:16:31.994Z",
+  "fin": "2026-11-20T17:16:38.207Z",
+  "codigo": 0,
+  "imagenes": [],
+  "videos": [],
+  "sinRegistro": [],
+  "creditos": 0,
+  "dolares": 0,
+  "musica": null,
+  "elevenlabs": {
+    "scribe": {
+      "clips": 1,
+      "segundos": 224.8,
+      "estimado": true
+    }
+  }
+}

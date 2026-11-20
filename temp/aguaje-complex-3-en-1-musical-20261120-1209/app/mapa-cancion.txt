@@ -1,0 +1,15 @@
+--- MAPA DE LA CANCION ---
+  Esto es lo que hay que cubrir con tomas. Los huecos tambien.
+
+      0.00s ->   2.80s    2.8s  SIN LETRA  <- necesita toma(s) instrumental(es)
+      2.80s ->  37.26s   34.5s  cantado: Cuando te hacen un BBL, los doctores literalme
+     37.26s ->  39.60s    2.3s  SIN LETRA  <- necesita toma(s) instrumental(es)
+     39.60s ->  68.82s   29.2s  cantado: Y cuando subes de peso después de un BBL, no v
+     68.82s ->  70.84s    2.0s  SIN LETRA  <- necesita toma(s) instrumental(es)
+     70.84s -> 187.72s  116.9s  cantado: desde el principio? Esos son los fitoestrógeno
+    187.72s -> 189.26s    1.5s  SIN LETRA  <- necesita toma(s) instrumental(es)
+    189.26s -> 216.42s   27.2s  cantado: Las mujeres empiezan a ver cambios en tan solo
+    216.42s -> 224.83s    8.4s  SIN LETRA  <- necesita toma(s) instrumental(es)
+
+    4 tramo(s) cantado(s). Un clip no puede pasar de 10s:
+    un hueco de 20s son 2 o 3 tomas instrumentales, no una.
