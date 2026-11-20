@@ -412,6 +412,19 @@
       "de": "tu",
       "texto": "necesito que frenes esa produccion porque lleva más de 25 usd gastados, recuerda que los videos son max 1:40",
       "fecha": "2026-11-20T20:32:38.036Z"
+    },
+    {
+      "id": "443fbad9b0",
+      "de": "coordinadora",
+      "texto": "Listo, ya la frené 🛑 No se gasta ni un peso más en esa. Perdón por lo de la duración: los próximos no pasan de 1:40. ¿Y el segundo video que me mandaste lo hago cantado como el otro o es alguien hablando a cámara?",
+      "acciones": [
+        {
+          "tipo": "cancelar",
+          "titulo": "Ya no sigo: Musical de AGUAJE COMPLEX 3 EN 1",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-20T20:32:46.487Z"
     }
   ],
   "encargos": [
@@ -444,7 +457,7 @@
       "error": "Pediste copiar el video de referencia tal cual, con la misma letra palabra por palabra. Pero no tengo esa letra: el video se subió sin su texto escrito y yo no puedo escucharlo. Si escribo una letra nueva ya no sería la del original, y eso es justo lo que no quieres. Además, este estilo se hace en crochet, plastilina o animación 3D, no en video real como el original."
     },
     {
-      "estado": "error",
+      "estado": "cancelado",
       "creado": "2026-11-20T17:09:39.296Z",
       "id": "aguaje-complex-3-en-1-musical-20261120-1209",
       "tipo": "video",
