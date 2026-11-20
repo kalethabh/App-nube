@@ -1,0 +1,966 @@
+{
+  "carpeta": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+  "archivos": [
+    "audio/voz.mp3",
+    "efectos/deep-woosh.mp3",
+    "efectos/woosh.mp3",
+    "img/amiga.png",
+    "img/protagonista-antes.png",
+    "img/protagonista.png",
+    "img/toma-1-inicial.png",
+    "img/toma-10-inicial.png",
+    "img/toma-11-inicial.png",
+    "img/toma-12-inicial.png",
+    "img/toma-13-inicial.png",
+    "img/toma-14-final.png",
+    "img/toma-14-inicial.png",
+    "img/toma-15-inicial.png",
+    "img/toma-16-inicial.png",
+    "img/toma-17-inicial.png",
+    "img/toma-18-final.png",
+    "img/toma-18-inicial.png",
+    "img/toma-19-inicial.png",
+    "img/toma-2-final.png",
+    "img/toma-2-inicial.png",
+    "img/toma-20-inicial.png",
+    "img/toma-21-inicial.png",
+    "img/toma-22-inicial.png",
+    "img/toma-23-inicial.png",
+    "img/toma-24-inicial.png",
+    "img/toma-25-inicial.png",
+    "img/toma-26-inicial.png",
+    "img/toma-27-inicial.png",
+    "img/toma-28-inicial.png",
+    "img/toma-29-inicial.png",
+    "img/toma-3-inicial.png",
+    "img/toma-30-inicial.png",
+    "img/toma-31-inicial.png",
+    "img/toma-32-inicial.png",
+    "img/toma-33-inicial.png",
+    "img/toma-34-inicial.png",
+    "img/toma-35-inicial.png",
+    "img/toma-36-inicial.png",
+    "img/toma-4-inicial.png",
+    "img/toma-5-inicial.png",
+    "img/toma-6-inicial.png",
+    "img/toma-7-inicial.png",
+    "img/toma-8-inicial.png",
+    "img/toma-9-inicial.png",
+    "musica/fondo.mp3",
+    "producto.png",
+    "referencia/audio-referencia.mp3",
+    "referencia/hoja-tomas.jpg",
+    "referencia/original.mp4",
+    "referencia/tomas/movimiento/tira-01.jpg",
+    "referencia/tomas/movimiento/tira-02.jpg",
+    "referencia/tomas/movimiento/tira-03.jpg",
+    "referencia/tomas/movimiento/tira-04.jpg",
+    "referencia/tomas/movimiento/tira-05.jpg",
+    "referencia/tomas/movimiento/tira-06.jpg",
+    "referencia/tomas/movimiento/tira-07.jpg",
+    "referencia/tomas/movimiento/tira-08.jpg",
+    "referencia/tomas/movimiento/tira-09.jpg",
+    "referencia/tomas/movimiento/tira-10.jpg",
+    "referencia/tomas/movimiento/tira-11.jpg",
+    "referencia/tomas/movimiento/tira-12.jpg",
+    "referencia/tomas/movimiento/tira-13.jpg",
+    "referencia/tomas/movimiento/tira-14.jpg",
+    "referencia/tomas/movimiento/tira-15.jpg",
+    "referencia/tomas/movimiento/tira-16.jpg",
+    "referencia/tomas/movimiento/tira-17.jpg",
+    "referencia/tomas/movimiento/tira-18.jpg",
+    "referencia/tomas/movimiento/tira-19.jpg",
+    "referencia/tomas/movimiento/tira-20.jpg",
+    "referencia/tomas/movimiento/tira-21.jpg",
+    "referencia/tomas/movimiento/tira-22.jpg",
+    "referencia/tomas/movimiento/tira-23.jpg",
+    "referencia/tomas/movimiento/tira-24.jpg",
+    "referencia/tomas/movimiento/tira-25.jpg",
+    "referencia/tomas/movimiento/tira-26.jpg",
+    "referencia/tomas/movimiento/tira-27.jpg",
+    "referencia/tomas/movimiento/tira-28.jpg",
+    "referencia/tomas/movimiento/tira-29.jpg",
+    "referencia/tomas/movimiento/tira-30.jpg",
+    "referencia/tomas/movimiento/tira-31.jpg",
+    "referencia/tomas/movimiento/tira-32.jpg",
+    "referencia/tomas/movimiento/tira-33.jpg",
+    "referencia/tomas/movimiento/tira-34.jpg",
+    "referencia/tomas/movimiento/tira-35.jpg",
+    "referencia/tomas/movimiento/tira-36.jpg",
+    "referencia/tomas/toma-01.jpg",
+    "referencia/tomas/toma-02.jpg",
+    "referencia/tomas/toma-03.jpg",
+    "referencia/tomas/toma-04.jpg",
+    "referencia/tomas/toma-05.jpg",
+    "referencia/tomas/toma-06.jpg",
+    "referencia/tomas/toma-07.jpg",
+    "referencia/tomas/toma-08.jpg",
+    "referencia/tomas/toma-09.jpg",
+    "referencia/tomas/toma-10.jpg",
+    "referencia/tomas/toma-11.jpg",
+    "referencia/tomas/toma-12.jpg",
+    "referencia/tomas/toma-13.jpg",
+    "referencia/tomas/toma-14.jpg",
+    "referencia/tomas/toma-15.jpg",
+    "referencia/tomas/toma-16.jpg",
+    "referencia/tomas/toma-17.jpg",
+    "referencia/tomas/toma-18.jpg",
+    "referencia/tomas/toma-19.jpg",
+    "referencia/tomas/toma-20.jpg",
+    "referencia/tomas/toma-21.jpg",
+    "referencia/tomas/toma-22.jpg",
+    "referencia/tomas/toma-23.jpg",
+    "referencia/tomas/toma-24.jpg",
+    "referencia/tomas/toma-25.jpg",
+    "referencia/tomas/toma-26.jpg",
+    "referencia/tomas/toma-27.jpg",
+    "referencia/tomas/toma-28.jpg",
+    "referencia/tomas/toma-29.jpg",
+    "referencia/tomas/toma-30.jpg",
+    "referencia/tomas/toma-31.jpg",
+    "referencia/tomas/toma-32.jpg",
+    "referencia/tomas/toma-33.jpg",
+    "referencia/tomas/toma-34.jpg",
+    "referencia/tomas/toma-35.jpg",
+    "referencia/tomas/toma-36.jpg",
+    "video/toma-1.mp4",
+    "video/toma-10.mp4",
+    "video/toma-11.mp4",
+    "video/toma-12.mp4",
+    "video/toma-13.mp4",
+    "video/toma-14.mp4",
+    "video/toma-15.mp4",
+    "video/toma-16.mp4",
+    "video/toma-17.mp4",
+    "video/toma-18.mp4",
+    "video/toma-19.mp4",
+    "video/toma-2.mp4",
+    "video/toma-20.mp4",
+    "video/toma-21.mp4",
+    "video/toma-22.mp4",
+    "video/toma-23.mp4",
+    "video/toma-24.mp4",
+    "video/toma-25.mp4",
+    "video/toma-26.mp4",
+    "video/toma-27.mp4",
+    "video/toma-28.mp4",
+    "video/toma-29.mp4",
+    "video/toma-3.mp4",
+    "video/toma-30.mp4",
+    "video/toma-31.mp4",
+    "video/toma-32.mp4",
+    "video/toma-33.mp4",
+    "video/toma-34.mp4",
+    "video/toma-35.mp4",
+    "video/toma-36.mp4",
+    "video/toma-4.mp4",
+    "video/toma-5.mp4",
+    "video/toma-6.mp4",
+    "video/toma-7.mp4",
+    "video/toma-8.mp4",
+    "video/toma-9.mp4"
+  ],
+  "finales": [
+    "aguaje-complex-3-en-1-zack-d-films-20261120-1007_9x16_con-subtitulos.mp4"
+  ],
+  "ubicaciones": {
+    "audio/voz.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/audio/voz.mp3",
+      "bytes": 1599154,
+      "sha256": "a72ef513d0abcb66002be64f3674a2762b1e8ea6901a99e132bc6ce4fa93d1c9"
+    },
+    "efectos/deep-woosh.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/efectos/deep-woosh.mp3",
+      "bytes": 32023,
+      "sha256": "0e667f4e4254f61ddb1101189fc2abd2293222293d88981c7fffaca558d4b00f"
+    },
+    "efectos/woosh.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/efectos/woosh.mp3",
+      "bytes": 6946,
+      "sha256": "1f508a90d70fadf6870deebf65984994d1ef62090a616d0c7a7eeecd57ce1f0c"
+    },
+    "img/amiga.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/amiga.png",
+      "bytes": 5536662,
+      "sha256": "d1e87eb2482b3d239521f0143c874bd2265140e27281384f5c20e6c343bbdf8a"
+    },
+    "img/protagonista-antes.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/protagonista-antes.png",
+      "bytes": 5375134,
+      "sha256": "43322df7fa11e569b342e7b13c78655d9b8f8490417e6107d4eb516036229912"
+    },
+    "img/protagonista.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/protagonista.png",
+      "bytes": 5614553,
+      "sha256": "462056dfaa572b6d69400d80f16cad0eafc67d732cef2c3d9c01f812e9921cfc"
+    },
+    "img/toma-1-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-1-inicial.png",
+      "bytes": 5996444,
+      "sha256": "28f87bd33f74ad72d5e46b1f41b88b687108e6a1ac270259acff247a4213f408"
+    },
+    "img/toma-10-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-10-inicial.png",
+      "bytes": 5740119,
+      "sha256": "5929667371a77547dd9d5626565dbeb0466eefdd2e54a5a2a3efc0d5a5fb8221"
+    },
+    "img/toma-11-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-11-inicial.png",
+      "bytes": 6314700,
+      "sha256": "ab8b1e4f4fe78229918ffa47bc6b8d3043304d54fa6d6ef1c00e8cc3cc030c2a"
+    },
+    "img/toma-12-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-12-inicial.png",
+      "bytes": 5869023,
+      "sha256": "83167dd78494e0f1183f4d2e7e57ea9f7a5fbb766c4eba4eff0262e409e6b17d"
+    },
+    "img/toma-13-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-13-inicial.png",
+      "bytes": 6277812,
+      "sha256": "9e8d75c7699e263f8ad890a4ebbacd7cd632dfc2f4b40c76f081bacc7ca8c6a3"
+    },
+    "img/toma-14-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-14-final.png",
+      "bytes": 5765152,
+      "sha256": "5fb72daedbb2fa771db9a974e0d5b54e3abdf641dc9104c04e0b0caeb13fc873"
+    },
+    "img/toma-14-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-14-inicial.png",
+      "bytes": 5550058,
+      "sha256": "ea9cee32e9147b627884de2f2978f786500bfc3b459b285f52673cf5f7e23b21"
+    },
+    "img/toma-15-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-15-inicial.png",
+      "bytes": 6010011,
+      "sha256": "13478240a5fc520d6df3dc7b88caf619cdec52c5d88f82f4196fb3a93a185855"
+    },
+    "img/toma-16-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-16-inicial.png",
+      "bytes": 6345481,
+      "sha256": "7a05ccb6147c0d2d31a8a79b3d8872dac57d87bfbb5af5b210fd1b273fa1c3fe"
+    },
+    "img/toma-17-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-17-inicial.png",
+      "bytes": 6240375,
+      "sha256": "09883eb58e22913f8b9d4b0296e5ad2e09f438018b865af97ed3a395d051a2c7"
+    },
+    "img/toma-18-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-18-final.png",
+      "bytes": 5196654,
+      "sha256": "be882f9e35e082f90dfcd5ba91116afabb27380e3ce804fa202c1bdd61225840"
+    },
+    "img/toma-18-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-18-inicial.png",
+      "bytes": 5163475,
+      "sha256": "07d1f3d858dc9ab0268183222ba3d8d40dae3a5103c51b58bcd517ce586f30eb"
+    },
+    "img/toma-19-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-19-inicial.png",
+      "bytes": 6411399,
+      "sha256": "9b6c5c2eb8cbbef75b119694b05252f6fa1c8e1dea12f3cf279978fe7d0821b8"
+    },
+    "img/toma-2-final.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-2-final.png",
+      "bytes": 4952978,
+      "sha256": "f7eeff1a2cc35c2a586008593d601281d37cd36899a7e11365b1bd718a9f4b7a"
+    },
+    "img/toma-2-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-2-inicial.png",
+      "bytes": 4832016,
+      "sha256": "0f5f148511fede461853eaa27744bca746b0e9432a89d14ffb1e18ef2067d0ba"
+    },
+    "img/toma-20-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-20-inicial.png",
+      "bytes": 6277734,
+      "sha256": "34221aa883dd56bbb5610a30762454ab66d1d45535b178aeb06f9f5140d7d2f9"
+    },
+    "img/toma-21-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-21-inicial.png",
+      "bytes": 5614702,
+      "sha256": "4e8fb3de6c205c52a7352d8b6d4dba1c86d473c92d561d9622ec114d7fc952cf"
+    },
+    "img/toma-22-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-22-inicial.png",
+      "bytes": 6374764,
+      "sha256": "0bd97e98666876dc51b3c9cb67ab6ce58184f9fd138541bb9fc8de849c70ba31"
+    },
+    "img/toma-23-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-23-inicial.png",
+      "bytes": 5265342,
+      "sha256": "0546b03ee45e7c301af59913b54464cca50fbc63b72784ac2194ea889a2a3b92"
+    },
+    "img/toma-24-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-24-inicial.png",
+      "bytes": 5152424,
+      "sha256": "f52b6897babd2072c8849e21255a7a8e31d50c9ec69a6282ab68e0c2325ece37"
+    },
+    "img/toma-25-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-25-inicial.png",
+      "bytes": 5641357,
+      "sha256": "aa08a6b8e159ef05cf15c67c76d6d82a001a75316bea2a95d0ed82c1e6fbc1f9"
+    },
+    "img/toma-26-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-26-inicial.png",
+      "bytes": 5223586,
+      "sha256": "d84fa149d06b4ac6d4b5b772e398e3e31f4eca9570d38e64db1552ac11cb9cce"
+    },
+    "img/toma-27-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-27-inicial.png",
+      "bytes": 5324173,
+      "sha256": "f227febd607ae2050c56c80b24319b8ad9b67d131b164c593f30092a25e345a7"
+    },
+    "img/toma-28-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-28-inicial.png",
+      "bytes": 4386995,
+      "sha256": "583ee3ebb592d05c36020edc03e42861571445d422e247d52965bbc96a867ef1"
+    },
+    "img/toma-29-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-29-inicial.png",
+      "bytes": 5923621,
+      "sha256": "3588cdaf8531d380238c4eaeb192aa387e896f467b822d54f5a405d71e85c01f"
+    },
+    "img/toma-3-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-3-inicial.png",
+      "bytes": 5885167,
+      "sha256": "dc9b69c61eb7b89008f824b2a4ed0e28e7380f183e93493d760f14aa00d73cbc"
+    },
+    "img/toma-30-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-30-inicial.png",
+      "bytes": 5676802,
+      "sha256": "309a2126bcd72fb0f62de6af5f72dcd1d649703bfd620017c8fff625b5518fb7"
+    },
+    "img/toma-31-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-31-inicial.png",
+      "bytes": 4363380,
+      "sha256": "3b21b4a4998e63326c6d4281033d881b8aac224454d303b81396eb05841e1c98"
+    },
+    "img/toma-32-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-32-inicial.png",
+      "bytes": 6134336,
+      "sha256": "074bdd782acf5f3340cc15e214b7034bfdc1162a64ca24bb5f7c0fb13a040155"
+    },
+    "img/toma-33-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-33-inicial.png",
+      "bytes": 4930242,
+      "sha256": "29208397a581abb6299dd54b127c909669fdcfe965b34ac625b3ae04c6c75ebe"
+    },
+    "img/toma-34-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-34-inicial.png",
+      "bytes": 6328355,
+      "sha256": "fb208ac67ff70f1c602566709cd19d16551387a3ca054f48c441c304352b6a78"
+    },
+    "img/toma-35-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-35-inicial.png",
+      "bytes": 6567577,
+      "sha256": "142443ca8c4537464c18d959e61bae6dcf85845578cce91e40cb3ce5f66ff1cc"
+    },
+    "img/toma-36-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-36-inicial.png",
+      "bytes": 5835593,
+      "sha256": "cffd5a38d75579885ea58c274494d67de386708febc199f78aa311044181b83f"
+    },
+    "img/toma-4-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-4-inicial.png",
+      "bytes": 5890027,
+      "sha256": "c6380da89c0fb7d987b46573986234a1281a5ff0a1a3ae80b24e0d5429b1e041"
+    },
+    "img/toma-5-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-5-inicial.png",
+      "bytes": 5951770,
+      "sha256": "49d09e0e20e40b07512e99d708084d2813ab85286c6911ec58250feeffa88390"
+    },
+    "img/toma-6-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-6-inicial.png",
+      "bytes": 5821441,
+      "sha256": "b6bcefe99c98bcc3128656eb7905ec16fb10cca7e4c1252498f7fb4263b6008e"
+    },
+    "img/toma-7-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-7-inicial.png",
+      "bytes": 5674473,
+      "sha256": "66a9c9931601a2629b486f6059fb75cd19cdb5e48e1098ffa80d9b7d0ea45fa3"
+    },
+    "img/toma-8-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-8-inicial.png",
+      "bytes": 5902179,
+      "sha256": "e1b744847ea1ec600edfbecbe04139c5d31f9998c4e09be0f9a5844d18e07b8a"
+    },
+    "img/toma-9-inicial.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/img/toma-9-inicial.png",
+      "bytes": 5397956,
+      "sha256": "c2b29a1b6257f951e9906f097f06d937beb216bdbca1c63cd472b927e3a15e37"
+    },
+    "musica/fondo.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/musica/fondo.mp3",
+      "bytes": 3876386,
+      "sha256": "01f02d31bf1be65ecdb09973c950937755462ee5a93179ee55963d2b8bfaca65"
+    },
+    "producto.png": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/producto.png",
+      "bytes": 718914,
+      "sha256": "724767856b82a67d008eccb847dc0f19d4dd6ccf45edd6f6e0258ea2174be1ca"
+    },
+    "referencia/audio-referencia.mp3": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/audio-referencia.mp3",
+      "bytes": 1475541,
+      "sha256": "f103c04633484a3e39f7b625e7e356566d8a5fb79a9c6d1180249e5aa481da7e"
+    },
+    "referencia/hoja-tomas.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/hoja-tomas.jpg",
+      "bytes": 332539,
+      "sha256": "044116b0c32e4c90ac9dd1ddd488affa2e40a065358e3bb1484725d2585befe8"
+    },
+    "referencia/original.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/original.mp4",
+      "bytes": 16848649,
+      "sha256": "040658947de7057c0784d8faf805cf176da638ce7c1482c69dfc87bd553653c9"
+    },
+    "referencia/tomas/movimiento/tira-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-01.jpg",
+      "bytes": 85690,
+      "sha256": "6de2adfb2f2ab35a922cf96e36e6736b91ff83fc92434ba3ec2f7dfcde430fdb"
+    },
+    "referencia/tomas/movimiento/tira-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-02.jpg",
+      "bytes": 91072,
+      "sha256": "d246988d967ed85159eb6301a918b9b519da22a56608edbde29150e5cf507205"
+    },
+    "referencia/tomas/movimiento/tira-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-03.jpg",
+      "bytes": 94871,
+      "sha256": "e5cb5960c4cc3435c694e0e11117c6111ffdb57680d446ebc1202bf19c9205d7"
+    },
+    "referencia/tomas/movimiento/tira-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-04.jpg",
+      "bytes": 87565,
+      "sha256": "af74786be95b20b76f131c8177b3755a6212c735e74c479ce2014f7f28267781"
+    },
+    "referencia/tomas/movimiento/tira-05.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-05.jpg",
+      "bytes": 118605,
+      "sha256": "ce4a157f164590a6715750d683cc739ab8f2182757dc68a478cc3e53a6c19231"
+    },
+    "referencia/tomas/movimiento/tira-06.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-06.jpg",
+      "bytes": 100076,
+      "sha256": "80fa32d947610fdf49e7f735bf6466b145f2971b8908a772563eeb67560db5a8"
+    },
+    "referencia/tomas/movimiento/tira-07.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-07.jpg",
+      "bytes": 101315,
+      "sha256": "1d8d2cd507be1198abd124f48d133f1afc730beade058ef1949b522a5afa0871"
+    },
+    "referencia/tomas/movimiento/tira-08.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-08.jpg",
+      "bytes": 95407,
+      "sha256": "50d064333149b8e14dab1ab156a1f5164518fe0c945f18eb33cbcb13a6555c75"
+    },
+    "referencia/tomas/movimiento/tira-09.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-09.jpg",
+      "bytes": 96514,
+      "sha256": "eb6996cf8d0db6c4100d065610047836d8afc37ef414bf44c7c64e49db2f9a28"
+    },
+    "referencia/tomas/movimiento/tira-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-10.jpg",
+      "bytes": 57765,
+      "sha256": "fd0057956c632936657388c75d1861fa0d77e54b74f4899c0b65f8d7784ca939"
+    },
+    "referencia/tomas/movimiento/tira-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-11.jpg",
+      "bytes": 111906,
+      "sha256": "f3a8e06c20e47e7e22e163bd5575ed8b99adad1a210a5a53e6963dd209e64b4f"
+    },
+    "referencia/tomas/movimiento/tira-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-12.jpg",
+      "bytes": 110840,
+      "sha256": "3a164e80bda6d02fc53ac9c58f58355f4e33dc0d485c3b9ef74c2df690e2d8a9"
+    },
+    "referencia/tomas/movimiento/tira-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-13.jpg",
+      "bytes": 79287,
+      "sha256": "747d7d09094361bcb383809d28a34ebca45cb6a5058da21b1886b364300844f8"
+    },
+    "referencia/tomas/movimiento/tira-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-14.jpg",
+      "bytes": 99478,
+      "sha256": "54850d961c1a2a2eb7e2ad34b1cf27c720ebcb12352a64bf7abf6e7f427e7110"
+    },
+    "referencia/tomas/movimiento/tira-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-15.jpg",
+      "bytes": 110315,
+      "sha256": "21dd2c4a915202ca4209a6ec867c6fe9f285056d107f005071452010fd082302"
+    },
+    "referencia/tomas/movimiento/tira-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-16.jpg",
+      "bytes": 80730,
+      "sha256": "be338606aba6c5cf224d350e195e2c1cd5a8e8c06a4875295bf4162812bbc989"
+    },
+    "referencia/tomas/movimiento/tira-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-17.jpg",
+      "bytes": 94066,
+      "sha256": "abffc35fd58458ff64abbbcd6ea867975e8b7ab173f03ef474e13b1e7a380507"
+    },
+    "referencia/tomas/movimiento/tira-18.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-18.jpg",
+      "bytes": 82873,
+      "sha256": "d4e0f092264726de79a22a5602abf33a7d8546eaa19048977e71fbeba07b8be4"
+    },
+    "referencia/tomas/movimiento/tira-19.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-19.jpg",
+      "bytes": 127710,
+      "sha256": "3766c839645310af63656af9e245fc7ced0e48559bc4c90226cc9ed804392f96"
+    },
+    "referencia/tomas/movimiento/tira-20.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-20.jpg",
+      "bytes": 93437,
+      "sha256": "e3205c06b1ef2ed58fa0060548513106b75a4670779a729487a53d570a6b8d11"
+    },
+    "referencia/tomas/movimiento/tira-21.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-21.jpg",
+      "bytes": 92563,
+      "sha256": "f9e061f73a9b01fed6bc786481ba7e134c72175acd57503b07b3a286822c6072"
+    },
+    "referencia/tomas/movimiento/tira-22.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-22.jpg",
+      "bytes": 133887,
+      "sha256": "28676fe24c86019a52d95aaec8502eb47c2f729044449094b3190a87cce6a55b"
+    },
+    "referencia/tomas/movimiento/tira-23.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-23.jpg",
+      "bytes": 93094,
+      "sha256": "fcad25eff65afe3c5485912406c4cb5373b1d8662f45decb3552cb08cc77058b"
+    },
+    "referencia/tomas/movimiento/tira-24.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-24.jpg",
+      "bytes": 78570,
+      "sha256": "f4cf6131ba5eab833871879588870f7b0b2a4d7b18f707f7f81546ae842de26e"
+    },
+    "referencia/tomas/movimiento/tira-25.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-25.jpg",
+      "bytes": 98436,
+      "sha256": "6e0c65a1f2bb1a5e48e89298345babbb90b4ec9388643f45580bb43cee009070"
+    },
+    "referencia/tomas/movimiento/tira-26.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-26.jpg",
+      "bytes": 101612,
+      "sha256": "281c74c3c8a387363313536f844a2abf64d0bf1f712fc43a8830ab7b782f9cd6"
+    },
+    "referencia/tomas/movimiento/tira-27.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-27.jpg",
+      "bytes": 89445,
+      "sha256": "940346f6f77fa4dae25f728472e8feb9428c013b92de39a55755f0cac707a807"
+    },
+    "referencia/tomas/movimiento/tira-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-28.jpg",
+      "bytes": 75126,
+      "sha256": "46b6c9c5e4ca5cdf9d0638af9e390ea015dfbf82b8264f3250e74e799f0179b9"
+    },
+    "referencia/tomas/movimiento/tira-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-29.jpg",
+      "bytes": 118062,
+      "sha256": "b662b27b0f8d924d857ea5d3eeb99d18eb5e725ff106da6046b6d942817adf26"
+    },
+    "referencia/tomas/movimiento/tira-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-30.jpg",
+      "bytes": 90413,
+      "sha256": "a97cf724688ff201658ff5434343575df867e5aaf3196c8cff5b00a440d64287"
+    },
+    "referencia/tomas/movimiento/tira-31.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-31.jpg",
+      "bytes": 83144,
+      "sha256": "2155e9b4ca92d86dace80ffc521d7e6c6886e699c27817cd841a2ce971cc4aeb"
+    },
+    "referencia/tomas/movimiento/tira-32.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-32.jpg",
+      "bytes": 79936,
+      "sha256": "aed1378a932702b9b1757990e3cc46f971fa48d26aed4720bb32ddf7ae572078"
+    },
+    "referencia/tomas/movimiento/tira-33.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-33.jpg",
+      "bytes": 90037,
+      "sha256": "4eeb8d498b3dae4b86cc0891fa5ab008e0f735a551fe1e5b2370be45225ecf68"
+    },
+    "referencia/tomas/movimiento/tira-34.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-34.jpg",
+      "bytes": 84525,
+      "sha256": "1bb1197a1bee87f156088ebad2838053f382d9a0df517b940c3d1c51227d21a8"
+    },
+    "referencia/tomas/movimiento/tira-35.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-35.jpg",
+      "bytes": 128553,
+      "sha256": "08e50b299e3a1537f63be159e5d4537e413b877ac23f0e13a568dd31c4de03fb"
+    },
+    "referencia/tomas/movimiento/tira-36.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/movimiento/tira-36.jpg",
+      "bytes": 84239,
+      "sha256": "0a97490b9de805f75f9f7b2c049f721b46c422548bdfa7616712e45e9125fdc0"
+    },
+    "referencia/tomas/toma-01.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-01.jpg",
+      "bytes": 76501,
+      "sha256": "146d4132f3ba93cdb280ab1a14893e2704c2a72c73fd5e3695e7614c68b6cf49"
+    },
+    "referencia/tomas/toma-02.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-02.jpg",
+      "bytes": 87741,
+      "sha256": "0e5012e2224399d6b1ce4776556428b0b65d32766864b3866fba3e02e188384b"
+    },
+    "referencia/tomas/toma-03.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-03.jpg",
+      "bytes": 93910,
+      "sha256": "1382f3a629b281fa2488ed957f3af0d729e78563b408edec80e15c7e7999b3d3"
+    },
+    "referencia/tomas/toma-04.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-04.jpg",
+      "bytes": 83599,
+      "sha256": "8a934f8549941db36148cbd02a4debb373f1256d38e3e66d9ad341d0e90bb21c"
+    },
+    "referencia/tomas/toma-05.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-05.jpg",
+      "bytes": 111348,
+      "sha256": "3ea20a7c2def1c0dd5c2168e857eb08ee3ccab60835433434f639cedd0ae902d"
+    },
+    "referencia/tomas/toma-06.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-06.jpg",
+      "bytes": 92211,
+      "sha256": "8b1152eb972ef38bbaf54653318590c2af1e131b841a5b0b06d2a2ae12a610ec"
+    },
+    "referencia/tomas/toma-07.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-07.jpg",
+      "bytes": 95619,
+      "sha256": "94ea8531c268f6754b30b7ebc8e12187a90a86fc8f8cd9b69bcf9437a9082ba2"
+    },
+    "referencia/tomas/toma-08.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-08.jpg",
+      "bytes": 92737,
+      "sha256": "2e61dd5f58526fc089b1ad0e8f54e529f225cfcd9a11accd18a13d1928f7233c"
+    },
+    "referencia/tomas/toma-09.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-09.jpg",
+      "bytes": 85265,
+      "sha256": "27c3e4be059f644ffa934b934fa7d0f8de32972687fbdc3714df506f937f4a05"
+    },
+    "referencia/tomas/toma-10.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-10.jpg",
+      "bytes": 55268,
+      "sha256": "717c5d167916a0b7f6b70b6e97f3d451199047874f6c9bb4ef81096f65f96ec1"
+    },
+    "referencia/tomas/toma-11.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-11.jpg",
+      "bytes": 103141,
+      "sha256": "913a0dfdb0b13b91646ca9919fcd93bc1902f0a6e31a4213a8dfb1520f965c45"
+    },
+    "referencia/tomas/toma-12.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-12.jpg",
+      "bytes": 104985,
+      "sha256": "c19f2ede67bc9c964fc6c89a4c0b01a21524011217bd4dc2df266bbfd740eb06"
+    },
+    "referencia/tomas/toma-13.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-13.jpg",
+      "bytes": 72149,
+      "sha256": "be0ca35a75a8ec4faeb7a41ee5f48a9a324b8c2f885a64bb5b4800cca731f8a2"
+    },
+    "referencia/tomas/toma-14.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-14.jpg",
+      "bytes": 94523,
+      "sha256": "60336ee519853ec5d7fe11b6894eee9f810da855bff5fb0dfba6e44351bebdc8"
+    },
+    "referencia/tomas/toma-15.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-15.jpg",
+      "bytes": 101850,
+      "sha256": "5dd8d56412ecbf34bb282c15cbf8421a0a73245c6f0c1308677b8d1cec4ccd1e"
+    },
+    "referencia/tomas/toma-16.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-16.jpg",
+      "bytes": 75757,
+      "sha256": "d5b744248b1467bdc49b3fa4476e146083b562807fba8a4e713f43237b5e15d3"
+    },
+    "referencia/tomas/toma-17.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-17.jpg",
+      "bytes": 93111,
+      "sha256": "25a2fde5a1e12c65f0dddbbadc89ab29aa1611cb0e156a355d5fe44870abb6f9"
+    },
+    "referencia/tomas/toma-18.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-18.jpg",
+      "bytes": 79255,
+      "sha256": "6f867d53cf296c87df27fbeaa42225e5a7702db92f7a9bf776d5d23b652f85de"
+    },
+    "referencia/tomas/toma-19.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-19.jpg",
+      "bytes": 121405,
+      "sha256": "3ff3fcd93b828a18b798fbdf0b0e5c867236c0e27a0a09baaab148089f3d6969"
+    },
+    "referencia/tomas/toma-20.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-20.jpg",
+      "bytes": 92745,
+      "sha256": "f4d968c105c036d222bde119b3b4b88e88c0751c4d1e66a46fabce4734599343"
+    },
+    "referencia/tomas/toma-21.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-21.jpg",
+      "bytes": 83337,
+      "sha256": "a5a7e853564479e739a0663d3b070ad20a8a0f44db43b05cfde1aeedade5322c"
+    },
+    "referencia/tomas/toma-22.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-22.jpg",
+      "bytes": 124671,
+      "sha256": "5d3f16c14772d88a788fcab1b69957c6fee09a5d4d90d5b960b0e345c36cf586"
+    },
+    "referencia/tomas/toma-23.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-23.jpg",
+      "bytes": 88452,
+      "sha256": "60134464a134ec676a22eb6beffaa4c6c57f099d7af6b3e983c2f1608a321c22"
+    },
+    "referencia/tomas/toma-24.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-24.jpg",
+      "bytes": 77572,
+      "sha256": "16e4b737082ea4750952b13c25fe0f834a49cc7301a756a991aad1b18663bb5e"
+    },
+    "referencia/tomas/toma-25.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-25.jpg",
+      "bytes": 95579,
+      "sha256": "bab26a96d8067dfbd83bd00843c985ece72ad24e3813eb5c8e2c56cd94623d24"
+    },
+    "referencia/tomas/toma-26.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-26.jpg",
+      "bytes": 92879,
+      "sha256": "c27be8866635d24843a03ef01e298b678986f6b4f80bfb062d66c98c4ced5783"
+    },
+    "referencia/tomas/toma-27.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-27.jpg",
+      "bytes": 82402,
+      "sha256": "27388246728dc272bc27e8194d08a42f137aefd5381ab31ce714c04dbbaf84df"
+    },
+    "referencia/tomas/toma-28.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-28.jpg",
+      "bytes": 71494,
+      "sha256": "45ef9760acd327f2582831c8adda88de444aba5f0aa74259e5108c5bd9023f00"
+    },
+    "referencia/tomas/toma-29.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-29.jpg",
+      "bytes": 111354,
+      "sha256": "f343d6b35ea220680071a073f21b052ed4b528f1921ce6914a31256d59795952"
+    },
+    "referencia/tomas/toma-30.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-30.jpg",
+      "bytes": 78979,
+      "sha256": "5991a02d729a1502e6c5d9116cd025cf8e4a6a4c2fc0dd184ca9ad43a7688113"
+    },
+    "referencia/tomas/toma-31.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-31.jpg",
+      "bytes": 80586,
+      "sha256": "ef9763a4c712d3e1a0f65e37c21210a437efe4d5bfdfa64f5e37d22e54a9afad"
+    },
+    "referencia/tomas/toma-32.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-32.jpg",
+      "bytes": 80522,
+      "sha256": "1cc1e926cc3dcf9578b2e32d09686d03500690c1d37965ccd31ab8f6a0be5ee2"
+    },
+    "referencia/tomas/toma-33.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-33.jpg",
+      "bytes": 89238,
+      "sha256": "2d3e4ac0dad067920edb57ecacbab1b632f66787f11ad8c05ffabaeb820834fe"
+    },
+    "referencia/tomas/toma-34.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-34.jpg",
+      "bytes": 78557,
+      "sha256": "13cd9bf676d4044875aac77766edb92dbf826d62a0beb5e55b413b6bec0cddca"
+    },
+    "referencia/tomas/toma-35.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-35.jpg",
+      "bytes": 123577,
+      "sha256": "44d05aa166ceae6a08b8d9ecbdcd3fc4925af33bcbe49e4fa7a6403681ae03b7"
+    },
+    "referencia/tomas/toma-36.jpg": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/referencia/tomas/toma-36.jpg",
+      "bytes": 79051,
+      "sha256": "1e309582da28e369049525cb2b9663d46eaec593a5b68144bdb4489836a22024"
+    },
+    "video/toma-1.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-1.mp4",
+      "bytes": 5506539,
+      "sha256": "9c432e89fa6d2a290e6ef005e27d0df35a5eb3a1cd7da971918efe83f9e5d24e"
+    },
+    "video/toma-10.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-10.mp4",
+      "bytes": 2752635,
+      "sha256": "98f2d1144b7e4e1710d6789d3ae6044404db7a0183b9b14617d33d51cebc110d"
+    },
+    "video/toma-11.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-11.mp4",
+      "bytes": 4474336,
+      "sha256": "fddffe5e24cb382227cb80f7c218bce7626ce44e9a6958aa7cb424eb77a1186d"
+    },
+    "video/toma-12.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-12.mp4",
+      "bytes": 4276274,
+      "sha256": "4cf2748cabce82e75fcb134b3b5c1f4c9a2137d23a186de7e8430610dd3ab284"
+    },
+    "video/toma-13.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-13.mp4",
+      "bytes": 3711431,
+      "sha256": "1ee7da190422340cedb181da0f7c8aa0d05a96e8b24cb75321a9c02b3f87f0b0"
+    },
+    "video/toma-14.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-14.mp4",
+      "bytes": 3960605,
+      "sha256": "bb5fae0cafdc0635baa5fa9192f9191c933e48ac044361cc2832d3b3852a4e11"
+    },
+    "video/toma-15.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-15.mp4",
+      "bytes": 3548712,
+      "sha256": "dee82b252a6825189af0092a8c571716890cc8023edb59ac3601daed71e9024d"
+    },
+    "video/toma-16.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-16.mp4",
+      "bytes": 2886049,
+      "sha256": "7ea2f61d4afc13dddcdd994384a43784fef805d1798a75323888b0be52909e8b"
+    },
+    "video/toma-17.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-17.mp4",
+      "bytes": 6489045,
+      "sha256": "d44be081ae11a3842e6d34de6886798830e4d001a4b50e37948f9b6ff3a5ad43"
+    },
+    "video/toma-18.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-18.mp4",
+      "bytes": 1827638,
+      "sha256": "ba9cc90691aeef73a2f44e728f65f26b2454e103844198185a14c01d6a65d6c0"
+    },
+    "video/toma-19.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-19.mp4",
+      "bytes": 9489192,
+      "sha256": "fe489ec90f9b8e697f8225ae9f73f9f9a917278c029f018df19e040921496dee"
+    },
+    "video/toma-2.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-2.mp4",
+      "bytes": 6989151,
+      "sha256": "1a3be7be619aa8f429624a7b8da8aa32248dc4d5515a63a493cbf6fabf569a99"
+    },
+    "video/toma-20.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-20.mp4",
+      "bytes": 4818167,
+      "sha256": "48c6a553239073c096bc49dd4f6917c5d6ac5c1ce239ecf00391f450d5713572"
+    },
+    "video/toma-21.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-21.mp4",
+      "bytes": 2384304,
+      "sha256": "3a32bb94349e552b3b609ff297c3c7646dde624beefb6b461aebb7c5c276ce87"
+    },
+    "video/toma-22.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-22.mp4",
+      "bytes": 5167764,
+      "sha256": "f8e6c4388a7af4b31734fa43865c592215b71a4081145d192718c96d2789918b"
+    },
+    "video/toma-23.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-23.mp4",
+      "bytes": 1851395,
+      "sha256": "d508a02ef3d81bf1f87b8909644ee2e0fa0ae9697e7f180b52b5f8e51d19c457"
+    },
+    "video/toma-24.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-24.mp4",
+      "bytes": 2755609,
+      "sha256": "68759194eeab2c28eb7f071e5fd2af13f3d675d120e7c08842531f41ded661e7"
+    },
+    "video/toma-25.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-25.mp4",
+      "bytes": 3603312,
+      "sha256": "bdd2379ba97a685866a442dbfa204c4dcf94a4195aa03952d4df0e47b6474c2b"
+    },
+    "video/toma-26.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-26.mp4",
+      "bytes": 3944980,
+      "sha256": "81dfeb8852771b63ed0bddf12652927a4f79d05ae7efbae3a7e94be7c28892fe"
+    },
+    "video/toma-27.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-27.mp4",
+      "bytes": 1950190,
+      "sha256": "328ce4ffd20f9ca73b224707129c7f3fb9c99716573d2ef2ab11ceec3e6587b9"
+    },
+    "video/toma-28.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-28.mp4",
+      "bytes": 576506,
+      "sha256": "dafc737068e75c7ecbc60a0953f9b71af800f1e50706335810cf4594a0e29a21"
+    },
+    "video/toma-29.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-29.mp4",
+      "bytes": 3897151,
+      "sha256": "eae09c8c2c0b00a68174ec455753c068111f4772c927a9adcb2d4a7b97e54a57"
+    },
+    "video/toma-3.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-3.mp4",
+      "bytes": 3136753,
+      "sha256": "ad69fdecdba15d0578ee345773dba144375af9d9795c8592b7aaad3a40404bc7"
+    },
+    "video/toma-30.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-30.mp4",
+      "bytes": 3800030,
+      "sha256": "1fd70763bf541274fceb2c43fceeea284ea04013e050bae1f90621f6130e6fab"
+    },
+    "video/toma-31.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-31.mp4",
+      "bytes": 2025509,
+      "sha256": "e7baa71a9c8945f6043bd73f458a9e69394cede311d56f7906b92fc770de9947"
+    },
+    "video/toma-32.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-32.mp4",
+      "bytes": 2544796,
+      "sha256": "066b8029bc5e50de1818e73034ddce1203567fdeacd3f9a725a382107de6059e"
+    },
+    "video/toma-33.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-33.mp4",
+      "bytes": 1286972,
+      "sha256": "303e76a63d44b66c1658315b72c3d45f65a0ff684027faac10350484fce0ffe6"
+    },
+    "video/toma-34.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-34.mp4",
+      "bytes": 3513624,
+      "sha256": "623c3e03acab272bbb44cfee25954b5e4d68720fd95c3725025ed5c9fde40516"
+    },
+    "video/toma-35.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-35.mp4",
+      "bytes": 8002953,
+      "sha256": "7bc0fe93714b27184c789277b0fc7f8112eb22acf7805b4855d04c5dd4f05665"
+    },
+    "video/toma-36.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-36.mp4",
+      "bytes": 3454671,
+      "sha256": "2778b73c2d5809552d407ce429c802700f617acfc723f5ebcd82e3295a5fb85a"
+    },
+    "video/toma-4.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-4.mp4",
+      "bytes": 4743139,
+      "sha256": "1d6ec6cf1feaf8f666fad3187bae54b586d7c711f24616d5a702414a65d58524"
+    },
+    "video/toma-5.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-5.mp4",
+      "bytes": 4202899,
+      "sha256": "41d7420e8e618b104b3f0b3d91f220b2dee33e1da78a183cf9c4a9c0a201eb3f"
+    },
+    "video/toma-6.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-6.mp4",
+      "bytes": 3643015,
+      "sha256": "6fd18e6a9bd47e4d101a06b07dbd2a6da197c3c9072e86539822b859d94f520e"
+    },
+    "video/toma-7.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-7.mp4",
+      "bytes": 3670217,
+      "sha256": "585147054792d0674c5f59fd4035e3fefebe8f97792fc193eefd3004f119ddc5"
+    },
+    "video/toma-8.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-8.mp4",
+      "bytes": 4896805,
+      "sha256": "fa3c3b7ae375d6ea10f430ac96c75b964595a5f2c5d3edfb09dfefcf46eda7ab"
+    },
+    "video/toma-9.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/aguaje-complex-3-en-1-zack-d-films-20261120-1007/video/toma-9.mp4",
+      "bytes": 3440302,
+      "sha256": "881dd3294c4c06ad10ea2ef6af69845d6a66dbf9e24639319b1ca59a7fa4a5b4"
+    }
+  },
+  "ubicacionesFinales": {
+    "aguaje-complex-3-en-1-zack-d-films-20261120-1007_9x16_con-subtitulos.mp4": {
+      "archivo": "/Users/kalethabh/Library/CloudStorage/GoogleDrive-kalethabh@gmail.com/Mi unidad/KADS STUDIO/videos-finales/aguaje-complex-3-en-1-zack-d-films-20261120-1007_9x16_con-subtitulos.mp4",
+      "bytes": 119812552,
+      "sha256": "4fe3febdf6b139e2809bc457da51bd7d73dca735d7b4e4f43c3497fd04c0f242"
+    }
+  },
+  "fecha": "2026-11-20T16:14:33.554Z"
+}
