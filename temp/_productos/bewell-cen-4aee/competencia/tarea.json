@@ -1,7 +1,7 @@
 {
   "id": "e1fd003f-3888-4f1d-b2bb-4c921c96c12b",
   "uuid": "e1fd003f-3888-4f1d-b2bb-4c921c96c12b",
-  "estado": "investigando",
+  "estado": "lista",
   "enlace": "",
   "producto": "",
   "pais": "Colombia",
@@ -21,5 +21,11 @@
   "intentos": 1,
   "inicio": "2026-11-20T01:56:52.496Z",
   "error": null,
-  "actualizado": "2026-11-20T01:58:06.717Z"
+  "fin": "2026-11-20T01:59:22.984Z",
+  "medida": {
+    "turnos": 28,
+    "duracionMs": 150485,
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-20T01:59:22.984Z"
 }
