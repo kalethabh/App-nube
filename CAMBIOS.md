@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20q · Landings: clona cualquier landing y déjala volando
+
+- **Crear › Landings** ya funciona: pegas la dirección de una landing y la app la clona.
+- **Tal cual**: la copia la hace la app (sin IA, así nada se niega a copiar): mismos textos, imágenes, colores, estructura y carruseles. Los botones siguen llevando a la tienda original.
+- **Para mi producto**: misma estructura y diseño, pero eliges quién escribe los textos (**Claude Code** o **Codex**), con la ficha y la investigación de tu producto, y **ChatGPT** hace las imágenes donde se ve el producto, con tu foto.
+- **Optimizada al máximo**: imágenes en WebP y en su tamaño, sin el JavaScript de la tienda ni de las apps, solo el CSS que se usa, GIF pesados convertidos a video, la imagen principal primero. Con la landing de ejemplo: **68 → 97** de velocidad en celular (Lighthouse, lo mismo que PageSpeed).
+- Te muestra la velocidad de la original y de la copia, la ves en un celular de muestra, la abres o la descargas en zip.
+
 ## 2026-11-20p · Tu coordinadora por Telegram y la autoevaluación con nota
 
 - **Telegram**: crea tu bot gratis con @BotFather, pega su token en **Ajustes › Telegram**, prende el interruptor y mándale a tu bot el código que te muestra la app (`/start CÓDIGO`). Desde ahí:

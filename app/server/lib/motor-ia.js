@@ -198,7 +198,8 @@ const sinIA = (o, extra) => ({ ok: false, sinClaude: true, ...extra, sesion: o?.
 
 /** Corre la tarea con la IA elegida ahora. Mismo contrato que claude.js:lanzarSesion, mas `motor`. */
 export async function lanzarSesion(o) {
-  const motor = motorElegido();
+  // (2026-11-20q) una tarea puede pedir su IA (las landings: «Claude Code» o «Codex»); si no, la de Ajustes
+  const motor = o?.motor === 'claude' || o?.motor === 'codex' ? o.motor : motorElegido();
   let r;
   if (motor === 'claude') r = await lanzarConClaude(o);
   else if (motor === 'codex') {
