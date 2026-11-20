@@ -81,3 +81,9 @@ produccion/video-limpio/**/__pycache__/
 
 # copias de trabajo de los agentes de Claude Code
 .claude/worktrees/
+
+# (2026-11-20o) cachés que se rehacen solas: S.E.P (lo que trae de Meta) y lo que la coordinadora prepara para leer; los
+# archivos que le pasas a la coordinadora (pueden ser videos grandes) quedan solo en este computador
+temp/_sep/
+temp/_oficina/adjuntos/
+temp/_oficina/investigaciones/

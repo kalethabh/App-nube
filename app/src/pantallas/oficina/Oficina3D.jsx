@@ -28,6 +28,96 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { clone as clonarConEsqueleto } from 'three/examples/jsm/utils/SkeletonUtils.js';
+
+// (2026-11-20o) LOS PERSONAJES DE VERDAD: humanos con esqueleto y animaciones (Ultimate Animated Character Pack de
+// Quaternius, CC0, en public/oficina/personajes/). Se sientan con su animación «SitDown» y encima la oficina les mueve
+// los brazos y la cabeza según lo que hacen (teclear, revisar, el celular…). Mientras cargan (o si no cargan), quedan
+// los muñecos de piezas de siempre.
+const MODELOS = {
+  mujer: ['Suit_Female', 'Casual_Female', 'Casual2_Female', 'Worker_Female', 'OldClassy_Female'],
+  hombre: ['Suit_Male', 'Casual_Male', 'Casual2_Male', 'Casual3_Male', 'Worker_Male'],
+};
+const ESCALA_PERSONAJE = 0.78; // de ~2,4 a ~1,85 de alto (la escala de la oficina)
+const cargasDeModelos = new Map();
+function cargarModelo(nombre) {
+  if (!cargasDeModelos.has(nombre)) cargasDeModelos.set(nombre, new GLTFLoader().loadAsync(`${import.meta.env.BASE_URL || '/'}oficina/personajes/${nombre}.glb`));
+  return cargasDeModelos.get(nombre);
+}
+// Las posturas de los brazos sobre la pose de sentado (giros de hombro y codo; calculados con el modelo para que la
+// mano llegue a su lugar: el teclado, la barbilla, el celular, la boca, arriba, la nuca…).
+const POSES = {
+  teclearR: { UpperArmR: [0, 0.25, 0.5], LowerArmR: [0, 0, -0.5] },
+  teclearL: { UpperArmL: [0.25, -0.25, -0.75], LowerArmL: [-0.5, 0, 1] },
+  mouseR: { LowerArmR: [0.5, 0, 0] },
+  barbillaR: { UpperArmR: [-0.25, 0.25, 0.5], LowerArmR: [0, 0, 2] },
+  celularR: { UpperArmR: [-0.5, 0.25, 0], LowerArmR: [-1, 0, 2] },
+  tazaL: { UpperArmL: [2, -1.75, 0], LowerArmL: [0, 0, -1.5] },
+  estirarR: { UpperArmR: [0.5, -1.75, -1.75], LowerArmR: [0, 0, -0.5] },
+  estirarL: { UpperArmL: [1, 1, 1.5], LowerArmL: [-0.5, 0, 1] },
+  nucaR: { UpperArmR: [0, 0.5, 2], LowerArmR: [-1, 0, 2] },
+  nucaL: { UpperArmL: [-1, 1.25, -1.75], LowerArmL: [0, 0, -1] },
+  gestoR: { UpperArmR: [0.25, -0.25, -1], LowerArmR: [-1, 0, 2] },
+  cabezaR: { UpperArmR: [1.25, 1.25, 0.25], LowerArmR: [0, 0, 2] },
+  cabezaL: { UpperArmL: [1.5, -1.75, 0], LowerArmL: [1, 0, -0.5] },
+  victoriaR: { UpperArmR: [1.5, 1, 0.25], LowerArmR: [0.5, 0, 0] },
+  victoriaL: { UpperArmL: [1, 0.75, 1.25], LowerArmL: [0, 0, 1] },
+  relojL: { UpperArmL: [0, 0, -0.5], LowerArmL: [1, 0, 0] },
+};
+const GIRO_SALUDO = 2.4; // («Presentar») cuánto gira la silla para mirar al pasillo
+const HUESOS_BRAZOS = ['UpperArmR', 'LowerArmR', 'UpperArmL', 'LowerArmL'];
+
+/**
+ * Qué hace cada brazo del personaje de verdad según su estado (lo mismo que el muñeco de piezas): { R, L, w, tecleo }.
+ * Los libres hacen sus rutinas (el celular, un sorbo de café, estirarse, conversar, las manos en la nuca, mirar).
+ */
+function gestoDe(enEst, t, fase, id) {
+  if (enEst === 'trabajando' || enEst === 'corrigiendo') {
+    const pensando = Math.sin(t * 0.35 + fase) > 0.93;
+    const raton = Math.sin(t * 0.6 + fase) > 0.4;
+    return { R: pensando ? 'barbillaR' : raton ? 'mouseR' : 'teclearR', L: 'teclearL', w: 1, tecleo: enEst === 'corrigiendo' ? 20 : 14 };
+  }
+  if (enEst === 'revisando') return { R: 'barbillaR', L: 'teclearL', w: 1, tecleo: 0 };
+  if (enEst === 'error') return { R: 'cabezaR', L: 'cabezaL', w: 1, tecleo: 0 };
+  if (enEst === 'esperando') return { R: 'mouseR', L: 'relojL', w: 1, tecleo: 7 };
+  if (enEst === 'recibiendo' || enEst === 'enviando') return { R: 'gestoR', L: null, w: 1, tecleo: 0 };
+  if (enEst === 'completado') return { R: 'victoriaR', L: 'victoriaL', w: 1, tecleo: 0 };
+  // («Presentar») en su primer plano: mira al frente, un poco arriba, y saluda
+  if (enEst === 'saludo') return { R: 'gestoR', L: null, w: 1, tecleo: 0, saluda: true };
+  const ciclo = (t + fase * 7) / 9;
+  const rutina = (Math.floor(ciclo) + i0(id)) % 6;
+  const dentro = ciclo % 1;
+  const sube = Math.min(1, dentro * 6, (1 - dentro) * 6);
+  if (rutina === 0) return { R: 'celularR', L: null, w: sube, tecleo: 0, celular: sube > 0.3 };
+  if (rutina === 1) return { R: null, L: 'tazaL', w: sube * (Math.sin(dentro * Math.PI * 3) > 0.3 ? 1 : 0.55), tecleo: 0, taza: sube > 0.3 };
+  if (rutina === 2) return { R: 'estirarR', L: 'estirarL', w: sube, tecleo: 0 };
+  if (rutina === 3) return { R: 'gestoR', L: null, w: sube, tecleo: 0 };
+  if (rutina === 4) return { R: 'nucaR', L: 'nucaL', w: sube, tecleo: 0 };
+  return { R: null, L: null, w: 0, tecleo: 0 };
+}
+
+/** Lo que se suma a cada hueso: la postura de cada brazo (con su peso), el tecleo y la cabeza. */
+function posturaDeHuesos(gesto, cab, t, fase) {
+  const out = Object.fromEntries(HUESOS_BRAZOS.map((h) => [h, [0, 0, 0]]));
+  for (const lado of ['R', 'L']) {
+    const pose = POSES[gesto[lado]];
+    if (!pose) continue;
+    for (const [h, v] of Object.entries(pose)) for (let j = 0; j < 3; j++) out[h][j] += v[j] * gesto.w;
+  }
+  if (gesto.tecleo) {
+    if (gesto.R === 'teclearR' || gesto.R === 'mouseR') out.LowerArmR[2] += Math.sin(t * gesto.tecleo + fase + 1.6) * (gesto.R === 'mouseR' ? 0.05 : 0.12);
+    if (gesto.L === 'teclearL') out.LowerArmL[2] += Math.sin(t * gesto.tecleo + fase) * 0.12;
+  }
+  out.Head = gesto.saluda ? [-0.22, 0, 0] : [cab[0] - 0.06, cab[1], 0];
+  if (gesto.saluda) out.LowerArmR[0] += Math.sin(t * 7) * 0.35;
+  // la pose de sentado se echa atrás: trabajando se inclina hacia la pantalla, libre queda más relajado
+  const atento = gesto.tecleo || gesto.R === 'barbillaR' || gesto.R === 'mouseR';
+  out.Torso = [atento ? 0.32 : gesto.R === 'nucaR' || gesto.R === 'estirarR' ? -0.05 : 0.12, 0, 0];
+  return out;
+}
+
+const numeroDe = (id) => [...String(id)].reduce((s, c) => (s * 31 + c.charCodeAt(0)) % 9973, 7);
 
 const LIMA = '#a3e635';
 // cómo se arma cada tipo de sala (las que crea el usuario usan el mobiliario de una de siempre)
@@ -1419,6 +1509,95 @@ const BLANCO_K = () => mat('#e9ecdf', { rugoso: 0.6 });
 const LIMA_K = (k = 1.6) => mat(MARCA.lima, { emisivo: MARCA.lima, intensidad: k, rugoso: 0.4 });
 
 /** El piso claro de baldosas grandes, cálido. */
+/**
+ * (2026-11-20o) LA CIUDAD de afuera: edificios alrededor de la oficina (que queda en un piso alto), con su textura de
+ * ventanas. De día son fachadas claras con vidrios oscuros; de noche se encienden ventanas al azar (emisivas).
+ * Se juntan en una malla por material (dibuja rápido). Devuelve { grupo, fachada } (fachada: el material que cambia).
+ */
+function ciudad(ancho, zMin, zMax) {
+  const c = document.createElement('canvas');
+  c.width = 128;
+  c.height = 256;
+  const g = c.getContext('2d');
+  const luces = document.createElement('canvas');
+  luces.width = 128;
+  luces.height = 256;
+  const l = luces.getContext('2d');
+  g.fillStyle = '#ffffff';
+  g.fillRect(0, 0, 128, 256);
+  l.fillStyle = '#000000';
+  l.fillRect(0, 0, 128, 256);
+  let semilla = 7;
+  const azar = () => ((semilla = (semilla * 16807) % 2147483647) / 2147483647);
+  for (let y = 6; y < 256; y += 16) for (let x = 6; x < 128; x += 20) {
+    g.fillStyle = '#5d6b7a';
+    g.fillRect(x, y, 13, 10);
+    if (azar() > 0.55) {
+      l.fillStyle = azar() > 0.3 ? '#ffd8a0' : '#bfe3ff';
+      l.fillRect(x, y, 13, 10);
+    }
+  }
+  const mapa = new THREE.CanvasTexture(c);
+  mapa.colorSpace = THREE.SRGBColorSpace;
+  const mapaLuces = new THREE.CanvasTexture(luces);
+  mapaLuces.colorSpace = THREE.SRGBColorSpace;
+  for (const t of [mapa, mapaLuces]) {
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  }
+  const fachada = new THREE.MeshStandardMaterial({ color: '#c9ced4', map: mapa, emissive: '#ffffff', emissiveMap: mapaLuces, emissiveIntensity: 0, roughness: 0.75, metalness: 0.05 });
+  const geos = [];
+  const fuera = 12; // la calle entre la oficina y los edificios
+  const x0 = -ancho / 2 - fuera;
+  const x1 = ancho / 2 + fuera;
+  const z0 = zMin - fuera;
+  const z1 = zMax + fuera;
+  const poner = (x, z) => {
+    const w = 6 + azar() * 9;
+    const d = 6 + azar() * 9;
+    const h = 30 + azar() * 75; // desde muy abajo (la oficina está en un piso alto) hasta arriba
+    const geo = new THREE.BoxGeometry(w, h, d);
+    // que las ventanas no se estiren: repetir la textura según el tamaño de cada cara
+    const uv = geo.attributes.uv;
+    const n = geo.attributes.normal;
+    for (let i = 0; i < uv.count; i++) {
+      const lado = Math.abs(n.getX(i)) > 0.5 ? d : w;
+      if (Math.abs(n.getY(i)) > 0.5) uv.setXY(i, 0, 0);
+      else uv.setXY(i, uv.getX(i) * (lado / 6), uv.getY(i) * (h / 12));
+    }
+    geo.translate(x, -60 + h / 2, z);
+    geos.push(geo);
+  };
+  for (let x = x0 - 30; x <= x1 + 30; x += 17) {
+    for (const z of [z0 - 10 - azar() * 25, z1 + 10 + azar() * 25, z0 - 45 - azar() * 20]) poner(x + azar() * 6, z);
+  }
+  for (let z = z0; z <= z1; z += 17) {
+    for (const x of [x0 - 10 - azar() * 22, x1 + 10 + azar() * 22, x1 + 45 + azar() * 20]) poner(x, z + azar() * 6);
+  }
+  const grupo = new THREE.Group();
+  const malla = new THREE.Mesh(mergeGeometries(geos, false), fachada);
+  malla.userData.vivo = true;
+  grupo.add(malla);
+  return { grupo, fachada };
+}
+
+let lamparaMat = null;
+const LAMPARA_MAT = () => (lamparaMat ||= new THREE.MeshStandardMaterial({ color: '#1b1c1e', roughness: 0.5, metalness: 0.4, side: THREE.DoubleSide }));
+
+/** Una lámpara colgante (pantalla negra, cable y bombillo que brilla) sobre un escritorio. */
+function lamparaColgante(x, z, alto = 3.1) {
+  const g = new THREE.Group();
+  g.add(cilindro(0.008, 0.008, alto - 1.9, mat('#111111'), 0, 1.9 + (alto - 1.9) / 2 + 0.25, 0, 6));
+  const pantalla = new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.32, 24, 1, true), LAMPARA_MAT());
+  pantalla.position.y = 2.0;
+  g.add(pantalla);
+  const foco = new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 8), new THREE.MeshBasicMaterial({ color: '#ffe2b0', toneMapped: false }));
+  foco.position.y = 1.86;
+  foco.userData.vivo = true;
+  g.add(foco);
+  g.position.set(x, 0, z);
+  return g;
+}
+
 function texturaBaldosas() {
   const t = lienzo(512, 512, (g, w, h) => {
     g.fillStyle = '#ebe6da';
@@ -1588,6 +1767,10 @@ function armarDepartamento(dep, z, color, ctx) {
     anillo.userData.vivo = true;
     g.add(anillo);
     estaciones.push({ id: e.id, agente: e.agente, local: new THREE.Vector3(x, 0, zEsc + 0.85), monitorLocal: new THREE.Vector3(x, 1.55, zEsc - 0.2), anillo });
+  });
+  // (2026-11-20o) lámparas colgantes sobre los escritorios (una cada dos)
+  estaciones.forEach((e, k) => {
+    if (k % 2 === 0) g.add(lamparaColgante(e.local.x + (estaciones[k + 1] ? paso / 2 : 0), zEsc + 0.15));
   });
   const lineas = [];
   for (let k = 0; k < estaciones.length - 1; k++) {
@@ -1850,11 +2033,11 @@ const i0 = (id) => [...String(id)].reduce((s, c) => (s * 31 + c.charCodeAt(0)) %
 const ICONO_ESTADO = { revisando: 'check', corrigiendo: 'vuelta', error: 'alerta', esperando: 'reloj', pronto: 'reloj' };
 const COLOR_EVENTO = { pasa: MARCA.lima, devuelve: '#fb923c', error: '#ef4444' };
 
-export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onElegir, onDepartamento = null, onLinea = null, foco = null, vista = 'general', modo = 'dia', onPosiciones = null, onEvento = null, resaltar = null, desplazar = 0 }) {
+export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onElegir, onDepartamento = null, onLinea = null, foco = null, vista = 'general', modo = 'dia', onPosiciones = null, onEvento = null, resaltar = null, desplazar = 0, onEscena = null, onFinPresentacion = null }) {
   const caja3d = useRef(null);
   const estado = useRef({ agentes: [], elegido: null });
   const avisos = useRef({});
-  avisos.current = { onElegir, onDepartamento, onLinea, onPosiciones, onEvento };
+  avisos.current = { onElegir, onDepartamento, onLinea, onPosiciones, onEvento, onEscena, onFinPresentacion };
   Object.assign(estado.current, { agentes: agentes || [], zonas: zonas || [], produccion, elegido: elegido || null, foco, vista, modo, resaltar, desplazar });
   const elegir = useRef(onElegir);
   elegir.current = onElegir;
@@ -1951,11 +2134,17 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       muro.add(caja(w, 0.12, 0.22, MADERA_K(), 0, 2.85, 0));
       for (let k = 0; k <= Math.floor(w / 3.2); k++) muro.add(caja(0.12, 2.0, 0.22, GRAFITO(), -w / 2 + k * 3.2, 1.9, 0));
       muro.add(caja(w, 1.9, 0.04, mat('#cfe3e0', { opacidad: 0.22, rugoso: 0.05, metal: 0.2 }), 0, 1.85, 0, { sombra: false }));
+      // (2026-11-20o) las persianas, a medio bajar, en cada ventanal
+      const lamas = mat('#ece8df', { rugoso: 0.7 });
+      for (let k = 0; k < Math.floor(w / 3.2); k++) for (let j = 0; j < 7; j++) muro.add(caja(3.0, 0.035, 0.05, lamas, -w / 2 + 1.6 + k * 3.2, 2.72 - j * 0.11 - (k % 3) * 0.04, -0.08, { sombra: false }));
       muro.position.set(x, 0, z);
       if (rot) muro.rotation.y = Math.PI / 2;
       paredes.add(muro);
     }
     escena.add(paredes);
+    // (2026-11-20o) la ciudad de afuera
+    const laCiudad = ciudad(ANCHO, zMin, zMax);
+    escena.add(laCiudad.grupo);
 
     const pantallas = [];
     const animados = [];
@@ -2100,6 +2289,76 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       etq.position.set(0, 2.55, 0);
       g.add(etq);
       personajes.set(a.id, { g, el, est, desc, transitorio: null, hasta: 0 });
+    });
+
+    // (2026-11-20o) los personajes de verdad: cada agente con su modelo (según si es mujer u hombre), sentado en su silla
+    let desmontado = false;
+    const eulerTmp = new THREE.Euler();
+    const quatTmp = new THREE.Quaternion();
+    estado.current.agentes.forEach((a) => {
+      const p = personajes.get(a.id);
+      if (!p) return;
+      const lista = MODELOS[a.genero === 'hombre' ? 'hombre' : 'mujer'];
+      cargarModelo(lista[numeroDe(a.id) % lista.length])
+        .then((gltf) => {
+          if (desmontado) return;
+          const m = clonarConEsqueleto(gltf.scene);
+          const huesos = {};
+          // la piel (en esta copia viene casi negra): un tono por agente, como los muñecos de antes
+          const piel = new THREE.Color(PIELES[numeroDe(a.id) % PIELES.length]);
+          m.traverse((o) => {
+            if (o.isBone) huesos[o.name] = o;
+            if (o.isMesh) {
+              o.castShadow = true;
+              o.frustumCulled = false;
+              o.userData.agente = a.id;
+              const ms = Array.isArray(o.material) ? o.material : [o.material];
+              const nuevos = ms.map((mm) => {
+                if (mm.name !== 'Skin') return mm;
+                const c = mm.clone();
+                c.color.copy(piel);
+                return c;
+              });
+              o.material = Array.isArray(o.material) ? nuevos : nuevos[0];
+            }
+          });
+          m.scale.setScalar(ESCALA_PERSONAJE);
+          const mixer = new THREE.AnimationMixer(m);
+          const clip = (n) => gltf.animations.find((x) => x.name === n);
+          const sentado = mixer.clipAction(clip('SitDown'));
+          sentado.setLoop(THREE.LoopOnce, 1);
+          sentado.clampWhenFinished = true;
+          sentado.play();
+          mixer.setTime(clip('SitDown').duration);
+          // el muñeco de piezas se esconde (quedan su ícono y su alerta)
+          for (const c of p.g.children) if (!c.isCSS2DObject && c !== p.g.userData.partes.alerta) c.visible = false;
+          p.g.add(m);
+          // sentarlo en la silla: la cadera sobre el asiento (0,55 de alto, al centro de la silla)
+          const antes = { y: p.g.position.y, rx: p.g.rotation.x, ry: p.g.rotation.y };
+          p.g.position.y = p.est.silla.y - 0.21;
+          p.g.rotation.set(0, Math.PI, 0);
+          p.g.updateMatrixWorld(true);
+          const cadera = p.g.worldToLocal(huesos.Hips.getWorldPosition(new THREE.Vector3()));
+          const quiero = p.g.worldToLocal(new THREE.Vector3(p.est.silla.x, 0.6, p.est.silla.z - 0.12));
+          m.position.add(quiero.sub(cadera));
+          p.g.position.y = antes.y;
+          p.g.rotation.set(antes.rx, antes.ry, 0);
+          // el celular (mano derecha) y la taza (mano izquierda), escondidos hasta que los usa
+          const enMano = (hueso, malla) => {
+            if (!huesos[hueso]) return null;
+            malla.visible = false;
+            malla.scale.setScalar(1 / ESCALA_PERSONAJE);
+            huesos[hueso].add(malla);
+            return malla;
+          };
+          const cel = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.15, 0.012), mat('#0f172a', { metal: 0.5, rugoso: 0.3 }));
+          const taza = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.04, 0.1, 12), mat('#f5f5f4', { rugoso: 0.4 }));
+          // la pose de sentado queda fija: cada cuadro se parte de ella (si no, lo que se suma a un hueso sin animación
+          // se acumula y lo dobla sin fin)
+          const base = Object.fromEntries(Object.entries(huesos).map(([n, h]) => [n, h.quaternion.clone()]));
+          p.q = { m, mixer, huesos, base, gltf, pose: {}, celular: enMano('FistR', cel), taza: enMano('FistL', taza), accion: null };
+        })
+        .catch((e) => console.warn('[oficina] sin el personaje 3D:', e?.message || e));
     });
 
     // (2026-11-20) los EFECTOS DE PRODUCCIÓN: una onda en el piso, chispas, el monitor que se enciende, el confeti al
@@ -2280,7 +2539,23 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     };
     etiquetas.domElement.addEventListener('pointerdown', alBajar);
     etiquetas.domElement.addEventListener('pointerup', alSoltar);
-    raiz.__o3 = { camara, controles, personajes, estaciones, lanzar, terminar, THREE };
+    raiz.__o3 = {
+      camara,
+      controles,
+      personajes,
+      estaciones,
+      lanzar,
+      terminar,
+      THREE,
+      // (solo pruebas) saltar a una toma de «Presentar»
+      irAToma: (k) => {
+        if (!presentacion) return;
+        const antes = presentacion.tomas.slice(0, k).reduce((t, x) => t + x.dura, 0);
+        presentacion.inicio = relojAnim.elapsedTime - antes - 0.05 * presentacion.tomas[k].dura;
+        presentacion.fija = antes + 0.7 * presentacion.tomas[k].dura; // congelada (para mirarla con calma)
+        presentacion.saltar = true;
+      },
+    };
 
     // el brillo (bloom) solo en lo que de verdad brilla: el logo, las líneas y las pantallas
     const composer = new EffectComposer(renderer);
@@ -2308,11 +2583,105 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     // las vistas (general, desde arriba, cine) y el foco en un departamento
     let vistaAplicada = '';
     const geos = zonas.map((z) => ({ ...LUGAR[z.lugar], id: z.id }));
+    // (2026-11-20o) «PRESENTAR MI OFICINA»: un recorrido de cine (vista aérea, la coordinadora, cada departamento con un
+    // primer plano de uno de sus agentes y el cierre) con una tarjeta de nombre por toma, para grabar un video.
+    let presentacion = null; // { inicio, tomas: [{ dura, desde, hasta, mira, tarjeta }], k }
+    const armarPresentacion = () => {
+      const ag = new Map(estado.current.agentes.map((a) => [a.id, a]));
+      const tomas = [];
+      const general = new THREE.Vector3(CAMARA[0] * 0.9, CAMARA[1] * 0.75, MIRA + (CAMARA[2] - MIRA) * 0.9);
+      const centro = new THREE.Vector3(0, 0, MIRA);
+      tomas.push({ dura: 5, desde: general.clone().multiplyScalar(1.15), hasta: general, mira: centro, tarjeta: { sobre: 'OFICINA DE IA', titulo: estado.current.nombreOficina || 'Mi oficina de IA', texto: 'Cada agente hace una parte real del trabajo y se la pasa al siguiente.' } });
+      const primerPlano = (id, sobre) => {
+        const p = personajes.get(id);
+        const a = ag.get(id);
+        if (!p || !a) return;
+        const w = p.g.position;
+        tomas.push({ agente: id, dura: 4.5, desde: new THREE.Vector3(w.x + 2.2, 2.4, w.z + 3.6), hasta: new THREE.Vector3(w.x + 1.6, 2.05, w.z + 2.7), mira: new THREE.Vector3(w.x + 0.15, 1.2, w.z + 0.1), tarjeta: { sobre, titulo: a.nombre, texto: `${a.rol}${a.depto ? ` · ${a.depto}` : ''}`, etiqueta: `AGENTE DE IA · ${(a.hace || '').split('.')[0].toUpperCase().slice(0, 60)}` } });
+      };
+      primerPlano('coordinacion', 'COORDINACIÓN');
+      for (const z of geos) {
+        const d = deps[z.id];
+        if (!d) continue;
+        const nombres = (d.estaciones || []).map((e) => ag.get(e.agente)).filter(Boolean);
+        tomas.push({ dura: d.pronto ? 3.5 : 5, desde: new THREE.Vector3(z.x + 9, 14, z.z + 15), hasta: new THREE.Vector3(z.x + 4.5, 9, z.z + 10), mira: new THREE.Vector3(z.x, 0.8, z.z - 0.5), tarjeta: { sobre: 'DEPARTAMENTO', titulo: d.nombre, texto: d.pronto ? 'En construcción: muy pronto con sus herramientas.' : nombres.slice(0, 4).map((a, k) => `${a.nombre} ${(d.estaciones[k]?.nombre || '').toLowerCase()}`).join(' · ') } });
+        if (!d.pronto && d.estaciones?.[0]) primerPlano(d.estaciones[Math.min(1, d.estaciones.length - 1)].agente, d.nombre.toUpperCase());
+      }
+      tomas.push({ dura: 5, desde: general, hasta: general.clone().multiplyScalar(1.2), mira: centro, tarjeta: { sobre: 'TÚ DECIDES', titulo: 'Nada se gasta sin tu aprobación', texto: 'Tu equipo propone, te muestra el costo y espera tu sí.' } });
+      return tomas;
+    };
+    const avanzarPresentacion = (dt) => {
+      if (!presentacion) return false;
+      const t = presentacion.fija ?? relojAnim.elapsedTime - presentacion.inicio;
+      let acum = 0;
+      let k = 0;
+      while (k < presentacion.tomas.length && t > acum + presentacion.tomas[k].dura) acum += presentacion.tomas[k++].dura;
+      if (k >= presentacion.tomas.length) {
+        if (presentacion.saludando) personajes.get(presentacion.saludando).transitorio = null;
+        presentacion = null;
+        controles.minDistance = 9;
+        controles.maxPolarAngle = 1.2;
+        avisos.current.onEscena?.(null);
+        avisos.current.onFinPresentacion?.();
+        return false;
+      }
+      const toma = presentacion.tomas[k];
+      if (presentacion.k !== k) {
+        presentacion.k = k;
+        // en su primer plano, el agente levanta la cabeza, mira a la cámara y saluda
+        const antes = presentacion.saludando ? personajes.get(presentacion.saludando) : null;
+        if (antes) antes.transitorio = null;
+        const yo = toma.agente ? personajes.get(toma.agente) : null;
+        presentacion.saludando = yo ? toma.agente : null;
+        if (yo) {
+          yo.transitorio = 'saludo'; // mientras dure su toma
+          yo.hasta = Infinity;
+        }
+        avisos.current.onEscena?.({ ...toma.tarjeta, n: k + 1, de: presentacion.tomas.length });
+      }
+      const u = Math.min(1, (t - acum) / toma.dura);
+      const suave = u * u * (3 - 2 * u);
+      let pos = toma.desde.clone().lerp(toma.hasta, suave);
+      let mira = toma.mira;
+      // el primer plano de un agente (ya con su personaje): la cámara delante de su cara, según hacia dónde mira ahora
+      const yo = toma.agente ? personajes.get(toma.agente) : null;
+      if (yo?.q) {
+        // hacia donde va a quedar mirando con la silla girada (GIRO_SALUDO), no hacia donde mira en este instante
+        const th = Math.PI + GIRO_SALUDO;
+        const frente = new THREE.Vector3(Math.sin(th), 0, Math.cos(th));
+        const cabeza = yo.g.position.clone().setY(1.45).addScaledVector(frente, 0.15);
+        const lado = new THREE.Vector3(-frente.z, 0, frente.x);
+        const lejos = 5.4 - 0.9 * suave; // se acerca despacio
+        pos = cabeza.clone().addScaledVector(frente, lejos).addScaledVector(lado, 1.1).add(new THREE.Vector3(0, 0.75 - 0.2 * suave, 0));
+        mira = cabeza.clone().add(new THREE.Vector3(0, -0.2, 0));
+      }
+      const salto = presentacion.saltar || k === 0 ? 1 : Math.min(1, dt * 2.2);
+      presentacion.saltar = false;
+      camara.position.lerp(pos, salto);
+      controles.target.lerp(mira, salto);
+      return true;
+    };
     const aplicarVista = () => {
       const f = estado.current.foco;
       const clave = `${estado.current.vista}|${f?.zona || ''}|${f?.n || 0}`;
       if (clave === vistaAplicada) return;
       vistaAplicada = clave;
+      if (estado.current.vista === 'presentar') {
+        controles.autoRotate = false;
+        controles.userData = {};
+        presentacion = { inicio: relojAnim.elapsedTime, tomas: armarPresentacion(), k: -1, saltar: true };
+        // los primeros planos van cerca y a la altura de la cara (fuera de la presentación, la cámara no baja tanto)
+        controles.minDistance = 0.5;
+        controles.maxPolarAngle = 1.55;
+        return;
+      }
+      if (presentacion) {
+        if (presentacion.saludando) personajes.get(presentacion.saludando).transitorio = null;
+        presentacion = null;
+        controles.minDistance = 9;
+        controles.maxPolarAngle = 1.2;
+        avisos.current.onEscena?.(null);
+      }
       controles.autoRotate = estado.current.vista === 'cine' && !f?.zona;
       controles.autoRotateSpeed = 0.5;
       const geo = f?.zona ? geos.find((z) => z.id === f.zona) : null;
@@ -2329,8 +2698,10 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       if (m === modoAplicado) return;
       modoAplicado = m;
       const dia = m === 'dia';
-      escena.background.set(dia ? '#e7e4dc' : '#121411');
-      escena.fog.color.set(dia ? '#e7e4dc' : '#121411');
+      escena.background.set(dia ? '#dfe6ec' : '#0d1117');
+      escena.fog.color.set(dia ? '#dfe6ec' : '#0d1117');
+      laCiudad.fachada.color.set(dia ? '#9eabb8' : '#2a3038');
+      laCiudad.fachada.emissiveIntensity = dia ? 0 : 0.9;
       cielo.intensity = dia ? 1.25 : 0.45;
       sol.intensity = dia ? 2.3 : 0.6;
       relleno.intensity = dia ? 0.5 : 0.25;
@@ -2582,6 +2953,35 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         }
         if (partes.celular) partes.celular.visible = celular;
         if (partes.taza) partes.taza.visible = taza;
+        // el personaje de verdad: la animación de sentado + la postura de ahora sobre sus huesos
+        if (p.q) {
+          const H = p.q.huesos;
+          const gesto = gestoDe(enEst, t, fase, a.id);
+          const objetivo = posturaDeHuesos(gesto, cab, t, fase);
+          const P = p.q.pose;
+          const kk = Math.min(1, dt * 8);
+          for (const [n, v] of Object.entries(objetivo)) {
+            const a = (P[n] ||= [0, 0, 0]);
+            for (let j = 0; j < 3; j++) a[j] += (v[j] - a[j]) * kk;
+            if (!H[n]) continue;
+            eulerTmp.set(a[0], a[1], a[2]);
+            quatTmp.setFromEuler(eulerTmp);
+            H[n].quaternion.copy(p.q.base[n]).multiply(quatTmp);
+          }
+          const dbg = typeof window !== 'undefined' ? window.__poseDebug : null;
+          if (dbg && H[dbg.hueso]) {
+            eulerTmp.set(dbg.x || 0, dbg.y || 0, dbg.z || 0);
+            quatTmp.setFromEuler(eulerTmp);
+            H[dbg.hueso].quaternion.copy(p.q.base[dbg.hueso]).multiply(quatTmp);
+          }
+          if (p.q.celular) p.q.celular.visible = Boolean(gesto.celular);
+          if (p.q.taza) p.q.taza.visible = Boolean(gesto.taza);
+        }
+        // («Presentar») en su primer plano gira la silla hacia el pasillo, hacia la cámara
+        if (enEst === 'saludo') {
+          gira = GIRO_SALUDO;
+          inclina = 0;
+        }
         p.g.rotation.y += (Math.PI + gira - p.g.rotation.y) * Math.min(1, dt * 4);
         p.g.rotation.x += (-inclina - p.g.rotation.x) * Math.min(1, dt * 4);
         const k = Math.min(1, dt * 8); // mezcla suave entre posturas
@@ -2727,7 +3127,9 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         enfocado = null;
         vistaAplicada = '';
       }
-      if (controles.userData?.hacia) {
+      if (avanzarPresentacion(dt)) {
+        /* la presentación mueve la cámara */
+      } else if (controles.userData?.hacia) {
         controles.target.lerp(controles.userData.mira || objetivoCam, dt * 2.5);
         camara.position.lerp(controles.userData.hacia, dt * 2.2);
         if (camara.position.distanceTo(controles.userData.hacia) < 0.3) controles.userData = {};
@@ -2740,6 +3142,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     animar();
 
     return () => {
+      desmontado = true;
       cancelAnimationFrame(marco);
       for (const r of reales) soltar(r);
       ro.disconnect();
