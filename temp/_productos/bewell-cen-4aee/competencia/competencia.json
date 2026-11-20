@@ -1,0 +1,76 @@
+{
+  "marca": "",
+  "tienda": "",
+  "producto": "BeWell Cen (batido de proteína de soya con isoflavonas para la menopausia)",
+  "pais": "Colombia",
+  "fecha": "19 de noviembre de 2026",
+  "explicacion": "BeWell Cen es un batido en polvo de proteína de soya con isoflavonas, maca y linaza, con calcio y magnesio, pensado para mujeres en la menopausia.",
+  "motivo": "No se pudo entrar a TrendTrack: la conexión no dio permiso para buscar tiendas, productos ni anuncios. Sin esos datos no se puede hacer la investigación sin inventar cifras.",
+  "faltan": [
+    "Permiso para usar TrendTrack desde la app (buscar tiendas, productos y anuncios)",
+    "Revisa que TrendTrack esté conectado y vuelve a intentarlo"
+  ],
+  "advertencias": [
+    "No se pudo hacer la investigación: TrendTrack no dio permiso para ninguna búsqueda (créditos, tiendas, productos, anuncios ni fichas de competidores).",
+    "No se eligió ninguna tienda competidora: para elegirla hacían falta las ventas y los anuncios activos de TrendTrack.",
+    "No se gastaron créditos de TrendTrack.",
+    "Nada de este archivo se inventó: las etapas quedan vacías hasta que se pueda volver a intentar."
+  ],
+  "creditos": { "antes": 0, "despues": 0 },
+  "etapas": [
+    {
+      "titulo": "Investigación maestra",
+      "contexto": "No se pudo hacer: TrendTrack no dio permiso para buscar.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos de TrendTrack", "texto": "Dato: no se pudo consultar ninguna tienda ni anuncio. Vuelve a intentarlo cuando TrendTrack esté conectado." }
+      ],
+      "limitaciones": ["Sin acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Ganadores",
+      "contexto": "No se pudo hacer: depende de los anuncios de TrendTrack.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos de TrendTrack", "texto": "Dato: no hay anuncios para medir días al aire, versiones ni alcance." }
+      ],
+      "limitaciones": ["Sin acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Base de hooks",
+      "contexto": "No se pudo hacer: depende de los anuncios de TrendTrack.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos de TrendTrack", "texto": "Dato: no hay ganchos reales con evidencia para extraer." }
+      ],
+      "limitaciones": ["Sin acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Mapa de saturación de ángulos",
+      "contexto": "No se pudo hacer: depende de los conteos de anuncios de TrendTrack.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos de TrendTrack", "texto": "Dato: no se pudo contar cuántos anuncios usan cada ángulo." }
+      ],
+      "limitaciones": ["Sin acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Avatares",
+      "contexto": "No se pudo hacer: los avatares se deducen de los anuncios de TrendTrack.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos de TrendTrack", "texto": "Dato: no hay anuncios ni páginas de donde sacar los avatares." }
+      ],
+      "limitaciones": ["Sin acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Validación en Colombia",
+      "contexto": "No se pudo hacer: depende de los anuncios de TrendTrack en Colombia.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos de TrendTrack", "texto": "Dato: no se pudo revisar qué ofertas parecidas ya pautan en Colombia." }
+      ],
+      "limitaciones": ["Sin acceso a TrendTrack."],
+      "riesgos": []
+    }
+  ]
+}
