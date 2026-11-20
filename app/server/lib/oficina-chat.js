@@ -167,6 +167,28 @@ export function borrarChat() {
 
 // ---------------------------------------------------------------- lo que sabe la coordinadora
 
+const DIR_INV = path.join(DIR, 'investigaciones');
+/** Las investigaciones listas (mercado + competencia) en markdown, para que la coordinadora las lea si se lo piden. */
+export async function investigacionesParaLeer(productos) {
+  const out = [];
+  try {
+    const { aMarkdown } = await import('./investigacion.js');
+    const { aMarkdown: deCompetencia } = await import('./competencia.js');
+    fs.mkdirSync(DIR_INV, { recursive: true });
+    for (const p of productos) {
+      const md = aMarkdown(p.id);
+      const comp = deCompetencia(p.id) || '';
+      if (!md && !comp) continue;
+      const f = path.join(DIR_INV, `${p.id}.md`);
+      fs.writeFileSync(f, `${md || `# ${p.nombre}: todavía sin la parte de mercado\n`}\n${comp ? `\n# SEGUNDA PARTE: LA COMPETENCIA (TrendTrack)\n${comp}` : '\n(sin la parte de la competencia todavía)\n'}`);
+      out.push({ id: p.id, nombre: p.nombre, ruta: path.relative(RAIZ, f).replace(/\\/g, '/') });
+    }
+  } catch (e) {
+    console.error('[oficina-chat] investigaciones', e?.message || e);
+  }
+  return out;
+}
+
 async function contexto() {
   const { ESTILOS, AJUSTES_OBLIGATORIOS, listarAnunciosNuevos } = await import('./anuncios-nuevos.js');
   const productos = listarProductos().slice(0, 40);
@@ -194,10 +216,10 @@ async function contexto() {
   } catch {
     /* sin fotos */
   }
-  return { productos, estilos, anuncios, oficina, conFoto, encargos: leerChat().encargos };
+  return { productos, estilos, anuncios, oficina, conFoto, encargos: leerChat().encargos, invs: await investigacionesParaLeer(productos) };
 }
 
-function textoPrompt({ productos, estilos, anuncios, oficina, conFoto, encargos }, mensajes, rel) {
+function textoPrompt({ productos, estilos, anuncios, oficina, conFoto, encargos, invs }, mensajes, rel) {
   const coord = oficina?.agentes?.find((a) => a.id === 'coordinacion');
   const equipo = (oficina?.agentes || []).filter((a) => a.estado !== 'libre').map((a) => `${a.nombre} (${a.rol}): ${a.estado}${a.ahora.length ? ` — ahora: ${a.ahora.map((t) => t.titulo).join(', ')}` : ''}${a.necesita.length && a.id !== 'coordinacion' ? ` — te necesita: ${a.necesita.map((t) => t.titulo).join(', ')}` : ''}`);
   const fotos = new Map((conFoto || []).map((p) => [p.id, p]));
@@ -238,7 +260,10 @@ Puedes pedirle a la app estas acciones (la app las hace, le muestra el enlace y 
 - { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>" } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir.
 - { "tipo": "producir", "id": "<id de lo que estás siguiendo>" } → SOLO si eso ESPERA EL SÍ y el usuario acaba de decir que sí (dale, hazlo, de una, ok, sí…) después de ver el costo. Aprueba y produce: ahí se cobra.
 - { "tipo": "imagenes", "productoId": "<id con foto>", "cantidad": 1-${MAX_IMAGENES}, "formato": "1:1" | "9:16" | "ambos", "referencia": "<id de una imagen que adjuntó>" | null, "pais": "<país>" | null, "publico": "<público>" | null, "idea": "<lo que pidió>" } → anuncios de imagen con el agente de variaciones: con su imagen de referencia (variaciones de ese anuncio) o, sin referencia, desde la investigación de mercado del producto (si no la tiene, primero investigar). La app le muestra el costo y espera su sí.
-- { "tipo": "investigar", "productoId": "<id>", "pais": "<país>" | null } → la investigación de mercado y de la competencia (sin costo de imágenes).
+- { "tipo": "investigar", "productoId": "<id>", "pais": "<país>" | null, "competencia": "<link de TrendTrack o tienda>" | null } → las DOS partes de la investigación a la vez: el mercado y la competencia en TrendTrack (sin costo de imágenes).
+Si te pide ANALIZAR o revisar una investigación (qué ángulo usar, qué dice del cliente, ideas de anuncios…), lee con Read su archivo (abajo) y contesta con lo que dice de verdad, sin inventar; si el análisis es largo, va en "entrega".
+Las investigaciones que puedes leer (mercado + competencia en un solo archivo):
+${(invs || []).map((x) => `${x.id} | ${x.nombre} | ${x.ruta}`).join('\n') || '(ninguna todavía)'}
 - { "tipo": "recrear", "slug": "<slug>", "productoId": "<id del otro producto>" } → el mismo guion para otro producto.
 - { "tipo": "seguir", "slug": "<slug de un anuncio de video>" } → empiezas a seguir un anuncio que ya existe (te encargas de avisarle el costo y producirlo).
 - { "tipo": "cancelar", "id": "<id de lo que estás siguiendo>" } → si ya no lo quiere.
@@ -269,14 +294,32 @@ function cambiarEncargo(id, cambios) {
   return e;
 }
 
-/** Anuncios de imagen con el agente de variaciones: arma el lote (borrador) con la referencia que adjuntó, si hay. */
-async function loteDeImagenes(a, ctx) {
+/** Las DOS partes de la investigación a la vez (el mercado y la competencia en TrendTrack), como la pantalla. */
+export async function investigarTodo(productoId, { pais = null, competencia = '' } = {}) {
+  const inv = await import('./investigacion.js');
+  const r = inv.investigar(productoId, { pais });
+  let comp = null;
+  try {
+    comp = (await import('./competencia.js')).investigar(productoId, { enlace: String(competencia || ''), pais: pais || '', buscar: true });
+  } catch (e) {
+    comp = { error: e.message };
+  }
+  return { ...r, competencia: comp };
+}
+
+/**
+ * Anuncios de imagen con el agente de variaciones: arma el lote (borrador) con la referencia (un adjunto del chat o
+ * `refBytes`, la imagen que manda el conector). { lote, producto, cantidad, costo, conRef }
+ */
+export async function loteDeImagenes(a, ctx, { refBytes = null } = {}) {
   const lotes = await import('./imagen-ads/lotes.js');
+  if (!ctx) ctx = { conFoto: lotes.productosConFoto() };
   const p = (ctx.conFoto || []).find((x) => x.id === a.productoId);
   if (!p) throw new Error('Ese producto no tiene foto todavía: súbela en Productos.');
   const ref = a.referencia ? metaAdjunto(a.referencia) : null;
   if (a.referencia && (!ref || ref.tipo !== 'imagen')) throw new Error('No encuentro esa imagen de referencia.');
-  if (!ref && !p.investigacion) throw new Error(`${p.nombre} todavía no tiene investigación de mercado: hazla primero o pásame un anuncio de referencia.`);
+  const conRef = Boolean(ref || refBytes);
+  if (!conRef && !p.investigacion) throw new Error(`${p.nombre} todavía no tiene investigación de mercado: hazla primero o pásame un anuncio de referencia.`);
   const cantidad = Math.max(1, Math.min(MAX_IMAGENES, Number(a.cantidad) || 5));
   const formatos = a.formato === 'ambos' ? ['1:1', '9:16'] : a.formato === '9:16' ? ['9:16'] : ['1:1'];
   const antes = p.ultimoLote?.datos || {};
@@ -287,19 +330,20 @@ async function loteDeImagenes(a, ctx) {
     cantidad,
     formatos,
     logo: null,
-    modo: ref ? 'variantes' : 'nuevos',
+    modo: conRef ? 'variantes' : 'nuevos',
     agente: 'variaciones',
-    fiel: Boolean(ref),
+    fiel: conRef,
     rapido: false,
     usarInvestigacion: true,
-    ...(ref ? { referenciasPropias: [], conceptosReferencias: [limpio(a.idea, 300)], refs: [] } : {}),
+    ...(conRef ? { referenciasPropias: [], conceptosReferencias: [limpio(a.idea, 300)], refs: [] } : {}),
   });
   const { R, carpetaDe, guardarJSON } = await import('./imagen-ads/disco.js');
   const carpeta = carpetaDe(r.lote);
-  if (ref) {
+  if (conRef) {
     const { normalizarImagen } = await import('./imagen-ads/local.js');
     const { formatoDeBytes } = await import('./productos.js');
-    const bytes = fs.readFileSync(path.join(ADJUNTOS, ref.id, ref.archivo));
+    const bytes = refBytes || fs.readFileSync(path.join(ADJUNTOS, ref.id, ref.archivo));
+    if (!formatoDeBytes(bytes)) throw new Error('La referencia no es una imagen (JPG, PNG o WEBP).');
     const abs = await normalizarImagen(bytes, path.join(R.referencias(carpeta), 'R01'), formatoDeBytes(bytes));
     const brief = lotes.leerBrief(carpeta);
     brief.referencias = [`entrada/referencias/${path.basename(abs)}`];
@@ -310,11 +354,11 @@ async function loteDeImagenes(a, ctx) {
   const { costoDeImagenAds } = await import('./costo-estimado.js');
   const { costoMaximoDeLaAccion } = await import('./imagen-ads/costo.js');
   const costo = costoMaximoDeLaAccion(await costoDeImagenAds(), lotes.leerBrief(carpeta), null);
-  return { lote: r.lote, producto: p, cantidad: cantidad * formatos.length, costo, conRef: Boolean(ref) };
+  return { lote: r.lote, producto: p, cantidad: cantidad * formatos.length, costo, conRef };
 }
 
-/** El «sí» del usuario: aprueba y produce lo que esperaba (ya vio el costo). */
-async function producir(e) {
+/** El «sí» del usuario: aprueba y produce lo que esperaba (ya vio el costo). e: { tipo: 'imagenes', lote, costo } | { slug } */
+export async function producir(e) {
   const { esperarFamilias, iniciarProduccion, leerConductor } = await import('./conductor.js');
   await esperarFamilias();
   if (e.tipo === 'imagenes') {
@@ -358,9 +402,8 @@ async function ejecutar(acciones, ctx) {
         }
       } else if (a.tipo === 'investigar') {
         if (!ids.has(a.productoId)) throw new Error('No encuentro ese producto.');
-        const inv = await import('./investigacion.js');
-        inv.investigar(a.productoId, { pais: a.pais ? limpio(a.pais, 60) : null });
-        hechas.push({ tipo: 'investigar', titulo: `Investigación de ${nombreDe(a.productoId)}`, href: `#/investigacion/${a.productoId}`, ok: true });
+        await investigarTodo(a.productoId, { pais: a.pais ? limpio(a.pais, 60) : null, competencia: a.competencia ? limpio(a.competencia, 400) : '' });
+        hechas.push({ tipo: 'investigar', titulo: `Investigación de ${nombreDe(a.productoId)} (mercado y competencia)`, href: `#/investigacion/${a.productoId}`, ok: true });
       } else if (a.tipo === 'recrear') {
         if (!ids.has(a.productoId)) throw new Error('No encuentro ese producto.');
         const { recrearAnuncio } = await import('./anuncios-nuevos.js');
@@ -435,7 +478,7 @@ async function responder() {
         uuid: crypto.randomUUID(),
         prompt: textoPrompt(ctx, c.mensajes, rel),
         herramientas: ['Read', 'Write'],
-        permitidas: [`Write(./${rel})`, `Edit(./${rel})`, `Read(./${path.relative(RAIZ, ADJUNTOS).replace(/\\/g, '/')}/**)`],
+        permitidas: [`Write(./${rel})`, `Edit(./${rel})`, `Read(./${path.relative(RAIZ, ADJUNTOS).replace(/\\/g, '/')}/**)`, `Read(./${path.relative(RAIZ, DIR_INV).replace(/\\/g, '/')}/**)`],
         prohibidas: prohibidasComunes({ terminal: false }),
         registro: path.join(DIR, 'registro', 'chat.log'),
         timeoutMs: 6 * 60000,

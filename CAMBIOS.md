@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20f · Conector para Claude, las dos partes de la investigación y un índice más claro
+
+- **Conector para Claude**: con la app en un servidor, la agregas a Claude (claude.ai o la app del celular) y desde ese chat le pides: tus productos, **analizar tu investigación de mercado (las dos partes)**, lanzar una investigación, crear anuncios de video e imagen, ver su costo y producirlos con tu sí, y cómo va la oficina. Se prende en **Ajustes › Conector para Claude**; la guía paso a paso está en `CONECTOR-CLAUDE.md`. Todo lo de antes sigue igual: es una puerta más.
+- **La investigación muestra sus dos partes**: arriba eliges **1 · Investigación de mercado** o **2 · Competencia (TrendTrack)**, y la primera la puedes ver **en la app** o **como el PDF** de siempre (antes el PDF solo salía al descargarlo).
+- **El índice de secciones se ve mejor**: flechas para pasar de una en una, «3/15», la sección elegida siempre completa y a la vista, nombres largos recortados con elegancia (el nombre entero al pasar el mouse) y, en el celular, solo los números con el nombre de la que estás leyendo.
+- **La coordinadora** ahora lanza la investigación con sus dos partes a la vez (antes solo la de mercado) y puede leer y analizar tus investigaciones cuando se lo pides.
+
 ## 2026-11-20e · La coordinadora trabaja como una asistente y la oficina se mueve
 
 - **La coordinadora, como una persona**: le puedes pasar archivos (el clip, pegar o arrastrar: imágenes, PDF, Word o texto) y los lee. Habla más natural y corto, y te pregunta lo que le falta.

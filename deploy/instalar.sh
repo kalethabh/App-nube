@@ -100,7 +100,11 @@ HASH=$(caddy hash-password --plaintext "$KADS_CONTRASENA")
 cat > /etc/caddy/Caddyfile <<EOF
 $KADS_DOMINIO {
 	encode gzip
-	basic_auth {
+	# el conector para Claude (/mcp/<clave>) entra con su propia clave secreta, sin la contraseña del sitio
+	@privado {
+		not path /mcp/*
+	}
+	basic_auth @privado {
 		kads $HASH
 	}
 	reverse_proxy 127.0.0.1:4455 {
