@@ -1,7 +1,7 @@
 {
   "slug": "aguaje-complex-3-en-1-musical-20261120-1209",
   "familia": "musical",
-  "estado": "error",
+  "estado": "corriendo",
   "paso": "imagenes-y-videos",
   "pasos": [
     {
@@ -76,23 +76,10 @@
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "error",
-      "intentos": 1,
+      "estado": "corriendo",
+      "intentos": 2,
       "inicio": "2026-11-20T17:27:48.814Z",
-      "fin": "2026-11-20T17:54:11.492Z",
-      "error": {
-        "mensaje": "El modelo de video rechazó una escena por su contenido.",
-        "motivo": "contenido",
-        "detalle": "      toma-5.mp4 -> kling-3.0/video\n      toma-18.mp4 -> kling-3.0/video\n      toma-32.mp4 -> kling-3.0/video\n      toma-52.mp4 -> kling-3.0/video\n      toma-59.mp4 -> kling-3.0/video\n      toma-71.mp4 -> kling-3.0/video\n      toma-82.mp4 -> kling-3.0/video\n  Algo no salio. El detalle esta arriba, en las lineas [img], [voz] o [vid] que dicen que paso.\n  Para retomar, el mismo comando:\n      npm run producir -- temp/aguaje-complex-3-en-1-musical-20261120-1209 --si\n  Lo ya hecho no se paga otra vez, y las tareas que seguian en kie se retoman.\n  Si el motivo es un rechazo por contenido, volver a correr no alcanza: ese mensaje dice que hacer.",
-        "causa": {
-          "porque": "Las tomas 7, 11 y 40 no salieron con ninguno de los dos modelos de video. El modelo de video rechazó una escena por su contenido (algo que su filtro considera sensible).",
-          "dijo": "400 The input or output was flagged as sensitive. Please try again with different inputs.",
-          "hacer": [
-            "Abre el anuncio en el editor y rehaz esa toma con otra descripción.",
-            "O toca «Continuar»: a veces la misma escena pasa en otro intento."
-          ]
-        }
-      }
+      "fin": "2026-11-20T17:54:11.492Z"
     },
     {
       "id": "revision-imagenes",
@@ -135,7 +122,7 @@
   "modoPrueba": false,
   "creado": "2026-11-20T17:11:38.790Z",
   "aprobado": "2026-11-20T17:11:38.790Z",
-  "actualizado": "2026-11-20T17:54:11.494Z",
+  "actualizado": "2026-11-20T19:50:56.796Z",
   "saldoInicial": {
     "creditos": 9200.1,
     "fecha": "2026-11-20T17:11:39.063Z"
