@@ -592,6 +592,10 @@ export default function PantallaInforme({ params }) {
   const lista = resaltados || datos?.resaltados || [];
   const cuerpo = useRef(null);
   const [flotante, setFlotante] = useState(null); // { x, y, texto, seccion }
+  // (2026-11-20e) las DOS partes a la vista: el mercado (en la app o como el PDF de siempre) y la competencia
+  const [vistaPdf, setVistaPdf] = useState(false);
+  const parte1 = useRef(null);
+  const parte2 = useRef(null);
 
   // seleccionar texto del informe -> aparece «Resaltar»
   useEffect(() => {
@@ -762,20 +766,40 @@ export default function PantallaInforme({ params }) {
         ) : null}
         <div ref={cuerpo} className="inv-cuerpo">
           {/* (2026-11-19o) la primera parte con el mismo estilo que la segunda; el PDF de siempre solo al imprimir */}
-          {inv.formato === 'documento' ? (
-            <>
-              <div className="inv-solo-pantalla">
-                <MercadoApp inv={inv} foto={producto.foto} T={T} />
-              </div>
-              <div className="inv-solo-impresion">
-                <Documento inv={inv} foto={producto.foto} T={T} />
-              </div>
-            </>
-          ) : (
-            <Informe inv={inv} producto={producto} />
-          )}
+          <nav className="inv-partes inv-solo-pantalla" aria-label="Las dos partes de la investigación">
+            <button type="button" onClick={() => parte1.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+              <b>1</b> Investigación de mercado
+            </button>
+            <button type="button" onClick={() => parte2.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+              <b>2</b> Competencia · TrendTrack
+            </button>
+            {inv.formato === 'documento' ? (
+              <span className="inv-partes__vista" role="group" aria-label="Cómo ver la primera parte">
+                <button type="button" className={!vistaPdf ? 'activo' : ''} aria-pressed={!vistaPdf} onClick={() => setVistaPdf(false)}>
+                  En la app
+                </button>
+                <button type="button" className={vistaPdf ? 'activo' : ''} aria-pressed={vistaPdf} onClick={() => setVistaPdf(true)}>
+                  Como PDF
+                </button>
+              </span>
+            ) : null}
+          </nav>
+          <div ref={parte1} className="inv-parte">
+            {inv.formato === 'documento' ? (
+              <>
+                <div className="inv-solo-pantalla">{vistaPdf ? <div className="inv-pdf-pantalla"><Documento inv={inv} foto={producto.foto} T={T} /></div> : <MercadoApp inv={inv} foto={producto.foto} T={T} />}</div>
+                <div className="inv-solo-impresion">
+                  <Documento inv={inv} foto={producto.foto} T={T} />
+                </div>
+              </>
+            ) : (
+              <Informe inv={inv} producto={producto} />
+            )}
+          </div>
           {inv.formato === 'documento' ? <TextosAnuncios id={id} inv={inv} plantillas={datos.plantillas} onCambio={async () => { invalidar(claveInvestigacion(id)); await recargar?.(); }} /> : null}
-          <Competencia id={id} pais={inv.pais || 'Colombia'} T={T} />
+          <div ref={parte2} className="inv-parte">
+            <Competencia id={id} pais={inv.pais || 'Colombia'} T={T} />
+          </div>
         </div>
         {flotante ? (
           <button type="button" className="inv-flotante" style={{ left: flotante.x, top: flotante.y }} onMouseDown={(e) => e.preventDefault()} onClick={resaltar}>

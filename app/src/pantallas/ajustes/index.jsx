@@ -5,7 +5,7 @@
 // Preferencias (idioma, mercado y subtítulos por defecto) se quitó: el idioma y el mercado salen de la ficha de cada
 // producto y los subtítulos se cambian en el editor (Diego, 2026-10-26: "si no se va a usar, hay que quitarlo").
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Cloud, Cpu, Info, SunMoon, PlugZap, SlidersHorizontal, Sparkles, Wallet } from 'lucide-react';
+import { Bot, Cloud, Cpu, Info, SunMoon, PlugZap, SlidersHorizontal, Sparkles, Wallet } from 'lucide-react';
 import { Boton, CabeceraPagina, PuntoEstado, useAvisos } from '../../componentes/index.js';
 import { useEstado } from '../../datos/api.js';
 import { ir, rutas } from '../../datos/rutas.js';
@@ -18,6 +18,7 @@ import { AcercaDe } from './AcercaDe.jsx';
 import { Inversion } from './Inversion.jsx';
 import { Apariencia } from './Apariencia.jsx';
 import { Guardado } from './Guardado.jsx';
+import { Conector } from './Conector.jsx';
 import { Bienvenida } from './Bienvenida.jsx';
 import { ESTILOS_SUBTITULOS } from './Subtitulos.jsx';
 import './ajustes.css';
@@ -28,6 +29,7 @@ const SECCIONES = [
   { id: 'tu-pc', texto: 'Tu PC', icono: Cpu },
   { id: 'guardado', texto: 'Guardado', icono: Cloud },
   { id: 'inversion', texto: 'Inversión', icono: Wallet },
+  { id: 'conector', texto: 'Conector para Claude', icono: Bot },
   { id: 'apariencia', texto: 'Apariencia', icono: SunMoon },
   { id: 'acerca', texto: 'Acerca de', icono: Info },
 ];
@@ -244,6 +246,7 @@ export default function Ajustes({ consulta }) {
           {activa === 'tu-pc' ? <TuPC ajustes={ajustes} recargar={recargar} alCambiarALaVez={(v) => guardarPreferencia({ aLaVez: v })} /> : null}
           {activa === 'guardado' ? <Guardado /> : null}
           {activa === 'inversion' ? <Inversion /> : null}
+          {activa === 'conector' ? <Conector /> : null}
           {activa === 'apariencia' ? <Apariencia /> : null}
           {activa === 'acerca' ? <AcercaDe ajustes={ajustes} alVerBienvenida={abrirBienvenida} /> : null}
         </div>

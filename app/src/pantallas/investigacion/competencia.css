@@ -270,3 +270,45 @@
 @media (max-width: 760px) { .tt .tt-cabeza { flex-direction: column; align-items: stretch; } .tt .tt-cabeza .boton { align-self: flex-start; max-width: 100%; } }
 @media (max-width: 760px) { .tt .tt-anuncios, .tt .tt-hooks__lista, .tt .tt-avatares { grid-template-columns: minmax(0, 1fr); } .tt .tt-anuncio__cabeza { flex-wrap: wrap; } .tt .tt-anuncio__cifras { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tt { padding: 16pt 14pt 20pt; } }
 @media (max-width: 760px) { .tt .tt-escala__celdas { grid-template-columns: repeat(5, minmax(0, 1fr)); } .tt .tt-escala__celda { padding: 5pt 4pt; font-size: 7pt; overflow-wrap: anywhere; min-width: 0; } }
+
+/* (2026-11-20e) el índice nuevo (Indice.jsx): flechas, contador, píldoras que se deslizan y bordes que se desvanecen */
+.tt-indice { position: sticky; top: 64px; z-index: 6; display: flex; align-items: center; gap: 4pt; min-width: 0; padding: 4pt; border-radius: 999px; border: 1px solid var(--linea); background: var(--barra-etapas); backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3); box-shadow: 0 10px 28px -16px rgba(0, 0, 0, 0.55); }
+.tt-indice__pista { flex: 1; min-width: 0; display: flex; gap: 3pt; overflow-x: auto; overscroll-behavior-x: contain; scroll-behavior: smooth; scrollbar-width: none; padding: 1pt; }
+.tt-indice__pista::-webkit-scrollbar { display: none; }
+.tt-indice--izq .tt-indice__pista { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px); mask-image: linear-gradient(90deg, transparent 0, #000 28px); }
+.tt-indice--der .tt-indice__pista { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent 100%); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent 100%); }
+.tt-indice--izq.tt-indice--der .tt-indice__pista { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); }
+.tt-indice__item { flex: none; display: inline-flex; align-items: center; gap: 6pt; max-width: 210px; padding: 4pt 11pt 4pt 4pt; border-radius: 999px; border: 1px solid transparent; background: transparent; color: var(--tinta-3); font: inherit; font-size: 9pt; font-weight: 650; line-height: 1.2; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+.tt-indice__item span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tt-indice__item b { flex: none; display: grid; place-items: center; width: 17pt; height: 17pt; border-radius: 50%; background: rgba(var(--tinte), 0.07); color: var(--tinta-2); font-size: 7.5pt; font-weight: 800; }
+.tt-indice__item:hover { color: var(--tinta); background: rgba(var(--tinte), 0.05); }
+.tt-indice__item:focus-visible { outline: 2px solid var(--azul); outline-offset: 1px; }
+.tt-indice__item--vista b { background: var(--azul-s); color: var(--azul); }
+.tt-indice__item--activa { max-width: 320px; background: var(--azul-s); border-color: var(--azul-b); color: var(--tinta); }
+.tt-indice__item--activa b { background: var(--azul); color: var(--fondo); }
+.tt-indice__flecha { flex: none; display: grid; place-items: center; width: 26pt; height: 26pt; border-radius: 50%; border: 1px solid var(--linea); background: rgba(var(--tinte), 0.04); color: var(--tinta); cursor: pointer; }
+.tt-indice__flecha:hover:not(:disabled) { border-color: var(--azul-b); background: var(--azul-s); }
+.tt-indice__flecha:disabled { opacity: 0.3; cursor: default; }
+.tt-indice__cuenta { flex: none; padding: 0 4pt; color: var(--tinta-3); font-size: 8.5pt; font-weight: 700; font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) {
+  .tt-indice { top: 56px; }
+  .tt-indice__cuenta { display: none; }
+  .tt-indice__item { padding: 3pt; }
+  .tt-indice__item span { display: none; }
+  .tt-indice__item--activa { max-width: calc(100vw - 210px); padding-right: 10pt; }
+  .tt-indice__item--activa span { display: inline; }
+  .tt-indice--izq .tt-indice__pista, .tt-indice--der .tt-indice__pista, .tt-indice--izq.tt-indice--der .tt-indice__pista { -webkit-mask-image: none; mask-image: none; }
+}
+@media print { .tt-indice { display: none; } }
+
+/* (2026-11-20e) las dos partes de la investigación y la vista del PDF en pantalla */
+.inv-partes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 6px; border-radius: 14px; border: 1px solid var(--borde-2, rgba(255, 255, 255, 0.1)); background: var(--superficie-1, transparent); }
+.inv-partes > button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: 10px; border: 0; background: transparent; color: var(--texto-1, inherit); font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+.inv-partes > button:hover { background: color-mix(in srgb, var(--texto-1, #fff) 7%, transparent); }
+.inv-partes > button b { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--acento, #a3e635); color: #0b0b0b; font-size: 12px; }
+.inv-partes__vista { display: inline-flex; margin-left: auto; padding: 3px; border-radius: 10px; background: color-mix(in srgb, var(--texto-1, #fff) 7%, transparent); }
+.inv-partes__vista button { padding: 6px 12px; border-radius: 8px; border: 0; background: transparent; color: var(--texto-2, inherit); font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+.inv-partes__vista button.activo { background: var(--superficie-1, #111); color: var(--texto-1, #fff); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); }
+.inv-parte { scroll-margin-top: 72px; }
+.inv-pdf-pantalla { overflow-x: auto; border-radius: 14px; }
+@media (max-width: 640px) { .inv-partes__vista { margin-left: 0; } }
