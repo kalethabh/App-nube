@@ -530,7 +530,7 @@ function FilaCuenta({ motor, revisar, revisando }) {
       </Boton>
     );
   } else if (motor.conectado) {
-    detalle = `Sesión iniciada con ${motor.cuenta}${motor.email ? ` (${motor.email})` : ''}.`;
+    detalle = `Sesión iniciada con ${motor.cuenta}${motor.email ? ` (${motor.email})` : ''}${esCodex && motor.plan ? ` · plan ${motor.plan}${motor.espacio ? ` en el espacio «${motor.espacio}»` : ''}` : ''}.`;
     acciones = <Insignia estado="listo" texto="Conectada" />;
     if (!esCodex) {
       // (2026-11-19g) otra cuenta de Claude: la del programa de escritorio de Claude es aparte, Claude Code tiene la suya
@@ -550,6 +550,7 @@ function FilaCuenta({ motor, revisar, revisando }) {
               Tu plan de ChatGPT ({motor.avisoPlan}) puede no incluir Codex o traer muy poco uso. Si la app te avisa que no le queda uso, revisa tu plan en chatgpt.com.
             </span>
           ) : null}
+          <span className="claude-fila__nota">¿Pagaste otro plan (Plus, Pro, Business) o quieres usar otro espacio de trabajo? La app ya lo revisa sola; si no aparece aquí, toca «Cerrar sesión en la app», vuelve a iniciar y en la página de ChatGPT elige ese espacio.</span>
           <button type="button" className="ia-enlace ia-enlace--chico" disabled={saliendo} onClick={salir}>
             Cerrar sesión en la app
           </button>

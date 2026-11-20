@@ -6,7 +6,7 @@
 // Una sola consulta de cuenta a la vez: app-server y `codex login status` (codex.js) pasan por cuentaEnFila, y nunca
 // mientras hay un `codex login` abierto. Asi no hay dos procesos renovando la sesion a la vez.
 //
-//   consultarCuenta() -> { email, plan } | null        limitesFrescos() -> lim | null   (sin cache: antes de cada mensaje)
+//   consultarCuenta() -> { email, plan, espacio } | null   refrescarCuenta() -> lo mismo pidiendo un token nuevo (el plan al día)        limitesFrescos() -> lim | null   (sin cache: antes de cada mensaje)
 //   limitesCacheados() -> lim | null  (60 s, solo para la pantalla) · olvidarLimites()
 //   sinUsoOrdinario(lim) -> boolean                    horaDeReinicio(lim) -> ISO | null
 //   cuentaEnFila(fn, { siHayLogin }) · cuentaLibre() · marcarLogin(abierto) · hayLoginAbierto()
@@ -161,7 +161,7 @@ function cuentaDe(res) {
   const a = res?.account;
   if (!a || typeof a !== 'object') return null;
   if (a.type && a.type !== 'chatgpt') return null; // (con una clave de API no hay correo ni plan: lo dice login status)
-  return { email: typeof a.email === 'string' ? a.email : null, plan: typeof a.planType === 'string' ? a.planType : null };
+  return { email: typeof a.email === 'string' ? a.email : null, plan: typeof a.planType === 'string' ? a.planType : null, espacio: typeof a.workspaceName === 'string' && a.workspaceName.trim() ? a.workspaceName.trim() : null };
 }
 
 /** El correo y el plan de la cuenta de ChatGPT, o null (sin sesion, sin Codex, o la consulta fallo o tardo). */
@@ -171,6 +171,28 @@ export async function consultarCuenta() {
   guardarLimites(r); // la pantalla aprovecha la misma consulta
   const res = r.respuestas?.['account/read'];
   return res && !res.error ? cuentaDe(res.result) : null;
+}
+
+let ultimoRefresco = 0;
+/** Después de iniciar o cerrar sesión: el próximo refresco va de una. */
+export const olvidarRefresco = () => {
+  ultimoRefresco = 0;
+};
+/**
+ * (2026-11-20s) Le pide a ChatGPT un token NUEVO antes de leer la cuenta y los límites: el plan viaja dentro del token, así
+ * que después de pagar un plan (Plus, Pro, Business…) o de cambiar de espacio de trabajo, Codex seguía viendo el de antes
+ * hasta que renovara el token solo (días). A lo sumo una vez cada 2 minutos (fuerza: true lo salta).
+ * -> { cuenta, lim } | null
+ */
+export async function refrescarCuenta({ fuerza = false } = {}) {
+  if (!fuerza && Date.now() - ultimoRefresco < 120000) return null;
+  ultimoRefresco = Date.now();
+  const r = await cuentaEnFila(() => preguntarAppServer(['account/read', 'account/rateLimits/read'], { params: { 'account/read': { refreshToken: true } }, tope: 15000 }));
+  if (!r) return null;
+  cacheLim = null;
+  const lim = guardarLimites(r);
+  const res = r.respuestas?.['account/read'];
+  return { cuenta: res && !res.error ? cuentaDe(res.result) : null, lim };
 }
 
 // ---------------------------------------------------------------- los limites
@@ -184,10 +206,19 @@ const delLimite = (lim) => (lim && typeof lim.rateLimits === 'object' && lim.rat
  * ordinaryUsageAllowed === false. Mandar un mensaje asi gastaria creditos comprados del usuario: no se manda.
  * Acepta lo que da limitesFrescos() o la respuesta tal cual de account/rateLimits/read. Sin datos, false (se sigue).
  */
+// Los planes de ESPACIO DE TRABAJO (Business, Team, Enterprise, Edu…): el uso de Codex puede salir de los créditos del
+// espacio (los paga la empresa con el plan), no del uso «ordinario» de un plan personal. (2026-11-20s)
+export const esPlanDeEspacio = (plan) => /^(team|business|self_serve_business|enterprise|ent\d|edu|sci)/i.test(String(plan || ''));
+
 export function sinUsoOrdinario(lim) {
   if (!lim || typeof lim !== 'object') return false;
   const rl = delLimite(lim);
   if (rl.rateLimitReachedType !== null && rl.rateLimitReachedType !== undefined) return true;
+  const plan = lim.planType || rl.planType;
+  const creditos = lim.creditos || (rl.credits && typeof rl.credits === 'object' ? { hay: rl.credits.hasCredits === true, ilimitados: rl.credits.unlimited === true } : null);
+  // (2026-11-20s) en un espacio de trabajo, con créditos del espacio (o sin saberlo) se deja trabajar: si de verdad no
+  // queda, el propio Codex lo dice y la app lo muestra. Antes se frenaba a una cuenta Business recién pagada.
+  if (esPlanDeEspacio(plan)) return Boolean(creditos && !creditos.hay && !creditos.ilimitados && [rl.primary, rl.secondary].some((v) => numero(v?.usedPercent) >= 100));
   if ([rl.primary, rl.secondary].some((v) => numero(v?.usedPercent) !== null && numero(v.usedPercent) >= 100)) return true;
   const ordinario = typeof lim.ordinaryUsageAllowed === 'boolean' ? lim.ordinaryUsageAllowed : rl.ordinaryUsageAllowed;
   return ordinario === false;
@@ -222,6 +253,7 @@ function normalizarLimites(r) {
     rateLimitReachedType: rl.rateLimitReachedType ?? null,
     ordinaryUsageAllowed: ordinario,
     planType: typeof rl.planType === 'string' ? rl.planType : null,
+    creditos: rl.credits && typeof rl.credits === 'object' ? { hay: rl.credits.hasCredits === true, ilimitados: rl.credits.unlimited === true, saldo: rl.credits.balance ?? null } : null,
     leido: new Date().toISOString(),
   };
   const usados = [lim.primary, lim.secondary].map((v) => v?.usedPercent).filter((v) => v !== null && v !== undefined);
