@@ -60,14 +60,16 @@
     },
     "V10_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "sin-imagen",
       "intentosApi": 3,
       "version": 1,
-      "intentoAbierto": true,
+      "intentoAbierto": false,
       "taskId": null,
-      "ultimoMotivo": "contenido-chatgpt"
+      "ultimoMotivo": "contenido-chatgpt",
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
     }
   },
-  "actualizado": "2026-11-20T23:30:43.292Z",
-  "terminado": false
+  "actualizado": "2026-11-20T23:32:12.243Z",
+  "terminado": true
 }

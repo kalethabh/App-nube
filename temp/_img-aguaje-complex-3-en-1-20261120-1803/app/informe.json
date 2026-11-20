@@ -1,0 +1,60 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-20T23:32:32.295Z",
+  "variaciones": 10,
+  "archivos": 1,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 1,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [],
+    "sinRevisar": [],
+    "sinImagen": [
+      {
+        "pieza": "V01_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V02_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V03_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V04_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V05_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V06_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V08_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V09_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V10_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    ],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
