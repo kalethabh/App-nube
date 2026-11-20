@@ -2,6 +2,20 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20a · La oficina es tu empresa: departamentos, cadenas de producción y efectos
+
+- **La oficina de tu imagen de referencia**: planta clara y cálida vista desde arriba, seis departamentos alrededor del logo K (sobre su base redonda de madera con jardineras), la coordinación de vidrio arriba, la sala de estar con café abajo, divisiones bajas grafito con listones de madera y luz verde lima, plantas y estanterías.
+- **Cada departamento es una cadena de producción** con sus agentes sentados en fila, cada uno con su escritorio, su computador y su parte del trabajo:
+  - **Anuncios de video**: guion → plan de producción → storyboard e imágenes → producción → edición → revisión.
+  - **Anuncios de imagen**: investigación → estrategia creativa → prompts → generación → control de calidad → entrega.
+  - **Investigación de mercado**: recopilación → competencia → público → oportunidades → síntesis.
+  - **Landing pages, Embudos de WhatsApp y Análisis**: su equipo ya está sentado, pero quietos y marcados «en construcción» hasta que la app tenga sus herramientas (no se inventa actividad).
+- **Las líneas de producción responden a lo que pasa de verdad** en la app: verde cuando una parte pasa al siguiente agente (una luz viaja por un arco), naranja cuando la revisión devuelve algo para corregir, roja cuando algo se frena. Si no pasa nada, quedan grises.
+- **Efectos de producción**: onda y chispas al recibir trabajo, el monitor que se enciende, destello rojo si algo falla y, al terminar, confeti, una onda grande, el logo K que gira y brilla y el aviso «¡Terminado!» arriba.
+- **Íconos circulares** sobre cada agente (lupa, documento, imagen, check, código…) que cambian con lo que le pasa: revisando, corrigiendo, error, esperando. Su anillo en el piso se enciende con su estado.
+- **Supervisión**: toca un departamento y ves su flujo, lo que está en marcha, lo que se frenó y lo terminado; toca un trabajo y la oficina resalta su recorrido; toca una línea y ves qué pasa por ahí; toca un agente y ves su estación, de quién recibe y a quién entrega.
+- Los agentes ahora trabajan **sentados**: escriben, usan el mouse, piensan, revisan, levantan los brazos al terminar o se agarran la cabeza si algo se frena.
+
 ## 2026-11-20 · La oficina cobra vida: pantalla completa, conversaciones y recorrido guiado
 
 - **Pantalla completa, diseño profesional**: la oficina ocupa todo el espacio y los controles flotan encima en paneles de vidrio. Arriba: tu oficina, cómo va todo y las acciones. A la derecha: tu equipo, el agente que tocaste o el chat (se oculta con un botón y la oficina se centra sola). Abajo: lo que pasa **en vivo**, el **minimapa** y las vistas.

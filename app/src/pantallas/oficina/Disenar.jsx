@@ -9,10 +9,9 @@ import { pedirNuevo } from '../../datos/api.js';
 
 // cómo se dibuja cada lugar en el plano (fila, columna, cuántas columnas ocupa); 'logo' es el centro
 const PLANO = [
-  [0, 1, 1], [0, 2, 1], [0, 3, 1], [0, 4, 1],
-  [1, 1, 1], [1, 4, 1],
-  [2, 1, 1], [2, 2, 2], [2, 4, 1],
-  [3, 1, 1], [3, 2, 1], [3, 3, 1], [3, 4, 1],
+  [0, 1, 4], [0, 9, 4], [1, 1, 4], [1, 9, 4], [2, 1, 4], [2, 9, 4],
+  [0, 5, 4], [2, 5, 4],
+  [3, 1, 3], [3, 4, 3], [3, 7, 3], [3, 10, 3],
 ];
 const COLORES = ['#a3e635', '#22c55e', '#2dd4bf', '#38bdf8', '#60a5fa', '#a78bfa', '#c084fc', '#f472b6', '#fb7185', '#fb923c', '#f59e0b', '#facc15'];
 
@@ -46,7 +45,7 @@ export function Disenar({ abierto, datos, onCerrar }) {
     setZonas((l) => l.map((x) => (x.id === z.id ? { ...x, lugar: n } : ahi && x.id === ahi.id ? { ...x, lugar: z.lugar } : x)));
   };
   const nueva = () => {
-    const libre = [...Array(datos?.lugares || 13).keys()].find((n) => !enLugar[n]);
+    const libre = [...Array(datos?.lugares || 12).keys()].find((n) => !enLugar[n]);
     if (libre === undefined) return aviso({ tipo: 'error', titulo: 'No hay lugares libres', texto: 'Borra una de tus oficinas o mueve una para hacer espacio.' });
     const id = `nueva-${Date.now()}`;
     setZonas((l) => [...l, { id, nueva: true, propia: true, nombre: 'Mi oficina', tipo: 'escritorios', color: COLORES[(l.length * 5) % COLORES.length], lugar: libre }]);
@@ -70,7 +69,7 @@ export function Disenar({ abierto, datos, onCerrar }) {
     <Modal abierto={abierto} onCerrar={() => onCerrar(false)} titulo="Diseñar tu oficina" descripcion="Toca una oficina y después el lugar donde la quieres (si está ocupado, se intercambian). Crea las tuyas y personalízalas." icono={LayoutGrid} tamano="grande">
       <div className="of-disenar">
         <div className="of-plano" role="grid" aria-label="El plano de la oficina">
-          <span className="of-plano__logo" style={{ gridRow: 2, gridColumn: '2 / span 2' }} aria-hidden="true">K</span>
+          <span className="of-plano__logo" style={{ gridRow: 2, gridColumn: '5 / span 4' }} aria-hidden="true">K</span>
           {PLANO.map(([fila, col, span], n) => {
             const x = enLugar[n];
             return (
@@ -85,7 +84,7 @@ export function Disenar({ abierto, datos, onCerrar }) {
                 {x ? (
                   <>
                     <strong>{x.nombre}</strong>
-                    <small>{x.pronto ? 'Próximamente' : x.propia ? tipos[x.tipo] || 'Tuya' : x.de ? `de ${x.de}` : x.tipo === 'cafe' ? 'Para descansar' : x.tipo === 'sala' ? 'Para conversar' : ''}</small>
+                    <small>{x.pronto ? 'Próximamente' : x.propia ? tipos[x.tipo] || 'Tuya' : x.de ? (/^\d/.test(x.de) ? x.de : `de ${x.de}`) : x.tipo === 'cafe' ? 'Para descansar' : x.tipo === 'sala' ? 'Para conversar' : ''}</small>
                   </>
                 ) : (
                   <small>{z ? 'Mover aquí' : 'Libre'}</small>

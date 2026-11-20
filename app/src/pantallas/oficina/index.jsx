@@ -12,6 +12,7 @@ import { Oficina3D } from './Oficina3D.jsx';
 import { Chat } from './Chat.jsx';
 import { Disenar } from './Disenar.jsx';
 import { Actividad, Minimapa, Recorrido, Vistas, pasosDelRecorrido } from './Hud.jsx';
+import { EstacionDeAgente, PanelDepartamento, PanelLinea } from './Departamento.jsx';
 import './oficina.css';
 
 const CLAVE = 'oficina';
@@ -56,7 +57,7 @@ function Lista({ titulo, items, vacio, tono }) {
 }
 
 /** El panel de un agente: quién es, qué hace, lo que te necesita, lo que hace ahora y lo que terminó hoy. */
-function Panel({ a, onCerrar, onEditar, onChat, onPedir }) {
+function Panel({ a, onCerrar, onEditar, onChat, onPedir, produccion, agentes }) {
   return (
     <aside className="of-panel" style={{ '--color': a.color }}>
       <header className="of-panel__cabeza">
@@ -71,6 +72,7 @@ function Panel({ a, onCerrar, onEditar, onChat, onPedir }) {
         </button>
       </header>
       <p className="of-panel__hace">{a.hace}</p>
+      <EstacionDeAgente a={a} produccion={produccion} agentes={agentes} />
       {a.caida ? (
         <p className="of-panel__caida">
           <AlertTriangle size={14} aria-hidden="true" /> {a.caida}: lo suyo puede tardar o frenarse hasta que vuelva.
@@ -80,7 +82,7 @@ function Panel({ a, onCerrar, onEditar, onChat, onPedir }) {
         <Boton variante="primario" tamano="chico" icono={MessageCircle} onClick={onChat}>
           Hablar con {a.nombre}
         </Boton>
-      ) : (
+      ) : a.enEstacion === 'pronto' ? null : (
         <Boton variante="secundario" tamano="chico" icono={Send} onClick={() => onPedir(a)}>
           Pedirle algo a {a.nombre}
         </Boton>
@@ -213,10 +215,13 @@ export default function Oficina() {
   const [disenar, setDisenar] = useState(false);
   const [lateral, setLateral] = useState(true);
   const [vista, setVista] = useState('general');
-  const [modo, setModo] = useState(() => leerLocal('oficina:modo') || 'noche');
+  const [modo, setModo] = useState(() => leerLocal('oficina:modo') || 'dia');
   const [foco, setFoco] = useState(null);
   const [posiciones, setPosiciones] = useState({});
-  const [charlas, setCharlas] = useState([]);
+  const [eventos, setEventos] = useState([]); // las transferencias reales que vio la oficina desde que la abriste
+  const [depElegido, setDepElegido] = useState(null);
+  const [linea, setLinea] = useState(null);
+  const [resaltar, setResaltar] = useState(null);
   const [actividad, setActividad] = useState(false);
   const [paso, setPaso] = useState(null); // el paso del recorrido (null = cerrado)
   // la oficina ocupa todo el alto que queda en la ventana (debajo de la barra de arriba)
@@ -278,10 +283,34 @@ export default function Oficina() {
   };
   const elegirAgente = (id) => {
     setFoco(null);
+    setDepElegido(null);
+    setLinea(null);
+    setChat(null);
     setElegido(id);
     setLateral(true);
   };
-  const alCharlar = useCallback((c) => setCharlas((l) => [{ ...c, t: Date.now() }, ...l].slice(0, 12)), []);
+  const elegirDepartamento = (id) => {
+    setElegido(null);
+    setLinea(null);
+    setChat(null);
+    setResaltar(null);
+    setDepElegido(id);
+    setFoco({ zona: id, n: Date.now() });
+    setLateral(true);
+  };
+  const prod = datos?.produccion || null;
+  const dep = prod?.departamentos?.find((d) => d.id === (depElegido || linea?.dep)) || null;
+  // el aviso de arriba (4 s) cuando algo termina, se devuelve, se frena o entra un trabajo nuevo
+  const [aviso3d, setAviso3d] = useState(null);
+  const alEvento = useCallback((e) => {
+    setEventos((l) => [e, ...l].slice(0, 40));
+    if (e.tipo === 'listo' || e.tipo === 'error' || e.tipo === 'devuelve' || /^Nuevo:/.test(e.detalle || '')) setAviso3d({ ...e, n: Date.now() });
+  }, []);
+  useEffect(() => {
+    if (!aviso3d) return undefined;
+    const t = setTimeout(() => setAviso3d(null), 4500);
+    return () => clearTimeout(t);
+  }, [aviso3d]);
   const cambiarModo = (m) => {
     setModo(m);
     guardarLocal('oficina:modo', m);
@@ -296,7 +325,7 @@ export default function Oficina() {
     <div className="pagina of of--pro">
       <div ref={escenario} className={`of-escenario${lateral ? '' : ' of-escenario--sin-lateral'}`}>
         <div className="of-mundo" role="region" aria-label="La oficina en 3D: arrastra para girarla, rueda para acercarte, toca un agente">
-          {agentes.length ? <Oficina3D agentes={agentes} zonas={datos?.zonas || []} elegido={elegido} onElegir={elegirAgente} foco={foco} vista={vista} modo={modo} onPosiciones={setPosiciones} onCharla={alCharlar} desplazar={lateral ? Math.round((anchoLado + 14) / 2) : 0} /> : null}
+          {agentes.length ? <Oficina3D agentes={agentes} zonas={datos?.zonas || []} produccion={prod} elegido={elegido} onElegir={elegirAgente} onDepartamento={elegirDepartamento} onLinea={(l) => { setElegido(null); setDepElegido(null); setChat(null); setLinea(l); setLateral(true); }} resaltar={resaltar} foco={foco} vista={vista} modo={modo} onPosiciones={setPosiciones} onEvento={alEvento} desplazar={lateral ? Math.round((anchoLado + 14) / 2) : 0} /> : null}
         </div>
 
         {/* arriba: quién eres, cómo va todo y las acciones */}
@@ -351,41 +380,76 @@ export default function Oficina() {
           </div>
         ) : null}
 
+        {aviso3d ? (
+          <div key={aviso3d.n} className={`of-toast of-toast--${aviso3d.tipo}`} role="status">
+            <span className="of-toast__icono" aria-hidden="true">{aviso3d.tipo === 'listo' ? '🎉' : aviso3d.tipo === 'error' ? '⚠️' : aviso3d.tipo === 'devuelve' ? '↩' : '✨'}</span>
+            {aviso3d.detalle}
+          </div>
+        ) : null}
+
         {/* a la derecha: el equipo, el panel de un agente o el chat */}
         {lateral ? (
           <div className="of-lateral">
             {chat ? (
               <Chat key={chat.inicial} coordinadora={coordinadora} inicial={chat.inicial} onCerrar={() => setChat(null)} />
+            ) : linea && dep ? (
+              <PanelLinea linea={linea} dep={dep} agentes={agentes} eventos={eventos} onCerrar={() => setLinea(null)} />
+            ) : depElegido && dep ? (
+              <PanelDepartamento dep={dep} agentes={agentes} resaltar={resaltar} onResaltar={setResaltar} onAgente={elegirAgente} onCerrar={() => { setDepElegido(null); setResaltar(null); setFoco(null); }} />
             ) : a ? (
-              <Panel a={a} onCerrar={() => setElegido(null)} onEditar={() => setNombres(true)} onChat={() => setChat({ inicial: '' })} onPedir={(x) => setChat({ inicial: `Pídele a ${x.nombre} que ` })} />
+              <Panel a={a} produccion={prod} agentes={agentes} onCerrar={() => setElegido(null)} onEditar={() => setNombres(true)} onChat={() => setChat({ inicial: '' })} onPedir={(x) => setChat({ inicial: `Pídele a ${x.nombre} que ` })} />
             ) : (
               <aside className="of-equipo">
                 <h2 className="of-equipo__titulo">
-                  <Users size={14} aria-hidden="true" /> Tu equipo
+                  <Users size={14} aria-hidden="true" /> Tu empresa
                 </h2>
                 <ul>
-                  {agentes.map((x) => (
-                    <li key={x.id}>
-                      <button type="button" className="of-equipo__fila" onClick={() => elegirAgente(x.id)} style={{ '--color': x.color }}>
-                        <Avatar a={x} />
+                  {coordinadora ? (
+                    <li>
+                      <button type="button" className="of-equipo__fila" onClick={() => elegirAgente(coordinadora.id)} style={{ '--color': coordinadora.color }}>
+                        <Avatar a={coordinadora} />
                         <span className="of-equipo__textos">
-                          <strong>{x.nombre}</strong>
-                          <span>{x.estado === 'te-necesita' ? <b className="of-rojo">te necesita</b> : x.caida ? <b className="of-naranja">{x.caida}</b> : x.estado === 'trabajando' ? x.ahora[0]?.titulo : x.rol}</span>
+                          <strong>{coordinadora.nombre}</strong>
+                          <span>{coordinadora.estado === 'te-necesita' ? <b className="of-rojo">{coordinadora.necesita.length} cosas esperan tu decisión</b> : 'Coordinación general'}</span>
                         </span>
-                        {x.estado === 'te-necesita' ? <span className="of-equipo__cuenta">{x.necesita.length}</span> : null}
                       </button>
                     </li>
-                  ))}
+                  ) : null}
+                  {(prod?.departamentos || []).map((d) => {
+                    const gente = agentes.filter((x) => x.dep === d.id);
+                    const activos = gente.filter((x) => ['trabajando', 'revisando', 'corrigiendo'].includes(x.enEstacion)).length;
+                    const errores = gente.filter((x) => x.enEstacion === 'error').length;
+                    const enMarcha = d.trabajos.filter((t) => t.estado === 'activo' || t.estado === 'te-necesita').length;
+                    return (
+                      <li key={d.id}>
+                        <button type="button" className="of-equipo__fila of-dep" onClick={() => elegirDepartamento(d.id)} style={{ '--color': d.color }}>
+                          <span className="of-dep__caras" aria-hidden="true">
+                            {gente.slice(0, 3).map((x) => (
+                              <span key={x.id}>{x.avatar}</span>
+                            ))}
+                          </span>
+                          <span className="of-equipo__textos">
+                            <strong>{d.nombre}</strong>
+                            <span>{d.pronto ? 'En construcción' : errores ? <b className="of-rojo">{errores} con error</b> : activos ? `${activos} trabajando · ${enMarcha} en marcha` : enMarcha ? `${enMarcha} en marcha` : `${gente.length} agentes · en espera`}</span>
+                          </span>
+                          {activos ? <span className="of-dep__vivo" aria-hidden="true" /> : null}
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
+                <p className="of-leyenda">
+                  <i className="of-leyenda__verde" /> pasa al siguiente · <i className="of-leyenda__naranja" /> la revisión devuelve · <i className="of-leyenda__roja" /> se frenó
+                </p>
               </aside>
             )}
           </div>
         ) : null}
 
         {/* abajo: lo que pasa, el minimapa y las vistas */}
-        <Actividad agentes={agentes} charlas={charlas} abierta={actividad} onAbrir={() => setActividad((v) => !v)} onAgente={elegirAgente} />
+        <Actividad agentes={agentes} eventos={eventos} departamentos={prod?.departamentos || []} abierta={actividad} onAbrir={() => setActividad((v) => !v)} onAgente={elegirAgente} />
         <div className="of-abajo-derecha">
-          {datos?.zonas?.length ? <Minimapa zonas={datos.zonas} agentes={agentes} posiciones={posiciones} onZona={(id) => { setElegido(null); setFoco({ zona: id, n: Date.now() }); }} /> : null}
+          {datos?.zonas?.length ? <Minimapa zonas={datos.zonas} agentes={agentes} posiciones={posiciones} onZona={(id) => (prod?.departamentos?.some((d) => d.id === id) || id === 'coordinacion' ? elegirDepartamento(id) : (setElegido(null), setFoco({ zona: id, n: Date.now() })))} /> : null}
           <Vistas vista={vista} onVista={cambiarVista} modo={modo} onModo={cambiarModo} />
         </div>
         {paso !== null ? <Recorrido pasos={pasos} paso={paso} onPaso={setPaso} onCerrar={cerrarRecorrido} /> : null}
