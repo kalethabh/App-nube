@@ -8,11 +8,11 @@
   "srt": true,
   "guardar": false,
   "creado": "2026-11-20T16:18:22.087Z",
-  "actualizado": "2026-11-20T16:25:32.502Z",
+  "actualizado": "2026-11-20T16:31:54.643Z",
   "avance": {
     "etapa": "render",
-    "valor": 15.4,
-    "cuadro": 145,
+    "valor": 83.5,
+    "cuadro": 2997,
     "total": 2997,
     "nota": "Armando los 25 tramos del video (la próxima vez solo se rehace lo que cambies)",
     "tramos": {
