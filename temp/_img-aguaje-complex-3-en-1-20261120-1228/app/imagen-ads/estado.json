@@ -4,7 +4,7 @@
     "E": 3,
     "R": 1,
     "A": 1,
-    "T": 2
+    "T": 3
   },
   "tandas": {
     "E001": {
@@ -143,14 +143,15 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "por-pedir",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
       "orden": {
         "id": "g",
         "modo": "generar",
-        "version": 1
+        "version": 1,
+        "trabajo": "T002"
       },
       "intentosApi": 0,
       "ronda": 1,
