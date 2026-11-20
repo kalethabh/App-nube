@@ -1,0 +1,194 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V02",
+    "structure_source": "library format F26 (Línea de tiempo)",
+    "reference_style": "Clean, modern three-stage progress ad: three circular photo frames of increasing size threaded on one horizontal timeline, showing the same woman growing in energy and confidence, with the product anchoring the bottom",
+    "angle_used": "Rutina / momento de uso: the 3-month natural curves plan",
+    "ad_format": "Growing Circles Timeline Progression Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: clean pink and blush backgrounds, ultra-photorealistic Colombian women photographed naturally and respectfully, the black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight, believable real-life moments.",
+    "graphic_language": "Rounded pills and banners in fuchsia and deep magenta, thin-line white icons inside fuchsia circles, handwritten script accents used sparingly, clean flat or softly graded backgrounds with minimal decoration (no clutter, no excess particles, petals or sparkles).",
+    "text_typography": "Poppins Bold (uppercase, heavy) for headlines and labels, Poppins Regular for supporting text, and a casual handwritten script for short emotional accents."
+  },
+  "creative_objective": "Present the product as a clear 3-month plan for her curves. The timeline shows the same woman, from the shoulders up, growing in energy and confidence month by month (never body changes), so the viewer understands it is a process and wants the full plan.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) Bold headline at the top. 2) The three circular portraits read left to right as growth: small, medium, large, the largest ringed in fuchsia. 3) The bottle centered in the bottom band. 4) The month pills and the short captions.",
+    "composition_style": "Horizontal left-to-right progression with deliberate size growth. Circle centers on one line at about 46% of the height: circle 1 about 20% of the width (centered at 17%), circle 2 about 25% (centered at 43%), circle 3 about 32% (centered at 75%). A thin timeline track runs behind them with a small chevron in each gap. Pills straddle the top edge of each circle; captions on a shared baseline below; the bottle centered in the bottom band.",
+    "spacing_and_structure": "Headline 6-19% of the height; circles between 30% and 62%; captions 65-71%; product band 74-95%. Safe margins of 6-7% on every side.",
+    "lighting_and_depth": "Inside the circles: identical head-and-shoulders crop, camera angle and lighting setup; stage 1 slightly cooler and muted, stage 2 neutral, stage 3 warmest and most vibrant. Thin white outline and soft drop shadow on each circle; circle 3 with a hot fuchsia ring and faint glow. Bottle with soft studio key light from the upper left, subtle rim light and soft contact shadow.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a flat pale blush pink background. Headline centered at the top. Across the middle, three circular head-and-shoulders photos of the same Colombian woman grow in size left to right along a thin horizontal timeline track with a chevron arrow in each gap. A rounded month pill sits on the top edge of each circle, the largest circle is ringed in hot fuchsia. A short caption sits under each circle on a shared baseline. The product bottle stands centered in the bottom band with a soft shadow.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Calm brand backdrop that keeps the progression readable",
+        "adaptation_rule": "Flat pale blush pink #FBE3EE with a very subtle lighter tone toward the top.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, from about 6% to 19% of the canvas height",
+        "visual_function": "Frames the ad as a 3-month plan and stops the scroll",
+        "adaptation_rule": "Two lines, extra bold uppercase in bottle black; '3 MESES' in hot fuchsia.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "timeline track with chevron arrows",
+        "position": "Thin horizontal line at about 46% of the height, behind the circles, from 6% to 94% of the width; one chevron in each gap",
+        "visual_function": "Threads the three photos into one sequence and signals progress",
+        "adaptation_rule": "Thin line shifting from bubblegum pink #FF8CC0 on the left to hot fuchsia #E6177F on the right, with two small right-pointing chevrons in the gaps.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "stage circle 1 (smallest)",
+        "position": "Left, about 20% of the width in diameter, spanning about 7-27% of the width and 36-56% of the height",
+        "visual_function": "Starting point she recognizes",
+        "adaptation_rule": "Head-and-shoulders portrait of a Colombian woman about 27 years old, medium-brown skin, dark hair in a loose ponytail, in a soft grey t-shirt in her kitchen in the morning, neutral slightly tired expression, muted cooler tones. No product inside the circle. No body shown below the shoulders.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "stage circle 2 (medium)",
+        "position": "Center, about 25% of the width in diameter, spanning about 30.5-55.5% of the width and 33.5-58.5% of the height",
+        "visual_function": "First believable change: more energy",
+        "adaptation_rule": "Same woman, same head-and-shoulders crop and angle, now in a pink sports top with a light glow of effort, smiling with energy; neutral tones. No product inside the circle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "stage circle 3 (largest)",
+        "position": "Right, about 32% of the width in diameter, spanning about 59-91% of the width and 30-62% of the height",
+        "visual_function": "Desired emotional result: confident and happy with herself",
+        "adaptation_rule": "Same woman, same crop and angle, hair down and styled, wearing a fuchsia blouse, radiant confident smile, warmest and most vibrant tones; ringed in hot fuchsia #E6177F with a faint glow. No product inside the circle.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_07",
+        "block_type": "time-label pills (3)",
+        "position": "One rounded pill straddling the top edge of each circle, centered on it",
+        "visual_function": "Dates each stage as months of the plan",
+        "adaptation_rule": "Equal-height rounded pills; pills 1 and 2 in bubblegum pink #FF8CC0 with white text, pill 3 filled with hot fuchsia #E6177F with white text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_08",
+        "block_type": "stage captions (3)",
+        "position": "Centered under each circle on one shared baseline, about 65-71% of the height",
+        "visual_function": "Names each stage of the plan",
+        "adaptation_rule": "One short caption per circle, bottle black; caption 3 in hot fuchsia.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_09",
+        "block_type": "product",
+        "position": "Bottom center, from about 74% to 95% of the height",
+        "visual_function": "Connects the plan to what is being sold",
+        "adaptation_rule": "The user's bottle exactly as in the attached photo, front view, about 21% of the canvas height, soft contact shadow.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount or offer badge",
+      "Rating stars, reviews or testimonials",
+      "A fourth stage or extra circles",
+      "Rectangular photo panels or a two-panel before/after split",
+      "Number badges instead of month labels",
+      "Charts, graphs, percentages or numeric data overlays",
+      "Benefit list or icons",
+      "The product repeated inside the circles",
+      "Body, weight, hips or buttocks shown or compared in any circle",
+      "Bottom bar or banner",
+      "Logos or brand marks other than those printed on the product label",
+      "Clinical or certification seals"
+    ]
+  },
+  "visual_prompt": "Square 1:1 clean three-stage progress ad on a flat pale blush pink #FBE3EE background. Top center, from about 6% to 19% of the canvas height: a bold two-line headline in heavy uppercase Poppins Bold, bottle black #0E0E10, with '3 MESES' in hot fuchsia #E6177F. Across the middle: three circular photo frames whose centers sit on one horizontal line at about 46% of the canvas height and that grow in size from left to right: circle 1 about 20% of the canvas width in diameter (spanning about 7-27% of the width), circle 2 about 25% (about 30.5-55.5%), circle 3 about 32% (about 59-91%). A thin timeline line runs behind them through their centers, shifting from bubblegum pink #FF8CC0 on the left to hot fuchsia on the right, with a small right-pointing chevron in each of the two gaps. Each circle has a thin white outline and a soft drop shadow; circle 3 adds a hot fuchsia ring about 1% of the width thick and a faint fuchsia glow. Inside all three circles: the SAME ultra-photorealistic Colombian woman about 27 years old, medium-brown skin with real texture and pores, dark hair, photographed head-and-shoulders with the identical crop, angle and soft daylight setup, never showing her body below the shoulders. Circle 1: in a soft grey t-shirt in a softly blurred kitchen in the morning, neutral slightly tired expression, muted cooler tones. Circle 2: same woman in a pink sports top with a light healthy glow, smiling with energy, neutral tones. Circle 3: same woman with her hair down and styled, in a fuchsia blouse, radiant confident smile, warmest and most vibrant tones. A small rounded label pill straddles the top edge of each circle, centered on it: pills 1 and 2 in bubblegum pink with white text, pill 3 in hot fuchsia with white text. Under each circle, on one shared baseline at about 65-71% of the height, a short centered caption in bottle black (the third in hot fuchsia). Bottom band, centered, from about 74% to 95% of the height and about 21% of the canvas height tall: the product bottle, which must be reproduced exactly from the attached product image (the only source of truth; do not redesign, replace or reinterpret it): a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Front view, soft studio key light from the upper left, subtle rim light, soft contact shadow. Safe margins of 6-7% on every side. No other elements, no CTA, no price, no stars, no body comparisons.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, two lines",
+      "text_style": "Poppins Bold uppercase, each line about 7% of the canvas height, centered, bottle black; '3 MESES' in hot fuchsia",
+      "text": "TU PLAN NATURAL DE CURVAS EN 3 MESES"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "stage label 1",
+      "reference_position": "Inside the pill on the top edge of circle 1",
+      "text_style": "Poppins Bold, about 2.9% of the canvas height, white on bubblegum pink pill",
+      "text": "Mes 1"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "stage label 2",
+      "reference_position": "Inside the pill on the top edge of circle 2",
+      "text_style": "Poppins Bold, about 2.9% of the canvas height, white on bubblegum pink pill",
+      "text": "Mes 2"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "stage label 3",
+      "reference_position": "Inside the pill on the top edge of circle 3",
+      "text_style": "Poppins Bold, about 3.1% of the canvas height, white on hot fuchsia pill",
+      "text": "Mes 3"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "caption stage 1",
+      "reference_position": "Centered under circle 1, shared baseline",
+      "text_style": "Poppins Medium, about 2.8% of the canvas height, 1 line, centered, bottle black",
+      "text": "Empiezas tu hábito"
+    },
+    {
+      "block_id": "text_block_06",
+      "reference_function": "caption stage 2",
+      "reference_position": "Centered under circle 2, shared baseline",
+      "text_style": "Poppins Medium, about 2.8% of the canvas height, 1 line, centered, bottle black",
+      "text": "Rutina con energía"
+    },
+    {
+      "block_id": "text_block_07",
+      "reference_function": "caption stage 3",
+      "reference_position": "Centered under circle 3, shared baseline",
+      "text_style": "Poppins SemiBold, about 3% of the canvas height, 1 line, centered, hot fuchsia",
+      "text": "Te sientes segura"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Three circular photo frames growing in size from left to right (about 20%, 25% and 32% of the canvas width)",
+    "The same woman, same head-and-shoulders crop and lighting in all three circles, progressing from muted and tired to warm, energetic and confident",
+    "Thin horizontal timeline track through the circle centers with a chevron arrow in each gap",
+    "Hot fuchsia ring and faint glow on the largest circle",
+    "Rounded month pill on the top edge of each circle",
+    "The user's bottle centered in the bottom band with a soft contact shadow",
+    "Pale blush pink background"
+  ],
+  "final_generation_exclusions": [
+    "Never show the woman's body below the shoulders, and never compare hips, legs or buttocks.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}

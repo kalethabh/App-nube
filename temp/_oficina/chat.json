@@ -322,6 +322,26 @@
       ],
       "aviso": true,
       "fecha": "2026-11-20T17:12:47.233Z"
+    },
+    {
+      "id": "0c0181e908",
+      "de": "tu",
+      "texto": "recuerda estos videos que duren más de 2 minutos como máximo deben durar un minuto y medio un minuto y 40 como máximo para que no se consuma mucho crédito",
+      "fecha": "2026-11-20T17:31:33.348Z"
+    },
+    {
+      "id": "da2857d460",
+      "de": "coordinadora",
+      "texto": "Anotado 👌 De ahora en adelante ningún video pasa de 1:40, idealmente 1:30, para no gastar crédito de más. Ya se lo dejé claro a todo el equipo.",
+      "acciones": [
+        {
+          "tipo": "regla",
+          "titulo": "Aprendido (todos los estilos): Los videos deben durar como máximo entre 1 minuto 30 y 1 minuto 40 (nunca más de 1:40) para no consumir mucho crédito. Aunque el video de referencia dure más, se ajusta a ese máximo.",
+          "href": "#/aprendizajes",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-20T17:31:38.649Z"
     }
   ],
   "encargos": [

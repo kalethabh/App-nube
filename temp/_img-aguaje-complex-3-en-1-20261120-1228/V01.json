@@ -1,0 +1,157 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V01",
+    "structure_source": "library format F08 (Beneficios con íconos)",
+    "reference_style": "Clean two-column benefits ad: a large product standing in front of a tall brand-colored arch on the left and a vertical stack of icon-tile-plus-text benefits on the right, under a centered headline",
+    "angle_used": "Beneficio sin sacrificio: curves without needles or surgery",
+    "ad_format": "Benefit Icons Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: clean pink and blush backgrounds, ultra-photorealistic Colombian women photographed naturally and respectfully, the black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight, believable real-life moments.",
+    "graphic_language": "Rounded pills and banners in fuchsia and deep magenta, thin-line white icons inside fuchsia circles, handwritten script accents used sparingly, clean flat or softly graded backgrounds with minimal decoration (no clutter, no excess particles, petals or sparkles).",
+    "text_typography": "Poppins Bold (uppercase, heavy) for headlines and labels, Poppins Regular for supporting text, and a casual handwritten script for short emotional accents."
+  },
+  "creative_objective": "State the core desire directly: curves on her own terms, without needles or surgery. The bottle is the hero inside a fuchsia arch, and four short benefits prove the promise at a glance, keeping the clean F08 two-column structure.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The headline at the top. 2) The black-and-fuchsia bottle framed by the fuchsia arch on the left. 3) The four benefit rows on the right, read top to bottom, with the fuchsia icon tiles as anchors.",
+    "composition_style": "Asymmetric two-column grid under a centered full-width headline. Left column (6-50% of width): tall arch panel with the bottle standing in front. Right column (54-94% of width): four benefit rows. Both columns share the same vertical band below the headline.",
+    "spacing_and_structure": "Headline 6-21% of the height, centered, up to 88% of the width. Arch from about 10% to 46% of the width and 28% to 94% of the height, fully rounded top. Bottle centered on the arch, base at about 90% of the height, about 52% of the canvas height. Four benefit rows evenly spaced between 28% and 92% of the height, icon tile on the left of each row and text to its right.",
+    "lighting_and_depth": "Soft studio light from the upper left; soft contact shadow under the bottle at the base of the arch; the arch has a very subtle vertical gradient and a faint soft shadow. Icon tiles and text are flat for maximum legibility.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas with a soft gradient from pale blush pink (#FBE3EE) at the top to bubblegum pink (#FF8CC0) at the bottom. A bold centered two-line headline spans the top. Below, in the left half, a tall arch-shaped panel (rectangle with a fully rounded top) in hot fuchsia #E6177F with the product bottle standing large in front of it. In the right half, four benefit rows stacked with equal spacing; each row has a solid deep magenta rounded-square tile with a simple white line icon, followed by a short bold benefit text in bottle black. No other elements.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "background",
+        "position": "Full canvas",
+        "visual_function": "Calm brand-colored base that keeps the layout clean and scannable",
+        "adaptation_rule": "Smooth soft gradient from pale blush pink #FBE3EE (top) to light bubblegum pink #FF8CC0 (bottom). No patterns, no textures, no particles.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "headline",
+        "position": "Top center, 6-21% of the canvas height, up to 88% of the width",
+        "visual_function": "States the main promise: curves without needles or surgery",
+        "adaptation_rule": "Two lines, extra bold uppercase; 'SIN AGUJAS NI QUIRÓFANO' in hot fuchsia, the rest in bottle black.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "arch backdrop panel",
+        "position": "Left column, from about 10% to 46% of the canvas width and from about 28% to 94% of the height, fully rounded top",
+        "visual_function": "Frames the bottle like a showcase niche",
+        "adaptation_rule": "Solid hot fuchsia #E6177F arch with a very subtle vertical gradient toward deep magenta #B0105E at the bottom and a faint soft shadow. Flat graphic shape, no texture, no text.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "product",
+        "position": "In front of the arch, centered on it, base at about 90% of the canvas height, about 50-56% of the canvas height",
+        "visual_function": "Main visual anchor; shows what delivers the benefits",
+        "adaptation_rule": "The user's bottle exactly as in the attached photo, front or slight 3/4 view, upright, label facing the camera, soft contact shadow, with a visible band of fuchsia arch around it.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "benefit icon tiles (4)",
+        "position": "Right column, at the left edge of each benefit row (starting at about 54% of the width)",
+        "visual_function": "Visual anchors that make each benefit scannable",
+        "adaptation_rule": "Solid deep magenta #B0105E rounded-square tiles, about 9% of the canvas per side, each with one simple white monoline icon: 1) a heart, 2) a lightning bolt, 3) a capsule, 4) a leaf. Same style, stroke and size. No body or silhouette icons.",
+        "present_in_reference": true
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "benefit texts (4)",
+        "position": "Right column, to the right of each icon tile (about 66-94% of the width), vertically centered on it",
+        "visual_function": "Names each benefit in a few words",
+        "adaptation_rule": "One short benefit per row in bold bottle black, max 2 lines each.",
+        "present_in_reference": true
+      }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Trust seals, guarantee or certification badges",
+      "Callout lines or arrows pointing at the product",
+      "Numbers or numbering on the benefit rows",
+      "Divider lines, boxes or cards behind each benefit",
+      "Round pedestal or circular backdrop shape",
+      "Rating stars, reviews or testimonials",
+      "Subheadline or paragraph text",
+      "People or lifestyle scenes",
+      "Body silhouettes or body-part icons",
+      "More than 4 benefits",
+      "Bottom bar or banner",
+      "Logos or brand marks other than those printed on the product label",
+      "Fruits, leaves, petals, sparkles or particles"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium supplement ad with a clean two-column layout. Background: smooth soft gradient from pale blush pink #FBE3EE at the top to light bubblegum pink #FF8CC0 at the bottom, no texture, no decoration. Top center, from about 6% to 21% of the canvas height and up to 88% of the width: a bold centered two-line headline in heavy uppercase Poppins Bold; first line in bottle black #0E0E10, second line in hot fuchsia #E6177F. Below the headline, left column: a tall arch-shaped panel (rectangle with a fully rounded top) in hot fuchsia #E6177F with a very subtle gradient to deep magenta #B0105E at its base and a faint soft shadow, spanning about 10% to 46% of the canvas width and 28% to 94% of the height. Standing in front of the arch, centered on it, with its base at about 90% of the canvas height and about 52% of the canvas height tall: the product bottle, which must be reproduced exactly from the attached product image (the only source of truth; do not redesign, replace or reinterpret it): a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Front or slight 3/4 view, label facing the camera, soft studio key light from the upper left, soft contact shadow at the base. Right column, from about 54% to 94% of the width: four benefit rows evenly spaced between about 28% and 92% of the canvas height; each row starts with a solid deep magenta #B0105E rounded-square tile (about 9% of the canvas per side, corner radius about 30%) holding a simple white monoline icon (row 1 a heart, row 2 a lightning bolt, row 3 a capsule, row 4 a leaf), followed by a short bold benefit text in bottle black, left-aligned, max 2 lines. Flat icons and text, no shadows. Generous clean spacing, nothing touching the edges. No people, no body silhouettes, no extra graphics, no CTA, no price, no badges, no stars.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top center, two lines, up to 88% of the width",
+      "text_style": "Poppins Bold uppercase, each line about 7% of the canvas height, centered; line 1 'TUS CURVAS,' in bottle black #0E0E10, line 2 'SIN AGUJAS NI QUIRÓFANO' in hot fuchsia #E6177F",
+      "text": "TUS CURVAS, SIN AGUJAS NI QUIRÓFANO"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "benefit 1",
+      "reference_position": "Right column, first row, right of the heart tile",
+      "text_style": "Poppins Bold, about 3.6% of the canvas height, max 2 lines, left-aligned, bottle black",
+      "text": "Acompaña tu proceso de curvas"
+    },
+    {
+      "block_id": "text_block_03",
+      "reference_function": "benefit 2",
+      "reference_position": "Right column, second row, right of the lightning tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Energía para tu rutina"
+    },
+    {
+      "block_id": "text_block_04",
+      "reference_function": "benefit 3",
+      "reference_position": "Right column, third row, right of the capsule tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Solo 2 cápsulas al día"
+    },
+    {
+      "block_id": "text_block_05",
+      "reference_function": "benefit 4",
+      "reference_position": "Right column, fourth row, right of the leaf tile",
+      "text_style": "Same style as benefit 1",
+      "text": "Tres plantas + vitaminas A y E"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Tall hot fuchsia arch panel with a fully rounded top in the left half",
+    "The user's black bottle with fuchsia cap, large, standing in front of the arch with a soft contact shadow",
+    "Four benefit rows stacked in the right half with equal spacing",
+    "Solid deep magenta rounded-square tile with a simple white line icon at the start of each row",
+    "Soft blush-to-pink gradient background"
+  ],
+  "final_generation_exclusions": [
+    "No people, body silhouettes or body-part icons.",
+    "No fruits, leaves, petals, sparkles or particles in the scene.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
