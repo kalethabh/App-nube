@@ -2,6 +2,15 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20e · La coordinadora trabaja como una asistente y la oficina se mueve
+
+- **La coordinadora, como una persona**: le puedes pasar archivos (el clip, pegar o arrastrar: imágenes, PDF, Word o texto) y los lee. Habla más natural y corto, y te pregunta lo que le falta.
+- **Ella se encarga de principio a fin**: le pides un video, su equipo escribe el guion y, cuando está listo, **te escribe sola con el costo y te pregunta «¿le doy?»**. Con tu sí (escríbele «dale» o toca «Dale») lo produce, y cuando termina te deja el enlace. Si algo se frena o necesita que elijas algo, también te avisa.
+- **Anuncios de imagen por el chat**: «hazme 10 imágenes con esta referencia» (adjuntas tu anuncio) o desde la investigación; te dice el costo y espera tu sí.
+- **Lo que puede escribir, lo escribe ella**: «dame 10 variaciones de este texto», una revisión, títulos o ganchos llegan como una entrega que copias o descargas.
+- **La oficina ya no se ve quieta**: quien trabaja se inclina a la pantalla, teclea, gira la silla y le salen tarjetitas de luz de la pantalla; quien revisa se pone la mano en la barbilla; quien espera tamborilea. Los libres miran el celular, toman café, se estiran o charlan con el de al lado. Por las líneas de producción corren puntos cuando un trabajo pasa por ahí, hay polvo en la luz y un robot aspiradora dando vueltas.
+- **El día y la noche de la oficina son los de la app**: tema claro = día, oscuro = noche (el botón de la oficina cambia el tema de toda la app).
+
 ## 2026-11-20d · Anuncios de imagen: todo lo hace el agente
 
 - «Crear anuncios de imagen» ahora tiene **solo dos modos, los dos con el agente** (sin plantillas):
