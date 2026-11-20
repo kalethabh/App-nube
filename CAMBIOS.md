@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20d · Anuncios de imagen: todo lo hace el agente
+
+- «Crear anuncios de imagen» ahora tiene **solo dos modos, los dos con el agente** (sin plantillas):
+  - **Con referencia**: subes, pegas o arrastras tu anuncio que funciona (o lo eliges de «Lo que me funciona») y el agente hace variaciones cercanas, conceptos vecinos y expandidos, conservando lo que lo hace vender.
+  - **Desde la investigación**: sin referencia. El ángulo, las facetas, las objeciones y las palabras del cliente salen de la investigación de mercado de tu producto. Si el producto todavía no la tiene, la puedes lanzar desde ahí mismo.
+- En los dos, el agente analiza, arma la matriz de facetas, escribe los prompts con diseño limpio, genera una imagen por anuncio, la revisa (pruebas de 1, 3 y 5 segundos y los 10 puntos) y corrige. Ves el costo antes, y en el lote, el análisis y qué cambió y qué hipótesis prueba cada anuncio.
+- Lo mismo desde la oficina («Encargar» en Anuncios de imagen), desde la investigación («Crear anuncios» abre el modo desde la investigación) y desde «Lo que me funciona» («Hacer variantes» abre el modo con referencia con ese anuncio ya elegido).
+
 ## 2026-11-20c · El índice de la investigación ya no tapa la pantalla
 
 - En la investigación de mercado (y en la de la competencia), el índice de secciones que queda pegado arriba ahora es **una sola fila delgada** que se desliza de lado, con la sección en la que estás siempre centrada. Antes era una grilla de tres filas que ocupaba media pantalla.

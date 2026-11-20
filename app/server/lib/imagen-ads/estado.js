@@ -217,13 +217,14 @@ function pedidoDe(pedidos, pieza) {
  */
 /** Lo que se muestra del análisis del ganador (analisis-ganador.json del agente de variaciones). */
 function resumenAnalisis(a) {
-  if (!a || !Array.isArray(a.referencias)) return null;
+  if (!a || (!Array.isArray(a.referencias) && !a.angulo_central)) return null;
   const t = (x, n = 300) => (typeof x === 'string' ? x.slice(0, n) : '');
   const l = (x) => (Array.isArray(x) ? x.filter((y) => typeof y === 'string').slice(0, 8).map((y) => y.slice(0, 160)) : []);
   return {
     resumen: t(a.resumen),
     facetas: l(a.facetas),
-    referencias: a.referencias.slice(0, 10).map((r) => ({ ref: t(r?.ref, 10), deseo: t(r?.angulo?.deseo), problema: t(r?.angulo?.problema), promesa: t(r?.angulo?.promesa), mecanismo: t(r?.angulo?.mecanismo), invariables: l(r?.invariables), modificables: l(r?.modificables), experimentales: l(r?.experimentales) })),
+    // sin referencia: el ángulo central que sacó de la investigación, como una «referencia» más
+    referencias: [...(a.angulo_central ? [{ ref: 'Investigación', angulo: a.angulo_central, invariables: a.invariables, modificables: a.modificables, experimentales: a.experimentales }] : []), ...(Array.isArray(a.referencias) ? a.referencias : [])].slice(0, 10).map((r) => ({ ref: t(r?.ref, 20), deseo: t(r?.angulo?.deseo), problema: t(r?.angulo?.problema), promesa: t(r?.angulo?.promesa), mecanismo: t(r?.angulo?.mecanismo), invariables: l(r?.invariables), modificables: l(r?.modificables), experimentales: l(r?.experimentales) })),
   };
 }
 

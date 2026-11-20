@@ -65,7 +65,7 @@ const app = cp.spawn(process.execPath, ['server/index.js'], { cwd: APP, env, std
 app.stdout.pipe(log);
 app.stderr.pipe(log);
 const t0 = Date.now();
-const creados = { producto: null, lote: null };
+const creados = { producto: null, lote: null, otros: [] };
 
 async function principal() {
   let arriba = false;
@@ -114,6 +114,29 @@ async function principal() {
   const niveles = vista.variaciones.map((x) => x.nivel).join('');
   check(`Cada variación con su nivel (${niveles}), qué cambió y su hipótesis`, niveles === 'AABBC' && vista.variaciones.every((x) => x.cambio && x.hipotesis), vista.variaciones.map((x) => [x.v, x.nivel, x.cambio, x.hipotesis]));
   check('Una imagen por variación (5 piezas listas)', vista.variaciones.every((x) => x.piezas['1:1']?.url), vista.variaciones.map((x) => x.piezas['1:1']?.estado));
+  // ---- SIN referencia: desde la investigación de mercado del producto
+  r = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Crema Aurora', pais: 'Colombia', idioma: 'es' }, cantidad: 3, formatos: ['1:1'], logo: null, modo: 'nuevos', agente: 'variaciones', plantillas: { elegidas: ['p01'] }, plantillasReferencia: { elegidas: ['p01'] } } });
+  const sinInv = r.datos?.lote;
+  creados.otros.push(sinInv);
+  check('Sin referencia y sin investigación: el lote no arranca y lo dice', r.st === 201 && r.datos.brief.agente === 'variaciones' && !r.datos.brief.plantillas && !r.datos.brief.desdePlantillas && (await pedir(`/api/imagen-ads/${sinInv}/generar`, { json: { costoMaximoConfirmado: 1 } })).st >= 400, r.datos?.brief);
+  // (una investigación válida de ejemplo: la de la carpeta de datos, si está)
+  const ejemplo = fs.readdirSync(path.join(RAIZ, 'temp', '_productos')).map((x) => path.join(RAIZ, 'temp', '_productos', x, 'investigacion', 'investigacion.json')).find((f) => fs.existsSync(f));
+  if (!ejemplo) console.log('  (sin una investigación de ejemplo en temp/_productos: se salta el modo «desde la investigación»)');
+  else {
+    fs.mkdirSync(path.join(RAIZ, 'temp', '_productos', id, 'investigacion'), { recursive: true });
+    fs.copyFileSync(ejemplo, path.join(RAIZ, 'temp', '_productos', id, 'investigacion', 'investigacion.json'));
+    r = await pedir('/api/imagen-ads', { json: { productoId: id, fotoProducto: 1, datos: { nombre: 'Crema Aurora', pais: 'Colombia', idioma: 'es' }, cantidad: 3, formatos: ['1:1'], logo: null, modo: 'nuevos', agente: 'variaciones' } });
+    const loteInv = r.datos?.lote;
+    creados.otros.push(loteInv);
+    check('Desde la investigación: el lote lleva la investigación y va con el agente, sin plantillas', r.st === 201 && r.datos.brief.agente === 'variaciones' && r.datos.brief.investigacion === 'entrada/investigacion.md' && r.datos.brief.rapido === false, r.datos?.brief);
+    const carpetaInv = path.join(RAIZ, 'temp', loteInv);
+    const briefInv = JSON.parse(fs.readFileSync(path.join(carpetaInv, 'app', 'brief.json'), 'utf8'));
+    const eInv = ses.sesionEstrategia({ carpeta: carpetaInv, lote: loteInv, brief: briefInv });
+    check('Su tarea: el ángulo central sale de la investigación (sin ganador) y reparte 1 A, 1 B y 1 C', /DESDE LA INVESTIGACIÓN/.test(eInv.prompt) && /angulo_central/.test(eInv.prompt) && /1 de nivel A .*1 de nivel B .*1 de nivel C/s.test(eInv.prompt));
+    r = await pedir(`/api/imagen-ads/${loteInv}/generar`, { json: { costoMaximoConfirmado: Math.round((porImagen || 0) * 3 * 100) / 100 } });
+    const vInv = await esperar(6, async () => (await pedir(`/api/imagen-ads/${loteInv}`)).datos, (d) => ['listo', 'error'].includes(d?.conductor?.estado));
+    check('Desde la investigación: termina con el ángulo central y cada anuncio con su nivel e hipótesis', vInv?.conductor?.estado === 'listo' && vInv.analisis?.referencias?.[0]?.ref === 'Investigación' && vInv.variaciones.map((x) => x.nivel).join('') === 'ABC' && vInv.variaciones.every((x) => x.hipotesis && x.piezas['1:1']?.url), { analisis: vInv?.analisis, niveles: vInv?.variaciones?.map((x) => [x.nivel, x.hipotesis, x.piezas['1:1']?.estado]) });
+  }
   const of = (await pedir('/api/oficina')).datos;
   const t = of.produccion.departamentos.find((d) => d.id === 'imagen').trabajos.find((x) => x.id === lote);
   check('La oficina lo ve terminado en «Anuncios de imagen», con todas sus estaciones hechas', t?.estado === 'listo' && Object.values(t.estaciones).every((v) => v === 'hecho'), t);
@@ -131,7 +154,7 @@ try {
   } catch {
     /* ya cerró */
   }
-  if (creados.lote) fs.rmSync(path.join(RAIZ, 'temp', creados.lote), { recursive: true, force: true });
+  for (const l of [creados.lote, ...creados.otros]) if (l) fs.rmSync(path.join(RAIZ, 'temp', l), { recursive: true, force: true });
   if (creados.producto) fs.rmSync(path.join(RAIZ, 'temp', '_productos', creados.producto), { recursive: true, force: true });
   fs.rmSync(path.join(RAIZ, 'temp', `_modo-prueba-${PUERTO}`), { recursive: true, force: true });
   if (envPropio) fs.rmSync(ENV, { force: true });

@@ -6,8 +6,9 @@
 //   #/imagenes/nuevo?simular=1       la vista previa del diseño, con productos de ejemplo (no se guarda nada)
 import { ArrowLeft } from 'lucide-react';
 import { Boton, CabeceraPagina, VistaPrevia, useBarraSuperior } from '../../componentes/index.js';
-import { enlace } from '../../datos/rutas.js';
-import { Formulario } from './Formulario.jsx';
+import { FormularioAgente } from './FormularioAgente.jsx';
+import { enlace, ir, rutas } from '../../datos/rutas.js';
+import '../oficina/oficina.css';
 import './imagenes.css';
 
 export default function PantallaCrearImagenes({ consulta }) {
@@ -22,7 +23,7 @@ export default function PantallaCrearImagenes({ consulta }) {
         </Boton>
         <CabeceraPagina
           titulo="Crear anuncios de imagen"
-          descripcion="Elige tu producto y tus referencias (las tuyas o las que están funcionando en tu categoría) y genera: cada imagen sale con un título distinto, en pocos minutos."
+          descripcion="Todo lo hace el agente: con tu anuncio de referencia (hace variaciones que conservan lo que lo hace vender) o desde la investigación de mercado de tu producto. Diseño limpio, una imagen por anuncio y control de calidad."
           extra={
             simulando ? (
               <VistaPrevia
@@ -34,7 +35,10 @@ export default function PantallaCrearImagenes({ consulta }) {
           }
         />
       </div>
-      <Formulario simulando={simulando} productoPedido={consulta?.get('producto') || null} referenciaPedida={consulta?.get('referencia') || null} videoPedido={consulta?.get('video') || null} modoPedido={consulta?.get('modo') || null} />
+      {/* (2026-11-20) solo el agente: con referencia o desde la investigación (sin plantillas) */}
+      <div className="img-agente">
+        <FormularioAgente productoPedido={consulta?.get('producto') || null} referenciaPedida={consulta?.get('referencia') || null} modoInicial={consulta?.get('modo') === 'investigacion' ? 'investigacion' : null} onListo={(lote) => ir(rutas.loteImagenes(lote))} />
+      </div>
     </div>
   );
 }
