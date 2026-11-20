@@ -34,7 +34,7 @@ const GRUPOS = [
       // (Cambiar el producto vive en Estilos, como un especial: 2026-11-18z)
       { id: 'whatsapp', texto: 'Embudo WhatsApp', icono: MessageCircle, href: enlace.embudoWhatsapp(), pronto: true },
       { id: 'landings', texto: 'Landings', icono: LayoutTemplate, href: enlace.landings(), pronto: true },
-      { id: 'sep', texto: 'S.E.P', icono: Rocket, href: enlace.sep(), pronto: true },
+      { id: 'sep', texto: 'S.E.P', icono: Rocket, href: enlace.sep() },
     ],
   },
   {

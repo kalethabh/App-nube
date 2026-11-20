@@ -2,6 +2,18 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20k · S.E.P: tus anuncios de Meta que más venden y qué hacer con cada uno
+
+- **S.E.P ya funciona** (dejó de ser «Pronto»). Conecta tu cuenta publicitaria de Meta y trae, del rango que elijas (7, 14, 30 o 90 días), tus anuncios ordenados por **compras**, con su gasto, ingresos, ROAS, CPA, CTR, CPM, frecuencia e impresiones.
+- Arriba, las cifras del rango y dos gráficas: **compras por día** e **ingresos y gasto por día** (al pasar el mouse ves el día con su ROAS).
+- Cada anuncio es una **tarjeta** con su imagen, sus métricas, sus compras día por día y lo que **sugiere el sistema S.E.P**:
+  - **Escalar**: vende sobre tu objetivo, sostenido y sin fatiga → subir presupuesto de a poco y duplicarlo a públicos amplios.
+  - **Hacer variaciones**: rinde pero se está cansando (frecuencia alta o el CTR cae) → con el botón «Hacer variaciones» su imagen va directo al agente de anuncios de imagen.
+  - **Sostener**, **Probando** (pocos datos) o **Pausar** (gasta sin vender).
+  - Con «Ver por qué y qué hacer» ves las razones con tus números y los pasos.
+- Pones tu **ROAS objetivo** y, si quieres, tu **CPA máximo**: las sugerencias se ajustan al instante. Filtros por sugerencia y vista de **tabla**.
+- **Solo lee** tu cuenta: nunca cambia nada en Meta. Se conecta en **Ajustes › Conexiones › Meta (tu cuenta publicitaria)** con un token con el permiso `ads_read` (los pasos están ahí). Si tu token de la Biblioteca ya tiene ese permiso, no hace falta otro.
+
 ## 2026-11-20j · La coordinadora te avisa en cualquier pantalla y tu «está bien» aprueba de verdad
 
 - **Burbuja flotante** con la cara de tu coordinadora, abajo a la derecha, en todas las pantallas (menos en la oficina, donde ya está su chat). Lleva un número con sus mensajes sin leer y lo que espera tu aprobación.

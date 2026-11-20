@@ -31,6 +31,8 @@ export const CLAVES = {
   elevenlabs: { variable: 'ELEVENLABS_API_KEY', nombre: 'ElevenLabs' },
   // el token de la Biblioteca de anuncios de Meta (Inspiración › «Meta (oficial)», lib/meta-biblioteca.js)
   meta: { variable: 'META_ADS_TOKEN', nombre: 'Meta (Biblioteca de anuncios)' },
+  // (2026-11-20k) tu cuenta publicitaria de Meta, para S.E.P (lib/sep.js): un token con ads_read. Solo lee.
+  metaAds: { variable: 'META_MARKETING_TOKEN', nombre: 'Meta (tu cuenta publicitaria)' },
 };
 
 const BASES = {
@@ -124,8 +126,8 @@ export function limpiarClave(cual, valor) {
   const prefijo = `${CLAVES[cual].variable}=`;
   if (v.startsWith(prefijo)) v = v.slice(prefijo.length).trim();
   if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1).trim();
-  if ((cual === 'kie' || cual === 'meta') && /^bearer\s+/i.test(v)) v = v.replace(/^bearer\s+/i, '');
-  if (cual === 'meta') {
+  if ((cual === 'kie' || cual === 'meta' || cual === 'metaAds') && /^bearer\s+/i.test(v)) v = v.replace(/^bearer\s+/i, '');
+  if (cual === 'meta' || cual === 'metaAds') {
     // si pegaron la dirección entera con ?access_token=…, se toma solo el token
     const m = v.match(/[?&]access_token=([^&\s]+)/);
     if (m) v = decodeURIComponent(m[1]);
@@ -395,7 +397,23 @@ export async function probarClave(cual, { valor } = {}) {
     const { probarToken } = await import('./meta-biblioteca.js');
     return probarToken(valor || null);
   }
+  if (cual === 'metaAds') return probarTokenCuenta(valor || leerClave(CLAVES.metaAds.variable));
   return { ok: false, motivo: 'desconocida', mensaje: 'Esa conexión no existe.' };
+}
+
+/** El token de tu cuenta publicitaria: ¿ve alguna cuenta (ads_read)? Gratis. */
+async function probarTokenCuenta(token) {
+  if (!token) return { ok: false, motivo: 'sin-clave', mensaje: 'Todavía no guardaste el token de tu cuenta publicitaria.' };
+  if (process.env.ANUNCIOS_MODO_PRUEBA === '1') return { ok: true, mensaje: 'Tu token funciona (simulado: en modo prueba no se llama a Meta).' };
+  try {
+    const r = await fetch(`https://graph.facebook.com/v21.0/me/adaccounts?fields=id&limit=1&access_token=${encodeURIComponent(token)}`, { signal: AbortSignal.timeout(ESPERA_MS) });
+    const j = await r.json().catch(() => null);
+    if (j?.error?.code === 190) return { ok: false, motivo: 'clave-invalida', mensaje: 'Ese token de Meta no es válido o venció.' };
+    if (j?.error) return { ok: false, motivo: 'sin-permisos', mensaje: 'El token no puede leer tus cuentas publicitarias: genéralo con el permiso ads_read.' };
+    return { ok: true, mensaje: `Tu token funciona: ve ${j?.data?.length ? 'tu cuenta publicitaria' : 'Meta, pero ninguna cuenta publicitaria todavía'}. Ya puedes usar S.E.P.` };
+  } catch {
+    return { ok: false, motivo: 'sin-conexion', mensaje: 'No pude conectar con Meta para probar el token.' };
+  }
 }
 
 // ---------------------------------------------------------------- traer las claves de IA-VID-AUTOMATIC
