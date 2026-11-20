@@ -258,3 +258,15 @@
 [data-tema='claro'] .tt .inv-marca { background: rgba(255, 228, 92, 0.35); border-bottom-color: #e0b400; }
 .tt .tt-gancho__original, .tt .tt-avatar__frase { line-height: 1.45; }
 .tt ::selection { background: rgba(247, 201, 72, 0.35); color: var(--tinta); }
+
+/* (2026-11-20) el índice de secciones, COMPACTO: una sola fila delgada que se desliza de lado (pegada arriba al leer),
+   con la sección actual siempre a la vista. Antes era una grilla de 3 filas que tapaba media pantalla. */
+.tt .tt-etapas { display: flex; grid-template-columns: none; min-width: 0; max-width: 100%; gap: 4pt; padding: 5pt; overflow-x: auto; overscroll-behavior-x: contain; scroll-behavior: smooth; scrollbar-width: none; border-radius: 999px; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%); }
+.tt .tt-etapas::-webkit-scrollbar { display: none; }
+.tt .tt-etapa { flex: none; gap: 6pt; padding: 5pt 11pt 5pt 5pt; border-radius: 999px; font-size: 9pt; line-height: 1.2; white-space: nowrap; }
+.tt .tt-etapa b { width: 16pt; height: 16pt; font-size: 8pt; }
+.tt .tt-etapa--activa { box-shadow: 0 0 0 1px var(--azul-b); }
+@media (max-width: 760px) { .tt .tt-etapas { top: 56px; } }
+@media (max-width: 760px) { .tt .tt-cabeza { flex-direction: column; align-items: stretch; } .tt .tt-cabeza .boton { align-self: flex-start; max-width: 100%; } }
+@media (max-width: 760px) { .tt .tt-anuncios, .tt .tt-hooks__lista, .tt .tt-avatares { grid-template-columns: minmax(0, 1fr); } .tt .tt-anuncio__cabeza { flex-wrap: wrap; } .tt .tt-anuncio__cifras { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tt { padding: 16pt 14pt 20pt; } }
+@media (max-width: 760px) { .tt .tt-escala__celdas { grid-template-columns: repeat(5, minmax(0, 1fr)); } .tt .tt-escala__celda { padding: 5pt 4pt; font-size: 7pt; overflow-wrap: anywhere; min-width: 0; } }

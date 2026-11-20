@@ -6,7 +6,7 @@
 // saturado o riesgo, azul = dato.
 //
 //   <Competencia id={productoId} pais={paisDeLaInvestigacion} T={ComponenteDeTexto} />
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { CircleAlert, ExternalLink, LoaderCircle, Radar, RotateCcw } from 'lucide-react';
 import { Boton, CampoTexto, Interruptor, useAvisos } from '../../componentes/index.js';
 import { apiInvestigacion, useCompetencia } from '../../datos/investigacion.js';
@@ -403,6 +403,13 @@ export function Competencia({ id, pais = 'Colombia', T = SinResaltar }) {
   useEffect(() => setCadaMs(estado === 'investigando' ? 5000 : undefined), [estado]);
   const [etapa, setEtapa] = useState(0);
   const [otra, setOtra] = useState(false);
+  // (2026-11-20) el índice es una fila que se desliza: la etapa elegida queda siempre a la vista
+  const indice = useRef(null);
+  useEffect(() => {
+    const b = indice.current?.querySelector('.tt-etapa--activa');
+    const nav = indice.current;
+    if (b && nav) nav.scrollTo({ left: b.offsetLeft - nav.clientWidth / 2 + b.offsetWidth / 2, behavior: 'smooth' });
+  }, [etapa]);
   if (!datos) return null;
   const { tarea, competencia: c } = datos;
   const etapas = c?.etapas || [];
@@ -459,7 +466,7 @@ export function Competencia({ id, pais = 'Colombia', T = SinResaltar }) {
               <ul className="tt-lista">{lista(c.advertencias).map((x, i) => <li key={i}><Rico T={T}>{x}</Rico></li>)}</ul>
             </div>
           ) : null}
-          <nav className="tt-etapas" aria-label="Etapas de la investigación">
+          <nav ref={indice} className="tt-etapas" aria-label="Etapas de la investigación">
             {etapas.map((x, i) => (
               <button key={i} type="button" className={`tt-etapa${i === etapa ? ' tt-etapa--activa' : ''}`} onClick={() => setEtapa(i)} aria-current={i === etapa ? 'step' : undefined}>
                 <b>{i + 1}</b>
