@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-3-en-1-musical-20261120-1209",
   "familia": "musical",
-  "estado": "corriendo",
-  "paso": "cancion",
+  "estado": "pausado",
+  "paso": "elegir-cancion",
   "pasos": [
     {
       "id": "letra",
@@ -24,16 +24,22 @@
     {
       "id": "cancion",
       "nombre": "Componer tu canción",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-20T17:11:39.063Z",
-      "detalle": "Suno está componiendo tu canción"
+      "fin": "2026-11-20T17:12:38.346Z",
+      "nota": "2 versiones listas para escuchar."
     },
     {
       "id": "elegir-cancion",
       "nombre": "Elegir tu canción",
       "estado": "pendiente",
-      "intentos": 0
+      "intentos": 1,
+      "inicio": "2026-11-20T17:12:38.346Z",
+      "error": {
+        "mensaje": "Escucha las versiones de tu canción y quédate con una: apenas elijas, sigo sola.",
+        "motivo": "elegir-cancion"
+      }
     },
     {
       "id": "tomas",
@@ -106,9 +112,10 @@
   "modoPrueba": false,
   "creado": "2026-11-20T17:11:38.790Z",
   "aprobado": "2026-11-20T17:11:38.790Z",
-  "actualizado": "2026-11-20T17:11:39.063Z",
+  "actualizado": "2026-11-20T17:12:38.347Z",
   "saldoInicial": {
     "creditos": 9200.1,
     "fecha": "2026-11-20T17:11:39.063Z"
-  }
+  },
+  "motivo": "elegir-cancion"
 }
