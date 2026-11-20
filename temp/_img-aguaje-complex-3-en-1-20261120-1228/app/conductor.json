@@ -38,7 +38,7 @@
       "intentos": 5,
       "inicio": "2026-11-20T17:33:50.345Z",
       "fin": "2026-11-20T21:17:22.314Z",
-      "detalle": "Creando 5 imágenes · 0 de 5 listas"
+      "detalle": "Creando 2 imágenes · 3 de 5 listas"
     },
     {
       "id": "informe",
@@ -51,5 +51,5 @@
   "modoPrueba": false,
   "creado": "2026-11-20T17:28:15.715Z",
   "aprobado": "2026-11-20T17:28:15.715Z",
-  "actualizado": "2026-11-20T21:23:18.345Z"
+  "actualizado": "2026-11-20T21:25:20.331Z"
 }

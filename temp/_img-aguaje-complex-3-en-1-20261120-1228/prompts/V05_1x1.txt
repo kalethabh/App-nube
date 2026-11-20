@@ -1,0 +1,46 @@
+Square 1:1 flat screenshot of a generic messaging app, full-bleed with no phone frame, no perspective and no keyboard: the canvas is the phone screen. TOP (y 0-11%): light off-white header with a thin generic status bar (time '21:08' at top left, signal and battery glyphs at top right); below it a back arrow, a small circular avatar (about 7% of the canvas width) of a realistic smiling Colombian woman about 30 with medium-brown skin and dark hair, her first name 'Caro' in semibold dark sans-serif and 'en línea' in small grey text below, and generic call and video line icons in deep magenta #B0105E on the right. CHAT AREA (y 12-89%) on a flat very pale blush pink #FBE3EE wallpaper with no pattern, 5% side margins, plenty of quiet space: (1) at top-left (about x 5-68%, y 14-23%) a white incoming bubble with a small left tail and dark Inter-style text, tiny grey timestamp '21:02'; (2) on the right (about x 45-95%, y 25-32%) an outgoing light pink (#FFD6E8) bubble with a small right tail, dark text in one line, tiny timestamp '21:03' and double-check read ticks in hot fuchsia #E6177F; (3) right-aligned below it (about x 45-95%, y 34-64%) an outgoing photo bubble with a thin light-pink border and rounded corners containing a casual home smartphone photo: the product bottle standing on a light wooden Colombian kitchen table, shot from a slight top-down angle (about 20-30 degrees), label facing the camera and clearly visible, the bottle filling about 70% of the photo's height, soft natural window daylight, a softly blurred everyday kitchen background with a mug and a window, uncluttered and believable; tiny timestamp '21:03' overlaid at its bottom right and a small round heart-eyes emoji reaction overlapping its bottom-left corner; (4) on the right (about x 32-95%, y 66-75%) another outgoing light pink bubble in two lines with timestamp '21:04' and fuchsia read ticks; (5) at bottom-left (about x 5-70%, y 77-87%) a white incoming bubble with the reaction, timestamp '21:05'. BOTTOM (y 90-100%): off-white input bar with a rounded white text field showing the grey placeholder 'Mensaje' and generic grey emoji, camera and microphone line icons. Bubbles are flat with at most a hairline shadow, corner radius about 2.5% of the canvas, fitted to their text and never wider than 65% of the canvas. THE PRODUCT inside the photo must be reproduced exactly from the attached product image, which is the only source of truth (do not redesign, replace or reinterpret it): a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Only two participants. No ad headline outside the chat, no CTA button, no price, no badges, no stars, no benefit icons, no arrows, no body photos, no results or numbers, no real-app logos or colors, no sparkles or particles.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- contact name + online status (Chat header, right of the avatar): "Caro / en línea" — Name in semibold dark system sans-serif about 3% of the canvas height; status below in regular grey about 2% of the canvas height; both left-aligned, 1 line each
+- incoming message 1 (the doubt / objection) (First bubble, left): "¿Eso sí sirve o es puro cuento? 🤔" — Regular Inter-style sans-serif, about 3.4% of the canvas height, dark text, left-aligned inside the white bubble, max 2 lines; tiny grey timestamp '21:02'
+- outgoing message 2 (reply / recommendation) (Second bubble, right, above the photo): "Mira, este es el que estoy tomando" — Regular Inter-style sans-serif, about 3.3% of the canvas height, dark text on the light pink bubble, left-aligned, 1 line; tiny timestamp '21:03' and fuchsia read ticks
+- outgoing message 3 (answer: plan and payment on delivery) (Bubble right, below the photo): "Es un plan de 3 meses con comida y rutina. Pagué al recibirlo 🙌" — Same style as text_block_03, 2 lines; timestamp '21:04' and fuchsia read ticks
+- incoming message 4 (reaction) (Last bubble, left): "¿Pagas cuando te llega? Pásame el dato 😍" — Same style as text_block_02, max 2 lines; timestamp '21:05'
+- UI micro-labels (status bar time and input placeholder) (Status bar top left and inside the input field): "21:08 / Mensaje" — System sans-serif, about 2% of the canvas height, grey, 1 line each
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.
+- text_typography: Inter (clean system-style sans-serif) for all chat text, exactly like a native messaging screenshot; no display headline outside the chat in this format.
+
+MANDATORY ELEMENTS:
+- Generic chat header with a circular avatar of a Colombian woman and generic line icons
+- Flat very pale blush chat wallpaper (screenshot look, no device frame)
+- Incoming white bubbles on the left
+- Outgoing light pink bubbles on the right, with timestamps and fuchsia read ticks
+- Photo bubble with a casual home photo of the real bottle on a kitchen table at a slight top-down angle, with a small heart-eyes emoji reaction on its corner
+- Generic message input bar at the bottom
+
+STRICT EXCLUSIONS:
+- No real messaging-app logos, names, wallpapers or signature green/blue colors.
+- No phone frame, no hands holding a phone and no on-screen keyboard.
+- No body photos, before/after images or result numbers anywhere.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Real messaging-app names, logos, wallpapers or signature colors (no green or blue of real apps)
+- Do not add: Phone device frame, hands holding a phone or perspective mockup
+- Do not add: On-screen keyboard
+- Do not add: Ad headline or graphic text outside the chat
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars, review cards or testimonial graphics
+- Do not add: Link previews, voice-note bubbles or a second photo
+- Do not add: Group chat names or more than two participants
+- Do not add: Benefit list, icons or arrows
+- Do not add: Logos or brand marks other than those printed on the product label
+- Do not add: Notification banners or stickers
+- Do not add: Body photos, before/after images or any promised result or number
+- Do not add: Sparkles, glows, particles or petals
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.

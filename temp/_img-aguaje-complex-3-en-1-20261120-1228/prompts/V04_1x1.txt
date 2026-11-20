@@ -1,0 +1,40 @@
+Square 1:1 authentic smartphone mirror selfie, deliberately unpolished, like a real Instagram story by a customer. Setting: a lived-in but tidy Colombian bedroom seen in a full-length mirror, a made bed with a light pink blanket, a small wardrobe and a window with soft daylight mixed with a warm bedside lamp, slightly out of focus with typical phone depth of field, mild digital grain, slight 2-degree tilt. Subject: an ultra-photorealistic Colombian woman about 27 years old, medium-brown skin with real texture and visible pores, dark wavy hair worn loose, minimal makeup, wearing classic blue jeans and a fitted bubblegum pink #FF8CC0 blouse, framed from mid-thigh up, standing naturally facing the mirror (not turned sideways, no posing of the hips), with a happy, determined smile. With one hand she holds a generic phone with no logos at face height (covering only part of her chin, never her eyes); with the other hand she holds the product bottle up at chest height on the right side of the frame (around 54-86% of the width and 38-80% of the height, about 28% of the canvas height), label facing the mirror, in sharp focus, never covering her face. The bottle must be reproduced exactly from the attached product image (the only source of truth; do not redesign, replace or reinterpret it): a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type. Because it is a mirror, keep the label text reading correctly (not mirrored). Overlays: at the top center (x 10-90%, y 5-19%), a native story caption, each of its two lines on its own rounded white box hugging the text, near-black rounded sans-serif text, centered. In the lower-left corner (x 8-45%, y 76-88%), a smaller hot fuchsia #E6177F sticker box with white text, and a single white wobbly freehand marker arrow curving from it toward the bottle, ending near but not over the label. No other graphics, no platform interface, no CTA, no price, no stars, no extra people.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- story caption (hook) (Top center, over the headroom): "Mi meta: que el jean por fin me horme" — Bold rounded sans-serif in classic story-caption style, about 4.5% of the canvas height, centered, near-black text on rounded white boxes hugging each line, 2 lines
+- secondary sticker (Lower-left corner, connected to the arrow): "mi plan natural, sin quirófano" — Same story-caption font, about 3.2% of the canvas height, left-aligned, max 2 lines, white text on a hot fuchsia box
+
+BRAND IDENTITY:
+- color_palette: Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.
+- text_typography: Poppins Bold (uppercase, heavy) for headlines and labels, Poppins Regular for supporting text, and a casual handwritten script for short emotional accents.
+
+MANDATORY ELEMENTS:
+- Real-looking Colombian woman in jeans holding the bottle toward the mirror
+- Bedroom mirror-selfie setting with imperfect natural light and phone-camera grain
+- Story-style caption at the top on rounded white boxes
+- Smaller fuchsia secondary sticker with a white hand-drawn arrow pointing to the bottle
+
+STRICT EXCLUSIONS:
+- No mirrored or reversed text on the bottle label or stickers.
+- No side or back pose and no emphasis on hips or buttocks.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Studio lighting, seamless backdrop or heavy retouching
+- Do not add: Graphic ad headline in display typography outside the stickers
+- Do not add: Real platform interface elements (progress bars, usernames, like or share buttons, platform logos)
+- Do not add: CTA button
+- Do not add: Price, discount or offer badge
+- Do not add: Rating stars or review cards
+- Do not add: Benefit list, checkmarks or icons
+- Do not add: Before/after split or collage
+- Do not add: Emoji, GIF, poll, question or location stickers
+- Do not add: More than two text stickers
+- Do not add: Additional people in the frame
+- Do not add: Visible phone brand logos
+- Do not add: Logos or brand marks other than those printed on the product label
+- Do not add: Bottom bar or banner
+- Do not add: Side or back poses that highlight hips or buttocks
+
+The attached image is the user's real product. Reproduce it with total fidelity: same shape, packaging, cap, label, label text, colors and proportions. Never redesign, replace or reinterpret it.
