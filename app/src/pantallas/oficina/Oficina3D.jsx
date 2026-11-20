@@ -9,6 +9,12 @@
 // Los agentes trabajan sentados escribiendo, caminan cuando están libres (a veces al café o al sofá) y saludan con una
 // alerta roja cuando te necesitan. Detalles vivos: pantallas, la pared de datos, el vapor del café, el robot aspiradora,
 // los paquetes de luz que la coordinadora reparte, el reloj con la hora real y el logo que respira.
+// 2026-11-20e, «que no se vea todo quieto»: quien trabaja DE VERDAD se inclina a la pantalla, teclea con las dos manos,
+// gira un poco la silla y le salen tarjetitas de luz de la pantalla (sus avances, del color de su estado); quien revisa
+// lo hace con la mano en la barbilla y asiente; quien espera tamborilea. Los libres hacen cosas de persona, cada uno a
+// su ritmo (el celular, un café, estirarse, charlar con el de al lado, las manos en la nuca, mirar alrededor), sin que
+// parezca trabajo. Por las líneas corren puntos solo cuando un trabajo real pasa por ese paso. Siempre: el polvo en la
+// luz y el robot aspiradora. El día y la noche siguen el tema de la app (claro = día, oscuro = noche).
 // Los nombres y lo que hace cada uno van en etiquetas HTML (CSS2D) encima de cada agente: se leen nítidas y se tocan.
 //
 //   <Oficina3D agentes={[{ id, nombre, avatar, color, estado, ahora, necesita }]} elegido={id} onElegir={(id) => …} />
@@ -767,6 +773,23 @@ function agente(datos, i) {
     mano.scale.set(0.85, 1.15, 0.7);
     mano.position.y = -0.29;
     codo.add(mano);
+    if (lado > 0) {
+      const cel = caja(0.075, 0.15, 0.012, mat('#0f172a', { metal: 0.5, rugoso: 0.3 }), 0, -0.33, 0.06, { sombra: false });
+      cel.rotation.x = -0.5;
+      const brillo = new THREE.Mesh(new THREE.PlaneGeometry(0.062, 0.13), new THREE.MeshBasicMaterial({ color: '#7dd3fc', toneMapped: false }));
+      brillo.position.z = 0.007;
+      cel.add(brillo);
+      cel.userData.vivo = true;
+      cel.visible = false;
+      codo.add(cel);
+      partes.celular = cel;
+    } else {
+      const taza = cilindro(0.045, 0.04, 0.1, mat('#f5f5f4', { rugoso: 0.4 }), 0, -0.33, 0.05, 12);
+      taza.userData.vivo = true;
+      taza.visible = false;
+      codo.add(taza);
+      partes.taza = taza;
+    }
     hombro.add(codo);
     g.add(hombro);
     partes[lado < 0 ? 'brazoI' : 'brazoD'] = hombro;
@@ -1486,9 +1509,16 @@ function lineaDeProduccion(de, a) {
   punta.rotation.z = -Math.PI / 2;
   punta.position.x = largo / 2 - 0.09;
   g.add(punta);
+  const puntos = [];
+  for (let k = 0; k < 3; k++) {
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.075, 10, 8), new THREE.MeshBasicMaterial({ color: LIMA, toneMapped: false, transparent: true }));
+    b.visible = false;
+    g.add(b);
+    puntos.push(b);
+  }
   g.position.copy(de).add(a).multiplyScalar(0.5);
   g.rotation.y = -Math.atan2(dir.z, dir.x);
-  g.userData = { linea: true, material: mat1, brillo: 0 };
+  g.userData = { linea: true, material: mat1, brillo: 0, puntos, largo };
   g.traverse((o) => (o.userData.linea = g));
   return g;
 }
@@ -1816,6 +1846,7 @@ function iconoDeAgente(onElegir, a, estacion) {
   return el;
 }
 
+const i0 = (id) => [...String(id)].reduce((s, c) => (s * 31 + c.charCodeAt(0)) % 9973, 7);
 const ICONO_ESTADO = { revisando: 'check', corrigiendo: 'vuelta', error: 'alerta', esperando: 'reloj', pronto: 'reloj' };
 const COLOR_EVENTO = { pasa: MARCA.lima, devuelve: '#fb923c', error: '#ef4444' };
 
@@ -2106,6 +2137,35 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       if (!est?.anillo) return;
       efectos.push({ tipo: 'destello', est, color: new THREE.Color(color), t: 0, dura });
     };
+    // (2026-11-20e) LA VIDA DE LA OFICINA. Mientras alguien trabaja DE VERDAD le salen de la pantalla tarjetitas de
+    // luz del color de lo que hace (sus avances); libres, hacen cosas de persona (el celular, un café, estirarse, charlar
+    // con el de al lado), sin que eso parezca trabajo. Siempre: polvo en la luz y el robot aspiradora dando vueltas.
+    const geoTarjeta = new THREE.PlaneGeometry(0.2, 0.14);
+    const tarjeta = (pos, color) => {
+      const m = new THREE.Mesh(geoTarjeta, new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
+      m.position.copy(pos).add(new THREE.Vector3((Math.random() - 0.5) * 0.5, 0, (Math.random() - 0.5) * 0.2));
+      m.rotation.y = Math.random() * 0.6 - 0.3;
+      escena.add(m);
+      efectos.push({ tipo: 'tarjeta', m, t: 0, dura: 1.8, gira: (Math.random() - 0.5) * 2 });
+    };
+    const caja0 = new THREE.Box3().setFromObject(escena);
+    const nPolvo = 260;
+    const posPolvo = new Float32Array(nPolvo * 3);
+    for (let k = 0; k < nPolvo; k++) posPolvo.set([caja0.min.x + Math.random() * (caja0.max.x - caja0.min.x), 0.4 + Math.random() * 3.4, caja0.min.z + Math.random() * (caja0.max.z - caja0.min.z)], k * 3);
+    const geoPolvo = new THREE.BufferGeometry();
+    geoPolvo.setAttribute('position', new THREE.BufferAttribute(posPolvo, 3));
+    const polvo = new THREE.Points(geoPolvo, new THREE.PointsMaterial({ size: 0.06, color: '#fff3d6', transparent: true, opacity: 0.45, depthWrite: false }));
+    escena.add(polvo);
+    const robot = new THREE.Group();
+    robot.add(cilindro(0.32, 0.34, 0.1, mat('#e5e7eb', { rugoso: 0.35 }), 0, 0.06, 0, 28));
+    robot.add(cilindro(0.18, 0.18, 0.03, mat('#111827', { rugoso: 0.3 }), 0, 0.125, 0, 20));
+    const ojoRobot = new THREE.Mesh(new THREE.SphereGeometry(0.035, 8, 6), new THREE.MeshBasicMaterial({ color: LIMA, toneMapped: false }));
+    ojoRobot.position.set(0, 0.11, 0.3);
+    robot.add(ojoRobot);
+    const cepillo = caja(0.06, 0.02, 0.16, mat('#6b7280'), 0.24, 0.02, 0.2, { sombra: false });
+    robot.add(cepillo);
+    escena.add(robot);
+    const tarjetaCada = new Map();
     let brilloLogo = 0;
     const llegar = (aId, tipo) => {
       const a = estaciones.get(aId);
@@ -2415,8 +2475,22 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         let coI = -1.05;
         let coD = -1.05;
         let cab = [0.06, 0];
+        let gira = 0; // la silla gira un poco
+        let inclina = 0; // hacia la pantalla (+) o echado atrás (-)
+        let celular = false;
+        let taza = false;
+        if (['trabajando', 'corrigiendo', 'revisando'].includes(enEst)) {
+          // sus avances salen de la pantalla
+          const cada = enEst === 'corrigiendo' ? 0.55 : 0.85;
+          if (t - (tarjetaCada.get(a.id) || 0) > cada + (fase % 1) * 0.3) {
+            tarjetaCada.set(a.id, t);
+            tarjeta(p.est.monitor, enEst === 'revisando' ? '#38bdf8' : enEst === 'corrigiendo' ? '#fb923c' : p.desc?.color || a.color || MARCA.lima);
+          }
+        }
         if (enEst === 'trabajando' || enEst === 'corrigiendo') {
           const vel = enEst === 'corrigiendo' ? 20 : 14;
+          inclina = 0.07 + Math.sin(t * 0.7 + fase) * 0.03;
+          gira = Math.sin(t * 0.4 + fase) * 0.06;
           brI = [-0.55 + Math.sin(t * vel + fase) * 0.06, 0, 0.12];
           // de vez en cuando la mano derecha va al mouse y, cada tanto, piensa con la mano en la barbilla
           const pensando = Math.sin(t * 0.35 + fase) > 0.93;
@@ -2425,18 +2499,25 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
           coI = -0.95;
           cab = [0.14 + Math.sin(t * 2 + fase) * 0.03, pensando ? 0.15 : 0];
         } else if (enEst === 'revisando') {
-          brD = [-0.5, 0, -0.32];
-          coD = -0.95;
-          cab = [0.2, Math.sin(t * 0.9 + fase) * 0.35];
+          // revisa con la mano en la barbilla, recorre la pantalla con la mirada y a ratos asiente
+          brD = [-1.9, 0, -0.35];
+          coD = -2.3;
+          brI = [-0.5, 0, 0.32];
+          coI = -0.95;
+          inclina = 0.1;
+          cab = [0.2 + (Math.sin(t * 0.5 + fase) > 0.8 ? Math.sin(t * 9) * 0.08 : 0), Math.sin(t * 0.9 + fase) * 0.35];
         } else if (enEst === 'error') {
           brI = [-2.7, 0, 0.5];
           brD = [-2.7, 0, -0.5];
           coI = coD = -1.9;
           cab = [0.25 + Math.sin(t * 3) * 0.05, 0];
         } else if (enEst === 'esperando') {
+          // mira el reloj, tamborilea con los dedos y mira hacia ti
           brI = [-1.2, 0, 0.1];
           coI = -1.5;
-          cab = [0.1, -0.25];
+          brD = [-0.5 + Math.abs(Math.sin(t * 7)) * 0.08, 0, -0.12];
+          inclina = -0.05;
+          cab = [0.1, -0.25 + Math.sin(t * 0.6 + fase) * 0.25];
         } else if (enEst === 'recibiendo' || enEst === 'enviando') {
           const hacia = p.mira ? Math.atan2(p.mira.x - p.g.position.x, p.mira.z - p.g.position.z) - p.g.rotation.y : 0;
           cab = [0, THREE.MathUtils.clamp(Math.atan2(Math.sin(hacia), Math.cos(hacia)), -1, 1) * 0.8];
@@ -2453,9 +2534,56 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
           coI = coD = -0.2;
           cab = [-0.15, 0];
         } else {
-          // libre o «pronto»: quieto, las manos sobre el escritorio, respirando
-          cab = [0.05 + Math.sin(t * 0.5 + fase) * 0.03, Math.sin(t * 0.25 + fase) * 0.2];
+          // libre (o en un departamento «pronto»): cosas de persona, una tras otra, cada uno a su ritmo
+          const ciclo = (t + fase * 7) / 9;
+          const rutina = (Math.floor(ciclo) + i0(a.id)) % 6;
+          const dentro = ciclo % 1; // 0..1 dentro de la rutina
+          const sube = Math.min(1, dentro * 6, (1 - dentro) * 6); // entra y sale suave
+          if (rutina === 0) {
+            // mira el celular
+            celular = sube > 0.3;
+            brD = [-1.1 * sube - 0.45 * (1 - sube), 0, -0.25];
+            coD = -1.05 - 0.9 * sube;
+            cab = [0.05 + 0.35 * sube, 0];
+            inclina = -0.03;
+          } else if (rutina === 1) {
+            // un sorbo de café
+            taza = sube > 0.3;
+            const sorbo = Math.sin(dentro * Math.PI * 3) > 0.3 ? 1 : 0.5;
+            brI = [-0.45 - (1.3 * sorbo) * sube, 0, 0.3];
+            coI = -1.05 - 0.95 * sube * sorbo;
+            cab = [0.05 - 0.15 * sube * sorbo, 0];
+          } else if (rutina === 2) {
+            // se estira
+            brI = [-0.45 - 2.5 * sube, 0, 0.12 + 0.25 * sube];
+            brD = [-0.45 - 2.5 * sube, 0, -0.12 - 0.25 * sube];
+            coI = coD = -1.05 + 0.95 * sube;
+            inclina = -0.1 * sube;
+            cab = [-0.2 * sube, 0];
+          } else if (rutina === 3) {
+            // charla con el de al lado: gira la silla, lo mira y mueve la mano
+            const lado = i0(a.id) % 2 ? 1 : -1;
+            gira = 0.5 * lado * sube;
+            cab = [0, 0.5 * lado * sube];
+            brD = [-0.9 * sube - 0.45 * (1 - sube), Math.sin(t * 4) * 0.25 * sube, -0.2];
+            coD = -1.05 - 0.4 * sube;
+          } else if (rutina === 4) {
+            // las manos detrás de la nuca, echado atrás
+            brI = [-2.6 * sube - 0.45 * (1 - sube), 0, 0.6 * sube + 0.12];
+            brD = [-2.6 * sube - 0.45 * (1 - sube), 0, -0.6 * sube - 0.12];
+            coI = coD = -1.05 - 1.2 * sube;
+            inclina = -0.12 * sube;
+            cab = [-0.12 * sube, 0];
+          } else {
+            // mira alrededor
+            cab = [0.05 + Math.sin(t * 0.5 + fase) * 0.03, Math.sin(t * 0.6 + fase) * 0.6];
+            gira = Math.sin(t * 0.3 + fase) * 0.15;
+          }
         }
+        if (partes.celular) partes.celular.visible = celular;
+        if (partes.taza) partes.taza.visible = taza;
+        p.g.rotation.y += (Math.PI + gira - p.g.rotation.y) * Math.min(1, dt * 4);
+        p.g.rotation.x += (-inclina - p.g.rotation.x) * Math.min(1, dt * 4);
         const k = Math.min(1, dt * 8); // mezcla suave entre posturas
         const ir = (o, [x, y, z]) => {
           o.rotation.x += (x - o.rotation.x) * k;
@@ -2491,6 +2619,16 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         u.material.emissive.set(b > 0.02 ? MARCA.lima : '#000000');
         u.material.emissiveIntensity = 0.4 + b * 1.6;
         u.material.opacity = 0.8 + b * 0.2;
+        // los puntos corren por la línea solo si un trabajo de verdad está pasando por ese paso ahora
+        const dep = (estado.current.produccion?.departamentos || []).find((d) => d.id === l.dep);
+        const pasando = dep?.trabajos?.some((x) => x.estado !== 'listo' && x.estaciones?.[l.de] === 'hecho' && ['trabajando', 'revisando', 'corrigiendo'].includes(x.estaciones?.[l.a]));
+        u.puntos.forEach((b2, j) => {
+          b2.visible = !!pasando;
+          if (!pasando) return;
+          const f = (t * 0.45 + j / 3) % 1;
+          b2.position.set(-u.largo / 2 + f * u.largo, 0, 0);
+          b2.material.opacity = Math.sin(f * Math.PI);
+        });
       }
       // las partículas que viajan
       for (const v of [...viajes]) {
@@ -2527,6 +2665,10 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
           }
           pos.needsUpdate = true;
           f.m.material.opacity = Math.max(0, 1 - Math.max(0, k - 0.5) * 2);
+        } else if (f.tipo === 'tarjeta') {
+          f.m.position.y += dt * 0.55;
+          f.m.rotation.y += dt * f.gira;
+          f.m.material.opacity = Math.min(1, k * 5) * 0.85 * (1 - k);
         } else if (f.tipo === 'destello') {
           f.est.anillo.material.color.copy(f.color);
           f.est.anillo.material.opacity = Math.max(0, Math.abs(Math.sin(f.t * 9)) * (1 - k));
@@ -2541,6 +2683,26 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
           efectos.splice(efectos.indexOf(f), 1);
           for (const q of personajes.values()) q.el.dataset.clave = ''; // que el anillo vuelva a su estado
         }
+      }
+      {
+        const pp = geoPolvo.attributes.position;
+        for (let k = 0; k < nPolvo; k++) {
+          pp.array[k * 3] += Math.sin(t * 0.3 + k) * dt * 0.08;
+          let y = pp.array[k * 3 + 1] + dt * (0.04 + (k % 5) * 0.01);
+          if (y > 3.9) y = 0.4;
+          pp.array[k * 3 + 1] = y;
+          pp.array[k * 3 + 2] += Math.cos(t * 0.25 + k * 1.3) * dt * 0.08;
+        }
+        pp.needsUpdate = true;
+        // el robot: una vuelta lenta alrededor del logo, ondulando, y gira el cepillo
+        const ar = t * 0.09;
+        const rr = 5.1 + Math.sin(t * 0.23) * 0.5;
+        const nx = Math.cos(ar) * rr;
+        const nz = Math.sin(ar) * rr;
+        robot.rotation.y = Math.atan2(nx - robot.position.x, nz - robot.position.z) || robot.rotation.y;
+        robot.position.set(nx, 0, nz);
+        cepillo.rotation.y = t * 12;
+        ojoRobot.material.color.set(Math.sin(t * 3) > 0 ? LIMA : '#3f6212');
       }
       brilloLogo = Math.max(0, brilloLogo - dt * 0.6);
       for (const o of animados) {

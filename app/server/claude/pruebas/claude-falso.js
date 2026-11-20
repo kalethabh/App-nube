@@ -291,10 +291,28 @@ async function alMensaje(texto) {
   const coord = /TAREA: coordinadora de la oficina/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
   if (coord) {
     const ultimo = (textoTarea.match(/^USUARIO: (.*)$/gm) || []).pop()?.slice(9) || '';
-    const prod = (/^(\S+) \| .*? \| sí$/m.exec(textoTarea) || [])[1];
+    const prod = (/^(\S+) \| [^|\n]+ \| sí \|/m.exec(textoTarea) || [])[1];
+    const conFoto = (/^(\S+) \| [^|\n]+ \| (?:sí|no) \| sí \|/m.exec(textoTarea) || [])[1];
     const acciones = [];
     let respuesta = `Hola, soy la coordinadora de prueba. Me dijiste: ${ultimo.slice(0, 80)}`;
-    if (/anuncio/i.test(ultimo) && prod) {
+    let entrega = null;
+    // (2026-11-20e) los archivos que adjuntó (los lee como lo haría la IA, por su ruta) y lo que espera su sí
+    const imagenAdj = (/\(imagen, en (temp\/_oficina\/adjuntos\/\S+)\) \[id ([a-f0-9]{12})\]/.exec(ultimo) || []);
+    const docAdj = (/su texto en (temp\/_oficina\/adjuntos\/\S+?)\)/.exec(ultimo) || [])[1];
+    const esperaSi = (/^(\S+) \| [^\n]* \| ESPERA EL SÍ/m.exec(textoTarea) || [])[1];
+    if (/^dale/i.test(ultimo) && esperaSi) {
+      acciones.push({ tipo: 'producir', id: esperaSi });
+      respuesta = 'Va, arranco ya 💪';
+    } else if (/imágenes|imagenes/i.test(ultimo) && conFoto) {
+      const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 3;
+      acciones.push({ tipo: 'imagenes', productoId: conFoto, cantidad: n, formato: '1:1', referencia: imagenAdj[2] || null, pais: 'Colombia', publico: null, idea: 'variaciones de prueba' });
+      respuesta = imagenAdj[1] && fs.existsSync(path.join(RAIZ, imagenAdj[1])) ? 'Vi tu anuncio, me gusta. Le paso las variaciones al equipo.' : 'Listo, se lo paso al equipo de imágenes.';
+    } else if (/variaciones/i.test(ultimo) && docAdj) {
+      const base = fs.readFileSync(path.join(RAIZ, docAdj), 'utf8').trim().split('\n')[0];
+      const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 10;
+      entrega = { titulo: `${n} variaciones`, texto: Array.from({ length: n }, (_, k) => `${k + 1}. ${base} (versión ${k + 1})`).join('\n') };
+      respuesta = `Listo, aquí van las ${n} 👇`;
+    } else if (/anuncio/i.test(ultimo) && prod) {
       const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 1;
       acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'claymation', cantidad: n, duracion: null, respuestas: {}, idea: 'ángulo de prueba' });
       respuesta = `Listo, le pedí a Mateo ${n} guion${n > 1 ? 'es' : ''} de Claymation. Te aviso cuando esperen tu aprobación.`;
@@ -302,7 +320,7 @@ async function alMensaje(texto) {
       acciones.push({ tipo: 'regla', texto: ultimo.split(/regla:/i)[1].trim(), estilo: null });
       respuesta = 'Anotado: lo aplicamos de ahora en adelante.';
     }
-    fs.writeFileSync(path.join(RAIZ, coord[1]), JSON.stringify({ respuesta, acciones }));
+    fs.writeFileSync(path.join(RAIZ, coord[1]), JSON.stringify({ respuesta, acciones, entrega }));
     return resultado({ result: 'LISTO' });
   }
   if (tareaActual === 'ficha') await ficha(textoTarea, m, intento);

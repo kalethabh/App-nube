@@ -200,7 +200,7 @@ const enc = encodeURIComponent;
  * Como pedir(), más: cuerpo binario (una foto) y `error` que puede venir como texto o como objeto.
  * (Exportada para src/datos/imagenes.js, que suma los pedidos de "Anuncios de imagen".)
  */
-export async function pedirNuevo(url, { metodo = 'GET', cuerpo, binario } = {}) {
+export async function pedirNuevo(url, { metodo = 'GET', cuerpo, binario, encabezados = null } = {}) {
   let r;
   try {
     r = await fetch(url, {
@@ -208,6 +208,7 @@ export async function pedirNuevo(url, { metodo = 'GET', cuerpo, binario } = {}) 
       headers: {
         Accept: 'application/json',
         ...(binario ? { 'Content-Type': binario.type || 'application/octet-stream' } : cuerpo !== undefined ? { 'Content-Type': 'application/json' } : {}),
+        ...(encabezados || {}),
       },
       body: binario || (cuerpo !== undefined ? JSON.stringify(cuerpo) : undefined),
     });

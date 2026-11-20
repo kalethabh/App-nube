@@ -2,6 +2,7 @@
 // nombre y su personaje, en su departamento de una oficina en perspectiva. Cada uno muestra lo que está haciendo
 // ahora, lo que te necesita (en rojo) y lo que terminó hoy. La primera vez, la bienvenida para ponerles nombre.
 // Servidor: GET /api/oficina · PUT /api/oficina/agentes (lib/oficina.js).
+import { elegirTema, useTema } from '../../datos/tema.js';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AlertTriangle, Compass, GraduationCap, LayoutGrid, MessageCircle, PanelRightClose, PanelRightOpen, Pencil, Send, Sparkles, ThumbsDown, ThumbsUp, Users, X } from 'lucide-react';
 import { Boton, CampoTexto, Modal, useAvisos } from '../../componentes/index.js';
@@ -216,7 +217,9 @@ export default function Oficina() {
   const [disenar, setDisenar] = useState(false);
   const [lateral, setLateral] = useState(true);
   const [vista, setVista] = useState('general');
-  const [modo, setModo] = useState(() => leerLocal('oficina:modo') || 'dia');
+  // (2026-11-20e) el día y la noche de la oficina son el tema de la app (claro = día, oscuro = noche): uno solo
+  const { actual: temaApp } = useTema();
+  const modo = temaApp === 'claro' ? 'dia' : 'noche';
   const [foco, setFoco] = useState(null);
   const [posiciones, setPosiciones] = useState({});
   const [eventos, setEventos] = useState([]); // las transferencias reales que vio la oficina desde que la abriste
@@ -313,10 +316,7 @@ export default function Oficina() {
     const t = setTimeout(() => setAviso3d(null), 4500);
     return () => clearTimeout(t);
   }, [aviso3d]);
-  const cambiarModo = (m) => {
-    setModo(m);
-    guardarLocal('oficina:modo', m);
-  };
+  const cambiarModo = (m) => elegirTema(m === 'dia' ? 'claro' : 'oscuro');
   const cambiarVista = (v) => {
     setElegido(null);
     setFoco(null);

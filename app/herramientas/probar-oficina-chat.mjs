@@ -6,6 +6,9 @@
 //     acción muestra su estado en vivo; nada pasa a producción;
 //   · «regla: …» se anota en los aprendizajes (general.md) y aparece en el panel de la coordinadora;
 //   · el 👎 sin texto se rechaza; con texto y partes queda como regla del estilo y en el panel del agente de esa parte;
+//   · (2026-11-20e) como asistente: le pasas una imagen y un texto (adjuntos); con la imagen encarga 3 anuncios de imagen
+//     al agente, te dice el costo y espera; con «dale» los produce y, cuando terminan, te escribe sola con el enlace
+//     (el seguimiento); con el texto escribe ella misma 10 variaciones (una «entrega»);
 //   · al terminar deja todo como estaba (anuncios, producto, chat y aprendizajes).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -54,6 +57,13 @@ async function esperar(minutos, leer, listo) {
   return { ...ultimo, _seAcaboElTiempo: true };
 }
 
+/** La respuesta de la coordinadora a tu último mensaje (no sus avisos del seguimiento). */
+const respuesta = (d) => {
+  const k = d?.mensajes?.findLastIndex((m) => m.de === 'tu') ?? -1;
+  return k < 0 ? null : d.mensajes.slice(k + 1).find((m) => m.de === 'coordinadora' && !m.aviso) || null;
+};
+const conRespuesta = (d) => d && !d.pensando && respuesta(d);
+
 // lo que la prueba toca y deja como estaba
 const APRENDIZAJES = path.join(RAIZ, 'mis_archivos', 'biblioteca', 'aprendizajes');
 const RESPALDOS = [path.join(RAIZ, 'temp', `_modo-prueba-${PUERTO}`, 'config.json'), path.join(APRENDIZAJES, 'general.md'), path.join(APRENDIZAJES, 'claymation.md'), path.join(RAIZ, 'temp', '_oficina', 'chat.json'), path.join(RAIZ, 'temp', '_oficina', 'aprendido.json')];
@@ -68,13 +78,13 @@ const envPropio = !fs.existsSync(ENV);
 if (envPropio) fs.writeFileSync(ENV, '# Lo escribió probar-oficina-chat.mjs: claves falsas.\nKIE_API_KEY=simulada\nELEVENLABS_API_KEY=simulada\n');
 const env = { ...process.env };
 for (const k of Object.keys(env)) if (/^(ANTHROPIC_|CLAUDE_CODE_OAUTH|KIE_|ELEVENLABS_|OPENAI_|CODEX_)/i.test(k)) delete env[k];
-Object.assign(env, { PUERTO: String(PUERTO), ANUNCIOS_MODO_PRUEBA: '1', ANUNCIOS_PRUEBA_LIMPIO: '1', ANUNCIOS_SIN_GUARDADO: '1', ANUNCIOS_CLAUDE_BIN: path.join(APP, 'server', 'claude', 'pruebas', 'claude-falso.js'), AIA_MOTOR: 'claude' });
+Object.assign(env, { PUERTO: String(PUERTO), ANUNCIOS_MODO_PRUEBA: '1', ANUNCIOS_PRUEBA_LIMPIO: '1', ANUNCIOS_SIN_GUARDADO: '1', ANUNCIOS_CLAUDE_BIN: path.join(APP, 'server', 'claude', 'pruebas', 'claude-falso.js'), AIA_MOTOR: 'claude', OFICINA_SEGUIMIENTO_MS: '1500' });
 const log = fs.createWriteStream(path.join(TMP, 'app.log'));
 const app = cp.spawn(process.execPath, ['server/index.js'], { cwd: APP, env, stdio: ['ignore', 'pipe', 'pipe'], detached: true });
 app.stdout.pipe(log);
 app.stderr.pipe(log);
 const t0 = Date.now();
-const creados = { slugs: [], producto: null };
+const creados = { slugs: [], producto: null, lotes: [] };
 
 async function principal() {
   let arriba = false;
@@ -104,8 +114,8 @@ async function principal() {
   check('El mensaje se guarda y la coordinadora queda «pensando»', r.st === 200 && r.datos?.mensajes?.at(-1)?.de === 'tu' && r.datos?.pensando === true, r.datos);
   const r2 = await pedir('/api/oficina/chat', { json: { texto: 'otro' } });
   check('Mientras contesta no se le puede escribir otra vez (409)', r2.st === 409, r2);
-  let c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, (d) => d && !d.pensando);
-  const resp = c?.mensajes?.at(-1);
+  let c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  const resp = respuesta(c);
   check('Contesta la coordinadora', resp?.de === 'coordinadora' && /guion/i.test(resp?.texto || ''), c);
   const anuncios = (resp?.acciones || []).filter((a) => a.tipo === 'anuncio' && a.ok);
   creados.slugs.push(...anuncios.map((a) => a.slug));
@@ -115,21 +125,58 @@ async function principal() {
   // (el Claude falso escribe el guion copiando la muestra temp/befen-regulador-apetito; sin ella, solo se ve que arrancó)
   const hayMuestra = fs.existsSync(path.join(RAIZ, 'temp', 'befen-regulador-apetito', 'manifiesto.json'));
   if (hayMuestra) {
-    c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, (d) => d?.mensajes?.at(-1)?.acciones?.filter((a) => a.slug).every((a) => a.estado === 'aprobar'));
-    check('El estado de cada guion se ve en vivo y queda esperando tu aprobación', c?.mensajes?.at(-1)?.acciones?.filter((a) => a.slug).every((a) => a.estado === 'aprobar'), c?.mensajes?.at(-1)?.acciones);
+    c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, (d) => respuesta(d)?.acciones?.filter((a) => a.slug).every((a) => a.estado === 'aprobar'));
+    check('El estado de cada guion se ve en vivo y queda esperando tu aprobación', respuesta(c)?.acciones?.filter((a) => a.slug).every((a) => a.estado === 'aprobar'), respuesta(c)?.acciones);
   } else {
     c = (await pedir('/api/oficina/chat')).datos;
-    const acc = c?.mensajes?.at(-1)?.acciones?.filter((a) => a.slug) || [];
+    const acc = respuesta(c)?.acciones?.filter((a) => a.slug) || [];
     check('Cada guion arrancó y su estado se ve en vivo (sin la muestra del Claude falso no se termina)', acc.length === 2 && acc.every((a) => a.estado && a.estado !== 'no-esta' && leerSesion(a.slug)?.tipo === 'guion'), acc);
+    // y como el guion falso no puede terminar, ella misma avisa que se trabó (el seguimiento)
+    c = await esperar(2, async () => (await pedir('/api/oficina/chat')).datos, (d) => d?.mensajes?.filter((x) => x.aviso && /Se me trabó el guion/.test(x.texto)).length === 2);
+    check('Si un guion se traba, te avisa sola con su enlace', c?.mensajes?.filter((x) => x.aviso && /Se me trabó el guion/.test(x.texto) && x.acciones?.[0]?.slug).length === 2, c?.mensajes?.slice(-3));
   }
   check('Nada pasó a producción', anuncios.every((a) => !fs.existsSync(path.join(RAIZ, 'temp', a.slug, 'app', 'conductor.json'))));
 
   r = await pedir('/api/oficina/chat', { json: { texto: 'regla: los ganchos de prueba duran menos de 3 segundos' } });
-  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, (d) => d && !d.pensando && d.mensajes.at(-1)?.de === 'coordinadora');
-  const regla = c?.mensajes?.at(-1)?.acciones?.[0];
-  check('«regla: …» queda anotada', regla?.tipo === 'regla' && regla.ok, c?.mensajes?.at(-1));
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  const regla = respuesta(c)?.acciones?.[0];
+  check('«regla: …» queda anotada', regla?.tipo === 'regla' && regla.ok, respuesta(c));
   const general = fs.readFileSync(path.join(APRENDIZAJES, 'general.md'), 'utf8');
   check('…en los aprendizajes generales (general.md)', general.includes('- los ganchos de prueba duran menos de 3 segundos'));
+
+  // ------------------------------------------------------------ como asistente: archivos, imágenes con su sí, entregas
+  r = await pedir('/api/oficina/chat/adjuntos', { cuerpo: Buffer.from([0, 1, 2, 3, 0, 9, 9, 9, 0, 0, 0, 0, 1]), headers: { 'Content-Type': 'application/octet-stream', 'x-nombre': 'raro.bin' } });
+  check('Un archivo que no se puede leer se rechaza (400)', r.st === 400, r);
+  const img = await pedir('/api/oficina/chat/adjuntos', { cuerpo: fs.readFileSync(FOTO), headers: { 'Content-Type': 'image/png', 'x-nombre': encodeURIComponent('mi anuncio ganador.png') } });
+  const doc = await pedir('/api/oficina/chat/adjuntos', { cuerpo: Buffer.from('Tu piel te lo va a agradecer desde la primera semana.\nSegunda línea.'), headers: { 'Content-Type': 'text/plain', 'x-nombre': 'copy.txt' } });
+  check('Se adjuntan una imagen y un texto (con su tipo)', img.st === 200 && img.datos?.tipo === 'imagen' && doc.st === 200 && doc.datos?.tipo === 'documento' && img.datos.nombre === 'mi anuncio ganador.png', { img: img.datos, doc: doc.datos });
+  const ver = await fetch(BASE + img.datos.url);
+  check('La imagen adjunta se puede ver', ver.status === 200 && /image/.test(ver.headers.get('content-type') || ''), ver.status);
+  r = await pedir('/api/oficina/chat', { json: { texto: 'Hazme 3 imágenes con esta referencia', adjuntos: [img.datos.id] } });
+  check('El mensaje lleva su imagen adjunta', r.st === 200 && r.datos?.mensajes?.at(-1)?.adjuntos?.[0]?.tipo === 'imagen', r.datos?.mensajes?.at(-1));
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  let m = respuesta(c);
+  const accImg = m?.acciones?.find((a) => a.tipo === 'imagenes');
+  if (accImg?.lote) creados.lotes.push(accImg.lote);
+  check('Lee la imagen y encarga 3 anuncios de imagen al agente (con tu referencia)', /Vi tu anuncio/.test(m?.texto || '') && accImg?.ok && accImg.lote, m);
+  const briefLote = accImg?.lote ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', accImg.lote, 'app', 'brief.json'), 'utf8')) : null;
+  check('…el lote va con el agente de variaciones y tu imagen como referencia', briefLote?.agente === 'variaciones' && briefLote.modo === 'variantes' && briefLote.referencias?.length === 1, briefLote);
+  check('Te dice el costo, pregunta «¿Le doy?» y lo deja esperando tu sí (sin arrancar)', /US\$\d+\.\d\d\. ¿Le doy\?/.test(m?.texto || '') && c.pendientes?.length === 1 && c.pendientes[0].costo > 0 && !fs.existsSync(path.join(RAIZ, 'temp', accImg.lote, 'app', 'conductor.json')), { texto: m?.texto, pendientes: c?.pendientes });
+  r = await pedir('/api/oficina/chat', { json: { texto: 'dale' } });
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  m = respuesta(c);
+  check('Con «dale» arranca la generación', m?.acciones?.[0]?.ok && /Generando/.test(m.acciones[0].titulo) && fs.existsSync(path.join(RAIZ, 'temp', accImg.lote, 'app', 'conductor.json')) && !c.pendientes?.length, m);
+  c = await esperar(5, async () => (await pedir('/api/oficina/chat')).datos, (d) => d?.mensajes?.some((x) => /Ya están tus/.test(x.texto)));
+  m = c?.mensajes?.find((x) => /Ya están tus/.test(x.texto));
+  check('Cuando terminan, te escribe sola con el enlace (el seguimiento)', m?.de === 'coordinadora' && m.acciones?.[0]?.href === `#/imagenes/${accImg.lote}` && m.acciones[0].estado === 'listo', c?.mensajes?.slice(-2));
+  r = await pedir('/api/oficina/chat', { json: { texto: 'Dame 10 variaciones de este texto', adjuntos: [doc.datos.id] } });
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  m = respuesta(c);
+  const lineas = (m?.entrega?.texto || '').split('\n');
+  check('Lee el texto y escribe ella misma las 10 variaciones (una entrega)', lineas.length === 10 && lineas.every((l) => /agradecer/.test(l)) && /aquí van/i.test(m.texto), m);
+  r = await pedir('/api/oficina/chat', { json: { texto: 'dale' } });
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  check('Un «dale» sin nada esperando no produce nada', respuesta(c) && !respuesta(c).acciones?.some((a) => /Generando|Produciendo/.test(a.titulo)), respuesta(c));
 
   // ------------------------------------------------------------ el 👍/👎
   const slug = anuncios[0].slug;
@@ -183,7 +230,7 @@ try {
   } catch {
     /* ya cerró */
   }
-  for (const slug of creados.slugs) if (slug) fs.rmSync(path.join(RAIZ, 'temp', slug), { recursive: true, force: true });
+  for (const slug of [...creados.slugs, ...creados.lotes]) if (slug) fs.rmSync(path.join(RAIZ, 'temp', slug), { recursive: true, force: true });
   if (creados.producto) fs.rmSync(path.join(RAIZ, 'temp', '_productos', creados.producto), { recursive: true, force: true });
   for (const [f, v] of antes) {
     if (v === null) fs.rmSync(f, { force: true });
