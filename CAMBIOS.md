@@ -2,6 +2,31 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20k · S.E.P: tus anuncios de Meta que más venden y qué hacer con cada uno
+
+- **S.E.P ya funciona** (dejó de ser «Pronto»). Conecta tu cuenta publicitaria de Meta y trae, del rango que elijas (7, 14, 30 o 90 días), tus anuncios ordenados por **compras**, con su gasto, ingresos, ROAS, CPA, CTR, CPM, frecuencia e impresiones.
+- Arriba, las cifras del rango y dos gráficas: **compras por día** e **ingresos y gasto por día** (al pasar el mouse ves el día con su ROAS).
+- Cada anuncio es una **tarjeta** con su imagen, sus métricas, sus compras día por día y lo que **sugiere el sistema S.E.P**:
+  - **Escalar**: vende sobre tu objetivo, sostenido y sin fatiga → subir presupuesto de a poco y duplicarlo a públicos amplios.
+  - **Hacer variaciones**: rinde pero se está cansando (frecuencia alta o el CTR cae) → con el botón «Hacer variaciones» su imagen va directo al agente de anuncios de imagen.
+  - **Sostener**, **Probando** (pocos datos) o **Pausar** (gasta sin vender).
+  - Con «Ver por qué y qué hacer» ves las razones con tus números y los pasos.
+- Pones tu **ROAS objetivo** y, si quieres, tu **CPA máximo**: las sugerencias se ajustan al instante. Filtros por sugerencia y vista de **tabla**.
+- **Solo lee** tu cuenta: nunca cambia nada en Meta. Se conecta en **Ajustes › Conexiones › Meta (tu cuenta publicitaria)** con un token con el permiso `ads_read` (los pasos están ahí). Si tu token de la Biblioteca ya tiene ese permiso, no hace falta otro.
+
+## 2026-11-20j · La coordinadora te avisa en cualquier pantalla y tu «está bien» aprueba de verdad
+
+- **Burbuja flotante** con la cara de tu coordinadora, abajo a la derecha, en todas las pantallas (menos en la oficina, donde ya está su chat). Lleva un número con sus mensajes sin leer y lo que espera tu aprobación.
+- Cuando te escribe sola (un guion listo con su costo, algo que terminó o se frenó) sale una **tarjeta con lo que dice**. Si es una aprobación, tiene **«Dale · US$…»** ahí mismo y «Ver primero». Tocando la burbuja se abre su chat sin salir de donde estás.
+- **Tu «sí» en el chat aprueba de verdad**: «dale», «está bien», «apruébalo» o «me gusta» aprueban el guion, se lo pasa al equipo y arranca la producción (siempre después de mostrarte el costo). Si hay varias cosas esperando, te pregunta cuál.
+- Ahora sigue también los guiones nuevos que hiciste fuera del chat (en Nuevo anuncio, la oficina o desde Claude): cuando quedan listos te escribe con el costo y te pregunta si los produce.
+
+## 2026-11-20i · Lo que hacen tus agentes, también en Progreso
+
+- En **Progreso** hay una sección nueva, **«Tu equipo trabajando ahora»**: lo que tienen entre manos los agentes de la oficina en todos los departamentos (anuncios de imagen, investigaciones de mercado y de la competencia, los guiones que se están escribiendo).
+- Cada trabajo muestra el departamento, quién lo tiene y en qué paso va, su cadena de pasos (hechos, el que avanza y los que faltan, por ejemplo «3/6»), si se frenó y por qué. Tocándolo lo abres.
+- Los videos que ya se están produciendo siguen en «En producción» y los guiones por aprobar en «Te necesitan»: no se repiten.
+
 ## 2026-11-20h · La coordinadora clona tus videos y le puedes dictar por voz
 
 - **Le pasas un video y le dices «hazme uno igual en Zack, que dure 1:50»**: ella lo encarga sola. La app analiza tu video toma por toma (la estructura, los tiempos, lo que se dice) y el guionista lo replica en el estilo y la duración que pediste, con el gancho adaptado a tu producto (o el mismo, si se lo pides). Ya no te manda a «Clonar un video».

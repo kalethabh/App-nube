@@ -217,6 +217,13 @@ async function iasConProblemas() {
   }
 }
 
+/** (2026-11-20j) La coordinadora como la ve el usuario (su nombre y personaje), sin armar toda la oficina. */
+export function coordinadora() {
+  const base = AGENTES.find((a) => a.id === 'coordinacion');
+  const propio = leerOficina().agentes?.coordinacion || {};
+  return { nombre: propio.nombre || base.nombre, avatar: propio.avatar || base.avatar, color: base.color };
+}
+
 /** Los nombres y personajes que eligió el usuario. */
 export function guardarAgentes(cambios = {}) {
   const actual = leerOficina();

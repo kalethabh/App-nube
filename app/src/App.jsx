@@ -8,6 +8,7 @@ import { Component, Suspense, lazy, useCallback, useEffect, useMemo, useState, u
 import { RefreshCw, SearchX, TriangleAlert } from 'lucide-react';
 import { MenuLateral } from './marco/MenuLateral.jsx';
 import { BarraArriba } from './marco/BarraArriba.jsx';
+import { AvisoCoordinadora } from './marco/AvisoCoordinadora.jsx';
 import { ContextoBarra } from './componentes/BarraSuperior.jsx';
 import { Boton } from './componentes/Boton.jsx';
 import { EstadoVacio } from './componentes/EstadoVacio.jsx';
@@ -24,7 +25,7 @@ const Productos = lazy(() => import('./pantallas/productos/index.jsx'));
 // (lo que viene: una pantalla de «Próximamente» cada uno)
 const EmbudoWhatsapp = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.EmbudoWhatsapp })));
 const Landings = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.Landings })));
-const Sep = lazy(() => import('./pantallas/proximamente/index.jsx').then((m) => ({ default: m.Sep })));
+const Sep = lazy(() => import('./pantallas/sep/index.jsx'));
 const Tablero = lazy(() => import('./pantallas/tablero/index.jsx'));
 const Nuevo = lazy(() => import('./pantallas/nuevo/index.jsx'));
 const Entrega = lazy(() => import('./pantallas/entrega/index.jsx'));
@@ -307,6 +308,8 @@ export default function App() {
             <BandaGlobalModoPrueba />
             {pantalla}
           </main>
+          {/* la coordinadora flotante en todas las pantallas (en la oficina ya está su chat) */}
+          <AvisoCoordinadora oculto={actual?.ruta.patron === '/oficina'} />
           {/* en Ajustes la bienvenida se abre con su botón; en las demás pantallas, sola la primera vez */}
           {actual?.ruta.menu !== 'ajustes' ? (
             <Suspense fallback={null}>
