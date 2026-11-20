@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20u · Pegar en el chat de la coordinadora
+
+- Ya puedes **pegar** (Ctrl+V o Cmd+V) en el chat de la coordinadora: imágenes, capturas de pantalla, archivos y textos.
+- Un **texto largo** (un prompt, un documento, una tabla) le llega **entero** como documento adjunto; antes se cortaba.
+- Funciona en la oficina, en la burbuja flotante y en Telegram (ahí un texto largo también le llega completo).
+
 ## 2026-11-20t · Los anuncios ganadores del catálogo, como guía en todo
 
 - El catálogo de anuncios de imagen validados (las plantillas ganadoras) ahora también guía, por dentro, las imágenes «Nuevos» que salen de tu investigación, las del agente de variaciones y las que le pides a la coordinadora.
