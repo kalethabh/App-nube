@@ -751,7 +751,7 @@ export default function PantallaInforme({ params }) {
             lista={lista}
             onQuitar={(rid) => guardar(lista.filter((r) => r.id !== rid))}
             onNota={(rid, nota) => guardar(lista.map((r) => (r.id === rid ? { ...r, nota: nota.trim() } : r)))}
-            hrefAnuncios={enlace.crearImagenes({ producto: id })}
+            hrefAnuncios={enlace.crearImagenes({ producto: id, modo: 'investigacion' })}
           />
         </header>
         {tarea.estado === 'error' ? (

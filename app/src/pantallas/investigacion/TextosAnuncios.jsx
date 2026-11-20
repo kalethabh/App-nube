@@ -48,7 +48,7 @@ export function TextosAnuncios({ id, inv, plantillas, onCambio }) {
             Uno por concepto para Meta, en plantillas que clonan anuncios ya validados (misma composición y letra, con tus colores y tu producto). Corrige los que no te gusten: la app aprende cómo los quieres.
           </p>
         </div>
-        <Boton variante="primario" tamano="chico" icono={Images} href={enlace.crearImagenes({ producto: id })}>
+        <Boton variante="primario" tamano="chico" icono={Images} href={enlace.crearImagenes({ producto: id, modo: 'investigacion' })}>
           Crear estos anuncios
         </Boton>
       </header>

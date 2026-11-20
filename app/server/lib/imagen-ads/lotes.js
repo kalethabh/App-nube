@@ -238,19 +238,20 @@ export function crearLote(cuerpo = {}) {
     fiel: cuerpo.modo === 'variantes' || cuerpo.rapido !== false,
     // (2026-11-20) el AGENTE DE VARIACIONES (el prompt maestro del usuario, skill agente-variaciones.md): solo en
     // «Variantes» y siempre con la estrategia de la IA (el modo rápido no analiza el ganador)
-    ...(cuerpo.agente === 'variaciones' && cuerpo.modo === 'variantes' ? { agente: 'variaciones' } : {}),
+    // (2026-11-20b) …y también SIN referencia, desde la investigación de mercado («Nuevos»): el agente hace todo
+    ...(cuerpo.agente === 'variaciones' ? { agente: 'variaciones' } : {}),
     // Ya no se eligen títulos antes (2026-11-16: «elimina lo de seleccionar títulos»): los pone la app o la IA.
     elegirTitulos: false,
     // Modo rápido por defecto («como pedirle a ChatGPT que me las varíe», imagen-ads/rapido.js); rapido: false = con
     // la estrategia de la IA (más lento).
-    rapido: cuerpo.agente === 'variaciones' && cuerpo.modo === 'variantes' ? false : cuerpo.rapido !== false,
+    rapido: cuerpo.agente === 'variaciones' ? false : cuerpo.rapido !== false,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
     // PLANTILLAS (2026-11-17p): la app dibuja los textos; solo las de escena usan el modelo de imagen (sin texto)
-    ...(plantillasDelCuerpo(cuerpo) ? { plantillas: plantillasDelCuerpo(cuerpo), fiel: false, modo: 'nuevos' } : {}),
+    ...(plantillasDelCuerpo(cuerpo) && cuerpo.agente !== 'variaciones' ? { plantillas: plantillasDelCuerpo(cuerpo), fiel: false, modo: 'nuevos' } : {}),
     // PLANTILLAS DE REFERENCIA (2026-11-18s): las elegidas (o una mezcla variada) van al modelo como referencia; el
     // modelo mantiene su diseño y cambia el producto, los textos y la paleta (rapido.js, modo «copiar»)
-    ...(cuerpo.plantillasReferencia && !plantillasDelCuerpo(cuerpo) ? { desdePlantillas: true, fiel: true, rapido: true, modo: 'nuevos' } : {}),
+    ...(cuerpo.plantillasReferencia && !plantillasDelCuerpo(cuerpo) && cuerpo.agente !== 'variaciones' ? { desdePlantillas: true, fiel: true, rapido: true, modo: 'nuevos' } : {}),
     logo,
     creado: ahora(),
     ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}),
@@ -366,6 +367,8 @@ export function faltaDelBorrador(carpeta, brief) {
   if (faltan) return faltan === 1 ? 'Falta subir una referencia.' : `Faltan subir ${faltan} referencias.`;
   // «Variantes» sale SIEMPRE de un creativo que ya te funciona (sin eso no hay de dónde variar)
   if (brief?.modo === 'variantes' && !(brief.referencias || []).length) return 'Elige al menos un anuncio que ya te funcione.';
+  // el agente sin referencia trabaja desde la investigación de mercado del producto
+  if (brief?.agente === 'variaciones' && brief.modo !== 'variantes' && !brief.investigacion) return 'Este producto todavía no tiene investigación de mercado: hazla primero (o sube un anuncio de referencia).';
   if (brief?.logo?.posicion && !existe(R.logo(carpeta))) return 'Falta subir tu logo.';
   return null;
 }

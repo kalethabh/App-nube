@@ -1,0 +1,12 @@
+
+  Kads Studio by Kalethabh 
+  Abre http://127.0.0.1:4494
+  Rutas cargadas: _nube, actualizar, ajustes, anuncios-github, anuncios, archivos, biblioteca, cambiar, cancion, claude, claves, costo, dashboard, editar-ia, editar-imagen, editor, estado, estilos, funcionan, ganadores, ganchos, github, guardado, guion, ia, imagen-ads, imagenes-motor, inspiracion, inversion, investigacion, material, miniaturas, oficina, organizar-productos, papelera, produccion, productos, rechazo-imagen, reemplazo, referencias, salud, seguimiento, sketch, subestilos, tablero, video-propio, voces
+
+
+  MODO PRUEBA: no se gasta nada. kie http://127.0.0.1:36953, ElevenLabs http://127.0.0.1:42979, guardia http://127.0.0.1:33649
+  Escala 0.05, fallos kie: ninguno, voz: ninguno
+  Registro: temp/_modo-prueba-4494/simulados.log
+
+[claves] api.elevenlabs.io: ENOTFOUND en 9 ms
+[claves] api.kie.ai: ENOTFOUND en 7 ms
