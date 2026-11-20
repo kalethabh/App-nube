@@ -168,12 +168,14 @@ export function textoValidados(lote, validados) {
   const linea = (x, i) => {
     const que = x.origen === 'me-funciona'
       ? `ya le funciona al usuario${x.mismoProducto ? ', de ESTE producto' : x.producto ? `, de otro producto (${sinSaltos(x.producto, 80)})` : ', de otro producto'}${x.tipo === 'video' ? ' (un cuadro de un video)' : ''}${x.titulo ? `; su titular: ${JSON.stringify(sinSaltos(x.titulo, 160))}` : ''}`
-      : 'de su biblioteca de anuncios de referencia (le gustan)';
+      : x.origen === 'catalogo'
+        ? `anuncio GANADOR de la categoría, del catálogo interno de plantillas validadas («${sinSaltos(x.nombre, 80)}», tipo ${sinSaltos(x.familia, 30)}${x.relacionada ? ', de un producto como este' : ''})${x.titular ? `; la fórmula de su titular: ${JSON.stringify(sinSaltos(x.titular, 240))}` : ''}. Es una referencia interna: el usuario no la ve`
+        : 'de su biblioteca de anuncios de referencia (le gustan)';
     return `- A${String(i + 1).padStart(2, '0')} = \`temp/${lote}/${x.archivo}\`: ${que}.`;
   };
   return `
 ## Anuncios ya validados del usuario (modo «Nuevos»)
-Míralos todos con Read antes de armar el plan. Son la mejor pista de lo que le funciona a este usuario y a su público; los de «Me funciona» pesan más que los de la biblioteca, y los de ESTE producto más que todos:
+Míralos todos con Read antes de armar el plan. Son la mejor pista de lo que le funciona a este usuario y a su público; los de «Me funciona» pesan más que los de la biblioteca, y los de ESTE producto más que todos. Los del catálogo interno son anuncios ganadores de la categoría: úsalos para ver cómo comunican el ángulo (el resultado se entiende antes de leer, una idea por imagen, el titular con el dolor o el deseo) y sigue la fórmula de su titular con las palabras de este producto:
 ${validados.map(linea).join('\n')}
 - Úsalos para DECIDIR: qué tipos de formato, estructuras, jerarquías, largos de titular, estilos de foto y tipos de gancho elegir en el PASO 4. Prefiere los formatos de la biblioteca de la skill que más se parecen a lo que ya funcionó, y anota en \`estrategia.json\` qué aprendiste de ellos y en qué variación lo aplicaste.
 - Estas variaciones son NUEVAS: no copies la composición de un validado uno a uno ni pongas \`"fuente": "referencia"\` por ellos (copiar un creativo es el modo «Variantes»). Nunca traslades marcas, productos, cifras, testimonios ni textos de otro producto.

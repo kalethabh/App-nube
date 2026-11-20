@@ -306,6 +306,7 @@ function plantillasDelCuerpo(cuerpo) {
 // producto primero) y de la biblioteca de referencias lo que falte hasta MAX_VALIDADOS (mirarlos le cuesta tiempo a la IA).
 const MAX_FUNCIONAN = 6;
 const MAX_VALIDADOS = 8;
+const MAX_CATALOGO = 4; // (2026-11-20t) plantillas del catálogo que van como guía interna en «Nuevos»
 
 /**
  * Copia al lote (entrada/validados/) los anuncios ya validados del usuario y devuelve
@@ -326,10 +327,25 @@ export function prepararValidados(carpeta, productoId) {
   } catch {
     /* sin biblioteca */
   }
-  const candidatos = [
+  // (2026-11-20t) el CATÁLOGO de plantillas validadas (app/plantillas-referencia/): también va como guía interna en
+  // «Nuevos» (desde la investigación, el agente de variaciones, lo que pide la coordinadora). Las de productos como el
+  // tuyo primero y de tipos distintos. No se muestran: la IA las estudia (no las copia) y lo tuyo pesa más.
+  let deCatalogo = [];
+  try {
+    const temas = plantillasRef.temasDeProducto(productoId);
+    deCatalogo = plantillasRef.elegir(MAX_CATALOGO, [], { temas }).map((id) => ({ abs: plantillasRef.rutaDeArchivo(`${id}.jpg`), ficha: plantillasRef.fichaDe(id), temas }));
+  } catch {
+    /* sin catálogo */
+  }
+  const propios = [
     ...deFunciona.map((x) => ({ abs: funcionan.rutaDeImagen(x), origen: 'me-funciona', mismoProducto: x.productoId === productoId, producto: x.producto || '', titulo: x.titulo || '', tipo: x.tipo })),
     ...deBiblioteca.map((x) => ({ abs: x.abs, origen: 'biblioteca', mismoProducto: false })),
   ].filter((x) => x.abs);
+  const delCatalogo = deCatalogo
+    .filter((x) => x.abs && x.ficha)
+    .map((x) => ({ abs: x.abs, origen: 'catalogo', mismoProducto: false, plantilla: x.ficha.id, nombre: x.ficha.nombre || '', familia: x.ficha.familia || '', titular: x.ficha.titular || '', relacionada: (x.ficha.temas || []).some((t) => t !== 'hombres' && x.temas.includes(t)) }));
+  // lo tuyo primero, pero siempre quedan lugares para el catálogo (MAX_CATALOGO)
+  const candidatos = [...propios.slice(0, MAX_VALIDADOS - Math.min(MAX_CATALOGO, delCatalogo.length)), ...delCatalogo, ...propios.slice(MAX_VALIDADOS - Math.min(MAX_CATALOGO, delCatalogo.length))];
   const vistos = new Set();
   const salida = [];
   for (const c of candidatos) {
