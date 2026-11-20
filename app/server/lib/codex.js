@@ -64,7 +64,7 @@ import {
   argsCuenta,
   argsDelete,
 } from './codex-rutas.js';
-import { consultarCuenta, limitesFrescos, limitesCacheados, sinUsoOrdinario, cuentaEnFila, cuentaLibre, marcarLogin, hayLoginAbierto, olvidarLimites } from './codex-app-server.js';
+import { consultarCuenta, refrescarCuenta, olvidarRefresco, limitesFrescos, limitesCacheados, sinUsoOrdinario, cuentaEnFila, cuentaLibre, marcarLogin, hayLoginAbierto, olvidarLimites } from './codex-app-server.js';
 
 export { VERSION_CODEX, resolverCodex, olvidarCodex };
 
@@ -72,7 +72,9 @@ export { VERSION_CODEX, resolverCodex, olvidarCodex };
 
 export const MENSAJES = {
   limite: 'Se acabó por ahora el uso de tu plan de ChatGPT. Toca "Reintentar" cuando se renueve: lo ya hecho no se repite.',
-  planSinCodex: 'Tu plan de ChatGPT no incluye Codex o ya no le queda uso. Revisa tu plan en chatgpt.com y después toca "Reintentar": lo ya hecho no se repite.',
+  planSinCodex: 'Tu plan de ChatGPT no incluye Codex o ya no le queda uso. Si acabas de pagar un plan o estás en un espacio de trabajo (Business), en Ajustes › Conexiones toca «Cerrar sesión en la app» y vuelve a entrar eligiendo ese espacio; después toca "Reintentar": lo ya hecho no se repite.',
+  espacioSinCreditos: 'Tu espacio de trabajo de ChatGPT se quedó sin créditos para Codex. El dueño del espacio puede agregar créditos en chatgpt.com (Configuración del espacio › Facturación). Después toca "Reintentar": lo ya hecho no se repite.',
+  espacioLimite: 'Llegaste al límite de uso de Codex que te dio tu espacio de trabajo de ChatGPT. El dueño del espacio lo puede subir; si no, toca "Reintentar" cuando se renueve: lo ya hecho no se repite.',
   // en un paso de la produccion el boton es «Continuar» y la tarjeta ya agrega «Toca "Continuar" para reintentarlo…»
   planSinCodexPaso: 'Tu plan de ChatGPT no incluye Codex o ya no le queda uso. Revisa tu plan en chatgpt.com.',
   herramientas: 'ChatGPT intentó usar herramientas que la app no le da y no terminó. Toca "Reintentar".',
@@ -254,6 +256,7 @@ let primeraVersion = true;
 
 /** Que la proxima vez se vuelva a preguntar (despues de iniciar o cerrar sesion, o de cambiar de IA). */
 export const olvidarEstadoCodex = () => {
+  olvidarRefresco();
   cacheEstado = null;
 };
 
@@ -307,7 +310,13 @@ async function consultarEstado() {
   }
   if (s.codigo === 0 && /Logged in using ChatGPT/i.test(s.texto)) {
     const valor = { ...base, sesion: 'ok' };
-    const cuenta = await consultarCuenta().catch(() => null); // sin correo la pantalla igual funciona
+    let cuenta = await consultarCuenta().catch(() => null); // sin correo la pantalla igual funciona
+    // (2026-11-20s) un plan sin Codex o sin uso: puede ser el token viejo (pagó Business o cambió de espacio): se pide
+    // uno nuevo y se vuelve a mirar (a lo sumo cada 2 min)
+    if (cuenta && (/^(free|go)$/i.test(String(cuenta.plan || '')) || sinUsoOrdinario(await limitesCacheados().catch(() => null)))) {
+      const nuevo = await refrescarCuenta().catch(() => null);
+      if (nuevo?.cuenta) cuenta = nuevo.cuenta;
+    }
     if (cuenta) {
       valor.cuenta = cuenta;
       if (/^(free|go)$/i.test(String(cuenta.plan || ''))) valor.avisoPlan = true;
@@ -645,7 +654,10 @@ function horaDelTexto(t) {
   return Number.isNaN(d.getTime()) ? null : d.toISOString();
 }
 
-const conLimite = (reinicio, detalle) => ({ ok: false, limite: true, reinicio: reinicio || null, error: MENSAJES.limite.replace('se renueve', `se renueve${horaDe(reinicio)}`), detalle });
+const conLimite = (reinicio, detalle, tipo) =>
+  /^workspace_/.test(String(tipo || ''))
+    ? { ok: false, limite: true, reinicio: reinicio || null, error: /credits_depleted/.test(tipo) ? MENSAJES.espacioSinCreditos : MENSAJES.espacioLimite, detalle }
+    : { ok: false, limite: true, reinicio: reinicio || null, error: MENSAJES.limite.replace('se renueve', `se renueve${horaDe(reinicio)}`), detalle };
 
 // ---------------------------------------------------------------- la respuesta (§2.8)
 
@@ -1489,7 +1501,12 @@ async function trabajar(o, entrada, cuenta) {
     // los limites, sin cache, antes de CADA mensaje: sin uso ordinario no se manda nada (no se gastan creditos)
     const lim = await limitesFrescos().catch(() => null);
     if (lim) anotarApp({ limites: { usado: lim.usado, ordinario: lim.ordinario } });
-    if (lim && sinUsoOrdinario(lim)) return cerrar(conLimite(lim.reinicio));
+    let lim2 = lim;
+    // (2026-11-20s) antes de decir «no te queda uso», un token nuevo: el plan pagado o el espacio de trabajo elegido
+    // recién se ven con él
+    if (lim2 && sinUsoOrdinario(lim2)) lim2 = (await refrescarCuenta({ fuerza: !ctx.refrescado }).catch(() => null))?.lim || lim2;
+    ctx.refrescado = true;
+    if (lim2 && sinUsoOrdinario(lim2)) return cerrar(conLimite(lim2.reinicio, lim2.rateLimitReachedType ? `limite: ${lim2.rateLimitReachedType}` : undefined, lim2.rateLimitReachedType));
     if (senal.aborted) return cerrar(CANCELADO);
     if (!dichoInicio) {
       dichoInicio = true;
@@ -1536,6 +1553,14 @@ async function trabajar(o, entrada, cuenta) {
       const otraVez = () => {
         if (!envio.noCuenta) vueltas--; // repetir el mismo envio no es otra vuelta
       };
+      if (clase === 'planSinCodex' && !unaVez.has('plan')) {
+        // (2026-11-20s) puede ser el token viejo (pagó un plan o eligió otro espacio de trabajo): uno nuevo y otra vez
+        unaVez.add('plan');
+        anotarApp({ plan: 'token nuevo y otra vez' });
+        await refrescarCuenta({ fuerza: true }).catch(() => null);
+        otraVez();
+        continue;
+      }
       if (clase === 'planSinCodex') return cerrar({ ok: false, planSinCodex: true, error: TAREAS_CON_REINTENTAR.has(String(o.tipo || '')) ? MENSAJES.planSinCodex : MENSAJES.planSinCodexPaso, detalle });
       if (clase === 'limite') {
         const l = await limitesFrescos().catch(() => null);

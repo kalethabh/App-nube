@@ -369,7 +369,10 @@ function sesionActual() {
   if (s === 'ok' || s === 'no' || s === 'api') return s;
   return existe(marcaSesion()) ? 'ok' : 'no';
 }
-const PLAN = () => process.env.FALSO_CODEX_PLAN || 'plus';
+// (2026-11-20s) FALSO_CODEX_PLAN_VIEJO=<plan>: el token guardado todavía dice el plan de antes (sin uso) hasta que
+// alguien pide account/read con refreshToken: true (como pasa después de pagar Business o cambiar de espacio)
+const refrescado = () => fs.existsSync(path.join(dirMarcas(), 'token-renovado.json'));
+const PLAN = () => (process.env.FALSO_CODEX_PLAN_VIEJO && !refrescado() ? process.env.FALSO_CODEX_PLAN_VIEJO : process.env.FALSO_CODEX_PLAN || 'plus');
 
 /** La próxima vez que sean las 20:14 (hora local), en segundos unix. */
 function proximas2014() {
@@ -394,7 +397,11 @@ function limitesDeAhora() {
   }
   if (alcanzado) ordinario = false;
   const primary = { usedPercent: alcanzado ? 100 : ordinario ? 12 : 97, windowDurationMins: 10080, resetsAt: proximas2014() };
-  const rateLimits = { limitId: 'codex', primary, secondary: null, credits: { hasCredits: false, unlimited: false, balance: '0' }, planType: PLAN(), rateLimitReachedType: alcanzado ? 'rate_limit_reached' : null };
+  if (process.env.FALSO_CODEX_PLAN_VIEJO && !refrescado()) ordinario = false;
+  // FALSO_CODEX_CREDITOS=espacio: un Business por uso: sin uso «ordinario», con los créditos del espacio
+  const espacio = process.env.FALSO_CODEX_CREDITOS === 'espacio' && !(process.env.FALSO_CODEX_PLAN_VIEJO && !refrescado());
+  if (espacio) ordinario = false;
+  const rateLimits = { limitId: 'codex', primary: espacio ? null : primary, secondary: null, credits: espacio ? { hasCredits: true, unlimited: false, balance: '250' } : { hasCredits: false, unlimited: false, balance: '0' }, planType: PLAN(), rateLimitReachedType: alcanzado ? 'rate_limit_reached' : null };
   return { ordinaryUsageAllowed: ordinario, rateLimits, rateLimitsByLimitId: { codex: rateLimits }, rateLimitResetCredits: { availableCount: 0 } };
 }
 
@@ -509,7 +516,8 @@ function appServer(a) {
     const s = sesionActual();
     if (m.method === 'initialize') return ok({ userAgent: `codex_cli_rs/${VERSION} (codex falso)` });
     if (m.method === 'account/read') {
-      if (s === 'ok') return ok({ account: { type: 'chatgpt', email: 'alumno@ejemplo.com', planType: PLAN() }, requiresOpenaiAuth: true });
+      if (s === 'ok' && m.params?.refreshToken === true) fs.mkdirSync(dirMarcas(), { recursive: true }), fs.writeFileSync(path.join(dirMarcas(), 'token-renovado.json'), JSON.stringify({ desde: ahora() }));
+      if (s === 'ok') return ok({ account: { type: 'chatgpt', email: 'alumno@ejemplo.com', planType: PLAN(), workspaceName: /business|team|enterprise/.test(PLAN()) ? 'Mi Empresa' : null }, requiresOpenaiAuth: true });
       if (s === 'api') return ok({ account: { type: 'apiKey' }, requiresOpenaiAuth: true });
       return ok({ account: null, requiresOpenaiAuth: true });
     }
