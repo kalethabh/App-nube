@@ -1,0 +1,114 @@
+{
+  "slug": "aguaje-complex-3-en-1-musical-20261120-1209",
+  "familia": "musical",
+  "estado": "corriendo",
+  "paso": "cancion",
+  "pasos": [
+    {
+      "id": "letra",
+      "nombre": "Preparar la letra de la canción",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:11:38.790Z",
+      "fin": "2026-11-20T17:11:38.879Z",
+      "nota": "Letra 1: «Lo que nadie te dice del BBL»."
+    },
+    {
+      "id": "saldo-cancion",
+      "nombre": "Mirar tu saldo para la canción",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:11:38.879Z",
+      "fin": "2026-11-20T17:11:39.063Z"
+    },
+    {
+      "id": "cancion",
+      "nombre": "Componer tu canción",
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-20T17:11:39.063Z",
+      "detalle": "Suno está componiendo tu canción"
+    },
+    {
+      "id": "elegir-cancion",
+      "nombre": "Elegir tu canción",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "tomas",
+      "nombre": "Escribir las escenas sobre la canción",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "tiempos",
+      "nombre": "Medir cada escena en la canción",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "ventanas",
+      "nombre": "Ajustar el largo de cada escena",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "imagenes-y-videos",
+      "nombre": "Crear las imágenes y los videos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "revision-imagenes",
+      "nombre": "Revisar las imágenes",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "voces",
+      "nombre": "Buscar voces que no van",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-20T17:11:38.790Z",
+  "aprobado": "2026-11-20T17:11:38.790Z",
+  "actualizado": "2026-11-20T17:11:39.063Z",
+  "saldoInicial": {
+    "creditos": 9200.1,
+    "fecha": "2026-11-20T17:11:39.063Z"
+  }
+}
