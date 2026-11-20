@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20i · Lo que hacen tus agentes, también en Progreso
+
+- En **Progreso** hay una sección nueva, **«Tu equipo trabajando ahora»**: lo que tienen entre manos los agentes de la oficina en todos los departamentos (anuncios de imagen, investigaciones de mercado y de la competencia, los guiones que se están escribiendo).
+- Cada trabajo muestra el departamento, quién lo tiene y en qué paso va, su cadena de pasos (hechos, el que avanza y los que faltan, por ejemplo «3/6»), si se frenó y por qué. Tocándolo lo abres.
+- Los videos que ya se están produciendo siguen en «En producción» y los guiones por aprobar en «Te necesitan»: no se repiten.
+
 ## 2026-11-20h · La coordinadora clona tus videos y le puedes dictar por voz
 
 - **Le pasas un video y le dices «hazme uno igual en Zack, que dure 1:50»**: ella lo encarga sola. La app analiza tu video toma por toma (la estructura, los tiempos, lo que se dice) y el guionista lo replica en el estilo y la duración que pediste, con el gancho adaptado a tu producto (o el mismo, si se lo pides). Ya no te manda a «Clonar un video».
