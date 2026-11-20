@@ -207,3 +207,54 @@
 /* «Descargar PDF» imprime el documento de siempre (oculto en pantalla); esta vista no va al PDF */
 .inv-solo-impresion { display: none; }
 @media print { .inv-solo-impresion { display: block !important; } .inv-solo-pantalla { display: none !important; } }
+
+/* =====================================================================================================================
+   (2026-11-20) LECTURA CÓMODA, sobre todo en MODO OSCURO («que se vea mejor el contenido al leer»): fondo carbón suave
+   (no negro puro), texto principal casi blanco cálido, secundarios con contraste suficiente (AA), colores de acento
+   menos saturados, tablas con encabezado claro y filas alternas visibles, letra de pantalla (Inter) un poco más grande,
+   más interlineado y líneas de largo cómodo. El modo claro solo gana la tipografía y el espaciado. La impresión (PDF)
+   no cambia: .tt no se imprime.
+   ===================================================================================================================== */
+.tt {
+  --verde: #6ee7a0; --verde-s: rgba(110, 231, 160, 0.1); --verde-b: rgba(110, 231, 160, 0.38);
+  --ambar: #f7c948; --ambar-s: rgba(247, 201, 72, 0.1); --ambar-b: rgba(247, 201, 72, 0.38);
+  --rojo: #fca5a5; --rojo-s: rgba(252, 165, 165, 0.1); --rojo-b: rgba(252, 165, 165, 0.38);
+  --azul: #8ab4ff; --azul-s: rgba(138, 180, 255, 0.11); --azul-b: rgba(138, 180, 255, 0.4);
+  --tinta: #f6f3ed; --tinta-2: #ddd7ce; --tinta-3: #aca59b; --linea: rgba(255, 255, 255, 0.11);
+  --carta: #1d2025; --carta-2: #252931; --fondo: #16181c; --barra-etapas: rgba(22, 24, 28, 0.96);
+  --th-fondo: #2a3443; --th-tinta: #eef3fa;
+  font-family: var(--fuente-ui, 'Inter Variable', system-ui, sans-serif);
+  font-size: 11pt;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+[data-tema='claro'] .tt {
+  --verde: #15803d; --verde-s: rgba(22, 163, 74, 0.1); --verde-b: rgba(22, 163, 74, 0.4);
+  --ambar: #b45309; --ambar-s: rgba(217, 119, 6, 0.1); --ambar-b: rgba(217, 119, 6, 0.42);
+  --rojo: #c62828; --rojo-s: rgba(220, 38, 38, 0.08); --rojo-b: rgba(220, 38, 38, 0.38);
+  --azul: #1d5fbf; --azul-s: rgba(37, 99, 235, 0.08); --azul-b: rgba(37, 99, 235, 0.35);
+  --tinta: #1b1915; --tinta-2: #34302a; --tinta-3: #625c54; --linea: rgba(0, 0, 0, 0.11); --carta: #ffffff; --carta-2: #f4f2ee;
+  --fondo: #faf9f6; --barra-etapas: rgba(250, 249, 246, 0.96); --th-fondo: #e3eaf3; --th-tinta: #1e2b3a;
+}
+.tt .tt-p, .tt .tt-lista, .tt .tt-contexto, .tt .tt-explicacion { max-width: 82ch; }
+.tt .tt-lista { gap: 7pt; }
+.tt .tt-lista li { padding-left: 2pt; }
+.tt .tt-nota { font-size: 9.5pt; line-height: 1.55; }
+.tt .tt-h3 { margin-top: 16pt; padding-bottom: 7pt; font-size: 15pt; letter-spacing: -0.005em; }
+.tt .tt-cabeza__titulo { letter-spacing: -0.01em; }
+.tt .tt-cabeza__titulo span { color: var(--ambar); }
+.tt .tt-cabeza__desc { color: var(--tinta-3); }
+.tt .tt-tarjeta__titulo, .tt .tt-caja__titulo { font-size: 12pt; line-height: 1.35; }
+.tt .tt-caja { padding: 13pt 16pt; gap: 7pt; }
+.tt .tt-tabla { font-size: 10pt; line-height: 1.55; }
+.tt .tt-tabla th { padding: 9pt 11pt; font-size: 9.5pt; letter-spacing: 0.01em; }
+.tt .tt-tabla td { padding: 9pt 11pt; color: var(--tinta-2); }
+.tt .tt-tabla tbody tr:nth-child(even) td { background: rgba(var(--tinte), 0.045); }
+.tt .tt-tabla tbody tr:hover td { background: rgba(var(--tinte), 0.07); }
+.tt .tt-tabla td:first-child { color: var(--tinta); }
+.tt .tt-etapa { color: var(--tinta-2); font-size: 9.5pt; }
+.tt .tt-etapa--activa { color: var(--tinta); }
+.tt .inv-marca { background: rgba(247, 201, 72, 0.22); color: var(--tinta); border-bottom-color: #f7c948; }
+[data-tema='claro'] .tt .inv-marca { background: rgba(255, 228, 92, 0.35); border-bottom-color: #e0b400; }
+.tt .tt-gancho__original, .tt .tt-avatar__frase { line-height: 1.45; }
+.tt ::selection { background: rgba(247, 201, 72, 0.35); color: var(--tinta); }

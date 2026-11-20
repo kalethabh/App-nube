@@ -1215,3 +1215,21 @@ button.lote-pieza__marco:hover .lote-pieza__img {
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: 8px;
 }
+
+/* (2026-11-20) lo que entrega el agente de variaciones */
+.agl { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 16px; border: 1px solid color-mix(in srgb, #A3FF12 35%, var(--borde-2)); background: color-mix(in srgb, #A3FF12 5%, var(--superficie-1)); }
+.agl__titulo { margin: 0; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #A3FF12; }
+.agl__resumen { margin: 0; font-size: 15px; font-weight: 700; }
+.agl__ref p { margin: 0 0 6px; font-size: 13px; color: var(--texto-2); }
+.agl__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 760px) { .agl__cols { grid-template-columns: 1fr; } }
+.agl__cols span { font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--texto-3); }
+.agl__cols ul { margin: 4px 0 0; padding-left: 16px; font-size: 12.5px; color: var(--texto-2); }
+.agl__facetas, .agl__espera { margin: 0; font-size: 12.5px; color: var(--texto-3); }
+.agl__lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.agl__lista li { display: grid; grid-template-columns: 190px 1fr 1fr; gap: 10px; font-size: 12.5px; color: var(--texto-2); padding: 7px 10px; border-radius: 10px; background: var(--superficie-2, rgba(255, 255, 255, 0.04)); }
+@media (max-width: 760px) { .agl__lista li { grid-template-columns: 1fr; } }
+.agl__nivel { font-weight: 800; color: var(--texto-1); }
+.agl__nivel--A { color: #A3FF12; }
+.agl__nivel--B { color: #38bdf8; }
+.agl__nivel--C { color: #c084fc; }

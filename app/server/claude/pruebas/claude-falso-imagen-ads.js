@@ -162,6 +162,18 @@ async function estrategia(texto, intento) {
   if (modo === 'mal' && intento === 1) delete est.paleta;
   await escribir(`${C}/estrategia.json`, est);
   const plan = elPlan(lote, brief);
+  // (2026-11-20) el agente de variaciones: su análisis del ganador y el nivel, el cambio y la hipótesis de cada una
+  if (/## Agente de variaciones creativas/.test(texto)) {
+    const reparto = (texto.match(/reparte las \d+ variaciones así: (\d+) de nivel A \(cercanas\), (\d+) de nivel B \(conceptos vecinos\) y (\d+) de nivel C/) || []).slice(1).map(Number);
+    const niveles = [...Array(reparto[0] || 0).fill('A'), ...Array(reparto[1] || 0).fill('B'), ...Array(reparto[2] || 0).fill('C')];
+    const refs = (brief.referencias || []).map((_, i) => `R${String(i + 1).padStart(2, '0')}`);
+    await escribir(`${C}/analisis-ganador.json`, {
+      resumen: 'El deseo de verse bien sin esfuerzo (análisis de prueba).',
+      facetas: ['La que trabaja y no tiene tiempo', 'La que se prepara para una ocasión', 'La que desconfía de comprar por internet'],
+      referencias: refs.map((ref) => ({ ref, angulo: { deseo: 'Verse bien sin esfuerzo', problema: 'No tiene tiempo', beneficio: 'Resultado visible', beneficios_secundarios: ['Fácil de usar'], promesa: 'Lucir mejor', emocion: 'Confianza', conciencia: 'Consciente del problema', mecanismo: 'Antes y después' }, estructura: 'Titular arriba, la persona y el producto al centro, la oferta abajo.', primeros_segundos: 'Se ve el resultado y el producto.', invariables: ['El deseo de verse bien', 'El producto al centro'], modificables: ['El titular', 'El encuadre'], experimentales: ['El contexto'] })),
+    });
+    plan.variaciones = plan.variaciones.map((x, i) => ({ ...x, nivel: niveles[i] || 'A', variables: niveles[i] === 'A' ? ['ejecucion'] : ['faceta', 'contexto'], faceta: 'La que trabaja y no tiene tiempo', contexto: 'En su rutina', formato_creativo: 'Imagen estilo UGC', cambio: `Cambio de prueba ${i + 1}`, hipotesis: `Hipótesis de prueba ${i + 1}` }));
+  }
   await escribir(`${C}/plan.json`, plan);
   for (const v of ids) await escribir(`${C}/${v}.json`, anuncio(v, plan.variaciones.find((x) => x.id === v), brief, Number(v.slice(1))));
   return 'LISTO';

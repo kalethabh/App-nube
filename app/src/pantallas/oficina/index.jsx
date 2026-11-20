@@ -13,6 +13,7 @@ import { Chat } from './Chat.jsx';
 import { Disenar } from './Disenar.jsx';
 import { Actividad, Minimapa, Recorrido, Vistas, pasosDelRecorrido } from './Hud.jsx';
 import { EstacionDeAgente, PanelDepartamento, PanelLinea } from './Departamento.jsx';
+import { Encargar } from './Encargar.jsx';
 import './oficina.css';
 
 const CLAVE = 'oficina';
@@ -222,6 +223,7 @@ export default function Oficina() {
   const [depElegido, setDepElegido] = useState(null);
   const [linea, setLinea] = useState(null);
   const [resaltar, setResaltar] = useState(null);
+  const [encargo, setEncargo] = useState(null); // el departamento al que le encargas algo
   const [actividad, setActividad] = useState(false);
   const [paso, setPaso] = useState(null); // el paso del recorrido (null = cerrado)
   // la oficina ocupa todo el alto que queda en la ventana (debajo de la barra de arriba)
@@ -395,7 +397,7 @@ export default function Oficina() {
             ) : linea && dep ? (
               <PanelLinea linea={linea} dep={dep} agentes={agentes} eventos={eventos} onCerrar={() => setLinea(null)} />
             ) : depElegido && dep ? (
-              <PanelDepartamento dep={dep} agentes={agentes} resaltar={resaltar} onResaltar={setResaltar} onAgente={elegirAgente} onCerrar={() => { setDepElegido(null); setResaltar(null); setFoco(null); }} />
+              <PanelDepartamento dep={dep} agentes={agentes} resaltar={resaltar} onResaltar={setResaltar} onAgente={elegirAgente} onEncargar={setEncargo} onCerrar={() => { setDepElegido(null); setResaltar(null); setFoco(null); }} />
             ) : a ? (
               <Panel a={a} produccion={prod} agentes={agentes} onCerrar={() => setElegido(null)} onEditar={() => setNombres(true)} onChat={() => setChat({ inicial: '' })} onPedir={(x) => setChat({ inicial: `Pídele a ${x.nombre} que ` })} />
             ) : (
@@ -454,6 +456,24 @@ export default function Oficina() {
         </div>
         {paso !== null ? <Recorrido pasos={pasos} paso={paso} onPaso={setPaso} onCerrar={cerrarRecorrido} /> : null}
       </div>
+      {encargo ? (
+        <Encargar
+          dep={encargo}
+          onCerrar={() => setEncargo(null)}
+          onListo={(lote) => {
+            setEncargo(null);
+            recargar?.();
+            elegirDepartamento(encargo.id);
+            if (lote) setResaltar(lote);
+          }}
+          onPedirAValentina={() => {
+            setEncargo(null);
+            setDepElegido(null);
+            setChat({ inicial: 'Hazme un anuncio de video de ' });
+            setElegido('coordinacion');
+          }}
+        />
+      ) : null}
       <Disenar abierto={disenar} datos={datos} onCerrar={(guardo) => { setDisenar(false); if (guardo) { invalidar(CLAVE); recargar?.(); } }} />
       <Nombres abierto={(primera && !sinBienvenida) || nombres} primera={primera} datos={datos} onCerrar={(guardo) => { setNombres(false); setSinBienvenida(true); if (guardo) recargar?.(); }} />
     </div>
