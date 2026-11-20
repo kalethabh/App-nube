@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20b · Agente de variaciones creativas y encargar desde la oficina
+
+- **Agente de variaciones para Meta Ads** (con tu prompt maestro): analiza tu anuncio ganador (deseo, problema, promesa, mecanismo, lo que NO se toca, lo que se puede cambiar y lo que se puede probar), arma la matriz de facetas del comprador y crea variaciones en tres niveles: **A cercanas**, **B conceptos vecinos** y **C expandidas** (cambiando al menos dos variables sin abandonar el deseo). Diseño limpio de alta conversión, una imagen por variación, nada inventado, y una revisión con las pruebas de 1, 3 y 5 segundos y tus 10 puntos de control: lo que no pasa, se corrige.
+- En el lote ves **el análisis del ganador** y, por cada variación, su nivel, **qué cambió y qué hipótesis prueba**.
+- **Encargar desde la oficina**: toca un departamento y «Encargar». En Anuncios de imagen, «Encargar variaciones de un ganador»: subes o pegas el ganador (o lo eliges de «Lo que me funciona»), eliges el producto, cuántas y el formato, ves el costo y listo: lo ves avanzar por la cadena. En Investigación, el producto y el país. En Video, se lo pides a la coordinadora o vas a «Nuevo anuncio».
+- **Investigación de mercado más fácil de leer**, sobre todo en modo oscuro: fondo carbón suave, textos más claros, colores de acento más suaves, tablas más legibles, letra de pantalla un poco más grande y líneas de largo cómodo.
+
 ## 2026-11-20a · La oficina es tu empresa: departamentos, cadenas de producción y efectos
 
 - **La oficina de tu imagen de referencia**: planta clara y cálida vista desde arriba, seis departamentos alrededor del logo K (sobre su base redonda de madera con jardineras), la coordinación de vidrio arriba, la sala de estar con café abajo, divisiones bajas grafito con listones de madera y luz verde lima, plantas y estanterías.

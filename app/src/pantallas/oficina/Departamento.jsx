@@ -4,7 +4,7 @@
 //   <PanelLinea>         una línea entre dos estaciones: qué pasa por ahí ahora y lo último que pasó.
 //   <EstacionDeAgente>   en el panel de un agente: su estación, de quién recibe, a quién entrega y su trabajo actual.
 // Todo sale de /api/oficina → produccion (lib/oficina-produccion.js): lo que registra la app, sin inventar nada.
-import { ArrowRight, CornerDownLeft, X } from 'lucide-react';
+import { ArrowRight, Briefcase, CornerDownLeft, X } from 'lucide-react';
 import { fechaRelativa } from '../../datos/formato.js';
 import { svgIcono } from './Oficina3D.jsx';
 
@@ -15,7 +15,7 @@ function Icono({ n }) {
   return <span className="of-ico" aria-hidden="true" dangerouslySetInnerHTML={{ __html: svgIcono(n, 14) }} />;
 }
 
-export function PanelDepartamento({ dep, agentes, resaltar, onResaltar, onAgente, onCerrar }) {
+export function PanelDepartamento({ dep, agentes, resaltar, onResaltar, onAgente, onCerrar, onEncargar }) {
   if (!dep) return null;
   const porId = Object.fromEntries(agentes.map((a) => [a.id, a]));
   const activos = dep.trabajos.filter((t) => t.estado === 'activo' || t.estado === 'te-necesita');
@@ -60,6 +60,11 @@ export function PanelDepartamento({ dep, agentes, resaltar, onResaltar, onAgente
           <X size={16} />
         </button>
       </header>
+      {!dep.pronto && onEncargar ? (
+        <button type="button" className="of-boton of-boton--primario of-encargar" onClick={() => onEncargar(dep)}>
+          <Briefcase size={15} aria-hidden="true" /> {dep.id === 'imagen' ? 'Encargar variaciones de un ganador' : dep.id === 'investigacion' ? 'Encargar una investigación' : 'Encargar un video'}
+        </button>
+      ) : null}
       <section className="of-panel__seccion">
         <h3 className="of-panel__titulo">{sel ? `El recorrido de «${sel.titulo}»` : 'Su cadena de producción'}</h3>
         <ol className="of-flujo">

@@ -383,3 +383,32 @@ a.o3-zona:hover { background: #000; }
 @keyframes of-toast { 0% { opacity: 0; transform: translate(-50%, -14px) scale(0.9); } 8% { opacity: 1; transform: translate(-50%, 0) scale(1.04); } 12% { transform: translate(-50%, 0) scale(1); } 88% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -8px); } }
 @media (prefers-reduced-motion: reduce) { .of-toast { animation: none; } }
 .of-actividad__item--evento-listo { color: #d9f99d; font-weight: 700; }
+
+/* (2026-11-20) encargar trabajo desde la oficina */
+.of-encargar { width: 100%; justify-content: center; height: 40px; }
+.enc { display: flex; flex-direction: column; gap: 14px; }
+.enc-intro { margin: 0; display: flex; gap: 8px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; font-size: 13px; line-height: 1.45; color: var(--texto-2); background: color-mix(in srgb, #A3FF12 7%, transparent); border: 1px solid color-mix(in srgb, #A3FF12 25%, transparent); }
+.enc-intro svg { color: #A3FF12; flex: none; margin-top: 2px; }
+.enc-paso { display: flex; flex-direction: column; gap: 8px; }
+.enc-paso h4 { margin: 0; font-size: 13px; font-weight: 800; color: var(--texto-1); }
+.enc-paso--datos { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 10px; }
+@media (max-width: 760px) { .enc-paso--datos { grid-template-columns: 1fr; } }
+.enc-ganadores { display: flex; flex-direction: column; gap: 8px; }
+.enc-subir { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.enc-elegidos, .enc-funciona, .enc-productos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.enc-elegidos li { position: relative; }
+.enc-elegidos img { width: 92px; height: 92px; object-fit: cover; border-radius: 12px; border: 2px solid #A3FF12; display: block; }
+.enc-elegidos button { position: absolute; top: -6px; right: -6px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: #0B0B0B; color: #fff; display: grid; place-items: center; cursor: pointer; }
+.enc-funciona { max-height: 150px; overflow: auto; }
+.enc-funciona button { padding: 0; border: 2px solid transparent; border-radius: 10px; background: none; cursor: pointer; }
+.enc-funciona button.activo { border-color: #A3FF12; box-shadow: 0 0 0 2px rgba(163, 255, 18, 0.3); }
+.enc-funciona img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; display: block; }
+.enc-productos button { display: flex; align-items: center; gap: 8px; padding: 5px 10px 5px 5px; border-radius: 12px; border: 1px solid var(--borde-2); background: var(--superficie-2, transparent); color: var(--texto-1); font: inherit; font-size: 13px; cursor: pointer; }
+.enc-productos button.activo { border-color: #A3FF12; background: color-mix(in srgb, #A3FF12 10%, transparent); }
+.enc-productos img { width: 34px; height: 34px; object-fit: cover; border-radius: 8px; }
+.enc-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.enc-chips button { min-width: 44px; height: 34px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--borde-2); background: none; color: var(--texto-2); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.enc-chips button.activo { border-color: #A3FF12; color: var(--texto-1); background: color-mix(in srgb, #A3FF12 12%, transparent); }
+.enc-sep { width: 1px; height: 22px; background: var(--borde-2); margin: 0 4px; }
+.enc-pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-top: 10px; border-top: 1px solid var(--borde-2); }
+.enc-costo { font-size: 13px; color: var(--texto-2); font-weight: 600; }
