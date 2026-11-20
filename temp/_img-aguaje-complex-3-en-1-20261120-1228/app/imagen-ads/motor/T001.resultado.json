@@ -1,0 +1,37 @@
+{
+  "id": "T001",
+  "piezas": {
+    "V01_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": null
+    },
+    "V02_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": null
+    },
+    "V03_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": null
+    },
+    "V04_1x1": {
+      "orden": "g",
+      "estado": "en-cola",
+      "intentosApi": 0,
+      "version": 1
+    }
+  },
+  "actualizado": "2026-11-20T17:33:59.447Z",
+  "terminado": false
+}
