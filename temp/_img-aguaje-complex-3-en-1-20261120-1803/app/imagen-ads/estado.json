@@ -177,26 +177,24 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "U0004",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T005"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": "contenido-chatgpt",
-      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "motivo": "fallo-de-chatgpt",
+      "mensaje": "ChatGPT no pudo hacer esta imagen",
       "desde": null,
-      "pedido": "U0004",
-      "ultimaOrden": "g",
-      "fallo": null
+      "pedido": null,
+      "ultimaOrden": "U0004",
+      "fallo": {
+        "orden": "U0004",
+        "mensaje": "ChatGPT no pudo hacer esta imagen"
+      }
     },
     "V05_1x1": {
       "v": "V05",
@@ -225,26 +223,24 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "U0005",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T006"
-      },
-      "intentosApi": 2,
+      "orden": null,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": "contenido-chatgpt",
-      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
+      "motivo": "fallo-de-chatgpt",
+      "mensaje": "ChatGPT no pudo hacer esta imagen",
       "desde": null,
-      "pedido": "U0005",
-      "ultimaOrden": "g",
-      "fallo": null
+      "pedido": null,
+      "ultimaOrden": "U0005",
+      "fallo": {
+        "orden": "U0005",
+        "mensaje": "ChatGPT no pudo hacer esta imagen"
+      }
     },
     "V07_1x1": {
       "v": "V07",
@@ -331,7 +327,7 @@
         "version": 1,
         "trabajo": "T009"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -396,7 +392,7 @@
       "pieza": "V04_1x1",
       "instruccion": "",
       "fecha": "2026-11-20T23:33:02.259Z",
-      "estado": "generando",
+      "estado": "no-aplicado",
       "pasos": [
         {
           "pieza": "V04_1x1",
@@ -404,14 +400,15 @@
           "modo": "generar"
         }
       ],
-      "paso": 0
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no pudo hacer esta imagen."
     },
     "U0005": {
       "id": "U0005",
       "pieza": "V06_1x1",
       "instruccion": "",
       "fecha": "2026-11-20T23:33:05.898Z",
-      "estado": "generando",
+      "estado": "no-aplicado",
       "pasos": [
         {
           "pieza": "V06_1x1",
@@ -419,7 +416,8 @@
           "modo": "generar"
         }
       ],
-      "paso": 0
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no pudo hacer esta imagen."
     },
     "U0006": {
       "id": "U0006",
