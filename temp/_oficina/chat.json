@@ -131,11 +131,27 @@
       "texto": "Perfecto 👌 Te espero a las 11:15. Mientras, sigo pendiente de tu video del Aguaje y te aviso apenas esté listo.",
       "acciones": [],
       "fecha": "2026-11-20T15:49:11.418Z"
+    },
+    {
+      "id": "0b53db98e2",
+      "de": "coordinadora",
+      "texto": "¡Listo «Aguaje Complex 3 en 1 — «La mayoría no tiene idea de lo bien que funciona el aguaje» (Zack D Films)»! 🎉 Aquí lo tienes. Si algo no te cuadra me dices y lo ajustamos.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Ver «Aguaje Complex 3 en 1 — «La mayoría no tiene idea de lo bien que funciona el aguaje» (Zack D Films)»",
+          "href": "#/anuncio/aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+          "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-20T16:08:15.781Z"
     }
   ],
   "encargos": [
     {
-      "estado": "produciendo",
+      "estado": "listo",
       "creado": "2026-11-20T15:07:50.459Z",
       "id": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
       "tipo": "video",
