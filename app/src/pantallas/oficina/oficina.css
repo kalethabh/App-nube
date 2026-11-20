@@ -182,3 +182,127 @@ a.o3-zona:hover { background: #000; }
 .of-nombres__genero { display: inline-flex; gap: 4px; }
 .of-genero { padding: 3px 10px; border-radius: 999px; border: 1px solid var(--borde-2); background: none; color: var(--texto-2); font: inherit; font-size: 11.5px; cursor: pointer; }
 .of-genero--activo { border-color: var(--color); color: var(--texto-1); background: color-mix(in srgb, var(--color) 16%, transparent); font-weight: 700; }
+
+/* =====================================================================================================================
+   (2026-11-20) DISEÑO PROFESIONAL: la oficina ocupa casi toda la pantalla y todo flota encima en paneles de vidrio
+   (arriba: la marca, el estado y las acciones; a la derecha: el equipo, el agente o el chat; abajo: lo que pasa en vivo,
+   el minimapa y las vistas). En pantallas chicas, los paneles van debajo de la oficina.
+   ===================================================================================================================== */
+.pagina.of--pro { max-width: none; padding: 12px clamp(10px, 1.4vw, 20px) 16px; gap: 0; }
+.of-escenario { --lado: 370px; position: relative; height: var(--alto-escenario, calc(100vh - 92px)); min-height: 560px; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); background: #0b0d0b; box-shadow: 0 30px 80px -30px #000c, inset 0 0 0 1px rgba(163, 230, 53, 0.06); }
+.of--pro .of-mundo { position: absolute; inset: 0; z-index: 0; height: auto; min-height: 0; border: 0; border-radius: 0; background: transparent; }
+.of-escenario::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.45) 100%); }
+.of-vidrio { background: rgba(12, 14, 12, 0.72); backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7); border-radius: 18px; color: #f1f5f9; }
+
+/* arriba */
+.of-hud-arriba { position: absolute; top: 14px; left: 14px; right: 14px; z-index: 3; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; pointer-events: none; }
+.of-hud-arriba > * { pointer-events: auto; }
+.of-marca { display: flex; align-items: center; gap: 14px; padding: 10px 16px 10px 10px; flex-wrap: wrap; min-width: 0; }
+.of-marca__logo { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 13px; background: #0d0f0c; color: #a3e635; font-weight: 900; font-size: 24px; box-shadow: 0 0 0 2px #a3e635, 0 0 22px rgba(163, 230, 53, 0.45); flex: none; }
+.of-marca__titulo { margin: 1px 0 0; font-size: 19px; line-height: 1.1; letter-spacing: -0.01em; }
+.of--pro .of-cabeza__sobre { font-size: 10.5px; }
+.of--pro .of-resumen { gap: 6px; }
+.of--pro .of-chip { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.1); color: #cbd5e1; }
+.of-punto { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #64748b; }
+.of-punto--verde { background: #4ade80; box-shadow: 0 0 8px #4ade80; }
+.of-punto--rojo { background: #f87171; box-shadow: 0 0 8px #f87171; }
+.of-acciones { display: flex; gap: 6px; padding: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.of-boton { display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 13px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); color: #e2e8f0; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background 0.15s, border-color 0.15s, transform 0.15s; }
+.of-boton:hover { background: rgba(255, 255, 255, 0.11); border-color: rgba(255, 255, 255, 0.2); }
+.of-boton:active { transform: translateY(1px); }
+.of-boton--primario { background: linear-gradient(180deg, #bef264, #84cc16); color: #0b1207; border-color: transparent; box-shadow: 0 6px 18px -6px rgba(163, 230, 53, 0.7); }
+.of-boton--primario:hover { background: linear-gradient(180deg, #d9f99d, #a3e635); }
+.of-boton--icono { width: 36px; padding: 0; justify-content: center; }
+.of-icono { border: 0; background: none; color: #94a3b8; cursor: pointer; padding: 4px; border-radius: 8px; }
+.of-icono:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.of--pro .of-mundo__aviso { top: 96px; left: 50%; right: auto; transform: translateX(-50%); z-index: 3; }
+
+/* a la derecha */
+.of-lateral { position: absolute; top: 96px; right: 14px; bottom: 14px; width: var(--lado); z-index: 3; display: flex; flex-direction: column; }
+.of-lateral > * { flex: 1; min-height: 0; overflow: auto; }
+.of--pro .of-equipo, .of--pro .of-panel, .of--pro .of-chat { height: auto; min-height: 0; background: rgba(12, 14, 12, 0.74); backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3); border: 1px solid rgba(255, 255, 255, 0.09); box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.7); color: #f1f5f9; }
+.of--pro .of-chat { display: flex; }
+.of--pro .of-panel { border-color: color-mix(in srgb, var(--color) 40%, rgba(255, 255, 255, 0.09)); }
+.of--pro .of-equipo__titulo { display: flex; align-items: center; gap: 6px; color: #94a3b8; }
+.of--pro .of-equipo__fila:hover { background: rgba(255, 255, 255, 0.06); }
+.of--pro .of-equipo__textos span, .of--pro .of-panel__vacio, .of--pro .of-panel__quien > span:not(.of-chip) { color: #94a3b8; }
+.of--pro .of-tarea { background: rgba(255, 255, 255, 0.05); }
+.of-naranja { color: #f59e0b; font-weight: 700; }
+
+/* abajo */
+.of-actividad { position: absolute; left: 14px; bottom: 14px; width: min(400px, calc(100% - var(--lado) - 290px)); min-width: 280px; z-index: 3; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; max-height: 210px; }
+.of-actividad--abierta { max-height: calc(100% - 130px); }
+.of-actividad__cabeza { display: flex; align-items: center; gap: 8px; border: 0; background: none; color: #f1f5f9; font: inherit; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; padding: 0; }
+.of-actividad__cabeza small { margin-left: auto; font-size: 11px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #94a3b8; }
+.of-vivo { width: 8px; height: 8px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 0 0 #ef444499; animation: of-vivo 1.6s infinite; }
+@keyframes of-vivo { 0% { box-shadow: 0 0 0 0 #ef444499; } 70% { box-shadow: 0 0 0 8px #ef444400; } 100% { box-shadow: 0 0 0 0 #ef444400; } }
+.of-actividad__lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; overflow: auto; }
+.of-actividad__item { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; line-height: 1.35; color: #cbd5e1; animation: of-entra 0.35s ease; }
+.of-actividad__item a { color: inherit; text-decoration: none; }
+.of-actividad__item a:hover { color: #fff; }
+.of-actividad__item b { color: #f8fafc; }
+.of-actividad__item small { color: #64748b; }
+.of-actividad__item--necesita a { color: #fca5a5; }
+.of-actividad__item--hecho b::before { content: '✓ '; color: #4ade80; }
+.of-actividad__item--charla { color: #e2e8f0; font-style: italic; }
+.of-actividad__quien, .of-actividad__icono { display: grid; place-items: center; width: 22px; height: 22px; flex: none; border-radius: 50%; border: 0; padding: 0; font-size: 13px; cursor: pointer; background: radial-gradient(circle at 35% 30%, #fff, color-mix(in srgb, var(--color, #888) 45%, #fff)); }
+.of-actividad__icono { background: rgba(255, 255, 255, 0.08); cursor: default; }
+.of-actividad__vacio { margin: 0; font-size: 12.5px; color: #94a3b8; }
+@keyframes of-entra { from { opacity: 0; transform: translateY(4px); } }
+.of-abajo-derecha { position: absolute; right: calc(var(--lado) + 28px); bottom: 14px; z-index: 3; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.of-escenario--sin-lateral { --lado: 0px; }
+.of-escenario--sin-lateral .of-abajo-derecha { right: 14px; }
+.of-minimapa { width: 230px; padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+.of-minimapa__titulo { display: flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #94a3b8; }
+.of-minimapa > svg { width: 100%; height: auto; display: block; }
+.of-minimapa__piso { fill: #2a1d12; stroke: rgba(163, 230, 53, 0.35); stroke-width: 0.15; }
+.of-minimapa__logo { fill: #0d0f0c; stroke: #a3e635; stroke-width: 0.25; }
+.of-minimapa__sala { cursor: pointer; }
+.of-minimapa__sala rect { fill: color-mix(in srgb, var(--color) 22%, #1a1b1d); stroke: var(--color); stroke-width: 0.18; transition: fill 0.15s; }
+.of-minimapa__sala rect.pronto { stroke-dasharray: 0.6 0.4; }
+.of-minimapa__sala:hover rect, .of-minimapa__sala:focus rect { fill: color-mix(in srgb, var(--color) 45%, #1a1b1d); }
+.of-minimapa__sala text { font-size: 1.35px; font-weight: 700; fill: #e2e8f0; pointer-events: none; }
+.of-minimapa__agente { fill: var(--color); stroke: #0b0d0b; stroke-width: 0.25; transition: cx 0.5s linear, cy 0.5s linear; }
+.of-minimapa__agente--te-necesita { stroke: #ef4444; stroke-width: 0.4; }
+.of-minimapa__agente--trabajando { stroke: #4ade80; stroke-width: 0.35; }
+.of-vistas { display: flex; gap: 4px; padding: 5px; }
+.of-vista { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px; border-radius: 10px; border: 0; background: none; color: #cbd5e1; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.of-vista:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+.of-vista--activa { background: rgba(163, 230, 53, 0.16); color: #d9f99d; box-shadow: inset 0 0 0 1px rgba(163, 230, 53, 0.4); }
+
+/* el recorrido guiado */
+.of-recorrido { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); width: min(520px, calc(100% - 28px)); z-index: 5; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; border-color: rgba(163, 230, 53, 0.35); box-shadow: 0 0 0 1px rgba(163, 230, 53, 0.15), 0 24px 60px -16px #000; animation: of-entra 0.3s ease; }
+.of-recorrido__cabeza { display: flex; align-items: center; justify-content: space-between; }
+.of-recorrido__paso { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #a3e635; }
+.of-recorrido__titulo { margin: 0; font-size: 20px; letter-spacing: -0.01em; }
+.of-recorrido__texto { margin: 0; font-size: 14px; line-height: 1.5; color: #cbd5e1; }
+.of-recorrido__pie { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 4px; }
+.of-recorrido__puntos { display: flex; gap: 5px; }
+.of-recorrido__puntos span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, 0.18); transition: width 0.2s; }
+.of-recorrido__puntos .visto { background: rgba(163, 230, 53, 0.5); }
+.of-recorrido__puntos .activo { width: 20px; border-radius: 4px; background: #a3e635; }
+.of-recorrido__botones { display: flex; gap: 6px; }
+
+/* el globo de lo que dice un agente al conversar */
+.o3-dice { position: relative; max-width: 220px; padding: 7px 11px; border-radius: 14px; font-size: 12px; font-weight: 600; line-height: 1.3; color: #0b1220; background: #fff; box-shadow: 0 8px 22px #0009; white-space: normal; text-align: left; }
+.o3-dice::after { content: ''; position: absolute; left: 50%; top: 100%; margin-left: -6px; border: 6px solid transparent; border-top-color: #fff; }
+.o3-dice--entra { animation: o3-dice 0.28s cubic-bezier(0.2, 1.4, 0.4, 1); }
+@keyframes o3-dice { from { opacity: 0; transform: scale(0.6) translateY(8px); } }
+@media (prefers-reduced-motion: reduce) { .o3-dice--entra, .of-actividad__item, .of-recorrido { animation: none; } .of-vivo { animation: none; } }
+
+/* pantallas medianas: el panel lateral más angosto; chicas: todo debajo de la oficina */
+@media (max-width: 1280px) { .of-escenario { --lado: 320px; } .of-minimapa { width: 190px; } .of-vista span { display: none; } }
+@media (max-width: 900px) {
+  .of-escenario { height: auto; min-height: 0; overflow: visible; border-radius: 18px; display: flex; flex-direction: column; gap: 10px; background: transparent; border: 0; box-shadow: none; }
+  .of-escenario::after { display: none; }
+  .of--pro .of-mundo { position: relative; height: 62vh; min-height: 380px; border-radius: 18px; overflow: hidden; order: 1; border: 1px solid rgba(255, 255, 255, 0.08); background: #0b0d0b; }
+  .of-hud-arriba { position: static; order: 0; flex-direction: column; align-items: stretch; }
+  .of-acciones { justify-content: flex-start; }
+  .of-lateral, .of-actividad, .of-abajo-derecha { position: static; width: auto; min-width: 0; max-height: none; }
+  .of-lateral { order: 3; }
+  .of-actividad { order: 4; }
+  .of-abajo-derecha { order: 2; flex-direction: row; justify-content: space-between; align-items: stretch; }
+  .of-minimapa { width: 160px; }
+  .of-recorrido { position: fixed; bottom: 12px; }
+  .of--pro .of-mundo__aviso { position: static; transform: none; order: 0; }
+}
