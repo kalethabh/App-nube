@@ -1,0 +1,127 @@
+{
+  "prompt_type": "ad_creative_generation",
+  "ad_info": {
+    "variation_id": "V04",
+    "structure_source": "library format F05 (Problema en primer plano)",
+    "reference_style": "Documentary-style close-up photo of a relatable fitting-room frustration, with a bold overlaid headline and the product as a small branded way-out tile",
+    "angle_used": "Dolor / problema: the jeans that stay loose at the back and never fit",
+    "ad_format": "Pain-Point Close-Up Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
+  },
+  "global_identity": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: clean pink and blush backgrounds, ultra-photorealistic Colombian women photographed naturally and respectfully, the black-and-fuchsia bottle as hero, clean icon modules.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight, believable real-life moments.",
+    "graphic_language": "Rounded pills and banners in fuchsia and deep magenta, thin-line white icons inside fuchsia circles, handwritten script accents used sparingly, clean flat or softly graded backgrounds with minimal decoration (no clutter, no excess particles, petals or sparkles).",
+    "text_typography": "Poppins Bold (uppercase, heavy) for headlines and labels, Poppins Regular for supporting text."
+  },
+  "creative_objective": "Stop the scroll with the exact moment that triggers the purchase: in the fitting room, the jeans stay loose at the back again. Name it in her own words and offer the way out — a natural plan, without needles or surgery — with the bottle as a small warm tile.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The close-up of hands pulling the loose back waistband of the jeans. 2) The headline naming the moment. 3) The small fuchsia tile with the bottle. 4) The short subheadline.",
+    "composition_style": "Full-bleed photo, very close to the action. The pain point (the gap between the jeans waistband and her lower back) sits in the center to lower-center (about 35-65% of the width and 45-75% of the height), so the top-left stays darker for the text and the bottom-right corner stays free for the product tile.",
+    "spacing_and_structure": "Text block top-left: starts at the 7% margin, max 70% of the width, top 35-40% of the height. Product tile bottom-right, inset 6% from the right and bottom edges, about 24-28% of the width and 28-32% of the height. The rest is pure photo.",
+    "lighting_and_depth": "Realistic, slightly cool overhead fitting-room light, mildly desaturated and moody, shallow depth of field with the hands and waistband sharp and the curtain and mirror softly blurred. A dark diagonal gradient (near-black #0E0E10 at about 65% opacity fading to 0) from the top-left corner. The tile is the only warm, saturated, studio-lit element.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Square canvas filled edge to edge with a realistic, tight close-up in a store fitting room: a young woman's hands pull the loose back waistband of light-blue jeans away from her lower back, showing the empty gap. A dark diagonal gradient in the top-left holds a large white headline (3 lines) and a short subheadline. In the bottom-right corner, a small rounded hot-fuchsia tile holds the studio-lit bottle as the way out.",
+    "detected_visual_blocks": [
+      {
+        "block_id": "block_01",
+        "block_type": "close-up pain-moment photo",
+        "position": "Full canvas, edge to edge",
+        "visual_function": "Makes her instantly recognize her own frustration",
+        "adaptation_rule": "Store fitting room with a grey curtain and a mirror softly blurred; tight crop at waist level from behind and slightly to the side: the hands of a slim young Colombian woman pull the back waistband of light-blue jeans away from her lower back, leaving a visible empty gap; short white top. Crop from mid-back to just below the waistband; the focus is the loose fabric, never the buttocks. Smartphone authenticity, mild frustration. No product in the photo."
+      },
+      {
+        "block_id": "block_02",
+        "block_type": "dark gradient overlay",
+        "position": "Top-left corner, about the top 45% and left 75% of the canvas, fading diagonally",
+        "visual_function": "Gives the text contrast without hiding the photo",
+        "adaptation_rule": "Smooth gradient from near-black at about 65% opacity to transparent. No hard edges, no box."
+      },
+      {
+        "block_id": "block_03",
+        "block_type": "headline",
+        "position": "Top-left, starting at the 7% margin, over the gradient",
+        "visual_function": "Names the moment exactly as she lives it",
+        "adaptation_rule": "Max 3 lines within 70% of the width; the word 'BAILANDO' in bubblegum pink."
+      },
+      {
+        "block_id": "block_04",
+        "block_type": "subheadline",
+        "position": "Directly below the headline, left-aligned",
+        "visual_function": "Opens the way out",
+        "adaptation_rule": "One short line, without naming the product."
+      },
+      {
+        "block_id": "block_05",
+        "block_type": "product way-out tile",
+        "position": "Bottom-right corner, inset 6% from the right and bottom edges, about 24-28% of the width and 28-32% of the height",
+        "visual_function": "Presents the product as the exit from the frustration",
+        "adaptation_rule": "Rounded rectangle (radius about 2.5%) in a soft hot-fuchsia to deep-magenta gradient with a soft drop shadow and a thin white outline."
+      },
+      {
+        "block_id": "block_06",
+        "block_type": "product",
+        "position": "Inside the tile, centered, about 20-24% of the canvas height; its top may break slightly out of the tile",
+        "visual_function": "Shows what is sold",
+        "adaptation_rule": "The attached bottle exactly as in the photo, front view, studio-lit with a subtle glow."
+      }
+    ],
+    "forbidden_additions": [
+      "Product inside the photo scene",
+      "Large or centered product",
+      "CTA button",
+      "Price, discount, offer or urgency badge",
+      "Trust seals, guarantee, certification or sanitary registration badges",
+      "Benefit list or icons",
+      "Rating stars, reviews or testimonials",
+      "Before/after split or a second photo",
+      "Close-ups of buttocks, hips or legs, or nudity",
+      "Arrows, stickers or emojis",
+      "Bottom bar or banner",
+      "Logos or brand marks other than the real bottle label",
+      "Glossy studio look on the photo"
+    ]
+  },
+  "visual_prompt": "Square 1:1 pain-point close-up ad. Full-bleed, realistic smartphone-style photo inside a store fitting room: grey fabric curtain and a mirror softly blurred in the background, slightly cool overhead light, mildly desaturated and moody. Tight crop at waist level, seen from behind and slightly to the side: the hands of a slim young Colombian woman (warm tan skin, short white cotton top) pull the back waistband of light-blue denim jeans away from her lower back, leaving a clearly visible empty gap between the fabric and her body — the jeans are loose at the back and do not fit. The crop runs from mid-back to just below the waistband; the focus is the loose fabric and her fingers, sharp, with shallow depth of field; never show or emphasize the buttocks. The pain point sits in the center to lower-center of the frame (about 35-65% of the width, 45-75% of the height). A smooth dark diagonal gradient (near-black #0E0E10 at about 65% opacity fading to transparent) covers the top-left corner (top 45%, left 75%). Over it, starting at the 7% margin, a large white headline in Poppins Bold uppercase, max 3 lines within 70% of the width, with the word 'BAILANDO' in bubblegum pink #FF8CC0; directly below, a short subheadline in Poppins Regular, white at 88% opacity, max 2 lines. In the bottom-right corner, inset 6% from the right and bottom edges, about 24-28% of the width and 28-32% of the height, a rounded tile (radius about 2.5%) in a soft hot-fuchsia (#E6177F) to deep-magenta (#B0105E) gradient with a thin white outline and a soft drop shadow, holding the product from the attached image, front view, studio-lit with a subtle glow, about 20-24% of the canvas height, its cap slightly breaking out of the top of the tile: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern and a solid hot-pink band wrapping the bottom fifth; the black label shows a small pink VITALABH emblem with the white word 'VITALABH', a huge bold white condensed word 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a small white line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE', '400mg FENOGRECO', '200mg MACA NEGRA' joined by plus signs, and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)'. Use the attached product image as the only source of truth for the product; do not redesign, replace or reinterpret it. The tile is the only warm, saturated element. Do not add CTA buttons, price badges, benefit lists, icons, trust seals, rating stars, testimonials, arrows, emojis, bottom bars or any extra text.",
+  "text_layers": [
+    {
+      "block_id": "text_block_01",
+      "reference_function": "main headline",
+      "reference_position": "Top-left, over the dark gradient",
+      "text_style": "Poppins Bold extra heavy, uppercase, each line about 7-8% of the canvas height, max 3 lines, left-aligned, white with 'BAILANDO' in bubblegum pink #FF8CC0",
+      "text": "¿OTRA VEZ EL JEAN TE QUEDÓ BAILANDO ATRÁS?"
+    },
+    {
+      "block_id": "text_block_02",
+      "reference_function": "subtitle",
+      "reference_position": "Directly below the headline, left-aligned",
+      "text_style": "Poppins Regular, about 3.2-3.8% of the canvas height, max 2 lines, left-aligned, white at 88% opacity",
+      "text": "Empieza tu plan natural, sin agujas ni quirófano."
+    }
+  ],
+  "mandatory_visual_elements": [
+    "Full-bleed, realistic fitting-room close-up of hands pulling the loose back waistband of jeans",
+    "Dark diagonal gradient in the top-left corner behind the text",
+    "Small hot-fuchsia tile in the bottom-right corner holding the real bottle",
+    "Shallow depth of field with the loose waistband in sharp focus"
+  ],
+  "final_generation_exclusions": [
+    "No close-ups of buttocks, hips or legs and no nudity; the crop stays at the waistband.",
+    "No price, sanitary registration, ratings or customer counts.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
+  ],
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
+}
