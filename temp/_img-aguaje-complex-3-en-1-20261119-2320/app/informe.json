@@ -1,0 +1,31 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-20T17:08:10.724Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 4,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "En el tercer círculo el cuerpo de la mujer cambia: se ve con más busto y con escote marcado que en el segundo. Parece un antes y después del cuerpo, y eso estaba prohibido. Además puede hacer que la red rechace el anuncio.",
+          "Ese círculo pone la atención en el pecho y no en la cara ni en el jean, que es lo que dice el texto «Segura con tu jean»."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
