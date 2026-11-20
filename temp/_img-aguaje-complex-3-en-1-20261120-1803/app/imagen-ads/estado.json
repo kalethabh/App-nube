@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 2,
+    "R": 3,
     "A": 1,
     "T": 11
   },
@@ -43,6 +43,20 @@
           "pieza": "V07_1x1",
           "firma": "2441685-1795217120474",
           "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "2372d180-e8b5-4d10-815d-131ad07f036b",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2410406-1795217845917",
+          "ronda": "u"
         }
       ],
       "empezada": true
@@ -94,25 +108,26 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": "sin-imagen",
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "U0001",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T003"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2410406-1795217845917",
+      "orden": null,
       "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
-      "revision": null,
-      "motivo": "contenido-chatgpt",
-      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
-      "desde": null,
-      "pedido": "U0001",
-      "ultimaOrden": "g",
+      "revision": {
+        "tanda": "R002",
+        "ronda": "u",
+        "ok": true,
+        "problemas": [],
+        "firma": "2410406-1795217845917"
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-20T23:37:26.557Z",
+      "pedido": null,
+      "ultimaOrden": "U0001",
       "fallo": null
     },
     "V02_1x1": {
@@ -128,7 +143,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -152,7 +167,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -176,7 +191,7 @@
         "version": 1,
         "trabajo": "T005"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -338,7 +353,7 @@
       "pieza": "V01_1x1",
       "instruccion": "",
       "fecha": "2026-11-20T23:32:56.281Z",
-      "estado": "generando",
+      "estado": "listo",
       "pasos": [
         {
           "pieza": "V01_1x1",
