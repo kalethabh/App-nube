@@ -10,9 +10,9 @@ const CLAVE = 'oficina:chat';
 const ESTADO = { escribiendo: 'escribiendo el guion…', aprobar: 'espera tu aprobación', produciendo: 'produciéndose', listo: 'listo', error: 'se frenó', 'no-esta': 'ya no está' };
 const IDEAS = ['Hazme 3 anuncios UGC de mi producto', '¿Cómo va el trabajo?', 'Investiga el mercado de mi producto en Colombia', 'De ahora en adelante, los ganchos más cortos'];
 
-export function Chat({ coordinadora, onCerrar }) {
+export function Chat({ coordinadora, onCerrar, inicial = '' }) {
   const { aviso } = useAvisos();
-  const [texto, setTexto] = useState('');
+  const [texto, setTexto] = useState(inicial);
   const [enviando, setEnviando] = useState(false);
   const [rapido, setRapido] = useState(false);
   const { datos, recargar } = useDatos(CLAVE, () => pedirNuevo('/api/oficina/chat'), { cadaMs: rapido ? 1500 : 6000 });

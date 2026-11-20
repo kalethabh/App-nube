@@ -17,11 +17,15 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 
 const LIMA = '#a3e635';
 const ANCHO = 38; // la planta (x); el fondo (z) crece si se usa la fila nueva (lugares 9-12)
 // los LUGARES de la planta (los mismos números que lib/oficina.js): centro (x, z), ancho y fondo
-const LUGAR = [
+export const LUGAR = [
   { x: -14.1, z: -10.6, w: 9.2, d: 8.4 },
   { x: -4.7, z: -10.6, w: 9.2, d: 8.4 },
   { x: 4.7, z: -10.6, w: 9.2, d: 8.4 },
@@ -956,7 +960,7 @@ function etiqueta(onElegir, id) {
     e.stopPropagation();
     onElegir.current?.(id);
   });
-  el.innerHTML = '<span class="o3-burbuja"></span><span class="o3-tarjeta"><span class="o3-cara"></span><span class="o3-nombre"></span></span>';
+  el.innerHTML = '<span class="o3-dice" hidden></span><span class="o3-burbuja"></span><span class="o3-tarjeta"><span class="o3-cara"></span><span class="o3-nombre"></span></span>';
   return el;
 }
 
@@ -1395,15 +1399,52 @@ function armarCentro(animados) {
   return g;
 }
 
+// ---------------------------------------------------------------- las conversaciones (2026-11-20)
+// «que los agentes caminen entre oficinas y conversen entre ellos»: de vez en cuando uno libre va a ver a otro (a su
+// escritorio si trabaja, o se juntan en el pasillo, el café o la sala) y conversan de su trabajo REAL (lo que hace
+// cada uno ahora, lo que terminó, lo que espera tu decisión) o de la vida de la oficina.
+const corto = (t) => {
+  const x = String(t || '').replace(/^Anuncios de imagen: /, '').replace(/[«»]/g, '').trim();
+  return x.length > 34 ? `«${x.slice(0, 32).trim()}…»` : `«${x}»`;
+};
+const alAzar = (l) => l[Math.floor(Math.random() * l.length)];
+export function charlaEntre(A, B, todos = []) {
+  const necesita = todos.find((x) => x.estado === 'te-necesita');
+  const opciones = [];
+  if (B.estado === 'trabajando' && B.ahora?.[0]) {
+    opciones.push([[A, `${B.nombre}, ¿cómo va ${corto(B.ahora[0].titulo)}?`], [B, alAzar(['Avanzando, ya casi lo termino.', 'Voy por la mitad, quedando muy bien.', 'Bien, revisando los detalles.'])], [A, alAzar(['¡Genial! Avísame si necesitas algo.', 'Perfecto, después lo vemos juntos.', 'Te traigo un café ☕'])], [B, 'Gracias 🙌']]);
+  }
+  if (A.hechos?.[0]) opciones.push([[A, `¡Terminé ${corto(A.hechos[0].titulo)}!`], [B, '¡Qué bien! ¿Cómo quedó?'], [A, 'Listo para que lo revise el jefe ✨'], [B, '¡Excelente trabajo!']]);
+  if (necesita && necesita.id !== A.id) opciones.push([[A, `${necesita.nombre} espera una decisión: ${corto(necesita.necesita?.[0]?.titulo)}`], [B, 'Ya le salió el aviso en rojo.'], [A, 'Ojalá lo vea pronto 🙏']]);
+  const porRol = {
+    coordinacion: [[A, '¿Cómo vamos con lo de hoy?'], [B, 'Todo en orden por aquí.'], [A, 'Bien. Cualquier cosa me avisas 👍']],
+    guion: [[A, 'Tengo una idea de gancho buenísima 💡'], [B, '¡Cuéntamela!'], [A, '«Lo que nadie te dijo de…»'], [B, 'Eso frena el scroll seguro.']],
+    arte: [[A, '¿Qué tal te parecen los colores nuevos? 🎨'], [B, 'Se ven muy profesionales.'], [A, 'Los saqué de lo que te funcionó.']],
+    video: [[A, 'Estoy probando un clip con cámara lenta 🎬'], [B, '¿Y el costo?'], [A, 'Tranquila, sin pagar de más.']],
+    edicion: [[A, 'Los subtítulos quedaron perfectos ✂️'], [B, '¿Con el ritmo de la voz?'], [A, 'Palabra por palabra.']],
+    calidad: [[A, 'Revisé las tomas: todo en orden 🔍'], [B, '¿Nada que rehacer?'], [A, 'Solo una manito, nada grave.']],
+    investigacion: [[A, 'Encontré lo que más vende la competencia 🔭'], [B, '¿Y el ángulo?'], [A, 'El dolor más fuerte del avatar.'], [B, 'Eso va en el próximo guion.']],
+  };
+  if (porRol[A.id]) opciones.push(porRol[A.id]);
+  opciones.push([[A, alAzar(['¿Un café? ☕', '¿Vamos por un café?'])], [B, '¡Dale! Lo necesito.'], [A, 'Después seguimos con todo 💪']]);
+  return alAzar(opciones).map(([quien, texto]) => ({ id: quien.id, texto }));
+}
+
 // ---------------------------------------------------------------- la escena
 
-export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
+export function Oficina3D({ agentes, zonas = [], elegido, onElegir, foco = null, vista = 'general', modo = 'noche', onPosiciones = null, onCharla = null, desplazar = 0 }) {
   const caja3d = useRef(null);
   const estado = useRef({ agentes: [], elegido: null });
   const elegir = useRef(onElegir);
   elegir.current = onElegir;
   estado.current.agentes = agentes || [];
   estado.current.zonas = zonas || [];
+  estado.current.foco = foco;
+  estado.current.vista = vista;
+  estado.current.modo = modo;
+  estado.current.desplazar = desplazar;
+  const avisos = useRef({});
+  avisos.current = { onPosiciones, onCharla };
   estado.current.elegido = elegido || null;
 
   useEffect(() => {
@@ -1452,7 +1493,8 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
     controles.screenSpacePanning = false;
 
     // luces cálidas de noche: el ambiente, una luz principal con sombras y lámparas ámbar por zona
-    escena.add(new THREE.HemisphereLight('#ffe7c7', '#3a2618', 0.75));
+    const cielo = new THREE.HemisphereLight('#ffe7c7', '#3a2618', 0.75);
+    escena.add(cielo);
     const sol = new THREE.DirectionalLight('#ffe0b8', 1.6);
     sol.position.set(14, 30, 18);
     sol.castShadow = true;
@@ -1653,7 +1695,7 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
       const etq = new CSS2DObject(el);
       etq.position.set(0, 2.7, 0);
       g.add(etq);
-      personajes.set(a.id, { g, el, destino: null, espera: Math.random() * 3 });
+      personajes.set(a.id, { g, el, ruta: [], espera: Math.random() * 3, charla: null, dice: el.querySelector('.o3-dice') });
     });
 
     // (para las capturas de prueba: mover la cámara desde fuera)
@@ -1677,12 +1719,24 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
     etiquetas.domElement.addEventListener('pointerdown', alBajar);
     etiquetas.domElement.addEventListener('pointerup', alSoltar);
 
+    // el brillo de los neones y las pantallas (bloom): solo lo más luminoso brilla
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(escena, camara));
+    const brillo = new UnrealBloomPass(new THREE.Vector2(800, 560), 0.55, 0.5, 0.86);
+    composer.addPass(brillo);
+    composer.addPass(new OutputPass());
+    let desplazado = 0;
     const medir = () => {
       const w = raiz.clientWidth || 800;
       const h = raiz.clientHeight || 560;
       renderer.setSize(w, h);
+      composer.setSize(w, h);
       etiquetas.setSize(w, h);
       camara.aspect = w / h;
+      // con el panel de la derecha abierto, la oficina se centra en el espacio que queda a la izquierda
+      desplazado = estado.current.desplazar || 0;
+      if (desplazado) camara.setViewOffset(w, h, desplazado, 0, w, h);
+      else camara.clearViewOffset();
       camara.updateProjectionMatrix();
     };
     medir();
@@ -1699,6 +1753,134 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
     let enfocado = null;
     const tmp = new THREE.Vector3();
     const enXZ = (a, b) => Math.hypot(a.x - b.x, a.z - b.z);
+    const girar = (de, a, k) => de + Math.atan2(Math.sin(a - de), Math.cos(a - de)) * Math.min(1, k);
+
+    // caminar entre salas: se sale y se entra por la «puerta» de cada sala (su lado abierto, hacia el pasillo)
+    const geos = zonas.map((z) => ({ ...LUGAR[z.lugar], tipo: z.tipo, id: z.id }));
+    const puerta = (z) => new THREE.Vector3(z.tipo === 'edicion' ? z.x - z.w / 2 + 1 : z.x, 0, z.z + z.d / 2 + 0.6);
+    const zonaDe = (v) => geos.find((z) => Math.abs(v.x - z.x) < z.w / 2 - 0.2 && Math.abs(v.z - z.z) < z.d / 2 - 0.2) || null;
+    const rutaHacia = (desde, destino) => {
+      const de = zonaDe(desde);
+      const a = zonaDe(destino);
+      const ruta = [];
+      if (de && de !== a) ruta.push(puerta(de));
+      if (a && a !== de) ruta.push(puerta(a));
+      ruta.push(destino.clone());
+      return ruta;
+    };
+    // las conversaciones en curso
+    const charlas = [];
+    let ultimaCharla = 4;
+    const lugaresDeCharla = () => [cafe.punto.clone(), sala.punto.clone(), new THREE.Vector3(-4.6, 0, 4.4), new THREE.Vector3(4.6, 0, 4.4), new THREE.Vector3(0, 0, -5.6), new THREE.Vector3(-8.2, 0, 0.5), new THREE.Vector3(8.2, 0, 0.5)];
+    const terminarCharla = (ch) => {
+      for (const id of ch.ids) {
+        const q = personajes.get(id);
+        if (!q || q.charla !== ch) continue;
+        q.charla = null;
+        q.ruta = [];
+        q.espera = 1 + Math.random() * 3;
+        q.dice.hidden = true;
+      }
+      charlas.splice(charlas.indexOf(ch), 1);
+    };
+    const empezarCharla = (lista, t) => {
+      const libres = lista.filter((a) => a.estado === 'libre' && asientos[a.id] && !personajes.get(a.id)?.charla);
+      if (!libres.length) return;
+      const A = alAzar(libres);
+      const otros = lista.filter((b) => b.id !== A.id && asientos[b.id] && !personajes.get(b.id)?.charla && b.estado !== 'te-necesita');
+      if (!otros.length) return;
+      const B = alAzar(otros);
+      const sentado = B.estado === 'trabajando';
+      const ch = { ids: [A.id, B.id], nombres: [A.nombre, B.nombre], fase: 'yendo', llegaron: new Set(), lineas: charlaEntre(A, B, lista), i: -1, prox: 0, inicio: t, sentado, caminan: sentado ? [A.id] : [A.id, B.id] };
+      const pA = personajes.get(A.id);
+      const pB = personajes.get(B.id);
+      if (sentado) {
+        pA.ruta = rutaHacia(pA.g.position, asientos[B.id].silla.clone().add(new THREE.Vector3(0.95, 0, 0.45)));
+      } else {
+        const base = alAzar(lugaresDeCharla());
+        pA.ruta = rutaHacia(pA.g.position, base.clone().add(new THREE.Vector3(-0.55, 0, 0)));
+        pB.ruta = rutaHacia(pB.g.position, base.clone().add(new THREE.Vector3(0.55, 0, 0)));
+        pB.charla = ch;
+      }
+      pA.charla = ch;
+      charlas.push(ch);
+    };
+    const seguirCharlas = (lista, t) => {
+      const porId = new Map(lista.map((a) => [a.id, a]));
+      if (t - ultimaCharla > 7 && charlas.length < 2) {
+        ultimaCharla = t;
+        empezarCharla(lista, t);
+      }
+      for (const ch of [...charlas]) {
+        const [A, B] = ch.ids.map((id) => porId.get(id));
+        const roto = !A || !B || A.estado !== 'libre' || B.estado === 'te-necesita' || (!ch.sentado && B.estado !== 'libre') || (ch.sentado && B.estado !== 'trabajando');
+        if (roto || (ch.fase === 'yendo' && t - ch.inicio > 45)) {
+          terminarCharla(ch);
+          continue;
+        }
+        if (ch.fase === 'yendo' && ch.caminan.every((id) => ch.llegaron.has(id))) {
+          ch.fase = 'hablando';
+          ch.prox = t;
+        }
+        if (ch.fase === 'hablando' && t >= ch.prox) {
+          ch.i += 1;
+          if (ch.i >= ch.lineas.length) {
+            terminarCharla(ch);
+            continue;
+          }
+          const linea = ch.lineas[ch.i];
+          for (const id of ch.ids) {
+            const q = personajes.get(id);
+            if (!q) continue;
+            q.dice.hidden = id !== linea.id;
+            if (id === linea.id) {
+              q.dice.textContent = linea.texto;
+              q.dice.classList.remove('o3-dice--entra');
+              void q.dice.offsetWidth;
+              q.dice.classList.add('o3-dice--entra');
+            }
+          }
+          if (ch.i === 0) avisos.current.onCharla?.({ ids: ch.ids, nombres: ch.nombres, texto: linea.texto });
+          ch.prox = t + 2.4 + Math.min(2, linea.texto.length / 30);
+        }
+      }
+    };
+    // las vistas de la cámara (general, desde arriba, cine) y el foco en una sala
+    let vistaAplicada = '';
+    const aplicarVista = () => {
+      const f = estado.current.foco;
+      const clave = `${estado.current.vista}|${f?.zona || ''}|${f?.n || 0}`;
+      if (clave === vistaAplicada) return;
+      vistaAplicada = clave;
+      controles.autoRotate = estado.current.vista === 'cine' && !f?.zona;
+      controles.autoRotateSpeed = 0.55;
+      const geo = f?.zona ? geos.find((z) => z.id === f.zona) : null;
+      if (geo) controles.userData = { hacia: new THREE.Vector3(geo.x + 6.5, 12.5, geo.z + 12.5), mira: new THREE.Vector3(geo.x, 0.6, geo.z) };
+      else if (estado.current.vista === 'arriba') controles.userData = { hacia: new THREE.Vector3(0.01, filaNueva ? 74 : 60, MIRA + 1), mira: new THREE.Vector3(0, 0, MIRA) };
+      else {
+        // en pantallas angostas (el celular), más lejos para que quepa toda la planta
+        const lejos = camara.aspect < 1 ? 1.75 : camara.aspect < 1.3 ? 1.25 : 1;
+        controles.userData = { hacia: new THREE.Vector3(CAMARA[0] * lejos, CAMARA[1] * lejos, MIRA + (CAMARA[2] - MIRA) * lejos), mira: new THREE.Vector3(0, 0, MIRA) };
+      }
+    };
+    // de día o de noche
+    let modoAplicado = '';
+    const aplicarModo = () => {
+      const m = estado.current.modo === 'dia' ? 'dia' : 'noche';
+      if (m === modoAplicado) return;
+      modoAplicado = m;
+      const dia = m === 'dia';
+      escena.background.set(dia ? '#b9c6d3' : '#110f0d');
+      escena.fog.color.set(dia ? '#b9c6d3' : '#110f0d');
+      cielo.intensity = dia ? 1.5 : 0.75;
+      cielo.color.set(dia ? '#ffffff' : '#ffe7c7');
+      sol.intensity = dia ? 2.8 : 1.6;
+      renderer.toneMappingExposure = dia ? 1.05 : 1.1;
+      brillo.strength = dia ? 0.25 : 0.55;
+    };
+    let ultimasPosiciones = 0;
+    let calidadRevisada = false;
+    let cuadros = 0;
 
     const actualizarEtiquetas = () => {
       for (const a of estado.current.agentes) {
@@ -1795,6 +1977,29 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
         actualizarReales();
       }
 
+      if ((estado.current.desplazar || 0) !== desplazado) medir();
+      // calidad automática: si el equipo no da (menos de 24 cuadros por segundo), sin brillo y a resolución normal
+      if (!calidadRevisada) {
+        cuadros += 1;
+        if (t > 5) {
+          calidadRevisada = true;
+          if (cuadros / t < 24) {
+            brillo.enabled = false;
+            renderer.setPixelRatio(1);
+            medir();
+          }
+        }
+      }
+      seguirCharlas(lista, t);
+      aplicarVista();
+      aplicarModo();
+      if (t - ultimasPosiciones > 0.5 && avisos.current.onPosiciones) {
+        ultimasPosiciones = t;
+        const pos = {};
+        for (const [id, q] of personajes) pos[id] = [q.g.position.x, q.g.position.z];
+        avisos.current.onPosiciones(pos);
+      }
+
       // los agentes
       for (const a of lista) {
         const p = personajes.get(a.id);
@@ -1845,27 +2050,40 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
           partes.alerta.rotation.y += dt * 3;
           partes.anillo.scale.setScalar(1 + Math.sin(t * 6) * 0.15);
         } else {
-          // libre: camina por su sala y, a veces, al café
-          if (!p.destino || enXZ(g.position, p.destino) < 0.15) {
-            p.espera -= dt;
-            if (p.espera <= 0) {
-              const r = Math.random();
-              p.destino =
-                r < 0.2
-                  ? cafe.punto.clone().add(new THREE.Vector3((Math.random() - 0.5) * 4, 0, (Math.random() - 0.5) * 1.0))
-                  : r < 0.35
-                    ? sala.punto.clone().add(new THREE.Vector3((Math.random() - 0.5) * 3, 0, (Math.random() - 0.5) * 1.2))
-                    : new THREE.Vector3(zona.x + (Math.random() - 0.5) * (zona.w - 3), 0, zona.z + zona.d / 2 - 0.8 - Math.random() * 1.6);
-              p.espera = 2 + Math.random() * 4;
+          // libre: camina por su sala, a veces al café o a la sala de estar, y va a conversar con los demás
+          const ch = p.charla;
+          if (ch?.fase === 'hablando') {
+            const otro = personajes.get(ch.ids.find((x) => x !== a.id));
+            if (otro) g.rotation.y = girar(g.rotation.y, Math.atan2(otro.g.position.x - g.position.x, otro.g.position.z - g.position.z), dt * 6);
+          } else if (!p.ruta.length) {
+            if (ch?.fase === 'yendo') ch.llegaron.add(a.id);
+            else {
+              p.espera -= dt;
+              if (p.espera <= 0) {
+                const r = Math.random();
+                const destino =
+                  r < 0.18
+                    ? cafe.punto.clone().add(new THREE.Vector3((Math.random() - 0.5) * 4, 0, (Math.random() - 0.5) * 1.0))
+                    : r < 0.3
+                      ? sala.punto.clone().add(new THREE.Vector3((Math.random() - 0.5) * 3, 0, (Math.random() - 0.5) * 1.2))
+                      : r < 0.4
+                        ? alAzar(lugaresDeCharla()).add(new THREE.Vector3((Math.random() - 0.5) * 2, 0, (Math.random() - 0.5) * 2))
+                        : new THREE.Vector3(zona.x + (Math.random() - 0.5) * (zona.w - 3), 0, zona.z + zona.d / 2 - 0.8 - Math.random() * 1.6);
+                p.ruta = rutaHacia(g.position, destino);
+                p.espera = 2 + Math.random() * 4;
+              }
             }
           } else {
             andando = true;
-            tmp.copy(p.destino).sub(g.position);
+            tmp.copy(p.ruta[0]).sub(g.position);
             tmp.y = 0;
-            const paso = Math.min(tmp.length(), dt * 1.6);
-            tmp.normalize().multiplyScalar(paso);
-            g.position.add(tmp);
-            g.rotation.y = THREE.MathUtils.lerp(g.rotation.y, Math.atan2(tmp.x, tmp.z), dt * 8);
+            const paso = Math.min(tmp.length(), dt * (ch ? 1.9 : 1.6));
+            if (tmp.length() < 0.12) p.ruta.shift();
+            else {
+              tmp.normalize().multiplyScalar(paso);
+              g.position.add(tmp);
+              g.rotation.y = girar(g.rotation.y, Math.atan2(tmp.x, tmp.z), dt * 8);
+            }
           }
           partes.anillo.scale.setScalar(1);
         }
@@ -1881,7 +2099,7 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
               partes.brazoD.rotation.set(Math.sin(t * 9 + fase) * 0.45, 0, -0.06);
               partes.codoI.rotation.x = partes.codoD.rotation.x = -0.25;
             }
-          } else if (a.estado === 'libre') {
+          } else if (a.estado === 'libre' && p.charla?.fase !== 'hablando') {
             g.position.y = 0;
             partes.piernaI.rotation.x = partes.piernaD.rotation.x = 0;
             partes.rodillaI.rotation.x = partes.rodillaD.rotation.x = 0;
@@ -1891,7 +2109,23 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
             partes.cabeza.rotation.y = Math.sin(t * 0.7 + fase) * 0.4;
           }
         }
-        // la respiración
+        // conversando: el que habla mueve las manos y la cabeza; el que escucha asiente
+        if (p.charla?.fase === 'hablando') {
+          const habla = p.charla.lineas[p.charla.i]?.id === a.id;
+          if (a.estado === 'libre') {
+            g.position.y = 0;
+            partes.piernaI.rotation.x = partes.piernaD.rotation.x = 0;
+            partes.rodillaI.rotation.x = partes.rodillaD.rotation.x = 0;
+            partes.brazoD.rotation.set(habla ? -0.9 + Math.sin(t * 5 + fase) * 0.25 : 0.05, 0, habla ? -0.25 : -0.07);
+            partes.codoD.rotation.x = habla ? -0.9 + Math.sin(t * 4) * 0.2 : -0.12;
+            partes.brazoI.rotation.set(habla ? -0.5 + Math.sin(t * 4 + 1) * 0.2 : 0.05, 0, 0.1);
+          }
+          partes.cabeza.rotation.x = habla ? Math.sin(t * 6) * 0.05 : 0.08 + Math.sin(t * 3) * 0.08;
+          if (a.estado === 'trabajando') {
+            const otro = personajes.get(p.charla.ids.find((x) => x !== a.id));
+            if (otro) partes.cabeza.rotation.y = THREE.MathUtils.clamp(Math.atan2(otro.g.position.x - g.position.x, otro.g.position.z - g.position.z) - g.rotation.y, -1, 1) * 0.6;
+          }
+        } else if (a.estado === 'trabajando') partes.cabeza.rotation.y *= 0.9;
         partes.torso.scale.y = 1 + Math.sin(t * 2.4 + fase) * 0.015;
         // el parpadeo (cada pocos segundos) y la cola de caballo que se mueve
         p.g.userData.parpadeo -= dt;
@@ -1963,15 +2197,15 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
         }
       } else if (enfocado) {
         enfocado = null;
-        controles.userData = { hacia: new THREE.Vector3(...CAMARA) };
+        vistaAplicada = '';
       } else if (controles.userData?.hacia) {
-        controles.target.lerp(objetivoCam.set(0, 0, MIRA), dt * 2.5);
+        controles.target.lerp(controles.userData.mira || objetivoCam.set(0, 0, MIRA), dt * 2.5);
         camara.position.lerp(controles.userData.hacia, dt * 2);
         if (camara.position.distanceTo(controles.userData.hacia) < 0.3) controles.userData = {};
       }
       controles.update();
       desvanecerMuros(dt);
-      renderer.render(escena, camara);
+      composer.render();
       etiquetas.render(escena, camara);
     };
     animar();
@@ -1994,6 +2228,7 @@ export function Oficina3D({ agentes, zonas = [], elegido, onElegir }) {
         }
       });
       materiales.clear();
+      composer.dispose?.();
       renderer.dispose();
       raiz.innerHTML = '';
     };

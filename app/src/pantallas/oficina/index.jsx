@@ -2,8 +2,8 @@
 // nombre y su personaje, en su departamento de una oficina en perspectiva. Cada uno muestra lo que está haciendo
 // ahora, lo que te necesita (en rojo) y lo que terminó hoy. La primera vez, la bienvenida para ponerles nombre.
 // Servidor: GET /api/oficina · PUT /api/oficina/agentes (lib/oficina.js).
-import { useEffect, useMemo, useState } from 'react';
-import { AlertTriangle, GraduationCap, LayoutGrid, MessageCircle, Pencil, Sparkles, ThumbsDown, ThumbsUp, X } from 'lucide-react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { AlertTriangle, Compass, GraduationCap, LayoutGrid, MessageCircle, PanelRightClose, PanelRightOpen, Pencil, Send, Sparkles, ThumbsDown, ThumbsUp, Users, X } from 'lucide-react';
 import { Boton, CampoTexto, Modal, useAvisos } from '../../componentes/index.js';
 import { invalidar, pedirNuevo, useDatos } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
@@ -11,6 +11,7 @@ import { fechaRelativa } from '../../datos/formato.js';
 import { Oficina3D } from './Oficina3D.jsx';
 import { Chat } from './Chat.jsx';
 import { Disenar } from './Disenar.jsx';
+import { Actividad, Minimapa, Recorrido, Vistas, pasosDelRecorrido } from './Hud.jsx';
 import './oficina.css';
 
 const CLAVE = 'oficina';
@@ -55,7 +56,7 @@ function Lista({ titulo, items, vacio, tono }) {
 }
 
 /** El panel de un agente: quién es, qué hace, lo que te necesita, lo que hace ahora y lo que terminó hoy. */
-function Panel({ a, onCerrar, onEditar, onChat }) {
+function Panel({ a, onCerrar, onEditar, onChat, onPedir }) {
   return (
     <aside className="of-panel" style={{ '--color': a.color }}>
       <header className="of-panel__cabeza">
@@ -79,7 +80,11 @@ function Panel({ a, onCerrar, onEditar, onChat }) {
         <Boton variante="primario" tamano="chico" icono={MessageCircle} onClick={onChat}>
           Hablar con {a.nombre}
         </Boton>
-      ) : null}
+      ) : (
+        <Boton variante="secundario" tamano="chico" icono={Send} onClick={() => onPedir(a)}>
+          Pedirle algo a {a.nombre}
+        </Boton>
+      )}
       {a.necesita.length ? <Lista titulo="Te necesita" items={a.necesita} tono="rojo" /> : null}
       <Lista titulo="Ahora" items={a.ahora} vacio="Nada en marcha: está libre." tono="verde" />
       <Lista titulo="Terminó hoy" items={a.hechos} vacio="Todavía nada hoy." />
@@ -183,85 +188,207 @@ function Nombres({ abierto, datos, onCerrar, primera }) {
   );
 }
 
+const RECORRIDO_VISTO = 'oficina:recorrido-visto';
+const leerLocal = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch {
+    return null;
+  }
+};
+const guardarLocal = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch {
+    /* sin almacenamiento */
+  }
+};
+
 export default function Oficina() {
   const { datos, recargar } = useDatos(CLAVE, () => pedirNuevo('/api/oficina'), { cadaMs: 5000 });
   const [elegido, setElegido] = useState(null);
   const [nombres, setNombres] = useState(false);
   const [sinBienvenida, setSinBienvenida] = useState(false);
-  const [chat, setChat] = useState(false);
+  const [chat, setChat] = useState(null); // null o { inicial }
   const [disenar, setDisenar] = useState(false);
+  const [lateral, setLateral] = useState(true);
+  const [vista, setVista] = useState('general');
+  const [modo, setModo] = useState(() => leerLocal('oficina:modo') || 'noche');
+  const [foco, setFoco] = useState(null);
+  const [posiciones, setPosiciones] = useState({});
+  const [charlas, setCharlas] = useState([]);
+  const [actividad, setActividad] = useState(false);
+  const [paso, setPaso] = useState(null); // el paso del recorrido (null = cerrado)
+  // la oficina ocupa todo el alto que queda en la ventana (debajo de la barra de arriba)
+  const escenario = useRef(null);
+  const [anchoLado, setAnchoLado] = useState(0);
+  useEffect(() => {
+    const medir = () => {
+      const el = escenario.current;
+      if (!el) return;
+      const arriba = el.getBoundingClientRect().top + window.scrollY;
+      el.style.setProperty('--alto-escenario', `${Math.max(560, window.innerHeight - arriba - 16)}px`);
+      setAnchoLado(window.innerWidth > 900 ? (el.querySelector('.of-lateral')?.offsetWidth || 0) : 0);
+    };
+    medir();
+    const t = setTimeout(medir, 400);
+    window.addEventListener('resize', medir);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener('resize', medir);
+    };
+  }, [lateral, datos?.configurada]);
   const ias = datos?.ias || [];
   const primera = Boolean(datos && !datos.configurada);
   const agentes = datos?.agentes || [];
   const a = useMemo(() => agentes.find((x) => x.id === elegido) || null, [agentes, elegido]);
   const r = datos?.resumen || {};
-  return (
-    <div className="pagina of">
-      <header className="of-cabeza">
-        <div>
-          <span className="of-cabeza__sobre">Oficina virtual</span>
-          <h1 className="of-cabeza__titulo">{datos?.nombre || 'Tu oficina'}</h1>
-          <div className="of-resumen">
-            <span className="of-chip of-chip--trabajando">{r.trabajando ?? 0} trabajando</span>
-            <span className={`of-chip ${r.teNecesitan ? 'of-chip--te-necesita' : ''}`}>{r.teNecesitan ?? 0} te {r.teNecesitan === 1 ? 'necesita' : 'necesitan'}</span>
-            <span className="of-chip">{r.hechosHoy ?? 0} terminados hoy</span>
-            <a className="of-chip of-chip--enlace" href="#/aprendizajes">
-              <GraduationCap size={12} aria-hidden="true" /> {r.aprendizajes ?? 0} aprendizajes
-            </a>
-            {ias.map((i) => (
-              <span key={i.id} className={`of-chip of-chip--ia of-chip--${i.estado}`} title={i.detalle || undefined}>
-                <AlertTriangle size={12} aria-hidden="true" /> {i.nombre} {i.estado === 'caido' ? 'caído' : i.estado === 'lento' ? 'lento' : 'con fallas'}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="of-cabeza__botones">
-          <Boton variante="primario" tamano="chico" icono={MessageCircle} onClick={() => { setChat(true); setElegido('coordinacion'); }}>
-            Hablar con {agentes.find((x) => x.id === 'coordinacion')?.nombre || 'la coordinadora'}
-          </Boton>
-          <Boton variante="secundario" tamano="chico" icono={LayoutGrid} onClick={() => setDisenar(true)}>
-            Diseñar oficina
-          </Boton>
-          <Boton variante="secundario" tamano="chico" icono={Pencil} onClick={() => setNombres(true)}>
-            Nombres y personajes
-          </Boton>
-        </div>
-      </header>
+  const coordinadora = agentes.find((x) => x.id === 'coordinacion');
+  const pasos = useMemo(() => pasosDelRecorrido(agentes, datos?.nombre || 'tu oficina'), [agentes, datos?.nombre]);
 
-      <div className={`of-cuerpo${a ? ' of-cuerpo--panel' : ''}`}>
+  // la primera vez (después de ponerles nombre), el recorrido solo
+  useEffect(() => {
+    if (datos?.configurada && !leerLocal(RECORRIDO_VISTO) && paso === null && !nombres) setPaso(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [datos?.configurada]);
+  // cada paso del recorrido mueve la cámara
+  useEffect(() => {
+    if (paso === null) return;
+    const p = pasos[paso];
+    if (!p) return;
+    setChat(null);
+    if (p.agente) {
+      setFoco(null);
+      setElegido(p.agente);
+    } else {
+      setElegido(null);
+      if (p.zona) setFoco({ zona: p.zona, n: Date.now() });
+      else {
+        setFoco(null);
+        setVista(p.vista || 'general');
+      }
+    }
+  }, [paso, pasos]);
+  const cerrarRecorrido = () => {
+    setPaso(null);
+    setElegido(null);
+    setFoco(null);
+    setVista('general');
+    guardarLocal(RECORRIDO_VISTO, '1');
+  };
+  const elegirAgente = (id) => {
+    setFoco(null);
+    setElegido(id);
+    setLateral(true);
+  };
+  const alCharlar = useCallback((c) => setCharlas((l) => [{ ...c, t: Date.now() }, ...l].slice(0, 12)), []);
+  const cambiarModo = (m) => {
+    setModo(m);
+    guardarLocal('oficina:modo', m);
+  };
+  const cambiarVista = (v) => {
+    setElegido(null);
+    setFoco(null);
+    setVista(v);
+  };
+
+  return (
+    <div className="pagina of of--pro">
+      <div ref={escenario} className={`of-escenario${lateral ? '' : ' of-escenario--sin-lateral'}`}>
         <div className="of-mundo" role="region" aria-label="La oficina en 3D: arrastra para girarla, rueda para acercarte, toca un agente">
-          {agentes.length ? <Oficina3D agentes={agentes} zonas={datos?.zonas || []} elegido={elegido} onElegir={setElegido} /> : null}
-          {ias.length ? (
-            <div className="of-mundo__aviso" role="status">
-              <AlertTriangle size={14} aria-hidden="true" />
-              {ias.map((i) => `${i.nombre} ${i.estado === 'caido' ? 'está caído' : i.estado === 'lento' ? 'va lento' : 'tiene fallas'}`).join(' · ')}: los agentes que lo usan esperan.
-            </div>
-          ) : null}
-          <p className="of-mundo__ayuda">Arrastra para girar · rueda para acercarte · toca a un agente</p>
+          {agentes.length ? <Oficina3D agentes={agentes} zonas={datos?.zonas || []} elegido={elegido} onElegir={elegirAgente} foco={foco} vista={vista} modo={modo} onPosiciones={setPosiciones} onCharla={alCharlar} desplazar={lateral ? Math.round((anchoLado + 14) / 2) : 0} /> : null}
         </div>
-        {chat ? (
-          <Chat coordinadora={agentes.find((x) => x.id === 'coordinacion')} onCerrar={() => setChat(false)} />
-        ) : a ? (
-          <Panel a={a} onCerrar={() => setElegido(null)} onEditar={() => setNombres(true)} onChat={() => setChat(true)} />
-        ) : (
-          <aside className="of-equipo">
-            <h2 className="of-equipo__titulo">Tus agentes</h2>
-            <ul>
-              {agentes.map((x) => (
-                <li key={x.id}>
-                  <button type="button" className="of-equipo__fila" onClick={() => setElegido(x.id)} style={{ '--color': x.color }}>
-                    <Avatar a={x} />
-                    <span className="of-equipo__textos">
-                      <strong>{x.nombre}</strong>
-                      <span>{x.estado === 'te-necesita' ? <b className="of-rojo">te necesita</b> : x.estado === 'trabajando' ? x.ahora[0]?.titulo : x.rol}</span>
-                    </span>
-                    {x.estado === 'te-necesita' ? <span className="of-equipo__cuenta">{x.necesita.length}</span> : null}
-                  </button>
-                </li>
+
+        {/* arriba: quién eres, cómo va todo y las acciones */}
+        <header className="of-hud-arriba">
+          <div className="of-marca of-vidrio">
+            <span className="of-marca__logo" aria-hidden="true">K</span>
+            <div>
+              <span className="of-cabeza__sobre">Oficina virtual</span>
+              <h1 className="of-marca__titulo">{datos?.nombre || 'Tu oficina'}</h1>
+            </div>
+            <div className="of-resumen">
+              <span className="of-chip of-chip--trabajando">
+                <i className="of-punto of-punto--verde" /> {r.trabajando ?? 0} trabajando
+              </span>
+              <span className={`of-chip ${r.teNecesitan ? 'of-chip--te-necesita' : ''}`}>
+                <i className="of-punto of-punto--rojo" /> {r.teNecesitan ?? 0} te {r.teNecesitan === 1 ? 'necesita' : 'necesitan'}
+              </span>
+              <span className="of-chip">{r.hechosHoy ?? 0} hoy</span>
+              <a className="of-chip of-chip--enlace" href="#/aprendizajes">
+                <GraduationCap size={12} aria-hidden="true" /> {r.aprendizajes ?? 0}
+              </a>
+              {ias.map((i) => (
+                <span key={i.id} className={`of-chip of-chip--ia of-chip--${i.estado}`} title={i.detalle || undefined}>
+                  <AlertTriangle size={12} aria-hidden="true" /> {i.nombre} {i.estado === 'caido' ? 'caído' : i.estado === 'lento' ? 'lento' : 'con fallas'}
+                </span>
               ))}
-            </ul>
-          </aside>
-        )}
+            </div>
+          </div>
+          <div className="of-acciones of-vidrio">
+            <button type="button" className="of-boton of-boton--primario" onClick={() => { setChat({ inicial: '' }); setElegido('coordinacion'); setLateral(true); }}>
+              <MessageCircle size={15} aria-hidden="true" /> Hablar con {coordinadora?.nombre || 'la coordinadora'}
+            </button>
+            <button type="button" className="of-boton" onClick={() => setPaso(0)}>
+              <Compass size={15} aria-hidden="true" /> Cómo funciona
+            </button>
+            <button type="button" className="of-boton" onClick={() => setDisenar(true)}>
+              <LayoutGrid size={15} aria-hidden="true" /> Diseñar
+            </button>
+            <button type="button" className="of-boton" onClick={() => setNombres(true)}>
+              <Pencil size={15} aria-hidden="true" /> Personajes
+            </button>
+            <button type="button" className="of-boton of-boton--icono" onClick={() => setLateral((v) => !v)} aria-label={lateral ? 'Ocultar el panel' : 'Mostrar el panel'} title={lateral ? 'Ocultar el panel' : 'Mostrar el panel'}>
+              {lateral ? <PanelRightClose size={16} /> : <PanelRightOpen size={16} />}
+            </button>
+          </div>
+        </header>
+
+        {ias.length ? (
+          <div className="of-mundo__aviso" role="status">
+            <AlertTriangle size={14} aria-hidden="true" />
+            {ias.map((i) => `${i.nombre} ${i.estado === 'caido' ? 'está caído' : i.estado === 'lento' ? 'va lento' : 'tiene fallas'}`).join(' · ')}: los agentes que lo usan esperan.
+          </div>
+        ) : null}
+
+        {/* a la derecha: el equipo, el panel de un agente o el chat */}
+        {lateral ? (
+          <div className="of-lateral">
+            {chat ? (
+              <Chat key={chat.inicial} coordinadora={coordinadora} inicial={chat.inicial} onCerrar={() => setChat(null)} />
+            ) : a ? (
+              <Panel a={a} onCerrar={() => setElegido(null)} onEditar={() => setNombres(true)} onChat={() => setChat({ inicial: '' })} onPedir={(x) => setChat({ inicial: `Pídele a ${x.nombre} que ` })} />
+            ) : (
+              <aside className="of-equipo">
+                <h2 className="of-equipo__titulo">
+                  <Users size={14} aria-hidden="true" /> Tu equipo
+                </h2>
+                <ul>
+                  {agentes.map((x) => (
+                    <li key={x.id}>
+                      <button type="button" className="of-equipo__fila" onClick={() => elegirAgente(x.id)} style={{ '--color': x.color }}>
+                        <Avatar a={x} />
+                        <span className="of-equipo__textos">
+                          <strong>{x.nombre}</strong>
+                          <span>{x.estado === 'te-necesita' ? <b className="of-rojo">te necesita</b> : x.caida ? <b className="of-naranja">{x.caida}</b> : x.estado === 'trabajando' ? x.ahora[0]?.titulo : x.rol}</span>
+                        </span>
+                        {x.estado === 'te-necesita' ? <span className="of-equipo__cuenta">{x.necesita.length}</span> : null}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            )}
+          </div>
+        ) : null}
+
+        {/* abajo: lo que pasa, el minimapa y las vistas */}
+        <Actividad agentes={agentes} charlas={charlas} abierta={actividad} onAbrir={() => setActividad((v) => !v)} onAgente={elegirAgente} />
+        <div className="of-abajo-derecha">
+          {datos?.zonas?.length ? <Minimapa zonas={datos.zonas} agentes={agentes} posiciones={posiciones} onZona={(id) => { setElegido(null); setFoco({ zona: id, n: Date.now() }); }} /> : null}
+          <Vistas vista={vista} onVista={cambiarVista} modo={modo} onModo={cambiarModo} />
+        </div>
+        {paso !== null ? <Recorrido pasos={pasos} paso={paso} onPaso={setPaso} onCerrar={cerrarRecorrido} /> : null}
       </div>
       <Disenar abierto={disenar} datos={datos} onCerrar={(guardo) => { setDisenar(false); if (guardo) { invalidar(CLAVE); recargar?.(); } }} />
       <Nombres abierto={(primera && !sinBienvenida) || nombres} primera={primera} datos={datos} onCerrar={(guardo) => { setNombres(false); setSinBienvenida(true); if (guardo) recargar?.(); }} />
