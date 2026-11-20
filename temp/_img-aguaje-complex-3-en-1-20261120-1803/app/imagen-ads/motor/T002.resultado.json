@@ -4,16 +4,19 @@
     "V05_1x1": {
       "orden": "g",
       "estado": "generando",
+      "intentosApi": 2,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
+    },
+    "V06_1x1": {
+      "orden": "g",
+      "estado": "generando",
       "intentosApi": 1,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null
-    },
-    "V06_1x1": {
-      "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
     },
     "V07_1x1": {
       "orden": "g",
@@ -40,6 +43,6 @@
       "version": 1
     }
   },
-  "actualizado": "2026-11-20T23:16:29.177Z",
+  "actualizado": "2026-11-20T23:18:38.272Z",
   "terminado": false
 }
