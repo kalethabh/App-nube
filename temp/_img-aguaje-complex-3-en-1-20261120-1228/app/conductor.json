@@ -1,8 +1,8 @@
 {
   "slug": "_img-aguaje-complex-3-en-1-20261120-1228",
   "familia": "imagen-ads",
-  "estado": "corriendo",
-  "paso": "anuncios",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "preparar",
@@ -34,22 +34,24 @@
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 5,
       "inicio": "2026-11-20T17:33:50.345Z",
-      "fin": "2026-11-20T21:17:22.314Z",
-      "detalle": "Creando 2 imágenes · 3 de 5 listas"
+      "fin": "2026-11-20T21:27:07.694Z"
     },
     {
       "id": "informe",
       "nombre": "Armando tu informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T21:27:07.694Z",
+      "fin": "2026-11-20T21:27:07.697Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-20T17:28:15.715Z",
   "aprobado": "2026-11-20T17:28:15.715Z",
-  "actualizado": "2026-11-20T21:25:20.331Z"
+  "actualizado": "2026-11-20T21:27:07.697Z",
+  "terminado": "2026-11-20T21:27:07.697Z"
 }
