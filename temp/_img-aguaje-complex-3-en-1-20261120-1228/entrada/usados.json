@@ -1,0 +1,30 @@
+[
+  {
+    "angulo_id": "beneficio-sin-sacrificio",
+    "formato_id": "G17"
+  },
+  {
+    "angulo_id": "transformacion",
+    "formato_id": "F26"
+  },
+  {
+    "angulo_id": "rutina-uso",
+    "formato_id": "F16"
+  },
+  {
+    "angulo_id": "dolor",
+    "formato_id": "F05"
+  },
+  {
+    "angulo_id": "objecion-confianza",
+    "formato_id": "F22"
+  },
+  {
+    "angulo_id": "comparacion",
+    "formato_id": "F04"
+  },
+  {
+    "angulo_id": "dolor",
+    "formato_id": "F23"
+  }
+]
