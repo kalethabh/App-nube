@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "voces",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -57,27 +57,42 @@
     {
       "id": "voces",
       "nombre": "Buscar voces que no van",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-20T16:01:30.876Z"
+      "inicio": "2026-11-20T16:01:30.876Z",
+      "fin": "2026-11-20T16:01:54.140Z",
+      "nota": "3 clip(s) traían una voz que no iba: van sin sonido."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:01:54.140Z",
+      "fin": "2026-11-20T16:01:54.156Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:01:54.157Z",
+      "fin": "2026-11-20T16:01:57.593Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-20T16:01:57.593Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 1067,
+        "total": 2997,
+        "restante": 185,
+        "en": "2026-11-20T16:03:40.721Z"
+      }
     },
     {
       "id": "control-final",
@@ -96,7 +111,7 @@
   "modoPrueba": false,
   "creado": "2026-11-20T15:47:29.610Z",
   "aprobado": "2026-11-20T15:47:29.610Z",
-  "actualizado": "2026-11-20T16:01:30.876Z",
+  "actualizado": "2026-11-20T16:03:40.721Z",
   "saldoInicial": {
     "creditos": 11011.1,
     "fecha": "2026-11-20T15:47:30.350Z"
