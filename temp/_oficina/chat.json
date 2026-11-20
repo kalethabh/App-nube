@@ -1,4 +1,21 @@
 {
-  "mensajes": [],
+  "mensajes": [
+    {
+      "id": "ab35f92cda",
+      "de": "tu",
+      "texto": "NECESITO REPLICAR ESTE VIDEO PARA EL PRODUCTO AGUAJE, EL QUE TIENE INVESTIGACIÓN DE MERCADO. SI EL VIDEO DURA MÁS DE 1:50 LO ADAPTAS. NECESITO QUE ANALISES LA ESTRUCTURA, EL ANGULO Y TODO TAL CUÁL SOLO QUIERO REEMPLAZAR EL PRODUCTO Y EL ESTILO A ZACK D FILM LOS PERSONAJE, PERO Q HAGA LO MISMO",
+      "adjuntos": [
+        "c570f0d47f74"
+      ],
+      "fecha": "2026-11-20T15:05:49.985Z"
+    },
+    {
+      "id": "b94997f54a",
+      "de": "coordinadora",
+      "texto": "¡De una! Lo clono con el AGUAJE COMPLEX 3 EN 1 (el de la investigación), en estilo Zack D Films, con la misma estructura y el mismo ángulo, y máximo 1:50. Solo me falta una cosa: para las tomas que explican cómo funciona por dentro, ¿te va un fondo de estudio limpio o prefieres que lo decida yo?",
+      "acciones": [],
+      "fecha": "2026-11-20T15:05:55.529Z"
+    }
+  ],
   "encargos": []
 }
