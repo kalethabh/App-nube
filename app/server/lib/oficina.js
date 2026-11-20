@@ -290,13 +290,28 @@ export async function oficina() {
   }
 
   // los anuncios de imagen (directora de arte)
+  // (2026-11-20g) por qué se frenó un lote (el mensaje del paso con error), para verlo en «En vivo» sin abrirlo
+  let leerCond = null;
+  try {
+    leerCond = (await import('./conductor.js')).leerConductor;
+  } catch {
+    /* sin conductor */
+  }
+  const motivoDelLote = (lote) => {
+    try {
+      const c = leerCond?.(lote);
+      return (c?.pasos || []).find((p) => p.error)?.error?.mensaje || null;
+    } catch {
+      return null;
+    }
+  };
   try {
     const { listarLotes } = await import('./imagen-ads/lotes.js');
     for (const l of listarLotes()) {
       const nombre = l.titulo || l.lote;
       const href = `#/imagenes/${l.lote}`;
       if (l.estado === 'corriendo' || l.estado === 'esperando') porId.arte.ahora.push(tarea({ titulo: `Anuncios de imagen: ${nombre}`, detalle: `${l.listas ?? 0} de ${l.total ?? '?'} listas${l.estado === 'esperando' ? ' · en la fila' : ''}`, href, cuando: l.actualizado || l.creado, vista: ultimoMedio(path.join(TEMP, l.lote), ['img'], `/archivos/imagen-ads/${encodeURIComponent(l.lote)}`) }));
-      else if (l.estado === 'error' || (l.estado === 'pausado' && l.motivo !== 'detenido')) porId.arte.necesita.push(tarea({ titulo: `Anuncios de imagen: ${nombre} ${l.motivo === 'saldo' ? 'espera tu saldo' : 'se frenó'}`, detalle: null, href, cuando: l.actualizado || l.creado }));
+      else if (l.estado === 'error' || (l.estado === 'pausado' && l.motivo !== 'detenido')) porId.arte.necesita.push(tarea({ titulo: `Anuncios de imagen: ${nombre} ${l.motivo === 'saldo' ? 'espera tu saldo' : 'se frenó'}`, detalle: motivoDelLote(l.lote), href, cuando: l.actualizado || l.creado }));
       else if (l.estado === 'listo' && Date.parse(l.terminado || l.creado) > hoy) porId.arte.hechos.push(tarea({ titulo: `Entregó ${l.total ?? ''} imágenes de ${nombre}`, href, cuando: l.terminado }));
     }
   } catch {
