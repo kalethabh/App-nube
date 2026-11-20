@@ -232,6 +232,54 @@
         }
       ],
       "fecha": "2026-11-20T16:38:16.513Z"
+    },
+    {
+      "id": "f02a27b79e",
+      "de": "tu",
+      "texto": "el guión debe ser tal cual el mismo que el video de referencia no querés variaciones ni opciones tiene que ser mismo simplemente cambiar el producto por El Aguaje",
+      "fecha": "2026-11-20T16:54:25.027Z"
+    },
+    {
+      "id": "66536c2ac3",
+      "de": "coordinadora",
+      "texto": "Entendido, tal cual y sin variaciones 👌 Descarto el guion que estaba y lo rehago copiando la letra palabra por palabra del original: lo único que cambia es el producto, que ahora es el Aguaje. Apenas esté te paso el costo.",
+      "acciones": [
+        {
+          "tipo": "cancelar",
+          "titulo": "Ya no sigo: Musical de AGUAJE COMPLEX 3 EN 1",
+          "ok": true
+        },
+        {
+          "tipo": "anuncio",
+          "titulo": "Guion Musical de AGUAJE COMPLEX 3 EN 1 (clonando tu video)",
+          "href": "#/nuevo?producto=producto-edb1&paso=2&anuncios=aguaje-complex-3-en-1-musical-20261120-1154",
+          "slug": "aguaje-complex-3-en-1-musical-20261120-1154",
+          "ok": true
+        },
+        {
+          "tipo": "regla",
+          "titulo": "Aprendido (todos los estilos): Cuando el usuario pide clonar un video «tal cual», el guion debe ser idéntico al de referencia, palabra por palabra y con la misma estructura, cambiando solo el producto. Sin variaciones ni opciones.",
+          "href": "#/aprendizajes",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-20T16:54:37.338Z"
+    },
+    {
+      "id": "bb96c91ea3",
+      "de": "coordinadora",
+      "texto": "Se me trabó el guion de Musical de AGUAJE COMPLEX 3 EN 1: Pediste copiar el video de referencia tal cual, con la misma letra palabra por palabra. Pero no tengo esa letra: el video se subió sin su texto escrito y yo no puedo escucharlo. Si escribo una letra nueva ya no sería la del original, y eso es justo lo que no quieres. Además, este estilo se hace en crochet, plastilina o animación 3D, no en video real como el original.. Míralo aquí y lo reintentas, o dime y lo vemos.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Guion de Musical de AGUAJE COMPLEX 3 EN 1",
+          "href": "#/nuevo?producto=producto-edb1&paso=2&anuncios=aguaje-complex-3-en-1-musical-20261120-1154",
+          "slug": "aguaje-complex-3-en-1-musical-20261120-1154",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-20T16:55:05.795Z"
     }
   ],
   "encargos": [
@@ -245,13 +293,23 @@
       "titulo": "Zack D Films de AGUAJE COMPLEX 3 EN 1"
     },
     {
-      "estado": "escribiendo",
+      "estado": "cancelado",
       "creado": "2026-11-20T16:38:16.513Z",
       "id": "aguaje-complex-3-en-1-musical-20261120-1138",
       "tipo": "video",
       "slug": "aguaje-complex-3-en-1-musical-20261120-1138",
       "productoId": "producto-edb1",
       "titulo": "Musical de AGUAJE COMPLEX 3 EN 1"
+    },
+    {
+      "estado": "error",
+      "creado": "2026-11-20T16:54:37.337Z",
+      "id": "aguaje-complex-3-en-1-musical-20261120-1154",
+      "tipo": "video",
+      "slug": "aguaje-complex-3-en-1-musical-20261120-1154",
+      "productoId": "producto-edb1",
+      "titulo": "Musical de AGUAJE COMPLEX 3 EN 1",
+      "error": "Pediste copiar el video de referencia tal cual, con la misma letra palabra por palabra. Pero no tengo esa letra: el video se subió sin su texto escrito y yo no puedo escucharlo. Si escribo una letra nueva ya no sería la del original, y eso es justo lo que no quieres. Además, este estilo se hace en crochet, plastilina o animación 3D, no en video real como el original."
     }
   ]
 }

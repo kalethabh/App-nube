@@ -1,0 +1,10 @@
+[
+  {
+    "agente": "coordinacion",
+    "regla": "Cuando el usuario pide clonar un video «tal cual», el guion debe ser idéntico al de referencia, palabra por palabra y con la misma estructura, cambiando solo el producto. Sin variaciones ni opciones.",
+    "estilo": null,
+    "voto": "regla",
+    "origen": "chat",
+    "fecha": "2026-11-20T16:54:37.338Z"
+  }
+]
