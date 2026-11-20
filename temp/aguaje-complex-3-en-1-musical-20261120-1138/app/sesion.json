@@ -1,0 +1,28 @@
+{
+  "uuid": "104d3178-d54a-401e-a4af-a0a48636b2fe",
+  "estado": "escribiendo",
+  "tipo": "guion",
+  "intentos": 1,
+  "progreso": [
+    "Preparando la foto de tu producto",
+    "Claude empezó a escribir la letra",
+    "Leyendo las instrucciones del estilo",
+    "Leyendo",
+    "Buscando en los archivos",
+    "Leyendo",
+    "Mirando las fotos de tu producto",
+    "Buscando en los archivos",
+    "Leyendo",
+    "Buscando en los archivos",
+    "Leyendo",
+    "Buscando en los archivos",
+    "Escribiendo las letras",
+    "Corrigiendo lo que faltaba",
+    "Ajustando las letras"
+  ],
+  "inicio": "2026-11-20T16:38:16.511Z",
+  "cambios": [],
+  "actualizado": "2026-11-20T16:39:48.339Z",
+  "error": null,
+  "inicioIntento": "2026-11-20T16:38:16.512Z"
+}

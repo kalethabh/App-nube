@@ -208,6 +208,30 @@
         }
       ],
       "fecha": "2026-11-20T16:36:26.922Z"
+    },
+    {
+      "id": "64607af30c",
+      "de": "tu",
+      "texto": "(te pasé estos archivos)",
+      "adjuntos": [
+        "dfb716c80139"
+      ],
+      "fecha": "2026-11-20T16:38:09.469Z"
+    },
+    {
+      "id": "8f3dd07efe",
+      "de": "coordinadora",
+      "texto": "¡Ahora sí lo tengo! 🙌 Ya lo estoy clonando tal cual: musical, con el mismo estilo realista y la misma letra y ritmo, pero hablando del Aguaje Complex 3 en 1. Apenas esté el guion te paso el costo antes de producir.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Guion Musical de AGUAJE COMPLEX 3 EN 1 (clonando tu video)",
+          "href": "#/nuevo?producto=producto-edb1&paso=2&anuncios=aguaje-complex-3-en-1-musical-20261120-1138",
+          "slug": "aguaje-complex-3-en-1-musical-20261120-1138",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-20T16:38:16.513Z"
     }
   ],
   "encargos": [
@@ -219,6 +243,15 @@
       "slug": "aguaje-complex-3-en-1-zack-d-films-20261120-1007",
       "productoId": "producto-edb1",
       "titulo": "Zack D Films de AGUAJE COMPLEX 3 EN 1"
+    },
+    {
+      "estado": "escribiendo",
+      "creado": "2026-11-20T16:38:16.513Z",
+      "id": "aguaje-complex-3-en-1-musical-20261120-1138",
+      "tipo": "video",
+      "slug": "aguaje-complex-3-en-1-musical-20261120-1138",
+      "productoId": "producto-edb1",
+      "titulo": "Musical de AGUAJE COMPLEX 3 EN 1"
     }
   ]
 }

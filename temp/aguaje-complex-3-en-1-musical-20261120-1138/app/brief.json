@@ -1,0 +1,19 @@
+{
+  "slug": "aguaje-complex-3-en-1-musical-20261120-1138",
+  "productoId": "producto-edb1",
+  "estilo": "musical",
+  "familia": "musical",
+  "faseGuion": "letras",
+  "duracion": null,
+  "voz": null,
+  "continuidad": false,
+  "respuestas": {
+    "visual": "realista"
+  },
+  "opciones": {
+    "vocalGender": null,
+    "subestilo": null
+  },
+  "pedido": "Clonar tal cual el video que adjuntó (un anuncio musical realista de otro producto): misma estructura, mismas tomas, mismo ritmo y la misma letra de la canción lo más fiel posible, cambiando solo el producto por el Aguaje Complex 3 en 1 (donde el original nombra su producto, que diga Aguaje Complex 3 en 1). La canción debe sonar lo más parecida posible al audio original.",
+  "creado": "2026-11-20T16:38:16.510Z"
+}
