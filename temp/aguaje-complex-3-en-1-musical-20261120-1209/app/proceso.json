@@ -1,0 +1,12 @@
+{
+  "pid": 13186,
+  "paso": "imagenes-y-videos",
+  "script": "producir.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-musical-20261120-1209",
+    "--si"
+  ],
+  "comando": "node produccion/producir.js temp/aguaje-complex-3-en-1-musical-20261120-1209 --si",
+  "inicio": "2026-11-20T20:31:16.033Z",
+  "app": 13150
+}
