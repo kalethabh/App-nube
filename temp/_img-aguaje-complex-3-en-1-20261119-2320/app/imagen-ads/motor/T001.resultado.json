@@ -3,26 +3,26 @@
   "piezas": {
     "V01_1x1": {
       "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
+      "estado": "generando",
+      "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": false,
+      "intentoAbierto": true,
       "taskId": null
     },
     "V02_1x1": {
       "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
+      "estado": "generando",
+      "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": false,
+      "intentoAbierto": true,
       "taskId": null
     },
     "V03_1x1": {
       "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
+      "estado": "generando",
+      "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": false,
+      "intentoAbierto": true,
       "taskId": null
     },
     "V04_1x1": {
@@ -32,6 +32,6 @@
       "version": 1
     }
   },
-  "actualizado": "2026-11-20T05:40:23.275Z",
+  "actualizado": "2026-11-20T17:04:09.435Z",
   "terminado": false
 }
