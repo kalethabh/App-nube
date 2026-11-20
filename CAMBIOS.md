@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20n · Arreglo interno de las pruebas
+
+- Las pruebas automáticas de la app ya no dejan anotados en el chat de la coordinadora los anuncios de prueba que crean. No cambia nada de lo que ves.
+
 ## 2026-11-20m · «Hazme un musical igual a este video» ya funciona
 
 - Antes, si le pasabas un video a la coordinadora y pedías un **Musical** (o una Historia musical) igual, el guion se trababa: los estilos cantados no podían clonar un video y nadie escuchaba tu video, así que no había letra que copiar.

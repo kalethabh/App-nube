@@ -709,7 +709,10 @@ export async function seguimiento() {
     siguiendo = false;
   }
 }
-if (!process.env.OFICINA_SIN_SEGUIMIENTO) setInterval(() => seguimiento().catch(() => {}), Number(process.env.OFICINA_SEGUIMIENTO_MS) || 15000).unref();
+// (en las apps de prueba de las herramientas, ANUNCIOS_PRUEBA_LIMPIO, solo si la prueba lo pide con OFICINA_SEGUIMIENTO_MS:
+// si no, anotaba en el chat de verdad los anuncios que crean esas pruebas)
+const seguimientoPrendido = !process.env.OFICINA_SIN_SEGUIMIENTO && (process.env.ANUNCIOS_PRUEBA_LIMPIO !== '1' || Boolean(process.env.OFICINA_SEGUIMIENTO_MS));
+if (seguimientoPrendido) setInterval(() => seguimiento().catch(() => {}), Number(process.env.OFICINA_SEGUIMIENTO_MS) || 15000).unref();
 
 // ---------------------------------------------------------------- aprender: el 👍/👎
 
