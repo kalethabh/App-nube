@@ -87,3 +87,4 @@ produccion/video-limpio/**/__pycache__/
 temp/_sep/
 temp/_oficina/adjuntos/
 temp/_oficina/investigaciones/
+temp/_telegram/
