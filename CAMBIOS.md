@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-20o · La oficina como la de los videos: personajes de verdad, ciudad y «Presentar»
+
+- **Personajes humanos de verdad**: los agentes ahora son personajes 3D con esqueleto (de traje, casuales, de trabajo; mujeres y hombres, con distintos tonos de piel), sentados en su silla. Mueven brazos y cabeza según lo que hacen: teclean, usan el mouse, revisan con la mano en la barbilla, se agarran la cabeza si algo se frena; y cuando están libres miran el celular, toman café, se estiran, conversan o se echan atrás con las manos en la nuca.
+- **Un piso alto en la ciudad**: alrededor de la oficina hay edificios; de noche se encienden sus ventanas. Persianas en los ventanales y lámparas colgantes sobre los escritorios.
+- **Botón «Presentar»** (abajo, junto a General, Arriba y Cine): un recorrido de cine por tu oficina para grabar un video. Vista aérea, tu coordinadora, cada departamento con sus agentes y un primer plano de uno de ellos (gira la silla, mira a la cámara y saluda), con tarjetas de nombre como en televisión («Julián · Planificador de producción · AGENTE DE IA · …») y el cierre «Nada se gasta sin tu aprobación». Mientras presenta se esconden los paneles. «Salir» o cualquier otra vista lo termina.
+- Los archivos que le pasas a la coordinadora y lo que S.E.P trae de Meta quedan solo en tu computador (no se suben a GitHub).
+
 ## 2026-11-20n · Arreglo interno de las pruebas
 
 - Las pruebas automáticas de la app ya no dejan anotados en el chat de la coordinadora los anuncios de prueba que crean. No cambia nada de lo que ves.
