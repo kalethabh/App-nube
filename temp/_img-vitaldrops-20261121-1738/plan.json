@@ -1,0 +1,131 @@
+{
+  "producto": "VITALDROPS",
+  "lote": "_img-vitaldrops-20261121-1738",
+  "cantidad": 10,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "biblioteca",
+      "formato_id": "F17",
+      "formato_desde0": "testimonio",
+      "angulo_id": "prueba-social",
+      "angulo": "Testimonio UGC",
+      "concepto": "Toda mi vida fui [dolor en primera persona]",
+      "titular": "Toda mi vida fui la flaca del grupo",
+      "escena": "a city sidewalk in daylight, everyday street · back view, slightly turned, from mid-back to knees",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V02",
+      "fuente": "biblioteca",
+      "formato_id": "F04",
+      "formato_desde0": "nosotros-vs-ellos",
+      "angulo_id": "objecion-confianza",
+      "angulo": "Nosotros vs. ellos",
+      "concepto": "Más [zona/deseo] sin [sacrificio]",
+      "titular": "Más confianza sin promesas mágicas ni cobros",
+      "escena": "producto protagonista",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V03",
+      "fuente": "biblioteca",
+      "formato_id": "F23",
+      "formato_desde0": "pregunta-respuesta",
+      "angulo_id": "dolor",
+      "angulo": "Pregunta y respuesta",
+      "concepto": "Pregunta (la única del lote)",
+      "titular": "¿Comes y comes y no subes?",
+      "escena": "a bathroom with a large mirror, warm light · walking towards the camera, full body framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V04",
+      "fuente": "biblioteca",
+      "formato_id": "F29",
+      "formato_desde0": "nota",
+      "angulo_id": "prueba-social",
+      "angulo": "Nota / recomendado",
+      "concepto": "[Resultado deseado] en [tiempo], de forma natural",
+      "titular": "Más pila en semanas, de forma natural",
+      "escena": "a small home gym corner with a yoga mat and dumbbells · kneeling on a mat, side view, full body framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V05",
+      "fuente": "biblioteca",
+      "formato_id": "F17",
+      "formato_desde0": "testimonio",
+      "angulo_id": "prueba-social",
+      "angulo": "Testimonio UGC",
+      "concepto": "Toda mi vida fui [dolor en primera persona]",
+      "titular": "Toda mi vida me saltaba el desayuno",
+      "escena": "a living room with a sofa and plants · standing with crossed legs, front view, knees-up framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V06",
+      "fuente": "biblioteca",
+      "formato_id": "F28",
+      "formato_desde0": "temporada",
+      "angulo_id": "promesa-emocional",
+      "angulo": "Regalo / temporada",
+      "concepto": "Esta [fecha/ocasión], [acción aspiracional]",
+      "titular": "Este diciembre, regálate tu ritual de cada mañana",
+      "escena": "a kitchen at home, natural light · standing, one hand adjusting her waistband, three-quarter front view, thighs-up framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V07",
+      "fuente": "biblioteca",
+      "formato_id": "F03",
+      "formato_desde0": "antes-despues",
+      "angulo_id": "transformacion",
+      "angulo": "Antes / después",
+      "concepto": "Más [zona/deseo] sin [sacrificio]",
+      "titular": "Más ganas de comer sin tragar pastillas",
+      "escena": "by a residential swimming pool, sunny day · leaning on a wall, side view, full body framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V08",
+      "fuente": "biblioteca",
+      "formato_id": "G16",
+      "formato_desde0": "hero",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Referencia / hero",
+      "concepto": "[Producto/mecanismo]: [n] en 1 para [deseo]",
+      "titular": "VitalDrops: 5 en 1 para trabajar tus curvas",
+      "escena": "a beach at golden hour · stretching with arms up, three-quarter back view, full body framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V09",
+      "fuente": "biblioteca",
+      "formato_id": "F03",
+      "formato_desde0": "antes-despues",
+      "angulo_id": "transformacion",
+      "angulo": "Antes / después",
+      "concepto": "No solo [beneficio obvio]: también [beneficio extra]",
+      "titular": "No solo pila: también ganas de entrenar",
+      "escena": "her bedroom at home, unmade bed and soft window light · seated on the edge of a bed or bench, side view, full body framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V10",
+      "fuente": "biblioteca",
+      "formato_id": "G16",
+      "formato_desde0": "hero",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Referencia / hero",
+      "concepto": "[Resultado deseado] en [tiempo], de forma natural",
+      "titular": "Ganas de comer en semanas, de forma natural",
+      "escena": "a clothing store fitting room with a curtain and mirror · standing, three-quarter back view, looking over her shoulder, full body framing",
+      "camara": "la del formato"
+    }
+  ],
+  "desde0": true
+}

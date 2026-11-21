@@ -1,0 +1,94 @@
+{
+  "ad_info": {
+    "variation_id": "V06"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "a heavy bold sans for the headline in ALL CAPS, a clean sans for the rest"
+  },
+  "visual_prompt": "PRODUCT: VITALDROPS. Its bottle reproduced with total fidelity to the attached photo (label, brand name letter by letter, colors).\nLAYOUT (gift / season): the context of the given date (decor of that season), a subtle bow or detail in the palette of the packaging, an aspirational headline; the bottle presented as a gift.\nMODEL: a 38 years old woman, pear-shaped, light skin, a short bob, ordinary and believable (not a fashion model), natural makeup. Emotion: Mujer de 24 años en la sala de la casa familiar, con luces de Navidad y la mesa de la novena al fondo, abriendo un regalo que trae su frasco. Ilusión y ganas de cuidarse..\nSETTING: a kitchen at home, natural light. POSE AND FRAMING: standing, one hand adjusting her waistband, three-quarter front view, thighs-up framing.\nSEASON: Navidad.",
+  "text_layers": [
+    {
+      "reference_function": "Z1 headline",
+      "reference_position": "top 15-20% of the image",
+      "text": "ESTE DICIEMBRE, REGÁLATE TU RITUAL DE CADA MAÑANA",
+      "text_style": "very bold, ALL CAPS, high contrast, the biggest text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Empieza hoy",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Pagas al recibir",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Una toma al día",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z4 product seal",
+      "reference_position": "on or next to the bottle",
+      "text": "5 INGREDIENTES · 1 TOMA AL DÍA",
+      "text_style": "badge or seal"
+    },
+    {
+      "reference_function": "Z5 offer",
+      "reference_position": "badge or ribbon, bottom",
+      "text": "TRATAMIENTO COMPLETO X3",
+      "text_style": "highlighted but not exaggerated"
+    },
+    {
+      "reference_function": "Z5 offer (2)",
+      "reference_position": "inside or right below the offer",
+      "text": "Pagas al recibir",
+      "text_style": "smaller"
+    },
+    {
+      "reference_function": "Z6 CTA",
+      "reference_position": "a single short chip",
+      "text": "Pídelo hoy",
+      "text_style": "button chip"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, at least 15% of the image",
+    "the woman: a 38 years old woman, pear-shaped, light skin, a short bob, ordinary and believable (not a fashion model), natural makeup"
+  ],
+  "final_generation_exclusions": [
+    "any text closer than 5% to the edges",
+    "more than 3 benefit bullets",
+    "more than one CTA",
+    "medical claims, guarantees or invented numbers",
+    "brands or logos other than the product",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "extra blocks of text",
+      "prices other than the given offer"
+    ],
+    "detected_visual_blocks": [
+      "Z1",
+      "Z2",
+      "Z3",
+      "Z4",
+      "Z5",
+      "Z6"
+    ]
+  },
+  "language_rule": "All visible text in Colombian Spanish, simple, perfectly spelled.",
+  "app_desde0": {
+    "formato": "temporada",
+    "modelo": "a 38 years old woman, pear-shaped, light skin, a short bob, ordinary and believable (not a fashion model), natural makeup",
+    "escenario": "a kitchen at home, natural light",
+    "pose": "standing, one hand adjusting her waistband, three-quarter front view, thighs-up framing",
+    "plantilla_titular": "Esta [fecha/ocasión], [acción aspiracional]"
+  }
+}

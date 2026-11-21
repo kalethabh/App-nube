@@ -1,0 +1,39 @@
+{
+  "slug": "_img-vitaldrops-20261121-1738",
+  "nombre": "VITALDROPS",
+  "analisis": "VITALDROPS.",
+  "tipo_producto": "producto físico",
+  "descripcion_visual_en": "Use the attached product photo exactly as it is (packaging, label, colors and proportions).",
+  "foto_producto": "entrada/producto.jpg",
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "Mujeres de 20 a 34 años en ciudades de Colombia, flacas que comen y no suben, que ya probaron gomitas y le tienen miedo al quirófano",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "10 creativos para Meta pensados para Andromeda: cada imagen es un CONCEPTO distinto, no una variación. Entre una y otra cambian al menos dos cosas: la mujer (faceta), el problema, el momento o lugar y el formato. Todo en lenguaje colombiano. Se vende el ritual diario de gotas que acompaña el apetito y la energía junto con comida y ejercicio. Sin prometer aumento de glúteos ni caderas, sin hormonas, sin antes y después, sin señalar el cuerpo como malo. Cierre siempre: Pagas al recibir, sin suscripción.",
+    "angulo": null
+  },
+  "identidad_visual": {
+    "color_palette": "the colors of the product packaging",
+    "visual_style": "clean direct-response ad",
+    "visual_atmosphere": "bright and trustworthy",
+    "graphic_language": "six zones: hook, main visual, benefits, product, offer, CTA",
+    "text_typography": "heavy bold sans headline in caps",
+    "art_direction": "new ad built from zero"
+  },
+  "beneficios": [
+    "Beneficio principal del producto",
+    "De forma natural",
+    "Fácil de usar",
+    "Calidad"
+  ],
+  "caracteristicas": [
+    "Producto real de la foto",
+    "Empaque original",
+    "Uso diario",
+    "Pagas al recibir"
+  ]
+}

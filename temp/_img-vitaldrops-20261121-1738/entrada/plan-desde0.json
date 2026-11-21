@@ -1,0 +1,102 @@
+{ "anuncios": [
+  {
+    "formato": "testimonio",
+    "titular": "Toda mi vida fui la flaca del grupo",
+    "plantilla_titular": "Toda mi vida fui [dolor en primera persona]",
+    "beneficios": ["Acompaña tu apetito", "Una toma al día", "Sin agujas"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Quiero el mío",
+    "emocion": "Asesora comercial de 26 años en la cocina de su casa, de mañana, con el gotero en la mano y el desayuno servido. Sonríe tranquila, segura, como quien por fin dejó de oír comentarios.",
+    "cita": "Ahora desayuno con ganas y no me salto comidas."
+  },
+  {
+    "formato": "nosotros-vs-ellos",
+    "titular": "Más confianza sin promesas mágicas ni cobros",
+    "plantilla_titular": "Más [zona/deseo] sin [sacrificio]",
+    "beneficios": ["Pagas al recibir", "Sin suscripción"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Escríbenos",
+    "emocion": "Mujer de 30 años en su cuarto, sentada en la cama, deja a un lado los frascos de gomitas que ya probó y sostiene su gotero. Mirada decidida, alivio de no botar más la plata.",
+    "comparacion": [
+      { "nuestro": "✅ Gotas, una toma al día", "otro": "❌ Gomitas y pastillas a montones" },
+      { "nuestro": "✅ Pagas al recibir", "otro": "❌ Pagas por adelantado" },
+      { "nuestro": "✅ Sin suscripción", "otro": "❌ Cobros que no pediste" },
+      { "nuestro": "✅ Promesa honesta", "otro": "❌ Promesas mágicas" }
+    ]
+  },
+  {
+    "formato": "pregunta-respuesta",
+    "titular": "¿Comes y comes y no subes?",
+    "plantilla_titular": "Pregunta (la única del lote)",
+    "beneficios": ["Más ganas de comer", "Ritual de la mañana"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Pídelo hoy",
+    "emocion": "Estudiante que trabaja, en la cafetería de la universidad al mediodía, con el almuerzo a medio comer. Primero cara de duda; luego media sonrisa de quien entendió qué le faltaba.",
+    "respuesta": "Te faltaba tu ritual diario"
+  },
+  {
+    "formato": "nota",
+    "titular": "Más pila en semanas, de forma natural",
+    "plantilla_titular": "[Resultado deseado] en [tiempo], de forma natural",
+    "beneficios": ["Energía para tu día", "Días más tranquilos", "En gotas, fácil"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Lo quiero",
+    "emocion": "Señora de 45 años en su cocina a las seis de la mañana, con una nota de su hija pegada en la nevera junto al frasco: «Mami, no se le olviden sus gotas». Ternura y ánimo para arrancar el día."
+  },
+  {
+    "formato": "testimonio",
+    "titular": "Toda mi vida me saltaba el desayuno",
+    "plantilla_titular": "Toda mi vida fui [dolor en primera persona]",
+    "beneficios": ["Acompaña tu apetito", "Sabor agradable"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Pide el tuyo",
+    "emocion": "Estilista de 29 años en su salón, entre clienta y clienta, sacando el gotero del bolso. Habla como quien le cuenta un secreto a una amiga, contenta y sin pena.",
+    "cita": "Mis gotas me recuerdan comer a mis horas."
+  },
+  {
+    "formato": "temporada",
+    "titular": "Este diciembre, regálate tu ritual de cada mañana",
+    "plantilla_titular": "Esta [fecha/ocasión], [acción aspiracional]",
+    "beneficios": ["Empieza hoy", "Pagas al recibir", "Una toma al día"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Pídelo hoy",
+    "emocion": "Mujer de 24 años en la sala de la casa familiar, con luces de Navidad y la mesa de la novena al fondo, abriendo un regalo que trae su frasco. Ilusión y ganas de cuidarse.",
+    "ocasion": "Navidad"
+  },
+  {
+    "formato": "antes-despues",
+    "titular": "Más ganas de comer sin tragar pastillas",
+    "plantilla_titular": "Más [zona/deseo] sin [sacrificio]",
+    "beneficios": ["Desayuno con ganas", "En gotas, sin pastillas"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Quiero el mío",
+    "emocion": "Antes y después de su mañana, no de su cuerpo: asesora de call center que antes salía a las carreras con un tinto solo y cara de cansancio; después, sentada con su plato servido y su gotero, sonriendo con calma."
+  },
+  {
+    "formato": "hero",
+    "titular": "VitalDrops: 5 en 1 para trabajar tus curvas",
+    "plantilla_titular": "[Producto/mecanismo]: [n] en 1 para [deseo]",
+    "beneficios": ["Apetito y energía", "Natural, sin agujas", "Pagas al recibir"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Pide el tuyo",
+    "emocion": "El frasco al frente, grande y nítido. Detrás, desenfocada, una mujer de 27 años en el balcón de su apartamento al amanecer, con su jugo en la mano. Calma, seguridad, comienzo de día."
+  },
+  {
+    "formato": "antes-despues",
+    "titular": "No solo pila: también ganas de entrenar",
+    "plantilla_titular": "No solo [beneficio obvio]: también [beneficio extra]",
+    "beneficios": ["Energía para el gym", "Apoyo a tu rutina"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Lo quiero",
+    "emocion": "Antes y después de su energía, no de su cuerpo: chica del gym de 25 años que antes llegaba agotada después del trabajo y se sentaba en la banca; después, con su gotero en la maleta, entrenando pierna con cara de ánimo."
+  },
+  {
+    "formato": "hero",
+    "titular": "Ganas de comer en semanas, de forma natural",
+    "plantilla_titular": "[Resultado deseado] en [tiempo], de forma natural",
+    "beneficios": ["Acompaña tu apetito", "Una toma al día"],
+    "sello": "5 INGREDIENTES · 1 TOMA AL DÍA",
+    "cta": "Escríbenos",
+    "emocion": "El frasco protagonista sobre una mesa de comedor con un desayuno colombiano: arepa, huevos y jugo. Al lado, la mano de una mujer joven echando las gotas en su vaso. Cálido, casero y apetitoso."
+  }
+] }

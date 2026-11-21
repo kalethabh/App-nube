@@ -98,7 +98,7 @@
     "R004": {
       "tipo": "revision",
       "uuid": "104194e7-d1f7-40b1-92df-7a4c66c57bf8",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -116,7 +116,8 @@
           "firma": "2195622-1795301480884",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -346,59 +347,74 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2165371-1795301471468",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2165371-1795301471468"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:51:11.544Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R004"
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2064663-1795301474595",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2064663-1795301474595"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:51:15.859Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R004"
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2195622-1795301480884",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2195622-1795301480884"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:51:22.049Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R004"
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

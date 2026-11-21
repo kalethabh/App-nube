@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 1,
+    "R": 2,
     "A": 1,
     "T": 3
   },
@@ -30,6 +30,35 @@
         "V08",
         "V09",
         "V10"
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "86bdde19-1a0a-42bf-aa07-bd8fd9581be9",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2105690-1795300799398",
+          "ronda": 1
+        },
+        {
+          "pieza": "V02_1x1",
+          "firma": "2094250-1795300794452",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2091300-1795300793908",
+          "ronda": 1
+        },
+        {
+          "pieza": "V04_1x1",
+          "firma": "2055827-1795300910226",
+          "ronda": 1
+        }
       ],
       "empezada": true
     }
@@ -80,15 +109,21 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2105690-1795300799398",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2105690-1795300799398"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:40:00.867Z",
@@ -98,15 +133,21 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2094250-1795300794452",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2094250-1795300794452"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:39:54.675Z",
@@ -116,15 +157,21 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2091300-1795300793908",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2091300-1795300793908"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:39:54.339Z",
@@ -134,15 +181,21 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2055827-1795300910226",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2055827-1795300910226"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:41:51.108Z",
