@@ -37,46 +37,38 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": null,
-      "mensaje": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": null,
-      "mensaje": null,
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
@@ -91,7 +83,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,

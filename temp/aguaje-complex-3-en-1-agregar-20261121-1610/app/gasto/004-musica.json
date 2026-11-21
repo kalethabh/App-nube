@@ -1,0 +1,17 @@
+{
+  "numero": 4,
+  "paso": "musica",
+  "comando": "node produccion/suno-retomable.js generar-musica.js temp/aguaje-complex-3-en-1-agregar-20261121-1610 --si",
+  "inicio": "2026-11-21T21:36:55.228Z",
+  "fin": "2026-11-21T21:37:28.799Z",
+  "codigo": 0,
+  "creditos": 12,
+  "dolares": 0.06,
+  "imagenes": [],
+  "videos": [],
+  "musica": {
+    "creditos": 12
+  },
+  "sinRegistro": [],
+  "elevenlabs": null
+}

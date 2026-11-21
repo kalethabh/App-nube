@@ -2,8 +2,21 @@
   "sesion": {
     "uuid": "0ade657c-c806-4078-993e-6a3fad989f1f",
     "intentos": 1,
-    "hecha": false,
-    "fecha": "2026-11-21T21:35:54.838Z"
+    "hecha": true,
+    "fecha": "2026-11-21T21:35:54.838Z",
+    "ok": true
   },
-  "pedidos": []
+  "pedidos": [
+    {
+      "toma": 15,
+      "motivo": "Es una escena del antes, pero ella sale con caderas anchas y curvas en unos leggings ajustados: parece el después. Además los pantalones no son los mismos, holgados, de la toma de las sentadillas.",
+      "prompts": {
+        "prompt_imagen_inicial": "Vertical 9:16. Pixar-Disney style 3D animation render, the woman from the reference image (Daniela) before her change: an adult Afro-Colombian woman in her late 20s with adult facial features, warm deep-brown satin skin with a tiny dark beauty mark on her left cheekbone, a huge voluminous mane of tight spiral curls past her shoulders, dark brown with copper-auburn highlights, small gold hoop earrings, a turquoise beaded bracelet on her right wrist. Slim straight figure, clearly visible: narrow hips no wider than her waist, one straight flat line from her waist down the side of her body. She wears a fitted cream off-white ribbed short-sleeve crew-neck t-shirt tucked into loose baggy dark teal-green high-waisted sweatpants that hang straight and slack on her thin legs, with extra folds of fabric at the hips, the same sweatpants as in her squat scene. She sits on the end of a black weight bench in a bright home gym with warm wooden floors, tall windows full of green plants and a rack of black dumbbells softly blurred behind her, a grey exercise mat on the floor. She holds a clear plastic shaker bottle full of chocolate protein shake in both hands at chest height, its black cap closed, and stares down at it with a bored, doubtful look, lips pushed to one side, one eyebrow raised. Framed from the top of her head to her knees, three-quarter view so her slim straight silhouette reads clearly, eye level, soft daylight from the windows, Pixar-Disney style 3D animation render, high-end 3D animated feature film look, soft subsurface scattering, glossy expressive eyes with catchlights, stylized curl detail, gentle shallow depth of field, muted warm creamy color grade with low-to-medium saturation and soft contrast, clean and sharp, no additional text, captions, or watermarks overlaid on the image\n\nNegative prompt: photorealistic, photograph, real photography, DSLR, stock photo, live action, real human skin, skin pores, skin wrinkles, realistic hair strands, product photography lighting, curvy hips, wide hips, hourglass figure, tight leggings, skinny jeans",
+        "prompt_video": "Pixar-Disney style 3D animation, image-to-video from the shot above, 2.6s. Vertical 9:16.\nCamera: locked-off static camera, no zoom; her whole figure from head to knees stays in frame.\nMotion: she takes a small sip from the shaker, scrunches her nose at the taste, lowers it to her lap and looks at the camera with a sad, defeated pout and a tiny shrug.\nLighting: soft daylight from the gym windows.\nShe does not talk: no lip-sync, her mouth moves only with her expressions."
+      },
+      "fase": "aviso",
+      "resultado": "aviso"
+    }
+  ],
+  "descartados": []
 }

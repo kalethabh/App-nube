@@ -1,0 +1,20 @@
+{
+  "numero": 3,
+  "paso": "voces",
+  "comando": "node produccion/revisar-voces.js temp/aguaje-complex-3-en-1-agregar-20261121-1610 --silenciar",
+  "inicio": "2026-11-21T21:36:45.317Z",
+  "fin": "2026-11-21T21:36:55.226Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 23,
+      "segundos": 114.3
+    }
+  }
+}
