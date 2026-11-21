@@ -1,0 +1,17 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V05_1x1",
+      "ok": true,
+      "problemas": []
+    },
+    {
+      "pieza": "V06_1x1",
+      "ok": false,
+      "problemas": [
+        "Abajo, entre el sello y los íconos, hay una mancha rosada rara que tapa la pierna derecha de la chica del después: la pierna se corta y se pierde en esa forma."
+      ],
+      "correccion_en": "Remove the flat pink blob at the bottom center behind the AFTER character's legs; draw both of her legs complete and continuous down to the bottom edge, with only the clean fuchsia background around them."
+    }
+  ]
+}
