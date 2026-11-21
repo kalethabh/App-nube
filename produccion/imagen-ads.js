@@ -134,6 +134,34 @@ const RAPIDO_COPIAR =
   'Rewrite every other text of the reference (subtitles, bullets, badges, buttons) in short, natural Spanish for this product, keeping the same angle and using only the benefits listed below, with perfect spelling and accents. ' +
   "Never keep the reference's brand, logo, product, prices, claims or wording. " +
   ANTES_DESPUES;
+// MODO REPLICAR VALIDADO (2026-11-21, pedido del usuario): la referencia es un anuncio que YA ESTÁ VALIDADO y se replica
+// EXACTO. Su mapa (zonas, jerarquía, tipografía y paleta, ángulo) lo sacó antes la IA (imagen-ads/replicar.js) y va en
+// «WHAT TO MAKE». Lo ÚNICO que cambia: la modelo, el escenario de la foto, la pose y el encuadre, y la redacción del
+// titular (misma promesa, otras palabras). Prohibido mover bloques, cambiar fuentes o paleta, cambiar el ángulo o
+// inventar claims.
+const RAPIDO_REPLICAR =
+  'MODE: REPLICATE A VALIDATED AD. The FIRST attached image is a VALIDATED, WINNING AD. Reproduce it EXACTLY, as a pixel-faithful layout clone: ' +
+  'every block stays in the same position, the same size and the same alignment (headline, model or before/after, product bottle, benefit bullets or checks, offer block and call to action); ' +
+  'the same reading hierarchy (what is read first, second and third does not change); the same fonts (style, weight, casing, size and effects), the same colors and the same background of every text block (ribbon, badge, box). ' +
+  'The sales angle is IDENTICAL: same central desire, same main benefit, same pain. ' +
+  'ONLY these things change, and they MUST change: (1) the MODEL is a different woman (the age, body type and skin tone given below), believable and ordinary, never a fashion model; ' +
+  '(2) the SETTING/background of the photo (the one given below); (3) her POSE and the FRAMING (given below); (4) the WORDING of the main headline (given below: same promise, other words, about the same length, so it fits the same zone). ' +
+  'FORBIDDEN: moving, adding or removing blocks; changing fonts; changing the palette; changing the angle; inventing new claims, numbers or testimonials; changing the offer or the call to action. ' +
+  'Replace the product bottle of the reference with the product of the SECOND attached image, in the same place, size and angle. ' +
+  'Every other text keeps exactly the text given below, in its same zone and style, perfectly spelled. ' +
+  'GLOBAL RULES: the brand name and the label of the bottle EXACT, letter by letter, as in the product photo; no text closer than 5% to any edge; legible on a phone at half screen. ' +
+  ANTES_DESPUES;
+// MODO NUEVO DESDE 0 (2026-11-21): las 6 zonas y las reglas globales; el formato y los textos van en el V##.json
+// (imagen-ads/desde0.js). Sin referencia: solo la foto del producto.
+const DESDE0 =
+  'MODE: NEW AD FROM ZERO, built with SIX ZONES (the visual order may change with the format, but all six exist): ' +
+  'Z1 HOOK: the headline in the top 15-20% of the image, very bold, ALL CAPS, max 8 words. ' +
+  'Z2 MAIN VISUAL: 45-55% of the image (the model, the before/after or the product, as the format says); the emotion lives here. ' +
+  'Z3 BENEFITS: 2 or 3 bullets with a check icon, max 5 words each, never more than 3. ' +
+  'Z4 PRODUCT: the bottle, faithful to the real label of the attached photo (brand name and label EXACT, letter by letter), never smaller than 15% of the image, with its differentiating seal. ' +
+  'Z5 OFFER: a highlighted badge or ribbon, not exaggerated, with the offer text and "Pagas al recibir". ' +
+  'Z6 CTA: one single short chip. ' +
+  'GLOBAL RULES: simple Colombian Spanish, little text, legible on a phone at half screen; no text closer than 5% to any edge; soft claims only; never medical promises, invented numbers or guarantees; a clean, uncluttered, premium direct-response look. ';
 const RAPIDO_INSPIRAR =
   'The FIRST attached image is a WINNING AD, used as inspiration. Create a NEW ad for the product of the SECOND attached image. ' +
   LEER_REFERENCIA +
@@ -361,9 +389,12 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   if (ad?.app_plantilla?.escena) return construirPromptEscena(ad, { correccion, referencia });
   const pos = posicionDe(logo);
   // «Más de lo mismo» (referencia: true): la PRIMERA imagen adjunta es el anuncio de referencia y la SEGUNDA, el producto
-  const rapido = referencia && ['copiar', 'inspirar', 'plantilla'].includes(ad?.app_rapido) ? ad.app_rapido : null;
-  const partes = rapido
-    ? [{ copiar: RAPIDO_COPIAR, inspirar: RAPIDO_INSPIRAR, plantilla: RAPIDO_PLANTILLA }[rapido], 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
+  const rapido = referencia && ['copiar', 'inspirar', 'plantilla', 'replicar'].includes(ad?.app_rapido) ? ad.app_rapido : null;
+  const desde0 = !rapido && ad?.app_desde0 ? DESDE0 : null;
+  const partes = desde0
+    ? [desde0, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
+    : rapido
+    ? [{ copiar: RAPIDO_COPIAR, inspirar: RAPIDO_INSPIRAR, plantilla: RAPIDO_PLANTILLA, replicar: RAPIDO_REPLICAR }[rapido], 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : referencia
       ? [COPIAR_REFERENCIA, LEER_REFERENCIA, ANTES_DESPUES, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)]
       : [strPy(ad.visual_prompt)];
@@ -372,7 +403,11 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   if (!vacioPy(capas)) {
     // (rápido: solo el titular va exacto; el resto lo escribe el modelo)
     const lineas = [
-      rapido === 'plantilla'
+      desde0
+        ? 'TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and style):'
+        : rapido === 'replicar'
+        ? 'TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and with the same style as in the reference):'
+        : rapido === 'plantilla'
         ? 'MAIN HEADLINE (write it with the HEADLINE STRUCTURE given above, about this product\'s main desire or benefit; the text below is the idea: render it exactly when it already fits that structure; the other texts are yours, all perfectly spelled):'
         : rapido
           ? 'MAIN HEADLINE (if it fits the angle and hook of the reference, render it exactly, no spelling changes; if not, follow the rule above; the other texts are yours):'

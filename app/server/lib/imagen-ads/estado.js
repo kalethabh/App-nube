@@ -80,7 +80,8 @@ export function cargarYNormalizar(carpeta, brief, { uuidEstrategia = null, motor
   if (!est) {
     est = nuevoEstado({ cantidad, formatos });
     // (el modo rápido escribe todos los anuncios de una vez: ninguno espera a la IA)
-    const ids = idsDelLote(brief?.rapido ? cantidad : Math.min(cantidad, 4));
+    // (y «Desde 0»: la app ya escribió todos los anuncios con sus 6 zonas)
+    const ids = idsDelLote(brief?.rapido || brief?.desde0 ? cantidad : Math.min(cantidad, 4));
     est.tandas.E001 = { tipo: 'estrategia', ids, uuid: uuidEstrategia, motor: brief?.rapido ? null : motor, estado: 'hecha', ...(brief?.rapido ? { rapido: true } : {}) };
     for (const v of ids) est.variaciones[v] = { prompt: 'listo', tanda: 'E001' };
     est.siguiente.E = 2;

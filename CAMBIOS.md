@@ -2,6 +2,27 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21a · Anuncios nuevos «Desde 0» con 6 zonas, y la coordinadora lo coordina todo
+
+- En **Crear anuncios de imagen › Desde la investigación** hay un modo nuevo, **«Desde 0 (6 zonas)»** (viene elegido; «Variaciones del agente» sigue a un toque). Cada anuncio lleva:
+  1. **Gancho** arriba, en mayúsculas y de máximo 8 palabras.
+  2. **Visual principal**, de la mitad de la imagen.
+  3. **2 o 3 beneficios** con check.
+  4. **Tu frasco**, fiel a la etiqueta, con su sello (por ejemplo «3 EN 1 · TRIPLE ACCIÓN»).
+  5. **La oferta**: «TRATAMIENTO COMPLETO X3 $precio» + «Pagas al recibir».
+  6. **Un solo botón**: «Pide el tuyo», «Lo quiero»…
+- **Titulares** afirmativos con la fórmula beneficio + tiempo + deseo, y máximo una pregunta por lote.
+- **Formatos distintos** en el lote: hero, antes y después, nosotros vs. ellos, testimonio de celular, pregunta y respuesta, bodegón de ingredientes, recomendado y temporada. Nunca más de 3 iguales y nunca se repite la modelo ni el escenario.
+- **Reglas para todos los anuncios** (también en «Replicar validado»): español colombiano sencillo y poco texto; promesas suaves («ayuda a», «de forma natural»), sin promesas médicas, cifras inventadas ni garantías; la marca y la etiqueta exactas, revisadas letra por letra, y ningún texto pegado al borde. La revisión de la IA rechaza lo que no cumpla.
+- **La coordinadora** ya maneja todo: le pides imágenes con tu anuncio (las replica exacto) o sin él (las hace desde 0), clona landings y las sube a tu Shopify, además de lo que ya hacía con videos, investigaciones y tu tienda.
+
+## 2026-11-21 · Replicar validado: tu anuncio exacto, con otra modelo
+
+- En **Crear anuncios de imagen › Con referencia** hay un modo nuevo, **«Replicar validado (exacto)»** (viene elegido; «Variaciones del agente» sigue a un toque).
+- Antes de generar, tu IA lee el **mapa** de tu anuncio: dónde va el titular, la modelo o el antes y después (y cuánto ocupa), el frasco, los checks, la oferta y el botón; qué se lee primero, segundo y tercero; las letras, los colores y el fondo de cada bloque; y el ángulo (el deseo, el beneficio y el dolor).
+- Cada imagen conserva todo eso **exacto**. Solo cambian: **la modelo** (otra mujer en cada una: edad, contextura y tono de piel distintos, creíble), **el escenario** (cuarto, espejo, calle, gym en casa, probador, piscina…), **la pose y el encuadre**, y **la redacción del titular** (la misma promesa con otras palabras, del mismo largo para que quepa).
+- Nunca se repite la modelo ni el escenario en el mismo lote, y no se mueven bloques, no se cambian letras ni colores, no se cambia el ángulo ni se inventan promesas.
+
 ## 2026-11-20v · Arreglo: «Actualizar» decía que lo nuevo chocaba
 
 - En la versión anterior se coló, por error, un chat de prueba de la coordinadora. En tu computador ya tienes tu propio chat, así que al actualizar los dos chocaban y la app no bajaba nada (tu chat no se tocó).

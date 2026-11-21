@@ -160,7 +160,7 @@ async function principal() {
   if (accImg?.lote) creados.lotes.push(accImg.lote);
   check('Lee la imagen y encarga 3 anuncios de imagen al agente (con tu referencia)', /Vi tu anuncio/.test(m?.texto || '') && accImg?.ok && accImg.lote, m);
   const briefLote = accImg?.lote ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', accImg.lote, 'app', 'brief.json'), 'utf8')) : null;
-  check('…el lote va con el agente de variaciones y tu imagen como referencia', briefLote?.agente === 'variaciones' && briefLote.modo === 'variantes' && briefLote.referencias?.length === 1, briefLote);
+  check('…el lote va en «Replicar validado» (lo de siempre con referencia; el agente solo si lo pide) con tu imagen como referencia', briefLote?.replicar === true && !briefLote.agente && briefLote.modo === 'variantes' && briefLote.referencias?.length === 1, briefLote);
   check('Te dice el costo, pregunta «¿Le doy?» y lo deja esperando tu sí (sin arrancar)', /US\$\d+\.\d\d\. ¿Le doy\?/.test(m?.texto || '') && c.pendientes?.length === 1 && c.pendientes[0].costo > 0 && !fs.existsSync(path.join(RAIZ, 'temp', accImg.lote, 'app', 'conductor.json')), { texto: m?.texto, pendientes: c?.pendientes });
   r = await pedir('/api/oficina/chat', { json: { texto: 'dale' } });
   c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);

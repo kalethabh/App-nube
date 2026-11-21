@@ -287,6 +287,46 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, escenaB[1]), JSON.stringify({ se_ve: `Escena de apoyo de prueba ${nb}${quiere ? `: ${quiere.slice(0, 60)}` : ''}, con el producto en primer plano y luz cálida.`, camara: 'primer plano, la cámara se acerca despacio' }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-21) los textos de los anuncios «Desde 0» (uno por formato, en el orden pedido)
+  const desde0 = /TAREA: anuncios nuevos desde cero/.test(textoTarea) ? /Escribe (temp\/\S+\/entrada\/plan-desde0\.json)/.exec(textoTarea) : null;
+  if (desde0) {
+    const formatos = [...textoTarea.matchAll(/^\d+\. ([a-z-]+) \(/gm)].map((m) => m[1]);
+    const tit = { hero: 'Más curvas sin cirugía', 'antes-despues': 'Glúteos más firmes de forma natural', 'nosotros-vs-ellos': 'No es lo mismo: es 3 en 1', testimonio: 'Toda mi vida fui la plana', 'pregunta-respuesta': '¿Sientes la cola plana?', bodegon: 'Tres extractos en 1 para tus curvas', nota: 'La fórmula que recomiendan para curvas', temporada: 'Esta Navidad, estrena tus curvas' };
+    fs.writeFileSync(path.join(RAIZ, desde0[1]), JSON.stringify({
+      anuncios: formatos.map((f, k) => ({
+        formato: f,
+        titular: `${tit[f]}${formatos.indexOf(f) === k ? '' : ` ${['ya', 'hoy', 'así'][k % 3]}`}`,
+        plantilla_titular: 'Más [deseo] sin [sacrificio]',
+        beneficios: ['Más volumen natural', 'Curvas más firmes'],
+        sello: '3 EN 1 · TRIPLE ACCIÓN',
+        cta: 'Pide el tuyo',
+        emocion: 'segura y feliz',
+        ...(f === 'testimonio' ? { cita: 'Por fin me queda bien el jean' } : {}),
+        ...(f === 'pregunta-respuesta' ? { respuesta: 'Te faltaba el 3 en 1' } : {}),
+        ...(f === 'nosotros-vs-ellos' ? { comparacion: [{ nuestro: 'Natural', otro: 'Químicos' }, { nuestro: '3 en 1', otro: 'Solo uno' }, { nuestro: 'Pagas al recibir', otro: 'Pago anticipado' }] } : {}),
+        ...(f === 'bodegon' ? { ingredientes: ['Aguaje', 'Fenogreco', 'Maca'] } : {}),
+        ...(f === 'temporada' ? { ocasion: 'Navidad' } : {}),
+      })),
+    }));
+    return resultado({ result: 'LISTO' });
+  }
+  // (2026-11-21) el MAPA de una referencia validada (modo «Replicar validado»): zonas, jerarquía, letra y paleta, ángulo
+  // y N titulares con la misma promesa
+  const mapaRef = /TAREA: mapa de la referencia validada/.test(textoTarea) ? /Escribe (temp\/\S+\/entrada\/mapa-R\d{2}\.json)/.exec(textoTarea) : null;
+  if (mapaRef) {
+    const n = Number((/REPLICARLO EXACTO en (\d+) variaciones/.exec(textoTarea) || [])[1]) || 3;
+    const otras = ['Adiós a la cola plana', 'Chao a los glúteos planos', 'Despídete de la cola plana', 'Olvida los glúteos planos', 'Basta de cola plana', 'Nunca más glúteos planos', 'Se acabó la cola plana', 'Fuera los glúteos planos', 'Dile adiós a la cola plana', 'Ya no más cola plana', 'Hasta nunca, cola plana', 'Sin glúteos planos nunca más'];
+    fs.writeFileSync(path.join(RAIZ, mapaRef[1]), JSON.stringify({
+      zonas: { titular: 'arriba, centrado, 90 % del ancho, letra enorme', modelo: 'mitad izquierda, 55 % de la imagen, de espaldas', producto: 'abajo a la derecha, 30 % del alto, de frente', beneficios: 'derecha, 3 checks verdes uno debajo del otro', oferta_cta: 'franja inferior amarilla con botón negro', otros: 'no hay' },
+      jerarquia: ['el titular', 'el antes y después', 'el frasco y la oferta'],
+      tipografia_paleta: { fuentes: 'titular en sans condensada negra, mayúsculas; checks en sans regular', colores: 'fondo rosa #F7C6D0, texto negro #111111, checks verdes #22C55E', fondos_de_bloques: 'titular sin fondo; oferta en cinta amarilla #FACC15' },
+      angulo: { deseo: 'tener glúteos redondos y levantados', beneficio: 'más volumen en glúteos', dolor: 'la cola plana' },
+      titular_original: 'Bye bye glúteos planos',
+      textos: [{ zona: 'check 1', texto: 'Más volumen' }, { zona: 'oferta', texto: 'Envío gratis hoy' }, { zona: 'CTA', texto: 'Pídelo ya' }],
+      titulares: Array.from({ length: n }, (_, k) => otras[k % otras.length] + (k >= otras.length ? ` ${k}` : '')),
+    }));
+    return resultado({ result: 'LISTO' });
+  }
   // (2026-11-20r) la IA en una tienda de Shopify: cambia el botón del tema y, si le piden una página, propone crearla
   const tiendaShop = /TAREA: tienda shopify/.test(textoTarea) ? /(temp\/_shopify\/trabajos\/[a-z0-9-]+)\/tema\//.exec(textoTarea) : null;
   if (tiendaShop) {
@@ -348,6 +388,9 @@ async function alMensaje(texto) {
       const tienda = /^(\S+) \| [^|\n]+ \| \S+\.myshopify\.com \|/m.exec(textoTarea)[1];
       acciones.push({ tipo: 'shopify', tienda, pedido: ultimo, motor: 'claude' });
       respuesta = 'Va, le pido al equipo el cambio en tu tienda. Te queda como tema sin publicar para que lo revises.';
+    } else if (/landing/i.test(ultimo) && /https?:\/\/\S+/.test(ultimo)) {
+      acciones.push({ tipo: 'landing', url: /https?:\/\/\S+/.exec(ultimo)[0], modo: 'tal-cual', motor: 'claude' });
+      respuesta = 'Listo, la estoy clonando. Te aviso cuando esté.';
     } else if (/regla:/i.test(ultimo)) {
       acciones.push({ tipo: 'regla', texto: ultimo.split(/regla:/i)[1].trim(), estilo: null });
       respuesta = 'Anotado: lo aplicamos de ahora en adelante.';

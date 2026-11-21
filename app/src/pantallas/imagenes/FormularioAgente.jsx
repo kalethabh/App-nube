@@ -92,6 +92,10 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const [productoId, setProductoId] = useState(productoPedido || '');
   const [elegidos, setElegidos] = useState(() => (referenciaPedida ? [{ id: referenciaPedida, url: referenciaPedida, titulo: 'Referencia' }] : []));
   const [cantidad, setCantidad] = useState(5);
+  // (2026-11-21) MODO REPLICAR VALIDADO: tu anuncio EXACTO; cambian solo la modelo, el escenario, la pose y el titular
+  const [replicar, setReplicar] = useState(true);
+  // (2026-11-21) MODO NUEVO DESDE 0: las 6 zonas y los 8 formatos (sin referencia)
+  const [desde0, setDesde0] = useState(true);
   const [vertical, setVertical] = useState(false);
   const [pais, setPais] = useState('');
   const [publico, setPublico] = useState('');
@@ -152,9 +156,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         formatos,
         logo: null,
         modo: modo === 'referencia' ? 'variantes' : 'nuevos',
-        agente: 'variaciones',
+        ...(modo === 'referencia' && replicar ? { replicar: true, rapido: true } : modo !== 'referencia' && desde0 ? { desde0: true, rapido: false } : { agente: 'variaciones', rapido: false }),
         fiel: modo === 'referencia',
-        rapido: false,
         usarInvestigacion: true,
         ...(modo === 'referencia'
           ? {
@@ -172,7 +175,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
       await apiImagenes.generar(r.lote, costo, []);
       invalidar(CLAVE_LOTES);
       invalidar('oficina');
-      aviso({ tipo: 'exito', titulo: 'El agente está trabajando', texto: `${cantidad} anuncios ${modo === 'referencia' ? 'a partir de tu referencia' : 'desde tu investigación'}.` });
+      aviso({ tipo: 'exito', titulo: modo === 'referencia' && replicar ? 'Replicando tu anuncio validado' : modo !== 'referencia' && desde0 ? 'Creando tus anuncios desde 0' : 'El agente está trabajando', texto: modo === 'referencia' && replicar ? `${cantidad} réplicas exactas: cambian la modelo, el escenario, la pose y el titular.` : `${cantidad} anuncios ${modo === 'referencia' ? 'a partir de tu referencia' : 'desde tu investigación'}.` });
       onListo?.(r.lote);
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude crearlos', texto: e?.message || 'Vuelve a intentarlo.' });
@@ -231,10 +234,36 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         <section className="enc-paso">
           <h4>2. Tu anuncio de referencia</h4>
           <Ganadores elegidos={elegidos} setElegidos={setElegidos} productoId={productoId} />
+          <div className="enc-chips enc-replicar" role="radiogroup" aria-label="Cómo usar tu referencia">
+            <button type="button" role="radio" aria-checked={replicar} className={replicar ? 'activo' : ''} onClick={() => setReplicar(true)}>
+              Replicar validado (exacto)
+            </button>
+            <button type="button" role="radio" aria-checked={!replicar} className={!replicar ? 'activo' : ''} onClick={() => setReplicar(false)}>
+              Variaciones del agente
+            </button>
+          </div>
+          <p className="t-chico t-3">
+            {replicar
+              ? 'Tu anuncio tal cual: mismas zonas, jerarquía, letras, colores, oferta, CTA y ángulo. Solo cambian la modelo (otra mujer en cada imagen: edad, contextura y tono de piel), el escenario, la pose y la redacción del titular (misma promesa, otras palabras). Nada se repite en el lote.'
+              : 'El agente prueba variaciones cercanas, conceptos vecinos y expandidos, cada una con qué cambió y qué hipótesis prueba.'}
+          </p>
         </section>
       ) : (
         <section className="enc-paso">
           <h4>2. La investigación de mercado</h4>
+          <div className="enc-chips enc-replicar" role="radiogroup" aria-label="Cómo crearlos">
+            <button type="button" role="radio" aria-checked={desde0} className={desde0 ? 'activo' : ''} onClick={() => setDesde0(true)}>
+              Desde 0 (6 zonas)
+            </button>
+            <button type="button" role="radio" aria-checked={!desde0} className={!desde0 ? 'activo' : ''} onClick={() => setDesde0(false)}>
+              Variaciones del agente
+            </button>
+          </div>
+          <p className="t-chico t-3">
+            {desde0
+              ? 'Cada anuncio con sus 6 zonas: gancho arriba, el visual principal, 2 o 3 beneficios con check, tu frasco con su sello, la oferta con «Pagas al recibir» y un solo botón. En formatos distintos (hero, antes y después, nosotros vs. ellos, testimonio, bodegón de ingredientes, recomendado, temporada y una pregunta y respuesta), sin repetir modelo ni escenario. Pon el precio del tratamiento en «Oferta».'
+              : 'El agente arma la matriz de facetas desde tu investigación y prueba conceptos cercanos, vecinos y expandidos.'}
+          </p>
           {!p ? null : conInvestigacion ? (
             <p className="enc-nota enc-nota--ok">
               <FileSearch size={14} aria-hidden="true" /> {p.nombre} tiene su investigación{p.investigacion?.pais ? ` (${p.investigacion.pais})` : ''}: el agente saca de ahí el deseo, las facetas, las objeciones y las palabras del cliente. <a href={enlace.investigacion(p.id)}>Verla</a>
@@ -274,7 +303,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
       <div className="enc-pie">
         <span className="enc-costo">{falta ? <span className="enc-falta">{falta}</span> : costo === null ? 'Calculando el costo…' : costo === 0 ? `${imagenes} imágenes con tu ChatGPT: sin costo por imagen` : `${imagenes} imágenes · ${dinero(costo)} (${dinero(precio.dolaresPorImagen)} cada una)`}</span>
         <Boton variante="primario" icono={Briefcase} onClick={crear} cargando={Boolean(fase)} disabled={!listo}>
-          {fase || (costo ? `Crear con el agente · ${dinero(costo)}` : 'Crear con el agente')}
+          {fase || (modo === 'referencia' && replicar ? (costo ? `Replicar · ${dinero(costo)}` : 'Replicar') : modo !== 'referencia' && desde0 ? (costo ? `Crear desde 0 · ${dinero(costo)}` : 'Crear desde 0') : costo ? `Crear con el agente · ${dinero(costo)}` : 'Crear con el agente')}
         </Boton>
       </div>
     </div>

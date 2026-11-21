@@ -16,7 +16,7 @@ import * as bibliotecaReferencias from './biblioteca-referencias.js';
 import path from 'node:path';
 import { TEMP, PUERTO_DE_PRUEBA, esDeEstaApp } from '../rutas.js';
 import { leerJSON, existe, listar } from '../archivos.js';
-import { leerProducto, rutaFoto, urlFoto, idValido, PRODUCTOS, ErrorApp, aKebab } from '../productos.js';
+import { leerProducto, rutaFoto, urlFoto, idValido, PRODUCTOS, ErrorApp, aKebab, leerFicha } from '../productos.js';
 import { leerConfig } from '../config.js';
 import { modoPrueba } from '../procesos.js';
 import * as gasto from '../gasto.js';
@@ -25,6 +25,7 @@ import { leerEstado, resumenDelLote } from './estado.js';
 import { PEDIDO_TERMINADO } from './planificador.js';
 import { POR_ID, escenasDe, catalogoParaLaPantalla } from './catalogo-plantillas.js';
 import * as plantillasRef from './plantillas-referencia.js';
+import { repartoDeFormatos } from './desde0.js';
 import {
   FAMILIA, RE_LOTE, RE_PIEZA, RE_V, R, POSICIONES, NOMBRE_POSICION, MAXIMO_VARIACIONES, MAXIMO_REFERENCIAS, carpetaDe, guardarJSON, idsDelLote,
   vDe, formatoDe, piezaId, ordenDePiezas, ordenDeV, fotoDelLote,
@@ -240,18 +241,22 @@ export function crearLote(cuerpo = {}) {
     // «Variantes» y siempre con la estrategia de la IA (el modo rápido no analiza el ganador)
     // (2026-11-20b) …y también SIN referencia, desde la investigación de mercado («Nuevos»): el agente hace todo
     ...(cuerpo.agente === 'variaciones' ? { agente: 'variaciones' } : {}),
+    // (2026-11-21) MODO NUEVO DESDE 0: las 6 zonas y los 8 formatos (imagen-ads/desde0.js), con revisión de la IA
+    ...(cuerpo.modo !== 'variantes' && cuerpo.desde0 === true && cuerpo.agente !== 'variaciones' ? { desde0: { formatos: [] }, modo: 'nuevos', fiel: false } : {}),
+    // (2026-11-21) MODO REPLICAR VALIDADO: el anuncio validado EXACTO; solo cambian modelo, escenario, pose y titular
+    ...(cuerpo.modo === 'variantes' && cuerpo.replicar === true && cuerpo.agente !== 'variaciones' ? { replicar: true } : {}),
     // Ya no se eligen títulos antes (2026-11-16: «elimina lo de seleccionar títulos»): los pone la app o la IA.
     elegirTitulos: false,
     // Modo rápido por defecto («como pedirle a ChatGPT que me las varíe», imagen-ads/rapido.js); rapido: false = con
     // la estrategia de la IA (más lento).
-    rapido: cuerpo.agente === 'variaciones' ? false : cuerpo.rapido !== false,
+    rapido: cuerpo.agente === 'variaciones' || (cuerpo.modo !== 'variantes' && cuerpo.desde0 === true) ? false : cuerpo.modo === 'variantes' && cuerpo.replicar === true ? true : cuerpo.rapido !== false,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
     // PLANTILLAS (2026-11-17p): la app dibuja los textos; solo las de escena usan el modelo de imagen (sin texto)
-    ...(plantillasDelCuerpo(cuerpo) && cuerpo.agente !== 'variaciones' ? { plantillas: plantillasDelCuerpo(cuerpo), fiel: false, modo: 'nuevos' } : {}),
+    ...(plantillasDelCuerpo(cuerpo) && cuerpo.agente !== 'variaciones' && cuerpo.desde0 !== true ? { plantillas: plantillasDelCuerpo(cuerpo), fiel: false, modo: 'nuevos' } : {}),
     // PLANTILLAS DE REFERENCIA (2026-11-18s): las elegidas (o una mezcla variada) van al modelo como referencia; el
     // modelo mantiene su diseño y cambia el producto, los textos y la paleta (rapido.js, modo «copiar»)
-    ...(cuerpo.plantillasReferencia && !plantillasDelCuerpo(cuerpo) && cuerpo.agente !== 'variaciones' ? { desdePlantillas: true, fiel: true, rapido: true, modo: 'nuevos' } : {}),
+    ...(cuerpo.plantillasReferencia && !plantillasDelCuerpo(cuerpo) && cuerpo.agente !== 'variaciones' && cuerpo.desde0 !== true ? { desdePlantillas: true, fiel: true, rapido: true, modo: 'nuevos' } : {}),
     logo,
     creado: ahora(),
     ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}),
@@ -268,6 +273,11 @@ export function crearLote(cuerpo = {}) {
     // con plantillas y sin formatos elegidos: los que propuso la investigación, con sus textos (el costo cuenta esos)
     const propuestas = resumenDe(productoId)?.propuestas || [];
     if (brief.plantillas && !brief.video && !brief.plantillas.elegidas.length && propuestas.length) brief.plantillas = { ...brief.plantillas, elegidas: propuestas, deLaInvestigacion: true };
+  }
+  if (brief.desde0) {
+    // el reparto de formatos lo decide la app (máx. 3 iguales, pregunta y respuesta máx. 1; bodegón solo con ingredientes)
+    const f = leerFicha(productoId) || {};
+    brief.desde0 = { formatos: repartoDeFormatos(cantidad, { conIngredientes: Array.isArray(f.ingredientes) && f.ingredientes.length >= 2, semilla: lote }) };
   }
   if (brief.desdePlantillas) {
     // (sin elegidas: una mezcla variada, con las de productos relacionados primero)
