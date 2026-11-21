@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "musica",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -67,21 +67,33 @@
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-21T19:03:10.657Z"
+      "inicio": "2026-11-21T19:03:10.657Z",
+      "fin": "2026-11-21T19:03:53.664Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T19:03:53.664Z",
+      "fin": "2026-11-21T19:03:57.720Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T19:03:57.720Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 390,
+        "total": 3027,
+        "restante": 264,
+        "en": "2026-11-21T19:04:40.543Z"
+      }
     },
     {
       "id": "control-final",
@@ -100,7 +112,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T18:37:48.263Z",
   "aprobado": "2026-11-21T18:37:48.263Z",
-  "actualizado": "2026-11-21T19:03:10.657Z",
+  "actualizado": "2026-11-21T19:04:40.543Z",
   "saldoInicial": {
     "creditos": 2681.8,
     "fecha": "2026-11-21T18:37:50.306Z"
