@@ -1,5 +1,5 @@
 {
-  "pid": 46074,
+  "pid": 46672,
   "paso": "render",
   "script": "ensamblar.js",
   "args": [
@@ -7,6 +7,6 @@
     "--solo-completa"
   ],
   "comando": "node produccion/ensamblar.js temp/aguaje-complex-3-en-1-agregar-20261121-1610 --solo-completa",
-  "inicio": "2026-11-21T21:37:31.483Z",
-  "app": 44483
+  "inicio": "2026-11-21T21:41:30.671Z",
+  "app": 46483
 }
