@@ -1701,3 +1701,9 @@ export function faltaParaProducir(carpeta, brief = null) {
   const e = letraElegida(carpeta, brief);
   return e.error || null;
 }
+
+/**
+ * (2026-11-21i) Los pasos de la canción que reusa «Cambiar solo el audio» (familias/cambiar-audio.js): un anuncio con
+ * narrador ya hecho pasa a CANTADO con sus mismos clips (la canción, elegirla, los tiempos, el montaje y el render).
+ */
+export const PASOS_REUSABLES = { validarPeticion, saldoCancion, cancion, elegirCancion, pasoTiempos, montaje, render, controlFinal, informe };

@@ -825,6 +825,11 @@ async function prueba() {
             anuncio.objetoParlante = await probarModoB({ pedir, check, aviso, salio: app.salio, t0, productoId: anuncio.producto, videos: pi.videos });
           }
         }
+        // ---------------------------------------------------------- (2026-11-21i) cambiar solo el audio: a cantado
+        if (anuncio?.listo && process.env.HUMO_SIN_CANTAR !== '1' && !app.salio()) {
+          seccion('Cambiar solo el audio: el claymation, cantado, con sus mismos clips');
+          await probarCantar({ pedir, check, salio: app.salio, slug: anuncio.slug });
+        }
       }
 
       // ---------------------------------------------------------- red
@@ -1322,6 +1327,61 @@ function vigilarVideoYLote({ pedir }) {
 }
 
 /** Un lote de 3 variaciones 1:1 + 9:16 con logo, de punta a punta, como lo hace la interfaz. Devuelve un resumen. */
+/**
+ * (2026-11-21i) «Cambiar solo el audio»: el anuncio con narrador ya hecho pasa a CANTADO con sus mismos clips (una copia:
+ * lib/cambiar-audio.js y familias/cambiar-audio.js). La canción del Suno simulado, elegir la versión 1, el montaje
+ * sobre la canción y el video. No se paga ningún clip ni imagen otra vez; el original no se toca.
+ */
+async function probarCantar({ pedir, check, salio, slug }) {
+  const dirO = path.join(RAIZ, 'temp', slug);
+  const antes = { manifiesto: fs.readFileSync(path.join(dirO, 'manifiesto.json'), 'utf8'), voz: fs.existsSync(path.join(dirO, 'audio', 'voz.mp3')) };
+  let r = await pedir(`/api/anuncios/${slug}/cantar`);
+  check('GET /cantar: se puede, con el costo de la canción', r.st === 200 && r.datos?.motivo === null && r.datos?.costo?.creditos > 0, r);
+  r = await pedir(`/api/anuncios/${slug}/cantar`, { json: { como: 'reguetón alegre como el video de referencia', voz: 'f' } });
+  const nuevo = r.datos?.slug;
+  if (!check('POST /cantar: la copia cantada arranca', r.st === 201 && nuevo && nuevo !== slug, r)) return;
+  const dirN = path.join(RAIZ, 'temp', nuevo);
+  const leerC = async () => (await pedir(`/api/anuncios/${nuevo}/conductor`)).datos;
+  const esperarC = async (min, listo) => {
+    const hasta = Date.now() + min * 60000;
+    let c = null;
+    while (Date.now() < hasta && !salio()) {
+      c = await leerC().catch(() => null);
+      if (listo(c)) return c;
+      await dormir(1200);
+    }
+    return c;
+  };
+  let c = await esperarC(6, (x) => ['pausado', 'error', 'listo'].includes(x?.estado));
+  check('Compone la canción con las frases del guion y espera que elijas la versión', c?.estado === 'pausado' && c?.paso === 'elegir-cancion', { estado: c?.estado, paso: c?.paso, error: c?.error, pasos: (c?.pasos || []).map((p) => `${p.id}=${p.estado}`) });
+  const pet = leerJSON(path.join(dirN, 'cancion', 'peticion.json'));
+  const frases = (JSON.parse(antes.manifiesto).tomas || []).map((t) => t.linea).filter((l) => l && !/^\s*\[/.test(l));
+  check('La letra son las mismas frases del guion, con el estilo y la voz que pediste', pet && pet.letra === frases.join('\n') && /reguet/i.test(pet.estilo) && pet.vocalGender === 'f', pet);
+  r = await pedir(`/api/anuncios/${nuevo}/cancion`);
+  check('Se ven las versiones para escuchar', r.st === 200 && (r.datos?.opciones || []).length >= 2, r);
+  r = await pedir(`/api/anuncios/${nuevo}/cancion`, { json: { n: 1 } });
+  check('Eliges la versión 1 y sigue sola', r.st === 200, r);
+  c = await esperarC(10, (x) => ['listo', 'error'].includes(x?.estado) || (x?.estado === 'pausado' && x?.paso !== 'elegir-cancion'));
+  check('La versión cantada termina («listo»)', c?.estado === 'listo', { estado: c?.estado, paso: c?.paso, error: c?.error, pasos: (c?.pasos || []).map((p) => `${p.id}=${p.estado}${p.error ? ` (${String(p.error.mensaje || '').slice(0, 160)})` : ''}`) });
+  const m = leerJSON(path.join(dirN, 'manifiesto.json'));
+  const t = leerJSON(path.join(dirN, 'audio', 'tiempos.json'));
+  check('El montaje va sobre la canción: modo «musica», cada frase con su tiempo, sin voz aparte', m?.modo_audio === 'musica' && Array.isArray(t?.lineas) && t.lineas.length === m.tomas.length && t.lineas.every((x) => Number.isFinite(x.inicio)) && !fs.existsSync(path.join(dirN, 'audio', 'voz.mp3')), { modo: m?.modo_audio, lineas: t?.lineas?.length });
+  const mismos = (m?.tomas || []).every((tm) => {
+    const a = (k) => path.join(dirO, 'video', k);
+    const b = (k) => path.join(dirN, 'video', k);
+    const clips = fs.existsSync(path.join(dirN, 'video')) ? fs.readdirSync(path.join(dirN, 'video')).filter((x) => x.endsWith('.mp4')) : [];
+    return clips.length > 0 && clips.every((k) => fs.existsSync(a(k)) && fs.statSync(a(k)).ino === fs.statSync(b(k)).ino);
+  });
+  check('Los clips son los mismos del original (enlazados, no se pagaron otra vez)', mismos);
+  const gasto = fs.existsSync(path.join(dirN, 'app', 'gasto')) ? fs.readdirSync(path.join(dirN, 'app', 'gasto')).map((x) => leerJSON(path.join(dirN, 'app', 'gasto', x))) : [];
+  check('Solo se pagó la canción (ninguna imagen ni video)', !gasto.some((g) => /generar-imagenes|generar-videos|producir\.js/.test(JSON.stringify(g?.comando || g || ''))), gasto.map((g) => g?.comando || g?.paso));
+  const mp4 = fs.readdirSync(path.join(RAIZ, 'output')).filter((x) => x.startsWith(nuevo) && x.endsWith('.mp4'));
+  check('Sale su video', mp4.length > 0, mp4);
+  check('El original no se tocó (su manifiesto y su voz siguen igual)', fs.readFileSync(path.join(dirO, 'manifiesto.json'), 'utf8') === antes.manifiesto && fs.existsSync(path.join(dirO, 'audio', 'voz.mp3')) === antes.voz);
+  r = await pedir(`/api/anuncios/${nuevo}/cantar`);
+  check('Uno que ya es cantado no se vuelve a cantar', r.datos?.motivo && /ya es cantado/.test(r.datos.motivo), r.datos);
+}
+
 async function probarImagenAds({ pedir, check, aviso, salio, t0 }) {
   const resumen = { lote: null, estado: null };
   const BASE = `http://127.0.0.1:${Number(process.env.PUERTO) || 4497}`;
