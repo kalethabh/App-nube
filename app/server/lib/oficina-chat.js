@@ -277,7 +277,8 @@ async function contexto() {
     /* sin tiendas */
   }
   const estilos = Object.entries(ESTILOS)
-    .filter(([k]) => k !== 'agregar') // «Agregar» necesita un video subido: se hace desde Nuevo anuncio
+    // («Agregar» = EL VIDEO QUE TE PASÓ: su mismo look y estructura; solo con "video". Va aparte, en la acción)
+    .filter(([k]) => k !== 'agregar')
     .map(([k, d]) => {
       const falta = AJUSTES_OBLIGATORIOS(k);
       return `${k} | ${d.nombre}${falta.length ? ` | OBLIGATORIO preguntar antes: ${falta.map((f) => `${f.campo} (${f.texto})`).join('; ')}` : ''}`;
@@ -342,7 +343,7 @@ ${historia.join('\n')}
 
 Contesta el ÚLTIMO mensaje del USUARIO. Si adjuntó archivos, LÉELOS con Read antes de contestar (imágenes y PDF también) y úsalos: es lo que te está pasando para que trabajes con eso.
 Puedes pedirle a la app estas acciones (la app las hace, le muestra el enlace y TÚ sigues el trabajo: cuando el guion esté listo le escribes con el costo, y cuando termine le entregas el resultado):
-- { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió, ej. 1:50>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>", "video": "<id de un VIDEO que adjuntó>" | null, "conservar_gancho": false } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir. CON "video": la app CLONA ese video (lo analiza toma por toma, transcribe lo que se dice y el guionista replica su estructura, ritmo y gancho en el estilo pedido, con la duración pedida). En los estilos CANTADOS (musical, historias-musicales) también funciona: la app transcribe la LETRA del video y el guionista la copia palabra por palabra cambiando solo el producto (la opción 1 de la letra); la imagen de esos estilos es animada (crochet, plastilina o 3D), no video real: si el original es video real, díselo en una frase y sigue. Úsalo cuando adjunta un video y pide «uno igual», «replica la estructura», «como este»: NO le digas que lo suba en otro lado, hazlo tú. "conservar_gancho": true solo si pide dejar el gancho y el ángulo tal cual.
+- { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió, ej. 1:50>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>", "video": "<id de un VIDEO que adjuntó>" | null, "conservar_gancho": false } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir. CON "video": la app CLONA ese video (lo analiza toma por toma, transcribe lo que se dice y el guionista replica su estructura, ritmo y gancho en el estilo pedido, con la duración pedida). En los estilos CANTADOS (musical, historias-musicales) también funciona: la app transcribe la LETRA del video y el guionista la copia palabra por palabra cambiando solo el producto (la opción 1 de la letra); la imagen de esos estilos es animada (crochet, plastilina o 3D), no video real: si el original es video real, díselo en una frase y sigue. Úsalo cuando adjunta un video y pide «uno igual», «replica la estructura», «como este»: NO le digas que lo suba en otro lado, hazlo tú. MUY IMPORTANTE: si pide REPLICARLO TAL CUAL, CLONARLO o «igual a este» y NO nombra un estilo de la lista, usa "estilo": "agregar": se hace con el MISMO look y la MISMA estructura de SU video (si es una persona real hablando, una persona real; si es animado, animado igual; mismas tomas, ritmo, textos y gancho), no con uno de nuestros estilos. En «agregar» no hace falta preguntar nada más (el formato y la voz los saca la app del video). Solo si nombra un estilo («en Zack», «en Pixar»), usa ese estilo con el video. "conservar_gancho": true solo si pide dejar el gancho y el ángulo tal cual.
 Lo obligatorio de un estilo: si falta, propón la opción más común y pregúntala en UNA frase («¿fondo de estudio limpio o con la grilla azul?»). Si dice «decide tú», «como quieras» o algo así, elige tú y créalo.
 - { "tipo": "producir", "id": "<id de lo que estás siguiendo>" } → SOLO si eso ESPERA EL SÍ y el usuario acaba de decir que sí (dale, hazlo, de una, ok, sí, está bien, apruébalo, me gusta…) después de ver el costo. Es APROBAR: el guion queda aprobado, se lo pasas al equipo y arranca la producción (ahí se cobra). Si hay varias cosas esperando y no queda claro cuál aprueba, pregunta cuál. Si aprueba algo que todavía no le dijiste cuánto cuesta (un guion que no estás siguiendo), usa "seguir" con su slug: tú le dices el costo enseguida y espera su sí.
 - { "tipo": "imagenes", "productoId": "<id con foto>", "cantidad": 1-${MAX_IMAGENES}, "formato": "1:1" | "9:16" | "ambos", "referencia": "<id de una imagen que adjuntó>" | null, "pais": "<país>" | null, "publico": "<público>" | null, "idea": "<lo que pidió, con la oferta y el precio si los dijo>", "modo": "replicar" | "desde0" | "agente" | null } → anuncios de imagen. CON su imagen de referencia, por defecto «replicar»: su anuncio validado EXACTO (mismas zonas, letras, colores, oferta y ángulo) y solo cambian la modelo, el escenario, la pose y la redacción del titular. SIN referencia, por defecto «desde0»: anuncios nuevos con 6 zonas (gancho, visual, 2-3 beneficios, frasco con sello, oferta «TRATAMIENTO COMPLETO X3 $precio · Pagas al recibir», un CTA) en formatos distintos, desde la investigación (si no la tiene, primero investigar; pídele el precio si no lo sabes). "agente" solo si pide variaciones creativas más libres. La app le muestra el costo y espera su sí.
@@ -479,7 +480,9 @@ async function ejecutar(acciones, ctx) {
       if (a.tipo === 'crear-anuncio') {
         const { crearAnuncio, ESTILOS } = await import('./anuncios-nuevos.js');
         if (!ids.has(a.productoId)) throw new Error('No encuentro ese producto.');
-        if (!ESTILOS[a.estilo] || a.estilo === 'agregar') throw new Error('No conozco ese estilo.');
+        if (!ESTILOS[a.estilo]) throw new Error('No conozco ese estilo.');
+        // (2026-11-21b) «Agregar» = su video tal cual (mismo look y estructura): solo con el video que le pasó
+        if (a.estilo === 'agregar' && !a.video) throw new Error('Para replicar un video tal cual, pásame el video.');
         const n = Math.max(1, Math.min(MAX_ANUNCIOS, Number(a.cantidad) || 1));
         const respuestas = a.respuestas && typeof a.respuestas === 'object' && !Array.isArray(a.respuestas) ? { ...a.respuestas } : {};
         // (2026-11-20h) clonar el VIDEO que le pasó en el chat: va a temp/_referencias como un video subido en
@@ -505,13 +508,15 @@ async function ejecutar(acciones, ctx) {
           }
           respuestas.clonar = `subido:${v.id}|${v.nombre.replace(/[|]/g, ' ').slice(0, 80)}`;
           respuestas.clonar_gancho = a.conservar_gancho === true ? 'No, conserva el gancho y el ángulo del original' : 'Sí, adáptalo a mi producto';
+          // «Agregar»: lo que pidió es el pedido del video (sin estilo: el mismo look y la misma estructura del video)
+          if (a.estilo === 'agregar') respuestas.pedido = limpio(a.idea, 600) || 'el mismo video, tal cual, para mi producto: misma estructura, mismo look, mismas tomas, ritmo y textos';
           }
         }
         for (let i = 0; i < n; i++) {
           const idea = limpio(a.idea, 400);
           const extra = n > 1 ? ` (versión ${i + 1} de ${n}: un ángulo y un gancho DISTINTOS a las otras)` : '';
           const r = crearAnuncio({ productoId: a.productoId, estilo: a.estilo, duracion: a.duracion ? limpio(a.duracion, 60) : null, respuestas, pedido: `${idea}${extra}`.trim(), ...(letraOriginal ? { letraOriginal } : {}) });
-          const titulo = `${ESTILOS[a.estilo].nombre} de ${nombreDe(a.productoId)}${n > 1 ? ` (${i + 1}/${n})` : ''}`;
+          const titulo = `${a.estilo === 'agregar' ? 'Igual a tu video' : ESTILOS[a.estilo].nombre} de ${nombreDe(a.productoId)}${n > 1 ? ` (${i + 1}/${n})` : ''}`;
           hechas.push({ tipo: 'anuncio', titulo: `Guion ${titulo}${a.video ? ' (clonando tu video)' : ''}`, href: `#/nuevo?producto=${encodeURIComponent(a.productoId)}&paso=2&anuncios=${r.slug}`, slug: r.slug, ok: true });
           encargar({ id: r.slug, tipo: 'video', slug: r.slug, productoId: a.productoId, titulo });
         }

@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21b · La coordinadora clona tu video tal cual
+
+- Si le pasas un video a la coordinadora y le dices «replícalo tal cual», «clónalo» o «igual a este» sin nombrar un estilo, ahora lo hace **igual a tu video**: la misma estructura y el mismo look (si es una persona real hablando, una persona real; si es animado, animado igual), con las mismas tomas, el mismo ritmo, los mismos textos y el mismo gancho, pero con tu producto. Ya no lo pasa a uno de los estilos de la app.
+- Si le nombras un estilo («en Zack», «en Pixar»), lo hace en ese estilo con la estructura de tu video, como antes.
+
 ## 2026-11-21a · Anuncios nuevos «Desde 0» con 6 zonas, y la coordinadora lo coordina todo
 
 - En **Crear anuncios de imagen › Desde la investigación** hay un modo nuevo, **«Desde 0 (6 zonas)»** (viene elegido; «Variaciones del agente» sigue a un toque). Cada anuncio lleva:
