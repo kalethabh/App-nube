@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21h · Editar un anuncio cuando quieras, e imágenes que no se quedan sin hacer
+
+- **«Editar este anuncio»**, mientras se está haciendo o ya terminado (en la producción y en la entrega): escribes lo que quieres cambiar con tus palabras («que ya no sea cantado, que sea narrado», «cambia el gancho», «que sea un hombre de 40») y la app hace una **versión nueva** con ese cambio y todo lo demás igual (mismas personas y escenas, sin pagarlas otra vez). Si era cantado y pides que sea narrado, va con voz en off en el mismo look; también puedes elegir otro estilo. El original no se borra, y si se estaba haciendo se detiene para no gastar en lo que vas a cambiar. Ves el guion nuevo y su costo antes de producir. La coordinadora también lo hace si se lo pides por chat.
+- **Imágenes rechazadas por política**: si kie no quiere hacer una imagen por su contenido, ya no se queda sin hacer. Tu IA la describe de otra forma (la misma escena, sin lo que frena al filtro) y la vuelve a pedir sola, varias veces si hace falta. Vale para las escenas de los videos y para Anuncios de imagen (ahí cambia solo lo que se ve; los textos quedan iguales).
+- Arreglado: «Recrear para otro producto» llevaba a «No encuentro esta pantalla».
+
 ## 2026-11-21g · «Terminar después»
 
 - Cuando un video te necesita (se trabó, falta saldo, está en pausa, espera la canción o su guion está listo para aprobar) ahora tienes dos caminos: **«Continuar»** o **«Terminar después»**.

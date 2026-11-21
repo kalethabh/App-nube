@@ -261,6 +261,20 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, linea[1]), JSON.stringify({ dice: nueva ? 'Una parte nueva de prueba, escrita por la IA.' : `Otra versión de prueba de la parte ${n}, escrita por la IA.` }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-21h) una imagen que el filtro rechazó: la misma descripción sin la palabra que frena (SIM-PROHIBIDO)
+  const rechazo = /TAREA: reescribir la descripción de una imagen/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
+  if (rechazo) {
+    const antes = (/La descripción que rechazó:\n<<<\n([\s\S]*?)\n>>>/.exec(textoTarea) || [])[1] || 'A calm clay scene in a kitchen.';
+    fs.writeFileSync(path.join(RAIZ, rechazo[1]), JSON.stringify({ prompt: antes.replace(/\s*\bSIM-PROHIBIDO\b\s*/g, ' ').trim(), motivo: 'Saqué la palabra que frenaba al filtro; la escena es la misma.' }));
+    return resultado({ result: 'LISTO' });
+  }
+  // (2026-11-21h) un anuncio de imagen que el filtro rechazó: el mismo anuncio sin la palabra que frena
+  const rechazoAd = /TAREA: imagen de anuncio rechazada/.test(textoTarea) ? /Edita (temp\/\S+\.json)/.exec(textoTarea) : null;
+  if (rechazoAd) {
+    const ruta = path.join(RAIZ, rechazoAd[1]);
+    fs.writeFileSync(ruta, fs.readFileSync(ruta, 'utf8').replace(/\s*\bSIM-PROHIBIDO\b/g, '').replace('Variation ', 'A calm, friendly scene. Variation '));
+    return resultado({ result: 'LISTO' });
+  }
   // «De un video»: el ángulo del video y N conceptos de prueba para el producto
   const anguloVideo = /analizar el ÁNGULO de un video/.test(textoTarea) ? /Escribe (temp\/\S+\.json) con este JSON/.exec(textoTarea) : null;
   if (anguloVideo) {
@@ -453,7 +467,7 @@ function familiaDelTexto(texto) {
 function especialista(texto) {
   if (process.env.FALSO_DESPACHADO) return null;
   const tarea = (String(texto).match(/^TAREA: ([^\n]+)/m) || [])[1] || '';
-  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea) || /^lo que se ve en una parte/.test(tarea) || /^escena de apoyo/.test(tarea) || /^coordinadora/.test(tarea)) return null;
+  if (!tarea || /^ficha\b/.test(tarea) || /^regenerar una l[ií]nea/.test(tarea) || /^lo que se ve en una parte/.test(tarea) || /^escena de apoyo/.test(tarea) || /^coordinadora/.test(tarea) || /^reescribir la descripci[oó]n/.test(tarea) || /^imagen de anuncio rechazada/.test(tarea)) return null;
   if (/^imagen-ads-/.test(tarea)) return 'claude-falso-imagen-ads.js';
   if (/^(guion|cambios)\b/.test(tarea)) return MODOS_DE_ESTILOS.has(modo(tarea.split(/\s/)[0])) ? 'claude-falso-estilos.js' : null;
   if (/^continuidad-/.test(tarea)) return 'claude-falso-continuidad.js';

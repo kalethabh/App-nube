@@ -358,6 +358,7 @@ Si te pide ANALIZAR o revisar una investigación (qué ángulo usar, qué dice d
 Las investigaciones que puedes leer (mercado + competencia en un solo archivo):
 ${(invs || []).map((x) => `${x.id} | ${x.nombre} | ${x.ruta}`).join('\n') || '(ninguna todavía)'}
 - { "tipo": "recrear", "slug": "<slug>", "productoId": "<id del otro producto>" } → el mismo guion para otro producto.
+- { "tipo": "editar", "slug": "<slug de un anuncio de video>", "pedido": "<el cambio, con sus palabras>", "estilo": "<clave>" | null } → EDITAR un anuncio que se está produciendo o que ya terminó («que ya no sea cantado», «cambia el gancho», «que sea un hombre»): la app hace una VERSIÓN NUEVA con ese cambio y lo demás igual (mismas personas y escenas, sin pagarlas otra vez) y detiene el original si se estaba haciendo. Nunca le digas que ya no se puede cambiar: usa esto. "estilo" solo si pide otro estilo (de cantado a narrado la app lo resuelve sola). Después le avisas el costo del guion nuevo, como siempre.
 - { "tipo": "seguir", "slug": "<slug de un anuncio de video>" } → empiezas a seguir un anuncio que ya existe (te encargas de avisarle el costo y producirlo).
 - { "tipo": "cancelar", "id": "<id de lo que estás siguiendo>" } → si ya no lo quiere.
 - { "tipo": "shopify", "tienda": "<id de la tienda>", "pedido": "<lo que quiere cambiar en la tienda, con sus palabras y lo que sacaste de sus archivos>", "motor": "claude" | "codex" } → un cambio en el CÓDIGO de su tienda (tema: colores, botones, secciones, textos, estilos…) o, con acceso completo, páginas y productos. La IA lo hace en una copia del tema y la app lo sube como tema NUEVO SIN PUBLICAR, con vista previa; él lo publica desde el menú Shopify (dile eso). Si tiene varias tiendas y no queda claro cuál, pregunta. Sin tiendas conectadas, dile que la conecte en el menú Shopify.
@@ -544,6 +545,11 @@ async function ejecutar(acciones, ctx) {
         const r = recrearAnuncio(String(a.slug || ''), { productoId: a.productoId });
         hechas.push({ tipo: 'anuncio', titulo: `Recreado para ${nombreDe(a.productoId)}`, href: `#/nuevo?producto=${encodeURIComponent(a.productoId)}&paso=2&anuncios=${r.slug}`, slug: r.slug, ok: true });
         encargar({ id: r.slug, tipo: 'video', slug: r.slug, productoId: a.productoId, titulo: `el anuncio para ${nombreDe(a.productoId)}` });
+      } else if (a.tipo === 'editar') {
+        const { editarAnuncio } = await import('./anuncios-nuevos.js');
+        const r = await editarAnuncio(String(a.slug || ''), { pedido: limpio(a.pedido, 3000), estilo: a.estilo ? String(a.estilo) : undefined });
+        hechas.push({ tipo: 'anuncio', titulo: `Versión nueva${r.cambioDeEstilo ? ` en ${r.estiloNombre}` : ''}${r.detenido ? ' (detuve el original)' : ''}`, href: `#/nuevo?producto=${encodeURIComponent(r.productoId)}&paso=2&anuncios=${r.slug}`, slug: r.slug, ok: true });
+        encargar({ id: r.slug, tipo: 'video', slug: r.slug, productoId: r.productoId, titulo: `la versión nueva de ${nombreDe(r.productoId)}` });
       } else if (a.tipo === 'seguir') {
         const { anuncioNuevo } = await import('./anuncios-nuevos.js');
         const x = anuncioNuevo(String(a.slug || ''));

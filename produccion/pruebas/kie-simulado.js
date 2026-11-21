@@ -709,6 +709,9 @@ export async function iniciar({
     const desde = opcFallos.trabadasDesde || 1;
     if (opcFallos.trabadas && numero >= desde && numero < desde + opcFallos.trabadas) destino = 'trabada';
     else if (fallaSiempre(modelo)) destino = 'falloContenido';
+    // (2026-11-21h) un prompt con la marca SIM-PROHIBIDO se rechaza por contenido con TODOS los modelos, como una
+    // palabra que el filtro de kie no deja pasar: asi se prueba que la app reescribe la imagen sola y la vuelve a pedir
+    else if (/\bSIM-PROHIBIDO\b/.test(String(prompt))) destino = 'falloContenido';
     else if (fraccion(semilla, 'contenido', modelo, prompt) * 100 < opcFallos.contenidoPct) destino = 'falloContenido';
     else if (fraccion(semilla, 'servidor', modelo, prompt, intento) * 100 < opcFallos.servidorPct) destino = 'falloServidor';
 

@@ -19,7 +19,7 @@
 //
 // POST /api/anuncios/:slug/producir (aprobar y arrancar) lo atiende rutas/produccion.js con el conductor.
 import { ErrorApp, soloDesdeLaApp } from '../lib/productos.js';
-import { cambiarVoz, contextoVisual, escenaBroll, crearAnuncio, recrearAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
+import { cambiarVoz, contextoVisual, escenaBroll, crearAnuncio, recrearAnuncio, editarAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
 
 const conErrores = (fn) => async (req, res, next) => {
   try {
@@ -38,6 +38,11 @@ export default function rutasGuion(app) {
   // (2026-11-19p) el mismo anuncio para otro producto: mismo guion, cambia lo del producto
   app.post('/api/anuncios/:slug/recrear', soloDesdeLaApp, conErrores((req, res) => {
     res.status(201).json(recrearAnuncio(req.params.slug, { productoId: String(req.body?.productoId || '') }));
+  }));
+
+  // «Editar este anuncio» (2026-11-21h): una versión nueva con el cambio que pides, mientras se hace o ya terminado
+  app.post('/api/anuncios/:slug/editar', soloDesdeLaApp, conErrores(async (req, res) => {
+    res.status(201).json(await editarAnuncio(req.params.slug, { pedido: req.body?.pedido, estilo: req.body?.estilo ? String(req.body.estilo) : undefined, detener: req.body?.detener !== false }));
   }));
 
   app.get('/api/anuncios/:slug/guion', (req, res) => {

@@ -616,7 +616,14 @@ function contexto(c, p, entrada) {
      */
     async correr(script, args = [], opciones = {}) {
       if (path.basename(String(script)) === 'ensamblar.js') return exportarConReintentos(ctx, script, conSoloCompleta(args), opciones);
-      return ctx.correrUnaVez(script, args, opciones);
+      const r = await ctx.correrUnaVez(script, args, opciones);
+      // (2026-11-21h) una imagen que kie rechazó por contenido: la IA la describe de otra forma (la misma escena) y se
+      // vuelve a pedir, sola, hasta que salga (lib/rechazo-imagen.js). Solo si ni así sale, queda frenada como antes.
+      if (r?.clase === 'contenido' && ['generar-imagenes.js', 'producir.js'].includes(path.basename(String(script))) && !senal.aborted && process.env.ANUNCIOS_SIN_RESCATE_CONTENIDO !== '1') {
+        const { rescatarRechazadas } = await import('./rechazo-imagen.js');
+        return rescatarRechazadas(ctx, r, () => ctx.correrUnaVez(script, args, opciones));
+      }
+      return r;
     },
     /** Lo mismo, sin los reintentos del render. */
     async correrUnaVez(script, args = [], opciones = {}) {

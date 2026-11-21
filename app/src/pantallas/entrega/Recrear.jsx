@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Repeat2 } from 'lucide-react';
 import { Boton, Modal, useAvisos } from '../../componentes/index.js';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
-import { enlace, ir } from '../../datos/rutas.js';
+import { ir, rutas } from '../../datos/rutas.js';
 
 export function Recrear({ slug, productoId = null, estilo = null }) {
   const [abierto, setAbierto] = useState(false);
@@ -23,7 +23,7 @@ export function Recrear({ slug, productoId = null, estilo = null }) {
     try {
       const r = await pedirNuevo(`/api/anuncios/${encodeURIComponent(slug)}/recrear`, { metodo: 'POST', cuerpo: { productoId: elegido } });
       aviso({ tipo: 'ok', titulo: 'Tu IA está adaptando el guion', texto: 'Mismo guion, con lo de tu otro producto. Lo revisas y lo apruebas antes de producir.' });
-      ir(enlace.nuevo({ producto: elegido, paso: '2', anuncios: r.slug }));
+      ir(rutas.nuevo({ producto: elegido, paso: '2', anuncios: r.slug }));
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude recrearlo', texto: e.message });
     } finally {

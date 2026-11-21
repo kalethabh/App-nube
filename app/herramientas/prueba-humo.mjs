@@ -138,7 +138,8 @@ function manifiestoClaymation(foto) {
       },
       {
         n: 2, tipo: 'A', duracion: 3.4, linea: lineas[1],
-        prompt_imagen_inicial: `Vertical 9:16. ${mujer} looks at a tiny clay clock on the wall that shows five o'clock. ${estilo}`,
+        // (2026-11-21h) con HUMO_POLITICA=1 esta imagen la rechaza el kie simulado por contenido: la app la reescribe sola
+        prompt_imagen_inicial: `Vertical 9:16. ${mujer} looks at a tiny clay clock on the wall that shows five o'clock.${process.env.HUMO_POLITICA === '1' ? ' SIM-PROHIBIDO' : ''} ${estilo}`,
         prompt_imagen_final: null, prompt_video: video(3.4, 'the clock hands tick once and she blinks slowly'), referencias: ['mujer'],
       },
       {
