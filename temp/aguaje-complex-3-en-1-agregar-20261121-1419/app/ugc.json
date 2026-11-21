@@ -10,5 +10,120 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-21T20:45:54.765Z"
+  "actualizado": "2026-11-21T20:50:45.541Z",
+  "revision": {
+    "ronda": 1,
+    "medidas": {
+      "1": {
+        "huella": "6603240-1795294127980",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "2": {
+        "huella": "7694776-1795294118787",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "3": {
+        "huella": "7876944-1795294118771",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "4": {
+        "huella": "6442549-1795294099302",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "5": {
+        "huella": "8589158-1795294128572",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "6": {
+        "huella": "7509193-1795294158395",
+        "medido": true,
+        "limpio": false,
+        "motivo": "dijo «¿eh?» en vez de «ve.»"
+      },
+      "7": {
+        "huella": "5583294-1795294110906",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "8": {
+        "huella": "5075910-1795294127488",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "9": {
+        "huella": "4481130-1795294179496",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "10": {
+        "huella": "11315815-1795294139708",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      },
+      "11": {
+        "huella": "6571673-1795294233313",
+        "medido": true,
+        "limpio": true,
+        "motivo": null
+      }
+    },
+    "vistos": {},
+    "piezas": {},
+    "pendientes": [],
+    "revisarTambien": [],
+    "sinRevisar": [],
+    "lugares": {},
+    "vuelta": {
+      "ronda": 1,
+      "medir": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "mirar": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "mirarGanchos": [],
+      "hablaMal": {
+        "6": "No dijo su parte tal cual: dijo «¿eh?» en vez de «ve.»."
+      },
+      "medido": true,
+      "visual": null
+    },
+    "sesion": {
+      "uuid": "cceae9d6-b2f2-4291-8286-28931dc30ec8"
+    }
+  }
 }

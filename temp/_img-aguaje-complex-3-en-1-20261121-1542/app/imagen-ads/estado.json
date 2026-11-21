@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 2,
+    "R": 3,
     "A": 1,
     "T": 3
   },
@@ -31,7 +31,7 @@
     "R001": {
       "tipo": "revision",
       "uuid": "c6599216-cda0-4fab-8e6e-8fd3dadcc38e",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -39,7 +39,22 @@
           "firma": "1503102-1795294147954",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "9a74617a-63a0-4078-9e00-8e3b4ebdef26",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2078143-1795294148517",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -68,15 +83,21 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2078143-1795294148517",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2078143-1795294148517"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T20:49:08.597Z",
@@ -108,21 +129,33 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1503102-1795294147954",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El diseño no cabe en el cuadrado: arriba y abajo quedó cortado.",
+          "Falta la franja de arriba con «MÁS CURVAS SÍ,». No se ve.",
+          "«PERO SIN» sale cortado por arriba.",
+          "Falta la barra de abajo con el camión, la mano con moneda, «ENVÍO GRATIS» y «PAGA AL RECIBIR».",
+          "La frase de cierre solo muestra «Natural,» cortado. Falta «a tu ritmo» y su corazón."
+        ],
+        "firma": "1503102-1795294147954",
+        "correccion_en": "Fit the entire layout inside the square canvas with safe margins: scale the middle band down so the full top headline (magenta pill reading \"MÁS CURVAS SÍ,\", then \"PERO SIN\", then \"QUIRÓFANO\") is fully visible at the top, and the full deep magenta bottom bar (truck icon + \"ENVÍO GRATIS\", divider, hand-with-coin icon + \"PAGA\\nAL RECIBIR\") plus the script accent \"Natural,\\na tu ritmo\" with a small heart are fully visible at the bottom. Nothing may be cropped by the canvas edges."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T20:49:08.435Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
