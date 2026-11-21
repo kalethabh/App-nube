@@ -1,8 +1,8 @@
 {
   "tipo": "imagen-ads",
-  "fecha": "2026-11-21T21:26:33.931Z",
+  "fecha": "2026-11-21T22:00:15.167Z",
   "variaciones": 5,
-  "archivos": 3,
+  "archivos": 4,
   "modoPrueba": false,
   "revision": {
     "aLaPrimera": 1,
@@ -26,14 +26,19 @@
           "Falta la barra de abajo con el camión, la mano con moneda, «ENVÍO GRATIS» y «PAGA AL RECIBIR».",
           "La frase de cierre solo muestra «Natural,» cortado. Falta «a tu ritmo» y su corazón."
         ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "Falta la franja de arriba con «¿MESES DE SENTADILLAS?»: la imagen está cortada por arriba.",
+          "La línea «TU RUTINA PIDE UN» sale cortada por el borde de arriba.",
+          "Falta la barra de abajo con el camión, «ENVÍO GRATIS», la mano con moneda y «PAGA AL RECIBIR»: solo se ve su borde.",
+          "La frase «Natural, a tu ritmo» sale cortada: solo se ve parte de «Natural,» y falta «a tu ritmo» con su corazón."
+        ]
       }
     ],
     "sinRevisar": [],
     "sinImagen": [
-      {
-        "pieza": "V04_1x1",
-        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      },
       {
         "pieza": "V05_1x1",
         "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
