@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261121-1610",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "imagenes-y-videos",
+  "paso": "revision-imagenes",
   "pasos": [
     {
       "id": "validar",
@@ -41,15 +41,18 @@
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-21T21:24:19.078Z"
+      "inicio": "2026-11-21T21:24:19.078Z",
+      "fin": "2026-11-21T21:35:52.888Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:35:52.888Z",
+      "detalle": "Claude empezó a trabajar"
     },
     {
       "id": "voces",
@@ -92,7 +95,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T21:23:47.729Z",
   "aprobado": "2026-11-21T21:23:47.729Z",
-  "actualizado": "2026-11-21T21:24:19.078Z",
+  "actualizado": "2026-11-21T21:35:55.487Z",
   "saldoInicial": {
     "creditos": 10013.4,
     "fecha": "2026-11-21T21:23:48.591Z"
