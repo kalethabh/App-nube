@@ -1,0 +1,215 @@
+==============================================================================
+PLAN DE MONTAJE — aguaje-complex-3-en-1-agregar-20261121-1610
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+VOZ EN OFF:  audio/voz.mp3        duracion 98.31s
+             voz: Lina - Carefree & Fresh
+
+REGLA MADRE: manda el audio. Pon el mp3 en la linea de tiempo primero
+y calza cada clip en su ventana. El video se adapta a la voz, nunca al reves.
+
+------------------------------------------------------------------------------
+
+TOMA 1   (tipo A)
+  Cuando:   00:00.00 -> 00:02.59   (2.59s de ventana)
+  Dice:     "Le dijeron flaca toda la vida."
+  Clip:     video/toma-1.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 2   (tipo A)
+  Cuando:   00:02.59 -> 00:05.93   (3.34s de ventana)
+  Dice:     "Tres meses con estas cápsulas y se acabó."
+  Clip:     video/toma-2.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 3   (tipo A)
+  Cuando:   00:05.93 -> 00:09.73   (3.80s de ventana)
+  Dice:     "Le dijeron que le iba a dar curvas a tiempo pa' su paseo de playa,"
+  Clip:     video/toma-3.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 4   (tipo A)
+  Cuando:   00:09.73 -> 00:13.56   (3.83s de ventana)
+  Dice:     "así que empezó a tomarse dos cápsulas de esto cada día."
+  Clip:     video/toma-4.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 5   (tipo A)
+  Cuando:   00:13.56 -> 00:18.71   (5.15s de ventana)
+  Dice:     "Pero ahora está emberracada, ni hablar puede, por toda la plata que gastó en fajas,"
+  Clip:     video/toma-5.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 6   (tipo A)
+  Cuando:   00:18.71 -> 00:21.57   (2.86s de ventana)
+  Dice:     "cremas y pastillas que no le sirvieron."
+  Clip:     video/toma-6.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 7   (tipo A)
+  Cuando:   00:21.57 -> 00:24.90   (3.33s de ventana)
+  Dice:     "Y ahí fue que cayó en cuenta de todo lo que había botado."
+  Clip:     video/toma-7.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 8   (tipo A)
+  Cuando:   00:24.90 -> 00:28.58   (3.68s de ventana)
+  Dice:     "Estaba furiosa, pero sinceramente ni puede estar tan brava,"
+  Clip:     video/toma-8.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 9   (tipo A)
+  Cuando:   00:28.58 -> 00:32.91   (4.33s de ventana)
+  Dice:     "por lo bien que le funcionó. Y eso que apenas va en su tercer frasco,"
+  Clip:     video/toma-9.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 10   (tipo A)
+  Cuando:   00:32.91 -> 00:35.69   (2.77s de ventana)
+  Dice:     "y el jean ya no le queda igual, no sé cómo."
+  Clip:     video/toma-10.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 11   (tipo A)
+  Cuando:   00:35.69 -> 00:38.22   (2.53s de ventana)
+  Dice:     "Hasta sus primas le empezaron a preguntar."
+  Clip:     video/toma-11.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 12   (tipo B)
+  Cuando:   00:38.22 -> 00:48.03   (9.81s de ventana)
+  Dice:     "El aguaje, el fenogreco y la maca negra fueron el apoyo que le faltaba a su rutina, y por fin se le empezó a notar donde quería."
+  Clip:     video/toma-12.mp4
+            Tipo B: empieza y termina en estados distintos.
+            Si sobra metraje ACELERALO, no le cortes el final: perderias la segunda accion.
+  B-roll:   no hay para esta toma
+
+TOMA 13   (tipo A)
+  Cuando:   00:48.03 -> 00:51.61   (3.58s de ventana)
+  Dice:     "Dos cápsulas al día, eso fue to' lo que tomó."
+  Clip:     video/toma-13.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 14   (tipo A)
+  Cuando:   00:51.61 -> 00:54.51   (2.90s de ventana)
+  Dice:     "No fue su culpa que las sentadillas y"
+  Clip:     video/toma-14.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 15   (tipo A)
+  Cuando:   00:54.51 -> 00:57.67   (3.16s de ventana)
+  Dice:     "los batidos solos no le alcanzaran."
+  Clip:     video/toma-15.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 16   (tipo A)
+  Cuando:   00:57.67 -> 01:02.40   (4.74s de ventana)
+  Dice:     "Casi ni lo prueba, pensó que era otro anuncio falso vendiendo promesas vacías,"
+  Clip:     video/toma-16.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 17   (tipo A)
+  Cuando:   01:02.40 -> 01:08.42   (6.01s de ventana)
+  Dice:     "pero es solo su cadera, sus muslos y su cola los que se le ven más llenitos."
+  Clip:     video/toma-17.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 18   (tipo A)
+  Cuando:   01:08.42 -> 01:10.75   (2.33s de ventana)
+  Dice:     "No cometas el mismo error que ella."
+  Clip:     video/toma-18.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 19   (tipo A)
+  Cuando:   01:10.75 -> 01:16.50   (5.75s de ventana)
+  Dice:     "Ella ahora se lo recomienda a todas: Aguaje Complex 3 en 1,"
+  Clip:     video/toma-19.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 20   (tipo A)
+  Cuando:   01:16.50 -> 01:19.80   (3.30s de ventana)
+  Dice:     "con aguaje, fenogreco y maca negra."
+  Clip:     video/toma-20.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 21   (tipo A)
+  Cuando:   01:19.80 -> 01:25.87   (6.07s de ventana)
+  Dice:     "Si a ti también te dijeron flaca toda la vida, no sigas botando la plata en lo que no sirve."
+  Clip:     video/toma-21.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 22   (tipo A)
+  Cuando:   01:25.87 -> 01:31.07   (5.20s de ventana)
+  Dice:     "Así que si puedes, dale clic al enlace de abajo y míralo con calma."
+  Clip:     video/toma-22.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+TOMA 23   (tipo A)
+  Cuando:   01:31.07 -> 01:38.31   (7.25s de ventana)
+  Dice:     "Es un plan de tres meses, dos cápsulas al día. Ella dice que ojalá lo hubiera encontrado antes."
+  Clip:     video/toma-23.mp4
+            Plano sostenido: si sobra metraje, corta desde el FINAL.
+            El primer fotograma es el compuesto, ese se respeta siempre.
+  B-roll:   no hay para esta toma
+
+------------------------------------------------------------------------------
+
+B-ROLL
+Con esta voz entran 0 de 0: solo esos se generan. Los que no entran
+(su frase es corta y la toma aguanta sola) se dicen toma por toma, arriba.
+
+SUBTITULOS
+  audio/tiempos.json trae el tiempo exacto de cada caracter de la narracion.
+  De ahi salen subtitulos de 2-4 palabras perfectamente sincronizados.
+
+AUDIO DE LOS CLIPS
+  Los clips traen ambiente y efectos, sin voces. Mezclalos por debajo de la
+  narracion (unos -18/-20 dB) y ponles un fade corto de ~80ms en cada corte
+  para que no suenen secos.
+
+==============================================================================

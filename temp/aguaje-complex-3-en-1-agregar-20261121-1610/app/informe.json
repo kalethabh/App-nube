@@ -1,0 +1,216 @@
+{
+  "slug": "aguaje-complex-3-en-1-agregar-20261121-1610",
+  "generado": "2026-11-21T21:55:02.572Z",
+  "modoPrueba": false,
+  "duracion": {
+    "real": 98.31,
+    "estimada": 105.4,
+    "pedida": 100
+  },
+  "versiones": [
+    {
+      "tipo": "con-subtitulos",
+      "archivo": "aguaje-complex-3-en-1-agregar-20261121-1610_9x16_con-subtitulos.mp4",
+      "nombre": "Completa"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "manda",
+      "icono": "voz",
+      "titulo": "Manda la voz",
+      "detalle": "El video se adaptó a los 1:38 de la voz en off: ninguna frase se recortó para cuadrar. Pediste cerca de 1 min 40 s."
+    },
+    {
+      "id": "voz",
+      "icono": "voz",
+      "titulo": "La voz: Lina - Carefree & Fresh",
+      "detalle": "La eligió la app porque no elegiste una: voz femenina como la del video de referencia (tono medio de 258 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, cálida, hecha para narrar."
+    },
+    {
+      "id": "ventanas",
+      "icono": "ritmo",
+      "titulo": "7 escenas se pidieron un poco más largas",
+      "detalle": "La voz real dura más de lo calculado en esas frases: se pidió cada clip con el largo justo para que no falte imagen. Nunca se acortó ninguna."
+    },
+    {
+      "id": "ritmo",
+      "icono": "ritmo",
+      "titulo": "22 de 23 escenas, un poco más rápidas",
+      "detalle": "Los clips eran más largos que sus frases: en vez de cortarlos se aceleraron para seguir a la voz (la que más, 1,5 veces más rápida)."
+    },
+    {
+      "id": "musica",
+      "icono": "musica",
+      "titulo": "Música de fondo",
+      "detalle": "Va suave debajo de la voz y sube en el remate, desde el 0:10; se repite para cubrir todo el video."
+    },
+    {
+      "id": "transiciones",
+      "icono": "transicion",
+      "titulo": "4 transiciones con sonido",
+      "detalle": "Van solo donde la historia cambia de parte; el resto son cortes limpios."
+    },
+    {
+      "id": "subtitulos",
+      "icono": "subtitulos",
+      "titulo": "Subtítulos palabra por palabra",
+      "detalle": "101 frases sincronizadas con la voz; la palabra que se dice se resalta."
+    }
+  ],
+  "transiciones": [
+    {
+      "toma": 5,
+      "momento": 13.56,
+      "animacion": "deslizar-derecha",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 9,
+      "momento": 28.584,
+      "animacion": "deslizar-izquierda",
+      "efecto": "woosh"
+    },
+    {
+      "toma": 12,
+      "momento": 38.22,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    },
+    {
+      "toma": 19,
+      "momento": 70.751,
+      "animacion": "zoom",
+      "efecto": "deep-woosh"
+    }
+  ],
+  "problemas": [
+    {
+      "id": "respaldo",
+      "tipo": "arreglado",
+      "titulo": "Un clip salió con el modelo de respaldo",
+      "detalle": "El modelo principal no lo pudo hacer y la app usó el de respaldo para no frenar el anuncio. Puede verse un poco distinto: míralo.",
+      "piezas": [
+        {
+          "n": 1,
+          "unidad": "toma",
+          "momento": 0,
+          "valor": "clip"
+        }
+      ]
+    },
+    {
+      "id": "voces-coladas",
+      "tipo": "arreglado",
+      "titulo": "4 clips traían una voz que no iba",
+      "detalle": "El modelo de video metió una frase que nadie escribió. Se le quitó el sonido a ese clip (la imagen queda igual); se pierde su sonido de ambiente.",
+      "piezas": [
+        {
+          "n": 1,
+          "unidad": "toma",
+          "momento": 0,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 17,
+          "unidad": "toma",
+          "momento": 62.403,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 19,
+          "unidad": "toma",
+          "momento": 70.751,
+          "valor": "sin sonido"
+        },
+        {
+          "n": 22,
+          "unidad": "toma",
+          "momento": 85.867,
+          "valor": "sin sonido"
+        }
+      ]
+    },
+    {
+      "id": "revision-avisos",
+      "tipo": "revisar",
+      "titulo": "Lo que notó la revisión",
+      "detalle": "La revisión notó algo en esta pieza y no se rehízo nada solo: mírala y, si quieres, regenérala desde el proceso o el editor (con «Corregir esto» se usa lo que la revisión ya sugirió).",
+      "piezas": [
+        {
+          "n": null,
+          "unidad": "Escena 15 · imagen de inicio",
+          "momento": 54.508,
+          "valor": "Es una escena del antes, pero ella sale con caderas anchas y curvas en unos leggings ajustados: parece el después. Además los pantalones no son los mismos, holgados, de la toma de las sentadillas.",
+          "clave": "img:toma-15-inicial",
+          "sugerencia": true
+        }
+      ]
+    }
+  ],
+  "sinProblemas": false,
+  "costo": {
+    "creditos": 1465,
+    "dolares": 7.33,
+    "dolaresPorCredito": 0.005,
+    "imagenes": {
+      "piezas": 27,
+      "creditos": 0,
+      "dolares": 0
+    },
+    "videos": {
+      "piezas": 23,
+      "creditos": 1453,
+      "dolares": 7.27
+    },
+    "musica": {
+      "pistas": 1,
+      "creditos": 12,
+      "dolares": 0.06
+    },
+    "sinRegistro": {
+      "piezas": 0,
+      "creditosEstimados": 0
+    },
+    "estimado": false,
+    "elevenlabs": {
+      "caracteres": 1388,
+      "scribeSegundos": 114.3
+    },
+    "corridas": 4,
+    "respaldo": [
+      "toma-1.mp4"
+    ],
+    "partes": [
+      {
+        "id": "imagenes",
+        "piezas": 27,
+        "creditos": 0,
+        "dolares": 0
+      },
+      {
+        "id": "videos",
+        "piezas": 23,
+        "creditos": 1453,
+        "dolares": 7.27
+      },
+      {
+        "id": "musica",
+        "piezas": 1,
+        "creditos": 12,
+        "dolares": 0.06
+      },
+      {
+        "id": "voz",
+        "caracteres": 1388
+      }
+    ],
+    "verificacion": {
+      "saldoAntes": 10013.4,
+      "saldoDespues": 8548.4,
+      "diferencia": 1465,
+      "coincide": true
+    },
+    "rehecho": false
+  }
+}

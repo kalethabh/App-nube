@@ -4,7 +4,7 @@
     "E": 3,
     "R": 4,
     "A": 1,
-    "T": 6
+    "T": 8
   },
   "tandas": {
     "E001": {
@@ -182,46 +182,50 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0004",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T006"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0004",
       "ultimaOrden": "U0002",
-      "fallo": {
-        "orden": "U0002",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0005",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T007"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0005",
       "ultimaOrden": "U0003",
-      "fallo": {
-        "orden": "U0003",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     }
   },
   "pedidos": {
@@ -271,6 +275,36 @@
       ],
       "paso": 0,
       "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0004": {
+      "id": "U0004",
+      "pieza": "V04_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T21:53:27.941Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V04_1x1",
+          "orden": "U0004",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0005": {
+      "id": "U0005",
+      "pieza": "V05_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T21:53:30.371Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V05_1x1",
+          "orden": "U0005",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
     }
   }
 }

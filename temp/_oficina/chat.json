@@ -826,6 +826,22 @@
         }
       ],
       "fecha": "2026-11-21T21:47:09.941Z"
+    },
+    {
+      "id": "0a05931a46",
+      "de": "coordinadora",
+      "texto": "¡Listo «Aguaje Complex 3 en 1 — «Le dijeron flaca toda la vida»»! 🎉 Aquí lo tienes. Si algo no te cuadra me dices y lo ajustamos.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Ver «Aguaje Complex 3 en 1 — «Le dijeron flaca toda la vida»»",
+          "href": "#/anuncio/aguaje-complex-3-en-1-agregar-20261121-1610",
+          "slug": "aguaje-complex-3-en-1-agregar-20261121-1610",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-21T21:55:04.775Z"
     }
   ],
   "encargos": [
@@ -928,7 +944,7 @@
       "aprobado": "2026-11-21T20:42:21.836Z"
     },
     {
-      "estado": "produciendo",
+      "estado": "listo",
       "creado": "2026-11-21T21:10:22.382Z",
       "id": "aguaje-complex-3-en-1-agregar-20261121-1610",
       "tipo": "video",
@@ -948,7 +964,7 @@
       "aprobado": "2026-11-21T21:25:16.799Z"
     },
     {
-      "estado": "escribiendo",
+      "estado": "cancelado",
       "creado": "2026-11-21T21:47:09.939Z",
       "id": "aguaje-complex-3-en-1-agregar-20261121-1647",
       "tipo": "video",
