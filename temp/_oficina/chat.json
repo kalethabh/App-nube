@@ -903,6 +903,30 @@
         "ab687a70f12b"
       ],
       "fecha": "2026-11-21T22:19:19.322Z"
+    },
+    {
+      "id": "fc20d9d66d",
+      "de": "coordinadora",
+      "texto": "¡Va! 🙌 Te armo las 20 en cuadrado igual a esta: mismo antes y después animado, mismos colores y textos, pero con el frasco de AGUAJE COMPLEX 3 EN 1. Cambio la chica, la pose y el titular. Salen en dos tandas de 10, con su costo aquí, y no arranca nada sin tu sí.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Generando 10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio) (sin costo por imagen)",
+          "href": "#/imagenes/_img-aguaje-complex-3-en-1-20261121-1719",
+          "lote": "_img-aguaje-complex-3-en-1-20261121-1719",
+          "ok": true,
+          "enChat": true
+        },
+        {
+          "tipo": "imagenes",
+          "titulo": "Generando 10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio) (sin costo por imagen)",
+          "href": "#/imagenes/_img-aguaje-complex-3-en-1-20261121-1719-2",
+          "lote": "_img-aguaje-complex-3-en-1-20261121-1719-2",
+          "ok": true,
+          "enChat": true
+        }
+      ],
+      "fecha": "2026-11-21T22:19:52.719Z"
     }
   ],
   "encargos": [
@@ -1054,6 +1078,28 @@
       "titulo": "10 imágenes de VITALDROPS (variaciones de tu anuncio)",
       "costo": 0,
       "aprobado": "2026-11-21T22:19:15.470Z"
+    },
+    {
+      "estado": "produciendo",
+      "creado": "2026-11-21T22:19:52.636Z",
+      "id": "_img-aguaje-complex-3-en-1-20261121-1719",
+      "tipo": "imagenes",
+      "lote": "_img-aguaje-complex-3-en-1-20261121-1719",
+      "productoId": "producto-edb1",
+      "titulo": "10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio)",
+      "costo": 0,
+      "aprobado": "2026-11-21T22:19:52.637Z"
+    },
+    {
+      "estado": "produciendo",
+      "creado": "2026-11-21T22:19:52.717Z",
+      "id": "_img-aguaje-complex-3-en-1-20261121-1719-2",
+      "tipo": "imagenes",
+      "lote": "_img-aguaje-complex-3-en-1-20261121-1719-2",
+      "productoId": "producto-edb1",
+      "titulo": "10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio)",
+      "costo": 0,
+      "aprobado": "2026-11-21T22:19:52.718Z"
     }
   ]
 }
