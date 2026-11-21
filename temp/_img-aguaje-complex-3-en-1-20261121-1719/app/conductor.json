@@ -35,8 +35,9 @@
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
       "estado": "corriendo",
-      "intentos": 1,
+      "intentos": 2,
       "inicio": "2026-11-21T22:32:32.834Z",
+      "retomado": true,
       "detalle": "Claude está escribiendo 6 anuncios: escribiendo cada anuncio · 0 de 10 listas"
     },
     {
@@ -50,5 +51,5 @@
   "modoPrueba": false,
   "creado": "2026-11-21T22:19:52.637Z",
   "aprobado": "2026-11-21T22:19:52.637Z",
-  "actualizado": "2026-11-21T22:39:16.808Z"
+  "actualizado": "2026-11-21T22:42:38.787Z"
 }
