@@ -37,12 +37,13 @@
     "V04_1x1": {
       "orden": "g",
       "estado": "generando",
-      "intentosApi": 1,
+      "intentosApi": 2,
       "version": 1,
       "intentoAbierto": true,
-      "taskId": null
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
     }
   },
-  "actualizado": "2026-11-21T19:36:09.166Z",
+  "actualizado": "2026-11-21T19:38:00.002Z",
   "terminado": false
 }
