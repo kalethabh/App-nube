@@ -1,0 +1,131 @@
+{
+  "producto": "AGUAJE COMPLEX 3 EN 1",
+  "lote": "_img-aguaje-complex-3-en-1-20261121-1719",
+  "cantidad": 10,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "ANTES: INVISIBLE. AHORA: IMPOSIBLE DE IGNORAR.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "ANTES NADIE LA VEÍA. AHORA NADIE DEJA DE MIRARLA.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "DE INVISIBLE A IMPOSIBLE DE IGNORAR.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "prueba-social",
+      "angulo": "Prueba social",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "ANTES: PLANA. AHORA: TODOS VOLTEAN A VERLA.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "curiosidad",
+      "angulo": "Curiosidad",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "ANTES PASABA DESAPERCIBIDA. AHORA ES LA QUE TODOS NOTAN.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V06",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "mecanismo-unico",
+      "angulo": "Mecanismo único",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "ANTES: SIN CURVAS. AHORA: IMPOSIBLE DE IGNORAR.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V07",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "objecion-confianza",
+      "angulo": "Objeción de confianza",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "ELLA ERA INVISIBLE. HOY SE ROBA TODAS LAS MIRADAS.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "dolor de la ficha del producto"
+    },
+    {
+      "id": "V08",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "promesa-emocional",
+      "angulo": "Promesa emocional",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "ANTES: IGNORADA. AHORA: IMPOSIBLE DE NO VER.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "nombre del producto"
+    },
+    {
+      "id": "V09",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "DE LA QUE NADIE NOTA A LA QUE TODOS MIRAN.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "nombre del producto"
+    },
+    {
+      "id": "V10",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "ANTES: INVISIBLE. AHORA: LA MÁS MIRADA.",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    }
+  ],
+  "rapido": true
+}

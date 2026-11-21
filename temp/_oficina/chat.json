@@ -927,6 +927,22 @@
         }
       ],
       "fecha": "2026-11-21T22:19:52.719Z"
+    },
+    {
+      "id": "abfaf989dc",
+      "de": "coordinadora",
+      "texto": "Ya están tus 10 imágenes de VITALDROPS (variaciones de tu anuncio) 👀 Échales un ojo y me dices qué tal.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Ver 10 imágenes de VITALDROPS (variaciones de tu anuncio)",
+          "href": "#/imagenes/_img-vitaldrops-20261121-1719",
+          "lote": "_img-vitaldrops-20261121-1719",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-21T22:26:04.888Z"
     }
   ],
   "encargos": [
@@ -1058,7 +1074,7 @@
       "titulo": "Igual a tu video de AGUAJE COMPLEX 3 EN 1"
     },
     {
-      "estado": "produciendo",
+      "estado": "listo",
       "creado": "2026-11-21T22:19:15.381Z",
       "id": "_img-vitaldrops-20261121-1719",
       "tipo": "imagenes",
