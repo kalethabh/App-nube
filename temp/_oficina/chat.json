@@ -959,6 +959,30 @@
       ],
       "aviso": true,
       "fecha": "2026-11-21T22:28:04.898Z"
+    },
+    {
+      "id": "095d9bdb0a",
+      "de": "tu",
+      "texto": "AHORA GENERA 10 MÁS DEL VITALDROP TENIENDO EN CUENTA EL HTML PARA HACER BUENOS CREATIVOS PARA META",
+      "adjuntos": [
+        "d60417640a91"
+      ],
+      "fecha": "2026-11-21T22:37:32.753Z"
+    },
+    {
+      "id": "a505829386",
+      "de": "coordinadora",
+      "texto": "¡Va! 🙌 Leí la clase y la idea es clara: no 10 copias, sino 10 conceptos distintos, cada uno con otra mujer, otro momento y otro formato, todos en colombiano y sin promesas de cuerpo. Te las armo en cuadrado, con MUNA en vez de AMUA. Te sale el costo aquí y no arranca nada sin tu sí.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Generando 10 imágenes de VITALDROPS (sin costo por imagen)",
+          "href": "#/imagenes/_img-vitaldrops-20261121-1738",
+          "lote": "_img-vitaldrops-20261121-1738",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-21T22:38:08.235Z"
     }
   ],
   "encargos": [
@@ -1132,6 +1156,17 @@
       "titulo": "10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio)",
       "costo": 0,
       "aprobado": "2026-11-21T22:19:52.718Z"
+    },
+    {
+      "estado": "produciendo",
+      "creado": "2026-11-21T22:38:08.233Z",
+      "id": "_img-vitaldrops-20261121-1738",
+      "tipo": "imagenes",
+      "lote": "_img-vitaldrops-20261121-1738",
+      "productoId": "vitaldrops-d183",
+      "titulo": "10 imágenes de VITALDROPS",
+      "costo": 0,
+      "aprobado": "2026-11-21T22:38:08.234Z"
     }
   ]
 }
