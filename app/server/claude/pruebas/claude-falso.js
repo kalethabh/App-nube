@@ -366,8 +366,14 @@ async function alMensaje(texto) {
       acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'musical', cantidad: 1, duracion: null, respuestas: { visual: 'crochet' }, idea: 'copiar la letra del video palabra por palabra cambiando solo el producto', video: videoAdj });
       respuesta = 'Listo: saco la letra de tu video y el guionista la copia tal cual con tu producto.';
     } else if (videoAdj && /igual|replic|clon|estructura/i.test(ultimo) && prod) {
-      acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'zack-d-films', cantidad: 1, duracion: '1:50', respuestas: { fondo: 'estudio' }, idea: 'replicar la estructura del video', video: videoAdj, conservar_gancho: false });
-      respuesta = 'Va, le paso tu video al guionista para que lo replique en Zack de 1:50.';
+      // (2026-11-21b) sin un estilo nombrado: «agregar» (el mismo look y estructura del video)
+      if (/zack/i.test(ultimo)) {
+        acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'zack-d-films', cantidad: 1, duracion: '1:50', respuestas: { fondo: 'estudio' }, idea: 'replicar la estructura del video', video: videoAdj, conservar_gancho: false });
+        respuesta = 'Va, le paso tu video al guionista para que lo replique en Zack de 1:50.';
+      } else {
+        acciones.push({ tipo: 'crear-anuncio', productoId: prod, estilo: 'agregar', cantidad: 1, duracion: null, respuestas: {}, idea: 'tal cual este video, misma estructura', video: videoAdj, conservar_gancho: false });
+        respuesta = 'Listo, lo replico tal cual tu video: misma estructura y mismo look, con tu producto.';
+      }
     } else if (/^dale/i.test(ultimo) && esperaSi) {
       acciones.push({ tipo: 'producir', id: esperaSi });
       respuesta = 'Va, arranco ya 💪';
