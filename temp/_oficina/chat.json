@@ -842,6 +842,25 @@
       ],
       "aviso": true,
       "fecha": "2026-11-21T21:55:04.775Z"
+    },
+    {
+      "id": "ab60a35049",
+      "de": "tu",
+      "texto": "REGENERA TODAS LAS IMAGENES QUE SALIERON ERROR",
+      "fecha": "2026-11-21T22:11:19.913Z"
+    },
+    {
+      "id": "91a3a7d2f8",
+      "de": "coordinadora",
+      "texto": "¡Va! 🙌 Las que fallaron fueron las 2 verticales de tu anuncio navideño, ya las vuelvo a lanzar con fondo limpio, el titular bien grande y todo lo importante al centro para que las recortes a 4:5. Te sale el costo aquí y no arranca nada sin tu sí. Si en los otros lotes viste alguna en rojo, dime cuál y la rehago también.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Las imágenes: Elige «Solo cuadrado 1:1» o «Cuadrado + vertical 9:16».",
+          "ok": false
+        }
+      ],
+      "fecha": "2026-11-21T22:11:40.068Z"
     }
   ],
   "encargos": [
