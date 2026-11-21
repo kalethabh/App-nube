@@ -23,6 +23,7 @@ import { R, guardarJSON, idsDelLote, fotoDelLote } from './disco.js';
 import { leerSkill } from './verificar.js';
 import { contextoCreativo, MOMENTOS } from './angulo-producto.js';
 import { fichaDe } from './plantillas-referencia.js';
+import { leerMapa, variedad } from './replicar.js';
 
 const corto = (t, max) => String(t || '').replace(/\s+/g, ' ').trim().slice(0, max);
 const sinComillas = (t) => corto(t, 200).replace(/^["«“']+|["»”']+$/g, '').trim();
@@ -79,8 +80,14 @@ export function prepararRapido(carpeta, brief) {
   if (!n) return { ok: false, motivo: 'sin cantidad' };
   const refs = referenciasDelLote(carpeta, brief);
   if (!refs.length) return { ok: false, motivo: 'sin referencias' };
-  const titulares = titularesDelLote(carpeta, brief, n);
+  const replicar = Boolean(brief.replicar) && brief.modo === 'variantes';
+  const titulares = replicar ? Array.from({ length: n }, () => ({ titulo: '', base: 'el mapa de la referencia' })) : titularesDelLote(carpeta, brief, n);
   if (!titulares.length) return { ok: false, motivo: 'sin titulares' };
+  // (2026-11-21) MODO REPLICAR VALIDADO: cada referencia trae su mapa (replicar.js) y cada imagen, su combinación
+  const mapas = replicar ? refs.map((_, k) => leerMapa(carpeta, k + 1)) : [];
+  if (replicar && mapas.some((m) => !m)) return { ok: false, motivo: 'sin mapa' };
+  const combos = replicar ? variedad(n, brief.slug || path.basename(carpeta)) : [];
+  const usados = new Map(); // referencia -> cuántos titulares de su mapa ya se usaron
 
   const ficha = brief.productoId ? leerFicha(brief.productoId) || {} : {};
   const nombre = corto(brief.datos?.nombre || ficha.nombre || 'el producto', 80);
@@ -91,7 +98,7 @@ export function prepararRapido(carpeta, brief) {
   const publico = corto(brief.datos?.publico || ficha.publico || '', 200);
   const pais = corto(brief.datos?.pais || ficha.pais || '', 60);
   // (las plantillas de referencia se copian como Variantes: mismo diseño, otro producto, textos y paleta)
-  const modo = brief.modo === 'variantes' || brief.desdePlantillas ? 'copiar' : 'inspirar';
+  const modo = brief.modo === 'variantes' && brief.replicar ? 'replicar' : brief.modo === 'variantes' || brief.desdePlantillas ? 'copiar' : 'inspirar';
   const propias = new Set(brief.referenciasPropias || []);
   const conceptoDeRef = (k) => (brief.modo === 'variantes' && Array.isArray(brief.conceptosReferencias) ? String(brief.conceptosReferencias[k - 1] || '').trim() : '');
   const { angulos } = leerSkill();
@@ -135,16 +142,16 @@ export function prepararRapido(carpeta, brief) {
       visual_atmosphere: 'the atmosphere of the reference ad',
       graphic_language: 'the graphic language of the reference ad',
       text_typography: 'the typography of the reference ad',
-      art_direction: modo === 'copiar' ? 'same design as the reference ad' : 'new composition inspired by the reference ad',
+      art_direction: modo !== 'inspirar' ? 'same design as the reference ad' : 'new composition inspired by the reference ad',
     },
     beneficios: almenos4(beneficios, ['Beneficio principal del producto', 'Fácil de usar', 'Calidad', 'Resultados visibles']),
     caracteristicas: almenos4(caracteristicas, ['Producto real de la foto', 'Empaque original', 'Uso diario', 'Envío a domicilio']),
   });
   guardarJSON(R.estrategia(carpeta), {
-    resumen: `Modo rápido: ${n} ${modo === 'copiar' ? 'variaciones de lo que ya te funciona' : 'anuncios nuevos inspirados en anuncios validados'}, con un titular distinto en cada una.`,
+    resumen: `Modo rápido: ${n} ${modo === 'replicar' ? 'réplicas exactas de tu anuncio validado (cambian la modelo, el escenario, la pose y el titular)' : modo === 'copiar' ? 'variaciones de lo que ya te funciona' : 'anuncios nuevos inspirados en anuncios validados'}, con un titular distinto en cada una.`,
     paleta: [{ hex: '#000000', nombre: 'la del empaque del producto' }, { hex: '#FFFFFF', nombre: 'la de cada referencia' }],
     tipografia: 'la de cada referencia',
-    estilo: modo === 'copiar' ? 'el de cada referencia' : 'inspirado en cada referencia',
+    estilo: modo !== 'inspirar' ? 'el de cada referencia' : 'inspirado en cada referencia',
     beneficios: almenos4(beneficios, ['Beneficio principal del producto', 'Fácil de usar', 'Calidad', 'Resultados visibles']),
     caracteristicas: almenos4(caracteristicas, ['Producto real de la foto', 'Empaque original', 'Uso diario', 'Envío a domicilio']),
     rapido: true,
@@ -159,9 +166,9 @@ export function prepararRapido(carpeta, brief) {
       referencia: ref,
       angulo_id: angulos.has(angulo_id) ? angulo_id : [...angulos.keys()][0] || 'beneficio-principal',
       angulo: angulos.get(angulo_id)?.nombre || angulo_id,
-      concepto: modo === 'copiar' ? 'Variación del creativo que ya funciona' : 'Anuncio nuevo inspirado en un anuncio validado',
-      titular: corto(titularDe(i), 90) || titulares[i].titulo,
-      escena: modo === 'copiar' ? 'la de la referencia' : 'nueva, del mismo tipo que la referencia',
+      concepto: modo === 'replicar' ? 'Réplica exacta del anuncio validado' : modo === 'copiar' ? 'Variación del creativo que ya funciona' : 'Anuncio nuevo inspirado en un anuncio validado',
+      titular: replicar ? corto((mapas[i % refs.length]?.titulares || [])[Math.floor(i / refs.length)] || mapas[i % refs.length]?.titular_original, 120) : corto(titularDe(i), 90) || titulares[i].titulo,
+      escena: modo === 'replicar' ? `${combos[i]?.escenario} · ${combos[i]?.pose}` : modo === 'copiar' ? 'la de la referencia' : 'nueva, del mismo tipo que la referencia',
       camara: 'la de la referencia',
       base_titular: titulares[i].base,
     };
@@ -171,6 +178,14 @@ export function prepararRapido(carpeta, brief) {
   variaciones.forEach((x, i) => {
     const k = (refs.indexOf(x.referencia) + 1) || 1;
     const deEsteProducto = modo === 'copiar' && propias.has(k);
+    if (replicar) {
+      const m = mapas[k - 1];
+      const j = usados.get(k) || 0;
+      usados.set(k, j + 1);
+      const titulos = (m.titulares || []).map((t) => corto(t, 120)).filter(Boolean);
+      guardarJSON(R.v(carpeta, x.id), variacionReplicar({ id: x.id, mapa: m, combo: combos[i], titular: titulos[j % titulos.length] || m.titular_original, nombre }));
+      return;
+    }
     if (creativo) {
       // (la plantilla de esta imagen: la referencia R0k es la k-ésima elegida)
       const plantilla = fichaDe((brief.plantillasReferencia || [])[refs.indexOf(x.referencia)]);
@@ -216,6 +231,54 @@ export function prepararRapido(carpeta, brief) {
     });
   });
   return { ok: true, referencias: refs.length, titulares: titulares.length, modo };
+}
+
+/**
+ * Una variación del MODO REPLICAR VALIDADO (app_rapido 'replicar', produccion/imagen-ads.js RAPIDO_REPLICAR): el mapa
+ * de la referencia, EXACTO, y lo único que cambia en esta imagen (modelo, escenario, pose y encuadre, titular).
+ */
+export function variacionReplicar({ id, mapa, combo, titular, nombre }) {
+  const z = mapa.zonas || {};
+  const tp = mapa.tipografia_paleta || {};
+  const a = mapa.angulo || {};
+  const visual = [
+    `PRODUCT: ${nombre}. It replaces the product of the reference, in the same zone, size and angle.`,
+    'MAP OF THE REFERENCE (fixed, nothing moves):',
+    `- Headline: ${z.titular}`,
+    `- Model / before-after: ${z.modelo}`,
+    `- Product bottle: ${z.producto}`,
+    `- Benefit bullets / checks: ${z.beneficios}`,
+    `- Offer block and CTA: ${z.oferta_cta}`,
+    z.otros ? `- Other blocks: ${z.otros}` : null,
+    `READING HIERARCHY (unchanged): ${(mapa.jerarquia || []).map((x, i) => `${i + 1}) ${x}`).join('  ')}`,
+    `TYPOGRAPHY: ${tp.fuentes}`,
+    `PALETTE: ${tp.colores}`,
+    `TEXT BLOCK BACKGROUNDS: ${tp.fondos_de_bloques}`,
+    `SALES ANGLE (identical): desire: ${a.deseo}; main benefit: ${a.beneficio}; pain: ${a.dolor}.`,
+    'WHAT CHANGES IN THIS IMAGE (and only this):',
+    `- MODEL: ${combo.modelo}. If the reference has a before/after, it is this same new woman in both halves.`,
+    `- SETTING / BACKGROUND OF THE PHOTO: ${combo.escenario}.`,
+    `- POSE AND FRAMING: ${combo.pose}, inside the same zone and the same % of the image as the reference.`,
+    '- HEADLINE WORDING: the one given in TEXTS (same promise, other words).',
+  ]
+    .filter(Boolean)
+    .join('\n');
+  const textos = (Array.isArray(mapa.textos) ? mapa.textos : []).filter((t) => t && String(t.texto || '').trim()).slice(0, 12);
+  return {
+    ad_info: { variation_id: id },
+    global_identity: { color_palette: `exactly the same as the reference: ${tp.colores}`, text_typography: `exactly the same as the reference: ${tp.fuentes}` },
+    visual_prompt: visual,
+    text_layers: [
+      { reference_function: 'main headline', reference_position: z.titular, text: titular, text_style: 'the same style, size and background as the headline of the reference' },
+      ...textos.map((t) => ({ reference_function: corto(t.zona, 60) || 'text', reference_position: 'the same zone as in the reference', text: corto(t.texto, 200), text_style: 'the same style and background as in the reference' })),
+    ],
+    mandatory_visual_elements: ['the real product from the attached product photo, where the reference has its bottle', `a different woman: ${combo.modelo}`],
+    final_generation_exclusions: ['moving, adding or removing any block', 'a different font or palette', 'any new claim, number or testimonial', "the reference's brand or logo", 'misspelled words'],
+    reference_structure_analysis: { forbidden_additions: ['new blocks', 'new claims'], detected_visual_blocks: Object.keys(z) },
+    language_rule: 'All visible text in Spanish.',
+    app_rapido: 'replicar',
+    app_replicar: { modelo: combo.modelo, escenario: combo.escenario, pose: combo.pose },
+  };
 }
 
 /**

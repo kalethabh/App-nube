@@ -214,8 +214,20 @@ async function estrategia(ctx) {
   }
   // Modo rápido («como pedirle a ChatGPT que me las varíe»): la app arma el lote en segundos, sin la IA de texto
   // (imagen-ads/rapido.js). Sin referencias ni titulares para variar, sigue el camino de siempre.
+  // (2026-11-21) MODO REPLICAR VALIDADO: antes, la IA saca el mapa de cada referencia (replicar.js)
+  if (b.replicar && b.modo === 'variantes') {
+    const { mapasListos, analizarReferencias } = await import('../imagen-ads/replicar.js');
+    if (!mapasListos(c, b)) {
+      const r = await analizarReferencias(c, b, { lote: ctx.slug, avance: (t) => ctx.avance(t) });
+      anotarRegistro(c, 'E001', { replicar: r.ok, motivo: r.motivo || null });
+      if (!r.ok) {
+        if (r.motivo === 'limite') return errorDeLimite(r.resultado);
+        return error(r.motivo === 'sin-ia' ? 'Para replicar tu anuncio validado, la app lee su mapa con tu IA: conéctala en Ajustes › Conexiones y toca “Continuar”.' : 'No pude leer el mapa de tu anuncio validado. Toca “Continuar” para intentarlo otra vez.', 'replicar', r.motivo);
+      }
+    }
+  }
   if (b.rapido && !existe(R.bloqueo(c))) {
-    ctx.avance('Preparando tus variaciones');
+    ctx.avance(b.replicar ? 'Preparando las réplicas de tu anuncio validado' : 'Preparando tus variaciones');
     const r = prepararRapido(c, b);
     if (r.ok) {
       const lote = leerJSON(R.lote(c));

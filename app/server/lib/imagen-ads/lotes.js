@@ -240,11 +240,13 @@ export function crearLote(cuerpo = {}) {
     // «Variantes» y siempre con la estrategia de la IA (el modo rápido no analiza el ganador)
     // (2026-11-20b) …y también SIN referencia, desde la investigación de mercado («Nuevos»): el agente hace todo
     ...(cuerpo.agente === 'variaciones' ? { agente: 'variaciones' } : {}),
+    // (2026-11-21) MODO REPLICAR VALIDADO: el anuncio validado EXACTO; solo cambian modelo, escenario, pose y titular
+    ...(cuerpo.modo === 'variantes' && cuerpo.replicar === true && cuerpo.agente !== 'variaciones' ? { replicar: true } : {}),
     // Ya no se eligen títulos antes (2026-11-16: «elimina lo de seleccionar títulos»): los pone la app o la IA.
     elegirTitulos: false,
     // Modo rápido por defecto («como pedirle a ChatGPT que me las varíe», imagen-ads/rapido.js); rapido: false = con
     // la estrategia de la IA (más lento).
-    rapido: cuerpo.agente === 'variaciones' ? false : cuerpo.rapido !== false,
+    rapido: cuerpo.agente === 'variaciones' ? false : cuerpo.modo === 'variantes' && cuerpo.replicar === true ? true : cuerpo.rapido !== false,
     // la investigación de mercado (entrada/investigacion.md o .pdf), si subiste una
     investigacion: null,
     // PLANTILLAS (2026-11-17p): la app dibuja los textos; solo las de escena usan el modelo de imagen (sin texto)

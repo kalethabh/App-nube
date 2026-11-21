@@ -287,6 +287,23 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, escenaB[1]), JSON.stringify({ se_ve: `Escena de apoyo de prueba ${nb}${quiere ? `: ${quiere.slice(0, 60)}` : ''}, con el producto en primer plano y luz cálida.`, camara: 'primer plano, la cámara se acerca despacio' }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-21) el MAPA de una referencia validada (modo «Replicar validado»): zonas, jerarquía, letra y paleta, ángulo
+  // y N titulares con la misma promesa
+  const mapaRef = /TAREA: mapa de la referencia validada/.test(textoTarea) ? /Escribe (temp\/\S+\/entrada\/mapa-R\d{2}\.json)/.exec(textoTarea) : null;
+  if (mapaRef) {
+    const n = Number((/REPLICARLO EXACTO en (\d+) variaciones/.exec(textoTarea) || [])[1]) || 3;
+    const otras = ['Adiós a la cola plana', 'Chao a los glúteos planos', 'Despídete de la cola plana', 'Olvida los glúteos planos', 'Basta de cola plana', 'Nunca más glúteos planos', 'Se acabó la cola plana', 'Fuera los glúteos planos', 'Dile adiós a la cola plana', 'Ya no más cola plana', 'Hasta nunca, cola plana', 'Sin glúteos planos nunca más'];
+    fs.writeFileSync(path.join(RAIZ, mapaRef[1]), JSON.stringify({
+      zonas: { titular: 'arriba, centrado, 90 % del ancho, letra enorme', modelo: 'mitad izquierda, 55 % de la imagen, de espaldas', producto: 'abajo a la derecha, 30 % del alto, de frente', beneficios: 'derecha, 3 checks verdes uno debajo del otro', oferta_cta: 'franja inferior amarilla con botón negro', otros: 'no hay' },
+      jerarquia: ['el titular', 'el antes y después', 'el frasco y la oferta'],
+      tipografia_paleta: { fuentes: 'titular en sans condensada negra, mayúsculas; checks en sans regular', colores: 'fondo rosa #F7C6D0, texto negro #111111, checks verdes #22C55E', fondos_de_bloques: 'titular sin fondo; oferta en cinta amarilla #FACC15' },
+      angulo: { deseo: 'tener glúteos redondos y levantados', beneficio: 'más volumen en glúteos', dolor: 'la cola plana' },
+      titular_original: 'Bye bye glúteos planos',
+      textos: [{ zona: 'check 1', texto: 'Más volumen' }, { zona: 'oferta', texto: 'Envío gratis hoy' }, { zona: 'CTA', texto: 'Pídelo ya' }],
+      titulares: Array.from({ length: n }, (_, k) => otras[k % otras.length] + (k >= otras.length ? ` ${k}` : '')),
+    }));
+    return resultado({ result: 'LISTO' });
+  }
   // (2026-11-20r) la IA en una tienda de Shopify: cambia el botón del tema y, si le piden una página, propone crearla
   const tiendaShop = /TAREA: tienda shopify/.test(textoTarea) ? /(temp\/_shopify\/trabajos\/[a-z0-9-]+)\/tema\//.exec(textoTarea) : null;
   if (tiendaShop) {
