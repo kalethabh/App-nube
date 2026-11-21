@@ -1,13 +1,12 @@
 {
-  "pid": 25985,
-  "paso": "musica",
-  "script": "suno-retomable.js",
+  "pid": 26316,
+  "paso": "render",
+  "script": "ensamblar.js",
   "args": [
-    "generar-musica.js",
     "temp/aguaje-complex-3-en-1-realista-narrado-20261121-0943",
-    "--si"
+    "--solo-completa"
   ],
-  "comando": "node produccion/suno-retomable.js generar-musica.js temp/aguaje-complex-3-en-1-realista-narrado-20261121-0943 --si",
-  "inicio": "2026-11-21T17:58:54.578Z",
+  "comando": "node produccion/ensamblar.js temp/aguaje-complex-3-en-1-realista-narrado-20261121-0943 --solo-completa",
+  "inicio": "2026-11-21T17:59:39.902Z",
   "app": 21961
 }
