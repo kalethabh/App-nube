@@ -95,3 +95,7 @@ temp/_landings/*/original.html
 .env.shopify.json
 .env.shopify.json.*.tmp
 temp/_shopify/
+
+# (2026-11-21) Carpetas de producto: los medios quedan en este computador (no van a GitHub)
+temp/_carpetas/*/imagenes/
+temp/_carpetas/*/videos/

@@ -669,6 +669,19 @@ export function estimarCosto(entrada, { eleccion = null } = {}) {
     // los iconos de la entrevista no cambian con la eleccion: sin otras imagenes no hay nada que comparar
     if (img.piezas > (img.porClase.icono || 0)) categorias.add('imagen');
   }
+  // (2026-11-21f) CORRECCIONES DE IMÁGENES: la revisión antes de los videos rehace sola (una vez) las imágenes de escena
+  // que están mal (el producto distinto a la foto, otra persona, otro set). El número incluye hasta un 30 % de las
+  // imágenes de las tomas, al precio medio de una imagen: solo se cobra lo que de verdad se rehace.
+  if (entrada.correccionImagenes && familia === 'voz-en-off' && img.piezas) {
+    const escenas = (m.tomas || []).filter((t) => ['A', 'B', 'C'].includes(t.tipo)).reduce((n, t) => n + (t.tipo === 'B' ? 2 : 1), 0);
+    const k = Math.ceil(escenas * 0.3);
+    if (k) {
+      const c = Math.round((img.creditos / img.piezas) * k * 100) / 100;
+      partes.push({ id: 'correcciones', nombre: 'Correcciones de imágenes (si hacen falta)', creditos: c, piezas: k });
+      variable += c;
+      notas.push(`Incluye hasta ${k === 1 ? 'una imagen rehecha' : `${k} imágenes rehechas`} por la revisión antes de los videos: solo se cobran las que de verdad se rehacen.`);
+    }
+  }
   if (img.sinPrecio) notas.push(`${img.sinPrecio === 1 ? 'Una imagen no tiene' : `${img.sinPrecio} imágenes no tienen`} precio conocido: no ${img.sinPrecio === 1 ? 'está' : 'están'} en el número.`);
 
   // Videos
@@ -855,6 +868,8 @@ export function estimarCarpeta(ctx, { eleccion = null, comparar = false, segundo
     hayMusica: ctx.hayMusica,
     pistaFijaDisponible: ctx.pistaFijaDisponible,
     ganchos,
+    // (2026-11-21f) la revisión de las imágenes ANTES de los videos rehace sola las que están mal: su margen
+    correccionImagenes: Boolean(ctx.brief?.correccionImagenes),
   };
   const cantado = CANTADAS.has(ctx.familia) && fase !== 'guion';
   let seg = null;
