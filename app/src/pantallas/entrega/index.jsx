@@ -34,6 +34,7 @@ import { Reproductor } from './Reproductor.jsx';
 import { Versiones } from './Versiones.jsx';
 import { MasGanchos } from './MasGanchos.jsx';
 import { Recrear } from './Recrear.jsx';
+import { EditarAnuncio } from './EditarAnuncio.jsx';
 import { Opinion } from './Opinion.jsx';
 import { EnLaNube } from './EnLaNube.jsx';
 import { Informe, normalizarInforme } from './Informe.jsx';
@@ -242,6 +243,8 @@ export default function Entrega({ params }) {
           {version ? <Opinion slug={a.slug} /> : null}
           {version ? <MasGanchos slug={a.slug} /> : null}
           {/* (2026-11-19p) el mismo anuncio, con el mismo guion, para otro de tus productos */}
+          {/* (2026-11-21h) una versión nueva con el cambio que pidas (de cantado a narrado, otro gancho…) */}
+          {a.estado !== 'guion' && a.nuevo && (a.estiloApp || a.estilo) ? <EditarAnuncio slug={a.slug} productoId={a.productoId} estilo={a.estiloApp || a.estilo} enMarcha={a.estado === 'produciendo'} bloque /> : null}
           {a.estado !== 'guion' ? <Recrear slug={a.slug} productoId={a.productoId} estilo={a.estilo} /> : null}
 
         </div>

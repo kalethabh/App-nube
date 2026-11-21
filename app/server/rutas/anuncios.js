@@ -65,6 +65,7 @@ function todos() {
       modoPrueba: n.modoPrueba,
       teNecesita: n.teNecesita,
       paraDespues: n.paraDespues,
+      estiloApp: n.estilo,
       enGuion: n.enGuion,
       error: n.error,
       errorTipo: n.errorTipo,
@@ -114,6 +115,8 @@ export default function rutasAnuncios(app) {
         ...(nuevo.estilo === 'musical' ? { estiloNombre: `Musical · ${detalle.estiloNombre}` } : {}),
         ...(/^Agregar · /.test(nuevo.estiloNombre || '') ? { estiloNombre: nuevo.estiloNombre } : {}),
         modoPrueba: nuevo.modoPrueba,
+        // el estilo con el que lo hizo la app (en un cantado, `estilo` es el visual del manifiesto): «Editar este anuncio»
+        estiloApp: nuevo.estilo,
         enGuion: nuevo.enGuion,
         error: nuevo.error,
       });

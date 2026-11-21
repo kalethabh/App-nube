@@ -173,6 +173,17 @@ function claudeDePrueba({ demora = 80, carpetas }) {
       try {
         await dormir(demora);
         if (o.senal?.aborted) return { ok: false, cancelado: true };
+        // (2026-11-21h) una imagen rechazada por contenido: el mismo anuncio sin lo que frena
+        if (o.tipo === 'imagen-ads-rechazo') {
+          const m = o.prompt.match(/Edita temp\/(\S+?)\/(V\d{2,3})\.json/);
+          const cr = m && carpetas.get(m[1]);
+          if (!cr) return { ok: false, error: 'no conozco ese lote' };
+          const ad = leer(R.v(cr, m[2]));
+          ad.visual_prompt = `${String(ad.visual_prompt).replace(/\s*SIM-PROHIBIDO/g, '')} A calm, friendly scene.`;
+          escribir(R.v(cr, m[2]), ad);
+          const v = await o.verificar();
+          return v.ok ? { ok: true } : { ok: false, error: 'no pasó', detalle: (v.errores || []).join('\n') };
+        }
         const lote = o.prompt.match(/Carpeta del lote: temp\/(\S+)/)?.[1];
         const carpeta = carpetas.get(lote);
         if (!carpeta) return { ok: false, error: `no conozco ${lote}` };
@@ -360,10 +371,33 @@ seccion('1. El planificador');
   plan.aplicarRevision(est, 'R007', { revisadas: [{ pieza: 'V02_9x16', ok: true, problemas: [] }] }, { V02_9x16: img.V02_9x16 });
   plan.progresar(est, hechos());
   check('Con los dos pasos hechos, el pedido queda listo', est.pedidos.U0001.estado === 'listo' && est.piezas.V02_9x16.version === 2, est.pedidos.U0001);
-  // una pieza que se queda sin imagen
-  const r = plan.aplicarResultado(est, 'V03_1x1', { orden: 'g', estado: 'sin-imagen', motivo: 'contenido', mensaje: 'kie no quiso hacer esta imagen por sus reglas de contenido', intentosApi: 3 });
+  // (2026-11-21h) una pieza que kie rechaza por contenido: la IA la reescribe y se pide otra vez, hasta 3 veces
+  const rechazo = { estado: 'sin-imagen', motivo: 'contenido', mensaje: 'kie no quiso hacer esta imagen por sus reglas de contenido', intentosApi: 3 };
+  let r = plan.aplicarResultado(est, 'V03_1x1', { orden: 'g', ...rechazo });
+  check('Rechazada por contenido: no queda sin imagen, espera que la IA la reescriba', r === 'reescribir' && est.piezas.V03_1x1.fase === 'reescribiendo' && plan.piezasPorReescribir(est).join() === 'V03_1x1' && !plan.decidir(est, hechos(), { ...libre, claudeLibre: false }).terminado, est.piezas.V03_1x1);
+  for (let k = 1; k <= plan.RESCATES_POR_CONTENIDO; k++) {
+    plan.terminarRescate(est, 'V03_1x1', { ok: true });
+    const p = est.piezas.V03_1x1;
+    if (k === 1) check('Reescrita: se pide otra vez, con su propia orden (el motor recuerda la «g» como sin imagen)', p.fase === 'por-pedir' && p.orden?.id === 'g-r1' && p.intentosApi === 0, p);
+    plan.marcarOrden(est, `T09${k}`, { piezas: [{ pieza: 'V03_1x1', orden: p.orden.id, modo: 'generar', version: 1 }] });
+    r = plan.aplicarResultado(est, 'V03_1x1', { orden: `g-r${k}`, ...rechazo });
+  }
   plan.progresar(est, hechos());
-  check('Sin imagen en el cuadrado: queda sin imagen, y su vertical también (falta el cuadrado)', r === 'sin-imagen' && est.piezas.V03_1x1.resultado === 'sin-imagen' && est.piezas.V03_9x16.resultado === 'sin-imagen' && est.piezas.V03_9x16.motivo === 'falta-cuadrado', [est.piezas.V03_1x1, est.piezas.V03_9x16]);
+  check(`Después de ${plan.RESCATES_POR_CONTENIDO} reescrituras rechazadas: queda sin imagen, y su vertical también (falta el cuadrado)`, r === 'sin-imagen' && est.piezas.V03_1x1.resultado === 'sin-imagen' && est.piezas.V03_9x16.resultado === 'sin-imagen' && est.piezas.V03_9x16.motivo === 'falta-cuadrado', [est.piezas.V03_1x1, est.piezas.V03_9x16]);
+  {
+    const e2 = plan.nuevoEstado({ cantidad: 1, formatos: ['1:1'] });
+    e2.variaciones.V01 = { prompt: 'listo', tanda: 'E001' };
+    plan.progresar(e2, {});
+    plan.marcarOrden(e2, 'T001', { piezas: [{ pieza: 'V01_1x1', orden: 'g', modo: 'generar', version: 1 }] });
+    plan.aplicarResultado(e2, 'V01_1x1', { orden: 'g', ...rechazo });
+    plan.terminarRescate(e2, 'V01_1x1', { ok: false });
+    check('Si la IA no pudo reescribirla: queda sin imagen como antes', e2.piezas.V01_1x1.fase === 'final' && e2.piezas.V01_1x1.resultado === 'sin-imagen' && e2.piezas.V01_1x1.motivo === 'contenido', e2.piezas.V01_1x1);
+    const e3 = plan.nuevoEstado({ cantidad: 1, formatos: ['1:1'] });
+    e3.variaciones.V01 = { prompt: 'listo', tanda: 'E001' };
+    plan.progresar(e3, {});
+    plan.marcarOrden(e3, 'T001', { piezas: [{ pieza: 'V01_1x1', orden: 'g', modo: 'generar', version: 1 }] });
+    check('Un fallo que no es de contenido: queda sin imagen enseguida (no se reescribe)', plan.aplicarResultado(e3, 'V01_1x1', { orden: 'g', estado: 'sin-imagen', motivo: 'fallo-de-kie', mensaje: 'kie falló' }) === 'sin-imagen' && e3.piezas.V01_1x1.resultado === 'sin-imagen');
+  }
   d = plan.decidir(est, hechos(), { ...libre, claudeLibre: false });
   check('Una pieza sin imagen no se vuelve a pedir', !(d.orden?.piezas || []).some((x) => x.pieza.startsWith('V03_')), d.orden);
 
@@ -795,6 +829,22 @@ if (!check(`ffmpeg con scale, crop, split y overlay (${ff.bin || 'no está'})`, 
   check('… y nadie vuelve a escribir estado.json después', fs.statSync(R.estado(l4.carpeta)).mtimeMs === marca);
 
   // dos lotes a la vez: una sola sesion de Claude
+  seccion('7c. Una imagen que el filtro rechaza por contenido se reescribe sola y sale (2026-11-21h)');
+  {
+    turno.reiniciarTurno();
+    const lp = '_img-politica-20261121-2200';
+    const P = await crearLote(lp, { n: 2, formatos: ['1:1'], logo: null });
+    const ad = leer(R.v(P.carpeta, 'V02'));
+    ad.visual_prompt += ' SIM-PROHIBIDO';
+    escribir(R.v(P.carpeta, 'V02'), ad);
+    const cp2 = claudeDePrueba({ carpetas: new Map([[lp, P.carpeta]]) });
+    const rp = await promesa2(familia._pruebas.anuncios(ctxDe(lp, P.carpeta, P.brief, cp2)), 120000);
+    const ep = leer(R.estado(P.carpeta));
+    const hechasP = listarResultados(P.carpeta).map((x) => `${x.pieza}:${x.orden}:${x.estado}`);
+    check('El lote termina y V02 tiene su imagen (no quedó «sin imagen»)', rp?.ok === true && ep?.piezas?.V02_1x1?.resultado !== 'sin-imagen' && fs.existsSync(R.img(P.carpeta, 'V02_1x1')), { rp, V02: ep?.piezas?.V02_1x1, hechasP });
+    check('Primero kie la rechazó (g) y después salió la reescrita (g-r1)', hechasP.includes('V02_1x1:g:sin-imagen') && hechasP.includes('V02_1x1:g-r1:lista'), hechasP);
+    check('La IA reescribió solo lo que se ve: el anuncio rechazado queda al lado, los textos iguales', fs.existsSync(path.join(P.carpeta, 'V02.rechazado-1.json')) && !JSON.stringify(leer(R.v(P.carpeta, 'V02'))).includes('SIM-PROHIBIDO') && JSON.stringify(leer(R.v(P.carpeta, 'V02')).text_layers) === JSON.stringify(ad.text_layers) && cp2.stats.sesiones.includes('imagen-ads-rechazo'), cp2.stats.sesiones);
+  }
   seccion('8. Dos lotes a la vez');
   turno.reiniciarTurno();
   const la = '_img-uno-20261108-1200';

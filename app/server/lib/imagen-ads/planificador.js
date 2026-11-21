@@ -47,7 +47,7 @@ export const revisionCuadrados = () => 8;
 
 const PRIORIDAD = { ajuste: 3, 'revision-u': 3, revision: 2, prompts: 1 };
 const FASES_DEL_MOTOR = new Set(['por-pedir', 'reintento', 'pedida']);
-const FASES_OCUPADA = new Set(['por-pedir', 'reintento', 'pedida', 'por-revisar', 'revisando', 'ajustando']);
+const FASES_OCUPADA = new Set(['por-pedir', 'reintento', 'pedida', 'por-revisar', 'revisando', 'ajustando', 'reescribiendo']);
 export const PEDIDO_TERMINADO = new Set(['listo', 'no-aplicado']);
 
 const nuevaPieza = (v, formato) => ({
@@ -503,6 +503,16 @@ export function aplicarResultado(est, pieza, res, { firmaActual = null, ahora = 
   if (res.estado === 'sin-imagen') {
     const mensaje = res.mensaje || 'kie no pudo hacer esta imagen';
     const id = p.orden.id;
+    // (2026-11-21h) kie la rechazó por contenido (política): la IA reescribe lo que se ve, sin lo que frena, y se pide
+    // otra vez (familias/imagen-ads.js corre la reescritura y llama terminarRescate). Hasta RESCATES_POR_CONTENIDO veces.
+    const rescates = Number(p.rescates) || 0;
+    if (!p.version && /^g(-r\d+)?$/.test(id) && /contenido/.test(String(res.motivo || '')) && formatoDe(pieza) === '1:1' && !p.local && rescates < RESCATES_POR_CONTENIDO) {
+      p.fase = 'reescribiendo';
+      p.rescate = { vez: rescates + 1, dijo: mensaje };
+      p.ultimaOrden = id;
+      p.orden = null;
+      return 'reescribir';
+    }
     if (!p.version) {
       p.fase = 'final';
       p.resultado = 'sin-imagen';
@@ -517,12 +527,42 @@ export function aplicarResultado(est, pieza, res, { firmaActual = null, ahora = 
     } else {
       p.fase = 'final'; // queda la de antes, con el resultado que tenia
     }
-    if (id !== 'g') p.fallo = { orden: id, mensaje };
+    if (!/^g(-r\d+)?$/.test(id)) p.fallo = { orden: id, mensaje };
     p.ultimaOrden = id;
     p.orden = null;
     return 'sin-imagen';
   }
   return null;
+}
+
+/**
+ * Pedido (2026-11-21h): «si una imagen falla por política, que la vuelva a generar hasta que dé: que no se quede sin
+ * generar». Cuantas veces se reescribe y se pide otra vez el cuadrado que kie rechazó por contenido.
+ */
+export const RESCATES_POR_CONTENIDO = 3;
+
+/** Las piezas que esperan que la IA reescriba lo que se ve (kie las rechazó por contenido). */
+export const piezasPorReescribir = (est) => Object.keys(est.piezas).filter((x) => est.piezas[x].fase === 'reescribiendo');
+
+/** Volvió la reescritura de una pieza rechazada: con `ok`, se pide otra vez; si no, queda sin imagen como antes. */
+export function terminarRescate(est, pieza, { ok, mensaje = null } = {}) {
+  const p = est.piezas[pieza];
+  if (!p || p.fase !== 'reescribiendo') return;
+  p.rescates = (Number(p.rescates) || 0) + 1;
+  if (ok) {
+    p.fase = 'por-pedir';
+    p.intentosApi = 0;
+    // (el motor recuerda cada pieza por pieza|orden y la «g» ya quedó sin imagen: el nuevo pedido lleva su propia orden)
+    p.orden = { id: `g-r${p.rescates}`, modo: 'generar', version: 1 };
+    p.motivo = null;
+    p.mensaje = null;
+  } else {
+    p.fase = 'final';
+    p.resultado = 'sin-imagen';
+    p.motivo = 'contenido';
+    p.mensaje = mensaje || p.rescate?.dijo || 'kie rechazó esta imagen por su contenido';
+  }
+  delete p.rescate;
 }
 
 /** Una tanda nueva (o una que se vuelve a correr). `id`: su numero (E005, R003, A001). */
