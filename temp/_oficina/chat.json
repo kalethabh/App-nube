@@ -600,6 +600,22 @@
         }
       ],
       "fecha": "2026-11-21T18:17:29.091Z"
+    },
+    {
+      "id": "e32b8845af",
+      "de": "coordinadora",
+      "texto": "¡Listo «Aguaje Complex 3 en 1 — «Cinco hombres me rechazaron en televisión»»! 🎉 Aquí lo tienes. Si algo no te cuadra me dices y lo ajustamos.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Ver «Aguaje Complex 3 en 1 — «Cinco hombres me rechazaron en televisión»»",
+          "href": "#/anuncio/aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+          "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-21T19:10:12.729Z"
     }
   ],
   "encargos": [
@@ -662,7 +678,7 @@
       "titulo": "Realista con narrador de AGUAJE COMPLEX 3 EN 1"
     },
     {
-      "estado": "produciendo",
+      "estado": "listo",
       "creado": "2026-11-21T18:17:29.090Z",
       "id": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
       "tipo": "video",

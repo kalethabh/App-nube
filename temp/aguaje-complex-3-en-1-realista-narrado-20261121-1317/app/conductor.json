@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
   "familia": "voz-en-off",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -83,36 +83,33 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-21T19:03:57.720Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 2906,
-        "total": 3027,
-        "restante": 13,
-        "en": "2026-11-21T19:08:42.741Z"
-      }
+      "fin": "2026-11-21T19:09:50.887Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T19:09:50.888Z",
+      "fin": "2026-11-21T19:10:08.312Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T19:10:08.313Z",
+      "fin": "2026-11-21T19:10:08.908Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-21T18:37:48.263Z",
   "aprobado": "2026-11-21T18:37:48.263Z",
-  "actualizado": "2026-11-21T19:08:42.741Z",
+  "actualizado": "2026-11-21T19:10:08.908Z",
   "saldoInicial": {
     "creditos": 2681.8,
     "fecha": "2026-11-21T18:37:50.306Z"
@@ -120,5 +117,10 @@
   "costoPlan": {
     "creditos": 1282,
     "fecha": "2026-11-21T18:37:50.307Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 1005.4,
+    "fecha": "2026-11-21T19:10:08.899Z"
+  },
+  "terminado": "2026-11-21T19:10:08.908Z"
 }
