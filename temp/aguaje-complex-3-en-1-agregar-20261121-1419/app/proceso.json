@@ -1,0 +1,12 @@
+{
+  "pid": 41554,
+  "paso": "render",
+  "script": "ensamblar.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-agregar-20261121-1419",
+    "--solo-completa"
+  ],
+  "comando": "node produccion/ensamblar.js temp/aguaje-complex-3-en-1-agregar-20261121-1419 --solo-completa",
+  "inicio": "2026-11-21T20:54:04.500Z",
+  "app": 34311
+}

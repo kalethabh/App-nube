@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261121-1419",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "revision-bloques",
+  "paso": "render",
   "pasos": [
     {
       "id": "validar",
@@ -48,28 +48,42 @@
     {
       "id": "revision-bloques",
       "nombre": "Revisar cada bloque: la cara, el producto y lo que dice",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-21T20:50:33.339Z",
-      "detalle": "Anotando lo que vio en los clips"
+      "fin": "2026-11-21T20:53:15.323Z",
+      "nota": "La revisión dejó 5 avisos: míralos en el proceso."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T20:53:15.324Z",
+      "fin": "2026-11-21T20:53:50.340Z"
     },
     {
       "id": "montaje",
       "nombre": "Armar el montaje y los subtítulos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T20:53:50.340Z",
+      "fin": "2026-11-21T20:54:04.498Z"
     },
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T20:54:04.499Z",
+      "render": {
+        "renders": 1,
+        "n": 1,
+        "hechos": 628,
+        "total": 2900,
+        "restante": 213,
+        "en": "2026-11-21T20:55:07.644Z"
+      }
     },
     {
       "id": "control-final",
@@ -94,7 +108,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T20:39:32.814Z",
   "aprobado": "2026-11-21T20:39:32.814Z",
-  "actualizado": "2026-11-21T20:51:31.560Z",
+  "actualizado": "2026-11-21T20:55:07.644Z",
   "saldoInicial": {
     "creditos": 11005.4,
     "fecha": "2026-11-21T20:39:34.090Z"

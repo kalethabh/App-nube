@@ -10,7 +10,7 @@
     },
     "pedidos": []
   },
-  "actualizado": "2026-11-21T20:50:45.541Z",
+  "actualizado": "2026-11-21T20:53:15.322Z",
   "revision": {
     "ronda": 1,
     "medidas": {
@@ -82,48 +82,81 @@
       }
     },
     "vistos": {},
-    "piezas": {},
+    "piezas": {
+      "toma-1": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-2": {
+        "motivos": [
+          "En el último plano, donde la mamá dice «Siéntate», sale una mujer que mezcla la cara de Mariana con la de la mamá y lleva el collar de la mamá."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-3": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-4": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-5": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-6": {
+        "motivos": [
+          "No dijo su parte tal cual: dijo «¿eh?» en vez de «ve.»."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-7": {
+        "motivos": [
+          "Aparecen dos frascos a la vez: uno en la mano de Mariana y otro sobre la mesa."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-8": {
+        "motivos": [
+          "En los planos de Mariana la cara cambia: se ve más delgada y mayor, como otra mujer."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-9": {
+        "motivos": [
+          "En el último plano sale la cara de la mamá con el vestido café y el tatuaje de Mariana, como si fueran la misma persona."
+        ],
+        "veces": 0,
+        "estado": "aviso"
+      },
+      "toma-10": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      },
+      "toma-11": {
+        "motivos": [],
+        "veces": 0,
+        "estado": "bien"
+      }
+    },
     "pendientes": [],
     "revisarTambien": [],
     "sinRevisar": [],
     "lugares": {},
-    "vuelta": {
-      "ronda": 1,
-      "medir": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11
-      ],
-      "mirar": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11
-      ],
-      "mirarGanchos": [],
-      "hablaMal": {
-        "6": "No dijo su parte tal cual: dijo «¿eh?» en vez de «ve.»."
-      },
-      "medido": true,
-      "visual": null
-    },
+    "vuelta": null,
     "sesion": {
-      "uuid": "cceae9d6-b2f2-4291-8286-28931dc30ec8"
+      "uuid": "cceae9d6-b2f2-4291-8286-28931dc30ec8",
+      "usada": true
     }
   }
 }
