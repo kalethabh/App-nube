@@ -51,7 +51,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-21T20:50:33.339Z",
-      "detalle": "Mirando los cuadros de los clips"
+      "detalle": "Anotando lo que vio en los clips"
     },
     {
       "id": "musica",
@@ -94,7 +94,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T20:39:32.814Z",
   "aprobado": "2026-11-21T20:39:32.814Z",
-  "actualizado": "2026-11-21T20:51:01.569Z",
+  "actualizado": "2026-11-21T20:51:31.560Z",
   "saldoInicial": {
     "creditos": 11005.4,
     "fecha": "2026-11-21T20:39:34.090Z"
