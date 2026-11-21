@@ -66,7 +66,7 @@ const conRespuesta = (d) => d && !d.pensando && respuesta(d);
 
 // lo que la prueba toca y deja como estaba
 const APRENDIZAJES = path.join(RAIZ, 'mis_archivos', 'biblioteca', 'aprendizajes');
-const RESPALDOS = [path.join(RAIZ, 'temp', `_modo-prueba-${PUERTO}`, 'config.json'), path.join(APRENDIZAJES, 'general.md'), path.join(APRENDIZAJES, 'claymation.md'), path.join(RAIZ, 'temp', '_oficina', 'chat.json'), path.join(RAIZ, 'temp', '_oficina', 'aprendido.json')];
+const RESPALDOS = [path.join(RAIZ, 'temp', `_modo-prueba-${PUERTO}`, 'config.json'), path.join(APRENDIZAJES, 'general.md'), path.join(APRENDIZAJES, 'claymation.md'), path.join(RAIZ, 'temp', '_oficina', 'chat.json'), path.join(RAIZ, 'temp', '_oficina', 'aprendido.json'), path.join(RAIZ, 'temp', '_oficina', 'votos-imagenes.json')];
 const antes = new Map(RESPALDOS.map((f) => [f, fs.existsSync(f) ? fs.readFileSync(f) : null]));
 const oficinaExistia = fs.existsSync(path.join(RAIZ, 'temp', '_oficina'));
 
@@ -169,6 +169,41 @@ async function principal() {
   c = await esperar(5, async () => (await pedir('/api/oficina/chat')).datos, (d) => d?.mensajes?.some((x) => /Ya están tus/.test(x.texto)));
   m = c?.mensajes?.find((x) => /Ya están tus/.test(x.texto));
   check('Cuando terminan, te escribe sola con el enlace (el seguimiento)', m?.de === 'coordinadora' && m.acciones?.[0]?.href === `#/imagenes/${accImg.lote}` && m.acciones[0].estado === 'listo', c?.mensajes?.slice(-2));
+  // (2026-11-21d) VARIACIONES EN EL CHAT de su anuncio ganador: las escribe ella, salen aquí con su semáforo 🟢/🔴
+  r = await pedir('/api/oficina/chat', { json: { texto: 'Hazme 4 variaciones de este anuncio ganador', adjuntos: [img.datos.id] } });
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  m = respuesta(c);
+  const accVar = m?.acciones?.find((a) => a.tipo === 'imagenes');
+  if (accVar?.lote) creados.lotes.push(accVar.lote);
+  const bVar = accVar?.lote ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', accVar.lote, 'app', 'brief.json'), 'utf8')) : null;
+  check('«Variaciones de este anuncio»: las escribe ella (4, con su titular y qué cambia) y van directo, sin estrategia ni el agente', accVar?.ok && accVar.enChat && bVar?.variacionesChat?.length === 4 && bVar.rapido === true && !bVar.replicar && !bVar.agente && bVar.origen === 'chat', { accVar, b: bVar && { n: bVar.variacionesChat?.length, rapido: bVar.rapido, replicar: bVar.replicar, agente: bVar.agente } });
+  if (!c.pendientes?.length || !c.pendientes.some((p) => p.id === accVar?.lote)) {
+    /* sin costo: ya arrancó */
+  } else {
+    await pedir('/api/oficina/chat', { json: { texto: 'dale' } });
+    await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  }
+  const vVar = await esperar(5, async () => (await pedir(`/api/imagen-ads/${accVar.lote}`)).datos, (d) => d?.conductor?.estado === 'listo');
+  const v1 = JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', accVar.lote, 'V01.json'), 'utf8'));
+  check('Salen las 4 imágenes, cada una con su titular y su cambio (y el titular juega con el ganador)', vVar?.conductor?.estado === 'listo' && vVar.variaciones.every((x) => x.piezas['1:1']?.url) && v1.text_layers[0].text === bVar.variacionesChat[0].titular && /WHAT CHANGES IN THIS VARIATION/.test(v1.visual_prompt) && /PLAYS with the winning headline/.test(v1.visual_prompt), { estado: vVar?.conductor?.estado, v1: v1.visual_prompt?.slice(-500) });
+  let vt = await pedir('/api/oficina/imagenes/voto', { json: { lote: accVar.lote, pieza: 'V01_1x1', voto: 'bien' } });
+  const vt2 = await pedir('/api/oficina/imagenes/voto', { json: { lote: accVar.lote, pieza: 'V02_1x1', voto: 'mal', motivo: 'el antes y después no se nota' } });
+  const votos = (await pedir(`/api/oficina/imagenes/${accVar.lote}/votos`)).datos;
+  check('🟢 y 🔴 se guardan (con el motivo y una copia de la imagen)', vt.st === 200 && vt2.st === 200 && votos?.V01_1x1?.voto === 'bien' && votos?.V02_1x1?.motivo === 'el antes y después no se nota' && fs.existsSync(path.join(RAIZ, vt.datos.archivo)), { votos, vt: vt.datos });
+  vt = await pedir('/api/oficina/imagenes/voto', { json: { lote: accVar.lote, pieza: 'V99_1x1', voto: 'otro' } });
+  check('Un voto raro se rechaza', vt.st === 400);
+  r = await pedir('/api/oficina/chat', { json: { texto: 'Hazme 2 variaciones más de este', adjuntos: [img.datos.id] } });
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  m = respuesta(c);
+  const accVar2 = m?.acciones?.find((a) => a.tipo === 'imagenes');
+  if (accVar2?.lote) creados.lotes.push(accVar2.lote);
+  const bVar2 = accVar2?.lote ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', accVar2.lote, 'app', 'brief.json'), 'utf8')) : null;
+  check('La próxima vez ella ve lo que votaste (🟢 y 🔴) y el modelo también', /teniendo en cuenta lo que te gustó/.test(m?.texto || '') && bVar2?.leccionesChat?.includes(bVar.variacionesChat[0].titular) && /antes y después no se nota/.test(bVar2.leccionesChat), { texto: m?.texto, lecciones: bVar2?.leccionesChat });
+  if (c.pendientes?.some((p) => p.id === accVar2?.lote)) {
+    await pedir('/api/oficina/chat', { json: { texto: 'dale' } });
+    await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  }
+  await esperar(5, async () => (await pedir(`/api/imagen-ads/${accVar2.lote}`)).datos, (d) => d?.conductor?.estado === 'listo');
   r = await pedir('/api/oficina/chat', { json: { texto: 'Dame 10 variaciones de este texto', adjuntos: [doc.datos.id] } });
   c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
   m = respuesta(c);

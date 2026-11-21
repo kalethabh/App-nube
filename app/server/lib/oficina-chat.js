@@ -264,6 +264,12 @@ export async function investigacionesParaLeer(productos) {
 async function contexto() {
   const { ESTILOS, AJUSTES_OBLIGATORIOS, listarAnunciosNuevos } = await import('./anuncios-nuevos.js');
   const productos = listarProductos().slice(0, 40);
+  let lecciones = '';
+  try {
+    lecciones = (await import('./oficina-votos.js')).leccionesParaLaCoordinadora();
+  } catch {
+    /* sin votos */
+  }
   let landings = '';
   try {
     landings = (await import('./landings/index.js')).listar().landings.slice(0, 15).map((l) => `${l.id} | ${l.titulo} | ${l.modo === 'adaptar' ? 'para su producto' : 'tal cual'} | ${l.estado}`).join('\n');
@@ -301,10 +307,10 @@ async function contexto() {
   } catch {
     /* sin fotos */
   }
-  return { productos, estilos, anuncios, oficina, conFoto, encargos: leerChat().encargos, invs: await investigacionesParaLeer(productos), tiendas, landings };
+  return { productos, estilos, anuncios, oficina, conFoto, encargos: leerChat().encargos, invs: await investigacionesParaLeer(productos), tiendas, landings, lecciones };
 }
 
-function textoPrompt({ productos, estilos, anuncios, oficina, conFoto, encargos, invs, tiendas, landings }, mensajes, rel) {
+function textoPrompt({ productos, estilos, anuncios, oficina, conFoto, encargos, invs, tiendas, landings, lecciones }, mensajes, rel) {
   const coord = oficina?.agentes?.find((a) => a.id === 'coordinacion');
   const equipo = (oficina?.agentes || []).filter((a) => a.estado !== 'libre').map((a) => `${a.nombre} (${a.rol}): ${a.estado}${a.ahora.length ? ` — ahora: ${a.ahora.map((t) => t.titulo).join(', ')}` : ''}${a.necesita.length && a.id !== 'coordinacion' ? ` — te necesita: ${a.necesita.map((t) => t.titulo).join(', ')}` : ''}`);
   const fotos = new Map((conFoto || []).map((p) => [p.id, p]));
@@ -325,7 +331,7 @@ Eres ${coord?.nombre || 'Valentina'}, la asistente y coordinadora de ${oficina?.
 Tus productos (id | nombre | ficha lista para video | foto para imágenes | investigación de mercado):
 ${productos.map((p) => `${p.id} | ${p.nombre} | ${p.fichaLista ? 'sí' : 'no'} | ${fotos.has(p.id) ? 'sí' : 'no'} | ${fotos.get(p.id)?.investigacion ? 'sí' : 'no'}`).join('\n') || '(todavía ninguno: que cree uno en Productos o en Nuevo anuncio, paso 1)'}
 
-${landings ? `Sus landings (id | título | cómo | estado):\n${landings}\n` : ''}${tiendas ? `Sus tiendas de Shopify conectadas (id | nombre | dirección | acceso):\n${tiendas}\n` : 'Tiendas de Shopify: ninguna conectada (se conectan en el menú Shopify).\n'}
+${lecciones ? `${lecciones}\n\n` : ''}${landings ? `Sus landings (id | título | cómo | estado):\n${landings}\n` : ''}${tiendas ? `Sus tiendas de Shopify conectadas (id | nombre | dirección | acceso):\n${tiendas}\n` : 'Tiendas de Shopify: ninguna conectada (se conectan en el menú Shopify).\n'}
 Los estilos de video (clave | nombre | lo que hay que preguntar antes):
 ${estilos.join('\n')}
 
@@ -346,7 +352,7 @@ Puedes pedirle a la app estas acciones (la app las hace, le muestra el enlace y 
 - { "tipo": "crear-anuncio", "productoId": "<id>", "estilo": "<clave>", "cantidad": 1-${MAX_ANUNCIOS}, "duracion": "<lo que pidió, ej. 1:50>" | null, "respuestas": { "<campo>": "<valor>" }, "idea": "<el ángulo, lo que pidió y lo que sacaste de sus archivos>", "video": "<id de un VIDEO que adjuntó>" | null, "conservar_gancho": false } → un anuncio de video: tu equipo escribe el guion (gratis) y tú le avisas el costo antes de producir. CON "video": la app CLONA ese video (lo analiza toma por toma, transcribe lo que se dice y el guionista replica su estructura, ritmo y gancho en el estilo pedido, con la duración pedida). En los estilos CANTADOS (musical, historias-musicales) también funciona: la app transcribe la LETRA del video y el guionista la copia palabra por palabra cambiando solo el producto (la opción 1 de la letra); la imagen de esos estilos es animada (crochet, plastilina o 3D), no video real: si el original es video real, díselo en una frase y sigue. Úsalo cuando adjunta un video y pide «uno igual», «replica la estructura», «como este»: NO le digas que lo suba en otro lado, hazlo tú. MUY IMPORTANTE: si pide REPLICARLO TAL CUAL, CLONARLO o «igual a este» y NO nombra un estilo de la lista, usa "estilo": "agregar": se hace con el MISMO look y la MISMA estructura de SU video (si en el video hablan personas en cámara, en el anuncio hablan ellas mismas con su voz, nunca voz en off; si es animado, animado igual; mismas tomas, acciones, ritmo, textos y gancho), no con uno de nuestros estilos. En «agregar» no hace falta preguntar nada más (el formato y la voz los saca la app del video). Solo si nombra un estilo («en Zack», «en Pixar»), usa ese estilo con el video. "conservar_gancho": true solo si pide dejar el gancho y el ángulo tal cual.
 Lo obligatorio de un estilo: si falta, propón la opción más común y pregúntala en UNA frase («¿fondo de estudio limpio o con la grilla azul?»). Si dice «decide tú», «como quieras» o algo así, elige tú y créalo.
 - { "tipo": "producir", "id": "<id de lo que estás siguiendo>" } → SOLO si eso ESPERA EL SÍ y el usuario acaba de decir que sí (dale, hazlo, de una, ok, sí, está bien, apruébalo, me gusta…) después de ver el costo. Es APROBAR: el guion queda aprobado, se lo pasas al equipo y arranca la producción (ahí se cobra). Si hay varias cosas esperando y no queda claro cuál aprueba, pregunta cuál. Si aprueba algo que todavía no le dijiste cuánto cuesta (un guion que no estás siguiendo), usa "seguir" con su slug: tú le dices el costo enseguida y espera su sí.
-- { "tipo": "imagenes", "productoId": "<id con foto>", "cantidad": 1-${MAX_IMAGENES}, "formato": "1:1" | "9:16" | "ambos", "referencia": "<id de una imagen que adjuntó>" | null, "pais": "<país>" | null, "publico": "<público>" | null, "idea": "<lo que pidió, con la oferta y el precio si los dijo>", "modo": "replicar" | "desde0" | "agente" | null } → anuncios de imagen. CON su imagen de referencia, por defecto «replicar»: su anuncio validado EXACTO (mismas zonas, letras, colores, oferta y ángulo) y solo cambian la modelo, el escenario, la pose y la redacción del titular. SIN referencia, por defecto «desde0»: anuncios nuevos con 6 zonas (gancho, visual, 2-3 beneficios, frasco con sello, oferta «TRATAMIENTO COMPLETO X3 $precio · Pagas al recibir», un CTA) en formatos distintos, desde la investigación (si no la tiene, primero investigar; pídele el precio si no lo sabes). "agente" solo si pide variaciones creativas más libres. La app le muestra el costo y espera su sí.
+- { "tipo": "imagenes", "productoId": "<id con foto>", "cantidad": 1-${MAX_IMAGENES}, "formato": "1:1" | "9:16" | "ambos", "referencia": "<id de una imagen que adjuntó>" | null, "pais": "<país>" | null, "publico": "<público>" | null, "idea": "<lo que pidió, con la oferta y el precio si los dijo>", "modo": "replicar" | "desde0" | "agente" | null, "variaciones": [ { "titular": "<el titular de esa variación>", "cambio": "<qué cambia en esa imagen: la modelo, el lugar, la pose, el ángulo del titular…>" } ] | null, "indicaciones": "<lo que pidió para todas>" | null } → anuncios de imagen. VARIACIONES EN EL CHAT (lo de siempre cuando te pasa SU anuncio ganador y te pide variaciones, con la cantidad y las indicaciones que diga): escribe tú misma "variaciones" (una por imagen, tantas como pidió) y la app las genera de una, sin pasos de estrategia, y le salen aquí en el chat con su semáforo 🟢/🔴. Cada titular JUEGA con el titular ganador sin perder su esencia (misma promesa, mismo deseo, mismo plazo si lo tiene; otras palabras u otro orden: si el ganador dice «Obtén unos glúteos, piernas y caderas con más volumen en 7 días», juega con eso), nunca algo genérico. Si hay antes y después, que se note de una (en el después, el cambio del cuerpo bien visible; dos momentos claramente distintos). Sigue lo que le gustó y evita lo que no (abajo, sus votos). Sin "variaciones", como antes: CON su imagen de referencia, por defecto «replicar»: su anuncio validado EXACTO (mismas zonas, letras, colores, oferta y ángulo) y solo cambian la modelo, el escenario, la pose y la redacción del titular. SIN referencia, por defecto «desde0»: anuncios nuevos con 6 zonas (gancho, visual, 2-3 beneficios, frasco con sello, oferta «TRATAMIENTO COMPLETO X3 $precio · Pagas al recibir», un CTA) en formatos distintos, desde la investigación (si no la tiene, primero investigar; pídele el precio si no lo sabes). "agente" solo si pide variaciones creativas más libres. La app le muestra el costo y espera su sí.
 - { "tipo": "investigar", "productoId": "<id>", "pais": "<país>" | null, "competencia": "<link de TrendTrack o tienda>" | null } → las DOS partes de la investigación a la vez: el mercado y la competencia en TrendTrack (sin costo de imágenes).
 Si te pide ANALIZAR o revisar una investigación (qué ángulo usar, qué dice del cliente, ideas de anuncios…), lee con Read su archivo (abajo) y contesta con lo que dice de verdad, sin inventar; si el análisis es largo, va en "entrega".
 Las investigaciones que puedes leer (mercado + competencia en un solo archivo):
@@ -410,8 +416,12 @@ export async function loteDeImagenes(a, ctx, { refBytes = null } = {}) {
   const ref = a.referencia ? metaAdjunto(a.referencia) : null;
   if (a.referencia && (!ref || ref.tipo !== 'imagen')) throw new Error('No encuentro esa imagen de referencia.');
   const conRef = Boolean(ref || refBytes);
+  // (2026-11-21d) VARIACIONES EN EL CHAT: ella misma escribe cada variación (titular y qué cambia) y la app las genera
+  // de una (modo rápido, sin estrategia ni revisión): salen en el chat con su semáforo y quedan en Anuncios de imagen
+  const chat = conRef && Array.isArray(a.variaciones) && a.variaciones.some((v) => v && String(v.titular || '').trim());
   if (!conRef && !p.investigacion) throw new Error(`${p.nombre} todavía no tiene investigación de mercado: hazla primero o pásame un anuncio de referencia.`);
-  const cantidad = Math.max(1, Math.min(MAX_IMAGENES, Number(a.cantidad) || 5));
+  const variacionesChat = chat ? a.variaciones.filter((v) => v && String(v.titular || '').trim()).slice(0, MAX_IMAGENES).map((v) => ({ titular: limpio(v.titular, 140), cambio: limpio(v.cambio, 500) })) : null;
+  const cantidad = chat ? variacionesChat.length : Math.max(1, Math.min(MAX_IMAGENES, Number(a.cantidad) || 5));
   const formatos = a.formato === 'ambos' ? ['1:1', '9:16'] : a.formato === '9:16' ? ['9:16'] : ['1:1'];
   const antes = p.ultimoLote?.datos || {};
   const r = lotes.crearLote({
@@ -423,7 +433,7 @@ export async function loteDeImagenes(a, ctx, { refBytes = null } = {}) {
     logo: null,
     modo: conRef ? 'variantes' : 'nuevos',
     // (2026-11-21) cómo: «replicar» (con referencia, por defecto), «desde0» (sin referencia, por defecto) o el «agente»
-    ...(conRef && a.modo !== 'agente' ? { replicar: true, rapido: true } : !conRef && a.modo !== 'agente' ? { desde0: true, rapido: false } : { agente: 'variaciones', rapido: false }),
+    ...(chat ? { rapido: true } : conRef && a.modo !== 'agente' ? { replicar: true, rapido: true } : !conRef && a.modo !== 'agente' ? { desde0: true, rapido: false } : { agente: 'variaciones', rapido: false }),
     fiel: conRef,
     usarInvestigacion: true,
     ...(conRef ? { referenciasPropias: [], conceptosReferencias: [limpio(a.idea, 300)], refs: [] } : {}),
@@ -438,6 +448,10 @@ export async function loteDeImagenes(a, ctx, { refBytes = null } = {}) {
     const abs = await normalizarImagen(bytes, path.join(R.referencias(carpeta), 'R01'), formatoDeBytes(bytes));
     const brief = lotes.leerBrief(carpeta);
     brief.referencias = [`entrada/referencias/${path.basename(abs)}`];
+    if (chat) {
+      const { leccionesParaElModelo } = await import('./oficina-votos.js');
+      Object.assign(brief, { origen: 'chat', variacionesChat, indicacionesChat: limpio(a.indicaciones || a.idea, 800), leccionesChat: leccionesParaElModelo(p.id) });
+    }
     guardarJSON(R.brief(carpeta), brief);
   }
   const falta = lotes.faltaDelBorrador(carpeta, lotes.leerBrief(carpeta));
@@ -445,7 +459,7 @@ export async function loteDeImagenes(a, ctx, { refBytes = null } = {}) {
   const { costoDeImagenAds } = await import('./costo-estimado.js');
   const { costoMaximoDeLaAccion } = await import('./imagen-ads/costo.js');
   const costo = costoMaximoDeLaAccion(await costoDeImagenAds(), lotes.leerBrief(carpeta), null);
-  return { lote: r.lote, producto: p, cantidad: cantidad * formatos.length, costo, conRef };
+  return { lote: r.lote, producto: p, cantidad: cantidad * formatos.length, costo, conRef, chat };
 }
 
 /** El «sí» del usuario: aprueba y produce lo que esperaba (ya vio el costo). e: { tipo: 'imagenes', lote, costo } | { slug } */
@@ -546,16 +560,16 @@ async function ejecutar(acciones, ctx) {
       } else if (a.tipo === 'imagenes') {
         if (!ids.has(a.productoId)) throw new Error('No encuentro ese producto.');
         const r = await loteDeImagenes(a, ctx);
-        const titulo = `${r.cantidad} imágenes de ${r.producto.nombre}${r.conRef ? ' (variaciones de tu referencia)' : ''}`;
+        const titulo = `${r.cantidad} imágenes de ${r.producto.nombre}${r.chat ? ' (variaciones de tu anuncio)' : r.conRef ? ' (variaciones de tu referencia)' : ''}`;
         if (r.costo === null) throw new Error('No pude calcular el costo de las imágenes. Intenta otra vez en un rato.');
         if (r.costo === 0) {
           encargar({ id: r.lote, tipo: 'imagenes', lote: r.lote, productoId: r.producto.id, titulo, costo: 0, estado: 'espera-si' });
           await producir({ tipo: 'imagenes', lote: r.lote, costo: 0 });
           cambiarEncargo(r.lote, { estado: 'produciendo', aprobado: ahora() });
-          hechas.push({ tipo: 'imagenes', titulo: `Generando ${titulo} (sin costo por imagen)`, href: `#/imagenes/${r.lote}`, lote: r.lote, ok: true });
+          hechas.push({ tipo: 'imagenes', titulo: `Generando ${titulo} (sin costo por imagen)`, href: `#/imagenes/${r.lote}`, lote: r.lote, ok: true, ...(r.chat ? { enChat: true } : {}) });
         } else {
           encargar({ id: r.lote, tipo: 'imagenes', lote: r.lote, productoId: r.producto.id, titulo, costo: r.costo, estado: 'espera-si', costoAvisado: ahora() });
-          hechas.push({ tipo: 'imagenes', titulo: `${titulo} · ${dinero(r.costo)}`, href: `#/imagenes/${r.lote}`, lote: r.lote, ok: true });
+          hechas.push({ tipo: 'imagenes', titulo: `${titulo} · ${dinero(r.costo)}`, href: `#/imagenes/${r.lote}`, lote: r.lote, ok: true, ...(r.chat ? { enChat: true } : {}) });
           avisos.push(`Las ${r.cantidad} imágenes salen en ${dinero(r.costo)}. ¿Le doy?`);
         }
       } else if (a.tipo === 'cancelar') {
@@ -622,7 +636,7 @@ async function responder() {
         uuid: crypto.randomUUID(),
         prompt: textoPrompt(ctx, c.mensajes, rel),
         herramientas: ['Read', 'Write'],
-        permitidas: [`Write(./${rel})`, `Edit(./${rel})`, `Read(./${path.relative(RAIZ, ADJUNTOS).replace(/\\/g, '/')}/**)`, `Read(./${path.relative(RAIZ, DIR_INV).replace(/\\/g, '/')}/**)`],
+        permitidas: [`Write(./${rel})`, `Edit(./${rel})`, `Read(./${path.relative(RAIZ, ADJUNTOS).replace(/\\/g, '/')}/**)`, `Read(./${path.relative(RAIZ, DIR_INV).replace(/\\/g, '/')}/**)`, 'Read(./temp/_oficina/votos/**)'],
         prohibidas: prohibidasComunes({ terminal: false }),
         registro: path.join(DIR, 'registro', 'chat.log'),
         timeoutMs: 6 * 60000,

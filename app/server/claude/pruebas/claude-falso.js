@@ -377,6 +377,12 @@ async function alMensaje(texto) {
     } else if (/^dale/i.test(ultimo) && esperaSi) {
       acciones.push({ tipo: 'producir', id: esperaSi });
       respuesta = 'Va, arranco ya 💪';
+    } else if (/variaci/i.test(ultimo) && imagenAdj[2] && conFoto) {
+      // (2026-11-21d) variaciones de su anuncio ganador, en el chat: las escribe ella misma
+      const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 3;
+      const leyoVotos = /LE GUSTARON/.test(textoTarea);
+      acciones.push({ tipo: 'imagenes', productoId: conFoto, formato: '1:1', referencia: imagenAdj[2], pais: 'Colombia', publico: null, idea: 'variaciones de su ganador', indicaciones: 'misma oferta', variaciones: Array.from({ length: n }, (_, k) => ({ titular: ['Glúteos, piernas y caderas con más volumen en 7 días', 'Más volumen en glúteos y caderas en 7 días', 'En 7 días: piernas, glúteos y caderas con volumen', 'Tus glúteos y caderas con más volumen en una semana'][k % 4], cambio: `otra modelo (${['morena de 30', 'rubia de 40', 'trigueña de 25', 'pelirroja de 35'][k % 4]}) en ${['su cuarto', 'el gimnasio', 'la playa', 'un probador'][k % 4]}${leyoVotos ? ' · siguiendo lo que le gustó' : ''}` })) });
+      respuesta = leyoVotos ? 'Listo, van tus variaciones teniendo en cuenta lo que te gustó 👇' : 'Listo, van tus variaciones 👇';
     } else if (/imágenes|imagenes/i.test(ultimo) && conFoto) {
       const n = Number((/(\d+)/.exec(ultimo) || [])[1]) || 3;
       acciones.push({ tipo: 'imagenes', productoId: conFoto, cantidad: n, formato: '1:1', referencia: imagenAdj[2] || null, pais: 'Colombia', publico: null, idea: 'variaciones de prueba' });
