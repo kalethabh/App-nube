@@ -1,0 +1,12 @@
+{
+  "efectos": {
+    "woosh": "efectos/woosh.mp3",
+    "deep-woosh": "efectos/deep-woosh.mp3"
+  },
+  "puntos": [
+    { "toma": 3, "animacion": "deslizar-derecha", "efecto": "woosh", "porque": "entrada del problema: el salto a tres meses antes de la boda" },
+    { "toma": 8, "animacion": "zoom", "efecto": "deep-woosh", "porque": "el giro hacia la solución: la amiga pone el frasco en la mesa" },
+    { "toma": 15, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "la prueba: el antes y el después en el espejo" },
+    { "toma": 22, "animacion": "zoom", "efecto": "deep-woosh", "porque": "entrada del cierre: ella le habla a quien mira" }
+  ]
+}
