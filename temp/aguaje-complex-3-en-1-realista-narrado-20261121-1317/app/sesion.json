@@ -1,6 +1,6 @@
 {
   "uuid": "e7fead8e-106c-46b0-81e0-a738a237542c",
-  "estado": "listo",
+  "estado": "aprobado",
   "tipo": "guion",
   "intentos": 1,
   "progreso": [
@@ -29,7 +29,7 @@
   ],
   "inicio": "2026-11-21T18:17:29.088Z",
   "cambios": [],
-  "actualizado": "2026-11-21T18:30:09.547Z",
+  "actualizado": "2026-11-21T18:37:48.263Z",
   "error": null,
   "inicioIntento": "2026-11-21T18:17:29.088Z",
   "fin": "2026-11-21T18:30:09.547Z",
@@ -90,5 +90,6 @@
       "motor": "claude"
     }
   ],
-  "ajustados": 0
+  "ajustados": 0,
+  "aprobado": "2026-11-21T18:37:48.263Z"
 }

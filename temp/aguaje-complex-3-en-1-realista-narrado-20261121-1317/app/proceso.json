@@ -1,0 +1,12 @@
+{
+  "pid": 30204,
+  "paso": "imagenes-y-videos",
+  "script": "producir.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+    "--si"
+  ],
+  "comando": "node produccion/producir.js temp/aguaje-complex-3-en-1-realista-narrado-20261121-1317 --si",
+  "inicio": "2026-11-21T18:38:00.727Z",
+  "app": 27591
+}

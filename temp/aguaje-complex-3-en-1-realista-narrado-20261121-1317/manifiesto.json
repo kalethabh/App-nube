@@ -20,7 +20,9 @@
     {
       "id": "protagonista_antes",
       "tipo": "personaje",
-      "referencias": ["protagonista_despues"],
+      "referencias": [
+        "protagonista_despues"
+      ],
       "prompt": "Photorealistic vertical 9:16 full-body reference photo with a candid smartphone look. Use the reference image ONLY for her face, hair, skin and clothes, never for her body. The same adult woman in her late 20s from Colombia: the same oval face, almond-shaped dark brown eyes, thick natural eyebrows, full lips, the same long dark-brown wavy hair worn loose with flyaway strands, the same warm olive-tan skin with visible pores and tiny moles, the same small gold hoop earrings, the same fitted white ribbed tank top, light-wash high-waisted denim shorts with a short frayed hem and white sneakers. Her body is very slim and straight: narrow hips the same width as her waist, one flat straight vertical line from her lower back down to her thighs, the denim shorts loose and baggy at the back with an empty fold of extra denim below the seat and drooping back pockets, thin straight thighs with a wide gap between them. She stands almost in profile, three-quarter from the side, with her face turned toward the camera over her shoulder and a shy unsure half-smile, full body visible from head to feet so her silhouette reads clearly. Plain warm off-white home wall with subtle texture, soft natural light from a window on the left, real skin texture with pores, wrinkles in the clothes, slight handheld framing, shot on a phone. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no border, no inset panel, no vignette. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark, curvy hips, round full seat, thick thighs"
     },
     {
@@ -43,7 +45,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the men from the reference image standing in their row with their red balloons on the TV dating-show set, the man with the buzz cut in the cream knit polo shirt in the center of the frame looking sideways with a cold little smirk, the man in the black leather jacket and the man in the grey denim jacket beside him partly in frame, tall glowing pale-pink backlit panels in a light wooden grid behind them, the soft pink glow of the panels on their faces, framed from head to waist, real skin texture with pores, everyday clothes with wrinkles, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: slow handheld pan from left to right along the row of men, at eye level, no zoom.\nMotion: the man in the cream polo glances sideways with a cold smirk and tightens his grip on his red balloon; the men beside him shift their weight and look the same way.\nLighting: soft pink glow from the backlit panels.\nReal people with natural gestures, no text.",
-      "referencias": ["concursantes"]
+      "referencias": [
+        "concursantes"
+      ]
     },
     {
       "n": 2,
@@ -53,7 +57,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, close-up of the woman from the reference image wearing a pale pink satin slip midi dress with thin straps (not the tank top and shorts from the reference image), standing on a TV dating-show set with tall glowing pale-pink backlit panels in a light wooden grid softly blurred behind her, a nervous hopeful smile, her eyes glancing to the side, long dark-brown wavy hair loose with flyaway strands, the soft pink glow of the panels on her face, framed from the top of her head to her collarbones, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: gentle handheld close-up, almost still, no zoom.\nMotion: she glances to the side toward the men, swallows, tucks a strand of hair behind her ear and forces a nervous smile.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 3,
@@ -63,7 +69,11 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, wide shot of the TV dating-show set from the reference image: the five men standing in their row holding their red balloons on the right, the host from the reference image in her bright red pantsuit holding her black microphone in the middle, and the woman from the reference image wearing a pale pink satin slip midi dress with thin straps and nude heels (not the tank top and shorts) walking in from the left on the glossy white floor, tall glowing pale-pink backlit panels in a light wooden grid behind them, everyone seen full body from head to feet, real skin texture, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: the woman in the pink satin dress walks in from the left and stops next to the host, who turns to welcome her with a smile; the men in the row hold their red balloons and look at her.\nLighting: soft pink glow from the backlit panels reflecting on the glossy floor.\nReal people with natural gestures, no text.",
-      "referencias": ["concursantes", "presentadora", "protagonista_antes"]
+      "referencias": [
+        "concursantes",
+        "presentadora",
+        "protagonista_antes"
+      ]
     },
     {
       "n": 4,
@@ -73,7 +83,10 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, medium two-shot on the TV dating-show set: the host from the reference image in her bright red pantsuit on the left holding her black microphone toward the woman from the reference image, who wears a pale pink satin slip midi dress with thin straps (not the tank top and shorts) and leans in to answer with a hopeful smile, tall glowing pale-pink backlit panels in a light wooden grid behind them, framed from head to waist, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: slight handheld, almost still, no zoom.\nMotion: she starts to say her name into the microphone, then flinches and blinks at a sudden pop off-screen; the host turns her head toward the men in surprise.\nLighting: soft pink glow from the backlit panels.\nReal people with natural gestures, no text.",
-      "referencias": ["presentadora", "protagonista_antes"]
+      "referencias": [
+        "presentadora",
+        "protagonista_antes"
+      ]
     },
     {
       "n": 5,
@@ -83,7 +96,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, close-up of the hands of the man in the crisp white shirt with rolled sleeves and the silver wristwatch from the reference image, squeezing his shiny red balloon against his chest with both hands, the balloon stretched tight, his black trousers below, the tall glowing pale-pink backlit panels softly blurred behind, real skin texture on the hands, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.5s. Vertical 9:16.\nCamera: static close-up, no zoom.\nMotion: his hands squeeze harder and the red balloon bursts, red rubber shreds fly and fall.\nLighting: soft pink glow from the backlit panels.\nReal hands, no text.",
-      "referencias": ["concursantes"]
+      "referencias": [
+        "concursantes"
+      ]
     },
     {
       "n": 6,
@@ -93,7 +108,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, close-up of the woman from the reference image wearing a pale pink satin slip midi dress with thin straps (not the tank top and shorts), speaking proudly into a black handheld microphone that a hand in a bright red sleeve holds toward her from the right edge of the frame, a proud bright smile, tall glowing pale-pink backlit panels softly blurred behind her, framed from the top of her head to her chest, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.8s. Vertical 9:16.\nCamera: gentle handheld close-up, no zoom.\nMotion: she talks proudly about her work with lively hand gestures, then flinches twice at two pops off-screen and her smile freezes.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 7,
@@ -103,7 +120,10 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the host from the reference image in her bright red pantsuit walking toward the row of men from the reference image, holding her black microphone, seen from the side, the men in the black leather jacket and the cream polo waiting with empty hands, a few red balloon shreds on the glossy white floor, tall glowing pale-pink backlit panels in a light wooden grid behind, framed from head to knees, real skin texture, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.9s. Vertical 9:16.\nCamera: handheld, following her walk at eye level, no zoom.\nMotion: the host walks up to the men and lifts her microphone toward the man in the black leather jacket with a curious look.\nLighting: soft pink glow from the backlit panels.\nReal people with natural gestures, no text.",
-      "referencias": ["presentadora", "concursantes"]
+      "referencias": [
+        "presentadora",
+        "concursantes"
+      ]
     },
     {
       "n": 8,
@@ -113,7 +133,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, medium close-up of the man with short curly black hair and a trimmed beard in the black leather jacket over a white T-shirt from the reference image, his hands empty, an apologetic half-smile, a hand in a bright red sleeve holding a black microphone toward him from the left edge of the frame, tall glowing pale-pink backlit panels softly blurred behind, framed from head to chest, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: gentle handheld, almost still, no zoom.\nMotion: he talks into the microphone, shrugs apologetically and opens his hands with a guilty half-smile.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["concursantes"]
+      "referencias": [
+        "concursantes"
+      ]
     },
     {
       "n": 9,
@@ -123,7 +145,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, medium close-up of the man with tousled brown hair and stubble in the grey denim jacket over a black hoodie from the reference image, tilting his head with a cocky half-smile, his hands empty, a hand in a bright red sleeve holding a black microphone toward him from the left edge of the frame, tall glowing pale-pink backlit panels softly blurred behind, framed from head to chest, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 5.4s. Vertical 9:16.\nCamera: gentle handheld, almost still, no zoom.\nMotion: he raises one hand as if to say no offense, talks into the microphone and shrugs with a cocky half-smile.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["concursantes"]
+      "referencias": [
+        "concursantes"
+      ]
     },
     {
       "n": 10,
@@ -133,7 +157,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, medium shot of the man with short wavy dark hair in the crisp white shirt with rolled sleeves and the silver wristwatch from the reference image, standing confident with his chin up and his arms relaxed, his hands empty, tall glowing pale-pink backlit panels in a light wooden grid behind him, framed from head to waist, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: slow handheld drift, no zoom.\nMotion: he talks with confidence, gestures with one hand toward the room and nods to himself.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["concursantes"]
+      "referencias": [
+        "concursantes"
+      ]
     },
     {
       "n": 11,
@@ -143,17 +169,21 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, close-up of the woman from the reference image wearing a pale pink satin slip midi dress with thin straps (not the tank top and shorts), holding a forced polite smile while her eyes look glossy and hurt, tall glowing pale-pink backlit panels softly blurred behind her, framed from the top of her head to her collarbones, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.5s. Vertical 9:16.\nCamera: static close-up, no zoom.\nMotion: she holds her forced smile, blinks fast, looks down for a second and back up, still smiling.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 12,
       "tipo": "A",
-      "duracion": 2.9,
+      "duracion": 4.8,
       "linea": "Quedaba uno: «Me caes bien, eres divertida».",
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, medium shot of the clean-shaven man with neat dark hair in the navy blue suit from the reference image, still holding his shiny red balloon against his chest with both hands, a kind warm smile, tall glowing pale-pink backlit panels in a light wooden grid behind him, framed from head to waist, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.9s. Vertical 9:16.\nCamera: gentle handheld, almost still, no zoom.\nMotion: he nods kindly and talks with a warm smile, holding his red balloon.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["concursantes"]
+      "referencias": [
+        "concursantes"
+      ]
     },
     {
       "n": 13,
@@ -163,27 +193,33 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, medium close-up of the woman from the reference image wearing a pale pink satin slip midi dress with thin straps (not the tank top and shorts), answering with a hopeful nod and a small smile, tall glowing pale-pink backlit panels softly blurred behind her, framed from the top of her head to her chest, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.8s. Vertical 9:16.\nCamera: gentle handheld close-up, no zoom.\nMotion: she nods and talks with a hopeful smile, lifting one hand as if counting the months.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 14,
       "tipo": "A",
-      "duracion": 4.6,
+      "duracion": 5.6,
       "linea": "«¿Y no ha cambiado nada?» Más fuerza, sí… pero curvas, ninguna.",
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, medium close-up of the woman from the reference image wearing a pale pink satin slip midi dress with thin straps (not the tank top and shorts), looking down with an embarrassed small smile and a little shrug, tall glowing pale-pink backlit panels softly blurred behind her, framed from the top of her head to her chest, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.6s. Vertical 9:16.\nCamera: static close-up, no zoom.\nMotion: she shrugs, looks down and bites her lip, then looks up again with an embarrassed smile.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 15,
       "tipo": "A",
-      "duracion": 3.8,
+      "duracion": 4.9,
       "linea": "«Qué lástima», dijo. ¡Pum! Ahí se fue el último.",
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, medium shot of the clean-shaven man with neat dark hair in the navy blue suit from the reference image, pressing his shiny red balloon between his palms in front of his chest with an apologetic face, tall glowing pale-pink backlit panels in a light wooden grid behind him, framed from head to waist, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.8s. Vertical 9:16.\nCamera: gentle handheld, almost still, no zoom.\nMotion: he presses his palms together and the red balloon bursts, red rubber shreds fall; he gives a small apologetic shrug.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["concursantes"]
+      "referencias": [
+        "concursantes"
+      ]
     },
     {
       "n": 16,
@@ -194,7 +230,10 @@
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.9s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she stands still with her head down and lets out a slow breath.\nLighting: soft pink glow from the backlit panels.\nReal person, no text.",
       "quieto": "alejar",
-      "referencias": ["protagonista_antes", "concursantes"]
+      "referencias": [
+        "protagonista_antes",
+        "concursantes"
+      ]
     },
     {
       "n": 17,
@@ -204,7 +243,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone mirror selfie, candid, the woman from the reference image with her exact very slim straight figure, standing almost in profile to a full-length bedroom mirror with her face turned toward the mirror over her shoulder, holding her phone up with one hand, wearing her fitted white ribbed tank top and light-wash high-waisted denim shorts with a short frayed hem; narrow hips the same width as her waist, one flat straight vertical line from her lower back down to her thighs, the shorts loose and baggy at the back with an empty fold of extra denim below the seat and drooping back pockets, thin straight thighs with a wide gap between them; a shy unsure half-smile; a simple bedroom with a white wall, an unmade bed and a green plant, soft daylight from a window, real skin texture with pores, slight handheld framing, shot on a phone, framed from her head to her knees, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.5s. Vertical 9:16.\nCamera: locked-off static camera, no zoom, as a phone held up to the mirror.\nMotion: she looks at her side in the mirror, lowers the phone a little and sighs.\nLighting: soft daylight from the window.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 18,
@@ -214,7 +255,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone mirror selfie, candid, the woman from the reference image with her exact very slim straight figure, standing almost in profile to a full-length bedroom mirror with her face turned toward the mirror over her shoulder, holding her phone up with one hand, wearing her fitted white ribbed tank top and light-wash high-waisted denim shorts with a short frayed hem; narrow hips the same width as her waist, one flat straight vertical line from her lower back down to her thighs, the shorts loose and baggy at the back with an empty fold of extra denim below the seat and drooping back pockets, thin straight thighs with a wide gap between them; a shy unsure half-smile; a simple bedroom with a white wall, an unmade bed and a green plant, soft daylight from a window, real skin texture with pores, slight handheld framing, shot on a phone, framed from her head to her knees, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": "Photorealistic vertical 9:16 smartphone mirror selfie, candid, the same woman with the same face, hair, skin, white ribbed tank top, light-wash denim shorts, the same bedroom, mirror, window light, pose and framing as the start frame. Do NOT copy her body shape from the attached image: now she has a curvy hourglass figure, her hips about one and a half times wider than her small waist, full rounded hips and seat that project well behind her lower back like a shelf, thick full thighs that touch at the top and fill the denim shorts, the shorts now snug and smooth at the back with no loose fabric. The change from the start frame must be obvious at a glance. A proud confident smile. Real skin texture with pores, slight handheld framing, shot on a phone, framed from her head to her knees, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark, flat straight figure, baggy shorts",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the START frame to the END frame, 3.3s. Vertical 9:16.\nCamera: locked-off static camera, no zoom, as a phone held up to the mirror.\nMotion: she turns slightly in front of the mirror as her figure becomes curvier, her hips and thighs filling the shorts, and her shy look turns into a proud smile.\nLighting: soft daylight from the window.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 19,
@@ -224,17 +267,23 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image in her fitted white ribbed tank top in her bright kitchen, framed from her chest up, holding the exact closed bottle from the product reference image beside her face at the same distance from the camera as her face, the bottle forward and large, about 40 percent of the frame height, her fingers on the sides without covering the label: a cylindrical black supplement bottle about 1.8 times taller than it is wide, straight sides, softly rounded shoulders, a very short neck and a wide hot-pink cap almost as wide as the body, black label with big white letters \"AGUAJE\" and \"COMPLEX 3 EN 1\" and pink \"TRIPLE ACCIÓN\"; not a slim bottle and not a squat jar; the label reads the right way, never mirrored; her other hand is empty and out of the frame; she holds nothing but the closed bottle; no capsules, no pills; matte, no rainbow, no prism light, no lens flare; a warm confident smile, white kitchen cabinets and a window with morning daylight behind her, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: gentle handheld, almost still, no zoom.\nMotion: she raises her eyebrows with a knowing smile and gives the closed bottle a small shake beside her face, keeping it at the same distance from the camera as her face; the label always reads the right way, never mirrored. No loose capsules are visible and the bottle is never opened.\nLighting: soft morning daylight from the kitchen window.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues", "producto"]
+      "referencias": [
+        "protagonista_despues",
+        "producto"
+      ]
     },
     {
       "n": 20,
       "tipo": "A",
-      "duracion": 5.0,
+      "duracion": 5,
       "linea": "Dos cápsulas al día con mis comidas: aguaje, fenogreco y maca negra.",
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image in her fitted white ribbed tank top sitting at a wooden breakfast table in her bright kitchen, eating an arepa with scrambled eggs from a white plate, a glass of water beside the plate and the exact closed bottle from the product reference image standing on the table next to the glass, about as tall as her hand and slightly shorter than her water glass, the black label with white \"AGUAJE\" facing the camera, the bottle closed with its hot-pink cap on; no capsules, no pills on the table; matte, no rainbow, no prism light, no lens flare; framed from her head to the table, she smiles while chewing, morning daylight from the window, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 5.0s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she takes a bite of her arepa, smiles at the camera while chewing and takes a sip of water; the closed bottle stays still on the table with its label facing the camera. No loose capsules are visible and the bottle is never opened.\nLighting: soft morning daylight from the kitchen window.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues", "producto"]
+      "referencias": [
+        "protagonista_despues",
+        "producto"
+      ]
     },
     {
       "n": 21,
@@ -244,7 +293,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image in a neighborhood gym wearing a white sports top and black leggings, her long dark-brown hair in a loose ponytail, standing facing the camera holding a dumbbell at chest height with both hands, laughing with energy, a little sweat on her forehead, gym racks and mirrors behind her, daylight from high windows mixed with the warm gym lights, framed from head to knees, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: facing the camera, she does two energetic squats holding the dumbbell at her chest, stands up laughing and blows a strand of hair off her face.\nLighting: daylight from high windows.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues"]
+      "referencias": [
+        "protagonista_despues"
+      ]
     },
     {
       "n": 22,
@@ -254,7 +305,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image in a clothing store fitting room, standing three-quarter side to the full-length mirror with her face turned toward the camera over her shoulder, wearing her fitted white ribbed tank top and new light-wash high-waisted skinny jeans that fit snug and smooth over her curvy hips and full thighs, her curvy hourglass figure from the reference image, a happy surprised smile, a beige curtain and a hook with hangers beside her, warm fitting room light, framed from her head to her knees, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.8s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she checks the fit of the jeans in the mirror, turns a little more to the side and smiles at the camera, surprised and happy.\nLighting: warm fitting room light.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues"]
+      "referencias": [
+        "protagonista_despues"
+      ]
     },
     {
       "n": 23,
@@ -264,7 +317,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image in a supermarket aisle wearing her fitted white ribbed tank top and light-wash high-waisted skinny jeans, her curvy hourglass figure from the reference image, standing three-quarter toward the camera and reaching up to a shelf for a box of cereal, a man in his early 30s in a grey T-shirt pushing a cart further down the aisle behind her and turning his head to look at her, shelves full of colorful products without readable labels, bright supermarket ceiling lights, framed from head to knees, real skin texture with pores, slight handheld framing, shot on a phone. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.8s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she takes the cereal box off the shelf; behind her the man with the cart slows down and turns his head to look; she notices and smiles to herself.\nLighting: bright supermarket ceiling lights.\nReal people with natural gestures, no text.",
-      "referencias": ["protagonista_despues"]
+      "referencias": [
+        "protagonista_despues"
+      ]
     },
     {
       "n": 24,
@@ -274,7 +329,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image in her bedroom wearing her fitted white ribbed tank top and her new light-wash skinny jeans, her curvy hourglass figure from the reference image, facing the camera and holding up in front of her by the waistband an old pair of narrow light-blue jeans that clearly look too small for her now, laughing, an unmade bed and a window with daylight behind her, framed from head to knees, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.6s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she holds the old jeans against her hips to compare, shakes her head laughing and tosses them onto the bed.\nLighting: soft daylight from the bedroom window.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues"]
+      "referencias": [
+        "protagonista_despues"
+      ]
     },
     {
       "n": 25,
@@ -284,7 +341,10 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone selfie video frame, candid, the woman from the reference image in her fitted white ribbed tank top sitting on a light sofa in her bright living room, framed from her chest up, holding the exact closed bottle from the product reference image beside her face at the same distance from the camera as her face, the bottle forward and large, about 40 percent of the frame height, her fingers on the sides without covering the label: a cylindrical black supplement bottle about 1.8 times taller than it is wide, straight sides, softly rounded shoulders, a very short neck and a wide hot-pink cap almost as wide as the body, black label with big white letters \"AGUAJE\" and \"COMPLEX 3 EN 1\" and pink \"TRIPLE ACCIÓN\"; not a slim bottle and not a squat jar; the label reads the right way, never mirrored; her other hand is empty and out of the frame; she holds nothing but the closed bottle; no capsules, no pills; matte, no rainbow, no prism light, no lens flare; a warm sincere expression like talking to a friend, green plants and a window with soft afternoon light behind her, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 6.3s. Vertical 9:16.\nCamera: gentle handheld selfie framing, almost still, no zoom.\nMotion: she talks to the camera warmly like to a friend, nods, and at the end points down with her chin and a sincere smile, keeping the closed bottle beside her face at the same distance from the camera; the label always reads the right way, never mirrored. No loose capsules are visible and the bottle is never opened.\nLighting: soft afternoon light from the living room window.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues", "producto"]
+      "referencias": [
+        "protagonista_despues",
+        "producto"
+      ]
     },
     {
       "n": 26,
@@ -294,7 +354,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone selfie, candid, close-up of the woman from the reference image in her fitted white ribbed tank top in her bright living room, a teasing confident smile with one eyebrow raised, long dark-brown wavy hair loose with flyaway strands, small gold hoop earrings, green plants and a window with soft afternoon light blurred behind her, framed from the top of her head to her collarbones, her hands out of the frame, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.9s. Vertical 9:16.\nCamera: gentle handheld selfie, no zoom.\nMotion: she raises an eyebrow, tilts her head and gives a slow teasing smile to the camera.\nLighting: soft afternoon light from the window.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues"]
+      "referencias": [
+        "protagonista_despues"
+      ]
     },
     {
       "n": 27,
@@ -304,7 +366,9 @@
       "prompt_imagen_inicial": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image wearing her fitted white ribbed tank top and light-wash high-waisted skinny jeans with a small handbag on her shoulder, her curvy hourglass figure from the reference image, walking toward the open front door of her bright apartment, turned three-quarter from the side and looking back at the camera over her shoulder with a playful smile, a hallway with a plant and daylight coming through the door, framed from head to knees, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_imagen_final": null,
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she looks back over her shoulder, winks with a playful smile, turns and walks out through the open door into the daylight.\nLighting: soft daylight from the doorway.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues"]
+      "referencias": [
+        "protagonista_despues"
+      ]
     }
   ],
   "broll": [
@@ -312,11 +376,13 @@
       "n": 1,
       "despues_de_toma": 1,
       "sincroniza_con": "cinco hombres me rechazaron",
-      "duracion": 3.0,
+      "duracion": 3,
       "prompt_imagen": "Photorealistic vertical 9:16 smartphone photo, candid, close-up of the hands of the men from the reference image holding their shiny red balloons against their chests in a row, the sleeves of the black leather jacket, the cream knit polo and the grey denim jacket visible, tall glowing pale-pink backlit panels softly blurred behind, framed from chest to waist, real skin texture on the hands, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.0s. Vertical 9:16.\nCamera: slow pan from left to right along the balloons, no zoom.\nMotion: the hands grip the red balloons.\nLighting: soft pink glow from the backlit panels.\nNo text.",
       "quieto": "paneo-derecha",
-      "referencias": ["concursantes"]
+      "referencias": [
+        "concursantes"
+      ]
     },
     {
       "n": 2,
@@ -335,7 +401,9 @@
       "duracion": 2.5,
       "prompt_imagen": "Photorealistic vertical 9:16 smartphone photo, candid, close-up of the host from the reference image in her bright red pantsuit holding her black microphone near her chin, one eyebrow raised in curiosity, looking off to the side toward the men, tall glowing pale-pink backlit panels softly blurred behind her, framed from head to chest, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.5s. Vertical 9:16.\nCamera: gentle handheld close-up, no zoom.\nMotion: she raises an eyebrow, tilts her head and asks a question into the microphone with a curious look.\nLighting: soft pink glow from the backlit panels.\nReal person with natural gestures, no text.",
-      "referencias": ["presentadora"]
+      "referencias": [
+        "presentadora"
+      ]
     },
     {
       "n": 4,
@@ -345,32 +413,38 @@
       "prompt_imagen": "Photorealistic vertical 9:16 smartphone photo, candid, close-up of the nervous hands of the woman from the reference image clasped tightly in front of her pale pink satin slip dress at waist height, her fingers twisting together, the satin fabric with soft folds, tall glowing pale-pink backlit panels softly blurred behind, real skin texture, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.5s. Vertical 9:16.\nCamera: static close-up.\nMotion: her fingers twist nervously.\nLighting: soft pink glow from the backlit panels.\nNo text.",
       "quieto": true,
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 5,
       "despues_de_toma": 16,
       "sincroniza_con": "sin una sola cita",
-      "duracion": 3.0,
+      "duracion": 3,
       "prompt_imagen": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image at night in her small bedroom, still wearing the pale pink satin slip midi dress (not the tank top and shorts), sitting on the edge of her bed with her heels on the floor, scrolling her phone with a sad tired face, the warm light of a bedside lamp, a dark window behind her, framed from head to knees, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.0s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she scrolls her phone, stops, sighs and drops the phone onto the bed.\nLighting: warm bedside lamp light.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_antes"]
+      "referencias": [
+        "protagonista_antes"
+      ]
     },
     {
       "n": 6,
       "despues_de_toma": 19,
       "sincroniza_con": "Aguaje Complex 3 en 1",
-      "duracion": 3.0,
+      "duracion": 3,
       "prompt_imagen": "Photorealistic vertical 9:16 close-up product photo of the exact closed bottle from the product reference image standing on a light wooden kitchen counter in morning sunlight, a cylindrical black supplement bottle about 1.8 times taller than it is wide, straight sides, softly rounded shoulders, a very short neck and a wide hot-pink cap almost as wide as the body, black label with big white letters \"AGUAJE\", \"COMPLEX 3 EN 1\" and pink \"TRIPLE ACCIÓN\" facing the camera and reading the right way, never mirrored; not a slim bottle and not a squat jar; a soft contact shadow, a green plant and white tiles softly blurred behind, matte, no rainbow, no prism light, no lens flare, no capsules, no pills, no hands, shot on a phone, no studio lighting. No additional text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.0s. Vertical 9:16.\nCamera: slow push-in on the bottle.\nMotion: the morning light moves softly across the counter; the bottle stays closed and still, the label reads the right way. No loose capsules are visible and the bottle is never opened.\nLighting: morning sunlight.\nNo text.",
       "quieto": true,
-      "referencias": ["producto"]
+      "referencias": [
+        "producto"
+      ]
     },
     {
       "n": 7,
       "despues_de_toma": 20,
       "sincroniza_con": "aguaje, fenogreco y maca negra",
-      "duracion": 3.0,
+      "duracion": 3,
       "prompt_imagen": "Photorealistic vertical 9:16 overhead close-up photo of three natural ingredients on a light wooden board in morning daylight: a small pile of whole aguaje fruits with shiny reddish-brown scaly skin, one cut open showing its orange flesh; a small wooden bowl of golden-yellow fenugreek seeds; and two dark purple-black maca roots with a little earth on them; soft natural shadows, real textures, shot on a phone, no studio lighting. No text, labels, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark, capsules, pills, bottle",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.0s. Vertical 9:16.\nCamera: slow overhead push-in.\nMotion: the morning light shifts softly over the ingredients.\nLighting: soft morning daylight.\nNo text.",
       "quieto": true,
@@ -390,10 +464,12 @@
       "n": 9,
       "despues_de_toma": 22,
       "sincroniza_con": "los jeans empezaron a hormarme",
-      "duracion": 3.0,
+      "duracion": 3,
       "prompt_imagen": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image walking out of a clothing store fitting room toward the camera, wearing her fitted white ribbed tank top and new light-wash high-waisted skinny jeans, her curvy hourglass figure from the reference image, carrying a paper shopping bag in one hand and smiling brightly, racks of clothes and warm store lights behind her, framed from head to knees, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, logos, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.0s. Vertical 9:16.\nCamera: locked-off static camera, no zoom.\nMotion: she walks toward the camera with a confident step, swinging her shopping bag and smiling.\nLighting: warm store lights.\nReal person with natural gestures, no text.",
-      "referencias": ["protagonista_despues"]
+      "referencias": [
+        "protagonista_despues"
+      ]
     },
     {
       "n": 10,
@@ -409,28 +485,52 @@
       "n": 11,
       "despues_de_toma": 25,
       "sincroniza_con": "constancia",
-      "duracion": 2.5,
+      "duracion": 3.3,
       "prompt_imagen": "Photorealistic vertical 9:16 close-up photo of the exact closed bottle from the product reference image standing on a white bathroom shelf next to a glass cup with a toothbrush, morning light from a small window, a cylindrical black supplement bottle about 1.8 times taller than it is wide, straight sides, softly rounded shoulders, a very short neck and a wide hot-pink cap almost as wide as the body, about as tall as the toothbrush cup, black label with big white letters \"AGUAJE\" and \"COMPLEX 3 EN 1\" facing the camera and reading the right way, never mirrored; not a slim bottle and not a squat jar; matte, no rainbow, no prism light, no lens flare, no capsules, no pills, no hands, shot on a phone, no studio lighting. No additional text, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 2.5s. Vertical 9:16.\nCamera: slow push-in.\nMotion: the morning light softly brightens; the bottle stays closed and still, the label reads the right way. No loose capsules are visible and the bottle is never opened.\nLighting: soft morning light.\nNo text.",
       "quieto": true,
-      "referencias": ["producto"]
+      "referencias": [
+        "producto"
+      ]
     },
     {
       "n": 12,
       "despues_de_toma": 26,
       "sincroniza_con": "la mujer que ellos querían",
-      "duracion": 3.0,
+      "duracion": 3,
       "prompt_imagen": "Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image laughing with two girlfriends at a small outdoor café table in the afternoon, wearing her fitted white ribbed tank top and light-wash jeans, facing the camera, relaxed and confident, iced coffees on the table, a street with trees softly blurred behind, warm golden afternoon light, framed from head to waist, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, logos, captions or watermarks.\n\nNegative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark",
       "prompt_video": "Photorealistic smartphone footage, image-to-video from the shot above, 3.0s. Vertical 9:16.\nCamera: gentle handheld, no zoom.\nMotion: she throws her head back laughing at something a friend says and takes a sip of her iced coffee.\nLighting: warm golden afternoon light.\nReal people with natural gestures, no text.",
-      "referencias": ["protagonista_despues"]
+      "referencias": [
+        "protagonista_despues"
+      ]
     }
   ],
   "voz_en_off": "Cinco hombres me rechazaron en televisión por no tener curvas. Lo que pasó tres meses después los dejó sin palabras. Programa de citas: si no te querían, reventaban el globo. Me preguntaron el nombre y, antes de decir Laura… ¡pum! Dije mi edad, veintisiete. ¡Pum! Otro. Que tengo mi propia tienda de ropa. ¡Pum! ¡Pum! Entonces la presentadora les preguntó por qué. El primero: «Perdón, pero a mí me gustan las curvas». El segundo: «No te lo tomes a mal, pero me gustan con cuerpo». El tercero: «Yo quiero la que todos voltean a mirar». Y yo, sonriendo como si nada. Quedaba uno: «Me caes bien, eres divertida». «¿Haces ejercicio?» Sí, llevo un año en el gimnasio. «¿Y no ha cambiado nada?» Más fuerza, sí… pero curvas, ninguna. «Qué lástima», dijo. ¡Pum! Ahí se fue el último. Salí de ahí sin una sola cita. Así era yo hace tres meses. Y así estoy ahora. Sí, soy la misma. ¿Qué cambió? Empecé a tomar Aguaje Complex 3 en 1. Dos cápsulas al día con mis comidas: aguaje, fenogreco y maca negra. El primer mes noté más energía y ganas de entrenar. El segundo mes, los jeans empezaron a hormarme atrás. Y en el supermercado, de repente, me miraban diferente. Al tercer mes, mis jeans de antes ya no me cerraban. Sin magia y sin quirófano: constancia. Si te pasa igual, míralo con calma aquí abajo. Esa es la mujer que ellos querían. Qué lástima, mi amor: ya no me van a tener.",
   "overlays": [
-    { "texto": "Hace 3 meses", "toma": 17, "momento": "inicio" },
-    { "texto": "Ahora", "toma": 18, "momento": "inicio" },
-    { "texto": "MES 1", "toma": 21, "momento": "inicio" },
-    { "texto": "MES 2", "toma": 22, "momento": "inicio" },
-    { "texto": "MES 3", "toma": 24, "momento": "inicio" }
+    {
+      "texto": "Hace 3 meses",
+      "toma": 17,
+      "momento": "inicio"
+    },
+    {
+      "texto": "Ahora",
+      "toma": 18,
+      "momento": "inicio"
+    },
+    {
+      "texto": "MES 1",
+      "toma": 21,
+      "momento": "inicio"
+    },
+    {
+      "texto": "MES 2",
+      "toma": 22,
+      "momento": "inicio"
+    },
+    {
+      "texto": "MES 3",
+      "toma": 24,
+      "momento": "inicio"
+    }
   ]
 }
