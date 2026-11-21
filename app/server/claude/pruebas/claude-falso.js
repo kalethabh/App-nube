@@ -287,6 +287,29 @@ async function alMensaje(texto) {
     fs.writeFileSync(path.join(RAIZ, escenaB[1]), JSON.stringify({ se_ve: `Escena de apoyo de prueba ${nb}${quiere ? `: ${quiere.slice(0, 60)}` : ''}, con el producto en primer plano y luz cálida.`, camara: 'primer plano, la cámara se acerca despacio' }));
     return resultado({ result: 'LISTO' });
   }
+  // (2026-11-21) los textos de los anuncios «Desde 0» (uno por formato, en el orden pedido)
+  const desde0 = /TAREA: anuncios nuevos desde cero/.test(textoTarea) ? /Escribe (temp\/\S+\/entrada\/plan-desde0\.json)/.exec(textoTarea) : null;
+  if (desde0) {
+    const formatos = [...textoTarea.matchAll(/^\d+\. ([a-z-]+) \(/gm)].map((m) => m[1]);
+    const tit = { hero: 'Más curvas sin cirugía', 'antes-despues': 'Glúteos más firmes de forma natural', 'nosotros-vs-ellos': 'No es lo mismo: es 3 en 1', testimonio: 'Toda mi vida fui la plana', 'pregunta-respuesta': '¿Sientes la cola plana?', bodegon: 'Tres extractos en 1 para tus curvas', nota: 'La fórmula que recomiendan para curvas', temporada: 'Esta Navidad, estrena tus curvas' };
+    fs.writeFileSync(path.join(RAIZ, desde0[1]), JSON.stringify({
+      anuncios: formatos.map((f, k) => ({
+        formato: f,
+        titular: `${tit[f]}${formatos.indexOf(f) === k ? '' : ` ${['ya', 'hoy', 'así'][k % 3]}`}`,
+        plantilla_titular: 'Más [deseo] sin [sacrificio]',
+        beneficios: ['Más volumen natural', 'Curvas más firmes'],
+        sello: '3 EN 1 · TRIPLE ACCIÓN',
+        cta: 'Pide el tuyo',
+        emocion: 'segura y feliz',
+        ...(f === 'testimonio' ? { cita: 'Por fin me queda bien el jean' } : {}),
+        ...(f === 'pregunta-respuesta' ? { respuesta: 'Te faltaba el 3 en 1' } : {}),
+        ...(f === 'nosotros-vs-ellos' ? { comparacion: [{ nuestro: 'Natural', otro: 'Químicos' }, { nuestro: '3 en 1', otro: 'Solo uno' }, { nuestro: 'Pagas al recibir', otro: 'Pago anticipado' }] } : {}),
+        ...(f === 'bodegon' ? { ingredientes: ['Aguaje', 'Fenogreco', 'Maca'] } : {}),
+        ...(f === 'temporada' ? { ocasion: 'Navidad' } : {}),
+      })),
+    }));
+    return resultado({ result: 'LISTO' });
+  }
   // (2026-11-21) el MAPA de una referencia validada (modo «Replicar validado»): zonas, jerarquía, letra y paleta, ángulo
   // y N titulares con la misma promesa
   const mapaRef = /TAREA: mapa de la referencia validada/.test(textoTarea) ? /Escribe (temp\/\S+\/entrada\/mapa-R\d{2}\.json)/.exec(textoTarea) : null;
@@ -365,6 +388,9 @@ async function alMensaje(texto) {
       const tienda = /^(\S+) \| [^|\n]+ \| \S+\.myshopify\.com \|/m.exec(textoTarea)[1];
       acciones.push({ tipo: 'shopify', tienda, pedido: ultimo, motor: 'claude' });
       respuesta = 'Va, le pido al equipo el cambio en tu tienda. Te queda como tema sin publicar para que lo revises.';
+    } else if (/landing/i.test(ultimo) && /https?:\/\/\S+/.test(ultimo)) {
+      acciones.push({ tipo: 'landing', url: /https?:\/\/\S+/.exec(ultimo)[0], modo: 'tal-cual', motor: 'claude' });
+      respuesta = 'Listo, la estoy clonando. Te aviso cuando esté.';
     } else if (/regla:/i.test(ultimo)) {
       acciones.push({ tipo: 'regla', texto: ultimo.split(/regla:/i)[1].trim(), estilo: null });
       respuesta = 'Anotado: lo aplicamos de ahora en adelante.';

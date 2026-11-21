@@ -214,6 +214,27 @@ async function estrategia(ctx) {
   }
   // Modo rápido («como pedirle a ChatGPT que me las varíe»): la app arma el lote en segundos, sin la IA de texto
   // (imagen-ads/rapido.js). Sin referencias ni titulares para variar, sigue el camino de siempre.
+  // (2026-11-21) MODO NUEVO DESDE 0: la IA escribe los textos de cada anuncio (validados por la app) y la app arma las 6
+  // zonas de cada formato (desde0.js). La revisión de la IA sí corre (marca letra por letra, márgenes, zonas).
+  if (b.desde0) {
+    const d0 = await import('../imagen-ads/desde0.js');
+    if (!d0.planListo(c, b)) {
+      const r = await d0.escribirPlan(c, b, { lote: ctx.slug, avance: (t) => ctx.avance(t) });
+      anotarRegistro(c, 'E001', { desde0: r.ok, motivo: r.motivo || null });
+      if (!r.ok) {
+        if (r.motivo === 'limite') return errorDeLimite(r.resultado);
+        return error(r.motivo === 'sin-ia' ? 'Para crear anuncios desde 0, tu IA escribe los textos: conéctala en Ajustes › Conexiones y toca “Continuar”.' : 'No pude escribir los textos de tus anuncios. Toca “Continuar” para intentarlo otra vez.', 'desde0', r.motivo);
+      }
+    }
+    ctx.avance('Armando las 6 zonas de cada anuncio');
+    const r = d0.prepararDesde0(c, b);
+    if (!r.ok) return error('No pude armar tus anuncios. Toca “Continuar” para intentarlo otra vez.', 'desde0', r.motivo);
+    const ids = idsDelLoteRapido(b);
+    const v = verificarSesion({ carpeta: c, brief: b, tipo: 'estrategia', ids });
+    anotarRegistro(c, 'E001', { desde0: true, formatos: r.formatos, errores: v.ok ? null : v.errores.slice(0, 10) });
+    if (!v.ok) return error('Los anuncios quedaron incompletos. Toca “Continuar” para intentarlo otra vez.', 'desde0', v.errores.slice(0, 3).join(' · '));
+    return { ok: true };
+  }
   // (2026-11-21) MODO REPLICAR VALIDADO: antes, la IA saca el mapa de cada referencia (replicar.js)
   if (b.replicar && b.modo === 'variantes') {
     const { mapasListos, analizarReferencias } = await import('../imagen-ads/replicar.js');
