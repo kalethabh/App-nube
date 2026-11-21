@@ -92,6 +92,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
   const [productoId, setProductoId] = useState(productoPedido || '');
   const [elegidos, setElegidos] = useState(() => (referenciaPedida ? [{ id: referenciaPedida, url: referenciaPedida, titulo: 'Referencia' }] : []));
   const [cantidad, setCantidad] = useState(5);
+  // (2026-11-21) MODO REPLICAR VALIDADO: tu anuncio EXACTO; cambian solo la modelo, el escenario, la pose y el titular
+  const [replicar, setReplicar] = useState(true);
   const [vertical, setVertical] = useState(false);
   const [pais, setPais] = useState('');
   const [publico, setPublico] = useState('');
@@ -152,9 +154,8 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         formatos,
         logo: null,
         modo: modo === 'referencia' ? 'variantes' : 'nuevos',
-        agente: 'variaciones',
+        ...(modo === 'referencia' && replicar ? { replicar: true, rapido: true } : { agente: 'variaciones', rapido: false }),
         fiel: modo === 'referencia',
-        rapido: false,
         usarInvestigacion: true,
         ...(modo === 'referencia'
           ? {
@@ -172,7 +173,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
       await apiImagenes.generar(r.lote, costo, []);
       invalidar(CLAVE_LOTES);
       invalidar('oficina');
-      aviso({ tipo: 'exito', titulo: 'El agente está trabajando', texto: `${cantidad} anuncios ${modo === 'referencia' ? 'a partir de tu referencia' : 'desde tu investigación'}.` });
+      aviso({ tipo: 'exito', titulo: modo === 'referencia' && replicar ? 'Replicando tu anuncio validado' : 'El agente está trabajando', texto: modo === 'referencia' && replicar ? `${cantidad} réplicas exactas: cambian la modelo, el escenario, la pose y el titular.` : `${cantidad} anuncios ${modo === 'referencia' ? 'a partir de tu referencia' : 'desde tu investigación'}.` });
       onListo?.(r.lote);
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude crearlos', texto: e?.message || 'Vuelve a intentarlo.' });
@@ -231,6 +232,19 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
         <section className="enc-paso">
           <h4>2. Tu anuncio de referencia</h4>
           <Ganadores elegidos={elegidos} setElegidos={setElegidos} productoId={productoId} />
+          <div className="enc-chips enc-replicar" role="radiogroup" aria-label="Cómo usar tu referencia">
+            <button type="button" role="radio" aria-checked={replicar} className={replicar ? 'activo' : ''} onClick={() => setReplicar(true)}>
+              Replicar validado (exacto)
+            </button>
+            <button type="button" role="radio" aria-checked={!replicar} className={!replicar ? 'activo' : ''} onClick={() => setReplicar(false)}>
+              Variaciones del agente
+            </button>
+          </div>
+          <p className="t-chico t-3">
+            {replicar
+              ? 'Tu anuncio tal cual: mismas zonas, jerarquía, letras, colores, oferta, CTA y ángulo. Solo cambian la modelo (otra mujer en cada imagen: edad, contextura y tono de piel), el escenario, la pose y la redacción del titular (misma promesa, otras palabras). Nada se repite en el lote.'
+              : 'El agente prueba variaciones cercanas, conceptos vecinos y expandidos, cada una con qué cambió y qué hipótesis prueba.'}
+          </p>
         </section>
       ) : (
         <section className="enc-paso">
@@ -274,7 +288,7 @@ export function FormularioAgente({ onListo, productoPedido = null, referenciaPed
       <div className="enc-pie">
         <span className="enc-costo">{falta ? <span className="enc-falta">{falta}</span> : costo === null ? 'Calculando el costo…' : costo === 0 ? `${imagenes} imágenes con tu ChatGPT: sin costo por imagen` : `${imagenes} imágenes · ${dinero(costo)} (${dinero(precio.dolaresPorImagen)} cada una)`}</span>
         <Boton variante="primario" icono={Briefcase} onClick={crear} cargando={Boolean(fase)} disabled={!listo}>
-          {fase || (costo ? `Crear con el agente · ${dinero(costo)}` : 'Crear con el agente')}
+          {fase || (modo === 'referencia' && replicar ? (costo ? `Replicar · ${dinero(costo)}` : 'Replicar') : costo ? `Crear con el agente · ${dinero(costo)}` : 'Crear con el agente')}
         </Boton>
       </div>
     </div>

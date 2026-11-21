@@ -65,6 +65,8 @@ const VACIO = {
   modo: 'nuevos',
   // false = rápido, como pedirle a ChatGPT que te las varíe (por defecto); true = con la estrategia de la IA (más lento)
   elaborado: false,
+  // (2026-11-21) MODO REPLICAR VALIDADO en «Variantes»: el anuncio EXACTO; cambian modelo, escenario, pose y titular
+  replicar: true,
   // PLANTILLAS (2026-11-17p): la app dibuja los textos y el modelo solo hace las escenas, sin texto (por defecto en «Nuevos»)
   plantillas: true,
   // los formatos elegidos ([] = «Que la app elija»)
@@ -149,6 +151,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
   const [elegidos, setElegidos] = useState([]);
   const [itemsElegidos, setItemsElegidos] = useState([]);
   const variantes = f.modo === 'variantes';
+  const replicar = variantes && f.replicar !== false;
   // «De un video, imágenes»: los cuadros de un video, armados con las plantillas (gratis)
   const deVideo = f.modo === 'video';
   const [video, setVideo] = useState(null); // { id, seleccion } cuando ya hay cuadros elegidos
@@ -337,7 +340,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
       return;
     }
     // (el modo rápido no necesita la IA de texto para arrancar: solo el modo «Más elaborado»)
-    if (f.elaborado && !conPlantillas && motor.falta) {
+    if ((f.elaborado || replicar) && !conPlantillas && motor.falta) {
       aviso(
         !motor.elegido
           ? { tipo: 'aviso', titulo: 'Elige tu IA', texto: 'Para armar la estrategia y revisar tus imágenes, la app usa tu cuenta de Claude o de ChatGPT. Elige una y vuelve a tocar Generar.' }
@@ -397,7 +400,8 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
         // (2026-11-19h) el concepto de cada creativo que funciona, en el mismo orden: la variante lo conserva
         ...(variantes ? { conceptosReferencias: itemsElegidos.map((x) => x.concepto || '') } : {}),
         fiel: variantes,
-        rapido: conPlantillas ? true : !f.elaborado,
+        rapido: conPlantillas || replicar ? true : !f.elaborado,
+        ...(replicar ? { replicar: true } : {}),
         refs: conPlantillas ? [] : refs.map((x) => x.id),
         ...(conPlantillas ? { plantillasReferencia: { elegidas: refElegidas } } : {}),
         // (de un video: los anuncios que propuso tu IA con su ángulo, con las plantillas ganadoras)
@@ -499,7 +503,21 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
               className="img-fiel"
             />
           ) : null}
-          {conPlantillas || deVideo ? null : (
+          {variantes ? (
+            <Interruptor
+              activado={replicar}
+              onCambio={(v) => poner({ replicar: v })}
+              etiqueta="Replicar validado (exacto)"
+              descripcion={
+                replicar
+                  ? 'Tu anuncio tal cual: mismas zonas, jerarquía, letras, colores, oferta y ángulo. Solo cambian la modelo (otra mujer en cada imagen), el escenario, la pose y la redacción del titular, sin repetirse. Tu IA lee primero el mapa del anuncio.'
+                  : 'Variantes más libres: mismo concepto y diseño, con títulos nuevos de tus ganchos validados.'
+              }
+              deshabilitado={ocupado}
+              className="img-fiel"
+            />
+          ) : null}
+          {conPlantillas || deVideo || replicar ? null : (
           <Interruptor
             activado={Boolean(f.elaborado)}
             onCambio={(v) => poner({ elaborado: v })}
@@ -786,7 +804,7 @@ export function Formulario({ simulando = false, productoPedido = null, referenci
               }
             : null
         }
-        motor={f.elaborado && !conPlantillas && !deVideo ? motor : { ...motor, falta: false }} // el modo rápido y las plantillas no necesitan la IA de texto
+        motor={(f.elaborado || replicar) && !conPlantillas && !deVideo ? motor : { ...motor, falta: false }} // el modo rápido y las plantillas no necesitan la IA de texto
         ocupado={ocupado}
         fase={fase}
         textoBoton={textoBoton}

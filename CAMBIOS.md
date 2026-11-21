@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21 · Replicar validado: tu anuncio exacto, con otra modelo
+
+- En **Crear anuncios de imagen › Con referencia** hay un modo nuevo, **«Replicar validado (exacto)»** (viene elegido; «Variaciones del agente» sigue a un toque).
+- Antes de generar, tu IA lee el **mapa** de tu anuncio: dónde va el titular, la modelo o el antes y después (y cuánto ocupa), el frasco, los checks, la oferta y el botón; qué se lee primero, segundo y tercero; las letras, los colores y el fondo de cada bloque; y el ángulo (el deseo, el beneficio y el dolor).
+- Cada imagen conserva todo eso **exacto**. Solo cambian: **la modelo** (otra mujer en cada una: edad, contextura y tono de piel distintos, creíble), **el escenario** (cuarto, espejo, calle, gym en casa, probador, piscina…), **la pose y el encuadre**, y **la redacción del titular** (la misma promesa con otras palabras, del mismo largo para que quepa).
+- Nunca se repite la modelo ni el escenario en el mismo lote, y no se mueven bloques, no se cambian letras ni colores, no se cambia el ángulo ni se inventan promesas.
+
 ## 2026-11-20v · Arreglo: «Actualizar» decía que lo nuevo chocaba
 
 - En la versión anterior se coló, por error, un chat de prueba de la coordinadora. En tu computador ya tienes tu propio chat, así que al actualizar los dos chocaban y la app no bajaba nada (tu chat no se tocó).
