@@ -190,6 +190,14 @@ async function principal() {
   const refVid = path.join(RAIZ, 'temp', '_referencias', `${vid.datos.id}.mp4`);
   creados.referencias.push(refVid);
   check('…el video queda donde «Clonar un video» lo busca', fs.existsSync(refVid) && fs.statSync(refVid).size === fs.statSync(VIDEO).size);
+  // (2026-11-21b) «replícalo tal cual» SIN nombrar un estilo: «Agregar», el mismo look y la misma estructura de SU video
+  r = await pedir('/api/oficina/chat', { json: { texto: 'Clónalo tal cual este video para mi producto, igual, misma estructura', adjuntos: [vid.datos.id] } });
+  c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
+  m = respuesta(c);
+  const accTal = m?.acciones?.find((a) => a.tipo === 'anuncio');
+  if (accTal?.slug) creados.slugs.push(accTal.slug);
+  const briefTal = accTal?.slug ? JSON.parse(fs.readFileSync(path.join(RAIZ, 'temp', accTal.slug, 'app', 'brief.json'), 'utf8')) : null;
+  check('«Clónalo tal cual» sin estilo: lo hace IGUAL a su video («Agregar»: mismo look y estructura), no con un estilo de la app', accTal?.ok && /Igual a tu video/.test(accTal.titulo) && (briefTal?.estilo === 'agregar' || briefTal?.agregar) && briefTal.respuestas?.clonar === `subido:${vid.datos.id}|2 - VTD TT.mp4` && /tal cual/.test(briefTal.respuestas?.pedido || ''), { m, brief: briefTal && { estilo: briefTal.estilo, respuestas: briefTal.respuestas } });
   // (2026-11-20m) un cantado (Musical) con video: no clona, va con la LETRA transcrita del video
   r = await pedir('/api/oficina/chat', { json: { texto: 'Hazme un musical igual a este, copia la letra palabra por palabra', adjuntos: [vid.datos.id] } });
   c = await esperar(3, async () => (await pedir('/api/oficina/chat')).datos, conRespuesta);
