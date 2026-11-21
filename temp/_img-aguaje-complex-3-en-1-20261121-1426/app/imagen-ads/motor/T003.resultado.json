@@ -1,0 +1,15 @@
+{
+  "id": "T003",
+  "piezas": {
+    "V01_1x1": {
+      "orden": "U0001",
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
+    }
+  },
+  "actualizado": "2026-11-21T19:41:32.491Z",
+  "terminado": false
+}
