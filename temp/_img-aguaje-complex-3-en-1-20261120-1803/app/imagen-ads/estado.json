@@ -177,16 +177,11 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "final",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": {
-        "id": "U0010",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T011"
-      },
+      "orden": null,
       "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
@@ -194,9 +189,12 @@
       "motivo": "fallo-de-chatgpt",
       "mensaje": "ChatGPT no pudo hacer esta imagen",
       "desde": null,
-      "pedido": "U0010",
-      "ultimaOrden": "U0004",
-      "fallo": null
+      "pedido": null,
+      "ultimaOrden": "U0010",
+      "fallo": {
+        "orden": "U0010",
+        "mensaje": "ChatGPT no pudo hacer esta imagen"
+      }
     },
     "V05_1x1": {
       "v": "V05",
@@ -482,7 +480,7 @@
       "pieza": "V04_1x1",
       "instruccion": "",
       "fecha": "2026-11-21T01:18:42.154Z",
-      "estado": "generando",
+      "estado": "no-aplicado",
       "pasos": [
         {
           "pieza": "V04_1x1",
@@ -490,7 +488,8 @@
           "modo": "generar"
         }
       ],
-      "paso": 0
+      "paso": 0,
+      "motivo": "No se pudo rehacer: ChatGPT no pudo hacer esta imagen."
     }
   }
 }
