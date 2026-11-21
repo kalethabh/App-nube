@@ -51,7 +51,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-21T17:53:20.446Z",
-      "detalle": "Claude empezó a trabajar"
+      "detalle": "Mirando las imágenes del anuncio"
     },
     {
       "id": "voces",
@@ -94,7 +94,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T17:30:42.250Z",
   "aprobado": "2026-11-21T17:30:42.250Z",
-  "actualizado": "2026-11-21T17:53:23.102Z",
+  "actualizado": "2026-11-21T17:53:32.958Z",
   "saldoInicial": {
     "creditos": 4183.2,
     "fecha": "2026-11-21T17:30:43.088Z"
