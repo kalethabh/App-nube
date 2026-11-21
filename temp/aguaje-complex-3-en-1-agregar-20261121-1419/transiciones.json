@@ -1,0 +1,9 @@
+{
+  "efectos": { "woosh": "efectos/woosh.mp3", "deep-woosh": "efectos/deep-woosh.mp3" },
+  "puntos": [
+    { "toma": 2, "animacion": "deslizar-derecha", "efecto": "woosh", "porque": "entrada del problema: la madre la hace pararse y darse la vuelta" },
+    { "toma": 5, "animacion": "zoom", "efecto": "deep-woosh", "porque": "la solución: ella saca el frasco y dice qué toma" },
+    { "toma": 7, "animacion": "deslizar-izquierda", "efecto": "woosh", "porque": "la prueba: la madre le pide perdón y pregunta el nombre" },
+    { "toma": 10, "animacion": "zoom", "efecto": "deep-woosh", "porque": "el cierre: ella sola en su casa lo cuenta y recomienda" }
+  ]
+}

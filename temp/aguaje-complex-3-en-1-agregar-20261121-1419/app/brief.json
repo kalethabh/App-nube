@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261121-1419",
   "productoId": "producto-edb1",
   "estilo": "agregar",
-  "familia": null,
+  "familia": "ugc",
   "faseGuion": "guion",
   "duracion": {
     "decide": "usuario",
@@ -10,7 +10,11 @@
     "segundos": 100
   },
   "voz": {
-    "auto": true
+    "id": "VmejBeYhbrcTPwDniox7",
+    "nombre": "Lina - Carefree & Fresh",
+    "auto": true,
+    "motivo": "voz femenina: La que más habla y cierra el anuncio es Mariana, una mujer de 27 años, calmada y firme, con un toque de ironía. · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cálida, cercana, natural, hecha para narrar",
+    "elegida": "2026-11-21T19:36:58.897Z"
   },
   "continuidad": false,
   "respuestas": {
@@ -21,5 +25,34 @@
   "opciones": {},
   "pedido": "Replicar tal cual el video que adjuntó (mismo look, mismas tomas, acciones, ritmo, textos y gancho) para AGUAJE COMPLEX 3 EN 1. No es voz en off narrada: las personas hablan en cámara con su propia voz, igual que en el original. Duración máxima 1:40.",
   "letraOriginal": "La mujer de la foto que me enseñaste no tenía ese cuerpo. Mamá, guarda el teléfono. Esa soy yo. La cara sí. Lo demás, eso es lo que quiero comprobar. Párate. ¿Perdón? Dije que te pares. Mamá. Quiero ver algo. Párate. Date la vuelta. Mamá, ¿qué estás haciendo? Tengo derecho a saber qué está trayendo mi hijo a esta familia. Date la vuelta. Mhm. Siéntate. Marcus, cocina. Ahora. Es falsa. ¿De qué hablas? Ese cuerpo. Se ha hecho cosas: cirugía, inyecciones, algo. ¿Y qué si lo hizo? No te crié para que estés con alguien que miente sobre quién es. No voy a tener una mujer de plástico dándome nietos de plástico. Admite lo que se hizo o no es bienvenida aquí. Te voy a preguntar directamente. ¿Qué te hiciste? No me hice cirugía. No me mientas. ¿BBL? No. ¿Inyecciones? No. Entonces explícame lo que estoy viendo, porque eso no es natural. Sí es natural. ¿Desde cuándo? Desde hace dos meses. ¿Esperas que cree que te creció todo eso en dos meses? No dije naturalmente. Dije sin cirugía. Entonces, ¿qué? Son gotas. ¿Gotas? Debajo de la lengua cada mañana. Eso es ridículo. Redirige donde tu cuerpo guarda la grasa. En vez de tu estómago, va a tus caderas, musulos y nalgas. Eso no es posible. Tu cuerpo ya sabe dónde poner las curvas. Solo se le olvidó. Esto se lo recuerda. Sin cicatrices, sin recuperación, sin cirugía. Solo gotas. Marcus, danos un minuto. Mamá. Por favor. ¿Maya? Está bien. Ve. He tenido cuerpo de tabla toda mi vida. Mi madre era una tabla. Su madre era una tabla. Pensé que así éramos hechas. ¿Cómo se llama? Me llamaste falsa. Me llamaste chica de video. Dijiste que no era bienvenida aquí. Estaba equivocada. Lo siento. ¿Cómo se llama? AMUA. A-M-U-A. Vital Drops. ¿Y de verdad funciona? Me hiciste pararme y darme la vuelta para que lo vieras tú misma. Dime tú si funciona. Mándame el link. Pídelo más amable. Por favor. Revisa tu teléfono. ¿Todo bien? Es una buena elección. ¿Qué acaba de pasar? Cosas de mujeres. [música suave] La mamá de mi novio me hizo pararme en la cena. Me hizo darme la vuelta como si estuviera en exhibición. Me llamó falsa. Dijo que no era bienvenida en su familia. Todo porque no podía creer que un cuerpo así fuera real. No me hice cirugía, solo encontré algo que funcionó. Mi cuerpo olvidó dónde poner las cosas. Esto se lo recordó. AMUA Vital Drops, garantía de noventa días. Link abajo.",
-  "creado": "2026-11-21T19:19:22.209Z"
+  "creado": "2026-11-21T19:19:22.209Z",
+  "agregar": {
+    "pedido": "Replicar tal cual el video que adjuntó (mismo look, mismas tomas, acciones, ritmo, textos y gancho) para AGUAJE COMPLEX 3 EN 1. No es voz en off narrada: las personas hablan en cámara con su propia voz, igual que en el original. Duración máxima 1:40.. Tal cual: si en el video las personas hablan en cámara, que hablen ellas mismas con su voz (sin voz en off), con las mismas escenas y acciones (sin B-roll ni escenas nuevas).",
+    "plan": {
+      "estilo": "agregar",
+      "estiloNombre": "El mismo look de tu video",
+      "formato": "Las personas hablan en cámara, cada una con su voz",
+      "duracion": "1:40",
+      "idioma": "es",
+      "resumen": "Rehago tu video tal cual: la cena elegante donde la suegra hace parar a la novia porque no cree que su cuerpo sea natural. Hablan las tres personas con su propia voz, en las mismas escenas y en el mismo orden, y termina con ella sola en su casa contándolo con tu frasco.",
+      "conserva": [
+        "la estructura: la acusación con la foto → «párate y date la vuelta» → la madre la llama falsa → el interrogatorio → el producto → la madre confiesa que también es plana → pide el link → el novio vuelv",
+        "el gancho: la madre con el celular en alto: «La muchacha de la foto que me mostraste no tenía ese cuerpo»",
+        "el ángulo: más curvas en cola, caderas y piernas sin cirugía, y la sospecha de la suegra como prueba de que se nota",
+        "las frases clave: «Esa soy yo», «Párate», «mujer de plástico», «No me hice cirugía», «Eso es ridículo», «Estaba equivocada», «Mándame el link», «Cosas de mujeres»",
+        "el look: comedor de lujo de noche con velas y candelabro, vestido rojo de la madre, vestido café ajustado de ella, polo azul de él, cortes rápidos entre quien habla y quien escucha"
+      ],
+      "cambia": [
+        "la duración: de unos 3 min 38 s a unos 1 min 38 s, con los mismos momentos y cada uno más corto",
+        "el producto: las gotas bajo la lengua pasan a ser dos cápsulas al día con la comida, y se ve solo el frasco cerrado",
+        "el mecanismo inventado del original sale; ella cuenta los tres extractos y que lo acompaña con su comida y su rutina de pierna",
+        "la foto del celular es la foto de antes de ella (delgada, en short de jean corto) para que el antes y el después se vea claro",
+        "los nombres y el acento: Mariana, Sebastián y la madre hablan con acento colombiano",
+        "el cierre: sin la garantía de 90 días, que no tienes; termina como una recomendación"
+      ],
+      "porque": "En tu video las tres personas hablan en cámara, así que se hace con escenas habladas y cada una con su voz. No pediste otro estilo, así que va con el mismo look de tu video.",
+      "pedido": "Replicar tal cual el video que adjuntó (mismo look, mismas tomas, acciones, ritmo, textos y gancho) para AGUAJE COMPLEX 3 EN 1. No es voz en off narrada: las personas hablan en cámara con su propia voz, igual que en el original. Duración máxima 1:40.. Tal cual: si en el video las personas hablan en cámara, que hablen ellas mismas con su voz (sin voz en off), con las mismas escenas y acciones (sin B-roll ni escenas nuevas)."
+    }
+  },
+  "produccion": "ugc"
 }
