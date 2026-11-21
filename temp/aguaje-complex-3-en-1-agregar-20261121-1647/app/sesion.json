@@ -1,0 +1,15 @@
+{
+  "uuid": "41bc782f-3620-4f2e-b32b-0e7d8c065c95",
+  "estado": "escribiendo",
+  "tipo": "guion",
+  "intentos": 1,
+  "progreso": [
+    "Preparando la foto de tu producto",
+    "Analizando el video de referencia"
+  ],
+  "inicio": "2026-11-21T21:47:09.934Z",
+  "cambios": [],
+  "actualizado": "2026-11-21T21:47:10.637Z",
+  "error": null,
+  "inicioIntento": "2026-11-21T21:47:09.935Z"
+}
