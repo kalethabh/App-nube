@@ -20,7 +20,7 @@
 // Sin precios (el costo real se ve en el informe de la Entrega) y sin opciones A/B/C: siempre se
 // produce el anuncio completo. En un anuncio nuevo no se muestra nada de otros anuncios.
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Check, Clapperboard, Package, Scissors, Sparkles } from 'lucide-react';
+import { Check, FileText, Package, Palette, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { CabeceraPagina, Tooltip, PuntoEstado, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, urlFotoProducto, useProducto } from '../../datos/api.js';
 import { ir, partirRuta, rutas } from '../../datos/rutas.js';
@@ -89,31 +89,36 @@ function actualizarUrl(cambios) {
   ir(rutas.nuevo(Object.keys(q).length ? q : undefined), { reemplazar: true });
 }
 
+// (2026-11-21e) un paso por página: el producto, el estilo, los ajustes y el guion (la producción tiene su pantalla)
 const PASOS = [
-  { n: 1, icono: Package, titulo: 'Tu producto', texto: 'Foto, indicaciones y referencia' },
-  { n: 2, icono: Sparkles, titulo: 'Tu anuncio', texto: 'Estilo, voz y guion' },
+  { n: 1, icono: Package, titulo: 'Tu producto', texto: 'Foto e indicaciones' },
+  { n: 2, icono: Palette, titulo: 'Estilo', texto: 'Cómo contarlo' },
+  { n: 3, icono: SlidersHorizontal, titulo: 'Ajustes', texto: 'Duración, voz y detalles' },
+  { n: 4, icono: FileText, titulo: 'Guion', texto: 'Léelo y apruébalo' },
 ];
+// el paso en la URL: estilo | ajustes | guion (y «2», el de antes: con guiones va al guion)
+const PASO_URL = { 2: 'estilo', 3: 'ajustes', 4: 'guion' };
 
-function IndicadorPasos({ paso, fichaLista, onIr }) {
+function IndicadorPasos({ paso, fichaLista, onIr, puede = {} }) {
   return (
     <nav className="nv-pasos" aria-label="Pasos del nuevo anuncio">
       <ol className="nv-pasos__lista">
         {PASOS.map((p, i) => {
           const hecho = p.n < paso;
           const activo = p.n === paso;
-          const puede = p.n === 1 || fichaLista;
+          const habil = p.n === 1 || (fichaLista && (puede[p.n] ?? true));
           return (
             <li key={p.n} className="nv-pasos__item">
               {i > 0 ? (
                 <span className="nv-pasos__linea" aria-hidden="true">
-                  <span className="nv-pasos__relleno" style={{ transform: `scaleX(${paso > 1 ? 1 : fichaLista ? 0.5 : 0.08})` }} />
+                  <span className="nv-pasos__relleno" style={{ transform: `scaleX(${paso > i ? 1 : paso === i && fichaLista ? 0.5 : 0.08})` }} />
                 </span>
               ) : null}
               <button
                 type="button"
                 className={`nv-paso${activo ? ' nv-paso--activo' : ''}${hecho ? ' nv-paso--hecho' : ''}`}
                 aria-current={activo ? 'step' : undefined}
-                disabled={!puede}
+                disabled={!habil}
                 onClick={() => onIr(p.n)}
               >
                 <span className="nv-paso__numero" aria-hidden="true">
@@ -129,15 +134,6 @@ function IndicadorPasos({ paso, fichaLista, onIr }) {
           );
         })}
       </ol>
-      <div className="nv-pasos__despues">
-        <span className="t-etiqueta">Después, sola</span>
-        <span className="nv-pasos__mini">
-          <Clapperboard size={14} strokeWidth={2} aria-hidden="true" /> Producción
-        </span>
-        <span className="nv-pasos__mini">
-          <Scissors size={14} strokeWidth={2} aria-hidden="true" /> Entrega
-        </span>
-      </div>
     </nav>
   );
 }
@@ -393,7 +389,9 @@ function Flujo({ consulta }) {
 
   // el paso vive también en la URL (#/nuevo?paso=2) para poder volver o compartirlo
   const hayAnuncios = Object.keys(anuncios).length > 0;
-  const pasoUrl = consulta?.get('paso') === '2' && (productoId || hayAnuncios) ? 2 : 1;
+  const pasoTexto = consulta?.get('paso') || '';
+  const pasoPedido = { estilo: 2, ajustes: 3, guion: 4, 2: hayAnuncios ? 4 : 2, 3: 3, 4: 4 }[pasoTexto] || 1;
+  const pasoUrl = productoId || hayAnuncios ? pasoPedido : 1;
   const [paso, setPaso] = useState(pasoUrl);
   useEffect(() => {
     if (pasoUrl !== paso) setPaso(pasoUrl);
@@ -401,7 +399,7 @@ function Flujo({ consulta }) {
 
   const irAPaso = (n) => {
     setPaso(n);
-    actualizarUrl({ paso: n === 2 ? '2' : null });
+    actualizarUrl({ paso: PASO_URL[n] || null });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -509,7 +507,11 @@ function Flujo({ consulta }) {
 
   const guardarAnuncios = (mapa) => {
     setAnuncios(mapa);
-    actualizarUrl({ anuncios: Object.values(mapa).join(',') || null, paso: '2' });
+    actualizarUrl({ anuncios: Object.values(mapa).join(',') || null, paso: 'guion' });
+    if (paso !== 4) {
+      setPaso(4);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     invalidar('anuncios');
   };
 
@@ -580,20 +582,24 @@ function Flujo({ consulta }) {
     <div className="pagina nv">
       <CabeceraPagina
         sobretitulo="Nuevo anuncio"
-        titulo={clonando ? (paso === 1 ? 'Clonar un video' : 'Elige en qué estilo se rehace') : paso === 1 ? 'Tu producto' : 'Elige cómo contarlo'}
+        titulo={paso === 1 ? (clonando ? 'Clonar un video' : 'Tu producto') : paso === 2 ? (clonando ? 'Elige en qué estilo se rehace' : 'Elige cómo contarlo') : paso === 3 ? 'Ajusta tu anuncio' : 'Tu guion'}
         descripcion={
           clonando && paso === 1
             ? 'Sube el video que quieres clonar y tu producto: la app copia cómo está armado, toma por toma, y lo rehace para tu producto.'
-            : clonando
-              ? 'Elige el estilo (o varios, para tener variaciones). «Agregar» lo rehace con el mismo look del original. Tu video ya va puesto en «Clonar un video» de cada uno.'
-              : paso === 1
-            ? 'La foto, lo que quieras que la IA tenga en cuenta y, si tienes, un video de referencia.'
-            : `Elige el estilo, lee el guion que escribe ${motor.elegido ? motor.nombre : 'tu IA'} y das un solo «Sí»: lo demás lo hace la app sola, hasta el video.`
+            : paso === 1
+              ? 'La foto, lo que quieras que la IA tenga en cuenta y, si tienes, un video de referencia.'
+              : paso === 2
+                ? clonando
+                  ? 'Elige el estilo (o varios, para tener variaciones). «Agregar» lo rehace con el mismo look del original.'
+                  : 'Elige uno o varios estilos. En el paso siguiente ajustas la duración y la voz.'
+                : paso === 3
+                  ? 'La duración, la voz y lo propio de cada estilo. Lo que no toques, lo decide la IA.'
+                  : `Lo escribe ${motor.elegido ? motor.nombre : 'tu IA'} con tu cuenta. Lo lees, pides cambios si quieres y das un solo «Sí»: lo demás lo hace la app sola, hasta el video.`
         }
         acciones={<EstadoIA motor={motor} />}
       />
 
-      <IndicadorPasos paso={paso} fichaLista={Boolean(productoId) || hayAnuncios} onIr={irAPaso} />
+      <IndicadorPasos paso={paso} fichaLista={Boolean(productoId) || hayAnuncios} onIr={irAPaso} puede={{ 3: elegidos.length > 0 || hayAnuncios, 4: hayAnuncios || creando }} />
 
       {paso === 1 ? (
         <PasoProducto
@@ -627,6 +633,8 @@ function Flujo({ consulta }) {
           onEscribir={escribir}
           motor={motor}
           onVolver={() => irAPaso(1)}
+          etapa={paso}
+          onIr={irAPaso}
           onProductoDelAnuncio={adoptarProducto}
           enfoque={enfoque}
         />

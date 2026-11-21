@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21e · Nuevo anuncio: un paso por página
+
+- Crear un video ya no es una sola página larga: ahora son **4 pasos, cada uno en su página**: **1 Tu producto · 2 Estilo · 3 Ajustes · 4 Guion**. La producción sigue en su propia pantalla.
+- Abajo siempre tienes **«Atrás» y «Siguiente»**, y arriba la barra de pasos para saltar al que quieras.
+- Al tocar «Escribir el guion» pasa sola a la página del guion, donde lo lees, pides cambios y das «Me gusta, producir».
+- En el celular, la barra muestra los números y el nombre del paso en el que estás.
+
 ## 2026-11-21d · Variaciones en el chat de la coordinadora, con semáforo 🟢/🔴
 
 - Pásale a la coordinadora tu **anuncio ganador** y pídele variaciones («hazme 6 variaciones de este, con otra modelo y en la playa»): ella misma escribe cada una (el titular y qué cambia) y **salen de una, ahí en el chat**, sin el proceso largo de la sección de imágenes (igual quedan guardadas en Anuncios de imagen).
