@@ -2,9 +2,9 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 1,
+    "R": 2,
     "A": 1,
-    "T": 2
+    "T": 3
   },
   "tandas": {
     "E001": {
@@ -22,7 +22,7 @@
     "E002": {
       "tipo": "prompts",
       "uuid": "dfb78c82-36e4-492f-b7a5-624948756355",
-      "estado": "en-curso",
+      "estado": "hecha",
       "ids": [
         "V05",
         "V06",
@@ -30,7 +30,37 @@
         "V08",
         "V09",
         "V10"
-      ]
+      ],
+      "empezada": true
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "31fe9019-801d-4acb-a9bb-4a9d75c72b86",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "2090162-1795300491780",
+          "ronda": 1
+        },
+        {
+          "pieza": "V02_1x1",
+          "firma": "2130251-1795300491009",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2217298-1795300492214",
+          "ronda": 1
+        },
+        {
+          "pieza": "V04_1x1",
+          "firma": "2142345-1795300622701",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -51,27 +81,27 @@
       "tanda": "E001"
     },
     "V05": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V06": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V07": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V08": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V09": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     },
     "V10": {
-      "prompt": "en-tanda",
+      "prompt": "listo",
       "tanda": "E002"
     }
   },
@@ -79,15 +109,24 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2090162-1795300491780",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el después, el vestido rosa ya no es el mismo del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ],
+        "firma": "2090162-1795300491780",
+        "correccion_en": "In the AFTER panel, keep the exact same dusty-pink slip dress as the BEFORE panel, with the same length down to mid-thigh, fully covering the glutes; do not turn the hem into shorts or show the lower glutes."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:34:53.464Z",
@@ -97,15 +136,24 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2130251-1795300491009",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el después, el vestido azul ya no es el mismo del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ],
+        "firma": "2130251-1795300491009",
+        "correccion_en": "In the AFTER panel, keep the exact same sky-blue fitted dress as the BEFORE panel, with the same length down to mid-thigh, fully covering the glutes; do not turn the hem into shorts or show the lower glutes."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:34:51.083Z",
@@ -115,15 +163,21 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "listo",
       "version": 1,
       "firma": "2217298-1795300492214",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2217298-1795300492214"
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:34:53.464Z",
@@ -133,15 +187,25 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2142345-1795300622701",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el título, la tilde de «QUIRÓFANO» se pega a la O de «MIEDO» y parece una rayita de más debajo de esa O.",
+          "En el después, la falda lila ya no es la misma del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+        ],
+        "firma": "2142345-1795300622701",
+        "correccion_en": "Add a little more line spacing in the headline so the accent on \"QUIRÓFANO\" does not touch the line above; \"MIEDO AL\" must have no extra mark under the O. In the AFTER panel, keep the exact same lilac mini skirt as the BEFORE panel, same length down to upper-mid thigh, fully covering the glutes; do not turn it into shorts."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T22:37:03.810Z",
@@ -151,12 +215,17 @@
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 0,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -168,12 +237,17 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 0,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -185,12 +259,17 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 0,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -202,11 +281,16 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -219,11 +303,16 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",
@@ -236,11 +325,16 @@
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "espera-prompt",
+      "fase": "pedida",
       "resultado": null,
       "version": 0,
       "firma": null,
-      "orden": null,
+      "orden": {
+        "id": "g",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T002"
+      },
       "intentosApi": 0,
       "ronda": 1,
       "reintentoAuto": "no",

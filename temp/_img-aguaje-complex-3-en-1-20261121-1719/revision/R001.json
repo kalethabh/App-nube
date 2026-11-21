@@ -1,0 +1,34 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": false,
+      "problemas": [
+        "En el después, el vestido rosa ya no es el mismo del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+      ],
+      "correccion_en": "In the AFTER panel, keep the exact same dusty-pink slip dress as the BEFORE panel, with the same length down to mid-thigh, fully covering the glutes; do not turn the hem into shorts or show the lower glutes."
+    },
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "En el después, el vestido azul ya no es el mismo del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+      ],
+      "correccion_en": "In the AFTER panel, keep the exact same sky-blue fitted dress as the BEFORE panel, with the same length down to mid-thigh, fully covering the glutes; do not turn the hem into shorts or show the lower glutes."
+    },
+    {
+      "pieza": "V03_1x1",
+      "ok": true,
+      "problemas": []
+    },
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "En el título, la tilde de «QUIRÓFANO» se pega a la O de «MIEDO» y parece una rayita de más debajo de esa O.",
+        "En el después, la falda lila ya no es la misma del antes: se corta justo debajo de los glúteos, como un short, y deja ver parte de ellos."
+      ],
+      "correccion_en": "Add a little more line spacing in the headline so the accent on \"QUIRÓFANO\" does not touch the line above; \"MIEDO AL\" must have no extra mark under the O. In the AFTER panel, keep the exact same lilac mini skirt as the BEFORE panel, same length down to upper-mid thigh, fully covering the glutes; do not turn it into shorts."
+    }
+  ]
+}
