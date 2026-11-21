@@ -4,7 +4,7 @@
     "E": 3,
     "R": 3,
     "A": 1,
-    "T": 11
+    "T": 12
   },
   "tandas": {
     "E001": {
@@ -177,24 +177,26 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0010",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T011"
+      },
+      "intentosApi": 0,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "fallo-de-chatgpt",
       "mensaje": "ChatGPT no pudo hacer esta imagen",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0010",
       "ultimaOrden": "U0004",
-      "fallo": {
-        "orden": "U0004",
-        "mensaje": "ChatGPT no pudo hacer esta imagen"
-      }
+      "fallo": null
     },
     "V05_1x1": {
       "v": "V05",
@@ -279,7 +281,7 @@
         "version": 1,
         "trabajo": "T007"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -303,7 +305,7 @@
         "version": 1,
         "trabajo": "T008"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -327,7 +329,7 @@
         "version": 1,
         "trabajo": "T009"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -474,6 +476,21 @@
         {
           "pieza": "V05_1x1",
           "orden": "U0009",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0010": {
+      "id": "U0010",
+      "pieza": "V04_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T01:18:42.154Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V04_1x1",
+          "orden": "U0010",
           "modo": "generar"
         }
       ],

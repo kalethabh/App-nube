@@ -4,12 +4,12 @@
     "V09_1x1": {
       "orden": "U0007",
       "estado": "generando",
-      "intentosApi": 0,
+      "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": false,
+      "intentoAbierto": true,
       "taskId": null
     }
   },
-  "actualizado": "2026-11-20T23:46:23.856Z",
+  "actualizado": "2026-11-21T01:18:23.241Z",
   "terminado": false
 }
