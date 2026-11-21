@@ -547,6 +547,19 @@
         }
       ],
       "fecha": "2026-11-21T17:27:46.943Z"
+    },
+    {
+      "id": "eabb8b6c0d",
+      "de": "tu",
+      "texto": "si",
+      "fecha": "2026-11-21T17:29:46.717Z"
+    },
+    {
+      "id": "fcfa6f924f",
+      "de": "coordinadora",
+      "texto": "Ya lo tengo anotado 🙌 Todavía me falta el costo final de ese guion. Apenas lo tenga te lo paso y con tu sí arranca. Si ya lo viste en el aviso de Mateo, también lo puedes aprobar desde ahí y sale de una.",
+      "acciones": [],
+      "fecha": "2026-11-21T17:29:55.518Z"
     }
   ],
   "encargos": [
@@ -600,7 +613,7 @@
       "aprobado": "2026-11-20T23:03:38.730Z"
     },
     {
-      "estado": "escribiendo",
+      "estado": "produciendo",
       "creado": "2026-11-21T14:43:03.747Z",
       "id": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
       "tipo": "video",

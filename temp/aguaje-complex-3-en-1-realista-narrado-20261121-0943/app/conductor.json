@@ -1,0 +1,103 @@
+{
+  "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+  "familia": "voz-en-off",
+  "estado": "corriendo",
+  "paso": "imagenes-y-videos",
+  "pasos": [
+    {
+      "id": "validar",
+      "nombre": "Revisar el guion",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T17:30:42.250Z",
+      "fin": "2026-11-21T17:30:42.416Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T17:30:42.416Z",
+      "fin": "2026-11-21T17:30:43.088Z"
+    },
+    {
+      "id": "voz",
+      "nombre": "Grabar la voz",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T17:30:43.088Z",
+      "fin": "2026-11-21T17:30:50.529Z"
+    },
+    {
+      "id": "ventanas",
+      "nombre": "Ajustar el largo de cada escena",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T17:30:50.529Z",
+      "fin": "2026-11-21T17:30:50.639Z",
+      "nota": "8 escena(s) se pidieron más largas para cubrir su frase. 7 B-roll no entran en el video con esta voz: no se generan."
+    },
+    {
+      "id": "imagenes-y-videos",
+      "nombre": "Crear las imágenes y los videos",
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T17:30:50.639Z"
+    },
+    {
+      "id": "revision-imagenes",
+      "nombre": "Revisar las imágenes",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "voces",
+      "nombre": "Buscar voces que no van",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "musica",
+      "nombre": "Poner la música",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-21T17:30:42.250Z",
+  "aprobado": "2026-11-21T17:30:42.250Z",
+  "actualizado": "2026-11-21T17:30:50.639Z",
+  "saldoInicial": {
+    "creditos": 4183.2,
+    "fecha": "2026-11-21T17:30:43.088Z"
+  },
+  "costoPlan": {
+    "creditos": 1412,
+    "fecha": "2026-11-21T17:30:43.088Z"
+  }
+}

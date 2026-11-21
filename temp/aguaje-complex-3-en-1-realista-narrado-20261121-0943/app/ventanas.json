@@ -1,0 +1,114 @@
+{
+  "fecha": "2026-11-21T17:30:50.531Z",
+  "cambios": [
+    {
+      "que": "broll",
+      "n": 2,
+      "toma": 2,
+      "antes": 2,
+      "despues": 4.3,
+      "necesita": 4.2
+    },
+    {
+      "que": "broll",
+      "n": 7,
+      "toma": 7,
+      "antes": 2,
+      "despues": 3.3,
+      "necesita": 3.2
+    },
+    {
+      "que": "broll",
+      "n": 11,
+      "toma": 11,
+      "antes": 2.5,
+      "despues": 3.2,
+      "necesita": 3.1
+    },
+    {
+      "que": "toma",
+      "n": 12,
+      "toma": 12,
+      "antes": 2.1,
+      "despues": 3.2,
+      "necesita": 3.1
+    },
+    {
+      "que": "broll",
+      "n": 18,
+      "toma": 18,
+      "antes": 2,
+      "despues": 4.4,
+      "necesita": 4.3
+    },
+    {
+      "que": "broll",
+      "n": 22,
+      "toma": 22,
+      "antes": 2.5,
+      "despues": 5.7,
+      "necesita": 5.6
+    },
+    {
+      "que": "broll",
+      "n": 23,
+      "toma": 23,
+      "antes": 2.5,
+      "despues": 3.6,
+      "necesita": 3.5
+    },
+    {
+      "que": "toma",
+      "n": 24,
+      "toma": 24,
+      "antes": 2.9,
+      "despues": 3.2,
+      "necesita": 3.1
+    }
+  ],
+  "sinArreglo": [],
+  "brollFuera": [
+    {
+      "n": 4,
+      "toma": 4,
+      "porque": "corta",
+      "razon": "una toma de tipo A aguanta sola hasta 3.0 s"
+    },
+    {
+      "n": 12,
+      "toma": 12,
+      "porque": "no-cabe",
+      "razon": "pasa de 3.0 s, pero quedaria 1.13 s de B-roll y el minimo es 1.2 s"
+    },
+    {
+      "n": 15,
+      "toma": 15,
+      "porque": "corta",
+      "razon": "una toma de tipo B aguanta sola hasta 3.5 s"
+    },
+    {
+      "n": 19,
+      "toma": 19,
+      "porque": "corta",
+      "razon": "una toma de tipo A aguanta sola hasta 3.0 s"
+    },
+    {
+      "n": 20,
+      "toma": 20,
+      "porque": "corta",
+      "razon": "una toma de tipo A aguanta sola hasta 3.0 s"
+    },
+    {
+      "n": 21,
+      "toma": 21,
+      "porque": "corta",
+      "razon": "una toma de tipo A aguanta sola hasta 3.0 s"
+    },
+    {
+      "n": 24,
+      "toma": 24,
+      "porque": "no-cabe",
+      "razon": "pasa de 3.0 s, pero quedaria 1.10 s de B-roll y el minimo es 1.2 s"
+    }
+  ]
+}
