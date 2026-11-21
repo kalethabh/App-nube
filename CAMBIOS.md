@@ -2,6 +2,20 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21a · Anuncios nuevos «Desde 0» con 6 zonas, y la coordinadora lo coordina todo
+
+- En **Crear anuncios de imagen › Desde la investigación** hay un modo nuevo, **«Desde 0 (6 zonas)»** (viene elegido; «Variaciones del agente» sigue a un toque). Cada anuncio lleva:
+  1. **Gancho** arriba, en mayúsculas y de máximo 8 palabras.
+  2. **Visual principal**, de la mitad de la imagen.
+  3. **2 o 3 beneficios** con check.
+  4. **Tu frasco**, fiel a la etiqueta, con su sello (por ejemplo «3 EN 1 · TRIPLE ACCIÓN»).
+  5. **La oferta**: «TRATAMIENTO COMPLETO X3 $precio» + «Pagas al recibir».
+  6. **Un solo botón**: «Pide el tuyo», «Lo quiero»…
+- **Titulares** afirmativos con la fórmula beneficio + tiempo + deseo, y máximo una pregunta por lote.
+- **Formatos distintos** en el lote: hero, antes y después, nosotros vs. ellos, testimonio de celular, pregunta y respuesta, bodegón de ingredientes, recomendado y temporada. Nunca más de 3 iguales y nunca se repite la modelo ni el escenario.
+- **Reglas para todos los anuncios** (también en «Replicar validado»): español colombiano sencillo y poco texto; promesas suaves («ayuda a», «de forma natural»), sin promesas médicas, cifras inventadas ni garantías; la marca y la etiqueta exactas, revisadas letra por letra, y ningún texto pegado al borde. La revisión de la IA rechaza lo que no cumpla.
+- **La coordinadora** ya maneja todo: le pides imágenes con tu anuncio (las replica exacto) o sin él (las hace desde 0), clona landings y las sube a tu Shopify, además de lo que ya hacía con videos, investigaciones y tu tienda.
+
 ## 2026-11-21 · Replicar validado: tu anuncio exacto, con otra modelo
 
 - En **Crear anuncios de imagen › Con referencia** hay un modo nuevo, **«Replicar validado (exacto)»** (viene elegido; «Variaciones del agente» sigue a un toque).

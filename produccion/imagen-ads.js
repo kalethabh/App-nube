@@ -149,7 +149,19 @@ const RAPIDO_REPLICAR =
   'FORBIDDEN: moving, adding or removing blocks; changing fonts; changing the palette; changing the angle; inventing new claims, numbers or testimonials; changing the offer or the call to action. ' +
   'Replace the product bottle of the reference with the product of the SECOND attached image, in the same place, size and angle. ' +
   'Every other text keeps exactly the text given below, in its same zone and style, perfectly spelled. ' +
+  'GLOBAL RULES: the brand name and the label of the bottle EXACT, letter by letter, as in the product photo; no text closer than 5% to any edge; legible on a phone at half screen. ' +
   ANTES_DESPUES;
+// MODO NUEVO DESDE 0 (2026-11-21): las 6 zonas y las reglas globales; el formato y los textos van en el V##.json
+// (imagen-ads/desde0.js). Sin referencia: solo la foto del producto.
+const DESDE0 =
+  'MODE: NEW AD FROM ZERO, built with SIX ZONES (the visual order may change with the format, but all six exist): ' +
+  'Z1 HOOK: the headline in the top 15-20% of the image, very bold, ALL CAPS, max 8 words. ' +
+  'Z2 MAIN VISUAL: 45-55% of the image (the model, the before/after or the product, as the format says); the emotion lives here. ' +
+  'Z3 BENEFITS: 2 or 3 bullets with a check icon, max 5 words each, never more than 3. ' +
+  'Z4 PRODUCT: the bottle, faithful to the real label of the attached photo (brand name and label EXACT, letter by letter), never smaller than 15% of the image, with its differentiating seal. ' +
+  'Z5 OFFER: a highlighted badge or ribbon, not exaggerated, with the offer text and "Pagas al recibir". ' +
+  'Z6 CTA: one single short chip. ' +
+  'GLOBAL RULES: simple Colombian Spanish, little text, legible on a phone at half screen; no text closer than 5% to any edge; soft claims only; never medical promises, invented numbers or guarantees; a clean, uncluttered, premium direct-response look. ';
 const RAPIDO_INSPIRAR =
   'The FIRST attached image is a WINNING AD, used as inspiration. Create a NEW ad for the product of the SECOND attached image. ' +
   LEER_REFERENCIA +
@@ -378,7 +390,10 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   const pos = posicionDe(logo);
   // «Más de lo mismo» (referencia: true): la PRIMERA imagen adjunta es el anuncio de referencia y la SEGUNDA, el producto
   const rapido = referencia && ['copiar', 'inspirar', 'plantilla', 'replicar'].includes(ad?.app_rapido) ? ad.app_rapido : null;
-  const partes = rapido
+  const desde0 = !rapido && ad?.app_desde0 ? DESDE0 : null;
+  const partes = desde0
+    ? [desde0, 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
+    : rapido
     ? [{ copiar: RAPIDO_COPIAR, inspirar: RAPIDO_INSPIRAR, plantilla: RAPIDO_PLANTILLA, replicar: RAPIDO_REPLICAR }[rapido], 'WHAT TO MAKE:\n' + strPy(ad.visual_prompt)]
     : referencia
       ? [COPIAR_REFERENCIA, LEER_REFERENCIA, ANTES_DESPUES, 'SCENE DESCRIPTION (same composition as the reference):\n' + strPy(ad.visual_prompt)]
@@ -388,7 +403,9 @@ export function construirPrompt(ad, { logo = null, correccion = null, referencia
   if (!vacioPy(capas)) {
     // (rápido: solo el titular va exacto; el resto lo escribe el modelo)
     const lineas = [
-      rapido === 'replicar'
+      desde0
+        ? 'TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and style):'
+        : rapido === 'replicar'
         ? 'TEXTS (render each one EXACTLY as written, no spelling changes, in its zone and with the same style as in the reference):'
         : rapido === 'plantilla'
         ? 'MAIN HEADLINE (write it with the HEADLINE STRUCTURE given above, about this product\'s main desire or benefit; the text below is the idea: render it exactly when it already fits that structure; the other texts are yours, all perfectly spelled):'
