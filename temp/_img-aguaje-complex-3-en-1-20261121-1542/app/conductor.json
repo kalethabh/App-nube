@@ -38,7 +38,7 @@
       "intentos": 5,
       "retomado": true,
       "inicio": "2026-11-21T22:05:49.872Z",
-      "detalle": "Creando 1 imagen · 4 de 5 listas"
+      "detalle": "Claude está revisando 1 imagen: anotando lo que vio en las imágenes · 4 de 5 listas"
     },
     {
       "id": "informe",
@@ -51,5 +51,5 @@
   "modoPrueba": false,
   "creado": "2026-11-21T20:42:21.834Z",
   "aprobado": "2026-11-21T20:42:21.834Z",
-  "actualizado": "2026-11-21T22:05:49.880Z"
+  "actualizado": "2026-11-21T22:08:08.293Z"
 }
