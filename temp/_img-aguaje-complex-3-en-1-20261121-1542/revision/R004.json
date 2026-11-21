@@ -1,0 +1,15 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "Falta la franja de arriba con «¿MESES DE SENTADILLAS?»: la imagen está cortada por arriba.",
+        "La línea «TU RUTINA PIDE UN» sale cortada por el borde de arriba.",
+        "Falta la barra de abajo con el camión, «ENVÍO GRATIS», la mano con moneda y «PAGA AL RECIBIR»: solo se ve su borde.",
+        "La frase «Natural, a tu ritmo» sale cortada: solo se ve parte de «Natural,» y falta «a tu ritmo» con su corazón."
+      ],
+      "correccion_en": "Fit the whole layout inside the square canvas with margins: show at the top the deep magenta pill reading exactly \"¿MESES DE SENTADILLAS?\" and the full line \"TU RUTINA PIDE UN\" uncut; scale the middle band down so the bottom deep magenta bar is fully visible with the truck icon + \"ENVÍO GRATIS\", a thin divider, the hand-with-coin icon + \"PAGA\\nAL RECIBIR\", and the full script \"Natural,\\na tu ritmo\" with a small heart in the bottom right corner."
+    }
+  ]
+}

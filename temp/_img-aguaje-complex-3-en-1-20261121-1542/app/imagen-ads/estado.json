@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 4,
+    "R": 5,
     "A": 1,
     "T": 8
   },
@@ -65,6 +65,20 @@
         {
           "pieza": "V02_1x1",
           "firma": "1606743-1795296056989",
+          "ronda": "u"
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "63b303c7-1eb2-4700-bcee-06d5f2b4f289",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "1574578-1795298125716",
           "ronda": "u"
         }
       ],
@@ -182,25 +196,32 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": "sin-imagen",
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "U0004",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T006"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1574578-1795298125716",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
-      "revision": null,
-      "motivo": "contenido-chatgpt",
-      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
-      "desde": null,
-      "pedido": "U0004",
-      "ultimaOrden": "U0002",
+      "revision": {
+        "tanda": "R004",
+        "ronda": "u",
+        "ok": false,
+        "problemas": [
+          "Falta la franja de arriba con «¿MESES DE SENTADILLAS?»: la imagen está cortada por arriba.",
+          "La línea «TU RUTINA PIDE UN» sale cortada por el borde de arriba.",
+          "Falta la barra de abajo con el camión, «ENVÍO GRATIS», la mano con moneda y «PAGA AL RECIBIR»: solo se ve su borde.",
+          "La frase «Natural, a tu ritmo» sale cortada: solo se ve parte de «Natural,» y falta «a tu ritmo» con su corazón."
+        ],
+        "firma": "1574578-1795298125716",
+        "correccion_en": "Fit the whole layout inside the square canvas with margins: show at the top the deep magenta pill reading exactly \"¿MESES DE SENTADILLAS?\" and the full line \"TU RUTINA PIDE UN\" uncut; scale the middle band down so the bottom deep magenta bar is fully visible with the truck icon + \"ENVÍO GRATIS\", a thin divider, the hand-with-coin icon + \"PAGA\\nAL RECIBIR\", and the full script \"Natural,\\na tu ritmo\" with a small heart in the bottom right corner."
+      },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T21:55:26.942Z",
+      "pedido": null,
+      "ultimaOrden": "U0004",
       "fallo": null
     },
     "V05_1x1": {
@@ -216,7 +237,7 @@
         "version": 1,
         "trabajo": "T007"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -281,7 +302,7 @@
       "pieza": "V04_1x1",
       "instruccion": "",
       "fecha": "2026-11-21T21:53:27.941Z",
-      "estado": "generando",
+      "estado": "listo",
       "pasos": [
         {
           "pieza": "V04_1x1",
