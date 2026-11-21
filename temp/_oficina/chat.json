@@ -789,6 +789,22 @@
         }
       ],
       "fecha": "2026-11-21T21:25:16.801Z"
+    },
+    {
+      "id": "fbdad7ca2d",
+      "de": "coordinadora",
+      "texto": "Ya están tus 3 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio) 👀 Échales un ojo y me dices qué tal.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Ver 3 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio)",
+          "href": "#/imagenes/_img-aguaje-complex-3-en-1-20261121-1625",
+          "lote": "_img-aguaje-complex-3-en-1-20261121-1625",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-21T21:38:42.613Z"
     }
   ],
   "encargos": [
@@ -900,7 +916,7 @@
       "titulo": "Igual a tu video de AGUAJE COMPLEX 3 EN 1"
     },
     {
-      "estado": "produciendo",
+      "estado": "listo",
       "creado": "2026-11-21T21:25:16.796Z",
       "id": "_img-aguaje-complex-3-en-1-20261121-1625",
       "tipo": "imagenes",
