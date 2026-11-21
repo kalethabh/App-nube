@@ -1,0 +1,63 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261121-1542",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "AGUAJE COMPLEX 3 EN 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "mujeres que quieren más volumen en glúteos y piernas",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "5 variaciones de su anuncio ganador para escalar con el sistema S.E.P. Misma estructura, colores rosados, frasco Aguaje Complex, íconos de beneficios (glúteos más firmes, piernas con más volumen, fórmula natural) y franja de oferta «Envío gratis · Paga al recibir». Solo cambian la modelo, el lugar, la pose y el titular.",
+    "angulo": null
+  },
+  "cantidad": 5,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png"
+  ],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    "5 variaciones de su anuncio ganador para escalar con el sistema S.E.P. Misma estructura, colores rosados, frasco Aguaje Complex, íconos de beneficios (glúteos más firmes, piernas con más volumen, fórmula natural) y franja de oferta «Envío gratis · Paga al recibir». Solo cambian la modelo, el lugar,"
+  ],
+  "fiel": true,
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-21T20:42:21.565Z",
+  "investigacionDelProducto": true,
+  "origen": "chat",
+  "variacionesChat": [
+    {
+      "titular": "NO SOLO GLÚTEOS, TAMBIÉN TUS PIERNAS",
+      "cambio": "Otra modelo latina de espaldas en leggins negros, en un gimnasio luminoso, pose de perfil mostrando glúteos y piernas"
+    },
+    {
+      "titular": "GLÚTEOS Y PIERNAS CON MÁS VOLUMEN",
+      "cambio": "Modelo de pie en una habitación con espejo, short deportivo beige, pose de tres cuartos mirando por encima del hombro"
+    },
+    {
+      "titular": "TUS PIERNAS TAMBIÉN MERECEN VOLUMEN",
+      "cambio": "Modelo en jean ajustado en una terraza al aire libre, pose de espaldas caminando, se notan muslos y glúteos"
+    },
+    {
+      "titular": "MÁS GLÚTEOS… Y TAMBIÉN MÁS PIERNAS",
+      "cambio": "Antes y después lado a lado de la misma modelo en short deportivo: antes piernas y glúteos planos, después con volumen bien visible"
+    },
+    {
+      "titular": "NO ES SOLO EL GLÚTEO: SON TUS PIERNAS",
+      "cambio": "Modelo en vestido corto ajustado en la calle de una ciudad, pose de perfil con un pie adelante, piernas tonificadas"
+    }
+  ],
+  "indicacionesChat": "Replicar el anuncio ganador exacto: mismas zonas, letras, colores y oferta. Que el titular conserve la idea de «no solo glúteos, también piernas».",
+  "leccionesChat": ""
+}

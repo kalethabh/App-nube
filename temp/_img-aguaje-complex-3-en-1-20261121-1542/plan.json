@@ -1,0 +1,71 @@
+{
+  "producto": "AGUAJE COMPLEX 3 EN 1",
+  "lote": "_img-aguaje-complex-3-en-1-20261121-1542",
+  "cantidad": 5,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "NO SOLO GLÚTEOS, TAMBIÉN TUS PIERNAS",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "GLÚTEOS Y PIERNAS CON MÁS VOLUMEN",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "TUS PIERNAS TAMBIÉN MERECEN VOLUMEN",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V04",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "prueba-social",
+      "angulo": "Prueba social",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "MÁS GLÚTEOS… Y TAMBIÉN MÁS PIERNAS",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V05",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "curiosidad",
+      "angulo": "Curiosidad",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "NO ES SOLO EL GLÚTEO: SON TUS PIERNAS",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    }
+  ],
+  "rapido": true
+}
