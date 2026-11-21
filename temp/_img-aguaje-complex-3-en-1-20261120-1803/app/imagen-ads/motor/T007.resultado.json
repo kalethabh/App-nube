@@ -3,14 +3,16 @@
   "piezas": {
     "V08_1x1": {
       "orden": "U0006",
-      "estado": "generando",
+      "estado": "sin-imagen",
       "intentosApi": 3,
       "version": 1,
-      "intentoAbierto": true,
+      "intentoAbierto": false,
       "taskId": null,
-      "ultimoMotivo": "fallo-de-chatgpt"
+      "ultimoMotivo": "contenido-chatgpt",
+      "motivo": "contenido-chatgpt",
+      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
     }
   },
-  "actualizado": "2026-11-21T01:18:23.240Z",
-  "terminado": false
+  "actualizado": "2026-11-21T01:20:37.202Z",
+  "terminado": true
 }
