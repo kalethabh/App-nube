@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261121-1419",
   "familia": "ugc",
   "estado": "corriendo",
-  "paso": "persona",
+  "paso": "bloques",
   "pasos": [
     {
       "id": "validar",
@@ -23,21 +23,26 @@
     {
       "id": "persona",
       "nombre": "Crear la imagen de la persona",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-21T20:39:34.090Z"
+      "inicio": "2026-11-21T20:39:34.090Z",
+      "fin": "2026-11-21T20:45:43.242Z"
     },
     {
       "id": "revision-persona",
       "nombre": "Revisar la imagen de la persona",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T20:45:43.242Z",
+      "fin": "2026-11-21T20:45:54.765Z",
+      "nota": "La imagen de la persona pasó la revisión."
     },
     {
       "id": "bloques",
       "nombre": "Crear los videos de la persona hablando",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T20:45:54.765Z"
     },
     {
       "id": "revision-bloques",
@@ -86,7 +91,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T20:39:32.814Z",
   "aprobado": "2026-11-21T20:39:32.814Z",
-  "actualizado": "2026-11-21T20:39:34.090Z",
+  "actualizado": "2026-11-21T20:45:54.765Z",
   "saldoInicial": {
     "creditos": 11005.4,
     "fecha": "2026-11-21T20:39:34.090Z"
