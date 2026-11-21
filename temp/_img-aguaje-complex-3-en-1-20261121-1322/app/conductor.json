@@ -1,0 +1,54 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261121-1322",
+  "familia": "imagen-ads",
+  "estado": "error",
+  "paso": "estrategia",
+  "pasos": [
+    {
+      "id": "preparar",
+      "nombre": "Preparando tu lote",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T18:22:31.587Z",
+      "fin": "2026-11-21T18:22:31.726Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Revisando con qué se hacen tus imágenes",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T18:22:31.726Z",
+      "fin": "2026-11-21T18:22:31.729Z"
+    },
+    {
+      "id": "estrategia",
+      "nombre": "La IA arma la estrategia",
+      "estado": "error",
+      "intentos": 1,
+      "inicio": "2026-11-21T18:22:31.730Z",
+      "fin": "2026-11-21T18:22:58.976Z",
+      "error": {
+        "mensaje": "Los anuncios quedaron incompletos. Toca “Continuar” para intentarlo otra vez.",
+        "motivo": "desde0",
+        "detalle": "producto.json → beneficios: tiene más de 4 · estrategia.json → beneficios: tiene más de 4"
+      }
+    },
+    {
+      "id": "anuncios",
+      "nombre": "Creando tus anuncios",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "informe",
+      "nombre": "Armando tu informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-21T18:22:31.587Z",
+  "aprobado": "2026-11-21T18:22:31.587Z",
+  "actualizado": "2026-11-21T18:22:58.976Z"
+}

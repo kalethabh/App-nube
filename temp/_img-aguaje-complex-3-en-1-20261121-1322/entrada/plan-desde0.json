@@ -1,0 +1,53 @@
+{ "anuncios": [
+  {
+    "formato": "testimonio",
+    "titular": "Toda mi vida fui la flaquita de piernas",
+    "plantilla_titular": "Toda mi vida fui [dolor en primera persona]",
+    "beneficios": ["Acompaña tus curvas", "Solo 2 cápsulas al día", "Sin agujas ni quirófano"],
+    "sello": "3 EN 1 · TRIPLE ACCIÓN",
+    "cta": "Quiero el mío",
+    "emocion": "Una mujer común, tranquila y orgullosa, que sonríe a la cámara con el frasco en la mano, como quien cuenta algo bueno a una amiga.",
+    "cita": "Quería más curvas, pero sin operarme. Esto sí lo pude cumplir."
+  },
+  {
+    "formato": "hero",
+    "titular": "Triple acción: 3 en 1 para tus curvas",
+    "plantilla_titular": "[Producto/mecanismo]: [n] en 1 para [deseo]",
+    "beneficios": ["Aguaje, fenogreco y maca negra", "Con vitaminas A y E", "2 cápsulas al día"],
+    "sello": "3 EN 1 · TRIPLE ACCIÓN",
+    "cta": "Pide el tuyo",
+    "emocion": "El frasco como protagonista, limpio y elegante, con una sensación natural y de confianza."
+  },
+  {
+    "formato": "antes-despues",
+    "titular": "Tus curvas en 3 meses, de forma natural",
+    "plantilla_titular": "[Resultado deseado] en [tiempo], de forma natural",
+    "beneficios": ["Tu plan de 3 meses", "Apoyo para tu rutina", "Sin agujas ni quirófano"],
+    "sello": "3 EN 1 · TRIPLE ACCIÓN",
+    "cta": "Lo quiero",
+    "emocion": "Antes: duda y desánimo frente al espejo, sin ganas de medirse el jean. Después: la misma mujer segura y contenta con su ropa favorita, sin señalar su cuerpo."
+  },
+  {
+    "formato": "nota",
+    "titular": "No solo curvas: también energía para tu rutina",
+    "plantilla_titular": "No solo [beneficio obvio]: también [beneficio extra]",
+    "beneficios": ["Maca negra para tu energía", "Acompaña tus curvas", "Fácil de cumplir"],
+    "sello": "3 EN 1 · TRIPLE ACCIÓN",
+    "cta": "Pídelo hoy",
+    "emocion": "Ánimo y ganas: una mujer activa, con ropa deportiva, lista para su rutina de pierna, cercana y real."
+  },
+  {
+    "formato": "nosotros-vs-ellos",
+    "titular": "Más curvas sin agujas ni quirófano",
+    "plantilla_titular": "Más [zona/deseo] sin [sacrificio]",
+    "beneficios": ["3 extractos naturales", "Solo 2 cápsulas al día"],
+    "sello": "3 EN 1 · TRIPLE ACCIÓN",
+    "cta": "Escríbenos",
+    "emocion": "Calma y tranquilidad de elegir lo natural, frente a la tensión y el miedo de lo otro.",
+    "comparacion": [
+      { "nuestro": "✅ 3 extractos en 1", "otro": "❌ Un solo ingrediente" },
+      { "nuestro": "✅ 2 cápsulas al día", "otro": "❌ Agujas y quirófano" },
+      { "nuestro": "✅ Con vitaminas A y E", "otro": "❌ Sin cantidades claras" }
+    ]
+  }
+] }
