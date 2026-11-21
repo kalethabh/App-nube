@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "imagenes-y-videos",
+  "paso": "revision-imagenes",
   "pasos": [
     {
       "id": "validar",
@@ -40,15 +40,18 @@
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-21T17:30:50.639Z"
+      "inicio": "2026-11-21T17:30:50.639Z",
+      "fin": "2026-11-21T17:53:20.446Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T17:53:20.446Z",
+      "detalle": "Claude empezó a trabajar"
     },
     {
       "id": "voces",
@@ -91,7 +94,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T17:30:42.250Z",
   "aprobado": "2026-11-21T17:30:42.250Z",
-  "actualizado": "2026-11-21T17:30:50.639Z",
+  "actualizado": "2026-11-21T17:53:23.102Z",
   "saldoInicial": {
     "creditos": 4183.2,
     "fecha": "2026-11-21T17:30:43.088Z"
