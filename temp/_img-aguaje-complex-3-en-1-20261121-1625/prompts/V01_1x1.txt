@@ -1,0 +1,56 @@
+The FIRST attached image is a REFERENCE AD. Create a new ad that is the same design made for a different product: keep its exact layout, composition, block structure, visual hierarchy, spacing, background treatment and graphic style, and keep its exact typography (same font style, weight, casing, relative sizes, text effects and text placement). Change only three things: (1) the product: replace the product of the reference with the product of the SECOND attached image, in the same place, size and angle; (2) the texts: replace every text of the reference with the texts listed below, each one in the place and style of the equivalent text of the reference; (3) the colors, only where the brand palette below asks for it. Do not add or remove blocks. Do not copy the reference's brand name, logo, product or wording.
+
+FIRST, READ THE REFERENCE AD before designing anything: (a) its ANGLE: the exact body area, problem or desire it sells (for example glutes and curves, belly fat, swollen legs, cough and lungs, wrinkles, energy, sleep); (b) its HOOK: the idea that stops the scroll (a before/after, a big promise, a number or timeline, a question, a testimonial, a shocking fact, an us-vs-them comparison); (c) its FORMAT: what is shown and how (person, body close-up, split screen, product hero, chart, screenshot, collage). Your ad MUST sell the SAME angle with the SAME hook and format: if the reference is about glutes, yours is about glutes, shown the same way; never switch to another body area or another benefit.
+
+IF THERE IS A BEFORE/AFTER (or a day-by-day progression): the change must be DRAMATIC and obvious at first glance, never subtle, and in the exact body area of the angle (for glutes: a flat, small butt BEFORE and a visibly rounder, fuller, lifted butt AFTER, same side or back view). Same person, same pose, same outfit, same camera angle, same framing and same lighting in both halves, so the ONLY difference is the result; the BEFORE looks worse (posture, lighting slightly duller) and the AFTER looks better and confident. Label them clearly (ANTES / DESPUÉS or the days). Keep it realistic and tasteful (fully clothed: leggings, jeans or a fitted dress), never explicit.
+
+SCENE DESCRIPTION (same composition as the reference):
+Square 1:1 premium Christmas lifestyle supplement ad, photorealistic. Use the attached product image as the only source of truth for the product: do not redesign, replace or reinterpret it. The product is a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; its black label shows a small pink VITALABH emblem, a huge bold white condensed 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a swoosh, three small pink-outlined boxes '200mg AGUAJE' + '400mg FENOGRECO' + '200mg MACA NEGRA', and '60 CÁPSULAS' at the bottom. SCENE: a cozy bright bedroom at Christmas; on the left a decorated Christmas tree with warm golden fairy lights and red and gold ornaments, wrapped gifts with red ribbons at its base; a soft cream wall with blush-pink bokeh on the right; a thick white fluffy rug on the floor; warm soft daylight. LEFT HALF: a Colombian woman around 27 with warm tan skin, long wavy dark-brown hair with soft caramel highlights, natural makeup and a warm confident smile, wearing a red-and-white Santa hat, a red fitted top, white fitted ribbed knit shorts with a small red bow on the side, and red-and-white Nordic knee socks; she kneels on the rug seen from behind in three-quarter profile facing right, torso turned, looking over her shoulder at the camera, showing natural athletic curves in glutes and thighs, tasteful and not explicit; her raised hand holds the product bottle next to her face with the label facing the camera. Real skin texture, natural light. TOP RIGHT: the headline stack aligned left inside the right half: a black handwritten brush-script line slightly tilted upward, below it a huge ultra-bold uppercase geometric sans-serif word in fuchsia #E6177F, below it a bold uppercase black line, below it a two-line regular sans-serif subtitle in dark charcoal ending with a small fuchsia heart. MIDDLE RIGHT COLUMN: four stacked rows, each a solid fuchsia circle with a thin-line white icon (1 a curvy peach silhouette, 2 a leg silhouette, 3 a lightning bolt, 4 a leaf) and a small two-line dark charcoal label to its right. RIGHT SIDE: the same product bottle shown large and standing on the rug, sharp and identical to the photo, slightly angled, with a round metallic gold seal with small stars reading PREMIUM overlapping its upper right shoulder, and a few glossy pink capsules lying on the rug in front of it. LEFT MIDDLE over the tree area: a short white handwritten script note in four short lines with a small outline heart. LOWER MIDDLE under the icon list: a small panel of two rounded-corner photos side by side showing the same woman from behind at hip level in fitted shorts (left in grey shorts, right in pink shorts, a natural subtle difference), each with a small fuchsia pill label on top with white uppercase text, and a white curved arrow between them. BOTTOM RIGHT CORNER: a wrapped gift box with a red satin ribbon and a hanging kraft paper tag with black handwritten text. BOTTOM CENTER: a rounded fuchsia pill bar with white uppercase text and a small white heart. The top right corner stays as clean background (no logo). Render all text exactly as given, sharp and legible on a phone. Do not add CTA buttons, price badges, extra benefit lists, extra icons, trust badges, extra rating stars, discount labels, testimonials, logos or any extra text.
+
+EXACT VISIBLE TEXT (render exactly, no spelling changes):
+- headline opener (script) (Top right, first line of the headline stack, slightly tilted upward): "Esta Navidad" — Elegant black handwritten brush script, medium-large, left-aligned in the right half
+- main headline key word (Top right, second line of the headline stack, the largest text in the ad): "REGÁLATE" — Huge ultra-bold geometric sans-serif, all uppercase, fuchsia #E6177F, very tight letter spacing
+- main headline second line (Top right, directly under the key word): "LAS CURVAS QUE SUEÑAS" — Bold geometric sans-serif, all uppercase, black, about 40% the height of the key word
+- subtitle (Top right, under the headline, two centered lines): "Acompaña tus curvas, tus piernas y una versión más segura de ti ♥" — Regular sans-serif, sentence case, dark charcoal, small-medium, ends with a small solid fuchsia heart
+- benefit (icon row 1) (Middle right column, row 1, right of the first fuchsia circle): "Acompaña tus curvas de forma natural" — Regular sans-serif, sentence case, dark charcoal, small, two lines
+- benefit (icon row 2) (Middle right column, row 2): "Apoyo para tu rutina de pierna" — Regular sans-serif, sentence case, dark charcoal, small, two lines
+- benefit (icon row 3) (Middle right column, row 3): "Más energía cada día" — Regular sans-serif, sentence case, dark charcoal, small, two lines
+- benefit (icon row 4) (Middle right column, row 4): "Con aguaje, fenogreco y maca negra" — Regular sans-serif, sentence case, dark charcoal, small, two lines
+- badge (gold seal) (On the round gold seal over the upper right shoulder of the hero bottle): "PREMIUM" — Bold uppercase serif-like lettering in dark brown on metallic gold, small
+- other (handwritten emotional note) (Left middle, over the tree area, four short lines): "Tu mejor regalo también puede ser tu cuerpo ♡" — Casual white handwritten script, medium, slightly tilted, with a small white outline heart at the end
+- label (left photo) (Fuchsia pill on top of the left photo of the two-photo panel): "DÍA 1" — White uppercase medium sans-serif, small
+- label (right photo) (Fuchsia pill on top of the right photo of the two-photo panel): "MES 3" — White uppercase medium sans-serif, small
+- other (handwritten gift tag) (Kraft tag hanging on the gift box, bottom right corner, three short lines): "Disciplina hoy, resultados mañana" — Black handwritten script, small, slightly tilted
+- other (closing line in bottom bar) (Bottom center, inside the rounded fuchsia pill bar): "UNA NAVIDAD MÁS SEGURA, MÁS FUERTE, MÁS TÚ ♥" — White uppercase medium sans-serif with the word NAVIDAD in bold, ends with a small white heart
+
+BRAND IDENTITY:
+- color_palette: Keep the reference color logic (bright warm festive photo, black and fuchsia text, solid fuchsia graphic accents, white text on fuchsia bar) mapped to the brand: hot fuchsia #E6177F and deep magenta #B0105E for the key headline word, icon circles, pill labels and bottom bar; bottle black #0E0E10 for the second headline line and script; dark charcoal #2A2A2E for small body text; white #FFFFFF; pale blush pink #FBE3EE and bubblegum pink #FF8CC0 in background bokeh. Christmas red #C8102E and warm gold #C9A24A only in props (Santa hat, ribbons, ornaments, seal).
+
+MANDATORY ELEMENTS:
+- Decorated Christmas tree with warm fairy lights on the left and wrapped gifts with red ribbons
+- White fluffy rug
+- The woman kneeling seen from behind, looking over her shoulder, with Santa hat, red top, white knit shorts and Nordic knee socks, holding the bottle near her face
+- Large hero product bottle on the right, identical to the attached photo
+- Round metallic gold seal with small stars on the hero bottle
+- A few glossy pink capsules on the rug in front of the bottle
+- Four solid fuchsia circles with white thin-line icons (peach silhouette, leg, lightning bolt, leaf)
+- Two-photo panel with fuchsia pill labels and a white curved arrow
+- Gift box with red ribbon and kraft tag in the bottom right corner
+- Rounded fuchsia bottom pill bar
+
+STRICT EXCLUSIONS:
+- No logo in the top right corner or anywhere else; no brand other than the one printed on the user's bottle.
+- Do not show the reference product or its label; only the user's bottle.
+- No nudity, no explicit or vulgar pose; keep it tasteful.
+- Do not add any visual module that is not described in this prompt.
+- Do not add any text that is not listed in the EXACT VISIBLE TEXT section.
+- Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.
+- Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements.
+- Do not add: Any brand logo in the top right corner or anywhere else (the reference logo is removed; leave background)
+- Do not add: Price, discount or offer boxes
+- Do not add: CTA buttons
+- Do not add: Rating stars outside the gold seal, reviews, testimonials or customer counts
+- Do not add: Extra benefit lists, badges or trust seals
+- Do not add: Any additional text not listed in text_layers
+
+The SECOND attached image is the real product: keep the product and its label identical to it, with the same shape, cap, label text, colors and proportions. Do not redesign or reinterpret it.
