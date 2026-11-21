@@ -1,11 +1,12 @@
 {
-  "pid": 44355,
-  "paso": "voz",
-  "script": "generar-audio.js",
+  "pid": 44706,
+  "paso": "imagenes-y-videos",
+  "script": "producir.js",
   "args": [
-    "temp/aguaje-complex-3-en-1-agregar-20261121-1610"
+    "temp/aguaje-complex-3-en-1-agregar-20261121-1610",
+    "--si"
   ],
-  "comando": "node produccion/generar-audio.js temp/aguaje-complex-3-en-1-agregar-20261121-1610",
-  "inicio": "2026-11-21T21:23:48.594Z",
-  "app": 34311
+  "comando": "node produccion/producir.js temp/aguaje-complex-3-en-1-agregar-20261121-1610 --si",
+  "inicio": "2026-11-21T21:24:19.080Z",
+  "app": 44483
 }

@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261121-1610",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "voz",
+  "paso": "imagenes-y-videos",
   "pasos": [
     {
       "id": "validar",
@@ -23,21 +23,27 @@
     {
       "id": "voz",
       "nombre": "Grabar la voz",
-      "estado": "corriendo",
-      "intentos": 1,
-      "inicio": "2026-11-21T21:23:48.591Z"
+      "estado": "hecho",
+      "intentos": 2,
+      "inicio": "2026-11-21T21:23:48.591Z",
+      "retomado": true,
+      "fin": "2026-11-21T21:24:18.973Z"
     },
     {
       "id": "ventanas",
       "nombre": "Ajustar el largo de cada escena",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:24:18.974Z",
+      "fin": "2026-11-21T21:24:19.078Z",
+      "nota": "7 escena(s) se pidieron más largas para cubrir su frase."
     },
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:24:19.078Z"
     },
     {
       "id": "revision-imagenes",
@@ -86,7 +92,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T21:23:47.729Z",
   "aprobado": "2026-11-21T21:23:47.729Z",
-  "actualizado": "2026-11-21T21:23:48.591Z",
+  "actualizado": "2026-11-21T21:24:19.078Z",
   "saldoInicial": {
     "creditos": 10013.4,
     "fecha": "2026-11-21T21:23:48.591Z"

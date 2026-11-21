@@ -35,8 +35,9 @@
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
       "estado": "corriendo",
-      "intentos": 2,
+      "intentos": 3,
       "inicio": "2026-11-21T21:18:59.374Z",
+      "retomado": true,
       "detalle": "Creando 2 imágenes · 3 de 5 listas"
     },
     {
@@ -50,5 +51,5 @@
   "modoPrueba": false,
   "creado": "2026-11-21T20:42:21.834Z",
   "aprobado": "2026-11-21T20:42:21.834Z",
-  "actualizado": "2026-11-21T21:21:18.980Z"
+  "actualizado": "2026-11-21T21:24:08.626Z"
 }
