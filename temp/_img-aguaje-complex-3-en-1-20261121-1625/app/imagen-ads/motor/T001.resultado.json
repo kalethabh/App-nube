@@ -14,8 +14,9 @@
       "estado": "generando",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
     },
     "V03_1x1": {
       "orden": "g",
@@ -26,6 +27,6 @@
       "taskId": null
     }
   },
-  "actualizado": "2026-11-21T21:29:51.789Z",
+  "actualizado": "2026-11-21T21:31:56.961Z",
   "terminado": false
 }
