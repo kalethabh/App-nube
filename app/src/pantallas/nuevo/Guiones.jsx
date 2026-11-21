@@ -1334,7 +1334,7 @@ function GuionVivo({ estilo: estiloPestana, ajuste, slug, motor, onEscribirDeNue
 
 // ---------------------------------------------------------------- antes de escribir
 
-function Escribir({ estilos, ajustes, creando, sinProducto, motor, onEscribir, onVolverAlProducto }) {
+export function Escribir({ estilos, ajustes, creando, sinProducto, motor, onEscribir, onVolverAlProducto }) {
   const n = estilos.length;
   // (sin voz elegida la elige la app: ya no frena el guion)
   const sinVoz = [];

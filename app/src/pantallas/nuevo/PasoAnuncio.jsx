@@ -9,7 +9,7 @@
 // decidir sola, y obligatorias donde la skill prohíbe inventarlo (el fondo de Zack D Films, a quién paran en la
 // entrevista…).
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowDown, ArrowLeft, Check, CircleHelp, Hourglass, Library, Lock, Package, PenLine, RotateCcw, Sparkles, X } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowRight, Check, CircleHelp, Hourglass, Library, Lock, Package, PenLine, RotateCcw, Sparkles, X } from 'lucide-react';
 import { Boton, CampoTexto, Chip, EsqueletoMiniaturas, EstadoVacio, Interruptor, MiniaturaVideo, Seccion, Selector, Tarjeta, Tooltip } from '../../componentes/index.js';
 import { apiNuevo, miniatura, useEstilos, useVoces } from '../../datos/api.js';
 import { useBiblioteca } from '../biblioteca/datos.js';
@@ -18,7 +18,7 @@ import { CONTINUIDAD_DISPONIBLE, CON_CONTINUIDAD, DETALLES, ICONO_FAMILIA, dispo
 import { conDuracion, duracionCorta, duracionDeAjuste, leerDuracion } from '../../datos/duracion.js';
 import { leerVoces } from './datos.js';
 import { BotonEscuchar } from './BotonEscuchar.jsx';
-import { Guiones } from './Guiones.jsx';
+import { Escribir, Guiones } from './Guiones.jsx';
 import { SelloEstilo } from './SelloEstilo.jsx';
 import { TusArchivos } from './TusArchivos.jsx';
 
@@ -569,7 +569,30 @@ function PildoraTanda({ elegidos, estilos, visible, onIr, hayGuiones }) {
 
 // ---------------------------------------------------------------- el paso completo
 
-export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambiarAjuste, anuncios, creando, onEscribir, motor, onVolver, onProductoDelAnuncio, enfoque = null }) {
+/** (2026-11-21e) La barra de abajo de cada paso: volver y seguir, siempre a la vista. */
+function BarraDelPaso({ atras, siguiente }) {
+  return (
+    <div className="nv-barra-paso">
+      {atras ? (
+        <Boton variante="fantasma" icono={ArrowLeft} onClick={atras.onClick}>
+          {atras.texto}
+        </Boton>
+      ) : (
+        <span />
+      )}
+      {siguiente ? (
+        <div className="nv-barra-paso__siguiente">
+          {siguiente.nota ? <span className="nv-barra-paso__nota">{siguiente.nota}</span> : null}
+          <Boton variante="primario" iconoDerecha={siguiente.icono === false ? undefined : ArrowRight} icono={siguiente.iconoIzq} onClick={siguiente.onClick} disabled={siguiente.deshabilitado} cargando={siguiente.cargando}>
+            {siguiente.texto}
+          </Boton>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambiarAjuste, anuncios, creando, onEscribir, motor, onVolver, onProductoDelAnuncio, enfoque = null, etapa = 2, onIr = () => {} }) {
   // lo que dice el brief de un anuncio ya creado (duración, voz, continuidad y respuestas) se ve en su tarjeta de ajustes
   const alLeerBrief = (clave, b) => {
     const c = {};
@@ -589,18 +612,6 @@ export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambi
   const elegidosEstilos = elegidos.map((c) => estilos.find((e) => e.clave === c)).filter(Boolean);
   const fijos = Object.keys(anuncios);
 
-  const [destinoALaVista, setDestinoALaVista] = useState(false);
-  // la píldora se esconde cuando ya se ven los guiones
-  useEffect(() => {
-    const el = document.getElementById('nv-guiones');
-    setDestinoALaVista(false);
-    if (!el) return undefined;
-    const io = new IntersectionObserver(([e]) => setDestinoALaVista(e.isIntersecting), { rootMargin: '0px 0px -10% 0px' });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [elegidosEstilos.length, fijos.length]);
-
-  const irAlDestino = () => document.getElementById('nv-guiones')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   if (error) {
     return (
@@ -617,38 +628,62 @@ export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambi
     );
   }
 
-  return (
-    <div className="nv-paso2">
-      <div className="nv-volver">
-        <Boton variante="fantasma" tamano="chico" icono={ArrowLeft} onClick={onVolver}>
-          Volver a tu producto
-        </Boton>
-        {producto ? (
-          <span className="nv-volver__producto">
-            {producto.foto?.url ? (
-              <img src={producto.foto.url} alt="" onError={(e) => (e.currentTarget.style.visibility = 'hidden')} />
-            ) : (
-              <span className="nv-volver__sin-foto" aria-hidden="true">
-                <Package size={14} strokeWidth={2} />
-              </span>
-            )}
-            <span>
-              <strong>{producto.nombre}</strong>
-              {producto.sub ? ` · ${producto.sub}` : ''}
+  const hayGuiones = fijos.length > 0;
+  const cabezaProducto = (
+    <div className="nv-volver">
+      {producto ? (
+        <span className="nv-volver__producto">
+          {producto.foto?.url ? (
+            <img src={producto.foto.url} alt="" onError={(e) => (e.currentTarget.style.visibility = 'hidden')} />
+          ) : (
+            <span className="nv-volver__sin-foto" aria-hidden="true">
+              <Package size={14} strokeWidth={2} />
             </span>
+          )}
+          <span>
+            <strong>{producto.nombre}</strong>
+            {producto.sub ? ` · ${producto.sub}` : ''}
           </span>
-        ) : null}
+        </span>
+      ) : null}
+      {etapa > 2 && elegidosEstilos.length ? (
+        <span className="nv-volver__estilos">
+          {elegidosEstilos.map((e) => (
+            <Chip key={e.clave} tamano="chico">
+              {e.nombre}
+            </Chip>
+          ))}
+        </span>
+      ) : null}
+    </div>
+  );
+
+  // ---- paso 2: el estilo (solo la galería)
+  if (etapa === 2) {
+    return (
+      <div className="nv-paso2 nv-etapa">
+        {cabezaProducto}
+        {cargando && !estilos.length ? <EsqueletoMiniaturas cantidad={6} min={160} /> : <GaleriaEstilos estilos={estilos} elegidos={elegidos} alternar={alternarEstilo} fijos={fijos} />}
+        <BarraDelPaso
+          atras={{ texto: 'Tu producto', onClick: onVolver }}
+          siguiente={{
+            texto: hayGuiones && elegidosEstilos.every((e) => anuncios[e.clave]) ? 'Ver el guion' : 'Siguiente: ajustes',
+            nota: elegidosEstilos.length ? `${elegidosEstilos.length === 1 ? elegidosEstilos[0].nombre : `${elegidosEstilos.length} estilos`} elegido${elegidosEstilos.length === 1 ? '' : 's'}` : 'Elige uno o varios',
+            deshabilitado: !elegidosEstilos.length,
+            onClick: () => onIr(hayGuiones && elegidosEstilos.every((e) => anuncios[e.clave]) ? 4 : 3),
+          }}
+        />
       </div>
+    );
+  }
 
-      {cargando && !estilos.length ? <EsqueletoMiniaturas cantidad={6} min={160} /> : <GaleriaEstilos estilos={estilos} elegidos={elegidos} alternar={alternarEstilo} fijos={fijos} />}
-
-      {elegidosEstilos.length ? (
-        <Seccion
-          titulo={elegidosEstilos.length === 1 ? 'Ajusta tu anuncio' : 'Ajusta cada anuncio'}
-          icono={Sparkles}
-          contador={elegidosEstilos.length > 1 ? elegidosEstilos.length : undefined}
-          descripcion="La duración, la voz y lo propio de cada estilo. Lo que no toques, lo decide la IA."
-        >
+  // ---- paso 3: los ajustes de cada estilo y «Escribir el guion»
+  if (etapa === 3) {
+    const sinGuion = elegidosEstilos.filter((e) => !anuncios[e.clave]);
+    return (
+      <div className="nv-paso2 nv-etapa">
+        {cabezaProducto}
+        {elegidosEstilos.length ? (
           <div className="pila escalonado" style={{ '--hueco': '14px' }}>
             {elegidosEstilos.map((e) => (
               <AjustesEstilo
@@ -661,12 +696,22 @@ export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambi
                 puedeQuitar={elegidosEstilos.length > 1}
               />
             ))}
+            {sinGuion.length ? (
+              <Escribir estilos={sinGuion} ajustes={ajustes} creando={creando} sinProducto={!producto} motor={motor} onEscribir={() => onEscribir()} onVolverAlProducto={onVolver} />
+            ) : null}
           </div>
-        </Seccion>
-      ) : estilos.length ? (
-        <EstadoVacio variante="compacto" icono={Sparkles} titulo="Elige un estilo" descripcion="Marca uno o varios en la galería de arriba para escribir su guion." />
-      ) : null}
+        ) : (
+          <EstadoVacio variante="compacto" icono={Sparkles} titulo="Primero elige un estilo" descripcion="Vuelve al paso anterior y marca uno o varios." />
+        )}
+        <BarraDelPaso atras={{ texto: 'Estilo', onClick: () => onIr(2) }} siguiente={hayGuiones ? { texto: 'Ver el guion', onClick: () => onIr(4) } : null} />
+      </div>
+    );
+  }
 
+  // ---- paso 4: el guion (leerlo, pedir cambios, aprobar y producir)
+  return (
+    <div className="nv-paso2 nv-etapa">
+      {cabezaProducto}
       {elegidosEstilos.length ? (
         <Guiones
           id="nv-guiones"
@@ -681,9 +726,12 @@ export function PasoAnuncio({ producto, elegidos, ajustes, alternarEstilo, cambi
           onBrief={alLeerBrief}
           enfoque={enfoque}
         />
-      ) : null}
-
-      <PildoraTanda elegidos={elegidos} estilos={estilos} hayGuiones={fijos.length > 0} visible={elegidosEstilos.length > 0 && !destinoALaVista} onIr={irAlDestino} />
+      ) : cargando ? (
+        <EsqueletoMiniaturas cantidad={2} min={260} />
+      ) : (
+        <EstadoVacio variante="compacto" icono={Sparkles} titulo="Todavía no hay guion" descripcion="Elige un estilo y ajústalo para escribirlo." />
+      )}
+      <BarraDelPaso atras={{ texto: 'Ajustes', onClick: () => onIr(3) }} />
     </div>
   );
 }
