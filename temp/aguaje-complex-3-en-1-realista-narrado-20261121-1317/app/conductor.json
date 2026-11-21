@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "imagenes-y-videos",
+  "paso": "revision-imagenes",
   "pasos": [
     {
       "id": "validar",
@@ -40,15 +40,18 @@
     {
       "id": "imagenes-y-videos",
       "nombre": "Crear las imágenes y los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
-      "inicio": "2026-11-21T18:38:00.726Z"
+      "inicio": "2026-11-21T18:38:00.726Z",
+      "fin": "2026-11-21T18:57:10.712Z"
     },
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T18:57:10.712Z",
+      "detalle": "Mirando las fotos de tu producto"
     },
     {
       "id": "voces",
@@ -91,7 +94,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T18:37:48.263Z",
   "aprobado": "2026-11-21T18:37:48.263Z",
-  "actualizado": "2026-11-21T18:38:00.726Z",
+  "actualizado": "2026-11-21T18:57:17.337Z",
   "saldoInicial": {
     "creditos": 2681.8,
     "fecha": "2026-11-21T18:37:50.306Z"

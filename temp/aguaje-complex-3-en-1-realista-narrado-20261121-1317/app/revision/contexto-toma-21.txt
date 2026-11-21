@@ -1,0 +1,54 @@
+
+=== Contexto para rehacer la toma 21 ===
+
+  NO SE TOCAN (atados al audio y al montaje):
+    tipo:        A
+    duracion:    4.2s
+    referencias: protagonista_despues
+
+  QUE TIENE QUE TRANSMITIR ESTA TOMA:
+    linea:       "El primer mes noté más energía y ganas de entrenar."
+    viene de:    "Dos cápsulas al día con mis comidas: aguaje, fenogreco y maca negra."
+    lleva a:     "El segundo mes, los jeans empezaron a hormarme atrás."
+
+  PROMPTS ACTUALES (los que fallaron — NO repetir la misma idea):
+
+  --- imagen inicial ---
+Photorealistic vertical 9:16 smartphone photo, candid and unposed, the woman from the reference image in a neighborhood gym wearing a white sports top and black leggings, her long dark-brown hair in a loose ponytail, standing facing the camera holding a dumbbell at chest height with both hands, laughing with energy, a little sweat on her forehead, gym racks and mirrors behind her, daylight from high windows mixed with the warm gym lights, framed from head to knees, real skin texture with pores, slight handheld framing, shot on a phone, no studio lighting. No text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  --- video ---
+Photorealistic smartphone footage, image-to-video from the shot above, 4.2s. Vertical 9:16.
+Camera: locked-off static camera, no zoom.
+Motion: facing the camera, she does two energetic squats holding the dumbbell at her chest, stands up laughing and blows a strand of hair off her face.
+Lighting: daylight from high windows.
+Real person with natural gestures, no text.
+
+  --- referencia "producto" (producto) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 product photo of the exact product in the reference photo, the bottle alone without the hand: a cylindrical glossy black plastic supplement bottle about 1.8 times taller than it is wide, with straight sides, softly rounded shoulders, a very short neck and a wide hot-pink screw cap almost as wide as the body, sealed with clear shrink wrap; the cap has small white "VITALABH" logos around it; black label with a pink-to-magenta band along the bottom. Same shape, same proportions, same label design, colors and text as the photo. The label text must be copied exactly, letter for letter, from the photo, with no words changed, added or removed, from top to bottom: "VITALABH", "AGUAJE", "COMPLEX 3 EN 1" (with "3 EN 1" in pink), "SUPLEMENTO ALIMENTICIO EN CÁPSULAS" in white letters on a pink band, "A base de Aguaje, Fenogreco y Maca Negra", "TRIPLE ACCIÓN" in pink italic letters, three pink-outlined boxes "200 mg AGUAJE" + "400 mg FENOGRECO" + "200 mg MACA NEGRA", and "60 CAPSULAS | (0,5 g c/u Cont. Neto 30g)". The bottle is closed and stands upright on a light wooden kitchen counter with a soft contact shadow, soft natural daylight from a window, matte, no rainbow, no prism light, no lens flare, no capsules, no pills, no hand. Not a slim bottle and not a squat jar. The label text must be as sharp and legible as in the photo. The image is full-bleed and fills the entire frame edge to edge: no frame, no border, no vignette. No additional text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark, altered label text, misspelled words, invented ingredients, capsules, pills, open bottle, hand
+
+  --- referencia "protagonista_despues" (personaje) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 full-body reference photo with a candid smartphone look: Laura, an adult woman in her late 20s from Colombia, 27 years old, with clearly adult features: an oval face with soft defined cheekbones, almond-shaped dark brown eyes, thick natural dark eyebrows, a straight nose with a slightly rounded tip, full natural lips, long dark-brown wavy hair worn loose with flyaway strands, warm olive-tan skin with visible pores, a few tiny moles and natural texture, minimal everyday makeup, small gold hoop earrings. She has a curvy hourglass figure: a small waist, her hips about one and a half times wider than her waist, full rounded hips and seat that project well behind her lower back like a shelf, thick full thighs that touch at the top and fill her shorts, obvious at first glance. She wears a fitted white ribbed tank top, light-wash high-waisted denim shorts with a short frayed hem at the upper thigh, and white sneakers. She stands almost in profile, three-quarter from the side, with her face turned toward the camera over her shoulder and a confident relaxed smile, full body visible from head to feet so her silhouette reads clearly. Plain warm off-white home wall with subtle texture, soft natural light from a window on the left, real skin texture with pores, wrinkles in the clothes, slight handheld framing, shot on a phone. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no border, no inset panel, no vignette. No text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  --- referencia "protagonista_antes" (personaje) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 full-body reference photo with a candid smartphone look. Use the reference image ONLY for her face, hair, skin and clothes, never for her body. The same adult woman in her late 20s from Colombia: the same oval face, almond-shaped dark brown eyes, thick natural eyebrows, full lips, the same long dark-brown wavy hair worn loose with flyaway strands, the same warm olive-tan skin with visible pores and tiny moles, the same small gold hoop earrings, the same fitted white ribbed tank top, light-wash high-waisted denim shorts with a short frayed hem and white sneakers. Her body is very slim and straight: narrow hips the same width as her waist, one flat straight vertical line from her lower back down to her thighs, the denim shorts loose and baggy at the back with an empty fold of extra denim below the seat and drooping back pockets, thin straight thighs with a wide gap between them. She stands almost in profile, three-quarter from the side, with her face turned toward the camera over her shoulder and a shy unsure half-smile, full body visible from head to feet so her silhouette reads clearly. Plain warm off-white home wall with subtle texture, soft natural light from a window on the left, real skin texture with pores, wrinkles in the clothes, slight handheld framing, shot on a phone. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no border, no inset panel, no vignette. No text, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark, curvy hips, round full seat, thick thighs
+
+  --- referencia "presentadora" (personaje) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 full-body reference photo with a candid smartphone look: a TV show host, an adult woman around 38 years old from Colombia, warm brown skin with visible pores and natural texture, a round face with high cheekbones, dark eyes, defined arched eyebrows, a warm wide smile with red lipstick, sleek black hair pulled back in a low bun with a few loose strands, small silver earrings. She wears a tailored bright red pantsuit with a matching red top and black heels, and holds a black handheld microphone in her right hand. Standing relaxed in a three-quarter view, full body visible from head to feet. Plain warm off-white wall with subtle texture, soft natural light from a window, real skin texture with pores, wrinkles in the fabric, slight handheld framing, shot on a phone. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no wooden frame, no border, no inset panel, no vignette. No text, logos, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  --- referencia "concursantes" (escenario) — repetir palabra por palabra ---
+Photorealistic vertical 9:16 phone photo with a behind-the-scenes look of a TV dating show: five different adult men aged 27 to 33 standing side by side in a row on the set, each holding one shiny red balloon against his chest with both hands, all facing slightly toward the camera. From left to right: (1) a man with short curly black hair and a trimmed beard wearing a black leather jacket over a white T-shirt and black jeans; (2) a man with a buzz cut and a short beard in a cream knit polo shirt and beige chinos; (3) a man with tousled brown hair and stubble in a grey denim jacket over a black hoodie and grey jeans; (4) a man with short wavy dark hair in a crisp white shirt with rolled sleeves, a silver wristwatch and black trousers; (5) a clean-shaven man with neat dark hair in a navy blue suit with an open-collar navy shirt. Behind them tall glowing pale-pink backlit panels in a light wooden grid, a glossy white floor reflecting the pink light. Framed from head to knees, real skin texture with pores, natural relaxed expressions, wrinkles in the clothes, slight handheld framing, shot on a phone. The image is full-bleed and fills the entire frame edge to edge: no picture frame, no border, no vignette. No text, logos, captions or watermarks.
+
+Negative prompt: cartoon, 3D render, CGI, illustration, Pixar, plastic skin, airbrushed, beauty filter, studio lighting, text, watermark
+
+  Pidele a Claude que escriba una escena DISTINTA para la misma intencion.
+
