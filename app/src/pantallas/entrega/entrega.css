@@ -1043,3 +1043,4 @@ flex-direction: column;
 .ent-opinion--hecha span { display: inline-flex; align-items: center; gap: 6px; }
 .ent-opinion--hecha button { border: 0; background: none; color: var(--texto-3); font: inherit; font-size: 12px; text-decoration: underline; cursor: pointer; }
 .ent-editar { display: flex; flex-direction: column; gap: var(--e-3); }
+.ent-editar__otras { display: flex; flex-direction: column; gap: 4px; padding-top: var(--e-3); border-top: 1px solid var(--borde-1); }

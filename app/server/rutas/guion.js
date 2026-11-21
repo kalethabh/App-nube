@@ -19,6 +19,7 @@
 //
 // POST /api/anuncios/:slug/producir (aprobar y arrancar) lo atiende rutas/produccion.js con el conductor.
 import { ErrorApp, soloDesdeLaApp } from '../lib/productos.js';
+import { cantarAnuncio, motivoParaNoCantar, costoDeCantar } from '../lib/cambiar-audio.js';
 import { cambiarVoz, contextoVisual, escenaBroll, crearAnuncio, recrearAnuncio, editarAnuncio, editarLineas, regenerarLinea, descartarAnuncio, elegirLetra, estadoGuion, pedirCambios, reintentarGuion, retomarGuiones } from '../lib/anuncios-nuevos.js';
 
 const conErrores = (fn) => async (req, res, next) => {
@@ -38,6 +39,15 @@ export default function rutasGuion(app) {
   // (2026-11-19p) el mismo anuncio para otro producto: mismo guion, cambia lo del producto
   app.post('/api/anuncios/:slug/recrear', soloDesdeLaApp, conErrores((req, res) => {
     res.status(201).json(recrearAnuncio(req.params.slug, { productoId: String(req.body?.productoId || '') }));
+  }));
+
+  // «Cambiar solo el audio» (2026-11-21i): el mismo anuncio con narrador, cantado (mismos clips)
+  app.get('/api/anuncios/:slug/cantar', (req, res) => {
+    res.set('Cache-Control', 'no-store').json({ motivo: motivoParaNoCantar(req.params.slug), costo: costoDeCantar() });
+  });
+  app.post('/api/anuncios/:slug/cantar', soloDesdeLaApp, conErrores(async (req, res) => {
+    const voz = req.body?.voz === 'f' || req.body?.voz === 'm' ? req.body.voz : null;
+    res.status(201).json(await cantarAnuncio(req.params.slug, { como: String(req.body?.como || ''), voz }));
   }));
 
   // «Editar este anuncio» (2026-11-21h): una versión nueva con el cambio que pides, mientras se hace o ya terminado
