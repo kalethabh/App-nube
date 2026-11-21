@@ -38,7 +38,7 @@
       "intentos": 2,
       "inicio": "2026-11-21T22:37:52.265Z",
       "retomado": true,
-      "detalle": "Creando 6 imágenes · 4 de 10 listas"
+      "detalle": "Creando 3 imágenes · 7 de 10 listas"
     },
     {
       "id": "informe",
@@ -51,5 +51,5 @@
   "modoPrueba": false,
   "creado": "2026-11-21T22:19:52.718Z",
   "aprobado": "2026-11-21T22:19:52.718Z",
-  "actualizado": "2026-11-21T22:57:22.161Z"
+  "actualizado": "2026-11-21T22:59:11.681Z"
 }

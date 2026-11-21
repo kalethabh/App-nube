@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 2,
-    "R": 1,
+    "R": 3,
     "A": 1,
     "T": 2
   },
@@ -24,6 +24,39 @@
       "uuid": null,
       "motor": null,
       "estado": "hecha"
+    },
+    "R001": {
+      "tipo": "revision",
+      "uuid": "ad09aff9-8bbe-4618-a501-743e0b40c00c",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V01_1x1",
+          "firma": "1858610-1795301956552",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "dd73e000-eb9d-4e73-9d92-3f1705f64e1b",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V02_1x1",
+          "firma": "2092666-1795301964696",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2114036-1795301958502",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -72,68 +105,86 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1858610-1795301956552",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular «TODA MI VIDA FUI» queda pegado al borde de arriba y la parte de arriba de las letras se corta. Regla del 5 % del borde: bájalo.",
+          "«Pagas al recibir» sale cortado por el borde de abajo y no se lee completo. Regla del 5 % del borde: súbelo.",
+          "El botón «Quiero el mío» y la cinta «TRATAMIENTO COMPLETO X3» quedan pegados al borde de abajo. Regla del 5 % del borde: súbelos."
+        ],
+        "firma": "1858610-1795301956552",
+        "correccion_en": "Keep every text at least 5% away from all edges: move the headline \"TODA MI VIDA FUI LA FLACA DEL GRUPO\" down so its letters are fully visible and not cut at the top; move the offer ribbon \"TRATAMIENTO COMPLETO X3\" with \"Pagas al recibir\" fully visible below it, and the single CTA chip \"Quiero el mío\", up from the bottom edge so nothing is cropped."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T22:59:17.964Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2092666-1795301964696",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular queda muy pegado a los bordes: «COBROS» y «PROMESAS» quedan a menos del 5 % del borde. Hay que achicarlo un poco para que respire."
+        ],
+        "firma": "2092666-1795301964696",
+        "correccion_en": "Make the headline \"MÁS CONFIANZA SIN PROMESAS MÁGICAS NI COBROS\" slightly smaller so every letter stays at least 6% away from the left and right edges. Keep everything else the same."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T22:59:26.330Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2114036-1795301958502",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular toca casi los bordes: «¿COMES» y «SUBES?» quedan a menos del 5 % del borde izquierdo y derecho.",
+          "Aparece un letrero inventado en el fondo que dice «Cafetería Universitaria»: ese texto no está en el anuncio y hay que quitarlo."
+        ],
+        "firma": "2114036-1795301958502",
+        "correccion_en": "Make the headline \"¿COMES Y COMES Y NO SUBES?\" smaller so every letter stays at least 6% away from the left and right edges. Remove the background sign that reads \"Cafetería Universitaria\"; no text in the background at all."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T22:59:20.148Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V04_1x1": {
       "v": "V04",
@@ -148,7 +199,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -170,7 +221,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
@@ -192,7 +243,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,

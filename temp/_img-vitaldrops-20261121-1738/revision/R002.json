@@ -1,0 +1,21 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "El titular queda muy pegado a los bordes: «COBROS» y «PROMESAS» quedan a menos del 5 % del borde. Hay que achicarlo un poco para que respire."
+      ],
+      "correccion_en": "Make the headline \"MÁS CONFIANZA SIN PROMESAS MÁGICAS NI COBROS\" slightly smaller so every letter stays at least 6% away from the left and right edges. Keep everything else the same."
+    },
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "El titular toca casi los bordes: «¿COMES» y «SUBES?» quedan a menos del 5 % del borde izquierdo y derecho.",
+        "Aparece un letrero inventado en el fondo que dice «Cafetería Universitaria»: ese texto no está en el anuncio y hay que quitarlo."
+      ],
+      "correccion_en": "Make the headline \"¿COMES Y COMES Y NO SUBES?\" smaller so every letter stays at least 6% away from the left and right edges. Remove the background sign that reads \"Cafetería Universitaria\"; no text in the background at all."
+    }
+  ]
+}
