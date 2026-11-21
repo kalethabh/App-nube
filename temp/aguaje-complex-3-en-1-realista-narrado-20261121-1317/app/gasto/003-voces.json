@@ -1,0 +1,20 @@
+{
+  "numero": 3,
+  "paso": "voces",
+  "comando": "node produccion/revisar-voces.js temp/aguaje-complex-3-en-1-realista-narrado-20261121-1317 --silenciar",
+  "inicio": "2026-11-21T19:02:56.587Z",
+  "fin": "2026-11-21T19:03:10.656Z",
+  "codigo": 0,
+  "creditos": 0,
+  "dolares": 0,
+  "imagenes": [],
+  "videos": [],
+  "musica": null,
+  "sinRegistro": [],
+  "elevenlabs": {
+    "scribe": {
+      "clips": 35,
+      "segundos": 144.3
+    }
+  }
+}

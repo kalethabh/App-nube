@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
   "familia": "voz-en-off",
   "estado": "corriendo",
-  "paso": "revision-imagenes",
+  "paso": "musica",
   "pasos": [
     {
       "id": "validar",
@@ -48,22 +48,28 @@
     {
       "id": "revision-imagenes",
       "nombre": "Revisar las imágenes",
-      "estado": "corriendo",
-      "intentos": 1,
+      "estado": "hecho",
+      "intentos": 2,
       "inicio": "2026-11-21T18:57:10.712Z",
-      "detalle": "Mirando las imágenes del anuncio"
+      "retomado": true,
+      "fin": "2026-11-21T19:02:56.586Z",
+      "nota": "Las imágenes pasaron la revisión."
     },
     {
       "id": "voces",
       "nombre": "Buscar voces que no van",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T19:02:56.586Z",
+      "fin": "2026-11-21T19:03:10.656Z",
+      "nota": "9 clip(s) traían una voz que no iba: van sin sonido."
     },
     {
       "id": "musica",
       "nombre": "Poner la música",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T19:03:10.657Z"
     },
     {
       "id": "montaje",
@@ -94,7 +100,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T18:37:48.263Z",
   "aprobado": "2026-11-21T18:37:48.263Z",
-  "actualizado": "2026-11-21T18:57:19.159Z",
+  "actualizado": "2026-11-21T19:03:10.657Z",
   "saldoInicial": {
     "creditos": 2681.8,
     "fecha": "2026-11-21T18:37:50.306Z"

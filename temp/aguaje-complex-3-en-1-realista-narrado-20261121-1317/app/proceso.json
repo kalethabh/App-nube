@@ -1,0 +1,13 @@
+{
+  "pid": 32976,
+  "paso": "musica",
+  "script": "suno-retomable.js",
+  "args": [
+    "generar-musica.js",
+    "temp/aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+    "--si"
+  ],
+  "comando": "node produccion/suno-retomable.js generar-musica.js temp/aguaje-complex-3-en-1-realista-narrado-20261121-1317 --si",
+  "inicio": "2026-11-21T19:03:10.658Z",
+  "app": 32617
+}
