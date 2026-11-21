@@ -1,0 +1,44 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-21T19:47:49.922Z",
+  "variaciones": 5,
+  "archivos": 0,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 0,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [],
+    "sinRevisar": [],
+    "sinImagen": [
+      {
+        "pieza": "V01_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V02_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V03_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V04_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V05_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    ],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
