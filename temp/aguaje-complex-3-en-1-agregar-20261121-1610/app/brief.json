@@ -2,7 +2,7 @@
   "slug": "aguaje-complex-3-en-1-agregar-20261121-1610",
   "productoId": "producto-edb1",
   "estilo": "agregar",
-  "familia": null,
+  "familia": "voz-en-off",
   "faseGuion": "guion",
   "duracion": {
     "decide": "usuario",
@@ -10,7 +10,11 @@
     "segundos": 100
   },
   "voz": {
-    "auto": true
+    "id": "VmejBeYhbrcTPwDniox7",
+    "nombre": "Lina - Carefree & Fresh",
+    "auto": true,
+    "motivo": "voz femenina como la del video de referencia (tono medio de 258 Hz, expresiva) · «Lina - Carefree & Fresh»: voz femenina, habla español, acento colombiano, joven, cercana, cálida, hecha para narrar",
+    "elegida": "2026-11-21T21:20:18.775Z"
   },
   "continuidad": false,
   "respuestas": {
@@ -21,5 +25,36 @@
   "opciones": {},
   "pedido": "Replicar tal cual el video que adjuntó, para AGUAJE COMPLEX 3 EN 1: misma esencia, mismas escenas, mismos personajes, mismo ritmo y mismo gancho. Este video sí es narrado y con música: mantener la narración y la música como en el original. Si el original dura más de 2 minutos, dejarlo en máximo 1:40 conservando la misma historia y las mismas escenas clave. Solo cambia el producto por el Aguaje.",
   "letraOriginal": "Le dijeron flaca toda la vida, tres semanas con estas gotas y se acabó. Le dijeron que le iba a llenar la cola a tiempo pa' su día de playa, así que empezó a tomarse dos goteros de esto cada día. Pero ahora está encabroná, ni hablar puede, porque gastó sesenta dólares la semana pasada. Y ahí fue que vio que bajaron el precio, el más bajo que ha estado nunca. Estaba furiosa, pero sinceramente ni puede estar tan brava. Por lo bien que funcionó, solo lleva tres semanas tomándolo. El pantalón ya no le sienta igual, no sé cómo. Hasta sus primos le empezaron a preguntar. Los fitoestrógenos le mandaron la señal que a su cuerpo le faltaba, la que le dice dónde guardar la grasa, no perderla. Dos goteros al día, eso fue to' lo que tomó. No fue su culpa que las sentadillas y los batidos no le dieran suerte. Casi ni lo prueba, pensó que era otro anuncio falso vendiendo promesas vacías, pero es solo su cadera, sus muslos y su cola los que se pusieron grandes. No cometas el mismo error que ella. Ahora mismo te lo llevas con sesenta y siete por ciento de descuento, lo que sale a menos de un dólar al día. Pero ya casi se agota, así que puede que ya perdiste tu oportunidad. Así que si puedes, dale clic al link de abajo. Puede que todavía quede alguna, así que consíguete una botella antes de que se agoten otra vez.",
-  "creado": "2026-11-21T21:10:22.380Z"
+  "creado": "2026-11-21T21:10:22.380Z",
+  "agregar": {
+    "pedido": "Replicar tal cual el video que adjuntó, para AGUAJE COMPLEX 3 EN 1: misma esencia, mismas escenas, mismos personajes, mismo ritmo y mismo gancho. Este video sí es narrado y con música: mantener la narración y la música como en el original. Si el original dura más de 2 minutos, dejarlo en máximo 1:40 conservando la misma historia y las mismas escenas clave. Solo cambia el producto por el Aguaje.. Tal cual: si en el video las personas hablan en cámara, que hablen ellas mismas con su voz (sin voz en off), con las mismas escenas y acciones (sin B-roll ni escenas nuevas).",
+    "plan": {
+      "estilo": "agregar",
+      "estiloNombre": "El mismo look de tu video",
+      "formato": "Una voz cuenta sobre escenas",
+      "duracion": "1:40",
+      "idioma": "es",
+      "resumen": "Rehago tu video tal cual, en la misma animación 3D tipo Pixar y con una narradora que cuenta la historia, pero con Aguaje Complex 3 en 1 en vez de las gotas. Mismas 23 escenas, en el mismo orden, en unos 99 segundos.",
+      "conserva": [
+        "la estructura: el apodo de flaca → el resultado de golpe → empieza a tomarlo → se enoja pero no puede estar brava → espejo, jean y primas → cómo funciona → lo que no le sirvió → la desconfianza → el r",
+        "el gancho: «Le dijeron flaca toda la vida», con la niña en su cumpleaños, y el corte a ella con curvas tirando feliz de su jean",
+        "el ángulo: más cadera, muslos y cola, después de que las sentadillas y los batidos no bastaron",
+        "las mismas personas y lugares: ella de camiseta crema y jean, la niña y la abuela en la fiesta, las primas, el gimnasio de casa, el espejo de la habitación",
+        "las frases clave: «estaba furiosa, pero ni puede estar tan brava», «casi ni lo prueba, pensó que era otro anuncio falso», «no cometas el mismo error que ella»",
+        "la narradora en tercera persona y la música de fondo"
+      ],
+      "cambia": [
+        "el producto: gotas por Aguaje Complex 3 en 1, siempre con el frasco cerrado",
+        "tres semanas por tres meses, porque tu producto es un plan de tres meses",
+        "el enojo ya no es por el precio (no tienes oferta en la ficha), sino por la plata que botó antes en fajas, cremas y pastillas",
+        "la parte de las hormonas por los tres extractos: aguaje, fenogreco y maca negra",
+        "el cierre: sin descuento ni «se agota»; ella lo recomienda",
+        "la duración: de 1:47 a unos 1:39",
+        "el acento: colombiano"
+      ],
+      "porque": "En tu video nadie habla en cámara: una voz cuenta la historia sobre escenas animadas. Por eso va con voz en off y con el mismo look 3D del original.",
+      "pedido": "Replicar tal cual el video que adjuntó, para AGUAJE COMPLEX 3 EN 1: misma esencia, mismas escenas, mismos personajes, mismo ritmo y mismo gancho. Este video sí es narrado y con música: mantener la narración y la música como en el original. Si el original dura más de 2 minutos, dejarlo en máximo 1:40 conservando la misma historia y las mismas escenas clave. Solo cambia el producto por el Aguaje.. Tal cual: si en el video las personas hablan en cámara, que hablen ellas mismas con su voz (sin voz en off), con las mismas escenas y acciones (sin B-roll ni escenas nuevas)."
+    }
+  },
+  "produccion": "voz-en-off"
 }

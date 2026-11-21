@@ -1,0 +1,208 @@
+{
+  "titulo": "Aguaje Complex 3 en 1 — «Le dijeron flaca toda la vida»",
+  "idioma": "es",
+  "mercado": "LatAm",
+  "duracionEstimada": 99.2,
+  "de_que_va": "Una narradora cuenta, con humor, la historia de Daniela: le dijeron flaca toda la vida, botó plata en fajas, cremas y pastillas, y con Aguaje Complex 3 en 1 por fin se le notan la cadera, los muslos y la cola. Al final ella lo recomienda.",
+  "estructura": {
+    "id": "de-la-referencia",
+    "nombre": "La de tu video",
+    "porque": "Conserva los momentos de tu video en su orden: el apodo de flaca, el resultado de golpe, empieza a tomarlo, el enojo que se vuelve alegría, el espejo, el jean y las primas, cómo funciona, lo que no le sirvió, la desconfianza, el resultado y el cierre. El enojo ahora es por la plata botada en fajas, cremas y pastillas, que es una de las quejas más fuertes de tu clienta."
+  },
+  "personajes": [
+    {
+      "nombre": "Daniela",
+      "como_es": "Mujer afrocolombiana de 28 años, animada en 3D, con una melena enorme de rizos con reflejos cobrizos, camiseta crema y jean de tiro alto. En el antes es delgada y recta, con jean oscuro que le sobra; en el después tiene cintura pequeña, cadera ancha y muslos llenos, con jean azul claro."
+    },
+    {
+      "nombre": "La niña y la abuela",
+      "como_es": "Daniela de niña, unos 7 años, con moñitos de rizos y vestido verde menta, y su abuela de pelo gris trenzado, en su fiesta de cumpleaños."
+    },
+    {
+      "nombre": "Las primas",
+      "como_es": "Dos mujeres de su edad en la fiesta, una de vestido rojo y otra de enterizo lila, que se sorprenden al verla."
+    }
+  ],
+  "partes": [
+    {
+      "n": 1,
+      "momento": "gancho",
+      "dice": "Le dijeron flaca toda la vida.",
+      "se_ve": "La niña en su cumpleaños, tímida, mientras la abuela se inclina y le toca el hombro con una sonrisa burlona.",
+      "segundos": 2.4
+    },
+    {
+      "n": 2,
+      "momento": "gancho",
+      "dice": "Tres meses con estas cápsulas y se acabó.",
+      "se_ve": "Daniela adulta, con curvas, tira de la cintura de su jean en su habitación y levanta la cara feliz.",
+      "segundos": 3
+    },
+    {
+      "n": 3,
+      "momento": "problema",
+      "dice": "Le dijeron que le iba a dar curvas a tiempo pa' su paseo de playa,",
+      "se_ve": "Daniela delgada, con jean oscuro, empaca su bolso de playa y se pone un sombrero de paja, emocionada.",
+      "segundos": 4.8
+    },
+    {
+      "n": 4,
+      "momento": "solución",
+      "dice": "así que empezó a tomarse dos cápsulas de esto cada día.",
+      "se_ve": "Daniela delgada sostiene el frasco cerrado junto a su cara, lo mira y asiente decidida.",
+      "segundos": 4.2
+    },
+    {
+      "n": 5,
+      "momento": "problema",
+      "dice": "Pero ahora está emberracada, ni hablar puede, por toda la plata que gastó en fajas,",
+      "se_ve": "Sentada en la cama, ya con curvas, mira el celular y un recibo largo con cara de indignación.",
+      "segundos": 5.8
+    },
+    {
+      "n": 6,
+      "momento": "problema",
+      "dice": "cremas y pastillas que no le sirvieron.",
+      "se_ve": "Primer plano de su cara furiosa, apretando los dientes con el recibo al lado.",
+      "segundos": 2.6
+    },
+    {
+      "n": 7,
+      "momento": "problema",
+      "dice": "Y ahí fue que cayó en cuenta de todo lo que había botado.",
+      "se_ve": "Señala el celular y se lleva la mano a la frente, con los ojos enormes.",
+      "segundos": 4.6
+    },
+    {
+      "n": 8,
+      "momento": "giro",
+      "dice": "Estaba furiosa, pero sinceramente ni puede estar tan brava,",
+      "se_ve": "Con la mano en la frente, pasa de la mueca de rabia a una sonrisa pícara.",
+      "segundos": 4
+    },
+    {
+      "n": 9,
+      "momento": "prueba",
+      "dice": "por lo bien que le funcionó. Y eso que apenas va en su tercer frasco,",
+      "se_ve": "Frente al espejo de pie, se mira de lado, se toca la cadera y sonríe orgullosa a la cámara.",
+      "segundos": 5
+    },
+    {
+      "n": 10,
+      "momento": "prueba",
+      "dice": "y el jean ya no le queda igual, no sé cómo.",
+      "se_ve": "En una fiesta familiar, tira del jean, que ya le queda justo, y sonríe con picardía.",
+      "segundos": 3.4
+    },
+    {
+      "n": 11,
+      "momento": "prueba",
+      "dice": "Hasta sus primas le empezaron a preguntar.",
+      "se_ve": "Sus dos primas, detrás de ella, la miran boquiabiertas; una se tapa la boca y la otra la señala riendo.",
+      "segundos": 2.6
+    },
+    {
+      "n": 12,
+      "momento": "solución",
+      "dice": "El aguaje, el fenogreco y la maca negra fueron el apoyo que le faltaba a su rutina, y por fin se le empezó a notar donde quería.",
+      "se_ve": "En su cuarto en penumbra, de su mano salen tres burbujas doradas con el aguaje, el fenogreco y la maca, que se vuelven cintas de luz alrededor de la cadera de un maniquí de vidrio dorado.",
+      "segundos": 8.6
+    },
+    {
+      "n": 13,
+      "momento": "solución",
+      "dice": "Dos cápsulas al día, eso fue to' lo que tomó.",
+      "se_ve": "Junto a su tocador, con un vaso de agua, levanta el frasco cerrado y asiente tranquila.",
+      "segundos": 4
+    },
+    {
+      "n": 14,
+      "momento": "problema",
+      "dice": "No fue su culpa que las sentadillas y",
+      "se_ve": "Daniela delgada, en leggings verdes, hace una sentadilla en su gimnasio de casa y se dobla agotada.",
+      "segundos": 2.8
+    },
+    {
+      "n": 15,
+      "momento": "problema",
+      "dice": "los batidos solos no le alcanzaran.",
+      "se_ve": "Toma un batido de chocolate, hace una mueca y termina con un puchero.",
+      "segundos": 2.6
+    },
+    {
+      "n": 16,
+      "momento": "problema",
+      "dice": "Casi ni lo prueba, pensó que era otro anuncio falso vendiendo promesas vacías,",
+      "se_ve": "Sentada en la cama, todavía delgada, mira el celular, pone los ojos en blanco y luego le da curiosidad.",
+      "segundos": 5.6
+    },
+    {
+      "n": 17,
+      "momento": "prueba",
+      "dice": "pero es solo su cadera, sus muslos y su cola los que se le ven más llenitos.",
+      "se_ve": "De pie en su cuarto, ya con curvas, se pasa las manos por la cadera, se gira de lado y sonríe orgullosa.",
+      "segundos": 6.2
+    },
+    {
+      "n": 18,
+      "momento": "cierre",
+      "dice": "No cometas el mismo error que ella.",
+      "se_ve": "Levanta el dedo como diciendo «no» y luego apunta a la cámara con un guiño.",
+      "segundos": 2.8
+    },
+    {
+      "n": 19,
+      "momento": "cierre",
+      "dice": "Ella ahora se lo recomienda a todas: Aguaje Complex 3 en 1,",
+      "se_ve": "Muestra el frasco cerrado junto a su cara y lo señala con el dedo, emocionada.",
+      "segundos": 4
+    },
+    {
+      "n": 20,
+      "momento": "cierre",
+      "dice": "con aguaje, fenogreco y maca negra.",
+      "se_ve": "El frasco sobre la mesa, con un aguaje partido, semillas de fenogreco y raíces de maca al lado; ella detrás lo señala.",
+      "segundos": 2.6
+    },
+    {
+      "n": 21,
+      "momento": "cierre",
+      "dice": "Si a ti también te dijeron flaca toda la vida, no sigas botando la plata en lo que no sirve.",
+      "se_ve": "Toca el frasco en la mesa, mira el celular y abre la mano como diciendo «ya no más».",
+      "segundos": 6.2
+    },
+    {
+      "n": 22,
+      "momento": "cierre",
+      "dice": "Así que si puedes, dale clic al enlace de abajo y míralo con calma.",
+      "se_ve": "Primer plano: sonríe a la cámara y señala hacia abajo.",
+      "segundos": 4.4
+    },
+    {
+      "n": 23,
+      "momento": "cierre",
+      "dice": "Es un plan de tres meses, dos cápsulas al día. Ella dice que ojalá lo hubiera encontrado antes.",
+      "se_ve": "Sostiene el frasco junto a su cara, lo abraza un momento y sonríe agradecida.",
+      "segundos": 7
+    }
+  ],
+  "modelos": [
+    {
+      "modelo": "Omni Flash 1.2",
+      "para": "tomas 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22 y 23",
+      "porque": "el gancho: dos personajes con gestos que tienen que verse naturales el resultado de golpe en el gancho: la toma que más vende"
+    },
+    {
+      "modelo": "Kling 3.0",
+      "para": "tomas 9 y 17",
+      "porque": "el giro frente al espejo es la prueba del resultado: el cuerpo en movimiento tiene que verse real el resultado de cuerpo entero, girando: el movimiento real del cuerpo es la prueba"
+    }
+  ],
+  "decisiones": [
+    "Rehecho de: ❌ PAUTADO RECHAZADO - VTD-N 018 - Roseline William · 23 tomas · 106,8 s · formato voz en off. Estructura: la de tu video. Mismas 23 escenas en el mismo orden, en unos 99 s.",
+    "Formato voz en off: en tu video nadie habla en cámara; una narradora cuenta la historia en tercera persona. Va igual, con acento colombiano (sin elegir ciudad) y el mismo look 3D animado.",
+    "Ángulo: más cadera, muslos y cola después de años de que le dijeran flaca. El antes y el después va como en tu video: delgada con jean oscuro que le sobra en las escenas del antes, y con curvas marcadas y jean azul claro en las del después. Dejé el jean y no los shorts porque la historia gira alrededor del jean que «ya no le queda igual».",
+    "Lo que no tenías en la ficha no va: sin precio, sin descuento y sin «se agota». Por eso el enojo es por la plata que botó en fajas, cremas y pastillas, y el cierre es su recomendación. Cambié semanas por meses (es un plan de tres meses) y las hormonas por los tres extractos.",
+    "El frasco sale siempre cerrado y nunca se ven cápsulas sueltas. La figura de luz del original va como un maniquí de vidrio dorado, para que no se lea como un cuerpo desnudo."
+  ]
+}

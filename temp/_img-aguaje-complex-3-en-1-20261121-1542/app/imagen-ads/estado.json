@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 3,
+    "R": 4,
     "A": 1,
     "T": 6
   },
@@ -55,6 +55,19 @@
         }
       ],
       "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "165b1bdb-49fb-488c-8ba1-6208b9f4d682",
+      "estado": "en-curso",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V02_1x1",
+          "firma": "1606743-1795296056989",
+          "ronda": "u"
+        }
+      ]
     }
   },
   "variaciones": {
@@ -107,26 +120,22 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "revisando",
       "resultado": "sin-imagen",
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "U0001",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T003"
-      },
+      "version": 1,
+      "firma": "1606743-1795296056989",
+      "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
-      "motivo": "contenido-chatgpt",
-      "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
-      "desde": null,
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T21:20:57.453Z",
       "pedido": "U0001",
-      "ultimaOrden": "g",
-      "fallo": null
+      "ultimaOrden": "U0001",
+      "fallo": null,
+      "tandaRevision": "R003"
     },
     "V03_1x1": {
       "v": "V03",
@@ -172,7 +181,7 @@
         "version": 1,
         "trabajo": "T004"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -196,7 +205,7 @@
         "version": 1,
         "trabajo": "T005"
       },
-      "intentosApi": 1,
+      "intentosApi": 2,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -214,7 +223,7 @@
       "pieza": "V02_1x1",
       "instruccion": "",
       "fecha": "2026-11-21T21:18:59.372Z",
-      "estado": "generando",
+      "estado": "revisando",
       "pasos": [
         {
           "pieza": "V02_1x1",
