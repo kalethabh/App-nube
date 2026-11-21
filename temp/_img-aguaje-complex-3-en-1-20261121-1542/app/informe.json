@@ -1,0 +1,47 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-21T20:55:52.539Z",
+  "variaciones": 5,
+  "archivos": 2,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 1,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "El diseño no cabe en el cuadrado: arriba y abajo quedó cortado.",
+          "Falta la franja de arriba con «MÁS CURVAS SÍ,». No se ve.",
+          "«PERO SIN» sale cortado por arriba.",
+          "Falta la barra de abajo con el camión, la mano con moneda, «ENVÍO GRATIS» y «PAGA AL RECIBIR».",
+          "La frase de cierre solo muestra «Natural,» cortado. Falta «a tu ritmo» y su corazón."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [
+      {
+        "pieza": "V02_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V04_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      },
+      {
+        "pieza": "V05_1x1",
+        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
+      }
+    ],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}
