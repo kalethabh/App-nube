@@ -51,7 +51,7 @@
       "estado": "corriendo",
       "intentos": 1,
       "inicio": "2026-11-21T18:57:10.712Z",
-      "detalle": "Mirando las fotos de tu producto"
+      "detalle": "Mirando las imágenes del anuncio"
     },
     {
       "id": "voces",
@@ -94,7 +94,7 @@
   "modoPrueba": false,
   "creado": "2026-11-21T18:37:48.263Z",
   "aprobado": "2026-11-21T18:37:48.263Z",
-  "actualizado": "2026-11-21T18:57:17.337Z",
+  "actualizado": "2026-11-21T18:57:19.159Z",
   "saldoInicial": {
     "creditos": 2681.8,
     "fecha": "2026-11-21T18:37:50.306Z"
