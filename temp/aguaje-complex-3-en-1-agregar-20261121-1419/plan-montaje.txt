@@ -1,0 +1,244 @@
+==============================================================================
+PLAN DE MONTAJE — aguaje-complex-3-en-1-agregar-20261121-1419
+==============================================================================
+
+Esto es para armar el anuncio a mano (CapCut, Premiere, lo que uses).
+Todos los archivos que se nombran estan en esta misma carpeta.
+
+ANUNCIO POR BLOQUES (UGC). Cada bloque es un clip de 4 a 10 s donde la persona
+habla con su propia voz, con lip-sync. No hay voz en off ni B-roll.
+
+REGLA MADRE: manda el clip. Los bloques van en orden y en corte seco; la
+duracion del anuncio es la suma de los bloques ya recortados.
+
+LO QUE NO SE HACE, NUNCA:
+  - No aceleres un bloque hablado: deforma la voz y desincroniza la boca.
+  - No cortes por DENTRO del dialogo: ahi vive el lip-sync.
+  Si un bloque no sirve, se REGENERA (npm run rehacer -- temp/aguaje-complex-3-en-1-agregar-20261121-1419 N). No se ajusta.
+
+LO QUE SI: recorta el silencio del principio y del final de cada bloque. Si al
+final repite palabras que ya dijo, cortalas (abajo se indica donde, si se midio).
+
+------------------------------------------------------------------------------
+
+BLOQUE 1   (10 s, tipo R)   — gancho
+  Cuando:   00:00.00 -> 00:09.82   (9.82s de ventana)
+  Clip:     video/toma-1.mp4
+  Tramos:
+            [0.0–3.2s] [personaje-2]  "La muchacha de la foto que me mostraste no tenía ese cuerpo."
+            [3.2–4.6s] [personaje-3]  "Mamá, guarda el celular."
+            [4.6–5.8s] [personaje]  "Esa soy yo."
+            [5.8–7.0s]  (sin dialogo)
+            [7.0–10.0s] [personaje-2]  "La cara sí. Lo demás, quiero comprobarlo."
+  Dice:     "La muchacha de la foto que me mostraste no tenía ese cuerpo. Mamá, guarda el celular. Esa soy yo. La cara sí. Lo demás, quiero comprobarlo."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) personaje-3    -> img/personaje-3.png
+            4) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.17s del INICIO y 0.00s del FINAL.
+            Quedan 9.82s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 2   (10 s, tipo R)   — problema
+  Cuando:   00:09.82 -> 00:19.56   (9.74s de ventana)
+  Clip:     video/toma-2.mp4
+  Tramos:
+            [0.0–1.0s] [personaje-2]  "Párate."
+            [1.0–1.8s] [personaje]  "¿Perdón?"
+            [1.8–3.0s] [personaje-2]  "Dije que te pares."
+            [3.0–4.4s] [personaje-3]  "Mamá, ¿qué estás haciendo?"
+            [4.4–7.0s] [personaje-2]  "Tengo derecho a saber a quién trae mi hijo. Date la vuelta."
+            [7.0–8.8s]  (sin dialogo)
+            [8.8–10.0s] [personaje-2]  "Mhm. Siéntate."
+  Dice:     "Párate. ¿Perdón? Dije que te pares. Mamá, ¿qué estás haciendo? Tengo derecho a saber a quién trae mi hijo. Date la vuelta. Mhm. Siéntate."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) personaje-3    -> img/personaje-3.png
+            4) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.26s del INICIO y 0.00s del FINAL.
+            Quedan 9.74s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 3   (10 s, tipo R)   — agitación
+  Cuando:   00:19.56 -> 00:29.56   (10.00s de ventana)
+  Clip:     video/toma-3.mp4
+  Tramos:
+            [0.0–2.6s] [personaje-2]  "Es falsa. Cirugía, inyecciones, algo."
+            [2.6–4.0s] [personaje-3]  "¿Y qué si lo hizo?"
+            [4.0–7.8s] [personaje-2]  "No voy a tener una mujer de plástico dándome nietos de plástico."
+            [7.8–10.0s] [personaje-2]  "O lo admite, o no es bienvenida."
+  Dice:     "Es falsa. Cirugía, inyecciones, algo. ¿Y qué si lo hizo? No voy a tener una mujer de plástico dándome nietos de plástico. O lo admite, o no es bienvenida."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje-2    -> img/personaje-2.png
+            2) personaje-3    -> img/personaje-3.png
+            3) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 10.00s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 4   (10 s, tipo R)   — objeción
+  Cuando:   00:29.56 -> 00:39.56   (10.00s de ventana)
+  Clip:     video/toma-4.mp4
+  Tramos:
+            [0.0–2.6s] [personaje-2]  "Te voy a preguntar directo. ¿Qué te hiciste?"
+            [2.6–4.6s] [personaje]  "No me hice cirugía. Ni inyecciones."
+            [4.6–6.6s] [personaje-2]  "Entonces explícame lo que estoy viendo."
+            [6.6–8.4s] [personaje]  "Es natural. Llevo tres meses."
+            [8.4–10.0s] [personaje-2]  "¿Tres meses? ¿Todo eso?"
+  Dice:     "Te voy a preguntar directo. ¿Qué te hiciste? No me hice cirugía. Ni inyecciones. Entonces explícame lo que estoy viendo. Es natural. Llevo tres meses. ¿Tres meses? ¿Todo eso?"
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 10.00s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 5   (10 s, tipo R)   — solución
+  Cuando:   00:39.56 -> 00:49.40   (9.84s de ventana)
+  Clip:     video/toma-5.mp4
+  Tramos:
+            [0.0–2.8s] [personaje]  "Son cápsulas. Dos al día, con la comida."
+            [2.8–4.0s] [personaje-2]  "Eso es ridículo."
+            [4.0–7.8s] [personaje]  "Aguaje, fenogreco y maca negra, con mi comida y mi rutina de pierna."
+            [7.8–10.0s] [personaje]  "Sin agujas y sin quirófano."
+  Dice:     "Son cápsulas. Dos al día, con la comida. Eso es ridículo. Aguaje, fenogreco y maca negra, con mi comida y mi rutina de pierna. Sin agujas y sin quirófano."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) producto       -> producto.png
+            4) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.06s del INICIO y 0.11s del FINAL.
+            Quedan 9.84s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 6   (10 s, tipo R)   — giro
+  Cuando:   00:49.40 -> 00:59.40   (10.00s de ventana)
+  Clip:     video/toma-6.mp4
+  Tramos:
+            [0.0–1.8s] [personaje-2]  "Sebastián, danos un minuto."
+            [1.8–2.8s] [personaje-3]  "¿Mariana?"
+            [2.8–3.8s] [personaje]  "Tranquilo, ve."
+            [3.8–7.8s] [personaje-2]  "Yo he sido plana toda mi vida. Mi mamá también, y mi abuela."
+            [7.8–10.0s] [personaje-2]  "Pensé que así éramos. ¿Cómo se llama?"
+  Dice:     "Sebastián, danos un minuto. ¿Mariana? Tranquilo, ve. Yo he sido plana toda mi vida. Mi mamá también, y mi abuela. Pensé que así éramos. ¿Cómo se llama?"
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) personaje-3    -> img/personaje-3.png
+            4) producto       -> producto.png
+            5) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 10.00s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 7   (8 s, tipo R)   — prueba
+  Cuando:   00:59.40 -> 01:07.33   (7.93s de ventana)
+  Clip:     video/toma-7.mp4
+  Tramos:
+            [0.0–3.2s] [personaje]  "Usted me dijo falsa. Dijo que no era bienvenida aquí."
+            [3.2–5.8s] [personaje-2]  "Estaba equivocada. Perdóname. ¿Cómo se llama?"
+            [5.8–8.0s] [personaje]  "Aguaje Complex, tres en uno."
+  Dice:     "Usted me dijo falsa. Dijo que no era bienvenida aquí. Estaba equivocada. Perdóname. ¿Cómo se llama? Aguaje Complex, tres en uno."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) producto       -> producto.png
+            4) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 8   (8 s, tipo R)   — prueba
+  Cuando:   01:07.33 -> 01:15.26   (7.93s de ventana)
+  Clip:     video/toma-8.mp4
+  Tramos:
+            [0.0–1.4s] [personaje-2]  "¿Y de verdad funciona?"
+            [1.4–4.4s] [personaje]  "Usted misma me hizo dar la vuelta. Dígame usted."
+            [4.4–5.8s] [personaje-2]  "Mándame el link."
+            [5.8–8.0s] [personaje]  "Pídalo más bonito."
+  Dice:     "¿Y de verdad funciona? Usted misma me hizo dar la vuelta. Dígame usted. Mándame el link. Pídalo más bonito."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) producto       -> producto.png
+            4) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 7.93s utiles de los 7.93s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 9   (6 s, tipo R)   — remate
+  Cuando:   01:15.26 -> 01:21.23   (5.97s de ventana)
+  Clip:     video/toma-9.mp4
+  Tramos:
+            [0.0–1.0s] [personaje-2]  "Por favor."
+            [1.0–2.2s] [personaje]  "Revise su celular."
+            [2.2–3.4s] [personaje-3]  "¿Todo bien?"
+            [3.4–4.8s] [personaje-2]  "Es una buena elección."
+            [4.8–6.0s] [personaje]  "Cosas de mujeres."
+  Dice:     "Por favor. Revise su celular. ¿Todo bien? Es una buena elección. Cosas de mujeres."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) personaje-2    -> img/personaje-2.png
+            3) personaje-3    -> img/personaje-3.png
+            4) producto       -> producto.png
+            5) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 5.97s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 10   (10 s, tipo R)   — testimonio
+  Cuando:   01:21.23 -> 01:31.23   (10.00s de ventana)
+  Clip:     video/toma-10.mp4
+  Tramos:
+            [0.0–3.8s] [personaje]  "La mamá de mi novio me hizo dar la vuelta en plena cena."
+            [3.8–7.4s] [personaje]  "Me dijo falsa. No me operé: encontré algo que me funcionó."
+            [7.4–10.0s] [personaje]  "Aguaje Complex, tres en uno."
+  Dice:     "La mamá de mi novio me hizo dar la vuelta en plena cena. Me dijo falsa. No me operé: encontré algo que me funcionó. Aguaje Complex, tres en uno."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.00s del INICIO y 0.00s del FINAL.
+            Quedan 10.00s utiles de los 10.00s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+BLOQUE 11   (6 s, tipo R)   — cierre
+  Cuando:   01:31.23 -> 01:36.66   (5.43s de ventana)
+  Clip:     video/toma-11.mp4
+  Tramos:
+            [0.0–3.8s] [personaje]  "Si te sientes plana como yo me sentía, míralo con calma."
+            [3.8–6.0s] [personaje]  "El link está aquí abajo."
+  Dice:     "Si te sientes plana como yo me sentía, míralo con calma. El link está aquí abajo."
+  Referencias con que se genera (en este orden, como "ingredientes", no como
+  imagen de inicio):
+            1) personaje      -> img/personaje.png
+            2) producto       -> producto.png
+            3) imagen         -> (no esta en la lista de referencias)
+  Recorte:  0.00s del INICIO y 0.54s del FINAL.
+            Quedan 5.43s utiles de los 5.97s del clip.
+            NO lo aceleres ni le cortes por dentro: rompe el lip-sync.
+
+------------------------------------------------------------------------------
+
+SUBTITULOS, TEXTO EN PANTALLA Y MUSICA
+  Van en el montaje, nunca dentro de los clips. Musica baja, unos -22 dB por
+  debajo de la voz.
+
+AUDIO DE LOS CLIPS
+  La voz viene DENTRO de cada clip, con el ambiente del lugar. No se le agrega
+  narracion. Un fade corto (~80ms) en cada corte evita que suene seco.
+
+==============================================================================

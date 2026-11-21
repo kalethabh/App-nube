@@ -1,8 +1,8 @@
 {
   "slug": "aguaje-complex-3-en-1-agregar-20261121-1419",
   "familia": "ugc",
-  "estado": "corriendo",
-  "paso": "render",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "validar",
@@ -73,42 +73,41 @@
     {
       "id": "render",
       "nombre": "Exportar los videos",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-21T20:54:04.499Z",
-      "render": {
-        "renders": 1,
-        "n": 1,
-        "hechos": 2748,
-        "total": 2900,
-        "restante": 15,
-        "en": "2026-11-21T20:59:05.595Z"
-      }
+      "fin": "2026-11-21T21:00:24.192Z"
     },
     {
       "id": "control-final",
       "nombre": "Revisar el video terminado",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:00:24.192Z",
+      "fin": "2026-11-21T21:00:41.502Z"
     },
     {
       "id": "ganchos",
       "nombre": "Armar las versiones con otro gancho",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "saltado",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:00:41.502Z",
+      "fin": "2026-11-21T21:00:41.503Z"
     },
     {
       "id": "informe",
       "nombre": "Preparar el informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:00:41.504Z",
+      "fin": "2026-11-21T21:00:41.733Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-21T20:39:32.814Z",
   "aprobado": "2026-11-21T20:39:32.814Z",
-  "actualizado": "2026-11-21T20:59:05.595Z",
+  "actualizado": "2026-11-21T21:00:41.733Z",
   "saldoInicial": {
     "creditos": 11005.4,
     "fecha": "2026-11-21T20:39:34.090Z"
@@ -116,5 +115,10 @@
   "costoPlan": {
     "creditos": 1112,
     "fecha": "2026-11-21T20:39:34.090Z"
-  }
+  },
+  "saldoFinal": {
+    "creditos": 10013.4,
+    "fecha": "2026-11-21T21:00:41.725Z"
+  },
+  "terminado": "2026-11-21T21:00:41.733Z"
 }

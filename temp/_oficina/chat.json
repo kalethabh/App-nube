@@ -719,6 +719,22 @@
       ],
       "aviso": true,
       "fecha": "2026-11-21T20:55:55.205Z"
+    },
+    {
+      "id": "c8668e52b8",
+      "de": "coordinadora",
+      "texto": "¡Listo «Aguaje Complex 3 en 1 — «La muchacha de la foto no tenía ese cuerpo»»! 🎉 Aquí lo tienes. Si algo no te cuadra me dices y lo ajustamos.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Ver «Aguaje Complex 3 en 1 — «La muchacha de la foto no tenía ese cuerpo»»",
+          "href": "#/anuncio/aguaje-complex-3-en-1-agregar-20261121-1419",
+          "slug": "aguaje-complex-3-en-1-agregar-20261121-1419",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-21T21:00:55.224Z"
     }
   ],
   "encargos": [
@@ -790,7 +806,7 @@
       "titulo": "Realista con narrador de AGUAJE COMPLEX 3 EN 1"
     },
     {
-      "estado": "produciendo",
+      "estado": "listo",
       "creado": "2026-11-21T19:19:22.211Z",
       "id": "aguaje-complex-3-en-1-agregar-20261121-1419",
       "tipo": "video",
