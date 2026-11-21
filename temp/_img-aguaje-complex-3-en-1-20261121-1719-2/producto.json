@@ -1,41 +1,47 @@
 {
-  "slug": "_img-aguaje-complex-3-en-1-20261121-1719-2",
+  "slug": "aguaje-complex-3-en-1",
   "nombre": "AGUAJE COMPLEX 3 EN 1",
-  "analisis": "Suplemento en cápsulas a base de aguaje, fenogreco y maca negra para aumentar glúteos, piernas y caderas de forma natural.",
-  "tipo_producto": "fisico",
-  "descripcion_visual_en": "Use the attached product photo exactly as it is (packaging, label, colors and proportions).",
-  "foto_producto": "entrada/producto.png",
+  "analisis": "Suplemento dietario en cápsulas (nutracéutico) de Vitalabh, con aguaje, fenogreco y maca negra, más vitaminas A y E. Se toma 2 cápsulas al día; un frasco trae 60 cápsulas y dura un mes. Es el apoyo diario de la mujer que quiere más curvas sin agujas ni quirófano, junto con su comida y su rutina de pierna. Frasco negro mate con tapa y franja inferior fucsia, letras blancas y detalles rosados.",
+  "tipo_producto": "nutracéutico",
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type.",
+  "foto_producto": "temp/_img-aguaje-complex-3-en-1-20261121-1719-2/entrada/producto.png",
   "datos": {
-    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "angulo_preferido": "",
     "publico": "mujeres que quieren más volumen en glúteos y piernas",
     "precio": "",
     "moneda": "",
     "cta": "",
     "pais": "Colombia",
     "idioma": "es",
-    "adicional": "20 variaciones de su anuncio ganador (antes y después estilo animado 3D) para AGUAJE COMPLEX 3 EN 1. Tanda 2 de 2.",
-    "angulo": null
+    "adicional": "20 variaciones de su anuncio ganador (antes y después estilo animado 3D) para AGUAJE COMPLEX 3 EN 1. Tanda 2 de 2."
   },
   "identidad_visual": {
-    "color_palette": "the colors of the product packaging",
-    "visual_style": "the style of the reference ad",
-    "visual_atmosphere": "the atmosphere of the reference ad",
-    "graphic_language": "the graphic language of the reference ad",
-    "text_typography": "the typography of the reference ad",
-    "art_direction": "same design as the reference ad"
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, dark plum #2B1226 (the 'before' panel), bubblegum pink #FF8CC0, pale blush pink #FBE3EE and white #FFFFFF.",
+    "visual_style": "Winning reference style: glossy 3D animated cartoon (Pixar-like) before/after split screen, a dark moody 'before' panel on the left and a bright glowing fuchsia 'after' panel on the right, with the real black-and-fuchsia bottle as hero at the bottom right.",
+    "visual_atmosphere": "Playful, feminine, confident and aspirational; soft glow, sparkles and hearts on the 'after' side, muted and gloomy on the 'before' side.",
+    "graphic_language": "Rounded pill labels at the top of each panel, a curved white arrow crossing from 'before' to 'after', casual handwritten marker notes with small doodled arrows and hearts, white four-point sparkles, a round black seal with stars, a soft pink flower behind the bottle and a bottom row of three thin-line icons with small labels.",
+    "text_typography": "Same as the reference: headline in a heavy geometric sans-serif (Montserrat Black / ExtraBold look), all uppercase, tight leading, left-aligned, the first part in white and the second part in a contrasting color; subheadline in a clean regular sans-serif (Poppins Regular look) in sentence case, white; side notes in a casual handwritten marker script in sentence case; pill labels and seal in bold uppercase sans-serif; icon labels in small regular sans-serif.",
+    "art_direction": "Keep the exact composition of the winning reference: same split, same character, same blocks and positions; the bottle always sharp and identical to the photo; everything readable on a phone."
   },
   "beneficios": [
-    "Aumento de glúteos",
-    "Aumento de piernas y caderas",
-    "Triple acción con 3 extractos naturales",
-    "Sin efecto rebote (no engorda)",
-    "Sin necesidad de hacer ejercicio de fuerza",
-    "Resultados visibles y naturales"
+    "Acompaña tu proceso de curvas junto con tu comida y tu rutina de pierna",
+    "Más energía y mejor ánimo para cumplirle a tu rutina",
+    "Fácil de cumplir: solo 2 cápsulas al día con tus comidas",
+    "Una opción natural, sin agujas ni quirófano"
   ],
   "caracteristicas": [
-    "Producto real de la foto",
-    "Empaque original",
-    "Uso diario",
-    "Envío a domicilio"
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg",
+    "Con vitaminas A y E",
+    "60 cápsulas por frasco: un mes de plan",
+    "Pagas en efectivo cuando lo recibes"
+  ],
+  "deseo_central": "Verse con más curvas y sentirse segura con su cuerpo, sin agujas, sin quirófano y sin arriesgar su salud.",
+  "beneficio_principal": "Un apoyo natural y fácil (2 cápsulas al día) para acompañar su proceso de curvas junto con su comida y su rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Ya compré pastillas por internet y no vi nada",
+    "Me comparo con las de Instagram y me siento plana"
   ]
 }
