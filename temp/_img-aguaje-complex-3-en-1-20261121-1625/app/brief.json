@@ -1,0 +1,55 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261121-1625",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "AGUAJE COMPLEX 3 EN 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "mujeres que quieren más volumen en glúteos y piernas",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Variaciones de su anuncio ganador de Navidad «Esta Navidad regálate la figura que sueñas»: glúteos más grandes, piernas más firmes. Misma esencia y enfoque, otra modelo.",
+    "angulo": null
+  },
+  "cantidad": 3,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png"
+  ],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    "Variaciones de su anuncio ganador de Navidad «Esta Navidad regálate la figura que sueñas»: glúteos más grandes, piernas más firmes. Misma esencia y enfoque, otra modelo."
+  ],
+  "fiel": true,
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-21T21:25:16.556Z",
+  "investigacionDelProducto": true,
+  "origen": "chat",
+  "variacionesChat": [
+    {
+      "titular": "Esta Navidad, regálate la figura que tanto sueñas",
+      "cambio": "Otra modelo latina, de pie de perfil mostrando la curva de glúteos, gorro navideño, sosteniendo el frasco. Fondo blanco cálido casi liso con un solo arbolito desenfocado."
+    },
+    {
+      "titular": "Tu mejor regalo esta Navidad: la figura que sueñas",
+      "cambio": "Otra modelo, sentada de espaldas mirando a cámara, pijama navideño corto. Fondo crema limpio, sin cajas ni adornos extra; antes y después bien visible abajo."
+    },
+    {
+      "titular": "Regálate esta Navidad los glúteos que siempre quisiste",
+      "cambio": "Otra modelo morena de pelo rizado, pose de tres cuartos, short blanco y top rojo. Fondo rosado muy suave y liso; titular más grande y centrado arriba."
+    }
+  ],
+  "indicacionesChat": "Fondo mucho más limpio y liso, sin regalos, tarjetas, sellos sueltos ni textos decorativos que hagan ruido. El titular debe resaltar mucho: grande, con alto contraste. Mantener frasco, beneficios y antes/después pero ordenados y con aire.",
+  "leccionesChat": ""
+}

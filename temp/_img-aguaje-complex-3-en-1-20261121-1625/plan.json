@@ -1,0 +1,47 @@
+{
+  "producto": "AGUAJE COMPLEX 3 EN 1",
+  "lote": "_img-aguaje-complex-3-en-1-20261121-1625",
+  "cantidad": 3,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Esta Navidad, regálate la figura que tanto sueñas",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V02",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "dolor",
+      "angulo": "Dolor / problema",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Tu mejor regalo esta Navidad: la figura que sueñas",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    },
+    {
+      "id": "V03",
+      "fuente": "referencia",
+      "referencia": "entrada/referencias/R01.png",
+      "angulo_id": "transformacion",
+      "angulo": "Transformación / resultado",
+      "concepto": "Variación del creativo que ya funciona",
+      "titular": "Regálate esta Navidad los glúteos que siempre quisiste",
+      "escena": "la de la referencia",
+      "camara": "la de la referencia",
+      "base_titular": "beneficio de la ficha del producto"
+    }
+  ],
+  "rapido": true
+}
