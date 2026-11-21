@@ -1,0 +1,360 @@
+{
+  "generado": "2026-11-21T21:33:39.704Z",
+  "segundos": 560,
+  "imagenes": [
+    {
+      "id": "producto",
+      "archivo": "producto.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "protagonista_despues",
+      "archivo": "protagonista_despues.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "protagonista_antes",
+      "archivo": "protagonista_antes.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-1-inicial",
+      "archivo": "toma-1-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-2-inicial",
+      "archivo": "toma-2-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-3-inicial",
+      "archivo": "toma-3-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_antes"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-4-inicial",
+      "archivo": "toma-4-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_antes",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-5-inicial",
+      "archivo": "toma-5-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-6-inicial",
+      "archivo": "toma-6-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-7-inicial",
+      "archivo": "toma-7-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-8-inicial",
+      "archivo": "toma-8-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-9-inicial",
+      "archivo": "toma-9-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-10-inicial",
+      "archivo": "toma-10-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-11-inicial",
+      "archivo": "toma-11-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-12-inicial",
+      "archivo": "toma-12-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-12-final",
+      "archivo": "toma-12-final.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues",
+        "frame inicial"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-13-inicial",
+      "archivo": "toma-13-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-14-inicial",
+      "archivo": "toma-14-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_antes"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-15-inicial",
+      "archivo": "toma-15-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_antes"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-16-inicial",
+      "archivo": "toma-16-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_antes"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-17-inicial",
+      "archivo": "toma-17-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-18-inicial",
+      "archivo": "toma-18-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-19-inicial",
+      "archivo": "toma-19-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-20-inicial",
+      "archivo": "toma-20-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-21-inicial",
+      "archivo": "toma-21-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-22-inicial",
+      "archivo": "toma-22-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    },
+    {
+      "id": "toma-23-inicial",
+      "archivo": "toma-23-inicial.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": [
+        "protagonista_despues",
+        "producto"
+      ],
+      "creditos": 0,
+      "taskId": null,
+      "chatgpt": true
+    }
+  ]
+}
