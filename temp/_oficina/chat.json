@@ -735,6 +735,30 @@
       ],
       "aviso": true,
       "fecha": "2026-11-21T21:00:55.224Z"
+    },
+    {
+      "id": "488b335f4f",
+      "de": "tu",
+      "texto": "ahora me Necesito que repliques este video para El Aguaje mira como este si es narrativo y musical Recuerda que si dura más de 2 minutos déjalo en minuto 40 manteniendo la misma esencia la misma escenas tal cual los mismos personajes pero para El Aguaje",
+      "adjuntos": [
+        "54f6dfcc043e"
+      ],
+      "fecha": "2026-11-21T21:10:08.732Z"
+    },
+    {
+      "id": "278f1f06e3",
+      "de": "coordinadora",
+      "texto": "¡Dale! Lo replico para el Aguaje igual que tu video: mismas escenas, mismos personajes, con su narración y su música 🎶 Si pasa de 2 minutos lo dejo en 1:40 sin perder la esencia. Apenas esté el guion te paso el costo y no arranca nada sin tu sí.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Guion Igual a tu video de AGUAJE COMPLEX 3 EN 1 (clonando tu video)",
+          "href": "#/nuevo?producto=producto-edb1&paso=2&anuncios=aguaje-complex-3-en-1-agregar-20261121-1610",
+          "slug": "aguaje-complex-3-en-1-agregar-20261121-1610",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-21T21:10:22.383Z"
     }
   ],
   "encargos": [
@@ -835,6 +859,15 @@
       "titulo": "5 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio)",
       "costo": 0,
       "aprobado": "2026-11-21T20:42:21.836Z"
+    },
+    {
+      "estado": "escribiendo",
+      "creado": "2026-11-21T21:10:22.382Z",
+      "id": "aguaje-complex-3-en-1-agregar-20261121-1610",
+      "tipo": "video",
+      "slug": "aguaje-complex-3-en-1-agregar-20261121-1610",
+      "productoId": "producto-edb1",
+      "titulo": "Igual a tu video de AGUAJE COMPLEX 3 EN 1"
     }
   ]
 }

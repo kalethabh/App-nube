@@ -1,0 +1,480 @@
+{
+  "video": "original.mp4",
+  "duracion": 106.76,
+  "formato": "720x1280",
+  "vertical": true,
+  "tomas": [
+    {
+      "n": 1,
+      "desde": 0,
+      "hasta": 2.33,
+      "duracion": 2.33,
+      "fotograma": "tomas/toma-01.jpg",
+      "tira": "tomas/movimiento/tira-01.jpg",
+      "imagen": {
+        "brillo": 83.4,
+        "luz": "media",
+        "saturacion": 23.6,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 7.3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Le dijeron flaca, toda la vida,",
+      "eventos": [],
+      "palabras_por_segundo": 2.58
+    },
+    {
+      "n": 2,
+      "desde": 2.33,
+      "hasta": 4.83,
+      "duracion": 2.5,
+      "fotograma": "tomas/toma-02.jpg",
+      "tira": "tomas/movimiento/tira-02.jpg",
+      "imagen": {
+        "brillo": 118.2,
+        "luz": "media",
+        "saturacion": 16.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 13.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "tres semanas con estas gotas y se acabó.",
+      "eventos": [],
+      "palabras_por_segundo": 3.2
+    },
+    {
+      "n": 3,
+      "desde": 4.83,
+      "hasta": 9.4,
+      "duracion": 4.57,
+      "fotograma": "tomas/toma-03.jpg",
+      "tira": "tomas/movimiento/tira-03.jpg",
+      "imagen": {
+        "brillo": 113.4,
+        "luz": "media",
+        "saturacion": 19.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 22.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Le dijeron que le iba a llenar la cola a tiempo pa' su día de playa,",
+      "eventos": [],
+      "palabras_por_segundo": 3.5
+    },
+    {
+      "n": 4,
+      "desde": 9.4,
+      "hasta": 14.13,
+      "duracion": 4.73,
+      "fotograma": "tomas/toma-04.jpg",
+      "tira": "tomas/movimiento/tira-04.jpg",
+      "imagen": {
+        "brillo": 107.7,
+        "luz": "media",
+        "saturacion": 19.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "así que empezó a tomarse dos goteros de esto cada día.",
+      "eventos": [],
+      "palabras_por_segundo": 2.33
+    },
+    {
+      "n": 5,
+      "desde": 14.13,
+      "hasta": 20.97,
+      "duracion": 6.84,
+      "fotograma": "tomas/toma-05.jpg",
+      "tira": "tomas/movimiento/tira-05.jpg",
+      "imagen": {
+        "brillo": 110.8,
+        "luz": "media",
+        "saturacion": 16.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Pero ahora está encabroná, ni hablar puede, porque gastó sesenta dólares la",
+      "eventos": [],
+      "palabras_por_segundo": 1.75
+    },
+    {
+      "n": 6,
+      "desde": 20.97,
+      "hasta": 23.27,
+      "duracion": 2.3,
+      "fotograma": "tomas/toma-06.jpg",
+      "tira": "tomas/movimiento/tira-06.jpg",
+      "imagen": {
+        "brillo": 98.8,
+        "luz": "media",
+        "saturacion": 17.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "semana pasada.",
+      "eventos": [],
+      "palabras_por_segundo": 0.87
+    },
+    {
+      "n": 7,
+      "desde": 23.27,
+      "hasta": 28.7,
+      "duracion": 5.43,
+      "fotograma": "tomas/toma-07.jpg",
+      "tira": "tomas/movimiento/tira-07.jpg",
+      "imagen": {
+        "brillo": 110.6,
+        "luz": "media",
+        "saturacion": 16.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Y ahí fue que vio que bajaron el precio, el más bajo que ha estado nunca.",
+      "eventos": [],
+      "palabras_por_segundo": 2.95
+    },
+    {
+      "n": 8,
+      "desde": 28.7,
+      "hasta": 33.4,
+      "duracion": 4.7,
+      "fotograma": "tomas/toma-08.jpg",
+      "tira": "tomas/movimiento/tira-08.jpg",
+      "imagen": {
+        "brillo": 96.3,
+        "luz": "media",
+        "saturacion": 18.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 14.2,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Estaba furiosa, pero sinceramente ni puede estar tan brava.",
+      "eventos": [],
+      "palabras_por_segundo": 1.91
+    },
+    {
+      "n": 9,
+      "desde": 33.4,
+      "hasta": 38.07,
+      "duracion": 4.67,
+      "fotograma": "tomas/toma-09.jpg",
+      "tira": "tomas/movimiento/tira-09.jpg",
+      "imagen": {
+        "brillo": 116.2,
+        "luz": "media",
+        "saturacion": 16.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 20.1,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Por lo bien que funcionó, solo lleva tres semanas tomándolo",
+      "eventos": [],
+      "palabras_por_segundo": 2.14
+    },
+    {
+      "n": 10,
+      "desde": 38.07,
+      "hasta": 41.47,
+      "duracion": 3.4,
+      "fotograma": "tomas/toma-10.jpg",
+      "tira": "tomas/movimiento/tira-10.jpg",
+      "imagen": {
+        "brillo": 80.1,
+        "luz": "media",
+        "saturacion": 18.7,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 20.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "y el pantalón ya no le siente igual, no sé cómo. Hasta sus",
+      "eventos": [],
+      "palabras_por_segundo": 3.82
+    },
+    {
+      "n": 11,
+      "desde": 41.47,
+      "hasta": 43.87,
+      "duracion": 2.4,
+      "fotograma": "tomas/toma-11.jpg",
+      "tira": "tomas/movimiento/tira-11.jpg",
+      "imagen": {
+        "brillo": 76.5,
+        "luz": "media",
+        "saturacion": 24.4,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.2,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "primos le empezaron a preguntar. Los",
+      "eventos": [],
+      "palabras_por_segundo": 2.5
+    },
+    {
+      "n": 12,
+      "desde": 43.87,
+      "hasta": 52.87,
+      "duracion": 9,
+      "fotograma": "tomas/toma-12.jpg",
+      "tira": "tomas/movimiento/tira-12.jpg",
+      "imagen": {
+        "brillo": 134,
+        "luz": "media",
+        "saturacion": 22.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 7.7,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "fitoestrógenos le mandaron la señal que a su cuerpo le faltaba, la que le dice dónde guardar la grasa, no perderla.",
+      "eventos": [],
+      "palabras_por_segundo": 2.33
+    },
+    {
+      "n": 13,
+      "desde": 52.87,
+      "hasta": 57.1,
+      "duracion": 4.23,
+      "fotograma": "tomas/toma-13.jpg",
+      "tira": "tomas/movimiento/tira-13.jpg",
+      "imagen": {
+        "brillo": 121.3,
+        "luz": "media",
+        "saturacion": 18.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.3,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Dos goteros al día, eso fue to' lo que tomó.",
+      "eventos": [],
+      "palabras_por_segundo": 2.36
+    },
+    {
+      "n": 14,
+      "desde": 57.1,
+      "hasta": 59.87,
+      "duracion": 2.77,
+      "fotograma": "tomas/toma-14.jpg",
+      "tira": "tomas/movimiento/tira-14.jpg",
+      "imagen": {
+        "brillo": 107.9,
+        "luz": "media",
+        "saturacion": 13.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "No fue su culpa que las sentadillas y",
+      "eventos": [],
+      "palabras_por_segundo": 2.89
+    },
+    {
+      "n": 15,
+      "desde": 59.87,
+      "hasta": 62.67,
+      "duracion": 2.8,
+      "fotograma": "tomas/toma-15.jpg",
+      "tira": "tomas/movimiento/tira-15.jpg",
+      "imagen": {
+        "brillo": 98.5,
+        "luz": "media",
+        "saturacion": 13.3,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 12.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "los batidos no le dieran suerte.",
+      "eventos": [],
+      "palabras_por_segundo": 2.14
+    },
+    {
+      "n": 16,
+      "desde": 62.67,
+      "hasta": 69.47,
+      "duracion": 6.8,
+      "fotograma": "tomas/toma-16.jpg",
+      "tira": "tomas/movimiento/tira-16.jpg",
+      "imagen": {
+        "brillo": 103.1,
+        "luz": "media",
+        "saturacion": 16.8,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 5.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Casi ni lo prueba, pensó que era otro anuncio falso vendiendo promesas vacías,",
+      "eventos": [],
+      "palabras_por_segundo": 1.91
+    },
+    {
+      "n": 17,
+      "desde": 69.47,
+      "hasta": 76.8,
+      "duracion": 7.33,
+      "fotograma": "tomas/toma-17.jpg",
+      "tira": "tomas/movimiento/tira-17.jpg",
+      "imagen": {
+        "brillo": 111.9,
+        "luz": "media",
+        "saturacion": 17.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 6.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "pero es solo su cadera, sus muslos y su cola los que se pusieron grandes.",
+      "eventos": [],
+      "palabras_por_segundo": 2.05
+    },
+    {
+      "n": 18,
+      "desde": 76.8,
+      "hasta": 80.27,
+      "duracion": 3.47,
+      "fotograma": "tomas/toma-18.jpg",
+      "tira": "tomas/movimiento/tira-18.jpg",
+      "imagen": {
+        "brillo": 99.3,
+        "luz": "media",
+        "saturacion": 17.5,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 16.7,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "No cometas el mismo error que ella. Ahora",
+      "eventos": [],
+      "palabras_por_segundo": 2.31
+    },
+    {
+      "n": 19,
+      "desde": 80.27,
+      "hasta": 84.23,
+      "duracion": 3.96,
+      "fotograma": "tomas/toma-19.jpg",
+      "tira": "tomas/movimiento/tira-19.jpg",
+      "imagen": {
+        "brillo": 94.6,
+        "luz": "media",
+        "saturacion": 18.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9.8,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "mismo te lo llevas con sesenta y siete por ciento de descuento,",
+      "eventos": [],
+      "palabras_por_segundo": 3.03
+    },
+    {
+      "n": 20,
+      "desde": 84.23,
+      "hasta": 86.87,
+      "duracion": 2.64,
+      "fotograma": "tomas/toma-20.jpg",
+      "tira": "tomas/movimiento/tira-20.jpg",
+      "imagen": {
+        "brillo": 111.2,
+        "luz": "media",
+        "saturacion": 22.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 22.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "lo que sale a menos de un dólar al día.",
+      "eventos": [],
+      "palabras_por_segundo": 3.79
+    },
+    {
+      "n": 21,
+      "desde": 86.87,
+      "hasta": 93.13,
+      "duracion": 6.26,
+      "fotograma": "tomas/toma-21.jpg",
+      "tira": "tomas/movimiento/tira-21.jpg",
+      "imagen": {
+        "brillo": 113.6,
+        "luz": "media",
+        "saturacion": 21.2,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 4.8,
+        "se_mueve": "movimiento suave (cámara en mano o gestos)"
+      },
+      "dice": "Pero ya casi se agota, así que puede que ya perdiste tu oportunidad.",
+      "eventos": [],
+      "palabras_por_segundo": 2.08
+    },
+    {
+      "n": 22,
+      "desde": 93.13,
+      "hasta": 96.7,
+      "duracion": 3.57,
+      "fotograma": "tomas/toma-22.jpg",
+      "tira": "tomas/movimiento/tira-22.jpg",
+      "imagen": {
+        "brillo": 104.2,
+        "luz": "media",
+        "saturacion": 17.9,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 8.3,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "Así que si puedes, dale clic al link de abajo,",
+      "eventos": [],
+      "palabras_por_segundo": 2.8
+    },
+    {
+      "n": 23,
+      "desde": 96.7,
+      "hasta": 106.76,
+      "duracion": 10.06,
+      "fotograma": "tomas/toma-23.jpg",
+      "tira": "tomas/movimiento/tira-23.jpg",
+      "imagen": {
+        "brillo": 104.6,
+        "luz": "media",
+        "saturacion": 19.1,
+        "color": "apagado",
+        "temperatura": "cálida",
+        "movimiento": 9,
+        "se_mueve": "mucho movimiento"
+      },
+      "dice": "puede que todavía quede alguna, así que consíguete una botella antes de que se agoten otra vez.",
+      "eventos": [],
+      "palabras_por_segundo": 1.69
+    }
+  ],
+  "texto": "Le dijeron flaca, toda la vida, tres semanas con estas gotas y se acabó. Le dijeron que le iba a llenar la cola a tiempo pa' su día de playa, así que empezó a tomarse dos goteros de esto cada día. Pero ahora está encabroná, ni hablar puede, porque gastó sesenta dólares la semana pasada. Y ahí fue que vio que bajaron el precio, el más bajo que ha estado nunca. Estaba furiosa, pero sinceramente ni puede estar tan brava. Por lo bien que funcionó, solo lleva tres semanas tomándolo y el pantalón ya no le siente igual, no sé cómo. Hasta sus primos le empezaron a preguntar. Los fitoestrógenos le mandaron la señal que a su cuerpo le faltaba, la que le dice dónde guardar la grasa, no perderla. Dos goteros al día, eso fue to' lo que tomó. No fue su culpa que las sentadillas y los batidos no le dieran suerte. Casi ni lo prueba, pensó que era otro anuncio falso vendiendo promesas vacías, pero es solo su cadera, sus muslos y su cola los que se pusieron grandes. No cometas el mismo error que ella. Ahora mismo te lo llevas con sesenta y siete por ciento de descuento, lo que sale a menos de un dólar al día. Pero ya casi se agota, así que puede que ya perdiste tu oportunidad. Así que si puedes, dale clic al link de abajo, puede que todavía quede alguna, así que consíguete una botella antes de que se agoten otra vez.",
+  "palabras_por_segundo": 2.36,
+  "eventos_de_audio": [],
+  "voz": {
+    "f0": 258,
+    "genero": "femenina",
+    "variacion": 9,
+    "expresiva": true,
+    "ritmo": 2.36,
+    "muestras": 629
+  },
+  "aviso": null
+}

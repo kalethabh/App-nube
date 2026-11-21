@@ -1,0 +1,1265 @@
+{
+  "palabras": [
+    {
+      "texto": "Le",
+      "desde": 0.08,
+      "hasta": 0.2
+    },
+    {
+      "texto": "dijeron",
+      "desde": 0.24,
+      "hasta": 0.78
+    },
+    {
+      "texto": "flaca,",
+      "desde": 0.84,
+      "hasta": 1.28
+    },
+    {
+      "texto": "toda",
+      "desde": 1.46,
+      "hasta": 1.74
+    },
+    {
+      "texto": "la",
+      "desde": 1.78,
+      "hasta": 1.88
+    },
+    {
+      "texto": "vida,",
+      "desde": 2.04,
+      "hasta": 2.38
+    },
+    {
+      "texto": "tres",
+      "desde": 2.46,
+      "hasta": 2.6
+    },
+    {
+      "texto": "semanas",
+      "desde": 2.66,
+      "hasta": 3.04
+    },
+    {
+      "texto": "con",
+      "desde": 3.1,
+      "hasta": 3.24
+    },
+    {
+      "texto": "estas",
+      "desde": 3.3,
+      "hasta": 3.52
+    },
+    {
+      "texto": "gotas",
+      "desde": 3.56,
+      "hasta": 3.84
+    },
+    {
+      "texto": "y",
+      "desde": 3.88,
+      "hasta": 3.94
+    },
+    {
+      "texto": "se",
+      "desde": 3.98,
+      "hasta": 4.059
+    },
+    {
+      "texto": "acabó.",
+      "desde": 4.14,
+      "hasta": 4.76
+    },
+    {
+      "texto": "Le",
+      "desde": 4.96,
+      "hasta": 5.08
+    },
+    {
+      "texto": "dijeron",
+      "desde": 5.12,
+      "hasta": 5.52
+    },
+    {
+      "texto": "que",
+      "desde": 5.56,
+      "hasta": 5.68
+    },
+    {
+      "texto": "le",
+      "desde": 5.74,
+      "hasta": 5.84
+    },
+    {
+      "texto": "iba",
+      "desde": 5.94,
+      "hasta": 6.08
+    },
+    {
+      "texto": "a",
+      "desde": 6.1,
+      "hasta": 6.12
+    },
+    {
+      "texto": "llenar",
+      "desde": 6.14,
+      "hasta": 6.58
+    },
+    {
+      "texto": "la",
+      "desde": 6.64,
+      "hasta": 6.74
+    },
+    {
+      "texto": "cola",
+      "desde": 6.94,
+      "hasta": 7.34
+    },
+    {
+      "texto": "a",
+      "desde": 7.4,
+      "hasta": 7.44
+    },
+    {
+      "texto": "tiempo",
+      "desde": 7.54,
+      "hasta": 7.92
+    },
+    {
+      "texto": "pa'",
+      "desde": 7.96,
+      "hasta": 8.039
+    },
+    {
+      "texto": "su",
+      "desde": 8.16,
+      "hasta": 8.24
+    },
+    {
+      "texto": "día",
+      "desde": 8.28,
+      "hasta": 8.52
+    },
+    {
+      "texto": "de",
+      "desde": 8.56,
+      "hasta": 8.68
+    },
+    {
+      "texto": "playa,",
+      "desde": 8.72,
+      "hasta": 9.14
+    },
+    {
+      "texto": "así",
+      "desde": 9.46,
+      "hasta": 9.86
+    },
+    {
+      "texto": "que",
+      "desde": 9.9,
+      "hasta": 9.98
+    },
+    {
+      "texto": "empezó",
+      "desde": 10.04,
+      "hasta": 10.4
+    },
+    {
+      "texto": "a",
+      "desde": 10.42,
+      "hasta": 10.48
+    },
+    {
+      "texto": "tomarse",
+      "desde": 10.52,
+      "hasta": 11.1
+    },
+    {
+      "texto": "dos",
+      "desde": 11.86,
+      "hasta": 12
+    },
+    {
+      "texto": "goteros",
+      "desde": 12.04,
+      "hasta": 12.42
+    },
+    {
+      "texto": "de",
+      "desde": 12.48,
+      "hasta": 12.52
+    },
+    {
+      "texto": "esto",
+      "desde": 12.58,
+      "hasta": 12.9
+    },
+    {
+      "texto": "cada",
+      "desde": 13.06,
+      "hasta": 13.48
+    },
+    {
+      "texto": "día.",
+      "desde": 13.54,
+      "hasta": 14.12
+    },
+    {
+      "texto": "Pero",
+      "desde": 14.28,
+      "hasta": 14.54
+    },
+    {
+      "texto": "ahora",
+      "desde": 14.64,
+      "hasta": 14.84
+    },
+    {
+      "texto": "está",
+      "desde": 15.12,
+      "hasta": 15.24
+    },
+    {
+      "texto": "encabroná,",
+      "desde": 15.28,
+      "hasta": 16.239
+    },
+    {
+      "texto": "ni",
+      "desde": 16.46,
+      "hasta": 16.54
+    },
+    {
+      "texto": "hablar",
+      "desde": 16.56,
+      "hasta": 16.88
+    },
+    {
+      "texto": "puede,",
+      "desde": 16.94,
+      "hasta": 17.24
+    },
+    {
+      "texto": "porque",
+      "desde": 18,
+      "hasta": 18.24
+    },
+    {
+      "texto": "gastó",
+      "desde": 18.28,
+      "hasta": 18.66
+    },
+    {
+      "texto": "sesenta",
+      "desde": 18.74,
+      "hasta": 19.6
+    },
+    {
+      "texto": "dólares",
+      "desde": 19.64,
+      "hasta": 20.52
+    },
+    {
+      "texto": "la",
+      "desde": 20.56,
+      "hasta": 20.66
+    },
+    {
+      "texto": "semana",
+      "desde": 20.72,
+      "hasta": 21.5
+    },
+    {
+      "texto": "pasada.",
+      "desde": 21.64,
+      "hasta": 22.34
+    },
+    {
+      "texto": "Y",
+      "desde": 23.52,
+      "hasta": 23.56
+    },
+    {
+      "texto": "ahí",
+      "desde": 23.62,
+      "hasta": 23.8
+    },
+    {
+      "texto": "fue",
+      "desde": 23.86,
+      "hasta": 24.08
+    },
+    {
+      "texto": "que",
+      "desde": 24.14,
+      "hasta": 24.32
+    },
+    {
+      "texto": "vio",
+      "desde": 24.42,
+      "hasta": 24.68
+    },
+    {
+      "texto": "que",
+      "desde": 24.74,
+      "hasta": 24.88
+    },
+    {
+      "texto": "bajaron",
+      "desde": 24.92,
+      "hasta": 25.36
+    },
+    {
+      "texto": "el",
+      "desde": 25.44,
+      "hasta": 25.56
+    },
+    {
+      "texto": "precio,",
+      "desde": 25.64,
+      "hasta": 26.12
+    },
+    {
+      "texto": "el",
+      "desde": 26.34,
+      "hasta": 26.5
+    },
+    {
+      "texto": "más",
+      "desde": 26.56,
+      "hasta": 26.8
+    },
+    {
+      "texto": "bajo",
+      "desde": 26.86,
+      "hasta": 27.1
+    },
+    {
+      "texto": "que",
+      "desde": 27.14,
+      "hasta": 27.22
+    },
+    {
+      "texto": "ha",
+      "desde": 27.24,
+      "hasta": 27.32
+    },
+    {
+      "texto": "estado",
+      "desde": 27.34,
+      "hasta": 27.86
+    },
+    {
+      "texto": "nunca.",
+      "desde": 27.94,
+      "hasta": 28.62
+    },
+    {
+      "texto": "Estaba",
+      "desde": 28.66,
+      "hasta": 29.06
+    },
+    {
+      "texto": "furiosa,",
+      "desde": 29.12,
+      "hasta": 29.96
+    },
+    {
+      "texto": "pero",
+      "desde": 30.04,
+      "hasta": 30.26
+    },
+    {
+      "texto": "sinceramente",
+      "desde": 30.32,
+      "hasta": 31.32
+    },
+    {
+      "texto": "ni",
+      "desde": 31.38,
+      "hasta": 31.52
+    },
+    {
+      "texto": "puede",
+      "desde": 31.66,
+      "hasta": 31.98
+    },
+    {
+      "texto": "estar",
+      "desde": 32.1,
+      "hasta": 32.38
+    },
+    {
+      "texto": "tan",
+      "desde": 32.439,
+      "hasta": 32.78
+    },
+    {
+      "texto": "brava.",
+      "desde": 32.84,
+      "hasta": 33.42
+    },
+    {
+      "texto": "Por",
+      "desde": 33.48,
+      "hasta": 33.68
+    },
+    {
+      "texto": "lo",
+      "desde": 33.78,
+      "hasta": 34
+    },
+    {
+      "texto": "bien",
+      "desde": 34.04,
+      "hasta": 34.3
+    },
+    {
+      "texto": "que",
+      "desde": 34.36,
+      "hasta": 34.46
+    },
+    {
+      "texto": "funcionó,",
+      "desde": 34.68,
+      "hasta": 35.34
+    },
+    {
+      "texto": "solo",
+      "desde": 35.44,
+      "hasta": 35.82
+    },
+    {
+      "texto": "lleva",
+      "desde": 35.84,
+      "hasta": 36.1
+    },
+    {
+      "texto": "tres",
+      "desde": 36.16,
+      "hasta": 36.26
+    },
+    {
+      "texto": "semanas",
+      "desde": 36.32,
+      "hasta": 36.86
+    },
+    {
+      "texto": "tomándolo",
+      "desde": 36.92,
+      "hasta": 37.64
+    },
+    {
+      "texto": "y",
+      "desde": 38.12,
+      "hasta": 38.14
+    },
+    {
+      "texto": "el",
+      "desde": 38.16,
+      "hasta": 38.24
+    },
+    {
+      "texto": "pantalón",
+      "desde": 38.28,
+      "hasta": 38.96
+    },
+    {
+      "texto": "ya",
+      "desde": 39.04,
+      "hasta": 39.12
+    },
+    {
+      "texto": "no",
+      "desde": 39.18,
+      "hasta": 39.26
+    },
+    {
+      "texto": "le",
+      "desde": 39.3,
+      "hasta": 39.4
+    },
+    {
+      "texto": "siente",
+      "desde": 39.48,
+      "hasta": 39.8
+    },
+    {
+      "texto": "igual,",
+      "desde": 39.86,
+      "hasta": 40.28
+    },
+    {
+      "texto": "no",
+      "desde": 40.34,
+      "hasta": 40.46
+    },
+    {
+      "texto": "sé",
+      "desde": 40.52,
+      "hasta": 40.62
+    },
+    {
+      "texto": "cómo.",
+      "desde": 40.68,
+      "hasta": 40.94
+    },
+    {
+      "texto": "Hasta",
+      "desde": 41.08,
+      "hasta": 41.36
+    },
+    {
+      "texto": "sus",
+      "desde": 41.4,
+      "hasta": 41.52
+    },
+    {
+      "texto": "primos",
+      "desde": 41.56,
+      "hasta": 41.82
+    },
+    {
+      "texto": "le",
+      "desde": 41.86,
+      "hasta": 41.92
+    },
+    {
+      "texto": "empezaron",
+      "desde": 41.98,
+      "hasta": 42.76
+    },
+    {
+      "texto": "a",
+      "desde": 42.88,
+      "hasta": 42.92
+    },
+    {
+      "texto": "preguntar.",
+      "desde": 43.04,
+      "hasta": 43.78
+    },
+    {
+      "texto": "Los",
+      "desde": 43.82,
+      "hasta": 43.9
+    },
+    {
+      "texto": "fitoestrógenos",
+      "desde": 43.96,
+      "hasta": 44.76
+    },
+    {
+      "texto": "le",
+      "desde": 44.78,
+      "hasta": 44.96
+    },
+    {
+      "texto": "mandaron",
+      "desde": 45.04,
+      "hasta": 46
+    },
+    {
+      "texto": "la",
+      "desde": 46.34,
+      "hasta": 46.44
+    },
+    {
+      "texto": "señal",
+      "desde": 46.52,
+      "hasta": 46.88
+    },
+    {
+      "texto": "que",
+      "desde": 46.94,
+      "hasta": 46.98
+    },
+    {
+      "texto": "a",
+      "desde": 47.02,
+      "hasta": 47.06
+    },
+    {
+      "texto": "su",
+      "desde": 47.1,
+      "hasta": 47.2
+    },
+    {
+      "texto": "cuerpo",
+      "desde": 47.24,
+      "hasta": 47.5
+    },
+    {
+      "texto": "le",
+      "desde": 47.54,
+      "hasta": 47.64
+    },
+    {
+      "texto": "faltaba,",
+      "desde": 47.68,
+      "hasta": 48.4
+    },
+    {
+      "texto": "la",
+      "desde": 48.62,
+      "hasta": 48.72
+    },
+    {
+      "texto": "que",
+      "desde": 48.74,
+      "hasta": 48.86
+    },
+    {
+      "texto": "le",
+      "desde": 48.92,
+      "hasta": 49.02
+    },
+    {
+      "texto": "dice",
+      "desde": 49.04,
+      "hasta": 49.3
+    },
+    {
+      "texto": "dónde",
+      "desde": 49.34,
+      "hasta": 49.6
+    },
+    {
+      "texto": "guardar",
+      "desde": 49.64,
+      "hasta": 50.04
+    },
+    {
+      "texto": "la",
+      "desde": 50.1,
+      "hasta": 50.18
+    },
+    {
+      "texto": "grasa,",
+      "desde": 50.24,
+      "hasta": 50.76
+    },
+    {
+      "texto": "no",
+      "desde": 50.88,
+      "hasta": 51.08
+    },
+    {
+      "texto": "perderla.",
+      "desde": 51.48,
+      "hasta": 52.9
+    },
+    {
+      "texto": "Dos",
+      "desde": 52.96,
+      "hasta": 53.08
+    },
+    {
+      "texto": "goteros",
+      "desde": 53.12,
+      "hasta": 53.54
+    },
+    {
+      "texto": "al",
+      "desde": 53.66,
+      "hasta": 53.8
+    },
+    {
+      "texto": "día,",
+      "desde": 53.88,
+      "hasta": 54.3
+    },
+    {
+      "texto": "eso",
+      "desde": 54.42,
+      "hasta": 54.74
+    },
+    {
+      "texto": "fue",
+      "desde": 54.94,
+      "hasta": 55.28
+    },
+    {
+      "texto": "to'",
+      "desde": 55.38,
+      "hasta": 55.52
+    },
+    {
+      "texto": "lo",
+      "desde": 55.68,
+      "hasta": 55.84
+    },
+    {
+      "texto": "que",
+      "desde": 55.94,
+      "hasta": 56.12
+    },
+    {
+      "texto": "tomó.",
+      "desde": 56.44,
+      "hasta": 57.02
+    },
+    {
+      "texto": "No",
+      "desde": 57.32,
+      "hasta": 57.4
+    },
+    {
+      "texto": "fue",
+      "desde": 57.46,
+      "hasta": 57.58
+    },
+    {
+      "texto": "su",
+      "desde": 57.64,
+      "hasta": 57.84
+    },
+    {
+      "texto": "culpa",
+      "desde": 57.92,
+      "hasta": 58.3
+    },
+    {
+      "texto": "que",
+      "desde": 58.36,
+      "hasta": 58.48
+    },
+    {
+      "texto": "las",
+      "desde": 58.52,
+      "hasta": 58.62
+    },
+    {
+      "texto": "sentadillas",
+      "desde": 58.68,
+      "hasta": 59.68
+    },
+    {
+      "texto": "y",
+      "desde": 59.78,
+      "hasta": 59.8
+    },
+    {
+      "texto": "los",
+      "desde": 59.86,
+      "hasta": 60.02
+    },
+    {
+      "texto": "batidos",
+      "desde": 60.06,
+      "hasta": 60.7
+    },
+    {
+      "texto": "no",
+      "desde": 60.78,
+      "hasta": 60.88
+    },
+    {
+      "texto": "le",
+      "desde": 60.92,
+      "hasta": 61
+    },
+    {
+      "texto": "dieran",
+      "desde": 61.04,
+      "hasta": 61.42
+    },
+    {
+      "texto": "suerte.",
+      "desde": 61.5,
+      "hasta": 62.12
+    },
+    {
+      "texto": "Casi",
+      "desde": 62.86,
+      "hasta": 63.4
+    },
+    {
+      "texto": "ni",
+      "desde": 63.48,
+      "hasta": 63.6
+    },
+    {
+      "texto": "lo",
+      "desde": 63.66,
+      "hasta": 63.86
+    },
+    {
+      "texto": "prueba,",
+      "desde": 63.9,
+      "hasta": 64.42
+    },
+    {
+      "texto": "pensó",
+      "desde": 64.5,
+      "hasta": 64.78
+    },
+    {
+      "texto": "que",
+      "desde": 64.819,
+      "hasta": 64.94
+    },
+    {
+      "texto": "era",
+      "desde": 65.04,
+      "hasta": 65.239
+    },
+    {
+      "texto": "otro",
+      "desde": 65.379,
+      "hasta": 65.62
+    },
+    {
+      "texto": "anuncio",
+      "desde": 65.7,
+      "hasta": 66.26
+    },
+    {
+      "texto": "falso",
+      "desde": 66.34,
+      "hasta": 66.84
+    },
+    {
+      "texto": "vendiendo",
+      "desde": 66.9,
+      "hasta": 67.42
+    },
+    {
+      "texto": "promesas",
+      "desde": 67.48,
+      "hasta": 68.48
+    },
+    {
+      "texto": "vacías,",
+      "desde": 68.52,
+      "hasta": 69.32
+    },
+    {
+      "texto": "pero",
+      "desde": 69.48,
+      "hasta": 69.68
+    },
+    {
+      "texto": "es",
+      "desde": 69.72,
+      "hasta": 69.9
+    },
+    {
+      "texto": "solo",
+      "desde": 69.92,
+      "hasta": 70.54
+    },
+    {
+      "texto": "su",
+      "desde": 70.66,
+      "hasta": 70.8
+    },
+    {
+      "texto": "cadera,",
+      "desde": 70.96,
+      "hasta": 71.72
+    },
+    {
+      "texto": "sus",
+      "desde": 72.16,
+      "hasta": 72.38
+    },
+    {
+      "texto": "muslos",
+      "desde": 72.44,
+      "hasta": 73.04
+    },
+    {
+      "texto": "y",
+      "desde": 73.12,
+      "hasta": 73.26
+    },
+    {
+      "texto": "su",
+      "desde": 73.34,
+      "hasta": 73.48
+    },
+    {
+      "texto": "cola",
+      "desde": 73.56,
+      "hasta": 74.18
+    },
+    {
+      "texto": "los",
+      "desde": 74.28,
+      "hasta": 74.52
+    },
+    {
+      "texto": "que",
+      "desde": 74.56,
+      "hasta": 74.74
+    },
+    {
+      "texto": "se",
+      "desde": 74.84,
+      "hasta": 75.1
+    },
+    {
+      "texto": "pusieron",
+      "desde": 75.18,
+      "hasta": 75.82
+    },
+    {
+      "texto": "grandes.",
+      "desde": 75.88,
+      "hasta": 76.88
+    },
+    {
+      "texto": "No",
+      "desde": 76.94,
+      "hasta": 77.08
+    },
+    {
+      "texto": "cometas",
+      "desde": 77.12,
+      "hasta": 77.7
+    },
+    {
+      "texto": "el",
+      "desde": 77.78,
+      "hasta": 77.84
+    },
+    {
+      "texto": "mismo",
+      "desde": 77.9,
+      "hasta": 78.2
+    },
+    {
+      "texto": "error",
+      "desde": 78.26,
+      "hasta": 78.7
+    },
+    {
+      "texto": "que",
+      "desde": 78.74,
+      "hasta": 78.9
+    },
+    {
+      "texto": "ella.",
+      "desde": 79.12,
+      "hasta": 79.64
+    },
+    {
+      "texto": "Ahora",
+      "desde": 79.9,
+      "hasta": 80.22
+    },
+    {
+      "texto": "mismo",
+      "desde": 80.3,
+      "hasta": 80.7
+    },
+    {
+      "texto": "te",
+      "desde": 80.86,
+      "hasta": 80.98
+    },
+    {
+      "texto": "lo",
+      "desde": 81.04,
+      "hasta": 81.24
+    },
+    {
+      "texto": "llevas",
+      "desde": 81.28,
+      "hasta": 81.88
+    },
+    {
+      "texto": "con",
+      "desde": 81.94,
+      "hasta": 82.16
+    },
+    {
+      "texto": "sesenta",
+      "desde": 82.22,
+      "hasta": 82.54
+    },
+    {
+      "texto": "y",
+      "desde": 82.58,
+      "hasta": 82.6
+    },
+    {
+      "texto": "siete",
+      "desde": 82.66,
+      "hasta": 82.92
+    },
+    {
+      "texto": "por",
+      "desde": 82.96,
+      "hasta": 83.06
+    },
+    {
+      "texto": "ciento",
+      "desde": 83.14,
+      "hasta": 83.54
+    },
+    {
+      "texto": "de",
+      "desde": 83.58,
+      "hasta": 83.66
+    },
+    {
+      "texto": "descuento,",
+      "desde": 83.7,
+      "hasta": 84.26
+    },
+    {
+      "texto": "lo",
+      "desde": 84.36,
+      "hasta": 84.58
+    },
+    {
+      "texto": "que",
+      "desde": 84.62,
+      "hasta": 84.7
+    },
+    {
+      "texto": "sale",
+      "desde": 84.76,
+      "hasta": 84.94
+    },
+    {
+      "texto": "a",
+      "desde": 85,
+      "hasta": 85.02
+    },
+    {
+      "texto": "menos",
+      "desde": 85.08,
+      "hasta": 85.34
+    },
+    {
+      "texto": "de",
+      "desde": 85.36,
+      "hasta": 85.44
+    },
+    {
+      "texto": "un",
+      "desde": 85.5,
+      "hasta": 85.62
+    },
+    {
+      "texto": "dólar",
+      "desde": 85.7,
+      "hasta": 85.98
+    },
+    {
+      "texto": "al",
+      "desde": 86.06,
+      "hasta": 86.22
+    },
+    {
+      "texto": "día.",
+      "desde": 86.28,
+      "hasta": 86.84
+    },
+    {
+      "texto": "Pero",
+      "desde": 87.16,
+      "hasta": 87.42
+    },
+    {
+      "texto": "ya",
+      "desde": 87.5,
+      "hasta": 87.62
+    },
+    {
+      "texto": "casi",
+      "desde": 87.76,
+      "hasta": 88.42
+    },
+    {
+      "texto": "se",
+      "desde": 88.5,
+      "hasta": 88.54
+    },
+    {
+      "texto": "agota,",
+      "desde": 88.62,
+      "hasta": 89.12
+    },
+    {
+      "texto": "así",
+      "desde": 89.46,
+      "hasta": 89.66
+    },
+    {
+      "texto": "que",
+      "desde": 89.7,
+      "hasta": 89.82
+    },
+    {
+      "texto": "puede",
+      "desde": 89.86,
+      "hasta": 90.12
+    },
+    {
+      "texto": "que",
+      "desde": 90.16,
+      "hasta": 90.28
+    },
+    {
+      "texto": "ya",
+      "desde": 90.36,
+      "hasta": 90.58
+    },
+    {
+      "texto": "perdiste",
+      "desde": 90.64,
+      "hasta": 91.52
+    },
+    {
+      "texto": "tu",
+      "desde": 91.66,
+      "hasta": 91.82
+    },
+    {
+      "texto": "oportunidad.",
+      "desde": 91.92,
+      "hasta": 93
+    },
+    {
+      "texto": "Así",
+      "desde": 93.42,
+      "hasta": 93.56
+    },
+    {
+      "texto": "que",
+      "desde": 93.6,
+      "hasta": 93.68
+    },
+    {
+      "texto": "si",
+      "desde": 93.74,
+      "hasta": 93.9
+    },
+    {
+      "texto": "puedes,",
+      "desde": 94.04,
+      "hasta": 94.6
+    },
+    {
+      "texto": "dale",
+      "desde": 94.68,
+      "hasta": 95.12
+    },
+    {
+      "texto": "clic",
+      "desde": 95.24,
+      "hasta": 95.5
+    },
+    {
+      "texto": "al",
+      "desde": 95.64,
+      "hasta": 95.78
+    },
+    {
+      "texto": "link",
+      "desde": 95.84,
+      "hasta": 96.08
+    },
+    {
+      "texto": "de",
+      "desde": 96.14,
+      "hasta": 96.18
+    },
+    {
+      "texto": "abajo,",
+      "desde": 96.24,
+      "hasta": 96.74
+    },
+    {
+      "texto": "puede",
+      "desde": 96.94,
+      "hasta": 97.3
+    },
+    {
+      "texto": "que",
+      "desde": 97.34,
+      "hasta": 97.46
+    },
+    {
+      "texto": "todavía",
+      "desde": 97.52,
+      "hasta": 98.12
+    },
+    {
+      "texto": "quede",
+      "desde": 98.26,
+      "hasta": 98.5
+    },
+    {
+      "texto": "alguna,",
+      "desde": 98.54,
+      "hasta": 99.12
+    },
+    {
+      "texto": "así",
+      "desde": 99.36,
+      "hasta": 99.58
+    },
+    {
+      "texto": "que",
+      "desde": 99.62,
+      "hasta": 99.7
+    },
+    {
+      "texto": "consíguete",
+      "desde": 99.74,
+      "hasta": 100.34
+    },
+    {
+      "texto": "una",
+      "desde": 100.5,
+      "hasta": 100.82
+    },
+    {
+      "texto": "botella",
+      "desde": 100.9,
+      "hasta": 101.64
+    },
+    {
+      "texto": "antes",
+      "desde": 102.24,
+      "hasta": 103
+    },
+    {
+      "texto": "de",
+      "desde": 103.06,
+      "hasta": 103.16
+    },
+    {
+      "texto": "que",
+      "desde": 103.2,
+      "hasta": 103.3
+    },
+    {
+      "texto": "se",
+      "desde": 103.34,
+      "hasta": 103.44
+    },
+    {
+      "texto": "agoten",
+      "desde": 103.56,
+      "hasta": 104.54
+    },
+    {
+      "texto": "otra",
+      "desde": 104.92,
+      "hasta": 105.44
+    },
+    {
+      "texto": "vez.",
+      "desde": 105.74,
+      "hasta": 106.36
+    }
+  ],
+  "eventos": []
+}
