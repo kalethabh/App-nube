@@ -59,7 +59,7 @@
     "R003": {
       "tipo": "revision",
       "uuid": "165b1bdb-49fb-488c-8ba1-6208b9f4d682",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -67,7 +67,8 @@
           "firma": "1606743-1795296056989",
           "ronda": "u"
         }
-      ]
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -120,22 +121,32 @@
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": "sin-imagen",
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "1606743-1795296056989",
       "orden": null,
       "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": "u",
+        "ok": false,
+        "problemas": [
+          "Arriba la imagen queda cortada: falta la cinta con «SIÉNTETE SEGURA» y «CON TUS» sale cortado por el borde.",
+          "Abajo también queda cortada: no se ve la barra con «ENVÍO GRATIS» y «PAGA AL RECIBIR», ni sus íconos del camión y la mano con moneda.",
+          "La frase «Natural, a tu ritmo» sale cortada: solo se ve «Natural,» a medias y falta su corazoncito."
+        ],
+        "firma": "1606743-1795296056989",
+        "correccion_en": "Zoom out so the whole layout fits inside the square canvas with safe margins: at the top show the full deep magenta pill reading exactly \"SIÉNTETE SEGURA\" above the complete line \"CON TUS\"; at the bottom show the full deep magenta bar with the truck icon and \"ENVÍO GRATIS\", a thin divider, the hand-with-coin icon and \"PAGA AL RECIBIR\"; in the bottom right corner show the complete script \"Natural, a tu ritmo\" with its small heart. Nothing may touch or be cut by the canvas edges."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T21:20:57.453Z",
-      "pedido": "U0001",
+      "pedido": null,
       "ultimaOrden": "U0001",
-      "fallo": null,
-      "tandaRevision": "R003"
+      "fallo": null
     },
     "V03_1x1": {
       "v": "V03",
@@ -205,7 +216,7 @@
         "version": 1,
         "trabajo": "T005"
       },
-      "intentosApi": 2,
+      "intentosApi": 3,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
@@ -223,7 +234,7 @@
       "pieza": "V02_1x1",
       "instruccion": "",
       "fecha": "2026-11-21T21:18:59.372Z",
-      "estado": "revisando",
+      "estado": "listo",
       "pasos": [
         {
           "pieza": "V02_1x1",
