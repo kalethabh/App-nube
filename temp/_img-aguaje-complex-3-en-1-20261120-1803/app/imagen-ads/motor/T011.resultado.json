@@ -6,10 +6,11 @@
       "estado": "generando",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": null,
+      "ultimoMotivo": "contenido-chatgpt"
     }
   },
-  "actualizado": "2026-11-21T01:22:53.868Z",
+  "actualizado": "2026-11-21T01:24:56.912Z",
   "terminado": false
 }
