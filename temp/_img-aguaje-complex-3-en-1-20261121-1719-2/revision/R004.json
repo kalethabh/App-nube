@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    { "pieza": "V08_1x1", "ok": true, "problemas": [] },
+    { "pieza": "V09_1x1", "ok": true, "problemas": [] },
+    {
+      "pieza": "V10_1x1",
+      "ok": false,
+      "problemas": [
+        "En el lado «Después», el vestido no es el mismo: es mucho más corto que en «Antes» y deja ver parte de los glúteos."
+      ],
+      "correccion_en": "On the right 'after' woman, keep the exact same deep magenta mini dress length as on the left 'before' woman, ending at mid-thigh and fully covering the glutes; nothing else changes."
+    }
+  ]
+}

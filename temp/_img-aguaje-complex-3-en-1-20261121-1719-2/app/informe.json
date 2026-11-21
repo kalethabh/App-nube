@@ -1,0 +1,30 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-21T23:01:33.531Z",
+  "variaciones": 10,
+  "archivos": 10,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 9,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V10_1x1",
+        "problemas": [
+          "En el lado «Después», el vestido no es el mismo: es mucho más corto que en «Antes» y deja ver parte de los glúteos."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 3,
-    "R": 4,
+    "R": 5,
     "A": 1,
     "T": 3
   },
@@ -90,6 +90,30 @@
         {
           "pieza": "V05_1x1",
           "firma": "2067596-1795301924391",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "15d65e46-6dab-40ad-b909-48aab5322915",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "2181197-1795302049791",
+          "ronda": 1
+        },
+        {
+          "pieza": "V09_1x1",
+          "firma": "2069911-1795302044953",
+          "ronda": 1
+        },
+        {
+          "pieza": "V10_1x1",
+          "firma": "2157358-1795302053342",
           "ronda": 1
         }
       ],
@@ -310,68 +334,77 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2181197-1795302049791",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2181197-1795302049791"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:00:49.935Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2069911-1795302044953",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2069911-1795302044953"
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:00:45.741Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2157358-1795302053342",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "En el lado «Después», el vestido no es el mismo: es mucho más corto que en «Antes» y deja ver parte de los glúteos."
+        ],
+        "firma": "2157358-1795302053342",
+        "correccion_en": "On the right 'after' woman, keep the exact same deep magenta mini dress length as on the left 'before' woman, ending at mid-thigh and fully covering the glutes; nothing else changes."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:00:54.145Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 2,
-    "R": 3,
+    "R": 7,
     "A": 1,
     "T": 2
   },
@@ -57,6 +57,71 @@
         }
       ],
       "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "b00d6b92-94f6-4941-b28f-c0ab6547eecf",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "1980778-1795302044367",
+          "ronda": 1
+        },
+        {
+          "pieza": "V05_1x1",
+          "firma": "1908068-1795302043215",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "63c8e918-a7f3-48e1-9603-30bd5db175cf",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V06_1x1",
+          "firma": "2397192-1795302054791",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R005": {
+      "tipo": "revision",
+      "uuid": "cd904c64-cc0b-4703-97d5-668760431c3f",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V08_1x1",
+          "firma": "2044204-1795302130296",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R006": {
+      "tipo": "revision",
+      "uuid": "7a807170-d61a-4aed-8b95-cf2235f89adc",
+      "estado": "en-curso",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V07_1x1",
+          "firma": "2315006-1795302133367",
+          "ronda": 1
+        },
+        {
+          "pieza": "V09_1x1",
+          "firma": "2323183-1795302143812",
+          "ronda": 1
+        }
+      ]
     }
   },
   "variaciones": {
@@ -189,134 +254,149 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1980778-1795302044367",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Aparece una nota pegada en la nevera con el texto «Mami, no se le olviden sus gotas», que no está en los textos del anuncio. Sobra un bloque de texto: hay que quitarla."
+        ],
+        "firma": "1980778-1795302044367",
+        "correccion_en": "Remove the pink sticky note with handwritten text from the fridge; no handwritten note or any extra text anywhere. Keep all other texts exactly as they are."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:00:44.579Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "1908068-1795302043215",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular sale cortado arriba, pegado al borde, y dice «MIVIDA» sin espacio: debe decir «TODA MI VIDA ME SALTABA EL DESAYUNO».",
+          "«Pagas al recibir» sale cortado abajo y no se lee: falta la frase de la oferta completa.",
+          "El botón «Pide el tuyo» queda cortado y pegado al borde de abajo.",
+          "Varios textos quedan a menos del 5 % del borde: hay que dejar margen arriba y abajo."
+        ],
+        "firma": "1908068-1795302043215",
+        "correccion_en": "Move the headline down so it is fully visible with at least 5% margin from the top edge, and write it exactly as \"TODA MI VIDA ME SALTABA EL DESAYUNO\" with a space between \"MI\" and \"VIDA\". Move the offer ribbon and the CTA button up so both are fully visible with at least 5% margin from the bottom edge; write \"Pagas al recibir\" fully legible right below \"TRATAMIENTO COMPLETO X3\", and the button fully visible reading \"Pide el tuyo\"."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:00:44.579Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
+      "fase": "final",
+      "resultado": "listo",
+      "version": 1,
+      "firma": "2397192-1795302054791",
+      "orden": null,
+      "intentosApi": 1,
+      "ronda": 1,
+      "reintentoAuto": "no",
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": true,
+        "problemas": [],
+        "firma": "2397192-1795302054791"
       },
+      "motivo": null,
+      "mensaje": null,
+      "desde": "2026-11-21T23:00:54.815Z",
+      "pedido": null,
+      "ultimaOrden": "g"
+    },
+    "V07_1x1": {
+      "v": "V07",
+      "formato": "1:1",
+      "fase": "revisando",
+      "resultado": null,
+      "version": 1,
+      "firma": "2315006-1795302133367",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
-    },
-    "V07_1x1": {
-      "v": "V07",
-      "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
-      "intentosApi": 0,
-      "ronda": 1,
-      "reintentoAuto": "no",
-      "revision": null,
-      "motivo": null,
-      "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:02:14.826Z",
+      "pedido": null,
+      "ultimaOrden": "g",
+      "tandaRevision": "R006"
     },
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
-      "intentosApi": 0,
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2044204-1795302130296",
+      "orden": null,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R005",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El botón «Pide el tuyo» queda pegado al borde de abajo: el texto está a menos del 5 % del borde. Hay que subirlo un poco.",
+          "El titular de arriba queda casi tocando el borde superior. Conviene bajarlo un poco para dejar al menos el 5 % de margen."
+        ],
+        "firma": "2044204-1795302130296",
+        "correccion_en": "Move the \"Pide el tuyo\" CTA button up so its text sits at least 7% above the bottom edge, and move the headline \"VITALDROPS: 5 EN 1 PARA TRABAJAR TUS CURVAS\" slightly down so it sits at least 6% below the top edge. Keep all texts exactly as they are; shrink the offer ribbon slightly if needed to make room."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:02:10.616Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "revisando",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
-      "intentosApi": 0,
+      "version": 1,
+      "firma": "2323183-1795302143812",
+      "orden": null,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:02:25.000Z",
+      "pedido": null,
+      "ultimaOrden": "g",
+      "tandaRevision": "R006"
     },
     "V10_1x1": {
       "v": "V10",
@@ -331,7 +411,7 @@
         "version": 1,
         "trabajo": "T001"
       },
-      "intentosApi": 0,
+      "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
