@@ -136,6 +136,8 @@ function hacerPieza(x, lote, log) {
   if (x.orden === 'g' && fs.existsSync(img)) return { ...base, estado: 'lista', firma: firma(img), creditos: 0 };
   if (vertical && !fs.existsSync(path.join(carpeta, 'img', `${v}_1x1.png`))) return { ...base, estado: 'sin-imagen', motivo: 'falta-cuadrado', mensaje: MENSAJES_SIN_IMAGEN['falta-cuadrado'], creditos: 0 };
   if (SIN_IMAGEN.has(x.pieza)) return { ...base, estado: 'sin-imagen', intentosApi: 3, motivo: 'contenido', mensaje: MENSAJES_SIN_IMAGEN.contenido, creditos: 0 };
+  // (2026-11-21h) un anuncio con la marca SIM-PROHIBIDO lo rechaza «el filtro» (como kie con su política de contenido)
+  if (JSON.stringify(ad).includes('SIM-PROHIBIDO')) return { ...base, estado: 'sin-imagen', intentosApi: 3, motivo: 'contenido', mensaje: MENSAJES_SIN_IMAGEN.contenido, creditos: 0 };
   const logo = lote.logo || null;
   const prompt =
     x.modo === 'editar'

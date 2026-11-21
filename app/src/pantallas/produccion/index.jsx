@@ -42,6 +42,7 @@ import { conVersion, invalidar, useAnuncio, useAnuncios } from '../../datos/api.
 import { avisoDelLote, idsDelPedido, noSeRegenera, regenerarEnMarcha, useRegenerar } from '../../datos/regenerar.js';
 import { enlace, enlaceDelGuion, ir, rutas } from '../../datos/rutas.js';
 import { enMinuscula, plural } from '../../datos/formato.js';
+import { EditarAnuncio } from '../entrega/EditarAnuncio.jsx';
 import { TEXTO_ALTO, TEXTO_GUION, altoDe, avanceDeConductor, continuarProduccion, etapasDeConductor, frenoPorElGuion, pasoActual, sinEscenasAun, textoDeFila, textoDePaso, tieneConductor, useConductor } from '../../datos/produccion.js';
 import { decisionesProduccion } from '../../datos/ejemplo.js';
 import { useProduccion } from './datos.js';
@@ -503,7 +504,7 @@ export default function Produccion({ params, consulta }) {
   }
   // un cantado antes de sus escenas: hay conductor pero todavía no hay manifiesto (la letra, la canción, elegirla)
   if (enVivo && !a && (sinEscenas || (error && error.estado !== 0))) {
-    return <SinEscenas slug={slug} titulo={enLista?.titulo || 'Tu anuncio'} estilo={enLista?.estiloNombre} productoId={enLista?.productoId} conductor={conductor} cancion={cancionEnVivo} continuar={continuar} continuando={continuando} paraDespues={enLista?.paraDespues} />;
+    return <SinEscenas slug={slug} titulo={enLista?.titulo || 'Tu anuncio'} estilo={enLista?.estiloNombre} claveEstilo={enLista?.estiloApp || enLista?.estilo} productoId={enLista?.productoId} conductor={conductor} cancion={cancionEnVivo} continuar={continuar} continuando={continuando} paraDespues={enLista?.paraDespues} />;
   }
   // sin respuesta (no un 404): la ventana de la app se cerró. El anuncio no se perdió: sigue al volver a abrirla.
   const appCerrada = error?.estado === 0;
@@ -560,6 +561,8 @@ export default function Produccion({ params, consulta }) {
   // se van a revisar»; las del lote se marcan aparte)
   const revisada = !enVivo || regenerarEnMarcha(reh.trabajo) || !conductor.pasos.some((p) => p.id === 'revision-imagenes' && !['hecho', 'saltado'].includes(p.estado));
 
+  // (2026-11-21h) uno de la app con su guion aprobado se puede editar (una versión nueva), mientras se hace o terminado
+  const puedeEditar = Boolean(enLista?.nuevo && !enLista?.enGuion && (enLista?.estiloApp || enLista?.estilo) && !simulando);
   // las tarjetas de "Te necesita"
   const tarjetas = [];
   if (enVivo && v.alto?.tipo === 'cancion') {
@@ -685,8 +688,10 @@ export default function Produccion({ params, consulta }) {
             : 'No tienes que hacer nada: si algo te necesita, aparece aquí.'
         }`}
         acciones={
-          verEntrega || principal ? (
+          verEntrega || principal || puedeEditar ? (
             <div className="prod-cabecera-acciones">
+              {/* «Editar este anuncio» (2026-11-21h): una versión nueva con tu cambio, mientras se hace o ya terminado */}
+              {puedeEditar ? <EditarAnuncio slug={slug} productoId={enLista?.productoId || a?.productoId} estilo={enLista?.estiloApp || enLista?.estilo} enMarcha={Boolean(enVivo && conductor?.estado !== 'listo')} variante="fantasma" /> : null}
               {principal ? (
                 <Boton variante="primario" href={conVersion(principal.url, principal.fecha)} download={principal.archivo} icono={Download}>
                   Descargar video
@@ -843,7 +848,7 @@ export default function Produccion({ params, consulta }) {
  * Un cantado antes de sus escenas: la letra, la canción y elegirla (el manifiesto se escribe recién con la versión
  * elegida). La línea de pasos, lo que se está haciendo y, cuando toca, "Elige la versión de tu canción".
  */
-function SinEscenas({ slug, titulo, estilo, productoId, conductor: c, cancion, continuar, continuando, paraDespues }) {
+function SinEscenas({ slug, titulo, estilo, claveEstilo, productoId, conductor: c, cancion, continuar, continuando, paraDespues }) {
   const alto = altoDe(c);
   const paso = pasoActual(c);
   const etapas = etapasDeConductor(c);
@@ -884,6 +889,7 @@ function SinEscenas({ slug, titulo, estilo, productoId, conductor: c, cancion, c
         sobretitulo="Producción"
         titulo={titulo}
         descripcion={`${estilo ? `${estilo} · ` : ''}Primero va la canción: las escenas se escriben sobre la versión que elijas. No tienes que hacer nada más: si algo te necesita, aparece aquí.`}
+        acciones={claveEstilo ? <EditarAnuncio slug={slug} productoId={productoId} estilo={claveEstilo} enMarcha={c.estado !== 'listo'} variante="fantasma" /> : null}
       />
       {c.modoPrueba ? <BandaModoPrueba /> : null}
       <TeNecesita tarjetas={tarjetas} />

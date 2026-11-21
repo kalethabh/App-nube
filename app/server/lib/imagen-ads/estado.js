@@ -186,6 +186,8 @@ export function estadoEnPantalla(p, { pedido = null, sinPrompt = false } = {}) {
     case 'revisando':
       return 'revisando';
     case 'ajustando':
+    // (2026-11-21h) kie la rechazó por contenido y la IA la está reescribiendo: en pantalla, «la IA prepara el cambio»
+    case 'reescribiendo':
       return 'ajustando';
     case 'final':
       return ESTADO_FINAL[p.resultado] || 'listo';
