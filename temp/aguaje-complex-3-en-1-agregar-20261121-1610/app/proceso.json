@@ -1,0 +1,11 @@
+{
+  "pid": 44355,
+  "paso": "voz",
+  "script": "generar-audio.js",
+  "args": [
+    "temp/aguaje-complex-3-en-1-agregar-20261121-1610"
+  ],
+  "comando": "node produccion/generar-audio.js temp/aguaje-complex-3-en-1-agregar-20261121-1610",
+  "inicio": "2026-11-21T21:23:48.594Z",
+  "app": 34311
+}

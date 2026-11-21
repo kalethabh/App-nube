@@ -1,0 +1,98 @@
+{
+  "slug": "aguaje-complex-3-en-1-agregar-20261121-1610",
+  "familia": "voz-en-off",
+  "estado": "corriendo",
+  "paso": "voz",
+  "pasos": [
+    {
+      "id": "validar",
+      "nombre": "Revisar el guion",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:23:47.729Z",
+      "fin": "2026-11-21T21:23:47.856Z"
+    },
+    {
+      "id": "saldo",
+      "nombre": "Mirar tu saldo de kie",
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:23:47.856Z",
+      "fin": "2026-11-21T21:23:48.591Z"
+    },
+    {
+      "id": "voz",
+      "nombre": "Grabar la voz",
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-21T21:23:48.591Z"
+    },
+    {
+      "id": "ventanas",
+      "nombre": "Ajustar el largo de cada escena",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "imagenes-y-videos",
+      "nombre": "Crear las imágenes y los videos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "revision-imagenes",
+      "nombre": "Revisar las imágenes",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "voces",
+      "nombre": "Buscar voces que no van",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "musica",
+      "nombre": "Poner la música",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "montaje",
+      "nombre": "Armar el montaje y los subtítulos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "render",
+      "nombre": "Exportar los videos",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "control-final",
+      "nombre": "Revisar el video terminado",
+      "estado": "pendiente",
+      "intentos": 0
+    },
+    {
+      "id": "informe",
+      "nombre": "Preparar el informe",
+      "estado": "pendiente",
+      "intentos": 0
+    }
+  ],
+  "rehechos": {},
+  "modoPrueba": false,
+  "creado": "2026-11-21T21:23:47.729Z",
+  "aprobado": "2026-11-21T21:23:47.729Z",
+  "actualizado": "2026-11-21T21:23:48.591Z",
+  "saldoInicial": {
+    "creditos": 10013.4,
+    "fecha": "2026-11-21T21:23:48.591Z"
+  },
+  "costoPlan": {
+    "creditos": 1324.4,
+    "fecha": "2026-11-21T21:23:48.591Z"
+  }
+}
