@@ -861,6 +861,48 @@
         }
       ],
       "fecha": "2026-11-21T22:11:40.068Z"
+    },
+    {
+      "id": "e880691214",
+      "de": "tu",
+      "texto": "AHORA NECESITO 2O VARIANTES PARA EL PRODUCTO VITALDROP Y TODO LO QUE DIGA DE AMUA COMABIA A: MUNA",
+      "adjuntos": [
+        "126a24bad06e"
+      ],
+      "fecha": "2026-11-21T22:18:40.928Z"
+    },
+    {
+      "id": "b5168e8931",
+      "de": "coordinadora",
+      "texto": "¡Va! 🙌 Te armo las 20 variaciones de tu anuncio de VITALDROPS en cuadrado, igual a tu ganadora, cambiando la chica, la pose y el titular. Donde diga AMUA va MUNA, también en el frasco. Te salen en dos tandas de 10, con su costo aquí, y no arranca nada sin tu sí.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Generando 10 imágenes de VITALDROPS (variaciones de tu anuncio) (sin costo por imagen)",
+          "href": "#/imagenes/_img-vitaldrops-20261121-1719",
+          "lote": "_img-vitaldrops-20261121-1719",
+          "ok": true,
+          "enChat": true
+        },
+        {
+          "tipo": "imagenes",
+          "titulo": "Generando 10 imágenes de VITALDROPS (variaciones de tu anuncio) (sin costo por imagen)",
+          "href": "#/imagenes/_img-vitaldrops-20261121-1719-2",
+          "lote": "_img-vitaldrops-20261121-1719-2",
+          "ok": true,
+          "enChat": true
+        }
+      ],
+      "fecha": "2026-11-21T22:19:15.470Z"
+    },
+    {
+      "id": "1fd2550a41",
+      "de": "tu",
+      "texto": "NECESITO 20 IMGANES VARIANTES TOMANDO ESTA COMO REFERENCIA PARA EL PRODUCTO AGUAJE",
+      "adjuntos": [
+        "ab687a70f12b"
+      ],
+      "fecha": "2026-11-21T22:19:19.322Z"
     }
   ],
   "encargos": [
@@ -990,6 +1032,28 @@
       "slug": "aguaje-complex-3-en-1-agregar-20261121-1647",
       "productoId": "producto-edb1",
       "titulo": "Igual a tu video de AGUAJE COMPLEX 3 EN 1"
+    },
+    {
+      "estado": "produciendo",
+      "creado": "2026-11-21T22:19:15.381Z",
+      "id": "_img-vitaldrops-20261121-1719",
+      "tipo": "imagenes",
+      "lote": "_img-vitaldrops-20261121-1719",
+      "productoId": "vitaldrops-d183",
+      "titulo": "10 imágenes de VITALDROPS (variaciones de tu anuncio)",
+      "costo": 0,
+      "aprobado": "2026-11-21T22:19:15.383Z"
+    },
+    {
+      "estado": "produciendo",
+      "creado": "2026-11-21T22:19:15.469Z",
+      "id": "_img-vitaldrops-20261121-1719-2",
+      "tipo": "imagenes",
+      "lote": "_img-vitaldrops-20261121-1719-2",
+      "productoId": "vitaldrops-d183",
+      "titulo": "10 imágenes de VITALDROPS (variaciones de tu anuncio)",
+      "costo": 0,
+      "aprobado": "2026-11-21T22:19:15.470Z"
     }
   ]
 }

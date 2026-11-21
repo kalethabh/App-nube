@@ -1,0 +1,84 @@
+{
+  "slug": "_img-vitaldrops-20261121-1719",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "VITALDROPS",
+  "productoId": "vitaldrops-d183",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "VITALDROPS",
+    "publico": "18 a 55",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Variaciones del anuncio ganador de VITALDROPS: antes y después estilo 3D animado, chica de espaldas con vestido corto rosa, izquierda oscura (antes: sin curvas, sin confianza, la que nadie nota) y derecha rosa brillante (después: curvas naturales, más confianza, todos la notan), titular grande arriba a la derecha, frasco al lado, sello de 90 días de garantía e íconos abajo (ingredientes de origen vegetal, resultados reales, sin cirugía).",
+    "angulo": null
+  },
+  "cantidad": 10,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png"
+  ],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    "Variaciones del anuncio ganador de VITALDROPS: antes y después estilo 3D animado, chica de espaldas con vestido corto rosa, izquierda oscura (antes: sin curvas, sin confianza, la que nadie nota) y derecha rosa brillante (después: curvas naturales, más confianza, todos la notan), titular grande arrib"
+  ],
+  "fiel": true,
+  "elegirTitulos": false,
+  "rapido": true,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-21T22:19:15.189Z",
+  "investigacionDelProducto": true,
+  "ganchos": "entrada/ganchos.json",
+  "origen": "chat",
+  "variacionesChat": [
+    {
+      "titular": "ANTES: INVISIBLE. AHORA: IMPOSIBLE DE IGNORAR.",
+      "cambio": "Otra chica morena de cabello rizado, misma pose de espaldas mirando por encima del hombro, vestido rosa."
+    },
+    {
+      "titular": "ANTES NADIE LA VEÍA. AHORA NADIE DEJA DE MIRARLA.",
+      "cambio": "Chica de cabello castaño corto, vestido lila, mirada coqueta por encima del hombro."
+    },
+    {
+      "titular": "DE INVISIBLE A IMPOSIBLE DE IGNORAR.",
+      "cambio": "Chica latina de piel trigueña con cola de caballo, vestido rosa fucsia, pose de perfil."
+    },
+    {
+      "titular": "ANTES PASABA DESAPERCIBIDA. AHORA TODOS VOLTEAN.",
+      "cambio": "Chica rubia de cabello ondulado, vestido rosa pastel, mano en la cadera."
+    },
+    {
+      "titular": "ANTES: PLANA. AHORA: TODOS LA NOTAN.",
+      "cambio": "Chica de piel oscura con trenzas, vestido rosa satinado, mirando sonriente por encima del hombro."
+    },
+    {
+      "titular": "ANTES SE ESCONDÍA. AHORA SE LUCE.",
+      "cambio": "Chica pelirroja de cabello largo, vestido rosa ajustado, en el antes se tapa con los brazos y en el después posa segura."
+    },
+    {
+      "titular": "EL CAMBIO QUE HIZO QUE TODOS LA MIRARAN DIFERENTE.",
+      "cambio": "Chica de cabello negro lacio con flequillo, vestido rosa claro, pose de tres cuartos."
+    },
+    {
+      "titular": "ANTES: SIN CURVAS. AHORA: IMPOSIBLE DE IGNORAR.",
+      "cambio": "Chica castaña con moño alto, vestido rosa fuerte, mirada segura con ojos cerrados y sonrisa."
+    },
+    {
+      "titular": "ANTES NADIE LA NOTABA. HOY ES LA QUE TODOS MIRAN.",
+      "cambio": "Chica morena de cabello ondulado largo, vestido rosa con tirantes finos, pose caminando de espaldas."
+    },
+    {
+      "titular": "DE LA QUE NADIE NOTA A LA QUE NADIE OLVIDA.",
+      "cambio": "Chica de cabello castaño claro con mechas, vestido rosa palo, mirando por encima del hombro con media sonrisa."
+    }
+  ],
+  "indicacionesChat": "Igual a la ganadora: fondo limpio, titular bien grande y legible, nada que haga ruido. El antes y el después tienen que notarse de una: en el después el cambio en glúteos y caderas bien visible. La marca es MUNA: todo lo que diga AMUA cámbialo por MUNA, también en la etiqueta del frasco. Mantén el sello de 90 días de garantía y los íconos de abajo.",
+  "leccionesChat": ""
+}
