@@ -157,7 +157,9 @@ function trabajoDeVideo(a) {
     titulo: a.tituloGuion || a.titulo || a.slug,
     detalle: a.estiloNombre || '',
     href: c ? `#/anuncio/${a.slug}/produccion` : `#/nuevo?producto=${encodeURIComponent(a.productoId || '')}&paso=2&anuncios=${a.slug}`,
-    estado: a.estado === 'listo' ? 'listo' : error ? 'error' : a.teNecesita ? 'te-necesita' : 'activo',
+    // lo que dejaste para después queda «Pausado» (no te pide nada)
+    estado: a.estado === 'listo' ? 'listo' : a.paraDespues && (error || a.teNecesita) ? 'pausado' : error ? 'error' : a.teNecesita ? 'te-necesita' : 'activo',
+    paraDespues: Boolean(a.paraDespues && (error || a.teNecesita)),
     actual,
     estaciones,
     correcciones,

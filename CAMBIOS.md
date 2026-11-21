@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21g · «Terminar después»
+
+- Cuando un video te necesita (se trabó, falta saldo, está en pausa, espera la canción o su guion está listo para aprobar) ahora tienes dos caminos: **«Continuar»** o **«Terminar después»**.
+- Con **«Terminar después»** deja de avisarte: sale de «Te necesitan», del punto rojo de arriba, del menú y de la oficina, y queda en la sección nueva **«Para después»** de Mis anuncios.
+- Ahí, cuando quieras, tocas **«Continuar»** y sigue desde donde quedó (lo hecho no se vuelve a pagar). La campanita lo devuelve a «Te necesitan».
+- Si después de continuarlo se vuelve a frenar, te avisa otra vez como siempre.
+
 ## 2026-11-21f · Escenas cuidadas al detalle y carpetas de producto
 
 - **Las imágenes de las escenas se revisan antes de hacer los videos.** La IA compara cada una con la foto real de tu producto (la marca y la etiqueta, letra por letra), con la persona y el lugar de las otras escenas (misma cara, ropa, set, luz y hora) y mira los detalles (ojos, piel, manos, el producto bien agarrado). Si una está mal, la app la **rehace sola, una vez**, antes de gastar en su video. El costo que ves antes de producir ya incluye ese margen, y solo se cobra lo que de verdad se rehace.

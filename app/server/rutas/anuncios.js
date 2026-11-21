@@ -64,6 +64,7 @@ function todos() {
       ...(/^Agregar · /.test(n.estiloNombre || '') ? { estiloNombre: n.estiloNombre } : {}),
       modoPrueba: n.modoPrueba,
       teNecesita: n.teNecesita,
+      paraDespues: n.paraDespues,
       enGuion: n.enGuion,
       error: n.error,
       errorTipo: n.errorTipo,
