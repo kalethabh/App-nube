@@ -1,0 +1,23 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V07_1x1",
+      "ok": false,
+      "problemas": [
+        "El sello dice «INGREDIEITES»: cambió la N por una I. Debe decir «5 INGREDIENTES · 1 TOMA AL DÍA».",
+        "El titular de arriba queda pegado al borde superior, a menos del 5 %. Hay que bajarlo un poco."
+      ],
+      "correccion_en": "Write the seal text exactly as \"5 INGREDIENTES · 1 TOMA AL DÍA\" (INGREDIENTES spelled with N, not I). Move the headline down so it keeps at least 5% margin from the top edge."
+    },
+    {
+      "pieza": "V09_1x1",
+      "ok": false,
+      "problemas": [
+        "El sello de «5 INGREDIENTES» tapa parte de la etiqueta del frasco: la S de «VITALDROPS» y el final de «Supplement» no se ven completos. El sello debe ir al lado del frasco, sin taparlo.",
+        "El titular de arriba queda pegado al borde superior, a menos del 5 %. Hay que bajarlo.",
+        "La etiqueta «DESPUÉS» queda muy cerca del borde derecho, a menos del 5 %. Hay que correrla hacia adentro."
+      ],
+      "correccion_en": "Place the \"5 INGREDIENTES · 1 TOMA AL DÍA\" seal next to the bottle without covering its label, so \"VITALDROPS\" and \"All-In-One Multi-Herbal Supplement\" are fully visible. Move the headline down to keep at least 5% margin from the top edge, and move the \"DESPUÉS\" tag inward to keep at least 5% margin from the right edge."
+    }
+  ]
+}

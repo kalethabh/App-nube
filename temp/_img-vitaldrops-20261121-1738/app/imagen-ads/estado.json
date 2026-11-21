@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 2,
-    "R": 7,
+    "R": 8,
     "A": 1,
     "T": 2
   },
@@ -108,7 +108,7 @@
     "R006": {
       "tipo": "revision",
       "uuid": "7a807170-d61a-4aed-8b95-cf2235f89adc",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -121,7 +121,22 @@
           "firma": "2323183-1795302143812",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
+    },
+    "R007": {
+      "tipo": "revision",
+      "uuid": "cd65e94f-ce84-490b-bd00-7c191446aef3",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V10_1x1",
+          "firma": "2172409-1795302219630",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -335,21 +350,30 @@
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2315006-1795302133367",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El sello dice «INGREDIEITES»: cambió la N por una I. Debe decir «5 INGREDIENTES · 1 TOMA AL DÍA».",
+          "El titular de arriba queda pegado al borde superior, a menos del 5 %. Hay que bajarlo un poco."
+        ],
+        "firma": "2315006-1795302133367",
+        "correccion_en": "Write the seal text exactly as \"5 INGREDIENTES · 1 TOMA AL DÍA\" (INGREDIENTES spelled with N, not I). Move the headline down so it keeps at least 5% margin from the top edge."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T23:02:14.826Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R006"
+      "ultimaOrden": "g"
     },
     "V08_1x1": {
       "v": "V08",
@@ -382,43 +406,58 @@
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2323183-1795302143812",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R006",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El sello de «5 INGREDIENTES» tapa parte de la etiqueta del frasco: la S de «VITALDROPS» y el final de «Supplement» no se ven completos. El sello debe ir al lado del frasco, sin taparlo.",
+          "El titular de arriba queda pegado al borde superior, a menos del 5 %. Hay que bajarlo.",
+          "La etiqueta «DESPUÉS» queda muy cerca del borde derecho, a menos del 5 %. Hay que correrla hacia adentro."
+        ],
+        "firma": "2323183-1795302143812",
+        "correccion_en": "Place the \"5 INGREDIENTES · 1 TOMA AL DÍA\" seal next to the bottle without covering its label, so \"VITALDROPS\" and \"All-In-One Multi-Herbal Supplement\" are fully visible. Move the headline down to keep at least 5% margin from the top edge, and move the \"DESPUÉS\" tag inward to keep at least 5% margin from the right edge."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-21T23:02:25.000Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R006"
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2172409-1795302219630",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R007",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular queda muy pegado a los bordes: «SEMANAS» casi toca el borde izquierdo y «NATURAL» casi toca el derecho. Debe quedar al menos a un 5 % de cada borde."
+        ],
+        "firma": "2172409-1795302219630",
+        "correccion_en": "Make the headline \"GANAS DE COMER EN SEMANAS, DE FORMA NATURAL\" slightly smaller and centered so every letter stays at least 5% away from the left and right edges of the image. Keep all other texts as they are."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T23:03:41.074Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

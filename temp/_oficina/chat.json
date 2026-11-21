@@ -1015,6 +1015,22 @@
       ],
       "aviso": true,
       "fecha": "2026-11-21T23:01:34.808Z"
+    },
+    {
+      "id": "62529b87cb",
+      "de": "coordinadora",
+      "texto": "Ya están tus 10 imágenes de VITALDROPS 👀 Échales un ojo y me dices qué tal.",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Ver 10 imágenes de VITALDROPS",
+          "href": "#/imagenes/_img-vitaldrops-20261121-1738",
+          "lote": "_img-vitaldrops-20261121-1738",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-21T23:04:04.819Z"
     }
   ],
   "encargos": [
@@ -1190,7 +1206,7 @@
       "aprobado": "2026-11-21T22:19:52.718Z"
     },
     {
-      "estado": "produciendo",
+      "estado": "listo",
       "creado": "2026-11-21T22:38:08.233Z",
       "id": "_img-vitaldrops-20261121-1738",
       "tipo": "imagenes",
