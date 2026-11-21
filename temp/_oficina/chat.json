@@ -470,6 +470,30 @@
       ],
       "aviso": true,
       "fecha": "2026-11-20T23:32:43.533Z"
+    },
+    {
+      "id": "90c6f932d5",
+      "de": "tu",
+      "texto": "necesito hacer este mismo video paramel aguaje, así realista, si dura más de 2 minutos, que el video dure max 1:40",
+      "adjuntos": [
+        "9abb8f709445"
+      ],
+      "fecha": "2026-11-21T14:42:47.347Z"
+    },
+    {
+      "id": "0e70ad7782",
+      "de": "coordinadora",
+      "texto": "¡Dale! Ya lo estoy replicando para el Aguaje en estilo realista, con la misma estructura y ritmo de tu video pero sin pasar de 1:40 ⏱️ Apenas esté el guion te paso el costo y no arranca nada hasta que me digas que sí.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Guion Realista con narrador de AGUAJE COMPLEX 3 EN 1 (clonando tu video)",
+          "href": "#/nuevo?producto=producto-edb1&paso=2&anuncios=aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+          "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-21T14:43:03.747Z"
     }
   ],
   "encargos": [
@@ -521,6 +545,15 @@
       "titulo": "10 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu referencia)",
       "costo": 0,
       "aprobado": "2026-11-20T23:03:38.730Z"
+    },
+    {
+      "estado": "escribiendo",
+      "creado": "2026-11-21T14:43:03.747Z",
+      "id": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+      "tipo": "video",
+      "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+      "productoId": "producto-edb1",
+      "titulo": "Realista con narrador de AGUAJE COMPLEX 3 EN 1"
     }
   ]
 }
