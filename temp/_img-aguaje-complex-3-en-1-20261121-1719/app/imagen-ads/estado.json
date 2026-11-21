@@ -323,68 +323,56 @@
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "por-revisar",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "2165371-1795301471468",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T22:51:11.544Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V09_1x1": {
       "v": "V09",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "por-revisar",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "2064663-1795301474595",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T22:51:15.859Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V10_1x1": {
       "v": "V10",
       "formato": "1:1",
-      "fase": "pedida",
+      "fase": "por-revisar",
       "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T002"
-      },
+      "version": 1,
+      "firma": "2195622-1795301480884",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
       "revision": null,
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-21T22:51:22.049Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

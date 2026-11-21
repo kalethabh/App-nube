@@ -1,7 +1,7 @@
 {
   "version": 1,
   "siguiente": {
-    "E": 2,
+    "E": 3,
     "R": 1,
     "A": 1,
     "T": 2
@@ -18,6 +18,19 @@
       "uuid": "b9bd4f39-5d63-4c48-b289-4788627323cf",
       "motor": "claude",
       "estado": "hecha"
+    },
+    "E002": {
+      "tipo": "prompts",
+      "uuid": "89758a71-e47a-4456-9077-361190d9f58c",
+      "estado": "en-curso",
+      "ids": [
+        "V05",
+        "V06",
+        "V07",
+        "V08",
+        "V09",
+        "V10"
+      ]
     }
   },
   "variaciones": {
@@ -38,28 +51,28 @@
       "tanda": "E001"
     },
     "V05": {
-      "prompt": "falta",
-      "tanda": null
+      "prompt": "en-tanda",
+      "tanda": "E002"
     },
     "V06": {
-      "prompt": "falta",
-      "tanda": null
+      "prompt": "en-tanda",
+      "tanda": "E002"
     },
     "V07": {
-      "prompt": "falta",
-      "tanda": null
+      "prompt": "en-tanda",
+      "tanda": "E002"
     },
     "V08": {
-      "prompt": "falta",
-      "tanda": null
+      "prompt": "en-tanda",
+      "tanda": "E002"
     },
     "V09": {
-      "prompt": "falta",
-      "tanda": null
+      "prompt": "en-tanda",
+      "tanda": "E002"
     },
     "V10": {
-      "prompt": "falta",
-      "tanda": null
+      "prompt": "en-tanda",
+      "tanda": "E002"
     }
   },
   "piezas": {
