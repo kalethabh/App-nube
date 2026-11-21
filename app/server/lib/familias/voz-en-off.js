@@ -56,6 +56,13 @@ const DEFECTO = {
   linea: 'la imagen no muestra lo que dice su línea, o mete personas que no van.',
 };
 
+// (2026-11-21f) Lo que la revisión mira SIEMPRE, en todos los estilos, para que las escenas salgan cuidadas al detalle.
+const DEFECTOS_DE_CALIDAD = [
+  'el producto que no es EXACTO a la foto real, revisado letra por letra: el nombre de la marca, el texto de la etiqueta, los colores, la tapa, la forma y las proporciones (si el producto se ve en la escena);',
+  'una escena que no cuadra con las demás de la historia: la misma persona con otra cara, otro pelo, otra edad u otra ropa sin que el guion lo diga; el lugar, la luz o la hora que cambian de golpe entre escenas del mismo momento; objetos que aparecen o desaparecen;',
+  'detalles mal hechos que se notan en el celular: ojos o dientes raros, piel de plástico, sombras o reflejos imposibles, el producto flotando o mal apoyado, la mano que no lo agarra bien.',
+];
+
 /**
  * Por estilo (COMO-PRODUCIR secciones 3, 4 y 10, y la skill de cada uno):
  *   skill       la skill del estilo: la revision de las imagenes la lee para escribir los prompts nuevos
@@ -486,6 +493,16 @@ export function notaBrollFuera(n, que = 'esta voz') {
 // ---------------------------------------------------------------- 5. imagenes y videos
 
 async function imagenesYVideos(ctx) {
+  // (2026-11-21f) CALIDAD: primero SOLO las imágenes; la IA las revisa (el producto letra por letra contra la foto
+  // real, cada persona contra su hoja, el set, la luz y la ropa contra las otras escenas) y la app rehace sola, UNA
+  // vez, las que están mal, antes de pagar los videos. El margen va en el costo que se mostró (estimar-costo.js).
+  if (ctx.brief?.correccionImagenes) {
+    const ri = await ctx.correr('generar-imagenes.js', [ctx.carpetaArg, '--si'], { que: ['imagenes'] });
+    if (ri.cancelado) return { cancelado: true };
+    if (ri.codigo !== 0) return fallo(ri, { que: 'las imágenes' });
+    const previa = await revisionPrevia(ctx);
+    if (previa?.cancelado) return { cancelado: true };
+  }
   // producir.js: con la voz ya hecha, imagenes y videos a la vez (cada clip apenas estan sus imagenes).
   const r = await ctx.correr('producir.js', [ctx.carpetaArg, '--si'], { que: ['imagenes', 'videos'] });
   if (r.codigo !== 0) return fallo(r, { que: 'las imágenes y los videos' });
@@ -568,8 +585,9 @@ Te ejecuta la app "Anuncios con IA", sin chat: nadie te va a contestar. No hagas
 2. ${foto ? `Mira con Read la foto real del producto: ${en(foto)}` : 'Este anuncio no tiene foto del producto.'} Las hojas de los personajes y objetos están en ${en('img')} (una imagen por referencia, con su id como nombre).
 3. Mira con Read, una por una, las imágenes de las tomas:
 ${listaTomas}
+   Míralas EN ORDEN y compáralas entre sí: son escenas de una misma historia.
 4. Marca SOLO lo que esté claramente mal, de esta lista:
-${def.defectos.map((d) => `   - ${d}`).join('\n')}
+${[...def.defectos, ...DEFECTOS_DE_CALIDAD].map((d) => `   - ${d}`).join('\n')}
    La app no rehace nada sola: lo que marques le llega al usuario como un aviso en esa toma, y él decide si la regenera. Si dudas, déjala: la imagen puede estar bien. Lo que sea gusto, no lo marques.
 5. Para cada toma que marques, lee ${en('app', 'revision', 'contexto-toma-N.txt')} (cambia N por el número de la toma: sus prompts actuales y lo que no se toca) y escribe prompts NUEVOS para la misma intención, que eviten el problema que viste (no repitas la misma idea: con el mismo prompt sale lo mismo). Quedan listos por si el usuario decide corregirla. Sigue las reglas del estilo de ${path.join(RAIZ, '.claude', 'skills', def.skill, 'SKILL.md')} si necesitas consultarlas (los bloques fijos y el "Negative prompt:" del estilo van igual que en los prompts de antes). No cambies la línea, la duración ni el tipo de la toma. Una toma tipo B lleva también prompt_imagen_final.
 6. Escribe ${en('app', 'revision.json')}, una lista (JSON válido):
@@ -657,13 +675,11 @@ function restaurarToma(ctx, n) {
   copiarSiExiste(path.join(dir, 'manifiesto.json'), path.join(ctx.carpeta, 'manifiesto.json'));
 }
 
-async function revisionImagenes(ctx) {
-  const manifiesto = leerManifiesto(ctx);
-  if (!manifiesto) return { ok: false, error: { mensaje: 'No encuentro el guion del anuncio.', motivo: 'otro', detalle: 'manifiesto.json' } };
-  const estado = leerJSON(rutaEstadoRevision(ctx)) || { sesion: null, pedidos: [] };
-  const guardarEstado = () => escribirJSON(rutaEstadoRevision(ctx), estado);
-
-  // (a) la sesion de Claude, una sola vez (lo que escribe queda en disco: al retomar no se repite)
+/**
+ * (a) La sesion de la revision de las imagenes, UNA sola vez (lo que escribe queda en disco: al retomar no se repite).
+ * Devuelve null cuando ya esta (estado.pedidos al dia) o lo que el paso tiene que devolver (saltado, cancelado).
+ */
+async function sesionDeRevision(ctx, manifiesto, estado, guardarEstado) {
   if (!estado.sesion?.hecha) {
     const simulada = modoPrueba() && process.env.ANUNCIOS_REVISION_REAL !== '1';
     const claude = simulada ? null : await ctx.claude();
@@ -745,6 +761,66 @@ async function revisionImagenes(ctx) {
     guardarEstado();
   }
 
+  return null;
+}
+
+/**
+ * (2026-11-21f) La revisión ANTES de los videos: la sesión de la IA (la misma de siempre) y, para cada toma que marcó,
+ * sus prompts nuevos se aplican (rehacer-toma --aplicar) y sus imágenes se generan otra vez. Una sola vez por toma: lo
+ * que no se pudo queda como aviso en el paso «Revisar las imágenes». Devuelve { rehechas, noSePudo } o { cancelado }.
+ */
+async function revisionPrevia(ctx) {
+  const manifiesto = leerManifiesto(ctx);
+  if (!manifiesto) return null;
+  const estado = leerJSON(rutaEstadoRevision(ctx)) || { sesion: null, pedidos: [] };
+  const guardarEstado = () => escribirJSON(rutaEstadoRevision(ctx), estado);
+  const sesion = await sesionDeRevision(ctx, manifiesto, estado, guardarEstado);
+  if (sesion?.cancelado) return { cancelado: true };
+  if (sesion) return null; // sin IA o sin uso: sigue como siempre (el paso de después lo dice)
+  const porRehacer = (estado.pedidos || []).filter((x) => !x.resultado && !x.previa);
+  if (!porRehacer.length) return { rehechas: 0, noSePudo: 0 };
+  ctx.avance(`Corrigiendo ${porRehacer.length === 1 ? '1 imagen' : `${porRehacer.length} imágenes`} antes de hacer los videos`);
+  const listas = [];
+  for (const x of porRehacer) {
+    x.previa = true;
+    const archivo = path.join(dirRevision(ctx), `aplicar-toma-${x.toma}.json`);
+    fs.mkdirSync(path.dirname(archivo), { recursive: true });
+    fs.writeFileSync(archivo, JSON.stringify(x.prompts || {}, null, 2));
+    const r = await ctx.correr('rehacer-toma.js', [ctx.carpetaArg, '--toma', String(x.toma), '--aplicar', archivo]);
+    if (r.cancelado) {
+      guardarEstado();
+      return { cancelado: true };
+    }
+    if (r.codigo === 0) {
+      x.fase = 'aplicado';
+      listas.push(x);
+    } else x.detallePrevia = String(r.texto || '').slice(-300);
+    guardarEstado();
+  }
+  if (listas.length) {
+    const ri = await ctx.correr('generar-imagenes.js', [ctx.carpetaArg, '--tomas', listas.map((x) => x.toma).join(','), '--si'], { que: ['imagenes'] });
+    if (ri.cancelado) return { cancelado: true };
+    for (const x of listas) {
+      const salio = existe(path.join(ctx.carpeta, 'img', `toma-${x.toma}-inicial.png`));
+      x.fase = salio ? 'rehecha' : 'pendiente';
+      x.resultado = salio ? 'rehecha' : null; // (lo que no salió queda como aviso después)
+    }
+  }
+  guardarEstado();
+  const rehechas = listas.filter((x) => x.resultado === 'rehecha').length;
+  return { rehechas, noSePudo: porRehacer.length - rehechas };
+}
+
+async function revisionImagenes(ctx) {
+  const manifiesto = leerManifiesto(ctx);
+  if (!manifiesto) return { ok: false, error: { mensaje: 'No encuentro el guion del anuncio.', motivo: 'otro', detalle: 'manifiesto.json' } };
+  const estado = leerJSON(rutaEstadoRevision(ctx)) || { sesion: null, pedidos: [] };
+  const guardarEstado = () => escribirJSON(rutaEstadoRevision(ctx), estado);
+
+  // (a) la sesion de la IA (si la revision previa ya la hizo, aca solo se anotan los avisos)
+  const sesion = await sesionDeRevision(ctx, manifiesto, estado, guardarEstado);
+  if (sesion) return sesion;
+
   // (b) cada toma marcada queda como AVISO en su imagen de inicio, con los prompts que escribio la revision como
   // sugerencia (para «Corregir esto»): no se rehace nada solo. Se anota una sola vez: si el anuncio se vuelve a armar
   // (una pieza que regenero el usuario), no vuelve un aviso que ya se saco.
@@ -754,7 +830,9 @@ async function revisionImagenes(ctx) {
   // los avisos que QUEDAN (si el usuario regeneró una pieza con aviso, el suyo ya se fue y no se vuelve a contar)
   const avisos = piezasConAviso(ctx.carpeta, { paso: 'revision-imagenes' });
   const habia = estado.pedidos.filter((x) => x.resultado === 'aviso').length;
-  return { ok: true, nota: avisos ? notaDeAvisos(avisos) : habia ? 'Ya no quedan avisos de la revisión.' : 'Las imágenes pasaron la revisión.' };
+  const rehechas = estado.pedidos.filter((x) => x.resultado === 'rehecha').length;
+  const yaCorregidas = rehechas ? ` Antes de los videos, la IA corrigió ${rehechas === 1 ? '1 imagen' : `${rehechas} imágenes`}.` : '';
+  return { ok: true, nota: (avisos ? notaDeAvisos(avisos) : habia ? 'Ya no quedan avisos de la revisión.' : 'Las imágenes pasaron la revisión.') + yaCorregidas };
 }
 
 /**

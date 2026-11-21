@@ -408,7 +408,7 @@ export function crearAnuncio(datos = {}) {
   const pedido = typeof datos.pedido === 'string' ? datos.pedido.replace(/\s+/g, ' ').trim().slice(0, 600) : '';
   // (2026-11-20m) lo que se dice o se canta en el video que pasó el usuario (transcrito), para copiarlo
   const letraOriginal = typeof datos.letraOriginal === 'string' ? datos.letraOriginal.replace(/\r/g, '').trim().slice(0, 8000) : '';
-  const brief = { slug, productoId, estilo, familia: null, faseGuion: def.faseGuion, duracion, voz, continuidad, respuestas, opciones: opcionesDe(estilo, respuestas), ...(avatar ? { avatar } : {}), ...(musicaBiblioteca ? { musicaBiblioteca } : {}), ...(pedido ? { pedido } : {}), ...(letraOriginal ? { letraOriginal } : {}), creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
+  const brief = { slug, productoId, estilo, familia: null, faseGuion: def.faseGuion, duracion, voz, continuidad, respuestas, opciones: opcionesDe(estilo, respuestas), ...(avatar ? { avatar } : {}), ...(musicaBiblioteca ? { musicaBiblioteca } : {}), ...(pedido ? { pedido } : {}), ...(letraOriginal ? { letraOriginal } : {}), correccionImagenes: process.env.ANUNCIOS_SIN_CORRECCION_IMAGENES !== '1', creado: ahora(), ...(PUERTO_DE_PRUEBA ? { puerto: PUERTO_DE_PRUEBA } : {}) };
   brief.familia = familiaDe(brief);
   // tus videos e imágenes (opcional, 2026-11-19): se copian al anuncio antes del guion (lib/material-propio.js)
   if (Array.isArray(datos.material) && datos.material.length) {

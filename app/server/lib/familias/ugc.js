@@ -1218,6 +1218,10 @@ const DEFECTOS = [
   'manos o cara deformes;',
   'un bloque que vuelve a un lugar y sale en otro lugar distinto al de su fotograma;',
   'la ropa o el lugar no son los que pide el bloque.',
+  // (2026-11-21f) cuidado al detalle
+  'el producto que no es EXACTO a la foto real, revisado letra por letra: el nombre de la marca y el texto de la etiqueta, los colores, la tapa y la forma;',
+  'con varias personas: alguien que no es quien dice su línea (habla otra persona), una persona que cambia de cara, pelo o ropa entre bloques, o una voz que cambia mucho de un bloque al otro;',
+  'detalles mal hechos que se notan en el celular: ojos o dientes raros, piel de plástico, la mano que no agarra bien el producto, la boca que no va con lo que dice.',
 ];
 
 function reglasPrompt(conLugares) {

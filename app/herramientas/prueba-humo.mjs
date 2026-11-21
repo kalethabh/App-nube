@@ -692,6 +692,9 @@ async function prueba() {
       ANUNCIOS_PRUEBA_LIMPIO: '1',
       ANUNCIOS_CLAUDE_BIN: SELF,
       HUMO_REGISTRO: REGISTRO,
+      // (2026-11-21f) la revisión que corrige las imágenes antes de los videos: con HUMO_CORRECCION=1 se prueba esa;
+      // por defecto, el camino de «solo avisa» (todo al primer intento), que es el que revisa el resto de la prueba
+      ...(process.env.HUMO_CORRECCION === '1' ? {} : { ANUNCIOS_SIN_CORRECCION_IMAGENES: '1' }),
       // la IA elegida (sin AIA_MOTOR, una carpeta nueva no tiene ninguna y la app pediria elegirla)
       AIA_MOTOR: HUMO_MOTOR,
       ...(HUMO_MOTOR === 'codex'

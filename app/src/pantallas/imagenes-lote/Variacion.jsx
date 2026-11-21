@@ -4,7 +4,7 @@
 // revisión no rehace nada sola: lo que notó queda debajo («La revisión notó: …») con «Corregir esto» y Regenerar.
 import { memo, useContext, useState } from 'react';
 import { Clock, Copy, Download, ImageOff, LoaderCircle, PenLine, RefreshCw, ScanEye, WandSparkles } from 'lucide-react';
-import { Boton, BotonFunciona, Insignia, Tooltip } from '../../componentes/index.js';
+import { Boton, BotonFunciona, Insignia, Tooltip, GuardarEnCarpeta } from '../../componentes/index.js';
 import { LoteFunciona } from '../../datos/funcionan.js';
 import { ESTADOS_PIEZA, PIEZA_EN_MARCHA, PIEZA_FINAL, partesDePieza } from '../../datos/imagenes.js';
 
@@ -102,6 +102,8 @@ export const TarjetaPieza = memo(function TarjetaPieza({ p, formato, onAbrir, on
         </Tooltip>
         {/* «Me funciona»: la guardas para hacer variantes ganadoras (Anuncios de imagen → Variantes) */}
         {lote && p.url ? <BotonFunciona tipo="imagen" lote={lote} pieza={p.pieza} /> : null}
+        {/* (2026-11-21) «Guardar en carpeta»: a una de tus carpetas de producto (Carpetas › imágenes) */}
+        {lote && p.url ? <GuardarEnCarpeta soloIcono desde={{ tipo: 'imagen-lote', lote, pieza: p.pieza }} /> : null}
       </div>
     </div>
   );
