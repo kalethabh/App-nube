@@ -905,3 +905,66 @@
 @keyframes tb-eq-corre { to { background-position: -200% 0; } }
 @keyframes tb-eq-late { 50% { opacity: 0.3; } }
 @media (prefers-reduced-motion: reduce) { .tb-eq__paso, .tb-eq__estado--activo::before { animation: none !important; } }
+
+/* ---------------------------------------------------------------- para después (2026-11-21g) */
+.tb-despues {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--e-2);
+}
+.tb-despues__item {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  padding: var(--e-2) var(--e-3);
+  border: 1px solid var(--borde-1);
+  border-radius: var(--r-l);
+  background: var(--superficie-1);
+}
+.tb-despues__foto {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-s);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--superficie-2);
+  color: var(--texto-2);
+}
+.tb-despues__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tb-despues__textos {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 2px;
+}
+.tb-despues__textos strong span {
+  font-weight: 400;
+  color: var(--texto-2);
+}
+.tb-despues__que {
+  font-size: 13px;
+  color: var(--texto-2);
+}
+.tb-despues__botones {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+}
+@media (max-width: 560px) {
+  .tb-despues__item {
+    flex-wrap: wrap;
+  }
+  .tb-despues__botones {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

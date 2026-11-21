@@ -280,6 +280,8 @@ export async function oficina() {
     anuncios = [];
   }
   for (const a of anuncios) {
+    // lo que dejaste para después no te pide nada (queda en «Para después» del tablero)
+    if (a.paraDespues && (a.teNecesita || a.estado === 'error')) continue;
     const nombre = a.tituloGuion || a.titulo || a.slug;
     const href = `#/anuncio/${a.slug}`;
     if (a.estado === 'guion') {
@@ -364,7 +366,7 @@ export async function oficina() {
   const enEstacion = {}; // estación -> { estado, trabajos: [...] }
   for (const d of prod.departamentos) {
     for (const t of d.trabajos) {
-      if (t.estado === 'listo') continue;
+      if (t.estado === 'listo' || t.paraDespues) continue;
       for (const [e, v] of Object.entries(t.estaciones)) {
         if (!RANGO[v]) continue;
         const x = (enEstacion[e] ||= { estado: null, trabajos: [] });

@@ -503,7 +503,7 @@ export default function Produccion({ params, consulta }) {
   }
   // un cantado antes de sus escenas: hay conductor pero todavía no hay manifiesto (la letra, la canción, elegirla)
   if (enVivo && !a && (sinEscenas || (error && error.estado !== 0))) {
-    return <SinEscenas slug={slug} titulo={enLista?.titulo || 'Tu anuncio'} estilo={enLista?.estiloNombre} productoId={enLista?.productoId} conductor={conductor} cancion={cancionEnVivo} continuar={continuar} continuando={continuando} />;
+    return <SinEscenas slug={slug} titulo={enLista?.titulo || 'Tu anuncio'} estilo={enLista?.estiloNombre} productoId={enLista?.productoId} conductor={conductor} cancion={cancionEnVivo} continuar={continuar} continuando={continuando} paraDespues={enLista?.paraDespues} />;
   }
   // sin respuesta (no un 404): la ventana de la app se cerró. El anuncio no se perdió: sigue al volver a abrirla.
   const appCerrada = error?.estado === 0;
@@ -572,8 +572,10 @@ export default function Produccion({ params, consulta }) {
     tarjetas.push({
       id: 'alto',
       icono: tipo,
-      tono: tipo === 'conexion' || tipo === 'reintento' ? 'aviso' : undefined,
-      sobre: tipo === 'conexion' || tipo === 'reintento' ? 'Esperando' : undefined,
+      tono: tipo === 'conexion' || tipo === 'reintento' || enLista?.paraDespues ? 'aviso' : undefined,
+      sobre: tipo === 'conexion' || tipo === 'reintento' ? 'Esperando' : enLista?.paraDespues ? 'Lo dejaste para después' : undefined,
+      // «Terminar después»: lo que te necesita (no lo que espera solo) y que todavía te avisa
+      despues: tipo !== 'conexion' && tipo !== 'reintento' && !enLista?.paraDespues ? { slug, titulo: a?.titulo || enLista?.titulo || 'Tu anuncio' } : undefined,
       titulo: tipo === 'error' && que ? `Se trabó: ${que}` : t0.titulo,
       texto: tipo === 'saldo' ? t0.texto : `${v.alto.mensaje ? `${conPunto(v.alto.mensaje)} ` : ''}${delGuion ? TEXTO_GUION : t0.texto}`,
       accion: delGuion ? 'Ver el guion' : 'Continuar',
@@ -841,7 +843,7 @@ export default function Produccion({ params, consulta }) {
  * Un cantado antes de sus escenas: la letra, la canción y elegirla (el manifiesto se escribe recién con la versión
  * elegida). La línea de pasos, lo que se está haciendo y, cuando toca, "Elige la versión de tu canción".
  */
-function SinEscenas({ slug, titulo, estilo, productoId, conductor: c, cancion, continuar, continuando }) {
+function SinEscenas({ slug, titulo, estilo, productoId, conductor: c, cancion, continuar, continuando, paraDespues }) {
   const alto = altoDe(c);
   const paso = pasoActual(c);
   const etapas = etapasDeConductor(c);
@@ -864,6 +866,9 @@ function SinEscenas({ slug, titulo, estilo, productoId, conductor: c, cancion, c
     tarjetas.push({
       id: 'alto',
       icono: alto.tipo,
+      tono: paraDespues ? 'aviso' : undefined,
+      sobre: paraDespues ? 'Lo dejaste para después' : undefined,
+      despues: paraDespues ? undefined : { slug, titulo },
       titulo: (TEXTO_ALTO[alto.tipo] || TEXTO_ALTO.error).titulo,
       texto: textoTarjeta,
       accion: delGuion ? 'Ver el guion' : 'Continuar',

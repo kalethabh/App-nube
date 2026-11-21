@@ -8,12 +8,12 @@
 // Arriba van los guiones que esperan (p.guiones): "Tu guion está listo" para aprobarlo, o el guion que no salió,
 // los dos con su botón a la pantalla del guion (ahí se aprueba, se piden cambios o se reintenta).
 import { useState } from 'react';
-import { ArrowRight, CirclePause, EighthNotes, FileText, Hand, RotateCcw, Settings, TriangleAlert, Wallet } from 'lucide-react';
+import { ArrowRight, CirclePause, Clock, EighthNotes, FileText, Hand, RotateCcw, Settings, TriangleAlert, Wallet } from 'lucide-react';
 import { Boton, Insignia, Seccion, useAvisos } from '../../componentes/index.js';
 import { apiNuevo, invalidar, miniatura } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
 import { enMinuscula, fechaRelativa } from '../../datos/formato.js';
-import { TEXTO_ALTO, continuarProduccion, textoDePaso } from '../../datos/produccion.js';
+import { TEXTO_ALTO, continuarProduccion, dejarParaDespues, textoDePaso } from '../../datos/produccion.js';
 import { BotonDescartar } from '../nuevo/Descartar.jsx';
 import { MOTORES, mayuscula, useMotor } from '../ajustes/datos.js';
 
@@ -29,6 +29,32 @@ function textos({ alto }) {
   const causa = alto.paso?.error?.causa;
   if (causa) return { titulo: que ? `Se trabó: ${que}` : t.titulo, texto: `${causa.porque}${causa.dijo ? ` (kie.ai: «${causa.dijo}»)` : ''} ${causa.hacer?.join(' ') || t.texto}` };
   return { titulo: que ? `Se trabó: ${que}` : t.titulo, texto: `${alto.mensaje ? `${conPunto(alto.mensaje)} ` : ''}${t.texto}` };
+}
+
+/**
+ * «Terminar después»: lo saca de «Te necesitan» (y del aviso rojo) y lo deja en «Para después», con «Continuar». Vuelve
+ * a avisarte solo cuando lo toques (Continuar, aprobar o pedir cambios).
+ */
+export function BotonDespues({ slug, titulo, alHacer, tamano = 'chico' }) {
+  const { aviso } = useAvisos();
+  const [ocupado, setOcupado] = useState(false);
+  const posponer = async () => {
+    setOcupado(true);
+    try {
+      await dejarParaDespues(slug);
+      aviso({ tipo: 'info', titulo: 'Queda para después', texto: `${titulo}: ya no te avisa. Lo encuentras en «Para después» con «Continuar».` });
+      alHacer?.();
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude dejarlo para después', texto: e.message });
+    } finally {
+      setOcupado(false);
+    }
+  };
+  return (
+    <Boton variante="fantasma" tamano={tamano} icono={Clock} onClick={posponer} cargando={ocupado} title="Ya no te avisa: queda en «Para después» para continuarlo cuando quieras">
+      Terminar después
+    </Boton>
+  );
 }
 
 function Frenado({ n, alSeguir }) {
@@ -74,11 +100,15 @@ function Frenado({ n, alSeguir }) {
         <p className="tb-decision__texto">{texto}</p>
         <div className="tb-decision__pie">
           {alto.tipo === 'cancion' ? (
-            <Boton variante="primario" tamano="chico" iconoDerecha={ArrowRight} href={enlace.produccion(a.slug)}>
-              Escuchar y elegir
-            </Boton>
+            <>
+              <BotonDespues slug={a.slug} titulo={a.titulo} alHacer={alSeguir} />
+              <Boton variante="primario" tamano="chico" iconoDerecha={ArrowRight} href={enlace.produccion(a.slug)}>
+                Escuchar y elegir
+              </Boton>
+            </>
           ) : (
             <>
+              <BotonDespues slug={a.slug} titulo={a.titulo} alHacer={alSeguir} />
               <Boton variante="fantasma" tamano="chico" iconoDerecha={ArrowRight} href={enlace.produccion(a.slug)}>
                 Ver producción
               </Boton>
@@ -163,6 +193,7 @@ function GuionEspera({ a, alSeguir }) {
         <p className="tb-decision__texto">{listo ? 'Léelo y apruébalo, o pide cambios con tus palabras. Después todo sigue solo hasta los videos.' : textoDeFalla(a, ia)}</p>
         <div className="tb-decision__pie">
           <BotonDescartar slug={a.slug} titulo={a.titulo} alDescartar={alSeguir} soloIcono texto="Descartar este anuncio" />
+          <BotonDespues slug={a.slug} titulo={a.titulo} alHacer={alSeguir} />
           {listo ? (
             <Boton variante="primario" tamano="chico" iconoDerecha={ArrowRight} href={href}>
               Ver el guion
