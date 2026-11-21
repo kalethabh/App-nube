@@ -640,6 +640,31 @@
         }
       ],
       "fecha": "2026-11-21T19:19:22.212Z"
+    },
+    {
+      "id": "36856bd6a5",
+      "de": "tu",
+      "texto": "Necesito que me hagas 5 variaciones de esta imagen ganadora para escalar con el sistema S.E.P",
+      "adjuntos": [
+        "5b84d7191e81"
+      ],
+      "fecha": "2026-11-21T19:26:06.089Z"
+    },
+    {
+      "id": "ccf2f3ae2f",
+      "de": "coordinadora",
+      "texto": "¡Qué buena esa ganadora! 🔥 Te armé las 5 variaciones jugando con «No solo glúteos, también tus piernas»: misma estructura, colores y oferta, solo cambian la modelo, el lugar, la pose y el titular. Te salen aquí con su costo y no arranca nada sin tu sí 🙌",
+      "acciones": [
+        {
+          "tipo": "imagenes",
+          "titulo": "Generando 5 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio) (sin costo por imagen)",
+          "href": "#/imagenes/_img-aguaje-complex-3-en-1-20261121-1426",
+          "lote": "_img-aguaje-complex-3-en-1-20261121-1426",
+          "ok": true,
+          "enChat": true
+        }
+      ],
+      "fecha": "2026-11-21T19:26:22.802Z"
     }
   ],
   "encargos": [
@@ -718,6 +743,17 @@
       "slug": "aguaje-complex-3-en-1-agregar-20261121-1419",
       "productoId": "producto-edb1",
       "titulo": "Igual a tu video de AGUAJE COMPLEX 3 EN 1"
+    },
+    {
+      "estado": "produciendo",
+      "creado": "2026-11-21T19:26:22.799Z",
+      "id": "_img-aguaje-complex-3-en-1-20261121-1426",
+      "tipo": "imagenes",
+      "lote": "_img-aguaje-complex-3-en-1-20261121-1426",
+      "productoId": "producto-edb1",
+      "titulo": "5 imágenes de AGUAJE COMPLEX 3 EN 1 (variaciones de tu anuncio)",
+      "costo": 0,
+      "aprobado": "2026-11-21T19:26:22.801Z"
     }
   ]
 }

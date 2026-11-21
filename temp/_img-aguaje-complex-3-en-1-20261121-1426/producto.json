@@ -1,0 +1,41 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261121-1426",
+  "nombre": "AGUAJE COMPLEX 3 EN 1",
+  "analisis": "Suplemento en cápsulas a base de aguaje, fenogreco y maca negra para aumentar glúteos, piernas y caderas de forma natural.",
+  "tipo_producto": "fisico",
+  "descripcion_visual_en": "Use the attached product photo exactly as it is (packaging, label, colors and proportions).",
+  "foto_producto": "entrada/producto.png",
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "Mujeres que quieren glúteos más firmes y piernas con más volumen",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Variaciones de su anuncio ganador para escalar con el sistema S.E.P. Mantener el anuncio validado: fondo rosa, titular grande arriba, frasco de Aguaje Complex con frutos de aguaje, 3 íconos (glúteos más firmes, piernas con más volumen, fórmula natural), foto de la modelo de espalda con short deportivo, frase manuscrita «Curvas reales, resultados reales» y franja inferior «Envío gratis · Paga al recibir».",
+    "angulo": null
+  },
+  "identidad_visual": {
+    "color_palette": "the colors of the product packaging",
+    "visual_style": "the style of the reference ad",
+    "visual_atmosphere": "the atmosphere of the reference ad",
+    "graphic_language": "the graphic language of the reference ad",
+    "text_typography": "the typography of the reference ad",
+    "art_direction": "same design as the reference ad"
+  },
+  "beneficios": [
+    "Aumento de glúteos",
+    "Aumento de piernas y caderas",
+    "Triple acción con 3 extractos naturales",
+    "Sin efecto rebote (no engorda)",
+    "Sin necesidad de hacer ejercicio de fuerza",
+    "Resultados visibles y naturales"
+  ],
+  "caracteristicas": [
+    "Producto real de la foto",
+    "Empaque original",
+    "Uso diario",
+    "Envío a domicilio"
+  ]
+}

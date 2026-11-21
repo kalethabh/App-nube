@@ -1,0 +1,63 @@
+{
+  "slug": "_img-aguaje-complex-3-en-1-20261121-1426",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "AGUAJE COMPLEX 3 EN 1",
+  "productoId": "producto-edb1",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "publico": "Mujeres que quieren glúteos más firmes y piernas con más volumen",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "Variaciones de su anuncio ganador para escalar con el sistema S.E.P. Mantener el anuncio validado: fondo rosa, titular grande arriba, frasco de Aguaje Complex con frutos de aguaje, 3 íconos (glúteos más firmes, piernas con más volumen, fórmula natural), foto de la modelo de espalda con short deportivo, frase manuscrita «Curvas reales, resultados reales» y franja inferior «Envío gratis · Paga al recibir».",
+    "angulo": null
+  },
+  "cantidad": 5,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [
+    "entrada/referencias/R01.png"
+  ],
+  "modo": "variantes",
+  "referenciasPropias": [],
+  "conceptosReferencias": [
+    "Variaciones de su anuncio ganador para escalar con el sistema S.E.P. Mantener el anuncio validado: fondo rosa, titular grande arriba, frasco de Aguaje Complex con frutos de aguaje, 3 íconos (glúteos más firmes, piernas con más volumen, fórmula natural), foto de la modelo de espalda con short deporti"
+  ],
+  "fiel": true,
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-21T19:26:22.609Z",
+  "investigacionDelProducto": true,
+  "origen": "chat",
+  "variacionesChat": [
+    {
+      "titular": "NO SOLO GLÚTEOS · TAMBIÉN TUS PIERNAS",
+      "cambio": "Mismo titular ganador. Cambia la modelo (otra mujer latina, piel trigueña) con leggings deportivos morados, de espalda en un gimnasio luminoso."
+    },
+    {
+      "titular": "TUS PIERNAS TAMBIÉN MERECEN VOLUMEN",
+      "cambio": "Modelo distinta de perfil, mostrando glúteo y muslo, con short de jean en una terraza con luz de tarde."
+    },
+    {
+      "titular": "GLÚTEOS FIRMES Y PIERNAS CON MÁS VOLUMEN",
+      "cambio": "Modelo de espalda frente a un espejo de su cuarto, con conjunto deportivo negro; la palabra PIERNAS sigue resaltada en grande."
+    },
+    {
+      "titular": "NO SOLO GLÚTEOS: PIERNAS QUE SE NOTAN",
+      "cambio": "Modelo caminando de espalda en la playa con bikini de tiro alto; el titular cambia el orden pero mantiene la promesa."
+    },
+    {
+      "titular": "MÁS QUE GLÚTEOS · TUS PIERNAS TAMBIÉN CAMBIAN",
+      "cambio": "Modelo de tres cuartos de espalda con vestido ajustado rosa, en la calle de día; mismo frasco, íconos y franja de oferta."
+    }
+  ],
+  "indicacionesChat": "Que se vea igual a la ganadora: mismos colores rosa, mismas zonas, mismo frasco, mismos íconos y la franja «Envío gratis · Paga al recibir». Glúteos y piernas bien visibles y con volumen en cada foto.",
+  "leccionesChat": ""
+}
