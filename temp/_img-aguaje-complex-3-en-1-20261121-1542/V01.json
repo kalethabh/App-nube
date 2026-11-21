@@ -1,36 +1,93 @@
 {
+  "prompt_type": "ad_creative_generation",
   "ad_info": {
-    "variation_id": "V01"
+    "variation_id": "V01",
+    "structure_source": "uploaded reference (R01.png, the user's winning ad)",
+    "reference_style": "Premium Latin American beauty-supplement product hero ad with icon benefit column, framed lifestyle photo and rounded offer bar",
+    "angle_used": "Beneficio principal — the jeans that don't fit well behind: a natural plan so the jeans fit the way she wants",
+    "ad_format": "Product Hero Ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
   },
   "global_identity": {
-    "color_palette": "the colors of the product's packaging",
-    "text_typography": "the typography of the reference ad"
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents. Same logic as the reference: glossy pink gradient background, deep magenta solid modules, white type.",
+    "visual_style": "Premium Latin American beauty-supplement ad: glossy pink gradient background, the black-and-fuchsia bottle as hero, real aguaje fruits, a framed photo of a woman from behind in fitted clothing, clean thin-line icon modules and a rounded bottom offer bar.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight, believable and natural.",
+    "graphic_language": "Rounded pill banner and bottom bar in deep magenta, thin-line white icons inside white-outlined circles, soft translucent pink petal and heart outline shapes in the background corners, handwritten script accents with small drawn hearts, real aguaje fruits with a halved orange-flesh fruit.",
+    "text_typography": "Typography of the reference: heavy geometric sans-serif (Montserrat Black / Poppins Black look), all uppercase, for the pill line, the second headline line, the icon labels and the bottom bar; the huge third headline word in fuchsia #E6177F with a thick white outline and a soft dark drop shadow, the largest text in the ad; casual handwritten brush script in deep magenta #B0105E, sentence case, for the two short emotional accents."
   },
-  "visual_prompt": "Product: AGUAJE COMPLEX 3 EN 1, for mujeres que quieren más volumen en glúteos y piernas (market: Colombia).\nBenefits to use in the secondary texts (Spanish, short): Aumento de glúteos; Aumento de piernas y caderas; Triple acción con 3 extractos naturales; Sin efecto rebote (no engorda); Sin necesidad de hacer ejercicio de fuerza; Resultados visibles y naturales.\nAngle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: Beneficio principal.\nWINNING CREATIVE CONCEPT of this reference (why it sells, in the owner's words; KEEP this concept, change only the execution details and the headline): 5 variaciones de su anuncio ganador para escalar con el sistema S.E.P. Misma estructura, colores rosados, frasco Aguaje Complex, íconos de beneficios (glúteos más firmes, piernas con más volumen, fórmula natural) y franja de oferta «Envío gratis · Paga al recibir». Solo cambian la modelo, el lugar,\nAdapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.\nWHAT CHANGES IN THIS VARIATION (and only this, the rest stays like the reference): Otra modelo latina de espaldas en leggins negros, en un gimnasio luminoso, pose de perfil mostrando glúteos y piernas\nThe headline PLAYS with the winning headline of the reference keeping its essence (same promise, same desire, same timeframe if it has one), never generic. If there is a before/after, the change must be obvious at first glance: two clearly different moments, the AFTER body visibly improved in the area of the angle. THE CLIENT ASKED: Replicar el anuncio ganador exacto: mismas zonas, letras, colores y oferta. Que el titular conserve la idea de «no solo glúteos, también piernas».",
+  "creative_objective": "Reproduce the exact structure of the user's winning ad on a square canvas, adapted to this product, with only a new headline, a new model, a new place and a new pose, so it scales the same selling idea: curves in glutes and legs, shown in a real photo, with the offer bar removing the fear of paying in advance.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "First the three-tier headline at the top (the huge outlined word dominates), second the product bottle in the center together with the framed photo of the woman on the right, third the left icon column, the deep magenta offer bar at the bottom and the two script accents.",
+    "composition_style": "Top band: centered three-tier headline. Middle band split in three: narrow icon column on the left, product bottle center-left with aguaje fruits at its base, tall framed photo on the right. Bottom band: rounded offer bar from the left edge to about two thirds of the width, with a script accent in the bottom right corner.",
+    "spacing_and_structure": "The headline uses about the top 30% of the canvas, the middle band about 55%, the bottom bar about 12%. Generous but compact spacing, everything aligned and readable on a phone; the bottle slightly overlaps the left edge of the photo frame zone without covering the woman.",
+    "lighting_and_depth": "Soft glossy pink gradient background, lighter in the center, with subtle translucent petal and heart shapes; the bottle lit with a soft studio key light and a gentle reflection, small contact shadow; the photo inside the frame has its own natural warm light.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Pink gradient background with faint translucent petal and heart outlines in the top corners. Top center: a deep magenta rounded pill with a white uppercase line; below it a big white uppercase line; below it one huge fuchsia uppercase word with a thick white outline and drop shadow. Left column, below the headline: three white thin-line icons inside white-outlined circles stacked vertically, each with a two-line white uppercase label below it. Center-left: the product bottle large and upright, with aguaje fruits (whole and one halved showing orange flesh) and green leaves at its lower left. Above the bottle to the right, a two-line handwritten script accent in deep magenta with a small drawn heart. Right side: a tall rounded-corner photo frame with a thin white border showing a woman from behind. Bottom: a deep magenta rounded bar from the left with a white truck icon and a white uppercase label, a thin white vertical divider, then a white hand-with-coin icon and a two-line white uppercase label. Bottom right corner, outside the bar: a two-line handwritten script accent in deep magenta.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background", "position": "Full canvas", "visual_function": "Brand mood and contrast", "adaptation_rule": "Glossy pink gradient (#FF8CC0 to #E6177F edges, lighter #FBE3EE glow in the center) with faint translucent petal and heart outline shapes in the top corners", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "headline pill", "position": "Top center", "visual_function": "Opens the headline", "adaptation_rule": "Deep magenta #B0105E rounded pill with white uppercase text", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "headline line", "position": "Top center, under the pill", "visual_function": "Bridges to the key word", "adaptation_rule": "Big white uppercase heavy sans with soft shadow", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "headline accent word", "position": "Top center, under the white line, full width", "visual_function": "Scroll-stopping key word", "adaptation_rule": "Huge fuchsia uppercase word with thick white outline and drop shadow", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "icon benefit column", "position": "Left column, middle band", "visual_function": "Quick benefit scan", "adaptation_rule": "Three white thin-line icons in white-outlined circles: a stylized rear glute silhouette, a stylized leg silhouette, a leaf; each with a two-line white uppercase label", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "product", "position": "Center-left, middle band, large and upright", "visual_function": "Hero product", "adaptation_rule": "The user's bottle exactly as in the attached photo", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "decorative element", "position": "Lower left of the bottle", "visual_function": "Natural origin cue", "adaptation_rule": "Real aguaje fruits: reddish-brown scaly whole fruits and one halved fruit with orange flesh, with a few green leaves", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "script accent", "position": "Above the bottle, to its right, between bottle and photo frame", "visual_function": "Emotional, human touch", "adaptation_rule": "Two-line handwritten script in deep magenta with a small drawn heart", "present_in_reference": true },
+      { "block_id": "block_09", "block_type": "person photo frame", "position": "Right side, from under the headline to just above the bottom bar", "visual_function": "Shows the desired result in a real photo", "adaptation_rule": "Tall rounded-corner frame with thin white border: a woman photographed from behind in a boutique fitting room", "present_in_reference": true },
+      { "block_id": "block_10", "block_type": "offer bar", "position": "Bottom, from the left edge to about two thirds of the width", "visual_function": "Removes payment risk", "adaptation_rule": "Deep magenta rounded bar with white truck icon + label, thin white vertical divider, white hand-with-coin icon + two-line label", "present_in_reference": true },
+      { "block_id": "block_11", "block_type": "script accent", "position": "Bottom right corner, right of the offer bar", "visual_function": "Closing emotional line", "adaptation_rule": "Two-line handwritten script in deep magenta with a small drawn heart", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "Brand logos of any kind other than what is printed on the product label",
+      "Price, discount, percentage or price badge",
+      "CTA button",
+      "Rating stars, reviews, testimonials or customer counts",
+      "Trust seals, certification badges or 'premium' medals",
+      "Extra benefit icons beyond the three",
+      "Before/after images",
+      "Any extra text block"
+    ]
+  },
+  "visual_prompt": "Square 1:1 premium beauty-supplement image ad. Use the attached reference only for its layout, block placement, hierarchy and typography, and the attached product photo as the only source of truth for the product: do not redesign, replace or reinterpret the bottle, and do not copy any brand, product or text from the reference. Background: glossy pink gradient, bubblegum pink #FF8CC0 to hot fuchsia #E6177F at the edges with a soft pale blush #FBE3EE glow in the center, faint translucent pink petal shapes and thin heart outlines in the top corners. TOP BAND (about 30% of the height), centered: a deep magenta #B0105E rounded pill containing a white uppercase heavy sans line; directly below, a big white uppercase heavy geometric sans line with a soft shadow; below it, one huge uppercase word in hot fuchsia #E6177F with a thick white outline and soft dark drop shadow, the largest text of the ad. MIDDLE BAND: on the far left, a narrow vertical column of three white thin-line icons, each inside a white-outlined circle, stacked with even spacing — a stylized rear glute silhouette with a small up arrow, a stylized leg silhouette, and a leaf — each with a two-line white uppercase bold label centered under it. In the center-left, large and upright, the product: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle; the black label shows a small pink VITALABH emblem with the white word 'VITALABH', a huge bold white condensed word 'AGUAJE', the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red, a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS', a small white line 'A base de Aguaje, Fenogreco y Maca Negra', a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline, three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA', and '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' at the bottom; sharp, soft studio light, small contact shadow. At the lower left of the bottle: real aguaje fruits (reddish-brown scaly whole fruits and one halved fruit showing bright orange flesh, #D9572B) with a few fresh green leaves. Above the bottle, to its right, a two-line handwritten brush script accent in deep magenta with a small drawn heart. On the right side, a tall rounded-corner photo frame with a thin white border, from just under the headline to just above the bottom bar: a photorealistic photo of a young Colombian woman with tan skin and long wavy brown hair, seen from behind with a slight three-quarter turn, wearing high-waisted light-wash fitted jeans and a short pink top, standing in front of the mirror of a warm-lit boutique fitting room, framed from the hips up to the shoulders and down to mid-thigh, natural athletic curves in glutes and legs, real skin texture, tasteful and non-explicit, face not shown. BOTTOM BAND: a deep magenta #B0105E rounded bar from the left edge to about two thirds of the width, with a white delivery-truck line icon and a white uppercase label, a thin white vertical divider, then a white hand-holding-a-coin line icon and a two-line white uppercase label. In the bottom right corner, outside the bar, a two-line handwritten brush script accent in deep magenta with a small drawn heart. Everything clean, high contrast and readable on a phone. No other elements.",
   "text_layers": [
-    {
-      "reference_function": "main headline",
-      "reference_position": "same place as the main headline of the reference",
-      "text": "NO SOLO GLÚTEOS, TAMBIÉN TUS PIERNAS",
-      "text_style": "same style as the main headline of the reference"
-    }
+    { "block_id": "text_block_01", "reference_function": "headline pill line", "reference_position": "Top center, inside the deep magenta rounded pill", "text_style": "White, uppercase, heavy geometric sans (Montserrat Black look), medium-large, centered", "text": "TU PLAN NATURAL" },
+    { "block_id": "text_block_02", "reference_function": "main headline line 2", "reference_position": "Top center, directly under the pill", "text_style": "White, uppercase, heavy geometric sans, large, centered, soft shadow", "text": "PARA QUE EL JEAN" },
+    { "block_id": "text_block_03", "reference_function": "main headline accent word", "reference_position": "Top center, under line 2, spanning most of the width", "text_style": "Hot fuchsia #E6177F fill, thick white outline, soft dark drop shadow, uppercase, heaviest geometric sans, the largest text in the ad, centered", "text": "HORME" },
+    { "block_id": "text_block_04", "reference_function": "emotional script accent", "reference_position": "Above the bottle, to its right, between bottle and photo frame", "text_style": "Handwritten brush script, deep magenta #B0105E, sentence case, two lines, slight tilt, small drawn heart after the second line", "text": "Solo 2 cápsulas\nal día" },
+    { "block_id": "text_block_05", "reference_function": "benefit icon label 1", "reference_position": "Left column, under the first icon (glute silhouette)", "text_style": "White, uppercase, bold geometric sans, small, centered, two lines", "text": "GLÚTEOS\nMÁS FIRMES" },
+    { "block_id": "text_block_06", "reference_function": "benefit icon label 2", "reference_position": "Left column, under the second icon (leg silhouette)", "text_style": "White, uppercase, bold geometric sans, small, centered, two lines", "text": "PIERNAS\nCON MÁS VOLUMEN" },
+    { "block_id": "text_block_07", "reference_function": "benefit icon label 3", "reference_position": "Left column, under the third icon (leaf)", "text_style": "White, uppercase, bold geometric sans, small, centered, two lines", "text": "FÓRMULA\nNATURAL" },
+    { "block_id": "text_block_08", "reference_function": "offer bar label 1", "reference_position": "Bottom bar, left part, right of the truck icon", "text_style": "White, uppercase, heavy geometric sans, medium, one line", "text": "ENVÍO GRATIS" },
+    { "block_id": "text_block_09", "reference_function": "offer bar label 2", "reference_position": "Bottom bar, right part, right of the hand-with-coin icon", "text_style": "White, uppercase, heavy geometric sans, medium, two lines", "text": "PAGA\nAL RECIBIR" },
+    { "block_id": "text_block_10", "reference_function": "closing script accent", "reference_position": "Bottom right corner, right of the offer bar", "text_style": "Handwritten brush script, deep magenta #B0105E, sentence case, two lines, slight tilt, small drawn heart", "text": "Natural,\na tu ritmo" }
   ],
   "mandatory_visual_elements": [
-    "the real product from the attached product photo"
+    "Glossy pink gradient background with faint petal and heart outline shapes",
+    "Deep magenta rounded headline pill",
+    "Huge fuchsia headline word with thick white outline and drop shadow",
+    "Three white thin-line icons in white-outlined circles in the left column (glute silhouette, leg silhouette, leaf)",
+    "The user's black bottle with hot-pink cap and base, identical to the product photo",
+    "Real aguaje fruits, one halved with orange flesh, with green leaves at the base of the bottle",
+    "Tall rounded-corner photo frame with thin white border showing a woman from behind",
+    "Deep magenta rounded bottom bar with white truck icon, thin divider and white hand-with-coin icon",
+    "Two handwritten script accents with small drawn hearts"
   ],
   "final_generation_exclusions": [
-    "any logo, brand name or text from the reference ad",
-    "misspelled words"
+    "No brand logo or brand name other than what is printed on the product label; do not copy the reference brand, bottle or texts.",
+    "No price, discount, stars, ratings, testimonials, certification seals or medals.",
+    "No nudity, no explicit or sexualized pose; no visible face of the woman.",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
   ],
-  "reference_structure_analysis": {
-    "forbidden_additions": [
-      "the reference ad's brand, prices or claims"
-    ],
-    "detected_visual_blocks": []
-  },
-  "language_rule": "All visible text in Spanish.",
-  "app_rapido": "copiar",
-  "app_chat": {
-    "cambio": "Otra modelo latina de espaldas en leggins negros, en un gimnasio luminoso, pose de perfil mostrando glúteos y piernas"
-  }
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
 }

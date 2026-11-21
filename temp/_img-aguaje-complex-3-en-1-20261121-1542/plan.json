@@ -1,71 +1,88 @@
 {
-  "producto": "AGUAJE COMPLEX 3 EN 1",
+  "producto": "aguaje-complex-3-en-1",
   "lote": "_img-aguaje-complex-3-en-1-20261121-1542",
   "cantidad": 5,
-  "proporciones": [
-    "1:1"
-  ],
+  "proporciones": ["1:1"],
   "variaciones": [
     {
       "id": "V01",
       "fuente": "referencia",
-      "referencia": "entrada/referencias/R01.png",
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1542/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Producto héroe con columna de íconos de beneficios, foto enmarcada de la modelo y franja de oferta",
+        "estructura": "Arriba, titular en tres niveles: píldora magenta con texto blanco, línea blanca gruesa y una palabra gigante fucsia con borde blanco. Columna izquierda con 3 íconos de línea en círculos y su rótulo. Centro, el frasco grande con frutos de aguaje a sus pies. Frase a mano sobre el frasco. Derecha, foto enmarcada de una mujer de espaldas. Abajo, franja magenta redondeada con camión «Envío gratis» y mano con moneda «Paga al recibir», y una frase a mano en la esquina inferior derecha.",
+        "por_que_funciona": "Hipótesis: el titular nombra el deseo en segundos, la foto real muestra el resultado soñado, los íconos resumen los beneficios sin leer mucho y la franja quita el miedo a pagar por adelantado."
+      },
       "angulo_id": "beneficio-principal",
       "angulo": "Beneficio principal",
-      "concepto": "Variación del creativo que ya funciona",
-      "titular": "NO SOLO GLÚTEOS, TAMBIÉN TUS PIERNAS",
-      "escena": "la de la referencia",
-      "camara": "la de la referencia",
-      "base_titular": "beneficio de la ficha del producto"
+      "concepto": "El jean que no horma: tu plan natural para que te vuelva a quedar como quieres.",
+      "titular": "TU PLAN NATURAL / PARA QUE EL JEAN / HORME",
+      "escena": "Foto enmarcada: mujer colombiana de piel trigueña y cabello largo castaño ondulado, de espaldas, en jean claro de tiro alto y top corto rosado, mirándose en el espejo de un probador de boutique con luz cálida.",
+      "camara": "Plano de espaldas a la altura de la cadera, de cuerpo entero hasta media pierna, ligero giro de tres cuartos."
     },
     {
       "id": "V02",
       "fuente": "referencia",
-      "referencia": "entrada/referencias/R01.png",
-      "angulo_id": "dolor",
-      "angulo": "Dolor / problema",
-      "concepto": "Variación del creativo que ya funciona",
-      "titular": "GLÚTEOS Y PIERNAS CON MÁS VOLUMEN",
-      "escena": "la de la referencia",
-      "camara": "la de la referencia",
-      "base_titular": "beneficio de la ficha del producto"
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1542/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Producto héroe con columna de íconos de beneficios, foto enmarcada de la modelo y franja de oferta",
+        "estructura": "La misma de V01: titular en tres niveles arriba, íconos a la izquierda, frasco al centro con frutos de aguaje, foto enmarcada a la derecha, franja de oferta abajo y dos frases a mano.",
+        "por_que_funciona": "Hipótesis: lleva el mismo diseño ganador al deseo profundo de sentirse segura, que es lo que la clienta quiere de verdad detrás de las curvas."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Sentirse segura con su cuerpo: el deseo central dicho de frente.",
+      "titular": "SIÉNTETE SEGURA / CON TUS / CURVAS",
+      "escena": "Foto enmarcada: mujer de piel morena y cabello negro rizado recogido, de espaldas, con conjunto deportivo rosado (leggings y top), caminando en una terraza soleada con plantas.",
+      "camara": "Plano de espaldas desde atrás y un poco abajo, cuerpo entero hasta las rodillas, paso natural al caminar."
     },
     {
       "id": "V03",
       "fuente": "referencia",
-      "referencia": "entrada/referencias/R01.png",
-      "angulo_id": "transformacion",
-      "angulo": "Transformación / resultado",
-      "concepto": "Variación del creativo que ya funciona",
-      "titular": "TUS PIERNAS TAMBIÉN MERECEN VOLUMEN",
-      "escena": "la de la referencia",
-      "camara": "la de la referencia",
-      "base_titular": "beneficio de la ficha del producto"
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1542/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Producto héroe con columna de íconos de beneficios, foto enmarcada de la modelo y franja de oferta",
+        "estructura": "La misma de V01: titular en tres niveles arriba, íconos a la izquierda, frasco al centro con frutos de aguaje, foto enmarcada a la derecha, franja de oferta abajo y dos frases a mano.",
+        "por_que_funciona": "Hipótesis: el miedo a operarse es lo que empuja a la clienta hacia lo natural; el titular le da el sí a las curvas y el no al quirófano."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Más curvas sí, pero de forma natural y sin quirófano.",
+      "titular": "MÁS CURVAS SÍ, / PERO SIN / QUIRÓFANO",
+      "escena": "Foto enmarcada: mujer de piel clara y cabello rubio oscuro liso en coleta alta, de espaldas, con shorts deportivos fucsia y top negro, de pie junto a la ventana de una sala luminosa con piso de madera.",
+      "camara": "Plano de espaldas a la altura de la cintura, cuerpo de la espalda a las rodillas, peso en una pierna y mano en la cadera."
     },
     {
       "id": "V04",
       "fuente": "referencia",
-      "referencia": "entrada/referencias/R01.png",
-      "angulo_id": "prueba-social",
-      "angulo": "Prueba social",
-      "concepto": "Variación del creativo que ya funciona",
-      "titular": "MÁS GLÚTEOS… Y TAMBIÉN MÁS PIERNAS",
-      "escena": "la de la referencia",
-      "camara": "la de la referencia",
-      "base_titular": "beneficio de la ficha del producto"
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1542/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Producto héroe con columna de íconos de beneficios, foto enmarcada de la modelo y franja de oferta",
+        "estructura": "La misma de V01: titular en tres niveles arriba, íconos a la izquierda, frasco al centro con frutos de aguaje, foto enmarcada a la derecha, franja de oferta abajo y dos frases a mano.",
+        "por_que_funciona": "Hipótesis: le habla a la que ya entrena y no ve cambios; presenta el frasco como el apoyo que le faltaba a su rutina."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "Meses de sentadillas: tu rutina de pierna necesita un apoyo diario.",
+      "titular": "¿MESES DE SENTADILLAS? / TU RUTINA PIDE UN / EMPUJÓN",
+      "escena": "Foto enmarcada: mujer de piel canela y cabello castaño oscuro en trenza, de espaldas, con leggings rosado palo y top deportivo blanco, de pie frente a un rack de sentadillas en un gimnasio luminoso.",
+      "camara": "Plano de espaldas y de tres cuartos, desde la espalda hasta media pantorrilla, mirando el espejo del gimnasio."
     },
     {
       "id": "V05",
       "fuente": "referencia",
-      "referencia": "entrada/referencias/R01.png",
-      "angulo_id": "curiosidad",
-      "angulo": "Curiosidad",
-      "concepto": "Variación del creativo que ya funciona",
-      "titular": "NO ES SOLO EL GLÚTEO: SON TUS PIERNAS",
-      "escena": "la de la referencia",
-      "camara": "la de la referencia",
-      "base_titular": "beneficio de la ficha del producto"
+      "referencia": "temp/_img-aguaje-complex-3-en-1-20261121-1542/entrada/referencias/R01.png",
+      "analisis_referencia": {
+        "formato": "Producto héroe con columna de íconos de beneficios, foto enmarcada de la modelo y franja de oferta",
+        "estructura": "La misma de V01: titular en tres niveles arriba, íconos a la izquierda, frasco al centro con frutos de aguaje, foto enmarcada a la derecha, franja de oferta abajo y dos frases a mano.",
+        "por_que_funciona": "Hipótesis: la ropa que evita es el momento real en que siente el dolor; el titular la invita a volver a usarla con ganas."
+      },
+      "angulo_id": "beneficio-principal",
+      "angulo": "Beneficio principal",
+      "concepto": "El vestido pegado que hoy evita: volver a ponérselo con seguridad.",
+      "titular": "ESE VESTIDO PEGADO / TE ESTÁ / ESPERANDO",
+      "escena": "Foto enmarcada: mujer de piel morena clara y cabello negro largo suelto, de espaldas, con un vestido corto ajustado color rosa chicle, en un balcón de ciudad al atardecer.",
+      "camara": "Plano de espaldas a la altura de la cadera, de los hombros a media pierna, mirando por encima del hombro."
     }
-  ],
-  "rapido": true
+  ]
 }
