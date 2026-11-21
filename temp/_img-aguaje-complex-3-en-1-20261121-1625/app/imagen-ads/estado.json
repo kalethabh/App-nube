@@ -4,7 +4,7 @@
     "E": 2,
     "R": 1,
     "A": 1,
-    "T": 5
+    "T": 8
   },
   "tandas": {
     "E001": {
@@ -37,68 +37,74 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0004",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T005"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0004",
       "ultimaOrden": "U0001",
-      "fallo": {
-        "orden": "U0001",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0005",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T006"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0005",
       "ultimaOrden": "U0002",
-      "fallo": {
-        "orden": "U0002",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0006",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T007"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0006",
       "ultimaOrden": "U0003",
-      "fallo": {
-        "orden": "U0003",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     }
   },
   "pedidos": {
@@ -149,6 +155,51 @@
       ],
       "paso": 0,
       "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0004": {
+      "id": "U0004",
+      "pieza": "V01_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T22:11:04.028Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V01_1x1",
+          "orden": "U0004",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0005": {
+      "id": "U0005",
+      "pieza": "V02_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T22:11:06.355Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V02_1x1",
+          "orden": "U0005",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0006": {
+      "id": "U0006",
+      "pieza": "V03_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T22:11:09.744Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V03_1x1",
+          "orden": "U0006",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
     }
   }
 }
