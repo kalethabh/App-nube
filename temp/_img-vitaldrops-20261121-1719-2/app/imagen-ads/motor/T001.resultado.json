@@ -3,45 +3,66 @@
   "piezas": {
     "V01_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a20033-0576-72d3-bba5-cdae1a7b6f18",
+      "firma": "2149510-1795299771427",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     },
     "V02_1x1": {
       "orden": "g",
-      "estado": "generando",
+      "estado": "lista",
       "intentosApi": 1,
       "version": 1,
-      "intentoAbierto": true,
-      "taskId": null
+      "intentoAbierto": false,
+      "taskId": "01a20033-0576-7990-9c99-b240ea131d59",
+      "firma": "2224860-1795299770037",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
     },
     "V03_1x1": {
       "orden": "g",
+      "estado": "lista",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": false,
+      "taskId": "01a20033-0576-7542-8fbc-1ed252e0f14a",
+      "firma": "2058509-1795299768107",
+      "motivo": null,
+      "mensaje": null,
+      "creditos": 0,
+      "modeloReal": "gpt-image (ChatGPT)"
+    },
+    "V04_1x1": {
+      "orden": "g",
       "estado": "generando",
       "intentosApi": 1,
       "version": 1,
       "intentoAbierto": true,
       "taskId": null
     },
-    "V04_1x1": {
-      "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
-    },
     "V05_1x1": {
       "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
     },
     "V06_1x1": {
       "orden": "g",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
     },
     "V07_1x1": {
       "orden": "g",
@@ -68,6 +89,6 @@
       "version": 1
     }
   },
-  "actualizado": "2026-11-21T22:21:13.421Z",
+  "actualizado": "2026-11-21T22:22:51.458Z",
   "terminado": false
 }

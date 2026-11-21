@@ -35,6 +35,24 @@
       "pieza": "V03_1x1",
       "instruccion": "",
       "fecha": "2026-11-21T22:11:09.744Z"
+    },
+    {
+      "id": "U0007",
+      "pieza": "V01_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T22:22:13.368Z"
+    },
+    {
+      "id": "U0008",
+      "pieza": "V02_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T22:22:15.609Z"
+    },
+    {
+      "id": "U0009",
+      "pieza": "V03_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T22:22:16.764Z"
     }
   ]
 }
