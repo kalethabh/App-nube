@@ -1,7 +1,7 @@
 {
   "slug": "_img-aguaje-complex-3-en-1-20261121-1322",
   "familia": "imagen-ads",
-  "estado": "error",
+  "estado": "esperando",
   "paso": "estrategia",
   "pasos": [
     {
@@ -23,15 +23,10 @@
     {
       "id": "estrategia",
       "nombre": "La IA arma la estrategia",
-      "estado": "error",
+      "estado": "pendiente",
       "intentos": 8,
       "inicio": "2026-11-21T18:22:31.730Z",
-      "fin": "2026-11-21T21:53:22.539Z",
-      "error": {
-        "mensaje": "Los anuncios quedaron incompletos. Toca “Continuar” para intentarlo otra vez.",
-        "motivo": "desde0",
-        "detalle": "producto.json → beneficios: tiene más de 4 · estrategia.json → beneficios: tiene más de 4"
-      }
+      "fin": "2026-11-21T21:53:22.539Z"
     },
     {
       "id": "anuncios",
@@ -50,5 +45,5 @@
   "modoPrueba": false,
   "creado": "2026-11-21T18:22:31.587Z",
   "aprobado": "2026-11-21T18:22:31.587Z",
-  "actualizado": "2026-11-21T21:53:22.541Z"
+  "actualizado": "2026-11-21T22:23:21.840Z"
 }
