@@ -3,11 +3,13 @@
   "piezas": {
     "V04_1x1": {
       "orden": "U0010",
-      "estado": "en-cola",
-      "intentosApi": 0,
-      "version": 1
+      "estado": "generando",
+      "intentosApi": 1,
+      "version": 1,
+      "intentoAbierto": true,
+      "taskId": null
     }
   },
-  "actualizado": "2026-11-21T01:18:43.261Z",
+  "actualizado": "2026-11-21T01:22:53.868Z",
   "terminado": false
 }
