@@ -1,6 +1,6 @@
 {
-  "generado": "2026-11-21T22:26:02.768Z",
-  "segundos": 289,
+  "generado": "2026-11-21T22:27:59.191Z",
+  "segundos": 406,
   "imagenes": [
     {
       "id": "V03_1x1",
@@ -91,6 +91,16 @@
       "referencias": 2,
       "creditos": 0,
       "taskId": "01a20035-ef0c-7d11-8b2f-0f24af419ef1"
+    },
+    {
+      "id": "V10_1x1",
+      "archivo": "V10_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 2,
+      "creditos": 0,
+      "taskId": "01a20037-6601-76d0-a817-d32459694231"
     }
   ]
 }

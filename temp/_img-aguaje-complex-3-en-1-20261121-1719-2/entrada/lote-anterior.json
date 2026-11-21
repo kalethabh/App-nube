@@ -1,0 +1,42 @@
+{
+  "lote": "_img-aguaje-complex-3-en-1-20261121-1542",
+  "identidad_visual": {
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF, and aguaje orange #D9572B only for fruit accents.",
+    "visual_style": "Premium Latin American beauty-supplement ad: glossy pink gradient background, the black-and-fuchsia bottle as hero, real aguaje fruits, a framed photo of a woman from behind in fitted clothing, clean thin-line icon modules and a rounded bottom offer bar.",
+    "visual_atmosphere": "Feminine, confident, warm and aspirational; soft daylight, believable and natural.",
+    "graphic_language": "Rounded pill banner and bottom bar in deep magenta, thin-line white icons inside white-outlined circles, soft translucent pink petal and heart shapes in the background, handwritten script accents with small drawn hearts, real aguaje fruits with a halved orange-flesh fruit.",
+    "text_typography": "Same as the winning reference: heavy geometric sans-serif (Montserrat Black / Poppins Black look), all uppercase for the headline, icon labels and bottom bar; the huge accent word in fuchsia with a thick white outline and soft drop shadow; casual handwritten brush script in deep magenta for short emotional accents.",
+    "art_direction": "High-contrast pink-and-black look, the product always sharp and identical to the photo, the woman photographed with maximum realism (real skin texture, natural light), natural athletic curves, everything clean and readable on a phone."
+  },
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type.",
+  "paleta": [
+    {
+      "hex": "#E6177F",
+      "nombre": "Fucsia"
+    },
+    {
+      "hex": "#B0105E",
+      "nombre": "Magenta profundo"
+    },
+    {
+      "hex": "#0E0E10",
+      "nombre": "Negro frasco"
+    },
+    {
+      "hex": "#FF8CC0",
+      "nombre": "Rosa chicle"
+    },
+    {
+      "hex": "#FBE3EE",
+      "nombre": "Rosa pálido"
+    },
+    {
+      "hex": "#FFFFFF",
+      "nombre": "Blanco"
+    },
+    {
+      "hex": "#D9572B",
+      "nombre": "Naranja aguaje"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "ad_info": {
+    "variation_id": "V03"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "the typography of the reference ad"
+  },
+  "visual_prompt": "Product: AGUAJE COMPLEX 3 EN 1, for mujeres que quieren más volumen en glúteos y piernas (market: Colombia).\nBenefits to use in the secondary texts (Spanish, short): Aumento de glúteos; Aumento de piernas y caderas; Triple acción con 3 extractos naturales; Sin efecto rebote (no engorda); Sin necesidad de hacer ejercicio de fuerza; Resultados visibles y naturales.\nAngle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: Transformación / resultado.\nWINNING CREATIVE CONCEPT of this reference (why it sells, in the owner's words; KEEP this concept, change only the execution details and the headline): 20 variaciones de su anuncio ganador (antes y después estilo animado 3D) para AGUAJE COMPLEX 3 EN 1. Tanda 2 de 2.\nAdapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.\nWHAT CHANGES IN THIS VARIATION (and only this, the rest stays like the reference): Chica de cabello negro liso hasta la cintura, licra negra y top rosado, de espaldas en pose de gimnasio\nThe headline PLAYS with the winning headline of the reference keeping its essence (same promise, same desire, same timeframe if it has one), never generic. If there is a before/after, the change must be obvious at first glance: two clearly different moments, the AFTER body visibly improved in the area of the angle. THE CLIENT ASKED: Replica el anuncio de referencia tal cual: mismo estilo animado 3D, mismo antes y después con el cambio del cuerpo bien visible (glúteos, caderas y piernas con más volumen en el después), mismos colores, mismas notas a mano a los lados, mismo sello y mismos íconos de abajo. Cambia el frasco por el de AGUAJE COMPLEX 3 EN 1, que se vea grande y claro. Fondo limpio, sin nada que haga ruido. Solo cambian la chica, su ropa, la pose y el titular.",
+  "text_layers": [
+    {
+      "reference_function": "main headline",
+      "reference_position": "same place as the main headline of the reference",
+      "text": "EL CAMBIO QUE LA HIZO IMPOSIBLE DE IGNORAR.",
+      "text_style": "same style as the main headline of the reference"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo"
+  ],
+  "final_generation_exclusions": [
+    "any logo, brand name or text from the reference ad",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "the reference ad's brand, prices or claims"
+    ],
+    "detected_visual_blocks": []
+  },
+  "language_rule": "All visible text in Spanish.",
+  "app_rapido": "copiar",
+  "app_chat": {
+    "cambio": "Chica de cabello negro liso hasta la cintura, licra negra y top rosado, de espaldas en pose de gimnasio"
+  }
+}
