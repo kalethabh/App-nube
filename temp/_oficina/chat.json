@@ -585,6 +585,21 @@
         "abc2a49bb0a1"
       ],
       "fecha": "2026-11-21T18:17:14.367Z"
+    },
+    {
+      "id": "38b31871d7",
+      "de": "coordinadora",
+      "texto": "¡Dale! Ya lo estoy replicando para el Aguaje en realista, igual que el anterior, y sin pasar de 1:40 ⏱️ Apenas esté el guion te paso el costo y no arranca nada hasta tu sí.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Guion Realista con narrador de AGUAJE COMPLEX 3 EN 1 (clonando tu video)",
+          "href": "#/nuevo?producto=producto-edb1&paso=2&anuncios=aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+          "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+          "ok": true
+        }
+      ],
+      "fecha": "2026-11-21T18:17:29.091Z"
     }
   ],
   "encargos": [
@@ -643,6 +658,15 @@
       "id": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
       "tipo": "video",
       "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+      "productoId": "producto-edb1",
+      "titulo": "Realista con narrador de AGUAJE COMPLEX 3 EN 1"
+    },
+    {
+      "estado": "escribiendo",
+      "creado": "2026-11-21T18:17:29.090Z",
+      "id": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
+      "tipo": "video",
+      "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-1317",
       "productoId": "producto-edb1",
       "titulo": "Realista con narrador de AGUAJE COMPLEX 3 EN 1"
     }
