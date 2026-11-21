@@ -5,7 +5,7 @@
 // (variaciones, revisiones, copies) llega como una «entrega» para copiar o descargar.
 // Servidor: GET/POST/DELETE /api/oficina/chat y POST /api/oficina/chat/adjuntos (lib/oficina-chat.js).
 import { useEffect, useRef, useState } from 'react';
-import { Check, Copy, Download, Eraser, FileText, Film, Loader2, Mic, Paperclip, Send, Square, X } from 'lucide-react';
+import { Check, Copy, Download, Eraser, FileText, Film, Loader2, Mic, Paperclip, Send, Square, ThumbsDown, ThumbsUp, X } from 'lucide-react';
 import { useAvisos } from '../../componentes/index.js';
 import { invalidar, pedirNuevo, useDatos } from '../../datos/api.js';
 
@@ -149,6 +149,69 @@ function Entrega({ e }) {
         </button>
       </div>
       <pre>{e.texto}</pre>
+    </div>
+  );
+}
+
+// (2026-11-21d) LAS IMÁGENES QUE HIZO EN EL CHAT, con su SEMÁFORO: 🟢 está bien (lo tiene en cuenta: la estructura, el
+// titular, la modelo, los detalles) · 🔴 no la quiero otra vez (con su motivo, si lo escribes). Se van mostrando a medida
+// que salen; quedan también en Anuncios de imagen.
+function ImagenesDelChat({ lote }) {
+  const { aviso } = useAvisos();
+  const { datos } = useDatos(`oficina:imagenes:${lote}`, () => pedirNuevo(`/api/imagen-ads/${lote}`), { cadaMs: 4000 });
+  const { datos: votos, recargar } = useDatos(`oficina:votos:${lote}`, () => pedirNuevo(`/api/oficina/imagenes/${lote}/votos`));
+  const [motivo, setMotivo] = useState(null); // { pieza, texto }
+  const piezas = (datos?.variaciones || []).flatMap((v) => Object.values(v.piezas || {}).filter((p) => p && p.pieza?.endsWith('_1x1')).map((p) => ({ ...p, titular: v.titular })));
+  const votar = async (pieza, voto, texto = '') => {
+    try {
+      await pedirNuevo('/api/oficina/imagenes/voto', { metodo: 'POST', cuerpo: { lote, pieza, voto, motivo: texto } });
+      await recargar?.();
+      setMotivo(null);
+    } catch (e) {
+      aviso({ tipo: 'error', titulo: 'No pude guardar tu voto', texto: e.message });
+    }
+  };
+  if (!piezas.length) return null;
+  return (
+    <div className="of-imgs">
+      {piezas.map((p) => {
+        const v = votos?.[p.pieza]?.voto;
+        return (
+          <figure key={p.pieza} className={`of-img${v ? ` of-img--${v}` : ''}`}>
+            {p.url ? (
+              <a href={p.url} target="_blank" rel="noreferrer">
+                <img src={p.miniatura || p.url} alt={p.titular || p.pieza} loading="lazy" />
+              </a>
+            ) : (
+              <span className="of-img__espera">
+                <Loader2 size={16} className="girando" aria-hidden="true" /> Haciéndola…
+              </span>
+            )}
+            {p.url ? (
+              <figcaption>
+                <button type="button" className={`of-img__voto of-img__voto--bien${v === 'bien' ? ' activo' : ''}`} aria-pressed={v === 'bien'} title="Está bien: tenla en cuenta" onClick={() => votar(p.pieza, v === 'bien' ? 'nada' : 'bien')}>
+                  <ThumbsUp size={14} aria-hidden="true" />
+                </button>
+                <button type="button" className={`of-img__voto of-img__voto--mal${v === 'mal' ? ' activo' : ''}`} aria-pressed={v === 'mal'} title="No la quiero otra vez" onClick={() => (v === 'mal' ? votar(p.pieza, 'nada') : setMotivo({ pieza: p.pieza, texto: '' }))}>
+                  <ThumbsDown size={14} aria-hidden="true" />
+                </button>
+              </figcaption>
+            ) : null}
+            {motivo?.pieza === p.pieza ? (
+              <form
+                className="of-img__motivo"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  votar(p.pieza, 'mal', motivo.texto);
+                }}
+              >
+                <input autoFocus maxLength={300} placeholder="¿Qué no te gustó? (opcional)" value={motivo.texto} onChange={(e) => setMotivo({ ...motivo, texto: e.target.value })} />
+                <button type="submit">Listo</button>
+              </form>
+            ) : null}
+          </figure>
+        );
+      })}
     </div>
   );
 }
@@ -313,6 +376,7 @@ export function Chat({ coordinadora, onCerrar, inicial = '' }) {
             ) : null}
             <p>{m.texto}</p>
             {m.entrega ? <Entrega e={m.entrega} /> : null}
+            {(m.acciones || []).filter((a) => a.enChat && a.lote).map((a) => <ImagenesDelChat key={a.lote} lote={a.lote} />)}
             {m.acciones?.length ? (
               <ul className="of-msg__acciones">
                 {m.acciones.map((a, i) => (

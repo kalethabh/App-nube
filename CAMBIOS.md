@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21d · Variaciones en el chat de la coordinadora, con semáforo 🟢/🔴
+
+- Pásale a la coordinadora tu **anuncio ganador** y pídele variaciones («hazme 6 variaciones de este, con otra modelo y en la playa»): ella misma escribe cada una (el titular y qué cambia) y **salen de una, ahí en el chat**, sin el proceso largo de la sección de imágenes (igual quedan guardadas en Anuncios de imagen).
+- Los **titulares juegan con el de tu ganador** sin perder su esencia: si dice «Obtén unos glúteos, piernas y caderas con más volumen en 7 días», las variaciones juegan con eso, nada genérico. Si hay antes y después, **se nota de una**.
+- Cada imagen tiene su **semáforo**: 👍 verde = está bien (ella tiene en cuenta cómo puso el titular, la modelo, la estructura y los detalles, sin copiarla) y 👎 rojo = no la quiero otra vez (puedes decir por qué). Lo tiene en cuenta en las próximas variaciones.
+
 ## 2026-11-21c · Clonar tal cual: las personas hablan ellas mismas, sin narrador
 
 - Al clonar un video donde **hablan personas en cámara** (una entrevista, un programa, un reality, varias personas conversando), el anuncio nuevo ahora es **el mismo video tal cual**: cada persona dice sus líneas con su propia voz (lo de la presentadora lo dice la presentadora, lo de cada participante lo dice él), en las mismas escenas y con las mismas acciones (si explotan los globos, los explotan).

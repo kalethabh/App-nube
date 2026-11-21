@@ -44,6 +44,9 @@ export default function rutasOficina(app) {
   };
   app.put('/api/oficina/zonas', soloDesdeLaApp, json, conErrores((req) => guardarZonas(req.body || {})));
   app.get('/api/oficina/chat', conErrores(() => chat()));
+  // (2026-11-21d) el semáforo de las imágenes del chat: 🟢 bien / 🔴 mal (y «nada» para quitarlo)
+  app.get('/api/oficina/imagenes/:lote/votos', conErrores(async (req) => (await import('../lib/oficina-votos.js')).votosDelLote(String(req.params.lote))));
+  app.post('/api/oficina/imagenes/voto', soloDesdeLaApp, json, conErrores(async (req) => (await import('../lib/oficina-votos.js')).votar(req.body || {})));
   app.post('/api/oficina/chat', soloDesdeLaApp, json, conErrores((req) => enviar(req.body?.texto, req.body?.adjuntos)));
   app.post(
     '/api/oficina/chat/adjuntos',
