@@ -560,6 +560,22 @@
       "texto": "Ya lo tengo anotado 🙌 Todavía me falta el costo final de ese guion. Apenas lo tenga te lo paso y con tu sí arranca. Si ya lo viste en el aviso de Mateo, también lo puedes aprobar desde ahí y sale de una.",
       "acciones": [],
       "fecha": "2026-11-21T17:29:55.518Z"
+    },
+    {
+      "id": "7635c5cee0",
+      "de": "coordinadora",
+      "texto": "¡Listo «Aguaje Complex 3 en 1 — «Me caso en quince minutos con un vestido que no cierra»»! 🎉 Aquí lo tienes. Si algo no te cuadra me dices y lo ajustamos.",
+      "acciones": [
+        {
+          "tipo": "anuncio",
+          "titulo": "Ver «Aguaje Complex 3 en 1 — «Me caso en quince minutos con un vestido que no cierra»»",
+          "href": "#/anuncio/aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+          "slug": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
+          "ok": true
+        }
+      ],
+      "aviso": true,
+      "fecha": "2026-11-21T18:06:08.375Z"
     }
   ],
   "encargos": [
@@ -613,7 +629,7 @@
       "aprobado": "2026-11-20T23:03:38.730Z"
     },
     {
-      "estado": "produciendo",
+      "estado": "listo",
       "creado": "2026-11-21T14:43:03.747Z",
       "id": "aguaje-complex-3-en-1-realista-narrado-20261121-0943",
       "tipo": "video",
