@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21f · Escenas cuidadas al detalle y carpetas de producto
+
+- **Las imágenes de las escenas se revisan antes de hacer los videos.** La IA compara cada una con la foto real de tu producto (la marca y la etiqueta, letra por letra), con la persona y el lugar de las otras escenas (misma cara, ropa, set, luz y hora) y mira los detalles (ojos, piel, manos, el producto bien agarrado). Si una está mal, la app la **rehace sola, una vez**, antes de gastar en su video. El costo que ves antes de producir ya incluye ese margen, y solo se cobra lo que de verdad se rehace.
+- Los guiones se escriben con más detalle desde el principio: la descripción exacta del envase en cada escena donde sale, la misma descripción de cada persona y cada lugar en todas las escenas, y el tono de cada línea y de cada voz.
+- **Carpetas de producto** (menú Tu contenido › **Carpetas**): crea, por ejemplo, «Aguaje». En Anuncios de imagen cada imagen tiene **«Guardar en carpeta»**, y la entrega de cada video también. Cada carpeta tiene **Imágenes** y **Videos**, puedes subir tus propios archivos (arrastrándolos) y **descargar la carpeta entera** en un zip con sus dos carpetas.
+
 ## 2026-11-21e · Nuevo anuncio: un paso por página
 
 - Crear un video ya no es una sola página larga: ahora son **4 pasos, cada uno en su página**: **1 Tu producto · 2 Estilo · 3 Ajustes · 4 Guion**. La producción sigue en su propia pantalla.

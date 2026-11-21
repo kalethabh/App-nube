@@ -22,6 +22,7 @@ import {
   useAvisos,
   useBarraSuperior,
   BotonFunciona,
+  GuardarEnCarpeta,
 } from '../../componentes/index.js';
 import { conVersion, miniatura, useAnuncio, useAnuncios } from '../../datos/api.js';
 import { enlace, enlaceDelGuion } from '../../datos/rutas.js';
@@ -197,6 +198,7 @@ export default function Entrega({ params }) {
             <Boton variante="secundario" icono={Download} href={version ? conVersion(version.url, version.fecha) : undefined} download={version?.archivo} disabled={!version} bloque>
               Descargar video
             </Boton>
+            <GuardarEnCarpeta variante="secundario" tamano="normal" bloque desde={{ tipo: 'video', archivo: version?.archivo }} deshabilitado={!version} />
             <Boton
               variante="secundario"
               icono={FolderOpen}
