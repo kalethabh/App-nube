@@ -48,6 +48,7 @@ import { nombreIA, lanzarSesion as preguntarIA, prohibidasComunes as prohibidasI
 import { prohibidasDeAnuncio } from './ia/reglas.js';
 import { ErrorApp, escribirJSON, aKebab, idValido as productoValido, leerProducto, leerFicha, fotoPrincipal, relProducto, detalleDelProducto, errorPublico, urlFoto } from './productos.js';
 import { slugValido } from './anuncios.js';
+import { retomar as retomarDespues } from './para-despues.js';
 import { ESTILOS as PRESENTACION } from './estilos.js';
 import { brollDe } from './broll.js';
 import { subestilosDe, idDeSubestilo } from './subestilos.js';
@@ -1740,6 +1741,7 @@ function hayHoja(slug, brief) {
 /** POST /api/anuncios/:slug/guion/cambios { pedido } */
 export function pedirCambios(slug, pedido) {
   if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  retomarDespues(slug); // lo tocaste: si lo habías dejado para después, vuelve a avisarte
   const elPedido = String(pedido || '').trim();
   const brief = leerBrief(slug);
   const que = ESTILOS[brief?.estilo]?.familia === 'musical' ? 'de las letras' : 'del guion';
@@ -2061,6 +2063,7 @@ Tu respuesta final: solo LISTO.`;
 /** POST /api/anuncios/:slug/guion/reintentar: vuelve a correr lo que fallo (o lo que quedo a medias). */
 export function reintentarGuion(slug) {
   if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  retomarDespues(slug); // lo tocaste: si lo habías dejado para después, vuelve a avisarte
   const s = leerSesion(slug);
   if (!s) throw new ErrorApp(409, 'Este anuncio no tiene guion para reintentar.');
   if (enMarcha.has(slug) || sesionActiva(s.uuid)) return { ok: true, yaEstaba: true };
@@ -2135,6 +2138,7 @@ export function elegirLetra(slug, n) {
  */
 export async function aprobarGuion(slug, { letra } = {}) {
   if (!esAnuncioNuevo(slug)) throw new ErrorApp(404, 'No encuentro ese anuncio.');
+  retomarDespues(slug); // lo tocaste: si lo habías dejado para después, vuelve a avisarte
   const s = leerSesion(slug);
   if (aprobadoYProduciendo(slug, s)) return s;
   if (enMarcha.has(slug) || sesionActiva(s?.uuid) || s?.estado === 'escribiendo' || s?.estado === 'cambiando') throw new ErrorApp(409, `${laIA()} todavía está escribiendo el guion. Espera a que termine.`);
@@ -2340,7 +2344,7 @@ export function estadoGuion(slug) {
 // La lista de los anuncios de la app se pide seguido (el tablero, el menu, cada pantalla): cada anuncio se lee de
 // disco solo si cambio alguno de sus archivos (o la ficha de su producto). Con la PC ocupada (renders, otras apps),
 // leer todo temp/ en cada pedido frenaba la app entera.
-const ARCHIVOS_DEL_RESUMEN = ['brief.json', 'sesion.json', 'guion.json', 'letras.json', 'conductor.json'];
+const ARCHIVOS_DEL_RESUMEN = ['brief.json', 'sesion.json', 'guion.json', 'letras.json', 'conductor.json', 'despues.json'];
 const resumenes = new Map(); // slug -> { firma, fechas, productoId, uuid, valor }
 
 /** La IA que escribio o intento el guion: 'claude' | 'codex' | null (la de su ultima medida, o la del error). */
@@ -2383,6 +2387,8 @@ function calcularResumen(slug, fechas) {
     etapa,
     // hecho con los simuladores (sin gastar): el tablero no lo cuenta entre los listos para publicar
     modoPrueba: Boolean(c?.modoPrueba),
+    // «Terminar después» (lib/para-despues.js): la fecha en que lo dejaste para después, o null
+    paraDespues: leerJSON(path.join(appDe(slug), 'despues.json'))?.fecha || null,
     teNecesita: (estado === 'guion' && s.estado === 'listo') || (c?.estado === 'pausado' && c?.paso === 'elegir-cancion'),
     // todavia en el paso del guion (sin conductor): un error aca se arregla en la pantalla del guion, no con "Continuar"
     // (y uno cuya produccion se freno en su primer paso por el guion: se arregla pidiendo el cambio, guionReabierto)

@@ -114,6 +114,15 @@ export function invalidar(prefijo) {
   for (const k of cache.keys()) if (k.startsWith(prefijo)) cache.delete(k);
 }
 
+/**
+ * Como invalidar, y además cada pantalla abierta que muestra esos datos los vuelve a pedir ya (no en su próximo
+ * sondeo): la píldora «te necesitan» de arriba, el menú y el tablero cambian juntos (p. ej. «Terminar después»).
+ */
+export function refrescar(prefijo) {
+  invalidar(prefijo);
+  if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('kads:refrescar', { detail: prefijo }));
+}
+
 /** Lo que se muestra al montar: lo guardado (aunque sea de otra visita), y si está al día (leído hace menos de 5 s). */
 function estadoInicial(clave) {
   const c = clave ? cache.get(clave) : null;
@@ -171,6 +180,16 @@ export function useDatos(clave, cargar, { cadaMs } = {}) {
       document.removeEventListener('visibilitychange', alVolver);
     };
   }, [clave, cadaMs, pedirAhora]);
+
+  // refrescar(prefijo): si es lo mío, lo pido otra vez ya (varias pantallas con la misma clave comparten un pedido)
+  useEffect(() => {
+    if (!clave) return undefined;
+    const alRefrescar = (e) => {
+      if (typeof e.detail === 'string' && clave.startsWith(e.detail)) pedirAhora(false);
+    };
+    window.addEventListener('kads:refrescar', alRefrescar);
+    return () => window.removeEventListener('kads:refrescar', alRefrescar);
+  }, [clave, pedirAhora]);
 
   const recargar = useCallback(() => pedirAhora(true), [pedirAhora]);
   const { clave: deClave, fresco, ...resto } = estado;

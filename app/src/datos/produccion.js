@@ -15,7 +15,7 @@
 // qué paso va. Aquí está todo lo que se calcula de él, para que la producción, el tablero y el menú
 // lo cuenten igual: las etapas, el avance, el tiempo que falta y por qué está frenado. Sin precios (el costo estimado
 // antes de producir lo arma el servidor: GET /api/anuncios/:slug/costo).
-import { invalidar, useAnuncios, useDatos } from './api.js';
+import { invalidar, refrescar, useAnuncios, useDatos } from './api.js';
 
 export const TICK = 2000;
 
@@ -65,6 +65,21 @@ export async function continuarProduccion(slug) {
   const r = await pedirJSON(`/api/anuncios/${encodeURIComponent(slug)}/continuar`, { metodo: 'POST' });
   invalidar(`conductor:${slug}`);
   invalidar('conductores:');
+  return r;
+}
+
+/**
+ * «Terminar después» (2026-11-21g): lo que te necesita sale de «Te necesitan» (y del contador rojo) y queda en «Para
+ * después», con «Continuar». Se vuelve a avisar solo apenas lo tocas (Continuar, aprobar o pedir cambios).
+ */
+export async function dejarParaDespues(slug) {
+  const r = await pedirJSON(`/api/anuncios/${encodeURIComponent(slug)}/despues`, { metodo: 'POST' });
+  refrescar('anuncios');
+  return r;
+}
+export async function volverAAvisar(slug) {
+  const r = await pedirJSON(`/api/anuncios/${encodeURIComponent(slug)}/despues`, { metodo: 'DELETE' });
+  refrescar('anuncios');
   return r;
 }
 
@@ -611,7 +626,10 @@ export function useEnProduccion({ cadaMs } = {}) {
   const anuncios = datos?.anuncios || [];
   // (los que siguen en el paso del guion no se producen todavía: van como "Tu guion está listo" o con su error)
   const deLaApp = anuncios.filter((a) => tieneConductor(a) && !a.enGuion);
-  const guiones = anuncios.filter((a) => a.enGuion && (a.teNecesita || a.estado === 'error'));
+  const esperanGuion = anuncios.filter((a) => a.enGuion && (a.teNecesita || a.estado === 'error'));
+  // los que dejaste para después («Terminar después»): no te necesitan hasta que los vuelvas a tocar
+  const guiones = esperanGuion.filter((a) => !a.paraDespues);
+  const paraDespues = esperanGuion.filter((a) => a.paraDespues).map((a) => ({ anuncio: a, conductor: null, alto: null, guion: true }));
   const { datos: conductores } = useConductores(
     deLaApp.map((a) => a.slug),
     { cadaMs: cadaMs ? Math.min(cadaMs, 5000) : 10000 }
@@ -628,7 +646,7 @@ export function useEnProduccion({ cadaMs } = {}) {
     // mientras llega su conductor, uno que la lista ya marca con error va a "Te necesitan"
     const alto = c ? altoDe(c) : a.estado === 'error' ? { tipo: 'error', paso: null, mensaje: null } : null;
     if (alto && !esperaSola(alto)) {
-      necesitan.push({ anuncio: a, conductor: c, alto });
+      (a.paraDespues ? paraDespues : necesitan).push({ anuncio: a, conductor: c, alto });
       continue;
     }
     // recién aprobado (todavía sin conductor) o andando: en producción
@@ -655,6 +673,7 @@ export function useEnProduccion({ cadaMs } = {}) {
   const fechaDe = (x) => Date.parse(x) || 0;
   necesitan.sort((x, y) => urgencia(x) - urgencia(y) || fechaDe(y.conductor?.actualizado || y.anuncio.fecha) - fechaDe(x.conductor?.actualizado || x.anuncio.fecha));
   guiones.sort((x, y) => fechaDe(y.fecha) - fechaDe(x.fecha));
+  paraDespues.sort((x, y) => fechaDe(y.anuncio.paraDespues) - fechaDe(x.anuncio.paraDespues));
 
   return {
     cargando: cargando || !datos,
@@ -664,6 +683,7 @@ export function useEnProduccion({ cadaMs } = {}) {
     activos,
     necesitan,
     guiones,
+    paraDespues,
     pausados,
     ejemplos: [],
     esEjemplo: false,

@@ -50,6 +50,7 @@ import * as procesos from './procesos.js';
 import * as gasto from './gasto.js';
 import * as colas from './colas.js';
 import { olvidarSaldo } from './claves.js';
+import { retomar as retomarDespues } from './para-despues.js';
 import { guardarMusicaDelAnuncio, guardarPersonajesDelAnuncio } from './biblioteca.js';
 import { motorActual, nombreIA, alCambiarDeMotor } from './motor-ia.js';
 import { alCambiarCuentaClaude } from './claude.js';
@@ -906,6 +907,7 @@ const mensajeDeModo = (c) =>
  */
 export function iniciarProduccion(slug) {
   if (!slugDeLaApp(slug)) throw new ErrorDeApp('No encuentro ese anuncio.', 404);
+  retomarDespues(slug); // si lo habías dejado para después, vuelve a avisarte cuando te necesite
   const brief = leerJSON(path.join(dirApp(slug), 'brief.json'));
   if (!brief) throw new ErrorDeApp('A este anuncio le falta su ficha (brief.json).', 409);
   if (!esDeEstaApp(brief)) throw new ErrorDeApp('Este anuncio es de otra ventana de la app (una de prueba): síguelo desde esa.', 409);
@@ -947,6 +949,7 @@ export function iniciarProduccion(slug) {
 /** "Continuar": reintenta el paso que fallo, sigue despues de una pausa, o corta una espera y prueba ya. */
 export function continuar(slug) {
   if (!slugDeLaApp(slug)) throw new ErrorDeApp('No encuentro ese anuncio.', 404);
+  retomarDespues(slug); // si lo habías dejado para después, vuelve a avisarte cuando te necesite
   const c = leerConductor(slug);
   if (!c) throw new ErrorDeApp('Este anuncio todavía no empezó a producirse.', 404);
   if (c.estado === 'listo') return c;

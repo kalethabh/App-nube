@@ -13,6 +13,7 @@ import { enlace } from '../../datos/rutas.js';
 import { useEnProduccion } from '../../datos/produccion.js';
 import { Portada } from './Portada.jsx';
 import { TeNecesitan } from './TeNecesitan.jsx';
+import { ParaDespues } from './ParaDespues.jsx';
 import { EnProduccion } from './EnProduccion.jsx';
 import { Listos } from './Listos.jsx';
 import { Cambios } from './Cambios.jsx';
@@ -79,8 +80,9 @@ export default function Tablero() {
         </div>
       ) : (
         <>
-          <div className={`tb-ahora${produccion.necesitan.length || produccion.guiones.length || produccion.activos.length || produccion.pausados.length ? '' : ' tb-ahora--tranquilo'}`}>
+          <div className={`tb-ahora${produccion.necesitan.length || produccion.guiones.length || produccion.paraDespues.length || produccion.activos.length || produccion.pausados.length ? '' : ' tb-ahora--tranquilo'}`}>
             <TeNecesitan p={produccion} alSeguir={recargar} />
+            <ParaDespues p={produccion} alSeguir={recargar} />
             <EnProduccion p={produccion} />
           </div>
           <EquipoTrabajando />

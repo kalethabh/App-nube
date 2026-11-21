@@ -5,6 +5,7 @@ import { Boton, PuntoEstado, Tarjeta, TarjetaCabecera, VistaPrevia } from '../..
 import { fechaRelativa } from '../../datos/formato.js';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { claveRegistro, haceSim } from './simulacion.js';
+import { BotonDespues } from '../tablero/TeNecesitan.jsx';
 
 // ---------------------------------------------------------------- te necesita
 
@@ -117,7 +118,7 @@ const ICONOS_NECESITA = { revision: ListChecks, cancion: EighthNotes, imagen: Im
 /**
  * Las tarjetas de lo que frena al anuncio. Cada una: { id, icono, titulo, texto, accion, alHacer,
  * iconoBoton, cargando?, secundaria?: { texto, href?, alHacer?, icono? }, tono?: 'aviso' (solo espera),
- * sobre? (el texto chico de arriba) }.
+ * sobre? (el texto chico de arriba), despues?: { slug, titulo } (el botón «Terminar después») }.
  */
 export function TeNecesita({ tarjetas }) {
   if (!tarjetas.length) return null;
@@ -142,6 +143,8 @@ export function TeNecesita({ tarjetas }) {
             </div>
             <div className="prod-necesita__acciones">
               {t.nota ? <span className="t-mini">{t.nota}</span> : null}
+              {/* «Terminar después» (2026-11-21g): ya no te avisa, queda en «Para después» del tablero */}
+              {t.despues ? <BotonDespues slug={t.despues.slug} titulo={t.despues.titulo} tamano="normal" /> : null}
               {t.secundaria ? (
                 <Boton variante="fantasma" href={t.secundaria.href} onClick={t.secundaria.alHacer} icono={t.secundaria.icono}>
                   {t.secundaria.texto}
