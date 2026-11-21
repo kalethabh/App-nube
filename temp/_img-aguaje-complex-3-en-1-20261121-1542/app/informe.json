@@ -1,14 +1,22 @@
 {
   "tipo": "imagen-ads",
-  "fecha": "2026-11-21T20:55:52.539Z",
+  "fecha": "2026-11-21T21:26:33.931Z",
   "variaciones": 5,
-  "archivos": 2,
+  "archivos": 3,
   "modoPrueba": false,
   "revision": {
     "aLaPrimera": 1,
     "rehechasPorTi": [],
     "arregladas": [],
     "conDetalles": [
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "Arriba la imagen queda cortada: falta la cinta con «SIÉNTETE SEGURA» y «CON TUS» sale cortado por el borde.",
+          "Abajo también queda cortada: no se ve la barra con «ENVÍO GRATIS» y «PAGA AL RECIBIR», ni sus íconos del camión y la mano con moneda.",
+          "La frase «Natural, a tu ritmo» sale cortada: solo se ve «Natural,» a medias y falta su corazoncito."
+        ]
+      },
       {
         "pieza": "V03_1x1",
         "problemas": [
@@ -22,10 +30,6 @@
     ],
     "sinRevisar": [],
     "sinImagen": [
-      {
-        "pieza": "V02_1x1",
-        "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      },
       {
         "pieza": "V04_1x1",
         "motivo": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"

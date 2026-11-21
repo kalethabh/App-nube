@@ -1,41 +1,47 @@
 {
-  "slug": "_img-aguaje-complex-3-en-1-20261121-1625",
+  "slug": "aguaje-complex-3-en-1",
   "nombre": "AGUAJE COMPLEX 3 EN 1",
-  "analisis": "Suplemento en cápsulas a base de aguaje, fenogreco y maca negra para aumentar glúteos, piernas y caderas de forma natural.",
-  "tipo_producto": "fisico",
-  "descripcion_visual_en": "Use the attached product photo exactly as it is (packaging, label, colors and proportions).",
-  "foto_producto": "entrada/producto.png",
+  "analisis": "Suplemento dietario en cápsulas (nutracéutico) de Vitalabh, con aguaje, fenogreco y maca negra más vitaminas A y E. Se toma 2 cápsulas al día con las comidas, un frasco dura un mes. Lo buscan mujeres que quieren más curvas en cola y piernas sin cirugía. Frasco negro mate con tapa y franja inferior fucsia, letras blancas grandes y detalles rosados.",
+  "tipo_producto": "nutracéutico",
+  "descripcion_visual_en": "A matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern, and a solid hot-pink band wrapping the bottom fifth of the bottle. The black label shows, from top to bottom: a small pink VITALABH emblem with the white word 'VITALABH'; a huge bold white condensed word 'AGUAJE'; the line 'COMPLEX 3 EN 1' with 'COMPLEX' in white and '3 EN 1' in pink-red; a thin hot-pink banner reading 'SUPLEMENTO ALIMENTICIO EN CÁPSULAS'; a small white line 'A base de Aguaje, Fenogreco y Maca Negra'; a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh underline; three small black rounded boxes outlined in pink joined by white plus signs reading '200mg AGUAJE', '400mg FENOGRECO' and '200mg MACA NEGRA'; and at the bottom '60 CÁPSULAS | (0.5 g c/u Cont. Neto 30g)' in small white type.",
+  "foto_producto": "temp/_img-aguaje-complex-3-en-1-20261121-1625/entrada/producto.png",
   "datos": {
-    "nombre": "AGUAJE COMPLEX 3 EN 1",
+    "angulo_preferido": "",
     "publico": "mujeres que quieren más volumen en glúteos y piernas",
     "precio": "",
     "moneda": "",
     "cta": "",
     "pais": "Colombia",
     "idioma": "es",
-    "adicional": "Variaciones de su anuncio ganador de Navidad «Esta Navidad regálate la figura que sueñas»: glúteos más grandes, piernas más firmes. Misma esencia y enfoque, otra modelo.",
-    "angulo": null
+    "adicional": "Variaciones de su anuncio ganador de Navidad «Esta Navidad regálate la figura que sueñas»: glúteos más grandes, piernas más firmes. Misma esencia y enfoque, otra modelo."
   },
   "identidad_visual": {
-    "color_palette": "the colors of the product packaging",
-    "visual_style": "the style of the reference ad",
-    "visual_atmosphere": "the atmosphere of the reference ad",
-    "graphic_language": "the graphic language of the reference ad",
-    "text_typography": "the typography of the reference ad",
-    "art_direction": "same design as the reference ad"
+    "color_palette": "Primary: hot fuchsia #E6177F and deep magenta #B0105E. Secondary: bottle black #0E0E10, bubblegum pink #FF8CC0, pale blush pink #FBE3EE, white #FFFFFF. Seasonal scene accents only in props: Christmas red #C8102E and warm gold #C9A24A.",
+    "visual_style": "Premium Latin American beauty-supplement Christmas ad: realistic cozy holiday bedroom photo with a decorated tree, a confident woman holding the black-and-fuchsia bottle, the bottle as hero on the right, clean fuchsia icon modules and a rounded fuchsia bottom bar.",
+    "visual_atmosphere": "Feminine, confident, warm and festive; soft warm daylight mixed with fairy-light bokeh, believable and natural.",
+    "graphic_language": "Solid fuchsia circles with thin-line white icons, rounded fuchsia pill labels and bottom bar, handwritten script accents with small hearts, a round gold seal, soft pink bokeh, gifts with red ribbons.",
+    "text_typography": "Elegant black handwritten brush script for the opening line; huge ultra-bold geometric sans-serif uppercase (Montserrat Black look) in fuchsia for the key word; bold uppercase geometric sans in black for the second headline line; clean regular sans-serif (Poppins Regular look) in sentence case for subtitle and icon labels; casual handwritten script for emotional notes; white uppercase sans in the bottom bar.",
+    "art_direction": "High-contrast fuchsia, black and white over a warm festive photo; the product always sharp and identical to the photo; the woman photographed with maximum realism (real skin texture, natural light), natural athletic curves; everything clean and readable on a phone."
   },
   "beneficios": [
-    "Aumento de glúteos",
-    "Aumento de piernas y caderas",
-    "Triple acción con 3 extractos naturales",
-    "Sin efecto rebote (no engorda)",
-    "Sin necesidad de hacer ejercicio de fuerza",
-    "Resultados visibles y naturales"
+    "Acompaña tus curvas de forma natural, sin agujas ni quirófano",
+    "El apoyo diario para tu rutina de pierna y glúteo",
+    "Más energía y ánimo para cumplirle a tu plan",
+    "Seguridad para volver a ponerte el jean y la ropa que te gusta"
   ],
   "caracteristicas": [
-    "Producto real de la foto",
-    "Empaque original",
-    "Uso diario",
-    "Envío a domicilio"
+    "Triple acción: aguaje 200 mg, fenogreco 400 mg y maca negra 200 mg",
+    "Con vitaminas A y E",
+    "Solo 2 cápsulas al día con tus comidas",
+    "Frasco de 60 cápsulas: un mes; el plan completo es de 3 meses"
+  ],
+  "deseo_central": "Verme con más curvas y sentirme segura con mi cuerpo, sin agujas, sin quirófano y sin arriesgar mi salud.",
+  "beneficio_principal": "Un apoyo natural y fácil, 2 cápsulas al día, que acompaña tu proceso de curvas junto con tu comida y tu rutina de pierna.",
+  "puntos_dolor": [
+    "Hago sentadillas hace meses y la cola sigue igual",
+    "Los jeans me quedan sueltos atrás y no me horman",
+    "Me da pavor una cirugía o que me inyecten algo raro",
+    "Soy flaquita de piernas y me siento plana",
+    "Ya compré pastillas por internet y no vi nada"
   ]
 }
