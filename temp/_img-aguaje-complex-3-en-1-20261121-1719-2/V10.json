@@ -1,36 +1,104 @@
 {
+  "prompt_type": "ad_creative_generation",
   "ad_info": {
-    "variation_id": "V10"
+    "variation_id": "V10",
+    "structure_source": "uploaded reference (R01.png, 3D animated before/after split screen)",
+    "reference_style": "3D animated cartoon before/after split-screen beauty-supplement ad",
+    "angle_used": "Transformación / resultado",
+    "ad_format": "Before / After split-screen ad",
+    "platform_goal": "High-CTR Facebook/Instagram/TikTok image ad"
+  },
+  "technical_specs": {
+    "dimensions": "1080x1080 px",
+    "aspect_ratio": "1:1 Square",
+    "output_goal": "High-conversion premium e-commerce image ad"
   },
   "global_identity": {
-    "color_palette": "the colors of the product's packaging",
-    "text_typography": "the typography of the reference ad"
+    "color_palette": "Before panel: dark plum #2B1226 fading to bottle black #0E0E10. After panel: hot fuchsia #E6177F glowing to bubblegum pink #FF8CC0 with deep magenta #B0105E shading. Accents: white #FFFFFF, pale blush #FBE3EE, bottle black #0E0E10. Headline first part white, second part bottle black.",
+    "visual_style": "Glossy 3D animated cartoon (Pixar-like) before/after split screen, dark moody 'before' panel on the left and a bright glowing fuchsia 'after' panel on the right, the real black-and-fuchsia bottle as hero at the bottom right.",
+    "visual_atmosphere": "Playful, feminine, confident and aspirational; gloomy and muted on the left, soft glow, sparkles and hearts on the right.",
+    "graphic_language": "Rounded pill labels at the top of each panel, curved white arrow from before to after, casual handwritten marker notes with tiny doodled arrows and hearts, white four-point sparkles, a round black seal with small stars, a soft pink flower behind the bottle, a bottom row of three thin-line white icons with small labels.",
+    "text_typography": "As in the reference: headline in a heavy geometric sans-serif (Montserrat Black / ExtraBold look), ALL UPPERCASE, tight leading, left-aligned, with a subtle soft drop shadow; subheadline in a clean regular sans-serif (Poppins Regular look), sentence case, white; side notes in a casual handwritten marker script, sentence case; pill labels in bold uppercase sans-serif; seal text in bold uppercase sans-serif; icon labels in small regular sans-serif."
   },
-  "visual_prompt": "Product: AGUAJE COMPLEX 3 EN 1, for mujeres que quieren más volumen en glúteos y piernas (market: Colombia).\nBenefits to use in the secondary texts (Spanish, short): Aumento de glúteos; Aumento de piernas y caderas; Triple acción con 3 extractos naturales; Sin efecto rebote (no engorda); Sin necesidad de hacer ejercicio de fuerza; Resultados visibles y naturales.\nAngle: the SAME one as the reference ad (same body area, problem or desire, same hook). Only if the reference has no clear angle, use: Dolor / problema.\nWINNING CREATIVE CONCEPT of this reference (why it sells, in the owner's words; KEEP this concept, change only the execution details and the headline): 20 variaciones de su anuncio ganador (antes y después estilo animado 3D) para AGUAJE COMPLEX 3 EN 1. Tanda 2 de 2.\nAdapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference.\nAll visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.\nWHAT CHANGES IN THIS VARIATION (and only this, the rest stays like the reference): Chica de cabello cobrizo rizado, vestido fucsia ceñido, mirando por encima del hombro con sonrisa\nThe headline PLAYS with the winning headline of the reference keeping its essence (same promise, same desire, same timeframe if it has one), never generic. If there is a before/after, the change must be obvious at first glance: two clearly different moments, the AFTER body visibly improved in the area of the angle. THE CLIENT ASKED: Replica el anuncio de referencia tal cual: mismo estilo animado 3D, mismo antes y después con el cambio del cuerpo bien visible (glúteos, caderas y piernas con más volumen en el después), mismos colores, mismas notas a mano a los lados, mismo sello y mismos íconos de abajo. Cambia el frasco por el de AGUAJE COMPLEX 3 EN 1, que se vea grande y claro. Fondo limpio, sin nada que haga ruido. Solo cambian la chica, su ropa, la pose y el titular.",
+  "creative_objective": "Recreate the winning before/after ad exactly, adapted to this bottle and palette, so the woman who compares herself with everyone feels the switch to being the one everyone looks at, with the bottle as the bridge and the pay-on-delivery seal lowering the fear of buying.",
+  "art_direction": {
+    "design_quality": "Premium, polished, modern, scroll-stopping, professionally designed, commercially strong",
+    "visual_hierarchy": "1) The two cartoon women and the dark-to-bright contrast, with the obvious change in hip, glute and leg volume. 2) The two-color uppercase headline at top right. 3) The bottle with the pink flower at bottom right. 4) Handwritten notes, seal and icon row.",
+    "composition_style": "Vertical split: left panel about 37% of the width (dark), right panel about 63% (bright fuchsia). Each panel has its own woman seen from behind in three-quarter view, looking back over her shoulder. Text and product live in the right third of the image.",
+    "spacing_and_structure": "Headline block top right, subheadline right below it, a column of three handwritten notes between the right woman and the bottle, bottle bottom right, round seal left of the bottle at the bottom, icon row along the bottom right edge. Left notes stacked down the left edge.",
+    "lighting_and_depth": "Left: dim cool lighting, low saturation. Right: bright warm pink glow, soft rim light on the character, sparkles. The bottle sharp with a soft shadow and gentle glossy highlights on the cap.",
+    "conversion_feel": "The ad must feel persuasive, eye-catching, emotionally engaging, credible, elegant and commercially strong"
+  },
+  "reference_structure_analysis": {
+    "layout_summary": "Left panel (x 0–37%): dark plum background, pill label 'ANTES' at top center of the panel, a small white scribble doodle at top left, a sad 3D cartoon woman seen from behind in three-quarter view looking back over her shoulder with a worried face, flat hips; three handwritten white notes on the left edge (the first with a small curved arrow pointing to her). A thick curved white arrow crosses from the left panel into the right panel at mid-height. Right panel (x 37–100%): fuchsia glowing background with white sparkles and outline hearts, pill label 'DESPUÉS' at the top near the split, the same woman in the same dress seen from behind, confident and smiling, with a fuller, curvier silhouette. Top right: two-part uppercase headline, below it a two-line white subheadline. Middle right: a column of three handwritten notes each with a small outline heart. Bottom right: the product bottle standing in front of a large soft pink flower. Bottom center-right: round black seal with small stars. Bottom right edge: row of three thin-line icons with short labels.",
+    "detected_visual_blocks": [
+      { "block_id": "block_01", "block_type": "background (before panel)", "position": "Left 37% of the canvas", "visual_function": "Sad, gloomy 'before' mood", "adaptation_rule": "Dark plum #2B1226 to black gradient", "present_in_reference": true },
+      { "block_id": "block_02", "block_type": "background (after panel)", "position": "Right 63% of the canvas", "visual_function": "Bright, happy 'after' mood", "adaptation_rule": "Hot fuchsia to bubblegum pink glow with white sparkles and outline hearts", "present_in_reference": true },
+      { "block_id": "block_03", "block_type": "pill label", "position": "Top center of the left panel", "visual_function": "Marks the 'before' state", "adaptation_rule": "Translucent grey-plum rounded pill with white bold uppercase text", "present_in_reference": true },
+      { "block_id": "block_04", "block_type": "pill label", "position": "Top of the right panel, near the split (x ~45–58%)", "visual_function": "Marks the 'after' state", "adaptation_rule": "Pale pink rounded pill with white bold uppercase text", "present_in_reference": true },
+      { "block_id": "block_05", "block_type": "person (before)", "position": "Left panel, x 10–37%, full height", "visual_function": "Shows the starting point", "adaptation_rule": "3D cartoon woman with long curly copper-red hair, short fitted deep magenta dress, seen from behind in three-quarter view, looking back over her shoulder with an envious, insecure, downcast look, flat hips", "present_in_reference": true },
+      { "block_id": "block_06", "block_type": "person (after)", "position": "Right panel, x 38–75%, full height", "visual_function": "Shows the desired result", "adaptation_rule": "Same woman, same copper curls and same deep magenta dress, seen from behind in three-quarter view, looking back over her shoulder with a radiant confident smile straight at the viewer, visibly fuller rounder glutes, hips and legs, tasteful", "present_in_reference": true },
+      { "block_id": "block_07", "block_type": "decorative arrow", "position": "Crossing the split at mid-height (x 33–43%, y ~38–43%)", "visual_function": "Connects before to after", "adaptation_rule": "Thick curved white arrow", "present_in_reference": true },
+      { "block_id": "block_08", "block_type": "decorative doodles", "position": "Top left scribble; small arrows near the left notes; outline hearts near the right notes; sparkles on the right panel", "visual_function": "Hand-drawn emotional feel", "adaptation_rule": "White scribble and arrows on the left; small outline hearts in dark plum on the right; white four-point sparkles", "present_in_reference": true },
+      { "block_id": "block_09", "block_type": "headline", "position": "Top right, x 62–98%, y 2–25%", "visual_function": "Main before/after hook", "adaptation_rule": "Two-part uppercase headline, first part white, second part bottle black", "present_in_reference": true },
+      { "block_id": "block_10", "block_type": "subheadline", "position": "Below the headline, x 62–97%, y 27–35%", "visual_function": "Explains the change", "adaptation_rule": "Two short lines in white regular sans-serif", "present_in_reference": true },
+      { "block_id": "block_11", "block_type": "handwritten notes (before)", "position": "Left edge, x 2–15%, y 25–70%", "visual_function": "Names the 'before' feelings", "adaptation_rule": "Three short white handwritten notes", "present_in_reference": true },
+      { "block_id": "block_12", "block_type": "handwritten notes (after)", "position": "Right panel, x 70–82%, y 38–70%, between the woman and the bottle", "visual_function": "Names the 'after' feelings", "adaptation_rule": "Three short dark-plum handwritten notes, each with a small outline heart", "present_in_reference": true },
+      { "block_id": "block_13", "block_type": "product", "position": "Bottom right, x 78–98%, y 38–86%", "visual_function": "The bridge between before and after", "adaptation_rule": "The user's bottle exactly as in the attached photo, large and clear, standing upright in front of a large soft pink flower", "present_in_reference": true },
+      { "block_id": "block_14", "block_type": "round seal", "position": "Bottom, x 63–80%, y 72–88%, overlapping the lower body of the 'after' woman", "visual_function": "Lowers purchase risk", "adaptation_rule": "Round black seal with a thin fuchsia rim, three small stars on top and bold white text; text changed to the user's real offer (pay on delivery)", "present_in_reference": true },
+      { "block_id": "block_15", "block_type": "icon row", "position": "Bottom right edge, x 63–100%, y 89–99%", "visual_function": "Quick reassurance", "adaptation_rule": "Three thin-line white icons (leaf, capsule, heart) each with a small white label", "present_in_reference": true }
+    ],
+    "forbidden_additions": [
+      "CTA button",
+      "Price or discount",
+      "Rating stars outside the seal",
+      "Testimonials or quotes",
+      "Extra badges or seals",
+      "Other people, crowds, silhouettes or phones with social media",
+      "Brand logo outside the bottle label",
+      "Any text not listed in text_layers"
+    ]
+  },
+  "visual_prompt": "Square 1:1 before/after split-screen ad in glossy 3D animated cartoon style (Pixar-like render), recreating exactly the winning reference composition. Clean backgrounds with no clutter. LEFT PANEL (left 37% of the width): dark plum-to-black gradient background, muted and gloomy; at the top center a translucent grey-plum rounded pill label; a small white hand-drawn scribble doodle at the top left; a 3D cartoon young Latina woman with light skin with freckles and long voluminous curly copper-red hair, wearing a short fitted deep magenta mini dress, seen from behind in three-quarter view, looking back over her shoulder with an insecure, envious, downcast expression, shoulders dropped, slim flat hips, flat glutes and thin legs; three short white handwritten marker notes stacked along the left edge, the first one with a small curved hand-drawn arrow pointing at her. A thick curved white arrow crosses from the left panel into the right panel at mid-height. RIGHT PANEL (remaining 63%): bright hot fuchsia background glowing to bubblegum pink, with white four-point sparkles and small outline hearts; a pale pink rounded pill label at the top near the split; the SAME 3D cartoon woman with the same copper curls and the same deep magenta fitted dress (a slightly darker shade than the background so it stands out, with soft white rim light), seen from behind in three-quarter view, looking back over her shoulder straight at the viewer with a radiant, confident smile, with clearly fuller, rounder glutes, wider hips and thicker shapely legs, an obvious change at first glance, tasteful and non-explicit, filling the center of the image from top to bottom. TOP RIGHT: a bold two-part uppercase headline block, left-aligned, first part in white, second part in bottle black, with a two-line white subheadline under it. MIDDLE RIGHT, between the woman and the bottle: a vertical column of three short handwritten notes in dark plum, each with a small outline heart. BOTTOM RIGHT: the product, large and clear — use the attached product photo as the only source of truth for the product and do not redesign, replace or reinterpret it: a matte black cylindrical plastic supplement bottle, about 1.6 times taller than wide, with a glossy hot-pink/magenta screw cap printed with a repeating small white 'VITALABH' wordmark pattern and a solid hot-pink band wrapping the bottom fifth; black label with a small pink VITALABH emblem, a huge bold white 'AGUAJE', 'COMPLEX 3 EN 1' with '3 EN 1' in pink-red, a thin hot-pink banner, a bold italic hot-pink 'TRIPLE ACCIÓN' with a pink swoosh, three small pink-outlined boxes joined by plus signs, and '60 CÁPSULAS' at the bottom. The bottle stands upright, rendered photorealistically and sharp with a soft shadow, in front of a large soft pink flower with glowing petals. BOTTOM, left of the bottle: a round black seal with a thin fuchsia rim, three small stars on top and bold white uppercase text. BOTTOM RIGHT EDGE: a row of three thin-line white icons (a leaf, a capsule, a heart), each with a tiny white label below. Only the text listed in the exact visible text section; no other text, no extra modules.",
   "text_layers": [
-    {
-      "reference_function": "main headline",
-      "reference_position": "same place as the main headline of the reference",
-      "text": "ANTES NADIE LA MIRABA. AHORA NADIE PUEDE IGNORARLA.",
-      "text_style": "same style as the main headline of the reference"
-    }
+    { "block_id": "text_block_01", "reference_function": "before label", "reference_position": "Top center of the left panel, inside a rounded pill", "text_style": "Bold uppercase sans-serif, small, white, on a translucent grey-plum pill", "text": "ANTES" },
+    { "block_id": "text_block_02", "reference_function": "after label", "reference_position": "Top of the right panel near the split, inside a rounded pill", "text_style": "Bold uppercase sans-serif, small, white, on a pale pink pill", "text": "DESPUÉS" },
+    { "block_id": "text_block_03", "reference_function": "main headline, first part", "reference_position": "Top right, x 62–98%, first two lines of the headline block", "text_style": "Heavy geometric sans-serif (Montserrat Black look), ALL UPPERCASE, very large, white, tight leading, left-aligned, subtle drop shadow", "text": "ANTES: SE COMPARABA CON TODAS." },
+    { "block_id": "text_block_04", "reference_function": "main headline, second part", "reference_position": "Top right, directly below the first part, last two or three lines of the headline block", "text_style": "Heavy geometric sans-serif (Montserrat Black look), ALL UPPERCASE, very large, bottle black #0E0E10, tight leading, left-aligned", "text": "AHORA: LA MIRAN A ELLA." },
+    { "block_id": "text_block_05", "reference_function": "subheadline", "reference_position": "Right below the headline, x 62–97%, y 27–35%", "text_style": "Clean regular sans-serif (Poppins Regular look), medium size, white, sentence case, left-aligned, two lines", "text": "El apoyo natural que la ayudó a sentirse segura con su cuerpo, sin quirófano." },
+    { "block_id": "text_block_06", "reference_function": "before note 1", "reference_position": "Left edge, y ~26–35%, with a small curved arrow pointing at the woman", "text_style": "Casual handwritten marker script, white, small, sentence case, two short lines", "text": "Se comparaba" },
+    { "block_id": "text_block_07", "reference_function": "before note 2", "reference_position": "Left edge, y ~47–55%", "text_style": "Casual handwritten marker script, white, small, sentence case", "text": "Nadie la notaba" },
+    { "block_id": "text_block_08", "reference_function": "before note 3", "reference_position": "Left edge, y ~61–69%", "text_style": "Casual handwritten marker script, white, small, sentence case", "text": "Sin confianza" },
+    { "block_id": "text_block_09", "reference_function": "after note 1", "reference_position": "Right panel, x 70–82%, y ~38–45%, with a small outline heart", "text_style": "Casual handwritten marker script, dark plum, small, sentence case", "text": "Todos la notan" },
+    { "block_id": "text_block_10", "reference_function": "after note 2", "reference_position": "Right panel, x 70–82%, y ~50–57%, with a small outline heart", "text_style": "Casual handwritten marker script, dark plum, small, sentence case", "text": "Segura de sí" },
+    { "block_id": "text_block_11", "reference_function": "after note 3", "reference_position": "Right panel, x 70–82%, y ~61–68%", "text_style": "Casual handwritten marker script, dark plum, small, sentence case", "text": "Curvas al natural" },
+    { "block_id": "text_block_12", "reference_function": "seal main text", "reference_position": "Center of the round black seal, bottom, x 63–80%", "text_style": "Bold uppercase sans-serif, white, the largest text in the seal", "text": "PAGAS" },
+    { "block_id": "text_block_13", "reference_function": "seal secondary text", "reference_position": "Inside the seal, below the main text", "text_style": "Bold uppercase sans-serif, white, smaller", "text": "AL RECIBIR" },
+    { "block_id": "text_block_14", "reference_function": "icon label 1", "reference_position": "Under the leaf icon, bottom row, left", "text_style": "Small regular sans-serif, white, centered, two lines", "text": "Ingredientes de origen vegetal" },
+    { "block_id": "text_block_15", "reference_function": "icon label 2", "reference_position": "Under the capsule icon, bottom row, center", "text_style": "Small regular sans-serif, white, centered, two lines", "text": "2 cápsulas al día" },
+    { "block_id": "text_block_16", "reference_function": "icon label 3", "reference_position": "Under the heart icon, bottom row, right", "text_style": "Small regular sans-serif, white, centered", "text": "Sin cirugía" }
   ],
   "mandatory_visual_elements": [
-    "the real product from the attached product photo"
+    "Vertical split: dark plum left panel and bright fuchsia right panel",
+    "The same 3D cartoon woman with long curly copper-red hair in a short fitted deep magenta dress on both sides, seen from behind in three-quarter view looking back over her shoulder",
+    "Envious, downcast look and flat silhouette on the left; radiant confident smile at the viewer and clearly fuller glutes, hips and legs on the right",
+    "Thick curved white arrow from left to right",
+    "White scribble doodle at top left and small hand-drawn arrows",
+    "White four-point sparkles and small outline hearts on the right panel",
+    "The real bottle from the attached photo at bottom right, large and clear, in front of a large soft pink flower",
+    "Round black seal with a thin fuchsia rim and three small stars",
+    "Row of three thin-line white icons (leaf, capsule, heart) at the bottom right"
   ],
   "final_generation_exclusions": [
-    "any logo, brand name or text from the reference ad",
-    "misspelled words"
+    "No brand logos other than the one printed on the bottle label",
+    "No realistic photographic people: the women must be 3D animated cartoon characters",
+    "No other people, crowds or silhouettes besides the one woman shown in each panel",
+    "No nudity, no explicit or sexualized poses",
+    "Do not add any visual module that is not described in this prompt.",
+    "Do not add any text that is not listed in the EXACT VISIBLE TEXT section.",
+    "Do not add CTA buttons, prices, badges, benefits, icons, trust seals, ratings, testimonials, bottom bars, discount labels, offer boxes or extra claims unless they are explicitly listed in detected_visual_blocks or text_layers.",
+    "Preserve the translated structure exactly. Do not complete or improve the layout with additional advertising elements."
   ],
-  "reference_structure_analysis": {
-    "forbidden_additions": [
-      "the reference ad's brand, prices or claims"
-    ],
-    "detected_visual_blocks": []
-  },
-  "language_rule": "All visible text in Spanish.",
-  "app_rapido": "copiar",
-  "app_chat": {
-    "cambio": "Chica de cabello cobrizo rizado, vestido fucsia ceñido, mirando por encima del hombro con sonrisa"
-  }
+  "meta_policy_check": "All visible text has been sanitized for Facebook/Instagram Ads compliance. No prohibited claims, no false guarantees and no direct personal attribute callouts.",
+  "language_rule": "All visible text inside the generated image must be written in Spanish."
 }

@@ -38,7 +38,7 @@
       "intentos": 2,
       "inicio": "2026-11-21T22:32:32.834Z",
       "retomado": true,
-      "detalle": "7 de 10 listas"
+      "detalle": "Claude está revisando 3 imágenes: anotando lo que vio en las imágenes · 7 de 10 listas"
     },
     {
       "id": "informe",
@@ -51,5 +51,5 @@
   "modoPrueba": false,
   "creado": "2026-11-21T22:19:52.637Z",
   "aprobado": "2026-11-21T22:19:52.637Z",
-  "actualizado": "2026-11-21T22:51:22.050Z"
+  "actualizado": "2026-11-21T22:56:33.100Z"
 }
