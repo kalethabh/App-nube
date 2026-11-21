@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21c · Clonar tal cual: las personas hablan ellas mismas, sin narrador
+
+- Al clonar un video donde **hablan personas en cámara** (una entrevista, un programa, un reality, varias personas conversando), el anuncio nuevo ahora es **el mismo video tal cual**: cada persona dice sus líneas con su propia voz (lo de la presentadora lo dice la presentadora, lo de cada participante lo dice él), en las mismas escenas y con las mismas acciones (si explotan los globos, los explotan).
+- **Nada de voz en off ni de escenas inventadas (B-roll)** cuando en tu video la gente habla. La voz en off queda solo para videos donde nadie habla en cámara.
+- Si pides otra duración, se condensa: las mismas escenas, en el mismo orden, cada una más corta.
+- En «Agregar», la opción ahora dice «Las personas hablan en cámara» (una o varias).
+
 ## 2026-11-21b · La coordinadora clona tu video tal cual
 
 - Si le pasas un video a la coordinadora y le dices «replícalo tal cual», «clónalo» o «igual a este» sin nombrar un estilo, ahora lo hace **igual a tu video**: la misma estructura y el mismo look (si es una persona real hablando, una persona real; si es animado, animado igual), con las mismas tomas, el mismo ritmo, los mismos textos y el mismo gancho, pero con tu producto. Ya no lo pasa a uno de los estilos de la app.

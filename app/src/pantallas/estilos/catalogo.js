@@ -162,8 +162,8 @@ const PREGUNTAS = {
     {
       id: 'formato',
       texto: 'Cómo está hecho tu video',
-      ayudaIA: 'Con «Que decida la IA», lo mira y elige: si alguien habla a cámara, sale con su propia voz; si una voz cuenta sobre escenas, sale con narrador.',
-      opciones: ['Una persona habla a cámara', 'Una voz cuenta sobre escenas'],
+      ayudaIA: 'Con «Que decida la IA», lo mira y elige: si en tu video hablan personas en cámara (una o varias), en el tuyo hablan ellas mismas con su voz, con las mismas escenas; solo si nadie habla en cámara y una voz cuenta sobre escenas, sale con narrador.',
+      opciones: ['Las personas hablan en cámara', 'Una voz cuenta sobre escenas'],
     },
     {
       id: 'angulo',
