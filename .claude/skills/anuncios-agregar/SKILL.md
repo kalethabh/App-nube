@@ -1,6 +1,6 @@
 ---
 name: anuncios-agregar
-description: Estilo «Agregar». El usuario sube un video (suyo, de la competencia o uno que le gusta), escribe lo que quiere con sus palabras ("este mismo pero estilo Pixar narrado y musical, de 1:30, manteniendo el guion") y se rehace para su producto: en el estilo que pide (uno de los de la app) o, si no pide ninguno, con la MISMA estructura y el MISMO look: cómo está armado toma por toma, cómo se ven las personas (edad, cuerpo, ropa, lugar, cámara, realismo), el ritmo, los textos, el gancho y el ángulo de venta, con el antes y después bien visible en la zona del cuerpo que vende. Decide si se produce como UGC (alguien habla a cámara) o con voz en off (una voz sobre escenas) y elige el mejor modelo de video para CADA escena (las que hablan, el B-roll, el antes y después). Usar cuando el usuario elige «Agregar» en la app, o pide "rehazme este video para mi producto", "hazlo igual a este video", "que se vea como este video".
+description: Estilo «Agregar». El usuario sube un video (suyo, de la competencia o uno que le gusta), escribe lo que quiere con sus palabras ("este mismo pero estilo Pixar narrado y musical, de 1:30, manteniendo el guion") y se rehace para su producto: en el estilo que pide (uno de los de la app) o, si no pide ninguno, con la MISMA estructura y el MISMO look: cómo está armado toma por toma, cómo se ven las personas (edad, cuerpo, ropa, lugar, cámara, realismo), el ritmo, los textos, el gancho y el ángulo de venta, con el antes y después bien visible en la zona del cuerpo que vende. Decide si se produce como escenas habladas (una o varias personas hablan en cámara, cada una con su voz: nunca se pasa a voz en off) o con voz en off (solo si en el original nadie habla en cámara) y elige el mejor modelo de video para CADA escena (las que hablan, el B-roll, el antes y después). Usar cuando el usuario elige «Agregar» en la app, o pide "rehazme este video para mi producto", "hazlo igual a este video", "que se vea como este video".
 ---
 
 # Agregar — un anuncio rehecho a partir del video del usuario
@@ -13,9 +13,9 @@ Esta skill se apoya en tres que ya existen y no se copian aquí:
 
 - `.claude/skills/anuncios-clonacion/SKILL.md` — el análisis del video (Pasos 1 y 2), el ADN toma
   por toma (Paso 3) y el guion clonado (Paso 5). Lo que nunca se copia del original también vale aquí.
-- `.claude/skills/anuncios-ugc/SKILL.md` — si el video es **una persona hablando a cámara**.
-- `.claude/skills/anuncios-realista-narrado/SKILL.md` (que sigue `anuncios-estilo-pixar`) — si el
-  video es **una voz que cuenta sobre escenas** (antes y después, B-roll, producto).
+- `.claude/skills/anuncios-ugc/SKILL.md` — si en el video **hablan personas en cámara** (una o varias).
+- `.claude/skills/anuncios-realista-narrado/SKILL.md` (que sigue `anuncios-estilo-pixar`) — solo si en el
+  video **nadie habla en cámara**: una voz que cuenta sobre escenas (antes y después, B-roll, producto).
 
 Las reglas de `CLAUDE.md` siguen igual: **nada que cobre se genera sin mostrar antes el costo y
 esperar un sí** (en la app, la tarjeta del costo antes de «Me gusta, producir»).
@@ -131,19 +131,56 @@ trae lo que tiene que notarse, eso manda.
 
 ## Paso 4 — El formato de producción
 
-| Lo que pasa en el video | Formato | Cómo se escribe el manifiesto |
+**La regla de oro: si en el video original las personas hablan con la boca en cámara, en el tuyo también.**
+Nunca conviertas en voz en off a alguien que habla en el original, ni metas escenas o B-roll que el
+original no tiene. Es el mismo video, tal cual, para el producto del usuario.
+
+| Lo que pasa en el video | Formato (`formato` del plan) | Cómo se escribe el manifiesto |
 |---|---|---|
-| una persona habla a cámara la mayor parte del tiempo (testimonio, reseña, rutina, "get ready with me") | **UGC** | `anuncios-ugc`: bloques `R`, `"modo_audio": "dialogo_nativo"`, la voz sale del clip, sin B-roll aparte |
-| una voz cuenta sobre escenas, nadie habla con la boca a cámara (antes y después, B-roll, producto, textos con música) | **Voz en off** | `anuncios-realista-narrado` (proceso de Pixar): tomas A/B, B-roll y `"modo_audio": "voz_en_off"`; la voz la pone ElevenLabs |
+| **una o varias personas hablan en cámara** (testimonio, reseña, rutina, entrevista, un programa o show con presentadora y participantes, un reality, una conversación, un sketch) | **Escenas habladas** (`"ugc"`) | `anuncios-ugc`: bloques `R`, `"modo_audio": "dialogo_nativo"`; cada persona dice SUS líneas con su propia voz dentro del clip. Con varias personas, sigue «Escenas habladas, tal cual» (abajo) |
+| **nadie** habla con la boca en cámara: una voz cuenta sobre escenas (antes y después, producto, textos con música) | **Voz en off** (`"voz-en-off"`) | `anuncios-realista-narrado` (proceso de Pixar): tomas A/B, B-roll y `"modo_audio": "voz_en_off"`; la voz la pone ElevenLabs |
 
 - **Si el formulario trae `formato`**, ese manda. Con "que decida la IA", decides tú con la tabla.
-- **Mezclado** (alguien habla y hay muchos cortes a detalles): si la persona habla a cámara más de
-  la mitad del tiempo, es UGC y los cortes a detalles van como tramos dentro de cada bloque ("corte a:
-  plano de detalle de…"). Si no, es voz en off y lo que decía la persona pasa a ser la voz.
-- **Si el video vende con un antes y después del cuerpo**, la voz en off lo muestra mucho mejor
-  (cada imagen se controla: la misma persona, la misma pose): prefiérela salvo que la persona hable
-  a cámara casi todo el video.
+- **Mezclado** (alguien habla en cámara y además hay cortes a detalles o planos sin diálogo): es
+  **Escenas habladas**. Los planos sin diálogo del original van como tramos sin línea (o un bloque sin
+  línea) con su misma acción; **no** se convierten en narración ni se agregan planos que no existen.
+- **El antes y después** se hace como lo hace el original: si ahí lo cuentan las personas hablando,
+  se queda así (no lo pases a voz en off).
 - Cuenta el formato elegido y por qué en "decisiones".
+
+### Escenas habladas, tal cual (varias personas en cámara)
+
+Para un video como un programa de citas, una entrevista o un reality (presentadora, participantes,
+público), el anuncio nuevo es **el mismo video con el producto del usuario**:
+
+- **Las mismas personas (nuevas, del mismo tipo)**: una referencia `personaje` por cada persona que
+  vuelve (la presentadora, la protagonista, cada participante), con su edad, cuerpo, piel, pelo, ropa y
+  accesorios del original (nunca la cara de alguien real). Distínguelas por un rasgo o por la ropa.
+- **Las mismas tomas, en el mismo orden**: un bloque por toma del original (o varias tomas seguidas en
+  un bloque de hasta 15 s, como tramos). Mismo plano y cámara (cerrado, medio, abierto, quién está en
+  cuadro), mismo set, misma luz, mismos subtítulos.
+- **Cada línea la dice quien la dice en el original**: lo de la presentadora lo dice la presentadora
+  (con su micrófono), lo de la protagonista lo dice ella, lo de cada participante, él. Un solo hablante
+  por tramo, nombrado por su rasgo o su ropa («la presentadora de traje rojo»). La línea se adapta al
+  producto solo donde el original habla del problema o de la solución; la estructura y la función de
+  cada frase quedan iguales.
+- **Quién habla, en el manifiesto**: cada tramo con línea lleva `"habla": "<id del personaje>"` (el
+  validador lo pide cuando el bloque tiene más de una persona). Un tramo sin línea (alguien mira, se ríe,
+  explota un globo) va con `"linea": null`.
+- **La voz de cada persona, igual en todo el anuncio**: en LANGUAGE / VOICE describe la voz de cada
+  persona (género, edad aproximada, acento, energía) y copia esa descripción palabra por palabra en
+  todos los bloques donde habla.
+- **Las mismas acciones**: si explotan los globos, los explotan; si alguien se ríe, se tapa la cara o
+  camina, igual. Van en la acción de cada tramo, en orden.
+- **Las referencias de cada bloque**: solo las personas que salen en ese plano (+ el producto si se
+  ve), **máximo 7 imágenes**. En los planos abiertos donde salen muchas personas a la vez, usa la imagen
+  de su escena (`prompt_imagen_inicial`, Sección «imagen de cada escena»): una foto del set con todas
+  ellas descritas, en su lugar y con su ropa, y nombra esa imagen en el prompt de video.
+- **Nada inventado**: sin voz en off, sin narrador, sin B-roll ni escenas que el original no tenga.
+  El producto aparece donde el original muestra o nombra la solución (o como el original muestra su
+  producto).
+- **La duración**: si el usuario pide otra, se condensa como dice el Paso 1 (cada momento más corto,
+  las mismas escenas en el mismo orden); sin duración pedida, la del original.
 
 ## Paso 5 — El guion
 

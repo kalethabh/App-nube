@@ -138,7 +138,7 @@ function planParaMostrar(p, brief) {
   return {
     estilo: p.estilo,
     estiloNombre: p.estilo === 'agregar' ? 'El mismo look de tu video' : ESTILOS[p.estilo]?.nombre || p.estilo,
-    ...(p.estilo === 'agregar' && FAMILIAS_DE_AGREGAR.includes(p.formato) ? { formato: p.formato === 'ugc' ? 'Una persona habla a cámara' : 'Una voz cuenta sobre escenas' } : {}),
+    ...(p.estilo === 'agregar' && FAMILIAS_DE_AGREGAR.includes(p.formato) ? { formato: p.formato === 'ugc' ? 'Las personas hablan en cámara, cada una con su voz' : 'Una voz cuenta sobre escenas' } : {}),
     duracion: p.duracion ? corto(p.duracion, 40) : null,
     idioma: p.idioma ? corto(p.idioma, 20) : null,
     resumen: corto(p.resumen, 400),
@@ -196,7 +196,7 @@ function defDe(brief) {
 /** Lo que se eligio en el formulario de «Agregar» sobre como esta hecho el video: 'ugc' | 'voz-en-off' | null (la IA). */
 export function formatoPedidoDeAgregar(brief) {
   const t = String(brief?.respuestas?.formato || '');
-  if (/habla a c[aá]mara|persona habla/i.test(t)) return 'ugc';
+  if (/habla[n]? (a|en) c[aá]mara|persona[s]? habla/i.test(t)) return 'ugc';
   if (/voz (en off|cuenta)|narrador|sobre escenas/i.test(t)) return 'voz-en-off';
   return null;
 }
@@ -711,7 +711,7 @@ const GUIA_AJUSTES = {
   musical:
     'Las pausas de los Pasos 1 a 3 ya están contestadas: la ficha es el brief (si no hay página ni investigación, sigue con la ficha: el usuario ya la revisó). `genero` es el 2.1 (con "que decida la IA", lo eliges con el mapa del 2.1 según el público de la ficha); `canta` es la voz del 2.3 ("Voz femenina" = "f", "Voz masculina" = "m", "que decida la IA" = que elija Suno, null); `visual` es el estilo visual del 2.4 (Crochet = `crochet`, Claymation = `claymation`, Zack D Films = `zack-d-films`). El ángulo y la etapa de consciencia del Paso 3 los decides tú con su regla y los cuentas en "decisiones". La duración no se pregunta ni se pide (2.2).',
   agregar:
-    '`pedido` es lo que el usuario quiere, con sus palabras (el estilo, la duración, el idioma, lo que se conserva): **manda sobre todo lo demás**. `clonar` es el video del usuario (ya analizado: abajo dice dónde). `formato` es cómo está hecho ese video: "Una persona habla a cámara" = formato UGC, "Una voz cuenta sobre escenas" = formato voz en off; con "que decida la IA", lo decides tú mirando el video (Paso 4 de la skill). `angulo` es lo que tiene que notarse (la zona del cuerpo, el deseo o el resultado, por ejemplo "glúteos y piernas más levantados y firmes"); con "que decida la IA", lo sacas del video y de la ficha. `antes_despues`: "Sí" = va un antes y después con el cambio bien visible en esa zona; "No" = sin antes y después; con "que decida la IA", va si el video lo tiene o si el ángulo es un cambio del cuerpo. `clonar_gancho` dice si el gancho y el ángulo se adaptan al producto o se conservan del original.',
+    '`pedido` es lo que el usuario quiere, con sus palabras (el estilo, la duración, el idioma, lo que se conserva): **manda sobre todo lo demás**. `clonar` es el video del usuario (ya analizado: abajo dice dónde). `formato` es cómo está hecho ese video: "Las personas hablan en cámara" (o el texto viejo "Una persona habla a cámara") = formato "ugc" (escenas habladas: una o VARIAS personas, cada una con su voz), "Una voz cuenta sobre escenas" = formato voz en off; con "que decida la IA", lo decides tú mirando el video (Paso 4 de la skill). REGLA DE ORO: si en el video original las personas hablan en cámara (aunque sean varias: una entrevista, un programa, un reality), el formato es "ugc" y cada una dice sus líneas con su voz; NUNCA lo pases a voz en off ni agregues B-roll o escenas que el original no tiene. `angulo` es lo que tiene que notarse (la zona del cuerpo, el deseo o el resultado, por ejemplo "glúteos y piernas más levantados y firmes"); con "que decida la IA", lo sacas del video y de la ficha. `antes_despues`: "Sí" = va un antes y después con el cambio bien visible en esa zona; "No" = sin antes y después; con "que decida la IA", va si el video lo tiene o si el ángulo es un cambio del cuerpo. `clonar_gancho` dice si el gancho y el ángulo se adaptan al producto o se conservan del original.',
   'historias-musicales':
     'El briefing del Paso 1 ya está contestado: la ficha (producto, dolor y mecanismo, mercado, oferta), `duracion` y `ajustes_del_estilo`: `cuenta` es quién cuenta la historia, `villano` el detonante, `cierre` el tipo de cierre ("Cantado dentro de la canción" o "Solo tarjeta final"), `genero` el género musical y `canta` la voz ("Voz femenina" = "f", "Voz masculina" = "m"; con "que decida la IA", el género de quien cuenta la historia). Donde diga "que decida la IA", decides tú con la skill: nunca dejes un dato inventado sin contarlo en "decisiones".',
 };
@@ -732,7 +732,7 @@ const FORMATO_PLAN = `\`\`\`json
 \`\`\`
 
 - \`estilo\`: "agregar" = el mismo look del video (lo que pide la skill si el pedido no nombra un estilo). Si el pedido nombra uno de la app, su clave: ${'`'}claymation${'`'}, ${'`'}crochet${'`'}, ${'`'}zack-d-films${'`'}, ${'`'}estilo-pixar${'`'}, ${'`'}realista-narrado${'`'}, ${'`'}skeleton${'`'}, ${'`'}estilo-lego${'`'}, ${'`'}ugc${'`'}, ${'`'}talking-object-pixar${'`'}, ${'`'}podcast${'`'}, ${'`'}entrevista${'`'}, ${'`'}musical${'`'} o ${'`'}historias-musicales${'`'} (tabla del Paso 1 de la skill).
-- \`formato\`: solo con "agregar": "ugc" o "voz-en-off" (Paso 4).
+- \`formato\`: solo con "agregar": "ugc" (las personas hablan en cámara, una o varias) o "voz-en-off" (solo si en el original nadie habla en cámara) (Paso 4).
 - \`duracion\`: la que pidió el usuario ("1:30", "90 s", "2 minutos") o null = la del video.
 - \`respuestas\`: con otro estilo, las preguntas de ese estilo que el pedido ya contesta, con sus palabras de la pantalla (en el musical, \`visual\` es obligatorio: "Crochet", "Claymation" o "Zack D Films"; \`genero\` y \`canta\` si los dice). Lo que no dice queda fuera ("que decida la IA").
 - \`resumen\`, \`conserva\`, \`cambia\` y \`porque\` los lee el usuario: en español sencillo, sin rutas ni nombres de archivos.`;
@@ -781,7 +781,7 @@ function formatoGuion(def, brief) {
     );
   } else if (fam === 'agregar') {
     r.push(
-      'Depende del formato que elegiste (Paso 4 de la skill). **UGC:** una parte por bloque, con el mismo `n` que `tomas[].n` y en el mismo orden; `dice` es `tomas[].linea` copiado carácter por carácter; agrega `"personajes"`: la persona que habla a cámara, `[{ "nombre": "…", "como_es": "una frase" }]`. **Voz en off:** una parte por toma, con el mismo `n` que `tomas[].n` y en el mismo orden; `dice` es `tomas[].linea` copiado del manifiesto carácter por carácter; si hay una persona que se repite (el antes y el después), agrega `"personajes"`.',
+      'Depende del formato que elegiste (Paso 4 de la skill). **UGC:** una parte por bloque, con el mismo `n` que `tomas[].n` y en el mismo orden; `dice` es `tomas[].linea` copiado carácter por carácter; agrega `"personajes"`: las personas que hablan en cámara (una o varias), `[{ "nombre": "…", "como_es": "una frase" }]`. **Voz en off:** una parte por toma, con el mismo `n` que `tomas[].n` y en el mismo orden; `dice` es `tomas[].linea` copiado del manifiesto carácter por carácter; si hay una persona que se repite (el antes y el después), agrega `"personajes"`.',
       'Agrega `"modelos"`: una línea por modelo que elegiste, en palabras sencillas, `[{ "modelo": "Omni Flash 1.2", "para": "las tomas donde ella habla", "porque": "mueve bien los labios" }]` (aquí sí va el nombre del modelo).',
       '`duracionEstimada` es la suma de `tomas[].duracion`, en segundos.',
     );
