@@ -7,11 +7,17 @@
     "Preparando la foto de tu producto",
     "Analizando el video de referencia",
     "Claude empezó a escribir tu guion",
-    "Leyendo las instrucciones del estilo"
+    "Leyendo las instrucciones del estilo",
+    "Revisando",
+    "Buscando en los archivos",
+    "Leyendo",
+    "Mirando las imágenes del anuncio",
+    "Mirando las fotos de tu producto",
+    "Buscando en los archivos"
   ],
   "inicio": "2026-11-21T14:43:03.745Z",
   "cambios": [],
-  "actualizado": "2026-11-21T14:43:28.294Z",
+  "actualizado": "2026-11-21T14:44:07.604Z",
   "error": null,
   "inicioIntento": "2026-11-21T14:43:03.745Z"
 }

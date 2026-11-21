@@ -4,7 +4,7 @@
     "E": 3,
     "R": 6,
     "A": 1,
-    "T": 8
+    "T": 13
   },
   "tandas": {
     "E001": {
@@ -150,46 +150,50 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0006",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T008"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0006",
       "ultimaOrden": "U0001",
-      "fallo": {
-        "orden": "U0001",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0007",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T009"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0007",
       "ultimaOrden": "U0002",
-      "fallo": {
-        "orden": "U0002",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V03_1x1": {
       "v": "V03",
@@ -266,68 +270,74 @@
     "V06_1x1": {
       "v": "V06",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0010",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T012"
+      },
+      "intentosApi": 0,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0010",
       "ultimaOrden": "U0003",
-      "fallo": {
-        "orden": "U0003",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V07_1x1": {
       "v": "V07",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0008",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T010"
+      },
+      "intentosApi": 1,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0008",
       "ultimaOrden": "U0004",
-      "fallo": {
-        "orden": "U0004",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V08_1x1": {
       "v": "V08",
       "formato": "1:1",
-      "fase": "final",
+      "fase": "pedida",
       "resultado": "sin-imagen",
       "version": 0,
       "firma": null,
-      "orden": null,
-      "intentosApi": 3,
+      "orden": {
+        "id": "U0009",
+        "modo": "generar",
+        "version": 1,
+        "trabajo": "T011"
+      },
+      "intentosApi": 0,
       "ronda": "u",
       "reintentoAuto": "no",
       "revision": null,
       "motivo": "contenido-chatgpt",
       "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido",
       "desde": null,
-      "pedido": null,
+      "pedido": "U0009",
       "ultimaOrden": "U0005",
-      "fallo": {
-        "orden": "U0005",
-        "mensaje": "ChatGPT no quiso hacer esta imagen por sus reglas de contenido"
-      }
+      "fallo": null
     },
     "V09_1x1": {
       "v": "V09",
@@ -458,6 +468,81 @@
       ],
       "paso": 0,
       "motivo": "No se pudo rehacer: ChatGPT no quiso hacer esta imagen por sus reglas de contenido."
+    },
+    "U0006": {
+      "id": "U0006",
+      "pieza": "V01_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T14:43:33.209Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V01_1x1",
+          "orden": "U0006",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0007": {
+      "id": "U0007",
+      "pieza": "V02_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T14:43:37.873Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V02_1x1",
+          "orden": "U0007",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0008": {
+      "id": "U0008",
+      "pieza": "V07_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T14:43:40.818Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V07_1x1",
+          "orden": "U0008",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0009": {
+      "id": "U0009",
+      "pieza": "V08_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T14:43:43.185Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V08_1x1",
+          "orden": "U0009",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
+    },
+    "U0010": {
+      "id": "U0010",
+      "pieza": "V06_1x1",
+      "instruccion": "",
+      "fecha": "2026-11-21T14:43:48.502Z",
+      "estado": "generando",
+      "pasos": [
+        {
+          "pieza": "V06_1x1",
+          "orden": "U0010",
+          "modo": "generar"
+        }
+      ],
+      "paso": 0
     }
   }
 }

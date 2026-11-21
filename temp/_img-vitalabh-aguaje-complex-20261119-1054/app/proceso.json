@@ -1,0 +1,15 @@
+{
+  "pid": 16102,
+  "paso": "anuncios",
+  "script": "generar-imagen-ads.js",
+  "args": [
+    "temp/_img-vitalabh-aguaje-complex-20261119-1054",
+    "--motor",
+    "chatgpt",
+    "--concurrencia",
+    "3"
+  ],
+  "comando": "node produccion/generar-imagen-ads.js temp/_img-vitalabh-aguaje-complex-20261119-1054 --motor chatgpt --concurrencia 3",
+  "inicio": "2026-11-21T14:43:33.222Z",
+  "app": 2240
+}
