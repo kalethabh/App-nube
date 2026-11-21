@@ -167,7 +167,7 @@ export function prepararRapido(carpeta, brief) {
       angulo_id: angulos.has(angulo_id) ? angulo_id : [...angulos.keys()][0] || 'beneficio-principal',
       angulo: angulos.get(angulo_id)?.nombre || angulo_id,
       concepto: modo === 'replicar' ? 'Réplica exacta del anuncio validado' : modo === 'copiar' ? 'Variación del creativo que ya funciona' : 'Anuncio nuevo inspirado en un anuncio validado',
-      titular: replicar ? corto((mapas[i % refs.length]?.titulares || [])[Math.floor(i / refs.length)] || mapas[i % refs.length]?.titular_original, 120) : corto(titularDe(i), 90) || titulares[i].titulo,
+      titular: brief.variacionesChat?.[i]?.titular ? corto(brief.variacionesChat[i].titular, 140) : replicar ? corto((mapas[i % refs.length]?.titulares || [])[Math.floor(i / refs.length)] || mapas[i % refs.length]?.titular_original, 120) : corto(titularDe(i), 90) || titulares[i].titulo,
       escena: modo === 'replicar' ? `${combos[i]?.escenario} · ${combos[i]?.pose}` : modo === 'copiar' ? 'la de la referencia' : 'nueva, del mismo tipo que la referencia',
       camara: 'la de la referencia',
       base_titular: titulares[i].base,
@@ -208,6 +208,10 @@ export function prepararRapido(carpeta, brief) {
           : "Adapt the color palette to the product's packaging, keeping the same contrast and hierarchy as the reference."
         : 'Use a color palette that matches the product packaging. Make it look like a premium, scroll-stopping social media ad.',
       'All visible text in Spanish, perfectly spelled, with accents. The product must look exactly like the attached product photo.',
+      // (2026-11-21d) VARIACIONES DEL CHAT: lo que cambia en esta imagen, lo que pidió el usuario y lo que ya votó
+      brief.variacionesChat?.[i]?.cambio ? `WHAT CHANGES IN THIS VARIATION (and only this, the rest stays like the reference): ${brief.variacionesChat[i].cambio}` : null,
+      brief.variacionesChat ? `The headline PLAYS with the winning headline of the reference keeping its essence (same promise, same desire, same timeframe if it has one), never generic. If there is a before/after, the change must be obvious at first glance: two clearly different moments, the AFTER body visibly improved in the area of the angle.${brief.indicacionesChat ? ` THE CLIENT ASKED: ${brief.indicacionesChat}` : ''}` : null,
+      brief.leccionesChat || null,
     ]
       .filter(Boolean)
       .join('\n');
@@ -228,6 +232,7 @@ export function prepararRapido(carpeta, brief) {
       reference_structure_analysis: { forbidden_additions: ["the reference ad's brand, prices or claims"], detected_visual_blocks: [] },
       language_rule: 'All visible text in Spanish.',
       app_rapido: modo,
+      ...(brief.variacionesChat?.[i] ? { app_chat: { cambio: brief.variacionesChat[i].cambio || '' } } : {}),
     });
   });
   return { ok: true, referencias: refs.length, titulares: titulares.length, modo };
