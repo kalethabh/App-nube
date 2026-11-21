@@ -18,11 +18,14 @@
     "Buscando en los archivos",
     "Mirando las imágenes del anuncio",
     "Guardando",
-    "Escribiendo el guion y cada escena"
+    "Escribiendo el guion y cada escena",
+    "Revisando que el guion esté completo",
+    "Ajustando el guion",
+    "Marcando las transiciones"
   ],
   "inicio": "2026-11-21T18:17:29.088Z",
   "cambios": [],
-  "actualizado": "2026-11-21T18:26:14.166Z",
+  "actualizado": "2026-11-21T18:29:17.076Z",
   "error": null,
   "inicioIntento": "2026-11-21T18:17:29.088Z"
 }
