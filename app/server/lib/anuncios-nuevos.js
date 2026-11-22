@@ -102,6 +102,7 @@ export const CON_CONTINUIDAD = Object.keys(ESTILOS).filter((k) => ESTILOS[k].nar
  * que salio del video (brief.produccion: 'ugc' | 'voz-en-off'), o null mientras la IA todavia no lo miro.
  */
 export function familiaDe(brief) {
+  if (brief?.cambioDeAudio) return 'cambiar-audio'; // (2026-11-21i) la copia cantada (lib/cambiar-audio.js)
   const def = ESTILOS[brief?.estilo];
   if (!def) return null;
   if (def.segunReferencia) return FAMILIAS_DE_AGREGAR.includes(brief.produccion) ? brief.produccion : null;

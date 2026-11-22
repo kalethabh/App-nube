@@ -58,7 +58,7 @@ import { alCambiarCuentaClaude } from './claude.js';
 // ---------------------------------------------------------------- las familias
 
 /** En este orden: si dos familias dijeran el mismo estilo, gana la primera. */
-const ARCHIVOS_DE_FAMILIAS = ['voz-en-off', 'continuidad', 'objeto-parlante', 'ugc', 'hablado', 'musical', 'historia-musical', 'imagen-ads'];
+const ARCHIVOS_DE_FAMILIAS = ['voz-en-off', 'continuidad', 'objeto-parlante', 'ugc', 'hablado', 'musical', 'historia-musical', 'imagen-ads', 'cambiar-audio'];
 const DIR_FAMILIAS = path.join(path.dirname(fileURLToPath(import.meta.url)), 'familias');
 const CONTINUIDAD = 'continuidad';
 
@@ -98,6 +98,8 @@ export const esperarFamilias = () => familiasListas;
 
 /** Con que familia se produce el anuncio de este brief, o null si la app todavia no lo produce. */
 export function familiaDe(brief) {
+  // (2026-11-21i) «Cambiar solo el audio»: la copia cantada de un anuncio con narrador (lib/cambiar-audio.js)
+  if (brief?.cambioDeAudio && FAMILIAS['cambiar-audio']) return 'cambiar-audio';
   if (!brief?.estilo) return null;
   // «Agregar»: lo produce la familia que salio del video (UGC o voz en off), que la app dejo en brief.produccion al
   // revisar el guion (lib/anuncios-nuevos.js, verificarGuion). Antes de eso, todavia no se puede producir.

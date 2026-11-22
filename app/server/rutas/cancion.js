@@ -19,7 +19,7 @@ import { costoDelAnuncio } from '../lib/costo-estimado.js';
 import { copiarModelosAlAnuncio } from '../lib/modelos.js';
 
 const ORIGENES = origenesPermitidos(PUERTO); // el mismo chequeo en toda la app (lib/servidor.js), con el dominio del servidor si lo hay
-const CANTADOS = new Set(['musical', 'historia-musical']);
+const CANTADOS = new Set(['musical', 'historia-musical', 'cambiar-audio']); // (y la copia cantada de un narrado)
 const PASO_PAUSA = 'elegir-cancion'; // familias/musical.js, PASO_PAUSA
 
 // La familia se carga al usarla: si tuviera un problema, falla esta ruta y no la app entera.

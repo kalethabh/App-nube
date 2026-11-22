@@ -358,6 +358,7 @@ Si te pide ANALIZAR o revisar una investigación (qué ángulo usar, qué dice d
 Las investigaciones que puedes leer (mercado + competencia en un solo archivo):
 ${(invs || []).map((x) => `${x.id} | ${x.nombre} | ${x.ruta}`).join('\n') || '(ninguna todavía)'}
 - { "tipo": "recrear", "slug": "<slug>", "productoId": "<id del otro producto>" } → el mismo guion para otro producto.
+- { "tipo": "cantar", "slug": "<slug de un anuncio con narrador ya terminado>", "como": "<cómo quiere que suene, con sus palabras>" | null, "voz": "f" | "m" | null } → CAMBIAR SOLO EL AUDIO: el mismo video (mismas escenas y clips, no se pagan otra vez) pasa a CANTADO: sus frases son la letra, Suno la canta, él elige la versión y el montaje se acomoda solo. Úsalo cuando pide cambiar solo el audio a cantado («que sea cantado como el de referencia», «solo cambia la voz por una canción»), NO "editar" (ese rehace el guion). Cuesta solo la canción.
 - { "tipo": "editar", "slug": "<slug de un anuncio de video>", "pedido": "<el cambio, con sus palabras>", "estilo": "<clave>" | null } → EDITAR un anuncio que se está produciendo o que ya terminó («que ya no sea cantado», «cambia el gancho», «que sea un hombre»): la app hace una VERSIÓN NUEVA con ese cambio y lo demás igual (mismas personas y escenas, sin pagarlas otra vez) y detiene el original si se estaba haciendo. Nunca le digas que ya no se puede cambiar: usa esto. "estilo" solo si pide otro estilo (de cantado a narrado la app lo resuelve sola). Después le avisas el costo del guion nuevo, como siempre.
 - { "tipo": "seguir", "slug": "<slug de un anuncio de video>" } → empiezas a seguir un anuncio que ya existe (te encargas de avisarle el costo y producirlo).
 - { "tipo": "cancelar", "id": "<id de lo que estás siguiendo>" } → si ya no lo quiere.
@@ -545,6 +546,11 @@ async function ejecutar(acciones, ctx) {
         const r = recrearAnuncio(String(a.slug || ''), { productoId: a.productoId });
         hechas.push({ tipo: 'anuncio', titulo: `Recreado para ${nombreDe(a.productoId)}`, href: `#/nuevo?producto=${encodeURIComponent(a.productoId)}&paso=2&anuncios=${r.slug}`, slug: r.slug, ok: true });
         encargar({ id: r.slug, tipo: 'video', slug: r.slug, productoId: a.productoId, titulo: `el anuncio para ${nombreDe(a.productoId)}` });
+      } else if (a.tipo === 'cantar') {
+        const { cantarAnuncio } = await import('./cambiar-audio.js');
+        const r = await cantarAnuncio(String(a.slug || ''), { como: limpio(a.como, 600), voz: a.voz === 'f' || a.voz === 'm' ? a.voz : null });
+        hechas.push({ tipo: 'anuncio', titulo: `Versión cantada (mismas escenas): elige la canción`, href: `#/anuncio/${r.slug}/produccion`, slug: r.slug, ok: true });
+        encargar({ id: r.slug, tipo: 'video', slug: r.slug, productoId: r.productoId, titulo: `la versión cantada de ${nombreDe(r.productoId)}` });
       } else if (a.tipo === 'editar') {
         const { editarAnuncio } = await import('./anuncios-nuevos.js');
         const r = await editarAnuncio(String(a.slug || ''), { pedido: limpio(a.pedido, 3000), estilo: a.estilo ? String(a.estilo) : undefined });

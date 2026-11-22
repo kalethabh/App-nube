@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-21i · Cambiar solo el audio: de narrado a cantado, con las mismas escenas
+
+- En **«Editar este anuncio»** hay una pestaña nueva: **«Solo el audio: cantado»**. Tu anuncio con narrador pasa a ser **cantado** sin tocar las escenas: las frases de tu guion se vuelven la letra, la canción sale en dos versiones para que elijas la que más te guste, y el video se acomoda solo a la canción (cada escena dura lo que su frase cantada).
+- Puedes decir cómo quieres que suene («reguetón alegre como el video de referencia») y si la voz es femenina o masculina.
+- Cuesta solo la canción (unos US$0,06): **ninguna imagen ni video se paga otra vez**. El anuncio original no se toca: el cantado sale como uno nuevo.
+- Para otras cosas puntuales, la misma ventana te recuerda dónde están: una escena → «Regenerar» en la producción; textos, música o cortes → el Editor.
+- La coordinadora también lo hace si se lo pides por chat («que sea cantado como el de referencia»).
+
 ## 2026-11-21h · Editar un anuncio cuando quieras, e imágenes que no se quedan sin hacer
 
 - **«Editar este anuncio»**, mientras se está haciendo o ya terminado (en la producción y en la entrega): escribes lo que quieres cambiar con tus palabras («que ya no sea cantado, que sea narrado», «cambia el gancho», «que sea un hombre de 40») y la app hace una **versión nueva** con ese cambio y todo lo demás igual (mismas personas y escenas, sin pagarlas otra vez). Si era cantado y pides que sea narrado, va con voz en off en el mismo look; también puedes elegir otro estilo. El original no se borra, y si se estaba haciendo se detiene para no gastar en lo que vas a cambiar. Ves el guion nuevo y su costo antes de producir. La coordinadora también lo hace si se lo pides por chat.
