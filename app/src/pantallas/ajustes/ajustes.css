@@ -1947,6 +1947,11 @@
 .apariencia__op--claro .apariencia__linea { background: #d5d8cf; }
 .apariencia__op--auto .apariencia__barra { background: linear-gradient(115deg, #141612 0 50%, #f5f5f5 50%); }
 .apariencia__op--auto .apariencia__linea { background: linear-gradient(115deg, #d5d8cf 0 60%, #3a3a3a 60%); }
+/* (2026-11-23) la muestra del tema Juego: atardecer de neón */
+.apariencia__op--juego .apariencia__muestra { background: linear-gradient(180deg, #120a26 0%, #2a1040 70%, #5a1d4f 100%); }
+.apariencia__op--juego .apariencia__barra { background: linear-gradient(100deg, #ffc35a, #ff4fa3 60%, #c95cff); }
+.apariencia__op--juego .apariencia__linea { background: rgba(255, 170, 230, 0.25); }
+.apariencia__op--juego .apariencia__boton { background: linear-gradient(115deg, #ffc35a, #ff4fa3 60%, #c95cff); border-radius: 3px; }
 
 /* =============================================================================
    Rediseño compacto (2026-11-16): una sección a la vez, menos relleno y tarjetas más bajas.

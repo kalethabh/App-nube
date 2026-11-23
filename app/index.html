@@ -13,10 +13,14 @@
     <script>
       /* el tema (datos/tema.js) antes de pintar, para que no parpadee */
       (function () {
-        var t = 'oscuro';
+        var t = 'juego';
         try {
+          if (!localStorage.getItem('kads:tema-juego')) {
+            localStorage.setItem('kads:tema-juego', '1');
+            if (localStorage.getItem('kads:tema') === 'oscuro') localStorage.setItem('kads:tema', 'juego');
+          }
           var v = localStorage.getItem('kads:tema');
-          if (v === 'claro' || v === 'oscuro') t = v;
+          if (v === 'claro' || v === 'oscuro' || v === 'juego') t = v;
           else if (v === 'auto' && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'claro';
         } catch (e) {}
         document.documentElement.setAttribute('data-tema', t);
