@@ -220,7 +220,8 @@ export default function Oficina() {
   const [escena, setEscena] = useState(null); // la tarjeta de la toma de «Presentar»
   // (2026-11-20e) el día y la noche de la oficina son el tema de la app (claro = día, oscuro = noche): uno solo
   const { actual: temaApp } = useTema();
-  const modo = temaApp === 'claro' ? 'dia' : 'noche';
+  // (2026-11-23) con el tema «Juego» la noche es de neón (rosa y violeta)
+  const modo = temaApp === 'claro' ? 'dia' : temaApp === 'juego' ? 'neon' : 'noche';
   const [foco, setFoco] = useState(null);
   const [posiciones, setPosiciones] = useState({});
   const [eventos, setEventos] = useState([]); // las transferencias reales que vio la oficina desde que la abriste
@@ -317,7 +318,7 @@ export default function Oficina() {
     const t = setTimeout(() => setAviso3d(null), 4500);
     return () => clearTimeout(t);
   }, [aviso3d]);
-  const cambiarModo = (m) => elegirTema(m === 'dia' ? 'claro' : 'oscuro');
+  const cambiarModo = (m) => elegirTema(m === 'dia' ? 'claro' : 'juego');
   const cambiarVista = (v) => {
     setElegido(null);
     setFoco(null);
@@ -335,7 +336,7 @@ export default function Oficina() {
     <div className={`pagina of of--pro${vista === 'presentar' ? ' of--presentando' : ''}`}>
       <div ref={escenario} className={`of-escenario${lateral ? '' : ' of-escenario--sin-lateral'}`}>
         <div className="of-mundo" role="region" aria-label="La oficina en 3D: arrastra para girarla, rueda para acercarte, toca un agente">
-          {agentes.length ? <Oficina3D agentes={agentes} zonas={datos?.zonas || []} produccion={prod} elegido={elegido} onElegir={elegirAgente} onDepartamento={elegirDepartamento} onLinea={(l) => { setElegido(null); setDepElegido(null); setChat(null); setLinea(l); setLateral(true); }} resaltar={resaltar} foco={foco} vista={vista} modo={modo} onPosiciones={setPosiciones} onEvento={alEvento} desplazar={lateral ? Math.round((anchoLado + 14) / 2) : 0} onEscena={setEscena} onFinPresentacion={() => setVista('general')} /> : null}
+          {agentes.length ? <Oficina3D key={modo === 'neon' ? 'neon' : 'lima'} agentes={agentes} zonas={datos?.zonas || []} produccion={prod} elegido={elegido} onElegir={elegirAgente} onDepartamento={elegirDepartamento} onLinea={(l) => { setElegido(null); setDepElegido(null); setChat(null); setLinea(l); setLateral(true); }} resaltar={resaltar} foco={foco} vista={vista} modo={modo} onPosiciones={setPosiciones} onEvento={alEvento} desplazar={lateral ? Math.round((anchoLado + 14) / 2) : 0} onEscena={setEscena} onFinPresentacion={() => setVista('general')} /> : null}
           {vista === 'presentar' ? <TarjetaEscena escena={escena} onSalir={() => setVista('general')} /> : null}
         </div>
 
