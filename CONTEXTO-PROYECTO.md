@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-23 (Ciudad creativa: rediseño ilustrado de videojuego, versión 2026-11-23b).
+Última actualización: 2026-11-23 (diagnóstico y estrategia de agentes; la app conserva la versión 2026-11-23b).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -32,8 +32,36 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 - **Preferencia vigente (2026-11-23):** el usuario pidió cambiar todo el diseño para que parezca un videojuego, con una portada de referencia de ciudad costera y estética GTA VI. Se autoriza sustituir la apariencia anterior. Mantener la identidad Kads, las funciones, los datos reales y las decisiones de producción.
 - **Publicación:** los cambios de Kads se reciben desde `main` con el botón **Actualizar**. El ZIP de la Release
   «Actualización-App» es la fuente original del proveedor y reemplazaría archivos personalizados si se instala entero.
-- **Siguiente trabajo funcional pendiente:** los dos pedidos de modelos alternativos ante fallas y «Estado de la IA»,
+- **Estrategia de agentes preparada:** ver `ESTRATEGIA-AGENTES.md` y el diagnóstico abajo. El piloto de variaciones fieles es la prioridad recomendada; todavía no está implementado.
+- **Otros trabajos funcionales pendientes:** los dos pedidos de modelos alternativos ante fallas y «Estado de la IA»,
   detallados al final. Mantener el contexto al día no autoriza a iniciar esas funciones sin una petición de trabajo.
+
+## Diagnóstico y estrategia de agentes (2026-11-23)
+
+Pedido: analizar los agentes y preparar una estructura para mejorar coordinación y resultados. Entregado
+`ESTRATEGIA-AGENTES.md`: auditoría del código en `da9d67f`, responsabilidades, contratos de encargo/tarea,
+flujo de aprobación y revisión, memoria, eficiencia, fases y criterios de aceptación. Es una **propuesta de
+implementación**, no un cambio funcional ya instalado. No cambia VERSION, diseño, motor ni campañas.
+
+Hallazgos: 35 roles visuales (coordinación 1, video 6, investigación 5, imagen 6, landing 6, WhatsApp 6,
+análisis 5), no 35 ejecuciones autónomas. Las cadenas de landing/WhatsApp/análisis figuran «pronto» en la
+oficina; la función de landings sí existe por separado. Parte del estado se infiere por archivos/palabras.
+`oficina-votos.js:deEste` concatena propios/ajenos y luego invierte todo: los ajenos quedan primero
+(reproducción sintética confirmada). El agente A/B/C pide cambios amplios para B/C; separar esto de «solo
+títulos» y de variación fiel. La validación del chat y las garantías de ejecución existen, pero están
+repartidas; se propone un contrato central versionado y validación completa antes de acciones.
+
+Validación sin gasto en checkout de desarrollo: `probar-oficina-produccion.mjs` **10/10** y
+`probar-oficina-chat.mjs` **51/51** (286 s, puerto 4497, modo prueba, motor/proveedores simulados,
+`ANUNCIOS_NO_RETOMAR=1`). Las pruebas limpiaron sus fixtures; git solo muestra documentación nueva/modificada.
+No se revisaron anuncios personales ni métricas de venta y no se midieron proveedores reales. Pasar estas
+pruebas confirma la base actual, no valida todavía las mejoras propuestas.
+
+Siguiente paso recomendado: implementar el piloto de variaciones fieles de imagen: modos explícitos,
+restricciones conservadas en chat/formulario, selección de títulos cuando se pida, orden de votos y
+encargo versionado; después aprobación ligada al plan, recuperación/idempotencia y estados por entregas
+aceptadas. No activar los 17 roles futuros ni crear 35 sesiones. Metas de rapidez/calidad del documento
+son hipótesis que exigen línea base y piloto; cualquier prueba pagada necesita su costo y aprobación.
 
 ## Ciudad creativa · rediseño ilustrado (2026-11-23b)
 
