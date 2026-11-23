@@ -19,6 +19,8 @@ import { Grafico } from './Grafico.jsx';
 import { Ahora } from './Ahora.jsx';
 import { Saldo, Plataformas, Modelos } from './Paneles.jsx';
 import { PorProducto, Recientes } from './Listas.jsx';
+import { useTema } from '../../datos/tema.js';
+import { PortadaJuego } from './PortadaJuego.jsx';
 import './inicio.css';
 
 const useDashboard = () => useDatos('dashboard', () => pedirNuevo('/api/dashboard'), { cadaMs: 60000 });
@@ -26,6 +28,7 @@ const useInversion = () => useDatos('inversion', () => pedirNuevo('/api/inversio
 const useSalud = () => useDatos('salud:inicio', () => pedirNuevo('/api/salud'), { cadaMs: 120000 });
 
 export default function Inicio() {
+  const { actual: tema } = useTema();
   const dash = useDashboard();
   const anuncios = useAnuncios({ cadaMs: 15000 });
   const produccion = useEnProduccion({ cadaMs: 10000 });
@@ -43,7 +46,7 @@ export default function Inicio() {
 
   return (
     <div className="pagina ini">
-      <CabeceraPagina
+      {tema === 'juego' ? <PortadaJuego enMarcha={enMarcha} necesitan={necesitan} /> : <CabeceraPagina
         sobretitulo={`${saludo()} · ${fechaDeHoy()}`}
         titulo="Inicio"
         descripcion={`Cómo va ${new Date().toLocaleDateString('es-ES', { month: 'long' })}, de un vistazo.`}
@@ -60,7 +63,7 @@ export default function Inicio() {
             </Boton>
           </div>
         }
-      />
+      />}
 
       <Cifras d={d} necesitan={necesitan} enMarcha={enMarcha} />
 

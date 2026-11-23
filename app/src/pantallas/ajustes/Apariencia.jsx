@@ -4,7 +4,7 @@ import { Seccion } from '../../componentes/index.js';
 import { elegirTema, useTema } from '../../datos/tema.js';
 
 const OPCIONES = [
-  { id: 'juego', texto: 'Juego', detalle: 'Noche de neón y atardecer, como un videojuego', icono: Gamepad2 },
+  { id: 'juego', texto: 'Juego', detalle: 'Ciudad creativa: ilustraciones, cómic y menús de videojuego', icono: Gamepad2 },
   { id: 'claro', texto: 'Claro', detalle: 'Fondo blanco, ideal con mucha luz', icono: Sun },
   { id: 'oscuro', texto: 'Oscuro', detalle: 'Fondo negro, sobrio', icono: Moon },
   { id: 'auto', texto: 'Automático', detalle: 'Igual que tu computador (cambia solo)', icono: Monitor },
@@ -13,7 +13,7 @@ const OPCIONES = [
 export function Apariencia() {
   const { elegido } = useTema();
   return (
-    <Seccion id="apariencia" className="ajustes__seccion" titulo="Apariencia" descripcion="Cómo se ve la app. El editor de video siempre va oscuro, para ver bien los colores del video.">
+    <Seccion id="apariencia" className="ajustes__seccion" titulo="Apariencia" descripcion="Cómo se ve la app. El editor conserva una vista previa neutra y oscura para ver bien los colores del video.">
       <div className="apariencia" role="radiogroup" aria-label="Tema de la app">
         {OPCIONES.map((o) => {
           const Icono = o.icono;

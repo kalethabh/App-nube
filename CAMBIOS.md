@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-23b · Ciudad creativa: tu estudio como un videojuego
+
+- Inicio con una portada ilustrada original, ciudad de atardecer, personajes, viñetas y accesos a crear videos, imágenes e investigar.
+- Rediseño del tema Juego en menús, tarjetas, títulos, botones, formularios, galerías, oficina y coordinadora: contornos de tinta, rosa, violeta y turquesa.
+- El editor también conserva Juego; la vista previa del video sigue en negro neutro. Se mantienen Claro, Oscuro y Automático.
+- Los datos y las funciones siguen siendo los de tu estudio. No cambian los anuncios ni la forma de generarlos.
+
 ## 2026-11-23a · La app con aspecto de videojuego y la oficina más compacta
 
 - **Tema «Juego»** (el nuevo de siempre): noche de ciudad costera con neón rosa y atardecer, palmeras y edificios en el horizonte, títulos tipo videojuego, tarjetas de vidrio y botones con esquinas cortadas. Puedes volver al oscuro de antes o al claro en Ajustes › Apariencia (o con el botón de arriba).
