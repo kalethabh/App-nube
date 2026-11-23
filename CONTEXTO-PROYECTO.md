@@ -38,6 +38,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Diagnóstico y estrategia de agentes (2026-11-23)
 
+Documentación y validación: [PR #186](https://github.com/kalethabh/App-nube/pull/186).
+
 Pedido: analizar los agentes y preparar una estructura para mejorar coordinación y resultados. Entregado
 `ESTRATEGIA-AGENTES.md`: auditoría del código en `da9d67f`, responsabilidades, contratos de encargo/tarea,
 flujo de aprobación y revisión, memoria, eficiencia, fases y criterios de aceptación. Es una **propuesta de
