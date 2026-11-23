@@ -39,7 +39,8 @@ export function temaActual() {
 }
 
 function aplicar() {
-  const t = forzado > 0 ? 'oscuro' : temaActual();
+  const actual = temaActual();
+  const t = forzado > 0 && actual !== 'juego' ? 'oscuro' : actual;
   const html = document.documentElement;
   if (html.dataset.tema !== t) html.dataset.tema = t;
   const meta = document.querySelector('meta[name="theme-color"]');

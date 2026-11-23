@@ -418,7 +418,7 @@ function EditorAviso({ slug, titulo, children }) {
 
 export default function Editor({ params, consulta }) {
   useEffect(() => {
-    forzarOscuro(true); // el editor de video va siempre oscuro (los colores del video se ven bien)
+    forzarOscuro(true); // el editor mantiene una interfaz oscura, incluido el tema Juego
     return () => forzarOscuro(false);
   }, []);
   const { slug } = params;

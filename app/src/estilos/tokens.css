@@ -292,6 +292,16 @@
    ============================================================================= */
 [data-tema='juego'] {
   color-scheme: dark;
+  --fuente-titulo: 'Bricolage Grotesque Variable', 'Inter Variable', sans-serif;
+  --r-xs: 3px;
+  --r-s: 4px;
+  --r-m: 6px;
+  --r-l: 8px;
+  --r-xl: 12px;
+  --r-2xl: 12px;
+  --t-h1: 40px;
+  --peso-titulo: 800;
+  --texto-3: #bdadce;
 
   --fondo-0: #04020a;
   --fondo-1: #0b0616;
@@ -314,7 +324,7 @@
 
   --texto-1: #fff3fb;
   --texto-2: #d6c4e8;
-  --texto-3: #a893c2;
+  --texto-3: #bdadce;
   --texto-4: #6d5b88;
   --texto-sobre-acento: #14051f;
 
