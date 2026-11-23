@@ -37,7 +37,10 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Ciudad creativa · rediseño ilustrado (2026-11-23b)
 
-Implementación y validación: [PR #184](https://github.com/kalethabh/App-nube/pull/184).
+Implementación y validación: [PR #184](https://github.com/kalethabh/App-nube/pull/184), integrado en `main`
+(commit `9c2c002a0a759bf5b8bfd81ccf06f84e958543c3`). Publicada y verificada la versión
+[2026-11-23b](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-23b), con el ZIP en estado `uploaded`.
+La instalación personal se actualiza con el botón «Actualizar»; no fue modificada durante este trabajo.
 
 Pedido: «Actualizate, quiero cambiar todo el diseño para que parezca videojuego, estilo gta vi», con imagen
 adjunta de una portada ilustrada de ciudad costera, viñetas negras, atardecer rosa/violeta y personajes.
