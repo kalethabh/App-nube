@@ -119,7 +119,8 @@ function posturaDeHuesos(gesto, cab, t, fase) {
 
 const numeroDe = (id) => [...String(id)].reduce((s, c) => (s * 31 + c.charCodeAt(0)) % 9973, 7);
 
-const LIMA = '#a3e635';
+// (2026-11-23) LIMA y MARCA.lima cambian con el tema: en «Juego» los neones son rosa (usarPaleta, al armar la escena)
+let LIMA = '#a3e635';
 // cómo se arma cada tipo de sala (las que crea el usuario usan el mobiliario de una de siempre)
 const ARMADO = { escritorios: 'calidad', creativos: 'arte', estudio: 'video', reuniones: 'coordinacion', datos: 'investigacion', biblioteca: 'guion', vidrio: 'edicion' };
 const PIELES = ['#f1c7a3', '#d9a17a', '#a8714a', '#7a4b2c', '#f5d5b8', '#c68b5e', '#e3b08a'];
@@ -1743,10 +1744,17 @@ function armarDepartamento(dep, z, color, ctx) {
   letrero.position.set(izquierda ? W - 2.2 : -W + 2.2, 1.55, -D + 0.1);
   letrero.userData.vivo = true;
   g.add(letrero);
-  // el vidrio del lado de afuera y una división baja del lado del pasillo central
-  g.add(vidrio(z.d, 1.6, izquierda ? -W : W, 0, { rotada: true }));
-  g.add(caja(0.12, 1.0, z.d * 0.45, GRAFITO(), izquierda ? W : -W, 0.5, -D + z.d * 0.225));
-  g.add(caja(0.13, 0.03, z.d * 0.45, LIMA_K(1), izquierda ? W : -W, 1.01, -D + z.d * 0.225, { sombra: false }));
+  // (2026-11-23) cerrado con VIDRIO de piso a techo: el lado de afuera, el del centro (con su filo de luz) y el del
+  // pasillo de adelante con la puerta al medio. Se ve todo adentro, pero cada área se entiende como su propia sala.
+  g.add(vidrio(z.d, 2.5, izquierda ? -W : W, 0, { rotada: true }));
+  g.add(vidrio(z.d, 2.5, izquierda ? W : -W, 0, { rotada: true }));
+  g.add(caja(0.06, 0.03, z.d, LIMA_K(1.1), izquierda ? W : -W, 2.52, 0, { sombra: false }));
+  const puerta = 1.5;
+  const tramo = (z.w - puerta) / 2;
+  g.add(vidrio(tramo, 2.5, -W + tramo / 2, D));
+  g.add(vidrio(tramo, 2.5, W - tramo / 2, D));
+  g.add(caja(puerta + 0.2, 0.1, 0.12, NEGRO(), 0, 2.5, D));
+  g.add(caja(z.w, 0.03, 0.06, LIMA_K(1.1), 0, 2.56, D, { sombra: false }));
   // las estaciones en fila (miran a la división de atrás) y las líneas entre ellas
   const paso = (z.w - 1.4) / n;
   const x0 = -W + 0.7 + paso / 2;
@@ -1967,19 +1975,21 @@ function fusionar(grupo) {
 // ---------------------------------------------------------------- la escena
 
 // los lugares de la planta (los mismos números que lib/oficina.js LUGARES): centro (x, z), ancho y fondo
+// (2026-11-23) MÁS COMPACTA, «que no se vea con tanto espacio pero que se entienda»: las áreas más juntas (pasillos de
+// 1,6), la columna del centro más angosta y cada departamento con su vidrio de piso a techo hacia el pasillo
 export const LUGAR = [
-  { x: -15.5, z: -11.5, w: 14, d: 8.6 },
-  { x: 15.5, z: -11.5, w: 14, d: 8.6 },
-  { x: -15.5, z: 0, w: 14, d: 8.6 },
-  { x: 15.5, z: 0, w: 14, d: 8.6 },
-  { x: -15.5, z: 11.5, w: 14, d: 8.6 },
-  { x: 15.5, z: 11.5, w: 14, d: 8.6 },
-  { x: 0, z: -12, w: 11, d: 7.6 },
-  { x: 0, z: 12, w: 11, d: 7.6 },
-  { x: -18.5, z: 22.5, w: 11.5, d: 8 },
-  { x: -6.2, z: 22.5, w: 11.5, d: 8 },
-  { x: 6.2, z: 22.5, w: 11.5, d: 8 },
-  { x: 18.5, z: 22.5, w: 11.5, d: 8 },
+  { x: -11.6, z: -9.4, w: 12.4, d: 8.0 },
+  { x: 11.6, z: -9.4, w: 12.4, d: 8.0 },
+  { x: -11.6, z: 0, w: 12.4, d: 8.0 },
+  { x: 11.6, z: 0, w: 12.4, d: 8.0 },
+  { x: -11.6, z: 9.4, w: 12.4, d: 8.0 },
+  { x: 11.6, z: 9.4, w: 12.4, d: 8.0 },
+  { x: 0, z: -10.2, w: 8.6, d: 6.6 },
+  { x: 0, z: 10.2, w: 8.6, d: 6.6 },
+  { x: -13.5, z: 18.6, w: 8.6, d: 7.2 },
+  { x: -4.5, z: 18.6, w: 8.6, d: 7.2 },
+  { x: 4.5, z: 18.6, w: 8.6, d: 7.2 },
+  { x: 13.5, z: 18.6, w: 8.6, d: 7.2 },
 ];
 // las de siempre, por si la pantalla todavía no trajo el diseño guardado
 const ZONAS_DE_SIEMPRE = [['video', 0], ['imagen', 1], ['investigacion', 2], ['landing', 3], ['whatsapp', 4], ['analisis', 5], ['coordinacion', 6], ['sala', 7]].map(([id, lugar]) => ({ id, tipo: id, lugar, dep: id !== 'sala' }));
@@ -2033,6 +2043,13 @@ const i0 = (id) => [...String(id)].reduce((s, c) => (s * 31 + c.charCodeAt(0)) %
 const ICONO_ESTADO = { revisando: 'check', corrigiendo: 'vuelta', error: 'alerta', esperando: 'reloj', pronto: 'reloj' };
 const COLOR_EVENTO = { pasa: MARCA.lima, devuelve: '#fb923c', error: '#ef4444' };
 
+/** (2026-11-23) Los neones de la oficina: lima (la marca) o, con el tema «Juego», rosa de atardecer. */
+function usarPaleta(juego) {
+  MARCA.lima = juego ? '#FF4FA3' : '#A3FF12';
+  LIMA = juego ? '#ff5fb0' : '#a3e635';
+  COLOR_EVENTO.pasa = juego ? '#29f0dc' : MARCA.lima;
+}
+
 export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onElegir, onDepartamento = null, onLinea = null, foco = null, vista = 'general', modo = 'dia', onPosiciones = null, onEvento = null, resaltar = null, desplazar = 0, onEscena = null, onFinPresentacion = null }) {
   const caja3d = useRef(null);
   const estado = useRef({ agentes: [], elegido: null });
@@ -2045,6 +2062,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
   useEffect(() => {
     const raiz = caja3d.current;
     if (!raiz) return undefined;
+    usarPaleta(estado.current.modo === 'neon');
     let renderer;
     try {
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
@@ -2069,14 +2087,14 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
 
     const zonas = (estado.current.zonas?.length ? estado.current.zonas : ZONAS_DE_SIEMPRE).filter((z) => LUGAR[z.lugar]);
     const filaNueva = zonas.some((z) => z.lugar >= 8);
-    const ANCHO = 47;
-    const zMin = -17.5;
-    const zMax = filaNueva ? 27.5 : 17.5;
+    const ANCHO = 37.6;
+    const zMin = -14.2;
+    const zMax = filaNueva ? 23 : 14.2;
     const FONDO = zMax - zMin;
     const zCentro = (zMin + zMax) / 2;
     // la vista de la imagen: isométrica elevada (unos 40°), toda la oficina a la vista
     const MIRA = filaNueva ? 4 : 0;
-    const CAMARA = filaNueva ? [34, 60, 70] : [32, 52, 56];
+    const CAMARA = filaNueva ? [27, 48, 56] : [25, 40, 43];
 
     const camara = new THREE.PerspectiveCamera(30, 1, 0.5, 500);
     camara.position.set(...CAMARA);
@@ -2117,7 +2135,8 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     // el piso claro, la losa grafito con su filo lima y las paredes de afuera con sus ventanales
     const baldosas = texturaBaldosas();
     baldosas.repeat.set(ANCHO / 6, FONDO / 6);
-    const piso = caja(ANCHO, 0.4, FONDO, [GRAFITO(), GRAFITO(), new THREE.MeshStandardMaterial({ map: baldosas, roughness: 0.62, metalness: 0.02 }), GRAFITO(), GRAFITO(), GRAFITO()], 0, -0.2, zCentro, { sombra: false });
+    const sueloMat = new THREE.MeshStandardMaterial({ map: baldosas, roughness: 0.62, metalness: 0.02 });
+    const piso = caja(ANCHO, 0.4, FONDO, [GRAFITO(), GRAFITO(), sueloMat, GRAFITO(), GRAFITO(), GRAFITO()], 0, -0.2, zCentro, { sombra: false });
     piso.userData.vivo = true;
     escena.add(piso);
     const losa = caja(ANCHO + 0.5, 0.8, FONDO + 0.5, mat(MARCA.grafito, { rugoso: 0.6 }), 0, -0.8, zCentro, { redondo: 0.15 });
@@ -2203,7 +2222,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     }
     escena.add(armarCentroK(animados));
     // dos estanterías y plantas junto al centro, como en la imagen
-    for (const [x, z, r] of [[-5.4, -4.8, 0.35], [5.4, 4.8, Math.PI + 0.35]]) {
+    for (const [x, z, r] of [[-3.4, -5.3, 0.15], [3.4, 5.3, Math.PI + 0.15]]) {
       const est = new THREE.Group();
       // una estantería abierta: costados, repisas y libros (se ve desde arriba y de lado)
       for (const px of [-1.1, 1.1]) est.add(caja(0.06, 1.7, 0.45, MADERA_K(), px, 0.85, 0));
@@ -2217,7 +2236,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
       escena.add(est);
       fusionar(est);
     }
-    for (const [x, z, e] of [[-6.5, 4.6, 1.2], [6.5, -4.6, 1.2], [-2.6, -6.2, 1], [2.6, 6.2, 1]]) {
+    for (const [x, z, e] of [[-4.7, 4.6, 1.1], [4.7, -4.6, 1.1], [-4.7, -4.6, 0.9], [4.7, 4.6, 0.9]]) {
       const p = planta(x, z, e);
       escena.add(p);
       animados.push(p);
@@ -2694,19 +2713,23 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
     };
     let modoAplicado = '';
     const aplicarModo = () => {
-      const m = estado.current.modo === 'noche' ? 'noche' : 'dia';
+      const m = estado.current.modo === 'neon' ? 'neon' : estado.current.modo === 'noche' ? 'noche' : 'dia';
       if (m === modoAplicado) return;
       modoAplicado = m;
       const dia = m === 'dia';
-      escena.background.set(dia ? '#dfe6ec' : '#0d1117');
-      escena.fog.color.set(dia ? '#dfe6ec' : '#0d1117');
-      laCiudad.fachada.color.set(dia ? '#9eabb8' : '#2a3038');
-      laCiudad.fachada.emissiveIntensity = dia ? 0 : 0.9;
+      // (2026-11-23) «neon» (tema Juego): noche violeta de ciudad costera, piso oscuro y más brillo en los neones
+      const neonOn = m === 'neon';
+      escena.background.set(dia ? '#dfe6ec' : neonOn ? '#160a26' : '#0d1117');
+      escena.fog.color.set(dia ? '#dfe6ec' : neonOn ? '#160a26' : '#0d1117');
+      laCiudad.fachada.color.set(dia ? '#9eabb8' : neonOn ? '#3a2052' : '#2a3038');
+      laCiudad.fachada.emissiveIntensity = dia ? 0 : neonOn ? 1.15 : 0.9;
+      sueloMat.color.set(neonOn ? '#6d5f80' : '#ffffff');
+      cielo.color.set(neonOn ? '#ffb0dc' : '#fff6e8');
       cielo.intensity = dia ? 1.25 : 0.45;
       sol.intensity = dia ? 2.3 : 0.6;
       relleno.intensity = dia ? 0.5 : 0.25;
       renderer.toneMappingExposure = dia ? 1.0 : 1.15;
-      brillo.strength = dia ? 0.3 : 0.75;
+      brillo.strength = dia ? 0.3 : neonOn ? 0.95 : 0.75;
       brillo.threshold = dia ? 0.93 : 0.8;
     };
 
@@ -3015,7 +3038,7 @@ export function Oficina3D({ agentes, zonas = [], produccion = null, elegido, onE
         u.brillo = Math.max(0, u.brillo - dt * 0.35);
         const enTarea = trabajo && trabajo.dep === l.dep && trabajo.estaciones?.[l.de] === 'hecho' && trabajo.estaciones?.[l.a] && trabajo.estaciones[l.a] !== 'pendiente';
         const b = enTarea ? 1 : u.brillo;
-        u.material.color.set(b > 0.02 ? MARCA.lima : '#9aa0a6');
+        u.material.color.set(b > 0.02 ? COLOR_EVENTO.pasa : '#9aa0a6');
         u.material.emissive.set(b > 0.02 ? MARCA.lima : '#000000');
         u.material.emissiveIntensity = 0.4 + b * 1.6;
         u.material.opacity = 0.8 + b * 0.2;

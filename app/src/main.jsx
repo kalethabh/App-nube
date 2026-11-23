@@ -8,6 +8,7 @@ import '@fontsource-variable/geist-mono';
 
 import './estilos/tokens.css';
 import './estilos/base.css';
+import './estilos/tema-juego.css';
 
 import { ProveedorAvisos } from './componentes/Avisos.jsx';
 import App from './App.jsx';

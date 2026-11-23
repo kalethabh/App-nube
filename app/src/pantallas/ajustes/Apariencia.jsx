@@ -1,11 +1,12 @@
 // Ajustes → Apariencia: modo claro, oscuro o automático (el de la Mac). Se guarda en este navegador.
-import { Monitor, Moon, Sun } from 'lucide-react';
+import { Gamepad2, Monitor, Moon, Sun } from 'lucide-react';
 import { Seccion } from '../../componentes/index.js';
 import { elegirTema, useTema } from '../../datos/tema.js';
 
 const OPCIONES = [
+  { id: 'juego', texto: 'Juego', detalle: 'Noche de neón y atardecer, como un videojuego', icono: Gamepad2 },
   { id: 'claro', texto: 'Claro', detalle: 'Fondo blanco, ideal con mucha luz', icono: Sun },
-  { id: 'oscuro', texto: 'Oscuro', detalle: 'Fondo negro, el de siempre', icono: Moon },
+  { id: 'oscuro', texto: 'Oscuro', detalle: 'Fondo negro, sobrio', icono: Moon },
   { id: 'auto', texto: 'Automático', detalle: 'Igual que tu computador (cambia solo)', icono: Monitor },
 ];
 

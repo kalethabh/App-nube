@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-23a · La app con aspecto de videojuego y la oficina más compacta
+
+- **Tema «Juego»** (el nuevo de siempre): noche de ciudad costera con neón rosa y atardecer, palmeras y edificios en el horizonte, títulos tipo videojuego, tarjetas de vidrio y botones con esquinas cortadas. Puedes volver al oscuro de antes o al claro en Ajustes › Apariencia (o con el botón de arriba).
+- **La oficina virtual**, rediseñada: las áreas más juntas (menos espacio vacío), cada departamento cerrado con **vidrio** de piso a techo y su puerta, y con el tema Juego, neones rosa y una ciudad violeta de noche.
+
 ## 2026-11-21i · Cambiar solo el audio: de narrado a cantado, con las mismas escenas
 
 - En **«Editar este anuncio»** hay una pestaña nueva: **«Solo el audio: cantado»**. Tu anuncio con narrador pasa a ser **cantado** sin tocar las escenas: las frases de tu guion se vuelven la letra, la canción sale en dos versiones para que elijas la que más te guste, y el video se acomoda solo a la canción (cada escena dura lo que su frase cantada).

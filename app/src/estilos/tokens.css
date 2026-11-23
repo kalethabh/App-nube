@@ -283,6 +283,93 @@
   --brillo-cian: 0 0 0 1px rgba(10, 135, 169, 0.35), 0 8px 22px -10px rgba(10, 135, 169, 0.35);
 }
 
+/* =============================================================================
+   TEMA JUEGO (2026-11-23): «que parezca un juego». Noche tropical de ciudad costera, neón rosa y
+   atardecer (naranja → rosa → violeta), un turquesa de mar para lo que se mueve y vidrio en las
+   tarjetas. Estilo propio (sin nombres, logos, letras ni arte de ningún juego). Es oscuro: lo que no
+   se cambia aquí es lo del tema oscuro. Los adornos (fondo, HUD, títulos) van en estilos/tema-juego.css.
+   Contraste AA: texto-1 17:1, texto-2 10:1, texto-3 5:1 sobre superficie-1; texto oscuro sobre el rosa 6,5:1.
+   ============================================================================= */
+[data-tema='juego'] {
+  color-scheme: dark;
+
+  --fondo-0: #04020a;
+  --fondo-1: #0b0616;
+  --fondo-2: #0f0920;
+  --superficie-1: #150d27;
+  --superficie-2: #1d1334;
+  --superficie-3: #271a43;
+  --superficie-4: #322254;
+  --vidrio: rgba(19, 11, 36, 0.72);
+  --vidrio-aviso: rgba(28, 16, 50, 0.9);
+  --vidrio-panel: rgba(18, 10, 34, 0.94);
+  --fondo-tooltip: #2a1b48;
+  --velo: rgba(6, 2, 14, 0.76);
+
+  --borde-1: rgba(255, 170, 230, 0.08);
+  --borde-2: rgba(255, 170, 230, 0.14);
+  --borde-3: rgba(255, 170, 230, 0.22);
+  --borde-4: rgba(255, 170, 230, 0.32);
+  --resalte-superior: inset 0 1px 0 rgba(255, 200, 240, 0.07);
+
+  --texto-1: #fff3fb;
+  --texto-2: #d6c4e8;
+  --texto-3: #a893c2;
+  --texto-4: #6d5b88;
+  --texto-sobre-acento: #14051f;
+
+  --acento: #ff4fa3;
+  --acento-hover: #ff76b8;
+  --acento-fuerte: #e8288a;
+  --acento-rgb: 255, 79, 163;
+  --acento-fondo: #ff4fa3;
+  --acento-suave: rgba(255, 79, 163, 0.13);
+  --acento-suave-2: rgba(255, 79, 163, 0.22);
+  --acento-borde: rgba(255, 79, 163, 0.5);
+  --acento-boton: linear-gradient(115deg, #ffc35a 0%, #ff6a8e 48%, #ff4fa3 70%, #c95cff 100%);
+  --acento-boton-hover: linear-gradient(115deg, #ffd27f 0%, #ff83a2 48%, #ff6cb4 70%, #d57bff 100%);
+  --marca-degradado: linear-gradient(115deg, #ffc35a 0%, #ff6a8e 45%, #ff4fa3 65%, #b45cff 100%);
+  --texto-marca: linear-gradient(100deg, #ffc35a 0%, #ff6a8e 40%, #ff4fa3 62%, #c95cff 100%);
+  --marca-1: #ffc35a;
+  --marca-2: #ff4fa3;
+  --marca-3: #b45cff;
+  --marca-1-rgb: 255, 195, 90;
+  --marca-2-rgb: 255, 79, 163;
+  --marca-3-rgb: 180, 92, 255;
+  --menu-fondo-fin: #130a26;
+  --scroll-hover: #4a3672;
+  --campo-foco: #22163d;
+  --semaforo-sobra: #3ef0a8;
+  --semaforo-justo: #ffb347;
+
+  --cian: #29f0dc;
+  --cian-rgb: 41, 240, 220;
+  --cian-suave: rgba(41, 240, 220, 0.12);
+  --cian-borde: rgba(41, 240, 220, 0.42);
+  --ok: #3ef0a8;
+  --ok-suave: rgba(62, 240, 168, 0.12);
+  --ok-borde: rgba(62, 240, 168, 0.4);
+  --aviso: #ffb347;
+  --aviso-suave: rgba(255, 179, 71, 0.13);
+  --aviso-borde: rgba(255, 179, 71, 0.4);
+  --error: #ff4d6d;
+  --error-suave: rgba(255, 77, 109, 0.13);
+  --error-borde: rgba(255, 77, 109, 0.45);
+  --neutro: #9d8cb8;
+  --neutro-suave: rgba(157, 140, 184, 0.12);
+  --neutro-borde: rgba(157, 140, 184, 0.3);
+
+  --peso-titulo: 800;
+  --tracking-titulo: -0.01em;
+
+  --sombra-2: 0 2px 6px rgba(4, 0, 12, 0.4), 0 14px 30px -10px rgba(4, 0, 12, 0.7);
+  --sombra-3: 0 8px 20px -6px rgba(4, 0, 12, 0.6), 0 28px 60px -18px rgba(4, 0, 12, 0.85);
+  --sombra-flotante: 0 0 0 1px rgba(255, 170, 230, 0.1), 0 24px 70px -12px rgba(4, 0, 12, 0.9);
+  --brillo-acento: 0 10px 34px -12px rgba(255, 79, 163, 0.7);
+  --brillo-acento-fuerte: 0 0 0 1px rgba(255, 79, 163, 0.6), 0 10px 40px -8px rgba(255, 106, 142, 0.75);
+  --brillo-cian: 0 0 0 1px rgba(41, 240, 220, 0.5), 0 8px 26px -8px rgba(41, 240, 220, 0.6);
+}
+
 @media (max-width: 1100px) {
   :root {
     --gutter: 28px;
