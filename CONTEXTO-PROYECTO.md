@@ -37,6 +37,8 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Ciudad creativa · rediseño ilustrado (2026-11-23b)
 
+Implementación y validación: [PR #184](https://github.com/kalethabh/App-nube/pull/184).
+
 Pedido: «Actualizate, quiero cambiar todo el diseño para que parezca videojuego, estilo gta vi», con imagen
 adjunta de una portada ilustrada de ciudad costera, viñetas negras, atardecer rosa/violeta y personajes.
 Se partió de `main` 101d7f7 (PR #183), conservando todas las funciones añadidas esta semana.
