@@ -402,3 +402,30 @@
     --dur-escena: 1ms;
   }
 }
+
+/* Ciudad creativa · día. Comparte identidad y estructura con la ciudad nocturna. */
+[data-tema='claro'] {
+  --fuente-titulo: 'Bricolage Grotesque Variable', 'Inter Variable', sans-serif;
+  --r-xs: 3px; --r-s: 4px; --r-m: 6px; --r-l: 8px; --r-xl: 12px; --r-2xl: 12px;
+  --peso-titulo: 800; --tracking-titulo: -.01em;
+  --fondo-0: #e9e0ef; --fondo-1: #f5eff8; --fondo-2: #fff9fd;
+  --superficie-1: #fffbfe; --superficie-2: #f0e7f4; --superficie-3: #e8dceb; --superficie-4: #dccde4;
+  --vidrio: rgba(255, 249, 253, .9); --vidrio-panel: rgba(255, 249, 253, .96);
+  --vidrio-aviso: rgba(255, 249, 253, .97); --fondo-tooltip: #fff9fd; --velo: #25143070;
+  --texto-1: #291930; --texto-2: #594460; --texto-3: #735c7a; --texto-4: #a38aa9;
+  --texto-sobre-acento: #251027; --tinte-rgb: 41, 25, 48;
+  --borde-1: #6c42751a; --borde-2: #6c427533; --borde-3: #6c42754d; --borde-4: #6c427580;
+  --acento: #ac2468; --acento-hover: #8d1954; --acento-fuerte: #8d1954; --acento-rgb: 172, 36, 104;
+  --acento-fondo: #ff8ec6; --acento-suave: #c8378210; --acento-suave-2: #c8378222; --acento-borde: #b82d7755;
+  --acento-boton: linear-gradient(115deg, #ffce8d, #ff93c9 65%, #d2a3ee);
+  --acento-boton-hover: linear-gradient(115deg, #ffdbad, #ffacd6 65%, #e0b9f5);
+  --marca-1: #ffb96b; --marca-2: #f852a5; --marca-3: #a36ae3;
+  --marca-degradado: linear-gradient(110deg, #ffb96b, #f852a5 55%, #a36ae3);
+  --texto-marca: linear-gradient(100deg, #a24a13, #ac2468 60%, #7142a0);
+  --menu-fondo-fin: #f4eaf7; --campo-foco: #fffaff; --scroll-hover: #baa1c4;
+  --cian: #067c7a; --cian-rgb: 6, 124, 122; --cian-suave: #067c7a14; --cian-borde: #067c7a55;
+  --ok: #17764f; --ok-suave: #17764f14; --ok-borde: #17764f55;
+  --sombra-1: 0 1px 2px #32193e0a;
+  --sombra-2: 0 6px 24px -12px #4c285c33; --sombra-3: 0 15px 40px -20px #4c285c55;
+  --brillo-acento: 0 10px 25px -15px #ac246844; --brillo-acento-fuerte: 0 0 0 1px #ac246855, 0 10px 25px -15px #ac246844;
+}

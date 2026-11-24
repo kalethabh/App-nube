@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24l · Ciudad de día y de noche, logo nuevo y Shopify por negocios
+
+- Nuevo logo vectorial de Kads: monograma con los colores del atardecer, también en los iconos del navegador y los instaladores.
+- Ciudad creativa oscura sigue como apariencia predeterminada. El modo claro ahora conserva el mismo estilo ilustrado, con superficies lila claras, tinta ciruela y acentos rosa y turquesa. Automático usa estas dos variantes.
+- Shopify abre tus carpetas de negocios. Crea «District Shop» y conecta dentro sus tiendas de Colombia, Ecuador, Guatemala, Costa Rica, Perú o cualquier otro país. Puedes renombrar carpetas y mover tiendas sin reconectarlas.
+- Las tiendas existentes se organizan por su cuenta anterior, conservando sus conexiones. Las carpetas vacías también se guardan; solo se eliminan cuando ya no tienen tiendas.
+- Los cambios de temas, copias entre tiendas y vistas previas pendientes se revisan desde **Landings → Cambios en tiendas**. El apartado Shopify queda dedicado a conexiones.
+
 ## 2026-11-24k · Landings que se ven y funcionan bien en tiendas reales
 
 - Algunas tiendas (por ejemplo, con íconos que la tienda deja mal cerrados) se copiaban desarmadas: el menú y el carrito sueltos y una rueda de carga gigante que no se iba. Ahora la app lee la página como la lee el navegador y la copia queda igual a la original, con sus pestañas, selectores y preguntas frecuentes funcionando.

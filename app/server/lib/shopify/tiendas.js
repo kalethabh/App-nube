@@ -27,11 +27,58 @@ const ARCHIVO = () => process.env.SHOPIFY_TIENDAS_ARCHIVO || path.join(RAIZ, '.e
 function leer() {
   try {
     const d = JSON.parse(fs.readFileSync(ARCHIVO(), 'utf8'));
-    return Array.isArray(d?.tiendas) ? d : { tiendas: [] };
+    return conCarpetas(Array.isArray(d?.tiendas) ? d : { tiendas: [] });
   } catch {
-    return { tiendas: [] };
+    return { tiendas: [], carpetas: [] };
   }
 }
+// Las carpetas agrupan negocios, no credenciales ni cuentas de Shopify. Las conexiones antiguas
+// se agrupan por su cuenta sin cambiar IDs, claves o sesiones. La migración se persiste al guardar.
+function conCarpetas(d) {
+  d.carpetas = Array.isArray(d.carpetas) ? d.carpetas : [];
+  for (const t of d.tiendas) {
+    if (d.carpetas.some((c) => c.id === t.carpetaId)) continue;
+    const nombre = String(t.cuenta || 'Mis tiendas').trim();
+    let c = d.carpetas.find((x) => x.nombre.toLocaleLowerCase('es') === nombre.toLocaleLowerCase('es'));
+    if (!c) {
+      c = { id: `negocio-${crypto.createHash('sha256').update(nombre).digest('hex').slice(0, 12)}`, nombre };
+      d.carpetas.push(c);
+    }
+    t.carpetaId = c.id;
+  }
+  return d;
+}
+
+const nombreCarpeta = (nombre) => {
+  const n = String(nombre || '').trim().replace(/\s+/g, ' ');
+  if (!n || n.length > 60) throw new ErrorApp(400, 'Pon un nombre de carpeta de hasta 60 caracteres.');
+  return n;
+};
+function validarCarpeta(datos, id) {
+  const c = datos.carpetas.find((x) => x.id === id);
+  if (!c) throw new ErrorApp(404, 'No encuentro esa carpeta. Vuelve a elegirla.');
+  return c.id;
+}
+export const listarCarpetas = () => leer().carpetas;
+export function guardarCarpeta({ nombre, id } = {}) {
+  const datos = leer();
+  const n = nombreCarpeta(nombre);
+  if (id) validarCarpeta(datos, id);
+  if (datos.carpetas.some((c) => c.id !== id && c.nombre.toLocaleLowerCase('es') === n.toLocaleLowerCase('es'))) throw new ErrorApp(409, 'Ya tienes una carpeta con ese nombre.');
+  const c = { id: id || `negocio-${crypto.randomBytes(6).toString('hex')}`, nombre: n };
+  datos.carpetas = [...datos.carpetas.filter((x) => x.id !== c.id), c];
+  guardar(datos);
+  return c;
+}
+export function quitarCarpeta(id) {
+  const datos = leer();
+  validarCarpeta(datos, id);
+  if (datos.tiendas.some((t) => t.carpetaId === id)) throw new ErrorApp(409, 'Mueve las tiendas a otra carpeta antes de eliminar esta.');
+  datos.carpetas = datos.carpetas.filter((c) => c.id !== id);
+  guardar(datos);
+  return { ok: true };
+}
+
 function guardar(d) {
   const f = ARCHIVO();
   const tmp = `${f}.${process.pid}.tmp`;
@@ -105,9 +152,10 @@ export async function renovar(t) {
 const limpioCuenta = (c) => String(c || '').trim().replace(/\s+/g, ' ').slice(0, 60);
 const limpioPais = (p) => (/^[A-Za-z]{2}$/.test(String(p || '').trim()) ? String(p).trim().toUpperCase() : null);
 
-export async function agregarTienda({ dominio, token, nombre, clientId, clientSecret, cuenta, pais } = {}) {
+export async function agregarTienda({ dominio, token, nombre, clientId, clientSecret, cuenta, pais, carpetaId } = {}) {
   const d = normalizarDominio(dominio);
   if (!d) throw new ErrorApp(400, 'Pon la dirección de la tienda que termina en .myshopify.com (la ves en Configuración › Dominios).');
+  if (carpetaId !== undefined) validarCarpeta(leer(), carpetaId);
   let tk = String(token || '').trim();
   let extra = {};
   const cid = String(clientId || '').trim();
@@ -125,8 +173,9 @@ export async function agregarTienda({ dominio, token, nombre, clientId, clientSe
   if (!prueba.ok) throw new ErrorApp(400, prueba.error);
   const datos = leer();
   const antes = datos.tiendas.find((x) => x.dominio === d);
-  const t = { id: antes?.id || `${d.split('.')[0]}-${crypto.randomBytes(2).toString('hex')}`, nombre: String(nombre || '').trim().slice(0, 60) || prueba.nombre || d.split('.')[0], dominio: d, tipo, token: tk, ...extra, cuenta: limpioCuenta(cuenta) || antes?.cuenta || 'Mi cuenta', pais: limpioPais(pais) || prueba.pais || antes?.pais || null, moneda: prueba.moneda || antes?.moneda || null, agregada: antes?.agregada || new Date().toISOString(), tienda: prueba.url || `https://${d}` };
+  const t = { id: antes?.id || `${d.split('.')[0]}-${crypto.randomBytes(2).toString('hex')}`, nombre: String(nombre || '').trim().slice(0, 60) || prueba.nombre || d.split('.')[0], dominio: d, tipo, token: tk, ...extra, carpetaId: carpetaId !== undefined ? validarCarpeta(datos, carpetaId) : antes?.carpetaId, cuenta: limpioCuenta(cuenta) || antes?.cuenta || 'Mi cuenta', pais: limpioPais(pais) || prueba.pais || antes?.pais || null, moneda: prueba.moneda || antes?.moneda || null, agregada: antes?.agregada || new Date().toISOString(), tienda: prueba.url || `https://${d}` };
   datos.tiendas = [...datos.tiendas.filter((x) => x.dominio !== d), t];
+  conCarpetas(datos);
   guardar(datos);
   return publica(t);
 }
@@ -135,9 +184,10 @@ export async function agregarTienda({ dominio, token, nombre, clientId, clientSe
 const conexiones = new Map(); // id -> { estado: 'abriendo'|'esperando'|'lista'|'error', url, codigo, tienda, error }
 
 /** Empieza la conexión: Shopify CLI pide iniciar sesión (enlace y código) y, al aprobarla, lista los temas. -> { id } */
-export function conectarConCuenta({ dominio, nombre, cuenta, pais } = {}) {
+export function conectarConCuenta({ dominio, nombre, cuenta, pais, carpetaId } = {}) {
   const d = normalizarDominio(dominio);
   if (!d) throw new ErrorApp(400, 'Pon la dirección de la tienda que termina en .myshopify.com (la ves en Configuración › Dominios).');
+  if (carpetaId !== undefined) validarCarpeta(leer(), carpetaId);
   const id = crypto.randomBytes(6).toString('hex');
   const c = { estado: 'abriendo', url: null, codigo: null, tienda: null, error: null };
   conexiones.set(id, c);
@@ -157,8 +207,9 @@ export function conectarConCuenta({ dominio, nombre, cuenta, pais } = {}) {
       });
       const datos = leer();
       const antes = datos.tiendas.find((x) => x.dominio === d);
-      const t = { id: antes?.id || `${d.split('.')[0]}-${crypto.randomBytes(2).toString('hex')}`, nombre: String(nombre || '').trim().slice(0, 60) || d.split('.')[0], dominio: d, tipo: 'temas', token: null, cuenta: limpioCuenta(cuenta) || antes?.cuenta || 'Mi cuenta', pais: limpioPais(pais) || antes?.pais || null, moneda: antes?.moneda || null, agregada: antes?.agregada || new Date().toISOString(), tienda: `https://${d}` };
+      const t = { id: antes?.id || `${d.split('.')[0]}-${crypto.randomBytes(2).toString('hex')}`, nombre: String(nombre || '').trim().slice(0, 60) || d.split('.')[0], dominio: d, tipo: 'temas', token: null, carpetaId: carpetaId !== undefined ? validarCarpeta(datos, carpetaId) : antes?.carpetaId, cuenta: limpioCuenta(cuenta) || antes?.cuenta || 'Mi cuenta', pais: limpioPais(pais) || antes?.pais || null, moneda: antes?.moneda || null, agregada: antes?.agregada || new Date().toISOString(), tienda: `https://${d}` };
       datos.tiendas = [...datos.tiendas.filter((x) => x.dominio !== d), t];
+      conCarpetas(datos);
       guardar(datos);
       Object.assign(c, { estado: 'lista', tienda: publica(t) });
     } catch (e) {
@@ -175,7 +226,7 @@ export function estadoConexion(id) {
 }
 
 /** Cambia el nombre, la cuenta o el país de una tienda (sin tocar su clave). */
-export function editarTienda(id, { nombre, cuenta, pais } = {}) {
+export function editarTienda(id, { nombre, cuenta, pais, carpetaId } = {}) {
   const datos = leer();
   const i = datos.tiendas.findIndex((x) => x.id === id);
   if (i < 0) throw new ErrorApp(404, 'No encuentro esa tienda.');
@@ -183,6 +234,7 @@ export function editarTienda(id, { nombre, cuenta, pais } = {}) {
   if (nombre !== undefined && String(nombre).trim()) t.nombre = String(nombre).trim().slice(0, 60);
   if (cuenta !== undefined) t.cuenta = limpioCuenta(cuenta) || 'Mi cuenta';
   if (pais !== undefined) t.pais = limpioPais(pais);
+  if (carpetaId !== undefined) t.carpetaId = validarCarpeta(datos, carpetaId);
   datos.tiendas[i] = t;
   guardar(datos);
   return publica(t);

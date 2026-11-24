@@ -46,7 +46,7 @@ export default function Inicio() {
 
   return (
     <div className="pagina ini">
-      {tema === 'juego' ? <PortadaJuego enMarcha={enMarcha} necesitan={necesitan} /> : <CabeceraPagina
+      {(tema === 'juego' || tema === 'claro') ? <PortadaJuego enMarcha={enMarcha} necesitan={necesitan} /> : <CabeceraPagina
         sobretitulo={`${saludo()} · ${fechaDeHoy()}`}
         titulo="Inicio"
         descripcion={`Cómo va ${new Date().toLocaleDateString('es-ES', { month: 'long' })}, de un vistazo.`}
