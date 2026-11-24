@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24n · Embudo continuo, generación paralela y mensajes propios
+
+- Genera las cinco secciones desde un botón, procesando hasta dos imágenes a la vez. Cada sección muestra si está en cola, generándose, lista o pendiente de retomar; al regenerar, la imagen anterior se conserva.
+- Hero en 9:16 (1080 × 1920) y las otras cuatro imágenes en 4:5 (1080 × 1350). Fondo liso común, composición limpia y bordes del mismo color para colocarlas al mismo ancho, sin separaciones. Nueva vista del embudo unido.
+- El avatar se reserva para el Hero y sigue guardándose en Biblioteca. Las demás secciones representan su propio mensaje con producto, objetos, ilustración anatómica o demostración. Para azúcar o circulación, el enfoque visual puede usar vasos sanguíneos y partículas de glucosa en lugar de repetir una persona.
+- Cada sección permite regenerar títulos y subtítulos desde la investigación, elegir entre sus propuestas o escribir un par manual. Pedir títulos no genera imágenes ni reemplaza tu elección. Los mensajes manuales se conservan al actualizar la investigación.
+- Las instrucciones para corregir una imagen aparecen debajo de ella. Puedes generar de nuevo una sección o corregir su versión actual con presupuesto previo, sin rehacer las demás.
+
 ## 2026-11-24m · Embudo visual y avatares reutilizables
 
 - Embudo ya tiene Hero, Punto de dolor, Beneficios, Ingredientes y Modo de uso. Los títulos y subtítulos se traen literalmente de la investigación del producto; cuando hay varias opciones, puedes elegir el par que quieras para cada sección.

@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-24 (Embudo visual y avatares en Biblioteca, versión 2026-11-24m).
+Última actualización: 2026-11-24 (Embudo continuo, versión 2026-11-24n).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -12,6 +12,45 @@ Al terminar cada cambio de desarrollo o decisión relevante, actualizar este arc
 cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Embudo continuo, generación paralela y mensajes propios (2026-11-24n)
+
+Refina el Embudo de la versión m. Estas decisiones prevalecen sobre sus detalles anteriores:
+- Formato fijo por sección: Hero 9:16, resto 4:5. El motor normaliza sin recortar a 1080×1920 y
+  1080×1350 con ffmpeg; banda superior/inferior de 8 px en el mismo fondo sólido configurable.
+  El prompt exige márgenes seguros, fondo completamente liso, pocas piezas, tipografía sans consistente
+  y continuidad entre imágenes. Vista unida sin espacios entre piezas; descargas independientes.
+- Generación realmente paralela con máximo global de dos motores del Embudo. Solo Hero espera su
+  retrato; el resto puede empezar de inmediato. Cada proceso usa una clave propia dentro del proyecto,
+  evitando el bloqueo por anuncio del ejecutor común. ChatGPT respeta la fila compartida y pasa señal.
+  Estados por pieza: en-cola/generando/lista/error; overlay en cada imagen, con imagen anterior atenuada.
+  Se mantienen presupuesto exacto, versiones, idempotencia, exclusión de solicitudes inciertas y retoma.
+- **No se repite el avatar en todas las imágenes.** El retrato aprobado se usa solo en Hero si su recurso
+  es «Avatar del Hero»; las otras secciones usan metáfora del enfoque, anatomía educativa, producto,
+  contexto u objetos, o demostración con manos. Dolor usa por defecto «Interpretar visualmente el mensaje»;
+  en azúcar/circulación se pide vasos sanguíneos y glucosa, sin añadir promesas clínicas ni diagnósticos.
+  Nuevo selector de recurso por sección. Hero también puede usar producto u otros recursos sin persona.
+  Biblioteca sigue guardando un retrato independiente reutilizable, no la imagen publicitaria completa.
+- Títulos originales se extraen literalmente como antes. Se añaden pares manuales persistentes (`extras`,
+  tipo manual, origen «Escrito por ti») y `POST /api/embudos/:id/titulos` asíncrono para proponer 3 pares
+  nuevos usando la IA elegida y una copia inmutable de investigación/ficha/opciones. No investiga de nuevo,
+  no genera imágenes, no cambia la selección. Cada propuesta incluye base de investigación. Estado de
+  preparación/error visible; bloquea cambios concurrentes, verifica versión/fuente al aceptar el resultado.
+  Actualizar textos conserva manuales; propuestas de IA se conservan si la fuente no cambió, y se retiran
+  de las opciones si cambió para evitar seguir usando su evidencia anterior.
+- Correcciones y botón Aplicar corrección ahora van **debajo de la imagen**. Se mantienen selección de
+  opciones, regeneración de una sección y confirmación de costo. Los trabajos antiguos conservan sus
+  referencias/prompts de persona y aspecto originales al retomarlos, para no alterar la huella del proveedor.
+
+Validación de esta entrega: integración del Embudo **39/39**, más interfaz en Chrome local (crear/abrir,
+selección persistente, manuales y regeneración de títulos, correcciones bajo imagen, overlay de progreso,
+vista unida, cancelar/confirmar costos, temas oscuro/claro y móvil 390 px sin desborde). Extracción/prompt
+literal pasa; regresión de investigación Andromeda **17/17**; compilación de interfaz pasa. Se verifican
+PNG 1080×1920/1080×1350, píxel de borde común y solapamiento real de dos procesos en simulación. No se han pedido generaciones reales
+ni de pago. La coherencia estética y la escritura exacta del modelo requieren revisar una generación real
+cuando el usuario decida hacerla desde la app. Las imágenes de las capturas son deliberadamente simuladas.
+La comprobación general conserva el fallo ya conocido del equipo: Python 3.9.6 frente a 3.10–3.13; las otras
+85 de 86 verificaciones pasan. No se cambiaron Python ni la instalación personal en puerto 4455.
 
 ## Embudo visual y avatares en Biblioteca (2026-11-24m)
 
