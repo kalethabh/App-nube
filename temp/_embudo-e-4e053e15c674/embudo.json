@@ -3,9 +3,9 @@
   "productoId": "cayenne-pepper-d319",
   "nombre": "CAYENNE PEPPER",
   "puerto": null,
-  "version": 13,
+  "version": 17,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T22:39:47.626Z",
+  "actualizado": "2026-11-24T23:09:25.533Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -81,6 +81,33 @@
           "subtitulo": "Cayena en cápsula para tener pies menos helados, piernas más livianas y energía hasta la noche, sin apagarte a las 3 de la tarde. Un solo pago, cuando te llegue.",
           "tipo": "generado",
           "origen": "Propuesta basada en investigación: Deseo central (sección 14.1, «llegar entera al final del día»), el lenguaje del avatar («me apago a media tarde») y los beneficios 1 a 3 que evalúa la clienta; el cierre viene de la propuesta de valor 6, desconfianza y pago al recibir.",
+          "etiqueta": "Nueva propuesta",
+          "contenido": []
+        },
+        {
+          "id": "aca83f90f72ef443baaf",
+          "titulo": "A la cama sin dos pares de medias",
+          "subtitulo": "Cayena en cápsula blanda que ayuda a que la sangre llegue mejor a tus pies y manos. Muchas personas notan los pies menos helados al acostarse entre la semana 2 y la 4.",
+          "tipo": "generado",
+          "origen": "Propuesta basada en investigación: Detonante «pies helados en la cama» de la sección Impulso de compra, resultado deseado 1 de «Los 5 resultados deseados» (acostarse sin tres pares de medias) y propuesta de valor 1, pies y manos helados (sección 14.2), con los tiempos de «Tiempos de transformación».",
+          "etiqueta": "Nueva propuesta",
+          "contenido": []
+        },
+        {
+          "id": "a3d89257e850ff912e34",
+          "titulo": "Deja de ser «la friolenta» de la casa",
+          "subtitulo": "Dos cápsulas de cayena con el desayuno, sin ardor, para sentir los pies y las manos menos helados y las piernas más livianas. Algo natural para cuidarte a tiempo.",
+          "tipo": "generado",
+          "origen": "Propuesta basada en investigación: Contexto cultural del Panorama del mercado («es que yo soy friolenta»), punto de dolor del avatar Gloria Patricia («la familia le dice usted siempre tiene frío») y el beneficio 4 de los que evalúa la clienta: cuidarse a tiempo de forma natural.",
+          "etiqueta": "Nueva propuesta",
+          "contenido": []
+        },
+        {
+          "id": "02bd5b4e5b1f7717193d",
+          "titulo": "Piernas livianas, no de plomo",
+          "subtitulo": "La capsaicina de la cayena apoya la circulación de tus piernas para que llegues a la casa más liviana, no tirada en el sofá con los pies arriba. Muchas personas lo notan entre la semana 3 y la 4.",
+          "tipo": "generado",
+          "origen": "Propuesta basada en investigación: Propuesta de valor 2, piernas de plomo (sección 14.2), el lenguaje del avatar («las piernas me pesan») y el avatar secundario Yesenia, que pasa 10 horas de pie; el tiempo sale de «Tiempos de transformación».",
           "etiqueta": "Nueva propuesta",
           "contenido": []
         }
@@ -253,7 +280,7 @@
     }
   },
   "seleccion": {
-    "hero": "f078dddb38ba27601084",
+    "hero": "c0768c830b8c8093b9bf",
     "dolor": "73da449593e43d5f4fa4",
     "beneficios": "f63b043801df67f99c6a",
     "ingredientes": null,
@@ -310,7 +337,7 @@
   "titulos": {
     "seccion": "hero",
     "estado": "lista",
-    "fin": "2026-11-24T22:39:47.626Z"
+    "fin": "2026-11-24T23:09:25.533Z"
   },
   "extras": {
     "hero": [
@@ -338,6 +365,33 @@
         "subtitulo": "Cayena en cápsula para tener pies menos helados, piernas más livianas y energía hasta la noche, sin apagarte a las 3 de la tarde. Un solo pago, cuando te llegue.",
         "tipo": "generado",
         "origen": "Propuesta basada en investigación: Deseo central (sección 14.1, «llegar entera al final del día»), el lenguaje del avatar («me apago a media tarde») y los beneficios 1 a 3 que evalúa la clienta; el cierre viene de la propuesta de valor 6, desconfianza y pago al recibir.",
+        "etiqueta": "Nueva propuesta",
+        "contenido": []
+      },
+      {
+        "id": "aca83f90f72ef443baaf",
+        "titulo": "A la cama sin dos pares de medias",
+        "subtitulo": "Cayena en cápsula blanda que ayuda a que la sangre llegue mejor a tus pies y manos. Muchas personas notan los pies menos helados al acostarse entre la semana 2 y la 4.",
+        "tipo": "generado",
+        "origen": "Propuesta basada en investigación: Detonante «pies helados en la cama» de la sección Impulso de compra, resultado deseado 1 de «Los 5 resultados deseados» (acostarse sin tres pares de medias) y propuesta de valor 1, pies y manos helados (sección 14.2), con los tiempos de «Tiempos de transformación».",
+        "etiqueta": "Nueva propuesta",
+        "contenido": []
+      },
+      {
+        "id": "a3d89257e850ff912e34",
+        "titulo": "Deja de ser «la friolenta» de la casa",
+        "subtitulo": "Dos cápsulas de cayena con el desayuno, sin ardor, para sentir los pies y las manos menos helados y las piernas más livianas. Algo natural para cuidarte a tiempo.",
+        "tipo": "generado",
+        "origen": "Propuesta basada en investigación: Contexto cultural del Panorama del mercado («es que yo soy friolenta»), punto de dolor del avatar Gloria Patricia («la familia le dice usted siempre tiene frío») y el beneficio 4 de los que evalúa la clienta: cuidarse a tiempo de forma natural.",
+        "etiqueta": "Nueva propuesta",
+        "contenido": []
+      },
+      {
+        "id": "02bd5b4e5b1f7717193d",
+        "titulo": "Piernas livianas, no de plomo",
+        "subtitulo": "La capsaicina de la cayena apoya la circulación de tus piernas para que llegues a la casa más liviana, no tirada en el sofá con los pies arriba. Muchas personas lo notan entre la semana 3 y la 4.",
+        "tipo": "generado",
+        "origen": "Propuesta basada en investigación: Propuesta de valor 2, piernas de plomo (sección 14.2), el lenguaje del avatar («las piernas me pesan») y el avatar secundario Yesenia, que pasa 10 horas de pie; el tiempo sale de «Tiempos de transformación».",
         "etiqueta": "Nueva propuesta",
         "contenido": []
       }
