@@ -362,7 +362,8 @@ ${(invs || []).map((x) => `${x.id} | ${x.nombre} | ${x.ruta}`).join('\n') || '(n
 - { "tipo": "editar", "slug": "<slug de un anuncio de video>", "pedido": "<el cambio, con sus palabras>", "estilo": "<clave>" | null } → EDITAR un anuncio que se está produciendo o que ya terminó («que ya no sea cantado», «cambia el gancho», «que sea un hombre»): la app hace una VERSIÓN NUEVA con ese cambio y lo demás igual (mismas personas y escenas, sin pagarlas otra vez) y detiene el original si se estaba haciendo. Nunca le digas que ya no se puede cambiar: usa esto. "estilo" solo si pide otro estilo (de cantado a narrado la app lo resuelve sola). Después le avisas el costo del guion nuevo, como siempre.
 - { "tipo": "seguir", "slug": "<slug de un anuncio de video>" } → empiezas a seguir un anuncio que ya existe (te encargas de avisarle el costo y producirlo).
 - { "tipo": "cancelar", "id": "<id de lo que estás siguiendo>" } → si ya no lo quiere.
-- { "tipo": "shopify", "tienda": "<id de la tienda>", "pedido": "<lo que quiere cambiar en la tienda, con sus palabras y lo que sacaste de sus archivos>", "motor": "claude" | "codex" } → un cambio en el CÓDIGO de su tienda (tema: colores, botones, secciones, textos, estilos…) o, con acceso completo, páginas y productos. La IA lo hace en una copia del tema y la app lo sube como tema NUEVO SIN PUBLICAR, con vista previa; él lo publica desde el menú Shopify (dile eso). Si tiene varias tiendas y no queda claro cuál, pregunta. Sin tiendas conectadas, dile que la conecte en el menú Shopify.
+- { "tipo": "shopify", "tienda": "<id de la tienda>" (o "tiendas": ["<id>", …] para el mismo pedido en varias), "pedido": "<lo que quiere cambiar en la tienda, con sus palabras y lo que sacaste de sus archivos>", "motor": "claude" | "codex" } → un cambio en el CÓDIGO de su tienda (tema: colores, botones, secciones, textos, estilos…) o, con acceso completo, páginas y productos. La IA lo hace en una copia del tema y la app lo sube como tema NUEVO SIN PUBLICAR, con vista previa; él lo publica desde el menú Shopify (dile eso). Si tiene varias tiendas y no queda claro cuál, pregunta. Sin tiendas conectadas, dile que la conecte en el menú Shopify.
+- { "tipo": "copiar-tienda", "origen": "<id de la tienda de donde se copia>", "destinos": ["<id>", …] | "todas", "que": "partes" | "tema" | "producto", "archivos": ["sections/…liquid", "templates/…json", …] (solo con "partes"), "producto": "<dirección del producto>" (solo con "producto"), "tema": "<id del tema de origen>" | null } → COPIA de una tienda a otras (cuando pide «copia la sección X de la tienda de Colombia a la de México», «pasa este producto a todas mis tiendas», «el mismo tema en las otras»). "partes": las secciones o plantillas que nombre (la app suma sola lo que necesitan); si no sabes la ruta exacta, usa "sections/<nombre>.liquid" con el nombre que dijo. "producto" necesita acceso completo en las dos tiendas. Nada se publica: queda un tema nuevo sin publicar o el producto en borrador en cada tienda; dile que lo revise y lo publique en el menú Shopify. Elige las tiendas por su nombre o su PAÍS (en la lista de tiendas).
 - { "tipo": "landing", "url": "<la dirección de la landing>", "modo": "tal-cual" | "adaptar", "productoId": "<id, solo con adaptar>", "motor": "claude" | "codex" } → clona una landing (menú Landings) y tu IA la ANALIZA (cómo vende: ángulo, gancho, oferta, secciones, objeciones, ideas): «tal-cual» la copia exacta y optimizada; «adaptar» la misma landing con los textos de su producto (la IA) y las imágenes con ChatGPT. Sin costo de kie.
 - { "tipo": "subir-landing", "landing": "<id de una landing lista>", "tienda": "<id de la tienda>", "titulo": "<título de la página>", "producto": "<dirección del producto en la tienda>" | null } → escribe la landing en el código de su tema con Shopify CLI y le deja la VISTA PREVIA en su tienda (dile que la mire en el menú Shopify); la página se crea y se publica recién cuando él toca «Publicar la página».
 - { "tipo": "regla", "texto": "<la regla, general, sin producto ni marca>", "estilo": "<clave>" | null } → cuando dice cómo quiere las cosas de ahora en adelante.
@@ -597,9 +598,24 @@ async function ejecutar(acciones, ctx) {
         const t = await subirLanding({ landingId: String(a.landing || ''), tiendaId: String(a.tienda || ''), titulo: a.titulo ? String(a.titulo) : undefined, direccion: a.titulo ? String(a.titulo) : undefined, producto: a.producto ? String(a.producto) : null });
         hechas.push({ tipo: 'subir-landing', titulo: `Subiendo la landing a ${t.tiendaNombre}`, href: '#/shopify', ok: true });
       } else if (a.tipo === 'shopify') {
-        const { crearTrabajo } = await import('./shopify/trabajos.js');
-        const t = await crearTrabajo({ tiendaId: String(a.tienda || ''), pedido: String(a.pedido || ''), motor: a.motor === 'codex' ? 'codex' : 'claude' });
-        hechas.push({ tipo: 'shopify', titulo: `Trabajando en ${t.tiendaNombre}: ${t.pedido.slice(0, 80)}`, href: '#/shopify', ok: true });
+        const { crearTrabajo, crearTrabajos } = await import('./shopify/trabajos.js');
+        const motor = a.motor === 'codex' ? 'codex' : 'claude';
+        // (2026-11-24) el mismo pedido en varias tiendas: "tiendas": [ids]
+        if (Array.isArray(a.tiendas) && a.tiendas.length > 1) {
+          const r = await crearTrabajos({ tiendaIds: a.tiendas.map(String), pedido: String(a.pedido || ''), motor });
+          hechas.push({ tipo: 'shopify', titulo: `Trabajando en ${r.trabajos.length} tiendas: ${String(a.pedido || '').slice(0, 70)}`, href: '#/shopify', ok: true });
+        } else {
+          const t = await crearTrabajo({ tiendaId: String(a.tienda || a.tiendas?.[0] || ''), pedido: String(a.pedido || ''), motor });
+          hechas.push({ tipo: 'shopify', titulo: `Trabajando en ${t.tiendaNombre}: ${t.pedido.slice(0, 80)}`, href: '#/shopify', ok: true });
+        }
+      } else if (a.tipo === 'copiar-tienda') {
+        // (2026-11-24) copiar de una tienda a otras (lib/shopify/trabajos.js crearCopia): todo queda para revisar
+        const { crearCopia } = await import('./shopify/trabajos.js');
+        const { listarTiendas } = await import('./shopify/tiendas.js');
+        const origen = String(a.origen || '');
+        const destinos = a.destinos === 'todas' ? listarTiendas().map((x) => x.id).filter((x) => x !== origen) : (Array.isArray(a.destinos) ? a.destinos : [a.destinos]).filter(Boolean).map(String);
+        const t = await crearCopia({ origenId: origen, destinos, que: String(a.que || ''), temaId: a.tema ? String(a.tema) : null, archivos: Array.isArray(a.archivos) ? a.archivos.map(String) : [], producto: a.producto ? String(a.producto) : null });
+        hechas.push({ tipo: 'shopify', titulo: t.pedido.slice(0, 120), href: '#/shopify', ok: true });
       } else if (a.tipo === 'regla') {
         const { ESTILOS } = await import('./anuncios-nuevos.js');
         const estilo = ESTILOS[a.estilo] ? a.estilo : null;

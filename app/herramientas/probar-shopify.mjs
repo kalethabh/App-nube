@@ -308,6 +308,11 @@ async function principal() {
   const tr = (await pedir('/api/shopify/trabajos')).datos?.trabajos || [];
   check('La coordinadora le pide el cambio a la tienda desde el chat', c?.mensajes?.some((m) => m.de !== 'tu' && /tienda/.test(m.texto)) && tr.some((x) => x.tipo === 'tema' && /botón de comprar a verde/.test(x.pedido)), { msgs: c?.mensajes?.slice(-2), tr: tr.map((x) => x.pedido) });
   await esperar(60, async () => (await pedir('/api/shopify/trabajos')).datos?.trabajos, (l) => l?.every((x) => !x.trabajando));
+  // (2026-11-24) la coordinadora copia entre tiendas
+  await pedir('/api/oficina/chat', { json: { texto: 'Copia la sección oferta de esta tienda a las demás tiendas' } });
+  await esperar(60, async () => (await pedir('/api/oficina/chat')).datos, (d) => d?.mensajes?.some((m) => m.de !== 'tu' && /copio/.test(m.texto)));
+  const cps = await esperar(120, async () => ((await pedir('/api/shopify/trabajos')).datos?.trabajos || []).filter((x) => x.tipo === 'copia' && /oferta|1 parte/.test(JSON.stringify(x.archivosPedidos || []) + x.pedido) && x.creado > new Date(Date.now() - 120000).toISOString()), (l) => l?.length && l.every((x) => !x.trabajando));
+  check('La coordinadora COPIA entre tiendas desde el chat (a las demás, como tema sin publicar)', cps?.some((x) => x.estado === 'lista' && x.destinos?.every((d) => d.estado === 'lista' && d.nuevoTema?.id) && x.archivosPedidos?.includes('sections/oferta.liquid')), cps);
 
   r = await pedir(`/api/shopify/tiendas/${otra.id}`, { metodo: 'DELETE' });
   check('Desconectar una tienda la quita (y su clave)', r.st === 200 && (await pedir('/api/shopify/tiendas')).datos.tiendas.length === 1 && !fs.readFileSync(TIENDAS, 'utf8').includes(TOKEN_TEMAS), r.datos);

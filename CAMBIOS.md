@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24d · La coordinadora copia entre tiendas
+
+- Ahora le puedes pedir por chat a la coordinadora que **copie de una tienda a otras**: «copia la sección de ofertas de la tienda de Colombia a la de México», «pasa este producto a todas mis tiendas», «el mismo tema en las otras». También que haga **el mismo cambio en varias tiendas**. Todo queda para revisar en el menú Shopify (tema sin publicar o producto en borrador).
+
 ## 2026-11-24c · Shopify: varias cuentas, tiendas por país y copiar entre tiendas
 
 - Conecta tiendas de **varias cuentas** de Shopify. Cada tienda dice su **cuenta y su país** (con acceso completo el país se lee solo; si no, lo eliges). Arriba eliges la cuenta y el país, y ves solo esas tiendas.
