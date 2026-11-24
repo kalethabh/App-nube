@@ -76,6 +76,9 @@ function jsonDe(texto) {
 }
 
 /** Corre Shopify CLI en esa tienda. */
+/** La carpeta con la sesión de Shopify CLI de una tienda conectada «con mi cuenta» (una por tienda). */
+export const dirSesion = (dominio) => path.join(APP, '.cache', 'shopify-sesiones', String(dominio).replace(/[^a-z0-9.-]/gi, ''));
+
 export async function cli(tiendaDada, args, { cwd, plazoMs = 10 * 60000, alLeer = null } = {}) {
   const tienda = await renovar(tiendaDada);
   const bin = await asegurarCli();
@@ -85,7 +88,14 @@ export async function cli(tiendaDada, args, { cwd, plazoMs = 10 * 60000, alLeer 
   // al iniciar sesión en el navegador (y para esa primera vez no va CI=1: así muestra el enlace para entrar)
   const conClave = Boolean(tienda.token);
   const env = { ...process.env, ...(conClave ? { SHOPIFY_CLI_THEME_TOKEN: tienda.token, CI: '1' } : {}), SHOPIFY_FLAG_STORE: tienda.dominio, SHOPIFY_CLI_NO_ANALYTICS: '1', SHOPIFY_CLI_NEVER_USE_PARTNERS_API: '1', NO_COLOR: '1', FORCE_COLOR: '0' };
-  if (!conClave) delete env.SHOPIFY_CLI_THEME_TOKEN;
+  if (!conClave) {
+    delete env.SHOPIFY_CLI_THEME_TOKEN;
+    // (2026-11-24) cada tienda «con mi cuenta» guarda SU sesión aparte (su propia carpeta de configuración de Shopify
+    // CLI): así se conectan tiendas de cuentas distintas sin que una cierre la sesión de la otra
+    const s = dirSesion(tienda.dominio);
+    Object.assign(env, { HOME: s, USERPROFILE: s, APPDATA: path.join(s, 'AppData', 'Roaming'), LOCALAPPDATA: path.join(s, 'AppData', 'Local'), XDG_CONFIG_HOME: path.join(s, '.config'), XDG_DATA_HOME: path.join(s, '.local', 'share'), XDG_STATE_HOME: path.join(s, '.local', 'state'), XDG_CACHE_HOME: path.join(s, '.cache') });
+    for (const d of [env.APPDATA, env.LOCALAPPDATA, env.XDG_CONFIG_HOME, env.XDG_DATA_HOME, env.XDG_STATE_HOME, env.XDG_CACHE_HOME]) fs.mkdirSync(d, { recursive: true });
+  }
   return new Promise((ok) => {
     const p = spawn(process.execPath, [bin, ...args, '--store', tienda.dominio, '--no-color'], { cwd: dir, env, windowsHide: true });
     const out = [];

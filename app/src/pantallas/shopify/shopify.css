@@ -68,3 +68,5 @@
 .sh-tienda__editar { right: 38px; top: 26px; }
 .sh-tienda .sh-tienda__quitar:not(.sh-tienda__editar) { top: 26px; }
 .sh-tienda__editar:hover { color: var(--acento); }
+.sh-enlace { display: flex; flex-direction: column; gap: var(--e-2); }
+.sh-enlace__url { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 6px 10px; border-radius: var(--r-s); background: var(--superficie-2); font-size: var(--t-mini); }

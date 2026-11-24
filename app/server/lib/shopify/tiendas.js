@@ -191,8 +191,11 @@ export function editarTienda(id, { nombre, cuenta, pais } = {}) {
 export function quitarTienda(id) {
   const datos = leer();
   const antes = datos.tiendas.length;
+  const quitada = datos.tiendas.find((x) => x.id === id);
   datos.tiendas = datos.tiendas.filter((x) => x.id !== id);
   if (datos.tiendas.length === antes) throw new ErrorApp(404, 'No encuentro esa tienda.');
   guardar(datos);
+  // (con mi cuenta) su sesión de Shopify también se borra
+  if (quitada && !quitada.token) import('./api.js').then((a) => fs.rmSync(a.dirSesion(quitada.dominio), { recursive: true, force: true })).catch(() => {});
   return { ok: true };
 }

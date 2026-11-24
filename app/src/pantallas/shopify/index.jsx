@@ -40,9 +40,15 @@ function Conectar({ alConectar, abierto, setAbierto, cuentas = [] }) {
       for (let i = 0; i < 400; i++) {
         const c = await pedirNuevo(`/api/shopify/conexiones/${id}`);
         if (c.url && !abierta) {
+          // (2026-11-24) no se abre solo: lo copias y lo pegas en el perfil de Chrome donde tienes la sesión de ESA tienda
           abierta = true;
-          setConexion({ url: c.url, codigo: c.codigo });
-          window.open(c.url, '_blank', 'noopener');
+          setConexion({ url: c.url, codigo: c.codigo, copiado: false });
+          try {
+            await navigator.clipboard.writeText(c.url);
+            setConexion({ url: c.url, codigo: c.codigo, copiado: true });
+          } catch {
+            /* el botón «Copiar enlace» lo copia */
+          }
         }
         if (c.estado === 'lista') {
           aviso({ tipo: 'exito', titulo: `${c.tienda.nombre} conectada`, texto: 'Con tu cuenta de Shopify (temas).' });
@@ -93,7 +99,7 @@ function Conectar({ alConectar, abierto, setAbierto, cuentas = [] }) {
         <button type="button" className={forma === 'token' ? 'activo' : ''} aria-pressed={forma === 'token'} onClick={() => setForma('token')}>Token o Theme Access</button>
       </div>
       {forma === 'cuenta' ? (
-        <p className="sh-ayuda">Pon la dirección de tu tienda y toca el botón: se abre Shopify, entras con tu cuenta y apruebas. Sin claves. Sirve para los temas (cambios con IA, landings, copiar temas y secciones). Para crear páginas o copiar productos, usa «Acceso completo».</p>
+        <p className="sh-ayuda">Pon la dirección de la tienda y toca el botón: te da un enlace que pegas en el perfil de Chrome donde tienes esa tienda abierta, entras y apruebas. Sin claves, y cada tienda con su propia sesión (pueden ser de cuentas distintas). Sirve para los temas (cambios con IA, landings, copiar temas y secciones). Para crear páginas o copiar productos, usa «Acceso completo».</p>
       ) : forma === 'dev' ? (
         <ol className="sh-pasos">
           <li>Entra a <a href="https://dev.shopify.com/dashboard" target="_blank" rel="noopener noreferrer">dev.shopify.com</a> con la MISMA cuenta de tu tienda › <b>Crear app</b> (ponle «Kads Studio»).</li>
@@ -123,9 +129,15 @@ function Conectar({ alConectar, abierto, setAbierto, cuentas = [] }) {
         <Selector etiqueta="País" opcional value={pais} onChange={(e) => setPais(e.target.value)} opciones={[{ valor: '', etiqueta: 'Que lo lea de la tienda' }, ...OPCIONES_PAIS.slice(1)]} />
       </div>
       {conexion ? (
-        <p className="sh-ok">
-          Se abrió Shopify en tu navegador: entra con tu cuenta y aprueba{conexion.codigo ? <> el código <b>{conexion.codigo}</b></> : null}. Si no se abrió, <a href={conexion.url} target="_blank" rel="noopener noreferrer">ábrelo aquí</a>. Te espero…
-        </p>
+        <div className="sh-enlace">
+          <p className="sh-ok">
+            {conexion.copiado ? 'Enlace copiado.' : 'Copia este enlace.'} Pégalo en el <b>perfil de Chrome donde tienes la sesión de esta tienda</b>, entra y aprueba{conexion.codigo ? <> el código <b>{conexion.codigo}</b></> : null}. Te espero aquí…
+          </p>
+          <div className="sh-fila">
+            <code className="sh-enlace__url">{conexion.url}</code>
+            <Boton variante="secundario" tamano="chico" icono={Copy} onClick={async () => { try { await navigator.clipboard.writeText(conexion.url); setConexion({ ...conexion, copiado: true }); } catch { window.prompt('Copia el enlace:', conexion.url); } }}>{conexion.copiado ? 'Copiar otra vez' : 'Copiar enlace'}</Boton>
+          </div>
+        </div>
       ) : null}
       <p className="sh-ayuda">Las claves se guardan solo en tu computador (no se suben a GitHub ni van en los paquetes) y nunca se muestran.</p>
       <div className="sh-fila">
