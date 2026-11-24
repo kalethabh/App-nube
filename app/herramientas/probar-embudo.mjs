@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import cp from 'node:child_process';
 import assert from 'node:assert/strict';
+import { identidadProducto } from '../server/lib/embudo/direccion.js';
 import { fileURLToPath } from 'node:url';
 const APP=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'), RAIZ=path.dirname(APP);
 const PUERTO=Number(process.env.PUERTO)||4495, BASE=`http://127.0.0.1:${PUERTO}`;
@@ -30,7 +31,18 @@ try{
  const invdir=path.join(pd,'investigacion');fs.mkdirSync(invdir,{recursive:true});const invfile=path.join(invdir,'investigacion.json');fs.writeFileSync(invfile,JSON.stringify(inv));
  r=await pedir('/api/embudos',{json:{productoId}});assert.equal(r.st,200,JSON.stringify(r.data));let e=r.data;embudoId=e.id;
  check('Cinco secciones en orden, con todos los pares literales y su origen',()=>{assert.deepEqual(e.secciones.map(s=>s.id),secciones);for(const s of e.secciones){assert.equal(s.opciones.length,2);assert.equal(s.opciones[1].subtitulo,`Propuesta de valor ${s.id} 2`);assert.match(s.opciones[0].origen,/embudo\./);assert.equal(s.elegida,null)}});
+ check('La base automática es cromática y se adapta al producto',()=>{assert.equal(e.fondoModo,'auto');assert.notEqual(e.fondo,'#FFFFFF');assert.equal(e.fondo,identidadProducto(inv,{queEs:'Serum de prueba'}).fondo)});
  check('No expone archivos ni miniaturas de las referencias de ejemplo',()=>assert.doesNotMatch(JSON.stringify(e),/codex-clipboard|AMUA|AMUNA|Metabolae/));
+ // Una actualización de reglas invalida presupuestos antiguos, sin cambiar los encargos ya guardados.
+ const migracionFile=path.join(RAIZ,`temp/_embudo-${embudoId}/embudo.json`), antiguo=JSON.parse(fs.readFileSync(migracionFile));
+ delete antiguo.reglasVisuales;delete antiguo.identidad;delete antiguo.fondoModo;antiguo.fondo='#FFFFFF';antiguo.presupuestos={['a'.repeat(32)]:{version:e.version}};fs.writeFileSync(migracionFile,JSON.stringify(antiguo));
+ e=(await pedir(`/api/embudos/${embudoId}`)).data;
+ check('La migración queda guardada una sola vez sin cambiar la fecha del proyecto',()=>{const m=JSON.parse(fs.readFileSync(migracionFile));assert.equal(m.reglasVisuales,3);assert.equal(m.actualizado,antiguo.actualizado);assert.deepEqual(m.presupuestos,{});});
+ check('El fondo blanco heredado pasa a paleta automática sin alterar sus opciones',()=>{assert.equal(e.fondoModo,'auto');assert.notEqual(e.fondo,'#FFFFFF');assert.equal(e.secciones[0].opciones[0].titulo,'hero: mensaje 1');});
+ r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:e.version,token:'a'.repeat(32)}});check('Los presupuestos anteriores a la nueva dirección requieren confirmación nueva',()=>assert.equal(r.st,428));
+ antiguo.fondo='#355568';fs.writeFileSync(migracionFile,JSON.stringify(antiguo));e=(await pedir(`/api/embudos/${embudoId}`)).data;
+ check('La migración conserva un color personalizado previo',()=>{assert.equal(e.fondoModo,'manual');assert.equal(e.fondo,'#355568');});
+ e=(await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,fondoModo:'auto'}})).data;
  r=await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['hero']}});check('Sin elección no prepara producción',()=>assert.equal(r.st,428));
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{version:e.version}});check('Sin presupuesto aprobado no genera',()=>assert.equal(r.st,428));
  r=await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,seleccion:{hero:'inexistente'}}});check('Rechaza opciones ajenas a la investigación',()=>assert.equal(r.st,400));
@@ -45,10 +57,11 @@ try{
  r=await pedir(`/api/embudos/${embudoId}/generar`,{json:{token:q.token,version:q.version}});check('Confirmar dos veces no duplica el trabajo',()=>assert.equal(r.data.trabajo.id,trabajo.id));
  r=await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,formato:'1:1'}});check('No cambia las entradas mientras genera',()=>assert.equal(r.st,409));
  e=await listo();check('Genera cinco imágenes independientes con el proveedor simulado',()=>{assert.equal(e.trabajo.estado,'lista',JSON.stringify(e.trabajo));assert.ok(e.secciones.every(s=>s.imagen?.url));assert.equal(new Set(e.secciones.map(s=>s.imagen.url)).size,5)});
- check('Hero 9:16 y demás 4:5 con medidas y bordes compartidos',()=>{for(const s of e.secciones){assert.equal(s.formato,s.id==='hero'?'9:16':'4:5');const b=fs.readFileSync(path.join(RAIZ,`temp/_embudo-${embudoId}`,s.imagen.archivo));assert.equal(b.readUInt32BE(16),1080);assert.equal(b.readUInt32BE(20),s.id==='hero'?1920:1350);const pixel=cp.execFileSync('ffmpeg',['-v','error','-i',path.join(RAIZ,`temp/_embudo-${embudoId}`,s.imagen.archivo),'-vf','crop=1:1:0:0','-frames:v','1','-f','rawvideo','-pix_fmt','rgb24','pipe:1']);assert.deepEqual([...pixel],[255,255,255]);}});
+ check('Hero 9:16 y demás 4:5 con medidas y bordes compartidos',()=>{for(const s of e.secciones){assert.equal(s.formato,s.id==='hero'?'9:16':'4:5');const b=fs.readFileSync(path.join(RAIZ,`temp/_embudo-${embudoId}`,s.imagen.archivo));assert.equal(b.readUInt32BE(16),1080);assert.equal(b.readUInt32BE(20),s.id==='hero'?1920:1350);const pixel=cp.execFileSync('ffmpeg',['-v','error','-i',path.join(RAIZ,`temp/_embudo-${embudoId}`,s.imagen.archivo),'-vf','crop=1:1:0:0','-frames:v','1','-f','rawvideo','-pix_fmt','rgb24','pipe:1']);assert.deepEqual([...pixel],[1,3,5].map(i=>parseInt(e.fondo.slice(i,i+2),16)));}});
  check('Las secciones se solapan en el tiempo y tienen estado individual',()=>{const estados=Object.values(e.trabajo.estados);assert.ok(estados.every(x=>x.estado==='lista'));const eventos=estados.flatMap(x=>[{t:x.inicio,d:1},{t:x.fin,d:-1}]).filter(x=>x.t).sort((a,b)=>a.t.localeCompare(b.t)||a.d-b.d);let n=0,max=0;for(const x of eventos){n+=x.d;max=Math.max(max,n);}assert.equal(max,2);});
  const primerJob=JSON.parse(fs.readFileSync(path.join(RAIZ,`temp/_embudo-${embudoId}/trabajos/${e.trabajo.id}/trabajo.json`)));
  check('No repite avatar ni depende de imágenes de otras secciones',()=>{assert.ok(primerJob.visualPorSeccion);assert.equal(primerJob.piezas.find(p=>p.id==='dolor').visual,'enfoque');assert.match(primerJob.piezas.find(p=>p.id==='dolor').prompt,/blood-vessel/);assert.match(primerJob.piezas.find(p=>p.id==='ingredientes').prompt,/No human portrait/);assert.ok(primerJob.piezas.filter(p=>p.id!=='avatar').every(p=>p.formato===(p.id==='hero'?'9:16':'4:5')));});
+ check('El encargo aplica caja, intención semántica y continuidad a las cinco imágenes',()=>{for(const p of primerJob.piezas.filter(p=>p.id!=='avatar')){assert.ok(p.prompt.includes(JSON.stringify(p.opcion.titulo.toLocaleUpperCase('es'))));assert.ok(p.prompt.includes(JSON.stringify(p.opcion.subtitulo.toLocaleLowerCase('es'))));assert.match(p.prompt,/MEANING BEFORE DECORATION/);assert.match(p.prompt,new RegExp(primerJob.fondo));assert.match(p.prompt,/FULL FUNNEL MESSAGES/);}assert.equal(primerJob.identidad.fondo,e.fondo);});
  const lib=(await pedir('/api/biblioteca')).data;
  const a=lib.avatares.find(a=>a.id===e.avatarGuardado?.id);
  check('El retrato se guarda automáticamente en la Biblioteca, separado del anuncio',()=>{assert.ok(a);assert.equal(a.estilo,'realista-narrado');assert.equal(a.personas.length,1);assert.ok(e.avatarGuardado.url);const j=JSON.parse(fs.readFileSync(path.join(RAIZ,`temp/_embudo-${embudoId}/trabajos/${e.trabajo.id}/trabajo.json`)));assert.equal(j.piezas[0].id,'avatar');assert.match(j.piezas[0].prompt,/standalone reusable/)});
@@ -98,6 +111,9 @@ try{
  e=(await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,visuales:{hero:'producto',dolor:'anatomia'},fondo:'#F3F0EC'}})).data;
  q=(await pedir(`/api/embudos/${embudoId}/presupuesto`,{json:{version:e.version,secciones:['dolor']}})).data;
  check('Anatomía por sección se guarda y no necesita otro avatar',()=>{assert.equal(q.cantidad,1);assert.equal(e.secciones[1].visual,'anatomia');assert.equal(e.fondo,'#F3F0EC');});
+ check('El fondo personalizado queda como elección explícita',()=>assert.equal(e.fondoModo,'manual'));
+ e=(await pedir(`/api/embudos/${embudoId}`,{metodo:'PUT',json:{version:e.version,fondoModo:'auto'}})).data;
+ check('Volver a la paleta del producto restaura la base automática',()=>{assert.equal(e.fondoModo,'auto');assert.notEqual(e.fondo,'#F3F0EC');assert.notEqual(e.fondo,'#FFFFFF');});
  if(process.env.EMBUDO_UI==='1') { const {validarEmbudoUI}=await import('./probar-embudo-ui.mjs');await validarEmbudoUI({base:BASE,id:embudoId}); }
  console.log(`\n${pasan}/${pasan} OK · sin gasto`);
 }catch(err){if(embudoId)fs.cpSync(path.join(RAIZ,`temp/_embudo-${embudoId}`),path.join(dir,'embudo-fallido'),{recursive:true});console.error(err);process.exitCode=1;console.error('Registro de prueba:',path.join(dir,'servidor.log'));}

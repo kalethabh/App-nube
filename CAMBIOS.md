@@ -2,6 +2,14 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24p · Fondos acordes al producto y visuales con intención
+
+- Embudo usa una paleta cromática suave derivada del color de la investigación o de la categoría del producto. Fondo limpio con material gráfico discreto, sin blanco predeterminado ni saturación. Puedes elegir un color base personalizado o volver a la paleta automática.
+- Las cinco piezas comparten color base, lenguaje gráfico y bordes de unión. Cada encargo recibe el mapa de mensajes del embudo para dar continuidad al conjunto, manteniendo Hero 9:16 y el resto 4:5.
+- Los títulos se presentan y generan en MAYÚSCULAS; los subtítulos, en minúsculas. Se conservan las palabras y los acentos del texto original de investigación.
+- La imagen principal debe explicar el título y su propuesta de valor. Se evitan personas, frascos o anatomía decorativos que podrían acompañar cualquier mensaje.
+- Los embudos anteriores adoptan la paleta automática cuando tenían el blanco por defecto; conservan colores personalizados. Para aplicar la nueva dirección a una imagen ya generada, regenera esa sección con confirmación de costo.
+
 ## 2026-11-24o · Carpetas en las secciones de generación
 
 - Imágenes, anuncios de video y estilos, Embudo, Landings, Sketch y Cambiar producto abren primero tus carpetas por producto o proyecto. Dentro están sus generaciones guardadas y el botón para crear otra.

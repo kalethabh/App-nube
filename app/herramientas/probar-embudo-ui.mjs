@@ -23,6 +23,10 @@ export async function validarEmbudoUI({ base, id }) {
     assert.equal(await p.getByRole('button',{name:'Regenerar títulos',exact:true}).count(),5);
     assert.equal(await p.locator('.em-seccion__visual .em-correccion').count(),5);
     assert.equal(await p.getByLabel('Recurso visual · Punto de dolor').inputValue(),'anatomia');
+    assert.equal(await p.getByLabel('Modo del fondo').inputValue(),'auto');
+    assert.equal(await p.getByLabel('Fondo común').isDisabled(),true);
+    assert.equal(await p.locator('#seccion-hero .em-opcion strong').first().innerText(),'HERO: MENSAJE 1');
+    assert.equal(await p.locator('#seccion-hero .em-opcion > span > span').first().innerText(),'propuesta de valor hero 1');
     console.log('OK UI: cinco secciones, todas las opciones y cinco campos de corrección, sin referencias visibles');
     const hero = p.locator('#seccion-hero');
     const [guardada] = await Promise.all([p.waitForResponse((r) => r.url().endsWith(`/api/embudos/${id}`) && r.request().method() === 'PUT'), hero.locator('input[type=radio]').first().click()]);
@@ -40,11 +44,11 @@ export async function validarEmbudoUI({ base, id }) {
     await beneficios.getByLabel('Subtítulo manual · Beneficios').fill('Propuesta de valor manual desde la pantalla');
     const [manualGuardado] = await Promise.all([p.waitForResponse(r=>r.url().endsWith(`/api/embudos/${id}`) && r.request().method()==='PUT'),beneficios.getByRole('button',{name:'Guardar y usar mi mensaje',exact:true}).click()]);
     assert.equal(manualGuardado.status(),200);
-    await beneficios.locator('label.em-opcion').filter({hasText:'Beneficio escrito desde la pantalla'}).waitFor();
-    assert.equal(await beneficios.locator('label.em-opcion').filter({hasText:'Beneficio escrito desde la pantalla'}).locator('input').isChecked(),true);
+    await beneficios.locator('label.em-opcion').filter({hasText:'BENEFICIO ESCRITO DESDE LA PANTALLA'}).waitFor();
+    assert.equal(await beneficios.locator('label.em-opcion').filter({hasText:'BENEFICIO ESCRITO DESDE LA PANTALLA'}).locator('input').isChecked(),true);
     await beneficios.getByRole('button',{name:'Regenerar títulos',exact:true}).click();
-    await beneficios.getByText('Propuesta simulada 1: beneficios: mensaje 1',{exact:true}).waitFor({timeout:20000});
-    assert.equal(await beneficios.locator('label.em-opcion').filter({hasText:'Beneficio escrito desde la pantalla'}).locator('input').isChecked(),true);
+    await beneficios.getByText('PROPUESTA SIMULADA 1: BENEFICIOS: MENSAJE 1',{exact:true}).waitFor({timeout:20000});
+    assert.equal(await beneficios.locator('label.em-opcion').filter({hasText:'BENEFICIO ESCRITO DESDE LA PANTALLA'}).locator('input').isChecked(),true);
     const ubicacion=await hero.evaluate(el=>({imagen:el.querySelector('.em-preview').getBoundingClientRect().bottom,correccion:el.querySelector('.em-correccion').getBoundingClientRect().top}));
     assert.ok(ubicacion.correccion>=ubicacion.imagen);
     console.log('OK UI: mensaje manual, títulos regenerados sin perder selección y correcciones bajo la imagen');
