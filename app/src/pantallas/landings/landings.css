@@ -65,3 +65,8 @@
 .ld-tienda { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--borde-2); border-radius: var(--r-pill); font-size: var(--t-chico); cursor: pointer; }
 .ld-tienda small { color: var(--texto-3); }
 .ld-mis-tiendas { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-2); }
+
+/* (2026-11-24j) tus productos: un toque escribe el pedido */
+.ld-chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-2); }
+.ld-chip { border: 1px solid var(--borde, rgba(127,127,127,.35)); background: transparent; color: inherit; border-radius: 999px; padding: 4px 12px; font: inherit; font-size: .85em; cursor: pointer; }
+.ld-chip:hover { border-color: var(--acento, currentColor); }
