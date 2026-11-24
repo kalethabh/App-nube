@@ -10,9 +10,9 @@
 //   POST   /api/shopify/landing { landingId, tiendaId, titulo, direccion, producto }  -> sube una landing a la tienda
 import express from 'express';
 import { soloDesdeLaApp } from '../lib/productos.js';
-import { listarTiendas, agregarTienda, quitarTienda, tiendaConClave } from '../lib/shopify/tiendas.js';
+import { listarTiendas, agregarTienda, quitarTienda, editarTienda, tiendaConClave } from '../lib/shopify/tiendas.js';
 import { temas } from '../lib/shopify/api.js';
-import { listarTrabajos, leerTrabajo, borrarTrabajo, crearTrabajo, publicarTrabajo, descartarTema, aplicarAdmin, subirLanding } from '../lib/shopify/trabajos.js';
+import { listarTrabajos, leerTrabajo, borrarTrabajo, crearTrabajo, crearTrabajos, publicarTrabajo, descartarTema, aplicarAdmin, subirLanding, crearCopia, publicarCopia, descartarCopia, partesDelTema } from '../lib/shopify/trabajos.js';
 
 const json = express.json({ limit: '32kb' });
 
@@ -31,11 +31,18 @@ export default function rutasShopify(app) {
   app.delete('/api/shopify/tiendas/:id', soloDesdeLaApp, r((req) => quitarTienda(req.params.id)));
   app.get('/api/shopify/tiendas/:id/temas', r(async (req) => ({ temas: await temas(tiendaConClave(req.params.id)) })));
   app.get('/api/shopify/trabajos', r(() => listarTrabajos()));
-  app.post('/api/shopify/trabajos', soloDesdeLaApp, json, r((req) => crearTrabajo(req.body || {})));
+  // (2026-11-24) con tiendaIds: el mismo pedido en varias tiendas -> { trabajos }
+  app.post('/api/shopify/trabajos', soloDesdeLaApp, json, r((req) => (Array.isArray(req.body?.tiendaIds) ? crearTrabajos(req.body) : crearTrabajo(req.body || {}))));
   app.get('/api/shopify/trabajos/:id', r((req) => leerTrabajo(req.params.id)));
   app.delete('/api/shopify/trabajos/:id', soloDesdeLaApp, r((req) => borrarTrabajo(req.params.id)));
   app.post('/api/shopify/trabajos/:id/publicar', soloDesdeLaApp, r((req) => publicarTrabajo(req.params.id)));
   app.post('/api/shopify/trabajos/:id/descartar', soloDesdeLaApp, r((req) => descartarTema(req.params.id)));
   app.post('/api/shopify/trabajos/:id/admin/:i', soloDesdeLaApp, r((req) => aplicarAdmin(req.params.id, Number(req.params.i))));
   app.post('/api/shopify/landing', soloDesdeLaApp, json, r((req) => subirLanding(req.body || {})));
+  // (2026-11-24) copiar de una tienda a otras y lo de cada tienda
+  app.get('/api/shopify/tiendas/:id/partes', r((req) => partesDelTema(req.params.id, req.query.tema ? String(req.query.tema) : null)));
+  app.post('/api/shopify/copias', soloDesdeLaApp, json, r((req) => crearCopia(req.body || {})));
+  app.post('/api/shopify/trabajos/:id/destinos/:tienda/publicar', soloDesdeLaApp, r((req) => publicarCopia(req.params.id, req.params.tienda)));
+  app.post('/api/shopify/trabajos/:id/destinos/:tienda/descartar', soloDesdeLaApp, r((req) => descartarCopia(req.params.id, req.params.tienda)));
+  app.put('/api/shopify/tiendas/:id', soloDesdeLaApp, json, r((req) => editarTienda(req.params.id, req.body || {})));
 }

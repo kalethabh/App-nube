@@ -1,4 +1,6 @@
 // TUS TIENDAS DE SHOPIFY (2026-11-20r): conectas una o varias (como en ChatGPT) y la app trabaja en cualquiera.
+// (2026-11-24) Cada tienda dice de qué CUENTA de Shopify es (la organización; puedes tener varias) y de qué PAÍS (con
+// acceso completo se lee solo; si no, lo eliges), para elegir la cuenta y la tienda según el país.
 // Cada tienda se conecta con su dirección (<algo>.myshopify.com) y una de estas formas:
 //   - Client ID + secreto de una app del Dev Dashboard (dev.shopify.com) instalada en tu tienda: ACCESO COMPLETO. Es la
 //     forma de 2026 (desde el 1-ene-2026 Shopify no deja crear «apps propias» con token fijo en el admin). La app los
@@ -10,7 +12,8 @@
 //
 //   listarTiendas() -> [{ id, nombre, dominio, tipo: 'completo'|'temas', agregada, tienda }]   (sin las claves)
 //   agregarTienda({ dominio, token, nombre }) -> la tienda (la prueba antes de guardarla)
-//   quitarTienda(id) · tiendaConClave(id) y renovar(tienda) (solo para lib/shopify) · normalizarDominio(texto)
+//   quitarTienda(id) · editarTienda(id, { nombre, cuenta, pais }) · tiendaConClave(id) y renovar(tienda) (solo para
+//   lib/shopify) · normalizarDominio(texto)
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -51,7 +54,7 @@ export function normalizarDominio(texto) {
 }
 
 export const tipoDeToken = (t) => (/^(shpat|shpca)_[A-Za-z0-9]{20,}$/.test(t) ? 'completo' : /^shptka_[A-Za-z0-9]{20,}$/.test(t) ? 'temas' : null);
-const publica = ({ token: _t, clientSecret: _s, clientId: _c, vence: _v, ...t }) => ({ ...t, forma: _c ? 'dev-dashboard' : 'token' });
+const publica = ({ token: _t, clientSecret: _s, clientId: _c, vence: _v, ...t }) => ({ ...t, cuenta: t.cuenta || 'Mi cuenta', pais: t.pais || null, forma: _c ? 'dev-dashboard' : 'token' });
 
 export const listarTiendas = () => leer().tiendas.map(publica);
 
@@ -97,7 +100,10 @@ export async function renovar(t) {
   return { ...t, ...nuevo };
 }
 
-export async function agregarTienda({ dominio, token, nombre, clientId, clientSecret } = {}) {
+const limpioCuenta = (c) => String(c || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+const limpioPais = (p) => (/^[A-Za-z]{2}$/.test(String(p || '').trim()) ? String(p).trim().toUpperCase() : null);
+
+export async function agregarTienda({ dominio, token, nombre, clientId, clientSecret, cuenta, pais } = {}) {
   const d = normalizarDominio(dominio);
   if (!d) throw new ErrorApp(400, 'Pon la dirección de la tienda que termina en .myshopify.com (la ves en Configuración › Dominios).');
   let tk = String(token || '').trim();
@@ -117,8 +123,22 @@ export async function agregarTienda({ dominio, token, nombre, clientId, clientSe
   if (!prueba.ok) throw new ErrorApp(400, prueba.error);
   const datos = leer();
   const antes = datos.tiendas.find((x) => x.dominio === d);
-  const t = { id: antes?.id || `${d.split('.')[0]}-${crypto.randomBytes(2).toString('hex')}`, nombre: String(nombre || '').trim().slice(0, 60) || prueba.nombre || d.split('.')[0], dominio: d, tipo, token: tk, ...extra, agregada: antes?.agregada || new Date().toISOString(), tienda: prueba.url || `https://${d}` };
+  const t = { id: antes?.id || `${d.split('.')[0]}-${crypto.randomBytes(2).toString('hex')}`, nombre: String(nombre || '').trim().slice(0, 60) || prueba.nombre || d.split('.')[0], dominio: d, tipo, token: tk, ...extra, cuenta: limpioCuenta(cuenta) || antes?.cuenta || 'Mi cuenta', pais: limpioPais(pais) || prueba.pais || antes?.pais || null, moneda: prueba.moneda || antes?.moneda || null, agregada: antes?.agregada || new Date().toISOString(), tienda: prueba.url || `https://${d}` };
   datos.tiendas = [...datos.tiendas.filter((x) => x.dominio !== d), t];
+  guardar(datos);
+  return publica(t);
+}
+
+/** Cambia el nombre, la cuenta o el país de una tienda (sin tocar su clave). */
+export function editarTienda(id, { nombre, cuenta, pais } = {}) {
+  const datos = leer();
+  const i = datos.tiendas.findIndex((x) => x.id === id);
+  if (i < 0) throw new ErrorApp(404, 'No encuentro esa tienda.');
+  const t = { ...datos.tiendas[i] };
+  if (nombre !== undefined && String(nombre).trim()) t.nombre = String(nombre).trim().slice(0, 60);
+  if (cuenta !== undefined) t.cuenta = limpioCuenta(cuenta) || 'Mi cuenta';
+  if (pais !== undefined) t.pais = limpioPais(pais);
+  datos.tiendas[i] = t;
   guardar(datos);
   return publica(t);
 }

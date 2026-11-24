@@ -2,6 +2,13 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24c · Shopify: varias cuentas, tiendas por país y copiar entre tiendas
+
+- Conecta tiendas de **varias cuentas** de Shopify. Cada tienda dice su **cuenta y su país** (con acceso completo el país se lee solo; si no, lo eliges). Arriba eliges la cuenta y el país, y ves solo esas tiendas.
+- **El mismo pedido en varias tiendas a la vez** («También en…»), con Claude Code o con **ChatGPT (Codex)**.
+- **Copiar de una tienda a otras** (a una o a todas): el **tema completo**, solo **las partes que elijas** (secciones, plantillas… y lo que necesitan para funcionar) o **un producto**. Todo queda primero para revisar: el tema como tema nuevo sin publicar (con su vista previa) y el producto en borrador (te avisa si la moneda es otra). Publicas en cada tienda cuando quieras.
+- En Landings, **«Subir a Shopify» a varias tiendas** a la vez.
+
 ## 2026-11-24b · Landings: análisis y vista previa en tu tienda antes de publicar
 
 - Al clonar una landing (tal cual o para tu producto), **tu IA la analiza**: de qué va, a quién le habla, el ángulo, el gancho, la oferta, sus secciones en orden, la prueba social, las objeciones que resuelve, lo que mejor hace, lo que le falta e ideas para tu producto. También puedes analizar las que ya tenías («Analizar»).

@@ -2,7 +2,7 @@
 .sh-tiendas { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; }
 .sh-tienda { position: relative; display: flex; }
 .sh-tienda__elegir { display: flex; align-items: center; gap: 10px; padding: 10px 40px 10px 12px; border-radius: 14px; border: 1px solid var(--borde-1); background: var(--superficie-1); color: var(--texto-1); font: inherit; cursor: pointer; text-align: left; }
-.sh-tienda__elegir span:first-of-type { display: flex; flex-direction: column; }
+.sh-tienda__elegir .sh-tienda__textos { display: flex; flex-direction: column; }
 .sh-tienda__elegir small { font-size: 12px; color: var(--texto-3); }
 .sh-tienda--activa .sh-tienda__elegir { border-color: var(--acento, #84cc16); box-shadow: 0 0 0 1px var(--acento, #84cc16) inset; }
 .sh-tienda__quitar { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); border: 0; background: transparent; color: var(--texto-3); cursor: pointer; padding: 6px; border-radius: 8px; }
@@ -44,3 +44,27 @@
 .sh-admin__fila--hecho small { color: #16a34a; font-weight: 700; }
 .sh-admin__fila--error small { color: #ef4444; }
 .sh-conectar .sh-segmento { align-self: flex-start; flex-wrap: wrap; }
+
+/* (2026-11-24) cuentas, países, varias tiendas y copiar */
+.sh-filtros { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--e-4); }
+.sh-tienda { flex-wrap: wrap; }
+.sh-tienda__bandera { font-size: 20px; line-height: 1; display: inline-grid; place-items: center; width: 22px; }
+.sh-editar { flex-basis: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--e-3); padding: var(--e-3); border-top: 1px solid var(--borde-1); }
+.sh-editar .sh-fila { grid-column: 1 / -1; }
+.sh-destinos { display: flex; flex-direction: column; gap: var(--e-2); }
+.sh-destino { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--borde-2); border-radius: var(--r-pill); font-size: var(--t-chico); color: var(--texto-2); cursor: pointer; }
+.sh-destino small { color: var(--texto-3); }
+.sh-destino--si { border-color: var(--acento-borde); background: var(--acento-suave); color: var(--texto-1); }
+.sh-partes { display: flex; flex-direction: column; gap: var(--e-2); }
+.sh-partes ul { list-style: none; margin: 0; padding: var(--e-2); max-height: 260px; overflow: auto; border: 1px solid var(--borde-1); border-radius: var(--r-m); display: grid; gap: 2px; }
+.sh-partes label { display: flex; align-items: center; gap: 8px; font-size: var(--t-chico); cursor: pointer; }
+.sh-copia { display: flex; flex-direction: column; gap: var(--e-2); }
+.sh-copia__destino { display: flex; flex-direction: column; gap: 4px; padding: var(--e-2) var(--e-3); border: 1px solid var(--borde-1); border-radius: var(--r-m); background: var(--superficie-2); }
+.sh-copia__destino--publicado { border-color: var(--ok-borde); }
+.sh-copia__destino--error { border-color: var(--error-borde); }
+.sh-copia__nombre small { color: var(--texto-3); margin-left: 6px; }
+.sh-aviso { color: var(--aviso); display: inline-flex; gap: 4px; align-items: center; }
+.sh-tienda__elegir { padding-right: 72px; }
+.sh-tienda__editar { right: 38px; top: 26px; }
+.sh-tienda .sh-tienda__quitar:not(.sh-tienda__editar) { top: 26px; }
+.sh-tienda__editar:hover { color: var(--acento); }
