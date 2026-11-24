@@ -1,0 +1,12 @@
+{
+  "pid": 43828,
+  "paso": "embudo-j-9c583f58ad86084c-hero",
+  "script": "generar-embudo.js",
+  "args": [
+    "temp/_embudo-e-4e053e15c674/trabajos/j-9c583f58ad86084c",
+    "hero"
+  ],
+  "comando": "node produccion/generar-embudo.js temp/_embudo-e-4e053e15c674/trabajos/j-9c583f58ad86084c hero",
+  "inicio": "2026-11-24T23:10:33.574Z",
+  "app": 42738
+}

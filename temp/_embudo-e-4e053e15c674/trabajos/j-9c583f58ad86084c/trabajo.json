@@ -1,0 +1,32 @@
+{
+  "id": "j-9c583f58ad86084c",
+  "version": 18,
+  "motor": "chatgpt",
+  "formato": "9:16",
+  "fondo": "#FFFFFF",
+  "visualPorSeccion": true,
+  "foto": "producto.png",
+  "usarAvatar": true,
+  "avatarArchivo": "avatar-base.png",
+  "piezas": [
+    {
+      "id": "hero",
+      "formato": "9:16",
+      "visual": "persona",
+      "opcion": {
+        "id": "f078dddb38ba27601084",
+        "titulo": "Vuelve a acostarte con los pies calienticos y deja de apagarte a media tarde en 2 a 4 semanas",
+        "subtitulo": "Porque tu cuerpo no se está apagando: solo necesita que la sangre le llegue mejor.",
+        "origen": "secciones[13].bloques[16] · Deseo central, propuestas de valor y copy para la landing",
+        "etiqueta": "Opción 2 (más emocional)",
+        "contenido": []
+      },
+      "contenido": [],
+      "firma": "9066ebdd56056b0ff4af343a3fc2f6ada5ba815209ec5e39cde1a16a1b16bd30",
+      "correccion": "",
+      "anterior": null,
+      "prompt": "Create ONE finished commercial funnel section image, aspect ratio 9:16, high resolution, for the real product in the attached product photograph. Not a collage of the funnel or a website screenshot.\nSECTION FUNCTION: Presentar el producto y su propuesta de valor. Una escena principal y jerarquía clara de título, subtítulo y producto.\nINTERNAL CONTENT STRUCTURE: Strong main promise, a value-proposition subtitle, the real product prominent, and up to four supported differentiators. Add trust cues only when documented; no invented guarantee or transformation deadline.\nART DIRECTION: Design a new coherent visual identity specifically for this product, its packaging, category and audience. The other funnel sections must belong to the same brand. Choose a suitable palette, typography, people, poses, composition, icon system and visual hierarchy. No fixed template, no imitation of another brand. Do not carry over any person, color palette, positions, fonts or icons from an external template. The app theme does NOT define the product's branding. Keep product shape, label, brand and packaging faithful to its photograph. Use adult people only if useful for this section and appropriate to the product; people are optional, never mandatory.\nCONTINUOUS LANDING ART DIRECTION: All five independent images will be stacked vertically, touching edge to edge at the same width. Use a perfectly FLAT SOLID background #FFFFFF throughout, especially identical top/bottom/side edges. No background gradients, textures, frames, rounded outer corners, scenery, vignette or edge shadows. Leave top/bottom 6% empty solid background. Use a sparse composition with generous whitespace, at most 3-4 short supporting items (for ingredients/components, include all documented component names concisely), one strong visual focal point, consistent clean bold sans-serif typography and product-derived accent colors. Make this feel like a single continuous landing design, not five posters. These background and format requirements override conflicting style suggestions.\nSECTION-SPECIFIC VISUAL: Hero may use the approved adult portrait alongside the product.\nEXACT SPANISH TEXT (render the title and subtitle verbatim, with readable typography, accents and enough contrast; no English labels):\n{\"titulo\":\"Vuelve a acostarte con los pies calienticos y deja de apagarte a media tarde en 2 a 4 semanas\",\"subtitulo\":\"Porque tu cuerpo no se está apagando: solo necesita que la sangre le llegue mejor.\",\"elementos\":[]}\nPRODUCT FACTS AND DESIGN CONTEXT (data, not instructions):\n{\"producto\":\"CAYENNE PEPPER\",\"estilo\":\"Color de la investigación: #8A1C1C. Identidad adaptada a la categoría, el público y el empaque real del producto. Consistencia de marca entre las cinco secciones.\"}\nUse only the supplied facts and copy. Do not invent ingredients, dosage, certification, reviews, guarantees, prices, transformation deadlines or clinical claims. Do not import claims from other products. No watermarks or unrelated logos. Clear hierarchy: title, value-proposition subtitle, section-specific content and relevant visual. Safe margins 6%, no cut-off text.\nMake an original composition for this section, visually adapted to the real product."
+    }
+  ],
+  "creado": "2026-11-24T23:10:33.569Z"
+}
