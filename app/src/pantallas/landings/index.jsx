@@ -7,7 +7,7 @@
 // primero te da la VISTA PREVIA en tu tienda: la página se crea recién con «Publicar la página» (menú Shopify).
 // Servidor: /api/landings (lib/landings/).
 import { useState } from 'react';
-import { CircleAlert, Copy, Download, ExternalLink, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, ScanSearch, ShoppingBag, Smartphone, Trash2 } from 'lucide-react';
+import { CircleAlert, Copy, Download, ExternalLink, Eye, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, ScanSearch, ShoppingBag, Smartphone, Trash2 } from 'lucide-react';
 import { AreaTexto, Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Selector, useAvisos } from '../../componentes/index.js';
 import { enlace } from '../../datos/rutas.js';
 import { bandera } from '../../datos/paises.js';
@@ -114,7 +114,7 @@ function SubirAShopify({ l, tiendas, alCerrar }) {
     setOcupado(true);
     try {
       for (const t of tiendaIds) await pedirNuevo('/api/shopify/landing', { metodo: 'POST', cuerpo: { landingId: l.id, tiendaId: t, titulo, direccion: titulo, producto: producto.trim() || null } });
-      aviso({ tipo: 'exito', titulo: 'Escribiéndola en tu tema', texto: 'En el menú Shopify verás su vista previa y el botón «Publicar la página».' });
+      aviso({ tipo: 'exito', titulo: 'Escribiéndola en tu tema', texto: 'En Landings › Cambios en tiendas verás su vista previa y el botón «Publicar la página».' });
       alCerrar();
     } catch (e) {
       aviso({ tipo: 'error', titulo: 'No pude subirla', texto: e.message });
@@ -138,7 +138,7 @@ function SubirAShopify({ l, tiendas, alCerrar }) {
       </div>
       <p className="ld-ayuda">
         {tienda?.tipo === 'completo'
-          ? 'Se escribe en el código de tu tema con Shopify CLI (solo archivos nuevos: no cambia nada de lo que ya tienes). Primero te queda la VISTA PREVIA en tu tienda; la página se crea y se publica recién cuando tocas «Publicar la página» en el menú Shopify.'
+          ? 'Se escribe en el código de tu tema con Shopify CLI (solo archivos nuevos: no cambia nada de lo que ya tienes). Primero te queda la VISTA PREVIA en tu tienda; la página se crea y se publica recién cuando tocas «Publicar la página» en Landings › Cambios en tiendas.'
           : 'Se escribe en el código de tu tema con Shopify CLI (solo archivos nuevos) y te queda la VISTA PREVIA en tu tienda. Con «solo temas», la página la creas tú en Shopify eligiendo esa plantilla.'}
       </p>
       <div className="ld-botones">
@@ -301,6 +301,7 @@ export default function Landings() {
         <span className="ld-grupo__etiqueta">Tus tiendas de Shopify</span>
         {tiendas.length ? tiendas.map((t) => <span key={t.id} className="ld-tienda">{bandera(t.pais)} {t.nombre} <small>{t.cuenta}</small></span>) : <span className="ld-ayuda">Todavía no conectas ninguna. Conéctalas para subir tus landings con vista previa.</span>}
         <Boton variante="secundario" tamano="chico" icono={ShoppingBag} href={enlace.shopify()}>{tiendas.length ? 'Conectar otra tienda' : 'Conectar mis tiendas'}</Boton>
+        {tiendas.length ? <Boton variante="secundario" tamano="chico" icono={Eye} href={enlace.trabajosTiendas()}>Cambios en tiendas</Boton> : null}
       </section>
       {!landings.length ? (
         <EstadoVacio icono={LayoutTemplate} titulo="Todavía no clonaste ninguna" descripcion="Pega arriba la dirección de una landing que te guste o de tu tienda." />

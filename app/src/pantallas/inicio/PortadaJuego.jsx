@@ -1,6 +1,7 @@
-import { ArrowUpRight, Building2, Clapperboard, Images, Radio, Telescope } from 'lucide-react';
+import { ArrowUpRight, Building2, Clapperboard, Images, Telescope } from 'lucide-react';
 import { Boton } from '../../componentes/index.js';
 import { enlace } from '../../datos/rutas.js';
+import { Logo } from '../../componentes/Logo.jsx';
 import { fechaDeHoy } from '../tablero/datos.js';
 
 const MISIONES = [
@@ -17,7 +18,7 @@ export function PortadaJuego({ enMarcha, necesitan }) {
         <img className="ciudad-portada__arte" src="/arte/ciudad-creativa.jpg" alt="" fetchPriority="high" decoding="async" />
         <div className="ciudad-portada__marco" aria-hidden="true" />
         <div className="ciudad-portada__superior">
-          <span><Radio size={13} aria-hidden="true" /> KADS STUDIO / CIUDAD CREATIVA</span>
+          <span><Logo tamano={25} /> KADS STUDIO / CIUDAD CREATIVA</span>
           <span>{fechaDeHoy()}</span>
         </div>
         <div className="ciudad-portada__contenido">

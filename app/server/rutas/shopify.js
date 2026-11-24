@@ -10,7 +10,7 @@
 //   POST   /api/shopify/landing { landingId, tiendaId, titulo, direccion, producto }  -> sube una landing a la tienda
 import express from 'express';
 import { soloDesdeLaApp } from '../lib/productos.js';
-import { listarTiendas, agregarTienda, quitarTienda, editarTienda, tiendaConClave, conectarConCuenta, estadoConexion } from '../lib/shopify/tiendas.js';
+import { listarCarpetas, guardarCarpeta, quitarCarpeta, listarTiendas, agregarTienda, quitarTienda, editarTienda, tiendaConClave, conectarConCuenta, estadoConexion } from '../lib/shopify/tiendas.js';
 import { temas } from '../lib/shopify/api.js';
 import { listarTrabajos, leerTrabajo, borrarTrabajo, crearTrabajo, crearTrabajos, publicarTrabajo, descartarTema, aplicarAdmin, subirLanding, crearCopia, publicarCopia, descartarCopia, partesDelTema } from '../lib/shopify/trabajos.js';
 
@@ -26,6 +26,10 @@ export default function rutasShopify(app) {
       res.status(502).json({ error: e?.message || 'Algo falló con Shopify. Vuelve a intentar.' });
     }
   };
+  app.get('/api/shopify/carpetas', r(() => ({ carpetas: listarCarpetas() })));
+  app.post('/api/shopify/carpetas', soloDesdeLaApp, json, r((req) => guardarCarpeta({ nombre: req.body?.nombre })));
+  app.put('/api/shopify/carpetas/:id', soloDesdeLaApp, json, r((req) => guardarCarpeta({ nombre: req.body?.nombre, id: req.params.id })));
+  app.delete('/api/shopify/carpetas/:id', soloDesdeLaApp, r((req) => quitarCarpeta(req.params.id)));
   app.get('/api/shopify/tiendas', r(() => ({ tiendas: listarTiendas() })));
   app.post('/api/shopify/tiendas', soloDesdeLaApp, json, r((req) => agregarTienda(req.body || {})));
   app.delete('/api/shopify/tiendas/:id', soloDesdeLaApp, r((req) => quitarTienda(req.params.id)));

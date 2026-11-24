@@ -35,7 +35,7 @@ export function temaElegido() {
 /** El que se ve ahora: 'juego', 'claro' u 'oscuro'. */
 export function temaActual() {
   const e = temaElegido();
-  return e === 'auto' ? (consultaClaro?.matches ? 'claro' : 'oscuro') : e;
+  return e === 'auto' ? (consultaClaro?.matches ? 'claro' : 'juego') : e;
 }
 
 function aplicar() {
@@ -44,7 +44,7 @@ function aplicar() {
   const html = document.documentElement;
   if (html.dataset.tema !== t) html.dataset.tema = t;
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute('content', t === 'claro' ? '#f4f5f1' : t === 'juego' ? '#0b0616' : '#050505');
+  if (meta) meta.setAttribute('content', t === 'claro' ? '#f5eff8' : t === 'juego' ? '#0b0616' : '#050505');
   const esquema = document.querySelector('meta[name="color-scheme"]');
   if (esquema) esquema.setAttribute('content', t === 'claro' ? 'light' : 'dark');
   oyentes.forEach((f) => f());
