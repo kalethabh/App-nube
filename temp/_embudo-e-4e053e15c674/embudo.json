@@ -3,9 +3,9 @@
   "productoId": "cayenne-pepper-d319",
   "nombre": "CAYENNE PEPPER",
   "puerto": null,
-  "version": 18,
+  "version": 19,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T23:11:30.916Z",
+  "actualizado": "2026-11-24T23:36:13.838Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -280,7 +280,7 @@
     }
   },
   "seleccion": {
-    "hero": "f078dddb38ba27601084",
+    "hero": "cc08376aebc2c205c456",
     "dolor": "73da449593e43d5f4fa4",
     "beneficios": "f63b043801df67f99c6a",
     "ingredientes": null,
@@ -320,26 +320,23 @@
   },
   "presupuestos": {},
   "trabajo": {
-    "id": "j-9c583f58ad86084c",
-    "token": "95c872a4bf664c3eae8b2ecb3f7d104e",
-    "estado": "lista",
+    "id": "j-c93bd09435b2c62d",
+    "token": "410e7eaa9314361cb7fb4c879c331fa7",
+    "estado": "generando",
     "motor": "chatgpt",
     "cantidad": 1,
     "importeAprobado": 0,
-    "inicio": "2026-11-24T23:10:33.570Z",
+    "inicio": "2026-11-24T23:36:13.836Z",
     "secciones": [
       "hero"
     ],
     "estados": {
       "hero": {
-        "estado": "lista",
-        "inicio": "2026-11-24T23:10:33.572Z",
-        "fin": "2026-11-24T23:11:30.916Z"
+        "estado": "generando",
+        "inicio": "2026-11-24T23:36:13.838Z"
       }
     },
-    "hechas": 1,
-    "fin": "2026-11-24T23:11:30.916Z",
-    "actual": null
+    "hechas": 0
   },
   "avatarPendiente": null,
   "titulos": {
