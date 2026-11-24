@@ -5,14 +5,44 @@
   "motor": "codex",
   "productoId": null,
   "analizar": true,
-  "titulo": "aurivita.co",
+  "titulo": "Aurivita Cayenne Pepper Softgels",
   "creado": "2026-11-24T17:44:27.145Z",
   "estado": "trabajando",
   "progreso": [
-    "Cargando la página como la ve un celular…"
+    "Cargando la página como la ve un celular…",
+    "Quitando el JavaScript de la tienda, las apps y los píxeles…",
+    "Copiando los estilos, las fuentes y los fondos…",
+    "Copiando las imágenes en WebP y en sus tamaños…",
+    "Copiando los videos…",
+    "Midiendo cómo se ve en celular y en computador…",
+    "Dejando solo el CSS que usa la página…",
+    "Codex está analizando la landing…"
   ],
   "error": null,
-  "informe": null,
+  "informe": {
+    "titulo": "Aurivita Cayenne Pepper Softgels",
+    "pesos": {
+      "imagenes": 14889911,
+      "fuentes": 3251900,
+      "videos": 5968315,
+      "css": 285043,
+      "html": 664971
+    },
+    "cssAntes": 1038832,
+    "imagenes": 90,
+    "carruseles": 5,
+    "scripts": 169,
+    "avisos": [
+      "Quité 18 popup(s) de las apps de la tienda (sin su JavaScript no se cerraban y tapaban la página).",
+      "No pude copiar un archivo (404 en https://aurivita.co/products/assets/4089be2c84.woff2).",
+      "No pude copiar un archivo (404 en https://aurivita.co/products/assets/effa713bef.woff2).",
+      "No pude copiar un archivo (404 en https://aurivita.co/products/assets/f01bb123ff.woff2).",
+      "No pude copiar un archivo (404 en https://aurivita.co/products/assets/bbed99870b.woff2).",
+      "No pude copiar un archivo (404 en https://aurivita.co/products/assets/16531c5a05.woff2).",
+      "No pude copiar un archivo (404 en https://aurivita.co/products/assets/2ecc9e2d0c.woff2).",
+      "No pude copiar un archivo (404 en https://aurivita.co/products/assets/4c5ae8ef83.woff2)."
+    ]
+  },
   "puntajes": null,
-  "actualizado": "2026-11-24T17:44:27.226Z"
+  "actualizado": "2026-11-24T17:45:22.674Z"
 }
