@@ -1,6 +1,6 @@
 # Contexto del proyecto App-nube (para continuar en otra conversación)
 
-Última actualización: 2026-11-24 (Carpetas en generación, versión 2026-11-24o).
+Última actualización: 2026-11-24 (Dirección visual y fondos del Embudo, versión 2026-11-24p).
 
 **Para la conversación nueva:** lee `AGENTS.md`, este archivo y `CLAUDE.md` antes de tocar nada. Responde siempre en español
 sencillo: no soy programador.
@@ -12,6 +12,43 @@ Al terminar cada cambio de desarrollo o decisión relevante, actualizar este arc
 cambios, siguiendo el flujo de PRs. Registrar lo terminado, los enlaces disponibles, las pruebas y sus límites,
 los pendientes y el siguiente paso. Comprobar que el contexto actualizado esté en `main` antes de decir que está
 publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asistentes y conversaciones.
+
+## Dirección visual, fondos y caja del copy en Embudo (2026-11-24p)
+
+Corrección expresa: «fondo liso» significa acorde al producto, con material gráfico sin saturar; no blanco
+literal. Las imágenes deben comunicar su título y subtítulo, con fondos que se unan. Títulos siempre en
+MAYÚSCULAS y subtítulos en minúsculas. Estas reglas prevalecen sobre las instrucciones anteriores de blanco
+predeterminado y de fondo completamente vacío.
+
+- `lib/embudo/direccion.js`: identidad común con base cromática suave y acento. Usa `investigacion.color`
+  cuando es hexadecimal válido; sin ese dato usa categoría documentada de la ficha (no extrae colores de
+  la foto ni inventa una investigación). El modelo sigue viendo el empaque real para adaptar su composición.
+  No hay una llamada adicional de IA: se conserva la generación paralela con dos motores.
+- Fondo automático o personalizado en el editor. La misma base se guarda inmutable en cada trabajo y se
+  usa en el prompt y en los bordes normalizados. Los gráficos interiores pueden incluir curvas, trazos,
+  formas suaves o diagramas que expliquen el mensaje, con pocos acentos y margen de aire. Se exige que
+  terminen o se desvanezcan antes del borde, dejando la base común para unir las cinco piezas.
+- Cada prompt recibe la identidad y mapa de títulos/subtítulos de las cinco secciones como contexto de
+  continuidad, sin imprimir mensajes de otras secciones. Regla «MEANING BEFORE DECORATION»: visual dominante
+  que comunique el mensaje específico, no frasco/modelo genérico. Antojos representa su situación; vasos
+  sanguíneos/glucosa solo cuando expliquen el mensaje elegido. Beneficios usa interpretación del mensaje
+  por defecto; se conserva la elección visual explícita del usuario.
+- `app/compartido/texto-embudo.js` aplica la misma caja en selección y generación, preservando acentos.
+  Las opciones fuente, IDs y procedencia de investigación no se alteran. Los manuales se muestran con
+  caja normalizada al escribir. Se mantienen palabras, formato 9:16/4:5 y correcciones debajo de imagen.
+- Revisión visual **3** en la firma de sección. Al actualizar, blanco heredado pasa a automático y un color
+  no blanco heredado se considera personalizado. Se invalidan presupuestos de reglas anteriores y las
+  imágenes previas se marcan pendientes de actualizar; no se generan ni cobran imágenes automáticamente.
+  Retomar un trabajo anterior conserva su prompt, referencias, base y formato inmutables.
+
+Validación: integración del Embudo **46/46**, incluida migración de blanco/color personalizado e invalidación
+de presupuesto anterior. Interfaz en Chrome local: selección y manuales con caja correcta, paleta automática,
+corrección, confirmación/cancelación de costo, oscuro/claro y móvil sin desborde. Extracción literal, caja con
+acentos, paleta por marca/categoría y prompt semántico pasan; build pasa. Se verifican dimensiones y píxel
+de borde común cromático en las cinco piezas. Las imágenes son de un proveedor simulado, no una validación
+estética real del modelo.
+No se han pedido generaciones de pago. La coherencia gráfica y exactitud tipográfica del proveedor real se
+revisan cuando el usuario decida generar desde la app. No se tocaron la instalación personal ni su Biblioteca.
 
 ## Carpetas por producto o proyecto en generación (2026-11-24o)
 
