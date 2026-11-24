@@ -21,10 +21,12 @@ import { spawn } from 'node:child_process';
 import { RAIZ, SKILLS, TEMP, PUERTO_DE_PRUEBA } from './rutas.js';
 import { ESTILOS } from './estilos.js';
 
-export const DIR_BIBLIOTECA = path.join(RAIZ, 'mis_archivos', 'biblioteca');
+// Solo la prueba optativa del embudo: biblioteca aislada, sin tocar ni sincronizar la del usuario.
+const bibliotecaAislada = process.env.ANUNCIOS_MODO_PRUEBA === '1' && process.env.ANUNCIOS_BIBLIOTECA_PRUEBA === '1';
+export const DIR_BIBLIOTECA = bibliotecaAislada ? path.join(TEMP, `_modo-prueba-${PUERTO_DE_PRUEBA || 4455}`, 'biblioteca') : path.join(RAIZ, 'mis_archivos', 'biblioteca');
 export const DIR_AVATARES = path.join(DIR_BIBLIOTECA, 'avatares');
 export const DIR_AUDIOS = path.join(DIR_BIBLIOTECA, 'audios');
-export const DIR_SUBIDAS = path.join(TEMP, '_biblioteca-subidas');
+export const DIR_SUBIDAS = bibliotecaAislada ? path.join(DIR_BIBLIOTECA, '_subidas') : path.join(TEMP, '_biblioteca-subidas');
 const NOMBRE_REPO = 'biblioteca-anuncios';
 const CADA_MS = 10 * 60000;
 const ID = /^[a-z0-9][a-z0-9-]{0,80}$/;

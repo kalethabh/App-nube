@@ -63,6 +63,25 @@ Cada mensaje: { "seccion": "Hero · Producto e ingredientes", "titulo": "el tít
   3. Beneficios: { "beneficios": [ { "titulo": "", "frase": "" } ] (los 5), "sellos": ["4"] }
   4. Modo de uso: { "descripcion": "", "pasos": ["Desayuna", "Toma [X] softgel", "Repite a diario"], "sellos": ["4"] }
 
+### Copy del embudo visual (`embudo`, las cinco secciones)
+
+Además de los bloques y la guía anteriores, guarda `embudo` al nivel de `secciones`, con estas claves:
+`hero`, `dolor`, `beneficios`, `ingredientes`, `uso`. Cada clave es un arreglo con TODAS las opciones útiles
+que ya desarrollaste para esa sección. Cada opción es `{ "titulo": "texto listo para la imagen", "subtitulo":
+"propuesta de valor específica de esta sección", "elementos": ["hasta 8 textos breves de apoyo"],
+"etiqueta": "Opción 1" }`. Los textos son literales de los hallazgos y propuestas de esta investigación;
+no mezcles un título con el subtítulo de otro concepto. Mantén los pares completos y las tildes. No limites
+la salida a una opción si la investigación ofrece varias: la app las mostrará para que el usuario elija.
+
+Funciones: hero presenta producto y propuesta de valor; dolor muestra el problema cotidiano; beneficios
+explica ventajas reales; ingredientes muestra ingredientes, materiales o componentes verificados; uso
+explica la secuencia documentada. En productos sin ingredientes, adapta a sus materiales o componentes.
+No inventes ingredientes, dosis, frecuencia, certificaciones, garantías, resultados ni plazos para llenar
+una sección. Si no hay información suficiente para un par completo y sustentado, deja su arreglo vacío
+y explica lo que falta en las alertas/ficha de la investigación. No copies afirmaciones de otros productos.
+Los colores, personas, posiciones, tipografías e iconos se definirán al diseñar para ESTE producto; aquí
+solo entregas el mensaje y su contenido. El campo `embudo` no sustituye a la guía ni a los bloques existentes.
+
 ### Los textos de los anuncios de imagen (`anuncios_imagen`)
 Al nivel de "secciones" (no dentro de ellas), un arreglo de 10 a 16 textos listos para las plantillas de imagen de la app. Son clones de anuncios ya validados en Meta: cada uno ataca DIRECTO el dolor, el beneficio principal o el deseo central, casi siempre con el tiempo de transformación de la investigación ("Menos hinchazón en 2 semanas", "Curvas más definidas en 21 días"), en las palabras del avatar y sin oferta ni precio. Cada uno sale de un concepto de la matriz de Andromeda (15.4: su faceta, su problema y su momento) y entre todos usan al menos 6 plantillas distintas.
 
