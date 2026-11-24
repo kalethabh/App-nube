@@ -61,7 +61,8 @@ const PAGINA = `<!doctype html><html lang="es"><head><meta charset="utf-8"><titl
 <script src="/js/pestanas.js" defer></script>
 <script type="application/ld+json">{"@type":"Product","name":"MARCAORIGINAL"}</script>
 </head><body class="template-product overflow-hidden" style="overflow:hidden"><div class="kl-private-reset-css needsclick klaviyo-form-popup" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:999"><h2>Try your luck POPUPRULETA</h2><button>No, thanks</button></div>
-<header class="cabeza"><a href="/collections/all">Tienda</a></header>
+<header class="cabeza"><a href="/collections/all">Tienda</a><div class="cabeza-iconos"><svg viewBox="0 0 10 10"><path d="M0 0h10v10z" fill="currentColor">
+</svg><span class="dentro">ICONO-OK</span></div></header>
 <main>
 <h1 class="titulo">MARCAORIGINAL Gotas para dormir</h1>
 <img class="portada" src="/img/portada.png" alt="MARCAORIGINAL frasco">
@@ -163,6 +164,7 @@ async function principal() {
   const assets = id1 ? fs.readdirSync(path.join(RAIZ, 'temp', '_landings', id1, 'assets')) : [];
   check('Conserva los textos de la original', /MARCAORIGINAL Gotas para dormir/.test(h1) && /Lleva 2 y ahorra 40%/.test(h1) && /Comprar ahora/.test(h1), h1.slice(0, 600));
   check('(2026-11-24j) Fiel: quedan los scripts de la tienda (con su dirección completa) y el JSON-LD', h1.includes(`src="${TIENDA}/js/tienda.js"`) && h1.includes(`src="${TIENDA}/js/pestanas.js"`) && /window\.rastreo/.test(h1) && /application\/ld\+json/.test(h1), h1.match(/<script[^>]*>/g));
+  check('(2026-11-24k) Fiel: un ícono SVG sin cerrar (<path> sin </path>) no desarma la página', /class="cabeza-iconos"><svg[^>]*><path[^>]*>\s*<\/path><\/svg><span class="dentro">ICONO-OK<\/span><\/div><\/header>/.test(h1) && !/kc-dormido|data-kc-tipo/.test(h1), (h1.match(/<header[\s\S]*?<\/header>/) || [''])[0]);
   check('(2026-11-24j) Fiel: sin la analítica ni los píxeles (Google, Meta)', !/googletagmanager|gtag\(|fbq\(/.test(h1), h1.match(/<script[^>]*>[^<]{0,60}/g));
   // y FUNCIONA: en un navegador de verdad, elegir otro dolor cambia el texto
   let funciona = null;

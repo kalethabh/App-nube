@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24k · Landings que se ven y funcionan bien en tiendas reales
+
+- Algunas tiendas (por ejemplo, con íconos que la tienda deja mal cerrados) se copiaban desarmadas: el menú y el carrito sueltos y una rueda de carga gigante que no se iba. Ahora la app lee la página como la lee el navegador y la copia queda igual a la original, con sus pestañas, selectores y preguntas frecuentes funcionando.
+- Se quitan también las apps que bloquean por país y más píxeles.
+- Las landings que ya tenías: clónalas otra vez.
+
 ## 2026-11-24j · Landings que funcionan igual que la original, y con prompt
 
 - Las landings clonadas ahora **funcionan como la original**: desplegables, pestañas, selectores (como el de «elige tu dolor»), variantes y carruseles. La copia deja el JavaScript de la tienda y quita solo la analítica, los píxeles, los chats y los popups.
