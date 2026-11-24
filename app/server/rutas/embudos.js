@@ -13,6 +13,7 @@ export default function rutasEmbudo(app) {
   app.get('/api/embudos/:id', r((req) => embudo.ver(req.params.id)));
   app.put('/api/embudos/:id', soloDesdeLaApp, json, r((req) => embudo.editar(req.params.id, req.body || {})));
   app.post('/api/embudos/:id/presupuesto', soloDesdeLaApp, json, r((req) => embudo.presupuestar(req.params.id, req.body || {})));
+  app.post('/api/embudos/:id/titulos', soloDesdeLaApp, json, r((req) => embudo.regenerarTitulos(req.params.id, req.body || {})));
   app.post('/api/embudos/:id/generar', soloDesdeLaApp, json, r((req) => embudo.generar(req.params.id, req.body || {})));
   app.get('/api/embudos/:id/imagenes/:job/:seccion', (req, res) => {
     try {
