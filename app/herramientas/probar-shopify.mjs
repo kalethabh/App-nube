@@ -55,6 +55,8 @@ const FALSO = path.join(TMP, 'tienda-falsa');
 const TIENDAS = path.join(TMP, 'tiendas.json');
 const TOKEN = 'shpat_bueno1234567890abcdefABCDEF12';
 const TOKEN_TEMAS = 'shptka_soloTemas1234567890abcdef12';
+const TOKEN_MX = 'shpat_mexico1234567890abcdefABCDEF'; // (2026-11-24) otra cuenta, otro país
+const productosCreados = [];
 
 // ------------------------------------------------------------ la API de administración simulada
 const consultas = [];
@@ -80,10 +82,20 @@ const admin = http.createServer(async (req, res) => {
     return responder({ access_token: `shpca_renovado${++renovados}abcdefghijklmnopqrstu`, scope: 'write_themes', expires_in: 5 });
   }
   const tk = req.headers['x-shopify-access-token'];
-  if (tk !== TOKEN && !/^shpca_renovado/.test(tk || '')) return responder({ errors: '[API] Invalid API key or access token' }, 401);
+  if (tk !== TOKEN && tk !== TOKEN_MX && !/^shpca_renovado/.test(tk || '')) return responder({ errors: '[API] Invalid API key or access token' }, 401);
   const { query, variables } = JSON.parse(cuerpo.toString() || '{}');
   consultas.push({ query, variables });
-  if (/shop \{ name myshopifyDomain/.test(query)) return responder({ data: { shop: { name: 'Mi Tienda Bella', myshopifyDomain: 'bella.myshopify.com', primaryDomain: { url: 'https://bella.com' } } } });
+  if (/shop \{ name myshopifyDomain/.test(query)) return responder({ data: { shop: tk === TOKEN_MX ? { name: 'Tienda México', myshopifyDomain: 'mexico.myshopify.com', primaryDomain: { url: 'https://mexico.com' }, currencyCode: 'MXN', billingAddress: { countryCodeV2: 'MX' } } : { name: 'Mi Tienda Bella', myshopifyDomain: 'bella.myshopify.com', primaryDomain: { url: 'https://bella.com' }, currencyCode: 'COP', billingAddress: { countryCodeV2: 'CO' } } } });
+  // (2026-11-24) copiar un producto de una tienda a otra
+  if (/descriptionHtml/.test(query)) return responder({ data: { shop: { currencyCode: 'COP' }, products: { nodes: variables.q === 'handle:gotas' ? [{ title: 'Gotas', handle: 'gotas', descriptionHtml: '<p>Para dormir</p>', vendor: 'Bella', productType: 'Gotas', tags: ['sueño'], status: 'ACTIVE', options: [{ name: 'Tamaño', values: ['30 ml', '60 ml'] }], seo: { title: null, description: null }, variants: { nodes: [{ price: '59900', compareAtPrice: '89900', sku: 'G30', inventoryPolicy: 'DENY', selectedOptions: [{ name: 'Tamaño', value: '30 ml' }] }, { price: '99900', compareAtPrice: null, sku: 'G60', inventoryPolicy: 'DENY', selectedOptions: [{ name: 'Tamaño', value: '60 ml' }] }] }, media: { nodes: [{ image: { url: 'https://cdn.shopify.com/gotas.jpg', altText: 'Gotas' } }] } }] : [] } } });
+  if (/productSet/.test(query)) {
+    productosCreados.push({ tk, input: variables.i });
+    return responder({ data: { productSet: { product: { id: `gid://shopify/Product/55${productosCreados.length}`, handle: variables.i.handle }, userErrors: [] } } });
+  }
+  if (/productUpdate/.test(query)) return responder({ data: { productUpdate: { product: { id: variables.p.id }, userErrors: [] } } });
+  if (/publications\(first/.test(query)) return responder({ data: { publications: { nodes: [{ id: 'gid://shopify/Publication/1', name: 'Online Store' }] } } });
+  if (/publishablePublish/.test(query)) return responder({ data: { publishablePublish: { userErrors: [] } } });
+  if (/productDelete/.test(query)) return responder({ data: { productDelete: { deletedProductId: variables.i.id, userErrors: [] } } });
   if (/products\(first/.test(query)) return responder({ data: { shop: { name: 'Mi Tienda Bella', currencyCode: 'COP', primaryDomain: { url: 'https://bella.com' } }, products: { nodes: [{ title: 'Gotas', handle: 'gotas', status: 'ACTIVE' }] }, pages: { nodes: [] } } });
   if (/productByHandle/.test(query)) return responder({ data: { productByHandle: variables.h === 'mi-producto' ? { handle: 'mi-producto', variants: { nodes: [{ id: 'gid://shopify/ProductVariant/777888' }] } } : null } });
   if (/pageCreate/.test(query)) return responder({ data: { pageCreate: { page: { id: 'gid://shopify/Page/1', handle: variables.p.handle }, userErrors: [] } } });
@@ -246,6 +258,49 @@ async function principal() {
   check('En una tienda «solo temas» sube la plantilla con su vista previa y el video vuelve a ser el GIF original', t?.estado === 'vista-previa' && t.vistaPrevia && !t.pagina && /<img src="https:\/\/cdn\.original\.com\/a\.gif"/.test(p2), { t, p2: p2.slice(0, 400) });
   r = await pedir(`/api/shopify/trabajos/${t.id}/publicar`, { metodo: 'POST' });
   check('…y al publicar queda la indicación para crear la página en Shopify', r.datos?.estado === 'lista' && !r.datos.pagina, r.datos);
+
+  // (2026-11-24) CUENTAS Y PAÍSES, VARIAS TIENDAS A LA VEZ Y COPIAR DE UNA A OTRAS
+  check('Con acceso completo, el país y la moneda se leen solos (y la cuenta por defecto)', bella.pais === 'CO' && bella.moneda === 'COP' && bella.cuenta === 'Mi cuenta', bella);
+  r = await pedir(`/api/shopify/tiendas/${bella.id}`, { metodo: 'PUT', json: { cuenta: 'Cuenta Colombia', pais: 'co' } });
+  check('Le pones la cuenta y el país a una tienda (sin tocar su clave)', r.st === 200 && r.datos?.cuenta === 'Cuenta Colombia' && r.datos.pais === 'CO' && fs.readFileSync(TIENDAS, 'utf8').includes(TOKEN), r.datos);
+  r = await pedir('/api/shopify/tiendas', { json: { dominio: 'mexico', token: TOKEN_MX, cuenta: 'Cuenta 2' } });
+  const mx = r.datos;
+  check('Otra cuenta de Shopify: una tienda de México (país y moneda propios)', r.st === 200 && mx?.cuenta === 'Cuenta 2' && mx.pais === 'MX' && mx.moneda === 'MXN', r.datos);
+  r = await pedir('/api/shopify/trabajos', { json: { tiendaIds: [bella.id, otra.id], pedido: 'Pon el botón de comprar en verde', motor: 'codex' } });
+  const varios = (r.datos?.trabajos || []).map((x) => x.id);
+  check('El mismo pedido en dos tiendas a la vez (un trabajo por tienda, con Codex)', r.st === 200 && varios.length === 2 && r.datos.trabajos.every((x) => x.motor === 'codex') && new Set(r.datos.trabajos.map((x) => x.tiendaId)).size === 2, r.datos);
+  for (const v of varios) await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${v}`)).datos, terminado);
+  // una sección con lo que necesita (un snippet y un css) en el tema publicado de Bella
+  const vivoB = temasFalsos().find((x) => x.role === 'live').id;
+  const ponerB = (f, txt) => {
+    const a = path.join(FALSO, BELLA, 'temas', String(vivoB), f);
+    fs.mkdirSync(path.dirname(a), { recursive: true });
+    fs.writeFileSync(a, txt);
+  };
+  ponerB('sections/oferta.liquid', "<div class=\"oferta\">{% render 'kads-sello' %}</div>{{ 'oferta.css' | asset_url | stylesheet_tag }}\n{% schema %}{\"name\":\"Oferta\"}{% endschema %}\n");
+  ponerB('snippets/kads-sello.liquid', '<span>Sello</span>\n');
+  ponerB('assets/oferta.css', '.oferta{color:red}\n');
+  r = await pedir(`/api/shopify/tiendas/${bella.id}/partes`);
+  check('Lista las partes del tema de una tienda para elegir', r.st === 200 && r.datos?.archivos?.includes('sections/oferta.liquid') && r.datos.archivos.includes('sections/boton.liquid') && !r.datos.archivos.some((f) => /^(layout|config)\//.test(f)), r.datos);
+  r = await pedir('/api/shopify/copias', { json: { origenId: bella.id, destinos: [otra.id], que: 'partes', archivos: ['sections/oferta.liquid'] } });
+  let cp1 = await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${r.datos?.id}`)).datos, terminado);
+  const d1 = cp1?.destinos?.[0];
+  check('Copiar PARTES: van con lo que necesitan (snippet y css)', cp1?.estado === 'lista' && ['sections/oferta.liquid', 'snippets/kads-sello.liquid', 'assets/oferta.css'].every((f) => cp1.archivos?.includes(f)), cp1);
+  check('…a la otra tienda como tema NUEVO SIN publicar (con vista previa) y su tema publicado no cambia', d1?.estado === 'lista' && d1.nuevoTema?.id && /preview_theme_id/.test(d1.nuevoTema.vista || '') && archivoFalso(d1.nuevoTema.id, 'sections/oferta.liquid', OTRA) && archivoFalso(d1.nuevoTema.id, 'snippets/kads-sello.liquid', OTRA) && !archivoFalso(temasFalsos(OTRA).find((x) => x.role === 'live').id, 'sections/oferta.liquid', OTRA), { d1, temas: temasFalsos(OTRA) });
+  r = await pedir('/api/shopify/copias', { json: { origenId: bella.id, destinos: [otra.id], que: 'tema' } });
+  cp1 = await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${r.datos?.id}`)).datos, terminado);
+  check('Copiar el TEMA COMPLETO a otra tienda: tema nuevo sin publicar', cp1?.destinos?.[0]?.estado === 'lista' && archivoFalso(cp1.destinos[0].nuevoTema?.id, 'sections/oferta.liquid', OTRA) && temasFalsos(OTRA).find((x) => String(x.id) === cp1.destinos[0].nuevoTema.id)?.role === 'unpublished', cp1);
+  r = await pedir('/api/shopify/copias', { json: { origenId: bella.id, destinos: [otra.id], que: 'producto', producto: 'gotas' } });
+  check('Un producto no se copia a una tienda «solo temas» (lo explica)', r.st === 400 && /acceso completo/.test(r.datos?.error || ''), r.datos);
+  r = await pedir('/api/shopify/copias', { json: { origenId: bella.id, destinos: [mx.id], que: 'producto', producto: 'gotas' } });
+  const cpP = r.datos?.id;
+  cp1 = await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${cpP}`)).datos, terminado);
+  const pc = productosCreados[productosCreados.length - 1];
+  check('Copiar un PRODUCTO a la tienda de México: en BORRADOR, con sus variantes, opciones e imágenes', cp1?.destinos?.[0]?.estado === 'lista' && pc?.tk === TOKEN_MX && pc.input.status === 'DRAFT' && pc.input.title === 'Gotas' && pc.input.variants.length === 2 && pc.input.productOptions?.[0]?.name === 'Tamaño' && pc.input.files?.[0]?.originalSource === 'https://cdn.shopify.com/gotas.jpg', { cp1, pc });
+  check('…y avisa que la moneda es otra (COP → MXN)', /COP/.test(cp1?.destinos?.[0]?.aviso || '') && /MXN/.test(cp1.destinos[0].aviso), cp1?.destinos?.[0]);
+  r = await pedir(`/api/shopify/trabajos/${cpP}/destinos/${mx.id}/publicar`, { json: {} });
+  check('«Publicar» en esa tienda: el producto queda activo y en la tienda online', r.datos?.destinos?.[0]?.estado === 'publicado' && consultas.some((c) => /productUpdate/.test(c.query || '') && c.variables?.p?.status === 'ACTIVE') && consultas.some((c) => /publishablePublish/.test(c.query || '')), r.datos);
+  await pedir(`/api/shopify/tiendas/${mx.id}`, { metodo: 'DELETE' });
 
   // la coordinadora
   await pedir('/api/oficina/chat', { json: { texto: 'En la tienda cambia el botón de comprar a verde' } });

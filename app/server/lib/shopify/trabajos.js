@@ -11,6 +11,12 @@
 //    portada alternativa (index.kads-<id>) para la VISTA PREVIA (/?view=kads-<id>) antes de nada (2026-11-24). Con
 //    «Publicar» y acceso completo, crea la página y la deja publicada en /pages/<dirección>.
 //
+// 3. (2026-11-24) «Pídele a la IA» en VARIAS tiendas a la vez (crearTrabajos: un trabajo por tienda, el mismo pedido).
+// 4. (2026-11-24) «Copiar a otras tiendas» (tipo 'copia', crearCopia): de una tienda a una o a todas las demás, el tema
+//    completo, solo las partes que elijas (secciones, plantillas… con lo que necesitan: sus secciones, snippets y assets)
+//    o un producto. Todo queda primero para revisar: los temas como TEMA NUEVO SIN PUBLICAR (con su vista previa) y el
+//    producto en BORRADOR; tú publicas en cada tienda (publicarCopia / descartarCopia).
+//
 // Todo vive en temp/_shopify/trabajos/<id>/ (trabajo.json, tema/, subir/, resumen.json, registro-ia.log).
 //
 //   listarTrabajos() · leerTrabajo(id) · borrarTrabajo(id)
@@ -140,6 +146,16 @@ export async function crearTrabajo({ tiendaId, temaId, pedido, motor = 'claude' 
   guardar(id, { id, tipo: 'tema', tiendaId: tienda.id, tiendaNombre: tienda.nombre, dominio: tienda.dominio, temaId: temaId ? String(temaId) : null, temaNombre: null, pedido: p.slice(0, 4000), motor, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, resumen: null, archivos: [], nuevoTema: null, admin: [] });
   deFondo(id, () => trabajarTema(id));
   return leerTrabajo(id);
+}
+
+/** El mismo pedido en varias tiendas a la vez: un trabajo por tienda. -> { trabajos } */
+export async function crearTrabajos({ tiendaIds, temaId, pedido, motor = 'claude' } = {}) {
+  const ids = [...new Set((Array.isArray(tiendaIds) ? tiendaIds : []).map(String))].slice(0, 20);
+  if (!ids.length) throw new ErrorApp(400, 'Elige al menos una tienda.');
+  for (const t of ids) tiendaConClave(t); // que existan todas antes de empezar
+  const trabajos = [];
+  for (const t of ids) trabajos.push(await crearTrabajo({ tiendaId: t, temaId: ids.length === 1 ? temaId : null, pedido, motor }));
+  return { trabajos };
 }
 
 async function trabajarTema(id) {
@@ -387,5 +403,254 @@ export async function publicarLanding(id) {
   return leerTrabajo(id);
 }
 
+// ---------------------------------------------------------------- 4. copiar de una tienda a otras
+
+const QUE_COPIA = { tema: 'el tema completo', partes: 'partes del tema', producto: 'un producto' };
+const cacheTemas = new Map(); // `${tienda}|${tema}` -> { dir, fecha }
+
+/** Baja un tema a temp/_shopify/cache/ (lo reusa 10 minutos: listar sus partes y copiarlas no lo baja dos veces). */
+async function temaEnCache(tienda, temaId) {
+  const clave = `${tienda.id}|${temaId}`;
+  const c = cacheTemas.get(clave);
+  if (c && Date.now() - c.fecha < 10 * 60000 && fs.existsSync(path.join(c.dir, 'layout'))) return c.dir;
+  const dir = path.join(TEMP, '_shopify', 'cache', `${tienda.id}-${String(temaId).replace(/[^0-9a-z]/gi, '')}`);
+  fs.rmSync(dir, { recursive: true, force: true });
+  await api.asegurarCli();
+  await api.bajarTema(tienda, temaId, dir);
+  cacheTemas.set(clave, { dir, fecha: Date.now() });
+  return dir;
+}
+
+async function temaPublicado(tienda) {
+  const lista = await api.temas(tienda);
+  const vivo = lista.find((x) => x.rol === 'live' || x.rol === 'main') || lista[0];
+  if (!vivo) throw new Error(`«${tienda.nombre}» no tiene temas.`);
+  return vivo;
+}
+
+/** Las partes de un tema que se pueden copiar (secciones, plantillas, snippets, assets, idiomas). */
+export async function partesDelTema(tiendaId, temaId) {
+  const tienda = tiendaConClave(tiendaId);
+  const tema = temaId ? { id: String(temaId) } : await temaPublicado(tienda);
+  const dir = await temaEnCache(tienda, tema.id);
+  const archivos = archivosDe(dir).filter((f) => /^(sections|templates|snippets|assets|blocks|locales)\//.test(f));
+  return { temaId: tema.id, archivos };
+}
+
+/** Lo que necesitan esas partes para funcionar (sus secciones, snippets, bloques y assets), que estén en el tema de origen. */
+export function dependencias(dir, elegidos) {
+  const todo = new Set(elegidos);
+  const cola = [...elegidos];
+  const hay = (f) => fs.existsSync(path.join(dir, f));
+  const sumar = (f) => {
+    if (!todo.has(f) && hay(f)) {
+      todo.add(f);
+      cola.push(f);
+    }
+  };
+  while (cola.length) {
+    const f = cola.shift();
+    let texto = '';
+    try {
+      texto = fs.readFileSync(path.join(dir, f), 'utf8');
+    } catch {
+      continue;
+    }
+    if (/\.json$/i.test(f) && /^(templates|sections)\//.test(f)) {
+      try {
+        const j = JSON.parse(texto.replace(/^\s*\/\*[\s\S]*?\*\//, ''));
+        for (const sec of Object.values(j.sections || {})) {
+          if (sec?.type && !/^shopify:\/\//.test(sec.type)) sumar(`sections/${sec.type}.liquid`);
+          for (const b of Object.values(sec?.blocks || {})) if (b?.type && !/^(@|shopify:\/\/)/.test(b.type)) sumar(`blocks/${b.type}.liquid`);
+        }
+      } catch {
+        /* JSON raro: va igual */
+      }
+    }
+    if (/\.liquid$/i.test(f)) {
+      for (const m of texto.matchAll(/\{%-?\s*(?:render|include)\s+['"]([\w-]+)['"]/g)) sumar(`snippets/${m[1]}.liquid`);
+      for (const m of texto.matchAll(/\{%-?\s*section\s+['"]([\w-]+)['"]/g)) sumar(`sections/${m[1]}.liquid`);
+      for (const m of texto.matchAll(/['"]([\w.-]+\.(?:css|js|png|jpe?g|gif|svg|webp|woff2?))['"]\s*\|\s*asset_url/g)) {
+        sumar(`assets/${m[1]}`);
+        sumar(`assets/${m[1]}.liquid`);
+      }
+    }
+  }
+  return [...todo];
+}
+
+const PRODUCTO_Q = `query($q:String!){ products(first: 1, query: $q){ nodes { title handle descriptionHtml vendor productType tags status
+  options { name values } seo { title description }
+  variants(first: 100) { nodes { price compareAtPrice sku inventoryPolicy selectedOptions { name value } } }
+  media(first: 20) { nodes { ... on MediaImage { image { url altText } } } } } } shop { currencyCode } }`;
+
+/**
+ * Copiar de una tienda a otras. que: 'tema' (temaId del origen, o el publicado) | 'partes' (archivos: las rutas que
+ * elegiste; se suman sus dependencias) | 'producto' (producto: su dirección; necesita acceso completo en las dos).
+ */
+export async function crearCopia({ origenId, destinos, que, temaId = null, archivos = [], producto = null } = {}) {
+  const origen = tiendaConClave(origenId);
+  if (!QUE_COPIA[que]) throw new ErrorApp(400, 'Elige qué copiar: el tema, partes del tema o un producto.');
+  const ids = [...new Set((Array.isArray(destinos) ? destinos : []).map(String))].filter((d) => d !== origen.id).slice(0, 20);
+  if (!ids.length) throw new ErrorApp(400, 'Elige al menos otra tienda a donde copiarlo.');
+  const dests = ids.map((d) => tiendaConClave(d));
+  if (que === 'partes' && !(Array.isArray(archivos) && archivos.length)) throw new ErrorApp(400, 'Elige qué partes del tema copiar.');
+  if (que === 'partes' && archivos.some((f) => !/^(sections|templates|snippets|assets|blocks|locales)\/[\w./-]+$/.test(String(f)) || String(f).includes('..'))) throw new ErrorApp(400, 'Esa parte del tema no se puede copiar.');
+  if (que === 'producto') {
+    if (!/^[a-z0-9][a-z0-9-]{0,200}$/.test(String(producto || ''))) throw new ErrorApp(400, 'Escribe la dirección del producto (la parte final de su enlace, ej.: gotas-para-dormir).');
+    for (const t of [origen, ...dests]) if (t.tipo !== 'completo') throw new ErrorApp(400, `Para copiar productos, «${t.nombre}» tiene que estar conectada con acceso completo.`);
+  }
+  const id = nuevoId(`${origen.nombre}-copia`);
+  fs.mkdirSync(carpetaDe(id), { recursive: true });
+  const detalle = que === 'producto' ? `el producto «${producto}»` : que === 'partes' ? `${archivos.length} parte(s) del tema` : 'el tema completo';
+  guardar(id, {
+    id, tipo: 'copia', que, tiendaId: origen.id, tiendaNombre: origen.nombre, dominio: origen.dominio, temaId: temaId ? String(temaId) : null, archivosPedidos: que === 'partes' ? archivos.map(String) : [], producto: que === 'producto' ? String(producto) : null,
+    pedido: `Copiar ${detalle} de «${origen.nombre}» a ${dests.length === 1 ? `«${dests[0].nombre}»` : `${dests.length} tiendas`}`,
+    destinos: dests.map((t) => ({ tiendaId: t.id, nombre: t.nombre, pais: t.pais || null, estado: 'pendiente', nuevoTema: null, productoNuevo: null, error: null })),
+    creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null,
+  });
+  deFondo(id, () => trabajarCopia(id));
+  return leerTrabajo(id);
+}
+
+function cambiarDestino(id, tiendaId, cambios) {
+  const t = leerTrabajo(id);
+  guardar(id, { destinos: t.destinos.map((d) => (d.tiendaId === tiendaId ? { ...d, ...cambios } : d)) });
+}
+
+async function trabajarCopia(id) {
+  const t = leerTrabajo(id);
+  const origen = tiendaConClave(t.tiendaId);
+  const fecha = new Date().toISOString().slice(5, 16).replace('T', ' ');
+  let dirOrigen = null;
+  let lleva = [];
+  let datosProducto = null;
+  if (t.que !== 'producto') {
+    avanzar(id, 'Preparando Shopify CLI…');
+    await api.asegurarCli();
+    const tema = t.temaId ? { id: t.temaId, nombre: t.temaId } : await temaPublicado(origen);
+    guardar(id, { temaId: tema.id, temaNombre: tema.nombre });
+    avanzar(id, `Bajando el tema de «${origen.nombre}»…`);
+    dirOrigen = await temaEnCache(origen, tema.id);
+    if (t.que === 'partes') {
+      lleva = dependencias(dirOrigen, t.archivosPedidos.filter((f) => fs.existsSync(path.join(dirOrigen, f))));
+      if (!lleva.length) throw new Error('Esas partes no están en el tema de origen.');
+      guardar(id, { archivos: lleva });
+      avanzar(id, `Van ${lleva.length} archivo(s): lo que elegiste y lo que necesita para funcionar.`);
+    }
+  } else {
+    avanzar(id, `Leyendo el producto «${t.producto}» de «${origen.nombre}»…`);
+    const d = await api.admin(origen, PRODUCTO_Q, { q: `handle:${t.producto}` });
+    const prod = (d?.products?.nodes || []).find((x) => x.handle === t.producto);
+    if (!prod) throw new Error(`No encontré el producto «${t.producto}» en «${origen.nombre}».`);
+    datosProducto = { ...prod, moneda: d.shop?.currencyCode || null };
+  }
+  let bien = 0;
+  for (const dest of t.destinos) {
+    const tienda = tiendaConClave(dest.tiendaId);
+    cambiarDestino(id, dest.tiendaId, { estado: 'trabajando' });
+    try {
+      if (t.que === 'tema') {
+        avanzar(id, `Subiendo el tema a «${tienda.nombre}» como tema nuevo SIN publicar…`);
+        const nuevo = await api.subirTema(tienda, dirOrigen, { nombre: `Kads · copia de ${origen.nombre} · ${fecha}` });
+        cambiarDestino(id, dest.tiendaId, { estado: 'lista', nuevoTema: nuevo });
+      } else if (t.que === 'partes') {
+        avanzar(id, `«${tienda.nombre}»: bajando su tema publicado y poniéndole las partes…`);
+        const vivo = await temaPublicado(tienda);
+        const dir = path.join(carpetaDe(id), `destino-${tienda.id}`);
+        fs.rmSync(dir, { recursive: true, force: true });
+        await api.bajarTema(tienda, vivo.id, dir);
+        const elegidas = new Set(t.archivosPedidos);
+        const suyas = [];
+        for (const f of lleva) {
+          const destino = path.join(dir, f);
+          // lo que elegiste va siempre; lo que necesita, solo si esa tienda no lo tiene (no se pisan sus versiones)
+          if (!elegidas.has(f) && fs.existsSync(destino)) {
+            suyas.push(f);
+            continue;
+          }
+          fs.mkdirSync(path.dirname(destino), { recursive: true });
+          fs.copyFileSync(path.join(dirOrigen, f), destino);
+        }
+        const nuevo = await api.subirTema(tienda, dir, { nombre: `Kads · ${t.archivosPedidos.length} parte(s) de ${origen.nombre} · ${fecha}` });
+        cambiarDestino(id, dest.tiendaId, { estado: 'lista', nuevoTema: nuevo, sinPisar: suyas, temaBase: vivo.nombre });
+        fs.rmSync(dir, { recursive: true, force: true });
+      } else {
+        avanzar(id, `Creando el producto en «${tienda.nombre}» como BORRADOR…`);
+        const p = datosProducto;
+        const opciones = (p.options || []).filter((o) => !(o.name === 'Title' && o.values?.length === 1 && o.values[0] === 'Default Title'));
+        const input = {
+          title: p.title,
+          handle: p.handle,
+          descriptionHtml: p.descriptionHtml || '',
+          vendor: p.vendor || undefined,
+          productType: p.productType || undefined,
+          tags: p.tags || [],
+          status: 'DRAFT',
+          seo: p.seo?.title || p.seo?.description ? { title: p.seo.title || undefined, description: p.seo.description || undefined } : undefined,
+          ...(opciones.length ? { productOptions: opciones.map((o) => ({ name: o.name, values: o.values.map((v) => ({ name: v })) })) } : {}),
+          variants: (p.variants?.nodes || []).slice(0, 100).map((v) => ({
+            price: v.price,
+            ...(v.compareAtPrice ? { compareAtPrice: v.compareAtPrice } : {}),
+            ...(v.sku ? { sku: v.sku } : {}),
+            inventoryPolicy: v.inventoryPolicy || 'DENY',
+            optionValues: opciones.length ? v.selectedOptions.filter((o) => opciones.some((x) => x.name === o.name)).map((o) => ({ optionName: o.name, name: o.value })) : [{ optionName: 'Title', name: 'Default Title' }],
+          })),
+          files: (p.media?.nodes || []).filter((m) => m?.image?.url).map((m) => ({ originalSource: m.image.url, contentType: 'IMAGE', ...(m.image.altText ? { alt: m.image.altText } : {}) })),
+        };
+        const d = await api.admin(tienda, 'mutation($i:ProductSetInput!){ productSet(input:$i, synchronous:true){ product{ id handle } userErrors{ field message } } }', { i: input });
+        const e = d?.productSet?.userErrors?.[0];
+        if (e) throw new Error(`Shopify no creó el producto: ${e.message}`);
+        const nuevo = d?.productSet?.product;
+        const numero = String(nuevo?.id || '').split('/').pop();
+        const admin = `https://admin.shopify.com/store/${tienda.dominio.split('.')[0]}/products/${numero}`;
+        const otraMoneda = datosProducto.moneda && tienda.moneda && datosProducto.moneda !== tienda.moneda;
+        cambiarDestino(id, dest.tiendaId, { estado: 'lista', productoNuevo: { id: nuevo?.id, handle: nuevo?.handle, admin, vista: `${(tienda.tienda || `https://${tienda.dominio}`).replace(/\/$/, '')}/products/${nuevo?.handle}` }, aviso: otraMoneda ? `Los precios se copiaron con los mismos números, pero «${origen.nombre}» está en ${datosProducto.moneda} y «${tienda.nombre}» en ${tienda.moneda}: revísalos antes de publicar.` : null });
+      }
+      bien++;
+    } catch (e) {
+      cambiarDestino(id, dest.tiendaId, { estado: 'error', error: e?.message || 'No salió.' });
+      avanzar(id, `«${tienda.nombre}»: ${e?.message || 'no salió'}`);
+    }
+  }
+  if (!bien) throw new Error('No se pudo copiar a ninguna tienda: mira el motivo en cada una.');
+  avanzar(id, t.que === 'producto' ? 'Listo: el producto quedó en BORRADOR en cada tienda. Revísalo y publícalo.' : 'Listo: en cada tienda quedó un tema nuevo SIN publicar. Mira su vista previa y publícalo.');
+  guardar(id, { estado: 'lista' });
+}
+
+/** Publica lo copiado en UNA tienda: su tema nuevo, o el producto (activo y en la tienda online). */
+export async function publicarCopia(id, tiendaId) {
+  const t = leerTrabajo(id);
+  if (t.tipo !== 'copia') throw new ErrorApp(400, 'Ese trabajo no es una copia.');
+  const d = (t.destinos || []).find((x) => x.tiendaId === tiendaId);
+  if (!d || d.estado !== 'lista') throw new ErrorApp(409, 'En esa tienda no hay nada listo para publicar.');
+  const tienda = tiendaConClave(tiendaId);
+  if (d.nuevoTema?.id) await api.publicarTema(tienda, d.nuevoTema.id);
+  else if (d.productoNuevo?.id) {
+    await api.admin(tienda, 'mutation($p:ProductUpdateInput!){ productUpdate(product:$p){ product{ id } userErrors{ message } } }', { p: { id: d.productoNuevo.id, status: 'ACTIVE' } });
+    try {
+      const pubs = await api.admin(tienda, '{ publications(first: 20) { nodes { id name } } }');
+      const tiendaOnline = (pubs?.publications?.nodes || []).find((x) => /online store|tienda online/i.test(x.name));
+      if (tiendaOnline) await api.admin(tienda, 'mutation($id:ID!,$p:[PublicationInput!]!){ publishablePublish(id:$id, input:$p){ userErrors{ message } } }', { id: d.productoNuevo.id, p: [{ publicationId: tiendaOnline.id }] });
+    } catch {
+      /* queda activo; el canal se elige en Shopify */
+    }
+  } else throw new ErrorApp(409, 'En esa tienda no hay nada para publicar.');
+  cambiarDestino(id, tiendaId, { estado: 'publicado', publicado: new Date().toISOString() });
+  return leerTrabajo(id);
+}
+
+/** Descarta lo copiado en UNA tienda (borra su tema nuevo o el producto en borrador). */
+export async function descartarCopia(id, tiendaId) {
+  const t = leerTrabajo(id);
+  const d = (t.destinos || []).find((x) => x.tiendaId === tiendaId);
+  if (!d || d.estado !== 'lista') throw new ErrorApp(409, 'En esa tienda no hay nada para descartar.');
+  const tienda = tiendaConClave(tiendaId);
+  if (d.nuevoTema?.id) await api.borrarTema(tienda, d.nuevoTema.id);
+  else if (d.productoNuevo?.id) await api.admin(tienda, 'mutation($i:ProductDeleteInput!){ productDelete(input:$i){ deletedProductId userErrors{ message } } }', { i: { id: d.productoNuevo.id } });
+  cambiarDestino(id, tiendaId, { estado: 'descartado' });
+  return leerTrabajo(id);
+}
+
 /** Para la coordinadora: las tiendas, en una línea cada una. */
-export const tiendasEnTexto = () => listarTiendas().map((t) => `${t.id} | ${t.nombre} | ${t.dominio} | ${t.tipo === 'completo' ? 'acceso completo' : 'solo temas'}`).join('\n');
+export const tiendasEnTexto = () => listarTiendas().map((t) => `${t.id} | ${t.nombre} | ${t.dominio} | cuenta ${t.cuenta || 'Mi cuenta'} | país ${t.pais || '?'} | ${t.tipo === 'completo' ? 'acceso completo' : 'solo temas'}`).join('\n');
