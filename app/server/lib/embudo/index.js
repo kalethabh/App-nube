@@ -13,6 +13,7 @@ import { lanzarSesion } from '../motor-ia.js';
 import { permisos } from '../imagen-ads/sesiones.js';
 import { turno, soltarTurno } from '../ia/fila.js';
 import { avatarElegido, validarPerfil, claveAvatar, guardarRetrato, promptAvatar } from './avatares.js';
+import { REVISION_VISUAL, identidadProducto, modoFondo, fondoDe } from './direccion.js';
 import { SECCIONES, firma, extraerTextos, construirPrompt } from './textos.js';
 
 const RE_ID = /^e-[a-f0-9]{12}$/;
@@ -21,7 +22,7 @@ const FORMATOS = ['9:16', '4:5', '1:1'];
 const activas = new Set();
 const textosActivos = new Set();
 const formatoDe = (s) => s === 'hero' ? '9:16' : '4:5';
-const visualDe = (e,s) => e.visuales?.[s] || (s === 'hero' ? 'persona' : s === 'dolor' ? 'enfoque' : s === 'uso' ? 'demostracion' : 'producto');
+const visualDe = (e,s) => e.visuales?.[s] || (s === 'hero' ? 'persona' : s === 'dolor' ? 'enfoque' : s === 'uso' ? 'demostracion' : s === 'beneficios' ? 'enfoque' : 'producto');
 const ahora = () => new Date().toISOString();
 const nuevoId = (p, n) => `${p}-${crypto.randomBytes(n).toString('hex')}`;
 const carpeta = (id) => path.join(TEMP, `_embudo-${id}`);
@@ -41,11 +42,18 @@ const huellaFoto = (id) => {
   const h = firma(fs.readFileSync(f).toString('base64')); fotosCache.set(f, { clave, firma: h }); return h;
 };
 const opcionDe = (e, s) => e.textos[s]?.opciones.find((o) => o.id === e.seleccion[s]);
-const firmaSeccion = (e, s) => firma({ opcion: opcionDe(e, s), contenido: e.textos[s]?.contenido, formato: formatoDe(s), visual: visualDe(e,s), fondo: e.fondo || '#FFFFFF', estilo: e.estilo, fuente: e.fuenteFirma, foto: e.fotoFirma, avatar: s === 'hero' && visualDe(e,s) === 'persona' ? claveAvatar(e.avatar) : null });
+const firmaSeccion = (e, s) => firma({ revisionVisual:REVISION_VISUAL, opcion: opcionDe(e, s), contenido: e.textos[s]?.contenido, formato: formatoDe(s), visual: visualDe(e,s), fondo: fondoDe(e), estilo: e.estilo, fuente: e.fuenteFirma, foto: e.fotoFirma, avatar: s === 'hero' && visualDe(e,s) === 'persona' ? claveAvatar(e.avatar) : null });
 function cargar(id) {
   if (!RE_ID.test(String(id))) throw new ErrorApp(404, 'No encuentro ese embudo.');
   const e = leerJSON(archivo(id));
   if (!e || !esDeEstaApp(e)) throw new ErrorApp(404, 'No encuentro ese embudo.');
+  if(e.reglasVisuales !== REVISION_VISUAL) {
+    e.fondoModo=modoFondo(e);
+    try {e.identidad=identidadProducto(fuente(e.productoId).investigacion,leerFicha(e.productoId));} catch {e.identidad=identidadProducto();}
+    e.reglasVisuales=REVISION_VISUAL; e.presupuestos={};
+    // Migración única: conservar la fecha del proyecto y no releer la investigación en cada sondeo.
+    escribirJSON(archivo(e.id),e);
+  }
   if (e.trabajo?.estado === 'generando' && !activas.has(id)) {
     // Puede haberse cerrado después de descargar/anotar una imagen y antes de actualizar el panel.
     const jobId = e.trabajo.id;
@@ -84,7 +92,7 @@ function vista(e) {
   return {
     id: e.id, productoId: e.productoId, nombre: e.nombre, formato: e.formato, estilo: e.estilo, version: e.version,
     fuenteCambio, fuenteFecha: e.fuenteFecha, trabajo: e.trabajo, actualizado: e.actualizado, avatar: e.avatar || { modo:'sin' }, avatarGuardado: (() => { const a=avatarElegido(e.avatar); return a ? { nombre:a.nombre, url:a.url, estilo:a.estilo, id:a.id } : null; })(), avatarPendiente: Boolean(e.avatarPendiente),
-    fondo: e.fondo || '#FFFFFF', titulos: textosActivos.has(e.id) ? e.titulos : e.titulos?.estado === 'generando' ? { ...e.titulos, estado:'error', error:'La preparación se interrumpió. Vuelve a pedir los títulos.' } : e.titulos,
+    fondo: fondoDe(e), fondoModo:modoFondo(e), identidad:e.identidad, titulos: textosActivos.has(e.id) ? e.titulos : e.titulos?.estado === 'generando' ? { ...e.titulos, estado:'error', error:'La preparación se interrumpió. Vuelve a pedir los títulos.' } : e.titulos,
     secciones: SECCIONES.map((s) => ({ ...s, ...e.textos[s.id], formato: formatoDe(s.id), visual: visualDe(e,s.id), progreso: e.trabajo?.estados?.[s.id] || null, elegida: e.seleccion[s.id] || null, correccion: e.correcciones[s.id] || '',
       imagen: e.imagenes[s.id] ? { ...e.imagenes[s.id], desactualizada: e.imagenes[s.id].firma !== firmaSeccion(e, s.id) } : null,
     })),
@@ -103,14 +111,14 @@ export function crear({ productoId }) {
   if (!fotoPrincipal(productoId)) throw new ErrorApp(428, 'Agrega una foto del producto antes de crear el embudo.');
   const textos = extraerTextos(f.investigacion, leerFicha(productoId));
   const e = { id: nuevoId('e', 6), productoId, nombre: f.producto.nombre, puerto: PUERTO_DE_PRUEBA, version: 1, creado: ahora(), actualizado: ahora(),
-    formato: '9:16', fondo:'#FFFFFF', visuales:{}, extras:{}, estilo: '', avatar: { modo:'nuevo', descripcion:'', semilla:nuevoId('a',6) }, fuenteFirma: f.firma, fuenteFecha: f.investigacion.fecha || null, fotoFirma: huellaFoto(productoId), textos,
+    formato: '9:16', reglasVisuales:REVISION_VISUAL, fondoModo:'auto', identidad:identidadProducto(f.investigacion,leerFicha(productoId)), fondo:null, visuales:{}, extras:{}, estilo: '', avatar: { modo:'nuevo', descripcion:'', semilla:nuevoId('a',6) }, fuenteFirma: f.firma, fuenteFecha: f.investigacion.fecha || null, fotoFirma: huellaFoto(productoId), textos,
     seleccion: Object.fromEntries(SECCIONES.map((s) => [s.id, textos[s.id].opciones.length === 1 ? textos[s.id].opciones[0].id : null])),
     correcciones: {}, imagenes: {}, presupuestos: {}, trabajo: null,
   };
   guardar(e);
   return vista(e);
 }
-export function editar(id, { version, seleccion, correcciones, formato, fondo, visuales, manuales, estilo, avatar, actualizarTextos = false }) {
+export function editar(id, { version, seleccion, correcciones, formato, fondo, fondoModo, visuales, manuales, estilo, avatar, actualizarTextos = false }) {
   const e = cargar(id); libre(e);
   if (version !== e.version) throw new ErrorApp(409, 'El embudo cambió en otra ventana. Recarga antes de guardar.');
   if (actualizarTextos) {
@@ -118,6 +126,7 @@ export function editar(id, { version, seleccion, correcciones, formato, fondo, v
     e.nombre = f.producto.nombre;
     e.textos = extraerTextos(f.investigacion, leerFicha(e.productoId));
     for (const sec of SECCIONES) e.textos[sec.id].opciones.push(...(e.extras?.[sec.id] || []).filter(o=>o.tipo==='manual' || f.firma===e.fuenteFirma));
+    e.identidad=identidadProducto(f.investigacion,leerFicha(e.productoId));
     e.fuenteFirma = f.firma; e.fuenteFecha = f.investigacion.fecha || null; e.fotoFirma = huellaFoto(e.productoId);
     for (const s of SECCIONES) if (!opcionDe(e, s.id)) e.seleccion[s.id] = e.textos[s.id].opciones.length === 1 ? e.textos[s.id].opciones[0].id : null;
   }
@@ -151,7 +160,8 @@ export function editar(id, { version, seleccion, correcciones, formato, fondo, v
     if(p.modo==='nuevo') p.semilla=p.guardado ? e.avatar.semilla : nuevoId('a',6);
     e.avatar=p; e.avatarPendiente=null;
   }
-  if(fondo !== undefined) { if(!/^#[a-f0-9]{6}$/i.test(fondo)) throw new ErrorApp(400,'Elige un color de fondo válido.'); e.fondo=fondo.toUpperCase(); }
+  if(fondoModo !== undefined) {if(!['auto','manual'].includes(fondoModo)) throw new ErrorApp(400,'Elige fondo automático o personalizado.');if(fondoModo==='manual' && !/^#[a-f0-9]{6}$/i.test(fondo || e.fondo || '')) throw new ErrorApp(400,'Elige primero un color de fondo.');e.fondoModo=fondoModo;}
+  if(fondo !== undefined) { if(!/^#[a-f0-9]{6}$/i.test(fondo)) throw new ErrorApp(400,'Elige un color de fondo válido.'); e.fondo=fondo.toUpperCase();e.fondoModo='manual'; }
   if (formato !== undefined) { if (!FORMATOS.includes(formato)) throw new ErrorApp(400, 'Formato no válido.'); e.formato = formato; }
   if (estilo !== undefined) { if (typeof estilo !== 'string' || estilo.length > 1200) throw new ErrorApp(400, 'La dirección visual puede tener hasta 1200 caracteres.'); e.estilo = estilo.trim(); }
   e.version++; e.presupuestos = {};
@@ -226,8 +236,8 @@ export async function generar(id, { token, version }) {
     const usarAvatar = ['nuevo','biblioteca'].includes(e.avatar?.modo) && q.piezas.some(p=>p.id==='hero' && p.visual==='persona');
     const avatarArchivo = avatarActual && usarAvatar ? `avatar-base${path.extname(avatarActual.archivo)}` : usarAvatar ? 'avatar.png' : null;
     if(avatarActual && usarAvatar) fs.copyFileSync(avatarActual.archivo,path.join(dir,avatarArchivo));
-    const piezas = q.piezas.map((p) => ({ ...p, prompt: p.id === 'avatar' ? promptAvatar(e,ficha) : construirPrompt({ seccion: p.id, opcion: p.opcion, contenido: p.contenido, producto: e.nombre, ficha, estilo, formato: p.formato, fondo:e.fondo || '#FFFFFF', visual:p.visual, correccion: p.correccion }) }));
-    escribirJSON(path.join(dir, 'trabajo.json'), { id: jobId, version, motor: q.motor, formato: e.formato, fondo:e.fondo || '#FFFFFF', visualPorSeccion:true, foto: productoFoto, usarAvatar, avatarArchivo, piezas, creado: ahora() });
+    const piezas = q.piezas.map((p) => ({ ...p, prompt: p.id === 'avatar' ? promptAvatar(e,ficha) : construirPrompt({ seccion: p.id, opcion: p.opcion, contenido: p.contenido, producto: e.nombre, ficha, estilo, formato: p.formato, fondo:fondoDe(e), identidad:e.identidad, secuencia:SECCIONES.map(s=>({seccion:s.id,...opcionDe(e,s.id)})), visual:p.visual, correccion: p.correccion }) }));
+    escribirJSON(path.join(dir, 'trabajo.json'), { id: jobId, version, motor: q.motor, formato: e.formato, fondo:fondoDe(e), identidad:e.identidad, revisionVisual:REVISION_VISUAL, visualPorSeccion:true, foto: productoFoto, usarAvatar, avatarArchivo, piezas, creado: ahora() });
   }
   e.trabajo = { id: jobId, token, estado: 'generando', motor: q.motor, cantidad: q.cantidad, importeAprobado: q.importe, inicio: ahora(), secciones: q.piezas.map((p) => p.id), estados:Object.fromEntries(q.piezas.map(p=>[p.id,{estado:'en-cola'}])), hechas: 0 };
   e.presupuestos = {}; guardar(e);
