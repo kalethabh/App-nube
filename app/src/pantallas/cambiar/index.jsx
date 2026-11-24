@@ -584,7 +584,6 @@ export default function Cambiar({ params }) {
       ) : (
         <>
           <Nuevo alCrear={(s) => { invalidar('cambios'); ir(rutas.cambiar(s)); }} />
-          <Lista />
         </>
       )}
     </div>

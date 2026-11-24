@@ -130,7 +130,7 @@ export function listarSketches() {
     .map((slug) => {
       const e = leerEstado(slug);
       const p = leerJSON(path.join(dirDe(slug), 'proyecto.json'));
-      return { slug, producto: e.producto || '', titulo: p?.nombre || null, etapa: e.etapa, creado: e.creado, paso: e.paso || null };
+      return { slug, productoId: e.productoId || null, producto: e.producto || '', titulo: p?.nombre || null, etapa: e.etapa, creado: e.creado, paso: e.paso || null };
     })
     .sort((a, b) => String(b.creado).localeCompare(String(a.creado)));
 }
