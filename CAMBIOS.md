@@ -2,6 +2,10 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24a · TrendTrack vuelve a funcionar en la investigación
+
+- La investigación de la competencia (y «Mejores anuncios») decía «No se pudo usar TrendTrack»: tu conector se llama «Trendtrack» y la app lo buscaba como «TrendTrack», así que cada consulta se negaba. Ahora lo encuentra se llame como se llame.
+
 ## 2026-11-23b · Ciudad creativa: tu estudio como un videojuego
 
 - Inicio con una portada ilustrada original, ciudad de atardecer, personajes, viñetas y accesos a crear videos, imágenes e investigar.
