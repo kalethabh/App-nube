@@ -1,23 +1,15 @@
 {
-  "id": "1ae1b95f-0a75-4473-b2e5-cff7fb3dca41",
-  "uuid": "1ae1b95f-0a75-4473-b2e5-cff7fb3dca41",
-  "estado": "lista",
+  "id": "48252264-99d8-4f08-a38e-2e8cb3cf1ce3",
+  "uuid": "48252264-99d8-4f08-a38e-2e8cb3cf1ce3",
+  "estado": "investigando",
   "pais": null,
   "progreso": [
     "Claude está investigando tu mercado",
     "Leyendo las instrucciones del estilo",
-    "Mirando las fotos de tu producto",
-    "Guardando",
-    "Buscando en los archivos"
+    "Mirando las fotos de tu producto"
   ],
-  "intentos": 1,
-  "inicio": "2026-11-24T14:00:39.445Z",
+  "intentos": 2,
+  "inicio": "2026-11-24T15:44:32.814Z",
   "error": null,
-  "fin": "2026-11-24T14:07:56.611Z",
-  "medida": {
-    "turnos": 29,
-    "duracionMs": 436792,
-    "motor": "claude"
-  },
-  "actualizado": "2026-11-24T14:07:56.612Z"
+  "actualizado": "2026-11-24T15:44:35.514Z"
 }
