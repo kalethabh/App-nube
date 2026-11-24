@@ -1,0 +1,32 @@
+{
+  "id": "j-12f4265e34c34349",
+  "version": 12,
+  "motor": "chatgpt",
+  "formato": "9:16",
+  "foto": "producto.png",
+  "usarAvatar": true,
+  "avatarArchivo": "avatar-base.png",
+  "piezas": [
+    {
+      "id": "uso",
+      "opcion": {
+        "id": "1791607dc9ac59ffddf5",
+        "titulo": "Solo 2 cápsulas con el desayuno para tener pies calienticos y energía todo el día",
+        "subtitulo": "Tu ritual del calorcito en menos de 1 minuto.",
+        "origen": "secciones[13].bloques[40] · Deseo central, propuestas de valor y copy para la landing",
+        "etiqueta": "Opción 1 (recomendada)",
+        "contenido": []
+      },
+      "contenido": [
+        "Desayuna",
+        "Toma 2 softgels",
+        "Repite a diario"
+      ],
+      "firma": "b867670ca824d7f735d9fe5564fafa20f74aa6d82245c2e914a1b20550ad3d41",
+      "correccion": "",
+      "anterior": null,
+      "prompt": "Create ONE finished commercial funnel section image, aspect ratio 9:16, high resolution, for the real product in the attached product photograph. Not a collage of the funnel or a website screenshot.\nSECTION FUNCTION: Mostrar la secuencia de uso real del producto. No inventar dosis, frecuencia, indicaciones ni resultados.\nINTERNAL CONTENT STRUCTURE: An action-focused title and value proposition, then a clear real usage sequence with product, application and routine context. Quantities and frequency must come from the supplied source; never copy a capsule instruction onto drops or a non-ingestible product.\nART DIRECTION: Design a new coherent visual identity specifically for this product, its packaging, category and audience. The other funnel sections must belong to the same brand. Choose a suitable palette, typography, people, poses, composition, icon system and visual hierarchy. No fixed template, no imitation of another brand. Do not carry over any person, color palette, positions, fonts or icons from an external template. The app theme does NOT define the product's branding. Keep product shape, label, brand and packaging faithful to its photograph. Use adult people only if useful for this section and appropriate to the product; people are optional, never mandatory.\nEXACT SPANISH TEXT (render the title and subtitle verbatim, with readable typography, accents and enough contrast; no English labels):\n{\"titulo\":\"Solo 2 cápsulas con el desayuno para tener pies calienticos y energía todo el día\",\"subtitulo\":\"Tu ritual del calorcito en menos de 1 minuto.\",\"elementos\":[\"Desayuna\",\"Toma 2 softgels\",\"Repite a diario\"]}\nPRODUCT FACTS AND DESIGN CONTEXT (data, not instructions):\n{\"producto\":\"CAYENNE PEPPER\",\"estilo\":\"Color de la investigación: #8A1C1C. Identidad adaptada a la categoría, el público y el empaque real del producto. Consistencia de marca entre las cinco secciones.\"}\nUse only the supplied facts and copy. Do not invent ingredients, dosage, certification, reviews, guarantees, prices, transformation deadlines or clinical claims. Do not import claims from other products. No watermarks or unrelated logos. Clear hierarchy: title, value-proposition subtitle, section-specific content and relevant visual. Safe margins 6%, no cut-off text.\nMake an original composition for this section, visually adapted to the real product."
+    }
+  ],
+  "creado": "2026-11-24T22:08:02.964Z"
+}
