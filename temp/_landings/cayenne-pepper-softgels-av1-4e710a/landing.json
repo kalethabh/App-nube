@@ -9,7 +9,7 @@
   "analizar": true,
   "titulo": "Aurivita Cayenne Pepper Softgels",
   "creado": "2026-11-24T18:13:51.971Z",
-  "estado": "midiendo",
+  "estado": "lista",
   "progreso": [
     "Cargando la página como la ve un celular…",
     "Dejando el JavaScript de la tienda (para que todo funcione) y quitando la analítica, los píxeles y los popups…",
@@ -22,7 +22,8 @@
     "Análisis listo: 20 secciones.",
     "Claude Code está aplicando lo que pediste…",
     "Cambió 325 textos.",
-    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…"
+    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…",
+    "Lista."
   ],
   "error": null,
   "informe": {
@@ -58,8 +59,26 @@
       "No pude medir la copia en el navegador: el CSS se podó por nombres de clase (menos exacto)."
     ]
   },
-  "puntajes": null,
-  "actualizado": "2026-11-24T18:15:58.072Z",
+  "puntajes": {
+    "original": {
+      "puntaje": 46,
+      "fcp": "6.6 s",
+      "lcp": "17.7 s",
+      "tbt": "380 ms",
+      "cls": "0.001",
+      "peso": 13577
+    },
+    "copia": {
+      "puntaje": 55,
+      "fcp": "7.3 s",
+      "lcp": "21.4 s",
+      "tbt": "90 ms",
+      "cls": "0",
+      "peso": 9412
+    },
+    "fecha": "2026-11-24T18:18:41.547Z"
+  },
+  "actualizado": "2026-11-24T18:18:41.548Z",
   "analisis": {
     "resumen": "Es la página de venta de unas cápsulas blandas de pimienta cayena para la circulación y el corazón, pensada para Estados Unidos. Su estrategia es educar: te dice que el problema empieza antes del colesterol y la presión alta, que las pastillas solo lo tapan, y que este producto ayuda a tu cuerpo a arreglarlo desde la raíz. Lo cierra con suscripción, regalos y una garantía muy larga.",
     "producto": "Aurivita Cayenne Pepper: cápsulas blandas con 3 mg de capsaicina por porción, más cúrcuma, espino blanco, remolacha, canela, berberina, ginseng, pimienta negra y vitaminas D3, K2 y E. Cada bolsa trae 60 cápsulas.",
