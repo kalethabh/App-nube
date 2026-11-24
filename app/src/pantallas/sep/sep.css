@@ -112,3 +112,69 @@
 .sep-card__campana b { font-weight: 700; color: var(--texto-2); }
 .sep-aviso { margin: 0; padding: 10px 14px; border-radius: 12px; border: 1px dashed color-mix(in srgb, var(--aviso) 60%, transparent); background: color-mix(in srgb, var(--aviso) 10%, transparent); color: var(--texto-1); font-size: 13px; }
 @media (max-width: 640px) { .sep-alcance .sep-segmento { width: 100%; } .sep-alcance .sep-segmento button { flex: 1; height: auto; min-height: 34px; padding: 4px 6px; font-size: 12px; line-height: 1.2; text-align: center; justify-content: center; } .sep-campo, .sep-campo select { width: 100%; max-width: none; } .sep-campo--ancho select { min-width: 0; } }
+
+/* ---------------------------------------------------------------- Sistema S.E.P: Objetivos y avance (plan.jsx) */
+.sep-kpis--cuatro { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sep-kpi__de { font-size: 15px; color: var(--texto-3); font-weight: 600; }
+.sep-plan__aviso { margin: 0; padding: 10px 14px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--bien) 45%, transparent); background: color-mix(in srgb, var(--bien) 10%, transparent); color: var(--texto-1); font-size: 13.5px; }
+.sep-plan__barra-progreso { display: block; height: 6px; border-radius: 4px; background: var(--superficie-2); overflow: hidden; }
+.sep-plan__barra-progreso i { display: block; height: 100%; border-radius: 4px; background: var(--s-gasto); transition: width 0.4s ease; }
+.sep-plan__barra-progreso i.ok { background: var(--bien); }
+.sep-plan__fuego { color: var(--aviso); vertical-align: -3px; }
+.sep-plan__columnas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+.sep-plan__tarjeta { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 14px; border: 1px solid var(--borde-1); background: var(--superficie-1); min-width: 0; }
+.sep-plan__tarjeta h2 { display: flex; align-items: center; gap: 7px; margin: 0; font-size: 15.5px; }
+.sep-plan__tarjeta h3 { margin: 0; font-size: 13px; color: var(--texto-2); }
+.sep-plan__ayuda { margin: 0; font-size: 12.5px; color: var(--texto-3); }
+.sep-plan__corte { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 12px; }
+.sep-plan__corte .sep-campo input { width: 120px; }
+.sep-plan__guia ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 0; padding: 0; list-style: none; }
+.sep-plan__guia li { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--borde-1); background: var(--superficie-2); font-size: 12px; font-variant-numeric: tabular-nums; color: var(--texto-2); }
+.sep-plan__guia li.ok { border-color: color-mix(in srgb, var(--bien) 50%, transparent); color: var(--bien); }
+.sep-plan__guia li.mal { border-color: color-mix(in srgb, var(--mal) 50%, transparent); color: var(--mal); }
+.sep-plan__objetivo { display: grid; grid-template-columns: 1.3fr 0.7fr 0.8fr 1.2fr auto; gap: 6px; align-items: center; }
+.sep-plan__inp { height: 34px; padding: 0 10px; border-radius: 9px; border: 1px solid var(--borde-2); background: var(--superficie-1); color: var(--texto-1); font: inherit; font-size: 13px; min-width: 0; }
+.sep-plan__borrar { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 0; border-radius: 8px; background: transparent; color: var(--texto-3); cursor: pointer; }
+.sep-plan__borrar:hover { background: color-mix(in srgb, var(--mal) 12%, transparent); color: var(--mal); }
+.sep-plan__objetivo-botones { display: flex; gap: 8px; }
+.sep-plan__barra { fill: var(--s-gasto); opacity: 0.85; }
+.sep-plan__barra--ok { fill: var(--s-ingresos); opacity: 1; }
+.sep-plan__meta-linea { stroke: var(--texto-3); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.sep-plan__bitacora-form { display: flex; gap: 8px; }
+.sep-plan__bitacora-form input { flex: 1; }
+.sep-plan__bitacora { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.sep-plan__bitacora li { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 10px; font-size: 13px; color: var(--texto-1); }
+.sep-plan__bitacora li:nth-child(odd) { background: var(--superficie-2); }
+.sep-plan__bitacora li span:nth-child(2) { flex: 1; }
+.sep-plan__bitacora-fecha { font-size: 11.5px; font-weight: 700; color: var(--texto-3); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------- Sistema S.E.P: Copiloto (copiloto.jsx) */
+.sep-copiloto { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.sep-copiloto__rapidos { display: flex; flex-wrap: wrap; gap: 8px; }
+.sep-copiloto__rapidos button { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 13px; border-radius: 999px; border: 1px solid var(--borde-2); background: var(--superficie-1); color: var(--texto-1); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.sep-copiloto__rapidos button:hover:not(:disabled) { border-color: var(--s-gasto); color: var(--s-gasto); }
+.sep-copiloto__rapidos button:disabled { opacity: 0.5; cursor: default; }
+.sep-copiloto__chat { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 14px; border: 1px solid var(--borde-1); background: var(--superficie-1); min-height: 320px; max-height: 60vh; overflow-y: auto; }
+.sep-copiloto__hola { display: flex; gap: 12px; align-items: flex-start; color: var(--texto-2); max-width: 640px; }
+.sep-copiloto__hola svg { flex: none; color: var(--s-gasto); margin-top: 2px; }
+.sep-copiloto__hola p { margin: 0; font-size: 13.5px; line-height: 1.55; }
+.sep-copiloto__msj { max-width: 76%; padding: 9px 13px; border-radius: 14px; font-size: 13.5px; line-height: 1.5; }
+.sep-copiloto__msj p { margin: 0; white-space: pre-wrap; }
+.sep-copiloto__msj small { display: block; margin-top: 3px; font-size: 10.5px; color: var(--texto-3); }
+.sep-copiloto__msj--tu { align-self: flex-end; background: var(--s-gasto); color: #fff; border-bottom-right-radius: 4px; }
+.sep-copiloto__msj--tu small { color: rgba(255, 255, 255, 0.75); }
+.sep-copiloto__msj--el { align-self: flex-start; background: var(--superficie-2); color: var(--texto-1); border-bottom-left-radius: 4px; }
+.sep-copiloto__pensando .puntos i { animation: sep-punto 1.2s infinite; font-style: normal; }
+.sep-copiloto__pensando .puntos i:nth-child(2) { animation-delay: 0.2s; }
+.sep-copiloto__pensando .puntos i:nth-child(3) { animation-delay: 0.4s; }
+@keyframes sep-punto { 0%, 60%, 100% { opacity: 0.25; } 30% { opacity: 1; } }
+.sep-copiloto__caja { display: flex; gap: 8px; align-items: flex-end; }
+.sep-copiloto__caja textarea { flex: 1; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--borde-2); background: var(--superficie-1); color: var(--texto-1); font: inherit; font-size: 13.5px; resize: vertical; min-height: 44px; }
+
+@media (max-width: 900px) {
+  .sep-kpis--cuatro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sep-plan__columnas { grid-template-columns: 1fr; }
+  .sep-plan__objetivo { grid-template-columns: 1fr 0.6fr 0.8fr auto; }
+  .sep-plan__inp--nota { grid-column: 1 / -2; }
+  .sep-copiloto__msj { max-width: 92%; }
+}

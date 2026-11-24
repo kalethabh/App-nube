@@ -6,9 +6,12 @@
 // Gráficas (guía dataviz): una sola escala por gráfica (nunca doble eje: las compras van aparte de los dólares),
 // marcas finas con extremos redondeados, leyenda con dos series, tooltip al pasar, y la tabla como alternativa.
 // Colores validados (validate_palette.js): ingresos/compras #65a30d, gasto #2563eb (claro) / #3b82f6 (oscuro).
-import { useEffect, useMemo, useState } from 'react';
-import { ArrowUpRight, Hourglass, ImagePlus, LayoutGrid, Minus, PauseCircle, RefreshCw, Rocket, Settings, Shuffle, Table2, TrendingUp } from 'lucide-react';
-import { Boton, CabeceraPagina, Esqueleto, EstadoVacio } from '../../componentes/index.js';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
+import { ArrowUpRight, Bot, Hourglass, ImagePlus, LayoutGrid, Megaphone, Minus, PauseCircle, RefreshCw, Rocket, Settings, Shuffle, Table2, Target, TrendingUp } from 'lucide-react';
+import { Boton, CabeceraPagina, Esqueleto, EstadoVacio, Pestanas } from '../../componentes/index.js';
+
+const SepPlan = lazy(() => import('./plan.jsx'));
+const SepCopiloto = lazy(() => import('./copiloto.jsx'));
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { enlace } from '../../datos/rutas.js';
 import { fechaRelativa } from '../../datos/formato.js';
@@ -264,6 +267,8 @@ function Tarjeta({ a, f: fGeneral, objetivo, conCuenta = false }) {
 
 export default function Sep() {
   const pref = useMemo(leerPref, []);
+  // (2026-11-24) tres secciones: tus anuncios de Meta (lo de siempre), Objetivos y avance, y el Copiloto
+  const [seccion, setSeccion] = useState(pref.seccion || 'anuncios');
   const [rango, setRango] = useState(pref.rango || '30d');
   const [roas, setRoas] = useState(pref.roas || '2');
   const [cpa, setCpa] = useState(pref.cpa || '');
@@ -291,7 +296,7 @@ export default function Sep() {
   useEffect(() => {
     if (alcance === 'campana' && campanas.length && !campanas.some((c) => c.id === campana)) setCampana(campanas[0].id);
   }, [alcance, campanas, campana]);
-  useEffect(() => guardarPref({ rango, roas, cpa, cuenta, alcance, bm, campana }), [rango, roas, cpa, cuenta, alcance, bm, campana]);
+  useEffect(() => guardarPref({ seccion, rango, roas, cpa, cuenta, alcance, bm, campana }), [seccion, rango, roas, cpa, cuenta, alcance, bm, campana]);
   const listo = alcance === 'bm' ? Boolean(bm) : alcance === 'campana' ? Boolean(cuenta && campana && campanas.some((c) => c.id === campana)) : Boolean(cuenta);
   const consulta = listo ? `/api/sep/informe?${new URLSearchParams({ alcance, bm, cuenta, ...(alcance === 'campana' ? { campana } : {}), rango, roas: String(Number(roas) || 2), cpa: String(Number(cpa) || ''), ...(forzar ? { forzar: '1' } : {}) })}` : null;
   const { datos, cargando, error } = useDatos(consulta ? `sep:${consulta}` : 'sep:nada', () => (consulta ? pedirNuevo(consulta) : Promise.resolve(null)));
@@ -303,12 +308,34 @@ export default function Sep() {
   const objetivo = Number(roas) || 2;
   const lista = (datos?.anuncios || []).filter((a) => filtro === 'todos' || a.decision.tipo === filtro);
 
-  const cabecera = <CabeceraPagina sobretitulo="Escalar · Variar · Pausar" titulo="S.E.P" descripcion="Tus anuncios de Meta que más venden, con sus métricas, y lo que conviene hacer con cada uno: escalarlo, hacerle variaciones, sostenerlo o pausarlo. Solo lee tu cuenta: nunca cambia nada." />;
+  const cabecera = <CabeceraPagina sobretitulo="Escalar · Variar · Pausar" titulo="Sistema S.E.P" descripcion="Tus objetivos, el avance del día y tus anuncios de Meta que más venden, con el copiloto que te asesora con tu método. Solo lee tu cuenta: nunca cambia nada." />;
+  const pestanas = (
+    <Pestanas
+      items={[
+        { id: 'anuncios', etiqueta: 'Anuncios de Meta', icono: Megaphone },
+        { id: 'plan', etiqueta: 'Objetivos y avance', icono: Target },
+        { id: 'copiloto', etiqueta: 'Copiloto', icono: Bot },
+      ]}
+      activa={seccion}
+      onCambio={setSeccion}
+    />
+  );
+
+  if (seccion === 'plan' || seccion === 'copiloto') {
+    return (
+      <div className="pagina sep pila" style={{ '--hueco': 'var(--e-5)' }}>
+        {cabecera}
+        {pestanas}
+        <Suspense fallback={<Esqueleto alto={420} />}>{seccion === 'plan' ? <SepPlan /> : <SepCopiloto />}</Suspense>
+      </div>
+    );
+  }
 
   if (lasCuentas?.sinToken) {
     return (
       <div className="pagina sep pila" style={{ '--hueco': 'var(--e-6)' }}>
         {cabecera}
+        {pestanas}
         <EstadoVacio icono={Rocket} titulo="Conecta tu cuenta publicitaria de Meta" descripcion="Pega un token de Meta con el permiso ads_read en Ajustes › Conexiones (Meta, tu cuenta publicitaria). Es gratis y solo lee: S.E.P nunca cambia nada en tus anuncios." acciones={<Boton variante="primario" icono={Settings} href="#/ajustes?seccion=conexiones">Ir a Conexiones</Boton>} />
       </div>
     );
@@ -317,6 +344,7 @@ export default function Sep() {
   return (
     <div className="pagina sep pila" style={{ '--hueco': 'var(--e-5)' }}>
       {cabecera}
+      {pestanas}
       <div className="sep-controles">
         <div className="sep-alcance">
           <span className="sep-alcance__etiqueta">Ver</span>
