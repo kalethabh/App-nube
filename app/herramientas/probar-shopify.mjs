@@ -240,9 +240,9 @@ async function principal() {
   const t3 = r.datos?.id;
   t = await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${t3}`)).datos, terminado);
   const sufijoL = t?.plantilla?.replace(/^page\./, '');
-  check('(2026-11-24) Primero la VISTA PREVIA: el código queda en el tema y la página todavía no existe', t?.estado === 'vista-previa' && t.vistaPrevia === `https://bella.com/?view=${sufijoL}` && !t.pagina && consultas.filter((c) => /pageCreate/.test(c.query || '')).length === paginasAntes, t);
+  check('(2026-11-24) Primero la VISTA PREVIA: el código queda en el tema y la página todavía no existe', t?.estado === 'vista-previa' && t.vistaPrevia === `https://bella.com/collections/all?view=${sufijoL}` && !t.pagina && consultas.filter((c) => /pageCreate/.test(c.query || '')).length === paginasAntes, t);
   const vivo = temasFalsos().find((x) => x.role === 'live').id;
-  check('La vista previa es la misma plantilla como portada alternativa (index.<sufijo>)', (archivoFalso(vivo, `templates/index.${sufijoL}.liquid`) || '').startsWith('{% layout none %}'));
+  check('La vista previa es la misma plantilla como colección alternativa (collection.<sufijo>, en /collections/all)', (archivoFalso(vivo, `templates/collection.${sufijoL}.liquid`) || '').startsWith('{% layout none %}'));
   r = await pedir(`/api/shopify/trabajos/${t3}/publicar`, { metodo: 'POST' });
   t = r.datos;
   check('«Publicar la página» crea la página publicada con esa plantilla', t?.estado === 'lista' && t.pagina === 'https://bella.com/pages/gotas-para-dormir' && consultas.some((c) => /pageCreate/.test(c.query || '') && c.variables?.p?.templateSuffix === sufijoL), t);
@@ -294,6 +294,9 @@ async function principal() {
   r = await pedir('/api/shopify/copias', { json: { origenId: bella.id, destinos: [otra.id], que: 'partes', archivos: ['sections/oferta.liquid'] } });
   let cp1 = await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${r.datos?.id}`)).datos, terminado);
   const d1 = cp1?.destinos?.[0];
+  r = await pedir('/api/shopify/copias', { json: { origenId: bella.id, destinos: [otra.id], que: 'partes', archivos: ['templates/index.json'] } });
+  const cpx = await esperar(120, async () => (await pedir(`/api/shopify/trabajos/${r.datos?.id}`)).datos, terminado);
+  check('(vista previa) Si lo copiado no es de una página en particular, abre la portada del tema nuevo', /\/\?preview_theme_id=/.test(cpx?.destinos?.[0]?.nuevoTema?.vista || ''), cpx?.destinos?.[0]);
   check('Copiar PARTES: van con lo que necesitan (snippet y css)', cp1?.estado === 'lista' && ['sections/oferta.liquid', 'snippets/kads-sello.liquid', 'assets/oferta.css'].every((f) => cp1.archivos?.includes(f)), cp1);
   check('…a la otra tienda como tema NUEVO SIN publicar (con vista previa) y su tema publicado no cambia', d1?.estado === 'lista' && d1.nuevoTema?.id && /preview_theme_id/.test(d1.nuevoTema.vista || '') && archivoFalso(d1.nuevoTema.id, 'sections/oferta.liquid', OTRA) && archivoFalso(d1.nuevoTema.id, 'snippets/kads-sello.liquid', OTRA) && !archivoFalso(temasFalsos(OTRA).find((x) => x.role === 'live').id, 'sections/oferta.liquid', OTRA), { d1, temas: temasFalsos(OTRA) });
   r = await pedir('/api/shopify/copias', { json: { origenId: bella.id, destinos: [otra.id], que: 'tema' } });

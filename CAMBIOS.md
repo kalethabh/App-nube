@@ -2,6 +2,16 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24h · La vista previa abre la página que cambió
+
+- «Vista previa» ahora abre directo **la página que cambió**: la de un producto si cambiaste la página de producto, la colección, el carrito… (antes abría la portada con todos los productos).
+- La vista previa de las **landings** se abre en una dirección que funciona en todas las tiendas (antes, en algunas se veía el catálogo en vez de la landing). Las landings que ya subiste: súbelas otra vez para tener el enlace nuevo.
+
+## 2026-11-24g · Conectar tiendas de cuentas distintas
+
+- «Con mi cuenta de Shopify» ahora **copia el enlace** (no abre el navegador): lo pegas en el **perfil de Chrome donde tienes la sesión de esa tienda**, entras y apruebas.
+- Cada tienda guarda **su propia sesión**: puedes conectar tiendas de **cuentas distintas** sin que una cierre la otra.
+
 ## 2026-11-24f · Conectar tu tienda de Shopify con un botón
 
 - En Shopify › «Conectar una tienda», la forma nueva es **«Con mi cuenta de Shopify»**: pones la dirección de la tienda, tocas el botón, se abre Shopify, entras y apruebas. Sin claves. Sirve para los temas (cambios con IA, landings y copiar temas o secciones). Para páginas y productos sigue «Acceso completo».
