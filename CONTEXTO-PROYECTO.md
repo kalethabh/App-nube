@@ -15,6 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Logo, Ciudad clara y Shopify por negocios (2026-11-24l)
 
+Implementación: [PR #200](https://github.com/kalethabh/App-nube/pull/200).
+Distribución de esta versión: [v2026-11-24l](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24l).
+
 Pedido del usuario: mejorar el logo según la identidad de la portada oscura, conservar ese estilo como
 predeterminado y hacer su versión clara; Shopify debe abrir conexiones organizadas por carpetas como
 District Shop, con sus tiendas por país, sin llevar directamente a landings.
