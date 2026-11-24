@@ -17,7 +17,12 @@
 //      · los enlaces y formularios relativos quedan apuntando a la tienda original (el botón de compra sigue andando).
 //   4. Deja la landing en su carpeta: index.html + assets/ (y original.html, la página como vino).
 //
-//   clonarLanding({ url, carpeta, alAvanzar })  -> { titulo, pesos, imagenes, carruseles, avisos }
+// (2026-11-24j) MODO FIEL (por defecto): parte del HTML que manda la tienda (antes de su JavaScript) y DEJA los scripts de
+// la tienda y del page builder (con su dirección completa), así desplegables, pestañas, selectores y variantes funcionan
+// igual que en la original; quita solo la analítica, los píxeles, los chats y los popups (RE_RASTREO) y no poda el CSS.
+// `fiel: false` (la «liviana») es lo de antes: sin JavaScript, CSS podado y carruseles propios.
+//
+//   clonarLanding({ url, carpeta, alAvanzar, fiel })  -> { titulo, pesos, imagenes, carruseles, scripts, scriptsVivos, fiel, avisos }
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -167,6 +172,7 @@ export function selectoresDe(css) {
 
 export function podarCss(css, usados) {
   const sirve = (sel) => {
+    if (usados.todo) return true; // (modo fiel: nada se poda; solo las fuentes con swap)
     if (usados.selectores) return usados.selectores.has(sel);
     // lo que no se puede saber desde el HTML (estados, pseudoelementos) se ignora; con que sus clases e ids existan, vale
     const limpio = sel.replace(/:{1,2}[\w-]+(\((?:[^()]|\([^()]*\))*\))?/g, '').replace(/\[[^\]]*\]/g, '');
@@ -231,12 +237,33 @@ function gifAVideo(ffmpeg, entrada, salidaSinExt) {
 
 // ---------------------------------------------------------------- clonar
 
-export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg = null }) {
+// (2026-11-24j) Lo que NO se deja en el modo fiel: analítica, píxeles, chats y popups de las apps (lo demás corre igual
+// que en la original: desplegables, pestañas, selectores, variantes, carruseles, page builders…).
+export const RE_RASTREO = /(googletagmanager|google-analytics|gtag\(|\bfbq\(|fbevents|connect\.facebook\.net|analytics\.tiktok|\bttq\.|hotjar|clarity\.ms|snap\.licdn|bat\.bing|pintrk|s\.pinimg|criteo|taboola|outbrain|doubleclick|klaviyo|privy|wheelio|trekkie|ShopifyAnalytics|web-pixels|webPixelsManager|monorail|shopify-perf-kit|boomerang|\/checkouts\/internal\/preloads|shopifycloud\/(consent|privacy|perf|shop-js|storefront-forms|portable-wallets)|attn\.tv|attentive|postscript|omnisend|optinmonster|justuno|wisepops|pushowl|smsbump|sms-bump|tidio|gorgias|zendesk|tawk\.to|intercom|crisp\.chat|hextom|spin-?wheel|spin-?to-?win|promolayer|growave-popup|consentmo|cookiebot|onetrust)/i;
+const RE_DATOS = /json|template|text\/x-|importmap|speculationrules/i;
+
+export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg = null, fiel = true }) {
   const assets = path.join(carpeta, 'assets');
   fs.mkdirSync(assets, { recursive: true });
   const avisos = [];
   alAvanzar('Cargando la página como la ve un celular…');
-  let html = await htmlArmado(url);
+  // (2026-11-24j) MODO FIEL: el HTML tal como lo manda la tienda (antes de su JavaScript) con los scripts de la tienda y
+  // del page builder: así todo FUNCIONA como en la original (en el HTML ya armado, el JavaScript arrancaría dos veces).
+  let html = null;
+  if (fiel) {
+    try {
+      const r = await bajar(url, { accept: 'text/html' });
+      const t = r.bytes.toString('utf8');
+      if (/<body/i.test(t) && t.length > 2000 && !/cf-challenge|challenge-platform|captcha/i.test(t.slice(0, 20000))) html = t;
+    } catch {
+      /* sin el HTML directo: va armado */
+    }
+    if (!html) {
+      fiel = false;
+      avisos.push('La tienda no entregó su página directo (protección anti-bots): la copié ya armada, sin su JavaScript (los desplegables o selectores pueden no funcionar).');
+    }
+  }
+  if (!html) html = await htmlArmado(url);
   if (!html) {
     avisos.push('No encontré el navegador de la app: copié la página sin correr su JavaScript (algunos carruseles o imágenes pueden faltar).');
     html = (await bajar(url, { accept: 'text/html' })).bytes.toString('utf8');
@@ -247,13 +274,26 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   const titulo = raiz.querySelector('title')?.text?.trim() || new URL(url).pathname;
 
   // ------------------------------------------------ fuera lo que no se ve y pesa
-  alAvanzar('Quitando el JavaScript de la tienda, las apps y los píxeles…');
+  alAvanzar(fiel ? 'Dejando el JavaScript de la tienda (para que todo funcione) y quitando la analítica, los píxeles y los popups…' : 'Quitando el JavaScript de la tienda, las apps y los píxeles…');
   let scripts = 0;
+  let scriptsVivos = 0;
   for (const s of raiz.querySelectorAll('script')) {
-    if (/ld\+json/i.test(s.getAttribute('type') || '')) continue;
+    const tipo = s.getAttribute('type') || '';
+    if (/ld\+json/i.test(tipo)) continue;
+    if (fiel) {
+      const src = s.getAttribute('src');
+      const id = `${s.getAttribute('id') || ''} ${s.getAttribute('class') || ''}`;
+      const rastreo = src ? RE_RASTREO.test(src) : RE_RASTREO.test(id) || (!RE_DATOS.test(tipo) && RE_RASTREO.test(s.rawText.slice(0, 4000)));
+      if (!rastreo) {
+        if (src) s.setAttribute('src', absoluta(src, url) || src);
+        scriptsVivos++;
+        continue;
+      }
+    }
     scripts++;
     s.remove();
   }
+  if (fiel) avisos.push(`Funciona como la original: dejé ${scriptsVivos} scripts de la tienda (desplegables, pestañas, selectores, variantes, carruseles) y quité ${scripts} de analítica, píxeles, chats y popups.`);
   for (const n of raiz.querySelectorAll('noscript')) n.remove();
   for (const l of raiz.querySelectorAll('link')) {
     const rel = (l.getAttribute('rel') || '').toLowerCase();
@@ -270,15 +310,17 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   // (2026-11-24) los POPUPS de las apps («Try your luck», ruleta, boletín, Klaviyo, Privy…): la página se copia con el
   // popup ya abierto y, sin su JavaScript, no se cierra y tapa todo. Fuera, y fuera el bloqueo del scroll que dejan.
   const RE_POPUP = /(klaviyo|privy|wheelio|spin[-_]?(to[-_]?)?win|spin[-_]?wheel|lucky|popup|pop-up|newsletter[-_](modal|popup)|exit[-_]intent|gamif|wisepops|justuno|optinmonster|om-holder|sumo-|omnisend-form|pushowl|sms-bump|attentive|postscript-|promolayer|scratch-card|bdl-popup)/i;
+  // (en el modo fiel, los modales del tema —guía de tallas, vista rápida— se quedan: su JavaScript los abre y cierra)
+  const RE_POPUP_APPS = /(klaviyo|privy|wheelio|spin[-_]?(to[-_]?)?win|spin[-_]?wheel|exit[-_]intent|gamif|wisepops|justuno|optinmonster|om-holder|sumo-|omnisend-form|pushowl|sms-bump|attentive|postscript-|promolayer|scratch-card|bdl-popup)/i;
   let popups = 0;
   for (const n of raiz.querySelectorAll('[id],[class]')) {
     if (!n.parentNode || /^(HTML|BODY|MAIN)$/.test(n.tagName)) continue;
-    if (RE_POPUP.test(`${n.getAttribute('id') || ''} ${n.getAttribute('class') || ''}`)) {
+    if ((fiel ? RE_POPUP_APPS : RE_POPUP).test(`${n.getAttribute('id') || ''} ${n.getAttribute('class') || ''}`)) {
       n.remove();
       popups++;
     }
   }
-  for (const n of raiz.querySelectorAll('[role="dialog"],[aria-modal="true"],dialog[open]')) {
+  for (const n of fiel ? [] : raiz.querySelectorAll('[role="dialog"],[aria-modal="true"],dialog[open]')) {
     if (n.parentNode) {
       n.remove();
       popups++;
@@ -291,7 +333,7 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
     if (st) n.setAttribute('style', st);
     else n.removeAttribute('style');
   }
-  if (popups) avisos.push(`Quité ${popups} popup(s) de las apps de la tienda (sin su JavaScript no se cerraban y tapaban la página).`);
+  if (popups) avisos.push(`Quité ${popups} popup(s) de las apps de la tienda (tapaban la página).`);
 
   // ------------------------------------------------ los recursos: una sola descarga por URL
   const hechos = new Map(); // url -> Promise<{ rel, w, h, variantes? }>
@@ -544,16 +586,17 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   }
 
   // ------------------------------------------------ los carruseles: filas que se deslizan, sin las copias
+  // (en el modo fiel, los arma su propio JavaScript: como en la original)
   let carruseles = 0;
-  for (const n of raiz.querySelectorAll('.swiper-slide-duplicate, .slick-cloned, .splide__slide--clone, .is-cloned')) n.remove();
-  for (const w of raiz.querySelectorAll('.swiper-wrapper, .slick-track, .flickity-slider, .splide__list, .glide__slides, .owl-stage')) {
+  for (const n of fiel ? [] : raiz.querySelectorAll('.swiper-slide-duplicate, .slick-cloned, .splide__slide--clone, .is-cloned')) n.remove();
+  for (const w of fiel ? [] : raiz.querySelectorAll('.swiper-wrapper, .slick-track, .flickity-slider, .splide__list, .glide__slides, .owl-stage')) {
     carruseles++;
     const st = (w.getAttribute('style') || '').replace(/(transform|transition-duration|transition|width)\s*:[^;]*;?/gi, '');
     w.setAttribute('style', st);
     w.classList.add('kc-carrusel');
   }
   // lo que el carrusel escondía hasta arrancar («--pending», «is-loading»): ya está armado
-  for (const n of raiz.querySelectorAll('[class]')) {
+  for (const n of fiel ? [] : raiz.querySelectorAll('[class]')) {
     const cl = (n.getAttribute('class') || '').split(/\s+/);
     const fuera = cl.filter((c) => /--pending$|^is-loading$|^swiper-lock$/.test(c));
     if (fuera.length) n.setAttribute('class', cl.filter((c) => !fuera.includes(c)).join(' '));
@@ -570,8 +613,9 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   alAvanzar('Midiendo cómo se ve en celular y en computador…');
   const vivas = raiz.querySelectorAll('img').filter((i) => i.getAttribute('src'));
   vivas.forEach((i, k) => i.setAttribute('data-kc', String(k)));
-  const conCss = `<!doctype html>\n${(raiz.querySelector('html')?.outerHTML || raiz.toString()).replace(/<\/head>/i, `<style>${css}</style></head>`)}`;
-  const medido = await medirEnNavegador(carpeta, conCss, selectoresDe(css));
+  // (la medición, sin scripts: solo mira cómo se ve)
+  const conCss = `<!doctype html>\n${(raiz.querySelector('html')?.outerHTML || raiz.toString()).replace(/<script\b(?![^>]*ld\+json)[\s\S]*?<\/script>/gi, '').replace(/<\/head>/i, `<style>${css}</style></head>`)}`;
+  const medido = await medirEnNavegador(carpeta, conCss, fiel ? [] : selectoresDe(css));
   if (medido) {
     vivas.forEach((img, k) => {
       const a = medido.anchos[k];
@@ -591,19 +635,20 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   }
 
   // ------------------------------------------------ el CSS final: podado, minificado y dentro del HTML
-  alAvanzar('Dejando solo el CSS que usa la página…');
+  alAvanzar(fiel ? 'Juntando y comprimiendo el CSS…' : 'Dejando solo el CSS que usa la página…');
   const usados = { clases: new Set(['kc-carrusel']), ids: new Set(), selectores: medido?.selectores || null };
   for (const n of raiz.querySelectorAll('[class]')) for (const c of (n.getAttribute('class') || '').split(/\s+/)) if (c) usados.clases.add(c);
   for (const n of raiz.querySelectorAll('[id]')) usados.ids.add(n.getAttribute('id'));
   const antes = Buffer.byteLength(css);
-  let podado = podarCss(css, usados);
+  // (modo fiel: el CSS entero; el JavaScript crea elementos y estados —abierto, activo— que la medición no ve)
+  let podado = podarCss(css, fiel ? { todo: true } : usados);
   try {
     const { transform } = await import('esbuild');
     podado = (await transform(podado, { loader: 'css', minify: true, logLevel: 'silent' })).code;
   } catch {
     avisos.push('No pude minificar el CSS (quedó sin comprimir, pero sin las reglas que no se usan).');
   }
-  const propio = `html,body{overflow-y:auto!important;height:auto!important}body{position:static!important}.kc-carrusel{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;transform:none!important}.kc-carrusel::-webkit-scrollbar{display:none}.kc-carrusel>*{flex-shrink:0;scroll-snap-align:start}`;
+  const propio = fiel ? '' : `html,body{overflow-y:auto!important;height:auto!important}body{position:static!important}.kc-carrusel{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;transform:none!important}.kc-carrusel::-webkit-scrollbar{display:none}.kc-carrusel>*{flex-shrink:0;scroll-snap-align:start}`;
   pesos.css = Buffer.byteLength(podado);
   const cabeza = raiz.querySelector('head');
   if (!cabeza.querySelector('meta[name="viewport"]')) cabeza.insertAdjacentHTML('afterbegin', '<meta name="viewport" content="width=device-width,initial-scale=1">');
@@ -614,12 +659,13 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   }
   cabeza.insertAdjacentHTML('beforeend', `<style>${podado}${propio}</style>`);
   // el JavaScript mínimo de los carruseles: flechas y puntos mueven la fila (≈1 KB, al final)
-  const js = `<script>(()=>{const fila=e=>{const c=e.closest('.swiper,.slick-slider,.flickity-enabled,.splide,.glide,.owl-carousel,[class*=carousel],[class*=slider]');return c&&c.querySelector('.kc-carrusel')};const paso=f=>{const s=f.children[0];return s?s.getBoundingClientRect().width+parseFloat(getComputedStyle(f).columnGap||0):f.clientWidth};addEventListener('load',()=>{const W=innerWidth*innerHeight;for(const el of document.querySelectorAll('body *')){const cs=getComputedStyle(el);if(cs.position!=='fixed'&&cs.position!=='sticky')continue;const r=el.getBoundingClientRect();if(cs.position==='fixed'&&r.width*r.height>W*0.45&&(parseInt(cs.zIndex)||0)>=5)el.style.display='none'}});document.addEventListener('click',e=>{const b=e.target.closest('[class*=next],[class*=prev],[class*=bullet],[class*=dot]');if(!b)return;const f=fila(b);if(!f)return;e.preventDefault();const cl=b.className+'';if(/next/.test(cl))f.scrollBy({left:paso(f)});else if(/prev/.test(cl))f.scrollBy({left:-paso(f)});else{const k=[...b.parentNode.children].indexOf(b);f.scrollTo({left:k*paso(f)})}});})();</script>`;
+  const tapar = `addEventListener('load',()=>{const W=innerWidth*innerHeight;for(const el of document.querySelectorAll('body *')){const cs=getComputedStyle(el);if(cs.position!=='fixed')continue;if(cs.visibility==='hidden'||+cs.opacity<0.1||cs.pointerEvents==='none')continue;const r=el.getBoundingClientRect();const v=Math.max(0,Math.min(r.right,innerWidth)-Math.max(r.left,0))*Math.max(0,Math.min(r.bottom,innerHeight)-Math.max(r.top,0));if(v>W*0.45&&(parseInt(cs.zIndex)||0)>=5)el.style.display='none'}});`;
+  const js = fiel ? `<script>${tapar}</script>` : `<script>(()=>{const fila=e=>{const c=e.closest('.swiper,.slick-slider,.flickity-enabled,.splide,.glide,.owl-carousel,[class*=carousel],[class*=slider]');return c&&c.querySelector('.kc-carrusel')};const paso=f=>{const s=f.children[0];return s?s.getBoundingClientRect().width+parseFloat(getComputedStyle(f).columnGap||0):f.clientWidth};addEventListener('load',()=>{const W=innerWidth*innerHeight;for(const el of document.querySelectorAll('body *')){const cs=getComputedStyle(el);if(cs.position!=='fixed'&&cs.position!=='sticky')continue;const r=el.getBoundingClientRect();if(cs.position==='fixed'&&r.width*r.height>W*0.45&&(parseInt(cs.zIndex)||0)>=5)el.style.display='none'}});document.addEventListener('click',e=>{const b=e.target.closest('[class*=next],[class*=prev],[class*=bullet],[class*=dot]');if(!b)return;const f=fila(b);if(!f)return;e.preventDefault();const cl=b.className+'';if(/next/.test(cl))f.scrollBy({left:paso(f)});else if(/prev/.test(cl))f.scrollBy({left:-paso(f)});else{const k=[...b.parentNode.children].indexOf(b);f.scrollTo({left:k*paso(f)})}});})();</script>`;
   raiz.querySelector('body')?.insertAdjacentHTML('beforeend', js);
 
   let salida = `<!doctype html>\n${raiz.querySelector('html')?.outerHTML || raiz.toString()}`;
   salida = salida.replace(/<!--[\s\S]*?-->/g, '');
   fs.writeFileSync(path.join(carpeta, 'index.html'), salida);
   pesos.html = Buffer.byteLength(salida);
-  return { titulo, pesos, cssAntes: antes, imagenes: [...hechos.keys()].filter((k) => !k.startsWith('a:')).length, carruseles, scripts, avisos: [...new Set(avisos)].slice(0, 20) };
+  return { titulo, pesos, cssAntes: antes, imagenes: [...hechos.keys()].filter((k) => !k.startsWith('a:')).length, carruseles, scripts, scriptsVivos, fiel, avisos: [...new Set(avisos)].slice(0, 20) };
 }

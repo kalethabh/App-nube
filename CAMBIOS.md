@@ -2,6 +2,12 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24j · Landings que funcionan igual que la original, y con prompt
+
+- Las landings clonadas ahora **funcionan como la original**: desplegables, pestañas, selectores (como el de «elige tu dolor»), variantes y carruseles. La copia deja el JavaScript de la tienda y quita solo la analítica, los píxeles, los chats y los popups.
+- En Landings basta con **pegar la URL** y, si quieres, escribir en **«Qué quieres»** lo que le cambias con tus palabras («adáptala a mi producto…», «cambia el precio», «pásala a inglés»). Vacío, la clona tal cual. Un toque en tu producto escribe el pedido por ti.
+- Las landings que ya tenías: clónalas otra vez para que funcionen.
+
 ## 2026-11-24i · Landings sin popups que tapan
 
 - Al clonar, la app quita los **popups de las apps de la tienda** (ruletas como «Try your luck», boletines, descuentos…) que se copiaban abiertos y no dejaban usar la página, y deja la página desplazarse normal. La vista en celular y «Abrir» se pueden usar. Las landings que ya tenías: clónalas otra vez.

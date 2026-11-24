@@ -363,9 +363,15 @@ async function alMensaje(texto) {
   if (landing) {
     const prod = (/^Su producto: (.+)$/m.exec(textoTarea) || [])[1] || 'Producto';
     const nuevos = {};
-    for (const [, k, t] of textoTarea.matchAll(/^(\d+)\t(.*)$/gm)) if (/MARCAORIGINAL/.test(t)) nuevos[k] = t.replace(/MARCAORIGINAL/g, prod);
+    const conProducto = /^Su producto: /m.test(textoTarea);
+    const pedido = (/LO QUE PIDE EL USUARIO[^\n]*\n([^\n]+)/.exec(textoTarea) || [])[1];
+    for (const [, k, t] of textoTarea.matchAll(/^(\d+)\t(.*)$/gm)) {
+      if (conProducto && /MARCAORIGINAL/.test(t)) nuevos[k] = t.replace(/MARCAORIGINAL/g, prod);
+      // (2026-11-24j) un pedido sin producto: lo deja escrito en el texto de la oferta (así la prueba ve que llegó)
+      if (!conProducto && pedido && /Lleva 2/.test(t)) nuevos[k] = `PEDIDO: ${pedido}`;
+    }
     fs.writeFileSync(path.join(RAIZ, landing[1]), JSON.stringify(nuevos));
-    fs.writeFileSync(path.join(RAIZ, landing[1].replace('nuevos-textos', 'nuevas-imagenes')), JSON.stringify([{ id: 0, prompt: 'the product on a white table', aspecto: '1:1' }]));
+    fs.writeFileSync(path.join(RAIZ, landing[1].replace('nuevos-textos', 'nuevas-imagenes')), JSON.stringify(conProducto ? [{ id: 0, prompt: 'the product on a white table', aspecto: '1:1' }] : []));
     return resultado({ result: 'LISTO' });
   }
   // la coordinadora de la oficina (chat): «anuncio» crea uno de Claymation del primer producto con ficha, «regla:» anota una regla

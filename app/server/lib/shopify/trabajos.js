@@ -407,6 +407,17 @@ export async function subirLanding({ landingId, tiendaId, titulo, direccion, pro
       fs.writeFileSync(path.join(subir, 'assets', `${sufijo}.css.liquid`), estilos.join('\n'));
       html = html.replace('</head>', `{{ '${sufijo}.css' | asset_url | stylesheet_tag }}</head>`);
     }
+    // (2026-11-24j) los clones fieles traen el JavaScript de la tienda: si aún pesa mucho, los scripts grandes van como
+    // assets .js.liquid en su mismo lugar (sin defer: el orden se mantiene)
+    if (Buffer.byteLength(html) > 200000) {
+      let k = 0;
+      html = html.replace(/<script((?:\s+(?!src\b)[\w-]+(?:=(?:"[^"]*"|'[^']*'|[^\s>]+))?)*)\s*>([\s\S]*?)<\/script>/gi, (m, attrs, codigo) => {
+        if (codigo.length < 8000 || /type=["']?(?!text\/javascript|application\/javascript|module)[^"'\s>]+/i.test(attrs)) return m;
+        const nombre = `${sufijo}-js-${++k}.js`;
+        fs.writeFileSync(path.join(subir, 'assets', `${nombre}.liquid`), codigo);
+        return `<script${attrs} src="{{ '${nombre}' | asset_url }}"></script>`;
+      });
+    }
     const plantilla = `{% layout none %}\n${html.replace(/^<!doctype html>\s*/i, '<!doctype html>\n')}`;
     fs.writeFileSync(path.join(subir, 'templates', `page.${sufijo}.liquid`), plantilla);
     // (2026-11-24) VISTA PREVIA PRIMERO: la misma plantilla como portada alternativa (index.<sufijo>). Con ?view=<sufijo>

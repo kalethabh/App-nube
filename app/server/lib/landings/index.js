@@ -29,6 +29,7 @@ import { escribirJSON, ErrorApp, leerFicha, listarProductos, rutaFoto } from '..
 import { modoPrueba } from '../procesos.js';
 import { clonarLanding } from './clonar.js';
 import { puntaje } from './medir.js';
+import { motorElegido } from '../motor-ia.js';
 
 const DIR = path.join(TEMP, '_landings');
 const RE_ID = /^[a-z0-9-]{3,80}$/;
@@ -74,7 +75,15 @@ export function borrar(id) {
 
 // ---------------------------------------------------------------- crear
 
-export function crear({ url, modo = 'tal-cual', motor = 'claude', productoId = null, analizar = true } = {}) {
+/** (2026-11-24j) El producto que nombra el prompt («adáptala a Colágeno Plus»), o null. */
+export function productoDelPrompt(prompt, productos = listarProductos()) {
+  const norm = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  const p = ` ${norm(prompt)} `;
+  const hallados = productos.filter((x) => norm(x.nombre).length >= 3 && p.includes(` ${norm(x.nombre)} `)).sort((a, b) => norm(b.nombre).length - norm(a.nombre).length);
+  return hallados[0]?.id || null;
+}
+
+export function crear({ url, prompt = '', modo = null, motor = null, productoId = null, analizar = true, liviana = false } = {}) {
   let u;
   try {
     u = new URL(String(url || '').trim());
@@ -82,13 +91,26 @@ export function crear({ url, modo = 'tal-cual', motor = 'claude', productoId = n
   } catch {
     throw new ErrorApp(400, 'Pega la dirección completa de la landing (https://…).');
   }
+  // (2026-11-24j) EL PROMPT: pegas la URL y escribes lo que quieres con tus palabras. Sin prompt, tal cual; con prompt,
+  // la IA aplica lo que pides sobre la copia (adaptarla a tu producto, cambiar textos, precios, tono…).
+  const pedido = String(prompt || '').trim().slice(0, 4000);
+  if (!modo) modo = pedido ? 'adaptar' : 'tal-cual';
+  if (!motor) {
+    try {
+      motor = motorElegido() || 'claude';
+    } catch {
+      motor = 'claude';
+    }
+  }
   if (!['tal-cual', 'adaptar'].includes(modo)) throw new ErrorApp(400, 'Elige «Tal cual» o «Para mi producto».');
   if (!['claude', 'codex'].includes(motor)) throw new ErrorApp(400, 'Elige Claude Code o Codex.');
-  if (modo === 'adaptar' && !listarProductos().some((p) => p.id === productoId)) throw new ErrorApp(400, 'Elige el producto para el que la adaptas.');
+  if (modo === 'adaptar' && !productoId && pedido) productoId = productoDelPrompt(pedido);
+  if (modo === 'adaptar' && productoId && !listarProductos().some((p) => p.id === productoId)) throw new ErrorApp(400, 'No encuentro ese producto.');
+  if (modo === 'adaptar' && !productoId && !pedido) throw new ErrorApp(400, 'Escribe qué quieres cambiar o elige tu producto.');
   const base = (u.pathname.split('/').filter(Boolean).pop() || u.hostname).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'landing';
   const id = `${base}-${crypto.randomBytes(3).toString('hex')}`;
   fs.mkdirSync(carpetaDe(id), { recursive: true });
-  guardar(id, { id, url: u.href, modo, motor, productoId: modo === 'adaptar' ? productoId : null, analizar: analizar !== false, titulo: u.hostname, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
+  guardar(id, { id, url: u.href, modo, motor, prompt: pedido, liviana: liviana === true, productoId: modo === 'adaptar' ? productoId : null, analizar: analizar !== false, titulo: u.hostname, creado: new Date().toISOString(), estado: 'trabajando', progreso: [], error: null, informe: null, puntajes: null });
   trabajar(id);
   return leer(id);
 }
@@ -107,7 +129,7 @@ async function trabajar(id) {
   const carpeta = carpetaDe(id);
   try {
     const l = leer(id);
-    const informe = await clonarLanding({ url: l.url, carpeta, ffmpeg: await ffmpegDisponible(), alAvanzar: (t) => avanzar(id, t) });
+    const informe = await clonarLanding({ url: l.url, carpeta, fiel: !l.liviana, ffmpeg: await ffmpegDisponible(), alAvanzar: (t) => avanzar(id, t) });
     guardar(id, { titulo: informe.titulo, informe });
     if (l.analizar !== false) await analizarSinFrenar(id); // (analiza la original: antes de adaptarla)
     if (l.modo === 'adaptar') await adaptar(id);
@@ -284,25 +306,25 @@ async function adaptar(id) {
   const textos = textosDe(raiz);
   const imgs = raiz.querySelectorAll('img').filter((i) => i.getAttribute('src'));
   escribirJSON(path.join(carpeta, 'textos.json'), textos.map((t, k) => ({ id: k, texto: t.texto })));
-  const ficha = leerFicha(l.productoId) || {};
-  const prod = listarProductos().find((p) => p.id === l.productoId);
+  const ficha = l.productoId ? leerFicha(l.productoId) || {} : null;
+  const prod = l.productoId ? listarProductos().find((p) => p.id === l.productoId) : null;
   let investigacion = '';
   try {
-    investigacion = (await import('../investigacion.js')).aMarkdown(l.productoId) || '';
+    if (l.productoId) investigacion = (await import('../investigacion.js')).aMarkdown(l.productoId) || '';
   } catch {
     /* sin investigación */
   }
+  const pedido = String(l.prompt || '').trim();
   const rel = (f) => path.relative(RAIZ, path.join(carpeta, f)).replace(/\\/g, '/');
-  avanzar(id, `${l.motor === 'codex' ? 'Codex' : 'Claude Code'} está reescribiendo los textos para ${prod?.nombre || 'tu producto'}…`);
+  avanzar(id, `${l.motor === 'codex' ? 'Codex' : 'Claude Code'} está ${prod ? `reescribiendo los textos para ${prod.nombre}` : 'aplicando lo que pediste'}…`);
   const { lanzarSesion, prohibidasComunes } = await import('../motor-ia.js');
   const lista = textos.map((t, k) => `${k}\t${t.texto.slice(0, 400)}`).join('\n');
   const listaImgs = imgs.map((i, k) => `${k}\t${i.getAttribute('alt') || ''}\t${i.getAttribute('width') || '?'}x${i.getAttribute('height') || '?'}`).join('\n');
   const prompt = `TAREA: landing adaptada. Te ejecuta la app Kads Studio, sin chat ni terminal: solo escribes dos archivos con Write.
 
-El usuario clonó una landing de referencia y quiere la MISMA landing (misma estructura, mismo diseño, mismo orden y mismo tono de venta) para SU producto. Tú reescribes los TEXTOS; el diseño no se toca.
-
-Su producto: ${prod?.nombre || l.productoId}
-Ficha: ${JSON.stringify(ficha).slice(0, 6000)}
+El usuario clonó una landing de referencia y quiere la MISMA landing (misma estructura, mismo diseño, mismo orden y mismo tono de venta)${prod ? ' para SU producto' : ''}${pedido ? ', con los cambios que pide' : ''}. Tú reescribes los TEXTOS; el diseño no se toca.
+${pedido ? `\nLO QUE PIDE EL USUARIO (esto manda; si pide algo que no son textos ni imágenes, hazlo lo más parecido posible con los textos):\n${pedido}\n` : ''}
+${prod ? `Su producto: ${prod.nombre}\nFicha: ${JSON.stringify(ficha).slice(0, 6000)}` : 'No nombró ningún producto suyo de la app: usa solo lo que dice el pedido.'}
 ${investigacion ? `Su investigación de mercado (úsala para el ángulo, los dolores y las palabras del cliente):\n${investigacion.slice(0, 12000)}\n` : ''}
 Los textos de la landing, uno por línea (índice<TAB>texto):
 ${lista}
@@ -310,8 +332,8 @@ ${lista}
 Las imágenes de la landing (índice<TAB>alt<TAB>tamaño):
 ${listaImgs}
 
-1. Escribe ${rel('nuevos-textos.json')} con { "<índice>": "<texto nuevo>" } solo para los textos que deben cambiar (el nombre del producto o la marca, beneficios, ingredientes, preguntas frecuentes, reseñas, garantías…). Conserva el largo aproximado de cada texto (el diseño depende de eso), el idioma y el estilo. Precios y ofertas: déjalos como están salvo que la ficha diga otros. NUNCA inventes datos médicos, cifras, estudios ni testimonios que no estén en la ficha o la investigación: si un texto de la original afirma algo que no puedes respaldar para este producto, reescríbelo de forma general y verdadera.
-2. Escribe ${rel('nuevas-imagenes.json')} con [{ "id": <índice de la imagen>, "prompt": "<la imagen nueva en inglés, misma composición que la original pero con el producto del usuario>", "aspecto": "1:1" | "4:5" | "9:16" | "16:9" }] para las imágenes donde se ve el producto o la marca de la original (máximo 8, las más importantes primero). Las de personas, fondos o íconos sin marca no se cambian.
+1. Escribe ${rel('nuevos-textos.json')} con { "<índice>": "<texto nuevo>" } solo para los textos que deben cambiar${prod ? ' (el nombre del producto o la marca, beneficios, ingredientes, preguntas frecuentes, reseñas, garantías…)' : ' según el pedido'} ({} si ninguno). Conserva el largo aproximado de cada texto (el diseño depende de eso), el idioma y el estilo. Precios y ofertas: déjalos como están salvo que la ficha diga otros. NUNCA inventes datos médicos, cifras, estudios ni testimonios que no estén en la ficha, la investigación o el pedido: si un texto de la original afirma algo que no puedes respaldar para este producto, reescríbelo de forma general y verdadera.
+2. Escribe ${rel('nuevas-imagenes.json')} con [{ "id": <índice de la imagen>, "prompt": "<la imagen nueva en inglés, misma composición que la original pero con el producto del usuario>", "aspecto": "1:1" | "4:5" | "9:16" | "16:9" }] para las imágenes donde se ve el producto o la marca de la original${pedido ? ' o las que el pedido dice cambiar' : ''} (máximo 8, las más importantes primero; [] si ninguna). Las de personas, fondos o íconos sin marca no se cambian${pedido ? ' salvo que el pedido lo diga' : ''}.
 Tu respuesta final: solo LISTO.`;
   const r = await lanzarSesion({
     tipo: 'guion',
@@ -343,7 +365,7 @@ Tu respuesta final: solo LISTO.`;
   // las imágenes nuevas (ChatGPT, con la foto del producto)
   const pedidas = (leerJSON(path.join(carpeta, 'nuevas-imagenes.json')) || []).filter((x) => Number.isInteger(Number(x?.id)) && imgs[Number(x.id)] && String(x.prompt || '').trim()).slice(0, 8);
   let hechas = 0;
-  const foto = rutaFoto(l.productoId, 1);
+  const foto = l.productoId ? rutaFoto(l.productoId, 1) : null;
   if (pedidas.length) {
     avanzar(id, `ChatGPT está haciendo ${pedidas.length} imágenes con tu producto…`);
     const { motorDeImagenes, codexParaImagenes } = await import('../motor-imagenes.js');
