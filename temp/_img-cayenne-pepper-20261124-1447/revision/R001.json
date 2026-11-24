@@ -1,0 +1,13 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V01_1x1",
+      "ok": false,
+      "problemas": [
+        "Regla del borde: el titular «TODA MI VIDA FUI LA DE» llega casi al borde derecho (menos del 5 %). Hay que achicarlo o correrlo hacia adentro.",
+        "Regla del borde: «Pagas al recibir» queda muy pegado al borde de abajo (menos del 5 %). Hay que subir la cinta de la oferta."
+      ],
+      "correccion_en": "Keep every text at least 5% away from all edges: shrink the headline \"TODA MI VIDA FUI LA DE\" slightly so its right end stays well inside the right margin, and move the offer ribbon (\"TRATAMIENTO COMPLETO X3\" / \"Pagas al recibir\") a bit higher so it does not touch the bottom margin."
+    }
+  ]
+}

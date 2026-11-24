@@ -1,0 +1,22 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V02_1x1",
+      "ok": false,
+      "problemas": [
+        "El titular «PIES CALIENTICOS EN 2 A 4 SEMANAS» queda pegado al borde de arriba (a menos del 5 %) y casi toca el borde derecho. Hay que bajarlo y achicarlo un poco.",
+        "«Pagas al recibir» queda muy cerca del borde de abajo (a menos del 5 %). Hay que subir la cinta de la oferta."
+      ],
+      "correccion_en": "Keep every text at least 6% away from all edges: move the headline \"PIES CALIENTICOS EN 2 A 4 SEMANAS\" down and make it slightly smaller so it has clear margin from the top and right edges, and move the offer ribbon with \"TRATAMIENTO COMPLETO X3\" and \"Pagas al recibir\" (and the CTA) up so they have clear margin from the bottom edge."
+    },
+    {
+      "pieza": "V03_1x1",
+      "ok": false,
+      "problemas": [
+        "Los tres beneficios con check quedan pegados al borde izquierdo (a menos del 5 %). Hay que correrlos hacia adentro.",
+        "«Pagas al recibir» queda muy cerca del borde de abajo (a menos del 5 %). Hay que subir la cinta de la oferta."
+      ],
+      "correccion_en": "Keep every text and check icon at least 6% away from all edges: move the three benefit bullets (\"Pies calienticos\", \"Piernas livianas\", \"Energía hasta la noche\") to the right, away from the left edge, and move the offer ribbon with \"TRATAMIENTO COMPLETO X3\" and \"Pagas al recibir\" up so it has clear margin from the bottom edge."
+    }
+  ]
+}

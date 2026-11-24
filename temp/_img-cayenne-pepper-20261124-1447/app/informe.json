@@ -1,0 +1,60 @@
+{
+  "tipo": "imagen-ads",
+  "fecha": "2026-11-24T19:51:44.033Z",
+  "variaciones": 5,
+  "archivos": 5,
+  "modoPrueba": false,
+  "revision": {
+    "aLaPrimera": 0,
+    "rehechasPorTi": [],
+    "arregladas": [],
+    "conDetalles": [
+      {
+        "pieza": "V01_1x1",
+        "problemas": [
+          "Regla del borde: el titular «TODA MI VIDA FUI LA DE» llega casi al borde derecho (menos del 5 %). Hay que achicarlo o correrlo hacia adentro.",
+          "Regla del borde: «Pagas al recibir» queda muy pegado al borde de abajo (menos del 5 %). Hay que subir la cinta de la oferta."
+        ]
+      },
+      {
+        "pieza": "V02_1x1",
+        "problemas": [
+          "El titular «PIES CALIENTICOS EN 2 A 4 SEMANAS» queda pegado al borde de arriba (a menos del 5 %) y casi toca el borde derecho. Hay que bajarlo y achicarlo un poco.",
+          "«Pagas al recibir» queda muy cerca del borde de abajo (a menos del 5 %). Hay que subir la cinta de la oferta."
+        ]
+      },
+      {
+        "pieza": "V03_1x1",
+        "problemas": [
+          "Los tres beneficios con check quedan pegados al borde izquierdo (a menos del 5 %). Hay que correrlos hacia adentro.",
+          "«Pagas al recibir» queda muy cerca del borde de abajo (a menos del 5 %). Hay que subir la cinta de la oferta."
+        ]
+      },
+      {
+        "pieza": "V04_1x1",
+        "problemas": [
+          "Regla del borde: el titular de arriba queda muy pegado al borde superior (a menos del 5 %). Hay que bajarlo un poco.",
+          "Regla del borde: el texto «Pagas al recibir» de la oferta queda muy pegado al borde de abajo (a menos del 5 %). Hay que subir la oferta.",
+          "Regla del borde: «cayena que arde», en la columna de la derecha de la tabla, queda casi pegado al borde derecho. Hay que correr la tabla hacia adentro."
+        ]
+      },
+      {
+        "pieza": "V05_1x1",
+        "problemas": [
+          "Regla del 5 % del borde: el titular de arriba queda pegado al borde superior (menos del 5 %). Hay que bajarlo un poco.",
+          "Regla del 5 % del borde: el «Pagas al recibir» de la oferta queda muy cerca del borde de abajo (menos del 5 %). Hay que subir la oferta."
+        ]
+      }
+    ],
+    "sinRevisar": [],
+    "sinImagen": [],
+    "sinPrompt": []
+  },
+  "costo": {
+    "creditos": 0,
+    "dolares": 0,
+    "piezas": 0,
+    "estimadas": 0,
+    "estimado": false
+  }
+}

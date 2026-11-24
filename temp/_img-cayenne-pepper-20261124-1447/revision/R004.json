@@ -1,0 +1,13 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V05_1x1",
+      "ok": false,
+      "problemas": [
+        "Regla del 5 % del borde: el titular de arriba queda pegado al borde superior (menos del 5 %). Hay que bajarlo un poco.",
+        "Regla del 5 % del borde: el «Pagas al recibir» de la oferta queda muy cerca del borde de abajo (menos del 5 %). Hay que subir la oferta."
+      ],
+      "correccion_en": "Keep every text exactly as it is, but leave at least 6% empty margin from every edge: move the headline \"NO SOLO PIES CALIENTICOS: TAMBIÉN PIERNAS LIVIANAS\" slightly down from the top edge, and move the offer badge (\"TRATAMIENTO COMPLETO X3\" with \"Pagas al recibir\") slightly up so its text is not near the bottom edge."
+    }
+  ]
+}

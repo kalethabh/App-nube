@@ -2,7 +2,7 @@
   "version": 1,
   "siguiente": {
     "E": 2,
-    "R": 2,
+    "R": 5,
     "A": 1,
     "T": 2
   },
@@ -23,7 +23,7 @@
     "R001": {
       "tipo": "revision",
       "uuid": "6790092a-36ea-4ece-bd4c-77e72b71fd8d",
-      "estado": "en-curso",
+      "estado": "hecha",
       "formato": "1:1",
       "piezas": [
         {
@@ -31,7 +31,55 @@
           "firma": "2156689-1795549786575",
           "ronda": 1
         }
-      ]
+      ],
+      "empezada": true
+    },
+    "R002": {
+      "tipo": "revision",
+      "uuid": "d3366033-de9d-434b-bdfd-392072196f3b",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V02_1x1",
+          "firma": "2306019-1795549789014",
+          "ronda": 1
+        },
+        {
+          "pieza": "V03_1x1",
+          "firma": "2102397-1795549790899",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R003": {
+      "tipo": "revision",
+      "uuid": "93513b5a-810e-4217-83b4-7c71bcce300f",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V04_1x1",
+          "firma": "2027089-1795549860314",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
+    },
+    "R004": {
+      "tipo": "revision",
+      "uuid": "2ac81439-e6ce-4ded-ac23-cdd58e285324",
+      "estado": "hecha",
+      "formato": "1:1",
+      "piezas": [
+        {
+          "pieza": "V05_1x1",
+          "firma": "2087512-1795549882846",
+          "ronda": 1
+        }
+      ],
+      "empezada": true
     }
   },
   "variaciones": {
@@ -60,34 +108,53 @@
     "V01_1x1": {
       "v": "V01",
       "formato": "1:1",
-      "fase": "revisando",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2156689-1795549786575",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R001",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Regla del borde: el titular «TODA MI VIDA FUI LA DE» llega casi al borde derecho (menos del 5 %). Hay que achicarlo o correrlo hacia adentro.",
+          "Regla del borde: «Pagas al recibir» queda muy pegado al borde de abajo (menos del 5 %). Hay que subir la cinta de la oferta."
+        ],
+        "firma": "2156689-1795549786575",
+        "correccion_en": "Keep every text at least 5% away from all edges: shrink the headline \"TODA MI VIDA FUI LA DE\" slightly so its right end stays well inside the right margin, and move the offer ribbon (\"TRATAMIENTO COMPLETO X3\" / \"Pagas al recibir\") a bit higher so it does not touch the bottom margin."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-24T19:49:48.464Z",
       "pedido": null,
-      "ultimaOrden": "g",
-      "tandaRevision": "R001"
+      "ultimaOrden": "g"
     },
     "V02_1x1": {
       "v": "V02",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2306019-1795549789014",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "El titular «PIES CALIENTICOS EN 2 A 4 SEMANAS» queda pegado al borde de arriba (a menos del 5 %) y casi toca el borde derecho. Hay que bajarlo y achicarlo un poco.",
+          "«Pagas al recibir» queda muy cerca del borde de abajo (a menos del 5 %). Hay que subir la cinta de la oferta."
+        ],
+        "firma": "2306019-1795549789014",
+        "correccion_en": "Keep every text at least 6% away from all edges: move the headline \"PIES CALIENTICOS EN 2 A 4 SEMANAS\" down and make it slightly smaller so it has clear margin from the top and right edges, and move the offer ribbon with \"TRATAMIENTO COMPLETO X3\" and \"Pagas al recibir\" (and the CTA) up so they have clear margin from the bottom edge."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-24T19:49:51.016Z",
@@ -97,15 +164,25 @@
     "V03_1x1": {
       "v": "V03",
       "formato": "1:1",
-      "fase": "por-revisar",
-      "resultado": null,
+      "fase": "final",
+      "resultado": "con-detalles",
       "version": 1,
       "firma": "2102397-1795549790899",
       "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R002",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Los tres beneficios con check quedan pegados al borde izquierdo (a menos del 5 %). Hay que correrlos hacia adentro.",
+          "«Pagas al recibir» queda muy cerca del borde de abajo (a menos del 5 %). Hay que subir la cinta de la oferta."
+        ],
+        "firma": "2102397-1795549790899",
+        "correccion_en": "Keep every text and check icon at least 6% away from all edges: move the three benefit bullets (\"Pies calienticos\", \"Piernas livianas\", \"Energía hasta la noche\") to the right, away from the left edge, and move the offer ribbon with \"TRATAMIENTO COMPLETO X3\" and \"Pagas al recibir\" up so it has clear margin from the bottom edge."
+      },
       "motivo": null,
       "mensaje": null,
       "desde": "2026-11-24T19:49:51.016Z",
@@ -115,46 +192,59 @@
     "V04_1x1": {
       "v": "V04",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2027089-1795549860314",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R003",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Regla del borde: el titular de arriba queda muy pegado al borde superior (a menos del 5 %). Hay que bajarlo un poco.",
+          "Regla del borde: el texto «Pagas al recibir» de la oferta queda muy pegado al borde de abajo (a menos del 5 %). Hay que subir la oferta.",
+          "Regla del borde: «cayena que arde», en la columna de la derecha de la tabla, queda casi pegado al borde derecho. Hay que correr la tabla hacia adentro."
+        ],
+        "firma": "2027089-1795549860314",
+        "correccion_en": "Keep every text at least 5% away from all edges: move the headline \"MÁS CALORCITO EN LOS PIES SIN ARDOR\" slightly down from the top edge, move the offer ribbon \"TRATAMIENTO COMPLETO X3\" with \"Pagas al recibir\" and the \"Lo quiero\" button up from the bottom edge, and shift the comparison table slightly left so \"cayena que arde\" is clearly away from the right edge. Keep all texts exactly as they are."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-24T19:51:01.457Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     },
     "V05_1x1": {
       "v": "V05",
       "formato": "1:1",
-      "fase": "pedida",
-      "resultado": null,
-      "version": 0,
-      "firma": null,
-      "orden": {
-        "id": "g",
-        "modo": "generar",
-        "version": 1,
-        "trabajo": "T001"
-      },
+      "fase": "final",
+      "resultado": "con-detalles",
+      "version": 1,
+      "firma": "2087512-1795549882846",
+      "orden": null,
       "intentosApi": 1,
       "ronda": 1,
       "reintentoAuto": "no",
-      "revision": null,
+      "revision": {
+        "tanda": "R004",
+        "ronda": 1,
+        "ok": false,
+        "problemas": [
+          "Regla del 5 % del borde: el titular de arriba queda pegado al borde superior (menos del 5 %). Hay que bajarlo un poco.",
+          "Regla del 5 % del borde: el «Pagas al recibir» de la oferta queda muy cerca del borde de abajo (menos del 5 %). Hay que subir la oferta."
+        ],
+        "firma": "2087512-1795549882846",
+        "correccion_en": "Keep every text exactly as it is, but leave at least 6% empty margin from every edge: move the headline \"NO SOLO PIES CALIENTICOS: TAMBIÉN PIERNAS LIVIANAS\" slightly down from the top edge, and move the offer badge (\"TRATAMIENTO COMPLETO X3\" with \"Pagas al recibir\") slightly up so its text is not near the bottom edge."
+      },
       "motivo": null,
       "mensaje": null,
-      "desde": null,
-      "pedido": null
+      "desde": "2026-11-24T19:51:23.310Z",
+      "pedido": null,
+      "ultimaOrden": "g"
     }
   },
   "pedidos": {}

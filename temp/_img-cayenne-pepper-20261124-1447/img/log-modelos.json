@@ -1,6 +1,6 @@
 {
-  "generado": "2026-11-24T19:49:50.907Z",
-  "segundos": 100,
+  "generado": "2026-11-24T19:51:42.865Z",
+  "segundos": 212,
   "imagenes": [
     {
       "id": "V01_1x1",
@@ -31,6 +31,26 @@
       "referencias": 1,
       "creditos": 0,
       "taskId": "01a20f19-fcfe-7120-bba8-116ffa349501"
+    },
+    {
+      "id": "V04_1x1",
+      "archivo": "V04_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 1,
+      "creditos": 0,
+      "taskId": "01a20f1b-72a7-79b3-b0b9-22aacd3a3af1"
+    },
+    {
+      "id": "V05_1x1",
+      "archivo": "V05_1x1.png",
+      "modelo": "gpt-image (ChatGPT)",
+      "respaldo": false,
+      "intentos": 1,
+      "referencias": 1,
+      "creditos": 0,
+      "taskId": "01a20f1b-7b93-7b42-9e88-3da58eaac6b2"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "slug": "_img-cayenne-pepper-20261124-1447",
   "familia": "imagen-ads",
-  "estado": "corriendo",
-  "paso": "anuncios",
+  "estado": "listo",
+  "paso": "informe",
   "pasos": [
     {
       "id": "preparar",
@@ -31,21 +31,24 @@
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-24T19:48:10.391Z",
-      "detalle": "Creando 2 imágenes · Claude está revisando 1 imagen: repasando cada anuncio · 0 de 5 listas"
+      "fin": "2026-11-24T19:51:44.032Z"
     },
     {
       "id": "informe",
       "nombre": "Armando tu informe",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "hecho",
+      "intentos": 1,
+      "inicio": "2026-11-24T19:51:44.032Z",
+      "fin": "2026-11-24T19:51:44.033Z"
     }
   ],
   "rehechos": {},
   "modoPrueba": false,
   "creado": "2026-11-24T19:47:35.926Z",
   "aprobado": "2026-11-24T19:47:35.926Z",
-  "actualizado": "2026-11-24T19:49:55.332Z"
+  "actualizado": "2026-11-24T19:51:44.033Z",
+  "terminado": "2026-11-24T19:51:44.033Z"
 }

@@ -1,0 +1,14 @@
+{
+  "revisadas": [
+    {
+      "pieza": "V04_1x1",
+      "ok": false,
+      "problemas": [
+        "Regla del borde: el titular de arriba queda muy pegado al borde superior (a menos del 5 %). Hay que bajarlo un poco.",
+        "Regla del borde: el texto «Pagas al recibir» de la oferta queda muy pegado al borde de abajo (a menos del 5 %). Hay que subir la oferta.",
+        "Regla del borde: «cayena que arde», en la columna de la derecha de la tabla, queda casi pegado al borde derecho. Hay que correr la tabla hacia adentro."
+      ],
+      "correccion_en": "Keep every text at least 5% away from all edges: move the headline \"MÁS CALORCITO EN LOS PIES SIN ARDOR\" slightly down from the top edge, move the offer ribbon \"TRATAMIENTO COMPLETO X3\" with \"Pagas al recibir\" and the \"Lo quiero\" button up from the bottom edge, and shift the comparison table slightly left so \"cayena que arde\" is clearly away from the right edge. Keep all texts exactly as they are."
+    }
+  ]
+}
