@@ -1,0 +1,1502 @@
+[
+  {
+    "id": 0,
+    "texto": "Skip to content"
+  },
+  {
+    "id": 1,
+    "texto": "FREE SHIPPING"
+  },
+  {
+    "id": 2,
+    "texto": "on subscription‡"
+  },
+  {
+    "id": 3,
+    "texto": "120-DAYS"
+  },
+  {
+    "id": 4,
+    "texto": "guarantee‡"
+  },
+  {
+    "id": 5,
+    "texto": "3RD PARTY"
+  },
+  {
+    "id": 6,
+    "texto": "lab tested"
+  },
+  {
+    "id": 7,
+    "texto": "120-DAYS"
+  },
+  {
+    "id": 8,
+    "texto": "guarantee‡"
+  },
+  {
+    "id": 9,
+    "texto": "CONTACT"
+  },
+  {
+    "id": 10,
+    "texto": "MANAGE SUBSCRIPTION"
+  },
+  {
+    "id": 11,
+    "texto": "TRACK YOUR ORDER"
+  },
+  {
+    "id": 12,
+    "texto": "Log in"
+  },
+  {
+    "id": 13,
+    "texto": "Search"
+  },
+  {
+    "id": 14,
+    "texto": "Log in"
+  },
+  {
+    "id": 15,
+    "texto": "Cart"
+  },
+  {
+    "id": 16,
+    "texto": "Your cart is empty"
+  },
+  {
+    "id": 17,
+    "texto": "Have an account?"
+  },
+  {
+    "id": 18,
+    "texto": "Log in"
+  },
+  {
+    "id": 19,
+    "texto": "to check out faster."
+  },
+  {
+    "id": 20,
+    "texto": "Cart • 0 items"
+  },
+  {
+    "id": 21,
+    "texto": "Loading..."
+  },
+  {
+    "id": 22,
+    "texto": "Subtotal"
+  },
+  {
+    "id": 23,
+    "texto": "$0.00"
+  },
+  {
+    "id": 24,
+    "texto": "Check out"
+  },
+  {
+    "id": 25,
+    "texto": "4.6 / 5.0 | (996 reviews)"
+  },
+  {
+    "id": 26,
+    "texto": "Aurivita Cayenne Pepper (30 Servings)"
+  },
+  {
+    "id": 27,
+    "texto": "Everyday support for healthy circulation, blood pressure, and heart health."
+  },
+  {
+    "id": 28,
+    "texto": "4.6 / 5.0 | (996 reviews)"
+  },
+  {
+    "id": 29,
+    "texto": "Clinically Studied Ingredients"
+  },
+  {
+    "id": 30,
+    "texto": "890 clinicians endorse Aurivita for better heart health"
+  },
+  {
+    "id": 31,
+    "texto": "4.6 / 5.0 | (996 reviews)"
+  },
+  {
+    "id": 32,
+    "texto": "Aurivita Cayenne Pepper (30 Servings)"
+  },
+  {
+    "id": 33,
+    "texto": "Everyday support for healthy circulation, blood pressure, and heart health."
+  },
+  {
+    "id": 34,
+    "texto": "4.6 / 5.0 | (996 reviews)"
+  },
+  {
+    "id": 35,
+    "texto": "Supports Cardiovascular Health"
+  },
+  {
+    "id": 36,
+    "texto": "Supports Nitric Oxide Production"
+  },
+  {
+    "id": 37,
+    "texto": "Take 1 Softgel, Twice Daily With Food"
+  },
+  {
+    "id": 38,
+    "texto": "3rd-Party Lab Tested In The USA"
+  },
+  {
+    "id": 39,
+    "texto": "93% Sold"
+  },
+  {
+    "id": 40,
+    "texto": "See Nutrition Info"
+  },
+  {
+    "id": 41,
+    "texto": "Buy 1"
+  },
+  {
+    "id": 42,
+    "texto": "Free USA Shipping"
+  },
+  {
+    "id": 43,
+    "texto": "Most Popular"
+  },
+  {
+    "id": 44,
+    "texto": "Buy 2 Get 1 FREE"
+  },
+  {
+    "id": 45,
+    "texto": "Free USA Shipping"
+  },
+  {
+    "id": 46,
+    "texto": "Best Value"
+  },
+  {
+    "id": 47,
+    "texto": "Buy 3 Get 2 FREE"
+  },
+  {
+    "id": 48,
+    "texto": "Free USA Shipping"
+  },
+  {
+    "id": 49,
+    "texto": "GIFTS UNLOCKED"
+  },
+  {
+    "id": 50,
+    "texto": "$6.95"
+  },
+  {
+    "id": 51,
+    "texto": "FREE Shipping"
+  },
+  {
+    "id": 52,
+    "texto": "$10"
+  },
+  {
+    "id": 53,
+    "texto": "FREE E-Book"
+  },
+  {
+    "id": 54,
+    "texto": "$34.99"
+  },
+  {
+    "id": 55,
+    "texto": "FREE Black Garlic"
+  },
+  {
+    "id": 56,
+    "texto": "$34.99"
+  },
+  {
+    "id": 57,
+    "texto": "FREE Turmeric Curcumin"
+  },
+  {
+    "id": 58,
+    "texto": "Subscribe &amp; Save to unlock your free gifts"
+  },
+  {
+    "id": 59,
+    "texto": "One-time purchase"
+  },
+  {
+    "id": 60,
+    "texto": "Subscribe &amp; Save:"
+  },
+  {
+    "id": 61,
+    "texto": "Save 25% with Automatic Refills"
+  },
+  {
+    "id": 62,
+    "texto": "Refilled every 4 weeks"
+  },
+  {
+    "id": 63,
+    "texto": "In stock"
+  },
+  {
+    "id": 64,
+    "texto": "- Ready for"
+  },
+  {
+    "id": 65,
+    "texto": "same day dispatch"
+  },
+  {
+    "id": 66,
+    "texto": "Add to cart"
+  },
+  {
+    "id": 67,
+    "texto": "$72.00"
+  },
+  {
+    "id": 68,
+    "texto": "$90.00"
+  },
+  {
+    "id": 69,
+    "texto": "120-Day Money Back Guarantee"
+  },
+  {
+    "id": 70,
+    "texto": "Refills Ship Every 4 Weeks"
+  },
+  {
+    "id": 71,
+    "texto": "Cancel Anytime"
+  },
+  {
+    "id": 72,
+    "texto": "Refills every 4 weeks at"
+  },
+  {
+    "id": 73,
+    "texto": "$39.99"
+  },
+  {
+    "id": 74,
+    "texto": "/ea"
+  },
+  {
+    "id": 75,
+    "texto": "Skip, pause, or cancel anytime"
+  },
+  {
+    "id": 76,
+    "texto": "FREE items ship on first order"
+  },
+  {
+    "id": 77,
+    "texto": "What It Is"
+  },
+  {
+    "id": 78,
+    "texto": "A daily cayenne softgel that helps keep your blood vessels healthy and your blood flowing."
+  },
+  {
+    "id": 79,
+    "texto": "What's Inside"
+  },
+  {
+    "id": 80,
+    "texto": "3mg capsaicin per serving (from cayenne), plus turmeric, hawthorn, beetroot, cinnamon, berberine, ginseng, black pepper, and Vitamins D3, K2 and E."
+  },
+  {
+    "id": 81,
+    "texto": "How To Take"
+  },
+  {
+    "id": 82,
+    "texto": "3 softgels a day, with food."
+  },
+  {
+    "id": 83,
+    "texto": "Shipping And Returns"
+  },
+  {
+    "id": 84,
+    "texto": "We ships in 24 hours. For US – 3 to 7 days and worldwide 5 to 12 days."
+  },
+  {
+    "id": 85,
+    "texto": "We have a 120-day money-back guarantee."
+  },
+  {
+    "id": 86,
+    "texto": "120-Day Guarantee"
+  },
+  {
+    "id": 87,
+    "texto": "Take four months to decide. That's On us."
+  },
+  {
+    "id": 88,
+    "texto": "Good circulation support takes a little time to build, so we give you plenty of it. If Aurivita for all 120 days, if you're not happy, we'll refund you. Fewer than 0.5% of customers ever ask."
+  },
+  {
+    "id": 89,
+    "texto": "Clinically Studied Ingredients"
+  },
+  {
+    "id": 90,
+    "texto": "890 clinicians endorse Aurivita for better heart health"
+  },
+  {
+    "id": 91,
+    "texto": "THE PROBLEM"
+  },
+  {
+    "id": 92,
+    "texto": "The early signs of cardiovascular disease"
+  },
+  {
+    "id": 93,
+    "texto": "Stress and modern food keep your body a little inflamed all the time. The older you get, the more that matters. Watch which steps come first, because they're not the ones you'd expect."
+  },
+  {
+    "id": 94,
+    "texto": "Inflammation"
+  },
+  {
+    "id": 95,
+    "texto": "Weak Vessel Lining"
+  },
+  {
+    "id": 96,
+    "texto": "High Blood Pressure"
+  },
+  {
+    "id": 97,
+    "texto": "High Cholesterol"
+  },
+  {
+    "id": 98,
+    "texto": "Inflammation"
+  },
+  {
+    "id": 99,
+    "texto": "This is the spark. Low-level inflammation is what starts the damage inside your arteries, long before anything else shows up. In about half of all heart attacks, cholesterol looked totally fine."
+  },
+  {
+    "id": 100,
+    "texto": "Ridker PM et al. New England Journal of Medicine, 1997."
+  },
+  {
+    "id": 101,
+    "texto": "Weak Vessel Lining"
+  },
+  {
+    "id": 102,
+    "texto": "The lining inside your blood vessels slowly stops making nitric oxide, the stuff that tells your vessels to relax and open. This is the very first thing doctors can actually measure."
+  },
+  {
+    "id": 103,
+    "texto": "Bonetti PO et al. ATVB, 2003."
+  },
+  {
+    "id": 104,
+    "texto": "High Blood Pressure"
+  },
+  {
+    "id": 105,
+    "texto": "72% of people who stop their blood pressure pills are back to high numbers within 6 months. The pill hides the problem, but it never fixes the weak lining causing it."
+  },
+  {
+    "id": 106,
+    "texto": "Whelton PK et al. JACC, 2018."
+  },
+  {
+    "id": 107,
+    "texto": "High Cholesterol"
+  },
+  {
+    "id": 108,
+    "texto": "By the time a test shows high cholesterol, plaque has been building up for 10-20 years. A pill lowers the number, but it doesn't repair the lining that let the cholesterol in."
+  },
+  {
+    "id": 109,
+    "texto": "Libby P et al. Nature Reviews Disease Primers, 2019."
+  },
+  {
+    "id": 110,
+    "texto": "THE SOLUTION"
+  },
+  {
+    "id": 111,
+    "texto": "How It Works"
+  },
+  {
+    "id": 112,
+    "texto": "Aurivita helps your blood vessels help themselves. The capsaicin switches on TRPV1 in your vessel lining, and your body starts making its own nitric oxide, the signal that opens up your vessels for better flow."
+  },
+  {
+    "id": 113,
+    "texto": "No quick borrowed boost. Just your body doing its job again."
+  },
+  {
+    "id": 114,
+    "texto": "Keeps nitric oxide going all day"
+  },
+  {
+    "id": 115,
+    "texto": "Backs a healthy response to inflammation"
+  },
+  {
+    "id": 116,
+    "texto": "Uses your own pathway"
+  },
+  {
+    "id": 117,
+    "texto": "Small dose, absorbs well"
+  },
+  {
+    "id": 118,
+    "texto": "HOW TO TAKE"
+  },
+  {
+    "id": 119,
+    "texto": "As Easy As It Gets"
+  },
+  {
+    "id": 120,
+    "texto": "One Softgel, 2-3 times a day"
+  },
+  {
+    "id": 121,
+    "texto": "STEP 1"
+  },
+  {
+    "id": 122,
+    "texto": "One With Breakfast"
+  },
+  {
+    "id": 123,
+    "texto": "Take your first softgel in the morning with food. Starting early keeps your levels steady from the get-go."
+  },
+  {
+    "id": 124,
+    "texto": "STEP 2"
+  },
+  {
+    "id": 125,
+    "texto": "One With Lunch"
+  },
+  {
+    "id": 126,
+    "texto": "Take your second softgel midday with your meal. Spacing them out keeps support going through the afternoon."
+  },
+  {
+    "id": 127,
+    "texto": "STEP 3"
+  },
+  {
+    "id": 128,
+    "texto": "One With Dinner"
+  },
+  {
+    "id": 129,
+    "texto": "Take your third softgel in the evening with food. Three spaced doses give you smooth, all-day coverage."
+  },
+  {
+    "id": 130,
+    "texto": "Consistency is what matters most. Take all three softgels daily, with food, to keep your support steady around the clock."
+  },
+  {
+    "id": 131,
+    "texto": "Timeline"
+  },
+  {
+    "id": 132,
+    "texto": "What To Expect"
+  },
+  {
+    "id": 133,
+    "texto": "The support you are after comes from taking it every day, not from one dose. Here is the honest timeline."
+  },
+  {
+    "id": 134,
+    "texto": "Week 1"
+  },
+  {
+    "id": 135,
+    "texto": "Week 2"
+  },
+  {
+    "id": 136,
+    "texto": "Week 6"
+  },
+  {
+    "id": 137,
+    "texto": "Week 10+"
+  },
+  {
+    "id": 138,
+    "texto": "Your Body Meets Capsaicin."
+  },
+  {
+    "id": 139,
+    "texto": "A gentle warmth is felt inside as your TRPV1 receptors start responding. The first sign the formula is reaching your system."
+  },
+  {
+    "id": 140,
+    "texto": "Steady State Begins."
+  },
+  {
+    "id": 141,
+    "texto": "Capsaicin does not show up by itself. It benefits five blood vessels more every day while inside your body."
+  },
+  {
+    "id": 142,
+    "texto": "Adding Up."
+  },
+  {
+    "id": 143,
+    "texto": "This gradual process becomes easier to notice. Many feel the markers of steady use by now. This is where most stay locked into the daily routine."
+  },
+  {
+    "id": 144,
+    "texto": "Warmer Response."
+  },
+  {
+    "id": 145,
+    "texto": "Many people notice warmth marks and feel firmer opening through the arteries, and steady usage moments."
+  },
+  {
+    "id": 146,
+    "texto": "Real Stories,"
+  },
+  {
+    "id": 147,
+    "texto": "Real Results"
+  },
+  {
+    "id": 148,
+    "texto": "Honest experiences with Aurivita Cayenne Pepper"
+  },
+  {
+    "id": 149,
+    "texto": "Over 20K satisfied customers"
+  },
+  {
+    "id": 150,
+    "texto": "What Customers Notice First"
+  },
+  {
+    "id": 151,
+    "texto": "Verified customers on the warmth, the energy, and the mornings that feel different."
+  },
+  {
+    "id": 152,
+    "texto": "Rated 4.9 / 5.0"
+  },
+  {
+    "id": 153,
+    "texto": "Stacks Well"
+  },
+  {
+    "id": 154,
+    "texto": "\"I take natto and a few other heart supplements. These capsaicin softgels work perfectly alongside them, all supporting circulation through different mechanisms without conflicting. Been stacking them 6 weeks with zero issues.\""
+  },
+  {
+    "id": 155,
+    "texto": "Gary Neumann"
+  },
+  {
+    "id": 156,
+    "texto": "Aurivita Cayenne Pepper"
+  },
+  {
+    "id": 157,
+    "texto": "30th April"
+  },
+  {
+    "id": 158,
+    "texto": "Rated 4.7 / 5.0"
+  },
+  {
+    "id": 159,
+    "texto": "Sensitive Stomach"
+  },
+  {
+    "id": 160,
+    "texto": "\"I have a sensitive stomach and was terrified these would give me heartburn. Two months in and absolutely nothing. No reflux, no stomach issues, no bathroom problems.\""
+  },
+  {
+    "id": 161,
+    "texto": "Dylan Webb"
+  },
+  {
+    "id": 162,
+    "texto": "Aurivita Cayenne Pepper"
+  },
+  {
+    "id": 163,
+    "texto": "26st June"
+  },
+  {
+    "id": 164,
+    "texto": "Rated 5.0 / 5.0"
+  },
+  {
+    "id": 165,
+    "texto": "No Burn"
+  },
+  {
+    "id": 166,
+    "texto": "\"You feel a slight warmth going down, but zero spicy taste. No burning mouth, no aftertaste like eating actual peppers. The softgel keeps it off your taste buds.\""
+  },
+  {
+    "id": 167,
+    "texto": "Rob Moore"
+  },
+  {
+    "id": 168,
+    "texto": "Aurivita Cayenne Pepper"
+  },
+  {
+    "id": 169,
+    "texto": "2nd July"
+  },
+  {
+    "id": 170,
+    "texto": "Rated 4.9 / 5.0"
+  },
+  {
+    "id": 171,
+    "texto": "Steadier energy, warmer hands"
+  },
+  {
+    "id": 172,
+    "texto": "\"Wasn't expecting much honestly, but around the two-week mark I noticed my hands and feet weren't cold all the time anymore. Also don't hit that afternoon slump like I used to. Easy to remember since it's just with meals.\""
+  },
+  {
+    "id": 173,
+    "texto": "Karen Ibsen"
+  },
+  {
+    "id": 174,
+    "texto": "Aurivita Cayenne Pepper"
+  },
+  {
+    "id": 175,
+    "texto": "11th June"
+  },
+  {
+    "id": 176,
+    "texto": "Blood pressure and cholesterol get all the attention, but they're symptoms of something earlier: a lining that stopped making nitric oxide like it used to. Aurivita supports that lining, which supports better blood flow and healthier numbers over time. It's simple, natural, and it works on the actual starting point, every single day."
+  },
+  {
+    "id": 177,
+    "texto": "Dr. Michael Harris"
+  },
+  {
+    "id": 178,
+    "texto": "Cardiovascular &amp; Vascular Health"
+  },
+  {
+    "id": 179,
+    "texto": "Stats"
+  },
+  {
+    "id": 180,
+    "texto": "Worth Knowing Before You Wait"
+  },
+  {
+    "id": 181,
+    "texto": "The details other brands skip."
+  },
+  {
+    "id": 182,
+    "texto": "50%"
+  },
+  {
+    "id": 183,
+    "texto": "of heart attacks happen to people whose cholesterol looked normal."
+  },
+  {
+    "id": 184,
+    "texto": "10 to 20 yrs"
+  },
+  {
+    "id": 185,
+    "texto": "how long plaque quietly builds before a test flags it."
+  },
+  {
+    "id": 186,
+    "texto": "72%"
+  },
+  {
+    "id": 187,
+    "texto": "of people go back to high blood pressure within 6 months of stopping meds."
+  },
+  {
+    "id": 188,
+    "texto": "Under 0.5%"
+  },
+  {
+    "id": 189,
+    "texto": "of customers ask for a refund"
+  },
+  {
+    "id": 190,
+    "texto": "60"
+  },
+  {
+    "id": 191,
+    "texto": "softgels per bag, a full 30-day supply"
+  },
+  {
+    "id": 192,
+    "texto": "24+ hrs"
+  },
+  {
+    "id": 193,
+    "texto": "of daily support Aurivita is built for."
+  },
+  {
+    "id": 194,
+    "texto": "AURIVITA VS. OTHER BRANDS"
+  },
+  {
+    "id": 195,
+    "texto": "Why Aurivita, Not Just Any Bottle"
+  },
+  {
+    "id": 196,
+    "texto": "The details other brands skip."
+  },
+  {
+    "id": 197,
+    "texto": "Nitric oxide"
+  },
+  {
+    "id": 198,
+    "texto": "Pathway"
+  },
+  {
+    "id": 199,
+    "texto": "Coverage"
+  },
+  {
+    "id": 200,
+    "texto": "Target"
+  },
+  {
+    "id": 201,
+    "texto": "Dose"
+  },
+  {
+    "id": 202,
+    "texto": "Inflammation"
+  },
+  {
+    "id": 203,
+    "texto": "Supports continuous production through TRPV1"
+  },
+  {
+    "id": 204,
+    "texto": "Activates your body's own pathway"
+  },
+  {
+    "id": 205,
+    "texto": "24+ hours with daily use"
+  },
+  {
+    "id": 206,
+    "texto": "Supports the vessel lining at the cell level"
+  },
+  {
+    "id": 207,
+    "texto": "Works in low doses, absorbs well"
+  },
+  {
+    "id": 208,
+    "texto": "Supports a healthy inflammatory response"
+  },
+  {
+    "id": 209,
+    "texto": "Other Brands"
+  },
+  {
+    "id": 210,
+    "texto": "Temporary 2 to 6 hour spike from dietary nitrates"
+  },
+  {
+    "id": 211,
+    "texto": "Relies on outside nitrate conversion"
+  },
+  {
+    "id": 212,
+    "texto": "Gaps in coverage between doses"
+  },
+  {
+    "id": 213,
+    "texto": "Does not target the lining directly"
+  },
+  {
+    "id": 214,
+    "texto": "Needs large servings to matter"
+  },
+  {
+    "id": 215,
+    "texto": "Often contain seed oils that add to inflammation"
+  },
+  {
+    "id": 216,
+    "texto": "Nitric oxide"
+  },
+  {
+    "id": 217,
+    "texto": "Pathway"
+  },
+  {
+    "id": 218,
+    "texto": "Coverage"
+  },
+  {
+    "id": 219,
+    "texto": "Target"
+  },
+  {
+    "id": 220,
+    "texto": "Dose"
+  },
+  {
+    "id": 221,
+    "texto": "Inflammation"
+  },
+  {
+    "id": 222,
+    "texto": "Supports continuous production through TRPV1"
+  },
+  {
+    "id": 223,
+    "texto": "Activates your body's own pathway"
+  },
+  {
+    "id": 224,
+    "texto": "24+ hours with daily use"
+  },
+  {
+    "id": 225,
+    "texto": "Supports the vessel lining at the cell level"
+  },
+  {
+    "id": 226,
+    "texto": "Works in low doses, absorbs well"
+  },
+  {
+    "id": 227,
+    "texto": "Supports a healthy inflammatory response"
+  },
+  {
+    "id": 228,
+    "texto": "Other Brands"
+  },
+  {
+    "id": 229,
+    "texto": "Temporary 2 to 6 hour spike from dietary nitrates"
+  },
+  {
+    "id": 230,
+    "texto": "Relies on outside nitrate conversion"
+  },
+  {
+    "id": 231,
+    "texto": "Gaps in coverage between doses"
+  },
+  {
+    "id": 232,
+    "texto": "Does not target the lining directly"
+  },
+  {
+    "id": 233,
+    "texto": "Needs large servings to matter"
+  },
+  {
+    "id": 234,
+    "texto": "Often contain seed oils that add to inflammation"
+  },
+  {
+    "id": 235,
+    "texto": "Clinically backed ingredients"
+  },
+  {
+    "id": 236,
+    "texto": "Long-term wellness"
+  },
+  {
+    "id": 237,
+    "texto": "Clean, high-quality formula"
+  },
+  {
+    "id": 238,
+    "texto": "Try risk-free today"
+  },
+  {
+    "id": 239,
+    "texto": "120-day money-back guarantee"
+  },
+  {
+    "id": 240,
+    "texto": "Clinically backed ingredients"
+  },
+  {
+    "id": 241,
+    "texto": "Long-term wellness"
+  },
+  {
+    "id": 242,
+    "texto": "Clean, high-quality formula"
+  },
+  {
+    "id": 243,
+    "texto": "Try risk-free today"
+  },
+  {
+    "id": 244,
+    "texto": "120-day money-back guarantee"
+  },
+  {
+    "id": 245,
+    "texto": "FAQ"
+  },
+  {
+    "id": 246,
+    "texto": "Still Have Questions?"
+  },
+  {
+    "id": 247,
+    "texto": "What's in this formula, and how will it affect me?"
+  },
+  {
+    "id": 248,
+    "texto": "The key ingredients used are capsaicin and black pepper extract for better absorption."
+  },
+  {
+    "id": 249,
+    "texto": "Capsaicin is the natural compound that gives chili peppers their heat, and it works by supporting metabolism and healthy circulation in the body. Black pepper extract simply helps your body absorb it more effectively."
+  },
+  {
+    "id": 250,
+    "texto": "Most people feel a light warming sensation shortly after taking it — that's normal, not a side effect."
+  },
+  {
+    "id": 251,
+    "texto": "Please check with your healthcare provider"
+  },
+  {
+    "id": 252,
+    "texto": "if you are pregnant, have GERD/ulcers, or take blood thinners."
+  },
+  {
+    "id": 253,
+    "texto": "When will I see results?"
+  },
+  {
+    "id": 254,
+    "texto": "It varies from person to person. Many users feel&nbsp;"
+  },
+  {
+    "id": 255,
+    "texto": "a boost in natural energy and circulation within the first few weeks. We recommend 10+ weeks to see the full effect."
+  },
+  {
+    "id": 256,
+    "texto": "How fast is shipping?"
+  },
+  {
+    "id": 257,
+    "texto": "Orders ship from our US facility within 24 hours with tracking. Most US orders arrive within 3 to 6 business days."
+  },
+  {
+    "id": 258,
+    "texto": "Is this formula safe?"
+  },
+  {
+    "id": 259,
+    "texto": "Yes. Made with organic ingredients in an FDA-registered facility, and third-party lab tested for heavy metals and microbes under the FDA's&nbsp;"
+  },
+  {
+    "id": 260,
+    "texto": "GMP standard."
+  },
+  {
+    "id": 261,
+    "texto": "Does it cause ulcers or heartburn?"
+  },
+  {
+    "id": 262,
+    "texto": "No. Contrary to popular belief, spicy foods don't cause ulcers, they help prevent them. Aurivita pairs capsaicin with turmeric to help prevent heartburn."
+  },
+  {
+    "id": 263,
+    "texto": "Will it burn my mouth?"
+  },
+  {
+    "id": 264,
+    "texto": "Not at all. The softgel stays sealed until it is well past your tongue and throat, then releases where&nbsp;"
+  },
+  {
+    "id": 265,
+    "texto": "it works. No spice, no sting."
+  },
+  {
+    "id": 266,
+    "texto": "Clinically Studied Ingredients"
+  },
+  {
+    "id": 267,
+    "texto": "What Is Aurivita Cayenne Pepper?"
+  },
+  {
+    "id": 268,
+    "texto": "A daily cayenne pepper softgel that supports healthy circulation by helping your body make its own nitric oxide, the signal that keeps your blood vessels relaxed and open."
+  },
+  {
+    "id": 269,
+    "texto": "3mg of capsaicin per serving, in a softgel that never touches your taste buds."
+  },
+  {
+    "id": 270,
+    "texto": "What Research Is It Built On?"
+  },
+  {
+    "id": 271,
+    "texto": "Four published, peer-reviewed studies:"
+  },
+  {
+    "id": 272,
+    "texto": "Why Capsaicin For Circulation?"
+  },
+  {
+    "id": 273,
+    "texto": "Capsaicin flips on a switch called TRPV1 in the lining of your blood vessels. That tells your body to make its own nitric oxide, which relaxes your vessels and lets blood flow. Instead of a quick outside boost, you are supporting the lining at the source."
+  },
+  {
+    "id": 274,
+    "texto": "Is It Tested And Safe?"
+  },
+  {
+    "id": 275,
+    "texto": "Yes. Made in an FDA-registered facility under GMP standards, and third-party lab tested for heavy metals and microbes. Paired with turmeric so it stays easy on your stomach."
+  },
+  {
+    "id": 276,
+    "texto": "What If It Doesn't Work For Me?"
+  },
+  {
+    "id": 277,
+    "texto": "You are covered by a 120-day money-back guarantee. Try it for a full four months, and if you are not happy, we will refund you."
+  },
+  {
+    "id": 278,
+    "texto": "Right now, fewer than 0.5% of customers ask for one."
+  },
+  {
+    "id": 279,
+    "texto": "Clinicians Choice"
+  },
+  {
+    "id": 280,
+    "texto": "890 clinicians endorse Auravita for better heart health"
+  },
+  {
+    "id": 281,
+    "texto": "Working Hours:"
+  },
+  {
+    "id": 282,
+    "texto": "9am - 5pm ET, Mon-Fri"
+  },
+  {
+    "id": 283,
+    "texto": "Business Address:"
+  },
+  {
+    "id": 284,
+    "texto": "1023 East Lincolnway, Cheyenne, WY 82001, US"
+  },
+  {
+    "id": 285,
+    "texto": "Email:"
+  },
+  {
+    "id": 286,
+    "texto": "support@aurivita.co"
+  },
+  {
+    "id": 287,
+    "texto": "Phone:"
+  },
+  {
+    "id": 288,
+    "texto": "+1 631 881 4089"
+  },
+  {
+    "id": 289,
+    "texto": "Company"
+  },
+  {
+    "id": 290,
+    "texto": "About Us"
+  },
+  {
+    "id": 291,
+    "texto": "Contact Us"
+  },
+  {
+    "id": 292,
+    "texto": "FAQ"
+  },
+  {
+    "id": 293,
+    "texto": "Track Order"
+  },
+  {
+    "id": 294,
+    "texto": "EU Withdraw"
+  },
+  {
+    "id": 295,
+    "texto": "Policies"
+  },
+  {
+    "id": 296,
+    "texto": "Terms of Service"
+  },
+  {
+    "id": 297,
+    "texto": "Privacy Policy"
+  },
+  {
+    "id": 298,
+    "texto": "Return &amp; Refund Policy"
+  },
+  {
+    "id": 299,
+    "texto": "Shipping Policy"
+  },
+  {
+    "id": 300,
+    "texto": "Payment Policy"
+  },
+  {
+    "id": 301,
+    "texto": "Subscription &amp; Cancellation Policy"
+  },
+  {
+    "id": 302,
+    "texto": "† These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your healthcare provider before use, especially if pregnant, nursing, or taking medication. Individual results may vary."
+  },
+  {
+    "id": 303,
+    "texto": "* Testimonials reflect real customer experiences but are not typical and are not a guarantee of results. Individual results may vary."
+  },
+  {
+    "id": 304,
+    "texto": "‡ 120-day money-back guarantee covers the product price only; see our Refund policies for full details."
+  },
+  {
+    "id": 305,
+    "texto": "Country/region"
+  },
+  {
+    "id": 306,
+    "texto": "United States (USD $)"
+  },
+  {
+    "id": 307,
+    "texto": "Australia"
+  },
+  {
+    "id": 308,
+    "texto": "(AUD $)"
+  },
+  {
+    "id": 309,
+    "texto": "Austria"
+  },
+  {
+    "id": 310,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 311,
+    "texto": "Belgium"
+  },
+  {
+    "id": 312,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 313,
+    "texto": "Canada"
+  },
+  {
+    "id": 314,
+    "texto": "(CAD $)"
+  },
+  {
+    "id": 315,
+    "texto": "Denmark"
+  },
+  {
+    "id": 316,
+    "texto": "(DKK kr.)"
+  },
+  {
+    "id": 317,
+    "texto": "Finland"
+  },
+  {
+    "id": 318,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 319,
+    "texto": "France"
+  },
+  {
+    "id": 320,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 321,
+    "texto": "Germany"
+  },
+  {
+    "id": 322,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 323,
+    "texto": "Hong Kong SAR"
+  },
+  {
+    "id": 324,
+    "texto": "(HKD $)"
+  },
+  {
+    "id": 325,
+    "texto": "Ireland"
+  },
+  {
+    "id": 326,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 327,
+    "texto": "Italy"
+  },
+  {
+    "id": 328,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 329,
+    "texto": "Japan"
+  },
+  {
+    "id": 330,
+    "texto": "(JPY ¥)"
+  },
+  {
+    "id": 331,
+    "texto": "Malaysia"
+  },
+  {
+    "id": 332,
+    "texto": "(MYR RM)"
+  },
+  {
+    "id": 333,
+    "texto": "Netherlands"
+  },
+  {
+    "id": 334,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 335,
+    "texto": "New Zealand"
+  },
+  {
+    "id": 336,
+    "texto": "(NZD $)"
+  },
+  {
+    "id": 337,
+    "texto": "Norway"
+  },
+  {
+    "id": 338,
+    "texto": "(USD $)"
+  },
+  {
+    "id": 339,
+    "texto": "Poland"
+  },
+  {
+    "id": 340,
+    "texto": "(PLN zł)"
+  },
+  {
+    "id": 341,
+    "texto": "Portugal"
+  },
+  {
+    "id": 342,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 343,
+    "texto": "Singapore"
+  },
+  {
+    "id": 344,
+    "texto": "(SGD $)"
+  },
+  {
+    "id": 345,
+    "texto": "South Korea"
+  },
+  {
+    "id": 346,
+    "texto": "(KRW ₩)"
+  },
+  {
+    "id": 347,
+    "texto": "Spain"
+  },
+  {
+    "id": 348,
+    "texto": "(EUR €)"
+  },
+  {
+    "id": 349,
+    "texto": "Sweden"
+  },
+  {
+    "id": 350,
+    "texto": "(SEK kr)"
+  },
+  {
+    "id": 351,
+    "texto": "Switzerland"
+  },
+  {
+    "id": 352,
+    "texto": "(CHF CHF)"
+  },
+  {
+    "id": 353,
+    "texto": "Thailand"
+  },
+  {
+    "id": 354,
+    "texto": "(THB ฿)"
+  },
+  {
+    "id": 355,
+    "texto": "U.S. Outlying Islands"
+  },
+  {
+    "id": 356,
+    "texto": "(USD $)"
+  },
+  {
+    "id": 357,
+    "texto": "Ukraine"
+  },
+  {
+    "id": 358,
+    "texto": "(UAH ₴)"
+  },
+  {
+    "id": 359,
+    "texto": "United Arab Emirates"
+  },
+  {
+    "id": 360,
+    "texto": "(AED د.إ)"
+  },
+  {
+    "id": 361,
+    "texto": "United Kingdom"
+  },
+  {
+    "id": 362,
+    "texto": "(GBP £)"
+  },
+  {
+    "id": 363,
+    "texto": "United States"
+  },
+  {
+    "id": 364,
+    "texto": "(USD $)"
+  },
+  {
+    "id": 365,
+    "texto": "Language"
+  },
+  {
+    "id": 366,
+    "texto": "English"
+  },
+  {
+    "id": 367,
+    "texto": "English"
+  },
+  {
+    "id": 368,
+    "texto": "Español"
+  },
+  {
+    "id": 369,
+    "texto": "© 2026, Aurivita. All rights reserved."
+  },
+  {
+    "id": 370,
+    "texto": "Payment methods"
+  },
+  {
+    "id": 371,
+    "texto": "Choosing a selection results in a full page refresh."
+  },
+  {
+    "id": 372,
+    "texto": "Opens in a new window."
+  },
+  {
+    "id": 373,
+    "texto": "Declare withdrawal"
+  },
+  {
+    "id": 374,
+    "texto": "Please fill out the following form to declare your withdrawal from the contract."
+  }
+]

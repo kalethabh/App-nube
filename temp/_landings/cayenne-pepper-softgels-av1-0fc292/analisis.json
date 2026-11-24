@@ -1,0 +1,68 @@
+{
+  "resumen": "Es la página de un solo producto: cápsulas blandas de pimienta cayena para la circulación y el corazón. Su estrategia es educar: primero te explica por qué el problema empieza antes de que suba la presión o el colesterol, y luego te muestra su producto como la forma de atacar ese origen. Para que compres más, regala productos si eliges los packs grandes con suscripción.",
+  "producto": "Cápsulas blandas de cayena (3 mg de capsaicina por porción) con cúrcuma, espino blanco, remolacha, canela, berberina, ginseng, pimienta negra y vitaminas D3, K2 y E. Cada bolsa trae 60 cápsulas y la página dice que alcanza para 30 días.",
+  "publico": "Adultos mayores, sobre todo de 45 años en adelante, preocupados por la presión, el colesterol y la salud del corazón. Les duele depender de pastillas que 'solo esconden el problema' y temen un infarto. Quieren algo natural, que no les caiga mal al estómago y que les dé buena circulación (manos y pies tibios, más energía).",
+  "angulo": "La causa escondida: la presión y el colesterol son solo síntomas y lo que de verdad falla es la pared de las venas, que deja de producir óxido nítrico. La cayena 'enciende' el propio cuerpo para que lo vuelva a producir, en vez de dar un empujón prestado.",
+  "gancho": "\"Everyday support for healthy circulation, blood pressure, and heart health\" (apoyo diario para la circulación, la presión y el corazón), acompañado de 4.6/5 con 996 reseñas y de \"890 clinicians endorse Aurivita\". Engancha porque junta tres miedos grandes en una frase y los respalda enseguida con prueba de expertos y de clientes.",
+  "oferta": "Tres opciones: 1 bolsa, 'Compra 2 y lleva 1 gratis' (la más popular) y 'Compra 3 y lleva 2 gratis' (la de mejor valor), todas con envío gratis en Estados Unidos. Si te suscribes ahorras 25% y desbloqueas regalos: envío gratis, un libro digital, ajo negro y cúrcuma. El precio que se ve es $72 (antes $90) y las recargas cuestan $39.99 cada una, cada 4 semanas. Se paga en línea con tarjeta, no hay pago contra entrega.",
+  "secciones": [
+    { "tipo": "otra", "titulo": "Barra superior: envío gratis con suscripción, garantía de 120 días y pruebas de laboratorio externas", "objetivo": "Dar confianza desde el primer segundo, antes de ver el producto." },
+    { "tipo": "hero", "titulo": "Aurivita Cayenne Pepper (30 porciones) con galería de fotos, estrellas y 890 clínicos que lo respaldan", "objetivo": "Decir qué es y para qué sirve, con prueba social y de expertos de una vez." },
+    { "tipo": "beneficios", "titulo": "Apoya la salud del corazón, ayuda a producir óxido nítrico, cómo tomarlo y probado en laboratorio", "objetivo": "Resumir en cuatro puntos rápidos por qué comprarlo." },
+    { "tipo": "oferta", "titulo": "Packs Compra 1, 2+1 y 3+2, regalos desbloqueados, suscripción con 25% menos y botón Add to cart", "objetivo": "Subir el valor de cada compra con packs, regalos y compra repetida cada mes." },
+    { "tipo": "ingredientes", "titulo": "Qué es, qué tiene, cómo tomarlo y envíos (en pestañas)", "objetivo": "Responder lo básico sin sacarte de la zona de compra." },
+    { "tipo": "garantia", "titulo": "Garantía de 120 días: 'Tómate cuatro meses para decidir'", "objetivo": "Quitar el miedo a perder la plata; dice que menos del 0.5% pide reembolso." },
+    { "tipo": "problema", "titulo": "Las primeras señales de enfermedad del corazón: inflamación, pared débil de las venas, presión alta y colesterol alto", "objetivo": "Asustar con datos y citas de estudios, y mostrar que las pastillas no arreglan la causa." },
+    { "tipo": "mecanismo", "titulo": "Cómo funciona: la capsaicina activa un receptor en las venas para que el cuerpo produzca su propio óxido nítrico", "objetivo": "Dar una explicación 'científica' sencilla que hace creíble la solución." },
+    { "tipo": "otra", "titulo": "Cómo tomarlo: una con el desayuno, una con el almuerzo y una con la cena", "objetivo": "Mostrar que es fácil y crear la rutina diaria." },
+    { "tipo": "otra", "titulo": "Qué esperar: semana 1, 2, 6 y 10 en adelante", "objetivo": "Bajar las expectativas de resultados rápidos y que el cliente siga comprando varios meses." },
+    { "tipo": "prueba-social", "titulo": "Historias reales: más de 20 mil clientes, cuatro testimonios y la opinión de un doctor", "objetivo": "Responder miedos (acidez, sabor picante, mezclar con otros suplementos) en boca de clientes." },
+    { "tipo": "otra", "titulo": "Cifras que vale la pena saber antes de esperar", "objetivo": "Repetir los datos que asustan y meter urgencia por la salud." },
+    { "tipo": "comparacion", "titulo": "Aurivita contra otras marcas", "objetivo": "Mostrar que la competencia da un efecto corto y que esta da apoyo todo el día." },
+    { "tipo": "cta", "titulo": "Prueba sin riesgo hoy, garantía de 120 días", "objetivo": "Cerrar la comparación empujando a comprar." },
+    { "tipo": "preguntas", "titulo": "¿Todavía tienes preguntas?", "objetivo": "Quitar las últimas dudas: resultados, envío, seguridad, acidez y ardor." },
+    { "tipo": "preguntas", "titulo": "¿Qué es Aurivita?, ¿en qué se basa?, ¿es seguro?, ¿y si no me funciona?", "objetivo": "Repetir el mecanismo y la garantía para quien llega al final." },
+    { "tipo": "otra", "titulo": "Elección de clínicos, contacto, dirección, políticas y avisos legales", "objetivo": "Dar seriedad con datos de empresa y cubrirse legalmente." }
+  ],
+  "prueba_social": "4.6/5 con 996 reseñas (repetido varias veces), '890 clínicos lo respaldan', 'más de 20 mil clientes satisfechos', cuatro testimonios con nombre y fecha, la opinión de un doctor, citas de estudios médicos y sellos de laboratorio externo y fábrica registrada.",
+  "garantia": "Devolución del dinero por 120 días si no quedas contento. La letra pequeña aclara que solo cubre el precio del producto, no el envío.",
+  "urgencia": "Poca: un '93% vendido' y 'en stock, sale el mismo día'. No hay contador de tiempo; la urgencia real es de salud ('antes de que esperes').",
+  "cta": "Hay un solo botón de compra en el texto, 'Add to cart' (agregar al carrito), en la zona de la oferta. Al final aparece 'Try risk-free today' (pruébalo sin riesgo hoy) dos veces, pero como frase de cierre.",
+  "objeciones": [
+    "¿Me va a dar acidez o úlcera?",
+    "¿Me va a quemar la boca o saber a picante?",
+    "¿Puedo tomarlo con otros suplementos?",
+    "¿Cuándo voy a ver resultados?",
+    "¿Es seguro y está probado?",
+    "¿Qué pasa si no me funciona?",
+    "¿Cuánto tarda el envío?",
+    "¿Por qué esto y no otra marca?",
+    "¿Puedo cancelar la suscripción?"
+  ],
+  "fortalezas": [
+    "Explica el problema con una historia clara: la causa escondida que nadie te contó.",
+    "Mecanismo fácil de entender que hace sentir distinto al producto.",
+    "Oferta con packs, regalos y suscripción que sube mucho el valor de cada compra.",
+    "La línea de tiempo prepara al cliente para comprar varios meses.",
+    "Responde muy bien el miedo principal de la cayena: el ardor y la acidez.",
+    "Garantía larga, de 120 días, y repetida muchas veces."
+  ],
+  "debilidades": [
+    "Se contradice en la dosis: dice 'una dos veces al día' y luego 'tres al día', y con tres al día 60 cápsulas no duran 30 días.",
+    "Cifras que no cuadran: 996 reseñas pero 'más de 20 mil clientes'; envío de 3 a 7 días en un lado y de 3 a 6 en otro.",
+    "Errores de texto: fechas como '26st June', 'Auravita' mal escrito, frases sin sentido en la línea de tiempo y una opinión del doctor cortada.",
+    "Promete 'cuatro estudios publicados' pero no los muestra.",
+    "Frases médicas muy fuertes, como que la pastilla 'esconde el problema' o que no causa úlceras, que pueden traer problemas con las plataformas de anuncios.",
+    "Un solo botón de compra en una página muy larga.",
+    "Sin pago contra entrega ni WhatsApp: para Colombia y Latinoamérica eso frena mucho la compra."
+  ],
+  "ideas": [
+    "Copia la estructura problema, causa escondida, mecanismo y solución: funciona muy bien para productos de salud.",
+    "Usa la línea de tiempo por semanas para vender combos de 2 o 3 meses.",
+    "Cambia los packs a combos en pesos con regalo y pago contra entrega, que es lo que más vende aquí.",
+    "Pon el botón de compra después de cada bloque fuerte (problema, testimonios, comparación y preguntas).",
+    "Suaviza las frases médicas: habla de 'apoyar' la circulación, nunca de curar ni de dejar los medicamentos.",
+    "Revisa que las cifras, la dosis y las reseñas cuadren en toda la página.",
+    "Agrega testimonios en video o con foto de gente local y un botón de WhatsApp para dudas."
+  ]
+}
