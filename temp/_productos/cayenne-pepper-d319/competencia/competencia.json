@@ -400,6 +400,53 @@
         "Cualquier ángulo de salud necesita texto defendible: «apoya la circulación», nunca «cura», «revierte» o «reemplaza tu medicamento».",
         "El océano azul (trabajo de pie) no tiene prueba de que compre suplementos: es una apuesta."
       ]
+    },
+    {
+      "titulo": "Avatares",
+      "contexto": "9 avatares del mercado de cápsulas de cayena, ordenados de más saturado a más virgen. TrendTrack no da datos de edad ni sexo de la audiencia: los avatares se deducen del texto, los ganchos y las landings.",
+      "bloques": [
+        { "tipo": "avatares", "items": [
+          { "nombre": "El diabético con disfunción que ya no confía en la pastilla", "frase": "«La pastilla me funcionaba. Ahora ni con la dosis doble.»", "perfil": "Hombre 45-65, diabético tipo 2, casado. Dolor: vergüenza, pareja distante, pastilla que rinde menos. Deseo: responder sin planear.", "angulo": "Disfunción por vasos dañados (Aurivita /collections/ed, listicle)", "ganchos": ["Yo, it's your dick speaking…", "Type two diabetes ruining your sex life?", "Diabetic With ED? The Blue Pill Is Making It Worse."], "evidencia": "facebook_1723605608939156 (28 versiones, 211.244, +50.778 en 30 días); facebook_4510427085838039 (14, 222.992); 3 anuncios nuevos el 23 nov. 2026", "volumen": "Alto: 5 de 8 ganadores tocan disfunción; 723 activos con «performance»", "momento": "creciendo", "saturacion": "alta" },
+          { "nombre": "El diabético tipo 2 con pies fríos y hormigueo", "frase": "«Mi azúcar está mejor, pero los pies siguen dormidos.»", "perfil": "Hombre o mujer 50-70, con metformina. Dolor: hormigueo, ardor nocturno, cansancio de las 2 p. m. Deseo: sentir los pies y dejar de depender del medidor.", "angulo": "Diabetes como problema de circulación (capsaicin-power-diabetes, diabetes-angle)", "ganchos": ["If a diabetic with dangerously high blood sugar took three of these…", "What happens when a diabetic takes cayenne… Day one.", "If Metformin isn't stopping the tingling in your feet, this is why."], "evidencia": "facebook_1557483932394826 (43, 270.515), facebook_26598572756503886 (57, 257.418), facebook_1048339688096635 Vitalia (9, 163.193)", "volumen": "Alto en video; 601 activos con «diabetes»", "momento": "desacelerando", "saturacion": "alta" },
+          { "nombre": "El hombre que sigue entrenando pero rinde menos", "frase": "«Sigo siendo el mismo, pero algo se está apagando.»", "perfil": "Hombre 40-55, activo, sin diagnóstico. Dolor: menos energía y firmeza. Deseo: volver a sentirse sólido sin pastillas.", "angulo": "Flujo de sangre, no edad (try.aurivita.co/pdp)", "ganchos": ["Still the same guy. Just… less of him when it counts.", "It's not age. Your pipes are just closing"], "evidencia": "facebook_1550611566801537 (96 días); copiado por Vivonu (14 versiones en Colombia) y Sovexa (19 versiones, 195.210)", "volumen": "Medio: 723 activos con «performance»", "momento": "creciendo", "saturacion": "media" },
+          { "nombre": "El hombre 50+ con próstata y noches en el baño", "frase": "«Me levanto tres veces a orinar y ya ni ganas tengo.»", "perfil": "Hombre 50-70, con o sin Flomax. Dolor: nicturia, chorro débil, deseo bajo. Deseo: dormir de corrido.", "angulo": "Próstata que aprieta vejiga y sangre (/collections/bph)", "ganchos": ["Your fucking prostate is the reason…", "Flomax manages it. It doesn't fix it."], "evidencia": "facebook_1046140877903988: 152 versiones, 528.802 de alcance, 117 días, el mayor alcance de la categoría", "volumen": "Bajo en texto (305 activos), muy alto en un solo creativo", "momento": "estable", "saturacion": "media" },
+          { "nombre": "El adulto con presión y colesterol que no quiere más pastillas", "frase": "«Ya tomo tres pastillas; no quiero una cuarta.»", "perfil": "Hombre o mujer 55-70. Dolor: dolores por estatinas, cifras que suben. Deseo: apoyo natural sin dejar al médico.", "angulo": "Un solo vaso dañado para presión, colesterol y erección (carta del médico)", "ganchos": ["The first thing a man with erectile dysfunction does is nothing.", "My doctor put me on a statin when my LDL hit 184…"], "evidencia": "facebook_1063042329874280 (23, 256.952, +4.296 en 7 días); testimonio de estatina en try.aurivita.co/pdp", "volumen": "Medio-alto: 1.638 activos con «blood pressure», 870 con «cholesterol»", "momento": "estable", "saturacion": "media" },
+          { "nombre": "El divorciado 50+ que vuelve a salir", "frase": "«No quiero volver a pasar esa vergüenza con ella.»", "perfil": "Hombre 50-60, separado, pareja más joven. Dolor: humillación. Deseo: confianza.", "angulo": "Vanidad e identidad (adv-general-ed-listicle)", "ganchos": ["What Happens When You Can't Properly F*ck a Younger Woman"], "evidencia": "facebook_1534708128698428: 12 versiones, 145.343 de alcance, 119 días", "volumen": "Bajo: 1 creativo", "momento": "estable", "saturacion": "baja" },
+          { "nombre": "El hombre 60+ con un síntoma íntimo que avisa del corazón", "frase": "«Pensé que era la edad, no que era el corazón.»", "perfil": "Hombre 60-75. Dolor: eyaculación retrógrada, chorro débil, miedo a un infarto. Deseo: prevenir.", "angulo": "Síntoma íntimo como alarma cardíaca", "ganchos": ["Your Retrograde Ejaculation Is The Warning. Your Heart Is The Target."], "evidencia": "facebook_1141328585157574: 2 versiones, desde 21 nov. 2026", "volumen": "Muy bajo", "momento": "emergente", "saturacion": "baja" },
+          { "nombre": "El adulto cansado y friolento (energía)", "frase": "«A las tres de la tarde ya no doy más y siempre tengo las manos frías.»", "perfil": "Hombre o mujer 40-60, sin diagnóstico. Dolor: cansancio, frío. Deseo: energía sin café ni estimulantes.", "angulo": "Energía y calor (el ángulo de souqe y de las gotas de Argelia)", "ganchos": ["Feeling cold, tired, or sluggish more often than you'd like?", "هل تشعر بالتعب المستمر ونقص الطاقة؟ (¿Sientes cansancio constante?)", "Cápsulas naturales de cayena… energía y actividad cada día"], "evidencia": "Vitalia (texto en 3 creativos); Iconic Shopping facebook_1229532502030493 (134 días, Argelia); producto de souqe.store", "volumen": "Bajo como titular", "momento": "estable", "saturacion": "baja" },
+          { "nombre": "La mujer 45+ con manos y pies fríos / el hombre con barriga e hígado graso", "frase": "«Vivo con medias hasta en tierra caliente.» / «Hacía chistes de mi barriga hasta el examen.»", "perfil": "Dos huecos sin dueño: mujeres en menopausia con frío y cansancio; hombres con hígado graso. Deseo: sentirse bien sin dietas extremas.", "angulo": "Circulación sin sexo; barriga e hígado (Aida)", "ganchos": ["You patted it. Joked about it. Then your doctor said fatty liver…"], "evidencia": "Mujeres: 0 anuncios encontrados. Hígado: Aida facebook_1562268411536722, 14 días, mar. 2026", "volumen": "Casi nulo", "momento": "emergente", "saturacion": "baja" }
+        ] },
+        { "tipo": "barras", "titulo": "Volumen por avatar (anuncios activos del ángulo principal)", "unidad": "anuncios", "items": [
+          { "etiqueta": "Presión y colesterol", "valor": 1638, "nota": "«blood pressure»", "tono": "rojo" },
+          { "etiqueta": "Rendimiento sin diagnóstico", "valor": 723, "nota": "«performance»", "tono": "ambar" },
+          { "etiqueta": "Diabético con pies fríos", "valor": 601, "nota": "«diabetes»", "tono": "rojo" },
+          { "etiqueta": "Próstata", "valor": 305, "nota": "«prostate»", "tono": "ambar" },
+          { "etiqueta": "Neuropatía (subgrupo del diabético)", "valor": 136, "nota": "«neuropathy»", "tono": "verde" }
+        ] },
+        { "tipo": "tabla", "columnas": ["Avatar", "Señal principal", "Momento", "Saturación", "Lo elegiría"],
+          "filas": [
+            ["Diabético con disfunción", "+50.778 de alcance en 30 días; anuncios nuevos el 23 nov.", "Creciendo", "Alta", "No: saturado y riesgoso"],
+            ["Diabético con pies fríos", "Caída de 35.938 a 66 impresiones diarias", "Desacelerando", "Alta", "Sí, como complemento y por la neuropatía"],
+            ["Rendimiento sin diagnóstico", "Copiado en español", "Creciendo", "Media", "Con cuidado"],
+            ["Próstata", "152 versiones, 528.802", "Estable", "Media", "Sí, para prueba"],
+            ["Presión y colesterol", "Carta que sigue creciendo", "Estable", "Media", "Con cuidado (promesas)"],
+            ["Divorciado 50+", "1 creativo, 119 días", "Estable", "Baja", "No en Colombia"],
+            ["Síntoma íntimo y corazón", "2 versiones, 21 nov.", "Emergente", "Baja", "Observar"],
+            ["Cansado y friolento", "Ángulo de souqe; Argelia 134 días", "Estable", "Baja", "Sí"],
+            ["Mujer 45+ / barriga", "Sin anuncios", "Emergente", "Baja", "Sí, como prueba"]
+          ],
+          "nota": "Inferencia: el ranking va de rojo (saturado) a verde (virgen)." },
+        { "tipo": "caja", "estilo": "clave", "titulo": "Para entrar", "texto": "Inferencia: los avatares con mejor relación entre demanda probada y espacio libre son el diabético con pies fríos (contado como complemento, por neuropatía y pies), el adulto cansado y friolento, y como prueba barata la mujer 45+. El de próstata sirve si se cuida el tono." }
+      ],
+      "limitaciones": [
+        "TrendTrack no da demografía real de la audiencia; edades y situaciones son deducidas.",
+        "El volumen por avatar sale del texto, no del video.",
+        "El avatar de mujeres no tiene evidencia de demanda: es hueco, no prueba."
+      ],
+      "riesgos": [
+        "Segmentar por diabetes o salud íntima en Meta tiene límites de política.",
+        "Hablarle a diabéticos obliga a no prometer bajar el azúcar ni dejar medicamentos."
+      ]
     }
   ]
 }
