@@ -15,6 +15,9 @@ publicado. La regla también está en `AGENTS.md` y `CLAUDE.md` para otros asist
 
 ## Embudo visual y avatares en Biblioteca (2026-11-24m)
 
+Implementación: [PR #201](https://github.com/kalethabh/App-nube/pull/201).
+Distribución: [v2026-11-24m](https://github.com/kalethabh/kads-studio/releases/tag/v2026-11-24m).
+
 Pedido: usar las cinco referencias del usuario SOLO como estructura interna, sin mostrarlas ni copiar
 sus colores, posición, personas, tipografía o iconos. Secciones: Hero, Punto de dolor, Beneficios,
 Ingredientes y Modo de uso. Traer títulos y subtítulos de investigación con selección de alternativas;
