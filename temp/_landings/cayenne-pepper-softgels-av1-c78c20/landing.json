@@ -7,7 +7,7 @@
   "analizar": true,
   "titulo": "Aurivita Cayenne Pepper Softgels",
   "creado": "2026-11-24T17:31:41.867Z",
-  "estado": "midiendo",
+  "estado": "lista",
   "progreso": [
     "Cargando la página como la ve un celular…",
     "Quitando el JavaScript de la tienda, las apps y los píxeles…",
@@ -18,7 +18,8 @@
     "Dejando solo el CSS que usa la página…",
     "Claude Code está analizando la landing…",
     "Análisis listo: 18 secciones.",
-    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…"
+    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…",
+    "Lista."
   ],
   "error": null,
   "informe": {
@@ -50,8 +51,26 @@
       "No pude copiar un archivo (404 en https://aurivita.co/products/assets/4c5ae8ef83.woff2)."
     ]
   },
-  "puntajes": null,
-  "actualizado": "2026-11-24T17:33:33.395Z",
+  "puntajes": {
+    "original": {
+      "puntaje": 49,
+      "fcp": "6.5 s",
+      "lcp": "22.0 s",
+      "tbt": "310 ms",
+      "cls": "0.001",
+      "peso": 13555
+    },
+    "copia": {
+      "puntaje": 70,
+      "fcp": "3.3 s",
+      "lcp": "6.6 s",
+      "tbt": "0 ms",
+      "cls": "0.001",
+      "peso": 7819
+    },
+    "fecha": "2026-11-24T17:35:45.442Z"
+  },
+  "actualizado": "2026-11-24T17:35:45.443Z",
   "analisis": {
     "resumen": "Es una página de un solo producto que vende cápsulas de pimienta de cayena para la circulación y el corazón. Su estrategia es educar con miedo y ciencia: muestra que el problema empieza antes de lo que crees, explica cómo funciona el producto y empuja a comprar packs grandes con regalos y suscripción.",
     "producto": "Aurivita Cayenne Pepper: cápsulas blandas con 3 mg de capsaicina por porción, más cúrcuma, espino blanco, remolacha, canela, berberina, ginseng, pimienta negra y vitaminas D3, K2 y E. Cada bolsa trae 60 cápsulas.",
