@@ -5,7 +5,7 @@
   "puerto": null,
   "version": 11,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T21:59:48.850Z",
+  "actualizado": "2026-11-24T22:00:46.861Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -247,13 +247,20 @@
       "trabajoId": "j-955084e25cdb497f",
       "fecha": "2026-11-24T21:57:02.737Z",
       "url": "/api/embudos/e-4e053e15c674/imagenes/j-955084e25cdb497f/dolor"
+    },
+    "beneficios": {
+      "archivo": "trabajos/j-498bbbd1f7c91fff/beneficios.png",
+      "firma": "f9a41f5901e02b49895deb504cfea879efed340c2bf0835c9853e54e457500bf",
+      "trabajoId": "j-498bbbd1f7c91fff",
+      "fecha": "2026-11-24T22:00:46.860Z",
+      "url": "/api/embudos/e-4e053e15c674/imagenes/j-498bbbd1f7c91fff/beneficios"
     }
   },
   "presupuestos": {},
   "trabajo": {
     "id": "j-498bbbd1f7c91fff",
     "token": "5b91ab8638fd0e4dc7e2f2c969728982",
-    "estado": "generando",
+    "estado": "lista",
     "motor": "chatgpt",
     "cantidad": 1,
     "importeAprobado": 0,
@@ -261,8 +268,9 @@
     "secciones": [
       "beneficios"
     ],
-    "hechas": 0,
-    "actual": "beneficios"
+    "hechas": 1,
+    "actual": null,
+    "fin": "2026-11-24T22:00:46.861Z"
   },
   "avatarPendiente": null
 }
