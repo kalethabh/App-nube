@@ -225,6 +225,31 @@ async function medirEnNavegador(carpeta, html, selectores) {
   return { anchos, selectores: new Set([...(movil?.usados || []), ...(escritorio?.usados || [])]) };
 }
 
+/**
+ * El HTML de la tienda leído por el navegador (bien cerrado), SIN correr nada: sus <script> van con un tipo que no se
+ * ejecuta y se les devuelve el suyo después. -> el HTML | null (sin navegador)
+ */
+export async function comoLoLeeElNavegador(html, carpeta) {
+  if (!rutaDelNavegador()) return null;
+  const dormido = html.replace(/<script\b([^>]*)>/gi, (m, attrs) => {
+    const tipo = (/\stype\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(attrs) || []).slice(1).find((x) => x !== undefined);
+    const sin = attrs.replace(/\stype\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/i, '');
+    return `<script type="text/kc-dormido" data-kc-tipo="${tipo === undefined ? '-' : String(tipo).replace(/"/g, '&quot;')}"${sin}>`;
+  });
+  const archivo = path.join(carpeta, '_leer.html');
+  // (sin <base>: lo de afuera no se pide; solo importa cómo se arma el árbol)
+  fs.writeFileSync(archivo, dormido.replace(/\son(load|error)\s*=\s*(["'])[\s\S]*?\2/gi, (m) => ` data-kc-${m.trim()}`));
+  try {
+    const dom = await htmlArmado(`file://${archivo}`, { espera: 2500, extra: ['--allow-file-access-from-files'] });
+    if (!dom || !/<body/i.test(dom)) return null;
+    return dom
+      .replace(/<script type="text\/kc-dormido" data-kc-tipo="([^"]*)"/g, (m, t) => (t === '-' ? '<script' : `<script type="${t}"`))
+      .replace(/\sdata-kc-on(load|error)=/gi, ' on$1=');
+  } finally {
+    fs.rmSync(archivo, { force: true });
+  }
+}
+
 /** Un GIF animado como video (mucho más liviano): { mp4, poster } relativos, o null. */
 function gifAVideo(ffmpeg, entrada, salidaSinExt) {
   return new Promise((ok) => {
@@ -239,7 +264,7 @@ function gifAVideo(ffmpeg, entrada, salidaSinExt) {
 
 // (2026-11-24j) Lo que NO se deja en el modo fiel: analítica, píxeles, chats y popups de las apps (lo demás corre igual
 // que en la original: desplegables, pestañas, selectores, variantes, carruseles, page builders…).
-export const RE_RASTREO = /(googletagmanager|google-analytics|gtag\(|\bfbq\(|fbevents|connect\.facebook\.net|analytics\.tiktok|\bttq\.|hotjar|clarity\.ms|snap\.licdn|bat\.bing|pintrk|s\.pinimg|criteo|taboola|outbrain|doubleclick|klaviyo|privy|wheelio|trekkie|ShopifyAnalytics|web-pixels|webPixelsManager|monorail|shopify-perf-kit|boomerang|\/checkouts\/internal\/preloads|shopifycloud\/(consent|privacy|perf|shop-js|storefront-forms|portable-wallets)|attn\.tv|attentive|postscript|omnisend|optinmonster|justuno|wisepops|pushowl|smsbump|sms-bump|tidio|gorgias|zendesk|tawk\.to|intercom|crisp\.chat|hextom|spin-?wheel|spin-?to-?win|promolayer|growave-popup|consentmo|cookiebot|onetrust)/i;
+export const RE_RASTREO = /(googletagmanager|google-analytics|gtag\(|\bfbq\(|fbevents|connect\.facebook\.net|analytics\.tiktok|\bttq\.|hotjar|clarity\.ms|snap\.licdn|bat\.bing|pintrk|s\.pinimg|criteo|taboola|outbrain|doubleclick|klaviyo|privy|wheelio|trekkie|ShopifyAnalytics|web-pixels|webPixelsManager|monorail|shopify-perf-kit|boomerang|\/checkouts\/internal\/preloads|shopifycloud\/(consent|privacy|perf|shop-js|storefront-forms|portable-wallets)|attn\.tv|attentive|postscript|omnisend|optinmonster|justuno|wisepops|pushowl|smsbump|sms-bump|tidio|gorgias|zendesk|tawk\.to|boostymark|regionblock|country-?blocker|ip-?blocker|bmExtension|bm-preload|geo-?block|luckyorange|triplepixel|trueprofit|applovin|intercom|crisp\.chat|hextom|spin-?wheel|spin-?to-?win|promolayer|growave-popup|consentmo|cookiebot|onetrust)/i;
 const RE_DATOS = /json|template|text\/x-|importmap|speculationrules/i;
 
 export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg = null, fiel = true }) {
@@ -251,13 +276,19 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   // del page builder: así todo FUNCIONA como en la original (en el HTML ya armado, el JavaScript arrancaría dos veces).
   let html = null;
   if (fiel) {
+    // un reto anti-bots de verdad (Cloudflare «Just a moment…»): página corta, sin la tienda
+    const esReto = (t) => /<title>\s*(just a moment|attention required|un momento|access denied)/i.test(t) || /cf_chl_opt|cf-browser-verification|id="challenge-form"/i.test(t);
+    const sirve = (t) => t && /<body/i.test(t) && t.length > 2000 && !esReto(t);
     try {
-      const r = await bajar(url, { accept: 'text/html' });
-      const t = r.bytes.toString('utf8');
-      if (/<body/i.test(t) && t.length > 2000 && !/cf-challenge|challenge-platform|captcha/i.test(t.slice(0, 20000))) html = t;
+      const t = (await bajar(url, { accept: 'text/html' })).bytes.toString('utf8');
+      if (sirve(t)) html = t;
     } catch {
-      /* sin el HTML directo: va armado */
+      /* la tienda no le contesta a la app: va la liviana */
     }
+    // (2026-11-24k) y leído COMO LO LEE EL NAVEGADOR: las etiquetas que la tienda deja sin cerrar (el <path> de sus
+    // íconos SVG, por ejemplo) el navegador las cierra; leídas a mano desarmaban la página (el menú y el carrito sueltos,
+    // la rueda de carga gigante). Sus scripts van dormidos mientras tanto: no corre nada.
+    if (html) html = (await comoLoLeeElNavegador(html, carpeta)) || html;
     if (!html) {
       fiel = false;
       avisos.push('La tienda no entregó su página directo (protección anti-bots): la copié ya armada, sin su JavaScript (los desplegables o selectores pueden no funcionar).');

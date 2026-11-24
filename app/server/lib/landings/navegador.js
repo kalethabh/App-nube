@@ -50,7 +50,7 @@ export function rutaDelNavegador() {
 export function htmlArmado(url, { espera = 15000, ancho = 412, alto = 915, plazoMs = 90000, extra = [] } = {}) {
   const bin = rutaDelNavegador();
   if (!bin) return Promise.resolve(null);
-  const args = ['--headless', '--no-sandbox', '--disable-gpu', '--hide-scrollbars', '--mute-audio', `--user-agent=${AGENTE}`, `--window-size=${ancho},${alto}`, `--virtual-time-budget=${espera}`, ...extra, '--dump-dom', url];
+  const args = ['--headless', '--no-sandbox', '--disable-gpu', '--hide-scrollbars', '--mute-audio', `--user-agent=${AGENTE}`, `--window-size=${ancho},${alto}`, `--virtual-time-budget=${espera}`, ...extra, ...String(process.env.LANDINGS_CHROME_ARGS || '').split(' ').filter(Boolean), '--dump-dom', url]; // (LANDINGS_CHROME_ARGS: p. ej. un proxy, para pruebas)
   return new Promise((ok) => {
     const p = spawn(bin, args, { windowsHide: true });
     const partes = [];
