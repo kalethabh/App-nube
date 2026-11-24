@@ -7,7 +7,7 @@
   "analizar": true,
   "titulo": "Aurivita Cayenne Pepper Softgels",
   "creado": "2026-11-24T17:31:41.867Z",
-  "estado": "lista",
+  "estado": "midiendo",
   "progreso": [
     "Cargando la página como la ve un celular…",
     "Quitando el JavaScript de la tienda, las apps y los píxeles…",
@@ -19,7 +19,8 @@
     "Claude Code está analizando la landing…",
     "Análisis listo: 18 secciones.",
     "Midiendo la velocidad (Lighthouse en celular): la original y la copia…",
-    "Lista."
+    "Lista.",
+    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…"
   ],
   "error": null,
   "informe": {
@@ -70,7 +71,7 @@
     },
     "fecha": "2026-11-24T17:35:45.442Z"
   },
-  "actualizado": "2026-11-24T17:35:45.443Z",
+  "actualizado": "2026-11-24T17:40:57.109Z",
   "analisis": {
     "resumen": "Es una página de un solo producto que vende cápsulas de pimienta de cayena para la circulación y el corazón. Su estrategia es educar con miedo y ciencia: muestra que el problema empieza antes de lo que crees, explica cómo funciona el producto y empuja a comprar packs grandes con regalos y suscripción.",
     "producto": "Aurivita Cayenne Pepper: cápsulas blandas con 3 mg de capsaicina por porción, más cúrcuma, espino blanco, remolacha, canela, berberina, ginseng, pimienta negra y vitaminas D3, K2 y E. Cada bolsa trae 60 cápsulas.",
