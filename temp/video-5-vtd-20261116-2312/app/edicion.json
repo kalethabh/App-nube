@@ -440,7 +440,9 @@
             ]
           ]
         },
-        "caja": true
+        "caja": true,
+        "dx": -0.011,
+        "dy": -0.001
       }
     ],
     "reemplazos": {},
@@ -476,11 +478,11 @@
       "salida": 0
     }
   },
-  "t": 1795115961937,
+  "t": 1795550126135,
   "contexto": {
     "titulo": "5   VTD ❌",
     "overlays": [],
     "color": "#0FA3B1"
   },
-  "guardado": "2026-11-19T19:19:22.936Z"
+  "guardado": "2026-11-24T19:55:26.757Z"
 }
