@@ -314,6 +314,12 @@ export default function Landings() {
             : `Misma estructura y diseño. ${motor === 'codex' ? 'Codex' : 'Claude Code'} reescribe los textos para tu producto (con su ficha y su investigación, sin inventar) y ChatGPT hace las imágenes donde se ve el producto, con tu foto. Las imágenes con ChatGPT no cuestan por imagen.`}
         </p>
       </section>
+      {/* (2026-11-24) las tiendas a donde se suben: a la vista (se conectan en el menú Shopify) */}
+      <section className="ld-mis-tiendas">
+        <span className="ld-grupo__etiqueta">Tus tiendas de Shopify</span>
+        {tiendas.length ? tiendas.map((t) => <span key={t.id} className="ld-tienda">{bandera(t.pais)} {t.nombre} <small>{t.cuenta}</small></span>) : <span className="ld-ayuda">Todavía no conectas ninguna. Conéctalas para subir tus landings con vista previa.</span>}
+        <Boton variante="secundario" tamano="chico" icono={ShoppingBag} href={enlace.shopify()}>{tiendas.length ? 'Conectar otra tienda' : 'Conectar mis tiendas'}</Boton>
+      </section>
       {!landings.length ? (
         <EstadoVacio icono={LayoutTemplate} titulo="Todavía no clonaste ninguna" descripcion="Pega arriba la dirección de una landing que te guste o de tu tienda." />
       ) : (
