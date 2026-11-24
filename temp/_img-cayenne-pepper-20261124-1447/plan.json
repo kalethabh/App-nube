@@ -1,0 +1,71 @@
+{
+  "producto": "CAYENNE PEPPER",
+  "lote": "_img-cayenne-pepper-20261124-1447",
+  "cantidad": 5,
+  "proporciones": [
+    "1:1"
+  ],
+  "variaciones": [
+    {
+      "id": "V01",
+      "fuente": "biblioteca",
+      "formato_id": "F17",
+      "formato_desde0": "testimonio",
+      "angulo_id": "prueba-social",
+      "angulo": "Testimonio UGC",
+      "concepto": "Toda mi vida fui [dolor en primera persona]",
+      "titular": "Toda mi vida fui la de pies helados",
+      "escena": "a small home gym corner with a yoga mat and dumbbells · leaning on a wall, side view, full body framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V02",
+      "fuente": "biblioteca",
+      "formato_id": "F03",
+      "formato_desde0": "antes-despues",
+      "angulo_id": "transformacion",
+      "angulo": "Antes / después",
+      "concepto": "[Resultado deseado] en [tiempo], de forma natural",
+      "titular": "Pies calienticos en 2 a 4 semanas",
+      "escena": "a living room with a sofa and plants · kneeling on a mat, side view, full body framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V03",
+      "fuente": "biblioteca",
+      "formato_id": "G16",
+      "formato_desde0": "hero",
+      "angulo_id": "beneficio-principal",
+      "angulo": "Referencia / hero",
+      "concepto": "[Producto/mecanismo]: [n] en 1 para [deseo]",
+      "titular": "Cayena: 3 en 1 para sentirte entera",
+      "escena": "a beach at golden hour · mirror pose holding the phone, three-quarter view, thighs-up framing",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V04",
+      "fuente": "biblioteca",
+      "formato_id": "F04",
+      "formato_desde0": "nosotros-vs-ellos",
+      "angulo_id": "objecion-confianza",
+      "angulo": "Nosotros vs. ellos",
+      "concepto": "Más [zona/deseo] sin [sacrificio]",
+      "titular": "Más calorcito en los pies sin ardor",
+      "escena": "producto protagonista",
+      "camara": "la del formato"
+    },
+    {
+      "id": "V05",
+      "fuente": "biblioteca",
+      "formato_id": "F29",
+      "formato_desde0": "nota",
+      "angulo_id": "prueba-social",
+      "angulo": "Nota / recomendado",
+      "concepto": "No solo [beneficio obvio]: también [beneficio extra]",
+      "titular": "No solo pies calienticos: también piernas livianas",
+      "escena": "a city sidewalk in daylight, everyday street · facing the camera, confident smile, waist-up framing",
+      "camara": "la del formato"
+    }
+  ],
+  "desde0": true
+}

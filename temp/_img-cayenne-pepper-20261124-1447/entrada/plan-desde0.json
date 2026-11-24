@@ -1,0 +1,59 @@
+{
+  "anuncios": [
+    {
+      "formato": "testimonio",
+      "titular": "Toda mi vida fui la de pies helados",
+      "plantilla_titular": "Toda mi vida fui [dolor en primera persona]",
+      "beneficios": ["Pies menos helados", "Más ánimo en la tarde", "Sin ardor en la boca"],
+      "sello": "CÁPSULA BLANDA · 10 BOTÁNICOS",
+      "cta": "Quiero el mío",
+      "emocion": "Mujer de unos 56 años, sentada en su cama bajo la cobija, sonríe aliviada y tranquila, con los pies tibios y una sola media",
+      "cita": "Ya me acuesto y los pies se me calientan"
+    },
+    {
+      "formato": "antes-despues",
+      "titular": "Pies calienticos en 2 a 4 semanas",
+      "plantilla_titular": "[Resultado deseado] en [tiempo], de forma natural",
+      "beneficios": ["Ayuda a la circulación", "Piernas más livianas", "Cayena natural"],
+      "sello": "CÁPSULA BLANDA · 10 BOTÁNICOS",
+      "cta": "Pídelo hoy",
+      "emocion": "Antes: frotándose los pies helados con dos pares de medias, cara de frío y cansancio. Después: descalza en casa, cómoda y sonriente, con energía",
+      "cita": ""
+    },
+    {
+      "formato": "hero",
+      "titular": "Cayena: 3 en 1 para sentirte entera",
+      "plantilla_titular": "[Producto/mecanismo]: [n] en 1 para [deseo]",
+      "beneficios": ["Pies calienticos", "Piernas livianas", "Energía hasta la noche"],
+      "sello": "CÁPSULA BLANDA · 10 BOTÁNICOS",
+      "cta": "Pide el tuyo",
+      "emocion": "El frasco protagonista en una escena cálida y acogedora, con ají rojo fresco y luz dorada que transmite calorcito y vitalidad",
+      "cita": ""
+    },
+    {
+      "formato": "nosotros-vs-ellos",
+      "titular": "Más calorcito en los pies sin ardor",
+      "plantilla_titular": "Más [zona/deseo] sin [sacrificio]",
+      "beneficios": ["Cápsula fácil de tragar", "Con el desayuno"],
+      "sello": "CÁPSULA BLANDA · 10 BOTÁNICOS",
+      "cta": "Lo quiero",
+      "emocion": "Mujer madura que deja a un lado el vaso de agua con cayena, con gesto de alivio y una sonrisa de confianza",
+      "cita": "",
+      "comparacion": [
+        { "nuestro": "✅ Cápsula blanda, sin ardor", "otro": "❌ Agua con cayena que arde" },
+        { "nuestro": "✅ Rutina fácil cada día", "otro": "❌ Remedios que no duran" },
+        { "nuestro": "✅ Pagas al recibir", "otro": "❌ Cobros sorpresa" }
+      ]
+    },
+    {
+      "formato": "nota",
+      "titular": "No solo pies calienticos: también piernas livianas",
+      "plantilla_titular": "No solo [beneficio obvio]: también [beneficio extra]",
+      "beneficios": ["Más ánimo en la tarde", "Cayena natural", "Pagas al recibir"],
+      "sello": "CÁPSULA BLANDA · 10 BOTÁNICOS",
+      "cta": "Escríbenos",
+      "emocion": "Escena cotidiana y cercana: una mujer de 50 y tantos jugando con su nieto en la sala al final de la tarde, activa y contenta",
+      "cita": ""
+    }
+  ]
+}

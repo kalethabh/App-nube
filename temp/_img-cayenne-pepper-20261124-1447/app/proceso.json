@@ -1,0 +1,15 @@
+{
+  "pid": 21350,
+  "paso": "anuncios",
+  "script": "generar-imagen-ads.js",
+  "args": [
+    "temp/_img-cayenne-pepper-20261124-1447",
+    "--motor",
+    "chatgpt",
+    "--concurrencia",
+    "3"
+  ],
+  "comando": "node produccion/generar-imagen-ads.js temp/_img-cayenne-pepper-20261124-1447 --motor chatgpt --concurrencia 3",
+  "inicio": "2026-11-24T19:48:10.396Z",
+  "app": 18952
+}

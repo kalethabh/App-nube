@@ -2,7 +2,7 @@
   "slug": "_img-cayenne-pepper-20261124-1447",
   "familia": "imagen-ads",
   "estado": "corriendo",
-  "paso": "estrategia",
+  "paso": "anuncios",
   "pasos": [
     {
       "id": "preparar",
@@ -23,16 +23,18 @@
     {
       "id": "estrategia",
       "nombre": "La IA arma la estrategia",
-      "estado": "corriendo",
+      "estado": "hecho",
       "intentos": 1,
       "inicio": "2026-11-24T19:47:36.026Z",
-      "detalle": "Escribiendo los textos de cada anuncio"
+      "fin": "2026-11-24T19:48:10.390Z"
     },
     {
       "id": "anuncios",
       "nombre": "Creando tus anuncios",
-      "estado": "pendiente",
-      "intentos": 0
+      "estado": "corriendo",
+      "intentos": 1,
+      "inicio": "2026-11-24T19:48:10.391Z",
+      "detalle": "Creando 2 imágenes · Claude está revisando 1 imagen: repasando cada anuncio · 0 de 5 listas"
     },
     {
       "id": "informe",
@@ -45,5 +47,5 @@
   "modoPrueba": false,
   "creado": "2026-11-24T19:47:35.926Z",
   "aprobado": "2026-11-24T19:47:35.926Z",
-  "actualizado": "2026-11-24T19:47:36.028Z"
+  "actualizado": "2026-11-24T19:49:55.332Z"
 }

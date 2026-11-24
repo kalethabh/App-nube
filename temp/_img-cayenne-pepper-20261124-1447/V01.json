@@ -1,0 +1,100 @@
+{
+  "ad_info": {
+    "variation_id": "V01"
+  },
+  "global_identity": {
+    "color_palette": "the colors of the product's packaging",
+    "text_typography": "a heavy bold sans for the headline in ALL CAPS, a clean sans for the rest"
+  },
+  "visual_prompt": "PRODUCT: CAYENNE PEPPER. Its bottle reproduced with total fidelity to the attached photo (label, brand name letter by letter, colors).\nLAYOUT (UGC testimonial): a mirror selfie with the phone in her hand, natural light, homemade look; the quote in big quotation marks over the photo; fewer graphic blocks; Z5 offer small at the bottom.\nMODEL: a 47 years old woman, plus-size, deep brown skin, long curly hair, ordinary and believable (not a fashion model), natural makeup. Emotion: Mujer de unos 56 años, sentada en su cama bajo la cobija, sonríe aliviada y tranquila, con los pies tibios y una sola media.\nSETTING: a small home gym corner with a yoga mat and dumbbells. POSE AND FRAMING: leaning on a wall, side view, full body framing.",
+  "text_layers": [
+    {
+      "reference_function": "Z1 headline",
+      "reference_position": "top 15-20% of the image",
+      "text": "TODA MI VIDA FUI LA DE PIES HELADOS",
+      "text_style": "very bold, ALL CAPS, high contrast, the biggest text"
+    },
+    {
+      "reference_function": "quote",
+      "reference_position": "over the photo",
+      "text": "“Ya me acuesto y los pies se me calientan”",
+      "text_style": "handwritten-like or clean quote style, with quotation marks"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Pies menos helados",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Más ánimo en la tarde",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z3 benefit bullet",
+      "reference_position": "stacked, near the visual",
+      "text": "✓ Sin ardor en la boca",
+      "text_style": "check icon + short text"
+    },
+    {
+      "reference_function": "Z4 product seal",
+      "reference_position": "on or next to the bottle",
+      "text": "CÁPSULA BLANDA · 10 BOTÁNICOS",
+      "text_style": "badge or seal"
+    },
+    {
+      "reference_function": "Z5 offer",
+      "reference_position": "badge or ribbon, bottom",
+      "text": "TRATAMIENTO COMPLETO X3",
+      "text_style": "highlighted but not exaggerated"
+    },
+    {
+      "reference_function": "Z5 offer (2)",
+      "reference_position": "inside or right below the offer",
+      "text": "Pagas al recibir",
+      "text_style": "smaller"
+    },
+    {
+      "reference_function": "Z6 CTA",
+      "reference_position": "a single short chip",
+      "text": "Quiero el mío",
+      "text_style": "button chip"
+    }
+  ],
+  "mandatory_visual_elements": [
+    "the real product from the attached product photo, at least 15% of the image",
+    "the woman: a 47 years old woman, plus-size, deep brown skin, long curly hair, ordinary and believable (not a fashion model), natural makeup"
+  ],
+  "final_generation_exclusions": [
+    "any text closer than 5% to the edges",
+    "more than 3 benefit bullets",
+    "more than one CTA",
+    "medical claims, guarantees or invented numbers",
+    "brands or logos other than the product",
+    "misspelled words"
+  ],
+  "reference_structure_analysis": {
+    "forbidden_additions": [
+      "extra blocks of text",
+      "prices other than the given offer"
+    ],
+    "detected_visual_blocks": [
+      "Z1",
+      "Z2",
+      "Z3",
+      "Z4",
+      "Z5",
+      "Z6"
+    ]
+  },
+  "language_rule": "All visible text in Colombian Spanish, simple, perfectly spelled.",
+  "app_desde0": {
+    "formato": "testimonio",
+    "modelo": "a 47 years old woman, plus-size, deep brown skin, long curly hair, ordinary and believable (not a fashion model), natural makeup",
+    "escenario": "a small home gym corner with a yoga mat and dumbbells",
+    "pose": "leaning on a wall, side view, full body framing",
+    "plantilla_titular": "Toda mi vida fui [dolor en primera persona]"
+  }
+}
