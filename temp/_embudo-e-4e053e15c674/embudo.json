@@ -3,9 +3,9 @@
   "productoId": "cayenne-pepper-d319",
   "nombre": "CAYENNE PEPPER",
   "puerto": null,
-  "version": 2,
+  "version": 8,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T21:54:20.833Z",
+  "actualizado": "2026-11-24T21:56:02.584Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -226,29 +226,36 @@
     }
   },
   "seleccion": {
-    "hero": "cc08376aebc2c205c456",
-    "dolor": null,
+    "hero": "f078dddb38ba27601084",
+    "dolor": "73da449593e43d5f4fa4",
     "beneficios": null,
     "ingredientes": null,
     "uso": null
   },
   "correcciones": {},
-  "imagenes": {},
+  "imagenes": {
+    "hero": {
+      "archivo": "trabajos/j-99becbef5f0df9f0/hero.png",
+      "firma": "19e61a67af525d9b4a3335f5f2e2caa284265ee8bf86d3d091e3608ac78edc02",
+      "trabajoId": "j-99becbef5f0df9f0",
+      "fecha": "2026-11-24T21:55:18.716Z",
+      "url": "/api/embudos/e-4e053e15c674/imagenes/j-99becbef5f0df9f0/hero"
+    }
+  },
   "presupuestos": {},
   "trabajo": {
-    "id": "j-99becbef5f0df9f0",
-    "token": "345d474e2847855d43d71fdf94355c7f",
+    "id": "j-955084e25cdb497f",
+    "token": "9599a205ccb02a6176c8a499401a92af",
     "estado": "generando",
     "motor": "chatgpt",
-    "cantidad": 2,
+    "cantidad": 1,
     "importeAprobado": 0,
-    "inicio": "2026-11-24T21:53:42.282Z",
+    "inicio": "2026-11-24T21:56:02.583Z",
     "secciones": [
-      "avatar",
-      "hero"
+      "dolor"
     ],
-    "hechas": 1,
-    "actual": "hero"
+    "hechas": 0,
+    "actual": "dolor"
   },
   "avatarPendiente": null
 }

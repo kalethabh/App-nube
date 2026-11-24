@@ -1,12 +1,12 @@
 {
-  "pid": 34851,
-  "paso": "embudo-j-99becbef5f0df9f0-hero",
+  "pid": 35090,
+  "paso": "embudo-j-955084e25cdb497f-dolor",
   "script": "generar-embudo.js",
   "args": [
-    "temp/_embudo-e-4e053e15c674/trabajos/j-99becbef5f0df9f0",
-    "hero"
+    "temp/_embudo-e-4e053e15c674/trabajos/j-955084e25cdb497f",
+    "dolor"
   ],
-  "comando": "node produccion/generar-embudo.js temp/_embudo-e-4e053e15c674/trabajos/j-99becbef5f0df9f0 hero",
-  "inicio": "2026-11-24T21:54:20.834Z",
+  "comando": "node produccion/generar-embudo.js temp/_embudo-e-4e053e15c674/trabajos/j-955084e25cdb497f dolor",
+  "inicio": "2026-11-24T21:56:02.586Z",
   "app": 33950
 }

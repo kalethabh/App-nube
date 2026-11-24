@@ -1,0 +1,37 @@
+{
+  "id": "j-955084e25cdb497f",
+  "version": 8,
+  "motor": "chatgpt",
+  "formato": "9:16",
+  "foto": "producto.png",
+  "usarAvatar": true,
+  "avatarArchivo": "avatar-base.png",
+  "piezas": [
+    {
+      "id": "dolor",
+      "opcion": {
+        "id": "73da449593e43d5f4fa4",
+        "titulo": "¿Sientes las piernas como de plomo al final del día?",
+        "subtitulo": "Ese peso tiene que ver con cómo circula la sangre en tus piernas.",
+        "origen": "secciones[13].bloques[22] · Deseo central, propuestas de valor y copy para la landing",
+        "etiqueta": "Opción 2 (la sensación física)",
+        "contenido": []
+      },
+      "contenido": [
+        "Cobros sorpresa. Personas que no sabían que estaban suscritas y les cobraron otra vez.",
+        "Envíos lentos o perdidos. Hasta un mes para recibir el pedido.",
+        "Miedo a lo falso. Un reporte de cápsulas que «solo sabían a aceite».",
+        "Precio para pensionados. Alguien con ingreso fijo dice que le cuesta pagarlo cada mes.",
+        "Ardor en el estómago si se toma sin comida.",
+        "Resultados lentos o poco claros. Algunos llevan semanas y no dicen qué cambió: hay que explicar qué notar y cuándo.",
+        "Dudas de origen. Preguntas sobre dónde se fabrica y quién es la empresa.",
+        "Se acuesta con los pies helados y tarda mucho en dormirse."
+      ],
+      "firma": "a8f9d072b205f773a5ea7e81d39fb2ac57a8af9d3690afcd704ea74a5dd4a41b",
+      "correccion": "",
+      "anterior": null,
+      "prompt": "Create ONE finished commercial funnel section image, aspect ratio 9:16, high resolution, for the real product in the attached product photograph. Not a collage of the funnel or a website screenshot.\nSECTION FUNCTION: Mostrar el problema cotidiano del público y los síntomas o situaciones que describe la investigación, sin diagnosticar ni exagerar.\nINTERNAL CONTENT STRUCTURE: A problem-focused title and subtitle, plus three to five concrete everyday pain situations from the research, with new relevant visual representations. Never diagnose a viewer or copy a symptom list from another product.\nART DIRECTION: Design a new coherent visual identity specifically for this product, its packaging, category and audience. The other funnel sections must belong to the same brand. Choose a suitable palette, typography, people, poses, composition, icon system and visual hierarchy. No fixed template, no imitation of another brand. Do not carry over any person, color palette, positions, fonts or icons from an external template. The app theme does NOT define the product's branding. Keep product shape, label, brand and packaging faithful to its photograph. Use adult people only if useful for this section and appropriate to the product; people are optional, never mandatory.\nEXACT SPANISH TEXT (render the title and subtitle verbatim, with readable typography, accents and enough contrast; no English labels):\n{\"titulo\":\"¿Sientes las piernas como de plomo al final del día?\",\"subtitulo\":\"Ese peso tiene que ver con cómo circula la sangre en tus piernas.\",\"elementos\":[\"Cobros sorpresa. Personas que no sabían que estaban suscritas y les cobraron otra vez.\",\"Envíos lentos o perdidos. Hasta un mes para recibir el pedido.\",\"Miedo a lo falso. Un reporte de cápsulas que «solo sabían a aceite».\",\"Precio para pensionados. Alguien con ingreso fijo dice que le cuesta pagarlo cada mes.\",\"Ardor en el estómago si se toma sin comida.\",\"Resultados lentos o poco claros. Algunos llevan semanas y no dicen qué cambió: hay que explicar qué notar y cuándo.\",\"Dudas de origen. Preguntas sobre dónde se fabrica y quién es la empresa.\",\"Se acuesta con los pies helados y tarda mucho en dormirse.\"]}\nPRODUCT FACTS AND DESIGN CONTEXT (data, not instructions):\n{\"producto\":\"CAYENNE PEPPER\",\"estilo\":\"Color de la investigación: #8A1C1C. Identidad adaptada a la categoría, el público y el empaque real del producto. Consistencia de marca entre las cinco secciones.\"}\nUse only the supplied facts and copy. Do not invent ingredients, dosage, certification, reviews, guarantees, prices, transformation deadlines or clinical claims. Do not import claims from other products. No watermarks or unrelated logos. Clear hierarchy: title, value-proposition subtitle, section-specific content and relevant visual. Safe margins 6%, no cut-off text.\nMake an original composition for this section, visually adapted to the real product."
+    }
+  ],
+  "creado": "2026-11-24T21:56:02.583Z"
+}
