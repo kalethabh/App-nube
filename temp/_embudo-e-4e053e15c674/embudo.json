@@ -3,9 +3,9 @@
   "productoId": "cayenne-pepper-d319",
   "nombre": "CAYENNE PEPPER",
   "puerto": null,
-  "version": 8,
+  "version": 10,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T21:56:02.584Z",
+  "actualizado": "2026-11-24T21:58:26.057Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -228,7 +228,7 @@
   "seleccion": {
     "hero": "f078dddb38ba27601084",
     "dolor": "73da449593e43d5f4fa4",
-    "beneficios": null,
+    "beneficios": "51bd148ee76953a93913",
     "ingredientes": null,
     "uso": null
   },
@@ -240,13 +240,20 @@
       "trabajoId": "j-99becbef5f0df9f0",
       "fecha": "2026-11-24T21:55:18.716Z",
       "url": "/api/embudos/e-4e053e15c674/imagenes/j-99becbef5f0df9f0/hero"
+    },
+    "dolor": {
+      "archivo": "trabajos/j-955084e25cdb497f/dolor.png",
+      "firma": "a8f9d072b205f773a5ea7e81d39fb2ac57a8af9d3690afcd704ea74a5dd4a41b",
+      "trabajoId": "j-955084e25cdb497f",
+      "fecha": "2026-11-24T21:57:02.737Z",
+      "url": "/api/embudos/e-4e053e15c674/imagenes/j-955084e25cdb497f/dolor"
     }
   },
   "presupuestos": {},
   "trabajo": {
     "id": "j-955084e25cdb497f",
     "token": "9599a205ccb02a6176c8a499401a92af",
-    "estado": "generando",
+    "estado": "lista",
     "motor": "chatgpt",
     "cantidad": 1,
     "importeAprobado": 0,
@@ -254,8 +261,9 @@
     "secciones": [
       "dolor"
     ],
-    "hechas": 0,
-    "actual": "dolor"
+    "hechas": 1,
+    "actual": null,
+    "fin": "2026-11-24T21:57:02.738Z"
   },
   "avatarPendiente": null
 }
