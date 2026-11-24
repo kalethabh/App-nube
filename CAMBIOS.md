@@ -2,6 +2,11 @@
 
 Cada versión nueva va arriba. La versión que tienes está en el archivo VERSION y en la app, en Ajustes, Acerca de.
 
+## 2026-11-24b · Landings: análisis y vista previa en tu tienda antes de publicar
+
+- Al clonar una landing (tal cual o para tu producto), **tu IA la analiza**: de qué va, a quién le habla, el ángulo, el gancho, la oferta, sus secciones en orden, la prueba social, las objeciones que resuelve, lo que mejor hace, lo que le falta e ideas para tu producto. También puedes analizar las que ya tenías («Analizar»).
+- **«Subir a Shopify» ahora escribe la landing en el código de tu tema** (con Shopify CLI, solo archivos nuevos) y **primero te da la vista previa en tu tienda**. Nadie la ve sin ese enlace. Si te gusta, en el menú Shopify tocas **«Publicar la página»** y recién ahí se crea la página.
+
 ## 2026-11-24a · TrendTrack vuelve a funcionar en la investigación
 
 - La investigación de la competencia (y «Mejores anuncios») decía «No se pudo usar TrendTrack»: tu conector se llama «Trendtrack» y la app lo buscaba como «TrendTrack», así que cada consulta se negaba. Ahora lo encuentra se llame como se llame.

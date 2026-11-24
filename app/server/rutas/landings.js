@@ -11,7 +11,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import express from 'express';
 import { soloDesdeLaApp } from '../lib/productos.js';
-import { listar, leer, crear, borrar, medirDeNuevo, carpetaDe } from '../lib/landings/index.js';
+import { listar, leer, crear, borrar, medirDeNuevo, analizarDeNuevo, carpetaDe } from '../lib/landings/index.js';
 import { prepararZip, enviarZip } from '../lib/imagen-ads/zip.js';
 
 const json = express.json({ limit: '16kb' });
@@ -32,6 +32,7 @@ export default function rutasLandings(app) {
   app.get('/api/landings/:id', r((req) => leer(req.params.id)));
   app.delete('/api/landings/:id', soloDesdeLaApp, r((req) => borrar(req.params.id)));
   app.post('/api/landings/:id/medir', soloDesdeLaApp, r((req) => medirDeNuevo(req.params.id)));
+  app.post('/api/landings/:id/analizar', soloDesdeLaApp, json, r((req) => analizarDeNuevo(req.params.id, req.body || {})));
   app.get('/api/landings/:id/descargar', async (req, res) => {
     try {
       const l = leer(req.params.id);

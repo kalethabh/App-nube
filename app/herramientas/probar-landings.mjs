@@ -165,6 +165,11 @@ async function principal() {
   check('La fuente queda local y con font-display:swap', /url\(assets\/[^)]+\.woff2\)/.test(h1) && /font-display:swap/.test(h1));
   check('Los enlaces y el formulario van a la tienda original', h1.includes(`href="${TIENDA}/collections/all"`) && h1.includes(`action="${TIENDA}/cart/add"`), h1.match(/(href|action)="[^"]*"/g));
   check('El informe dice qué hizo', l?.informe?.scripts >= 2 && l.informe.imagenes >= 3 && l.informe.carruseles >= 1 && l.informe.pesos?.html > 0, l?.informe);
+  // (2026-11-24) el análisis de la landing (la IA lee sus textos en orden)
+  check('Trae su análisis: resumen, gancho, oferta y las secciones en orden', l?.analisis?.resumen && l.analisis.gancho && l.analisis.oferta && l.analisis.secciones?.length >= 2 && l.analisis.secciones[0].n === 1 && l.analisis.ideas?.length >= 1, l?.analisis);
+  r = await pedir(`/api/landings/${id1}/analizar`, { metodo: 'POST', json: {} });
+  const otra = await esperar(120, () => leerLanding(id1), (x) => x && !x.trabajando && x.estado !== 'analizando');
+  check('«Analizar otra vez» la vuelve a analizar', r.st === 200 && otra?.estado === 'lista' && otra.analisis?.fecha && otra.analisis.fecha !== l.analisis.fecha, { st: r.st, estado: otra?.estado });
 
   // la vista
   let v = await fetch(`${BASE}/landing/${id1}/index.html`, { headers: { 'Accept-Encoding': 'gzip' } });
