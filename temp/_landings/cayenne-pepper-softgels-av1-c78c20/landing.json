@@ -1,0 +1,22 @@
+{
+  "id": "cayenne-pepper-softgels-av1-c78c20",
+  "url": "https://aurivita.co/products/cayenne-pepper-softgels-av1",
+  "modo": "tal-cual",
+  "motor": "claude",
+  "productoId": null,
+  "analizar": true,
+  "titulo": "aurivita.co",
+  "creado": "2026-11-24T17:31:41.867Z",
+  "estado": "trabajando",
+  "progreso": [
+    "Cargando la página como la ve un celular…",
+    "Quitando el JavaScript de la tienda, las apps y los píxeles…",
+    "Copiando los estilos, las fuentes y los fondos…",
+    "Copiando las imágenes en WebP y en sus tamaños…",
+    "Copiando los videos…"
+  ],
+  "error": null,
+  "informe": null,
+  "puntajes": null,
+  "actualizado": "2026-11-24T17:32:50.144Z"
+}
