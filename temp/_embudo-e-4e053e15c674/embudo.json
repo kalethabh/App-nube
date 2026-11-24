@@ -5,7 +5,7 @@
   "puerto": null,
   "version": 18,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T23:10:33.572Z",
+  "actualizado": "2026-11-24T23:11:30.916Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -289,11 +289,12 @@
   "correcciones": {},
   "imagenes": {
     "hero": {
-      "archivo": "trabajos/j-99becbef5f0df9f0/hero.png",
-      "firma": "19e61a67af525d9b4a3335f5f2e2caa284265ee8bf86d3d091e3608ac78edc02",
-      "trabajoId": "j-99becbef5f0df9f0",
-      "fecha": "2026-11-24T21:55:18.716Z",
-      "url": "/api/embudos/e-4e053e15c674/imagenes/j-99becbef5f0df9f0/hero"
+      "archivo": "trabajos/j-9c583f58ad86084c/hero.png",
+      "firma": "9066ebdd56056b0ff4af343a3fc2f6ada5ba815209ec5e39cde1a16a1b16bd30",
+      "formato": "9:16",
+      "trabajoId": "j-9c583f58ad86084c",
+      "fecha": "2026-11-24T23:11:30.916Z",
+      "url": "/api/embudos/e-4e053e15c674/imagenes/j-9c583f58ad86084c/hero"
     },
     "dolor": {
       "archivo": "trabajos/j-955084e25cdb497f/dolor.png",
@@ -321,7 +322,7 @@
   "trabajo": {
     "id": "j-9c583f58ad86084c",
     "token": "95c872a4bf664c3eae8b2ecb3f7d104e",
-    "estado": "generando",
+    "estado": "lista",
     "motor": "chatgpt",
     "cantidad": 1,
     "importeAprobado": 0,
@@ -331,11 +332,14 @@
     ],
     "estados": {
       "hero": {
-        "estado": "generando",
-        "inicio": "2026-11-24T23:10:33.572Z"
+        "estado": "lista",
+        "inicio": "2026-11-24T23:10:33.572Z",
+        "fin": "2026-11-24T23:11:30.916Z"
       }
     },
-    "hechas": 0
+    "hechas": 1,
+    "fin": "2026-11-24T23:11:30.916Z",
+    "actual": null
   },
   "avatarPendiente": null,
   "titulos": {
