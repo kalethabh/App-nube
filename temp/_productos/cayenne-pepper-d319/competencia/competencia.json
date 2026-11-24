@@ -1,0 +1,98 @@
+{
+  "marca": "Sin identificar",
+  "tienda": "",
+  "producto": "CAYENNE PEPPER (marca de la tienda en TrendTrack, sin identificar)",
+  "pais": "Colombia",
+  "fecha": "24 de noviembre de 2026",
+  "explicacion": "",
+  "advertencias": [
+    "**No se pudo usar TrendTrack.** Esta computadora no le dio permiso a la investigación para entrar a TrendTrack: cada consulta (créditos, la tienda, sus anuncios, las tiendas parecidas) fue rechazada antes de salir.",
+    "Por eso **no hay datos de la tienda ni de sus anuncios**: no se sabe qué marca es, cuánto vende, qué anuncios tiene ni cuáles ganan. No se inventó nada para rellenar.",
+    "Créditos: no se pudieron consultar. No se gastó ningún crédito de TrendTrack (aparecen en 0 porque no hubo lectura, no porque estés en cero).",
+    "Las transcripciones tampoco: no se pudo revisar si la marca está en tu lista de marcas seguidas.",
+    "**Qué hacer:** revisa que TrendTrack siga conectado a tu cuenta de Claude, actualiza la app y vuelve a lanzar la investigación. Si se repite, avísale a quien te instaló la app: el permiso de TrendTrack de la investigación no coincide con el nombre del conector."
+  ],
+  "creditos": { "antes": 0, "despues": 0 },
+  "etapas": [
+    {
+      "titulo": "Investigación maestra",
+      "contexto": "Se intentó leer la ficha de la tienda que pegaste, sus anuncios y sus competidores. TrendTrack no respondió por falta de permiso.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos de TrendTrack", "texto": "Dato: las 10 secciones de esta etapa (ficha de la marca, familias de creativos, anuncios top, patrones, sofisticación, estáticos, embudo, oferta, oportunidades y plan) salen de TrendTrack. Sin acceso, no se pueden llenar sin inventar." },
+        { "tipo": "subtitulo", "texto": "Lo único que se pudo ver: el mercado público de cápsulas de cayena" },
+        { "tipo": "parrafo", "texto": "Dato (fuentes públicas de tiendas en EE. UU., no TrendTrack): las marcas que más aparecen vendiendo cápsulas de cayena son NOW Foods, Swanson, Solaray, Nature's Truth, The Vitamin Shoppe y la marca propia de Walmart (Spring Valley). No dice nada de quién pauta ni de qué anuncios funcionan." },
+        { "tipo": "tabla", "columnas": ["Marca", "Producto", "Lo que destaca en su ficha"], "filas": [
+          ["NOW Foods", "Cayena 500 mg, 100 y 250 cápsulas", "Indica el picor: 40.000 unidades de calor"],
+          ["Swanson", "Cayena 450 mg y «Super Cayenne» con jengibre y espino", "Tomar con comida para que no caliente el estómago"],
+          ["Solaray", "Cayena 450 y 515 mg", "Proceso «suave para el estómago»"],
+          ["Nature's Truth", "Cayena 450 mg + jengibre + espino", "Mezcla con otras plantas"],
+          ["The Vitamin Shoppe", "Extracto 450 mg, 90.000 unidades de calor", "«Sin sensación de calor» y análisis de pureza"],
+          ["Spring Valley (Walmart)", "Cayena 455 mg, 100 cápsulas", "Precio bajo"]
+        ], "nota": "Fuentes: fichas públicas de NOW Foods, Swanson, iHerb, Vitamin Shoppe y Walmart. No son competidores medidos en TrendTrack." },
+        { "tipo": "parrafo", "texto": "Inferencia: en tienda física el mercado compite por miligramos, picor y «no irrita el estómago». Eso sugiere un mercado maduro (nivel 3 o 4 de Schwartz), pero **sin anuncios no se puede confirmar** cómo se vende en redes." }
+      ],
+      "limitaciones": ["No se identificó la tienda del link: sin TrendTrack no hay forma de saber qué marca es.", "La tabla de marcas sale de tiendas en EE. UU., no de anuncios."],
+      "riesgos": ["Las cápsulas de cayena suelen venderse con promesas de bajar de peso, quemar grasa, circulación o presión arterial. Son promesas de salud que Meta y la autoridad sanitaria vigilan: cuando haya datos, revisa cómo las dice la competencia antes de copiarlas."]
+    },
+    {
+      "titulo": "Ganadores",
+      "contexto": "Se iban a buscar los anuncios con más días al aire, más copias y más impresiones de la marca.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos", "texto": "Dato: sin acceso a TrendTrack no hay anuncios, días al aire, copias ni impresiones. No se puede decir cuáles son los ganadores, su estructura, ni los futuros ganadores." },
+        { "tipo": "parrafo", "texto": "Esta etapa elige de 6 a 8 anuncios que de verdad escalaron. Un anuncio cuenta como ganador si cumple al menos tres de estas señales:" },
+        { "tipo": "vinetas", "items": ["Muchas impresiones o mucho alcance.", "Varios anuncios con el mismo guion o el mismo creativo.", "Varios ganchos probados sobre el mismo cuerpo.", "Versión en imagen y en video, o página propia.", "Relanzado después de semanas apagado.", "Se descartan los guiones de prueba y los anuncios viejos que casi no se muestran."] }
+      ],
+      "limitaciones": ["Etapa vacía por falta de acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Base de hooks",
+      "contexto": "Se iban a sacar 40 a 50 ganchos de la marca y de sus competidores.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos", "texto": "Dato: los ganchos salen de los anuncios y las transcripciones de TrendTrack. Sin acceso no hay ganchos reales que mostrar, y escribir ganchos sin evidencia sería inventarlos." },
+        { "tipo": "parrafo", "texto": "Cuando haya acceso, cada gancho llevará su texto original con traducción, la marca, cuántos anuncios lo usan, sus fechas, a quién le habla, por qué funciona, qué tan gastado está y una versión mejorada en español." },
+        { "tipo": "vinetas", "items": ["Se ordenan en 12 tipos: miedo, curiosidad, contrarian, autoridad, consciente del problema, consciente de la solución, consciente del producto, muy consciente, vanidad, identidad, aspiración y urgencia.", "Después: los más repetidos, los que más escalan, los que ya cansan y los estilos nuevos con su fecha."] }
+      ],
+      "limitaciones": ["Etapa vacía por falta de acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Mapa de saturación de ángulos",
+      "contexto": "Se iba a contar cuántos anuncios activos combinan «cayenne» con cada ángulo (peso, metabolismo, circulación, digestión, energía…).",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos", "texto": "Dato: los conteos por ángulo salen de búsquedas en TrendTrack. Sin acceso no hay cifras para decir qué ángulo está gastado y cuál está libre." },
+        { "tipo": "caja", "estilo": "hipotesis", "titulo": "Ángulos a medir cuando haya acceso", "texto": "Inferencia: estos son los ángulos que se medirían; no son conclusiones.", "items": ["Bajar de peso o quemar grasa", "Metabolismo", "Circulación, manos y pies fríos", "Digestión", "Energía", "Antojos y apetito", "Articulaciones", "Corazón o presión arterial (riesgo alto de promesa de salud)"] },
+        { "tipo": "parrafo", "texto": "Inferencia: sin conteos no se puede marcar ningún ángulo como gastado o libre. Ojo: aun con acceso, la búsqueda lee el texto escrito del anuncio, no lo que se dice en el video." }
+      ],
+      "limitaciones": ["Etapa vacía por falta de acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Avatares",
+      "contexto": "Se iban a deducir de 6 a 9 tipos de comprador desde los anuncios y las páginas del mercado.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "limite", "titulo": "Sin datos", "texto": "Dato: los avatares se deducen de los anuncios reales. Sin acceso a TrendTrack no hay evidencia, volumen ni momento para ninguno." },
+        { "tipo": "parrafo", "texto": "Cada avatar llevará su nombre, una frase en su voz, su perfil (edad, situación, dolor y deseo), el ángulo que le habla, sus ganchos, la evidencia, el volumen, si está creciendo o no y qué tan saturado está." },
+        { "tipo": "vinetas", "items": ["TrendTrack no da datos de edad ni sexo del público: los avatares se deducen del texto de los anuncios, sus ganchos y sus páginas.", "Se ordenarán en un ranking: saturados, en crecimiento y libres."] }
+      ],
+      "limitaciones": ["Etapa vacía por falta de acceso a TrendTrack."],
+      "riesgos": []
+    },
+    {
+      "titulo": "Validación en Colombia",
+      "contexto": "Se iba a buscar en Colombia, en español, quién ya vende cayena con ángulos parecidos y cuánto tiempo lleva.",
+      "bloques": [
+        { "tipo": "caja", "estilo": "veredicto", "titulo": "No se puede decir: sin datos", "texto": "Dato: la búsqueda de anuncios en Colombia también es de TrendTrack. Sin acceso no se sabe si ya hay ofertas de cayena, cuáles se quedan ni qué hueco queda libre. **No tomes una decisión con esta investigación**: vuelve a lanzarla cuando TrendTrack funcione." },
+        { "tipo": "parrafo", "texto": "Cuando haya acceso, se buscarán anuncios en Colombia en español con las palabras que usa la gente (por ejemplo «cayena», «pimienta cayena», «quemar grasa», «metabolismo», «circulación»), y cada caso llevará su marca, texto, fecha, días al aire, versiones y página." },
+        { "tipo": "tabla", "columnas": ["Elemento", "Cruce en Colombia"], "filas": [
+          ["Ganadores de la etapa 2", "Sin verificar"],
+          ["Ganchos de la etapa 3", "Sin verificar"],
+          ["Ángulos de la etapa 4", "Sin verificar"],
+          ["Avatares de la etapa 5", "Sin verificar"]
+        ], "nota": "Todo queda sin verificar porque no hubo acceso a TrendTrack." }
+      ],
+      "limitaciones": ["Etapa vacía por falta de acceso a TrendTrack."],
+      "riesgos": ["En Colombia, los suplementos con promesas de salud (bajar de peso, presión, circulación) pueden tener problemas con el registro sanitario y con Meta. Revísalo cuando haya datos."]
+    }
+  ]
+}
