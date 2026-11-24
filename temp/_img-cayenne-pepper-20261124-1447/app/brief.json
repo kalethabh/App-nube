@@ -1,0 +1,109 @@
+{
+  "slug": "_img-cayenne-pepper-20261124-1447",
+  "estilo": "imagen-ads",
+  "familia": "imagen-ads",
+  "titulo": "CAYENNE PEPPER",
+  "productoId": "cayenne-pepper-d319",
+  "fotoProducto": 1,
+  "datos": {
+    "nombre": "CAYENNE PEPPER",
+    "publico": "",
+    "precio": "",
+    "moneda": "",
+    "cta": "",
+    "pais": "Colombia",
+    "idioma": "es",
+    "adicional": "",
+    "angulo": null
+  },
+  "cantidad": 5,
+  "formatos": [
+    "1:1"
+  ],
+  "referencias": [],
+  "modo": "nuevos",
+  "referenciasPropias": [],
+  "conceptosReferencias": [],
+  "fiel": false,
+  "desde0": {
+    "formatos": [
+      "testimonio",
+      "antes-despues",
+      "hero",
+      "nosotros-vs-ellos",
+      "nota"
+    ]
+  },
+  "elegirTitulos": false,
+  "rapido": false,
+  "investigacion": "entrada/investigacion.md",
+  "logo": null,
+  "creado": "2026-11-24T19:47:35.896Z",
+  "investigacionDelProducto": true,
+  "validados": [
+    {
+      "archivo": "entrada/validados/A01.png",
+      "origen": "me-funciona",
+      "mismoProducto": false,
+      "producto": "VITALDROPS",
+      "titulo": "CURVAS MÁS LLENAS EN 21 DÍAS",
+      "tipo": "imagen"
+    },
+    {
+      "archivo": "entrada/validados/A02.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A03.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A04.jpg",
+      "origen": "biblioteca",
+      "mismoProducto": false
+    },
+    {
+      "archivo": "entrada/validados/A05.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p22",
+      "nombre": "No solo X: también Y",
+      "familia": "dolor",
+      "titular": "Ampliar el deseo: «No solo [zona 1], también tus [ZONA 2]», con «Tu mejor versión» a mano",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A06.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p29",
+      "nombre": "Antes y después lado a lado",
+      "familia": "antes-despues",
+      "titular": "«[Zona] [resultado] así de fácil» (o «en el mismo lugar»), con el antes y el después",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A07.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p14",
+      "nombre": "3 zonas, 3 semanas",
+      "familia": "tiempo",
+      "titular": "«[Problema] en [N] zonas: una solución», y en la lista «Semana 1 / 2 / 3: [lo que cambia]»",
+      "relacionada": true
+    },
+    {
+      "archivo": "entrada/validados/A08.jpg",
+      "origen": "catalogo",
+      "mismoProducto": false,
+      "plantilla": "p26",
+      "nombre": "Invierte en ti",
+      "familia": "nativo",
+      "titular": "Momento + invitación: «Este [momento] invierte en ti» + «[zona] más [adjetivos del deseo]»",
+      "relacionada": true
+    }
+  ],
+  "ganchos": "entrada/ganchos.json"
+}

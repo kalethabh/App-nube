@@ -1,0 +1,304 @@
+{
+  "ganchos": [
+    {
+      "id": "G1",
+      "gancho": "Lo primero que hace un hombre cuando el cuerpo le avisa es inventarse una excusa.",
+      "original": "The first thing a man with erectile dysfunction does is nothing.",
+      "categoria": "identidad",
+      "avatar": "Hombre 45-66 con presión y colesterol",
+      "gatillo": "Reconocimiento",
+      "saturacion": "baja",
+      "evidencia": "23 anuncios, 256.952 de alcance, 71 días"
+    },
+    {
+      "id": "G2",
+      "gancho": "Te levantas al baño tres veces, amaneces sin ganas y cansado. Esto tiene una explicación.",
+      "original": "Getting up 12 times a night. Drive fading. Mornings that don't feel like mornings anymore.",
+      "categoria": "consciente del problema",
+      "avatar": "Hombre 50+ con próstata",
+      "gatillo": "Cansancio",
+      "saturacion": "baja",
+      "evidencia": "Texto del mismo creativo de 152 anuncios"
+    },
+    {
+      "id": "G3",
+      "gancho": "Si vives con las manos frías y sin energía a media tarde, no es pereza.",
+      "original": "Feeling cold, tired, or sluggish more often than you'd like?",
+      "categoria": "consciente del problema",
+      "avatar": "Adulto 45+ con poca energía",
+      "gatillo": "Identificación",
+      "saturacion": "baja",
+      "evidencia": "Texto en 3 creativos de Vitalia; 163.193 de alcance en el mayor"
+    },
+    {
+      "id": "G4",
+      "gancho": "La pastilla te deja dormir esta noche. ¿Y la causa?",
+      "original": "Flomax manages it. It doesn't fix it.",
+      "categoria": "contrarian",
+      "avatar": "Hombre con próstata medicado",
+      "gatillo": "Frustración con el tratamiento",
+      "saturacion": "baja",
+      "evidencia": "Titular del creativo de 152 anuncios"
+    },
+    {
+      "id": "G5",
+      "gancho": "Tres veces al baño, amaneces sin ganas y cansado. No es solo la edad.",
+      "original": "Getting up 12 times a night. Drive fading. Mornings that don't feel like mornings anymore.",
+      "categoria": "consciente del problema",
+      "avatar": "Hombre 50+",
+      "gatillo": "Cansancio",
+      "saturacion": "baja",
+      "evidencia": "Texto del mismo creativo (152 anuncios)"
+    },
+    {
+      "id": "G6",
+      "gancho": "Antes de aceptar que «así es la diabetes», lee esto.",
+      "original": "Diabetic and told you need a penile implant? Read this first.",
+      "categoria": "miedo",
+      "avatar": "Diabético con disfunción severa",
+      "gatillo": "Miedo a la cirugía",
+      "saturacion": "baja",
+      "evidencia": "Titular del creativo de 14 anuncios"
+    },
+    {
+      "id": "G7",
+      "gancho": "Nos quedan pocas unidades de este lote y el siguiente tarda en llegar (solo si es verdad).",
+      "original": "IMPORTANT: Aurivita Delivery Truck Overturns on I-40 — We Cannot Guarantee Stock Past This Week",
+      "categoria": "urgencia",
+      "avatar": "Cliente que recompra",
+      "gatillo": "Escasez",
+      "saturacion": "baja",
+      "evidencia": "7 anuncios, 219.075 de alcance, desde 19 oct."
+    },
+    {
+      "id": "G8",
+      "gancho": "Volví a salir a los 52 y mi cuerpo no estaba listo. Esto fue lo que aprendí.",
+      "original": "What Happens When You Can't Properly F*ck a Younger Woman (My Honest Story)",
+      "categoria": "vanidad",
+      "avatar": "Divorciado 50+",
+      "gatillo": "Orgullo masculino",
+      "saturacion": "baja",
+      "evidencia": "12 anuncios, 145.343 de alcance, 119 días"
+    },
+    {
+      "id": "G9",
+      "gancho": "Las 12 preguntas que más hacen los diabéticos sobre sus pies, respondidas sin rodeos.",
+      "original": "If your metformin isn't stopping your neuropathy from getting worse, and nobody warned you, I'm a cardiologist and I will answer the 12 most common questions I get.",
+      "categoria": "autoridad",
+      "avatar": "Diabético con neuropatía",
+      "gatillo": "Confianza",
+      "saturacion": "baja",
+      "evidencia": "25 anuncios, 84 días, 19.195 de alcance"
+    },
+    {
+      "id": "G10",
+      "gancho": "Si tu azúcar mejoró pero el hormigueo sigue, esto te interesa.",
+      "original": "If Metformin isn't stopping the tingling in your feet, this is why.",
+      "categoria": "consciente del problema",
+      "avatar": "Diabético con neuropatía",
+      "gatillo": "Frustración",
+      "saturacion": "baja",
+      "evidencia": "Titular del creativo de 25 anuncios"
+    },
+    {
+      "id": "G11",
+      "gancho": "Ese cambio íntimo del que no hablas puede ser un aviso de tu circulación.",
+      "original": "Your Retrograde Ejaculation Is The Warning. Your Heart Is The Target.",
+      "categoria": "miedo",
+      "avatar": "Hombre 60+",
+      "gatillo": "Miedo al infarto",
+      "saturacion": "baja",
+      "evidencia": "2 anuncios, desde 21 nov. 2026"
+    },
+    {
+      "id": "G12",
+      "gancho": "Una clienta nos escribió furiosa. Cuando vimos la foto de su frasco, entendimos todo.",
+      "original": "We got a call last week from a woman in Florida.",
+      "categoria": "curiosidad",
+      "avatar": "Comprador desconfiado",
+      "gatillo": "Historia",
+      "saturacion": "baja",
+      "evidencia": "8 anuncios, 91 días, 3.059 de alcance"
+    },
+    {
+      "id": "G13",
+      "gancho": "Manos frías y sin energía a media tarde: no es pereza.",
+      "original": "Feeling cold, tired, or sluggish more often than you'd like?",
+      "categoria": "consciente del problema",
+      "avatar": "Adulto 45+",
+      "gatillo": "Identificación",
+      "saturacion": "baja",
+      "evidencia": "Texto de 3 creativos de Vitalia"
+    },
+    {
+      "id": "G14",
+      "gancho": "Si manejar de noche te cuesta más que antes, lee esto.",
+      "original": "Noticing more floaters lately? Or halos around headlights when you drive at night?",
+      "categoria": "consciente del problema",
+      "avatar": "Diabético con cambios en la vista",
+      "gatillo": "Miedo a perder la vista",
+      "saturacion": "baja",
+      "evidencia": "7 anuncios, 73 días, 10.318 de alcance"
+    },
+    {
+      "id": "G15",
+      "gancho": "Hacías chistes de tu barriga hasta que el examen salió mal.",
+      "original": "You patted it. Joked about it. Then your doctor said fatty liver and the joke stopped.",
+      "categoria": "identidad",
+      "avatar": "Hombre con barriga",
+      "gatillo": "Golpe de realidad",
+      "saturacion": "baja",
+      "evidencia": "14 días, mar. 2026 (prueba)"
+    },
+    {
+      "id": "G16",
+      "gancho": "No tomes cayena si esperas un cambio en dos días. Esto es lo que pasa semana a semana.",
+      "original": "No tomes cayena para recuperar el rendimiento masculino hasta que sepas esto.",
+      "categoria": "contrarian",
+      "avatar": "Hombre que va a comprar",
+      "gatillo": "Advertencia",
+      "saturacion": "baja",
+      "evidencia": "15 versiones, 185 días, 2.164 de alcance"
+    },
+    {
+      "id": "G17",
+      "gancho": "Mi esposo dormía con los pies por fuera de la cobija. Esta semana durmió tapado.",
+      "original": "Mi esposo me rogaba que le cortara los pies porque el ardor era insoportable, pero anoche durmió la noche entera sin moverse.",
+      "categoria": "consciente del problema",
+      "avatar": "Esposa de hombre con neuropatía",
+      "gatillo": "Compasión",
+      "saturacion": "baja",
+      "evidencia": "3 días (17–20 nov. 2026); crema de magnesio, 2 tarros $129.900"
+    },
+    {
+      "id": "G18",
+      "gancho": "Si te levantas a orinar de noche y además se te apagaron las ganas, puede que no sean dos problemas.",
+      "original": "Your fucking prostate is the reason you can't get hard, your testosterone is tanked, and you piss 12 times a night.",
+      "categoria": "consciente del problema",
+      "avatar": "Hombre 50+ con próstata",
+      "gatillo": "Vergüenza y alivio",
+      "saturacion": "media",
+      "evidencia": "152 anuncios, 528.802 de alcance, desde 30 jul. 2026"
+    },
+    {
+      "id": "G19",
+      "gancho": "Tus pies te quieren decir algo: no es la edad, es que la sangre no les llega.",
+      "original": "Yo, it's your dick speaking. Stop popping blue pills and blaming me.",
+      "categoria": "contrarian",
+      "avatar": "Diabético con disfunción",
+      "gatillo": "Humor y vergüenza",
+      "saturacion": "media",
+      "evidencia": "28 anuncios, 211.244 de alcance, +50.778 en 30 días"
+    },
+    {
+      "id": "G20",
+      "gancho": "Sigues siendo el mismo de siempre. Solo que las manos y los pies ya no lo saben.",
+      "original": "Still the same guy. Just… less of him when it counts.",
+      "categoria": "identidad",
+      "avatar": "Hombre 40-55 activo",
+      "gatillo": "Orgullo herido",
+      "saturacion": "media",
+      "evidencia": "Copiado en español por Vivonu y Sovexa; Aurivita lo lanzó el 20 ago. 2026"
+    },
+    {
+      "id": "G21",
+      "gancho": "¿Por qué tus pies siguen fríos aunque tu azúcar ya esté mejor?",
+      "original": "Is it true you can flush all the sugar out of your blood through your urine?",
+      "categoria": "curiosidad",
+      "avatar": "Diabético tipo 2",
+      "gatillo": "Curiosidad",
+      "saturacion": "media",
+      "evidencia": "9 anuncios, 163.193 de alcance, 81 días (inactivo)"
+    },
+    {
+      "id": "G22",
+      "gancho": "Si a las 3 de la tarde ya no das más, esto es lo que puede estar pasando con tu circulación.",
+      "original": "كبسولات الكايين الطبيعية… طاقة ونشاط في كل يوم",
+      "categoria": "aspiración",
+      "avatar": "Adulto con poca energía",
+      "gatillo": "Vitalidad",
+      "saturacion": "media",
+      "evidencia": "Único producto de la tienda, 249 AED; 0 anuncios"
+    },
+    {
+      "id": "G23",
+      "gancho": "Si te levantas al baño de noche y además se te apagaron las ganas, puede que sea una sola cosa.",
+      "original": "Your fucking prostate is the reason you can't get hard, your testosterone is tanked, and you piss 12 times a night.",
+      "categoria": "consciente del problema",
+      "avatar": "Hombre 50+ con próstata",
+      "gatillo": "Vergüenza y alivio",
+      "saturacion": "media",
+      "evidencia": "152 anuncios, 528.802 de alcance, 30 jul.–hoy"
+    },
+    {
+      "id": "G24",
+      "gancho": "¿Cansado de que tu único plan sea medir el azúcar?",
+      "original": "Are You Diabetic and Tired of Just Managing It?",
+      "categoria": "consciente del problema",
+      "avatar": "Diabético tipo 2",
+      "gatillo": "Cansancio",
+      "saturacion": "media",
+      "evidencia": "Titular del creativo de 57 anuncios"
+    },
+    {
+      "id": "G25",
+      "gancho": "Eres diabético. Esto es lo que le pasa a tus pies aunque no lo sientas.",
+      "original": "You're diabetic. Here's what's happening down there.",
+      "categoria": "consciente del problema",
+      "avatar": "Diabético con disfunción",
+      "gatillo": "Miedo discreto",
+      "saturacion": "media",
+      "evidencia": "Titular del creativo de 28 anuncios"
+    },
+    {
+      "id": "G26",
+      "gancho": "Lo que no alcanzan a explicarte en una cita de 10 minutos.",
+      "original": "Nobody At My Doctor's Office Talks About This.",
+      "categoria": "curiosidad",
+      "avatar": "Hombre 50+",
+      "gatillo": "Secreto",
+      "saturacion": "media",
+      "evidencia": "Titular del creativo de 12 anuncios"
+    },
+    {
+      "id": "G27",
+      "gancho": "Sigues siendo el mismo. Solo que tus manos y tus pies ya no lo saben.",
+      "original": "Still the same guy. Just… less of him when it counts.",
+      "categoria": "identidad",
+      "avatar": "Hombre 40-55 activo",
+      "gatillo": "Orgullo",
+      "saturacion": "media",
+      "evidencia": "96 días; copiado por Vivonu y Sovexa en español"
+    },
+    {
+      "id": "G28",
+      "gancho": "Si la pastilla te funciona cada vez menos, hay una razón.",
+      "original": "If you are a diabetic man dealing with ED issues… stop taking that little blue pill before you read this.",
+      "categoria": "contrarian",
+      "avatar": "Diabético con disfunción",
+      "gatillo": "Desconfianza del fármaco",
+      "saturacion": "media",
+      "evidencia": "Nuevo, 23 nov. 2026, lleva a quiz"
+    },
+    {
+      "id": "G29",
+      "gancho": "Qué pasa en 30 días cuando la sangre vuelve a llegar a pies y manos.",
+      "original": "What the fuck happens if a man with erectile dysfunction takes cayenne pepper softgels for 30 days.",
+      "categoria": "curiosidad",
+      "avatar": "Hombre con disfunción",
+      "gatillo": "Curiosidad",
+      "saturacion": "media",
+      "evidencia": "Nuevo, 23 nov. 2026"
+    },
+    {
+      "id": "G30",
+      "gancho": "Apoya la circulación que la diabetes fue cerrando.",
+      "original": "Reverse what diabetes did to your erections",
+      "categoria": "aspiración",
+      "avatar": "Diabético con disfunción",
+      "gatillo": "Esperanza",
+      "saturacion": "media",
+      "evidencia": "Nuevo, 23 nov. 2026"
+    }
+  ]
+}
