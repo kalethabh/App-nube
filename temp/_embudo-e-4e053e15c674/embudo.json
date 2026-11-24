@@ -5,7 +5,7 @@
   "puerto": null,
   "version": 19,
   "creado": "2026-11-24T21:53:17.852Z",
-  "actualizado": "2026-11-24T23:36:13.838Z",
+  "actualizado": "2026-11-24T23:37:21.046Z",
   "formato": "9:16",
   "estilo": "",
   "avatar": {
@@ -289,12 +289,12 @@
   "correcciones": {},
   "imagenes": {
     "hero": {
-      "archivo": "trabajos/j-9c583f58ad86084c/hero.png",
-      "firma": "9066ebdd56056b0ff4af343a3fc2f6ada5ba815209ec5e39cde1a16a1b16bd30",
+      "archivo": "trabajos/j-c93bd09435b2c62d/hero.png",
+      "firma": "d42148d926961e78ae4db67a58d9a522e9e2765deb4a99a224fac650a2ce5f46",
       "formato": "9:16",
-      "trabajoId": "j-9c583f58ad86084c",
-      "fecha": "2026-11-24T23:11:30.916Z",
-      "url": "/api/embudos/e-4e053e15c674/imagenes/j-9c583f58ad86084c/hero"
+      "trabajoId": "j-c93bd09435b2c62d",
+      "fecha": "2026-11-24T23:37:21.046Z",
+      "url": "/api/embudos/e-4e053e15c674/imagenes/j-c93bd09435b2c62d/hero"
     },
     "dolor": {
       "archivo": "trabajos/j-955084e25cdb497f/dolor.png",
@@ -322,7 +322,7 @@
   "trabajo": {
     "id": "j-c93bd09435b2c62d",
     "token": "410e7eaa9314361cb7fb4c879c331fa7",
-    "estado": "generando",
+    "estado": "lista",
     "motor": "chatgpt",
     "cantidad": 1,
     "importeAprobado": 0,
@@ -332,11 +332,14 @@
     ],
     "estados": {
       "hero": {
-        "estado": "generando",
-        "inicio": "2026-11-24T23:36:13.838Z"
+        "estado": "lista",
+        "inicio": "2026-11-24T23:36:13.838Z",
+        "fin": "2026-11-24T23:37:21.046Z"
       }
     },
-    "hechas": 0
+    "hechas": 1,
+    "fin": "2026-11-24T23:37:21.046Z",
+    "actual": null
   },
   "avatarPendiente": null,
   "titulos": {
