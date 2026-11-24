@@ -6,10 +6,11 @@
   "progreso": [
     "Claude está investigando tu mercado",
     "Leyendo las instrucciones del estilo",
-    "Mirando las fotos de tu producto"
+    "Mirando las fotos de tu producto",
+    "Guardando"
   ],
   "intentos": 2,
   "inicio": "2026-11-24T15:44:32.814Z",
   "error": null,
-  "actualizado": "2026-11-24T15:44:35.514Z"
+  "actualizado": "2026-11-24T15:46:10.330Z"
 }
