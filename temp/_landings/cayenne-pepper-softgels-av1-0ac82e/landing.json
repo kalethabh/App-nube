@@ -7,7 +7,7 @@
   "analizar": true,
   "titulo": "Aurivita Cayenne Pepper Softgels",
   "creado": "2026-11-24T17:44:27.145Z",
-  "estado": "midiendo",
+  "estado": "lista",
   "progreso": [
     "Cargando la página como la ve un celular…",
     "Quitando el JavaScript de la tienda, las apps y los píxeles…",
@@ -18,7 +18,8 @@
     "Dejando solo el CSS que usa la página…",
     "Codex está analizando la landing…",
     "Análisis listo: 27 secciones.",
-    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…"
+    "Midiendo la velocidad (Lighthouse en celular): la original y la copia…",
+    "Lista."
   ],
   "error": null,
   "informe": {
@@ -45,8 +46,26 @@
       "No pude copiar un archivo (404 en https://aurivita.co/products/assets/4c5ae8ef83.woff2)."
     ]
   },
-  "puntajes": null,
-  "actualizado": "2026-11-24T17:46:49.901Z",
+  "puntajes": {
+    "original": {
+      "puntaje": 51,
+      "fcp": "6.7 s",
+      "lcp": "20.3 s",
+      "tbt": "250 ms",
+      "cls": "0.001",
+      "peso": 13610
+    },
+    "copia": {
+      "puntaje": 77,
+      "fcp": "2.3 s",
+      "lcp": "5.6 s",
+      "tbt": "0 ms",
+      "cls": "0",
+      "peso": 7495
+    },
+    "fecha": "2026-11-24T17:49:01.070Z"
+  },
+  "actualizado": "2026-11-24T17:49:01.071Z",
   "analisis": {
     "resumen": "Aurivita vende cápsulas blandas de cayena con una promesa de apoyo diario a la circulación, la presión arterial y la salud del corazón. Pone la oferta y el botón de compra antes de la explicación larga, para que quien ya está convencido pueda actuar y quien tenga dudas encuentre después el mecanismo, las reseñas y las preguntas frecuentes.",
     "producto": "Cápsulas blandas Aurivita Cayenne Pepper, presentadas como 30 porciones y 60 cápsulas por bolsa. La ficha indica 3 mg de capsaicina por porción y enumera otros ingredientes, entre ellos cúrcuma, remolacha y pimienta negra.",
