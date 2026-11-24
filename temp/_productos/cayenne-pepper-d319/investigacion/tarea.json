@@ -1,16 +1,23 @@
 {
   "id": "1ae1b95f-0a75-4473-b2e5-cff7fb3dca41",
   "uuid": "1ae1b95f-0a75-4473-b2e5-cff7fb3dca41",
-  "estado": "investigando",
+  "estado": "lista",
   "pais": null,
   "progreso": [
     "Claude está investigando tu mercado",
     "Leyendo las instrucciones del estilo",
     "Mirando las fotos de tu producto",
-    "Guardando"
+    "Guardando",
+    "Buscando en los archivos"
   ],
   "intentos": 1,
   "inicio": "2026-11-24T14:00:39.445Z",
   "error": null,
-  "actualizado": "2026-11-24T14:03:08.770Z"
+  "fin": "2026-11-24T14:07:56.611Z",
+  "medida": {
+    "turnos": 29,
+    "duracionMs": 436792,
+    "motor": "claude"
+  },
+  "actualizado": "2026-11-24T14:07:56.612Z"
 }

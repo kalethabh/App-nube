@@ -440,6 +440,235 @@
         { "tipo": "guia-visual" }
       ]
     },
-    { "titulo": "__MARCA4__", "bloques": [] }
-  ]
+    {
+      "titulo": "Conceptos para Meta (Andromeda)",
+      "bloques": [
+        { "tipo": "subtitulo", "texto": "15.1 Lo que cambió" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "", "texto": "", "items": [
+          "**El creativo es la segmentación.** Usa segmentación amplia (Colombia, 35 a 65) y deja que el anuncio filtre: quién aparece, qué dice y qué problema muestra le dicen a Meta a quién mostrarlo.",
+          "**Diversidad real de conceptos.** De 6 a 10 conceptos distintos por conjunto, no variaciones de un ganador. Cambiar el color, el texto o el hook es el mismo anuncio para Andromeda.",
+          "**La señal de compra real.** En contraentrega, reporta a Meta la compra confirmada y la entrega, no solo el mensaje de WhatsApp."
+        ], "pie": "" },
+        { "tipo": "subtitulo", "texto": "15.2 Facetas del cliente" },
+        { "tipo": "tabla", "columnas": ["Persona base", "Faceta", "Dolor en sus palabras", "Escenario visual"], "filas": [
+          ["Gloria Patricia (54)", "La de los pies helados en la noche", "«Duermo con medias y cobija doble y los pies siguen como un hielo»", "Cama en Bogotá a las 10 p. m., medias de lana gruesas y bolsa de agua caliente"],
+          ["Gloria Patricia (54)", "La que llega con las piernas pesadas", "«En la tarde las piernas me pesan como dos bultos de cemento»", "Sofá de la sala a las 6 p. m., pies arriba en un cojín, chanclas tiradas"],
+          ["Gloria Patricia (54)", "La que no quiere repetir la historia de su mamá", "«Vi a mi mamá apagarse de a poquito; yo quiero cuidarme antes»", "Almuerzo del domingo, foto de la mamá en la pared"],
+          ["Gloria Patricia (54)", "La abuela que no aguanta el ritmo de los nietos", "«A los 10 minutos de jugar ya me tengo que sentar»", "Parque del barrio en la tarde, nietos en el rodadero"],
+          ["Don Hernando (62)", "El que se cansa subiendo la loma", "«Mija, espéreme que la escalera me está cobrando»", "Escaleras de un barrio de loma en Medellín, 7 a. m."],
+          ["Don Hernando (62)", "El taxista al que se le duermen las manos", "«Después de tres horas en el trancón ya no siento las manos»", "Taxi amarillo en un trancón de la Autopista Norte"],
+          ["Luz Adriana (41)", "La estilista que pasa 10 horas de pie", "«Ya probé medias y cremas y nada me dura»", "Salón de belleza un sábado, de pie detrás de la silla"],
+          ["La hija (34)", "La que le regala a la mamá en diciembre", "«Mi mamá se queja de los pies fríos cada vez que la llamo»", "Videollamada con la mamá; regalo envuelto junto al pesebre"]
+        ], "nota": "Las facetas reales se confirman con los chats de WhatsApp de las asesoras: exporta 100 chats cerrados como venta y clasifica para quién compraba, qué frase usó y qué objeción puso. Salen de 4 a 7 facetas." },
+        { "tipo": "subtitulo", "texto": "15.3 Momentos y contexto" },
+        { "tipo": "tabla", "columnas": ["Momento", "Cómo está la persona", "Mensaje que conecta", "Formato"], "filas": [
+          ["Madrugada antes de salir (5 a 6:30 a. m.)", "Fría, pisando el piso helado, apurada", "«Arranca el día con el calorcito desde adentro»", "UGC selfie o imagen estática corta"],
+          ["Almuerzo", "Con un rato libre, mirando el celular", "«Un minuto con la comida y te olvidas de las piernas de plomo»", "Demostración o testimonio corto"],
+          ["Final de la tarde (5 a 7 p. m.)", "Cansada, con las piernas pesadas, quitándose los zapatos", "«¿Así llegas todos los días?»", "Realista con narrador, antes y después"],
+          ["Noche (scroll largo)", "Acostada, con los pies fríos, pensando", "Historias de la mamá, del miedo y de cuidarse", "Historia narrada, animado"],
+          ["Quincena (15 y 30)", "Con plata, decidiendo en qué gastar", "«El tratamiento de 90 días, a precio de combo»", "Imagen de oferta x3, testimonio"],
+          ["Mitad de mes", "Plata apretada", "«Pídelo hoy y pagas cuando te llegue»", "Imagen estática con pago al recibir"],
+          ["Diciembre (temporada actual)", "Novenas, frío y lluvias, buscando regalos", "«Este diciembre regálale a tu mamá pies calienticos» · «Que el frío no te encuentre con los pies helados»", "Animado, sketch de comedia, imagen de regalo"],
+          ["Enero", "Propósitos de cuidarse", "«Este año empiezo a cuidarme desde adentro»", "Testimonio, historia"]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "15.4 Matriz de conceptos" },
+        { "tipo": "tabla", "columnas": ["#", "Faceta", "Problema", "Contexto", "Formato", "Hook"], "filas": [
+          ["1", "La de los pies helados en la noche", "Síntoma visible", "Noche en la cama, Bogotá", "UGC selfie", "«Llevo años durmiendo con medias y cobija doble… y los pies seguían helados»"],
+          ["2", "La que llega con las piernas pesadas", "Consecuencia diaria", "6 p. m., llegando a casa", "Realista con narrador", "«¿Llegas con las piernas como dos bultos de cemento?»"],
+          ["3", "La que no quiere repetir la historia de su mamá", "Miedo a futuro", "Almuerzo del domingo", "Historia narrada", "«Vi a mi mamá apagarse de a poquito. Yo decidí cuidarme antes»"],
+          ["4", "La abuela que no aguanta a los nietos", "Limitación diaria", "Tarde en el parque", "Testimonio", "«Antes jugaba 10 minutos con mis nietos y me tenía que sentar»"],
+          ["5", "El que se cansa subiendo la loma", "Sin energía", "Escaleras, 7 a. m.", "Sketch de comedia", "«Mija, espéreme, que la escalera me está cobrando»"],
+          ["6", "El taxista al que se le duermen las manos", "Síntoma visible", "Trancón", "Demostración", "«Tres horas en el trancón y ya no sentía las manos»"],
+          ["7", "La estilista que pasa 10 horas de pie", "Frustración con lo que ya probó", "Sábado en el salón", "Antes y después", "«Medias, cremas, pies arriba… y nada me duraba»"],
+          ["8", "La hija que le regala a la mamá", "Dolor de quien compra", "Diciembre, regalo", "Animado (Pixar)", "«Este diciembre a mi mamá no le regalo otra pijama»"]
+        ], "nota": "Los 3 para probar primero: el 1 (el síntoma más fuerte y comprobable, perfecto para el frío de diciembre), el 2 (el dolor diario de más gente, abre a la costa) y el 8 (la temporada de regalos abre a un público nuevo, la hija, que compra rápido y sin tanta objeción)." },
+        { "tipo": "subtitulo", "texto": "15.5 Estructura y señal" },
+        { "tipo": "ficha", "filas": [
+          ["Estructura", "Menos campañas y conjuntos. Segmentación amplia por país (Colombia) y edad (35 a 65). De 6 a 10 conceptos por conjunto. Escala el conjunto que funciona en vez de duplicarlo."],
+          ["Leer el gasto", "Si Meta no le invierte a un anuncio, es un veredicto: no apagues el que gasta ni saques el olvidado a otro conjunto. Mira a qué faceta y momento le habla el que se lleva más del 50 % del gasto y crea conceptos vecinos."],
+          ["Señal", "Envía a Meta la compra cuando el pedido se confirma en WhatsApp, con la API de Conversiones, e idealmente marca los entregados. En la landing, píxel + API de Conversiones con el pedido confirmado."],
+          ["Qué medir por anuncio", "% de confirmación y % de entrega, no solo el costo por mensaje. Un anuncio que trae mensajes baratos de gente con anticoagulantes no sirve."]
+        ], "nota": "" },
+        { "tipo": "subtitulo", "texto": "15.6 Prompt con contexto para la IA" },
+        { "tipo": "caja", "estilo": "nota", "titulo": "Plantilla lista para este producto", "texto": "Eres un copywriter de respuesta directa experto en Colombia. Vendes con pago contra entrega y cierras por WhatsApp. Producto: Aurivita Cayenne Pepper, suplemento dietario en softgel de pimienta de cayena con 10 botánicos de apoyo, 60 softgels, una toma al día con el desayuno. Faceta: Gloria Patricia, 54 años, Bogotá, la de los pies helados en la noche. Frases reales de clientes: «duermo con medias y los pies siguen helados», «en la tarde las piernas me pesan como plomo», «a media tarde ya no me da el cuerpo», «se me duermen las manos», «ya probé medias y cremas y nada me dura», «la cayena en polvo me quema el estómago», «me da miedo terminar como mi mamá». Contexto: noche de noviembre, frío y lluvia, acostada. Objeción principal: «¿eso pica?» y «¿y si me llega falso?». Formato: UGC selfie de 30 segundos. Reglas: lenguaje natural de Colombia; sin promesas de cura ni de bajar la tensión; beneficios como experiencia («muchas personas notan»); menciona el pago contra entrega; CTA a WhatsApp. Entrega: 3 hooks + guion + texto principal.", "items": [], "pie": "Las frases de clientes están parafraseadas de la investigación: reemplázalas por las de los chats reales de WhatsApp." },
+        { "tipo": "caja", "estilo": "cuidado", "titulo": "Cuidado", "texto": "Los conceptos hablan de bienestar, rutina y experiencia, nunca de curar enfermedades (tensión, várices, neuropatía, corazón) ni de resultados garantizados. Además del riesgo legal con el INVIMA, Meta rechaza o limita esos anuncios.", "items": [], "pie": "" }
+      ]
+    }
+  ],
+  "guia": {
+    "mensajes": [
+      {
+        "seccion": "Hero · Producto e ingredientes",
+        "titulo": "Pies calienticos y piernas livianas en 30 días, con energía para todo tu día",
+        "subtitulo": "El calor de la cayena en un softgel que no pica, con 10 botánicos de apoyo",
+        "franja": { "beneficio": "Pies tibios y piernas livianas", "tiempo": "En 30 días", "deseo": "Energía para todo tu día" },
+        "objetivo": "Mostrar qué es, para quién es y por qué vale la pena: el calor de la cayena, sin picor, para la mujer de 45+ con pies fríos y piernas pesadas.",
+        "elementos": [
+          { "titulo": "Título principal", "texto": "Pies calienticos y piernas livianas en 30 días, con energía para todo tu día" },
+          { "titulo": "Subtítulo", "texto": "El calor de la cayena en un softgel que no pica, con 10 botánicos de apoyo" },
+          { "titulo": "Avatar del producto", "texto": "Mujer de 54 años, sonriente, en sudadera y medias, con una taza de tinto en la cocina de la mañana" },
+          { "titulo": "Producto + validación", "texto": "La bolsa roja de Aurivita Cayenne con [calificación real] y [N] clientes encima" },
+          { "titulo": "Ingredientes", "texto": "Pimienta de cayena (confirmada) + los botánicos de la ficha técnica; en fórmulas parecidas: espino blanco, remolacha, cúrcuma, ginseng, semilla de uva, vitaminas D3 y K2 (por confirmar)" },
+          { "titulo": "4 sellos", "texto": "Sin OGM · Softgel fácil de tragar · 60 softgels · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Mujer de 54 años sonriente en la cocina, en medias y sudadera, con una taza de tinto",
+          "validacion": "[calificación real] · [N] clientes",
+          "ingredientes": ["Pimienta de cayena", "Espino blanco (confirmar)", "Remolacha (confirmar)", "Cúrcuma (confirmar)", "Ginseng (confirmar)", "Semilla de uva (confirmar)", "Vitaminas D3 y K2 (confirmar)"],
+          "sellos": ["Sin OGM", "Fácil de tragar", "60 softgels", "Pagas al recibir"],
+          "oferta": "Tratamiento completo x3 $[precio]"
+        }
+      },
+      {
+        "seccion": "Punto de dolor",
+        "titulo": "¿Te acuestas con medias y cobija doble, y a medianoche los pies siguen helados?",
+        "subtitulo": "Muchas personas sienten el calorcito desde los primeros días",
+        "franja": { "beneficio": "Calor desde adentro", "tiempo": "Primeros días", "deseo": "Dormir con los pies tibios" },
+        "objetivo": "Que se reconozca en la escena de todas las noches y vea la cayena como la salida.",
+        "elementos": [
+          { "titulo": "Título", "texto": "¿Te acuestas con medias y cobija doble, y a medianoche los pies siguen helados?" },
+          { "titulo": "Subtítulo", "texto": "Muchas personas sienten el calorcito desde los primeros días" },
+          { "titulo": "Imagen del dolor", "texto": "Pies con medias de lana gruesas bajo una cobija, mujer frotándose los pies en la cama" },
+          { "titulo": "Título secundario", "texto": "El calor de la cayena, ahora sin picor" },
+          { "titulo": "Mensaje descriptivo", "texto": "Las medias y las cobijas te abrigan por fuera. Aurivita Cayenne te da ese calorcito desde adentro, con una toma al desayuno." },
+          { "titulo": "Producto grande", "texto": "La bolsa roja de Aurivita Cayenne con softgels a un lado" },
+          { "titulo": "4 sellos", "texto": "Sin OGM · Fácil de tragar · 1 toma al día · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "foto": "Pies con medias de lana gruesas bajo una cobija; mujer de 54 años frotándose los pies en la cama",
+          "titulo2": "El calor de la cayena, ahora sin picor",
+          "descripcion": "Las medias y las cobijas te abrigan por fuera. Aurivita Cayenne te da ese calorcito desde adentro, con una toma al desayuno.",
+          "sellos": ["Sin OGM", "Fácil de tragar", "1 toma al día", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Beneficios",
+        "titulo": "Siente el calorcito desde las primeras semanas",
+        "subtitulo": "Cayena en softgel para tus pies, tus piernas y tu energía",
+        "franja": { "beneficio": "Pies tibios, piernas livianas", "tiempo": "Primeras semanas", "deseo": "Alientos para todo el día" },
+        "objetivo": "Mostrar cinco ventajas distintas que cambian su día, de la mañana a la noche.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Siente el calorcito desde las primeras semanas" },
+          { "titulo": "Subtítulo", "texto": "Cayena en softgel para tus pies, tus piernas y tu energía" },
+          { "titulo": "Cinco beneficios", "texto": "1 Pies y manos tibios · 2 Piernas más livianas · 3 Energía hasta la noche · 4 Sin picor ni ardor · 5 Natural y sin OGM" },
+          { "titulo": "Imágenes de beneficios", "texto": "Pies descalzos sobre baldosa · mujer caminando con tenis · abuela con nietos en el parque · softgel en la mano junto al desayuno · cayena roja fresca" },
+          { "titulo": "Producto central", "texto": "La bolsa de Aurivita Cayenne en el centro, uniendo los cinco beneficios" },
+          { "titulo": "4 sellos", "texto": "Sin OGM · Fácil de tragar · 60 softgels · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "beneficios": [
+            { "titulo": "Pies y manos tibios", "frase": "Calorcito que se siente, hasta en la noche" },
+            { "titulo": "Piernas más livianas", "frase": "Llega a casa sin piernas de plomo" },
+            { "titulo": "Energía hasta la noche", "frase": "Alientos para tu casa y tus nietos" },
+            { "titulo": "Sin picor ni ardor", "frase": "Softgel fácil de tragar, con el desayuno" },
+            { "titulo": "Natural y sin OGM", "frase": "Cayena con 10 botánicos de apoyo" }
+          ],
+          "sellos": ["Sin OGM", "Fácil de tragar", "60 softgels", "Pagas al recibir"]
+        }
+      },
+      {
+        "seccion": "Modo de uso",
+        "titulo": "Una sola toma al día con el desayuno para sentir los pies tibios de la mañana a la noche",
+        "subtitulo": "Tu ritual de cayena en menos de 1 minuto, sin picor",
+        "franja": { "beneficio": "Pies tibios todo el día", "tiempo": "Menos de 1 minuto", "deseo": "Cuidarte sin complicarte" },
+        "objetivo": "Que no le quede ninguna duda de cómo tomarlo y de que es fácil.",
+        "elementos": [
+          { "titulo": "Título", "texto": "Una sola toma al día con el desayuno para sentir los pies tibios de la mañana a la noche" },
+          { "titulo": "Subtítulo", "texto": "Tu ritual de cayena en menos de 1 minuto, sin picor" },
+          { "titulo": "Mensaje descriptivo", "texto": "Tómalo siempre con comida, nunca en ayunas. Una bolsa te dura 30 días; la constancia es la que hace la diferencia." },
+          { "titulo": "Tres pasos", "texto": "1 Desayuna (ícono de plato) · 2 Toma [X] softgels con agua (ícono de softgel) · 3 Repite a diario (ícono de calendario)" },
+          { "titulo": "Producto grande", "texto": "La bolsa de Aurivita Cayenne con un vaso de agua y el desayuno al lado" },
+          { "titulo": "4 sellos", "texto": "Sin picor · Menos de 1 minuto · 30 días por bolsa · Pagas al recibir" }
+        ],
+        "maqueta": {
+          "descripcion": "Tómalo siempre con comida, nunca en ayunas. Una bolsa te dura 30 días; la constancia es la que hace la diferencia.",
+          "pasos": ["Desayuna", "Toma [X] softgels con agua", "Repite a diario"],
+          "sellos": ["Sin picor", "Menos de 1 minuto", "30 días por bolsa", "Pagas al recibir"]
+        }
+      }
+    ]
+  },
+  "anuncios_imagen": [
+    {
+      "plantilla": "estado-vs-estado", "concepto": 1, "faceta": "La de los pies helados en la noche", "angulo": "dolor", "contexto": "Noche en la cama, Bogotá",
+      "textos": { "zona": "PIES", "mal": "HELADOS", "bien": "TIBIOS", "sub_mal": "Medias, cobija doble y nada", "sub_bien": "Calorcito que sí se siente", "legal": "Suplemento dietario. No reemplaza tratamiento médico. Los resultados varían." }
+    },
+    {
+      "plantilla": "cuadricula-tiempo", "concepto": 1, "faceta": "La de los pies helados en la noche", "angulo": "beneficio", "contexto": "5:30 a. m., pisando el piso frío",
+      "textos": { "titular": "Los pies helados por fin se *calientan*", "etapas": ["Antes", "Primeros días", "2 semanas", "30 días"], "legal": "Experiencias reportadas. Los resultados varían. No reemplaza tratamiento médico." }
+    },
+    {
+      "plantilla": "antes-despues-plazo", "concepto": 2, "faceta": "La que llega con las piernas pesadas", "angulo": "beneficio", "contexto": "6 p. m., llegando a casa",
+      "textos": { "titular": "PIERNAS MÁS LIVIANAS", "plazo": "EN 30 DÍAS", "marca": "Aurivita Cayenne", "antes": "ANTES", "despues": "30 DÍAS DESPUÉS", "legal": "Suplemento dietario. Los resultados varían. No reemplaza tratamiento médico." }
+    },
+    {
+      "plantilla": "beneficios-lados", "concepto": 2, "faceta": "La que llega con las piernas pesadas", "angulo": "dolor", "contexto": "Fin de la tarde, quitándose los zapatos",
+      "textos": { "titular": "¿Piernas de plomo cada tarde?", "subtitulo": "Más livianas en 30 días", "antes": "ANTES", "despues": "DESPUÉS", "males": ["Piernas como bultos de cemento", "Pies helados en la noche", "Rendida desde las 3 p. m.", "Ganas de solo acostarte"], "bienes": ["Piernas más livianas", "Calorcito en manos y pies", "Ánimo hasta la noche", "Ganas de salir otra vez"], "sello": "Muchas lo notan en 30 días", "atributos": ["Fácil de tragar", "Sin OGM", "Pagas al recibir"], "legal": "Suplemento dietario. Los resultados varían. No reemplaza tratamiento médico." }
+    },
+    {
+      "plantilla": "historia", "concepto": 3, "faceta": "La que no quiere repetir la historia de su mamá", "angulo": "deseo", "contexto": "Almuerzo del domingo en familia",
+      "textos": { "antes": "Sin alientos", "despues": "Con energía", "frase": "Vi a mi mamá apagarse de a poquito y yo iba igual… hasta que descubrí Aurivita.", "remate": "Hoy me cuido desde adentro", "iconos": ["Energía para el día", "Manos y pies tibios", "Softgel sin picor"], "legal": "Suplemento dietario. No reemplaza tratamiento médico. Los resultados varían." }
+    },
+    {
+      "plantilla": "zonas-semanas", "concepto": 3, "faceta": "La que no quiere repetir la historia de su mamá", "angulo": "mecanismo", "contexto": "Noche, pensando en la familia",
+      "textos": { "titular": "Lo que muchas notan, semana a semana", "pasos": [ { "ingrediente": "Primeros días", "beneficio": "Calorcito en manos y pies" }, { "ingrediente": "2 semanas", "beneficio": "Más energía en el día" }, { "ingrediente": "30 días", "beneficio": "Piernas más livianas" } ], "legal": "Experiencias reportadas, no garantías. Los resultados varían. No reemplaza tratamiento médico." }
+    },
+    {
+      "plantilla": "dos-mitades", "concepto": 4, "faceta": "La abuela que no aguanta a los nietos", "angulo": "beneficio", "contexto": "Tarde en el parque con los nietos",
+      "textos": { "titular": "De la silla a *jugar* con mis nietos", "pildora": "Más energía en 2 semanas", "boton": "Quiero más energía", "marca": "Aurivita Cayenne", "legal": "Suplemento dietario. Los resultados varían. No reemplaza tratamiento médico." }
+    },
+    {
+      "plantilla": "pregunta-revelacion", "concepto": 5, "faceta": "El que se cansa subiendo la loma", "angulo": "dolor", "contexto": "7 a. m., subiendo las escaleras",
+      "textos": { "pregunta": "¿Llegas al segundo piso con las piernas rendidas?", "revelacion": "No siempre es la edad", "cierre": "Cayena + 10 botánicos, en un softgel sin picor", "legal": "Suplemento dietario. Si tomas medicamentos, consulta a tu médico." }
+    },
+    {
+      "plantilla": "solo-vs-con", "concepto": 5, "faceta": "El que se cansa subiendo la loma", "angulo": "beneficio", "contexto": "Caminata de la mañana",
+      "textos": { "sin": "Solo caminar", "con": "Caminar + Aurivita Cayenne", "titular": "Camina con *más energía*", "subtitulo": "Cayena con 10 botánicos para sentir el cuerpo con ánimo y las piernas más livianas desde las primeras semanas.", "boton": "Quiero probarlo", "legal": "Suplemento dietario. Los resultados varían. No reemplaza tratamiento médico." }
+    },
+    {
+      "plantilla": "foto-iconos", "concepto": 6, "faceta": "El taxista al que se le duermen las manos", "angulo": "beneficio", "contexto": "Trancón de la tarde",
+      "textos": { "titular": "No solo tus pies: también tus *manos*", "iconos": ["Manos tibias al volante", "Más ánimo en el trancón", "Sin picor en la boca"], "nota": "¡hasta en el trancón!", "legal": "Suplemento dietario. Si tomas medicamentos, consulta a tu médico." }
+    },
+    {
+      "plantilla": "nosotros-vs-ellos", "concepto": 7, "faceta": "La estilista que pasa 10 horas de pie", "angulo": "objeción", "contexto": "Sábado en el salón",
+      "textos": { "titular": "Por fuera no *alcanza*", "subtitulo": "Medias y cremas ayudan un rato. Esto es desde adentro", "nuestro": "Aurivita Cayenne", "ellos": "Medias, cremas, pies arriba", "nuestros": ["Ayuda desde adentro, todos los días", "Con el desayuno, en un minuto", "Cayena sin picor en la boca"], "suyos": ["Alivio que dura un rato", "Hay que acordarse cada noche", "Incómodas con el calor"], "legal": "Suplemento dietario. Los resultados varían. No reemplaza tratamiento médico." }
+    },
+    {
+      "plantilla": "no-compres", "concepto": 8, "faceta": "La hija que le regala a la mamá", "angulo": "deseo", "contexto": "Diciembre, buscando el regalo",
+      "textos": { "titular": "No le compres esto a tu mamá", "texto": "…a menos que quieras verla con alientos en las novenas y sin quejarse de los pies helados en las noches.", "legal": "Suplemento dietario. No usar en embarazo ni lactancia. No reemplaza tratamiento médico." }
+    }
+  ],
+  "fuentes": [
+    { "titulo": "Trustpilot · Reseñas de Aurivita (página 3)", "url": "https://www.trustpilot.com/review/aurivita.co?page=3" },
+    { "titulo": "Trustpilot · Reseñas de Aurivita (Australia)", "url": "https://au.trustpilot.com/review/aurivita.co" },
+    { "titulo": "TikTok Shop · Softgel de cayena para la circulación (fórmula parecida)", "url": "https://www.tiktokshop.com/pdp/cayenne-pepper-softgels-supplement-supports-circulation/1731315079510725077" },
+    { "titulo": "TikTok Shop · Softgels de cayena 240 unidades (ForestWell)", "url": "https://www.tiktokshop.com/pdp/cayenne-pepper-softgels-for-circulation-vitality-240-count/1731990967497298097" },
+    { "titulo": "Fakespot · Reseñas de Amazon de Solgar Cayenne", "url": "https://www.fakespot.com/product/solgar-520-mg-cayenne-vegetable-capsules-pack-of-100" },
+    { "titulo": "Fakespot · Reseñas de Amazon de Nature's Way Cayenne", "url": "https://www.fakespot.com/product/natures-way-cayenne-pepper-450-mg-180-capsules-pack-of-2" },
+    { "titulo": "People's Pharmacy · Experiencias con cayena", "url": "https://peoplespharmacy.com/articles/hot-pepper-to-ease-pain" },
+    { "titulo": "HealthUnlocked · Foro sobre cayena", "url": "https://healthunlocked.com/sruk/posts/823918/cure-with-cayenne" },
+    { "titulo": "S4ME · Foro: la cayena mejoró mi circulación", "url": "https://www.s4me.info/threads/cayenne-pepper-improved-my-circulation-warmth.41646" },
+    { "titulo": "MedlinePlus · Capsicum: seguridad e interacciones", "url": "https://nlm.nih.gov/medlineplus/druginfo/natural/945.html" },
+    { "titulo": "Memorial Sloan Kettering · Cayena", "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/cayenne" },
+    { "titulo": "WebMD · Capsicum", "url": "https://www.webmd.com/vitamins-supplements/capsicum" },
+    { "titulo": "Mayo Clinic · Suplementos y medicamentos del corazón", "url": "https://www.mayoclinic.org/drugs-supplements/herbal-supplements/art-20046488" },
+    { "titulo": "Mount Sinai · Espino blanco", "url": "https://mountsinai.org/health-library/herb/hawthorn" },
+    { "titulo": "PubMed · Capsaicina y balance de energía (metaanálisis)", "url": "https://pubmed.ncbi.nlm.nih.gov/22038945/" },
+    { "titulo": "PubMed · Capsaicina y obesidad (metaanálisis)", "url": "https://pubmed.ncbi.nlm.nih.gov/28001433/" },
+    { "titulo": "Science Feedback · La cayena no es un anticoagulante", "url": "https://science.feedback.org/review/naturopath-promotes-scientifically-unsubstantiated-claim-cayenne-pepper-most-powerful-blood-thinner" },
+    { "titulo": "ConsultorSalud · Siete millones de colombianos con riesgo cardiovascular", "url": "https://consultorsalud.com/riesgo-cardiovascular-colombia-millones-hta-d/" },
+    { "titulo": "PROESA Icesi · Enfermedades cardiovasculares en Colombia", "url": "https://www.icesi.edu.co/proesa/images/publicaciones/politicas-en-breve/pdf/proesa-pb16_esp.pdf" },
+    { "titulo": "Noticias RCN · Control de la tensión arterial", "url": "https://www.noticiasrcn.com/salud-y-bienestar/importancia-de-controlar-la-tension-arterial-para-iniciar-un-ano-sin-riesgos-graves-para-la-salud-990675" },
+    { "titulo": "Publimetro · 219 colombianos mueren al día por enfermedad cardiovascular", "url": "https://www.publimetro.co/estilo-vida/2025/09/19/dia-mundial-del-corazon-cada-dia-mueren-219-colombianos-por-enfermedad-cardiovascular/" },
+    { "titulo": "Blu Radio · Piernas pesadas e hinchadas", "url": "https://www.bluradio.com/salud/le-pesan-o-se-le-hinchan-las-piernas-estas-senales-no-deberian-pasar-desapercibidas-rs15" },
+    { "titulo": "Universidad del Rosario · Pacientes con várices en Colombia", "url": "https://repository.urosario.edu.co/bitstreams/ea7e008f-a86d-4ab2-8b47-620ce698cf58/download" },
+    { "titulo": "Mercado Libre Colombia · Cápsulas para venas y piernas", "url": "https://listado.mercadolibre.com.co/capsulas-para-las-venas-varices" },
+    { "titulo": "Observatorio de eCommerce MinTIC · Pagos en línea 2025", "url": "https://observatorioecommerce.mintic.gov.co/797/articles-428123_Article.pdf" },
+    { "titulo": "EnColombia · Pagos y contraentrega en e-commerce", "url": "https://encolombia.com/?p=392285" },
+    { "titulo": "Tiendanube · Pago contra entrega", "url": "https://www.tiendanube.com/blog/que-es-pago-contra-entrega/" },
+    { "titulo": "INVIMA · Resolución 3096 de 2007 (suplementos dietarios)", "url": "https://normograma.invima.gov.co/compilacion/docs/resolucion_minproteccion_3096_2007.htm" },
+    { "titulo": "INVIMA · Decreto 3249 de 2006", "url": "https://normograma.invima.gov.co/compilacion/docs/decreto_3249_2006.htm" },
+    { "titulo": "El Tiempo · INVIMA alerta por 42 suplementos con beneficios no autorizados", "url": "https://www.eltiempo.com/salud/invima-alerta-por-42-productos-promocionados-como-suplementos-que-ofrecen-propiedades-o-beneficios-no-autorizados-conozca-aca-cuales-son-3586090" }
+  ],
+  "nota_fuentes": "Reddit no apareció en las búsquedas y Walmart y TikTok Shop no dejaron leer sus páginas: sus datos salen de los resultados de búsqueda. Las reseñas están parafraseadas. La lista completa de botánicos y la dosis quedan pendientes de la etiqueta."
 }
