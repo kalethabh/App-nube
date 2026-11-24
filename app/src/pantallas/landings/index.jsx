@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { CircleAlert, Copy, Download, ExternalLink, Gauge, LayoutTemplate, LoaderCircle, RefreshCw, ScanSearch, ShoppingBag, Smartphone, Trash2 } from 'lucide-react';
 import { Boton, CabeceraPagina, CampoTexto, EstadoVacio, Interruptor, Selector, useAvisos } from '../../componentes/index.js';
 import { enlace } from '../../datos/rutas.js';
+import { bandera } from '../../datos/paises.js';
 import { pedirNuevo, useDatos } from '../../datos/api.js';
 import { fechaRelativa } from '../../datos/formato.js';
 import './landings.css';
@@ -94,11 +95,14 @@ function Analisis({ a }) {
 
 function SubirAShopify({ l, tiendas, alCerrar }) {
   const { aviso } = useAvisos();
-  const [tiendaId, setTiendaId] = useState(tiendas[0]?.id || '');
+  // (2026-11-24) a una o a varias tiendas a la vez (cada una con su vista previa)
+  const [tiendaIds, setTiendaIds] = useState(tiendas[0]?.id ? [tiendas[0].id] : []);
+  const tiendaId = tiendaIds[0] || '';
   const [titulo, setTitulo] = useState(l.titulo || '');
   const [producto, setProducto] = useState('');
   const [ocupado, setOcupado] = useState(false);
   const tienda = tiendas.find((t) => t.id === tiendaId);
+  const algunaCompleta = tiendas.some((t) => tiendaIds.includes(t.id) && t.tipo === 'completo');
   if (!tiendas.length) {
     return (
       <div className="ld-shopify">
@@ -109,7 +113,7 @@ function SubirAShopify({ l, tiendas, alCerrar }) {
   const subir = async () => {
     setOcupado(true);
     try {
-      await pedirNuevo('/api/shopify/landing', { metodo: 'POST', cuerpo: { landingId: l.id, tiendaId, titulo, direccion: titulo, producto: producto.trim() || null } });
+      for (const t of tiendaIds) await pedirNuevo('/api/shopify/landing', { metodo: 'POST', cuerpo: { landingId: l.id, tiendaId: t, titulo, direccion: titulo, producto: producto.trim() || null } });
       aviso({ tipo: 'exito', titulo: 'Escribiéndola en tu tema', texto: 'En el menú Shopify verás su vista previa y el botón «Publicar la página».' });
       alCerrar();
     } catch (e) {
@@ -121,9 +125,16 @@ function SubirAShopify({ l, tiendas, alCerrar }) {
   return (
     <div className="ld-shopify">
       <div className="ld-shopify__campos">
-        <Selector etiqueta="Tienda" value={tiendaId} onChange={(e) => setTiendaId(e.target.value)} opciones={tiendas.map((t) => ({ valor: t.id, etiqueta: `${t.nombre} (${t.dominio})` }))} />
+        <div className="ld-tiendas" role="group" aria-label="A qué tiendas">
+          <span className="ld-grupo__etiqueta">Tiendas</span>
+          {tiendas.map((t) => (
+            <label key={t.id} className="ld-tienda">
+              <input type="checkbox" checked={tiendaIds.includes(t.id)} onChange={() => setTiendaIds(tiendaIds.includes(t.id) ? tiendaIds.filter((x) => x !== t.id) : [...tiendaIds, t.id])} /> {bandera(t.pais)} {t.nombre} <small>{t.cuenta}</small>
+            </label>
+          ))}
+        </div>
         <CampoTexto etiqueta="Título de la página" value={titulo} onChange={(e) => setTitulo(e.target.value)} maxLength={120} />
-        {tienda?.tipo === 'completo' ? <CampoTexto etiqueta="Producto de tu tienda (su dirección)" opcional placeholder="mi-producto" value={producto} onChange={(e) => setProducto(e.target.value)} ayuda="Los botones de comprar irán a ese producto." /> : null}
+        {algunaCompleta ? <CampoTexto etiqueta="Producto de tu tienda (su dirección)" opcional placeholder="mi-producto" value={producto} onChange={(e) => setProducto(e.target.value)} ayuda="Los botones de comprar irán a ese producto." /> : null}
       </div>
       <p className="ld-ayuda">
         {tienda?.tipo === 'completo'
@@ -131,7 +142,7 @@ function SubirAShopify({ l, tiendas, alCerrar }) {
           : 'Se escribe en el código de tu tema con Shopify CLI (solo archivos nuevos) y te queda la VISTA PREVIA en tu tienda. Con «solo temas», la página la creas tú en Shopify eligiendo esa plantilla.'}
       </p>
       <div className="ld-botones">
-        <Boton variante="primario" tamano="chico" icono={ShoppingBag} cargando={ocupado} disabled={!tiendaId || !titulo.trim()} onClick={subir}>Subir con vista previa</Boton>
+        <Boton variante="primario" tamano="chico" icono={ShoppingBag} cargando={ocupado} disabled={!tiendaIds.length || !titulo.trim()} onClick={subir}>{tiendaIds.length > 1 ? `Subir a ${tiendaIds.length} tiendas con vista previa` : 'Subir con vista previa'}</Boton>
         <Boton variante="fantasma" tamano="chico" onClick={alCerrar}>Cancelar</Boton>
       </div>
     </div>

@@ -176,8 +176,9 @@ export async function admin(tienda, query, variables) {
 export async function probarTienda({ dominio, token, tipo }) {
   try {
     if (tipo === 'completo') {
-      const d = await graphql({ dominio, token }, '{ shop { name myshopifyDomain primaryDomain { url } } }');
-      return { ok: true, nombre: d?.shop?.name, url: d?.shop?.primaryDomain?.url };
+      // (2026-11-24) también el país y la moneda: las tiendas se eligen por país
+      const d = await graphql({ dominio, token }, '{ shop { name myshopifyDomain primaryDomain { url } currencyCode billingAddress { countryCodeV2 } } }');
+      return { ok: true, nombre: d?.shop?.name, url: d?.shop?.primaryDomain?.url, pais: d?.shop?.billingAddress?.countryCodeV2 || null, moneda: d?.shop?.currencyCode || null };
     }
     await temas({ dominio, token, tipo });
     return { ok: true };

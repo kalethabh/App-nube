@@ -1,0 +1,3 @@
+// (2026-11-24) Los países de las tiendas (Shopify y Landings): su nombre y su bandera (emoji, desde el código ISO).
+export const PAISES = { CO: 'Colombia', MX: 'México', PE: 'Perú', EC: 'Ecuador', CL: 'Chile', AR: 'Argentina', GT: 'Guatemala', PA: 'Panamá', CR: 'Costa Rica', BO: 'Bolivia', PY: 'Paraguay', UY: 'Uruguay', DO: 'República Dominicana', VE: 'Venezuela', HN: 'Honduras', SV: 'El Salvador', NI: 'Nicaragua', US: 'Estados Unidos', ES: 'España', BR: 'Brasil' };
+export const bandera = (p) => (/^[A-Z]{2}$/.test(String(p || '')) ? String.fromCodePoint(...[...p].map((c) => 0x1f1a5 + c.charCodeAt(0))) : '🌐');
