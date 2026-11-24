@@ -267,6 +267,31 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   }
   // el aviso de cookies/privacidad de Shopify y los contenedores de píxeles
   for (const sel of ['#shopify-pc__banner', '#shopify-pc__prefs', '#web-pixels-manager-sandbox-container', '#shopify-privacy-banner']) for (const n of raiz.querySelectorAll(sel)) n.remove();
+  // (2026-11-24) los POPUPS de las apps («Try your luck», ruleta, boletín, Klaviyo, Privy…): la página se copia con el
+  // popup ya abierto y, sin su JavaScript, no se cierra y tapa todo. Fuera, y fuera el bloqueo del scroll que dejan.
+  const RE_POPUP = /(klaviyo|privy|wheelio|spin[-_]?(to[-_]?)?win|spin[-_]?wheel|lucky|popup|pop-up|newsletter[-_](modal|popup)|exit[-_]intent|gamif|wisepops|justuno|optinmonster|om-holder|sumo-|omnisend-form|pushowl|sms-bump|attentive|postscript-|promolayer|scratch-card|bdl-popup)/i;
+  let popups = 0;
+  for (const n of raiz.querySelectorAll('[id],[class]')) {
+    if (!n.parentNode || /^(HTML|BODY|MAIN)$/.test(n.tagName)) continue;
+    if (RE_POPUP.test(`${n.getAttribute('id') || ''} ${n.getAttribute('class') || ''}`)) {
+      n.remove();
+      popups++;
+    }
+  }
+  for (const n of raiz.querySelectorAll('[role="dialog"],[aria-modal="true"],dialog[open]')) {
+    if (n.parentNode) {
+      n.remove();
+      popups++;
+    }
+  }
+  for (const n of [raiz.querySelector('html'), raiz.querySelector('body')].filter(Boolean)) {
+    const cl = (n.getAttribute('class') || '').split(/\s+/).filter((c) => c && !/(modal|popup|overflow-hidden|no-?scroll|scroll-?lock|lock-?scroll|prevent-body-scroll|drawer-open|overlay-open|fixed)/i.test(c));
+    if (n.getAttribute('class') !== null) n.setAttribute('class', cl.join(' '));
+    const st = (n.getAttribute('style') || '').replace(/(overflow(-y)?|position|top|height)\s*:[^;]*;?/gi, '').trim();
+    if (st) n.setAttribute('style', st);
+    else n.removeAttribute('style');
+  }
+  if (popups) avisos.push(`Quité ${popups} popup(s) de las apps de la tienda (sin su JavaScript no se cerraban y tapaban la página).`);
 
   // ------------------------------------------------ los recursos: una sola descarga por URL
   const hechos = new Map(); // url -> Promise<{ rel, w, h, variantes? }>
@@ -578,7 +603,7 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   } catch {
     avisos.push('No pude minificar el CSS (quedó sin comprimir, pero sin las reglas que no se usan).');
   }
-  const propio = `.kc-carrusel{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;transform:none!important}.kc-carrusel::-webkit-scrollbar{display:none}.kc-carrusel>*{flex-shrink:0;scroll-snap-align:start}`;
+  const propio = `html,body{overflow-y:auto!important;height:auto!important}body{position:static!important}.kc-carrusel{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;transform:none!important}.kc-carrusel::-webkit-scrollbar{display:none}.kc-carrusel>*{flex-shrink:0;scroll-snap-align:start}`;
   pesos.css = Buffer.byteLength(podado);
   const cabeza = raiz.querySelector('head');
   if (!cabeza.querySelector('meta[name="viewport"]')) cabeza.insertAdjacentHTML('afterbegin', '<meta name="viewport" content="width=device-width,initial-scale=1">');
@@ -589,7 +614,7 @@ export async function clonarLanding({ url, carpeta, alAvanzar = () => {}, ffmpeg
   }
   cabeza.insertAdjacentHTML('beforeend', `<style>${podado}${propio}</style>`);
   // el JavaScript mínimo de los carruseles: flechas y puntos mueven la fila (≈1 KB, al final)
-  const js = `<script>(()=>{const fila=e=>{const c=e.closest('.swiper,.slick-slider,.flickity-enabled,.splide,.glide,.owl-carousel,[class*=carousel],[class*=slider]');return c&&c.querySelector('.kc-carrusel')};const paso=f=>{const s=f.children[0];return s?s.getBoundingClientRect().width+parseFloat(getComputedStyle(f).columnGap||0):f.clientWidth};document.addEventListener('click',e=>{const b=e.target.closest('[class*=next],[class*=prev],[class*=bullet],[class*=dot]');if(!b)return;const f=fila(b);if(!f)return;e.preventDefault();const cl=b.className+'';if(/next/.test(cl))f.scrollBy({left:paso(f)});else if(/prev/.test(cl))f.scrollBy({left:-paso(f)});else{const k=[...b.parentNode.children].indexOf(b);f.scrollTo({left:k*paso(f)})}});})();</script>`;
+  const js = `<script>(()=>{const fila=e=>{const c=e.closest('.swiper,.slick-slider,.flickity-enabled,.splide,.glide,.owl-carousel,[class*=carousel],[class*=slider]');return c&&c.querySelector('.kc-carrusel')};const paso=f=>{const s=f.children[0];return s?s.getBoundingClientRect().width+parseFloat(getComputedStyle(f).columnGap||0):f.clientWidth};addEventListener('load',()=>{const W=innerWidth*innerHeight;for(const el of document.querySelectorAll('body *')){const cs=getComputedStyle(el);if(cs.position!=='fixed'&&cs.position!=='sticky')continue;const r=el.getBoundingClientRect();if(cs.position==='fixed'&&r.width*r.height>W*0.45&&(parseInt(cs.zIndex)||0)>=5)el.style.display='none'}});document.addEventListener('click',e=>{const b=e.target.closest('[class*=next],[class*=prev],[class*=bullet],[class*=dot]');if(!b)return;const f=fila(b);if(!f)return;e.preventDefault();const cl=b.className+'';if(/next/.test(cl))f.scrollBy({left:paso(f)});else if(/prev/.test(cl))f.scrollBy({left:-paso(f)});else{const k=[...b.parentNode.children].indexOf(b);f.scrollTo({left:k*paso(f)})}});})();</script>`;
   raiz.querySelector('body')?.insertAdjacentHTML('beforeend', js);
 
   let salida = `<!doctype html>\n${raiz.querySelector('html')?.outerHTML || raiz.toString()}`;

@@ -56,7 +56,7 @@ const PAGINA = `<!doctype html><html lang="es"><head><meta charset="utf-8"><titl
 <script src="/js/tienda.js"></script>
 <script>window.rastreo = 1;</script>
 <script type="application/ld+json">{"@type":"Product","name":"MARCAORIGINAL"}</script>
-</head><body>
+</head><body class="template-product overflow-hidden" style="overflow:hidden"><div class="kl-private-reset-css needsclick klaviyo-form-popup" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:999"><h2>Try your luck POPUPRULETA</h2><button>No, thanks</button></div>
 <header class="cabeza"><a href="/collections/all">Tienda</a></header>
 <main>
 <h1 class="titulo">MARCAORIGINAL Gotas para dormir</h1>
@@ -164,6 +164,7 @@ async function principal() {
   check('El CSS que no se usa se poda', !/clase-que-no-esta|otra-que-no-esta|nunca-se-usa-aqui/.test(h1));
   check('La fuente queda local y con font-display:swap', /url\(assets\/[^)]+\.woff2\)/.test(h1) && /font-display:swap/.test(h1));
   check('Los enlaces y el formulario van a la tienda original', h1.includes(`href="${TIENDA}/collections/all"`) && h1.includes(`action="${TIENDA}/cart/add"`), h1.match(/(href|action)="[^"]*"/g));
+  check('(2026-11-24) Sin el popup de la app («Try your luck») ni el bloqueo del scroll: la página se puede usar', !/POPUPRULETA/.test(h1) && !/overflow-hidden/.test((h1.match(/<body[^>]*>/) || [''])[0]) && !/overflow:\s*hidden/.test((h1.match(/<body[^>]*>/) || [''])[0]) && /MARCAORIGINAL Gotas para dormir/.test(h1) && l?.informe?.avisos?.some((a) => /popup/.test(a)), { body: (h1.match(/<body[^>]*>/) || [''])[0], avisos: l?.informe?.avisos });
   check('El informe dice qué hizo', l?.informe?.scripts >= 2 && l.informe.imagenes >= 3 && l.informe.carruseles >= 1 && l.informe.pesos?.html > 0, l?.informe);
   // (2026-11-24) el análisis de la landing (la IA lee sus textos en orden)
   check('Trae su análisis: resumen, gancho, oferta y las secciones en orden', l?.analisis?.resumen && l.analisis.gancho && l.analisis.oferta && l.analisis.secciones?.length >= 2 && l.analisis.secciones[0].n === 1 && l.analisis.ideas?.length >= 1, l?.analisis);
